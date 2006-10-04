@@ -1,0 +1,64 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-10-05 00:50+0800\n"
+"PO-Revision-Date: 2006-10-05 00:53+0800\n"
+"Last-Translator: 洪任諭\n"
+"Language-Team: zh_TW <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: TAIWAN\n"
+"X-Poedit-SourceCharset: iso-8859-1\n"
+
+#: ../src/plugins/ptk_app_menu.c:143
+msgid "Other"
+msgstr "其他"
+
+#: ../src/plugins/ptk_app_menu.c:144
+msgid "Game"
+msgstr "遊戲"
+
+#: ../src/plugins/ptk_app_menu.c:145
+msgid "Education"
+msgstr "教育"
+
+#: ../src/plugins/ptk_app_menu.c:146
+msgid "Development"
+msgstr "軟體開發"
+
+#: ../src/plugins/ptk_app_menu.c:147
+msgid "Audio & Video"
+msgstr "影音多媒體"
+
+#: ../src/plugins/ptk_app_menu.c:148
+msgid "Graphics"
+msgstr "繪圖"
+
+#: ../src/plugins/ptk_app_menu.c:149
+msgid "Settings"
+msgstr "設定"
+
+#: ../src/plugins/ptk_app_menu.c:150
+msgid "System Tools"
+msgstr "系統工具"
+
+#: ../src/plugins/ptk_app_menu.c:151
+msgid "Network"
+msgstr "網路"
+
+#: ../src/plugins/ptk_app_menu.c:152
+msgid "Office"
+msgstr "辦公軟體"
+
+#: ../src/plugins/ptk_app_menu.c:153
+msgid "Accessories"
+msgstr "附屬應用程式"
+
