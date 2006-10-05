@@ -257,7 +257,7 @@ sub gather_po_files
 sub get_local_charset
 {
     my ($encoding) = @_;
-    my $alias_file = $ENV{"G_CHARSET_ALIAS"} || "/usr/local/lib/charset.alias";
+    my $alias_file = $ENV{"G_CHARSET_ALIAS"} || "/usr/lib/charset.alias";
 
     # seek character encoding aliases in charset.alias (glib)
 

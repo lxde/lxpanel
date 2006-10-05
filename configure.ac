@@ -48,10 +48,10 @@ ALL_LINGUAS="zh_TW"
 AM_GLIB_GNU_GETTEXT
 
 AC_CONFIG_FILES([
-        Makefile
-        src/Makefile
-        po/Makefile.in
-        data/Makefile
-	data/default.cfg
+	Makefile
+	src/Makefile
+	po/Makefile.in
+	data/Makefile
+	data/default
 ])
 AC_OUTPUT

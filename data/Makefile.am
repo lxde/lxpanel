@@ -1,6 +1,6 @@
 lxpanel_DATA = \
-	default.cfg \
-	pager.cfg
+	default \
+	pager
 
 lxpaneldir = $(datadir)/lxpanel
 
@@ -24,6 +24,6 @@ lxpanel_images_DATA = \
 lxpanel_imagesdir = $(datadir)/lxpanel/images
 
 EXTRA_DIST = \
-	default.cfg.in \
+	default.in \
 	$(lxpanel_DATA) \
 	$(lxpanel_images_DATA)
