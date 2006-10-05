@@ -22,6 +22,8 @@
  * 2006.09.10 modified by Hong Jen Yee (PCMan) pcman.tw (AT) gmail.com
  * Following features are added:
  * 1. Add XUrgencyHint support. (Flashing task bar buttons, can be disabled)
+ * 2. Raise window when files get dragged over taskbar buttons.
+ * 3. Add Restore & Maximize menu items to popup menu of task bar buttons.
  */
 
 //#define DEBUG
@@ -1168,6 +1170,29 @@ menu_iconify_window(GtkWidget *widget, taskbar *tb)
     RET();
 }
 
+static void
+menu_restore_window(GtkWidget *widget, taskbar *tb)
+{
+    GdkWindow* win;
+    ENTER;    
+    DBG("win %x\n", tb->menutask->win);
+    win = gdk_window_foreign_new( tb->menutask->win );
+    gdk_window_unmaximize( win );
+    gdk_window_unref( win );
+    RET();
+}
+ 
+static void
+menu_maximize_window(GtkWidget *widget, taskbar *tb)
+{
+    GdkWindow* win;
+    ENTER;
+    DBG("win %x\n", tb->menutask->win);
+    win = gdk_window_foreign_new( tb->menutask->win );
+    gdk_window_maximize( win );
+    gdk_window_unref( win );
+    RET();
+}
 
 static GtkWidget *
 taskbar_make_menu(taskbar *tb)
@@ -1180,6 +1205,16 @@ taskbar_make_menu(taskbar *tb)
     mi = gtk_menu_item_new_with_label (_("Raise"));
     gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
     g_signal_connect(G_OBJECT(mi), "activate", (GCallback)menu_raise_window, tb);
+    gtk_widget_show (mi);
+
+    mi = gtk_menu_item_new_with_label (_("Restore"));
+    gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
+    g_signal_connect(G_OBJECT(mi), "activate", (GCallback)menu_restore_window, tb);
+    gtk_widget_show (mi);
+
+    mi = gtk_menu_item_new_with_label (_("Maximize"));
+    gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
+    g_signal_connect(G_OBJECT(mi), "activate", (GCallback)menu_maximize_window, tb);
     gtk_widget_show (mi);
 
     mi = gtk_menu_item_new_with_label (_("Iconify"));

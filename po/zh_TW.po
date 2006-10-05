@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel-0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-05 22:10+0800\n"
-"PO-Revision-Date: 2006-10-05 22:14+0800\n"
+"POT-Creation-Date: 2006-10-06 01:38+0800\n"
+"PO-Revision-Date: 2006-10-06 01:46+0800\n"
 "Last-Translator: 洪任諭 <pcman.tw@gmail.com>\n"
 "Language-Team: zh_TW <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -27,11 +27,13 @@ msgstr "<b>位置</b>"
 msgid "Edge:"
 msgstr "吸附邊緣："
 
-#: ../src/configurator.c:189 ../src/configurator.c:211
+#: ../src/configurator.c:189
+#: ../src/configurator.c:211
 msgid "Left"
 msgstr "左"
 
-#: ../src/configurator.c:190 ../src/configurator.c:213
+#: ../src/configurator.c:190
+#: ../src/configurator.c:213
 msgid "Right"
 msgstr "右"
 
@@ -70,7 +72,8 @@ msgstr "寬度："
 msgid "dynamic"
 msgstr "動態"
 
-#: ../src/configurator.c:309 ../src/configurator.c:334
+#: ../src/configurator.c:309
+#: ../src/configurator.c:334
 msgid "pixels"
 msgstr "像素 (pixels)"
 
@@ -184,7 +187,8 @@ msgstr ""
 msgid "Display cpu usage"
 msgstr ""
 
-#: ../src/plugins/deskno.c:102 ../src/plugins/deskno2.c:132
+#: ../src/plugins/deskno.c:102
+#: ../src/plugins/deskno2.c:132
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr ""
 
@@ -236,23 +240,29 @@ msgstr "辦公軟體"
 msgid "Accessories"
 msgstr "附屬應用程式"
 
-#: ../src/plugins/taskbar.c:1180
+#: ../src/plugins/taskbar.c:1205
 msgid "Raise"
 msgstr "移到最上層"
 
-#: ../src/plugins/taskbar.c:1185
+#: ../src/plugins/taskbar.c:1210
+msgid "Restore"
+msgstr "復原"
+
+#: ../src/plugins/taskbar.c:1215
+msgid "Maximize"
+msgstr "最大化"
+
+#: ../src/plugins/taskbar.c:1220
 msgid "Iconify"
 msgstr "最小化"
 
 #. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1191
+#: ../src/plugins/taskbar.c:1226
 msgid "Close Window"
 msgstr "關閉視窗"
 
-#: ../src/plugins/taskbar.c:1375
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
+#: ../src/plugins/taskbar.c:1410
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
 msgstr ""
 
 #: ../src/plugins/dclock.c:175
@@ -271,17 +281,16 @@ msgstr ""
 msgid "Simple pager plugin"
 msgstr ""
 
-#: ../src/plugins/wincmd.c:245
+#: ../src/plugins/wincmd.c:221
+msgid "Left click to iconify all windows. Middle click to shade them"
+msgstr "按左鍵最小化所有視窗 / 右鍵折疊所有視窗"
+
+#: ../src/plugins/wincmd.c:239
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commnds are 1)toggle iconify and 2) toggle shade"
 msgstr ""
 
-#~ msgid "Restore"
-#~ msgstr "復原"
-
-#~ msgid "Maximize"
-#~ msgstr "最大化"
-
 #~ msgid "Plugins..."
 #~ msgstr "外掛..."
+

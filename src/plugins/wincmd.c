@@ -166,7 +166,7 @@ static int
 wincmd_constructor(plugin *p)
 {
     line s;
-    gchar *tooltip, *fname;
+    gchar *fname;
     wincmd *wc;
     //GdkPixbuf *gp, *gps;
     GtkWidget *button;
@@ -178,7 +178,7 @@ wincmd_constructor(plugin *p)
     g_return_val_if_fail(wc != NULL, 0);
     wc->tips = gtk_tooltips_new();
     p->priv = wc;
-    tooltip = fname = 0;
+    fname = NULL;
     while (get_line(p->fp, &s) != LINE_BLOCK_END) {
         if (s.type == LINE_NONE) {
             ERR( "wincmd: illegal token %s\n", s.str);
@@ -189,8 +189,6 @@ wincmd_constructor(plugin *p)
                 wc->button1 = str2num(wincmd_pair, s.t[1], WC_ICONIFY);
             else if (!g_ascii_strcasecmp(s.t[0], "Button2")) 
                 wc->button2 = str2num(wincmd_pair, s.t[1], WC_SHADE);
-            else if (!g_ascii_strcasecmp(s.t[0], "tooltip"))
-                tooltip = g_strdup(s.t[1]);
             else if (!g_ascii_strcasecmp(s.t[0], "image"))
                 fname = expand_tilda(s.t[1]); 
             else {
@@ -213,22 +211,18 @@ wincmd_constructor(plugin *p)
     gtk_container_set_border_width(GTK_CONTAINER(button), 0);
     g_signal_connect(G_OBJECT(button), "button_press_event",
           G_CALLBACK(clicked), (gpointer)wc);
-  
+
     gtk_widget_show(button);
     gtk_container_add(GTK_CONTAINER(p->pwid), button);
     if (p->panel->transparent) 
         gtk_bgbox_set_background(button, BG_ROOT, p->panel->tintcolor, p->panel->alpha);
-    
+
     g_free(fname);
-    if (tooltip) {
-        gtk_tooltips_set_tip(GTK_TOOLTIPS (wc->tips), button, tooltip, NULL);
-        g_free(tooltip);
-    }
+    gtk_tooltips_set_tip(GTK_TOOLTIPS (wc->tips), button, _("Left click to iconify all windows. Middle click to shade them"), NULL);
     RET(1);
 
  error:
     g_free(fname);
-    g_free(tooltip);
     wincmd_destructor(p);
     ERR( "%s - exit\n", __FUNCTION__);
     RET(0);

@@ -199,12 +199,6 @@ Plugin {
             tooltip = Firefox web browser
             action =firefox
 	}
-        button {
-            image = @prefix@/share/lxpanel/images/emacs.svg
-            tooltip = Emacs
-            action = emacs
-        }       
-
     }
 
 }
@@ -221,7 +215,6 @@ Plugin {
     type = wincmd
     config {
         image = @prefix@/share/lxpanel/images/gnome-fs-desktop.svg
-        tooltip = Left click to iconify all windows. Middle click to shade them.
     }
 }
 
