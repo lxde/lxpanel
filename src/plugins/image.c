@@ -1,6 +1,7 @@
 #include <stdlib.h>
 
 #include <gdk-pixbuf/gdk-pixbuf.h>
+#include <glib/gi18n.h>
 
 #include "panel.h"
 #include "misc.h"
@@ -125,7 +126,7 @@ plugin_class image_plugin_class = {
     type : "image",
     name : "image",
     version: "1.0",
-    description : "Dispaly Image and Tooltip",
+    description : N_("Dispaly Image and Tooltip"),
 
     constructor : image_constructor,
     destructor  : image_destructor,

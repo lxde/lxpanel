@@ -12,6 +12,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <string.h>
+#include <glib/gi18n.h>
 
 //#define DEBUG
 #include "dbg.h"
@@ -161,7 +162,7 @@ mk_position()
     gtk_frame_set_shadow_type(GTK_FRAME (frame), GTK_SHADOW_NONE);
     gtk_container_set_border_width (GTK_CONTAINER (frame), 6);
     label = gtk_label_new(NULL);
-    gtk_label_set_markup(GTK_LABEL (label),"<span weight=\"bold\">Position</span>");
+    gtk_label_set_markup(GTK_LABEL (label),_("<b>Position</b>"));
     gtk_frame_set_label_widget(GTK_FRAME (frame), label);    
 
     hbox2 = gtk_hbox_new(FALSE, 0);
@@ -178,17 +179,17 @@ mk_position()
     gtk_box_pack_start(GTK_BOX (hbox2), t, FALSE, TRUE, 0);
     
     //Edge
-    label = gtk_label_new("Edge:");
+    label = gtk_label_new(_("Edge:"));
     gtk_misc_set_alignment(GTK_MISC(label), 0.0, 0.5);
     gtk_widget_show(label);
     gtk_table_attach(GTK_TABLE(t), label, 0, 1, 0, 1, GTK_FILL, 0, 0, 0);
     gtk_size_group_add_widget(sg, label);
     
     edge_opt = gtk_combo_box_new_text();
-    gtk_combo_box_append_text(GTK_COMBO_BOX(edge_opt), "Left");
-    gtk_combo_box_append_text(GTK_COMBO_BOX(edge_opt), "Right");
-    gtk_combo_box_append_text(GTK_COMBO_BOX(edge_opt), "Top");
-    gtk_combo_box_append_text(GTK_COMBO_BOX(edge_opt), "Bottom");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(edge_opt), _("Left"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(edge_opt), _("Right"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(edge_opt), _("Top"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(edge_opt), _("Bottom"));
     g_signal_connect(G_OBJECT(edge_opt), "changed", G_CALLBACK(set_edge), NULL);
     
     gtk_widget_show(edge_opt);
@@ -198,8 +199,8 @@ mk_position()
     gtk_table_attach(GTK_TABLE(t), hbox, 1, 2, 0, 1, GTK_FILL, 0, 0, 0);
     gtk_label_set_mnemonic_widget(GTK_LABEL(label), edge_opt);
 
-    //Allignment
-    label = gtk_label_new("Allignment:");
+    //Alignment
+    label = gtk_label_new(_("Alignment:"));
     gtk_misc_set_alignment(GTK_MISC(label), 0.0, 0.5);
     gtk_widget_show(label);
     gtk_size_group_add_widget(sg, label);
@@ -207,9 +208,9 @@ mk_position()
     gtk_table_attach(GTK_TABLE(t), label, 0, 1, 1, 2, GTK_FILL, 0, 0, 0);
         
     allign_opt = gtk_combo_box_new_text();
-    gtk_combo_box_append_text(GTK_COMBO_BOX(allign_opt), "Left");
-    gtk_combo_box_append_text(GTK_COMBO_BOX(allign_opt), "Center");
-    gtk_combo_box_append_text(GTK_COMBO_BOX(allign_opt), "Right");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(allign_opt), _("Left"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(allign_opt), _("Center"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(allign_opt), _("Right"));
     g_signal_connect(G_OBJECT(allign_opt), "changed", G_CALLBACK(set_allign), NULL);
     gtk_widget_show(allign_opt);
 
@@ -220,7 +221,7 @@ mk_position()
 
 
     //Margin
-    margin_label = gtk_label_new("Margin:");
+    margin_label = gtk_label_new(_("Margin:"));
     gtk_misc_set_alignment(GTK_MISC(margin_label), 0.0, 0.5);
     gtk_widget_show(margin_label);
 
@@ -275,7 +276,7 @@ mk_size()
     gtk_frame_set_shadow_type(GTK_FRAME (frame), GTK_SHADOW_NONE);
     gtk_container_set_border_width (GTK_CONTAINER (frame), 6);
     label = gtk_label_new(NULL);
-    gtk_label_set_markup(GTK_LABEL (label),"<span weight=\"bold\">Size</span>");
+    gtk_label_set_markup(GTK_LABEL (label),_("<b>Size</b>"));
     gtk_frame_set_label_widget(GTK_FRAME (frame), label);    
 
     hbox2 = gtk_hbox_new(FALSE, 0);
@@ -292,7 +293,7 @@ mk_size()
     gtk_box_pack_start(GTK_BOX (hbox2), t, FALSE, TRUE, 0);
     
     //width
-    label = gtk_label_new("Width:");
+    label = gtk_label_new(_("Width:"));
     gtk_misc_set_alignment(GTK_MISC(label), 0.0, 0.5);
     gtk_widget_show(label);
     gtk_table_attach(GTK_TABLE(t), label, 0, 1, 0, 1, GTK_FILL, 0, 0, 0);
@@ -304,9 +305,9 @@ mk_size()
     
 
     width_opt = gtk_combo_box_new_text();
-    gtk_combo_box_append_text(GTK_COMBO_BOX(width_opt), "dynamic");
-    gtk_combo_box_append_text(GTK_COMBO_BOX(width_opt), "pixels");
-    gtk_combo_box_append_text(GTK_COMBO_BOX(width_opt), "% of edge");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(width_opt), _("dynamic"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(width_opt), _("pixels"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(width_opt), _("% of edge"));
     g_signal_connect(G_OBJECT(width_opt), "changed", G_CALLBACK(set_width), NULL);
     gtk_widget_show(width_opt);
 
@@ -318,7 +319,7 @@ mk_size()
 
 
     //height
-    label = gtk_label_new("Height:");
+    label = gtk_label_new(_("Height:"));
     gtk_misc_set_alignment(GTK_MISC(label), 0.0, 0.5);
     gtk_widget_show(label);
     gtk_table_attach(GTK_TABLE(t), label, 0, 1, 1, 2, GTK_FILL, 0, 0, 0);
@@ -330,7 +331,7 @@ mk_size()
     
     
     height_opt = gtk_combo_box_new_text();
-    gtk_combo_box_append_text(GTK_COMBO_BOX(height_opt), "pixels");
+    gtk_combo_box_append_text(GTK_COMBO_BOX(height_opt), _("pixels"));
     //g_signal_connect(G_OBJECT(height_opt), "changed", G_CALLBACK(set_height), NULL);
     gtk_widget_show(height_opt);
 
@@ -364,7 +365,7 @@ mk_transparency()
     gtk_frame_set_shadow_type(GTK_FRAME (frame), GTK_SHADOW_NONE);
     gtk_container_set_border_width (GTK_CONTAINER (frame), 6);
     label = gtk_label_new(NULL);
-    gtk_label_set_markup(GTK_LABEL (label),"<span weight=\"bold\">Transparency</span>");
+    gtk_label_set_markup(GTK_LABEL (label),_("<b>Transparency</b>"));
     gtk_frame_set_label_widget(GTK_FRAME (frame), label);    
 
     hbox2 = gtk_hbox_new(FALSE, 0);
@@ -378,13 +379,13 @@ mk_transparency()
     hbox = gtk_hbox_new(FALSE, 5);
     gtk_box_pack_start(GTK_BOX (hbox2), hbox, FALSE, TRUE, 0);
 
-    tr_checkb = gtk_check_button_new_with_label("Enable Transparency");
+    tr_checkb = gtk_check_button_new_with_label(_("Enable Transparency"));
     gtk_widget_show(tr_checkb);
     gtk_box_pack_start(GTK_BOX (hbox), tr_checkb, FALSE, FALSE, 0);
     g_signal_connect(G_OBJECT(tr_checkb), "toggled", G_CALLBACK(transparency_toggle), NULL);
     //gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(tr_checkb), FALSE);
     
-    tr_colorl = gtk_label_new("Tint color:");
+    tr_colorl = gtk_label_new(_("Tint color:"));
     gtk_misc_set_alignment(GTK_MISC(tr_colorl), 0.0, 0.5);
     gtk_widget_show(tr_colorl);
     gtk_box_pack_start(GTK_BOX (hbox), tr_colorl, FALSE, FALSE, 5);
@@ -409,7 +410,7 @@ mk_properties()
     gtk_frame_set_shadow_type(GTK_FRAME (frame), GTK_SHADOW_NONE);
     gtk_container_set_border_width (GTK_CONTAINER (frame), 6);
     label = gtk_label_new(NULL);
-    gtk_label_set_markup(GTK_LABEL (label),"<span weight=\"bold\">Properties</span>");
+    gtk_label_set_markup(GTK_LABEL (label),_("<b>Properties</b>"));
     gtk_frame_set_label_widget(GTK_FRAME (frame), label);    
 
     hbox2 = gtk_hbox_new(FALSE, 0);
@@ -423,10 +424,10 @@ mk_properties()
     vbox = gtk_vbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX (hbox2), vbox, FALSE, TRUE, 0);
     
-    prop_dt_checkb = gtk_check_button_new_with_label("Set Dock Type");
+    prop_dt_checkb = gtk_check_button_new_with_label(_("Set Dock Type"));
     gtk_box_pack_start(GTK_BOX (vbox), prop_dt_checkb, FALSE, FALSE, 0);
 
-    prop_st_checkb = gtk_check_button_new_with_label("Set Strut");
+    prop_st_checkb = gtk_check_button_new_with_label(_("Set Strut"));
     gtk_box_pack_start(GTK_BOX (vbox), prop_st_checkb, FALSE, FALSE, 0);
 
     RET(frame);
@@ -457,7 +458,7 @@ mk_tab_plugins()
     paned = gtk_vpaned_new();
 
     hbox = gtk_hbox_new(FALSE, 0);
-    label = gtk_label_new("Right-click to get context menu. Drag & Drop to change order.");
+    label = gtk_label_new(_("Right-click to get context menu. Drag & Drop to change order."));
     gtk_label_set_line_wrap(GTK_LABEL(label), TRUE);
     gtk_box_pack_end(GTK_BOX(hbox), label, TRUE, TRUE, 5);
 
@@ -513,7 +514,7 @@ mk_dialog()
     GtkWidget *sw, *nb, *label;
            
     DBG("creating dialog\n");
-    dialog = gtk_dialog_new_with_buttons ("lxpanel configurator",
+    dialog = gtk_dialog_new_with_buttons (_("lxpanel configurator"),
           NULL,
           0, //GTK_DIALOG_DESTROY_WITH_PARENT,
           GTK_STOCK_APPLY,
@@ -536,12 +537,12 @@ mk_dialog()
     gtk_container_add (GTK_CONTAINER (GTK_DIALOG(dialog)->vbox), nb);
 
     sw = mk_tab_general();
-    label = gtk_label_new("General");
+    label = gtk_label_new(_("General"));
     gtk_misc_set_padding(GTK_MISC(label), 4, 1);
     gtk_notebook_append_page(GTK_NOTEBOOK(nb), sw, label);
 
     sw = mk_tab_plugins();
-    label = gtk_label_new("Plugins");
+    label = gtk_label_new(_("Plugins"));
     gtk_misc_set_padding(GTK_MISC(label), 4, 1);
     gtk_notebook_append_page(GTK_NOTEBOOK(nb), sw, label);
     

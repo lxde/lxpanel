@@ -10,8 +10,7 @@
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gdk-pixbuf-xlib/gdk-pixbuf-xlib.h>
 #include <gdk/gdk.h>
-
-
+#include <glib/gi18n.h>
 
 #include "panel.h"
 #include "misc.h"
@@ -1178,18 +1177,18 @@ taskbar_make_menu(taskbar *tb)
     ENTER;
     menu = gtk_menu_new ();
 
-    mi = gtk_menu_item_new_with_label ("Raise");
+    mi = gtk_menu_item_new_with_label (_("Raise"));
     gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
     g_signal_connect(G_OBJECT(mi), "activate", (GCallback)menu_raise_window, tb);
     gtk_widget_show (mi);
 
-    mi = gtk_menu_item_new_with_label ("Iconify");
+    mi = gtk_menu_item_new_with_label (_("Iconify"));
     gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
     g_signal_connect(G_OBJECT(mi), "activate", (GCallback)menu_iconify_window, tb);
     gtk_widget_show (mi);
 
     /* we want this item to be farest from mouse pointer */
-    mi = gtk_menu_item_new_with_label ("Close Window");
+    mi = gtk_menu_item_new_with_label (_("Close Window"));
     if (tb->plug->panel->edge == EDGE_BOTTOM)
         gtk_menu_shell_prepend (GTK_MENU_SHELL (menu), mi);
     else
@@ -1373,7 +1372,7 @@ plugin_class taskbar_plugin_class = {
     type : "taskbar",
     name : "taskbar",
     version: "1.0",
-    description : "Taskbar shows all opened windows and allow to iconify them, shade or get focus",
+    description : N_("Taskbar shows all opened windows and allow to iconify them, shade or get focus"),
     
     constructor : taskbar_constructor,
     destructor  : taskbar_destructor,

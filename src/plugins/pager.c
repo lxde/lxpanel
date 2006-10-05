@@ -29,6 +29,7 @@
 #include <X11/xpm.h>
 
 #include <gdk-pixbuf/gdk-pixbuf.h>
+#include <glib/gi18n.h>
 
 #include "panel.h"
 #include "misc.h"
@@ -696,7 +697,7 @@ plugin_class pager_plugin_class = {
     type : "pager",
     name : "pager",
     version: "1.0",
-    description : "Simple pager plugin",
+    description : N_("Simple pager plugin"),
 
     constructor : pager_constructor,
     destructor  : pager_destructor,

@@ -10,8 +10,7 @@
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gdk-pixbuf-xlib/gdk-pixbuf-xlib.h>
 #include <gdk/gdk.h>
-
-
+#include <glib/gi18n.h>
 
 #include "panel.h"
 #include "misc.h"
@@ -485,7 +484,7 @@ plugin_class icons_plugin_class = {
     type : "icons",
     name : "icons",
     version: "1.0",
-    description : "Change window icons",
+    description : N_("Change window icons"),
     invisible : 1,
     
     constructor : icons_constructor,

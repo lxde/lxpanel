@@ -11,6 +11,7 @@
 #include <locale.h>
 #include <string.h>
 #include <signal.h>
+#include <glib/gi18n.h>
 
 #include "plugin.h"
 #include "panel.h"
@@ -677,19 +678,19 @@ void
 usage()
 {
     ENTER;
-    printf("lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n", version);
-    printf("Command line options:\n");
-    printf(" --help      -- print this help and exit\n");
-    printf(" --version   -- print version and exit\n");
-    printf(" --log <number> -- set log level 0-5. 0 - none 5 - chatty\n");
-    printf(" --configure -- launch configuration utility\n");
-    printf(" --profile name -- use specified profile\n");
-    printf("\n");
-    printf(" -h  -- same as --help\n");
-    printf(" -p  -- same as --profile\n");
-    printf(" -v  -- same as --version\n");
-    printf(" -C  -- same as --configure\n");
-    printf("\nVisit http://lxpanel.sourceforge.net/ for detailed documentation,\n\n");
+    g_print(_("lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"), version);
+    g_print(_("Command line options:\n"));
+    g_print(_(" --help      -- print this help and exit\n"));
+    g_print(_(" --version   -- print version and exit\n"));
+    g_print(_(" --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"));
+    g_print(_(" --configure -- launch configuration utility\n"));
+    g_print(_(" --profile name -- use specified profile\n"));
+    g_print("\n");
+    g_print(_(" -h  -- same as --help\n"));
+    g_print(_(" -p  -- same as --profile\n"));
+    g_print(_(" -v  -- same as --version\n"));
+    g_print(_(" -C  -- same as --configure\n"));
+    g_print(_("\nVisit http://lxpanel.sourceforge.net/ for detailed documentation,\n\n"));
 }
 
 FILE *

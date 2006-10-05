@@ -26,6 +26,7 @@
 #include <time.h>
 #include <sys/sysinfo.h>
 #include <stdlib.h>
+#include <glib/gi18n.h>
 
 #include "plugin.h"
 #include "panel.h"
@@ -206,7 +207,7 @@ plugin_class cpu_plugin_class = {
     type : "cpu",
     name : "Cpu usage",
     version: "1.0",
-    description : "Display cpu usage",
+    description : N_("Display cpu usage"),
 
     constructor : cpu_constructor,
     destructor  : cpu_destructor,

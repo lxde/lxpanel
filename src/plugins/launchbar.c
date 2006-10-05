@@ -8,8 +8,8 @@
 #include <signal.h>
 #include <errno.h>
 
-
 #include <gdk-pixbuf/gdk-pixbuf.h>
+#include <glib/gi18n.h>
 
 #include "panel.h"
 #include "misc.h"
@@ -324,7 +324,7 @@ plugin_class launchbar_plugin_class = {
     type : "launchbar",
     name : "launchbar",
     version: "1.0",
-    description : "Bar with buttons to launch application",
+    description : N_("Bar with buttons to launch application"),
 
     constructor : launchbar_constructor,
     destructor  : launchbar_destructor,

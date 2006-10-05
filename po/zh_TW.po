@@ -5,11 +5,11 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.1\n"
+"Project-Id-Version: lxpanel-0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-05 00:50+0800\n"
-"PO-Revision-Date: 2006-10-05 00:53+0800\n"
-"Last-Translator: 洪任諭\n"
+"POT-Creation-Date: 2006-10-05 22:10+0800\n"
+"PO-Revision-Date: 2006-10-05 22:14+0800\n"
+"Last-Translator: 洪任諭 <pcman.tw@gmail.com>\n"
 "Language-Team: zh_TW <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -17,6 +17,180 @@ msgstr ""
 "X-Poedit-Language: Chinese\n"
 "X-Poedit-Country: TAIWAN\n"
 "X-Poedit-SourceCharset: iso-8859-1\n"
+
+#: ../src/configurator.c:165
+msgid "<b>Position</b>"
+msgstr "<b>位置</b>"
+
+#. Edge
+#: ../src/configurator.c:182
+msgid "Edge:"
+msgstr "吸附邊緣："
+
+#: ../src/configurator.c:189 ../src/configurator.c:211
+msgid "Left"
+msgstr "左"
+
+#: ../src/configurator.c:190 ../src/configurator.c:213
+msgid "Right"
+msgstr "右"
+
+#: ../src/configurator.c:191
+msgid "Top"
+msgstr "上"
+
+#: ../src/configurator.c:192
+msgid "Bottom"
+msgstr "下"
+
+#. Alignment
+#: ../src/configurator.c:203
+msgid "Alignment:"
+msgstr "排列方式："
+
+#: ../src/configurator.c:212
+msgid "Center"
+msgstr "置中"
+
+#. Margin
+#: ../src/configurator.c:224
+msgid "Margin:"
+msgstr "留空："
+
+#: ../src/configurator.c:279
+msgid "<b>Size</b>"
+msgstr "<b>大小</b>"
+
+#. width
+#: ../src/configurator.c:296
+msgid "Width:"
+msgstr "寬度："
+
+#: ../src/configurator.c:308
+msgid "dynamic"
+msgstr "動態"
+
+#: ../src/configurator.c:309 ../src/configurator.c:334
+msgid "pixels"
+msgstr "像素 (pixels)"
+
+#: ../src/configurator.c:310
+#, c-format
+msgid "% of edge"
+msgstr "% 百分比"
+
+#. height
+#: ../src/configurator.c:322
+msgid "Height:"
+msgstr "高度："
+
+#: ../src/configurator.c:368
+msgid "<b>Transparency</b>"
+msgstr "<b>透明度</b>"
+
+#: ../src/configurator.c:382
+msgid "Enable Transparency"
+msgstr " 啟用透明效果"
+
+#. gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(tr_checkb), FALSE);
+#: ../src/configurator.c:388
+msgid "Tint color:"
+msgstr "色彩："
+
+#: ../src/configurator.c:413
+msgid "<b>Properties</b>"
+msgstr "<b>屬性</b>"
+
+#: ../src/configurator.c:427
+msgid "Set Dock Type"
+msgstr "設定停駐型態"
+
+#: ../src/configurator.c:430
+msgid "Set Strut"
+msgstr ""
+
+#: ../src/configurator.c:461
+msgid "Right-click to get context menu. Drag & Drop to change order."
+msgstr "可以按右鍵使用選單，用拖曳改變順序"
+
+#: ../src/configurator.c:517
+msgid "lxpanel configurator"
+msgstr "lxpanel 偏好設定"
+
+#: ../src/configurator.c:540
+msgid "General"
+msgstr "一般"
+
+#: ../src/configurator.c:545
+msgid "Plugins"
+msgstr "外掛"
+
+#: ../src/panel.c:681
+#, c-format
+msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
+msgstr "lxpanel %s - UNIX 桌面的輕量級 GTK2+ 工作列\n"
+
+#: ../src/panel.c:682
+msgid "Command line options:\n"
+msgstr "命令列選項：\n"
+
+#: ../src/panel.c:683
+msgid " --help      -- print this help and exit\n"
+msgstr " --help      -- 顯示使用說明並離開\n"
+
+#: ../src/panel.c:684
+msgid " --version   -- print version and exit\n"
+msgstr " --version   -- 顯示版本資訊並離開\n"
+
+#: ../src/panel.c:685
+msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
+msgstr ""
+
+#: ../src/panel.c:686
+msgid " --configure -- launch configuration utility\n"
+msgstr " --configure -- 執行設定工具\n"
+
+#: ../src/panel.c:687
+msgid " --profile name -- use specified profile\n"
+msgstr " --profile name -- 指定使用其他設定檔\n"
+
+#: ../src/panel.c:689
+msgid " -h  -- same as --help\n"
+msgstr " -h  -- 和 --help 作用相同\n"
+
+#: ../src/panel.c:690
+msgid " -p  -- same as --profile\n"
+msgstr " -p  -- 和 --profile 作用相同\n"
+
+#: ../src/panel.c:691
+msgid " -v  -- same as --version\n"
+msgstr " -v  -- 和 --version 作用相同\n"
+
+#: ../src/panel.c:692
+msgid " -C  -- same as --configure\n"
+msgstr " -C  -- 和 --configure 作用相同\n"
+
+#: ../src/panel.c:693
+msgid ""
+"\n"
+"Visit http://lxpanel.sourceforge.net/ for detailed documentation,\n"
+"\n"
+msgstr ""
+"\n"
+"詳細資訊請參觀 http://lxpanel.sourceforge.net/\n"
+"\n"
+
+#: ../src/plugins/cpu.c:210
+msgid "Display cpu usage"
+msgstr ""
+
+#: ../src/plugins/deskno.c:102 ../src/plugins/deskno2.c:132
+msgid "Display workspace number, by cmeury@users.sf.net"
+msgstr ""
+
+#: ../src/plugins/launchbar.c:327
+msgid "Bar with buttons to launch application"
+msgstr ""
 
 #: ../src/plugins/ptk_app_menu.c:143
 msgid "Other"
@@ -62,3 +236,52 @@ msgstr "辦公軟體"
 msgid "Accessories"
 msgstr "附屬應用程式"
 
+#: ../src/plugins/taskbar.c:1180
+msgid "Raise"
+msgstr "移到最上層"
+
+#: ../src/plugins/taskbar.c:1185
+msgid "Iconify"
+msgstr "最小化"
+
+#. we want this item to be farest from mouse pointer
+#: ../src/plugins/taskbar.c:1191
+msgid "Close Window"
+msgstr "關閉視窗"
+
+#: ../src/plugins/taskbar.c:1375
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
+msgstr ""
+
+#: ../src/plugins/dclock.c:175
+msgid "Display Digital clock and Tooltip"
+msgstr ""
+
+#: ../src/plugins/icons.c:487
+msgid "Change window icons"
+msgstr ""
+
+#: ../src/plugins/image.c:129
+msgid "Dispaly Image and Tooltip"
+msgstr ""
+
+#: ../src/plugins/pager.c:700
+msgid "Simple pager plugin"
+msgstr ""
+
+#: ../src/plugins/wincmd.c:245
+msgid ""
+"Sends commands to all desktop windows.\n"
+"Supported commnds are 1)toggle iconify and 2) toggle shade"
+msgstr ""
+
+#~ msgid "Restore"
+#~ msgstr "復原"
+
+#~ msgid "Maximize"
+#~ msgstr "最大化"
+
+#~ msgid "Plugins..."
+#~ msgstr "外掛..."

@@ -2,6 +2,7 @@
 #include <sys/types.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <glib/gi18n.h>
 
 #include "panel.h"
 #include "misc.h"
@@ -128,7 +129,7 @@ plugin_class deskno2_plugin_class = {
     type : "deskno2",
     name : "Desktop No / Workspace Name",
     version: "0.6",
-    description : "Display workspace number, by cmeury@users.sf.net",
+    description : N_("Display workspace number, by cmeury@users.sf.net"),
 
     constructor : deskno_constructor,
     destructor  : deskno_destructor,

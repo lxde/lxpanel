@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <glib/gi18n.h>
 
 #include "panel.h"
 #include "misc.h"
@@ -172,7 +172,7 @@ plugin_class dclock_plugin_class = {
     type : "dclock",
     name : "Digital Clock",
     version: "1.0",
-    description : "Display Digital clock and Tooltip",
+    description : N_("Display Digital clock and Tooltip"),
 
     constructor : dclock_constructor,
     destructor  : dclock_destructor,
