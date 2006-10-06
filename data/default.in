@@ -95,7 +95,6 @@
 #     type = wincmd
 #     config {
 #         image = ~/.lxpanel/images/Desktop2.png
-#         tooltip = Left click to iconify all windows. Middle click to shade them.
 #     }
 # }
 
@@ -115,67 +114,37 @@ Global {
 
 
 Plugin {
-        type = space
-        config {
-                size = 2
-        }        
+    type = space
+    config {
+            size = 2
+    }
 }
 
 
 Plugin {
     type = menu
     config {
-	image = @prefix@/share/lxpanel/images/my-computer.svg
-	system {
-	}
-        menu {
-            name = Networking
-            image = @prefix@/share/lxpanel/images/redhat-internet.svg
-            item {
-                name = firefox
-                action = firefox
-		image = @prefix@/share/lxpanel/images/firefox2.svg
-            }
-            item {
-		name = thunderbird
-		action = thunderbird
-		image = @prefix@/share/lxpanel/images/thunderbird.svg
-	    }
-            item {
-                name = gaim
-                image = @prefix@/share/share/pixmaps/gaim.png
-                action = gaim
-            }
+        image = @prefix@/share/lxpanel/images/my-computer.svg
+        system {
         }
-        separator {    
+        separator {
         }
         item {
-            name = configure
+            command = run
+        }
+        item {
             image = @prefix@/share/lxpanel/images/gnome-setting.svg
             command = configure
-        }    
-
-        item {
-            name = terminal
-            image = @prefix@/share/lxpanel/images/gnome_terminal.svg
-            action = xterm
         }
-        item {
-            name = emacs
-            image = @prefix@/share/lxpanel/images/emacs.svg
-            action = emacs
-        }
-
     }
 }
 
 
-
 Plugin {
-        type = space
-        config {
-                size = 5
-        }        
+    type = space
+    config {
+            size = 5
+    }
 }
 
 
@@ -183,31 +152,25 @@ Plugin {
     type = launchbar
     config {
         button {
-            image = @prefix@/share/lxpanel/images/file-manager.svg
-            tooltip = file manager
-            action = pcmanfm
-	}
+            id = pcmanfm.desktop
+        }
 
         button {
-            image = @prefix@/share/lxpanel/images/gnome_terminal.svg
-            tooltip = Terminal
-            action = xterm
+            id = gnome-terminal.desktop
         }
-    
-	button {
-            image = @prefix@/share/lxpanel/images/firefox2.svg
-            tooltip = Firefox web browser
-            action =firefox
-	}
+
+        button {
+            id = firefox.desktop
+        }
     }
 
 }
 
 Plugin {
-        type = space
-        config {
-                size = 8
-        }        
+    type = space
+    config {
+            size = 8
+    }
 }
 
 
@@ -220,23 +183,22 @@ Plugin {
 
 
 Plugin {
-        type = space
-        config {
-                size = 7
-        }        
+    type = space
+    config {
+            size = 7
+    }
 }
 
 Plugin {
     type = pager
 }
- 
- 
+
 # 'icons' plugin lets you customize window icons. 
 # these changes applay to entire desktop
 Plugin {
     type = icons
     config {
-        DefaultIcon = @prefix@/share/lxpanel/images/default.xpm     
+        DefaultIcon = @prefix@/share/lxpanel/images/default.xpm
         application {
             Image =  @prefix@/share/lxpanel/images/gnome_terminal.svg
             ClassName = XTerm
@@ -257,6 +219,7 @@ Plugin {
 
     }
 }
+
 Plugin {
     type = space
     config {
@@ -291,5 +254,3 @@ Plugin {
         Action = xmessage Please define some command &
     }
 }
-
-
