@@ -120,7 +120,10 @@ print_wmdata(panel *p)
 }
 
 
-/* built-in commands */
+/* defined in plugins/menu.c */
+void show_system_menu( gpointer system_menu );
+
+/* built-in commands, defined in configurator.c */
 void configure(void);
 void restart(void);
 void gtk_run(void);
@@ -130,7 +133,7 @@ static void process_client_msg ( panel *p, int cmd )
     switch( cmd )
     {
         case LXPANEL_CMD_SYS_MENU:
-            /* FIXME: should popup system menu */
+            show_system_menu( p->system_menu );
             break;
         case LXPANEL_CMD_RUN:
             gtk_run();

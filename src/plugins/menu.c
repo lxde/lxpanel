@@ -130,6 +130,18 @@ reload_system_menu( GtkMenu* menu )
     g_list_free( children );
 }
 
+static void show_menu( GtkWidget* widget, menup* m, int btn, guint32 time )
+{
+    /* reload system menu items if needed */
+    if( m->has_system_menu && ptk_app_menu_need_reload() ) {
+        reload_system_menu( m->menu );
+    }
+    gtk_menu_popup(m->menu,
+                   NULL, NULL,
+                   (GtkMenuPositionFunc)menu_pos, widget,
+                   btn, time);
+}
+
 static gboolean
 my_button_pressed(GtkWidget *widget, GdkEventButton *event, menup* m)
 {
@@ -137,17 +149,16 @@ my_button_pressed(GtkWidget *widget, GdkEventButton *event, menup* m)
     if ((event->type == GDK_BUTTON_PRESS)
           && (event->x >=0 && event->x < widget->allocation.width)
           && (event->y >=0 && event->y < widget->allocation.height)) {
-        /* reload system menu items if needed */
-        if( m->has_system_menu && ptk_app_menu_need_reload() ) {
-            reload_system_menu( m->menu );
-        }
-        gtk_menu_popup(m->menu,
-              NULL, NULL, (GtkMenuPositionFunc)menu_pos, widget,
-              event->button, event->time);
+        show_menu( widget, m, event->button, event->time );
     }
     RET(TRUE);
 }
 
+void show_system_menu( gpointer system_menu )
+{
+    menup* m = (menup*)system_menu;
+    show_menu( m->bg, m, 0, gtk_get_current_event_time() );
+}
 
 static GtkWidget *
 make_button(plugin *p, gchar *fname, gchar *name, GtkWidget *menu)
@@ -275,11 +286,14 @@ read_system_menu(GtkMenu* menu, plugin *p)
       ERR("menu: error - system can not have paramteres\n");
       RET();
    }
-   if( m->has_system_menu ) {
+   if( p->panel->system_menu ) {
       ERR("menu: error - only one system is allowed");
    }
    ptk_app_menu_insert_items( menu, -1 );
    m->has_system_menu = TRUE;
+
+   p->panel->system_menu = m;
+
    RET();
 }
 

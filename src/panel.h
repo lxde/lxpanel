@@ -60,7 +60,8 @@ typedef struct {
 
     int plug_num;
     GList *plugins;
-    
+
+    gpointer system_menu;
 } panel;
 
 
