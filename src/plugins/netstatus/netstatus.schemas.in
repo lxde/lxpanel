@@ -1,0 +1,43 @@
+<gconfschemafile>
+  <schemalist>    
+
+    <schema>
+      <key>/schemas/apps/netstatus_applet/prefs/interface</key>
+      <owner>netstatus-applet</owner>
+      <type>string</type>
+      <default></default>
+      <locale name="C">
+        <short>Network interface</short>
+        <long>The Network Interface monitored by the Network Monitor.</long>
+      </locale>
+    </schema>
+
+    <!-- Yes, this key is purposely global to all instances of the applet -->
+    <schema>
+      <key>/schemas/apps/netstatus_applet/config_tool</key>
+      <applyto>/apps/netstatus_applet/config_tool</applyto>
+      <owner>netstatus-applet</owner>
+      <type>string</type>
+      <default></default>
+      <locale name="C">
+        <short>Network configuration tool</short>
+        <long>
+	  This key specifies the name of the network configuration tool
+	  which should be invoked when the "Configure" button in the
+	  properties dialog is clicked.
+
+	  If the configuration tool can take a parameter of the interface
+	  to configure you may use %i in the string and it will be
+	  substituted with the interface name before invoking the
+	  configuration tool.
+
+	  For example, gnome-system-tool's network-admin tool takes
+          the interface name through a --configure parameter. Thus,
+          you could set the value of this key to be:
+                  "network-admin --configure %i".
+	</long>
+      </locale>
+    </schema>
+                 
+  </schemalist>
+</gconfschemafile>
