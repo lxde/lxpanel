@@ -121,19 +121,26 @@ print_wmdata(panel *p)
 
 
 /* defined in plugins/menu.c */
-void show_system_menu( gpointer system_menu );
+gboolean show_system_menu( gpointer system_menu );
 
 /* built-in commands, defined in configurator.c */
 void configure(void);
 void restart(void);
 void gtk_run(void);
 
-static void process_client_msg ( panel *p, int cmd )
+static void process_client_msg ( panel *p, XClientMessageEvent* ev )
 {
+    int cmd = ev->data.b[0];
     switch( cmd )
     {
         case LXPANEL_CMD_SYS_MENU:
-            show_system_menu( p->system_menu );
+            if( p->system_menu )
+            {
+                show_system_menu( p->system_menu );
+                /* FIXME: I've no idea why this doesn't work without timeout
+                          under some WMs, like icewm. */
+                g_timeout_add( 200, show_system_menu, p->system_menu );
+            }
             break;
         case LXPANEL_CMD_RUN:
             gtk_run();
@@ -163,7 +170,7 @@ panel_event_filter(GdkXEvent *xevent, GdkEvent *event, panel *p)
         /* private client message from lxpanelctl */
         if( ev->type == ClientMessage && ev->xproperty.atom == a_LXPANEL_CMD )
         {
-            process_client_msg( p, ((XClientMessageEvent*)ev)->data.b[0] );
+            process_client_msg( p, (XClientMessageEvent*)ev );
         }
         RET(GDK_FILTER_CONTINUE);
 	}
@@ -698,7 +705,12 @@ void panel_stop(panel *p)
     g_list_foreach(p->plugins, delete_plugin, NULL);
     g_list_free(p->plugins);
     p->plugins = NULL;
- 
+
+    if( p->system_menu ){
+        do{
+        } while ( g_source_remove_by_user_data( p->system_menu ) );
+    }
+
     XSelectInput (GDK_DISPLAY(), GDK_ROOT_WINDOW(), NoEventMask);
     gdk_window_remove_filter(gdk_get_default_root_window (), (GdkFilterFunc)panel_event_filter, p);
     gtk_widget_destroy(p->topgwin);

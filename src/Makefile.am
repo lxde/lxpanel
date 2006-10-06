@@ -47,7 +47,7 @@ lxpanel_SOURCES = \
 
 lxpanel_LDADD = $(PACKAGE_LIBS) $(INTLLIBS)
 
-lxpanelctl_SOURCES = lxpanelctl.c
+lxpanelctl_SOURCES = lxpanelctl.c lxpanelctl.h
 lxpanelctl_LDADD = -lX11 $(INTLLIBS)
 
 EXTRA_DIST = \

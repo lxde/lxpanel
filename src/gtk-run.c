@@ -128,7 +128,8 @@ void gtk_run()
     gtk_window_set_position( (GtkWindow*)win, GTK_WIN_POS_CENTER );
     gtk_window_set_default_size( (GtkWindow*)win, 360, -1 );
     gtk_widget_show_all( win );
-    g_timeout_add( 500, setup_auto_complete, entry );
+    /* g_timeout_add( 500, setup_auto_complete, entry ); */
+    setup_auto_complete( entry );
     gtk_widget_show( (GtkDialog*)win );
 }
 

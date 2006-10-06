@@ -154,10 +154,11 @@ my_button_pressed(GtkWidget *widget, GdkEventButton *event, menup* m)
     RET(TRUE);
 }
 
-void show_system_menu( gpointer system_menu )
+gboolean show_system_menu( gpointer system_menu )
 {
     menup* m = (menup*)system_menu;
-    show_menu( m->bg, m, 0, gtk_get_current_event_time() );
+    show_menu( m->bg, m, 0, GDK_CURRENT_TIME );
+    return FALSE;
 }
 
 static GtkWidget *
