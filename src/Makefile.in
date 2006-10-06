@@ -36,7 +36,7 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-bin_PROGRAMS = lxpanel$(EXEEXT)
+bin_PROGRAMS = lxpanel$(EXEEXT) lxpanelctl$(EXEEXT)
 subdir = src
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -63,6 +63,9 @@ am_lxpanel_OBJECTS = misc.$(OBJEXT) $(am__objects_1) $(am__objects_2) \
 lxpanel_OBJECTS = $(am_lxpanel_OBJECTS)
 am__DEPENDENCIES_1 =
 lxpanel_DEPENDENCIES = $(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
+am_lxpanelctl_OBJECTS = lxpanelctl.$(OBJEXT)
+lxpanelctl_OBJECTS = $(am_lxpanelctl_OBJECTS)
+lxpanelctl_DEPENDENCIES = $(am__DEPENDENCIES_1)
 DEFAULT_INCLUDES = -I. -I$(srcdir) -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
@@ -70,8 +73,8 @@ COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
 LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(lxpanel_SOURCES)
-DIST_SOURCES = $(lxpanel_SOURCES)
+SOURCES = $(lxpanel_SOURCES) $(lxpanelctl_SOURCES)
+DIST_SOURCES = $(lxpanel_SOURCES) $(lxpanelctl_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -259,6 +262,8 @@ lxpanel_SOURCES = \
 	gtk-run.c
 
 lxpanel_LDADD = $(PACKAGE_LIBS) $(INTLLIBS)
+lxpanelctl_SOURCES = lxpanelctl.c
+lxpanelctl_LDADD = -lX11 $(INTLLIBS)
 EXTRA_DIST = \
 	plugins/icon.xpm
 
@@ -321,6 +326,9 @@ clean-binPROGRAMS:
 lxpanel$(EXEEXT): $(lxpanel_OBJECTS) $(lxpanel_DEPENDENCIES) 
 	@rm -f lxpanel$(EXEEXT)
 	$(LINK) $(lxpanel_LDFLAGS) $(lxpanel_OBJECTS) $(lxpanel_LDADD) $(LIBS)
+lxpanelctl$(EXEEXT): $(lxpanelctl_OBJECTS) $(lxpanelctl_DEPENDENCIES) 
+	@rm -f lxpanelctl$(EXEEXT)
+	$(LINK) $(lxpanelctl_LDFLAGS) $(lxpanelctl_OBJECTS) $(lxpanelctl_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -345,6 +353,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/icons.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/image.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/launchbar.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lxpanelctl.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/menu.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/misc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/pager.Po@am__quote@

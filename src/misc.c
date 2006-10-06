@@ -63,6 +63,8 @@ Atom a_NET_WM_STRUT_PARTIAL;
 Atom a_NET_WM_ICON;
 Atom a_KDE_NET_WM_SYSTEM_TRAY_WINDOW_FOR;
 
+Atom a_LXPANEL_CMD; /* for private client message */
+
 pair allign_pair[] = {
     { ALLIGN_NONE, "none" },
     { ALLIGN_LEFT, "left" },
@@ -209,7 +211,7 @@ get_line_as_is(FILE *fp, line *s)
 void resolve_atoms()
 {
     ENTER;
-    
+
     a_UTF8_STRING                = XInternAtom(GDK_DISPLAY(), "UTF8_STRING", False);
     a_XROOTPMAP_ID               = XInternAtom(GDK_DISPLAY(), "_XROOTPMAP_ID", False);
     a_WM_STATE                   = XInternAtom(GDK_DISPLAY(), "WM_STATE", False);
@@ -249,7 +251,9 @@ void resolve_atoms()
     a_NET_WM_ICON                = XInternAtom(GDK_DISPLAY(), "_NET_WM_ICON", False);
     a_KDE_NET_WM_SYSTEM_TRAY_WINDOW_FOR
                                  = XInternAtom(GDK_DISPLAY(), "_KDE_NET_WM_SYSTEM_TRAY_WINDOW_FOR", False);
-                                
+
+    a_LXPANEL_CMD = XInternAtom(GDK_DISPLAY(), "_LXPANEL_CMD", False);
+
     RET();
 }
 

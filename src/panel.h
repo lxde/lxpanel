@@ -144,6 +144,7 @@ extern Atom a_NET_WM_STRUT_PARTIAL;
 extern Atom a_NET_WM_ICON;
 extern Atom a_KDE_NET_WM_SYSTEM_TRAY_WINDOW_FOR;
 
+extern Atom a_LXPANEL_CMD; /* for private client message */
 
 extern int verbose;
 

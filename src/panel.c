@@ -19,6 +19,8 @@
 #include "bg.h"
 #include "gtkbgbox.h"
 
+#include "lxpanelctl.h"
+
 static gchar *cfgfile = NULL;
 static gchar version[] = VERSION;
 gchar *cprofile = "default";
@@ -118,6 +120,33 @@ print_wmdata(panel *p)
 }
 
 
+/* built-in commands */
+void configure(void);
+void restart(void);
+void gtk_run(void);
+
+static void process_client_msg ( panel *p, int cmd )
+{
+    switch( cmd )
+    {
+        case LXPANEL_CMD_SYS_MENU:
+            /* FIXME: should popup system menu */
+            break;
+        case LXPANEL_CMD_RUN:
+            gtk_run();
+            break;
+        case LXPANEL_CMD_CONFIG:
+            configure();
+            break;
+        case LXPANEL_CMD_RESTART:
+            restart();
+            break;
+        case LXPANEL_CMD_EXIT:
+            gtk_main_quit();
+            break;
+    }
+}
+
 static GdkFilterReturn
 panel_event_filter(GdkXEvent *xevent, GdkEvent *event, panel *p)
 {
@@ -127,9 +156,15 @@ panel_event_filter(GdkXEvent *xevent, GdkEvent *event, panel *p)
 
     ENTER;
     DBG("win = 0x%x\n", ev->xproperty.window);
-    if (ev->type != PropertyNotify )
+    if (ev->type != PropertyNotify ) {
+        /* private client message from lxpanelctl */
+        if( ev->type == ClientMessage && ev->xproperty.atom == a_LXPANEL_CMD )
+        {
+            process_client_msg( p, ((XClientMessageEvent*)ev)->data.b[0] );
+        }
         RET(GDK_FILTER_CONTINUE);
-    
+	}
+
     at = ev->xproperty.atom;
     win = ev->xproperty.window;
     DBG("win=%x at=%d\n", win, at);
@@ -330,7 +365,7 @@ panel_start_gui(panel *p)
     gtk_window_set_title(GTK_WINDOW(p->topgwin), "panel");
     gtk_window_set_position(GTK_WINDOW(p->topgwin), GTK_WIN_POS_NONE);
     gtk_window_set_decorated(GTK_WINDOW(p->topgwin), FALSE);
-    
+
     g_signal_connect(G_OBJECT(p->topgwin), "delete-event",
           G_CALLBACK(panel_delete_event), p);
     g_signal_connect(G_OBJECT(p->topgwin), "destroy-event",
@@ -408,14 +443,14 @@ panel_start_gui(panel *p)
     XChangeProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STATE, XA_ATOM,
           32, PropModeReplace, (unsigned char *) state, 3);
 
-    XSelectInput (GDK_DISPLAY(), GDK_ROOT_WINDOW(), PropertyChangeMask);
+    XSelectInput (GDK_DISPLAY(), GDK_ROOT_WINDOW(), SubstructureNotifyMask|PropertyChangeMask);
     gdk_window_add_filter(gdk_get_default_root_window (), (GdkFilterFunc)panel_event_filter, p);
 
     calculate_position(p);
     gdk_window_move_resize(p->topgwin->window, p->ax, p->ay, p->aw, p->ah);
     if (p->setstrut)
         panel_set_wm_strut(p);
-  
+
     RET();
 }
 

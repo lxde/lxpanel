@@ -1,6 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 
-bin_PROGRAMS = lxpanel
+bin_PROGRAMS = lxpanel lxpanelctl
 
 INCLUDES = \
 	-I$(top_srcdir) \
@@ -46,6 +46,9 @@ lxpanel_SOURCES = \
 	gtk-run.c
 
 lxpanel_LDADD = $(PACKAGE_LIBS) $(INTLLIBS)
+
+lxpanelctl_SOURCES = lxpanelctl.c
+lxpanelctl_LDADD = -lX11 $(INTLLIBS)
 
 EXTRA_DIST = \
 	plugins/icon.xpm
