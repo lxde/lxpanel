@@ -91,6 +91,7 @@ typedef struct {
 
 typedef struct {
     char *name;
+    char *disp_name;
     void (*cmd)(void);
 } command;
 

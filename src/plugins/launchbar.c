@@ -41,6 +41,8 @@ static const GtkTargetEntry target_table[] = {
     { "STRING",        0, 0 }
 };
 
+static const char desktop_ent[] = "Desktop Entry";
+
 typedef struct btn {
     //GtkWidget *button, *pixmap;
     gchar *action;
@@ -91,7 +93,7 @@ launchbar_destructor(plugin *p)
     ENTER;
     gtk_widget_destroy(lb->box);
     for (i = 0; i < lb->btn_num; i++) {
-        g_free(lb->btns[i].action);     
+        g_free(lb->btns[i].action);
     }
     g_free(lb);
     RET();
@@ -151,7 +153,7 @@ static int
 read_button(plugin *p)
 {
     launchbar *lb = (launchbar *)p->priv;
-    gchar *fname, *tooltip, *action;
+    gchar *fname, *tooltip, *action, *desktop_id;
     //GdkPixbuf *gp, *gps;
     GtkWidget *button;
     line s;
@@ -166,14 +168,16 @@ read_button(plugin *p)
         RET(0);
     }
 
-    tooltip = fname = action = 0;
+    tooltip = fname = action = desktop_id = NULL;
     while (get_line(p->fp, &s) != LINE_BLOCK_END) {
         if (s.type == LINE_NONE) {
             ERR( "launchbar: illegal token %s\n", s.str);
             RET(0);
         }
         if (s.type == LINE_VAR) {
-            if (!g_ascii_strcasecmp(s.t[0], "image")) 
+            if( !g_ascii_strcasecmp(s.t[0], "id") )
+                desktop_id = g_strdup(s.t[1]);
+            else if (!g_ascii_strcasecmp(s.t[0], "image"))
                 fname = expand_tilda(s.t[1]);
             else if (!g_ascii_strcasecmp(s.t[0], "tooltip"))
                 tooltip = g_strdup(s.t[1]);
@@ -189,6 +193,43 @@ read_button(plugin *p)
         }
     }
     DBG("action=%s\n", action);
+
+    if( desktop_id ) {
+        gchar *desktop_file = NULL;
+        gchar *full_id = NULL;
+        GKeyFile* desktop = g_key_file_new();
+        full_id = g_strconcat( "applications/", desktop_id, NULL );
+        if( g_key_file_load_from_data_dirs( desktop, full_id, &desktop_file,
+                                            G_KEY_FILE_NONE, NULL ) )
+        {
+            gchar *icon = NULL, *title = NULL;
+            icon = g_key_file_get_string( desktop, desktop_ent, "Icon", NULL);
+            title = g_key_file_get_locale_string( desktop, desktop_ent,
+                                                "Name", NULL, NULL);
+            if( !fname && icon ){
+                gchar* sep = strchr( icon, '.' );
+                if( sep )
+                    fname = g_strndup( icon, (sep - icon) );
+                else
+                    fname = icon;
+            }
+            if( ! action ) {
+                gchar* exec;
+                exec = g_key_file_get_string( desktop, desktop_ent, "Exec", NULL);
+                action = translate_exec_to_cmd( exec, icon, title, desktop_file );
+                g_free( exec );
+            }
+            if( ! tooltip )
+                tooltip = title;
+            if( fname != icon )
+                g_free( icon );
+            if( tooltip != title )
+                g_free( title );
+        }
+        g_free( full_id );
+        g_free( desktop_file );
+        g_key_file_free( desktop );
+    }
 
     // button
     if (p->panel->orientation == ORIENT_HORIZ) {
@@ -208,26 +249,22 @@ read_button(plugin *p)
           G_CALLBACK (my_button_pressed), (gpointer) &lb->btns[lb->btn_num]);
 
 
-
-    
     GTK_WIDGET_UNSET_FLAGS (button, GTK_CAN_FOCUS);
     // DnD support
     gtk_drag_dest_set (GTK_WIDGET(button),
           GTK_DEST_DEFAULT_ALL, //GTK_DEST_DEFAULT_HIGHLIGHT,
           target_table, G_N_ELEMENTS (target_table),
-          GDK_ACTION_COPY);    
+          GDK_ACTION_COPY);
     g_signal_connect (G_OBJECT(button), "drag_data_received",
           G_CALLBACK (drag_data_received_cb),  (gpointer) &lb->btns[lb->btn_num]);
 
- 
-
     gtk_box_pack_start(GTK_BOX(lb->box), button, FALSE, FALSE, 0);
     gtk_widget_show(button);
-    //gtk_bgbox_set_background(button, BG_ROOT, 0xFFFFFF, 20);        
+    //gtk_bgbox_set_background(button, BG_ROOT, 0xFFFFFF, 20);
 
-    if (p->panel->transparent) 
+    if (p->panel->transparent)
         gtk_bgbox_set_background(button, BG_ROOT, p->panel->tintcolor, p->panel->alpha);
-    
+
     g_free(fname);
     // tooltip
     if (tooltip) {
@@ -251,7 +288,7 @@ read_button(plugin *p)
 static int
 launchbar_constructor(plugin *p)
 {
-    launchbar *lb; 
+    launchbar *lb;
     line s;
     GtkRequisition req;
     static gchar *launchbar_rc = "style 'launchbar-style'\n"
@@ -277,11 +314,11 @@ launchbar_constructor(plugin *p)
     gtk_widget_show(lb->box);
     lb->tips = gtk_tooltips_new();
     
-    if  (p->panel->orientation == ORIENT_HORIZ) 
+    if  (p->panel->orientation == ORIENT_HORIZ)
         lb->iconsize = GTK_WIDGET(p->panel->box)->allocation.height;
     else
         lb->iconsize = GTK_WIDGET(p->panel->box)->allocation.width;
-    DBG("button: req width=%d height=%d\n", req.width, req.height);            
+    DBG("button: req width=%d height=%d\n", req.width, req.height);
     DBG("iconsize=%d\n", lb->iconsize);
     
     s.len = 256;

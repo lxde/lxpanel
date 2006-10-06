@@ -774,14 +774,30 @@ gtk_image_new_from_file_scaled(const gchar *file, gint width,
     GtkWidget *img;
     GdkPixbuf *pb, *pb_scaled;
     gfloat w, h, rw, rh;
+    GtkIconInfo *inf = NULL;
 
     ENTER;
-    if (!g_file_test(file, G_FILE_TEST_EXISTS)) 
-        goto err;
 
+
+    if (!g_file_test(file, G_FILE_TEST_EXISTS)) 
+    {
+        /* FIXME: should reload icon when theme gets changed */
+        inf = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
+                                         file, MAX(width, height), 0);
+        if( ! inf )
+            goto err;
+        file = gtk_icon_info_get_filename(inf);
+    }
+
+#if GTK_CHECK_VERSION( 2, 6, 0 )
+    pb_scaled = gdk_pixbuf_new_from_file_at_scale( file, width, height,
+                                                   keep_ratio, NULL );
+    if( !pb_scaled )
+        goto err;
+#else
     if (!(pb = gdk_pixbuf_new_from_file(file, NULL)))
         goto err;
-    
+
     if (keep_ratio) {
         w = gdk_pixbuf_get_width(pb);
         h = gdk_pixbuf_get_height(pb);
@@ -794,9 +810,14 @@ gtk_image_new_from_file_scaled(const gchar *file, gint width,
     }
     pb_scaled = gdk_pixbuf_scale_simple(pb, width, height,
                                         GDK_INTERP_BILINEAR);
-    img = gtk_image_new_from_pixbuf(pb_scaled);			
     g_object_unref(pb);
+#endif
+    img = gtk_image_new_from_pixbuf(pb_scaled);
     g_object_unref(pb_scaled);
+
+    if( inf )
+        gtk_icon_info_free ( inf );
+
     RET(img);
 
  err:
@@ -913,11 +934,11 @@ GtkWidget *
 fb_button_new_from_file(gchar *fname, int width, int height, gulong hicolor, gboolean keep_ratio)
 {
     GtkWidget *b, *image;
-    
     ENTER;
     b = gtk_bgbox_new();
     gtk_container_set_border_width(GTK_CONTAINER(b), 0);
     GTK_WIDGET_UNSET_FLAGS (b, GTK_CAN_FOCUS);
+
     image = gtk_image_new_from_file_scaled(fname, width, height, keep_ratio);
     gtk_misc_set_alignment(GTK_MISC(image), 0, 0);
     g_object_set_data(G_OBJECT(image), "hicolor", (gpointer)hicolor);
@@ -970,3 +991,45 @@ fb_button_new_from_file_with_label(gchar *fname, int width, int height,
     gtk_widget_show_all(b);
     RET(b);
 }
+
+char* translate_exec_to_cmd( const char* exec, const char* icon,
+                             const char* title, const char* fpath )
+{
+    GString* cmd = g_string_sized_new( 256 );
+    for( ; *exec; ++exec )
+    {
+        if( G_UNLIKELY(*exec == '%') )
+        {
+            ++exec;
+            if( !*exec )
+                break;
+            switch( *exec )
+            {
+                case 'c':
+                    g_string_append( cmd, title );
+                    break;
+                case 'i':
+                    if( icon )
+                    {
+                        g_string_append( cmd, "--icon " );
+                        g_string_append( cmd, icon );
+                    }
+                    break;
+                case 'k':
+                {
+                    char* uri = g_filename_to_uri( fpath, NULL, NULL );
+                    g_string_append( cmd, uri );
+                    g_free( uri );
+                    break;
+                }
+                case '%':
+                    g_string_append_c( cmd, '%' );
+                    break;
+            }
+        }
+        else
+            g_string_append_c( cmd, *exec );
+    }
+    return g_string_free( cmd, FALSE );
+}
+

@@ -13,7 +13,7 @@ PLUGINS_SOURCES= \
 	plugins/cpu.c \
 	plugins/deskno.c \
 	plugins/launchbar.c \
-	plugins/ptk_app_menu.c \
+	plugins/ptk-app-menu.c \
 	plugins/taskbar.c \
 	plugins/dclock.c \
 	plugins/icons.c \
@@ -42,7 +42,8 @@ lxpanel_SOURCES = \
 	gtkbar.h gtkbar.c \
 	gtkbgbox.h gtkbgbox.c \
 	panel.c panel.h \
-	plugin.c plugin.h
+	plugin.c plugin.h \
+	gtk-run.c
 
 lxpanel_LDADD = $(PACKAGE_LIBS) $(INTLLIBS)
 

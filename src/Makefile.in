@@ -50,7 +50,7 @@ am__installdirs = "$(DESTDIR)$(bindir)"
 binPROGRAMS_INSTALL = $(INSTALL_PROGRAM)
 PROGRAMS = $(bin_PROGRAMS)
 am__objects_1 = cpu.$(OBJEXT) deskno.$(OBJEXT) launchbar.$(OBJEXT) \
-	ptk_app_menu.$(OBJEXT) taskbar.$(OBJEXT) dclock.$(OBJEXT) \
+	ptk-app-menu.$(OBJEXT) taskbar.$(OBJEXT) dclock.$(OBJEXT) \
 	icons.$(OBJEXT) menu.$(OBJEXT) separator.$(OBJEXT) \
 	deskno2.$(OBJEXT) image.$(OBJEXT) pager.$(OBJEXT) \
 	space.$(OBJEXT) wincmd.$(OBJEXT)
@@ -59,7 +59,7 @@ am__objects_2 = eggmarshalers.$(OBJEXT) eggtraymanager.$(OBJEXT) \
 am_lxpanel_OBJECTS = misc.$(OBJEXT) $(am__objects_1) $(am__objects_2) \
 	bg.$(OBJEXT) configurator.$(OBJEXT) dbg.$(OBJEXT) ev.$(OBJEXT) \
 	gtkbar.$(OBJEXT) gtkbgbox.$(OBJEXT) panel.$(OBJEXT) \
-	plugin.$(OBJEXT)
+	plugin.$(OBJEXT) gtk-run.$(OBJEXT)
 lxpanel_OBJECTS = $(am_lxpanel_OBJECTS)
 am__DEPENDENCIES_1 =
 lxpanel_DEPENDENCIES = $(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
@@ -226,7 +226,7 @@ PLUGINS_SOURCES = \
 	plugins/cpu.c \
 	plugins/deskno.c \
 	plugins/launchbar.c \
-	plugins/ptk_app_menu.c \
+	plugins/ptk-app-menu.c \
 	plugins/taskbar.c \
 	plugins/dclock.c \
 	plugins/icons.c \
@@ -255,7 +255,8 @@ lxpanel_SOURCES = \
 	gtkbar.h gtkbar.c \
 	gtkbgbox.h gtkbgbox.c \
 	panel.c panel.h \
-	plugin.c plugin.h
+	plugin.c plugin.h \
+	gtk-run.c
 
 lxpanel_LDADD = $(PACKAGE_LIBS) $(INTLLIBS)
 EXTRA_DIST = \
@@ -338,6 +339,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/eggtraymanager.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ev.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/fixedtip.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gtk-run.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gtkbar.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gtkbgbox.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/icons.Po@am__quote@
@@ -348,7 +350,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/pager.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/panel.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/plugin.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ptk_app_menu.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ptk-app-menu.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/separator.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/space.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/taskbar.Po@am__quote@
@@ -411,19 +413,19 @@ launchbar.obj: plugins/launchbar.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o launchbar.obj `if test -f 'plugins/launchbar.c'; then $(CYGPATH_W) 'plugins/launchbar.c'; else $(CYGPATH_W) '$(srcdir)/plugins/launchbar.c'; fi`
 
-ptk_app_menu.o: plugins/ptk_app_menu.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ptk_app_menu.o -MD -MP -MF "$(DEPDIR)/ptk_app_menu.Tpo" -c -o ptk_app_menu.o `test -f 'plugins/ptk_app_menu.c' || echo '$(srcdir)/'`plugins/ptk_app_menu.c; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/ptk_app_menu.Tpo" "$(DEPDIR)/ptk_app_menu.Po"; else rm -f "$(DEPDIR)/ptk_app_menu.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='plugins/ptk_app_menu.c' object='ptk_app_menu.o' libtool=no @AMDEPBACKSLASH@
+ptk-app-menu.o: plugins/ptk-app-menu.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ptk-app-menu.o -MD -MP -MF "$(DEPDIR)/ptk-app-menu.Tpo" -c -o ptk-app-menu.o `test -f 'plugins/ptk-app-menu.c' || echo '$(srcdir)/'`plugins/ptk-app-menu.c; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/ptk-app-menu.Tpo" "$(DEPDIR)/ptk-app-menu.Po"; else rm -f "$(DEPDIR)/ptk-app-menu.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='plugins/ptk-app-menu.c' object='ptk-app-menu.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ptk_app_menu.o `test -f 'plugins/ptk_app_menu.c' || echo '$(srcdir)/'`plugins/ptk_app_menu.c
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ptk-app-menu.o `test -f 'plugins/ptk-app-menu.c' || echo '$(srcdir)/'`plugins/ptk-app-menu.c
 
-ptk_app_menu.obj: plugins/ptk_app_menu.c
-@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ptk_app_menu.obj -MD -MP -MF "$(DEPDIR)/ptk_app_menu.Tpo" -c -o ptk_app_menu.obj `if test -f 'plugins/ptk_app_menu.c'; then $(CYGPATH_W) 'plugins/ptk_app_menu.c'; else $(CYGPATH_W) '$(srcdir)/plugins/ptk_app_menu.c'; fi`; \
-@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/ptk_app_menu.Tpo" "$(DEPDIR)/ptk_app_menu.Po"; else rm -f "$(DEPDIR)/ptk_app_menu.Tpo"; exit 1; fi
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='plugins/ptk_app_menu.c' object='ptk_app_menu.obj' libtool=no @AMDEPBACKSLASH@
+ptk-app-menu.obj: plugins/ptk-app-menu.c
+@am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT ptk-app-menu.obj -MD -MP -MF "$(DEPDIR)/ptk-app-menu.Tpo" -c -o ptk-app-menu.obj `if test -f 'plugins/ptk-app-menu.c'; then $(CYGPATH_W) 'plugins/ptk-app-menu.c'; else $(CYGPATH_W) '$(srcdir)/plugins/ptk-app-menu.c'; fi`; \
+@am__fastdepCC_TRUE@	then mv -f "$(DEPDIR)/ptk-app-menu.Tpo" "$(DEPDIR)/ptk-app-menu.Po"; else rm -f "$(DEPDIR)/ptk-app-menu.Tpo"; exit 1; fi
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='plugins/ptk-app-menu.c' object='ptk-app-menu.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ptk_app_menu.obj `if test -f 'plugins/ptk_app_menu.c'; then $(CYGPATH_W) 'plugins/ptk_app_menu.c'; else $(CYGPATH_W) '$(srcdir)/plugins/ptk_app_menu.c'; fi`
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o ptk-app-menu.obj `if test -f 'plugins/ptk-app-menu.c'; then $(CYGPATH_W) 'plugins/ptk-app-menu.c'; else $(CYGPATH_W) '$(srcdir)/plugins/ptk-app-menu.c'; fi`
 
 taskbar.o: plugins/taskbar.c
 @am__fastdepCC_TRUE@	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT taskbar.o -MD -MP -MF "$(DEPDIR)/taskbar.Tpo" -c -o taskbar.o `test -f 'plugins/taskbar.c' || echo '$(srcdir)/'`plugins/taskbar.c; \

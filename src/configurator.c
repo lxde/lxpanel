@@ -19,10 +19,12 @@
 
 void configure(void);
 void restart(void);
+void gtk_run(void);
 
 command commands[] = {
-    { "configure", configure },
-    { "restart", restart },
+    { "configure", N_("Preferences"), configure },
+    { "run", N_("Run"), gtk_run },
+    { "restart", N_("Restart"), restart },
     { NULL, NULL },
 };
 

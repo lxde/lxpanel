@@ -3,6 +3,7 @@
 
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <glib.h>
+#include <glib/gi18n.h>
 
 #include "panel.h"
 #include "misc.h"
@@ -12,8 +13,6 @@
 
 //#define DEBUG
 #include "dbg.h"
-
-// #include "ptk_app_menu.c"
 
 /*
  * SuxPanel version 0.1
@@ -189,12 +188,12 @@ read_item(plugin *p)
     gchar *name, *fname, *action;
     GtkWidget *item;
     menup *m = (menup *)p->priv;
-    void (*cmd)(void);
+    command *cmd_entry = NULL;
 
     ENTER;
     s.len = 256;
-    name = fname = action = 0;
-    cmd = NULL;
+    name = fname = action = NULL;
+
     while (get_line(p->fp, &s) != LINE_BLOCK_END) {
         if (s.type == LINE_VAR) {
             if (!g_ascii_strcasecmp(s.t[0], "image"))
@@ -208,7 +207,7 @@ read_item(plugin *p)
 
                 for (tmp = commands; tmp->name; tmp++) {
                     if (!g_ascii_strcasecmp(s.t[1], tmp->name)) {
-                        cmd = tmp->cmd;
+                        cmd_entry = tmp;
                         break;
                     }
                 }
@@ -219,10 +218,20 @@ read_item(plugin *p)
         }
     }
     /* menu button */
-    item = gtk_image_menu_item_new_with_label(name ? name : "");
+    if( cmd_entry ) /* built-in commands */
+    {
+        item = gtk_image_menu_item_new_with_label( _(cmd_entry->disp_name) );
+        g_signal_connect(G_OBJECT(item), "activate", (GCallback)run_command, cmd_entry->cmd);
+    }
+    else
+    {
+        item = gtk_image_menu_item_new_with_label(name ? name : "");
+        if (action) {
+            g_signal_connect(G_OBJECT(item), "activate", (GCallback)spawn_app, action);
+        }
+    }
     gtk_container_set_border_width(GTK_CONTAINER(item), 0);
-    if (name)
-        g_free(name);
+    g_free(name);
     if (fname) {
         GtkWidget *img;
 
@@ -230,11 +239,6 @@ read_item(plugin *p)
         gtk_widget_show(img);
         gtk_image_menu_item_set_image(GTK_IMAGE_MENU_ITEM(item), img);
         g_free(fname);
-    }
-    if (cmd) {
-        g_signal_connect(G_OBJECT(item), "activate", (GCallback)run_command, cmd);
-    } else if (action) {
-        g_signal_connect(G_OBJECT(item), "activate", (GCallback)spawn_app, action);
     }
     RET(item);
 

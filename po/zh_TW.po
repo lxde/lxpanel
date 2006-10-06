@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel-0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-06 01:38+0800\n"
-"PO-Revision-Date: 2006-10-06 01:46+0800\n"
+"POT-Creation-Date: 2006-10-06 19:03+0800\n"
+"PO-Revision-Date: 2006-10-06 19:04+0800\n"
 "Last-Translator: 洪任諭 <pcman.tw@gmail.com>\n"
 "Language-Team: zh_TW <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,113 +18,126 @@ msgstr ""
 "X-Poedit-Country: TAIWAN\n"
 "X-Poedit-SourceCharset: iso-8859-1\n"
 
-#: ../src/configurator.c:165
+#: ../src/configurator.c:25
+msgid "Preferences"
+msgstr "偏好設定"
+
+#: ../src/configurator.c:26
+#: ../src/gtk-run.c:108
+msgid "Run"
+msgstr "執行"
+
+#: ../src/configurator.c:27
+msgid "Restart"
+msgstr "重新啟動"
+
+#: ../src/configurator.c:167
 msgid "<b>Position</b>"
 msgstr "<b>位置</b>"
 
 #. Edge
-#: ../src/configurator.c:182
+#: ../src/configurator.c:184
 msgid "Edge:"
 msgstr "吸附邊緣："
 
-#: ../src/configurator.c:189
-#: ../src/configurator.c:211
+#: ../src/configurator.c:191
+#: ../src/configurator.c:213
 msgid "Left"
 msgstr "左"
 
-#: ../src/configurator.c:190
-#: ../src/configurator.c:213
+#: ../src/configurator.c:192
+#: ../src/configurator.c:215
 msgid "Right"
 msgstr "右"
 
-#: ../src/configurator.c:191
+#: ../src/configurator.c:193
 msgid "Top"
 msgstr "上"
 
-#: ../src/configurator.c:192
+#: ../src/configurator.c:194
 msgid "Bottom"
 msgstr "下"
 
 #. Alignment
-#: ../src/configurator.c:203
+#: ../src/configurator.c:205
 msgid "Alignment:"
 msgstr "排列方式："
 
-#: ../src/configurator.c:212
+#: ../src/configurator.c:214
 msgid "Center"
 msgstr "置中"
 
 #. Margin
-#: ../src/configurator.c:224
+#: ../src/configurator.c:226
 msgid "Margin:"
 msgstr "留空："
 
-#: ../src/configurator.c:279
+#: ../src/configurator.c:281
 msgid "<b>Size</b>"
 msgstr "<b>大小</b>"
 
 #. width
-#: ../src/configurator.c:296
+#: ../src/configurator.c:298
 msgid "Width:"
 msgstr "寬度："
 
-#: ../src/configurator.c:308
+#: ../src/configurator.c:310
 msgid "dynamic"
 msgstr "動態"
 
-#: ../src/configurator.c:309
-#: ../src/configurator.c:334
+#: ../src/configurator.c:311
+#: ../src/configurator.c:336
 msgid "pixels"
 msgstr "像素 (pixels)"
 
-#: ../src/configurator.c:310
+#: ../src/configurator.c:312
 #, c-format
 msgid "% of edge"
 msgstr "% 百分比"
 
 #. height
-#: ../src/configurator.c:322
+#: ../src/configurator.c:324
 msgid "Height:"
 msgstr "高度："
 
-#: ../src/configurator.c:368
+#: ../src/configurator.c:370
 msgid "<b>Transparency</b>"
 msgstr "<b>透明度</b>"
 
-#: ../src/configurator.c:382
+#: ../src/configurator.c:384
 msgid "Enable Transparency"
 msgstr " 啟用透明效果"
 
 #. gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(tr_checkb), FALSE);
-#: ../src/configurator.c:388
+#: ../src/configurator.c:390
 msgid "Tint color:"
 msgstr "色彩："
 
-#: ../src/configurator.c:413
+#: ../src/configurator.c:415
 msgid "<b>Properties</b>"
 msgstr "<b>屬性</b>"
 
-#: ../src/configurator.c:427
+#: ../src/configurator.c:429
 msgid "Set Dock Type"
 msgstr "設定停駐型態"
 
-#: ../src/configurator.c:430
+#: ../src/configurator.c:432
 msgid "Set Strut"
 msgstr ""
 
-#: ../src/configurator.c:461
+#: ../src/configurator.c:463
 msgid "Right-click to get context menu. Drag & Drop to change order."
 msgstr "可以按右鍵使用選單，用拖曳改變順序"
 
-#: ../src/configurator.c:517
+#: ../src/configurator.c:519
 msgid "lxpanel configurator"
 msgstr "lxpanel 偏好設定"
 
-#: ../src/configurator.c:540
+#: ../src/configurator.c:542
 msgid "General"
 msgstr "一般"
 
-#: ../src/configurator.c:545
+#: ../src/configurator.c:547
 msgid "Plugins"
 msgstr "外掛"
 
@@ -183,6 +196,10 @@ msgstr ""
 "詳細資訊請參觀 http://lxpanel.sourceforge.net/\n"
 "\n"
 
+#: ../src/gtk-run.c:118
+msgid "Enter the command you want to execute:"
+msgstr "輸入你要想執行的指令："
+
 #: ../src/plugins/cpu.c:210
 msgid "Display cpu usage"
 msgstr ""
@@ -192,51 +209,51 @@ msgstr ""
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr ""
 
-#: ../src/plugins/launchbar.c:327
+#: ../src/plugins/launchbar.c:364
 msgid "Bar with buttons to launch application"
 msgstr ""
 
-#: ../src/plugins/ptk_app_menu.c:143
+#: ../src/plugins/ptk-app-menu.c:145
 msgid "Other"
 msgstr "其他"
 
-#: ../src/plugins/ptk_app_menu.c:144
+#: ../src/plugins/ptk-app-menu.c:146
 msgid "Game"
 msgstr "遊戲"
 
-#: ../src/plugins/ptk_app_menu.c:145
+#: ../src/plugins/ptk-app-menu.c:147
 msgid "Education"
 msgstr "教育"
 
-#: ../src/plugins/ptk_app_menu.c:146
+#: ../src/plugins/ptk-app-menu.c:148
 msgid "Development"
 msgstr "軟體開發"
 
-#: ../src/plugins/ptk_app_menu.c:147
+#: ../src/plugins/ptk-app-menu.c:149
 msgid "Audio & Video"
 msgstr "影音多媒體"
 
-#: ../src/plugins/ptk_app_menu.c:148
+#: ../src/plugins/ptk-app-menu.c:150
 msgid "Graphics"
 msgstr "繪圖"
 
-#: ../src/plugins/ptk_app_menu.c:149
+#: ../src/plugins/ptk-app-menu.c:151
 msgid "Settings"
 msgstr "設定"
 
-#: ../src/plugins/ptk_app_menu.c:150
+#: ../src/plugins/ptk-app-menu.c:152
 msgid "System Tools"
 msgstr "系統工具"
 
-#: ../src/plugins/ptk_app_menu.c:151
+#: ../src/plugins/ptk-app-menu.c:153
 msgid "Network"
 msgstr "網路"
 
-#: ../src/plugins/ptk_app_menu.c:152
+#: ../src/plugins/ptk-app-menu.c:154
 msgid "Office"
 msgstr "辦公軟體"
 
-#: ../src/plugins/ptk_app_menu.c:153
+#: ../src/plugins/ptk-app-menu.c:155
 msgid "Accessories"
 msgstr "附屬應用程式"
 
@@ -283,7 +300,7 @@ msgstr ""
 
 #: ../src/plugins/wincmd.c:221
 msgid "Left click to iconify all windows. Middle click to shade them"
-msgstr "按左鍵最小化所有視窗 / 右鍵折疊所有視窗"
+msgstr "按左鍵最小化所有視窗 / 中鍵折疊所有視窗"
 
 #: ../src/plugins/wincmd.c:239
 msgid ""

@@ -27,6 +27,8 @@
 #define g_slice_free1(size, mem)    g_free(mem)
 #endif
 
+#include "misc.h" /* Misc functions for lxpanel */
+
 #define ICON_SIZE        24
 
 GtkWidget* ptk_app_menu_new();
@@ -192,7 +194,9 @@ static int find_menu_item_by_name( gpointer a, gpointer b )
     return strcmp(data->name, b);
 }
 
-static char* translate_exec( const char* exec, PtkAppMenuItem* data,
+/* Moved to misc.c of lxpanel to be used in other plugins */
+#if 0
+static char* translate_exec( const char* exec, const char* icon,
                              const char* title, const char* fpath )
 {
     GString* cmd = g_string_sized_new( 256 );
@@ -209,10 +213,10 @@ static char* translate_exec( const char* exec, PtkAppMenuItem* data,
                 g_string_append( cmd, title );
                 break;
             case 'i':
-                if( data->icon )
+                if( icon )
                 {
                     g_string_append( cmd, "--icon " );
-                    g_string_append( cmd, data->icon );
+                    g_string_append( cmd, icon );
                 }
                 break;
             case 'k':
@@ -232,6 +236,7 @@ static char* translate_exec( const char* exec, PtkAppMenuItem* data,
     }
     return g_string_free( cmd, FALSE );
 }
+#endif
 
 void  unload_old_icons( GtkWidget* menu )
 {
@@ -400,7 +405,7 @@ static void do_load_dir( int prefix_len,
                             g_free( data->icon );
                         }
                         data->name = g_strdup( fpath + prefix_len );
-                        data->exec = exec ? translate_exec( exec, data, title, fpath ) : NULL;
+                        data->exec = exec ? translate_exec_to_cmd( exec, data->icon, title, fpath ) : NULL;
                         g_free( title );
                         g_signal_connect( menu_item, "expose-event", on_menu_item_expose, data );
                         g_signal_connect( menu_item, "size-request", on_menu_item_size_request, data );
