@@ -1,6 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 
-SUBDIRS = plugins/netstatus
+SUBDIRS = plugins
 
 bin_PROGRAMS = lxpanel lxpanelctl
 
@@ -11,21 +11,7 @@ INCLUDES = \
 	-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
 	$(PACKAGE_CFLAGS)
 
-PLUGINS_SOURCES= \
-	plugins/cpu.c \
-	plugins/deskno.c \
-	plugins/launchbar.c \
-	plugins/ptk-app-menu.c \
-	plugins/taskbar.c \
-	plugins/dclock.c \
-	plugins/icons.c \
-	plugins/menu.c \
-	plugins/separator.c \
-	plugins/deskno2.c \
-	plugins/image.c \
-	plugins/pager.c \
-	plugins/space.c \
-	plugins/wincmd.c
+BUILTIN_PLUGINS = $(top_builddir)/src/plugins/libbuiltin_plugins.a
 
 TRAY_SOURCES= \
 	systray/eggmarshalers.c systray/eggmarshalers.h \
@@ -35,7 +21,6 @@ TRAY_SOURCES= \
 
 lxpanel_SOURCES = \
 	misc.c misc.h \
-	$(PLUGINS_SOURCES) \
 	$(TRAY_SOURCES) \
 	bg.c bg.h  \
 	configurator.c \
@@ -47,7 +32,10 @@ lxpanel_SOURCES = \
 	plugin.c plugin.h \
 	gtk-run.c
 
-lxpanel_LDADD = $(PACKAGE_LIBS) $(INTLLIBS)
+lxpanel_LDADD = \
+		$(BUILTIN_PLUGINS) \
+		$(PACKAGE_LIBS) \
+		$(INTLLIBS)
 
 lxpanelctl_SOURCES = lxpanelctl.c lxpanelctl.h
 lxpanelctl_LDADD = -lX11 $(INTLLIBS)

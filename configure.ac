@@ -55,6 +55,7 @@ AM_GLIB_GNU_GETTEXT
 AC_CONFIG_FILES([
 	Makefile
 	src/Makefile
+	src/plugins/Makefile
 	src/plugins/netstatus/Makefile
 	po/Makefile.in
 	data/Makefile
