@@ -241,6 +241,16 @@ Plugin {
     }
 }
 
+# Uncomment this block to enable net status plug-in
+#
+# Plugin {
+#     type = netstatus
+#     config {
+#         iface = eth0
+#     }
+# }
+
+
 Plugin {
     type = tray
 }
@@ -254,3 +264,4 @@ Plugin {
         Action = xmessage Please define some command &
     }
 }
+
