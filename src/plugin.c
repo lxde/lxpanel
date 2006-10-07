@@ -163,7 +163,7 @@ plugin_load(char *type)
         register_plugin_class(pc, 1);
         DBG("4\n");
     }
-#endif 	/* DISABLE_PLUGINS */
+#endif 	/* DISABLE_PLUGINS_LOADING */
 
     /* nothing was found */
     if (!pc)
