@@ -224,7 +224,7 @@ del_task (taskbar * tb, task *tk, int hdel)
     if( tk->flash_timeout )
         g_source_remove( tk->flash_timeout );
     gtk_widget_destroy(tk->button);
-    tb->num_tasks--; 
+    --tb->num_tasks;
     tk_free_names(tk);	    
     if (tb->focused == tk)
         tb->focused = NULL;
@@ -907,16 +907,16 @@ tb_net_client_list(GtkWidget *widget, taskbar *tb)
 {
     int i;
     task *tk;
-    
+
     ENTER;
     if (tb->wins)
         XFree(tb->wins);
     tb->wins = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_CLIENT_LIST, XA_WINDOW, &tb->win_num);
-    if (!tb->wins) 
-	RET();
+    if (!tb->wins)
+        RET();
     for (i = 0; i < tb->win_num; i++) {
         if ((tk = g_hash_table_lookup(tb->task_list, &tb->wins[i]))) {
-            tk->refcount++;
+            ++tk->refcount;
         } else {
             net_wm_window_type nwwt;
             net_wm_state nws;
@@ -927,10 +927,10 @@ tb_net_client_list(GtkWidget *widget, taskbar *tb)
             get_net_wm_window_type(tb->wins[i], &nwwt);
             if (!accept_net_wm_window_type(&nwwt))
                 continue;
-            
+
             tk = g_new0(task, 1);
             tk->refcount = 1;
-            tb->num_tasks++;
+            ++tb->num_tasks;
             tk->win = tb->wins[i];
             tk->tb = tb;
             tk->iconified = (get_wm_state(tk->win) == IconicState);
@@ -940,14 +940,14 @@ tb_net_client_list(GtkWidget *widget, taskbar *tb)
             if( tb->use_urgency_hint && tk_has_urgency(tk)) {
                 tk->urgency = 1;
             }
-         
+
             tk_build_gui(tb, tk);
             tk_set_names(tk);
             g_hash_table_insert(tb->task_list, &tk->win, tk);
             DBG("adding %08x(%p) %s\n", tk->win, FBPANEL_WIN(tk->win), tk->name);
         }
     }
-    
+
     /* remove windows that arn't in the NET_CLIENT_LIST anymore */
     g_hash_table_foreach_remove(tb->task_list, (GHRFunc) tb_remove_stale_tasks, NULL);
     tb_display(tb);

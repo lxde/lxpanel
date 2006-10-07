@@ -57,6 +57,7 @@ static gboolean setup_auto_complete( gpointer entry )
             }
             g_free( filename );
         }
+        g_dir_close( dir );
     }
     g_strfreev( dirnames );
 
@@ -70,8 +71,10 @@ static gboolean setup_auto_complete( gpointer entry )
     g_list_free( list );
 
     gtk_entry_completion_set_model( comp, (GtkTreeModel*)store );
+    g_object_unref( store );
     gtk_entry_completion_set_text_column( comp, 0 );
     gtk_entry_set_completion( (GtkEntry*)entry, comp );
+    g_object_unref( G_OBJECT(comp) );
     return FALSE;
 }
 
@@ -106,7 +109,6 @@ static void on_response( GtkDialog* dlg, gint response, gpointer user_data )
 void gtk_run()
 {
     GtkWidget *win, *entry, *hbox;
-
     win = gtk_dialog_new_with_buttons( _("Run"),
                                        NULL,
                                        GTK_DIALOG_NO_SEPARATOR,

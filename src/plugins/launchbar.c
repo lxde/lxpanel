@@ -199,6 +199,7 @@ read_button(plugin *p)
         gchar *full_id = NULL;
         GKeyFile* desktop = g_key_file_new();
         full_id = g_strconcat( "applications/", desktop_id, NULL );
+        g_free( desktop_id );
         if( g_key_file_load_from_data_dirs( desktop, full_id, &desktop_file,
                                             G_KEY_FILE_NONE, NULL ) )
         {

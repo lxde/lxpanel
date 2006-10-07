@@ -380,7 +380,13 @@ get_xaproperty (Window win, Atom prop, Atom type, int *nitems)
     if (XGetWindowProperty (GDK_DISPLAY(), win, prop, 0, 0x7fffffff, False,
               type, &type_ret, &format_ret, &items_ret,
               &after_ret, &prop_data) != Success)
+    {
+        if( G_UNLIKELY(prop_data) )
+            XFree( prop_data );
+        if( nitems )
+            *nitems = 0;
         RET(NULL);
+    }
     if (nitems)
         *nitems = items_ret;
     RET(prop_data);

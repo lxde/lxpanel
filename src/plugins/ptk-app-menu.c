@@ -351,21 +351,27 @@ static void do_load_dir( int prefix_len,
         if( g_file_test(fpath, G_FILE_TEST_IS_DIR) )
         {
             do_load_dir( prefix_len, fpath, sub_menus );
+            g_free( fpath );
             continue;
         }
         if( ! g_str_has_suffix( name, ".desktop" ) )
+        {
+            g_free( fpath );
             continue;
+        }
         file = g_key_file_new();
         g_key_file_load_from_file( file, fpath, 0, NULL );
         if( g_key_file_get_boolean( file, desktop_ent, "NoDisplay", NULL ) )
         {
             g_key_file_free( file );
+            g_free( fpath );
             continue;
         }
         only_show_in = g_key_file_get_string_list( file, desktop_ent, "OnlyShowIn", NULL, NULL );
         if( only_show_in )
         {
             g_key_file_free( file );
+            g_free( fpath );
             g_strfreev( only_show_in );
             continue;
         }

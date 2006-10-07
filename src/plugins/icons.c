@@ -71,11 +71,17 @@ get_wmclass(task *tk)
         XFree(tk->ch.res_name);
     if (tk->ch.res_class)
         XFree(tk->ch.res_class);
-    if (!XGetClassHint (gdk_display, tk->win, &tk->ch)) 
+    tk->ch.res_class = tk->ch.res_name = NULL;
+    if (!XGetClassHint (gdk_display, tk->win, &tk->ch))
+    {
+        if( G_UNLIKELY(tk->ch.res_class))
+            XFree(tk->ch.res_class);
+        if( G_UNLIKELY(tk->ch.res_name))
+            XFree(tk->ch.res_name);
         tk->ch.res_class = tk->ch.res_name = NULL;
+    }
     RET();
 }
-
 
 
 
@@ -94,6 +100,10 @@ del_task (icons * ics, task *tk, int hdel)
     ics->num_tasks--; 
     if (hdel)
         g_hash_table_remove(ics->task_list, &tk->win);
+    if (tk->ch.res_name)
+        XFree(tk->ch.res_name);
+    if (tk->ch.res_class)
+        XFree(tk->ch.res_class);
     g_free(tk);
     RET();
 }
@@ -221,7 +231,7 @@ static gboolean
 remove_stale_tasks(Window *win, task *tk, gpointer data)
 {
     ENTER;
-    if (tk->refcount-- == 0) {
+    if ( tk->refcount-- == 0) {
         del_task(tk->ics, tk, 0);
         RET(TRUE);
     }
@@ -249,13 +259,14 @@ do_net_client_list(GtkWidget *widget, icons *ics)
 {
     int i;
     task *tk;
-    
+
     ENTER;
     if (ics->wins)
         XFree(ics->wins);
+
     ics->wins = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_CLIENT_LIST, XA_WINDOW, &ics->win_num);
-    if (!ics->wins) 
-	RET();
+    if (!ics->wins)
+        RET();
 
     for (i = 0; i < ics->win_num; i++) {
         if ((tk = g_hash_table_lookup(ics->task_list, &ics->wins[i]))) {
@@ -266,7 +277,7 @@ do_net_client_list(GtkWidget *widget, icons *ics)
             ics->num_tasks++;
             tk->win = ics->wins[i];
             tk->ics = ics;
-            
+
             if (!FBPANEL_WIN(tk->win))
                 XSelectInput (GDK_DISPLAY(), tk->win, PropertyChangeMask | StructureNotifyMask); 
             get_wmclass(tk);
@@ -274,7 +285,7 @@ do_net_client_list(GtkWidget *widget, icons *ics)
             g_hash_table_insert(ics->task_list, &tk->win, tk);
         }
     }
-    
+
     /* remove windows that arn't in the NET_CLIENT_LIST anymore */
     g_hash_table_foreach_remove(ics->task_list, (GHRFunc) remove_stale_tasks, NULL);
     RET();

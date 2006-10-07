@@ -206,6 +206,7 @@ panel_event_filter(GdkXEvent *xevent, GdkEvent *event, panel *p)
             }
 	} else if (at == a_NET_WORKAREA) {
             DBG("A_NET_WORKAREA\n");
+            g_free( p->workarea );
             p->workarea = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_WORKAREA, XA_CARDINAL, &p->wa_len);
             print_wmdata(p);
         } else
@@ -623,6 +624,8 @@ panel_parse_plugin(panel *p, FILE *fp)
     }
     DBG("plug %s\n", type);
     p->plugins = g_list_append(p->plugins, plug);
+
+    g_free( type );
     RET(1);
     
  error:
@@ -862,6 +865,7 @@ main(int argc, char *argv[], char *env[])
             exit(1);
         }
         fclose(pfp);
+        g_free( cfgfile ); /* FIXME: is it safe to free the string here? */
         if (config)
             configure();
         gtk_main();
