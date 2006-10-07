@@ -8,6 +8,7 @@ AC_CONFIG_HEADER([config.h])
 AC_PROG_CC
 AC_PROG_INSTALL
 AC_PROG_LN_S
+AC_PROG_LIBTOOL
 AC_PROG_INTLTOOL(, [no-xml])
 
 # Checks for libraries.
@@ -17,6 +18,10 @@ pkg_modules="gtk+-2.0 >= 2.6.0 \
 PKG_CHECK_MODULES(PACKAGE, [$pkg_modules])
 AC_SUBST(PACKAGE_CFLAGS)
 AC_SUBST(PACKAGE_LIBS)
+
+dnl check for netstats
+PKG_CHECK_MODULES(GCONF, [gconf-2.0], HAVE_GCONF=yes, HAVE_GCONF=no)
+AM_CONDITIONAL(BUILD_NETSTATS, test x$HAVE_GCONF = xyes)
 
 # Checks for header files.
 AC_PATH_X
@@ -50,6 +55,7 @@ AM_GLIB_GNU_GETTEXT
 AC_CONFIG_FILES([
 	Makefile
 	src/Makefile
+	src/plugins/netstatus/Makefile
 	po/Makefile.in
 	data/Makefile
 	data/default

@@ -1,5 +1,7 @@
 ## Process this file with automake to produce Makefile.in
 
+SUBDIRS = plugins/netstatus
+
 bin_PROGRAMS = lxpanel lxpanelctl
 
 INCLUDES = \
