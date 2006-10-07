@@ -36,8 +36,8 @@ static gboolean setup_auto_complete( gpointer entry )
     gtk_entry_completion_set_inline_completion( comp, TRUE );
 #if GTK_CHECK_VERSION( 2, 8, 0 )
     gtk_entry_completion_set_popup_set_width( comp, TRUE );
-#endif
     gtk_entry_completion_set_popup_single_match( comp, FALSE );
+#endif
      store = gtk_list_store_new( 1, G_TYPE_STRING );
 
     for( dirname = dirnames; *dirname; ++dirname )
