@@ -21,7 +21,7 @@ AC_SUBST(PACKAGE_LIBS)
 
 dnl check for netstats
 PKG_CHECK_MODULES(GCONF, [gconf-2.0], HAVE_GCONF=yes, HAVE_GCONF=no)
-AM_CONDITIONAL(BUILD_NETSTATS, test x$HAVE_GCONF = xyes)
+AM_CONDITIONAL(BUILD_NETSTATUS, test x$HAVE_GCONF = xyes)
 
 # Checks for header files.
 AC_PATH_X
