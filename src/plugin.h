@@ -1,9 +1,7 @@
-
 #ifndef PLUGIN_H
 #define PLUGIN_H
-#include <gmodule.h>
 
-#define STATIC_PLUGINS /* Force the use of static plugins */
+#include <gmodule.h>
 
 #include <gtk/gtk.h>
 #include <gdk/gdk.h>
@@ -48,7 +46,7 @@ void plugin_put(plugin *this);
 int plugin_start(plugin *this);
 void plugin_stop(plugin *this);
 
-#ifdef STATIC_PLUGINS
+/* FIXME: optional definitions */
 #define STATIC_SEPARATOR
 #define STATIC_IMAGE
 #define STATIC_LAUNCHBAR
@@ -62,7 +60,5 @@ void plugin_stop(plugin *this);
 #define STATIC_SPACE
 #define STATIC_ICONS
 #define STATIC_DESKNO
-#endif
-
 
 #endif

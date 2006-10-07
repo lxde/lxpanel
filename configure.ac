@@ -19,9 +19,20 @@ PKG_CHECK_MODULES(PACKAGE, [$pkg_modules])
 AC_SUBST(PACKAGE_CFLAGS)
 AC_SUBST(PACKAGE_LIBS)
 
-dnl check for netstats
-PKG_CHECK_MODULES(GCONF, [gconf-2.0], HAVE_GCONF=yes, HAVE_GCONF=no)
-AM_CONDITIONAL(BUILD_NETSTATUS, test x$HAVE_GCONF = xyes)
+AC_ARG_ENABLE([plugins-loading],
+	AS_HELP_STRING([--disable-plugins-loading],
+		       [disable plugin loading (default: enable)]),
+		       plugins_loading=$enableval, plugins_loading="yes")
+
+if test "$plugins_loading" = "no"; then
+	AC_DEFINE(DISABLE_PLUGINS_LOADING, [1], [Disable plugin loading])
+	AM_CONDITIONAL(BUILD_NETSTATUS, no)
+else
+	dnl check for netstatus
+	PKG_CHECK_MODULES(GCONF, [gconf-2.0], HAVE_GCONF=yes, HAVE_GCONF=no)
+	AM_CONDITIONAL(BUILD_NETSTATUS, test x$HAVE_GCONF = xyes)
+fi
+
 
 # Checks for header files.
 AC_PATH_X

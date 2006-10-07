@@ -130,7 +130,8 @@ plugin_load(char *type)
             break;
         }
     }
-#ifndef STATIC_PLUGINS
+
+#ifndef DISABLE_PLUGINS_LOADING
     if (!tmp && g_module_supported()) {
         GModule *m;
         static GString *str = NULL;
@@ -162,7 +163,7 @@ plugin_load(char *type)
         register_plugin_class(pc, 1);
         DBG("4\n");
     }
-#endif
+#endif 	/* DISABLE_PLUGINS */
 
     /* nothing was found */
     if (!pc)
