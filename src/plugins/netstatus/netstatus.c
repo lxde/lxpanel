@@ -7,14 +7,15 @@
 #include "misc.h"
 #include "plugin.h"
 
-//#define DEBUG
 #include "dbg.h"
 
 #include "netstatus-icon.h"
+#include "netstatus-dialog.h"
 
 typedef struct {
     char *iface;
     GtkWidget *mainw;
+    GtkWidget *dlg;
 } netstatus;
 
 
@@ -69,6 +70,35 @@ _get_line(FILE *fp, line *s)
     RET(s->type);
 }
 
+static void on_response( GtkDialog* dlg, gint response, netstatus *ns )
+{
+    switch( response )
+    {
+        case GTK_RESPONSE_CLOSE:
+        case GTK_RESPONSE_DELETE_EVENT:
+        case GTK_RESPONSE_NONE:
+            gtk_widget_destroy( dlg );
+            ns->dlg = NULL;
+    }
+}
+
+static void on_button_press( GtkWidget* widget, GdkEventButton* evt, plugin* p )
+{
+    NetstatusIface* iface;
+    netstatus *ns = (netstatus*)p->priv;
+
+    if( evt->button == 1 ) /*  Left click*/
+    {
+        if( ! ns->dlg )
+        {
+            iface = netstatus_icon_get_iface( NETSTATUS_ICON(widget) );
+            ns->dlg = netstatus_dialog_new(iface);
+            g_signal_connect( ns->dlg, "response", on_response, ns );
+        }
+        gtk_window_present( GTK_WINDOW(ns->dlg) );
+    }
+}
+
 static int
 netstatus_constructor(plugin *p)
 {
@@ -76,6 +106,7 @@ netstatus_constructor(plugin *p)
     line s;
     int w, h;
     NetstatusIface* iface;
+    GtkWidget* icon;
 
     ENTER;
     s.len = 256;  
@@ -102,6 +133,10 @@ netstatus_constructor(plugin *p)
 
     iface = netstatus_iface_new(ns->iface);
     ns->mainw = netstatus_icon_new( iface );
+    gtk_widget_add_events( ns->mainw, GDK_BUTTON_PRESS_MASK );
+    g_object_unref( iface );
+    g_signal_connect( ns->mainw, "button-press-event",
+                      G_CALLBACK(on_button_press), p );
     gtk_widget_set_size_request( ns->mainw, 24, 24 );
 
     gtk_widget_show_all(ns->mainw);
