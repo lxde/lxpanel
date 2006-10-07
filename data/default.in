@@ -1,0 +1,256 @@
+########################################
+## lxpanel configuration file         ##
+########################################
+
+
+# DESCRIPTION
+# Configuration file consists of mandatory 'Global' block that MUST come first,
+# and optionally one or more 'Plugin' block.
+# Lines having '#' as first non-blank char or blank lines are ignored
+# Value of variable is a text from first non-blank char after '=' 
+# till the last non-blank char. '#' is NOT treated as coment in this context
+
+# 'Global' block describes gloabal parameters like position, size and 
+# some NETWM settings
+
+# GLobal {
+
+#     # screen edge  
+#     # legal values are: left, right, top, bottom
+#     edge = bottom
+
+#     # allignment of a panel
+#     # legal values are: left, right, center
+#     allign = left
+
+#     # length of margin (in pixels) 
+#     # legal values are numbers
+#     margin = 0
+
+#     # widthtype specifies how panel width is calculated
+#     # legal values are: request, pixel, percent
+#     #   request - follow widgets' size requests. can shrink or grow dynamically
+#     #   pixel   - ocupy fixed number of pixels, then 'width' variable holds a number
+#     #   percent - be 'width' precent of an edge.
+#     widthtype = percent
+
+#     # numerical value of width (not applicable for 'request' widthtype)
+#     # legal values are numbers
+#     width = 80
+
+#     # heighttype specifies how panel height is calculated
+#     # legal values are: pixel
+#     #   pixel   - ocupy fixed number of pixels, then 'height' variable holds a number
+#     heighttype = pixel
+
+#     # numerical value of height (if applicable)
+#     # legal values are numbers
+#     height = 28
+
+
+#     # Identify panel window type as dock 
+#     # legal values are boolean
+#     SetDockTpe = true
+
+#     # Reserve panel's space so that it will not be covered by maximazied windows
+#     # legal values are boolean
+#     # SetPartialStrut = true
+ 
+
+#     # Transparency stuff: 
+#     # TintColor is a color to composite on root background given as #RRGGBB or as name
+#     # Alpha is transparency of the tint color.
+#     # Transparent = true
+#     # TintColor = #FFFFFF
+#         or
+#     # TintColor = white
+#     # Alpha = 127
+# }
+
+
+
+# 'Plugin' block specifies a plugin to load. It has same syntax for both
+# builtin and external plugins.
+
+# First parameter is 'type'. It's mandatory and must come first
+# Legal values are plugin names. Names of builtin plugins are:
+# separator   - visual separator
+# wincmd      - 'show desktop' button
+# taskbar     - lists all opened windows (tasks)
+# launchbar   - bar with launch button
+# image       - just shows an image
+# dclock      - digital clock
+# space       - just seize space
+# pager       - thumbnailed view of the desktop
+# tray        - tray for XEMBED icons (aka docklets)
+
+# expand - specifies if plugin can accomodate extra space or not [optional]
+# padding - extra paddin around plugin  [optional]
+# config {} - block of plugin's private configuration. 
+#             This part is plugin  dependant
+
+
+#  
+# Plugin {
+#     type = wincmd
+#     config {
+#         image = ~/.lxpanel/images/Desktop2.png
+#     }
+# }
+
+
+Global {
+
+    edge = bottom
+    allign = left
+    margin = 0
+    widthtype = percent
+    width = 100
+    heighttype = pixel
+    height = 26
+    roundcorners = false 
+}
+
+
+
+Plugin {
+    type = space
+    config {
+            size = 2
+    }
+}
+
+
+Plugin {
+    type = menu
+    config {
+        image = @prefix@/share/lxpanel/images/my-computer.svg
+        system {
+        }
+        separator {
+        }
+        item {
+            command = run
+        }
+        item {
+            image = @prefix@/share/lxpanel/images/gnome-setting.svg
+            command = configure
+        }
+    }
+}
+
+
+Plugin {
+    type = space
+    config {
+            size = 5
+    }
+}
+
+
+Plugin {
+    type = launchbar
+    config {
+        button {
+            id = pcmanfm.desktop
+        }
+
+        button {
+            id = gnome-terminal.desktop
+        }
+
+        button {
+            id = firefox.desktop
+        }
+    }
+
+}
+
+Plugin {
+    type = space
+    config {
+            size = 8
+    }
+}
+
+
+Plugin {
+    type = wincmd
+    config {
+        image = @prefix@/share/lxpanel/images/gnome-fs-desktop.svg
+    }
+}
+
+
+Plugin {
+    type = space
+    config {
+            size = 7
+    }
+}
+
+Plugin {
+    type = pager
+}
+
+# 'icons' plugin lets you customize window icons. 
+# these changes applay to entire desktop
+Plugin {
+    type = icons
+    config {
+        DefaultIcon = @prefix@/share/lxpanel/images/default.xpm
+        application {
+            Image =  @prefix@/share/lxpanel/images/gnome_terminal.svg
+            ClassName = XTerm
+        }
+        application {
+            Image =  @prefix@/share/lxpanel/images/gnome_terminal.svg
+            ClassName = mlterm
+        }
+        application {
+            Image =  @prefix@/share/lxpanel/images/gnome_terminal.svg
+            ClassName = URxvt
+        }
+        application {
+            Image = @prefix@/share/lxpanel/images/emacs.svg
+            AppName = emacs
+            ClassName = Emacs
+        }
+
+    }
+}
+
+Plugin {
+    type = space
+    config {
+        size = 5
+    }
+}
+
+
+Plugin {
+    type = taskbar
+    expand = true
+    config {
+        ShowIconified = true
+        ShowMapped    = true
+        ShowAllDesks  = false
+        tooltips = true
+        IconsOnly = false
+        MaxTaskWidth = 150
+    }
+}
+
+Plugin {
+    type = tray
+}
+
+# Digital Clock
+Plugin {
+    type = dclock
+    config {
+        ClockFmt = %R
+        TooltipFmt = %A %x
+        Action = xmessage Please define some command &
+    }
+}
