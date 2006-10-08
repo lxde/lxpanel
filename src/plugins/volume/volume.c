@@ -28,6 +28,8 @@ volume_destructor(plugin *p)
 	volume_t *ns = (volume_t *) p->priv;
 
 	ENTER;
+	if (ns->dlg)
+		gtk_widget_destroy(ns->dlg);
 	gtk_widget_destroy(ns->mainw);
 	if (mixer_fd)
 		close(mixer_fd);
@@ -88,6 +90,7 @@ volume_constructor(plugin *p)
 			G_CALLBACK(on_button_press), p );
 	gtk_widget_set_size_request( ns->mainw, 24, 24 );
 
+	ns->dlg = NULL;
 	gtk_widget_show_all(ns->mainw);
 
 	gtk_container_add(GTK_CONTAINER(p->pwid), ns->mainw);

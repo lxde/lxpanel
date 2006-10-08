@@ -74,7 +74,7 @@ create_volume_window (void)
 	gtk_container_add (GTK_CONTAINER (frame), vbox1);
 	gtk_container_add (GTK_CONTAINER (volume_window), frame);
 	gtk_widget_show (frame);
-	vol_adjustment=GTK_ADJUSTMENT (gtk_adjustment_new (1, 0, 100, 1, 10, 0));
+	vol_adjustment = GTK_ADJUSTMENT (gtk_adjustment_new (1, 0, 100, 1, 10, 0));
 
 	/* get original adjustments */
 	get_current_levels();
@@ -84,8 +84,10 @@ create_volume_window (void)
 	gtk_box_pack_start (GTK_BOX (vbox1), hbox1, FALSE, TRUE, 8);
 
 
-	spinbutton1 = gtk_spin_button_new (GTK_ADJUSTMENT (vol_adjustment),1,0); /* ajustment, climb rate, digits */
+	/* ajustment, climb rate, digits */
+	spinbutton1 = gtk_spin_button_new (GTK_ADJUSTMENT (vol_adjustment), 1, 0);
 	gtk_widget_show (spinbutton1);
+
 	gtk_box_pack_start (GTK_BOX (hbox1), spinbutton1, TRUE, FALSE, 0);
 	gtk_widget_set_size_request (spinbutton1, -1, 22);
 	g_signal_connect ((gpointer) spinbutton1, "value_changed",
@@ -142,7 +144,6 @@ create_volume_window (void)
 }
 
 static StereoVolume vol;
-extern int mixer_fd;                    
 
 static gboolean 
 on_spinbutton1_button_release_event (GtkWidget *widget, 
