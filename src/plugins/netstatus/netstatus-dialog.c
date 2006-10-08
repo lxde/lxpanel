@@ -797,8 +797,13 @@ void netstatus_dialog_set_configuration_tool( GtkWidget* dialog, const char* too
 {
     NetstatusDialogData *data;
     data = g_object_get_data (G_OBJECT (dialog), "netstatus-dialog-data");
-    g_free( data->config_tool );
-    data->config_tool = g_strdup( tool );
+
+    netstatus_dialog_check_config_tool( data, tool );
+
+    if (data->config_tool)
+        gtk_widget_show (data->configure_button);
+    else
+        gtk_widget_hide (data->configure_button);
 }
 
 const char* netstatus_dialog_get_configuration_tool( GtkWidget* dialog )
