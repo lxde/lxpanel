@@ -85,7 +85,7 @@ netstatus_constructor(plugin *p)
         if (s.type == LINE_VAR) {
             if (!g_ascii_strcasecmp(s.t[0], "iface"))
                 ns->iface = g_strdup(s.t[1]);
-            else if (!g_ascii_strcasecmp(s.t[0], "config_tool"))
+            else if (!g_ascii_strcasecmp(s.t[0], "configtool"))
                 ns->config_tool = g_strdup(s.t[1]);
             else {
                 ERR( "netstatus: unknown var %s\n", s.t[0]);

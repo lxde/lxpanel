@@ -691,7 +691,7 @@ netstatus_icon_button_press_event (GtkWidget      *widget,
 
   return FALSE;
 }
-
+#if 0
 static void
 netstatus_icon_set_property (GObject      *object,
 			     guint         prop_id,
@@ -755,6 +755,7 @@ netstatus_icon_get_property (GObject    *object,
       break;
     }
 }
+#endif
 
 static void
 netstatus_icon_finalize (GObject *object)
@@ -792,8 +793,11 @@ netstatus_icon_class_init (NetstatusIconClass *klass)
 
   parent_class = g_type_class_peek_parent (klass);
 
+  /*
   gobject_class->set_property = netstatus_icon_set_property;
   gobject_class->get_property = netstatus_icon_get_property;
+  */
+
   gobject_class->finalize     = netstatus_icon_finalize;
 
   gtkobject_class->destroy = netstatus_icon_destroy;
@@ -802,7 +806,7 @@ netstatus_icon_class_init (NetstatusIconClass *klass)
   widget_class->size_allocate      = netstatus_icon_size_allocate;
   widget_class->realize            = netstatus_icon_realize;
   widget_class->button_press_event = netstatus_icon_button_press_event;
-
+#if 0
   g_object_class_install_property (gobject_class,
 				   PROP_IFACE,
 				   g_param_spec_object ("iface",
@@ -835,6 +839,7 @@ netstatus_icon_class_init (NetstatusIconClass *klass)
 							 _("Whether or not the signal strength should be displayed."),
 							 TRUE,
 							 G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
+#endif
 
   icon_signals [INVOKED] =
     g_signal_new ("invoked",
@@ -908,9 +913,11 @@ netstatus_icon_get_type (void)
 GtkWidget *
 netstatus_icon_new (NetstatusIface *iface)
 {
-  return g_object_new (NETSTATUS_TYPE_ICON,
-		       "iface", iface,
-		       NULL);
+    GtkWidget* obj = g_object_new (NETSTATUS_TYPE_ICON,
+                             /*"iface", iface,*/
+                             NULL);
+    netstatus_icon_set_iface( obj, iface );
+    return obj;
 }
 
 void
@@ -1009,7 +1016,7 @@ netstatus_icon_set_iface (NetstatusIcon  *icon,
       netstatus_icon_is_wireless_changed (icon->priv->iface, NULL, icon);
       netstatus_icon_signal_changed      (icon->priv->iface, NULL, icon);
 
-      g_object_notify (G_OBJECT (icon), "iface");
+      /* g_object_notify (G_OBJECT (icon), "iface"); */
     }
 }
 
