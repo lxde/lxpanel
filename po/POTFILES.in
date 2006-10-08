@@ -22,6 +22,12 @@ src/plugins/image.c
 src/plugins/pager.c
 src/plugins/space.c
 src/plugins/wincmd.c
+
 src/plugins/volume/volume.c
 src/plugins/volume/volume-impl.c
+
+src/plugins/netstatus/netstatus.c
+src/plugins/netstatus/netstatus-dialog.c
+src/plugins/netstatus/netstatus-dialog-ui.c
+src/plugins/netstatus/netstatus-icon.c
 

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel-0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-08 23:57+0800\n"
-"PO-Revision-Date: 2006-10-08 23:58+0800\n"
+"POT-Creation-Date: 2006-10-09 01:48+0800\n"
+"PO-Revision-Date: 2006-10-09 01:54+0800\n"
 "Last-Translator: 洪任諭 <pcman.tw@gmail.com>\n"
 "Language-Team: zh_TW <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -134,6 +134,7 @@ msgid "lxpanel configurator"
 msgstr "lxpanel 偏好設定"
 
 #: ../src/configurator.c:542
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr "一般"
 
@@ -309,13 +310,185 @@ msgid ""
 msgstr ""
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
-#: ../src/plugins/volume/volume.c:103
+#: ../src/plugins/volume/volume.c:113
 msgid "Volume control"
 msgstr "音量控制"
 
 #: ../src/plugins/volume/volume-impl.c:72
 msgid "Volume"
 msgstr "音量"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:50
+#: ../src/plugins/netstatus/netstatus-dialog.c:309
+msgid "Unknown"
+msgstr "未知"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:113
+msgid "Connection Properties"
+msgstr "連線屬性"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:119
+#, c-format
+msgid "Connection Properties: %s"
+msgstr "連線屬性 %s"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:132
+#, c-format
+msgid "%lu packet"
+msgid_plural "%lu packets"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:393
+#, c-format
+msgid ""
+"There was an error displaying help:\n"
+"%s"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:577
+#, c-format
+msgid "Failed to launch time configuration tool: %s"
+msgstr "執行設定工具 %s 失敗"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:131
+msgid "<b>Connection</b>"
+msgstr "<b>連線</b>"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:141
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:204
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:260
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:299
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:386
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:442
+msgid "    "
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:155
+msgid "Status:"
+msgstr "狀態："
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:171
+msgid "_Name:"
+msgstr "名稱(_N)："
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:194
+msgid "<b>Activity</b>"
+msgstr "<b>活動</b>"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:232
+msgid "Received:"
+msgstr "接收："
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:239
+msgid "Sent:"
+msgstr "送出："
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:250
+msgid "<b>Signal Strength</b>"
+msgstr "<b>訊號強度</b>"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
+msgid "0%"
+msgstr "0%"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:289
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr "<b>網路協定 (IPv4)</b>"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:309
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:396
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:452
+msgid "Address:"
+msgstr "位址："
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:316
+msgid "Destination:"
+msgstr "目的地："
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
+msgid "Broadcast:"
+msgstr "廣播："
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
+msgid "Subnet Mask:"
+msgstr "子網路遮罩："
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:376
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>網路協定 (IPv6)</b>"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:403
+msgid "Scope:"
+msgstr "範圍："
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:432
+msgid "<b>Network Device</b>"
+msgstr "<b>網路裝置</b>"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:477
+msgid "Type:"
+msgstr "型態："
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:484
+msgid "Support"
+msgstr "支援"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:513
+msgid "Con_figure"
+msgstr "設定(_F)"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:380
+#, c-format
+msgid "Network Connection: %s"
+msgstr "網路連線：%s"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:385
+msgid "Network Connection"
+msgstr "網路連線"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:812
+msgid "Interface"
+msgstr "介面"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:813
+msgid "The current interface the icon is monitoring."
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-icon.c:820
+msgid "Orientation"
+msgstr "方向"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:821
+msgid "The orientation of the tray."
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-icon.c:829
+msgid "Tooltips Enabled"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-icon.c:830
+msgid "Whether or not the icon's tooltips are enabled."
+msgstr "是否使用圖示的工具提示"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:837
+msgid "Show Signal"
+msgstr "顯示訊號"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:838
+msgid "Whether or not the signal strength should be displayed."
+msgstr "是否顯示訊號強度"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:954
+#, c-format
+msgid ""
+"Please contact your system administrator to resolve the following problem:\n"
+"\n"
+"%s"
+msgstr ""
+"請聯絡你的系統管理員解決下列問題：\n"
+"\n"
+"%s"
 
 #~ msgid "Plugins..."
 #~ msgstr "外掛..."
