@@ -31,45 +31,6 @@ netstatus_destructor(plugin *p)
     RET();
 }
 
-static  int
-_get_line(FILE *fp, line *s)
-{
-    gchar *tmp, *tmp2;
-
-    ENTER;
-    s->type = LINE_NONE;
-    if (!fp)
-        RET(s->type);
-    while (fgets(s->str, s->len, fp)) {
-        g_strstrip(s->str);
-
-        if (s->str[0] == '#' || s->str[0] == 0) {
-            continue;
-        }
-        if (!g_ascii_strcasecmp(s->str, "}")) {
-            s->type = LINE_BLOCK_END;
-            break;
-        }
-
-        s->t[0] = s->str;
-        for (tmp = s->str; isalnum(*tmp); tmp++);
-        for (tmp2 = tmp; isspace(*tmp2); tmp2++);
-        if (*tmp2 == '=') {
-            for (++tmp2; isspace(*tmp2); tmp2++);
-            s->t[1] = tmp2;
-            *tmp = 0;
-            s->type = LINE_VAR;
-        } else if  (*tmp2 == '{') {
-            *tmp = 0;
-            s->type = LINE_BLOCK_START;
-        } else {
-            ERR( "parser: unknown token: '%c'\n", *tmp2);
-        }
-        break;
-    }
-    RET(s->type);
-}
-
 static void on_response( GtkDialog* dlg, gint response, netstatus *ns )
 {
     switch( response )
@@ -113,7 +74,7 @@ netstatus_constructor(plugin *p)
     ns = g_new0(netstatus, 1);
     g_return_val_if_fail(ns != NULL, 0);
     p->priv = ns;
-    while (_get_line(p->fp, &s) != LINE_BLOCK_END) {
+    while (get_line(p->fp, &s) != LINE_BLOCK_END) {
         if (s.type == LINE_NONE) {
             ERR( "netstatus: illegal token %s\n", s.str);
             goto error;

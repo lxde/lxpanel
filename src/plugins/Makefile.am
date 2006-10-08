@@ -1,6 +1,12 @@
 ## Process this file with automake to produce Makefile.in
 
-SUBDIRS = netstatus
+if BUILD_PLUGIN_LOADER
+DYNAMIC_PLUGINS = \
+	netstatus \
+	volume
+endif
+
+SUBDIRS = $(DYNAMIC_PLUGINS)
 
 noinst_LIBRARIES = libbuiltin_plugins.a
 

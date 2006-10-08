@@ -32,6 +32,11 @@ lxpanel_SOURCES = \
 	plugin.c plugin.h \
 	gtk-run.c
 
+if BUILD_PLUGIN_LOADER
+DYNAMIC_FLAGS = -rdynamic
+endif
+lxpanel_LDFLAGS = $(DYNAMIC_FLAGS)
+
 lxpanel_LDADD = \
 		$(BUILTIN_PLUGINS) \
 		$(PACKAGE_LIBS) \

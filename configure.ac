@@ -24,6 +24,8 @@ AC_ARG_ENABLE([plugins-loading],
 		       [disable plugin loading (default: enable)]),
 		       plugins_loading=$enableval, plugins_loading="yes")
 
+AM_CONDITIONAL(BUILD_PLUGIN_LOADER, test x$plugins_loading = xyes)
+
 if test "$plugins_loading" = "no"; then
 	AC_DEFINE(DISABLE_PLUGINS_LOADING, [1], [Disable plugin loading])
 	AM_CONDITIONAL(BUILD_PLUGIN_NETSTATUS, no)
@@ -68,6 +70,7 @@ AC_CONFIG_FILES([
 	src/Makefile
 	src/plugins/Makefile
 	src/plugins/netstatus/Makefile
+	src/plugins/volume/Makefile
 	po/Makefile.in
 	data/Makefile
 	data/default
