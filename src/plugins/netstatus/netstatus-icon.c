@@ -173,7 +173,6 @@ netstatus_icon_lookup_icon_theme (NetstatusIcon *icon,
   char         *filename = NULL;
 
   icon_theme = netstatus_icon_get_icon_theme (icon);
-
   if ((icon_info = gtk_icon_theme_lookup_icon (icon_theme, icon_name, 1000, 0)))
     {
       filename = g_strdup (gtk_icon_info_get_filename (icon_info));

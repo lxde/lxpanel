@@ -8,7 +8,7 @@ src/panel.c
 src/plugin.c
 src/gtk-run.c
 
-src/plugins/cpu.c
+src/plugins/cpu/cpu.c
 src/plugins/deskno.c
 src/plugins/launchbar.c
 src/plugins/ptk-app-menu.c
@@ -22,3 +22,6 @@ src/plugins/image.c
 src/plugins/pager.c
 src/plugins/space.c
 src/plugins/wincmd.c
+src/plugins/volume/volume.c
+src/plugins/volume/volume-impl.c
+

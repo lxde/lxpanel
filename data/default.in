@@ -241,6 +241,12 @@ Plugin {
     }
 }
 
+# Volume control
+#
+# Plugin {
+#     type = volume
+# }
+
 # Net status plug-in
 # %i in config_tool is only a place holder, and will be replace by the value of iface.
 #

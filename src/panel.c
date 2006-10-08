@@ -806,10 +806,11 @@ main(int argc, char *argv[], char *env[])
     int quit = 0;
     void configure();
     FILE *pfp; /* current profile FP */
-    
+
     ENTER;
     //printf("sizeof(gulong)=%d\n", sizeof(gulong));
     setlocale(LC_CTYPE, "");
+
     gtk_init(&argc, &argv);
 
 #ifdef ENABLE_NLS
@@ -854,6 +855,11 @@ main(int argc, char *argv[], char *env[])
             exit(1);
         }
     }
+
+    /* Add our own icons to the search path of icon theme */
+    gtk_icon_theme_append_search_path( gtk_icon_theme_get_default(),
+                                       PACKAGE_DATA_DIR "/lxpanel/images" );
+
     signal(SIGUSR1, sig_usr);
     do {
         if (!(pfp = open_profile(cprofile)))

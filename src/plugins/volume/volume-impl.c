@@ -7,6 +7,7 @@
 
 #include <gdk/gdkkeysyms.h>
 #include <gtk/gtk.h>
+#include <glib/gi18n.h>
 
 #include "volume-impl.h"
 
@@ -46,7 +47,7 @@ on_vscale1_button_release_event (GtkWidget *widget,
                                  GdkEventButton *event,
                                  gpointer user_data);
 
-static void 
+static void
 get_current_levels() 
 {
 	ioctl(mixer_fd, MIXER_READ(SOUND_MIXER_VOLUME), &tmpvol);
@@ -66,8 +67,9 @@ create_volume_window (void)
 	gtk_window_set_resizable (GTK_WINDOW (volume_window), FALSE);
 	gtk_window_set_position (GTK_WINDOW (volume_window), GTK_WIN_POS_MOUSE);
 	gtk_window_set_decorated (GTK_WINDOW (volume_window), FALSE);
+    gtk_window_set_skip_taskbar_hint( GTK_WINDOW (volume_window), TRUE );
 
-	frame = gtk_frame_new ("Volume");
+    frame = gtk_frame_new (_("Volume"));
 
 	vbox1 = gtk_vbox_new (FALSE, 0);
 	gtk_widget_show (vbox1);

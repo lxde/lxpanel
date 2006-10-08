@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel-0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-06 19:03+0800\n"
-"PO-Revision-Date: 2006-10-06 19:04+0800\n"
+"POT-Creation-Date: 2006-10-08 23:57+0800\n"
+"PO-Revision-Date: 2006-10-08 23:58+0800\n"
 "Last-Translator: 洪任諭 <pcman.tw@gmail.com>\n"
 "Language-Team: zh_TW <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgid "Preferences"
 msgstr "偏好設定"
 
 #: ../src/configurator.c:26
-#: ../src/gtk-run.c:108
+#: ../src/gtk-run.c:112
 msgid "Run"
 msgstr "執行"
 
@@ -141,52 +141,52 @@ msgstr "一般"
 msgid "Plugins"
 msgstr "外掛"
 
-#: ../src/panel.c:681
+#: ../src/panel.c:734
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - UNIX 桌面的輕量級 GTK2+ 工作列\n"
 
-#: ../src/panel.c:682
+#: ../src/panel.c:735
 msgid "Command line options:\n"
 msgstr "命令列選項：\n"
 
-#: ../src/panel.c:683
+#: ../src/panel.c:736
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- 顯示使用說明並離開\n"
 
-#: ../src/panel.c:684
+#: ../src/panel.c:737
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- 顯示版本資訊並離開\n"
 
-#: ../src/panel.c:685
+#: ../src/panel.c:738
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 
-#: ../src/panel.c:686
+#: ../src/panel.c:739
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- 執行設定工具\n"
 
-#: ../src/panel.c:687
+#: ../src/panel.c:740
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- 指定使用其他設定檔\n"
 
-#: ../src/panel.c:689
+#: ../src/panel.c:742
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- 和 --help 作用相同\n"
 
-#: ../src/panel.c:690
+#: ../src/panel.c:743
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- 和 --profile 作用相同\n"
 
-#: ../src/panel.c:691
+#: ../src/panel.c:744
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- 和 --version 作用相同\n"
 
-#: ../src/panel.c:692
+#: ../src/panel.c:745
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- 和 --configure 作用相同\n"
 
-#: ../src/panel.c:693
+#: ../src/panel.c:746
 msgid ""
 "\n"
 "Visit http://lxpanel.sourceforge.net/ for detailed documentation,\n"
@@ -196,11 +196,11 @@ msgstr ""
 "詳細資訊請參觀 http://lxpanel.sourceforge.net/\n"
 "\n"
 
-#: ../src/gtk-run.c:118
+#: ../src/gtk-run.c:122
 msgid "Enter the command you want to execute:"
 msgstr "輸入你要想執行的指令："
 
-#: ../src/plugins/cpu.c:210
+#: ../src/plugins/cpu/cpu.c:210
 msgid "Display cpu usage"
 msgstr ""
 
@@ -209,7 +209,7 @@ msgstr ""
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr ""
 
-#: ../src/plugins/launchbar.c:364
+#: ../src/plugins/launchbar.c:365
 msgid "Bar with buttons to launch application"
 msgstr ""
 
@@ -286,7 +286,7 @@ msgstr ""
 msgid "Display Digital clock and Tooltip"
 msgstr ""
 
-#: ../src/plugins/icons.c:487
+#: ../src/plugins/icons.c:498
 msgid "Change window icons"
 msgstr ""
 
@@ -307,6 +307,15 @@ msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commnds are 1)toggle iconify and 2) toggle shade"
 msgstr ""
+
+#. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
+#: ../src/plugins/volume/volume.c:103
+msgid "Volume control"
+msgstr "音量控制"
+
+#: ../src/plugins/volume/volume-impl.c:72
+msgid "Volume"
+msgstr "音量"
 
 #~ msgid "Plugins..."
 #~ msgstr "外掛..."
