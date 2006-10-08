@@ -25,7 +25,6 @@ AC_ARG_ENABLE([plugins-loading],
 		       plugins_loading=$enableval, plugins_loading="yes")
 
 AM_CONDITIONAL(BUILD_PLUGIN_LOADER, test x$plugins_loading = xyes)
-AM_CONDITIONAL(BUILD_PLUGIN_NETSTATUS, test x$plugins_loading = xyes)
 
 if test "$plugins_loading" = "no"; then
 	AC_DEFINE(DISABLE_PLUGINS_LOADING, [1], [Disable plugin loading])

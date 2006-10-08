@@ -1,5 +1,3 @@
-if BUILD_PLUGIN_NETSTATUS
-
 INCLUDES = \
 	-I. \
 	-I$(top_srcdir)/src \
@@ -36,5 +34,3 @@ netstatus_la_LDFLAGS = \
 	-avoid-version \
 	-rpath $(moduledir) \
 	-module
-
-endif
