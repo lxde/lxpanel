@@ -2,9 +2,7 @@
 
 if BUILD_PLUGIN_LOADER
 DYNAMIC_PLUGINS = \
-	netstatus \
-	volume \
-	cpu
+	$(PLUGINS_LIST)
 endif
 
 SUBDIRS = $(DYNAMIC_PLUGINS)

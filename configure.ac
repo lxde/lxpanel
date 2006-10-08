@@ -30,6 +30,59 @@ if test "$plugins_loading" = "no"; then
 	AC_DEFINE(DISABLE_PLUGINS_LOADING, [1], [Disable plugin loading])
 fi
 
+dnl Here are plugin listing.
+plugin_netstatus=
+plugin_volume=
+plugin_cpu=
+
+AC_MSG_CHECKING([which plugins should be built dynamically])
+AC_ARG_WITH(plugins,
+[  --with-plugins=<list>  compile dynamic plugins in <list> ]
+[                         plugins may be comma separated ]
+[                         'all' builds all plugins (default), 'none' builds none ]
+[                         Possible plugins are: ]
+[                         netstatus, volume, cpu], plugins="$withval",[plugins="all"])
+
+if test x"$plugins" != xall -a x"$plugins" != xnone; then
+	if test x"$plugins_loading" = xno; then
+		AC_MSG_ERROR(
+		[--disable-plugins-loading and --with-plugins conflict each other.])
+	fi
+fi
+
+if test x"$plugins" = xall; then
+	plugin_netstatus=netstatus
+	plugin_volume=volume
+	plugin_cpu=cpu
+	AC_MSG_RESULT(all)
+else
+	if test "$plugins" != "none"; then
+		plugins=`echo $plugins | sed 's/,/ /g'`
+		for plugin in $plugins
+		do
+		case "$plugin" in
+			netstatus)
+				plugin_netstatus=netstatus
+				;;
+			volume)
+				plugin_volume=volume
+				;;
+			cpu)
+				plugin_cpu=cpu
+				;;
+			*)
+				echo "Unknown plugin $plugin."
+				exit 1
+				;;
+		esac
+		done
+		AC_MSG_RESULT($plugins)
+	fi
+fi
+
+PLUGINS_LIST="$plugin_netstatus $plugin_volume $plugin_cpu"
+AC_SUBST(PLUGINS_LIST)
+
 
 # Checks for header files.
 AC_PATH_X
@@ -72,3 +125,22 @@ AC_CONFIG_FILES([
 	data/default
 ])
 AC_OUTPUT
+
+echo                                                                                                
+echo lxpanel2 ........................ : Version $VERSION
+echo
+echo Prefix........................... : $prefix
+if test x$plugins_loading = xyes; then
+echo Building dynamic plugins:
+	if test x"$plugin_netstatus" != x; then
+		AC_MSG_RESULT([    netstatus - Monitor networking status])
+	fi
+	if test x"$plugin_volume" != x; then
+		AC_MSG_RESULT([    volume - Display and adjust volume of sound card])
+	fi
+	if test x"$plugin_cpu" != x; then
+		AC_MSG_RESULT([    cpu - Display CPU loading])
+	fi
+else
+echo Dynamic loader for plugins....... : disabled.
+fi
