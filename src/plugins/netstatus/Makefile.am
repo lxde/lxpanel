@@ -3,8 +3,7 @@ if BUILD_PLUGIN_NETSTATUS
 INCLUDES = \
 	-I. \
 	-I$(top_srcdir)/src \
-	$(PACKAGE_CFLAGS) \
-	$(GCONF_CFLAGS)
+	$(PACKAGE_CFLAGS)
 
 module_LTLIBRARIES = netstatus.la
 
@@ -31,8 +30,8 @@ netstatus_la_SOURCES = \
 	netstatus-iface.h
 
 netstatus_la_LIBADD = \
-	$(PACKAGE_CFLAGS) \
-	$(GCONF_LIBS)
+	$(PACKAGE_CFLAGS)
+
 netstatus_la_LDFLAGS = \
 	-avoid-version \
 	-rpath $(moduledir) \

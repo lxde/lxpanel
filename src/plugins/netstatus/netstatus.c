@@ -14,6 +14,7 @@
 
 typedef struct {
     char *iface;
+    char *config_tool;
     GtkWidget *mainw;
     GtkWidget *dlg;
 } netstatus;
@@ -27,6 +28,7 @@ netstatus_destructor(plugin *p)
     ENTER;
     gtk_widget_destroy(ns->mainw);
     g_free( ns->iface );
+    g_free( ns->config_tool );
     g_free(ns);
     RET();
 }
@@ -54,6 +56,7 @@ static void on_button_press( GtkWidget* widget, GdkEventButton* evt, plugin* p )
         {
             iface = netstatus_icon_get_iface( NETSTATUS_ICON(widget) );
             ns->dlg = netstatus_dialog_new(iface);
+            netstatus_dialog_set_configuration_tool( ns->dlg, ns->config_tool );
             g_signal_connect( ns->dlg, "response", on_response, ns );
         }
         gtk_window_present( GTK_WINDOW(ns->dlg) );
@@ -82,6 +85,8 @@ netstatus_constructor(plugin *p)
         if (s.type == LINE_VAR) {
             if (!g_ascii_strcasecmp(s.t[0], "iface"))
                 ns->iface = g_strdup(s.t[1]);
+            else if (!g_ascii_strcasecmp(s.t[0], "config_tool"))
+                ns->config_tool = g_strdup(s.t[1]);
             else {
                 ERR( "netstatus: unknown var %s\n", s.t[0]);
                 goto error;

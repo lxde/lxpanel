@@ -32,7 +32,7 @@
 #include "glade-support.h"
 
 #include <string.h>
-#include <gconf/gconf-client.h>
+/* #include <gconf/gconf-client.h> */
 
 #include "netstatus-icon.h"
 #include "netstatus-util.h"
@@ -57,9 +57,9 @@ typedef struct
   NetstatusIface *iface;
   NetstatusIcon  *icon;
 
-  GConfClient    *client;
+  /*  GConfClient    *client; */
   char           *config_tool;
-  guint           listener;
+  /* guint           listener; */
 
   GtkWidget      *name;
   GtkWidget      *status;
@@ -425,6 +425,7 @@ netstatus_dialog_destroy (GtkWidget *dialog)
     g_free (data->config_tool);
   data->config_tool = NULL;
 
+  /*
   if (data->listener)
     {
       g_assert (data->client != NULL);
@@ -438,6 +439,7 @@ netstatus_dialog_destroy (GtkWidget *dialog)
   if (data->client)
     g_object_unref (data->client);
   data->client = NULL;
+  */
 
   if (data->iface_list_monitor)
     g_source_remove (data->iface_list_monitor);
@@ -478,6 +480,7 @@ netstatus_dialog_check_config_tool (NetstatusDialogData *dialog_data,
   return found;
 }
 
+/*
 static void
 netstatus_dialog_config_tool_notify (GConfClient         *client,
 				     guint                cnx_id,
@@ -490,6 +493,7 @@ netstatus_dialog_config_tool_notify (GConfClient         *client,
   netstatus_dialog_check_config_tool (dialog_data,
 				      gconf_value_get_string (entry->value));
 }
+*/
 
 static void
 netstatus_dialog_detect_configuration_tool (NetstatusDialogData *dialog_data)
@@ -497,6 +501,7 @@ netstatus_dialog_detect_configuration_tool (NetstatusDialogData *dialog_data)
   char *config_tool;
   int   i;
 
+  /*
   dialog_data->client = gconf_client_get_default ();
 
   gconf_client_add_dir (dialog_data->client,
@@ -524,6 +529,7 @@ netstatus_dialog_detect_configuration_tool (NetstatusDialogData *dialog_data)
       if (netstatus_dialog_check_config_tool (dialog_data, network_config_tools [i]))
 	break;
     }
+  */
 }
 
 static void
@@ -784,4 +790,20 @@ netstatus_dialog_new (NetstatusIface *iface)
 			    data);
 
   return data->dialog;
+}
+
+/* 2006.10.08 Add by Hong Jen Yee (PCMan) to be used in lxpanel plugin */
+void netstatus_dialog_set_configuration_tool( GtkWidget* dialog, const char* tool )
+{
+    NetstatusDialogData *data;
+    data = g_object_get_data (G_OBJECT (dialog), "netstatus-dialog-data");
+    g_free( data->config_tool );
+    data->config_tool = g_strdup( tool );
+}
+
+const char* netstatus_dialog_get_configuration_tool( GtkWidget* dialog )
+{
+    NetstatusDialogData *data;
+    data = g_object_get_data (G_OBJECT (dialog), "netstatus-dialog-data");
+    return data->config_tool;
 }
