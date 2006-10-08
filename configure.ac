@@ -66,6 +66,7 @@ AC_CONFIG_FILES([
 	src/plugins/Makefile
 	src/plugins/netstatus/Makefile
 	src/plugins/volume/Makefile
+	src/plugins/cpu/Makefile
 	po/Makefile.in
 	data/Makefile
 	data/default

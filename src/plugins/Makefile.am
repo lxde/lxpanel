@@ -3,7 +3,8 @@
 if BUILD_PLUGIN_LOADER
 DYNAMIC_PLUGINS = \
 	netstatus \
-	volume
+	volume \
+	cpu
 endif
 
 SUBDIRS = $(DYNAMIC_PLUGINS)
@@ -19,7 +20,6 @@ INCLUDES = \
 	$(PACKAGE_CFLAGS)
 
 PLUGINS_SOURCES= \
-	cpu.c \
 	deskno.c \
 	launchbar.c \
 	ptk-app-menu.c \
