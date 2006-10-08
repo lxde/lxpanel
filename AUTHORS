@@ -12,11 +12,11 @@ fspanel (http://freshmeat.net/projects/fspanel/), originally written by
 Peter Zelezny.
 
 [Credits]
-Fbpanel has done its good job, but it didn't fullfil my needs. Originally 
+Fbpanel has done its good job, but it didn't satisfy our needs. Originally 
 I send patches to the author of fbpanel, Anatoly Asviyan, and we had some 
 discussion.  After he received some patches, I found I want to add something 
 to this little panel app which might be differnt from the goal of Anatoly 
-in the future, and I didn'get enough change to join fbpanel project. So, 
+in the future, and I didn'get enough chance to join fbpanel project. So, 
 finally I decided to create my own branch, and started the hacking I want 
 to do. Thank Anatoly Asviyan and Peter Zelezny, the original creator for 
 this little panel. And the most important, thank free software, which gives 
