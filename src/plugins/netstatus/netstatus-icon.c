@@ -915,7 +915,7 @@ netstatus_icon_new (NetstatusIface *iface)
     GtkWidget* obj = g_object_new (NETSTATUS_TYPE_ICON,
                              /*"iface", iface,*/
                              NULL);
-    netstatus_icon_set_iface( obj, iface );
+    netstatus_icon_set_iface( NETSTATUS_ICON(obj), iface );
     return obj;
 }
 

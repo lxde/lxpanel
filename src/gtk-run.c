@@ -44,10 +44,9 @@ static gboolean setup_auto_complete( gpointer entry )
     {
         GDir *dir = g_dir_open( *dirname, 0, NULL );
         const char *name;
-        int i = 0;
         if( ! dir )
             continue;
-        while( name = g_dir_read_name( dir ) )
+        while( ( name = g_dir_read_name( dir ) ) )
         {
             char* filename = g_build_filename( *dirname, name, NULL );
             if( g_file_test( filename, G_FILE_TEST_IS_EXECUTABLE ) )
@@ -134,6 +133,6 @@ void gtk_run()
     gtk_widget_show_all( win );
     /* g_timeout_add( 500, setup_auto_complete, entry ); */
     setup_auto_complete( entry );
-    gtk_widget_show( (GtkDialog*)win );
+    gtk_widget_show( win );
 }
 

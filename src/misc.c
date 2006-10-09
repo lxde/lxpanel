@@ -782,8 +782,8 @@ gtk_image_new_from_file_scaled(const gchar *file, gint width,
       gint height, gboolean keep_ratio)
 {
     GtkWidget *img;
-    GdkPixbuf *pb, *pb_scaled;
-    gfloat w, h, rw, rh;
+    GdkPixbuf /*- *pb, -*/ *pb_scaled;
+    // gfloat w, h, rw, rh;
     GtkIconInfo *inf = NULL;
 
     ENTER;

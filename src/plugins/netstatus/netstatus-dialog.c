@@ -40,11 +40,13 @@
 #define NETWORK_CONFIG_TOOL_DIR "/apps/netstatus_applet"
 #define NETWORK_CONFIG_TOOL_KEY NETWORK_CONFIG_TOOL_DIR "/config_tool"
 
+#if 0 /* stripped-down version does nothing to configurators. */
 static const char *network_config_tools[] = {
   "network-admin --configure %i",
   "redhat-config-network",
   "system-control-network"
 };
+#endif
 
 #define UNKNOWN_STR(t,s) G_STMT_START {       \
 	if (!((t) = (s))) (t) = _("Unknown"); \
@@ -498,10 +500,10 @@ netstatus_dialog_config_tool_notify (GConfClient         *client,
 static void
 netstatus_dialog_detect_configuration_tool (NetstatusDialogData *dialog_data)
 {
+  /*
   char *config_tool;
   int   i;
 
-  /*
   dialog_data->client = gconf_client_get_default ();
 
   gconf_client_add_dir (dialog_data->client,

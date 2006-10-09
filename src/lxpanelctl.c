@@ -4,10 +4,14 @@
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 #include <X11/Xatom.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 static Display* dpy;
 
-const char usage[] = "\nlxpanelctl - LXPanel Controller\n"
+static const char usage[] = 
+        "\nlxpanelctl - LXPanel Controller\n"
         "Usage: lxpanelctl <command>\n\n"
         "Available commands:\n"
         "menu\tshow system menu\n"
@@ -16,7 +20,7 @@ const char usage[] = "\nlxpanelctl - LXPanel Controller\n"
         "restart\trestart lxpanel\n"
         "exit\texit lxpanel\n\n";
 
-int get_cmd( const char* cmd )
+static int get_cmd( const char* cmd )
 {
     if( ! strcmp( cmd, "menu") )
         return LXPANEL_CMD_SYS_MENU;

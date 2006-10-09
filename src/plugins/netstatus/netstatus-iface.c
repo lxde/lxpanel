@@ -831,7 +831,7 @@ print_rose_addr (guchar *p)
 static char *
 print_x25_addr (guchar *p)
 {
-  return g_strdup (p);
+  return g_strdup ((const gchar *) p);
 }
 
 static char *
@@ -1070,7 +1070,7 @@ netstatus_iface_get_hw_details (NetstatusIface  *iface,
     }
 
   if (hw_addr && if_req.ifr_hwaddr.sa_data && hw_type->print_hw_addr)
-    *hw_addr = hw_type->print_hw_addr (if_req.ifr_hwaddr.sa_data);
+    *hw_addr = hw_type->print_hw_addr ((guchar *) if_req.ifr_hwaddr.sa_data);
 
   return hw_type;
 

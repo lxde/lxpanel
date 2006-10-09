@@ -21,7 +21,7 @@ int mixer_fd;
 typedef struct {
 	GtkWidget *mainw;
 	GtkWidget *dlg;
-    GtkTooltips* tooltips;
+	GtkTooltips* tooltips;
 } volume_t;
 
 static void
@@ -32,7 +32,7 @@ volume_destructor(plugin *p)
 	ENTER;
 	if (vol->dlg)
 		gtk_widget_destroy(vol->dlg);
-    g_object_unref( vol->tooltips );
+	g_object_unref( vol->tooltips );
 	gtk_widget_destroy(vol->mainw);
 	if (mixer_fd)
 		close(mixer_fd);
@@ -54,7 +54,8 @@ static void on_button_press (GtkWidget* widget, GdkEventButton* evt, plugin* p)
 	if( evt->button == 1 ) { /*  Left click*/
 		if( ! vol->dlg ) {
 			vol->dlg = create_volume_window();
-			g_signal_connect( vol->dlg, "focus-out-event", on_volume_focus, vol );
+			g_signal_connect( vol->dlg, "focus-out-event", 
+					  G_CALLBACK(on_volume_focus), vol );
 		}
 		gtk_window_present( GTK_WINDOW(vol->dlg) );
 	}
@@ -67,8 +68,8 @@ volume_constructor(plugin *p)
 	line s;
 	GdkPixbuf *icon;
 	GtkWidget *image;
-    GtkIconTheme* theme;
-    GtkIconInfo* info;
+	GtkIconTheme* theme;
+	GtkIconInfo* info;
 
 	ENTER;
 	s.len = 256;  
@@ -84,16 +85,16 @@ volume_constructor(plugin *p)
 
 	vol->mainw = gtk_event_box_new();
 
-    theme = gtk_icon_theme_get_default();
-    if( info = gtk_icon_theme_lookup_icon( theme, "stock_volume", 24, 0 ) )
-    {
-        icon = gdk_pixbuf_new_from_file_at_size( gtk_icon_info_get_filename( info ),
-                                                 24, 24, NULL );
-        gtk_icon_info_free( info );
-    }
-    else
-    	icon = gdk_pixbuf_new_from_xpm_data(volume_xpm);
-	if(icon) {
+	theme = gtk_icon_theme_get_default();
+	if ( (info = gtk_icon_theme_lookup_icon( theme, "stock_volume", 24, 0 ) ) ) {
+		icon = gdk_pixbuf_new_from_file_at_size( 
+				gtk_icon_info_get_filename( info ),
+				24, 24, NULL );
+		gtk_icon_info_free( info );
+	}
+	else
+    		icon = gdk_pixbuf_new_from_xpm_data((const char **) volume_xpm);
+	if (icon) {
 		image = gtk_image_new_from_pixbuf(icon);
 		gtk_container_add (GTK_CONTAINER (vol->mainw), image);
 	}
@@ -108,15 +109,11 @@ volume_constructor(plugin *p)
 
 	gtk_container_add(GTK_CONTAINER(p->pwid), vol->mainw);
 
-    vol->tooltips = gtk_tooltips_new ();
-    /* FIXME: display current level in tooltip. ex: "Volume Control: 80%"  */
-    gtk_tooltips_set_tip (vol->tooltips, vol->mainw, _("Volume control"), NULL);
+	vol->tooltips = gtk_tooltips_new ();
+	/* FIXME: display current level in tooltip. ex: "Volume Control: 80%"  */
+	gtk_tooltips_set_tip (vol->tooltips, vol->mainw, _("Volume control"), NULL);
 
 	RET(1);
-
-error:
-	volume_destructor(p);
-	RET(0);
 }
 
 

@@ -11,6 +11,8 @@
 #include "bg.h"
 #include "gtkbgbox.h"
 
+#include "ptk-app-menu.h"
+
 //#define DEBUG
 #include "dbg.h"
 
@@ -123,7 +125,7 @@ reload_system_menu( GtkMenu* menu )
             if( ! child )
                 break;
         }
-        else if( sub_menu = gtk_menu_item_get_submenu( item ) ) {
+        else if( ( sub_menu = gtk_menu_item_get_submenu( item ) ) ) {
             reload_system_menu( GTK_MENU(sub_menu) );
         }
     }
@@ -134,9 +136,9 @@ static void show_menu( GtkWidget* widget, menup* m, int btn, guint32 time )
 {
     /* reload system menu items if needed */
     if( m->has_system_menu && ptk_app_menu_need_reload() ) {
-        reload_system_menu( m->menu );
+        reload_system_menu( GTK_MENU(m->menu) );
     }
-    gtk_menu_popup(m->menu,
+    gtk_menu_popup(GTK_MENU(m->menu),
                    NULL, NULL,
                    (GtkMenuPositionFunc)menu_pos, widget,
                    btn, time);
@@ -354,7 +356,7 @@ read_submenu(plugin *p, gboolean as_item)
             } else if (!g_ascii_strcasecmp(s.t[0], "separator")) {
                 mi = read_separator(p);
             } else if (!g_ascii_strcasecmp(s.t[0], "system")) {
-                read_system_menu(menu, p); /* add system menu items */
+                read_system_menu(GTK_MENU(menu), p); /* add system menu items */
                 continue;
             } else if (!g_ascii_strcasecmp(s.t[0], "menu")) {
                 mi = read_submenu(p, TRUE);

@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include <sys/stat.h>
 #include <string.h>
+#include "ptk-app-menu.h"
 
 /* Compatibility macros for older versions of glib */
 #if ! GLIB_CHECK_VERSION(2, 10, 0)
@@ -42,7 +43,7 @@ typedef struct _CatInfo
 {
     char* title;
     char* icon;
-    char** sub_cats;
+    const char** sub_cats;
 }CatInfo;
 
 typedef struct _PtkAppMenuItem
@@ -164,7 +165,7 @@ int find_cat( char** cats )
         /* Skip other */
         for( i = 1; i < G_N_ELEMENTS(known_cats); ++i )
         {
-            char** sub_cats = known_cats[i].sub_cats;
+            const char** sub_cats = known_cats[i].sub_cats;
             while( *sub_cats )
             {
                 if( 0 == strncmp(*cat, "X-", 2) ) /*  Desktop specific*/
@@ -474,7 +475,7 @@ void on_app_menu_destroy( gpointer user_data, GObject* menu )
 
 gboolean ptk_app_menu_item_has_data( GtkMenuItem* item )
 {
-   return (g_object_get_qdata( item, data_id ) != NULL);
+   return (g_object_get_qdata( G_OBJECT(item), data_id ) != NULL);
 }
 
 /*
@@ -493,39 +494,38 @@ void ptk_app_menu_insert_items( GtkMenu* menu, int position )
 
    if( ! data_id )
       data_id = g_quark_from_static_string("PtkAppMenuItem");
-   app_dirs_foreach( load_dir, sub_menus );
+   app_dirs_foreach( (GFunc) load_dir, sub_menus );
    for( i = 0; i < G_N_ELEMENTS(known_cats); ++i )
    {
       GtkMenu* sub_menu;
       GtkWidget* menu_item;
-      GtkWidget* img;
       PtkAppMenuItem* data;
       if( ! (sub_items = sub_menus[i]) )
          continue;
       sub_menu = gtk_menu_new();
 
       for( l = sub_items; l; l = l->next )
-         gtk_menu_shell_append( sub_menu, GTK_WIDGET(l->data) );
+         gtk_menu_shell_append( GTK_MENU_SHELL(sub_menu), GTK_WIDGET(l->data) );
       g_list_free( sub_items );
       menu_item = gtk_image_menu_item_new_with_label( _(known_cats[i].title) );
       data = g_slice_new0( PtkAppMenuItem );
       data->icon = g_strdup(known_cats[i].icon);
-      g_object_set_qdata_full( menu_item, data_id, data, ptk_app_menu_item_free );
-      g_signal_connect( menu_item, "expose-event", on_menu_item_expose, data );
-      g_signal_connect( menu_item, "size-request", on_menu_item_size_request, data );
+      g_object_set_qdata_full( G_OBJECT(menu_item), data_id, data, (GDestroyNotify) ptk_app_menu_item_free );
+      g_signal_connect( menu_item, "expose-event", G_CALLBACK(on_menu_item_expose), data );
+      g_signal_connect( menu_item, "size-request", G_CALLBACK(on_menu_item_size_request), data );
       on_menu_item_expose( menu_item, NULL, data );
-      gtk_menu_item_set_submenu( menu_item, sub_menu );
+      gtk_menu_item_set_submenu( GTK_MENU_ITEM(menu_item), GTK_WIDGET(sub_menu) );
       if( position == -1 )
-         gtk_menu_shell_append( menu, menu_item );
+         gtk_menu_shell_append( GTK_MENU_SHELL(menu), menu_item );
       else
       {
-         gtk_menu_shell_insert( menu, menu_item, position );
+         gtk_menu_shell_insert( GTK_MENU_SHELL(menu), menu_item, position );
          ++position;
       }
    }
-   gtk_widget_show_all(menu);
-   change_handler = g_signal_connect_swapped( gtk_icon_theme_get_default(), "changed", unload_old_icons, menu );
-   g_object_weak_ref( menu, on_app_menu_destroy, GINT_TO_POINTER(change_handler) );
+   gtk_widget_show_all(GTK_WIDGET(menu));
+   change_handler = g_signal_connect_swapped( gtk_icon_theme_get_default(), "changed", G_CALLBACK(unload_old_icons), menu );
+   g_object_weak_ref( G_OBJECT(menu), on_app_menu_destroy, GINT_TO_POINTER(change_handler) );
    ++n_ref;
 }
 
@@ -533,7 +533,7 @@ GtkWidget* ptk_app_menu_new()
 {
     GtkWidget* menu;
     menu = gtk_menu_new();
-    ptk_app_menu_insert_items( menu, -1 );
+    ptk_app_menu_insert_items( GTK_MENU(menu), -1 );
     return menu;
 }
 
@@ -544,7 +544,7 @@ void app_dirs_foreach( GFunc func, gpointer user_data )
     int i, len;
     struct stat dir_stat;
 
-    len = g_strv_length(sys_dirs);
+    len = g_strv_length((gchar **) sys_dirs);
     if( !times )
         times = g_new0( time_t, len + 2 );
     for( i = 0; i < len; ++i )
@@ -594,7 +594,7 @@ gboolean ptk_app_menu_need_reload()
 
     if( !times )
         return TRUE;
-    len = g_strv_length(sys_dirs);
+    len = g_strv_length((gchar **) sys_dirs);
     for( i = 0; i < len; ++i )
     {
         path = g_build_filename( sys_dirs[i], app_dir_name, NULL );

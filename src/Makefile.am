@@ -16,7 +16,7 @@ BUILTIN_PLUGINS = $(top_builddir)/src/plugins/libbuiltin_plugins.a
 TRAY_SOURCES= \
 	systray/eggmarshalers.c systray/eggmarshalers.h \
 	systray/eggtraymanager.c systray/eggtraymanager.h \
-	systray/fixedtip.c systray/fixedtip.h\
+	systray/fixedtip.c systray/fixedtip.h \
 	systray/tray.c
 
 lxpanel_SOURCES = \
@@ -33,7 +33,7 @@ lxpanel_SOURCES = \
 	gtk-run.c
 
 if BUILD_PLUGIN_LOADER
-DYNAMIC_FLAGS = -rdynamic
+DYNAMIC_FLAGS = -export-dynamic
 endif
 lxpanel_LDFLAGS = $(DYNAMIC_FLAGS)
 

@@ -40,7 +40,7 @@ static void on_response( GtkDialog* dlg, gint response, netstatus *ns )
         case GTK_RESPONSE_CLOSE:
         case GTK_RESPONSE_DELETE_EVENT:
         case GTK_RESPONSE_NONE:
-            gtk_widget_destroy( dlg );
+            gtk_widget_destroy( GTK_WIDGET(dlg) );
             ns->dlg = NULL;
     }
 }
@@ -57,7 +57,7 @@ static void on_button_press( GtkWidget* widget, GdkEventButton* evt, plugin* p )
             iface = netstatus_icon_get_iface( NETSTATUS_ICON(widget) );
             ns->dlg = netstatus_dialog_new(iface);
             netstatus_dialog_set_configuration_tool( ns->dlg, ns->config_tool );
-            g_signal_connect( ns->dlg, "response", on_response, ns );
+            g_signal_connect( ns->dlg, "response", G_CALLBACK(on_response), ns );
         }
         gtk_window_present( GTK_WINDOW(ns->dlg) );
     }
@@ -68,9 +68,7 @@ netstatus_constructor(plugin *p)
 {
     netstatus *ns;
     line s;
-    int w, h;
     NetstatusIface* iface;
-    GtkWidget* icon;
 
     ENTER;
     s.len = 256;  
