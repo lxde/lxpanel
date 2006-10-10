@@ -16,4 +16,5 @@ cpu_la_LIBADD = \
 cpu_la_LDFLAGS = \
 	-avoid-version \
 	-rpath $(moduledir) \
-	-module
+	-module \
+	-export-symbols-regex '_plugin_class$$'
