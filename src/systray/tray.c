@@ -4,6 +4,7 @@
 
 #include <X11/Xmu/WinUtil.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
+#include <glib/gi18n.h>
 
 #include "panel.h"
 #include "misc.h"
@@ -122,7 +123,7 @@ tray_constructor(plugin *p)
 #endif
     tr->box = p->panel->my_box_new(FALSE, 0);
     //gtk_container_add(GTK_CONTAINER(frame), tr->box);
-    gtk_container_add(GTK_CONTAINER(p->pwid), tr->box);        
+    gtk_container_add(GTK_CONTAINER(p->pwid), tr->box);
     //gtk_bgbox_set_background(p->pwid, BG_STYLE, 0, 0);
     gtk_container_set_border_width(GTK_CONTAINER(p->pwid), 0);
     screen = gtk_widget_get_screen (GTK_WIDGET (p->panel->topgwin));
@@ -152,9 +153,9 @@ plugin_class tray_plugin_class = {
     count: 0,
 
     type : "tray",
-    name : "tray",
+    name : N_("System Tray"),
     version: "1.0",
-    description : "Old KDE/GNOME Tray",
+    description : N_("Old KDE/GNOME Tray"),
 
     constructor : tray_constructor,
     destructor  : tray_destructor,

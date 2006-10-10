@@ -695,7 +695,7 @@ plugin_class pager_plugin_class = {
     count: 0,
 
     type : "pager",
-    name : "pager",
+    name : N_("Desktop Pager"),
     version: "1.0",
     description : N_("Simple pager plugin"),
 

@@ -122,7 +122,7 @@ plugin_class volume_plugin_class = {
 	count: 0,
 
 	type : "volume",
-	name : "volume",
+    name : N_("Volume Control"),
 	version: "1.0",
 	description : "Display and control volume",
 

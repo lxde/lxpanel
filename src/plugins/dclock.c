@@ -170,7 +170,7 @@ plugin_class dclock_plugin_class = {
     count: 0,
 
     type : "dclock",
-    name : "Digital Clock",
+    name : N_("Digital Clock"),
     version: "1.0",
     description : N_("Display Digital clock and Tooltip"),
 

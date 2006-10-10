@@ -205,9 +205,9 @@ plugin_class cpu_plugin_class = {
     count: 0,
 
     type : "cpu",
-    name : "Cpu usage",
+    name : N_("CPU Usage Monitor"),
     version: "1.0",
-    description : N_("Display cpu usage"),
+    description : N_("Display CPU usage"),
 
     constructor : cpu_constructor,
     destructor  : cpu_destructor,

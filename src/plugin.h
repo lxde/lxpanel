@@ -23,9 +23,10 @@ typedef struct {
     char *name;
     char *version;
     char *description;
-    
+
     int (*constructor)(struct _plugin *this);
     void (*destructor)(struct _plugin *this);
+    GtkWidget* (*config)(struct _plugin *this); /* config UI */
 
 } plugin_class;
 

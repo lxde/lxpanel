@@ -493,7 +493,7 @@ plugin_class icons_plugin_class = {
     count: 0,
 
     type : "icons",
-    name : "icons",
+    name : N_("Icons"),
     version: "1.0",
     description : N_("Change window icons"),
     invisible : 1,

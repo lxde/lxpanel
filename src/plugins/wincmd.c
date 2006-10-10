@@ -234,7 +234,7 @@ plugin_class wincmd_plugin_class = {
     count: 0,
 
     type : "wincmd",
-    name : "Window Commander ;-)",
+    name : N_("Minimize All Windows"),
     version: "1.0",
     description : N_("Sends commands to all desktop windows.\nSupported commnds are 1)toggle iconify and 2) toggle shade"),
     

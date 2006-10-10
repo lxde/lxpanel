@@ -462,7 +462,7 @@ plugin_class menu_plugin_class = {
     count: 0,
 
     type : "menu",
-    name : "menu",
+    name : N_("Menu"),
     version: "1.0",
     description : "Provide Menu",
 

@@ -8,6 +8,8 @@ src/panel.c
 src/plugin.c
 src/gtk-run.c
 
+src/systray/tray.c
+
 src/plugins/cpu/cpu.c
 src/plugins/deskno.c
 src/plugins/launchbar.c

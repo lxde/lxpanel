@@ -360,7 +360,7 @@ plugin_class launchbar_plugin_class = {
     count: 0,
 
     type : "launchbar",
-    name : "launchbar",
+    name : N_("Application Launch Bar"),
     version: "1.0",
     description : N_("Bar with buttons to launch application"),
 

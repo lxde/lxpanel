@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel-0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-09 01:48+0800\n"
-"PO-Revision-Date: 2006-10-09 01:54+0800\n"
+"POT-Creation-Date: 2006-10-10 07:26+0800\n"
+"PO-Revision-Date: 2006-10-10 07:32+0800\n"
 "Last-Translator: 洪任諭 <pcman.tw@gmail.com>\n"
 "Language-Team: zh_TW <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgid "Preferences"
 msgstr "偏好設定"
 
 #: ../src/configurator.c:26
-#: ../src/gtk-run.c:112
+#: ../src/gtk-run.c:111
 msgid "Run"
 msgstr "執行"
 
@@ -125,20 +125,28 @@ msgstr "設定停駐型態"
 msgid "Set Strut"
 msgstr ""
 
-#: ../src/configurator.c:463
-msgid "Right-click to get context menu. Drag & Drop to change order."
-msgstr "可以按右鍵使用選單，用拖曳改變順序"
+#: ../src/configurator.c:465
+msgid "Currently loaded plugins"
+msgstr "目前載入的外掛"
 
-#: ../src/configurator.c:519
+#: ../src/configurator.c:505
+msgid "_Add"
+msgstr "新增(_A)"
+
+#: ../src/configurator.c:507
+msgid "_Remove"
+msgstr "移除(_R)"
+
+#: ../src/configurator.c:572
 msgid "lxpanel configurator"
 msgstr "lxpanel 偏好設定"
 
-#: ../src/configurator.c:542
+#: ../src/configurator.c:595
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr "一般"
 
-#: ../src/configurator.c:547
+#: ../src/configurator.c:600
 msgid "Plugins"
 msgstr "外掛"
 
@@ -197,12 +205,29 @@ msgstr ""
 "詳細資訊請參觀 http://lxpanel.sourceforge.net/\n"
 "\n"
 
-#: ../src/gtk-run.c:122
+#: ../src/gtk-run.c:121
 msgid "Enter the command you want to execute:"
 msgstr "輸入你要想執行的指令："
 
+#: ../src/systray/tray.c:156
+msgid "System Tray"
+msgstr "系統匣 (通知區域)"
+
+#: ../src/systray/tray.c:158
+msgid "Old KDE/GNOME Tray"
+msgstr ""
+
+#: ../src/plugins/cpu/cpu.c:208
+msgid "CPU Usage Monitor"
+msgstr "CPU 使用量監視器"
+
 #: ../src/plugins/cpu/cpu.c:210
-msgid "Display cpu usage"
+msgid "Display CPU usage"
+msgstr "顯示 CPU 資源使用量"
+
+#: ../src/plugins/deskno.c:100
+#: ../src/plugins/deskno2.c:130
+msgid "Desktop No / Workspace Name"
 msgstr ""
 
 #: ../src/plugins/deskno.c:102
@@ -210,51 +235,55 @@ msgstr ""
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr ""
 
+#: ../src/plugins/launchbar.c:363
+msgid "Application Launch Bar"
+msgstr "應用程式啟動列"
+
 #: ../src/plugins/launchbar.c:365
 msgid "Bar with buttons to launch application"
-msgstr ""
+msgstr "具有應用程式啟動按鈕的工具列"
 
-#: ../src/plugins/ptk-app-menu.c:145
+#: ../src/plugins/ptk-app-menu.c:146
 msgid "Other"
 msgstr "其他"
 
-#: ../src/plugins/ptk-app-menu.c:146
+#: ../src/plugins/ptk-app-menu.c:147
 msgid "Game"
 msgstr "遊戲"
 
-#: ../src/plugins/ptk-app-menu.c:147
+#: ../src/plugins/ptk-app-menu.c:148
 msgid "Education"
 msgstr "教育"
 
-#: ../src/plugins/ptk-app-menu.c:148
+#: ../src/plugins/ptk-app-menu.c:149
 msgid "Development"
 msgstr "軟體開發"
 
-#: ../src/plugins/ptk-app-menu.c:149
+#: ../src/plugins/ptk-app-menu.c:150
 msgid "Audio & Video"
 msgstr "影音多媒體"
 
-#: ../src/plugins/ptk-app-menu.c:150
+#: ../src/plugins/ptk-app-menu.c:151
 msgid "Graphics"
 msgstr "繪圖"
 
-#: ../src/plugins/ptk-app-menu.c:151
+#: ../src/plugins/ptk-app-menu.c:152
 msgid "Settings"
 msgstr "設定"
 
-#: ../src/plugins/ptk-app-menu.c:152
+#: ../src/plugins/ptk-app-menu.c:153
 msgid "System Tools"
 msgstr "系統工具"
 
-#: ../src/plugins/ptk-app-menu.c:153
+#: ../src/plugins/ptk-app-menu.c:154
 msgid "Network"
 msgstr "網路"
 
-#: ../src/plugins/ptk-app-menu.c:154
+#: ../src/plugins/ptk-app-menu.c:155
 msgid "Office"
 msgstr "辦公軟體"
 
-#: ../src/plugins/ptk-app-menu.c:155
+#: ../src/plugins/ptk-app-menu.c:156
 msgid "Accessories"
 msgstr "附屬應用程式"
 
@@ -279,29 +308,57 @@ msgstr "最小化"
 msgid "Close Window"
 msgstr "關閉視窗"
 
+#: ../src/plugins/taskbar.c:1408
+msgid "Task Bar (Window List)"
+msgstr "工作列 (視窗清單)"
+
 #: ../src/plugins/taskbar.c:1410
 msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
-msgstr ""
+msgstr "工作列顯示所有開啟的視窗，並讓能視窗最小化、折疊、或取得焦點"
+
+#: ../src/plugins/dclock.c:173
+msgid "Digital Clock"
+msgstr "數位時鐘"
 
 #: ../src/plugins/dclock.c:175
 msgid "Display Digital clock and Tooltip"
-msgstr ""
+msgstr "顯示數位時鐘及在工具提示顯示日期"
+
+#: ../src/plugins/icons.c:496
+msgid "Icons"
+msgstr "圖示"
 
 #: ../src/plugins/icons.c:498
 msgid "Change window icons"
-msgstr ""
+msgstr "更換視窗圖示"
+
+#: ../src/plugins/menu.c:465
+msgid "Menu"
+msgstr "選單"
 
 #: ../src/plugins/image.c:129
 msgid "Dispaly Image and Tooltip"
-msgstr ""
+msgstr "顯示圖示及工具提示"
+
+#: ../src/plugins/pager.c:698
+msgid "Desktop Pager"
+msgstr "切換桌面"
 
 #: ../src/plugins/pager.c:700
 msgid "Simple pager plugin"
-msgstr ""
+msgstr "簡易桌面切換外掛"
+
+#: ../src/plugins/space.c:94
+msgid "<Space>"
+msgstr "<空白分隔>"
 
 #: ../src/plugins/wincmd.c:221
 msgid "Left click to iconify all windows. Middle click to shade them"
 msgstr "按左鍵最小化所有視窗 / 中鍵折疊所有視窗"
+
+#: ../src/plugins/wincmd.c:237
+msgid "Minimize All Windows"
+msgstr "最小化所有視窗"
 
 #: ../src/plugins/wincmd.c:239
 msgid ""
@@ -310,43 +367,55 @@ msgid ""
 msgstr ""
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
-#: ../src/plugins/volume/volume.c:113
+#: ../src/plugins/volume/volume.c:114
 msgid "Volume control"
+msgstr "音量控制"
+
+#: ../src/plugins/volume/volume.c:125
+msgid "Volume Control"
 msgstr "音量控制"
 
 #: ../src/plugins/volume/volume-impl.c:72
 msgid "Volume"
 msgstr "音量"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:50
-#: ../src/plugins/netstatus/netstatus-dialog.c:309
+#: ../src/plugins/netstatus/netstatus.c:124
+msgid "Net Status Monitor"
+msgstr "網路狀態監視器"
+
+#: ../src/plugins/netstatus/netstatus.c:126
+msgid "Monitor network status"
+msgstr "監控網路狀態"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:52
+#: ../src/plugins/netstatus/netstatus-dialog.c:311
 msgid "Unknown"
 msgstr "未知"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:113
+#: ../src/plugins/netstatus/netstatus-dialog.c:115
 msgid "Connection Properties"
 msgstr "連線屬性"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:119
+#: ../src/plugins/netstatus/netstatus-dialog.c:121
 #, c-format
 msgid "Connection Properties: %s"
 msgstr "連線屬性 %s"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:132
+#: ../src/plugins/netstatus/netstatus-dialog.c:134
 #, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:393
+#: ../src/plugins/netstatus/netstatus-dialog.c:395
 #, c-format
 msgid ""
 "There was an error displaying help:\n"
 "%s"
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:577
+#: ../src/plugins/netstatus/netstatus-dialog.c:579
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
 msgstr "執行設定工具 %s 失敗"
@@ -490,6 +559,8 @@ msgstr ""
 "\n"
 "%s"
 
+#~ msgid "Right-click to get context menu. Drag & Drop to change order."
+#~ msgstr "可以按右鍵使用選單，用拖曳改變順序"
 #~ msgid "Plugins..."
 #~ msgstr "外掛..."
 

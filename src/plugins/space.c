@@ -1,6 +1,7 @@
 #include <stdlib.h>
 
 #include <gdk-pixbuf/gdk-pixbuf.h>
+#include <glib/gi18n.h>
 
 #include "panel.h"
 #include "misc.h"
@@ -90,7 +91,7 @@ plugin_class space_plugin_class = {
     count: 0,
 
     type : "space",
-    name : "space",
+    name : N_("<Space>"),
     version: "1.0",
     description : "just allocate space",
 

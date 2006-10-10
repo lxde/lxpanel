@@ -452,23 +452,194 @@ dialog_delete_event( GtkWidget *widget, GdkEvent  *event, gpointer   data )
     RET(FALSE);
 }
 
+static void
+on_sel_plugin_changed( GtkTreeSelection* tree_sel, gpointer user_data )
+{
+
+}
+
+static void init_plugin_list( GtkTreeView* view )
+{
+    /* extern panel *p; */
+    GtkListStore* list;
+    GtkTreeViewColumn* col;
+    GtkCellRenderer* render;
+    GtkTreeSelection* tree_sel;
+    GList* l;
+
+    render = gtk_cell_renderer_text_new();
+    col = gtk_tree_view_column_new_with_attributes(
+            _("Currently loaded plugins"),
+            render, "text", 0, NULL );
+    gtk_tree_view_append_column( view, col );
+
+    list = gtk_list_store_new( 2, G_TYPE_STRING, G_TYPE_POINTER );
+    for( l = p->plugins; l; l = l->next )
+    {
+        GtkTreeIter it;
+        plugin* pl = (plugin*)l->data;
+        gtk_list_store_append( list, &it );
+        gtk_list_store_set( list, &it,
+                            0, _(pl->class->name),
+                            1, pl, -1);
+    }
+    gtk_tree_view_set_model( view, GTK_TREE_MODEL( list ) );
+
+    tree_sel = gtk_tree_view_get_selection( view );
+    g_signal_connect( tree_sel, "changed",
+                      G_CALLBACK(on_sel_plugin_changed), NULL);
+}
+
+static void on_add_plugin( GtkButton* btn, GtkTreeView* view )
+{
+
+}
+
+static void on_remove_plugin(  GtkButton* btn, GtkTreeView* view )
+{
+
+}
+
+static int get_widget_index( plugin* pl )
+{
+    GList* l;
+    int i;
+    for( i = 0, l = p->plugins; l; l = l->next )
+    {
+        plugin* _pl = (plugin*)l->data;
+        if( _pl == pl )
+            return i;
+        if( _pl->pwid )
+            ++i;
+    }
+    return -1;
+}
+
+static void on_moveup_plugin(  GtkButton* btn, GtkTreeView* view )
+{
+    GList *l;
+    GtkTreeIter it, prev;
+    GtkTreeModel* model = gtk_tree_view_get_model( view );
+    GtkTreeSelection* tree_sel = gtk_tree_view_get_selection( view );
+    int i;
+
+    if( ! gtk_tree_model_get_iter_first( model, &it ) )
+        return;
+    if( gtk_tree_selection_iter_is_selected( tree_sel, &it ) )
+        return;
+    do{
+        if( gtk_tree_selection_iter_is_selected(tree_sel, &it) )
+        {
+            plugin* pl;
+            gtk_tree_model_get( model, &it, 1, &pl, -1 );
+            gtk_list_store_move_before( GTK_LIST_STORE( model ),
+                                        &it, &prev );
+
+            i = 0;
+            for( l = p->plugins; l; l = l->next, ++i )
+            {
+                if( l->data == pl  )
+                {
+                    p->plugins = g_list_insert( p->plugins, pl, i - 1);
+                    p->plugins = g_list_delete_link( p->plugins, l);
+                }
+            }
+            if( pl->pwid )
+            {
+                gtk_box_reorder_child( p->box, pl->pwid, get_widget_index( pl ) );
+            }
+            return;
+        }
+        prev = it;
+    }while( gtk_tree_model_iter_next( model, &it ) );
+}
+
+static void on_movedown_plugin(  GtkButton* btn, GtkTreeView* view )
+{
+    GList *l;
+    GtkTreeIter it, next;
+    GtkTreeModel* model;
+    GtkTreeSelection* tree_sel = gtk_tree_view_get_selection( view );
+    GtkTreePath* path;
+    plugin* pl;
+    int i;
+
+    if( ! gtk_tree_selection_get_selected( tree_sel, &model, &it ) )
+        return;
+    next = it;
+
+    if( ! gtk_tree_model_iter_next( model, &next) )
+        return;
+
+    gtk_tree_model_get( model, &it, 1, &pl, -1 );
+
+    gtk_list_store_move_after( GTK_LIST_STORE( model ), &it, &next );
+
+    i = 0;
+    for( l = p->plugins; l; l = l->next, ++i )
+    {
+        if( l->data == pl  )
+        {
+            p->plugins = g_list_insert( p->plugins, pl, i + 2);
+            p->plugins = g_list_delete_link( p->plugins, l);
+        }
+    }
+    if( pl->pwid )
+    {
+        gtk_box_reorder_child( p->box, pl->pwid, get_widget_index( pl ) );
+    }
+}
+
 static GtkWidget *
 mk_tab_plugins()
 {
-    GtkWidget *sw, *paned, *hbox, *label;
+    GtkWidget *sw, *paned, *hbox, *vbox, *rvbox, *label;
+    GtkWidget *scroll, *plugin_list, *button, *image;
 
-    paned = gtk_vpaned_new();
+    paned = gtk_hpaned_new();
+    vbox = gtk_vbox_new( FALSE, 2 );
+    gtk_paned_pack1(GTK_PANED(paned), vbox, TRUE, FALSE);
 
-    hbox = gtk_hbox_new(FALSE, 0);
-    label = gtk_label_new(_("Right-click to get context menu. Drag & Drop to change order."));
+    /* Left pane */
+    plugin_list = gtk_tree_view_new();
+    /* plugin list */
+    scroll = gtk_scrolled_window_new(NULL, NULL);
+    gtk_scrolled_window_set_policy( scroll, GTK_POLICY_AUTOMATIC,GTK_POLICY_AUTOMATIC);
+    gtk_container_add( GTK_CONTAINER(scroll), plugin_list );
+    gtk_box_pack_start( GTK_BOX( vbox ), scroll, TRUE, TRUE, 4 );
+
+    init_plugin_list( GTK_TREE_VIEW( plugin_list ) );
+
+    /* buttons used to edit plugin list */
+    hbox = gtk_hbox_new( FALSE, 2 );
+    gtk_box_pack_start( GTK_BOX( vbox ), hbox, FALSE, FALSE, 4 );
+    button = gtk_button_new_with_mnemonic( _("_Add" ) );
+    gtk_box_pack_start( GTK_BOX( hbox ), button, FALSE, FALSE, 2 );
+    g_signal_connect( button, "clicked", G_CALLBACK(on_add_plugin), plugin_list );
+
+    button = gtk_button_new_with_mnemonic( _("_Remove") );
+    gtk_box_pack_start( GTK_BOX( hbox ), button, FALSE, FALSE, 2 );
+    g_signal_connect( button, "clicked", G_CALLBACK(on_remove_plugin), plugin_list );
+
+    button = gtk_button_new();
+    gtk_container_add( button, gtk_image_new_from_stock(GTK_STOCK_GO_UP, GTK_ICON_SIZE_BUTTON) );
+    gtk_box_pack_start( GTK_BOX( hbox ), button, FALSE, FALSE, 2 );
+    g_signal_connect( button, "clicked", G_CALLBACK(on_moveup_plugin), plugin_list );
+
+    button = gtk_button_new();
+    gtk_container_add( button, gtk_image_new_from_stock(GTK_STOCK_GO_DOWN, GTK_ICON_SIZE_BUTTON) );
+    gtk_box_pack_start( GTK_BOX( hbox ), button, FALSE, FALSE, 2 );
+    g_signal_connect( button, "clicked", G_CALLBACK(on_movedown_plugin), plugin_list );
+
+    /* Right pane */
+    vbox = gtk_vbox_new( FALSE, 2 );
+    gtk_paned_add2(GTK_PANED(paned), vbox);
+
+    /* Label displaying plugin descriptions */
+    label = gtk_label_new("");
     gtk_label_set_line_wrap(GTK_LABEL(label), TRUE);
-    gtk_box_pack_end(GTK_BOX(hbox), label, TRUE, TRUE, 5);
+    gtk_box_pack_start(GTK_BOX(hbox), label, TRUE, TRUE, 4);
 
-    gtk_paned_add1(GTK_PANED(paned), hbox);
-
-    sw = gtk_label_new("Plugins...");
-    gtk_paned_add2(GTK_PANED(paned), sw);
-    
     RET(paned);
 }
 

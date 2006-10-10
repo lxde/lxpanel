@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include <gdk-pixbuf/gdk-pixbuf.h>
+#include <glib/gi18n.h>
 
 #include "panel.h"
 #include "misc.h"
@@ -120,9 +121,9 @@ plugin_class netstatus_plugin_class = {
     count: 0,
 
     type : "netstatus",
-    name : "netstatus",
+    name : N_("Net Status Monitor"),
     version: "1.0",
-    description : "Net status",
+    description : N_("Monitor network status"),
 
     constructor : netstatus_constructor,
     destructor  : netstatus_destructor,

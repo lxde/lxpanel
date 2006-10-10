@@ -127,7 +127,7 @@ plugin_class deskno2_plugin_class = {
     count: 0,
 
     type : "deskno2",
-    name : "Desktop No / Workspace Name",
+    name : N_("Desktop No / Workspace Name"),
     version: "0.6",
     description : N_("Display workspace number, by cmeury@users.sf.net"),
 
