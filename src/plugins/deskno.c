@@ -103,4 +103,5 @@ plugin_class deskno_plugin_class = {
 
     constructor : deskno_constructor,
     destructor  : deskno_destructor,
+    config : NULL
 };

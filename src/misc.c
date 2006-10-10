@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include <stdarg.h>
 
 #include "misc.h"
 #include "panel.h"
@@ -1041,5 +1042,55 @@ char* translate_exec_to_cmd( const char* exec, const char* icon,
             g_string_append_c( cmd, *exec );
     }
     return g_string_free( cmd, FALSE );
+}
+
+/* Parameters: const char* name, gpointer ret_value, GType type, ....NULL */
+GtkWidget* create_generic_config_page( const char* name, ... )
+{
+    va_list args;
+    GtkWidget* config = gtk_vbox_new( FALSE, 4 );
+    va_start( args, name );
+    while( name )
+    {
+        GtkWidget* label = gtk_label_new( name );
+        GtkWidget* entry = NULL;
+        gpointer val = va_arg( args, gpointer );
+        GType type = va_arg( args, GType );
+        switch( type )
+        {
+            case G_TYPE_STRING:
+                entry = gtk_entry_new();
+                gtk_entry_set_text( entry, *(char**)val );
+                break;
+            case G_TYPE_INT:
+            {
+                /* FIXME: the range shouldn't be hardcoded */
+                entry = gtk_spin_button_new_with_range( 0, 100, 1 );
+                gtk_spin_button_set_value( entry, *(int*)val );
+                break;
+            }
+            case G_TYPE_BOOLEAN:
+                entry = gtk_check_button_new();
+                gtk_container_add( entry, label );
+                gtk_toggle_button_set_active( entry, *(gboolean*)val );
+                break;
+        }
+        if( entry )
+        {
+            if( type == G_TYPE_BOOLEAN )
+                gtk_box_pack_start( config, entry, FALSE, FALSE, 2 );
+            else
+            {
+                GtkWidget* hbox = gtk_hbox_new( FALSE, 2 );
+                gtk_box_pack_start( hbox, label, FALSE, FALSE, 2 );
+                gtk_box_pack_start( hbox, entry, TRUE, TRUE, 2 );
+                gtk_box_pack_start( config, hbox, FALSE, FALSE, 2 );
+            }
+        }
+        name = va_arg( args, const char* );
+    }
+    va_end( args );
+    gtk_widget_show_all( config );
+    return config;
 }
 

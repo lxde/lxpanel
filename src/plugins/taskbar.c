@@ -86,14 +86,14 @@ typedef struct _taskbar{
     
     unsigned int iconsize;
     unsigned int task_width_max;
-    unsigned int accept_skip_pager : 1;
-    unsigned int show_iconified : 1;
-    unsigned int show_mapped : 1;
-    unsigned int show_all_desks : 1;
-    unsigned int tooltips : 1;
-    unsigned int icons_only : 1;
-    unsigned int use_mouse_wheel : 1;
-    unsigned int use_urgency_hint : 1;
+    unsigned int accept_skip_pager;// : 1;
+    unsigned int show_iconified;// : 1;
+    unsigned int show_mapped;// : 1;
+    unsigned int show_all_desks;// : 1;
+    unsigned int tooltips;// : 1;
+    unsigned int icons_only;// : 1;
+    unsigned int use_mouse_wheel;// : 1;
+    unsigned int use_urgency_hint;// : 1;
 } taskbar;
 
 
@@ -1400,6 +1400,24 @@ taskbar_destructor(plugin *p)
     RET();
 }
 
+static GtkWidget* taskbar_config( plugin* p )
+{
+    taskbar *tb = (taskbar *)p->priv;
+
+    return create_generic_config_page(
+            _("Show tooltips"), &tb->tooltips, G_TYPE_BOOLEAN,
+            _("Icons only"), &tb->icons_only, G_TYPE_BOOLEAN,
+            _("Accept SkipPager"), &tb->accept_skip_pager, G_TYPE_BOOLEAN,
+            _("Show Iconified windows"), &tb->show_iconified, G_TYPE_BOOLEAN,
+            _("Show mapped windows"), &tb->show_mapped, G_TYPE_BOOLEAN,
+            _("Show windows from all desktops"), &tb->show_all_desks, G_TYPE_BOOLEAN,
+            _("Use mouse wheel"), &tb->use_mouse_wheel, G_TYPE_BOOLEAN,
+            _("Flash when there is any window requiring attention"), &tb->use_urgency_hint, G_TYPE_BOOLEAN,
+            _("Max width of task button"), &tb->task_width_max, G_TYPE_INT,
+            _("Spacing"), &tb->spacing, G_TYPE_INT,
+                NULL );
+}
+
 plugin_class taskbar_plugin_class = {
     fname: NULL,
     count: 0,
@@ -1411,5 +1429,6 @@ plugin_class taskbar_plugin_class = {
     
     constructor : taskbar_constructor,
     destructor  : taskbar_destructor,
+    config : taskbar_config
 };
 

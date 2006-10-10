@@ -85,6 +85,11 @@ space_constructor(plugin *p)
     RET(0);
 }
 
+static GtkWidget* space_config(plugin* p)
+{
+    space *sp = (space *)p->priv;
+    return create_generic_config_page( _("Size"), &sp->size, G_TYPE_INT,  NULL );
+}
 
 plugin_class space_plugin_class = {
     fname: NULL,
@@ -97,4 +102,5 @@ plugin_class space_plugin_class = {
 
     constructor : space_constructor,
     destructor  : space_destructor,
+    config : space_config
 };

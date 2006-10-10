@@ -701,4 +701,5 @@ plugin_class pager_plugin_class = {
 
     constructor : pager_constructor,
     destructor  : pager_destructor,
+    config : NULL
 };

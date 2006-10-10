@@ -31,7 +31,7 @@
 #include "plugin.h"
 #include "panel.h"
 #include "gtkbgbox.h"
-
+#include "misc.h"
 
 #define KILOBYTE 1024
 #define MAX_WGSIZE 100
@@ -211,4 +211,5 @@ plugin_class cpu_plugin_class = {
 
     constructor : cpu_constructor,
     destructor  : cpu_destructor,
+    config : NULL
 };

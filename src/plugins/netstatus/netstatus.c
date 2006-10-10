@@ -115,6 +115,14 @@ netstatus_constructor(plugin *p)
     RET(0);
 }
 
+static GtkWidget* netstatus_config( plugin* p )
+{
+    netstatus *ns = (netstatus*)p->priv;
+    return create_generic_config_page(
+                _("Interface to monitor"), &ns->iface, G_TYPE_STRING,
+                _("Config tool"), &ns->config_tool, G_TYPE_STRING,
+                NULL );
+}
 
 plugin_class netstatus_plugin_class = {
     fname: NULL,
@@ -127,4 +135,5 @@ plugin_class netstatus_plugin_class = {
 
     constructor : netstatus_constructor,
     destructor  : netstatus_destructor,
+    config : netstatus_config
 };

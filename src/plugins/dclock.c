@@ -83,14 +83,12 @@ dclock_constructor(plugin *p)
     line s;
     dclock *dc;
     char output [40] ;
-    time_t now ;
-    struct tm * detail ;
-    
+
     ENTER;
     dc = g_new0(dclock, 1);
     g_return_val_if_fail(dc != NULL, 0);
     p->priv = dc;
-    
+
     s.len = 256;
     dc->cfmt = dc->tfmt = dc->action = 0;
     while (get_line(p->fp, &s) != LINE_BLOCK_END) {
@@ -125,10 +123,7 @@ dclock_constructor(plugin *p)
     if (dc->action)
         g_signal_connect (G_OBJECT (dc->main), "button_press_event",
               G_CALLBACK (clicked), (gpointer) dc);
-    time(&now);
-    detail = localtime(&now);
-    strftime(output, sizeof(output), dc->cfmt, detail) ;
-    dc->clockw = gtk_label_new(output);
+    dc->clockw = gtk_label_new("");
     gtk_misc_set_alignment(GTK_MISC(dc->clockw), 0.5, 0.5);
     gtk_misc_set_padding(GTK_MISC(dc->clockw), 4, 0);
     //gtk_widget_show(dc->clockw);
@@ -137,6 +132,8 @@ dclock_constructor(plugin *p)
     dc->tip = gtk_tooltips_new();
     dc->timer = g_timeout_add(1000, (GSourceFunc) clock_update, (gpointer)dc);
     gtk_container_add(GTK_CONTAINER(p->pwid), dc->main);
+
+    clock_update( dc );
     RET(1);
 
  error:
@@ -165,6 +162,15 @@ dclock_destructor(plugin *p)
   RET();
 }
 
+static GtkWidget* dclock_config( plugin *p )
+{
+    dclock *dc = (dclock *)p->priv;
+    return create_generic_config_page( _("Clock Format"), &dc->cfmt, G_TYPE_STRING,
+                                       _("Tooltip Format"), &dc->tfmt, G_TYPE_STRING,
+                                       _("Action"), &dc->action, G_TYPE_STRING,
+                                       NULL );
+}
+
 plugin_class dclock_plugin_class = {
     fname: NULL,
     count: 0,
@@ -176,4 +182,5 @@ plugin_class dclock_plugin_class = {
 
     constructor : dclock_constructor,
     destructor  : dclock_destructor,
+    config : dclock_config
 };
