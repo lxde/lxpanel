@@ -1334,7 +1334,7 @@ taskbar_constructor(plugin *p)
     tb->use_mouse_wheel   = 1;
     tb->use_urgency_hint  = 1;
     s.len = 256;
-    while (get_line(p->fp, &s) != LINE_BLOCK_END) {
+    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
         if (s.type == LINE_NONE) {
             ERR( "taskbar: illegal token %s\n", s.str);
             goto error;

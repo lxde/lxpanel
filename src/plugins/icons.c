@@ -342,7 +342,7 @@ read_application(plugin *p)
     ENTER;
     s.len = 256;
     fname = appname = classname = NULL;
-    while (get_line(p->fp, &s) != LINE_BLOCK_END) {
+    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
         if (s.type == LINE_NONE) {
             ERR( "icons: illegal token %s\n", s.str);
             goto error;
@@ -429,7 +429,7 @@ icons_constructor(plugin *p)
     ics->wmpixno           = 0;
     ics->task_list         = g_hash_table_new(g_int_hash, g_int_equal);
     s.len = 256;
-    while (get_line(p->fp, &s) != LINE_BLOCK_END) {
+    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
         if (s.type == LINE_NONE) {
             ERR( "icons: illegal token %s\n", s.str);
             goto error;

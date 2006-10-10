@@ -208,7 +208,7 @@ read_item(plugin *p)
     s.len = 256;
     name = fname = action = NULL;
 
-    while (get_line(p->fp, &s) != LINE_BLOCK_END) {
+    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
         if (s.type == LINE_VAR) {
             if (!g_ascii_strcasecmp(s.t[0], "image"))
                 fname = expand_tilda(s.t[1]);
@@ -270,7 +270,7 @@ read_separator(plugin *p)
 
     ENTER;
     s.len = 256;
-    while (get_line(p->fp, &s) != LINE_BLOCK_END) {
+    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
         ERR("menu: error - separator can not have paramteres\n");
         RET(NULL);
     }
@@ -285,7 +285,7 @@ read_system_menu(GtkMenu* menu, plugin *p)
 
    ENTER;
    s.len = 256;
-   while (get_line(p->fp, &s) != LINE_BLOCK_END) {
+   while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
       ERR("menu: error - system can not have paramteres\n");
       RET();
    }
@@ -311,7 +311,7 @@ read_include(plugin *p)
     ENTER;
     s.len = 256;
     name = NULL;
-    while (get_line(p->fp, &s) != LINE_BLOCK_END) {
+    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
         if (s.type == LINE_VAR) {
             if (!g_ascii_strcasecmp(s.t[0], "name"))
                 name = expand_tilda(s.t[1]);
@@ -348,7 +348,7 @@ read_submenu(plugin *p, gboolean as_item)
 
     fname = 0;
     name[0] = 0;
-    while (get_line(p->fp, &s) != LINE_BLOCK_END) {
+    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
         if (s.type == LINE_BLOCK_START) {
             mi = NULL;
             if (!g_ascii_strcasecmp(s.t[0], "item")) {

@@ -71,7 +71,7 @@ test_constructor(plugin *p)
     p->priv = dc;
     dc->delta = 1;
     s.len = 256;
-    while (get_line(p->fp, &s) != LINE_BLOCK_END) {
+    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
         ERR( "test: illegal in this context %s\n", s.str);
     }
     dc->main = p->panel->my_box_new(TRUE, 1);

@@ -890,7 +890,7 @@ plugin_config_save(FILE *fp)
     memset(space, ' ', STR_LEN);
     space[STR_LEN -1] = 0;
     s.len = 256;
-    while (get_line(pconf, &s) != LINE_NONE) {
+    while (lxpanel_get_line(pconf, &s) != LINE_NONE) {
         switch (s.type) {
         case LINE_BLOCK_START:
             space[i*TAB_WIDTH] = 0;

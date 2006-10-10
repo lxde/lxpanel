@@ -179,7 +179,7 @@ wincmd_constructor(plugin *p)
     wc->tips = gtk_tooltips_new();
     p->priv = wc;
     fname = NULL;
-    while (get_line(p->fp, &s) != LINE_BLOCK_END) {
+    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
         if (s.type == LINE_NONE) {
             ERR( "wincmd: illegal token %s\n", s.str);
             goto error;

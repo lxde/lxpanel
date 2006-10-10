@@ -471,7 +471,7 @@ panel_parse_global(panel *p, FILE *fp)
     s.len = 256;
     
     ENTER;
-    while (get_line(fp, &s) != LINE_NONE) {
+    while (lxpanel_get_line(fp, &s) != LINE_NONE) {
         if (s.type == LINE_VAR) {
             if (!g_ascii_strcasecmp(s.t[0], "edge")) {
                 p->edge = str2num(edge_pair, s.t[1], EDGE_NONE);
@@ -561,7 +561,7 @@ panel_parse_plugin(panel *p, FILE *fp)
         RET(0);
     }
     border = expand = padding = 0;
-    while (get_line(fp, &s) != LINE_BLOCK_END) {
+    while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
         if (s.type == LINE_NONE) {
             ERR( "lxpanel: bad line %s\n", s.str);
             goto error;
@@ -661,7 +661,7 @@ panel_start(panel *p, FILE *fp)
     p->tintcolor = 0xFFFFFFFF;
     p->spacing = 0;
     fbev = fb_ev_new();
-    if ((get_line(fp, &s) != LINE_BLOCK_START) || g_ascii_strcasecmp(s.t[0], "Global")) {
+    if ((lxpanel_get_line(fp, &s) != LINE_BLOCK_START) || g_ascii_strcasecmp(s.t[0], "Global")) {
         ERR( "lxpanel: config file must start from Global section\n");
         RET(0);
     }
@@ -677,7 +677,7 @@ panel_start(panel *p, FILE *fp)
         fprintf(pconf, "%s\n", s.str);
     fseek(fp, pos, SEEK_SET);
 
-    while (get_line(fp, &s) != LINE_NONE) {
+    while (lxpanel_get_line(fp, &s) != LINE_NONE) {
         if ((s.type  != LINE_BLOCK_START) || g_ascii_strcasecmp(s.t[0], "Plugin")) {
             ERR( "lxpanel: expecting Plugin section\n");
             RET(0);

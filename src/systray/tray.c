@@ -105,7 +105,7 @@ tray_constructor(plugin *p)
     
     ENTER;
     s.len = 256;
-    while (get_line(p->fp, &s) != LINE_BLOCK_END) {
+    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
         ERR("tray: illegal in this context %s\n", s.str);
         RET(0);
     }

@@ -91,7 +91,7 @@ dclock_constructor(plugin *p)
 
     s.len = 256;
     dc->cfmt = dc->tfmt = dc->action = 0;
-    while (get_line(p->fp, &s) != LINE_BLOCK_END) {
+    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
         if (s.type == LINE_NONE) {
             ERR( "dclock: illegal token %s\n", s.str);
             goto error;

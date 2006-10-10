@@ -133,7 +133,7 @@ num2str(pair *p, int num, gchar *defval)
 }
 
 extern  int
-get_line(FILE *fp, line *s)
+lxpanel_get_line(FILE *fp, line *s)
 {
     gchar *tmp, *tmp2;
 

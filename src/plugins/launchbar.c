@@ -169,7 +169,7 @@ read_button(plugin *p)
     }
 
     tooltip = fname = action = desktop_id = NULL;
-    while (get_line(p->fp, &s) != LINE_BLOCK_END) {
+    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
         if (s.type == LINE_NONE) {
             ERR( "launchbar: illegal token %s\n", s.str);
             RET(0);
@@ -323,7 +323,7 @@ launchbar_constructor(plugin *p)
     DBG("iconsize=%d\n", lb->iconsize);
     
     s.len = 256;
-    while (get_line(p->fp, &s) != LINE_BLOCK_END) {
+    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
         if (s.type == LINE_NONE) {
             ERR( "launchbar: illegal token %s\n", s.str);
             goto error;

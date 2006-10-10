@@ -45,7 +45,7 @@ space_constructor(plugin *p)
     sp = g_new0(space, 1);
     g_return_val_if_fail(sp != NULL, 0);
     p->priv = sp;
-    while (get_line(p->fp, &s) != LINE_BLOCK_END) {
+    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
         if (s.type == LINE_NONE) {
             ERR( "space: illegal token %s\n", s.str);
             goto error;
