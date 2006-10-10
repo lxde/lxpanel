@@ -10,7 +10,6 @@
 #include <errno.h>
 #include <locale.h>
 #include <string.h>
-#include <signal.h>
 #include <glib/gi18n.h>
 
 #include "plugin.h"
@@ -791,14 +790,6 @@ handle_error(Display * d, XErrorEvent * ev)
     RET();
 }
 
-static void
-sig_usr(int signum)
-{
-    if (signum != SIGUSR1)
-        return;
-    gtk_main_quit();
-}
-
 int
 main(int argc, char *argv[], char *env[])
 {
@@ -860,8 +851,8 @@ main(int argc, char *argv[], char *env[])
     gtk_icon_theme_append_search_path( gtk_icon_theme_get_default(),
                                        PACKAGE_DATA_DIR "/lxpanel/images" );
 
-    signal(SIGUSR1, sig_usr);
-    do {
+    /* Enter main loop */
+    {
         if (!(pfp = open_profile(cprofile)))
             exit(1);
         p = g_new0(panel, 1);
@@ -877,8 +868,8 @@ main(int argc, char *argv[], char *env[])
         gtk_main();
         panel_stop(p);
         g_free(p);
-    } while (quit == 0);
-    
-    exit(0);
+    }
+
+    return 0;
 }
 
