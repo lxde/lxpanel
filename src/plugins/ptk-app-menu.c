@@ -337,12 +337,16 @@ static void do_load_dir( int prefix_len,
 {
     GDir* dir = g_dir_open( path, 0, NULL );
     const char* name;
+    GKeyFile*  file;
+
     if( G_UNLIKELY( ! dir ) )
         return;
+
+    file = g_key_file_new();
+
     while( name = g_dir_read_name( dir ) )
     {
         char* fpath;
-        GKeyFile*  file;
         char **cats, **cat;
         char **only_show_in;
 
@@ -360,18 +364,19 @@ static void do_load_dir( int prefix_len,
             g_free( fpath );
             continue;
         }
-        file = g_key_file_new();
-        g_key_file_load_from_file( file, fpath, 0, NULL );
+        if( ! g_key_file_load_from_file( file, fpath, 0, NULL ) )
+        {
+            g_free( fpath );
+            continue;
+        }
         if( g_key_file_get_boolean( file, desktop_ent, "NoDisplay", NULL ) )
         {
-            g_key_file_free( file );
             g_free( fpath );
             continue;
         }
         only_show_in = g_key_file_get_string_list( file, desktop_ent, "OnlyShowIn", NULL, NULL );
         if( only_show_in )
         {
-            g_key_file_free( file );
             g_free( fpath );
             g_strfreev( only_show_in );
             continue;
@@ -436,9 +441,9 @@ static void do_load_dir( int prefix_len,
             }
             g_strfreev(cats);
         }
-        g_key_file_free( file );
         g_free( fpath );
     }
+    g_key_file_free( file );
     g_dir_close( dir );
 }
 
