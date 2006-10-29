@@ -366,4 +366,5 @@ plugin_class launchbar_plugin_class = {
 
     constructor : launchbar_constructor,
     destructor  : launchbar_destructor,
+    config : NULL
 };

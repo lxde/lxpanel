@@ -83,17 +83,17 @@ typedef struct _taskbar{
     int desk_namesno;
     int desk_num;
     guint dnd_activate;
-    
-    unsigned int iconsize;
-    unsigned int task_width_max;
-    unsigned int accept_skip_pager;// : 1;
-    unsigned int show_iconified;// : 1;
-    unsigned int show_mapped;// : 1;
-    unsigned int show_all_desks;// : 1;
-    unsigned int tooltips;// : 1;
-    unsigned int icons_only;// : 1;
-    unsigned int use_mouse_wheel;// : 1;
-    unsigned int use_urgency_hint;// : 1;
+
+    gboolean iconsize;
+    gboolean task_width_max;
+    gboolean accept_skip_pager;// : 1;
+    gboolean show_iconified;// : 1;
+    gboolean show_mapped;// : 1;
+    gboolean show_all_desks;// : 1;
+    gboolean tooltips;// : 1;
+    gboolean icons_only;// : 1;
+    gboolean use_mouse_wheel;// : 1;
+    gboolean use_urgency_hint;// : 1;
 } taskbar;
 
 
@@ -688,6 +688,8 @@ static gint
 tk_callback_scroll_event (GtkWidget *widget, GdkEventScroll *event, task *tk)
 {
     ENTER;
+    if( ! tk->tb->use_mouse_wheel )
+        return TRUE;
     if (event->direction == GDK_SCROLL_UP) {
         GdkWindow *gdkwindow;
         
@@ -840,9 +842,8 @@ tk_build_gui(taskbar *tb, task *tk)
           G_CALLBACK (tk_callback_drag_motion), (gpointer) tk);
     g_signal_connect (G_OBJECT (tk->button), "drag-leave",
           G_CALLBACK (tk_callback_drag_leave), (gpointer) tk);
-    if (tb->use_mouse_wheel)
-    	g_signal_connect_after(G_OBJECT(tk->button), "scroll-event",
-              G_CALLBACK(tk_callback_scroll_event), (gpointer)tk);	  
+    g_signal_connect_after(G_OBJECT(tk->button), "scroll-event",
+            G_CALLBACK(tk_callback_scroll_event), (gpointer)tk);
 
  
     /* pix and name */
@@ -1268,8 +1269,11 @@ taskbar_build_gui(plugin *p)
     tb->desk_num = get_net_number_of_desktops();
     tb->cur_desk = get_net_current_desktop();
     tb->focused = NULL;
-    if (tb->tooltips)
-        tb->tips = gtk_tooltips_new();
+
+    /* FIXME:
+        Can we delete the tooltip object if tooltips is not enabled?
+    if (tb->tooltips) */
+    tb->tips = gtk_tooltips_new();
 
     tb->menu = taskbar_make_menu(tb);
     gtk_container_set_border_width(GTK_CONTAINER(p->pwid), 0);
@@ -1400,22 +1404,38 @@ taskbar_destructor(plugin *p)
     RET();
 }
 
-static GtkWidget* taskbar_config( plugin* p )
+static void apply_config( plugin* p )
 {
     taskbar *tb = (taskbar *)p->priv;
+    if( tb->tooltips )
+        gtk_tooltips_enable(tb->tips);
+    else
+        gtk_tooltips_disable(tb->tips);
 
-    return create_generic_config_page(
-            _("Show tooltips"), &tb->tooltips, G_TYPE_BOOLEAN,
-            _("Icons only"), &tb->icons_only, G_TYPE_BOOLEAN,
-            _("Accept SkipPager"), &tb->accept_skip_pager, G_TYPE_BOOLEAN,
-            _("Show Iconified windows"), &tb->show_iconified, G_TYPE_BOOLEAN,
-            _("Show mapped windows"), &tb->show_mapped, G_TYPE_BOOLEAN,
-            _("Show windows from all desktops"), &tb->show_all_desks, G_TYPE_BOOLEAN,
-            _("Use mouse wheel"), &tb->use_mouse_wheel, G_TYPE_BOOLEAN,
-            _("Flash when there is any window requiring attention"), &tb->use_urgency_hint, G_TYPE_BOOLEAN,
-            _("Max width of task button"), &tb->task_width_max, G_TYPE_INT,
-            _("Spacing"), &tb->spacing, G_TYPE_INT,
+
+}
+
+static void taskbar_config( plugin* p, GtkWindow* parent )
+{
+    GtkWidget* dlg;
+    taskbar *tb = (taskbar *)p->priv;
+
+    dlg =  create_generic_config_dlg(
+                _(p->class->name),
+                parent,
+                apply_config, p,
+                _("Show tooltips"), &tb->tooltips, G_TYPE_BOOLEAN,
+                _("Icons only"), &tb->icons_only, G_TYPE_BOOLEAN,
+                _("Accept SkipPager"), &tb->accept_skip_pager, G_TYPE_BOOLEAN,
+                _("Show Iconified windows"), &tb->show_iconified, G_TYPE_BOOLEAN,
+                _("Show mapped windows"), &tb->show_mapped, G_TYPE_BOOLEAN,
+                _("Show windows from all desktops"), &tb->show_all_desks, G_TYPE_BOOLEAN,
+                _("Use mouse wheel"), &tb->use_mouse_wheel, G_TYPE_BOOLEAN,
+                _("Flash when there is any window requiring attention"), &tb->use_urgency_hint, G_TYPE_BOOLEAN,
+                _("Max width of task button"), &tb->task_width_max, G_TYPE_INT,
+                _("Spacing"), &tb->spacing, G_TYPE_INT,
                 NULL );
+    gtk_window_present( dlg );
 }
 
 plugin_class taskbar_plugin_class = {

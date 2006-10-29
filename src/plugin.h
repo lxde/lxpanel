@@ -26,7 +26,7 @@ typedef struct {
 
     int (*constructor)(struct _plugin *this);
     void (*destructor)(struct _plugin *this);
-    GtkWidget* (*config)(struct _plugin *this); /* config UI */
+    void (*config)(struct _plugin *this, GtkWindow* parent); /* config UI */
 
 } plugin_class;
 

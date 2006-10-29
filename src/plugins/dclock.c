@@ -162,13 +162,18 @@ dclock_destructor(plugin *p)
   RET();
 }
 
-static GtkWidget* dclock_config( plugin *p )
+static void dclock_config( plugin *p, GtkWindow* parent )
 {
+    GtkWidget* dlg;
     dclock *dc = (dclock *)p->priv;
-    return create_generic_config_page( _("Clock Format"), &dc->cfmt, G_TYPE_STRING,
-                                       _("Tooltip Format"), &dc->tfmt, G_TYPE_STRING,
-                                       _("Action"), &dc->action, G_TYPE_STRING,
-                                       NULL );
+    dlg = create_generic_config_dlg( _(p->class->name),
+                                     parent,
+                                     NULL, NULL,
+                                     _("Clock Format"), &dc->cfmt, G_TYPE_STRING,
+                                     _("Tooltip Format"), &dc->tfmt, G_TYPE_STRING,
+                                     _("Action"), &dc->action, G_TYPE_STRING,
+                                     NULL );
+    gtk_window_present( dlg );
 }
 
 plugin_class dclock_plugin_class = {

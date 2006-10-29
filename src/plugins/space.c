@@ -85,10 +85,30 @@ space_constructor(plugin *p)
     RET(0);
 }
 
-static GtkWidget* space_config(plugin* p)
+static void apply_config( plugin* p )
 {
+    int w, h;
     space *sp = (space *)p->priv;
-    return create_generic_config_page( _("Size"), &sp->size, G_TYPE_INT,  NULL );
+    /* Apply settings */
+    if (p->panel->orientation == ORIENT_HORIZ) {
+        h = 2;
+        w = sp->size;
+    } else {
+        w = 2;
+        h = sp->size;
+    }
+    gtk_widget_set_size_request(p->pwid, w, h);
+}
+
+static void space_config(plugin* p, GtkWindow* parent )
+{
+    GtkWidget* dlg;
+    space *sp = (space *)p->priv;
+    dlg =  create_generic_config_dlg( _(p->class->name),
+                                     parent,
+                                     apply_config, p,
+                                     _("Size"), &sp->size, G_TYPE_INT,  NULL );
+    gtk_window_present( dlg );
 }
 
 plugin_class space_plugin_class = {

@@ -102,7 +102,7 @@ netstatus_constructor(plugin *p)
     g_object_unref( iface );
     g_signal_connect( ns->mainw, "button-press-event",
                       G_CALLBACK(on_button_press), p );
-    gtk_widget_set_size_request( ns->mainw, 24, 24 );
+    gtk_widget_set_size_request( ns->mainw, 26, 24 );
 
     gtk_widget_show_all(ns->mainw);
 
@@ -115,13 +115,23 @@ netstatus_constructor(plugin *p)
     RET(0);
 }
 
-static GtkWidget* netstatus_config( plugin* p )
+static void apply_config( plugin* p )
 {
+
+}
+
+static void netstatus_config( plugin* p, GtkWindow* parent  )
+{
+    GtkWidget* dlg;
     netstatus *ns = (netstatus*)p->priv;
-    return create_generic_config_page(
+    dlg = create_generic_config_dlg(
+                _(p->class->name),
+                parent,
+                apply_config, p,
                 _("Interface to monitor"), &ns->iface, G_TYPE_STRING,
                 _("Config tool"), &ns->config_tool, G_TYPE_STRING,
                 NULL );
+    gtk_window_present( GTK_WINDOW(dlg) );
 }
 
 plugin_class netstatus_plugin_class = {

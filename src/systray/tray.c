@@ -110,7 +110,6 @@ tray_constructor(plugin *p)
         RET(0);
     }
 
-    
     tr = g_new0(tray, 1);
     g_return_val_if_fail(tr != NULL, 0);
     p->priv = tr;
