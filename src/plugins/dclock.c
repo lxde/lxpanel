@@ -65,13 +65,13 @@ clock_update(gpointer data )
     gtk_label_set_markup (GTK_LABEL(dc->clockw), str) ;
 
     if (detail->tm_mday != dc->lastDay) {
-	dc->lastDay = detail->tm_mday ;
+        dc->lastDay = detail->tm_mday ;
 
-	strftime (output, sizeof(output), dc->tfmt, detail) ;
-        if ((utf8 = g_locale_to_utf8(output, -1, NULL, NULL, NULL))) {
-            gtk_tooltips_set_tip(dc->tip, dc->main, utf8, NULL) ;
-            g_free(utf8);
-        }
+        strftime (output, sizeof(output), dc->tfmt, detail) ;
+            if ((utf8 = g_locale_to_utf8(output, -1, NULL, NULL, NULL))) {
+                gtk_tooltips_set_tip(dc->tip, dc->main, utf8, NULL) ;
+                g_free(utf8);
+            }
     }
     RET(TRUE);
 }
@@ -169,13 +169,23 @@ dclock_destructor(plugin *p)
   RET();
 }
 
+static void apply_config( plugin* p )
+{
+    /* NOTE: This dirty hack is used to force the update of tooltip
+       because tooltip will be updated when dc->lastDay != today.
+    */
+    dclock* dc = (dclock*)p->priv;
+    --dc->lastDay;
+    clock_update( dc );
+}
+
 static void dclock_config( plugin *p, GtkWindow* parent )
 {
     GtkWidget* dlg;
     dclock *dc = (dclock *)p->priv;
     dlg = create_generic_config_dlg( _(p->class->name),
                                      parent,
-                                     NULL, NULL,
+                                     apply_config, p,
                                      _("Clock Format"), &dc->cfmt, G_TYPE_STRING,
                                      _("Tooltip Format"), &dc->tfmt, G_TYPE_STRING,
                                      _("Action"), &dc->action, G_TYPE_STRING,

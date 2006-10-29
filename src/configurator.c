@@ -459,10 +459,11 @@ on_sel_plugin_changed( GtkTreeSelection* tree_sel, GtkWidget* label )
 
     if( gtk_tree_selection_get_selected( tree_sel, &model, &it ) )
     {
-        GtkWidget *config = NULL;
+        GtkTreeView* view = gtk_tree_selection_get_tree_view( tree_sel );
+        GtkWidget *edit_btn = (GtkWidget*)g_object_get_data( (GtkWidget*)view, "edit_btn" );
         gtk_tree_model_get( model, &it, 1, &pl, -1 );
         gtk_label_set_text( label, _(pl->class->description) );
-        /* FIXME: Disable the modify button if config dlg is not available. */
+        gtk_widget_set_sensitive( edit_btn, pl->class->config != NULL );
     }
 }
 
@@ -689,6 +690,7 @@ mk_tab_plugins()
     button = gtk_button_new_from_stock( GTK_STOCK_EDIT );
     gtk_box_pack_start( GTK_BOX( vbox ), button, FALSE, FALSE, 2 );
     g_signal_connect( button, "clicked", G_CALLBACK(on_modify_plugin), plugin_list );
+    g_object_set_data( plugin_list, "edit_btn", button );
 
     button = gtk_button_new_from_stock( GTK_STOCK_REMOVE );
     gtk_box_pack_start( GTK_BOX( vbox ), button, FALSE, FALSE, 2 );
@@ -834,7 +836,9 @@ void
 configure(void)
 {
     ENTER;
-    dialog = mk_dialog();
+
+    if( ! dialog )
+        dialog = mk_dialog();
 
     update_opt_menu(edge_opt, p->edge - 1);
     update_opt_menu(allign_opt, p->allign - 1);
