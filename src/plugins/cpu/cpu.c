@@ -150,7 +150,7 @@ expose_event(GtkWidget *widget, GdkEventExpose *event, cpu_t *c)
 }
 
 static int
-cpu_constructor(plugin *p)
+cpu_constructor(plugin *p, char **fp)
 {
     cpu_t *c;
 

@@ -465,7 +465,7 @@ panel_start_gui(panel *p)
 }
 
 static int
-panel_parse_global(panel *p, FILE *fp)
+panel_parse_global(panel *p, char **fp)
 {
     line s;
     s.len = 256;
@@ -546,20 +546,16 @@ panel_parse_global(panel *p, FILE *fp)
 }
 
 static int
-panel_parse_plugin(panel *p, FILE *fp)
+panel_parse_plugin(panel *p, char **fp)
 {
     line s;
     plugin *plug = NULL;
     gchar *type = NULL;
-    FILE *tmpfp;
     int expand , padding, border;
-    
+    char* pconfig = NULL;
+
     ENTER;
     s.len = 256;
-    if (!(tmpfp = tmpfile())) {
-        ERR( "can't open temporary file with tmpfile()\n");
-        RET(0);
-    }
     border = expand = padding = 0;
     while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
         if (s.type == LINE_NONE) {
@@ -582,6 +578,7 @@ panel_parse_plugin(panel *p, FILE *fp)
             }
         } else if (s.type == LINE_BLOCK_START) {
             if (!g_ascii_strcasecmp(s.t[0], "Config")) {
+                pconfig = *fp;
                 int pno = 1;
                 while (pno) {
                     get_line_as_is(fp, &s);
@@ -593,8 +590,7 @@ panel_parse_plugin(panel *p, FILE *fp)
                     } else if (s.type == LINE_BLOCK_END) {
                         pno--;
                     } 
-                    fprintf(tmpfp, "%s\n", s.str);
-                }              
+                }
             } else {
                 ERR( "lxpanel: unknown block %s\n", s.t[0]);
                 goto error;
@@ -604,20 +600,18 @@ panel_parse_plugin(panel *p, FILE *fp)
             goto error;
         }
     }
-    
+
     if (!type || !(plug = plugin_load(type))) {
         ERR( "lxpanel: can't load %s plugin\n", type);
         goto error;
     }
+
     plug->panel = p;
-    plug->fp = tmpfp;
     plug->expand = expand;
     plug->padding = padding;
     plug->border = border;
-    fprintf(tmpfp, "}\n");
-    fseek(tmpfp, 0, SEEK_SET);
     DBG("starting\n");
-    if (!plugin_start(plug)) {
+    if (!plugin_start(plug, pconfig ? &pconfig : NULL)) {
         ERR( "lxpanel: can't start plugin %s\n", type);
         goto error;
     }
@@ -626,23 +620,21 @@ panel_parse_plugin(panel *p, FILE *fp)
 
     g_free( type );
     RET(1);
-    
+
  error:
-    fclose(tmpfp);
     g_free(type);
     if (plug)
           plugin_put(plug);
     RET(0);
-    
 }
 
 
 int
-panel_start(panel *p, FILE *fp)
+panel_start( panel *p, char **fp )
 {
     line s;
     long pos;
-    
+
     /* parse global section */
     ENTER;
     s.len = 256;
@@ -667,15 +659,6 @@ panel_start(panel *p, FILE *fp)
     }
     if (!panel_parse_global(p, fp))
         RET(0);
-
-    if (!(pconf = tmpfile())) {
-        ERR("can't open temporary file\n");
-        RET(0);
-    }
-    pos = ftell(fp);
-    while (get_line_as_is(fp, &s) != LINE_NONE) 
-        fprintf(pconf, "%s\n", s.str);
-    fseek(fp, pos, SEEK_SET);
 
     while (lxpanel_get_line(fp, &s) != LINE_NONE) {
         if ((s.type  != LINE_BLOCK_START) || g_ascii_strcasecmp(s.t[0], "Plugin")) {
@@ -745,31 +728,29 @@ usage()
     g_print(_("\nVisit http://lxpanel.sourceforge.net/ for detailed documentation,\n\n"));
 }
 
-FILE *
-open_profile(gchar *profile)
+char*
+load_profile(gchar *profile)
 {
     gchar *fname;
-    FILE *fp;
+    char* ret;
 
     ENTER;
     LOG(LOG_INFO, "loading %s profile\n", profile);
     fname = g_strdup_printf("%s/.lxpanel/%s", getenv("HOME"), profile);
-    fp = fopen(fname, "r");
-    LOG(LOG_INFO, "   %s %s\n", fname, fp ? "ok" : "no");
-    if (fp) {
+    g_file_get_contents( fname, &ret, NULL, NULL );
+    if (ret) {
         cfgfile = fname;
-        RET(fp);
+        RET(ret);
     }
     //ERR("Can't load %s\n", fname);
     g_free(fname);
-    
+
     /* check private configuration directory */
     fname = g_strdup_printf(PACKAGE_DATA_DIR "/lxpanel/%s", profile);
-    fp = fopen(fname, "r");
-    LOG(LOG_INFO, "   %s %s\n", fname, fp ? "ok" : "no");
-    if (fp) {
+    g_file_get_contents( fname, &ret, NULL, NULL );
+    if (ret) {
         cfgfile = fname;
-        RET(fp);
+        RET(ret);
     }
     //ERR("Can't load %s\n", fname);
     g_free(fname);
@@ -796,7 +777,7 @@ main(int argc, char *argv[], char *env[])
     int i;
     int quit = 0;
     void configure();
-    FILE *pfp; /* current profile FP */
+    char *fp, *pfp; /* point to current position of profile data in memory */
 
     ENTER;
     //printf("sizeof(gulong)=%d\n", sizeof(gulong));
@@ -853,20 +834,20 @@ main(int argc, char *argv[], char *env[])
 
     /* Enter main loop */
     {
-        if (!(pfp = open_profile(cprofile)))
+        if (!(fp = pfp = load_profile(cprofile)))
             exit(1);
         p = g_new0(panel, 1);
         g_return_val_if_fail (p != NULL, 1);
-        if (!panel_start(p, pfp)) {
+        if (!panel_start(p, &pfp)) {
             ERR( "lxpanel: can't start panel\n");
             exit(1);
         }
-        fclose(pfp);
-        g_free( cfgfile ); /* FIXME: is it safe to free the string here? */
+        g_free( fp );
         if (config)
             configure();
         gtk_main();
         panel_stop(p);
+        g_free( cfgfile );
         g_free(p);
     }
 

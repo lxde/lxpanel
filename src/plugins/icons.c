@@ -329,7 +329,7 @@ icons_build_gui(plugin *p)
 }
 
 static int
-read_application(plugin *p)
+read_application(plugin *p, char** fp)
 {
     icons *ics = (icons *)p->priv;
     GdkPixbuf *gp = NULL;
@@ -342,25 +342,29 @@ read_application(plugin *p)
     ENTER;
     s.len = 256;
     fname = appname = classname = NULL;
-    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
-        if (s.type == LINE_NONE) {
-            ERR( "icons: illegal token %s\n", s.str);
-            goto error;
-        }
-        if (s.type == LINE_VAR) {
-            if (!g_ascii_strcasecmp(s.t[0], "image")) 
-                fname = expand_tilda(s.t[1]);
-            else if (!g_ascii_strcasecmp(s.t[0], "appname"))
-                appname = g_strdup(s.t[1]);
-            else if (!g_ascii_strcasecmp(s.t[0], "classname"))
-                classname = g_strdup(s.t[1]);
-            else {
-                ERR( "icons: unknown var %s\n", s.t[0]);
+
+    if( fp )
+    {
+        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
+            if (s.type == LINE_NONE) {
+                ERR( "icons: illegal token %s\n", s.str);
                 goto error;
             }
-        } else {
-            ERR( "icons: illegal in this context %s\n", s.str);
-            goto error;
+            if (s.type == LINE_VAR) {
+                if (!g_ascii_strcasecmp(s.t[0], "image")) 
+                    fname = expand_tilda(s.t[1]);
+                else if (!g_ascii_strcasecmp(s.t[0], "appname"))
+                    appname = g_strdup(s.t[1]);
+                else if (!g_ascii_strcasecmp(s.t[0], "classname"))
+                    classname = g_strdup(s.t[1]);
+                else {
+                    ERR( "icons: unknown var %s\n", s.t[0]);
+                    goto error;
+                }
+            } else {
+                ERR( "icons: illegal in this context %s\n", s.str);
+                goto error;
+            }
         }
     }
     if (!fname)
@@ -416,7 +420,7 @@ read_dicon(icons *ics, gchar *name)
 
 
 static int
-icons_constructor(plugin *p)
+icons_constructor(plugin *p, char **fp)
 {
     icons *ics;
     line s;
@@ -429,35 +433,39 @@ icons_constructor(plugin *p)
     ics->wmpixno           = 0;
     ics->task_list         = g_hash_table_new(g_int_hash, g_int_equal);
     s.len = 256;
-    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
-        if (s.type == LINE_NONE) {
-            ERR( "icons: illegal token %s\n", s.str);
-            goto error;
-        }
-        if (s.type == LINE_VAR) {
-            if (!g_ascii_strcasecmp(s.t[0], "DefaultIcon")) {
-                if (!read_dicon(ics, s.t[1])) {
+
+    if( fp )
+    {
+        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
+            if (s.type == LINE_NONE) {
+                ERR( "icons: illegal token %s\n", s.str);
+                goto error;
+            }
+            if (s.type == LINE_VAR) {
+                if (!g_ascii_strcasecmp(s.t[0], "DefaultIcon")) {
+                    if (!read_dicon(ics, s.t[1])) {
+                        goto error;
+                    }
+                } else {
+                    ERR( "icons: unknown var %s\n", s.t[0]);
+                    goto error;
+                }
+            } else if (s.type == LINE_BLOCK_START) {
+                if (!g_ascii_strcasecmp(s.t[0], "application")) {
+                    if (!read_application(p, fp)) {
+                        goto error;
+                    }
+                } else {
+                    ERR( "icons: unknown var %s\n", s.t[0]);
                     goto error;
                 }
             } else {
-                ERR( "icons: unknown var %s\n", s.t[0]);
+                ERR( "icons: illegal in this context %s\n", s.str);
                 goto error;
             }
-        } else if (s.type == LINE_BLOCK_START) {
-            if (!g_ascii_strcasecmp(s.t[0], "application")) {
-                if (!read_application(p)) {
-                    goto error;
-                }
-            } else {
-                ERR( "icons: unknown var %s\n", s.t[0]);
-                goto error;
-            }
-        } else {
-            ERR( "icons: illegal in this context %s\n", s.str);
-            goto error;
         }
     }
-  
+
     icons_build_gui(p);
     do_net_client_list(NULL, ics);
     RET(1);

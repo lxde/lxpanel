@@ -1305,24 +1305,23 @@ void net_active_detect()
 }
 
 static int
-taskbar_constructor(plugin *p)
+taskbar_constructor(plugin *p, char** fp)
 {
     taskbar *tb;
     line s;
     GtkRequisition req;
- 
-    
+
     ENTER;
     gtk_widget_set_name(p->pwid, "taskbar");
     gtk_rc_parse_string(taskbar_rc);
     get_button_spacing(&req, GTK_CONTAINER(p->pwid), "");
-   
+
     net_active_detect();
-    
+
     tb = g_new0(taskbar, 1);
     tb->plug = p;
     p->priv = tb;
-    
+
     if (p->panel->orientation == ORIENT_HORIZ) {
         tb->iconsize = GTK_WIDGET(p->panel->box)->allocation.height - req.height;
         DBG("pwid height = %d\n", GTK_WIDGET(p->pwid)->allocation.height);
@@ -1343,42 +1342,45 @@ taskbar_constructor(plugin *p)
     tb->use_mouse_wheel   = 1;
     tb->use_urgency_hint  = 1;
     s.len = 256;
-    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
-        if (s.type == LINE_NONE) {
-            ERR( "taskbar: illegal token %s\n", s.str);
-            goto error;
-        }
-        if (s.type == LINE_VAR) {
-            if (!g_ascii_strcasecmp(s.t[0], "tooltips")) {
-                tb->tooltips = str2num(bool_pair, s.t[1], 1);
-            } else if (!g_ascii_strcasecmp(s.t[0], "IconsOnly")) {
-                tb->icons_only = str2num(bool_pair, s.t[1], 0);
-            } else if (!g_ascii_strcasecmp(s.t[0], "AcceptSkipPager")) {
-                tb->accept_skip_pager = str2num(bool_pair, s.t[1], 1);
-            } else if (!g_ascii_strcasecmp(s.t[0], "ShowIconified")) {
-                tb->show_iconified = str2num(bool_pair, s.t[1], 1);
-            } else if (!g_ascii_strcasecmp(s.t[0], "ShowMapped")) {
-                tb->show_mapped = str2num(bool_pair, s.t[1], 1);
-            } else if (!g_ascii_strcasecmp(s.t[0], "ShowAllDesks")) {
-                tb->show_all_desks = str2num(bool_pair, s.t[1], 0);
-            } else if (!g_ascii_strcasecmp(s.t[0], "MaxTaskWidth")) {
-                tb->task_width_max = atoi(s.t[1]);
-                DBG("task_width_max = %d\n", tb->task_width_max);
-            } else if (!g_ascii_strcasecmp(s.t[0], "spacing")) {
-                tb->spacing = atoi(s.t[1]);
-            } else if (!g_ascii_strcasecmp(s.t[0], "UseMouseWheel")) {
-                tb->use_mouse_wheel = str2num(bool_pair, s.t[1], 1);
-            } else if (!g_ascii_strcasecmp(s.t[0], "UseUrgencyHint")) {
-                tb->use_urgency_hint = str2num(bool_pair, s.t[1], 1);
-            } else {
-                ERR( "taskbar: unknown var %s\n", s.t[0]);
+    if( fp )
+    {
+        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
+            if (s.type == LINE_NONE) {
+                ERR( "taskbar: illegal token %s\n", s.str);
                 goto error;
             }
-        } else {
-            ERR( "taskbar: illegal in this context %s\n", s.str);
-            goto error;
+            if (s.type == LINE_VAR) {
+                if (!g_ascii_strcasecmp(s.t[0], "tooltips")) {
+                    tb->tooltips = str2num(bool_pair, s.t[1], 1);
+                } else if (!g_ascii_strcasecmp(s.t[0], "IconsOnly")) {
+                    tb->icons_only = str2num(bool_pair, s.t[1], 0);
+                } else if (!g_ascii_strcasecmp(s.t[0], "AcceptSkipPager")) {
+                    tb->accept_skip_pager = str2num(bool_pair, s.t[1], 1);
+                } else if (!g_ascii_strcasecmp(s.t[0], "ShowIconified")) {
+                    tb->show_iconified = str2num(bool_pair, s.t[1], 1);
+                } else if (!g_ascii_strcasecmp(s.t[0], "ShowMapped")) {
+                    tb->show_mapped = str2num(bool_pair, s.t[1], 1);
+                } else if (!g_ascii_strcasecmp(s.t[0], "ShowAllDesks")) {
+                    tb->show_all_desks = str2num(bool_pair, s.t[1], 0);
+                } else if (!g_ascii_strcasecmp(s.t[0], "MaxTaskWidth")) {
+                    tb->task_width_max = atoi(s.t[1]);
+                    DBG("task_width_max = %d\n", tb->task_width_max);
+                } else if (!g_ascii_strcasecmp(s.t[0], "spacing")) {
+                    tb->spacing = atoi(s.t[1]);
+                } else if (!g_ascii_strcasecmp(s.t[0], "UseMouseWheel")) {
+                    tb->use_mouse_wheel = str2num(bool_pair, s.t[1], 1);
+                } else if (!g_ascii_strcasecmp(s.t[0], "UseUrgencyHint")) {
+                    tb->use_urgency_hint = str2num(bool_pair, s.t[1], 1);
+                } else {
+                    ERR( "taskbar: unknown var %s\n", s.t[0]);
+                    goto error;
+                }
+            } else {
+                ERR( "taskbar: illegal in this context %s\n", s.str);
+                goto error;
+            }
         }
-    }  
+    }
     taskbar_build_gui(p);
     tb_net_client_list(NULL, tb);
     tb_display(tb);

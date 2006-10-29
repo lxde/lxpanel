@@ -152,7 +152,7 @@ drag_data_received_cb (GtkWidget        *widget,
 }
 
 static int
-read_button(plugin *p)
+read_button(plugin *p, char** fp)
 {
     launchbar *lb = (launchbar *)p->priv;
     gchar *fname, *tooltip, *action, *desktop_id;
@@ -171,30 +171,33 @@ read_button(plugin *p)
     }
 
     tooltip = fname = action = desktop_id = NULL;
-    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
-        if (s.type == LINE_NONE) {
-            ERR( "launchbar: illegal token %s\n", s.str);
-            RET(0);
-        }
-        if (s.type == LINE_VAR) {
-            if( !g_ascii_strcasecmp(s.t[0], "id") )
-                desktop_id = g_strdup(s.t[1]);
-            else if (!g_ascii_strcasecmp(s.t[0], "image"))
-                fname = expand_tilda(s.t[1]);
-            else if (!g_ascii_strcasecmp(s.t[0], "tooltip"))
-                tooltip = g_strdup(s.t[1]);
-            else if (!g_ascii_strcasecmp(s.t[0], "action"))
-                action = g_strdup(s.t[1]);
-            else {
-                ERR( "launchbar: unknown var %s\n", s.t[0]);
+    if( fp )
+    {
+        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
+            if (s.type == LINE_NONE) {
+                ERR( "launchbar: illegal token %s\n", s.str);
+                RET(0);
+            }
+            if (s.type == LINE_VAR) {
+                if( !g_ascii_strcasecmp(s.t[0], "id") )
+                    desktop_id = g_strdup(s.t[1]);
+                else if (!g_ascii_strcasecmp(s.t[0], "image"))
+                    fname = expand_tilda(s.t[1]);
+                else if (!g_ascii_strcasecmp(s.t[0], "tooltip"))
+                    tooltip = g_strdup(s.t[1]);
+                else if (!g_ascii_strcasecmp(s.t[0], "action"))
+                    action = g_strdup(s.t[1]);
+                else {
+                    ERR( "launchbar: unknown var %s\n", s.t[0]);
+                    goto error;
+                }
+            } else {
+                ERR( "launchbar: illegal in this context %s\n", s.str);
                 goto error;
             }
-        } else {
-            ERR( "launchbar: illegal in this context %s\n", s.str);
-            goto error;
         }
+        DBG("action=%s\n", action);
     }
-    DBG("action=%s\n", action);
 
     if( desktop_id ) {
         gchar *desktop_file = NULL;
@@ -289,7 +292,7 @@ read_button(plugin *p)
 }
 
 static int
-launchbar_constructor(plugin *p)
+launchbar_constructor(plugin *p, char **fp)
 {
     launchbar *lb;
     line s;
@@ -330,14 +333,14 @@ launchbar_constructor(plugin *p)
     DBG("iconsize=%d\n", lb->iconsize);
     
     s.len = 256;
-    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
+    while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
         if (s.type == LINE_NONE) {
             ERR( "launchbar: illegal token %s\n", s.str);
             goto error;
         }
         if (s.type == LINE_BLOCK_START) {
             if (!g_ascii_strcasecmp(s.t[0], "button")) {
-                if (!read_button(p)) {
+                if (!read_button(p, fp)) {
                     ERR( "launchbar: can't init button\n");
                     goto error;
                 }

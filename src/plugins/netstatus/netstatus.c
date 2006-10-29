@@ -65,7 +65,7 @@ static void on_button_press( GtkWidget* widget, GdkEventButton* evt, plugin* p )
 }
 
 static int
-netstatus_constructor(plugin *p)
+netstatus_constructor(plugin *p, char** fp)
 {
     netstatus *ns;
     line s;
@@ -76,26 +76,28 @@ netstatus_constructor(plugin *p)
     ns = g_new0(netstatus, 1);
     g_return_val_if_fail(ns != NULL, 0);
     p->priv = ns;
-    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
-        if (s.type == LINE_NONE) {
-            ERR( "netstatus: illegal token %s\n", s.str);
-            goto error;
-        }
-        if (s.type == LINE_VAR) {
-            if (!g_ascii_strcasecmp(s.t[0], "iface"))
-                ns->iface = g_strdup(s.t[1]);
-            else if (!g_ascii_strcasecmp(s.t[0], "configtool"))
-                ns->config_tool = g_strdup(s.t[1]);
-            else {
-                ERR( "netstatus: unknown var %s\n", s.t[0]);
+    if( fp )
+    {
+        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
+            if (s.type == LINE_NONE) {
+                ERR( "netstatus: illegal token %s\n", s.str);
                 goto error;
             }
-        } else {
-            ERR( "netstatus: illegal in this context %s\n", s.str);
-            goto error;
+            if (s.type == LINE_VAR) {
+                if (!g_ascii_strcasecmp(s.t[0], "iface"))
+                    ns->iface = g_strdup(s.t[1]);
+                else if (!g_ascii_strcasecmp(s.t[0], "configtool"))
+                    ns->config_tool = g_strdup(s.t[1]);
+                else {
+                    ERR( "netstatus: unknown var %s\n", s.t[0]);
+                    goto error;
+                }
+            } else {
+                ERR( "netstatus: illegal in this context %s\n", s.str);
+                goto error;
+            }
         }
     }
-
     iface = netstatus_iface_new(ns->iface);
     ns->mainw = netstatus_icon_new( iface );
     gtk_widget_add_events( ns->mainw, GDK_BUTTON_PRESS_MASK );

@@ -41,7 +41,7 @@ image_destructor(plugin *p)
 
 
 static int
-image_constructor(plugin *p)
+image_constructor(plugin *p, char **fp)
 {
     gchar *tooltip, *fname;
     image *img;
@@ -64,23 +64,26 @@ image_constructor(plugin *p)
 #endif
     p->priv = img;
     tooltip = fname = 0;
-    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
-        if (s.type == LINE_NONE) {
-            ERR( "image: illegal token %s\n", s.str);
-            goto error;
-        }
-        if (s.type == LINE_VAR) {
-            if (!g_ascii_strcasecmp(s.t[0], "image")) 
-                fname = expand_tilda(s.t[1]);
-            else if (!g_ascii_strcasecmp(s.t[0], "tooltip"))
-                tooltip = g_strdup(s.t[1]);
-            else {
-                ERR( "image: unknown var %s\n", s.t[0]);
+    if( fp )
+    {
+        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
+            if (s.type == LINE_NONE) {
+                ERR( "image: illegal token %s\n", s.str);
                 goto error;
             }
-        } else {
-            ERR( "image: illegal in this context %s\n", s.str);
-            goto error;
+            if (s.type == LINE_VAR) {
+                if (!g_ascii_strcasecmp(s.t[0], "image")) 
+                    fname = expand_tilda(s.t[1]);
+                else if (!g_ascii_strcasecmp(s.t[0], "tooltip"))
+                    tooltip = g_strdup(s.t[1]);
+                else {
+                    ERR( "image: unknown var %s\n", s.t[0]);
+                    goto error;
+                }
+            } else {
+                ERR( "image: illegal in this context %s\n", s.str);
+                goto error;
+            }
         }
     }
     img->mainw = gtk_event_box_new();

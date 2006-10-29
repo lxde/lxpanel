@@ -196,7 +196,7 @@ make_button(plugin *p, gchar *fname, gchar *name, GtkWidget *menu)
 
 
 static GtkWidget *
-read_item(plugin *p)
+read_item(plugin *p, char** fp)
 {
     line s;
     gchar *name, *fname, *action;
@@ -208,26 +208,29 @@ read_item(plugin *p)
     s.len = 256;
     name = fname = action = NULL;
 
-    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
-        if (s.type == LINE_VAR) {
-            if (!g_ascii_strcasecmp(s.t[0], "image"))
-                fname = expand_tilda(s.t[1]);
-            else if (!g_ascii_strcasecmp(s.t[0], "name"))
-                name = g_strdup(s.t[1]);
-            else if (!g_ascii_strcasecmp(s.t[0], "action"))
-                action = g_strdup(s.t[1]);
-            else if (!g_ascii_strcasecmp(s.t[0], "command")) {
-                command *tmp;
+    if( fp )
+    {
+        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
+            if (s.type == LINE_VAR) {
+                if (!g_ascii_strcasecmp(s.t[0], "image"))
+                    fname = expand_tilda(s.t[1]);
+                else if (!g_ascii_strcasecmp(s.t[0], "name"))
+                    name = g_strdup(s.t[1]);
+                else if (!g_ascii_strcasecmp(s.t[0], "action"))
+                    action = g_strdup(s.t[1]);
+                else if (!g_ascii_strcasecmp(s.t[0], "command")) {
+                    command *tmp;
 
-                for (tmp = commands; tmp->name; tmp++) {
-                    if (!g_ascii_strcasecmp(s.t[1], tmp->name)) {
-                        cmd_entry = tmp;
-                        break;
+                    for (tmp = commands; tmp->name; tmp++) {
+                        if (!g_ascii_strcasecmp(s.t[1], tmp->name)) {
+                            cmd_entry = tmp;
+                            break;
+                        }
                     }
+                } else {
+                    ERR( "menu/item: unknown var %s\n", s.t[0]);
+                    goto error;
                 }
-            } else {
-                ERR( "menu/item: unknown var %s\n", s.t[0]);
-                goto error;
             }
         }
     }
@@ -264,30 +267,36 @@ read_item(plugin *p)
 }
 
 static GtkWidget *
-read_separator(plugin *p)
+read_separator(plugin *p, char **fp)
 {
     line s;
 
     ENTER;
     s.len = 256;
-    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
-        ERR("menu: error - separator can not have paramteres\n");
-        RET(NULL);
+    if( fp )
+    {
+        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
+            ERR("menu: error - separator can not have paramteres\n");
+            RET(NULL);
+        }
     }
     RET(gtk_separator_menu_item_new());
 }
 
 static void
-read_system_menu(GtkMenu* menu, plugin *p)
+read_system_menu(GtkMenu* menu, plugin *p, char** fp)
 {
    line s;
    menup *m = (menup *)p->priv;
 
    ENTER;
    s.len = 256;
-   while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
-      ERR("menu: error - system can not have paramteres\n");
-      RET();
+   if( fp )
+   {
+        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
+            ERR("menu: error - system can not have paramteres\n");
+            RET();
+        }
    }
    if( p->panel->system_menu ) {
       ERR("menu: error - only one system is allowed");
@@ -301,39 +310,43 @@ read_system_menu(GtkMenu* menu, plugin *p)
 }
 
 static void
-read_include(plugin *p)
+read_include(plugin *p, char **fp)
 {
     gchar *name;
     line s;
     menup *m = (menup *)p->priv;
-    FILE *fp;
-
+#if 0
+    /* FIXME: this is disabled */
     ENTER;
     s.len = 256;
     name = NULL;
-    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
-        if (s.type == LINE_VAR) {
-            if (!g_ascii_strcasecmp(s.t[0], "name"))
-                name = expand_tilda(s.t[1]);
-            else  {
-                ERR( "menu/include: unknown var %s\n", s.t[0]);
-                RET();
+    if( fp )
+    {
+        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
+            if (s.type == LINE_VAR) {
+                if (!g_ascii_strcasecmp(s.t[0], "name"))
+                    name = expand_tilda(s.t[1]);
+                else  {
+                    ERR( "menu/include: unknown var %s\n", s.t[0]);
+                    RET();
+                }
             }
         }
     }
     if ((fp = fopen(name, "r"))) {
         LOG(LOG_INFO, "Including %s\n", name);
-        m->files = g_slist_prepend(m->files, p->fp);
+        m->files = g_slist_prepend(m->files, fp);
         p->fp = fp;
     } else {
         ERR("Can't include %s\n", name);
     }
     if (name) g_free(name);
+#endif
     RET();
 }
 
 static GtkWidget *
-read_submenu(plugin *p, gboolean as_item)
+read_submenu(plugin *p, char** fp, gboolean as_item)
 {
     line s;
     GtkWidget *mi, *menu;
@@ -348,20 +361,20 @@ read_submenu(plugin *p, gboolean as_item)
 
     fname = 0;
     name[0] = 0;
-    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
+    while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
         if (s.type == LINE_BLOCK_START) {
             mi = NULL;
             if (!g_ascii_strcasecmp(s.t[0], "item")) {
-                mi = read_item(p);
+                mi = read_item(p, fp);
             } else if (!g_ascii_strcasecmp(s.t[0], "separator")) {
-                mi = read_separator(p);
+                mi = read_separator(p, fp);
             } else if (!g_ascii_strcasecmp(s.t[0], "system")) {
-                read_system_menu(GTK_MENU(menu), p); /* add system menu items */
+                read_system_menu(GTK_MENU(menu), p, fp); /* add system menu items */
                 continue;
             } else if (!g_ascii_strcasecmp(s.t[0], "menu")) {
-                mi = read_submenu(p, TRUE);
+                mi = read_submenu(p, fp, TRUE);
             } else if (!g_ascii_strcasecmp(s.t[0], "include")) {
-                read_include(p);
+                read_include(p, fp);
                 continue;
             } else {
                 ERR("menu: unknown block %s\n", s.t[0]);
@@ -384,8 +397,10 @@ read_submenu(plugin *p, gboolean as_item)
             }
         } else if (s.type == LINE_NONE) {
             if (m->files) {
-                fclose(p->fp);
-                p->fp = m->files->data;
+                /*
+                  fclose(p->fp);
+                  p->fp = m->files->data;
+                */
                 m->files = g_slist_delete_link(m->files, m->files);
             }
         }  else {
@@ -423,7 +438,7 @@ read_submenu(plugin *p, gboolean as_item)
 
 
 static int
-menu_constructor(plugin *p)
+menu_constructor(plugin *p, char **fp)
 {
     menup *m;
 
@@ -445,7 +460,7 @@ menu_constructor(plugin *p)
     gtk_container_set_border_width(GTK_CONTAINER(m->box), 0);
     gtk_container_add(GTK_CONTAINER(p->pwid), m->box);
 
-    if (!read_submenu(p, FALSE)) {
+    if (!read_submenu(p, fp, FALSE)) {
         ERR("menu: plugin init failed\n");
         goto error;
     }

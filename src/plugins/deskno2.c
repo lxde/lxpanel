@@ -82,30 +82,30 @@ scroll (GtkWidget *widget, GdkEventScroll *event, deskno *dc)
 }
 
 static int
-deskno_constructor(plugin *p)
+deskno_constructor(plugin *p, char** fp)
 {
     deskno *dc;
     ENTER;
     dc = g_new0(deskno, 1);
     g_return_val_if_fail(dc != NULL, 0);
     p->priv = dc;
-    
+
     dc->main = gtk_button_new_with_label("w");
     gtk_button_set_relief(GTK_BUTTON(dc->main),GTK_RELIEF_NONE);
     gtk_container_set_border_width(GTK_CONTAINER(dc->main), 0);
     //gtk_button_set_alignment(GTK_BUTTON(dc->main), 0, 0.5);
     g_signal_connect(G_OBJECT(dc->main), "clicked", G_CALLBACK (clicked), (gpointer) dc);
     g_signal_connect(G_OBJECT(dc->main), "scroll-event", G_CALLBACK(scroll), (gpointer) dc);
-    
+
     update_all(dc->main, dc);
-  
+
     gtk_container_add(GTK_CONTAINER(p->pwid), dc->main);
     gtk_widget_show_all(p->pwid);
-    
+
     g_signal_connect (G_OBJECT (fbev), "current_desktop", G_CALLBACK (update_dno), (gpointer) dc);
     g_signal_connect (G_OBJECT (fbev), "desktop_names", G_CALLBACK (update_all), (gpointer) dc);
     g_signal_connect (G_OBJECT (fbev), "number_of_desktops", G_CALLBACK (update_all), (gpointer) dc);
-    
+
     RET(1);
 }
 

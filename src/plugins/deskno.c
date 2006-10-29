@@ -53,7 +53,7 @@ name_update(GtkWidget *widget, deskno *dc)
 
 
 static int
-deskno_constructor(plugin *p)
+deskno_constructor(plugin *p, char** fp)
 {
     deskno *dc;
     GtkWidget *button;

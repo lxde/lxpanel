@@ -78,7 +78,7 @@ clock_update(gpointer data )
 
 
 static int
-dclock_constructor(plugin *p)
+dclock_constructor(plugin *p, char** fp)
 {
     line s;
     dclock *dc;
@@ -91,25 +91,28 @@ dclock_constructor(plugin *p)
 
     s.len = 256;
     dc->cfmt = dc->tfmt = dc->action = 0;
-    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
-        if (s.type == LINE_NONE) {
-            ERR( "dclock: illegal token %s\n", s.str);
-            goto error;
-        }
-        if (s.type == LINE_VAR) {
-            if (!g_ascii_strcasecmp(s.t[0], "ClockFmt")) 
-                dc->cfmt = g_strdup(s.t[1]);
-            else if (!g_ascii_strcasecmp(s.t[0], "TooltipFmt"))
-                dc->tfmt = g_strdup(s.t[1]);
-            else if (!g_ascii_strcasecmp(s.t[0], "Action"))
-                dc->action = g_strdup(s.t[1]);
-            else {
-                ERR( "dclock: unknown var %s\n", s.t[0]);
+    if( fp )
+    {
+        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
+            if (s.type == LINE_NONE) {
+                ERR( "dclock: illegal token %s\n", s.str);
                 goto error;
             }
-        } else {
-            ERR( "dclock: illegal in this context %s\n", s.str);
-            goto error;
+            if (s.type == LINE_VAR) {
+                if (!g_ascii_strcasecmp(s.t[0], "ClockFmt")) 
+                    dc->cfmt = g_strdup(s.t[1]);
+                else if (!g_ascii_strcasecmp(s.t[0], "TooltipFmt"))
+                    dc->tfmt = g_strdup(s.t[1]);
+                else if (!g_ascii_strcasecmp(s.t[0], "Action"))
+                    dc->action = g_strdup(s.t[1]);
+                else {
+                    ERR( "dclock: unknown var %s\n", s.t[0]);
+                    goto error;
+                }
+            } else {
+                ERR( "dclock: illegal in this context %s\n", s.str);
+                goto error;
+            }
         }
     }
     if (!dc->cfmt)

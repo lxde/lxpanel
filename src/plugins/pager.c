@@ -626,10 +626,10 @@ pager_rebuild_all(FbEv *ev, pager *pg)
 
 
 static int
-pager_constructor(plugin *plug)
+pager_constructor(plugin *plug, char **fp)
 {
     pager *pg;
-    
+
     ENTER;
     pg = g_new0(pager, 1);
     g_return_val_if_fail(pg != NULL, 0);
@@ -640,7 +640,7 @@ pager_constructor(plugin *plug)
     pg->box = plug->panel->my_box_new(TRUE, 1);
     gtk_container_set_border_width (GTK_CONTAINER (pg->box), 0);
     gtk_widget_show(pg->box);
-  
+
     gtk_bgbox_set_background(plug->pwid, BG_STYLE, 0, 0);
     gtk_container_set_border_width (GTK_CONTAINER (plug->pwid), 1);
     gtk_container_add(GTK_CONTAINER(plug->pwid), pg->box);
@@ -654,9 +654,9 @@ pager_constructor(plugin *plug)
     pager_rebuild_all(fbev, pg);
     //do_net_current_desktop(fbev, pg);
     //do_net_client_list_stacking(fbev, pg);
-    
+
     gdk_window_add_filter(NULL, (GdkFilterFunc)pager_event_filter, pg );
-  
+
     g_signal_connect (G_OBJECT (fbev), "current_desktop",
           G_CALLBACK (do_net_current_desktop), (gpointer) pg);
     g_signal_connect (G_OBJECT (fbev), "active_window",

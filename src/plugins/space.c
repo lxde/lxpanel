@@ -34,7 +34,7 @@ space_destructor(plugin *p)
 
 
 static int
-space_constructor(plugin *p)
+space_constructor(plugin *p, char** fp)
 {
     space *sp;
     line s;
@@ -45,21 +45,24 @@ space_constructor(plugin *p)
     sp = g_new0(space, 1);
     g_return_val_if_fail(sp != NULL, 0);
     p->priv = sp;
-    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
-        if (s.type == LINE_NONE) {
-            ERR( "space: illegal token %s\n", s.str);
-            goto error;
-        }
-        if (s.type == LINE_VAR) {
-            if (!g_ascii_strcasecmp(s.t[0], "size")) 
-                sp->size = atoi(s.t[1]);
-            else {
-                ERR( "space: unknown var %s\n", s.t[0]);
+    if( fp )
+    {
+        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
+            if (s.type == LINE_NONE) {
+                ERR( "space: illegal token %s\n", s.str);
                 goto error;
             }
-        } else {
-            ERR( "space: illegal in this context %s\n", s.str);
-            goto error;
+            if (s.type == LINE_VAR) {
+                if (!g_ascii_strcasecmp(s.t[0], "size")) 
+                    sp->size = atoi(s.t[1]);
+                else {
+                    ERR( "space: unknown var %s\n", s.t[0]);
+                    goto error;
+                }
+            } else {
+                ERR( "space: illegal in this context %s\n", s.str);
+                goto error;
+            }
         }
     }
     if (!sp->size)

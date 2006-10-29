@@ -196,7 +196,7 @@ void plugin_put(plugin *this)
 }
 
 int
-plugin_start(plugin *this)
+plugin_start(plugin *this, char** fp)
 {
     ENTER;
 
@@ -206,20 +206,13 @@ plugin_start(plugin *this)
         gtk_widget_set_name(this->pwid, this->class->type);
         gtk_box_pack_start(GTK_BOX(this->panel->box), this->pwid, this->expand, TRUE,
               this->padding);
-        DBG("here\n");
         gtk_container_set_border_width(GTK_CONTAINER(this->pwid), this->border);
-        DBG("here this->panel->transparent = %p\n", this->panel->transparent);
         if (this->panel->transparent) {
-            DBG("here g\n");
             gtk_bgbox_set_background(this->pwid, BG_ROOT, this->panel->tintcolor, this->panel->alpha);
         }
-        DBG("here\n");
         gtk_widget_show(this->pwid);
-        DBG("here\n");
     }
-    DBG("here\n");
-    if (!this->class->constructor(this)) {
-        DBG("here\n");
+    if (!this->class->constructor(this, fp)) {
         if (!this->class->invisible)
             gtk_widget_destroy(this->pwid);
         RET(0);

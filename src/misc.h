@@ -32,8 +32,8 @@ extern pair pos_pair[];
 
 int str2num(pair *p, gchar *str, int defval);
 gchar *num2str(pair *p, int num, gchar *defval);
-extern int lxpanel_get_line(FILE *fp, line *s);
-int get_line_as_is(FILE *fp, line *s);
+extern int lxpanel_get_line(char **fp, line *s);
+int get_line_as_is(char **fp, line *s);
 
 void Xclimsg(Window win, long type, long l0, long l1, long l2, long l3, long l4);
 void Xclimsgwm(Window win, Atom type, Atom arg);

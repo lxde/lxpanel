@@ -163,7 +163,7 @@ wincmd_destructor(plugin *p)
 
 
 static int
-wincmd_constructor(plugin *p)
+wincmd_constructor(plugin *p, char **fp)
 {
     line s;
     gchar *fname;
@@ -185,25 +185,28 @@ wincmd_constructor(plugin *p)
 #endif
     p->priv = wc;
     fname = NULL;
-    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
-        if (s.type == LINE_NONE) {
-            ERR( "wincmd: illegal token %s\n", s.str);
-            goto error;
-        }
-        if (s.type == LINE_VAR) {
-            if (!g_ascii_strcasecmp(s.t[0], "Button1")) 
-                wc->button1 = str2num(wincmd_pair, s.t[1], WC_ICONIFY);
-            else if (!g_ascii_strcasecmp(s.t[0], "Button2")) 
-                wc->button2 = str2num(wincmd_pair, s.t[1], WC_SHADE);
-            else if (!g_ascii_strcasecmp(s.t[0], "image"))
-                fname = expand_tilda(s.t[1]); 
-            else {
-                ERR( "wincmd: unknown var %s\n", s.t[0]);
+    if( fp )
+    {
+        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
+            if (s.type == LINE_NONE) {
+                ERR( "wincmd: illegal token %s\n", s.str);
                 goto error;
             }
-        } else {
-            ERR( "wincmd: illegal in this context %s\n", s.str);
-            goto error;
+            if (s.type == LINE_VAR) {
+                if (!g_ascii_strcasecmp(s.t[0], "Button1")) 
+                    wc->button1 = str2num(wincmd_pair, s.t[1], WC_ICONIFY);
+                else if (!g_ascii_strcasecmp(s.t[0], "Button2")) 
+                    wc->button2 = str2num(wincmd_pair, s.t[1], WC_SHADE);
+                else if (!g_ascii_strcasecmp(s.t[0], "image"))
+                    fname = expand_tilda(s.t[1]); 
+                else {
+                    ERR( "wincmd: unknown var %s\n", s.t[0]);
+                    goto error;
+                }
+            } else {
+                ERR( "wincmd: illegal in this context %s\n", s.str);
+                goto error;
+            }
         }
     }
     if (p->panel->orientation == ORIENT_HORIZ) {

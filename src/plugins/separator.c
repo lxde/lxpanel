@@ -10,16 +10,19 @@
 
 
 static int
-separator_constructor(plugin *p)
+separator_constructor(plugin *p, char **fp)
 {
     GtkWidget *sep, *eb;
     line s;
     
     ENTER;
     s.len = 256;
-    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
-        ERR( "separator: illegal in this context %s\n", s.str);
-        RET(0);
+    if( fp )
+    {
+        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
+            ERR( "separator: illegal in this context %s\n", s.str);
+            RET(0);
+        }
     }
     eb = gtk_event_box_new();
     gtk_container_set_border_width(GTK_CONTAINER(eb), 1);

@@ -96,7 +96,7 @@ tray_destructor(plugin *p)
 
 
 static int
-tray_constructor(plugin *p)
+tray_constructor(plugin *p, char** fp)
 {
     line s;
     tray *tr;
@@ -105,11 +105,15 @@ tray_constructor(plugin *p)
     
     ENTER;
     s.len = 256;
-    while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {
-        ERR("tray: illegal in this context %s\n", s.str);
-        RET(0);
+    if( fp )
+    {
+        g_debug("_tray");
+        while ( lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
+            g_debug("s.str = \'%s\'", s.str);
+            ERR("tray: illegal in this context %s\n", s.str);
+            RET(0);
+        }
     }
-
     tr = g_new0(tray, 1);
     g_return_val_if_fail(tr != NULL, 0);
     p->priv = tr;

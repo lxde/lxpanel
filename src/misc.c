@@ -132,8 +132,36 @@ num2str(pair *p, int num, gchar *defval)
     RET(defval);
 }
 
+int _gets( char* buf, int len, char **fp )
+{
+    char* p;
+    int i = 0;
+    if( !fp || !(p = *fp) || !**fp )
+    {
+        buf[0] = '\0';
+        return 0;
+    }
+
+    do
+    {
+        if( G_LIKELY( i < len ) )
+        {
+            buf[i] = *p;
+            ++i;
+        }
+        if( G_UNLIKELY(*p == '\n') )
+        {
+            ++p;
+            break;
+        }
+    }while( *(++p) );
+    buf[i] = '\0';
+    *fp = p;
+    return i;
+}
+
 extern  int
-lxpanel_get_line(FILE *fp, line *s)
+lxpanel_get_line(char**fp, line *s)
 {
     gchar *tmp, *tmp2;
 
@@ -141,14 +169,17 @@ lxpanel_get_line(FILE *fp, line *s)
     s->type = LINE_NONE;
     if (!fp)       
         RET(s->type);
-    while (fgets(s->str, s->len, fp)) {
+    while (_gets(s->str, s->len, fp)) {
+        g_debug("_gets: %s", s->str);
         g_strstrip(s->str);
      
         if (s->str[0] == '#' || s->str[0] == 0) {
+            g_debug("skip");
 	    continue;
         }
         DBG( ">> %s\n", s->str);
         if (!g_ascii_strcasecmp(s->str, "}")) {
+            g_debug("LINE_BLOCK_END");
             s->type = LINE_BLOCK_END;
             break;
         }
@@ -174,7 +205,7 @@ lxpanel_get_line(FILE *fp, line *s)
 }
 
 int
-get_line_as_is(FILE *fp, line *s)
+get_line_as_is(char** fp, line *s)
 {
     gchar *tmp, *tmp2;
 
@@ -184,7 +215,7 @@ get_line_as_is(FILE *fp, line *s)
         RET(s->type);
     }
     s->type = LINE_NONE;
-    while (fgets(s->str, s->len, fp)) {
+    while (_gets(s->str, s->len, fp)) {
         g_strstrip(s->str);
         if (s->str[0] == '#' || s->str[0] == 0) 
 	    continue;

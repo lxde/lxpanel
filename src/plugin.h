@@ -24,7 +24,7 @@ typedef struct {
     char *version;
     char *description;
 
-    int (*constructor)(struct _plugin *this);
+    int (*constructor)(struct _plugin *this, char **fp);
     void (*destructor)(struct _plugin *this);
     void (*config)(struct _plugin *this, GtkWindow* parent); /* config UI */
 
@@ -33,7 +33,6 @@ typedef struct {
 typedef struct _plugin{
     plugin_class *class;
     panel        *panel;
-    FILE         *fp;
     GtkWidget    *pwid;
     int           expand;
     int           padding;
@@ -44,7 +43,7 @@ typedef struct _plugin{
 /* if plugin is external it will load its dll */
 plugin * plugin_load(char *type);
 void plugin_put(plugin *this);
-int plugin_start(plugin *this);
+int plugin_start(plugin *this, char **fp);
 void plugin_stop(plugin *this);
 
 /* FIXME: optional definitions */

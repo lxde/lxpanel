@@ -62,7 +62,7 @@ static void on_button_press (GtkWidget* widget, GdkEventButton* evt, plugin* p)
 }
 
 static int
-volume_constructor(plugin *p)
+volume_constructor(plugin *p, char **fp)
 {
 	volume_t *vol;
 	line s;
