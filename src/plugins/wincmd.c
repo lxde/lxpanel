@@ -15,11 +15,12 @@ typedef struct {
     GdkPixmap *pix;
     GdkBitmap *mask;
     GtkTooltips *tips;
+    char* image;
     int button1, button2;
     int action1, action2;
 } wincmd;
 
-enum { WC_NONE, WC_ICONIFY, WC_SHADE };
+enum { WC_NONE = 1, WC_ICONIFY, WC_SHADE };
 static pair wincmd_pair [] = {
     { WC_NONE,    "none" },
     { WC_ICONIFY, "iconify" },
@@ -151,6 +152,7 @@ wincmd_destructor(plugin *p)
     wincmd *wc = (wincmd *)p->priv;
 
     ENTER;
+    g_free( wc->image );
     if (wc->mask)
         g_object_unref(wc->mask);
     if (wc->pix)
@@ -193,12 +195,14 @@ wincmd_constructor(plugin *p, char **fp)
                 goto error;
             }
             if (s.type == LINE_VAR) {
-                if (!g_ascii_strcasecmp(s.t[0], "Button1")) 
+                if (!g_ascii_strcasecmp(s.t[0], "Button1"))
                     wc->button1 = str2num(wincmd_pair, s.t[1], WC_ICONIFY);
                 else if (!g_ascii_strcasecmp(s.t[0], "Button2")) 
                     wc->button2 = str2num(wincmd_pair, s.t[1], WC_SHADE);
-                else if (!g_ascii_strcasecmp(s.t[0], "image"))
-                    fname = expand_tilda(s.t[1]); 
+                else if (!g_ascii_strcasecmp(s.t[0], "image")) {
+                    wc->image = g_strdup( s.t[1] );
+                    fname = expand_tilda(s.t[1]);
+                }
                 else {
                     ERR( "wincmd: unknown var %s\n", s.t[0]);
                     goto error;
@@ -240,11 +244,10 @@ wincmd_constructor(plugin *p, char **fp)
 static void save_config( plugin* p, FILE* fp )
 {
     wincmd* wc = (wincmd*)p->priv;
-    /*
-    if( wc->image )
-        lxpanel_put_line( fp, "image=%s", wc->image );
-    */
-    // FIXME: not complete
+
+    lxpanel_put_str( fp, "image", wc->image );
+    lxpanel_put_str( fp, "Button1", num2str(wincmd_pair, wc->button1, NULL) );
+    lxpanel_put_str( fp, "Button2", num2str(wincmd_pair, wc->button2, NULL) );
 }
 
 

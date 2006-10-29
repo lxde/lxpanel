@@ -360,8 +360,7 @@ panel_start_gui(panel *p)
     Atom state[3];
     XWMHints wmhints;
     guint32 val;
- 
-    
+
     ENTER;
 
     // main toplevel window
@@ -385,11 +384,11 @@ panel_start_gui(panel *p)
           (GCallback) panel_configure_event, p);
     g_signal_connect (G_OBJECT (p->topgwin), "realize",
           (GCallback) panel_realize, p);
-     
+
     gtk_widget_realize(p->topgwin);
     //gdk_window_set_decorations(p->topgwin->window, 0);
     gtk_widget_set_app_paintable(p->topgwin, TRUE);
-    
+
     // background box all over toplevel
     p->bbox = gtk_bgbox_new();
     gtk_container_add(GTK_CONTAINER(p->topgwin), p->bbox);
@@ -412,7 +411,7 @@ panel_start_gui(panel *p)
     gtk_container_set_border_width(GTK_CONTAINER(p->box), 0);
     gtk_box_pack_start(GTK_BOX(p->lbox), p->box, TRUE, TRUE, 0);
     gtk_widget_show(p->box);
-      
+
     p->topxwin = GDK_WINDOW_XWINDOW(GTK_WIDGET(p->topgwin)->window);
     DBG("topxwin = %x\n", p->topxwin);
 
@@ -466,7 +465,7 @@ panel_parse_global(panel *p, char **fp)
 {
     line s;
     s.len = 256;
-    
+
     ENTER;
     while (lxpanel_get_line(fp, &s) != LINE_NONE) {
         if (s.type == LINE_VAR) {

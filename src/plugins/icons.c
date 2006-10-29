@@ -487,8 +487,8 @@ icons_destructor(plugin *p)
     gdk_window_remove_filter(NULL, (GdkFilterFunc)ics_event_filter, ics );
     if( ics->dicon )
     {
-        g_free(wp->data);
-        g_free(wp->name);
+        g_free(ics->dicon->data);
+        g_free(ics->dicon->name);
         g_free( ics->dicon );
     }
     while (ics->wmpix) {
