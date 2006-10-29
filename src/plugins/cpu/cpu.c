@@ -220,5 +220,6 @@ plugin_class cpu_plugin_class = {
 
     constructor : cpu_constructor,
     destructor  : cpu_destructor,
-    config : NULL
+    config : NULL,
+    save : NULL
 };

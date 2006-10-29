@@ -93,12 +93,6 @@ response_event(GtkDialog *widget, gint arg1, gpointer user_data)
 
     ENTER;
     switch (arg1) {
-    case GTK_RESPONSE_DELETE_EVENT:
-    case GTK_RESPONSE_CLOSE:
-    case GTK_RESPONSE_NONE:
-        gtk_widget_destroy(dialog);
-        dialog = NULL;
-        break;
     case GTK_RESPONSE_APPLY:
         if (!mk_profile_dir()) {
             ERR("can't make ~/.lxpanel direcory\n");
@@ -114,9 +108,12 @@ response_event(GtkDialog *widget, gint arg1, gpointer user_data)
         global_config_save(fp);
         plugin_config_save(fp);
         fclose(fp);
-        //sprintf(fname, "cat %s/.lxpanel/confplug >> %s/.lxpanel/%s", getenv("HOME"), getenv("HOME"), cprofile);
-        //system(fname);
-        gtk_main_quit();
+        /* NOTE: NO BREAK HERE*/
+    case GTK_RESPONSE_DELETE_EVENT:
+    case GTK_RESPONSE_CLOSE:
+    case GTK_RESPONSE_NONE:
+        gtk_widget_destroy(dialog);
+        dialog = NULL;
         break;
     }
     RET();
@@ -894,57 +891,23 @@ global_config_save(FILE *fp)
     fprintf(fp, "}\n\n");
 }
 
-#define TAB_WIDTH 4
-#define STR_LEN  254
 void
 plugin_config_save(FILE *fp)
 {
-    char space[STR_LEN];
-    line s;
-    int i = 0;
-    fseek(pconf, 0, SEEK_SET);
-    /*
-    while (fgets(s, 254, pconf))
-        fprintf(fp, "%s\n", s);
-    */
-    memset(space, ' ', STR_LEN);
-    space[STR_LEN -1] = 0;
-    s.len = 256;
-    while (lxpanel_get_line(pconf, &s) != LINE_NONE) {
-        switch (s.type) {
-        case LINE_BLOCK_START:
-            space[i*TAB_WIDTH] = 0;
-            fprintf(fp, "%s%s {\n", space, s.t[0]);
-            space[i*TAB_WIDTH] = ' ';
-            i++;
-            //just for the case
-            if (i > STR_LEN/TAB_WIDTH) {
-                i = STR_LEN/TAB_WIDTH;
-                ERR("too long line in config file\n");
-            }
-            break;
-        case LINE_BLOCK_END:
-            i--;
-            //just for the case
-            if (i < 0) {
-                ERR("unbalansed parenthesis in config file\n");
-                i = 0;
-            }
-            space[i*TAB_WIDTH] = 0;
-            fprintf(fp, "%s}\n", space);
-            space[i*TAB_WIDTH] = ' ';
-            if (!i)
-                fprintf(fp, "\n\n");
-            break;
-
-        case LINE_VAR:
-            space[i*TAB_WIDTH] = 0;
-            fprintf(fp, "%s%s = %s\n", space, s.t[0], s.t[1]);
-            space[i*TAB_WIDTH] = ' ';
-            break;
+    GList* l;
+    for( l = p->plugins; l; l = l->next )
+    {
+        plugin* pl = (plugin*)l->data;
+        lxpanel_put_line( fp, "Plugin {" );
+        lxpanel_put_line( fp, "type = %s", pl->class->type );
+        if( pl->class->save )
+        {
+            lxpanel_put_line( fp, "Config {" );
+            pl->class->save( pl, fp );
+            lxpanel_put_line( fp, "}" );
         }
+        lxpanel_put_line( fp, "}\n" );
     }
-
 }
 
 

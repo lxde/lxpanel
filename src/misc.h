@@ -33,6 +33,10 @@ extern pair pos_pair[];
 int str2num(pair *p, gchar *str, int defval);
 gchar *num2str(pair *p, int num, gchar *defval);
 extern int lxpanel_get_line(char **fp, line *s);
+extern int lxpanel_put_line(FILE* fp, const char* format, ...);
+extern int lxpanel_put_str( FILE* fp, const char* name, const char* val );
+extern int lxpanel_put_bool( FILE* fp, const char* name, gboolean val );
+extern int lxpanel_put_int( FILE* fp, const char* name, int val );
 int get_line_as_is(char **fp, line *s);
 
 void Xclimsg(Window win, long type, long l0, long l1, long l2, long l3, long l4);

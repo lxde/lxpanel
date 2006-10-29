@@ -136,6 +136,13 @@ static void netstatus_config( plugin* p, GtkWindow* parent  )
     gtk_window_present( GTK_WINDOW(dlg) );
 }
 
+static void save_config( plugin* p, FILE* fp )
+{
+    netstatus *ns = (netstatus*)p->priv;
+    lxpanel_put_str( fp, "iface", ns->iface );
+    lxpanel_put_str( fp, "configtool", ns->config_tool );
+}
+
 plugin_class netstatus_plugin_class = {
     fname: NULL,
     count: 0,
@@ -147,5 +154,6 @@ plugin_class netstatus_plugin_class = {
 
     constructor : netstatus_constructor,
     destructor  : netstatus_destructor,
-    config : netstatus_config
+    config : netstatus_config,
+    save : save_config
 };

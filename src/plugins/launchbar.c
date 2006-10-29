@@ -161,7 +161,7 @@ read_button(plugin *p, char** fp)
     line s;
     //GError *err = NULL;
     int w, h;
-    
+
     ENTER;
     s.len = 256;
     if (lb->btn_num >= MAXBUTTONS) {
@@ -363,7 +363,10 @@ launchbar_constructor(plugin *p, char **fp)
     
 }
 
-
+static void save_config( plugin* p, FILE* fp )
+{
+    /* FIXME: not complete */
+}
 
 plugin_class launchbar_plugin_class = {
     fname: NULL,
@@ -376,5 +379,6 @@ plugin_class launchbar_plugin_class = {
 
     constructor : launchbar_constructor,
     destructor  : launchbar_destructor,
-    config : NULL
+    config : NULL,
+    save : save_config
 };

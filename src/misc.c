@@ -132,7 +132,7 @@ num2str(pair *p, int num, gchar *defval)
     RET(defval);
 }
 
-int _gets( char* buf, int len, char **fp )
+int buf_gets( char* buf, int len, char **fp )
 {
     char* p;
     int i = 0;
@@ -160,6 +160,49 @@ int _gets( char* buf, int len, char **fp )
     return i;
 }
 
+extern int
+lxpanel_put_line(FILE* fp, const char* format, ...)
+{
+    static int indent = 0;
+    int i, ret;
+    va_list args;
+
+    if( strchr(format, '}') )
+        --indent;
+
+    for( i = 0; i < indent; ++i )
+        fputs( "    ", fp );
+
+    va_start (args, format);
+    ret = vfprintf (fp, format, args);
+    va_end (args);
+
+    if( strchr(format, '{') )
+        ++indent;
+    fputc( '\n', fp );  /* add line break */
+    return (ret + 1);
+}
+
+extern int
+lxpanel_put_str( FILE* fp, const char* name, const char* val )
+{
+    if( G_UNLIKELY( !val ) )
+        return 0;
+    return lxpanel_put_line( fp, "%s = %s", name, val );
+}
+
+extern int
+lxpanel_put_bool( FILE* fp, const char* name, gboolean val )
+{
+    return lxpanel_put_line( fp, "%s = %s", name, val ? "true" : "false" );
+}
+
+extern int
+lxpanel_put_int( FILE* fp, const char* name, int val )
+{
+    return lxpanel_put_line( fp, "%s = %d", name, val );
+}
+
 extern  int
 lxpanel_get_line(char**fp, line *s)
 {
@@ -169,17 +212,13 @@ lxpanel_get_line(char**fp, line *s)
     s->type = LINE_NONE;
     if (!fp)       
         RET(s->type);
-    while (_gets(s->str, s->len, fp)) {
-        g_debug("_gets: %s", s->str);
+    while (buf_gets(s->str, s->len, fp)) {
         g_strstrip(s->str);
-     
+
         if (s->str[0] == '#' || s->str[0] == 0) {
-            g_debug("skip");
-	    continue;
+            continue;
         }
-        DBG( ">> %s\n", s->str);
         if (!g_ascii_strcasecmp(s->str, "}")) {
-            g_debug("LINE_BLOCK_END");
             s->type = LINE_BLOCK_END;
             break;
         }
@@ -201,7 +240,6 @@ lxpanel_get_line(char**fp, line *s)
         break;
     }
     RET(s->type);
-
 }
 
 int
@@ -215,7 +253,7 @@ get_line_as_is(char** fp, line *s)
         RET(s->type);
     }
     s->type = LINE_NONE;
-    while (_gets(s->str, s->len, fp)) {
+    while (buf_gets(s->str, s->len, fp)) {
         g_strstrip(s->str);
         if (s->str[0] == '#' || s->str[0] == 0) 
 	    continue;

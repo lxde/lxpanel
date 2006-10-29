@@ -114,6 +114,12 @@ static void space_config(plugin* p, GtkWindow* parent )
     gtk_window_present( dlg );
 }
 
+static void save_config( plugin* p, FILE* fp )
+{
+    space *sp = (space *)p->priv;
+    lxpanel_put_int( fp, "Size", sp->size );
+}
+
 plugin_class space_plugin_class = {
     fname: NULL,
     count: 0,
@@ -125,5 +131,6 @@ plugin_class space_plugin_class = {
 
     constructor : space_constructor,
     destructor  : space_destructor,
-    config : space_config
+    config : space_config,
+    save : save_config
 };

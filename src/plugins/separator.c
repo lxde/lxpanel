@@ -60,4 +60,6 @@ plugin_class separator_plugin_class = {
 
     constructor : separator_constructor,
     destructor  : separator_destructor,
+    config : NULL,
+    save : NULL
 };

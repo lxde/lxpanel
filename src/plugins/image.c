@@ -96,7 +96,6 @@ image_constructor(plugin *p, char **fp)
         wid = gtk_label_new("?");
     } else {
         float ratio;
-                  
         ratio = (p->panel->orientation == ORIENT_HORIZ) ?
             (float) (p->panel->ah - 2) / (float) gdk_pixbuf_get_height(gp)
             : (float) (p->panel->aw - 2) / (float) gdk_pixbuf_get_width(gp);
@@ -128,6 +127,10 @@ image_constructor(plugin *p, char **fp)
     RET(0);
 }
 
+static void save_config( plugin* p, FILE* fp )
+{
+    // FIXME: not complete
+}
 
 plugin_class image_plugin_class = {
     fname: NULL,
@@ -140,4 +143,6 @@ plugin_class image_plugin_class = {
 
     constructor : image_constructor,
     destructor  : image_destructor,
+    config : NULL,
+    save : save_config
 };

@@ -29,6 +29,7 @@
 
 typedef struct wmpix_t {
     struct wmpix_t *next;
+    char* name;
     gulong *data;
     int size;
     XClassHint ch;
@@ -40,10 +41,8 @@ typedef struct _task{
     struct task *next;
     Window win;
     int refcount;
-    XClassHint ch;    
+    XClassHint ch;
 } task;
-
-
 
 typedef struct _icons{
     plugin *plug;
@@ -55,8 +54,6 @@ typedef struct _icons{
     int wmpixno;
     wmpix_t *dicon;
 } icons;
-
-
 
 static void ics_propertynotify(icons *ics, XEvent *ev);
 static GdkFilterReturn ics_event_filter( XEvent *, GdkEvent *, icons *);
@@ -121,7 +118,7 @@ get_dicon_maybe(icons *ics, task *tk)
         XFree(data);
         RET(NULL);
     }
-    
+
     hints = (XWMHints *) get_xaproperty (tk->win, XA_WM_HINTS, XA_WM_HINTS, 0);
     if (hints) {
         if ((hints->flags & IconPixmapHint) || (hints->flags & IconMaskHint)) {
@@ -144,7 +141,6 @@ get_user_icon(icons *ics, task *tk)
         for (tmp = ics->wmpix; tmp; tmp = tmp->next) {
             if ((!tmp->ch.res_name || !strcmp(tmp->ch.res_name, tk->ch.res_name))
                   && (!tmp->ch.res_class || !strcmp(tmp->ch.res_class, tk->ch.res_class))) {
-                
                 RET(tmp);
 	    }
 	}
@@ -171,18 +167,18 @@ pixbuf2argb (GdkPixbuf *pixbuf, int *size)
     height = gdk_pixbuf_get_height (pixbuf);
     stride = gdk_pixbuf_get_rowstride (pixbuf);
     n_channels = gdk_pixbuf_get_n_channels (pixbuf);
-      
+
     *size += 2 + width * height;
     p = data = g_malloc (*size * sizeof (gulong));
     *p++ = width;
     *p++ = height;
-    
+
     pixels = gdk_pixbuf_get_pixels (pixbuf);
-    
+
     for (y = 0; y < height; y++) {
         for (x = 0; x < width; x++) {
             guchar r, g, b, a;
-            
+
             r = pixels[y*stride + x*n_channels + 0];
             g = pixels[y*stride + x*n_channels + 1];
             b = pixels[y*stride + x*n_channels + 2];
@@ -190,7 +186,7 @@ pixbuf2argb (GdkPixbuf *pixbuf, int *size)
                 a = pixels[y*stride + x*n_channels + 3];
             else
                 a = 255;
-            
+
             *p++ = a << 24 | r << 16 | g << 8 | b ;
         }
     }
@@ -212,7 +208,7 @@ set_icon_maybe (icons *ics, task *tk)
     pix = get_user_icon(ics, tk);
     if (!pix) 
         pix = get_dicon_maybe(ics, tk);
-    
+
     if (!pix)
         RET();
 
@@ -245,7 +241,6 @@ remove_stale_tasks(Window *win, task *tk, gpointer data)
 static GdkFilterReturn
 ics_event_filter( XEvent *xev, GdkEvent *event, icons *ics)
 {
-    
     ENTER;
     g_assert(ics != NULL);
     if (xev->type == PropertyNotify )
@@ -297,14 +292,13 @@ ics_propertynotify(icons *ics, XEvent *ev)
     Atom at;
     Window win;
 
-    
     ENTER;
     win = ev->xproperty.window;
     at = ev->xproperty.atom;
     DBG("win=%x at=%d\n", win, at);
     if (win != GDK_ROOT_WINDOW()) {
 	task *tk = find_task(ics, win);
-        
+
 	if (!tk) RET();
         if (at == XA_WM_CLASS) {
 	    get_wmclass(tk);
@@ -320,7 +314,7 @@ static void
 icons_build_gui(plugin *p)
 {
     icons *ics = (icons *)p->priv;
-    
+
     ENTER;
     g_signal_connect (G_OBJECT (fbev), "client_list",
           G_CALLBACK (do_net_client_list), (gpointer) ics);
@@ -334,11 +328,11 @@ read_application(plugin *p, char** fp)
     icons *ics = (icons *)p->priv;
     GdkPixbuf *gp = NULL;
     line s;
-    gchar *fname, *appname, *classname;
+    gchar *image = NULL, *fname, *appname, *classname;
     wmpix_t *wp = NULL;
     gulong *data;
     int size;
-    
+
     ENTER;
     s.len = 256;
     fname = appname = classname = NULL;
@@ -351,8 +345,10 @@ read_application(plugin *p, char** fp)
                 goto error;
             }
             if (s.type == LINE_VAR) {
-                if (!g_ascii_strcasecmp(s.t[0], "image")) 
+                if (!g_ascii_strcasecmp(s.t[0], "image")){
+                    image = g_strdup( s.t[1] );
                     fname = expand_tilda(s.t[1]);
+                }
                 else if (!g_ascii_strcasecmp(s.t[0], "appname"))
                     appname = g_strdup(s.t[1]);
                 else if (!g_ascii_strcasecmp(s.t[0], "classname"))
@@ -367,25 +363,27 @@ read_application(plugin *p, char** fp)
             }
         }
     }
+    wp = g_new0 (wmpix_t, 1);
+    wp->next = ics->wmpix;
+    wp->name = image;
+    ics->wmpix = wp;
+    ics->wmpixno++;
+    wp->ch.res_name = appname;
+    wp->ch.res_class = classname;
+
     if (!fname)
         RET(0);
-    gp = gdk_pixbuf_new_from_file(fname, NULL);  
+    gp = gdk_pixbuf_new_from_file(fname, NULL);
     if (gp) {
         if ((data = pixbuf2argb(gp, &size))) {
-            wp = g_new0 (wmpix_t, 1);
-            wp->next = ics->wmpix;
             wp->data = data;
             wp->size = size;
-            wp->ch.res_name = appname;
-            wp->ch.res_class = classname;
-            ics->wmpix = wp;
-            ics->wmpixno++;
         }
         g_object_unref(gp);
     }
-    g_free(fname);    
+    g_free(fname);
     RET(1);
-  
+
  error:
     g_free(fname);
     g_free(appname);
@@ -400,21 +398,23 @@ read_dicon(icons *ics, gchar *name)
     GdkPixbuf *gp;
     int size;
     gulong *data;
-    
+
     ENTER;
+
+    ics->dicon = g_new0 (wmpix_t, 1);
+    ics->dicon->name = g_strdup(name);
+
     fname = expand_tilda(name);
     if (!fname)
         RET(0);
-    gp = gdk_pixbuf_new_from_file(fname, NULL);  
+    gp = gdk_pixbuf_new_from_file(fname, NULL);
     if (gp) {
-        if ((data = pixbuf2argb(gp, &size))) {
-            ics->dicon = g_new0 (wmpix_t, 1);
-            ics->dicon->data = data;
-            ics->dicon->size = size;
-        }
+        data = pixbuf2argb(gp, &size);
+        ics->dicon->data = data;
+        ics->dicon->size = size;
         g_object_unref(gp);
     }
-    g_free(fname);    
+    g_free(fname);
     RET(1);
 }
 
@@ -424,12 +424,12 @@ icons_constructor(plugin *p, char **fp)
 {
     icons *ics;
     line s;
-    
+
     ENTER;
     ics = g_new0(icons, 1);
     ics->plug = p;
     p->priv = ics;
-    
+
     ics->wmpixno           = 0;
     ics->task_list         = g_hash_table_new(g_int_hash, g_int_equal);
     s.len = 256;
@@ -469,7 +469,7 @@ icons_constructor(plugin *p, char **fp)
     icons_build_gui(p);
     do_net_client_list(NULL, ics);
     RET(1);
-    
+
  error:
     icons_destructor(p);
     RET(0);
@@ -481,19 +481,44 @@ icons_destructor(plugin *p)
 {
     icons *ics = (icons *)p->priv;
     wmpix_t *wp;
-    
+
     ENTER;
     g_signal_handlers_disconnect_by_func(G_OBJECT (fbev), do_net_client_list, ics); 
     gdk_window_remove_filter(NULL, (GdkFilterFunc)ics_event_filter, ics );
+    if( ics->dicon )
+    {
+        g_free(wp->data);
+        g_free(wp->name);
+        g_free( ics->dicon );
+    }
     while (ics->wmpix) {
         wp = ics->wmpix;
         ics->wmpix = ics->wmpix->next;
         g_free(wp->ch.res_name);
         g_free(wp->ch.res_class);
         g_free(wp->data);
+        g_free(wp->name);
         g_free(wp);
     }
     RET();
+}
+
+static void save_config( plugin* p, FILE* fp )
+{
+    wmpix_t *tmp;
+    icons* ics = (icons*)p->priv;
+
+    if( ics->dicon )
+        lxpanel_put_str( fp, "DefaultIcon", ics->dicon->name );
+
+    /* FIXME: the order of saved items should be reversed */
+    for (tmp = ics->wmpix; tmp; tmp = tmp->next) {
+        lxpanel_put_line( fp, "Application {" );
+        lxpanel_put_str( fp, "Image", tmp->name );
+        lxpanel_put_str( fp, "AppName", tmp->ch.res_name );
+        lxpanel_put_str( fp, "ClassName", tmp->ch.res_class );
+        lxpanel_put_line( fp, "}" );
+    }
 }
 
 plugin_class icons_plugin_class = {
@@ -505,7 +530,9 @@ plugin_class icons_plugin_class = {
     version: "1.0",
     description : N_("Change window icons"),
     invisible : 1,
-    
+
     constructor : icons_constructor,
     destructor  : icons_destructor,
+    config : NULL,
+    save : save_config
 };

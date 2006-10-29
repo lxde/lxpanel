@@ -196,6 +196,14 @@ static void dclock_config( plugin *p, GtkWindow* parent )
     gtk_window_present( dlg );
 }
 
+static void save_config( plugin* p, FILE* fp )
+{
+    dclock *dc = (dclock *)p->priv;
+    lxpanel_put_str( fp, "ClockFmt", dc->cfmt );
+    lxpanel_put_str( fp, "TooltipFmt", dc->tfmt );
+    lxpanel_put_str( fp, "Action", dc->action );
+}
+
 plugin_class dclock_plugin_class = {
     fname: NULL,
     count: 0,
@@ -207,5 +215,6 @@ plugin_class dclock_plugin_class = {
 
     constructor : dclock_constructor,
     destructor  : dclock_destructor,
-    config : dclock_config
+    config : dclock_config,
+    save : save_config
 };

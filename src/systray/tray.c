@@ -162,5 +162,6 @@ plugin_class tray_plugin_class = {
 
     constructor : tray_constructor,
     destructor  : tray_destructor,
-    config : NULL
+    config : NULL,
+    save : NULL
 };

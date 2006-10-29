@@ -1445,6 +1445,21 @@ static void taskbar_config( plugin* p, GtkWindow* parent )
     gtk_window_present( dlg );
 }
 
+static void save_config( plugin* p, FILE* fp )
+{
+    taskbar *tb = (taskbar *)p->priv;
+    lxpanel_put_bool( fp, "tooltips", tb->tooltips );
+    lxpanel_put_bool( fp, "IconsOnly", tb->icons_only );
+    lxpanel_put_bool( fp, "AcceptSkipPager", tb->accept_skip_pager );
+    lxpanel_put_bool( fp, "ShowIconified", tb->show_iconified );
+    lxpanel_put_bool( fp, "ShowMapped", tb->show_mapped );
+    lxpanel_put_bool( fp, "ShowAllDesks", tb->show_all_desks );
+    lxpanel_put_bool( fp, "MaxTaskWidth", tb->task_width_max );
+    lxpanel_put_bool( fp, "spacing", tb->spacing );
+    lxpanel_put_bool( fp, "UseMouseWheel", tb->use_mouse_wheel );
+    lxpanel_put_bool( fp, "UseUrgencyHint", tb->use_urgency_hint );
+}
+
 plugin_class taskbar_plugin_class = {
     fname: NULL,
     count: 0,
@@ -1453,9 +1468,10 @@ plugin_class taskbar_plugin_class = {
     name : N_("Task Bar (Window List)"),
     version: "1.0",
     description : N_("Taskbar shows all opened windows and allow to iconify them, shade or get focus"),
-    
+
     constructor : taskbar_constructor,
     destructor  : taskbar_destructor,
-    config : taskbar_config
+    config : taskbar_config,
+    save : save_config
 };
 

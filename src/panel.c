@@ -31,9 +31,6 @@ FbEv *fbev;
 #include "dbg.h"
 
 int log_level;
-
-FILE *pconf; // plugin part of profile file
-
 panel *p;
 
 
@@ -680,7 +677,6 @@ delete_plugin(gpointer data, gpointer udata)
     plugin_stop((plugin *)data);
     plugin_put((plugin *)data);
     RET();
-    
 }
 
 void panel_stop(panel *p)
@@ -701,7 +697,6 @@ void panel_stop(panel *p)
     gtk_widget_destroy(p->topgwin);
     g_object_unref(fbev);
     g_free(p->workarea);
-    fclose(pconf);
     gdk_flush();
     XFlush(GDK_DISPLAY());
     XSync(GDK_DISPLAY(), True);

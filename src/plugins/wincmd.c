@@ -237,6 +237,16 @@ wincmd_constructor(plugin *p, char **fp)
     RET(0);
 }
 
+static void save_config( plugin* p, FILE* fp )
+{
+    wincmd* wc = (wincmd*)p->priv;
+    /*
+    if( wc->image )
+        lxpanel_put_line( fp, "image=%s", wc->image );
+    */
+    // FIXME: not complete
+}
+
 
 plugin_class wincmd_plugin_class = {
     fname: NULL,
@@ -246,8 +256,9 @@ plugin_class wincmd_plugin_class = {
     name : N_("Minimize All Windows"),
     version: "1.0",
     description : N_("Sends commands to all desktop windows.\nSupported commnds are 1)toggle iconify and 2) toggle shade"),
-    
 
     constructor : wincmd_constructor,
     destructor  : wincmd_destructor,
+    config : NULL,
+    save : save_config
 };

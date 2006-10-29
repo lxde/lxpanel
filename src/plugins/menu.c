@@ -471,6 +471,10 @@ menu_constructor(plugin *p, char **fp)
     RET(0);
 }
 
+static void save_config( plugin* p, FILE* fp )
+{
+    /* FIXME: not complete */
+}
 
 plugin_class menu_plugin_class = {
     fname: NULL,
@@ -483,6 +487,8 @@ plugin_class menu_plugin_class = {
 
     constructor : menu_constructor,
     destructor  : menu_destructor,
+    config : NULL,
+    save : save_config
 };
 
 
