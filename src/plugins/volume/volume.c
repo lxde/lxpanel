@@ -110,6 +110,13 @@ volume_constructor(plugin *p)
 	gtk_container_add(GTK_CONTAINER(p->pwid), vol->mainw);
 
 	vol->tooltips = gtk_tooltips_new ();
+#if GLIB_CHECK_VERSION( 2, 10, 0 )
+    g_object_ref_sink( vol->tooltips );
+#else
+    g_object_ref( vol->tooltips );
+    gtk_object_sink( vol->tooltips );
+#endif
+
 	/* FIXME: display current level in tooltip. ex: "Volume Control: 80%"  */
 	gtk_tooltips_set_tip (vol->tooltips, vol->mainw, _("Volume control"), NULL);
 

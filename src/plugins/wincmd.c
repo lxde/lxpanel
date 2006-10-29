@@ -155,7 +155,7 @@ wincmd_destructor(plugin *p)
         g_object_unref(wc->mask);
     if (wc->pix)
         g_object_unref(wc->pix);
-    //gtk_widget_destroy(wc->tips);
+    g_object_unref( wc->tips );
     g_free(wc);
     RET();
 }
@@ -177,6 +177,12 @@ wincmd_constructor(plugin *p)
     wc = g_new0(wincmd, 1);
     g_return_val_if_fail(wc != NULL, 0);
     wc->tips = gtk_tooltips_new();
+#if GLIB_CHECK_VERSION( 2, 10, 0 )
+    g_object_ref_sink( wc->tips );
+#else
+    g_object_ref( wc->tips );
+    gtk_object_sink( wc->tips );
+#endif
     p->priv = wc;
     fname = NULL;
     while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {

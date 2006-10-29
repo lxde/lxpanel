@@ -32,6 +32,7 @@ image_destructor(plugin *p)
     if (img->pix)
         g_object_unref(img->pix);
     //
+    g_object_unref( img->tips );
     g_free(img);
     RET();
 }
@@ -55,6 +56,12 @@ image_constructor(plugin *p)
     img = g_new0(image, 1);
     g_return_val_if_fail(img != NULL, 0);
     img->tips = gtk_tooltips_new();
+#if GLIB_CHECK_VERSION( 2, 10, 0 )
+    g_object_ref_sink( img->tips );
+#else
+    g_object_ref( img->tips );
+    gtk_object_sink( img->tips );
+#endif
     p->priv = img;
     tooltip = fname = 0;
     while (lxpanel_get_line(p->fp, &s) != LINE_BLOCK_END) {

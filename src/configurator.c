@@ -94,12 +94,10 @@ response_event(GtkDialog *widget, gint arg1, gpointer user_data)
     ENTER;
     switch (arg1) {
     case GTK_RESPONSE_DELETE_EVENT:
-        DBG("GTK_RESPONSE_DELETE_EVENT\n");
+    case GTK_RESPONSE_CLOSE:
+    case GTK_RESPONSE_NONE:
         gtk_widget_destroy(dialog);
         dialog = NULL;
-        break;
-    case GTK_RESPONSE_CLOSE:
-        gtk_widget_hide(dialog);
         break;
     case GTK_RESPONSE_APPLY:
         if (!mk_profile_dir()) {
@@ -836,10 +834,7 @@ void
 configure(void)
 {
     ENTER;
-    DBG("dialog %p\n",  dialog);
-    if (!dialog)
-        dialog = mk_dialog();
-    gtk_widget_show(dialog);
+    dialog = mk_dialog();
 
     update_opt_menu(edge_opt, p->edge - 1);
     update_opt_menu(allign_opt, p->allign - 1);
@@ -859,6 +854,8 @@ configure(void)
 
     update_toggle_button(prop_dt_checkb, p->setdocktype);
     update_toggle_button(prop_st_checkb, p->setstrut);
+
+    gtk_window_present((GtkWindow*)dialog);
     RET();
 }
 

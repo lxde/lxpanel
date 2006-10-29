@@ -51,7 +51,7 @@ typedef struct {
     GtkWidget *da;
     GtkWidget *evbox;
     GdkPixmap *pixmap;
-    GtkTooltips *tip;
+    /* GtkTooltips *tip; */
 
     int timer;
     tick *stats_cpu;
@@ -164,8 +164,16 @@ cpu_constructor(plugin *p)
 
     gtk_widget_show(c->da);
 
+/*
     c->tip = gtk_tooltips_new();
- 
+#if GLIB_CHECK_VERSION( 2, 10, 0 )
+    g_object_ref_sink( c->tip );
+#else
+    g_object_ref( c->tip );
+    gtk_object_sink( c->tip );
+#endif
+*/
+
     c->gc_cpu = gdk_gc_new(p->panel->topgwin->window);
     DBG("here1\n");
     c->ccpu = (GdkColor *)malloc(sizeof(GdkColor));
@@ -195,6 +203,7 @@ cpu_destructor(plugin *p)
     g_free(c->stats_cpu);
     g_free(c->ccpu);
     g_source_remove(c->timer);
+    /* g_object_unref( c->tip ); */
     g_free(p->priv);
     RET();
 }

@@ -130,6 +130,12 @@ dclock_constructor(plugin *p)
     gtk_container_add(GTK_CONTAINER(dc->main), dc->clockw);
     gtk_widget_show_all(dc->main);
     dc->tip = gtk_tooltips_new();
+#if GLIB_CHECK_VERSION( 2, 10, 0 )
+    g_object_ref_sink( dc->tip );
+#else
+    g_object_ref( dc->tip );
+    gtk_object_sink( dc->tip );
+#endif
     dc->timer = g_timeout_add(1000, (GSourceFunc) clock_update, (gpointer)dc);
     gtk_container_add(GTK_CONTAINER(p->pwid), dc->main);
 
@@ -155,6 +161,7 @@ dclock_destructor(plugin *p)
   if (dc->timer)
       g_source_remove(dc->timer);
   gtk_widget_destroy(dc->main);
+  g_object_unref( dc->tip );
   g_free(dc->cfmt);
   g_free(dc->tfmt);
   g_free(dc->action);

@@ -1274,7 +1274,12 @@ taskbar_build_gui(plugin *p)
         Can we delete the tooltip object if tooltips is not enabled?
     if (tb->tooltips) */
     tb->tips = gtk_tooltips_new();
-
+#if GLIB_CHECK_VERSION( 2, 10, 0 )
+    g_object_ref_sink( tb->tips );
+#else
+    g_object_ref( tb->tips );
+    gtk_object_sink( tb->tips );
+#endif
     tb->menu = taskbar_make_menu(tb);
     gtk_container_set_border_width(GTK_CONTAINER(p->pwid), 0);
     gtk_widget_show_all(tb->bar);
@@ -1397,10 +1402,10 @@ taskbar_destructor(plugin *p)
     g_signal_handlers_disconnect_by_func(G_OBJECT (fbev), tb_net_number_of_desktops, tb);
     g_signal_handlers_disconnect_by_func(G_OBJECT (fbev), tb_net_client_list, tb);   
     gdk_window_remove_filter(NULL, (GdkFilterFunc)tb_event_filter, tb );
-    g_hash_table_destroy(tb->task_list); 
+    g_object_unref( tb->tips );
+    g_hash_table_destroy(tb->task_list);
     gtk_widget_destroy(tb->bar);
     gtk_widget_destroy(tb->menu);
-  
     RET();
 }
 

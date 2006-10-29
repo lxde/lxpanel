@@ -91,6 +91,8 @@ launchbar_destructor(plugin *p)
     int i;
 
     ENTER;
+    g_object_unref( lb->tips );
+
     gtk_widget_destroy(lb->box);
     for (i = 0; i < lb->btn_num; i++) {
         g_free(lb->btns[i].action);
@@ -314,7 +316,12 @@ launchbar_constructor(plugin *p)
     gtk_container_set_border_width (GTK_CONTAINER (lb->box), 0);
     gtk_widget_show(lb->box);
     lb->tips = gtk_tooltips_new();
-    
+#if GLIB_CHECK_VERSION( 2, 10, 0 )
+    g_object_ref_sink( lb->tips );
+#else
+    g_object_ref( lb->tips );
+    gtk_object_sink( lb->tips );
+#endif
     if  (p->panel->orientation == ORIENT_HORIZ)
         lb->iconsize = GTK_WIDGET(p->panel->box)->allocation.height;
     else
