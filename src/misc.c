@@ -1,5 +1,3 @@
-
-
 #include <X11/Xatom.h>
 #include <X11/cursorfont.h>
 
@@ -210,7 +208,7 @@ lxpanel_get_line(char**fp, line *s)
 
     ENTER;
     s->type = LINE_NONE;
-    if (!fp)       
+    if (!fp)
         RET(s->type);
     while (buf_gets(s->str, s->len, fp)) {
         g_strstrip(s->str);
@@ -255,7 +253,7 @@ get_line_as_is(char** fp, line *s)
     s->type = LINE_NONE;
     while (buf_gets(s->str, s->len, fp)) {
         g_strstrip(s->str);
-        if (s->str[0] == '#' || s->str[0] == 0) 
+        if (s->str[0] == '#' || s->str[0] == 0)
 	    continue;
         DBG( ">> %s\n", s->str);
         if (!g_ascii_strcasecmp(s->str, "}")) {
@@ -288,7 +286,7 @@ void resolve_atoms()
     a_WM_CLASS                   = XInternAtom(GDK_DISPLAY(), "WM_CLASS", False);
     a_WM_DELETE_WINDOW           = XInternAtom(GDK_DISPLAY(), "WM_DELETE_WINDOW", False);
     a_WM_PROTOCOLS               = XInternAtom(GDK_DISPLAY(), "WM_PROTOCOLS", False);
-    a_NET_WORKAREA               = XInternAtom(GDK_DISPLAY(), "_NET_WORKAREA", False);    
+    a_NET_WORKAREA               = XInternAtom(GDK_DISPLAY(), "_NET_WORKAREA", False);
     a_NET_CLIENT_LIST            = XInternAtom(GDK_DISPLAY(), "_NET_CLIENT_LIST", False);
     a_NET_CLIENT_LIST_STACKING   = XInternAtom(GDK_DISPLAY(), "_NET_CLIENT_LIST_STACKING", False);
     a_NET_NUMBER_OF_DESKTOPS     = XInternAtom(GDK_DISPLAY(), "_NET_NUMBER_OF_DESKTOPS", False);
@@ -373,17 +371,17 @@ get_utf8_property(Window win, Atom atom)
     gchar *val, *retval;
     int result;
     guchar *tmp = NULL;
-    
+
     type = None;
     retval = NULL;
     result = XGetWindowProperty (GDK_DISPLAY(), win, atom, 0, G_MAXLONG, False,
-          a_UTF8_STRING, &type, &format, &nitems, 
+          a_UTF8_STRING, &type, &format, &nitems,
           &bytes_after, &tmp);
     if (result != Success || type == None)
         return NULL;
     val = (gchar *) tmp;
     if (val) {
-        if (type == a_UTF8_STRING && format == 8 && nitems != 0) 
+        if (type == a_UTF8_STRING && format == 8 && nitems != 0)
             retval = g_strndup (val, nitems);
         XFree (val);
     }
@@ -403,9 +401,9 @@ get_utf8_property_list(Window win, Atom atom, int *count)
     guchar *tmp = NULL;
 
     *count = 0;
-    result = XGetWindowProperty(GDK_DISPLAY(), win, atom, 0, G_MAXLONG, False, 
-          a_UTF8_STRING, &type, &format, &nitems, 
-          &bytes_after, &tmp);  
+    result = XGetWindowProperty(GDK_DISPLAY(), win, atom, 0, G_MAXLONG, False,
+          a_UTF8_STRING, &type, &format, &nitems,
+          &bytes_after, &tmp);
     if (result != Success || type != a_UTF8_STRING || tmp == NULL)
         return NULL;
 
@@ -431,7 +429,7 @@ get_utf8_property_list(Window win, Atom atom, int *count)
         }
     }
     XFree (tmp);
-  
+
     return retval;
 
 }
@@ -444,7 +442,7 @@ get_xaproperty (Window win, Atom prop, Atom type, int *nitems)
     unsigned long items_ret;
     unsigned long after_ret;
     unsigned char *prop_data;
-    
+
     ENTER;
     prop_data = NULL;
     if (XGetWindowProperty (GDK_DISPLAY(), win, prop, 0, 0x7fffffff, False,
@@ -468,7 +466,7 @@ text_property_to_utf8 (const XTextProperty *prop)
   char **list;
   int count;
   char *retval;
-  
+
   ENTER;
   list = NULL;
   count = gdk_text_property_to_utf8_list (gdk_x11_xatom_to_atom (prop->encoding),
@@ -483,7 +481,7 @@ text_property_to_utf8 (const XTextProperty *prop)
 
   retval = list[0];
   list[0] = g_strdup (""); /* something to free */
-  
+
   g_strfreev (list);
 
   RET(retval);
@@ -494,7 +492,7 @@ get_textproperty(Window win, Atom atom)
 {
     XTextProperty text_prop;
     char *retval;
-    
+
     ENTER;
     if (XGetTextProperty(GDK_DISPLAY(), win, &text_prop, atom)) {
         DBG("format=%d enc=%d nitems=%d value=%s   \n",
@@ -529,7 +527,7 @@ get_net_number_of_desktops()
     RET(desknum);
 }
 
-    
+
 int
 get_net_current_desktop ()
 {
@@ -566,20 +564,20 @@ get_net_wm_state(Window win, net_wm_state *nws)
 {
     Atom *state;
     int num3;
-    
-    
+
+
     ENTER;
     bzero(nws, sizeof(nws));
     if (!(state = get_xaproperty(win, a_NET_WM_STATE, XA_ATOM, &num3)))
         RET();
-    
+
     DBG( "%x: netwm state = { ", (unsigned int)win);
     while (--num3 >= 0) {
         if (state[num3] == a_NET_WM_STATE_SKIP_PAGER) {
             DBG("NET_WM_STATE_SKIP_PAGER ");
             nws->skip_pager = 1;
         } else if (state[num3] == a_NET_WM_STATE_SKIP_TASKBAR) {
-            DBG( "NET_WM_STATE_SKIP_TASKBAR ");	    
+            DBG( "NET_WM_STATE_SKIP_TASKBAR ");
 	    nws->skip_taskbar = 1;
 	} else if (state[num3] == a_NET_WM_STATE_STICKY) {
             DBG( "NET_WM_STATE_STICKY ");
@@ -607,20 +605,20 @@ get_net_wm_window_type(Window win, net_wm_window_type *nwwt)
 {
     Atom *state;
     int num3;
-    
-    
+
+
     ENTER;
     bzero(nwwt, sizeof(nwwt));
     if (!(state = get_xaproperty(win, a_NET_WM_WINDOW_TYPE, XA_ATOM, &num3)))
         RET();
-    
+
     DBG( "%x: netwm state = { ", (unsigned int)win);
     while (--num3 >= 0) {
         if (state[num3] == a_NET_WM_WINDOW_TYPE_DESKTOP) {
             DBG("NET_WM_WINDOW_TYPE_DESKTOP ");
             nwwt->desktop = 1;
         } else if (state[num3] == a_NET_WM_WINDOW_TYPE_DOCK) {
-            DBG( "NET_WM_WINDOW_TYPE_DOCK ");	    
+            DBG( "NET_WM_WINDOW_TYPE_DOCK ");
 	    nwwt->dock = 1;
 	} else if (state[num3] == a_NET_WM_WINDOW_TYPE_TOOLBAR) {
             DBG( "NET_WM_WINDOW_TYPE_TOOLBAR ");
@@ -651,7 +649,7 @@ get_net_wm_window_type(Window win, net_wm_window_type *nwwt)
 
 
 
-    
+
 
 int
 get_wm_state (Window win)
@@ -727,7 +725,7 @@ calculate_position(panel *np)
         ssheight = gdk_screen_height();
 
     }
-    
+
     if (np->edge == EDGE_TOP || np->edge == EDGE_BOTTOM) {
         np->aw = np->width;
         np->ax = minx;
@@ -748,7 +746,7 @@ calculate_position(panel *np)
         np->aw = MAX(PANEL_HEIGHT_MIN, np->aw);
         np->ax = minx + ((np->edge == EDGE_LEFT) ? 0 : (sswidth - np->aw));
     }
-    DBG("%s - x=%d y=%d w=%d h=%d\n", __FUNCTION__, np->ax, np->ay, np->aw, np->ah);
+    //g_debug("%s - x=%d y=%d w=%d h=%d\n", __FUNCTION__, np->ax, np->ay, np->aw, np->ah);
     RET();
 }
 
@@ -808,7 +806,7 @@ Select_Window(Display *dpy)
                 buttons--;
             break;
         }
-    } 
+    }
 
     XUngrabPointer(dpy, CurrentTime);      /* Done with pointer */
     RET(target_win);
@@ -859,7 +857,7 @@ gtk_image_new_from_file_scaled(const gchar *file, gint width,
     ENTER;
 
 
-    if (!g_file_test(file, G_FILE_TEST_EXISTS)) 
+    if (!g_file_test(file, G_FILE_TEST_EXISTS))
     {
         /* FIXME: should reload icon when theme gets changed */
         inf = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
@@ -931,19 +929,19 @@ get_button_spacing(GtkRequisition *req, GtkContainer *parent, gchar *name)
     RET();
 }
 
-    
+
 guint32 gcolor2rgb24(GdkColor *color)
 {
     guint32 i;
     guint16 r, g, b;
-    
+
     ENTER;
 
     r = color->red * 0xFF / 0xFFFF;
     g = color->green * 0xFF / 0xFFFF;
     b = color->blue * 0xFF / 0xFFFF;
     DBG("%x %x %x ==> %x %x %x\n", color->red, color->green, color->blue, r, g, b);
-    
+
     i = (color->red * 0xFF / 0xFFFF) & 0xFF;
     i <<= 8;
     i |= (color->green * 0xFF / 0xFFFF) & 0xFF;
@@ -961,7 +959,7 @@ fb_button_enter (GtkImage *widget, GdkEventCrossing *event)
     int i;
     gulong hicolor;
     guchar *src, *up, extra[3];
- 
+
     ENTER;
     if (gtk_image_get_storage_type(widget) != GTK_IMAGE_PIXBUF)
         RET(TRUE);
@@ -992,21 +990,21 @@ fb_button_enter (GtkImage *widget, GdkEventCrossing *event)
     g_object_set_data_full (G_OBJECT(widget), "dark", dark, g_object_unref);
     gtk_image_set_from_pixbuf(widget, light);
     RET(TRUE);
-    
+
 }
 
 static gboolean
 fb_button_leave (GtkImage *widget, GdkEventCrossing *event, gpointer user_data)
 {
     GdkPixbuf *dark;
-    
+
     ENTER;
     if (gtk_image_get_storage_type(widget) != GTK_IMAGE_PIXBUF)
         RET(TRUE);
     dark = g_object_get_data(G_OBJECT(widget), "dark");
     if (dark)
         gtk_image_set_from_pixbuf(widget, dark);
-    RET(TRUE);    
+    RET(TRUE);
 }
 
 
@@ -1041,7 +1039,7 @@ fb_button_new_from_file_with_label(gchar *fname, int width, int height,
       gulong hicolor, gboolean keep_ratio, gchar *name)
 {
     GtkWidget *b, *image, *box, *label;
-    
+
     ENTER;
     b = gtk_bgbox_new();
     gtk_container_set_border_width(GTK_CONTAINER(b), 0);
@@ -1051,7 +1049,7 @@ fb_button_new_from_file_with_label(gchar *fname, int width, int height,
     gtk_container_set_border_width(GTK_CONTAINER(box), 0);
     GTK_WIDGET_UNSET_FLAGS (box, GTK_CAN_FOCUS);
     gtk_container_add(GTK_CONTAINER(b), box);
-    
+
     image = gtk_image_new_from_file_scaled(fname, width, height, keep_ratio);
     g_object_set_data(G_OBJECT(image), "hicolor", (gpointer)hicolor);
     gtk_misc_set_padding (GTK_MISC(image), 0, 0);

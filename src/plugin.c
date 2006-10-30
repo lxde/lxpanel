@@ -10,8 +10,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-
-
 #include "misc.h"
 #include "bg.h"
 #include "gtkbgbox.h"
@@ -43,7 +41,7 @@ register_plugin_class(plugin_class *pc, int dynamic)
     /* reloading tray results in segfault due to registering static type in dll.
      * so keep it always onboard until bug fix */
     if (!strcmp(pc->type, "tray"))
-        pc->count++; 
+        pc->count++;
 }
 
 static void
@@ -53,19 +51,19 @@ init_plugin_class_list()
 #ifdef STATIC_SEPARATOR
     REGISTER_PLUGIN_CLASS(separator_plugin_class, 0);
 #endif
-    
+
 #ifdef STATIC_IMAGE
     REGISTER_PLUGIN_CLASS(image_plugin_class, 0);
 #endif
-      
+
 #ifdef STATIC_LAUNCHBAR
     REGISTER_PLUGIN_CLASS(launchbar_plugin_class, 0);
 #endif
-  
+
 #ifdef STATIC_DCLOCK
     REGISTER_PLUGIN_CLASS(dclock_plugin_class, 0);
 #endif
-    
+
 #ifdef STATIC_WINCMD
     REGISTER_PLUGIN_CLASS(wincmd_plugin_class, 0);
 #endif
@@ -103,7 +101,7 @@ init_plugin_class_list()
 #ifdef STATIC_DESKNO
     REGISTER_PLUGIN_CLASS(deskno_plugin_class, 0);
 #endif
-    
+
     RET();
 }
 
@@ -117,7 +115,7 @@ plugin_load(char *type)
     GList *tmp;
     plugin_class *pc = NULL;
     plugin *plug = NULL;
-      
+
     ENTER;
     if (!pcl)
         init_plugin_class_list();
@@ -149,8 +147,8 @@ plugin_load(char *type)
             if (!m) {
                 ERR("error is %s\n", g_module_error());
                 RET(NULL);
-            }            
-        } 
+            }
+        }
         g_string_printf(str, "%s_plugin_class", type);
         if (!g_module_symbol(m, str->str, &tmpsym) || (pc = tmpsym) == NULL
               || strcmp(type, pc->type)) {
@@ -168,7 +166,7 @@ plugin_load(char *type)
     /* nothing was found */
     if (!pc)
         RET(NULL);
-    
+
     plug = g_new0(plugin, 1);
     g_return_val_if_fail (plug != NULL, NULL);
     plug->class = pc;
@@ -227,7 +225,7 @@ void plugin_stop(plugin *this)
     DBG("%s\n", this->class->type);
     this->class->destructor(this);
     this->panel->plug_num--;
-    if (!this->class->invisible) 
+    if (!this->class->invisible)
         gtk_widget_destroy(this->pwid);
     RET();
 }

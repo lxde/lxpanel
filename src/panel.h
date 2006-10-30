@@ -38,7 +38,7 @@ typedef struct {
     int alpha;
     guint32 tintcolor;
     GdkColor gtintcolor;
-    
+
     int ax, ay, aw, ah;  /* prefferd allocation of a panel */
     int cx, cy, cw, ch;  /* current allocation (as reported by configure event) allocation */
     int allign, edge, margin;
@@ -52,7 +52,7 @@ typedef struct {
     int round_corners : 1;
     int transparent : 1;
     int spacing;
-    
+
     int desknum;
     int curdesk;
     guint32 *workarea;
@@ -65,7 +65,7 @@ typedef struct {
 } panel;
 
 
-typedef struct { 
+typedef struct {
     unsigned int modal : 1;
     unsigned int sticky : 1;
     unsigned int maximized_vert : 1;
@@ -79,7 +79,7 @@ typedef struct {
     unsigned int below : 1;
 } net_wm_state;
 
-typedef struct { 
+typedef struct {
     unsigned int desktop : 1;
     unsigned int dock : 1;
     unsigned int toolbar : 1;
@@ -136,7 +136,7 @@ extern Atom a_NET_WM_WINDOW_TYPE_UTILITY;
 extern Atom a_NET_WM_WINDOW_TYPE_SPLASH;
 extern Atom a_NET_WM_WINDOW_TYPE_DIALOG;
 extern Atom a_NET_WM_WINDOW_TYPE_NORMAL;
-          
+
 extern Atom a_NET_WM_DESKTOP;
 extern Atom a_NET_WM_NAME;
 extern Atom a_NET_WM_VISIBLE_NAME;
@@ -152,5 +152,8 @@ extern int verbose;
 extern FbEv *fbev;
 
 #define FBPANEL_WIN(win)  gdk_window_lookup(win)
+
+void panel_set_wm_strut(panel *p);
+void panel_set_dock_type(panel *p);
 
 #endif

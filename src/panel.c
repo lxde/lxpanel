@@ -47,8 +47,7 @@ panel_del_wm_strut(panel *p)
 */
 
 
-static void
-panel_set_wm_strut(panel *p)
+void panel_set_wm_strut(panel *p)
 {
     gulong data[12] = { 0 };
     int i = 4;
@@ -56,6 +55,14 @@ panel_set_wm_strut(panel *p)
     ENTER;
     if (!GTK_WIDGET_MAPPED (p->topgwin))
         return;
+    if ( ! p->setstrut )
+    {
+        XDeleteProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STRUT_PARTIAL);
+        /* old spec, for wms that do not support STRUT_PARTIAL */
+        XDeleteProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STRUT);
+        return;
+    }
+
     switch (p->edge) {
     case EDGE_LEFT:
         i = 0;
@@ -84,15 +91,15 @@ panel_set_wm_strut(panel *p)
     default:
         ERR("wrong edge %d. strut won't be set\n", p->edge);
         RET();
-    }		
+    }
     DBG("type %d. width %d. from %d to %d\n", i, data[i], data[4 + i*2], data[5 + i*2]);
-                
+
     /* if wm supports STRUT_PARTIAL it will ignore STRUT */
-    XChangeProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STRUT_PARTIAL, 
+    XChangeProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STRUT_PARTIAL,
           XA_CARDINAL, 32, PropModeReplace,  (unsigned char *) data, 12);
     /* old spec, for wms that do not support STRUT_PARTIAL */
-    XChangeProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STRUT, 
-          XA_CARDINAL, 32, PropModeReplace,  (unsigned char *) data, 4); 
+    XChangeProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STRUT,
+          XA_CARDINAL, 32, PropModeReplace,  (unsigned char *) data, 4);
 
     RET();
 }
@@ -217,7 +224,7 @@ panel_event_filter(GdkXEvent *xevent, GdkEvent *event, panel *p)
  *         panel's handlers for GTK events          *
  ****************************************************/
 
-  
+
 static gint
 panel_delete_event(GtkWidget * widget, GdkEvent * event, gpointer data)
 {
@@ -230,7 +237,7 @@ panel_destroy_event(GtkWidget * widget, GdkEvent * event, gpointer data)
 {
     //panel *p = (panel *) data;
 
-    ENTER;  
+    ENTER;
     //if (!p->self_destroy)
     gtk_main_quit();
     RET(FALSE);
@@ -280,8 +287,7 @@ panel_size_alloc(GtkWidget *widget, GtkAllocation *a, panel *p)
 
     gtk_window_move(GTK_WINDOW(p->topgwin), p->ax, p->ay);
     DBG("moving to %d %d\n", p->ax, p->ay);
-    if (p->setstrut)
-        panel_set_wm_strut(p);
+    panel_set_wm_strut(p);
     RET(TRUE);
 }
 
@@ -302,7 +308,7 @@ panel_configure_event (GtkWidget *widget, GdkEventConfigure *e, panel *p)
     DBG("here\n");
     DBG("geom: size (%d, %d). pos (%d, %d)\n", e->width, e->height, e->x, e->y);
     RET(FALSE);
-    
+
 }
 
 
@@ -317,7 +323,7 @@ make_round_corners(panel *p)
     void (*box_pack)(GtkBox *, GtkWidget *, gboolean, gboolean, guint);
     gchar *s1, *s2;
 #define IMGPREFIX  PACKAGE_DATA_DIR "/lxpanel/images/"
-    
+
     ENTER;
     if (p->edge == EDGE_TOP) {
         s1 = IMGPREFIX "top-left.xpm";
@@ -333,7 +339,7 @@ make_round_corners(panel *p)
         s2 = IMGPREFIX "bottom-right.xpm";
     } else
         RET();
-    
+
     box_new = (p->orientation == ORIENT_HORIZ) ? gtk_vbox_new : gtk_hbox_new;
     b1 = box_new(0, FALSE);
     gtk_widget_show(b1);
@@ -342,7 +348,7 @@ make_round_corners(panel *p)
 
     box_pack = (p->edge == EDGE_TOP || p->edge == EDGE_LEFT) ?
         gtk_box_pack_start : gtk_box_pack_end;
-     
+
     img = gtk_image_new_from_file(s1);
     gtk_widget_show(img);
     box_pack(GTK_BOX(b1), img, FALSE, FALSE, 0);
@@ -351,7 +357,20 @@ make_round_corners(panel *p)
     box_pack(GTK_BOX(b2), img, FALSE, FALSE, 0);
     gtk_box_pack_start(GTK_BOX(p->lbox), b1, FALSE, FALSE, 0);
     gtk_box_pack_end(GTK_BOX(p->lbox), b2, FALSE, FALSE, 0);
-    RET();      
+    RET();
+}
+
+void panel_set_dock_type(panel *p)
+{
+    if (p->setdocktype) {
+        Atom state = a_NET_WM_WINDOW_TYPE_DOCK;
+        XChangeProperty(GDK_DISPLAY(), p->topxwin,
+                        a_NET_WM_WINDOW_TYPE, XA_ATOM, 32,
+                        PropModeReplace, (unsigned char *) &state, 1);
+    }
+    else {
+        XDeleteProperty( GDK_DISPLAY(), p->topxwin, a_NET_WM_WINDOW_TYPE );
+    }
 }
 
 void
@@ -396,7 +415,7 @@ panel_start_gui(panel *p)
     gtk_container_set_border_width(GTK_CONTAINER(p->bbox), 0);
     if (p->transparent) {
         p->bg = fb_bg_get_for_display();
-        gtk_bgbox_set_background(p->bbox, BG_ROOT, p->tintcolor, p->alpha);        
+        gtk_bgbox_set_background(p->bbox, BG_ROOT, p->tintcolor, p->alpha);
     }
 
     // main layout manager as a single child of background widget box
@@ -406,8 +425,8 @@ panel_start_gui(panel *p)
     gtk_widget_show(p->lbox);
     if (p->round_corners)
         make_round_corners(p);
- 
-    p->box = p->my_box_new(FALSE, p->spacing); 
+
+    p->box = p->my_box_new(FALSE, p->spacing);
     gtk_container_set_border_width(GTK_CONTAINER(p->box), 0);
     gtk_box_pack_start(GTK_BOX(p->lbox), p->box, TRUE, TRUE, 0);
     gtk_widget_show(p->box);
@@ -418,18 +437,14 @@ panel_start_gui(panel *p)
     /* the settings that should be done before window is mapped */
     wmhints.flags = InputHint;
     wmhints.input = 0;
-    XSetWMHints (GDK_DISPLAY(), p->topxwin, &wmhints); 
+    XSetWMHints (GDK_DISPLAY(), p->topxwin, &wmhints);
 #define WIN_HINTS_SKIP_FOCUS      (1<<0)	/* "alt-tab" skips this win */
     val = WIN_HINTS_SKIP_FOCUS;
     XChangeProperty(GDK_DISPLAY(), p->topxwin,
           XInternAtom(GDK_DISPLAY(), "_WIN_HINTS", False), XA_CARDINAL, 32,
           PropModeReplace, (unsigned char *) &val, 1);
 
-    if (p->setdocktype) {
-        state[0] = a_NET_WM_WINDOW_TYPE_DOCK;
-        XChangeProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_WINDOW_TYPE, XA_ATOM,
-              32, PropModeReplace, (unsigned char *) state, 1);
-    }
+    panel_set_dock_type(p);
 
     /* window mapping point */
     gtk_widget_show_all(p->topgwin);
@@ -454,8 +469,7 @@ panel_start_gui(panel *p)
 
     calculate_position(p);
     gdk_window_move_resize(p->topgwin->window, p->ax, p->ay, p->aw, p->ah);
-    if (p->setstrut)
-        panel_set_wm_strut(p);
+    panel_set_wm_strut(p);
 
     RET();
 }
@@ -585,7 +599,7 @@ panel_parse_plugin(panel *p, char **fp)
                         pno++;
                     } else if (s.type == LINE_BLOCK_END) {
                         pno--;
-                    } 
+                    }
                 }
             } else {
                 ERR( "lxpanel: unknown block %s\n", s.t[0]);
@@ -661,7 +675,7 @@ panel_start( panel *p, char **fp )
             ERR( "lxpanel: expecting Plugin section\n");
             RET(0);
         }
-        if (!panel_parse_plugin(p, fp)) 
+        if (!panel_parse_plugin(p, fp))
             RET(0);
     }
     gtk_widget_show_all(p->topgwin);

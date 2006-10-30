@@ -63,6 +63,9 @@ extern FILE *pconf;
 void global_config_save(FILE *fp);
 void plugin_config_save(FILE *fp);
 
+static void update_opt_menu(GtkWidget *w, int ind);
+static void update_toggle_button(GtkWidget *w, gboolean n);
+
 static int
 mk_profile_dir()
 {
@@ -93,7 +96,9 @@ response_event(GtkDialog *widget, gint arg1, gpointer user_data)
 
     ENTER;
     switch (arg1) {
-    case GTK_RESPONSE_APPLY:
+    /* FIXME: what will happen if the user exit lxpanel without
+              close this config dialog?
+              Then the config won't be save, I guess. */
     case GTK_RESPONSE_DELETE_EVENT:
     case GTK_RESPONSE_CLOSE:
     case GTK_RESPONSE_NONE:
@@ -120,13 +125,23 @@ response_event(GtkDialog *widget, gint arg1, gpointer user_data)
 }
 
 static void
+update_panel_geometry()
+{
+    calculate_position(p);
+    gdk_window_move_resize(p->topgwin->window, p->ax, p->ay, p->aw, p->ah);
+
+    panel_set_wm_strut( p );
+}
+
+static void
 set_edge(GtkComboBox *widget, gpointer bp)
 {
     int edge;
 
     ENTER;
     edge = gtk_combo_box_get_active(widget) + 1;
-    DBG("edge=%d\n", edge);
+    p->edge = edge;
+    update_panel_geometry();
     RET();
 }
 
@@ -139,11 +154,19 @@ set_allign(GtkComboBox *widget, gpointer bp)
 
     ENTER;
     allign = gtk_combo_box_get_active(widget) + 1;
-    DBG("allign=%d\n", allign);
     t = (allign != ALLIGN_CENTER);
     gtk_widget_set_sensitive(margin_label, t);
     gtk_widget_set_sensitive(margin_spinb, t);
+    p->allign = allign;
+    update_panel_geometry();
     RET();
+}
+
+static void
+set_margin( GtkSpinButton* spin, gpointer user_data )
+{
+    p->margin = (int)gtk_spin_button_get_value(spin);
+    update_panel_geometry();
 }
 
 
@@ -187,6 +210,8 @@ mk_position()
     gtk_combo_box_append_text(GTK_COMBO_BOX(edge_opt), _("Right"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(edge_opt), _("Top"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(edge_opt), _("Bottom"));
+    update_opt_menu(edge_opt, p->edge - 1);
+
     g_signal_connect(G_OBJECT(edge_opt), "changed", G_CALLBACK(set_edge), NULL);
 
     gtk_widget_show(edge_opt);
@@ -208,6 +233,7 @@ mk_position()
     gtk_combo_box_append_text(GTK_COMBO_BOX(allign_opt), _("Left"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(allign_opt), _("Center"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(allign_opt), _("Right"));
+    update_opt_menu(allign_opt, p->allign - 1);
     g_signal_connect(G_OBJECT(allign_opt), "changed", G_CALLBACK(set_allign), NULL);
     gtk_widget_show(allign_opt);
 
@@ -226,15 +252,31 @@ mk_position()
 
     margin_adj = (GtkAdjustment *) gtk_adjustment_new (0.0, 0.0, gdk_screen_width(), 1.0, 5.0, 5.0);
     margin_spinb = gtk_spin_button_new (margin_adj, 1.0, 0);
+    gtk_spin_button_set_value(GTK_SPIN_BUTTON(margin_spinb), p->margin);
+    g_signal_connect( margin_spinb, "value-changed",
+                      set_margin, NULL);
     gtk_table_attach(GTK_TABLE(t), margin_spinb, 3, 4, 1, 2, GTK_FILL, 0, 0, 0);
     gtk_table_set_col_spacing(GTK_TABLE(t), 1, 20);
 
     RET(frame);
 }
 
+static void
+set_width( GtkSpinButton* spin, gpointer user_data )
+{
+    p->width = (int)gtk_spin_button_get_value(spin);
+    update_panel_geometry();
+}
 
 static void
-set_width(GtkWidget *item, gpointer bp)
+set_height( GtkSpinButton* spin, gpointer user_data )
+{
+    p->height = (int)gtk_spin_button_get_value(spin);
+    update_panel_geometry();
+}
+
+static void
+set_width_type(GtkWidget *item, gpointer bp)
 {
     int widthtype;
     gboolean t;
@@ -242,7 +284,7 @@ set_width(GtkWidget *item, gpointer bp)
     ENTER;
 
     widthtype = gtk_combo_box_get_active(GTK_COMBO_BOX(item)) + 1;
-    DBG("widthtype=%d\n", widthtype);
+    p->widthtype = widthtype;
     t = (widthtype != WIDTH_REQUEST);
     gtk_widget_set_sensitive(width_spinb, t);
     if (widthtype == WIDTH_PERCENT) {
@@ -257,6 +299,7 @@ set_width(GtkWidget *item, gpointer bp)
     gtk_adjustment_changed(width_adj);
     gtk_adjustment_value_changed(width_adj);
 
+    update_panel_geometry();
     RET();
 }
 
@@ -266,7 +309,6 @@ mk_size()
 {
     GtkWidget *hbox, *hbox2, *label, *frame;
     GtkWidget *t;
-
 
     ENTER;
     frame = gtk_frame_new(NULL);
@@ -298,16 +340,19 @@ mk_size()
 
     width_adj = (GtkAdjustment *) gtk_adjustment_new (20.0, 0.0, 2100.0, 1.0, 5.0, 5.0);
     width_spinb = gtk_spin_button_new (width_adj, 1.0, 0);
+    gtk_adjustment_set_value(width_adj, p->width);
+    g_signal_connect( width_spinb, "value-changed",
+                      G_CALLBACK(set_width), NULL );
     gtk_table_attach(GTK_TABLE(t), width_spinb, 1, 2, 0, 1, GTK_FILL, 0, 0, 0);
-
 
     width_opt = gtk_combo_box_new_text();
     gtk_combo_box_append_text(GTK_COMBO_BOX(width_opt), _("dynamic"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(width_opt), _("pixels"));
     gtk_combo_box_append_text(GTK_COMBO_BOX(width_opt), _("% of edge"));
-    g_signal_connect(G_OBJECT(width_opt), "changed", G_CALLBACK(set_width), NULL);
+    update_opt_menu(width_opt, p->widthtype - 1);
+    g_signal_connect(G_OBJECT(width_opt), "changed",
+                     G_CALLBACK(set_width_type), NULL);
     gtk_widget_show(width_opt);
-
 
     hbox = gtk_hbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX (hbox), width_opt, FALSE, TRUE, 0);
@@ -324,11 +369,14 @@ mk_size()
 
     height_adj = (GtkAdjustment *) gtk_adjustment_new (30.0, 0.0, 300.0, 1.0, 5.0, 5.0);
     height_spinb = gtk_spin_button_new (height_adj, 1.0, 0);
+    gtk_adjustment_set_value(height_adj, p->height);
+    g_signal_connect( height_spinb, "value-changed",
+                      G_CALLBACK(set_height), NULL );
     gtk_table_attach(GTK_TABLE(t), height_spinb, 1, 2, 1, 2, GTK_FILL, 0, 0, 0);
-
 
     height_opt = gtk_combo_box_new_text();
     gtk_combo_box_append_text(GTK_COMBO_BOX(height_opt), _("pixels"));
+    update_opt_menu(height_opt, HEIGHT_PIXEL - 1);
     //g_signal_connect(G_OBJECT(height_opt), "changed", G_CALLBACK(set_height), NULL);
     gtk_widget_show(height_opt);
 
@@ -349,6 +397,8 @@ transparency_toggle(GtkWidget *b, gpointer bp)
     t = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(b));
     gtk_widget_set_sensitive(tr_colorl, t);
     gtk_widget_set_sensitive(tr_colorb, t);
+
+    //FIXME: Update background immediately.
     RET();
 }
 
@@ -379,6 +429,7 @@ mk_transparency()
     tr_checkb = gtk_check_button_new_with_label(_("Enable Transparency"));
     gtk_widget_show(tr_checkb);
     gtk_box_pack_start(GTK_BOX (hbox), tr_checkb, FALSE, FALSE, 0);
+    update_toggle_button(tr_checkb, p->transparent);
     g_signal_connect(G_OBJECT(tr_checkb), "toggled", G_CALLBACK(transparency_toggle), NULL);
     //gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(tr_checkb), FALSE);
 
@@ -392,9 +443,28 @@ mk_transparency()
     gtk_color_button_set_use_alpha(GTK_COLOR_BUTTON(tr_colorb), TRUE);
     gtk_color_button_set_alpha (GTK_COLOR_BUTTON(tr_colorb), 65535/256*125);
     gtk_box_pack_start(GTK_BOX (hbox), tr_colorb, FALSE, FALSE, 0);
+    gtk_color_button_set_color(GTK_COLOR_BUTTON(tr_colorb), &p->gtintcolor);
+    gtk_color_button_set_alpha (GTK_COLOR_BUTTON(tr_colorb), 256*p->alpha);
     //gtk_widget_set_sensitive(tr_colorb, FALSE);
 
     RET(frame);
+}
+
+static void
+set_dock_type(GtkToggleButton* toggle, gpointer user_data)
+{
+    p->setdocktype = gtk_toggle_button_get_active(toggle) ? 1 : 0;
+    panel_set_dock_type( p );
+    update_panel_geometry();
+    /* FIXME: apparently, this doesn't work,
+              but we don't know the reason yet! */
+}
+
+static void
+set_struct(GtkToggleButton* toggle, gpointer user_data)
+{
+    p->setstrut = gtk_toggle_button_get_active(toggle) ? 1 : 0;
+    update_panel_geometry();
 }
 
 GtkWidget *
@@ -422,9 +492,15 @@ mk_properties()
     gtk_box_pack_start(GTK_BOX (hbox2), vbox, FALSE, TRUE, 0);
 
     prop_dt_checkb = gtk_check_button_new_with_label(_("Set Dock Type"));
+    update_toggle_button(prop_dt_checkb, p->setdocktype);
+    g_signal_connect( prop_dt_checkb, "toggled",
+                      G_CALLBACK(set_dock_type), NULL );
     gtk_box_pack_start(GTK_BOX (vbox), prop_dt_checkb, FALSE, FALSE, 0);
 
     prop_st_checkb = gtk_check_button_new_with_label(_("Set Strut"));
+    update_toggle_button(prop_st_checkb, p->setstrut);
+    g_signal_connect( prop_st_checkb, "toggled",
+                      G_CALLBACK(set_struct), NULL );
     gtk_box_pack_start(GTK_BOX (vbox), prop_st_checkb, FALSE, FALSE, 0);
 
     RET(frame);
@@ -541,23 +617,6 @@ static void on_modify_plugin( GtkButton* btn, GtkTreeView* view )
     gtk_tree_model_get( model, &it, 1, &pl, -1 );
     if( pl->class->config )
         pl->class->config( pl, (GtkWindow*)gtk_widget_get_toplevel(view) );
-    else
-    {
-        GtkWidget *dlg, *label;
-        dlg = gtk_dialog_new_with_buttons( _(pl->class->name),
-                                        gtk_widget_get_toplevel(view),
-                                        GTK_DIALOG_MODAL,
-                                        GTK_STOCK_CANCEL,
-                                        GTK_RESPONSE_CANCEL,
-                                        GTK_STOCK_OK,
-                                        GTK_RESPONSE_OK,
-                                        NULL );
-        label = gtk_label_new( _("Configuration page of this plugin is not available") );
-        gtk_widget_show( label );
-        gtk_box_pack_start( GTK_DIALOG(dlg)->vbox, label, FALSE, FALSE, 4 );
-        gtk_dialog_run( GTK_DIALOG(dlg) );
-        gtk_widget_destroy( dlg );
-    }
 }
 
 static int get_widget_index( plugin* pl )
@@ -725,7 +784,6 @@ mk_tab_general()
 
     //position
     frame = mk_position();
-    DBG("here\n");
     gtk_box_pack_start(GTK_BOX (page), frame, FALSE, TRUE, 0);
 
     //size
@@ -755,8 +813,6 @@ mk_dialog()
     dialog = gtk_dialog_new_with_buttons (_("lxpanel configurator"),
           NULL,
           0, //GTK_DIALOG_DESTROY_WITH_PARENT,
-          GTK_STOCK_APPLY,
-          GTK_RESPONSE_APPLY,
           GTK_STOCK_CLOSE,
           GTK_RESPONSE_CLOSE,
           NULL);
@@ -826,36 +882,12 @@ update_toggle_button(GtkWidget *w, gboolean n)
     RET();
 }
 
-
-
-
 void
 configure(void)
 {
     ENTER;
-
     if( ! dialog )
         dialog = mk_dialog();
-
-    update_opt_menu(edge_opt, p->edge - 1);
-    update_opt_menu(allign_opt, p->allign - 1);
-    //gtk_adjustment_set_value(margin_adj, p->margin);
-    //gtk_adjustment_value_changed(margin_adj);
-    gtk_spin_button_set_value(GTK_SPIN_BUTTON(margin_spinb), p->margin);
-
-    update_opt_menu(width_opt, p->widthtype - 1);
-    gtk_adjustment_set_value(width_adj, p->width);
-    update_opt_menu(height_opt, HEIGHT_PIXEL - 1);
-    gtk_adjustment_set_value(height_adj, p->height);
-
-    update_toggle_button(tr_checkb, p->transparent);
-    gtk_color_button_set_color(GTK_COLOR_BUTTON(tr_colorb), &p->gtintcolor);
-    gtk_color_button_set_alpha (GTK_COLOR_BUTTON(tr_colorb), 256*p->alpha);
-    gtk_widget_show(dialog);
-
-    update_toggle_button(prop_dt_checkb, p->setdocktype);
-    update_toggle_button(prop_st_checkb, p->setstrut);
-
     gtk_window_present((GtkWindow*)dialog);
     RET();
 }
@@ -977,7 +1009,7 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
         g_object_set_data( dlg, "plugin", plugin );
 
     gtk_box_set_spacing( GTK_DIALOG(dlg)->vbox, 4 );
-    gtk_container_set_border_width( GTK_DIALOG(dlg)->vbox, 4 );
+    gtk_container_set_border_width( GTK_DIALOG(dlg)->vbox, 8 );
 
     va_start( args, name );
     while( name )
