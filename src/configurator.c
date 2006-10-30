@@ -145,7 +145,6 @@ set_edge(GtkComboBox *widget, gpointer bp)
     RET();
 }
 
-
 static void
 set_allign(GtkComboBox *widget, gpointer bp)
 {
@@ -742,6 +741,8 @@ mk_tab_plugins()
     button = gtk_button_new_from_stock( GTK_STOCK_ADD );
     gtk_box_pack_start( GTK_BOX( vbox ), button, FALSE, FALSE, 2 );
     g_signal_connect( button, "clicked", G_CALLBACK(on_add_plugin), plugin_list );
+    /* FIXME: disable the button since it's not finished yet. */
+    gtk_widget_set_sensitive(button, FALSE);
 
     button = gtk_button_new_from_stock( GTK_STOCK_EDIT );
     gtk_box_pack_start( GTK_BOX( vbox ), button, FALSE, FALSE, 2 );

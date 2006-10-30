@@ -1,5 +1,3 @@
-
-
 #include "panel.h"
 #include "misc.h"
 #include "plugin.h"
@@ -14,7 +12,7 @@ separator_constructor(plugin *p, char **fp)
 {
     GtkWidget *sep, *eb;
     line s;
-    
+
     ENTER;
     s.len = 256;
     if( fp )
@@ -43,7 +41,7 @@ separator_constructor(plugin *p, char **fp)
 static void
 separator_destructor(plugin *p)
 {
-    ENTER; 
+    ENTER;
     g_free(p->priv);
     RET();
 }
