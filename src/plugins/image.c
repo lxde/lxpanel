@@ -16,9 +16,8 @@ typedef struct {
     GdkBitmap *mask;
     GtkTooltips *tips;
     GtkWidget *mainw;
+    char* config_data;
 } image;
-
-
 
 static void
 image_destructor(plugin *p)
@@ -31,14 +30,11 @@ image_destructor(plugin *p)
         g_object_unref(img->mask);
     if (img->pix)
         g_object_unref(img->pix);
-    //
+    g_free( img->config_data );
     g_object_unref( img->tips );
     g_free(img);
     RET();
 }
-
-
-
 
 static int
 image_constructor(plugin *p, char **fp)
@@ -48,7 +44,8 @@ image_constructor(plugin *p, char **fp)
     GdkPixbuf *gp, *gps;
     GtkWidget *wid;
     GError *err = NULL;
-    
+    char *config_start, *config_end;
+
     line s;
 
     s.len = 256;
@@ -64,15 +61,15 @@ image_constructor(plugin *p, char **fp)
 #endif
     p->priv = img;
     tooltip = fname = 0;
-    if( fp )
-    {
+    if( fp ) {
+        config_start = *fp;
         while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
             if (s.type == LINE_NONE) {
                 ERR( "image: illegal token %s\n", s.str);
                 goto error;
             }
             if (s.type == LINE_VAR) {
-                if (!g_ascii_strcasecmp(s.t[0], "image")) 
+                if (!g_ascii_strcasecmp(s.t[0], "image"))
                     fname = expand_tilda(s.t[1]);
                 else if (!g_ascii_strcasecmp(s.t[0], "tooltip"))
                     tooltip = g_strdup(s.t[1]);
@@ -85,6 +82,17 @@ image_constructor(plugin *p, char **fp)
                 goto error;
             }
         }
+        config_end = *fp - 1;
+        while( *config_end != '}' && config_end > config_start ) {
+            --config_end;
+        }
+        if( *config_end == '}' )
+            --config_end;
+        img->config_data = g_strndup( config_start,
+                                      (config_end-config_start) );
+    }
+    else {
+        config_start = config_end = NULL;
     }
     img->mainw = gtk_event_box_new();
     gtk_widget_show(img->mainw);
@@ -129,7 +137,17 @@ image_constructor(plugin *p, char **fp)
 
 static void save_config( plugin* p, FILE* fp )
 {
-    // FIXME: not complete
+    image *img = (image *)p->priv;
+    if( img->config_data ) {
+        char** lines = g_strsplit( img->config_data, "\n", 0 );
+        char** line;
+        for( line = lines; *line; ++line ) {
+            g_strstrip( *line );
+            if( **line )
+                lxpanel_put_line( fp, *line );
+        }
+        g_strfreev( lines );
+    }
 }
 
 plugin_class image_plugin_class = {

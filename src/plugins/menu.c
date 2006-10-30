@@ -33,6 +33,7 @@ typedef struct {
     int iconsize, paneliconsize;
     GSList *files;
     gboolean has_system_menu;
+    char* config_data;
 } menup;
 
 static void
@@ -441,6 +442,7 @@ static int
 menu_constructor(plugin *p, char **fp)
 {
     menup *m;
+    char *config_start, *config_end;
 
     ENTER;
     m = g_new0(menup, 1);
@@ -460,9 +462,21 @@ menu_constructor(plugin *p, char **fp)
     gtk_container_set_border_width(GTK_CONTAINER(m->box), 0);
     gtk_container_add(GTK_CONTAINER(p->pwid), m->box);
 
-    if (!read_submenu(p, fp, FALSE)) {
-        ERR("menu: plugin init failed\n");
-        goto error;
+    if( fp ) {
+        config_start = *fp;
+        if (!read_submenu(p, fp, FALSE)) {
+            ERR("menu: plugin init failed\n");
+            goto error;
+        }
+        config_end = *fp - 1;
+        while( *config_end != '}' && config_end > config_start ) {
+            --config_end;
+        }
+        if( *config_end == '}' )
+            --config_end;
+
+        m->config_data = g_strndup( config_start,
+                                    (config_end-config_start) );
     }
     RET(1);
 
@@ -473,7 +487,17 @@ menu_constructor(plugin *p, char **fp)
 
 static void save_config( plugin* p, FILE* fp )
 {
-    /* FIXME: not complete */
+    menup* menu = (menup*)p->priv;
+    if( menu->config_data ) {
+        char** lines = g_strsplit( menu->config_data, "\n", 0 );
+        char** line;
+        for( line = lines; *line; ++line ) {
+            g_strstrip( *line );
+            if( **line )
+                lxpanel_put_line( fp, *line );
+        }
+        g_strfreev( lines );
+    }
 }
 
 plugin_class menu_plugin_class = {

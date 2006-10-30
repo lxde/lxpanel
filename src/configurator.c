@@ -94,6 +94,9 @@ response_event(GtkDialog *widget, gint arg1, gpointer user_data)
     ENTER;
     switch (arg1) {
     case GTK_RESPONSE_APPLY:
+    case GTK_RESPONSE_DELETE_EVENT:
+    case GTK_RESPONSE_CLOSE:
+    case GTK_RESPONSE_NONE:
         if (!mk_profile_dir()) {
             ERR("can't make ~/.lxpanel direcory\n");
             RET();
@@ -109,9 +112,6 @@ response_event(GtkDialog *widget, gint arg1, gpointer user_data)
         plugin_config_save(fp);
         fclose(fp);
         /* NOTE: NO BREAK HERE*/
-    case GTK_RESPONSE_DELETE_EVENT:
-    case GTK_RESPONSE_CLOSE:
-    case GTK_RESPONSE_NONE:
         gtk_widget_destroy(dialog);
         dialog = NULL;
         break;
@@ -900,6 +900,13 @@ plugin_config_save(FILE *fp)
         plugin* pl = (plugin*)l->data;
         lxpanel_put_line( fp, "Plugin {" );
         lxpanel_put_line( fp, "type = %s", pl->class->type );
+        if( pl->expand )
+            lxpanel_put_bool( fp, "expand", TRUE );
+        if( pl->padding > 0 )
+            lxpanel_put_int( fp, "padding", pl->padding );
+        if( pl->border > 0 )
+            lxpanel_put_int( fp, "border", pl->border );
+
         if( pl->class->save )
         {
             lxpanel_put_line( fp, "Config {" );

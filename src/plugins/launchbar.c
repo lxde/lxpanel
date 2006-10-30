@@ -55,6 +55,7 @@ typedef struct launchbar {
     btn btns[MAXBUTTONS];
     int btn_num;
     int iconsize;
+    char* config_data;
 } launchbar;
 
 
@@ -70,14 +71,14 @@ my_button_pressed(GtkWidget *widget, GdkEventButton *event, btn *b )
     if (event->type == GDK_BUTTON_RELEASE) {
         if ((event->x >=0 && event->x < widget->allocation.width)
               && (event->y >=0 && event->y < widget->allocation.height)) {
-            
+
             g_spawn_command_line_async(b->action, NULL);
         }
         gtk_misc_set_padding (GTK_MISC(image), 0, 0);
-        
+
         //system(b->action);
     } else if (event->type == GDK_BUTTON_PRESS) {
-      
+
         gtk_misc_set_padding (GTK_MISC(image), 0, 3);
         //ERR("here\n");
     }
@@ -97,6 +98,7 @@ launchbar_destructor(plugin *p)
     for (i = 0; i < lb->btn_num; i++) {
         g_free(lb->btns[i].action);
     }
+    g_free( lb->config_data );
     g_free(lb);
     RET();
 }
@@ -145,7 +147,7 @@ drag_data_received_cb (GtkWidget        *widget,
         DBG("cmd=<%s>\n", str);
         g_spawn_command_line_async(str, NULL);
         g_free(str);
-        
+
         //gtk_drag_finish (context, TRUE, FALSE, time);
     }
     RET();
@@ -277,11 +279,11 @@ read_button(plugin *p, char** fp)
         gtk_tooltips_set_tip(GTK_TOOLTIPS (lb->tips), button, tooltip, NULL);
         g_free(tooltip);
     }
- 
+
     //gtk_container_add(GTK_CONTAINER(eb), button);
     lb->btns[lb->btn_num].action = action;
     lb->btn_num++;
-    
+
     RET(1);
 
  error:
@@ -297,6 +299,7 @@ launchbar_constructor(plugin *p, char **fp)
     launchbar *lb;
     line s;
     GtkRequisition req;
+    char *config_start, *config_end;
     static gchar *launchbar_rc = "style 'launchbar-style'\n"
         "{\n"
         "GtkWidget::focus-line-width = 0\n"
@@ -305,12 +308,12 @@ launchbar_constructor(plugin *p, char **fp)
         "GtkButton::default-outside-border = { 0, 0, 0, 0 }\n"
         "}\n"
         "widget '*' style 'launchbar-style'";
-   
+
     ENTER;
     gtk_widget_set_name(p->pwid, "launchbar");
     gtk_rc_parse_string(launchbar_rc);
     get_button_spacing(&req, GTK_CONTAINER(p->pwid), "");
-    
+
     lb = g_new0(launchbar, 1);
     g_return_val_if_fail(lb != NULL, 0);
     p->priv = lb;
@@ -331,41 +334,65 @@ launchbar_constructor(plugin *p, char **fp)
         lb->iconsize = GTK_WIDGET(p->panel->box)->allocation.width;
     DBG("button: req width=%d height=%d\n", req.width, req.height);
     DBG("iconsize=%d\n", lb->iconsize);
-    
-    s.len = 256;
-    while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
-        if (s.type == LINE_NONE) {
-            ERR( "launchbar: illegal token %s\n", s.str);
-            goto error;
-        }
-        if (s.type == LINE_BLOCK_START) {
-            if (!g_ascii_strcasecmp(s.t[0], "button")) {
-                if (!read_button(p, fp)) {
-                    ERR( "launchbar: can't init button\n");
+
+    if( fp ) {
+        config_start = *fp;
+        s.len = 256;
+        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
+            if (s.type == LINE_NONE) {
+                ERR( "launchbar: illegal token %s\n", s.str);
+                goto error;
+            }
+            if (s.type == LINE_BLOCK_START) {
+                if (!g_ascii_strcasecmp(s.t[0], "button")) {
+                    if (!read_button(p, fp)) {
+                        ERR( "launchbar: can't init button\n");
+                        goto error;
+                    }
+                } else {
+                    ERR( "launchbar: unknown var %s\n", s.t[0]);
                     goto error;
                 }
             } else {
-                ERR( "launchbar: unknown var %s\n", s.t[0]);
+                ERR( "launchbar: illegal in this context %s\n", s.str);
                 goto error;
             }
-        } else {
-            ERR( "launchbar: illegal in this context %s\n", s.str);
-            goto error;
         }
+        config_end = *fp - 1;
+        while( *config_end != '}' && config_end > config_start ) {
+            --config_end;
+        }
+        if( *config_end == '}' )
+            --config_end;
+
+        lb->config_data = g_strndup( config_start,
+                                     (config_end-config_start) );
     }
- 
+    else {
+        config_start = config_end = NULL;
+    }
 
     RET(1);
 
  error:
     launchbar_destructor(p);
     RET(0);
-    
+
 }
 
 static void save_config( plugin* p, FILE* fp )
 {
-    /* FIXME: not complete */
+    launchbar *lb = (launchbar *)p->priv;
+    if( lb->config_data ) {
+        char** lines = g_strsplit( lb->config_data, "\n", 0 );
+        char** line;
+        for( line = lines; *line; ++line ) {
+            g_strstrip( *line );
+            if( **line )
+                lxpanel_put_line( fp, *line );
+        }
+        g_strfreev( lines );
+    }
 }
 
 plugin_class launchbar_plugin_class = {

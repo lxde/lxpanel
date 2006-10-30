@@ -1,4 +1,3 @@
-
 #include <sys/types.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -18,7 +17,7 @@ typedef struct {
     char      **dnames;         // desktop names
     int         dnames_num;     // number of desktop names
     char      **lnames;         // label names
-    char       *fmt;    
+    char       *fmt;
 } deskno;
 
 
@@ -35,7 +34,7 @@ update_dno(GtkWidget *widget, deskno *dc)
     ENTER;
     dc->dno = fb_ev_current_desktop(fbev);
     gtk_button_set_label(GTK_BUTTON(dc->main), dc->lnames[dc->dno]);
-    
+
     RET();
 }
 
@@ -45,7 +44,7 @@ static  void
 update_all(GtkWidget *widget, deskno *dc)
 {
     int i;
-    
+
     ENTER;
     dc->dnum = fb_ev_number_of_desktops(fbev);
     if (dc->dnames)
@@ -69,7 +68,7 @@ static gboolean
 scroll (GtkWidget *widget, GdkEventScroll *event, deskno *dc)
 {
     int dno;
-    
+
     ENTER;
     dno = dc->dno + ((event->direction == GDK_SCROLL_UP) ? (-1) : (+1));
     if (dno < 0)
@@ -117,7 +116,7 @@ deskno_destructor(plugin *p)
 
   ENTER;
   dc = (deskno *) p->priv;
-  //g_signal_handlers_disconnect_by_func(G_OBJECT (fbev), name_update, dc); 
+  //g_signal_handlers_disconnect_by_func(G_OBJECT (fbev), name_update, dc);
   g_free(dc);
   RET();
 }
