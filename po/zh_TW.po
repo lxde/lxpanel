@@ -7,195 +7,194 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel-0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-10-10 07:26+0800\n"
-"PO-Revision-Date: 2006-10-10 07:32+0800\n"
-"Last-Translator: 洪任諭 <pcman.tw@gmail.com>\n"
+"POT-Creation-Date: 2006-10-31 12:25+0800\n"
+"PO-Revision-Date: 2006-10-31 12:25+0800\n"
+"Last-Translator: 洪任諭\n"
 "Language-Team: zh_TW <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Chinese\n"
 "X-Poedit-Country: TAIWAN\n"
 "X-Poedit-SourceCharset: iso-8859-1\n"
 
-#: ../src/configurator.c:25
+#: ../src/configurator.c:26
 msgid "Preferences"
 msgstr "偏好設定"
 
-#: ../src/configurator.c:26
-#: ../src/gtk-run.c:111
+#: ../src/configurator.c:27
+#: ../src/gtk-run.c:114
 msgid "Run"
 msgstr "執行"
 
-#: ../src/configurator.c:27
+#: ../src/configurator.c:28
 msgid "Restart"
 msgstr "重新啟動"
 
-#: ../src/configurator.c:167
+#: ../src/configurator.c:29
+msgid "Logout"
+msgstr "登出"
+
+#: ../src/configurator.c:187
 msgid "<b>Position</b>"
 msgstr "<b>位置</b>"
 
 #. Edge
-#: ../src/configurator.c:184
+#: ../src/configurator.c:204
 msgid "Edge:"
 msgstr "吸附邊緣："
 
-#: ../src/configurator.c:191
-#: ../src/configurator.c:213
+#: ../src/configurator.c:211
+#: ../src/configurator.c:235
 msgid "Left"
 msgstr "左"
 
-#: ../src/configurator.c:192
-#: ../src/configurator.c:215
+#: ../src/configurator.c:212
+#: ../src/configurator.c:237
 msgid "Right"
 msgstr "右"
 
-#: ../src/configurator.c:193
+#: ../src/configurator.c:213
 msgid "Top"
 msgstr "上"
 
-#: ../src/configurator.c:194
+#: ../src/configurator.c:214
 msgid "Bottom"
 msgstr "下"
 
 #. Alignment
-#: ../src/configurator.c:205
+#: ../src/configurator.c:227
 msgid "Alignment:"
 msgstr "排列方式："
 
-#: ../src/configurator.c:214
+#: ../src/configurator.c:236
 msgid "Center"
 msgstr "置中"
 
 #. Margin
-#: ../src/configurator.c:226
+#: ../src/configurator.c:249
 msgid "Margin:"
 msgstr "留空："
 
-#: ../src/configurator.c:281
+#: ../src/configurator.c:320
 msgid "<b>Size</b>"
 msgstr "<b>大小</b>"
 
 #. width
-#: ../src/configurator.c:298
+#: ../src/configurator.c:337
 msgid "Width:"
 msgstr "寬度："
 
-#: ../src/configurator.c:310
+#: ../src/configurator.c:351
 msgid "dynamic"
 msgstr "動態"
 
-#: ../src/configurator.c:311
-#: ../src/configurator.c:336
+#: ../src/configurator.c:352
+#: ../src/configurator.c:380
 msgid "pixels"
 msgstr "像素 (pixels)"
 
-#: ../src/configurator.c:312
+#: ../src/configurator.c:353
 #, c-format
 msgid "% of edge"
 msgstr "% 百分比"
 
 #. height
-#: ../src/configurator.c:324
+#: ../src/configurator.c:366
 msgid "Height:"
 msgstr "高度："
 
-#: ../src/configurator.c:370
+#: ../src/configurator.c:417
 msgid "<b>Transparency</b>"
 msgstr "<b>透明度</b>"
 
-#: ../src/configurator.c:384
+#: ../src/configurator.c:431
 msgid "Enable Transparency"
 msgstr " 啟用透明效果"
 
 #. gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(tr_checkb), FALSE);
-#: ../src/configurator.c:390
+#: ../src/configurator.c:438
 msgid "Tint color:"
 msgstr "色彩："
 
-#: ../src/configurator.c:415
+#: ../src/configurator.c:482
 msgid "<b>Properties</b>"
 msgstr "<b>屬性</b>"
 
-#: ../src/configurator.c:429
+#: ../src/configurator.c:496
 msgid "Set Dock Type"
 msgstr "設定停駐型態"
 
-#: ../src/configurator.c:432
+#: ../src/configurator.c:502
 msgid "Set Strut"
 msgstr ""
 
-#: ../src/configurator.c:465
+#: ../src/configurator.c:557
 msgid "Currently loaded plugins"
 msgstr "目前載入的外掛"
 
-#: ../src/configurator.c:505
-msgid "_Add"
-msgstr "新增(_A)"
-
-#: ../src/configurator.c:507
-msgid "_Remove"
-msgstr "移除(_R)"
-
-#: ../src/configurator.c:572
+#: ../src/configurator.c:817
 msgid "lxpanel configurator"
 msgstr "lxpanel 偏好設定"
 
-#: ../src/configurator.c:595
+#: ../src/configurator.c:839
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr "一般"
 
-#: ../src/configurator.c:600
+#: ../src/configurator.c:844
 msgid "Plugins"
 msgstr "外掛"
 
-#: ../src/panel.c:734
+#: ../src/configurator.c:973
+msgid "Logout command is not set"
+msgstr "登出指令尚未設定"
+
+#: ../src/panel.c:751
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - UNIX 桌面的輕量級 GTK2+ 工作列\n"
 
-#: ../src/panel.c:735
+#: ../src/panel.c:752
 msgid "Command line options:\n"
 msgstr "命令列選項：\n"
 
-#: ../src/panel.c:736
+#: ../src/panel.c:753
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- 顯示使用說明並離開\n"
 
-#: ../src/panel.c:737
+#: ../src/panel.c:754
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- 顯示版本資訊並離開\n"
 
-#: ../src/panel.c:738
+#: ../src/panel.c:755
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 
-#: ../src/panel.c:739
+#: ../src/panel.c:756
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- 執行設定工具\n"
 
-#: ../src/panel.c:740
+#: ../src/panel.c:757
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- 指定使用其他設定檔\n"
 
-#: ../src/panel.c:742
+#: ../src/panel.c:759
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- 和 --help 作用相同\n"
 
-#: ../src/panel.c:743
+#: ../src/panel.c:760
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- 和 --profile 作用相同\n"
 
-#: ../src/panel.c:744
+#: ../src/panel.c:761
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- 和 --version 作用相同\n"
 
-#: ../src/panel.c:745
+#: ../src/panel.c:762
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- 和 --configure 作用相同\n"
 
-#: ../src/panel.c:746
+#: ../src/panel.c:763
 msgid ""
 "\n"
 "Visit http://lxpanel.sourceforge.net/ for detailed documentation,\n"
@@ -205,41 +204,41 @@ msgstr ""
 "詳細資訊請參觀 http://lxpanel.sourceforge.net/\n"
 "\n"
 
-#: ../src/gtk-run.c:121
+#: ../src/gtk-run.c:124
 msgid "Enter the command you want to execute:"
 msgstr "輸入你要想執行的指令："
 
-#: ../src/systray/tray.c:156
+#: ../src/systray/tray.c:171
 msgid "System Tray"
 msgstr "系統匣 (通知區域)"
 
-#: ../src/systray/tray.c:158
+#: ../src/systray/tray.c:173
 msgid "Old KDE/GNOME Tray"
 msgstr ""
 
-#: ../src/plugins/cpu/cpu.c:208
+#: ../src/plugins/cpu/cpu.c:217
 msgid "CPU Usage Monitor"
 msgstr "CPU 使用量監視器"
 
-#: ../src/plugins/cpu/cpu.c:210
+#: ../src/plugins/cpu/cpu.c:219
 msgid "Display CPU usage"
 msgstr "顯示 CPU 資源使用量"
 
 #: ../src/plugins/deskno.c:100
-#: ../src/plugins/deskno2.c:130
+#: ../src/plugins/deskno2.c:129
 msgid "Desktop No / Workspace Name"
 msgstr ""
 
 #: ../src/plugins/deskno.c:102
-#: ../src/plugins/deskno2.c:132
+#: ../src/plugins/deskno2.c:131
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr ""
 
-#: ../src/plugins/launchbar.c:363
+#: ../src/plugins/launchbar.c:416
 msgid "Application Launch Bar"
 msgstr "應用程式啟動列"
 
-#: ../src/plugins/launchbar.c:365
+#: ../src/plugins/launchbar.c:418
 msgid "Bar with buttons to launch application"
 msgstr "具有應用程式啟動按鈕的工具列"
 
@@ -287,56 +286,108 @@ msgstr "辦公軟體"
 msgid "Accessories"
 msgstr "附屬應用程式"
 
-#: ../src/plugins/taskbar.c:1205
+#: ../src/plugins/taskbar.c:1199
 msgid "Raise"
 msgstr "移到最上層"
 
-#: ../src/plugins/taskbar.c:1210
+#: ../src/plugins/taskbar.c:1204
 msgid "Restore"
 msgstr "復原"
 
-#: ../src/plugins/taskbar.c:1215
+#: ../src/plugins/taskbar.c:1209
 msgid "Maximize"
 msgstr "最大化"
 
-#: ../src/plugins/taskbar.c:1220
+#: ../src/plugins/taskbar.c:1214
 msgid "Iconify"
 msgstr "最小化"
 
 #. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1226
+#: ../src/plugins/taskbar.c:1220
 msgid "Close Window"
 msgstr "關閉視窗"
 
-#: ../src/plugins/taskbar.c:1408
+#: ../src/plugins/taskbar.c:1427
+msgid "Show tooltips"
+msgstr "顯示工具提示"
+
+#: ../src/plugins/taskbar.c:1428
+msgid "Icons only"
+msgstr "只顯示圖示"
+
+#: ../src/plugins/taskbar.c:1429
+msgid "Accept SkipPager"
+msgstr ""
+
+#: ../src/plugins/taskbar.c:1430
+msgid "Show Iconified windows"
+msgstr "顯示最小化的視窗"
+
+#: ../src/plugins/taskbar.c:1431
+msgid "Show mapped windows"
+msgstr "顯示已被映射的視窗"
+
+#: ../src/plugins/taskbar.c:1432
+msgid "Show windows from all desktops"
+msgstr "顯示來自所有桌面的視窗"
+
+#: ../src/plugins/taskbar.c:1433
+msgid "Use mouse wheel"
+msgstr "使用滑鼠滾輪"
+
+#: ../src/plugins/taskbar.c:1434
+msgid "Flash when there is any window requiring attention"
+msgstr "當有視窗要求使用者注意時，閃爍工作列"
+
+#: ../src/plugins/taskbar.c:1435
+msgid "Max width of task button"
+msgstr "工作列按鈕最大寬度"
+
+#: ../src/plugins/taskbar.c:1436
+msgid "Spacing"
+msgstr "間距"
+
+#: ../src/plugins/taskbar.c:1510
 msgid "Task Bar (Window List)"
 msgstr "工作列 (視窗清單)"
 
-#: ../src/plugins/taskbar.c:1410
+#: ../src/plugins/taskbar.c:1512
 msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
 msgstr "工作列顯示所有開啟的視窗，並讓能視窗最小化、折疊、或取得焦點"
 
-#: ../src/plugins/dclock.c:173
+#: ../src/plugins/dclock.c:194
+msgid "Clock Format"
+msgstr "時鐘格式"
+
+#: ../src/plugins/dclock.c:195
+msgid "Tooltip Format"
+msgstr "工具提示格式"
+
+#: ../src/plugins/dclock.c:196
+msgid "Action"
+msgstr "動作"
+
+#: ../src/plugins/dclock.c:230
 msgid "Digital Clock"
 msgstr "數位時鐘"
 
-#: ../src/plugins/dclock.c:175
+#: ../src/plugins/dclock.c:232
 msgid "Display Digital clock and Tooltip"
 msgstr "顯示數位時鐘及在工具提示顯示日期"
 
-#: ../src/plugins/icons.c:496
+#: ../src/plugins/icons.c:529
 msgid "Icons"
 msgstr "圖示"
 
-#: ../src/plugins/icons.c:498
+#: ../src/plugins/icons.c:531
 msgid "Change window icons"
 msgstr "更換視窗圖示"
 
-#: ../src/plugins/menu.c:465
+#: ../src/plugins/menu.c:508
 msgid "Menu"
 msgstr "選單"
 
-#: ../src/plugins/image.c:129
+#: ../src/plugins/image.c:160
 msgid "Dispaly Image and Tooltip"
 msgstr "顯示圖示及工具提示"
 
@@ -348,30 +399,34 @@ msgstr "切換桌面"
 msgid "Simple pager plugin"
 msgstr "簡易桌面切換外掛"
 
-#: ../src/plugins/space.c:94
+#: ../src/plugins/space.c:113
+msgid "Size"
+msgstr "大小"
+
+#: ../src/plugins/space.c:128
 msgid "<Space>"
 msgstr "<空白分隔>"
 
-#: ../src/plugins/wincmd.c:221
+#: ../src/plugins/wincmd.c:234
 msgid "Left click to iconify all windows. Middle click to shade them"
 msgstr "按左鍵最小化所有視窗 / 中鍵折疊所有視窗"
 
-#: ../src/plugins/wincmd.c:237
+#: ../src/plugins/wincmd.c:259
 msgid "Minimize All Windows"
 msgstr "最小化所有視窗"
 
-#: ../src/plugins/wincmd.c:239
+#: ../src/plugins/wincmd.c:261
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commnds are 1)toggle iconify and 2) toggle shade"
 msgstr ""
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
-#: ../src/plugins/volume/volume.c:114
+#: ../src/plugins/volume/volume.c:121
 msgid "Volume control"
 msgstr "音量控制"
 
-#: ../src/plugins/volume/volume.c:125
+#: ../src/plugins/volume/volume.c:132
 msgid "Volume Control"
 msgstr "音量控制"
 
@@ -379,11 +434,19 @@ msgstr "音量控制"
 msgid "Volume"
 msgstr "音量"
 
-#: ../src/plugins/netstatus/netstatus.c:124
+#: ../src/plugins/netstatus/netstatus.c:133
+msgid "Interface to monitor"
+msgstr "要監控的介面"
+
+#: ../src/plugins/netstatus/netstatus.c:134
+msgid "Config tool"
+msgstr "設定工具"
+
+#: ../src/plugins/netstatus/netstatus.c:151
 msgid "Net Status Monitor"
 msgstr "網路狀態監視器"
 
-#: ../src/plugins/netstatus/netstatus.c:126
+#: ../src/plugins/netstatus/netstatus.c:153
 msgid "Monitor network status"
 msgstr "監控網路狀態"
 
@@ -423,15 +486,6 @@ msgstr "執行設定工具 %s 失敗"
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:131
 msgid "<b>Connection</b>"
 msgstr "<b>連線</b>"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:141
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:204
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:260
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:299
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:386
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:442
-msgid "    "
-msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:155
 msgid "Status:"
@@ -559,6 +613,10 @@ msgstr ""
 "\n"
 "%s"
 
+#~ msgid "_Add"
+#~ msgstr "新增(_A)"
+#~ msgid "_Remove"
+#~ msgstr "移除(_R)"
 #~ msgid "Right-click to get context menu. Drag & Drop to change order."
 #~ msgstr "可以按右鍵使用選單，用拖曳改變順序"
 #~ msgid "Plugins..."

@@ -215,8 +215,9 @@ read_button(plugin *p, char** fp)
             title = g_key_file_get_locale_string( desktop, desktop_ent,
                                                 "Name", NULL, NULL);
             if( !fname && icon ){
-                gchar* sep = strchr( icon, '.' );
-                if( sep )
+                gchar* sep;
+                /* not a full path, remove the extension */
+                if( icon[0] != '/' && (sep = strchr( icon, '.' )) )
                     fname = g_strndup( icon, (sep - icon) );
                 else
                     fname = icon;

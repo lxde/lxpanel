@@ -1155,3 +1155,13 @@ GtkWidget* recreate_box( GtkBox* oldbox, GtkOrientation orientation )
     gtk_widget_destroy( oldbox );
     return newbox;
 }
+
+void show_error( GtkWindow* parent_win, const char* msg )
+{
+    GtkWidget* dlg = gtk_message_dialog_new( parent_win,
+                                             GTK_DIALOG_MODAL,
+                                             GTK_MESSAGE_ERROR,
+                                             GTK_BUTTONS_OK, msg );
+    gtk_dialog_run( (GtkDialog*)dlg );
+    gtk_widget_destroy( dlg );
+}

@@ -61,6 +61,8 @@ typedef struct {
     guint32 *workarea;
     int wa_len;
 
+    char* logout_command;
+
     int plug_num;
     GList *plugins;
 

@@ -138,7 +138,7 @@ create_network_status_dialog (void)
   gtk_widget_show (hbox6);
   gtk_box_pack_start (GTK_BOX (connection_frame), hbox6, TRUE, TRUE, 0);
 
-  label43 = gtk_label_new (_("    "));
+  label43 = gtk_label_new ("    ");
   gtk_widget_show (label43);
   gtk_box_pack_start (GTK_BOX (hbox6), label43, FALSE, FALSE, 0);
 
@@ -201,7 +201,7 @@ create_network_status_dialog (void)
   gtk_widget_show (hbox8);
   gtk_box_pack_start (GTK_BOX (activity_frame), hbox8, TRUE, TRUE, 0);
 
-  label44 = gtk_label_new (_("    "));
+  label44 = gtk_label_new ("    ");
   gtk_widget_show (label44);
   gtk_box_pack_start (GTK_BOX (hbox8), label44, FALSE, FALSE, 0);
 
@@ -257,7 +257,7 @@ create_network_status_dialog (void)
   gtk_widget_show (hbox14);
   gtk_box_pack_start (GTK_BOX (signal_strength_frame), hbox14, FALSE, TRUE, 0);
 
-  label49 = gtk_label_new (_("    "));
+  label49 = gtk_label_new ("    ");
   gtk_widget_show (label49);
   gtk_box_pack_start (GTK_BOX (hbox14), label49, FALSE, FALSE, 0);
 
@@ -296,7 +296,7 @@ create_network_status_dialog (void)
   gtk_widget_show (hbox11);
   gtk_box_pack_start (GTK_BOX (inet4_frame), hbox11, TRUE, TRUE, 0);
 
-  label45 = gtk_label_new (_("    "));
+  label45 = gtk_label_new ("    ");
   gtk_widget_show (label45);
   gtk_box_pack_start (GTK_BOX (hbox11), label45, FALSE, FALSE, 0);
 
@@ -383,7 +383,7 @@ create_network_status_dialog (void)
   gtk_widget_show (hbox12);
   gtk_box_pack_start (GTK_BOX (inet6_frame), hbox12, TRUE, TRUE, 0);
 
-  label46 = gtk_label_new (_("    "));
+  label46 = gtk_label_new ("    ");
   gtk_widget_show (label46);
   gtk_box_pack_start (GTK_BOX (hbox12), label46, FALSE, FALSE, 0);
 
@@ -439,7 +439,7 @@ create_network_status_dialog (void)
   gtk_widget_show (hbox13);
   gtk_box_pack_start (GTK_BOX (dev_frame), hbox13, TRUE, TRUE, 0);
 
-  label47 = gtk_label_new (_("    "));
+  label47 = gtk_label_new ("    ");
   gtk_widget_show (label47);
   gtk_box_pack_start (GTK_BOX (hbox13), label47, FALSE, FALSE, 0);
 

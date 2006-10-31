@@ -20,11 +20,13 @@
 void configure(void);
 void restart(void);
 void gtk_run(void);
+static void logout(void);
 
 command commands[] = {
     { "configure", N_("Preferences"), configure },
     { "run", N_("Run"), gtk_run },
     { "restart", N_("Restart"), restart },
+    { "logout", N_("Logout"), logout },
     { NULL, NULL },
 };
 
@@ -65,6 +67,7 @@ void plugin_config_save(FILE *fp);
 
 static void update_opt_menu(GtkWidget *w, int ind);
 static void update_toggle_button(GtkWidget *w, gboolean n);
+static void modify_plugin( GtkTreeView* view );
 
 static int
 mk_profile_dir()
@@ -567,7 +570,8 @@ static void init_plugin_list( GtkTreeView* view, GtkWidget* label )
                             1, pl, -1);
     }
     gtk_tree_view_set_model( view, GTK_TREE_MODEL( list ) );
-
+    g_signal_connect( view, "row-activated",
+                      G_CALLBACK(modify_plugin), NULL );
     tree_sel = gtk_tree_view_get_selection( view );
     g_signal_connect( tree_sel, "changed",
                       G_CALLBACK(on_sel_plugin_changed), label);
@@ -604,7 +608,7 @@ static void on_remove_plugin( GtkButton* btn, GtkTreeView* view )
     }
 }
 
-static void on_modify_plugin( GtkButton* btn, GtkTreeView* view )
+void modify_plugin( GtkTreeView* view )
 {
     GtkTreeSelection* tree_sel = gtk_tree_view_get_selection( view );
     GtkTreeModel* model;
@@ -747,7 +751,7 @@ mk_tab_plugins()
 
     button = gtk_button_new_from_stock( GTK_STOCK_EDIT );
     gtk_box_pack_start( GTK_BOX( vbox ), button, FALSE, FALSE, 2 );
-    g_signal_connect( button, "clicked", G_CALLBACK(on_modify_plugin), plugin_list );
+    g_signal_connect_swapped( button, "clicked", G_CALLBACK(modify_plugin), plugin_list );
     g_object_set_data( plugin_list, "edit_btn", button );
 
     button = gtk_button_new_from_stock( GTK_STOCK_REMOVE );
@@ -899,30 +903,24 @@ global_config_save(FILE *fp)
 {
     GdkColor c;
 
-    fprintf(fp, "# lxpanel <profile> config file\n");
-    fprintf(fp, "# see http://lxpanel.sf.net/docs.html for complete configuration guide\n");
-    fprintf(fp, "\n\n");
-    fprintf(fp, "Global {\n");
-    fprintf(fp, "    edge = %s\n",
-          num2str(edge_pair, gtk_combo_box_get_active(GTK_COMBO_BOX(edge_opt)) + 1, "none"));
-    fprintf(fp, "    allign = %s\n",
-          num2str(allign_pair, gtk_combo_box_get_active(GTK_COMBO_BOX(allign_opt)) + 1, "none"));
-    fprintf(fp, "    margin = %d\n", (int) margin_adj->value);
-    fprintf(fp, "    widthtype = %s\n",
-          num2str(width_pair, gtk_combo_box_get_active(GTK_COMBO_BOX(width_opt)) + 1, "none"));
-    fprintf(fp, "    width = %d\n", (int) width_adj->value);
-    fprintf(fp, "    height = %d\n", (int) height_adj->value);
-    fprintf(fp, "    transparent = %s\n",
-          num2str(bool_pair, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(tr_checkb)), "false"));
+    fprintf(fp, "# lxpanel <profile> config file\n"
+                "# see http://lxpanel.sf.net/docs.html for complete configuration guide\n");
+    lxpanel_put_line(fp, "Global {");
+    lxpanel_put_str(fp, "edge", num2str(edge_pair, gtk_combo_box_get_active(GTK_COMBO_BOX(edge_opt)) + 1, "none"));
+    lxpanel_put_str(fp, "allign", num2str(allign_pair, gtk_combo_box_get_active(GTK_COMBO_BOX(allign_opt)) + 1, "none"));
+    lxpanel_put_int(fp, "margin", (int)margin_adj->value);
+    lxpanel_put_str(fp, "widthtype", num2str(width_pair, gtk_combo_box_get_active(GTK_COMBO_BOX(width_opt)) + 1, "none"));
+    lxpanel_put_int(fp, "width", (int) width_adj->value);
+    lxpanel_put_int(fp, "height", (int) height_adj->value);
+    lxpanel_put_str(fp, "transparent", num2str(bool_pair, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(tr_checkb)), "false"));
     gtk_color_button_get_color(GTK_COLOR_BUTTON(tr_colorb), &c);
-    fprintf(fp, "    tintcolor = #%06x\n", gcolor2rgb24(&c));
-    fprintf(fp, "    alpha = %d\n", gtk_color_button_get_alpha(GTK_COLOR_BUTTON(tr_colorb)) * 0xff / 0xffff);
-    fprintf(fp, "    setdocktype = %s\n",
-          num2str(bool_pair, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(prop_dt_checkb)), "true"));
-    fprintf(fp, "    setpartialstrut = %s\n",
-          num2str(bool_pair, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(prop_st_checkb)), "true"));
+    lxpanel_put_line(fp, "tintcolor = #%06x", gcolor2rgb24(&c));
+    lxpanel_put_int(fp, "alpha", gtk_color_button_get_alpha(GTK_COLOR_BUTTON(tr_colorb)) * 0xff / 0xffff);
+    lxpanel_put_str(fp, "setdocktype", num2str(bool_pair, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(prop_dt_checkb)), "true"));
+    lxpanel_put_str(fp, "setpartialstrut", num2str(bool_pair, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(prop_st_checkb)), "true"));
 
-    fprintf(fp, "}\n\n");
+    lxpanel_put_str(fp, "LogoutCommand", p->logout_command );
+    lxpanel_put_line(fp, "}\n");
 }
 
 void
@@ -952,11 +950,24 @@ plugin_config_save(FILE *fp)
 }
 
 
-void
-restart(void)
+void restart(void)
 {
     ENTER;
     RET();
+}
+
+void logout(void)
+{
+    if( p->logout_command ) {
+        GError* err = NULL;
+        if( ! g_spawn_command_line_async( p->logout_command, &err ) ) {
+            show_error( NULL, err->message );
+            g_error_free( err );
+        }
+    }
+    else {
+        show_error( NULL, _("Logout command is not set") );
+    }
 }
 
 static void notify_apply_config( GtkWidget* widget )

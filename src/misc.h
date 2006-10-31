@@ -81,4 +81,6 @@ char* translate_exec_to_cmd( const char* exec, const char* icon,
 */
 GtkWidget* recreate_box( GtkBox* oldbox, GtkOrientation orientation );
 
+void show_error( GtkWindow* parent_win, const char* msg );
+
 #endif

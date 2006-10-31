@@ -548,6 +548,8 @@ panel_parse_global(panel *p, char **fp)
                     gdk_color_parse ("white", &p->gtintcolor);
                 p->tintcolor = gcolor2rgb24(&p->gtintcolor);
                 DBG("tintcolor=%x\n", p->tintcolor);
+            } else if( !g_ascii_strcasecmp(s.t[0], "LogoutCommand") ) {
+                p->logout_command = g_strdup( s.t[1] );
             } else {
                 ERR( "lxpanel: %s - unknown var in Global section\n", s.t[0]);
                 RET(0);
@@ -734,6 +736,7 @@ void panel_stop(panel *p)
     gtk_widget_destroy(p->topgwin);
     g_object_unref(fbev);
     g_free(p->workarea);
+    g_free( p->logout_command );
     gdk_flush();
     XFlush(GDK_DISPLAY());
     XSync(GDK_DISPLAY(), True);

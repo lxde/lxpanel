@@ -24,6 +24,7 @@
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 #include <string.h>
+#include "misc.h"
 
 static gboolean setup_auto_complete( gpointer entry )
 {
@@ -77,6 +78,7 @@ static gboolean setup_auto_complete( gpointer entry )
     return FALSE;
 }
 
+/*
 static void show_error( GtkWindow* parent_win, const char* msg )
 {
     GtkWidget* dlg = gtk_message_dialog_new( parent_win,
@@ -86,6 +88,7 @@ static void show_error( GtkWindow* parent_win, const char* msg )
     gtk_dialog_run( (GtkDialog*)dlg );
     gtk_widget_destroy( dlg );
 }
+*/
 
 static void on_response( GtkDialog* dlg, gint response, gpointer user_data )
 {

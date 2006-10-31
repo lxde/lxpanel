@@ -32,7 +32,6 @@
 struct _taskbar;
 typedef struct _task{
     struct _taskbar *tb;
-    struct task *next;
     Window win;
     char *name, *iname;
     GtkWidget *button, *label, *eb;
@@ -1404,6 +1403,15 @@ taskbar_destructor(plugin *p)
     RET();
 }
 
+static void
+update_icons_only( gpointer key, task* tk, gpointer icons_only )
+{
+    if( icons_only )
+        gtk_widget_hide( tk->label );
+    else
+        gtk_widget_show( tk->label );
+}
+
 static void apply_config( plugin* p )
 {
     taskbar *tb = (taskbar *)p->priv;
@@ -1411,8 +1419,17 @@ static void apply_config( plugin* p )
         gtk_tooltips_enable(tb->tips);
     else
         gtk_tooltips_disable(tb->tips);
+     if (tb->icons_only) {
+        gtk_bar_set_max_child_size(GTK_BAR(tb->bar),
+              GTK_WIDGET(p->panel->box)->allocation.height -2);
+     } else
+        gtk_bar_set_max_child_size(GTK_BAR(tb->bar), tb->task_width_max);
 
-
+    gtk_box_set_spacing( GTK_BOX(tb->bar), tb->spacing );
+    tb_net_client_list(NULL, tb);
+    g_hash_table_foreach( tb->task_list,
+                          (GHFunc)update_icons_only,
+                          (gpointer)tb->icons_only );
 }
 
 static void taskbar_config( plugin* p, GtkWindow* parent )
