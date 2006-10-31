@@ -1111,3 +1111,47 @@ char* translate_exec_to_cmd( const char* exec, const char* icon,
     return g_string_free( cmd, FALSE );
 }
 
+/*
+ This function is used to re-create a new box with different
+ orientation from the old one, add all children of the old one to
+ the new one, and then destroy the old box.
+ It's mainly used when we need to change the orientation of the panel or
+ any plugin with a layout box. Since GtkHBox cannot be changed to GtkVBox,
+ recreating a new box to replace the old one is required.
+*/
+GtkWidget* recreate_box( GtkBox* oldbox, GtkOrientation orientation )
+{
+    GtkBox* newbox;
+    GList *child, *children;
+    GtkWidget* (*my_box_new) (gboolean homogeneous, gint spacing);
+
+    if( GTK_IS_HBOX(oldbox) ) {
+        if( orientation == GTK_ORIENTATION_HORIZONTAL )
+            return oldbox;
+    }
+    else {
+        if( orientation == GTK_ORIENTATION_VERTICAL )
+            return oldbox;
+    }
+    my_box_new = orientation == GTK_ORIENTATION_HORIZONTAL ? gtk_hbox_new : gtk_vbox_new;
+
+    newbox = my_box_new( gtk_box_get_homogeneous(oldbox),
+                         gtk_box_get_spacing(oldbox) );
+    gtk_container_set_border_width (GTK_CONTAINER (newbox),
+                                    gtk_container_get_border_width(oldbox) );
+    children = gtk_container_get_children( GTK_CONTAINER (oldbox) );
+    for( child = children; child; child = child->next ) {
+        gboolean expand, fill, padding;
+        GtkWidget* w = GTK_WIDGET(child->data);
+        gtk_box_query_child_packing( oldbox, w,
+                                     &expand, &fill, &padding, NULL );
+        g_object_ref( w );
+        gtk_container_remove( GTK_CONTAINER (oldbox), w );
+        gtk_box_pack_start( newbox, w, expand, fill, padding );
+        g_object_unref( w );
+    }
+    g_list_free( children );
+    gtk_widget_show_all(newbox);
+    gtk_widget_destroy( oldbox );
+    return newbox;
+}

@@ -32,6 +32,8 @@ typedef struct {
 
 //static dclock me;
 
+static void
+update_label_orient( plugin* p );
 
 
 static  gboolean
@@ -53,11 +55,11 @@ clock_update(gpointer data )
     struct tm * detail;
     dclock *dc;
     gchar *utf8;
-    
+
     ENTER;
     g_assert(data != NULL);
     dc = (dclock *)data;
-    
+
     time(&now);
     detail = localtime(&now);
     strftime(output, sizeof(output), dc->cfmt, detail) ;
@@ -99,7 +101,7 @@ dclock_constructor(plugin *p, char** fp)
                 goto error;
             }
             if (s.type == LINE_VAR) {
-                if (!g_ascii_strcasecmp(s.t[0], "ClockFmt")) 
+                if (!g_ascii_strcasecmp(s.t[0], "ClockFmt"))
                     dc->cfmt = g_strdup(s.t[1]);
                 else if (!g_ascii_strcasecmp(s.t[0], "TooltipFmt"))
                     dc->tfmt = g_strdup(s.t[1]);
@@ -129,7 +131,7 @@ dclock_constructor(plugin *p, char** fp)
     dc->clockw = gtk_label_new("");
     gtk_misc_set_alignment(GTK_MISC(dc->clockw), 0.5, 0.5);
     gtk_misc_set_padding(GTK_MISC(dc->clockw), 4, 0);
-    //gtk_widget_show(dc->clockw);
+    update_label_orient( p );
     gtk_container_add(GTK_CONTAINER(dc->main), dc->clockw);
     gtk_widget_show_all(dc->main);
     dc->tip = gtk_tooltips_new();
@@ -204,6 +206,22 @@ static void save_config( plugin* p, FILE* fp )
     lxpanel_put_str( fp, "Action", dc->action );
 }
 
+static void
+update_label_orient( plugin* p )
+{
+    dclock *dc = (dclock *)p->priv;
+    GtkLabel* label = GTK_LABEL(dc->clockw);
+    /* FIXME: gtk+ has only limited support for this, sigh! */
+    gdouble angle;
+    if( p->panel->edge == EDGE_LEFT )
+        angle = 90.0;
+    else if( p->panel->edge == EDGE_RIGHT )
+        angle = 270.0;
+    else
+        angle = 0.0;
+    gtk_label_set_angle( GTK_LABEL(label), angle );
+}
+
 plugin_class dclock_plugin_class = {
     fname: NULL,
     count: 0,
@@ -216,5 +234,6 @@ plugin_class dclock_plugin_class = {
     constructor : dclock_constructor,
     destructor  : dclock_destructor,
     config : dclock_config,
-    save : save_config
+    save : save_config,
+    orientation : update_label_orient
 };

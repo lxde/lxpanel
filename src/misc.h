@@ -59,7 +59,7 @@ void calculate_position(panel *np);
 gchar *expand_tilda(gchar *file);
 GdkPixbuf *gdk_pixbuf_scale_ratio(GdkPixbuf *p, int width, int height, GdkInterpType itype,
                                   gboolean keep_ratio);
-GtkWidget *gtk_image_new_from_file_scaled(const gchar *file, gint width, gint height,  
+GtkWidget *gtk_image_new_from_file_scaled(const gchar *file, gint width, gint height,
                                           gboolean keep_ratio);
 void get_button_spacing(GtkRequisition *req, GtkContainer *parent, gchar *name);
 guint32 gcolor2rgb24(GdkColor *color);
@@ -70,4 +70,15 @@ GtkWidget *fb_button_new_from_file_with_label(gchar *fname, int width, int heigh
 
 char* translate_exec_to_cmd( const char* exec, const char* icon,
                              const char* title, const char* fpath );
+
+/*
+ This function is used to re-create a new box with different
+ orientation from the old one, add all children of the old one to
+ the new one, and then destroy the old box.
+ It's mainly used when we need to change the orientation of the panel or
+ any plugin with a layout box. Since GtkHBox cannot be changed to GtkVBox,
+ recreating a new box to replace the old one is required.
+*/
+GtkWidget* recreate_box( GtkBox* oldbox, GtkOrientation orientation );
+
 #endif

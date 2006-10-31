@@ -9,10 +9,6 @@ lxpanel_images_DATA = \
 	images/redhat-internet.svg \
 	images/stock_volume.png \
 	images/thunderbird.svg \
-	images/top-left.xpm \
-	images/top-right.xpm \
-	images/bottom-left.xpm \
-	images/bottom-right.xpm \
 	images/default.xpm \
 	images/emacs.svg \
 	images/file-manager.svg \

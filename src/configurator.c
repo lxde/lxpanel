@@ -141,6 +141,7 @@ set_edge(GtkComboBox *widget, gpointer bp)
     ENTER;
     edge = gtk_combo_box_get_active(widget) + 1;
     p->edge = edge;
+    panel_set_orientation( p );
     update_panel_geometry();
     RET();
 }

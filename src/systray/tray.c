@@ -64,7 +64,7 @@ message_sent (EggTrayManager *manager, GtkWidget *icon, const char *text, glong 
 {
     /* FIXME multihead */
     int x, y;
-    
+
     gdk_window_get_origin (icon->window, &x, &y);
     fixed_tip_show (0, x, y, FALSE, gdk_screen_height () - 50, text);
 }
@@ -73,7 +73,7 @@ static void
 message_cancelled (EggTrayManager *manager, GtkWidget *icon, glong id,
                    void *data)
 {
-  
+
 }
 
 
@@ -92,7 +92,7 @@ tray_destructor(plugin *p)
     RET();
 }
 
-    
+
 
 
 static int
@@ -102,7 +102,7 @@ tray_constructor(plugin *p, char** fp)
     tray *tr;
     GdkScreen *screen;
     //GtkWidget *frame;
-    
+
     ENTER;
     s.len = 256;
     if( fp )
@@ -130,7 +130,7 @@ tray_constructor(plugin *p, char** fp)
     //gtk_bgbox_set_background(p->pwid, BG_STYLE, 0, 0);
     gtk_container_set_border_width(GTK_CONTAINER(p->pwid), 0);
     screen = gtk_widget_get_screen (GTK_WIDGET (p->panel->topgwin));
-    
+
     if (egg_tray_manager_check_running(screen)) {
         tr->tray_manager = NULL;
         ERR("tray: another systray already running\n");
@@ -139,17 +139,29 @@ tray_constructor(plugin *p, char** fp)
     tr->tray_manager = egg_tray_manager_new ();
     if (!egg_tray_manager_manage_screen (tr->tray_manager, screen))
         g_printerr ("tray: System tray didn't get the system tray manager selection\n");
-    
+
     g_signal_connect (tr->tray_manager, "tray_icon_added", G_CALLBACK (tray_added), tr);
     g_signal_connect (tr->tray_manager, "tray_icon_removed", G_CALLBACK (tray_removed), tr);
     g_signal_connect (tr->tray_manager, "message_sent", G_CALLBACK (message_sent), tr);
     g_signal_connect (tr->tray_manager, "message_cancelled", G_CALLBACK (message_cancelled), tr);
-    
+
     gtk_widget_show_all(tr->box);
     RET(1);
 
 }
 
+static void orientation_changed( plugin* p )
+{
+    tray *tr = (tray *)p->priv;
+    GtkBox* newbox;
+    newbox = recreate_box( tr->box, p->panel->orientation );
+    if( newbox != tr->box ) {
+        /* Since the old box has been destroyed,
+        we need to re-add the new box to the container */
+        tr->box = newbox;
+        gtk_container_add(GTK_CONTAINER(p->pwid), tr->box);
+    }
+}
 
 plugin_class tray_plugin_class = {
     fname: NULL,
@@ -163,5 +175,6 @@ plugin_class tray_plugin_class = {
     constructor : tray_constructor,
     destructor  : tray_destructor,
     config : NULL,
-    save : NULL
+    save : NULL,
+    orientation : orientation_changed
 };

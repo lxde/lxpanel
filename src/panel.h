@@ -15,7 +15,11 @@ enum { ALLIGN_NONE, ALLIGN_LEFT, ALLIGN_CENTER, ALLIGN_RIGHT  };
 enum { EDGE_NONE, EDGE_LEFT, EDGE_RIGHT, EDGE_TOP, EDGE_BOTTOM };
 enum { WIDTH_NONE, WIDTH_REQUEST, WIDTH_PIXEL, WIDTH_PERCENT };
 enum { HEIGHT_NONE, HEIGHT_PIXEL, HEIGHT_REQUEST };
-enum { ORIENT_NONE, ORIENT_VERT, ORIENT_HORIZ };
+enum {
+    ORIENT_NONE = -1,
+    ORIENT_VERT = GTK_ORIENTATION_VERTICAL,
+    ORIENT_HORIZ = GTK_ORIENTATION_HORIZONTAL
+};
 enum { POS_NONE, POS_START, POS_END };
 
 #define PANEL_HEIGHT_DEFAULT  26
@@ -27,9 +31,8 @@ typedef struct {
 
     GtkWidget *topgwin;           /* main panel window */
     Window topxwin;               /* and it X window   */
-    GtkWidget *lbox;              /* primary layout box */
+    GtkWidget *box;              /* primary layout box which contains all plugins */
     GtkWidget *bbox;              /* backgound box for box */
-    GtkWidget *box;               /* box that contains all plugins */
     GtkRequisition requisition;
     GtkWidget *(*my_box_new) (gboolean, gint);
     GtkWidget *(*my_separator_new) ();
@@ -155,5 +158,6 @@ extern FbEv *fbev;
 
 void panel_set_wm_strut(panel *p);
 void panel_set_dock_type(panel *p);
+void panel_set_orientation(panel *p);
 
 #endif

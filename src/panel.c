@@ -318,6 +318,8 @@ panel_configure_event (GtkWidget *widget, GdkEventConfigure *e, panel *p)
 static void
 make_round_corners(panel *p)
 {
+    /* FIXME: This should be re-written with shape extension of X11 */
+#if 0
     GtkWidget *b1, *b2, *img;
     GtkWidget *(*box_new) (gboolean, gint);
     void (*box_pack)(GtkBox *, GtkWidget *, gboolean, gboolean, guint);
@@ -358,6 +360,7 @@ make_round_corners(panel *p)
     gtk_box_pack_start(GTK_BOX(p->lbox), b1, FALSE, FALSE, 0);
     gtk_box_pack_end(GTK_BOX(p->lbox), b2, FALSE, FALSE, 0);
     RET();
+#endif
 }
 
 void panel_set_dock_type(panel *p)
@@ -419,17 +422,12 @@ panel_start_gui(panel *p)
     }
 
     // main layout manager as a single child of background widget box
-    p->lbox = p->my_box_new(FALSE, 0);
-    gtk_container_set_border_width(GTK_CONTAINER(p->lbox), 0);
-    gtk_container_add(GTK_CONTAINER(p->bbox), p->lbox);
-    gtk_widget_show(p->lbox);
+    p->box = p->my_box_new(FALSE, 0);
+    gtk_container_set_border_width(GTK_CONTAINER(p->box), 0);
+    gtk_container_add(GTK_CONTAINER(p->bbox), p->box);
+    gtk_widget_show(p->box);
     if (p->round_corners)
         make_round_corners(p);
-
-    p->box = p->my_box_new(FALSE, p->spacing);
-    gtk_container_set_border_width(GTK_CONTAINER(p->box), 0);
-    gtk_box_pack_start(GTK_BOX(p->lbox), p->box, TRUE, TRUE, 0);
-    gtk_widget_show(p->box);
 
     p->topxwin = GDK_WINDOW_XWINDOW(GTK_WIDGET(p->topgwin)->window);
     DBG("topxwin = %x\n", p->topxwin);
@@ -472,6 +470,40 @@ panel_start_gui(panel *p)
     panel_set_wm_strut(p);
 
     RET();
+}
+
+void panel_set_orientation(panel *p)
+{
+    GList* l;
+    p->orientation = (p->edge == EDGE_TOP || p->edge == EDGE_BOTTOM)
+        ? ORIENT_HORIZ : ORIENT_VERT;
+    if (p->orientation == ORIENT_HORIZ) {
+        p->my_box_new = gtk_hbox_new;
+        p->my_separator_new = gtk_vseparator_new;
+    } else {
+        p->my_box_new = gtk_vbox_new;
+        p->my_separator_new = gtk_hseparator_new;
+    }
+
+    /* recreate the main layout box */
+    if( p->box ) {
+        GtkBox* newbox = recreate_box( p->box, p->orientation );
+        if( newbox != p->box ) {
+            p->box = newbox;
+            gtk_container_add( p->bbox, newbox );
+        }
+    }
+    /* NOTE: This loop won't be executed when panel started since
+       plugins are not loaded at that time.
+       This is used when the orientation of the panel is changed
+       from the config dialog, and plugins should be re-layout.
+    */
+    for( l = p->plugins; l; l = l->next ) {
+        plugin* pl = (plugin*)l->data;
+        if( pl->class->orientation ) {
+            pl->class->orientation( pl );
+        }
+    }
 }
 
 static int
@@ -527,15 +559,7 @@ panel_parse_global(panel *p, char **fp)
             RET(0);
         }
     }
-    p->orientation = (p->edge == EDGE_TOP || p->edge == EDGE_BOTTOM)
-        ? ORIENT_HORIZ : ORIENT_VERT;
-    if (p->orientation == ORIENT_HORIZ) {
-        p->my_box_new = gtk_hbox_new;
-        p->my_separator_new = gtk_vseparator_new;
-    } else {
-        p->my_box_new = gtk_vbox_new;
-        p->my_separator_new = gtk_hseparator_new;
-    }
+    panel_set_orientation( p );
     if (p->width < 0)
         p->width = 100;
     if (p->widthtype == WIDTH_PERCENT && p->width > 100)

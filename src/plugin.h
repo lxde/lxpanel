@@ -28,7 +28,7 @@ typedef struct {
     void (*destructor)(struct _plugin *this);
     void (*config)(struct _plugin *this, GtkWindow* parent); /* config UI */
     void (*save)(struct _plugin *this, FILE* fp);
-
+    void (*orientation)(struct _plugin *this);
 } plugin_class;
 
 typedef struct _plugin{

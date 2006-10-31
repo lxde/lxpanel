@@ -395,6 +395,19 @@ static void save_config( plugin* p, FILE* fp )
     }
 }
 
+static void orientation_changed( plugin* p )
+{
+    launchbar *lb = (launchbar *)p->priv;
+    GtkBox* newbox;
+    newbox = recreate_box( lb->box, p->panel->orientation );
+    if( newbox != lb->box ) {
+        /* Since the old box has been destroyed,
+        we need to re-add the new box to the container */
+        lb->box = newbox;
+        gtk_container_add(GTK_CONTAINER(p->pwid), lb->box);
+    }
+}
+
 plugin_class launchbar_plugin_class = {
     fname: NULL,
     count: 0,
@@ -407,5 +420,6 @@ plugin_class launchbar_plugin_class = {
     constructor : launchbar_constructor,
     destructor  : launchbar_destructor,
     config : NULL,
-    save : save_config
+    save : save_config,
+    orientation : orientation_changed
 };

@@ -21,7 +21,7 @@
  * Modified by the GTK+ Team and others 1997-2000.  See the AUTHORS
  * file for a list of people on the GTK+ Team.  See the ChangeLog
  * files for a list of changes.  These files are distributed with
- * GTK+ at ftp://ftp.gtk.org/pub/gtk/. 
+ * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
 #ifndef __GTK_BAR_H__
@@ -47,13 +47,12 @@
 
 typedef struct _GtkBar       GtkBar;
 typedef struct _GtkBarClass  GtkBarClass;
-typedef enum { GTK_BAR_VERTICAL, GTK_BAR_HORIZ } GtkBarOrientation;
 
 struct _GtkBar
 {
     GtkBox box;
     gint max_child_size;
-    GtkBarOrientation orient;
+    GtkOrientation orient;
     int maxx, maxy;
 };
 
@@ -64,9 +63,10 @@ struct _GtkBarClass
 
 
 GType	   gtk_bar_get_type (void) G_GNUC_CONST;
-GtkWidget* gtk_bar_new      (GtkBarOrientation orient, gint spacing);
+GtkWidget* gtk_bar_new      (GtkOrientation orient, gint spacing);
 void       gtk_bar_set_max_child_size(GtkBar *bar, gint size);
-
+void       gtk_bar_set_orientation( GtkBar *bar,
+                                    GtkOrientation ori );
 
 #ifdef __cplusplus
 }

@@ -56,24 +56,19 @@ typedef struct _task{
     unsigned int flash_state:1;
 } task;
 
-
-
 typedef struct _taskbar{
     plugin *plug;
     Window *wins;
     Window topxwin;
     int win_num;
     GHashTable  *task_list;
-    GtkWidget *hbox, *bar, *space, *menu;
+    GtkWidget *bar, *menu;
     GtkTooltips *tips;
     GdkPixbuf *gen_pixbuf;
     GtkStateType normal_state;
     GtkStateType focused_state;
     int num_tasks;
-    int task_width;
     int vis_task_num;
-    int req_width;
-    int hbox_width;
     int spacing;
     int cur_desk;
     task *focused;
@@ -95,7 +90,6 @@ typedef struct _taskbar{
     gboolean use_mouse_wheel;// : 1;
     gboolean use_urgency_hint;// : 1;
 } taskbar;
-
 
 static gchar *taskbar_rc = "style 'taskbar-style'\n"
 "{\n"
@@ -126,6 +120,10 @@ static gboolean tk_has_urgency( task* tk );
 static void tk_flash_window( task *tk );
 static void tk_unflash_window( task *tk );
 static void tk_raise_window( task *tk, guint32 time );
+
+static void
+update_label_orient( GtkWidget* child, gpointer user_data );
+
 
 #define TASK_VISIBLE(tb, tk) \
  ((tk)->desktop == (tb)->cur_desk || (tk)->desktop == -1 /* 0xFFFFFFFF */ )
@@ -859,9 +857,7 @@ tk_build_gui(taskbar *tb, task *tk)
 
     /* name */
     tk->label = gtk_label_new(tk->iconified ? tk->iname : tk->name);
-    //gtk_label_set_justify(GTK_LABEL(tk->label), GTK_JUSTIFY_LEFT);
-    gtk_label_set_ellipsize(GTK_LABEL(tk->label), PANGO_ELLIPSIZE_END);
-    gtk_misc_set_alignment(GTK_MISC(tk->label), 0.0, 0.5);
+    update_label_orient( tk->label, tb->plug );
     if (!tb->icons_only)
         gtk_widget_show(tk->label);
     gtk_box_pack_start(GTK_BOX(w1), tk->label, TRUE, TRUE, 0);
@@ -955,8 +951,6 @@ tb_net_client_list(GtkWidget *widget, taskbar *tb)
     RET();
 }
 
-
-
 static void
 tb_net_current_desktop(GtkWidget *widget, taskbar *tb)
 {
@@ -965,7 +959,6 @@ tb_net_current_desktop(GtkWidget *widget, taskbar *tb)
     tb_display(tb);
     RET();
 }
-
 
 static void
 tb_net_number_of_desktops(GtkWidget *widget, taskbar *tb)
@@ -1240,10 +1233,10 @@ static void
 taskbar_build_gui(plugin *p)
 {
     taskbar *tb = (taskbar *)p->priv;
-    GtkBarOrientation  bo;
+    GtkOrientation  bo;
 
     ENTER;
-    bo = (tb->plug->panel->orientation == ORIENT_HORIZ) ? GTK_BAR_HORIZ : GTK_BAR_VERTICAL;
+    bo = (tb->plug->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
     tb->bar = gtk_bar_new(bo, tb->spacing);
     if (tb->icons_only) {
         gtk_bar_set_max_child_size(GTK_BAR(tb->bar),
@@ -1460,6 +1453,55 @@ static void save_config( plugin* p, FILE* fp )
     lxpanel_put_int( fp, "spacing", tb->spacing );
 }
 
+static void
+update_label_orient( GtkWidget* child, gpointer user_data )
+{
+    /* FIXME: gtk+ has only limited support for this, sigh! */
+    plugin* p = (plugin*)user_data;
+    if( GTK_IS_LABEL(child) ) {
+        gdouble angle;
+        if( p->panel->edge == EDGE_LEFT ) {
+            angle = 90.0;
+            /* FIXME: ellipsize cannot be used in conjunction with angle.
+                      This is the limit of gtk+, and turn off ellipsize do
+                      cause problems here. How can this be solved? Sigh!
+            */
+            gtk_label_set_ellipsize( child, PANGO_ELLIPSIZE_NONE );
+        }
+        else if( p->panel->edge == EDGE_RIGHT ) {
+            angle = 270.0;
+            gtk_label_set_ellipsize( child, PANGO_ELLIPSIZE_NONE );
+        }
+        else {
+            angle = 0.0;
+            gtk_label_set_ellipsize( child, PANGO_ELLIPSIZE_END );
+        }
+        gtk_label_set_angle( GTK_LABEL(child), angle );
+        gtk_misc_set_alignment(GTK_MISC(child), 0.0, 0.5);
+    }
+}
+
+static void orientation_changed( plugin* p )
+{
+    taskbar *tb = (taskbar *)p->priv;
+    GList *child, *children;
+
+    children = gtk_container_get_children( GTK_CONTAINER (tb->bar) );
+    for( child = children; child; child = child->next ) {
+        GtkWidget *button = GTK_WIDGET(child->data);
+        GtkBox *box = (GtkBox*)gtk_bin_get_child( GTK_BIN(button) );
+        GtkBox *newbox = recreate_box( box, p->panel->orientation );
+        if( newbox != box ) {
+            gtk_container_add( GTK_CONTAINER(button), newbox );
+        }
+        gtk_container_foreach( GTK_CONTAINER(newbox),
+                               update_label_orient, p );
+    }
+    g_list_free( children );
+
+    gtk_bar_set_orientation( tb->bar, p->panel->orientation );
+}
+
 plugin_class taskbar_plugin_class = {
     fname: NULL,
     count: 0,
@@ -1472,6 +1514,7 @@ plugin_class taskbar_plugin_class = {
     constructor : taskbar_constructor,
     destructor  : taskbar_destructor,
     config : taskbar_config,
-    save : save_config
+    save : save_config,
+    orientation : orientation_changed
 };
 

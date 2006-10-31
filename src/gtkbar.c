@@ -21,7 +21,7 @@
  * Modified by the GTK+ Team and others 1997-2000.  See the AUTHORS
  * file for a list of people on the GTK+ Team.  See the ChangeLog
  * files for a list of changes.  These files are distributed with
- * GTK+ at ftp://ftp.gtk.org/pub/gtk/. 
+ * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
 #include "gtkbar.h"
@@ -88,7 +88,7 @@ gtk_bar_init (GtkBar *bar)
 }
 
 GtkWidget*
-gtk_bar_new (GtkBarOrientation orient, gint spacing)
+gtk_bar_new (GtkOrientation orient, gint spacing)
 {
     GtkBar *bar;
 
@@ -123,7 +123,7 @@ gtk_bar_size_request (GtkWidget *widget, GtkRequisition *requisition)
             GtkRequisition child_requisition;
 
             gtk_widget_size_request (child->widget, &child_requisition);
-            if (bar->orient == GTK_BAR_HORIZ)
+            if (bar->orient == GTK_ORIENTATION_HORIZONTAL)
                 requisition->height = MAX (requisition->height, child_requisition.height);
             else
                 requisition->width = MAX (requisition->width, child_requisition.width);
@@ -132,7 +132,7 @@ gtk_bar_size_request (GtkWidget *widget, GtkRequisition *requisition)
     }
 
     if (nvis_children > 0) {
-        if (bar->orient == GTK_BAR_HORIZ) {
+        if (bar->orient == GTK_ORIENTATION_HORIZONTAL) {
             requisition->width = nvis_children * GTK_BAR(widget)->max_child_size;
             requisition->width += (nvis_children - 1) * box->spacing;
         } else {
@@ -177,11 +177,11 @@ gtk_bar_size_allocate (GtkWidget     *widget,
     gtk_widget_queue_draw(widget);
     if (nvis_children == 0)
         RET();
-    
+
     child_allocation.x = allocation->x + bw;
     child_allocation.y = allocation->y + bw;
 
-    if (bar->orient == GTK_BAR_HORIZ) {
+    if (bar->orient == GTK_ORIENTATION_HORIZONTAL) {
         child_allocation.height = MAX (1, (gint) allocation->height - bw * 2);
         tmp = (allocation->width - bw * 2 - (nvis_children - 1) * box->spacing);
         child_allocation.width = MAX (1, MIN(tmp / nvis_children, bar->max_child_size));
@@ -190,7 +190,7 @@ gtk_bar_size_allocate (GtkWidget     *widget,
         tmp = (allocation->height - bw * 2 - (nvis_children - 1) * box->spacing);
         child_allocation.height = MAX (1, MIN(tmp / nvis_children, bar->max_child_size));
     }
-    
+
     children = box->children;
     while (children) {
         child = children->data;
@@ -200,7 +200,7 @@ gtk_bar_size_allocate (GtkWidget     *widget,
             gtk_widget_size_allocate (child->widget, &child_allocation);
             bar->maxx = child_allocation.x;
             bar->maxy = child_allocation.y;
-            if (bar->orient == GTK_BAR_HORIZ)
+            if (bar->orient == GTK_ORIENTATION_HORIZONTAL)
                 child_allocation.x += child_allocation.width + box->spacing;
             else
                 child_allocation.y += child_allocation.height + box->spacing;
@@ -218,7 +218,7 @@ void
 gtk_bar_set_max_child_size(GtkBar *bar, gint size)
 {
     g_return_if_fail (GTK_IS_BAR (bar));
-    
+
     if (size != bar->max_child_size) {
         bar->max_child_size = size;
         //g_object_notify (G_OBJECT (bar), "spacing");
@@ -234,7 +234,7 @@ gtk_bar_expose (GtkWidget *widget, GdkEventExpose *event)
 
     if (GTK_WIDGET_DRAWABLE (widget)) {
         int w, h;
-        
+
         w = GTK_BAR(widget)->maxx;
         h = GTK_BAR(widget)->maxy;
         DBG("w, h = %d,%d\n", w, h);
@@ -247,3 +247,11 @@ gtk_bar_expose (GtkWidget *widget, GdkEventExpose *event)
     RET(FALSE);
 }
 #endif
+
+void gtk_bar_set_orientation( GtkBar *bar, GtkOrientation ori )
+{
+    if( ori == bar->orient )
+        return;
+    bar->orient = ori;
+    gtk_widget_queue_resize( GTK_WIDGET(bar) );
+}

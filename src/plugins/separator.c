@@ -28,12 +28,12 @@ separator_constructor(plugin *p, char **fp)
     /*
     g_signal_connect(G_OBJECT(eb), "expose_event",
           G_CALLBACK(gtk_widget_queue_draw), NULL);
-	  */
+    */
     sep = p->panel->my_separator_new();
     gtk_widget_show(sep);
     gtk_container_add (GTK_CONTAINER (eb), sep);
     gtk_container_add(GTK_CONTAINER(p->pwid), eb);
-    p->priv = g_new0(int, 1); /* just to alloc smth */
+    p->priv = eb; /* just to alloc smth */
 
     RET(1);
 }
@@ -42,10 +42,28 @@ static void
 separator_destructor(plugin *p)
 {
     ENTER;
-    g_free(p->priv);
+    GtkWidget* eb = (GtkEventBox*)p->priv;
+    gtk_widget_destroy( eb );
     RET();
 }
 
+static void orientation_changed( plugin* p )
+{
+    GtkWidget* eb = (GtkEventBox*)p->priv;
+    GtkWidget* sep = gtk_bin_get_child( GTK_BIN(eb) );
+    if( GTK_IS_VSEPARATOR(sep) ) {
+        if( p->panel->orientation == GTK_ORIENTATION_HORIZONTAL )
+            return;
+    }
+    else {
+        if( p->panel->orientation == GTK_ORIENTATION_VERTICAL )
+            return;
+    }
+    gtk_widget_destroy( sep );
+    sep = p->panel->my_separator_new();
+    gtk_widget_show(sep);
+    gtk_container_add (GTK_CONTAINER (eb), sep);
+}
 
 plugin_class separator_plugin_class = {
     fname: NULL,
@@ -59,5 +77,6 @@ plugin_class separator_plugin_class = {
     constructor : separator_constructor,
     destructor  : separator_destructor,
     config : NULL,
-    save : NULL
+    save : NULL,
+    orientation : orientation_changed
 };
