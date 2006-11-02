@@ -1,5 +1,5 @@
 AC_PREREQ(2.53)
-AC_INIT(lxpanel, 0.2.0, http://lxpanel.sourceforge.net/)
+AC_INIT(lxpanel, 0.2.1, http://lxpanel.sourceforge.net/)
 AM_INIT_AUTOMAKE()
 AC_CONFIG_SRCDIR([src/bg.c])
 AC_CONFIG_HEADER([config.h])
@@ -110,7 +110,7 @@ AM_GNU_GETTEXT_VERSION(0.14.1)
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package.])
 
-ALL_LINGUAS="zh_TW ko"
+ALL_LINGUAS="zh_TW ko hu"
 AM_GLIB_GNU_GETTEXT
 
 AC_CONFIG_FILES([

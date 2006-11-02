@@ -20,7 +20,7 @@ INCLUDES = \
 PLUGINS_SOURCES= \
 	deskno.c \
 	launchbar.c \
-	ptk-app-menu.c \
+	ptk-app-menu.c ptk-app-menu.h \
 	taskbar.c \
 	dclock.c \
 	icons.c \

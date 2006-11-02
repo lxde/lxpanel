@@ -3,7 +3,12 @@
 SUBDIRS = src po data
 
 EXTRA_DIST = \
-	autogen.sh
+	autogen.sh \
+        mkinstalldirs \
+        autogen.sh \
+        intltool-extract.in \
+        intltool-merge.in \
+        intltool-update.in
 
 ##desktopdir = $(datadir)/applications
 ##desktop_DATA = pcmanfm.desktop
