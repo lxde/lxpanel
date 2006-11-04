@@ -5,7 +5,7 @@ INCLUDES = \
 
 module_LTLIBRARIES = netstatus.la
 
-moduledir = ${prefix}/share/lxpanel/plugins
+moduledir = $(libdir)/lxpanel/plugins
 
 netstatus_la_SOURCES = \
 	netstatus-dialog.h \

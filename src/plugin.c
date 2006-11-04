@@ -141,7 +141,7 @@ plugin_load(char *type)
         LOG(LOG_INFO, "   %s ... %s\n", str->str, m ? "ok" : "no");
         if (!m) {
             DBG("error is %s\n", g_module_error());
-            g_string_printf(str, PACKAGE_DATA_DIR "/lxpanel/plugins/%s.so", type);
+            g_string_printf(str, PACKAGE_LIB_DIR "/lxpanel/plugins/%s.so", type);
             m = g_module_open(str->str, G_MODULE_BIND_LAZY);
             LOG(LOG_INFO, "   %s ... %s\n", str->str, m ? "ok" : "no");
             if (!m) {

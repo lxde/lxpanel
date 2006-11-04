@@ -7,6 +7,7 @@ bin_PROGRAMS = lxpanel lxpanelctl
 INCLUDES = \
 	-I$(top_srcdir) \
 	-I$(top_srcdir)/plugins \
+	-DPACKAGE_LIB_DIR=\""$(libdir)"\" \
 	-DPACKAGE_DATA_DIR=\""$(datadir)"\" \
 	-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
 	$(PACKAGE_CFLAGS)
