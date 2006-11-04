@@ -13,8 +13,8 @@ AC_PROG_INTLTOOL(, [no-xml])
 
 # Checks for libraries.
 pkg_modules="gtk+-2.0 >= 2.6.0 \
-             gthread-2.0 \
-             libstartup-notification-1.0"
+             gthread-2.0"
+#             libstartup-notification-1.0"
 PKG_CHECK_MODULES(PACKAGE, [$pkg_modules])
 AC_SUBST(PACKAGE_CFLAGS)
 AC_SUBST(PACKAGE_LIBS)
