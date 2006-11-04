@@ -451,7 +451,7 @@ get_netwm_icon(Window tkwin, int iw, int ih)
             if (src == NULL)
                 RET(NULL);
             ret = gdk_pixbuf_scale_ratio (src, iw, ih, GDK_INTERP_HYPER, TRUE);
-            g_object_unref(src);
+            g_object_unref(G_OBJECT(src));
         }
         XFree (data);
     }
@@ -1439,8 +1439,8 @@ static void taskbar_config( plugin* p, GtkWindow* parent )
 
     dlg =  create_generic_config_dlg(
                 _(p->class->name),
-                parent,
-                apply_config, p,
+                GTK_WIDGET(parent),
+                (GSourceFunc) apply_config, (gpointer) p,
                 _("Show tooltips"), &tb->tooltips, G_TYPE_BOOLEAN,
                 _("Icons only"), &tb->icons_only, G_TYPE_BOOLEAN,
                 _("Accept SkipPager"), &tb->accept_skip_pager, G_TYPE_BOOLEAN,
@@ -1452,7 +1452,7 @@ static void taskbar_config( plugin* p, GtkWindow* parent )
                 _("Max width of task button"), &tb->task_width_max, G_TYPE_INT,
                 _("Spacing"), &tb->spacing, G_TYPE_INT,
                 NULL );
-    gtk_window_present( dlg );
+    gtk_window_present( GTK_WINDOW(dlg) );
 }
 
 static void save_config( plugin* p, FILE* fp )
@@ -1483,15 +1483,15 @@ update_label_orient( GtkWidget* child, gpointer user_data )
                       This is the limit of gtk+, and turn off ellipsize do
                       cause problems here. How can this be solved? Sigh!
             */
-            gtk_label_set_ellipsize( child, PANGO_ELLIPSIZE_NONE );
+            gtk_label_set_ellipsize( GTK_LABEL(child), PANGO_ELLIPSIZE_NONE );
         }
         else if( p->panel->edge == EDGE_RIGHT ) {
             angle = 270.0;
-            gtk_label_set_ellipsize( child, PANGO_ELLIPSIZE_NONE );
+            gtk_label_set_ellipsize( GTK_LABEL(child), PANGO_ELLIPSIZE_NONE );
         }
         else {
             angle = 0.0;
-            gtk_label_set_ellipsize( child, PANGO_ELLIPSIZE_END );
+            gtk_label_set_ellipsize( GTK_LABEL(child), PANGO_ELLIPSIZE_END );
         }
         gtk_label_set_angle( GTK_LABEL(child), angle );
         gtk_misc_set_alignment(GTK_MISC(child), 0.0, 0.5);
@@ -1507,16 +1507,16 @@ static void orientation_changed( plugin* p )
     for( child = children; child; child = child->next ) {
         GtkWidget *button = GTK_WIDGET(child->data);
         GtkBox *box = (GtkBox*)gtk_bin_get_child( GTK_BIN(button) );
-        GtkBox *newbox = recreate_box( box, p->panel->orientation );
+        GtkBox *newbox = GTK_BOX(recreate_box( box, p->panel->orientation ));
         if( newbox != box ) {
-            gtk_container_add( GTK_CONTAINER(button), newbox );
+            gtk_container_add( GTK_CONTAINER(button), GTK_WIDGET(newbox) );
         }
         gtk_container_foreach( GTK_CONTAINER(newbox),
                                update_label_orient, p );
     }
     g_list_free( children );
 
-    gtk_bar_set_orientation( tb->bar, p->panel->orientation );
+    gtk_bar_set_orientation( GTK_BAR(tb->bar), p->panel->orientation );
 }
 
 plugin_class taskbar_plugin_class = {

@@ -313,10 +313,11 @@ read_system_menu(GtkMenu* menu, plugin *p, char** fp)
 static void
 read_include(plugin *p, char **fp)
 {
+    ENTER;
+#if 0
     gchar *name;
     line s;
     menup *m = (menup *)p->priv;
-#if 0
     /* FIXME: this is disabled */
     ENTER;
     s.len = 256;

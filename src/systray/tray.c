@@ -154,11 +154,11 @@ static void orientation_changed( plugin* p )
 {
     tray *tr = (tray *)p->priv;
     GtkBox* newbox;
-    newbox = recreate_box( tr->box, p->panel->orientation );
-    if( newbox != tr->box ) {
+    newbox = GTK_BOX(recreate_box( GTK_BOX(tr->box), p->panel->orientation ));
+    if( GTK_WIDGET(newbox) != tr->box ) {
         /* Since the old box has been destroyed,
         we need to re-add the new box to the container */
-        tr->box = newbox;
+        tr->box = GTK_WIDGET(newbox);
         gtk_container_add(GTK_CONTAINER(p->pwid), tr->box);
     }
 }

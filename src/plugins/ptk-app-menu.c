@@ -183,8 +183,9 @@ static void app_dirs_foreach( GFunc func, gpointer user_data );
 
 static int compare_menu_item_titles( gpointer a, gpointer b )
 {
-    char* title_a = gtk_label_get_text( gtk_bin_get_child(GTK_BIN(a)) );
-    char* title_b = gtk_label_get_text( gtk_bin_get_child(GTK_BIN(b)) );
+    const gchar *title_a, *title_b;
+    title_a = gtk_label_get_text( GTK_LABEL(gtk_bin_get_child(GTK_BIN(a))) );
+    title_b = gtk_label_get_text( GTK_LABEL(gtk_bin_get_child(GTK_BIN(b))) );
     return g_ascii_strcasecmp(title_a, title_b);
 }
 
@@ -192,7 +193,7 @@ static int find_menu_item_by_name( gpointer a, gpointer b )
 {
     PtkAppMenuItem* data = g_object_get_qdata( G_OBJECT(a), data_id );
     const char* name = (char*)b;
-    return strcmp(data->name, b);
+    return strcmp(data->name, name);
 }
 
 /* Moved to misc.c of lxpanel to be used in other plugins */
@@ -276,7 +277,7 @@ static gboolean on_menu_item_expose( GtkWidget* item,
     PtkAppMenuItem* data = (PtkAppMenuItem*)user_data;
     if( !data )
         return FALSE;
-    img = gtk_image_menu_item_get_image(item);
+    img = GTK_WIDGET(gtk_image_menu_item_get_image((GtkImageMenuItem *) item));
     if( img )
         return FALSE;
     if( G_UNLIKELY(!data) || G_UNLIKELY(!data->icon) )
@@ -305,9 +306,9 @@ static gboolean on_menu_item_expose( GtkWidget* item,
     else
     {
         img = gtk_image_new();
-        gtk_image_set_pixel_size( img, ICON_SIZE );
+        gtk_image_set_pixel_size( GTK_IMAGE(img), ICON_SIZE );
     }
-    gtk_image_menu_item_set_image( item, img );
+    gtk_image_menu_item_set_image( (GtkImageMenuItem *) item, img );
     return FALSE;
 }
 
@@ -344,10 +345,10 @@ static void do_load_dir( int prefix_len,
 
     file = g_key_file_new();
 
-    while( name = g_dir_read_name( dir ) )
+    while( (name = g_dir_read_name( dir )) )
     {
         char* fpath;
-        char **cats, **cat;
+        char **cats;
         char **only_show_in;
 
         if( name[0] =='.' )
@@ -399,7 +400,7 @@ static void do_load_dir( int prefix_len,
                         PtkAppMenuItem* data;
                         GList* prev;
                         prev =g_list_find_custom( sub_menus[i], (fpath + prefix_len),
-                                                                                                            find_menu_item_by_name );
+					          (GCompareFunc) find_menu_item_by_name );
                         if( ! prev )
                         {
                             menu_item = gtk_image_menu_item_new_with_label( title );
@@ -410,7 +411,7 @@ static void do_load_dir( int prefix_len,
                             GtkLabel* label;
                             menu_item = GTK_WIDGET(prev->data);
                             label = GTK_LABEL(gtk_bin_get_child(GTK_BIN(menu_item)));
-                            data = (PtkAppMenuItem*)g_object_get_qdata( menu_item, data_id );
+                            data = (PtkAppMenuItem*)g_object_get_qdata( G_OBJECT(menu_item), data_id );
                             gtk_label_set_text( label, title );
                             g_free( data->name );
                             g_free( data->exec );
@@ -419,8 +420,10 @@ static void do_load_dir( int prefix_len,
                         data->name = g_strdup( fpath + prefix_len );
                         data->exec = exec ? translate_exec_to_cmd( exec, data->icon, title, fpath ) : NULL;
                         g_free( title );
-                        g_signal_connect( menu_item, "expose-event", on_menu_item_expose, data );
-                        g_signal_connect( menu_item, "size-request", on_menu_item_size_request, data );
+                        g_signal_connect( menu_item, "expose-event", 
+					  G_CALLBACK(on_menu_item_expose), data );
+                        g_signal_connect( menu_item, "size-request", 
+					  G_CALLBACK(on_menu_item_size_request), data );
                         icon = g_strdup( g_key_file_get_string( file, desktop_ent, "Icon", NULL) );
                         if( icon )
                         {
@@ -431,9 +434,13 @@ static void do_load_dir( int prefix_len,
                         data->icon = icon;
                         if( !prev )
                         {
-                            g_signal_connect( menu_item, "activate", on_app_menu_item_activate, data );
-                            g_object_set_qdata_full( menu_item, data_id, data, ptk_app_menu_item_free );
-                            sub_menus[i] = g_list_insert_sorted( sub_menus[i], menu_item,compare_menu_item_titles );
+                            g_signal_connect( menu_item, "activate", 
+					      G_CALLBACK(on_app_menu_item_activate), data );
+                            g_object_set_qdata_full( G_OBJECT(menu_item), data_id, data, 
+						     (GDestroyNotify) ptk_app_menu_item_free );
+                            sub_menus[i] = g_list_insert_sorted( sub_menus[i], 
+					             (gpointer) menu_item,
+					             (GCompareFunc) compare_menu_item_titles );
                         }
                     } /* if( title ) */
                     g_free( exec );
@@ -452,6 +459,7 @@ static void load_dir( const char* path, GList** sub_menus )
     do_load_dir( strlen( path ) + 1, path, sub_menus );
 }
 
+#if defined( PTK_APP_MENU_DEMO )
 static GtkWidget* app_menu = NULL;
 static void on_menu( GtkWidget* btn, gpointer user_data )
 {
@@ -465,6 +473,7 @@ static void on_menu( GtkWidget* btn, gpointer user_data )
         app_menu = ptk_app_menu_new();
     gtk_menu_popup(GTK_MENU(app_menu), NULL, NULL, NULL, NULL, 0, 0 );
 }
+#endif
 
 void on_app_menu_destroy( gpointer user_data, GObject* menu )
 {
@@ -507,7 +516,7 @@ void ptk_app_menu_insert_items( GtkMenu* menu, int position )
       PtkAppMenuItem* data;
       if( ! (sub_items = sub_menus[i]) )
          continue;
-      sub_menu = gtk_menu_new();
+      sub_menu = GTK_MENU(gtk_menu_new());
 
       for( l = sub_items; l; l = l->next )
          gtk_menu_shell_append( GTK_MENU_SHELL(sub_menu), GTK_WIDGET(l->data) );

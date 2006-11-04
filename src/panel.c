@@ -487,10 +487,10 @@ void panel_set_orientation(panel *p)
 
     /* recreate the main layout box */
     if( p->box ) {
-        GtkBox* newbox = recreate_box( p->box, p->orientation );
-        if( newbox != p->box ) {
-            p->box = newbox;
-            gtk_container_add( p->bbox, newbox );
+        GtkBox* newbox = GTK_BOX(recreate_box( GTK_BOX(p->box), p->orientation ));
+        if( GTK_WIDGET(newbox) != p->box ) {
+            p->box = GTK_WIDGET(newbox);
+            gtk_container_add( GTK_CONTAINER(p->bbox), GTK_WIDGET(newbox) );
         }
     }
     /* NOTE: This loop won't be executed when panel started since
@@ -669,7 +669,6 @@ int
 panel_start( panel *p, char **fp )
 {
     line s;
-    long pos;
 
     /* parse global section */
     ENTER;
@@ -810,7 +809,6 @@ int
 main(int argc, char *argv[], char *env[])
 {
     int i;
-    int quit = 0;
     void configure();
     char *fp, *pfp; /* point to current position of profile data in memory */
 

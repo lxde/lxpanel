@@ -84,7 +84,6 @@ dclock_constructor(plugin *p, char** fp)
 {
     line s;
     dclock *dc;
-    char output [40] ;
 
     ENTER;
     dc = g_new0(dclock, 1);
@@ -189,13 +188,13 @@ static void dclock_config( plugin *p, GtkWindow* parent )
     GtkWidget* dlg;
     dclock *dc = (dclock *)p->priv;
     dlg = create_generic_config_dlg( _(p->class->name),
-                                     parent,
-                                     apply_config, p,
+                                     GTK_WIDGET(parent),
+                                    (GSourceFunc) apply_config, (gpointer) p,
                                      _("Clock Format"), &dc->cfmt, G_TYPE_STRING,
                                      _("Tooltip Format"), &dc->tfmt, G_TYPE_STRING,
                                      _("Action"), &dc->action, G_TYPE_STRING,
                                      NULL );
-    gtk_window_present( dlg );
+    gtk_window_present( GTK_WINDOW(dlg) );
 }
 
 static void save_config( plugin* p, FILE* fp )

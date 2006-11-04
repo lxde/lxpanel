@@ -400,11 +400,11 @@ static void orientation_changed( plugin* p )
 {
     launchbar *lb = (launchbar *)p->priv;
     GtkBox* newbox;
-    newbox = recreate_box( lb->box, p->panel->orientation );
-    if( newbox != lb->box ) {
+    newbox = GTK_BOX(recreate_box( GTK_BOX(lb->box), p->panel->orientation ));
+    if( GTK_WIDGET(newbox) != lb->box ) {
         /* Since the old box has been destroyed,
         we need to re-add the new box to the container */
-        lb->box = newbox;
+        lb->box = GTK_WIDGET(newbox);
         gtk_container_add(GTK_CONTAINER(p->pwid), lb->box);
     }
 }

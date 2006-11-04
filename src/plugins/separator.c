@@ -42,14 +42,14 @@ static void
 separator_destructor(plugin *p)
 {
     ENTER;
-    GtkWidget* eb = (GtkEventBox*)p->priv;
+    GtkWidget* eb = GTK_WIDGET((GtkEventBox*)p->priv);
     gtk_widget_destroy( eb );
     RET();
 }
 
 static void orientation_changed( plugin* p )
 {
-    GtkWidget* eb = (GtkEventBox*)p->priv;
+    GtkWidget* eb = GTK_WIDGET((GtkEventBox*)p->priv);
     GtkWidget* sep = gtk_bin_get_child( GTK_BIN(eb) );
     if( GTK_IS_VSEPARATOR(sep) ) {
         if( p->panel->orientation == GTK_ORIENTATION_HORIZONTAL )

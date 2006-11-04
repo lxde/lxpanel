@@ -1127,21 +1127,22 @@ GtkWidget* recreate_box( GtkBox* oldbox, GtkOrientation orientation )
 
     if( GTK_IS_HBOX(oldbox) ) {
         if( orientation == GTK_ORIENTATION_HORIZONTAL )
-            return oldbox;
+            return GTK_WIDGET(oldbox);
     }
     else {
         if( orientation == GTK_ORIENTATION_VERTICAL )
-            return oldbox;
+            return GTK_WIDGET(oldbox);
     }
     my_box_new = orientation == GTK_ORIENTATION_HORIZONTAL ? gtk_hbox_new : gtk_vbox_new;
 
-    newbox = my_box_new( gtk_box_get_homogeneous(oldbox),
-                         gtk_box_get_spacing(oldbox) );
+    newbox = GTK_BOX(my_box_new( gtk_box_get_homogeneous(oldbox),
+                                 gtk_box_get_spacing(oldbox) ));
     gtk_container_set_border_width (GTK_CONTAINER (newbox),
-                                    gtk_container_get_border_width(oldbox) );
+                                    gtk_container_get_border_width(GTK_CONTAINER(oldbox)) );
     children = gtk_container_get_children( GTK_CONTAINER (oldbox) );
     for( child = children; child; child = child->next ) {
-        gboolean expand, fill, padding;
+        gboolean expand, fill;
+	guint padding;
         GtkWidget* w = GTK_WIDGET(child->data);
         gtk_box_query_child_packing( oldbox, w,
                                      &expand, &fill, &padding, NULL );
@@ -1151,9 +1152,9 @@ GtkWidget* recreate_box( GtkBox* oldbox, GtkOrientation orientation )
         g_object_unref( w );
     }
     g_list_free( children );
-    gtk_widget_show_all(newbox);
-    gtk_widget_destroy( oldbox );
-    return newbox;
+    gtk_widget_show_all( GTK_WIDGET(newbox) );
+    gtk_widget_destroy( GTK_WIDGET(oldbox) );
+    return GTK_WIDGET(newbox);
 }
 
 void show_error( GtkWindow* parent_win, const char* msg )

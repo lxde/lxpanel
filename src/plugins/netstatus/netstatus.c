@@ -128,8 +128,8 @@ static void netstatus_config( plugin* p, GtkWindow* parent  )
     netstatus *ns = (netstatus*)p->priv;
     dlg = create_generic_config_dlg(
                 _(p->class->name),
-                parent,
-                apply_config, p,
+                GTK_WIDGET(parent),
+                (GSourceFunc) apply_config, p,
                 _("Interface to monitor"), &ns->iface, G_TYPE_STRING,
                 _("Config tool"), &ns->config_tool, G_TYPE_STRING,
                 NULL );

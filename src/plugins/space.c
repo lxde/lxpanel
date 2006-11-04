@@ -108,10 +108,10 @@ static void space_config(plugin* p, GtkWindow* parent )
     GtkWidget* dlg;
     space *sp = (space *)p->priv;
     dlg =  create_generic_config_dlg( _(p->class->name),
-                                     parent,
-                                     apply_config, p,
+                                     GTK_WIDGET(parent),
+                                     (GSourceFunc) apply_config, (gpointer) p,
                                      _("Size"), &sp->size, G_TYPE_INT,  NULL );
-    gtk_window_present( dlg );
+    gtk_window_present( GTK_WINDOW(dlg) );
 }
 
 static void save_config( plugin* p, FILE* fp )

@@ -257,7 +257,7 @@ mk_position()
     margin_spinb = gtk_spin_button_new (margin_adj, 1.0, 0);
     gtk_spin_button_set_value(GTK_SPIN_BUTTON(margin_spinb), p->margin);
     g_signal_connect( margin_spinb, "value-changed",
-                      set_margin, NULL);
+                      G_CALLBACK(set_margin), NULL);
     gtk_table_attach(GTK_TABLE(t), margin_spinb, 3, 4, 1, 2, GTK_FILL, 0, 0, 0);
     gtk_table_set_col_spacing(GTK_TABLE(t), 1, 20);
 
@@ -536,9 +536,9 @@ on_sel_plugin_changed( GtkTreeSelection* tree_sel, GtkWidget* label )
     if( gtk_tree_selection_get_selected( tree_sel, &model, &it ) )
     {
         GtkTreeView* view = gtk_tree_selection_get_tree_view( tree_sel );
-        GtkWidget *edit_btn = (GtkWidget*)g_object_get_data( (GtkWidget*)view, "edit_btn" );
+        GtkWidget *edit_btn = GTK_WIDGET(g_object_get_data( G_OBJECT(view), "edit_btn" ));
         gtk_tree_model_get( model, &it, 1, &pl, -1 );
-        gtk_label_set_text( label, _(pl->class->description) );
+        gtk_label_set_text( GTK_LABEL(label), _(pl->class->description) );
         gtk_widget_set_sensitive( edit_btn, pl->class->config != NULL );
     }
 }
@@ -620,7 +620,7 @@ void modify_plugin( GtkTreeView* view )
 
     gtk_tree_model_get( model, &it, 1, &pl, -1 );
     if( pl->class->config )
-        pl->class->config( pl, (GtkWindow*)gtk_widget_get_toplevel(view) );
+        pl->class->config( pl, (GtkWindow*)gtk_widget_get_toplevel(GTK_WIDGET(view)) );
 }
 
 static int get_widget_index( plugin* pl )
@@ -669,7 +669,7 @@ static void on_moveup_plugin(  GtkButton* btn, GtkTreeView* view )
             }
             if( pl->pwid )
             {
-                gtk_box_reorder_child( p->box, pl->pwid, get_widget_index( pl ) );
+                gtk_box_reorder_child( GTK_BOX(p->box), pl->pwid, get_widget_index( pl ) );
             }
             return;
         }
@@ -683,7 +683,6 @@ static void on_movedown_plugin(  GtkButton* btn, GtkTreeView* view )
     GtkTreeIter it, next;
     GtkTreeModel* model;
     GtkTreeSelection* tree_sel = gtk_tree_view_get_selection( view );
-    GtkTreePath* path;
     plugin* pl;
     int i;
 
@@ -709,27 +708,30 @@ static void on_movedown_plugin(  GtkButton* btn, GtkTreeView* view )
     }
     if( pl->pwid )
     {
-        gtk_box_reorder_child( p->box, pl->pwid, get_widget_index( pl ) );
+        gtk_box_reorder_child( GTK_BOX(p->box), pl->pwid, get_widget_index( pl ) );
     }
 }
 
 static GtkWidget *
 mk_tab_plugins()
 {
-    GtkWidget *sw, *paned, *hbox, *vbox, *rvbox, *label, *bin;
-    GtkWidget *scroll, *plugin_list, *button, *image;
+    GtkWidget *hbox, *vbox, *label;
+    GtkWidget *scroll, *plugin_list, *button;
 
     hbox = gtk_hbox_new( FALSE, 2 );
 
     vbox = gtk_vbox_new( FALSE, 2 );
-    gtk_box_pack_start( hbox, vbox, TRUE, TRUE, 2 );
+    gtk_box_pack_start( GTK_BOX(hbox), vbox, TRUE, TRUE, 2 );
 
     /* Left pane */
     plugin_list = gtk_tree_view_new();
     /* plugin list */
     scroll = gtk_scrolled_window_new(NULL, NULL);
-    gtk_scrolled_window_set_policy( scroll, GTK_POLICY_AUTOMATIC,GTK_POLICY_AUTOMATIC);
-    gtk_scrolled_window_set_shadow_type( scroll, GTK_SHADOW_IN );
+    gtk_scrolled_window_set_policy( GTK_SCROLLED_WINDOW(scroll), 
+		                    GTK_POLICY_AUTOMATIC,
+				    GTK_POLICY_AUTOMATIC);
+    gtk_scrolled_window_set_shadow_type( GTK_SCROLLED_WINDOW(scroll), 
+		                         GTK_SHADOW_IN );
     gtk_container_add( GTK_CONTAINER(scroll), plugin_list );
     gtk_box_pack_start( GTK_BOX( vbox ), scroll, TRUE, TRUE, 4 );
 
@@ -752,19 +754,23 @@ mk_tab_plugins()
     button = gtk_button_new_from_stock( GTK_STOCK_EDIT );
     gtk_box_pack_start( GTK_BOX( vbox ), button, FALSE, FALSE, 2 );
     g_signal_connect_swapped( button, "clicked", G_CALLBACK(modify_plugin), plugin_list );
-    g_object_set_data( plugin_list, "edit_btn", button );
+    g_object_set_data( G_OBJECT(plugin_list), "edit_btn", button );
 
     button = gtk_button_new_from_stock( GTK_STOCK_REMOVE );
     gtk_box_pack_start( GTK_BOX( vbox ), button, FALSE, FALSE, 2 );
     g_signal_connect( button, "clicked", G_CALLBACK(on_remove_plugin), plugin_list );
 
     button = gtk_button_new();
-    gtk_container_add( button, gtk_image_new_from_stock(GTK_STOCK_GO_UP, GTK_ICON_SIZE_BUTTON) );
+    gtk_container_add( GTK_CONTAINER(button), 
+		       gtk_image_new_from_stock(GTK_STOCK_GO_UP, 
+			                        GTK_ICON_SIZE_BUTTON) );
     gtk_box_pack_start( GTK_BOX( vbox ), button, FALSE, FALSE, 2 );
     g_signal_connect( button, "clicked", G_CALLBACK(on_moveup_plugin), plugin_list );
 
     button = gtk_button_new();
-    gtk_container_add( button, gtk_image_new_from_stock(GTK_STOCK_GO_DOWN, GTK_ICON_SIZE_BUTTON) );
+    gtk_container_add( GTK_CONTAINER(button), 
+		       gtk_image_new_from_stock(GTK_STOCK_GO_DOWN, 
+			                        GTK_ICON_SIZE_BUTTON) );
     gtk_box_pack_start( GTK_BOX( vbox ), button, FALSE, FALSE, 2 );
     g_signal_connect( button, "clicked", G_CALLBACK(on_movedown_plugin), plugin_list );
 
@@ -827,7 +833,7 @@ mk_dialog()
     g_signal_connect (G_OBJECT(dialog), "destroy",      (GCallback) dialog_destroy_event, NULL);
     g_signal_connect (G_OBJECT(dialog), "delete_event", (GCallback) dialog_delete_event,  NULL);
     gtk_window_set_modal(GTK_WINDOW(dialog), FALSE);
-    gtk_window_set_position( dialog, GTK_WIN_POS_CENTER );
+    gtk_window_set_position( GTK_WINDOW(dialog), GTK_WIN_POS_CENTER );
 
     /*
     gtk_window_set_skip_taskbar_hint(GTK_WINDOW(dialog), TRUE);
@@ -976,9 +982,9 @@ static void notify_apply_config( GtkWidget* widget )
     GtkWidget* dlg;
 
     dlg = gtk_widget_get_toplevel( widget );
-    apply_func = g_object_get_data( dlg, "apply_func" );
+    apply_func = g_object_get_data( G_OBJECT(dlg), "apply_func" );
     if( apply_func )
-        apply_func( g_object_get_data(dlg, "plugin") );
+        apply_func( g_object_get_data(G_OBJECT(dlg), "plugin") );
 }
 
 static void on_entry_changed( GtkEditable* edit, gpointer user_data )
@@ -986,21 +992,21 @@ static void on_entry_changed( GtkEditable* edit, gpointer user_data )
     char** val = (char**)user_data;
     g_free( *val );
     *val = g_strdup( gtk_entry_get_text(GTK_ENTRY(edit)) );
-    notify_apply_config( edit );
+    notify_apply_config( GTK_WIDGET(edit) );
 }
 
 static void on_spin_changed( GtkSpinButton* spin, gpointer user_data )
 {
     int* val = (int*)user_data;
     *val = (int)gtk_spin_button_get_value( spin );
-    notify_apply_config( spin );
+    notify_apply_config( GTK_WIDGET(spin) );
 }
 
 static void on_toggle_changed( GtkToggleButton* btn, gpointer user_data )
 {
     gboolean* val = (gboolean*)user_data;
     *val = gtk_toggle_button_get_active( btn );
-    notify_apply_config( btn );
+    notify_apply_config( GTK_WIDGET(btn) );
 }
 
 /* Parameters: const char* name, gpointer ret_value, GType type, ....NULL */
@@ -1009,7 +1015,7 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
                                       const char* name, ... )
 {
     va_list args;
-    GtkWidget* dlg = gtk_dialog_new_with_buttons( title, parent, 0,
+    GtkWidget* dlg = gtk_dialog_new_with_buttons( title, GTK_WINDOW(parent), 0,
                                                   GTK_STOCK_CLOSE,
                                                   GTK_RESPONSE_CLOSE,
                                                   NULL );
@@ -1017,12 +1023,12 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
     /* this is a dirty hack.  We need to check if this response is GTK_RESPONSE_CLOSE or not. */
     g_signal_connect( dlg, "response", G_CALLBACK(gtk_widget_destroy), NULL );
     if( apply_func )
-        g_object_set_data( dlg, "apply_func", apply_func );
+        g_object_set_data( G_OBJECT(dlg), "apply_func", apply_func );
     if( plugin )
-        g_object_set_data( dlg, "plugin", plugin );
+        g_object_set_data( G_OBJECT(dlg), "plugin", plugin );
 
-    gtk_box_set_spacing( GTK_DIALOG(dlg)->vbox, 4 );
-    gtk_container_set_border_width( GTK_DIALOG(dlg)->vbox, 8 );
+    gtk_box_set_spacing( GTK_BOX(GTK_DIALOG(dlg)->vbox), 4 );
+    gtk_container_set_border_width( GTK_CONTAINER(GTK_DIALOG(dlg)->vbox), 8 );
 
     va_start( args, name );
     while( name )
@@ -1035,34 +1041,37 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
         {
             case G_TYPE_STRING:
                 entry = gtk_entry_new();
-                gtk_entry_set_text( entry, *(char**)val );
-                g_signal_connect( entry, "changed", on_entry_changed, val );
+                gtk_entry_set_text( GTK_ENTRY(entry), *(char**)val );
+                g_signal_connect( entry, "changed", 
+				  G_CALLBACK(on_entry_changed), val );
                 break;
             case G_TYPE_INT:
             {
                 /* FIXME: the range shouldn't be hardcoded */
                 entry = gtk_spin_button_new_with_range( 0, 1000, 1 );
-                gtk_spin_button_set_value( entry, *(int*)val );
-                g_signal_connect( entry, "value-changed", on_spin_changed, val );
+                gtk_spin_button_set_value( GTK_SPIN_BUTTON(entry), *(int*)val );
+                g_signal_connect( entry, "value-changed", 
+				  G_CALLBACK(on_spin_changed), val );
                 break;
             }
             case G_TYPE_BOOLEAN:
                 entry = gtk_check_button_new();
-                gtk_container_add( entry, label );
-                gtk_toggle_button_set_active( entry, *(gboolean*)val );
-                g_signal_connect( entry, "toggled", on_toggle_changed, val );
+                gtk_container_add( GTK_CONTAINER(entry), label );
+                gtk_toggle_button_set_active( GTK_TOGGLE_BUTTON(entry), *(gboolean*)val );
+                g_signal_connect( entry, "toggled", 
+				  G_CALLBACK(on_toggle_changed), val );
                 break;
         }
         if( entry )
         {
             if( type == G_TYPE_BOOLEAN )
-                gtk_box_pack_start( GTK_DIALOG(dlg)->vbox, entry, FALSE, FALSE, 2 );
+                gtk_box_pack_start( GTK_BOX(GTK_DIALOG(dlg)->vbox), entry, FALSE, FALSE, 2 );
             else
             {
                 GtkWidget* hbox = gtk_hbox_new( FALSE, 2 );
-                gtk_box_pack_start( hbox, label, FALSE, FALSE, 2 );
-                gtk_box_pack_start( hbox, entry, TRUE, TRUE, 2 );
-                gtk_box_pack_start( GTK_DIALOG(dlg)->vbox, hbox, FALSE, FALSE, 2 );
+                gtk_box_pack_start( GTK_BOX(hbox), label, FALSE, FALSE, 2 );
+                gtk_box_pack_start( GTK_BOX(hbox), entry, TRUE, TRUE, 2 );
+                gtk_box_pack_start( GTK_BOX(GTK_DIALOG(dlg)->vbox), hbox, FALSE, FALSE, 2 );
             }
         }
         name = va_arg( args, const char* );

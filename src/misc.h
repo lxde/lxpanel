@@ -83,4 +83,9 @@ GtkWidget* recreate_box( GtkBox* oldbox, GtkOrientation orientation );
 
 void show_error( GtkWindow* parent_win, const char* msg );
 
+/* Parameters: const char* name, gpointer ret_value, GType type, ....NULL */
+GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,                         
+		                      GSourceFunc apply_func, gpointer plugin,
+				      const char* name, ... );
+
 #endif
