@@ -317,7 +317,7 @@ netstatus_sysdeps_read_iface_wireless_details (const char *iface,
     {
       char *details;
       char *name;
-      int   link;
+      int   link = 0;
 
       name = buf;
       while (g_ascii_isspace (name [0]))

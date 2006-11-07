@@ -376,7 +376,7 @@ void panel_set_dock_type(panel *p)
     }
 }
 
-void
+static void
 panel_start_gui(panel *p)
 {
     Atom state[3];
@@ -665,7 +665,7 @@ panel_parse_plugin(panel *p, char **fp)
 }
 
 
-int
+static int
 panel_start( panel *p, char **fp )
 {
     line s;
@@ -743,7 +743,7 @@ void panel_stop(panel *p)
 }
 
 
-void
+static void
 usage()
 {
     ENTER;

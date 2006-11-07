@@ -375,86 +375,37 @@ free_pixels (guchar *pixels, gpointer data)
     RET();
 }
 
-
-static guchar *
-argbdata_to_pixdata (gulong *argb_data, int len)
-{
-    guchar *p, *ret;
-    int i;
-
-    ENTER;
-    ret = p = g_new (guchar, len * 4);
-    if (!ret)
-        RET(NULL);
-    /* One could speed this up a lot. */
-    i = 0;
-    while (i < len) {
-        guint32 argb;
-        guint32 rgba;
-
-        argb = argb_data[i];
-        rgba = (argb << 8) | (argb >> 24);
-
-        *p = rgba >> 24;
-        ++p;
-        *p = (rgba >> 16) & 0xff;
-        ++p;
-        *p = (rgba >> 8) & 0xff;
-        ++p;
-        *p = rgba & 0xff;
-        ++p;
-
-        ++i;
-    }
-    RET(ret);
-}
-
-
 static GdkPixbuf *
 get_netwm_icon(Window tkwin, int iw, int ih)
 {
-    gulong *data;
+    XWMHints *wmhints;
     GdkPixbuf *ret = NULL;
-    int n;
 
     ENTER;
-    data = get_xaproperty(tkwin, a_NET_WM_ICON, XA_CARDINAL, &n);
-    DBG("icon size = %d data = %p w=%ld h=%ld\n", n, data, data[0], data[1]);
+    wmhints = XGetWMHints( GDK_DISPLAY(), GDK_ROOT_WINDOW() );
 
-    if (0) {
-        gulong *tmp;
-        int len;
+    /*
+     * IconPixmapHint flag indicates that wmhints->icon_pixmap contains
+     * valid data that is already in pixdata format, so we could process
+     * it and turn it into a GTK image.
+     */
+    if( wmhints && (wmhints->flags & IconPixmapHint) ) {
+        GdkPixmap *gdkPixmap, *pixmap2;
+        GdkPixbuf *gdkPixbuf = NULL, *scaledPixbuf = NULL;
+	GdkColormap *colormap;
 
-        len = n/sizeof(gulong);
-        tmp = data;
-        while (len > 2) {
-            int size = tmp[0] * tmp[1];
-            DBG("sub-icon: %dx%d %d bytes\n", tmp[0], tmp[1], size * 4);
-            len -= size + 2;
-            tmp += size;
-        }
+        colormap = gdk_colormap_get_system();
+
+        gdkPixmap = gdk_pixmap_foreign_new(wmhints->icon_pixmap);
+        gdkPixbuf = gdk_pixbuf_get_from_drawable( 
+	                NULL, gdkPixmap, colormap, 0, 0, 0, 0, iw, ih );
+        scaledPixbuf = gdk_pixbuf_scale_simple( gdkPixbuf, 24, 24, GDK_INTERP_BILINEAR );
+        ret = gtk_image_new_from_pixbuf(scaledPixbuf );
+        gdk_pixbuf_unref(gdkPixbuf);
+        gdk_pixbuf_unref(scaledPixbuf);
+	XFree(wmhints);
     }
 
-    if (data) {
-        if (n > 2*sizeof(guint32)) {
-            guchar *p;
-            GdkPixbuf *src;
-            int w, h;
-
-            w = data[0];
-            h = data[1];
-            p = argbdata_to_pixdata(data + 2, w * h);
-            if (!p)
-                RET(NULL);
-            src = gdk_pixbuf_new_from_data (p, GDK_COLORSPACE_RGB, TRUE,
-                  8, w, h, w * 4, free_pixels, NULL);
-            if (src == NULL)
-                RET(NULL);
-            ret = gdk_pixbuf_scale_ratio (src, iw, ih, GDK_INTERP_HYPER, TRUE);
-            g_object_unref(G_OBJECT(src));
-        }
-        XFree (data);
-    }
     RET(ret);
 }
 
