@@ -1,3 +1,21 @@
+/**                                                                                                 
+ * Copyright (c) 2006 LxDE Developers, see the file AUTHORS for details.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ */
+
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
@@ -11,6 +29,7 @@
 #include <locale.h>
 #include <string.h>
 #include <glib/gi18n.h>
+#include <gdk/gdkx.h>
 
 #include "plugin.h"
 #include "panel.h"
@@ -24,7 +43,7 @@ static gchar *cfgfile = NULL;
 static gchar version[] = VERSION;
 gchar *cprofile = "default";
 
-int config = 0;
+static int config = 0;
 FbEv *fbev;
 
 //#define DEBUG
@@ -762,7 +781,7 @@ usage()
     g_print(_("\nVisit http://lxpanel.sourceforge.net/ for detailed documentation,\n\n"));
 }
 
-char*
+static char*
 load_profile(gchar *profile)
 {
     gchar *fname;
@@ -792,7 +811,7 @@ load_profile(gchar *profile)
     RET(NULL);
 }
 
-void
+static void
 handle_error(Display * d, XErrorEvent * ev)
 {
     char buf[256];
@@ -804,6 +823,67 @@ handle_error(Display * d, XErrorEvent * ev)
     }
     RET();
 }
+
+/* Lightweight lock related functions - X clipboard hacks */
+
+#define CLIPBOARD_NAME "LXPANEL_SELECTION"
+
+/*
+ * clipboard_get_func - dummy get_func for gtk_clipboard_set_with_data ()
+ */
+static void
+clipboard_get_func(
+    GtkClipboard *clipboard G_GNUC_UNUSED,
+    GtkSelectionData *selection_data G_GNUC_UNUSED,
+    guint info G_GNUC_UNUSED,
+    gpointer user_data_or_owner G_GNUC_UNUSED)
+{
+}
+
+/*
+ * clipboard_clear_func - dummy clear_func for gtk_clipboard_set_with_data ()
+ */
+static void clipboard_clear_func(
+    GtkClipboard *clipboard G_GNUC_UNUSED,
+    gpointer user_data_or_owner G_GNUC_UNUSED)
+{
+}
+
+/*
+ * Lightweight version for checking single instance.
+ * Try and get the CLIPBOARD_NAME clipboard instead of using file manipulation.
+ *
+ * Returns TRUE if successfully retrieved and FALSE otherwise.
+ */
+static gboolean check_main_lock() 
+{
+    static const GtkTargetEntry targets[] = { { CLIPBOARD_NAME, 0, 0 } };
+    gboolean retval = FALSE;
+    GtkClipboard *clipboard;
+    Atom atom;
+
+    atom = gdk_x11_get_xatom_by_name(CLIPBOARD_NAME);
+
+    XGrabServer(GDK_DISPLAY());
+
+    if (XGetSelectionOwner(GDK_DISPLAY(), atom) != None)
+        goto out;
+
+    clipboard = gtk_clipboard_get(gdk_atom_intern(CLIPBOARD_NAME, FALSE));
+
+    if (gtk_clipboard_set_with_data(clipboard, targets,
+                                    G_N_ELEMENTS (targets),
+                                    clipboard_get_func,
+                                    clipboard_clear_func, NULL))
+        retval = TRUE;
+
+out:
+    XUngrabServer (GDK_DISPLAY ());
+    gdk_flush ();
+
+    return retval;
+}
+#undef CLIPBOARD_NAME
 
 int
 main(int argc, char *argv[], char *env[])
@@ -859,6 +939,12 @@ main(int argc, char *argv[], char *env[])
             usage();
             exit(1);
         }
+    }
+
+    /* Check for duplicated panel instances */
+    if (!check_main_lock() && !config) {
+        printf("There is alreay an instance of LXPanel. Now to exit\n");
+        exit(1);
     }
 
     /* Add our own icons to the search path of icon theme */

@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
- *
- * Compile this program with following command line:
- * gcc `pkg-config gtk+-2.0 --cflags --libs` gtk-run.c -o gtk-run
- *
  */
 
 #include <gtk/gtk.h>
