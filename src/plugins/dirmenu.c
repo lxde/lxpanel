@@ -111,7 +111,7 @@ static void on_deselect( GtkMenuItem* item, GtkMenu* parent )
     gtk_menu_item_set_submenu( item, gtk_menu_new() );
 }
 
-GtkWidget* create_menu( const char* path, gboolean open_at_top )
+static GtkWidget* create_menu( const char* path, gboolean open_at_top )
 {
     GDir* dir;
     GtkWidget *menu = gtk_menu_new();
@@ -272,6 +272,12 @@ dirmenu_constructor(plugin *p, char **fp)
         w = p->panel->aw;
         h = 10000;
     }
+
+    /* FIXME: Failback image shouldn't be hardcoded.
+              This must be fixed before next release.
+     */
+    if (! fname)
+	    fname = strdup("gnome-system");
 
     dm->button = fb_button_new_from_file(fname, w, h, 0x202020, TRUE);
     gtk_container_set_border_width( GTK_CONTAINER(dm->button), 0 );
