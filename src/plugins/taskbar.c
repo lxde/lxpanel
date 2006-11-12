@@ -367,14 +367,6 @@ apply_mask (GdkPixbuf *pixbuf,
 }
 
 
-static void
-free_pixels (guchar *pixels, gpointer data)
-{
-    ENTER;
-    g_free (pixels);
-    RET();
-}
-
 static GdkPixbuf *
 get_netwm_icon(Window tkwin, int iw, int ih)
 {
@@ -390,8 +382,8 @@ get_netwm_icon(Window tkwin, int iw, int ih)
      * it and turn it into a GTK image.
      */
     if( wmhints && (wmhints->flags & IconPixmapHint) ) {
-        GdkPixmap *gdkPixmap, *pixmap2;
-        GdkPixbuf *gdkPixbuf = NULL, *scaledPixbuf = NULL;
+        GdkPixmap *gdkPixmap;
+        GdkPixbuf *gdkPixbuf = NULL;
 	GdkColormap *colormap;
 
         colormap = gdk_colormap_get_system();
@@ -399,10 +391,8 @@ get_netwm_icon(Window tkwin, int iw, int ih)
         gdkPixmap = gdk_pixmap_foreign_new(wmhints->icon_pixmap);
         gdkPixbuf = gdk_pixbuf_get_from_drawable( 
 	                NULL, gdkPixmap, colormap, 0, 0, 0, 0, iw, ih );
-        scaledPixbuf = gdk_pixbuf_scale_simple( gdkPixbuf, 24, 24, GDK_INTERP_BILINEAR );
-        ret = gtk_image_new_from_pixbuf(scaledPixbuf );
+        ret = gdk_pixbuf_scale_simple( gdkPixbuf, 24, 24, GDK_INTERP_BILINEAR );
         gdk_pixbuf_unref(gdkPixbuf);
-        gdk_pixbuf_unref(scaledPixbuf);
 	XFree(wmhints);
     }
 
