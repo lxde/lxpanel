@@ -1,0 +1,31 @@
+Source: lxpanel
+Section: x11
+Priority: extra
+Maintainer: PCMan <pcman.tw@gmail.com>
+Build-Depends: debhelper (>= 5), autotools-dev, libgtk2.0-dev (>=2.6), libglib2.0-dev(>=2.10), libxmu-dev
+Standards-Version: 3.7.2
+
+Package: lxpanel
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: pcmanfm
+Description: Lightweight yet feature-rich X11 desktop panel based on fbpanel
+ Lightweight X11 desktop panel based on fbpanel
+ It's the default desktop panel of LXDE project:
+ http://lxde.sourceforge.net/
+ . 
+ LXPanel is a lightweight X11 desktop panel contains:
+ 1. User-friendly application menu automatically generated from *.desktop files on the system.
+ 2. Launcher bar (Small icons clicked to launch apps)
+ 3. Task bar supporting urgency hint (Can flash when gaim gets new incoming messages)
+ 4. Notification area (System tray)
+ 5. Digital clock
+ 6. Run dialog (A dialog let you type a command and run, can be called in external programs)
+ 7. Net status icon plug-in (optional, ported from gnome-netstatus-applet)
+ 8. Volume control plug-in (optional, written by jserv)
+ 9. lxpanelctl, an external controller let you control lxpanel in other programs.
+    For example, "lxpanelctl run" will show the Run dialog in lxpanel, and "lxpanelctl 
+    menu" will show the application menu. This is useful in key bindings provided by 
+    window managers.
+ .
+ LXPanel is based on fbpanel originally written by Anatoly Asviyan.Please take a look at /usr/share/lxpanel/default to understand the configuration.
