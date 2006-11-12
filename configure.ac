@@ -4,6 +4,9 @@ AM_INIT_AUTOMAKE()
 AC_CONFIG_SRCDIR([src/bg.c])
 AC_CONFIG_HEADER([config.h])
 
+# Force to dynamic
+AC_DISABLE_STATIC
+
 # Checks for programs.
 AC_PROG_CC
 AC_PROG_INSTALL
