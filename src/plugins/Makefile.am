@@ -18,7 +18,6 @@ INCLUDES = \
 	$(PACKAGE_CFLAGS)
 
 PLUGINS_SOURCES= \
-	deskno.c \
 	launchbar.c \
 	ptk-app-menu.c ptk-app-menu.h \
 	taskbar.c \
@@ -26,7 +25,6 @@ PLUGINS_SOURCES= \
 	icons.c \
 	menu.c \
 	separator.c \
-	deskno2.c \
 	image.c \
 	pager.c \
 	space.c \

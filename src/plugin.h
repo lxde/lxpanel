@@ -78,6 +78,5 @@ void plugin_stop(plugin *this);
 #define STATIC_MENU
 #define STATIC_SPACE
 #define STATIC_ICONS
-#define STATIC_DESKNO
 
 #endif

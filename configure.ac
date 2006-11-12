@@ -34,6 +34,7 @@ dnl Here are plugin listing.
 plugin_netstatus=
 plugin_volume=
 plugin_cpu=
+plugin_deskno=
 
 AC_MSG_CHECKING([which plugins should be built dynamically])
 AC_ARG_WITH(plugins,
@@ -41,7 +42,7 @@ AC_ARG_WITH(plugins,
 [                         plugins may be comma separated ]
 [                         'all' builds all plugins (default), 'none' builds none ]
 [                         Possible plugins are: ]
-[                         netstatus, volume, cpu], plugins="$withval",[plugins="all"])
+[                         netstatus, volume, cpu, deskno], plugins="$withval",[plugins="all"])
 
 if test x"$plugins" != xall -a x"$plugins" != xnone; then
 	if test x"$plugins_loading" = xno; then
@@ -54,6 +55,7 @@ if test x"$plugins" = xall; then
 	plugin_netstatus=netstatus
 	plugin_volume=volume
 	plugin_cpu=cpu
+	plugin_deskno=deskno
 	AC_MSG_RESULT(all)
 else
 	if test "$plugins" != "none"; then
@@ -70,6 +72,9 @@ else
 			cpu)
 				plugin_cpu=cpu
 				;;
+			deskno)
+				plugin_deskno=deskno
+				;;
 			*)
 				echo "Unknown plugin $plugin."
 				exit 1
@@ -80,7 +85,7 @@ else
 	fi
 fi
 
-PLUGINS_LIST="$plugin_netstatus $plugin_volume $plugin_cpu"
+PLUGINS_LIST="$plugin_netstatus $plugin_volume $plugin_cpu $plugin_deskno"
 AC_SUBST(PLUGINS_LIST)
 
 
@@ -120,6 +125,7 @@ AC_CONFIG_FILES([
 	src/plugins/netstatus/Makefile
 	src/plugins/volume/Makefile
 	src/plugins/cpu/Makefile
+	src/plugins/deskno/Makefile
 	po/Makefile.in
 	data/Makefile
 	data/default
@@ -127,7 +133,7 @@ AC_CONFIG_FILES([
 AC_OUTPUT
 
 echo                                                                                                
-echo lxpanel2 ........................ : Version $VERSION
+echo lxpanel ......................... : Version $VERSION
 echo
 echo Prefix........................... : $prefix
 if test x$plugins_loading = xyes; then
@@ -140,6 +146,9 @@ echo Building dynamic plugins:
 	fi
 	if test x"$plugin_cpu" != x; then
 		AC_MSG_RESULT([    cpu - Display CPU loading])
+	fi
+	if test x"$plugin_deskno" != x; then
+		AC_MSG_RESULT([    deskno - Display desktop number])
 	fi
 else
 echo Dynamic loader for plugins....... : disabled.

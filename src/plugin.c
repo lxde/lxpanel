@@ -114,10 +114,6 @@ init_plugin_class_list()
     REGISTER_PLUGIN_CLASS(icons_plugin_class, 0);
 #endif
 
-#ifdef STATIC_DESKNO
-    REGISTER_PLUGIN_CLASS(deskno_plugin_class, 0);
-#endif
-
     RET();
 }
 
