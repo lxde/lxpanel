@@ -68,11 +68,9 @@ init_plugin_class_list()
     REGISTER_PLUGIN_CLASS(wincmd_plugin_class, 0);
 #endif
 
-/*
-#ifdef STATIC_TEST
-    REGISTER_PLUGIN_CLASS(test_plugin_class, 0);
+#ifdef STATIC_DIRMENU
+    REGISTER_PLUGIN_CLASS(dirmenu_plugin_class, 0);
 #endif
-*/
 
 #ifdef STATIC_TASKBAR
     REGISTER_PLUGIN_CLASS(taskbar_plugin_class, 0);

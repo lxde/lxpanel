@@ -30,7 +30,8 @@ PLUGINS_SOURCES= \
 	image.c \
 	pager.c \
 	space.c \
-	wincmd.c
+	wincmd.c \
+	dirmenu.c
 
 libbuiltin_plugins_a_SOURCES = \
 	$(PLUGINS_SOURCES)

@@ -53,7 +53,7 @@ void plugin_stop(plugin *this);
 #define STATIC_LAUNCHBAR
 #define STATIC_DCLOCK
 #define STATIC_WINCMD
-#define STATIC_TEST
+#define STATIC_DIRMENU
 #define STATIC_TASKBAR
 #define STATIC_PAGER
 #define STATIC_TRAY

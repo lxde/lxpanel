@@ -12,8 +12,6 @@
 
 
 typedef struct {
-    GdkPixmap *pix;
-    GdkBitmap *mask;
     GtkTooltips *tips;
     char* image;
     int button1, button2;
@@ -153,10 +151,6 @@ wincmd_destructor(plugin *p)
 
     ENTER;
     g_free( wc->image );
-    if (wc->mask)
-        g_object_unref(wc->mask);
-    if (wc->pix)
-        g_object_unref(wc->pix);
     g_object_unref( wc->tips );
     g_free(wc);
     RET();
