@@ -6,18 +6,21 @@ LXPanel - Lightweight X11 desktop panel
     Jim Huang  <jserv.tw@gmail.com>
 
 [History]
-LXPanel is a derivative work from fbpanel (http://fbpanel.sourceforge.net/)
-written by Anatoly Asviyan, and fbpanel is derived from another project, 
-fspanel (http://freshmeat.net/projects/fspanel/), originally written by 
-Peter Zelezny.
+LXPanel is a derivative work from fbpanel [1] written by Anatoly Asviyan,
+and fbpanel is derived from another project, fspanel [2], originally 
+written by Peter Zelezny.
 
 [Credits]
 Fbpanel has done its good job, but it didn't satisfy our needs. Originally 
-I send patches to the author of fbpanel, Anatoly Asviyan, and we had some 
-discussion.  After he received some patches, I found I want to add something 
-to this little panel app which might be differnt from the goal of Anatoly 
-in the future, and I didn'get enough chance to join fbpanel project. So, 
-finally I decided to create my own branch, and started the hacking I want 
-to do. Thank Anatoly Asviyan and Peter Zelezny, the original creator for 
-this little panel. And the most important, thank free software, which gives 
-us the freedom to modify existing projects to serve our needs. :-)
+PCMan sent patches to the author of fbpanel, Anatoly Asviyan, and they had
+some discussions.  After Asviyan received some patches, PCMan would be 
+willing to enhance this little panel application which might be differnt 
+from the goal of Anatoly in the future. However, PCMan didn'get enough 
+chance to join fbpanel project. So, finally PCMan decided to create his own
+branch, and started the hacking regarding he want to do. Thank to Anatoly 
+Asviyan and Peter Zelezny, the original creator for this little panel. And 
+the most important, thank free software, which gives us the freedom to 
+modify existing projects to serve our needs. :-)
+
+[1] fbpanel, http://fbpanel.sourceforge.net/
+[2] fspanel, http://freshmeat.net/projects/fspanel/
