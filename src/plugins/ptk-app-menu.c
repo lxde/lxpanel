@@ -277,6 +277,8 @@ static gboolean on_menu_item_expose( GtkWidget* item,
     PtkAppMenuItem* data = (PtkAppMenuItem*)user_data;
     if( !data )
         return FALSE;
+    if( !GTK_IS_IMAGE_MENU_ITEM(item) )
+	return FALSE;
     img = GTK_WIDGET(gtk_image_menu_item_get_image((GtkImageMenuItem *) item));
     if( img )
         return FALSE;
