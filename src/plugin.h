@@ -65,6 +65,16 @@ void plugin_put(plugin *this);
 int plugin_start(plugin *this, char **fp);
 void plugin_stop(plugin *this);
 
+void plugin_class_unref( plugin_class* pc );
+
+/*
+   Get a list of all available plugin classes
+   Return a newly allocated GList which should be freed with following code:
+   g_list_foreach( list, plugin_class_unref, NULL );
+   g_list_free( list );
+*/
+GList* plugin_get_available_classes();
+
 /* FIXME: optional definitions */
 #define STATIC_SEPARATOR
 #define STATIC_IMAGE

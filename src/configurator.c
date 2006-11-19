@@ -599,7 +599,16 @@ static void init_plugin_list( GtkTreeView* view, GtkWidget* label )
 
 static void on_add_plugin( GtkButton* btn, GtkTreeView* view )
 {
-
+    GList* classes = plugin_get_available_classes();
+    GList* tmp;
+    g_debug("available plugins");
+    for( tmp = classes; tmp; tmp = tmp->next ) {
+        plugin_class* pc = (plugin_class*)tmp->data;
+        if( ! pc->invisible ) /* FIXME: should we display invisible plugins? */
+            g_debug( "%s (%s)", pc->type, _(pc->name) );
+    }
+    g_list_foreach( classes, plugin_class_unref, NULL );
+    g_list_free( classes );
 }
 
 static void on_remove_plugin( GtkButton* btn, GtkTreeView* view )
@@ -766,8 +775,6 @@ mk_tab_plugins()
     button = gtk_button_new_from_stock( GTK_STOCK_ADD );
     gtk_box_pack_start( GTK_BOX( vbox ), button, FALSE, FALSE, 2 );
     g_signal_connect( button, "clicked", G_CALLBACK(on_add_plugin), plugin_list );
-    /* FIXME: disable the button since it's not finished yet. */
-    gtk_widget_set_sensitive(button, FALSE);
 
     button = gtk_button_new_from_stock( GTK_STOCK_EDIT );
     gtk_box_pack_start( GTK_BOX( vbox ), button, FALSE, FALSE, 2 );

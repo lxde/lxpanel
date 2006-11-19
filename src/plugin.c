@@ -117,9 +117,45 @@ init_plugin_class_list()
     RET();
 }
 
+GList* plugin_find_class( const char* type )
+{
+    GList *tmp;
+    plugin_class *pc = NULL;
+    for (tmp = pcl; tmp; tmp = g_list_next(tmp)) {
+        pc = (plugin_class *) tmp->data;
+        if (!g_ascii_strcasecmp(type, pc->type)) {
+            LOG(LOG_INFO, "   already have it\n");
+            break;
+        }
+    }
+    return tmp;
+}
 
+static plugin_class*
+plugin_load_dynamic( const char* type, const char* path )
+{
+    plugin_class *pc = NULL;
+    GModule *m;
+    gpointer tmpsym;
+    char class_name[ 128 ];
+    m = g_module_open(path, G_MODULE_BIND_LAZY);
+    if (!m) {
+        /* ERR("error is %s\n", g_module_error()); */
+        RET(NULL);
+    }
+    g_snprintf( class_name, 128, "%s_plugin_class", type );
 
-
+    if (!g_module_symbol(m, class_name, &tmpsym)
+         || (pc = tmpsym) == NULL
+         || strcmp(type, pc->type)) {
+        g_module_close(m);
+        ERR("%s.so is not a lxpanel plugin\n", type);
+        RET(NULL);
+    }
+    pc->gmodule = m;
+    register_plugin_class(pc, 1);
+    return pc;
+}
 
 plugin *
 plugin_load(char *type)
@@ -132,46 +168,20 @@ plugin_load(char *type)
     if (!pcl)
         init_plugin_class_list();
 
-    LOG(LOG_INFO, "loading %s plugin\n", type);
-    for (tmp = pcl; tmp; tmp = g_list_next(tmp)) {
-        pc = (plugin_class *) tmp->data;
-        if (!g_ascii_strcasecmp(type, pc->type)) {
-            LOG(LOG_INFO, "   already have it\n");
-            break;
-        }
-    }
+    tmp = plugin_find_class( type );
 
+    if( tmp ) {
+        pc = (plugin_class *) tmp->data;
+    }
 #ifndef DISABLE_PLUGINS_LOADING
-    if (!tmp && g_module_supported()) {
-        GModule *m;
-        static GString *str = NULL;
-        gpointer tmpsym;
-        if (!str)
-            str = g_string_sized_new(PATH_MAX);
-        g_string_printf(str, "%s/.lxpanel/plugins/%s.so", getenv("HOME"), type);
-        m = g_module_open(str->str, G_MODULE_BIND_LAZY);
-        LOG(LOG_INFO, "   %s ... %s\n", str->str, m ? "ok" : "no");
-        if (!m) {
-            DBG("error is %s\n", g_module_error());
-            g_string_printf(str, PACKAGE_LIB_DIR "/lxpanel/plugins/%s.so", type);
-            m = g_module_open(str->str, G_MODULE_BIND_LAZY);
-            LOG(LOG_INFO, "   %s ... %s\n", str->str, m ? "ok" : "no");
-            if (!m) {
-                ERR("error is %s\n", g_module_error());
-                RET(NULL);
-            }
+    else if ( g_module_supported() ) {
+        char* path[ PATH_MAX ];
+        g_snprintf(path, PATH_MAX, "%s/.lxpanel/plugins/%s.so", getenv("HOME"), type);
+        pc = plugin_load_dynamic( type, path );
+        if( !pc ) {
+            g_snprintf(path, PATH_MAX, PACKAGE_LIB_DIR "/lxpanel/plugins/%s.so", type);
+            pc = plugin_load_dynamic( type, path );
         }
-        g_string_printf(str, "%s_plugin_class", type);
-        if (!g_module_symbol(m, str->str, &tmpsym) || (pc = tmpsym) == NULL
-              || strcmp(type, pc->type)) {
-            g_module_close(m);
-            ERR("%s.so is not a lxpanel plugin\n", type);
-            RET(NULL);
-        }
-        DBG("3\n");
-        pc->gmodule = m;
-        register_plugin_class(pc, 1);
-        DBG("4\n");
     }
 #endif 	/* DISABLE_PLUGINS_LOADING */
 
@@ -190,17 +200,8 @@ plugin_load(char *type)
 void plugin_put(plugin *this)
 {
     plugin_class *pc = this->class;
-    GModule *tmp;
-
     ENTER;
-    pc->count--;
-    if (pc->count == 0 && pc->dynamic) {
-        pcl = g_list_remove(pcl, pc);
-        /* pc points now somewhere inside loaded lib, so if g_module_close
-         * will touch it after dlclose (and 2.6 does) it will result in segfault */
-        tmp = pc->gmodule;
-        g_module_close(tmp);
-    }
+    plugin_class_unref( pc );
     g_free(this);
     RET();
 }
@@ -240,5 +241,86 @@ void plugin_stop(plugin *this)
     if (!this->class->invisible)
         gtk_widget_destroy(this->pwid);
     RET();
+}
+
+void plugin_class_unref( plugin_class* pc )
+{
+    --pc->count;
+    if (pc->count == 0 && pc->dynamic) {
+        pcl = g_list_remove(pcl, pc);
+        /* pc points now somewhere inside loaded lib, so if g_module_close
+         * will touch it after dlclose (and 2.6 does) it will result in segfault */
+        g_module_close(pc->gmodule);
+    }
+}
+
+/*
+   Get a list of all available plugin classes
+   Return a newly allocated GList which should be freed with following code:
+   g_list_foreach( list, plugin_class_unref, NULL );
+   g_list_free( list );
+*/
+GList* plugin_get_available_classes()
+{
+    GList* classes = NULL;
+    char *path, *dir_path;
+    const char* file;
+    GDir* dir;
+    GList* l;
+    plugin_class *pc;
+
+    for( l = pcl; l; l = l->next ) {
+        pc = (plugin_class*)l->data;
+        classes = g_list_prepend( classes, pc );
+        ++pc->count;
+    }
+
+#ifndef DISABLE_PLUGINS_LOADING
+    dir_path = g_build_filename( g_get_home_dir(), ".lxpanel/plugins", NULL );
+    if( dir = g_dir_open( dir_path, 0, NULL ) ) {
+        while( file = g_dir_read_name( dir ) ) {
+            GModule *m;
+            char* type;
+            if( ! g_str_has_suffix( file, ".so" ) )
+                  continue;
+            type = g_strndup( file, strlen(file) - 3 );
+            l = plugin_find_class( type );
+            if( l == NULL ) { /* If it has not been loaded */
+                path = g_build_filename( dir_path, file, NULL );
+                if( pc = plugin_load_dynamic( type, path ) ) {
+                    ++pc->count;
+                    classes = g_list_prepend( classes, pc );
+                }
+                g_free( path );
+            }
+            g_free( type );
+        }
+        g_dir_close( dir );
+    }
+    g_free( dir_path );
+
+    if( dir = g_dir_open( PACKAGE_LIB_DIR "/lxpanel/plugins", 0, NULL ) ) {
+        while( file = g_dir_read_name( dir ) ) {
+            GModule *m;
+            char* type;
+            if( ! g_str_has_suffix( file, ".so" ) )
+                  continue;
+            type = g_strndup( file, strlen(file) - 3 );
+            l = plugin_find_class( type );
+            if( l == NULL ) { /* If it has not been loaded */
+                path = g_build_filename( PACKAGE_LIB_DIR "/lxpanel/plugins", file, NULL );
+                if( pc = plugin_load_dynamic( type, path ) ) {
+                    ++pc->count;
+                    classes = g_list_prepend( classes, pc );
+                }
+                g_free( path );
+            }
+            g_free( type );
+        }
+        g_dir_close( dir );
+    }
+#endif
+    /* classes = g_list_reverse( classes ); */
+    return classes;
 }
 

@@ -951,24 +951,22 @@ main(int argc, char *argv[], char *env[])
     gtk_icon_theme_append_search_path( gtk_icon_theme_get_default(),
                                        PACKAGE_DATA_DIR "/lxpanel/images" );
 
-    /* Enter main loop */
-    {
-        if (!(fp = pfp = load_profile(cprofile)))
-            exit(1);
-        p = g_new0(panel, 1);
-        g_return_val_if_fail (p != NULL, 1);
-        if (!panel_start(p, &pfp)) {
-            ERR( "lxpanel: can't start panel\n");
-            exit(1);
-        }
-        g_free( fp );
-        if (config)
-            configure();
-        gtk_main();
-        panel_stop(p);
-        g_free( cfgfile );
-        g_free(p);
+    if (!(fp = pfp = load_profile(cprofile)))
+        exit(1);
+    p = g_new0(panel, 1);
+    g_return_val_if_fail (p != NULL, 1);
+    if (!panel_start(p, &pfp)) {
+        ERR( "lxpanel: can't start panel\n");
+        exit(1);
     }
+    g_free( fp );
+    if (config)
+        configure();
+
+    gtk_main();
+    panel_stop(p);
+    g_free( cfgfile );
+    g_free(p);
 
     return 0;
 }
