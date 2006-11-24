@@ -1,4 +1,4 @@
-/**                                                                                                 
+/**
  * Copyright (c) 2006 LxDE Developers, see the file AUTHORS for details.
  *
  * This program is free software; you can redistribute it and/or modify
@@ -591,24 +591,108 @@ static void init_plugin_list( GtkTreeView* view, GtkWidget* label )
     g_signal_connect( view, "row-activated",
                       G_CALLBACK(modify_plugin), NULL );
     tree_sel = gtk_tree_view_get_selection( view );
+    gtk_tree_selection_set_mode( tree_sel, GTK_SELECTION_BROWSE );
     g_signal_connect( tree_sel, "changed",
                       G_CALLBACK(on_sel_plugin_changed), label);
     if( gtk_tree_model_get_iter_first( GTK_TREE_MODEL(list), &it ) )
         gtk_tree_selection_select_iter( tree_sel, &it );
 }
 
-static void on_add_plugin( GtkButton* btn, GtkTreeView* view )
+static void on_add_plugin_response( GtkDialog* dlg,
+                                    int response,
+                                    GtkTreeView* _view )
 {
-    GList* classes = plugin_get_available_classes();
+    if( response == GTK_RESPONSE_OK )
+    {
+        GtkTreeView* view;
+        GtkTreeSelection* tree_sel;
+        GtkTreeIter it;
+        GtkTreeModel* model;
+
+        view = (GtkTreeView*)g_object_get_data( dlg, "avail-plugins" );
+        tree_sel = gtk_tree_view_get_selection( view );
+        if( gtk_tree_selection_get_selected( tree_sel, &model, &it ) )
+        {
+            char* type = NULL;
+            plugin* pl;
+            gtk_tree_model_get( model, &it, 1, &type, -1 );
+            if( pl = plugin_load( type ) )
+            {
+                pl->panel = p;
+                plugin_start( pl, NULL );
+            }
+            g_free( type );
+        }
+    }
+    gtk_widget_destroy( (GtkWidget*)dlg );
+}
+
+static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
+{
+    GtkWidget* dlg, *parent_win, *scroll;
+    GList* classes;
     GList* tmp;
-    g_debug("available plugins");
+    GtkTreeViewColumn* col;
+    GtkCellRenderer* render;
+    GtkTreeView* view;
+    GtkListStore* list;
+    GtkTreeSelection* tree_sel;
+
+    classes = plugin_get_available_classes();
+
+    parent_win = gtk_widget_get_toplevel( (GtkWidget*)_view );
+    dlg = gtk_dialog_new_with_buttons( _("Add plugin to panel"),
+                                       parent_win,
+                                       GTK_DIALOG_MODAL,
+                                       GTK_STOCK_CANCEL,
+                                       GTK_RESPONSE_CANCEL,
+                                       GTK_STOCK_ADD,
+                                       GTK_RESPONSE_OK, NULL );
+    scroll = gtk_scrolled_window_new( NULL, NULL );
+    gtk_scrolled_window_set_shadow_type( (GtkScrolledWindow*)scroll,
+                                          GTK_SHADOW_IN );
+    gtk_scrolled_window_set_policy((GtkScrolledWindow*)scroll,
+                                   GTK_POLICY_AUTOMATIC,
+                                   GTK_POLICY_AUTOMATIC );
+    gtk_box_pack_start( (GtkBox*)GTK_DIALOG(dlg)->vbox, scroll,
+                         TRUE, TRUE, 4 );
+    view = gtk_tree_view_new();
+    gtk_container_add( (GtkContainer*)scroll, view );
+    tree_sel = gtk_tree_view_get_selection( view );
+    gtk_tree_selection_set_mode( tree_sel, GTK_SELECTION_BROWSE );
+
+    render = gtk_cell_renderer_text_new();
+    col = gtk_tree_view_column_new_with_attributes(
+                                            _("Available plugins"),
+                                            render, "text", 0, NULL );
+    gtk_tree_view_append_column( view, col );
+
+    list = gtk_list_store_new( 2,
+                               G_TYPE_STRING,
+                               G_TYPE_STRING );
+
     for( tmp = classes; tmp; tmp = tmp->next ) {
         plugin_class* pc = (plugin_class*)tmp->data;
-        if( ! pc->invisible ) /* FIXME: should we display invisible plugins? */
-            g_debug( "%s (%s)", pc->type, _(pc->name) );
+        if( ! pc->invisible ) {
+            /* FIXME: should we display invisible plugins? */
+            GtkTreeIter it;
+            gtk_list_store_append( list, &it );
+            gtk_list_store_set( list, &it,
+                                0, _(pc->name),
+                                1, pc->type, -1 );
+            /* g_debug( "%s (%s)", pc->type, _(pc->name) ); */
+        }
     }
-    g_list_foreach( classes, plugin_class_unref, NULL );
-    g_list_free( classes );
+
+    gtk_tree_view_set_model( view, GTK_TREE_MODEL(list) );
+    g_object_unref( list );
+
+    g_signal_connect( dlg, "response",
+                      on_add_plugin_response, _view );
+    g_object_set_data( dlg, "avail-plugins", view );
+    g_object_weak_ref( dlg, plugin_class_list_free, classes );
+
+    gtk_widget_show_all( dlg );
 }
 
 static void on_remove_plugin( GtkButton* btn, GtkTreeView* view )
@@ -754,10 +838,10 @@ mk_tab_plugins()
     plugin_list = gtk_tree_view_new();
     /* plugin list */
     scroll = gtk_scrolled_window_new(NULL, NULL);
-    gtk_scrolled_window_set_policy( GTK_SCROLLED_WINDOW(scroll), 
+    gtk_scrolled_window_set_policy( GTK_SCROLLED_WINDOW(scroll),
 		                    GTK_POLICY_AUTOMATIC,
 				    GTK_POLICY_AUTOMATIC);
-    gtk_scrolled_window_set_shadow_type( GTK_SCROLLED_WINDOW(scroll), 
+    gtk_scrolled_window_set_shadow_type( GTK_SCROLLED_WINDOW(scroll),
 		                         GTK_SHADOW_IN );
     gtk_container_add( GTK_CONTAINER(scroll), plugin_list );
     gtk_box_pack_start( GTK_BOX( vbox ), scroll, TRUE, TRUE, 4 );
@@ -786,15 +870,15 @@ mk_tab_plugins()
     g_signal_connect( button, "clicked", G_CALLBACK(on_remove_plugin), plugin_list );
 
     button = gtk_button_new();
-    gtk_container_add( GTK_CONTAINER(button), 
-		       gtk_image_new_from_stock(GTK_STOCK_GO_UP, 
+    gtk_container_add( GTK_CONTAINER(button),
+		       gtk_image_new_from_stock(GTK_STOCK_GO_UP,
 			                        GTK_ICON_SIZE_BUTTON) );
     gtk_box_pack_start( GTK_BOX( vbox ), button, FALSE, FALSE, 2 );
     g_signal_connect( button, "clicked", G_CALLBACK(on_moveup_plugin), plugin_list );
 
     button = gtk_button_new();
-    gtk_container_add( GTK_CONTAINER(button), 
-		       gtk_image_new_from_stock(GTK_STOCK_GO_DOWN, 
+    gtk_container_add( GTK_CONTAINER(button),
+		       gtk_image_new_from_stock(GTK_STOCK_GO_DOWN,
 			                        GTK_ICON_SIZE_BUTTON) );
     gtk_box_pack_start( GTK_BOX( vbox ), button, FALSE, FALSE, 2 );
     g_signal_connect( button, "clicked", G_CALLBACK(on_movedown_plugin), plugin_list );
@@ -1067,7 +1151,7 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
             case G_TYPE_STRING:
                 entry = gtk_entry_new();
                 gtk_entry_set_text( GTK_ENTRY(entry), *(char**)val );
-                g_signal_connect( entry, "changed", 
+                g_signal_connect( entry, "changed",
 				  G_CALLBACK(on_entry_changed), val );
                 break;
             case G_TYPE_INT:
@@ -1075,7 +1159,7 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
                 /* FIXME: the range shouldn't be hardcoded */
                 entry = gtk_spin_button_new_with_range( 0, 1000, 1 );
                 gtk_spin_button_set_value( GTK_SPIN_BUTTON(entry), *(int*)val );
-                g_signal_connect( entry, "value-changed", 
+                g_signal_connect( entry, "value-changed",
 				  G_CALLBACK(on_spin_changed), val );
                 break;
             }
@@ -1083,7 +1167,7 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
                 entry = gtk_check_button_new();
                 gtk_container_add( GTK_CONTAINER(entry), label );
                 gtk_toggle_button_set_active( GTK_TOGGLE_BUTTON(entry), *(gboolean*)val );
-                g_signal_connect( entry, "toggled", 
+                g_signal_connect( entry, "toggled",
 				  G_CALLBACK(on_toggle_changed), val );
                 break;
         }

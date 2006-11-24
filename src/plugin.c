@@ -1,4 +1,4 @@
-/**                                                                                                 
+/**
  * Copyright (c) 2006 LxDE Developers, see the file AUTHORS for details.
  *
  * This program is free software; you can redistribute it and/or modify
@@ -256,9 +256,8 @@ void plugin_class_unref( plugin_class* pc )
 
 /*
    Get a list of all available plugin classes
-   Return a newly allocated GList which should be freed with following code:
-   g_list_foreach( list, plugin_class_unref, NULL );
-   g_list_free( list );
+   Return a newly allocated GList which should be freed with
+   plugin_class_list_free( list );
 */
 GList* plugin_get_available_classes()
 {
@@ -324,3 +323,8 @@ GList* plugin_get_available_classes()
     return classes;
 }
 
+void plugin_class_list_free( GList* classes )
+{
+   g_list_foreach( classes, plugin_class_unref, NULL );
+   g_list_free( classes );
+}

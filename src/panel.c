@@ -1,4 +1,4 @@
-/**                                                                                                 
+/**
  * Copyright (c) 2006 LxDE Developers, see the file AUTHORS for details.
  *
  * This program is free software; you can redistribute it and/or modify
@@ -855,7 +855,7 @@ static void clipboard_clear_func(
  *
  * Returns TRUE if successfully retrieved and FALSE otherwise.
  */
-static gboolean check_main_lock() 
+static gboolean check_main_lock()
 {
     static const GtkTargetEntry targets[] = { { CLIPBOARD_NAME, 0, 0 } };
     gboolean retval = FALSE;
