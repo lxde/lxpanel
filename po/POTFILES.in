@@ -11,7 +11,7 @@ src/gtk-run.c
 src/systray/tray.c
 
 src/plugins/cpu/cpu.c
-src/plugins/deskno.c
+src/plugins/deskno/deskno2.c
 src/plugins/launchbar.c
 src/plugins/ptk-app-menu.c
 src/plugins/taskbar.c
@@ -19,7 +19,6 @@ src/plugins/dclock.c
 src/plugins/icons.c
 src/plugins/menu.c
 src/plugins/separator.c
-src/plugins/deskno2.c
 src/plugins/image.c
 src/plugins/pager.c
 src/plugins/space.c

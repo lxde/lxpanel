@@ -618,12 +618,32 @@ static void on_add_plugin_response( GtkDialog* dlg,
             gtk_tree_model_get( model, &it, 1, &type, -1 );
             if( pl = plugin_load( type ) )
             {
+                GtkTreePath* tree_path;
+
                 pl->panel = p;
                 plugin_start( pl, NULL );
+                p->plugins = g_list_append(p->plugins, pl);
+
+                model = gtk_tree_view_get_model( _view );
+                gtk_list_store_append( (GtkListStore*)model, &it );
+                gtk_list_store_set( (GtkListStore*)model, &it,
+                                    0, _(pl->class->name),
+                                    1, pl, -1 );
+                tree_sel = gtk_tree_view_get_selection( _view );
+                gtk_tree_selection_select_iter( tree_sel, &it );
+                if( tree_path = gtk_tree_model_get_path( model, &it ) )
+                {
+                    gtk_tree_view_scroll_to_cell( _view, tree_path, NULL, FALSE, 0, 0 );
+                    gtk_tree_path_free( tree_path );
+                }
             }
             g_free( type );
         }
     }
+/*
+    gtk_widget_set_sensitive( (GtkWidget*)gtk_window_get_transient_for( (GtkWindow*)dlg ),
+                               TRUE );
+*/
     gtk_widget_destroy( (GtkWidget*)dlg );
 }
 
@@ -642,12 +662,12 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
 
     parent_win = gtk_widget_get_toplevel( (GtkWidget*)_view );
     dlg = gtk_dialog_new_with_buttons( _("Add plugin to panel"),
-                                       parent_win,
-                                       GTK_DIALOG_MODAL,
+                                       parent_win, 0,
                                        GTK_STOCK_CANCEL,
                                        GTK_RESPONSE_CANCEL,
                                        GTK_STOCK_ADD,
                                        GTK_RESPONSE_OK, NULL );
+    /* gtk_widget_set_sensitive( parent_win, FALSE ); */
     scroll = gtk_scrolled_window_new( NULL, NULL );
     gtk_scrolled_window_set_shadow_type( (GtkScrolledWindow*)scroll,
                                           GTK_SHADOW_IN );
@@ -692,6 +712,7 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
     g_object_set_data( dlg, "avail-plugins", view );
     g_object_weak_ref( dlg, plugin_class_list_free, classes );
 
+    gtk_window_set_default_size( (GtkWindow*)dlg, 320, 400 );
     gtk_widget_show_all( dlg );
 }
 
