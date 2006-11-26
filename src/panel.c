@@ -52,8 +52,6 @@ FbEv *fbev;
 int log_level;
 panel *p;
 
-gboolean is_restarting = FALSE;
-
 /****************************************************
  *         panel's handlers for WM events           *
  ****************************************************/
@@ -954,9 +952,6 @@ main(int argc, char *argv[], char *env[])
     gtk_icon_theme_append_search_path( gtk_icon_theme_get_default(),
                                        PACKAGE_DATA_DIR "/lxpanel/images" );
 
-restart:
-    is_restarting = FALSE;
-
     if (!(fp = pfp = load_profile(cprofile)))
         exit(1);
     p = g_new0(panel, 1);
@@ -973,9 +968,6 @@ restart:
     panel_stop(p);
     g_free( cfgfile );
     g_free(p);
-
-    if( is_restarting )
-        goto restart;
 
     return 0;
 }

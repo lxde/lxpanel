@@ -92,7 +92,6 @@ static void netstatus_icon_scale_icons  (NetstatusIcon *icon,
 static GObjectClass *parent_class;
 static guint icon_signals [LAST_SIGNAL] = { 0 };
 
-
 static GdkPixbuf *
 netstatus_icon_get_default_pixbuf (NetstatusIcon *icon)
 {
@@ -886,26 +885,23 @@ GType
 netstatus_icon_get_type (void)
 {
   static GType type = 0;
-
   if (!type)
     {
       static const GTypeInfo info =
-	{
-	  sizeof (NetstatusIconClass),
-	  NULL,
-	  NULL,
-	  (GClassInitFunc) netstatus_icon_class_init,
-	  NULL,
-	  NULL,
-	  sizeof (NetstatusIcon),
-	  0,
-	  (GInstanceInitFunc) netstatus_icon_instance_init,
-	  NULL
-	};
-
+        {
+            sizeof (NetstatusIconClass),
+            NULL,
+            NULL,
+            (GClassInitFunc) netstatus_icon_class_init,
+            NULL,
+            NULL,
+            sizeof (NetstatusIcon),
+            0,
+            (GInstanceInitFunc) netstatus_icon_instance_init,
+            NULL
+        };
       type = g_type_register_static (GTK_TYPE_BOX, "NetstatusIcon", &info, 0);
     }
-
   return type;
 }
 

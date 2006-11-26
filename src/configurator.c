@@ -1089,11 +1089,7 @@ plugin_config_save(FILE *fp)
 
 void restart(void)
 {
-    /* This is defined in panel.c */
-    extern gboolean is_restarting;
     ENTER;
-    is_restarting = TRUE;
-    gtk_main_quit();
     RET();
 }
 

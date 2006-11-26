@@ -46,8 +46,6 @@ static int get_cmd( const char* cmd )
         return LXPANEL_CMD_RUN;
     else if( ! strcmp( cmd, "config") )
         return LXPANEL_CMD_CONFIG;
-    else if( ! strcmp( cmd, "restart") )
-        return LXPANEL_CMD_RESTART;
     else if( ! strcmp( cmd, "exit") )
         return LXPANEL_CMD_EXIT;
     return -1;
@@ -60,12 +58,17 @@ int main( int argc, char** argv )
     Window root;
     Atom cmd_atom;
     int cmd;
+    int restart;
 
     if( argc < 2 )
     {
         printf( usage );
         return 1;
     }
+
+    if( restart = !strcmp( argv[1], "restart" ) )
+        argv[1] = "exit";
+
     if( ( cmd = get_cmd( argv[1] ) ) == -1 )
         return 1;
 
@@ -88,6 +91,10 @@ int main( int argc, char** argv )
                SubstructureRedirectMask|SubstructureNotifyMask, &ev);
     XSync(dpy, False);
     XCloseDisplay(dpy);
+
+    if( restart ) {
+        system( PACKAGE_BIN_DIR "/lxpanel &" );
+    }
     return 0;
 }
 

@@ -97,44 +97,37 @@ static void     netstatus_iface_get_property    (GObject             *object,
 static gboolean netstatus_iface_monitor_timeout (NetstatusIface      *iface);
 static void     netstatus_iface_init_monitor    (NetstatusIface      *iface);
 
-
-
 static GObjectClass *parent_class;
 
 GType
 netstatus_iface_get_type (void)
 {
   static GType type = 0;
-
   if (!type)
     {
       static const GTypeInfo info =
       {
-	sizeof (NetstatusIfaceClass),
-	NULL,
-	NULL,
-	(GClassInitFunc) netstatus_iface_class_init,
-	NULL,
-	NULL,
-	sizeof (NetstatusIface),
-	0,
-	(GInstanceInitFunc) netstatus_iface_instance_init,
-	NULL
+        sizeof (NetstatusIfaceClass),
+        NULL,
+        NULL,
+        (GClassInitFunc) netstatus_iface_class_init,
+        NULL,
+        NULL,
+        sizeof (NetstatusIface),
+        0,
+        (GInstanceInitFunc) netstatus_iface_instance_init,
+        NULL
       };
-
       type = g_type_register_static (G_TYPE_OBJECT, "NetstatusIface", &info, 0);
     }
-
   return type;
 }
-
 
 static void
 netstatus_iface_instance_init (NetstatusIface      *iface,
 			       NetstatusIfaceClass *klass)
 {
   iface->priv = g_new0 (NetstatusIfacePrivate, 1);
-  
   iface->priv->state = NETSTATUS_STATE_DISCONNECTED;
 }
 
