@@ -1,3 +1,11 @@
+lxpanel (0.2.3-1) unstable; urgency=low
+
+  * Version 0.2.3 release
+  * Greatly improve the preference dialog.
+  * Many major and minor fixes.
+
+ -- PCMan <pcman.tw@gmail.com>  Mon, 27 Nov 2006 00:41:29 +0800
+
 lxpanel (0.2.1-1) unstable; urgency=low
 
   * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>

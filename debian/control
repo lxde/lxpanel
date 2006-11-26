@@ -2,7 +2,7 @@ Source: lxpanel
 Section: x11
 Priority: extra
 Maintainer: PCMan <pcman.tw@gmail.com>
-Build-Depends: debhelper (>= 5), autotools-dev, libgtk2.0-dev (>=2.6), libglib2.0-dev(>=2.10), libxmu-dev libxpm-dev
+Build-Depends: debhelper (>= 5), autotools-dev, libgtk2.0-dev (>=2.6), libglib2.0-dev(>=2.10), libxmu-dev, libxpm-dev
 Standards-Version: 3.7.2
 
 Package: lxpanel
