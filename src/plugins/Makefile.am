@@ -38,3 +38,7 @@ libbuiltin_plugins_a_LIBADD =
 
 EXTRA_DIST = \
 	icon.xpm
+
+install-exec-hook:
+	rm -f $(libdir)/lxpanel/plugins/*.la
+	rm -f $(libdir)/lxpanel/plugins/*.a

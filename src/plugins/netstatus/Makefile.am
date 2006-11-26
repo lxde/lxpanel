@@ -35,3 +35,6 @@ netstatus_la_LDFLAGS = \
 	-rpath $(moduledir) \
 	-module \
 	-export-symbols-regex '_plugin_class$$'
+
+install-exec-hook:
+	rm -f "$(moduledir)\*.la" *.a
