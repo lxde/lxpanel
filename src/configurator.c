@@ -1087,18 +1087,26 @@ plugin_config_save(FILE *fp)
     }
 }
 
-
 void restart(void)
 {
+    /* This is defined in panel.c */
+    extern gboolean is_restarting;
     ENTER;
+    is_restarting = TRUE;
+    gtk_main_quit();
     RET();
 }
 
 void logout(void)
 {
-    if( p->logout_command ) {
+    const char* logout_command = p->logout_command;
+    /* If LXSession is running, _LXSESSION_PID will be set */
+    if( ! logout_command && getenv("_LXSESSION_PID") )
+        logout_command = "lxsession -exit";
+
+    if( logout_command ) {
         GError* err = NULL;
-        if( ! g_spawn_command_line_async( p->logout_command, &err ) ) {
+        if( ! g_spawn_command_line_async( logout_command, &err ) ) {
             show_error( NULL, err->message );
             g_error_free( err );
         }

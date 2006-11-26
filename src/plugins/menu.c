@@ -464,7 +464,6 @@ read_submenu(plugin *p, char** fp, gboolean as_item)
     RET(NULL);
 }
 
-
 static int
 menu_constructor(plugin *p, char **fp)
 {
@@ -481,6 +480,12 @@ menu_constructor(plugin *p, char **fp)
         "item {\n"
             "image=" PACKAGE_DATA_DIR "/lxpanel/images/gnome-setting.svg\n"
             "command = configure\n"
+        "}\n"
+        "separator {\n"
+        "}\n"
+        "item {\n"
+            "image=gnome-logout\n"
+            "command=logout\n"
         "}\n"
         "}\n";
     char *config_start, *config_end, *config_default = default_config;

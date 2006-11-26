@@ -231,8 +231,9 @@ wincmd_constructor(plugin *p, char **fp)
         wc->button2 = WC_SHADE;
     }
 
-    if( !fname )
+    if( !fname ){
         fname = g_strdup("gnome-fs-desktop");
+    }
 
     if (p->panel->orientation == ORIENT_HORIZ) {
         w = 10000;

@@ -75,8 +75,6 @@ typedef struct launchbar {
     char* config_data;
 } launchbar;
 
-
-
 static gboolean
 my_button_pressed(GtkWidget *widget, GdkEventButton *event, btn *b )
 {
