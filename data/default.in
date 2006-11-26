@@ -2,7 +2,6 @@
 ## lxpanel configuration file         ##
 ########################################
 
-
 # DESCRIPTION
 # Configuration file consists of mandatory 'Global' block that MUST come first,
 # and optionally one or more 'Plugin' block.
@@ -67,8 +66,6 @@
 #     # Alpha = 127
 # }
 
-
-
 # 'Plugin' block specifies a plugin to load. It has same syntax for both
 # builtin and external plugins.
 
@@ -83,24 +80,16 @@
 # space       - just seize space
 # pager       - thumbnailed view of the desktop
 # tray        - tray for XEMBED icons (aka docklets)
+# volume      - volume control
+# cpu         - cpu usage monitor
+# netstatus   - net status (ported from gnome-panel)
 
 # expand - specifies if plugin can accomodate extra space or not [optional]
 # padding - extra paddin around plugin  [optional]
 # config {} - block of plugin's private configuration. 
 #             This part is plugin  dependant
 
-
-#  
-# Plugin {
-#     type = wincmd
-#     config {
-#         image = ~/.lxpanel/images/Desktop2.png
-#     }
-# }
-
-
 Global {
-
     edge = bottom
     allign = left
     margin = 0
@@ -108,10 +97,7 @@ Global {
     width = 100
     heighttype = pixel
     height = 26
-    roundcorners = false 
 }
-
-
 
 Plugin {
     type = space
@@ -119,7 +105,6 @@ Plugin {
             size = 2
     }
 }
-
 
 Plugin {
     type = menu
@@ -136,17 +121,21 @@ Plugin {
             image = @prefix@/share/lxpanel/images/gnome-setting.svg
             command = configure
         }
+        separator {
+        }
+        item {
+            image = gnome-logout
+            command = logout
+        }
     }
 }
-
 
 Plugin {
     type = space
     config {
-            size = 5
+            size = 4
     }
 }
-
 
 Plugin {
     type = launchbar
@@ -154,38 +143,30 @@ Plugin {
         button {
             id = pcmanfm.desktop
         }
-
         button {
             id = gnome-terminal.desktop
         }
-
         button {
             id = firefox.desktop
         }
     }
-
 }
 
 Plugin {
     type = space
     config {
-            size = 8
+            size = 4
     }
 }
-
 
 Plugin {
     type = wincmd
-    config {
-        image = @prefix@/share/lxpanel/images/gnome-fs-desktop.svg
-    }
 }
-
 
 Plugin {
     type = space
     config {
-            size = 7
+            size = 4
     }
 }
 
@@ -216,17 +197,15 @@ Plugin {
             AppName = emacs
             ClassName = Emacs
         }
-
     }
 }
 
 Plugin {
     type = space
     config {
-        size = 5
+        size = 4
     }
 }
-
 
 Plugin {
     type = taskbar
@@ -249,15 +228,19 @@ Plugin {
 
 # Net status plug-in
 # %i in configtool is only a place holder, and will be replace by the value of iface.
-#
-# Plugin {
-#     type = netstatus
-#     config {
-#         iface = eth0
-#         configtool = network-admin --configure %i
-#     }
-# }
 
+Plugin {
+    type = netstatus
+    config {
+        iface = eth0
+        configtool = network-admin --configure %i
+    }
+}
+
+# CPU monitor
+Plugin {
+    type = cpu
+}
 
 Plugin {
     type = tray
@@ -272,4 +255,3 @@ Plugin {
         Action = xmessage Please define some command &
     }
 }
-

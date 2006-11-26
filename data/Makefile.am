@@ -21,6 +21,7 @@ lxpanel_images_DATA = \
 	images/gnome-graphics.png \
 	images/gnome-joystick.png \
 	images/gnome-multimedia.png \
+	images/gnome-logout.png \
 	images/gnome-netstatus-0-24.png \
 	images/gnome-netstatus-25-49.png \
 	images/gnome-netstatus-50-74.png \
