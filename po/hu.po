@@ -2,14 +2,14 @@
 # Copyright (C) 2006 the lxde team
 # This file is distributed under the same license as the lxpanel package.
 # SZERVÁC Attila <sas@321>, 2006.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel-0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-11-26 22:17+0800\n"
-"PO-Revision-Date: 2006-11-01 11:16+0100\n"
-"Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
+"POT-Creation-Date: 2006-11-27 00:12+0800\n"
+"PO-Revision-Date: 2006-11-27 00:13+0800\n"
+"Last-Translator: 洪任諭 <pcman.tw@gmail.com>\n"
 "Language-Team: hu <hu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -22,7 +22,8 @@ msgstr ""
 msgid "Preferences"
 msgstr "Jellemzők"
 
-#: ../src/configurator.c:45 ../src/gtk-run.c:110
+#: ../src/configurator.c:45
+#: ../src/gtk-run.c:110
 msgid "Run"
 msgstr "Futtat"
 
@@ -43,11 +44,13 @@ msgstr "<b>Helyzet</b>"
 msgid "Edge:"
 msgstr "Szél:"
 
-#: ../src/configurator.c:230 ../src/configurator.c:254
+#: ../src/configurator.c:230
+#: ../src/configurator.c:254
 msgid "Left"
 msgstr "Balra"
 
-#: ../src/configurator.c:231 ../src/configurator.c:256
+#: ../src/configurator.c:231
+#: ../src/configurator.c:256
 msgid "Right"
 msgstr "Jobbra"
 
@@ -86,7 +89,8 @@ msgstr "Szélesség:"
 msgid "dynamic"
 msgstr "dinamikus"
 
-#: ../src/configurator.c:371 ../src/configurator.c:399
+#: ../src/configurator.c:371
+#: ../src/configurator.c:399
 msgid "pixels"
 msgstr "képpontok"
 
@@ -134,9 +138,8 @@ msgid "Add plugin to panel"
 msgstr ""
 
 #: ../src/configurator.c:688
-#, fuzzy
 msgid "Available plugins"
-msgstr "Egyszerű lapozó beillesztés"
+msgstr ""
 
 #: ../src/configurator.c:957
 msgid "lxpanel configurator"
@@ -174,9 +177,7 @@ msgstr " --version   -- kiírja a verziót és kilép\n"
 
 #: ../src/panel.c:774
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <szám> -- napló szint beállítása 0 és 5 között. 0 - üres 5 - "
-"csacsogó\n"
+msgstr " --log <szám> -- napló szint beállítása 0 és 5 között. 0 - üres 5 - csacsogó\n"
 
 #: ../src/panel.c:775
 msgid " --configure -- launch configuration utility\n"
@@ -240,16 +241,23 @@ msgstr ""
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Munkaterület szám kiírása: cmeury@users.sf.net"
 
-#: ../src/plugins/launchbar.c:534
-#, fuzzy
-msgid "Buttons"
-msgstr "Le"
+#. FIXME: We should have a better interface for this in the fututure.
+#. 1. We can borrow the menu from menu pluiin (PtkAppMenu).
+#. 2. We can borrow the app chooser from PCManFM.
+#.
+#: ../src/plugins/launchbar.c:488
+msgid "Select Application"
+msgstr ""
 
-#: ../src/plugins/launchbar.c:631
+#: ../src/plugins/launchbar.c:637
+msgid "Buttons"
+msgstr ""
+
+#: ../src/plugins/launchbar.c:750
 msgid "Application Launch Bar"
 msgstr "Alkalmazás-indító sáv"
 
-#: ../src/plugins/launchbar.c:633
+#: ../src/plugins/launchbar.c:752
 msgid "Bar with buttons to launch application"
 msgstr "Alkalmazás-indító gomb sáv"
 
@@ -363,12 +371,8 @@ msgid "Task Bar (Window List)"
 msgstr "Feladatsáv (ablak lista)"
 
 #: ../src/plugins/taskbar.c:1468
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
-msgstr ""
-"A feladatsáv mutatja a megnyitott ablakokat és lehetővé teszi ikonná "
-"tevésüket, az árnyékolást vagy fókusz kapást"
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr "A feladatsáv mutatja a megnyitott ablakokat és lehetővé teszi ikonná tevésüket, az árnyékolást vagy fókusz kapást"
 
 #: ../src/plugins/dclock.c:210
 msgid "Clock Format"
@@ -633,12 +637,10 @@ msgstr ""
 
 #~ msgid "_Add"
 #~ msgstr "新增(_A)"
-
 #~ msgid "_Remove"
 #~ msgstr "移除(_R)"
-
 #~ msgid "Right-click to get context menu. Drag & Drop to change order."
 #~ msgstr "可以按右鍵使用選單，用拖曳改變順序"
-
 #~ msgid "Plugins..."
 #~ msgstr "外掛..."
+

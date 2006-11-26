@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-11-26 22:17+0800\n"
-"PO-Revision-Date: 2006-10-11 19:09+0900\n"
-"Last-Translator: Kang Jeong-Hee <keizie@gmail.com>\n"
+"POT-Creation-Date: 2006-11-27 00:12+0800\n"
+"PO-Revision-Date: 2006-11-27 00:13+0800\n"
+"Last-Translator: 洪任諭 <pcman.tw@gmail.com>\n"
 "Language-Team: GNOME Korean Team <gnome-kr-hackers@lists.kldp.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +20,8 @@ msgstr ""
 msgid "Preferences"
 msgstr "속성"
 
-#: ../src/configurator.c:45 ../src/gtk-run.c:110
+#: ../src/configurator.c:45
+#: ../src/gtk-run.c:110
 msgid "Run"
 msgstr "실행"
 
@@ -41,11 +42,13 @@ msgstr "<b>자리</b>"
 msgid "Edge:"
 msgstr "자리:"
 
-#: ../src/configurator.c:230 ../src/configurator.c:254
+#: ../src/configurator.c:230
+#: ../src/configurator.c:254
 msgid "Left"
 msgstr "왼쪽"
 
-#: ../src/configurator.c:231 ../src/configurator.c:256
+#: ../src/configurator.c:231
+#: ../src/configurator.c:256
 msgid "Right"
 msgstr "오른쪽"
 
@@ -84,7 +87,8 @@ msgstr "너비"
 msgid "dynamic"
 msgstr "가변폭"
 
-#: ../src/configurator.c:371 ../src/configurator.c:399
+#: ../src/configurator.c:371
+#: ../src/configurator.c:399
 msgid "pixels"
 msgstr "픽셀"
 
@@ -132,9 +136,8 @@ msgid "Add plugin to panel"
 msgstr ""
 
 #: ../src/configurator.c:688
-#, fuzzy
 msgid "Available plugins"
-msgstr "간단한 pager 플러그인"
+msgstr ""
 
 #: ../src/configurator.c:957
 msgid "lxpanel configurator"
@@ -172,9 +175,7 @@ msgstr " --version   -- 버전이 나오고 끝납니다\n"
 
 #: ../src/panel.c:774
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <숫자>   -- 기록 수준을 0부터 5까지 정합니다. 0은 조용하고 5는 수다쟁"
-"이\n"
+msgstr " --log <숫자>   -- 기록 수준을 0부터 5까지 정합니다. 0은 조용하고 5는 수다쟁이\n"
 
 #: ../src/panel.c:775
 msgid " --configure -- launch configuration utility\n"
@@ -238,16 +239,23 @@ msgstr "데스크탑 번호 / 작업공간 이름"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "작업공간 번호를 표시합니다. cmeury@users.sf.net 제작"
 
-#: ../src/plugins/launchbar.c:534
-#, fuzzy
-msgid "Buttons"
-msgstr "아래쪽"
+#. FIXME: We should have a better interface for this in the fututure.
+#. 1. We can borrow the menu from menu pluiin (PtkAppMenu).
+#. 2. We can borrow the app chooser from PCManFM.
+#.
+#: ../src/plugins/launchbar.c:488
+msgid "Select Application"
+msgstr ""
 
-#: ../src/plugins/launchbar.c:631
+#: ../src/plugins/launchbar.c:637
+msgid "Buttons"
+msgstr ""
+
+#: ../src/plugins/launchbar.c:750
 msgid "Application Launch Bar"
 msgstr "실행 막대"
 
-#: ../src/plugins/launchbar.c:633
+#: ../src/plugins/launchbar.c:752
 msgid "Bar with buttons to launch application"
 msgstr "응용 프로그램을 실행하는 버튼들입니다"
 
@@ -361,12 +369,8 @@ msgid "Task Bar (Window List)"
 msgstr "창 목록"
 
 #: ../src/plugins/taskbar.c:1468
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
-msgstr ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
 
 #: ../src/plugins/dclock.c:210
 msgid "Clock Format"
@@ -422,8 +426,7 @@ msgstr "사이 띄우기"
 
 #: ../src/plugins/wincmd.c:256
 msgid "Left click to iconify all windows. Middle click to shade them"
-msgstr ""
-"왼쪽 클릭으로 모든 창을 최소화하고, 가운데 클릭으로 모든 창을 말아올립니다"
+msgstr "왼쪽 클릭으로 모든 창을 최소화하고, 가운데 클릭으로 모든 창을 말아올립니다"
 
 #: ../src/plugins/wincmd.c:281
 msgid "Minimize All Windows"
@@ -626,9 +629,8 @@ msgstr ""
 
 #~ msgid "Configuration page of this plugin is not available"
 #~ msgstr "이 플러그인은 설정이 없습니다."
-
 #~ msgid "_Add"
 #~ msgstr "더하기(_A)"
-
 #~ msgid "_Remove"
 #~ msgstr "빼기(_R)"
+

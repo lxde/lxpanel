@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: zh_TW\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-11-26 22:17+0800\n"
+"POT-Creation-Date: 2006-11-27 00:12+0800\n"
 "PO-Revision-Date: 2006-11-26 22:21+0800\n"
 "Last-Translator: \n"
 "Language-Team:  <en@li.org>\n"
@@ -22,8 +22,7 @@ msgstr ""
 msgid "Preferences"
 msgstr "偏好設定"
 
-#: ../src/configurator.c:45
-#: ../src/gtk-run.c:110
+#: ../src/configurator.c:45 ../src/gtk-run.c:110
 msgid "Run"
 msgstr "執行"
 
@@ -44,13 +43,11 @@ msgstr "<b>位置</b>"
 msgid "Edge:"
 msgstr "吸附邊緣："
 
-#: ../src/configurator.c:230
-#: ../src/configurator.c:254
+#: ../src/configurator.c:230 ../src/configurator.c:254
 msgid "Left"
 msgstr "左"
 
-#: ../src/configurator.c:231
-#: ../src/configurator.c:256
+#: ../src/configurator.c:231 ../src/configurator.c:256
 msgid "Right"
 msgstr "右"
 
@@ -89,8 +86,7 @@ msgstr "寬度："
 msgid "dynamic"
 msgstr "動態"
 
-#: ../src/configurator.c:371
-#: ../src/configurator.c:399
+#: ../src/configurator.c:371 ../src/configurator.c:399
 msgid "pixels"
 msgstr "像素 (pixels)"
 
@@ -241,15 +237,23 @@ msgstr "桌面編號 / 工作區名稱"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "顯示工作區編號，由 cmeury@users.sf.net 撰寫"
 
-#: ../src/plugins/launchbar.c:534
+#. FIXME: We should have a better interface for this in the fututure.
+#. 1. We can borrow the menu from menu pluiin (PtkAppMenu).
+#. 2. We can borrow the app chooser from PCManFM.
+#.
+#: ../src/plugins/launchbar.c:488
+msgid "Select Application"
+msgstr ""
+
+#: ../src/plugins/launchbar.c:637
 msgid "Buttons"
 msgstr "按鈕"
 
-#: ../src/plugins/launchbar.c:631
+#: ../src/plugins/launchbar.c:750
 msgid "Application Launch Bar"
 msgstr "應用程式啟動列"
 
-#: ../src/plugins/launchbar.c:633
+#: ../src/plugins/launchbar.c:752
 msgid "Bar with buttons to launch application"
 msgstr "具有應用程式啟動按鈕的工具列"
 
@@ -363,7 +367,9 @@ msgid "Task Bar (Window List)"
 msgstr "工作列 (視窗清單)"
 
 #: ../src/plugins/taskbar.c:1468
-msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
 msgstr "工作列顯示所有開啟的視窗，並讓能視窗最小化、折疊、或取得焦點"
 
 #: ../src/plugins/dclock.c:210
@@ -625,4 +631,3 @@ msgstr ""
 "請聯絡你的系統管理員解決下列問題：\n"
 "\n"
 "%s"
-
