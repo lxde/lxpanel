@@ -87,7 +87,8 @@ init_plugin_class_list()
 #endif
 
 #ifdef STATIC_DIRMENU
-    REGISTER_PLUGIN_CLASS(dirmenu_plugin_class, 0);
+    /* FIXME: dirmenu plugin is not OK now, disabled */
+    /* REGISTER_PLUGIN_CLASS(dirmenu_plugin_class, 0); */
 #endif
 
 #ifdef STATIC_TASKBAR

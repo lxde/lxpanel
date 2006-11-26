@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel-0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-11-25 13:38+0800\n"
+"POT-Creation-Date: 2006-11-26 22:17+0800\n"
 "PO-Revision-Date: 2006-11-01 11:16+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: hu <hu@li.org>\n"
@@ -129,80 +129,80 @@ msgstr ""
 msgid "Currently loaded plugins"
 msgstr "A most betöltött beillesztések"
 
-#: ../src/configurator.c:664
+#: ../src/configurator.c:666
 msgid "Add plugin to panel"
 msgstr ""
 
-#: ../src/configurator.c:686
+#: ../src/configurator.c:688
 #, fuzzy
 msgid "Available plugins"
 msgstr "Egyszerű lapozó beillesztés"
 
-#: ../src/configurator.c:955
+#: ../src/configurator.c:957
 msgid "lxpanel configurator"
 msgstr "lxpanel beállító"
 
-#: ../src/configurator.c:977
+#: ../src/configurator.c:979
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr "Általános"
 
-#: ../src/configurator.c:982
+#: ../src/configurator.c:984
 msgid "Plugins"
 msgstr "Beillesztések"
 
-#: ../src/configurator.c:1105
+#: ../src/configurator.c:1111
 msgid "Logout command is not set"
 msgstr "Nincs beállítva kijelentkező parancs"
 
-#: ../src/panel.c:769
+#: ../src/panel.c:770
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - könnyű GTK2+ panel UNIXos jellegű asztalokhoz\n"
 
-#: ../src/panel.c:770
+#: ../src/panel.c:771
 msgid "Command line options:\n"
 msgstr "Parancssori lehetőségek:\n"
 
-#: ../src/panel.c:771
+#: ../src/panel.c:772
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- kiírja e súgót és kilép\n"
 
-#: ../src/panel.c:772
+#: ../src/panel.c:773
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- kiírja a verziót és kilép\n"
 
-#: ../src/panel.c:773
+#: ../src/panel.c:774
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 " --log <szám> -- napló szint beállítása 0 és 5 között. 0 - üres 5 - "
 "csacsogó\n"
 
-#: ../src/panel.c:774
+#: ../src/panel.c:775
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- beállító eszköz indítása\n"
 
-#: ../src/panel.c:775
+#: ../src/panel.c:776
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- adott profil használata\n"
 
-#: ../src/panel.c:777
+#: ../src/panel.c:778
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- ugyanaz, mint a --help\n"
 
-#: ../src/panel.c:778
+#: ../src/panel.c:779
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- ugyanaz, mint a --profile\n"
 
-#: ../src/panel.c:779
+#: ../src/panel.c:780
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- ugyanaz, mint a --version\n"
 
-#: ../src/panel.c:780
+#: ../src/panel.c:781
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- ugyanaz, mint a --configure\n"
 
-#: ../src/panel.c:781
+#: ../src/panel.c:782
 msgid ""
 "\n"
 "Visit http://lxpanel.sourceforge.net/ for detailed documentation,\n"
@@ -240,124 +240,129 @@ msgstr ""
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Munkaterület szám kiírása: cmeury@users.sf.net"
 
-#: ../src/plugins/launchbar.c:434
+#: ../src/plugins/launchbar.c:534
+#, fuzzy
+msgid "Buttons"
+msgstr "Le"
+
+#: ../src/plugins/launchbar.c:631
 msgid "Application Launch Bar"
 msgstr "Alkalmazás-indító sáv"
 
-#: ../src/plugins/launchbar.c:436
+#: ../src/plugins/launchbar.c:633
 msgid "Bar with buttons to launch application"
 msgstr "Alkalmazás-indító gomb sáv"
 
-#: ../src/plugins/ptk-app-menu.c:146
+#: ../src/plugins/ptk-app-menu.c:154
 msgid "Other"
 msgstr "Egyéb"
 
-#: ../src/plugins/ptk-app-menu.c:147
+#: ../src/plugins/ptk-app-menu.c:155
 msgid "Game"
 msgstr "Játék"
 
-#: ../src/plugins/ptk-app-menu.c:148
+#: ../src/plugins/ptk-app-menu.c:156
 msgid "Education"
 msgstr "Oktatás"
 
-#: ../src/plugins/ptk-app-menu.c:149
+#: ../src/plugins/ptk-app-menu.c:157
 msgid "Development"
 msgstr "Fejlesztés"
 
-#: ../src/plugins/ptk-app-menu.c:150
+#: ../src/plugins/ptk-app-menu.c:158
 msgid "Audio & Video"
 msgstr "Hang és mozgókép"
 
-#: ../src/plugins/ptk-app-menu.c:151
+#: ../src/plugins/ptk-app-menu.c:159
 msgid "Graphics"
 msgstr "Grafika"
 
-#: ../src/plugins/ptk-app-menu.c:152
+#: ../src/plugins/ptk-app-menu.c:160
 msgid "Settings"
 msgstr "Beállítások"
 
-#: ../src/plugins/ptk-app-menu.c:153
+#: ../src/plugins/ptk-app-menu.c:161
 msgid "System Tools"
 msgstr "Rendszereszközök"
 
-#: ../src/plugins/ptk-app-menu.c:154
+#: ../src/plugins/ptk-app-menu.c:162
 msgid "Network"
 msgstr "Hálózat"
 
-#: ../src/plugins/ptk-app-menu.c:155
+#: ../src/plugins/ptk-app-menu.c:163
 msgid "Office"
 msgstr "Iroda"
 
-#: ../src/plugins/ptk-app-menu.c:156
+#: ../src/plugins/ptk-app-menu.c:164
 msgid "Accessories"
 msgstr "Kellékek"
 
-#: ../src/plugins/taskbar.c:1139
+#: ../src/plugins/taskbar.c:1137
 msgid "Raise"
 msgstr "Előhoz"
 
-#: ../src/plugins/taskbar.c:1144
+#: ../src/plugins/taskbar.c:1142
 msgid "Restore"
 msgstr "Visszaállít"
 
-#: ../src/plugins/taskbar.c:1149
+#: ../src/plugins/taskbar.c:1147
 msgid "Maximize"
 msgstr "Maximalizál"
 
-#: ../src/plugins/taskbar.c:1154
+#: ../src/plugins/taskbar.c:1152
 msgid "Iconify"
 msgstr "Ikonizál"
 
 #. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1160
+#: ../src/plugins/taskbar.c:1158
 msgid "Close Window"
 msgstr "Ablak bezárása"
 
-#: ../src/plugins/taskbar.c:1385
+#: ../src/plugins/taskbar.c:1383
 msgid "Show tooltips"
 msgstr "Eszköztippek mutatása"
 
-#: ../src/plugins/taskbar.c:1386
+#: ../src/plugins/taskbar.c:1384
 msgid "Icons only"
 msgstr "Csak ikonok"
 
-#: ../src/plugins/taskbar.c:1387
+#: ../src/plugins/taskbar.c:1385
 msgid "Accept SkipPager"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1388
+#: ../src/plugins/taskbar.c:1386
 msgid "Show Iconified windows"
 msgstr "Ikonná tett ablakok mutatása"
 
-#: ../src/plugins/taskbar.c:1389
+#: ../src/plugins/taskbar.c:1387
 msgid "Show mapped windows"
 msgstr "Elhelyezett ablakok mutatása"
 
-#: ../src/plugins/taskbar.c:1390
+#: ../src/plugins/taskbar.c:1388
 msgid "Show windows from all desktops"
 msgstr "Ablakok mutatása minden asztalról"
 
-#: ../src/plugins/taskbar.c:1391
+#: ../src/plugins/taskbar.c:1389
 msgid "Use mouse wheel"
 msgstr "Egérgörgő használata"
 
-#: ../src/plugins/taskbar.c:1392
+#: ../src/plugins/taskbar.c:1390
 msgid "Flash when there is any window requiring attention"
 msgstr "Villan, ha egy ablak figyelmet kér"
 
-#: ../src/plugins/taskbar.c:1393
+#: ../src/plugins/taskbar.c:1391
 msgid "Max width of task button"
 msgstr "Feladat gomb maximális mérete"
 
-#: ../src/plugins/taskbar.c:1394
+#: ../src/plugins/taskbar.c:1392
 msgid "Spacing"
 msgstr "Térköz"
 
-#: ../src/plugins/taskbar.c:1468
+#: ../src/plugins/taskbar.c:1466
 msgid "Task Bar (Window List)"
 msgstr "Feladatsáv (ablak lista)"
 
-#: ../src/plugins/taskbar.c:1470
+#: ../src/plugins/taskbar.c:1468
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -393,7 +398,7 @@ msgstr "Ikonok"
 msgid "Change window icons"
 msgstr "Ablak ikonok cseréje"
 
-#: ../src/plugins/menu.c:527
+#: ../src/plugins/menu.c:556
 msgid "Menu"
 msgstr "Menü"
 
@@ -417,15 +422,15 @@ msgstr "Méret"
 msgid "<Space>"
 msgstr "<Szóköz>"
 
-#: ../src/plugins/wincmd.c:246
+#: ../src/plugins/wincmd.c:256
 msgid "Left click to iconify all windows. Middle click to shade them"
 msgstr "A bal gomb minden ablakot ikonná tesz. A középső árnyékba teszi őket"
 
-#: ../src/plugins/wincmd.c:271
+#: ../src/plugins/wincmd.c:281
 msgid "Minimize All Windows"
 msgstr "Ablakok minimalizálása"
 
-#: ../src/plugins/wincmd.c:273
+#: ../src/plugins/wincmd.c:283
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commnds are 1)toggle iconify and 2) toggle shade"
@@ -446,19 +451,19 @@ msgstr "Hangerő-szabályzó"
 msgid "Volume"
 msgstr "Hangerő"
 
-#: ../src/plugins/netstatus/netstatus.c:151
+#: ../src/plugins/netstatus/netstatus.c:157
 msgid "Interface to monitor"
 msgstr "Figyelő felület"
 
-#: ../src/plugins/netstatus/netstatus.c:152
+#: ../src/plugins/netstatus/netstatus.c:158
 msgid "Config tool"
 msgstr "Beállító eszköz"
 
-#: ../src/plugins/netstatus/netstatus.c:169
+#: ../src/plugins/netstatus/netstatus.c:175
 msgid "Net Status Monitor"
 msgstr "Hálózati állapot figyelő"
 
-#: ../src/plugins/netstatus/netstatus.c:171
+#: ../src/plugins/netstatus/netstatus.c:177
 msgid "Monitor network status"
 msgstr "Hálózati állapot figyelése"
 
@@ -574,48 +579,48 @@ msgstr "Támogatás"
 msgid "Con_figure"
 msgstr "Beállít"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:380
+#: ../src/plugins/netstatus/netstatus-icon.c:379
 #, c-format
 msgid "Network Connection: %s"
 msgstr "Hálózati kapcsolat: %s"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:385
+#: ../src/plugins/netstatus/netstatus-icon.c:384
 msgid "Network Connection"
 msgstr "Hálózati kapcsolat"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:812
+#: ../src/plugins/netstatus/netstatus-icon.c:811
 msgid "Interface"
 msgstr "Csatoló"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:813
+#: ../src/plugins/netstatus/netstatus-icon.c:812
 msgid "The current interface the icon is monitoring."
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus-icon.c:820
+#: ../src/plugins/netstatus/netstatus-icon.c:819
 msgid "Orientation"
 msgstr "Irány"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:821
+#: ../src/plugins/netstatus/netstatus-icon.c:820
 msgid "The orientation of the tray."
 msgstr "A tálca iránya."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:829
+#: ../src/plugins/netstatus/netstatus-icon.c:828
 msgid "Tooltips Enabled"
 msgstr "Eszköztippek bekapcsolva"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:830
+#: ../src/plugins/netstatus/netstatus-icon.c:829
 msgid "Whether or not the icon's tooltips are enabled."
 msgstr "Mutassa-e az ikon eszköztippeket."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:837
+#: ../src/plugins/netstatus/netstatus-icon.c:836
 msgid "Show Signal"
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus-icon.c:838
+#: ../src/plugins/netstatus/netstatus-icon.c:837
 msgid "Whether or not the signal strength should be displayed."
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus-icon.c:954
+#: ../src/plugins/netstatus/netstatus-icon.c:950
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"

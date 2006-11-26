@@ -36,6 +36,7 @@
 //#define DEBUG
 #include "dbg.h"
 
+#include "glib-mem.h"
 
 typedef enum {
   CURSOR_STANDARD,
@@ -50,6 +51,13 @@ enum {
   TARGET_COMPOUND_TEXT
 };
 
+enum {
+    COL_ICON = 0,
+    COL_TITLE,
+    COL_BTN,
+    N_COLS
+};
+
 static const GtkTargetEntry target_table[] = {
     { "text/uri-list", 0, TARGET_URILIST},
     { "UTF8_STRING", 0, TARGET_UTF8_STRING },
@@ -60,23 +68,38 @@ static const GtkTargetEntry target_table[] = {
 
 static const char desktop_ent[] = "Desktop Entry";
 
-typedef struct btn {
-    //GtkWidget *button, *pixmap;
+typedef struct btn_t {
+    GtkWidget* widget;
+    gchar *desktop_id;
+    gchar *image;
     gchar *action;
-} btn;
+    gchar *tooltip;
+/*  NOTE: Users can override the values specified in desktop file,
+          and we should process these special cease. */
+    guchar customize_image : 1;
+    guchar customize_action : 1;
+    guchar customize_tooltip : 1;
+} btn_t;
 
-#define MAXBUTTONS 20
 typedef struct launchbar {
     GtkWidget *box;
     GtkTooltips *tips;
-    btn btns[MAXBUTTONS];
-    int btn_num;
+    GSList* btns;
     int iconsize;
-    char* config_data;
+    GtkWidget* config_dlg;
 } launchbar;
 
+void btn_free( btn_t* btn )
+{
+    g_free( btn->desktop_id );
+    g_free( btn->image );
+    g_free( btn->action );
+    g_free( btn->tooltip );
+    g_slice_free( btn_t, btn );
+}
+
 static gboolean
-my_button_pressed(GtkWidget *widget, GdkEventButton *event, btn *b )
+on_button_pressed(GtkWidget *widget, GdkEventButton *event, btn_t *b )
 {
     GtkWidget *image;
 
@@ -110,11 +133,8 @@ launchbar_destructor(plugin *p)
     g_object_unref( lb->tips );
 
     gtk_widget_destroy(lb->box);
-    for (i = 0; i < lb->btn_num; i++) {
-        g_free(lb->btns[i].action);
-    }
-    g_free( lb->config_data );
-    g_free(lb);
+    g_slist_foreach( lb->btns, (GFunc)btn_free, NULL );
+    g_slice_free(launchbar, lb);
     RET();
 }
 
@@ -127,7 +147,7 @@ drag_data_received_cb (GtkWidget        *widget,
       GtkSelectionData *sd,
       guint             info,
       guint             time,
-      btn              *b)
+      btn_t              *b)
 {
     gchar *s, *e, *end, *str, *tmp;
 
@@ -172,22 +192,19 @@ static int
 read_button(plugin *p, char** fp)
 {
     launchbar *lb = (launchbar *)p->priv;
-    gchar *fname, *tooltip, *action, *desktop_id;
-    //GdkPixbuf *gp, *gps;
+    gchar *fname;
     GtkWidget *button;
     line s;
-    //GError *err = NULL;
     int w, h;
+    btn_t* btn;
 
     ENTER;
-    s.len = 256;
-    if (lb->btn_num >= MAXBUTTONS) {
-        ERR("launchbar: max number of buttons (%d) was reached. skipping the rest\n",
-              lb->btn_num );
-        RET(0);
-    }
 
-    tooltip = fname = action = desktop_id = NULL;
+    btn = g_slice_new0( btn_t );
+
+    s.len = 256;
+    fname= NULL;
+
     if( fp )
     {
         while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
@@ -197,13 +214,20 @@ read_button(plugin *p, char** fp)
             }
             if (s.type == LINE_VAR) {
                 if( !g_ascii_strcasecmp(s.t[0], "id") )
-                    desktop_id = g_strdup(s.t[1]);
-                else if (!g_ascii_strcasecmp(s.t[0], "image"))
+                    btn->desktop_id = g_strdup(s.t[1]);
+                else if (!g_ascii_strcasecmp(s.t[0], "image")) {
+                    btn->customize_image = 1;
+                    btn->image = g_strdup(s.t[1]);
                     fname = expand_tilda(s.t[1]);
-                else if (!g_ascii_strcasecmp(s.t[0], "tooltip"))
-                    tooltip = g_strdup(s.t[1]);
-                else if (!g_ascii_strcasecmp(s.t[0], "action"))
-                    action = g_strdup(s.t[1]);
+                }
+                else if (!g_ascii_strcasecmp(s.t[0], "tooltip")) {
+                    btn->customize_tooltip = 1;
+                    btn->tooltip = g_strdup(s.t[1]);
+                }
+                else if (!g_ascii_strcasecmp(s.t[0], "action")) {
+                    btn->customize_action = 1;
+                    btn->action = g_strdup(s.t[1]);
+                }
                 else {
                     ERR( "launchbar: unknown var %s\n", s.t[0]);
                     goto error;
@@ -216,12 +240,11 @@ read_button(plugin *p, char** fp)
         DBG("action=%s\n", action);
     }
 
-    if( desktop_id ) {
+    if( btn->desktop_id ) {
         gchar *desktop_file = NULL;
         gchar *full_id = NULL;
         GKeyFile* desktop = g_key_file_new();
-        full_id = g_strconcat( "applications/", desktop_id, NULL );
-        g_free( desktop_id );
+        full_id = g_strconcat( "applications/", btn->desktop_id, NULL );
         if( g_key_file_load_from_data_dirs( desktop, full_id, &desktop_file,
                                             G_KEY_FILE_NONE, NULL ) )
         {
@@ -237,17 +260,17 @@ read_button(plugin *p, char** fp)
                 else
                     fname = icon;
             }
-            if( ! action ) {
+            if( ! btn->customize_action ) {
                 gchar* exec;
                 exec = g_key_file_get_string( desktop, desktop_ent, "Exec", NULL);
-                action = translate_exec_to_cmd( exec, icon, title, desktop_file );
+                btn->action = translate_exec_to_cmd( exec, icon, title, desktop_file );
                 g_free( exec );
             }
-            if( ! tooltip )
-                tooltip = title;
+            if( ! btn->customize_tooltip )
+                btn->tooltip = title;
             if( fname != icon )
                 g_free( icon );
-            if( tooltip != title )
+            if( btn->tooltip != title )
                 g_free( title );
         }
         g_free( full_id );
@@ -265,24 +288,31 @@ read_button(plugin *p, char** fp)
         w = p->panel->aw;
         h = 10000;
     }
-    button = fb_button_new_from_file(fname, w, h, 0x202020, TRUE);
-    //gtk_container_set_border_width(GTK_CONTAINER(button), 0);
-    g_signal_connect (G_OBJECT (button), "button-release-event",
-          G_CALLBACK (my_button_pressed), (gpointer) &lb->btns[lb->btn_num]);
-    g_signal_connect (G_OBJECT (button), "button-press-event",
-          G_CALLBACK (my_button_pressed), (gpointer) &lb->btns[lb->btn_num]);
 
+    button = fb_button_new_from_file( fname, w, h, 0x202020, TRUE );
+    btn->widget = button;
+
+    //gtk_container_set_border_width(GTK_CONTAINER(button), 0);
+    g_signal_connect ( button, "button-release-event",
+          G_CALLBACK (on_button_pressed), (gpointer) btn );
+    g_signal_connect ( button, "button-press-event",
+          G_CALLBACK (on_button_pressed), (gpointer) btn );
 
     GTK_WIDGET_UNSET_FLAGS (button, GTK_CAN_FOCUS);
+
     // DnD support
     gtk_drag_dest_set (GTK_WIDGET(button),
           GTK_DEST_DEFAULT_ALL, //GTK_DEST_DEFAULT_HIGHLIGHT,
           target_table, G_N_ELEMENTS (target_table),
           GDK_ACTION_COPY);
-    g_signal_connect (G_OBJECT(button), "drag_data_received",
-          G_CALLBACK (drag_data_received_cb),  (gpointer) &lb->btns[lb->btn_num]);
+    g_signal_connect ( button, "drag_data_received",
+          G_CALLBACK (drag_data_received_cb),  (gpointer) btn );
 
     gtk_box_pack_start(GTK_BOX(lb->box), button, FALSE, FALSE, 0);
+
+    /* append is more time-consuming, but we really care about the order. */
+    lb->btns = g_slist_append( lb->btns, btn );
+
     gtk_widget_show(button);
     //gtk_bgbox_set_background(button, BG_ROOT, 0xFFFFFF, 20);
 
@@ -290,22 +320,17 @@ read_button(plugin *p, char** fp)
         gtk_bgbox_set_background(button, BG_ROOT, p->panel->tintcolor, p->panel->alpha);
 
     g_free(fname);
-    // tooltip
-    if (tooltip) {
-        gtk_tooltips_set_tip(GTK_TOOLTIPS (lb->tips), button, tooltip, NULL);
-        g_free(tooltip);
-    }
 
-    //gtk_container_add(GTK_CONTAINER(eb), button);
-    lb->btns[lb->btn_num].action = action;
-    lb->btn_num++;
+    // tooltip
+    if ( btn->tooltip ) {
+        gtk_tooltips_set_tip(GTK_TOOLTIPS (lb->tips), button, btn->tooltip, NULL);
+    }
 
     RET(1);
 
  error:
     g_free(fname);
-    g_free(tooltip);
-    g_free(action);
+    btn_free( btn );
     RET(0);
 }
 
@@ -326,7 +351,7 @@ launchbar_constructor(plugin *p, char **fp)
             "id=firefox.desktop\n"
         "}\n"
         "}\n";
-    char *config_start, *config_end, *config_default = default_config;
+    char *config_default = default_config;
     static gchar *launchbar_rc = "style 'launchbar-style'\n"
         "{\n"
         "GtkWidget::focus-line-width = 0\n"
@@ -341,7 +366,7 @@ launchbar_constructor(plugin *p, char **fp)
     gtk_rc_parse_string(launchbar_rc);
     get_button_spacing(&req, GTK_CONTAINER(p->pwid), "");
 
-    lb = g_new0(launchbar, 1);
+    lb = g_slice_new0(launchbar);
     g_return_val_if_fail(lb != NULL, 0);
     p->priv = lb;
     lb->box = p->panel->my_box_new(FALSE, 0);
@@ -363,7 +388,6 @@ launchbar_constructor(plugin *p, char **fp)
     if( ! fp )
         fp = &config_default;
 
-    config_start = *fp;
     s.len = 256;
     while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
         if (s.type == LINE_NONE) {
@@ -385,15 +409,6 @@ launchbar_constructor(plugin *p, char **fp)
             goto error;
         }
     }
-    config_end = *fp - 1;
-    while( *config_end != '}' && config_end > config_start ) {
-        --config_end;
-    }
-    if( *config_end == '}' )
-        --config_end;
-
-    lb->config_data = g_strndup( config_start,
-                                 (config_end-config_start) );
 
     RET(1);
 
@@ -406,15 +421,19 @@ launchbar_constructor(plugin *p, char **fp)
 static void save_config( plugin* p, FILE* fp )
 {
     launchbar *lb = (launchbar *)p->priv;
-    if( lb->config_data ) {
-        char** lines = g_strsplit( lb->config_data, "\n", 0 );
-        char** line;
-        for( line = lines; *line; ++line ) {
-            g_strstrip( *line );
-            if( **line )
-                lxpanel_put_line( fp, *line );
-        }
-        g_strfreev( lines );
+    GSList* l;
+    for( l = lb->btns; l; l = l->next ) {
+        btn_t* btn = (btn_t*)l->data;
+        lxpanel_put_line( fp, "Button {" );
+        if( btn->desktop_id )
+            lxpanel_put_str( fp, "id", btn->desktop_id );
+        if( btn->customize_image )
+            lxpanel_put_str( fp, "image", btn->image );
+        if( btn->customize_tooltip )
+            lxpanel_put_str( fp, "tooltip", btn->tooltip );
+        if( btn->customize_action )
+            lxpanel_put_str( fp, "action", btn->action );
+        lxpanel_put_line( fp, "}" );
     }
 }
 
@@ -431,6 +450,298 @@ static void orientation_changed( plugin* p )
     }
 }
 
+static void
+on_response( GtkDialog* dlg, int response, plugin* p )
+{
+    launchbar *lb = (launchbar *)p->priv;
+    gtk_widget_destroy( dlg );
+    lb->config_dlg = NULL;
+}
+
+static void on_add_btn_response( GtkDialog* dlg, int response, int* ret )
+{
+    *ret = response;
+    gtk_main_quit();
+}
+
+static void on_add_btn( GtkButton* widget, plugin* p )
+{
+    launchbar *lb = (launchbar *)p->priv;
+    GtkTreeView* view = (GtkTreeView*)g_object_get_data( lb->config_dlg, "view" );
+    GtkTreeSelection* tree_sel = gtk_tree_view_get_selection(view);
+    GtkTreeIter it;
+    GtkListStore* list;
+    GtkFileChooserDialog* dlg;
+    GtkFileFilter* filter;
+    int response;
+
+    /*
+    if( !gtk_tree_selection_get_selected( tree_sel, &list, &it ) )
+        return;
+    */
+    list = (GtkListStore*)gtk_tree_view_get_model( view );
+
+    /* FIXME: We should have a better interface for this in the fututure.
+              1. We can borrow the menu from menu pluiin (PtkAppMenu).
+              2. We can borrow the app chooser from PCManFM.
+    */
+    dlg = gtk_file_chooser_dialog_new(_("Select Application"),
+                                       lb->config_dlg,
+                                       GTK_FILE_CHOOSER_ACTION_OPEN,
+                                       GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+                                       GTK_STOCK_ADD, GTK_RESPONSE_OK, NULL );
+    filter = gtk_file_filter_new();
+    gtk_file_filter_set_name( filter, "*.desktop" );
+    gtk_file_filter_add_pattern( filter, "*.desktop" );
+    gtk_file_chooser_add_filter( dlg, filter );
+    g_object_unref( filter );
+    gtk_file_chooser_set_local_only( dlg, TRUE );
+    gtk_file_chooser_set_current_folder( dlg, "/usr/share/applications" );
+
+    gtk_widget_set_sensitive( lb->config_dlg, FALSE );
+    g_signal_connect( dlg, "response", on_add_btn_response, &response );
+    gtk_window_present( dlg );
+    gtk_main();
+    gtk_widget_set_sensitive( lb->config_dlg, TRUE );
+
+    if( response == GTK_RESPONSE_OK ) {
+        char* filename = gtk_file_chooser_get_filename( dlg );
+        if( filename ) {
+            if( g_str_has_suffix( filename, ".desktop" ) ) {
+                char* desktop_id = g_path_get_basename( filename );
+                char *config, *pconfig;
+                config = pconfig = g_strdup_printf( "id=%s\n}\n", desktop_id );
+                g_free( desktop_id );
+                /* Make a fake config entry, and let read_button() parst it. */
+                /* FIXME: This is a quick hack, which is dirty but easy and useful.
+                          Need to be re-written in the future.
+                */
+                if( read_button( p, &pconfig ) ) {
+                    GSList* l;
+                    btn_t* btn;
+                    l = g_slist_last( lb->btns );
+                    btn = (btn_t*)l->data;
+                    gtk_list_store_append( list, &it );
+                    gtk_list_store_set( list, &it,
+                                        COL_ICON, NULL, /* FIXME: need to be implemented */
+                                        COL_TITLE, (btn->tooltip ? btn->tooltip : btn->action),
+                                        COL_BTN, btn,
+                                        -1 );
+                }
+                g_free( config );
+            }
+            g_free( filename );
+        }
+    }
+
+    gtk_widget_destroy( dlg );
+}
+
+static void on_remove_btn( GtkButton* widget, plugin* p )
+{
+    launchbar *lb = (launchbar *)p->priv;
+    GtkTreeView* view = (GtkTreeView*)g_object_get_data( lb->config_dlg, "view" );
+    GtkTreeSelection* tree_sel = gtk_tree_view_get_selection(view);
+    GtkTreeIter it;
+    GtkListStore* list;
+    btn_t* btn;
+
+    if( !gtk_tree_selection_get_selected( tree_sel, &list, &it ) )
+        return;
+    gtk_tree_model_get( (GtkTreeModel*)list, &it,
+                         COL_BTN, &btn, -1 );
+    gtk_list_store_remove( list, &it );
+    if( btn ) {
+        lb->btns = g_slist_remove( lb->btns, btn );
+        gtk_widget_destroy( btn->widget );
+        btn_free( btn );
+    }
+}
+
+static void on_up_btn( GtkButton* widget, plugin* p )
+{
+    launchbar *lb = (launchbar *)p->priv;
+    btn_t *btn;
+    GtkTreeView* view = (GtkTreeView*)g_object_get_data( lb->config_dlg, "view" );
+    GtkTreeSelection* tree_sel = gtk_tree_view_get_selection(view);
+    GtkTreeIter it;
+    GtkTreePath* path;
+    GtkListStore* list;
+
+    if( !gtk_tree_selection_get_selected( tree_sel, &list, &it ) )
+        return;
+    gtk_tree_model_get( (GtkTreeModel*)list, &it, COL_BTN, &btn, -1 );
+    path = gtk_tree_model_get_path( (GtkTreeModel*)list, &it );
+    if( gtk_tree_path_get_indices(path)[0] > 0 ) {
+        if( gtk_tree_path_prev(path) ) {
+            GtkTreeIter it2;
+            if( gtk_tree_model_get_iter( (GtkTreeModel*)list, &it2, path ) ) {
+                int i = gtk_tree_path_get_indices(path)[0];
+                lb->btns = g_slist_remove( lb->btns, btn );
+                lb->btns = g_slist_insert( lb->btns, btn, i );
+                gtk_list_store_move_before( (GtkTreeModel*)list, &it, &it2 );
+                gtk_box_reorder_child( lb->box, btn->widget, i );
+            }
+        }
+    }
+    gtk_tree_path_free( path );
+}
+
+static void on_down_btn( GtkButton* widget, plugin* p )
+{
+    launchbar *lb = (launchbar *)p->priv;
+    btn_t *btn;
+    GtkTreeView* view = (GtkTreeView*)g_object_get_data( lb->config_dlg, "view" );
+    GtkTreeSelection* tree_sel = gtk_tree_view_get_selection(view);
+    GtkTreeIter it;
+    GtkTreePath* path;
+    GtkListStore* list;
+    int n;
+
+    if( !gtk_tree_selection_get_selected( tree_sel, &list, &it ) )
+        return;
+    gtk_tree_model_get( (GtkTreeModel*)list, &it, COL_BTN, &btn, -1 );
+    path = gtk_tree_model_get_path( (GtkTreeModel*)list, &it );
+    n = gtk_tree_model_iter_n_children( (GtkTreeModel*)list, NULL );
+    if( gtk_tree_path_get_indices(path)[0] < n - 1 ) {
+        GtkTreeIter it2;
+        gtk_tree_path_next(path);
+        if( gtk_tree_model_get_iter( (GtkTreeModel*)list, &it2, path ) ) {
+            int i = gtk_tree_path_get_indices(path)[0];
+            lb->btns = g_slist_insert( lb->btns, btn, i + 1 );
+            lb->btns = g_slist_remove( lb->btns, btn );
+            gtk_list_store_move_after( (GtkTreeModel*)list, &it, &it2 );
+            gtk_box_reorder_child( lb->box, btn->widget, i );
+        }
+    }
+    gtk_tree_path_free( path );
+}
+
+static void init_btn_list( plugin* p, GtkTreeView* view )
+{
+    launchbar *lb = (launchbar *)p->priv;
+    GtkListStore *list;
+    GSList* l;
+    GtkTreeViewColumn* col;
+    GtkCellRenderer* render;
+    GtkTreeSelection* tree_sel = gtk_tree_view_get_selection(view);
+
+    gtk_tree_selection_set_mode(tree_sel, GTK_SELECTION_BROWSE);
+
+    list = gtk_list_store_new( N_COLS,
+                               GDK_TYPE_PIXBUF,
+                               G_TYPE_STRING,
+                               G_TYPE_POINTER,
+                               G_TYPE_POINTER );
+    col = gtk_tree_view_column_new();
+    gtk_tree_view_column_set_title( col, _("Buttons") );
+
+    render = gtk_cell_renderer_pixbuf_new();
+    gtk_tree_view_column_pack_start( col, render, FALSE );
+    gtk_tree_view_column_set_attributes( col, render, "pixbuf", COL_ICON, NULL );
+
+    render = gtk_cell_renderer_text_new();
+    gtk_tree_view_column_pack_start( col, render, TRUE );
+    gtk_tree_view_column_add_attribute( col, render, "text", COL_TITLE );
+
+    gtk_tree_view_append_column( view, col );
+
+    for( l = lb->btns; l; l = l->next ) {
+        GtkTreeIter it;
+        GdkPixbuf* pix;
+        char* fname;
+
+        btn_t* btn = (btn_t*)l->data;
+#if 0
+        fname = expand_tilda( btn->image );
+        if( fname ) {
+            if( fname[0] == '/' ) /* file */
+                pix = gdk_pixbuf_new_from_file( fname, NULL );
+            else {
+                //pix =
+            }
+        }
+        else
+            pix = NULL;
+        g_free( fname );
+#endif
+        gtk_list_store_append( list, &it );
+        gtk_list_store_set( list, &it,
+                            COL_ICON, NULL,
+                            COL_TITLE, (btn->tooltip ? btn->tooltip : btn->action),
+                            COL_BTN, btn, -1 );
+    }
+
+    gtk_tree_view_set_model( view, (GtkTreeModel*)list );
+    g_object_unref( list );
+
+    g_object_set_data( lb->config_dlg, "view", view );
+}
+
+static void launchbar_config( plugin *p, GtkWindow* parent )
+{
+    GtkWidget *dlg, *hbox, *vbox, *scroll, *view, *btn, *img;
+    launchbar *lb = (launchbar *)p->priv;
+
+    if( !lb->config_dlg )
+    {
+        dlg = gtk_dialog_new_with_buttons( _(p->class->name),
+                                        GTK_WIDGET(parent), 0,
+                                        GTK_STOCK_CLOSE,
+                                        GTK_RESPONSE_CLOSE,
+                                        NULL );
+        lb->config_dlg = dlg;
+
+        hbox = gtk_hbox_new( FALSE, 4 );
+        gtk_box_pack_start( (GtkBox*)GTK_DIALOG(dlg)->vbox, hbox, TRUE, TRUE, 2 );
+
+        scroll = gtk_scrolled_window_new( NULL, NULL );
+        gtk_scrolled_window_set_policy( (GtkScrolledWindow*)scroll,
+                                         GTK_POLICY_AUTOMATIC,
+                                         GTK_POLICY_AUTOMATIC );
+        gtk_scrolled_window_set_shadow_type( (GtkScrolledWindow*)scroll,
+                                             GTK_SHADOW_IN );
+        gtk_box_pack_start( (GtkBox*)hbox, scroll, TRUE, TRUE, 2 );
+
+        view = gtk_tree_view_new();
+        gtk_container_add( (GtkContainer*)scroll, view );
+
+        vbox = gtk_vbox_new( FALSE, 2 );
+        gtk_box_pack_start( (GtkBox*)hbox, vbox, FALSE, FALSE, 2 );
+
+        btn = gtk_button_new_from_stock( GTK_STOCK_ADD );
+        g_signal_connect( btn, "clicked", G_CALLBACK( on_add_btn ), p );
+        gtk_box_pack_start( (GtkBox*)vbox, btn, FALSE, FALSE, 2 );
+
+        btn = gtk_button_new_from_stock( GTK_STOCK_REMOVE );
+        g_signal_connect( btn, "clicked", G_CALLBACK( on_remove_btn ), p );
+        gtk_box_pack_start( (GtkBox*)vbox, btn, FALSE, FALSE, 2 );
+
+        btn = gtk_button_new();
+        gtk_container_add( GTK_CONTAINER(btn),
+                gtk_image_new_from_stock(GTK_STOCK_GO_UP,
+                                        GTK_ICON_SIZE_BUTTON) );
+        g_signal_connect( btn, "clicked", G_CALLBACK( on_up_btn ), p );
+        gtk_box_pack_start( (GtkBox*)vbox, btn, FALSE, FALSE, 2 );
+
+        btn = gtk_button_new();
+        gtk_container_add( GTK_CONTAINER(btn),
+                gtk_image_new_from_stock(GTK_STOCK_GO_DOWN,
+                                        GTK_ICON_SIZE_BUTTON) );
+        g_signal_connect( btn, "clicked", G_CALLBACK( on_down_btn ), p );
+        gtk_box_pack_start( (GtkBox*)vbox, btn, FALSE, FALSE, 2 );
+
+        g_signal_connect( dlg, "response", G_CALLBACK(on_response), p );
+
+        gtk_window_set_default_size( (GtkWindow*)dlg, 320, 400 );
+
+        init_btn_list( p, view );
+
+        gtk_widget_show_all( dlg );
+    }
+    gtk_window_present( GTK_WINDOW(lb->config_dlg) );
+}
+
 plugin_class launchbar_plugin_class = {
     fname: NULL,
     count: 0,
@@ -442,7 +753,7 @@ plugin_class launchbar_plugin_class = {
 
     constructor : launchbar_constructor,
     destructor  : launchbar_destructor,
-    config : NULL,
+    config : launchbar_config,
     save : save_config,
     orientation : orientation_changed
 };

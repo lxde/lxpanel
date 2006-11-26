@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-11-25 13:38+0800\n"
+"POT-Creation-Date: 2006-11-26 22:17+0800\n"
 "PO-Revision-Date: 2006-10-11 19:09+0900\n"
 "Last-Translator: Kang Jeong-Hee <keizie@gmail.com>\n"
 "Language-Team: GNOME Korean Team <gnome-kr-hackers@lists.kldp.net>\n"
@@ -127,80 +127,80 @@ msgstr "Strut 설정"
 msgid "Currently loaded plugins"
 msgstr "지금 쓰는 플러그인"
 
-#: ../src/configurator.c:664
+#: ../src/configurator.c:666
 msgid "Add plugin to panel"
 msgstr ""
 
-#: ../src/configurator.c:686
+#: ../src/configurator.c:688
 #, fuzzy
 msgid "Available plugins"
 msgstr "간단한 pager 플러그인"
 
-#: ../src/configurator.c:955
+#: ../src/configurator.c:957
 msgid "lxpanel configurator"
 msgstr "가벼운 패널 설정"
 
-#: ../src/configurator.c:977
+#: ../src/configurator.c:979
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr "일반"
 
-#: ../src/configurator.c:982
+#: ../src/configurator.c:984
 msgid "Plugins"
 msgstr "플러그인"
 
-#: ../src/configurator.c:1105
+#: ../src/configurator.c:1111
 msgid "Logout command is not set"
 msgstr ""
 
-#: ../src/panel.c:769
+#: ../src/panel.c:770
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - GTK2+를 쓴 유닉스 환경의 가벼운 패널\n"
 
-#: ../src/panel.c:770
+#: ../src/panel.c:771
 msgid "Command line options:\n"
 msgstr "명령줄 옵션:\n"
 
-#: ../src/panel.c:771
+#: ../src/panel.c:772
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- 도움말이 나오고 끝납니다\n"
 
-#: ../src/panel.c:772
+#: ../src/panel.c:773
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- 버전이 나오고 끝납니다\n"
 
-#: ../src/panel.c:773
+#: ../src/panel.c:774
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 " --log <숫자>   -- 기록 수준을 0부터 5까지 정합니다. 0은 조용하고 5는 수다쟁"
 "이\n"
 
-#: ../src/panel.c:774
+#: ../src/panel.c:775
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- 설정창을 띄웁니다\n"
 
-#: ../src/panel.c:775
+#: ../src/panel.c:776
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile 이름 -- 지정한 프로파일을 씁니다\n"
 
-#: ../src/panel.c:777
+#: ../src/panel.c:778
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- --help와 같습니다\n"
 
-#: ../src/panel.c:778
+#: ../src/panel.c:779
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- --profile과 같습니다\n"
 
-#: ../src/panel.c:779
+#: ../src/panel.c:780
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- --version과 같습니다\n"
 
-#: ../src/panel.c:780
+#: ../src/panel.c:781
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- --configure와 같습니다\n"
 
-#: ../src/panel.c:781
+#: ../src/panel.c:782
 msgid ""
 "\n"
 "Visit http://lxpanel.sourceforge.net/ for detailed documentation,\n"
@@ -238,124 +238,129 @@ msgstr "데스크탑 번호 / 작업공간 이름"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "작업공간 번호를 표시합니다. cmeury@users.sf.net 제작"
 
-#: ../src/plugins/launchbar.c:434
+#: ../src/plugins/launchbar.c:534
+#, fuzzy
+msgid "Buttons"
+msgstr "아래쪽"
+
+#: ../src/plugins/launchbar.c:631
 msgid "Application Launch Bar"
 msgstr "실행 막대"
 
-#: ../src/plugins/launchbar.c:436
+#: ../src/plugins/launchbar.c:633
 msgid "Bar with buttons to launch application"
 msgstr "응용 프로그램을 실행하는 버튼들입니다"
 
-#: ../src/plugins/ptk-app-menu.c:146
+#: ../src/plugins/ptk-app-menu.c:154
 msgid "Other"
 msgstr "기타"
 
-#: ../src/plugins/ptk-app-menu.c:147
+#: ../src/plugins/ptk-app-menu.c:155
 msgid "Game"
 msgstr "놀이"
 
-#: ../src/plugins/ptk-app-menu.c:148
+#: ../src/plugins/ptk-app-menu.c:156
 msgid "Education"
 msgstr "교육"
 
-#: ../src/plugins/ptk-app-menu.c:149
+#: ../src/plugins/ptk-app-menu.c:157
 msgid "Development"
 msgstr "개발"
 
-#: ../src/plugins/ptk-app-menu.c:150
+#: ../src/plugins/ptk-app-menu.c:158
 msgid "Audio & Video"
 msgstr "멀티미디어"
 
-#: ../src/plugins/ptk-app-menu.c:151
+#: ../src/plugins/ptk-app-menu.c:159
 msgid "Graphics"
 msgstr "그림"
 
-#: ../src/plugins/ptk-app-menu.c:152
+#: ../src/plugins/ptk-app-menu.c:160
 msgid "Settings"
 msgstr "설정"
 
-#: ../src/plugins/ptk-app-menu.c:153
+#: ../src/plugins/ptk-app-menu.c:161
 msgid "System Tools"
 msgstr "시스템 도구"
 
-#: ../src/plugins/ptk-app-menu.c:154
+#: ../src/plugins/ptk-app-menu.c:162
 msgid "Network"
 msgstr "네트워크"
 
-#: ../src/plugins/ptk-app-menu.c:155
+#: ../src/plugins/ptk-app-menu.c:163
 msgid "Office"
 msgstr "사무"
 
-#: ../src/plugins/ptk-app-menu.c:156
+#: ../src/plugins/ptk-app-menu.c:164
 msgid "Accessories"
 msgstr "기타"
 
-#: ../src/plugins/taskbar.c:1139
+#: ../src/plugins/taskbar.c:1137
 msgid "Raise"
 msgstr "앞으로"
 
-#: ../src/plugins/taskbar.c:1144
+#: ../src/plugins/taskbar.c:1142
 msgid "Restore"
 msgstr "복구"
 
-#: ../src/plugins/taskbar.c:1149
+#: ../src/plugins/taskbar.c:1147
 msgid "Maximize"
 msgstr "최대화"
 
-#: ../src/plugins/taskbar.c:1154
+#: ../src/plugins/taskbar.c:1152
 msgid "Iconify"
 msgstr "최소화"
 
 #. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1160
+#: ../src/plugins/taskbar.c:1158
 msgid "Close Window"
 msgstr "닫기"
 
-#: ../src/plugins/taskbar.c:1385
+#: ../src/plugins/taskbar.c:1383
 msgid "Show tooltips"
 msgstr "툴팁 보기"
 
-#: ../src/plugins/taskbar.c:1386
+#: ../src/plugins/taskbar.c:1384
 msgid "Icons only"
 msgstr "아이콘만"
 
-#: ../src/plugins/taskbar.c:1387
+#: ../src/plugins/taskbar.c:1385
 msgid "Accept SkipPager"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1388
+#: ../src/plugins/taskbar.c:1386
 msgid "Show Iconified windows"
 msgstr "최소화한 창 보이기"
 
-#: ../src/plugins/taskbar.c:1389
+#: ../src/plugins/taskbar.c:1387
 msgid "Show mapped windows"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1390
+#: ../src/plugins/taskbar.c:1388
 msgid "Show windows from all desktops"
 msgstr "모든 작업공간의 창 보이기"
 
-#: ../src/plugins/taskbar.c:1391
+#: ../src/plugins/taskbar.c:1389
 msgid "Use mouse wheel"
 msgstr "휠로 창 전환 가능"
 
-#: ../src/plugins/taskbar.c:1392
+#: ../src/plugins/taskbar.c:1390
 msgid "Flash when there is any window requiring attention"
 msgstr "주목할 창이 있으면 깜빡이기"
 
-#: ../src/plugins/taskbar.c:1393
+#: ../src/plugins/taskbar.c:1391
 msgid "Max width of task button"
 msgstr "작업 버튼의 최대 너비"
 
-#: ../src/plugins/taskbar.c:1394
+#: ../src/plugins/taskbar.c:1392
 msgid "Spacing"
 msgstr "사이 띄우기"
 
-#: ../src/plugins/taskbar.c:1468
+#: ../src/plugins/taskbar.c:1466
 msgid "Task Bar (Window List)"
 msgstr "창 목록"
 
-#: ../src/plugins/taskbar.c:1470
+#: ../src/plugins/taskbar.c:1468
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -391,7 +396,7 @@ msgstr "아이콘"
 msgid "Change window icons"
 msgstr "창 아이콘을 바꿉니다"
 
-#: ../src/plugins/menu.c:527
+#: ../src/plugins/menu.c:556
 msgid "Menu"
 msgstr "메뉴"
 
@@ -415,16 +420,16 @@ msgstr "크기"
 msgid "<Space>"
 msgstr "사이 띄우기"
 
-#: ../src/plugins/wincmd.c:246
+#: ../src/plugins/wincmd.c:256
 msgid "Left click to iconify all windows. Middle click to shade them"
 msgstr ""
 "왼쪽 클릭으로 모든 창을 최소화하고, 가운데 클릭으로 모든 창을 말아올립니다"
 
-#: ../src/plugins/wincmd.c:271
+#: ../src/plugins/wincmd.c:281
 msgid "Minimize All Windows"
 msgstr "모든 창 최소화"
 
-#: ../src/plugins/wincmd.c:273
+#: ../src/plugins/wincmd.c:283
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commnds are 1)toggle iconify and 2) toggle shade"
@@ -443,19 +448,19 @@ msgstr "소리 크기 조절"
 msgid "Volume"
 msgstr "소리 크기"
 
-#: ../src/plugins/netstatus/netstatus.c:151
+#: ../src/plugins/netstatus/netstatus.c:157
 msgid "Interface to monitor"
 msgstr "감시할 장치"
 
-#: ../src/plugins/netstatus/netstatus.c:152
+#: ../src/plugins/netstatus/netstatus.c:158
 msgid "Config tool"
 msgstr "설정 도구"
 
-#: ../src/plugins/netstatus/netstatus.c:169
+#: ../src/plugins/netstatus/netstatus.c:175
 msgid "Net Status Monitor"
 msgstr "네트 상태 감시기"
 
-#: ../src/plugins/netstatus/netstatus.c:171
+#: ../src/plugins/netstatus/netstatus.c:177
 msgid "Monitor network status"
 msgstr "네트워크 상태를 봅니다"
 
@@ -570,48 +575,48 @@ msgstr ""
 msgid "Con_figure"
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus-icon.c:380
+#: ../src/plugins/netstatus/netstatus-icon.c:379
 #, c-format
 msgid "Network Connection: %s"
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus-icon.c:385
+#: ../src/plugins/netstatus/netstatus-icon.c:384
 msgid "Network Connection"
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus-icon.c:812
+#: ../src/plugins/netstatus/netstatus-icon.c:811
 msgid "Interface"
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus-icon.c:813
+#: ../src/plugins/netstatus/netstatus-icon.c:812
 msgid "The current interface the icon is monitoring."
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus-icon.c:820
+#: ../src/plugins/netstatus/netstatus-icon.c:819
 msgid "Orientation"
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus-icon.c:821
+#: ../src/plugins/netstatus/netstatus-icon.c:820
 msgid "The orientation of the tray."
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus-icon.c:829
+#: ../src/plugins/netstatus/netstatus-icon.c:828
 msgid "Tooltips Enabled"
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus-icon.c:830
+#: ../src/plugins/netstatus/netstatus-icon.c:829
 msgid "Whether or not the icon's tooltips are enabled."
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus-icon.c:837
+#: ../src/plugins/netstatus/netstatus-icon.c:836
 msgid "Show Signal"
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus-icon.c:838
+#: ../src/plugins/netstatus/netstatus-icon.c:837
 msgid "Whether or not the signal strength should be displayed."
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus-icon.c:954
+#: ../src/plugins/netstatus/netstatus-icon.c:950
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"

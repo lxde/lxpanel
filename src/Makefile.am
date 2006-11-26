@@ -22,6 +22,7 @@ TRAY_SOURCES= \
 	systray/tray.c
 
 lxpanel_SOURCES = \
+	glib-mem.h \
 	misc.c misc.h \
 	$(TRAY_SOURCES) \
 	bg.c bg.h  \

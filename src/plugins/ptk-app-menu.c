@@ -270,8 +270,11 @@ static void on_menu_item_size_request( GtkWidget* item,
                                        GtkRequisition* req,
                                        gpointer user_data )
 {
-    if( req->height < ICON_SIZE )
-        req->height = ICON_SIZE;
+    if( req->height < ICON_SIZE ) {
+        /* Most of the themes add a 1 pixel border to the menu item,
+           so we add 2 here. (Not always work, but works under most themes) */
+        req->height = ICON_SIZE + 2;
+    }
     if( req->width < ICON_SIZE )
        req->width = ICON_SIZE;
 }
