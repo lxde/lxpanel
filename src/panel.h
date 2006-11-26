@@ -83,7 +83,7 @@ typedef struct {
     int plug_num;
     GList *plugins;
 
-    gpointer system_menu;
+    GSList* system_menus;
 } panel;
 
 

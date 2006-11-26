@@ -225,6 +225,15 @@ wincmd_constructor(plugin *p, char **fp)
             }
         }
     }
+    else
+    {
+        wc->button1 = WC_ICONIFY;
+        wc->button2 = WC_SHADE;
+    }
+
+    if( !fname )
+        fname = g_strdup("gnome-fs-desktop");
+
     if (p->panel->orientation == ORIENT_HORIZ) {
         w = 10000;
         h = p->panel->ah;

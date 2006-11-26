@@ -116,6 +116,12 @@ netstatus_constructor(plugin *p, char** fp)
             }
         }
     }
+    else
+    {
+        ns->iface = g_strdup("eth0");
+        ns->config_tool = g_strdup("network-admin --configure %i");
+    }
+
     iface = netstatus_iface_new(ns->iface);
     ns->mainw = netstatus_icon_new( iface );
     gtk_widget_add_events( ns->mainw, GDK_BUTTON_PRESS_MASK );

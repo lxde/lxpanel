@@ -156,12 +156,13 @@ static void process_client_msg ( panel *p, XClientMessageEvent* ev )
     switch( cmd )
     {
         case LXPANEL_CMD_SYS_MENU:
-            if( p->system_menu )
+            if( p->system_menus )
             {
-                show_system_menu( p->system_menu );
+                /* show_system_menu( p->system_menus->data ); */
                 /* FIXME: I've no idea why this doesn't work without timeout
                           under some WMs, like icewm. */
-                g_timeout_add( 200, show_system_menu, p->system_menu );
+                g_timeout_add( 200, (GSourceFunc)show_system_menu,
+                               p->system_menus->data );
             }
             break;
         case LXPANEL_CMD_RUN:
@@ -744,9 +745,9 @@ void panel_stop(panel *p)
     g_list_free(p->plugins);
     p->plugins = NULL;
 
-    if( p->system_menu ){
+    if( p->system_menus ){
         do{
-        } while ( g_source_remove_by_user_data( p->system_menu ) );
+        } while ( g_source_remove_by_user_data( p->system_menus ) );
     }
 
     XSelectInput (GDK_DISPLAY(), GDK_ROOT_WINDOW(), NoEventMask);
@@ -755,6 +756,7 @@ void panel_stop(panel *p)
     g_object_unref(fbev);
     g_free(p->workarea);
     g_free( p->logout_command );
+    g_slist_free( p->system_menus );
     gdk_flush();
     XFlush(GDK_DISPLAY());
     XSync(GDK_DISPLAY(), True);

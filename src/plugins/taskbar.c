@@ -104,11 +104,9 @@ static gchar *taskbar_rc = "style 'taskbar-style'\n"
 static gboolean use_net_active=FALSE;
 
 #define DRAG_ACTIVE_DELAY	1000
-
-
-
 #define TASK_WIDTH_MAX   200
 #define TASK_PADDING     4
+
 static void tk_display(taskbar *tb, task *tk);
 static void tb_propertynotify(taskbar *tb, XEvent *ev);
 static GdkFilterReturn tb_event_filter( XEvent *, GdkEvent *, taskbar *);

@@ -317,7 +317,18 @@ launchbar_constructor(plugin *p, char **fp)
     launchbar *lb;
     line s;
     GtkRequisition req;
-    char *config_start, *config_end;
+    static char default_config[] =
+        "button {\n"
+            "id=pcmanfm.desktop\n"
+        "}\n"
+        "button {\n"
+            "id=gnome-terminal.desktop\n"
+        "}\n"
+        "button {\n"
+            "id=firefox.desktop\n"
+        "}\n"
+        "}\n";
+    char *config_start, *config_end, *config_default = default_config;
     static gchar *launchbar_rc = "style 'launchbar-style'\n"
         "{\n"
         "GtkWidget::focus-line-width = 0\n"
@@ -350,45 +361,41 @@ launchbar_constructor(plugin *p, char **fp)
         lb->iconsize = GTK_WIDGET(p->panel->box)->allocation.height;
     else
         lb->iconsize = GTK_WIDGET(p->panel->box)->allocation.width;
-    DBG("button: req width=%d height=%d\n", req.width, req.height);
-    DBG("iconsize=%d\n", lb->iconsize);
 
-    if( fp ) {
-        config_start = *fp;
-        s.len = 256;
-        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
-            if (s.type == LINE_NONE) {
-                ERR( "launchbar: illegal token %s\n", s.str);
-                goto error;
-            }
-            if (s.type == LINE_BLOCK_START) {
-                if (!g_ascii_strcasecmp(s.t[0], "button")) {
-                    if (!read_button(p, fp)) {
-                        ERR( "launchbar: can't init button\n");
-                        goto error;
-                    }
-                } else {
-                    ERR( "launchbar: unknown var %s\n", s.t[0]);
+    if( ! fp )
+        fp = &config_default;
+
+    config_start = *fp;
+    s.len = 256;
+    while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
+        if (s.type == LINE_NONE) {
+            ERR( "launchbar: illegal token %s\n", s.str);
+            goto error;
+        }
+        if (s.type == LINE_BLOCK_START) {
+            if (!g_ascii_strcasecmp(s.t[0], "button")) {
+                if (!read_button(p, fp)) {
+                    ERR( "launchbar: can't init button\n");
                     goto error;
                 }
             } else {
-                ERR( "launchbar: illegal in this context %s\n", s.str);
+                ERR( "launchbar: unknown var %s\n", s.t[0]);
                 goto error;
             }
+        } else {
+            ERR( "launchbar: illegal in this context %s\n", s.str);
+            goto error;
         }
-        config_end = *fp - 1;
-        while( *config_end != '}' && config_end > config_start ) {
-            --config_end;
-        }
-        if( *config_end == '}' )
-            --config_end;
+    }
+    config_end = *fp - 1;
+    while( *config_end != '}' && config_end > config_start ) {
+        --config_end;
+    }
+    if( *config_end == '}' )
+        --config_end;
 
-        lb->config_data = g_strndup( config_start,
-                                     (config_end-config_start) );
-    }
-    else {
-        config_start = config_end = NULL;
-    }
+    lb->config_data = g_strndup( config_start,
+                                 (config_end-config_start) );
 
     RET(1);
 

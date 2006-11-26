@@ -223,12 +223,12 @@ extern  int
 lxpanel_get_line(char**fp, line *s)
 {
     gchar *tmp, *tmp2;
-
     ENTER;
     s->type = LINE_NONE;
     if (!fp)
         RET(s->type);
     while (buf_gets(s->str, s->len, fp)) {
+
         g_strstrip(s->str);
 
         if (s->str[0] == '#' || s->str[0] == 0) {

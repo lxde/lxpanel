@@ -623,6 +623,8 @@ static void on_add_plugin_response( GtkDialog* dlg,
                 pl->panel = p;
                 plugin_start( pl, NULL );
                 p->plugins = g_list_append(p->plugins, pl);
+                /* FIXME: will show all cause problems? */
+                gtk_widget_show_all( pl->pwid );
 
                 model = gtk_tree_view_get_model( _view );
                 gtk_list_store_append( (GtkListStore*)model, &it );

@@ -66,7 +66,7 @@ space_constructor(plugin *p, char** fp)
         }
     }
     if (!sp->size)
-        sp->size = 1;
+        sp->size = 2;
     sp->mainw = gtk_vbox_new(TRUE, 0);
     gtk_widget_show(sp->mainw);
     if (p->panel->orientation == ORIENT_HORIZ) {

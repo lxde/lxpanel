@@ -60,6 +60,10 @@ menu_destructor(plugin *p)
     menup *m = (menup *)p->priv;
 
     ENTER;
+
+    if( m->has_system_menu )
+        p->panel->system_menus = g_slist_remove( p->panel->system_menus, p );
+
     g_signal_handler_disconnect(G_OBJECT(m->bg), m->handler_id);
     gtk_widget_destroy(m->menu);
     gtk_widget_destroy(m->box);
@@ -151,11 +155,19 @@ reload_system_menu( GtkMenu* menu )
     g_list_free( children );
 }
 
-static void show_menu( GtkWidget* widget, menup* m, int btn, guint32 time )
+static void show_menu( GtkWidget* widget, plugin* p, int btn, guint32 time )
 {
+    menup* m = (menup*)p->priv;
     /* reload system menu items if needed */
     if( m->has_system_menu && ptk_app_menu_need_reload() ) {
-        reload_system_menu( GTK_MENU(m->menu) );
+        GSList* l;
+        /* FIXME: Reload all system menus here.
+                  This is dirty, but I don't know any better way. */
+        for( l = p->panel->system_menus; l; l = l->next ) {
+            plugin* _p = (plugin*)l->data;
+            menup* _m = (menup*)_p->priv;
+            reload_system_menu( GTK_MENU(_m->menu) );
+        }
     }
     gtk_menu_popup(GTK_MENU(m->menu),
                    NULL, NULL,
@@ -164,21 +176,22 @@ static void show_menu( GtkWidget* widget, menup* m, int btn, guint32 time )
 }
 
 static gboolean
-my_button_pressed(GtkWidget *widget, GdkEventButton *event, menup* m)
+my_button_pressed(GtkWidget *widget, GdkEventButton *event, plugin* p)
 {
     ENTER;
     if ((event->type == GDK_BUTTON_PRESS)
           && (event->x >=0 && event->x < widget->allocation.width)
           && (event->y >=0 && event->y < widget->allocation.height)) {
-        show_menu( widget, m, event->button, event->time );
+        show_menu( widget, p, event->button, event->time );
     }
     RET(TRUE);
 }
 
 gboolean show_system_menu( gpointer system_menu )
 {
-    menup* m = (menup*)system_menu;
-    show_menu( m->bg, m, 0, GDK_CURRENT_TIME );
+    plugin* p = (plugin*)system_menu;
+    menup* m = (menup*)p->priv;
+    show_menu( m->bg, p, 0, GDK_CURRENT_TIME );
     return FALSE;
 }
 
@@ -207,7 +220,7 @@ make_button(plugin *p, gchar *fname, gchar *name, GtkWidget *menu)
 
 
     m->handler_id = g_signal_connect (G_OBJECT (m->bg), "button-press-event",
-          G_CALLBACK (my_button_pressed), m);
+          G_CALLBACK (my_button_pressed), p);
     g_object_set_data(G_OBJECT(m->bg), "plugin", p);
 
     RET(m->bg);
@@ -317,13 +330,11 @@ read_system_menu(GtkMenu* menu, plugin *p, char** fp)
             RET();
         }
    }
-   if( p->panel->system_menu ) {
-      ERR("menu: error - only one system is allowed");
-   }
+
    ptk_app_menu_insert_items( menu, -1 );
    m->has_system_menu = TRUE;
 
-   p->panel->system_menu = m;
+   p->panel->system_menus = g_slist_append( p->panel->system_menus, p );
 
    RET();
 }
@@ -372,7 +383,6 @@ read_submenu(plugin *p, char** fp, gboolean as_item)
     GtkWidget *mi, *menu;
     gchar name[256], *fname;
     menup *m = (menup *)p->priv;
-
 
     ENTER;
     s.len = 256;
@@ -455,13 +465,25 @@ read_submenu(plugin *p, char** fp, gboolean as_item)
 }
 
 
-
-
 static int
 menu_constructor(plugin *p, char **fp)
 {
     menup *m;
-    char *config_start, *config_end;
+    static char default_config[] =
+        "image=" PACKAGE_DATA_DIR "/lxpanel/images/my-computer.svg\n"
+        "system {\n"
+        "}\n"
+        "separator {\n"
+        "}\n"
+        "item {\n"
+            "command=run\n"
+        "}\n"
+        "item {\n"
+            "image=" PACKAGE_DATA_DIR "/lxpanel/images/gnome-setting.svg\n"
+            "command = configure\n"
+        "}\n"
+        "}\n";
+    char *config_start, *config_end, *config_default = default_config;
 
     ENTER;
     m = g_new0(menup, 1);
@@ -481,22 +503,24 @@ menu_constructor(plugin *p, char **fp)
     gtk_container_set_border_width(GTK_CONTAINER(m->box), 0);
     gtk_container_add(GTK_CONTAINER(p->pwid), m->box);
 
-    if( fp ) {
-        config_start = *fp;
-        if (!read_submenu(p, fp, FALSE)) {
-            ERR("menu: plugin init failed\n");
-            goto error;
-        }
-        config_end = *fp - 1;
-        while( *config_end != '}' && config_end > config_start ) {
-            --config_end;
-        }
-        if( *config_end == '}' )
-            --config_end;
+    if( ! fp )
+        fp = &config_default;
 
-        m->config_data = g_strndup( config_start,
-                                    (config_end-config_start) );
+    config_start = *fp;
+    if (!read_submenu(p, fp, FALSE)) {
+        ERR("menu: plugin init failed\n");
+        goto error;
     }
+    config_end = *fp - 1;
+    while( *config_end != '}' && config_end > config_start ) {
+        --config_end;
+    }
+    if( *config_end == '}' )
+        --config_end;
+
+    m->config_data = g_strndup( config_start,
+                                (config_end-config_start) );
+
     RET(1);
 
  error:
@@ -534,9 +558,3 @@ plugin_class menu_plugin_class = {
     save : save_config
 };
 
-
-/*
-if (level == 0) {
-
-        } else
-*/
