@@ -270,10 +270,10 @@ static void on_menu_item_size_request( GtkWidget* item,
                                        GtkRequisition* req,
                                        gpointer user_data )
 {
-    if( req->height < ICON_SIZE ) {
-        /* Most of the themes add a 1 pixel border to the menu item,
-           so we add 2 here. (Not always work, but works under most themes) */
-        req->height = ICON_SIZE + 2;
+    int min_height = ICON_SIZE + (GTK_CONTAINER(item)->border_width +
+             item->style->ythickness) * 2;
+    if( req->height < min_height ) {
+        req->height = min_height;
     }
     if( req->width < ICON_SIZE )
        req->width = ICON_SIZE;
@@ -433,9 +433,10 @@ static void do_load_dir( int prefix_len,
                         data->name = g_strdup( fpath + prefix_len );
                         data->exec = exec ? translate_exec_to_cmd( exec, data->icon, title, fpath ) : NULL;
                         g_free( title );
-                        g_signal_connect( menu_item, "expose-event", 
+                        g_signal_connect( menu_item, "expose-event",
 					  G_CALLBACK(on_menu_item_expose), data );
-                        g_signal_connect( menu_item, "size-request", 
+                        g_signal_connect( menu_item,
+                                          "size-request",
 					  G_CALLBACK(on_menu_item_size_request), data );
                         icon = g_strdup( g_key_file_get_string( file, desktop_ent, "Icon", NULL) );
                         if( icon )
@@ -447,11 +448,11 @@ static void do_load_dir( int prefix_len,
                         data->icon = icon;
                         if( !prev )
                         {
-                            g_signal_connect( menu_item, "activate", 
+                            g_signal_connect( menu_item, "activate",
 					      G_CALLBACK(on_app_menu_item_activate), data );
                             g_object_set_qdata_full( G_OBJECT(menu_item), APP_DATA_ID, data,
 						     (GDestroyNotify) ptk_app_menu_item_free );
-                            sub_menus[i] = g_list_insert_sorted( sub_menus[i], 
+                            sub_menus[i] = g_list_insert_sorted( sub_menus[i],
 					             (gpointer) menu_item,
 					             (GCompareFunc) compare_menu_item_titles );
                         }
