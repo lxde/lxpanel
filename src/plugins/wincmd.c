@@ -1,4 +1,4 @@
-/**                                                                                                 
+/**
  * Copyright (c) 2006 LxDE Developers, see the file AUTHORS for details.
  *
  * This program is free software; you can redistribute it and/or modify
@@ -53,7 +53,7 @@ toggle_shaded(wincmd *wc, guint32 action)
     int num, i;
     guint32 tmp2, dno;
     net_wm_window_type nwwt;
-    
+
     ENTER;
     win = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_CLIENT_LIST, XA_WINDOW, &num);
     if (!win)
@@ -85,7 +85,7 @@ toggle_shaded(wincmd *wc, guint32 action)
               a_NET_WM_STATE_SHADED, 0, 0, 0);
         DBG("ok\n");
     }
-    
+
  end:
     XFree(win);
     RET();
@@ -100,14 +100,14 @@ toggle_iconify(wincmd *wc, guint32 action)
     int num, i;
     guint32 tmp2, dno;
     net_wm_window_type nwwt;
-    
+
     ENTER;
     win = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_CLIENT_LIST, XA_WINDOW, &num);
     if (!win)
 	RET();
     if (!num)
         goto end;
-    //tmp = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_CURRENT_DESKTOP, XA_CARDINAL, 0);    
+    //tmp = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_CURRENT_DESKTOP, XA_CARDINAL, 0);
     dno = get_net_current_desktop();
     DBG("wincmd: #desk=%d\n", dno);
     //XFree(tmp);
@@ -132,7 +132,7 @@ toggle_iconify(wincmd *wc, guint32 action)
             XMapWindow (GDK_DISPLAY(), win[i]);
         DBG("ok\n");
     }
-    
+
  end:
     XFree(win);
     RET();
@@ -158,7 +158,7 @@ clicked (GtkWidget *widget, GdkEventButton *event, gpointer data)
     } else {
         DBG("wincmd: unsupported command\n");
     }
-   
+
     RET(FALSE);
 }
 
@@ -169,7 +169,7 @@ wincmd_destructor(plugin *p)
 
     ENTER;
     g_free( wc->image );
-    g_object_unref( wc->tips );
+    /* g_object_unref( wc->tips ); */
     g_free(wc);
     RET();
 }
@@ -190,6 +190,9 @@ wincmd_constructor(plugin *p, char **fp)
     s.len = 256;
     wc = g_new0(wincmd, 1);
     g_return_val_if_fail(wc != NULL, 0);
+
+    wc->tips = p->panel->tooltips;
+/*
     wc->tips = gtk_tooltips_new();
 #if GLIB_CHECK_VERSION( 2, 10, 0 )
     g_object_ref_sink( wc->tips );
@@ -197,6 +200,7 @@ wincmd_constructor(plugin *p, char **fp)
     g_object_ref( wc->tips );
     gtk_object_sink( wc->tips );
 #endif
+*/
     p->priv = wc;
     fname = NULL;
     if( fp )
@@ -209,7 +213,7 @@ wincmd_constructor(plugin *p, char **fp)
             if (s.type == LINE_VAR) {
                 if (!g_ascii_strcasecmp(s.t[0], "Button1"))
                     wc->button1 = str2num(wincmd_pair, s.t[1], WC_ICONIFY);
-                else if (!g_ascii_strcasecmp(s.t[0], "Button2")) 
+                else if (!g_ascii_strcasecmp(s.t[0], "Button2"))
                     wc->button2 = str2num(wincmd_pair, s.t[1], WC_SHADE);
                 else if (!g_ascii_strcasecmp(s.t[0], "image")) {
                     wc->image = g_strdup( s.t[1] );
@@ -249,7 +253,7 @@ wincmd_constructor(plugin *p, char **fp)
 
     gtk_widget_show(button);
     gtk_container_add(GTK_CONTAINER(p->pwid), button);
-    if (p->panel->transparent) 
+    if (p->panel->transparent)
         gtk_bgbox_set_background(button, BG_ROOT, p->panel->tintcolor, p->panel->alpha);
 
     g_free(fname);

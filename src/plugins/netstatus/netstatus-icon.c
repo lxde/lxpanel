@@ -126,7 +126,7 @@ netstatus_icon_theme_changed (NetstatusIcon *icon,
       g_object_unref (icon->priv->icons [i]);
       icon->priv->icons [i] = NULL;
     }
-  
+
   for (i = 0; i < NETSTATUS_SIGNAL_LAST; i++)
     {
       g_object_unref (icon->priv->scaled_signal_icons [i]);
@@ -202,7 +202,7 @@ netstatus_icon_init_pixbuf (NetstatusIcon  *icon,
 	  netstatus_adopt_error (error, NETSTATUS_ERROR_ICONS);
 	  netstatus_iface_set_error (icon->priv->iface, error);
 	  g_error_free (error);
-      
+
 	}
 
       g_free (filename);
@@ -359,7 +359,7 @@ netstatus_icon_update_image (NetstatusIcon *icon)
   pixbuf = icon->priv->scaled_signal_icons [icon->priv->signal_strength];
   if (!pixbuf)
     pixbuf = icon->priv->rotated_signal_icons [icon->priv->signal_strength];
-  
+
   if (gtk_image_get_pixbuf (GTK_IMAGE (icon->priv->signal_image)) != pixbuf)
     gtk_image_set_from_pixbuf (GTK_IMAGE (icon->priv->signal_image), pixbuf);
 }
@@ -476,7 +476,7 @@ netstatus_icon_destroy (GtkObject *widget)
   if (icon->priv->tooltips)
     g_object_unref (icon->priv->tooltips);
   icon->priv->tooltips = NULL;
-  
+
   icon->priv->image = NULL;
 
   GTK_OBJECT_CLASS (parent_class)->destroy (widget);
@@ -649,7 +649,7 @@ netstatus_icon_realize (GtkWidget *widget)
   int           border_width;
 
   GTK_WIDGET_SET_FLAGS (widget, GTK_REALIZED);
-  
+
   border_width = GTK_CONTAINER (widget)->border_width;
 
   attributes.x = widget->allocation.x + border_width;
@@ -765,7 +765,7 @@ netstatus_icon_finalize (GObject *object)
     g_object_unref (icon->priv->iface);
   icon->priv->iface = NULL;
 
-  for (i = 0; i < NETSTATUS_STATE_LAST; i++) 
+  for (i = 0; i < NETSTATUS_STATE_LAST; i++)
     {
       if (icon->priv->icons [i])
 	g_object_unref (icon->priv->icons [i]);
@@ -812,7 +812,7 @@ netstatus_icon_class_init (NetstatusIconClass *klass)
 							_("The current interface the icon is monitoring."),
 							NETSTATUS_TYPE_IFACE,
 							G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
-  
+
   g_object_class_install_property (gobject_class,
                                    PROP_ORIENTATION,
                                    g_param_spec_enum ("orientation",

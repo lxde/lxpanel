@@ -1,4 +1,4 @@
-/**                                                                                                 
+/**
  * Copyright (c) 2006 LxDE Developers, see the file AUTHORS for details.
  *
  * This program is free software; you can redistribute it and/or modify
@@ -21,6 +21,7 @@
 
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <glib/gi18n.h>
+#include <string.h>
 
 #include "panel.h"
 #include "misc.h"
@@ -28,36 +29,52 @@
 #include "gtkbgbox.h"
 #include "dbg.h"
 
+/* NOTE: dirty hack for g_quark_from_static_string */
+#define NAME_ID GPOINTER_TO_UINT("name")
+#define PATH_ID GPOINTER_TO_UINT("path")
+
 typedef struct {
-    GtkTooltips *tips;
+    panel* panel;
     char* image;
     char* path;
-    char* cmd;
-    char* term;
     GtkWidget *button;
 } dirmenu;
 
-static GtkWidget* create_menu( const char* path, gboolean open_at_top );
+static GtkWidget* create_menu( plugin* p,
+                               const char* path,
+                               gboolean open_at_top );
 
-static void open_dir( const char* path )
+static void open_dir( plugin* p, const char* path )
 {
-    char cmd[1024];
-    /* FIXME: File manager shouldn't be hardcoded.
-              This must be fixed before next release.
-     */
-    g_snprintf( cmd, 1024, "pcmanfm %s", path );
-    g_debug( cmd );
+    char* cmd;
+    char* quote = g_shell_quote( path );
+    if( strstr( p->panel->file_manager, "%s" ) )
+        cmd = g_strdup_printf( p->panel->file_manager, quote );
+    else
+        cmd = g_strdup_printf( "%s %s", p->panel->file_manager, quote );
+    g_free( quote );
     g_spawn_command_line_async( cmd, NULL );
+    g_free( cmd );
 }
 
-static void open_in_term( const char* path )
+static void on_open_dir( GtkWidget* item, plugin* p )
 {
-    char cmd[1024];
+    GtkWidget* menu = gtk_widget_get_parent(item);
+    const char* path = g_object_get_qdata( menu, PATH_ID );
+    open_dir( p, path );
+}
+
+static void open_in_term( plugin* p, const char* path )
+{
     chdir( path );
-    /* FIXME: Terminal emulator shouldn't be hardcoded.
-              This must be fixed before next release.
-     */
-    g_spawn_command_line_async( "x-terminal-emulator", NULL );
+    g_spawn_command_line_async( p->panel->terminal, NULL );
+}
+
+static void on_open_in_term( GtkWidget* item, plugin* p )
+{
+    GtkWidget* menu = gtk_widget_get_parent(item);
+    const char* path = g_object_get_qdata( menu, PATH_ID );
+    open_in_term( p, path );
 }
 
 static void
@@ -89,36 +106,43 @@ menu_pos( GtkMenu *menu, gint *x, gint *y, gboolean *push_in, plugin* p )
     RET();
 }
 
-static void on_select( GtkMenuItem* item, GtkMenu* parent )
+static void on_select( GtkMenuItem* item, plugin* p )
 {
+    GtkMenu* parent;
     GtkWidget* sub = gtk_menu_item_get_submenu( item );
     char* path;
     if( !sub )
         return;
-    path = (char*)g_object_get_data( sub, "path" );
+    parent = (GtkMenu*)gtk_widget_get_parent( (GtkWidget*)item );
+    path = (char*)g_object_get_qdata( sub, PATH_ID );
     if( !path ){
-        path = g_build_filename( (char*)g_object_get_data( parent, "path" ),
-                                 (char*)g_object_get_data( item, "name" ), NULL );
-        sub = create_menu( path, TRUE );
+        path = g_build_filename( (char*)g_object_get_qdata( parent, PATH_ID ),
+                                 (char*)g_object_get_qdata( item, NAME_ID ), NULL );
+        sub = create_menu( p, path, TRUE );
         g_free( path );
         gtk_menu_item_set_submenu( item, sub );
     }
 }
 
-static void on_deselect( GtkMenuItem* item, GtkMenu* parent )
+#if GTK_CHECK_VERSION(2, 10, 0)
+/* NOTE: It seems that this doesn't work in older versions of gtk+?? */
+static void on_deselect( GtkMenuItem* item, plugin* p )
 {
     /* delete old menu on deselect to save resource */
     gtk_menu_item_set_submenu( item, gtk_menu_new() );
 }
+#endif
 
-static GtkWidget* create_menu( const char* path, gboolean open_at_top )
+static GtkWidget* create_menu( plugin* p,
+                               const char* path,
+                               gboolean open_at_top )
 {
     GDir* dir;
     GtkWidget *menu = gtk_menu_new();
     GtkWidget *item, *term;
     /* GList *list = NULL; */
 
-    g_object_set_data_full( menu, "path", g_strdup(path), g_free );
+    g_object_set_qdata_full( menu, PATH_ID, g_strdup(path), g_free );
 
     if( dir = g_dir_open( path, 0, NULL ) ) {
         const char* name;
@@ -131,28 +155,33 @@ static GtkWidget* create_menu( const char* path, gboolean open_at_top )
                 GtkWidget *dummy;
                 item = gtk_image_menu_item_new_with_label( disp );
                 g_free( disp );
-                g_object_set_data_full( item, "name", g_strdup(name), g_free );
+                g_object_set_qdata_full( item, NAME_ID, g_strdup(name), g_free );
                 gtk_image_menu_item_set_image( (GtkImageMenuItem*)item,
                                                gtk_image_new_from_stock(GTK_STOCK_DIRECTORY, GTK_ICON_SIZE_MENU) );
                 dummy = gtk_menu_new();
                 gtk_menu_item_set_submenu( item, dummy );
                 gtk_menu_shell_append( GTK_MENU_SHELL(menu), item );
-                g_signal_connect( item, "select", G_CALLBACK(on_select), menu);
-                g_signal_connect( item, "deselect", G_CALLBACK(on_deselect), menu);
+                g_signal_connect( item, "select",
+                                  G_CALLBACK(on_select), p );
+#if GTK_CHECK_VERSION(2, 10, 0)
+                /* NOTE: It seems that this doesn't work in older
+                         versions of gtk+?? */
+                g_signal_connect( item, "deselect",
+                                  G_CALLBACK(on_deselect), p);
+#endif
             }
             g_free( full );
         }
         g_dir_close( dir );
     }
 
-    item = gtk_menu_item_new_with_mnemonic( _("_Open") );
-    g_signal_connect_swapped( item, "activate",
-                              G_CALLBACK( open_dir ),
-                              g_object_get_data( menu, "path" ) );
+    item = gtk_image_menu_item_new_from_stock( GTK_STOCK_OPEN, NULL );
+    g_signal_connect( item, "activate",
+                      G_CALLBACK( on_open_dir ), p );
     term = gtk_menu_item_new_with_mnemonic( _("Open in _Terminal") );
-    g_signal_connect_swapped( term, "activate",
-                              G_CALLBACK( open_in_term ),
-                              g_object_get_data( menu, "path" ) );
+    g_signal_connect( term, "activate",
+                      G_CALLBACK( on_open_in_term ), p );
+
     if( open_at_top ) {
         gtk_menu_shell_insert( GTK_MENU_SHELL(menu), gtk_separator_menu_item_new(), 0 );
         gtk_menu_shell_insert( GTK_MENU_SHELL(menu), term, 0 );
@@ -172,7 +201,9 @@ static void show_menu( GtkWidget* widget, plugin *p, int btn, guint32 time )
 {
     dirmenu *dm = (dirmenu *)p->priv;
     char* path = dm->path ? expand_tilda(dm->path) : NULL;
-    GtkWidget* menu = create_menu( path ? path : g_get_home_dir(), FALSE );
+    GtkWidget* menu = create_menu( p,
+                                   path ? path : g_get_home_dir(),
+                                   FALSE );
     g_free( path );
 
     g_signal_connect( menu, "selection-done", G_CALLBACK(gtk_widget_destroy), NULL );
@@ -195,7 +226,13 @@ clicked (GtkWidget *widget, GdkEventButton *event, gpointer data)
     if (event->button == 1) {
         show_menu( widget, p, event->button, event->time );
     } else {
-        open_dir( dm->path );
+        char* path = dm->path ? expand_tilda( dm->path ) : NULL;
+        const char* ppath = path ? path : g_get_home_dir();
+        if( event->button == 2 )
+            open_in_term( p, ppath );
+        else
+            open_dir( p, ppath );
+        g_free( path );
     }
 
     RET(FALSE);
@@ -208,7 +245,6 @@ dirmenu_destructor(plugin *p)
     ENTER;
     g_free( dm->image );
     g_free( dm->path );
-    g_object_unref( dm->tips );
     g_free(dm);
     RET();
 }
@@ -225,13 +261,8 @@ dirmenu_constructor(plugin *p, char **fp)
     s.len = 256;
     dm = g_new0(dirmenu, 1);
     g_return_val_if_fail(dm != NULL, 0);
-    dm->tips = gtk_tooltips_new();
-#if GLIB_CHECK_VERSION( 2, 10, 0 )
-    g_object_ref_sink( dm->tips );
-#else
-    g_object_ref( dm->tips );
-    gtk_object_sink( dm->tips );
-#endif
+
+    dm->panel = p->panel;
     p->priv = dm;
     fname = NULL;
     if( fp )
@@ -245,12 +276,6 @@ dirmenu_constructor(plugin *p, char **fp)
                 if (!g_ascii_strcasecmp(s.t[0], "image")) {
                     dm->image = g_strdup( s.t[1] );
                     fname = expand_tilda(s.t[1]);
-                }
-                else if (!g_ascii_strcasecmp(s.t[0], "cmd")) {
-                    dm->cmd = g_strdup( s.t[1] );
-                }
-                else if (!g_ascii_strcasecmp(s.t[0], "term")) {
-                    dm->cmd = g_strdup( s.t[1] );
                 }
                 else if (!g_ascii_strcasecmp(s.t[0], "path")) {
                     dm->path = g_strdup( s.t[1] );
@@ -273,11 +298,8 @@ dirmenu_constructor(plugin *p, char **fp)
         h = 10000;
     }
 
-    /* FIXME: Failback image shouldn't be hardcoded.
-              This must be fixed before next release.
-     */
     if (! fname)
-	    fname = strdup("gnome-system");
+        fname = strdup("file-manager");
 
     dm->button = fb_button_new_from_file(fname, w, h, 0x202020, TRUE);
     gtk_container_set_border_width( GTK_CONTAINER(dm->button), 0 );
@@ -286,11 +308,17 @@ dirmenu_constructor(plugin *p, char **fp)
 
     gtk_widget_show( dm->button );
     gtk_container_add( GTK_CONTAINER(p->pwid), dm->button );
-    if (p->panel->transparent) 
+    if (p->panel->transparent)
         gtk_bgbox_set_background( dm->button, BG_ROOT, p->panel->tintcolor, p->panel->alpha );
 
     g_free(fname);
-    gtk_tooltips_set_tip(GTK_TOOLTIPS (dm->tips), dm->button, dm->path, NULL);
+
+    fname = dm->path ? expand_tilda(dm->path) : NULL;
+    gtk_tooltips_set_tip(GTK_TOOLTIPS (dm->panel->tooltips),
+                         dm->button,
+                         fname ? fname : g_get_home_dir(), NULL);
+    g_free( fname );
+
     RET(1);
 
  error:
@@ -305,10 +333,6 @@ static void save_config( plugin* p, FILE* fp )
     dirmenu* dm = (dirmenu*)p->priv;
     lxpanel_put_str( fp, "path", dm->path );
     lxpanel_put_str( fp, "image", dm->image );
-/*
-    lxpanel_put_str( fp, "cmd", dm->cmd );
-    lxpanel_put_str( fp, "term", dm->term );
-*/
 }
 
 plugin_class dirmenu_plugin_class = {

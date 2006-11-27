@@ -1,4 +1,4 @@
-/**                                                                                                 
+/**
  * Copyright (c) 2006 LxDE Developers, see the file AUTHORS for details.
  *
  * This program is free software; you can redistribute it and/or modify
@@ -555,7 +555,7 @@ plugin_class menu_plugin_class = {
     type : "menu",
     name : N_("Menu"),
     version: "1.0",
-    description : "Provide Menu",
+    description : N_("Provide Menu"),
 
     constructor : menu_constructor,
     destructor  : menu_destructor,

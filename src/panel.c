@@ -488,6 +488,14 @@ panel_start_gui(panel *p)
     gdk_window_move_resize(p->topgwin->window, p->ax, p->ay, p->aw, p->ah);
     panel_set_wm_strut(p);
 
+    p->tooltips = gtk_tooltips_new();
+#if GLIB_CHECK_VERSION( 2, 10, 0 )
+    g_object_ref_sink( p->tooltips );
+#else
+    g_object_ref( p->tooltips );
+    gtk_object_sink( p->tooltips );
+#endif
+
     RET();
 }
 
@@ -567,6 +575,10 @@ panel_parse_global(panel *p, char **fp)
                     gdk_color_parse ("white", &p->gtintcolor);
                 p->tintcolor = gcolor2rgb24(&p->gtintcolor);
                 DBG("tintcolor=%x\n", p->tintcolor);
+            } else if( !g_ascii_strcasecmp(s.t[0], "FileManager") ) {
+                p->file_manager = g_strdup( s.t[1] );
+            } else if( !g_ascii_strcasecmp(s.t[0], "Terminal") ) {
+                p->terminal = g_strdup( s.t[1] );
             } else if( !g_ascii_strcasecmp(s.t[0], "LogoutCommand") ) {
                 p->logout_command = g_strdup( s.t[1] );
             } else {
@@ -596,6 +608,12 @@ panel_parse_global(panel *p, char **fp)
     p->desknum = get_net_number_of_desktops();
     p->workarea = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_WORKAREA, XA_CARDINAL, &p->wa_len);
     print_wmdata(p);
+
+    if( !p->file_manager )
+        p->file_manager = g_strdup( "pcmanfm %s" );
+    if( !p->terminal )
+        p->terminal = g_strdup( "x-terminal-emulator" );
+
     panel_start_gui(p);
     RET(1);
 }
@@ -749,11 +767,15 @@ void panel_stop(panel *p)
         } while ( g_source_remove_by_user_data( p->system_menus ) );
     }
 
+    g_object_unref( p->tooltips );
+
     XSelectInput (GDK_DISPLAY(), GDK_ROOT_WINDOW(), NoEventMask);
     gdk_window_remove_filter(gdk_get_default_root_window (), (GdkFilterFunc)panel_event_filter, p);
     gtk_widget_destroy(p->topgwin);
     g_object_unref(fbev);
     g_free(p->workarea);
+    g_free( p->file_manager );
+    g_free( p->terminal );
     g_free( p->logout_command );
     g_slist_free( p->system_menus );
     gdk_flush();

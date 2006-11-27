@@ -2,6 +2,7 @@
 #include "misc.h"
 #include "plugin.h"
 
+#include <glib/gi18n.h>
 
 //#define DEBUG
 #include "dbg.h"
@@ -70,9 +71,9 @@ plugin_class separator_plugin_class = {
     count: 0,
 
     type : "separator",
-    name : "Separator",
+    name : N_("Separator"),
     version: "1.0",
-    description : "Simple separator plugin",
+    description : N_("Add a separator to the panel"),
 
     constructor : separator_constructor,
     destructor  : separator_destructor,

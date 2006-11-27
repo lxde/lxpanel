@@ -25,7 +25,6 @@ PLUGINS_SOURCES= \
 	icons.c \
 	menu.c \
 	separator.c \
-	image.c \
 	pager.c \
 	space.c \
 	wincmd.c \
@@ -40,5 +39,6 @@ EXTRA_DIST = \
 	icon.xpm
 
 install-exec-hook:
-	rm -f $(libdir)/lxpanel/plugins/*.la
-	rm -f $(libdir)/lxpanel/plugins/*.a
+	rm -f $(DESTDIR)$(libdir)/lxpanel/plugins/*.la
+	rm -f $(DESTDIR)$(libdir)/lxpanel/plugins/*.a
+	rm -f $(DESTDIR)$(libdir)/lxpanel/plugins/*.

@@ -77,7 +77,7 @@ void plugin_class_list_free( GList* classes );
 
 /* FIXME: optional definitions */
 #define STATIC_SEPARATOR
-#define STATIC_IMAGE
+/* #define STATIC_IMAGE */
 #define STATIC_LAUNCHBAR
 #define STATIC_DCLOCK
 #define STATIC_WINCMD
@@ -88,5 +88,26 @@ void plugin_class_list_free( GList* classes );
 #define STATIC_MENU
 #define STATIC_SPACE
 #define STATIC_ICONS
+
+#if 0
+/* Try to handle GTypePlugin problems, but in vain. :-( */
+#define LX_TYPE_TYPE_PLUGIN           (lx_type_plugin_get_type ())
+#define LX_TYPE_PLUGIN(obj)           (G_TYPE_CHECK_INSTANCE_CAST ((obj), LX_TYPE_TYPE_PLUGIN, LXTypePlugin))
+#define LX_TYPE_PLUGIN_CLASS(klass)   (G_TYPE_CHECK_CLASS_CAST ((klass), LX_TYPE_TYPE_PLUGIN, LXTypePluginClass))
+#define LX_IS_TYPE_PLUGIN(obj)        (G_TYPE_CHECK_INSTANCE_TYPE ((obj), LX_TYPE_TYPE_PLUGIN))
+
+typedef struct _LXTypePlugin LXTypePlugin;
+typedef struct _LXTypePluginClass LXTypePluginClass;
+
+struct _LXTypePlugin {
+    GObject parent;
+};
+
+struct _LXTypePluginClass {
+    GObjectClass parent;
+};
+
+GTypePlugin* lx_type_plugin_get( const char* plugin_name );
+#endif
 
 #endif

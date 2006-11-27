@@ -86,6 +86,7 @@ void plugin_config_save(FILE *fp);
 static void update_opt_menu(GtkWidget *w, int ind);
 static void update_toggle_button(GtkWidget *w, gboolean n);
 static void modify_plugin( GtkTreeView* view );
+static void on_entry_changed( GtkEditable* edit, gpointer user_data );
 
 static int
 mk_profile_dir()
@@ -512,13 +513,31 @@ mk_properties()
     vbox = gtk_vbox_new(FALSE, 0);
     gtk_box_pack_start(GTK_BOX (hbox2), vbox, FALSE, TRUE, 0);
 
-    prop_dt_checkb = gtk_check_button_new_with_label(_("Set Dock Type"));
+    /* Explaination from Ruediger Arp <ruediger@gmx.net>:
+        "Set Dock Type", it is referring to the behaviour of
+        dockable applications such as those found in WindowMaker (e.g.
+        http://www.cs.mun.ca/~gstarkes/wmaker/dockapps ) and other
+        lightweight window managers. These dockapps are probably being
+        treated in some special way.
+    */
+    prop_dt_checkb = gtk_check_button_new_with_label(
+                        _("Make window managers treat the panel as dock"));
     update_toggle_button(prop_dt_checkb, p->setdocktype);
     g_signal_connect( prop_dt_checkb, "toggled",
                       G_CALLBACK(set_dock_type), NULL );
     gtk_box_pack_start(GTK_BOX (vbox), prop_dt_checkb, FALSE, FALSE, 0);
 
-    prop_st_checkb = gtk_check_button_new_with_label(_("Set Strut"));
+    /* Explaination from Ruediger Arp <ruediger@gmx.net>:
+        "Set Strut": Reserve panel's space so that it will not be
+        covered by maximazied windows.
+        This is clearly an option to avoid the panel being
+        covered/hidden by other applications so that it always is
+        accessible. The panel "steals" some screen estate which cannot
+        be accessed by other applications.
+        GNOME Panel acts this way, too.
+    */
+    prop_st_checkb = gtk_check_button_new_with_label(
+                        _("Reserve space, and not covered by maximized windows"));
     update_toggle_button(prop_st_checkb, p->setstrut);
     g_signal_connect( prop_st_checkb, "toggled",
                       G_CALLBACK(set_struct), NULL );
@@ -853,6 +872,7 @@ mk_tab_plugins()
     GtkWidget *scroll, *plugin_list, *button;
 
     hbox = gtk_hbox_new( FALSE, 2 );
+    gtk_container_set_border_width( (GtkContainer*)hbox, 4 );
 
     vbox = gtk_vbox_new( FALSE, 2 );
     gtk_box_pack_start( GTK_BOX(hbox), vbox, TRUE, TRUE, 2 );
@@ -947,6 +967,67 @@ mk_tab_general()
     RET(page);
 }
 
+static GtkWidget *
+mk_tab_app()
+{
+    GtkWidget *vbox, *label, *entry;
+    GtkTable *tbl;
+
+    vbox = gtk_vbox_new( FALSE, 2 );
+    gtk_container_set_border_width( vbox, 8 );
+
+    label = gtk_label_new("");
+    gtk_label_set_markup(label, _("<b>Set Preferred Applications</b>"));
+    gtk_misc_set_alignment(GTK_MISC(label), 0.0, 0.5);
+    gtk_box_pack_start( vbox, label, FALSE, FALSE, 2 );
+
+    tbl = (GtkTable*)gtk_table_new( 3, 2, FALSE );
+    gtk_box_pack_start( vbox, (GtkWidget*)tbl, TRUE, TRUE, 2 );
+
+    gtk_table_set_col_spacings( tbl, 4 );
+    gtk_table_set_row_spacings( tbl, 4 );
+
+    label = gtk_label_new( _("File Manager:") );
+    gtk_misc_set_alignment( label, 0, 0.5 );
+    entry = gtk_entry_new();
+    gtk_entry_set_text( entry, p->file_manager );
+    g_signal_connect( entry, "changed",
+                      G_CALLBACK(on_entry_changed),
+                      &p->file_manager);
+    gtk_table_attach( tbl, label, 0, 1, 0, 1,
+                      GTK_FILL, GTK_FILL, 2, 2 );
+    gtk_table_attach( tbl, entry, 1, 2, 0, 1,
+                      GTK_FILL|GTK_EXPAND, GTK_FILL, 2, 2 );
+
+    label = gtk_label_new( _("Terminal Emulator:") );
+    gtk_misc_set_alignment( label, 0, 0.5 );
+    entry = gtk_entry_new();
+    gtk_entry_set_text( entry, p->terminal );
+    g_signal_connect( entry, "changed",
+                      G_CALLBACK(on_entry_changed),
+                      &p->terminal);
+    gtk_table_attach( tbl, label, 0, 1, 1, 2,
+                      GTK_FILL, GTK_FILL, 2, 2 );
+    gtk_table_attach( tbl, entry, 1, 2, 1, 2,
+                      GTK_FILL|GTK_EXPAND, GTK_FILL, 2, 2 );
+
+    /* If we are under LXSession, setting logout command is unnecessary. */
+    if( ! getenv("_LXSESSION_PID") ) {
+        label = gtk_label_new( _("Logout Command:") );
+        gtk_misc_set_alignment( label, 0, 0.5 );
+        entry = gtk_entry_new();
+        if(p->logout_command)
+            gtk_entry_set_text( entry, p->logout_command );
+        g_signal_connect( entry, "changed",
+                        G_CALLBACK(on_entry_changed),
+                        &p->logout_command);
+        gtk_table_attach( tbl, label, 0, 1, 2, 3,
+                        GTK_FILL, GTK_FILL, 2, 2 );
+        gtk_table_attach( tbl, entry, 1, 2, 2, 3,
+                        GTK_FILL|GTK_EXPAND, GTK_FILL, 2, 2 );
+    }
+    return vbox;
+}
 
 static GtkWidget *
 mk_dialog()
@@ -982,6 +1063,11 @@ mk_dialog()
 
     sw = mk_tab_plugins();
     label = gtk_label_new(_("Plugins"));
+    gtk_misc_set_padding(GTK_MISC(label), 4, 1);
+    gtk_notebook_append_page(GTK_NOTEBOOK(nb), sw, label);
+
+    sw = mk_tab_app();
+    label = gtk_label_new(_("Applications"));
     gtk_misc_set_padding(GTK_MISC(label), 4, 1);
     gtk_notebook_append_page(GTK_NOTEBOOK(nb), sw, label);
 
@@ -1057,6 +1143,8 @@ global_config_save(FILE *fp)
     lxpanel_put_str(fp, "setdocktype", num2str(bool_pair, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(prop_dt_checkb)), "true"));
     lxpanel_put_str(fp, "setpartialstrut", num2str(bool_pair, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(prop_st_checkb)), "true"));
 
+    lxpanel_put_str(fp, "FileManager", p->file_manager );
+    lxpanel_put_str(fp, "Terminal", p->terminal );
     lxpanel_put_str(fp, "LogoutCommand", p->logout_command );
     lxpanel_put_line(fp, "}\n");
 }

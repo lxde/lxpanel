@@ -32,12 +32,43 @@
 #include "bg.h"
 #include "gtkbgbox.h"
 
+#include <glib-object.h>
 
 //#define DEBUG
 #include "dbg.h"
 
 static GList *pcl = NULL;
 
+#if 0
+/* dummy type plugin for dynamic plugins registering new types */
+static void
+lx_type_plugin_iface_init(gpointer g_iface, gpointer g_iface_data);
+
+G_DEFINE_TYPE_EXTENDED ( LXTypePlugin,
+                         lx_type_plugin,
+                         G_TYPE_OBJECT,
+                         0,
+                         G_IMPLEMENT_INTERFACE (G_TYPE_TYPE_PLUGIN,
+                                         lx_type_plugin_iface_init))
+
+void lx_type_plugin_init( LXTypePlugin* tp )
+{
+}
+
+void lx_type_plugin_class_init(LXTypePluginClass* klass)
+{
+}
+
+void lx_type_plugin_iface_init(gpointer g_iface, gpointer g_iface_data)
+{
+}
+
+GTypePlugin* lx_type_plugin_get(const char* plugin_name)
+{
+    LXTypePlugin* tp = g_object_new(LX_TYPE_TYPE_PLUGIN, NULL);
+    return tp;
+}
+#endif
 
 /* counter for static (built-in) plugins must be greater then zero
  * so lxpanel will not try to unload them */
@@ -56,9 +87,9 @@ register_plugin_class(plugin_class *pc, int dynamic)
     pc->dynamic = dynamic;
     if (!pc->dynamic)
         pc->count++;
-    /* reloading tray results in segfault due to registering static type in dll.
+    /* reloading netstatus results in segfault due to registering static type in dll.
      * so keep it always onboard until bug fix */
-    if (!strcmp(pc->type, "tray"))
+    if (!strcmp(pc->type, "netstatus"))
         pc->count++;
 }
 
@@ -70,9 +101,12 @@ init_plugin_class_list()
     REGISTER_PLUGIN_CLASS(separator_plugin_class, 0);
 #endif
 
+/* Remove image plugin since it seems to be useless. */
+/*
 #ifdef STATIC_IMAGE
     REGISTER_PLUGIN_CLASS(image_plugin_class, 0);
 #endif
+*/
 
 #ifdef STATIC_LAUNCHBAR
     REGISTER_PLUGIN_CLASS(launchbar_plugin_class, 0);
@@ -87,8 +121,7 @@ init_plugin_class_list()
 #endif
 
 #ifdef STATIC_DIRMENU
-    /* FIXME: dirmenu plugin is not OK now, disabled */
-    /* REGISTER_PLUGIN_CLASS(dirmenu_plugin_class, 0); */
+    REGISTER_PLUGIN_CLASS(dirmenu_plugin_class, 0);
 #endif
 
 #ifdef STATIC_TASKBAR

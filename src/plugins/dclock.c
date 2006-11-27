@@ -1,4 +1,4 @@
-/**                                                                                                 
+/**
  * Copyright (c) 2006 LxDE Developers, see the file AUTHORS for details.
  *
  * This program is free software; you can redistribute it and/or modify
@@ -150,6 +150,9 @@ dclock_constructor(plugin *p, char** fp)
     update_label_orient( p );
     gtk_container_add(GTK_CONTAINER(dc->main), dc->clockw);
     gtk_widget_show_all(dc->main);
+
+    dc->tip = p->panel->tooltips;
+/*
     dc->tip = gtk_tooltips_new();
 #if GLIB_CHECK_VERSION( 2, 10, 0 )
     g_object_ref_sink( dc->tip );
@@ -157,6 +160,7 @@ dclock_constructor(plugin *p, char** fp)
     g_object_ref( dc->tip );
     gtk_object_sink( dc->tip );
 #endif
+*/
     dc->timer = g_timeout_add(1000, (GSourceFunc) clock_update, (gpointer)dc);
     gtk_container_add(GTK_CONTAINER(p->pwid), dc->main);
 
@@ -182,7 +186,7 @@ dclock_destructor(plugin *p)
   if (dc->timer)
       g_source_remove(dc->timer);
   gtk_widget_destroy(dc->main);
-  g_object_unref( dc->tip );
+  /* g_object_unref( dc->tip ); */
   g_free(dc->cfmt);
   g_free(dc->tfmt);
   g_free(dc->action);

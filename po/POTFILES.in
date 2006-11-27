@@ -23,6 +23,7 @@ src/plugins/image.c
 src/plugins/pager.c
 src/plugins/space.c
 src/plugins/wincmd.c
+src/plugins/dirmenu.c
 
 src/plugins/volume/volume.c
 src/plugins/volume/volume-impl.c

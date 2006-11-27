@@ -1,5 +1,5 @@
 AC_PREREQ(2.53)
-AC_INIT(lxpanel, 0.2.3, http://lxpanel.sourceforge.net/)
+AC_INIT(lxpanel, 0.2.4, http://lxpanel.sourceforge.net/)
 AM_INIT_AUTOMAKE()
 AC_CONFIG_SRCDIR([src/bg.c])
 AC_CONFIG_HEADER([config.h])

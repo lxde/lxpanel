@@ -1,4 +1,4 @@
-/**                                                                                                 
+/**
  * Copyright (c) 2006 LxDE Developers, see the file AUTHORS for details.
  *
  * This program is free software; you can redistribute it and/or modify
@@ -78,12 +78,17 @@ typedef struct {
     guint32 *workarea;
     int wa_len;
 
+    char* file_manager;
+    char* terminal;
     char* logout_command;
 
     int plug_num;
     GList *plugins;
 
     GSList* system_menus;
+
+    /* tooltip controller shared by many plugins */
+    GtkTooltips *tooltips;
 } panel;
 
 

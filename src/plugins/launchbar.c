@@ -1,4 +1,4 @@
-/**                                                                                                 
+/**
  * Copyright (c) 2006 LxDE Developers, see the file AUTHORS for details.
  *
  * This program is free software; you can redistribute it and/or modify
@@ -130,7 +130,7 @@ launchbar_destructor(plugin *p)
     int i;
 
     ENTER;
-    g_object_unref( lb->tips );
+    /* g_object_unref( lb->tips ); */
 
     gtk_widget_destroy(lb->box);
     g_slist_foreach( lb->btns, (GFunc)btn_free, NULL );
@@ -373,6 +373,11 @@ launchbar_constructor(plugin *p, char **fp)
     gtk_container_add(GTK_CONTAINER(p->pwid), lb->box);
     gtk_container_set_border_width (GTK_CONTAINER (lb->box), 0);
     gtk_widget_show(lb->box);
+
+    /* Use the shared tooltip object provided by the panel, and
+       we don't need to create a new one. */
+    lb->tips = p->panel->tooltips;
+/*
     lb->tips = gtk_tooltips_new();
 #if GLIB_CHECK_VERSION( 2, 10, 0 )
     g_object_ref_sink( lb->tips );
@@ -380,6 +385,7 @@ launchbar_constructor(plugin *p, char **fp)
     g_object_ref( lb->tips );
     gtk_object_sink( lb->tips );
 #endif
+*/
     if  (p->panel->orientation == ORIENT_HORIZ)
         lb->iconsize = GTK_WIDGET(p->panel->box)->allocation.height;
     else

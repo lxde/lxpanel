@@ -127,7 +127,7 @@ plugin_class space_plugin_class = {
     type : "space",
     name : N_("<Space>"),
     version: "1.0",
-    description : "just allocate space",
+    description : N_("Allocate space"),
 
     constructor : space_constructor,
     destructor  : space_destructor,

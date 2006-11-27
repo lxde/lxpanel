@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: zh_TW\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-11-27 00:12+0800\n"
-"PO-Revision-Date: 2006-11-26 22:21+0800\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2006-11-28 00:57+0800\n"
+"PO-Revision-Date: 2006-11-28 00:57+0800\n"
+"Last-Translator: 洪任諭\n"
 "Language-Team:  <en@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,172 +34,192 @@ msgstr "重新啟動"
 msgid "Logout"
 msgstr "登出"
 
-#: ../src/configurator.c:206
+#: ../src/configurator.c:207
 msgid "<b>Position</b>"
 msgstr "<b>位置</b>"
 
 #. Edge
-#: ../src/configurator.c:223
+#: ../src/configurator.c:224
 msgid "Edge:"
 msgstr "吸附邊緣："
 
-#: ../src/configurator.c:230 ../src/configurator.c:254
+#: ../src/configurator.c:231 ../src/configurator.c:255
 msgid "Left"
 msgstr "左"
 
-#: ../src/configurator.c:231 ../src/configurator.c:256
+#: ../src/configurator.c:232 ../src/configurator.c:257
 msgid "Right"
 msgstr "右"
 
-#: ../src/configurator.c:232
+#: ../src/configurator.c:233
 msgid "Top"
 msgstr "上"
 
-#: ../src/configurator.c:233
+#: ../src/configurator.c:234
 msgid "Bottom"
 msgstr "下"
 
 #. Alignment
-#: ../src/configurator.c:246
+#: ../src/configurator.c:247
 msgid "Alignment:"
 msgstr "排列方式："
 
-#: ../src/configurator.c:255
+#: ../src/configurator.c:256
 msgid "Center"
 msgstr "置中"
 
 #. Margin
-#: ../src/configurator.c:268
+#: ../src/configurator.c:269
 msgid "Margin:"
 msgstr "留空："
 
-#: ../src/configurator.c:339
+#: ../src/configurator.c:340
 msgid "<b>Size</b>"
 msgstr "<b>大小</b>"
 
 #. width
-#: ../src/configurator.c:356
+#: ../src/configurator.c:357
 msgid "Width:"
 msgstr "寬度："
 
-#: ../src/configurator.c:370
+#: ../src/configurator.c:371
 msgid "dynamic"
 msgstr "動態"
 
-#: ../src/configurator.c:371 ../src/configurator.c:399
+#: ../src/configurator.c:372 ../src/configurator.c:400
 msgid "pixels"
 msgstr "像素 (pixels)"
 
-#: ../src/configurator.c:372
+#: ../src/configurator.c:373
 #, c-format
 msgid "% of edge"
 msgstr "% 百分比"
 
 #. height
-#: ../src/configurator.c:385
+#: ../src/configurator.c:386
 msgid "Height:"
 msgstr "高度："
 
-#: ../src/configurator.c:436
+#: ../src/configurator.c:437
 msgid "<b>Transparency</b>"
 msgstr "<b>透明度</b>"
 
-#: ../src/configurator.c:450
+#: ../src/configurator.c:451
 msgid "Enable Transparency"
 msgstr " 啟用透明效果"
 
 #. gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(tr_checkb), FALSE);
-#: ../src/configurator.c:457
+#: ../src/configurator.c:458
 msgid "Tint color:"
 msgstr "色彩："
 
-#: ../src/configurator.c:501
+#: ../src/configurator.c:502
 msgid "<b>Properties</b>"
 msgstr "<b>屬性</b>"
 
-#: ../src/configurator.c:515
-msgid "Set Dock Type"
-msgstr "設定停駐型態"
+#: ../src/configurator.c:524
+msgid "Make window managers treat the panel as dock"
+msgstr "讓視窗管理員把面板當成 Dock 處理"
 
-#: ../src/configurator.c:521
-msgid "Set Strut"
-msgstr ""
+#: ../src/configurator.c:540
+msgid "Reserve space, and not covered by maximized windows"
+msgstr "保留空間，不被最大化視窗覆蓋"
 
-#: ../src/configurator.c:576
+#: ../src/configurator.c:595
 msgid "Currently loaded plugins"
 msgstr "目前載入的外掛"
 
-#: ../src/configurator.c:666
+#: ../src/configurator.c:685
 msgid "Add plugin to panel"
 msgstr "新增外掛到面板"
 
-#: ../src/configurator.c:688
+#: ../src/configurator.c:707
 msgid "Available plugins"
 msgstr "可選用的外掛"
 
-#: ../src/configurator.c:957
+#: ../src/configurator.c:978
+msgid "<b>Set Preferred Applications</b>"
+msgstr "<b>設定偏好使用的程式</b>"
+
+#: ../src/configurator.c:988
+msgid "File Manager:"
+msgstr "檔案管理員："
+
+#: ../src/configurator.c:999
+msgid "Terminal Emulator:"
+msgstr "終端機："
+
+#: ../src/configurator.c:1010
+msgid "Logout Command:"
+msgstr "登出指令："
+
+#: ../src/configurator.c:1030
 msgid "lxpanel configurator"
 msgstr "lxpanel 偏好設定"
 
-#: ../src/configurator.c:979
+#: ../src/configurator.c:1052
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr "一般"
 
-#: ../src/configurator.c:984
+#: ../src/configurator.c:1057
 msgid "Plugins"
 msgstr "外掛"
 
-#: ../src/configurator.c:1111
+#: ../src/configurator.c:1062
+msgid "Applications"
+msgstr "應用程式"
+
+#: ../src/configurator.c:1189
 msgid "Logout command is not set"
 msgstr "登出指令尚未設定"
 
-#: ../src/panel.c:770
+#: ../src/panel.c:780
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - UNIX 桌面的輕量級 GTK2+ 工作列\n"
 
-#: ../src/panel.c:771
+#: ../src/panel.c:781
 msgid "Command line options:\n"
 msgstr "命令列選項：\n"
 
-#: ../src/panel.c:772
+#: ../src/panel.c:782
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- 顯示使用說明並離開\n"
 
-#: ../src/panel.c:773
+#: ../src/panel.c:783
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- 顯示版本資訊並離開\n"
 
-#: ../src/panel.c:774
+#: ../src/panel.c:784
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 
-#: ../src/panel.c:775
+#: ../src/panel.c:785
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- 執行設定工具\n"
 
-#: ../src/panel.c:776
+#: ../src/panel.c:786
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- 指定使用其他設定檔\n"
 
-#: ../src/panel.c:778
+#: ../src/panel.c:788
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- 和 --help 作用相同\n"
 
-#: ../src/panel.c:779
+#: ../src/panel.c:789
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- 和 --profile 作用相同\n"
 
-#: ../src/panel.c:780
+#: ../src/panel.c:790
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- 和 --version 作用相同\n"
 
-#: ../src/panel.c:781
+#: ../src/panel.c:791
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- 和 --configure 作用相同\n"
 
-#: ../src/panel.c:782
+#: ../src/panel.c:792
 msgid ""
 "\n"
 "Visit http://lxpanel.sourceforge.net/ for detailed documentation,\n"
@@ -241,19 +261,19 @@ msgstr "顯示工作區編號，由 cmeury@users.sf.net 撰寫"
 #. 1. We can borrow the menu from menu pluiin (PtkAppMenu).
 #. 2. We can borrow the app chooser from PCManFM.
 #.
-#: ../src/plugins/launchbar.c:488
+#: ../src/plugins/launchbar.c:494
 msgid "Select Application"
-msgstr ""
+msgstr "選擇應用程式"
 
-#: ../src/plugins/launchbar.c:637
+#: ../src/plugins/launchbar.c:643
 msgid "Buttons"
 msgstr "按鈕"
 
-#: ../src/plugins/launchbar.c:750
+#: ../src/plugins/launchbar.c:756
 msgid "Application Launch Bar"
 msgstr "應用程式啟動列"
 
-#: ../src/plugins/launchbar.c:752
+#: ../src/plugins/launchbar.c:758
 msgid "Bar with buttons to launch application"
 msgstr "具有應用程式啟動按鈕的工具列"
 
@@ -372,23 +392,23 @@ msgid ""
 "focus"
 msgstr "工作列顯示所有開啟的視窗，並讓能視窗最小化、折疊、或取得焦點"
 
-#: ../src/plugins/dclock.c:210
+#: ../src/plugins/dclock.c:214
 msgid "Clock Format"
 msgstr "時鐘格式"
 
-#: ../src/plugins/dclock.c:211
+#: ../src/plugins/dclock.c:215
 msgid "Tooltip Format"
 msgstr "工具提示格式"
 
-#: ../src/plugins/dclock.c:212
+#: ../src/plugins/dclock.c:216
 msgid "Action"
 msgstr "動作"
 
-#: ../src/plugins/dclock.c:246
+#: ../src/plugins/dclock.c:250
 msgid "Digital Clock"
 msgstr "數位時鐘"
 
-#: ../src/plugins/dclock.c:248
+#: ../src/plugins/dclock.c:252
 msgid "Display Digital clock and Tooltip"
 msgstr "顯示數位時鐘及在工具提示顯示日期"
 
@@ -403,6 +423,18 @@ msgstr "更換視窗圖示"
 #: ../src/plugins/menu.c:556
 msgid "Menu"
 msgstr "選單"
+
+#: ../src/plugins/menu.c:558
+msgid "Provide Menu"
+msgstr "提供選單"
+
+#: ../src/plugins/separator.c:74
+msgid "Separator"
+msgstr "分隔線"
+
+#: ../src/plugins/separator.c:76
+msgid "Add a separator to the panel"
+msgstr "在面板上增加分隔線"
 
 #: ../src/plugins/image.c:160
 msgid "Dispaly Image and Tooltip"
@@ -424,21 +456,37 @@ msgstr "大小"
 msgid "<Space>"
 msgstr "<空白分隔>"
 
-#: ../src/plugins/wincmd.c:256
+#: ../src/plugins/space.c:130
+msgid "Allocate space"
+msgstr "配置空間"
+
+#: ../src/plugins/wincmd.c:260
 msgid "Left click to iconify all windows. Middle click to shade them"
 msgstr "按左鍵最小化所有視窗 / 中鍵折疊所有視窗"
 
-#: ../src/plugins/wincmd.c:281
+#: ../src/plugins/wincmd.c:285
 msgid "Minimize All Windows"
 msgstr "最小化所有視窗"
 
-#: ../src/plugins/wincmd.c:283
+#: ../src/plugins/wincmd.c:287
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commnds are 1)toggle iconify and 2) toggle shade"
 msgstr ""
 "發送指令給所有桌面視窗\n"
 "支援的指令  1) 最小化  2) 折疊"
+
+#: ../src/plugins/dirmenu.c:150
+msgid "Open in _Terminal"
+msgstr "在終端機內開啟(_T)"
+
+#: ../src/plugins/dirmenu.c:302
+msgid "Directory Menu"
+msgstr "目錄選單"
+
+#: ../src/plugins/dirmenu.c:304
+msgid "Browse directory tree via menu (Author: PCMan)"
+msgstr "使用選單瀏覽目錄 (作者：PCMan)"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #: ../src/plugins/volume/volume.c:139
@@ -631,3 +679,9 @@ msgstr ""
 "請聯絡你的系統管理員解決下列問題：\n"
 "\n"
 "%s"
+
+#~ msgid "_Open"
+#~ msgstr "開啟(_O)"
+
+#~ msgid "Set Dock Type"
+#~ msgstr "設定停駐型態"
