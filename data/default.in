@@ -131,13 +131,6 @@ Plugin {
 }
 
 Plugin {
-    type = space
-    config {
-            size = 4
-    }
-}
-
-Plugin {
     type = launchbar
     config {
         button {

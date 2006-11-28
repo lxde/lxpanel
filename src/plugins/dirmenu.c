@@ -48,10 +48,11 @@ static void open_dir( plugin* p, const char* path )
 {
     char* cmd;
     char* quote = g_shell_quote( path );
-    if( strstr( p->panel->file_manager, "%s" ) )
-        cmd = g_strdup_printf( p->panel->file_manager, quote );
+    const char* fm = lxpanel_get_file_manager( p->panel );
+    if( strstr( fm, "%s" ) )
+        cmd = g_strdup_printf( fm, quote );
     else
-        cmd = g_strdup_printf( "%s %s", p->panel->file_manager, quote );
+        cmd = g_strdup_printf( "%s %s", fm, quote );
     g_free( quote );
     g_spawn_command_line_async( cmd, NULL );
     g_free( cmd );
@@ -66,8 +67,9 @@ static void on_open_dir( GtkWidget* item, plugin* p )
 
 static void open_in_term( plugin* p, const char* path )
 {
+    const char* term = lxpanel_get_terminal( p->panel );
     chdir( path );
-    g_spawn_command_line_async( p->panel->terminal, NULL );
+    g_spawn_command_line_async( term, NULL );
 }
 
 static void on_open_in_term( GtkWidget* item, plugin* p )

@@ -32,6 +32,9 @@ extern pair pos_pair[];
 
 int str2num(pair *p, gchar *str, int defval);
 gchar *num2str(pair *p, int num, gchar *defval);
+extern const char* lxpanel_get_file_manager( panel *p );
+extern const char* lxpanel_get_terminal( panel *p );
+
 extern int lxpanel_get_line(char **fp, line *s);
 extern int lxpanel_put_line(FILE* fp, const char* format, ...);
 extern int lxpanel_put_str( FILE* fp, const char* name, const char* val );
@@ -84,7 +87,7 @@ GtkWidget* recreate_box( GtkBox* oldbox, GtkOrientation orientation );
 void show_error( GtkWindow* parent_win, const char* msg );
 
 /* Parameters: const char* name, gpointer ret_value, GType type, ....NULL */
-GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,                         
+GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
 		                      GSourceFunc apply_func, gpointer plugin,
 				      const char* name, ... );
 

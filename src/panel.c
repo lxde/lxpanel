@@ -611,11 +611,6 @@ panel_parse_global(panel *p, char **fp)
     p->workarea = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_WORKAREA, XA_CARDINAL, &p->wa_len);
     print_wmdata(p);
 
-    if( !p->file_manager )
-        p->file_manager = g_strdup( "pcmanfm %s" );
-    if( !p->terminal )
-        p->terminal = g_strdup( "x-terminal-emulator" );
-
     panel_start_gui(p);
     RET(1);
 }

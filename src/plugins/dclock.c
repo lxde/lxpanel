@@ -28,9 +28,7 @@
 #include "misc.h"
 #include "plugin.h"
 
-//#define DEBUG
 #include "dbg.h"
-
 
 #define DEFAULT_TIP_FORMAT    "%A %x"
 #define DEFAULT_CLOCK_FORMAT  "%R"
@@ -47,22 +45,17 @@ typedef struct {
     int timer;
 } dclock;
 
-//static dclock me;
-
 static void
 update_label_orient( plugin* p );
-
 
 static  gboolean
 clicked( GtkWidget *widget, gpointer dummy, dclock *dc)
 {
     ENTER2;
-    DBG2("%s\n", dc->action);
-    system (dc->action);
+    if( dc->action )
+        system (dc->action);
     RET2(TRUE);
 }
-
-
 
 static gint
 clock_update(gpointer data )
@@ -79,16 +72,17 @@ clock_update(gpointer data )
 
     time(&now);
     detail = localtime(&now);
-    strftime(output, sizeof(output), dc->cfmt, detail) ;
+    strftime(output, sizeof(output),
+             (dc->cfmt ? dc->cfmt : DEFAULT_CLOCK_FORMAT), detail);
     g_snprintf(str, 64, "<b>%s</b>", output);
-    gtk_label_set_markup (GTK_LABEL(dc->clockw), str) ;
+    gtk_label_set_markup (GTK_LABEL(dc->clockw), str);
 
     if (detail->tm_mday != dc->lastDay) {
         dc->lastDay = detail->tm_mday ;
-
-        strftime (output, sizeof(output), dc->tfmt, detail) ;
+        strftime (output, sizeof(output),
+                  (dc->tfmt ? dc->tfmt : DEFAULT_TIP_FORMAT), detail);
             if ((utf8 = g_locale_to_utf8(output, -1, NULL, NULL, NULL))) {
-                gtk_tooltips_set_tip(dc->tip, dc->main, utf8, NULL) ;
+                gtk_tooltips_set_tip(dc->tip, dc->main, utf8, NULL);
                 g_free(utf8);
             }
     }
@@ -133,14 +127,8 @@ dclock_constructor(plugin *p, char** fp)
             }
         }
     }
-    if (!dc->cfmt)
-        dc->cfmt = g_strdup(DEFAULT_CLOCK_FORMAT);
-    if (!dc->tfmt)
-        dc->tfmt = g_strdup(DEFAULT_TIP_FORMAT);
     dc->main = gtk_event_box_new();
-    //gtk_widget_add_events (dc->main, GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK);
-    //button = gtk_button_new();
-    //gtk_container_add(GTK_CONTAINER(dc->main), button);
+
     if (dc->action)
         g_signal_connect (G_OBJECT (dc->main), "button_press_event",
               G_CALLBACK (clicked), (gpointer) dc);
