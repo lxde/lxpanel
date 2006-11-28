@@ -165,9 +165,8 @@ msgid "Plugins"
 msgstr "플러그인"
 
 #: ../src/configurator.c:1062
-#, fuzzy
 msgid "Applications"
-msgstr "명령"
+msgstr ""
 
 #: ../src/configurator.c:1189
 msgid "Logout command is not set"

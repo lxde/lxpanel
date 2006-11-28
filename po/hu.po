@@ -150,9 +150,8 @@ msgid "Terminal Emulator:"
 msgstr ""
 
 #: ../src/configurator.c:1010
-#, fuzzy
 msgid "Logout Command:"
-msgstr "Nincs beállítva kijelentkező parancs"
+msgstr ""
 
 #: ../src/configurator.c:1030
 msgid "lxpanel configurator"
@@ -168,9 +167,8 @@ msgid "Plugins"
 msgstr "Beillesztések"
 
 #: ../src/configurator.c:1062
-#, fuzzy
 msgid "Applications"
-msgstr "Művelet"
+msgstr ""
 
 #: ../src/configurator.c:1189
 msgid "Logout command is not set"

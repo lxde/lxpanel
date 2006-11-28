@@ -1,4 +1,4 @@
-/**                                                                                                 
+/**
  * Copyright (c) 2006 LxDE Developers, see the file AUTHORS for details.
  *
  * This program is free software; you can redistribute it and/or modify
@@ -202,7 +202,7 @@ lxpanel_put_line(FILE* fp, const char* format, ...)
 extern int
 lxpanel_put_str( FILE* fp, const char* name, const char* val )
 {
-    if( G_UNLIKELY( !val ) )
+    if( G_UNLIKELY( !val || !*val ) )
         return 0;
     return lxpanel_put_line( fp, "%s = %s", name, val );
 }

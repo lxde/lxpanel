@@ -1177,7 +1177,11 @@ plugin_config_save(FILE *fp)
 
 void restart(void)
 {
+    /* This is defined in panel.c */
+    extern gboolean is_restarting;
     ENTER;
+    is_restarting = TRUE;
+    gtk_main_quit();
     RET();
 }
 
@@ -1214,8 +1218,10 @@ static void notify_apply_config( GtkWidget* widget )
 static void on_entry_changed( GtkEditable* edit, gpointer user_data )
 {
     char** val = (char**)user_data;
+    const char *new_val;
     g_free( *val );
-    *val = g_strdup( gtk_entry_get_text(GTK_ENTRY(edit)) );
+    new_val = gtk_entry_get_text(GTK_ENTRY(edit));
+    *val = (new_val && *new_val) ? g_strdup( new_val ) : NULL;
     notify_apply_config( GTK_WIDGET(edit) );
 }
 

@@ -1,4 +1,4 @@
-/**                                                                                                 
+/**
  * Copyright (c) 2006 LxDE Developers, see the file AUTHORS for details.
  *
  * This program is free software; you can redistribute it and/or modify
@@ -28,7 +28,7 @@
 
 static Display* dpy;
 
-static const char usage[] = 
+static const char usage[] =
         "\nlxpanelctl - LXPanel Controller\n"
         "Usage: lxpanelctl <command>\n\n"
         "Available commands:\n"
@@ -46,6 +46,8 @@ static int get_cmd( const char* cmd )
         return LXPANEL_CMD_RUN;
     else if( ! strcmp( cmd, "config") )
         return LXPANEL_CMD_CONFIG;
+    else if( ! strcmp( cmd, "restart") )
+        return LXPANEL_CMD_RESTART;
     else if( ! strcmp( cmd, "exit") )
         return LXPANEL_CMD_EXIT;
     return -1;
@@ -58,7 +60,7 @@ int main( int argc, char** argv )
     Window root;
     Atom cmd_atom;
     int cmd;
-    int restart;
+    /* int restart; */
 
     if( argc < 2 )
     {
@@ -66,8 +68,10 @@ int main( int argc, char** argv )
         return 1;
     }
 
+    /*
     if( restart = !strcmp( argv[1], "restart" ) )
         argv[1] = "exit";
+    */
 
     if( ( cmd = get_cmd( argv[1] ) ) == -1 )
         return 1;
@@ -92,9 +96,11 @@ int main( int argc, char** argv )
     XSync(dpy, False);
     XCloseDisplay(dpy);
 
+/*
     if( restart ) {
         system( PACKAGE_BIN_DIR "/lxpanel &" );
     }
+*/
     return 0;
 }
 
