@@ -22,7 +22,6 @@ PLUGINS_SOURCES= \
 	ptk-app-menu.c ptk-app-menu.h \
 	taskbar.c \
 	dclock.c \
-	icons.c \
 	menu.c \
 	separator.c \
 	pager.c \

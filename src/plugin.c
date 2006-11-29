@@ -144,10 +144,6 @@ init_plugin_class_list()
     REGISTER_PLUGIN_CLASS(space_plugin_class, 0);
 #endif
 
-#ifdef STATIC_ICONS
-    REGISTER_PLUGIN_CLASS(icons_plugin_class, 0);
-#endif
-
     RET();
 }
 
