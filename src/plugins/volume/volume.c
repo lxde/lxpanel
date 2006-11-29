@@ -33,6 +33,7 @@
 #include "volume-impl.h"
 
 #include "volume_xpm.h"
+#undef const
 
 int mixer_fd;
 

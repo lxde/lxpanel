@@ -127,7 +127,6 @@ static void
 launchbar_destructor(plugin *p)
 {
     launchbar *lb = (launchbar *)p->priv;
-    int i;
 
     ENTER;
     /* g_object_unref( lb->tips ); */
@@ -460,7 +459,7 @@ static void
 on_response( GtkDialog* dlg, int response, plugin* p )
 {
     launchbar *lb = (launchbar *)p->priv;
-    gtk_widget_destroy( dlg );
+    gtk_widget_destroy( GTK_WIDGET(dlg) );
     lb->config_dlg = NULL;
 }
 
@@ -473,7 +472,7 @@ static void on_add_btn_response( GtkDialog* dlg, int response, int* ret )
 static void on_add_btn( GtkButton* widget, plugin* p )
 {
     launchbar *lb = (launchbar *)p->priv;
-    GtkTreeView* view = (GtkTreeView*)g_object_get_data( lb->config_dlg, "view" );
+    GtkTreeView* view = (GtkTreeView*)g_object_get_data( (GObject *) lb->config_dlg, "view" );
     GtkTreeSelection* tree_sel = gtk_tree_view_get_selection(view);
     GtkTreeIter it;
     GtkListStore* list;
@@ -488,7 +487,7 @@ static void on_add_btn( GtkButton* widget, plugin* p )
     list = (GtkListStore*)gtk_tree_view_get_model( view );
 
     /* FIXME: We should have a better interface for this in the fututure.
-              1. We can borrow the menu from menu pluiin (PtkAppMenu).
+              1. We can borrow the menu from menu plugin (PtkAppMenu).
               2. We can borrow the app chooser from PCManFM.
     */
     dlg = gtk_file_chooser_dialog_new(_("Select Application"),
