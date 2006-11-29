@@ -167,32 +167,6 @@ Plugin {
     type = pager
 }
 
-# 'icons' plugin lets you customize window icons. 
-# these changes applay to entire desktop
-Plugin {
-    type = icons
-    config {
-        DefaultIcon = @prefix@/share/lxpanel/images/default.xpm
-        application {
-            Image =  @prefix@/share/lxpanel/images/gnome_terminal.svg
-            ClassName = XTerm
-        }
-        application {
-            Image =  @prefix@/share/lxpanel/images/gnome_terminal.svg
-            ClassName = mlterm
-        }
-        application {
-            Image =  @prefix@/share/lxpanel/images/gnome_terminal.svg
-            ClassName = URxvt
-        }
-        application {
-            Image = @prefix@/share/lxpanel/images/emacs.svg
-            AppName = emacs
-            ClassName = Emacs
-        }
-    }
-}
-
 Plugin {
     type = space
     config {

@@ -10,7 +10,6 @@ lxpanel_images_DATA = \
 	images/stock_volume.png \
 	images/thunderbird.svg \
 	images/default.xpm \
-	images/emacs.svg \
 	images/file-manager.svg \
 	images/firefox2.svg \
 	images/gnome-applications.png \
@@ -35,7 +34,6 @@ lxpanel_images_DATA = \
 	images/gnome-settings.png \
 	images/gnome-setting.svg \
 	images/gnome-system.png \
-	images/gnome_terminal.svg \
 	images/gnome-util.png
 
 
