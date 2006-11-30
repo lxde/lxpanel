@@ -22,6 +22,16 @@ PKG_CHECK_MODULES(PACKAGE, [$pkg_modules])
 AC_SUBST(PACKAGE_CFLAGS)
 AC_SUBST(PACKAGE_LIBS)
 
+AC_ARG_ENABLE([cast-checks],
+	AS_HELP_STRING([--enable-cast-checks],
+		       [enable Glib casting checks (default: disable)]),
+		       cast_checks=$enableval, cast_checks="no")
+G_CAST_CHECKS=""
+if test x"$cast_checks" = "xno"; then
+	G_CAST_CHECKS="-DG_DISABLE_CAST_CHECKS"
+fi
+AC_SUBST(G_CAST_CHECKS)
+
 AC_ARG_ENABLE([plugins-loading],
 	AS_HELP_STRING([--disable-plugins-loading],
 		       [disable plugin loading (default: enable)]),
@@ -29,7 +39,7 @@ AC_ARG_ENABLE([plugins-loading],
 
 AM_CONDITIONAL(BUILD_PLUGIN_LOADER, test x$plugins_loading = xyes)
 
-if test "$plugins_loading" = "no"; then
+if test x"$plugins_loading" = "xno"; then
 	AC_DEFINE(DISABLE_PLUGINS_LOADING, [1], [Disable plugin loading])
 fi
 

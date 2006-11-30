@@ -15,7 +15,8 @@ INCLUDES = \
 	-I$(top_srcdir)/src/plugins \
 	-DPACKAGE_DATA_DIR=\""$(datadir)"\" \
 	-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
-	$(PACKAGE_CFLAGS)
+	$(PACKAGE_CFLAGS) \
+	$(G_CAST_CHECKS)
 
 PLUGINS_SOURCES= \
 	launchbar.c \

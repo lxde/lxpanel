@@ -1,7 +1,8 @@
 INCLUDES = \
 	-I. \
 	-I$(top_srcdir)/src \
-	$(PACKAGE_CFLAGS)
+	$(PACKAGE_CFLAGS) \
+	$(G_CAST_CHECKS)
 
 module_LTLIBRARIES = cpu.la
 
