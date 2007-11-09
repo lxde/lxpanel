@@ -1,0 +1,688 @@
+# Slovak translation of lxpanel
+# Copyright (C) 2006 lxde team
+# This file is distributed under the same license as the lxpanel package.
+# Ivan Masár <helix84@centrum.sk>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lxpanel\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-11-28 00:57+0800\n"
+"PO-Revision-Date: 2007-09-17 01:25+0100\n"
+"Last-Translator: Ivan Masár <helix84@centrum.sk>\n"
+"Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: ../src/configurator.c:44
+msgid "Preferences"
+msgstr "Nastavenia"
+
+#: ../src/configurator.c:45
+#: ../src/gtk-run.c:110
+msgid "Run"
+msgstr "Spustiť"
+
+#: ../src/configurator.c:46
+msgid "Restart"
+msgstr "Reštartovať"
+
+#: ../src/configurator.c:47
+msgid "Logout"
+msgstr "Odhlásiť"
+
+#: ../src/configurator.c:207
+msgid "<b>Position</b>"
+msgstr "<b>Poloha</b>"
+
+#. Edge
+#: ../src/configurator.c:224
+msgid "Edge:"
+msgstr "Okraj:"
+
+#: ../src/configurator.c:231
+#: ../src/configurator.c:255
+msgid "Left"
+msgstr "Vľavo"
+
+#: ../src/configurator.c:232
+#: ../src/configurator.c:257
+msgid "Right"
+msgstr "Vpravo"
+
+#: ../src/configurator.c:233
+msgid "Top"
+msgstr "Hore"
+
+#: ../src/configurator.c:234
+msgid "Bottom"
+msgstr "Dolu"
+
+#. Alignment
+#: ../src/configurator.c:247
+msgid "Alignment:"
+msgstr "Zarovnanie:"
+
+#: ../src/configurator.c:256
+msgid "Center"
+msgstr "Stred"
+
+#. Margin
+#: ../src/configurator.c:269
+msgid "Margin:"
+msgstr "Okraj:"
+
+#: ../src/configurator.c:340
+msgid "<b>Size</b>"
+msgstr "<b>Veľkosť</b>"
+
+#. width
+#: ../src/configurator.c:357
+msgid "Width:"
+msgstr "Šírka:"
+
+#: ../src/configurator.c:371
+msgid "dynamic"
+msgstr "dynamická"
+
+#: ../src/configurator.c:372
+#: ../src/configurator.c:400
+msgid "pixels"
+msgstr "pixely"
+
+#: ../src/configurator.c:373
+#, c-format
+msgid "% of edge"
+msgstr "% okraja"
+
+#. height
+#: ../src/configurator.c:386
+msgid "Height:"
+msgstr "Výška:"
+
+#: ../src/configurator.c:437
+msgid "<b>Transparency</b>"
+msgstr "<b>Priesvitnosť</b>"
+
+#: ../src/configurator.c:451
+msgid "Enable Transparency"
+msgstr "Zapnúť priesvitnosť"
+
+#. gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(tr_checkb), FALSE);
+#: ../src/configurator.c:458
+msgid "Tint color:"
+msgstr "Zafarbenie:"
+
+#: ../src/configurator.c:502
+msgid "<b>Properties</b>"
+msgstr "<b>Vlastnosti</b>"
+
+#: ../src/configurator.c:524
+msgid "Make window managers treat the panel as dock"
+msgstr "Správcovia okien majú ukotvovať panel"
+
+#: ../src/configurator.c:540
+msgid "Reserve space, and not covered by maximized windows"
+msgstr "Rezervovať miesto, nezakrývať maximalizovanými oknami"
+
+#: ../src/configurator.c:595
+msgid "Currently loaded plugins"
+msgstr "Momentálne načítané moduly"
+
+#: ../src/configurator.c:685
+msgid "Add plugin to panel"
+msgstr "Pridať modul do panela"
+
+#: ../src/configurator.c:707
+msgid "Available plugins"
+msgstr "Dostupné moduly"
+
+#: ../src/configurator.c:978
+msgid "<b>Set Preferred Applications</b>"
+msgstr "<b>Nastaviť preferované aplikácie</b>"
+
+#: ../src/configurator.c:988
+msgid "File Manager:"
+msgstr "Správca súborov:"
+
+#: ../src/configurator.c:999
+msgid "Terminal Emulator:"
+msgstr "Emulátor terminálu:"
+
+#: ../src/configurator.c:1010
+msgid "Logout Command:"
+msgstr "Príkaz na odhlásenie:"
+
+#: ../src/configurator.c:1030
+msgid "lxpanel configurator"
+msgstr "Konfigurátor lxpanel"
+
+#: ../src/configurator.c:1052
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
+msgid "General"
+msgstr "Všeobecné"
+
+#: ../src/configurator.c:1057
+msgid "Plugins"
+msgstr "Moduly"
+
+#: ../src/configurator.c:1062
+msgid "Applications"
+msgstr "Aplikácie"
+
+#: ../src/configurator.c:1189
+msgid "Logout command is not set"
+msgstr "Príkaz na odhlásenie nie je nastavený"
+
+#: ../src/panel.c:780
+#, c-format
+msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
+msgstr "lxpanel %s - odľahčený GTK2+ panel pre unixové pracovné prostredia\n"
+
+#: ../src/panel.c:781
+msgid "Command line options:\n"
+msgstr "Voľby príkazového riadka:\n"
+
+#: ../src/panel.c:782
+msgid " --help      -- print this help and exit\n"
+msgstr ""
+
+#: ../src/panel.c:783
+msgid " --version   -- print version and exit\n"
+msgstr ""
+
+#: ../src/panel.c:784
+msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
+msgstr ""
+
+#: ../src/panel.c:785
+msgid " --configure -- launch configuration utility\n"
+msgstr ""
+
+#: ../src/panel.c:786
+msgid " --profile name -- use specified profile\n"
+msgstr ""
+
+#: ../src/panel.c:788
+msgid " -h  -- same as --help\n"
+msgstr ""
+
+#: ../src/panel.c:789
+msgid " -p  -- same as --profile\n"
+msgstr ""
+
+#: ../src/panel.c:790
+msgid " -v  -- same as --version\n"
+msgstr ""
+
+#: ../src/panel.c:791
+msgid " -C  -- same as --configure\n"
+msgstr ""
+
+#: ../src/panel.c:792
+msgid ""
+"\n"
+"Visit http://lxpanel.sourceforge.net/ for detailed documentation,\n"
+"\n"
+msgstr ""
+"\n"
+"Podrobnú dokumentáciu nájdete na http://lxpanel.sourceforge.net/,\n"
+"\n"
+
+#: ../src/gtk-run.c:120
+msgid "Enter the command you want to execute:"
+msgstr "Zadajte príkaz, ktorý chcete vykonať:"
+
+#: ../src/systray/tray.c:171
+msgid "System Tray"
+msgstr "Oznamovacia oblasť"
+
+#: ../src/systray/tray.c:173
+msgid "Old KDE/GNOME Tray"
+msgstr "Stará oznamovacia oblasť KDE/GNOME"
+
+#: ../src/plugins/cpu/cpu.c:217
+msgid "CPU Usage Monitor"
+msgstr "Monitor využitia CPU"
+
+#: ../src/plugins/cpu/cpu.c:219
+msgid "Display CPU usage"
+msgstr "Zobraziť využitie CPU"
+
+#: ../src/plugins/deskno/deskno2.c:129
+msgid "Desktop No / Workspace Name"
+msgstr "Č. plochy / Názov plochy"
+
+#: ../src/plugins/deskno/deskno2.c:131
+msgid "Display workspace number, by cmeury@users.sf.net"
+msgstr "Zobrazenie čísla plochy, cmeury@users.sf.net"
+
+#. FIXME: We should have a better interface for this in the fututure.
+#. 1. We can borrow the menu from menu pluiin (PtkAppMenu).
+#. 2. We can borrow the app chooser from PCManFM.
+#.
+#: ../src/plugins/launchbar.c:494
+msgid "Select Application"
+msgstr "Vybrať aplikáciu"
+
+#: ../src/plugins/launchbar.c:643
+msgid "Buttons"
+msgstr "Tlačidlá"
+
+#: ../src/plugins/launchbar.c:756
+msgid "Application Launch Bar"
+msgstr "Spúšťací panel"
+
+#: ../src/plugins/launchbar.c:758
+msgid "Bar with buttons to launch application"
+msgstr "Panel s tlačidlami pre spúšťanie aplikácií"
+
+#: ../src/plugins/ptk-app-menu.c:154
+msgid "Other"
+msgstr "Iné"
+
+#: ../src/plugins/ptk-app-menu.c:155
+msgid "Game"
+msgstr "Gra"
+
+#: ../src/plugins/ptk-app-menu.c:156
+msgid "Education"
+msgstr "Výučba"
+
+#: ../src/plugins/ptk-app-menu.c:157
+msgid "Development"
+msgstr "Vývoj"
+
+#: ../src/plugins/ptk-app-menu.c:158
+msgid "Audio & Video"
+msgstr "Zvuk a video"
+
+#: ../src/plugins/ptk-app-menu.c:159
+msgid "Graphics"
+msgstr "Grafika"
+
+#: ../src/plugins/ptk-app-menu.c:160
+msgid "Settings"
+msgstr "Nastavenia"
+
+#: ../src/plugins/ptk-app-menu.c:161
+msgid "System Tools"
+msgstr "Systémové nástroje"
+
+#: ../src/plugins/ptk-app-menu.c:162
+msgid "Network"
+msgstr "Sieť"
+
+#: ../src/plugins/ptk-app-menu.c:163
+msgid "Office"
+msgstr "Kancelária"
+
+#: ../src/plugins/ptk-app-menu.c:164
+msgid "Accessories"
+msgstr "Príslušenstvo"
+
+#: ../src/plugins/taskbar.c:1137
+msgid "Raise"
+msgstr "Zdvihnúť"
+
+#: ../src/plugins/taskbar.c:1142
+msgid "Restore"
+msgstr "Obnoviť"
+
+#: ../src/plugins/taskbar.c:1147
+msgid "Maximize"
+msgstr "Maximalizovať"
+
+#: ../src/plugins/taskbar.c:1152
+msgid "Iconify"
+msgstr "Ikonifikovať"
+
+#. we want this item to be farest from mouse pointer
+#: ../src/plugins/taskbar.c:1158
+msgid "Close Window"
+msgstr "Zatvoriť okno"
+
+#: ../src/plugins/taskbar.c:1383
+msgid "Show tooltips"
+msgstr "Zobraziť bublinové tipy"
+
+#: ../src/plugins/taskbar.c:1384
+msgid "Icons only"
+msgstr "Iba ikony"
+
+#: ../src/plugins/taskbar.c:1385
+#, fuzzy
+msgid "Accept SkipPager"
+msgstr "Prijať SkipPager"
+
+#: ../src/plugins/taskbar.c:1386
+msgid "Show Iconified windows"
+msgstr "Zobraziť ikonifikované okná"
+
+#: ../src/plugins/taskbar.c:1387
+msgid "Show mapped windows"
+msgstr "Zobraziť mapované okná"
+
+#: ../src/plugins/taskbar.c:1388
+msgid "Show windows from all desktops"
+msgstr "Zobraziť okná zo všetkých plôch"
+
+#: ../src/plugins/taskbar.c:1389
+msgid "Use mouse wheel"
+msgstr "Používať koliesko myši"
+
+#: ../src/plugins/taskbar.c:1390
+msgid "Flash when there is any window requiring attention"
+msgstr "Blikať, keď niektoré okno vyžaduje pozornosť"
+
+#: ../src/plugins/taskbar.c:1391
+msgid "Max width of task button"
+msgstr "Max. šírka tlačidla úlohy"
+
+#: ../src/plugins/taskbar.c:1392
+msgid "Spacing"
+msgstr "Rozostupy"
+
+#: ../src/plugins/taskbar.c:1466
+msgid "Task Bar (Window List)"
+msgstr "Panel úloh (Zoznam okien)"
+
+#: ../src/plugins/taskbar.c:1468
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr "Panel úloh zobrazuje všetky otvorené okná a umoňuje ich ikonifikovať, zatieniť alebo aktivovať"
+
+#: ../src/plugins/dclock.c:214
+msgid "Clock Format"
+msgstr "Formát hodín"
+
+#: ../src/plugins/dclock.c:215
+msgid "Tooltip Format"
+msgstr "Formát bublinových tipov"
+
+#: ../src/plugins/dclock.c:216
+msgid "Action"
+msgstr "Činnosť"
+
+#: ../src/plugins/dclock.c:250
+msgid "Digital Clock"
+msgstr "Digitálne hodiny"
+
+#: ../src/plugins/dclock.c:252
+msgid "Display Digital clock and Tooltip"
+msgstr "Zobraziť digitálne hodiny a bublinové tipy"
+
+#: ../src/plugins/icons.c:529
+msgid "Icons"
+msgstr "Ikony"
+
+#: ../src/plugins/icons.c:531
+msgid "Change window icons"
+msgstr "Zmeniť ikony okna"
+
+#: ../src/plugins/menu.c:556
+msgid "Menu"
+msgstr "Ponuka"
+
+#: ../src/plugins/menu.c:558
+msgid "Provide Menu"
+msgstr "Poskytnúť ponuku"
+
+#: ../src/plugins/separator.c:74
+msgid "Separator"
+msgstr "Oddeľovač"
+
+#: ../src/plugins/separator.c:76
+msgid "Add a separator to the panel"
+msgstr "Pridať oddeľovač do panela"
+
+#: ../src/plugins/image.c:160
+msgid "Dispaly Image and Tooltip"
+msgstr "Zobraziť obrázok a bublinový tip"
+
+#: ../src/plugins/pager.c:698
+msgid "Desktop Pager"
+msgstr "Stránkovač plôch"
+
+#: ../src/plugins/pager.c:700
+msgid "Simple pager plugin"
+msgstr "Jednoduchý stránkovací modul"
+
+#: ../src/plugins/space.c:113
+msgid "Size"
+msgstr "Veľkosť"
+
+#: ../src/plugins/space.c:128
+msgid "<Space>"
+msgstr "<Miesto>"
+
+#: ../src/plugins/space.c:130
+msgid "Allocate space"
+msgstr "Vyhradiť miesto"
+
+#: ../src/plugins/wincmd.c:260
+msgid "Left click to iconify all windows. Middle click to shade them"
+msgstr ""
+
+#: ../src/plugins/wincmd.c:285
+msgid "Minimize All Windows"
+msgstr ""
+
+#: ../src/plugins/wincmd.c:287
+msgid ""
+"Sends commands to all desktop windows.\n"
+"Supported commnds are 1)toggle iconify and 2) toggle shade"
+msgstr ""
+
+#: ../src/plugins/dirmenu.c:150
+msgid "Open in _Terminal"
+msgstr ""
+
+#: ../src/plugins/dirmenu.c:302
+msgid "Directory Menu"
+msgstr ""
+
+#: ../src/plugins/dirmenu.c:304
+msgid "Browse directory tree via menu (Author: PCMan)"
+msgstr ""
+
+#. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
+#: ../src/plugins/volume/volume.c:139
+msgid "Volume control"
+msgstr ""
+
+#: ../src/plugins/volume/volume.c:150
+msgid "Volume Control"
+msgstr ""
+
+#: ../src/plugins/volume/volume-impl.c:100
+msgid "Volume"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus.c:157
+msgid "Interface to monitor"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus.c:158
+msgid "Config tool"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus.c:175
+msgid "Net Status Monitor"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus.c:177
+msgid "Monitor network status"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:52
+#: ../src/plugins/netstatus/netstatus-dialog.c:311
+msgid "Unknown"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:115
+msgid "Connection Properties"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:121
+#, c-format
+msgid "Connection Properties: %s"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:134
+#, c-format
+msgid "%lu packet"
+msgid_plural "%lu packets"
+msgstr[0] ""
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:395
+#, c-format
+msgid ""
+"There was an error displaying help:\n"
+"%s"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:579
+#, c-format
+msgid "Failed to launch time configuration tool: %s"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:131
+msgid "<b>Connection</b>"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:155
+msgid "Status:"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:171
+msgid "_Name:"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:194
+msgid "<b>Activity</b>"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:232
+msgid "Received:"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:239
+msgid "Sent:"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:250
+msgid "<b>Signal Strength</b>"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
+msgid "0%"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:289
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:309
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:396
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:452
+msgid "Address:"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:316
+msgid "Destination:"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
+msgid "Broadcast:"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
+msgid "Subnet Mask:"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:376
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:403
+msgid "Scope:"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:432
+msgid "<b>Network Device</b>"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:477
+msgid "Type:"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:484
+msgid "Support"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:513
+msgid "Con_figure"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-icon.c:379
+#, c-format
+msgid "Network Connection: %s"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-icon.c:384
+msgid "Network Connection"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-icon.c:811
+msgid "Interface"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-icon.c:812
+msgid "The current interface the icon is monitoring."
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-icon.c:819
+msgid "Orientation"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-icon.c:820
+msgid "The orientation of the tray."
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-icon.c:828
+msgid "Tooltips Enabled"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-icon.c:829
+msgid "Whether or not the icon's tooltips are enabled."
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-icon.c:836
+msgid "Show Signal"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-icon.c:837
+msgid "Whether or not the signal strength should be displayed."
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-icon.c:950
+#, c-format
+msgid ""
+"Please contact your system administrator to resolve the following problem:\n"
+"\n"
+"%s"
+msgstr ""
+
+#~ msgid "Set Dock Type"
+#~ msgstr "Dokk típus beállítása"
+#~ msgid "_Add"
+#~ msgstr "新增(_A)"
+#~ msgid "_Remove"
+#~ msgstr "移除(_R)"
+#~ msgid "Right-click to get context menu. Drag & Drop to change order."
+#~ msgstr "可以按右鍵使用選單，用拖曳改變順序"
+#~ msgid "Plugins..."
+#~ msgstr "外掛..."
+
