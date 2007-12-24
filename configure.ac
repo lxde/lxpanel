@@ -48,6 +48,7 @@ plugin_netstatus=
 plugin_volume=
 plugin_cpu=
 plugin_deskno=
+plugin_batt=
 
 AC_MSG_CHECKING([which plugins should be built dynamically])
 AC_ARG_WITH(plugins,
@@ -55,7 +56,7 @@ AC_ARG_WITH(plugins,
 [                         plugins may be comma separated ]
 [                         'all' builds all plugins (default), 'none' builds none ]
 [                         Possible plugins are: ]
-[                         netstatus, volume, cpu, deskno], plugins="$withval",[plugins="all"])
+[                         netstatus, volume, cpu, deskno, batt], plugins="$withval",[plugins="all"])
 
 if test x"$plugins" != xall -a x"$plugins" != xnone; then
 	if test x"$plugins_loading" = xno; then
@@ -69,6 +70,7 @@ if test x"$plugins" = xall; then
 	plugin_volume=volume
 	plugin_cpu=cpu
 	plugin_deskno=deskno
+	plugin_batt=batt
 	AC_MSG_RESULT(all)
 else
 	if test "$plugins" != "none"; then
@@ -88,6 +90,9 @@ else
 			deskno)
 				plugin_deskno=deskno
 				;;
+			batt)
+				plugin_deskno=batt
+				;;
 			*)
 				echo "Unknown plugin $plugin."
 				exit 1
@@ -98,7 +103,7 @@ else
 	fi
 fi
 
-PLUGINS_LIST="$plugin_netstatus $plugin_volume $plugin_cpu $plugin_deskno"
+PLUGINS_LIST="$plugin_netstatus $plugin_volume $plugin_cpu $plugin_deskno $plugin_batt"
 AC_SUBST(PLUGINS_LIST)
 
 
@@ -139,6 +144,7 @@ AC_CONFIG_FILES([
 	src/plugins/volume/Makefile
 	src/plugins/cpu/Makefile
 	src/plugins/deskno/Makefile
+	src/plugins/batt/Makefile
 	po/Makefile.in
 	data/Makefile
 	data/default
@@ -162,6 +168,9 @@ echo Building dynamic plugins:
 	fi
 	if test x"$plugin_deskno" != x; then
 		AC_MSG_RESULT([    deskno - Display desktop number])
+	fi
+	if test x"$plugin_batt" != x; then
+		AC_MSG_RESULT([    batt - Monitor battery status])
 	fi
 else
 echo Dynamic loader for plugins....... : disabled.
