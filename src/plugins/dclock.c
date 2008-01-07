@@ -23,6 +23,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <glib/gi18n.h>
+#include <pthread.h>
 
 #include "panel.h"
 #include "misc.h"
@@ -42,18 +43,28 @@ typedef struct {
     char *cfmt;
     char *action;
     short lastDay;
+    gboolean bold;
     int timer;
 } dclock;
 
 static void
 update_label_orient( plugin* p );
 
+static int
+actionProcess( void *arg )
+{
+    ENTER;
+    RET(system((char *) arg));
+}
+
 static  gboolean
 clicked( GtkWidget *widget, gpointer dummy, dclock *dc)
 {
     ENTER2;
-    if( dc->action )
-        system (dc->action);
+    if( dc->action ) {
+        pthread_t actionThread;
+        pthread_create(&actionThread, NULL, actionProcess, dc->action);
+    }
     RET2(TRUE);
 }
 
@@ -74,7 +85,7 @@ clock_update(gpointer data )
     detail = localtime(&now);
     strftime(output, sizeof(output),
              (dc->cfmt ? dc->cfmt : DEFAULT_CLOCK_FORMAT), detail);
-    g_snprintf(str, 64, "<b>%s</b>", output);
+    g_snprintf(str, 64, dc->bold ? "<b>%s</b>" : "%s", output);
     gtk_label_set_markup (GTK_LABEL(dc->clockw), str);
 
     if (detail->tm_mday != dc->lastDay) {
@@ -103,6 +114,7 @@ dclock_constructor(plugin *p, char** fp)
 
     s.len = 256;
     dc->cfmt = dc->tfmt = dc->action = 0;
+    dc->bold = TRUE;
     if( fp )
     {
         while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
@@ -117,6 +129,8 @@ dclock_constructor(plugin *p, char** fp)
                     dc->tfmt = g_strdup(s.t[1]);
                 else if (!g_ascii_strcasecmp(s.t[0], "Action"))
                     dc->action = g_strdup(s.t[1]);
+                else if (!g_ascii_strcasecmp(s.t[0], "BoldFont"))
+                    dc->bold = atoi(s.t[1]) ? TRUE : FALSE;
                 else {
                     ERR( "dclock: unknown var %s\n", s.t[0]);
                     goto error;
@@ -202,6 +216,7 @@ static void dclock_config( plugin *p, GtkWindow* parent )
                                      _("Clock Format"), &dc->cfmt, G_TYPE_STRING,
                                      _("Tooltip Format"), &dc->tfmt, G_TYPE_STRING,
                                      _("Action"), &dc->action, G_TYPE_STRING,
+                                     _("Bold font"), &dc->bold, G_TYPE_BOOLEAN,
                                      NULL );
     gtk_window_present( GTK_WINDOW(dlg) );
 }
@@ -212,6 +227,7 @@ static void save_config( plugin* p, FILE* fp )
     lxpanel_put_str( fp, "ClockFmt", dc->cfmt );
     lxpanel_put_str( fp, "TooltipFmt", dc->tfmt );
     lxpanel_put_str( fp, "Action", dc->action );
+    lxpanel_put_int( fp, "BoldFont", dc->bold );
 }
 
 static void
