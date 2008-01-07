@@ -649,6 +649,7 @@ tk_callback_scroll_event (GtkWidget *widget, GdkEventScroll *event, task *tk)
 static gboolean
 tk_callback_button_release_event(GtkWidget *widget, GdkEventButton *event, task *tk)
 {
+    XWindowAttributes xwa;
     ENTER;
     if ((event->type != GDK_BUTTON_RELEASE) || (!GTK_BUTTON(widget)->in_button))
         RET(FALSE);
@@ -668,6 +669,9 @@ tk_callback_button_release_event(GtkWidget *widget, GdkEventButton *event, task 
 		XSync (GDK_DISPLAY(), False);
 		DBG("XMapRaised  %x\n", tk->win);
 	    }
+            /* if window isn't on current viewport, we change viewport */
+            XGetWindowAttributes(GDK_DISPLAY(), tk->win, &xwa);
+            Xclimsg(tk->win, a_NET_DESKTOP_VIEWPORT, xwa.x, xwa.y, 0, 0, 0);
         } else {
             DBG("tb->ptk = %x\n", (tk->tb->ptk) ? tk->tb->ptk->win : 0);
             if (tk->focused || tk == tk->tb->ptk) {
