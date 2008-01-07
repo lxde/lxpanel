@@ -292,7 +292,7 @@ static gint
 panel_size_alloc(GtkWidget *widget, GtkAllocation *a, panel *p)
 {
     ENTER;
-    DBG("installed alloc: size (%d, %d). pos (%d, %d)\n", aa->width, aa->height, aa->x, aa->y);
+    DBG("installed alloc: size (%d, %d). pos (%d, %d)\n", a->width, a->height, a->x, a->y);
     DBG("suggested alloc: size (%d, %d). pos (%d, %d)\n", a->width, a->height, a->x, a->y);
     DBG("prev pref alloc: size (%d, %d). pos (%d, %d)\n", p->aw, p->ah, p->ax, p->ay);
     if (p->widthtype == WIDTH_REQUEST)
@@ -734,8 +734,7 @@ panel_start( panel *p, char **fp )
             ERR( "lxpanel: expecting Plugin section\n");
             RET(0);
         }
-        if (!panel_parse_plugin(p, fp))
-            RET(0);
+        panel_parse_plugin(p, fp);
     }
     gtk_widget_show_all(p->topgwin);
     print_wmdata(p);
