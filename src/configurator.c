@@ -465,6 +465,10 @@ background_toggle(GtkWidget *b, gpointer bp)
 {
     ENTER;
     gtk_widget_set_sensitive(bg_selfileb, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(b)));
+    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(b)))
+        p->background = 1;
+    else
+        p->background = 0;
 
     //FIXME: Update background immediately.
     RET();
@@ -474,6 +478,7 @@ static void
 background_changed(GtkFileChooser *file_chooser, gpointer data)
 {
     ENTER;
+    p->background = 1;
     p->background_file = g_strdup(gtk_file_chooser_get_filename(file_chooser));
     RET();
 }
@@ -1217,7 +1222,7 @@ global_config_save(FILE *fp)
     lxpanel_put_str(fp, "setpartialstrut", num2str(bool_pair, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(prop_st_checkb)), "true"));
     lxpanel_put_str(fp, "useFontColor", p->usefontcolor ? "true" : "false");
     lxpanel_put_line(fp, "FontColor = #%06x", gcolor2rgb24(&p->gfontcolor));
-    lxpanel_put_str(fp, "Background", num2str(bool_pair, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(bg_checkb)), "false"));
+    lxpanel_put_str(fp, "Background", gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(bg_checkb)) ? "true" : "false");
     lxpanel_put_str(fp, "BackgroundFile", p->background_file );
     lxpanel_put_str(fp, "FileManager", p->file_manager );
     lxpanel_put_str(fp, "Terminal", p->terminal );
