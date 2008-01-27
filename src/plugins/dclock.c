@@ -28,6 +28,7 @@
 #include "panel.h"
 #include "misc.h"
 #include "plugin.h"
+#include "gtkbgbox.h"
 
 #include "dbg.h"
 
@@ -43,8 +44,10 @@ typedef struct {
     char *cfmt;
     char *action;
     short lastDay;
-    gboolean bold;
+    int bold;
     int timer;
+    int usefontcolor;
+    GdkColor *gfontcolor;
 } dclock;
 
 static void
@@ -85,7 +88,16 @@ clock_update(gpointer data )
     detail = localtime(&now);
     strftime(output, sizeof(output),
              (dc->cfmt ? dc->cfmt : DEFAULT_CLOCK_FORMAT), detail);
-    g_snprintf(str, 64, dc->bold ? "<b>%s</b>" : "%s", output);
+
+    if (dc->bold&&dc->usefontcolor)
+        g_snprintf(str, 64, "<span color=\"#%06x\"><b>%s</b></span>", gcolor2rgb24(dc->gfontcolor), output);
+    else if (dc->bold)
+        g_snprintf(str, 64, "<b>%s</b>", output);
+    else if (dc->usefontcolor)    
+        g_snprintf(str, 64, "<span color=\"#%06x\">%s</span>", gcolor2rgb24(dc->gfontcolor), output);
+    else
+        g_snprintf(str, 64, "%s", output);
+
     gtk_label_set_markup (GTK_LABEL(dc->clockw), str);
 
     if (detail->tm_mday != dc->lastDay) {
@@ -97,6 +109,7 @@ clock_update(gpointer data )
                 g_free(utf8);
             }
     }
+
     RET(TRUE);
 }
 
@@ -130,7 +143,7 @@ dclock_constructor(plugin *p, char** fp)
                 else if (!g_ascii_strcasecmp(s.t[0], "Action"))
                     dc->action = g_strdup(s.t[1]);
                 else if (!g_ascii_strcasecmp(s.t[0], "BoldFont"))
-                    dc->bold = atoi(s.t[1]) ? TRUE : FALSE;
+                    dc->bold = str2num(bool_pair, s.t[1], 0);
                 else {
                     ERR( "dclock: unknown var %s\n", s.t[0]);
                     goto error;
@@ -165,6 +178,18 @@ dclock_constructor(plugin *p, char** fp)
 */
     dc->timer = g_timeout_add(1000, (GSourceFunc) clock_update, (gpointer)dc);
     gtk_container_add(GTK_CONTAINER(p->pwid), dc->main);
+
+    /* font color */
+    if (p->panel->usefontcolor)
+        dc->gfontcolor = &p->panel->gfontcolor;
+
+    dc->usefontcolor = p->panel->usefontcolor;
+
+    /* background image */
+    if (p->panel->background) {
+        dc->main->style->bg_pixmap[0] = p->panel->bbox->style->bg_pixmap[0];
+        gtk_bgbox_set_background(dc->main, BG_STYLE, 0, 0);
+    }
 
     clock_update( dc );
     RET(1);

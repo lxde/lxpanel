@@ -72,6 +72,9 @@ static GtkWidget *edge_opt;
 //transparency
 static GtkWidget *tr_checkb,  *tr_colorl, *tr_colorb;;
 
+//background
+static GtkWidget *bg_checkb, *bg_selfileb;
+
 //properties
 static GtkWidget *prop_dt_checkb, *prop_st_checkb;
 
@@ -427,47 +430,117 @@ transparency_toggle(GtkWidget *b, gpointer bp)
 GtkWidget *
 mk_transparency()
 {
-    GtkWidget *hbox, *hbox2, *label, *frame;
+    GtkWidget *label, *frame;
+
+    ENTER;
+    frame = gtk_hbox_new(FALSE, 0);
+
+    tr_checkb = gtk_radio_button_new_with_label(NULL, _("Enable Transparency"));
+    gtk_widget_show(tr_checkb);
+    gtk_box_pack_start(GTK_BOX (frame), tr_checkb, FALSE, FALSE, 0);
+
+    g_signal_connect(G_OBJECT(tr_checkb), "toggled", G_CALLBACK(transparency_toggle), NULL);
+
+    tr_colorl = gtk_label_new(_("Tint color:"));
+    gtk_misc_set_alignment(GTK_MISC(tr_colorl), 0.0, 0.5);
+    gtk_widget_show(tr_colorl);
+    gtk_box_pack_start(GTK_BOX (frame), tr_colorl, FALSE, FALSE, 5);
+
+    tr_colorb = gtk_color_button_new();
+    gtk_color_button_set_use_alpha(GTK_COLOR_BUTTON(tr_colorb), TRUE);
+    gtk_color_button_set_alpha (GTK_COLOR_BUTTON(tr_colorb), 65535/256*125);
+    gtk_box_pack_start(GTK_BOX (frame), tr_colorb, FALSE, FALSE, 0);
+    gtk_color_button_set_color(GTK_COLOR_BUTTON(tr_colorb), &p->gtintcolor);
+    gtk_color_button_set_alpha (GTK_COLOR_BUTTON(tr_colorb), 256*p->alpha);
+
+    if (!p->transparent) {
+        gtk_widget_set_sensitive(tr_colorb, FALSE);
+    }
+
+    RET(frame);
+}
+
+static void
+background_toggle(GtkWidget *b, gpointer bp)
+{
+    ENTER;
+    gtk_widget_set_sensitive(bg_selfileb, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(b)));
+
+    //FIXME: Update background immediately.
+    RET();
+}
+
+static void
+background_changed(GtkFileChooser *file_chooser, gpointer data)
+{
+    ENTER;
+    p->background_file = g_strdup(gtk_file_chooser_get_filename(file_chooser));
+    RET();
+}
+
+GtkWidget *
+mk_backgroundimg()
+{
+    GtkWidget *frame;
+
+    ENTER;
+    frame = gtk_vbox_new(FALSE, 0);
+
+    bg_checkb = gtk_radio_button_new_with_label(NULL, _("Enable Image:"));
+    gtk_box_pack_start(GTK_CONTAINER(frame), bg_checkb, FALSE, FALSE, 5);
+
+    g_signal_connect(G_OBJECT(bg_checkb), "toggled", G_CALLBACK(background_toggle), NULL);
+
+    bg_selfileb = gtk_file_chooser_button_new (_("Select a background image file"), GTK_FILE_CHOOSER_ACTION_OPEN);
+    gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (bg_selfileb), "/usr/share/lxpanel/images");
+
+    g_signal_connect (GTK_FILE_CHOOSER (bg_selfileb), "selection-changed", G_CALLBACK (background_changed), NULL);
+
+    gtk_box_pack_start(GTK_BOX (frame), bg_selfileb, FALSE, FALSE, 0);
+
+    if (!p->background) {
+        gtk_widget_set_sensitive(bg_selfileb, FALSE);
+    } else {
+        gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (bg_selfileb), p->background_file);
+    }
+
+    RET(frame);
+}
+
+GtkWidget *
+mk_background()
+{
+    GtkWidget *vbox, *vbox2, *label, *frame, *incframe;
 
     ENTER;
     frame = gtk_frame_new(NULL);
     gtk_frame_set_shadow_type(GTK_FRAME (frame), GTK_SHADOW_NONE);
     gtk_container_set_border_width (GTK_CONTAINER (frame), 6);
     label = gtk_label_new(NULL);
-    gtk_label_set_markup(GTK_LABEL (label),_("<b>Transparency</b>"));
+    gtk_label_set_markup(GTK_LABEL (label),_("<b>Background</b>"));
     gtk_frame_set_label_widget(GTK_FRAME (frame), label);
 
-    hbox2 = gtk_hbox_new(FALSE, 0);
-    gtk_container_set_border_width (GTK_CONTAINER (hbox2), 6);
-    gtk_container_add (GTK_CONTAINER (frame), hbox2);
+    vbox2 = gtk_vbox_new(FALSE, 0);
+    gtk_container_set_border_width (GTK_CONTAINER (vbox2), 6);
+    gtk_container_add (GTK_CONTAINER (frame), vbox2);
 
-    hbox = gtk_hbox_new(FALSE, 0);
-    gtk_box_pack_start(GTK_BOX (hbox2), hbox, FALSE, TRUE, 0);
-    gtk_widget_set_size_request(hbox, 20, 1);
+    vbox = gtk_vbox_new(FALSE, 0);
+    gtk_box_pack_start(GTK_BOX (vbox2), vbox, FALSE, TRUE, 0);
+    gtk_widget_set_size_request(vbox, 20, 1);
 
-    hbox = gtk_hbox_new(FALSE, 5);
-    gtk_box_pack_start(GTK_BOX (hbox2), hbox, FALSE, TRUE, 0);
+    vbox = gtk_vbox_new(FALSE, 5);
+    gtk_box_pack_start(GTK_BOX (vbox2), vbox, FALSE, TRUE, 0);
 
-    tr_checkb = gtk_check_button_new_with_label(_("Enable Transparency"));
-    gtk_widget_show(tr_checkb);
-    gtk_box_pack_start(GTK_BOX (hbox), tr_checkb, FALSE, FALSE, 0);
+    incframe = mk_transparency();
+    gtk_box_pack_start(GTK_BOX (vbox), incframe, FALSE, FALSE, 0);
+
+    incframe = mk_backgroundimg();
+    gtk_box_pack_start(GTK_BOX (vbox), incframe, FALSE, FALSE, 0);
+
+    /* set group */
+    gtk_radio_button_set_group(bg_checkb, gtk_radio_button_get_group(tr_checkb));
     update_toggle_button(tr_checkb, p->transparent);
-    g_signal_connect(G_OBJECT(tr_checkb), "toggled", G_CALLBACK(transparency_toggle), NULL);
-    //gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(tr_checkb), FALSE);
-
-    tr_colorl = gtk_label_new(_("Tint color:"));
-    gtk_misc_set_alignment(GTK_MISC(tr_colorl), 0.0, 0.5);
-    gtk_widget_show(tr_colorl);
-    gtk_box_pack_start(GTK_BOX (hbox), tr_colorl, FALSE, FALSE, 5);
-    //gtk_widget_set_sensitive(tr_colorl, FALSE);
-
-    tr_colorb = gtk_color_button_new();
-    gtk_color_button_set_use_alpha(GTK_COLOR_BUTTON(tr_colorb), TRUE);
-    gtk_color_button_set_alpha (GTK_COLOR_BUTTON(tr_colorb), 65535/256*125);
-    gtk_box_pack_start(GTK_BOX (hbox), tr_colorb, FALSE, FALSE, 0);
-    gtk_color_button_set_color(GTK_COLOR_BUTTON(tr_colorb), &p->gtintcolor);
-    gtk_color_button_set_alpha (GTK_COLOR_BUTTON(tr_colorb), 256*p->alpha);
-    //gtk_widget_set_sensitive(tr_colorb, FALSE);
+    update_toggle_button(bg_checkb, p->background);
 
     RET(frame);
 }
@@ -954,8 +1027,8 @@ mk_tab_general()
     frame = mk_size();
     gtk_box_pack_start(GTK_BOX (page), frame, FALSE, TRUE, 0);
 
-    //transparency
-    frame = mk_transparency();
+    //background
+    frame = mk_background();
     gtk_box_pack_start(GTK_BOX (page), frame, FALSE, TRUE, 0);
 
     //properties
@@ -1142,7 +1215,10 @@ global_config_save(FILE *fp)
     lxpanel_put_int(fp, "alpha", gtk_color_button_get_alpha(GTK_COLOR_BUTTON(tr_colorb)) * 0xff / 0xffff);
     lxpanel_put_str(fp, "setdocktype", num2str(bool_pair, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(prop_dt_checkb)), "true"));
     lxpanel_put_str(fp, "setpartialstrut", num2str(bool_pair, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(prop_st_checkb)), "true"));
-
+    lxpanel_put_str(fp, "useFontColor", p->usefontcolor ? "true" : "false");
+    lxpanel_put_line(fp, "FontColor = #%06x", gcolor2rgb24(&p->gfontcolor));
+    lxpanel_put_str(fp, "Background", num2str(bool_pair, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(bg_checkb)), "false"));
+    lxpanel_put_str(fp, "BackgroundFile", p->background_file );
     lxpanel_put_str(fp, "FileManager", p->file_manager );
     lxpanel_put_str(fp, "Terminal", p->terminal );
     lxpanel_put_str(fp, "LogoutCommand", p->logout_command );

@@ -315,8 +315,13 @@ read_button(plugin *p, char** fp)
     gtk_widget_show(button);
     //gtk_bgbox_set_background(button, BG_ROOT, 0xFFFFFF, 20);
 
-    if (p->panel->transparent)
+    /* background image */
+    if (p->panel->background) {
+        button->style->bg_pixmap[0] = p->panel->bbox->style->bg_pixmap[0];
+        gtk_bgbox_set_background(button, BG_STYLE, 0, 0);
+    } else if (p->panel->transparent) {
         gtk_bgbox_set_background(button, BG_ROOT, p->panel->tintcolor, p->panel->alpha);
+    }
 
     g_free(fname);
 

@@ -2,6 +2,7 @@
 
 /* 
  * Copyright (C) 2001 Havoc Pennington, 2002 Red Hat Inc.
+ * Copyright (C) 2003-2006 Vincent Untz
  * 
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -23,18 +24,47 @@
 #define FIXED_TIP_H
 
 #include <gtk/gtk.h>
-#include <gdk/gdkx.h>
 
-/* root_x, root_y are where the speech balloon should be
- * "pointing" and the strut is the panel edge we should be
- * alongside.
- */
-void fixed_tip_show (int screen_number,
-                     int root_x, int root_y,
-                     gboolean strut_is_vertical,
-                     int strut,
-                     const char *markup_text);
-void fixed_tip_hide (void);
+G_BEGIN_DECLS
+
+#define NA_TYPE_FIXED_TIP			(na_fixed_tip_get_type ())
+#define NA_FIXED_TIP(obj)			(G_TYPE_CHECK_INSTANCE_CAST ((obj), NA_TYPE_FIXED_TIP, NaFixedTip))
+#define NA_FIXED_TIP_CLASS(klass)		(G_TYPE_CHECK_CLASS_CAST ((klass), NA_TYPE_FIXED_TIP, NaFixedTipClass))
+#define NA_IS_FIXED_TIP(obj)			(G_TYPE_CHECK_INSTANCE_TYPE ((obj), NA_TYPE_FIXED_TIP))
+#define NA_IS_FIXED_TIP_CLASS(klass)		(G_TYPE_CHECK_CLASS_TYPE ((klass), NA_TYPE_FIXED_TIP))
+#define NA_FIXED_TIP_GET_CLASS(obj)		(G_TYPE_INSTANCE_GET_CLASS ((obj), NA_TYPE_FIXED_TIP, NaFixedTipClass))
+
+typedef struct _NaFixedTip	  NaFixedTip;
+typedef struct _NaFixedTipPrivate NaFixedTipPrivate;
+typedef struct _NaFixedTipClass   NaFixedTipClass;
+
+struct _NaFixedTip
+{
+  GtkWindow parent_instance;
+
+  NaFixedTipPrivate *priv;
+};
+
+struct _NaFixedTipClass
+{
+  GtkWindowClass parent_class;
+
+  void (* clicked)    (NaFixedTip *fixedtip);
+};
+
+GType      na_fixed_tip_get_type (void);
+
+GtkWidget *na_fixed_tip_new (GtkWidget      *parent,
+                             GtkOrientation  orientation);
+
+void       na_fixed_tip_set_markup (GtkWidget  *widget,
+                                    const char *markup_text);
+
+void       na_fixed_tip_set_orientation (GtkWidget      *widget,
+                                         GtkOrientation  orientation);
+
+G_END_DECLS
+
+#endif /* FIXED_TIP_H */
 
 
-#endif

@@ -248,7 +248,11 @@ plugin_start(plugin *this, char** fp)
         gtk_box_pack_start(GTK_BOX(this->panel->box), this->pwid, this->expand, TRUE,
               this->padding);
         gtk_container_set_border_width(GTK_CONTAINER(this->pwid), this->border);
-        if (this->panel->transparent) {
+        /* background image */
+        if (this->panel->background) {
+            this->pwid->style->bg_pixmap[0] = this->panel->bbox->style->bg_pixmap[0];
+            gtk_bgbox_set_background(this->pwid, BG_STYLE, 0, 0);
+        } else if (this->panel->transparent) {
             gtk_bgbox_set_background(this->pwid, BG_ROOT, this->panel->tintcolor, this->panel->alpha);
         }
         gtk_widget_show(this->pwid);

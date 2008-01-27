@@ -336,7 +336,7 @@ gtk_bgbox_set_background(GtkWidget *widget, int bg_type, guint32 tintcolor, gint
     gtk_bgbox_free_bg(widget);
     priv->bg_type = bg_type;
     if (priv->bg_type == BG_STYLE) {
-          gtk_style_set_background(widget->style, widget->window, widget->state);
+        gtk_style_set_background(widget->style, widget->window, widget->state);
     } else if (priv->bg_type == BG_ROOT) {
         if (priv->bg == NULL) 
             priv->bg = fb_bg_get_for_display();

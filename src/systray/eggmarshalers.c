@@ -49,7 +49,7 @@
 
 /* VOID:OBJECT,OBJECT (eggmarshalers.list:1) */
 void
-_egg_marshal_VOID__OBJECT_OBJECT (GClosure     *closure,
+_na_marshal_VOID__OBJECT_OBJECT (GClosure     *closure,
                                   GValue       *return_value,
                                   guint         n_param_values,
                                   const GValue *param_values,
@@ -86,7 +86,7 @@ _egg_marshal_VOID__OBJECT_OBJECT (GClosure     *closure,
 
 /* VOID:OBJECT,STRING,LONG,LONG (eggmarshalers.list:2) */
 void
-_egg_marshal_VOID__OBJECT_STRING_LONG_LONG (GClosure     *closure,
+_na_marshal_VOID__OBJECT_STRING_LONG_LONG (GClosure     *closure,
                                             GValue       *return_value,
                                             guint         n_param_values,
                                             const GValue *param_values,
@@ -127,7 +127,7 @@ _egg_marshal_VOID__OBJECT_STRING_LONG_LONG (GClosure     *closure,
 
 /* VOID:OBJECT,LONG (eggmarshalers.list:3) */
 void
-_egg_marshal_VOID__OBJECT_LONG (GClosure     *closure,
+_na_marshal_VOID__OBJECT_LONG (GClosure     *closure,
                                 GValue       *return_value,
                                 guint         n_param_values,
                                 const GValue *param_values,

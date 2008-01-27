@@ -437,7 +437,15 @@ panel_start_gui(panel *p)
     gtk_container_add(GTK_CONTAINER(p->topgwin), p->bbox);
     gtk_widget_show(p->bbox);
     gtk_container_set_border_width(GTK_CONTAINER(p->bbox), 0);
-    if (p->transparent) {
+
+    /* font color */
+    gtk_widget_modify_text(GTK_WIDGET(p->bbox), GTK_STATE_NORMAL, &p->gfontcolor);
+
+    /* background image */
+    if (p->background) {
+        p->bbox->style->bg_pixmap[0] = fb_bg_get_pix_from_file(p->bbox, p->background_file);
+        gtk_bgbox_set_background(p->bbox, BG_STYLE, 0, 0);
+    } else if (p->transparent) {
         p->bg = fb_bg_get_for_display();
         gtk_bgbox_set_background(p->bbox, BG_ROOT, p->tintcolor, p->alpha);
     }
@@ -577,6 +585,17 @@ panel_parse_global(panel *p, char **fp)
                     gdk_color_parse ("white", &p->gtintcolor);
                 p->tintcolor = gcolor2rgb24(&p->gtintcolor);
                 DBG("tintcolor=%x\n", p->tintcolor);
+            } else if (!g_ascii_strcasecmp(s.t[0], "useFontColor")) {
+                p->usefontcolor = str2num(bool_pair, s.t[1], 0);
+            } else if (!g_ascii_strcasecmp(s.t[0], "FontColor")) {
+                if (!gdk_color_parse (s.t[1], &p->gfontcolor))
+                    gdk_color_parse ("black", &p->gfontcolor);
+                p->tintcolor = gcolor2rgb24(&p->gfontcolor);
+                DBG("fontcolor=%x\n", p->fontcolor);
+            } else if (!g_ascii_strcasecmp(s.t[0], "Background")) {
+                p->background = str2num(bool_pair, s.t[1], 0);
+            } else if( !g_ascii_strcasecmp(s.t[0], "BackgroundFile") ) {
+                p->background_file = g_strdup( s.t[1] );
             } else if( !g_ascii_strcasecmp(s.t[0], "FileManager") ) {
                 p->file_manager = g_strdup( s.t[1] );
             } else if( !g_ascii_strcasecmp(s.t[0], "Terminal") ) {
@@ -606,6 +625,10 @@ panel_parse_global(panel *p, char **fp)
         else if (p->height > PANEL_HEIGHT_MAX)
             p->height = PANEL_HEIGHT_MAX;
     }
+
+    if (p->background)
+        p->transparent = 0;
+
     p->curdesk = get_net_current_desktop();
     p->desknum = get_net_number_of_desktops();
     p->workarea = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_WORKAREA, XA_CARDINAL, &p->wa_len);
@@ -720,6 +743,8 @@ panel_start( panel *p, char **fp )
     p->transparent = 0;
     p->alpha = 127;
     p->tintcolor = 0xFFFFFFFF;
+    p->usefontcolor = 0;
+    p->fontcolor = 0x00000000;
     p->spacing = 0;
     fbev = fb_ev_new();
     if ((lxpanel_get_line(fp, &s) != LINE_BLOCK_START) || g_ascii_strcasecmp(s.t[0], "Global")) {
@@ -770,6 +795,7 @@ void panel_stop(panel *p)
     gtk_widget_destroy(p->topgwin);
     g_object_unref(fbev);
     g_free(p->workarea);
+    g_free( p->background_file );
     g_free( p->file_manager );
     g_free( p->terminal );
     g_free( p->logout_command );

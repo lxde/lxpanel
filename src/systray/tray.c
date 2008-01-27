@@ -26,16 +26,26 @@ typedef struct {
     plugin *plug;
     GtkWidget *box;
     /////
-    EggTrayManager *tray_manager;
+    NaTrayManager *tray_manager;
     int icon_num;
 } tray;
 
 //static void run_gtktray(tray *tr);
 
+static void
+force_redraw (tray *tr)
+{
+  /* Force the icons to redraw their backgrounds.
+   * gtk_widget_queue_draw() doesn't work across process boundaries,
+   * so we do this instead.
+   */
+  gtk_widget_hide (tr->box);
+  gtk_widget_show (tr->box);
+}
 
 
 static void
-tray_added (EggTrayManager *manager, GtkWidget *icon, tray *tr)
+tray_added (NaTrayManager *manager, GtkWidget *icon, tray *tr)
 {
     gtk_box_pack_end (GTK_BOX (tr->box), icon, FALSE, FALSE, 0);
     gtk_widget_show (icon);
@@ -43,12 +53,13 @@ tray_added (EggTrayManager *manager, GtkWidget *icon, tray *tr)
         DBG("first icon\n");
         gtk_widget_show_all(tr->box);
     }
+    force_redraw(tr);
     tr->icon_num++;
     DBG("add icon\n");
 }
 
 static void
-tray_removed (EggTrayManager *manager, GtkWidget *icon, tray *tr)
+tray_removed (NaTrayManager *manager, GtkWidget *icon, tray *tr)
 {
     tr->icon_num--;
     DBG("del icon\n");
@@ -56,10 +67,12 @@ tray_removed (EggTrayManager *manager, GtkWidget *icon, tray *tr)
         gtk_widget_hide(tr->box);
         DBG("last icon\n");
     }
+
+    force_redraw(tr);
 }
 
 static void
-message_sent (EggTrayManager *manager, GtkWidget *icon, const char *text, glong id, glong timeout,
+message_sent (NaTrayManager *manager, GtkWidget *icon, const char *text, glong id, glong timeout,
               void *data)
 {
     /* FIXME multihead */
@@ -70,7 +83,7 @@ message_sent (EggTrayManager *manager, GtkWidget *icon, const char *text, glong 
 }
 
 static void
-message_cancelled (EggTrayManager *manager, GtkWidget *icon, glong id,
+message_cancelled (NaTrayManager *manager, GtkWidget *icon, glong id,
                    void *data)
 {
 
@@ -101,7 +114,6 @@ tray_constructor(plugin *p, char** fp)
     line s;
     tray *tr;
     GdkScreen *screen;
-    //GtkWidget *frame;
 
     ENTER;
     s.len = 256;
@@ -119,25 +131,30 @@ tray_constructor(plugin *p, char** fp)
     p->priv = tr;
     tr->plug = p;
     tr->icon_num = 0;
-#if 0
-    frame = gtk_frame_new(NULL);
-    gtk_container_set_border_width(GTK_CONTAINER(frame), 0);
-    gtk_frame_set_shadow_type(GTK_FRAME(frame), GTK_SHADOW_NONE);
-#endif
+
     tr->box = p->panel->my_box_new(FALSE, 0);
-    //gtk_container_add(GTK_CONTAINER(frame), tr->box);
     gtk_container_add(GTK_CONTAINER(p->pwid), tr->box);
-    //gtk_bgbox_set_background(p->pwid, BG_STYLE, 0, 0);
-    gtk_container_set_border_width(GTK_CONTAINER(p->pwid), 0);
+
+    /* background */
+    if (p->panel->background) {
+        tr->box->style->bg_pixmap[0] = p->panel->bbox->style->bg_pixmap[0];
+        p->pwid->style->bg_pixmap[0] = p->panel->bbox->style->bg_pixmap[0];
+        gtk_bgbox_set_background(tr->box, BG_STYLE, 0, 0);
+        gtk_bgbox_set_background(p->pwid, BG_STYLE, 0, 0);
+    } else if (p->panel->transparent) {
+        gtk_bgbox_set_background(p->pwid, BG_ROOT, p->panel->tintcolor, p->panel->alpha);
+    }
+
+    gtk_container_set_border_width(GTK_CONTAINER(p->pwid), 1);
     screen = gtk_widget_get_screen (GTK_WIDGET (p->panel->topgwin));
 
-    if (egg_tray_manager_check_running(screen)) {
+    if (na_tray_manager_check_running(screen)) {
         tr->tray_manager = NULL;
         ERR("tray: another systray already running\n");
         RET(1);
     }
-    tr->tray_manager = egg_tray_manager_new ();
-    if (!egg_tray_manager_manage_screen (tr->tray_manager, screen))
+    tr->tray_manager = na_tray_manager_new ();
+    if (!na_tray_manager_manage_screen (tr->tray_manager, screen))
         g_printerr ("tray: System tray didn't get the system tray manager selection\n");
 
     g_signal_connect (tr->tray_manager, "tray_icon_added", G_CALLBACK (tray_added), tr);
@@ -146,6 +163,7 @@ tray_constructor(plugin *p, char** fp)
     g_signal_connect (tr->tray_manager, "message_cancelled", G_CALLBACK (message_cancelled), tr);
 
     gtk_widget_show_all(tr->box);
+    gtk_widget_set_size_request (tr->box, -1, -1);
     RET(1);
 
 }
@@ -161,6 +179,8 @@ static void orientation_changed( plugin* p )
         tr->box = GTK_WIDGET(newbox);
         gtk_container_add(GTK_CONTAINER(p->pwid), tr->box);
     }
+
+    force_redraw(tr);
 }
 
 plugin_class tray_plugin_class = {

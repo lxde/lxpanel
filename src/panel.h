@@ -57,7 +57,9 @@ typedef struct {
     FbBg *bg;
     int alpha;
     guint32 tintcolor;
+    guint32 fontcolor;
     GdkColor gtintcolor;
+    GdkColor gfontcolor;
 
     int ax, ay, aw, ah;  /* prefferd allocation of a panel */
     int cx, cy, cw, ch;  /* current allocation (as reported by configure event) allocation */
@@ -70,7 +72,9 @@ typedef struct {
     int setdocktype : 1;
     int setstrut : 1;
     int round_corners : 1;
+    int usefontcolor : 1;
     int transparent : 1;
+    int background : 1;
     int spacing;
 
     int desknum;
@@ -78,6 +82,7 @@ typedef struct {
     guint32 *workarea;
     int wa_len;
 
+    char* background_file;
     char* file_manager;
     char* terminal;
     char* logout_command;

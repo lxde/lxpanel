@@ -281,3 +281,21 @@ FbBg *fb_bg_get_for_display(void)
         g_object_ref(default_bg);
     RET(default_bg);
 }
+
+GdkPixmap *
+fb_bg_get_pix_from_file(GtkWidget *widget, const char *filename)
+{
+    ENTER;
+    GdkPixbuf *pixbuf;
+    GdkPixmap *pixmap;
+
+    pixbuf = gdk_pixbuf_new_from_file(filename, NULL);
+    pixmap = gdk_pixmap_new(widget->window, gdk_pixbuf_get_width(pixbuf), gdk_pixbuf_get_height(pixbuf), -1);
+    gdk_pixbuf_render_to_drawable(pixbuf,pixmap,
+			widget->style->fg_gc[GTK_STATE_NORMAL],
+			0,0,0,0,
+			gdk_pixbuf_get_width(pixbuf),
+			gdk_pixbuf_get_height(pixbuf),
+			GDK_RGB_DITHER_NORMAL,0,0);
+    RET(pixmap);
+}

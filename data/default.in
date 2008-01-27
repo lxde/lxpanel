@@ -64,6 +64,14 @@
 #         or
 #     # TintColor = white
 #     # Alpha = 127
+
+#     # Font color: 
+#     # useFontColor = true
+#     # FontColor = #FFFFFF
+
+#     # Background stuff: 
+#     # Background = true
+#     # BackgroundFile = /usr/share/lxpanel/images/background.png
 # }
 
 # 'Plugin' block specifies a plugin to load. It has same syntax for both
@@ -97,6 +105,10 @@ Global {
     width = 100
     heighttype = pixel
     height = 26
+    useFontColor = true
+    FontColor = #FFFFFF
+    Background = true
+    BackgroundFile = /usr/share/lxpanel/images/background.png
 }
 
 Plugin {
@@ -220,5 +232,6 @@ Plugin {
         ClockFmt = %R
         TooltipFmt = %A %x
         Action = xmessage Please define some command &
+        FontBold = false
     }
 }
