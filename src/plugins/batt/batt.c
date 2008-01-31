@@ -30,6 +30,7 @@
 
 #include <dirent.h> /* used by getStatus() */
 #include <glib/gi18n.h>
+#include <pthread.h> /* used by pthread_create() and alarmThread */
 #include <semaphore.h> /* used by update() and alarmProcess() for alarms */
 #include <stdlib.h>
 
@@ -145,7 +146,7 @@ static int getStatus(int *capacity, int *charge, int *rate) {
     buffer.len = 256;
 
     /* Read and process each entry in the battery directory */
-    while (battery = readdir(batteryDirectory)) {
+    while ((battery = readdir(batteryDirectory))) {
         if (battery->d_name[0] != '.') {
             batteries++;
             int thisCapacity = 0,
@@ -155,7 +156,7 @@ static int getStatus(int *capacity, int *charge, int *rate) {
             /* Open the info file */
             snprintf(buffer.str, buffer.len, "%s%s/info", BATTERY_DIRECTORY,
                     battery->d_name);
-            if (info = fopen(buffer.str, "r")) {
+            if ((info = fopen(buffer.str, "r"))) {
 
                 /* Read the file until the battery's capacity is found or until
                    there are no more lines to be read */
@@ -170,7 +171,7 @@ static int getStatus(int *capacity, int *charge, int *rate) {
             /* Open the state file */
             snprintf(buffer.str, buffer.len, "%s%s/state", BATTERY_DIRECTORY,
                     battery->d_name);
-            if (state = fopen(buffer.str, "r")) {
+            if ((state = fopen(buffer.str, "r"))) {
 
                 char thisState = 'c';
 
@@ -218,20 +219,15 @@ static int getStatus(int *capacity, int *charge, int *rate) {
 
 /* alarmProcess takes the address of a dynamically allocated alarm struct (which
    it must free). It ensures that alarm commands do not run concurrently. */
-static int alarmProcess(void *arg) {
-
-    ENTER;
-
+static void * alarmProcess(void *arg) {
     alarm *a = (alarm *) arg;
 
     sem_wait(a->lock);
-    int returnStatus = system(a->command);
+    system(a->command);
     sem_post(a->lock);
 
     g_free(a);
-
-    RET(returnStatus);
-
+    return NULL;
 }
 
 
@@ -518,7 +514,7 @@ constructor(plugin *p, char **fp)
     b->requestedBorder = 1;
     b->numSamples = b->rateSamplesSum = b->wasCharging = 0;
 
-    b->rateSamples = (int *) malloc(sizeof(int) * MAX_SAMPLES);
+    b->rateSamples = (unsigned int *) malloc(sizeof(int) * MAX_SAMPLES);
 
     line s;
     s.len = 256;
