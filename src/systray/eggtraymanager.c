@@ -858,12 +858,10 @@ na_tray_manager_get_child_title (NaTrayManager      *manager,
 			       &type, &format, &nitems,
 			       &bytes_after, (guchar **)&val);
   
-  if (gdk_error_trap_pop () || result != Success)
+  if (gdk_error_trap_pop () || result != Success || type != utf8_string)
     return NULL;
 
-  if (type != utf8_string ||
-      format != 8 ||
-      nitems == 0)
+  if (format != 8 || nitems == 0)
     {
       if (val)
 	XFree (val);
