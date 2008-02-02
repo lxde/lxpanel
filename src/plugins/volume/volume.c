@@ -73,10 +73,18 @@ static void on_button_press (GtkWidget* widget, GdkEventButton* evt, plugin* p)
 	if( evt->button == 1 ) { /*  Left click*/
 		if( ! vol->dlg ) {
 			vol->dlg = create_volume_window();
+
+			/* setting background to default */
+			gtk_widget_set_style(vol->dlg, p->panel->defstyle);
+
 			g_signal_connect( vol->dlg, "focus-out-event", 
 					  G_CALLBACK(on_volume_focus), vol );
+
+			gtk_window_present( GTK_WINDOW(vol->dlg) );
+		} else {
+			gtk_widget_destroy(vol->dlg);
+			vol->dlg = NULL;
 		}
-		gtk_window_present( GTK_WINDOW(vol->dlg) );
 	}
 }
 
