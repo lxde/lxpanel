@@ -48,6 +48,7 @@ typedef struct {
 
     GtkWidget *topgwin;           /* main panel window */
     Window topxwin;               /* and it X window   */
+    GtkStyle *defstyle;
     GtkWidget *box;              /* primary layout box which contains all plugins */
     GtkWidget *bbox;              /* backgound box for box */
     GtkRequisition requisition;

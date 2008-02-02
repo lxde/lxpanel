@@ -442,6 +442,7 @@ panel_start_gui(panel *p)
     gtk_widget_modify_text(GTK_WIDGET(p->bbox), GTK_STATE_NORMAL, &p->gfontcolor);
 
     /* background image */
+    p->defstyle = gtk_style_copy(p->bbox->style);
     if (p->background) {
         p->bbox->style->bg_pixmap[0] = fb_bg_get_pix_from_file(p->bbox, p->background_file);
         gtk_bgbox_set_background(p->bbox, BG_STYLE, 0, 0);
