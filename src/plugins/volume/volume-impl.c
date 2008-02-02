@@ -95,9 +95,9 @@ create_volume_window (void)
 	gtk_window_set_resizable (GTK_WINDOW (volume_window), FALSE);
 	gtk_window_set_position (GTK_WINDOW (volume_window), GTK_WIN_POS_MOUSE);
 	gtk_window_set_decorated (GTK_WINDOW (volume_window), FALSE);
-    gtk_window_set_skip_taskbar_hint( GTK_WINDOW (volume_window), TRUE );
+	gtk_window_set_skip_taskbar_hint( GTK_WINDOW (volume_window), TRUE );
 
-    frame = gtk_frame_new (_("Volume"));
+	frame = gtk_frame_new (_("Volume"));
 
 	vbox1 = gtk_vbox_new (FALSE, 0);
 	gtk_widget_show (vbox1);
