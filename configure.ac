@@ -46,6 +46,7 @@ fi
 dnl Here are plugin listing.
 plugin_netstatus=
 plugin_volume=
+plugin_volumealsa=
 plugin_cpu=
 plugin_deskno=
 plugin_batt=
@@ -56,7 +57,7 @@ AC_ARG_WITH(plugins,
 [                         plugins may be comma separated ]
 [                         'all' builds all plugins (default), 'none' builds none ]
 [                         Possible plugins are: ]
-[                         netstatus, volume, cpu, deskno, batt], plugins="$withval",[plugins="all"])
+[                         netstatus, volume, volumealsa, cpu, deskno, batt], plugins="$withval",[plugins="all"])
 
 if test x"$plugins" != xall -a x"$plugins" != xnone; then
 	if test x"$plugins_loading" = xno; then
@@ -68,6 +69,7 @@ fi
 if test x"$plugins" = xall; then
 	plugin_netstatus=netstatus
 	plugin_volume=volume
+	plugin_volumealsa=volumealsa
 	plugin_cpu=cpu
 	plugin_deskno=deskno
 	plugin_batt=batt
@@ -83,6 +85,9 @@ else
 				;;
 			volume)
 				plugin_volume=volume
+				;;
+			volumealsa)
+				plugin_volumealsa=volumealsa
 				;;
 			cpu)
 				plugin_cpu=cpu
@@ -103,7 +108,7 @@ else
 	fi
 fi
 
-PLUGINS_LIST="$plugin_netstatus $plugin_volume $plugin_cpu $plugin_deskno $plugin_batt"
+PLUGINS_LIST="$plugin_netstatus $plugin_volume $plugin_volumealsa $plugin_cpu $plugin_deskno $plugin_batt"
 AC_SUBST(PLUGINS_LIST)
 
 
@@ -142,6 +147,7 @@ AC_CONFIG_FILES([
 	src/plugins/Makefile
 	src/plugins/netstatus/Makefile
 	src/plugins/volume/Makefile
+	src/plugins/volumealsa/Makefile
 	src/plugins/cpu/Makefile
 	src/plugins/deskno/Makefile
 	src/plugins/batt/Makefile
@@ -162,6 +168,9 @@ echo Building dynamic plugins:
 	fi
 	if test x"$plugin_volume" != x; then
 		AC_MSG_RESULT([    volume - Display and adjust volume of sound card])
+	fi
+	if test x"$plugin_volumealsa" != x; then
+		AC_MSG_RESULT([    volumealsa - Display and adjust volume of sound card for ALSA])
 	fi
 	if test x"$plugin_cpu" != x; then
 		AC_MSG_RESULT([    cpu - Display CPU loading])

@@ -167,7 +167,7 @@ dclock_constructor(plugin *p, char** fp)
     gtk_widget_show_all(dc->main);
 
     dc->tip = p->panel->tooltips;
-/*
+
     dc->tip = gtk_tooltips_new();
 #if GLIB_CHECK_VERSION( 2, 10, 0 )
     g_object_ref_sink( dc->tip );
@@ -175,7 +175,7 @@ dclock_constructor(plugin *p, char** fp)
     g_object_ref( dc->tip );
     gtk_object_sink( dc->tip );
 #endif
-*/
+
     dc->timer = g_timeout_add(1000, (GSourceFunc) clock_update, (gpointer)dc);
     gtk_container_add(GTK_CONTAINER(p->pwid), dc->main);
 
