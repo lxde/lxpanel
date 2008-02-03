@@ -29,8 +29,8 @@
 #include "plugin.h"
 #include "dbg.h"
 
-#define ICONS_VOLUME "/usr/share/lxpanel/images/volume.png"
-#define ICONS_MUTE "/usr/share/lxpanel/images/mute.png"
+#define ICONS_VOLUME PACKAGE_DATA_DIR "/lxpanel/images/volume.png"
+#define ICONS_MUTE PACKAGE_DATA_DIR "/lxpanel/images/mute.png"
 
 typedef struct {
 	GtkWidget *mainw;
