@@ -34,7 +34,9 @@ lxpanel_images_DATA = \
 	images/gnome-settings.png \
 	images/gnome-setting.svg \
 	images/gnome-system.png \
-	images/gnome-util.png
+	images/gnome-util.png \
+	images/volume.png \
+	images/mute.png
 
 
 lxpanel_imagesdir = $(datadir)/lxpanel/images
