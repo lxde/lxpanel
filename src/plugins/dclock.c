@@ -126,7 +126,7 @@ dclock_constructor(plugin *p, char** fp)
     p->priv = dc;
 
     s.len = 256;
-    dc->cfmt = dc->tfmt = dc->action = 0;
+    dc->cfmt = dc->tfmt = dc->action = dc->bold = 0;
     dc->bold = TRUE;
     if( fp )
     {
