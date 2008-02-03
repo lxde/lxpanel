@@ -108,7 +108,7 @@ Global {
     useFontColor = true
     FontColor = #FFFFFF
     Background = true
-    BackgroundFile = /usr/share/lxpanel/images/background.png
+    BackgroundFile = /usr/local/share/lxpanel/images/background.png
 }
 
 Plugin {
@@ -232,6 +232,6 @@ Plugin {
         ClockFmt = %R
         TooltipFmt = %A %x
         Action = xmessage Please define some command &
-        FontBold = false
+        BoldFont = false
     }
 }
