@@ -501,6 +501,10 @@ msgstr "音量控制"
 msgid "Volume"
 msgstr "音量"
 
+#: ../src/plugins/volumealsa/volumealsa.c
+msgid "Mute"
+msgstr "靜音"
+
 #: ../src/plugins/netstatus/netstatus.c:157
 msgid "Interface to monitor"
 msgstr "要監控的介面"
