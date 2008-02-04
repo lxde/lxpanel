@@ -35,6 +35,7 @@ lxpanel_images_DATA = \
 	images/gnome-setting.svg \
 	images/gnome-system.png \
 	images/gnome-util.png \
+	images/background.png \
 	images/volume.png \
 	images/mute.png
 
