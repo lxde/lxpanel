@@ -105,6 +105,7 @@ static void asound_write(volume_t *vol, int volume)
 static gboolean focus_out_event(GtkWidget *widget, GdkEvent *event, volume_t *vol)
 {
 	gtk_widget_hide(vol->dlg);
+	vol->show = 0;
 	return FALSE;
 }
 
