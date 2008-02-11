@@ -27,8 +27,15 @@
  * their estimated remaining battery life reaches a certain level.
  */
 
+/* FIXME:
+ *  Here are somethings need to be improvec:
+ *  1. Replace pthread stuff with gthread counterparts for portability.
+ *  2. Check "/proc/acpi/ac_adapter" for AC power.
+ *  3. Add an option to hide the plugin when AC power is used or there is no battery.
+ *  4. Handle failure gracefully under systems other than Linux.
+*/
 
-#include <dirent.h> /* used by getStatus() */
+#include <glib.h>
 #include <glib/gi18n.h>
 #include <pthread.h> /* used by pthread_create() and alarmThread */
 #include <semaphore.h> /* used by update() and alarmProcess() for alarms */
@@ -130,14 +137,14 @@ static int getStatus(int *capacity, int *charge, int *rate) {
     ENTER;
 
     FILE *info, *state;
-    DIR *batteryDirectory;
+    GDir *batteryDirectory;
     unsigned int batteries = 0,
         numDischarging = 0;
-    struct dirent *battery;
+    char *battery_name;
 
     *capacity = *charge = *rate = 0;
 
-    if (! (batteryDirectory = opendir(BATTERY_DIRECTORY)))
+    if (! (batteryDirectory = g_dir_open(BATTERY_DIRECTORY, 0, NULL)))
         RET(-1);
 
     /* The buffer string is used to store file paths and also to read one line
@@ -146,8 +153,8 @@ static int getStatus(int *capacity, int *charge, int *rate) {
     buffer.len = 256;
 
     /* Read and process each entry in the battery directory */
-    while ((battery = readdir(batteryDirectory))) {
-        if (battery->d_name[0] != '.') {
+    while ((battery_name = g_dir_read_name(batteryDirectory))) {
+        if (battery_name[0] != '.') {
             batteries++;
             int thisCapacity = 0,
                 thisCharge = 0,
@@ -155,7 +162,7 @@ static int getStatus(int *capacity, int *charge, int *rate) {
 
             /* Open the info file */
             snprintf(buffer.str, buffer.len, "%s%s/info", BATTERY_DIRECTORY,
-                    battery->d_name);
+                    battery_name);
             if ((info = fopen(buffer.str, "r"))) {
 
                 /* Read the file until the battery's capacity is found or until
@@ -170,7 +177,7 @@ static int getStatus(int *capacity, int *charge, int *rate) {
 
             /* Open the state file */
             snprintf(buffer.str, buffer.len, "%s%s/state", BATTERY_DIRECTORY,
-                    battery->d_name);
+                    battery_name);
             if ((state = fopen(buffer.str, "r"))) {
 
                 char thisState = 'c';
@@ -207,8 +214,8 @@ static int getStatus(int *capacity, int *charge, int *rate) {
 
         }
     }
-    
-    closedir(batteryDirectory);
+
+    g_dir_close(batteryDirectory);
 
     /* If at least one battery could be found, return 0 if any batteries are
        discharging or 1 if all are charging; if no batteries could be found,
@@ -266,7 +273,7 @@ static int addRate(batt *b, int isCharging, int lastRate) {
 
 /* update() is the main loop of the plugin. It gets the battery's state, updates
    the visual charge indicator, sets a meaningful tooltip for the plugin, and
-   runs the alarm command if necessary. */   
+   runs the alarm command if necessary. */
 static int update(batt *b) {
 
     ENTER;
@@ -452,7 +459,7 @@ static gint exposeEvent(GtkWidget *widget, GdkEventExpose *event, batt *b) {
     gdk_draw_drawable (widget->window, b->drawingArea->style->black_gc,
             b->pixmap, event->area.x, event->area.y, event->area.x,
             event->area.y, event->area.width, event->area.height);
-    
+
     RET(FALSE);
 
 }
@@ -715,7 +722,7 @@ static void applyConfig(plugin* p)
         gdk_colormap_alloc_color(gdk_drawable_get_colormap(
                 p->panel->topgwin->window), b->discharging2, FALSE, TRUE);
 
-    /* Make sure the border value is acceptable */ 
+    /* Make sure the border value is acceptable */
     b->border = MIN(MAX(0, b->requestedBorder),
             (MIN(b->length, b->thickness) - 1) / 2);
 
