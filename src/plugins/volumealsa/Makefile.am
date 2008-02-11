@@ -1,3 +1,5 @@
+if BUILD_ALSA_PLUGINS
+
 INCLUDES = \
 	-I. \
 	-I$(top_srcdir)/src \
@@ -18,3 +20,5 @@ volumealsa_la_LDFLAGS = \
 	-rpath $(moduledir) \
 	-module \
 	-export-symbols-regex '_plugin_class$$'
+
+endif

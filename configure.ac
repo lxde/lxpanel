@@ -32,6 +32,21 @@ if test x"$cast_checks" = "xno"; then
 fi
 AC_SUBST(G_CAST_CHECKS)
 
+AC_ARG_ENABLE([alsa],
+	AS_HELP_STRING([--disable-alsa],
+	                [compile ALSA providers (default: enable)]),
+			compile_alsa=$enableval, compile_alsa="yes")
+if test x"$compile_alsa" = "xyes"; then
+	AC_CHECK_HEADERS([alsa/asoundlib.h],
+	                 [AC_CHECK_LIB([asound],
+	                               [snd_seq_open],
+	                               compile_alsa=yes,compile_alsa=no)],
+                          compile_alsa=no)
+fi
+AM_CONDITIONAL(BUILD_ALSA_PLUGINS, test x$compile_alsa = xyes)
+dnl FIXME: check OSS existence
+AM_CONDITIONAL(BUILD_OSS_PLUGINS, test x$compile_alsa = xno)
+
 AC_ARG_ENABLE([plugins-loading],
 	AS_HELP_STRING([--disable-plugins-loading],
 		       [disable plugin loading (default: enable)]),
@@ -108,6 +123,16 @@ else
 	fi
 fi
 
+dnl FIXME: OSS/ALSA checking
+if test x"$compile_alsa" = "xno"; then
+	if test ! -z $plugin_volumealsa; then
+		AC_MSG_RESULT([no ALSA headers/libraries found!])
+		plugin_volumealsa=
+	fi
+else
+	dnl force OSS plugin to <null>
+	plugin_volume=
+fi
 PLUGINS_LIST="$plugin_netstatus $plugin_volume $plugin_volumealsa $plugin_cpu $plugin_deskno $plugin_batt"
 AC_SUBST(PLUGINS_LIST)
 

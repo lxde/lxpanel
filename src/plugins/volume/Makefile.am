@@ -1,3 +1,5 @@
+if BUILD_OSS_PLUGINS
+
 INCLUDES = \
 	-I. \
 	-I$(top_srcdir)/src \
@@ -22,3 +24,5 @@ volume_la_LDFLAGS = \
 	-rpath $(moduledir) \
 	-module \
 	-export-symbols-regex '_plugin_class$$'
+
+endif
