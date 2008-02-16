@@ -797,6 +797,10 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
                                        GTK_RESPONSE_CANCEL,
                                        GTK_STOCK_ADD,
                                        GTK_RESPONSE_OK, NULL );
+
+    /* fix background */
+    gtk_widget_set_style(dlg, p->defstyle);
+
     /* gtk_widget_set_sensitive( parent_win, FALSE ); */
     scroll = gtk_scrolled_window_new( NULL, NULL );
     gtk_scrolled_window_set_shadow_type( (GtkScrolledWindow*)scroll,
@@ -1157,6 +1161,9 @@ mk_dialog()
     gtk_window_set_modal(GTK_WINDOW(dialog), FALSE);
     gtk_window_set_position( GTK_WINDOW(dialog), GTK_WIN_POS_CENTER );
 
+    /* fix background */
+    gtk_widget_set_style(dialog, p->defstyle);
+
     /*
     gtk_window_set_skip_taskbar_hint(GTK_WINDOW(dialog), TRUE);
     gtk_window_set_skip_pager_hint(GTK_WINDOW(dialog), TRUE);
@@ -1361,6 +1368,9 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
                                                   GTK_STOCK_CLOSE,
                                                   GTK_RESPONSE_CLOSE,
                                                   NULL );
+
+    /* fix background */
+    gtk_widget_set_style(dlg, p->defstyle);
 
     /* this is a dirty hack.  We need to check if this response is GTK_RESPONSE_CLOSE or not. */
     g_signal_connect( dlg, "response", G_CALLBACK(gtk_widget_destroy), NULL );

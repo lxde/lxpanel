@@ -22,6 +22,8 @@
 #include <string.h>
 #include "misc.h"
 
+extern panel *p;
+
 static gboolean setup_auto_complete( gpointer entry )
 {
     GtkListStore* store;
@@ -115,6 +117,10 @@ void gtk_run()
                                        NULL );
     gtk_dialog_set_default_response( (GtkDialog*)win, GTK_RESPONSE_OK );
     entry = gtk_entry_new();
+
+    /* fix background */
+    gtk_widget_set_style(win, p->defstyle);
+
     gtk_entry_set_activates_default( (GtkEntry*)entry, TRUE );
     gtk_box_pack_start( (GtkBox*)((GtkDialog*)win)->vbox,
                          gtk_label_new(_("Enter the command you want to execute:")),
