@@ -1,6 +1,6 @@
 AC_PREREQ(2.53)
 AC_INIT(lxpanel, 0.2.4, http://lxde.sourceforge.net/)
-AM_INIT_AUTOMAKE()
+AM_INIT_AUTOMAKE
 AC_CONFIG_SRCDIR([src/bg.c])
 AC_CONFIG_HEADER([config.h])
 
@@ -158,7 +158,7 @@ AC_CHECK_FUNCS([bzero memset mkdir setlocale strchr])
 
 
 GETTEXT_PACKAGE=lxpanel
-AM_GNU_GETTEXT([external])
+#AM_GNU_GETTEXT([external])
 AM_GNU_GETTEXT_VERSION(0.14.1)
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package.])
