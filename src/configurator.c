@@ -73,7 +73,7 @@ static GtkWidget *edge_opt;
 static GtkWidget *tr_checkb,  *tr_colorl, *tr_colorb;;
 
 //background
-static GtkWidget *bg_checkb, *bg_selfileb;
+static GtkWidget *bg_checkdis, *bg_checkb, *bg_selfileb;
 
 //properties
 static GtkWidget *prop_dt_checkb, *prop_st_checkb;
@@ -439,8 +439,6 @@ mk_transparency()
     gtk_widget_show(tr_checkb);
     gtk_box_pack_start(GTK_BOX (frame), tr_checkb, FALSE, FALSE, 0);
 
-    g_signal_connect(G_OBJECT(tr_checkb), "toggled", G_CALLBACK(transparency_toggle), NULL);
-
     tr_colorl = gtk_label_new(_("Tint color:"));
     gtk_misc_set_alignment(GTK_MISC(tr_colorl), 0.0, 0.5);
     gtk_widget_show(tr_colorl);
@@ -478,6 +476,7 @@ static void
 background_changed(GtkFileChooser *file_chooser, gpointer data)
 {
     ENTER;
+    p->transparent = 0;
     p->background = 1;
     p->background_file = g_strdup(gtk_file_chooser_get_filename(file_chooser));
     RET();
@@ -493,8 +492,6 @@ mk_backgroundimg()
 
     bg_checkb = gtk_radio_button_new_with_label(NULL, _("Enable Image:"));
     gtk_box_pack_start(GTK_CONTAINER(frame), bg_checkb, FALSE, FALSE, 5);
-
-    g_signal_connect(G_OBJECT(bg_checkb), "toggled", G_CALLBACK(background_toggle), NULL);
 
     bg_selfileb = gtk_file_chooser_button_new (_("Select a background image file"), GTK_FILE_CHOOSER_ACTION_OPEN);
     gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (bg_selfileb), "/usr/share/lxpanel/images");
@@ -512,10 +509,24 @@ mk_backgroundimg()
     RET(frame);
 }
 
+static void
+background_disable_toggle(GtkWidget *b, gpointer bp)
+{
+    ENTER;
+    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(b))) {
+        p->background = 0;
+        p->transparent = 0;
+    }
+
+    //FIXME: Update background immediately.
+    RET();
+}
+
 GtkWidget *
 mk_background()
 {
     GtkWidget *vbox, *vbox2, *label, *frame, *incframe;
+    GSList *check_group;
 
     ENTER;
     frame = gtk_frame_new(NULL);
@@ -536,6 +547,12 @@ mk_background()
     vbox = gtk_vbox_new(FALSE, 5);
     gtk_box_pack_start(GTK_BOX (vbox2), vbox, FALSE, TRUE, 0);
 
+    /* Disable Background option */
+    bg_checkdis = gtk_radio_button_new_with_label(NULL, _("None (Use system theme)"));
+    gtk_widget_show(bg_checkdis);
+
+    gtk_box_pack_start(GTK_BOX (vbox), bg_checkdis, FALSE, FALSE, 0);
+
     incframe = mk_transparency();
     gtk_box_pack_start(GTK_BOX (vbox), incframe, FALSE, FALSE, 0);
 
@@ -543,9 +560,23 @@ mk_background()
     gtk_box_pack_start(GTK_BOX (vbox), incframe, FALSE, FALSE, 0);
 
     /* set group */
-    gtk_radio_button_set_group(bg_checkb, gtk_radio_button_get_group(tr_checkb));
-    update_toggle_button(tr_checkb, p->transparent);
-    update_toggle_button(bg_checkb, p->background);
+    check_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(bg_checkdis));
+    gtk_radio_button_set_group(bg_checkb, check_group);
+    check_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(bg_checkb));
+    gtk_radio_button_set_group(tr_checkb, check_group);
+
+    /* default */
+    if (p->background)
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(bg_checkb), TRUE);
+    else if (p->transparent)
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(tr_checkb), TRUE);
+    else
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(bg_checkdis), TRUE);
+
+    g_signal_connect(G_OBJECT(bg_checkdis), "toggled", G_CALLBACK(background_disable_toggle), NULL);
+    g_signal_connect(G_OBJECT(bg_checkb), "toggled", G_CALLBACK(background_toggle), NULL);
+    g_signal_connect(G_OBJECT(tr_checkb), "toggled", G_CALLBACK(transparency_toggle), NULL);
+
 
     RET(frame);
 }
