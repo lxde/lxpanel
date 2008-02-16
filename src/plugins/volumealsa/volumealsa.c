@@ -272,6 +272,14 @@ volumealsa_constructor(plugin *p, char **fp)
 		vol->tray_icon = gtk_image_new_from_file(ICONS_VOLUME);
 
 
+	/* background image */
+	if (p->panel->background) {
+		vol->mainw->style->bg_pixmap[0] = p->panel->bbox->style->bg_pixmap[0];
+		gtk_bgbox_set_background(vol->mainw, BG_STYLE, 0, 0);
+	} else if (p->panel->transparent) {
+		gtk_bgbox_set_background(vol->mainw, BG_ROOT, p->panel->tintcolor, p->panel->alpha);
+	}
+
 	gtk_container_add(GTK_CONTAINER(vol->mainw), vol->tray_icon);
 
 	gtk_widget_show_all(vol->mainw);
