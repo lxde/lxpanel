@@ -345,6 +345,8 @@ gtk_bgbox_set_background(GtkWidget *widget, int bg_type, guint32 tintcolor, gint
         priv->alpha = alpha;
         gtk_bgbox_set_bg_root(widget, priv);
     }
+
+    g_object_notify(G_OBJECT (widget), "style");
     RET();
 }
 
@@ -362,7 +364,8 @@ gtk_bgbox_set_bg_root(GtkWidget *widget, GtkBgboxPrivate *priv)
         RET();
     }
     DBG("here\n");
-    fb_bg_composite(priv->pixmap, widget->style->black_gc, priv->tintcolor, priv->alpha);
+    if (priv->alpha)
+        fb_bg_composite(priv->pixmap, widget->style->black_gc, priv->tintcolor, priv->alpha);
     DBG("here\n");
     gdk_window_set_back_pixmap(widget->window, priv->pixmap, FALSE);
     //gdk_window_clear(widget->window);
