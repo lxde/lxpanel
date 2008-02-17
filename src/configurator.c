@@ -505,8 +505,6 @@ mk_backgroundimg()
     bg_selfileb = gtk_file_chooser_button_new (_("Select a background image file"), GTK_FILE_CHOOSER_ACTION_OPEN);
     gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (bg_selfileb), "/usr/share/lxpanel/images");
 
-    g_signal_connect (GTK_FILE_CHOOSER (bg_selfileb), "selection-changed", G_CALLBACK (background_changed), NULL);
-
     gtk_box_pack_start(GTK_BOX (frame), bg_selfileb, FALSE, FALSE, 0);
 
     if (!p->background) {
@@ -514,6 +512,8 @@ mk_backgroundimg()
     } else {
         gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (bg_selfileb), p->background_file);
     }
+
+    g_signal_connect (GTK_FILE_CHOOSER (bg_selfileb), "file-set", G_CALLBACK (background_changed), NULL);
 
     RET(frame);
 }
@@ -588,7 +588,6 @@ mk_background()
     g_signal_connect(G_OBJECT(bg_checkdis), "toggled", G_CALLBACK(background_disable_toggle), NULL);
     g_signal_connect(G_OBJECT(bg_checkb), "toggled", G_CALLBACK(background_toggle), NULL);
     g_signal_connect(G_OBJECT(tr_checkb), "toggled", G_CALLBACK(transparency_toggle), NULL);
-
 
     RET(frame);
 }
@@ -1007,10 +1006,10 @@ mk_tab_plugins()
     /* plugin list */
     scroll = gtk_scrolled_window_new(NULL, NULL);
     gtk_scrolled_window_set_policy( GTK_SCROLLED_WINDOW(scroll),
-		                    GTK_POLICY_AUTOMATIC,
-				    GTK_POLICY_AUTOMATIC);
+                            GTK_POLICY_AUTOMATIC,
+                    GTK_POLICY_AUTOMATIC);
     gtk_scrolled_window_set_shadow_type( GTK_SCROLLED_WINDOW(scroll),
-		                         GTK_SHADOW_IN );
+                                 GTK_SHADOW_IN );
     gtk_container_add( GTK_CONTAINER(scroll), plugin_list );
     gtk_box_pack_start( GTK_BOX( vbox ), scroll, TRUE, TRUE, 4 );
 
@@ -1039,15 +1038,15 @@ mk_tab_plugins()
 
     button = gtk_button_new();
     gtk_container_add( GTK_CONTAINER(button),
-		       gtk_image_new_from_stock(GTK_STOCK_GO_UP,
-			                        GTK_ICON_SIZE_BUTTON) );
+               gtk_image_new_from_stock(GTK_STOCK_GO_UP,
+                                    GTK_ICON_SIZE_BUTTON) );
     gtk_box_pack_start( GTK_BOX( vbox ), button, FALSE, FALSE, 2 );
     g_signal_connect( button, "clicked", G_CALLBACK(on_moveup_plugin), plugin_list );
 
     button = gtk_button_new();
     gtk_container_add( GTK_CONTAINER(button),
-		       gtk_image_new_from_stock(GTK_STOCK_GO_DOWN,
-			                        GTK_ICON_SIZE_BUTTON) );
+               gtk_image_new_from_stock(GTK_STOCK_GO_DOWN,
+                                    GTK_ICON_SIZE_BUTTON) );
     gtk_box_pack_start( GTK_BOX( vbox ), button, FALSE, FALSE, 2 );
     g_signal_connect( button, "clicked", G_CALLBACK(on_movedown_plugin), plugin_list );
 
@@ -1427,7 +1426,7 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
                 entry = gtk_entry_new();
                 gtk_entry_set_text( GTK_ENTRY(entry), *(char**)val );
                 g_signal_connect( entry, "changed",
-				  G_CALLBACK(on_entry_changed), val );
+                  G_CALLBACK(on_entry_changed), val );
                 break;
             case G_TYPE_INT:
             {
@@ -1435,7 +1434,7 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
                 entry = gtk_spin_button_new_with_range( 0, 1000, 1 );
                 gtk_spin_button_set_value( GTK_SPIN_BUTTON(entry), *(int*)val );
                 g_signal_connect( entry, "value-changed",
-				  G_CALLBACK(on_spin_changed), val );
+                  G_CALLBACK(on_spin_changed), val );
                 break;
             }
             case G_TYPE_BOOLEAN:
@@ -1443,7 +1442,7 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
                 gtk_container_add( GTK_CONTAINER(entry), label );
                 gtk_toggle_button_set_active( GTK_TOGGLE_BUTTON(entry), *(gboolean*)val );
                 g_signal_connect( entry, "toggled",
-				  G_CALLBACK(on_toggle_changed), val );
+                  G_CALLBACK(on_toggle_changed), val );
                 break;
         }
         if( entry )
