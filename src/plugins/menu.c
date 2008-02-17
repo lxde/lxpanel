@@ -43,7 +43,6 @@
  * menu style code was taken from suxpanel
  */
 
-
 typedef struct {
     GtkTooltips *tips;
     GtkWidget *menu, *box, *bg, *label;
@@ -55,6 +54,8 @@ typedef struct {
     int sysmenu_pos;
 } menup;
 
+static guint idle_loader = 0;
+
 static void
 menu_destructor(plugin *p)
 {
@@ -62,6 +63,11 @@ menu_destructor(plugin *p)
 
     ENTER;
 
+    if( G_UNLIKELY( idle_loader ) )
+    {
+        g_source_remove( idle_loader );
+        idle_loader = 0;
+    }
     if( m->has_system_menu )
         p->panel->system_menus = g_slist_remove( p->panel->system_menus, p );
 
@@ -316,6 +322,20 @@ read_separator(plugin *p, char **fp)
     RET(gtk_separator_menu_item_new());
 }
 
+static gboolean on_idle( panel* p )
+{
+    GSList* l;
+    /* Reload all system menus here.
+        This is dirty, but I don't know any better way. */
+    for( l = p->system_menus; l; l = l->next ) {
+        plugin* _p = (plugin*)l->data;
+        menup* _m = (menup*)_p->priv;
+        reload_system_menu( GTK_MENU(_m->menu) );
+    }
+    idle_loader = 0;
+    return FALSE;   /* remove the handler */
+}
+
 static void
 read_system_menu(GtkMenu* menu, plugin *p, char** fp)
 {
@@ -345,6 +365,9 @@ read_system_menu(GtkMenu* menu, plugin *p, char** fp)
    m->has_system_menu = TRUE;
 
    p->panel->system_menus = g_slist_append( p->panel->system_menus, p );
+
+    if( idle_loader == 0 )  /* delay the loading, and do it in idle handler */
+        idle_loader = g_idle_add( (GSourceFunc)on_idle, p->panel );
 
    RET();
 }
