@@ -476,8 +476,7 @@ background_toggle(GtkWidget *b, gpointer bp)
             config_save();
             restart();
         }
-    } else
-        p->background = 0;
+    }
 
     RET();
 }
