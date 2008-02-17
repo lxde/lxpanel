@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: zh_TW\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-02-17 17:57+0800\n"
-"PO-Revision-Date: 2008-02-17 18:01+0800\n"
+"PO-Revision-Date: 2008-02-17 18:06+0800\n"
 "Last-Translator: 洪任諭 <pcman.tw@gmail.com>\n"
 "Language-Team:  <en@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -114,20 +114,20 @@ msgstr "色彩："
 
 #: ../src/configurator.c:493
 msgid "Enable Image:"
-msgstr ""
+msgstr "啟用背景圖："
 
 #: ../src/configurator.c:496
 msgid "Select a background image file"
-msgstr ""
+msgstr "選擇背景圖片"
 
 #: ../src/configurator.c:536
 msgid "<b>Background</b>"
-msgstr ""
+msgstr "<b>背景</b>"
 
 #. Disable Background option
 #: ../src/configurator.c:551
 msgid "None (Use system theme)"
-msgstr ""
+msgstr "無 (使用系統佈景主題)"
 
 #: ../src/configurator.c:611
 msgid "<b>Properties</b>"
@@ -367,7 +367,7 @@ msgstr "最小化"
 #: ../src/plugins/taskbar.c:1214
 #, c-format
 msgid "Workspace %d"
-msgstr ""
+msgstr "工作區 %d"
 
 #: ../src/plugins/taskbar.c:1222
 msgid "All workspaces"
@@ -375,7 +375,7 @@ msgstr "所有工作區"
 
 #: ../src/plugins/taskbar.c:1229
 msgid "Move to Workspace"
-msgstr ""
+msgstr "移動到工作區"
 
 #. we want this item to be farest from mouse pointer
 #: ../src/plugins/taskbar.c:1237
@@ -444,7 +444,7 @@ msgstr "動作"
 
 #: ../src/plugins/dclock.c:244
 msgid "Bold font"
-msgstr ""
+msgstr "粗體字型"
 
 #: ../src/plugins/dclock.c:279
 msgid "Digital Clock"
@@ -587,6 +587,8 @@ msgid ""
 "There was an error displaying help:\n"
 "%s"
 msgstr ""
+"顯示說明時發生錯誤：\n"
+"%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:579
 #, c-format
