@@ -485,6 +485,9 @@ background_changed(GtkFileChooser *file_chooser, gpointer data)
     p->transparent = 0;
     p->background = 1;
     p->background_file = g_strdup(gtk_file_chooser_get_filename(file_chooser));
+    // Update background immediately.
+    config_save();
+    restart();
     RET();
 }
 
