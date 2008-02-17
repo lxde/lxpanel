@@ -290,6 +290,9 @@ fb_bg_get_pix_from_file(GtkWidget *widget, const char *filename)
     GdkPixmap *pixmap;
 
     pixbuf = gdk_pixbuf_new_from_file(filename, NULL);
+    if (!pixbuf) {
+        RET(widget->style->bg_pixmap[0]);
+    }
     pixmap = gdk_pixmap_new(widget->window, gdk_pixbuf_get_width(pixbuf), gdk_pixbuf_get_height(pixbuf), -1);
     gdk_pixbuf_render_to_drawable(pixbuf,pixmap,
 			widget->style->fg_gc[GTK_STATE_NORMAL],
