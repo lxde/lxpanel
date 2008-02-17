@@ -52,6 +52,7 @@ typedef struct {
     GSList *files;
     gboolean has_system_menu;
     char* config_data;
+    int sysmenu_pos;
 } menup;
 
 static void
@@ -320,6 +321,7 @@ read_system_menu(GtkMenu* menu, plugin *p, char** fp)
 {
    line s;
    menup *m = (menup *)p->priv;
+    GtkWidget* fake;
 
    ENTER;
    s.len = 256;
@@ -331,7 +333,15 @@ read_system_menu(GtkMenu* menu, plugin *p, char** fp)
         }
    }
 
-   ptk_app_menu_insert_items( menu, -1 );
+   /* ptk_app_menu_insert_items( menu, -1 ); */
+   /* Don't load the real system menu here to speed up startup.
+    * Let's add a fake item to cheat PtkAppMenu as a place holder,
+    * and we utilize reload_system_menu() to load the real menu later. */
+    fake = gtk_separator_menu_item_new();
+    PTK_APP_MENU_ITEM_ID = g_quark_from_static_string( "PtkAppMenuItem" );
+    g_object_set_qdata( fake, PTK_APP_MENU_ITEM_ID, GUINT_TO_POINTER(TRUE) );
+   gtk_menu_shell_append( menu, fake);
+
    m->has_system_menu = TRUE;
 
    p->panel->system_menus = g_slist_append( p->panel->system_menus, p );
