@@ -1542,6 +1542,9 @@ static void orientation_changed( plugin* p )
     }
     g_list_free( children );
 
+    gtk_widget_destroy( tb->menu );
+    tb->menu = taskbar_make_menu( tb );
+
     gtk_bar_set_orientation( GTK_BAR(tb->bar), p->panel->orientation );
 }
 

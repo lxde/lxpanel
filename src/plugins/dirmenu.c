@@ -40,6 +40,8 @@ typedef struct {
     GtkWidget *button;
 } dirmenu;
 
+static GdkPixbuf* folder_icon = NULL;
+
 static GtkWidget* create_menu( plugin* p,
                                const char* path,
                                gboolean open_at_top );
@@ -135,6 +137,16 @@ static void on_deselect( GtkMenuItem* item, plugin* p )
 }
 #endif
 
+void on_sel_done( GtkWidget *menu, plugin* p )
+{
+    gtk_widget_destroy( menu );
+    if( folder_icon )
+    {
+        g_object_unref( folder_icon );
+        folder_icon = NULL;
+    }
+}
+
 static GtkWidget* create_menu( plugin* p,
                                const char* path,
                                gboolean open_at_top )
@@ -143,6 +155,18 @@ static GtkWidget* create_menu( plugin* p,
     GtkWidget *menu = gtk_menu_new();
     GtkWidget *item, *term;
     /* GList *list = NULL; */
+
+    if( G_UNLIKELY(NULL == folder_icon) )
+    {
+        int w, h;
+        gtk_icon_size_lookup_for_settings( gtk_widget_get_settings(menu),
+                                                                        GTK_ICON_SIZE_MENU, &w, &h );
+        folder_icon = gtk_icon_theme_load_icon( gtk_icon_theme_get_default(),
+            "gnome-fs-directory", MAX( w, h ), 0, NULL );
+
+        if( ! folder_icon )
+            folder_icon = gtk_widget_render_icon( menu, GTK_STOCK_DIRECTORY, GTK_ICON_SIZE_MENU, NULL );
+    }
 
     g_object_set_qdata_full( menu, PATH_ID, g_strdup(path), g_free );
 
@@ -208,7 +232,7 @@ static void show_menu( GtkWidget* widget, plugin *p, int btn, guint32 time )
                                    FALSE );
     g_free( path );
 
-    g_signal_connect( menu, "selection-done", G_CALLBACK(gtk_widget_destroy), NULL );
+    g_signal_connect( menu, "selection-done", G_CALLBACK(on_sel_done), NULL );
     gtk_menu_popup( GTK_MENU(menu),
                     NULL, NULL,
                     (GtkMenuPositionFunc)menu_pos, p,
