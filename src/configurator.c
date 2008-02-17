@@ -424,7 +424,8 @@ transparency_toggle(GtkWidget *b, gpointer bp)
     gtk_widget_set_sensitive(tr_colorb, t);
 
     // Update background immediately.
-    if (t) {
+    if (t&&!p->transparent) {
+        p->transparent = 1;
         config_save();
         restart();
     }
@@ -468,10 +469,13 @@ background_toggle(GtkWidget *b, gpointer bp)
     ENTER;
     gtk_widget_set_sensitive(bg_selfileb, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(b)));
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(b))) {
-        p->background = 1;
-        // Update background immediately.
-        config_save();
-        restart();
+        if (!p->background) {
+            p->transparent = 0;
+            p->background = 1;
+            // Update background immediately.
+            config_save();
+            restart();
+        }
     } else
         p->background = 0;
 
@@ -523,12 +527,13 @@ background_disable_toggle(GtkWidget *b, gpointer bp)
 {
     ENTER;
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(b))) {
-        p->background = 0;
-        p->transparent = 0;
-
-        // Update background immediately.
-        config_save();
-        restart();
+        if (p->background!=0||p->transparent!=0) {
+            p->background = 0;
+            p->transparent = 0;
+            // Update background immediately.
+            config_save();
+            restart();
+        }
     }
 
     RET();
