@@ -25,6 +25,7 @@
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <alsa/asoundlib.h>
 #include "panel.h"
+#include "gtkbgbox.h"
 #include "misc.h"
 #include "plugin.h"
 #include "dbg.h"
