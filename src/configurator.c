@@ -423,7 +423,11 @@ transparency_toggle(GtkWidget *b, gpointer bp)
     gtk_widget_set_sensitive(tr_colorl, t);
     gtk_widget_set_sensitive(tr_colorb, t);
 
-    //FIXME: Update background immediately.
+    // Update background immediately.
+    if (t) {
+        config_save();
+        restart();
+    }
     RET();
 }
 
@@ -463,12 +467,14 @@ background_toggle(GtkWidget *b, gpointer bp)
 {
     ENTER;
     gtk_widget_set_sensitive(bg_selfileb, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(b)));
-    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(b)))
+    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(b))) {
         p->background = 1;
-    else
+        // Update background immediately.
+        config_save();
+        restart();
+    } else
         p->background = 0;
 
-    //FIXME: Update background immediately.
     RET();
 }
 
@@ -516,9 +522,12 @@ background_disable_toggle(GtkWidget *b, gpointer bp)
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(b))) {
         p->background = 0;
         p->transparent = 0;
+
+        // Update background immediately.
+        config_save();
+        restart();
     }
 
-    //FIXME: Update background immediately.
     RET();
 }
 
@@ -1292,6 +1301,26 @@ plugin_config_save(FILE *fp)
         }
         lxpanel_put_line( fp, "}\n" );
     }
+}
+
+void config_save(void)
+{
+    gchar fname[1024];
+    FILE *fp;
+    if (!mk_profile_dir()) {
+        ERR("can't make ~/.lxpanel direcory\n");
+        RET();
+    }
+    sprintf(fname, "%s/.lxpanel/%s", getenv("HOME"), cprofile);
+    LOG(LOG_WARN, "saving profile %s as %s\n", cprofile, fname);
+    if (!(fp = fopen(fname, "w"))) {
+        ERR("can't open for write %s:", fname);
+        perror(NULL);
+        RET();
+    }
+    global_config_save(fp);
+    plugin_config_save(fp);
+    fclose(fp);
 }
 
 void restart(void)
