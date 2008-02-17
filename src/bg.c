@@ -101,7 +101,7 @@ fb_bg_class_init (FbBgClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
     ENTER;
-    signals [CHANGED] = 
+    signals [CHANGED] =
         g_signal_new ("changed",
               G_OBJECT_CLASS_TYPE (object_class),
               G_SIGNAL_RUN_FIRST,
@@ -198,7 +198,7 @@ fb_bg_get_xroot_pix_for_win(FbBg *bg, GtkWidget *widget)
     int  x, y;
 
     ENTER;
-    win =  GDK_WINDOW_XWINDOW(widget->window); 
+    win =  GDK_WINDOW_XWINDOW(widget->window);
     if (!XGetGeometry(bg->dpy, win, &dummy, &x, &y, &width, &height, &border,
               &depth)) {
         DBG2("XGetGeometry failed\n");
@@ -223,7 +223,7 @@ fb_bg_composite(GdkDrawable *base, GdkGC *gc, guint32 tintcolor, gint alpha)
     GdkPixbuf *ret, *ret2;
     int w, h;
     static GdkColormap *cmap = NULL;
-    
+
     ENTER;
     gdk_drawable_get_size (base, &w, &h);
     if (!cmap) {
@@ -234,7 +234,7 @@ fb_bg_composite(GdkDrawable *base, GdkGC *gc, guint32 tintcolor, gint alpha)
     if (!ret)
         RET();
     DBG("here w=%d h=%d\n", w, h);
-    ret2 = gdk_pixbuf_composite_color_simple(ret, w, h, 
+    ret2 = gdk_pixbuf_composite_color_simple(ret, w, h,
           GDK_INTERP_HYPER, 255-alpha, MIN(w, h), tintcolor, tintcolor);
     DBG("here\n");
     if (!ret2) {
@@ -256,7 +256,7 @@ fb_bg_changed(FbBg *bg)
     bg->pixmap = fb_bg_get_xrootpmap(bg);
     if (bg->pixmap != None) {
         XGCValues  gcv;
-        
+
         gcv.tile = bg->pixmap;
         XChangeGC(bg->dpy, bg->gc, GCTile, &gcv);
         DBG("changed\n");
@@ -295,10 +295,12 @@ fb_bg_get_pix_from_file(GtkWidget *widget, const char *filename)
     }
     pixmap = gdk_pixmap_new(widget->window, gdk_pixbuf_get_width(pixbuf), gdk_pixbuf_get_height(pixbuf), -1);
     gdk_pixbuf_render_to_drawable(pixbuf,pixmap,
-			widget->style->fg_gc[GTK_STATE_NORMAL],
-			0,0,0,0,
-			gdk_pixbuf_get_width(pixbuf),
-			gdk_pixbuf_get_height(pixbuf),
-			GDK_RGB_DITHER_NORMAL,0,0);
+            widget->style->fg_gc[GTK_STATE_NORMAL],
+            0,0,0,0,
+            gdk_pixbuf_get_width(pixbuf),
+            gdk_pixbuf_get_height(pixbuf),
+            GDK_RGB_DITHER_NORMAL,0,0);
+
+    g_object_unref( pixbuf );
     RET(pixmap);
 }
