@@ -7,21 +7,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-11-28 00:57+0800\n"
+"POT-Creation-Date: 2008-02-17 17:57+0800\n"
 "PO-Revision-Date: 2007-09-17 01:25+0100\n"
 "Last-Translator: Ivan Masár <helix84@centrum.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../src/configurator.c:44
 msgid "Preferences"
 msgstr "Nastavenia"
 
-#: ../src/configurator.c:45
-#: ../src/gtk-run.c:110
+#: ../src/configurator.c:45 ../src/gtk-run.c:112
 msgid "Run"
 msgstr "Spustiť"
 
@@ -33,195 +33,215 @@ msgstr "Reštartovať"
 msgid "Logout"
 msgstr "Odhlásiť"
 
-#: ../src/configurator.c:207
+#: ../src/configurator.c:210
 msgid "<b>Position</b>"
 msgstr "<b>Poloha</b>"
 
 #. Edge
-#: ../src/configurator.c:224
+#: ../src/configurator.c:227
 msgid "Edge:"
 msgstr "Okraj:"
 
-#: ../src/configurator.c:231
-#: ../src/configurator.c:255
+#: ../src/configurator.c:234 ../src/configurator.c:258
 msgid "Left"
 msgstr "Vľavo"
 
-#: ../src/configurator.c:232
-#: ../src/configurator.c:257
+#: ../src/configurator.c:235 ../src/configurator.c:260
 msgid "Right"
 msgstr "Vpravo"
 
-#: ../src/configurator.c:233
+#: ../src/configurator.c:236
 msgid "Top"
 msgstr "Hore"
 
-#: ../src/configurator.c:234
+#: ../src/configurator.c:237
 msgid "Bottom"
 msgstr "Dolu"
 
 #. Alignment
-#: ../src/configurator.c:247
+#: ../src/configurator.c:250
 msgid "Alignment:"
 msgstr "Zarovnanie:"
 
-#: ../src/configurator.c:256
+#: ../src/configurator.c:259
 msgid "Center"
 msgstr "Stred"
 
 #. Margin
-#: ../src/configurator.c:269
+#: ../src/configurator.c:272
 msgid "Margin:"
 msgstr "Okraj:"
 
-#: ../src/configurator.c:340
+#: ../src/configurator.c:343
 msgid "<b>Size</b>"
 msgstr "<b>Veľkosť</b>"
 
 #. width
-#: ../src/configurator.c:357
+#: ../src/configurator.c:360
 msgid "Width:"
 msgstr "Šírka:"
 
-#: ../src/configurator.c:371
+#: ../src/configurator.c:374
 msgid "dynamic"
 msgstr "dynamická"
 
-#: ../src/configurator.c:372
-#: ../src/configurator.c:400
+#: ../src/configurator.c:375 ../src/configurator.c:403
 msgid "pixels"
 msgstr "pixely"
 
-#: ../src/configurator.c:373
+#: ../src/configurator.c:376
 #, c-format
 msgid "% of edge"
 msgstr "% okraja"
 
 #. height
-#: ../src/configurator.c:386
+#: ../src/configurator.c:389
 msgid "Height:"
 msgstr "Výška:"
 
-#: ../src/configurator.c:437
-msgid "<b>Transparency</b>"
-msgstr "<b>Priesvitnosť</b>"
-
-#: ../src/configurator.c:451
+#: ../src/configurator.c:438
 msgid "Enable Transparency"
 msgstr "Zapnúť priesvitnosť"
 
-#. gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(tr_checkb), FALSE);
-#: ../src/configurator.c:458
+#: ../src/configurator.c:442
 msgid "Tint color:"
 msgstr "Zafarbenie:"
 
-#: ../src/configurator.c:502
+#: ../src/configurator.c:493
+msgid "Enable Image:"
+msgstr ""
+
+#: ../src/configurator.c:496
+msgid "Select a background image file"
+msgstr ""
+
+#: ../src/configurator.c:536
+msgid "<b>Background</b>"
+msgstr ""
+
+#. Disable Background option
+#: ../src/configurator.c:551
+msgid "None (Use system theme)"
+msgstr ""
+
+#: ../src/configurator.c:611
 msgid "<b>Properties</b>"
 msgstr "<b>Vlastnosti</b>"
 
-#: ../src/configurator.c:524
+#: ../src/configurator.c:633
 msgid "Make window managers treat the panel as dock"
 msgstr "Správcovia okien majú ukotvovať panel"
 
-#: ../src/configurator.c:540
+#: ../src/configurator.c:649
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Rezervovať miesto, nezakrývať maximalizovanými oknami"
 
-#: ../src/configurator.c:595
+#: ../src/configurator.c:704
 msgid "Currently loaded plugins"
 msgstr "Momentálne načítané moduly"
 
-#: ../src/configurator.c:685
+#: ../src/configurator.c:794
 msgid "Add plugin to panel"
 msgstr "Pridať modul do panela"
 
-#: ../src/configurator.c:707
+#: ../src/configurator.c:820
 msgid "Available plugins"
 msgstr "Dostupné moduly"
 
-#: ../src/configurator.c:978
+#: ../src/configurator.c:1093
 msgid "<b>Set Preferred Applications</b>"
 msgstr "<b>Nastaviť preferované aplikácie</b>"
 
-#: ../src/configurator.c:988
+#: ../src/configurator.c:1103
 msgid "File Manager:"
 msgstr "Správca súborov:"
 
-#: ../src/configurator.c:999
+#: ../src/configurator.c:1115
 msgid "Terminal Emulator:"
 msgstr "Emulátor terminálu:"
 
-#: ../src/configurator.c:1010
+#: ../src/configurator.c:1129
 msgid "Logout Command:"
 msgstr "Príkaz na odhlásenie:"
 
-#: ../src/configurator.c:1030
+#: ../src/configurator.c:1151
 msgid "lxpanel configurator"
 msgstr "Konfigurátor lxpanel"
 
-#: ../src/configurator.c:1052
+#: ../src/configurator.c:1176
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr "Všeobecné"
 
-#: ../src/configurator.c:1057
+#: ../src/configurator.c:1181
 msgid "Plugins"
 msgstr "Moduly"
 
-#: ../src/configurator.c:1062
+#: ../src/configurator.c:1186
 msgid "Applications"
 msgstr "Aplikácie"
 
-#: ../src/configurator.c:1189
+#: ../src/configurator.c:1322
 msgid "Logout command is not set"
 msgstr "Príkaz na odhlásenie nie je nastavený"
 
-#: ../src/panel.c:780
+#: ../src/panel.c:815
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - odľahčený GTK2+ panel pre unixové pracovné prostredia\n"
 
-#: ../src/panel.c:781
+#: ../src/panel.c:816
+#, c-format
 msgid "Command line options:\n"
 msgstr "Voľby príkazového riadka:\n"
 
-#: ../src/panel.c:782
+#: ../src/panel.c:817
+#, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr ""
 
-#: ../src/panel.c:783
+#: ../src/panel.c:818
+#, c-format
 msgid " --version   -- print version and exit\n"
 msgstr ""
 
-#: ../src/panel.c:784
+#: ../src/panel.c:819
+#, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 
-#: ../src/panel.c:785
+#: ../src/panel.c:820
+#, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr ""
 
-#: ../src/panel.c:786
+#: ../src/panel.c:821
+#, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr ""
 
-#: ../src/panel.c:788
+#: ../src/panel.c:823
+#, c-format
 msgid " -h  -- same as --help\n"
 msgstr ""
 
-#: ../src/panel.c:789
+#: ../src/panel.c:824
+#, c-format
 msgid " -p  -- same as --profile\n"
 msgstr ""
 
-#: ../src/panel.c:790
+#: ../src/panel.c:825
+#, c-format
 msgid " -v  -- same as --version\n"
 msgstr ""
 
-#: ../src/panel.c:791
+#: ../src/panel.c:826
+#, c-format
 msgid " -C  -- same as --configure\n"
 msgstr ""
 
-#: ../src/panel.c:792
+#: ../src/panel.c:827
+#, c-format
 msgid ""
 "\n"
 "Visit http://lxpanel.sourceforge.net/ for detailed documentation,\n"
@@ -231,15 +251,15 @@ msgstr ""
 "Podrobnú dokumentáciu nájdete na http://lxpanel.sourceforge.net/,\n"
 "\n"
 
-#: ../src/gtk-run.c:120
+#: ../src/gtk-run.c:126
 msgid "Enter the command you want to execute:"
 msgstr "Zadajte príkaz, ktorý chcete vykonať:"
 
-#: ../src/systray/tray.c:171
+#: ../src/systray/tray.c:190
 msgid "System Tray"
 msgstr "Oznamovacia oblasť"
 
-#: ../src/systray/tray.c:173
+#: ../src/systray/tray.c:192
 msgid "Old KDE/GNOME Tray"
 msgstr "Stará oznamovacia oblasť KDE/GNOME"
 
@@ -260,22 +280,22 @@ msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Zobrazenie čísla plochy, cmeury@users.sf.net"
 
 #. FIXME: We should have a better interface for this in the fututure.
-#. 1. We can borrow the menu from menu pluiin (PtkAppMenu).
+#. 1. We can borrow the menu from menu plugin (PtkAppMenu).
 #. 2. We can borrow the app chooser from PCManFM.
 #.
-#: ../src/plugins/launchbar.c:494
+#: ../src/plugins/launchbar.c:498
 msgid "Select Application"
 msgstr "Vybrať aplikáciu"
 
-#: ../src/plugins/launchbar.c:643
+#: ../src/plugins/launchbar.c:647
 msgid "Buttons"
 msgstr "Tlačidlá"
 
-#: ../src/plugins/launchbar.c:756
+#: ../src/plugins/launchbar.c:760
 msgid "Application Launch Bar"
 msgstr "Spúšťací panel"
 
-#: ../src/plugins/launchbar.c:758
+#: ../src/plugins/launchbar.c:762
 msgid "Bar with buttons to launch application"
 msgstr "Panel s tlačidlami pre spúšťanie aplikácií"
 
@@ -323,103 +343,117 @@ msgstr "Kancelária"
 msgid "Accessories"
 msgstr "Príslušenstvo"
 
-#: ../src/plugins/taskbar.c:1137
+#: ../src/plugins/taskbar.c:1193
 msgid "Raise"
 msgstr "Zdvihnúť"
 
-#: ../src/plugins/taskbar.c:1142
+#: ../src/plugins/taskbar.c:1197
 msgid "Restore"
 msgstr "Obnoviť"
 
-#: ../src/plugins/taskbar.c:1147
+#: ../src/plugins/taskbar.c:1201
 msgid "Maximize"
 msgstr "Maximalizovať"
 
-#: ../src/plugins/taskbar.c:1152
+#: ../src/plugins/taskbar.c:1205
 msgid "Iconify"
 msgstr "Ikonifikovať"
 
+#: ../src/plugins/taskbar.c:1214
+#, c-format
+msgid "Workspace %d"
+msgstr ""
+
+#: ../src/plugins/taskbar.c:1222
+#, fuzzy
+msgid "All workspaces"
+msgstr "Vyhradiť miesto"
+
+#: ../src/plugins/taskbar.c:1229
+msgid "Move to Workspace"
+msgstr ""
+
 #. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1158
+#: ../src/plugins/taskbar.c:1237
 msgid "Close Window"
 msgstr "Zatvoriť okno"
 
-#: ../src/plugins/taskbar.c:1383
+#: ../src/plugins/taskbar.c:1470
 msgid "Show tooltips"
 msgstr "Zobraziť bublinové tipy"
 
-#: ../src/plugins/taskbar.c:1384
+#: ../src/plugins/taskbar.c:1471
 msgid "Icons only"
 msgstr "Iba ikony"
 
-#: ../src/plugins/taskbar.c:1385
+#: ../src/plugins/taskbar.c:1472
 #, fuzzy
 msgid "Accept SkipPager"
 msgstr "Prijať SkipPager"
 
-#: ../src/plugins/taskbar.c:1386
+#: ../src/plugins/taskbar.c:1473
 msgid "Show Iconified windows"
 msgstr "Zobraziť ikonifikované okná"
 
-#: ../src/plugins/taskbar.c:1387
+#: ../src/plugins/taskbar.c:1474
 msgid "Show mapped windows"
 msgstr "Zobraziť mapované okná"
 
-#: ../src/plugins/taskbar.c:1388
+#: ../src/plugins/taskbar.c:1475
 msgid "Show windows from all desktops"
 msgstr "Zobraziť okná zo všetkých plôch"
 
-#: ../src/plugins/taskbar.c:1389
+#: ../src/plugins/taskbar.c:1476
 msgid "Use mouse wheel"
 msgstr "Používať koliesko myši"
 
-#: ../src/plugins/taskbar.c:1390
+#: ../src/plugins/taskbar.c:1477
 msgid "Flash when there is any window requiring attention"
 msgstr "Blikať, keď niektoré okno vyžaduje pozornosť"
 
-#: ../src/plugins/taskbar.c:1391
+#: ../src/plugins/taskbar.c:1478
 msgid "Max width of task button"
 msgstr "Max. šírka tlačidla úlohy"
 
-#: ../src/plugins/taskbar.c:1392
+#: ../src/plugins/taskbar.c:1479
 msgid "Spacing"
 msgstr "Rozostupy"
 
-#: ../src/plugins/taskbar.c:1466
+#: ../src/plugins/taskbar.c:1553
 msgid "Task Bar (Window List)"
 msgstr "Panel úloh (Zoznam okien)"
 
-#: ../src/plugins/taskbar.c:1468
-msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
-msgstr "Panel úloh zobrazuje všetky otvorené okná a umoňuje ich ikonifikovať, zatieniť alebo aktivovať"
+#: ../src/plugins/taskbar.c:1555
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
+msgstr ""
+"Panel úloh zobrazuje všetky otvorené okná a umoňuje ich ikonifikovať, "
+"zatieniť alebo aktivovať"
 
-#: ../src/plugins/dclock.c:214
+#: ../src/plugins/dclock.c:241
 msgid "Clock Format"
 msgstr "Formát hodín"
 
-#: ../src/plugins/dclock.c:215
+#: ../src/plugins/dclock.c:242
 msgid "Tooltip Format"
 msgstr "Formát bublinových tipov"
 
-#: ../src/plugins/dclock.c:216
+#: ../src/plugins/dclock.c:243
 msgid "Action"
 msgstr "Činnosť"
 
-#: ../src/plugins/dclock.c:250
+#: ../src/plugins/dclock.c:244
+msgid "Bold font"
+msgstr ""
+
+#: ../src/plugins/dclock.c:279
 msgid "Digital Clock"
 msgstr "Digitálne hodiny"
 
-#: ../src/plugins/dclock.c:252
+#: ../src/plugins/dclock.c:281
 msgid "Display Digital clock and Tooltip"
 msgstr "Zobraziť digitálne hodiny a bublinové tipy"
-
-#: ../src/plugins/icons.c:529
-msgid "Icons"
-msgstr "Ikony"
-
-#: ../src/plugins/icons.c:531
-msgid "Change window icons"
-msgstr "Zmeniť ikony okna"
 
 #: ../src/plugins/menu.c:556
 msgid "Menu"
@@ -449,7 +483,7 @@ msgstr "Stránkovač plôch"
 msgid "Simple pager plugin"
 msgstr "Jednoduchý stránkovací modul"
 
-#: ../src/plugins/space.c:113
+#: ../src/plugins/space.c:113 ../src/plugins/batt/batt.c:764
 msgid "Size"
 msgstr "Veľkosť"
 
@@ -461,58 +495,66 @@ msgstr "<Miesto>"
 msgid "Allocate space"
 msgstr "Vyhradiť miesto"
 
-#: ../src/plugins/wincmd.c:260
+#: ../src/plugins/wincmd.c:264
 msgid "Left click to iconify all windows. Middle click to shade them"
 msgstr ""
 
-#: ../src/plugins/wincmd.c:285
+#: ../src/plugins/wincmd.c:289
 msgid "Minimize All Windows"
 msgstr ""
 
-#: ../src/plugins/wincmd.c:287
+#: ../src/plugins/wincmd.c:291
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commnds are 1)toggle iconify and 2) toggle shade"
 msgstr ""
 
-#: ../src/plugins/dirmenu.c:150
+#: ../src/plugins/dirmenu.c:183
 msgid "Open in _Terminal"
 msgstr ""
 
-#: ../src/plugins/dirmenu.c:302
+#: ../src/plugins/dirmenu.c:349
 msgid "Directory Menu"
 msgstr ""
 
-#: ../src/plugins/dirmenu.c:304
+#: ../src/plugins/dirmenu.c:351
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr ""
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
-#: ../src/plugins/volume/volume.c:139
+#: ../src/plugins/volume/volume.c:148
+#: ../src/plugins/volumealsa/volumealsa.c:297
 msgid "Volume control"
 msgstr ""
 
-#: ../src/plugins/volume/volume.c:150
+#: ../src/plugins/volume/volume.c:159
+#: ../src/plugins/volumealsa/volumealsa.c:308
 msgid "Volume Control"
 msgstr ""
 
+#. create frame
 #: ../src/plugins/volume/volume-impl.c:100
+#: ../src/plugins/volumealsa/volumealsa.c:191
 msgid "Volume"
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus.c:157
+#: ../src/plugins/volumealsa/volumealsa.c:207
+msgid "Mute"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus.c:161
 msgid "Interface to monitor"
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus.c:158
+#: ../src/plugins/netstatus/netstatus.c:162
 msgid "Config tool"
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus.c:175
+#: ../src/plugins/netstatus/netstatus.c:179
 msgid "Net Status Monitor"
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus.c:177
+#: ../src/plugins/netstatus/netstatus.c:181
 msgid "Monitor network status"
 msgstr ""
 
@@ -675,14 +717,71 @@ msgid ""
 "%s"
 msgstr ""
 
+#: ../src/plugins/batt/batt.c:755
+msgid "Alarm command"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:756
+msgid "Alarm time (minutes left)"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:757
+msgid "Update interval (seconds)"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:758
+msgid "Background color"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:759
+msgid "Charging color 1"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:760
+msgid "Charging color 2"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:761
+msgid "Discharging color 1"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:762
+msgid "Discharging color 2"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:763
+msgid "Border width"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:800
+#, fuzzy
+msgid "Battery Monitor"
+msgstr "Monitor využitia CPU"
+
+#: ../src/plugins/batt/batt.c:802
+msgid "Display battery status using ACPI"
+msgstr ""
+
+#~ msgid "<b>Transparency</b>"
+#~ msgstr "<b>Priesvitnosť</b>"
+
+#~ msgid "Icons"
+#~ msgstr "Ikony"
+
+#~ msgid "Change window icons"
+#~ msgstr "Zmeniť ikony okna"
+
 #~ msgid "Set Dock Type"
 #~ msgstr "Dokk típus beállítása"
+
 #~ msgid "_Add"
 #~ msgstr "新增(_A)"
+
 #~ msgid "_Remove"
 #~ msgstr "移除(_R)"
+
 #~ msgid "Right-click to get context menu. Drag & Drop to change order."
 #~ msgstr "可以按右鍵使用選單，用拖曳改變順序"
+
 #~ msgid "Plugins..."
 #~ msgstr "外掛..."
-

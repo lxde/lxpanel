@@ -17,7 +17,6 @@ src/plugins/launchbar.c
 src/plugins/ptk-app-menu.c
 src/plugins/taskbar.c
 src/plugins/dclock.c
-src/plugins/icons.c
 src/plugins/menu.c
 src/plugins/separator.c
 src/plugins/image.c
@@ -28,6 +27,7 @@ src/plugins/dirmenu.c
 
 src/plugins/volume/volume.c
 src/plugins/volume/volume-impl.c
+src/plugins/volumealsa/volumealsa.c
 
 src/plugins/netstatus/netstatus.c
 src/plugins/netstatus/netstatus-dialog.c

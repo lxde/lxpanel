@@ -83,6 +83,50 @@ Atom a_KDE_NET_WM_SYSTEM_TRAY_WINDOW_FOR;
 
 Atom a_LXPANEL_CMD; /* for private client message */
 
+enum{
+    I_UTF8_STRING,
+    I_XROOTPMAP_ID,
+    I_WM_STATE,
+    I_WM_CLASS,
+    I_WM_DELETE_WINDOW,
+    I_WM_PROTOCOLS,
+    I_NET_WORKAREA,
+    I_NET_CLIENT_LIST,
+    I_NET_CLIENT_LIST_STACKING,
+    I_NET_NUMBER_OF_DESKTOPS,
+    I_NET_CURRENT_DESKTOP,
+    I_NET_DESKTOP_NAMES,
+    I_NET_ACTIVE_WINDOW,
+    I_NET_SUPPORTED,
+
+    I_NET_WM_STATE,
+    I_NET_WM_STATE_SKIP_TASKBAR,
+    I_NET_WM_STATE_SKIP_PAGER,
+    I_NET_WM_STATE_STICKY,
+    I_NET_WM_STATE_HIDDEN,
+    I_NET_WM_STATE_SHADED,
+    I_NET_WM_WINDOW_TYPE,
+
+    I_NET_WM_WINDOW_TYPE_DESKTOP,
+    I_NET_WM_WINDOW_TYPE_DOCK,
+    I_NET_WM_WINDOW_TYPE_TOOLBAR,
+    I_NET_WM_WINDOW_TYPE_MENU,
+    I_NET_WM_WINDOW_TYPE_UTILITY,
+    I_NET_WM_WINDOW_TYPE_SPLASH,
+    I_NET_WM_WINDOW_TYPE_DIALOG,
+    I_NET_WM_WINDOW_TYPE_NORMAL,
+    I_NET_WM_DESKTOP,
+    I_NET_WM_NAME,
+    I_NET_WM_VISIBLE_NAME,
+    I_NET_WM_STRUT,
+    I_NET_WM_STRUT_PARTIAL,
+    I_NET_WM_ICON,
+    I_KDE_NET_WM_SYSTEM_TRAY_WINDOW_FOR,
+
+    I_LXPANEL_CMD,
+    N_ATOMS
+};
+
 pair allign_pair[] = {
     { ALLIGN_NONE, "none" },
     { ALLIGN_LEFT, "left" },
@@ -285,7 +329,7 @@ get_line_as_is(char** fp, line *s)
     while (buf_gets(s->str, s->len, fp)) {
         g_strstrip(s->str);
         if (s->str[0] == '#' || s->str[0] == 0)
-	    continue;
+        continue;
         DBG( ">> %s\n", s->str);
         if (!g_ascii_strcasecmp(s->str, "}")) {
             s->type = LINE_BLOCK_END;
@@ -309,49 +353,98 @@ get_line_as_is(char** fp, line *s)
 
 void resolve_atoms()
 {
+    static const char* atom_names[ N_ATOMS ];
+
+    atom_names[ I_UTF8_STRING ] = "UTF8_STRING";
+    atom_names[ I_XROOTPMAP_ID ] = "_XROOTPMAP_ID";
+    atom_names[ I_WM_STATE ] = "WM_STATE";
+    atom_names[ I_WM_CLASS ] = "WM_CLASS";
+    atom_names[ I_WM_DELETE_WINDOW ] = "WM_DELETE_WINDOW";
+    atom_names[ I_WM_PROTOCOLS ] = "WM_PROTOCOLS";
+    atom_names[ I_NET_WORKAREA ] = "_NET_WORKAREA";
+    atom_names[ I_NET_CLIENT_LIST ] = "_NET_CLIENT_LIST";
+    atom_names[ I_NET_CLIENT_LIST_STACKING ] = "_NET_CLIENT_LIST_STACKING";
+    atom_names[ I_NET_NUMBER_OF_DESKTOPS ] = "_NET_NUMBER_OF_DESKTOPS";
+    atom_names[ I_NET_CURRENT_DESKTOP ] = "_NET_CURRENT_DESKTOP";
+    atom_names[ I_NET_DESKTOP_NAMES ] = "_NET_DESKTOP_NAMES";
+    atom_names[ I_NET_ACTIVE_WINDOW ] = "_NET_ACTIVE_WINDOW";
+    atom_names[ I_NET_SUPPORTED ] = "_NET_SUPPORTED";
+    atom_names[ I_NET_WM_DESKTOP ] = "_NET_WM_DESKTOP";
+    atom_names[ I_NET_WM_STATE ] = "_NET_WM_STATE";
+    atom_names[ I_NET_WM_STATE_SKIP_TASKBAR ] = "_NET_WM_STATE_SKIP_TASKBAR";
+    atom_names[ I_NET_WM_STATE_SKIP_PAGER ] = "_NET_WM_STATE_SKIP_PAGER";
+    atom_names[ I_NET_WM_STATE_STICKY ] = "_NET_WM_STATE_STICKY";
+    atom_names[ I_NET_WM_STATE_HIDDEN ] = "_NET_WM_STATE_HIDDEN";
+    atom_names[ I_NET_WM_STATE_SHADED ] = "_NET_WM_STATE_SHADED";
+    atom_names[ I_NET_WM_WINDOW_TYPE ] = "_NET_WM_WINDOW_TYPE";
+
+    atom_names[ I_NET_WM_WINDOW_TYPE_DESKTOP ] = "_NET_WM_WINDOW_TYPE_DESKTOP";
+    atom_names[ I_NET_WM_WINDOW_TYPE_DOCK ] = "_NET_WM_WINDOW_TYPE_DOCK";
+    atom_names[ I_NET_WM_WINDOW_TYPE_TOOLBAR ] = "_NET_WM_WINDOW_TYPE_TOOLBAR";
+    atom_names[ I_NET_WM_WINDOW_TYPE_MENU ] = "_NET_WM_WINDOW_TYPE_MENU";
+    atom_names[ I_NET_WM_WINDOW_TYPE_UTILITY ] = "_NET_WM_WINDOW_TYPE_UTILITY";
+    atom_names[ I_NET_WM_WINDOW_TYPE_SPLASH ] = "_NET_WM_WINDOW_TYPE_SPLASH";
+    atom_names[ I_NET_WM_WINDOW_TYPE_DIALOG ] = "_NET_WM_WINDOW_TYPE_DIALOG";
+    atom_names[ I_NET_WM_WINDOW_TYPE_NORMAL ] = "_NET_WM_WINDOW_TYPE_NORMAL";
+    atom_names[ I_NET_WM_DESKTOP ] = "_NET_WM_DESKTOP";
+    atom_names[ I_NET_WM_NAME ] = "_NET_WM_NAME";
+    atom_names[ I_NET_WM_VISIBLE_NAME ] = "_NET_WM_VISIBLE_NAME";
+    atom_names[ I_NET_WM_STRUT ] = "_NET_WM_STRUT";
+    atom_names[ I_NET_WM_STRUT_PARTIAL ] = "_NET_WM_STRUT_PARTIAL";
+    atom_names[ I_NET_WM_ICON ] = "_NET_WM_ICON";
+    atom_names[ I_KDE_NET_WM_SYSTEM_TRAY_WINDOW_FOR ] = "_KDE_NET_WM_SYSTEM_TRAY_WINDOW_FOR";
+    atom_names[ I_LXPANEL_CMD ] = "_LXPANEL_CMD";
+
+    Atom atoms[ N_ATOMS ];
+
     ENTER;
 
-    a_UTF8_STRING                = XInternAtom(GDK_DISPLAY(), "UTF8_STRING", False);
-    a_XROOTPMAP_ID               = XInternAtom(GDK_DISPLAY(), "_XROOTPMAP_ID", False);
-    a_WM_STATE                   = XInternAtom(GDK_DISPLAY(), "WM_STATE", False);
-    a_WM_CLASS                   = XInternAtom(GDK_DISPLAY(), "WM_CLASS", False);
-    a_WM_DELETE_WINDOW           = XInternAtom(GDK_DISPLAY(), "WM_DELETE_WINDOW", False);
-    a_WM_PROTOCOLS               = XInternAtom(GDK_DISPLAY(), "WM_PROTOCOLS", False);
-    a_NET_WORKAREA               = XInternAtom(GDK_DISPLAY(), "_NET_WORKAREA", False);
-    a_NET_CLIENT_LIST            = XInternAtom(GDK_DISPLAY(), "_NET_CLIENT_LIST", False);
-    a_NET_CLIENT_LIST_STACKING   = XInternAtom(GDK_DISPLAY(), "_NET_CLIENT_LIST_STACKING", False);
-    a_NET_NUMBER_OF_DESKTOPS     = XInternAtom(GDK_DISPLAY(), "_NET_NUMBER_OF_DESKTOPS", False);
-    a_NET_CURRENT_DESKTOP        = XInternAtom(GDK_DISPLAY(), "_NET_CURRENT_DESKTOP", False);
-    a_NET_DESKTOP_NAMES          = XInternAtom(GDK_DISPLAY(), "_NET_DESKTOP_NAMES", False);
-    a_NET_ACTIVE_WINDOW          = XInternAtom(GDK_DISPLAY(), "_NET_ACTIVE_WINDOW", False);
-    a_NET_SUPPORTED              = XInternAtom(GDK_DISPLAY(), "_NET_SUPPORTED", False);
-    a_NET_WM_DESKTOP             = XInternAtom(GDK_DISPLAY(), "_NET_WM_DESKTOP", False);
-    a_NET_WM_STATE               = XInternAtom(GDK_DISPLAY(), "_NET_WM_STATE", False);
-    a_NET_WM_STATE_SKIP_TASKBAR  = XInternAtom(GDK_DISPLAY(), "_NET_WM_STATE_SKIP_TASKBAR", False);
-    a_NET_WM_STATE_SKIP_PAGER    = XInternAtom(GDK_DISPLAY(), "_NET_WM_STATE_SKIP_PAGER", False);
-    a_NET_WM_STATE_STICKY        = XInternAtom(GDK_DISPLAY(), "_NET_WM_STATE_STICKY", False);
-    a_NET_WM_STATE_HIDDEN        = XInternAtom(GDK_DISPLAY(), "_NET_WM_STATE_HIDDEN", False);
-    a_NET_WM_STATE_SHADED        = XInternAtom(GDK_DISPLAY(), "_NET_WM_STATE_SHADED", False);
-    a_NET_WM_WINDOW_TYPE         = XInternAtom(GDK_DISPLAY(), "_NET_WM_WINDOW_TYPE", False);
+    if( !  XInternAtoms( GDK_DISPLAY(), atom_names, N_ATOMS, False, atoms ) )
+    {
+        g_warning( "Error: unable to return Atoms" );
+        return;
+    }
 
-    a_NET_WM_WINDOW_TYPE_DESKTOP = XInternAtom(GDK_DISPLAY(), "_NET_WM_WINDOW_TYPE_DESKTOP", False);
-    a_NET_WM_WINDOW_TYPE_DOCK    = XInternAtom(GDK_DISPLAY(), "_NET_WM_WINDOW_TYPE_DOCK", False);
-    a_NET_WM_WINDOW_TYPE_TOOLBAR = XInternAtom(GDK_DISPLAY(), "_NET_WM_WINDOW_TYPE_TOOLBAR", False);
-    a_NET_WM_WINDOW_TYPE_MENU    = XInternAtom(GDK_DISPLAY(), "_NET_WM_WINDOW_TYPE_MENU", False);
-    a_NET_WM_WINDOW_TYPE_UTILITY = XInternAtom(GDK_DISPLAY(), "_NET_WM_WINDOW_TYPE_UTILITY", False);
-    a_NET_WM_WINDOW_TYPE_SPLASH  = XInternAtom(GDK_DISPLAY(), "_NET_WM_WINDOW_TYPE_SPLASH", False);
-    a_NET_WM_WINDOW_TYPE_DIALOG  = XInternAtom(GDK_DISPLAY(), "_NET_WM_WINDOW_TYPE_DIALOG", False);
-    a_NET_WM_WINDOW_TYPE_NORMAL  = XInternAtom(GDK_DISPLAY(), "_NET_WM_WINDOW_TYPE_NORMAL", False);
-    a_NET_WM_DESKTOP             = XInternAtom(GDK_DISPLAY(), "_NET_WM_DESKTOP", False);
-    a_NET_WM_NAME                = XInternAtom(GDK_DISPLAY(), "_NET_WM_NAME", False);
-    a_NET_WM_VISIBLE_NAME        = XInternAtom(GDK_DISPLAY(), "_NET_WM_VISIBLE_NAME", False);
-    a_NET_WM_STRUT               = XInternAtom(GDK_DISPLAY(), "_NET_WM_STRUT", False);
-    a_NET_WM_STRUT_PARTIAL       = XInternAtom(GDK_DISPLAY(), "_NET_WM_STRUT_PARTIAL", False);
-    a_NET_WM_ICON                = XInternAtom(GDK_DISPLAY(), "_NET_WM_ICON", False);
-    a_KDE_NET_WM_SYSTEM_TRAY_WINDOW_FOR
-                                 = XInternAtom(GDK_DISPLAY(), "_KDE_NET_WM_SYSTEM_TRAY_WINDOW_FOR", False);
+    a_UTF8_STRING = atoms[ I_UTF8_STRING ];
+    a_XROOTPMAP_ID = atoms[ I_XROOTPMAP_ID ];
+    a_WM_STATE = atoms[ I_WM_STATE ];
+    a_WM_CLASS = atoms[ I_WM_CLASS ];
+    a_WM_DELETE_WINDOW = atoms[ I_WM_DELETE_WINDOW ];
+    a_WM_PROTOCOLS = atoms[ I_WM_PROTOCOLS ];
+    a_NET_WORKAREA = atoms[ I_NET_WORKAREA ];
+    a_NET_CLIENT_LIST = atoms[ I_NET_CLIENT_LIST ];
+    a_NET_CLIENT_LIST_STACKING = atoms[ I_NET_CLIENT_LIST_STACKING ];
+    a_NET_NUMBER_OF_DESKTOPS = atoms[ I_NET_NUMBER_OF_DESKTOPS ];
+    a_NET_CURRENT_DESKTOP = atoms[ I_NET_CURRENT_DESKTOP ];
+    a_NET_DESKTOP_NAMES = atoms[ I_NET_DESKTOP_NAMES ];
+    a_NET_ACTIVE_WINDOW = atoms[ I_NET_ACTIVE_WINDOW ];
+    a_NET_SUPPORTED = atoms[ I_NET_SUPPORTED ];
+    a_NET_WM_DESKTOP = atoms[ I_NET_WM_DESKTOP ];
+    a_NET_WM_STATE = atoms[ I_NET_WM_STATE ];
+    a_NET_WM_STATE_SKIP_TASKBAR = atoms[ I_NET_WM_STATE_SKIP_TASKBAR ];
+    a_NET_WM_STATE_SKIP_PAGER = atoms[ I_NET_WM_STATE_SKIP_PAGER ];
+    a_NET_WM_STATE_STICKY = atoms[ I_NET_WM_STATE_STICKY ];
+    a_NET_WM_STATE_HIDDEN = atoms[ I_NET_WM_STATE_HIDDEN ];
+    a_NET_WM_STATE_SHADED = atoms[ I_NET_WM_STATE_SHADED ];
+    a_NET_WM_WINDOW_TYPE = atoms[ I_NET_WM_WINDOW_TYPE ];
 
-    a_LXPANEL_CMD = XInternAtom(GDK_DISPLAY(), "_LXPANEL_CMD", False);
+    a_NET_WM_WINDOW_TYPE_DESKTOP = atoms[ I_NET_WM_WINDOW_TYPE_DESKTOP ];
+    a_NET_WM_WINDOW_TYPE_DOCK = atoms[ I_NET_WM_WINDOW_TYPE_DOCK ];
+    a_NET_WM_WINDOW_TYPE_TOOLBAR = atoms[ I_NET_WM_WINDOW_TYPE_TOOLBAR ];
+    a_NET_WM_WINDOW_TYPE_MENU = atoms[ I_NET_WM_WINDOW_TYPE_MENU ];
+    a_NET_WM_WINDOW_TYPE_UTILITY = atoms[ I_NET_WM_WINDOW_TYPE_UTILITY ];
+    a_NET_WM_WINDOW_TYPE_SPLASH = atoms[ I_NET_WM_WINDOW_TYPE_SPLASH ];
+    a_NET_WM_WINDOW_TYPE_DIALOG = atoms[ I_NET_WM_WINDOW_TYPE_DIALOG ];
+    a_NET_WM_WINDOW_TYPE_NORMAL = atoms[ I_NET_WM_WINDOW_TYPE_NORMAL ];
+    a_NET_WM_DESKTOP = atoms[ I_NET_WM_DESKTOP ];
+    a_NET_WM_NAME = atoms[ I_NET_WM_NAME ];
+    a_NET_WM_VISIBLE_NAME = atoms[ I_NET_WM_VISIBLE_NAME ];
+    a_NET_WM_STRUT = atoms[ I_NET_WM_STRUT ];
+    a_NET_WM_STRUT_PARTIAL = atoms[ I_NET_WM_STRUT_PARTIAL ];
+    a_NET_WM_ICON = atoms[ I_NET_WM_ICON ];
+    a_KDE_NET_WM_SYSTEM_TRAY_WINDOW_FOR = atoms[ I_KDE_NET_WM_SYSTEM_TRAY_WINDOW_FOR ];
+
+    a_LXPANEL_CMD = atoms[ I_LXPANEL_CMD ];
 
     RET();
 }
@@ -609,19 +702,19 @@ get_net_wm_state(Window win, net_wm_state *nws)
             nws->skip_pager = 1;
         } else if (state[num3] == a_NET_WM_STATE_SKIP_TASKBAR) {
             DBG( "NET_WM_STATE_SKIP_TASKBAR ");
-	    nws->skip_taskbar = 1;
-	} else if (state[num3] == a_NET_WM_STATE_STICKY) {
+        nws->skip_taskbar = 1;
+    } else if (state[num3] == a_NET_WM_STATE_STICKY) {
             DBG( "NET_WM_STATE_STICKY ");
-	    nws->sticky = 1;
+        nws->sticky = 1;
         } else if (state[num3] == a_NET_WM_STATE_HIDDEN) {
             DBG( "NET_WM_STATE_HIDDEN ");
             nws->hidden = 1;
-	} else if (state[num3] == a_NET_WM_STATE_SHADED) {
+    } else if (state[num3] == a_NET_WM_STATE_SHADED) {
             DBG( "NET_WM_STATE_SHADED ");
             nws->shaded = 1;
-	} else {
-	    DBG( "... ");
-	}
+    } else {
+        DBG( "... ");
+    }
     }
     XFree(state);
     DBG( "}\n");
@@ -650,28 +743,28 @@ get_net_wm_window_type(Window win, net_wm_window_type *nwwt)
             nwwt->desktop = 1;
         } else if (state[num3] == a_NET_WM_WINDOW_TYPE_DOCK) {
             DBG( "NET_WM_WINDOW_TYPE_DOCK ");
-	    nwwt->dock = 1;
-	} else if (state[num3] == a_NET_WM_WINDOW_TYPE_TOOLBAR) {
+        nwwt->dock = 1;
+    } else if (state[num3] == a_NET_WM_WINDOW_TYPE_TOOLBAR) {
             DBG( "NET_WM_WINDOW_TYPE_TOOLBAR ");
-	    nwwt->toolbar = 1;
+        nwwt->toolbar = 1;
         } else if (state[num3] == a_NET_WM_WINDOW_TYPE_MENU) {
             DBG( "NET_WM_WINDOW_TYPE_MENU ");
             nwwt->menu = 1;
-	} else if (state[num3] == a_NET_WM_WINDOW_TYPE_UTILITY) {
+    } else if (state[num3] == a_NET_WM_WINDOW_TYPE_UTILITY) {
             DBG( "NET_WM_WINDOW_TYPE_UTILITY ");
             nwwt->utility = 1;
-	} else if (state[num3] == a_NET_WM_WINDOW_TYPE_SPLASH) {
+    } else if (state[num3] == a_NET_WM_WINDOW_TYPE_SPLASH) {
             DBG( "NET_WM_WINDOW_TYPE_SPLASH ");
             nwwt->splash = 1;
-	} else if (state[num3] == a_NET_WM_WINDOW_TYPE_DIALOG) {
+    } else if (state[num3] == a_NET_WM_WINDOW_TYPE_DIALOG) {
             DBG( "NET_WM_WINDOW_TYPE_DIALOG ");
             nwwt->dialog = 1;
-	} else if (state[num3] == a_NET_WM_WINDOW_TYPE_NORMAL) {
+    } else if (state[num3] == a_NET_WM_WINDOW_TYPE_NORMAL) {
             DBG( "NET_WM_WINDOW_TYPE_NORMAL ");
             nwwt->normal = 1;
-	} else {
-	    DBG( "... ");
-	}
+    } else {
+        DBG( "... ");
+    }
     }
     XFree(state);
     DBG( "}\n");
@@ -1173,7 +1266,7 @@ GtkWidget* recreate_box( GtkBox* oldbox, GtkOrientation orientation )
     children = gtk_container_get_children( GTK_CONTAINER (oldbox) );
     for( child = children; child; child = child->next ) {
         gboolean expand, fill;
-	guint padding;
+    guint padding;
         GtkWidget* w = GTK_WIDGET(child->data);
         gtk_box_query_child_packing( oldbox, w,
                                      &expand, &fill, &padding, NULL );

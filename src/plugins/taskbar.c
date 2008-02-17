@@ -103,9 +103,11 @@ static gchar *taskbar_rc = "style 'taskbar-style'\n"
 
 static gboolean use_net_active=FALSE;
 
-#define DRAG_ACTIVE_DELAY	1000
+#define DRAG_ACTIVE_DELAY   1000
 #define TASK_WIDTH_MAX   200
 #define TASK_PADDING     4
+
+#define ALL_WORKSPACES (0xFFFFFFFF)
 
 static void tk_display(taskbar *tb, task *tk);
 static void tb_propertynotify(taskbar *tb, XEvent *ev);
@@ -190,9 +192,9 @@ tk_set_names(task *tk)
     }
 
     if (name) {
-	tk->name = g_strdup_printf(" %s ", name);
-	tk->iname = g_strdup_printf("[%s]", name);
-	g_free(name);
+    tk->name = g_strdup_printf(" %s ", name);
+    tk->iname = g_strdup_printf("[%s]", name);
+    g_free(name);
         name = tk->iconified ? tk->iname : tk->name;
     }
     gtk_label_set_text(GTK_LABEL(tk->label), name);
@@ -264,6 +266,37 @@ get_cmap (GdkPixmap *pixmap)
     cmap = NULL;
 
   RET(cmap);
+}
+
+/* These functions with the prefix wnck are taken from libwnck
+ * Copyright (C) 2001 Havoc Pennington
+ * slightly modified by Hong Jen Yee for LXPanel
+ */
+void
+_wnck_change_workspace (Screen     *screen,
+            Window      xwindow,
+                        int         new_space)
+{
+  XEvent xev;
+
+  xev.xclient.type = ClientMessage;
+  xev.xclient.serial = 0;
+  xev.xclient.send_event = True;
+  xev.xclient.display = gdk_display;
+  xev.xclient.window = xwindow;
+  xev.xclient.message_type = a_NET_WM_DESKTOP;
+  xev.xclient.format = 32;
+  xev.xclient.data.l[0] = new_space;
+  xev.xclient.data.l[1] = 0;
+  xev.xclient.data.l[2] = 0;
+  xev.xclient.data.l[3] = 0;
+  xev.xclient.data.l[4] = 0;
+
+  XSendEvent (gdk_display,
+          RootWindowOfScreen (screen),
+              False,
+          SubstructureRedirectMask | SubstructureNotifyMask,
+          &xev);
 }
 
 static GdkPixbuf*
@@ -382,16 +415,16 @@ get_netwm_icon(Window tkwin, int iw, int ih)
     if( wmhints && (wmhints->flags & IconPixmapHint) ) {
         GdkPixmap *gdkPixmap;
         GdkPixbuf *gdkPixbuf = NULL;
-	GdkColormap *colormap;
+    GdkColormap *colormap;
 
         colormap = gdk_colormap_get_system();
 
         gdkPixmap = gdk_pixmap_foreign_new(wmhints->icon_pixmap);
-        gdkPixbuf = gdk_pixbuf_get_from_drawable( 
-	                NULL, gdkPixmap, colormap, 0, 0, 0, 0, iw, ih );
+        gdkPixbuf = gdk_pixbuf_get_from_drawable(
+                    NULL, gdkPixmap, colormap, 0, 0, 0, 0, iw, ih );
         ret = gdk_pixbuf_scale_simple( gdkPixbuf, 24, 24, GDK_INTERP_BILINEAR );
         gdk_pixbuf_unref(gdkPixbuf);
-	XFree(wmhints);
+    XFree(wmhints);
     }
 
     RET(ret);
@@ -647,6 +680,22 @@ tk_callback_scroll_event (GtkWidget *widget, GdkEventScroll *event, task *tk)
 }
 
 static gboolean
+tk_callback_button_press_event(GtkWidget *widget, GdkEventButton *event, task *tk)
+{
+    if ((event->type != GDK_BUTTON_PRESS) || (!GTK_BUTTON(widget)->in_button)|| event->button !=3 )
+        RET(FALSE);
+
+    /*
+    XLowerWindow (GDK_DISPLAY(), tk->win);
+    DBG("XLowerWindow %x\n", tk->win);
+    */
+    tk->tb->menutask = tk;
+    gtk_menu_popup (GTK_MENU (tk->tb->menu), NULL, NULL, NULL, NULL,
+          event->button, event->time);
+    return FALSE;
+}
+
+static gboolean
 tk_callback_button_release_event(GtkWidget *widget, GdkEventButton *event, task *tk)
 {
     XWindowAttributes xwa;
@@ -656,19 +705,19 @@ tk_callback_button_release_event(GtkWidget *widget, GdkEventButton *event, task 
     DBG("win=%x\n", tk->win);
     if (event->button == 1) {
         if (tk->iconified)    {
-	    if(use_net_active) {
-		Xclimsg(tk->win, a_NET_ACTIVE_WINDOW, 2, event->time, 0, 0, 0);
-	    } else {
-		GdkWindow *gdkwindow;
+        if(use_net_active) {
+        Xclimsg(tk->win, a_NET_ACTIVE_WINDOW, 2, event->time, 0, 0, 0);
+        } else {
+        GdkWindow *gdkwindow;
 
-		gdkwindow = gdk_xid_table_lookup (tk->win);
-		if (gdkwindow)
-		    gdk_window_show (gdkwindow);
-		else
-		    XMapRaised (GDK_DISPLAY(), tk->win);
-		XSync (GDK_DISPLAY(), False);
-		DBG("XMapRaised  %x\n", tk->win);
-	    }
+        gdkwindow = gdk_xid_table_lookup (tk->win);
+        if (gdkwindow)
+            gdk_window_show (gdkwindow);
+        else
+            XMapRaised (GDK_DISPLAY(), tk->win);
+        XSync (GDK_DISPLAY(), False);
+        DBG("XMapRaised  %x\n", tk->win);
+        }
             /* if window isn't on current viewport, we change viewport */
             XGetWindowAttributes(GDK_DISPLAY(), tk->win, &xwa);
             Xclimsg(tk->win, a_NET_DESKTOP_VIEWPORT, xwa.x, xwa.y, 0, 0, 0);
@@ -687,19 +736,10 @@ tk_callback_button_release_event(GtkWidget *widget, GdkEventButton *event, task 
               2 /*a_NET_WM_STATE_TOGGLE*/,
               a_NET_WM_STATE_SHADED,
               0, 0, 0);
-    } else if (event->button == 3) {
-        /*
-        XLowerWindow (GDK_DISPLAY(), tk->win);
-        DBG("XLowerWindow %x\n", tk->win);
-        */
-        tk->tb->menutask = tk;
-        gtk_menu_popup (GTK_MENU (tk->tb->menu), NULL, NULL, NULL, NULL,
-              event->button, event->time);
-
     }
     XSync (gdk_display, False);
     gtk_button_released(GTK_BUTTON(widget));
-    RET(TRUE);
+    RET(FALSE);
 }
 
 
@@ -713,13 +753,13 @@ tk_update(gpointer key, task *tk, taskbar *tb)
               (tk->focused) ? tb->focused_state : tb->normal_state);
         gtk_widget_queue_draw(tk->button);
         //_gtk_button_set_depressed(GTK_BUTTON(tk->button), tk->focused);
-	gtk_widget_show(tk->button);
+    gtk_widget_show(tk->button);
 
         if (tb->tooltips) {
             //DBG2("tip %x %s\n", tk->win, tk->name);
             gtk_tooltips_set_tip(tb->tips, tk->button, tk->name, NULL);
         }
-	RET();
+    RET();
     }
     gtk_widget_hide(tk->button);
     RET();
@@ -767,6 +807,8 @@ tk_build_gui(taskbar *tb, task *tk)
     gtk_widget_show(tk->button);
     gtk_container_set_border_width(GTK_CONTAINER(tk->button), 0);
     gtk_widget_add_events (tk->button, GDK_BUTTON_RELEASE_MASK );
+    g_signal_connect(G_OBJECT(tk->button), "button_press_event",
+          G_CALLBACK(tk_callback_button_press_event), (gpointer)tk);
     g_signal_connect(G_OBJECT(tk->button), "button_release_event",
           G_CALLBACK(tk_callback_button_release_event), (gpointer)tk);
     g_signal_connect_after (G_OBJECT (tk->button), "leave",
@@ -993,34 +1035,34 @@ tb_propertynotify(taskbar *tb, XEvent *ev)
     at = ev->xproperty.atom;
     win = ev->xproperty.window;
     if (win != GDK_ROOT_WINDOW()) {
-	task *tk = find_task(tb, win);
+    task *tk = find_task(tb, win);
 
-	if (!tk) RET();
+    if (!tk) RET();
         DBG("win=%x\n", ev->xproperty.window);
-	if (at == a_NET_WM_DESKTOP) {
+    if (at == a_NET_WM_DESKTOP) {
             DBG("NET_WM_DESKTOP\n");
-	    tk->desktop = get_net_wm_desktop(win);
-	    tb_display(tb);
-	}  else if (at == XA_WM_NAME) {
+        tk->desktop = get_net_wm_desktop(win);
+        tb_display(tb);
+    }  else if (at == XA_WM_NAME) {
             DBG("WM_NAME\n");
-	    tk_set_names(tk);
-	    //tk_display(tb, tk);
-	}  else if (at == XA_WM_CLASS) {
+        tk_set_names(tk);
+        //tk_display(tb, tk);
+    }  else if (at == XA_WM_CLASS) {
             DBG("WM_CLASS\n");
 
             //get_wmclass(tk);
-	} else if (at == a_WM_STATE)    {
+    } else if (at == a_WM_STATE)    {
             DBG("WM_STATE\n");
-	    /* iconified state changed? */
-	    tk->iconified = (get_wm_state (tk->win) == IconicState);
+        /* iconified state changed? */
+        tk->iconified = (get_wm_state (tk->win) == IconicState);
             tk_set_names(tk);
-	    //tk_display(tb, tk);
-	} else if (at == XA_WM_HINTS)	{
-	    /* some windows set their WM_HINTS icon after mapping */
-	    DBG("XA_WM_HINTS\n");
+        //tk_display(tb, tk);
+    } else if (at == XA_WM_HINTS)   {
+        /* some windows set their WM_HINTS icon after mapping */
+        DBG("XA_WM_HINTS\n");
             //get_wmclass(tk);
-	    tk_update_icon (tb, tk, XA_WM_HINTS);
-	    gtk_image_set_from_pixbuf (GTK_IMAGE(tk->image), tk->pixbuf);
+        tk_update_icon (tb, tk, XA_WM_HINTS);
+        gtk_image_set_from_pixbuf (GTK_IMAGE(tk->image), tk->pixbuf);
             if (tb->use_urgency_hint) {
                 if (tk_has_urgency(tk)) {
                     //tk->urgency = 1;
@@ -1033,31 +1075,31 @@ tb_propertynotify(taskbar *tb, XEvent *ev)
         } else if (at == a_NET_WM_STATE) {
             net_wm_state nws;
 
-	    DBG("_NET_WM_STATE\n");
-	    get_net_wm_state(tk->win, &nws);
+        DBG("_NET_WM_STATE\n");
+        get_net_wm_state(tk->win, &nws);
             if (!accept_net_wm_state(&nws, tb->accept_skip_pager)) {
-		del_task(tb, tk, 1);
-		tb_display(tb);
-	    }
-	} else if (at == a_NET_WM_ICON) {
-	    DBG("_NET_WM_ICON\n");
+        del_task(tb, tk, 1);
+        tb_display(tb);
+        }
+    } else if (at == a_NET_WM_ICON) {
+        DBG("_NET_WM_ICON\n");
             DBG("#0 %d\n", GDK_IS_PIXBUF (tk->pixbuf));
             tk_update_icon (tb, tk, a_NET_WM_ICON);
             DBG("#1 %d\n", GDK_IS_PIXBUF (tk->pixbuf));
-	    gtk_image_set_from_pixbuf (GTK_IMAGE(tk->image), tk->pixbuf);
+        gtk_image_set_from_pixbuf (GTK_IMAGE(tk->image), tk->pixbuf);
             DBG("#2 %d\n", GDK_IS_PIXBUF (tk->pixbuf));
-	} else if (at == a_NET_WM_WINDOW_TYPE) {
+    } else if (at == a_NET_WM_WINDOW_TYPE) {
             net_wm_window_type nwwt;
 
-	    DBG("_NET_WM_WINDOW_TYPE\n");
-	    get_net_wm_window_type(tk->win, &nwwt);
+        DBG("_NET_WM_WINDOW_TYPE\n");
+        get_net_wm_window_type(tk->win, &nwwt);
             if (!accept_net_wm_window_type(&nwwt)) {
-		del_task(tb, tk, 1);
-		tb_display(tb);
-	    }
-	} else {
+        del_task(tb, tk, 1);
+        tb_display(tb);
+        }
+    } else {
             DBG("at = %d\n", at);
-	}
+    }
     }
     RET();
 }
@@ -1070,7 +1112,7 @@ tb_event_filter( XEvent *xev, GdkEvent *event, taskbar *tb)
     //RET(GDK_FILTER_CONTINUE);
     g_assert(tb != NULL);
     if (xev->type == PropertyNotify )
-	tb_propertynotify(tb, xev);
+    tb_propertynotify(tb, xev);
     RET(GDK_FILTER_CONTINUE);
 }
 
@@ -1130,10 +1172,20 @@ menu_maximize_window(GtkWidget *widget, taskbar *tb)
     RET();
 }
 
+static void
+menu_move_to_workspace( GtkWidget* mi, taskbar* tb )
+{
+    GdkWindow* win;
+    int num = GPOINTER_TO_INT( g_object_get_data( mi, "num" ) );
+    _wnck_change_workspace( DefaultScreenOfDisplay(GDK_DISPLAY()), tb->menutask->win, num );
+}
+
 static GtkWidget *
 taskbar_make_menu(taskbar *tb)
 {
-    GtkWidget *mi, *menu;
+    GtkWidget *mi, *menu, *workspace_menu = NULL;
+    int i;
+    char label[128];
 
     ENTER;
     menu = gtk_menu_new ();
@@ -1141,31 +1193,62 @@ taskbar_make_menu(taskbar *tb)
     mi = gtk_menu_item_new_with_label (_("Raise"));
     gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
     g_signal_connect(G_OBJECT(mi), "activate", (GCallback)menu_raise_window, tb);
-    gtk_widget_show (mi);
 
     mi = gtk_menu_item_new_with_label (_("Restore"));
     gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
     g_signal_connect(G_OBJECT(mi), "activate", (GCallback)menu_restore_window, tb);
-    gtk_widget_show (mi);
 
     mi = gtk_menu_item_new_with_label (_("Maximize"));
     gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
     g_signal_connect(G_OBJECT(mi), "activate", (GCallback)menu_maximize_window, tb);
-    gtk_widget_show (mi);
 
     mi = gtk_menu_item_new_with_label (_("Iconify"));
     gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
     g_signal_connect(G_OBJECT(mi), "activate", (GCallback)menu_iconify_window, tb);
-    gtk_widget_show (mi);
+
+    if( tb->desk_num > 1 )
+    {
+        workspace_menu = gtk_menu_new();
+        for( i = 1; i <= tb->desk_num; ++i )
+        {
+            g_snprintf( label, 128, _("Workspace %d"), i);
+            mi = gtk_menu_item_new_with_label( label );
+            g_object_set_data( mi, "num", GINT_TO_POINTER(i - 1) );
+            g_signal_connect( mi, "activate", G_CALLBACK(menu_move_to_workspace), tb );
+            gtk_menu_shell_append( (GtkMenuShell*)workspace_menu, mi );
+        }
+        gtk_menu_shell_append( GTK_MENU_SHELL (workspace_menu),
+                                                   gtk_separator_menu_item_new());
+        mi = gtk_menu_item_new_with_label(_("All workspaces"));
+        g_object_set_data( mi, "num", GINT_TO_POINTER(ALL_WORKSPACES) );
+        g_signal_connect( mi, "activate", G_CALLBACK(menu_move_to_workspace), tb );
+        gtk_menu_shell_append( (GtkMenuShell*)workspace_menu, mi );
+
+        gtk_widget_show_all( workspace_menu );
+
+        mi = gtk_menu_item_new_with_label (_("Move to Workspace"));
+        gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
+
+        gtk_menu_item_set_submenu( mi, workspace_menu );
+        workspace_menu = mi;
+    }
 
     /* we want this item to be farest from mouse pointer */
     mi = gtk_menu_item_new_with_label (_("Close Window"));
     if (tb->plug->panel->edge == EDGE_BOTTOM)
+    {
+        gtk_menu_shell_prepend (GTK_MENU_SHELL (menu), gtk_separator_menu_item_new());
         gtk_menu_shell_prepend (GTK_MENU_SHELL (menu), mi);
+    }
     else
+    {
+//        gtk_menu_shell_prepend (GTK_MENU_SHELL (menu), workspace_menu);
+
+        gtk_menu_shell_append (GTK_MENU_SHELL (menu), gtk_separator_menu_item_new());
         gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
+    }
     g_signal_connect(G_OBJECT(mi), "activate", (GCallback)menu_close_window, tb);
-    gtk_widget_show (mi);
+    gtk_widget_show_all (menu);
 
     RET(menu);
 }
@@ -1228,11 +1311,11 @@ void net_active_detect()
 
     data = get_xaproperty(GDK_ROOT_WINDOW(), a_NET_SUPPORTED, XA_ATOM, &nitens);
     if (!data)
-	return;
+    return;
 
     while (nitens > 0)
-	if(data[--nitens]==a_NET_ACTIVE_WINDOW) {
-	    use_net_active = TRUE;
+    if(data[--nitens]==a_NET_ACTIVE_WINDOW) {
+        use_net_active = TRUE;
             break;
         }
 
