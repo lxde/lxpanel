@@ -288,6 +288,10 @@ read_button(plugin *p, char** fp)
         h = 10000;
     }
 
+    /* still not found? */
+    if (!fname)
+        goto error;
+
     button = fb_button_new_from_file( fname, w, h, 0x202020, TRUE );
     btn->widget = button;
 
