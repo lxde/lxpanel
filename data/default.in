@@ -108,7 +108,7 @@ Global {
     useFontColor = true
     FontColor = #FFFFFF
     Background = true
-    BackgroundFile = /usr/local/share/lxpanel/images/background.png
+    BackgroundFile = @prefix@/share/lxpanel/images/background.png
 }
 
 Plugin {
