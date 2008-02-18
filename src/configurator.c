@@ -38,6 +38,7 @@
 void configure(void);
 void restart(void);
 void gtk_run(void);
+void config_save(void);
 static void logout(void);
 
 command commands[] = {
@@ -510,11 +511,11 @@ mk_backgroundimg()
 
     gtk_box_pack_start(GTK_BOX (frame), bg_selfileb, FALSE, FALSE, 0);
 
-    if (!p->background) {
-        gtk_widget_set_sensitive(bg_selfileb, FALSE);
-    } else {
+    if (p->background_file)
         gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (bg_selfileb), p->background_file);
-    }
+
+    if (!p->background)
+        gtk_widget_set_sensitive(bg_selfileb, FALSE);
 
     g_signal_connect (GTK_FILE_CHOOSER (bg_selfileb), "file-set", G_CALLBACK (background_changed), NULL);
 
@@ -814,7 +815,8 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
                                        GTK_RESPONSE_OK, NULL );
 
     /* fix background */
-    gtk_widget_set_style(dlg, p->defstyle);
+    if (p->background)
+        gtk_widget_set_style(dlg, p->defstyle);
 
     /* gtk_widget_set_sensitive( parent_win, FALSE ); */
     scroll = gtk_scrolled_window_new( NULL, NULL );
@@ -1118,7 +1120,8 @@ mk_tab_app()
     label = gtk_label_new( _("File Manager:") );
     gtk_misc_set_alignment( label, 0, 0.5 );
     entry = gtk_entry_new();
-    gtk_entry_set_text( entry, p->file_manager );
+    if (p->file_manager)
+        gtk_entry_set_text( GTK_ENTRY(entry), p->file_manager );
     g_signal_connect( entry, "changed",
                       G_CALLBACK(on_entry_changed),
                       &p->file_manager);
@@ -1130,7 +1133,8 @@ mk_tab_app()
     label = gtk_label_new( _("Terminal Emulator:") );
     gtk_misc_set_alignment( label, 0, 0.5 );
     entry = gtk_entry_new();
-    gtk_entry_set_text( entry, p->terminal );
+    if (p->terminal)
+        gtk_entry_set_text( GTK_ENTRY(entry), p->terminal );
     g_signal_connect( entry, "changed",
                       G_CALLBACK(on_entry_changed),
                       &p->terminal);
@@ -1145,7 +1149,7 @@ mk_tab_app()
         gtk_misc_set_alignment( label, 0, 0.5 );
         entry = gtk_entry_new();
         if(p->logout_command)
-            gtk_entry_set_text( entry, p->logout_command );
+            gtk_entry_set_text( GTK_ENTRY(entry), p->logout_command );
         g_signal_connect( entry, "changed",
                         G_CALLBACK(on_entry_changed),
                         &p->logout_command);
@@ -1177,7 +1181,8 @@ mk_dialog()
     gtk_window_set_position( GTK_WINDOW(dialog), GTK_WIN_POS_CENTER );
 
     /* fix background */
-    gtk_widget_set_style(dialog, p->defstyle);
+    if (p->background)
+        gtk_widget_set_style(dialog, p->defstyle);
 
     /*
     gtk_window_set_skip_taskbar_hint(GTK_WINDOW(dialog), TRUE);
@@ -1405,7 +1410,8 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
                                                   NULL );
 
     /* fix background */
-    gtk_widget_set_style(dlg, p->defstyle);
+    if (p->background)
+        gtk_widget_set_style(dlg, p->defstyle);
 
     /* this is a dirty hack.  We need to check if this response is GTK_RESPONSE_CLOSE or not. */
     g_signal_connect( dlg, "response", G_CALLBACK(gtk_widget_destroy), NULL );
