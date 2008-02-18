@@ -504,10 +504,10 @@ mk_backgroundimg()
     frame = gtk_vbox_new(FALSE, 0);
 
     bg_checkb = gtk_radio_button_new_with_label(NULL, _("Enable Image:"));
-    gtk_box_pack_start(GTK_CONTAINER(frame), bg_checkb, FALSE, FALSE, 5);
+    gtk_box_pack_start(GTK_BOX(frame), GTK_WIDGET(bg_checkb), FALSE, FALSE, 5);
 
     bg_selfileb = gtk_file_chooser_button_new (_("Select a background image file"), GTK_FILE_CHOOSER_ACTION_OPEN);
-    gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (bg_selfileb), "/usr/share/lxpanel/images");
+    gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (bg_selfileb), PACKAGE_DATA_DIR "/lxpanel/images");
 
     gtk_box_pack_start(GTK_BOX (frame), bg_selfileb, FALSE, FALSE, 0);
 
@@ -578,9 +578,9 @@ mk_background()
 
     /* set group */
     check_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(bg_checkdis));
-    gtk_radio_button_set_group(bg_checkb, check_group);
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(bg_checkb), check_group);
     check_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(bg_checkb));
-    gtk_radio_button_set_group(tr_checkb, check_group);
+    gtk_radio_button_set_group(GTK_RADIO_BUTTON(tr_checkb), check_group);
 
     /* default */
     if (p->background)
@@ -753,7 +753,7 @@ static void on_add_plugin_response( GtkDialog* dlg,
         GtkTreeIter it;
         GtkTreeModel* model;
 
-        view = (GtkTreeView*)g_object_get_data( dlg, "avail-plugins" );
+        view = (GtkTreeView*)g_object_get_data( G_OBJECT(dlg), "avail-plugins" );
         tree_sel = gtk_tree_view_get_selection( view );
         if( gtk_tree_selection_get_selected( tree_sel, &model, &it ) )
         {
@@ -808,7 +808,7 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
 
     parent_win = gtk_widget_get_toplevel( (GtkWidget*)_view );
     dlg = gtk_dialog_new_with_buttons( _("Add plugin to panel"),
-                                       parent_win, 0,
+                                       GTK_WINDOW(parent_win), 0,
                                        GTK_STOCK_CANCEL,
                                        GTK_RESPONSE_CANCEL,
                                        GTK_STOCK_ADD,
@@ -827,7 +827,7 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
                                    GTK_POLICY_AUTOMATIC );
     gtk_box_pack_start( (GtkBox*)GTK_DIALOG(dlg)->vbox, scroll,
                          TRUE, TRUE, 4 );
-    view = gtk_tree_view_new();
+    view = (GtkTreeView*)gtk_tree_view_new();
     gtk_container_add( (GtkContainer*)scroll, view );
     tree_sel = gtk_tree_view_get_selection( view );
     gtk_tree_selection_set_mode( tree_sel, GTK_SELECTION_BROWSE );
@@ -1104,15 +1104,15 @@ mk_tab_app()
     GtkTable *tbl;
 
     vbox = gtk_vbox_new( FALSE, 2 );
-    gtk_container_set_border_width( vbox, 8 );
+    gtk_container_set_border_width( GTK_CONTAINER(vbox), 8 );
 
     label = gtk_label_new("");
-    gtk_label_set_markup(label, _("<b>Set Preferred Applications</b>"));
+    gtk_label_set_markup(GTK_LABEL(label), _("<b>Set Preferred Applications</b>"));
     gtk_misc_set_alignment(GTK_MISC(label), 0.0, 0.5);
-    gtk_box_pack_start( vbox, label, FALSE, FALSE, 2 );
+    gtk_box_pack_start( GTK_BOX(vbox), label, FALSE, FALSE, 2 );
 
     tbl = (GtkTable*)gtk_table_new( 3, 2, FALSE );
-    gtk_box_pack_start( vbox, (GtkWidget*)tbl, TRUE, TRUE, 2 );
+    gtk_box_pack_start( GTK_BOX(vbox), (GtkWidget*)tbl, TRUE, TRUE, 2 );
 
     gtk_table_set_col_spacings( tbl, 4 );
     gtk_table_set_row_spacings( tbl, 4 );
