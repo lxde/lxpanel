@@ -107,6 +107,7 @@ typedef struct {
     sem_t *lock;
 } alarm;
 
+static void destructor(plugin *p);
 
 /* strToInterval converts a string containing a seconds value (like 2.5) to its
  * millisecond value (2500) */
@@ -407,6 +408,11 @@ static int update(batt *b) {
 
 }
 
+static int update_timout(batt *b) {
+    GDK_THREADS_ENTER();
+    update(  b );
+    GDK_THREADS_LEAVE();
+}
 
 /* An update will be performed whenever the user clicks on the charge bar */
 static gint buttonPressEvent(GtkWidget *widget, GdkEventConfigure *event,
@@ -426,8 +432,8 @@ static gint configureEvent(GtkWidget *widget, GdkEventConfigure *event,
 
     ENTER;
 
-    if (b->pixmap)
-        g_object_unref(b->pixmap);
+//    if (b->pixmap)
+//        g_object_unref(b->pixmap);
 
     /* Update the plugin's dimensions */
     b->width = widget->allocation.width;
@@ -468,7 +474,6 @@ static gint exposeEvent(GtkWidget *widget, GdkEventExpose *event, batt *b) {
 static int
 constructor(plugin *p, char **fp)
 {
-
     ENTER;
 
     batt *b;
@@ -614,29 +619,12 @@ constructor(plugin *p, char **fp)
 
     /* Start the update loop */
     b->timer = g_timeout_add(strToInterval(b->updateInterval),
-            (GSourceFunc) update, (gpointer) b);
+            (GSourceFunc) update_timout, (gpointer) b);
 
     RET(TRUE);
 
 error:
-    g_object_unref(b->bg);
-    g_object_unref(b->gc1);
-    g_object_unref(b->gc2);
-    g_free(b->alarmCommand);
-    g_free(b->backgroundColor);
-    g_free(b->chargingColor1);
-    g_free(b->chargingColor2);
-    g_free(b->dischargingColor1);
-    g_free(b->dischargingColor2);
-    g_free(b->background);
-    g_free(b->charging1);
-    g_free(b->charging2);
-    g_free(b->discharging1);
-    g_free(b->discharging2);
-    g_free(b->rateSamples);
-    g_free(b->updateInterval);
-    sem_destroy(&(b->alarmProcessLock));
-    g_free(b);
+    destructor( p );
     RET(FALSE);
 }
 
@@ -644,13 +632,14 @@ error:
 static void
 destructor(plugin *p)
 {
-
     ENTER;
 
     batt *b = (batt *) p->priv;
+    gtk_widget_destroy( b->eventBox );
 
-    g_object_unref(b->pixmap);
-    g_object_unref(b->bg);
+    if (b->pixmap)
+        g_object_unref(b->pixmap);
+
     g_object_unref(b->gc1);
     g_object_unref(b->gc2);
     g_free(b->alarmCommand);
@@ -729,7 +718,7 @@ static void applyConfig(plugin* p)
     /* Restart the update loop with a new interval */
     g_source_remove(b->timer);
     b->timer = g_timeout_add(strToInterval(b->updateInterval),
-            (GSourceFunc) update, (gpointer) b);
+            (GSourceFunc) update_timout, (gpointer) b);
 
     /* Resize the widget */
     if (b->orientation == ORIENT_HORIZ)

@@ -213,7 +213,7 @@ plugin_load(char *type)
             pc = plugin_load_dynamic( type, path );
         }
     }
-#endif 	/* DISABLE_PLUGINS_LOADING */
+#endif  /* DISABLE_PLUGINS_LOADING */
 
     /* nothing was found */
     if (!pc)
