@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel-0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-17 17:57+0800\n"
+"POT-Creation-Date: 2008-02-20 00:33+0800\n"
 "PO-Revision-Date: 2006-11-27 00:13+0800\n"
 "Last-Translator: 洪任諭 <pcman.tw@gmail.com>\n"
 "Language-Team: hu <hu@li.org>\n"
@@ -18,232 +18,232 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-Language: Hungarian\n"
 
-#: ../src/configurator.c:44
+#: ../src/configurator.c:45
 msgid "Preferences"
 msgstr "Jellemzők"
 
-#: ../src/configurator.c:45 ../src/gtk-run.c:112
+#: ../src/configurator.c:46 ../src/gtk-run.c:112
 msgid "Run"
 msgstr "Futtat"
 
-#: ../src/configurator.c:46
+#: ../src/configurator.c:47
 msgid "Restart"
 msgstr "Újraindít"
 
-#: ../src/configurator.c:47
+#: ../src/configurator.c:48
 msgid "Logout"
 msgstr "Kijelentkezés"
 
-#: ../src/configurator.c:210
+#: ../src/configurator.c:211
 msgid "<b>Position</b>"
 msgstr "<b>Helyzet</b>"
 
 #. Edge
-#: ../src/configurator.c:227
+#: ../src/configurator.c:228
 msgid "Edge:"
 msgstr "Szél:"
 
-#: ../src/configurator.c:234 ../src/configurator.c:258
+#: ../src/configurator.c:235 ../src/configurator.c:259
 msgid "Left"
 msgstr "Balra"
 
-#: ../src/configurator.c:235 ../src/configurator.c:260
+#: ../src/configurator.c:236 ../src/configurator.c:261
 msgid "Right"
 msgstr "Jobbra"
 
-#: ../src/configurator.c:236
+#: ../src/configurator.c:237
 msgid "Top"
 msgstr "Fel"
 
-#: ../src/configurator.c:237
+#: ../src/configurator.c:238
 msgid "Bottom"
 msgstr "Le"
 
 #. Alignment
-#: ../src/configurator.c:250
+#: ../src/configurator.c:251
 msgid "Alignment:"
 msgstr "Igazítás"
 
-#: ../src/configurator.c:259
+#: ../src/configurator.c:260
 msgid "Center"
 msgstr "Közép"
 
 #. Margin
-#: ../src/configurator.c:272
+#: ../src/configurator.c:273
 msgid "Margin:"
 msgstr "Margó"
 
-#: ../src/configurator.c:343
+#: ../src/configurator.c:344
 msgid "<b>Size</b>"
 msgstr "<b>Méret</b>"
 
 #. width
-#: ../src/configurator.c:360
+#: ../src/configurator.c:361
 msgid "Width:"
 msgstr "Szélesség:"
 
-#: ../src/configurator.c:374
+#: ../src/configurator.c:375
 msgid "dynamic"
 msgstr "dinamikus"
 
-#: ../src/configurator.c:375 ../src/configurator.c:403
+#: ../src/configurator.c:376 ../src/configurator.c:404
 msgid "pixels"
 msgstr "képpontok"
 
-#: ../src/configurator.c:376
+#: ../src/configurator.c:377
 #, c-format
 msgid "% of edge"
 msgstr "% a széléből"
 
 #. height
-#: ../src/configurator.c:389
+#: ../src/configurator.c:390
 msgid "Height:"
 msgstr "Magasság:"
 
-#: ../src/configurator.c:438
+#: ../src/configurator.c:444
 msgid "Enable Transparency"
 msgstr "Átlátszóság bekapcsolva"
 
-#: ../src/configurator.c:442
+#: ../src/configurator.c:448
 msgid "Tint color:"
 msgstr ""
 
-#: ../src/configurator.c:493
+#: ../src/configurator.c:506
 msgid "Enable Image:"
 msgstr ""
 
-#: ../src/configurator.c:496
+#: ../src/configurator.c:509
 msgid "Select a background image file"
 msgstr ""
 
-#: ../src/configurator.c:536
+#: ../src/configurator.c:553
 msgid "<b>Background</b>"
 msgstr ""
 
 #. Disable Background option
-#: ../src/configurator.c:551
+#: ../src/configurator.c:568
 msgid "None (Use system theme)"
 msgstr ""
 
-#: ../src/configurator.c:611
+#: ../src/configurator.c:627
 msgid "<b>Properties</b>"
 msgstr "<b>Tulajdonságok</b>"
 
-#: ../src/configurator.c:633
+#: ../src/configurator.c:649
 msgid "Make window managers treat the panel as dock"
 msgstr ""
 
-#: ../src/configurator.c:649
+#: ../src/configurator.c:665
 msgid "Reserve space, and not covered by maximized windows"
 msgstr ""
 
-#: ../src/configurator.c:704
+#: ../src/configurator.c:720
 msgid "Currently loaded plugins"
 msgstr "A most betöltött beillesztések"
 
-#: ../src/configurator.c:794
+#: ../src/configurator.c:810
 msgid "Add plugin to panel"
 msgstr ""
 
-#: ../src/configurator.c:820
+#: ../src/configurator.c:837
 msgid "Available plugins"
 msgstr ""
 
-#: ../src/configurator.c:1093
+#: ../src/configurator.c:1110
 msgid "<b>Set Preferred Applications</b>"
 msgstr ""
 
-#: ../src/configurator.c:1103
+#: ../src/configurator.c:1120
 msgid "File Manager:"
 msgstr ""
 
-#: ../src/configurator.c:1115
+#: ../src/configurator.c:1133
 msgid "Terminal Emulator:"
 msgstr ""
 
-#: ../src/configurator.c:1129
+#: ../src/configurator.c:1148
 msgid "Logout Command:"
 msgstr ""
 
-#: ../src/configurator.c:1151
+#: ../src/configurator.c:1170
 msgid "lxpanel configurator"
 msgstr "lxpanel beállító"
 
-#: ../src/configurator.c:1176
+#: ../src/configurator.c:1196
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr "Általános"
 
-#: ../src/configurator.c:1181
+#: ../src/configurator.c:1201
 msgid "Plugins"
 msgstr "Beillesztések"
 
-#: ../src/configurator.c:1186
+#: ../src/configurator.c:1206
 msgid "Applications"
 msgstr ""
 
-#: ../src/configurator.c:1322
+#: ../src/configurator.c:1362
 msgid "Logout command is not set"
 msgstr "Nincs beállítva kijelentkező parancs"
 
-#: ../src/panel.c:815
+#: ../src/panel.c:816
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - könnyű GTK2+ panel UNIXos jellegű asztalokhoz\n"
 
-#: ../src/panel.c:816
+#: ../src/panel.c:817
 #, c-format
 msgid "Command line options:\n"
 msgstr "Parancssori lehetőségek:\n"
 
-#: ../src/panel.c:817
+#: ../src/panel.c:818
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- kiírja e súgót és kilép\n"
 
-#: ../src/panel.c:818
+#: ../src/panel.c:819
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- kiírja a verziót és kilép\n"
 
-#: ../src/panel.c:819
+#: ../src/panel.c:820
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 " --log <szám> -- napló szint beállítása 0 és 5 között. 0 - üres 5 - "
 "csacsogó\n"
 
-#: ../src/panel.c:820
+#: ../src/panel.c:821
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- beállító eszköz indítása\n"
 
-#: ../src/panel.c:821
+#: ../src/panel.c:822
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- adott profil használata\n"
 
-#: ../src/panel.c:823
+#: ../src/panel.c:824
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- ugyanaz, mint a --help\n"
 
-#: ../src/panel.c:824
+#: ../src/panel.c:825
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- ugyanaz, mint a --profile\n"
 
-#: ../src/panel.c:825
+#: ../src/panel.c:826
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- ugyanaz, mint a --version\n"
 
-#: ../src/panel.c:826
+#: ../src/panel.c:827
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- ugyanaz, mint a --configure\n"
 
-#: ../src/panel.c:827
+#: ../src/panel.c:828
 #, c-format
 msgid ""
 "\n"
@@ -286,63 +286,63 @@ msgstr "Munkaterület szám kiírása: cmeury@users.sf.net"
 #. 1. We can borrow the menu from menu plugin (PtkAppMenu).
 #. 2. We can borrow the app chooser from PCManFM.
 #.
-#: ../src/plugins/launchbar.c:498
+#: ../src/plugins/launchbar.c:502
 msgid "Select Application"
 msgstr ""
 
-#: ../src/plugins/launchbar.c:647
+#: ../src/plugins/launchbar.c:651
 msgid "Buttons"
 msgstr ""
 
-#: ../src/plugins/launchbar.c:760
+#: ../src/plugins/launchbar.c:764
 msgid "Application Launch Bar"
 msgstr "Alkalmazás-indító sáv"
 
-#: ../src/plugins/launchbar.c:762
+#: ../src/plugins/launchbar.c:766
 msgid "Bar with buttons to launch application"
 msgstr "Alkalmazás-indító gomb sáv"
 
-#: ../src/plugins/ptk-app-menu.c:154
+#: ../src/plugins/ptk-app-menu.c:147
 msgid "Other"
 msgstr "Egyéb"
 
-#: ../src/plugins/ptk-app-menu.c:155
+#: ../src/plugins/ptk-app-menu.c:148
 msgid "Game"
 msgstr "Játék"
 
-#: ../src/plugins/ptk-app-menu.c:156
+#: ../src/plugins/ptk-app-menu.c:149
 msgid "Education"
 msgstr "Oktatás"
 
-#: ../src/plugins/ptk-app-menu.c:157
+#: ../src/plugins/ptk-app-menu.c:150
 msgid "Development"
 msgstr "Fejlesztés"
 
-#: ../src/plugins/ptk-app-menu.c:158
+#: ../src/plugins/ptk-app-menu.c:151
 msgid "Audio & Video"
 msgstr "Hang és mozgókép"
 
-#: ../src/plugins/ptk-app-menu.c:159
+#: ../src/plugins/ptk-app-menu.c:152
 msgid "Graphics"
 msgstr "Grafika"
 
-#: ../src/plugins/ptk-app-menu.c:160
+#: ../src/plugins/ptk-app-menu.c:153
 msgid "Settings"
 msgstr "Beállítások"
 
-#: ../src/plugins/ptk-app-menu.c:161
+#: ../src/plugins/ptk-app-menu.c:154
 msgid "System Tools"
 msgstr "Rendszereszközök"
 
-#: ../src/plugins/ptk-app-menu.c:162
+#: ../src/plugins/ptk-app-menu.c:155
 msgid "Network"
 msgstr "Hálózat"
 
-#: ../src/plugins/ptk-app-menu.c:163
+#: ../src/plugins/ptk-app-menu.c:156
 msgid "Office"
 msgstr "Iroda"
 
-#: ../src/plugins/ptk-app-menu.c:164
+#: ../src/plugins/ptk-app-menu.c:157
 msgid "Accessories"
 msgstr "Kellékek"
 
@@ -420,11 +420,11 @@ msgstr "Feladat gomb maximális mérete"
 msgid "Spacing"
 msgstr "Térköz"
 
-#: ../src/plugins/taskbar.c:1553
+#: ../src/plugins/taskbar.c:1556
 msgid "Task Bar (Window List)"
 msgstr "Feladatsáv (ablak lista)"
 
-#: ../src/plugins/taskbar.c:1555
+#: ../src/plugins/taskbar.c:1558
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -456,11 +456,11 @@ msgstr "Digitális óra"
 msgid "Display Digital clock and Tooltip"
 msgstr "Digitális óra és eszköztipp mutatása"
 
-#: ../src/plugins/menu.c:556
+#: ../src/plugins/menu.c:589
 msgid "Menu"
 msgstr "Menü"
 
-#: ../src/plugins/menu.c:558
+#: ../src/plugins/menu.c:591
 msgid "Provide Menu"
 msgstr ""
 
@@ -484,7 +484,7 @@ msgstr "Asztali lapozó"
 msgid "Simple pager plugin"
 msgstr "Egyszerű lapozó beillesztés"
 
-#: ../src/plugins/space.c:113 ../src/plugins/batt/batt.c:764
+#: ../src/plugins/space.c:113 ../src/plugins/batt/batt.c:753
 msgid "Size"
 msgstr "Méret"
 
@@ -512,15 +512,15 @@ msgstr ""
 "Parancsokat küld az összes asztali ablaknak.\n"
 " Támogatott parancsok: 1) ikon állapot váltása és 2) árnyékolás váltása"
 
-#: ../src/plugins/dirmenu.c:183
+#: ../src/plugins/dirmenu.c:207
 msgid "Open in _Terminal"
 msgstr ""
 
-#: ../src/plugins/dirmenu.c:349
+#: ../src/plugins/dirmenu.c:373
 msgid "Directory Menu"
 msgstr ""
 
-#: ../src/plugins/dirmenu.c:351
+#: ../src/plugins/dirmenu.c:375
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr ""
 
@@ -725,48 +725,48 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../src/plugins/batt/batt.c:755
+#: ../src/plugins/batt/batt.c:744
 msgid "Alarm command"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:756
+#: ../src/plugins/batt/batt.c:745
 msgid "Alarm time (minutes left)"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:757
+#: ../src/plugins/batt/batt.c:746
 msgid "Update interval (seconds)"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:758
+#: ../src/plugins/batt/batt.c:747
 msgid "Background color"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:759
+#: ../src/plugins/batt/batt.c:748
 msgid "Charging color 1"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:760
+#: ../src/plugins/batt/batt.c:749
 msgid "Charging color 2"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:761
+#: ../src/plugins/batt/batt.c:750
 msgid "Discharging color 1"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:762
+#: ../src/plugins/batt/batt.c:751
 msgid "Discharging color 2"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:763
+#: ../src/plugins/batt/batt.c:752
 msgid "Border width"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:800
+#: ../src/plugins/batt/batt.c:789
 #, fuzzy
 msgid "Battery Monitor"
 msgstr "CPU használat figyelő"
 
-#: ../src/plugins/batt/batt.c:802
+#: ../src/plugins/batt/batt.c:791
 msgid "Display battery status using ACPI"
 msgstr ""
 

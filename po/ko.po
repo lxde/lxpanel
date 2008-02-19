@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-17 17:57+0800\n"
+"POT-Creation-Date: 2008-02-20 00:33+0800\n"
 "PO-Revision-Date: 2006-11-27 00:13+0800\n"
 "Last-Translator: 洪任諭 <pcman.tw@gmail.com>\n"
 "Language-Team: GNOME Korean Team <gnome-kr-hackers@lists.kldp.net>\n"
@@ -16,232 +16,232 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../src/configurator.c:44
+#: ../src/configurator.c:45
 msgid "Preferences"
 msgstr "속성"
 
-#: ../src/configurator.c:45 ../src/gtk-run.c:112
+#: ../src/configurator.c:46 ../src/gtk-run.c:112
 msgid "Run"
 msgstr "실행"
 
-#: ../src/configurator.c:46
+#: ../src/configurator.c:47
 msgid "Restart"
 msgstr "다시 시작"
 
-#: ../src/configurator.c:47
+#: ../src/configurator.c:48
 msgid "Logout"
 msgstr ""
 
-#: ../src/configurator.c:210
+#: ../src/configurator.c:211
 msgid "<b>Position</b>"
 msgstr "<b>자리</b>"
 
 #. Edge
-#: ../src/configurator.c:227
+#: ../src/configurator.c:228
 msgid "Edge:"
 msgstr "자리:"
 
-#: ../src/configurator.c:234 ../src/configurator.c:258
+#: ../src/configurator.c:235 ../src/configurator.c:259
 msgid "Left"
 msgstr "왼쪽"
 
-#: ../src/configurator.c:235 ../src/configurator.c:260
+#: ../src/configurator.c:236 ../src/configurator.c:261
 msgid "Right"
 msgstr "오른쪽"
 
-#: ../src/configurator.c:236
+#: ../src/configurator.c:237
 msgid "Top"
 msgstr "위쪽"
 
-#: ../src/configurator.c:237
+#: ../src/configurator.c:238
 msgid "Bottom"
 msgstr "아래쪽"
 
 #. Alignment
-#: ../src/configurator.c:250
+#: ../src/configurator.c:251
 msgid "Alignment:"
 msgstr "배치:"
 
-#: ../src/configurator.c:259
+#: ../src/configurator.c:260
 msgid "Center"
 msgstr "가운데"
 
 #. Margin
-#: ../src/configurator.c:272
+#: ../src/configurator.c:273
 msgid "Margin:"
 msgstr "띄우기:"
 
-#: ../src/configurator.c:343
+#: ../src/configurator.c:344
 msgid "<b>Size</b>"
 msgstr "<b>크기</b>"
 
 #. width
-#: ../src/configurator.c:360
+#: ../src/configurator.c:361
 msgid "Width:"
 msgstr "너비"
 
-#: ../src/configurator.c:374
+#: ../src/configurator.c:375
 msgid "dynamic"
 msgstr "가변폭"
 
-#: ../src/configurator.c:375 ../src/configurator.c:403
+#: ../src/configurator.c:376 ../src/configurator.c:404
 msgid "pixels"
 msgstr "픽셀"
 
-#: ../src/configurator.c:376
+#: ../src/configurator.c:377
 #, c-format
 msgid "% of edge"
 msgstr "비율"
 
 #. height
-#: ../src/configurator.c:389
+#: ../src/configurator.c:390
 msgid "Height:"
 msgstr "높이:"
 
-#: ../src/configurator.c:438
+#: ../src/configurator.c:444
 msgid "Enable Transparency"
 msgstr "투명하게"
 
-#: ../src/configurator.c:442
+#: ../src/configurator.c:448
 msgid "Tint color:"
 msgstr "색조:"
 
-#: ../src/configurator.c:493
+#: ../src/configurator.c:506
 msgid "Enable Image:"
 msgstr ""
 
-#: ../src/configurator.c:496
+#: ../src/configurator.c:509
 msgid "Select a background image file"
 msgstr ""
 
-#: ../src/configurator.c:536
+#: ../src/configurator.c:553
 msgid "<b>Background</b>"
 msgstr ""
 
 #. Disable Background option
-#: ../src/configurator.c:551
+#: ../src/configurator.c:568
 msgid "None (Use system theme)"
 msgstr ""
 
-#: ../src/configurator.c:611
+#: ../src/configurator.c:627
 msgid "<b>Properties</b>"
 msgstr "<b>속성</b>"
 
-#: ../src/configurator.c:633
+#: ../src/configurator.c:649
 msgid "Make window managers treat the panel as dock"
 msgstr ""
 
-#: ../src/configurator.c:649
+#: ../src/configurator.c:665
 msgid "Reserve space, and not covered by maximized windows"
 msgstr ""
 
-#: ../src/configurator.c:704
+#: ../src/configurator.c:720
 msgid "Currently loaded plugins"
 msgstr "지금 쓰는 플러그인"
 
-#: ../src/configurator.c:794
+#: ../src/configurator.c:810
 msgid "Add plugin to panel"
 msgstr ""
 
-#: ../src/configurator.c:820
+#: ../src/configurator.c:837
 msgid "Available plugins"
 msgstr ""
 
-#: ../src/configurator.c:1093
+#: ../src/configurator.c:1110
 msgid "<b>Set Preferred Applications</b>"
 msgstr ""
 
-#: ../src/configurator.c:1103
+#: ../src/configurator.c:1120
 msgid "File Manager:"
 msgstr ""
 
-#: ../src/configurator.c:1115
+#: ../src/configurator.c:1133
 msgid "Terminal Emulator:"
 msgstr ""
 
-#: ../src/configurator.c:1129
+#: ../src/configurator.c:1148
 msgid "Logout Command:"
 msgstr ""
 
-#: ../src/configurator.c:1151
+#: ../src/configurator.c:1170
 msgid "lxpanel configurator"
 msgstr "가벼운 패널 설정"
 
-#: ../src/configurator.c:1176
+#: ../src/configurator.c:1196
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr "일반"
 
-#: ../src/configurator.c:1181
+#: ../src/configurator.c:1201
 msgid "Plugins"
 msgstr "플러그인"
 
-#: ../src/configurator.c:1186
+#: ../src/configurator.c:1206
 msgid "Applications"
 msgstr ""
 
-#: ../src/configurator.c:1322
+#: ../src/configurator.c:1362
 msgid "Logout command is not set"
 msgstr ""
 
-#: ../src/panel.c:815
+#: ../src/panel.c:816
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - GTK2+를 쓴 유닉스 환경의 가벼운 패널\n"
 
-#: ../src/panel.c:816
+#: ../src/panel.c:817
 #, c-format
 msgid "Command line options:\n"
 msgstr "명령줄 옵션:\n"
 
-#: ../src/panel.c:817
+#: ../src/panel.c:818
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- 도움말이 나오고 끝납니다\n"
 
-#: ../src/panel.c:818
+#: ../src/panel.c:819
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- 버전이 나오고 끝납니다\n"
 
-#: ../src/panel.c:819
+#: ../src/panel.c:820
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 " --log <숫자>   -- 기록 수준을 0부터 5까지 정합니다. 0은 조용하고 5는 수다쟁"
 "이\n"
 
-#: ../src/panel.c:820
+#: ../src/panel.c:821
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- 설정창을 띄웁니다\n"
 
-#: ../src/panel.c:821
+#: ../src/panel.c:822
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile 이름 -- 지정한 프로파일을 씁니다\n"
 
-#: ../src/panel.c:823
+#: ../src/panel.c:824
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- --help와 같습니다\n"
 
-#: ../src/panel.c:824
+#: ../src/panel.c:825
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- --profile과 같습니다\n"
 
-#: ../src/panel.c:825
+#: ../src/panel.c:826
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- --version과 같습니다\n"
 
-#: ../src/panel.c:826
+#: ../src/panel.c:827
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- --configure와 같습니다\n"
 
-#: ../src/panel.c:827
+#: ../src/panel.c:828
 #, c-format
 msgid ""
 "\n"
@@ -284,63 +284,63 @@ msgstr "작업공간 번호를 표시합니다. cmeury@users.sf.net 제작"
 #. 1. We can borrow the menu from menu plugin (PtkAppMenu).
 #. 2. We can borrow the app chooser from PCManFM.
 #.
-#: ../src/plugins/launchbar.c:498
+#: ../src/plugins/launchbar.c:502
 msgid "Select Application"
 msgstr ""
 
-#: ../src/plugins/launchbar.c:647
+#: ../src/plugins/launchbar.c:651
 msgid "Buttons"
 msgstr ""
 
-#: ../src/plugins/launchbar.c:760
+#: ../src/plugins/launchbar.c:764
 msgid "Application Launch Bar"
 msgstr "실행 막대"
 
-#: ../src/plugins/launchbar.c:762
+#: ../src/plugins/launchbar.c:766
 msgid "Bar with buttons to launch application"
 msgstr "응용 프로그램을 실행하는 버튼들입니다"
 
-#: ../src/plugins/ptk-app-menu.c:154
+#: ../src/plugins/ptk-app-menu.c:147
 msgid "Other"
 msgstr "기타"
 
-#: ../src/plugins/ptk-app-menu.c:155
+#: ../src/plugins/ptk-app-menu.c:148
 msgid "Game"
 msgstr "놀이"
 
-#: ../src/plugins/ptk-app-menu.c:156
+#: ../src/plugins/ptk-app-menu.c:149
 msgid "Education"
 msgstr "교육"
 
-#: ../src/plugins/ptk-app-menu.c:157
+#: ../src/plugins/ptk-app-menu.c:150
 msgid "Development"
 msgstr "개발"
 
-#: ../src/plugins/ptk-app-menu.c:158
+#: ../src/plugins/ptk-app-menu.c:151
 msgid "Audio & Video"
 msgstr "멀티미디어"
 
-#: ../src/plugins/ptk-app-menu.c:159
+#: ../src/plugins/ptk-app-menu.c:152
 msgid "Graphics"
 msgstr "그림"
 
-#: ../src/plugins/ptk-app-menu.c:160
+#: ../src/plugins/ptk-app-menu.c:153
 msgid "Settings"
 msgstr "설정"
 
-#: ../src/plugins/ptk-app-menu.c:161
+#: ../src/plugins/ptk-app-menu.c:154
 msgid "System Tools"
 msgstr "시스템 도구"
 
-#: ../src/plugins/ptk-app-menu.c:162
+#: ../src/plugins/ptk-app-menu.c:155
 msgid "Network"
 msgstr "네트워크"
 
-#: ../src/plugins/ptk-app-menu.c:163
+#: ../src/plugins/ptk-app-menu.c:156
 msgid "Office"
 msgstr "사무"
 
-#: ../src/plugins/ptk-app-menu.c:164
+#: ../src/plugins/ptk-app-menu.c:157
 msgid "Accessories"
 msgstr "기타"
 
@@ -418,11 +418,11 @@ msgstr "작업 버튼의 최대 너비"
 msgid "Spacing"
 msgstr "사이 띄우기"
 
-#: ../src/plugins/taskbar.c:1553
+#: ../src/plugins/taskbar.c:1556
 msgid "Task Bar (Window List)"
 msgstr "창 목록"
 
-#: ../src/plugins/taskbar.c:1555
+#: ../src/plugins/taskbar.c:1558
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -454,11 +454,11 @@ msgstr "숫자 시계"
 msgid "Display Digital clock and Tooltip"
 msgstr "숫자 시계와 툴팁을 보여줍니다"
 
-#: ../src/plugins/menu.c:556
+#: ../src/plugins/menu.c:589
 msgid "Menu"
 msgstr "메뉴"
 
-#: ../src/plugins/menu.c:558
+#: ../src/plugins/menu.c:591
 msgid "Provide Menu"
 msgstr ""
 
@@ -482,7 +482,7 @@ msgstr "pager"
 msgid "Simple pager plugin"
 msgstr "간단한 pager 플러그인"
 
-#: ../src/plugins/space.c:113 ../src/plugins/batt/batt.c:764
+#: ../src/plugins/space.c:113 ../src/plugins/batt/batt.c:753
 msgid "Size"
 msgstr "크기"
 
@@ -509,15 +509,15 @@ msgid ""
 "Supported commnds are 1)toggle iconify and 2) toggle shade"
 msgstr ""
 
-#: ../src/plugins/dirmenu.c:183
+#: ../src/plugins/dirmenu.c:207
 msgid "Open in _Terminal"
 msgstr ""
 
-#: ../src/plugins/dirmenu.c:349
+#: ../src/plugins/dirmenu.c:373
 msgid "Directory Menu"
 msgstr ""
 
-#: ../src/plugins/dirmenu.c:351
+#: ../src/plugins/dirmenu.c:375
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr ""
 
@@ -718,48 +718,48 @@ msgid ""
 "%s"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:755
+#: ../src/plugins/batt/batt.c:744
 msgid "Alarm command"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:756
+#: ../src/plugins/batt/batt.c:745
 msgid "Alarm time (minutes left)"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:757
+#: ../src/plugins/batt/batt.c:746
 msgid "Update interval (seconds)"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:758
+#: ../src/plugins/batt/batt.c:747
 msgid "Background color"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:759
+#: ../src/plugins/batt/batt.c:748
 msgid "Charging color 1"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:760
+#: ../src/plugins/batt/batt.c:749
 msgid "Charging color 2"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:761
+#: ../src/plugins/batt/batt.c:750
 msgid "Discharging color 1"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:762
+#: ../src/plugins/batt/batt.c:751
 msgid "Discharging color 2"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:763
+#: ../src/plugins/batt/batt.c:752
 msgid "Border width"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:800
+#: ../src/plugins/batt/batt.c:789
 #, fuzzy
 msgid "Battery Monitor"
 msgstr "CPU 사용 감시"
 
-#: ../src/plugins/batt/batt.c:802
+#: ../src/plugins/batt/batt.c:791
 msgid "Display battery status using ACPI"
 msgstr ""
 

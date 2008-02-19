@@ -1,251 +1,244 @@
 # translation of zh_TW.po to
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Copyright (c) 2006-2008 LxDE Developers.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: zh_TW\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-17 17:57+0800\n"
+"POT-Creation-Date: 2008-02-20 00:33+0800\n"
 "PO-Revision-Date: 2008-02-17 18:06+0800\n"
-"Last-Translator: 洪任諭 <pcman.tw@gmail.com>\n"
+"Last-Translator: Jim Huang <jserv.tw@gmail.com>\n"
 "Language-Team:  <en@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Country: TAIWAN\n"
 "X-Poedit-SourceCharset: iso-8859-1\n"
-"X-Generator: KBabel 1.11.4\n"
 
-#: ../src/configurator.c:44
+#: ../src/configurator.c:45
 msgid "Preferences"
 msgstr "偏好設定"
 
-#: ../src/configurator.c:45
-#: ../src/gtk-run.c:112
+#: ../src/configurator.c:46 ../src/gtk-run.c:112
 msgid "Run"
 msgstr "執行"
 
-#: ../src/configurator.c:46
+#: ../src/configurator.c:47
 msgid "Restart"
 msgstr "重新啟動"
 
-#: ../src/configurator.c:47
+#: ../src/configurator.c:48
 msgid "Logout"
 msgstr "登出"
 
-#: ../src/configurator.c:210
+#: ../src/configurator.c:211
 msgid "<b>Position</b>"
 msgstr "<b>位置</b>"
 
 #. Edge
-#: ../src/configurator.c:227
+#: ../src/configurator.c:228
 msgid "Edge:"
 msgstr "吸附邊緣："
 
-#: ../src/configurator.c:234
-#: ../src/configurator.c:258
+#: ../src/configurator.c:235 ../src/configurator.c:259
 msgid "Left"
 msgstr "左"
 
-#: ../src/configurator.c:235
-#: ../src/configurator.c:260
+#: ../src/configurator.c:236 ../src/configurator.c:261
 msgid "Right"
 msgstr "右"
 
-#: ../src/configurator.c:236
+#: ../src/configurator.c:237
 msgid "Top"
 msgstr "上"
 
-#: ../src/configurator.c:237
+#: ../src/configurator.c:238
 msgid "Bottom"
 msgstr "下"
 
 #. Alignment
-#: ../src/configurator.c:250
+#: ../src/configurator.c:251
 msgid "Alignment:"
 msgstr "排列方式："
 
-#: ../src/configurator.c:259
+#: ../src/configurator.c:260
 msgid "Center"
 msgstr "置中"
 
 #. Margin
-#: ../src/configurator.c:272
+#: ../src/configurator.c:273
 msgid "Margin:"
 msgstr "留空："
 
-#: ../src/configurator.c:343
+#: ../src/configurator.c:344
 msgid "<b>Size</b>"
 msgstr "<b>大小</b>"
 
 #. width
-#: ../src/configurator.c:360
+#: ../src/configurator.c:361
 msgid "Width:"
 msgstr "寬度："
 
-#: ../src/configurator.c:374
+#: ../src/configurator.c:375
 msgid "dynamic"
 msgstr "動態"
 
-#: ../src/configurator.c:375
-#: ../src/configurator.c:403
+#: ../src/configurator.c:376 ../src/configurator.c:404
 msgid "pixels"
 msgstr "像素 (pixels)"
 
-#: ../src/configurator.c:376
+#: ../src/configurator.c:377
 #, c-format
 msgid "% of edge"
 msgstr "% 百分比"
 
 #. height
-#: ../src/configurator.c:389
+#: ../src/configurator.c:390
 msgid "Height:"
 msgstr "高度："
 
-#: ../src/configurator.c:438
+#: ../src/configurator.c:444
 msgid "Enable Transparency"
 msgstr " 啟用透明效果"
 
-#: ../src/configurator.c:442
+#: ../src/configurator.c:448
 msgid "Tint color:"
 msgstr "色彩："
 
-#: ../src/configurator.c:493
+#: ../src/configurator.c:506
 msgid "Enable Image:"
 msgstr "啟用背景圖："
 
-#: ../src/configurator.c:496
+#: ../src/configurator.c:509
 msgid "Select a background image file"
 msgstr "選擇背景圖片"
 
-#: ../src/configurator.c:536
+#: ../src/configurator.c:553
 msgid "<b>Background</b>"
 msgstr "<b>背景</b>"
 
 #. Disable Background option
-#: ../src/configurator.c:551
+#: ../src/configurator.c:568
 msgid "None (Use system theme)"
 msgstr "無 (使用系統佈景主題)"
 
-#: ../src/configurator.c:611
+#: ../src/configurator.c:627
 msgid "<b>Properties</b>"
 msgstr "<b>屬性</b>"
 
-#: ../src/configurator.c:633
+#: ../src/configurator.c:649
 msgid "Make window managers treat the panel as dock"
 msgstr "讓視窗管理員把面板當成 Dock 處理"
 
-#: ../src/configurator.c:649
+#: ../src/configurator.c:665
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "保留空間，不被最大化視窗覆蓋"
 
-#: ../src/configurator.c:704
+#: ../src/configurator.c:720
 msgid "Currently loaded plugins"
 msgstr "目前載入的外掛"
 
-#: ../src/configurator.c:794
+#: ../src/configurator.c:810
 msgid "Add plugin to panel"
 msgstr "新增外掛到面板"
 
-#: ../src/configurator.c:820
+#: ../src/configurator.c:837
 msgid "Available plugins"
 msgstr "可選用的外掛"
 
-#: ../src/configurator.c:1093
+#: ../src/configurator.c:1110
 msgid "<b>Set Preferred Applications</b>"
 msgstr "<b>設定偏好使用的程式</b>"
 
-#: ../src/configurator.c:1103
+#: ../src/configurator.c:1120
 msgid "File Manager:"
 msgstr "檔案管理員："
 
-#: ../src/configurator.c:1115
+#: ../src/configurator.c:1133
 msgid "Terminal Emulator:"
 msgstr "終端機："
 
-#: ../src/configurator.c:1129
+#: ../src/configurator.c:1148
 msgid "Logout Command:"
 msgstr "登出指令："
 
-#: ../src/configurator.c:1151
+#: ../src/configurator.c:1170
 msgid "lxpanel configurator"
 msgstr "lxpanel 偏好設定"
 
-#: ../src/configurator.c:1176
+#: ../src/configurator.c:1196
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr "一般"
 
-#: ../src/configurator.c:1181
+#: ../src/configurator.c:1201
 msgid "Plugins"
 msgstr "外掛"
 
-#: ../src/configurator.c:1186
+#: ../src/configurator.c:1206
 msgid "Applications"
 msgstr "應用程式"
 
-#: ../src/configurator.c:1322
+#: ../src/configurator.c:1362
 msgid "Logout command is not set"
 msgstr "登出指令尚未設定"
 
-#: ../src/panel.c:815
+#: ../src/panel.c:816
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - UNIX 桌面的輕量級 GTK2+ 工作列\n"
 
-#: ../src/panel.c:816
+#: ../src/panel.c:817
 #, c-format
 msgid "Command line options:\n"
 msgstr "命令列選項：\n"
 
-#: ../src/panel.c:817
+#: ../src/panel.c:818
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- 顯示使用說明並離開\n"
 
-#: ../src/panel.c:818
+#: ../src/panel.c:819
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- 顯示版本資訊並離開\n"
 
-#: ../src/panel.c:819
+#: ../src/panel.c:820
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
+msgstr " --log <數值>   -- 設定程式運作紀錄的層級 (0-5). 0 - 無, 5 - 全部\n"
 
-#: ../src/panel.c:820
+#: ../src/panel.c:821
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- 執行設定工具\n"
 
-#: ../src/panel.c:821
+#: ../src/panel.c:822
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- 指定使用其他設定檔\n"
 
-#: ../src/panel.c:823
+#: ../src/panel.c:824
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- 和 --help 作用相同\n"
 
-#: ../src/panel.c:824
+#: ../src/panel.c:825
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- 和 --profile 作用相同\n"
 
-#: ../src/panel.c:825
+#: ../src/panel.c:826
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- 和 --version 作用相同\n"
 
-#: ../src/panel.c:826
+#: ../src/panel.c:827
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- 和 --configure 作用相同\n"
 
-#: ../src/panel.c:827
+#: ../src/panel.c:828
 #, c-format
 msgid ""
 "\n"
@@ -288,63 +281,63 @@ msgstr "顯示工作區編號，由 cmeury@users.sf.net 撰寫"
 #. 1. We can borrow the menu from menu plugin (PtkAppMenu).
 #. 2. We can borrow the app chooser from PCManFM.
 #.
-#: ../src/plugins/launchbar.c:498
+#: ../src/plugins/launchbar.c:502
 msgid "Select Application"
 msgstr "選擇應用程式"
 
-#: ../src/plugins/launchbar.c:647
+#: ../src/plugins/launchbar.c:651
 msgid "Buttons"
 msgstr "按鈕"
 
-#: ../src/plugins/launchbar.c:760
+#: ../src/plugins/launchbar.c:764
 msgid "Application Launch Bar"
 msgstr "應用程式啟動列"
 
-#: ../src/plugins/launchbar.c:762
+#: ../src/plugins/launchbar.c:766
 msgid "Bar with buttons to launch application"
 msgstr "具有應用程式啟動按鈕的工具列"
 
-#: ../src/plugins/ptk-app-menu.c:154
+#: ../src/plugins/ptk-app-menu.c:147
 msgid "Other"
 msgstr "其他"
 
-#: ../src/plugins/ptk-app-menu.c:155
+#: ../src/plugins/ptk-app-menu.c:148
 msgid "Game"
 msgstr "遊戲"
 
-#: ../src/plugins/ptk-app-menu.c:156
+#: ../src/plugins/ptk-app-menu.c:149
 msgid "Education"
 msgstr "教育"
 
-#: ../src/plugins/ptk-app-menu.c:157
+#: ../src/plugins/ptk-app-menu.c:150
 msgid "Development"
 msgstr "軟體開發"
 
-#: ../src/plugins/ptk-app-menu.c:158
+#: ../src/plugins/ptk-app-menu.c:151
 msgid "Audio & Video"
 msgstr "影音多媒體"
 
-#: ../src/plugins/ptk-app-menu.c:159
+#: ../src/plugins/ptk-app-menu.c:152
 msgid "Graphics"
 msgstr "繪圖"
 
-#: ../src/plugins/ptk-app-menu.c:160
+#: ../src/plugins/ptk-app-menu.c:153
 msgid "Settings"
 msgstr "設定"
 
-#: ../src/plugins/ptk-app-menu.c:161
+#: ../src/plugins/ptk-app-menu.c:154
 msgid "System Tools"
 msgstr "系統工具"
 
-#: ../src/plugins/ptk-app-menu.c:162
+#: ../src/plugins/ptk-app-menu.c:155
 msgid "Network"
 msgstr "網路"
 
-#: ../src/plugins/ptk-app-menu.c:163
+#: ../src/plugins/ptk-app-menu.c:156
 msgid "Office"
 msgstr "辦公軟體"
 
-#: ../src/plugins/ptk-app-menu.c:164
+#: ../src/plugins/ptk-app-menu.c:157
 msgid "Accessories"
 msgstr "附屬應用程式"
 
@@ -422,12 +415,14 @@ msgstr "工作列按鈕最大寬度"
 msgid "Spacing"
 msgstr "間距"
 
-#: ../src/plugins/taskbar.c:1553
+#: ../src/plugins/taskbar.c:1556
 msgid "Task Bar (Window List)"
 msgstr "工作列 (視窗清單)"
 
-#: ../src/plugins/taskbar.c:1555
-msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+#: ../src/plugins/taskbar.c:1558
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
 msgstr "工作列顯示所有開啟的視窗，並讓能視窗最小化、折疊、或取得焦點"
 
 #: ../src/plugins/dclock.c:241
@@ -454,11 +449,11 @@ msgstr "數位時鐘"
 msgid "Display Digital clock and Tooltip"
 msgstr "顯示數位時鐘及在工具提示顯示日期"
 
-#: ../src/plugins/menu.c:556
+#: ../src/plugins/menu.c:589
 msgid "Menu"
 msgstr "選單"
 
-#: ../src/plugins/menu.c:558
+#: ../src/plugins/menu.c:591
 msgid "Provide Menu"
 msgstr "提供選單"
 
@@ -482,8 +477,7 @@ msgstr "切換桌面"
 msgid "Simple pager plugin"
 msgstr "簡易桌面切換外掛"
 
-#: ../src/plugins/space.c:113
-#: ../src/plugins/batt/batt.c:764
+#: ../src/plugins/space.c:113 ../src/plugins/batt/batt.c:753
 msgid "Size"
 msgstr "大小"
 
@@ -511,15 +505,15 @@ msgstr ""
 "發送指令給所有桌面視窗\n"
 "支援的指令  1) 最小化  2) 折疊"
 
-#: ../src/plugins/dirmenu.c:183
+#: ../src/plugins/dirmenu.c:207
 msgid "Open in _Terminal"
 msgstr "在終端機內開啟(_T)"
 
-#: ../src/plugins/dirmenu.c:349
+#: ../src/plugins/dirmenu.c:373
 msgid "Directory Menu"
 msgstr "目錄選單"
 
-#: ../src/plugins/dirmenu.c:351
+#: ../src/plugins/dirmenu.c:375
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "使用選單瀏覽目錄 (作者：PCMan)"
 
@@ -725,58 +719,61 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../src/plugins/batt/batt.c:755
+#: ../src/plugins/batt/batt.c:744
 msgid "Alarm command"
 msgstr "發出警示時要執行的命令"
 
-#: ../src/plugins/batt/batt.c:756
+#: ../src/plugins/batt/batt.c:745
 msgid "Alarm time (minutes left)"
 msgstr "電池剩餘時間低於此數值時警示 (分鐘)"
 
-#: ../src/plugins/batt/batt.c:757
+#: ../src/plugins/batt/batt.c:746
 msgid "Update interval (seconds)"
 msgstr "更新頻率 (秒)"
 
-#: ../src/plugins/batt/batt.c:758
+#: ../src/plugins/batt/batt.c:747
 msgid "Background color"
 msgstr "背景顏色"
 
-#: ../src/plugins/batt/batt.c:759
+#: ../src/plugins/batt/batt.c:748
 msgid "Charging color 1"
 msgstr "充電顯示顏色 1"
 
-#: ../src/plugins/batt/batt.c:760
+#: ../src/plugins/batt/batt.c:749
 msgid "Charging color 2"
 msgstr "充電顯示顏色 2"
 
-#: ../src/plugins/batt/batt.c:761
+#: ../src/plugins/batt/batt.c:750
 msgid "Discharging color 1"
 msgstr "放電顯示顏色 1"
 
-#: ../src/plugins/batt/batt.c:762
+#: ../src/plugins/batt/batt.c:751
 msgid "Discharging color 2"
 msgstr "放電顯示顏色 2"
 
-#: ../src/plugins/batt/batt.c:763
+#: ../src/plugins/batt/batt.c:752
 msgid "Border width"
 msgstr "邊框寬度"
 
-#: ../src/plugins/batt/batt.c:800
+#: ../src/plugins/batt/batt.c:789
 msgid "Battery Monitor"
 msgstr "電池電量顯示"
 
-#: ../src/plugins/batt/batt.c:802
+#: ../src/plugins/batt/batt.c:791
 msgid "Display battery status using ACPI"
 msgstr "透過 ACPI 顯示電池狀態"
 
 #~ msgid "<b>Transparency</b>"
 #~ msgstr "<b>透明度</b>"
+
 #~ msgid "Icons"
 #~ msgstr "圖示"
+
 #~ msgid "Change window icons"
 #~ msgstr "更換視窗圖示"
+
 #~ msgid "_Open"
 #~ msgstr "開啟(_O)"
+
 #~ msgid "Set Dock Type"
 #~ msgstr "設定停駐型態"
-
