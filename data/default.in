@@ -216,6 +216,15 @@ Plugin {
     }
 }
 
+# Net Status (Linux Only)
+#
+#Plugin {
+#    type = netstat
+#    config {
+#        FixCommand = /sbin/netctl %s renew
+#    }
+#}
+
 # CPU monitor
 Plugin {
     type = cpu
