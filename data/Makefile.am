@@ -37,7 +37,13 @@ lxpanel_images_DATA = \
 	images/gnome-util.png \
 	images/background.png \
 	images/volume.png \
-	images/mute.png
+	images/mute.png \
+	images/ns-bothrs.png \
+	images/ns-connected.png \
+	images/ns-disconnect.png \
+	images/ns-problem.png \
+	images/ns-recvdata.png \
+	images/ns-senddata.png
 
 
 lxpanel_imagesdir = $(datadir)/lxpanel/images
