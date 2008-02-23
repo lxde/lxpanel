@@ -21,7 +21,7 @@
  * Modified by the GTK+ Team and others 1997-2000.  See the AUTHORS
  * file for a list of people on the GTK+ Team.  See the ChangeLog
  * files for a list of changes.  These files are distributed with
- * GTK+ at ftp://ftp.gtk.org/pub/gtk/. 
+ * GTK+ at ftp://ftp.gtk.org/pub/gtk/.
  */
 
 #include <string.h>
@@ -79,13 +79,13 @@ gtk_bgbox_get_type (void)
         static const GTypeInfo bgbox_info =
             {
                 sizeof (GtkBgboxClass),
-                NULL,		/* base_init */
-                NULL,		/* base_finalize */
+                NULL,       /* base_init */
+                NULL,       /* base_finalize */
                 (GClassInitFunc) gtk_bgbox_class_init,
-                NULL,		/* class_finalize */
-                NULL,		/* class_data */
+                NULL,       /* class_finalize */
+                NULL,       /* class_data */
                 sizeof (GtkBgbox),
-                0,		/* n_preallocs */
+                0,      /* n_preallocs */
                 (GInstanceInitFunc) gtk_bgbox_init,
             };
 
@@ -122,7 +122,7 @@ gtk_bgbox_init (GtkBgbox *bgbox)
     GtkBgboxPrivate *priv;
 
     GTK_WIDGET_UNSET_FLAGS (bgbox, GTK_NO_WINDOW);
- 
+
     priv = GTK_BGBOX_GET_PRIVATE (bgbox);
     priv->bg_type = BG_NONE;
 }
@@ -172,7 +172,7 @@ gtk_bgbox_realize (GtkWidget *widget)
     GTK_WIDGET_SET_FLAGS (widget, GTK_REALIZED);
 
     border_width = GTK_CONTAINER (widget)->border_width;
-  
+
     attributes.x = widget->allocation.x + border_width;
     attributes.y = widget->allocation.y + border_width;
     attributes.width = widget->allocation.width - 2*border_width;
@@ -187,13 +187,13 @@ gtk_bgbox_realize (GtkWidget *widget)
         | GDK_LEAVE_NOTIFY_MASK;
 
     priv = GTK_BGBOX_GET_PRIVATE (widget);
-  
+
     attributes.visual = gtk_widget_get_visual (widget);
     attributes.colormap = gtk_widget_get_colormap (widget);
     attributes.wclass = GDK_INPUT_OUTPUT;
-    
+
     attributes_mask = GDK_WA_X | GDK_WA_Y | GDK_WA_VISUAL | GDK_WA_COLORMAP;
-      
+
     widget->window = gdk_window_new (gtk_widget_get_parent_window (widget),
           &attributes, attributes_mask);
     gdk_window_set_user_data (widget->window, widget);
@@ -225,7 +225,7 @@ gtk_bgbox_configure_event (GtkWidget *widget, GdkEventConfigure *e)
     ENTER;
     DBG("geom: size (%d, %d). pos (%d, %d)\n", e->width, e->height, e->x, e->y);
     RET(FALSE);
-    
+
 }
 
 static void
@@ -239,7 +239,7 @@ gtk_bgbox_size_request (GtkWidget *widget, GtkRequisition *requisition)
     if (bin->child && GTK_WIDGET_VISIBLE (bin->child))
     {
         GtkRequisition child_requisition;
-      
+
         gtk_widget_size_request (bin->child, &child_requisition);
 
         requisition->width += child_requisition.width;
@@ -259,7 +259,7 @@ gtk_bgbox_size_allocate (GtkWidget *widget, GtkAllocation *wa)
     GtkAllocation ca;
     GtkBgboxPrivate *priv;
     int same_alloc, border;
-  
+
     ENTER;
     same_alloc = !memcmp(&widget->allocation, wa, sizeof(*wa));
     DBG("same alloc = %d\n", same_alloc);
@@ -273,7 +273,7 @@ gtk_bgbox_size_allocate (GtkWidget *widget, GtkAllocation *wa)
     ca.y = border;
     ca.width  = MAX (wa->width  - border * 2, 0);
     ca.height = MAX (wa->height - border * 2, 0);
- 
+
     if (GTK_WIDGET_REALIZED (widget) && !GTK_WIDGET_NO_WINDOW (widget)
           && !same_alloc) {
         priv = GTK_BGBOX_GET_PRIVATE (widget);
@@ -283,7 +283,7 @@ gtk_bgbox_size_allocate (GtkWidget *widget, GtkAllocation *wa)
             gtk_bgbox_set_background(widget, BG_ROOT, priv->tintcolor, priv->alpha);
         }
     }
-    
+
     if (bin->child)
         gtk_widget_size_allocate (bin->child, &ca);
     RET();
@@ -338,7 +338,7 @@ gtk_bgbox_set_background(GtkWidget *widget, int bg_type, guint32 tintcolor, gint
     if (priv->bg_type == BG_STYLE) {
         gtk_style_set_background(widget->style, widget->window, widget->state);
     } else if (priv->bg_type == BG_ROOT) {
-        if (priv->bg == NULL) 
+        if (priv->bg == NULL)
             priv->bg = fb_bg_get_for_display();
         g_signal_connect(G_OBJECT(priv->bg), "changed", G_CALLBACK(gtk_bgbox_bg_changed), widget);
         priv->tintcolor = tintcolor;
@@ -355,7 +355,7 @@ gtk_bgbox_set_bg_root(GtkWidget *widget, GtkBgboxPrivate *priv)
 {
     priv = GTK_BGBOX_GET_PRIVATE (widget);
     //GdkRectangle rect;
-    
+
     ENTER;
     priv->pixmap = fb_bg_get_xroot_pix_for_win(priv->bg, widget);
     DBG("here\n");

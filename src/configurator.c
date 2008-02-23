@@ -424,7 +424,7 @@ transparency_toggle(GtkWidget *b, gpointer bp)
     gtk_widget_set_sensitive(tr_colorl, t);
     gtk_widget_set_sensitive(tr_colorb, t);
 
-    // Update background immediately.
+    /* Update background immediately. */
     if (t&&!p->transparent) {
         p->transparent = 1;
         config_save();
@@ -473,7 +473,7 @@ background_toggle(GtkWidget *b, gpointer bp)
         if (!p->background) {
             p->transparent = 0;
             p->background = 1;
-            // Update background immediately.
+            /* Update background immediately. */
             config_save();
             restart();
         }
@@ -489,7 +489,7 @@ background_changed(GtkFileChooser *file_chooser, gpointer data)
     p->transparent = 0;
     p->background = 1;
     p->background_file = g_strdup(gtk_file_chooser_get_filename(file_chooser));
-    // Update background immediately.
+    /* Update background immediately. */
     config_save();
     restart();
     RET();
@@ -530,7 +530,7 @@ background_disable_toggle(GtkWidget *b, gpointer bp)
         if (p->background!=0||p->transparent!=0) {
             p->background = 0;
             p->transparent = 0;
-            // Update background immediately.
+            /* Update background immediately. */
             config_save();
             restart();
         }
@@ -1340,6 +1340,10 @@ void restart(void)
     extern gboolean is_restarting;
     ENTER;
     is_restarting = TRUE;
+
+    /* processing any possible idle handlers before we restart */
+    while (gtk_events_pending ())
+        gtk_main_iteration ();
     gtk_main_quit();
     RET();
 }
