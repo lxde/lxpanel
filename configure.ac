@@ -60,6 +60,7 @@ fi
 
 dnl Here are plugin listing.
 plugin_netstatus=
+plugin_netstat=
 plugin_volume=
 plugin_volumealsa=
 plugin_cpu=
@@ -72,7 +73,7 @@ AC_ARG_WITH(plugins,
 [                         plugins may be comma separated ]
 [                         'all' builds all plugins (default), 'none' builds none ]
 [                         Possible plugins are: ]
-[                         netstatus, volume, volumealsa, cpu, deskno, batt], plugins="$withval",[plugins="all"])
+[                         netstatus, netstat, volume, volumealsa, cpu, deskno, batt], plugins="$withval",[plugins="all"])
 
 if test x"$plugins" != xall -a x"$plugins" != xnone; then
 	if test x"$plugins_loading" = xno; then
@@ -83,6 +84,7 @@ fi
 
 if test x"$plugins" = xall; then
 	plugin_netstatus=netstatus
+	plugin_netstat=netstat
 	plugin_volume=volume
 	plugin_volumealsa=volumealsa
 	plugin_cpu=cpu
@@ -97,6 +99,9 @@ else
 		case "$plugin" in
 			netstatus)
 				plugin_netstatus=netstatus
+				;;
+			netstat)
+				plugin_netstat=netstat
 				;;
 			volume)
 				plugin_volume=volume
@@ -133,7 +138,7 @@ else
 	dnl force OSS plugin to <null>
 	plugin_volume=
 fi
-PLUGINS_LIST="$plugin_netstatus $plugin_volume $plugin_volumealsa $plugin_cpu $plugin_deskno $plugin_batt"
+PLUGINS_LIST="$plugin_netstatus $plugin_netstat $plugin_volume $plugin_volumealsa $plugin_cpu $plugin_deskno $plugin_batt"
 AC_SUBST(PLUGINS_LIST)
 
 
@@ -171,6 +176,7 @@ AC_CONFIG_FILES([
 	src/Makefile
 	src/plugins/Makefile
 	src/plugins/netstatus/Makefile
+	src/plugins/netstat/Makefile
 	src/plugins/volume/Makefile
 	src/plugins/volumealsa/Makefile
 	src/plugins/cpu/Makefile
@@ -190,6 +196,9 @@ if test x$plugins_loading = xyes; then
 echo Building dynamic plugins:
 	if test x"$plugin_netstatus" != x; then
 		AC_MSG_RESULT([    netstatus - Monitor networking status])
+	fi
+	if test x"$plugin_netstat" != x; then
+		AC_MSG_RESULT([    netstat - Monitor networking status (Linux Only)])
 	fi
 	if test x"$plugin_volume" != x; then
 		AC_MSG_RESULT([    volume - Display and adjust volume of sound card])
