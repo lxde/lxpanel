@@ -30,7 +30,7 @@
 
 #include "misc.h" /* Misc functions for lxpanel */
 
-#define ICON_SIZE        24
+#define ICON_SIZE        18
 
 GQuark PTK_APP_MENU_ITEM_ID = 0;
 
