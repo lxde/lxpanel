@@ -1,7 +1,7 @@
 #ifndef HAVE_NSCONFIG_H
 #define HAVE_NSCONFIG_H
 
-#define RESOURCE_DIR PACKAGE_DATA_DIR
+#define RESOURCE_DIR PACKAGE_DATA_DIR "/lxpanel/images"
 #define ICONS_CONNECTED		RESOURCE_DIR "/ns-connected.png"
 #define ICONS_DISCONNECT	RESOURCE_DIR "/ns-disconnect.png"
 #define ICONS_PROBLEM		RESOURCE_DIR "/ns-problem.png"
