@@ -206,8 +206,10 @@ plugin_load(char *type)
 #ifndef DISABLE_PLUGINS_LOADING
     else if ( g_module_supported() ) {
         char* path[ PATH_MAX ];
+#if 0   /* put plugins in config dir is too dirty... */
         g_snprintf(path, PATH_MAX, "%s/.lxpanel/plugins/%s.so", getenv("HOME"), type);
         pc = plugin_load_dynamic( type, path );
+#endif
         if( !pc ) {
             g_snprintf(path, PATH_MAX, PACKAGE_LIB_DIR "/lxpanel/plugins/%s.so", type);
             pc = plugin_load_dynamic( type, path );
@@ -309,6 +311,7 @@ GList* plugin_get_available_classes()
     }
 
 #ifndef DISABLE_PLUGINS_LOADING
+#if 0   /* Put plugins in config dir is too dirty... */
     dir_path = g_build_filename( g_get_home_dir(), ".lxpanel/plugins", NULL );
     if( dir = g_dir_open( dir_path, 0, NULL ) ) {
         while( file = g_dir_read_name( dir ) ) {
@@ -331,7 +334,7 @@ GList* plugin_get_available_classes()
         g_dir_close( dir );
     }
     g_free( dir_path );
-
+#endif
     if( dir = g_dir_open( PACKAGE_LIB_DIR "/lxpanel/plugins", 0, NULL ) ) {
         while( file = g_dir_read_name( dir ) ) {
             GModule *m;

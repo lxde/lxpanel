@@ -1,8 +1,7 @@
-lxpanel_DATA = \
-	default \
-	pager
+default_config_DATA = \
+	default/config
 
-lxpaneldir = $(datadir)/lxpanel
+default_configdir = $(datadir)/lxpanel/profile/default
 
 lxpanel_images_DATA = \
 	images/my-computer.svg \
@@ -49,6 +48,6 @@ lxpanel_images_DATA = \
 lxpanel_imagesdir = $(datadir)/lxpanel/images
 
 EXTRA_DIST = \
-	default.in \
+	default/config.in \
 	$(lxpanel_DATA) \
 	$(lxpanel_images_DATA)

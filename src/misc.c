@@ -980,8 +980,10 @@ gtk_image_new_from_file_scaled(const gchar *file, gint width,
 
     ENTER;
 
+    if( G_UNLIKELY( ! file ) )
+        goto err;
 
-    if (!g_file_test(file, G_FILE_TEST_EXISTS))
+    if ( ! g_file_test(file, G_FILE_TEST_EXISTS))
     {
         /* FIXME: should reload icon when theme gets changed */
         inf = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),

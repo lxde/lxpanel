@@ -92,32 +92,57 @@ static void update_toggle_button(GtkWidget *w, gboolean n);
 static void modify_plugin( GtkTreeView* view );
 static void on_entry_changed( GtkEditable* edit, gpointer user_data );
 
-static int
-mk_profile_dir()
+/* older versions of glib don't provde these API */
+#if ! GLIB_CHECK_VERSION(2, 8, 0)
+#include <errno.h>
+
+int g_mkdir_with_parents(const gchar *pathname, int mode)
 {
-    gchar fname[1024];
-    struct stat buf;
-    int ret;
+    struct stat statbuf;
+    char *dir, *sep;
+    dir = g_strdup( pathname );
+    sep = dir[0] == '/' ? dir + 1 : dir;
+    do {
+        sep = strchr( sep, '/' );
+        if( G_LIKELY( sep ) )
+            *sep = '\0';
 
-    ENTER;
-    sprintf(fname, "%s/.lxpanel", getenv("HOME"));
-    if ((ret = stat(fname, &buf))) {
-        LOG(LOG_INFO, "creating %s\n", fname);
-        mkdir(fname, 0755);
-        ret = stat(fname, &buf);
-    }
-    if (ret)
-        RET(0);
-    if (!(S_ISDIR(buf.st_mode) && (S_IWUSR & buf.st_mode) && (S_IXUSR & buf.st_mode)))
-        RET(0);
-    RET(1);
+        if( stat( dir, &statbuf) == 0 )
+        {
+            if( ! S_ISDIR(statbuf.st_mode) )    /* parent not dir */
+                goto err;
+        }
+        else    /* stat failed */
+        {
+            if( errno == ENOENT )   /* not exists */
+            {
+                if( mkdir( dir, mode ) == -1 )
+                    goto err;
+            }
+            else
+                goto err;   /* unknown error */
+        }
+
+        if( G_LIKELY( sep ) )
+        {
+            *sep = '/';
+            ++sep;
+        }
+        else
+            break;
+    }while( sep );
+    g_free( dir );
+    return 0;
+err:
+    g_free( dir );
+    return -1;
 }
-
+#endif
 
 static void
 response_event(GtkDialog *widget, gint arg1, gpointer user_data)
 {
-    gchar fname[1024];
+    gchar *fname;
     FILE *fp;
 
     ENTER;
@@ -128,20 +153,17 @@ response_event(GtkDialog *widget, gint arg1, gpointer user_data)
     case GTK_RESPONSE_DELETE_EVENT:
     case GTK_RESPONSE_CLOSE:
     case GTK_RESPONSE_NONE:
-        if (!mk_profile_dir()) {
-            ERR("can't make ~/.lxpanel direcory\n");
-            RET();
-        }
-        sprintf(fname, "%s/.lxpanel/%s", getenv("HOME"), cprofile);
-        LOG(LOG_WARN, "saving profile %s as %s\n", cprofile, fname);
+        fname = get_config_file_path( cprofile, FALSE );
         if (!(fp = fopen(fname, "w"))) {
             ERR("can't open for write %s:", fname);
             perror(NULL);
+            g_free ( fname );
             RET();
         }
         global_config_save(fp);
         plugin_config_save(fp);
         fclose(fp);
+        g_free( fname );
         /* NOTE: NO BREAK HERE*/
         gtk_widget_destroy(dialog);
         dialog = NULL;
@@ -1316,15 +1338,13 @@ plugin_config_save(FILE *fp)
 
 void config_save(void)
 {
-    gchar fname[1024];
+    gchar *fname;
     FILE *fp;
-    if (!mk_profile_dir()) {
-        ERR("can't make ~/.lxpanel direcory\n");
-        RET();
-    }
-    sprintf(fname, "%s/.lxpanel/%s", getenv("HOME"), cprofile);
-    LOG(LOG_WARN, "saving profile %s as %s\n", cprofile, fname);
+
+    fname = get_config_file_path( cprofile, FALSE );
+
     if (!(fp = fopen(fname, "w"))) {
+        g_free( fname );
         ERR("can't open for write %s:", fname);
         perror(NULL);
         RET();
@@ -1332,6 +1352,7 @@ void config_save(void)
     global_config_save(fp);
     plugin_config_save(fp);
     fclose(fp);
+    g_free( fname );
 }
 
 void restart(void)
@@ -1478,3 +1499,21 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
     return dlg;
 }
 
+char* get_config_file_path( const char* name, gboolean is_global )
+{
+    char* path;
+    if( is_global )
+    {
+        path = g_build_filename( PACKAGE_DATA_DIR, "lxpanel/profile", name, "config", NULL );
+    }
+    else
+    {
+        char* dir = g_build_filename( g_get_user_config_dir(), "lxpanel" , name, NULL);
+        /* make sure the private profile dir exists */
+        g_mkdir_with_parents( dir, 0700 );
+        path = g_build_filename( dir,"config", NULL);
+        g_debug( "path: %s", path );
+        g_free( dir );
+    }
+    return path;
+}

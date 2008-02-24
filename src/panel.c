@@ -197,24 +197,24 @@ panel_event_filter(GdkXEvent *xevent, GdkEvent *event, panel *p)
             process_client_msg( p, (XClientMessageEvent*)ev );
         }
         RET(GDK_FILTER_CONTINUE);
-	}
+    }
 
     at = ev->xproperty.atom;
     win = ev->xproperty.window;
     DBG("win=%x at=%d\n", win, at);
     if (win == GDK_ROOT_WINDOW()) {
-	if (at == a_NET_CLIENT_LIST) {
+    if (at == a_NET_CLIENT_LIST) {
             DBG("A_NET_CLIENT_LIST\n");
             fb_ev_trigger(fbev, EV_CLIENT_LIST);
-	} else if (at == a_NET_CURRENT_DESKTOP) {
+    } else if (at == a_NET_CURRENT_DESKTOP) {
             DBG("A_NET_CURRENT_DESKTOP\n");
             p->curdesk = get_net_current_desktop();
             fb_ev_trigger(fbev, EV_CURRENT_DESKTOP);
-	} else if (at == a_NET_NUMBER_OF_DESKTOPS) {
+    } else if (at == a_NET_NUMBER_OF_DESKTOPS) {
             DBG("A_NET_NUMBER_OF_DESKTOPS\n");
             p->desknum = get_net_number_of_desktops();
             fb_ev_trigger(fbev, EV_NUMBER_OF_DESKTOPS);
-	} else if (at == a_NET_DESKTOP_NAMES) {
+    } else if (at == a_NET_DESKTOP_NAMES) {
             DBG("A_NET_DESKTOP_NAMES\n");
             fb_ev_trigger(fbev, EV_DESKTOP_NAMES);
         } else if (at == a_NET_ACTIVE_WINDOW) {
@@ -228,7 +228,7 @@ panel_event_filter(GdkXEvent *xevent, GdkEvent *event, panel *p)
             if (p->transparent) {
                 fb_bg_notify_changed_bg(p->bg);
             }
-	} else if (at == a_NET_WORKAREA) {
+    } else if (at == a_NET_WORKAREA) {
             DBG("A_NET_WORKAREA\n");
             g_free( p->workarea );
             p->workarea = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_WORKAREA, XA_CARDINAL, &p->wa_len);
@@ -467,7 +467,7 @@ panel_start_gui(panel *p)
     wmhints.flags = InputHint;
     wmhints.input = 0;
     XSetWMHints (GDK_DISPLAY(), p->topxwin, &wmhints);
-#define WIN_HINTS_SKIP_FOCUS      (1<<0)	/* "alt-tab" skips this win */
+#define WIN_HINTS_SKIP_FOCUS      (1<<0)    /* "alt-tab" skips this win */
     val = WIN_HINTS_SKIP_FOCUS;
     XChangeProperty(GDK_DISPLAY(), p->topxwin,
           XInternAtom(GDK_DISPLAY(), "_WIN_HINTS", False), XA_CARDINAL, 32,
@@ -836,7 +836,8 @@ load_profile(gchar *profile)
 
     ENTER;
     LOG(LOG_INFO, "loading %s profile\n", profile);
-    fname = g_strdup_printf("%s/.lxpanel/%s", getenv("HOME"), profile);
+    /* check private configuration directory */
+    fname = get_config_file_path( profile, FALSE );
     g_file_get_contents( fname, &ret, NULL, NULL );
     if (ret) {
         cfgfile = fname;
@@ -845,8 +846,8 @@ load_profile(gchar *profile)
     //ERR("Can't load %s\n", fname);
     g_free(fname);
 
-    /* check private configuration directory */
-    fname = g_strdup_printf(PACKAGE_DATA_DIR "/lxpanel/%s", profile);
+    /* If private config is not available, check global configuration directory */
+    fname = get_config_file_path( profile, TRUE );  /* the global config file */
     g_file_get_contents( fname, &ret, NULL, NULL );
     if (ret) {
         cfgfile = fname;

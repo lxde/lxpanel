@@ -1,5 +1,5 @@
 AC_PREREQ(2.53)
-AC_INIT(lxpanel, 0.2.5, http://lxde.sourceforge.net/)
+AC_INIT(lxpanel, 0.2.6, http://lxde.sourceforge.net/)
 AM_INIT_AUTOMAKE
 AC_CONFIG_SRCDIR([src/bg.c])
 AC_CONFIG_HEADER([config.h])
@@ -23,24 +23,24 @@ AC_SUBST(PACKAGE_CFLAGS)
 AC_SUBST(PACKAGE_LIBS)
 
 AC_ARG_ENABLE([cast-checks],
-	AS_HELP_STRING([--enable-cast-checks],
-		       [enable Glib casting checks (default: disable)]),
-		       cast_checks=$enableval, cast_checks="no")
+    AS_HELP_STRING([--enable-cast-checks],
+               [enable Glib casting checks (default: disable)]),
+               cast_checks=$enableval, cast_checks="no")
 G_CAST_CHECKS=""
 if test x"$cast_checks" = "xno"; then
-	G_CAST_CHECKS="-DG_DISABLE_CAST_CHECKS"
+    G_CAST_CHECKS="-DG_DISABLE_CAST_CHECKS"
 fi
 AC_SUBST(G_CAST_CHECKS)
 
 AC_ARG_ENABLE([alsa],
-	AS_HELP_STRING([--disable-alsa],
-	                [compile ALSA providers (default: enable)]),
-			compile_alsa=$enableval, compile_alsa="yes")
+    AS_HELP_STRING([--disable-alsa],
+                    [compile ALSA providers (default: enable)]),
+            compile_alsa=$enableval, compile_alsa="yes")
 if test x"$compile_alsa" = "xyes"; then
-	AC_CHECK_HEADERS([alsa/asoundlib.h],
-	                 [AC_CHECK_LIB([asound],
-	                               [snd_seq_open],
-	                               compile_alsa=yes,compile_alsa=no)],
+    AC_CHECK_HEADERS([alsa/asoundlib.h],
+                     [AC_CHECK_LIB([asound],
+                                   [snd_seq_open],
+                                   compile_alsa=yes,compile_alsa=no)],
                           compile_alsa=no)
 fi
 AM_CONDITIONAL(BUILD_ALSA_PLUGINS, test x$compile_alsa = xyes)
@@ -48,14 +48,14 @@ dnl FIXME: check OSS existence
 AM_CONDITIONAL(BUILD_OSS_PLUGINS, test x$compile_alsa = xno)
 
 AC_ARG_ENABLE([plugins-loading],
-	AS_HELP_STRING([--disable-plugins-loading],
-		       [disable plugin loading (default: enable)]),
-		       plugins_loading=$enableval, plugins_loading="yes")
+    AS_HELP_STRING([--disable-plugins-loading],
+               [disable plugin loading (default: enable)]),
+               plugins_loading=$enableval, plugins_loading="yes")
 
 AM_CONDITIONAL(BUILD_PLUGIN_LOADER, test x$plugins_loading = xyes)
 
 if test x"$plugins_loading" = "xno"; then
-	AC_DEFINE(DISABLE_PLUGINS_LOADING, [1], [Disable plugin loading])
+    AC_DEFINE(DISABLE_PLUGINS_LOADING, [1], [Disable plugin loading])
 fi
 
 dnl Here are plugin listing.
@@ -76,67 +76,76 @@ AC_ARG_WITH(plugins,
 [                         netstatus, netstat, volume, volumealsa, cpu, deskno, batt], plugins="$withval",[plugins="all"])
 
 if test x"$plugins" != xall -a x"$plugins" != xnone; then
-	if test x"$plugins_loading" = xno; then
-		AC_MSG_ERROR(
-		[--disable-plugins-loading and --with-plugins conflict each other.])
-	fi
+    if test x"$plugins_loading" = xno; then
+        AC_MSG_ERROR(
+        [--disable-plugins-loading and --with-plugins conflict each other.])
+    fi
 fi
 
+ALL_PLUGINS_LIST="netstatus netstat volume volumealsa cpu deskno batt"
+AC_SUBST(ALL_PLUGINS_LIST)
+
 if test x"$plugins" = xall; then
-	plugin_netstatus=netstatus
-	plugin_netstat=netstat
-	plugin_volume=volume
-	plugin_volumealsa=volumealsa
-	plugin_cpu=cpu
-	plugin_deskno=deskno
-	plugin_batt=batt
-	AC_MSG_RESULT(all)
+dnl    for name in $ALL_PLUGINS
+dnl    do
+dnl        export plugin_$name="$name"
+dnl    done
+
+    plugin_netstatus=netstatus
+    plugin_netstat=netstat
+    plugin_volume=volume
+    plugin_volumealsa=volumealsa
+    plugin_cpu=cpu
+    plugin_deskno=deskno
+    plugin_batt=batt
+
+    AC_MSG_RESULT(all)
 else
-	if test "$plugins" != "none"; then
-		plugins=`echo $plugins | sed 's/,/ /g'`
-		for plugin in $plugins
-		do
-		case "$plugin" in
-			netstatus)
-				plugin_netstatus=netstatus
-				;;
-			netstat)
-				plugin_netstat=netstat
-				;;
-			volume)
-				plugin_volume=volume
-				;;
-			volumealsa)
-				plugin_volumealsa=volumealsa
-				;;
-			cpu)
-				plugin_cpu=cpu
-				;;
-			deskno)
-				plugin_deskno=deskno
-				;;
-			batt)
-				plugin_deskno=batt
-				;;
-			*)
-				echo "Unknown plugin $plugin."
-				exit 1
-				;;
-		esac
-		done
-		AC_MSG_RESULT($plugins)
-	fi
+    if test "$plugins" != "none"; then
+        plugins=`echo $plugins | sed 's/,/ /g'`
+        for plugin in $plugins
+        do
+        case "$plugin" in
+            netstatus)
+                plugin_netstatus=netstatus
+                ;;
+            netstat)
+                plugin_netstat=netstat
+                ;;
+            volume)
+                plugin_volume=volume
+                ;;
+            volumealsa)
+                plugin_volumealsa=volumealsa
+                ;;
+            cpu)
+                plugin_cpu=cpu
+                ;;
+            deskno)
+                plugin_deskno=deskno
+                ;;
+            batt)
+                plugin_deskno=batt
+                ;;
+            *)
+                echo "Unknown plugin $plugin."
+                exit 1
+                ;;
+        esac
+        done
+        AC_MSG_RESULT($plugins)
+    fi
 fi
 
 dnl FIXME: OSS/ALSA checking
 if test x"$compile_alsa" = "xno"; then
-	if test ! -z $plugin_volumealsa; then
-		AC_MSG_RESULT([no ALSA headers/libraries found!])
-		plugin_volumealsa=
-	fi
+    if test ! -z $plugin_volumealsa; then
+        AC_MSG_RESULT([no ALSA headers/libraries found!])
+        plugin_volumealsa=
+    fi
 else
-	dnl force OSS plugin to <null>
-	plugin_volume=
+    dnl force OSS plugin to <null>
+    plugin_volume=
 fi
 PLUGINS_LIST="$plugin_netstatus $plugin_netstat $plugin_volume $plugin_volumealsa $plugin_cpu $plugin_deskno $plugin_batt"
 AC_SUBST(PLUGINS_LIST)
@@ -172,49 +181,49 @@ ALL_LINGUAS="zh_TW ko hu sk pl"
 AM_GLIB_GNU_GETTEXT
 
 AC_CONFIG_FILES([
-	Makefile
-	src/Makefile
-	src/plugins/Makefile
-	src/plugins/netstatus/Makefile
-	src/plugins/netstat/Makefile
-	src/plugins/volume/Makefile
-	src/plugins/volumealsa/Makefile
-	src/plugins/cpu/Makefile
-	src/plugins/deskno/Makefile
-	src/plugins/batt/Makefile
-	po/Makefile.in
-	data/Makefile
-	data/default
+    Makefile
+    src/Makefile
+    src/plugins/Makefile
+    src/plugins/netstatus/Makefile
+    src/plugins/netstat/Makefile
+    src/plugins/volume/Makefile
+    src/plugins/volumealsa/Makefile
+    src/plugins/cpu/Makefile
+    src/plugins/deskno/Makefile
+    src/plugins/batt/Makefile
+    po/Makefile.in
+    data/Makefile
+    data/default/config
 ])
 AC_OUTPUT
 
-echo                                                                                                
+echo
 echo lxpanel ......................... : Version $VERSION
 echo
 echo Prefix........................... : $prefix
 if test x$plugins_loading = xyes; then
 echo Building dynamic plugins:
-	if test x"$plugin_netstatus" != x; then
-		AC_MSG_RESULT([    netstatus - Monitor networking status])
-	fi
-	if test x"$plugin_netstat" != x; then
-		AC_MSG_RESULT([    netstat - Monitor networking status (Linux Only)])
-	fi
-	if test x"$plugin_volume" != x; then
-		AC_MSG_RESULT([    volume - Display and adjust volume of sound card])
-	fi
-	if test x"$plugin_volumealsa" != x; then
-		AC_MSG_RESULT([    volumealsa - Display and adjust volume of sound card for ALSA])
-	fi
-	if test x"$plugin_cpu" != x; then
-		AC_MSG_RESULT([    cpu - Display CPU loading])
-	fi
-	if test x"$plugin_deskno" != x; then
-		AC_MSG_RESULT([    deskno - Display desktop number])
-	fi
-	if test x"$plugin_batt" != x; then
-		AC_MSG_RESULT([    batt - Monitor battery status])
-	fi
+    if test x"$plugin_netstatus" != x; then
+        AC_MSG_RESULT([    netstatus - Monitor networking status])
+    fi
+    if test x"$plugin_netstat" != x; then
+        AC_MSG_RESULT([    netstat - Monitor networking status (Linux Only)])
+    fi
+    if test x"$plugin_volume" != x; then
+        AC_MSG_RESULT([    volume - Display and adjust volume of sound card])
+    fi
+    if test x"$plugin_volumealsa" != x; then
+        AC_MSG_RESULT([    volumealsa - Display and adjust volume of sound card for ALSA])
+    fi
+    if test x"$plugin_cpu" != x; then
+        AC_MSG_RESULT([    cpu - Display CPU loading])
+    fi
+    if test x"$plugin_deskno" != x; then
+        AC_MSG_RESULT([    deskno - Display desktop number])
+    fi
+    if test x"$plugin_batt" != x; then
+        AC_MSG_RESULT([    batt - Monitor battery status])
+    fi
 else
 echo Dynamic loader for plugins....... : disabled.
 fi

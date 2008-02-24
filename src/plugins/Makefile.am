@@ -1,5 +1,7 @@
 ## Process this file with automake to produce Makefile.in
 
+DIST_SUBDIRS=$(ALL_PLUGINS_LIST)
+
 if BUILD_PLUGIN_LOADER
 DYNAMIC_PLUGINS = \
 	$(PLUGINS_LIST)
