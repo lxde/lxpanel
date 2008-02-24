@@ -1512,7 +1512,6 @@ char* get_config_file_path( const char* name, gboolean is_global )
         /* make sure the private profile dir exists */
         g_mkdir_with_parents( dir, 0700 );
         path = g_build_filename( dir,"config", NULL);
-        g_debug( "path: %s", path );
         g_free( dir );
     }
     return path;
