@@ -29,7 +29,7 @@ netstatus_la_SOURCES = \
 	netstatus-iface.h
 
 netstatus_la_LIBADD = \
-	$(PACKAGE_CFLAGS)
+	$(PACKAGE_LIBS)
 
 netstatus_la_LDFLAGS = \
 	-avoid-version \
