@@ -15,7 +15,5 @@ batt_la_LIBADD = \
 	$(PACKAGE_LIBS)
 
 batt_la_LDFLAGS = \
-	-avoid-version \
-	-rpath $(moduledir) \
 	-module \
-	-export-symbols-regex '_plugin_class$$'
+	@LXPANEL_MODULE@

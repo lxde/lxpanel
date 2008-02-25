@@ -32,6 +32,38 @@ if test x"$cast_checks" = "xno"; then
 fi
 AC_SUBST(G_CAST_CHECKS)
 
+dnl linker tweaking
+# The function of the link flag --as-needed is to prevent unnecesary linking.
+# Example: A -> B -> C
+# Normally A would link to B and also depend on C, this is ofcource
+# unnecesary. In this situation however we do need to link to C, so this
+# must be done explicitly. This flag comes in handy when a library ABI
+# is changed, minimizing the amount of recompilations needed.
+AC_MSG_CHECKING([whether $LD accepts --as-needed])
+case `$LD --as-needed -v 2>&1 </dev/null` in
+*GNU* | *'with BFD'*)
+  LDFLAGS="$LDFLAGS -Wl,--as-needed"
+  AC_MSG_RESULT([yes])
+  ;;
+*)
+  AC_MSG_RESULT([no])
+  ;;
+esac
+
+dnl FIXME: filter for undefined symbols in plugins
+# when passing "-z defs" to linker, we would better to make sure
+# there are no undefined references.  However, we intend not to
+# fix at the moment since we don't have spin-off libraray containing
+# the necessary functions.
+if test ! -z "$LDFLAGS"; then
+  LDFLAGS=`echo "$LDFLAGS" | sed -e 's/-Wl,-z,defs//'`
+fi
+
+LXPANEL_MODULE="-avoid-version \
+-rpath \$(libdir)/lxpanel/plugins \
+-no-undefined "'-export-symbols-regex "^[[^_]].*"'
+AC_SUBST(LXPANEL_MODULE)
+
 AC_ARG_ENABLE([alsa],
     AS_HELP_STRING([--disable-alsa],
                     [compile ALSA providers (default: enable)]),

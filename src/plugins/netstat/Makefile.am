@@ -19,10 +19,8 @@ netstat_la_SOURCES = \
 netstat_la_LIBADD = $(PACKAGE_LIBS)
 
 netstat_la_LDFLAGS = \
-	-avoid-version \
-	-rpath $(moduledir) \
 	-module \
-	-export-symbols-regex '_plugin_class$$'
+	@LXPANEL_MODULE@
 
 install-exec-hook:
 	rm -f "$(moduledir)\*.la" *.a

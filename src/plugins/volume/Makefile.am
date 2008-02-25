@@ -20,9 +20,7 @@ volume_la_LIBADD = \
 	$(PACKAGE_LIBS)
 
 volume_la_LDFLAGS = \
-	-avoid-version \
-	-rpath $(moduledir) \
 	-module \
-	-export-symbols-regex '_plugin_class$$'
+	@LXPANEL_MODULE@
 
 endif

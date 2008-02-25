@@ -15,7 +15,5 @@ deskno_la_LIBADD = \
 	$(PACKAGE_LIBS)
 
 deskno_la_LDFLAGS = \
-	-avoid-version \
-	-rpath $(moduledir) \
 	-module \
-	-export-symbols-regex '_plugin_class$$'
+	@LXPANEL_MODULE@
