@@ -17,7 +17,7 @@ volume_la_SOURCES = \
 	volume.c
 
 volume_la_LIBADD = \
-	$(PACKAGE_CFLAGS)
+	$(PACKAGE_LIBS)
 
 volume_la_LDFLAGS = \
 	-avoid-version \

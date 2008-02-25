@@ -13,7 +13,7 @@ moduledir = $(libdir)/lxpanel/plugins
 
 volumealsa_la_SOURCES = volumealsa.c
 
-volumealsa_la_LIBADD = -lasound $(PACKAGE_CFLAGS)
+volumealsa_la_LIBADD = -lasound $(PACKAGE_LIBS)
 
 volumealsa_la_LDFLAGS = \
 	-avoid-version \

@@ -16,7 +16,7 @@ netstat_la_SOURCES = \
         devproc.c \
         devproc.h
 
-netstat_la_LIBADD = $(PACKAGE_CFLAGS)
+netstat_la_LIBADD = $(PACKAGE_LIBS)
 
 netstat_la_LDFLAGS = \
 	-avoid-version \

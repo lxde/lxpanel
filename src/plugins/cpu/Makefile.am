@@ -12,7 +12,7 @@ cpu_la_SOURCES = \
 	cpu.c
 
 cpu_la_LIBADD = \
-	$(PACKAGE_CFLAGS)
+	$(PACKAGE_LIBS)
 
 cpu_la_LDFLAGS = \
 	-avoid-version \

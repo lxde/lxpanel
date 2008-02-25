@@ -12,7 +12,7 @@ deskno_la_SOURCES = \
 	deskno.c
 
 deskno_la_LIBADD = \
-	$(PACKAGE_CFLAGS)
+	$(PACKAGE_LIBS)
 
 deskno_la_LDFLAGS = \
 	-avoid-version \
