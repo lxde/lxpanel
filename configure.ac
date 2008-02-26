@@ -35,19 +35,19 @@ AC_SUBST(G_CAST_CHECKS)
 dnl linker tweaking
 # The function of the link flag --as-needed is to prevent unnecesary linking.
 # Example: A -> B -> C
-# Normally A would link to B and also depend on C, this is ofcource
-# unnecesary. In this situation however we do need to link to C, so this
+# Normally, A would link to B and also depend on C, this is of cource
+# unnecesary. In this situation, however we do need to link to C, so this
 # must be done explicitly. This flag comes in handy when a library ABI
 # is changed, minimizing the amount of recompilations needed.
 AC_MSG_CHECKING([whether $LD accepts --as-needed])
 case `$LD --as-needed -v 2>&1 </dev/null` in
 *GNU* | *'with BFD'*)
-  LDFLAGS="$LDFLAGS -Wl,--as-needed"
-  AC_MSG_RESULT([yes])
-  ;;
+    LDFLAGS="$LDFLAGS -Wl,--as-needed"
+    AC_MSG_RESULT([yes])
+    ;;
 *)
-  AC_MSG_RESULT([no])
-  ;;
+    AC_MSG_RESULT([no])
+    ;;
 esac
 
 dnl FIXME: filter for undefined symbols in plugins
@@ -56,7 +56,7 @@ dnl FIXME: filter for undefined symbols in plugins
 # fix at the moment since we don't have spin-off libraray containing
 # the necessary functions.
 if test ! -z "$LDFLAGS"; then
-  LDFLAGS=`echo "$LDFLAGS" | sed -e 's/-Wl,-z,defs//'`
+    LDFLAGS=`echo "$LDFLAGS" | sed -e 's/-Wl,-z,defs//'`
 fi
 
 LXPANEL_MODULE="-avoid-version \
