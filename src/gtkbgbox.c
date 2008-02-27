@@ -46,9 +46,6 @@ typedef struct {
     FbBg *bg;
 } GtkBgboxPrivate;
 
-
-
-
 #define GTK_BGBOX_GET_PRIVATE(obj)  G_TYPE_INSTANCE_GET_PRIVATE((obj), GTK_TYPE_BGBOX, GtkBgboxPrivate)
 
 static void gtk_bgbox_class_init    (GtkBgboxClass *klass);
@@ -68,6 +65,7 @@ static void gtk_bgbox_set_bg_root(GtkWidget *widget, GtkBgboxPrivate *priv);
 static void gtk_bgbox_bg_changed(FbBg *bg, GtkWidget *widget);
 
 static GtkBinClass *parent_class = NULL;
+GtkWidgetClass *widget_class;
 
 GType
 gtk_bgbox_get_type (void)
@@ -100,7 +98,7 @@ static void
 gtk_bgbox_class_init (GtkBgboxClass *class)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (class);
-    GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (class);
+    widget_class = GTK_WIDGET_CLASS (class);
 
     parent_class = g_type_class_peek_parent (class);
 
@@ -214,7 +212,12 @@ gtk_bgbox_style_set (GtkWidget *widget, GtkStyle  *previous_style)
           && priv->bg_type == BG_ROOT) {
         gtk_bgbox_free_bg(widget);
         gtk_bgbox_set_background(widget, BG_ROOT, priv->tintcolor, priv->alpha);
+    } else {
+        if (GTK_WIDGET_CLASS (widget_class)->style_set)
+            GTK_WIDGET_CLASS (widget_class)->style_set (widget, previous_style);
     }
+
+    gtk_bgbox_bg_changed(priv->bg, widget);
     RET();
 }
 
@@ -318,6 +321,8 @@ gtk_bgbox_bg_changed(FbBg *bg, GtkWidget *widget)
           && priv->bg_type == BG_ROOT) {
         gtk_bgbox_free_bg(widget);
         gtk_bgbox_set_background(widget, BG_ROOT, priv->tintcolor, priv->alpha);
+    } else {
+        gtk_bgbox_set_background(widget, BG_STYLE, 0, 0);
     }
     RET();
 }
