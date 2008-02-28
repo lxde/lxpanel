@@ -212,12 +212,12 @@ gtk_bgbox_style_set (GtkWidget *widget, GtkStyle  *previous_style)
           && priv->bg_type == BG_ROOT) {
         gtk_bgbox_free_bg(widget);
         gtk_bgbox_set_background(widget, BG_ROOT, priv->tintcolor, priv->alpha);
-    } else {
-        if (GTK_WIDGET_CLASS (widget_class)->style_set)
-            GTK_WIDGET_CLASS (widget_class)->style_set (widget, previous_style);
+//    } else {
+//        if (GTK_WIDGET_CLASS (widget_class)->style_set)
+//            GTK_WIDGET_CLASS (widget_class)->style_set (widget, previous_style);
     }
 
-    gtk_bgbox_bg_changed(priv->bg, widget);
+//    gtk_bgbox_bg_changed(priv->bg, widget);
     RET();
 }
 
