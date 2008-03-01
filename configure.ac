@@ -226,6 +226,7 @@ AC_CONFIG_FILES([
     po/Makefile.in
     data/Makefile
     data/default/config
+    man/Makefile
 ])
 AC_OUTPUT
 
