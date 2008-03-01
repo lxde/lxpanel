@@ -1,0 +1,6 @@
+1. Fixed compile errors in configure and Makefile.am.
+2. Deleted unused files.
+3. Add a new network status plugin - netstat (testing).
+4. Fixed incorrect path of icons.
+5. Changed icon size to reduce memory usage.
+6. Add LXDE-specific configuration profile for LXPanel.
