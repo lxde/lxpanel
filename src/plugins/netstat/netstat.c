@@ -133,9 +133,12 @@ menupopup(GtkWidget *widget, GdkEvent *event, netdev_info *ni)
 
 			/* create menu */
 			menu = gtk_menu_new();
+
+			/* Repair */
 			menu_fix = gtk_menu_item_new_with_label(N_("Repair"));
 			gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_fix);
 			g_signal_connect(G_OBJECT(menu_fix), "activate", G_CALLBACK(fixconn), ni);
+
 			gtk_widget_show_all(menu);
 
 			gtk_menu_popup(menu, NULL, NULL, NULL, NULL, event_button->button, event_button->time);
@@ -203,6 +206,7 @@ create_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
 
 		ptr->info.status_icon = create_statusicon(ns->mainw, select_icon(ptr->info.plug, ptr->info.connected, ptr->info.status), tooltip);
 		g_signal_connect(ptr->info.status_icon->main, "button_press_event", G_CALLBACK(menupopup), ni);
+		g_free(tooltip);
 		ptr = ptr->next;
 	} while(ptr!=NULL);
 }
@@ -235,6 +239,7 @@ refresh_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
 			set_statusicon_tooltips(ptr->info.status_icon, tooltip);
 			set_statusicon_image_from_file(ptr->info.status_icon, select_icon(ptr->info.plug, ptr->info.connected, ptr->info.status));
 			set_statusicon_visible(ptr->info.status_icon, TRUE);
+			g_free(tooltip);
 		}
 		ptr = ptr->next;
 	} while(ptr!=NULL);

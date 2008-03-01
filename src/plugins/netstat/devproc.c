@@ -195,7 +195,6 @@ int netproc_scandevice(int sockfd, FILE *fp, NETDEVLIST_PTR *netdev_list)
 
 	while (fgets(buffer, sizeof(buffer), fp)) {
 		struct ifreq ifr;
-//		struct linktest_value edata;
 		struct ethtool_test edata;
 		char *status;
 		char *name;
@@ -307,7 +306,12 @@ int netproc_scandevice(int sockfd, FILE *fp, NETDEVLIST_PTR *netdev_list)
 				if (devptr->info.enable&&devptr->info.plug) {
 					if (devptr->info.flags & IFF_RUNNING) {
 						bzero(&ifr, sizeof(ifr));
-  						//ifr.ifr_addr.sa_family = AF_INET;
+
+						/* release old information */
+						g_free(devptr->info.ipaddr);
+						g_free(devptr->info.bcast);
+						g_free(devptr->info.mask);
+
 						/* IP Address */
 						strcpy(ifr.ifr_name, devptr->info.ifname);
 						ioctl(sockfd, SIOCGIFADDR, &ifr);
@@ -332,6 +336,7 @@ int netproc_scandevice(int sockfd, FILE *fp, NETDEVLIST_PTR *netdev_list)
 						ioctl(sockfd, SIOCGIFNETMASK, &ifr);
 						devptr->info.mask = g_strdup(inet_ntoa(((struct sockaddr_in*)&ifr.ifr_addr)->sin_addr));
 
+						/* check problem connection */
 						if (strcmp(devptr->info.ipaddr, "0.0.0.0")==0) {
 							devptr->info.status = NETDEV_STAT_PROBLEM;
 							/* has connection problem  */
@@ -378,9 +383,7 @@ void netproc_alive(NETDEVLIST_PTR netdev_list)
 
 	ptr = netdev_list;
 	do {
-		if (strcmp(ptr->info.ifname, "lo")!=0) {
-			ptr->info.alive = FALSE;
-		}
+		ptr->info.alive = FALSE;
 		ptr = ptr->next;
 	} while(ptr!=NULL);
 }
@@ -398,24 +401,18 @@ void netproc_devicelist_clear(NETDEVLIST_PTR *netdev_list)
 	prev_ptr = NULL;
 	ptr = *netdev_list;
 	do {
-		if (strcmp(ptr->info.ifname, "lo")!=0) {
-			if (!ptr->info.alive) {
-				if (prev_ptr!=NULL) {
-					ptr->prev->next = ptr->next;
-					ptr->next->prev = ptr->prev;
-				} else {
-					ptr->next->prev = NULL;
-					*netdev_list = ptr->next;
-				}
-
-				del_ptr = ptr;
-				ptr = ptr->next;
-				free(del_ptr);
-				printf("%s\n", ptr->info.ifname);
+		if (!ptr->info.alive) { /* device was removed */
+			if (prev_ptr!=NULL) {
+				ptr->prev->next = ptr->next;
+				ptr->next->prev = ptr->prev;
 			} else {
-				prev_ptr = ptr;
-				ptr = ptr->next;
+				ptr->next->prev = NULL;
+				*netdev_list = ptr->next;
 			}
+
+			del_ptr = ptr;
+			ptr = ptr->next;
+			free(del_ptr);
 		} else {
 			prev_ptr = ptr;
 			ptr = ptr->next;
@@ -433,7 +430,7 @@ void netproc_listener(FNETD *fnetd)
 	}
 }
 
-
+#ifdef NSDEBUG
 void netproc_print(NETDEVLIST_PTR netdev_list)
 {
 	NETDEVLIST_PTR ptr;
@@ -444,16 +441,8 @@ void netproc_print(NETDEVLIST_PTR netdev_list)
 
 	ptr = netdev_list;
 	do {
-		if (strcmp(ptr->info.ifname, "lo")!=0) {
-			printf("%s: %d\n", ptr->info.ifname, ptr->info.status);
-/*
-			printf("%s:%d:%d:%d:%d\n", ptr->info.ifname,
-	                	                   ptr->info.recv_bytes,
-	                        	           ptr->info.recv_packets,
-	                                	   ptr->info.trans_bytes,
-	                                   	   ptr->info.trans_packets);
-*/
-		}
+		printf("%s: %d\n", ptr->info.ifname, ptr->info.status);
 		ptr = ptr->next;
 	} while(ptr!=NULL);
 }
+#endif
