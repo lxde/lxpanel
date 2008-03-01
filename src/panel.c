@@ -592,7 +592,7 @@ panel_parse_global(panel *p, char **fp)
             } else if (!g_ascii_strcasecmp(s.t[0], "FontColor")) {
                 if (!gdk_color_parse (s.t[1], &p->gfontcolor))
                     gdk_color_parse ("black", &p->gfontcolor);
-                p->tintcolor = gcolor2rgb24(&p->gfontcolor);
+                p->fontcolor = gcolor2rgb24(&p->gfontcolor);
                 DBG("fontcolor=%x\n", p->fontcolor);
             } else if (!g_ascii_strcasecmp(s.t[0], "Background")) {
                 p->background = str2num(bool_pair, s.t[1], 0);
