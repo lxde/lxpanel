@@ -111,8 +111,9 @@ fixconn(GtkWidget *widget, netdev_info *ni)
 	pthread_t actionThread;
 	char *fixcmd;
 
-	fixcmd = malloc(strlen(ni->ns->fixcmd)+strlen(ni->netdev_list->info.ifname));
-	sprintf(fixcmd, ni->ns->fixcmd, ni->netdev_list->info.ifname);
+	fixcmd = g_strdup_printf(ni->ns->fixcmd, ni->netdev_list->info.ifname);
+//	fixcmd = malloc(strlen(ni->ns->fixcmd)+strlen(ni->netdev_list->info.ifname));
+//	sprintf(fixcmd, ni->ns->fixcmd, ni->netdev_list->info.ifname);
 
 	pthread_create(&actionThread, NULL, actionProcess, fixcmd);
 }
