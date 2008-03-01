@@ -178,7 +178,7 @@ static void
 create_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
 {
 	NETDEVLIST_PTR ptr;
-	char tooltip[100];
+	char *tooltip;
 
 	if (netdev_list==NULL) {
 		return;
@@ -192,11 +192,14 @@ create_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
 		ni->netdev_list = ptr;
 
 		if (!ptr->info.plug)
-			sprintf(tooltip, N_("Network cable is plugged out"));
+			tooltip = g_strdup_printf(N_("Network cable is plugged out"));
 		else if (!ptr->info.connected)
-			sprintf(tooltip, N_("Connection has limited or no connectivity"));
+			tooltip = g_strdup(N_("Connection has limited or no connectivity"));
 		else
-			sprintf(tooltip, "%s\n%s", ptr->info.ifname, ptr->info.ipaddr);
+			tooltip = g_strdup_printf("%s\n%s%s\n%s%s\n%s%s", ptr->info.ifname,
+															N_("IP Address: "), ptr->info.ipaddr,
+															N_("Boradcast: "), ptr->info.bcast,
+															N_("Netmask: "), ptr->info.mask);
 
 		ptr->info.status_icon = create_statusicon(ns->mainw, select_icon(ptr->info.plug, ptr->info.connected, ptr->info.status), tooltip);
 		g_signal_connect(ptr->info.status_icon->main, "button_press_event", G_CALLBACK(menupopup), ni);
@@ -208,7 +211,7 @@ static void
 refresh_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
 {
 	NETDEVLIST_PTR ptr;
-	char tooltip[100];
+	char *tooltip;
 
 	if (netdev_list==NULL) {
 		return;
@@ -220,11 +223,14 @@ refresh_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
 			set_statusicon_visible(ptr->info.status_icon, FALSE);
 		} else if (ptr->info.updated) {
 			if (!ptr->info.plug)
-				sprintf(tooltip, N_("Network cable is plugged out"));
+				tooltip = g_strdup_printf(N_("Network cable is plugged out"));
 			else if (!ptr->info.connected)
-				sprintf(tooltip, N_("Connection has limited or no connectivity"));
+				tooltip = g_strdup(N_("Connection has limited or no connectivity"));
 			else
-				sprintf(tooltip, "%s\n%s", ptr->info.ifname, ptr->info.ipaddr);
+				tooltip = g_strdup_printf("%s\n%s%s\n%s%s\n%s%s", ptr->info.ifname,
+																N_("IP Address: "), ptr->info.ipaddr,
+																N_("Boradcast: "), ptr->info.bcast,
+																N_("Netmask: "), ptr->info.mask);
 
 			set_statusicon_tooltips(ptr->info.status_icon, tooltip);
 			set_statusicon_image_from_file(ptr->info.status_icon, select_icon(ptr->info.plug, ptr->info.connected, ptr->info.status));
