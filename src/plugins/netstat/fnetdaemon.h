@@ -19,6 +19,7 @@ typedef struct {
 
 typedef struct {
 	char *ifname;
+	char *mac;
 	char *ipaddr;
 	char *bcast;
 	char *mask;

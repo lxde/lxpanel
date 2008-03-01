@@ -63,6 +63,7 @@ void netproc_netdevlist_add(NETDEVLIST_PTR *netdev_list,
 
 	new_dev = malloc(sizeof(NETDEVLIST));
 	new_dev->info.ifname = g_strdup(ifname);
+	new_dev->info.mac = NULL;
 	new_dev->info.ipaddr = NULL;
 	new_dev->info.bcast = NULL;
 	new_dev->info.mask = NULL;
@@ -226,6 +227,15 @@ int netproc_scandevice(int sockfd, FILE *fp, NETDEVLIST_PTR *netdev_list)
 		if ((devptr = netproc_netdevlist_find(*netdev_list, name))==NULL) {
 			netproc_netdevlist_add(netdev_list, name, in_bytes, in_packets, out_bytes, out_packets);
 			devptr = netproc_netdevlist_find(*netdev_list, name);
+
+			/* MAC Address */
+			devptr->info.mac = g_strdup_printf ("%02X:%02X:%02X:%02X:%02X:%02X",
+					ifr.ifr_hwaddr.sa_data[0] & 0377,
+					ifr.ifr_hwaddr.sa_data[1] & 0377,
+					ifr.ifr_hwaddr.sa_data[2] & 0377,
+					ifr.ifr_hwaddr.sa_data[3] & 0377,
+					ifr.ifr_hwaddr.sa_data[4] & 0377,
+					ifr.ifr_hwaddr.sa_data[5] & 0377);
 		} else {
 			/* Setting device status and update flags */
 			if (devptr->info.recv_packets!=in_packets&&devptr->info.trans_packets!=out_packets) {
