@@ -6,3 +6,4 @@
 6. Add LXDE-specific configuration profile for LXPanel.
 7. Use "*.directory" file for the translation of categories if available.
    #1875624 - LXPanel does not correctly show xdg menus.
+8. Fixed tintcolor bug (Request ID 1900678).
