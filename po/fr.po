@@ -1,0 +1,803 @@
+# translation of fr.po to French
+# Copyright (C) 2006 the lxde team
+# This file is distributed under the same license as the lxpanel package.
+# Frank Endres <frank_endres@yahoo.fr>, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: lxpanel-0.2.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-05-01 00:00+0100\n"
+"PO-Revision-Date: 2008-05-01 00:00+0100\n"
+"Last-Translator: Frank Endres <frank_endres@yahoo.fr>\n"
+"Language-Team: French\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);"
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: poEdit\n"
+"X-Poedit-Bookmarks: 19,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
+"X-Poedit-Country: Poland\n"
+
+#: ../src/configurator.c:45
+msgid "Preferences"
+msgstr "Préférences"
+
+#: ../src/configurator.c:46 ../src/gtk-run.c:112
+msgid "Run"
+msgstr "Exécuter"
+
+#: ../src/configurator.c:47
+msgid "Restart"
+msgstr "Redémarrer"
+
+#: ../src/configurator.c:48
+msgid "Logout"
+msgstr "Déconnexion"
+
+#: ../src/configurator.c:211
+msgid "<b>Position</b>"
+msgstr "<b>Position</b>"
+
+#. Edge
+#: ../src/configurator.c:228
+msgid "Edge:"
+msgstr "Emplacement:"
+
+#: ../src/configurator.c:235 ../src/configurator.c:259
+msgid "Left"
+msgstr "Gauche"
+
+#: ../src/configurator.c:236 ../src/configurator.c:261
+msgid "Right"
+msgstr "Droite"
+
+#: ../src/configurator.c:237
+msgid "Top"
+msgstr "Haut"
+
+#: ../src/configurator.c:238
+msgid "Bottom"
+msgstr "Bas"
+
+#. Alignment
+#: ../src/configurator.c:251
+msgid "Alignment:"
+msgstr "Alignement:"
+
+#: ../src/configurator.c:260
+msgid "Center"
+msgstr "Centré"
+
+#. Margin
+#: ../src/configurator.c:273
+msgid "Margin:"
+msgstr "Marge:"
+
+#: ../src/configurator.c:344
+msgid "<b>Size</b>"
+msgstr "<b>Taille</b>"
+
+#. width
+#: ../src/configurator.c:361
+msgid "Width:"
+msgstr "Largeur:"
+
+#: ../src/configurator.c:375
+msgid "dynamic"
+msgstr "dynamique"
+
+#: ../src/configurator.c:376 ../src/configurator.c:404
+msgid "pixels"
+msgstr "pixels"
+
+#: ../src/configurator.c:377
+msgid "% of edge"
+msgstr "pourcentage"
+
+#: ../src/configurator.c:390
+msgid "Height:"
+msgstr "Hauteur:"
+
+#: ../src/configurator.c:444
+msgid "Enable Transparency"
+msgstr "Transparent"
+
+#: ../src/configurator.c:448
+msgid "Tint color:"
+msgstr "Teinte:"
+
+#: ../src/configurator.c:506
+msgid "Enable Image:"
+msgstr "Image:"
+
+#: ../src/configurator.c:509
+msgid "Select a background image file"
+msgstr "Sélectionner une image de fond pour le panneau"
+
+#: ../src/configurator.c:553
+msgid "<b>Background</b>"
+msgstr "<b>Fond du panneau</b>"
+
+#. Disable Background option
+#: ../src/configurator.c:568
+msgid "None (Use system theme)"
+msgstr "Normal (utiliser le thème du système)"
+
+#: ../src/configurator.c:627
+msgid "<b>Properties</b>"
+msgstr "<b>Propriétés</b>"
+
+#: ../src/configurator.c:649
+msgid "Make window managers treat the panel as dock"
+msgstr "Ancrer le panneau"
+
+#: ../src/configurator.c:665
+msgid "Reserve space, and not covered by maximized windows"
+msgstr "Empêcher les fenêtres de recouvrir le panneau"
+
+#: ../src/configurator.c:720
+msgid "Currently loaded plugins"
+msgstr "Plugins actifs"
+
+#: ../src/configurator.c:810
+msgid "Add plugin to panel"
+msgstr "Ajouter un plugin au panneau"
+
+#: ../src/configurator.c:837
+msgid "Available plugins"
+msgstr "Plugins disponibles"
+
+#: ../src/configurator.c:1110
+msgid "<b>Set Preferred Applications</b>"
+msgstr "<b>Applications préférées</b>"
+
+#: ../src/configurator.c:1120
+msgid "File Manager:"
+msgstr "Gestionnaire de fichiers:"
+
+#: ../src/configurator.c:1133
+msgid "Terminal Emulator:"
+msgstr "Émulateur de terminal:"
+
+#: ../src/configurator.c:1148
+msgid "Logout Command:"
+msgstr "Commande de déconnexion:"
+
+#: ../src/configurator.c:1170
+msgid "lxpanel configurator"
+msgstr "Configuration du panneau LXPanel"
+
+#: ../src/configurator.c:1196
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
+msgid "General"
+msgstr "Général"
+
+#: ../src/configurator.c:1201
+msgid "Plugins"
+msgstr "Plugins"
+
+#: ../src/configurator.c:1206
+#, fuzzy
+msgid "Applications"
+msgstr ""
+
+#: ../src/configurator.c:1362
+msgid "Logout command is not set"
+msgstr "La commande de déconnexion n'est pas définie"
+
+#: ../src/panel.c:816
+#, c-format
+msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
+msgstr "lxpanel %s - panneau léger GTK2+ pour environnement de bureau UNIX\n"
+
+#: ../src/panel.c:817
+#, c-format
+msgid "Command line options:\n"
+msgstr "Options de la ligne de commande:\n"
+
+#: ../src/panel.c:818
+#, c-format
+msgid " --help      -- print this help and exit\n"
+msgstr " --help      -- affiche ce message d'aide et quitte\n"
+
+#: ../src/panel.c:819
+#, c-format
+msgid " --version   -- print version and exit\n"
+msgstr " --version   -- affiche le numéro de version et quitte\n"
+
+#: ../src/panel.c:820
+#, c-format
+msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
+msgstr " --log <nombre> -- défini la quantité d'informations de débogage 0-5. 0 - aucun 5 -  maximum\n"
+
+#: ../src/panel.c:821
+#, c-format
+msgid " --configure -- launch configuration utility\n"
+msgstr " --configure -- lance l'utilitaire de configuration\n"
+
+#: ../src/panel.c:822
+#, c-format
+msgid " --profile name -- use specified profile\n"
+msgstr " --profile nom -- utilise le profile spécifié\n"
+
+#: ../src/panel.c:824
+#, c-format
+msgid " -h  -- same as --help\n"
+msgstr " -h  -- équivalent à --help\n"
+
+#: ../src/panel.c:825
+#, c-format
+msgid " -p  -- same as --profile\n"
+msgstr " -p  -- équivalent à --profile\n"
+
+#: ../src/panel.c:826
+#, c-format
+msgid " -v  -- same as --version\n"
+msgstr " -v  -- équivalent à --version\n"
+
+#: ../src/panel.c:827
+#, c-format
+msgid " -C  -- same as --configure\n"
+msgstr " -C  -- équivalent à --configure\n"
+
+#: ../src/panel.c:828
+#, c-format
+msgid ""
+"\n"
+"Visit http://lxpanel.sourceforge.net/ for detailed documentation,\n"
+"\n"
+msgstr ""
+"\n"
+"Consulter le site http://lxpanel.sourceforge.net/ pour plus de documentation,\n"
+"\n"
+
+#: ../src/gtk-run.c:126
+msgid "Enter the command you want to execute:"
+msgstr "Entrer la commande à exécuter:"
+
+#: ../src/systray/tray.c:190
+msgid "System Tray"
+msgstr "Zone de notification"
+
+#: ../src/systray/tray.c:192
+msgid "Old KDE/GNOME Tray"
+msgstr "Zone de notification système"
+
+#: ../src/plugins/cpu/cpu.c:217
+msgid "CPU Usage Monitor"
+msgstr "Moniteur du processeur"
+
+#: ../src/plugins/cpu/cpu.c:219
+msgid "Display CPU usage"
+msgstr "Affiche le taux d'utilisation du processeur"
+
+#: ../src/plugins/deskno/deskno2.c:129
+msgid "Desktop No / Workspace Name"
+msgstr "Bureau n° / Nom de l'espace de travail"
+
+#: ../src/plugins/deskno/deskno2.c:131
+msgid "Display workspace number, by cmeury@users.sf.net"
+msgstr "Affiche le numéro de l'espace de travail, par cmeury@users.sf.net"
+
+#. FIXME: We should have a better interface for this in the fututure.
+#. 1. We can borrow the menu from menu plugin (PtkAppMenu).
+#. 2. We can borrow the app chooser from PCManFM.
+#.
+#: ../src/plugins/launchbar.c:502
+msgid "Select Application"
+msgstr "Choisir le programme"
+
+#: ../src/plugins/launchbar.c:651
+msgid "Buttons"
+msgstr "Boutons"
+
+#: ../src/plugins/launchbar.c:764
+msgid "Application Launch Bar"
+msgstr "Boutons d'applications"
+
+#: ../src/plugins/launchbar.c:766
+msgid "Bar with buttons to launch application"
+msgstr "Barre d'accès direct aux applications"
+
+#: ../src/plugins/ptk-app-menu.c:147
+msgid "Other"
+msgstr "Autres"
+
+#: ../src/plugins/ptk-app-menu.c:148
+msgid "Game"
+msgstr "Jeux"
+
+#: ../src/plugins/ptk-app-menu.c:149
+msgid "Education"
+msgstr "Éducation"
+
+#: ../src/plugins/ptk-app-menu.c:150
+msgid "Development"
+msgstr "Développement"
+
+#: ../src/plugins/ptk-app-menu.c:151
+msgid "Audio & Video"
+msgstr "Audio & Vidéo"
+
+#: ../src/plugins/ptk-app-menu.c:152
+msgid "Graphics"
+msgstr "Graphisme"
+
+#: ../src/plugins/ptk-app-menu.c:153
+msgid "Settings"
+msgstr "Configuration"
+
+#: ../src/plugins/ptk-app-menu.c:154
+msgid "System Tools"
+msgstr "Outils systèmes"
+
+#: ../src/plugins/ptk-app-menu.c:155
+msgid "Network"
+msgstr "Internet"
+
+#: ../src/plugins/ptk-app-menu.c:156
+msgid "Office"
+msgstr "Bureautique"
+
+#: ../src/plugins/ptk-app-menu.c:157
+msgid "Accessories"
+msgstr "Accessoires"
+
+#: ../src/plugins/taskbar.c:1193
+msgid "Raise"
+msgstr "Afficher"
+
+#: ../src/plugins/taskbar.c:1197
+msgid "Restore"
+msgstr "Restaurer"
+
+#: ../src/plugins/taskbar.c:1201
+msgid "Maximize"
+msgstr "Maximiser"
+
+#: ../src/plugins/taskbar.c:1205
+msgid "Iconify"
+msgstr "Minimiser"
+
+#: ../src/plugins/taskbar.c:1214
+#, c-format
+msgid "Workspace %d"
+msgstr "Espace de travail %d"
+
+#: ../src/plugins/taskbar.c:1222
+msgid "All workspaces"
+msgstr "Tous les espaces de travail"
+
+#: ../src/plugins/taskbar.c:1229
+msgid "Move to Workspace"
+msgstr "Déplacer vers l'espace de travail"
+
+#. we want this item to be farest from mouse pointer
+#: ../src/plugins/taskbar.c:1237
+msgid "Close Window"
+msgstr "Fermer la fenêtre"
+
+#: ../src/plugins/taskbar.c:1470
+msgid "Show tooltips"
+msgstr "Montrer les bulles d'aide"
+
+#: ../src/plugins/taskbar.c:1471
+msgid "Icons only"
+msgstr "Icônes uniquement"
+
+#: ../src/plugins/taskbar.c:1472
+msgid "Accept SkipPager"
+msgstr "Inclure le gestionnaire de bureau virtuels"
+
+#: ../src/plugins/taskbar.c:1473
+msgid "Show Iconified windows"
+msgstr "Montrer les fenêtres minimisées"
+
+#: ../src/plugins/taskbar.c:1474
+msgid "Show mapped windows"
+msgstr "Montrer les fenêtres visibles"
+
+#: ../src/plugins/taskbar.c:1475
+msgid "Show windows from all desktops"
+msgstr "Montrer les fenêtres de tous les espaces de travail"
+
+#: ../src/plugins/taskbar.c:1476
+msgid "Use mouse wheel"
+msgstr "Utiliser la molette de la souris"
+
+#: ../src/plugins/taskbar.c:1477
+msgid "Flash when there is any window requiring attention"
+msgstr "Clignoter lorsque une fenêtre requiert de l'attention"
+
+#: ../src/plugins/taskbar.c:1478
+msgid "Max width of task button"
+msgstr "Largeur maximale d'un bouton de tâche"
+
+#: ../src/plugins/taskbar.c:1479
+msgid "Spacing"
+msgstr "Espacement entre les boutons"
+
+#: ../src/plugins/taskbar.c:1556
+msgid "Task Bar (Window List)"
+msgstr "Barre des tâches"
+
+#: ../src/plugins/taskbar.c:1558
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
+msgstr ""
+"Montre la liste des fenêtres"
+
+
+#: ../src/plugins/dclock.c:241
+msgid "Clock Format"
+msgstr "Format de l'heure"
+
+#: ../src/plugins/dclock.c:242
+msgid "Tooltip Format"
+msgstr "Format des bulles d'aide"
+
+#: ../src/plugins/dclock.c:243
+#, fuzzy
+msgid "Action"
+msgstr ""
+
+#: ../src/plugins/dclock.c:244
+msgid "Bold font"
+msgstr "Police grasse"
+
+#: ../src/plugins/dclock.c:279
+msgid "Digital Clock"
+msgstr "Montre digitale"
+
+#: ../src/plugins/dclock.c:281
+msgid "Display Digital clock and Tooltip"
+msgstr "Affiche l'heure et la date"
+
+#: ../src/plugins/menu.c:589
+msgid "Menu"
+msgstr "Menu d'applications"
+
+#: ../src/plugins/menu.c:591
+msgid "Provide Menu"
+msgstr "Accès aux applications"
+
+#: ../src/plugins/separator.c:74
+msgid "Separator"
+msgstr "Séparateur"
+
+#: ../src/plugins/separator.c:76
+msgid "Add a separator to the panel"
+msgstr "Ajouter un séparateur sur le panneau"
+
+#: ../src/plugins/image.c:160
+msgid "Dispaly Image and Tooltip"
+msgstr "Afficher les images et les bulles d'aide"
+
+#: ../src/plugins/pager.c:698
+msgid "Desktop Pager"
+msgstr "Bureaux virtuels"
+
+#: ../src/plugins/pager.c:700
+msgid "Simple pager plugin"
+msgstr "Affiche les bureaux virtuels"
+
+#: ../src/plugins/space.c:113 ../src/plugins/batt/batt.c:753
+msgid "Size"
+msgstr "Taille"
+
+#: ../src/plugins/space.c:128
+msgid "<Space>"
+msgstr "<Espace>"
+
+#: ../src/plugins/space.c:130
+msgid "Allocate space"
+msgstr "Espacement"
+
+#: ../src/plugins/wincmd.c:264
+msgid "Left click to iconify all windows. Middle click to shade them"
+msgstr "Clic gauche pour masquer toutes les fenêtres. Bouton du milieu pour les enrouler"
+
+#: ../src/plugins/wincmd.c:289
+msgid "Minimize All Windows"
+msgstr "Masquer le bureau"
+
+#: ../src/plugins/wincmd.c:291
+msgid ""
+"Sends commands to all desktop windows.\n"
+"Supported commnds are 1)toggle iconify and 2) toggle shade"
+msgstr "Minimise les fenêtres de l'espace de travail."
+
+#: ../src/plugins/dirmenu.c:207
+msgid "Open in _Terminal"
+msgstr "Ouvrir avec un _Terminal"
+
+#: ../src/plugins/dirmenu.c:373
+msgid "Directory Menu"
+msgstr "Menu des Répertoires"
+
+#: ../src/plugins/dirmenu.c:375
+msgid "Browse directory tree via menu (Author: PCMan)"
+msgstr "Parcours de l'arborescence via un menu"
+
+#. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
+#: ../src/plugins/volume/volume.c:148
+#: ../src/plugins/volumealsa/volumealsa.c:297
+msgid "Volume control"
+msgstr "Contrôle du volume"
+
+#: ../src/plugins/volume/volume.c:159
+#: ../src/plugins/volumealsa/volumealsa.c:308
+msgid "Volume Control"
+msgstr "Contrôle du volume"
+
+#. create frame
+#: ../src/plugins/volume/volume-impl.c:100
+#: ../src/plugins/volumealsa/volumealsa.c:191
+#, fuzzy
+msgid "Volume"
+msgstr ""
+
+#: ../src/plugins/volumealsa/volumealsa.c:207
+msgid "Mute"
+msgstr "Muet"
+
+#: ../src/plugins/netstatus/netstatus.c:161
+msgid "Interface to monitor"
+msgstr "Interface"
+
+#: ../src/plugins/netstatus/netstatus.c:162
+msgid "Config tool"
+msgstr "Outil de configuration"
+
+#: ../src/plugins/netstatus/netstatus.c:179
+msgid "Net Status Monitor"
+msgstr "Moniteur des connexions réseau"
+
+#: ../src/plugins/netstatus/netstatus.c:181
+msgid "Monitor network status"
+msgstr "Affiche l'état des connexions réseau"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:52
+#: ../src/plugins/netstatus/netstatus-dialog.c:311
+msgid "Unknown"
+msgstr "Inconnu"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:115
+msgid "Connection Properties"
+msgstr "Propriétés des connexions"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:121
+#, c-format
+msgid "Connection Properties: %s"
+msgstr "Propriétés de la connexion: %s"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:134
+#, c-format
+msgid "%lu packet"
+msgid_plural "%lu packets"
+msgstr[0] "%lu paquet"
+msgstr[1] "%lu paquets"
+
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:395
+#, c-format
+msgid ""
+"There was an error displaying help:\n"
+"%s"
+msgstr ""
+"Erreur lors de l'affichage de l'aide:\n"
+"%s"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:579
+#, c-format
+msgid "Failed to launch time configuration tool: %s"
+msgstr "Impossible de lancer l'outil de configuration de l'heure: %s"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:131
+msgid "<b>Connection</b>"
+msgstr "<b>Connexion</b>"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:155
+msgid "Status:"
+msgstr "Status:"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:171
+msgid "_Name:"
+msgstr "_Nom:"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:194
+msgid "<b>Activity</b>"
+msgstr "<b>Activité</b>"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:232
+msgid "Received:"
+msgstr "Reçus:"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:239
+msgid "Sent:"
+msgstr "Envoyés:"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:250
+msgid "<b>Signal Strength</b>"
+msgstr "<b>Force du signal</b>"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
+#, fuzzy
+msgid "0%"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:289
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr "<b>Protocole Internet (IPv4)</b>"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:309
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:396
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:452
+msgid "Address:"
+msgstr "Adresse:"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:316
+#, fuzzy
+msgid "Destination:"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
+msgid "Broadcast:"
+msgstr "Adresse de diffusion:"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
+msgid "Subnet Mask:"
+msgstr "Masque de sous-réseau:"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:376
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>Protocole Internet (IPv6)</b>"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:403
+msgid "Scope:"
+msgstr "Portée:"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:432
+msgid "<b>Network Device</b>"
+msgstr "<b>Périphérique réseau</b>"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:477
+#, fuzzy
+msgid "Type:"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:484
+#, fuzzy
+msgid "Support"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:513
+msgid "Con_figure"
+msgstr "Con_figuration"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:379
+#, c-format
+msgid "Network Connection: %s"
+msgstr "Connexion réseau: %s"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:384
+msgid "Network Connection"
+msgstr "Connexion réseau"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:811
+#, fuzzy
+msgid "Interface"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-icon.c:812
+msgid "The current interface the icon is monitoring."
+msgstr "Interface actuellement suivie"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:819
+#, fuzzy
+msgid "Orientation"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-icon.c:820
+msgid "The orientation of the tray."
+msgstr "Orientation de la zone de notification."
+
+#: ../src/plugins/netstatus/netstatus-icon.c:828
+msgid "Tooltips Enabled"
+msgstr "Bulle d'aide activées"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:829
+msgid "Whether or not the icon's tooltips are enabled."
+msgstr "Indique si les bulles d'aide sont actives ou non."
+
+#: ../src/plugins/netstatus/netstatus-icon.c:836
+msgid "Show Signal"
+msgstr "Montrer le signal"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:837
+msgid "Whether or not the signal strength should be displayed."
+msgstr "Indique si la force du signal doit être affichée."
+
+#: ../src/plugins/netstatus/netstatus-icon.c:950
+#, c-format
+msgid ""
+"Please contact your system administrator to resolve the following problem:\n"
+"\n"
+"%s"
+msgstr ""
+"Veuillez contacter votre administrateur système pour résoudre le problème suivant:\n"
+"\n"
+"%s"
+
+#: ../src/plugins/batt/batt.c:744
+msgid "Alarm command"
+msgstr "Commande d'alarme"
+
+#: ../src/plugins/batt/batt.c:745
+msgid "Alarm time (minutes left)"
+msgstr "Moment de l'alarme (minutes restantes)"
+
+#: ../src/plugins/batt/batt.c:746
+msgid "Update interval (seconds)"
+msgstr "Intervale de mise à jour (en secondes)"
+
+#: ../src/plugins/batt/batt.c:747
+msgid "Background color"
+msgstr "Couleur de fond"
+
+#: ../src/plugins/batt/batt.c:748
+msgid "Charging color 1"
+msgstr "Couleur de chargement n°1"
+
+#: ../src/plugins/batt/batt.c:749
+msgid "Charging color 2"
+msgstr "Couleur de chargement n°2"
+
+#: ../src/plugins/batt/batt.c:750
+msgid "Discharging color 1"
+msgstr "Couleur de déchargement n°1"
+
+#: ../src/plugins/batt/batt.c:751
+msgid "Discharging color 2"
+msgstr "Couleur de déchargement n°2"
+
+#: ../src/plugins/batt/batt.c:752
+msgid "Border width"
+msgstr "Épaisseur de la bordure"
+
+#: ../src/plugins/batt/batt.c:789
+msgid "Battery Monitor"
+msgstr "Moniteur des batteries"
+
+#: ../src/plugins/batt/batt.c:791
+msgid "Display battery status using ACPI"
+msgstr "Afficher l'état de charge des batteries"
+
+#~ msgid "<b>Transparency</b>"
+#~ msgstr "<b></b>"
+
+#~ msgid "Set Dock Type"
+#~ msgstr ""
+
+#~ msgid "Set Strut"
+#~ msgstr ""
+
+#~ msgid "Icons"
+#~ msgstr ""
+
+#~ msgid "Change window icons"
+#~ msgstr ""
+
+#~ msgid "_Add"
+#~ msgstr ""
+
+#~ msgid "_Remove"
+#~ msgstr ""
+
+#~ msgid "Right-click to get context menu. Drag & Drop to change order."
+#~ msgstr ""
+
+#~ msgid "Plugins..."
+#~ msgstr ""
