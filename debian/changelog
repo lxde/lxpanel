@@ -1,28 +1,5 @@
-lxpanel (0.2.4) unstable; urgency=low
+lxpanel (0.2.6-1) unstable; urgency=low
 
-  * Version 0.2.4 release.
-  * Fix crashes cause by unloaded dynamic plugins.
-  * Add DirMenu plugin which enables quick browsing of folders with 
-    menu.
-  * Add "Applications" page in preference dialog to set preferred file 
-    manager and terminal emulator, which can be used by DirMenu plugin.
-  * Remove unused image plugin.
-  * Fix inproper description used in preference dialog.
-  * Fix incorrect initial sizes of menu items of menu plugin.
+  * Initial release (Closes: #466562) 
 
- -- PCMan <pcman@m5-3.ym.edu.tw>  Tue, 28 Nov 2006 02:54:47 +0800
-
-lxpanel (0.2.3-1) unstable; urgency=low
-
-  * Version 0.2.3 release
-  * Greatly improve the preference dialog.
-  * Many major and minor fixes.
-
- -- PCMan <pcman.tw@gmail.com>  Mon, 27 Nov 2006 00:41:29 +0800
-
-lxpanel (0.2.1-1) unstable; urgency=low
-
-  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
-
- -- PCMan <pcman.tw@gmail.com>  Mon, 13 Nov 2006 01:40:23 +0800
-
+ -- Andrew Lee <andrew@linux.org.tw>  Sat, 01 Mar 2008 20:24:11 +0800
