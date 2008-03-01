@@ -27,7 +27,7 @@ manpage.1: manpage.sgml
   <!ENTITY dhemail     "<email>grandpaul@gmail.com</email>">
   <!ENTITY dhusername  "paulliu">
   <!ENTITY dhucpackage "<refentrytitle>LXPANEL</refentrytitle>">
-  <!ENTITY dhpackage   "lxpanel">
+  <!ENTITY dhpackage   "lxpanelctl">
 
   <!ENTITY debian      "<productname>Debian</productname>">
   <!ENTITY gnu         "<acronym>GNU</acronym>">
@@ -57,11 +57,12 @@ manpage.1: manpage.sgml
   <refnamediv>
     <refname>&dhpackage;</refname>
 
-    <refpurpose>a lightweight GTK2-based panel for LXDE desktop.</refpurpose>
+    <refpurpose>controller for lxpanel.</refpurpose>
   </refnamediv>
   <refsynopsisdiv>
     <cmdsynopsis>
       <command>&dhpackage;</command>
+      <arg choice='req'>command</arg>
     </cmdsynopsis>
   </refsynopsisdiv>
   <refsect1>
@@ -70,52 +71,53 @@ manpage.1: manpage.sgml
     <para>This manual page documents briefly the
       <command>&dhpackage;</command> command.</para>
 
-    <para><command>&dhpackage;</command> is a program that provides a panel
-    for desktop, usually for LXDE. It is lightweight GTK+ 2.x based desktop 
-    panel.
-    </para>
-   
-    <para>
-    <itemizedlist spacing='normal' mark='bullet'>
-    	<title>Features</title>
-    	<listitem><para>User-friendly application menu automatically generated from <filename>.desktop</filename>
-    		files on the system.
-    		</para>
-	</listitem>
-    	<listitem><para>Launcher bar (small icons clicked to launch apps)</para></listitem>
-    	<listitem><para>Task bar supporting urgency hint (can be flash when gaim gets new
-    		incoming messages)</para>
-	</listitem>
-    	<listitem><para>Notification area (system tray)</para></listitem>
-    	<listitem><para>Digital clock</para></listitem>
-    	<listitem><para>Run dialog (a dialog let you type a command and run, can be called
-    		in external programs)</para>
-	</listitem>
-    	<listitem><para>Net status icon plug-in (optional)</para></listitem>
-    	<listitem><para>Volume control plug-in (optional)</para></listitem>
-    	<listitem><para>lxpanelctl, an external controller let you control lxpanel in
-    		other programs. For example, "lxpanelctl run" will show the Run
-    		dialog in lxpanel, and "lxpanelctl menu" will show the application
-    		menu. This is useful in key bindings provided by window managers.</para>
-    	</listitem>
-    </itemizedlist>
+    <para><command>&dhpackage;</command> is a program that controls lxpanel.
     </para>
   </refsect1>
   <refsect1>
-    <title>FILES</title>
+    <title>COMMANDS</title>
     <variablelist>
-     <varlistentry>
-       <term><filename>~/.config/lxpanel</filename></term>
-       <listitem>
-         <para>config file, can be edited by preference dialog.</para>
-       </listitem>
+      <varlistentry>
+        <term><command>menu</command>
+        </term>
+        <listitem>
+          <para>show system menu</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><command>run</command>
+        </term>
+        <listitem>
+          <para>show run dialog</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><command>config</command>
+        </term>
+        <listitem>
+          <para>show config dialog</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><command>restart</command>
+        </term>
+        <listitem>
+          <para>restart lxpanel</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><command>exit</command>
+        </term>
+        <listitem>
+          <para>exit lxpanel</para>
+        </listitem>
       </varlistentry>
     </variablelist>
   </refsect1>
   <refsect1>
     <title>SEE ALSO</title>
 
-    <para>lxsession (1), lxpanelctl (1).</para>
+    <para>lxpanel (1).</para>
 
   </refsect1>
   <refsect1>
