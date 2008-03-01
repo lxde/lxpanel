@@ -1374,7 +1374,7 @@ void logout(void)
     const char* logout_command = p->logout_command;
     /* If LXSession is running, _LXSESSION_PID will be set */
     if( ! logout_command && getenv("_LXSESSION_PID") )
-        logout_command = "lxsession -exit";
+        logout_command = "lxsession-logout";
 
     if( logout_command ) {
         GError* err = NULL;

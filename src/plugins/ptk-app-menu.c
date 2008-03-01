@@ -45,6 +45,7 @@ static time_t* times = NULL;
 typedef struct _CatInfo
 {
     char* title;
+    char* directory_file;
     char* icon;
     const char** sub_cats;
 }CatInfo;
@@ -144,17 +145,17 @@ const char* utility_cats[] = {
 
 const CatInfo known_cats[]=
 {
-    {N_("Other"), "gnome-other", NULL},
-    {N_("Game"), "gnome-joystick", game_cats},
-    {N_("Education"), "gnome-amusements", education_cats},
-    {N_("Development"), "gnome-devel", development_cats},
-    {N_("Audio & Video"), "gnome-multimedia", audiovideo_cats},
-    {N_("Graphics"), "gnome-graphics", graphics_cats},
-    {N_("Settings"), "gnome-settings", settings_cats},
-    {N_("System Tools"), "gnome-system", system_cats},
-    {N_("Network"), "gnome-globe", network_cats},
-    {N_("Office"), "gnome-applications", office_cats},
-    {N_("Accessories"), "gnome-util", utility_cats}
+    {N_("Other"), "Other", "gnome-other", NULL},
+    {N_("Game"), "Games", "gnome-joystick", game_cats},
+    {N_("Education"), "Education", "gnome-amusements", education_cats},
+    {N_("Development"), "Development", "gnome-devel", development_cats},
+    {N_("Audio & Video"), "Multimedia", "gnome-multimedia", audiovideo_cats},
+    {N_("Graphics"), "Graphics", "gnome-graphics", graphics_cats},
+    {N_("Settings"), "Settings", "gnome-settings", settings_cats},
+    {N_("System Tools"), "System-Tools", "gnome-system", system_cats},
+    {N_("Network"), "Internet", "gnome-globe", network_cats},
+    {N_("Office"), "Office", "gnome-applications", office_cats},
+    {N_("Accessories"), "Accessories", "gnome-util", utility_cats}
 };
 
 int find_cat( char** cats )
@@ -240,6 +241,16 @@ static char* translate_exec( const char* exec, const char* icon,
     return g_string_free( cmd, FALSE );
 }
 #endif
+
+char* load_cat_title( GKeyFile* kf, CatInfo* inf )
+{
+    char* ret = NULL;
+    char* fn = g_strconcat( "desktop-directories/", inf->directory_file, ".directory", NULL );
+    if( g_key_file_load_from_data_dirs( kf, fn, NULL, 0, NULL ) )
+        ret = g_key_file_get_locale_string( kf, desktop_ent, "Name", NULL, NULL );
+    g_free( fn );
+    return ret;
+}
 
 void  unload_old_icons( GtkWidget* menu )
 {
@@ -506,17 +517,22 @@ void ptk_app_menu_insert_items( GtkMenu* menu, int position )
    int i;
    GList *sub_items, *l;
    guint change_handler;
+  GKeyFile* kf;
 
     if( G_UNLIKELY( PTK_APP_MENU_ITEM_ID == 0 ) )
         PTK_APP_MENU_ITEM_ID = g_quark_from_static_string( "PtkAppMenuItem" );
 
    app_dirs_foreach( (GFunc) load_dir, sub_menus );
 
+    kf = g_key_file_new();
+
    for( i = 0; i < G_N_ELEMENTS(known_cats); ++i )
    {
       GtkMenu* sub_menu;
       GtkWidget* menu_item;
       PtkAppMenuItem* data;
+      char* title;
+
       if( ! (sub_items = sub_menus[i]) )
          continue;
       sub_menu = GTK_MENU(gtk_menu_new());
@@ -524,7 +540,11 @@ void ptk_app_menu_insert_items( GtkMenu* menu, int position )
       for( l = sub_items; l; l = l->next )
          gtk_menu_shell_append( GTK_MENU_SHELL(sub_menu), GTK_WIDGET(l->data) );
       g_list_free( sub_items );
-      menu_item = gtk_image_menu_item_new_with_label( _(known_cats[i].title) );
+
+      title = load_cat_title( kf, &known_cats[i] );
+      menu_item = gtk_image_menu_item_new_with_label( title ? title : _(known_cats[i].title) );
+      g_free( title );
+
       data = g_slice_new0( PtkAppMenuItem );
       data->icon = g_strdup(known_cats[i].icon);
       g_object_set_qdata_full( G_OBJECT(menu_item), PTK_APP_MENU_ITEM_ID, data, (GDestroyNotify) ptk_app_menu_item_free );
@@ -532,6 +552,7 @@ void ptk_app_menu_insert_items( GtkMenu* menu, int position )
       g_signal_connect( menu_item, "size-request", G_CALLBACK(on_menu_item_size_request), data );
       on_menu_item_expose( menu_item, NULL, data );
       gtk_menu_item_set_submenu( GTK_MENU_ITEM(menu_item), GTK_WIDGET(sub_menu) );
+
       if( position == -1 )
          gtk_menu_shell_append( GTK_MENU_SHELL(menu), menu_item );
       else
@@ -540,6 +561,9 @@ void ptk_app_menu_insert_items( GtkMenu* menu, int position )
          ++position;
       }
    }
+
+   g_key_file_free( kf );
+
    gtk_widget_show_all(GTK_WIDGET(menu));
    change_handler = g_signal_connect_swapped( gtk_icon_theme_get_default(), "changed", G_CALLBACK(unload_old_icons), menu );
    g_object_weak_ref( G_OBJECT(menu), on_app_menu_destroy, GINT_TO_POINTER(change_handler) );

@@ -29,6 +29,7 @@
 #include "misc.h"
 #include "plugin.h"
 #include "gtkbgbox.h"
+#include "glib-mem.h"
 
 #include "dbg.h"
 
@@ -93,7 +94,7 @@ clock_update(gpointer data )
         g_snprintf(str, 64, "<span color=\"#%06x\"><b>%s</b></span>", gcolor2rgb24(dc->gfontcolor), output);
     else if (dc->bold)
         g_snprintf(str, 64, "<b>%s</b>", output);
-    else if (dc->usefontcolor)    
+    else if (dc->usefontcolor)
         g_snprintf(str, 64, "<span color=\"#%06x\">%s</span>", gcolor2rgb24(dc->gfontcolor), output);
     else
         g_snprintf(str, 64, "%s", output);
@@ -121,7 +122,7 @@ dclock_constructor(plugin *p, char** fp)
     dclock *dc;
 
     ENTER;
-    dc = g_new0(dclock, 1);
+    dc = g_slice_new0(dclock);
     g_return_val_if_fail(dc != NULL, 0);
     p->priv = dc;
 
@@ -198,7 +199,7 @@ dclock_constructor(plugin *p, char** fp)
     g_free(dc->cfmt);
     g_free(dc->tfmt);
     g_free(dc->action);
-    g_free(dc);
+    g_slice_free(dclock, dc);
     RET(0);
 }
 
@@ -206,19 +207,19 @@ dclock_constructor(plugin *p, char** fp)
 static void
 dclock_destructor(plugin *p)
 {
-  dclock *dc = (dclock *)p->priv;
+    dclock *dc = (dclock *)p->priv;
 
-  ENTER;
-  dc = (dclock *) p->priv;
-  if (dc->timer)
-      g_source_remove(dc->timer);
-  gtk_widget_destroy(dc->main);
-  /* g_object_unref( dc->tip ); */
-  g_free(dc->cfmt);
-  g_free(dc->tfmt);
-  g_free(dc->action);
-  g_free(dc);
-  RET();
+    ENTER;
+    dc = (dclock *) p->priv;
+    if (dc->timer)
+        g_source_remove(dc->timer);
+    gtk_widget_destroy(dc->main);
+    /* g_object_unref( dc->tip ); */
+    g_free(dc->cfmt);
+    g_free(dc->tfmt);
+    g_free(dc->action);
+    g_slice_free(dclock, dc);
+    RET();
 }
 
 static void apply_config( plugin* p )
