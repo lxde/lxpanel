@@ -57,8 +57,7 @@ manpage.1: manpage.sgml
   <refnamediv>
     <refname>&dhpackage;</refname>
 
-    <refpurpose>a lightweight GTK2-based panel for LXDE desk-
-       top.</refpurpose>
+    <refpurpose>a lightweight GTK2-based panel for LXDE desktop.</refpurpose>
   </refnamediv>
   <refsynopsisdiv>
     <cmdsynopsis>
