@@ -18,8 +18,11 @@ typedef struct {
 } statusicon;
 
 typedef struct {
-	char ifname[10];
-	char ipaddr[16];
+	char *ifname;
+	char *ipaddr;
+	char *bcast;
+	char *mask;
+	int flags;
 	gboolean alive;
 	gboolean enable;
 	gboolean updated;

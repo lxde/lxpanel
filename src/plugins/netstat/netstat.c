@@ -185,22 +185,20 @@ create_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
 
 	ptr = netdev_list;
 	do {
-		if (strcmp(ptr->info.ifname, "lo")!=0) {
-			netdev_info *ni;
-			ni = malloc(sizeof(netdev_info));
-			ni->ns = ns;
-			ni->netdev_list = ptr;
+		netdev_info *ni;
+		ni = malloc(sizeof(netdev_info));
+		ni->ns = ns;
+		ni->netdev_list = ptr;
 
-			if (!ptr->info.plug)
-				sprintf(tooltip, N_("Network cable is plugged out"));
-			else if (!ptr->info.connected)
-				sprintf(tooltip, N_("Connection has limited or no connectivity"));
-			else
-				sprintf(tooltip, "%s\n%s", ptr->info.ifname, ptr->info.ipaddr);
+		if (!ptr->info.plug)
+			sprintf(tooltip, N_("Network cable is plugged out"));
+		else if (!ptr->info.connected)
+			sprintf(tooltip, N_("Connection has limited or no connectivity"));
+		else
+			sprintf(tooltip, "%s\n%s", ptr->info.ifname, ptr->info.ipaddr);
 
-			ptr->info.status_icon = create_statusicon(ns->mainw, select_icon(ptr->info.plug, ptr->info.connected, ptr->info.status), tooltip);
-			g_signal_connect(ptr->info.status_icon->main, "button_press_event", G_CALLBACK(menupopup), ni);
-		}
+		ptr->info.status_icon = create_statusicon(ns->mainw, select_icon(ptr->info.plug, ptr->info.connected, ptr->info.status), tooltip);
+		g_signal_connect(ptr->info.status_icon->main, "button_press_event", G_CALLBACK(menupopup), ni);
 		ptr = ptr->next;
 	} while(ptr!=NULL);
 }
@@ -217,21 +215,19 @@ refresh_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
 
 	ptr = netdev_list;
 	do {
-		if (strcmp(ptr->info.ifname, "lo")!=0) {
-			if (!ptr->info.enable) {
-				set_statusicon_visible(ptr->info.status_icon, FALSE);
-			} else if (ptr->info.updated) {
-				if (!ptr->info.plug)
-					sprintf(tooltip, N_("Network cable is plugged out"));
-				else if (!ptr->info.connected)
-					sprintf(tooltip, N_("Connection has limited or no connectivity"));
-				else
-					sprintf(tooltip, "%s\n%s", ptr->info.ifname, ptr->info.ipaddr);
+		if (!ptr->info.enable) {
+			set_statusicon_visible(ptr->info.status_icon, FALSE);
+		} else if (ptr->info.updated) {
+			if (!ptr->info.plug)
+				sprintf(tooltip, N_("Network cable is plugged out"));
+			else if (!ptr->info.connected)
+				sprintf(tooltip, N_("Connection has limited or no connectivity"));
+			else
+				sprintf(tooltip, "%s\n%s", ptr->info.ifname, ptr->info.ipaddr);
 
-				set_statusicon_tooltips(ptr->info.status_icon, tooltip);
-				set_statusicon_image_from_file(ptr->info.status_icon, select_icon(ptr->info.plug, ptr->info.connected, ptr->info.status));
-				set_statusicon_visible(ptr->info.status_icon, TRUE);
-			}
+			set_statusicon_tooltips(ptr->info.status_icon, tooltip);
+			set_statusicon_image_from_file(ptr->info.status_icon, select_icon(ptr->info.plug, ptr->info.connected, ptr->info.status));
+			set_statusicon_visible(ptr->info.status_icon, TRUE);
 		}
 		ptr = ptr->next;
 	} while(ptr!=NULL);

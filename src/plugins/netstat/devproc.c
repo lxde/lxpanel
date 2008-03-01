@@ -6,6 +6,7 @@
 #include <sys/ioctl.h>
 #include <netinet/in.h>
 #include <net/if.h>
+#include <net/if_arp.h>
 #include <linux/sockios.h>
 #include <linux/types.h>
 #include "nsconfig.h"
@@ -43,7 +44,10 @@ void netproc_netdevlist_add(NETDEVLIST_PTR *netdev_list,
 	NETDEVLIST_PTR new_dev;
 
 	new_dev = malloc(sizeof(NETDEVLIST));
-	strcpy(new_dev->info.ifname, ifname);
+	new_dev->info.ifname = g_strdup(ifname);
+	new_dev->info.ipaddr = NULL;
+	new_dev->info.bcast = NULL;
+	new_dev->info.mask = NULL;
 	new_dev->info.alive = TRUE;
 	new_dev->info.enable = TRUE;
 	new_dev->info.updated = TRUE;
@@ -189,6 +193,17 @@ int netproc_scandevice(int sockfd, FILE *fp, NETDEVLIST_PTR *netdev_list)
 		netproc_parse_status(status, prx_idx, ptx_idx, &in_packets, &out_packets,
 				     brx_idx, btx_idx, &in_bytes, &out_bytes);
 
+		/* check interface hw_type */
+		bzero(&ifr, sizeof(ifr));
+		strncpy(ifr.ifr_name, name, strlen(name)+1);
+  		ifr.ifr_name[strlen(name)+1] = '\0';
+		if (ioctl(sockfd, SIOCGIFHWADDR, &ifr)<0)
+			continue;
+
+		/* hw_types is not Ethernet and PPP */
+		if (ifr.ifr_hwaddr.sa_family!=ARPHRD_ETHER&&ifr.ifr_hwaddr.sa_family!=ARPHRD_PPP)
+			continue;
+
 		/* detecting new interface */
 		if ((devptr = netproc_netdevlist_find(*netdev_list, name))==NULL) {
 			netproc_netdevlist_add(netdev_list, name, in_bytes, in_packets, out_bytes, out_packets);
@@ -229,8 +244,9 @@ int netproc_scandevice(int sockfd, FILE *fp, NETDEVLIST_PTR *netdev_list)
 
 		/* Enable */
 		bzero(&ifr, sizeof(ifr));
-		strncpy(ifr.ifr_name, name, strlen(name));
+		strcpy(ifr.ifr_name, devptr->info.ifname);
 		if (ioctl(sockfd, SIOCGIFFLAGS, &ifr)>=0) {
+			devptr->info.flags = ifr.ifr_flags;
 			if (ifr.ifr_flags & IFF_UP) {
 				devptr->info.enable = TRUE;
 				devptr->info.updated = TRUE;
@@ -242,6 +258,7 @@ int netproc_scandevice(int sockfd, FILE *fp, NETDEVLIST_PTR *netdev_list)
 			if (devptr->info.enable) {
 				/* plug */
 				bzero(&ifr, sizeof(ifr));
+				strcpy(ifr.ifr_name, devptr->info.ifname);
 				strncpy(ifr.ifr_name, name, strlen(name));
 
 				edata.cmd = 0x0000000a;
@@ -256,22 +273,56 @@ int netproc_scandevice(int sockfd, FILE *fp, NETDEVLIST_PTR *netdev_list)
 						devptr->info.updated = TRUE;
 						devptr->info.plug = FALSE;
 					}
+					g_print("%s\n", devptr->info.ifname);
 
 					/* get network information */
 					if (devptr->info.enable&&devptr->info.plug) {
-						ioctl(sockfd, SIOCGIFADDR, &ifr);
-						strcpy(devptr->info.ipaddr, inet_ntoa(((struct sockaddr_in*)&ifr.ifr_addr)->sin_addr));
-						if (strcmp(devptr->info.ipaddr, "0.0.0.0")==0) {
+						if (devptr->info.flags & IFF_RUNNING) {
+							bzero(&ifr, sizeof(ifr));
+  							ifr.ifr_addr.sa_family = AF_INET;
+							/* IP Address */
+							strcpy(ifr.ifr_name, devptr->info.ifname);
+							ioctl(sockfd, SIOCGIFADDR, &ifr);
+							devptr->info.ipaddr = g_strdup(inet_ntoa(((struct sockaddr_in*)&ifr.ifr_addr)->sin_addr));
+
+							/* Point-to-Porint Address */
+							if (devptr->info.flags & IFF_POINTOPOINT) {
+								strcpy(ifr.ifr_name, devptr->info.ifname);
+								ioctl(sockfd, SIOCGIFDSTADDR, &ifr);
+								devptr->info.ipaddr = g_strdup(inet_ntoa(((struct sockaddr_in*)&ifr.ifr_dstaddr)->sin_addr));
+							}
+
+							/* Broadcast */
+							if (devptr->info.flags & IFF_BROADCAST) {
+								strcpy(ifr.ifr_name, devptr->info.ifname);
+								ioctl(sockfd, SIOCGIFBRDADDR, &ifr);
+								devptr->info.bcast = g_strdup(inet_ntoa(((struct sockaddr_in*)&ifr.ifr_broadaddr)->sin_addr));
+							}
+
+							/* Netmask */
+							strcpy(ifr.ifr_name, devptr->info.ifname);
+							ioctl(sockfd, SIOCGIFNETMASK, &ifr);
+							devptr->info.mask = g_strdup(inet_ntoa(((struct sockaddr_in*)&ifr.ifr_addr)->sin_addr));
+
+							if (strcmp(devptr->info.ipaddr, "0.0.0.0")==0) {
+								devptr->info.status = NETDEV_STAT_PROBLEM;
+								/* has connection problem  */
+								if (devptr->info.connected) {
+									devptr->info.connected = FALSE;
+									devptr->info.updated = TRUE;
+								}
+							} else {
+								if (!devptr->info.connected) {
+									devptr->info.status = NETDEV_STAT_NORMAL;
+									devptr->info.connected = TRUE;
+									devptr->info.updated = TRUE;
+								}
+							}
+						} else {
 							devptr->info.status = NETDEV_STAT_PROBLEM;
 							/* has connection problem  */
 							if (devptr->info.connected) {
 								devptr->info.connected = FALSE;
-								devptr->info.updated = TRUE;
-							}
-						} else {
-							if (!devptr->info.connected) {
-								devptr->info.status = NETDEV_STAT_NORMAL;
-								devptr->info.connected = TRUE;
 								devptr->info.updated = TRUE;
 							}
 						}
