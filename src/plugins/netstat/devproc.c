@@ -1,3 +1,20 @@
+/**																								 
+ * Copyright (c) 2008 LxDE Developers, see the file AUTHORS for details.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ */
 #include <string.h>
 #include <glib.h>
 #include <fcntl.h>
@@ -9,6 +26,7 @@
 #include <net/if_arp.h>
 #include <linux/sockios.h>
 #include <linux/types.h>
+#include <linux/ethtool.h>
 #include "nsconfig.h"
 #include "fnetdaemon.h"
 #include "devproc.h"
@@ -177,7 +195,8 @@ int netproc_scandevice(int sockfd, FILE *fp, NETDEVLIST_PTR *netdev_list)
 
 	while (fgets(buffer, sizeof(buffer), fp)) {
 		struct ifreq ifr;
-		struct linktest_value edata;
+//		struct linktest_value edata;
+		struct ethtool_test edata;
 		char *status;
 		char *name;
 		NETDEVLIST_PTR devptr = NULL;
@@ -259,77 +278,84 @@ int netproc_scandevice(int sockfd, FILE *fp, NETDEVLIST_PTR *netdev_list)
 				/* plug */
 				bzero(&ifr, sizeof(ifr));
 				strcpy(ifr.ifr_name, devptr->info.ifname);
-				strncpy(ifr.ifr_name, name, strlen(name));
 
 				edata.cmd = 0x0000000a;
 				ifr.ifr_data = (caddr_t)&edata;
-				if (ioctl(sockfd, SIOCETHTOOL, &ifr)>=0) {
-					if (edata.data) {
+				if (ioctl(sockfd, SIOCETHTOOL, &ifr)<0) {
+					if (devptr->info.flags & IFF_RUNNING) {
 						if (!devptr->info.plug) {
-							devptr->info.updated = TRUE;
 							devptr->info.plug = TRUE;
+							devptr->info.updated = TRUE;
 						}
 					} else if (devptr->info.plug) {
-						devptr->info.updated = TRUE;
 						devptr->info.plug = FALSE;
+						devptr->info.updated = TRUE;
 					}
-					g_print("%s\n", devptr->info.ifname);
+				} else {
+					if (edata.data) {
+						if (!devptr->info.plug) {
+							devptr->info.plug = TRUE;
+							devptr->info.updated = TRUE;
+						}
+					} else if (devptr->info.plug) {
+						devptr->info.plug = FALSE;
+						devptr->info.updated = TRUE;
+					}
+				}
 
 					/* get network information */
-					if (devptr->info.enable&&devptr->info.plug) {
-						if (devptr->info.flags & IFF_RUNNING) {
-							bzero(&ifr, sizeof(ifr));
-  							ifr.ifr_addr.sa_family = AF_INET;
-							/* IP Address */
+				if (devptr->info.enable&&devptr->info.plug) {
+					if (devptr->info.flags & IFF_RUNNING) {
+						bzero(&ifr, sizeof(ifr));
+  						//ifr.ifr_addr.sa_family = AF_INET;
+						/* IP Address */
+						strcpy(ifr.ifr_name, devptr->info.ifname);
+						ioctl(sockfd, SIOCGIFADDR, &ifr);
+						devptr->info.ipaddr = g_strdup(inet_ntoa(((struct sockaddr_in*)&ifr.ifr_addr)->sin_addr));
+
+						/* Point-to-Porint Address */
+						if (devptr->info.flags & IFF_POINTOPOINT) {
 							strcpy(ifr.ifr_name, devptr->info.ifname);
-							ioctl(sockfd, SIOCGIFADDR, &ifr);
-							devptr->info.ipaddr = g_strdup(inet_ntoa(((struct sockaddr_in*)&ifr.ifr_addr)->sin_addr));
+							ioctl(sockfd, SIOCGIFDSTADDR, &ifr);
+							devptr->info.ipaddr = g_strdup(inet_ntoa(((struct sockaddr_in*)&ifr.ifr_dstaddr)->sin_addr));
+						}
 
-							/* Point-to-Porint Address */
-							if (devptr->info.flags & IFF_POINTOPOINT) {
-								strcpy(ifr.ifr_name, devptr->info.ifname);
-								ioctl(sockfd, SIOCGIFDSTADDR, &ifr);
-								devptr->info.ipaddr = g_strdup(inet_ntoa(((struct sockaddr_in*)&ifr.ifr_dstaddr)->sin_addr));
-							}
-
-							/* Broadcast */
-							if (devptr->info.flags & IFF_BROADCAST) {
-								strcpy(ifr.ifr_name, devptr->info.ifname);
-								ioctl(sockfd, SIOCGIFBRDADDR, &ifr);
-								devptr->info.bcast = g_strdup(inet_ntoa(((struct sockaddr_in*)&ifr.ifr_broadaddr)->sin_addr));
-							}
-
-							/* Netmask */
+						/* Broadcast */
+						if (devptr->info.flags & IFF_BROADCAST) {
 							strcpy(ifr.ifr_name, devptr->info.ifname);
-							ioctl(sockfd, SIOCGIFNETMASK, &ifr);
-							devptr->info.mask = g_strdup(inet_ntoa(((struct sockaddr_in*)&ifr.ifr_addr)->sin_addr));
+							ioctl(sockfd, SIOCGIFBRDADDR, &ifr);
+							devptr->info.bcast = g_strdup(inet_ntoa(((struct sockaddr_in*)&ifr.ifr_broadaddr)->sin_addr));
+						}
 
-							if (strcmp(devptr->info.ipaddr, "0.0.0.0")==0) {
-								devptr->info.status = NETDEV_STAT_PROBLEM;
-								/* has connection problem  */
-								if (devptr->info.connected) {
-									devptr->info.connected = FALSE;
-									devptr->info.updated = TRUE;
-								}
-							} else {
-								if (!devptr->info.connected) {
-									devptr->info.status = NETDEV_STAT_NORMAL;
-									devptr->info.connected = TRUE;
-									devptr->info.updated = TRUE;
-								}
-							}
-						} else {
+						/* Netmask */
+						strcpy(ifr.ifr_name, devptr->info.ifname);
+						ioctl(sockfd, SIOCGIFNETMASK, &ifr);
+						devptr->info.mask = g_strdup(inet_ntoa(((struct sockaddr_in*)&ifr.ifr_addr)->sin_addr));
+
+						if (strcmp(devptr->info.ipaddr, "0.0.0.0")==0) {
 							devptr->info.status = NETDEV_STAT_PROBLEM;
 							/* has connection problem  */
 							if (devptr->info.connected) {
 								devptr->info.connected = FALSE;
 								devptr->info.updated = TRUE;
 							}
+						} else {
+							if (!devptr->info.connected) {
+								devptr->info.status = NETDEV_STAT_NORMAL;
+								devptr->info.connected = TRUE;
+								devptr->info.updated = TRUE;
+							}
+						}
+					} else {
+						devptr->info.status = NETDEV_STAT_PROBLEM;
+						/* has connection problem  */
+						if (devptr->info.connected) {
+							devptr->info.connected = FALSE;
+							devptr->info.updated = TRUE;
 						}
 					}
 				}
 			}
-
 		}
 
 		devptr = NULL;
