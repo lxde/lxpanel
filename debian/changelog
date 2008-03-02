@@ -1,5 +1,5 @@
-lxpanel (0.2.6-1) unstable; urgency=low
+lxpanel (0.2.7.1-1) unstable; urgency=low
 
-  * Initial release (Closes: #466562) 
+  * Initial release (Closes: #466562)
 
- -- Andrew Lee <andrew@linux.org.tw>  Sat, 01 Mar 2008 20:24:11 +0800
+ -- Andrew Lee <andrew@linux.org.tw>  Mon, 03 Mar 2008 02:16:04 +0800

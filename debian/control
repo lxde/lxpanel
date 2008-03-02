@@ -2,8 +2,8 @@ Source: lxpanel
 Section: x11
 Priority: optional
 Maintainer: Andrew Lee <andrew@linux.org.tw>
-Build-Depends: debhelper (>= 5), autotools-dev, libgtk2.0-dev (>=2.6), libglib2.0-dev(>=2.10), libxmu-dev, libxpm-dev
-Standards-Version: 3.7.2
+Build-Depends: debhelper (>= 5), autotools-dev, libgtk2.0-dev (>=2.6), libglib2.0-dev(>=2.10), libxmu-dev, libxpm-dev, docbook-to-man
+Standards-Version: 3.7.3
 
 Package: lxpanel
 Architecture: any
@@ -11,22 +11,21 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: a lightweight desktop panel for X
  LXPanel is a lightweight GTK+ 2.x based desktop panel with following 
  features:
- .
- * User-friendly application menu automatically generated from .desktop
-   files on the system.
- * Launcher bar (small icons clicked to launch apps)
- * Task bar supporting urgency hint (can be flash when gaim gets new
-   incoming messages)
- * Notification area (system tray)
- * Digital clock
- * Run dialog (a dialog let you type a command and run, can be called
-   in external programs)
- * Net status icon plug-in (optional)
- * Volume control plug-in (optional)
- * lxpanelctl, an external controller let you control lxpanel in
-   other programs. For example, "lxpanelctl run" will show the Run
-   dialog in lxpanel, and "lxpanelctl menu" will show the application
-   menu. This is useful in key bindings provided by window managers.
+  * User-friendly application menu automatically generated from .desktop
+    files on the system.
+  * Launcher bar (small icons clicked to launch apps)
+  * Task bar supporting urgency hint (can be flash when gaim gets new
+    incoming messages)
+  * Notification area (system tray)
+  * Digital clock
+  * Run dialog (a dialog let you type a command and run, can be called
+    in external programs)
+  * Net status icon plug-in (optional)
+  * Volume control plug-in (optional)
+  * lxpanelctl, an external controller let you control lxpanel in
+    other programs. For example, "lxpanelctl run" will show the Run
+    dialog in lxpanel, and "lxpanelctl menu" will show the application
+    menu. This is useful in key bindings provided by window managers.
  .
  Authors: 洪任諭 Hong Jen Yee (PCMan) from Taiwan <pcman.tw@gmail.com>
 

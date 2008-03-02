@@ -3,7 +3,7 @@ Thu, 21 Feb 2008 21:21:11 +0800.
 
 It was downloaded from http://sourceforge.net/projects/lxde/
 
-Upstream Author(s) and Copyright Holder(s): 
+Upstream Authors and Copyright Holders: 
 
     Hong Jen Yee (PCMan)  <pcman.tw@gmail.com>
     Jim Huang  <jserv.tw@gmail.com>
@@ -44,15 +44,7 @@ Files src/systray/eggtraymanager.*:
     either version 2, or (at your option) any later version.
 
 
-Files src/{bg,ev}.* 
-
-    Copyright (C) 2001, 2002 Ian McKellar <yakk@yakk.net>
-    			2002 Sun Microsystems, Inc.
-
-    Licensed under the GNU Library General Public License (LGPL),
-    either version 2, or (at your option) any later version.
-
-File src/plugins/ptk-app-menu.c:
+File src/plugins/ptk-app-menu.c
 
     Copyright (C) 2006 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
 
