@@ -21,11 +21,12 @@
 #include "fnetdaemon.h"
 #include "statusicon.h"
 
-statusicon *create_statusicon(GtkWidget *box, const char *filename, const char *tooltips)
+struct statusicon *create_statusicon(GtkWidget *box, const char *filename,
+		const char *tooltips)
 {
-	statusicon *newicon;
+	struct statusicon *newicon;
 
-	newicon = malloc(sizeof(statusicon));
+	newicon = malloc(sizeof(struct statusicon));
 
 	/* main */
 	newicon->main = gtk_event_box_new();
@@ -52,7 +53,7 @@ statusicon *create_statusicon(GtkWidget *box, const char *filename, const char *
 	return newicon;
 }
 
-void statusicon_destroy(statusicon *icon)
+void statusicon_destroy(struct statusicon *icon)
 {
 	g_object_unref(icon->tooltips);
 	gtk_widget_destroy(GTK_WIDGET(icon->icon));
@@ -60,17 +61,17 @@ void statusicon_destroy(statusicon *icon)
 }
 
 
-void set_statusicon_image_from_file(statusicon *widget, const char *filename)
+void set_statusicon_image_from_file(struct statusicon *widget, const char *filename)
 {
 	gtk_image_set_from_file(widget->icon, filename);
 }
 
-void set_statusicon_tooltips(statusicon *widget, const char *tooltips)
+void set_statusicon_tooltips(struct statusicon *widget, const char *tooltips)
 {
 	gtk_tooltips_set_tip(widget->tooltips, widget->main, tooltips, NULL);
 }
 
-void set_statusicon_visible(statusicon *widget, gboolean b)
+void set_statusicon_visible(struct statusicon *widget, gboolean b)
 {
 	if (b)
 		gtk_widget_show(widget->main);

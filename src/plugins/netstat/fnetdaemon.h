@@ -1,8 +1,8 @@
 #ifndef HAVE_FNETDAEMON_H
 #define HAVE_FNETDAEMON_H
 
+#include <stdio.h>
 #include <netinet/in.h>
-#include <gtk/gtk.h>
 
 #define NETDEV_STAT_NORMAL	0
 #define NETDEV_STAT_PROBLEM	1
@@ -11,11 +11,8 @@
 #define NETDEV_STAT_SENDDATA	4
 #define NETDEV_STAT_RECVDATA	5
 
-typedef struct {
-	GtkWidget *main;
-	GtkWidget *icon;
-	GtkTooltips *tooltips;
-} statusicon;
+/* forward declaration for UI interaction. */
+struct statusicon;
 
 typedef struct {
 	char *ifname;
@@ -44,7 +41,7 @@ typedef struct {
 	gulong trans_packets;
 
 	/* systray */
-	statusicon *status_icon;
+	struct statusicon *status_icon;
 } netdevice;
 
 typedef struct netdevice_node {
