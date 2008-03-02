@@ -15,10 +15,10 @@ There are 2 programs contained in the package.
 
 About Netstat and Netstatus plugins:
 
-1. netstatus is ported from GNOME Project. The original code come from GNOME
-   netstatus panel applet. This plugin has good support on Linux/BSD/Others
-   and it is released under GNU GPL.
+1. netstatus was ported from netstatus panel applet of GNOME Project.  This
+   plugin has good support on Linux/BSD/other UNIX, and it is released under
+   GNU GPL. (the same as LxDE)
 
-2. netstat is a new plugin that is written by ourself in order to instead of
-   netstatus. It's planned to be designed that more usability and less memory
-   usage. Currently, netstat is only supported for Linux.
+2. netstat is a new plugin written by LxDE developers as the lightweight
+   replacement of netstatus plugin.  It aims to be more usable and resource
+   efficient.  At the current stage, netstat runs only on Linux.
