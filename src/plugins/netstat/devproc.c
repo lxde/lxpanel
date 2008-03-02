@@ -67,10 +67,11 @@ void netproc_netdevlist_add(NETDEVLIST_PTR *netdev_list,
 	new_dev->info.ifname = g_strdup(ifname);
 	new_dev->info.mac = NULL;
 	new_dev->info.ipaddr = NULL;
+	new_dev->info.dest = NULL;
 	new_dev->info.bcast = NULL;
 	new_dev->info.mask = NULL;
 	new_dev->info.alive = TRUE;
-	new_dev->info.enable = TRUE;
+	new_dev->info.enable = FALSE;
 	new_dev->info.updated = TRUE;
 	new_dev->info.plug = TRUE;
 	new_dev->info.connected = TRUE;
@@ -345,7 +346,7 @@ int netproc_scandevice(int sockfd, int iwsockfd, FILE *fp, NETDEVLIST_PTR *netde
 						if (devptr->info.flags & IFF_POINTOPOINT) {
 							strcpy(ifr.ifr_name, devptr->info.ifname);
 							ioctl(sockfd, SIOCGIFDSTADDR, &ifr);
-							devptr->info.ipaddr = g_strdup(inet_ntoa(((struct sockaddr_in*)&ifr.ifr_dstaddr)->sin_addr));
+							devptr->info.dest = g_strdup(inet_ntoa(((struct sockaddr_in*)&ifr.ifr_dstaddr)->sin_addr));
 						}
 
 						/* Broadcast */

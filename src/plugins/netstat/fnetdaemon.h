@@ -21,6 +21,7 @@ typedef struct {
 	char *ifname;
 	char *mac;
 	char *ipaddr;
+	char *dest;
 	char *bcast;
 	char *mask;
 	int flags;

@@ -197,6 +197,11 @@ create_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
 			tooltip = g_strdup_printf("%s\n  %s", ptr->info.ifname, N_("Network cable is plugged out"));
 		else if (!ptr->info.connected)
 			tooltip = g_strdup_printf("%s\n  %s", ptr->info.ifname, N_("Connection has limited or no connectivity"));
+		else if (ptr->info.flags & IFF_POINTOPOINT)
+			tooltip = g_strdup_printf("%s\n  %s\t%s\n  %s\t%s\n  %s\t%s", ptr->info.ifname,
+															N_("IP Address: "), ptr->info.ipaddr,
+															N_("Remote IP: "), ptr->info.dest,
+															N_("Netmask: "), ptr->info.mask);
 		else if (ptr->info.wireless)
 			tooltip = g_strdup_printf("%s(%s) - %s(%d%%) \n  %s\t%s\n  %s\t%s\n  %s\t%s\n  %s\t%s\n  %s\t%s",
 															ptr->info.ifname, N_("Wireless"),
@@ -239,6 +244,11 @@ refresh_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
 				tooltip = g_strdup_printf("%s\n  %s", ptr->info.ifname, N_("Network cable is plugged out"));
 			else if (!ptr->info.connected)
 				tooltip = g_strdup_printf("%s\n  %s", ptr->info.ifname, N_("Connection has limited or no connectivity"));
+			else if (ptr->info.flags & IFF_POINTOPOINT)
+				tooltip = g_strdup_printf("%s\n  %s\t%s\n  %s\t%s\n  %s\t%s", ptr->info.ifname,
+																N_("IP Address: "), ptr->info.ipaddr,
+																N_("Remote IP: "), ptr->info.dest,
+																N_("Netmask: "), ptr->info.mask);
 			else if (ptr->info.wireless)
 				tooltip = g_strdup_printf("%s(%s) - %s(%d%%) \n  %s\t%s\n  %s\t%s\n  %s\t%s\n  %s\t%s\n  %s\t%s",
 																ptr->info.ifname, N_("Wireless"),
