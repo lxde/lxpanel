@@ -27,6 +27,7 @@
 #include <linux/sockios.h>
 #include <linux/types.h>
 #include <linux/ethtool.h>
+#include <iwlib.h>
 #include "nsconfig.h"
 #include "fnetdaemon.h"
 #include "devproc.h"
@@ -57,7 +58,8 @@ void netproc_netdevlist_add(NETDEVLIST_PTR *netdev_list,
                                    gulong recv_bytes,
                                    gulong recv_packets,
                                    gulong trans_bytes,
-                                   gulong trans_packets)
+                                   gulong trans_packets,
+                                   gboolean wireless)
 {
 	NETDEVLIST_PTR new_dev;
 
@@ -72,6 +74,7 @@ void netproc_netdevlist_add(NETDEVLIST_PTR *netdev_list,
 	new_dev->info.updated = TRUE;
 	new_dev->info.plug = TRUE;
 	new_dev->info.connected = TRUE;
+	new_dev->info.wireless = wireless;
 	new_dev->info.status = NETDEV_STAT_NORMAL;
 	new_dev->info.recv_bytes = recv_bytes;
 	new_dev->info.recv_packets = recv_packets;
@@ -183,12 +186,13 @@ void netproc_close(FILE *fp)
 	fclose(fp);
 }
 
-int netproc_scandevice(int sockfd, FILE *fp, NETDEVLIST_PTR *netdev_list)
+int netproc_scandevice(int sockfd, int iwsockfd, FILE *fp, NETDEVLIST_PTR *netdev_list)
 {
 	char buffer[512];
 	int count = 0;
 	int prx_idx, ptx_idx, brx_idx, btx_idx;
 	gulong in_packets, out_packets, in_bytes, out_bytes;
+	NETDEVLIST_PTR devptr = NULL;
 
 	fgets (buffer, sizeof(buffer), fp);
 	fgets (buffer, sizeof(buffer), fp);
@@ -197,9 +201,12 @@ int netproc_scandevice(int sockfd, FILE *fp, NETDEVLIST_PTR *netdev_list)
 	while (fgets(buffer, sizeof(buffer), fp)) {
 		struct ifreq ifr;
 		struct ethtool_test edata;
+		iwstats iws;
+		struct iwreq iwr;
 		char *status;
 		char *name;
-		NETDEVLIST_PTR devptr = NULL;
+		struct iw_range iwrange;
+		int has_iwrange;
 
 		/* getting interface name */
 		name = buffer;
@@ -225,7 +232,13 @@ int netproc_scandevice(int sockfd, FILE *fp, NETDEVLIST_PTR *netdev_list)
 
 		/* detecting new interface */
 		if ((devptr = netproc_netdevlist_find(*netdev_list, name))==NULL) {
-			netproc_netdevlist_add(netdev_list, name, in_bytes, in_packets, out_bytes, out_packets);
+			/* check wireless device */
+			has_iwrange = (iw_get_range_info(iwsockfd, name, &iwrange)>=0);
+			if (!(has_iwrange) || (iwrange.we_version_compiled < 14))
+				netproc_netdevlist_add(netdev_list, name, in_bytes, in_packets, out_bytes, out_packets, FALSE);
+			else
+				netproc_netdevlist_add(netdev_list, name, in_bytes, in_packets, out_bytes, out_packets, TRUE);
+
 			devptr = netproc_netdevlist_find(*netdev_list, name);
 
 			/* MAC Address */
@@ -291,6 +304,7 @@ int netproc_scandevice(int sockfd, FILE *fp, NETDEVLIST_PTR *netdev_list)
 				edata.cmd = 0x0000000a;
 				ifr.ifr_data = (caddr_t)&edata;
 				if (ioctl(sockfd, SIOCETHTOOL, &ifr)<0) {
+					/* using IFF_RUNNING instead due to system doesn't have ethtool or working in non-root */
 					if (devptr->info.flags & IFF_RUNNING) {
 						if (!devptr->info.plug) {
 							devptr->info.plug = TRUE;
@@ -312,7 +326,7 @@ int netproc_scandevice(int sockfd, FILE *fp, NETDEVLIST_PTR *netdev_list)
 					}
 				}
 
-					/* get network information */
+				/* get network information */
 				if (devptr->info.enable&&devptr->info.plug) {
 					if (devptr->info.flags & IFF_RUNNING) {
 						bzero(&ifr, sizeof(ifr));
@@ -346,6 +360,22 @@ int netproc_scandevice(int sockfd, FILE *fp, NETDEVLIST_PTR *netdev_list)
 						ioctl(sockfd, SIOCGIFNETMASK, &ifr);
 						devptr->info.mask = g_strdup(inet_ntoa(((struct sockaddr_in*)&ifr.ifr_addr)->sin_addr));
 
+						/* Wireless Information */
+						if (devptr->info.wireless) {
+							struct wireless_config wconfig;
+
+							/* get wireless config */
+							iw_get_basic_config(iwsockfd, devptr->info.ifname, &wconfig);
+							/* Protocol */
+							devptr->info.protocol = g_strdup(wconfig.name);
+							/* ESSID */
+							devptr->info.essid = g_strdup(wconfig.essid);
+
+							/* Signal Quality */
+							iw_get_stats(iwsockfd, devptr->info.ifname, &iws, &iwrange, has_iwrange);
+							devptr->info.quality = (int)rint((log (iws.qual.qual) / log (92)) * 100.0);
+						}
+
 						/* check problem connection */
 						if (strcmp(devptr->info.ipaddr, "0.0.0.0")==0) {
 							devptr->info.status = NETDEV_STAT_PROBLEM;
@@ -354,16 +384,14 @@ int netproc_scandevice(int sockfd, FILE *fp, NETDEVLIST_PTR *netdev_list)
 								devptr->info.connected = FALSE;
 								devptr->info.updated = TRUE;
 							}
-						} else {
-							if (!devptr->info.connected) {
+						} else if (!devptr->info.connected) {
 								devptr->info.status = NETDEV_STAT_NORMAL;
 								devptr->info.connected = TRUE;
 								devptr->info.updated = TRUE;
-							}
 						}
 					} else {
-						devptr->info.status = NETDEV_STAT_PROBLEM;
 						/* has connection problem  */
+						devptr->info.status = NETDEV_STAT_PROBLEM;
 						if (devptr->info.connected) {
 							devptr->info.connected = FALSE;
 							devptr->info.updated = TRUE;
@@ -411,7 +439,7 @@ void netproc_devicelist_clear(NETDEVLIST_PTR *netdev_list)
 	prev_ptr = NULL;
 	ptr = *netdev_list;
 	do {
-		if (!ptr->info.alive) { /* device was removed */
+		if (!ptr->info.alive) { /* if device was removed */
 			if (prev_ptr!=NULL) {
 				ptr->prev->next = ptr->next;
 				ptr->next->prev = ptr->prev;
@@ -435,7 +463,7 @@ void netproc_listener(FNETD *fnetd)
 	if (fnetd->sockfd) {
 		netproc_alive(fnetd->netdevlist);
 		fnetd->netdev_fp = netproc_open();
-		netproc_scandevice(fnetd->sockfd, fnetd->netdev_fp, &fnetd->netdevlist);
+		netproc_scandevice(fnetd->sockfd, fnetd->iwsockfd, fnetd->netdev_fp, &fnetd->netdevlist);
 		netproc_close(fnetd->netdev_fp);
 	}
 }

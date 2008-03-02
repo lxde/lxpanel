@@ -29,6 +29,13 @@ typedef struct {
 	gboolean updated;
 	gboolean plug;
 	gboolean connected;
+
+	/* wireless */
+	gboolean wireless;
+	char *protocol;
+	char *essid;
+	int *quality;
+
 	int status;
 	gulong recv_bytes;
 	gulong recv_packets;
@@ -49,6 +56,7 @@ typedef NETDEVLIST *NETDEVLIST_PTR;
 typedef struct {
 	int dev_count;
 	int sockfd;
+	int iwsockfd;
 	FILE *netdev_fp;
 	NETDEVLIST_PTR netdevlist;
 } FNETD;
