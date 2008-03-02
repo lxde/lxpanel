@@ -23,6 +23,7 @@
 #include <iwlib.h>
 #include "nsconfig.h"
 #include "fnetdaemon.h"
+#include "statusicon.h"
 #include "devproc.h"
 #include "panel.h"
 #include "misc.h"
@@ -44,70 +45,14 @@ typedef struct {
 	NETDEVLIST_PTR netdev_list;
 } netdev_info;
 
-static
-statusicon *create_statusicon(GtkWidget *box, const char *filename, const char *tooltips)
-{
-	statusicon *newicon;
-
-	newicon = malloc(sizeof(statusicon));
-
-	/* main */
-	newicon->main = gtk_event_box_new();
-
-	gtk_widget_add_events(newicon->main, GDK_BUTTON_PRESS_MASK);
-	gtk_widget_set_size_request(newicon->main, 24, 24);
-	gtk_box_pack_start(GTK_BOX(box), newicon->main, TRUE, TRUE, 0);
-
-	/* icon */
-	newicon->icon = gtk_image_new_from_file(filename);
-	gtk_container_add(GTK_CONTAINER(newicon->main), newicon->icon);
-	gtk_widget_show_all(newicon->main);
-
-	/* tooltip */
-	newicon->tooltips = gtk_tooltips_new();
-#if GLIB_CHECK_VERSION( 2, 10, 0 )
-	g_object_ref_sink(newicon->tooltips);
-#else
-	g_object_ref(newicon->tooltips);
-	gtk_object_sink(newicon->tooltips);
-#endif
-	gtk_tooltips_set_tip(newicon->tooltips, newicon->main, tooltips, NULL);
-
-	return newicon;
-}
-
-static void
-set_statusicon_image_from_file(statusicon *widget, const char *filename)
-{
-	gtk_image_set_from_file(widget->icon, filename);
-}
-
-static void
-set_statusicon_tooltips(statusicon *widget, const char *tooltips)
-{
-	gtk_tooltips_set_tip(widget->tooltips, widget->main, tooltips, NULL);
-}
-
-static void
-set_statusicon_visible(statusicon *widget, gboolean b)
-{
-//	gtk_widget_set_child_visible(widget->main, b);
-	if (b)
-		gtk_widget_show(widget->main);
-	else
-		gtk_widget_hide(widget->main);
-}
-
-static int
-actionProcess(void *arg)
+static int actionProcess(void *arg)
 {
 	ENTER;
 	RET(system((char *)arg));
 }
 
 /* menu handlers */
-static void
-fixconn(GtkWidget *widget, netdev_info *ni)
+static void fixconn(GtkWidget *widget, netdev_info *ni)
 {
 	pthread_t actionThread;
 	char *fixcmd;
@@ -117,8 +62,7 @@ fixconn(GtkWidget *widget, netdev_info *ni)
 	pthread_create(&actionThread, NULL, actionProcess, fixcmd);
 }
 
-static gint
-menupopup(GtkWidget *widget, GdkEvent *event, netdev_info *ni)
+static gint menupopup(GtkWidget *widget, GdkEvent *event, netdev_info *ni)
 {
 	GdkEventButton *event_button;
 
@@ -148,8 +92,7 @@ menupopup(GtkWidget *widget, GdkEvent *event, netdev_info *ni)
 	return FALSE;
 }
 
-static
-char *select_icon(gboolean plug, gboolean connected, int stat)
+static char *select_icon(gboolean plug, gboolean connected, int stat)
 {
 	if (!plug)
 		return ICONS_DISCONNECT;
@@ -176,8 +119,7 @@ char *select_icon(gboolean plug, gboolean connected, int stat)
 	}
 }
 
-static void
-create_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
+static void create_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
 {
 	NETDEVLIST_PTR ptr;
 	char *tooltip;
@@ -225,8 +167,7 @@ create_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
 	} while(ptr!=NULL);
 }
 
-static void
-refresh_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
+static void refresh_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
 {
 	NETDEVLIST_PTR ptr;
 	char *tooltip;
@@ -237,8 +178,11 @@ refresh_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
 
 	ptr = netdev_list;
 	do {
+
 		if (!ptr->info.enable) {
-			set_statusicon_visible(ptr->info.status_icon, FALSE);
+			if (ptr->info.status_icon!=NULL) {
+				set_statusicon_visible(ptr->info.status_icon, FALSE);
+			}
 		} else if (ptr->info.updated) {
 			if (!ptr->info.plug)
 				tooltip = g_strdup_printf("%s\n  %s", ptr->info.ifname, N_("Network cable is plugged out"));
@@ -265,17 +209,27 @@ refresh_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
 																N_("Netmask: "), ptr->info.mask,
 																N_("HW Address: "), ptr->info.mac);
 
-			set_statusicon_tooltips(ptr->info.status_icon, tooltip);
-			set_statusicon_image_from_file(ptr->info.status_icon, select_icon(ptr->info.plug, ptr->info.connected, ptr->info.status));
-			set_statusicon_visible(ptr->info.status_icon, TRUE);
+			/* status icon doesn't exist  */
+			if (ptr->info.status_icon==NULL) {
+				netdev_info *ni;
+				ni = malloc(sizeof(netdev_info));
+				ni->ns = ns;
+				ni->netdev_list = ptr;
+
+				ptr->info.status_icon = create_statusicon(ns->mainw, select_icon(ptr->info.plug, ptr->info.connected, ptr->info.status), tooltip);
+				g_signal_connect(ptr->info.status_icon->main, "button_press_event", G_CALLBACK(menupopup), ni);
+			} else {
+				set_statusicon_tooltips(ptr->info.status_icon, tooltip);
+				set_statusicon_image_from_file(ptr->info.status_icon, select_icon(ptr->info.plug, ptr->info.connected, ptr->info.status));
+				set_statusicon_visible(ptr->info.status_icon, TRUE);
+			}
 			g_free(tooltip);
 		}
 		ptr = ptr->next;
 	} while(ptr!=NULL);
 }
 
-static
-gboolean refresh_devstat(netstat *ns)
+static gboolean refresh_devstat(netstat *ns)
 {
 	netproc_listener(ns->fnetd);
 	//netproc_print(fnetd->netdevlist);
@@ -285,8 +239,7 @@ gboolean refresh_devstat(netstat *ns)
 }
 
 /* Plugin constructor */
-static void
-netstat_destructor(plugin *p)
+static void netstat_destructor(plugin *p)
 {
 	netstat *ns = (netstat *) p->priv;
 
@@ -302,8 +255,7 @@ netstat_destructor(plugin *p)
 	RET();
 }
 
-static int
-netstat_constructor(plugin *p, char **fp)
+static int netstat_constructor(plugin *p, char **fp)
 {
 	netstat *ns;
 	line s;

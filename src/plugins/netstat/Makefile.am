@@ -16,7 +16,9 @@ netstat_la_SOURCES = \
         fnetdaemon.h \
         nsconfig.h \
         devproc.c \
-        devproc.h
+        devproc.h \
+        statusicon.c \
+        statusicon.h
 
 netstat_la_LIBADD = -liw $(PACKAGE_LIBS)
 

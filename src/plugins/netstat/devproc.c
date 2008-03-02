@@ -30,29 +30,10 @@
 #include <iwlib.h>
 #include "nsconfig.h"
 #include "fnetdaemon.h"
+#include "statusicon.h"
 #include "devproc.h"
 
 /* network device list */
-int netproc_netdevlist_clear(NETDEVLIST_PTR *netdev_list)
-{
-	NETDEVLIST_PTR ptr;
-	NETDEVLIST_PTR ptr_del;
-
-	if (*netdev_list==NULL)
-		return 0;
-
-	ptr = *netdev_list;
-	while(ptr->next!=NULL) {
-		ptr_del = ptr;
-		ptr = ptr->next;
-		free(ptr_del);
-	}
-
-	*netdev_list = NULL;
-
-	return 0;
-}
-
 void netproc_netdevlist_add(NETDEVLIST_PTR *netdev_list,
                                    const char *ifname,
                                    gulong recv_bytes,
@@ -81,6 +62,7 @@ void netproc_netdevlist_add(NETDEVLIST_PTR *netdev_list,
 	new_dev->info.recv_packets = recv_packets;
 	new_dev->info.trans_bytes = trans_bytes;
 	new_dev->info.trans_packets = trans_packets;
+	new_dev->info.status_icon = NULL;
 	new_dev->prev = NULL;
 	new_dev->next = *netdev_list;
 	if (new_dev->next!=NULL) {
@@ -88,6 +70,39 @@ void netproc_netdevlist_add(NETDEVLIST_PTR *netdev_list,
 	}
 	*netdev_list = new_dev;
 }
+
+void netproc_netdevlist_destroy(NETDEVLIST_PTR netdev_list)
+{
+	g_free(netdev_list->info.ifname);
+	g_free(netdev_list->info.mac);
+	g_free(netdev_list->info.ipaddr);
+	g_free(netdev_list->info.dest);
+	g_free(netdev_list->info.bcast);
+	g_free(netdev_list->info.mask);
+	statusicon_destroy(netdev_list->info.status_icon);
+}
+
+int netproc_netdevlist_clear(NETDEVLIST_PTR *netdev_list)
+{
+	NETDEVLIST_PTR ptr;
+	NETDEVLIST_PTR ptr_del;
+
+	if (*netdev_list==NULL)
+		return 0;
+
+	ptr = *netdev_list;
+	while(ptr->next!=NULL) {
+		netproc_netdevlist_destroy(ptr);
+		ptr_del = ptr;
+		ptr = ptr->next;
+		free(ptr_del);
+	}
+
+	*netdev_list = NULL;
+
+	return 0;
+}
+
 
 NETDEVLIST_PTR netproc_netdevlist_find(NETDEVLIST_PTR netdev_list, const char *ifname)
 {
@@ -441,6 +456,7 @@ void netproc_devicelist_clear(NETDEVLIST_PTR *netdev_list)
 	ptr = *netdev_list;
 	do {
 		if (!ptr->info.alive) { /* if device was removed */
+			netproc_netdevlist_destroy(ptr);
 			if (prev_ptr!=NULL) {
 				ptr->prev->next = ptr->next;
 				ptr->next->prev = ptr->prev;
