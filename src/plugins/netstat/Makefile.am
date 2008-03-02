@@ -1,3 +1,5 @@
+if BUILD_LIBIW_PLUGINS
+
 INCLUDES = \
 	-I. \
 	-I$(top_srcdir)/src \
@@ -24,3 +26,5 @@ netstat_la_LDFLAGS = \
 
 install-exec-hook:
 	rm -f "$(moduledir)\*.la" *.a
+
+endif

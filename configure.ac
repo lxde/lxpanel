@@ -79,6 +79,21 @@ AM_CONDITIONAL(BUILD_ALSA_PLUGINS, test x$compile_alsa = xyes)
 dnl FIXME: check OSS existence
 AM_CONDITIONAL(BUILD_OSS_PLUGINS, test x$compile_alsa = xno)
 
+# check libiw for netstat plugin
+AC_ARG_ENABLE([libiw],
+    AS_HELP_STRING([--disable-libiw],
+                    [compile libiw-based netstat plugin (default: enable)]),
+            compile_libiw=$enableval, compile_libiw="yes")
+if test x"$compile_libiw" = "xyes"; then
+    AC_CHECK_HEADERS(iwlib.h,
+                     [AC_CHECK_LIB(iw,
+                                   iw_sockets_open,
+                                   compile_libiw=yes,
+                                   compile_libiw=no)],
+                                   compile_libiw=no)
+fi
+AM_CONDITIONAL(BUILD_LIBIW_PLUGINS, test x$compile_libiw = xyes)
+
 AC_ARG_ENABLE([plugins-loading],
     AS_HELP_STRING([--disable-plugins-loading],
                [disable plugin loading (default: enable)]),
@@ -178,6 +193,12 @@ if test x"$compile_alsa" = "xno"; then
 else
     dnl force OSS plugin to <null>
     plugin_volume=
+fi
+if test x"$compile_libiw" = "xno"; then
+   if test ! -z $plugin_netstat; then
+       AC_MSG_RESULT([no libiw headers/libraries found!])
+   fi
+   plugin_netstat=
 fi
 PLUGINS_LIST="$plugin_netstatus $plugin_netstat $plugin_volume $plugin_volumealsa $plugin_cpu $plugin_deskno $plugin_batt"
 AC_SUBST(PLUGINS_LIST)
