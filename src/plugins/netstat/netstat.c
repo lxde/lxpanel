@@ -119,54 +119,6 @@ static char *select_icon(gboolean plug, gboolean connected, int stat)
 	}
 }
 
-static void create_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
-{
-	NETDEVLIST_PTR ptr;
-	char *tooltip;
-
-	if (netdev_list==NULL) {
-		return;
-	}
-
-	ptr = netdev_list;
-	do {
-		netdev_info *ni;
-		ni = malloc(sizeof(netdev_info));
-		ni->ns = ns;
-		ni->netdev_list = ptr;
-
-		if (!ptr->info.plug)
-			tooltip = g_strdup_printf("%s\n  %s", ptr->info.ifname, N_("Network cable is plugged out"));
-		else if (!ptr->info.connected)
-			tooltip = g_strdup_printf("%s\n  %s", ptr->info.ifname, N_("Connection has limited or no connectivity"));
-		else if (ptr->info.flags & IFF_POINTOPOINT)
-			tooltip = g_strdup_printf("%s\n  %s\t%s\n  %s\t%s\n  %s\t%s", ptr->info.ifname,
-															N_("IP Address: "), ptr->info.ipaddr,
-															N_("Remote IP: "), ptr->info.dest,
-															N_("Netmask: "), ptr->info.mask);
-		else if (ptr->info.wireless)
-			tooltip = g_strdup_printf("%s(%s) - %s(%d%%) \n  %s\t%s\n  %s\t%s\n  %s\t%s\n  %s\t%s\n  %s\t%s",
-															ptr->info.ifname, N_("Wireless"),
-															ptr->info.essid, ptr->info.quality,
-															N_("Protocol: "), ptr->info.protocol,
-															N_("IP Address: "), ptr->info.ipaddr,
-															N_("Boradcast: "), ptr->info.bcast,
-															N_("Netmask: "), ptr->info.mask,
-															N_("HW Address: "), ptr->info.mac);
-		else
-			tooltip = g_strdup_printf("%s\n  %s\t%s\n  %s\t%s\n  %s\t%s\n  %s\t%s", ptr->info.ifname,
-															N_("IP Address: "), ptr->info.ipaddr,
-															N_("Boradcast: "), ptr->info.bcast,
-															N_("Netmask: "), ptr->info.mask,
-															N_("HW Address: "), ptr->info.mac);
-
-		ptr->info.status_icon = create_statusicon(ns->mainw, select_icon(ptr->info.plug, ptr->info.connected, ptr->info.status), tooltip);
-		g_signal_connect(ptr->info.status_icon->main, "button_press_event", G_CALLBACK(menupopup), ni);
-		g_free(tooltip);
-		ptr = ptr->next;
-	} while(ptr!=NULL);
-}
-
 static void refresh_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
 {
 	NETDEVLIST_PTR ptr;
@@ -302,7 +254,7 @@ static int netstat_constructor(plugin *p, char **fp)
 	ns->fnetd->dev_count = netproc_netdevlist_clear(&ns->fnetd->netdevlist);
 	ns->fnetd->dev_count = netproc_scandevice(ns->fnetd->sockfd, ns->fnetd->iwsockfd, ns->fnetd->netdev_fp, &ns->fnetd->netdevlist);
 	netproc_close(ns->fnetd->netdev_fp);
-	create_systray(ns, ns->fnetd->netdevlist);
+	refresh_systray(ns, ns->fnetd->netdevlist);
 
 	ns->ttag = g_timeout_add(NETSTAT_IFACE_POLL_DELAY, (GSourceFunc)refresh_devstat, ns);
 
