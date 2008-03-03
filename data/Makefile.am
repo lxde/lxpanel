@@ -42,7 +42,8 @@ lxpanel_images_DATA = \
 	images/ns-disconnect.png \
 	images/ns-problem.png \
 	images/ns-recvdata.png \
-	images/ns-senddata.png
+	images/ns-senddata.png \
+	images/ns-lock.png
 
 
 lxpanel_imagesdir = $(datadir)/lxpanel/images
