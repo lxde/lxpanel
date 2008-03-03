@@ -16,6 +16,7 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 #include <sys/types.h>
+#include <stdio.h>
 #include <string.h>
 #include <glib.h>
 #include <glib/gi18n.h>
@@ -25,6 +26,7 @@
 #include "fnetdaemon.h"
 #include "statusicon.h"
 #include "devproc.h"
+#include "wireless.h"
 #include "panel.h"
 #include "misc.h"
 #include "plugin.h"
@@ -70,7 +72,53 @@ static gint menupopup(GtkWidget *widget, GdkEvent *event, netdev_info *ni)
 
 	if (event->type == GDK_BUTTON_PRESS) {
 		event_button = (GdkEventButton *) event;
-		if (event_button->button == 3) {
+		if (event_button->button == 1) {
+			/* wireless device */
+			if (ni->netdev_list->info.wireless) {
+				GtkWidget *menu;
+				GtkWidget *menu_ap;
+				APINFOLIST *aplist;
+				APINFOLIST *ptr;
+
+				/* create menu */
+				menu = gtk_menu_new();
+
+				/* Scanning AP */
+				aplist = wireless_ap_scanning(ni->ns->fnetd->iwsockfd, ni->netdev_list->info.ifname);
+				if (aplist!=NULL) {
+					ptr = aplist;
+					do {
+						GtkWidget *item_box;
+						GtkWidget *essid_label;
+						GtkWidget *signal_quality;
+
+						menu_ap = gtk_menu_item_new();
+						item_box = gtk_hbox_new(FALSE, 0);
+
+						/* ESSID */
+						essid_label = gtk_label_new(ptr->info.essid);
+						gtk_misc_set_alignment(GTK_MISC(essid_label), 0, 0);
+						gtk_misc_set_padding(GTK_MISC(essid_label), 5, 0);
+						gtk_box_pack_start(GTK_BOX(item_box), essid_label, TRUE, TRUE, 0);
+
+						/* Quality */
+						signal_quality = gtk_progress_bar_new();
+						gtk_progress_bar_set_orientation(signal_quality, GTK_PROGRESS_LEFT_TO_RIGHT);
+						gtk_progress_bar_set_fraction(signal_quality, (gdouble)((double)ptr->info.quality/100));
+						gtk_box_pack_start(GTK_BOX(item_box), signal_quality, FALSE, FALSE, 0);
+
+						gtk_container_add(GTK_CONTAINER(menu_ap), item_box);
+						gtk_menu_append(GTK_MENU(menu), menu_ap);
+//						menu_ap = gtk_menu_item_new_with_label(ptr->info.essid);
+//						gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_ap);
+						ptr = ptr->next;
+					} while(ptr!=NULL);
+				}
+				gtk_widget_show_all(menu);
+
+				gtk_menu_popup(menu, NULL, NULL, NULL, NULL, event_button->button, event_button->time);
+			}
+		} else if (event_button->button == 3) {
 			GtkWidget *menu;
 			GtkWidget *menu_fix;
 
@@ -130,7 +178,6 @@ static void refresh_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
 
 	ptr = netdev_list;
 	do {
-
 		if (!ptr->info.enable) {
 			if (ptr->info.status_icon!=NULL) {
 				set_statusicon_visible(ptr->info.status_icon, FALSE);

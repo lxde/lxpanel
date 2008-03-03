@@ -18,7 +18,9 @@ netstat_la_SOURCES = \
         devproc.c \
         devproc.h \
         statusicon.c \
-        statusicon.h
+        statusicon.h \
+		wireless.c \
+		wireless.h
 
 netstat_la_LIBADD = -liw $(PACKAGE_LIBS)
 
