@@ -54,6 +54,17 @@ static int actionProcess(void *arg)
 }
 
 /* menu handlers */
+/*
+static void apconnect(GtkWidget *widget, netdev_info *ni)
+{
+	pthread_t actionThread;
+	char *fixcmd;
+
+	fixcmd = g_strdup_printf(ni->ns->fixcmd, ni->netdev_list->info.ifname);
+
+	pthread_create(&actionThread, NULL, actionProcess, fixcmd);
+}
+*/
 static void fixconn(GtkWidget *widget, netdev_info *ni)
 {
 	pthread_t actionThread;
@@ -90,25 +101,40 @@ static gint menupopup(GtkWidget *widget, GdkEvent *event, netdev_info *ni)
 					do {
 						GtkWidget *item_box;
 						GtkWidget *essid_label;
+						GtkWidget *lockicon;
 						GtkWidget *signal_quality;
+						gdouble quality_per;
 
 						menu_ap = gtk_menu_item_new();
 						item_box = gtk_hbox_new(FALSE, 0);
 
+						/* Encryption */
+						if (ptr->info.haskey) {
+							lockicon = gtk_image_new_from_file(ICONS_WL_LOCK);
+							gtk_box_pack_start(GTK_BOX(item_box), lockicon, FALSE, FALSE, 0);
+						}
+
 						/* ESSID */
 						essid_label = gtk_label_new(ptr->info.essid);
-						gtk_misc_set_alignment(GTK_MISC(essid_label), 0, 0);
-						gtk_misc_set_padding(GTK_MISC(essid_label), 5, 0);
-						gtk_box_pack_start(GTK_BOX(item_box), essid_label, TRUE, TRUE, 0);
+//						gtk_misc_set_alignment(GTK_MISC(essid_label), 0, 0);
+						gtk_label_set_justify(essid_label, GTK_JUSTIFY_LEFT);
+						gtk_misc_set_padding(GTK_MISC(essid_label), 2, 0);
+						gtk_box_pack_start(GTK_BOX(item_box), essid_label, TRUE, FALSE, 0);
 
 						/* Quality */
+						quality_per = (gdouble)((double)ptr->info.quality/100);
+						if (quality_per>1)
+							quality_per = 1;
+
 						signal_quality = gtk_progress_bar_new();
+						gtk_widget_set_size_request(signal_quality, 100, -1);
 						gtk_progress_bar_set_orientation(signal_quality, GTK_PROGRESS_LEFT_TO_RIGHT);
-						gtk_progress_bar_set_fraction(signal_quality, (gdouble)((double)ptr->info.quality/100));
+						gtk_progress_bar_set_fraction(signal_quality, quality_per);
 						gtk_box_pack_start(GTK_BOX(item_box), signal_quality, FALSE, FALSE, 0);
 
 						gtk_container_add(GTK_CONTAINER(menu_ap), item_box);
 						gtk_menu_append(GTK_MENU(menu), menu_ap);
+//						g_signal_connect(G_OBJECT(menu_ap), "activate", G_CALLBACK(apconnect), );
 //						menu_ap = gtk_menu_item_new_with_label(ptr->info.essid);
 //						gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_ap);
 						ptr = ptr->next;
@@ -189,18 +215,18 @@ static void refresh_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
 				tooltip = g_strdup_printf("%s\n  %s", ptr->info.ifname, N_("Connection has limited or no connectivity"));
 			else if (ptr->info.flags & IFF_POINTOPOINT)
 				tooltip = g_strdup_printf("%s\n  %s\t%s\n  %s\t%s\n  %s\t%s", ptr->info.ifname,
-																N_("IP Address: "), ptr->info.ipaddr,
-																N_("Remote IP: "), ptr->info.dest,
-																N_("Netmask: "), ptr->info.mask);
+																N_("IP Address:"), ptr->info.ipaddr,
+																N_("Remote IP:"), ptr->info.dest,
+																N_("Netmask:"), ptr->info.mask);
 			else if (ptr->info.wireless)
 				tooltip = g_strdup_printf("%s(%s) - %s(%d%%) \n  %s\t%s\n  %s\t%s\n  %s\t%s\n  %s\t%s\n  %s\t%s",
 																ptr->info.ifname, N_("Wireless"),
 																ptr->info.essid, ptr->info.quality,
-																N_("Protocol: "), ptr->info.protocol,
-																N_("IP Address: "), ptr->info.ipaddr,
-																N_("Boradcast: "), ptr->info.bcast,
-																N_("Netmask: "), ptr->info.mask,
-																N_("HW Address: "), ptr->info.mac);
+																N_("Protocol:"), ptr->info.protocol,
+																N_("IP Address:"), ptr->info.ipaddr,
+																N_("Boradcast:"), ptr->info.bcast,
+																N_("Netmask:"), ptr->info.mask,
+																N_("HW Address:"), ptr->info.mac);
 			else
 				tooltip = g_strdup_printf("%s\n  %s\t%s\n  %s\t%s\n  %s\t%s\n  %s\t%s", ptr->info.ifname,
 																N_("IP Address: "), ptr->info.ipaddr,

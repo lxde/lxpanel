@@ -12,5 +12,6 @@
 #define ICONS_WL_CONNECTED	RESOURCE_DIR "/ns-wlconnected.png"
 #define ICONS_WL_DISCONNECT	RESOURCE_DIR "/ns-wldisconnect.png"
 #define ICONS_WL_RENEW		RESOURCE_DIR "/ns-wlrenew.png"
+#define ICONS_WL_LOCK		RESOURCE_DIR "/ns-lock.png"
 
 #endif
