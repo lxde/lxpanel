@@ -819,8 +819,8 @@ msgstr "通訊協定："
 
 #: netstat.c:231
 msgid "Boradcast:"
-msgstr "廣播位址"
+msgstr "廣播位址："
 
 #: netstat.c:233
 msgid "HW Address:"
-msgstr "實體位址"
+msgstr "實體位址："
