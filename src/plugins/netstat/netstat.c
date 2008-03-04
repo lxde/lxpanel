@@ -238,10 +238,10 @@ static void refresh_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
 			else
 				tooltip = g_strdup_printf("%s\n  %s\t%s\n  %s\t%s\n  %s\t%s\n  %s\t%s\n\n %s(%s\/%s)\n   %d\/%d %s\n   %d\/%d %s",
 																ptr->info.ifname,
-																N_("IP Address: "), ptr->info.ipaddr,
-																N_("Boradcast: "), ptr->info.bcast,
-																N_("Netmask: "), ptr->info.mask,
-																N_("HW Address: "), ptr->info.mac, 
+																N_("IP Address:"), ptr->info.ipaddr,
+																N_("Boradcast:"), ptr->info.bcast,
+																N_("Netmask:"), ptr->info.mask,
+																N_("HW Address:"), ptr->info.mac, 
 																N_("Activity"), N_("Sent"), N_("Received"),
 																ptr->info.trans_bytes, ptr->info.recv_bytes, N_("bytes"),
 																ptr->info.trans_packets, ptr->info.recv_packets, N_("packets"));

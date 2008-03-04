@@ -1,19 +1,21 @@
-# translation of zh_TW.po to
-# Copyright (c) 2006-2008 LxDE Developers.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: zh_TW\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-20 00:33+0800\n"
-"PO-Revision-Date: 2008-02-17 18:06+0800\n"
-"Last-Translator: Jim Huang <jserv.tw@gmail.com>\n"
-"Language-Team:  <en@li.org>\n"
+"POT-Creation-Date: 2008-03-05 01:28+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Country: TAIWAN\n"
-"X-Poedit-SourceCharset: iso-8859-1\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #: ../src/configurator.c:45
 msgid "Preferences"
@@ -546,11 +548,11 @@ msgstr "要監控的介面"
 msgid "Config tool"
 msgstr "設定工具"
 
-#: ../src/plugins/netstatus/netstatus.c:179
+#: ../src/plugins/netstatus/netstatus.c:179 netstat.c:359
 msgid "Net Status Monitor"
 msgstr "網路狀態監視器"
 
-#: ../src/plugins/netstatus/netstatus.c:181
+#: ../src/plugins/netstatus/netstatus.c:181 netstat.c:361
 msgid "Monitor network status"
 msgstr "監控網路狀態"
 
@@ -763,17 +765,62 @@ msgstr "電池電量顯示"
 msgid "Display battery status using ACPI"
 msgstr "透過 ACPI 顯示電池狀態"
 
-#~ msgid "<b>Transparency</b>"
-#~ msgstr "<b>透明度</b>"
+#: netstat.c:155
+msgid "Repair"
+msgstr "修復連線"
 
-#~ msgid "Icons"
-#~ msgstr "圖示"
+#: netstat.c:213
+msgid "Network cable is plugged out"
+msgstr "網路線已拔除"
 
-#~ msgid "Change window icons"
-#~ msgstr "更換視窗圖示"
+#: netstat.c:215
+msgid "Connection has limited or no connectivity"
+msgstr "只能有限制的連線或無法連線"
 
-#~ msgid "_Open"
-#~ msgstr "開啟(_O)"
+#: netstat.c:219 netstat.c:230
+msgid "IP Address:"
+msgstr "IP 位址："
 
-#~ msgid "Set Dock Type"
-#~ msgstr "設定停駐型態"
+#: netstat.c:220
+msgid "Remote IP:"
+msgstr "遠端 IP 位址："
+
+#: netstat.c:221 netstat.c:232
+msgid "Netmask:"
+msgstr "子網路遮罩："
+
+#: netstat.c:222 netstat.c:234 netstat.c:245
+msgid "Activity"
+msgstr "活動"
+
+#: netstat.c:222 netstat.c:234 netstat.c:245
+msgid "Sent"
+msgstr "已傳送"
+
+#: netstat.c:222 netstat.c:234 netstat.c:245
+msgid "Received"
+msgstr "已接收"
+
+#: netstat.c:223 netstat.c:235 netstat.c:246
+msgid "bytes"
+msgstr "位元組"
+
+#: netstat.c:224 netstat.c:236 netstat.c:247
+msgid "packets"
+msgstr "封包"
+
+#: netstat.c:227
+msgid "Wireless"
+msgstr "無線網路"
+
+#: netstat.c:229
+msgid "Protocol:"
+msgstr "通訊協定："
+
+#: netstat.c:231
+msgid "Boradcast:"
+msgstr "廣播位址"
+
+#: netstat.c:233
+msgid "HW Address:"
+msgstr "實體位址"
