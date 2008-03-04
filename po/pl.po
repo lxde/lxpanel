@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel-0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-02-20 00:33+0800\n"
+"POT-Creation-Date: 2008-03-02 16:16+0800\n"
 "PO-Revision-Date: 2006-11-27 21:56+0100\n"
 "Last-Translator: Artur Kruszewski <mazdac@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -35,63 +35,63 @@ msgstr "Restartuj"
 msgid "Logout"
 msgstr "Wyloguj"
 
-#: ../src/configurator.c:211
+#: ../src/configurator.c:233
 msgid "<b>Position</b>"
 msgstr "<b>Pozycja</b>"
 
 #. Edge
-#: ../src/configurator.c:228
+#: ../src/configurator.c:250
 msgid "Edge:"
 msgstr "Krawędź:"
 
-#: ../src/configurator.c:235 ../src/configurator.c:259
+#: ../src/configurator.c:257 ../src/configurator.c:281
 msgid "Left"
 msgstr "Lewa"
 
-#: ../src/configurator.c:236 ../src/configurator.c:261
+#: ../src/configurator.c:258 ../src/configurator.c:283
 msgid "Right"
 msgstr "Prawa"
 
-#: ../src/configurator.c:237
+#: ../src/configurator.c:259
 msgid "Top"
 msgstr "Górna"
 
-#: ../src/configurator.c:238
+#: ../src/configurator.c:260
 msgid "Bottom"
 msgstr "Dolna"
 
 #. Alignment
-#: ../src/configurator.c:251
+#: ../src/configurator.c:273
 msgid "Alignment:"
 msgstr "Wyrównanie:"
 
-#: ../src/configurator.c:260
+#: ../src/configurator.c:282
 msgid "Center"
 msgstr "Środek"
 
 #. Margin
-#: ../src/configurator.c:273
+#: ../src/configurator.c:295
 msgid "Margin:"
 msgstr "Margines:"
 
-#: ../src/configurator.c:344
+#: ../src/configurator.c:366
 msgid "<b>Size</b>"
 msgstr "<b>Rozmiar</b>"
 
 #. width
-#: ../src/configurator.c:361
+#: ../src/configurator.c:383
 msgid "Width:"
 msgstr "Szerokość:"
 
-#: ../src/configurator.c:375
+#: ../src/configurator.c:397
 msgid "dynamic"
 msgstr "dynamiczna"
 
-#: ../src/configurator.c:376 ../src/configurator.c:404
+#: ../src/configurator.c:398 ../src/configurator.c:426
 msgid "pixels"
 msgstr "piksele"
 
-#: ../src/configurator.c:377
+#: ../src/configurator.c:399
 #, c-format
 msgid "% of edge"
 msgstr ""
@@ -99,95 +99,95 @@ msgstr ""
 # msgid "% of edge"
 # msgstr "% krawędźi"
 #. height
-#: ../src/configurator.c:390
+#: ../src/configurator.c:412
 msgid "Height:"
 msgstr "Wysokość:"
 
-#: ../src/configurator.c:444
+#: ../src/configurator.c:466
 msgid "Enable Transparency"
 msgstr "Włącz przezroczystość"
 
-#: ../src/configurator.c:448
+#: ../src/configurator.c:470
 msgid "Tint color:"
 msgstr "Kolor przesłony:"
 
-#: ../src/configurator.c:506
+#: ../src/configurator.c:528
 msgid "Enable Image:"
 msgstr ""
 
-#: ../src/configurator.c:509
+#: ../src/configurator.c:531
 msgid "Select a background image file"
 msgstr ""
 
-#: ../src/configurator.c:553
+#: ../src/configurator.c:575
 msgid "<b>Background</b>"
 msgstr ""
 
 #. Disable Background option
-#: ../src/configurator.c:568
+#: ../src/configurator.c:590
 msgid "None (Use system theme)"
 msgstr ""
 
-#: ../src/configurator.c:627
+#: ../src/configurator.c:649
 msgid "<b>Properties</b>"
 msgstr "<b>Właściwości</b>"
 
-#: ../src/configurator.c:649
+#: ../src/configurator.c:671
 msgid "Make window managers treat the panel as dock"
 msgstr ""
 
-#: ../src/configurator.c:665
+#: ../src/configurator.c:687
 msgid "Reserve space, and not covered by maximized windows"
 msgstr ""
 
-#: ../src/configurator.c:720
+#: ../src/configurator.c:742
 msgid "Currently loaded plugins"
 msgstr "Załadowane wtyczki"
 
-#: ../src/configurator.c:810
+#: ../src/configurator.c:832
 msgid "Add plugin to panel"
 msgstr "Dodaj wtyczkę do panelu"
 
-#: ../src/configurator.c:837
+#: ../src/configurator.c:859
 msgid "Available plugins"
 msgstr "Dostępne wtyczki"
 
-#: ../src/configurator.c:1110
+#: ../src/configurator.c:1132
 msgid "<b>Set Preferred Applications</b>"
 msgstr ""
 
-#: ../src/configurator.c:1120
+#: ../src/configurator.c:1142
 msgid "File Manager:"
 msgstr ""
 
-#: ../src/configurator.c:1133
+#: ../src/configurator.c:1155
 msgid "Terminal Emulator:"
 msgstr ""
 
-#: ../src/configurator.c:1148
+#: ../src/configurator.c:1170
 #, fuzzy
 msgid "Logout Command:"
 msgstr "Komenda wylogowania nie jest ustawiona"
 
-#: ../src/configurator.c:1170
+#: ../src/configurator.c:1192
 msgid "lxpanel configurator"
 msgstr "konfigurator lxpanel"
 
-#: ../src/configurator.c:1196
+#: ../src/configurator.c:1218
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr "Ogólne"
 
-#: ../src/configurator.c:1201
+#: ../src/configurator.c:1223
 msgid "Plugins"
 msgstr "Wtyczki"
 
-#: ../src/configurator.c:1206
+#: ../src/configurator.c:1228
 #, fuzzy
 msgid "Applications"
 msgstr "Wybierz program"
 
-#: ../src/configurator.c:1362
+#: ../src/configurator.c:1387
 msgid "Logout command is not set"
 msgstr "Komenda wylogowania nie jest ustawiona"
 
@@ -291,145 +291,145 @@ msgstr "Pokaż numer przestrzeni roboczej, dzięki cmeury@users.sf.net"
 #. 1. We can borrow the menu from menu plugin (PtkAppMenu).
 #. 2. We can borrow the app chooser from PCManFM.
 #.
-#: ../src/plugins/launchbar.c:502
+#: ../src/plugins/launchbar.c:498
 msgid "Select Application"
 msgstr "Wybierz program"
 
-#: ../src/plugins/launchbar.c:651
+#: ../src/plugins/launchbar.c:647
 msgid "Buttons"
 msgstr "Przyciski"
 
-#: ../src/plugins/launchbar.c:764
+#: ../src/plugins/launchbar.c:760
 msgid "Application Launch Bar"
 msgstr "Pasek uruchamiania programów"
 
-#: ../src/plugins/launchbar.c:766
+#: ../src/plugins/launchbar.c:762
 msgid "Bar with buttons to launch application"
 msgstr "Pasek z przyciskami do uruchamiania programów"
 
-#: ../src/plugins/ptk-app-menu.c:147
+#: ../src/plugins/ptk-app-menu.c:148
 msgid "Other"
 msgstr "Inne"
 
-#: ../src/plugins/ptk-app-menu.c:148
+#: ../src/plugins/ptk-app-menu.c:149
 msgid "Game"
 msgstr "Gry"
 
-#: ../src/plugins/ptk-app-menu.c:149
+#: ../src/plugins/ptk-app-menu.c:150
 msgid "Education"
 msgstr "Edukacyjne"
 
-#: ../src/plugins/ptk-app-menu.c:150
+#: ../src/plugins/ptk-app-menu.c:151
 msgid "Development"
 msgstr "Programistyczne"
 
-#: ../src/plugins/ptk-app-menu.c:151
+#: ../src/plugins/ptk-app-menu.c:152
 msgid "Audio & Video"
 msgstr "Audio i Wideo"
 
-#: ../src/plugins/ptk-app-menu.c:152
+#: ../src/plugins/ptk-app-menu.c:153
 msgid "Graphics"
 msgstr "Grafika"
 
-#: ../src/plugins/ptk-app-menu.c:153
+#: ../src/plugins/ptk-app-menu.c:154
 msgid "Settings"
 msgstr "Ustawienia"
 
-#: ../src/plugins/ptk-app-menu.c:154
+#: ../src/plugins/ptk-app-menu.c:155
 msgid "System Tools"
 msgstr "Narzędzia systmowe"
 
-#: ../src/plugins/ptk-app-menu.c:155
+#: ../src/plugins/ptk-app-menu.c:156
 msgid "Network"
 msgstr "Sieć"
 
-#: ../src/plugins/ptk-app-menu.c:156
+#: ../src/plugins/ptk-app-menu.c:157
 msgid "Office"
 msgstr "Biuro"
 
-#: ../src/plugins/ptk-app-menu.c:157
+#: ../src/plugins/ptk-app-menu.c:158
 msgid "Accessories"
 msgstr "Akcesoria"
 
-#: ../src/plugins/taskbar.c:1193
+#: ../src/plugins/taskbar.c:1211
 msgid "Raise"
 msgstr "Rozwiń"
 
-#: ../src/plugins/taskbar.c:1197
+#: ../src/plugins/taskbar.c:1215
 msgid "Restore"
 msgstr "Przywróć"
 
-#: ../src/plugins/taskbar.c:1201
+#: ../src/plugins/taskbar.c:1219
 msgid "Maximize"
 msgstr "Maksymalizuj"
 
-#: ../src/plugins/taskbar.c:1205
+#: ../src/plugins/taskbar.c:1223
 msgid "Iconify"
 msgstr "Minimalizuj"
 
-#: ../src/plugins/taskbar.c:1214
+#: ../src/plugins/taskbar.c:1232
 #, c-format
 msgid "Workspace %d"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1222
+#: ../src/plugins/taskbar.c:1240
 msgid "All workspaces"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1229
+#: ../src/plugins/taskbar.c:1247
 msgid "Move to Workspace"
 msgstr ""
 
 #. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1237
+#: ../src/plugins/taskbar.c:1255
 msgid "Close Window"
 msgstr "Zamknij okno"
 
-#: ../src/plugins/taskbar.c:1470
+#: ../src/plugins/taskbar.c:1488
 msgid "Show tooltips"
 msgstr "Pokaż podpowiedzi"
 
-#: ../src/plugins/taskbar.c:1471
+#: ../src/plugins/taskbar.c:1489
 msgid "Icons only"
 msgstr "Tylko ikony"
 
-#: ../src/plugins/taskbar.c:1472
+#: ../src/plugins/taskbar.c:1490
 msgid "Accept SkipPager"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1473
+#: ../src/plugins/taskbar.c:1491
 msgid "Show Iconified windows"
 msgstr "Pokaż zikonizowane oka"
 
-#: ../src/plugins/taskbar.c:1474
+#: ../src/plugins/taskbar.c:1492
 msgid "Show mapped windows"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1475
+#: ../src/plugins/taskbar.c:1493
 msgid "Show windows from all desktops"
 msgstr "Pokaż okna ze wszytskich pulpitów"
 
-#: ../src/plugins/taskbar.c:1476
+#: ../src/plugins/taskbar.c:1494
 msgid "Use mouse wheel"
 msgstr "Użyj rolki myszy"
 
-#: ../src/plugins/taskbar.c:1477
+#: ../src/plugins/taskbar.c:1495
 msgid "Flash when there is any window requiring attention"
 msgstr "Migaj gdy okno wymaga uwagi"
 
-#: ../src/plugins/taskbar.c:1478
+#: ../src/plugins/taskbar.c:1496
 msgid "Max width of task button"
 msgstr "Maksymalna szerokośc przycisku zadań"
 
-#: ../src/plugins/taskbar.c:1479
+#: ../src/plugins/taskbar.c:1497
 msgid "Spacing"
 msgstr "Odstępy"
 
-#: ../src/plugins/taskbar.c:1556
+#: ../src/plugins/taskbar.c:1574
 msgid "Task Bar (Window List)"
 msgstr "Pasek zadań (Lista okien)"
 
-#: ../src/plugins/taskbar.c:1558
+#: ../src/plugins/taskbar.c:1576
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -437,27 +437,27 @@ msgstr ""
 "Pasek zadań pokazuje wszyski otwarte okna i umożliwia ich ikonizację, "
 "zwinięcie lub wywołanie"
 
-#: ../src/plugins/dclock.c:241
+#: ../src/plugins/dclock.c:242
 msgid "Clock Format"
 msgstr "Format zegara"
 
-#: ../src/plugins/dclock.c:242
+#: ../src/plugins/dclock.c:243
 msgid "Tooltip Format"
 msgstr "Format podpowiedzi"
 
-#: ../src/plugins/dclock.c:243
+#: ../src/plugins/dclock.c:244
 msgid "Action"
 msgstr "Akcja"
 
-#: ../src/plugins/dclock.c:244
+#: ../src/plugins/dclock.c:245
 msgid "Bold font"
 msgstr ""
 
-#: ../src/plugins/dclock.c:279
+#: ../src/plugins/dclock.c:280
 msgid "Digital Clock"
 msgstr "Zegar cyfrowy"
 
-#: ../src/plugins/dclock.c:281
+#: ../src/plugins/dclock.c:282
 msgid "Display Digital clock and Tooltip"
 msgstr "Wyświetl zegar cyfrowy i podpowiedź"
 
@@ -469,35 +469,35 @@ msgstr "Menu"
 msgid "Provide Menu"
 msgstr ""
 
-#: ../src/plugins/separator.c:74
+#: ../src/plugins/separator.c:92
 msgid "Separator"
 msgstr ""
 
-#: ../src/plugins/separator.c:76
+#: ../src/plugins/separator.c:94
 msgid "Add a separator to the panel"
 msgstr ""
 
-#: ../src/plugins/image.c:160
+#: ../src/plugins/image.c:178
 msgid "Dispaly Image and Tooltip"
 msgstr "Wyświetl obraz i podpowiedź"
 
-#: ../src/plugins/pager.c:698
+#: ../src/plugins/pager.c:699
 msgid "Desktop Pager"
 msgstr "Pager pulpitu"
 
-#: ../src/plugins/pager.c:700
+#: ../src/plugins/pager.c:701
 msgid "Simple pager plugin"
 msgstr "Prosta wtyczka pagera"
 
-#: ../src/plugins/space.c:113 ../src/plugins/batt/batt.c:753
+#: ../src/plugins/space.c:131 ../src/plugins/batt/batt.c:753
 msgid "Size"
 msgstr "Rozmiar"
 
-#: ../src/plugins/space.c:128
+#: ../src/plugins/space.c:146
 msgid "<Space>"
 msgstr "<Spacja>"
 
-#: ../src/plugins/space.c:130
+#: ../src/plugins/space.c:148
 msgid "Allocate space"
 msgstr ""
 

@@ -36,332 +36,332 @@
 #define NETSTAT_IFACE_POLL_DELAY 1000
 
 typedef struct {
-	GtkWidget *mainw;
-	FNETD *fnetd;
-	char *fixcmd;
-	gint ttag;
+    GtkWidget *mainw;
+    FNETD *fnetd;
+    char *fixcmd;
+    gint ttag;
 } netstat;
 
 typedef struct {
-	netstat *ns;
-	NETDEVLIST_PTR netdev_list;
+    netstat *ns;
+    NETDEVLIST_PTR netdev_list;
 } netdev_info;
 
 static int actionProcess(void *arg)
 {
-	ENTER;
-	RET(system((char *)arg));
+    ENTER;
+    RET(system((char *)arg));
 }
 
 /* menu handlers */
 /*
 static void apconnect(GtkWidget *widget, netdev_info *ni)
 {
-	pthread_t actionThread;
-	char *fixcmd;
+    pthread_t actionThread;
+    char *fixcmd;
 
-	fixcmd = g_strdup_printf(ni->ns->fixcmd, ni->netdev_list->info.ifname);
+    fixcmd = g_strdup_printf(ni->ns->fixcmd, ni->netdev_list->info.ifname);
 
-	pthread_create(&actionThread, NULL, actionProcess, fixcmd);
+    pthread_create(&actionThread, NULL, actionProcess, fixcmd);
 }
 */
 static void fixconn(GtkWidget *widget, netdev_info *ni)
 {
-	pthread_t actionThread;
-	char *fixcmd;
+    pthread_t actionThread;
+    char *fixcmd;
 
-	fixcmd = g_strdup_printf(ni->ns->fixcmd, ni->netdev_list->info.ifname);
+    fixcmd = g_strdup_printf(ni->ns->fixcmd, ni->netdev_list->info.ifname);
 
-	pthread_create(&actionThread, NULL, actionProcess, fixcmd);
+    pthread_create(&actionThread, NULL, actionProcess, fixcmd);
 }
 
 static gint menupopup(GtkWidget *widget, GdkEvent *event, netdev_info *ni)
 {
-	GdkEventButton *event_button;
+    GdkEventButton *event_button;
 
-	g_return_val_if_fail (event != NULL, FALSE);
+    g_return_val_if_fail (event != NULL, FALSE);
 
-	if (event->type == GDK_BUTTON_PRESS) {
-		event_button = (GdkEventButton *) event;
-		if (event_button->button == 1) {
-			/* wireless device */
-			if (ni->netdev_list->info.wireless) {
-				GtkWidget *menu;
-				GtkWidget *menu_ap;
-				APINFOLIST *aplist;
-				APINFOLIST *ptr;
+    if (event->type == GDK_BUTTON_PRESS) {
+        event_button = (GdkEventButton *) event;
+        if (event_button->button == 1) {
+            /* wireless device */
+            if (ni->netdev_list->info.wireless) {
+                GtkWidget *menu;
+                GtkWidget *menu_ap;
+                APINFOLIST *aplist;
+                APINFOLIST *ptr;
 
-				/* create menu */
-				menu = gtk_menu_new();
+                /* create menu */
+                menu = gtk_menu_new();
 
-				/* Scanning AP */
-				aplist = wireless_ap_scanning(ni->ns->fnetd->iwsockfd, ni->netdev_list->info.ifname);
-				if (aplist!=NULL) {
-					ptr = aplist;
-					do {
-						GtkWidget *item_box;
-						GtkWidget *essid_label;
-						GtkWidget *lockicon;
-						GtkWidget *signal_quality;
-						gdouble quality_per;
+                /* Scanning AP */
+                aplist = wireless_ap_scanning(ni->ns->fnetd->iwsockfd, ni->netdev_list->info.ifname);
+                if (aplist!=NULL) {
+                    ptr = aplist;
+                    do {
+                        GtkWidget *item_box;
+                        GtkWidget *essid_label;
+                        GtkWidget *lockicon;
+                        GtkWidget *signal_quality;
+                        gdouble quality_per;
 
-						menu_ap = gtk_menu_item_new();
-						item_box = gtk_hbox_new(FALSE, 0);
+                        menu_ap = gtk_menu_item_new();
+                        item_box = gtk_hbox_new(FALSE, 0);
 
-						/* Encryption */
-						if (ptr->info.haskey) {
-							lockicon = gtk_image_new_from_file(ICONS_WL_LOCK);
-							gtk_box_pack_start(GTK_BOX(item_box), lockicon, FALSE, FALSE, 0);
-						}
+                        /* Encryption */
+                        if (ptr->info.haskey) {
+                            lockicon = gtk_image_new_from_file(ICONS_WL_LOCK);
+                            gtk_box_pack_start(GTK_BOX(item_box), lockicon, FALSE, FALSE, 0);
+                        }
 
-						/* ESSID */
-						essid_label = gtk_label_new(ptr->info.essid);
-//						gtk_misc_set_alignment(GTK_MISC(essid_label), 0, 0);
-						gtk_label_set_justify(essid_label, GTK_JUSTIFY_LEFT);
-						gtk_misc_set_padding(GTK_MISC(essid_label), 2, 0);
-						gtk_box_pack_start(GTK_BOX(item_box), essid_label, TRUE, FALSE, 0);
+                        /* ESSID */
+                        essid_label = gtk_label_new(ptr->info.essid);
+//                      gtk_misc_set_alignment(GTK_MISC(essid_label), 0, 0);
+                        gtk_label_set_justify(essid_label, GTK_JUSTIFY_LEFT);
+                        gtk_misc_set_padding(GTK_MISC(essid_label), 2, 0);
+                        gtk_box_pack_start(GTK_BOX(item_box), essid_label, TRUE, FALSE, 0);
 
-						/* Quality */
-						quality_per = (gdouble)((double)ptr->info.quality/100);
-						if (quality_per>1)
-							quality_per = 1;
+                        /* Quality */
+                        quality_per = (gdouble)((double)ptr->info.quality/100);
+                        if (quality_per>1)
+                            quality_per = 1;
 
-						signal_quality = gtk_progress_bar_new();
-						gtk_widget_set_size_request(signal_quality, 100, -1);
-						gtk_progress_bar_set_orientation(signal_quality, GTK_PROGRESS_LEFT_TO_RIGHT);
-						gtk_progress_bar_set_fraction(signal_quality, quality_per);
-						gtk_box_pack_start(GTK_BOX(item_box), signal_quality, FALSE, FALSE, 0);
+                        signal_quality = gtk_progress_bar_new();
+                        gtk_widget_set_size_request(signal_quality, 100, -1);
+                        gtk_progress_bar_set_orientation(signal_quality, GTK_PROGRESS_LEFT_TO_RIGHT);
+                        gtk_progress_bar_set_fraction(signal_quality, quality_per);
+                        gtk_box_pack_start(GTK_BOX(item_box), signal_quality, FALSE, FALSE, 0);
 
-						gtk_container_add(GTK_CONTAINER(menu_ap), item_box);
-						gtk_menu_append(GTK_MENU(menu), menu_ap);
-//						g_signal_connect(G_OBJECT(menu_ap), "activate", G_CALLBACK(apconnect), );
-//						menu_ap = gtk_menu_item_new_with_label(ptr->info.essid);
-//						gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_ap);
-						ptr = ptr->next;
-					} while(ptr!=NULL);
-				}
-				gtk_widget_show_all(menu);
+                        gtk_container_add(GTK_CONTAINER(menu_ap), item_box);
+                        gtk_menu_append(GTK_MENU(menu), menu_ap);
+//                      g_signal_connect(G_OBJECT(menu_ap), "activate", G_CALLBACK(apconnect), );
+//                      menu_ap = gtk_menu_item_new_with_label(ptr->info.essid);
+//                      gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_ap);
+                        ptr = ptr->next;
+                    } while(ptr!=NULL);
+                }
+                gtk_widget_show_all(menu);
 
-				gtk_menu_popup(menu, NULL, NULL, NULL, NULL, event_button->button, event_button->time);
-			}
-		} else if (event_button->button == 3) {
-			GtkWidget *menu;
-			GtkWidget *menu_fix;
+                gtk_menu_popup(menu, NULL, NULL, NULL, NULL, event_button->button, event_button->time);
+            }
+        } else if (event_button->button == 3) {
+            GtkWidget *menu;
+            GtkWidget *menu_fix;
 
-			/* create menu */
-			menu = gtk_menu_new();
+            /* create menu */
+            menu = gtk_menu_new();
 
-			/* Repair */
-			menu_fix = gtk_menu_item_new_with_label(N_("Repair"));
-			gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_fix);
-			g_signal_connect(G_OBJECT(menu_fix), "activate", G_CALLBACK(fixconn), ni);
+            /* Repair */
+            menu_fix = gtk_menu_item_new_with_label(_("Repair"));
+            gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_fix);
+            g_signal_connect(G_OBJECT(menu_fix), "activate", G_CALLBACK(fixconn), ni);
 
-			gtk_widget_show_all(menu);
+            gtk_widget_show_all(menu);
 
-			gtk_menu_popup(menu, NULL, NULL, NULL, NULL, event_button->button, event_button->time);
-			return TRUE;
-		}
-	}
+            gtk_menu_popup(menu, NULL, NULL, NULL, NULL, event_button->button, event_button->time);
+            return TRUE;
+        }
+    }
 
-	return FALSE;
+    return FALSE;
 }
 
 static char *select_icon(gboolean plug, gboolean connected, int stat)
 {
-	if (!plug)
-		return ICONS_DISCONNECT;
+    if (!plug)
+        return ICONS_DISCONNECT;
 
-	switch(stat) {
-		case NETDEV_STAT_NORMAL:
-			return ICONS_CONNECTED;
-			break;
-		case NETDEV_STAT_PROBLEM:
-			return ICONS_PROBLEM;
-			break;
-		case NETDEV_STAT_RENEW:
-			return ICONS_RENEW;
-			break;
-		case NETDEV_STAT_BOTHRS:
-			return ICONS_BOTHRS;
-			break;
-		case NETDEV_STAT_SENDDATA:
-			return ICONS_SENDDATA;
-			break;
-		case NETDEV_STAT_RECVDATA:
-			return ICONS_RECVDATA;
-			break;
-	}
+    switch(stat) {
+        case NETDEV_STAT_NORMAL:
+            return ICONS_CONNECTED;
+            break;
+        case NETDEV_STAT_PROBLEM:
+            return ICONS_PROBLEM;
+            break;
+        case NETDEV_STAT_RENEW:
+            return ICONS_RENEW;
+            break;
+        case NETDEV_STAT_BOTHRS:
+            return ICONS_BOTHRS;
+            break;
+        case NETDEV_STAT_SENDDATA:
+            return ICONS_SENDDATA;
+            break;
+        case NETDEV_STAT_RECVDATA:
+            return ICONS_RECVDATA;
+            break;
+    }
 }
 
 static void refresh_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
 {
-	NETDEVLIST_PTR ptr;
-	char *tooltip;
+    NETDEVLIST_PTR ptr;
+    char *tooltip;
 
-	if (netdev_list==NULL) {
-		return;
-	}
+    if (netdev_list==NULL) {
+        return;
+    }
 
-	ptr = netdev_list;
-	do {
-		if (!ptr->info.enable) {
-			if (ptr->info.status_icon!=NULL) {
-				set_statusicon_visible(ptr->info.status_icon, FALSE);
-			}
-		} else if (ptr->info.updated) {
-			if (!ptr->info.plug)
-				tooltip = g_strdup_printf("%s\n  %s", ptr->info.ifname, N_("Network cable is plugged out"));
-			else if (!ptr->info.connected)
-				tooltip = g_strdup_printf("%s\n  %s", ptr->info.ifname, N_("Connection has limited or no connectivity"));
-			else if (ptr->info.flags & IFF_POINTOPOINT)
-				tooltip = g_strdup_printf("%s\n  %s\t%s\n  %s\t%s\n  %s\t%s\n\n %s(%s\/%s)\n   %d\/%d %s\n   %d\/%d %s",
-																 ptr->info.ifname,
-																N_("IP Address:"), ptr->info.ipaddr,
-																N_("Remote IP:"), ptr->info.dest,
-																N_("Netmask:"), ptr->info.mask,
-																N_("Activity"), N_("Sent"),N_("Received"),
-																ptr->info.trans_bytes, ptr->info.recv_bytes, N_("bytes"),
-																ptr->info.trans_packets, ptr->info.recv_packets, N_("packets"));
-			else if (ptr->info.wireless)
-				tooltip = g_strdup_printf("%s(%s) - %s(%d%%)\n  %s\t%s\n  %s\t%s\n  %s\t%s\n  %s\t%s\n  %s\t%s\n\n %s(%s\/%s)\n   %d\/%d %s\n   %d\/%d %s",
-																ptr->info.ifname, N_("Wireless"),
-																ptr->info.essid, ptr->info.quality,
-																N_("Protocol:"), ptr->info.protocol,
-																N_("IP Address:"), ptr->info.ipaddr,
-																N_("Boradcast:"), ptr->info.bcast,
-																N_("Netmask:"), ptr->info.mask,
-																N_("HW Address:"), ptr->info.mac,
-																N_("Activity"), N_("Sent"), N_("Received"),
-																ptr->info.trans_bytes, ptr->info.recv_bytes, N_("bytes"),
-																ptr->info.trans_packets, ptr->info.recv_packets, N_("packets"));
+    ptr = netdev_list;
+    do {
+        if (!ptr->info.enable) {
+            if (ptr->info.status_icon!=NULL) {
+                set_statusicon_visible(ptr->info.status_icon, FALSE);
+            }
+        } else if (ptr->info.updated) {
+            if (!ptr->info.plug)
+                tooltip = g_strdup_printf("%s\n  %s", ptr->info.ifname, _("Network cable is plugged out"));
+            else if (!ptr->info.connected)
+                tooltip = g_strdup_printf("%s\n  %s", ptr->info.ifname, _("Connection has limited or no connectivity"));
+            else if (ptr->info.flags & IFF_POINTOPOINT)
+                tooltip = g_strdup_printf("%s\n  %s\t%s\n  %s\t%s\n  %s\t%s\n\n %s(%s\/%s)\n   %d\/%d %s\n   %d\/%d %s",
+                                                                 ptr->info.ifname,
+                                                                _("IP Address:"), ptr->info.ipaddr,
+                                                                _("Remote IP:"), ptr->info.dest,
+                                                                _("Netmask:"), ptr->info.mask,
+                                                                _("Activity"), _("Sent"),_("Received"),
+                                                                ptr->info.trans_bytes, ptr->info.recv_bytes, _("bytes"),
+                                                                ptr->info.trans_packets, ptr->info.recv_packets, _("packets"));
+            else if (ptr->info.wireless)
+                tooltip = g_strdup_printf("%s(%s) - %s(%d%%)\n  %s\t%s\n  %s\t%s\n  %s\t%s\n  %s\t%s\n  %s\t%s\n\n %s(%s\/%s)\n   %d\/%d %s\n   %d\/%d %s",
+                                                                ptr->info.ifname, _("Wireless"),
+                                                                ptr->info.essid, ptr->info.quality,
+                                                                _("Protocol:"), ptr->info.protocol,
+                                                                _("IP Address:"), ptr->info.ipaddr,
+                                                                _("Boradcast:"), ptr->info.bcast,
+                                                                _("Netmask:"), ptr->info.mask,
+                                                                _("HW Address:"), ptr->info.mac,
+                                                                _("Activity"), _("Sent"), _("Received"),
+                                                                ptr->info.trans_bytes, ptr->info.recv_bytes, _("bytes"),
+                                                                ptr->info.trans_packets, ptr->info.recv_packets, _("packets"));
 
-			else
-				tooltip = g_strdup_printf("%s\n  %s\t%s\n  %s\t%s\n  %s\t%s\n  %s\t%s\n\n %s(%s\/%s)\n   %d\/%d %s\n   %d\/%d %s",
-																ptr->info.ifname,
-																N_("IP Address:"), ptr->info.ipaddr,
-																N_("Boradcast:"), ptr->info.bcast,
-																N_("Netmask:"), ptr->info.mask,
-																N_("HW Address:"), ptr->info.mac, 
-																N_("Activity"), N_("Sent"), N_("Received"),
-																ptr->info.trans_bytes, ptr->info.recv_bytes, N_("bytes"),
-																ptr->info.trans_packets, ptr->info.recv_packets, N_("packets"));
+            else
+                tooltip = g_strdup_printf("%s\n  %s\t%s\n  %s\t%s\n  %s\t%s\n  %s\t%s\n\n %s(%s\/%s)\n   %d\/%d %s\n   %d\/%d %s",
+                                                                ptr->info.ifname,
+                                                                _("IP Address:"), ptr->info.ipaddr,
+                                                                _("Boradcast:"), ptr->info.bcast,
+                                                                _("Netmask:"), ptr->info.mask,
+                                                                _("HW Address:"), ptr->info.mac,
+                                                                _("Activity"), _("Sent"), _("Received"),
+                                                                ptr->info.trans_bytes, ptr->info.recv_bytes, _("bytes"),
+                                                                ptr->info.trans_packets, ptr->info.recv_packets, _("packets"));
 
-			/* status icon doesn't exist  */
-			if (ptr->info.status_icon==NULL) {
-				netdev_info *ni;
-				ni = malloc(sizeof(netdev_info));
-				ni->ns = ns;
-				ni->netdev_list = ptr;
+            /* status icon doesn't exist  */
+            if (ptr->info.status_icon==NULL) {
+                netdev_info *ni;
+                ni = malloc(sizeof(netdev_info));
+                ni->ns = ns;
+                ni->netdev_list = ptr;
 
-				ptr->info.status_icon = create_statusicon(ns->mainw, select_icon(ptr->info.plug, ptr->info.connected, ptr->info.status), tooltip);
-				g_signal_connect(ptr->info.status_icon->main, "button_press_event", G_CALLBACK(menupopup), ni);
-			} else {
-				set_statusicon_tooltips(ptr->info.status_icon, tooltip);
-				set_statusicon_image_from_file(ptr->info.status_icon, select_icon(ptr->info.plug, ptr->info.connected, ptr->info.status));
-				set_statusicon_visible(ptr->info.status_icon, TRUE);
-			}
-			g_free(tooltip);
-		}
-		ptr = ptr->next;
-	} while(ptr!=NULL);
+                ptr->info.status_icon = create_statusicon(ns->mainw, select_icon(ptr->info.plug, ptr->info.connected, ptr->info.status), tooltip);
+                g_signal_connect(ptr->info.status_icon->main, "button_press_event", G_CALLBACK(menupopup), ni);
+            } else {
+                set_statusicon_tooltips(ptr->info.status_icon, tooltip);
+                set_statusicon_image_from_file(ptr->info.status_icon, select_icon(ptr->info.plug, ptr->info.connected, ptr->info.status));
+                set_statusicon_visible(ptr->info.status_icon, TRUE);
+            }
+            g_free(tooltip);
+        }
+        ptr = ptr->next;
+    } while(ptr!=NULL);
 }
 
 static gboolean refresh_devstat(netstat *ns)
 {
-	netproc_listener(ns->fnetd);
-	//netproc_print(fnetd->netdevlist);
-	refresh_systray(ns, ns->fnetd->netdevlist);
-	netproc_devicelist_clear(&ns->fnetd->netdevlist);
-	return TRUE;
+    netproc_listener(ns->fnetd);
+    //netproc_print(fnetd->netdevlist);
+    refresh_systray(ns, ns->fnetd->netdevlist);
+    netproc_devicelist_clear(&ns->fnetd->netdevlist);
+    return TRUE;
 }
 
 /* Plugin constructor */
 static void netstat_destructor(plugin *p)
 {
-	netstat *ns = (netstat *) p->priv;
+    netstat *ns = (netstat *) p->priv;
 
-	ENTER;
-	g_source_remove(ns->ttag);
-	netproc_netdevlist_clear(&ns->fnetd->netdevlist);
-	gtk_widget_destroy(ns->mainw);
-	close(ns->fnetd->sockfd);
-	close(ns->fnetd->iwsockfd);
-	g_free(ns->fnetd);
-	g_free(ns->fixcmd);
-	g_free(ns);
-	RET();
+    ENTER;
+    g_source_remove(ns->ttag);
+    netproc_netdevlist_clear(&ns->fnetd->netdevlist);
+    gtk_widget_destroy(ns->mainw);
+    close(ns->fnetd->sockfd);
+    close(ns->fnetd->iwsockfd);
+    g_free(ns->fnetd);
+    g_free(ns->fixcmd);
+    g_free(ns);
+    RET();
 }
 
 static int netstat_constructor(plugin *p, char **fp)
 {
-	netstat *ns;
-	line s;
+    netstat *ns;
+    line s;
 
-	ENTER;
-	s.len = 256;  
-	ns = g_new0(netstat, 1);
-	g_return_val_if_fail(ns != NULL, 0);
-	p->priv = ns;
+    ENTER;
+    s.len = 256;
+    ns = g_new0(netstat, 1);
+    g_return_val_if_fail(ns != NULL, 0);
+    p->priv = ns;
 
-	if( fp ) {
-		while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
-			if (s.type == LINE_NONE) {
-				ERR( "netstat: illegal token %s\n", s.str);
-				goto error;
-			}
-			if (s.type == LINE_VAR) {
-				if (!g_ascii_strcasecmp(s.t[0], "FixCommand"))
-				    ns->fixcmd = g_strdup(s.t[1]);
-				else {
-				    ERR( "netstat: unknown var %s\n", s.t[0]);
-				    goto error;
-				}
-			} else {
-				ERR( "netstat: illegal in this context %s\n", s.str);
-				goto error;
-			}
-		}
-	}
+    if( fp ) {
+        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
+            if (s.type == LINE_NONE) {
+                ERR( "netstat: illegal token %s\n", s.str);
+                goto error;
+            }
+            if (s.type == LINE_VAR) {
+                if (!g_ascii_strcasecmp(s.t[0], "FixCommand"))
+                    ns->fixcmd = g_strdup(s.t[1]);
+                else {
+                    ERR( "netstat: unknown var %s\n", s.t[0]);
+                    goto error;
+                }
+            } else {
+                ERR( "netstat: illegal in this context %s\n", s.str);
+                goto error;
+            }
+        }
+    }
 
-	/* initializing */
-	ns->fnetd = malloc(sizeof(FNETD));
-	ns->fnetd->netdevlist = NULL;
-	ns->fnetd->sockfd = socket(AF_INET, SOCK_DGRAM, 0);
-	ns->fnetd->iwsockfd = iw_sockets_open();
+    /* initializing */
+    ns->fnetd = malloc(sizeof(FNETD));
+    ns->fnetd->netdevlist = NULL;
+    ns->fnetd->sockfd = socket(AF_INET, SOCK_DGRAM, 0);
+    ns->fnetd->iwsockfd = iw_sockets_open();
 
-	/* main */
-	ns->mainw = p->panel->my_box_new(FALSE, 1);
-	gtk_container_add(GTK_CONTAINER(p->pwid), ns->mainw);
-	gtk_widget_show_all(ns->mainw);
+    /* main */
+    ns->mainw = p->panel->my_box_new(FALSE, 1);
+    gtk_container_add(GTK_CONTAINER(p->pwid), ns->mainw);
+    gtk_widget_show_all(ns->mainw);
 
-	/* Initializing network device list*/
-	ns->fnetd->netdev_fp = netproc_open();
-	ns->fnetd->dev_count = netproc_netdevlist_clear(&ns->fnetd->netdevlist);
-	ns->fnetd->dev_count = netproc_scandevice(ns->fnetd->sockfd, ns->fnetd->iwsockfd, ns->fnetd->netdev_fp, &ns->fnetd->netdevlist);
-	netproc_close(ns->fnetd->netdev_fp);
-	refresh_systray(ns, ns->fnetd->netdevlist);
+    /* Initializing network device list*/
+    ns->fnetd->netdev_fp = netproc_open();
+    ns->fnetd->dev_count = netproc_netdevlist_clear(&ns->fnetd->netdevlist);
+    ns->fnetd->dev_count = netproc_scandevice(ns->fnetd->sockfd, ns->fnetd->iwsockfd, ns->fnetd->netdev_fp, &ns->fnetd->netdevlist);
+    netproc_close(ns->fnetd->netdev_fp);
+    refresh_systray(ns, ns->fnetd->netdevlist);
 
-	ns->ttag = g_timeout_add(NETSTAT_IFACE_POLL_DELAY, (GSourceFunc)refresh_devstat, ns);
+    ns->ttag = g_timeout_add(NETSTAT_IFACE_POLL_DELAY, (GSourceFunc)refresh_devstat, ns);
 
-	RET(1);
+    RET(1);
 error:
-	g_free(ns->fnetd);
-	g_free(ns->fixcmd);
-	g_free(ns);
-	RET(0);
+    g_free(ns->fnetd);
+    g_free(ns->fixcmd);
+    g_free(ns);
+    RET(0);
 }
 
 plugin_class netstat_plugin_class = {
-	fname: NULL,
-	count: 0,
+    fname: NULL,
+    count: 0,
 
-	type : "netstat",
-	name : N_("Net Status Monitor"),
-	version: "1.0",
-	description : N_("Monitor network status"),
+    type : "netstat",
+    name : N_("Net Status Monitor"),
+    version: "1.0",
+    description : N_("Monitor network status"),
 
-	constructor : netstat_constructor,
-	destructor  : netstat_destructor,
-	config : NULL,
-	save : NULL
+    constructor : netstat_constructor,
+    destructor  : netstat_destructor,
+    config : NULL,
+    save : NULL
 };
