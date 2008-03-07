@@ -1,4 +1,4 @@
-/**																								 
+/**
  * Copyright (c) 2008 LxDE Developers, see the file AUTHORS for details.
  *
  * This program is free software; you can redistribute it and/or modify
