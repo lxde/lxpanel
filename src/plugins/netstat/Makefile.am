@@ -20,7 +20,9 @@ netstat_la_SOURCES = \
         statusicon.c \
         statusicon.h \
 		wireless.c \
-		wireless.h
+		wireless.h \
+		lxnetdaemon.c \
+		lxnetdaemon.h
 
 netstat_la_LIBADD = -liw $(PACKAGE_LIBS)
 

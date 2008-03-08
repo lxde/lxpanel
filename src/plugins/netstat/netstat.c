@@ -24,6 +24,7 @@
 #include <iwlib.h>
 #include "nsconfig.h"
 #include "fnetdaemon.h"
+#include "lxnetdaemon.h"
 #include "statusicon.h"
 #include "devproc.h"
 #include "wireless.h"
@@ -328,6 +329,7 @@ static int netstat_constructor(plugin *p, char **fp)
     ns->fnetd->netdevlist = NULL;
     ns->fnetd->sockfd = socket(AF_INET, SOCK_DGRAM, 0);
     ns->fnetd->iwsockfd = iw_sockets_open();
+    ns->fnetd->lxndsockfd = lxnetdaemon_socket();
 
     /* main */
     ns->mainw = p->panel->my_box_new(FALSE, 1);
