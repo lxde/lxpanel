@@ -29,10 +29,11 @@
 #include <iwlib.h>
 #include "fnetdaemon.h"
 #include "lxnetdaemon.h"
-/*
+
 static gboolean
-lxnetctl_read_channel(GIOChannel *gio, GIOCondition condition, gpointer data)
+lxnetdaemon_read_channel(GIOChannel *gio, GIOCondition condition, gpointer data)
 {
+/*
 	GIOStatus ret;
 	GError *err = NULL;
 	gchar *msg;
@@ -48,10 +49,10 @@ lxnetctl_read_channel(GIOChannel *gio, GIOCondition condition, gpointer data)
 	printf ("Read %u bytes: %s\n", len, msg);
 
 	g_free (msg);
-
+*/
 	return TRUE;
 }
-*/
+
 GIOChannel *
 lxnetdaemon_socket(void)
 {
@@ -78,21 +79,27 @@ lxnetdaemon_socket(void)
 
 	gio = g_io_channel_unix_new(sockfd);
 	g_io_channel_set_encoding(gio, NULL, NULL);
-//	g_io_add_watch(gio, G_IO_IN | G_IO_HUP, lxnetctl_read_channel, NULL);
+	g_io_add_watch(gio, G_IO_IN | G_IO_HUP, lxnetdaemon_read_channel, NULL);
 
 	return gio;
 }
 
 void lxnetdaemon_close(GIOChannel *gio)
 {
-	close(g_io_channel_unix_get_fd(gio));
+	if (gio)
+		close(g_io_channel_unix_get_fd(gio));
 }
 
 void
 lxnetdaemon_send_command(GIOChannel *gio, int command, const char* cmdargs)
 {
+	char *msg;
 	gsize len;
 
-	g_io_channel_write_chars(gio, g_strdup_printf("%d %s", command, cmdargs), -1, &len, NULL);
+	if (gio==NULL)
+		return;
+
+	msg = g_strdup_printf("%d %s\n", command, cmdargs);
+	g_io_channel_write_chars(gio, msg, -1, &len, NULL);
 	g_io_channel_flush(gio, NULL);
 }

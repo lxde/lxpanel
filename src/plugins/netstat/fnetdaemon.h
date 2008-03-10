@@ -44,6 +44,15 @@ typedef struct {
 	struct statusicon *status_icon;
 } netdevice;
 
+/* lxnetdaemon */
+typedef struct {
+	GIOChannel *gio;
+	char *ifname;
+	char *en_type;
+	char *essid;
+	char *password;
+} ap_setting;
+
 typedef struct netdevice_node {
 	netdevice             info;
 	struct netdevice_node *prev;
@@ -55,7 +64,7 @@ typedef struct {
 	int dev_count;
 	int sockfd;
 	int iwsockfd;
-	GIOChannel *lxndsockfd;
+	GIOChannel *lxndchannel;
 	FILE *netdev_fp;
 	NETDEVLIST_PTR netdevlist;
 } FNETD;

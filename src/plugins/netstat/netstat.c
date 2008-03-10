@@ -55,17 +55,6 @@ static int actionProcess(void *arg)
 }
 
 /* menu handlers */
-/*
-static void apconnect(GtkWidget *widget, netdev_info *ni)
-{
-    pthread_t actionThread;
-    char *fixcmd;
-
-    fixcmd = g_strdup_printf(ni->ns->fixcmd, ni->netdev_list->info.ifname);
-
-    pthread_create(&actionThread, NULL, actionProcess, fixcmd);
-}
-*/
 static void fixconn(GtkWidget *widget, netdev_info *ni)
 {
     pthread_t actionThread;
@@ -74,6 +63,18 @@ static void fixconn(GtkWidget *widget, netdev_info *ni)
     fixcmd = g_strdup_printf(ni->ns->fixcmd, ni->netdev_list->info.ifname);
 
     pthread_create(&actionThread, NULL, actionProcess, fixcmd);
+}
+
+static void wireless_connect(GtkWidget *widget, ap_setting *aps)
+{
+
+    char *cmdargs;
+
+	/* without encryption */
+    if (aps->en_type==NULL) {
+        cmdargs = g_strdup_printf("%s %s OFF NULL", aps->ifname, aps->essid);
+   	    lxnetdaemon_send_command(aps->gio, LXND_WIRELESS_CONNECT, cmdargs);
+	}
 }
 
 static gint menupopup(GtkWidget *widget, GdkEvent *event, netdev_info *ni)
@@ -105,6 +106,11 @@ static gint menupopup(GtkWidget *widget, GdkEvent *event, netdev_info *ni)
                         GtkWidget *lockicon;
                         GtkWidget *signal_quality;
                         gdouble quality_per;
+						ap_setting *aps;
+
+						aps = malloc(sizeof(ap_setting));
+						aps->ifname = ni->netdev_list->info.ifname;
+						aps->gio = ni->ns->fnetd->lxndchannel;
 
                         menu_ap = gtk_menu_item_new();
                         item_box = gtk_hbox_new(FALSE, 0);
@@ -113,9 +119,13 @@ static gint menupopup(GtkWidget *widget, GdkEvent *event, netdev_info *ni)
                         if (ptr->info.haskey) {
                             lockicon = gtk_image_new_from_file(ICONS_WL_LOCK);
                             gtk_box_pack_start(GTK_BOX(item_box), lockicon, FALSE, FALSE, 0);
-                        }
+							aps->en_type = g_strdup("WEP");
+                        } else {
+							aps->en_type = NULL;
+						}
 
                         /* ESSID */
+						aps->essid = ptr->info.essid;
                         essid_label = gtk_label_new(ptr->info.essid);
 //                      gtk_misc_set_alignment(GTK_MISC(essid_label), 0, 0);
                         gtk_label_set_justify(essid_label, GTK_JUSTIFY_LEFT);
@@ -126,6 +136,8 @@ static gint menupopup(GtkWidget *widget, GdkEvent *event, netdev_info *ni)
                         quality_per = (gdouble)((double)ptr->info.quality/100);
                         if (quality_per>1)
                             quality_per = 1;
+						else if (quality_per<0)
+							quality_per = 0;
 
                         signal_quality = gtk_progress_bar_new();
                         gtk_widget_set_size_request(signal_quality, 100, -1);
@@ -135,9 +147,7 @@ static gint menupopup(GtkWidget *widget, GdkEvent *event, netdev_info *ni)
 
                         gtk_container_add(GTK_CONTAINER(menu_ap), item_box);
                         gtk_menu_append(GTK_MENU(menu), menu_ap);
-//                      g_signal_connect(G_OBJECT(menu_ap), "activate", G_CALLBACK(apconnect), );
-//                      menu_ap = gtk_menu_item_new_with_label(ptr->info.essid);
-//                      gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_ap);
+                        g_signal_connect(G_OBJECT(menu_ap), "activate", G_CALLBACK(wireless_connect), aps);
                         ptr = ptr->next;
                     } while(ptr!=NULL);
                 }
@@ -285,6 +295,7 @@ static void netstat_destructor(plugin *p)
     g_source_remove(ns->ttag);
     netproc_netdevlist_clear(&ns->fnetd->netdevlist);
     gtk_widget_destroy(ns->mainw);
+    lxnetdaemon_close(ns->fnetd->lxndchannel);
     close(ns->fnetd->sockfd);
     close(ns->fnetd->iwsockfd);
     g_free(ns->fnetd);
@@ -329,7 +340,7 @@ static int netstat_constructor(plugin *p, char **fp)
     ns->fnetd->netdevlist = NULL;
     ns->fnetd->sockfd = socket(AF_INET, SOCK_DGRAM, 0);
     ns->fnetd->iwsockfd = iw_sockets_open();
-    ns->fnetd->lxndsockfd = lxnetdaemon_socket();
+    ns->fnetd->lxndchannel = lxnetdaemon_socket();
 
     /* main */
     ns->mainw = p->panel->my_box_new(FALSE, 1);
