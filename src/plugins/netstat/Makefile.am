@@ -13,7 +13,7 @@ moduledir = $(libdir)/lxpanel/plugins
 
 netstat_la_SOURCES = \
         netstat.c \
-        fnetdaemon.h \
+        netstat.h \
         nsconfig.h \
         devproc.c \
         devproc.h \
@@ -21,8 +21,8 @@ netstat_la_SOURCES = \
         statusicon.h \
 		wireless.c \
 		wireless.h \
-		lxnetdaemon.c \
-		lxnetdaemon.h
+		lxnd_client.c \
+		lxnd_client.h
 
 netstat_la_LIBADD = -liw $(PACKAGE_LIBS)
 

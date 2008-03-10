@@ -29,7 +29,7 @@
 #include <linux/ethtool.h>
 #include <iwlib.h>
 #include "nsconfig.h"
-#include "fnetdaemon.h"
+#include "netstat.h"
 #include "statusicon.h"
 #include "devproc.h"
 

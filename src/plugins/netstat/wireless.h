@@ -1,7 +1,7 @@
 #ifndef HAVE_NS_WIRELESS_H
 #define HAVE_NS_WIRELESS_H
 
-#include "fnetdaemon.h"
+#include "netstat.h"
 
 typedef struct {
 	char *essid;

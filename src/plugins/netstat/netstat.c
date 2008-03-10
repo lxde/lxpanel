@@ -23,8 +23,8 @@
 #include <pthread.h>
 #include <iwlib.h>
 #include "nsconfig.h"
-#include "fnetdaemon.h"
-#include "lxnetdaemon.h"
+#include "netstat.h"
+#include "lxnd_client.h"
 #include "statusicon.h"
 #include "devproc.h"
 #include "wireless.h"

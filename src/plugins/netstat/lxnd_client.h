@@ -1,7 +1,7 @@
 #ifndef HAVE_NS_LXNETDAEMON_H
 #define HAVE_NS_LXNETDAEMON_H
 
-#include "fnetdaemon.h"
+#include "netstat.h"
 
 #define LXNETDAEMON_SOCKET "/var/run/lxnetdaemon.socket"
 

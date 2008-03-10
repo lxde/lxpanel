@@ -27,8 +27,8 @@
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <iwlib.h>
-#include "fnetdaemon.h"
-#include "lxnetdaemon.h"
+#include "netstat.h"
+#include "lxnd_client.h"
 
 static gboolean
 lxnetdaemon_read_channel(GIOChannel *gio, GIOCondition condition, gpointer data)

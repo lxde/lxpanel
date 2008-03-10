@@ -18,7 +18,7 @@
 #include <string.h>
 #include <glib.h>
 #include <glib/gi18n.h>
-#include "fnetdaemon.h"
+#include "netstat.h"
 #include "statusicon.h"
 
 struct statusicon *create_statusicon(GtkWidget *box, const char *filename,

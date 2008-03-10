@@ -1,7 +1,7 @@
 #ifndef HAVE_NS_STATUSICON_H
 #define HAVE_NS_STATUSICON_H
 
-#include "fnetdaemon.h"
+#include "netstat.h"
 #include <gtk/gtk.h>
 
 struct statusicon {

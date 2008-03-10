@@ -21,7 +21,7 @@
 #include <glib/gi18n.h>
 #include <sys/time.h>
 #include <iwlib.h>
-#include "fnetdaemon.h"
+#include "netstat.h"
 #include "wireless.h"
 
 APINFOLIST *wireless_ap_scanning(int iwsockfd, const char *ifname)
