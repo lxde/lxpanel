@@ -169,7 +169,7 @@ static int getStatus(int *capacity, int *charge, int *rate) {
                 /* Read the file until the battery's capacity is found or until
                    there are no more lines to be read */
                 while (fgets(buffer.str, buffer.len, info) &&
-                        ! sscanf(buffer.str, "last full capacity: %d mWh",
+                        ! sscanf(buffer.str, "last full capacity: %d",
                         &thisCapacity));
 
                 fclose(info);
@@ -180,24 +180,40 @@ static int getStatus(int *capacity, int *charge, int *rate) {
             snprintf(buffer.str, buffer.len, "%s%s/state", BATTERY_DIRECTORY,
                     battery_name);
             if ((state = fopen(buffer.str, "r"))) {
+				char buf[512];
+				char *pstr;
+				fread(buf, sizeof(buf), 1, state);
 
                 char thisState = 'c';
 
                 /* Read the file until the battery's charging state is found or
                    until there are no more lines to be read */
-                while (fgets(buffer.str, buffer.len, state) &&
-                        ! sscanf(buffer.str, "charging state: %c", &thisState));
+				if (pstr = strstr(buf, "charging state:"))
+					thisState = *(pstr + 25);
+                //while (fgets(buffer.str, buffer.len, state) &&
+                //        ! sscanf(buffer.str, "charging state: %c", &thisState));
 
                 /* Read the file until the battery's charge/discharge rate is
                    found or until there are no more lines to be read */
-                while (fgets(buffer.str, buffer.len, state) &&
-                        ! sscanf(buffer.str, "present rate: %d mW", &thisRate));
+				if (pstr = strstr(buf, "present rate:")) {
+					pstr += 25;
+					sscanf (pstr, "%d",&thisRate);
+			
+					if(thisRate <= 0)
+						thisRate = 0;
+				}
+                //while (fgets(buffer.str, buffer.len, state) &&
+                //        ! sscanf(buffer.str, "present rate: %d mW", &thisRate));
 
                 /* Read the file until the battery's charge is found or until
                    there are no more lines to be read */
-                while (fgets(buffer.str, buffer.len, state) &&
-                        ! sscanf(buffer.str, "remaining capacity: %d mWh",
-                        &thisCharge));
+				if (pstr = strstr (buf, "remaining capacity")) {
+					pstr += 25;
+					sscanf (pstr, "%d",&thisCharge);
+				}
+                //while (fgets(buffer.str, buffer.len, state) &&
+                //        ! sscanf(buffer.str, "remaining capacity: %d mWh",
+                //        &thisCharge));
 
                 /* thisState will be 'c' if the batter is charging and 'd'
                    otherwise */
