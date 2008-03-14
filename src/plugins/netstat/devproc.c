@@ -63,6 +63,7 @@ void netproc_netdevlist_add(NETDEVLIST_PTR *netdev_list,
 	new_dev->info.trans_bytes = trans_bytes;
 	new_dev->info.trans_packets = trans_packets;
 	new_dev->info.status_icon = NULL;
+	new_dev->info.pg = NULL;
 	new_dev->prev = NULL;
 	new_dev->next = *netdev_list;
 	if (new_dev->next!=NULL) {

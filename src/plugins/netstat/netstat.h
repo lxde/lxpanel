@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <netinet/in.h>
+#include "passwd_gui.h"
 
 #define NETDEV_STAT_NORMAL	0
 #define NETDEV_STAT_PROBLEM	1
@@ -33,6 +34,8 @@ typedef struct {
 	char *protocol;
 	char *essid;
 	int *quality;
+	int *en_method;
+	struct pgui *pg;
 
 	int status;
 	gulong recv_bytes;
@@ -43,15 +46,6 @@ typedef struct {
 	/* systray */
 	struct statusicon *status_icon;
 } netdevice;
-
-/* lxnetdaemon */
-typedef struct {
-	GIOChannel *gio;
-	char *ifname;
-	char *en_type;
-	char *essid;
-	char *password;
-} ap_setting;
 
 typedef struct netdevice_node {
 	netdevice             info;
@@ -68,5 +62,27 @@ typedef struct {
 	FILE *netdev_fp;
 	NETDEVLIST_PTR netdevlist;
 } FNETD;
+
+typedef struct {
+    GtkWidget *mainw;
+    FNETD *fnetd;
+    char *fixcmd;
+    gint ttag;
+} netstat;
+
+typedef struct {
+    netstat *ns;
+    NETDEVLIST_PTR netdev_list;
+} netdev_info;
+
+typedef struct {
+	netdev_info *ni;
+	GIOChannel *gio;
+	char *ifname;
+	char *en_type;
+	char *apaddr;
+	char *essid;
+	char *password;
+} ap_setting;
 
 #endif

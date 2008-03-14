@@ -1,11 +1,11 @@
 if BUILD_LIBIW_PLUGINS
 
 INCLUDES = \
-	-I. \
-	-I$(top_srcdir)/src \
-	-DPACKAGE_DATA_DIR=\""$(datadir)"\" \
-	$(PACKAGE_CFLAGS) \
-	$(G_CAST_CHECKS)
+    -I. \
+    -I$(top_srcdir)/src \
+    -DPACKAGE_DATA_DIR=\""$(datadir)"\" \
+    $(PACKAGE_CFLAGS) \
+    $(G_CAST_CHECKS)
 
 module_LTLIBRARIES = netstat.la
 
@@ -19,16 +19,18 @@ netstat_la_SOURCES = \
         devproc.h \
         statusicon.c \
         statusicon.h \
-		wireless.c \
-		wireless.h \
-		lxnd_client.c \
-		lxnd_client.h
+        wireless.c \
+        wireless.h \
+        lxnd_client.c \
+        lxnd_client.h \
+        passwd_gui.c \
+        passwd_gui.h
 
 netstat_la_LIBADD = -liw $(PACKAGE_LIBS)
 
 netstat_la_LDFLAGS = \
-	-module \
-	@LXPANEL_MODULE@
+    -module \
+    @LXPANEL_MODULE@
 
 install-exec-hook:
 	rm -f "$(moduledir)\*.la" *.a

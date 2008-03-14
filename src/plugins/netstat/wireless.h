@@ -3,6 +3,10 @@
 
 #include "netstat.h"
 
+#define NS_WIRELESS_AUTH_WEP       0
+#define NS_WIRELESS_AUTH_WPA       1
+#define NS_WIRELESS_AUTH_WPA_PSK   2
+
 typedef struct {
 	char *essid;
 	char *apaddr;

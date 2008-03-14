@@ -26,6 +26,7 @@
 #include "netstat.h"
 #include "lxnd_client.h"
 #include "statusicon.h"
+#include "passwd_gui.h"
 #include "devproc.h"
 #include "wireless.h"
 #include "panel.h"
@@ -35,18 +36,6 @@
 
 /* 1 second */
 #define NETSTAT_IFACE_POLL_DELAY 1000
-
-typedef struct {
-    GtkWidget *mainw;
-    FNETD *fnetd;
-    char *fixcmd;
-    gint ttag;
-} netstat;
-
-typedef struct {
-    netstat *ns;
-    NETDEVLIST_PTR netdev_list;
-} netdev_info;
 
 static int actionProcess(void *arg)
 {
@@ -70,11 +59,20 @@ static void wireless_connect(GtkWidget *widget, ap_setting *aps)
 
     char *cmdargs;
 
-	/* without encryption */
+    /* without encryption */
     if (aps->en_type==NULL) {
-        cmdargs = g_strdup_printf("%s %s OFF NULL", aps->ifname, aps->essid);
-   	    lxnetdaemon_send_command(aps->gio, LXND_WIRELESS_CONNECT, cmdargs);
-	}
+        cmdargs = g_strdup_printf("%s %s OFF NULL %s", aps->ifname, aps->essid, aps->apaddr);
+        lxnetdaemon_send_command(aps->gio, LXND_WIRELESS_CONNECT, cmdargs);
+    } else {
+        /* with encryption */
+
+	if (aps->ni->netdev_list->info.pg!=NULL)
+		passwd_gui_destroy(aps->ni->netdev_list->info.pg);
+
+	/* create dialog window for typing password */
+        aps->ni->netdev_list->info.pg = passwd_gui_new(aps);
+	passwd_gui_set_style(aps->ni->netdev_list->info.pg, gtk_style_new());
+    }
 }
 
 static gint menupopup(GtkWidget *widget, GdkEvent *event, netdev_info *ni)
@@ -106,11 +104,13 @@ static gint menupopup(GtkWidget *widget, GdkEvent *event, netdev_info *ni)
                         GtkWidget *lockicon;
                         GtkWidget *signal_quality;
                         gdouble quality_per;
-						ap_setting *aps;
+                        ap_setting *aps;
 
-						aps = malloc(sizeof(ap_setting));
-						aps->ifname = ni->netdev_list->info.ifname;
-						aps->gio = ni->ns->fnetd->lxndchannel;
+                        aps = malloc(sizeof(ap_setting));
+			aps->ni = ni;
+                        aps->ifname = ni->netdev_list->info.ifname;
+                        aps->gio = ni->ns->fnetd->lxndchannel;
+                        aps->apaddr = ptr->info.apaddr;
 
                         menu_ap = gtk_menu_item_new();
                         item_box = gtk_hbox_new(FALSE, 0);
@@ -119,13 +119,13 @@ static gint menupopup(GtkWidget *widget, GdkEvent *event, netdev_info *ni)
                         if (ptr->info.haskey) {
                             lockicon = gtk_image_new_from_file(ICONS_WL_LOCK);
                             gtk_box_pack_start(GTK_BOX(item_box), lockicon, FALSE, FALSE, 0);
-							aps->en_type = g_strdup("WEP");
+                            aps->en_type = g_strdup("WEP");
                         } else {
-							aps->en_type = NULL;
-						}
+                            aps->en_type = NULL;
+                        }
 
                         /* ESSID */
-						aps->essid = ptr->info.essid;
+                        aps->essid = ptr->info.essid;
                         essid_label = gtk_label_new(ptr->info.essid);
 //                      gtk_misc_set_alignment(GTK_MISC(essid_label), 0, 0);
                         gtk_label_set_justify(essid_label, GTK_JUSTIFY_LEFT);
@@ -136,8 +136,8 @@ static gint menupopup(GtkWidget *widget, GdkEvent *event, netdev_info *ni)
                         quality_per = (gdouble)((double)ptr->info.quality/100);
                         if (quality_per>1)
                             quality_per = 1;
-						else if (quality_per<0)
-							quality_per = 0;
+                        else if (quality_per<0)
+                            quality_per = 0;
 
                         signal_quality = gtk_progress_bar_new();
                         gtk_widget_set_size_request(signal_quality, 100, -1);

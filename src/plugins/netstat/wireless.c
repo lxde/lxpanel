@@ -160,6 +160,38 @@ APINFOLIST *wireless_ap_scanning(int iwsockfd, const char *ifname)
 				case IWEVQUAL: /* Signal Quality */
 					info->info.quality = (int)rint((log (iwe.u.qual.qual) / log (92)) * 100.0);
 					break;
+//				case IWEVGENIE: /* Extra information */
+//				{
+//					int offset = 0;
+//					while(offset <= (iwe.u.data.length - 2)) {
+						/* check IE type */
+//						switch(iwe.u.data.pointer[offset]) {
+//							case 0xdd: /* WPA or else */ 
+								/* Not all IEs that start with 0xdd are WPA. 
+								* So check that the OUI is valid. Note : offset==2 */
+//								if((ielen < 8) || (memcmp(&iebuf[offset], wpa_oui, 3) != 0)
+//									|| (iebuf[offset + 3] != 0x01)) {
+										/* WEP or else */
+//										info->info.en_method = NS_WIRELESS_AUTH_WEP;
+//									break;
+//								}
+
+//								offset += 6;
+//							case 0x30: /* IEEE 802.11i/WPA2 */ 
+//								if(iwe.u.data.length<(offset + 4)) {
+									/* IEEE 802.11i/WPA2 */
+//									info->info.en_method = NS_WIRELESS_AUTH_WPA;
+//								} else {
+									/* WPA-PSK */
+//									info->info.en_method = NS_WIRELESS_AUTH_WPA_PSK;
+//								}
+									
+//								break;
+//						}
+//						offset += iwe.u.data.pointer[offset+1] + 2;
+//					}
+//				}
+					break;
 			}
 		}
 	} 
