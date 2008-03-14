@@ -57,7 +57,7 @@
    will not noticeably reduce the lag between the state reported by the
    operating system and the state reported by the plugin. Some safeguard is
    necessary to prevent the user from disabling their system with an
-   unreasonably low update interval; 100 ms ought to be enough for anybody. */
+   unreasonably low update interval; 1000 ms ought to be enough for anybody. */
 #define MIN_UPDATE_INTERVAL_MS 100
 
 /* The last MAX_SAMPLES samples are averaged when charge rates are evaluated.
@@ -180,37 +180,37 @@ static int getStatus(int *capacity, int *charge, int *rate) {
             snprintf(buffer.str, buffer.len, "%s%s/state", BATTERY_DIRECTORY,
                     battery_name);
             if ((state = fopen(buffer.str, "r"))) {
-				char buf[512];
-				char *pstr;
-				fread(buf, sizeof(buf), 1, state);
+                char buf[512];
+                char *pstr;
+                fread(buf, sizeof(buf), 1, state);
 
                 char thisState = 'c';
 
                 /* Read the file until the battery's charging state is found or
                    until there are no more lines to be read */
-				if (pstr = strstr(buf, "charging state:"))
-					thisState = *(pstr + 25);
+                if (pstr = strstr(buf, "charging state:"))
+                    thisState = *(pstr + 25);
                 //while (fgets(buffer.str, buffer.len, state) &&
                 //        ! sscanf(buffer.str, "charging state: %c", &thisState));
 
                 /* Read the file until the battery's charge/discharge rate is
                    found or until there are no more lines to be read */
-				if (pstr = strstr(buf, "present rate:")) {
-					pstr += 25;
-					sscanf (pstr, "%d",&thisRate);
-			
-					if(thisRate <= 0)
-						thisRate = 0;
-				}
+                if (pstr = strstr(buf, "present rate:")) {
+                    pstr += 25;
+                    sscanf (pstr, "%d",&thisRate);
+
+                    if(thisRate <= 0)
+                        thisRate = 0;
+                }
                 //while (fgets(buffer.str, buffer.len, state) &&
                 //        ! sscanf(buffer.str, "present rate: %d mW", &thisRate));
 
                 /* Read the file until the battery's charge is found or until
                    there are no more lines to be read */
-				if (pstr = strstr (buf, "remaining capacity")) {
-					pstr += 25;
-					sscanf (pstr, "%d",&thisCharge);
-				}
+                if (pstr = strstr (buf, "remaining capacity")) {
+                    pstr += 25;
+                    sscanf (pstr, "%d",&thisCharge);
+                }
                 //while (fgets(buffer.str, buffer.len, state) &&
                 //        ! sscanf(buffer.str, "remaining capacity: %d mWh",
                 //        &thisCharge));
@@ -428,6 +428,7 @@ static int update_timout(batt *b) {
     GDK_THREADS_ENTER();
     update(  b );
     GDK_THREADS_LEAVE();
+    return TRUE;
 }
 
 /* An update will be performed whenever the user clicks on the charge bar */
