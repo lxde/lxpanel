@@ -34,7 +34,6 @@ typedef struct {
 	char *protocol;
 	char *essid;
 	int *quality;
-	int *en_method;
 	struct pgui *pg;
 
 	int status;
@@ -78,8 +77,8 @@ typedef struct {
 typedef struct {
 	netdev_info *ni;
 	GIOChannel *gio;
+	int en_type;
 	char *ifname;
-	char *en_type;
 	char *apaddr;
 	char *essid;
 	char *password;

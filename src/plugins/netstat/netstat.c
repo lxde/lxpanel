@@ -60,18 +60,18 @@ static void wireless_connect(GtkWidget *widget, ap_setting *aps)
     char *cmdargs;
 
     /* without encryption */
-    if (aps->en_type==NULL) {
+    if (aps->en_type==NS_WIRELESS_AUTH_OFF) {
         cmdargs = g_strdup_printf("%s %s OFF NULL %s", aps->ifname, aps->essid, aps->apaddr);
         lxnetdaemon_send_command(aps->gio, LXND_WIRELESS_CONNECT, cmdargs);
     } else {
         /* with encryption */
 
-	if (aps->ni->netdev_list->info.pg!=NULL)
-		passwd_gui_destroy(aps->ni->netdev_list->info.pg);
+        if (aps->ni->netdev_list->info.pg!=NULL)
+            passwd_gui_destroy(aps->ni->netdev_list->info.pg);
 
-	/* create dialog window for typing password */
+        /* create dialog window for typing password */
         aps->ni->netdev_list->info.pg = passwd_gui_new(aps);
-	passwd_gui_set_style(aps->ni->netdev_list->info.pg, gtk_style_new());
+        passwd_gui_set_style(aps->ni->netdev_list->info.pg, gtk_style_new());
     }
 }
 
@@ -107,10 +107,11 @@ static gint menupopup(GtkWidget *widget, GdkEvent *event, netdev_info *ni)
                         ap_setting *aps;
 
                         aps = malloc(sizeof(ap_setting));
-			aps->ni = ni;
+                        aps->ni = ni;
                         aps->ifname = ni->netdev_list->info.ifname;
                         aps->gio = ni->ns->fnetd->lxndchannel;
                         aps->apaddr = ptr->info.apaddr;
+                        aps->en_type = ptr->info.en_method;
 
                         menu_ap = gtk_menu_item_new();
                         item_box = gtk_hbox_new(FALSE, 0);
@@ -119,9 +120,8 @@ static gint menupopup(GtkWidget *widget, GdkEvent *event, netdev_info *ni)
                         if (ptr->info.haskey) {
                             lockicon = gtk_image_new_from_file(ICONS_WL_LOCK);
                             gtk_box_pack_start(GTK_BOX(item_box), lockicon, FALSE, FALSE, 0);
-                            aps->en_type = g_strdup("WEP");
-                        } else {
-                            aps->en_type = NULL;
+							if (aps->en_type==NS_WIRELESS_AUTH_OFF)
+								aps->en_type = NS_WIRELESS_AUTH_WEP;
                         }
 
                         /* ESSID */

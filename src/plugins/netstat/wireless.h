@@ -3,8 +3,8 @@
 
 #include "netstat.h"
 
-#define NS_WIRELESS_AUTH_WEP       0
-#define NS_WIRELESS_AUTH_WPA       1
+#define NS_WIRELESS_AUTH_OFF       0
+#define NS_WIRELESS_AUTH_WEP       1
 #define NS_WIRELESS_AUTH_WPA_PSK   2
 
 typedef struct {
@@ -12,6 +12,7 @@ typedef struct {
 	char *apaddr;
 	gboolean haskey;
 	int quality;
+	int en_method;
 } ap_info;
 
 typedef struct ap_info_node {

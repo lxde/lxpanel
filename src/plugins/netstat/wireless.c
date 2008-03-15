@@ -141,6 +141,7 @@ APINFOLIST *wireless_ap_scanning(int iwsockfd, const char *ifname)
 						info = info->next;
 					}
 
+					info->info.en_method = NS_WIRELESS_AUTH_OFF;
 					info->info.apaddr = g_strdup(iw_saether_ntop(&iwe.u.ap_addr, buf));
 					break;
 				case SIOCGIWESSID: /* ESSID */
@@ -160,37 +161,46 @@ APINFOLIST *wireless_ap_scanning(int iwsockfd, const char *ifname)
 				case IWEVQUAL: /* Signal Quality */
 					info->info.quality = (int)rint((log (iwe.u.qual.qual) / log (92)) * 100.0);
 					break;
-//				case IWEVGENIE: /* Extra information */
-//				{
-//					int offset = 0;
-//					while(offset <= (iwe.u.data.length - 2)) {
+				case IWEVGENIE: /* Extra information */
+				{
+					int offset = 0;
+					int ielen = iwe.u.data.length;
+					unsigned char *iebuf;
+
+					while(offset <= (ielen - 2)) {
+						iebuf = (iwe.u.data.pointer + offset);
+
 						/* check IE type */
-//						switch(iwe.u.data.pointer[offset]) {
-//							case 0xdd: /* WPA or else */ 
+						switch(iebuf[offset]) {
+							case 0xdd: /* WPA or else */
+							{
+								unsigned char wpa1_oui[3] = {0x00, 0x50, 0xf2};
 								/* Not all IEs that start with 0xdd are WPA. 
 								* So check that the OUI is valid. Note : offset==2 */
-//								if((ielen < 8) || (memcmp(&iebuf[offset], wpa_oui, 3) != 0)
-//									|| (iebuf[offset + 3] != 0x01)) {
+								if((ielen < 8) || (memcmp(&iebuf[offset], wpa1_oui, 3) != 0)
+									|| (iebuf[offset + 3] != 0x01)) {
 										/* WEP or else */
-//										info->info.en_method = NS_WIRELESS_AUTH_WEP;
-//									break;
-//								}
+										info->info.en_method = NS_WIRELESS_AUTH_WEP;
+									break;
+								}
 
-//								offset += 6;
-//							case 0x30: /* IEEE 802.11i/WPA2 */ 
-//								if(iwe.u.data.length<(offset + 4)) {
+								offset += 6;
+							}
+							case 0x30: /* IEEE 802.11i/WPA2 */ 
+								/* fix me */
+								if(ielen<(offset + 4)) {
 									/* IEEE 802.11i/WPA2 */
-//									info->info.en_method = NS_WIRELESS_AUTH_WPA;
-//								} else {
+									info->info.en_method = NS_WIRELESS_AUTH_WPA_PSK;
+								} else {
 									/* WPA-PSK */
-//									info->info.en_method = NS_WIRELESS_AUTH_WPA_PSK;
-//								}
+									info->info.en_method = NS_WIRELESS_AUTH_WPA_PSK;
+								}
 									
-//								break;
-//						}
-//						offset += iwe.u.data.pointer[offset+1] + 2;
-//					}
-//				}
+								break;
+						}
+						offset += iebuf[offset+1] + 2;
+					}
+				}
 					break;
 			}
 		}
