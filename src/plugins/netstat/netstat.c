@@ -61,7 +61,7 @@ static void wireless_connect(GtkWidget *widget, ap_setting *aps)
 
     /* without encryption */
     if (aps->en_type==NS_WIRELESS_AUTH_OFF) {
-        cmdargs = g_strdup_printf("%s %s OFF NULL %s", aps->ifname, aps->essid, aps->apaddr);
+        cmdargs = g_strdup_printf("%s %s OFF NULL %s", aps->ifname, asc2hex(aps->essid), aps->apaddr);
         lxnetdaemon_send_command(aps->gio, LXND_WIRELESS_CONNECT, cmdargs);
     } else {
         /* with encryption */

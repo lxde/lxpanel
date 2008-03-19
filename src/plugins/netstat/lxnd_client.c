@@ -30,6 +30,26 @@
 #include "netstat.h"
 #include "lxnd_client.h"
 
+char*
+asc2hex(char *src)
+{
+	char *buf, *tmp;
+	char c[3];
+
+	buf = malloc(sizeof(char)+strlen(src)*2);
+	tmp = buf;
+
+	for (;*src!='\0';src++) {
+		sprintf(c, "%X", *src);
+		*tmp = c[0];
+		*(tmp+1) = c[1];
+		tmp += 2;
+	}
+
+	*tmp = '\0';
+	return buf;
+}
+
 static gboolean
 lxnetdaemon_read_channel(GIOChannel *gio, GIOCondition condition, gpointer data)
 {

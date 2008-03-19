@@ -41,9 +41,9 @@ static void passwd_gui_on_response(GtkDialog* dlg, gint response, struct passwd_
 
 	if(G_LIKELY(response == GTK_RESPONSE_OK)) {
 
-		cmdargs = g_strdup_printf("%s %s %s %s %s",
+		cmdargs = g_strdup_printf("%s %s %s \"%s\" %s",
 					pr->aps->ifname,
-					pr->aps->essid,
+					asc2hex(pr->aps->essid),
 					wireless_auth_name[pr->aps->en_type],
 					gtk_entry_get_text(pr->entry),
 					pr->aps->apaddr);
