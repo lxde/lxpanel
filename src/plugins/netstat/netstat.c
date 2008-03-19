@@ -120,13 +120,16 @@ static gint menupopup(GtkWidget *widget, GdkEvent *event, netdev_info *ni)
                         if (ptr->info.haskey) {
                             lockicon = gtk_image_new_from_file(ICONS_WL_LOCK);
                             gtk_box_pack_start(GTK_BOX(item_box), lockicon, FALSE, FALSE, 0);
-							if (aps->en_type==NS_WIRELESS_AUTH_OFF)
-								aps->en_type = NS_WIRELESS_AUTH_WEP;
+                            if (aps->en_type==NS_WIRELESS_AUTH_OFF)
+                                aps->en_type = NS_WIRELESS_AUTH_WEP;
                         }
 
                         /* ESSID */
                         aps->essid = ptr->info.essid;
-                        essid_label = gtk_label_new(ptr->info.essid);
+                        if (strlen(aps->essid)!=0)
+                            essid_label = gtk_label_new(ptr->info.essid);
+                        else
+                            essid_label = gtk_label_new(_("<Hidden Access Point>"));
 //                      gtk_misc_set_alignment(GTK_MISC(essid_label), 0, 0);
                         gtk_label_set_justify(essid_label, GTK_JUSTIFY_LEFT);
                         gtk_misc_set_padding(GTK_MISC(essid_label), 2, 0);
