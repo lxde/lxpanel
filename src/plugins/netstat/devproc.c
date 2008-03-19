@@ -93,9 +93,9 @@ int netproc_netdevlist_clear(NETDEVLIST_PTR *netdev_list)
 
 	ptr = *netdev_list;
 	while(ptr->next!=NULL) {
-		netproc_netdevlist_destroy(ptr);
 		ptr_del = ptr;
 		ptr = ptr->next;
+		netproc_netdevlist_destroy(ptr_del);
 		free(ptr_del);
 	}
 
@@ -457,7 +457,6 @@ void netproc_devicelist_clear(NETDEVLIST_PTR *netdev_list)
 	ptr = *netdev_list;
 	do {
 		if (!ptr->info.alive) { /* if device was removed */
-			netproc_netdevlist_destroy(ptr);
 			if (prev_ptr!=NULL) {
 				ptr->prev->next = ptr->next;
 				ptr->next->prev = ptr->prev;
@@ -468,6 +467,7 @@ void netproc_devicelist_clear(NETDEVLIST_PTR *netdev_list)
 
 			del_ptr = ptr;
 			ptr = ptr->next;
+			netproc_netdevlist_destroy(del_ptr);
 			free(del_ptr);
 		} else {
 			prev_ptr = ptr;
