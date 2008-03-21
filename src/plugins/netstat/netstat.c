@@ -24,7 +24,7 @@
 #include <iwlib.h>
 #include "nsconfig.h"
 #include "netstat.h"
-#include "lxnd_client.h"
+#include "lxnm_client.h"
 #include "statusicon.h"
 #include "passwd_gui.h"
 #include "devproc.h"
@@ -61,8 +61,12 @@ static void wireless_connect(GtkWidget *widget, ap_setting *aps)
 
     /* without encryption */
     if (aps->en_type==NS_WIRELESS_AUTH_OFF) {
-        cmdargs = g_strdup_printf("%s %s OFF NULL %s", aps->ifname, asc2hex(aps->essid), aps->apaddr);
-        lxnetdaemon_send_command(aps->gio, LXND_WIRELESS_CONNECT, cmdargs);
+		if (strlen(aps->essid)!=0)
+        	cmdargs = g_strdup_printf("%s %s OFF NULL %s", aps->ifname, asc2hex(aps->essid), aps->apaddr);
+		else
+        	cmdargs = g_strdup_printf("%s NULL OFF NULL %s", aps->ifname, aps->apaddr);
+
+        lxnm_send_command(aps->gio, LXNM_WIRELESS_CONNECT, cmdargs);
     } else {
         /* with encryption */
 
@@ -109,7 +113,7 @@ static gint menupopup(GtkWidget *widget, GdkEvent *event, netdev_info *ni)
                         aps = malloc(sizeof(ap_setting));
                         aps->ni = ni;
                         aps->ifname = ni->netdev_list->info.ifname;
-                        aps->gio = ni->ns->fnetd->lxndchannel;
+                        aps->gio = ni->ns->fnetd->lxnmchannel;
                         aps->apaddr = ptr->info.apaddr;
                         aps->en_type = ptr->info.en_method;
 
@@ -298,7 +302,7 @@ static void netstat_destructor(plugin *p)
     g_source_remove(ns->ttag);
     netproc_netdevlist_clear(&ns->fnetd->netdevlist);
     gtk_widget_destroy(ns->mainw);
-    lxnetdaemon_close(ns->fnetd->lxndchannel);
+    lxnm_close(ns->fnetd->lxnmchannel);
     close(ns->fnetd->sockfd);
     close(ns->fnetd->iwsockfd);
     g_free(ns->fnetd);
@@ -343,7 +347,7 @@ static int netstat_constructor(plugin *p, char **fp)
     ns->fnetd->netdevlist = NULL;
     ns->fnetd->sockfd = socket(AF_INET, SOCK_DGRAM, 0);
     ns->fnetd->iwsockfd = iw_sockets_open();
-    ns->fnetd->lxndchannel = lxnetdaemon_socket();
+    ns->fnetd->lxnmchannel = lxnm_socket();
 
     /* main */
     ns->mainw = p->panel->my_box_new(FALSE, 1);

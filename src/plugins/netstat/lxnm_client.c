@@ -28,7 +28,7 @@
 #include <glib/gi18n.h>
 #include <iwlib.h>
 #include "netstat.h"
-#include "lxnd_client.h"
+#include "lxnm_client.h"
 
 char*
 asc2hex(char *src)
@@ -51,7 +51,7 @@ asc2hex(char *src)
 }
 
 static gboolean
-lxnetdaemon_read_channel(GIOChannel *gio, GIOCondition condition, gpointer data)
+lxnm_read_channel(GIOChannel *gio, GIOCondition condition, gpointer data)
 {
 /*
 	GIOStatus ret;
@@ -74,7 +74,7 @@ lxnetdaemon_read_channel(GIOChannel *gio, GIOCondition condition, gpointer data)
 }
 
 GIOChannel *
-lxnetdaemon_socket(void)
+lxnm_socket(void)
 {
 	GIOChannel *gio;
 	int sockfd;
@@ -91,7 +91,7 @@ lxnetdaemon_socket(void)
 
 	/* setting UNIX socket */
 	sa_un.sun_family = AF_UNIX;
-	snprintf(sa_un.sun_path, sizeof(sa_un.sun_path), LXNETDAEMON_SOCKET);
+	snprintf(sa_un.sun_path, sizeof(sa_un.sun_path), LXNM_SOCKET);
 
 	if (connect(sockfd, (struct sockaddr *) &sa_un, sizeof (sa_un)) < 0) {
 		return NULL;
@@ -99,19 +99,19 @@ lxnetdaemon_socket(void)
 
 	gio = g_io_channel_unix_new(sockfd);
 	g_io_channel_set_encoding(gio, NULL, NULL);
-	g_io_add_watch(gio, G_IO_IN | G_IO_HUP, lxnetdaemon_read_channel, NULL);
+	g_io_add_watch(gio, G_IO_IN | G_IO_HUP, lxnm_read_channel, NULL);
 
 	return gio;
 }
 
-void lxnetdaemon_close(GIOChannel *gio)
+void lxnm_close(GIOChannel *gio)
 {
 	if (gio)
 		close(g_io_channel_unix_get_fd(gio));
 }
 
 void
-lxnetdaemon_send_command(GIOChannel *gio, int command, const char* cmdargs)
+lxnm_send_command(GIOChannel *gio, int command, const char* cmdargs)
 {
 	char *msg;
 	gsize len;

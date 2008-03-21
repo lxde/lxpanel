@@ -19,7 +19,7 @@
 #include <glib.h>
 #include <glib/gi18n.h>
 #include "netstat.h"
-#include "lxnd_client.h"
+#include "lxnm_client.h"
 #include "wireless.h"
 #include "passwd_gui.h"
 
@@ -40,13 +40,19 @@ static void passwd_gui_on_response(GtkDialog* dlg, gint response, struct passwd_
 	//GtkEntry* entry = (GtkEntry*)user_data;
 
 	if(G_LIKELY(response == GTK_RESPONSE_OK)) {
-
-		cmdargs = g_strdup_printf("%s %s %s \"%s\" %s",
-					pr->aps->ifname,
-					asc2hex(pr->aps->essid),
-					wireless_auth_name[pr->aps->en_type],
-					gtk_entry_get_text(pr->entry),
-					pr->aps->apaddr);
+		if (strlen(pr->aps->essid)!=0)
+			cmdargs = g_strdup_printf("%s %s %s \"%s\" %s",
+						pr->aps->ifname,
+						asc2hex(pr->aps->essid),
+						wireless_auth_name[pr->aps->en_type],
+						gtk_entry_get_text(pr->entry),
+						pr->aps->apaddr);
+		else
+			cmdargs = g_strdup_printf("%s NULL %s \"%s\" %s",
+						pr->aps->ifname,
+						wireless_auth_name[pr->aps->en_type],
+						gtk_entry_get_text(pr->entry),
+						pr->aps->apaddr);
 
 /*
 		cmdargs = g_strdup_printf("%s %s WEP %s %s",
@@ -55,7 +61,7 @@ static void passwd_gui_on_response(GtkDialog* dlg, gint response, struct passwd_
 					gtk_entry_get_text(pr->entry),
 					pr->aps->apaddr);
 */
-		lxnetdaemon_send_command(pr->aps->gio, LXND_WIRELESS_CONNECT, cmdargs);
+		lxnm_send_command(pr->aps->gio, LXNM_WIRELESS_CONNECT, cmdargs);
 	}
 
 	g_source_remove_by_user_data(pr->entry); /* remove timeout */

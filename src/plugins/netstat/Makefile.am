@@ -21,8 +21,8 @@ netstat_la_SOURCES = \
         statusicon.h \
         wireless.c \
         wireless.h \
-        lxnd_client.c \
-        lxnd_client.h \
+        lxnm_client.c \
+        lxnm_client.h \
         passwd_gui.c \
         passwd_gui.h
 

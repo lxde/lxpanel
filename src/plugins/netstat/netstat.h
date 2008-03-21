@@ -57,7 +57,7 @@ typedef struct {
 	int dev_count;
 	int sockfd;
 	int iwsockfd;
-	GIOChannel *lxndchannel;
+	GIOChannel *lxnmchannel;
 	FILE *netdev_fp;
 	NETDEVLIST_PTR netdevlist;
 } FNETD;
