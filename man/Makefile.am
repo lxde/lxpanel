@@ -1,7 +1,9 @@
 
-man_MANS = lxpanel.1 lxpanelctl.1
+dist_man_MANS = lxpanel.1 lxpanelctl.1
 
 EXTRA_DIST = lxpanel.sgml lxpanelctl.sgml
+
+dist-hook: lxpanel.1 lxpanelctl.1
 
 lxpanel.1: lxpanel.sgml
 	docbook-to-man $< > $@
