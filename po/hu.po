@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel-0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-03-02 16:16+0800\n"
-"PO-Revision-Date: 2008-03-23 01:40+0100\n"
+"PO-Revision-Date: 2008-03-23 10:47+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: Hungarian <debian-l10n-hungarian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -110,24 +110,24 @@ msgstr "Átlátszóság bekapcsolva"
 
 #: ../src/configurator.c:470
 msgid "Tint color:"
-msgstr ""
+msgstr "Színárnyalat:"
 
 #: ../src/configurator.c:528
 msgid "Enable Image:"
-msgstr ""
+msgstr "Kép bekapcsolása:"
 
 #: ../src/configurator.c:531
 msgid "Select a background image file"
-msgstr ""
+msgstr "Válassz egy háttér-kép fájlt"
 
 #: ../src/configurator.c:575
 msgid "<b>Background</b>"
-msgstr ""
+msgstr "<b>Háttér</b>"
 
 #. Disable Background option
 #: ../src/configurator.c:590
 msgid "None (Use system theme)"
-msgstr ""
+msgstr "Nincs (Rendszertéma használata)"
 
 #: ../src/configurator.c:649
 msgid "<b>Properties</b>"
@@ -135,11 +135,11 @@ msgstr "<b>Tulajdonságok</b>"
 
 #: ../src/configurator.c:671
 msgid "Make window managers treat the panel as dock"
-msgstr ""
+msgstr "Az ablakkezelők a panelt dokként kezeljék"
 
 #: ../src/configurator.c:687
 msgid "Reserve space, and not covered by maximized windows"
-msgstr ""
+msgstr "Hely fenntartása, melyet nem fednek le a maximált ablakok"
 
 #: ../src/configurator.c:742
 msgid "Currently loaded plugins"
@@ -147,27 +147,27 @@ msgstr "A most betöltött beillesztések"
 
 #: ../src/configurator.c:832
 msgid "Add plugin to panel"
-msgstr ""
+msgstr "Beillesztések hozzáadása a panelhoz"
 
 #: ../src/configurator.c:859
 msgid "Available plugins"
-msgstr ""
+msgstr "Elérhető beillesztések"
 
 #: ../src/configurator.c:1132
 msgid "<b>Set Preferred Applications</b>"
-msgstr ""
+msgstr "<b>Kedvenc alkalmazások beállítása</b>"
 
 #: ../src/configurator.c:1142
 msgid "File Manager:"
-msgstr ""
+msgstr "Fájlkezelő:"
 
 #: ../src/configurator.c:1155
 msgid "Terminal Emulator:"
-msgstr ""
+msgstr "Terminál emulátor:"
 
 #: ../src/configurator.c:1170
 msgid "Logout Command:"
-msgstr ""
+msgstr "Kijelentkező parancs:"
 
 #: ../src/configurator.c:1192
 msgid "lxpanel configurator"
@@ -184,7 +184,7 @@ msgstr "Beillesztések"
 
 #: ../src/configurator.c:1228
 msgid "Applications"
-msgstr ""
+msgstr "Alkalmazások"
 
 #: ../src/configurator.c:1387
 msgid "Logout command is not set"
@@ -278,7 +278,7 @@ msgstr "CPU használat mutatása"
 
 #: ../src/plugins/deskno/deskno2.c:129
 msgid "Desktop No / Workspace Name"
-msgstr ""
+msgstr "Asztal száma / munkaterület neve"
 
 #: ../src/plugins/deskno/deskno2.c:131
 msgid "Display workspace number, by cmeury@users.sf.net"
@@ -290,11 +290,11 @@ msgstr "Munkaterület szám kiírása: cmeury@users.sf.net"
 #.
 #: ../src/plugins/launchbar.c:498
 msgid "Select Application"
-msgstr ""
+msgstr "Válassz alkalmazást"
 
 #: ../src/plugins/launchbar.c:647
 msgid "Buttons"
-msgstr ""
+msgstr "Gombok"
 
 #: ../src/plugins/launchbar.c:760
 msgid "Application Launch Bar"
@@ -367,15 +367,15 @@ msgstr "Ikonizál"
 #: ../src/plugins/taskbar.c:1232
 #, c-format
 msgid "Workspace %d"
-msgstr ""
+msgstr "%d. munkaterület"
 
 #: ../src/plugins/taskbar.c:1240
 msgid "All workspaces"
-msgstr ""
+msgstr "Minden munkaterület"
 
 #: ../src/plugins/taskbar.c:1247
 msgid "Move to Workspace"
-msgstr ""
+msgstr "Munkaterületre mozgatás"
 
 #. we want this item to be farest from mouse pointer
 #: ../src/plugins/taskbar.c:1255
@@ -444,7 +444,7 @@ msgstr "Művelet"
 
 #: ../src/plugins/dclock.c:245
 msgid "Bold font"
-msgstr ""
+msgstr "Félkövér betű"
 
 #: ../src/plugins/dclock.c:280
 msgid "Digital Clock"
@@ -464,11 +464,11 @@ msgstr ""
 
 #: ../src/plugins/separator.c:92
 msgid "Separator"
-msgstr ""
+msgstr "Elválasztó"
 
 #: ../src/plugins/separator.c:94
 msgid "Add a separator to the panel"
-msgstr ""
+msgstr "Elválasztó hozzáadása a panelhoz"
 
 #: ../src/plugins/image.c:178
 msgid "Dispaly Image and Tooltip"
@@ -493,7 +493,7 @@ msgstr "<Szóköz>"
 
 #: ../src/plugins/space.c:148
 msgid "Allocate space"
-msgstr ""
+msgstr "Helyfoglalás"
 
 #: ../src/plugins/wincmd.c:264
 msgid "Left click to iconify all windows. Middle click to shade them"
@@ -513,15 +513,15 @@ msgstr ""
 
 #: ../src/plugins/dirmenu.c:207
 msgid "Open in _Terminal"
-msgstr ""
+msgstr "Megnyitás _terminálban"
 
 #: ../src/plugins/dirmenu.c:373
 msgid "Directory Menu"
-msgstr ""
+msgstr "Könyvtár menü"
 
 #: ../src/plugins/dirmenu.c:375
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr ""
+msgstr "Könyvtárfa böngészése menüvel (Szerző: PCMan)"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #: ../src/plugins/volume/volume.c:148
@@ -542,7 +542,7 @@ msgstr "Hangerő"
 
 #: ../src/plugins/volumealsa/volumealsa.c:207
 msgid "Mute"
-msgstr ""
+msgstr "Némít"
 
 #: ../src/plugins/netstatus/netstatus.c:161
 msgid "Interface to monitor"
