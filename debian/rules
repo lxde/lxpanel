@@ -72,11 +72,11 @@ install: build
 	$(MAKE) DESTDIR=$(CURDIR)/debian/lxpanel install
 
 	# Install .desktop files
-	install -d $(CURDIR)/debian/usr/share/applications
+	install -d $(CURDIR)/debian/lxpanel/usr/share/applications
 	install -m644 $(CURDIR)/debian/lxde-terminal-emulator.desktop \
-			$(CURDIR)/debian/usr/share/applications
+			$(CURDIR)/debian/lxpanel/usr/share/applications
 	install -m644 $(CURDIR)/debian/lxde-www-browser.desktop \
-			$(CURDIR)/debian/usr/share/applications
+			$(CURDIR)/debian/lxpanel/usr/share/applications
 
 
 # Build architecture-independent files here.
