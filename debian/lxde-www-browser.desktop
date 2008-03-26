@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Web Browser
+GenericName=X Web Browser
+Exec=/etc/alternatives/x-www-browser %u
+Terminal=false
+Type=Application
+Categories=GTK;WebBrowser;Network
+Icon=applications-internet
+Hidden=True
