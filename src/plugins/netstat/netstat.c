@@ -155,6 +155,7 @@ static gint menupopup(GtkWidget *widget, GdkEvent *event, netdev_info *ni)
                         gtk_container_add(GTK_CONTAINER(menu_ap), item_box);
                         gtk_menu_append(GTK_MENU(menu), menu_ap);
                         g_signal_connect(G_OBJECT(menu_ap), "activate", G_CALLBACK(wireless_connect), aps);
+                        g_object_weak_ref(menu_ap, g_free, aps);
                         ptr = ptr->next;
                     } while(ptr!=NULL);
                 }

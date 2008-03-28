@@ -118,7 +118,7 @@ struct pgui *passwd_gui_new(ap_setting *aps)
 
 	/* g_signal */
 	g_signal_connect(pwdgui->dlg, "response", G_CALLBACK(passwd_gui_on_response), pr);
-//	g_object_weak_ref(pwdgui->dlg, g_free, pr);
+	g_object_weak_ref(pwdgui->dlg, g_free, pr);
 
 	gtk_widget_show_all(pwdgui->dlg);
 
