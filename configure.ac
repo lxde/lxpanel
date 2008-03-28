@@ -50,6 +50,28 @@ case `$LD --as-needed -v 2>&1 </dev/null` in
     ;;
 esac
 
+dnl linker optimizations
+AC_MSG_CHECKING([whether $LD accepts -O1])
+case `$LD -O1 -v 2>&1 </dev/null` in
+*GNU* | *'with BFD'*)
+  LDFLAGS="$LDFLAGS -Wl,-O1"
+  AC_MSG_RESULT([yes])
+  ;;
+*)
+  AC_MSG_RESULT([no])
+  ;;
+esac
+AC_MSG_CHECKING([whether $LD accepts -Bsymbolic-functions])
+case `$LD -Bsymbolic-functions -v 2>&1 </dev/null` in
+*GNU* | *'with BFD'*)
+  LDFLAGS="$LDFLAGS -Wl,-Bsymbolic-functions"
+  AC_MSG_RESULT([yes])
+  ;;
+*)                                                                              
+  AC_MSG_RESULT([no])
+  ;;
+esac
+
 dnl FIXME: filter for undefined symbols in plugins
 # when passing "-z defs" to linker, we would better to make sure
 # there are no undefined references.  However, we intend not to
