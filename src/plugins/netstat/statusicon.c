@@ -1,4 +1,4 @@
-/**																								 
+/**
  * Copyright (c) 2008 LxDE Developers, see the file AUTHORS for details.
  *
  * This program is free software; you can redistribute it and/or modify
@@ -15,6 +15,7 @@
  * along with this program; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
+
 #include <string.h>
 #include <glib.h>
 #include <glib/gi18n.h>
