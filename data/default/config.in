@@ -208,22 +208,22 @@ Plugin {
 # Net status plug-in
 # %i in configtool is only a place holder, and will be replace by the value of iface.
 
-Plugin {
-    type = netstatus
-    config {
-        iface = eth0
-        configtool = network-admin --configure %i
-    }
-}
+#Plugin {
+#    type = netstatus
+#    config {
+#        iface = eth0
+#        configtool = network-admin --configure %i
+#    }
+#}
 
 # Net Status (Linux Only)
 #
-#Plugin {
-#    type = netstat
-#    config {
-#        FixCommand = /sbin/netctl %s renew
-#    }
-#}
+Plugin {
+    type = netstat
+    config {
+        FixCommand = /sbin/netctl %s renew
+    }
+}
 
 # CPU monitor
 Plugin {
