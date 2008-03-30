@@ -16,6 +16,10 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
+#if HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <sys/types.h>
 #include <stdio.h>
 #include <string.h>
@@ -62,10 +66,10 @@ static void wireless_connect(GtkWidget *widget, ap_setting *aps)
 
     /* without encryption */
     if (aps->en_type==NS_WIRELESS_AUTH_OFF) {
-		if (strlen(aps->essid)!=0)
-        	cmdargs = g_strdup_printf("%s %s OFF NULL %s", aps->ifname, asc2hex(aps->essid), aps->apaddr);
-		else
-        	cmdargs = g_strdup_printf("%s NULL OFF NULL %s", aps->ifname, aps->apaddr);
+        if (strlen(aps->essid)!=0)
+            cmdargs = g_strdup_printf("%s %s OFF NULL %s", aps->ifname, asc2hex(aps->essid), aps->apaddr);
+        else
+            cmdargs = g_strdup_printf("%s NULL OFF NULL %s", aps->ifname, aps->apaddr);
 
         lxnm_send_command(aps->gio, LXNM_WIRELESS_CONNECT, cmdargs);
     } else {

@@ -15,6 +15,9 @@
  * along with this program; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
+#if HAVE_CONFIG_H
+#include <config.h>
+#endif
 
 #include <glib.h>
 #include <sys/time.h>
@@ -34,93 +37,93 @@
 char*
 asc2hex(char *src)
 {
-	char *buf, *tmp;
-	char c[3];
+    char *buf, *tmp;
+    char c[3];
 
-	buf = malloc(sizeof(char)+strlen(src)*2);
-	tmp = buf;
+    buf = malloc(sizeof(char)+strlen(src)*2);
+    tmp = buf;
 
-	for (;*src!='\0';src++) {
-		sprintf(c, "%X", *src);
-		*tmp = c[0];
-		*(tmp+1) = c[1];
-		tmp += 2;
-	}
+    for (;*src!='\0';src++) {
+        sprintf(c, "%X", *src);
+        *tmp = c[0];
+        *(tmp+1) = c[1];
+        tmp += 2;
+    }
 
-	*tmp = '\0';
-	return buf;
+    *tmp = '\0';
+    return buf;
 }
 
 static gboolean
 lxnm_read_channel(GIOChannel *gio, GIOCondition condition, gpointer data)
 {
 /*
-	GIOStatus ret;
-	GError *err = NULL;
-	gchar *msg;
-	gsize len;
+    GIOStatus ret;
+    GError *err = NULL;
+    gchar *msg;
+    gsize len;
 
-	if (condition & G_IO_HUP)
-		g_error ("Read end of pipe died!\n");
+    if (condition & G_IO_HUP)
+        g_error ("Read end of pipe died!\n");
 
-	ret = g_io_channel_read_line (gio, &msg, &len, NULL, &err);
-	if (ret == G_IO_STATUS_ERROR)
-		g_error ("Error reading: %s\n", err->message);
+    ret = g_io_channel_read_line (gio, &msg, &len, NULL, &err);
+    if (ret == G_IO_STATUS_ERROR)
+        g_error ("Error reading: %s\n", err->message);
 
-	printf ("Read %u bytes: %s\n", len, msg);
+    printf ("Read %u bytes: %s\n", len, msg);
 
-	g_free (msg);
+    g_free (msg);
 */
-	return TRUE;
+    return TRUE;
 }
 
 GIOChannel *
 lxnm_socket(void)
 {
-	GIOChannel *gio;
-	int sockfd;
-	struct sockaddr_un sa_un;
+    GIOChannel *gio;
+    int sockfd;
+    struct sockaddr_un sa_un;
 
-	/* create socket */
-	sockfd = socket(PF_UNIX, SOCK_STREAM, 0);
-	if (sockfd < 0) {
-		return NULL;
-	}
+    /* create socket */
+    sockfd = socket(PF_UNIX, SOCK_STREAM, 0);
+    if (sockfd < 0) {
+        return NULL;
+    }
 
-	/* Initiate socket */
-	bzero(&sa_un, sizeof(sa_un));
+    /* Initiate socket */
+    bzero(&sa_un, sizeof(sa_un));
 
-	/* setting UNIX socket */
-	sa_un.sun_family = AF_UNIX;
-	snprintf(sa_un.sun_path, sizeof(sa_un.sun_path), LXNM_SOCKET);
+    /* setting UNIX socket */
+    sa_un.sun_family = AF_UNIX;
+    snprintf(sa_un.sun_path, sizeof(sa_un.sun_path), LXNM_SOCKET);
 
-	if (connect(sockfd, (struct sockaddr *) &sa_un, sizeof (sa_un)) < 0) {
-		return NULL;
-	}
+    if (connect(sockfd, (struct sockaddr *) &sa_un, sizeof (sa_un)) < 0) {
+        return NULL;
+    }
 
-	gio = g_io_channel_unix_new(sockfd);
-	g_io_channel_set_encoding(gio, NULL, NULL);
-	g_io_add_watch(gio, G_IO_IN | G_IO_HUP, lxnm_read_channel, NULL);
+    gio = g_io_channel_unix_new(sockfd);
+    g_io_channel_set_encoding(gio, NULL, NULL);
+    g_io_add_watch(gio, G_IO_IN | G_IO_HUP, lxnm_read_channel, NULL);
 
-	return gio;
+    return gio;
 }
 
 void lxnm_close(GIOChannel *gio)
 {
-	if (gio)
-		close(g_io_channel_unix_get_fd(gio));
+    if (gio)
+        close(g_io_channel_unix_get_fd(gio));
 }
 
 void
 lxnm_send_command(GIOChannel *gio, int command, const char* cmdargs)
 {
-	char *msg;
-	gsize len;
+    char *msg;
+    gsize len;
 
-	if (gio==NULL)
-		return;
+    if (gio==NULL)
+        return;
 
-	msg = g_strdup_printf("%d %s\n", command, cmdargs);
-	g_io_channel_write_chars(gio, msg, -1, &len, NULL);
-	g_io_channel_flush(gio, NULL);
+    msg = g_strdup_printf("%d %s\n", command, cmdargs);
+    g_io_channel_write_chars(gio, msg, -1, &len, NULL);
+    g_io_channel_flush(gio, NULL);
 }

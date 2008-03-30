@@ -29,6 +29,10 @@ src/plugins/volume/volume.c
 src/plugins/volume/volume-impl.c
 src/plugins/volumealsa/volumealsa.c
 
+src/plugins/netstat/netstat.c
+src/plugins/netstat/passwd_gui.c
+src/plugins/netstat/lxnm_client.c
+
 src/plugins/netstatus/netstatus.c
 src/plugins/netstatus/netstatus-dialog.c
 src/plugins/netstatus/netstatus-dialog-ui.c

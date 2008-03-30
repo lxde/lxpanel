@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-30 10:54+0800\n"
-"PO-Revision-Date: 2008-03-30 10:55+0800\n"
+"POT-Creation-Date: 2008-03-30 11:40+0800\n"
+"PO-Revision-Date: 2008-03-30 11:41+0800\n"
 "Last-Translator: 洪任諭 <pcman.tw@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -481,7 +481,7 @@ msgid "Simple pager plugin"
 msgstr "簡易桌面切換外掛"
 
 #: ../src/plugins/space.c:131
-#: ../src/plugins/batt/batt.c:812
+#: ../src/plugins/batt/batt.c:816
 msgid "Size"
 msgstr "大小"
 
@@ -542,6 +542,113 @@ msgstr "音量"
 msgid "Mute"
 msgstr "靜音"
 
+#: ../src/plugins/netstat/netstat.c:141
+msgid "<Hidden Access Point>"
+msgstr ""
+
+#. Repair
+#: ../src/plugins/netstat/netstat.c:179
+msgid "Repair"
+msgstr "修復連線"
+
+#: ../src/plugins/netstat/netstat.c:237
+msgid "Network cable is plugged out"
+msgstr "網路線已拔除"
+
+#: ../src/plugins/netstat/netstat.c:239
+msgid "Connection has limited or no connectivity"
+msgstr "只能有限制的連線或無法連線"
+
+#: ../src/plugins/netstat/netstat.c:243
+#: ../src/plugins/netstat/netstat.c:254
+#: ../src/plugins/netstat/netstat.c:265
+msgid "IP Address:"
+msgstr "IP 位址："
+
+#: ../src/plugins/netstat/netstat.c:244
+msgid "Remote IP:"
+msgstr "遠端 IP 位址："
+
+#: ../src/plugins/netstat/netstat.c:245
+#: ../src/plugins/netstat/netstat.c:256
+#: ../src/plugins/netstat/netstat.c:267
+msgid "Netmask:"
+msgstr "子網路遮罩："
+
+#: ../src/plugins/netstat/netstat.c:246
+#: ../src/plugins/netstat/netstat.c:258
+#: ../src/plugins/netstat/netstat.c:269
+msgid "Activity"
+msgstr "活動"
+
+#: ../src/plugins/netstat/netstat.c:246
+#: ../src/plugins/netstat/netstat.c:258
+#: ../src/plugins/netstat/netstat.c:269
+msgid "Sent"
+msgstr "已傳送"
+
+#: ../src/plugins/netstat/netstat.c:246
+#: ../src/plugins/netstat/netstat.c:258
+#: ../src/plugins/netstat/netstat.c:269
+msgid "Received"
+msgstr "已接收"
+
+#: ../src/plugins/netstat/netstat.c:247
+#: ../src/plugins/netstat/netstat.c:259
+#: ../src/plugins/netstat/netstat.c:270
+msgid "bytes"
+msgstr "位元組"
+
+#: ../src/plugins/netstat/netstat.c:248
+#: ../src/plugins/netstat/netstat.c:260
+#: ../src/plugins/netstat/netstat.c:271
+msgid "packets"
+msgstr "封包"
+
+#: ../src/plugins/netstat/netstat.c:251
+msgid "Wireless"
+msgstr "無線網路"
+
+#: ../src/plugins/netstat/netstat.c:253
+msgid "Protocol:"
+msgstr "通訊協定："
+
+#: ../src/plugins/netstat/netstat.c:255
+#: ../src/plugins/netstat/netstat.c:266
+msgid "Boradcast:"
+msgstr "廣播位址："
+
+#: ../src/plugins/netstat/netstat.c:257
+#: ../src/plugins/netstat/netstat.c:268
+msgid "HW Address:"
+msgstr "實體位址："
+
+#: ../src/plugins/netstat/netstat.c:385
+#: ../src/plugins/netstatus/netstatus.c:179
+msgid "Net Status Monitor"
+msgstr "網路狀態監視器"
+
+#: ../src/plugins/netstat/netstat.c:387
+#: ../src/plugins/netstatus/netstatus.c:181
+msgid "Monitor network status"
+msgstr "監控網路狀態"
+
+#. create dialog
+#: ../src/plugins/netstat/passwd_gui.c:96
+msgid "Setting Encryption Key"
+msgstr ""
+
+#. messages
+#: ../src/plugins/netstat/passwd_gui.c:106
+msgid ""
+"This wireless network was encrypted.\n"
+"You must have the encryption key."
+msgstr ""
+
+#: ../src/plugins/netstat/passwd_gui.c:111
+msgid "Encryption Key:"
+msgstr ""
+
 #: ../src/plugins/netstatus/netstatus.c:161
 msgid "Interface to monitor"
 msgstr "要監控的介面"
@@ -549,14 +656,6 @@ msgstr "要監控的介面"
 #: ../src/plugins/netstatus/netstatus.c:162
 msgid "Config tool"
 msgstr "設定工具"
-
-#: ../src/plugins/netstatus/netstatus.c:179
-msgid "Net Status Monitor"
-msgstr "網路狀態監視器"
-
-#: ../src/plugins/netstatus/netstatus.c:181
-msgid "Monitor network status"
-msgstr "監控網路狀態"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:52
 #: ../src/plugins/netstatus/netstatus-dialog.c:311
@@ -751,80 +850,50 @@ msgstr "電池：剩餘電量 %d%%，剩餘可用時間 %d:%02d"
 msgid "No batteries found"
 msgstr "沒有電池"
 
-#: ../src/plugins/batt/batt.c:803
+#: ../src/plugins/batt/batt.c:806
 msgid "Hide if there is no battery"
 msgstr "沒有電池時隱藏"
 
-#: ../src/plugins/batt/batt.c:804
+#: ../src/plugins/batt/batt.c:808
 msgid "Alarm command"
 msgstr "發出警示時要執行的命令"
 
-#: ../src/plugins/batt/batt.c:805
+#: ../src/plugins/batt/batt.c:809
 msgid "Alarm time (minutes left)"
 msgstr "電池剩餘時間低於此數值時警示 (分鐘)"
 
-#: ../src/plugins/batt/batt.c:806
+#: ../src/plugins/batt/batt.c:810
 msgid "Background color"
 msgstr "背景顏色"
 
-#: ../src/plugins/batt/batt.c:807
+#: ../src/plugins/batt/batt.c:811
 msgid "Charging color 1"
 msgstr "充電顯示顏色 1"
 
-#: ../src/plugins/batt/batt.c:808
+#: ../src/plugins/batt/batt.c:812
 msgid "Charging color 2"
 msgstr "充電顯示顏色 2"
 
-#: ../src/plugins/batt/batt.c:809
+#: ../src/plugins/batt/batt.c:813
 msgid "Discharging color 1"
 msgstr "放電顯示顏色 1"
 
-#: ../src/plugins/batt/batt.c:810
+#: ../src/plugins/batt/batt.c:814
 msgid "Discharging color 2"
 msgstr "放電顯示顏色 2"
 
-#: ../src/plugins/batt/batt.c:811
+#: ../src/plugins/batt/batt.c:815
 msgid "Border width"
 msgstr "邊框寬度"
 
-#: ../src/plugins/batt/batt.c:845
+#: ../src/plugins/batt/batt.c:850
 msgid "Battery Monitor"
 msgstr "電池電量顯示"
 
-#: ../src/plugins/batt/batt.c:847
+#: ../src/plugins/batt/batt.c:852
 msgid "Display battery status using ACPI"
 msgstr "透過 ACPI 顯示電池狀態"
 
 #~ msgid "Update interval (seconds)"
 #~ msgstr "更新頻率 (秒)"
-#~ msgid "Repair"
-#~ msgstr "修復連線"
-#~ msgid "Network cable is plugged out"
-#~ msgstr "網路線已拔除"
-#~ msgid "Connection has limited or no connectivity"
-#~ msgstr "只能有限制的連線或無法連線"
-#~ msgid "IP Address:"
-#~ msgstr "IP 位址："
-#~ msgid "Remote IP:"
-#~ msgstr "遠端 IP 位址："
-#~ msgid "Netmask:"
-#~ msgstr "子網路遮罩："
-#~ msgid "Activity"
-#~ msgstr "活動"
-#~ msgid "Sent"
-#~ msgstr "已傳送"
-#~ msgid "Received"
-#~ msgstr "已接收"
-#~ msgid "bytes"
-#~ msgstr "位元組"
-#~ msgid "packets"
-#~ msgstr "封包"
-#~ msgid "Wireless"
-#~ msgstr "無線網路"
-#~ msgid "Protocol:"
-#~ msgstr "通訊協定："
-#~ msgid "Boradcast:"
-#~ msgstr "廣播位址："
-#~ msgid "HW Address:"
-#~ msgstr "實體位址："
 

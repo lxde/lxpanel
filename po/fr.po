@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel-0.2.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-30 10:54+0800\n"
+"POT-Creation-Date: 2008-03-30 11:40+0800\n"
 "PO-Revision-Date: 2008-05-01 00:00+0100\n"
 "Last-Translator: Frank Endres <frank_endres@yahoo.fr>\n"
 "Language-Team: French\n"
@@ -483,7 +483,7 @@ msgstr "Bureaux virtuels"
 msgid "Simple pager plugin"
 msgstr "Affiche les bureaux virtuels"
 
-#: ../src/plugins/space.c:131 ../src/plugins/batt/batt.c:812
+#: ../src/plugins/space.c:131 ../src/plugins/batt/batt.c:816
 msgid "Size"
 msgstr "Taille"
 
@@ -544,6 +544,113 @@ msgstr ""
 msgid "Mute"
 msgstr "Muet"
 
+#: ../src/plugins/netstat/netstat.c:141
+msgid "<Hidden Access Point>"
+msgstr ""
+
+#. Repair
+#: ../src/plugins/netstat/netstat.c:179
+#, fuzzy
+msgid "Repair"
+msgstr "Redémarrer"
+
+#: ../src/plugins/netstat/netstat.c:237
+msgid "Network cable is plugged out"
+msgstr ""
+
+#: ../src/plugins/netstat/netstat.c:239
+msgid "Connection has limited or no connectivity"
+msgstr ""
+
+#: ../src/plugins/netstat/netstat.c:243 ../src/plugins/netstat/netstat.c:254
+#: ../src/plugins/netstat/netstat.c:265
+#, fuzzy
+msgid "IP Address:"
+msgstr "Adresse:"
+
+#: ../src/plugins/netstat/netstat.c:244
+msgid "Remote IP:"
+msgstr ""
+
+#: ../src/plugins/netstat/netstat.c:245 ../src/plugins/netstat/netstat.c:256
+#: ../src/plugins/netstat/netstat.c:267
+#, fuzzy
+msgid "Netmask:"
+msgstr "Masque de sous-réseau:"
+
+#: ../src/plugins/netstat/netstat.c:246 ../src/plugins/netstat/netstat.c:258
+#: ../src/plugins/netstat/netstat.c:269
+#, fuzzy
+msgid "Activity"
+msgstr "<b>Activité</b>"
+
+#: ../src/plugins/netstat/netstat.c:246 ../src/plugins/netstat/netstat.c:258
+#: ../src/plugins/netstat/netstat.c:269
+#, fuzzy
+msgid "Sent"
+msgstr "Envoyés:"
+
+#: ../src/plugins/netstat/netstat.c:246 ../src/plugins/netstat/netstat.c:258
+#: ../src/plugins/netstat/netstat.c:269
+#, fuzzy
+msgid "Received"
+msgstr "Reçus:"
+
+#: ../src/plugins/netstat/netstat.c:247 ../src/plugins/netstat/netstat.c:259
+#: ../src/plugins/netstat/netstat.c:270
+msgid "bytes"
+msgstr ""
+
+#: ../src/plugins/netstat/netstat.c:248 ../src/plugins/netstat/netstat.c:260
+#: ../src/plugins/netstat/netstat.c:271
+#, fuzzy
+msgid "packets"
+msgstr "%lu paquet"
+
+#: ../src/plugins/netstat/netstat.c:251
+msgid "Wireless"
+msgstr ""
+
+#: ../src/plugins/netstat/netstat.c:253
+msgid "Protocol:"
+msgstr ""
+
+#: ../src/plugins/netstat/netstat.c:255 ../src/plugins/netstat/netstat.c:266
+#, fuzzy
+msgid "Boradcast:"
+msgstr "Adresse de diffusion:"
+
+#: ../src/plugins/netstat/netstat.c:257 ../src/plugins/netstat/netstat.c:268
+#, fuzzy
+msgid "HW Address:"
+msgstr "Adresse:"
+
+#: ../src/plugins/netstat/netstat.c:385
+#: ../src/plugins/netstatus/netstatus.c:179
+msgid "Net Status Monitor"
+msgstr "Moniteur des connexions réseau"
+
+#: ../src/plugins/netstat/netstat.c:387
+#: ../src/plugins/netstatus/netstatus.c:181
+msgid "Monitor network status"
+msgstr "Affiche l'état des connexions réseau"
+
+#. create dialog
+#: ../src/plugins/netstat/passwd_gui.c:96
+msgid "Setting Encryption Key"
+msgstr ""
+
+#. messages
+#: ../src/plugins/netstat/passwd_gui.c:106
+msgid ""
+"This wireless network was encrypted.\n"
+"You must have the encryption key."
+msgstr ""
+
+#: ../src/plugins/netstat/passwd_gui.c:111
+msgid "Encryption Key:"
+msgstr ""
+
 #: ../src/plugins/netstatus/netstatus.c:161
 msgid "Interface to monitor"
 msgstr "Interface"
@@ -551,14 +658,6 @@ msgstr "Interface"
 #: ../src/plugins/netstatus/netstatus.c:162
 msgid "Config tool"
 msgstr "Outil de configuration"
-
-#: ../src/plugins/netstatus/netstatus.c:179
-msgid "Net Status Monitor"
-msgstr "Moniteur des connexions réseau"
-
-#: ../src/plugins/netstatus/netstatus.c:181
-msgid "Monitor network status"
-msgstr "Affiche l'état des connexions réseau"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:52
 #: ../src/plugins/netstatus/netstatus-dialog.c:311
@@ -754,47 +853,47 @@ msgstr ""
 msgid "No batteries found"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:803
+#: ../src/plugins/batt/batt.c:806
 msgid "Hide if there is no battery"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:804
+#: ../src/plugins/batt/batt.c:808
 msgid "Alarm command"
 msgstr "Commande d'alarme"
 
-#: ../src/plugins/batt/batt.c:805
+#: ../src/plugins/batt/batt.c:809
 msgid "Alarm time (minutes left)"
 msgstr "Moment de l'alarme (minutes restantes)"
 
-#: ../src/plugins/batt/batt.c:806
+#: ../src/plugins/batt/batt.c:810
 msgid "Background color"
 msgstr "Couleur de fond"
 
-#: ../src/plugins/batt/batt.c:807
+#: ../src/plugins/batt/batt.c:811
 msgid "Charging color 1"
 msgstr "Couleur de chargement n°1"
 
-#: ../src/plugins/batt/batt.c:808
+#: ../src/plugins/batt/batt.c:812
 msgid "Charging color 2"
 msgstr "Couleur de chargement n°2"
 
-#: ../src/plugins/batt/batt.c:809
+#: ../src/plugins/batt/batt.c:813
 msgid "Discharging color 1"
 msgstr "Couleur de déchargement n°1"
 
-#: ../src/plugins/batt/batt.c:810
+#: ../src/plugins/batt/batt.c:814
 msgid "Discharging color 2"
 msgstr "Couleur de déchargement n°2"
 
-#: ../src/plugins/batt/batt.c:811
+#: ../src/plugins/batt/batt.c:815
 msgid "Border width"
 msgstr "Épaisseur de la bordure"
 
-#: ../src/plugins/batt/batt.c:845
+#: ../src/plugins/batt/batt.c:850
 msgid "Battery Monitor"
 msgstr "Moniteur des batteries"
 
-#: ../src/plugins/batt/batt.c:847
+#: ../src/plugins/batt/batt.c:852
 msgid "Display battery status using ACPI"
 msgstr "Afficher l'état de charge des batteries"
 
