@@ -52,6 +52,7 @@
 
 #define BATTERY_DIRECTORY "/proc/acpi/battery/" /* must be slash-terminated */
 #define DEFAULT_UPDATE_INTERVAL_MS 1000
+#define AC_ADAPTER_STATE_FILE "/proc/acpi/ac_adapter/AC/state"
 
 /* The last MAX_SAMPLES samples are averaged when charge rates are evaluated.
    This helps prevent spikes in the "time left" values the user sees. */
@@ -95,12 +96,14 @@ typedef struct {
         rateSamplesSum,
         thickness,
         timer,
+        ac_elapsed_time,
         state_elapsed_time,
         info_elapsed_time,
         wasCharging,
         width;
     sem_t alarmProcessLock;
     GList* batteries;
+    gboolean has_ac_adapter;
 } batt;
 
 
@@ -110,6 +113,7 @@ typedef struct {
 } alarm;
 
 static void destructor(plugin *p);
+static void update_display(batt *b, gboolean repaint);
 
 static void batt_info_free( batt_info* bi )
 {
@@ -180,6 +184,41 @@ static gboolean get_batt_state( batt_info* bi )
     return FALSE;
 }
 
+static gboolean check_ac_adapter( batt* b )
+{
+    FILE *state;
+    char buf[ 256 ];
+    char* pstr;
+
+    if ((state = fopen( AC_ADAPTER_STATE_FILE, "r"))) {
+        gboolean has_ac_adapter = FALSE;
+
+        while( fgets(buf, 256, state) &&
+                ! ( pstr = strstr(buf, "state:") ) );
+        if( pstr )
+        {
+            pstr += 6;
+            while( *pstr && *pstr == ' ' )
+                ++pstr;
+            if( pstr[0] == 'o' && pstr[1] == 'n' )
+                has_ac_adapter = TRUE;
+        }
+        fclose(state);
+
+        /* if the state of AC adapter changed, is_charging of the batteries might change, too. */
+        if( has_ac_adapter != b->has_ac_adapter )
+        {
+            /* g_debug( "ac_state_changed: %d", has_ac_adapter ); */
+            b->has_ac_adapter = has_ac_adapter;
+            /* update the state of all batteries */
+            g_list_foreach( b->batteries, (GFunc)get_batt_state, NULL );
+            update_display( b, TRUE );
+        }
+        return TRUE;
+    }
+    return FALSE;
+}
+
 /* alarmProcess takes the address of a dynamically allocated alarm struct (which
    it must free). It ensures that alarm commands do not run concurrently. */
 static void * alarmProcess(void *arg) {
@@ -228,7 +267,7 @@ static int addRate(batt *b, int isCharging, int lastRate) {
 
 /* FIXME:
    Don't repaint if percentage of remaining charge and remaining time aren't changed. */
-static void update_display(batt *b, gboolean repaint) {
+void update_display(batt *b, gboolean repaint) {
     GList* l;
     char tooltip[ 256 ];
 
@@ -428,14 +467,25 @@ static int update_timout(batt *b) {
     /* check the existance of batteries */
     check_batteries( b );
 
+    ++b->ac_elapsed_time;
     ++b->state_elapsed_time;
     ++b->info_elapsed_time;
+
+    /* check AC adapter every 4 seconds */
+    if( b->ac_elapsed_time == 4 )
+    {
+        /* check the existance of AC adapter, and update charging state of batteries */
+        check_ac_adapter( b );
+        b->ac_elapsed_time = 0;
+    }
+    /* check state of batteries every 30 seconds */
     if( b->state_elapsed_time == 30 )  /* 30 sec */
     {
         /* update state of batteries */
         g_list_foreach( b->batteries, (GFunc)get_batt_state, NULL );
         b->state_elapsed_time = 0;
     }
+    /* check the capacity of batteries every 1 hour */
     if( b->info_elapsed_time == 3600 )  /* 1 hour */
     {
         /* update info of batteries */
