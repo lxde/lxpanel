@@ -31,6 +31,7 @@ struct statusicon *create_statusicon(GtkWidget *box, const char *filename,
     /* main */
     newicon->main = gtk_event_box_new();
 
+    GTK_WIDGET_SET_FLAGS(newicon->main, GTK_NO_WINDOW);
     gtk_widget_add_events(newicon->main, GDK_BUTTON_PRESS_MASK);
     gtk_widget_set_size_request(newicon->main, 24, 24);
     gtk_box_pack_start(GTK_BOX(box), newicon->main, TRUE, TRUE, 0);
