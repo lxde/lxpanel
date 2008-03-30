@@ -1446,7 +1446,6 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
         g_object_set_data( G_OBJECT(dlg), "plugin", plugin );
 
     gtk_box_set_spacing( GTK_BOX(GTK_DIALOG(dlg)->vbox), 4 );
-    gtk_container_set_border_width( GTK_CONTAINER(GTK_DIALOG(dlg)->vbox), 8 );
 
     va_start( args, name );
     while( name )
@@ -1495,6 +1494,11 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
         name = va_arg( args, const char* );
     }
     va_end( args );
+
+    /* weird... why this doesn't work? */
+    /* gtk_container_set_border_width( GTK_CONTAINER(GTK_DIALOG(dlg)->vbox), 12 ); */
+    gtk_container_set_border_width( GTK_CONTAINER(dlg), 8 );
+
     gtk_widget_show_all( dlg );
     return dlg;
 }

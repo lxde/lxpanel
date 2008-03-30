@@ -98,7 +98,8 @@ typedef struct {
         state_elapsed_time,
         info_elapsed_time,
         wasCharging,
-        width;
+        width,
+        hide_if_no_battery;
     sem_t alarmProcessLock;
     GList* batteries;
     gboolean has_ac_adapter;
@@ -336,9 +337,9 @@ void update_display(batt *b, gboolean repaint) {
                finished charging */
             else
                 snprintf(tooltip, 256,
-                        _("Battery: %d%% charged, %s charging"),
+                        _("Battery: %d%% charged, %s"),
                         capacity ? charge * 100 / capacity : 0,
-                        (charge >= capacity) ? "finished" : "not");
+                        (charge >= capacity) ? _("charging finished") : _("not charging") );
 
         }
         else
@@ -611,7 +612,9 @@ constructor(plugin *p, char **fp)
                 goto error;
             }
             if (s.type == LINE_VAR) {
-                if (!g_ascii_strcasecmp(s.t[0], "AlarmCommand"))
+                if (!g_ascii_strcasecmp(s.t[0], "HideIfNoBattery"))
+                    b->hide_if_no_battery = atoi(s.t[1]);
+                else if (!g_ascii_strcasecmp(s.t[0], "AlarmCommand"))
                     b->alarmCommand = g_strdup(s.t[1]);
                 else if (!g_ascii_strcasecmp(s.t[0], "BackgroundColor"))
                     b->backgroundColor = g_strdup(s.t[1]);
@@ -799,6 +802,9 @@ static void config(plugin *p, GtkWindow* parent) {
     dialog = create_generic_config_dlg(_(p->class->name),
             GTK_WIDGET(parent),
             (GSourceFunc) applyConfig, (gpointer) p,
+#if 0
+            _("Hide if there is no battery"), &b->hide_if_no_battery, G_TYPE_BOOLEAN,
+#endif
             _("Alarm command"), &b->alarmCommand, G_TYPE_STRING,
             _("Alarm time (minutes left)"), &b->alarmTime, G_TYPE_INT,
             _("Background color"), &b->backgroundColor, G_TYPE_STRING,
@@ -821,6 +827,7 @@ static void save(plugin* p, FILE* fp) {
 
     batt *b = (batt *) p->priv;
 
+    lxpanel_put_str(fp, "HideIfNoBattery", b->hide_if_no_battery);
     lxpanel_put_str(fp, "AlarmCommand", b->alarmCommand);
     lxpanel_put_int(fp, "AlarmTime", b->alarmTime);
     lxpanel_put_str(fp, "BackgroundColor", b->backgroundColor);

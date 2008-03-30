@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel-0.2.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-02 16:16+0800\n"
+"POT-Creation-Date: 2008-03-30 10:54+0800\n"
 "PO-Revision-Date: 2008-05-01 00:00+0100\n"
 "Last-Translator: Frank Endres <frank_endres@yahoo.fr>\n"
 "Language-Team: French\n"
@@ -483,7 +483,7 @@ msgstr "Bureaux virtuels"
 msgid "Simple pager plugin"
 msgstr "Affiche les bureaux virtuels"
 
-#: ../src/plugins/space.c:131 ../src/plugins/batt/batt.c:753
+#: ../src/plugins/space.c:131 ../src/plugins/batt/batt.c:812
 msgid "Size"
 msgstr "Taille"
 
@@ -726,49 +726,80 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../src/plugins/batt/batt.c:744
+#: ../src/plugins/batt/batt.c:331
+#, c-format
+msgid "Battery: %d%% charged, %d:%02d until full"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:340
+#, c-format
+msgid "Battery: %d%% charged, %s"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:342
+msgid "charging finished"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:342
+msgid "not charging"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:347
+#, c-format
+msgid "Battery: %d%% charged, %d:%02d left"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:395
+#, c-format
+msgid "No batteries found"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:803
+msgid "Hide if there is no battery"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:804
 msgid "Alarm command"
 msgstr "Commande d'alarme"
 
-#: ../src/plugins/batt/batt.c:745
+#: ../src/plugins/batt/batt.c:805
 msgid "Alarm time (minutes left)"
 msgstr "Moment de l'alarme (minutes restantes)"
 
-#: ../src/plugins/batt/batt.c:746
-msgid "Update interval (seconds)"
-msgstr "Intervale de mise à jour (en secondes)"
-
-#: ../src/plugins/batt/batt.c:747
+#: ../src/plugins/batt/batt.c:806
 msgid "Background color"
 msgstr "Couleur de fond"
 
-#: ../src/plugins/batt/batt.c:748
+#: ../src/plugins/batt/batt.c:807
 msgid "Charging color 1"
 msgstr "Couleur de chargement n°1"
 
-#: ../src/plugins/batt/batt.c:749
+#: ../src/plugins/batt/batt.c:808
 msgid "Charging color 2"
 msgstr "Couleur de chargement n°2"
 
-#: ../src/plugins/batt/batt.c:750
+#: ../src/plugins/batt/batt.c:809
 msgid "Discharging color 1"
 msgstr "Couleur de déchargement n°1"
 
-#: ../src/plugins/batt/batt.c:751
+#: ../src/plugins/batt/batt.c:810
 msgid "Discharging color 2"
 msgstr "Couleur de déchargement n°2"
 
-#: ../src/plugins/batt/batt.c:752
+#: ../src/plugins/batt/batt.c:811
 msgid "Border width"
 msgstr "Épaisseur de la bordure"
 
-#: ../src/plugins/batt/batt.c:789
+#: ../src/plugins/batt/batt.c:845
 msgid "Battery Monitor"
 msgstr "Moniteur des batteries"
 
-#: ../src/plugins/batt/batt.c:791
+#: ../src/plugins/batt/batt.c:847
 msgid "Display battery status using ACPI"
 msgstr "Afficher l'état de charge des batteries"
+
+#~ msgid "Update interval (seconds)"
+#~ msgstr "Intervale de mise à jour (en secondes)"
 
 #~ msgid "<b>Transparency</b>"
 #~ msgstr "<b></b>"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel-0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-02 16:16+0800\n"
+"POT-Creation-Date: 2008-03-30 10:54+0800\n"
 "PO-Revision-Date: 2008-03-23 10:47+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: Hungarian <debian-l10n-hungarian@lists.debian.org>\n"
@@ -22,8 +22,7 @@ msgstr ""
 msgid "Preferences"
 msgstr "Jellemzők"
 
-#: ../src/configurator.c:46
-#: ../src/gtk-run.c:112
+#: ../src/configurator.c:46 ../src/gtk-run.c:112
 msgid "Run"
 msgstr "Futtat"
 
@@ -44,13 +43,11 @@ msgstr "<b>Helyzet</b>"
 msgid "Edge:"
 msgstr "Szél:"
 
-#: ../src/configurator.c:257
-#: ../src/configurator.c:281
+#: ../src/configurator.c:257 ../src/configurator.c:281
 msgid "Left"
 msgstr "Balra"
 
-#: ../src/configurator.c:258
-#: ../src/configurator.c:283
+#: ../src/configurator.c:258 ../src/configurator.c:283
 msgid "Right"
 msgstr "Jobbra"
 
@@ -89,8 +86,7 @@ msgstr "Szélesség:"
 msgid "dynamic"
 msgstr "dinamikus"
 
-#: ../src/configurator.c:398
-#: ../src/configurator.c:426
+#: ../src/configurator.c:398 ../src/configurator.c:426
 msgid "pixels"
 msgstr "képpontok"
 
@@ -213,7 +209,9 @@ msgstr " --version   -- kiírja a verziót és kilép\n"
 #: ../src/panel.c:820
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --log <szám> -- napló szint beállítása 0 és 5 között. 0 - üres 5 - csacsogó\n"
+msgstr ""
+" --log <szám> -- napló szint beállítása 0 és 5 között. 0 - üres 5 - "
+"csacsogó\n"
 
 #: ../src/panel.c:821
 #, c-format
@@ -427,8 +425,12 @@ msgid "Task Bar (Window List)"
 msgstr "Feladatsáv (ablak lista)"
 
 #: ../src/plugins/taskbar.c:1576
-msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
-msgstr "A feladatsáv mutatja a megnyitott ablakokat és lehetővé teszi ikonná tevésüket, az árnyékolást vagy fókusz kapást"
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
+msgstr ""
+"A feladatsáv mutatja a megnyitott ablakokat és lehetővé teszi ikonná "
+"tevésüket, az árnyékolást vagy fókusz kapást"
 
 #: ../src/plugins/dclock.c:242
 msgid "Clock Format"
@@ -482,8 +484,7 @@ msgstr "Asztali lapozó"
 msgid "Simple pager plugin"
 msgstr "Egyszerű lapozó beillesztés"
 
-#: ../src/plugins/space.c:131
-#: ../src/plugins/batt/batt.c:753
+#: ../src/plugins/space.c:131 ../src/plugins/batt/batt.c:812
 msgid "Size"
 msgstr "Méret"
 
@@ -724,64 +725,98 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../src/plugins/batt/batt.c:744
+#: ../src/plugins/batt/batt.c:331
+#, c-format
+msgid "Battery: %d%% charged, %d:%02d until full"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:340
+#, c-format
+msgid "Battery: %d%% charged, %s"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:342
+msgid "charging finished"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:342
+msgid "not charging"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:347
+#, c-format
+msgid "Battery: %d%% charged, %d:%02d left"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:395
+#, c-format
+msgid "No batteries found"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:803
+msgid "Hide if there is no battery"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:804
 msgid "Alarm command"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:745
+#: ../src/plugins/batt/batt.c:805
 msgid "Alarm time (minutes left)"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:746
-msgid "Update interval (seconds)"
-msgstr ""
-
-#: ../src/plugins/batt/batt.c:747
+#: ../src/plugins/batt/batt.c:806
 msgid "Background color"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:748
+#: ../src/plugins/batt/batt.c:807
 msgid "Charging color 1"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:749
+#: ../src/plugins/batt/batt.c:808
 msgid "Charging color 2"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:750
+#: ../src/plugins/batt/batt.c:809
 msgid "Discharging color 1"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:751
+#: ../src/plugins/batt/batt.c:810
 msgid "Discharging color 2"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:752
+#: ../src/plugins/batt/batt.c:811
 msgid "Border width"
 msgstr "A keret mérete"
 
-#: ../src/plugins/batt/batt.c:789
+#: ../src/plugins/batt/batt.c:845
 msgid "Battery Monitor"
 msgstr "Aksi figyelő"
 
-#: ../src/plugins/batt/batt.c:791
+#: ../src/plugins/batt/batt.c:847
 msgid "Display battery status using ACPI"
 msgstr "Aksi állapotának jelzése ACPI által"
 
 #~ msgid "<b>Transparency</b>"
 #~ msgstr "<b>Átlátszóság</b>"
+
 #~ msgid "Icons"
 #~ msgstr "Ikonok"
+
 #~ msgid "Change window icons"
 #~ msgstr "Ablak ikonok cseréje"
+
 #~ msgid "Set Dock Type"
 #~ msgstr "Dokk típus beállítása"
+
 #~ msgid "_Add"
 #~ msgstr "新增(_A)"
+
 #~ msgid "_Remove"
 #~ msgstr "移除(_R)"
+
 #~ msgid "Right-click to get context menu. Drag & Drop to change order."
 #~ msgstr "可以按右鍵使用選單，用拖曳改變順序"
+
 #~ msgid "Plugins..."
 #~ msgstr "外掛..."
-
