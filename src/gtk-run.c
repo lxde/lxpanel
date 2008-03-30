@@ -119,7 +119,7 @@ void gtk_run()
     entry = gtk_entry_new();
 
     /* fix background */
-    gtk_widget_set_style(win, p->defstyle);
+    //gtk_widget_set_style(win, p->defstyle);
 
     gtk_entry_set_activates_default( (GtkEntry*)entry, TRUE );
     gtk_box_pack_start( (GtkBox*)((GtkDialog*)win)->vbox,

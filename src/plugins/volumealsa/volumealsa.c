@@ -166,7 +166,7 @@ static void panel_init(plugin *p)
     gtk_window_set_type_hint(GTK_WINDOW(vol->dlg), GDK_WINDOW_TYPE_HINT_DIALOG);
 
     /* setting background to default */
-    gtk_widget_set_style(vol->dlg, p->panel->defstyle);
+    //gtk_widget_set_style(vol->dlg, p->panel->defstyle);
 
     /* Focus-out signal */
     g_signal_connect (G_OBJECT (vol->dlg), "focus_out_event",

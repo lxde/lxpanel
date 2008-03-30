@@ -80,7 +80,7 @@ static void wireless_connect(GtkWidget *widget, ap_setting *aps)
 
         /* create dialog window for typing password */
         aps->ni->netdev_list->info.pg = passwd_gui_new(aps);
-        passwd_gui_set_style(aps->ni->netdev_list->info.pg, gtk_style_new());
+        //passwd_gui_set_style(aps->ni->netdev_list->info.pg, gtk_style_new());
     }
 }
 
