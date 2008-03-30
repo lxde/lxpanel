@@ -370,7 +370,9 @@ static int netstat_constructor(plugin *p, char **fp)
 
     ns->ttag = g_timeout_add(NETSTAT_IFACE_POLL_DELAY, (GSourceFunc)refresh_devstat, ns);
 
-    p->pwid = ns->mainw;
+    p->pwid = gtk_event_box_new();
+    GTK_WIDGET_SET_FLAGS(p->pwid, GTK_NO_WINDOW);
+    gtk_container_add((GtkContainer*)p->pwid, ns->mainw);
 
     RET(1);
 error:
@@ -378,6 +380,19 @@ error:
     g_free(ns->fixcmd);
     g_free(ns);
     RET(0);
+}
+
+static void orientation_changed(plugin* p)
+{
+    netstat *ns = (netstat *)p->priv;
+    GtkBox* newbox;
+    newbox = GTK_BOX(recreate_box(GTK_BOX(ns->mainw), p->panel->orientation));
+    if( GTK_WIDGET(newbox) != ns->mainw ) {
+        /* Since the old box has been destroyed,
+        we need to re-add the new box to the container */
+        ns->mainw = GTK_WIDGET(newbox);
+        gtk_container_add(GTK_CONTAINER(p->pwid), ns->mainw);
+    }
 }
 
 plugin_class netstat_plugin_class = {
@@ -391,6 +406,7 @@ plugin_class netstat_plugin_class = {
 
     constructor : netstat_constructor,
     destructor  : netstat_destructor,
+    orientation : orientation_changed,
     config : NULL,
     save : NULL
 };
