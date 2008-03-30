@@ -51,7 +51,6 @@
 #include "glib-mem.h" /* compatibility macros for g_slice* */
 
 #define BATTERY_DIRECTORY "/proc/acpi/battery/" /* must be slash-terminated */
-#define DEFAULT_UPDATE_INTERVAL_MS 1000
 #define AC_ADAPTER_STATE_FILE "/proc/acpi/ac_adapter/AC/state"
 
 /* The last MAX_SAMPLES samples are averaged when charge rates are evaluated.
@@ -96,7 +95,6 @@ typedef struct {
         rateSamplesSum,
         thickness,
         timer,
-        ac_elapsed_time,
         state_elapsed_time,
         info_elapsed_time,
         wasCharging,
@@ -460,33 +458,30 @@ static void check_batteries( batt* b )
         update_display( b, TRUE );
 }
 
+/* This callback is called every 3 seconds */
 static int update_timout(batt *b) {
     GDK_THREADS_ENTER();
     gboolean changed = FALSE;
 
-    /* check the existance of batteries */
-    check_batteries( b );
-
-    ++b->ac_elapsed_time;
     ++b->state_elapsed_time;
     ++b->info_elapsed_time;
 
-    /* check AC adapter every 4 seconds */
-    if( b->ac_elapsed_time == 4 )
-    {
-        /* check the existance of AC adapter, and update charging state of batteries */
-        check_ac_adapter( b );
-        b->ac_elapsed_time = 0;
-    }
+    /* check the existance of batteries every 3 seconds */
+    check_batteries( b );
+
+    /* check the existance of AC adapter every 3 seconds,
+     * and update charging state of batteries if needed. */
+    check_ac_adapter( b );
+
     /* check state of batteries every 30 seconds */
-    if( b->state_elapsed_time == 30 )  /* 30 sec */
+    if( b->state_elapsed_time == 30/3 )  /* 30 sec */
     {
         /* update state of batteries */
         g_list_foreach( b->batteries, (GFunc)get_batt_state, NULL );
         b->state_elapsed_time = 0;
     }
     /* check the capacity of batteries every 1 hour */
-    if( b->info_elapsed_time == 3600 )  /* 1 hour */
+    if( b->info_elapsed_time == 3600/3 )  /* 1 hour */
     {
         /* update info of batteries */
         g_list_foreach( b->batteries, (GFunc)get_batt_info, NULL );
@@ -693,9 +688,9 @@ constructor(plugin *p, char **fp)
 
     /* Start the update loop */
 #if GTK_CHECK_VERSION( 2, 14, 0 )
-    b->timer = g_timeout_add_seconds( 1, (GSourceFunc) update_timout, (gpointer) b);
+    b->timer = g_timeout_add_seconds( 3, (GSourceFunc) update_timout, (gpointer) b);
 #else
-    b->timer = g_timeout_add( 1000,
+    b->timer = g_timeout_add( 3000,
             (GSourceFunc) update_timout, (gpointer) b);
 #endif
     RET(TRUE);
