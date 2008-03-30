@@ -159,7 +159,7 @@ static void panel_init(plugin *p)
     /* create a new window */
     vol->dlg = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_decorated(GTK_WINDOW(vol->dlg), FALSE);
-    gtk_container_set_border_width(GTK_CONTAINER(vol->dlg), 3);
+    gtk_container_set_border_width(GTK_CONTAINER(vol->dlg), 5);
     gtk_window_set_default_size(GTK_WINDOW(vol->dlg), 80, 140);
     gtk_window_set_skip_taskbar_hint(GTK_WINDOW(vol->dlg), TRUE);
     gtk_window_set_skip_pager_hint(GTK_WINDOW(vol->dlg), TRUE);
@@ -173,15 +173,14 @@ static void panel_init(plugin *p)
               G_CALLBACK (focus_out_event), vol);
 
     scrolledwindow = gtk_scrolled_window_new(NULL, NULL);
-    gtk_container_set_border_width (GTK_CONTAINER (scrolledwindow), 1);
+    gtk_container_set_border_width (GTK_CONTAINER (scrolledwindow), 0);
     gtk_widget_show (scrolledwindow);
     gtk_container_add (GTK_CONTAINER (vol->dlg), scrolledwindow);
     GTK_WIDGET_UNSET_FLAGS (scrolledwindow, GTK_CAN_FOCUS);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW (scrolledwindow), GTK_POLICY_NEVER, GTK_POLICY_NEVER);
-    gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scrolledwindow), GTK_SHADOW_OUT);
+    gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scrolledwindow), GTK_SHADOW_NONE);
 
     viewport = gtk_viewport_new (NULL, NULL);
-    gtk_widget_show (viewport);
     gtk_container_add (GTK_CONTAINER (scrolledwindow), viewport);
     gtk_viewport_set_shadow_type (GTK_VIEWPORT (viewport), GTK_SHADOW_NONE);
     gtk_widget_show(viewport);
