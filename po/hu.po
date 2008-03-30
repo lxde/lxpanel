@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel-0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-03-30 21:44+0800\n"
-"PO-Revision-Date: 2008-03-30 08:35+0100\n"
+"PO-Revision-Date: 2008-03-30 16:49+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: Hungarian <debian-l10n-hungarian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,8 @@ msgstr ""
 msgid "Preferences"
 msgstr "Jellemzők"
 
-#: ../src/configurator.c:45 ../src/gtk-run.c:112
+#: ../src/configurator.c:45
+#: ../src/gtk-run.c:112
 msgid "Run"
 msgstr "Futtat"
 
@@ -43,11 +44,13 @@ msgstr "<b>Helyzet</b>"
 msgid "Edge:"
 msgstr "Szél:"
 
-#: ../src/configurator.c:257 ../src/configurator.c:281
+#: ../src/configurator.c:257
+#: ../src/configurator.c:281
 msgid "Left"
 msgstr "Balra"
 
-#: ../src/configurator.c:258 ../src/configurator.c:283
+#: ../src/configurator.c:258
+#: ../src/configurator.c:283
 msgid "Right"
 msgstr "Jobbra"
 
@@ -86,7 +89,8 @@ msgstr "Szélesség:"
 msgid "dynamic"
 msgstr "dinamikus"
 
-#: ../src/configurator.c:398 ../src/configurator.c:426
+#: ../src/configurator.c:398
+#: ../src/configurator.c:426
 msgid "pixels"
 msgstr "képpontok"
 
@@ -176,7 +180,7 @@ msgstr "Általános"
 
 #: ../src/configurator.c:1239
 msgid "Appearance"
-msgstr ""
+msgstr "Megjelenés"
 
 #: ../src/configurator.c:1244
 msgid "Plugins"
@@ -213,9 +217,7 @@ msgstr " --version   -- kiírja a verziót és kilép\n"
 #: ../src/panel.c:819
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <szám> -- napló szint beállítása 0 és 5 között. 0 - üres 5 - "
-"csacsogó\n"
+msgstr " --log <szám> -- napló szint beállítása 0 és 5 között. 0 - üres 5 - csacsogó\n"
 
 #: ../src/panel.c:820
 #, c-format
@@ -429,12 +431,8 @@ msgid "Task Bar (Window List)"
 msgstr "Feladatsáv (ablak lista)"
 
 #: ../src/plugins/taskbar.c:1590
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
-msgstr ""
-"A feladatsáv mutatja a megnyitott ablakokat és lehetővé teszi ikonná "
-"tevésüket, az árnyékolást vagy fókusz kapást"
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr "A feladatsáv mutatja a megnyitott ablakokat és lehetővé teszi ikonná tevésüket, az árnyékolást vagy fókusz kapást"
 
 #: ../src/plugins/dclock.c:238
 msgid "Clock Format"
@@ -488,7 +486,8 @@ msgstr "Asztali lapozó"
 msgid "Simple pager plugin"
 msgstr "Egyszerű lapozó beillesztés"
 
-#: ../src/plugins/space.c:133 ../src/plugins/batt/batt.c:818
+#: ../src/plugins/space.c:133
+#: ../src/plugins/batt/batt.c:818
 msgid "Size"
 msgstr "Méret"
 
@@ -551,7 +550,7 @@ msgstr "Némít"
 
 #: ../src/plugins/netstat/netstat.c:141
 msgid "<Hidden Access Point>"
-msgstr ""
+msgstr "<Rejtett hozzáférési pont>"
 
 #. Repair
 #: ../src/plugins/netstat/netstat.c:179
@@ -560,64 +559,73 @@ msgstr "Javít"
 
 #: ../src/plugins/netstat/netstat.c:237
 msgid "Network cable is plugged out"
-msgstr ""
+msgstr "Hálózati kábel kihúzva"
 
 #: ../src/plugins/netstat/netstat.c:239
 msgid "Connection has limited or no connectivity"
-msgstr ""
+msgstr "A kapcsolat korlátozott vagy nincs"
 
-#: ../src/plugins/netstat/netstat.c:243 ../src/plugins/netstat/netstat.c:254
+#: ../src/plugins/netstat/netstat.c:243
+#: ../src/plugins/netstat/netstat.c:254
 #: ../src/plugins/netstat/netstat.c:265
 msgid "IP Address:"
 msgstr "IP cím:"
 
 #: ../src/plugins/netstat/netstat.c:244
 msgid "Remote IP:"
-msgstr ""
+msgstr "Távoli IP:"
 
-#: ../src/plugins/netstat/netstat.c:245 ../src/plugins/netstat/netstat.c:256
+#: ../src/plugins/netstat/netstat.c:245
+#: ../src/plugins/netstat/netstat.c:256
 #: ../src/plugins/netstat/netstat.c:267
 msgid "Netmask:"
 msgstr "Hálózati maszk"
 
-#: ../src/plugins/netstat/netstat.c:246 ../src/plugins/netstat/netstat.c:258
+#: ../src/plugins/netstat/netstat.c:246
+#: ../src/plugins/netstat/netstat.c:258
 #: ../src/plugins/netstat/netstat.c:269
 msgid "Activity"
 msgstr "Aktivitás"
 
-#: ../src/plugins/netstat/netstat.c:246 ../src/plugins/netstat/netstat.c:258
+#: ../src/plugins/netstat/netstat.c:246
+#: ../src/plugins/netstat/netstat.c:258
 #: ../src/plugins/netstat/netstat.c:269
 msgid "Sent"
 msgstr "Küldött"
 
-#: ../src/plugins/netstat/netstat.c:246 ../src/plugins/netstat/netstat.c:258
+#: ../src/plugins/netstat/netstat.c:246
+#: ../src/plugins/netstat/netstat.c:258
 #: ../src/plugins/netstat/netstat.c:269
 msgid "Received"
 msgstr "Fogadott"
 
-#: ../src/plugins/netstat/netstat.c:247 ../src/plugins/netstat/netstat.c:259
+#: ../src/plugins/netstat/netstat.c:247
+#: ../src/plugins/netstat/netstat.c:259
 #: ../src/plugins/netstat/netstat.c:270
 msgid "bytes"
-msgstr ""
+msgstr "bájt"
 
-#: ../src/plugins/netstat/netstat.c:248 ../src/plugins/netstat/netstat.c:260
+#: ../src/plugins/netstat/netstat.c:248
+#: ../src/plugins/netstat/netstat.c:260
 #: ../src/plugins/netstat/netstat.c:271
 msgid "packets"
 msgstr "csomagok"
 
 #: ../src/plugins/netstat/netstat.c:251
 msgid "Wireless"
-msgstr ""
+msgstr "Vezeték-nélküli"
 
 #: ../src/plugins/netstat/netstat.c:253
 msgid "Protocol:"
-msgstr ""
+msgstr "Protokoll:"
 
-#: ../src/plugins/netstat/netstat.c:255 ../src/plugins/netstat/netstat.c:266
+#: ../src/plugins/netstat/netstat.c:255
+#: ../src/plugins/netstat/netstat.c:266
 msgid "Boradcast:"
 msgstr ""
 
-#: ../src/plugins/netstat/netstat.c:257 ../src/plugins/netstat/netstat.c:268
+#: ../src/plugins/netstat/netstat.c:257
+#: ../src/plugins/netstat/netstat.c:268
 msgid "HW Address:"
 msgstr "Hardver cím:"
 
@@ -634,7 +642,7 @@ msgstr "Hálózati állapot figyelése"
 #. create dialog
 #: ../src/plugins/netstat/passwd_gui.c:96
 msgid "Setting Encryption Key"
-msgstr ""
+msgstr "Titkosító kulcs beállítása"
 
 #. messages
 #: ../src/plugins/netstat/passwd_gui.c:106
@@ -642,10 +650,12 @@ msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
 msgstr ""
+"Ez titkosított vezeték nélküli hálózat.\n"
+"Szükséged van a kulcsra."
 
 #: ../src/plugins/netstat/passwd_gui.c:111
 msgid "Encryption Key:"
-msgstr ""
+msgstr "Titkosító kulcs:"
 
 #: ../src/plugins/netstatus/netstatus.c:163
 msgid "Interface to monitor"
@@ -737,7 +747,7 @@ msgstr "Cél:"
 
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
 msgid "Broadcast:"
-msgstr ""
+msgstr "Körüzenet:"
 
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
 msgid "Subnet Mask:"
@@ -802,11 +812,11 @@ msgstr "Mutassa-e az ikon eszköztippeket."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:836
 msgid "Show Signal"
-msgstr ""
+msgstr "Jelszint mutatása"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:837
 msgid "Whether or not the signal strength should be displayed."
-msgstr ""
+msgstr "Mutassa-e a jel erősségét."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:950
 #, c-format
@@ -894,27 +904,20 @@ msgstr "Aksi állapotának jelzése ACPI által"
 #, fuzzy
 #~ msgid "Background"
 #~ msgstr "Háttérszín"
-
 #~ msgid "<b>Transparency</b>"
 #~ msgstr "<b>Átlátszóság</b>"
-
 #~ msgid "Icons"
 #~ msgstr "Ikonok"
-
 #~ msgid "Change window icons"
 #~ msgstr "Ablak ikonok cseréje"
-
 #~ msgid "Set Dock Type"
 #~ msgstr "Dokk típus beállítása"
-
 #~ msgid "_Add"
 #~ msgstr "新增(_A)"
-
 #~ msgid "_Remove"
 #~ msgstr "移除(_R)"
-
 #~ msgid "Right-click to get context menu. Drag & Drop to change order."
 #~ msgstr "可以按右鍵使用選單，用拖曳改變順序"
-
 #~ msgid "Plugins..."
 #~ msgstr "外掛..."
+
