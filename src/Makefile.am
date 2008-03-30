@@ -31,7 +31,6 @@ lxpanel_SOURCES = \
 	dbg.c dbg.h \
 	ev.c ev.h \
 	gtkbar.h gtkbar.c \
-	gtkbgbox.h gtkbgbox.c \
 	panel.c panel.h \
 	plugin.c plugin.h \
 	gtk-run.c
