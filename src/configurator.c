@@ -1106,16 +1106,27 @@ mk_tab_general()
     frame = mk_size();
     gtk_box_pack_start(GTK_BOX (page), frame, FALSE, TRUE, 0);
 
-    //background
-    frame = mk_background();
-    gtk_box_pack_start(GTK_BOX (page), frame, FALSE, TRUE, 0);
-
     //properties
     frame = mk_properties();
     gtk_box_pack_start(GTK_BOX (page), frame, FALSE, TRUE, 0);
     /*
     gtk_scrolled_window_add_with_viewport(GTK_SCROLLED_WINDOW (sw), page);
     */
+    RET(page);
+}
+
+static GtkWidget *
+mk_tab_background()
+{
+    GtkWidget *frame, *page;
+    page = gtk_vbox_new(FALSE, 1);
+
+    sg = gtk_size_group_new(GTK_SIZE_GROUP_HORIZONTAL);
+
+    //background
+    frame = mk_background();
+    gtk_box_pack_start(GTK_BOX (page), frame, FALSE, TRUE, 0);
+
     RET(page);
 }
 
@@ -1216,6 +1227,11 @@ mk_dialog()
 
     sw = mk_tab_general();
     label = gtk_label_new(_("General"));
+    gtk_misc_set_padding(GTK_MISC(label), 4, 1);
+    gtk_notebook_append_page(GTK_NOTEBOOK(nb), sw, label);
+
+    sw = mk_tab_background();
+    label = gtk_label_new(_("Background"));
     gtk_misc_set_padding(GTK_MISC(label), 4, 1);
     gtk_notebook_append_page(GTK_NOTEBOOK(nb), sw, label);
 
