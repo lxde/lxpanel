@@ -71,6 +71,16 @@ case `$LD -Bsymbolic-functions -v 2>&1 </dev/null` in
   AC_MSG_RESULT([no])
   ;;
 esac
+AC_MSG_CHECKING([whether $LD accepts --sort-common])
+case `$LD --sort-common -v 2>&1 </dev/null` in
+*GNU* | *'with BFD'*)                                                                      
+  LDFLAGS="$LDFLAGS -Wl,--sort-common"
+  AC_MSG_RESULT([yes])
+  ;;
+*)
+  AC_MSG_RESULT([no])
+  ;;
+esac
 
 dnl FIXME: filter for undefined symbols in plugins
 # when passing "-z defs" to linker, we would better to make sure
