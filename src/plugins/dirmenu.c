@@ -26,7 +26,6 @@
 #include "panel.h"
 #include "misc.h"
 #include "plugin.h"
-#include "gtkbgbox.h"
 #include "dbg.h"
 
 /* NOTE: dirty hack for g_quark_from_static_string */
@@ -328,19 +327,12 @@ dirmenu_constructor(plugin *p, char **fp)
         fname = strdup("file-manager");
 
     dm->button = fb_button_new_from_file(fname, w, h, 0x202020, TRUE);
+
     gtk_container_set_border_width( GTK_CONTAINER(dm->button), 0 );
     g_signal_connect( dm->button, "button_press_event",
                       G_CALLBACK(clicked), p );
 
     gtk_widget_show( dm->button );
-    gtk_container_add( GTK_CONTAINER(p->pwid), dm->button );
-    /* background image */
-    if (p->panel->background) {
-        dm->button->style->bg_pixmap[0] = p->panel->bbox->style->bg_pixmap[0];
-        gtk_bgbox_set_background(dm->button, BG_STYLE, 0, 0);
-    } else if (p->panel->transparent)
-        gtk_bgbox_set_background( dm->button, BG_ROOT, p->panel->tintcolor, p->panel->alpha );
-
     g_free(fname);
 
     fname = dm->path ? expand_tilda(dm->path) : NULL;
@@ -348,6 +340,9 @@ dirmenu_constructor(plugin *p, char **fp)
                          dm->button,
                          fname ? fname : g_get_home_dir(), NULL);
     g_free( fname );
+
+    /* store the created plugin widget in plugin->pwid */
+    p->pwid = dm->button;
 
     RET(1);
 

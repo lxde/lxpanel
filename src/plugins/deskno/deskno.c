@@ -28,9 +28,9 @@ clicked( GtkWidget *widget, gpointer data)
 
     ENTER;
     if(desknum == (desks - 1))
-	newdesk = 0;
+    newdesk = 0;
     else
-	newdesk = desknum + 1;
+    newdesk = desknum + 1;
     g_assert(data != NULL);
     Xclimsg(GDK_ROOT_WINDOW(), a_NET_CURRENT_DESKTOP, newdesk, 0, 0, 0, 0);
     RET();
@@ -57,12 +57,12 @@ deskno_constructor(plugin *p, char** fp)
 {
     deskno *dc;
     GtkWidget *button;
-    
+
     ENTER;
     dc = g_new0(deskno, 1);
     g_return_val_if_fail(dc != NULL, 0);
     p->priv = dc;
-    
+
     dc->main = gtk_event_box_new();
     dc->tip  = gtk_tooltips_new();
     button = gtk_button_new();
@@ -70,13 +70,13 @@ deskno_constructor(plugin *p, char** fp)
     g_signal_connect (G_OBJECT (button), "clicked", G_CALLBACK (clicked), (gpointer) dc);
     dc->namew = gtk_label_new("ww");
     gtk_container_add(GTK_CONTAINER(button), dc->namew);
-    gtk_container_add(GTK_CONTAINER(p->pwid), button);
-    gtk_widget_show_all(p->pwid);
     name_update(button, dc);
     g_signal_connect (G_OBJECT (fbev), "current_desktop", G_CALLBACK (name_update), (gpointer) dc);
+
+    p->pwid = button;
+    gtk_widget_show_all(p->pwid);
+
     RET(1);
-
-
 }
 
 
@@ -87,7 +87,7 @@ deskno_destructor(plugin *p)
 
   ENTER;
   dc = (deskno *) p->priv;
-  g_signal_handlers_disconnect_by_func(G_OBJECT (fbev), name_update, dc); 
+  g_signal_handlers_disconnect_by_func(G_OBJECT (fbev), name_update, dc);
   g_free(dc);
   RET();
 }

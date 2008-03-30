@@ -16,7 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- * 
+ *
  */
 /*A little bug fixed by Mykola <mykola@2ka.mipt.ru>:) */
 
@@ -30,7 +30,6 @@
 
 #include "plugin.h"
 #include "panel.h"
-#include "gtkbgbox.h"
 #include "misc.h"
 
 #define KILOBYTE 1024
@@ -70,11 +69,11 @@ cpu_update(cpu_t *c)
     struct cpu_stat cpu, cpu_r;
     FILE *stat;
     float total;
-    
+
     ENTER;
     if(!c->pixmap)
-        RET(TRUE); 
-     
+        RET(TRUE);
+
     stat = fopen("/proc/stat", "r");
     if(!stat)
         RET(TRUE);
@@ -93,15 +92,15 @@ cpu_update(cpu_t *c)
     cpu_i = cpu_r.i * c->Hwg / total;
 
     c->cpu_anterior = cpu;
-    
+
     c->stats_cpu[c->ini_stats++] = cpu_u + cpu_s + cpu_n;
     c->ini_stats %= c->Wwg;
 
     gdk_draw_rectangle(c->pixmap, c->da->style->black_gc, TRUE, 0, 0, c->Wwg, c->Hwg);
     for (i = 0; i < c->Wwg; i++) {
-	int val;
-	
-	val = c->stats_cpu[(i + c->ini_stats) % c->Wwg];
+    int val;
+
+    val = c->stats_cpu[(i + c->ini_stats) % c->Wwg];
         if (val)
             gdk_draw_line(c->pixmap, c->gc_cpu, i, c->Hwg, i, c->Hwg - val);
     }
@@ -130,7 +129,7 @@ configure_event(GtkWidget *widget, GdkEventConfigure *event, cpu_t *c)
           0, 0,
           widget->allocation.width,
           widget->allocation.height);
-    
+
    RET(TRUE);
 }
 
@@ -145,7 +144,7 @@ expose_event(GtkWidget *widget, GdkEventExpose *event, cpu_t *c)
           event->area.x, event->area.y,
           event->area.x, event->area.y,
           event->area.width, event->area.height);
-    
+
     RET(FALSE);
 }
 
@@ -158,21 +157,13 @@ cpu_constructor(plugin *p, char **fp)
     c = g_new0(cpu_t, 1);
     p->priv = c;
 
- 
+    p->pwid = gtk_event_box_new();
+    GTK_WIDGET_SET_FLAGS( p->pwid, GTK_NO_WINDOW );
+
     c->da = gtk_drawing_area_new();
     gtk_widget_set_size_request(c->da, 40, 20);
 
     gtk_widget_show(c->da);
-
-/*
-    c->tip = gtk_tooltips_new();
-#if GLIB_CHECK_VERSION( 2, 10, 0 )
-    g_object_ref_sink( c->tip );
-#else
-    g_object_ref( c->tip );
-    gtk_object_sink( c->tip );
-#endif
-*/
 
     c->gc_cpu = gdk_gc_new(p->panel->topgwin->window);
     DBG("here1\n");
@@ -180,14 +171,15 @@ cpu_constructor(plugin *p, char **fp)
     gdk_color_parse("green",  c->ccpu);
     gdk_colormap_alloc_color(gdk_drawable_get_colormap(p->panel->topgwin->window),  c->ccpu, FALSE, TRUE);
     gdk_gc_set_foreground(c->gc_cpu,  c->ccpu);
-    gtk_bgbox_set_background(p->pwid, BG_STYLE, 0, 0);
+
     gtk_container_add(GTK_CONTAINER(p->pwid), c->da);
     gtk_container_set_border_width (GTK_CONTAINER (p->pwid), 1);
+
     g_signal_connect (G_OBJECT (c->da),"configure_event",
           G_CALLBACK (configure_event), (gpointer) c);
     g_signal_connect (G_OBJECT (c->da), "expose_event",
           G_CALLBACK (expose_event), (gpointer) c);
-    
+
     c->timer = g_timeout_add(1000, (GSourceFunc) cpu_update, (gpointer) c);
     RET(1);
 }

@@ -24,7 +24,6 @@
 #include "panel.h"
 #include "misc.h"
 #include "plugin.h"
-#include "gtkbgbox.h"
 //#define DEBUG
 #include "dbg.h"
 
@@ -57,7 +56,7 @@ toggle_shaded(wincmd *wc, guint32 action)
     ENTER;
     win = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_CLIENT_LIST, XA_WINDOW, &num);
     if (!win)
-	RET();
+    RET();
     if (!num)
         goto end;
     //tmp = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_CURRENT_DESKTOP, XA_CARDINAL, 0);
@@ -104,7 +103,7 @@ toggle_iconify(wincmd *wc, guint32 action)
     ENTER;
     win = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_CLIENT_LIST, XA_WINDOW, &num);
     if (!win)
-	RET();
+    RET();
     if (!num)
         goto end;
     //tmp = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_CURRENT_DESKTOP, XA_CARDINAL, 0);
@@ -252,16 +251,13 @@ wincmd_constructor(plugin *p, char **fp)
           G_CALLBACK(clicked), (gpointer)wc);
 
     gtk_widget_show(button);
-    gtk_container_add(GTK_CONTAINER(p->pwid), button);
-    /* background image */
-    if (p->panel->background) {
-        button->style->bg_pixmap[0] = p->panel->bbox->style->bg_pixmap[0];
-        gtk_bgbox_set_background(button, BG_STYLE, 0, 0);
-    } else if (p->panel->transparent)
-        gtk_bgbox_set_background(button, BG_ROOT, p->panel->tintcolor, p->panel->alpha);
 
     g_free(fname);
     gtk_tooltips_set_tip(GTK_TOOLTIPS (wc->tips), button, _("Left click to iconify all windows. Middle click to shade them"), NULL);
+
+    /* store the created plugin widget in plugin->pwid */
+    p->pwid = button;
+
     RET(1);
 
  error:

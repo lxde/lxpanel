@@ -276,7 +276,10 @@ FbBg *fb_bg_get_for_display(void)
 {
     ENTER;
     if (!default_bg)
+    {
         default_bg = fb_bg_new();
+        g_object_add_weak_pointer( default_bg, &default_bg );
+    }
     else
         g_object_ref(default_bg);
     RET(default_bg);

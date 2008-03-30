@@ -30,7 +30,6 @@
 
 #include "misc.h"
 #include "panel.h"
-#include "gtkbgbox.h"
 
 //#define DEBUG
 #include "dbg.h"
@@ -1139,7 +1138,8 @@ fb_button_new_from_file(gchar *fname, int width, int height, gulong hicolor, gbo
 {
     GtkWidget *b, *image;
     ENTER;
-    b = gtk_bgbox_new();
+//    b = gtk_vbox_new(FALSE, 0); //gtk_bgbox_new();
+    b = gtk_event_box_new();
     gtk_container_set_border_width(GTK_CONTAINER(b), 0);
     GTK_WIDGET_UNSET_FLAGS (b, GTK_CAN_FOCUS);
 
@@ -1167,7 +1167,7 @@ fb_button_new_from_file_with_label(gchar *fname, int width, int height,
     GtkWidget *b, *image, *box, *label;
 
     ENTER;
-    b = gtk_bgbox_new();
+    b = gtk_event_box_new();
     gtk_container_set_border_width(GTK_CONTAINER(b), 0);
     GTK_WIDGET_UNSET_FLAGS (b, GTK_CAN_FOCUS);
 
@@ -1259,7 +1259,7 @@ GtkWidget* recreate_box( GtkBox* oldbox, GtkOrientation orientation )
         if( orientation == GTK_ORIENTATION_VERTICAL )
             return GTK_WIDGET(oldbox);
     }
-    my_box_new = orientation == GTK_ORIENTATION_HORIZONTAL ? gtk_hbox_new : gtk_vbox_new;
+    my_box_new = (orientation == GTK_ORIENTATION_HORIZONTAL ? gtk_hbox_new : gtk_vbox_new);
 
     newbox = GTK_BOX(my_box_new( gtk_box_get_homogeneous(oldbox),
                                  gtk_box_get_spacing(oldbox) ));
@@ -1268,10 +1268,11 @@ GtkWidget* recreate_box( GtkBox* oldbox, GtkOrientation orientation )
     children = gtk_container_get_children( GTK_CONTAINER (oldbox) );
     for( child = children; child; child = child->next ) {
         gboolean expand, fill;
-    guint padding;
+        guint padding;
         GtkWidget* w = GTK_WIDGET(child->data);
         gtk_box_query_child_packing( oldbox, w,
                                      &expand, &fill, &padding, NULL );
+        /* g_debug( "repack %s, expand=%d, fill=%d", gtk_widget_get_name(w), expand, fill ); */
         g_object_ref( w );
         gtk_container_remove( GTK_CONTAINER (oldbox), w );
         gtk_box_pack_start( newbox, w, expand, fill, padding );

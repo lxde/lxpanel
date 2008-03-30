@@ -43,7 +43,9 @@ space_destructor(plugin *p)
     space *sp = (space *)p->priv;
 
     ENTER;
+    /* The widget is destroyed in plugin_stop().
     gtk_widget_destroy(sp->mainw);
+    */
     g_free(sp);
     RET();
 }
@@ -59,7 +61,7 @@ space_constructor(plugin *p, char** fp)
     int w, h;
 
     ENTER;
-    s.len = 256;  
+    s.len = 256;
     sp = g_new0(space, 1);
     g_return_val_if_fail(sp != NULL, 0);
     p->priv = sp;
@@ -71,7 +73,7 @@ space_constructor(plugin *p, char** fp)
                 goto error;
             }
             if (s.type == LINE_VAR) {
-                if (!g_ascii_strcasecmp(s.t[0], "size")) 
+                if (!g_ascii_strcasecmp(s.t[0], "size"))
                     sp->size = atoi(s.t[1]);
                 else {
                     ERR( "space: unknown var %s\n", s.t[0]);
@@ -93,11 +95,11 @@ space_constructor(plugin *p, char** fp)
     } else {
         w = 2;
         h = sp->size;
-    } 
+    }
     gtk_widget_set_size_request(sp->mainw, w, h);
     gtk_container_set_border_width(GTK_CONTAINER(sp->mainw), 0);
-    //gtk_container_add(GTK_CONTAINER(p->pwid), sp->mainw);
-    gtk_widget_set_size_request(p->pwid, w, h);
+
+    p->pwid = sp->mainw;
 
     RET(1);
 

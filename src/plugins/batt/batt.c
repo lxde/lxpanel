@@ -44,7 +44,6 @@
 #include <string.h>
 
 #include "dbg.h"
-#include "gtkbgbox.h"
 #include "misc.h" /* used for the line struct */
 #include "panel.h" /* used to determine panel orientation */
 #include "plugin.h"
@@ -558,8 +557,14 @@ constructor(plugin *p, char **fp)
 
     batt *b;
     p->priv = b = g_new0(batt, 1);
+    p->pwid = gtk_event_box_new();
+    GTK_WIDGET_SET_FLAGS( p->pwid, GTK_NO_WINDOW );
+    gtk_container_set_border_width( GTK_CONTAINER(p->pwid), 1 );
+
     b->drawingArea = gtk_drawing_area_new();
     gtk_widget_add_events( b->drawingArea, GDK_BUTTON_PRESS_MASK );
+
+    gtk_container_add( (GtkContainer*)p->pwid, b->drawingArea );
 
     if ((b->orientation = p->panel->orientation) == ORIENT_HORIZ) {
         b->height = b->length = 20;
@@ -578,9 +583,6 @@ constructor(plugin *p, char **fp)
     b->gc1 = gdk_gc_new(p->panel->topgwin->window);
     b->gc2 = gdk_gc_new(p->panel->topgwin->window);
 
-    gtk_bgbox_set_background(p->pwid, BG_STYLE, 0, 0);
-    gtk_container_add(GTK_CONTAINER(p->pwid), b->drawingArea);
-    gtk_container_set_border_width (GTK_CONTAINER (p->pwid), 1);
     g_signal_connect (G_OBJECT (b->drawingArea), "button_press_event",
             G_CALLBACK(buttonPressEvent), (gpointer) b);
     g_signal_connect (G_OBJECT (b->drawingArea),"configure_event",

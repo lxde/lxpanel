@@ -50,7 +50,6 @@ typedef struct {
     Window topxwin;               /* and it X window   */
     GtkStyle *defstyle;
     GtkWidget *box;              /* primary layout box which contains all plugins */
-    GtkWidget *bbox;              /* backgound box for box */
     GtkRequisition requisition;
     GtkWidget *(*my_box_new) (gboolean, gint);
     GtkWidget *(*my_separator_new) ();
@@ -190,5 +189,6 @@ extern FbEv *fbev;
 void panel_set_wm_strut(panel *p);
 void panel_set_dock_type(panel *p);
 void panel_set_orientation(panel *p);
+void panel_update_background( panel* p );
 
 #endif

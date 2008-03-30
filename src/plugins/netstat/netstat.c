@@ -307,7 +307,9 @@ static void netstat_destructor(plugin *p)
     ENTER;
     g_source_remove(ns->ttag);
     netproc_netdevlist_clear(&ns->fnetd->netdevlist);
+    /* The widget is destroyed in plugin_stop().
     gtk_widget_destroy(ns->mainw);
+    */
     lxnm_close(ns->fnetd->lxnmchannel);
     close(ns->fnetd->sockfd);
     close(ns->fnetd->iwsockfd);
@@ -357,7 +359,6 @@ static int netstat_constructor(plugin *p, char **fp)
 
     /* main */
     ns->mainw = p->panel->my_box_new(FALSE, 1);
-    gtk_container_add(GTK_CONTAINER(p->pwid), ns->mainw);
     gtk_widget_show_all(ns->mainw);
 
     /* Initializing network device list*/
@@ -368,6 +369,8 @@ static int netstat_constructor(plugin *p, char **fp)
     refresh_systray(ns, ns->fnetd->netdevlist);
 
     ns->ttag = g_timeout_add(NETSTAT_IFACE_POLL_DELAY, (GSourceFunc)refresh_devstat, ns);
+
+    p->pwid = ns->mainw;
 
     RET(1);
 error:

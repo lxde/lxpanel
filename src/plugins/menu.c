@@ -27,7 +27,6 @@
 #include "misc.h"
 #include "plugin.h"
 #include "bg.h"
-#include "gtkbgbox.h"
 
 #include "ptk-app-menu.h"
 
@@ -73,7 +72,9 @@ menu_destructor(plugin *p)
 
     g_signal_handler_disconnect(G_OBJECT(m->bg), m->handler_id);
     gtk_widget_destroy(m->menu);
+    /* The widget is destroyed in plugin_stop().
     gtk_widget_destroy(m->box);
+    */
     g_free(m);
     RET();
 }
@@ -222,9 +223,6 @@ make_button(plugin *p, gchar *fname, gchar *name, GtkWidget *menu)
           (p->panel->orientation == ORIENT_HORIZ ? name : NULL));
     gtk_widget_show(m->bg);
     gtk_box_pack_start(GTK_BOX(m->box), m->bg, FALSE, FALSE, 0);
-    if (p->panel->transparent)
-        gtk_bgbox_set_background(m->bg, BG_ROOT, p->panel->tintcolor, p->panel->alpha);
-
 
     m->handler_id = g_signal_connect (G_OBJECT (m->bg), "button-press-event",
           G_CALLBACK (my_button_pressed), p);
@@ -539,7 +537,6 @@ menu_constructor(plugin *p, char **fp)
 
     m->box = gtk_hbox_new(FALSE, 0);
     gtk_container_set_border_width(GTK_CONTAINER(m->box), 0);
-    gtk_container_add(GTK_CONTAINER(p->pwid), m->box);
 
     if( ! fp )
         fp = &config_default;
@@ -558,6 +555,8 @@ menu_constructor(plugin *p, char **fp)
 
     m->config_data = g_strndup( config_start,
                                 (config_end-config_start) );
+
+    p->pwid = m->box;
 
     RET(1);
 

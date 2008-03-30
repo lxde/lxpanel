@@ -28,7 +28,6 @@
 #include "panel.h"
 #include "misc.h"
 #include "plugin.h"
-#include "gtkbgbox.h"
 #include "glib-mem.h"
 
 #include "dbg.h"
@@ -178,7 +177,6 @@ dclock_constructor(plugin *p, char** fp)
 #endif
 
     dc->timer = g_timeout_add(1000, (GSourceFunc) clock_update, (gpointer)dc);
-    gtk_container_add(GTK_CONTAINER(p->pwid), dc->main);
 
     /* font color */
     if (p->panel->usefontcolor)
@@ -186,13 +184,11 @@ dclock_constructor(plugin *p, char** fp)
 
     dc->usefontcolor = p->panel->usefontcolor;
 
-    /* background image */
-    if (p->panel->background) {
-        dc->main->style->bg_pixmap[0] = p->panel->bbox->style->bg_pixmap[0];
-        gtk_bgbox_set_background(dc->main, BG_STYLE, 0, 0);
-    }
-
     clock_update( dc );
+
+    /* store the created plugin widget in plugin->pwid */
+    p->pwid = dc->main;
+
     RET(1);
 
  error:
@@ -213,7 +209,7 @@ dclock_destructor(plugin *p)
     dc = (dclock *) p->priv;
     if (dc->timer)
         g_source_remove(dc->timer);
-    gtk_widget_destroy(dc->main);
+
     /* g_object_unref( dc->tip ); */
     g_free(dc->cfmt);
     g_free(dc->tfmt);

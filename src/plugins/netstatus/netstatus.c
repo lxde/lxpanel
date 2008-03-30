@@ -1,4 +1,4 @@
-/**                                                                                                 
+/**
  * Copyright (c) 2006 LxDE Developers, see the file AUTHORS for details.
  *
  * This program is free software; you can redistribute it and/or modify
@@ -45,7 +45,9 @@ netstatus_destructor(plugin *p)
     netstatus *ns = (netstatus *)p->priv;
 
     ENTER;
+    /* The widget is destroyed in plugin_stop().
     gtk_widget_destroy(ns->mainw);
+    */
     g_free( ns->iface );
     g_free( ns->config_tool );
     g_free(ns);
@@ -94,7 +96,7 @@ netstatus_constructor(plugin *p, char** fp)
     NetstatusIface* iface;
 
     ENTER;
-    s.len = 256;  
+    s.len = 256;
     ns = g_new0(netstatus, 1);
     g_return_val_if_fail(ns != NULL, 0);
     p->priv = ns;
@@ -136,7 +138,7 @@ netstatus_constructor(plugin *p, char** fp)
 
     gtk_widget_show_all(ns->mainw);
 
-    gtk_container_add(GTK_CONTAINER(p->pwid), ns->mainw);
+    p->pwid = ns->mainw;
 
     RET(1);
 

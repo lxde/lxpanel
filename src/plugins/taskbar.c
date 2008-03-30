@@ -1050,74 +1050,79 @@ tb_propertynotify(taskbar *tb, XEvent *ev)
 
     ENTER;
     DBG("win=%x\n", ev->xproperty.window);
+
+    /* The property is deleted */
+    if( ((XPropertyEvent*)ev)->state == 1 )
+        return;
+
     at = ev->xproperty.atom;
     win = ev->xproperty.window;
     if (win != GDK_ROOT_WINDOW()) {
-    task *tk = find_task(tb, win);
+        task *tk = find_task(tb, win);
 
-    if (!tk) RET();
-        DBG("win=%x\n", ev->xproperty.window);
-    if (at == a_NET_WM_DESKTOP) {
-            DBG("NET_WM_DESKTOP\n");
-        tk->desktop = get_net_wm_desktop(win);
-        tb_display(tb);
-    }  else if (at == XA_WM_NAME) {
-            DBG("WM_NAME\n");
-        tk_set_names(tk);
-        //tk_display(tb, tk);
-    }  else if (at == XA_WM_CLASS) {
-            DBG("WM_CLASS\n");
-
-            //get_wmclass(tk);
-    } else if (at == a_WM_STATE)    {
-            DBG("WM_STATE\n");
-        /* iconified state changed? */
-        tk->iconified = (get_wm_state (tk->win) == IconicState);
+        if (!tk) RET();
+            DBG("win=%x\n", ev->xproperty.window);
+        if (at == a_NET_WM_DESKTOP) {
+                DBG("NET_WM_DESKTOP\n");
+            tk->desktop = get_net_wm_desktop(win);
+            tb_display(tb);
+        }  else if (at == XA_WM_NAME) {
+                DBG("WM_NAME\n");
             tk_set_names(tk);
-        //tk_display(tb, tk);
-    } else if (at == XA_WM_HINTS)   {
-        /* some windows set their WM_HINTS icon after mapping */
-        DBG("XA_WM_HINTS\n");
-            //get_wmclass(tk);
-        tk_update_icon (tb, tk, XA_WM_HINTS);
-        gtk_image_set_from_pixbuf (GTK_IMAGE(tk->image), tk->pixbuf);
-            if (tb->use_urgency_hint) {
-                if (tk_has_urgency(tk)) {
-                    //tk->urgency = 1;
-                    tk_flash_window(tk);
-                } else {
-                    //tk->urgency = 0;
-                    tk_unflash_window(tk);
+            //tk_display(tb, tk);
+        }  else if (at == XA_WM_CLASS) {
+                DBG("WM_CLASS\n");
+
+                //get_wmclass(tk);
+        } else if (at == a_WM_STATE)    {
+                DBG("WM_STATE\n");
+            /* iconified state changed? */
+            tk->iconified = (get_wm_state (tk->win) == IconicState);
+                tk_set_names(tk);
+            //tk_display(tb, tk);
+        } else if (at == XA_WM_HINTS)   {
+            /* some windows set their WM_HINTS icon after mapping */
+            DBG("XA_WM_HINTS\n");
+                //get_wmclass(tk);
+            tk_update_icon (tb, tk, XA_WM_HINTS);
+            gtk_image_set_from_pixbuf (GTK_IMAGE(tk->image), tk->pixbuf);
+                if (tb->use_urgency_hint) {
+                    if (tk_has_urgency(tk)) {
+                        //tk->urgency = 1;
+                        tk_flash_window(tk);
+                    } else {
+                        //tk->urgency = 0;
+                        tk_unflash_window(tk);
+                    }
                 }
+            } else if (at == a_NET_WM_STATE) {
+                net_wm_state nws;
+
+            DBG("_NET_WM_STATE\n");
+            get_net_wm_state(tk->win, &nws);
+                if (!accept_net_wm_state(&nws, tb->accept_skip_pager)) {
+            del_task(tb, tk, 1);
+            tb_display(tb);
             }
-        } else if (at == a_NET_WM_STATE) {
-            net_wm_state nws;
+        } else if (at == a_NET_WM_ICON) {
+            DBG("_NET_WM_ICON\n");
+                DBG("#0 %d\n", GDK_IS_PIXBUF (tk->pixbuf));
+                tk_update_icon (tb, tk, a_NET_WM_ICON);
+                DBG("#1 %d\n", GDK_IS_PIXBUF (tk->pixbuf));
+            gtk_image_set_from_pixbuf (GTK_IMAGE(tk->image), tk->pixbuf);
+                DBG("#2 %d\n", GDK_IS_PIXBUF (tk->pixbuf));
+        } else if (at == a_NET_WM_WINDOW_TYPE) {
+                net_wm_window_type nwwt;
 
-        DBG("_NET_WM_STATE\n");
-        get_net_wm_state(tk->win, &nws);
-            if (!accept_net_wm_state(&nws, tb->accept_skip_pager)) {
-        del_task(tb, tk, 1);
-        tb_display(tb);
+            DBG("_NET_WM_WINDOW_TYPE\n");
+            get_net_wm_window_type(tk->win, &nwwt);
+                if (!accept_net_wm_window_type(&nwwt)) {
+            del_task(tb, tk, 1);
+            tb_display(tb);
+            }
+        } else {
+                DBG("at = %d\n", at);
         }
-    } else if (at == a_NET_WM_ICON) {
-        DBG("_NET_WM_ICON\n");
-            DBG("#0 %d\n", GDK_IS_PIXBUF (tk->pixbuf));
-            tk_update_icon (tb, tk, a_NET_WM_ICON);
-            DBG("#1 %d\n", GDK_IS_PIXBUF (tk->pixbuf));
-        gtk_image_set_from_pixbuf (GTK_IMAGE(tk->image), tk->pixbuf);
-            DBG("#2 %d\n", GDK_IS_PIXBUF (tk->pixbuf));
-    } else if (at == a_NET_WM_WINDOW_TYPE) {
-            net_wm_window_type nwwt;
-
-        DBG("_NET_WM_WINDOW_TYPE\n");
-        get_net_wm_window_type(tk->win, &nwwt);
-            if (!accept_net_wm_window_type(&nwwt)) {
-        del_task(tb, tk, 1);
-        tb_display(tb);
-        }
-    } else {
-            DBG("at = %d\n", at);
-    }
     }
     RET();
 }
@@ -1130,7 +1135,7 @@ tb_event_filter( XEvent *xev, GdkEvent *event, taskbar *tb)
     //RET(GDK_FILTER_CONTINUE);
     g_assert(tb != NULL);
     if (xev->type == PropertyNotify )
-    tb_propertynotify(tb, xev);
+        tb_propertynotify(tb, xev);
     RET(GDK_FILTER_CONTINUE);
 }
 
@@ -1279,6 +1284,7 @@ taskbar_build_gui(plugin *p)
     GtkOrientation  bo;
 
     ENTER;
+
     bo = (tb->plug->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
     tb->bar = gtk_bar_new(bo, tb->spacing);
     if (tb->icons_only) {
@@ -1348,8 +1354,14 @@ taskbar_constructor(plugin *p, char** fp)
     GtkRequisition req;
 
     ENTER;
-    gtk_widget_set_name(p->pwid, "taskbar");
+
     gtk_rc_parse_string(taskbar_rc);
+
+    /* FIXME: Is there any better way to do this? */
+    p->pwid = gtk_event_box_new();
+    GTK_WIDGET_SET_FLAGS( p->pwid, GTK_NO_WINDOW );
+    gtk_widget_set_name(p->pwid, "taskbar");
+
     get_button_spacing(&req, GTK_CONTAINER(p->pwid), "");
 
     net_active_detect();
@@ -1442,7 +1454,9 @@ taskbar_destructor(plugin *p)
     gdk_window_remove_filter(NULL, (GdkFilterFunc)tb_event_filter, tb );
     g_object_unref( tb->tips );
     g_hash_table_destroy(tb->task_list);
+    /* The widget is destroyed in plugin_stop().
     gtk_widget_destroy(tb->bar);
+    */
     gtk_widget_destroy(tb->menu);
     RET();
 }

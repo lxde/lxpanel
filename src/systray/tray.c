@@ -9,8 +9,6 @@
 #include "misc.h"
 #include "plugin.h"
 #include "bg.h"
-#include "gtkbgbox.h"
-
 
 #include "eggtraymanager.h"
 #include "fixedtip.h"
@@ -21,10 +19,8 @@
 
 
 typedef struct {
-    GtkWidget *mainw;
     plugin *plug;
     GtkWidget *box;
-    /////
     NaTrayManager *tray_manager;
     int icon_num;
 } tray;
@@ -34,12 +30,17 @@ typedef struct {
 static void
 force_redraw (tray *tr)
 {
-  /* Force the icons to redraw their backgrounds.
-   * gtk_widget_queue_draw() doesn't work across process boundaries,
-   * so we do this instead.
-   */
-  gtk_widget_hide (tr->box);
-  gtk_widget_show (tr->box);
+    /* Force the icons to redraw their backgrounds.
+    * gtk_widget_queue_draw() doesn't work across process boundaries,
+    * so we do this instead.
+    */
+    GtkWidget* w = tr->plug->pwid;
+    gtk_widget_set_size_request( w, w->allocation.width, w->allocation.height );
+    gtk_widget_hide (tr->box);
+    if( gtk_events_pending() )
+        gtk_main_iteration();
+    gtk_widget_show (tr->box);
+    gtk_widget_set_size_request( w, -1, -1 );
 }
 
 
@@ -48,6 +49,9 @@ tray_added (NaTrayManager *manager, GtkWidget *icon, tray *tr)
 {
     gtk_box_pack_end (GTK_BOX (tr->box), icon, FALSE, FALSE, 0);
     gtk_widget_show (icon);
+    /* g_debug( "add icon %p", icon ); */
+    plugin_widget_set_background( icon, tr->plug->panel );
+
     if (!tr->icon_num) {
         DBG("first icon\n");
         gtk_widget_show_all(tr->box);
@@ -118,7 +122,6 @@ tray_constructor(plugin *p, char** fp)
     s.len = 256;
     if( fp )
     {
-        g_debug("_tray");
         while ( lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
             g_debug("s.str = \'%s\'", s.str);
             ERR("tray: illegal in this context %s\n", s.str);
@@ -132,19 +135,7 @@ tray_constructor(plugin *p, char** fp)
     tr->icon_num = 0;
 
     tr->box = p->panel->my_box_new(FALSE, 0);
-    gtk_container_add(GTK_CONTAINER(p->pwid), tr->box);
 
-    /* background */
-    if (p->panel->background) {
-        tr->box->style->bg_pixmap[0] = p->panel->bbox->style->bg_pixmap[0];
-        p->pwid->style->bg_pixmap[0] = p->panel->bbox->style->bg_pixmap[0];
-        gtk_bgbox_set_background(tr->box, BG_STYLE, 0, 0);
-        gtk_bgbox_set_background(p->pwid, BG_STYLE, 0, 0);
-    } else if (p->panel->transparent) {
-        gtk_bgbox_set_background(p->pwid, BG_ROOT, p->panel->tintcolor, p->panel->alpha);
-    }
-
-    gtk_container_set_border_width(GTK_CONTAINER(p->pwid), 1);
     screen = gtk_widget_get_screen (GTK_WIDGET (p->panel->topgwin));
 
     if (na_tray_manager_check_running(screen)) {
@@ -163,6 +154,13 @@ tray_constructor(plugin *p, char** fp)
 
     gtk_widget_show_all(tr->box);
     gtk_widget_set_size_request (tr->box, -1, -1);
+
+    p->pwid = gtk_event_box_new();
+    GTK_WIDGET_SET_FLAGS( p->pwid, GTK_NO_WINDOW );
+
+    gtk_container_add( (GtkContainer*)p->pwid, tr->box );
+    gtk_container_set_border_width(GTK_CONTAINER(p->pwid), 1);
+
     RET(1);
 
 }
@@ -171,13 +169,15 @@ static void orientation_changed( plugin* p )
 {
     tray *tr = (tray *)p->priv;
     GtkBox* newbox;
-    newbox = GTK_BOX(recreate_box( GTK_BOX(tr->box), p->panel->orientation ));
-    if( GTK_WIDGET(newbox) != tr->box ) {
-        /* Since the old box has been destroyed,
-        we need to re-add the new box to the container */
-        tr->box = GTK_WIDGET(newbox);
-        gtk_container_add(GTK_CONTAINER(p->pwid), tr->box);
-    }
+    GList *l, *children;
+    int width = 0, height = 0;
+
+    na_tray_manager_set_orientation( tr->tray_manager, p->panel->orientation );
+
+    /* weird... na_tray_manager will re-add the icons to the tray automatically... */
+    gtk_widget_destroy( tr->box );
+    tr->box = p->panel->my_box_new( FALSE, 0 );
+    gtk_container_add(GTK_CONTAINER(p->pwid), tr->box);
 
     force_redraw(tr);
 }

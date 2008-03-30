@@ -30,7 +30,6 @@
 
 #include "misc.h"
 #include "bg.h"
-#include "gtkbgbox.h"
 
 #include <glib-object.h>
 
@@ -244,25 +243,22 @@ plugin_start(plugin *this, char** fp)
     ENTER;
 
     DBG("%s\n", this->class->type);
-    if (!this->class->invisible) {
-        this->pwid = gtk_bgbox_new();
+
+    if (!this->class->constructor(this, fp)) {
+//        if (!this->class->invisible)
+//            gtk_widget_destroy(this->pwid);
+        RET(0);
+    }
+
+    if (!this->class->invisible && this->pwid ) {
+        /* this->pwid is created by the plugin */
+        //this->pwid = gtk_bgbox_new();
         gtk_widget_set_name(this->pwid, this->class->type);
         gtk_box_pack_start(GTK_BOX(this->panel->box), this->pwid, this->expand, TRUE,
               this->padding);
         gtk_container_set_border_width(GTK_CONTAINER(this->pwid), this->border);
-        /* background image */
-        if (this->panel->background) {
-            this->pwid->style->bg_pixmap[0] = this->panel->bbox->style->bg_pixmap[0];
-            gtk_bgbox_set_background(this->pwid, BG_STYLE, 0, 0);
-        } else if (this->panel->transparent) {
-            gtk_bgbox_set_background(this->pwid, BG_ROOT, this->panel->tintcolor, this->panel->alpha);
-        }
+
         gtk_widget_show(this->pwid);
-    }
-    if (!this->class->constructor(this, fp)) {
-        if (!this->class->invisible)
-            gtk_widget_destroy(this->pwid);
-        RET(0);
     }
     RET(1);
 }
@@ -274,8 +270,9 @@ void plugin_stop(plugin *this)
     DBG("%s\n", this->class->type);
     this->class->destructor(this);
     this->panel->plug_num--;
-    if (!this->class->invisible)
+    if (!this->class->invisible && this->pwid )
         gtk_widget_destroy(this->pwid);
+    /* this->pwid is destroyed in the dtor of plugins */
     RET();
 }
 
@@ -364,4 +361,58 @@ void plugin_class_list_free( GList* classes )
 {
    g_list_foreach( classes, plugin_class_unref, NULL );
    g_list_free( classes );
+}
+
+void
+plugin_widget_set_background( GtkWidget* w, panel* p )
+{
+    if( ! w )
+        return;
+
+    if( ! GTK_WIDGET_NO_WINDOW( w ) )
+    {
+        if( p->background || p->transparent )
+        {
+            gtk_widget_set_app_paintable( w, TRUE );
+            if( GTK_WIDGET_REALIZED(w) )
+                gdk_window_set_back_pixmap( w->window, NULL, TRUE );
+        }
+        else
+        {
+            gtk_widget_set_app_paintable( w, FALSE );
+            if( GTK_WIDGET_REALIZED(w) )
+                gdk_window_set_back_pixmap( w->window, NULL, FALSE );
+        }
+        // g_debug("%s has window (%s)", gtk_widget_get_name(w), G_OBJECT_TYPE_NAME(w) );
+    }
+    else
+        // g_debug("%s has NO window (%s)", gtk_widget_get_name(w), G_OBJECT_TYPE_NAME(w) );
+
+    if( GTK_IS_CONTAINER( w ) )
+    {
+        gtk_container_foreach( w, plugin_widget_set_background, p );
+    }
+
+    /* Dirty hack: Force repaint of tray icons!!
+     * Normal gtk+ repaint cannot work across different processes.
+     * So, we need some dirty tricks here.
+     */
+    if( strcmp( gtk_widget_get_name( w ), "tray" ) == 0 )
+    {
+        gtk_widget_set_size_request( w, w->allocation.width, w->allocation.height );
+        gtk_widget_hide (gtk_bin_get_child((GtkBin*)w));
+        if( gtk_events_pending() )
+            gtk_main_iteration();
+        gtk_widget_show (gtk_bin_get_child((GtkBin*)w));
+        if( gtk_events_pending() )
+            gtk_main_iteration();
+        gtk_widget_set_size_request( w, -1, -1 );
+    }
+}
+
+void plugin_set_background( plugin* pl, panel* p )
+{
+    if( G_UNLIKELY( pl->class->invisible || ! pl->pwid ) )
+        return;
+    plugin_widget_set_background( pl->pwid, p );
 }

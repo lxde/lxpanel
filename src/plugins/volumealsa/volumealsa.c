@@ -25,7 +25,6 @@
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <alsa/asoundlib.h>
 #include "panel.h"
-#include "gtkbgbox.h"
 #include "misc.h"
 #include "plugin.h"
 #include "dbg.h"
@@ -34,17 +33,17 @@
 #define ICONS_MUTE PACKAGE_DATA_DIR "/lxpanel/images/mute.png"
 
 typedef struct {
-	GtkWidget *mainw;
-	GtkWidget *tray_icon;
-	GtkWidget *dlg;
-	GtkTooltips* tooltips;
-	GtkWidget *vscale;
-	snd_mixer_t *mixer;
-	snd_mixer_selem_id_t *sid;
-	snd_mixer_elem_t *master_element;
-	long alsa_min_vol, alsa_max_vol;
-	int mute;
-	int show;
+    GtkWidget *mainw;
+    GtkWidget *tray_icon;
+    GtkWidget *dlg;
+    GtkTooltips* tooltips;
+    GtkWidget *vscale;
+    snd_mixer_t *mixer;
+    snd_mixer_selem_id_t *sid;
+    snd_mixer_elem_t *master_element;
+    long alsa_min_vol, alsa_max_vol;
+    int mute;
+    int show;
 } volume_t;
 
 
@@ -52,240 +51,231 @@ typedef struct {
 /* ALSA */
 static gboolean find_element(volume_t *vol, const char *ename)
 {
-	for (vol->master_element=snd_mixer_first_elem(vol->mixer);vol->master_element;vol->master_element=snd_mixer_elem_next(vol->master_element)) {
-		snd_mixer_selem_get_id(vol->master_element, vol->sid);
-		if (!snd_mixer_selem_is_active(vol->master_element))
-			continue;
+    for (vol->master_element=snd_mixer_first_elem(vol->mixer);vol->master_element;vol->master_element=snd_mixer_elem_next(vol->master_element)) {
+        snd_mixer_selem_get_id(vol->master_element, vol->sid);
+        if (!snd_mixer_selem_is_active(vol->master_element))
+            continue;
 
-		if (strcmp(ename, snd_mixer_selem_id_get_name(vol->sid))==0) {
-			return TRUE;
-		}
-	}
+        if (strcmp(ename, snd_mixer_selem_id_get_name(vol->sid))==0) {
+            return TRUE;
+        }
+    }
 
-	return FALSE;
+    return FALSE;
 }
 
 static void asound_init(volume_t *vol)
 {
-	snd_mixer_selem_id_alloca(&vol->sid);
-	snd_mixer_open(&vol->mixer, 0);
-	snd_mixer_attach(vol->mixer, "default");
-	snd_mixer_selem_register(vol->mixer, NULL, NULL);
-	snd_mixer_load(vol->mixer);
+    snd_mixer_selem_id_alloca(&vol->sid);
+    snd_mixer_open(&vol->mixer, 0);
+    snd_mixer_attach(vol->mixer, "default");
+    snd_mixer_selem_register(vol->mixer, NULL, NULL);
+    snd_mixer_load(vol->mixer);
 
-	/* Find Master element */
-	if (!find_element(vol, "Master"))
-		if (!find_element(vol, "Front"))
-			if (!find_element(vol, "PCM"))
-				exit;
-				
+    /* Find Master element */
+    if (!find_element(vol, "Master"))
+        if (!find_element(vol, "Front"))
+            if (!find_element(vol, "PCM"))
+                exit;
 
-	snd_mixer_selem_get_playback_volume_range(vol->master_element, &vol->alsa_min_vol, &vol->alsa_max_vol);
 
-	snd_mixer_selem_set_playback_volume_range(vol->master_element, 0, 100);
+    snd_mixer_selem_get_playback_volume_range(vol->master_element, &vol->alsa_min_vol, &vol->alsa_max_vol);
+
+    snd_mixer_selem_set_playback_volume_range(vol->master_element, 0, 100);
 }
 
 static int asound_read(volume_t *vol)
 {
-	long aleft, aright;
-	snd_mixer_handle_events(vol->mixer);
-	/* Left */
-	snd_mixer_selem_get_playback_volume(vol->master_element, SND_MIXER_SCHN_FRONT_LEFT, &aleft);
-	/* Right */
-	snd_mixer_selem_get_playback_volume(vol->master_element, SND_MIXER_SCHN_FRONT_RIGHT, &aright);
+    long aleft, aright;
+    snd_mixer_handle_events(vol->mixer);
+    /* Left */
+    snd_mixer_selem_get_playback_volume(vol->master_element, SND_MIXER_SCHN_FRONT_LEFT, &aleft);
+    /* Right */
+    snd_mixer_selem_get_playback_volume(vol->master_element, SND_MIXER_SCHN_FRONT_RIGHT, &aright);
 
-	return (aleft + aright) >> 1;
+    return (aleft + aright) >> 1;
 }
 
 static void asound_write(volume_t *vol, int volume)
 {
-	snd_mixer_selem_set_playback_volume(vol->master_element, SND_MIXER_SCHN_FRONT_LEFT, volume);
-	snd_mixer_selem_set_playback_volume(vol->master_element, SND_MIXER_SCHN_FRONT_RIGHT, volume);
+    snd_mixer_selem_set_playback_volume(vol->master_element, SND_MIXER_SCHN_FRONT_LEFT, volume);
+    snd_mixer_selem_set_playback_volume(vol->master_element, SND_MIXER_SCHN_FRONT_RIGHT, volume);
 }
 
 static gboolean focus_out_event(GtkWidget *widget, GdkEvent *event, volume_t *vol)
 {
-	gtk_widget_hide(vol->dlg);
-	vol->show = 0;
-	return FALSE;
+    gtk_widget_hide(vol->dlg);
+    vol->show = 0;
+    return FALSE;
 }
 
 static void tray_icon_press(GtkWidget *widget, GdkEvent *event, volume_t *vol)
 {
-	if (vol->show==0) {
-		gtk_window_set_position(GTK_WINDOW(vol->dlg), GTK_WIN_POS_MOUSE);
-		gtk_scale_set_digits(GTK_SCALE(vol->vscale), asound_read(vol));
-		gtk_widget_show_all(vol->dlg);
-		vol->show = 1;
-	} else {
-		gtk_widget_hide(vol->dlg);
-		vol->show = 0;
-	}
+    if (vol->show==0) {
+        gtk_window_set_position(GTK_WINDOW(vol->dlg), GTK_WIN_POS_MOUSE);
+        gtk_scale_set_digits(GTK_SCALE(vol->vscale), asound_read(vol));
+        gtk_widget_show_all(vol->dlg);
+        vol->show = 1;
+    } else {
+        gtk_widget_hide(vol->dlg);
+        vol->show = 0;
+    }
 }
 
 static void on_vscale_value_changed(GtkRange *range, volume_t *vol)
 {
-	asound_write(vol, gtk_range_get_value(range));
+    asound_write(vol, gtk_range_get_value(range));
 }
 
 static void click_mute(GtkWidget *widget, volume_t *vol)
 {
-	int chn;
+    int chn;
 
-	if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget))) {
-		gtk_image_set_from_file(vol->tray_icon, ICONS_MUTE);
-		for (chn = 0; chn <= SND_MIXER_SCHN_LAST; chn++) {
-			snd_mixer_selem_set_playback_switch(vol->master_element, chn, 0);
-		}
-	} else {
-		gtk_image_set_from_file(vol->tray_icon, ICONS_VOLUME);
-		for (chn = 0; chn <= SND_MIXER_SCHN_LAST; chn++) {
-			snd_mixer_selem_set_playback_switch(vol->master_element, chn, 1);
-		}
-	}
+    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget))) {
+        gtk_image_set_from_file(vol->tray_icon, ICONS_MUTE);
+        for (chn = 0; chn <= SND_MIXER_SCHN_LAST; chn++) {
+            snd_mixer_selem_set_playback_switch(vol->master_element, chn, 0);
+        }
+    } else {
+        gtk_image_set_from_file(vol->tray_icon, ICONS_VOLUME);
+        for (chn = 0; chn <= SND_MIXER_SCHN_LAST; chn++) {
+            snd_mixer_selem_set_playback_switch(vol->master_element, chn, 1);
+        }
+    }
 }
 
 static void panel_init(plugin *p)
 {
-	volume_t *vol = p->priv;
-	GtkWidget *scrolledwindow;
-	GtkWidget *viewport;
-	GtkWidget *box;
-	GtkWidget *frame;
-	GtkWidget *checkbutton;
+    volume_t *vol = p->priv;
+    GtkWidget *scrolledwindow;
+    GtkWidget *viewport;
+    GtkWidget *box;
+    GtkWidget *frame;
+    GtkWidget *checkbutton;
 
-	/* set show flags */
-	vol->show = 0;
+    /* set show flags */
+    vol->show = 0;
 
-	/* create a new window */
-	vol->dlg = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-	gtk_window_set_decorated(GTK_WINDOW(vol->dlg), FALSE);
-	gtk_container_set_border_width(GTK_CONTAINER(vol->dlg), 3);
-	gtk_window_set_default_size(GTK_WINDOW(vol->dlg), 80, 140);
-	gtk_window_set_skip_taskbar_hint(GTK_WINDOW(vol->dlg), TRUE);
-	gtk_window_set_skip_pager_hint(GTK_WINDOW(vol->dlg), TRUE);
-	gtk_window_set_type_hint(GTK_WINDOW(vol->dlg), GDK_WINDOW_TYPE_HINT_DIALOG);
+    /* create a new window */
+    vol->dlg = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    gtk_window_set_decorated(GTK_WINDOW(vol->dlg), FALSE);
+    gtk_container_set_border_width(GTK_CONTAINER(vol->dlg), 3);
+    gtk_window_set_default_size(GTK_WINDOW(vol->dlg), 80, 140);
+    gtk_window_set_skip_taskbar_hint(GTK_WINDOW(vol->dlg), TRUE);
+    gtk_window_set_skip_pager_hint(GTK_WINDOW(vol->dlg), TRUE);
+    gtk_window_set_type_hint(GTK_WINDOW(vol->dlg), GDK_WINDOW_TYPE_HINT_DIALOG);
 
-	/* setting background to default */
-	gtk_widget_set_style(vol->dlg, p->panel->defstyle);
+    /* setting background to default */
+    gtk_widget_set_style(vol->dlg, p->panel->defstyle);
 
-	/* Focus-out signal */
-	g_signal_connect (G_OBJECT (vol->dlg), "focus_out_event",
-			  G_CALLBACK (focus_out_event), vol);
+    /* Focus-out signal */
+    g_signal_connect (G_OBJECT (vol->dlg), "focus_out_event",
+              G_CALLBACK (focus_out_event), vol);
 
-	scrolledwindow = gtk_scrolled_window_new(NULL, NULL);
-	gtk_container_set_border_width (GTK_CONTAINER (scrolledwindow), 1);
-	gtk_widget_show (scrolledwindow);
-	gtk_container_add (GTK_CONTAINER (vol->dlg), scrolledwindow);
-	GTK_WIDGET_UNSET_FLAGS (scrolledwindow, GTK_CAN_FOCUS);
-	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW (scrolledwindow), GTK_POLICY_NEVER, GTK_POLICY_NEVER);
-	gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scrolledwindow), GTK_SHADOW_OUT);
+    scrolledwindow = gtk_scrolled_window_new(NULL, NULL);
+    gtk_container_set_border_width (GTK_CONTAINER (scrolledwindow), 1);
+    gtk_widget_show (scrolledwindow);
+    gtk_container_add (GTK_CONTAINER (vol->dlg), scrolledwindow);
+    GTK_WIDGET_UNSET_FLAGS (scrolledwindow, GTK_CAN_FOCUS);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW (scrolledwindow), GTK_POLICY_NEVER, GTK_POLICY_NEVER);
+    gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scrolledwindow), GTK_SHADOW_OUT);
 
-	viewport = gtk_viewport_new (NULL, NULL);
-	gtk_widget_show (viewport);
-	gtk_container_add (GTK_CONTAINER (scrolledwindow), viewport);
-	gtk_viewport_set_shadow_type (GTK_VIEWPORT (viewport), GTK_SHADOW_NONE);
-	gtk_widget_show(viewport);
+    viewport = gtk_viewport_new (NULL, NULL);
+    gtk_widget_show (viewport);
+    gtk_container_add (GTK_CONTAINER (scrolledwindow), viewport);
+    gtk_viewport_set_shadow_type (GTK_VIEWPORT (viewport), GTK_SHADOW_NONE);
+    gtk_widget_show(viewport);
 
-	/* create frame */
-	frame = gtk_frame_new(_("Volume"));
-	gtk_frame_set_shadow_type(GTK_FRAME(frame), GTK_SHADOW_IN);
-	gtk_container_add(GTK_CONTAINER(viewport), frame);
+    /* create frame */
+    frame = gtk_frame_new(_("Volume"));
+    gtk_frame_set_shadow_type(GTK_FRAME(frame), GTK_SHADOW_IN);
+    gtk_container_add(GTK_CONTAINER(viewport), frame);
 
-	/* create box */
-	box = gtk_vbox_new(FALSE, 0);
+    /* create box */
+    box = gtk_vbox_new(FALSE, 0);
 
-	/* create controller */
-	vol->vscale = gtk_vscale_new(GTK_ADJUSTMENT(gtk_adjustment_new(asound_read(vol), 0, 100, 0, 0, 0)));
-	gtk_scale_set_draw_value(GTK_SCALE(vol->vscale), FALSE);
-	gtk_range_set_inverted(GTK_RANGE(vol->vscale), TRUE);
+    /* create controller */
+    vol->vscale = gtk_vscale_new(GTK_ADJUSTMENT(gtk_adjustment_new(asound_read(vol), 0, 100, 0, 0, 0)));
+    gtk_scale_set_draw_value(GTK_SCALE(vol->vscale), FALSE);
+    gtk_range_set_inverted(GTK_RANGE(vol->vscale), TRUE);
 
-	g_signal_connect ((gpointer) vol->vscale, "value_changed",
+    g_signal_connect ((gpointer) vol->vscale, "value_changed",
                       G_CALLBACK (on_vscale_value_changed),
                       vol);
 
-	checkbutton = gtk_check_button_new_with_label(_("Mute"));
-	snd_mixer_selem_get_playback_switch(vol->master_element, 0, &vol->mute);
+    checkbutton = gtk_check_button_new_with_label(_("Mute"));
+    snd_mixer_selem_get_playback_switch(vol->master_element, 0, &vol->mute);
 
-	if (!vol->mute)
-		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(checkbutton), TRUE);
+    if (!vol->mute)
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(checkbutton), TRUE);
 
-	g_signal_connect ((gpointer) checkbutton, "toggled",
+    g_signal_connect ((gpointer) checkbutton, "toggled",
                       G_CALLBACK (click_mute),
                       vol);
 
-	gtk_box_pack_start(GTK_BOX(box), vol->vscale, TRUE, TRUE, 0);
-	gtk_box_pack_end(GTK_BOX(box), checkbutton, FALSE, FALSE, 0);
-	gtk_container_add(GTK_CONTAINER(frame), box);
+    gtk_box_pack_start(GTK_BOX(box), vol->vscale, TRUE, TRUE, 0);
+    gtk_box_pack_end(GTK_BOX(box), checkbutton, FALSE, FALSE, 0);
+    gtk_container_add(GTK_CONTAINER(frame), box);
 
-	/* setting background to default */
-	gtk_widget_set_style(viewport, p->panel->defstyle);
+    /* setting background to default */
+    gtk_widget_set_style(viewport, p->panel->defstyle);
 }
 
 static void
 volumealsa_destructor(plugin *p)
 {
-	volume_t *vol = (volume_t *) p->priv;
+    volume_t *vol = (volume_t *) p->priv;
 
-	ENTER;
-	if (vol->dlg)
-		gtk_widget_destroy(vol->dlg);
-	g_object_unref( vol->tooltips );
-	gtk_widget_destroy(vol->mainw);
-	g_free(vol);
-	RET();
+    ENTER;
+    if (vol->dlg)
+        gtk_widget_destroy(vol->dlg);
+    g_object_unref( vol->tooltips );
+
+    g_free(vol);
+    RET();
 }
 
 static int
 volumealsa_constructor(plugin *p, char **fp)
 {
-	volume_t *vol;
-	line s;
-	GdkPixbuf *icon;
-	GtkWidget *image;
-	GtkIconTheme* theme;
-	GtkIconInfo* info;
+    volume_t *vol;
+    line s;
+    GdkPixbuf *icon;
+    GtkWidget *image;
+    GtkIconTheme* theme;
+    GtkIconInfo* info;
 
-	ENTER;
-	s.len = 256;  
-	vol = g_new0(volume_t, 1);
-	g_return_val_if_fail(vol != NULL, 0);
-	p->priv = vol;
+    ENTER;
+    s.len = 256;
+    vol = g_new0(volume_t, 1);
+    g_return_val_if_fail(vol != NULL, 0);
+    p->priv = vol;
 
-	/* initializing */
-	asound_init(vol);
-	panel_init(p);
+    /* initializing */
+    asound_init(vol);
+    panel_init(p);
 
-	/* main */
-	vol->mainw = gtk_event_box_new();
+    /* main */
+    vol->mainw = gtk_event_box_new();
 
-	gtk_widget_add_events(vol->mainw, GDK_BUTTON_PRESS_MASK);
-	gtk_widget_set_size_request( vol->mainw, 24, 24 );
-	gtk_container_add(GTK_CONTAINER(p->pwid), vol->mainw);
-	g_signal_connect(G_OBJECT(vol->mainw), "button-press-event", 
+    gtk_widget_add_events(vol->mainw, GDK_BUTTON_PRESS_MASK);
+    gtk_widget_set_size_request( vol->mainw, 24, 24 );
+
+    g_signal_connect(G_OBJECT(vol->mainw), "button-press-event",
                          G_CALLBACK(tray_icon_press), vol);
 
-	/* tray icon */
-	snd_mixer_selem_get_playback_switch(vol->master_element, 0, &vol->mute);
-	if (vol->mute==0)
-		vol->tray_icon = gtk_image_new_from_file(ICONS_MUTE);
-	else
-		vol->tray_icon = gtk_image_new_from_file(ICONS_VOLUME);
+    /* tray icon */
+    snd_mixer_selem_get_playback_switch(vol->master_element, 0, &vol->mute);
+    if (vol->mute==0)
+        vol->tray_icon = gtk_image_new_from_file(ICONS_MUTE);
+    else
+        vol->tray_icon = gtk_image_new_from_file(ICONS_VOLUME);
 
+    gtk_container_add(GTK_CONTAINER(vol->mainw), vol->tray_icon);
 
-	/* background image */
-	if (p->panel->background) {
-		vol->mainw->style->bg_pixmap[0] = p->panel->bbox->style->bg_pixmap[0];
-		gtk_bgbox_set_background(vol->mainw, BG_STYLE, 0, 0);
-	} else if (p->panel->transparent) {
-		gtk_bgbox_set_background(vol->mainw, BG_ROOT, p->panel->tintcolor, p->panel->alpha);
-	}
+    gtk_widget_show_all(vol->mainw);
 
-	gtk_container_add(GTK_CONTAINER(vol->mainw), vol->tray_icon);
-
-	gtk_widget_show_all(vol->mainw);
-
-	vol->tooltips = gtk_tooltips_new ();
+    vol->tooltips = gtk_tooltips_new ();
 #if GLIB_CHECK_VERSION( 2, 10, 0 )
     g_object_ref_sink( vol->tooltips );
 #else
@@ -293,24 +283,27 @@ volumealsa_constructor(plugin *p, char **fp)
     gtk_object_sink( vol->tooltips );
 #endif
 
-	/* FIXME: display current level in tooltip. ex: "Volume Control: 80%"  */
-	gtk_tooltips_set_tip (vol->tooltips, vol->mainw, _("Volume control"), NULL);
+    /* FIXME: display current level in tooltip. ex: "Volume Control: 80%"  */
+    gtk_tooltips_set_tip (vol->tooltips, vol->mainw, _("Volume control"), NULL);
 
-	RET(1);
+    /* store the created plugin widget in plugin->pwid */
+    p->pwid = vol->mainw;
+
+    RET(1);
 }
 
 
 plugin_class volumealsa_plugin_class = {
-	fname: NULL,
-	count: 0,
+    fname: NULL,
+    count: 0,
 
-	type : "volumealsa",
-	name : N_("Volume Control"),
-	version: "1.0",
-	description : "Display and control volume for ALSA",
+    type : "volumealsa",
+    name : N_("Volume Control"),
+    version: "1.0",
+    description : "Display and control volume for ALSA",
 
-	constructor : volumealsa_constructor,
-	destructor  : volumealsa_destructor,
-	config : NULL,
-	save : NULL
+    constructor : volumealsa_constructor,
+    destructor  : volumealsa_destructor,
+    config : NULL,
+    save : NULL
 };

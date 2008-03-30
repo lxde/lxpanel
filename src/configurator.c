@@ -24,7 +24,6 @@
 #include "panel.h"
 #include "misc.h"
 #include "bg.h"
-#include "gtkbgbox.h"
 #include <stdlib.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -191,6 +190,7 @@ set_edge(GtkComboBox *widget, gpointer bp)
     p->edge = edge;
     panel_set_orientation( p );
     update_panel_geometry();
+    panel_update_background( p );
     RET();
 }
 
@@ -449,8 +449,10 @@ transparency_toggle(GtkWidget *b, gpointer bp)
     /* Update background immediately. */
     if (t&&!p->transparent) {
         p->transparent = 1;
+        p->background = 0;
         config_save();
-        restart();
+        panel_update_background( p );
+        //restart();
     }
     RET();
 }
@@ -497,8 +499,9 @@ background_toggle(GtkWidget *b, gpointer bp)
             p->background = 1;
             /* Update background immediately. */
             config_save();
-            restart();
-        }
+            panel_update_background( p );
+            //restart();
+            }
     }
 
     RET();
@@ -513,12 +516,13 @@ background_changed(GtkFileChooser *file_chooser, gpointer data)
     p->background_file = g_strdup(gtk_file_chooser_get_filename(file_chooser));
     /* Update background immediately. */
     config_save();
-    restart();
+    panel_update_background( p );
+    //restart();
     RET();
 }
 
 GtkWidget *
-mk_backgroundimg()
+mk_appearanceimg()
 {
     GtkWidget *frame;
 
@@ -554,7 +558,8 @@ background_disable_toggle(GtkWidget *b, gpointer bp)
             p->transparent = 0;
             /* Update background immediately. */
             config_save();
-            restart();
+            panel_update_background( p );
+            //restart();
         }
     }
 
@@ -562,7 +567,7 @@ background_disable_toggle(GtkWidget *b, gpointer bp)
 }
 
 GtkWidget *
-mk_background()
+mk_appearance()
 {
     GtkWidget *vbox, *vbox2, *label, *frame, *incframe;
     GSList *check_group;
@@ -595,7 +600,7 @@ mk_background()
     incframe = mk_transparency();
     gtk_box_pack_start(GTK_BOX (vbox), incframe, FALSE, FALSE, 0);
 
-    incframe = mk_backgroundimg();
+    incframe = mk_appearanceimg();
     gtk_box_pack_start(GTK_BOX (vbox), incframe, FALSE, FALSE, 0);
 
     /* set group */
@@ -906,7 +911,7 @@ static void on_remove_plugin( GtkButton* btn, GtkTreeView* view )
         gtk_list_store_remove( GTK_LIST_STORE(model), &it );
         p->plugins = g_list_remove( p->plugins, pl );
         plugin_stop( pl ); /* free the plugin widget & its data */
-        plugin_put( pl ); /* free th lib if necessary */
+        plugin_put( pl ); /* free the lib if necessary */
 
         gtk_tree_selection_select_path( tree_sel, tree_path );
         gtk_tree_path_free( tree_path );
@@ -1116,15 +1121,15 @@ mk_tab_general()
 }
 
 static GtkWidget *
-mk_tab_background()
+mk_tab_appearance()
 {
     GtkWidget *frame, *page;
     page = gtk_vbox_new(FALSE, 1);
 
     sg = gtk_size_group_new(GTK_SIZE_GROUP_HORIZONTAL);
 
-    //background
-    frame = mk_background();
+    //appearance
+    frame = mk_appearance();
     gtk_box_pack_start(GTK_BOX (page), frame, FALSE, TRUE, 0);
 
     RET(page);
@@ -1230,8 +1235,8 @@ mk_dialog()
     gtk_misc_set_padding(GTK_MISC(label), 4, 1);
     gtk_notebook_append_page(GTK_NOTEBOOK(nb), sw, label);
 
-    sw = mk_tab_background();
-    label = gtk_label_new(_("Background"));
+    sw = mk_tab_appearance();
+    label = gtk_label_new(_("Appearance"));
     gtk_misc_set_padding(GTK_MISC(label), 4, 1);
     gtk_notebook_append_page(GTK_NOTEBOOK(nb), sw, label);
 

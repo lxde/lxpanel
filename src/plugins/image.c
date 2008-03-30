@@ -139,7 +139,7 @@ image_constructor(plugin *p, char **fp)
     gtk_container_add(GTK_CONTAINER(img->mainw), wid);
     gtk_container_set_border_width(GTK_CONTAINER(img->mainw), 0);
     g_free(fname);
-    gtk_container_add(GTK_CONTAINER(p->pwid), img->mainw);
+
     if (tooltip) {
         gtk_tooltips_set_tip(GTK_TOOLTIPS (img->tips), img->mainw, tooltip, NULL);
         g_free(tooltip);

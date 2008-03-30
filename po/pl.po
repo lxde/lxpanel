@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel-0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-30 11:40+0800\n"
+"POT-Creation-Date: 2008-03-30 21:44+0800\n"
 "PO-Revision-Date: 2006-11-27 21:56+0100\n"
 "Last-Translator: Artur Kruszewski <mazdac@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -19,19 +19,19 @@ msgstr ""
 "X-Poedit-Bookmarks: 19,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
 "X-Poedit-Country: Poland\n"
 
-#: ../src/configurator.c:45
+#: ../src/configurator.c:44
 msgid "Preferences"
 msgstr "Preferencje"
 
-#: ../src/configurator.c:46 ../src/gtk-run.c:112
+#: ../src/configurator.c:45 ../src/gtk-run.c:112
 msgid "Run"
 msgstr "Uruchom"
 
-#: ../src/configurator.c:47
+#: ../src/configurator.c:46
 msgid "Restart"
 msgstr "Restartuj"
 
-#: ../src/configurator.c:48
+#: ../src/configurator.c:47
 msgid "Logout"
 msgstr "Wyloguj"
 
@@ -103,151 +103,155 @@ msgstr ""
 msgid "Height:"
 msgstr "Wysokość:"
 
-#: ../src/configurator.c:466
+#: ../src/configurator.c:468
 msgid "Enable Transparency"
 msgstr "Włącz przezroczystość"
 
-#: ../src/configurator.c:470
+#: ../src/configurator.c:472
 msgid "Tint color:"
 msgstr "Kolor przesłony:"
 
-#: ../src/configurator.c:528
+#: ../src/configurator.c:532
 msgid "Enable Image:"
 msgstr ""
 
-#: ../src/configurator.c:531
+#: ../src/configurator.c:535
 msgid "Select a background image file"
 msgstr ""
 
-#: ../src/configurator.c:575
+#: ../src/configurator.c:580
 msgid "<b>Background</b>"
 msgstr ""
 
 #. Disable Background option
-#: ../src/configurator.c:590
+#: ../src/configurator.c:595
 msgid "None (Use system theme)"
 msgstr ""
 
-#: ../src/configurator.c:649
+#: ../src/configurator.c:654
 msgid "<b>Properties</b>"
 msgstr "<b>Właściwości</b>"
 
-#: ../src/configurator.c:671
+#: ../src/configurator.c:676
 msgid "Make window managers treat the panel as dock"
 msgstr ""
 
-#: ../src/configurator.c:687
+#: ../src/configurator.c:692
 msgid "Reserve space, and not covered by maximized windows"
 msgstr ""
 
-#: ../src/configurator.c:742
+#: ../src/configurator.c:747
 msgid "Currently loaded plugins"
 msgstr "Załadowane wtyczki"
 
-#: ../src/configurator.c:832
+#: ../src/configurator.c:837
 msgid "Add plugin to panel"
 msgstr "Dodaj wtyczkę do panelu"
 
-#: ../src/configurator.c:859
+#: ../src/configurator.c:864
 msgid "Available plugins"
 msgstr "Dostępne wtyczki"
 
-#: ../src/configurator.c:1132
+#: ../src/configurator.c:1148
 msgid "<b>Set Preferred Applications</b>"
 msgstr ""
 
-#: ../src/configurator.c:1142
+#: ../src/configurator.c:1158
 msgid "File Manager:"
 msgstr ""
 
-#: ../src/configurator.c:1155
+#: ../src/configurator.c:1171
 msgid "Terminal Emulator:"
 msgstr ""
 
-#: ../src/configurator.c:1170
+#: ../src/configurator.c:1186
 #, fuzzy
 msgid "Logout Command:"
 msgstr "Komenda wylogowania nie jest ustawiona"
 
-#: ../src/configurator.c:1192
+#: ../src/configurator.c:1208
 msgid "lxpanel configurator"
 msgstr "konfigurator lxpanel"
 
-#: ../src/configurator.c:1218
+#: ../src/configurator.c:1234
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr "Ogólne"
 
-#: ../src/configurator.c:1223
+#: ../src/configurator.c:1239
+msgid "Appearance"
+msgstr ""
+
+#: ../src/configurator.c:1244
 msgid "Plugins"
 msgstr "Wtyczki"
 
-#: ../src/configurator.c:1228
+#: ../src/configurator.c:1249
 #, fuzzy
 msgid "Applications"
 msgstr "Wybierz program"
 
-#: ../src/configurator.c:1387
+#: ../src/configurator.c:1408
 msgid "Logout command is not set"
 msgstr "Komenda wylogowania nie jest ustawiona"
 
-#: ../src/panel.c:816
+#: ../src/panel.c:815
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - lekki panel GTK2+ dla pulpitów UNIX\n"
 
-#: ../src/panel.c:817
+#: ../src/panel.c:816
 #, c-format
 msgid "Command line options:\n"
 msgstr "Opcje lini komend:\n"
 
-#: ../src/panel.c:818
+#: ../src/panel.c:817
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- wyświetla tą pomoc i wychodzi\n"
 
-#: ../src/panel.c:819
+#: ../src/panel.c:818
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- wyświetla numer wersji i wychodzi\n"
 
-#: ../src/panel.c:820
+#: ../src/panel.c:819
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 " --log <number> -- ustawia poziom raportowania 0-5. 0 - brak 5 - wylewny\n"
 
-#: ../src/panel.c:821
+#: ../src/panel.c:820
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- uruchamia narzędzie konfiguracji\n"
 
-#: ../src/panel.c:822
+#: ../src/panel.c:821
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile nazwa -- używa określonego profilu\n"
 
-#: ../src/panel.c:824
+#: ../src/panel.c:823
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- to samo co --help\n"
 
-#: ../src/panel.c:825
+#: ../src/panel.c:824
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- to samo co --profile\n"
 
-#: ../src/panel.c:826
+#: ../src/panel.c:825
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- to samo co --version\n"
 
-#: ../src/panel.c:827
+#: ../src/panel.c:826
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- to samo co --configure\n"
 
-#: ../src/panel.c:828
+#: ../src/panel.c:827
 #, c-format
 msgid ""
 "\n"
@@ -271,11 +275,11 @@ msgstr "Tacka systemowa"
 msgid "Old KDE/GNOME Tray"
 msgstr "Stara tacka KDE/GNOME"
 
-#: ../src/plugins/cpu/cpu.c:217
+#: ../src/plugins/cpu/cpu.c:209
 msgid "CPU Usage Monitor"
 msgstr "Monitor użycia CPU"
 
-#: ../src/plugins/cpu/cpu.c:219
+#: ../src/plugins/cpu/cpu.c:211
 msgid "Display CPU usage"
 msgstr "Wyświetl użycie CPU"
 
@@ -291,19 +295,19 @@ msgstr "Pokaż numer przestrzeni roboczej, dzięki cmeury@users.sf.net"
 #. 1. We can borrow the menu from menu plugin (PtkAppMenu).
 #. 2. We can borrow the app chooser from PCManFM.
 #.
-#: ../src/plugins/launchbar.c:498
+#: ../src/plugins/launchbar.c:485
 msgid "Select Application"
 msgstr "Wybierz program"
 
-#: ../src/plugins/launchbar.c:647
+#: ../src/plugins/launchbar.c:634
 msgid "Buttons"
 msgstr "Przyciski"
 
-#: ../src/plugins/launchbar.c:760
+#: ../src/plugins/launchbar.c:747
 msgid "Application Launch Bar"
 msgstr "Pasek uruchamiania programów"
 
-#: ../src/plugins/launchbar.c:762
+#: ../src/plugins/launchbar.c:749
 msgid "Bar with buttons to launch application"
 msgstr "Pasek z przyciskami do uruchamiania programów"
 
@@ -351,85 +355,85 @@ msgstr "Biuro"
 msgid "Accessories"
 msgstr "Akcesoria"
 
-#: ../src/plugins/taskbar.c:1211
+#: ../src/plugins/taskbar.c:1216
 msgid "Raise"
 msgstr "Rozwiń"
 
-#: ../src/plugins/taskbar.c:1215
+#: ../src/plugins/taskbar.c:1220
 msgid "Restore"
 msgstr "Przywróć"
 
-#: ../src/plugins/taskbar.c:1219
+#: ../src/plugins/taskbar.c:1224
 msgid "Maximize"
 msgstr "Maksymalizuj"
 
-#: ../src/plugins/taskbar.c:1223
+#: ../src/plugins/taskbar.c:1228
 msgid "Iconify"
 msgstr "Minimalizuj"
 
-#: ../src/plugins/taskbar.c:1232
+#: ../src/plugins/taskbar.c:1237
 #, c-format
 msgid "Workspace %d"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1240
+#: ../src/plugins/taskbar.c:1245
 msgid "All workspaces"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1247
+#: ../src/plugins/taskbar.c:1252
 msgid "Move to Workspace"
 msgstr ""
 
 #. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1255
+#: ../src/plugins/taskbar.c:1260
 msgid "Close Window"
 msgstr "Zamknij okno"
 
-#: ../src/plugins/taskbar.c:1488
+#: ../src/plugins/taskbar.c:1502
 msgid "Show tooltips"
 msgstr "Pokaż podpowiedzi"
 
-#: ../src/plugins/taskbar.c:1489
+#: ../src/plugins/taskbar.c:1503
 msgid "Icons only"
 msgstr "Tylko ikony"
 
-#: ../src/plugins/taskbar.c:1490
+#: ../src/plugins/taskbar.c:1504
 msgid "Accept SkipPager"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1491
+#: ../src/plugins/taskbar.c:1505
 msgid "Show Iconified windows"
 msgstr "Pokaż zikonizowane oka"
 
-#: ../src/plugins/taskbar.c:1492
+#: ../src/plugins/taskbar.c:1506
 msgid "Show mapped windows"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1493
+#: ../src/plugins/taskbar.c:1507
 msgid "Show windows from all desktops"
 msgstr "Pokaż okna ze wszytskich pulpitów"
 
-#: ../src/plugins/taskbar.c:1494
+#: ../src/plugins/taskbar.c:1508
 msgid "Use mouse wheel"
 msgstr "Użyj rolki myszy"
 
-#: ../src/plugins/taskbar.c:1495
+#: ../src/plugins/taskbar.c:1509
 msgid "Flash when there is any window requiring attention"
 msgstr "Migaj gdy okno wymaga uwagi"
 
-#: ../src/plugins/taskbar.c:1496
+#: ../src/plugins/taskbar.c:1510
 msgid "Max width of task button"
 msgstr "Maksymalna szerokośc przycisku zadań"
 
-#: ../src/plugins/taskbar.c:1497
+#: ../src/plugins/taskbar.c:1511
 msgid "Spacing"
 msgstr "Odstępy"
 
-#: ../src/plugins/taskbar.c:1574
+#: ../src/plugins/taskbar.c:1588
 msgid "Task Bar (Window List)"
 msgstr "Pasek zadań (Lista okien)"
 
-#: ../src/plugins/taskbar.c:1576
+#: ../src/plugins/taskbar.c:1590
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -437,43 +441,43 @@ msgstr ""
 "Pasek zadań pokazuje wszyski otwarte okna i umożliwia ich ikonizację, "
 "zwinięcie lub wywołanie"
 
-#: ../src/plugins/dclock.c:242
+#: ../src/plugins/dclock.c:238
 msgid "Clock Format"
 msgstr "Format zegara"
 
-#: ../src/plugins/dclock.c:243
+#: ../src/plugins/dclock.c:239
 msgid "Tooltip Format"
 msgstr "Format podpowiedzi"
 
-#: ../src/plugins/dclock.c:244
+#: ../src/plugins/dclock.c:240
 msgid "Action"
 msgstr "Akcja"
 
-#: ../src/plugins/dclock.c:245
+#: ../src/plugins/dclock.c:241
 msgid "Bold font"
 msgstr ""
 
-#: ../src/plugins/dclock.c:280
+#: ../src/plugins/dclock.c:276
 msgid "Digital Clock"
 msgstr "Zegar cyfrowy"
 
-#: ../src/plugins/dclock.c:282
+#: ../src/plugins/dclock.c:278
 msgid "Display Digital clock and Tooltip"
 msgstr "Wyświetl zegar cyfrowy i podpowiedź"
 
-#: ../src/plugins/menu.c:589
+#: ../src/plugins/menu.c:588
 msgid "Menu"
 msgstr "Menu"
 
-#: ../src/plugins/menu.c:591
+#: ../src/plugins/menu.c:590
 msgid "Provide Menu"
 msgstr ""
 
-#: ../src/plugins/separator.c:92
+#: ../src/plugins/separator.c:93
 msgid "Separator"
 msgstr ""
 
-#: ../src/plugins/separator.c:94
+#: ../src/plugins/separator.c:95
 msgid "Add a separator to the panel"
 msgstr ""
 
@@ -481,37 +485,37 @@ msgstr ""
 msgid "Dispaly Image and Tooltip"
 msgstr "Wyświetl obraz i podpowiedź"
 
-#: ../src/plugins/pager.c:699
+#: ../src/plugins/pager.c:702
 msgid "Desktop Pager"
 msgstr "Pager pulpitu"
 
-#: ../src/plugins/pager.c:701
+#: ../src/plugins/pager.c:704
 msgid "Simple pager plugin"
 msgstr "Prosta wtyczka pagera"
 
-#: ../src/plugins/space.c:131 ../src/plugins/batt/batt.c:816
+#: ../src/plugins/space.c:133 ../src/plugins/batt/batt.c:818
 msgid "Size"
 msgstr "Rozmiar"
 
-#: ../src/plugins/space.c:146
+#: ../src/plugins/space.c:148
 msgid "<Space>"
 msgstr "<Spacja>"
 
-#: ../src/plugins/space.c:148
+#: ../src/plugins/space.c:150
 msgid "Allocate space"
 msgstr ""
 
-#: ../src/plugins/wincmd.c:264
+#: ../src/plugins/wincmd.c:256
 msgid "Left click to iconify all windows. Middle click to shade them"
 msgstr ""
 "Kilknij prawym klawiszem myszy aby zminimalizować, środkowym aby zwinąć "
 "wszystkie okna."
 
-#: ../src/plugins/wincmd.c:289
+#: ../src/plugins/wincmd.c:285
 msgid "Minimize All Windows"
 msgstr "Minimalizuj wszystkie okna"
 
-#: ../src/plugins/wincmd.c:291
+#: ../src/plugins/wincmd.c:287
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commnds are 1)toggle iconify and 2) toggle shade"
@@ -519,36 +523,36 @@ msgstr ""
 "Wysyła komendę do wszystkich okien pulpity.\n"
 "Wsppierane komendy 1)minimalizuj wszystko 2) zwiń wszystko"
 
-#: ../src/plugins/dirmenu.c:207
+#: ../src/plugins/dirmenu.c:206
 msgid "Open in _Terminal"
 msgstr ""
 
-#: ../src/plugins/dirmenu.c:373
+#: ../src/plugins/dirmenu.c:368
 msgid "Directory Menu"
 msgstr ""
 
-#: ../src/plugins/dirmenu.c:375
+#: ../src/plugins/dirmenu.c:370
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr ""
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
-#: ../src/plugins/volume/volume.c:148
-#: ../src/plugins/volumealsa/volumealsa.c:297
+#: ../src/plugins/volume/volume.c:146
+#: ../src/plugins/volumealsa/volumealsa.c:287
 msgid "Volume control"
 msgstr "Poziom głoścności"
 
-#: ../src/plugins/volume/volume.c:159
-#: ../src/plugins/volumealsa/volumealsa.c:308
+#: ../src/plugins/volume/volume.c:158
+#: ../src/plugins/volumealsa/volumealsa.c:301
 msgid "Volume Control"
 msgstr "Kontrola głośności"
 
 #. create frame
 #: ../src/plugins/volume/volume-impl.c:100
-#: ../src/plugins/volumealsa/volumealsa.c:191
+#: ../src/plugins/volumealsa/volumealsa.c:190
 msgid "Volume"
 msgstr "Głośność"
 
-#: ../src/plugins/volumealsa/volumealsa.c:207
+#: ../src/plugins/volumealsa/volumealsa.c:206
 msgid "Mute"
 msgstr ""
 
@@ -633,13 +637,13 @@ msgstr "Adres rozgłoszeniowy"
 msgid "HW Address:"
 msgstr "Adres:"
 
-#: ../src/plugins/netstat/netstat.c:385
-#: ../src/plugins/netstatus/netstatus.c:179
+#: ../src/plugins/netstat/netstat.c:388
+#: ../src/plugins/netstatus/netstatus.c:181
 msgid "Net Status Monitor"
 msgstr "Monitor statusu sieci"
 
-#: ../src/plugins/netstat/netstat.c:387
-#: ../src/plugins/netstatus/netstatus.c:181
+#: ../src/plugins/netstat/netstat.c:390
+#: ../src/plugins/netstatus/netstatus.c:183
 msgid "Monitor network status"
 msgstr "Status monitora sieci"
 
@@ -659,11 +663,11 @@ msgstr ""
 msgid "Encryption Key:"
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus.c:161
+#: ../src/plugins/netstatus/netstatus.c:163
 msgid "Interface to monitor"
 msgstr "Interfejs do monitorowania"
 
-#: ../src/plugins/netstatus/netstatus.c:162
+#: ../src/plugins/netstatus/netstatus.c:164
 msgid "Config tool"
 msgstr "Narzędzie konfiguracji"
 
@@ -833,76 +837,76 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../src/plugins/batt/batt.c:331
+#: ../src/plugins/batt/batt.c:330
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:340
+#: ../src/plugins/batt/batt.c:339
 #, c-format
 msgid "Battery: %d%% charged, %s"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:342
+#: ../src/plugins/batt/batt.c:341
 msgid "charging finished"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:342
+#: ../src/plugins/batt/batt.c:341
 msgid "not charging"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:347
+#: ../src/plugins/batt/batt.c:346
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:395
+#: ../src/plugins/batt/batt.c:394
 #, c-format
 msgid "No batteries found"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:806
+#: ../src/plugins/batt/batt.c:808
 msgid "Hide if there is no battery"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:808
+#: ../src/plugins/batt/batt.c:810
 msgid "Alarm command"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:809
+#: ../src/plugins/batt/batt.c:811
 msgid "Alarm time (minutes left)"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:810
+#: ../src/plugins/batt/batt.c:812
 msgid "Background color"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:811
+#: ../src/plugins/batt/batt.c:813
 msgid "Charging color 1"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:812
+#: ../src/plugins/batt/batt.c:814
 msgid "Charging color 2"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:813
+#: ../src/plugins/batt/batt.c:815
 msgid "Discharging color 1"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:814
+#: ../src/plugins/batt/batt.c:816
 msgid "Discharging color 2"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:815
+#: ../src/plugins/batt/batt.c:817
 msgid "Border width"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:850
+#: ../src/plugins/batt/batt.c:852
 #, fuzzy
 msgid "Battery Monitor"
 msgstr "Monitor użycia CPU"
 
-#: ../src/plugins/batt/batt.c:852
+#: ../src/plugins/batt/batt.c:854
 msgid "Display battery status using ACPI"
 msgstr ""
 

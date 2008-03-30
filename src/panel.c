@@ -35,7 +35,6 @@
 #include "panel.h"
 #include "misc.h"
 #include "bg.h"
-#include "gtkbgbox.h"
 
 #include "lxpanelctl.h"
 
@@ -257,26 +256,89 @@ static gint
 panel_destroy_event(GtkWidget * widget, GdkEvent * event, gpointer data)
 {
     //panel *p = (panel *) data;
-
-    ENTER;
     //if (!p->self_destroy)
     gtk_main_quit();
     RET(FALSE);
 }
 
+static void
+on_root_bg_changed(FbBg *bg, panel* p)
+{
+    panel_update_background( p );
+}
+
+/* This function should only be called after the panel has been realized */
+void panel_update_background( panel* p )
+{
+    GList* l;
+    GdkPixmap* pixmap = NULL;
+
+    /* handle background image of panel */
+    gtk_widget_set_app_paintable(p->topgwin, TRUE);
+
+    if (p->background) {
+        pixmap = fb_bg_get_pix_from_file(p->topgwin, p->background_file);
+        if( p->bg )
+        {
+            g_object_unref( p->bg );
+            p->bg = NULL;
+        }
+    } else if (p->transparent) {
+        if( ! p->bg )
+        {
+            p->bg = fb_bg_get_for_display();
+            g_signal_connect(G_OBJECT(p->bg), "changed", G_CALLBACK(on_root_bg_changed), p);
+        }
+        pixmap = fb_bg_get_xroot_pix_for_win( p->bg, p->topgwin );
+
+        if (pixmap && pixmap !=  GDK_NO_BG) {
+            if (p->alpha)
+                fb_bg_composite( pixmap, p->topgwin->style->black_gc, p->tintcolor, p->alpha );
+        }
+    }
+    else
+    {
+        if( p->bg )
+        {
+            g_object_unref( p->bg );
+            p->bg = NULL;
+        }
+    }
+
+    if( pixmap )
+    {
+        gtk_widget_set_app_paintable( p->topgwin, TRUE );
+        gdk_window_set_back_pixmap( p->topgwin->window, pixmap, FALSE );
+        g_object_unref( pixmap );
+    }
+    else
+    {
+//        gdk_window_set_back_pixmap( p->topgwin->window, p->topgwin->style->bg_pixmap[0], FALSE );
+        gtk_widget_set_app_paintable( p->topgwin, FALSE );
+//        gdk_window_set_background( p->topgwin->window, &p->topgwin->style->bg[0] );
+    }
+
+    for( l = p->plugins; l; l = l->next )
+    {
+        plugin* pl = (plugin*)l->data;
+        plugin_set_background( pl, p );
+    }
+
+    gdk_window_clear( p->topgwin->window );
+    gtk_widget_queue_draw( p->topgwin );
+}
 
 static void
 panel_realize(GtkWidget *widget, panel *p)
 {
-    ENTER;
-    RET();
 
 }
+
 static gint
 panel_size_req(GtkWidget *widget, GtkRequisition *req, panel *p)
 {
     ENTER;
-    DBG("IN req=(%d, %d)\n", req->width, req->height);
+
     if (p->widthtype == WIDTH_REQUEST)
         p->width = (p->orientation == ORIENT_HORIZ) ? req->width : req->height;
     if (p->heighttype == HEIGHT_REQUEST)
@@ -284,7 +346,7 @@ panel_size_req(GtkWidget *widget, GtkRequisition *req, panel *p)
     calculate_position(p);
     req->width  = p->aw;
     req->height = p->ah;
-    DBG("OUT req=(%d, %d)\n", req->width, req->height);
+
     RET( TRUE );
 }
 
@@ -292,22 +354,17 @@ static gint
 panel_size_alloc(GtkWidget *widget, GtkAllocation *a, panel *p)
 {
     ENTER;
-    DBG("installed alloc: size (%d, %d). pos (%d, %d)\n", a->width, a->height, a->x, a->y);
-    DBG("suggested alloc: size (%d, %d). pos (%d, %d)\n", a->width, a->height, a->x, a->y);
-    DBG("prev pref alloc: size (%d, %d). pos (%d, %d)\n", p->aw, p->ah, p->ax, p->ay);
     if (p->widthtype == WIDTH_REQUEST)
         p->width = (p->orientation == ORIENT_HORIZ) ? a->width : a->height;
     if (p->heighttype == HEIGHT_REQUEST)
         p->height = (p->orientation == ORIENT_HORIZ) ? a->height : a->width;
     calculate_position(p);
-    DBG("curr pref alloc: size (%d, %d). pos (%d, %d)\n", p->aw, p->ah, p->ax, p->ay);
+
     if (a->width == p->aw && a->height == p->ah && a->x == p->ax && a->y == p ->ay) {
-        DBG("actual coords eq to preffered. just returning\n");
         RET(TRUE);
     }
 
     gtk_window_move(GTK_WINDOW(p->topgwin), p->ax, p->ay);
-    DBG("moving to %d %d\n", p->ax, p->ay);
     panel_set_wm_strut(p);
     RET(TRUE);
 }
@@ -323,13 +380,11 @@ panel_configure_event (GtkWidget *widget, GdkEventConfigure *e, panel *p)
     p->ch = e->height;
     p->cx = e->x;
     p->cy = e->y;
-    DBG("here\n");
+
     if (p->transparent)
         fb_bg_notify_changed_bg(p->bg);
-    DBG("here\n");
-    DBG("geom: size (%d, %d). pos (%d, %d)\n", e->width, e->height, e->x, e->y);
-    RET(FALSE);
 
+    RET(FALSE);
 }
 
 
@@ -340,48 +395,7 @@ static void
 make_round_corners(panel *p)
 {
     /* FIXME: This should be re-written with shape extension of X11 */
-#if 0
-    GtkWidget *b1, *b2, *img;
-    GtkWidget *(*box_new) (gboolean, gint);
-    void (*box_pack)(GtkBox *, GtkWidget *, gboolean, gboolean, guint);
-    gchar *s1, *s2;
-#define IMGPREFIX  PACKAGE_DATA_DIR "/lxpanel/images/"
-
-    ENTER;
-    if (p->edge == EDGE_TOP) {
-        s1 = IMGPREFIX "top-left.xpm";
-        s2 = IMGPREFIX "top-right.xpm";
-    } else if (p->edge == EDGE_BOTTOM) {
-        s1 = IMGPREFIX "bottom-left.xpm";
-        s2 = IMGPREFIX "bottom-right.xpm";
-    } else if (p->edge == EDGE_LEFT) {
-        s1 = IMGPREFIX "top-left.xpm";
-        s2 = IMGPREFIX "bottom-left.xpm";
-    } else if (p->edge == EDGE_RIGHT) {
-        s1 = IMGPREFIX "top-right.xpm";
-        s2 = IMGPREFIX "bottom-right.xpm";
-    } else
-        RET();
-
-    box_new = (p->orientation == ORIENT_HORIZ) ? gtk_vbox_new : gtk_hbox_new;
-    b1 = box_new(0, FALSE);
-    gtk_widget_show(b1);
-    b2 = box_new(0, FALSE);
-    gtk_widget_show(b2);
-
-    box_pack = (p->edge == EDGE_TOP || p->edge == EDGE_LEFT) ?
-        gtk_box_pack_start : gtk_box_pack_end;
-
-    img = gtk_image_new_from_file(s1);
-    gtk_widget_show(img);
-    box_pack(GTK_BOX(b1), img, FALSE, FALSE, 0);
-    img = gtk_image_new_from_file(s2);
-    gtk_widget_show(img);
-    box_pack(GTK_BOX(b2), img, FALSE, FALSE, 0);
-    gtk_box_pack_start(GTK_BOX(p->lbox), b1, FALSE, FALSE, 0);
-    gtk_box_pack_end(GTK_BOX(p->lbox), b2, FALSE, FALSE, 0);
-    RET();
-#endif
+    /* gdk_window_shape_combine_mask() can be used */
 }
 
 void panel_set_dock_type(panel *p)
@@ -430,32 +444,12 @@ panel_start_gui(panel *p)
 
     gtk_widget_realize(p->topgwin);
     //gdk_window_set_decorations(p->topgwin->window, 0);
-    gtk_widget_set_app_paintable(p->topgwin, TRUE);
 
-    // background box all over toplevel
-    p->bbox = gtk_bgbox_new();
-    gtk_container_add(GTK_CONTAINER(p->topgwin), p->bbox);
-    gtk_widget_show(p->bbox);
-    gtk_container_set_border_width(GTK_CONTAINER(p->bbox), 0);
-
-    /* font color */
-    gtk_widget_modify_text(GTK_WIDGET(p->bbox), GTK_STATE_NORMAL, &p->gfontcolor);
-
-    /* background image */
-    //p->defstyle = gtk_style_copy(p->bbox->style);
-    p->defstyle = gtk_style_new();
-    if (p->background) {
-        p->bbox->style->bg_pixmap[0] = fb_bg_get_pix_from_file(p->bbox, p->background_file);
-        gtk_bgbox_set_background(p->bbox, BG_STYLE, 0, 0);
-    } else if (p->transparent) {
-        p->bg = fb_bg_get_for_display();
-        gtk_bgbox_set_background(p->bbox, BG_ROOT, p->tintcolor, p->alpha);
-    }
-
-    // main layout manager as a single child of background widget box
+    // main layout manager as a single child of panel
     p->box = p->my_box_new(FALSE, 0);
     gtk_container_set_border_width(GTK_CONTAINER(p->box), 0);
-    gtk_container_add(GTK_CONTAINER(p->bbox), p->box);
+//    gtk_container_add(GTK_CONTAINER(p->bbox), p->box);
+    gtk_container_add(GTK_CONTAINER(p->topgwin), p->box);
     gtk_widget_show(p->box);
     if (p->round_corners)
         make_round_corners(p);
@@ -529,7 +523,7 @@ void panel_set_orientation(panel *p)
         GtkBox* newbox = GTK_BOX(recreate_box( GTK_BOX(p->box), p->orientation ));
         if( GTK_WIDGET(newbox) != p->box ) {
             p->box = GTK_WIDGET(newbox);
-            gtk_container_add( GTK_CONTAINER(p->bbox), GTK_WIDGET(newbox) );
+            gtk_container_add( GTK_CONTAINER(p->topgwin), GTK_WIDGET(newbox) );
         }
     }
     /* NOTE: This loop won't be executed when panel started since
@@ -616,6 +610,7 @@ panel_parse_global(panel *p, char **fp)
         }
     }
     panel_set_orientation( p );
+
     if (p->width < 0)
         p->width = 100;
     if (p->widthtype == WIDTH_PERCENT && p->width > 100)
@@ -764,6 +759,10 @@ panel_start( panel *p, char **fp )
         panel_parse_plugin(p, fp);
     }
     gtk_widget_show_all(p->topgwin);
+
+    /* update backgrond of panel and all plugins */
+    panel_update_background( p );
+
     print_wmdata(p);
     RET(1);
 }

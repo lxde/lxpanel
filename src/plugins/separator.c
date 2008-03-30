@@ -42,18 +42,17 @@ separator_constructor(plugin *p, char **fp)
         }
     }
     eb = gtk_event_box_new();
+    GTK_WIDGET_SET_FLAGS( eb, GTK_NO_WINDOW );
+
     gtk_container_set_border_width(GTK_CONTAINER(eb), 1);
     gtk_widget_show(eb);
-    /*
-    g_signal_connect(G_OBJECT(eb), "expose_event",
-          G_CALLBACK(gtk_widget_queue_draw), NULL);
-    */
+
     sep = p->panel->my_separator_new();
     gtk_widget_show(sep);
     gtk_container_add (GTK_CONTAINER (eb), sep);
-    gtk_container_add(GTK_CONTAINER(p->pwid), eb);
     p->priv = eb; /* just to alloc smth */
 
+    p->pwid = eb;
     RET(1);
 }
 
@@ -61,8 +60,10 @@ static void
 separator_destructor(plugin *p)
 {
     ENTER;
+/* The widget is destroyed in plugin_stop().
     GtkWidget* eb = GTK_WIDGET((GtkEventBox*)p->priv);
     gtk_widget_destroy( eb );
+*/
     RET();
 }
 

@@ -75,6 +75,9 @@ void plugin_class_unref( plugin_class* pc );
 GList* plugin_get_available_classes();
 void plugin_class_list_free( GList* classes );
 
+void plugin_set_background( plugin* pl, panel* p );
+void plugin_widget_set_background( GtkWidget* w, panel* p );
+
 /* FIXME: optional definitions */
 #define STATIC_SEPARATOR
 /* #define STATIC_IMAGE */

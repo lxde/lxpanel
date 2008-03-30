@@ -4,7 +4,7 @@
  *  allocating and destroying widgets. It helps in debuging panels's
  *  geometry engine (panel.c )
  */
-    
+
 
 
 #include <time.h>
@@ -42,7 +42,7 @@ static gint
 clock_update(gpointer data )
 {
     test *dc = (test *)data;
-     
+
     ENTER;
     if (dc->count >= WID_NUM-1)
         dc->delta = -1;
@@ -64,7 +64,7 @@ test_constructor(plugin *p)
 {
     test *dc;
     line s;
-    
+
     ENTER;
     dc = g_new0(test, 1);
     g_return_val_if_fail(dc != NULL, 0);
@@ -76,7 +76,7 @@ test_constructor(plugin *p)
     }
     dc->main = p->panel->my_box_new(TRUE, 1);
     gtk_widget_show(dc->main);
-    gtk_container_add(GTK_CONTAINER(p->pwid), dc->main);
+    p->pwid = dc->main;
 
     dc->timer = g_timeout_add(200, clock_update, (gpointer)dc);
 

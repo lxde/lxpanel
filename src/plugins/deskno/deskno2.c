@@ -98,7 +98,7 @@ deskno_constructor(plugin *p, char** fp)
 
     update_all(dc->main, dc);
 
-    gtk_container_add(GTK_CONTAINER(p->pwid), dc->main);
+    p->pwid = dc->main;
     gtk_widget_show_all(p->pwid);
 
     g_signal_connect (G_OBJECT (fbev), "current_desktop", G_CALLBACK (update_dno), (gpointer) dc);

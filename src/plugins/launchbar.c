@@ -31,7 +31,6 @@
 #include "panel.h"
 #include "misc.h"
 #include "plugin.h"
-#include "gtkbgbox.h"
 
 //#define DEBUG
 #include "dbg.h"
@@ -313,15 +312,6 @@ read_button(plugin *p, char** fp)
     lb->btns = g_slist_append( lb->btns, btn );
 
     gtk_widget_show(button);
-    //gtk_bgbox_set_background(button, BG_ROOT, 0xFFFFFF, 20);
-
-    /* background image */
-    if (p->panel->background) {
-        button->style->bg_pixmap[0] = p->panel->bbox->style->bg_pixmap[0];
-        gtk_bgbox_set_background(button, BG_STYLE, 0, 0);
-    } else if (p->panel->transparent) {
-        gtk_bgbox_set_background(button, BG_ROOT, p->panel->tintcolor, p->panel->alpha);
-    }
 
     g_free(fname);
 
@@ -329,7 +319,6 @@ read_button(plugin *p, char** fp)
     if ( btn->tooltip ) {
         gtk_tooltips_set_tip(GTK_TOOLTIPS (lb->tips), button, btn->tooltip, NULL);
     }
-
     RET(1);
 
  error:
@@ -366,30 +355,28 @@ launchbar_constructor(plugin *p, char **fp)
         "widget '*' style 'launchbar-style'";
 
     ENTER;
-    gtk_widget_set_name(p->pwid, "launchbar");
     gtk_rc_parse_string(launchbar_rc);
+
+    p->pwid = gtk_event_box_new();
+    GTK_WIDGET_SET_FLAGS( p->pwid, GTK_NO_WINDOW );
+
+    gtk_widget_set_name(p->pwid, "launchbar");
     get_button_spacing(&req, GTK_CONTAINER(p->pwid), "");
 
     lb = g_slice_new0(launchbar);
     g_return_val_if_fail(lb != NULL, 0);
     p->priv = lb;
     lb->box = p->panel->my_box_new(FALSE, 0);
-    gtk_container_add(GTK_CONTAINER(p->pwid), lb->box);
+
+    gtk_container_add( (GtkContainer*)p->pwid, lb->box );
+
     gtk_container_set_border_width (GTK_CONTAINER (lb->box), 0);
     gtk_widget_show(lb->box);
 
     /* Use the shared tooltip object provided by the panel, and
        we don't need to create a new one. */
     lb->tips = p->panel->tooltips;
-/*
-    lb->tips = gtk_tooltips_new();
-#if GLIB_CHECK_VERSION( 2, 10, 0 )
-    g_object_ref_sink( lb->tips );
-#else
-    g_object_ref( lb->tips );
-    gtk_object_sink( lb->tips );
-#endif
-*/
+
     if  (p->panel->orientation == ORIENT_HORIZ)
         lb->iconsize = GTK_WIDGET(p->panel->box)->allocation.height;
     else
