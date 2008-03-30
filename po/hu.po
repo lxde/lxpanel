@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel-0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-03-30 11:40+0800\n"
-"PO-Revision-Date: 2008-03-23 10:47+0100\n"
+"PO-Revision-Date: 2008-03-30 08:35+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: Hungarian <debian-l10n-hungarian@lists.debian.org>\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,8 @@ msgstr ""
 msgid "Preferences"
 msgstr "Jellemzők"
 
-#: ../src/configurator.c:46 ../src/gtk-run.c:112
+#: ../src/configurator.c:46
+#: ../src/gtk-run.c:112
 msgid "Run"
 msgstr "Futtat"
 
@@ -43,11 +44,13 @@ msgstr "<b>Helyzet</b>"
 msgid "Edge:"
 msgstr "Szél:"
 
-#: ../src/configurator.c:257 ../src/configurator.c:281
+#: ../src/configurator.c:257
+#: ../src/configurator.c:281
 msgid "Left"
 msgstr "Balra"
 
-#: ../src/configurator.c:258 ../src/configurator.c:283
+#: ../src/configurator.c:258
+#: ../src/configurator.c:283
 msgid "Right"
 msgstr "Jobbra"
 
@@ -86,7 +89,8 @@ msgstr "Szélesség:"
 msgid "dynamic"
 msgstr "dinamikus"
 
-#: ../src/configurator.c:398 ../src/configurator.c:426
+#: ../src/configurator.c:398
+#: ../src/configurator.c:426
 msgid "pixels"
 msgstr "képpontok"
 
@@ -209,9 +213,7 @@ msgstr " --version   -- kiírja a verziót és kilép\n"
 #: ../src/panel.c:820
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <szám> -- napló szint beállítása 0 és 5 között. 0 - üres 5 - "
-"csacsogó\n"
+msgstr " --log <szám> -- napló szint beállítása 0 és 5 között. 0 - üres 5 - csacsogó\n"
 
 #: ../src/panel.c:821
 #, c-format
@@ -425,12 +427,8 @@ msgid "Task Bar (Window List)"
 msgstr "Feladatsáv (ablak lista)"
 
 #: ../src/plugins/taskbar.c:1576
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
-msgstr ""
-"A feladatsáv mutatja a megnyitott ablakokat és lehetővé teszi ikonná "
-"tevésüket, az árnyékolást vagy fókusz kapást"
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr "A feladatsáv mutatja a megnyitott ablakokat és lehetővé teszi ikonná tevésüket, az árnyékolást vagy fókusz kapást"
 
 #: ../src/plugins/dclock.c:242
 msgid "Clock Format"
@@ -484,13 +482,14 @@ msgstr "Asztali lapozó"
 msgid "Simple pager plugin"
 msgstr "Egyszerű lapozó beillesztés"
 
-#: ../src/plugins/space.c:131 ../src/plugins/batt/batt.c:816
+#: ../src/plugins/space.c:131
+#: ../src/plugins/batt/batt.c:816
 msgid "Size"
 msgstr "Méret"
 
 #: ../src/plugins/space.c:146
 msgid "<Space>"
-msgstr "<Szóköz>"
+msgstr "<Térköz>"
 
 #: ../src/plugins/space.c:148
 msgid "Allocate space"
@@ -551,9 +550,8 @@ msgstr ""
 
 #. Repair
 #: ../src/plugins/netstat/netstat.c:179
-#, fuzzy
 msgid "Repair"
-msgstr "Újraindít"
+msgstr "Javít"
 
 #: ../src/plugins/netstat/netstat.c:237
 msgid "Network cable is plugged out"
@@ -563,50 +561,51 @@ msgstr ""
 msgid "Connection has limited or no connectivity"
 msgstr ""
 
-#: ../src/plugins/netstat/netstat.c:243 ../src/plugins/netstat/netstat.c:254
+#: ../src/plugins/netstat/netstat.c:243
+#: ../src/plugins/netstat/netstat.c:254
 #: ../src/plugins/netstat/netstat.c:265
-#, fuzzy
 msgid "IP Address:"
-msgstr "Cím:"
+msgstr "IP cím:"
 
 #: ../src/plugins/netstat/netstat.c:244
 msgid "Remote IP:"
 msgstr ""
 
-#: ../src/plugins/netstat/netstat.c:245 ../src/plugins/netstat/netstat.c:256
+#: ../src/plugins/netstat/netstat.c:245
+#: ../src/plugins/netstat/netstat.c:256
 #: ../src/plugins/netstat/netstat.c:267
-#, fuzzy
 msgid "Netmask:"
-msgstr "Alhálózati maszk"
+msgstr "Hálózati maszk"
 
-#: ../src/plugins/netstat/netstat.c:246 ../src/plugins/netstat/netstat.c:258
+#: ../src/plugins/netstat/netstat.c:246
+#: ../src/plugins/netstat/netstat.c:258
 #: ../src/plugins/netstat/netstat.c:269
-#, fuzzy
 msgid "Activity"
-msgstr "<b>Aktivitás</b>"
+msgstr "Aktivitás"
 
-#: ../src/plugins/netstat/netstat.c:246 ../src/plugins/netstat/netstat.c:258
+#: ../src/plugins/netstat/netstat.c:246
+#: ../src/plugins/netstat/netstat.c:258
 #: ../src/plugins/netstat/netstat.c:269
-#, fuzzy
 msgid "Sent"
-msgstr "Küldött:"
+msgstr "Küldött"
 
-#: ../src/plugins/netstat/netstat.c:246 ../src/plugins/netstat/netstat.c:258
+#: ../src/plugins/netstat/netstat.c:246
+#: ../src/plugins/netstat/netstat.c:258
 #: ../src/plugins/netstat/netstat.c:269
-#, fuzzy
 msgid "Received"
-msgstr "Fogadott:"
+msgstr "Fogadott"
 
-#: ../src/plugins/netstat/netstat.c:247 ../src/plugins/netstat/netstat.c:259
+#: ../src/plugins/netstat/netstat.c:247
+#: ../src/plugins/netstat/netstat.c:259
 #: ../src/plugins/netstat/netstat.c:270
 msgid "bytes"
 msgstr ""
 
-#: ../src/plugins/netstat/netstat.c:248 ../src/plugins/netstat/netstat.c:260
+#: ../src/plugins/netstat/netstat.c:248
+#: ../src/plugins/netstat/netstat.c:260
 #: ../src/plugins/netstat/netstat.c:271
-#, fuzzy
 msgid "packets"
-msgstr "%lu csomag"
+msgstr "csomagok"
 
 #: ../src/plugins/netstat/netstat.c:251
 msgid "Wireless"
@@ -616,14 +615,15 @@ msgstr ""
 msgid "Protocol:"
 msgstr ""
 
-#: ../src/plugins/netstat/netstat.c:255 ../src/plugins/netstat/netstat.c:266
+#: ../src/plugins/netstat/netstat.c:255
+#: ../src/plugins/netstat/netstat.c:266
 msgid "Boradcast:"
 msgstr ""
 
-#: ../src/plugins/netstat/netstat.c:257 ../src/plugins/netstat/netstat.c:268
-#, fuzzy
+#: ../src/plugins/netstat/netstat.c:257
+#: ../src/plugins/netstat/netstat.c:268
 msgid "HW Address:"
-msgstr "Cím:"
+msgstr "Hardver cím:"
 
 #: ../src/plugins/netstat/netstat.c:385
 #: ../src/plugins/netstatus/netstatus.c:179
@@ -857,31 +857,31 @@ msgstr ""
 
 #: ../src/plugins/batt/batt.c:808
 msgid "Alarm command"
-msgstr ""
+msgstr "Riasztási parancs"
 
 #: ../src/plugins/batt/batt.c:809
 msgid "Alarm time (minutes left)"
-msgstr ""
+msgstr "Riasztási idő (maradó percek)"
 
 #: ../src/plugins/batt/batt.c:810
 msgid "Background color"
-msgstr ""
+msgstr "Háttérszín"
 
 #: ../src/plugins/batt/batt.c:811
 msgid "Charging color 1"
-msgstr ""
+msgstr "Töltöttség szín 1"
 
 #: ../src/plugins/batt/batt.c:812
 msgid "Charging color 2"
-msgstr ""
+msgstr "Töltöttség szín 2"
 
 #: ../src/plugins/batt/batt.c:813
 msgid "Discharging color 1"
-msgstr ""
+msgstr "Lemerülő szín 1"
 
 #: ../src/plugins/batt/batt.c:814
 msgid "Discharging color 2"
-msgstr ""
+msgstr "Lemerülő szín 2"
 
 #: ../src/plugins/batt/batt.c:815
 msgid "Border width"
@@ -897,24 +897,18 @@ msgstr "Aksi állapotának jelzése ACPI által"
 
 #~ msgid "<b>Transparency</b>"
 #~ msgstr "<b>Átlátszóság</b>"
-
 #~ msgid "Icons"
 #~ msgstr "Ikonok"
-
 #~ msgid "Change window icons"
 #~ msgstr "Ablak ikonok cseréje"
-
 #~ msgid "Set Dock Type"
 #~ msgstr "Dokk típus beállítása"
-
 #~ msgid "_Add"
 #~ msgstr "新增(_A)"
-
 #~ msgid "_Remove"
 #~ msgstr "移除(_R)"
-
 #~ msgid "Right-click to get context menu. Drag & Drop to change order."
 #~ msgstr "可以按右鍵使用選單，用拖曳改變順序"
-
 #~ msgid "Plugins..."
 #~ msgstr "外掛..."
+
