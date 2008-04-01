@@ -64,7 +64,7 @@ static gboolean find_element(volume_t *vol, const char *ename)
     return FALSE;
 }
 
-static void asound_init(volume_t *vol)
+static gboolean asound_init(volume_t *vol)
 {
     snd_mixer_selem_id_alloca(&vol->sid);
     snd_mixer_open(&vol->mixer, 0);
@@ -76,12 +76,14 @@ static void asound_init(volume_t *vol)
     if (!find_element(vol, "Master"))
         if (!find_element(vol, "Front"))
             if (!find_element(vol, "PCM"))
-                exit;
+                return FALSE;
 
 
     snd_mixer_selem_get_playback_volume_range(vol->master_element, &vol->alsa_min_vol, &vol->alsa_max_vol);
 
     snd_mixer_selem_set_playback_volume_range(vol->master_element, 0, 100);
+
+    return TRUE;
 }
 
 static int asound_read(volume_t *vol)
@@ -251,7 +253,9 @@ volumealsa_constructor(plugin *p, char **fp)
     p->priv = vol;
 
     /* initializing */
-    asound_init(vol);
+    if (!asound_init(vol))
+        RET(1);
+
     panel_init(p);
 
     /* main */
