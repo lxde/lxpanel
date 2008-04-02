@@ -39,6 +39,7 @@ typedef struct {
     GtkWidget *eb;
     GtkWidget *main;
     GtkWidget *clockw;
+    GtkWidget *calwin;
     GtkTooltips *tip;
     char *tfmt;
     char *cfmt;
@@ -48,10 +49,39 @@ typedef struct {
     int timer;
     int usefontcolor;
     GdkColor *gfontcolor;
+    gboolean cal_show;
 } dclock;
 
 static void
 update_label_orient( plugin* p );
+
+static GtkWidget *create_calendar()
+{
+    GtkWidget *win;
+    GtkWidget *calendar;
+
+    /* create a new window */
+    win = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    gtk_window_set_decorated(GTK_WINDOW(win), FALSE);
+    gtk_container_set_border_width(GTK_CONTAINER(win), 5);
+    gtk_widget_set_size_request(GTK_WIDGET(win), 180, 180);
+    gtk_window_set_skip_taskbar_hint(GTK_WINDOW(win), TRUE);
+    gtk_window_set_skip_pager_hint(GTK_WINDOW(win), TRUE);
+    gtk_window_set_type_hint(GTK_WINDOW(win), GDK_WINDOW_TYPE_HINT_DIALOG);
+    gtk_window_set_position(GTK_WINDOW(win), GTK_WIN_POS_MOUSE);
+
+    /* calendar */
+    calendar = gtk_calendar_new();
+    gtk_calendar_display_options(GTK_CALENDAR(calendar),
+                                 GTK_CALENDAR_SHOW_WEEK_NUMBERS |
+                                 GTK_CALENDAR_SHOW_DAY_NAMES |
+                                 GTK_CALENDAR_SHOW_HEADING);
+    gtk_container_add(GTK_CONTAINER(win), calendar);
+
+    gtk_widget_show_all(win);
+
+    RET(win);
+}
 
 static int
 actionProcess( void *arg )
@@ -67,6 +97,15 @@ clicked( GtkWidget *widget, gpointer dummy, dclock *dc)
     if( dc->action ) {
         pthread_t actionThread;
         pthread_create(&actionThread, NULL, actionProcess, dc->action);
+    } else {
+        if (!dc->cal_show) {
+            dc->cal_show = TRUE;
+            dc->calwin = create_calendar();
+        } else {
+            dc->cal_show = FALSE;
+            gtk_widget_destroy(dc->calwin);
+            dc->calwin = NULL;
+        }
     }
     RET2(TRUE);
 }
@@ -128,6 +167,7 @@ dclock_constructor(plugin *p, char** fp)
     s.len = 256;
     dc->cfmt = dc->tfmt = dc->action = dc->bold = 0;
     dc->bold = TRUE;
+    dc->cal_show = FALSE;
     if( fp )
     {
         while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {

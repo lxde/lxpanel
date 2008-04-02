@@ -240,7 +240,7 @@ Plugin {
     config {
         ClockFmt = %R
         TooltipFmt = %A %x
-        Action = xmessage Please define some command &
+#        Action = xmessage Please define some command &
         BoldFont = false
     }
 }
