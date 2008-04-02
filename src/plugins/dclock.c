@@ -250,6 +250,7 @@ dclock_destructor(plugin *p)
         g_source_remove(dc->timer);
 
     /* g_object_unref( dc->tip ); */
+    gtk_widget_destroy(dc->calwin);
     g_free(dc->cfmt);
     g_free(dc->tfmt);
     g_free(dc->action);

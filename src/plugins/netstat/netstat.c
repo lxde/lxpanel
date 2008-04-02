@@ -72,6 +72,7 @@ static void wireless_connect(GtkWidget *widget, ap_setting *aps)
             cmdargs = g_strdup_printf("%s NULL OFF NULL %s", aps->ifname, aps->apaddr);
 
         lxnm_send_command(aps->gio, LXNM_WIRELESS_CONNECT, cmdargs);
+        g_free(cmdargs);
     } else {
         /* with encryption */
 
