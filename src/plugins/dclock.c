@@ -196,9 +196,8 @@ dclock_constructor(plugin *p, char** fp)
     }
     dc->main = gtk_event_box_new();
 
-    if (dc->action)
-        g_signal_connect (G_OBJECT (dc->main), "button_press_event",
-              G_CALLBACK (clicked), (gpointer) dc);
+    g_signal_connect (G_OBJECT (dc->main), "button_press_event",
+          G_CALLBACK (clicked), (gpointer) dc);
     dc->clockw = gtk_label_new("");
     gtk_misc_set_alignment(GTK_MISC(dc->clockw), 0.5, 0.5);
     gtk_misc_set_padding(GTK_MISC(dc->clockw), 4, 0);
