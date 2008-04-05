@@ -81,7 +81,7 @@ scroll (GtkWidget *widget, GdkEventScroll *event, deskno *dc)
 }
 
 static int
-deskno_constructor(plugin *p, char** fp)
+deskno_constructor(Plugin *p, char** fp)
 {
     deskno *dc;
     ENTER;
@@ -110,7 +110,7 @@ deskno_constructor(plugin *p, char** fp)
 
 
 static void
-deskno_destructor(plugin *p)
+deskno_destructor(Plugin *p)
 {
   deskno *dc = (deskno *)p->priv;
 
@@ -121,7 +121,7 @@ deskno_destructor(plugin *p)
   RET();
 }
 
-plugin_class deskno2_plugin_class = {
+PluginClass deskno2_plugin_class = {
     fname: NULL,
     count: 0,
 

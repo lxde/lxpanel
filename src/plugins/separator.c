@@ -27,7 +27,7 @@
 
 
 static int
-separator_constructor(plugin *p, char **fp)
+separator_constructor(Plugin *p, char **fp)
 {
     GtkWidget *sep, *eb;
     line s;
@@ -57,7 +57,7 @@ separator_constructor(plugin *p, char **fp)
 }
 
 static void
-separator_destructor(plugin *p)
+separator_destructor(Plugin *p)
 {
     ENTER;
 /* The widget is destroyed in plugin_stop().
@@ -67,7 +67,7 @@ separator_destructor(plugin *p)
     RET();
 }
 
-static void orientation_changed( plugin* p )
+static void orientation_changed( Plugin* p )
 {
     GtkWidget* eb = GTK_WIDGET((GtkEventBox*)p->priv);
     GtkWidget* sep = gtk_bin_get_child( GTK_BIN(eb) );
@@ -85,7 +85,7 @@ static void orientation_changed( plugin* p )
     gtk_container_add (GTK_CONTAINER (eb), sep);
 }
 
-plugin_class separator_plugin_class = {
+PluginClass separator_plugin_class = {
     fname: NULL,
     count: 0,
 

@@ -123,7 +123,7 @@ on_button_pressed(GtkWidget *widget, GdkEventButton *event, btn_t *b )
 }
 
 static void
-launchbar_destructor(plugin *p)
+launchbar_destructor(Plugin *p)
 {
     launchbar *lb = (launchbar *)p->priv;
 
@@ -187,7 +187,7 @@ drag_data_received_cb (GtkWidget        *widget,
 }
 
 static int
-read_button(plugin *p, char** fp)
+read_button(Plugin *p, char** fp)
 {
     launchbar *lb = (launchbar *)p->priv;
     gchar *fname;
@@ -328,7 +328,7 @@ read_button(plugin *p, char** fp)
 }
 
 static int
-launchbar_constructor(plugin *p, char **fp)
+launchbar_constructor(Plugin *p, char **fp)
 {
     launchbar *lb;
     line s;
@@ -415,7 +415,7 @@ launchbar_constructor(plugin *p, char **fp)
 
 }
 
-static void save_config( plugin* p, FILE* fp )
+static void save_config( Plugin* p, FILE* fp )
 {
     launchbar *lb = (launchbar *)p->priv;
     GSList* l;
@@ -434,7 +434,7 @@ static void save_config( plugin* p, FILE* fp )
     }
 }
 
-static void orientation_changed( plugin* p )
+static void orientation_changed( Plugin* p )
 {
     launchbar *lb = (launchbar *)p->priv;
     GtkBox* newbox;
@@ -448,7 +448,7 @@ static void orientation_changed( plugin* p )
 }
 
 static void
-on_response( GtkDialog* dlg, int response, plugin* p )
+on_response( GtkDialog* dlg, int response, Plugin* p )
 {
     launchbar *lb = (launchbar *)p->priv;
     gtk_widget_destroy( GTK_WIDGET(dlg) );
@@ -461,7 +461,7 @@ static void on_add_btn_response( GtkDialog* dlg, int response, int* ret )
     gtk_main_quit();
 }
 
-static void on_add_btn( GtkButton* widget, plugin* p )
+static void on_add_btn( GtkButton* widget, Plugin* p )
 {
     launchbar *lb = (launchbar *)p->priv;
     GtkTreeView* view = (GtkTreeView*)g_object_get_data( (GObject *) lb->config_dlg, "view" );
@@ -534,7 +534,7 @@ static void on_add_btn( GtkButton* widget, plugin* p )
     gtk_widget_destroy( dlg );
 }
 
-static void on_remove_btn( GtkButton* widget, plugin* p )
+static void on_remove_btn( GtkButton* widget, Plugin* p )
 {
     launchbar *lb = (launchbar *)p->priv;
     GtkTreeView* view = (GtkTreeView*)g_object_get_data( lb->config_dlg, "view" );
@@ -555,7 +555,7 @@ static void on_remove_btn( GtkButton* widget, plugin* p )
     }
 }
 
-static void on_up_btn( GtkButton* widget, plugin* p )
+static void on_up_btn( GtkButton* widget, Plugin* p )
 {
     launchbar *lb = (launchbar *)p->priv;
     btn_t *btn;
@@ -584,7 +584,7 @@ static void on_up_btn( GtkButton* widget, plugin* p )
     gtk_tree_path_free( path );
 }
 
-static void on_down_btn( GtkButton* widget, plugin* p )
+static void on_down_btn( GtkButton* widget, Plugin* p )
 {
     launchbar *lb = (launchbar *)p->priv;
     btn_t *btn;
@@ -614,7 +614,7 @@ static void on_down_btn( GtkButton* widget, plugin* p )
     gtk_tree_path_free( path );
 }
 
-static void init_btn_list( plugin* p, GtkTreeView* view )
+static void init_btn_list( Plugin* p, GtkTreeView* view )
 {
     launchbar *lb = (launchbar *)p->priv;
     GtkListStore *list;
@@ -675,7 +675,7 @@ static void init_btn_list( plugin* p, GtkTreeView* view )
     g_object_set_data( lb->config_dlg, "view", view );
 }
 
-static void launchbar_config( plugin *p, GtkWindow* parent )
+static void launchbar_config( Plugin *p, GtkWindow* parent )
 {
     GtkWidget *dlg, *hbox, *vbox, *scroll, *view, *btn, *img;
     launchbar *lb = (launchbar *)p->priv;
@@ -739,7 +739,7 @@ static void launchbar_config( plugin *p, GtkWindow* parent )
     gtk_window_present( GTK_WINDOW(lb->config_dlg) );
 }
 
-plugin_class launchbar_plugin_class = {
+PluginClass launchbar_plugin_class = {
     fname: NULL,
     count: 0,
 

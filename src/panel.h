@@ -94,7 +94,7 @@ typedef struct {
 
     /* tooltip controller shared by many plugins */
     GtkTooltips *tooltips;
-} panel;
+} Panel;
 
 
 typedef struct {
@@ -109,7 +109,7 @@ typedef struct {
     unsigned int fullscreen : 1;
     unsigned int above : 1;
     unsigned int below : 1;
-} net_wm_state;
+} NetWMState;
 
 typedef struct {
     unsigned int desktop : 1;
@@ -120,15 +120,15 @@ typedef struct {
     unsigned int splash : 1;
     unsigned int dialog : 1;
     unsigned int normal : 1;
-} net_wm_window_type;
+} NetWMWindowType;
 
 typedef struct {
     char *name;
     char *disp_name;
     void (*cmd)(void);
-} command;
+} Command;
 
-extern command commands[];
+extern Command commands[];
 
 extern gchar *cprofile;
 
@@ -186,9 +186,9 @@ extern FbEv *fbev;
 
 #define FBPANEL_WIN(win)  gdk_window_lookup(win)
 
-void panel_set_wm_strut(panel *p);
-void panel_set_dock_type(panel *p);
-void panel_set_orientation(panel *p);
-void panel_update_background( panel* p );
+void panel_set_wm_strut(Panel *p);
+void panel_set_dock_type(Panel *p);
+void panel_set_orientation(Panel *p);
+void panel_update_background( Panel* p );
 
 #endif

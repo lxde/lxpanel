@@ -74,13 +74,13 @@ GTypePlugin* lx_type_plugin_get(const char* plugin_name)
 
 #define REGISTER_PLUGIN_CLASS(pc, dynamic) \
 do {\
-    extern plugin_class pc;\
+    extern PluginClass pc;\
     register_plugin_class(&pc, dynamic);\
 } while (0)
 
 
 static void
-register_plugin_class(plugin_class *pc, int dynamic)
+register_plugin_class(PluginClass *pc, int dynamic)
 {
     pcl = g_list_append(pcl, pc);
     pc->dynamic = dynamic;
@@ -149,9 +149,9 @@ init_plugin_class_list()
 GList* plugin_find_class( const char* type )
 {
     GList *tmp;
-    plugin_class *pc = NULL;
+    PluginClass *pc = NULL;
     for (tmp = pcl; tmp; tmp = g_list_next(tmp)) {
-        pc = (plugin_class *) tmp->data;
+        pc = (PluginClass *) tmp->data;
         if (!g_ascii_strcasecmp(type, pc->type)) {
             LOG(LOG_INFO, "   already have it\n");
             break;
@@ -160,10 +160,10 @@ GList* plugin_find_class( const char* type )
     return tmp;
 }
 
-static plugin_class*
+static PluginClass*
 plugin_load_dynamic( const char* type, const char* path )
 {
-    plugin_class *pc = NULL;
+    PluginClass *pc = NULL;
     GModule *m;
     gpointer tmpsym;
     char class_name[ 128 ];
@@ -186,12 +186,12 @@ plugin_load_dynamic( const char* type, const char* path )
     return pc;
 }
 
-plugin *
+Plugin *
 plugin_load(char *type)
 {
     GList *tmp;
-    plugin_class *pc = NULL;
-    plugin *plug = NULL;
+    PluginClass *pc = NULL;
+    Plugin *plug = NULL;
 
     ENTER;
     if (!pcl)
@@ -200,7 +200,7 @@ plugin_load(char *type)
     tmp = plugin_find_class( type );
 
     if( tmp ) {
-        pc = (plugin_class *) tmp->data;
+        pc = (PluginClass *) tmp->data;
     }
 #ifndef DISABLE_PLUGINS_LOADING
     else if ( g_module_supported() ) {
@@ -220,7 +220,7 @@ plugin_load(char *type)
     if (!pc)
         RET(NULL);
 
-    plug = g_new0(plugin, 1);
+    plug = g_new0(Plugin, 1);
     g_return_val_if_fail (plug != NULL, NULL);
     plug->class = pc;
     pc->count++;
@@ -228,9 +228,9 @@ plugin_load(char *type)
 }
 
 
-void plugin_put(plugin *this)
+void plugin_put(Plugin *this)
 {
-    plugin_class *pc = this->class;
+    PluginClass *pc = this->class;
     ENTER;
     plugin_class_unref( pc );
     g_free(this);
@@ -238,7 +238,7 @@ void plugin_put(plugin *this)
 }
 
 int
-plugin_start(plugin *this, char** fp)
+plugin_start(Plugin *this, char** fp)
 {
     ENTER;
 
@@ -264,7 +264,7 @@ plugin_start(plugin *this, char** fp)
 }
 
 
-void plugin_stop(plugin *this)
+void plugin_stop(Plugin *this)
 {
     ENTER;
     DBG("%s\n", this->class->type);
@@ -276,7 +276,7 @@ void plugin_stop(plugin *this)
     RET();
 }
 
-void plugin_class_unref( plugin_class* pc )
+void plugin_class_unref( PluginClass* pc )
 {
     --pc->count;
     if (pc->count == 0 && pc->dynamic) {
@@ -299,10 +299,10 @@ GList* plugin_get_available_classes()
     const char* file;
     GDir* dir;
     GList* l;
-    plugin_class *pc;
+    PluginClass *pc;
 
     for( l = pcl; l; l = l->next ) {
-        pc = (plugin_class*)l->data;
+        pc = (PluginClass*)l->data;
         classes = g_list_prepend( classes, pc );
         ++pc->count;
     }
@@ -364,7 +364,7 @@ void plugin_class_list_free( GList* classes )
 }
 
 void
-plugin_widget_set_background( GtkWidget* w, panel* p )
+plugin_widget_set_background( GtkWidget* w, Panel* p )
 {
     if( ! w )
         return;
@@ -410,7 +410,7 @@ plugin_widget_set_background( GtkWidget* w, panel* p )
     }
 }
 
-void plugin_set_background( plugin* pl, panel* p )
+void plugin_set_background( Plugin* pl, Panel* p )
 {
     if( G_UNLIKELY( pl->class->invisible || ! pl->pwid ) )
         return;

@@ -19,7 +19,7 @@
 
 
 typedef struct {
-    plugin *plug;
+    Plugin *plug;
     GtkWidget *box;
     NaTrayManager *tray_manager;
     int icon_num;
@@ -95,7 +95,7 @@ message_cancelled (NaTrayManager *manager, GtkWidget *icon, glong id,
 
 
 static void
-tray_destructor(plugin *p)
+tray_destructor(Plugin *p)
 {
     tray *tr = (tray *)p->priv;
 
@@ -112,7 +112,7 @@ tray_destructor(plugin *p)
 
 
 static int
-tray_constructor(plugin *p, char** fp)
+tray_constructor(Plugin *p, char** fp)
 {
     line s;
     tray *tr;
@@ -165,7 +165,7 @@ tray_constructor(plugin *p, char** fp)
 
 }
 
-static void orientation_changed( plugin* p )
+static void orientation_changed( Plugin* p )
 {
     tray *tr = (tray *)p->priv;
     GtkBox* newbox;
@@ -182,7 +182,7 @@ static void orientation_changed( plugin* p )
     force_redraw(tr);
 }
 
-plugin_class tray_plugin_class = {
+PluginClass tray_plugin_class = {
     fname: NULL,
     count: 0,
 

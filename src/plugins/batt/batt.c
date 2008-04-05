@@ -110,7 +110,7 @@ typedef struct {
     sem_t *lock;
 } alarm;
 
-static void destructor(plugin *p);
+static void destructor(Plugin *p);
 static void update_display(batt *b, gboolean repaint);
 
 static void batt_info_free( batt_info* bi )
@@ -551,7 +551,7 @@ static gint exposeEvent(GtkWidget *widget, GdkEventExpose *event, batt *b) {
 
 
 static int
-constructor(plugin *p, char **fp)
+constructor(Plugin *p, char **fp)
 {
     ENTER;
 
@@ -707,7 +707,7 @@ error:
 
 
 static void
-destructor(plugin *p)
+destructor(Plugin *p)
 {
     ENTER;
 
@@ -735,7 +735,7 @@ destructor(plugin *p)
 }
 
 
-static void orientation(plugin *p) {
+static void orientation(Plugin *p) {
 
     ENTER;
 
@@ -753,7 +753,7 @@ static void orientation(plugin *p) {
 }
 
 
-static void applyConfig(plugin* p)
+static void applyConfig(Plugin* p)
 {
     ENTER;
 
@@ -796,7 +796,7 @@ static void applyConfig(plugin* p)
 }
 
 
-static void config(plugin *p, GtkWindow* parent) {
+static void config(Plugin *p, GtkWindow* parent) {
     ENTER;
 
     GtkWidget *dialog;
@@ -823,7 +823,7 @@ static void config(plugin *p, GtkWindow* parent) {
 }
 
 
-static void save(plugin* p, FILE* fp) {
+static void save(Plugin* p, FILE* fp) {
 
     ENTER;
 
@@ -844,7 +844,7 @@ static void save(plugin* p, FILE* fp) {
 }
 
 
-plugin_class batt_plugin_class = {
+PluginClass batt_plugin_class = {
     fname       : NULL,
     count       : 0,
 

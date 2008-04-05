@@ -35,6 +35,7 @@
 #include <glib.h>
 #include <glib-object.h>
 #include <gtk/gtk.h>
+#include <gdk/gdkx.h>
 
 #define FB_TYPE_EV         (fb_ev_get_type ())
 #define FB_EV(o)           (G_TYPE_CHECK_INSTANCE_CAST ((o),      \
@@ -58,6 +59,7 @@ enum {
     EV_NUMBER_OF_DESKTOPS,
     EV_DESKTOP_NAMES,
     EV_ACTIVE_WINDOW,
+    EV_DESTROY_WINDOW,
     EV_CLIENT_LIST_STACKING,
     EV_CLIENT_LIST,
     LAST_SIGNAL
@@ -66,14 +68,14 @@ enum {
 GType fb_ev_get_type       (void);
 FbEv *fb_ev_new(void);
 void fb_ev_notify_changed_ev(FbEv *ev);
-void fb_ev_trigger(FbEv *ev, int signal);
+void fb_ev_emit(FbEv *ev, int signal);
+void fb_ev_emit_destroy(FbEv *ev, Window win);
 
-
-int fb_ev_current_desktop(FbEv *ev);
-int fb_ev_number_of_desktops(FbEv *ev);
-Window fb_ev_active_window(FbEv *ev);
-Window *fb_ev_client_list(FbEv *ev);
-Window *fb_ev_client_list_stacking(FbEv *ev);
+extern int fb_ev_current_desktop(FbEv *ev);
+extern int fb_ev_number_of_desktops(FbEv *ev);
+extern Window *fb_ev_active_window(FbEv *ev);
+extern Window *fb_ev_client_list(FbEv *ev);
+extern Window *fb_ev_client_list_stacking(FbEv *ev);
 
 
 #endif /* __FB_EV_H__ */

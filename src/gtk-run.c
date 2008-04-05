@@ -22,7 +22,7 @@
 #include <string.h>
 #include "misc.h"
 
-extern panel *p;
+extern Panel *p;	/* FIXME: this should be removed */
 
 static gboolean setup_auto_complete( gpointer entry )
 {

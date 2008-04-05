@@ -301,7 +301,7 @@ static gboolean refresh_devstat(netstat *ns)
 }
 
 /* Plugin constructor */
-static void netstat_destructor(plugin *p)
+static void netstat_destructor(Plugin *p)
 {
     netstat *ns = (netstat *) p->priv;
 
@@ -320,7 +320,7 @@ static void netstat_destructor(plugin *p)
     RET();
 }
 
-static int netstat_constructor(plugin *p, char **fp)
+static int netstat_constructor(Plugin *p, char **fp)
 {
     netstat *ns;
     line s;
@@ -383,7 +383,7 @@ error:
     RET(0);
 }
 
-static void orientation_changed(plugin* p)
+static void orientation_changed(Plugin* p)
 {
     netstat *ns = (netstat *)p->priv;
     GtkBox* newbox;
@@ -396,7 +396,7 @@ static void orientation_changed(plugin* p)
     }
 }
 
-plugin_class netstat_plugin_class = {
+PluginClass netstat_plugin_class = {
     fname: NULL,
     count: 0,
 

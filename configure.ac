@@ -145,6 +145,7 @@ plugin_volumealsa=
 plugin_cpu=
 plugin_deskno=
 plugin_batt=
+plugin_xkb=
 
 AC_MSG_CHECKING([which plugins should be built dynamically])
 AC_ARG_WITH(plugins,
@@ -152,7 +153,7 @@ AC_ARG_WITH(plugins,
 [                         plugins may be comma separated ]
 [                         'all' builds all plugins (default), 'none' builds none ]
 [                         Possible plugins are: ]
-[                         netstatus, netstat, volume, volumealsa, cpu, deskno, batt], plugins="$withval",[plugins="all"])
+[                         netstatus, netstat, volume, volumealsa, cpu, deskno, batt, xkb], plugins="$withval",[plugins="all"])
 
 if test x"$plugins" != xall -a x"$plugins" != xnone; then
     if test x"$plugins_loading" = xno; then
@@ -161,7 +162,7 @@ if test x"$plugins" != xall -a x"$plugins" != xnone; then
     fi
 fi
 
-ALL_PLUGINS_LIST="netstatus netstat volume volumealsa cpu deskno batt"
+ALL_PLUGINS_LIST="netstatus netstat volume volumealsa cpu deskno batt xkb"
 AC_SUBST(ALL_PLUGINS_LIST)
 
 if test x"$plugins" = xall; then
@@ -177,6 +178,7 @@ dnl    done
     plugin_cpu=cpu
     plugin_deskno=deskno
     plugin_batt=batt
+    plugin_xkb=xkb
 
     AC_MSG_RESULT(all)
 else
@@ -204,7 +206,10 @@ else
                 plugin_deskno=deskno
                 ;;
             batt)
-                plugin_deskno=batt
+                plugin_batt=batt
+                ;;
+            xkb)
+                plugin_xkb=xkb
                 ;;
             *)
                 echo "Unknown plugin $plugin."
@@ -232,7 +237,16 @@ if test x"$compile_libiw" = "xno"; then
    fi
    plugin_netstat=
 fi
-PLUGINS_LIST="$plugin_netstatus $plugin_netstat $plugin_volume $plugin_volumealsa $plugin_cpu $plugin_deskno $plugin_batt"
+PLUGINS_LIST="\
+	$plugin_netstatus \
+	$plugin_netstat \
+	$plugin_volume \
+	$plugin_volumealsa \
+	$plugin_cpu \
+	$plugin_deskno \
+	$plugin_batt \
+	$plugin_xkb"
+
 AC_SUBST(PLUGINS_LIST)
 
 
@@ -277,6 +291,7 @@ AC_CONFIG_FILES([
     src/plugins/cpu/Makefile
     src/plugins/deskno/Makefile
     src/plugins/batt/Makefile
+    src/plugins/xkb/Makefile
     po/Makefile.in
     data/Makefile
     data/default/config
@@ -310,6 +325,9 @@ echo Building dynamic plugins:
     fi
     if test x"$plugin_batt" != x; then
         AC_MSG_RESULT([    batt - Monitor battery status])
+    fi
+    if test x"$plugin_xkb" != x; then
+        AC_MSG_RESULT([    xkb - Keyboard layout switcher])
     fi
 else
 echo Dynamic loader for plugins....... : disabled.

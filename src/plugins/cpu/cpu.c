@@ -149,7 +149,7 @@ expose_event(GtkWidget *widget, GdkEventExpose *event, cpu_t *c)
 }
 
 static int
-cpu_constructor(plugin *p, char **fp)
+cpu_constructor(Plugin *p, char **fp)
 {
     cpu_t *c;
 
@@ -166,7 +166,7 @@ cpu_constructor(plugin *p, char **fp)
     gtk_widget_show(c->da);
 
     c->gc_cpu = gdk_gc_new(p->panel->topgwin->window);
-    DBG("here1\n");
+
     c->ccpu = (GdkColor *)malloc(sizeof(GdkColor));
     gdk_color_parse("green",  c->ccpu);
     gdk_colormap_alloc_color(gdk_drawable_get_colormap(p->panel->topgwin->window),  c->ccpu, FALSE, TRUE);
@@ -185,7 +185,7 @@ cpu_constructor(plugin *p, char **fp)
 }
 
 static void
-cpu_destructor(plugin *p)
+cpu_destructor(Plugin *p)
 {
     cpu_t *c = (cpu_t *) p->priv;
 
@@ -201,7 +201,7 @@ cpu_destructor(plugin *p)
 }
 
 
-plugin_class cpu_plugin_class = {
+PluginClass cpu_plugin_class = {
     fname: NULL,
     count: 0,
 

@@ -53,7 +53,7 @@ typedef struct {
 } dclock;
 
 static void
-update_label_orient( plugin* p );
+update_label_orient( Plugin* p );
 
 static GtkWidget *create_calendar()
 {
@@ -62,13 +62,17 @@ static GtkWidget *create_calendar()
 
     /* create a new window */
     win = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+	gtk_window_set_default_size(GTK_WINDOW(win), 180, 180);
     gtk_window_set_decorated(GTK_WINDOW(win), FALSE);
-    gtk_container_set_border_width(GTK_CONTAINER(win), 5);
-    gtk_widget_set_size_request(GTK_WIDGET(win), 180, 180);
+    gtk_window_set_resizable (GTK_WINDOW(win), FALSE);
+    gtk_container_set_border_width(GTK_CONTAINER(win), 0);
     gtk_window_set_skip_taskbar_hint(GTK_WINDOW(win), TRUE);
     gtk_window_set_skip_pager_hint(GTK_WINDOW(win), TRUE);
-    gtk_window_set_type_hint(GTK_WINDOW(win), GDK_WINDOW_TYPE_HINT_DIALOG);
+    gtk_window_set_type_hint(GTK_WINDOW(win), GDK_WINDOW_TYPE_HINT_DOCK);
     gtk_window_set_position(GTK_WINDOW(win), GTK_WIN_POS_MOUSE);
+    gtk_window_stick (GTK_WINDOW(win));
+
+	GtkVBox* box = gtk_vbox_new(FALSE, 0);
 
     /* calendar */
     calendar = gtk_calendar_new();
@@ -76,7 +80,9 @@ static GtkWidget *create_calendar()
                                  GTK_CALENDAR_SHOW_WEEK_NUMBERS |
                                  GTK_CALENDAR_SHOW_DAY_NAMES |
                                  GTK_CALENDAR_SHOW_HEADING);
-    gtk_container_add(GTK_CONTAINER(win), calendar);
+//    gtk_container_add(GTK_CONTAINER(win), calendar);
+	gtk_box_pack_start_defaults( box, calendar );
+    gtk_container_add(GTK_CONTAINER(win), box);
 
     gtk_widget_show_all(win);
 
@@ -154,7 +160,7 @@ clock_update(gpointer data )
 
 
 static int
-dclock_constructor(plugin *p, char** fp)
+dclock_constructor(Plugin *p, char** fp)
 {
     line s;
     dclock *dc;
@@ -225,7 +231,7 @@ dclock_constructor(plugin *p, char** fp)
 
     clock_update( dc );
 
-    /* store the created plugin widget in plugin->pwid */
+    /* store the created Plugin widget in Plugin->pwid */
     p->pwid = dc->main;
 
     RET(1);
@@ -240,7 +246,7 @@ dclock_constructor(plugin *p, char** fp)
 
 
 static void
-dclock_destructor(plugin *p)
+dclock_destructor(Plugin *p)
 {
     dclock *dc = (dclock *)p->priv;
 
@@ -258,7 +264,7 @@ dclock_destructor(plugin *p)
     RET();
 }
 
-static void apply_config( plugin* p )
+static void apply_config( Plugin* p )
 {
     /* NOTE: This dirty hack is used to force the update of tooltip
        because tooltip will be updated when dc->lastDay != today.
@@ -268,7 +274,7 @@ static void apply_config( plugin* p )
     clock_update( dc );
 }
 
-static void dclock_config( plugin *p, GtkWindow* parent )
+static void dclock_config( Plugin *p, GtkWindow* parent )
 {
     GtkWidget* dlg;
     dclock *dc = (dclock *)p->priv;
@@ -283,7 +289,7 @@ static void dclock_config( plugin *p, GtkWindow* parent )
     gtk_window_present( GTK_WINDOW(dlg) );
 }
 
-static void save_config( plugin* p, FILE* fp )
+static void save_config( Plugin* p, FILE* fp )
 {
     dclock *dc = (dclock *)p->priv;
     lxpanel_put_str( fp, "ClockFmt", dc->cfmt );
@@ -293,7 +299,7 @@ static void save_config( plugin* p, FILE* fp )
 }
 
 static void
-update_label_orient( plugin* p )
+update_label_orient( Plugin* p )
 {
     dclock *dc = (dclock *)p->priv;
     GtkLabel* label = GTK_LABEL(dc->clockw);
@@ -308,7 +314,7 @@ update_label_orient( plugin* p )
     gtk_label_set_angle( GTK_LABEL(label), angle );
 }
 
-plugin_class dclock_plugin_class = {
+PluginClass dclock_plugin_class = {
     fname: NULL,
     count: 0,
 

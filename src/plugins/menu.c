@@ -56,7 +56,7 @@ typedef struct {
 static guint idle_loader = 0;
 
 static void
-menu_destructor(plugin *p)
+menu_destructor(Plugin *p)
 {
     menup *m = (menup *)p->priv;
 
@@ -107,7 +107,7 @@ static void
 menu_pos(GtkMenu *menu, gint *x, gint *y, gboolean *push_in, GtkWidget *widget)
 {
     int ox, oy, w, h;
-    plugin *p;
+    Plugin *p;
 
     ENTER;
     p = g_object_get_data(G_OBJECT(widget), "plugin");
@@ -163,7 +163,7 @@ reload_system_menu( GtkMenu* menu )
     g_list_free( children );
 }
 
-static void show_menu( GtkWidget* widget, plugin* p, int btn, guint32 time )
+static void show_menu( GtkWidget* widget, Plugin* p, int btn, guint32 time )
 {
     menup* m = (menup*)p->priv;
     /* reload system menu items if needed */
@@ -172,7 +172,7 @@ static void show_menu( GtkWidget* widget, plugin* p, int btn, guint32 time )
         /* FIXME: Reload all system menus here.
                   This is dirty, but I don't know any better way. */
         for( l = p->panel->system_menus; l; l = l->next ) {
-            plugin* _p = (plugin*)l->data;
+            Plugin* _p = (Plugin*)l->data;
             menup* _m = (menup*)_p->priv;
             reload_system_menu( GTK_MENU(_m->menu) );
         }
@@ -184,7 +184,7 @@ static void show_menu( GtkWidget* widget, plugin* p, int btn, guint32 time )
 }
 
 static gboolean
-my_button_pressed(GtkWidget *widget, GdkEventButton *event, plugin* p)
+my_button_pressed(GtkWidget *widget, GdkEventButton *event, Plugin* p)
 {
     ENTER;
     if ((event->type == GDK_BUTTON_PRESS)
@@ -197,14 +197,14 @@ my_button_pressed(GtkWidget *widget, GdkEventButton *event, plugin* p)
 
 gboolean show_system_menu( gpointer system_menu )
 {
-    plugin* p = (plugin*)system_menu;
+    Plugin* p = (Plugin*)system_menu;
     menup* m = (menup*)p->priv;
     show_menu( m->bg, p, 0, GDK_CURRENT_TIME );
     return FALSE;
 }
 
 static GtkWidget *
-make_button(plugin *p, gchar *fname, gchar *name, GtkWidget *menu)
+make_button(Plugin *p, gchar *fname, gchar *name, GtkWidget *menu)
 {
     int w, h;
     menup *m;
@@ -233,13 +233,13 @@ make_button(plugin *p, gchar *fname, gchar *name, GtkWidget *menu)
 
 
 static GtkWidget *
-read_item(plugin *p, char** fp)
+read_item(Plugin *p, char** fp)
 {
     line s;
     gchar *name, *fname, *action;
     GtkWidget *item;
     menup *m = (menup *)p->priv;
-    command *cmd_entry = NULL;
+    Command *cmd_entry = NULL;
 
     ENTER;
     s.len = 256;
@@ -256,7 +256,7 @@ read_item(plugin *p, char** fp)
                 else if (!g_ascii_strcasecmp(s.t[0], "action"))
                     action = g_strdup(s.t[1]);
                 else if (!g_ascii_strcasecmp(s.t[0], "command")) {
-                    command *tmp;
+                    Command *tmp;
 
                     for (tmp = commands; tmp->name; tmp++) {
                         if (!g_ascii_strcasecmp(s.t[1], tmp->name)) {
@@ -304,7 +304,7 @@ read_item(plugin *p, char** fp)
 }
 
 static GtkWidget *
-read_separator(plugin *p, char **fp)
+read_separator(Plugin *p, char **fp)
 {
     line s;
 
@@ -320,13 +320,13 @@ read_separator(plugin *p, char **fp)
     RET(gtk_separator_menu_item_new());
 }
 
-static gboolean on_idle( panel* p )
+static gboolean on_idle( Panel* p )
 {
     GSList* l;
     /* Reload all system menus here.
         This is dirty, but I don't know any better way. */
     for( l = p->system_menus; l; l = l->next ) {
-        plugin* _p = (plugin*)l->data;
+        Plugin* _p = (Plugin*)l->data;
         menup* _m = (menup*)_p->priv;
         reload_system_menu( GTK_MENU(_m->menu) );
     }
@@ -335,7 +335,7 @@ static gboolean on_idle( panel* p )
 }
 
 static void
-read_system_menu(GtkMenu* menu, plugin *p, char** fp)
+read_system_menu(GtkMenu* menu, Plugin *p, char** fp)
 {
    line s;
    menup *m = (menup *)p->priv;
@@ -371,7 +371,7 @@ read_system_menu(GtkMenu* menu, plugin *p, char** fp)
 }
 
 static void
-read_include(plugin *p, char **fp)
+read_include(Plugin *p, char **fp)
 {
     ENTER;
 #if 0
@@ -408,7 +408,7 @@ read_include(plugin *p, char **fp)
 }
 
 static GtkWidget *
-read_submenu(plugin *p, char** fp, gboolean as_item)
+read_submenu(Plugin *p, char** fp, gboolean as_item)
 {
     line s;
     GtkWidget *mi, *menu;
@@ -496,7 +496,7 @@ read_submenu(plugin *p, char** fp, gboolean as_item)
 }
 
 static int
-menu_constructor(plugin *p, char **fp)
+menu_constructor(Plugin *p, char **fp)
 {
     menup *m;
     static char default_config[] =
@@ -565,7 +565,7 @@ menu_constructor(plugin *p, char **fp)
     RET(0);
 }
 
-static void save_config( plugin* p, FILE* fp )
+static void save_config( Plugin* p, FILE* fp )
 {
     menup* menu = (menup*)p->priv;
     if( menu->config_data ) {
@@ -580,7 +580,7 @@ static void save_config( plugin* p, FILE* fp )
     }
 }
 
-plugin_class menu_plugin_class = {
+PluginClass menu_plugin_class = {
     fname: NULL,
     count: 0,
 

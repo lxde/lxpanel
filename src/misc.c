@@ -56,7 +56,6 @@ Atom a_NET_DESKTOP_NAMES;
 Atom a_NET_ACTIVE_WINDOW;
 Atom a_NET_CLOSE_WINDOW;
 Atom a_NET_SUPPORTED;
-Atom a_NET_WM_DESKTOP;
 Atom a_NET_WM_STATE;
 Atom a_NET_WM_STATE_SKIP_TASKBAR;
 Atom a_NET_WM_STATE_SKIP_PAGER;
@@ -73,6 +72,7 @@ Atom a_NET_WM_WINDOW_TYPE_SPLASH;
 Atom a_NET_WM_WINDOW_TYPE_DIALOG;
 Atom a_NET_WM_WINDOW_TYPE_NORMAL;
 Atom a_NET_WM_DESKTOP;
+Atom a_NET_WM_PID;
 Atom a_NET_WM_NAME;
 Atom a_NET_WM_VISIBLE_NAME;
 Atom a_NET_WM_STRUT;
@@ -115,6 +115,7 @@ enum{
     I_NET_WM_WINDOW_TYPE_DIALOG,
     I_NET_WM_WINDOW_TYPE_NORMAL,
     I_NET_WM_DESKTOP,
+    I_NET_WM_PID,
     I_NET_WM_NAME,
     I_NET_WM_VISIBLE_NAME,
     I_NET_WM_STRUT,
@@ -303,13 +304,13 @@ lxpanel_get_line(char**fp, line *s)
 }
 
 extern const char*
-lxpanel_get_file_manager( panel *p )
+lxpanel_get_file_manager( Panel *p )
 {
     return p->file_manager ? p->file_manager : "pcmanfm %";
 }
 
 extern const char*
-lxpanel_get_terminal( panel *p )
+lxpanel_get_terminal( Panel *p )
 {
     return p->terminal ? p->terminal : "x-terminal-emulator";
 }
@@ -386,6 +387,7 @@ void resolve_atoms()
     atom_names[ I_NET_WM_WINDOW_TYPE_DIALOG ] = "_NET_WM_WINDOW_TYPE_DIALOG";
     atom_names[ I_NET_WM_WINDOW_TYPE_NORMAL ] = "_NET_WM_WINDOW_TYPE_NORMAL";
     atom_names[ I_NET_WM_DESKTOP ] = "_NET_WM_DESKTOP";
+    atom_names[ I_NET_WM_PID ] = "_NET_WM_PID";
     atom_names[ I_NET_WM_NAME ] = "_NET_WM_NAME";
     atom_names[ I_NET_WM_VISIBLE_NAME ] = "_NET_WM_VISIBLE_NAME";
     atom_names[ I_NET_WM_STRUT ] = "_NET_WM_STRUT";
@@ -418,7 +420,6 @@ void resolve_atoms()
     a_NET_DESKTOP_NAMES = atoms[ I_NET_DESKTOP_NAMES ];
     a_NET_ACTIVE_WINDOW = atoms[ I_NET_ACTIVE_WINDOW ];
     a_NET_SUPPORTED = atoms[ I_NET_SUPPORTED ];
-    a_NET_WM_DESKTOP = atoms[ I_NET_WM_DESKTOP ];
     a_NET_WM_STATE = atoms[ I_NET_WM_STATE ];
     a_NET_WM_STATE_SKIP_TASKBAR = atoms[ I_NET_WM_STATE_SKIP_TASKBAR ];
     a_NET_WM_STATE_SKIP_PAGER = atoms[ I_NET_WM_STATE_SKIP_PAGER ];
@@ -682,8 +683,23 @@ get_net_wm_desktop(Window win)
     RET(desk);
 }
 
+GPid
+get_net_wm_pid(Window win)
+{
+    GPid pid = 0;
+    guint32 *data;
+
+    ENTER;
+    data = get_xaproperty (win, a_NET_WM_PID, XA_CARDINAL, 0);
+    if (data) {
+        pid = *data;
+        XFree (data);
+    }
+    RET(pid);
+}
+
 void
-get_net_wm_state(Window win, net_wm_state *nws)
+get_net_wm_state(Window win, NetWMState *nws)
 {
     Atom *state;
     int num3;
@@ -724,7 +740,7 @@ get_net_wm_state(Window win, net_wm_state *nws)
 
 
 void
-get_net_wm_window_type(Window win, net_wm_window_type *nwwt)
+get_net_wm_window_type(Window win, NetWMWindowType *nwwt)
 {
     Atom *state;
     int num3;
@@ -831,7 +847,7 @@ calculate_width(int scrw, int wtype, int allign, int margin,
 
 
 void
-calculate_position(panel *np)
+calculate_position(Panel *np)
 {
     int sswidth, ssheight, minx, miny;
 

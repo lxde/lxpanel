@@ -40,7 +40,7 @@ void gtk_run(void);
 void config_save(void);
 static void logout(void);
 
-command commands[] = {
+Command commands[] = {
     { "configure", N_("Preferences"), configure },
     { "run", N_("Run"), gtk_run },
     { "restart", N_("Restart"), restart },
@@ -78,7 +78,7 @@ static GtkWidget *bg_checkdis, *bg_checkb, *bg_selfileb;
 //properties
 static GtkWidget *prop_dt_checkb, *prop_st_checkb;
 
-extern panel *p;
+extern Panel *p;	/* FIXME: Should support multiple panels */
 extern gchar *cprofile;
 extern int config;
 extern FILE *pconf;
@@ -720,7 +720,7 @@ on_sel_plugin_changed( GtkTreeSelection* tree_sel, GtkWidget* label )
 {
     GtkTreeIter it;
     GtkTreeModel* model;
-    plugin* pl;
+    Plugin* pl;
 
     if( gtk_tree_selection_get_selected( tree_sel, &model, &it ) )
     {
@@ -752,7 +752,7 @@ static void init_plugin_list( GtkTreeView* view, GtkWidget* label )
     for( l = p->plugins; l; l = l->next )
     {
         GtkTreeIter it;
-        plugin* pl = (plugin*)l->data;
+        Plugin* pl = (Plugin*)l->data;
         gtk_list_store_append( list, &it );
         gtk_list_store_set( list, &it,
                             0, _(pl->class->name),
@@ -785,7 +785,7 @@ static void on_add_plugin_response( GtkDialog* dlg,
         if( gtk_tree_selection_get_selected( tree_sel, &model, &it ) )
         {
             char* type = NULL;
-            plugin* pl;
+            Plugin* pl;
             gtk_tree_model_get( model, &it, 1, &type, -1 );
             if( pl = plugin_load( type ) )
             {
@@ -870,7 +870,7 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
                                G_TYPE_STRING );
 
     for( tmp = classes; tmp; tmp = tmp->next ) {
-        plugin_class* pc = (plugin_class*)tmp->data;
+        PluginClass* pc = (PluginClass*)tmp->data;
         if( ! pc->invisible ) {
             /* FIXME: should we display invisible plugins? */
             GtkTreeIter it;
@@ -900,7 +900,7 @@ static void on_remove_plugin( GtkButton* btn, GtkTreeView* view )
     GtkTreePath* tree_path;
     GtkTreeModel* model;
     GtkTreeSelection* tree_sel = gtk_tree_view_get_selection( view );
-    plugin* pl;
+    Plugin* pl;
 
     if( gtk_tree_selection_get_selected( tree_sel, &model, &it ) )
     {
@@ -923,7 +923,7 @@ void modify_plugin( GtkTreeView* view )
     GtkTreeSelection* tree_sel = gtk_tree_view_get_selection( view );
     GtkTreeModel* model;
     GtkTreeIter it;
-    plugin* pl;
+    Plugin* pl;
 
     if( ! gtk_tree_selection_get_selected( tree_sel, &model, &it ) )
         return;
@@ -933,13 +933,13 @@ void modify_plugin( GtkTreeView* view )
         pl->class->config( pl, (GtkWindow*)gtk_widget_get_toplevel(GTK_WIDGET(view)) );
 }
 
-static int get_widget_index( plugin* pl )
+static int get_widget_index( Plugin* pl )
 {
     GList* l;
     int i;
     for( i = 0, l = p->plugins; l; l = l->next )
     {
-        plugin* _pl = (plugin*)l->data;
+        Plugin* _pl = (Plugin*)l->data;
         if( _pl == pl )
             return i;
         if( _pl->pwid )
@@ -963,7 +963,7 @@ static void on_moveup_plugin(  GtkButton* btn, GtkTreeView* view )
     do{
         if( gtk_tree_selection_iter_is_selected(tree_sel, &it) )
         {
-            plugin* pl;
+            Plugin* pl;
             gtk_tree_model_get( model, &it, 1, &pl, -1 );
             gtk_list_store_move_before( GTK_LIST_STORE( model ),
                                         &it, &prev );
@@ -993,7 +993,7 @@ static void on_movedown_plugin(  GtkButton* btn, GtkTreeView* view )
     GtkTreeIter it, next;
     GtkTreeModel* model;
     GtkTreeSelection* tree_sel = gtk_tree_view_get_selection( view );
-    plugin* pl;
+    Plugin* pl;
     int i;
 
     if( ! gtk_tree_selection_get_selected( tree_sel, &model, &it ) )
@@ -1337,7 +1337,7 @@ plugin_config_save(FILE *fp)
     GList* l;
     for( l = p->plugins; l; l = l->next )
     {
-        plugin* pl = (plugin*)l->data;
+        Plugin* pl = (Plugin*)l->data;
         lxpanel_put_line( fp, "Plugin {" );
         lxpanel_put_line( fp, "type = %s", pl->class->type );
         if( pl->expand )

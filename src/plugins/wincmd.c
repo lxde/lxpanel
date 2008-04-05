@@ -51,7 +51,7 @@ toggle_shaded(wincmd *wc, guint32 action)
     Window *win = NULL;
     int num, i;
     guint32 tmp2, dno;
-    net_wm_window_type nwwt;
+    NetWMWindowType nwwt;
 
     ENTER;
     win = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_CLIENT_LIST, XA_WINDOW, &num);
@@ -98,7 +98,7 @@ toggle_iconify(wincmd *wc, guint32 action)
     Window *win = NULL;
     int num, i;
     guint32 tmp2, dno;
-    net_wm_window_type nwwt;
+    NetWMWindowType nwwt;
 
     ENTER;
     win = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_CLIENT_LIST, XA_WINDOW, &num);
@@ -162,7 +162,7 @@ clicked (GtkWidget *widget, GdkEventButton *event, gpointer data)
 }
 
 static void
-wincmd_destructor(plugin *p)
+wincmd_destructor(Plugin *p)
 {
     wincmd *wc = (wincmd *)p->priv;
 
@@ -176,7 +176,7 @@ wincmd_destructor(plugin *p)
 
 
 static int
-wincmd_constructor(plugin *p, char **fp)
+wincmd_constructor(Plugin *p, char **fp)
 {
     line s;
     gchar *fname;
@@ -267,7 +267,7 @@ wincmd_constructor(plugin *p, char **fp)
     RET(0);
 }
 
-static void save_config( plugin* p, FILE* fp )
+static void save_config( Plugin* p, FILE* fp )
 {
     wincmd* wc = (wincmd*)p->priv;
 
@@ -277,7 +277,7 @@ static void save_config( plugin* p, FILE* fp )
 }
 
 
-plugin_class wincmd_plugin_class = {
+PluginClass wincmd_plugin_class = {
     fname: NULL,
     count: 0,
 

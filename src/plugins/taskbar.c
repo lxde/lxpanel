@@ -62,8 +62,8 @@ typedef struct _task{
     int pos_x;
     int width;
     int desktop;
-    net_wm_state nws;
-    net_wm_window_type nwwt;
+    NetWMState nws;
+    NetWMWindowType nwwt;
     guint flash_timeout;
     unsigned int focused:1;
     unsigned int iconified:1;
@@ -74,7 +74,7 @@ typedef struct _task{
 } task;
 
 typedef struct _taskbar{
-    plugin *plug;
+    Plugin *plug;
     Window *wins;
     Window topxwin;
     int win_num;
@@ -130,7 +130,7 @@ static gboolean use_net_active=FALSE;
 static void tk_display(taskbar *tb, task *tk);
 static void tb_propertynotify(taskbar *tb, XEvent *ev);
 static GdkFilterReturn tb_event_filter( XEvent *, GdkEvent *, taskbar *);
-static void taskbar_destructor(plugin *p);
+static void taskbar_destructor(Plugin *p);
 
 static gboolean tk_has_urgency( task* tk );
 
@@ -162,14 +162,14 @@ task_visible(taskbar *tb, task *tk)
 }
 
 static int
-accept_net_wm_state(net_wm_state *nws, int accept_skip_pager)
+accept_net_wm_state(NetWMState *nws, int accept_skip_pager)
 {
     ENTER;
     RET(!(nws->skip_taskbar || (accept_skip_pager && nws->skip_pager)));
 }
 
 static int
-accept_net_wm_window_type(net_wm_window_type *nwwt)
+accept_net_wm_window_type(NetWMWindowType *nwwt)
 {
     ENTER;
     RET(!(nwwt->desktop || nwwt->dock || nwwt->splash));
@@ -917,8 +917,8 @@ tb_net_client_list(GtkWidget *widget, taskbar *tb)
         if ((tk = g_hash_table_lookup(tb->task_list, &tb->wins[i]))) {
             ++tk->refcount;
         } else {
-            net_wm_window_type nwwt;
-            net_wm_state nws;
+            NetWMWindowType nwwt;
+            NetWMState nws;
 
             get_net_wm_state(tb->wins[i], &nws);
             if (!accept_net_wm_state(&nws, tb->accept_skip_pager))
@@ -1072,7 +1072,6 @@ tb_propertynotify(taskbar *tb, XEvent *ev)
             //tk_display(tb, tk);
         }  else if (at == XA_WM_CLASS) {
                 DBG("WM_CLASS\n");
-
                 //get_wmclass(tk);
         } else if (at == a_WM_STATE)    {
                 DBG("WM_STATE\n");
@@ -1096,7 +1095,7 @@ tb_propertynotify(taskbar *tb, XEvent *ev)
                     }
                 }
             } else if (at == a_NET_WM_STATE) {
-                net_wm_state nws;
+                NetWMState nws;
 
             DBG("_NET_WM_STATE\n");
             get_net_wm_state(tk->win, &nws);
@@ -1112,7 +1111,7 @@ tb_propertynotify(taskbar *tb, XEvent *ev)
             gtk_image_set_from_pixbuf (GTK_IMAGE(tk->image), tk->pixbuf);
                 DBG("#2 %d\n", GDK_IS_PIXBUF (tk->pixbuf));
         } else if (at == a_NET_WM_WINDOW_TYPE) {
-                net_wm_window_type nwwt;
+                NetWMWindowType nwwt;
 
             DBG("_NET_WM_WINDOW_TYPE\n");
             get_net_wm_window_type(tk->win, &nwwt);
@@ -1278,7 +1277,7 @@ taskbar_make_menu(taskbar *tb)
 
 
 static void
-taskbar_build_gui(plugin *p)
+taskbar_build_gui(Plugin *p)
 {
     taskbar *tb = (taskbar *)p->priv;
     GtkOrientation  bo;
@@ -1347,7 +1346,7 @@ void net_active_detect()
 }
 
 static int
-taskbar_constructor(plugin *p, char** fp)
+taskbar_constructor(Plugin *p, char** fp)
 {
     taskbar *tb;
     line s;
@@ -1442,7 +1441,7 @@ taskbar_constructor(plugin *p, char** fp)
 
 
 static void
-taskbar_destructor(plugin *p)
+taskbar_destructor(Plugin *p)
 {
     taskbar *tb = (taskbar *)p->priv;
 
@@ -1470,7 +1469,7 @@ update_icons_only( gpointer key, task* tk, gpointer icons_only )
         gtk_widget_show( tk->label );
 }
 
-static void apply_config( plugin* p )
+static void apply_config( Plugin* p )
 {
     taskbar *tb = (taskbar *)p->priv;
     if( tb->tooltips )
@@ -1490,7 +1489,7 @@ static void apply_config( plugin* p )
                           (gpointer)tb->icons_only );
 }
 
-static void taskbar_config( plugin* p, GtkWindow* parent )
+static void taskbar_config( Plugin* p, GtkWindow* parent )
 {
     GtkWidget* dlg;
     taskbar *tb = (taskbar *)p->priv;
@@ -1513,7 +1512,7 @@ static void taskbar_config( plugin* p, GtkWindow* parent )
     gtk_window_present( GTK_WINDOW(dlg) );
 }
 
-static void save_config( plugin* p, FILE* fp )
+static void save_config( Plugin* p, FILE* fp )
 {
     taskbar *tb = (taskbar *)p->priv;
     lxpanel_put_bool( fp, "tooltips", tb->tooltips );
@@ -1532,7 +1531,7 @@ static void
 update_label_orient( GtkWidget* child, gpointer user_data )
 {
     /* FIXME: gtk+ has only limited support for this, sigh! */
-    plugin* p = (plugin*)user_data;
+    Plugin* p = (Plugin*)user_data;
     if( GTK_IS_LABEL(child) ) {
         gdouble angle;
         if( p->panel->edge == EDGE_LEFT ) {
@@ -1556,7 +1555,7 @@ update_label_orient( GtkWidget* child, gpointer user_data )
     }
 }
 
-static void orientation_changed( plugin* p )
+static void orientation_changed( Plugin* p )
 {
     taskbar *tb = (taskbar *)p->priv;
     GList *child, *children;
@@ -1580,7 +1579,7 @@ static void orientation_changed( plugin* p )
     gtk_bar_set_orientation( GTK_BAR(tb->bar), p->panel->orientation );
 }
 
-plugin_class taskbar_plugin_class = {
+PluginClass taskbar_plugin_class = {
     fname: NULL,
     count: 0,
 

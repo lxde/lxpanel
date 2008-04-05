@@ -44,7 +44,7 @@ typedef struct {
 } volume_t;
 
 static void
-volume_destructor(plugin *p)
+volume_destructor(Plugin *p)
 {
     volume_t *vol = (volume_t *) p->priv;
 
@@ -66,7 +66,7 @@ static void on_volume_focus (GtkWidget* dlg, GdkEventFocus *event, volume_t *vol
     vol->dlg = NULL;
 }
 
-static void on_button_press (GtkWidget* widget, GdkEventButton* evt, plugin* p)
+static void on_button_press (GtkWidget* widget, GdkEventButton* evt, Plugin* p)
 {
     volume_t *vol = (volume_t*) p->priv;
 
@@ -89,7 +89,7 @@ static void on_button_press (GtkWidget* widget, GdkEventButton* evt, plugin* p)
 }
 
 static int
-volume_constructor(plugin *p, char **fp)
+volume_constructor(Plugin *p, char **fp)
 {
     volume_t *vol;
     line s;
@@ -150,7 +150,7 @@ volume_constructor(plugin *p, char **fp)
 }
 
 
-plugin_class volume_plugin_class = {
+PluginClass volume_plugin_class = {
     fname: NULL,
     count: 0,
 

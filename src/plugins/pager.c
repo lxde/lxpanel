@@ -39,9 +39,6 @@
 //#define DEBUG
 #include "dbg.h"
 
-
-extern panel *p;
-
 /* managed window: all related info that wm holds about its managed windows */
 typedef struct task {
     Window win;
@@ -52,8 +49,8 @@ typedef struct task {
     guint desktop;
     char *name, *iname;
     int ws;
-    net_wm_state nws;
-    net_wm_window_type nwwt;
+    NetWMState nws;
+    NetWMWindowType nwwt;
     guint focused:1;
 } task;
 
@@ -71,6 +68,7 @@ struct _desk {
 };
 
 struct _pager {
+	Plugin* plugin;
     GtkWidget *box, *eb;
     desk *desks[MAX_DESK_NUM];
     guint desknum;
@@ -168,12 +166,14 @@ task_update_pix(task *t, desk *d)
 {
     int x, y, w, h;
     GtkWidget *widget;
+    Panel* p;
 
     ENTER;
     g_return_if_fail(d->pix != NULL);
     if (!TASK_VISIBLE(t))
         RET();;
 
+	p = d->pg->plugin->panel;
     if (t->desktop < p->desknum &&
           t->desktop != d->no)
         RET();
@@ -294,6 +294,7 @@ desk_expose_event (GtkWidget *widget, GdkEventExpose *event, desk *d)
 static gint
 desk_configure_event (GtkWidget *widget, GdkEventConfigure *event, desk *d)
 {
+	Panel* p;
     int w, h;
     ENTER;
     DBG("d->no=%d %dx%d\n", d->no, widget->allocation.width, widget->allocation.height);
@@ -309,6 +310,7 @@ desk_configure_event (GtkWidget *widget, GdkEventConfigure *event, desk *d)
     d->scaleh = (gfloat)widget->allocation.width  / (gfloat)gdk_screen_width();
     desk_set_dirty(d);
 
+	p = d->pg->plugin->panel;
     //request best size
     if (p->orientation != ORIENT_HORIZ) {
         w = widget->allocation.width;
@@ -629,7 +631,7 @@ pager_rebuild_all(FbEv *ev, pager *pg)
 
 
 static int
-pager_constructor(plugin *plug, char **fp)
+pager_constructor(Plugin *plug, char **fp)
 {
     pager *pg;
 
@@ -637,6 +639,7 @@ pager_constructor(plugin *plug, char **fp)
     pg = g_new0(pager, 1);
     g_return_val_if_fail(pg != NULL, 0);
     plug->priv = pg;
+    pg->plugin = plug;
 
     plug->pwid = gtk_event_box_new();
     GTK_WIDGET_SET_FLAGS( plug->pwid, GTK_NO_WINDOW );
@@ -673,7 +676,7 @@ pager_constructor(plugin *plug, char **fp)
 }
 
 static void
-pager_destructor(plugin *p)
+pager_destructor(Plugin *p)
 {
     pager *pg = (pager *)p->priv;
 
@@ -694,7 +697,7 @@ pager_destructor(plugin *p)
 }
 
 
-plugin_class pager_plugin_class = {
+PluginClass pager_plugin_class = {
     fname: NULL,
     count: 0,
 

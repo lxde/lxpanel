@@ -43,13 +43,13 @@ static gchar version[] = VERSION;
 gchar *cprofile = "default";
 
 static int config = 0;
-FbEv *fbev;
+FbEv *fbev = NULL;
 
 //#define DEBUG
 #include "dbg.h"
 
 int log_level;
-panel *p;
+Panel *p;	/* FIXME: This should be removed!!! */
 
 gboolean is_restarting = FALSE;
 
@@ -58,7 +58,7 @@ gboolean is_restarting = FALSE;
  ****************************************************/
 /*
 static void
-panel_del_wm_strut(panel *p)
+panel_del_wm_strut(Panel *p)
 {
     XDeleteProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STRUT);
     XDeleteProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STRUT_PARTIAL);
@@ -66,7 +66,7 @@ panel_del_wm_strut(panel *p)
 */
 
 
-void panel_set_wm_strut(panel *p)
+void panel_set_wm_strut(Panel *p)
 {
     gulong data[12] = { 0 };
     int i = 4;
@@ -124,7 +124,7 @@ void panel_set_wm_strut(panel *p)
 }
 
 static void
-print_wmdata(panel *p)
+print_wmdata(Panel *p)
 {
     int i;
 
@@ -150,7 +150,7 @@ void configure(void);
 void restart(void);
 void gtk_run(void);
 
-static void process_client_msg ( panel *p, XClientMessageEvent* ev )
+static void process_client_msg ( Panel *p, XClientMessageEvent* ev )
 {
     int cmd = ev->data.b[0];
     switch( cmd )
@@ -181,7 +181,7 @@ static void process_client_msg ( panel *p, XClientMessageEvent* ev )
 }
 
 static GdkFilterReturn
-panel_event_filter(GdkXEvent *xevent, GdkEvent *event, panel *p)
+panel_event_filter(GdkXEvent *xevent, GdkEvent *event, Panel *p)
 {
     Atom at;
     Window win;
@@ -195,6 +195,10 @@ panel_event_filter(GdkXEvent *xevent, GdkEvent *event, panel *p)
         {
             process_client_msg( p, (XClientMessageEvent*)ev );
         }
+        else if( ev->type == DestroyNotify )
+        {
+        	fb_ev_emit_destroy( fbev, ((XDestroyWindowEvent*)ev)->window );
+        }
         RET(GDK_FILTER_CONTINUE);
     }
 
@@ -204,24 +208,24 @@ panel_event_filter(GdkXEvent *xevent, GdkEvent *event, panel *p)
     if (win == GDK_ROOT_WINDOW()) {
     if (at == a_NET_CLIENT_LIST) {
             DBG("A_NET_CLIENT_LIST\n");
-            fb_ev_trigger(fbev, EV_CLIENT_LIST);
+            fb_ev_emit(fbev, EV_CLIENT_LIST);
     } else if (at == a_NET_CURRENT_DESKTOP) {
             DBG("A_NET_CURRENT_DESKTOP\n");
             p->curdesk = get_net_current_desktop();
-            fb_ev_trigger(fbev, EV_CURRENT_DESKTOP);
+            fb_ev_emit(fbev, EV_CURRENT_DESKTOP);
     } else if (at == a_NET_NUMBER_OF_DESKTOPS) {
             DBG("A_NET_NUMBER_OF_DESKTOPS\n");
             p->desknum = get_net_number_of_desktops();
-            fb_ev_trigger(fbev, EV_NUMBER_OF_DESKTOPS);
+            fb_ev_emit(fbev, EV_NUMBER_OF_DESKTOPS);
     } else if (at == a_NET_DESKTOP_NAMES) {
             DBG("A_NET_DESKTOP_NAMES\n");
-            fb_ev_trigger(fbev, EV_DESKTOP_NAMES);
+            fb_ev_emit(fbev, EV_DESKTOP_NAMES);
         } else if (at == a_NET_ACTIVE_WINDOW) {
             DBG("A_NET_ACTIVE_WINDOW\n");
-            fb_ev_trigger(fbev, EV_ACTIVE_WINDOW);
+            fb_ev_emit(fbev, EV_ACTIVE_WINDOW );
         }else if (at == a_NET_CLIENT_LIST_STACKING) {
             DBG("A_NET_CLIENT_LIST_STACKING\n");
-            fb_ev_trigger(fbev, EV_CLIENT_LIST_STACKING);
+            fb_ev_emit(fbev, EV_CLIENT_LIST_STACKING);
         } else if (at == a_XROOTPMAP_ID) {
             DBG("a_XROOTPMAP_ID\n");
             if (p->transparent) {
@@ -255,20 +259,20 @@ panel_delete_event(GtkWidget * widget, GdkEvent * event, gpointer data)
 static gint
 panel_destroy_event(GtkWidget * widget, GdkEvent * event, gpointer data)
 {
-    //panel *p = (panel *) data;
+    //Panel *p = (Panel *) data;
     //if (!p->self_destroy)
     gtk_main_quit();
     RET(FALSE);
 }
 
 static void
-on_root_bg_changed(FbBg *bg, panel* p)
+on_root_bg_changed(FbBg *bg, Panel* p)
 {
     panel_update_background( p );
 }
 
 /* This function should only be called after the panel has been realized */
-void panel_update_background( panel* p )
+void panel_update_background( Panel* p )
 {
     GList* l;
     GdkPixmap* pixmap = NULL;
@@ -320,7 +324,7 @@ void panel_update_background( panel* p )
 
     for( l = p->plugins; l; l = l->next )
     {
-        plugin* pl = (plugin*)l->data;
+        Plugin* pl = (Plugin*)l->data;
         plugin_set_background( pl, p );
     }
 
@@ -329,13 +333,13 @@ void panel_update_background( panel* p )
 }
 
 static void
-panel_realize(GtkWidget *widget, panel *p)
+panel_realize(GtkWidget *widget, Panel *p)
 {
 
 }
 
 static gint
-panel_size_req(GtkWidget *widget, GtkRequisition *req, panel *p)
+panel_size_req(GtkWidget *widget, GtkRequisition *req, Panel *p)
 {
     ENTER;
 
@@ -351,7 +355,7 @@ panel_size_req(GtkWidget *widget, GtkRequisition *req, panel *p)
 }
 
 static gint
-panel_size_alloc(GtkWidget *widget, GtkAllocation *a, panel *p)
+panel_size_alloc(GtkWidget *widget, GtkAllocation *a, Panel *p)
 {
     ENTER;
     if (p->widthtype == WIDTH_REQUEST)
@@ -371,7 +375,7 @@ panel_size_alloc(GtkWidget *widget, GtkAllocation *a, panel *p)
 
 
 static  gboolean
-panel_configure_event (GtkWidget *widget, GdkEventConfigure *e, panel *p)
+panel_configure_event (GtkWidget *widget, GdkEventConfigure *e, Panel *p)
 {
     ENTER;
     if (e->width == p->cw && e->height == p->ch && e->x == p->cx && e->y == p->cy)
@@ -392,13 +396,13 @@ panel_configure_event (GtkWidget *widget, GdkEventConfigure *e, panel *p)
  *         panel creation                           *
  ****************************************************/
 static void
-make_round_corners(panel *p)
+make_round_corners(Panel *p)
 {
     /* FIXME: This should be re-written with shape extension of X11 */
     /* gdk_window_shape_combine_mask() can be used */
 }
 
-void panel_set_dock_type(panel *p)
+void panel_set_dock_type(Panel *p)
 {
     if (p->setdocktype) {
         Atom state = a_NET_WM_WINDOW_TYPE_DOCK;
@@ -412,7 +416,7 @@ void panel_set_dock_type(panel *p)
 }
 
 static void
-panel_start_gui(panel *p)
+panel_start_gui(Panel *p)
 {
     Atom state[3];
     XWMHints wmhints;
@@ -505,7 +509,7 @@ panel_start_gui(panel *p)
     RET();
 }
 
-void panel_set_orientation(panel *p)
+void panel_set_orientation(Panel *p)
 {
     GList* l;
     p->orientation = (p->edge == EDGE_TOP || p->edge == EDGE_BOTTOM)
@@ -532,7 +536,7 @@ void panel_set_orientation(panel *p)
        from the config dialog, and plugins should be re-layout.
     */
     for( l = p->plugins; l; l = l->next ) {
-        plugin* pl = (plugin*)l->data;
+        Plugin* pl = (Plugin*)l->data;
         if( pl->class->orientation ) {
             pl->class->orientation( pl );
         }
@@ -540,7 +544,7 @@ void panel_set_orientation(panel *p)
 }
 
 static int
-panel_parse_global(panel *p, char **fp)
+panel_parse_global(Panel *p, char **fp)
 {
     line s;
     s.len = 256;
@@ -636,10 +640,10 @@ panel_parse_global(panel *p, char **fp)
 }
 
 static int
-panel_parse_plugin(panel *p, char **fp)
+panel_parse_plugin(Panel *p, char **fp)
 {
     line s;
-    plugin *plug = NULL;
+    Plugin *plug = NULL;
     gchar *type = NULL;
     int expand , padding, border;
     char* pconfig = NULL;
@@ -720,14 +724,14 @@ panel_parse_plugin(panel *p, char **fp)
 
 
 static int
-panel_start( panel *p, char **fp )
+panel_start( Panel *p, char **fp )
 {
     line s;
 
     /* parse global section */
     ENTER;
     s.len = 256;
-    memset(p, 0, sizeof(panel));
+    memset(p, 0, sizeof(Panel));
     p->allign = ALLIGN_CENTER;
     p->edge = EDGE_BOTTOM;
     p->widthtype = WIDTH_PERCENT;
@@ -743,7 +747,7 @@ panel_start( panel *p, char **fp )
     p->usefontcolor = 0;
     p->fontcolor = 0x00000000;
     p->spacing = 0;
-    fbev = fb_ev_new();
+
     if ((lxpanel_get_line(fp, &s) != LINE_BLOCK_START) || g_ascii_strcasecmp(s.t[0], "Global")) {
         ERR( "lxpanel: config file must start from Global section\n");
         RET(0);
@@ -771,12 +775,12 @@ static void
 delete_plugin(gpointer data, gpointer udata)
 {
     ENTER;
-    plugin_stop((plugin *)data);
-    plugin_put((plugin *)data);
+    plugin_stop((Plugin *)data);
+    plugin_put((Plugin *)data);
     RET();
 }
 
-void panel_stop(panel *p)
+void panel_stop(Panel *p)
 {
     ENTER;
 
@@ -794,7 +798,6 @@ void panel_stop(panel *p)
     XSelectInput (GDK_DISPLAY(), GDK_ROOT_WINDOW(), NoEventMask);
     gdk_window_remove_filter(gdk_get_default_root_window (), (GdkFilterFunc)panel_event_filter, p);
     gtk_widget_destroy(p->topgwin);
-    g_object_unref(fbev);
     g_free(p->workarea);
     g_free( p->background_file );
     g_free( p->file_manager );
@@ -998,12 +1001,14 @@ main(int argc, char *argv[], char *env[])
     gtk_icon_theme_append_search_path( gtk_icon_theme_get_default(),
                                        PACKAGE_DATA_DIR "/lxpanel/images" );
 
+	fbev = fb_ev_new();
+
 restart:
     is_restarting = FALSE;
 
     if (!(fp = pfp = load_profile(cprofile)))
         exit(1);
-    p = g_new0(panel, 1);
+    p = g_new0(Panel, 1);
     g_return_val_if_fail (p != NULL, 1);
     if (!panel_start(p, &pfp)) {
         ERR( "lxpanel: can't start panel\n");
@@ -1020,6 +1025,8 @@ restart:
 
     if( is_restarting )
         goto restart;
+
+    g_object_unref(fbev);
 
     return 0;
 }

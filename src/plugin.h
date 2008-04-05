@@ -26,7 +26,7 @@
 #include <stdio.h>
 #include "panel.h"
 
-struct _plugin *stam;
+struct _Plugin *stam;
 
 typedef struct {
     /* common */
@@ -42,30 +42,30 @@ typedef struct {
     char *version;
     char *description;
 
-    int (*constructor)(struct _plugin *this, char **fp);
-    void (*destructor)(struct _plugin *this);
-    void (*config)(struct _plugin *this, GtkWindow* parent); /* config UI */
-    void (*save)(struct _plugin *this, FILE* fp);
-    void (*orientation)(struct _plugin *this);
-} plugin_class;
+    int (*constructor)(struct _Plugin *this, char **fp);
+    void (*destructor)(struct _Plugin *this);
+    void (*config)(struct _Plugin *this, GtkWindow* parent); /* config UI */
+    void (*save)(struct _Plugin *this, FILE* fp);
+    void (*orientation)(struct _Plugin *this);
+} PluginClass;
 
-typedef struct _plugin{
-    plugin_class *class;
-    panel        *panel;
+typedef struct _Plugin{
+    PluginClass *class;
+    Panel        *panel;
     GtkWidget    *pwid;
     int           expand;
     int           padding;
     int           border;
     gpointer      priv;
-} plugin;
+} Plugin;
 
 /* if plugin is external it will load its dll */
-plugin * plugin_load(char *type);
-void plugin_put(plugin *this);
-int plugin_start(plugin *this, char **fp);
-void plugin_stop(plugin *this);
+Plugin * plugin_load(char *type);
+void plugin_put(Plugin *this);
+int plugin_start(Plugin *this, char **fp);
+void plugin_stop(Plugin *this);
 
-void plugin_class_unref( plugin_class* pc );
+void plugin_class_unref( PluginClass* pc );
 
 /*
    Get a list of all available plugin classes
@@ -75,8 +75,8 @@ void plugin_class_unref( plugin_class* pc );
 GList* plugin_get_available_classes();
 void plugin_class_list_free( GList* classes );
 
-void plugin_set_background( plugin* pl, panel* p );
-void plugin_widget_set_background( GtkWidget* w, panel* p );
+void plugin_set_background( Plugin* pl, Panel* p );
+void plugin_widget_set_background( GtkWidget* w, Panel* p );
 
 /* FIXME: optional definitions */
 #define STATIC_SEPARATOR

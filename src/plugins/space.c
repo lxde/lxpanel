@@ -38,7 +38,7 @@ typedef struct {
 
 
 static void
-space_destructor(plugin *p)
+space_destructor(Plugin *p)
 {
     space *sp = (space *)p->priv;
 
@@ -54,7 +54,7 @@ space_destructor(plugin *p)
 
 
 static int
-space_constructor(plugin *p, char** fp)
+space_constructor(Plugin *p, char** fp)
 {
     space *sp;
     line s;
@@ -108,7 +108,7 @@ space_constructor(plugin *p, char** fp)
     RET(0);
 }
 
-static void apply_config( plugin* p )
+static void apply_config( Plugin* p )
 {
     int w, h;
     space *sp = (space *)p->priv;
@@ -123,7 +123,7 @@ static void apply_config( plugin* p )
     gtk_widget_set_size_request(p->pwid, w, h);
 }
 
-static void space_config(plugin* p, GtkWindow* parent )
+static void space_config(Plugin* p, GtkWindow* parent )
 {
     GtkWidget* dlg;
     space *sp = (space *)p->priv;
@@ -134,13 +134,13 @@ static void space_config(plugin* p, GtkWindow* parent )
     gtk_window_present( GTK_WINDOW(dlg) );
 }
 
-static void save_config( plugin* p, FILE* fp )
+static void save_config( Plugin* p, FILE* fp )
 {
     space *sp = (space *)p->priv;
     lxpanel_put_int( fp, "Size", sp->size );
 }
 
-plugin_class space_plugin_class = {
+PluginClass space_plugin_class = {
     fname: NULL,
     count: 0,
 

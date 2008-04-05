@@ -33,7 +33,7 @@
 #define PATH_ID GPOINTER_TO_UINT("path")
 
 typedef struct {
-    panel* panel;
+    Panel* panel;
     char* image;
     char* path;
     GtkWidget *button;
@@ -41,11 +41,11 @@ typedef struct {
 
 static GdkPixbuf* folder_icon = NULL;
 
-static GtkWidget* create_menu( plugin* p,
+static GtkWidget* create_menu( Plugin* p,
                                const char* path,
                                gboolean open_at_top );
 
-static void open_dir( plugin* p, const char* path )
+static void open_dir( Plugin* p, const char* path )
 {
     char* cmd;
     char* quote = g_shell_quote( path );
@@ -59,21 +59,21 @@ static void open_dir( plugin* p, const char* path )
     g_free( cmd );
 }
 
-static void on_open_dir( GtkWidget* item, plugin* p )
+static void on_open_dir( GtkWidget* item, Plugin* p )
 {
     GtkWidget* menu = gtk_widget_get_parent(item);
     const char* path = g_object_get_qdata( menu, PATH_ID );
     open_dir( p, path );
 }
 
-static void open_in_term( plugin* p, const char* path )
+static void open_in_term( Plugin* p, const char* path )
 {
     const char* term = lxpanel_get_terminal( p->panel );
     chdir( path );
     g_spawn_command_line_async( term, NULL );
 }
 
-static void on_open_in_term( GtkWidget* item, plugin* p )
+static void on_open_in_term( GtkWidget* item, Plugin* p )
 {
     GtkWidget* menu = gtk_widget_get_parent(item);
     const char* path = g_object_get_qdata( menu, PATH_ID );
@@ -81,7 +81,7 @@ static void on_open_in_term( GtkWidget* item, plugin* p )
 }
 
 static void
-menu_pos( GtkMenu *menu, gint *x, gint *y, gboolean *push_in, plugin* p )
+menu_pos( GtkMenu *menu, gint *x, gint *y, gboolean *push_in, Plugin* p )
 {
     int ox, oy, w, h;
     dirmenu *dm = (dirmenu *)p->priv;
@@ -109,7 +109,7 @@ menu_pos( GtkMenu *menu, gint *x, gint *y, gboolean *push_in, plugin* p )
     RET();
 }
 
-static void on_select( GtkMenuItem* item, plugin* p )
+static void on_select( GtkMenuItem* item, Plugin* p )
 {
     GtkMenu* parent;
     GtkWidget* sub = gtk_menu_item_get_submenu( item );
@@ -129,14 +129,14 @@ static void on_select( GtkMenuItem* item, plugin* p )
 
 #if GTK_CHECK_VERSION(2, 10, 0)
 /* NOTE: It seems that this doesn't work in older versions of gtk+?? */
-static void on_deselect( GtkMenuItem* item, plugin* p )
+static void on_deselect( GtkMenuItem* item, Plugin* p )
 {
     /* delete old menu on deselect to save resource */
     gtk_menu_item_set_submenu( item, gtk_menu_new() );
 }
 #endif
 
-void on_sel_done( GtkWidget *menu, plugin* p )
+void on_sel_done( GtkWidget *menu, Plugin* p )
 {
     gtk_widget_destroy( menu );
     if( folder_icon )
@@ -146,7 +146,7 @@ void on_sel_done( GtkWidget *menu, plugin* p )
     }
 }
 
-static GtkWidget* create_menu( plugin* p,
+static GtkWidget* create_menu( Plugin* p,
                                const char* path,
                                gboolean open_at_top )
 {
@@ -222,7 +222,7 @@ static GtkWidget* create_menu( plugin* p,
     return menu;
 }
 
-static void show_menu( GtkWidget* widget, plugin *p, int btn, guint32 time )
+static void show_menu( GtkWidget* widget, Plugin *p, int btn, guint32 time )
 {
     dirmenu *dm = (dirmenu *)p->priv;
     char* path = dm->path ? expand_tilda(dm->path) : NULL;
@@ -241,7 +241,7 @@ static void show_menu( GtkWidget* widget, plugin *p, int btn, guint32 time )
 static gint
 clicked (GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
-    plugin *p = (plugin*)data;
+    Plugin *p = (Plugin*)data;
     dirmenu *dm = (dirmenu *)p->priv;
 
     ENTER;
@@ -264,7 +264,7 @@ clicked (GtkWidget *widget, GdkEventButton *event, gpointer data)
 }
 
 static void
-dirmenu_destructor(plugin *p)
+dirmenu_destructor(Plugin *p)
 {
     dirmenu *dm = (dirmenu *)p->priv;
     ENTER;
@@ -275,7 +275,7 @@ dirmenu_destructor(plugin *p)
 }
 
 static int
-dirmenu_constructor(plugin *p, char **fp)
+dirmenu_constructor(Plugin *p, char **fp)
 {
     line s;
     gchar *fname;
@@ -353,14 +353,14 @@ dirmenu_constructor(plugin *p, char **fp)
     RET(0);
 }
 
-static void save_config( plugin* p, FILE* fp )
+static void save_config( Plugin* p, FILE* fp )
 {
     dirmenu* dm = (dirmenu*)p->priv;
     lxpanel_put_str( fp, "path", dm->path );
     lxpanel_put_str( fp, "image", dm->image );
 }
 
-plugin_class dirmenu_plugin_class = {
+PluginClass dirmenu_plugin_class = {
     fname: NULL,
     count: 0,
 

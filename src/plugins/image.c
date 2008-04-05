@@ -38,7 +38,7 @@ typedef struct {
 } image;
 
 static void
-image_destructor(plugin *p)
+image_destructor(Plugin *p)
 {
     image *img = (image *)p->priv;
 
@@ -55,7 +55,7 @@ image_destructor(plugin *p)
 }
 
 static int
-image_constructor(plugin *p, char **fp)
+image_constructor(Plugin *p, char **fp)
 {
     gchar *tooltip, *fname;
     image *img;
@@ -153,7 +153,7 @@ image_constructor(plugin *p, char **fp)
     RET(0);
 }
 
-static void save_config( plugin* p, FILE* fp )
+static void save_config( Plugin* p, FILE* fp )
 {
     image *img = (image *)p->priv;
     if( img->config_data ) {
@@ -168,7 +168,7 @@ static void save_config( plugin* p, FILE* fp )
     }
 }
 
-plugin_class image_plugin_class = {
+PluginClass image_plugin_class = {
     fname: NULL,
     count: 0,
 

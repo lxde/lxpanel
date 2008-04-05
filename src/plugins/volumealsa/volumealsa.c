@@ -146,7 +146,7 @@ static void click_mute(GtkWidget *widget, volume_t *vol)
     }
 }
 
-static void panel_init(plugin *p)
+static void panel_init(Plugin *p)
 {
     volume_t *vol = p->priv;
     GtkWidget *scrolledwindow;
@@ -223,7 +223,7 @@ static void panel_init(plugin *p)
 }
 
 static void
-volumealsa_destructor(plugin *p)
+volumealsa_destructor(Plugin *p)
 {
     volume_t *vol = (volume_t *) p->priv;
 
@@ -237,7 +237,7 @@ volumealsa_destructor(plugin *p)
 }
 
 static int
-volumealsa_constructor(plugin *p, char **fp)
+volumealsa_constructor(Plugin *p, char **fp)
 {
     volume_t *vol;
     line s;
@@ -296,7 +296,7 @@ volumealsa_constructor(plugin *p, char **fp)
 }
 
 
-plugin_class volumealsa_plugin_class = {
+PluginClass volumealsa_plugin_class = {
     fname: NULL,
     count: 0,
 

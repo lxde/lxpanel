@@ -40,7 +40,7 @@ typedef struct {
 
 
 static void
-netstatus_destructor(plugin *p)
+netstatus_destructor(Plugin *p)
 {
     netstatus *ns = (netstatus *)p->priv;
 
@@ -66,7 +66,7 @@ static void on_response( GtkDialog* dlg, gint response, netstatus *ns )
     }
 }
 
-static void on_button_press( GtkWidget* widget, GdkEventButton* evt, plugin* p )
+static void on_button_press( GtkWidget* widget, GdkEventButton* evt, Plugin* p )
 {
     NetstatusIface* iface;
     netstatus *ns = (netstatus*)p->priv;
@@ -89,7 +89,7 @@ static void on_button_press( GtkWidget* widget, GdkEventButton* evt, plugin* p )
 }
 
 static int
-netstatus_constructor(plugin *p, char** fp)
+netstatus_constructor(Plugin *p, char** fp)
 {
     netstatus *ns;
     line s;
@@ -147,12 +147,12 @@ netstatus_constructor(plugin *p, char** fp)
     RET(0);
 }
 
-static void apply_config( plugin* p )
+static void apply_config( Plugin* p )
 {
 
 }
 
-static void netstatus_config( plugin* p, GtkWindow* parent  )
+static void netstatus_config( Plugin* p, GtkWindow* parent  )
 {
     GtkWidget* dlg;
     netstatus *ns = (netstatus*)p->priv;
@@ -166,14 +166,14 @@ static void netstatus_config( plugin* p, GtkWindow* parent  )
     gtk_window_present( GTK_WINDOW(dlg) );
 }
 
-static void save_config( plugin* p, FILE* fp )
+static void save_config( Plugin* p, FILE* fp )
 {
     netstatus *ns = (netstatus*)p->priv;
     lxpanel_put_str( fp, "iface", ns->iface );
     lxpanel_put_str( fp, "configtool", ns->config_tool );
 }
 
-plugin_class netstatus_plugin_class = {
+PluginClass netstatus_plugin_class = {
     fname: NULL,
     count: 0,
 
