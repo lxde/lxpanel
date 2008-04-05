@@ -85,6 +85,92 @@ static void wireless_connect(GtkWidget *widget, ap_setting *aps)
     }
 }
 
+static GtkWidget *
+wireless_menu(netdev_info *ni)
+{
+    APLIST *aplist;
+    APLIST *ptr;
+    GtkWidget *menu;
+    GtkWidget *menu_ap;
+
+    /* AP status widget */
+    GtkWidget *item_box;
+    GtkWidget *essid_label;
+    GtkWidget *lockicon;
+    GtkWidget *signal_quality;
+    gdouble quality_per;
+    ap_setting *aps;
+
+    /* create menu */
+    menu = gtk_menu_new();
+
+    /* Scanning AP */
+    aplist = wireless_scanning(ni->ns->fnetd->iwsockfd, ni->netdev_list->info.ifname);
+    if (aplist!=NULL) {
+        ptr = aplist;
+        do {
+            aps = g_new0(ap_setting, 1);
+            aps->ni = ni;
+            aps->essid = ptr->info->essid;
+            aps->ifname = ni->netdev_list->info.ifname;
+            aps->gio = ni->ns->fnetd->lxnmchannel;
+            aps->apaddr = ptr->info->apaddr;
+            aps->en_type = ptr->info->en_method;
+
+            /* create a new item */
+            menu_ap = gtk_menu_item_new();
+            item_box = gtk_hbox_new(FALSE, 0);
+
+            /* Encryption */
+            if (ptr->info->haskey) {
+                lockicon = gtk_image_new_from_file(ICONS_WL_LOCK);
+                gtk_box_pack_start(GTK_BOX(item_box), lockicon, FALSE, FALSE, 0);
+                if (aps->en_type==NS_WIRELESS_AUTH_OFF)
+                    aps->en_type = NS_WIRELESS_AUTH_WEP;
+            }
+
+            /* ESSID */
+            if (aps->essid==NULL)
+                essid_label = gtk_label_new(_("<Hidden Access Point>"));
+            else
+                essid_label = gtk_label_new(ptr->info->essid);
+
+            gtk_label_set_justify(essid_label, GTK_JUSTIFY_LEFT);
+            gtk_misc_set_padding(GTK_MISC(essid_label), 2, 0);
+            gtk_box_pack_start(GTK_BOX(item_box), essid_label, TRUE, FALSE, 0);
+
+            /* Quality */
+            quality_per = (gdouble)((double)ptr->info->quality/100);
+            if (quality_per>1)
+                quality_per = 1;
+            else if (quality_per<0)
+                quality_per = 0;
+
+            signal_quality = gtk_progress_bar_new();
+            gtk_widget_set_size_request(signal_quality, 100, -1);
+            gtk_progress_bar_set_orientation(signal_quality, GTK_PROGRESS_LEFT_TO_RIGHT);
+            gtk_progress_bar_set_fraction(signal_quality, quality_per);
+            gtk_box_pack_start(GTK_BOX(item_box), signal_quality, FALSE, FALSE, 0);
+
+            /* add this item to menu */
+            gtk_container_add(GTK_CONTAINER(menu_ap), item_box);
+            gtk_menu_append(GTK_MENU(menu), menu_ap);
+            g_signal_connect(G_OBJECT(menu_ap), "activate", G_CALLBACK(wireless_connect), aps);
+            g_object_weak_ref(menu_ap, g_free, aps);
+
+			/* handle next AP */
+            ptr = ptr->next;
+        } while(ptr!=NULL);
+    }
+
+    gtk_widget_show_all(menu);
+
+    /* release AP list after menu */
+    g_object_weak_ref(menu, wireless_aplist_free, aplist);
+
+    return menu;
+}
+
 static gint menupopup(GtkWidget *widget, GdkEvent *event, netdev_info *ni)
 {
     GdkEventButton *event_button;
@@ -96,78 +182,7 @@ static gint menupopup(GtkWidget *widget, GdkEvent *event, netdev_info *ni)
         if (event_button->button == 1) {
             /* wireless device */
             if (ni->netdev_list->info.wireless) {
-                GtkWidget *menu;
-                GtkWidget *menu_ap;
-                APINFOLIST *aplist;
-                APINFOLIST *ptr;
-
-                /* create menu */
-                menu = gtk_menu_new();
-
-                /* Scanning AP */
-                aplist = wireless_ap_scanning(ni->ns->fnetd->iwsockfd, ni->netdev_list->info.ifname);
-                if (aplist!=NULL) {
-                    ptr = aplist;
-                    do {
-                        GtkWidget *item_box;
-                        GtkWidget *essid_label;
-                        GtkWidget *lockicon;
-                        GtkWidget *signal_quality;
-                        gdouble quality_per;
-                        ap_setting *aps;
-
-                        aps = malloc(sizeof(ap_setting));
-                        aps->ni = ni;
-                        aps->ifname = ni->netdev_list->info.ifname;
-                        aps->gio = ni->ns->fnetd->lxnmchannel;
-                        aps->apaddr = ptr->info.apaddr;
-                        aps->en_type = ptr->info.en_method;
-
-                        menu_ap = gtk_menu_item_new();
-                        item_box = gtk_hbox_new(FALSE, 0);
-
-                        /* Encryption */
-                        if (ptr->info.haskey) {
-                            lockicon = gtk_image_new_from_file(ICONS_WL_LOCK);
-                            gtk_box_pack_start(GTK_BOX(item_box), lockicon, FALSE, FALSE, 0);
-                            if (aps->en_type==NS_WIRELESS_AUTH_OFF)
-                                aps->en_type = NS_WIRELESS_AUTH_WEP;
-                        }
-
-                        /* ESSID */
-                        aps->essid = ptr->info.essid;
-                        if (strlen(aps->essid)!=0)
-                            essid_label = gtk_label_new(ptr->info.essid);
-                        else
-                            essid_label = gtk_label_new(_("<Hidden Access Point>"));
-//                      gtk_misc_set_alignment(GTK_MISC(essid_label), 0, 0);
-                        gtk_label_set_justify(essid_label, GTK_JUSTIFY_LEFT);
-                        gtk_misc_set_padding(GTK_MISC(essid_label), 2, 0);
-                        gtk_box_pack_start(GTK_BOX(item_box), essid_label, TRUE, FALSE, 0);
-
-                        /* Quality */
-                        quality_per = (gdouble)((double)ptr->info.quality/100);
-                        if (quality_per>1)
-                            quality_per = 1;
-                        else if (quality_per<0)
-                            quality_per = 0;
-
-                        signal_quality = gtk_progress_bar_new();
-                        gtk_widget_set_size_request(signal_quality, 100, -1);
-                        gtk_progress_bar_set_orientation(signal_quality, GTK_PROGRESS_LEFT_TO_RIGHT);
-                        gtk_progress_bar_set_fraction(signal_quality, quality_per);
-                        gtk_box_pack_start(GTK_BOX(item_box), signal_quality, FALSE, FALSE, 0);
-
-                        gtk_container_add(GTK_CONTAINER(menu_ap), item_box);
-                        gtk_menu_append(GTK_MENU(menu), menu_ap);
-                        g_signal_connect(G_OBJECT(menu_ap), "activate", G_CALLBACK(wireless_connect), aps);
-                        g_object_weak_ref(menu_ap, g_free, aps);
-                        ptr = ptr->next;
-                    } while(ptr!=NULL);
-                }
-                gtk_widget_show_all(menu);
-
-                gtk_menu_popup(menu, NULL, NULL, NULL, NULL, event_button->button, event_button->time);
+                gtk_menu_popup(wireless_menu(ni), NULL, NULL, NULL, NULL, event_button->button, event_button->time);
             }
         } else if (event_button->button == 3) {
             GtkWidget *menu;

@@ -10,16 +10,17 @@
 typedef struct {
 	char *essid;
 	char *apaddr;
-	gboolean haskey;
 	int quality;
 	int en_method;
+	gboolean haskey;
 } ap_info;
 
-typedef struct ap_info_node {
-	ap_info              info;
+typedef struct {
+	ap_info             *info;
 	struct ap_info_node *next;
-} APINFOLIST;
+} APLIST;
 
-APINFOLIST *wireless_ap_scanning(int iwsockfd, const char *ifname);
+void wireless_aplist_free(APLIST *aplist);
+APLIST *wireless_scanning(int iwsockfd, const char *ifname);
 
 #endif
