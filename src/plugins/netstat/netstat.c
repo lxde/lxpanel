@@ -91,7 +91,8 @@ wireless_menu(netdev_info *ni)
     APLIST *aplist;
     APLIST *ptr;
     GtkWidget *menu;
-    GtkWidget *menu_ap;
+    GtkWidget *menu_item;
+    GtkWidget *wireless_label;
 
     /* AP status widget */
     GtkWidget *item_box;
@@ -118,7 +119,7 @@ wireless_menu(netdev_info *ni)
             aps->en_type = ptr->info->en_method;
 
             /* create a new item */
-            menu_ap = gtk_menu_item_new();
+            menu_item = gtk_menu_item_new();
             item_box = gtk_hbox_new(FALSE, 0);
 
             /* Encryption */
@@ -153,14 +154,22 @@ wireless_menu(netdev_info *ni)
             gtk_box_pack_start(GTK_BOX(item_box), signal_quality, FALSE, FALSE, 0);
 
             /* add this item to menu */
-            gtk_container_add(GTK_CONTAINER(menu_ap), item_box);
-            gtk_menu_append(GTK_MENU(menu), menu_ap);
-            g_signal_connect(G_OBJECT(menu_ap), "activate", G_CALLBACK(wireless_connect), aps);
-            g_object_weak_ref(menu_ap, g_free, aps);
+            gtk_container_add(GTK_CONTAINER(menu_item), item_box);
+            gtk_menu_append(GTK_MENU(menu), menu_item);
+            g_signal_connect(G_OBJECT(menu_item), "activate", G_CALLBACK(wireless_connect), aps);
+            g_object_weak_ref(menu_item, g_free, aps);
 
 			/* handle next AP */
             ptr = ptr->next;
         } while(ptr!=NULL);
+    } else {
+        /* we do not found any wireless networks */
+        menu_item = gtk_menu_item_new();
+        wireless_label = gtk_label_new(_("Wireless Networks not found in range"));
+        gtk_label_set_justify(wireless_label, GTK_JUSTIFY_LEFT);
+        gtk_widget_set_sensitive(GTK_WIDGET(wireless_label), FALSE);
+        gtk_container_add(GTK_CONTAINER(menu_item), wireless_label);
+        gtk_menu_append(GTK_MENU(menu), menu_item);
     }
 
     gtk_widget_show_all(menu);
