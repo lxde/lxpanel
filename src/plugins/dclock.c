@@ -133,11 +133,11 @@ clock_update(gpointer data )
     strftime(output, sizeof(output),
              (dc->cfmt ? dc->cfmt : DEFAULT_CLOCK_FORMAT), detail);
 
-    if (dc->bold&& dc->panel->fontcolor)
+    if (dc->bold&& dc->panel->usefontcolor)
         g_snprintf(str, 64, "<span color=\"#%06x\"><b>%s</b></span>", gcolor2rgb24( &dc->panel->gfontcolor ), output);
     else if (dc->bold)
         g_snprintf(str, 64, "<b>%s</b>", output);
-    else if ( dc->panel->fontcolor)
+    else if ( dc->panel->usefontcolor)
         g_snprintf(str, 64, "<span color=\"#%06x\">%s</span>", gcolor2rgb24(&dc->panel->gfontcolor), output);
     else
         g_snprintf(str, 64, "%s", output);

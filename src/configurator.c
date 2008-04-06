@@ -571,14 +571,14 @@ on_font_color_set( GtkColorButton* clr, gpointer user_data )
 {
 	gtk_color_button_get_color( clr, &p->gfontcolor );
 	/* FIXME: need some better mechanism to update the panel */
-	if( p->fontcolor )
+	if( p->usefontcolor )
 		gtk_widget_queue_draw( p->topgwin );
 }
 
 static void 
 on_use_font_color_toggled( GtkToggleButton* btn, gpointer user_data )
 {
-	p->fontcolor = gtk_toggle_button_get_active( btn );
+	p->usefontcolor = gtk_toggle_button_get_active( btn );
 	/* FIXME: need some better mechanism to update the panel */
 	gtk_widget_queue_draw( p->topgwin );
 }
@@ -656,7 +656,7 @@ mk_appearance()
 
 	use_fnt_clr = gtk_check_button_new_with_label( _("Custom Color") );
 	gtk_box_pack_start( (GtkBox*)hbox, use_fnt_clr, FALSE, FALSE, 4 );
-	gtk_toggle_button_set_active( (GtkToggleButton*) use_fnt_clr, p->fontcolor );
+	gtk_toggle_button_set_active( (GtkToggleButton*) use_fnt_clr, p->usefontcolor );
     g_signal_connect(use_fnt_clr, "toggled", G_CALLBACK(on_use_font_color_toggled), NULL);
 
 	clr = gtk_color_button_new();

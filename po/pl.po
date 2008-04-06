@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel-0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-06 19:46+0800\n"
+"POT-Creation-Date: 2008-04-07 01:02+0800\n"
 "PO-Revision-Date: 2006-11-27 21:56+0100\n"
 "Last-Translator: Artur Kruszewski <mazdac@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -202,7 +202,7 @@ msgstr "Wtyczki"
 msgid "Applications"
 msgstr "Wybierz program"
 
-#: ../src/configurator.c:1460
+#: ../src/configurator.c:1461
 msgid "Logout command is not set"
 msgstr "Komenda wylogowania nie jest ustawiona"
 
@@ -366,85 +366,90 @@ msgstr "Biuro"
 msgid "Accessories"
 msgstr "Akcesoria"
 
-#: ../src/plugins/taskbar.c:1214
+#: ../src/plugins/taskbar.c:1219
 msgid "Raise"
 msgstr "Rozwiń"
 
-#: ../src/plugins/taskbar.c:1218
+#: ../src/plugins/taskbar.c:1223
 msgid "Restore"
 msgstr "Przywróć"
 
-#: ../src/plugins/taskbar.c:1222
+#: ../src/plugins/taskbar.c:1227
 msgid "Maximize"
 msgstr "Maksymalizuj"
 
-#: ../src/plugins/taskbar.c:1226
+#: ../src/plugins/taskbar.c:1231
 msgid "Iconify"
 msgstr "Minimalizuj"
 
-#: ../src/plugins/taskbar.c:1235
+#: ../src/plugins/taskbar.c:1240
 #, c-format
 msgid "Workspace %d"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1243
+#: ../src/plugins/taskbar.c:1248
 msgid "All workspaces"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1250
+#: ../src/plugins/taskbar.c:1255
 msgid "Move to Workspace"
 msgstr ""
 
 #. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1258
+#: ../src/plugins/taskbar.c:1263
 msgid "Close Window"
 msgstr "Zamknij okno"
 
-#: ../src/plugins/taskbar.c:1500
+#: ../src/plugins/taskbar.c:1512
 msgid "Show tooltips"
 msgstr "Pokaż podpowiedzi"
 
-#: ../src/plugins/taskbar.c:1501
+#: ../src/plugins/taskbar.c:1513
 msgid "Icons only"
 msgstr "Tylko ikony"
 
-#: ../src/plugins/taskbar.c:1502
+#: ../src/plugins/taskbar.c:1514
+#, fuzzy
+msgid "Flat Buttons"
+msgstr "Przyciski"
+
+#: ../src/plugins/taskbar.c:1515
 msgid "Accept SkipPager"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1503
+#: ../src/plugins/taskbar.c:1516
 msgid "Show Iconified windows"
 msgstr "Pokaż zikonizowane oka"
 
-#: ../src/plugins/taskbar.c:1504
+#: ../src/plugins/taskbar.c:1517
 msgid "Show mapped windows"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1505
+#: ../src/plugins/taskbar.c:1518
 msgid "Show windows from all desktops"
 msgstr "Pokaż okna ze wszytskich pulpitów"
 
-#: ../src/plugins/taskbar.c:1506
+#: ../src/plugins/taskbar.c:1519
 msgid "Use mouse wheel"
 msgstr "Użyj rolki myszy"
 
-#: ../src/plugins/taskbar.c:1507
+#: ../src/plugins/taskbar.c:1520
 msgid "Flash when there is any window requiring attention"
 msgstr "Migaj gdy okno wymaga uwagi"
 
-#: ../src/plugins/taskbar.c:1508
+#: ../src/plugins/taskbar.c:1521
 msgid "Max width of task button"
 msgstr "Maksymalna szerokośc przycisku zadań"
 
-#: ../src/plugins/taskbar.c:1509
+#: ../src/plugins/taskbar.c:1522
 msgid "Spacing"
 msgstr "Odstępy"
 
-#: ../src/plugins/taskbar.c:1586
+#: ../src/plugins/taskbar.c:1600
 msgid "Task Bar (Window List)"
 msgstr "Pasek zadań (Lista okien)"
 
-#: ../src/plugins/taskbar.c:1588
+#: ../src/plugins/taskbar.c:1602
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"

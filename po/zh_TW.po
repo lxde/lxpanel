@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-06 19:46+0800\n"
+"POT-Creation-Date: 2008-04-07 01:02+0800\n"
 "PO-Revision-Date: 2008-03-30 21:46+0800\n"
 "Last-Translator: 洪任諭 <pcman.tw@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -194,7 +194,7 @@ msgstr "外掛"
 msgid "Applications"
 msgstr "應用程式"
 
-#: ../src/configurator.c:1460
+#: ../src/configurator.c:1461
 msgid "Logout command is not set"
 msgstr "登出指令尚未設定"
 
@@ -356,85 +356,89 @@ msgstr "辦公軟體"
 msgid "Accessories"
 msgstr "附屬應用程式"
 
-#: ../src/plugins/taskbar.c:1214
+#: ../src/plugins/taskbar.c:1219
 msgid "Raise"
 msgstr "移到最上層"
 
-#: ../src/plugins/taskbar.c:1218
+#: ../src/plugins/taskbar.c:1223
 msgid "Restore"
 msgstr "復原"
 
-#: ../src/plugins/taskbar.c:1222
+#: ../src/plugins/taskbar.c:1227
 msgid "Maximize"
 msgstr "最大化"
 
-#: ../src/plugins/taskbar.c:1226
+#: ../src/plugins/taskbar.c:1231
 msgid "Iconify"
 msgstr "最小化"
 
-#: ../src/plugins/taskbar.c:1235
+#: ../src/plugins/taskbar.c:1240
 #, c-format
 msgid "Workspace %d"
 msgstr "工作區 %d"
 
-#: ../src/plugins/taskbar.c:1243
+#: ../src/plugins/taskbar.c:1248
 msgid "All workspaces"
 msgstr "所有工作區"
 
-#: ../src/plugins/taskbar.c:1250
+#: ../src/plugins/taskbar.c:1255
 msgid "Move to Workspace"
 msgstr "移動到工作區"
 
 #. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1258
+#: ../src/plugins/taskbar.c:1263
 msgid "Close Window"
 msgstr "關閉視窗"
 
-#: ../src/plugins/taskbar.c:1500
+#: ../src/plugins/taskbar.c:1512
 msgid "Show tooltips"
 msgstr "顯示工具提示"
 
-#: ../src/plugins/taskbar.c:1501
+#: ../src/plugins/taskbar.c:1513
 msgid "Icons only"
 msgstr "只顯示圖示"
 
-#: ../src/plugins/taskbar.c:1502
+#: ../src/plugins/taskbar.c:1514
+msgid "Flat Buttons"
+msgstr "平面按鈕"
+
+#: ../src/plugins/taskbar.c:1515
 msgid "Accept SkipPager"
 msgstr "接受 SkipPager Hint"
 
-#: ../src/plugins/taskbar.c:1503
+#: ../src/plugins/taskbar.c:1516
 msgid "Show Iconified windows"
 msgstr "顯示最小化的視窗"
 
-#: ../src/plugins/taskbar.c:1504
+#: ../src/plugins/taskbar.c:1517
 msgid "Show mapped windows"
 msgstr "顯示已被映射的視窗"
 
-#: ../src/plugins/taskbar.c:1505
+#: ../src/plugins/taskbar.c:1518
 msgid "Show windows from all desktops"
 msgstr "顯示來自所有桌面的視窗"
 
-#: ../src/plugins/taskbar.c:1506
+#: ../src/plugins/taskbar.c:1519
 msgid "Use mouse wheel"
 msgstr "使用滑鼠滾輪"
 
-#: ../src/plugins/taskbar.c:1507
+#: ../src/plugins/taskbar.c:1520
 msgid "Flash when there is any window requiring attention"
 msgstr "當有視窗要求使用者注意時，閃爍工作列"
 
-#: ../src/plugins/taskbar.c:1508
+#: ../src/plugins/taskbar.c:1521
 msgid "Max width of task button"
 msgstr "工作列按鈕最大寬度"
 
-#: ../src/plugins/taskbar.c:1509
+#: ../src/plugins/taskbar.c:1522
 msgid "Spacing"
 msgstr "間距"
 
-#: ../src/plugins/taskbar.c:1586
+#: ../src/plugins/taskbar.c:1600
 msgid "Task Bar (Window List)"
 msgstr "工作列 (視窗清單)"
 
-#: ../src/plugins/taskbar.c:1588
+#: ../src/plugins/taskbar.c:1602
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -559,7 +563,7 @@ msgstr "<隱藏的 Access Point>"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "Wireless Networks not found in range"
-msgstr ""
+msgstr "範圍內找不到無限網路"
 
 #. Repair
 #: ../src/plugins/netstat/netstat.c:204
