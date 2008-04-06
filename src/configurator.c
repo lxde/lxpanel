@@ -797,6 +797,9 @@ static void on_add_plugin_response( GtkDialog* dlg,
                 /* FIXME: will show all cause problems? */
                 gtk_widget_show_all( pl->pwid );
 
+				/* update background of the newly added plugin */
+                plugin_widget_set_background( pl->pwid, pl->panel );
+
                 model = gtk_tree_view_get_model( _view );
                 gtk_list_store_append( (GtkListStore*)model, &it );
                 gtk_list_store_set( (GtkListStore*)model, &it,
