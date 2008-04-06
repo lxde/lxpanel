@@ -24,9 +24,7 @@
 #include "panel.h"
 #include "misc.h"
 #include "plugin.h"
-//#define DEBUG
 #include "dbg.h"
-
 
 typedef struct {
     GtkTooltips *tips;
@@ -42,8 +40,6 @@ static pair wincmd_pair [] = {
     { WC_SHADE,   "shade" },
     { 0, NULL },
 };
-
-
 
 static void
 toggle_shaded(wincmd *wc, guint32 action)

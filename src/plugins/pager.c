@@ -36,7 +36,6 @@
 #include "misc.h"
 #include "plugin.h"
 
-//#define DEBUG
 #include "dbg.h"
 
 /* managed window: all related info that wm holds about its managed windows */

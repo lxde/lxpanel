@@ -32,7 +32,6 @@
 #include "misc.h"
 #include "plugin.h"
 
-//#define DEBUG
 #include "dbg.h"
 
 #include "glib-mem.h"

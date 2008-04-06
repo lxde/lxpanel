@@ -30,7 +30,6 @@
 
 #include "ptk-app-menu.h"
 
-//#define DEBUG
 #include "dbg.h"
 
 /*

@@ -22,7 +22,6 @@
 
 #include <glib/gi18n.h>
 
-//#define DEBUG
 #include "dbg.h"
 
 

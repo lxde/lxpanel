@@ -35,7 +35,6 @@
 #define KILOBYTE 1024
 #define MAX_WGSIZE 100
 
-//#define DEBUG
 #include "dbg.h"
 typedef unsigned long tick;
 

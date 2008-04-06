@@ -44,7 +44,6 @@
  * 3. Add Restore & Maximize menu items to popup menu of task bar buttons.
  */
 
-//#define DEBUG
 #include "dbg.h"
 
 struct _taskbar;
