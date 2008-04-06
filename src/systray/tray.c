@@ -172,6 +172,10 @@ static void orientation_changed( Plugin* p )
     GList *l, *children;
     int width = 0, height = 0;
 
+    /* another systray already running */
+    if (!tr->tray_manager)
+        return;
+
     na_tray_manager_set_orientation( tr->tray_manager, p->panel->orientation );
 
     /* weird... na_tray_manager will re-add the icons to the tray automatically... */
