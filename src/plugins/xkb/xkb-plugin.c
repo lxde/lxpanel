@@ -25,11 +25,11 @@
 
 #include "xkb.h"
 
-t_xkb_options_dlg *dlg = NULL;
-GIOChannel *channel;
-guint source_id;
+static t_xkb_options_dlg *dlg = NULL;
+static GIOChannel *channel;
+static guint source_id;
 
-gulong win_change_hanler, win_close_hanler;
+static gulong win_change_hanler, win_close_hanler;
 
 static void
 xkb_free(t_xkb *xkb);
@@ -283,7 +283,7 @@ void
 active_window_changed(FbEv *ev, gpointer data) 
 {
 	Window *win = fb_ev_active_window( ev );
-	g_debug( "win = %p, pid=%d", win, get_net_wm_pid(win) );
+	DBG( "win = %p, pid=%d", win, get_net_wm_pid(win) );
 	if( win == None )
 		return;
   react_active_window_changed(get_net_wm_pid( win ), (t_xkb *) data);
@@ -292,7 +292,7 @@ active_window_changed(FbEv *ev, gpointer data)
 void 
 application_closed( FbEv* ev, Window win, gpointer data) 
 {
-	g_debug("win: %p", win);
+	DBG("win: %p", win);
   react_application_closed(get_net_wm_pid(win));  
 }
 
