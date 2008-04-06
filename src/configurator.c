@@ -566,14 +566,35 @@ background_disable_toggle(GtkWidget *b, gpointer bp)
     RET();
 }
 
+static void
+on_font_color_set( GtkColorButton* clr, gpointer user_data )
+{
+	gtk_color_button_get_color( clr, &p->gfontcolor );
+	/* FIXME: need some better mechanism to update the panel */
+	if( p->fontcolor )
+		gtk_widget_queue_draw( p->topgwin );
+}
+
+static void 
+on_use_font_color_toggled( GtkToggleButton* btn, gpointer user_data )
+{
+	p->fontcolor = gtk_toggle_button_get_active( btn );
+	/* FIXME: need some better mechanism to update the panel */
+	gtk_widget_queue_draw( p->topgwin );
+}
+
 GtkWidget *
 mk_appearance()
 {
-    GtkWidget *vbox, *vbox2, *label, *frame, *incframe;
+    GtkWidget *top_vbox, *vbox, *vbox2, *label, *frame, *incframe, *hbox, *fnt, *clr, *use_fnt_clr;
     GSList *check_group;
 
     ENTER;
+    top_vbox = gtk_vbox_new( FALSE, 1 );
+
     frame = gtk_frame_new(NULL);
+    gtk_box_pack_start( (GtkBox*)top_vbox, frame, FALSE, TRUE, 0 );
+
     gtk_frame_set_shadow_type(GTK_FRAME (frame), GTK_SHADOW_NONE);
     gtk_container_set_border_width (GTK_CONTAINER (frame), 6);
     label = gtk_label_new(NULL);
@@ -617,11 +638,39 @@ mk_appearance()
     else
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(bg_checkdis), TRUE);
 
-    g_signal_connect(G_OBJECT(bg_checkdis), "toggled", G_CALLBACK(background_disable_toggle), NULL);
-    g_signal_connect(G_OBJECT(bg_checkb), "toggled", G_CALLBACK(background_toggle), NULL);
-    g_signal_connect(G_OBJECT(tr_checkb), "toggled", G_CALLBACK(transparency_toggle), NULL);
+    frame = gtk_frame_new(NULL);
+    gtk_box_pack_start( (GtkBox*)top_vbox, frame, FALSE, TRUE, 0 );
 
-    RET(frame);
+    gtk_frame_set_shadow_type(GTK_FRAME (frame), GTK_SHADOW_NONE);
+    gtk_container_set_border_width (GTK_CONTAINER (frame), 6);
+    label = gtk_label_new(NULL);
+    gtk_label_set_markup(GTK_LABEL (label),_("<b>Font</b>"));
+    gtk_frame_set_label_widget(GTK_FRAME (frame), label);
+
+    hbox = gtk_hbox_new(FALSE, 0);
+    gtk_container_set_border_width (GTK_CONTAINER (hbox), 6);
+    gtk_container_add (GTK_CONTAINER (frame), hbox);
+
+//	fnt = gtk_font_button_new();
+//	gtk_box_pack_start( (GtkBox*)hbox, fnt, TRUE, TRUE, 4 );
+
+	use_fnt_clr = gtk_check_button_new_with_label( _("Custom Color") );
+	gtk_box_pack_start( (GtkBox*)hbox, use_fnt_clr, FALSE, FALSE, 4 );
+	gtk_toggle_button_set_active( (GtkToggleButton*) use_fnt_clr, p->fontcolor );
+    g_signal_connect(use_fnt_clr, "toggled", G_CALLBACK(on_use_font_color_toggled), NULL);
+
+	clr = gtk_color_button_new();
+	gtk_box_pack_start( (GtkBox*)hbox, clr, FALSE, FALSE, 4 );
+	gtk_color_button_set_color( (GtkColorButton*)clr, &p->gfontcolor );
+	g_signal_connect( clr, "color-set", G_CALLBACK( on_use_font_color_toggled ), NULL );
+
+	gtk_widget_show_all( top_vbox );
+
+    g_signal_connect(bg_checkdis, "toggled", G_CALLBACK(background_disable_toggle), NULL);
+    g_signal_connect(bg_checkb, "toggled", G_CALLBACK(background_toggle), NULL);
+    g_signal_connect(tr_checkb, "toggled", G_CALLBACK(transparency_toggle), NULL);
+
+    RET(top_vbox);
 }
 
 static void

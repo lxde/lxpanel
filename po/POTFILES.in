@@ -3,7 +3,6 @@ src/configurator.c
 src/dbg.c
 src/ev.c
 src/gtkbar.c
-src/gtkbgbox.c
 src/panel.c
 src/plugin.c
 src/gtk-run.c

@@ -36,6 +36,7 @@
 #define DEFAULT_CLOCK_FORMAT  "%R"
 
 typedef struct {
+	Panel* panel;
     GtkWidget *eb;
     GtkWidget *main;
     GtkWidget *clockw;
@@ -47,8 +48,6 @@ typedef struct {
     short lastDay;
     int bold;
     int timer;
-    int usefontcolor;
-    GdkColor *gfontcolor;
     gboolean cal_show;
 } dclock;
 
@@ -134,12 +133,12 @@ clock_update(gpointer data )
     strftime(output, sizeof(output),
              (dc->cfmt ? dc->cfmt : DEFAULT_CLOCK_FORMAT), detail);
 
-    if (dc->bold&&dc->usefontcolor)
-        g_snprintf(str, 64, "<span color=\"#%06x\"><b>%s</b></span>", gcolor2rgb24(dc->gfontcolor), output);
+    if (dc->bold&& dc->panel->fontcolor)
+        g_snprintf(str, 64, "<span color=\"#%06x\"><b>%s</b></span>", gcolor2rgb24( &dc->panel->gfontcolor ), output);
     else if (dc->bold)
         g_snprintf(str, 64, "<b>%s</b>", output);
-    else if (dc->usefontcolor)
-        g_snprintf(str, 64, "<span color=\"#%06x\">%s</span>", gcolor2rgb24(dc->gfontcolor), output);
+    else if ( dc->panel->fontcolor)
+        g_snprintf(str, 64, "<span color=\"#%06x\">%s</span>", gcolor2rgb24(&dc->panel->gfontcolor), output);
     else
         g_snprintf(str, 64, "%s", output);
 
@@ -169,6 +168,8 @@ dclock_constructor(Plugin *p, char** fp)
     dc = g_slice_new0(dclock);
     g_return_val_if_fail(dc != NULL, 0);
     p->priv = dc;
+
+    dc->panel = p->panel;
 
     s.len = 256;
     dc->cfmt = dc->tfmt = dc->action = dc->bold = 0;
@@ -223,12 +224,6 @@ dclock_constructor(Plugin *p, char** fp)
 
     dc->timer = g_timeout_add(1000, (GSourceFunc) clock_update, (gpointer)dc);
 
-    /* font color */
-    if (p->panel->usefontcolor)
-        dc->gfontcolor = &p->panel->gfontcolor;
-
-    dc->usefontcolor = p->panel->usefontcolor;
-
     clock_update( dc );
 
     /* store the created Plugin widget in Plugin->pwid */
@@ -256,7 +251,6 @@ dclock_destructor(Plugin *p)
         g_source_remove(dc->timer);
 
     /* g_object_unref( dc->tip ); */
-    gtk_widget_destroy(dc->calwin);
     g_free(dc->cfmt);
     g_free(dc->tfmt);
     g_free(dc->action);
