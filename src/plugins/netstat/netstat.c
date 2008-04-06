@@ -318,7 +318,9 @@ static void refresh_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
 static gboolean refresh_devstat(netstat *ns)
 {
     netproc_listener(ns->fnetd);
-    //netproc_print(fnetd->netdevlist);
+#ifdef DEBUG
+    netproc_print(fnetd->netdevlist);
+#endif
     refresh_systray(ns, ns->fnetd->netdevlist);
     netproc_devicelist_clear(&ns->fnetd->netdevlist);
     return TRUE;

@@ -34,7 +34,7 @@
 #include "devproc.h"
 
 /* network device list */
-void netproc_netdevlist_add(NETDEVLIST_PTR *netdev_list,
+static void netproc_netdevlist_add(NETDEVLIST_PTR *netdev_list,
                                    const char *ifname,
                                    gulong recv_bytes,
                                    gulong recv_packets,
@@ -72,7 +72,7 @@ void netproc_netdevlist_add(NETDEVLIST_PTR *netdev_list,
 	*netdev_list = new_dev;
 }
 
-void netproc_netdevlist_destroy(NETDEVLIST_PTR netdev_list)
+static void netproc_netdevlist_destroy(NETDEVLIST_PTR netdev_list)
 {
 	g_free(netdev_list->info.ifname);
 	g_free(netdev_list->info.mac);
@@ -105,7 +105,8 @@ int netproc_netdevlist_clear(NETDEVLIST_PTR *netdev_list)
 }
 
 
-NETDEVLIST_PTR netproc_netdevlist_find(NETDEVLIST_PTR netdev_list, const char *ifname)
+static NETDEVLIST_PTR netproc_netdevlist_find(
+		NETDEVLIST_PTR netdev_list, const char *ifname)
 {
 	NETDEVLIST_PTR ptr;
 
@@ -428,7 +429,7 @@ int netproc_scandevice(int sockfd, int iwsockfd, FILE *fp, NETDEVLIST_PTR *netde
 	return count;
 }
 
-void netproc_alive(NETDEVLIST_PTR netdev_list)
+static void netproc_alive(NETDEVLIST_PTR netdev_list)
 {
 	NETDEVLIST_PTR ptr;
 
@@ -486,7 +487,7 @@ void netproc_listener(FNETD *fnetd)
 	}
 }
 
-#ifdef NSDEBUG
+#ifdef DEBUG
 void netproc_print(NETDEVLIST_PTR netdev_list)
 {
 	NETDEVLIST_PTR ptr;
