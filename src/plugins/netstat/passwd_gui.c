@@ -68,6 +68,7 @@ static void passwd_gui_on_response(GtkDialog* dlg, gint response, struct passwd_
         lxnm_send_command(pr->aps->gio, LXNM_WIRELESS_CONNECT, cmdargs);
     }
 
+    g_free(cmdargs);
     g_source_remove_by_user_data(pr->entry); /* remove timeout */
     gtk_widget_destroy((GtkWidget*)dlg);
 }

@@ -59,6 +59,7 @@ void statusicon_destroy(struct statusicon *icon)
     g_object_unref(icon->tooltips);
     gtk_widget_destroy(GTK_WIDGET(icon->icon));
     gtk_widget_destroy(GTK_WIDGET(icon->main));
+    g_free(icon);
 }
 
 
