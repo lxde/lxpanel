@@ -332,10 +332,25 @@ void panel_update_background( Panel* p )
     gtk_widget_queue_draw( p->topgwin );
 }
 
+/*
 static void
 panel_realize(GtkWidget *widget, Panel *p)
 {
 
+}
+*/
+
+static gboolean delay_update_background( Panel* p )
+{
+	panel_update_background( p );
+	return FALSE;	
+}
+
+static void
+panel_style_set(GtkWidget *widget, GtkStyle* prev, Panel *p)
+{
+	if( GTK_WIDGET_REALIZED( widget ) )
+		g_idle_add( delay_update_background, p );
 }
 
 static gint
@@ -443,9 +458,12 @@ panel_start_gui(Panel *p)
           (GCallback) panel_size_alloc, p);
     g_signal_connect (G_OBJECT (p->topgwin), "configure-event",
           (GCallback) panel_configure_event, p);
+/*
     g_signal_connect (G_OBJECT (p->topgwin), "realize",
           (GCallback) panel_realize, p);
-
+*/
+    g_signal_connect (G_OBJECT (p->topgwin), "style-set",
+          (GCallback)panel_style_set, p);
     gtk_widget_realize(p->topgwin);
     //gdk_window_set_decorations(p->topgwin->window, 0);
 
