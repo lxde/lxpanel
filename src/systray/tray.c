@@ -108,8 +108,17 @@ tray_destructor(Plugin *p)
     RET();
 }
 
+/* Dirty hacks used to handle background of systray */
+static gboolean delay_update_bg( Plugin* p )
+{
+	plugin_widget_set_background( p->pwid, p->panel );
+	return FALSE;
+}
 
-
+static void tray_realized( GtkWidget* widget, Plugin* p )
+{
+	g_idle_add( delay_update_bg, p );
+}
 
 static int
 tray_constructor(Plugin *p, char** fp)
@@ -123,7 +132,7 @@ tray_constructor(Plugin *p, char** fp)
     if( fp )
     {
         while ( lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
-            g_debug("s.str = \'%s\'", s.str);
+            /* g_debug("s.str = \'%s\'", s.str); */
             ERR("tray: illegal in this context %s\n", s.str);
             RET(0);
         }
@@ -157,9 +166,12 @@ tray_constructor(Plugin *p, char** fp)
 
     p->pwid = gtk_event_box_new();
     GTK_WIDGET_SET_FLAGS( p->pwid, GTK_NO_WINDOW );
+    gtk_widget_set_name( p->pwid, "tray" );	/* this hack is requierd for plugin_widget_set_background() */
 
     gtk_container_add( (GtkContainer*)p->pwid, tr->box );
     gtk_container_set_border_width(GTK_CONTAINER(p->pwid), 1);
+
+	g_signal_connect( p->pwid, "realize", G_CALLBACK( tray_realized ), p );
 
     RET(1);
 

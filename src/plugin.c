@@ -399,7 +399,6 @@ plugin_widget_set_background( GtkWidget* w, Panel* p )
 
     if( GTK_IS_CONTAINER( w ) )
     {
-
 		is_tray = ( strcmp( gtk_widget_get_name( w ), "tray" ) == 0 );
     	if( is_tray )
     		in_tray = TRUE;

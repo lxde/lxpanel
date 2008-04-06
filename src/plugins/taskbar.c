@@ -835,10 +835,13 @@ tk_build_gui(taskbar *tb, task *tk)
           G_CALLBACK(tk_callback_button_press_event), (gpointer)tk);
     g_signal_connect(G_OBJECT(tk->button), "button_release_event",
           G_CALLBACK(tk_callback_button_release_event), (gpointer)tk);
+/*
     g_signal_connect_after (G_OBJECT (tk->button), "leave",
           G_CALLBACK (tk_callback_leave), (gpointer) tk);
     g_signal_connect_after (G_OBJECT (tk->button), "enter",
           G_CALLBACK (tk_callback_enter), (gpointer) tk);
+*/
+
 #if 0
     g_signal_connect_after (G_OBJECT (tk->button), "expose-event",
           G_CALLBACK (tk_callback_expose), (gpointer) tk);
