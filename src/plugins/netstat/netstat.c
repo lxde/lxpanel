@@ -49,14 +49,23 @@ static int actionProcess(void *arg)
 }
 
 /* menu handlers */
-static void fixconn(GtkWidget *widget, netdev_info *ni)
+static void ethernet_repair(GtkWidget *widget, netdev_info *ni)
 {
-    pthread_t actionThread;
-    char *fixcmd;
+    if (ni->ns->fixcmd) {
+        pthread_t actionThread;
+        char *fixcmd;
 
-    fixcmd = g_strdup_printf(ni->ns->fixcmd, ni->netdev_list->info.ifname);
+        fixcmd = g_strdup_printf(ni->ns->fixcmd, ni->netdev_list->info.ifname);
 
-    pthread_create(&actionThread, NULL, actionProcess, fixcmd);
+        pthread_create(&actionThread, NULL, actionProcess, fixcmd);
+    } else {
+        lxnm_send_command(ni->ns->fnetd->lxnmchannel, LXNM_ETHERNET_REPAIR, ni->netdev_list->info.ifname);
+    }
+}
+
+static void ethernet_down(GtkWidget *widget, netdev_info *ni)
+{
+    lxnm_send_command(ni->ns->fnetd->lxnmchannel, LXNM_ETHERNET_DOWN, ni->netdev_list->info.ifname);
 }
 
 static void wireless_connect(GtkWidget *widget, ap_setting *aps)
@@ -195,15 +204,20 @@ static gint menupopup(GtkWidget *widget, GdkEvent *event, netdev_info *ni)
             }
         } else if (event_button->button == 3) {
             GtkWidget *menu;
-            GtkWidget *menu_fix;
+            GtkWidget *menu_item;
 
             /* create menu */
             menu = gtk_menu_new();
 
             /* Repair */
-            menu_fix = gtk_menu_item_new_with_label(_("Repair"));
-            gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_fix);
-            g_signal_connect(G_OBJECT(menu_fix), "activate", G_CALLBACK(fixconn), ni);
+            menu_item = gtk_menu_item_new_with_label(_("Repair"));
+            gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
+            g_signal_connect(G_OBJECT(menu_item), "activate", G_CALLBACK(ethernet_repair), ni);
+
+            /* interface down */
+            menu_item = gtk_menu_item_new_with_label(_("Disable"));
+            gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
+            g_signal_connect(G_OBJECT(menu_item), "activate", G_CALLBACK(ethernet_down), ni);
 
             gtk_widget_show_all(menu);
 
@@ -304,6 +318,7 @@ static void refresh_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
 
                 ptr->info.status_icon = create_statusicon(ns->mainw, select_icon(ptr->info.plug, ptr->info.connected, ptr->info.status), tooltip);
                 g_signal_connect(ptr->info.status_icon->main, "button_press_event", G_CALLBACK(menupopup), ni);
+                g_object_weak_ref(ptr->info.status_icon->main, g_free, ni);
             } else {
                 set_statusicon_tooltips(ptr->info.status_icon, tooltip);
                 set_statusicon_image_from_file(ptr->info.status_icon, select_icon(ptr->info.plug, ptr->info.connected, ptr->info.status));
@@ -356,6 +371,7 @@ static int netstat_constructor(Plugin *p, char **fp)
     ns = g_new0(netstat, 1);
     g_return_val_if_fail(ns != NULL, 0);
     p->priv = ns;
+	ns->fixcmd = NULL;
 
     if( fp ) {
         while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
