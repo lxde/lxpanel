@@ -388,7 +388,6 @@ panel_size_alloc(GtkWidget *widget, GtkAllocation *a, Panel *p)
     RET(TRUE);
 }
 
-
 static  gboolean
 panel_configure_event (GtkWidget *widget, GdkEventConfigure *e, Panel *p)
 {
@@ -405,6 +404,43 @@ panel_configure_event (GtkWidget *widget, GdkEventConfigure *e, Panel *p)
 
     RET(FALSE);
 }
+
+static gint
+panel_popupmenu_configure(GtkWidget *widget, gpointer user_data)
+{
+    ENTER;
+    configure();
+    RET(TRUE);
+}
+
+static gint
+panel_press_button_event(GtkWidget *widget, GdkEvent *event, gpointer user_data)
+{
+    GdkEventButton *event_button;
+
+    g_return_val_if_fail (event != NULL, FALSE);
+    event_button = (GdkEventButton *)event;
+    if (event_button->button == 3) {
+            GtkWidget *menu;
+            GtkWidget *menu_item;
+
+            /* create menu */
+            menu = gtk_menu_new();
+
+            /* configure */
+            menu_item = gtk_menu_item_new_with_label(_("configure"));
+            gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
+            g_signal_connect(G_OBJECT(menu_item), "activate", G_CALLBACK(panel_popupmenu_configure), NULL);
+
+            gtk_widget_show_all(menu);
+
+            gtk_menu_popup(menu, NULL, NULL, NULL, NULL, event_button->button, event_button->time);
+            return TRUE;
+    }
+
+    return FALSE;
+}
+
 
 
 /****************************************************
@@ -458,6 +494,8 @@ panel_start_gui(Panel *p)
           (GCallback) panel_size_alloc, p);
     g_signal_connect (G_OBJECT (p->topgwin), "configure-event",
           (GCallback) panel_configure_event, p);
+    g_signal_connect(G_OBJECT (p->topgwin), "button_press_event",
+          (GCallback) panel_press_button_event, NULL);
 /*
     g_signal_connect (G_OBJECT (p->topgwin), "realize",
           (GCallback) panel_realize, p);
