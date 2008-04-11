@@ -36,6 +36,7 @@
 #include "misc.h"
 #include "bg.h"
 
+#include "glib-mem.h"
 #include "lxpanelctl.h"
 
 static gchar *cfgfile = NULL;
@@ -45,11 +46,11 @@ gchar *cprofile = "default";
 static int config = 0;
 FbEv *fbev = NULL;
 
-//#define DEBUG
 #include "dbg.h"
 
 int log_level;
-Panel *p;	/* FIXME: This should be removed!!! */
+
+GSList* all_panels = NULL;	/* a single-linked list storing all panels */
 
 gboolean is_restarting = FALSE;
 
@@ -71,7 +72,6 @@ void panel_set_wm_strut(Panel *p)
     gulong data[12] = { 0 };
     int i = 4;
 
-    ENTER;
     if (!GTK_WIDGET_MAPPED (p->topgwin))
         return;
     if ( ! p->setstrut )
@@ -128,7 +128,6 @@ print_wmdata(Panel *p)
 {
     int i;
 
-    ENTER;
     RET();
     DBG("desktop %d/%d\n", p->curdesk, p->desknum);
     DBG("workarea\n");
@@ -146,7 +145,7 @@ print_wmdata(Panel *p)
 gboolean show_system_menu( gpointer system_menu );
 
 /* built-in commands, defined in configurator.c */
-void configure(void);
+void configure(Panel* p);
 void restart(void);
 void gtk_run(void);
 
@@ -169,7 +168,7 @@ static void process_client_msg ( Panel *p, XClientMessageEvent* ev )
             gtk_run();
             break;
         case LXPANEL_CMD_CONFIG:
-            configure();
+            //FIXME: configure();
             break;
         case LXPANEL_CMD_RESTART:
             restart();
@@ -409,7 +408,7 @@ static gint
 panel_popupmenu_configure(GtkWidget *widget, gpointer user_data)
 {
     ENTER;
-    configure();
+    configure( (Panel*)user_data );
     RET(TRUE);
 }
 
@@ -428,9 +427,9 @@ panel_press_button_event(GtkWidget *widget, GdkEvent *event, gpointer user_data)
             menu = gtk_menu_new();
 
             /* configure */
-            menu_item = gtk_menu_item_new_with_label(_("configure"));
+            menu_item = gtk_menu_item_new_with_label(_("Preference"));
             gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
-            g_signal_connect(G_OBJECT(menu_item), "activate", G_CALLBACK(panel_popupmenu_configure), NULL);
+            g_signal_connect(G_OBJECT(menu_item), "activate", G_CALLBACK(panel_popupmenu_configure), user_data/*panel*/);
 
             gtk_widget_show_all(menu);
 
@@ -495,7 +494,7 @@ panel_start_gui(Panel *p)
     g_signal_connect (G_OBJECT (p->topgwin), "configure-event",
           (GCallback) panel_configure_event, p);
     g_signal_connect(G_OBJECT (p->topgwin), "button_press_event",
-          (GCallback) panel_press_button_event, NULL);
+          (GCallback) panel_press_button_event, p);
 /*
     g_signal_connect (G_OBJECT (p->topgwin), "realize",
           (GCallback) panel_realize, p);
@@ -787,7 +786,7 @@ panel_start( Panel *p, char **fp )
     /* parse global section */
     ENTER;
     s.len = 256;
-    memset(p, 0, sizeof(Panel));
+
     p->allign = ALLIGN_CENTER;
     p->edge = EDGE_BOTTOM;
     p->widthtype = WIDTH_PERCENT;
@@ -836,7 +835,7 @@ delete_plugin(gpointer data, gpointer udata)
     RET();
 }
 
-void panel_stop(Panel *p)
+void panel_destroy(Panel *p)
 {
     ENTER;
 
@@ -863,14 +862,39 @@ void panel_stop(Panel *p)
     gdk_flush();
     XFlush(GDK_DISPLAY());
     XSync(GDK_DISPLAY(), True);
+
+    g_free( p->name );
+	g_slice_free( Panel, p );
     RET();
 }
 
+Panel* panel_new( const char* config_file, const char* config_name )
+{
+    char *fp, *pfp; /* point to current position of profile data in memory */
+	Panel* panel = NULL;
+    char* ret;
+
+    g_file_get_contents( config_file, &fp, NULL, NULL );
+    if( fp )
+	{
+		panel = g_slice_new0( Panel );
+		panel->name = g_strdup( config_name );
+		pfp = fp;
+
+		if (! panel_start( panel, &pfp )) {
+			ERR( "lxpanel: can't start panel\n");
+			panel_destroy( panel );
+			panel = NULL;
+		}
+
+		g_free( fp );
+	}
+	return panel;
+}
 
 static void
 usage()
 {
-    ENTER;
     g_print(_("lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"), version);
     g_print(_("Command line options:\n"));
     g_print(_(" --help      -- print this help and exit\n"));
@@ -883,38 +907,7 @@ usage()
     g_print(_(" -p  -- same as --profile\n"));
     g_print(_(" -v  -- same as --version\n"));
     g_print(_(" -C  -- same as --configure\n"));
-    g_print(_("\nVisit http://lxpanel.sourceforge.net/ for detailed documentation,\n\n"));
-}
-
-static char*
-load_profile(gchar *profile)
-{
-    gchar *fname;
-    char* ret;
-
-    ENTER;
-    LOG(LOG_INFO, "loading %s profile\n", profile);
-    /* check private configuration directory */
-    fname = get_config_file_path( profile, FALSE );
-    g_file_get_contents( fname, &ret, NULL, NULL );
-    if (ret) {
-        cfgfile = fname;
-        RET(ret);
-    }
-    //ERR("Can't load %s\n", fname);
-    g_free(fname);
-
-    /* If private config is not available, check global configuration directory */
-    fname = get_config_file_path( profile, TRUE );  /* the global config file */
-    g_file_get_contents( fname, &ret, NULL, NULL );
-    if (ret) {
-        cfgfile = fname;
-        RET(ret);
-    }
-    //ERR("Can't load %s\n", fname);
-    g_free(fname);
-    LOG(LOG_ERR, "Can't open '%s' profile\n", profile);
-    RET(NULL);
+    g_print(_("\nVisit http://lxde.sourceforge.net/ for detail.\n\n"));
 }
 
 static void
@@ -991,15 +984,36 @@ out:
 }
 #undef CLIPBOARD_NAME
 
-int
-main(int argc, char *argv[], char *env[])
+static gboolean start_all_panels( )
+{
+	gboolean is_global = FALSE;
+	for( is_global = FALSE; ! is_global; is_global = TRUE )
+	{
+		char* panel_dir = get_config_file( cprofile, "panels", FALSE );
+		GDir* dir = g_dir_open( panel_dir, 0, NULL );
+		char* name;
+
+		if( ! dir )
+			continue;
+
+		while( name = g_dir_read_name( dir ) )
+		{
+			char* panel_config = g_build_filename( panel_dir, name, NULL );
+			Panel* panel = panel_new( panel_config, name );
+			if( panel )
+				all_panels = g_slist_prepend( all_panels, panel );
+			g_free( panel_config );
+		}
+		g_dir_close( dir );
+		g_free( panel_dir );
+	}
+	return all_panels != NULL;
+}
+
+int main(int argc, char *argv[], char *env[])
 {
     int i;
-    void configure();
-    char *fp, *pfp; /* point to current position of profile data in memory */
 
-    ENTER;
-    //printf("sizeof(gulong)=%d\n", sizeof(gulong));
     setlocale(LC_CTYPE, "");
 
     gtk_init(&argc, &argv);
@@ -1012,7 +1026,9 @@ main(int argc, char *argv[], char *env[])
 
     XSetLocaleModifiers("");
     XSetErrorHandler((XErrorHandler) handle_error);
+
     resolve_atoms();
+
     for (i = 1; i < argc; i++) {
         if (!strcmp(argv[i], "-h") || !strcmp(argv[i], "--help")) {
             usage();
@@ -1047,7 +1063,7 @@ main(int argc, char *argv[], char *env[])
         }
     }
 
-    /* Check for duplicated panel instances */
+    /* Check for duplicated lxpanel instances */
     if (!check_main_lock() && !config) {
         printf("There is alreay an instance of LXPanel. Now to exit\n");
         exit(1);
@@ -1062,22 +1078,19 @@ main(int argc, char *argv[], char *env[])
 restart:
     is_restarting = FALSE;
 
-    if (!(fp = pfp = load_profile(cprofile)))
-        exit(1);
-    p = g_new0(Panel, 1);
-    g_return_val_if_fail (p != NULL, 1);
-    if (!panel_start(p, &pfp)) {
-        ERR( "lxpanel: can't start panel\n");
-        exit(1);
-    }
-    g_free( fp );
+	if( G_UNLIKELY( ! start_all_panels() ) )
+		g_warning( "Config files are not found.\n" );
+
+/*
+ * FIXME: configure??
     if (config)
         configure();
-
+*/
     gtk_main();
-    panel_stop(p);
+
+    /* destroy all panels */
+    g_slist_foreach( all_panels, (GFunc) panel_destroy, NULL );
     g_free( cfgfile );
-    g_free(p);
 
     if( is_restarting )
         goto restart;

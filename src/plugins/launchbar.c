@@ -97,7 +97,7 @@ void btn_free( btn_t* btn )
 }
 
 static gboolean
-on_button_pressed(GtkWidget *widget, GdkEventButton *event, btn_t *b )
+on_button_event(GtkWidget *widget, GdkEventButton *event, btn_t *b )
 {
     GtkWidget *image;
 
@@ -291,9 +291,9 @@ read_button(Plugin *p, char** fp)
 
     //gtk_container_set_border_width(GTK_CONTAINER(button), 0);
     g_signal_connect ( button, "button-release-event",
-          G_CALLBACK (on_button_pressed), (gpointer) btn );
+          G_CALLBACK (on_button_event), (gpointer) btn );
     g_signal_connect ( button, "button-press-event",
-          G_CALLBACK (on_button_pressed), (gpointer) btn );
+          G_CALLBACK (on_button_event), (gpointer) btn );
 
     GTK_WIDGET_UNSET_FLAGS (button, GTK_CAN_FOCUS);
 

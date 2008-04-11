@@ -45,7 +45,7 @@ enum { POS_NONE, POS_START, POS_END };
 
 
 typedef struct {
-
+    char* name;
     GtkWidget *topgwin;           /* main panel window */
     Window topxwin;               /* and it X window   */
     GtkStyle *defstyle;

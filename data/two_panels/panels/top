@@ -1,0 +1,98 @@
+# lxpanel <profile> config file
+Global {
+    edge = top
+    allign = left
+    margin = 0
+    widthtype = percent
+    width = 100
+    height = 24
+    transparent = false
+    tintcolor = #000000
+    alpha = 114
+    setdocktype = true
+    setpartialstrut = true
+    useFontColor = false
+    FontColor = #ffffff
+    Background = false
+    BackgroundFile = /usr/share/lxpanel/images/background.png
+}
+
+Plugin {
+    type = space
+    Config {
+        Size = 2
+    }
+}
+
+Plugin {
+    type = menu
+    Config {
+        image = /usr/share/lxpanel/images/my-computer.svg
+        system {
+        }
+        separator {
+        }
+        item {
+            command = run
+        }
+        item {
+            image = /usr/share/lxpanel/images/gnome-setting.svg
+            command = configure
+        }
+        separator {
+        }
+        item {
+            image = gnome-logout
+            command = logout
+        }
+    }
+}
+
+Plugin {
+    type = launchbar
+    Config {
+        Button {
+            id = pcmanfm.desktop
+        }
+        Button {
+            id = gnome-terminal.desktop
+        }
+        Button {
+            id = firefox.desktop
+        }
+    }
+}
+
+Plugin {
+    type = space
+    Config {
+        Size = 4
+    }
+}
+
+Plugin {
+    type = space
+    expand = true
+}
+
+Plugin {
+    type = cpu
+}
+
+Plugin {
+    type = volume
+}
+
+Plugin {
+    type = tray
+}
+
+Plugin {
+    type = dclock
+    Config {
+        ClockFmt = %R
+        TooltipFmt = %A %x
+        BoldFont = 0
+    }
+}
+

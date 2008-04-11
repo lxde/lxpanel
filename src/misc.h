@@ -111,6 +111,6 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
                       const char* name, ... );
 
 
-char* get_config_file_path( const char* name, gboolean is_global );
+char* get_config_file( const char* profile, const char* file_name, gboolean is_global );
 
 #endif
