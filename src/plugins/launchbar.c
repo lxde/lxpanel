@@ -351,7 +351,7 @@ launchbar_constructor(Plugin *p, char **fp)
         "GtkButton::default-border = { 0, 0, 0, 0 }\n"
         "GtkButton::default-outside-border = { 0, 0, 0, 0 }\n"
         "}\n"
-        "widget '*' style 'launchbar-style'";
+        "widget '*launchbar*' style 'launchbar-style'";
 
     ENTER;
     gtk_rc_parse_string(launchbar_rc);
