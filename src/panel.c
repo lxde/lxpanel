@@ -416,6 +416,7 @@ static gint
 panel_press_button_event(GtkWidget *widget, GdkEvent *event, gpointer user_data)
 {
     GdkEventButton *event_button;
+	GtkWidget* img;
 
     g_return_val_if_fail (event != NULL, FALSE);
     event_button = (GdkEventButton *)event;
@@ -427,12 +428,14 @@ panel_press_button_event(GtkWidget *widget, GdkEvent *event, gpointer user_data)
             menu = gtk_menu_new();
 
             /* configure */
-            menu_item = gtk_menu_item_new_with_label(_("Preference"));
+            img = gtk_image_new_from_stock( GTK_STOCK_PREFERENCES, GTK_ICON_SIZE_MENU );
+            menu_item = gtk_image_menu_item_new_with_label(_("Panel Preference"));
+            gtk_image_menu_item_set_image( (GtkImageMenuItem*)menu_item, img );
             gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
             g_signal_connect(G_OBJECT(menu_item), "activate", G_CALLBACK(panel_popupmenu_configure), user_data/*panel*/);
+            g_signal_connect( menu, "selection-done", G_CALLBACK(gtk_widget_destroy), NULL );
 
             gtk_widget_show_all(menu);
-
             gtk_menu_popup(menu, NULL, NULL, NULL, NULL, event_button->button, event_button->time);
             return TRUE;
     }

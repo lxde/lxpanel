@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel-0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-07 01:02+0800\n"
+"POT-Creation-Date: 2008-04-12 09:39+0800\n"
 "PO-Revision-Date: 2006-11-27 21:56+0100\n"
 "Last-Translator: Artur Kruszewski <mazdac@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -19,79 +19,76 @@ msgstr ""
 "X-Poedit-Bookmarks: 19,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
 "X-Poedit-Country: Poland\n"
 
-#: ../src/configurator.c:44
-msgid "Preferences"
-msgstr "Preferencje"
-
-#: ../src/configurator.c:45 ../src/gtk-run.c:112
+#. { "configure", N_("Preferences"), configure },
+#: ../src/configurator.c:44 ../src/gtk-run.c:112
 msgid "Run"
 msgstr "Uruchom"
 
-#: ../src/configurator.c:46
+#: ../src/configurator.c:45
 msgid "Restart"
 msgstr "Restartuj"
 
-#: ../src/configurator.c:47
+#: ../src/configurator.c:46
 msgid "Logout"
 msgstr "Wyloguj"
 
-#: ../src/configurator.c:233
+#: ../src/configurator.c:220
 msgid "<b>Position</b>"
 msgstr "<b>Pozycja</b>"
 
 #. Edge
-#: ../src/configurator.c:250
+#: ../src/configurator.c:237
 msgid "Edge:"
 msgstr "Krawędź:"
 
-#: ../src/configurator.c:257 ../src/configurator.c:281
+#: ../src/configurator.c:244 ../src/configurator.c:268
 msgid "Left"
 msgstr "Lewa"
 
-#: ../src/configurator.c:258 ../src/configurator.c:283
+#: ../src/configurator.c:245 ../src/configurator.c:270
 msgid "Right"
 msgstr "Prawa"
 
-#: ../src/configurator.c:259
+#: ../src/configurator.c:246
 msgid "Top"
 msgstr "Górna"
 
-#: ../src/configurator.c:260
+#: ../src/configurator.c:247
 msgid "Bottom"
 msgstr "Dolna"
 
 #. Alignment
-#: ../src/configurator.c:273
+#: ../src/configurator.c:260
 msgid "Alignment:"
 msgstr "Wyrównanie:"
 
-#: ../src/configurator.c:282
+#: ../src/configurator.c:269
 msgid "Center"
 msgstr "Środek"
 
 #. Margin
-#: ../src/configurator.c:295
+#: ../src/configurator.c:282
 msgid "Margin:"
 msgstr "Margines:"
 
-#: ../src/configurator.c:366
+#: ../src/configurator.c:353
 msgid "<b>Size</b>"
 msgstr "<b>Rozmiar</b>"
 
 #. width
-#: ../src/configurator.c:383
+#: ../src/configurator.c:370
 msgid "Width:"
 msgstr "Szerokość:"
 
-#: ../src/configurator.c:397
+#: ../src/configurator.c:384
 msgid "dynamic"
 msgstr "dynamiczna"
 
-#: ../src/configurator.c:398 ../src/configurator.c:426
+#: ../src/configurator.c:385 ../src/configurator.c:413
 msgid "pixels"
 msgstr "piksele"
 
-#: ../src/configurator.c:399
+#: ../src/configurator.c:386
 #, c-format
 msgid "% of edge"
 msgstr ""
@@ -99,174 +96,179 @@ msgstr ""
 # msgid "% of edge"
 # msgstr "% krawędźi"
 #. height
-#: ../src/configurator.c:412
+#: ../src/configurator.c:399
 msgid "Height:"
 msgstr "Wysokość:"
 
-#: ../src/configurator.c:468
+#: ../src/configurator.c:454
 msgid "Enable Transparency"
 msgstr "Włącz przezroczystość"
 
-#: ../src/configurator.c:472
+#: ../src/configurator.c:458
 msgid "Tint color:"
 msgstr "Kolor przesłony:"
 
-#: ../src/configurator.c:532
+#: ../src/configurator.c:517
 msgid "Enable Image:"
 msgstr ""
 
-#: ../src/configurator.c:535
+#: ../src/configurator.c:520
 msgid "Select a background image file"
 msgstr ""
 
-#: ../src/configurator.c:601
+#: ../src/configurator.c:591
 msgid "<b>Background</b>"
 msgstr ""
 
 #. Disable Background option
-#: ../src/configurator.c:616
+#: ../src/configurator.c:606
 msgid "None (Use system theme)"
 msgstr ""
 
-#: ../src/configurator.c:647
+#: ../src/configurator.c:637
 #, fuzzy
 msgid "<b>Font</b>"
 msgstr "<b>Połączenie</b>"
 
 #. fnt = gtk_font_button_new();
 #. gtk_box_pack_start( (GtkBox*)hbox, fnt, TRUE, TRUE, 4 );
-#: ../src/configurator.c:657
+#: ../src/configurator.c:647
 msgid "Custom Color"
 msgstr ""
 
-#: ../src/configurator.c:703
+#: ../src/configurator.c:696
 msgid "<b>Properties</b>"
 msgstr "<b>Właściwości</b>"
 
-#: ../src/configurator.c:725
+#: ../src/configurator.c:718
 msgid "Make window managers treat the panel as dock"
 msgstr ""
 
-#: ../src/configurator.c:741
+#: ../src/configurator.c:734
 msgid "Reserve space, and not covered by maximized windows"
 msgstr ""
 
-#: ../src/configurator.c:796
+#: ../src/configurator.c:790
 msgid "Currently loaded plugins"
 msgstr "Załadowane wtyczki"
 
-#: ../src/configurator.c:889
+#: ../src/configurator.c:886
 msgid "Add plugin to panel"
 msgstr "Dodaj wtyczkę do panelu"
 
-#: ../src/configurator.c:916
+#: ../src/configurator.c:913
 msgid "Available plugins"
 msgstr "Dostępne wtyczki"
 
-#: ../src/configurator.c:1200
+#: ../src/configurator.c:1203
 msgid "<b>Set Preferred Applications</b>"
 msgstr ""
 
-#: ../src/configurator.c:1210
+#: ../src/configurator.c:1213
 msgid "File Manager:"
 msgstr ""
 
-#: ../src/configurator.c:1223
+#: ../src/configurator.c:1226
 msgid "Terminal Emulator:"
 msgstr ""
 
-#: ../src/configurator.c:1238
+#: ../src/configurator.c:1241
 #, fuzzy
 msgid "Logout Command:"
 msgstr "Komenda wylogowania nie jest ustawiona"
 
-#: ../src/configurator.c:1260
+#: ../src/configurator.c:1261
 msgid "lxpanel configurator"
 msgstr "konfigurator lxpanel"
 
-#: ../src/configurator.c:1286
+#: ../src/configurator.c:1287
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr "Ogólne"
 
-#: ../src/configurator.c:1291
+#: ../src/configurator.c:1292
 msgid "Appearance"
 msgstr ""
 
-#: ../src/configurator.c:1296
+#: ../src/configurator.c:1297
 msgid "Plugins"
 msgstr "Wtyczki"
 
-#: ../src/configurator.c:1301
+#: ../src/configurator.c:1302
 #, fuzzy
 msgid "Applications"
 msgstr "Wybierz program"
 
-#: ../src/configurator.c:1461
+#: ../src/configurator.c:1465
 msgid "Logout command is not set"
 msgstr "Komenda wylogowania nie jest ustawiona"
 
-#: ../src/panel.c:836
+#: ../src/panel.c:432
+#, fuzzy
+msgid "Panel Preference"
+msgstr "Preferencje"
+
+#: ../src/panel.c:901
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - lekki panel GTK2+ dla pulpitów UNIX\n"
 
-#: ../src/panel.c:837
+#: ../src/panel.c:902
 #, c-format
 msgid "Command line options:\n"
 msgstr "Opcje lini komend:\n"
 
-#: ../src/panel.c:838
+#: ../src/panel.c:903
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- wyświetla tą pomoc i wychodzi\n"
 
-#: ../src/panel.c:839
+#: ../src/panel.c:904
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- wyświetla numer wersji i wychodzi\n"
 
-#: ../src/panel.c:840
+#: ../src/panel.c:905
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 " --log <number> -- ustawia poziom raportowania 0-5. 0 - brak 5 - wylewny\n"
 
-#: ../src/panel.c:841
+#: ../src/panel.c:906
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- uruchamia narzędzie konfiguracji\n"
 
-#: ../src/panel.c:842
+#: ../src/panel.c:907
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile nazwa -- używa określonego profilu\n"
 
-#: ../src/panel.c:844
+#: ../src/panel.c:909
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- to samo co --help\n"
 
-#: ../src/panel.c:845
+#: ../src/panel.c:910
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- to samo co --profile\n"
 
-#: ../src/panel.c:846
+#: ../src/panel.c:911
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- to samo co --version\n"
 
-#: ../src/panel.c:847
+#: ../src/panel.c:912
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- to samo co --configure\n"
 
-#: ../src/panel.c:848
-#, c-format
+#: ../src/panel.c:913
+#, fuzzy, c-format
 msgid ""
 "\n"
-"Visit http://lxpanel.sourceforge.net/ for detailed documentation,\n"
+"Visit http://lxde.sourceforge.net/ for detail.\n"
 "\n"
 msgstr ""
 "\n"
@@ -278,11 +280,11 @@ msgstr ""
 msgid "Enter the command you want to execute:"
 msgstr "Wprowadź komendę którą chcesz wykonać:"
 
-#: ../src/systray/tray.c:194
+#: ../src/systray/tray.c:206
 msgid "System Tray"
 msgstr "Tacka systemowa"
 
-#: ../src/systray/tray.c:196
+#: ../src/systray/tray.c:208
 msgid "Old KDE/GNOME Tray"
 msgstr "Stara tacka KDE/GNOME"
 
@@ -306,19 +308,19 @@ msgstr "Pokaż numer przestrzeni roboczej, dzięki cmeury@users.sf.net"
 #. 1. We can borrow the menu from menu plugin (PtkAppMenu).
 #. 2. We can borrow the app chooser from PCManFM.
 #.
-#: ../src/plugins/launchbar.c:484
+#: ../src/plugins/launchbar.c:487
 msgid "Select Application"
 msgstr "Wybierz program"
 
-#: ../src/plugins/launchbar.c:633
+#: ../src/plugins/launchbar.c:636
 msgid "Buttons"
 msgstr "Przyciski"
 
-#: ../src/plugins/launchbar.c:746
+#: ../src/plugins/launchbar.c:749
 msgid "Application Launch Bar"
 msgstr "Pasek uruchamiania programów"
 
-#: ../src/plugins/launchbar.c:748
+#: ../src/plugins/launchbar.c:751
 msgid "Bar with buttons to launch application"
 msgstr "Pasek z przyciskami do uruchamiania programów"
 
@@ -366,90 +368,90 @@ msgstr "Biuro"
 msgid "Accessories"
 msgstr "Akcesoria"
 
-#: ../src/plugins/taskbar.c:1219
+#: ../src/plugins/taskbar.c:1224
 msgid "Raise"
 msgstr "Rozwiń"
 
-#: ../src/plugins/taskbar.c:1223
+#: ../src/plugins/taskbar.c:1228
 msgid "Restore"
 msgstr "Przywróć"
 
-#: ../src/plugins/taskbar.c:1227
+#: ../src/plugins/taskbar.c:1232
 msgid "Maximize"
 msgstr "Maksymalizuj"
 
-#: ../src/plugins/taskbar.c:1231
+#: ../src/plugins/taskbar.c:1236
 msgid "Iconify"
 msgstr "Minimalizuj"
 
-#: ../src/plugins/taskbar.c:1240
+#: ../src/plugins/taskbar.c:1245
 #, c-format
 msgid "Workspace %d"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1248
+#: ../src/plugins/taskbar.c:1253
 msgid "All workspaces"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1255
+#: ../src/plugins/taskbar.c:1260
 msgid "Move to Workspace"
 msgstr ""
 
 #. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1263
+#: ../src/plugins/taskbar.c:1268
 msgid "Close Window"
 msgstr "Zamknij okno"
 
-#: ../src/plugins/taskbar.c:1512
+#: ../src/plugins/taskbar.c:1517
 msgid "Show tooltips"
 msgstr "Pokaż podpowiedzi"
 
-#: ../src/plugins/taskbar.c:1513
+#: ../src/plugins/taskbar.c:1518
 msgid "Icons only"
 msgstr "Tylko ikony"
 
-#: ../src/plugins/taskbar.c:1514
+#: ../src/plugins/taskbar.c:1519
 #, fuzzy
 msgid "Flat Buttons"
 msgstr "Przyciski"
 
-#: ../src/plugins/taskbar.c:1515
+#: ../src/plugins/taskbar.c:1520
 msgid "Accept SkipPager"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1516
+#: ../src/plugins/taskbar.c:1521
 msgid "Show Iconified windows"
 msgstr "Pokaż zikonizowane oka"
 
-#: ../src/plugins/taskbar.c:1517
+#: ../src/plugins/taskbar.c:1522
 msgid "Show mapped windows"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1518
+#: ../src/plugins/taskbar.c:1523
 msgid "Show windows from all desktops"
 msgstr "Pokaż okna ze wszytskich pulpitów"
 
-#: ../src/plugins/taskbar.c:1519
+#: ../src/plugins/taskbar.c:1524
 msgid "Use mouse wheel"
 msgstr "Użyj rolki myszy"
 
-#: ../src/plugins/taskbar.c:1520
+#: ../src/plugins/taskbar.c:1525
 msgid "Flash when there is any window requiring attention"
 msgstr "Migaj gdy okno wymaga uwagi"
 
-#: ../src/plugins/taskbar.c:1521
+#: ../src/plugins/taskbar.c:1526
 msgid "Max width of task button"
 msgstr "Maksymalna szerokośc przycisku zadań"
 
-#: ../src/plugins/taskbar.c:1522
+#: ../src/plugins/taskbar.c:1527
 msgid "Spacing"
 msgstr "Odstępy"
 
-#: ../src/plugins/taskbar.c:1600
+#: ../src/plugins/taskbar.c:1605
 msgid "Task Bar (Window List)"
 msgstr "Pasek zadań (Lista okien)"
 
-#: ../src/plugins/taskbar.c:1602
+#: ../src/plugins/taskbar.c:1607
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -509,15 +511,15 @@ msgstr "Pager pulpitu"
 msgid "Simple pager plugin"
 msgstr "Prosta wtyczka pagera"
 
-#: ../src/plugins/space.c:132 ../src/plugins/batt/batt.c:818
+#: ../src/plugins/space.c:125 ../src/plugins/batt/batt.c:818
 msgid "Size"
 msgstr "Rozmiar"
 
-#: ../src/plugins/space.c:147
+#: ../src/plugins/space.c:140
 msgid "<Space>"
 msgstr "<Spacja>"
 
-#: ../src/plugins/space.c:149
+#: ../src/plugins/space.c:142
 msgid "Allocate space"
 msgstr ""
 
@@ -572,97 +574,102 @@ msgstr "Głośność"
 msgid "Mute"
 msgstr ""
 
-#: ../src/plugins/netstat/netstat.c:135
+#: ../src/plugins/netstat/netstat.c:144
 msgid "<Hidden Access Point>"
 msgstr ""
 
-#: ../src/plugins/netstat/netstat.c:168
+#: ../src/plugins/netstat/netstat.c:177
 msgid "Wireless Networks not found in range"
 msgstr ""
 
 #. Repair
-#: ../src/plugins/netstat/netstat.c:204
+#: ../src/plugins/netstat/netstat.c:213
 #, fuzzy
 msgid "Repair"
 msgstr "Restartuj"
 
-#: ../src/plugins/netstat/netstat.c:262
+#. interface down
+#: ../src/plugins/netstat/netstat.c:218
+msgid "Disable"
+msgstr ""
+
+#: ../src/plugins/netstat/netstat.c:276
 msgid "Network cable is plugged out"
 msgstr ""
 
-#: ../src/plugins/netstat/netstat.c:264
+#: ../src/plugins/netstat/netstat.c:278
 msgid "Connection has limited or no connectivity"
 msgstr ""
 
-#: ../src/plugins/netstat/netstat.c:268 ../src/plugins/netstat/netstat.c:279
-#: ../src/plugins/netstat/netstat.c:290
+#: ../src/plugins/netstat/netstat.c:282 ../src/plugins/netstat/netstat.c:293
+#: ../src/plugins/netstat/netstat.c:304
 #, fuzzy
 msgid "IP Address:"
 msgstr "Adres:"
 
-#: ../src/plugins/netstat/netstat.c:269
+#: ../src/plugins/netstat/netstat.c:283
 msgid "Remote IP:"
 msgstr ""
 
-#: ../src/plugins/netstat/netstat.c:270 ../src/plugins/netstat/netstat.c:281
-#: ../src/plugins/netstat/netstat.c:292
+#: ../src/plugins/netstat/netstat.c:284 ../src/plugins/netstat/netstat.c:295
+#: ../src/plugins/netstat/netstat.c:306
 #, fuzzy
 msgid "Netmask:"
 msgstr "Maska podsieci"
 
-#: ../src/plugins/netstat/netstat.c:271 ../src/plugins/netstat/netstat.c:283
-#: ../src/plugins/netstat/netstat.c:294
+#: ../src/plugins/netstat/netstat.c:285 ../src/plugins/netstat/netstat.c:297
+#: ../src/plugins/netstat/netstat.c:308
 #, fuzzy
 msgid "Activity"
 msgstr "<b>Aktywność</b>"
 
-#: ../src/plugins/netstat/netstat.c:271 ../src/plugins/netstat/netstat.c:283
-#: ../src/plugins/netstat/netstat.c:294
+#: ../src/plugins/netstat/netstat.c:285 ../src/plugins/netstat/netstat.c:297
+#: ../src/plugins/netstat/netstat.c:308
 #, fuzzy
 msgid "Sent"
 msgstr "Wysłano:"
 
-#: ../src/plugins/netstat/netstat.c:271 ../src/plugins/netstat/netstat.c:283
-#: ../src/plugins/netstat/netstat.c:294
+#: ../src/plugins/netstat/netstat.c:285 ../src/plugins/netstat/netstat.c:297
+#: ../src/plugins/netstat/netstat.c:308
 #, fuzzy
 msgid "Received"
 msgstr "FogadOdebrano:"
 
-#: ../src/plugins/netstat/netstat.c:272 ../src/plugins/netstat/netstat.c:284
-#: ../src/plugins/netstat/netstat.c:295
+#: ../src/plugins/netstat/netstat.c:286 ../src/plugins/netstat/netstat.c:298
+#: ../src/plugins/netstat/netstat.c:309
 msgid "bytes"
 msgstr ""
 
-#: ../src/plugins/netstat/netstat.c:273 ../src/plugins/netstat/netstat.c:285
-#: ../src/plugins/netstat/netstat.c:296
+#: ../src/plugins/netstat/netstat.c:287 ../src/plugins/netstat/netstat.c:299
+#: ../src/plugins/netstat/netstat.c:310
 #, fuzzy
 msgid "packets"
 msgstr "%lu pakiet"
 
-#: ../src/plugins/netstat/netstat.c:276
+#: ../src/plugins/netstat/netstat.c:290
 msgid "Wireless"
 msgstr ""
 
-#: ../src/plugins/netstat/netstat.c:278
+#: ../src/plugins/netstat/netstat.c:292
 msgid "Protocol:"
 msgstr ""
 
-#: ../src/plugins/netstat/netstat.c:280 ../src/plugins/netstat/netstat.c:291
+#: ../src/plugins/netstat/netstat.c:294 ../src/plugins/netstat/netstat.c:305
 #, fuzzy
 msgid "Boradcast:"
 msgstr "Adres rozgłoszeniowy"
 
-#: ../src/plugins/netstat/netstat.c:282 ../src/plugins/netstat/netstat.c:293
+#: ../src/plugins/netstat/netstat.c:296 ../src/plugins/netstat/netstat.c:307
 #, fuzzy
 msgid "HW Address:"
 msgstr "Adres:"
 
-#: ../src/plugins/netstat/netstat.c:430
+#: ../src/plugins/netstat/netstat.c:446
 #: ../src/plugins/netstatus/netstatus.c:181
 msgid "Net Status Monitor"
 msgstr "Monitor statusu sieci"
 
-#: ../src/plugins/netstat/netstat.c:432
+#: ../src/plugins/netstat/netstat.c:448
 #: ../src/plugins/netstatus/netstatus.c:183
 msgid "Monitor network status"
 msgstr "Status monitora sieci"

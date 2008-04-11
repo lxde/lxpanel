@@ -101,24 +101,27 @@ on_button_event(GtkWidget *widget, GdkEventButton *event, btn_t *b )
 {
     GtkWidget *image;
 
-    ENTER;
-    image = gtk_bin_get_child(GTK_BIN(widget));
-    g_assert(b != NULL);
-    if (event->type == GDK_BUTTON_RELEASE) {
-        if ((event->x >=0 && event->x < widget->allocation.width)
-              && (event->y >=0 && event->y < widget->allocation.height)) {
+    if( event->button == 1 )	/* left button */
+    {
+		image = gtk_bin_get_child(GTK_BIN(widget));
+		g_assert(b != NULL);
+		if (event->type == GDK_BUTTON_RELEASE) {
+			if ((event->x >=0 && event->x < widget->allocation.width)
+				  && (event->y >=0 && event->y < widget->allocation.height)) {
 
-            g_spawn_command_line_async(b->action, NULL);
-        }
-        gtk_misc_set_padding (GTK_MISC(image), 0, 0);
+				g_spawn_command_line_async(b->action, NULL);
+			}
+			gtk_misc_set_padding (GTK_MISC(image), 0, 0);
 
-        //system(b->action);
-    } else if (event->type == GDK_BUTTON_PRESS) {
+			//system(b->action);
+		} else if (event->type == GDK_BUTTON_PRESS) {
 
-        gtk_misc_set_padding (GTK_MISC(image), 0, 3);
-        //ERR("here\n");
-    }
-    RET(TRUE);
+			gtk_misc_set_padding (GTK_MISC(image), 0, 3);
+			//ERR("here\n");
+		}
+    	return TRUE;
+	}
+	return FALSE;
 }
 
 static void
