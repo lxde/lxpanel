@@ -36,7 +36,7 @@
 #define DEFAULT_CLOCK_FORMAT  "%R"
 
 typedef struct {
-	Panel* panel;
+    Panel* panel;
     GtkWidget *eb;
     GtkWidget *main;
     GtkWidget *clockw;
@@ -61,7 +61,7 @@ static GtkWidget *create_calendar()
 
     /* create a new window */
     win = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-	gtk_window_set_default_size(GTK_WINDOW(win), 180, 180);
+    gtk_window_set_default_size(GTK_WINDOW(win), 180, 180);
     gtk_window_set_decorated(GTK_WINDOW(win), FALSE);
     gtk_window_set_resizable (GTK_WINDOW(win), FALSE);
     gtk_container_set_border_width(GTK_CONTAINER(win), 5);
@@ -71,7 +71,7 @@ static GtkWidget *create_calendar()
     gtk_window_set_position(GTK_WINDOW(win), GTK_WIN_POS_MOUSE);
     gtk_window_stick (GTK_WINDOW(win));
 
-	GtkVBox* box = gtk_vbox_new(FALSE, 0);
+    GtkVBox* box = gtk_vbox_new(FALSE, 0);
 
     /* calendar */
     calendar = gtk_calendar_new();
@@ -80,7 +80,7 @@ static GtkWidget *create_calendar()
                                  GTK_CALENDAR_SHOW_DAY_NAMES |
                                  GTK_CALENDAR_SHOW_HEADING);
 //    gtk_container_add(GTK_CONTAINER(win), calendar);
-	gtk_box_pack_start_defaults( box, calendar );
+    gtk_box_pack_start_defaults( box, calendar );
     gtk_container_add(GTK_CONTAINER(win), box);
 
     gtk_widget_show_all(win);
@@ -96,9 +96,17 @@ actionProcess( void *arg )
 }
 
 static  gboolean
-clicked( GtkWidget *widget, gpointer dummy, dclock *dc)
+clicked( GtkWidget *widget, GdkEventButton* evt, Plugin* plugin)
 {
+    dclock *dc = (dclock*)plugin->priv;
     ENTER2;
+    if( evt->button == 3 )  /* right button */
+    {
+        GtkMenu* popup = lxpanel_get_panel_menu( plugin->panel, plugin, FALSE );
+        gtk_menu_popup( popup, NULL, NULL, NULL, NULL, evt->button, evt->time );
+        return TRUE;
+    }
+
     if( dc->action ) {
         pthread_t actionThread;
         pthread_create(&actionThread, NULL, actionProcess, dc->action);
@@ -204,7 +212,7 @@ dclock_constructor(Plugin *p, char** fp)
     dc->main = gtk_event_box_new();
 
     g_signal_connect (G_OBJECT (dc->main), "button_press_event",
-          G_CALLBACK (clicked), (gpointer) dc);
+          G_CALLBACK (clicked), (gpointer) p);
     dc->clockw = gtk_label_new("");
     gtk_misc_set_alignment(GTK_MISC(dc->clockw), 0.5, 0.5);
     gtk_misc_set_padding(GTK_MISC(dc->clockw), 4, 0);

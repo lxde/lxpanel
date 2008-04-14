@@ -1539,7 +1539,8 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
         {
             case G_TYPE_STRING:
                 entry = gtk_entry_new();
-                gtk_entry_set_text( GTK_ENTRY(entry), *(char**)val );
+                if( *(char**)val )
+                    gtk_entry_set_text( GTK_ENTRY(entry), *(char**)val );
                 g_signal_connect( entry, "changed",
                   G_CALLBACK(on_entry_changed), val );
                 break;

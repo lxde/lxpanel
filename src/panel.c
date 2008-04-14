@@ -456,7 +456,13 @@ static void panel_popupmenu_remove_item( GtkMenuItem* item, Plugin* plugin )
 
 static void panel_popupmenu_create_panel( GtkMenuItem* item, Panel* panel )
 {
-
+    GtkWidget* dlg = gtk_dialog_new_with_buttons(
+                                        _("Create New Panel"),
+                                        panel->topgwin,
+                                        GTK_DIALOG_MODAL,
+                                        GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+                                        GTK_STOCK_OK, GTK_RESPONSE_OK, NULL );
+    gtk_widget_destroy( dlg );
 }
 
 static void panel_popupmenu_delete_panel( GtkMenuItem* item, Panel* panel )

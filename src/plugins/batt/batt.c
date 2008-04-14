@@ -495,14 +495,20 @@ static int update_timout(batt *b) {
 }
 
 /* An update will be performed whenever the user clicks on the charge bar */
-static gint buttonPressEvent(GtkWidget *widget, GdkEventConfigure *event,
-        batt *b) {
+static gint buttonPressEvent(GtkWidget *widget, GdkEventButton *event,
+        Plugin* plugin) {
 
-    ENTER;
+    batt *b = (batt*)plugin->priv;
+
     update_display(b, TRUE);
 
-    RET(TRUE);
-
+    if( event->button == 3 )  /* right button */
+    {
+        GtkMenu* popup = lxpanel_get_panel_menu( plugin->panel, plugin, FALSE );
+        gtk_menu_popup( popup, NULL, NULL, NULL, NULL, event->button, event->time );
+        return TRUE;
+    }
+    return FALSE;
 }
 
 
@@ -584,7 +590,7 @@ constructor(Plugin *p, char **fp)
     b->gc2 = gdk_gc_new(p->panel->topgwin->window);
 
     g_signal_connect (G_OBJECT (b->drawingArea), "button_press_event",
-            G_CALLBACK(buttonPressEvent), (gpointer) b);
+            G_CALLBACK(buttonPressEvent), (gpointer) p);
     g_signal_connect (G_OBJECT (b->drawingArea),"configure_event",
           G_CALLBACK (configureEvent), (gpointer) b);
     g_signal_connect (G_OBJECT (b->drawingArea), "expose_event",

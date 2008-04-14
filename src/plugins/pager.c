@@ -67,7 +67,7 @@ struct _desk {
 };
 
 struct _pager {
-	Plugin* plugin;
+    Plugin* plugin;
     GtkWidget *box, *eb;
     desk *desks[MAX_DESK_NUM];
     guint desknum;
@@ -172,7 +172,7 @@ task_update_pix(task *t, desk *d)
     if (!TASK_VISIBLE(t))
         RET();;
 
-	p = d->pg->plugin->panel;
+    p = d->pg->plugin->panel;
     if (t->desktop < p->desknum &&
           t->desktop != d->no)
         RET();
@@ -293,7 +293,7 @@ desk_expose_event (GtkWidget *widget, GdkEventExpose *event, desk *d)
 static gint
 desk_configure_event (GtkWidget *widget, GdkEventConfigure *event, desk *d)
 {
-	Panel* p;
+    Panel* p;
     int w, h;
     ENTER;
     DBG("d->no=%d %dx%d\n", d->no, widget->allocation.width, widget->allocation.height);
@@ -309,7 +309,7 @@ desk_configure_event (GtkWidget *widget, GdkEventConfigure *event, desk *d)
     d->scaleh = (gfloat)widget->allocation.width  / (gfloat)gdk_screen_width();
     desk_set_dirty(d);
 
-	p = d->pg->plugin->panel;
+    p = d->pg->plugin->panel;
     //request best size
     if (p->orientation != ORIENT_HORIZ) {
         w = widget->allocation.width;
@@ -328,7 +328,12 @@ static gint
 desk_button_press_event(GtkWidget * widget, GdkEventButton * event, desk *d)
 {
     ENTER;
-    DBG("s=%d\n", d->no);
+    if( event->button == 3 ) { /* right button */
+        GtkMenu* popup = lxpanel_get_panel_menu( d->pg->plugin->panel, d->pg->plugin, FALSE );
+        gtk_menu_popup( popup, NULL, NULL, NULL, NULL, event->button, event->time );
+        return TRUE;
+    }
+
     Xclimsg(GDK_ROOT_WINDOW(), a_NET_CURRENT_DESKTOP, d->no, 0, 0, 0, 0);
     RET(TRUE);
 }

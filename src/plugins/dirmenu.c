@@ -243,9 +243,8 @@ static void show_menu( GtkWidget* widget, Plugin *p, int btn, guint32 time )
 }
 
 static gint
-clicked (GtkWidget *widget, GdkEventButton *event, gpointer data)
+clicked (GtkWidget *widget, GdkEventButton *event, Plugin *p)
 {
-    Plugin *p = (Plugin*)data;
     dirmenu *dm = (dirmenu *)p->priv;
 
     ENTER;
