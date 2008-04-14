@@ -303,18 +303,6 @@ lxpanel_get_line(char**fp, line *s)
     RET(s->type);
 }
 
-extern const char*
-lxpanel_get_file_manager( Panel *p )
-{
-    return p->file_manager ? p->file_manager : "pcmanfm %";
-}
-
-extern const char*
-lxpanel_get_terminal( Panel *p )
-{
-    return p->terminal ? p->terminal : "x-terminal-emulator";
-}
-
 int
 get_line_as_is(char** fp, line *s)
 {

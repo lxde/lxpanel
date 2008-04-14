@@ -607,8 +607,8 @@ tk_callback_enter( GtkWidget *widget, task *tk )
 
 static gboolean delay_active_win(task* tk)
 {
-	/* FIXME: gtk_get_current_event_time() often returns 0.
-	   However, passing 0 as time for this function is not OK. */
+    /* FIXME: gtk_get_current_event_time() often returns 0.
+       However, passing 0 as time for this function is not OK. */
     tk_raise_window(tk, gtk_get_current_event_time() );
     tk->tb->dnd_activate = 0;
     return FALSE;
@@ -711,7 +711,7 @@ tk_callback_button_press_event(GtkWidget *widget, GdkEventButton *event, task *t
         tk->tb->menutask = tk;
         gtk_menu_popup (GTK_MENU (tk->tb->menu), NULL, NULL, NULL, NULL, event->button, event->time);
         return TRUE;
-	}
+    }
     return FALSE;
 }
 
@@ -770,15 +770,15 @@ tk_update(gpointer key, task *tk, taskbar *tb)
     ENTER;
     g_assert ((tb != NULL) && (tk != NULL));
     if (task_visible(tb, tk)) {
-    	/* g_debug( "SET_ACTIVE: %p, %d", tk->button, tk->focused ); */
-    	if( gtk_toggle_button_get_active( (GtkToggleButton*)tk->button) != tk->focused )
+        /* g_debug( "SET_ACTIVE: %p, %d", tk->button, tk->focused ); */
+        if( gtk_toggle_button_get_active( (GtkToggleButton*)tk->button) != tk->focused )
             gtk_toggle_button_set_active( (GtkToggleButton*)tk->button, tk->focused );
 
         gtk_widget_show(tk->button);
-		if (tb->tooltips) {
-			//DBG2("tip %x %s\n", tk->win, tk->name);
-			gtk_tooltips_set_tip(tb->tips, tk->button, tk->name, NULL);
-		}
+        if (tb->tooltips) {
+            //DBG2("tip %x %s\n", tk->win, tk->name);
+            gtk_tooltips_set_tip(tb->tips, tk->button, tk->name, NULL);
+        }
     RET();
     }
     gtk_widget_hide(tk->button);
@@ -1428,7 +1428,7 @@ taskbar_constructor(Plugin *p, char** fp)
                 } else if (!g_ascii_strcasecmp(s.t[0], "UseUrgencyHint")) {
                     tb->use_urgency_hint = str2num(bool_pair, s.t[1], 1);
                 } else if (!g_ascii_strcasecmp(s.t[0], "FlatButton")) {
-                    tb->flat_button = str2num(bool_pair, s.t[1], 1); 
+                    tb->flat_button = str2num(bool_pair, s.t[1], 1);
                 } else {
                     ERR( "taskbar: unknown var %s\n", s.t[0]);
                     goto error;
@@ -1455,8 +1455,8 @@ static void
 taskbar_destructor(Plugin *p)
 {
     taskbar *tb = (taskbar *)p->priv;
+    g_hash_table_foreach( tb->task_list, (GHFunc)del_task, NULL );
 
-    ENTER;
     g_signal_handlers_disconnect_by_func(G_OBJECT (fbev), tb_net_current_desktop, tb);
     g_signal_handlers_disconnect_by_func(G_OBJECT (fbev), tb_net_active_window, tb);
     g_signal_handlers_disconnect_by_func(G_OBJECT (fbev), tb_net_number_of_desktops, tb);
@@ -1468,7 +1468,6 @@ taskbar_destructor(Plugin *p)
     gtk_widget_destroy(tb->bar);
     */
     gtk_widget_destroy(tb->menu);
-    RET();
 }
 
 static void

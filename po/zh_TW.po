@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-12 09:39+0800\n"
-"PO-Revision-Date: 2008-03-30 21:46+0800\n"
+"POT-Creation-Date: 2008-04-14 21:09+0800\n"
+"PO-Revision-Date: 2008-04-14 21:14+0800\n"
 "Last-Translator: 洪任諭 <pcman.tw@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,8 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #. { "configure", N_("Preferences"), configure },
-#: ../src/configurator.c:44 ../src/gtk-run.c:112
+#: ../src/configurator.c:44
+#: ../src/gtk-run.c:112
 msgid "Run"
 msgstr "執行"
 
@@ -29,232 +30,262 @@ msgstr "重新啟動"
 msgid "Logout"
 msgstr "登出"
 
-#: ../src/configurator.c:220
+#: ../src/configurator.c:224
 msgid "<b>Position</b>"
 msgstr "<b>位置</b>"
 
 #. Edge
-#: ../src/configurator.c:237
+#: ../src/configurator.c:241
 msgid "Edge:"
 msgstr "吸附邊緣："
 
-#: ../src/configurator.c:244 ../src/configurator.c:268
+#: ../src/configurator.c:248
+#: ../src/configurator.c:272
 msgid "Left"
 msgstr "左"
 
-#: ../src/configurator.c:245 ../src/configurator.c:270
+#: ../src/configurator.c:249
+#: ../src/configurator.c:274
 msgid "Right"
 msgstr "右"
 
-#: ../src/configurator.c:246
+#: ../src/configurator.c:250
 msgid "Top"
 msgstr "上"
 
-#: ../src/configurator.c:247
+#: ../src/configurator.c:251
 msgid "Bottom"
 msgstr "下"
 
 #. Alignment
-#: ../src/configurator.c:260
+#: ../src/configurator.c:264
 msgid "Alignment:"
 msgstr "排列方式："
 
-#: ../src/configurator.c:269
+#: ../src/configurator.c:273
 msgid "Center"
 msgstr "置中"
 
 #. Margin
-#: ../src/configurator.c:282
+#: ../src/configurator.c:286
 msgid "Margin:"
 msgstr "留空："
 
-#: ../src/configurator.c:353
+#: ../src/configurator.c:357
 msgid "<b>Size</b>"
 msgstr "<b>大小</b>"
 
 #. width
-#: ../src/configurator.c:370
+#: ../src/configurator.c:374
 msgid "Width:"
 msgstr "寬度："
 
-#: ../src/configurator.c:384
+#: ../src/configurator.c:388
 msgid "dynamic"
 msgstr "動態"
 
-#: ../src/configurator.c:385 ../src/configurator.c:413
+#: ../src/configurator.c:389
+#: ../src/configurator.c:417
 msgid "pixels"
 msgstr "像素 (pixels)"
 
-#: ../src/configurator.c:386
+#: ../src/configurator.c:390
 #, c-format
 msgid "% of edge"
 msgstr "% 百分比"
 
 #. height
-#: ../src/configurator.c:399
+#: ../src/configurator.c:403
 msgid "Height:"
 msgstr "高度："
 
-#: ../src/configurator.c:454
+#: ../src/configurator.c:458
 msgid "Enable Transparency"
 msgstr " 啟用透明效果"
 
-#: ../src/configurator.c:458
+#: ../src/configurator.c:462
 msgid "Tint color:"
 msgstr "色彩："
 
-#: ../src/configurator.c:517
+#: ../src/configurator.c:521
 msgid "Enable Image:"
 msgstr "啟用背景圖："
 
-#: ../src/configurator.c:520
+#: ../src/configurator.c:524
 msgid "Select a background image file"
 msgstr "選擇背景圖片"
 
-#: ../src/configurator.c:591
+#: ../src/configurator.c:594
 msgid "<b>Background</b>"
 msgstr "<b>背景</b>"
 
 #. Disable Background option
-#: ../src/configurator.c:606
+#: ../src/configurator.c:609
 msgid "None (Use system theme)"
 msgstr "無 (使用系統佈景主題)"
 
-#: ../src/configurator.c:637
+#: ../src/configurator.c:640
 msgid "<b>Font</b>"
 msgstr "<b>字型</b>"
 
 #. fnt = gtk_font_button_new();
 #. gtk_box_pack_start( (GtkBox*)hbox, fnt, TRUE, TRUE, 4 );
-#: ../src/configurator.c:647
+#: ../src/configurator.c:650
 msgid "Custom Color"
 msgstr "自訂色彩"
 
-#: ../src/configurator.c:696
+#: ../src/configurator.c:700
 msgid "<b>Properties</b>"
 msgstr "<b>屬性</b>"
 
-#: ../src/configurator.c:718
+#: ../src/configurator.c:722
 msgid "Make window managers treat the panel as dock"
-msgstr "讓視窗管理員把面板當成 Dock 處理"
+msgstr "讓視窗管理員把工作列當成 Dock 處理"
 
-#: ../src/configurator.c:734
+#: ../src/configurator.c:738
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "保留空間，不被最大化視窗覆蓋"
 
-#: ../src/configurator.c:790
+#: ../src/configurator.c:794
 msgid "Currently loaded plugins"
 msgstr "目前載入的外掛"
 
-#: ../src/configurator.c:886
+#: ../src/configurator.c:890
 msgid "Add plugin to panel"
-msgstr "新增外掛到面板"
+msgstr "新增外掛到工作列"
 
-#: ../src/configurator.c:913
+#: ../src/configurator.c:917
 msgid "Available plugins"
 msgstr "可選用的外掛"
 
-#: ../src/configurator.c:1203
+#: ../src/configurator.c:1207
 msgid "<b>Set Preferred Applications</b>"
 msgstr "<b>設定偏好使用的程式</b>"
 
-#: ../src/configurator.c:1213
+#: ../src/configurator.c:1217
 msgid "File Manager:"
 msgstr "檔案管理員："
 
-#: ../src/configurator.c:1226
+#: ../src/configurator.c:1230
 msgid "Terminal Emulator:"
 msgstr "終端機："
 
-#: ../src/configurator.c:1241
+#: ../src/configurator.c:1245
 msgid "Logout Command:"
 msgstr "登出指令："
 
-#: ../src/configurator.c:1261
+#: ../src/configurator.c:1265
 msgid "lxpanel configurator"
 msgstr "lxpanel 偏好設定"
 
-#: ../src/configurator.c:1287
+#: ../src/configurator.c:1291
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr "一般"
 
-#: ../src/configurator.c:1292
+#: ../src/configurator.c:1296
 msgid "Appearance"
 msgstr "外觀"
 
-#: ../src/configurator.c:1297
+#: ../src/configurator.c:1301
 msgid "Plugins"
 msgstr "外掛"
 
-#: ../src/configurator.c:1302
+#: ../src/configurator.c:1306
 msgid "Applications"
 msgstr "應用程式"
 
-#: ../src/configurator.c:1465
+#: ../src/configurator.c:1467
 msgid "Logout command is not set"
 msgstr "登出指令尚未設定"
 
-#: ../src/panel.c:432
-msgid "Panel Preference"
-msgstr "工作列偏好設定"
+#: ../src/panel.c:441
+#, c-format
+msgid "\"%s\" Settings"
+msgstr "設定 \"%s\""
 
-#: ../src/panel.c:901
+#: ../src/panel.c:451
+msgid "Add Item To Panel"
+msgstr "新增項目到工作列"
+
+#: ../src/panel.c:456
+#, c-format
+msgid "Remove \"%s\" From Panel"
+msgstr "從工作列移除 \"%s\""
+
+#: ../src/panel.c:468
+msgid "Create New Panel"
+msgstr "建立新工作列"
+
+#: ../src/panel.c:473
+msgid "Delete This Panel"
+msgstr "刪除這個工作列"
+
+#: ../src/panel.c:481
+msgid "Panel Settings"
+msgstr "設定工作列"
+
+#: ../src/panel.c:490
+msgid "Panel"
+msgstr "工作列"
+
+#: ../src/panel.c:947
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - UNIX 桌面的輕量級 GTK2+ 工作列\n"
 
-#: ../src/panel.c:902
+#: ../src/panel.c:948
 #, c-format
 msgid "Command line options:\n"
 msgstr "命令列選項：\n"
 
-#: ../src/panel.c:903
+#: ../src/panel.c:949
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- 顯示使用說明並離開\n"
 
-#: ../src/panel.c:904
+#: ../src/panel.c:950
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- 顯示版本資訊並離開\n"
 
-#: ../src/panel.c:905
+#: ../src/panel.c:951
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --log <數值>   -- 設定程式運作紀錄的層級 (0-5). 0 - 無, 5 - 全部\n"
 
-#: ../src/panel.c:906
+#: ../src/panel.c:952
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- 執行設定工具\n"
 
-#: ../src/panel.c:907
+#: ../src/panel.c:953
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- 指定使用其他設定檔\n"
 
-#: ../src/panel.c:909
+#: ../src/panel.c:955
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- 和 --help 作用相同\n"
 
-#: ../src/panel.c:910
+#: ../src/panel.c:956
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- 和 --profile 作用相同\n"
 
-#: ../src/panel.c:911
+#: ../src/panel.c:957
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- 和 --version 作用相同\n"
 
-#: ../src/panel.c:912
+#: ../src/panel.c:958
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- 和 --configure 作用相同\n"
 
-#: ../src/panel.c:913
+#: ../src/panel.c:959
+#, c-format
 msgid ""
 "\n"
 "Visit http://lxde.sourceforge.net/ for detail.\n"
@@ -439,9 +470,7 @@ msgid "Task Bar (Window List)"
 msgstr "工作列 (視窗清單)"
 
 #: ../src/plugins/taskbar.c:1607
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
 msgstr "工作列顯示所有開啟的視窗，並讓能視窗最小化、折疊、或取得焦點"
 
 #: ../src/plugins/dclock.c:278
@@ -482,7 +511,7 @@ msgstr "分隔線"
 
 #: ../src/plugins/separator.c:94
 msgid "Add a separator to the panel"
-msgstr "在面板上增加分隔線"
+msgstr "在工作列上增加分隔線"
 
 #: ../src/plugins/image.c:177
 msgid "Dispaly Image and Tooltip"
@@ -496,7 +525,8 @@ msgstr "切換桌面"
 msgid "Simple pager plugin"
 msgstr "簡易桌面切換外掛"
 
-#: ../src/plugins/space.c:125 ../src/plugins/batt/batt.c:818
+#: ../src/plugins/space.c:125
+#: ../src/plugins/batt/batt.c:818
 msgid "Size"
 msgstr "大小"
 
@@ -524,15 +554,15 @@ msgstr ""
 "發送指令給所有桌面視窗\n"
 "支援的指令  1) 最小化  2) 折疊"
 
-#: ../src/plugins/dirmenu.c:206
+#: ../src/plugins/dirmenu.c:210
 msgid "Open in _Terminal"
 msgstr "在終端機內開啟(_T)"
 
-#: ../src/plugins/dirmenu.c:368
+#: ../src/plugins/dirmenu.c:372
 msgid "Directory Menu"
 msgstr "目錄選單"
 
-#: ../src/plugins/dirmenu.c:370
+#: ../src/plugins/dirmenu.c:374
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "使用選單瀏覽目錄 (作者：PCMan)"
 
@@ -583,7 +613,8 @@ msgstr "網路線已拔除"
 msgid "Connection has limited or no connectivity"
 msgstr "只能有限制的連線或無法連線"
 
-#: ../src/plugins/netstat/netstat.c:282 ../src/plugins/netstat/netstat.c:293
+#: ../src/plugins/netstat/netstat.c:282
+#: ../src/plugins/netstat/netstat.c:293
 #: ../src/plugins/netstat/netstat.c:304
 msgid "IP Address:"
 msgstr "IP 位址："
@@ -592,32 +623,38 @@ msgstr "IP 位址："
 msgid "Remote IP:"
 msgstr "遠端 IP 位址："
 
-#: ../src/plugins/netstat/netstat.c:284 ../src/plugins/netstat/netstat.c:295
+#: ../src/plugins/netstat/netstat.c:284
+#: ../src/plugins/netstat/netstat.c:295
 #: ../src/plugins/netstat/netstat.c:306
 msgid "Netmask:"
 msgstr "子網路遮罩："
 
-#: ../src/plugins/netstat/netstat.c:285 ../src/plugins/netstat/netstat.c:297
+#: ../src/plugins/netstat/netstat.c:285
+#: ../src/plugins/netstat/netstat.c:297
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Activity"
 msgstr "活動"
 
-#: ../src/plugins/netstat/netstat.c:285 ../src/plugins/netstat/netstat.c:297
+#: ../src/plugins/netstat/netstat.c:285
+#: ../src/plugins/netstat/netstat.c:297
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Sent"
 msgstr "已傳送"
 
-#: ../src/plugins/netstat/netstat.c:285 ../src/plugins/netstat/netstat.c:297
+#: ../src/plugins/netstat/netstat.c:285
+#: ../src/plugins/netstat/netstat.c:297
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Received"
 msgstr "已接收"
 
-#: ../src/plugins/netstat/netstat.c:286 ../src/plugins/netstat/netstat.c:298
+#: ../src/plugins/netstat/netstat.c:286
+#: ../src/plugins/netstat/netstat.c:298
 #: ../src/plugins/netstat/netstat.c:309
 msgid "bytes"
 msgstr "位元組"
 
-#: ../src/plugins/netstat/netstat.c:287 ../src/plugins/netstat/netstat.c:299
+#: ../src/plugins/netstat/netstat.c:287
+#: ../src/plugins/netstat/netstat.c:299
 #: ../src/plugins/netstat/netstat.c:310
 msgid "packets"
 msgstr "封包"
@@ -630,11 +667,13 @@ msgstr "無線網路"
 msgid "Protocol:"
 msgstr "通訊協定："
 
-#: ../src/plugins/netstat/netstat.c:294 ../src/plugins/netstat/netstat.c:305
+#: ../src/plugins/netstat/netstat.c:294
+#: ../src/plugins/netstat/netstat.c:305
 msgid "Boradcast:"
 msgstr "廣播位址："
 
-#: ../src/plugins/netstat/netstat.c:296 ../src/plugins/netstat/netstat.c:307
+#: ../src/plugins/netstat/netstat.c:296
+#: ../src/plugins/netstat/netstat.c:307
 msgid "HW Address:"
 msgstr "實體位址："
 
@@ -911,8 +950,10 @@ msgstr "電池電量顯示"
 msgid "Display battery status using ACPI"
 msgstr "透過 ACPI 顯示電池狀態"
 
+#~ msgid "Panel Preference"
+#~ msgstr "工作列偏好設定"
 #~ msgid "Background"
 #~ msgstr "背景"
-
 #~ msgid "Update interval (seconds)"
 #~ msgstr "更新頻率 (秒)"
+

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-12 09:39+0800\n"
+"POT-Creation-Date: 2008-04-14 21:09+0800\n"
 "PO-Revision-Date: 2007-09-17 01:25+0100\n"
 "Last-Translator: Ivan Masár <helix84@centrum.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -30,234 +30,261 @@ msgstr "Reštartovať"
 msgid "Logout"
 msgstr "Odhlásiť"
 
-#: ../src/configurator.c:220
+#: ../src/configurator.c:224
 msgid "<b>Position</b>"
 msgstr "<b>Poloha</b>"
 
 #. Edge
-#: ../src/configurator.c:237
+#: ../src/configurator.c:241
 msgid "Edge:"
 msgstr "Okraj:"
 
-#: ../src/configurator.c:244 ../src/configurator.c:268
+#: ../src/configurator.c:248 ../src/configurator.c:272
 msgid "Left"
 msgstr "Vľavo"
 
-#: ../src/configurator.c:245 ../src/configurator.c:270
+#: ../src/configurator.c:249 ../src/configurator.c:274
 msgid "Right"
 msgstr "Vpravo"
 
-#: ../src/configurator.c:246
+#: ../src/configurator.c:250
 msgid "Top"
 msgstr "Hore"
 
-#: ../src/configurator.c:247
+#: ../src/configurator.c:251
 msgid "Bottom"
 msgstr "Dolu"
 
 #. Alignment
-#: ../src/configurator.c:260
+#: ../src/configurator.c:264
 msgid "Alignment:"
 msgstr "Zarovnanie:"
 
-#: ../src/configurator.c:269
+#: ../src/configurator.c:273
 msgid "Center"
 msgstr "Stred"
 
 #. Margin
-#: ../src/configurator.c:282
+#: ../src/configurator.c:286
 msgid "Margin:"
 msgstr "Okraj:"
 
-#: ../src/configurator.c:353
+#: ../src/configurator.c:357
 msgid "<b>Size</b>"
 msgstr "<b>Veľkosť</b>"
 
 #. width
-#: ../src/configurator.c:370
+#: ../src/configurator.c:374
 msgid "Width:"
 msgstr "Šírka:"
 
-#: ../src/configurator.c:384
+#: ../src/configurator.c:388
 msgid "dynamic"
 msgstr "dynamická"
 
-#: ../src/configurator.c:385 ../src/configurator.c:413
+#: ../src/configurator.c:389 ../src/configurator.c:417
 msgid "pixels"
 msgstr "pixely"
 
-#: ../src/configurator.c:386
+#: ../src/configurator.c:390
 #, c-format
 msgid "% of edge"
 msgstr "% okraja"
 
 #. height
-#: ../src/configurator.c:399
+#: ../src/configurator.c:403
 msgid "Height:"
 msgstr "Výška:"
 
-#: ../src/configurator.c:454
+#: ../src/configurator.c:458
 msgid "Enable Transparency"
 msgstr "Zapnúť priesvitnosť"
 
-#: ../src/configurator.c:458
+#: ../src/configurator.c:462
 msgid "Tint color:"
 msgstr "Zafarbenie:"
 
-#: ../src/configurator.c:517
+#: ../src/configurator.c:521
 msgid "Enable Image:"
 msgstr ""
 
-#: ../src/configurator.c:520
+#: ../src/configurator.c:524
 msgid "Select a background image file"
 msgstr ""
 
-#: ../src/configurator.c:591
+#: ../src/configurator.c:594
 msgid "<b>Background</b>"
 msgstr ""
 
 #. Disable Background option
-#: ../src/configurator.c:606
+#: ../src/configurator.c:609
 msgid "None (Use system theme)"
 msgstr ""
 
-#: ../src/configurator.c:637
+#: ../src/configurator.c:640
 #, fuzzy
 msgid "<b>Font</b>"
 msgstr "<b>Poloha</b>"
 
 #. fnt = gtk_font_button_new();
 #. gtk_box_pack_start( (GtkBox*)hbox, fnt, TRUE, TRUE, 4 );
-#: ../src/configurator.c:647
+#: ../src/configurator.c:650
 msgid "Custom Color"
 msgstr ""
 
-#: ../src/configurator.c:696
+#: ../src/configurator.c:700
 msgid "<b>Properties</b>"
 msgstr "<b>Vlastnosti</b>"
 
-#: ../src/configurator.c:718
+#: ../src/configurator.c:722
 msgid "Make window managers treat the panel as dock"
 msgstr "Správcovia okien majú ukotvovať panel"
 
-#: ../src/configurator.c:734
+#: ../src/configurator.c:738
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Rezervovať miesto, nezakrývať maximalizovanými oknami"
 
-#: ../src/configurator.c:790
+#: ../src/configurator.c:794
 msgid "Currently loaded plugins"
 msgstr "Momentálne načítané moduly"
 
-#: ../src/configurator.c:886
+#: ../src/configurator.c:890
 msgid "Add plugin to panel"
 msgstr "Pridať modul do panela"
 
-#: ../src/configurator.c:913
+#: ../src/configurator.c:917
 msgid "Available plugins"
 msgstr "Dostupné moduly"
 
-#: ../src/configurator.c:1203
+#: ../src/configurator.c:1207
 msgid "<b>Set Preferred Applications</b>"
 msgstr "<b>Nastaviť preferované aplikácie</b>"
 
-#: ../src/configurator.c:1213
+#: ../src/configurator.c:1217
 msgid "File Manager:"
 msgstr "Správca súborov:"
 
-#: ../src/configurator.c:1226
+#: ../src/configurator.c:1230
 msgid "Terminal Emulator:"
 msgstr "Emulátor terminálu:"
 
-#: ../src/configurator.c:1241
+#: ../src/configurator.c:1245
 msgid "Logout Command:"
 msgstr "Príkaz na odhlásenie:"
 
-#: ../src/configurator.c:1261
+#: ../src/configurator.c:1265
 msgid "lxpanel configurator"
 msgstr "Konfigurátor lxpanel"
 
-#: ../src/configurator.c:1287
+#: ../src/configurator.c:1291
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr "Všeobecné"
 
-#: ../src/configurator.c:1292
+#: ../src/configurator.c:1296
 msgid "Appearance"
 msgstr ""
 
-#: ../src/configurator.c:1297
+#: ../src/configurator.c:1301
 msgid "Plugins"
 msgstr "Moduly"
 
-#: ../src/configurator.c:1302
+#: ../src/configurator.c:1306
 msgid "Applications"
 msgstr "Aplikácie"
 
-#: ../src/configurator.c:1465
+#: ../src/configurator.c:1467
 msgid "Logout command is not set"
 msgstr "Príkaz na odhlásenie nie je nastavený"
 
-#: ../src/panel.c:432
-#, fuzzy
-msgid "Panel Preference"
+#: ../src/panel.c:441
+#, fuzzy, c-format
+msgid "\"%s\" Settings"
 msgstr "Nastavenia"
 
-#: ../src/panel.c:901
+#: ../src/panel.c:451
+#, fuzzy
+msgid "Add Item To Panel"
+msgstr "Pridať modul do panela"
+
+#: ../src/panel.c:456
+#, c-format
+msgid "Remove \"%s\" From Panel"
+msgstr ""
+
+#: ../src/panel.c:468
+msgid "Create New Panel"
+msgstr ""
+
+#: ../src/panel.c:473
+msgid "Delete This Panel"
+msgstr ""
+
+#: ../src/panel.c:481
+#, fuzzy
+msgid "Panel Settings"
+msgstr "Nastavenia"
+
+#: ../src/panel.c:490
+msgid "Panel"
+msgstr ""
+
+#: ../src/panel.c:947
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - odľahčený GTK2+ panel pre unixové pracovné prostredia\n"
 
-#: ../src/panel.c:902
+#: ../src/panel.c:948
 #, c-format
 msgid "Command line options:\n"
 msgstr "Voľby príkazového riadka:\n"
 
-#: ../src/panel.c:903
+#: ../src/panel.c:949
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr ""
 
-#: ../src/panel.c:904
+#: ../src/panel.c:950
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr ""
 
-#: ../src/panel.c:905
+#: ../src/panel.c:951
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 
-#: ../src/panel.c:906
+#: ../src/panel.c:952
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr ""
 
-#: ../src/panel.c:907
+#: ../src/panel.c:953
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr ""
 
-#: ../src/panel.c:909
+#: ../src/panel.c:955
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr ""
 
-#: ../src/panel.c:910
+#: ../src/panel.c:956
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr ""
 
-#: ../src/panel.c:911
+#: ../src/panel.c:957
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr ""
 
-#: ../src/panel.c:912
+#: ../src/panel.c:958
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr ""
 
-#: ../src/panel.c:913
+#: ../src/panel.c:959
 #, fuzzy, c-format
 msgid ""
 "\n"
@@ -531,15 +558,15 @@ msgid ""
 "Supported commnds are 1)toggle iconify and 2) toggle shade"
 msgstr ""
 
-#: ../src/plugins/dirmenu.c:206
+#: ../src/plugins/dirmenu.c:210
 msgid "Open in _Terminal"
 msgstr ""
 
-#: ../src/plugins/dirmenu.c:368
+#: ../src/plugins/dirmenu.c:372
 msgid "Directory Menu"
 msgstr ""
 
-#: ../src/plugins/dirmenu.c:370
+#: ../src/plugins/dirmenu.c:374
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr ""
 
@@ -912,6 +939,10 @@ msgstr "Monitor využitia CPU"
 #: ../src/plugins/batt/batt.c:854
 msgid "Display battery status using ACPI"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Panel Preference"
+#~ msgstr "Nastavenia"
 
 #~ msgid "<b>Transparency</b>"
 #~ msgstr "<b>Priesvitnosť</b>"

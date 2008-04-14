@@ -36,7 +36,7 @@
 void configure(Panel* p);
 void restart(void);
 void gtk_run(void);
-void config_save(Panel* panel);
+void panel_config_save(Panel* panel);
 static void logout(void);
 
 Command commands[] = {
@@ -46,6 +46,10 @@ Command commands[] = {
     { "logout", N_("Logout"), logout },
     { NULL, NULL },
 };
+
+static char* file_manager_cmd = NULL;
+static char* terminal_cmd = NULL;
+static char* logout_cmd = NULL;
 
 static GtkWidget *dialog = NULL;
 static GtkSizeGroup *sg;
@@ -82,8 +86,8 @@ extern gchar *cprofile;
 extern int config;
 extern FILE *pconf;
 
-void global_config_save( Panel* p, FILE *fp);
-void plugin_config_save( Panel* p, FILE *fp);
+void panel_global_config_save( Panel* p, FILE *fp);
+void panel_plugin_config_save( Panel* p, FILE *fp);
 
 static void update_opt_menu(GtkWidget *w, int ind);
 static void update_toggle_button(GtkWidget *w, gboolean n);
@@ -149,7 +153,7 @@ response_event(GtkDialog *widget, gint arg1, gpointer user_data)
     case GTK_RESPONSE_DELETE_EVENT:
     case GTK_RESPONSE_CLOSE:
     case GTK_RESPONSE_NONE:
-    	config_save( panel );
+        panel_config_save( panel );
         /* NOTE: NO BREAK HERE*/
         gtk_widget_destroy(dialog);
         dialog = NULL;
@@ -496,7 +500,7 @@ static void
 background_changed(GtkFileChooser *file_chooser,  Panel* p )
 {
     ENTER;
-    
+
     p->transparent = 0;
     p->background = 1;
     p->background_file = g_strdup(gtk_file_chooser_get_filename(file_chooser));
@@ -553,24 +557,23 @@ background_disable_toggle( GtkWidget *b, Panel* p )
 static void
 on_font_color_set( GtkColorButton* clr,  Panel* p )
 {
-	gtk_color_button_get_color( clr, &p->gfontcolor );
-	/* FIXME: need some better mechanism to update the panel */
-	if( p->usefontcolor )
-		gtk_widget_queue_draw( p->topgwin );
+    gtk_color_button_get_color( clr, &p->gfontcolor );
+    /* FIXME: need some better mechanism to update the panel */
+    if( p->usefontcolor )
+        gtk_widget_queue_draw( p->topgwin );
 }
 
-static void 
+static void
 on_use_font_color_toggled( GtkToggleButton* btn,   Panel* p )
 {
-	/*
-	if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(btn)))
-		gtk_widget_set_sensitive(GTK_WIDGET(user_data), TRUE);
-	else 
-		gtk_widget_set_sensitive(GTK_WIDGET(user_data), FALSE);
-	*/
-	p->usefontcolor = gtk_toggle_button_get_active( btn );
-	/* FIXME: need some better mechanism to update the panel */
-	gtk_widget_queue_draw( p->topgwin );
+    GtkWidget* clr = (GtkWidget*)g_object_get_data( btn, "clr" );
+    if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(btn)))
+        gtk_widget_set_sensitive( clr, TRUE );
+    else
+        gtk_widget_set_sensitive( clr, FALSE );
+    p->usefontcolor = gtk_toggle_button_get_active( btn );
+    /* FIXME: need some better mechanism to update the panel */
+    gtk_widget_queue_draw( p->topgwin );
 }
 
 GtkWidget *
@@ -641,27 +644,28 @@ mk_appearance( Panel* p )
     gtk_container_set_border_width (GTK_CONTAINER (hbox), 6);
     gtk_container_add (GTK_CONTAINER (frame), hbox);
 
-//	fnt = gtk_font_button_new();
-//	gtk_box_pack_start( (GtkBox*)hbox, fnt, TRUE, TRUE, 4 );
+//  fnt = gtk_font_button_new();
+//  gtk_box_pack_start( (GtkBox*)hbox, fnt, TRUE, TRUE, 4 );
 
-	use_fnt_clr = gtk_check_button_new_with_label( _("Custom Color") );
-	gtk_box_pack_start( (GtkBox*)hbox, use_fnt_clr, FALSE, FALSE, 4 );
-	gtk_toggle_button_set_active( (GtkToggleButton*) use_fnt_clr, p->usefontcolor );
+    use_fnt_clr = gtk_check_button_new_with_label( _("Custom Color") );
+    gtk_box_pack_start( (GtkBox*)hbox, use_fnt_clr, FALSE, FALSE, 4 );
+    gtk_toggle_button_set_active( (GtkToggleButton*) use_fnt_clr, p->usefontcolor );
 
-	clr = gtk_color_button_new();
-	gtk_box_pack_start( (GtkBox*)hbox, clr, FALSE, FALSE, 4 );
-	gtk_color_button_set_color( (GtkColorButton*)clr, &p->gfontcolor );
-	g_signal_connect( clr, "color-set", G_CALLBACK( on_use_font_color_toggled ), NULL );
+    clr = gtk_color_button_new();
+    gtk_box_pack_start( (GtkBox*)hbox, clr, FALSE, FALSE, 4 );
+    gtk_color_button_set_color( (GtkColorButton*)clr, &p->gfontcolor );
+    g_signal_connect( clr, "color-set", G_CALLBACK( on_use_font_color_toggled ), p );
 
-	gtk_widget_show_all( top_vbox );
+    gtk_widget_show_all( top_vbox );
 
-	/* background */
-    g_signal_connect(bg_checkdis, "toggled", G_CALLBACK(background_disable_toggle), NULL);
-    g_signal_connect(bg_checkb, "toggled", G_CALLBACK(background_toggle), NULL);
-    g_signal_connect(tr_checkb, "toggled", G_CALLBACK(transparency_toggle), NULL);
+    /* background */
+    g_signal_connect(bg_checkdis, "toggled", G_CALLBACK(background_disable_toggle), p);
+    g_signal_connect(bg_checkb, "toggled", G_CALLBACK(background_toggle), p);
+    g_signal_connect(tr_checkb, "toggled", G_CALLBACK(transparency_toggle), p);
 
-	/* font */
-    g_signal_connect(use_fnt_clr, "toggled", G_CALLBACK(on_use_font_color_toggled), clr);
+    /* font */
+    g_object_set_data( use_fnt_clr, "clr", clr );
+    g_signal_connect(use_fnt_clr, "toggled", G_CALLBACK(on_use_font_color_toggled), p);
 
     RET(top_vbox);
 }
@@ -783,7 +787,7 @@ static void init_plugin_list( Panel* p, GtkTreeView* view, GtkWidget* label )
     GList* l;
     GtkTreeIter it;
 
-	g_object_set_data( view, "panel", p );
+    g_object_set_data( view, "panel", p );
 
     render = gtk_cell_renderer_text_new();
     col = gtk_tree_view_column_new_with_attributes(
@@ -816,7 +820,7 @@ static void on_add_plugin_response( GtkDialog* dlg,
                                     int response,
                                     GtkTreeView* _view )
 {
-	Panel* p = (Panel*) g_object_get_data( _view, "panel" );
+    Panel* p = (Panel*) g_object_get_data( _view, "panel" );
     if( response == GTK_RESPONSE_OK )
     {
         GtkTreeView* view;
@@ -841,7 +845,7 @@ static void on_add_plugin_response( GtkDialog* dlg,
                 /* FIXME: will show all cause problems? */
                 gtk_widget_show_all( pl->pwid );
 
-				/* update background of the newly added plugin */
+                /* update background of the newly added plugin */
                 plugin_widget_set_background( pl->pwid, pl->panel );
 
                 model = gtk_tree_view_get_model( _view );
@@ -878,7 +882,7 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
     GtkListStore* list;
     GtkTreeSelection* tree_sel;
 
-	Panel* p = (Panel*) g_object_get_data( _view, "panel" );
+    Panel* p = (Panel*) g_object_get_data( _view, "panel" );
 
     classes = plugin_get_available_classes();
 
@@ -951,7 +955,7 @@ static void on_remove_plugin( GtkButton* btn, GtkTreeView* view )
     GtkTreeSelection* tree_sel = gtk_tree_view_get_selection( view );
     Plugin* pl;
 
-	Panel* p = (Panel*) g_object_get_data( view, "panel" );
+    Panel* p = (Panel*) g_object_get_data( view, "panel" );
 
     if( gtk_tree_selection_get_selected( tree_sel, &model, &it ) )
     {
@@ -984,7 +988,7 @@ void modify_plugin( GtkTreeView* view )
         pl->class->config( pl, (GtkWindow*)gtk_widget_get_toplevel(GTK_WIDGET(view)) );
 }
 
-static int get_widget_index( 	Panel* p, Plugin* pl )
+static int get_widget_index(    Panel* p, Plugin* pl )
 {
     GList* l;
     int i;
@@ -1007,7 +1011,7 @@ static void on_moveup_plugin(  GtkButton* btn, GtkTreeView* view )
     GtkTreeSelection* tree_sel = gtk_tree_view_get_selection( view );
     int i;
 
-	Panel* panel = (Panel*) g_object_get_data( view, "panel" );
+    Panel* panel = (Panel*) g_object_get_data( view, "panel" );
 
     if( ! gtk_tree_model_get_iter_first( model, &it ) )
         return;
@@ -1049,7 +1053,7 @@ static void on_movedown_plugin(  GtkButton* btn, GtkTreeView* view )
     Plugin* pl;
     int i;
 
-	Panel* panel = (Panel*) g_object_get_data( view, "panel" );
+    Panel* panel = (Panel*) g_object_get_data( view, "panel" );
 
     if( ! gtk_tree_selection_get_selected( tree_sel, &model, &it ) )
         return;
@@ -1213,11 +1217,11 @@ mk_tab_app( Panel* p )
     label = gtk_label_new( _("File Manager:") );
     gtk_misc_set_alignment( label, 0, 0.5 );
     entry = gtk_entry_new();
-    if (p->file_manager)
-        gtk_entry_set_text( GTK_ENTRY(entry), p->file_manager );
+    if (file_manager_cmd)
+        gtk_entry_set_text( GTK_ENTRY(entry), file_manager_cmd );
     g_signal_connect( entry, "changed",
                       G_CALLBACK(on_entry_changed),
-                      &p->file_manager);
+                      &file_manager_cmd);
     gtk_table_attach( tbl, label, 0, 1, 0, 1,
                       GTK_FILL, GTK_FILL, 2, 2 );
     gtk_table_attach( tbl, entry, 1, 2, 0, 1,
@@ -1226,11 +1230,11 @@ mk_tab_app( Panel* p )
     label = gtk_label_new( _("Terminal Emulator:") );
     gtk_misc_set_alignment( label, 0, 0.5 );
     entry = gtk_entry_new();
-    if (p->terminal)
-        gtk_entry_set_text( GTK_ENTRY(entry), p->terminal );
+    if (terminal_cmd)
+        gtk_entry_set_text( GTK_ENTRY(entry), terminal_cmd );
     g_signal_connect( entry, "changed",
                       G_CALLBACK(on_entry_changed),
-                      &p->terminal);
+                      &terminal_cmd);
     gtk_table_attach( tbl, label, 0, 1, 1, 2,
                       GTK_FILL, GTK_FILL, 2, 2 );
     gtk_table_attach( tbl, entry, 1, 2, 1, 2,
@@ -1241,11 +1245,11 @@ mk_tab_app( Panel* p )
         label = gtk_label_new( _("Logout Command:") );
         gtk_misc_set_alignment( label, 0, 0.5 );
         entry = gtk_entry_new();
-        if(p->logout_command)
-            gtk_entry_set_text( GTK_ENTRY(entry), p->logout_command );
+        if(logout_cmd)
+            gtk_entry_set_text( GTK_ENTRY(entry), logout_cmd );
         g_signal_connect( entry, "changed",
                         G_CALLBACK(on_entry_changed),
-                        &p->logout_command);
+                        &logout_cmd);
         gtk_table_attach( tbl, label, 0, 1, 2, 3,
                         GTK_FILL, GTK_FILL, 2, 2 );
         gtk_table_attach( tbl, entry, 1, 2, 2, 3,
@@ -1355,7 +1359,7 @@ configure( Panel* p )
 }
 
 void
-global_config_save( Panel* p, FILE *fp)
+panel_global_config_save( Panel* p, FILE *fp)
 {
     GdkColor c;
 
@@ -1378,14 +1382,11 @@ global_config_save( Panel* p, FILE *fp)
     lxpanel_put_line(fp, "FontColor = #%06x", gcolor2rgb24(&p->gfontcolor));
     lxpanel_put_str(fp, "Background", gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(bg_checkb)) ? "true" : "false");
     lxpanel_put_str(fp, "BackgroundFile", p->background_file );
-    lxpanel_put_str(fp, "FileManager", p->file_manager );
-    lxpanel_put_str(fp, "Terminal", p->terminal );
-    lxpanel_put_str(fp, "LogoutCommand", p->logout_command );
     lxpanel_put_line(fp, "}\n");
 }
 
 void
-plugin_config_save( Panel* p, FILE *fp)
+panel_plugin_config_save( Panel* p, FILE *fp)
 {
     GList* l;
     for( l = p->plugins; l; l = l->next )
@@ -1410,12 +1411,12 @@ plugin_config_save( Panel* p, FILE *fp)
     }
 }
 
-void config_save( Panel* p )
+void panel_config_save( Panel* p )
 {
     gchar *fname, *dir;
     FILE *fp;
 
-	dir = get_config_file( cprofile, "panels", FALSE );
+    dir = get_config_file( cprofile, "panels", FALSE );
     fname = g_build_filename( dir, p->name, NULL );
     g_free( dir );
 
@@ -1425,10 +1426,13 @@ void config_save( Panel* p )
         perror(NULL);
         RET();
     }
-    global_config_save(p, fp);
-    plugin_config_save(p, fp);
+    panel_global_config_save(p, fp);
+    panel_plugin_config_save(p, fp);
     fclose(fp);
     g_free( fname );
+
+    /* save the global config file */
+    save_global_config();
 }
 
 void restart(void)
@@ -1447,16 +1451,14 @@ void restart(void)
 
 void logout(void)
 {
-	Panel* p = NULL;	/* FIXME: panel?? */
-
-    const char* logout_command = p->logout_command;
+    const char* logout_cmd = logout_cmd;
     /* If LXSession is running, _LXSESSION_PID will be set */
-    if( ! logout_command && getenv("_LXSESSION_PID") )
-        logout_command = "lxsession-logout";
+    if( ! logout_cmd && getenv("_LXSESSION_PID") )
+        logout_cmd = "lxsession-logout";
 
-    if( logout_command ) {
+    if( logout_cmd ) {
         GError* err = NULL;
-        if( ! g_spawn_command_line_async( logout_command, &err ) ) {
+        if( ! g_spawn_command_line_async( logout_cmd, &err ) ) {
             show_error( NULL, err->message );
             g_error_free( err );
         }
@@ -1507,7 +1509,7 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
                                       const char* name, ... )
 {
     va_list args;
-	Panel* p = ((Plugin*)plugin)->panel;
+    Panel* p = ((Plugin*)plugin)->panel;
     GtkWidget* dlg = gtk_dialog_new_with_buttons( title, GTK_WINDOW(parent), 0,
                                                   GTK_STOCK_CLOSE,
                                                   GTK_RESPONSE_CLOSE,
@@ -1600,5 +1602,63 @@ char* get_config_file( const char* profile, const char* file_name, gboolean is_g
         g_free( dir );
     }
     return path;
+}
+
+const char command_group[] = "Command";
+void load_global_config()
+{
+    GKeyFile* kf = g_key_file_new();
+    char* file = get_config_file( cprofile, "config", FALSE );
+    gboolean loaded = g_key_file_load_from_file( kf, file, 0, NULL );
+    if( ! loaded )
+    {
+        g_free( file );
+        file = get_config_file( cprofile, "config", TRUE ); /* get the system-wide config file */
+        loaded = g_key_file_load_from_file( kf, file, 0, NULL );
+    }
+
+    if( loaded )
+    {
+        file_manager_cmd = g_key_file_get_string( kf, command_group, "FileManager", NULL );
+        terminal_cmd = g_key_file_get_string( kf, command_group, "Terminal", NULL );
+        logout_cmd = g_key_file_get_string( kf, command_group, "Logout", NULL );
+    }
+    g_key_file_free( kf );
+}
+
+void save_global_config()
+{
+    char* file = get_config_file( cprofile, "config", FALSE );
+    FILE* f = fopen( file, "w" );
+    if( f )
+    {
+        fprintf( f, "[%s]\n", command_group );
+        if( file_manager_cmd )
+            fprintf( f, "FileManager=%s\n", file_manager_cmd );
+        if( terminal_cmd )
+            fprintf( f, "Terminal=%s\n", terminal_cmd );
+        if( logout_cmd )
+            fprintf( f, "Logout=%s\n", logout_cmd );
+        fclose( f );
+    }
+}
+
+void free_global_config()
+{
+    g_free( file_manager_cmd );
+    g_free( terminal_cmd );
+    g_free( logout_cmd );
+}
+
+extern const char*
+lxpanel_get_file_manager()
+{
+    return file_manager_cmd ? file_manager_cmd : "pcmanfm %s";
+}
+
+extern const char*
+lxpanel_get_terminal()
+{
+    return terminal_cmd ? terminal_cmd : "xterm -e";
 }
 

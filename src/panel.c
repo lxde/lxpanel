@@ -17,9 +17,10 @@
  */
 
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#include <config.h>
 #endif
 
+#include <glib/gi18n.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <sys/types.h>
@@ -28,7 +29,6 @@
 #include <errno.h>
 #include <locale.h>
 #include <string.h>
-#include <glib/gi18n.h>
 #include <gdk/gdkx.h>
 
 #include "plugin.h"
@@ -38,6 +38,7 @@
 
 #include "glib-mem.h"
 #include "lxpanelctl.h"
+#include "dbg.h"
 
 static gchar *cfgfile = NULL;
 static gchar version[] = VERSION;
@@ -46,11 +47,9 @@ gchar *cprofile = "default";
 static int config = 0;
 FbEv *fbev = NULL;
 
-#include "dbg.h"
-
 int log_level;
 
-GSList* all_panels = NULL;	/* a single-linked list storing all panels */
+GSList* all_panels = NULL;  /* a single-linked list storing all panels */
 
 gboolean is_restarting = FALSE;
 
@@ -180,7 +179,7 @@ static void process_client_msg ( Panel *p, XClientMessageEvent* ev )
 }
 
 static GdkFilterReturn
-panel_event_filter(GdkXEvent *xevent, GdkEvent *event, Panel *p)
+panel_event_filter(GdkXEvent *xevent, GdkEvent *event, gpointer not_used)
 {
     Atom at;
     Window win;
@@ -192,55 +191,60 @@ panel_event_filter(GdkXEvent *xevent, GdkEvent *event, Panel *p)
         /* private client message from lxpanelctl */
         if( ev->type == ClientMessage && ev->xproperty.atom == a_LXPANEL_CMD )
         {
-            process_client_msg( p, (XClientMessageEvent*)ev );
+            g_slist_foreach( all_panels, (GFunc)process_client_msg, (XClientMessageEvent*)ev );
         }
         else if( ev->type == DestroyNotify )
         {
-        	fb_ev_emit_destroy( fbev, ((XDestroyWindowEvent*)ev)->window );
+            fb_ev_emit_destroy( fbev, ((XDestroyWindowEvent*)ev)->window );
         }
         RET(GDK_FILTER_CONTINUE);
     }
 
     at = ev->xproperty.atom;
     win = ev->xproperty.window;
-    DBG("win=%x at=%d\n", win, at);
     if (win == GDK_ROOT_WINDOW()) {
-    if (at == a_NET_CLIENT_LIST) {
-            DBG("A_NET_CLIENT_LIST\n");
-            fb_ev_emit(fbev, EV_CLIENT_LIST);
-    } else if (at == a_NET_CURRENT_DESKTOP) {
-            DBG("A_NET_CURRENT_DESKTOP\n");
-            p->curdesk = get_net_current_desktop();
+        if (at == a_NET_CLIENT_LIST) {
+                fb_ev_emit(fbev, EV_CLIENT_LIST);
+        } else if (at == a_NET_CURRENT_DESKTOP) {
+            GSList* l;
+            for( l = all_panels; l; l = l->next )
+                ((Panel*)l->data)->curdesk = get_net_current_desktop();
             fb_ev_emit(fbev, EV_CURRENT_DESKTOP);
-    } else if (at == a_NET_NUMBER_OF_DESKTOPS) {
-            DBG("A_NET_NUMBER_OF_DESKTOPS\n");
-            p->desknum = get_net_number_of_desktops();
+        } else if (at == a_NET_NUMBER_OF_DESKTOPS) {
+            GSList* l;
+            for( l = all_panels; l; l = l->next )
+                ((Panel*)l->data)->desknum = get_net_number_of_desktops();
             fb_ev_emit(fbev, EV_NUMBER_OF_DESKTOPS);
-    } else if (at == a_NET_DESKTOP_NAMES) {
-            DBG("A_NET_DESKTOP_NAMES\n");
+        } else if (at == a_NET_DESKTOP_NAMES) {
             fb_ev_emit(fbev, EV_DESKTOP_NAMES);
         } else if (at == a_NET_ACTIVE_WINDOW) {
-            DBG("A_NET_ACTIVE_WINDOW\n");
             fb_ev_emit(fbev, EV_ACTIVE_WINDOW );
-        }else if (at == a_NET_CLIENT_LIST_STACKING) {
-            DBG("A_NET_CLIENT_LIST_STACKING\n");
+        } else if (at == a_NET_CLIENT_LIST_STACKING) {
             fb_ev_emit(fbev, EV_CLIENT_LIST_STACKING);
         } else if (at == a_XROOTPMAP_ID) {
-            DBG("a_XROOTPMAP_ID\n");
-            if (p->transparent) {
-                fb_bg_notify_changed_bg(p->bg);
+            GSList* l;
+            for( l = all_panels; l; l = l->next )
+            {
+                Panel* p = (Panel*)l->data;
+                if (p->transparent) {
+                    fb_bg_notify_changed_bg(p->bg);
+                }
             }
-    } else if (at == a_NET_WORKAREA) {
-            DBG("A_NET_WORKAREA\n");
-            g_free( p->workarea );
-            p->workarea = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_WORKAREA, XA_CARDINAL, &p->wa_len);
-            print_wmdata(p);
+        } else if (at == a_NET_WORKAREA) {
+            GSList* l;
+            for( l = all_panels; l; l = l->next )
+            {
+                Panel* p = (Panel*)l->data;
+                g_free( p->workarea );
+                p->workarea = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_WORKAREA, XA_CARDINAL, &p->wa_len);
+                print_wmdata(p);
+            }
         } else
-            RET(GDK_FILTER_CONTINUE);
-        RET(GDK_FILTER_REMOVE);
+            return GDK_FILTER_CONTINUE;
+
+        return GDK_FILTER_REMOVE;
     }
-    DBG("non root %x\n", win);
-    RET(GDK_FILTER_CONTINUE);
+    return GDK_FILTER_CONTINUE;
 }
 
 /****************************************************
@@ -341,15 +345,15 @@ panel_realize(GtkWidget *widget, Panel *p)
 
 static gboolean delay_update_background( Panel* p )
 {
-	panel_update_background( p );
-	return FALSE;	
+    panel_update_background( p );
+    return FALSE;
 }
 
 static void
 panel_style_set(GtkWidget *widget, GtkStyle* prev, Panel *p)
 {
-	if( GTK_WIDGET_REALIZED( widget ) )
-		g_idle_add( delay_update_background, p );
+    if( GTK_WIDGET_REALIZED( widget ) )
+        g_idle_add( delay_update_background, p );
 }
 
 static gint
@@ -416,31 +420,144 @@ static gint
 panel_press_button_event(GtkWidget *widget, GdkEvent *event, gpointer user_data)
 {
     GdkEventButton *event_button;
-	GtkWidget* img;
+    GtkWidget* img;
 
     g_return_val_if_fail (event != NULL, FALSE);
     event_button = (GdkEventButton *)event;
     if (event_button->button == 3) {
             GtkWidget *menu;
-            GtkWidget *menu_item;
-
+            Panel* panel = (Panel*)user_data;
             /* create menu */
-            menu = gtk_menu_new();
-
-            /* configure */
-            img = gtk_image_new_from_stock( GTK_STOCK_PREFERENCES, GTK_ICON_SIZE_MENU );
-            menu_item = gtk_image_menu_item_new_with_label(_("Panel Preference"));
-            gtk_image_menu_item_set_image( (GtkImageMenuItem*)menu_item, img );
-            gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
-            g_signal_connect(G_OBJECT(menu_item), "activate", G_CALLBACK(panel_popupmenu_configure), user_data/*panel*/);
-            g_signal_connect( menu, "selection-done", G_CALLBACK(gtk_widget_destroy), NULL );
-
-            gtk_widget_show_all(menu);
+            menu = lxpanel_get_panel_menu( panel, panel->plugins->next->next->data, TRUE );
             gtk_menu_popup(menu, NULL, NULL, NULL, NULL, event_button->button, event_button->time);
             return TRUE;
     }
 
     return FALSE;
+}
+
+static void panel_popupmenu_config_plugin( GtkMenuItem* item, Plugin* plugin )
+{
+    plugin->class->config( plugin, plugin->panel->topgwin );
+}
+
+static void panel_popupmenu_add_item( GtkMenuItem* item, Panel* panel )
+{
+
+}
+
+static void panel_popupmenu_remove_item( GtkMenuItem* item, Plugin* plugin )
+{
+    Panel* panel = plugin->panel;
+    panel->plugins = g_list_remove( panel->plugins, plugin );
+    plugin_stop( plugin ); /* free the plugin widget & its data */
+    plugin_put( plugin ); /* free the lib if necessary */
+}
+
+static void panel_popupmenu_create_panel( GtkMenuItem* item, Panel* panel )
+{
+
+}
+
+static void panel_popupmenu_delete_panel( GtkMenuItem* item, Panel* panel )
+{
+    GtkWidget* dlg;
+    gboolean ok;
+    dlg = gtk_message_dialog_new_with_markup( panel->topgwin,
+                                                    GTK_DIALOG_MODAL,
+                                                    GTK_MESSAGE_QUESTION,
+                                                    GTK_BUTTONS_OK_CANCEL,
+                                                    _("Really delete this panel?\n<b>Warning: This can not be recovered.</b>") );
+    gtk_window_set_title( (GtkWindow*)dlg, _("Confirm") );
+    ok = ( gtk_dialog_run( (GtkDialog*)dlg ) == GTK_RESPONSE_OK );
+    gtk_widget_destroy( dlg );
+    if( ok )
+    {
+        all_panels = g_slist_remove( all_panels, panel );
+        panel_destroy( panel );
+    }
+}
+
+extern GtkWidget* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean use_sub_menu )
+{
+    GtkWidget *ret,*menu, *menu_item, *img;
+    char* tmp;
+    ret = menu = gtk_menu_new();
+
+    if( plugin )
+    {
+        img = gtk_image_new_from_stock( GTK_STOCK_PREFERENCES, GTK_ICON_SIZE_MENU );
+        tmp = g_strdup_printf( _("\"%s\" Settings"), _(plugin->class->name) );
+        menu_item = gtk_image_menu_item_new_with_label( tmp );
+        g_free( tmp );
+        gtk_image_menu_item_set_image( (GtkImageMenuItem*)menu_item, img );
+        gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
+        if( plugin->class->config )
+            g_signal_connect( menu_item, "activate", G_CALLBACK(panel_popupmenu_config_plugin), plugin );
+        else
+            gtk_widget_set_sensitive( menu_item, FALSE );
+
+        menu_item = gtk_separator_menu_item_new();
+        gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
+    }
+
+    img = gtk_image_new_from_stock( GTK_STOCK_ADD, GTK_ICON_SIZE_MENU );
+    menu_item = gtk_image_menu_item_new_with_label(_("Add Item To Panel"));
+    gtk_image_menu_item_set_image( (GtkImageMenuItem*)menu_item, img );
+    gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
+    g_signal_connect( menu_item, "activate", G_CALLBACK(panel_popupmenu_add_item), panel );
+
+    if( plugin )
+    {
+        img = gtk_image_new_from_stock( GTK_STOCK_REMOVE, GTK_ICON_SIZE_MENU );
+        tmp = g_strdup_printf( _("Remove \"%s\" From Panel"), _(plugin->class->name) );
+        menu_item = gtk_image_menu_item_new_with_label( tmp );
+        g_free( tmp );
+        gtk_image_menu_item_set_image( (GtkImageMenuItem*)menu_item, img );
+        gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
+        g_signal_connect( menu_item, "activate", G_CALLBACK(panel_popupmenu_remove_item), plugin );
+    }
+
+    menu_item = gtk_separator_menu_item_new();
+    gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
+
+    img = gtk_image_new_from_stock( GTK_STOCK_NEW, GTK_ICON_SIZE_MENU );
+    menu_item = gtk_image_menu_item_new_with_label(_("Create New Panel"));
+    gtk_image_menu_item_set_image( (GtkImageMenuItem*)menu_item, img );
+    gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
+    g_signal_connect( menu_item, "activate", G_CALLBACK(panel_popupmenu_create_panel), panel );
+
+    img = gtk_image_new_from_stock( GTK_STOCK_DELETE, GTK_ICON_SIZE_MENU );
+    menu_item = gtk_image_menu_item_new_with_label(_("Delete This Panel"));
+    gtk_image_menu_item_set_image( (GtkImageMenuItem*)menu_item, img );
+    gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
+    g_signal_connect( menu_item, "activate", G_CALLBACK(panel_popupmenu_delete_panel), panel );
+    if( ! all_panels->next )    /* if this is the only panel */
+        gtk_widget_set_sensitive( menu_item, FALSE );
+
+    menu_item = gtk_separator_menu_item_new();
+    gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
+
+    img = gtk_image_new_from_stock( GTK_STOCK_PREFERENCES, GTK_ICON_SIZE_MENU );
+    menu_item = gtk_image_menu_item_new_with_label(_("Panel Settings"));
+    gtk_image_menu_item_set_image( (GtkImageMenuItem*)menu_item, img );
+    gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
+    g_signal_connect(G_OBJECT(menu_item), "activate", G_CALLBACK(panel_popupmenu_configure), panel );
+
+    gtk_widget_show_all(menu);
+
+    if( use_sub_menu )
+    {
+        ret = gtk_menu_new();
+        menu_item = gtk_image_menu_item_new_with_label(_("Panel"));
+        gtk_menu_shell_append(GTK_MENU_SHELL(ret), menu_item);
+        gtk_menu_item_set_submenu( menu_item, menu );
+
+        gtk_widget_show_all(ret);
+    }
+
+    g_signal_connect( ret, "selection-done", G_CALLBACK(gtk_widget_destroy), NULL );
+    return ret;
 }
 
 
@@ -549,9 +666,6 @@ panel_start_gui(Panel *p)
     XChangeProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STATE, XA_ATOM,
           32, PropModeReplace, (unsigned char *) state, 3);
 
-    XSelectInput (GDK_DISPLAY(), GDK_ROOT_WINDOW(), SubstructureNotifyMask|PropertyChangeMask);
-    gdk_window_add_filter(gdk_get_default_root_window (), (GdkFilterFunc)panel_event_filter, p);
-
     calculate_position(p);
     gdk_window_move_resize(p->topgwin->window, p->ax, p->ay, p->aw, p->ah);
     panel_set_wm_strut(p);
@@ -654,12 +768,6 @@ panel_parse_global(Panel *p, char **fp)
                 p->background = str2num(bool_pair, s.t[1], 0);
             } else if( !g_ascii_strcasecmp(s.t[0], "BackgroundFile") ) {
                 p->background_file = g_strdup( s.t[1] );
-            } else if( !g_ascii_strcasecmp(s.t[0], "FileManager") ) {
-                p->file_manager = g_strdup( s.t[1] );
-            } else if( !g_ascii_strcasecmp(s.t[0], "Terminal") ) {
-                p->terminal = g_strdup( s.t[1] );
-            } else if( !g_ascii_strcasecmp(s.t[0], "LogoutCommand") ) {
-                p->logout_command = g_strdup( s.t[1] );
             } else {
                 ERR( "lxpanel: %s - unknown var in Global section\n", s.t[0]);
                 RET(0);
@@ -853,46 +961,41 @@ void panel_destroy(Panel *p)
 
     g_object_unref( p->tooltips );
 
-    XSelectInput (GDK_DISPLAY(), GDK_ROOT_WINDOW(), NoEventMask);
-    gdk_window_remove_filter(gdk_get_default_root_window (), (GdkFilterFunc)panel_event_filter, p);
     gtk_widget_destroy(p->topgwin);
     g_free(p->workarea);
     g_free( p->background_file );
-    g_free( p->file_manager );
-    g_free( p->terminal );
-    g_free( p->logout_command );
     g_slist_free( p->system_menus );
     gdk_flush();
     XFlush(GDK_DISPLAY());
     XSync(GDK_DISPLAY(), True);
 
     g_free( p->name );
-	g_slice_free( Panel, p );
+    g_slice_free( Panel, p );
     RET();
 }
 
 Panel* panel_new( const char* config_file, const char* config_name )
 {
     char *fp, *pfp; /* point to current position of profile data in memory */
-	Panel* panel = NULL;
+    Panel* panel = NULL;
     char* ret;
 
     g_file_get_contents( config_file, &fp, NULL, NULL );
     if( fp )
-	{
-		panel = g_slice_new0( Panel );
-		panel->name = g_strdup( config_name );
-		pfp = fp;
+    {
+        panel = g_slice_new0( Panel );
+        panel->name = g_strdup( config_name );
+        pfp = fp;
 
-		if (! panel_start( panel, &pfp )) {
-			ERR( "lxpanel: can't start panel\n");
-			panel_destroy( panel );
-			panel = NULL;
-		}
+        if (! panel_start( panel, &pfp )) {
+            ERR( "lxpanel: can't start panel\n");
+            panel_destroy( panel );
+            panel = NULL;
+        }
 
-		g_free( fp );
-	}
-	return panel;
+        g_free( fp );
+    }
+    return panel;
 }
 
 static void
@@ -989,29 +1092,35 @@ out:
 
 static gboolean start_all_panels( )
 {
-	gboolean is_global = FALSE;
-	for( is_global = FALSE; ! is_global; is_global = TRUE )
-	{
-		char* panel_dir = get_config_file( cprofile, "panels", FALSE );
-		GDir* dir = g_dir_open( panel_dir, 0, NULL );
-		char* name;
+    gboolean is_global;
+    for( is_global = 0; is_global < 2; ++is_global )
+    {
+        char* panel_dir = get_config_file( cprofile, "panels", is_global );
+        GDir* dir = g_dir_open( panel_dir, 0, NULL );
+        char* name;
 
-		if( ! dir )
-			continue;
+        if( ! dir )
+        {
+            g_free( panel_dir );
+            continue;
+        }
 
-		while( name = g_dir_read_name( dir ) )
-		{
-			char* panel_config = g_build_filename( panel_dir, name, NULL );
-			Panel* panel = panel_new( panel_config, name );
-			if( panel )
-				all_panels = g_slist_prepend( all_panels, panel );
-			g_free( panel_config );
-		}
-		g_dir_close( dir );
-		g_free( panel_dir );
-	}
-	return all_panels != NULL;
+        while( name = g_dir_read_name( dir ) )
+        {
+            char* panel_config = g_build_filename( panel_dir, name, NULL );
+            Panel* panel = panel_new( panel_config, name );
+            if( panel )
+                all_panels = g_slist_prepend( all_panels, panel );
+            g_free( panel_config );
+        }
+        g_dir_close( dir );
+        g_free( panel_dir );
+    }
+    return all_panels != NULL;
 }
+
+void load_global_config();
+void free_global_config();
 
 int main(int argc, char *argv[], char *env[])
 {
@@ -1076,14 +1185,18 @@ int main(int argc, char *argv[], char *env[])
     gtk_icon_theme_append_search_path( gtk_icon_theme_get_default(),
                                        PACKAGE_DATA_DIR "/lxpanel/images" );
 
-	fbev = fb_ev_new();
+    fbev = fb_ev_new();
 
 restart:
     is_restarting = FALSE;
 
-	if( G_UNLIKELY( ! start_all_panels() ) )
-		g_warning( "Config files are not found.\n" );
+    load_global_config();
 
+    XSelectInput (GDK_DISPLAY(), GDK_ROOT_WINDOW(), SubstructureNotifyMask|PropertyChangeMask);
+    gdk_window_add_filter(gdk_get_default_root_window (), (GdkFilterFunc)panel_event_filter, NULL);
+
+    if( G_UNLIKELY( ! start_all_panels() ) )
+        g_warning( "Config files are not found.\n" );
 /*
  * FIXME: configure??
     if (config)
@@ -1091,9 +1204,14 @@ restart:
 */
     gtk_main();
 
+    XSelectInput (GDK_DISPLAY(), GDK_ROOT_WINDOW(), NoEventMask);
+    gdk_window_remove_filter(gdk_get_default_root_window (), (GdkFilterFunc)panel_event_filter, NULL);
+
     /* destroy all panels */
     g_slist_foreach( all_panels, (GFunc) panel_destroy, NULL );
     g_free( cfgfile );
+
+    free_global_config();
 
     if( is_restarting )
         goto restart;
@@ -1102,4 +1220,3 @@ restart:
 
     return 0;
 }
-

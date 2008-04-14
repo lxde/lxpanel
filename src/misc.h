@@ -26,6 +26,7 @@
 #include <stdio.h>
 
 #include "panel.h"
+#include "plugin.h"
 
 enum { LINE_NONE, LINE_BLOCK_START, LINE_BLOCK_END, LINE_VAR };
 
@@ -50,8 +51,6 @@ extern pair pos_pair[];
 
 int str2num(pair *p, gchar *str, int defval);
 gchar *num2str(pair *p, int num, gchar *defval);
-extern const char* lxpanel_get_file_manager( Panel *p );
-extern const char* lxpanel_get_terminal( Panel *p );
 
 extern int lxpanel_get_line(char **fp, line *s);
 extern int lxpanel_put_line(FILE* fp, const char* format, ...);
@@ -112,5 +111,7 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
 
 
 char* get_config_file( const char* profile, const char* file_name, gboolean is_global );
+
+extern GtkWidget* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean use_sub_menu );
 
 #endif

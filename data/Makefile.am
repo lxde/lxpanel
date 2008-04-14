@@ -1,7 +1,10 @@
 default_config_DATA = \
 	default/config
-
 default_configdir = $(datadir)/lxpanel/profile/default
+
+default_config_panel_DATA = \
+        default/panels/panel
+default_config_paneldir = $(datadir)/lxpanel/profile/default/panels
 
 lxpanel_images_DATA = \
 	images/my-computer.svg \
@@ -49,6 +52,7 @@ lxpanel_images_DATA = \
 lxpanel_imagesdir = $(datadir)/lxpanel/images
 
 EXTRA_DIST = \
-	default/config.in \
+	default/panels/panel.in \
 	$(lxpanel_DATA) \
 	$(lxpanel_images_DATA)
+
