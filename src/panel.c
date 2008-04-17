@@ -1435,6 +1435,8 @@ restart:
 
     /* destroy all panels */
     g_slist_foreach( all_panels, (GFunc) panel_destroy, NULL );
+    g_slist_free( all_panels );
+    all_panels = NULL;
     g_free( cfgfile );
 
     free_global_config();
