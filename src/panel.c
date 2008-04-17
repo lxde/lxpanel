@@ -340,14 +340,6 @@ void panel_update_background( Panel* p )
     gtk_widget_queue_draw( p->topgwin );
 }
 
-/*
-static void
-panel_realize(GtkWidget *widget, Panel *p)
-{
-
-}
-*/
-
 static gboolean delay_update_background( Panel* p )
 {
     panel_update_background( p );
@@ -355,11 +347,17 @@ static gboolean delay_update_background( Panel* p )
 }
 
 static void
+panel_realize(GtkWidget *widget, Panel *p)
+{
+    g_idle_add_full( G_PRIORITY_LOW, delay_update_background, p, NULL );
+}
+
+static void
 panel_style_set(GtkWidget *widget, GtkStyle* prev, Panel *p)
 {
     /* FIXME: This dirty hack is used to fix the background of systray... */
     if( GTK_WIDGET_REALIZED( widget ) )
-        g_timeout_add( 1000, delay_update_background, p );
+        g_idle_add_full( G_PRIORITY_LOW, delay_update_background, p, NULL );
 }
 
 static gint
@@ -839,10 +837,10 @@ panel_start_gui(Panel *p)
     gtk_widget_add_events( p->topgwin, GDK_BUTTON_PRESS_MASK );
     g_signal_connect(G_OBJECT (p->topgwin), "button_press_event",
           (GCallback) panel_press_button_event, p);
-/*
+
     g_signal_connect (G_OBJECT (p->topgwin), "realize",
           (GCallback) panel_realize, p);
-*/
+
     g_signal_connect (G_OBJECT (p->topgwin), "style-set",
           (GCallback)panel_style_set, p);
     gtk_widget_realize(p->topgwin);
