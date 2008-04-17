@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-17 22:41+0800\n"
+"POT-Creation-Date: 2008-04-18 00:43+0800\n"
 "PO-Revision-Date: 2006-11-27 00:13+0800\n"
 "Last-Translator: 洪任諭 <pcman.tw@gmail.com>\n"
 "Language-Team: GNOME Korean Team <gnome-kr-hackers@lists.kldp.net>\n"
@@ -173,11 +173,11 @@ msgstr "지금 쓰는 플러그인"
 msgid "Stretch"
 msgstr ""
 
-#: ../src/configurator.c:495 ../src/panel.c:496
+#: ../src/configurator.c:495 ../src/panel.c:499
 msgid "Add plugin to panel"
 msgstr ""
 
-#: ../src/configurator.c:522 ../src/panel.c:519
+#: ../src/configurator.c:522 ../src/panel.c:522
 msgid "Available plugins"
 msgstr ""
 
@@ -185,105 +185,125 @@ msgstr ""
 msgid "Logout command is not set"
 msgstr ""
 
-#: ../src/panel.c:572 ../src/panel.c:664
+#: ../src/panel.c:607
+msgid "Left"
+msgstr "왼쪽"
+
+#: ../src/panel.c:607
+msgid "Right"
+msgstr "오른쪽"
+
+#: ../src/panel.c:607
+msgid "Top"
+msgstr "위쪽"
+
+#: ../src/panel.c:607
+msgid "Bottom"
+msgstr "아래쪽"
+
+#: ../src/panel.c:609 ../src/panel.c:733
 msgid "Create New Panel"
 msgstr ""
 
-#: ../src/panel.c:588
+#: ../src/panel.c:615
+msgid "Where to put the panel?"
+msgstr ""
+
+#: ../src/panel.c:673
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
 
-#: ../src/panel.c:589
+#: ../src/panel.c:674
 msgid "Confirm"
 msgstr ""
 
-#: ../src/panel.c:616
-#, fuzzy, c-format
-msgid "\"%s\" Settings"
-msgstr "설정"
-
-#: ../src/panel.c:638
+#: ../src/panel.c:707
 msgid "Add / Remove Panel Items"
 msgstr ""
 
-#: ../src/panel.c:646
+#: ../src/panel.c:715
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr ""
 
-#: ../src/panel.c:658
+#: ../src/panel.c:727
 #, fuzzy
 msgid "Panel Settings"
 msgstr "설정"
 
-#: ../src/panel.c:670
+#: ../src/panel.c:744
 msgid "Delete This Panel"
 msgstr ""
 
-#: ../src/panel.c:682
+#: ../src/panel.c:754
 msgid "Panel"
 msgstr ""
 
-#: ../src/panel.c:1136
+#: ../src/panel.c:767
+#, fuzzy, c-format
+msgid "\"%s\" Settings"
+msgstr "설정"
+
+#: ../src/panel.c:1231
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - GTK2+를 쓴 유닉스 환경의 가벼운 패널\n"
 
-#: ../src/panel.c:1137
+#: ../src/panel.c:1232
 #, c-format
 msgid "Command line options:\n"
 msgstr "명령줄 옵션:\n"
 
-#: ../src/panel.c:1138
+#: ../src/panel.c:1233
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- 도움말이 나오고 끝납니다\n"
 
-#: ../src/panel.c:1139
+#: ../src/panel.c:1234
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- 버전이 나오고 끝납니다\n"
 
-#: ../src/panel.c:1140
+#: ../src/panel.c:1235
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 " --log <숫자>   -- 기록 수준을 0부터 5까지 정합니다. 0은 조용하고 5는 수다쟁"
 "이\n"
 
-#: ../src/panel.c:1141
+#: ../src/panel.c:1236
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- 설정창을 띄웁니다\n"
 
-#: ../src/panel.c:1142
+#: ../src/panel.c:1237
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile 이름 -- 지정한 프로파일을 씁니다\n"
 
-#: ../src/panel.c:1144
+#: ../src/panel.c:1239
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- --help와 같습니다\n"
 
-#: ../src/panel.c:1145
+#: ../src/panel.c:1240
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- --profile과 같습니다\n"
 
-#: ../src/panel.c:1146
+#: ../src/panel.c:1241
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- --version과 같습니다\n"
 
-#: ../src/panel.c:1147
+#: ../src/panel.c:1242
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- --configure와 같습니다\n"
 
-#: ../src/panel.c:1148
+#: ../src/panel.c:1243
 #, fuzzy, c-format
 msgid ""
 "\n"
@@ -322,23 +342,41 @@ msgstr "데스크탑 번호 / 작업공간 이름"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "작업공간 번호를 표시합니다. cmeury@users.sf.net 제작"
 
+#: ../src/plugins/launchbar.c:132
+msgid "Add Button"
+msgstr ""
+
+#: ../src/plugins/launchbar.c:134
+#, fuzzy
+msgid "Button Properties"
+msgstr "연결 상태"
+
+#.
+#. title = g_strdup_printf( _("Remove \"%s\""), b-> );
+#. item = gtk_image_menu_item_new_with_label( _("Remove ") );
+#.
+#: ../src/plugins/launchbar.c:140
+#, fuzzy
+msgid "Remove Button"
+msgstr "빼기(_R)"
+
 #. FIXME: We should have a better interface for this in the fututure.
 #. 1. We can borrow the menu from menu plugin (PtkAppMenu).
 #. 2. We can borrow the app chooser from PCManFM.
 #.
-#: ../src/plugins/launchbar.c:487
+#: ../src/plugins/launchbar.c:512
 msgid "Select Application"
 msgstr ""
 
-#: ../src/plugins/launchbar.c:636
+#: ../src/plugins/launchbar.c:661
 msgid "Buttons"
 msgstr ""
 
-#: ../src/plugins/launchbar.c:749
+#: ../src/plugins/launchbar.c:774
 msgid "Application Launch Bar"
 msgstr "실행 막대"
 
-#: ../src/plugins/launchbar.c:751
+#: ../src/plugins/launchbar.c:776
 msgid "Bar with buttons to launch application"
 msgstr "응용 프로그램을 실행하는 버튼들입니다"
 
@@ -508,11 +546,11 @@ msgstr "메뉴"
 msgid "Provide Menu"
 msgstr ""
 
-#: ../src/plugins/separator.c:92
+#: ../src/plugins/separator.c:103
 msgid "Separator"
 msgstr ""
 
-#: ../src/plugins/separator.c:94
+#: ../src/plugins/separator.c:105
 msgid "Add a separator to the panel"
 msgstr ""
 
@@ -528,15 +566,15 @@ msgstr "pager"
 msgid "Simple pager plugin"
 msgstr "간단한 pager 플러그인"
 
-#: ../src/plugins/space.c:125 ../src/plugins/batt/batt.c:824
+#: ../src/plugins/space.c:137 ../src/plugins/batt/batt.c:824
 msgid "Size"
 msgstr "크기"
 
-#: ../src/plugins/space.c:140
+#: ../src/plugins/space.c:152
 msgid "<Space>"
 msgstr "사이 띄우기"
 
-#: ../src/plugins/space.c:142
+#: ../src/plugins/space.c:154
 msgid "Allocate space"
 msgstr ""
 
@@ -569,22 +607,22 @@ msgstr ""
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #: ../src/plugins/volume/volume.c:153
-#: ../src/plugins/volumealsa/volumealsa.c:290
+#: ../src/plugins/volumealsa/volumealsa.c:300
 msgid "Volume control"
 msgstr "소리 크기 조절"
 
 #: ../src/plugins/volume/volume.c:165
-#: ../src/plugins/volumealsa/volumealsa.c:304
+#: ../src/plugins/volumealsa/volumealsa.c:314
 msgid "Volume Control"
 msgstr "소리 크기 조절"
 
 #. create frame
 #: ../src/plugins/volume/volume-impl.c:100
-#: ../src/plugins/volumealsa/volumealsa.c:191
+#: ../src/plugins/volumealsa/volumealsa.c:200
 msgid "Volume"
 msgstr "소리 크기"
 
-#: ../src/plugins/volumealsa/volumealsa.c:207
+#: ../src/plugins/volumealsa/volumealsa.c:216
 msgid "Mute"
 msgstr ""
 
@@ -950,18 +988,6 @@ msgstr ""
 #~ msgid "Plugins"
 #~ msgstr "플러그인"
 
-#~ msgid "Left"
-#~ msgstr "왼쪽"
-
-#~ msgid "Right"
-#~ msgstr "오른쪽"
-
-#~ msgid "Top"
-#~ msgstr "위쪽"
-
-#~ msgid "Bottom"
-#~ msgstr "아래쪽"
-
 #~ msgid "Center"
 #~ msgstr "가운데"
 
@@ -988,6 +1014,3 @@ msgstr ""
 
 #~ msgid "_Add"
 #~ msgstr "더하기(_A)"
-
-#~ msgid "_Remove"
-#~ msgstr "빼기(_R)"

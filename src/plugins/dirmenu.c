@@ -263,7 +263,7 @@ clicked (GtkWidget *widget, GdkEventButton *event, Plugin *p)
         g_free( path );
     }
 
-    RET(FALSE);
+    RET(TRUE);
 }
 
 static void

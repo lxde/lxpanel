@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel-0.2.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-17 22:41+0800\n"
+"POT-Creation-Date: 2008-04-18 00:43+0800\n"
 "PO-Revision-Date: 2008-05-01 00:00+0100\n"
 "Last-Translator: Frank Endres <frank_endres@yahoo.fr>\n"
 "Language-Team: French\n"
@@ -176,11 +176,11 @@ msgstr "Plugins actifs"
 msgid "Stretch"
 msgstr ""
 
-#: ../src/configurator.c:495 ../src/panel.c:496
+#: ../src/configurator.c:495 ../src/panel.c:499
 msgid "Add plugin to panel"
 msgstr "Ajouter un plugin au panneau"
 
-#: ../src/configurator.c:522 ../src/panel.c:519
+#: ../src/configurator.c:522 ../src/panel.c:522
 msgid "Available plugins"
 msgstr "Plugins disponibles"
 
@@ -188,107 +188,128 @@ msgstr "Plugins disponibles"
 msgid "Logout command is not set"
 msgstr "La commande de déconnexion n'est pas définie"
 
-#: ../src/panel.c:572 ../src/panel.c:664
+#: ../src/panel.c:607
+msgid "Left"
+msgstr "Gauche"
+
+#: ../src/panel.c:607
+msgid "Right"
+msgstr "Droite"
+
+#: ../src/panel.c:607
+msgid "Top"
+msgstr "Haut"
+
+#: ../src/panel.c:607
+msgid "Bottom"
+msgstr "Bas"
+
+#: ../src/panel.c:609 ../src/panel.c:733
 msgid "Create New Panel"
 msgstr ""
 
-#: ../src/panel.c:588
+#: ../src/panel.c:615
+#, fuzzy
+msgid "Where to put the panel?"
+msgstr "Ajouter un séparateur sur le panneau"
+
+#: ../src/panel.c:673
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
 
-#: ../src/panel.c:589
+#: ../src/panel.c:674
 #, fuzzy
 msgid "Confirm"
 msgstr "Con_figuration"
 
-#: ../src/panel.c:616
-#, fuzzy, c-format
-msgid "\"%s\" Settings"
-msgstr "Configuration"
-
-#: ../src/panel.c:638
+#: ../src/panel.c:707
 #, fuzzy
 msgid "Add / Remove Panel Items"
 msgstr "Ajouter un plugin au panneau"
 
-#: ../src/panel.c:646
+#: ../src/panel.c:715
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr ""
 
-#: ../src/panel.c:658
+#: ../src/panel.c:727
 #, fuzzy
 msgid "Panel Settings"
 msgstr "Configuration"
 
-#: ../src/panel.c:670
+#: ../src/panel.c:744
 msgid "Delete This Panel"
 msgstr ""
 
-#: ../src/panel.c:682
+#: ../src/panel.c:754
 msgid "Panel"
 msgstr ""
 
-#: ../src/panel.c:1136
+#: ../src/panel.c:767
+#, fuzzy, c-format
+msgid "\"%s\" Settings"
+msgstr "Configuration"
+
+#: ../src/panel.c:1231
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - panneau léger GTK2+ pour environnement de bureau UNIX\n"
 
-#: ../src/panel.c:1137
+#: ../src/panel.c:1232
 #, c-format
 msgid "Command line options:\n"
 msgstr "Options de la ligne de commande:\n"
 
-#: ../src/panel.c:1138
+#: ../src/panel.c:1233
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- affiche ce message d'aide et quitte\n"
 
-#: ../src/panel.c:1139
+#: ../src/panel.c:1234
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- affiche le numéro de version et quitte\n"
 
-#: ../src/panel.c:1140
+#: ../src/panel.c:1235
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 " --log <nombre> -- défini la quantité d'informations de débogage 0-5. 0 - "
 "aucun 5 -  maximum\n"
 
-#: ../src/panel.c:1141
+#: ../src/panel.c:1236
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- lance l'utilitaire de configuration\n"
 
-#: ../src/panel.c:1142
+#: ../src/panel.c:1237
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile nom -- utilise le profile spécifié\n"
 
-#: ../src/panel.c:1144
+#: ../src/panel.c:1239
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- équivalent à --help\n"
 
-#: ../src/panel.c:1145
+#: ../src/panel.c:1240
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- équivalent à --profile\n"
 
-#: ../src/panel.c:1146
+#: ../src/panel.c:1241
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- équivalent à --version\n"
 
-#: ../src/panel.c:1147
+#: ../src/panel.c:1242
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- équivalent à --configure\n"
 
-#: ../src/panel.c:1148
+#: ../src/panel.c:1243
 #, fuzzy, c-format
 msgid ""
 "\n"
@@ -328,23 +349,42 @@ msgstr "Bureau n° / Nom de l'espace de travail"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Affiche le numéro de l'espace de travail, par cmeury@users.sf.net"
 
+#: ../src/plugins/launchbar.c:132
+#, fuzzy
+msgid "Add Button"
+msgstr "Boutons"
+
+#: ../src/plugins/launchbar.c:134
+#, fuzzy
+msgid "Button Properties"
+msgstr "Propriétés des connexions"
+
+#.
+#. title = g_strdup_printf( _("Remove \"%s\""), b-> );
+#. item = gtk_image_menu_item_new_with_label( _("Remove ") );
+#.
+#: ../src/plugins/launchbar.c:140
+#, fuzzy
+msgid "Remove Button"
+msgstr "Boutons"
+
 #. FIXME: We should have a better interface for this in the fututure.
 #. 1. We can borrow the menu from menu plugin (PtkAppMenu).
 #. 2. We can borrow the app chooser from PCManFM.
 #.
-#: ../src/plugins/launchbar.c:487
+#: ../src/plugins/launchbar.c:512
 msgid "Select Application"
 msgstr "Choisir le programme"
 
-#: ../src/plugins/launchbar.c:636
+#: ../src/plugins/launchbar.c:661
 msgid "Buttons"
 msgstr "Boutons"
 
-#: ../src/plugins/launchbar.c:749
+#: ../src/plugins/launchbar.c:774
 msgid "Application Launch Bar"
 msgstr "Boutons d'applications"
 
-#: ../src/plugins/launchbar.c:751
+#: ../src/plugins/launchbar.c:776
 msgid "Bar with buttons to launch application"
 msgstr "Barre d'accès direct aux applications"
 
@@ -513,11 +553,11 @@ msgstr "Menu d'applications"
 msgid "Provide Menu"
 msgstr "Accès aux applications"
 
-#: ../src/plugins/separator.c:92
+#: ../src/plugins/separator.c:103
 msgid "Separator"
 msgstr "Séparateur"
 
-#: ../src/plugins/separator.c:94
+#: ../src/plugins/separator.c:105
 msgid "Add a separator to the panel"
 msgstr "Ajouter un séparateur sur le panneau"
 
@@ -533,15 +573,15 @@ msgstr "Bureaux virtuels"
 msgid "Simple pager plugin"
 msgstr "Affiche les bureaux virtuels"
 
-#: ../src/plugins/space.c:125 ../src/plugins/batt/batt.c:824
+#: ../src/plugins/space.c:137 ../src/plugins/batt/batt.c:824
 msgid "Size"
 msgstr "Taille"
 
-#: ../src/plugins/space.c:140
+#: ../src/plugins/space.c:152
 msgid "<Space>"
 msgstr "<Espace>"
 
-#: ../src/plugins/space.c:142
+#: ../src/plugins/space.c:154
 msgid "Allocate space"
 msgstr "Espacement"
 
@@ -575,22 +615,22 @@ msgstr "Parcours de l'arborescence via un menu"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #: ../src/plugins/volume/volume.c:153
-#: ../src/plugins/volumealsa/volumealsa.c:290
+#: ../src/plugins/volumealsa/volumealsa.c:300
 msgid "Volume control"
 msgstr "Contrôle du volume"
 
 #: ../src/plugins/volume/volume.c:165
-#: ../src/plugins/volumealsa/volumealsa.c:304
+#: ../src/plugins/volumealsa/volumealsa.c:314
 msgid "Volume Control"
 msgstr "Contrôle du volume"
 
 #. create frame
 #: ../src/plugins/volume/volume-impl.c:100
-#: ../src/plugins/volumealsa/volumealsa.c:191
+#: ../src/plugins/volumealsa/volumealsa.c:200
 msgid "Volume"
 msgstr ""
 
-#: ../src/plugins/volumealsa/volumealsa.c:207
+#: ../src/plugins/volumealsa/volumealsa.c:216
 msgid "Mute"
 msgstr "Muet"
 
@@ -971,18 +1011,6 @@ msgstr "Afficher l'état de charge des batteries"
 
 #~ msgid "Plugins"
 #~ msgstr "Plugins"
-
-#~ msgid "Left"
-#~ msgstr "Gauche"
-
-#~ msgid "Right"
-#~ msgstr "Droite"
-
-#~ msgid "Top"
-#~ msgstr "Haut"
-
-#~ msgid "Bottom"
-#~ msgstr "Bas"
 
 #~ msgid "Center"
 #~ msgstr "Centré"

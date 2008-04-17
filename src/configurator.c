@@ -439,7 +439,7 @@ static void on_add_plugin_response( GtkDialog* dlg,
         {
             char* type = NULL;
             Plugin* pl;
-            gtk_tree_model_get( model, &it, COL_DATA, &type, -1 );
+            gtk_tree_model_get( model, &it, 1, &type, -1 );
             if( pl = plugin_load( type ) )
             {
                 GtkTreePath* tree_path;

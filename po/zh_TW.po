@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-17 22:41+0800\n"
-"PO-Revision-Date: 2008-04-17 22:41+0800\n"
+"POT-Creation-Date: 2008-04-18 00:43+0800\n"
+"PO-Revision-Date: 2008-04-18 00:44+0800\n"
 "Last-Translator: 洪任諭 <pcman.tw@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -181,12 +181,12 @@ msgid "Stretch"
 msgstr "延展"
 
 #: ../src/configurator.c:495
-#: ../src/panel.c:496
+#: ../src/panel.c:499
 msgid "Add plugin to panel"
 msgstr "新增外掛到工作列"
 
 #: ../src/configurator.c:522
-#: ../src/panel.c:519
+#: ../src/panel.c:522
 msgid "Available plugins"
 msgstr "可選用的外掛"
 
@@ -194,12 +194,32 @@ msgstr "可選用的外掛"
 msgid "Logout command is not set"
 msgstr "登出指令尚未設定"
 
-#: ../src/panel.c:572
-#: ../src/panel.c:664
+#: ../src/panel.c:607
+msgid "Left"
+msgstr "左"
+
+#: ../src/panel.c:607
+msgid "Right"
+msgstr "右"
+
+#: ../src/panel.c:607
+msgid "Top"
+msgstr "上"
+
+#: ../src/panel.c:607
+msgid "Bottom"
+msgstr "下"
+
+#: ../src/panel.c:609
+#: ../src/panel.c:733
 msgid "Create New Panel"
 msgstr "建立新工作列"
 
-#: ../src/panel.c:588
+#: ../src/panel.c:615
+msgid "Where to put the panel?"
+msgstr "要把工作列放到哪裡？"
+
+#: ../src/panel.c:673
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -207,92 +227,92 @@ msgstr ""
 "確定要刪除這個工作列？\n"
 "<b>警告： 這個動作沒辦法復原。</b>"
 
-#: ../src/panel.c:589
+#: ../src/panel.c:674
 msgid "Confirm"
 msgstr "確認"
 
-#: ../src/panel.c:616
-#, c-format
-msgid "\"%s\" Settings"
-msgstr "設定 \"%s\""
-
-#: ../src/panel.c:638
+#: ../src/panel.c:707
 msgid "Add / Remove Panel Items"
 msgstr "新增/移除 工作列項目"
 
-#: ../src/panel.c:646
+#: ../src/panel.c:715
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "從工作列移除 \"%s\""
 
-#: ../src/panel.c:658
+#: ../src/panel.c:727
 msgid "Panel Settings"
 msgstr "設定工作列"
 
-#: ../src/panel.c:670
+#: ../src/panel.c:744
 msgid "Delete This Panel"
 msgstr "刪除這個工作列"
 
-#: ../src/panel.c:682
+#: ../src/panel.c:754
 msgid "Panel"
 msgstr "工作列"
 
-#: ../src/panel.c:1136
+#: ../src/panel.c:767
+#, c-format
+msgid "\"%s\" Settings"
+msgstr "設定 \"%s\""
+
+#: ../src/panel.c:1231
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - UNIX 桌面的輕量級 GTK2+ 工作列\n"
 
-#: ../src/panel.c:1137
+#: ../src/panel.c:1232
 #, c-format
 msgid "Command line options:\n"
 msgstr "命令列選項：\n"
 
-#: ../src/panel.c:1138
+#: ../src/panel.c:1233
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- 顯示使用說明並離開\n"
 
-#: ../src/panel.c:1139
+#: ../src/panel.c:1234
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- 顯示版本資訊並離開\n"
 
-#: ../src/panel.c:1140
+#: ../src/panel.c:1235
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --log <數值>   -- 設定程式運作紀錄的層級 (0-5). 0 - 無, 5 - 全部\n"
 
-#: ../src/panel.c:1141
+#: ../src/panel.c:1236
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- 執行設定工具\n"
 
-#: ../src/panel.c:1142
+#: ../src/panel.c:1237
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- 指定使用其他設定檔\n"
 
-#: ../src/panel.c:1144
+#: ../src/panel.c:1239
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- 和 --help 作用相同\n"
 
-#: ../src/panel.c:1145
+#: ../src/panel.c:1240
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- 和 --profile 作用相同\n"
 
-#: ../src/panel.c:1146
+#: ../src/panel.c:1241
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- 和 --version 作用相同\n"
 
-#: ../src/panel.c:1147
+#: ../src/panel.c:1242
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- 和 --configure 作用相同\n"
 
-#: ../src/panel.c:1148
+#: ../src/panel.c:1243
 #, c-format
 msgid ""
 "\n"
@@ -331,23 +351,39 @@ msgstr "桌面編號 / 工作區名稱"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "顯示工作區編號，由 cmeury@users.sf.net 撰寫"
 
+#: ../src/plugins/launchbar.c:132
+msgid "Add Button"
+msgstr "新增按鈕"
+
+#: ../src/plugins/launchbar.c:134
+msgid "Button Properties"
+msgstr "按鈕屬性"
+
+#.
+#. title = g_strdup_printf( _("Remove \"%s\""), b-> );
+#. item = gtk_image_menu_item_new_with_label( _("Remove ") );
+#.
+#: ../src/plugins/launchbar.c:140
+msgid "Remove Button"
+msgstr "移除按鈕"
+
 #. FIXME: We should have a better interface for this in the fututure.
 #. 1. We can borrow the menu from menu plugin (PtkAppMenu).
 #. 2. We can borrow the app chooser from PCManFM.
 #.
-#: ../src/plugins/launchbar.c:487
+#: ../src/plugins/launchbar.c:512
 msgid "Select Application"
 msgstr "選擇應用程式"
 
-#: ../src/plugins/launchbar.c:636
+#: ../src/plugins/launchbar.c:661
 msgid "Buttons"
 msgstr "按鈕"
 
-#: ../src/plugins/launchbar.c:749
+#: ../src/plugins/launchbar.c:774
 msgid "Application Launch Bar"
 msgstr "應用程式啟動列"
 
-#: ../src/plugins/launchbar.c:751
+#: ../src/plugins/launchbar.c:776
 msgid "Bar with buttons to launch application"
 msgstr "具有應用程式啟動按鈕的工具列"
 
@@ -513,11 +549,11 @@ msgstr "選單"
 msgid "Provide Menu"
 msgstr "提供選單"
 
-#: ../src/plugins/separator.c:92
+#: ../src/plugins/separator.c:103
 msgid "Separator"
 msgstr "分隔線"
 
-#: ../src/plugins/separator.c:94
+#: ../src/plugins/separator.c:105
 msgid "Add a separator to the panel"
 msgstr "在工作列上增加分隔線"
 
@@ -533,16 +569,16 @@ msgstr "切換桌面"
 msgid "Simple pager plugin"
 msgstr "簡易桌面切換外掛"
 
-#: ../src/plugins/space.c:125
+#: ../src/plugins/space.c:137
 #: ../src/plugins/batt/batt.c:824
 msgid "Size"
 msgstr "大小"
 
-#: ../src/plugins/space.c:140
+#: ../src/plugins/space.c:152
 msgid "<Space>"
 msgstr "<空白分隔>"
 
-#: ../src/plugins/space.c:142
+#: ../src/plugins/space.c:154
 msgid "Allocate space"
 msgstr "配置空間"
 
@@ -576,22 +612,22 @@ msgstr "使用選單瀏覽目錄 (作者：PCMan)"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #: ../src/plugins/volume/volume.c:153
-#: ../src/plugins/volumealsa/volumealsa.c:290
+#: ../src/plugins/volumealsa/volumealsa.c:300
 msgid "Volume control"
 msgstr "音量控制"
 
 #: ../src/plugins/volume/volume.c:165
-#: ../src/plugins/volumealsa/volumealsa.c:304
+#: ../src/plugins/volumealsa/volumealsa.c:314
 msgid "Volume Control"
 msgstr "音量控制"
 
 #. create frame
 #: ../src/plugins/volume/volume-impl.c:100
-#: ../src/plugins/volumealsa/volumealsa.c:191
+#: ../src/plugins/volumealsa/volumealsa.c:200
 msgid "Volume"
 msgstr "音量"
 
-#: ../src/plugins/volumealsa/volumealsa.c:207
+#: ../src/plugins/volumealsa/volumealsa.c:216
 msgid "Mute"
 msgstr "靜音"
 
@@ -972,14 +1008,6 @@ msgstr "透過 ACPI 顯示電池狀態"
 #~ msgstr "外觀"
 #~ msgid "Plugins"
 #~ msgstr "外掛"
-#~ msgid "Left"
-#~ msgstr "左"
-#~ msgid "Right"
-#~ msgstr "右"
-#~ msgid "Top"
-#~ msgstr "上"
-#~ msgid "Bottom"
-#~ msgstr "下"
 #~ msgid "Center"
 #~ msgstr "置中"
 

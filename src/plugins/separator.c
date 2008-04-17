@@ -24,6 +24,15 @@
 
 #include "dbg.h"
 
+static gboolean on_btn_press( GtkWidget* w, GdkEventButton* evt, Plugin* plugin )
+{
+    if( evt->button == 3 )
+    {
+        GtkMenu* popup = lxpanel_get_panel_menu( plugin->panel, plugin, FALSE );
+        gtk_menu_popup( popup, NULL, NULL, NULL, NULL, evt->button, evt->time );
+    }
+    return TRUE;
+}
 
 static int
 separator_constructor(Plugin *p, char **fp)
@@ -42,6 +51,8 @@ separator_constructor(Plugin *p, char **fp)
     }
     eb = gtk_event_box_new();
     GTK_WIDGET_SET_FLAGS( eb, GTK_NO_WINDOW );
+    gtk_widget_add_events( p->pwid, GDK_BUTTON_PRESS_MASK );
+    g_signal_connect( p->pwid, "button-press-event", G_CALLBACK( on_btn_press ), p );
 
     gtk_container_set_border_width(GTK_CONTAINER(eb), 1);
     gtk_widget_show(eb);
