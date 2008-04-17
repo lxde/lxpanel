@@ -357,8 +357,9 @@ static gboolean delay_update_background( Panel* p )
 static void
 panel_style_set(GtkWidget *widget, GtkStyle* prev, Panel *p)
 {
+    /* FIXME: This dirty hack is used to fix the background of systray... */
     if( GTK_WIDGET_REALIZED( widget ) )
-        g_idle_add( delay_update_background, p );
+        g_timeout_add( 1000, delay_update_background, p );
 }
 
 static gint

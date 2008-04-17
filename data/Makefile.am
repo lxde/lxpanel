@@ -6,6 +6,10 @@ default_config_panel_DATA = \
         default/panels/panel
 default_config_paneldir = $(datadir)/lxpanel/profile/default/panels
 
+uidir=$(datadir)/lxpanel/ui
+ui_DATA= \
+        ui/panel-pref.glade
+
 lxpanel_images_DATA = \
 	images/my-computer.svg \
 	images/redhat-internet.svg \
@@ -54,5 +58,7 @@ lxpanel_imagesdir = $(datadir)/lxpanel/images
 EXTRA_DIST = \
 	default/panels/panel.in \
 	$(lxpanel_DATA) \
-	$(lxpanel_images_DATA)
+	$(lxpanel_images_DATA) \
+	$(ui_DATA) \
+	$(default_config_DATA)
 
