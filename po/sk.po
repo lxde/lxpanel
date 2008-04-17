@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-17 01:29+0800\n"
+"POT-Creation-Date: 2008-04-17 22:41+0800\n"
 "PO-Revision-Date: 2007-09-17 01:25+0100\n"
 "Last-Translator: Ivan Masár <helix84@centrum.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -154,132 +154,136 @@ msgid "Width:"
 msgstr "Šírka:"
 
 #. { "configure", N_("Preferences"), configure },
-#: ../src/configurator.c:46 ../src/gtk-run.c:112
+#: ../src/configurator.c:53 ../src/gtk-run.c:112
 msgid "Run"
 msgstr "Spustiť"
 
-#: ../src/configurator.c:47
+#: ../src/configurator.c:54
 msgid "Restart"
 msgstr "Reštartovať"
 
-#: ../src/configurator.c:48
+#: ../src/configurator.c:55
 msgid "Logout"
 msgstr "Odhlásiť"
 
-#: ../src/configurator.c:389
+#: ../src/configurator.c:388
 msgid "Currently loaded plugins"
 msgstr "Momentálne načítané moduly"
 
-#: ../src/configurator.c:485 ../src/panel.c:497
+#: ../src/configurator.c:397
+msgid "Stretch"
+msgstr ""
+
+#: ../src/configurator.c:495 ../src/panel.c:496
 msgid "Add plugin to panel"
 msgstr "Pridať modul do panela"
 
-#: ../src/configurator.c:512 ../src/panel.c:520
+#: ../src/configurator.c:522 ../src/panel.c:519
 msgid "Available plugins"
 msgstr "Dostupné moduly"
 
-#: ../src/configurator.c:1054
+#: ../src/configurator.c:1032
 msgid "Logout command is not set"
 msgstr "Príkaz na odhlásenie nie je nastavený"
 
-#: ../src/panel.c:573 ../src/panel.c:665
+#: ../src/panel.c:572 ../src/panel.c:664
 msgid "Create New Panel"
 msgstr ""
 
-#: ../src/panel.c:589
+#: ../src/panel.c:588
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
 
-#: ../src/panel.c:590
+#: ../src/panel.c:589
 msgid "Confirm"
 msgstr ""
 
-#: ../src/panel.c:617
+#: ../src/panel.c:616
 #, fuzzy, c-format
 msgid "\"%s\" Settings"
 msgstr "Nastavenia"
 
-#: ../src/panel.c:639
+#: ../src/panel.c:638
 #, fuzzy
 msgid "Add / Remove Panel Items"
 msgstr "Pridať modul do panela"
 
-#: ../src/panel.c:647
+#: ../src/panel.c:646
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr ""
 
-#: ../src/panel.c:659
+#: ../src/panel.c:658
 #, fuzzy
 msgid "Panel Settings"
 msgstr "Nastavenia"
 
-#: ../src/panel.c:671
+#: ../src/panel.c:670
 msgid "Delete This Panel"
 msgstr ""
 
-#: ../src/panel.c:683
+#: ../src/panel.c:682
 msgid "Panel"
 msgstr ""
 
-#: ../src/panel.c:1137
+#: ../src/panel.c:1136
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - odľahčený GTK2+ panel pre unixové pracovné prostredia\n"
 
-#: ../src/panel.c:1138
+#: ../src/panel.c:1137
 #, c-format
 msgid "Command line options:\n"
 msgstr "Voľby príkazového riadka:\n"
 
-#: ../src/panel.c:1139
+#: ../src/panel.c:1138
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr ""
 
-#: ../src/panel.c:1140
+#: ../src/panel.c:1139
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr ""
 
-#: ../src/panel.c:1141
+#: ../src/panel.c:1140
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 
-#: ../src/panel.c:1142
+#: ../src/panel.c:1141
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr ""
 
-#: ../src/panel.c:1143
+#: ../src/panel.c:1142
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr ""
 
-#: ../src/panel.c:1145
+#: ../src/panel.c:1144
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr ""
 
-#: ../src/panel.c:1146
+#: ../src/panel.c:1145
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr ""
 
-#: ../src/panel.c:1147
+#: ../src/panel.c:1146
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr ""
 
-#: ../src/panel.c:1148
+#: ../src/panel.c:1147
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr ""
 
-#: ../src/panel.c:1149
+#: ../src/panel.c:1148
 #, fuzzy, c-format
 msgid ""
 "\n"

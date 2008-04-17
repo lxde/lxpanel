@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-17 01:29+0800\n"
-"PO-Revision-Date: 2008-04-17 01:30+0800\n"
+"POT-Creation-Date: 2008-04-17 22:41+0800\n"
+"PO-Revision-Date: 2008-04-17 22:41+0800\n"
 "Last-Translator: 洪任諭 <pcman.tw@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -159,43 +159,47 @@ msgid "Width:"
 msgstr "寬度："
 
 #. { "configure", N_("Preferences"), configure },
-#: ../src/configurator.c:46
+#: ../src/configurator.c:53
 #: ../src/gtk-run.c:112
 msgid "Run"
 msgstr "執行"
 
-#: ../src/configurator.c:47
+#: ../src/configurator.c:54
 msgid "Restart"
 msgstr "重新啟動"
 
-#: ../src/configurator.c:48
+#: ../src/configurator.c:55
 msgid "Logout"
 msgstr "登出"
 
-#: ../src/configurator.c:389
+#: ../src/configurator.c:388
 msgid "Currently loaded plugins"
 msgstr "目前載入的外掛"
 
-#: ../src/configurator.c:485
-#: ../src/panel.c:497
+#: ../src/configurator.c:397
+msgid "Stretch"
+msgstr "延展"
+
+#: ../src/configurator.c:495
+#: ../src/panel.c:496
 msgid "Add plugin to panel"
 msgstr "新增外掛到工作列"
 
-#: ../src/configurator.c:512
-#: ../src/panel.c:520
+#: ../src/configurator.c:522
+#: ../src/panel.c:519
 msgid "Available plugins"
 msgstr "可選用的外掛"
 
-#: ../src/configurator.c:1054
+#: ../src/configurator.c:1032
 msgid "Logout command is not set"
 msgstr "登出指令尚未設定"
 
-#: ../src/panel.c:573
-#: ../src/panel.c:665
+#: ../src/panel.c:572
+#: ../src/panel.c:664
 msgid "Create New Panel"
 msgstr "建立新工作列"
 
-#: ../src/panel.c:589
+#: ../src/panel.c:588
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -203,92 +207,92 @@ msgstr ""
 "確定要刪除這個工作列？\n"
 "<b>警告： 這個動作沒辦法復原。</b>"
 
-#: ../src/panel.c:590
+#: ../src/panel.c:589
 msgid "Confirm"
 msgstr "確認"
 
-#: ../src/panel.c:617
+#: ../src/panel.c:616
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "設定 \"%s\""
 
-#: ../src/panel.c:639
+#: ../src/panel.c:638
 msgid "Add / Remove Panel Items"
 msgstr "新增/移除 工作列項目"
 
-#: ../src/panel.c:647
+#: ../src/panel.c:646
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "從工作列移除 \"%s\""
 
-#: ../src/panel.c:659
+#: ../src/panel.c:658
 msgid "Panel Settings"
 msgstr "設定工作列"
 
-#: ../src/panel.c:671
+#: ../src/panel.c:670
 msgid "Delete This Panel"
 msgstr "刪除這個工作列"
 
-#: ../src/panel.c:683
+#: ../src/panel.c:682
 msgid "Panel"
 msgstr "工作列"
 
-#: ../src/panel.c:1137
+#: ../src/panel.c:1136
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - UNIX 桌面的輕量級 GTK2+ 工作列\n"
 
-#: ../src/panel.c:1138
+#: ../src/panel.c:1137
 #, c-format
 msgid "Command line options:\n"
 msgstr "命令列選項：\n"
 
-#: ../src/panel.c:1139
+#: ../src/panel.c:1138
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- 顯示使用說明並離開\n"
 
-#: ../src/panel.c:1140
+#: ../src/panel.c:1139
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- 顯示版本資訊並離開\n"
 
-#: ../src/panel.c:1141
+#: ../src/panel.c:1140
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --log <數值>   -- 設定程式運作紀錄的層級 (0-5). 0 - 無, 5 - 全部\n"
 
-#: ../src/panel.c:1142
+#: ../src/panel.c:1141
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- 執行設定工具\n"
 
-#: ../src/panel.c:1143
+#: ../src/panel.c:1142
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- 指定使用其他設定檔\n"
 
-#: ../src/panel.c:1145
+#: ../src/panel.c:1144
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- 和 --help 作用相同\n"
 
-#: ../src/panel.c:1146
+#: ../src/panel.c:1145
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- 和 --profile 作用相同\n"
 
-#: ../src/panel.c:1147
+#: ../src/panel.c:1146
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- 和 --version 作用相同\n"
 
-#: ../src/panel.c:1148
+#: ../src/panel.c:1147
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- 和 --configure 作用相同\n"
 
-#: ../src/panel.c:1149
+#: ../src/panel.c:1148
 #, c-format
 msgid ""
 "\n"

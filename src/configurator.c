@@ -35,6 +35,13 @@
 
 #include "ptk-ui-xml.h"
 
+enum{
+    COL_NAME,
+    COL_EXPAND,
+    COL_DATA,
+    N_COLS
+};
+
 void panel_configure(Panel* p, int sel_page );
 void restart(void);
 void gtk_run(void);
@@ -331,10 +338,38 @@ on_sel_plugin_changed( GtkTreeSelection* tree_sel, GtkWidget* label )
     {
         GtkTreeView* view = gtk_tree_selection_get_tree_view( tree_sel );
         GtkWidget *edit_btn = GTK_WIDGET(g_object_get_data( G_OBJECT(view), "edit_btn" ));
-        gtk_tree_model_get( model, &it, 1, &pl, -1 );
+        gtk_tree_model_get( model, &it, COL_DATA, &pl, -1 );
         gtk_label_set_text( GTK_LABEL(label), _(pl->class->description) );
         gtk_widget_set_sensitive( edit_btn, pl->class->config != NULL );
     }
+}
+
+static void
+on_plugin_expand_toggled(GtkCellRendererToggle* render, char* path, GtkTreeView* view)
+{
+    GtkTreeModel* model;
+    GtkTreeIter it;
+    GtkTreePath* tp = gtk_tree_path_new_from_string( path );
+    model = gtk_tree_view_get_model( view );
+    if( gtk_tree_model_get_iter( model, &it, tp ) )
+    {
+        Plugin* pl;
+        gboolean old_expand, expand, fill;
+        int padding;
+        GtkPackType pack_type;
+
+        gtk_tree_model_get( model, &it, COL_DATA, &pl, COL_EXPAND, &expand, -1 );
+
+        /* query the old packing of the plugin widget */
+        gtk_box_query_child_packing( pl->panel->box, pl->pwid, &old_expand, &fill, &padding, &pack_type );
+
+        expand = ! expand;
+        pl->expand = expand;
+        gtk_list_store_set( (GtkListStore*)model, &it, COL_EXPAND, expand, -1 );
+        /* apply the new packing with only "expand" modified. */
+        gtk_box_set_child_packing( pl->panel->box, pl->pwid, expand, fill, padding, pack_type );
+    }
+    gtk_tree_path_free( tp );
 }
 
 static void init_plugin_list( Panel* p, GtkTreeView* view, GtkWidget* label )
@@ -351,18 +386,29 @@ static void init_plugin_list( Panel* p, GtkTreeView* view, GtkWidget* label )
     render = gtk_cell_renderer_text_new();
     col = gtk_tree_view_column_new_with_attributes(
             _("Currently loaded plugins"),
-            render, "text", 0, NULL );
+            render, "text", COL_NAME, NULL );
+    gtk_tree_view_column_set_expand( col, TRUE );
     gtk_tree_view_append_column( view, col );
 
-    list = gtk_list_store_new( 2, G_TYPE_STRING, G_TYPE_POINTER );
+    render = gtk_cell_renderer_toggle_new();
+    g_object_set( render, "activatable", TRUE, NULL );
+    g_signal_connect( render, "toggled", G_CALLBACK( on_plugin_expand_toggled ), view );
+    col = gtk_tree_view_column_new_with_attributes(
+            _("Stretch"),
+            render, "active", COL_EXPAND, NULL );
+    gtk_tree_view_column_set_expand( col, FALSE );
+    gtk_tree_view_append_column( view, col );
+
+    list = gtk_list_store_new( N_COLS, G_TYPE_STRING, G_TYPE_BOOLEAN, G_TYPE_POINTER );
     for( l = p->plugins; l; l = l->next )
     {
         GtkTreeIter it;
         Plugin* pl = (Plugin*)l->data;
         gtk_list_store_append( list, &it );
         gtk_list_store_set( list, &it,
-                            0, _(pl->class->name),
-                            1, pl, -1);
+                            COL_NAME, _(pl->class->name),
+                            COL_EXPAND, pl->expand,
+                            COL_DATA, pl, -1);
     }
     gtk_tree_view_set_model( view, GTK_TREE_MODEL( list ) );
     g_signal_connect( view, "row-activated",
@@ -393,7 +439,7 @@ static void on_add_plugin_response( GtkDialog* dlg,
         {
             char* type = NULL;
             Plugin* pl;
-            gtk_tree_model_get( model, &it, 1, &type, -1 );
+            gtk_tree_model_get( model, &it, COL_DATA, &type, -1 );
             if( pl = plugin_load( type ) )
             {
                 GtkTreePath* tree_path;
@@ -410,8 +456,8 @@ static void on_add_plugin_response( GtkDialog* dlg,
                 model = gtk_tree_view_get_model( _view );
                 gtk_list_store_append( (GtkListStore*)model, &it );
                 gtk_list_store_set( (GtkListStore*)model, &it,
-                                    0, _(pl->class->name),
-                                    1, pl, -1 );
+                                    COL_NAME, _(pl->class->name),
+                                    COL_DATA, pl, -1 );
                 tree_sel = gtk_tree_view_get_selection( _view );
                 gtk_tree_selection_select_iter( tree_sel, &it );
                 if( tree_path = gtk_tree_model_get_path( model, &it ) )
@@ -519,7 +565,7 @@ static void on_remove_plugin( GtkButton* btn, GtkTreeView* view )
     if( gtk_tree_selection_get_selected( tree_sel, &model, &it ) )
     {
         tree_path = gtk_tree_model_get_path( model, &it );
-        gtk_tree_model_get( model, &it, 1, &pl, -1 );
+        gtk_tree_model_get( model, &it, COL_DATA, &pl, -1 );
         if( gtk_tree_path_get_indices(tree_path)[0] >= gtk_tree_model_iter_n_children( model, NULL ) )
             gtk_tree_path_prev( tree_path );
         gtk_list_store_remove( GTK_LIST_STORE(model), &it );
@@ -542,7 +588,7 @@ void modify_plugin( GtkTreeView* view )
     if( ! gtk_tree_selection_get_selected( tree_sel, &model, &it ) )
         return;
 
-    gtk_tree_model_get( model, &it, 1, &pl, -1 );
+    gtk_tree_model_get( model, &it, COL_DATA, &pl, -1 );
     if( pl->class->config )
         pl->class->config( pl, (GtkWindow*)gtk_widget_get_toplevel(GTK_WIDGET(view)) );
 }
@@ -580,7 +626,7 @@ static void on_moveup_plugin(  GtkButton* btn, GtkTreeView* view )
         if( gtk_tree_selection_iter_is_selected(tree_sel, &it) )
         {
             Plugin* pl;
-            gtk_tree_model_get( model, &it, 1, &pl, -1 );
+            gtk_tree_model_get( model, &it, COL_DATA, &pl, -1 );
             gtk_list_store_move_before( GTK_LIST_STORE( model ),
                                         &it, &prev );
 
@@ -621,7 +667,7 @@ static void on_movedown_plugin(  GtkButton* btn, GtkTreeView* view )
     if( ! gtk_tree_model_iter_next( model, &next) )
         return;
 
-    gtk_tree_model_get( model, &it, 1, &pl, -1 );
+    gtk_tree_model_get( model, &it, COL_DATA, &pl, -1 );
 
     gtk_list_store_move_after( GTK_LIST_STORE( model ), &it, &next );
 
