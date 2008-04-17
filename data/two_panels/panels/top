@@ -1,26 +1,28 @@
-# lxpanel <profile> config file
+# lxpanel <profile> config file. Manually editing is not recommended.
+# Use preference dialog in lxpanel to adjust config when you can.
+
 Global {
-    edge = top
-    allign = left
-    margin = 0
-    widthtype = percent
-    width = 100
-    height = 24
-    transparent = false
-    tintcolor = #000000
-    alpha = 114
-    setdocktype = true
-    setpartialstrut = true
-    useFontColor = false
-    FontColor = #ffffff
-    Background = false
-    BackgroundFile = /usr/share/lxpanel/images/background.png
+    edge=top
+    allign=left
+    margin=0
+    widthtype=percent
+    width=100
+    height=24
+    transparent=0
+    tintcolor=#000000
+    alpha=0
+    setdocktype=1
+    setpartialstrut=1
+    usefontcolor=0
+    fontcolor=#ffffff
+    background=0
+    backgroundfile=/usr/share/lxpanel/images/background.png
 }
 
 Plugin {
     type = space
     Config {
-        Size = 2
+        Size=2
     }
 }
 
@@ -48,35 +50,31 @@ Plugin {
     type = launchbar
     Config {
         Button {
-            id = pcmanfm.desktop
+            id=pcmanfm.desktop
         }
         Button {
-            id = gnome-terminal.desktop
+            id=gnome-terminal.desktop
         }
         Button {
-            id = firefox.desktop
+            id=firefox.desktop
         }
     }
 }
 
 Plugin {
     type = space
+    expand=1
     Config {
-        Size = 4
+        Size=2
     }
 }
 
 Plugin {
-    type = space
-    expand = true
+    type = netstat
 }
 
 Plugin {
-    type = cpu
-}
-
-Plugin {
-    type = volume
+    type = volumealsa
 }
 
 Plugin {
@@ -86,9 +84,9 @@ Plugin {
 Plugin {
     type = dclock
     Config {
-        ClockFmt = %R
-        TooltipFmt = %A %x
-        BoldFont = 0
+        ClockFmt=%R
+        TooltipFmt=%A %x
+        BoldFont=0
     }
 }
 
