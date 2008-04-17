@@ -53,6 +53,8 @@ GSList* all_panels = NULL;  /* a single-linked list storing all panels */
 
 gboolean is_restarting = FALSE;
 
+void panel_config_save(Panel* panel);   /* defined in configurator.c */
+
 /****************************************************
  *         panel's handlers for WM events           *
  ****************************************************/
@@ -144,7 +146,7 @@ print_wmdata(Panel *p)
 gboolean show_system_menu( gpointer system_menu );
 
 /* built-in commands, defined in configurator.c */
-void configure(Panel* p);
+void configure(Panel* p, int sel_page );
 void restart(void);
 void gtk_run(void);
 
@@ -411,9 +413,8 @@ panel_configure_event (GtkWidget *widget, GdkEventConfigure *e, Panel *p)
 static gint
 panel_popupmenu_configure(GtkWidget *widget, gpointer user_data)
 {
-    ENTER;
-    configure( (Panel*)user_data );
-    RET(TRUE);
+    panel_configure( (Panel*)user_data, 0 );
+    return TRUE;
 }
 
 static gint
@@ -428,7 +429,7 @@ panel_press_button_event(GtkWidget *widget, GdkEvent *event, gpointer user_data)
             GtkWidget *menu;
             Panel* panel = (Panel*)user_data;
             /* create menu */
-            menu = lxpanel_get_panel_menu( panel, panel->plugins->next->next->data, TRUE );
+            menu = lxpanel_get_panel_menu( panel, NULL, TRUE );
             gtk_menu_popup(menu, NULL, NULL, NULL, NULL, event_button->button, event_button->time);
             return TRUE;
     }
@@ -441,9 +442,118 @@ static void panel_popupmenu_config_plugin( GtkMenuItem* item, Plugin* plugin )
     plugin->class->config( plugin, plugin->panel->topgwin );
 }
 
+#if 0
+static void on_add_plugin_response( GtkDialog* dlg,
+                                    int response,
+                                    Panel* p )
+{
+    if( response == GTK_RESPONSE_OK )
+    {
+        GtkTreeView* view;
+        GtkTreeSelection* tree_sel;
+        GtkTreeIter it;
+        GtkTreeModel* model;
+
+        view = (GtkTreeView*)g_object_get_data( G_OBJECT(dlg), "avail-plugins" );
+        tree_sel = gtk_tree_view_get_selection( view );
+        if( gtk_tree_selection_get_selected( tree_sel, &model, &it ) )
+        {
+            char* type = NULL;
+            Plugin* pl;
+            gtk_tree_model_get( model, &it, 1, &type, -1 );
+            if( pl = plugin_load( type ) )
+            {
+                GtkTreePath* tree_path;
+
+                pl->panel = p;
+                plugin_start( pl, NULL );
+                p->plugins = g_list_append(p->plugins, pl);
+                /* FIXME: will show all cause problems? */
+                gtk_widget_show_all( pl->pwid );
+
+                /* update background of the newly added plugin */
+                plugin_widget_set_background( pl->pwid, pl->panel );
+            }
+            g_free( type );
+        }
+    }
+    gtk_widget_destroy( (GtkWidget*)dlg );
+}
+
+void panel_add_plugin( Panel* panel, GtkWindow* parent_win )
+{
+    GtkWidget* dlg, *scroll;
+    GList* classes;
+    GList* tmp;
+    GtkTreeViewColumn* col;
+    GtkCellRenderer* render;
+    GtkTreeView* view;
+    GtkListStore* list;
+    GtkTreeSelection* tree_sel;
+
+    classes = plugin_get_available_classes();
+
+    dlg = gtk_dialog_new_with_buttons( _("Add plugin to panel"),
+                                       GTK_WINDOW(parent_win), 0,
+                                       GTK_STOCK_CANCEL,
+                                       GTK_RESPONSE_CANCEL,
+                                       GTK_STOCK_ADD,
+                                       GTK_RESPONSE_OK, NULL );
+
+    /* gtk_widget_set_sensitive( parent_win, FALSE ); */
+    scroll = gtk_scrolled_window_new( NULL, NULL );
+    gtk_scrolled_window_set_shadow_type( (GtkScrolledWindow*)scroll,
+                                          GTK_SHADOW_IN );
+    gtk_scrolled_window_set_policy((GtkScrolledWindow*)scroll,
+                                   GTK_POLICY_AUTOMATIC,
+                                   GTK_POLICY_AUTOMATIC );
+    gtk_box_pack_start( (GtkBox*)GTK_DIALOG(dlg)->vbox, scroll,
+                         TRUE, TRUE, 4 );
+    view = (GtkTreeView*)gtk_tree_view_new();
+    gtk_container_add( (GtkContainer*)scroll, view );
+    tree_sel = gtk_tree_view_get_selection( view );
+    gtk_tree_selection_set_mode( tree_sel, GTK_SELECTION_BROWSE );
+
+    render = gtk_cell_renderer_text_new();
+    col = gtk_tree_view_column_new_with_attributes(
+                                            _("Available plugins"),
+                                            render, "text", 0, NULL );
+    gtk_tree_view_append_column( view, col );
+
+    list = gtk_list_store_new( 2,
+                               G_TYPE_STRING,
+                               G_TYPE_STRING );
+
+    for( tmp = classes; tmp; tmp = tmp->next ) {
+        PluginClass* pc = (PluginClass*)tmp->data;
+        if( ! pc->invisible ) {
+            /* FIXME: should we display invisible plugins? */
+            GtkTreeIter it;
+            gtk_list_store_append( list, &it );
+            gtk_list_store_set( list, &it,
+                                0, _(pc->name),
+                                1, pc->type, -1 );
+            /* g_debug( "%s (%s)", pc->type, _(pc->name) ); */
+        }
+    }
+
+    gtk_tree_view_set_model( view, GTK_TREE_MODEL(list) );
+    g_object_unref( list );
+
+    g_signal_connect( dlg, "response",
+                      on_add_plugin_response, panel );
+    g_object_set_data( dlg, "avail-plugins", view );
+    g_object_weak_ref( dlg, plugin_class_list_free, classes );
+
+    gtk_window_set_default_size( (GtkWindow*)dlg, 320, 400 );
+    gtk_widget_show_all( dlg );
+}
+#endif
+
 static void panel_popupmenu_add_item( GtkMenuItem* item, Panel* panel )
 {
-
+    /* panel_add_plugin( panel, panel->topgwin ); */
+    panel_configure( panel, 1 );
 }
 
 static void panel_popupmenu_remove_item( GtkMenuItem* item, Plugin* plugin )
@@ -452,6 +562,8 @@ static void panel_popupmenu_remove_item( GtkMenuItem* item, Plugin* plugin )
     panel->plugins = g_list_remove( panel->plugins, plugin );
     plugin_stop( plugin ); /* free the plugin widget & its data */
     plugin_put( plugin ); /* free the lib if necessary */
+
+    panel_config_save( plugin->panel );
 }
 
 static void panel_popupmenu_create_panel( GtkMenuItem* item, Panel* panel )
@@ -479,7 +591,15 @@ static void panel_popupmenu_delete_panel( GtkMenuItem* item, Panel* panel )
     gtk_widget_destroy( dlg );
     if( ok )
     {
+        gchar *fname, *dir;
         all_panels = g_slist_remove( all_panels, panel );
+
+        /* delete the config file of this panel */
+        dir = get_config_file( cprofile, "panels", FALSE );
+        fname = g_build_filename( dir, panel->name, NULL );
+        g_free( dir );
+        g_unlink( fname );
+
         panel_destroy( panel );
     }
 }
@@ -506,9 +626,16 @@ extern GtkWidget* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean
         menu_item = gtk_separator_menu_item_new();
         gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
     }
-
+/*
     img = gtk_image_new_from_stock( GTK_STOCK_ADD, GTK_ICON_SIZE_MENU );
     menu_item = gtk_image_menu_item_new_with_label(_("Add Item To Panel"));
+    gtk_image_menu_item_set_image( (GtkImageMenuItem*)menu_item, img );
+    gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
+    g_signal_connect( menu_item, "activate", G_CALLBACK(panel_popupmenu_add_item), panel );
+*/
+
+    img = gtk_image_new_from_stock( GTK_STOCK_EDIT, GTK_ICON_SIZE_MENU );
+    menu_item = gtk_image_menu_item_new_with_label(_("Add / Remove Panel Items"));
     gtk_image_menu_item_set_image( (GtkImageMenuItem*)menu_item, img );
     gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
     g_signal_connect( menu_item, "activate", G_CALLBACK(panel_popupmenu_add_item), panel );
@@ -527,6 +654,12 @@ extern GtkWidget* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean
     menu_item = gtk_separator_menu_item_new();
     gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
 
+    img = gtk_image_new_from_stock( GTK_STOCK_PREFERENCES, GTK_ICON_SIZE_MENU );
+    menu_item = gtk_image_menu_item_new_with_label(_("Panel Settings"));
+    gtk_image_menu_item_set_image( (GtkImageMenuItem*)menu_item, img );
+    gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
+    g_signal_connect(G_OBJECT(menu_item), "activate", G_CALLBACK(panel_popupmenu_configure), panel );
+
     img = gtk_image_new_from_stock( GTK_STOCK_NEW, GTK_ICON_SIZE_MENU );
     menu_item = gtk_image_menu_item_new_with_label(_("Create New Panel"));
     gtk_image_menu_item_set_image( (GtkImageMenuItem*)menu_item, img );
@@ -540,15 +673,6 @@ extern GtkWidget* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean
     g_signal_connect( menu_item, "activate", G_CALLBACK(panel_popupmenu_delete_panel), panel );
     if( ! all_panels->next )    /* if this is the only panel */
         gtk_widget_set_sensitive( menu_item, FALSE );
-
-    menu_item = gtk_separator_menu_item_new();
-    gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
-
-    img = gtk_image_new_from_stock( GTK_STOCK_PREFERENCES, GTK_ICON_SIZE_MENU );
-    menu_item = gtk_image_menu_item_new_with_label(_("Panel Settings"));
-    gtk_image_menu_item_set_image( (GtkImageMenuItem*)menu_item, img );
-    gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
-    g_signal_connect(G_OBJECT(menu_item), "activate", G_CALLBACK(panel_popupmenu_configure), panel );
 
     gtk_widget_show_all(menu);
 
@@ -965,9 +1089,11 @@ void panel_destroy(Panel *p)
         } while ( g_source_remove_by_user_data( p->system_menus ) );
     }
 
-    g_object_unref( p->tooltips );
+    if( p->tooltips )
+        g_object_unref( p->tooltips );
 
-    gtk_widget_destroy(p->topgwin);
+    if( p->topgwin )
+        gtk_widget_destroy(p->topgwin);
     g_free(p->workarea);
     g_free( p->background_file );
     g_slist_free( p->system_menus );
@@ -1099,7 +1225,7 @@ out:
 static gboolean start_all_panels( )
 {
     gboolean is_global;
-    for( is_global = 0; is_global < 2; ++is_global )
+    for( is_global = 0; ! all_panels && is_global < 2; ++is_global )
     {
         char* panel_dir = get_config_file( cprofile, "panels", is_global );
         GDir* dir = g_dir_open( panel_dir, 0, NULL );

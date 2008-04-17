@@ -16,6 +16,10 @@ EXTRA_DIST = \
 ## icondir = $(datadir)/pixmaps
 ## icon_DATA = data/pcmanfm.png
 
+uidir=$(datadir)/lxpanel/ui
+ui_DATA= \
+	data/ui/panel-pref.glade
+
 install-data-local:
 	@$(NORMAL_INSTALL)
 	if test -d $(srcdir)/pixmaps; then \

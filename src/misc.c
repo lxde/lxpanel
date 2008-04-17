@@ -159,8 +159,8 @@ pair height_pair[] = {
 };
 
 pair bool_pair[] = {
-    { 0, "false" },
-    { 1, "true" },
+    { 0, "0" },
+    { 1, "1" },
     { 0, NULL },
 };
 pair pos_pair[] = {
@@ -249,19 +249,19 @@ lxpanel_put_str( FILE* fp, const char* name, const char* val )
 {
     if( G_UNLIKELY( !val || !*val ) )
         return 0;
-    return lxpanel_put_line( fp, "%s = %s", name, val );
+    return lxpanel_put_line( fp, "%s=%s", name, val );
 }
 
 extern int
 lxpanel_put_bool( FILE* fp, const char* name, gboolean val )
 {
-    return lxpanel_put_line( fp, "%s = %s", name, val ? "true" : "false" );
+    return lxpanel_put_line( fp, "%s=%c", name, val ? '1' : '0' );
 }
 
 extern int
 lxpanel_put_int( FILE* fp, const char* name, int val )
 {
-    return lxpanel_put_line( fp, "%s = %d", name, val );
+    return lxpanel_put_line( fp, "%s=%d", name, val );
 }
 
 extern  int

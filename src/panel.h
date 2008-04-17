@@ -69,14 +69,14 @@ struct _Panel{
     int widthtype, width;
     int heighttype, height;
 
-    int self_destroy : 1;
-    int setdocktype : 1;
-    int setstrut : 1;
-    int round_corners : 1;
-    int usefontcolor : 1;
-    int transparent : 1;
-    int background : 1;
-    int spacing;
+    guint self_destroy : 1;
+    guint setdocktype : 1;
+    guint setstrut : 1;
+    guint round_corners : 1;
+    guint usefontcolor : 1;
+    guint transparent : 1;
+    guint background : 1;
+    guint spacing;
 
     int desknum;
     int curdesk;
@@ -92,6 +92,7 @@ struct _Panel{
 
     /* tooltip controller shared by many plugins */
     GtkTooltips *tooltips;
+    GtkWidget* pref_dialog; /* preference dialog */
 };
 
 

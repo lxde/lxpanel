@@ -35,10 +35,6 @@ Plugin {
         item {
             command = run
         }
-        item {
-            image = /usr/share/lxpanel/images/gnome-setting.svg
-            command = configure
-        }
         separator {
         }
         item {

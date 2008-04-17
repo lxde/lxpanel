@@ -1,3 +1,5 @@
+data/ui/panel-pref.glade
+
 src/bg.c
 src/configurator.c
 src/dbg.c

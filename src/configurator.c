@@ -33,7 +33,9 @@
 
 #include "dbg.h"
 
-void configure(Panel* p);
+#include "ptk-ui-xml.h"
+
+void panel_configure(Panel* p, int sel_page );
 void restart(void);
 void gtk_run(void);
 void panel_config_save(Panel* panel);
@@ -51,40 +53,9 @@ static char* file_manager_cmd = NULL;
 static char* terminal_cmd = NULL;
 static char* logout_cmd = NULL;
 
-static GtkWidget *dialog = NULL;
-static GtkSizeGroup *sg;
-
-//width
-static GtkWidget *width_spinb, *width_opt;
-static GtkAdjustment *width_adj;
-
-//height
-static GtkWidget *height_spinb, *height_opt;
-static GtkAdjustment *height_adj;
-
-//margin
-static GtkWidget *margin_label, *margin_spinb;
-static GtkAdjustment *margin_adj;
-
-//allign
-static GtkWidget *allign_opt;
-
-//edge
-static GtkWidget *edge_opt;
-
-//transparency
-static GtkWidget *tr_checkb,  *tr_colorl, *tr_colorb;;
-
-//background
-static GtkWidget *bg_checkdis, *bg_checkb, *bg_selfileb;
-
-//properties
-static GtkWidget *prop_dt_checkb, *prop_st_checkb;
-
 extern GSList* all_panels;
 extern gchar *cprofile;
 extern int config;
-extern FILE *pconf;
 
 void panel_global_config_save( Panel* p, FILE *fp);
 void panel_plugin_config_save( Panel* p, FILE *fp);
@@ -142,10 +113,8 @@ err:
 #endif
 
 static void
-response_event(GtkDialog *widget, gint arg1, gpointer user_data)
+response_event(GtkDialog *widget, gint arg1, Panel* panel )
 {
-    Panel* panel = (Panel*)user_data;
-    ENTER;
     switch (arg1) {
     /* FIXME: what will happen if the user exit lxpanel without
               close this config dialog?
@@ -155,11 +124,10 @@ response_event(GtkDialog *widget, gint arg1, gpointer user_data)
     case GTK_RESPONSE_NONE:
         panel_config_save( panel );
         /* NOTE: NO BREAK HERE*/
-        gtk_widget_destroy(dialog);
-        dialog = NULL;
+        gtk_widget_destroy(widget);
         break;
     }
-    RET();
+    return;
 }
 
 static void
@@ -194,8 +162,10 @@ set_allign( GtkComboBox *widget,  Panel* p )
     ENTER;
     allign = gtk_combo_box_get_active(widget) + 1;
     t = (allign != ALLIGN_CENTER);
+    /*
     gtk_widget_set_sensitive(margin_label, t);
     gtk_widget_set_sensitive(margin_spinb, t);
+    */
     p->allign = allign;
     update_panel_geometry(p);
     RET();
@@ -208,223 +178,42 @@ set_margin( GtkSpinButton* spin,  Panel* p  )
     update_panel_geometry(p);
 }
 
-
-GtkWidget *
-mk_position( Panel* p )
-{
-    GtkWidget *hbox, *hbox2, *label, *frame;
-    GtkWidget *t;
-
-
-    ENTER;
-    frame = gtk_frame_new(NULL);
-    gtk_frame_set_shadow_type(GTK_FRAME (frame), GTK_SHADOW_NONE);
-    gtk_container_set_border_width (GTK_CONTAINER (frame), 6);
-    label = gtk_label_new(NULL);
-    gtk_label_set_markup(GTK_LABEL (label),_("<b>Position</b>"));
-    gtk_frame_set_label_widget(GTK_FRAME (frame), label);
-
-    hbox2 = gtk_hbox_new(FALSE, 0);
-    gtk_container_set_border_width (GTK_CONTAINER (hbox2), 6);
-    gtk_container_add (GTK_CONTAINER (frame), hbox2);
-
-    hbox = gtk_hbox_new(FALSE, 0);
-    gtk_widget_set_size_request(hbox, 20, 1);
-    gtk_box_pack_start(GTK_BOX (hbox2), hbox, FALSE, TRUE, 0);
-
-    t = gtk_table_new(5, 2, FALSE);
-    gtk_table_set_row_spacings(GTK_TABLE(t), 3);
-    gtk_table_set_col_spacings(GTK_TABLE(t), 5);
-    gtk_box_pack_start(GTK_BOX (hbox2), t, FALSE, TRUE, 0);
-
-    //Edge
-    label = gtk_label_new(_("Edge:"));
-    gtk_misc_set_alignment(GTK_MISC(label), 0.0, 0.5);
-    gtk_widget_show(label);
-    gtk_table_attach(GTK_TABLE(t), label, 0, 1, 0, 1, GTK_FILL, 0, 0, 0);
-    gtk_size_group_add_widget(sg, label);
-
-    edge_opt = gtk_combo_box_new_text();
-    gtk_combo_box_append_text(GTK_COMBO_BOX(edge_opt), _("Left"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(edge_opt), _("Right"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(edge_opt), _("Top"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(edge_opt), _("Bottom"));
-    update_opt_menu(edge_opt, p->edge - 1);
-
-    g_signal_connect(G_OBJECT(edge_opt), "changed", G_CALLBACK(set_edge), NULL);
-
-    gtk_widget_show(edge_opt);
-
-    hbox = gtk_hbox_new(FALSE, 0);
-    gtk_box_pack_start(GTK_BOX (hbox), edge_opt, FALSE, TRUE, 0);
-    gtk_table_attach(GTK_TABLE(t), hbox, 1, 2, 0, 1, GTK_FILL, 0, 0, 0);
-    gtk_label_set_mnemonic_widget(GTK_LABEL(label), edge_opt);
-
-    //Alignment
-    label = gtk_label_new(_("Alignment:"));
-    gtk_misc_set_alignment(GTK_MISC(label), 0.0, 0.5);
-    gtk_widget_show(label);
-    gtk_size_group_add_widget(sg, label);
-
-    gtk_table_attach(GTK_TABLE(t), label, 0, 1, 1, 2, GTK_FILL, 0, 0, 0);
-
-    allign_opt = gtk_combo_box_new_text();
-    gtk_combo_box_append_text(GTK_COMBO_BOX(allign_opt), _("Left"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(allign_opt), _("Center"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(allign_opt), _("Right"));
-    update_opt_menu(allign_opt, p->allign - 1);
-    g_signal_connect(G_OBJECT(allign_opt), "changed", G_CALLBACK(set_allign), NULL);
-    gtk_widget_show(allign_opt);
-
-    hbox = gtk_hbox_new(FALSE, 0);
-    gtk_box_pack_start(GTK_BOX (hbox), allign_opt, FALSE, TRUE, 0);
-    gtk_table_attach(GTK_TABLE(t), hbox, 1, 2, 1, 2, GTK_FILL, 0, 0, 0);
-    gtk_label_set_mnemonic_widget(GTK_LABEL(label), allign_opt);
-
-
-    //Margin
-    margin_label = gtk_label_new(_("Margin:"));
-    gtk_misc_set_alignment(GTK_MISC(margin_label), 0.0, 0.5);
-    gtk_widget_show(margin_label);
-
-    gtk_table_attach(GTK_TABLE(t), margin_label, 2, 3, 1, 2, GTK_FILL, 0, 0, 0);
-
-    margin_adj = (GtkAdjustment *) gtk_adjustment_new (0.0, 0.0, gdk_screen_width(), 1.0, 5.0, 5.0);
-    margin_spinb = gtk_spin_button_new (margin_adj, 1.0, 0);
-    gtk_spin_button_set_value(GTK_SPIN_BUTTON(margin_spinb), p->margin);
-    g_signal_connect( margin_spinb, "value-changed",
-                      G_CALLBACK(set_margin), NULL);
-    gtk_table_attach(GTK_TABLE(t), margin_spinb, 3, 4, 1, 2, GTK_FILL, 0, 0, 0);
-    gtk_table_set_col_spacing(GTK_TABLE(t), 1, 20);
-
-    RET(frame);
-}
-
 static void
-set_width(  Panel* p, GtkSpinButton* spin, gpointer user_data )
+set_width(  GtkSpinButton* spin, Panel* p )
 {
     p->width = (int)gtk_spin_button_get_value(spin);
     update_panel_geometry(p);
 }
 
 static void
-set_height( Panel* p, GtkSpinButton* spin, gpointer user_data )
+set_height( GtkSpinButton* spin, Panel* p )
 {
     p->height = (int)gtk_spin_button_get_value(spin);
     update_panel_geometry(p);
 }
 
 static void
-set_width_type( Panel* p,GtkWidget *item, gpointer bp)
+set_width_type( GtkWidget *item, Panel* p )
 {
+    GtkWidget* spin;
     int widthtype;
     gboolean t;
-
-    ENTER;
-
     widthtype = gtk_combo_box_get_active(GTK_COMBO_BOX(item)) + 1;
     p->widthtype = widthtype;
-    t = (widthtype != WIDTH_REQUEST);
-    gtk_widget_set_sensitive(width_spinb, t);
-    if (widthtype == WIDTH_PERCENT) {
-        width_adj->upper = 100;
-        width_adj->value = width_adj->upper;
-    } else if  (widthtype == WIDTH_PIXEL) {
-        width_adj->upper = gdk_screen_width();
-        width_adj->value = width_adj->upper;
-    } else
-        RET();
 
-    gtk_adjustment_changed(width_adj);
-    gtk_adjustment_value_changed(width_adj);
+    spin = ptk_ui_xml_get_widget( gtk_widget_get_toplevel(item), "width" );
+    t = (widthtype != WIDTH_REQUEST);
+    gtk_widget_set_sensitive( spin, t );
+    if (widthtype == WIDTH_PERCENT) {
+        gtk_spin_button_set_range( (GtkSpinButton*)spin, 0, 100 );
+        gtk_spin_button_set_value( (GtkSpinButton*)spin, 100 );
+    } else if  (widthtype == WIDTH_PIXEL) {
+        gtk_spin_button_set_range( (GtkSpinButton*)spin, 0, gdk_screen_width() );
+        gtk_spin_button_set_value( (GtkSpinButton*)spin, gdk_screen_width() );
+    } else
+        return;
 
     update_panel_geometry(p);
-    RET();
-}
-
-
-static GtkWidget *
-mk_size( Panel* p )
-{
-    GtkWidget *hbox, *hbox2, *label, *frame;
-    GtkWidget *t;
-
-    ENTER;
-    frame = gtk_frame_new(NULL);
-    gtk_frame_set_shadow_type(GTK_FRAME (frame), GTK_SHADOW_NONE);
-    gtk_container_set_border_width (GTK_CONTAINER (frame), 6);
-    label = gtk_label_new(NULL);
-    gtk_label_set_markup(GTK_LABEL (label),_("<b>Size</b>"));
-    gtk_frame_set_label_widget(GTK_FRAME (frame), label);
-
-    hbox2 = gtk_hbox_new(FALSE, 0);
-    gtk_container_set_border_width (GTK_CONTAINER (hbox2), 6);
-    gtk_container_add (GTK_CONTAINER (frame), hbox2);
-
-    hbox = gtk_hbox_new(FALSE, 0);
-    gtk_widget_set_size_request(hbox, 20, 1);
-    gtk_box_pack_start(GTK_BOX (hbox2), hbox, FALSE, TRUE, 0);
-
-    t = gtk_table_new(3, 2, FALSE);
-    gtk_table_set_row_spacings(GTK_TABLE(t), 3);
-    gtk_table_set_col_spacings(GTK_TABLE(t), 5);
-    gtk_box_pack_start(GTK_BOX (hbox2), t, FALSE, TRUE, 0);
-
-    //width
-    label = gtk_label_new(_("Width:"));
-    gtk_misc_set_alignment(GTK_MISC(label), 0.0, 0.5);
-    gtk_widget_show(label);
-    gtk_table_attach(GTK_TABLE(t), label, 0, 1, 0, 1, GTK_FILL, 0, 0, 0);
-    gtk_size_group_add_widget(sg, label);
-
-    width_adj = (GtkAdjustment *) gtk_adjustment_new (20.0, 0.0, 2100.0, 1.0, 5.0, 5.0);
-    width_spinb = gtk_spin_button_new (width_adj, 1.0, 0);
-    gtk_adjustment_set_value(width_adj, p->width);
-    g_signal_connect( width_spinb, "value-changed",
-                      G_CALLBACK(set_width), NULL );
-    gtk_table_attach(GTK_TABLE(t), width_spinb, 1, 2, 0, 1, GTK_FILL, 0, 0, 0);
-
-    width_opt = gtk_combo_box_new_text();
-    gtk_combo_box_append_text(GTK_COMBO_BOX(width_opt), _("dynamic"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(width_opt), _("pixels"));
-    gtk_combo_box_append_text(GTK_COMBO_BOX(width_opt), _("% of edge"));
-    update_opt_menu(width_opt, p->widthtype - 1);
-    g_signal_connect(G_OBJECT(width_opt), "changed",
-                     G_CALLBACK(set_width_type), NULL);
-    gtk_widget_show(width_opt);
-
-    hbox = gtk_hbox_new(FALSE, 0);
-    gtk_box_pack_start(GTK_BOX (hbox), width_opt, FALSE, TRUE, 0);
-    gtk_table_attach(GTK_TABLE(t), hbox, 2, 3, 0, 1, GTK_FILL, 0, 0, 0);
-    gtk_label_set_mnemonic_widget(GTK_LABEL(label), width_opt);
-
-
-    //height
-    label = gtk_label_new(_("Height:"));
-    gtk_misc_set_alignment(GTK_MISC(label), 0.0, 0.5);
-    gtk_widget_show(label);
-    gtk_table_attach(GTK_TABLE(t), label, 0, 1, 1, 2, GTK_FILL, 0, 0, 0);
-    gtk_size_group_add_widget(sg, label);
-
-    height_adj = (GtkAdjustment *) gtk_adjustment_new (30.0, 0.0, 300.0, 1.0, 5.0, 5.0);
-    height_spinb = gtk_spin_button_new (height_adj, 1.0, 0);
-    gtk_adjustment_set_value(height_adj, p->height);
-    g_signal_connect( height_spinb, "value-changed",
-                      G_CALLBACK(set_height), NULL );
-    gtk_table_attach(GTK_TABLE(t), height_spinb, 1, 2, 1, 2, GTK_FILL, 0, 0, 0);
-
-    height_opt = gtk_combo_box_new_text();
-    gtk_combo_box_append_text(GTK_COMBO_BOX(height_opt), _("pixels"));
-    update_opt_menu(height_opt, HEIGHT_PIXEL - 1);
-    //g_signal_connect(G_OBJECT(height_opt), "changed", G_CALLBACK(set_height), NULL);
-    gtk_widget_show(height_opt);
-
-    hbox = gtk_hbox_new(FALSE, 0);
-    gtk_box_pack_start(GTK_BOX (hbox), height_opt, FALSE, TRUE, 0);
-    gtk_table_attach(GTK_TABLE(t), hbox, 2, 3, 1, 2, GTK_FILL, 0, 0, 0);
-    gtk_label_set_mnemonic_widget(GTK_LABEL(label), height_opt);
-
-    RET(frame);
 }
 
 static void
@@ -434,9 +223,10 @@ transparency_toggle( GtkWidget *b, Panel* p)
 
     ENTER;
     t = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(b));
+/*
     gtk_widget_set_sensitive(tr_colorl, t);
     gtk_widget_set_sensitive(tr_colorb, t);
-
+*/
     /* Update background immediately. */
     if (t&&!p->transparent) {
         p->transparent = 1;
@@ -447,42 +237,11 @@ transparency_toggle( GtkWidget *b, Panel* p)
     RET();
 }
 
-GtkWidget *
-mk_transparency( Panel* p )
-{
-    GtkWidget *label, *frame;
-
-    ENTER;
-    frame = gtk_hbox_new(FALSE, 0);
-
-    tr_checkb = gtk_radio_button_new_with_label(NULL, _("Enable Transparency"));
-    gtk_widget_show(tr_checkb);
-    gtk_box_pack_start(GTK_BOX (frame), tr_checkb, FALSE, FALSE, 0);
-
-    tr_colorl = gtk_label_new(_("Tint color:"));
-    gtk_misc_set_alignment(GTK_MISC(tr_colorl), 0.0, 0.5);
-    gtk_widget_show(tr_colorl);
-    gtk_box_pack_start(GTK_BOX (frame), tr_colorl, FALSE, FALSE, 5);
-
-    tr_colorb = gtk_color_button_new();
-    gtk_color_button_set_use_alpha(GTK_COLOR_BUTTON(tr_colorb), TRUE);
-    gtk_color_button_set_alpha (GTK_COLOR_BUTTON(tr_colorb), 65535/256*125);
-    gtk_box_pack_start(GTK_BOX (frame), tr_colorb, FALSE, FALSE, 0);
-    gtk_color_button_set_color(GTK_COLOR_BUTTON(tr_colorb), &p->gtintcolor);
-    gtk_color_button_set_alpha (GTK_COLOR_BUTTON(tr_colorb), 256*p->alpha);
-
-    if (!p->transparent) {
-        gtk_widget_set_sensitive(tr_colorb, FALSE);
-    }
-
-    RET(frame);
-}
-
 static void
 background_toggle( GtkWidget *b, Panel* p)
 {
-    ENTER;
-    gtk_widget_set_sensitive(bg_selfileb, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(b)));
+    GtkWidget* fc = ptk_ui_xml_get_widget( gtk_widget_get_toplevel(b), "img_file" );
+    gtk_widget_set_sensitive( fc, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(b)));
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(b))) {
         if (!p->background) {
             p->transparent = 0;
@@ -492,49 +251,17 @@ background_toggle( GtkWidget *b, Panel* p)
             //restart();
             }
     }
-
-    RET();
 }
 
 static void
 background_changed(GtkFileChooser *file_chooser,  Panel* p )
 {
-    ENTER;
-
     p->transparent = 0;
     p->background = 1;
     p->background_file = g_strdup(gtk_file_chooser_get_filename(file_chooser));
     /* Update background immediately. */
     panel_update_background( p );
     //restart();
-    RET();
-}
-
-GtkWidget *
-mk_appearanceimg( Panel* p )
-{
-    GtkWidget *frame;
-
-    ENTER;
-    frame = gtk_vbox_new(FALSE, 0);
-
-    bg_checkb = gtk_radio_button_new_with_label(NULL, _("Enable Image:"));
-    gtk_box_pack_start(GTK_BOX(frame), GTK_WIDGET(bg_checkb), FALSE, FALSE, 5);
-
-    bg_selfileb = gtk_file_chooser_button_new (_("Select a background image file"), GTK_FILE_CHOOSER_ACTION_OPEN);
-    gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (bg_selfileb), PACKAGE_DATA_DIR "/lxpanel/images");
-
-    gtk_box_pack_start(GTK_BOX (frame), bg_selfileb, FALSE, FALSE, 0);
-
-    if (p->background_file)
-        gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (bg_selfileb), p->background_file);
-
-    if (!p->background)
-        gtk_widget_set_sensitive(bg_selfileb, FALSE);
-
-    g_signal_connect (GTK_FILE_CHOOSER (bg_selfileb), "file-set", G_CALLBACK (background_changed), NULL);
-
-    RET(frame);
 }
 
 static void
@@ -576,100 +303,6 @@ on_use_font_color_toggled( GtkToggleButton* btn,   Panel* p )
     gtk_widget_queue_draw( p->topgwin );
 }
 
-GtkWidget *
-mk_appearance( Panel* p )
-{
-    GtkWidget *top_vbox, *vbox, *vbox2, *label, *frame, *incframe, *hbox, *fnt, *clr, *use_fnt_clr;
-    GSList *check_group;
-
-    ENTER;
-    top_vbox = gtk_vbox_new( FALSE, 1 );
-
-    frame = gtk_frame_new(NULL);
-    gtk_box_pack_start( (GtkBox*)top_vbox, frame, FALSE, TRUE, 0 );
-
-    gtk_frame_set_shadow_type(GTK_FRAME (frame), GTK_SHADOW_NONE);
-    gtk_container_set_border_width (GTK_CONTAINER (frame), 6);
-    label = gtk_label_new(NULL);
-    gtk_label_set_markup(GTK_LABEL (label),_("<b>Background</b>"));
-    gtk_frame_set_label_widget(GTK_FRAME (frame), label);
-
-    vbox2 = gtk_vbox_new(FALSE, 0);
-    gtk_container_set_border_width (GTK_CONTAINER (vbox2), 6);
-    gtk_container_add (GTK_CONTAINER (frame), vbox2);
-
-    vbox = gtk_vbox_new(FALSE, 0);
-    gtk_box_pack_start(GTK_BOX (vbox2), vbox, FALSE, TRUE, 0);
-    gtk_widget_set_size_request(vbox, 20, 1);
-
-    vbox = gtk_vbox_new(FALSE, 5);
-    gtk_box_pack_start(GTK_BOX (vbox2), vbox, FALSE, TRUE, 0);
-
-    /* Disable Background option */
-    bg_checkdis = gtk_radio_button_new_with_label(NULL, _("None (Use system theme)"));
-    gtk_widget_show(bg_checkdis);
-
-    gtk_box_pack_start(GTK_BOX (vbox), bg_checkdis, FALSE, FALSE, 0);
-
-    incframe = mk_transparency( p );
-    gtk_box_pack_start(GTK_BOX (vbox), incframe, FALSE, FALSE, 0);
-
-    incframe = mk_appearanceimg( p );
-    gtk_box_pack_start(GTK_BOX (vbox), incframe, FALSE, FALSE, 0);
-
-    /* set group */
-    check_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(bg_checkdis));
-    gtk_radio_button_set_group(GTK_RADIO_BUTTON(bg_checkb), check_group);
-    check_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(bg_checkb));
-    gtk_radio_button_set_group(GTK_RADIO_BUTTON(tr_checkb), check_group);
-
-    /* default */
-    if (p->background)
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(bg_checkb), TRUE);
-    else if (p->transparent)
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(tr_checkb), TRUE);
-    else
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(bg_checkdis), TRUE);
-
-    frame = gtk_frame_new(NULL);
-    gtk_box_pack_start( (GtkBox*)top_vbox, frame, FALSE, TRUE, 0 );
-
-    gtk_frame_set_shadow_type(GTK_FRAME (frame), GTK_SHADOW_NONE);
-    gtk_container_set_border_width (GTK_CONTAINER (frame), 6);
-    label = gtk_label_new(NULL);
-    gtk_label_set_markup(GTK_LABEL (label),_("<b>Font</b>"));
-    gtk_frame_set_label_widget(GTK_FRAME (frame), label);
-
-    hbox = gtk_hbox_new(FALSE, 0);
-    gtk_container_set_border_width (GTK_CONTAINER (hbox), 6);
-    gtk_container_add (GTK_CONTAINER (frame), hbox);
-
-//  fnt = gtk_font_button_new();
-//  gtk_box_pack_start( (GtkBox*)hbox, fnt, TRUE, TRUE, 4 );
-
-    use_fnt_clr = gtk_check_button_new_with_label( _("Custom Color") );
-    gtk_box_pack_start( (GtkBox*)hbox, use_fnt_clr, FALSE, FALSE, 4 );
-    gtk_toggle_button_set_active( (GtkToggleButton*) use_fnt_clr, p->usefontcolor );
-
-    clr = gtk_color_button_new();
-    gtk_box_pack_start( (GtkBox*)hbox, clr, FALSE, FALSE, 4 );
-    gtk_color_button_set_color( (GtkColorButton*)clr, &p->gfontcolor );
-    g_signal_connect( clr, "color-set", G_CALLBACK( on_use_font_color_toggled ), p );
-
-    gtk_widget_show_all( top_vbox );
-
-    /* background */
-    g_signal_connect(bg_checkdis, "toggled", G_CALLBACK(background_disable_toggle), p);
-    g_signal_connect(bg_checkb, "toggled", G_CALLBACK(background_toggle), p);
-    g_signal_connect(tr_checkb, "toggled", G_CALLBACK(transparency_toggle), p);
-
-    /* font */
-    g_object_set_data( use_fnt_clr, "clr", clr );
-    g_signal_connect(use_fnt_clr, "toggled", G_CALLBACK(on_use_font_color_toggled), p);
-
-    RET(top_vbox);
-}
-
 static void
 set_dock_type(GtkToggleButton* toggle,  Panel* p )
 {
@@ -685,80 +318,6 @@ set_struct(GtkToggleButton* toggle,  Panel* p )
 {
     p->setstrut = gtk_toggle_button_get_active(toggle) ? 1 : 0;
     update_panel_geometry(p);
-}
-
-GtkWidget *
-mk_properties( Panel* p )
-{
-    GtkWidget *vbox, *hbox, *hbox2, *label, *frame;
-
-    ENTER;
-    frame = gtk_frame_new(NULL);
-    gtk_frame_set_shadow_type(GTK_FRAME (frame), GTK_SHADOW_NONE);
-    gtk_container_set_border_width (GTK_CONTAINER (frame), 6);
-    label = gtk_label_new(NULL);
-    gtk_label_set_markup(GTK_LABEL (label),_("<b>Properties</b>"));
-    gtk_frame_set_label_widget(GTK_FRAME (frame), label);
-
-    hbox2 = gtk_hbox_new(FALSE, 0);
-    gtk_container_add (GTK_CONTAINER (frame), hbox2);
-    gtk_container_set_border_width (GTK_CONTAINER (hbox2), 6);
-
-    hbox = gtk_hbox_new(FALSE, 0);
-    gtk_box_pack_start(GTK_BOX (hbox2), hbox, FALSE, TRUE, 0);
-    gtk_widget_set_size_request(hbox, 20, 1);
-
-    vbox = gtk_vbox_new(FALSE, 0);
-    gtk_box_pack_start(GTK_BOX (hbox2), vbox, FALSE, TRUE, 0);
-
-    /* Explaination from Ruediger Arp <ruediger@gmx.net>:
-        "Set Dock Type", it is referring to the behaviour of
-        dockable applications such as those found in WindowMaker (e.g.
-        http://www.cs.mun.ca/~gstarkes/wmaker/dockapps ) and other
-        lightweight window managers. These dockapps are probably being
-        treated in some special way.
-    */
-    prop_dt_checkb = gtk_check_button_new_with_label(
-                        _("Make window managers treat the panel as dock"));
-    update_toggle_button(prop_dt_checkb, p->setdocktype);
-    g_signal_connect( prop_dt_checkb, "toggled",
-                      G_CALLBACK(set_dock_type), NULL );
-    gtk_box_pack_start(GTK_BOX (vbox), prop_dt_checkb, FALSE, FALSE, 0);
-
-    /* Explaination from Ruediger Arp <ruediger@gmx.net>:
-        "Set Strut": Reserve panel's space so that it will not be
-        covered by maximazied windows.
-        This is clearly an option to avoid the panel being
-        covered/hidden by other applications so that it always is
-        accessible. The panel "steals" some screen estate which cannot
-        be accessed by other applications.
-        GNOME Panel acts this way, too.
-    */
-    prop_st_checkb = gtk_check_button_new_with_label(
-                        _("Reserve space, and not covered by maximized windows"));
-    update_toggle_button(prop_st_checkb, p->setstrut);
-    g_signal_connect( prop_st_checkb, "toggled",
-                      G_CALLBACK(set_struct), NULL );
-    gtk_box_pack_start(GTK_BOX (vbox), prop_st_checkb, FALSE, FALSE, 0);
-
-    RET(frame);
-}
-
-static void
-dialog_destroy_event(GtkWidget * widget, GdkEvent * event, gpointer data)
-{
-    ENTER;
-    dialog = NULL;
-    RET();
-}
-
-static gint
-dialog_delete_event( GtkWidget *widget, GdkEvent  *event, gpointer   data )
-{
-
-    ENTER;
-    //if (!p->self_destroy)
-    RET(FALSE);
 }
 
 static void
@@ -1081,240 +640,6 @@ static void on_movedown_plugin(  GtkButton* btn, GtkTreeView* view )
     }
 }
 
-static GtkWidget *
-mk_tab_plugins( Panel* p )
-{
-    GtkWidget *hbox, *vbox, *label;
-    GtkWidget *scroll, *plugin_list, *button;
-
-    hbox = gtk_hbox_new( FALSE, 2 );
-    gtk_container_set_border_width( (GtkContainer*)hbox, 4 );
-
-    vbox = gtk_vbox_new( FALSE, 2 );
-    gtk_box_pack_start( GTK_BOX(hbox), vbox, TRUE, TRUE, 2 );
-
-    /* Left pane */
-    plugin_list = gtk_tree_view_new();
-    /* plugin list */
-    scroll = gtk_scrolled_window_new(NULL, NULL);
-    gtk_scrolled_window_set_policy( GTK_SCROLLED_WINDOW(scroll),
-                            GTK_POLICY_AUTOMATIC,
-                    GTK_POLICY_AUTOMATIC);
-    gtk_scrolled_window_set_shadow_type( GTK_SCROLLED_WINDOW(scroll),
-                                 GTK_SHADOW_IN );
-    gtk_container_add( GTK_CONTAINER(scroll), plugin_list );
-    gtk_box_pack_start( GTK_BOX( vbox ), scroll, TRUE, TRUE, 4 );
-
-    /* Label displaying plugin descriptions */
-    label = gtk_label_new("");
-    gtk_label_set_ellipsize(GTK_LABEL(label), PANGO_ELLIPSIZE_END);
-
-    gtk_box_pack_start( GTK_BOX(vbox), label, FALSE, FALSE, 4 );
-
-    vbox = gtk_vbox_new( FALSE, 2 );
-    gtk_box_pack_start( GTK_BOX( hbox ), vbox, FALSE, FALSE, 2 );
-
-    /* buttons used to edit plugin list */
-    button = gtk_button_new_from_stock( GTK_STOCK_ADD );
-    gtk_box_pack_start( GTK_BOX( vbox ), button, FALSE, FALSE, 2 );
-    g_signal_connect( button, "clicked", G_CALLBACK(on_add_plugin), plugin_list );
-
-    button = gtk_button_new_from_stock( GTK_STOCK_EDIT );
-    gtk_box_pack_start( GTK_BOX( vbox ), button, FALSE, FALSE, 2 );
-    g_signal_connect_swapped( button, "clicked", G_CALLBACK(modify_plugin), plugin_list );
-    g_object_set_data( G_OBJECT(plugin_list), "edit_btn", button );
-
-    button = gtk_button_new_from_stock( GTK_STOCK_REMOVE );
-    gtk_box_pack_start( GTK_BOX( vbox ), button, FALSE, FALSE, 2 );
-    g_signal_connect( button, "clicked", G_CALLBACK(on_remove_plugin), plugin_list );
-
-    button = gtk_button_new();
-    gtk_container_add( GTK_CONTAINER(button),
-               gtk_image_new_from_stock(GTK_STOCK_GO_UP,
-                                    GTK_ICON_SIZE_BUTTON) );
-    gtk_box_pack_start( GTK_BOX( vbox ), button, FALSE, FALSE, 2 );
-    g_signal_connect( button, "clicked", G_CALLBACK(on_moveup_plugin), plugin_list );
-
-    button = gtk_button_new();
-    gtk_container_add( GTK_CONTAINER(button),
-               gtk_image_new_from_stock(GTK_STOCK_GO_DOWN,
-                                    GTK_ICON_SIZE_BUTTON) );
-    gtk_box_pack_start( GTK_BOX( vbox ), button, FALSE, FALSE, 2 );
-    g_signal_connect( button, "clicked", G_CALLBACK(on_movedown_plugin), plugin_list );
-
-    init_plugin_list( p, GTK_TREE_VIEW( plugin_list ), label );
-
-    RET(hbox);
-}
-
-static GtkWidget *
-mk_tab_general( Panel* p )
-{
-    GtkWidget *frame, *page;
-
-    /*
-    sw = gtk_scrolled_window_new(NULL, NULL);
-    gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (sw), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
-    gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (sw), GTK_SHADOW_NONE);
-    gtk_container_set_border_width(GTK_CONTAINER(sw), 0);
-    */
-    page = gtk_vbox_new(FALSE, 1);
-
-    sg = gtk_size_group_new(GTK_SIZE_GROUP_HORIZONTAL);
-
-    //position
-    frame = mk_position( p );
-    gtk_box_pack_start(GTK_BOX (page), frame, FALSE, TRUE, 0);
-
-    //size
-    frame = mk_size( p );
-    gtk_box_pack_start(GTK_BOX (page), frame, FALSE, TRUE, 0);
-
-    //properties
-    frame = mk_properties( p );
-    gtk_box_pack_start(GTK_BOX (page), frame, FALSE, TRUE, 0);
-    /*
-    gtk_scrolled_window_add_with_viewport(GTK_SCROLLED_WINDOW (sw), page);
-    */
-    RET(page);
-}
-
-static GtkWidget *
-mk_tab_appearance( Panel* p )
-{
-    GtkWidget *frame, *page;
-    page = gtk_vbox_new(FALSE, 1);
-
-    sg = gtk_size_group_new(GTK_SIZE_GROUP_HORIZONTAL);
-
-    //appearance
-    frame = mk_appearance(p);
-    gtk_box_pack_start(GTK_BOX (page), frame, FALSE, TRUE, 0);
-
-    RET(page);
-}
-
-static GtkWidget *
-mk_tab_app( Panel* p )
-{
-    GtkWidget *vbox, *label, *entry;
-    GtkTable *tbl;
-
-    vbox = gtk_vbox_new( FALSE, 2 );
-    gtk_container_set_border_width( GTK_CONTAINER(vbox), 8 );
-
-    label = gtk_label_new("");
-    gtk_label_set_markup(GTK_LABEL(label), _("<b>Set Preferred Applications</b>"));
-    gtk_misc_set_alignment(GTK_MISC(label), 0.0, 0.5);
-    gtk_box_pack_start( GTK_BOX(vbox), label, FALSE, FALSE, 2 );
-
-    tbl = (GtkTable*)gtk_table_new( 3, 2, FALSE );
-    gtk_box_pack_start( GTK_BOX(vbox), (GtkWidget*)tbl, TRUE, TRUE, 2 );
-
-    gtk_table_set_col_spacings( tbl, 4 );
-    gtk_table_set_row_spacings( tbl, 4 );
-
-    label = gtk_label_new( _("File Manager:") );
-    gtk_misc_set_alignment( label, 0, 0.5 );
-    entry = gtk_entry_new();
-    if (file_manager_cmd)
-        gtk_entry_set_text( GTK_ENTRY(entry), file_manager_cmd );
-    g_signal_connect( entry, "changed",
-                      G_CALLBACK(on_entry_changed),
-                      &file_manager_cmd);
-    gtk_table_attach( tbl, label, 0, 1, 0, 1,
-                      GTK_FILL, GTK_FILL, 2, 2 );
-    gtk_table_attach( tbl, entry, 1, 2, 0, 1,
-                      GTK_FILL|GTK_EXPAND, GTK_FILL, 2, 2 );
-
-    label = gtk_label_new( _("Terminal Emulator:") );
-    gtk_misc_set_alignment( label, 0, 0.5 );
-    entry = gtk_entry_new();
-    if (terminal_cmd)
-        gtk_entry_set_text( GTK_ENTRY(entry), terminal_cmd );
-    g_signal_connect( entry, "changed",
-                      G_CALLBACK(on_entry_changed),
-                      &terminal_cmd);
-    gtk_table_attach( tbl, label, 0, 1, 1, 2,
-                      GTK_FILL, GTK_FILL, 2, 2 );
-    gtk_table_attach( tbl, entry, 1, 2, 1, 2,
-                      GTK_FILL|GTK_EXPAND, GTK_FILL, 2, 2 );
-
-    /* If we are under LXSession, setting logout command is unnecessary. */
-    if( ! getenv("_LXSESSION_PID") ) {
-        label = gtk_label_new( _("Logout Command:") );
-        gtk_misc_set_alignment( label, 0, 0.5 );
-        entry = gtk_entry_new();
-        if(logout_cmd)
-            gtk_entry_set_text( GTK_ENTRY(entry), logout_cmd );
-        g_signal_connect( entry, "changed",
-                        G_CALLBACK(on_entry_changed),
-                        &logout_cmd);
-        gtk_table_attach( tbl, label, 0, 1, 2, 3,
-                        GTK_FILL, GTK_FILL, 2, 2 );
-        gtk_table_attach( tbl, entry, 1, 2, 2, 3,
-                        GTK_FILL|GTK_EXPAND, GTK_FILL, 2, 2 );
-    }
-    return vbox;
-}
-
-static GtkWidget* mk_dialog( Panel* p )
-{
-    GtkWidget *sw, *nb, *label;
-
-    dialog = gtk_dialog_new_with_buttons (_("lxpanel configurator"),
-          NULL,
-          0, //GTK_DIALOG_DESTROY_WITH_PARENT,
-          GTK_STOCK_CLOSE,
-          GTK_RESPONSE_CLOSE,
-          NULL);
-
-    g_signal_connect (G_OBJECT(dialog), "response",     (GCallback) response_event, p);
-    g_signal_connect (G_OBJECT(dialog), "destroy",      (GCallback) dialog_destroy_event, NULL);
-    g_signal_connect (G_OBJECT(dialog), "delete_event", (GCallback) dialog_delete_event,  NULL);
-    gtk_window_set_modal(GTK_WINDOW(dialog), FALSE);
-    gtk_window_set_position( GTK_WINDOW(dialog), GTK_WIN_POS_CENTER );
-
-    /* fix background */
-    if (p->background)
-        gtk_widget_set_style(dialog, p->defstyle);
-
-    /*
-    gtk_window_set_skip_taskbar_hint(GTK_WINDOW(dialog), TRUE);
-    gtk_window_set_skip_pager_hint(GTK_WINDOW(dialog), TRUE);
-    */
-    nb = gtk_notebook_new();
-    gtk_notebook_set_show_border (GTK_NOTEBOOK(nb), FALSE);
-    gtk_container_add (GTK_CONTAINER (GTK_DIALOG(dialog)->vbox), nb);
-
-    sw = mk_tab_general(p);
-    label = gtk_label_new(_("General"));
-    gtk_misc_set_padding(GTK_MISC(label), 4, 1);
-    gtk_notebook_append_page(GTK_NOTEBOOK(nb), sw, label);
-
-    sw = mk_tab_appearance(p);
-    label = gtk_label_new(_("Appearance"));
-    gtk_misc_set_padding(GTK_MISC(label), 4, 1);
-    gtk_notebook_append_page(GTK_NOTEBOOK(nb), sw, label);
-
-    sw = mk_tab_plugins(p);
-    label = gtk_label_new(_("Plugins"));
-    gtk_misc_set_padding(GTK_MISC(label), 4, 1);
-    gtk_notebook_append_page(GTK_NOTEBOOK(nb), sw, label);
-
-    sw = mk_tab_app(p);
-    label = gtk_label_new(_("Applications"));
-    gtk_misc_set_padding(GTK_MISC(label), 4, 1);
-    gtk_notebook_append_page(GTK_NOTEBOOK(nb), sw, label);
-
-    g_object_unref(sg);
-
-    //gtk_widget_show_all(page);
-    gtk_widget_show_all(dialog);
-
-    RET(dialog);
-}
-
 static void
 update_opt_menu(GtkWidget *w, int ind)
 {
@@ -1349,13 +674,201 @@ update_toggle_button(GtkWidget *w, gboolean n)
 }
 
 void
-configure( Panel* p )
+panel_configure( Panel* p, int sel_page  )
 {
-    ENTER;
-    if( ! dialog )
-        dialog = mk_dialog( p );
-    gtk_window_present((GtkWindow*)dialog);
-    RET();
+    PtkUIXml* xml;
+    GtkWidget *w, *w2;
+
+    if( p->pref_dialog )
+    {
+        gtk_window_present((GtkWindow*)p->pref_dialog);
+        return;
+    }
+
+    p->pref_dialog = ptk_ui_xml_create_widget_from_file( PACKAGE_DATA_DIR "/lxpanel/ui/panel-pref.glade" );
+    g_signal_connect(p->pref_dialog, "response",     (GCallback) response_event, p);
+    g_object_add_weak_pointer( p->pref_dialog, &p->pref_dialog );
+    gtk_window_set_position( (GtkWindow*)p->pref_dialog, GTK_WIN_POS_CENTER );
+
+    xml = ptk_ui_xml_get( p->pref_dialog );
+    /* position */
+    w = ptk_ui_xml_lookup( xml, "edge" );
+    update_opt_menu( w, p->edge - 1 );
+    g_signal_connect( w, "changed", G_CALLBACK(set_edge), p);
+
+    w = ptk_ui_xml_lookup( xml, "align" );
+    update_opt_menu( w, p->allign - 1 );
+    g_signal_connect( w, "changed", G_CALLBACK(set_allign), p);
+
+    w = ptk_ui_xml_lookup( xml, "margin" );
+    gtk_spin_button_set_value( (GtkSpinButton*)w, p->margin );
+    g_signal_connect( w, "value-changed",
+                      G_CALLBACK(set_margin), p);
+
+    /* size */
+    w = ptk_ui_xml_lookup( xml, "width" );
+    gtk_widget_set_sensitive( w, p->widthtype != WIDTH_REQUEST );
+    if( p->widthtype == WIDTH_PERCENT) {
+        gtk_spin_button_set_range( (GtkSpinButton*)w, 0, 100 );
+    } else if( p->widthtype == WIDTH_PIXEL) {
+        gtk_spin_button_set_range( (GtkSpinButton*)w, 0, gdk_screen_width() );
+    }
+    gtk_spin_button_set_value( (GtkSpinButton*)w, p->width );
+    g_signal_connect( w, "value-changed", G_CALLBACK(set_width), p );
+
+    w = ptk_ui_xml_lookup( xml, "width_unit" );
+    update_opt_menu( w, p->widthtype - 1 );
+    g_signal_connect( w, "changed",
+                     G_CALLBACK(set_width_type), p);
+
+    w = ptk_ui_xml_lookup( xml, "height" );
+    gtk_spin_button_set_value( (GtkSpinButton*)w, p->height );
+    g_signal_connect( w, "value-changed", G_CALLBACK(set_height), p );
+
+    w = ptk_ui_xml_lookup( xml, "height_unit" );
+    update_opt_menu( w, HEIGHT_PIXEL - 1);
+    //g_signal_connect( w, "changed", G_CALLBACK(set_height_type), NULL);
+
+    /* properties */
+
+    /* Explaination from Ruediger Arp <ruediger@gmx.net>:
+        "Set Dock Type", it is referring to the behaviour of
+        dockable applications such as those found in WindowMaker (e.g.
+        http://www.cs.mun.ca/~gstarkes/wmaker/dockapps ) and other
+        lightweight window managers. These dockapps are probably being
+        treated in some special way.
+    */
+    w = ptk_ui_xml_lookup( xml, "as_dock" );
+    update_toggle_button( w, p->setdocktype );
+    g_signal_connect( w, "toggled",
+                      G_CALLBACK(set_dock_type), p );
+
+    /* Explaination from Ruediger Arp <ruediger@gmx.net>:
+        "Set Strut": Reserve panel's space so that it will not be
+        covered by maximazied windows.
+        This is clearly an option to avoid the panel being
+        covered/hidden by other applications so that it always is
+        accessible. The panel "steals" some screen estate which cannot
+        be accessed by other applications.
+        GNOME Panel acts this way, too.
+    */
+    w = ptk_ui_xml_lookup( xml, "reserve_space" );
+    update_toggle_button( w, p->setstrut );
+    g_signal_connect( w, "toggled",
+                      G_CALLBACK(set_struct), p );
+
+    /* transparancy */
+    w = ptk_ui_xml_lookup( xml, "tint_clr" );
+    gtk_color_button_set_color((GtkColorButton*)w, &p->gtintcolor);
+    gtk_color_button_set_alpha((GtkColorButton*)w, 256*p->alpha);
+    if ( ! p->transparent )
+        gtk_widget_set_sensitive( w, FALSE );
+
+    /* background */
+    {
+        GtkWidget* none, *trans, *img;
+        GSList* group;
+        none = ptk_ui_xml_lookup( xml, "bg_none" );
+        trans = ptk_ui_xml_lookup( xml, "bg_transparency" );
+        img = ptk_ui_xml_lookup( xml, "bg_image" );
+
+        group = gtk_radio_button_get_group( (GtkRadioButton*)none );
+        gtk_radio_button_set_group( (GtkRadioButton*)trans, group );
+        group = gtk_radio_button_get_group( (GtkRadioButton*)trans );
+        gtk_radio_button_set_group( (GtkRadioButton*)img, group );
+
+        if (p->background)
+            gtk_toggle_button_set_active( (GtkToggleButton*)img, TRUE);
+        else if (p->transparent)
+            gtk_toggle_button_set_active( (GtkToggleButton*)trans, TRUE);
+        else
+            gtk_toggle_button_set_active( (GtkToggleButton*)none, TRUE);
+
+        g_signal_connect(none, "toggled", G_CALLBACK(background_disable_toggle), p);
+        g_signal_connect(trans, "toggled", G_CALLBACK(transparency_toggle), p);
+        g_signal_connect(img, "toggled", G_CALLBACK(background_toggle), p);
+
+        w = ptk_ui_xml_lookup( xml, "img_file" );
+        gtk_file_chooser_set_current_folder( (GtkFileChooser*)w, PACKAGE_DATA_DIR "/lxpanel/images");
+        if (p->background_file)
+            gtk_file_chooser_set_filename( (GtkFileChooser*)w, p->background_file);
+
+        if (!p->background)
+            gtk_widget_set_sensitive( w, FALSE);
+
+        /* FIXME: Important!! */
+        /* This is only available in gtk+ >= 2.12 */
+        /* Use gtk_file_chooser_button_new_with_dialog and intercept "response" signal instead. */
+        g_signal_connect( w, "file-set", G_CALLBACK (background_changed), p);
+    }
+
+    /* font color */
+    w = ptk_ui_xml_lookup( xml, "font_clr" );
+    gtk_color_button_set_color( (GtkColorButton*)w, &p->gfontcolor );
+    g_signal_connect( w, "color-set", G_CALLBACK( on_font_color_set ), p );
+
+    w2 = ptk_ui_xml_lookup( xml, "use_font_clr" );
+    gtk_toggle_button_set_active( (GtkToggleButton*)w2, p->usefontcolor );
+    g_object_set_data( w2, "clr", w );
+    g_signal_connect(w2, "toggled", G_CALLBACK(on_use_font_color_toggled), p);
+    if( ! p->usefontcolor )
+        gtk_widget_set_sensitive( w, FALSE );
+
+    /* plugin list */
+    {
+        GtkWidget* plugin_list = ptk_ui_xml_lookup( xml, "plugin_list" );
+
+        /* buttons used to edit plugin list */
+        w = ptk_ui_xml_lookup( xml, "add_btn" );
+        g_signal_connect( w, "clicked", G_CALLBACK(on_add_plugin), plugin_list );
+
+        w = ptk_ui_xml_lookup( xml, "edit_btn" );
+        g_signal_connect_swapped( w, "clicked", G_CALLBACK(modify_plugin), plugin_list );
+        g_object_set_data( G_OBJECT(plugin_list), "edit_btn", w );
+
+        w = ptk_ui_xml_lookup( xml, "remove_btn" );
+        g_signal_connect( w, "clicked", G_CALLBACK(on_remove_plugin), plugin_list );
+        w = ptk_ui_xml_lookup( xml, "moveup_btn" );
+        g_signal_connect( w, "clicked", G_CALLBACK(on_moveup_plugin), plugin_list );
+        w = ptk_ui_xml_lookup( xml, "movedown_btn" );
+        g_signal_connect( w, "clicked", G_CALLBACK(on_movedown_plugin), plugin_list );
+
+        w = ptk_ui_xml_lookup( xml, "plugin_desc" );
+        init_plugin_list( p, (GtkTreeView*)plugin_list, w );
+    }
+    /* advanced, applications */
+    w = ptk_ui_xml_lookup( xml, "file_manager" );
+    if (file_manager_cmd)
+        gtk_entry_set_text( (GtkEntry*)w, file_manager_cmd );
+    g_signal_connect( w, "changed",
+                      G_CALLBACK(on_entry_changed),
+                      &file_manager_cmd);
+
+    w = ptk_ui_xml_lookup( xml, "term" );
+    if (terminal_cmd)
+        gtk_entry_set_text( (GtkEntry*)w, terminal_cmd );
+    g_signal_connect( w, "changed",
+                      G_CALLBACK(on_entry_changed),
+                      &terminal_cmd);
+
+    /* If we are under LXSession, setting logout command is not necessary. */
+    w = ptk_ui_xml_lookup( xml, "logout" );
+    if( getenv("_LXSESSION_PID") ) {
+        gtk_widget_hide( w );
+        w = ptk_ui_xml_lookup( xml, "logout_label" );
+        gtk_widget_hide( w );
+    }
+    else {
+        if(logout_cmd)
+            gtk_entry_set_text( (GtkEntry*)w, logout_cmd );
+        g_signal_connect( w, "changed",
+                        G_CALLBACK(on_entry_changed),
+                        &logout_cmd);
+    }
+
+    gtk_widget_show((GtkWindow*)p->pref_dialog);
+    w = ptk_ui_xml_get_widget( p->pref_dialog, "notebook" );
+    gtk_notebook_set_current_page( (GtkNotebook*)w, sel_page );
 }
 
 void
@@ -1363,25 +876,27 @@ panel_global_config_save( Panel* p, FILE *fp)
 {
     GdkColor c;
 
-    fprintf(fp, "# lxpanel <profile> config file\n"
-                "# see http://lxpanel.sf.net/docs.html for complete configuration guide\n");
+    fprintf(fp, "# lxpanel <profile> config file. Manually editing is not recommended.\n"
+                "# Use preference dialog in lxpanel to adjust config when you can.\n\n");
     lxpanel_put_line(fp, "Global {");
-    lxpanel_put_str(fp, "edge", num2str(edge_pair, gtk_combo_box_get_active(GTK_COMBO_BOX(edge_opt)) + 1, "none"));
-    lxpanel_put_str(fp, "allign", num2str(allign_pair, gtk_combo_box_get_active(GTK_COMBO_BOX(allign_opt)) + 1, "none"));
-    lxpanel_put_int(fp, "margin", (int)margin_adj->value);
-    lxpanel_put_str(fp, "widthtype", num2str(width_pair, gtk_combo_box_get_active(GTK_COMBO_BOX(width_opt)) + 1, "none"));
-    lxpanel_put_int(fp, "width", (int) width_adj->value);
-    lxpanel_put_int(fp, "height", (int) height_adj->value);
-    lxpanel_put_str(fp, "transparent", num2str(bool_pair, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(tr_checkb)), "false"));
-    gtk_color_button_get_color(GTK_COLOR_BUTTON(tr_colorb), &c);
-    lxpanel_put_line(fp, "tintcolor = #%06x", gcolor2rgb24(&c));
-    lxpanel_put_int(fp, "alpha", gtk_color_button_get_alpha(GTK_COLOR_BUTTON(tr_colorb)) * 0xff / 0xffff);
-    lxpanel_put_str(fp, "setdocktype", num2str(bool_pair, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(prop_dt_checkb)), "true"));
-    lxpanel_put_str(fp, "setpartialstrut", num2str(bool_pair, gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(prop_st_checkb)), "true"));
-    lxpanel_put_str(fp, "useFontColor", p->usefontcolor ? "true" : "false");
-    lxpanel_put_line(fp, "FontColor = #%06x", gcolor2rgb24(&p->gfontcolor));
-    lxpanel_put_str(fp, "Background", gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(bg_checkb)) ? "true" : "false");
-    lxpanel_put_str(fp, "BackgroundFile", p->background_file );
+    lxpanel_put_str(fp, "edge", num2str(edge_pair, p->edge, "none"));
+    lxpanel_put_str(fp, "allign", num2str(allign_pair, p->allign, "none"));
+    lxpanel_put_int(fp, "margin", p->margin);
+    lxpanel_put_str(fp, "widthtype", num2str(width_pair, p->widthtype, "none"));
+    lxpanel_put_int(fp, "width", p->width);
+    lxpanel_put_int(fp, "height", p->height);
+    lxpanel_put_bool(fp, "transparent", p->transparent );
+//    gtk_color_button_get_color(GTK_COLOR_BUTTON(tr_colorb), &c);
+    lxpanel_put_line(fp, "tintcolor=#%06x", gcolor2rgb24(&p->gtintcolor));
+//    lxpanel_put_int(fp, "alpha", gtk_color_button_get_alpha(GTK_COLOR_BUTTON(tr_colorb)) * 0xff / 0xffff);
+/* FIXME: is this correct?? */
+    lxpanel_put_int(fp, "alpha", p->alpha * 0xff / 0xffff);
+    lxpanel_put_bool(fp, "setdocktype", p->setdocktype);
+    lxpanel_put_bool(fp, "setpartialstrut", p->setstrut);
+    lxpanel_put_bool(fp, "usefontcolor", p->usefontcolor);
+    lxpanel_put_line(fp, "fontcolor=#%06x", gcolor2rgb24(&p->gfontcolor));
+    lxpanel_put_bool(fp, "background", p->background );
+    lxpanel_put_str(fp, "backgroundfile", p->background_file );
     lxpanel_put_line(fp, "}\n");
 }
 
@@ -1418,11 +933,15 @@ void panel_config_save( Panel* p )
 
     dir = get_config_file( cprofile, "panels", FALSE );
     fname = g_build_filename( dir, p->name, NULL );
+
+    /* ensure the 'panels' dir exists */
+    if( ! g_file_test( dir, G_FILE_TEST_EXISTS ) )
+        g_mkdir_with_parents( dir, 0755 );
     g_free( dir );
 
     if (!(fp = fopen(fname, "w"))) {
-        g_free( fname );
         ERR("can't open for write %s:", fname);
+        g_free( fname );
         perror(NULL);
         RET();
     }
