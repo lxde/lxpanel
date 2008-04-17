@@ -53,6 +53,7 @@ GSList* all_panels = NULL;  /* a single-linked list storing all panels */
 
 gboolean is_restarting = FALSE;
 
+static int panel_start( Panel *p, char **fp );
 void panel_config_save(Panel* panel);   /* defined in configurator.c */
 
 /****************************************************
@@ -145,8 +146,10 @@ print_wmdata(Panel *p)
 /* defined in plugins/menu.c */
 gboolean show_system_menu( gpointer system_menu );
 
+/* defined in configurator.c */
+void panel_configure(Panel* p, int sel_page );
+
 /* built-in commands, defined in configurator.c */
-void configure(Panel* p, int sel_page );
 void restart(void);
 void gtk_run(void);
 
@@ -429,7 +432,7 @@ panel_press_button_event(GtkWidget *widget, GdkEvent *event, gpointer user_data)
             GtkWidget *menu;
             Panel* panel = (Panel*)user_data;
             /* create menu */
-            menu = lxpanel_get_panel_menu( panel, NULL, TRUE );
+            menu = lxpanel_get_panel_menu( panel, NULL, FALSE );
             gtk_menu_popup(menu, NULL, NULL, NULL, NULL, event_button->button, event_button->time);
             return TRUE;
     }
@@ -566,14 +569,96 @@ static void panel_popupmenu_remove_item( GtkMenuItem* item, Plugin* plugin )
     panel_config_save( plugin->panel );
 }
 
+/* FIXME: Potentially we can support multiple panels at the same edge,
+ * but currently this cannot be done due to some positioning problems. */
+static char* gen_panel_name( int edge )
+{
+    const char* edge_str = num2str( edge_pair, edge, "" );
+    char* name = NULL;
+    char* dir = get_config_file( cprofile, "panels", FALSE );
+    int i;
+    for( i = 0; i < G_MAXINT; ++i )
+    {
+        char* f;
+        if( G_LIKELY( i > 0 ) )
+            name =  g_strdup_printf( "%s%d", edge_str, i );
+        else
+            name = g_strdup( edge_str );
+        f = g_build_filename( dir, name, NULL );
+        if( ! g_file_test( f, G_FILE_TEST_EXISTS ) )
+        {
+            g_free( f );
+            break;
+        }
+        g_free( name );
+        g_free( f );
+    }
+    g_free( dir );
+    return name;
+}
+
+/* FIXME: Potentially we can support multiple panels at the same edge,
+ * but currently this cannot be done due to some positioning problems. */
 static void panel_popupmenu_create_panel( GtkMenuItem* item, Panel* panel )
 {
+    int i;
+    GSList* group = NULL;
+    GtkWidget* btns[ 4 ], *box, *frame;
+    const char* edges[]={N_("Left"), N_("Right"), N_("Top"), N_("Bottom")};
     GtkWidget* dlg = gtk_dialog_new_with_buttons(
                                         _("Create New Panel"),
                                         panel->topgwin,
                                         GTK_DIALOG_MODAL,
                                         GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
                                         GTK_STOCK_OK, GTK_RESPONSE_OK, NULL );
+    gtk_container_set_border_width( (GtkContainer*)dlg, 8 );
+    frame = gtk_frame_new( _("Where to put the panel?"));
+    gtk_box_pack_start( (GtkBox*)((GtkDialog*)dlg)->vbox, frame, TRUE, TRUE, 0 );
+    box = gtk_vbox_new( FALSE, 2 );
+    gtk_container_add( (GtkContainer*)frame, box );
+    for( i = 0; i < 4; ++i )
+    {
+        GSList* l;
+        btns[ i ] = gtk_radio_button_new_with_label( group, _(edges[i]) );
+        group = gtk_radio_button_get_group( (GtkRadioButton*)btns[ i ] );
+        gtk_box_pack_start( box, btns[ i ], FALSE, TRUE, 2 );
+        for( l = all_panels; l; l = l->next )
+        {
+            Panel* p = (Panel*)l->data;
+            /* If there is already a panel on this edge */
+            if( p->edge == (i + 1) )
+                gtk_widget_set_sensitive( btns[i], FALSE );
+            /* FIXME: multiple panel at the same edge should be supported in the future. */
+        }
+    }
+    gtk_widget_show_all( dlg );
+
+    if( gtk_dialog_run( dlg ) == GTK_RESPONSE_OK )
+    {
+        char* pfp;
+        char default_conf[128];
+        for( i = 0; i < 4; ++i )
+        {
+            if( gtk_toggle_button_get_active( (GtkToggleButton*)btns[i] ) )
+                break;
+        }
+        ++i;    /* 0 is EDGE_NONE, all edge values start from 1 */
+        g_snprintf( default_conf, 128,
+                "global{\n"
+                "edge=%s\n"
+                "}\n",
+                num2str( edge_pair, i, "bottom" ) );
+        panel = g_slice_new0( Panel );
+        panel->name = gen_panel_name(i);
+        pfp = default_conf;
+        if ( panel_start( panel, &pfp )) {
+            panel_config_save( panel );
+            all_panels = g_slist_prepend( all_panels, panel );
+        }
+        else {
+            panel_destroy( panel );
+        }
+    }
     gtk_widget_destroy( dlg );
 }
 
@@ -610,22 +695,6 @@ extern GtkWidget* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean
     char* tmp;
     ret = menu = gtk_menu_new();
 
-    if( plugin )
-    {
-        img = gtk_image_new_from_stock( GTK_STOCK_PREFERENCES, GTK_ICON_SIZE_MENU );
-        tmp = g_strdup_printf( _("\"%s\" Settings"), _(plugin->class->name) );
-        menu_item = gtk_image_menu_item_new_with_label( tmp );
-        g_free( tmp );
-        gtk_image_menu_item_set_image( (GtkImageMenuItem*)menu_item, img );
-        gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
-        if( plugin->class->config )
-            g_signal_connect( menu_item, "activate", G_CALLBACK(panel_popupmenu_config_plugin), plugin );
-        else
-            gtk_widget_set_sensitive( menu_item, FALSE );
-
-        menu_item = gtk_separator_menu_item_new();
-        gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
-    }
 /*
     img = gtk_image_new_from_stock( GTK_STOCK_ADD, GTK_ICON_SIZE_MENU );
     menu_item = gtk_image_menu_item_new_with_label(_("Add Item To Panel"));
@@ -665,6 +734,11 @@ extern GtkWidget* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean
     gtk_image_menu_item_set_image( (GtkImageMenuItem*)menu_item, img );
     gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
     g_signal_connect( menu_item, "activate", G_CALLBACK(panel_popupmenu_create_panel), panel );
+    /* FIXME: Potentially we can support multiple panels at the same edge,
+     * but currently this cannot be done due to some positioning problems. */
+    /* currently, disable the option when there are already four panels */
+    if( g_slist_length( all_panels ) >= 4 )
+        gtk_widget_set_sensitive( menu_item, FALSE );
 
     img = gtk_image_new_from_stock( GTK_STOCK_DELETE, GTK_ICON_SIZE_MENU );
     menu_item = gtk_image_menu_item_new_with_label(_("Delete This Panel"));
@@ -673,8 +747,6 @@ extern GtkWidget* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean
     g_signal_connect( menu_item, "activate", G_CALLBACK(panel_popupmenu_delete_panel), panel );
     if( ! all_panels->next )    /* if this is the only panel */
         gtk_widget_set_sensitive( menu_item, FALSE );
-
-    gtk_widget_show_all(menu);
 
     if( use_sub_menu )
     {
@@ -685,6 +757,25 @@ extern GtkWidget* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean
 
         gtk_widget_show_all(ret);
     }
+
+    if( plugin )
+    {
+        menu_item = gtk_separator_menu_item_new();
+        gtk_menu_shell_prepend(GTK_MENU_SHELL(ret), menu_item);
+
+        img = gtk_image_new_from_stock( GTK_STOCK_PREFERENCES, GTK_ICON_SIZE_MENU );
+        tmp = g_strdup_printf( _("\"%s\" Settings"), _(plugin->class->name) );
+        menu_item = gtk_image_menu_item_new_with_label( tmp );
+        g_free( tmp );
+        gtk_image_menu_item_set_image( (GtkImageMenuItem*)menu_item, img );
+        gtk_menu_shell_prepend(GTK_MENU_SHELL(ret), menu_item);
+        if( plugin->class->config )
+            g_signal_connect( menu_item, "activate", G_CALLBACK(panel_popupmenu_config_plugin), plugin );
+        else
+            gtk_widget_set_sensitive( menu_item, FALSE );
+    }
+
+    gtk_widget_show_all(menu);
 
     g_signal_connect( ret, "selection-done", G_CALLBACK(gtk_widget_destroy), NULL );
     return ret;
@@ -743,6 +834,8 @@ panel_start_gui(Panel *p)
           (GCallback) panel_size_alloc, p);
     g_signal_connect (G_OBJECT (p->topgwin), "configure-event",
           (GCallback) panel_configure_event, p);
+
+    gtk_widget_add_events( p->topgwin, GDK_BUTTON_PRESS_MASK );
     g_signal_connect(G_OBJECT (p->topgwin), "button_press_event",
           (GCallback) panel_press_button_event, p);
 /*
@@ -851,62 +944,64 @@ panel_parse_global(Panel *p, char **fp)
     line s;
     s.len = 256;
 
-    ENTER;
-    while (lxpanel_get_line(fp, &s) != LINE_NONE) {
-        if (s.type == LINE_VAR) {
-            if (!g_ascii_strcasecmp(s.t[0], "edge")) {
-                p->edge = str2num(edge_pair, s.t[1], EDGE_NONE);
-            } else if (!g_ascii_strcasecmp(s.t[0], "allign")) {
-                p->allign = str2num(allign_pair, s.t[1], ALLIGN_NONE);
-            } else if (!g_ascii_strcasecmp(s.t[0], "margin")) {
-                p->margin = atoi(s.t[1]);
-            } else if (!g_ascii_strcasecmp(s.t[0], "widthtype")) {
-                p->widthtype = str2num(width_pair, s.t[1], WIDTH_NONE);
-            } else if (!g_ascii_strcasecmp(s.t[0], "width")) {
-                p->width = atoi(s.t[1]);
-            } else if (!g_ascii_strcasecmp(s.t[0], "heighttype")) {
-                p->heighttype = str2num(height_pair, s.t[1], HEIGHT_NONE);
-            } else if (!g_ascii_strcasecmp(s.t[0], "height")) {
-                p->height = atoi(s.t[1]);
-            } else if (!g_ascii_strcasecmp(s.t[0], "spacing")) {
-                p->spacing = atoi(s.t[1]);
-            } else if (!g_ascii_strcasecmp(s.t[0], "SetDockType")) {
-                p->setdocktype = str2num(bool_pair, s.t[1], 0);
-            } else if (!g_ascii_strcasecmp(s.t[0], "SetPartialStrut")) {
-                p->setstrut = str2num(bool_pair, s.t[1], 0);
-            } else if (!g_ascii_strcasecmp(s.t[0], "RoundCorners")) {
-                p->round_corners = str2num(bool_pair, s.t[1], 0);
-            } else if (!g_ascii_strcasecmp(s.t[0], "Transparent")) {
-                p->transparent = str2num(bool_pair, s.t[1], 0);
-            } else if (!g_ascii_strcasecmp(s.t[0], "Alpha")) {
-                p->alpha = atoi(s.t[1]);
-                if (p->alpha > 255)
-                    p->alpha = 255;
-            } else if (!g_ascii_strcasecmp(s.t[0], "TintColor")) {
-                if (!gdk_color_parse (s.t[1], &p->gtintcolor))
-                    gdk_color_parse ("white", &p->gtintcolor);
-                p->tintcolor = gcolor2rgb24(&p->gtintcolor);
-                DBG("tintcolor=%x\n", p->tintcolor);
-            } else if (!g_ascii_strcasecmp(s.t[0], "useFontColor")) {
-                p->usefontcolor = str2num(bool_pair, s.t[1], 0);
-            } else if (!g_ascii_strcasecmp(s.t[0], "FontColor")) {
-                if (!gdk_color_parse (s.t[1], &p->gfontcolor))
-                    gdk_color_parse ("black", &p->gfontcolor);
-                p->fontcolor = gcolor2rgb24(&p->gfontcolor);
-                DBG("fontcolor=%x\n", p->fontcolor);
-            } else if (!g_ascii_strcasecmp(s.t[0], "Background")) {
-                p->background = str2num(bool_pair, s.t[1], 0);
-            } else if( !g_ascii_strcasecmp(s.t[0], "BackgroundFile") ) {
-                p->background_file = g_strdup( s.t[1] );
+    if( G_LIKELY( fp ) )
+    {
+        while (lxpanel_get_line(fp, &s) != LINE_NONE) {
+            if (s.type == LINE_VAR) {
+                if (!g_ascii_strcasecmp(s.t[0], "edge")) {
+                    p->edge = str2num(edge_pair, s.t[1], EDGE_NONE);
+                } else if (!g_ascii_strcasecmp(s.t[0], "allign")) {
+                    p->allign = str2num(allign_pair, s.t[1], ALLIGN_NONE);
+                } else if (!g_ascii_strcasecmp(s.t[0], "margin")) {
+                    p->margin = atoi(s.t[1]);
+                } else if (!g_ascii_strcasecmp(s.t[0], "widthtype")) {
+                    p->widthtype = str2num(width_pair, s.t[1], WIDTH_NONE);
+                } else if (!g_ascii_strcasecmp(s.t[0], "width")) {
+                    p->width = atoi(s.t[1]);
+                } else if (!g_ascii_strcasecmp(s.t[0], "heighttype")) {
+                    p->heighttype = str2num(height_pair, s.t[1], HEIGHT_NONE);
+                } else if (!g_ascii_strcasecmp(s.t[0], "height")) {
+                    p->height = atoi(s.t[1]);
+                } else if (!g_ascii_strcasecmp(s.t[0], "spacing")) {
+                    p->spacing = atoi(s.t[1]);
+                } else if (!g_ascii_strcasecmp(s.t[0], "SetDockType")) {
+                    p->setdocktype = str2num(bool_pair, s.t[1], 0);
+                } else if (!g_ascii_strcasecmp(s.t[0], "SetPartialStrut")) {
+                    p->setstrut = str2num(bool_pair, s.t[1], 0);
+                } else if (!g_ascii_strcasecmp(s.t[0], "RoundCorners")) {
+                    p->round_corners = str2num(bool_pair, s.t[1], 0);
+                } else if (!g_ascii_strcasecmp(s.t[0], "Transparent")) {
+                    p->transparent = str2num(bool_pair, s.t[1], 0);
+                } else if (!g_ascii_strcasecmp(s.t[0], "Alpha")) {
+                    p->alpha = atoi(s.t[1]);
+                    if (p->alpha > 255)
+                        p->alpha = 255;
+                } else if (!g_ascii_strcasecmp(s.t[0], "TintColor")) {
+                    if (!gdk_color_parse (s.t[1], &p->gtintcolor))
+                        gdk_color_parse ("white", &p->gtintcolor);
+                    p->tintcolor = gcolor2rgb24(&p->gtintcolor);
+                    DBG("tintcolor=%x\n", p->tintcolor);
+                } else if (!g_ascii_strcasecmp(s.t[0], "useFontColor")) {
+                    p->usefontcolor = str2num(bool_pair, s.t[1], 0);
+                } else if (!g_ascii_strcasecmp(s.t[0], "FontColor")) {
+                    if (!gdk_color_parse (s.t[1], &p->gfontcolor))
+                        gdk_color_parse ("black", &p->gfontcolor);
+                    p->fontcolor = gcolor2rgb24(&p->gfontcolor);
+                    DBG("fontcolor=%x\n", p->fontcolor);
+                } else if (!g_ascii_strcasecmp(s.t[0], "Background")) {
+                    p->background = str2num(bool_pair, s.t[1], 0);
+                } else if( !g_ascii_strcasecmp(s.t[0], "BackgroundFile") ) {
+                    p->background_file = g_strdup( s.t[1] );
+                } else {
+                    ERR( "lxpanel: %s - unknown var in Global section\n", s.t[0]);
+                    RET(0);
+                }
+            } else if (s.type == LINE_BLOCK_END) {
+                break;
             } else {
-                ERR( "lxpanel: %s - unknown var in Global section\n", s.t[0]);
+                ERR( "lxpanel: illegal in this context %s\n", s.str);
                 RET(0);
             }
-        } else if (s.type == LINE_BLOCK_END) {
-            break;
-        } else {
-            ERR( "lxpanel: illegal in this context %s\n", s.str);
-            RET(0);
         }
     }
     panel_set_orientation( p );
@@ -1018,9 +1113,7 @@ panel_parse_plugin(Panel *p, char **fp)
     RET(0);
 }
 
-
-static int
-panel_start( Panel *p, char **fp )
+int panel_start( Panel *p, char **fp )
 {
     line s;
 
@@ -1111,21 +1204,23 @@ Panel* panel_new( const char* config_file, const char* config_name )
     char *fp, *pfp; /* point to current position of profile data in memory */
     Panel* panel = NULL;
     char* ret;
-
-    g_file_get_contents( config_file, &fp, NULL, NULL );
-    if( fp )
+    if( G_LIKELY(config_file) )
     {
-        panel = g_slice_new0( Panel );
-        panel->name = g_strdup( config_name );
-        pfp = fp;
+        g_file_get_contents( config_file, &fp, NULL, NULL );
+        if( fp )
+        {
+            panel = g_slice_new0( Panel );
+            panel->name = g_strdup( config_name );
+            pfp = fp;
 
-        if (! panel_start( panel, &pfp )) {
-            ERR( "lxpanel: can't start panel\n");
-            panel_destroy( panel );
-            panel = NULL;
+            if (! panel_start( panel, &pfp )) {
+                ERR( "lxpanel: can't start panel\n");
+                panel_destroy( panel );
+                panel = NULL;
+            }
+
+            g_free( fp );
         }
-
-        g_free( fp );
     }
     return panel;
 }
