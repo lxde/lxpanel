@@ -153,21 +153,28 @@ void panel_configure(Panel* p, int sel_page );
 void restart(void);
 void gtk_run(void);
 
-static void process_client_msg ( Panel *p, XClientMessageEvent* ev )
+static void process_client_msg ( XClientMessageEvent* ev )
 {
     int cmd = ev->data.b[0];
     switch( cmd )
     {
         case LXPANEL_CMD_SYS_MENU:
-            if( p->system_menus )
+        {
+            GSList* l;
+            for( l = all_panels; l; l = l->next )
             {
-                /* show_system_menu( p->system_menus->data ); */
-                /* FIXME: I've no idea why this doesn't work without timeout
-                          under some WMs, like icewm. */
-                g_timeout_add( 200, (GSourceFunc)show_system_menu,
-                               p->system_menus->data );
+                Panel* p = (Panel*)l->data;
+                if( p->system_menus )
+                {
+                    /* show_system_menu( p->system_menus->data ); */
+                    /* FIXME: I've no idea why this doesn't work without timeout
+                              under some WMs, like icewm. */
+                    g_timeout_add( 200, (GSourceFunc)show_system_menu,
+                                   p->system_menus->data );
+                }
             }
             break;
+        }
         case LXPANEL_CMD_RUN:
             gtk_run();
             break;
@@ -196,7 +203,7 @@ panel_event_filter(GdkXEvent *xevent, GdkEvent *event, gpointer not_used)
         /* private client message from lxpanelctl */
         if( ev->type == ClientMessage && ev->xproperty.atom == a_LXPANEL_CMD )
         {
-            g_slist_foreach( all_panels, (GFunc)process_client_msg, (XClientMessageEvent*)ev );
+            process_client_msg( (XClientMessageEvent*)ev );
         }
         else if( ev->type == DestroyNotify )
         {
