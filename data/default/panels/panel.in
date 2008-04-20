@@ -25,7 +25,7 @@ Plugin {
 Plugin {
     type=menu
     config {
-        image=@prefix@/share/lxpanel/images/my-computer.svg
+        image=@prefix@/share/lxpanel/images/my-computer.png
         system {
         }
         separator {
