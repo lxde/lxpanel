@@ -118,7 +118,15 @@ static gboolean on_button_press (GtkWidget* widget, GdkEventButton* evt, Plugin*
 
 static void kbled_orientation( Plugin* p )
 {
-
+    KbLed* kl = (KbLed*)p->priv;
+    GtkWidget* newbox;
+    newbox = recreate_box( (GtkBox*)kl->mainw, p->panel->orientation);
+    if( newbox != kl->mainw ) {
+        /* Since the old box has been destroyed,
+        we need to re-add the new box to the container */
+        kl->mainw = newbox;
+        gtk_container_add( GTK_CONTAINER(p->pwid), kl->mainw );
+    }
 }
 
 static void
@@ -149,11 +157,13 @@ static gboolean init_xkb()
 static int kbled_constructor(Plugin *p, char **fp)
 {
     KbLed *kl;
+    GtkWidget *image;
+/*
     line s;
     GdkPixbuf *icon;
-    GtkWidget *image, *box;
     GtkIconTheme* theme;
     GtkIconInfo* info;
+*/
     int i, state;
 
     if( ! xkb_event_base )  /* if xkb extension is not initialized */
@@ -164,25 +174,25 @@ static int kbled_constructor(Plugin *p, char **fp)
     if (!XkbSelectEvents(GDK_DISPLAY(), XkbUseCoreKbd, XkbIndicatorStateNotifyMask, XkbIndicatorStateNotifyMask))
         return FALSE;
 
-    s.len = 256;
+    /* s.len = 256; */
     kl = g_new0( KbLed, 1);
     g_return_val_if_fail(kl != NULL, 0);
     p->priv = kl;
 
-    kl->mainw = gtk_event_box_new();
-    gtk_widget_add_events( kl->mainw, GDK_BUTTON_PRESS_MASK );
-    g_signal_connect( kl->mainw, "button-press-event",
+    p->pwid = gtk_event_box_new();
+    gtk_widget_add_events( p->pwid, GDK_BUTTON_PRESS_MASK );
+    g_signal_connect( p->pwid, "button-press-event",
             G_CALLBACK(on_button_press), p );
 
-    box = p->panel->my_box_new( FALSE, 0 );
+    kl->mainw = p->panel->my_box_new( FALSE, 0 );
     for( i =0; i < 3; ++i )
     {
         image = gtk_image_new();
         gtk_widget_set_size_request( image, 22, 22 );
-        gtk_box_pack_start( (GtkBox*)box, image, FALSE, FALSE, 0 );
+        gtk_box_pack_start( (GtkBox*)kl->mainw, image, FALSE, FALSE, 0 );
         kl->img[i] = image;
     }
-    gtk_container_add( (GtkContainer*)kl->mainw, box );
+    gtk_container_add( (GtkContainer*)p->pwid, kl->mainw );
 
     XkbGetIndicatorState(GDK_DISPLAY(), XkbUseCoreKbd, &state);
     old_state = ~state;
@@ -194,7 +204,6 @@ static int kbled_constructor(Plugin *p, char **fp)
     gtk_widget_show_all(kl->mainw);
     kl->tooltips = g_object_ref( p->panel->tooltips );
     //gtk_tooltips_set_tip (vol->tooltips, vol->mainw, _("Volume control"), NULL);
-    p->pwid = kl->mainw;
 
     return TRUE;
 }
