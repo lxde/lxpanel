@@ -7,24 +7,28 @@ Global {
     margin=0
     widthtype=percent
     width=100
-    heighttype=pixel
     height=26
-    useFontColor=0
-    FontColor=#FFFFFF
-    Background=0
-    BackgroundFile=@prefix@/share/lxpanel/images/background.png
+    transparent=0
+    tintcolor=#000000
+    alpha=0
+    setdocktype=1
+    setpartialstrut=1
+    usefontcolor=1
+    fontcolor=#ffffff
+    background=1
+    backgroundfile=@prefix@/share/lxpanel/images/background.png
 }
 
 Plugin {
-    type=space
-    config {
-            size=2
+    type = space
+    Config {
+        Size=2
     }
 }
 
 Plugin {
-    type=menu
-    config {
+    type = menu
+    Config {
         image=@prefix@/share/lxpanel/images/my-computer.png
         system {
         }
@@ -43,103 +47,89 @@ Plugin {
 }
 
 Plugin {
-    type=launchbar
-    config {
-        button {
+    type = launchbar
+    Config {
+        Button {
             id=pcmanfm.desktop
         }
-        button {
+        Button {
             id=gnome-terminal.desktop
         }
-        button {
+        Button {
             id=firefox.desktop
         }
     }
 }
 
 Plugin {
-    type=space
-    config {
-            size=4
+    type = space
+    Config {
+        Size=4
     }
 }
 
 Plugin {
-    type=wincmd
-}
-
-Plugin {
-    type=space
-    config {
-            size=4
+    type = wincmd
+    Config {
+        Button1=iconify
+        Button2=shade
     }
 }
 
 Plugin {
-    type=pager
-}
-
-Plugin {
-    type=space
-    config {
-        size=4
+    type = space
+    Config {
+        Size=4
     }
 }
 
 Plugin {
-    type=taskbar
+    type = pager
+}
+
+Plugin {
+    type = space
+    Config {
+        Size=4
+    }
+}
+
+Plugin {
+    type = taskbar
     expand=1
-    config {
-        ShowIconified=0
-        ShowMapped   =0
-        ShowAllDesks =0
-        tooltips=0
+    Config {
+        tooltips=1
         IconsOnly=0
+        AcceptSkipPager=1
+        ShowIconified=1
+        ShowMapped=1
+        ShowAllDesks=0
+        UseMouseWheel=1
+        UseUrgencyHint=1
+        FlatButton=0
         MaxTaskWidth=150
+        spacing=1
     }
 }
 
-# Volume control
-#
-# Plugin {
-#     type=volume
-# }
-
-# Net status plug-in
-# %i in configtool is only a place holder, and will be replace by the value of iface.
-
-#Plugin {
-#    type=netstatus
-#    config {
-#        iface=eth0
-#        configtool=network-admin --configure %i
-#    }
-#}
-
-# Net Status (Linux Only)
-#
 Plugin {
-    type=netstat
-    config {
-        FixCommand=/sbin/netctl %s renew
-    }
-}
-
-# CPU monitor
-Plugin {
-    type=cpu
+    type = netstat
 }
 
 Plugin {
-    type=tray
+    type = cpu
 }
 
-# Digital Clock
 Plugin {
-    type=dclock
-    config {
+    type = tray
+}
+
+Plugin {
+    type = dclock
+    Config {
         ClockFmt=%R
         TooltipFmt=%A %x
         BoldFont=0
     }
 }
+
