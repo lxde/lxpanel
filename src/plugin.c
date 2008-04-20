@@ -394,9 +394,10 @@ plugin_widget_set_background( GtkWidget* w, Panel* p )
         }
         // g_debug("%s has window (%s)", gtk_widget_get_name(w), G_OBJECT_TYPE_NAME(w) );
     }
+    /*
     else
-        // g_debug("%s has NO window (%s)", gtk_widget_get_name(w), G_OBJECT_TYPE_NAME(w) );
-
+        g_debug("%s has NO window (%s)", gtk_widget_get_name(w), G_OBJECT_TYPE_NAME(w) );
+    */
     if( GTK_IS_CONTAINER( w ) )
     {
 		is_tray = ( strcmp( gtk_widget_get_name( w ), "tray" ) == 0 );

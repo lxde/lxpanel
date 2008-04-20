@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-18 00:43+0800\n"
+"POT-Creation-Date: 2008-04-20 15:09+0800\n"
 "PO-Revision-Date: 2006-11-27 00:13+0800\n"
 "Last-Translator: 洪任諭 <pcman.tw@gmail.com>\n"
 "Language-Team: GNOME Korean Team <gnome-kr-hackers@lists.kldp.net>\n"
@@ -173,11 +173,11 @@ msgstr "지금 쓰는 플러그인"
 msgid "Stretch"
 msgstr ""
 
-#: ../src/configurator.c:495 ../src/panel.c:499
+#: ../src/configurator.c:495 ../src/panel.c:505
 msgid "Add plugin to panel"
 msgstr ""
 
-#: ../src/configurator.c:522 ../src/panel.c:522
+#: ../src/configurator.c:522 ../src/panel.c:528
 msgid "Available plugins"
 msgstr ""
 
@@ -185,125 +185,125 @@ msgstr ""
 msgid "Logout command is not set"
 msgstr ""
 
-#: ../src/panel.c:607
+#: ../src/panel.c:613
 msgid "Left"
 msgstr "왼쪽"
 
-#: ../src/panel.c:607
+#: ../src/panel.c:613
 msgid "Right"
 msgstr "오른쪽"
 
-#: ../src/panel.c:607
+#: ../src/panel.c:613
 msgid "Top"
 msgstr "위쪽"
 
-#: ../src/panel.c:607
+#: ../src/panel.c:613
 msgid "Bottom"
 msgstr "아래쪽"
 
-#: ../src/panel.c:609 ../src/panel.c:733
+#: ../src/panel.c:615 ../src/panel.c:739
 msgid "Create New Panel"
 msgstr ""
 
-#: ../src/panel.c:615
+#: ../src/panel.c:621
 msgid "Where to put the panel?"
 msgstr ""
 
-#: ../src/panel.c:673
+#: ../src/panel.c:679
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
 
-#: ../src/panel.c:674
+#: ../src/panel.c:680
 msgid "Confirm"
 msgstr ""
 
-#: ../src/panel.c:707
+#: ../src/panel.c:713
 msgid "Add / Remove Panel Items"
 msgstr ""
 
-#: ../src/panel.c:715
+#: ../src/panel.c:721
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr ""
 
-#: ../src/panel.c:727
+#: ../src/panel.c:733
 #, fuzzy
 msgid "Panel Settings"
 msgstr "설정"
 
-#: ../src/panel.c:744
+#: ../src/panel.c:750
 msgid "Delete This Panel"
 msgstr ""
 
-#: ../src/panel.c:754
+#: ../src/panel.c:760
 msgid "Panel"
 msgstr ""
 
-#: ../src/panel.c:767
+#: ../src/panel.c:773
 #, fuzzy, c-format
 msgid "\"%s\" Settings"
 msgstr "설정"
 
-#: ../src/panel.c:1231
+#: ../src/panel.c:1237
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - GTK2+를 쓴 유닉스 환경의 가벼운 패널\n"
 
-#: ../src/panel.c:1232
+#: ../src/panel.c:1238
 #, c-format
 msgid "Command line options:\n"
 msgstr "명령줄 옵션:\n"
 
-#: ../src/panel.c:1233
+#: ../src/panel.c:1239
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- 도움말이 나오고 끝납니다\n"
 
-#: ../src/panel.c:1234
+#: ../src/panel.c:1240
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- 버전이 나오고 끝납니다\n"
 
-#: ../src/panel.c:1235
+#: ../src/panel.c:1241
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 " --log <숫자>   -- 기록 수준을 0부터 5까지 정합니다. 0은 조용하고 5는 수다쟁"
 "이\n"
 
-#: ../src/panel.c:1236
+#: ../src/panel.c:1242
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- 설정창을 띄웁니다\n"
 
-#: ../src/panel.c:1237
+#: ../src/panel.c:1243
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile 이름 -- 지정한 프로파일을 씁니다\n"
 
-#: ../src/panel.c:1239
+#: ../src/panel.c:1245
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- --help와 같습니다\n"
 
-#: ../src/panel.c:1240
+#: ../src/panel.c:1246
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- --profile과 같습니다\n"
 
-#: ../src/panel.c:1241
+#: ../src/panel.c:1247
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- --version과 같습니다\n"
 
-#: ../src/panel.c:1242
+#: ../src/panel.c:1248
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- --configure와 같습니다\n"
 
-#: ../src/panel.c:1243
+#: ../src/panel.c:1249
 #, fuzzy, c-format
 msgid ""
 "\n"
@@ -617,7 +617,7 @@ msgid "Volume Control"
 msgstr "소리 크기 조절"
 
 #. create frame
-#: ../src/plugins/volume/volume-impl.c:100
+#: ../src/plugins/volume/volume-impl.c:107
 #: ../src/plugins/volumealsa/volumealsa.c:200
 msgid "Volume"
 msgstr "소리 크기"

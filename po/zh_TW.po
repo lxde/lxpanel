@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-18 00:43+0800\n"
+"POT-Creation-Date: 2008-04-20 15:09+0800\n"
 "PO-Revision-Date: 2008-04-18 00:44+0800\n"
 "Last-Translator: 洪任諭 <pcman.tw@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -159,8 +159,7 @@ msgid "Width:"
 msgstr "寬度："
 
 #. { "configure", N_("Preferences"), configure },
-#: ../src/configurator.c:53
-#: ../src/gtk-run.c:112
+#: ../src/configurator.c:53 ../src/gtk-run.c:112
 msgid "Run"
 msgstr "執行"
 
@@ -180,13 +179,11 @@ msgstr "目前載入的外掛"
 msgid "Stretch"
 msgstr "延展"
 
-#: ../src/configurator.c:495
-#: ../src/panel.c:499
+#: ../src/configurator.c:495 ../src/panel.c:505
 msgid "Add plugin to panel"
 msgstr "新增外掛到工作列"
 
-#: ../src/configurator.c:522
-#: ../src/panel.c:522
+#: ../src/configurator.c:522 ../src/panel.c:528
 msgid "Available plugins"
 msgstr "可選用的外掛"
 
@@ -194,32 +191,31 @@ msgstr "可選用的外掛"
 msgid "Logout command is not set"
 msgstr "登出指令尚未設定"
 
-#: ../src/panel.c:607
+#: ../src/panel.c:613
 msgid "Left"
 msgstr "左"
 
-#: ../src/panel.c:607
+#: ../src/panel.c:613
 msgid "Right"
 msgstr "右"
 
-#: ../src/panel.c:607
+#: ../src/panel.c:613
 msgid "Top"
 msgstr "上"
 
-#: ../src/panel.c:607
+#: ../src/panel.c:613
 msgid "Bottom"
 msgstr "下"
 
-#: ../src/panel.c:609
-#: ../src/panel.c:733
+#: ../src/panel.c:615 ../src/panel.c:739
 msgid "Create New Panel"
 msgstr "建立新工作列"
 
-#: ../src/panel.c:615
+#: ../src/panel.c:621
 msgid "Where to put the panel?"
 msgstr "要把工作列放到哪裡？"
 
-#: ../src/panel.c:673
+#: ../src/panel.c:679
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -227,92 +223,92 @@ msgstr ""
 "確定要刪除這個工作列？\n"
 "<b>警告： 這個動作沒辦法復原。</b>"
 
-#: ../src/panel.c:674
+#: ../src/panel.c:680
 msgid "Confirm"
 msgstr "確認"
 
-#: ../src/panel.c:707
+#: ../src/panel.c:713
 msgid "Add / Remove Panel Items"
 msgstr "新增/移除 工作列項目"
 
-#: ../src/panel.c:715
+#: ../src/panel.c:721
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "從工作列移除 \"%s\""
 
-#: ../src/panel.c:727
+#: ../src/panel.c:733
 msgid "Panel Settings"
 msgstr "設定工作列"
 
-#: ../src/panel.c:744
+#: ../src/panel.c:750
 msgid "Delete This Panel"
 msgstr "刪除這個工作列"
 
-#: ../src/panel.c:754
+#: ../src/panel.c:760
 msgid "Panel"
 msgstr "工作列"
 
-#: ../src/panel.c:767
+#: ../src/panel.c:773
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "設定 \"%s\""
 
-#: ../src/panel.c:1231
+#: ../src/panel.c:1237
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - UNIX 桌面的輕量級 GTK2+ 工作列\n"
 
-#: ../src/panel.c:1232
+#: ../src/panel.c:1238
 #, c-format
 msgid "Command line options:\n"
 msgstr "命令列選項：\n"
 
-#: ../src/panel.c:1233
+#: ../src/panel.c:1239
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- 顯示使用說明並離開\n"
 
-#: ../src/panel.c:1234
+#: ../src/panel.c:1240
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- 顯示版本資訊並離開\n"
 
-#: ../src/panel.c:1235
+#: ../src/panel.c:1241
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --log <數值>   -- 設定程式運作紀錄的層級 (0-5). 0 - 無, 5 - 全部\n"
 
-#: ../src/panel.c:1236
+#: ../src/panel.c:1242
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- 執行設定工具\n"
 
-#: ../src/panel.c:1237
+#: ../src/panel.c:1243
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- 指定使用其他設定檔\n"
 
-#: ../src/panel.c:1239
+#: ../src/panel.c:1245
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- 和 --help 作用相同\n"
 
-#: ../src/panel.c:1240
+#: ../src/panel.c:1246
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- 和 --profile 作用相同\n"
 
-#: ../src/panel.c:1241
+#: ../src/panel.c:1247
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- 和 --version 作用相同\n"
 
-#: ../src/panel.c:1242
+#: ../src/panel.c:1248
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- 和 --configure 作用相同\n"
 
-#: ../src/panel.c:1243
+#: ../src/panel.c:1249
 #, c-format
 msgid ""
 "\n"
@@ -514,7 +510,9 @@ msgid "Task Bar (Window List)"
 msgstr "工作列 (視窗清單)"
 
 #: ../src/plugins/taskbar.c:1606
-msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
 msgstr "工作列顯示所有開啟的視窗，並讓能視窗最小化、折疊、或取得焦點"
 
 #: ../src/plugins/dclock.c:286
@@ -569,8 +567,7 @@ msgstr "切換桌面"
 msgid "Simple pager plugin"
 msgstr "簡易桌面切換外掛"
 
-#: ../src/plugins/space.c:137
-#: ../src/plugins/batt/batt.c:824
+#: ../src/plugins/space.c:137 ../src/plugins/batt/batt.c:824
 msgid "Size"
 msgstr "大小"
 
@@ -622,7 +619,7 @@ msgid "Volume Control"
 msgstr "音量控制"
 
 #. create frame
-#: ../src/plugins/volume/volume-impl.c:100
+#: ../src/plugins/volume/volume-impl.c:107
 #: ../src/plugins/volumealsa/volumealsa.c:200
 msgid "Volume"
 msgstr "音量"
@@ -633,11 +630,11 @@ msgstr "靜音"
 
 #: ../src/plugins/netstat/netstat.c:144
 msgid "<Hidden Access Point>"
-msgstr "<隱藏的 Access Point>"
+msgstr "<隱藏的無線存取點>"
 
 #: ../src/plugins/netstat/netstat.c:177
 msgid "Wireless Networks not found in range"
-msgstr "範圍內找不到無限網路"
+msgstr "範圍內找不到無線網路"
 
 #. Repair
 #: ../src/plugins/netstat/netstat.c:213
@@ -657,8 +654,7 @@ msgstr "網路線已拔除"
 msgid "Connection has limited or no connectivity"
 msgstr "只能有限制的連線或無法連線"
 
-#: ../src/plugins/netstat/netstat.c:282
-#: ../src/plugins/netstat/netstat.c:293
+#: ../src/plugins/netstat/netstat.c:282 ../src/plugins/netstat/netstat.c:293
 #: ../src/plugins/netstat/netstat.c:304
 msgid "IP Address:"
 msgstr "IP 位址："
@@ -667,38 +663,32 @@ msgstr "IP 位址："
 msgid "Remote IP:"
 msgstr "遠端 IP 位址："
 
-#: ../src/plugins/netstat/netstat.c:284
-#: ../src/plugins/netstat/netstat.c:295
+#: ../src/plugins/netstat/netstat.c:284 ../src/plugins/netstat/netstat.c:295
 #: ../src/plugins/netstat/netstat.c:306
 msgid "Netmask:"
 msgstr "子網路遮罩："
 
-#: ../src/plugins/netstat/netstat.c:285
-#: ../src/plugins/netstat/netstat.c:297
+#: ../src/plugins/netstat/netstat.c:285 ../src/plugins/netstat/netstat.c:297
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Activity"
 msgstr "活動"
 
-#: ../src/plugins/netstat/netstat.c:285
-#: ../src/plugins/netstat/netstat.c:297
+#: ../src/plugins/netstat/netstat.c:285 ../src/plugins/netstat/netstat.c:297
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Sent"
 msgstr "已傳送"
 
-#: ../src/plugins/netstat/netstat.c:285
-#: ../src/plugins/netstat/netstat.c:297
+#: ../src/plugins/netstat/netstat.c:285 ../src/plugins/netstat/netstat.c:297
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Received"
 msgstr "已接收"
 
-#: ../src/plugins/netstat/netstat.c:286
-#: ../src/plugins/netstat/netstat.c:298
+#: ../src/plugins/netstat/netstat.c:286 ../src/plugins/netstat/netstat.c:298
 #: ../src/plugins/netstat/netstat.c:309
 msgid "bytes"
 msgstr "位元組"
 
-#: ../src/plugins/netstat/netstat.c:287
-#: ../src/plugins/netstat/netstat.c:299
+#: ../src/plugins/netstat/netstat.c:287 ../src/plugins/netstat/netstat.c:299
 #: ../src/plugins/netstat/netstat.c:310
 msgid "packets"
 msgstr "封包"
@@ -711,13 +701,11 @@ msgstr "無線網路"
 msgid "Protocol:"
 msgstr "通訊協定："
 
-#: ../src/plugins/netstat/netstat.c:294
-#: ../src/plugins/netstat/netstat.c:305
+#: ../src/plugins/netstat/netstat.c:294 ../src/plugins/netstat/netstat.c:305
 msgid "Boradcast:"
 msgstr "廣播位址："
 
-#: ../src/plugins/netstat/netstat.c:296
-#: ../src/plugins/netstat/netstat.c:307
+#: ../src/plugins/netstat/netstat.c:296 ../src/plugins/netstat/netstat.c:307
 msgid "HW Address:"
 msgstr "實體位址："
 
@@ -996,28 +984,37 @@ msgstr "透過 ACPI 顯示電池狀態"
 
 #~ msgid "Applications"
 #~ msgstr "應用程式"
+
 #~ msgid "dynamic"
 #~ msgstr "動態"
+
 #~ msgid "pixels"
 #~ msgstr "像素 (pixels)"
+
 #~ msgid "% of edge"
 #~ msgstr "% 百分比"
+
 #~ msgid "Select a background image file"
 #~ msgstr "選擇背景圖片"
+
 #~ msgid "Appearance"
 #~ msgstr "外觀"
+
 #~ msgid "Plugins"
 #~ msgstr "外掛"
+
 #~ msgid "Center"
 #~ msgstr "置中"
 
 #, fuzzy
 #~ msgid "Logout Command"
 #~ msgstr "登出指令："
+
 #~ msgid "lxpanel configurator"
 #~ msgstr "lxpanel 偏好設定"
+
 #~ msgid "Background"
 #~ msgstr "背景"
+
 #~ msgid "Update interval (seconds)"
 #~ msgstr "更新頻率 (秒)"
-
