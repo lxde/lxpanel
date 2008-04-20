@@ -58,7 +58,7 @@ typedef struct _KbLed{
     GtkWidget *mainw;
     GtkWidget *img[3];
     GtkTooltips* tooltips;
-    old_state;
+    int old_state;
 } KbLed;
 
 static void update_display( Plugin* p, unsigned int state )
