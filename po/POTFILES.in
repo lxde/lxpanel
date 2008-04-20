@@ -41,3 +41,4 @@ src/plugins/netstatus/netstatus-icon.c
 
 src/plugins/batt/batt.c
 
+src/plugins/kbled/kbled.c

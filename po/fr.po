@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel-0.2.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-20 15:09+0800\n"
+"POT-Creation-Date: 2008-04-20 23:19+0800\n"
 "PO-Revision-Date: 2008-05-01 00:00+0100\n"
 "Last-Translator: Frank Endres <frank_endres@yahoo.fr>\n"
 "Language-Team: French\n"
@@ -995,6 +995,14 @@ msgstr "Moniteur des batteries"
 #: ../src/plugins/batt/batt.c:860
 msgid "Display battery status using ACPI"
 msgstr "Afficher l'état de charge des batteries"
+
+#: ../src/plugins/kbled/kbled.c:208
+msgid "Keyboard Led"
+msgstr ""
+
+#: ../src/plugins/kbled/kbled.c:210
+msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
+msgstr ""
 
 #~ msgid "dynamic"
 #~ msgstr "dynamique"

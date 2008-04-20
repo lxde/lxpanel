@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-20 15:09+0800\n"
+"POT-Creation-Date: 2008-04-20 23:19+0800\n"
 "PO-Revision-Date: 2007-09-17 01:25+0100\n"
 "Last-Translator: Ivan Masár <helix84@centrum.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -976,6 +976,14 @@ msgstr "Monitor využitia CPU"
 
 #: ../src/plugins/batt/batt.c:860
 msgid "Display battery status using ACPI"
+msgstr ""
+
+#: ../src/plugins/kbled/kbled.c:208
+msgid "Keyboard Led"
+msgstr ""
+
+#: ../src/plugins/kbled/kbled.c:210
+msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr ""
 
 #~ msgid "Applications"
