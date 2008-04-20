@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-20 15:09+0800\n"
-"PO-Revision-Date: 2008-04-18 00:44+0800\n"
+"POT-Creation-Date: 2008-04-20 23:19+0800\n"
+"PO-Revision-Date: 2008-04-20 23:20+0800\n"
 "Last-Translator: 洪任諭 <pcman.tw@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -159,7 +159,8 @@ msgid "Width:"
 msgstr "寬度："
 
 #. { "configure", N_("Preferences"), configure },
-#: ../src/configurator.c:53 ../src/gtk-run.c:112
+#: ../src/configurator.c:53
+#: ../src/gtk-run.c:112
 msgid "Run"
 msgstr "執行"
 
@@ -179,11 +180,13 @@ msgstr "目前載入的外掛"
 msgid "Stretch"
 msgstr "延展"
 
-#: ../src/configurator.c:495 ../src/panel.c:505
+#: ../src/configurator.c:495
+#: ../src/panel.c:505
 msgid "Add plugin to panel"
 msgstr "新增外掛到工作列"
 
-#: ../src/configurator.c:522 ../src/panel.c:528
+#: ../src/configurator.c:522
+#: ../src/panel.c:528
 msgid "Available plugins"
 msgstr "可選用的外掛"
 
@@ -207,7 +210,8 @@ msgstr "上"
 msgid "Bottom"
 msgstr "下"
 
-#: ../src/panel.c:615 ../src/panel.c:739
+#: ../src/panel.c:615
+#: ../src/panel.c:739
 msgid "Create New Panel"
 msgstr "建立新工作列"
 
@@ -510,9 +514,7 @@ msgid "Task Bar (Window List)"
 msgstr "工作列 (視窗清單)"
 
 #: ../src/plugins/taskbar.c:1606
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
 msgstr "工作列顯示所有開啟的視窗，並讓能視窗最小化、折疊、或取得焦點"
 
 #: ../src/plugins/dclock.c:286
@@ -567,7 +569,8 @@ msgstr "切換桌面"
 msgid "Simple pager plugin"
 msgstr "簡易桌面切換外掛"
 
-#: ../src/plugins/space.c:137 ../src/plugins/batt/batt.c:824
+#: ../src/plugins/space.c:137
+#: ../src/plugins/batt/batt.c:824
 msgid "Size"
 msgstr "大小"
 
@@ -654,7 +657,8 @@ msgstr "網路線已拔除"
 msgid "Connection has limited or no connectivity"
 msgstr "只能有限制的連線或無法連線"
 
-#: ../src/plugins/netstat/netstat.c:282 ../src/plugins/netstat/netstat.c:293
+#: ../src/plugins/netstat/netstat.c:282
+#: ../src/plugins/netstat/netstat.c:293
 #: ../src/plugins/netstat/netstat.c:304
 msgid "IP Address:"
 msgstr "IP 位址："
@@ -663,32 +667,38 @@ msgstr "IP 位址："
 msgid "Remote IP:"
 msgstr "遠端 IP 位址："
 
-#: ../src/plugins/netstat/netstat.c:284 ../src/plugins/netstat/netstat.c:295
+#: ../src/plugins/netstat/netstat.c:284
+#: ../src/plugins/netstat/netstat.c:295
 #: ../src/plugins/netstat/netstat.c:306
 msgid "Netmask:"
 msgstr "子網路遮罩："
 
-#: ../src/plugins/netstat/netstat.c:285 ../src/plugins/netstat/netstat.c:297
+#: ../src/plugins/netstat/netstat.c:285
+#: ../src/plugins/netstat/netstat.c:297
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Activity"
 msgstr "活動"
 
-#: ../src/plugins/netstat/netstat.c:285 ../src/plugins/netstat/netstat.c:297
+#: ../src/plugins/netstat/netstat.c:285
+#: ../src/plugins/netstat/netstat.c:297
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Sent"
 msgstr "已傳送"
 
-#: ../src/plugins/netstat/netstat.c:285 ../src/plugins/netstat/netstat.c:297
+#: ../src/plugins/netstat/netstat.c:285
+#: ../src/plugins/netstat/netstat.c:297
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Received"
 msgstr "已接收"
 
-#: ../src/plugins/netstat/netstat.c:286 ../src/plugins/netstat/netstat.c:298
+#: ../src/plugins/netstat/netstat.c:286
+#: ../src/plugins/netstat/netstat.c:298
 #: ../src/plugins/netstat/netstat.c:309
 msgid "bytes"
 msgstr "位元組"
 
-#: ../src/plugins/netstat/netstat.c:287 ../src/plugins/netstat/netstat.c:299
+#: ../src/plugins/netstat/netstat.c:287
+#: ../src/plugins/netstat/netstat.c:299
 #: ../src/plugins/netstat/netstat.c:310
 msgid "packets"
 msgstr "封包"
@@ -701,11 +711,13 @@ msgstr "無線網路"
 msgid "Protocol:"
 msgstr "通訊協定："
 
-#: ../src/plugins/netstat/netstat.c:294 ../src/plugins/netstat/netstat.c:305
+#: ../src/plugins/netstat/netstat.c:294
+#: ../src/plugins/netstat/netstat.c:305
 msgid "Boradcast:"
 msgstr "廣播位址："
 
-#: ../src/plugins/netstat/netstat.c:296 ../src/plugins/netstat/netstat.c:307
+#: ../src/plugins/netstat/netstat.c:296
+#: ../src/plugins/netstat/netstat.c:307
 msgid "HW Address:"
 msgstr "實體位址："
 
@@ -982,39 +994,38 @@ msgstr "電池電量顯示"
 msgid "Display battery status using ACPI"
 msgstr "透過 ACPI 顯示電池狀態"
 
+#: ../src/plugins/kbled/kbled.c:208
+msgid "Keyboard Led"
+msgstr "鍵盤燈號"
+
+#: ../src/plugins/kbled/kbled.c:210
+msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
+msgstr "顯示 CapsLock、NumLock、及 ScrollLock 鍵的狀態"
+
 #~ msgid "Applications"
 #~ msgstr "應用程式"
-
 #~ msgid "dynamic"
 #~ msgstr "動態"
-
 #~ msgid "pixels"
 #~ msgstr "像素 (pixels)"
-
 #~ msgid "% of edge"
 #~ msgstr "% 百分比"
-
 #~ msgid "Select a background image file"
 #~ msgstr "選擇背景圖片"
-
 #~ msgid "Appearance"
 #~ msgstr "外觀"
-
 #~ msgid "Plugins"
 #~ msgstr "外掛"
-
 #~ msgid "Center"
 #~ msgstr "置中"
 
 #, fuzzy
 #~ msgid "Logout Command"
 #~ msgstr "登出指令："
-
 #~ msgid "lxpanel configurator"
 #~ msgstr "lxpanel 偏好設定"
-
 #~ msgid "Background"
 #~ msgstr "背景"
-
 #~ msgid "Update interval (seconds)"
 #~ msgstr "更新頻率 (秒)"
+

@@ -67,13 +67,13 @@ case `$LD -Bsymbolic-functions -v 2>&1 </dev/null` in
   LDFLAGS="$LDFLAGS -Wl,-Bsymbolic-functions"
   AC_MSG_RESULT([yes])
   ;;
-*)                                                                              
+*)
   AC_MSG_RESULT([no])
   ;;
 esac
 AC_MSG_CHECKING([whether $LD accepts --sort-common])
 case `$LD --sort-common -v 2>&1 </dev/null` in
-*GNU* | *'with BFD'*)                                                                      
+*GNU* | *'with BFD'*)
   LDFLAGS="$LDFLAGS -Wl,--sort-common"
   AC_MSG_RESULT([yes])
   ;;
@@ -146,6 +146,7 @@ plugin_cpu=
 plugin_deskno=
 plugin_batt=
 plugin_xkb=
+plugin_kbled=
 
 AC_MSG_CHECKING([which plugins should be built dynamically])
 AC_ARG_WITH(plugins,
@@ -153,7 +154,7 @@ AC_ARG_WITH(plugins,
 [                         plugins may be comma separated ]
 [                         'all' builds all plugins (default), 'none' builds none ]
 [                         Possible plugins are: ]
-[                         netstatus, netstat, volume, volumealsa, cpu, deskno, batt, xkb], plugins="$withval",[plugins="all"])
+[                         netstatus, netstat, volume, volumealsa, cpu, deskno, batt, kbled, xkb], plugins="$withval",[plugins="all"])
 
 if test x"$plugins" != xall -a x"$plugins" != xnone; then
     if test x"$plugins_loading" = xno; then
@@ -162,7 +163,7 @@ if test x"$plugins" != xall -a x"$plugins" != xnone; then
     fi
 fi
 
-ALL_PLUGINS_LIST="netstatus netstat volume volumealsa cpu deskno batt xkb"
+ALL_PLUGINS_LIST="netstatus netstat volume volumealsa cpu deskno batt kbled xkb"
 AC_SUBST(ALL_PLUGINS_LIST)
 
 if test x"$plugins" = xall; then
@@ -178,6 +179,7 @@ dnl    done
     plugin_cpu=cpu
     plugin_deskno=deskno
     plugin_batt=batt
+    plugin_kbled=kbled
     plugin_xkb=
 
     AC_MSG_RESULT(all)
@@ -207,6 +209,9 @@ else
                 ;;
             batt)
                 plugin_batt=batt
+                ;;
+            kbled)
+                plugin_kbled=kbled
                 ;;
             xkb)
                 plugin_xkb=xkb
@@ -238,14 +243,15 @@ if test x"$compile_libiw" = "xno"; then
    plugin_netstat=
 fi
 PLUGINS_LIST="\
-	$plugin_netstatus \
-	$plugin_netstat \
-	$plugin_volume \
-	$plugin_volumealsa \
-	$plugin_cpu \
-	$plugin_deskno \
-	$plugin_batt \
-	$plugin_xkb"
+    $plugin_netstatus \
+    $plugin_netstat \
+    $plugin_volume \
+    $plugin_volumealsa \
+    $plugin_cpu \
+    $plugin_deskno \
+    $plugin_batt \
+    $plugin_kbled \
+    $plugin_xkb"
 
 AC_SUBST(PLUGINS_LIST)
 
@@ -291,6 +297,7 @@ AC_CONFIG_FILES([
     src/plugins/cpu/Makefile
     src/plugins/deskno/Makefile
     src/plugins/batt/Makefile
+    src/plugins/kbled/Makefile
     src/plugins/xkb/Makefile
     po/Makefile.in
     data/Makefile
@@ -325,6 +332,9 @@ echo Building dynamic plugins:
     fi
     if test x"$plugin_batt" != x; then
         AC_MSG_RESULT([    batt - Monitor battery status])
+    fi
+    if test x"$plugin_kbled" != x; then
+        AC_MSG_RESULT([    kbled - Indicator for CapsLock, NumLock, and ScrLock])
     fi
     if test x"$plugin_xkb" != x; then
         AC_MSG_RESULT([    xkb - Keyboard layout switcher])
