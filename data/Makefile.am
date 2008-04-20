@@ -1,20 +1,24 @@
 default_config_DATA = \
 	default/config
-
 default_configdir = $(datadir)/lxpanel/profile/default
 
+default_config_panel_DATA = \
+        default/panels/panel
+default_config_paneldir = $(datadir)/lxpanel/profile/default/panels
+
+uidir=$(datadir)/lxpanel/ui
+ui_DATA= \
+        ui/panel-pref.glade
+
 lxpanel_images_DATA = \
-	images/my-computer.svg \
-	images/redhat-internet.svg \
+	images/my-computer.png \
+	images/redhat-internet.png \
 	images/stock_volume.png \
-	images/thunderbird.svg \
-	images/default.xpm \
-	images/file-manager.svg \
-	images/firefox2.svg \
+	images/file-manager.png \
 	images/gnome-applications.png \
 	images/gnome-control-center.png \
 	images/gnome-devel.png \
-	images/gnome-fs-desktop.svg \
+	images/gnome-fs-desktop.png \
 	images/gnome-globe.png \
 	images/gnome-graphics.png \
 	images/gnome-joystick.png \
@@ -24,14 +28,14 @@ lxpanel_images_DATA = \
 	images/gnome-netstatus-25-49.png \
 	images/gnome-netstatus-50-74.png \
 	images/gnome-netstatus-75-100.png \
-	images/gnome-netstatus-disconn.svg \
-	images/gnome-netstatus-error.svg \
-	images/gnome-netstatus-idle.svg \
-	images/gnome-netstatus-rx.svg \
-	images/gnome-netstatus-txrx.svg \
-	images/gnome-netstatus-tx.svg \
+	images/gnome-netstatus-disconn.png \
+	images/gnome-netstatus-error.png \
+	images/gnome-netstatus-idle.png \
+	images/gnome-netstatus-rx.png \
+	images/gnome-netstatus-txrx.png \
+	images/gnome-netstatus-tx.png \
 	images/gnome-settings.png \
-	images/gnome-setting.svg \
+	images/gnome-setting.png \
 	images/gnome-system.png \
 	images/gnome-util.png \
 	images/background.png \
@@ -49,6 +53,9 @@ lxpanel_images_DATA = \
 lxpanel_imagesdir = $(datadir)/lxpanel/images
 
 EXTRA_DIST = \
-	default/config.in \
+	default/panels/panel.in \
 	$(lxpanel_DATA) \
-	$(lxpanel_images_DATA)
+	$(lxpanel_images_DATA) \
+	$(ui_DATA) \
+	$(default_config_DATA)
+

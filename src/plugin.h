@@ -26,8 +26,6 @@
 #include <stdio.h>
 #include "panel.h"
 
-struct _Plugin *stam;
-
 typedef struct {
     /* common */
     char *fname;

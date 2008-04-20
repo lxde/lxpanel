@@ -43,9 +43,10 @@ enum { POS_NONE, POS_START, POS_END };
 #define PANEL_HEIGHT_MAX      200
 #define PANEL_HEIGHT_MIN      16
 
+typedef struct _Panel Panel;
 
-typedef struct {
-
+struct _Panel{
+    char* name;
     GtkWidget *topgwin;           /* main panel window */
     Window topxwin;               /* and it X window   */
     GtkStyle *defstyle;
@@ -68,14 +69,14 @@ typedef struct {
     int widthtype, width;
     int heighttype, height;
 
-    int self_destroy : 1;
-    int setdocktype : 1;
-    int setstrut : 1;
-    int round_corners : 1;
-    int usefontcolor : 1;
-    int transparent : 1;
-    int background : 1;
-    int spacing;
+    guint self_destroy : 1;
+    guint setdocktype : 1;
+    guint setstrut : 1;
+    guint round_corners : 1;
+    guint usefontcolor : 1;
+    guint transparent : 1;
+    guint background : 1;
+    guint spacing;
 
     int desknum;
     int curdesk;
@@ -83,9 +84,6 @@ typedef struct {
     int wa_len;
 
     char* background_file;
-    char* file_manager;
-    char* terminal;
-    char* logout_command;
 
     int plug_num;
     GList *plugins;
@@ -94,7 +92,8 @@ typedef struct {
 
     /* tooltip controller shared by many plugins */
     GtkTooltips *tooltips;
-} Panel;
+    GtkWidget* pref_dialog; /* preference dialog */
+};
 
 
 typedef struct {
@@ -190,5 +189,8 @@ void panel_set_wm_strut(Panel *p);
 void panel_set_dock_type(Panel *p);
 void panel_set_orientation(Panel *p);
 void panel_update_background( Panel* p );
+
+extern const char* lxpanel_get_file_manager();
+extern const char* lxpanel_get_terminal();
 
 #endif

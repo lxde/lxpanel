@@ -1,5 +1,5 @@
 AC_PREREQ(2.53)
-AC_INIT(lxpanel, 0.2.9.0, http://lxde.sourceforge.net/)
+AC_INIT(lxpanel, 0.3.5, http://lxde.sourceforge.net/)
 AM_INIT_AUTOMAKE
 AC_CONFIG_SRCDIR([src/bg.c])
 AC_CONFIG_HEADER([config.h])
@@ -178,7 +178,7 @@ dnl    done
     plugin_cpu=cpu
     plugin_deskno=deskno
     plugin_batt=batt
-    plugin_xkb=xkb
+    plugin_xkb=
 
     AC_MSG_RESULT(all)
 else
@@ -294,7 +294,7 @@ AC_CONFIG_FILES([
     src/plugins/xkb/Makefile
     po/Makefile.in
     data/Makefile
-    data/default/config
+    data/default/panels/panel
     man/Makefile
 ])
 AC_OUTPUT

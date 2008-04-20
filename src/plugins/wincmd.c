@@ -24,9 +24,7 @@
 #include "panel.h"
 #include "misc.h"
 #include "plugin.h"
-//#define DEBUG
 #include "dbg.h"
-
 
 typedef struct {
     GtkTooltips *tips;
@@ -42,8 +40,6 @@ static pair wincmd_pair [] = {
     { WC_SHADE,   "shade" },
     { 0, NULL },
 };
-
-
 
 static void
 toggle_shaded(wincmd *wc, guint32 action)
@@ -138,13 +134,15 @@ toggle_iconify(wincmd *wc, guint32 action)
 }
 
 static gint
-clicked (GtkWidget *widget, GdkEventButton *event, gpointer data)
+clicked (GtkWidget *widget, GdkEventButton *event, Plugin* plugin)
 {
-    wincmd *wc = (wincmd *) data;
+    wincmd *wc = (wincmd *)plugin->priv;
 
     ENTER;
     if (event->type != GDK_BUTTON_PRESS)
         RET(FALSE);
+
+    ENTER2;
 
     if (event->button == 1) {
         wc->action1 = 1 - wc->action1;
@@ -154,10 +152,11 @@ clicked (GtkWidget *widget, GdkEventButton *event, gpointer data)
         wc->action2 = 1 - wc->action2;
         toggle_shaded(wc, wc->action2);
         DBG("wincmd: shade all\n");
-    } else {
-        DBG("wincmd: unsupported command\n");
+    } else if( event->button == 3 ) { /* right button */
+        GtkMenu* popup = lxpanel_get_panel_menu( plugin->panel, plugin, FALSE );
+        gtk_menu_popup( popup, NULL, NULL, NULL, NULL, event->button, event->time );
+        return TRUE;
     }
-
     RET(FALSE);
 }
 
@@ -248,7 +247,7 @@ wincmd_constructor(Plugin *p, char **fp)
     button = fb_button_new_from_file(fname, w, h, 0x202020, TRUE);
     gtk_container_set_border_width(GTK_CONTAINER(button), 0);
     g_signal_connect(G_OBJECT(button), "button_press_event",
-          G_CALLBACK(clicked), (gpointer)wc);
+          G_CALLBACK(clicked), (gpointer)p);
 
     gtk_widget_show(button);
 

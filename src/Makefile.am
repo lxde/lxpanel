@@ -6,7 +6,8 @@ bin_PROGRAMS = lxpanel lxpanelctl
 
 INCLUDES = \
 	-I$(top_srcdir) \
-	-I$(top_srcdir)/plugins \
+	-I$(top_srcdir)/src/plugins \
+	-I$(top_srcdir)/src/ptk-ui-xml \
 	-DPACKAGE_LIB_DIR=\""$(libdir)"\" \
 	-DPACKAGE_DATA_DIR=\""$(datadir)"\" \
 	-DPACKAGE_BIN_DIR=\""$(bindir)"\" \
@@ -16,6 +17,12 @@ INCLUDES = \
 
 BUILTIN_PLUGINS = $(top_builddir)/src/plugins/libbuiltin_plugins.a
 
+PTK_UI_XML_SOURCES=\
+	ptk-ui-xml/ptk-ui-xml.c \
+        ptk-ui-xml/ptk-ui-xml.h \
+	ptk-ui-xml/ptk-xml-tree.c \
+        ptk-ui-xml/ptk-xml-tree.h
+
 TRAY_SOURCES= \
 	systray/eggmarshalers.c systray/eggmarshalers.h \
 	systray/eggtraymanager.c systray/eggtraymanager.h \
@@ -23,6 +30,7 @@ TRAY_SOURCES= \
 	systray/tray.c
 
 lxpanel_SOURCES = \
+	$(PTK_UI_XML_SOURCES) \
 	glib-mem.h \
 	misc.c misc.h \
 	$(TRAY_SOURCES) \

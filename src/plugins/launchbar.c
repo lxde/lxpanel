@@ -32,7 +32,6 @@
 #include "misc.h"
 #include "plugin.h"
 
-//#define DEBUG
 #include "dbg.h"
 
 #include "glib-mem.h"
@@ -68,6 +67,7 @@ static const GtkTargetEntry target_table[] = {
 static const char desktop_ent[] = "Desktop Entry";
 
 typedef struct btn_t {
+    Plugin* plugin;
     GtkWidget* widget;
     gchar *desktop_id;
     gchar *image;
@@ -98,28 +98,54 @@ void btn_free( btn_t* btn )
 }
 
 static gboolean
-on_button_pressed(GtkWidget *widget, GdkEventButton *event, btn_t *b )
+on_button_event(GtkWidget *widget, GdkEventButton *event, btn_t *b )
 {
     GtkWidget *image;
 
-    ENTER;
-    image = gtk_bin_get_child(GTK_BIN(widget));
-    g_assert(b != NULL);
-    if (event->type == GDK_BUTTON_RELEASE) {
-        if ((event->x >=0 && event->x < widget->allocation.width)
-              && (event->y >=0 && event->y < widget->allocation.height)) {
+    if( event->button == 1 )    /* left button */
+    {
+        image = gtk_bin_get_child(GTK_BIN(widget));
+        g_assert(b != NULL);
+        if (event->type == GDK_BUTTON_RELEASE) {
+            if ((event->x >=0 && event->x < widget->allocation.width)
+                  && (event->y >=0 && event->y < widget->allocation.height)) {
 
-            g_spawn_command_line_async(b->action, NULL);
+                g_spawn_command_line_async(b->action, NULL);
+            }
+            gtk_misc_set_padding (GTK_MISC(image), 0, 0);
+
+            //system(b->action);
+        } else if (event->type == GDK_BUTTON_PRESS) {
+
+            gtk_misc_set_padding (GTK_MISC(image), 0, 3);
+            //ERR("here\n");
         }
-        gtk_misc_set_padding (GTK_MISC(image), 0, 0);
-
-        //system(b->action);
-    } else if (event->type == GDK_BUTTON_PRESS) {
-
-        gtk_misc_set_padding (GTK_MISC(image), 0, 3);
-        //ERR("here\n");
+        return TRUE;
     }
-    RET(TRUE);
+    else if(event->button == 3) /* right click */
+    {
+        GtkMenu* popup = lxpanel_get_panel_menu( b->plugin->panel, b->plugin, TRUE );
+        GtkWidget* item;
+        char* title;
+
+#if 0
+        item = gtk_image_menu_item_new_with_label( _("Add Button") );
+        gtk_menu_shell_append( popup, item );
+        item = gtk_image_menu_item_new_with_label( _("Button Properties") );
+        gtk_menu_shell_append( popup, item );
+        /*
+        title = g_strdup_printf( _("Remove \"%s\""), b-> );
+        item = gtk_image_menu_item_new_with_label( _("Remove ") );
+        */
+        item = gtk_image_menu_item_new_with_label( _("Remove Button") );
+        gtk_menu_shell_append( popup, item );
+#endif
+        gtk_widget_show_all( (GtkWidget*)popup );
+
+        gtk_menu_popup( popup, NULL, NULL, NULL, NULL, event->button, event->time );
+        return TRUE;
+    }
+    return FALSE;
 }
 
 static void
@@ -199,6 +225,7 @@ read_button(Plugin *p, char** fp)
     ENTER;
 
     btn = g_slice_new0( btn_t );
+    btn->plugin = p;
 
     s.len = 256;
     fname= NULL;
@@ -292,9 +319,9 @@ read_button(Plugin *p, char** fp)
 
     //gtk_container_set_border_width(GTK_CONTAINER(button), 0);
     g_signal_connect ( button, "button-release-event",
-          G_CALLBACK (on_button_pressed), (gpointer) btn );
+          G_CALLBACK (on_button_event), (gpointer) btn );
     g_signal_connect ( button, "button-press-event",
-          G_CALLBACK (on_button_pressed), (gpointer) btn );
+          G_CALLBACK (on_button_event), (gpointer) btn );
 
     GTK_WIDGET_UNSET_FLAGS (button, GTK_CAN_FOCUS);
 
@@ -352,7 +379,7 @@ launchbar_constructor(Plugin *p, char **fp)
         "GtkButton::default-border = { 0, 0, 0, 0 }\n"
         "GtkButton::default-outside-border = { 0, 0, 0, 0 }\n"
         "}\n"
-        "widget '*' style 'launchbar-style'";
+        "widget '*launchbar*' style 'launchbar-style'";
 
     ENTER;
     gtk_rc_parse_string(launchbar_rc);

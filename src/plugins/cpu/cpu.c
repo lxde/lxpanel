@@ -35,7 +35,6 @@
 #define KILOBYTE 1024
 #define MAX_WGSIZE 100
 
-//#define DEBUG
 #include "dbg.h"
 typedef unsigned long tick;
 
@@ -148,6 +147,17 @@ expose_event(GtkWidget *widget, GdkEventExpose *event, cpu_t *c)
     RET(FALSE);
 }
 
+static gboolean  on_button_press(GtkWidget* w, GdkEventButton* evt, Plugin* plugin)
+{
+    if( evt->button == 3 )  /* right button */
+    {
+        GtkMenu* popup = lxpanel_get_panel_menu( plugin->panel, plugin, FALSE );
+        gtk_menu_popup( popup, NULL, NULL, NULL, NULL, evt->button, evt->time );
+        return TRUE;
+    }
+    return FALSE;
+}
+
 static int
 cpu_constructor(Plugin *p, char **fp)
 {
@@ -162,6 +172,7 @@ cpu_constructor(Plugin *p, char **fp)
 
     c->da = gtk_drawing_area_new();
     gtk_widget_set_size_request(c->da, 40, 20);
+    gtk_widget_add_events( c->da, GDK_BUTTON_PRESS_MASK );
 
     gtk_widget_show(c->da);
 
@@ -179,6 +190,8 @@ cpu_constructor(Plugin *p, char **fp)
           G_CALLBACK (configure_event), (gpointer) c);
     g_signal_connect (G_OBJECT (c->da), "expose_event",
           G_CALLBACK (expose_event), (gpointer) c);
+    g_signal_connect( c->da, "button-press-event",
+          G_CALLBACK(on_button_press), p );
 
     c->timer = g_timeout_add(1000, (GSourceFunc) cpu_update, (gpointer) c);
     RET(1);

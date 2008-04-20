@@ -1,11 +1,8 @@
-
 /*
  *  test - test module. its purpose to continuously change its size by
  *  allocating and destroying widgets. It helps in debuging panels's
  *  geometry engine (panel.c )
  */
-
-
 
 #include <time.h>
 #include <sys/time.h>
@@ -14,14 +11,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 #include "panel.h"
 #include "misc.h"
 #include "plugin.h"
 
-//#define DEBUG
 #include "dbg.h"
-
 
 #define WID_NUM 80
 
@@ -32,11 +26,6 @@ typedef struct {
     int timer;
     GtkWidget *wid[WID_NUM];
 } test;
-
-//static dclock me;
-
-
-
 
 static gint
 clock_update(gpointer data )
@@ -57,7 +46,6 @@ clock_update(gpointer data )
     dc->count += dc->delta;
     RET(TRUE);
 }
-
 
 static int
 test_constructor(Plugin *p)

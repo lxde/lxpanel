@@ -44,7 +44,6 @@
  * 3. Add Restore & Maximize menu items to popup menu of task bar buttons.
  */
 
-//#define DEBUG
 #include "dbg.h"
 
 struct _taskbar;
@@ -52,7 +51,7 @@ typedef struct _task{
     struct _taskbar *tb;
     Window win;
     char *name, *iname;
-    GtkWidget *button, *label, *eb;
+    GtkWidget *button, *label;
     GtkWidget *image;
 
     GdkPixbuf *pixbuf;
@@ -106,6 +105,7 @@ typedef struct _taskbar{
     gboolean icons_only;// : 1;
     gboolean use_mouse_wheel;// : 1;
     gboolean use_urgency_hint;// : 1;
+    gboolean flat_button;
 } taskbar;
 
 static gchar *taskbar_rc = "style 'taskbar-style'\n"
@@ -586,8 +586,10 @@ static void
 tk_callback_leave( GtkWidget *widget, task *tk)
 {
     ENTER;
+/*
     gtk_widget_set_state(widget,
           (tk->focused) ? tk->tb->focused_state : tk->tb->normal_state);
+*/
     RET();
 }
 
@@ -596,14 +598,18 @@ static void
 tk_callback_enter( GtkWidget *widget, task *tk )
 {
     ENTER;
+/*
     gtk_widget_set_state(widget,
           (tk->focused) ? tk->tb->focused_state : tk->tb->normal_state);
+*/
     RET();
 }
 
 static gboolean delay_active_win(task* tk)
 {
-    tk_raise_window(tk, CurrentTime);
+    /* FIXME: gtk_get_current_event_time() often returns 0.
+       However, passing 0 as time for this function is not OK. */
+    tk_raise_window(tk, gtk_get_current_event_time() );
     tk->tb->dnd_activate = 0;
     return FALSE;
 }
@@ -700,16 +706,12 @@ tk_callback_scroll_event (GtkWidget *widget, GdkEventScroll *event, task *tk)
 static gboolean
 tk_callback_button_press_event(GtkWidget *widget, GdkEventButton *event, task *tk)
 {
-    if ((event->type != GDK_BUTTON_PRESS) || (!GTK_BUTTON(widget)->in_button)|| event->button !=3 )
-        RET(FALSE);
-
-    /*
-    XLowerWindow (GDK_DISPLAY(), tk->win);
-    DBG("XLowerWindow %x\n", tk->win);
-    */
-    tk->tb->menutask = tk;
-    gtk_menu_popup (GTK_MENU (tk->tb->menu), NULL, NULL, NULL, NULL,
-          event->button, event->time);
+    if( event->type == GDK_BUTTON_PRESS && event->button == 3 )
+    {
+        tk->tb->menutask = tk;
+        gtk_menu_popup (GTK_MENU (tk->tb->menu), NULL, NULL, NULL, NULL, event->button, event->time);
+        return TRUE;
+    }
     return FALSE;
 }
 
@@ -717,47 +719,48 @@ static gboolean
 tk_callback_button_release_event(GtkWidget *widget, GdkEventButton *event, task *tk)
 {
     XWindowAttributes xwa;
-    ENTER;
-    if ((event->type != GDK_BUTTON_RELEASE) || (!GTK_BUTTON(widget)->in_button))
-        RET(FALSE);
-    DBG("win=%x\n", tk->win);
-    if (event->button == 1) {
-        if (tk->iconified)    {
-        if(use_net_active) {
-        Xclimsg(tk->win, a_NET_ACTIVE_WINDOW, 2, event->time, 0, 0, 0);
-        } else {
-        GdkWindow *gdkwindow;
 
-        gdkwindow = gdk_xid_table_lookup (tk->win);
-        if (gdkwindow)
-            gdk_window_show (gdkwindow);
-        else
-            XMapRaised (GDK_DISPLAY(), tk->win);
-        XSync (GDK_DISPLAY(), False);
-        DBG("XMapRaised  %x\n", tk->win);
-        }
+    if( event->type != GDK_BUTTON_RELEASE )
+        return FALSE;
+
+    if( event->button == 1 )
+    {
+        if (tk->iconified)
+        {
+            if(use_net_active)
+                Xclimsg(tk->win, a_NET_ACTIVE_WINDOW, 2, event->time, 0, 0, 0);
+            else
+            {
+                GdkWindow *gdkwindow;
+                gdkwindow = gdk_xid_table_lookup (tk->win);
+                if (gdkwindow)
+                    gdk_window_show (gdkwindow);
+                else
+                    XMapRaised (GDK_DISPLAY(), tk->win);
+                XSync (GDK_DISPLAY(), False);
+            }
             /* if window isn't on current viewport, we change viewport */
             XGetWindowAttributes(GDK_DISPLAY(), tk->win, &xwa);
             Xclimsg(tk->win, a_NET_DESKTOP_VIEWPORT, xwa.x, xwa.y, 0, 0, 0);
-        } else {
-            DBG("tb->ptk = %x\n", (tk->tb->ptk) ? tk->tb->ptk->win : 0);
-            if (tk->focused || tk == tk->tb->ptk) {
-                //tk->iconified = 1;
-                XIconifyWindow (GDK_DISPLAY(), tk->win, DefaultScreen(GDK_DISPLAY()));
-                DBG("XIconifyWindow %x\n", tk->win);
-            } else {
-                tk_raise_window( tk, event->time );
-            }
         }
-    } else if (event->button == 2) {
+        else
+        {
+            if (tk->focused || tk == tk->tb->ptk)
+                XIconifyWindow (GDK_DISPLAY(), tk->win, DefaultScreen(GDK_DISPLAY()));
+            else
+                tk_raise_window( tk, event->time );
+        }
+    }
+    else if (event->button == 2)
+    {
         Xclimsg(tk->win, a_NET_WM_STATE,
               2 /*a_NET_WM_STATE_TOGGLE*/,
               a_NET_WM_STATE_SHADED,
               0, 0, 0);
     }
     XSync (gdk_display, False);
-    gtk_button_released(GTK_BUTTON(widget));
-    RET(FALSE);
+
+    return FALSE;
 }
 
 
@@ -767,12 +770,11 @@ tk_update(gpointer key, task *tk, taskbar *tb)
     ENTER;
     g_assert ((tb != NULL) && (tk != NULL));
     if (task_visible(tb, tk)) {
-        gtk_widget_set_state (tk->button,
-              (tk->focused) ? tb->focused_state : tb->normal_state);
-        gtk_widget_queue_draw(tk->button);
-        //_gtk_button_set_depressed(GTK_BUTTON(tk->button), tk->focused);
-    gtk_widget_show(tk->button);
+        /* g_debug( "SET_ACTIVE: %p, %d", tk->button, tk->focused ); */
+        if( gtk_toggle_button_get_active( (GtkToggleButton*)tk->button) != tk->focused )
+            gtk_toggle_button_set_active( (GtkToggleButton*)tk->button, tk->focused );
 
+        gtk_widget_show(tk->button);
         if (tb->tooltips) {
             //DBG2("tip %x %s\n", tk->win, tk->name);
             gtk_tooltips_set_tip(tb->tips, tk->button, tk->name, NULL);
@@ -819,9 +821,13 @@ tk_build_gui(taskbar *tb, task *tk)
         XSelectInput (GDK_DISPLAY(), tk->win, PropertyChangeMask | StructureNotifyMask);
 
     /* button */
-    //tk->eb = gtk_event_box_new();
-    //gtk_container_set_border_width(GTK_CONTAINER(tk->eb), 0);
-    tk->button = gtk_button_new();
+
+    tk->button = gtk_toggle_button_new();
+    if( tb->flat_button )
+        gtk_button_set_relief( (GtkButton*)tk->button, GTK_RELIEF_NONE );
+    else
+        gtk_button_set_relief( (GtkButton*)tk->button, GTK_RELIEF_NORMAL);
+
     gtk_widget_show(tk->button);
     gtk_container_set_border_width(GTK_CONTAINER(tk->button), 0);
     gtk_widget_add_events (tk->button, GDK_BUTTON_RELEASE_MASK );
@@ -829,10 +835,13 @@ tk_build_gui(taskbar *tb, task *tk)
           G_CALLBACK(tk_callback_button_press_event), (gpointer)tk);
     g_signal_connect(G_OBJECT(tk->button), "button_release_event",
           G_CALLBACK(tk_callback_button_release_event), (gpointer)tk);
+/*
     g_signal_connect_after (G_OBJECT (tk->button), "leave",
           G_CALLBACK (tk_callback_leave), (gpointer) tk);
     g_signal_connect_after (G_OBJECT (tk->button), "enter",
           G_CALLBACK (tk_callback_enter), (gpointer) tk);
+*/
+
 #if 0
     g_signal_connect_after (G_OBJECT (tk->button), "expose-event",
           G_CALLBACK (tk_callback_expose), (gpointer) tk);
@@ -1418,6 +1427,8 @@ taskbar_constructor(Plugin *p, char** fp)
                     tb->use_mouse_wheel = str2num(bool_pair, s.t[1], 1);
                 } else if (!g_ascii_strcasecmp(s.t[0], "UseUrgencyHint")) {
                     tb->use_urgency_hint = str2num(bool_pair, s.t[1], 1);
+                } else if (!g_ascii_strcasecmp(s.t[0], "FlatButton")) {
+                    tb->flat_button = str2num(bool_pair, s.t[1], 1);
                 } else {
                     ERR( "taskbar: unknown var %s\n", s.t[0]);
                     goto error;
@@ -1444,8 +1455,8 @@ static void
 taskbar_destructor(Plugin *p)
 {
     taskbar *tb = (taskbar *)p->priv;
+    g_hash_table_foreach( tb->task_list, (GHFunc)del_task, NULL );
 
-    ENTER;
     g_signal_handlers_disconnect_by_func(G_OBJECT (fbev), tb_net_current_desktop, tb);
     g_signal_handlers_disconnect_by_func(G_OBJECT (fbev), tb_net_active_window, tb);
     g_signal_handlers_disconnect_by_func(G_OBJECT (fbev), tb_net_number_of_desktops, tb);
@@ -1457,16 +1468,20 @@ taskbar_destructor(Plugin *p)
     gtk_widget_destroy(tb->bar);
     */
     gtk_widget_destroy(tb->menu);
-    RET();
 }
 
 static void
-update_icons_only( gpointer key, task* tk, gpointer icons_only )
+update_task_button( gpointer key, task* tk, taskbar* tb )
 {
-    if( icons_only )
+    if( tb->icons_only )
         gtk_widget_hide( tk->label );
     else
         gtk_widget_show( tk->label );
+
+    if( tb->flat_button )
+        gtk_button_set_relief( (GtkButton*)tk->button, GTK_RELIEF_NONE );
+    else
+        gtk_button_set_relief( (GtkButton*)tk->button, GTK_RELIEF_NORMAL);
 }
 
 static void apply_config( Plugin* p )
@@ -1485,8 +1500,8 @@ static void apply_config( Plugin* p )
     gtk_box_set_spacing( GTK_BOX(tb->bar), tb->spacing );
     tb_net_client_list(NULL, tb);
     g_hash_table_foreach( tb->task_list,
-                          (GHFunc)update_icons_only,
-                          (gpointer)tb->icons_only );
+                          (GHFunc)update_task_button,
+                          (gpointer)tb );
 }
 
 static void taskbar_config( Plugin* p, GtkWindow* parent )
@@ -1500,7 +1515,8 @@ static void taskbar_config( Plugin* p, GtkWindow* parent )
                 (GSourceFunc) apply_config, (gpointer) p,
                 _("Show tooltips"), &tb->tooltips, G_TYPE_BOOLEAN,
                 _("Icons only"), &tb->icons_only, G_TYPE_BOOLEAN,
-                _("Accept SkipPager"), &tb->accept_skip_pager, G_TYPE_BOOLEAN,
+                 _("Flat Buttons"), &tb->flat_button, G_TYPE_BOOLEAN,
+               _("Accept SkipPager"), &tb->accept_skip_pager, G_TYPE_BOOLEAN,
                 _("Show Iconified windows"), &tb->show_iconified, G_TYPE_BOOLEAN,
                 _("Show mapped windows"), &tb->show_mapped, G_TYPE_BOOLEAN,
                 _("Show windows from all desktops"), &tb->show_all_desks, G_TYPE_BOOLEAN,
@@ -1523,6 +1539,7 @@ static void save_config( Plugin* p, FILE* fp )
     lxpanel_put_bool( fp, "ShowAllDesks", tb->show_all_desks );
     lxpanel_put_bool( fp, "UseMouseWheel", tb->use_mouse_wheel );
     lxpanel_put_bool( fp, "UseUrgencyHint", tb->use_urgency_hint );
+    lxpanel_put_bool( fp, "FlatButton", tb->flat_button );
     lxpanel_put_int( fp, "MaxTaskWidth", tb->task_width_max );
     lxpanel_put_int( fp, "spacing", tb->spacing );
 }

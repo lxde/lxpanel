@@ -366,6 +366,9 @@ void plugin_class_list_free( GList* classes )
 void
 plugin_widget_set_background( GtkWidget* w, Panel* p )
 {
+	static gboolean in_tray = FALSE;
+	gboolean is_tray = FALSE;
+
     if( ! w )
         return;
 
@@ -381,23 +384,37 @@ plugin_widget_set_background( GtkWidget* w, Panel* p )
         {
             gtk_widget_set_app_paintable( w, FALSE );
             if( GTK_WIDGET_REALIZED(w) )
+            {
                 gdk_window_set_back_pixmap( w->window, NULL, FALSE );
+
+				/* dirty hack to fix the background color of tray icons :-( */
+                if( in_tray )
+					gdk_window_set_background( w->window, &w->style->bg[ GTK_STATE_NORMAL ] );
+			}
         }
         // g_debug("%s has window (%s)", gtk_widget_get_name(w), G_OBJECT_TYPE_NAME(w) );
     }
+    /*
     else
-        // g_debug("%s has NO window (%s)", gtk_widget_get_name(w), G_OBJECT_TYPE_NAME(w) );
-
+        g_debug("%s has NO window (%s)", gtk_widget_get_name(w), G_OBJECT_TYPE_NAME(w) );
+    */
     if( GTK_IS_CONTAINER( w ) )
     {
+		is_tray = ( strcmp( gtk_widget_get_name( w ), "tray" ) == 0 );
+    	if( is_tray )
+    		in_tray = TRUE;
+
         gtk_container_foreach( w, plugin_widget_set_background, p );
+
+        if( is_tray )
+			in_tray = FALSE;
     }
 
     /* Dirty hack: Force repaint of tray icons!!
      * Normal gtk+ repaint cannot work across different processes.
      * So, we need some dirty tricks here.
      */
-    if( strcmp( gtk_widget_get_name( w ), "tray" ) == 0 )
+    if( is_tray )
     {
         gtk_widget_set_size_request( w, w->allocation.width, w->allocation.height );
         gtk_widget_hide (gtk_bin_get_child((GtkBin*)w));

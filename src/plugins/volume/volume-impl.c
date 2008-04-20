@@ -1,4 +1,4 @@
-/**                                                                                                 
+/**
  * Copyright (c) 2006 LxDE Developers, see the file AUTHORS for details.
  *
  * This program is free software; you can redistribute it and/or modify
@@ -29,7 +29,14 @@
 
 #include "volume-impl.h"
 
+#ifdef __FreeBSD__
+#include <sys/soundcard.h>
+#elif defined(__linux__) || defined(__Linux__)
 #include <linux/soundcard.h>
+#else
+#error "Not supported platform"
+#endif
+
 #include <fcntl.h>
 
 extern int mixer_fd;

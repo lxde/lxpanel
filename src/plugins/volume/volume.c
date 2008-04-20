@@ -86,6 +86,13 @@ static void on_button_press (GtkWidget* widget, GdkEventButton* evt, Plugin* p)
             vol->dlg = NULL;
         }
     }
+    else if( evt->button == 3 )  /* right button */
+    {
+        GtkMenu* popup = lxpanel_get_panel_menu( p->panel, p, FALSE );
+        gtk_menu_popup( popup, NULL, NULL, NULL, NULL, evt->button, evt->time );
+        return TRUE;
+    }
+    return FALSE;
 }
 
 static int

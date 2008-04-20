@@ -26,26 +26,26 @@
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <glib.h>
 
-Display *dsp;
+static Display *dsp;
 
-int group_title_source;
-int group_code_count;
-Bool flexy_groups;
-char **group_codes;
-char **custom_names;
+static int group_title_source;
+static int group_code_count;
+static Bool flexy_groups;
+static char **group_codes;
+static char **custom_names;
 
 static int base_event_code;
 static int base_error_code;
 
 static int device_id;
 
-int current_group_xkb_no, current_group_res_no;
-int group_count;
+static int current_group_xkb_no, current_group_res_no;
+static int group_count;
 
-char *group_names[XkbNumKbdGroups];
-char *symbol_names[XkbNumKbdGroups];
+static char *group_names[XkbNumKbdGroups];
+static char *symbol_names[XkbNumKbdGroups];
 
-GHashTable* pGroupHash = NULL;
+static GHashTable* pGroupHash = NULL;
 
 gint 
 get_group_count() 
@@ -108,7 +108,7 @@ get_current_group_name(void)
   return g_utf8_strdown (tmp, -1);
 }
 
-void 
+static void 
 accomodate_group_xkb(void) 
 {
   XkbStateRec xkb_state;
@@ -147,7 +147,7 @@ do_init_xkb()
 
   kbd_desc_ptr = XkbAllocKeyboard();
   if (kbd_desc_ptr == NULL) {
-    fprintf(stderr, "Failed to get keyboard description\n");
+    ERR("Failed to get keyboard description\n");
     goto HastaLaVista;
   }
 
@@ -159,7 +159,7 @@ do_init_xkb()
   XkbGetNames(dsp, XkbGroupNamesMask, kbd_desc_ptr);
 
   if (kbd_desc_ptr->names == NULL) {
-    fprintf(stderr, "Failed to get keyboard description\n");
+    ERR("Failed to get keyboard description\n");
     goto HastaLaVista;
   }
 
@@ -239,8 +239,8 @@ do_init_xkb()
 
   for (i = 0; i < count; i++) {
     if (flexy_groups && group_codes[i] == NULL) {
-      fprintf(stderr, "\nCode is not specified for Group %i !\n", i+1);
-      fprintf(stderr, "Flexy mode is ignored\n");
+      ERR("\nCode is not specified for Group %i !\n", i+1);
+      ERR("Flexy mode is ignored\n");
       flexy_groups = False;
     }
 
@@ -249,7 +249,7 @@ do_init_xkb()
         if (group_names[i] == NULL) {
           const char *name = get_symbol_name_by_res_no(i);
           if (name == NULL) name = "U/A";
-          fprintf(stderr, "\nGroup Name %i is undefined, set to '%s' !\n", i+1, name);
+          ERR("\nGroup Name %i is undefined, set to '%s' !\n", i+1, name);
           group_names[i] = strdup(name);
         }
         break;
@@ -259,14 +259,14 @@ do_init_xkb()
           const char *name = get_symbol_name_by_res_no(i);
           if (name == NULL) name = get_group_name_by_res_no(i);
           if (name == NULL) name = "U/A";
-          fprintf(stderr, "\nCustom Name %i is undefined, set to '%s' !\n", i+1, name);
+          ERR("\nCustom Name %i is undefined, set to '%s' !\n", i+1, name);
           custom_names[i] = strdup(name);
         }
         break;
 
       default: /* Symbolic name (0), No title source but can be used for images (3) */
         if (symbol_names[i] == NULL) {
-          fprintf(stderr, "\nGroup Symbol %i is undefined, set to 'U/A' !\n", i+1);
+          ERR("\nGroup Symbol %i is undefined, set to 'U/A' !\n", i+1);
           symbol_names[i] = strdup("U/A");
         }
         break;
@@ -283,7 +283,7 @@ HastaLaVista:
   return status;
 }
 
-gboolean temporary_changed_display_type = FALSE;
+static gboolean temporary_changed_display_type = FALSE;
 
 gboolean 
 is_current_group_flag_available(void) 
@@ -397,7 +397,7 @@ set_new_locale(t_xkb *ctrl)
   }
 }
 
-void 
+static void 
 handle_xevent(t_xkb *ctrl)
 {
   XkbEvent evnt;
@@ -432,16 +432,16 @@ initialize_xkb(t_xkb *ctrl)
 
   switch (reason_rtrn) {
     case XkbOD_BadLibraryVersion:
-      fprintf(stderr, "Bad XKB library version.\n");
+      ERR("Bad XKB library version.\n");
       return NULL;
     case XkbOD_ConnectionRefused:
-      fprintf(stderr, "Connection to X server refused.\n");
+      ERR("Connection to X server refused.\n");
       return NULL;
     case XkbOD_BadServerVersion:
-      fprintf(stderr, "Bad X server version.\n");
+      ERR("Bad X server version.\n");
       return NULL;
     case XkbOD_NonXkbServer:
-      fprintf(stderr, "XKB not present.\n");
+      ERR("XKB not present.\n");
       return NULL;
     case XkbOD_Success:
       break;
@@ -547,7 +547,7 @@ react_active_window_changed(gint pid, t_xkb *ctrl)
 void 
 react_application_closed(gint pid)
 {
-	g_debug( "pid = %d", pid );
+	DBG( "pid = %d", pid );
   if ( pid && pGroupHash) {
     g_hash_table_remove(pGroupHash, GINT_TO_POINTER(pid));
   }
