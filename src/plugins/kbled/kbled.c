@@ -51,8 +51,6 @@ const char* off_icons[]={
     "scrllock-off.png"
 };
 
-static int old_state = 0;
-
 static int xkb_event_base = 0;
 static int xkb_error_base = 0;
 
@@ -60,6 +58,7 @@ typedef struct _KbLed{
     GtkWidget *mainw;
     GtkWidget *img[3];
     GtkTooltips* tooltips;
+    old_state;
 } KbLed;
 
 static void update_display( Plugin* p, unsigned int state )
@@ -69,7 +68,7 @@ static void update_display( Plugin* p, unsigned int state )
 
     for( i = 0; i < 3; ++i )
     {
-        gboolean old = old_state & (1 << i);
+        gboolean old = kl->old_state & (1 << i);
         gboolean cur = state & (1 << i);
         if( old != cur )
         {
@@ -79,7 +78,7 @@ static void update_display( Plugin* p, unsigned int state )
             g_free( file );
         }
     }
-    old_state = state;
+    kl->old_state = state;
 }
 
 GdkFilterReturn
@@ -195,7 +194,7 @@ static int kbled_constructor(Plugin *p, char **fp)
     gtk_container_add( (GtkContainer*)p->pwid, kl->mainw );
 
     XkbGetIndicatorState(GDK_DISPLAY(), XkbUseCoreKbd, &state);
-    old_state = ~state;
+    kl->old_state = ~state;
     update_display( p, state );
 
     /* add event filter to monitor xkb events */
