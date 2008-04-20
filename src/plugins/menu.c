@@ -30,7 +30,6 @@
 
 #include "ptk-app-menu.h"
 
-//#define DEBUG
 #include "dbg.h"
 
 /*
@@ -184,13 +183,21 @@ static void show_menu( GtkWidget* widget, Plugin* p, int btn, guint32 time )
 }
 
 static gboolean
-my_button_pressed(GtkWidget *widget, GdkEventButton *event, Plugin* p)
+my_button_pressed(GtkWidget *widget, GdkEventButton *event, Plugin* plugin)
 {
     ENTER;
+
+    if( event->button == 3 )  /* right button */
+    {
+        GtkMenu* popup = lxpanel_get_panel_menu( plugin->panel, plugin, FALSE );
+        gtk_menu_popup( popup, NULL, NULL, NULL, NULL, event->button, event->time );
+        return TRUE;
+    }
+
     if ((event->type == GDK_BUTTON_PRESS)
           && (event->x >=0 && event->x < widget->allocation.width)
           && (event->y >=0 && event->y < widget->allocation.height)) {
-        show_menu( widget, p, event->button, event->time );
+        show_menu( widget, plugin, event->button, event->time );
     }
     RET(TRUE);
 }

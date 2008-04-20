@@ -49,7 +49,7 @@ static void open_dir( Plugin* p, const char* path )
 {
     char* cmd;
     char* quote = g_shell_quote( path );
-    const char* fm = lxpanel_get_file_manager( p->panel );
+    const char* fm = lxpanel_get_file_manager();
     if( strstr( fm, "%s" ) )
         cmd = g_strdup_printf( fm, quote );
     else
@@ -68,9 +68,13 @@ static void on_open_dir( GtkWidget* item, Plugin* p )
 
 static void open_in_term( Plugin* p, const char* path )
 {
-    const char* term = lxpanel_get_terminal( p->panel );
+    char* term = g_strdup( lxpanel_get_terminal() );
+    char* sp = strchr( term, ' ' );
+    if( sp )
+        *sp = '\0';
     chdir( path );
     g_spawn_command_line_async( term, NULL );
+    g_free( term );
 }
 
 static void on_open_in_term( GtkWidget* item, Plugin* p )
@@ -239,9 +243,8 @@ static void show_menu( GtkWidget* widget, Plugin *p, int btn, guint32 time )
 }
 
 static gint
-clicked (GtkWidget *widget, GdkEventButton *event, gpointer data)
+clicked (GtkWidget *widget, GdkEventButton *event, Plugin *p)
 {
-    Plugin *p = (Plugin*)data;
     dirmenu *dm = (dirmenu *)p->priv;
 
     ENTER;
@@ -260,7 +263,7 @@ clicked (GtkWidget *widget, GdkEventButton *event, gpointer data)
         g_free( path );
     }
 
-    RET(FALSE);
+    RET(TRUE);
 }
 
 static void

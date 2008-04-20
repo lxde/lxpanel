@@ -217,7 +217,7 @@ fb_ev_emit(FbEv *ev, int signal)
 		win = (Window*)get_xaproperty (GDK_ROOT_WINDOW(), a_NET_ACTIVE_WINDOW, XA_WINDOW, 0);
 		if (win) {
 			ev->active_window = *win;
-			g_debug( "WIN: %p", *win );
+			/* g_debug( "WIN: %p", *win ); */
 			XFree (win);
 		}
     }

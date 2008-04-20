@@ -33,6 +33,7 @@
 #define ICONS_MUTE PACKAGE_DATA_DIR "/lxpanel/images/mute.png"
 
 typedef struct {
+    Plugin* plugin;
     GtkWidget *mainw;
     GtkWidget *tray_icon;
     GtkWidget *dlg;
@@ -111,8 +112,15 @@ static gboolean focus_out_event(GtkWidget *widget, GdkEvent *event, volume_t *vo
     return FALSE;
 }
 
-static void tray_icon_press(GtkWidget *widget, GdkEvent *event, volume_t *vol)
+static gboolean tray_icon_press(GtkWidget *widget, GdkEventButton *event, volume_t *vol)
 {
+    if( event->button == 3 )  /* right button */
+    {
+        GtkMenu* popup = lxpanel_get_panel_menu( vol->plugin->panel, vol->plugin, FALSE );
+        gtk_menu_popup( popup, NULL, NULL, NULL, NULL, event->button, event->time );
+        return TRUE;
+    }
+
     if (vol->show==0) {
         gtk_window_set_position(GTK_WINDOW(vol->dlg), GTK_WIN_POS_MOUSE);
         gtk_scale_set_digits(GTK_SCALE(vol->vscale), asound_read(vol));
@@ -122,6 +130,7 @@ static void tray_icon_press(GtkWidget *widget, GdkEvent *event, volume_t *vol)
         gtk_widget_hide(vol->dlg);
         vol->show = 0;
     }
+    return TRUE;
 }
 
 static void on_vscale_value_changed(GtkRange *range, volume_t *vol)
@@ -249,6 +258,7 @@ volumealsa_constructor(Plugin *p, char **fp)
     ENTER;
     s.len = 256;
     vol = g_new0(volume_t, 1);
+    vol->plugin = p;
     g_return_val_if_fail(vol != NULL, 0);
     p->priv = vol;
 

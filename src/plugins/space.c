@@ -25,17 +25,11 @@
 #include "misc.h"
 #include "plugin.h"
 
-//#define DEBUG
 #include "dbg.h"
-
 
 typedef struct {
     int size;
-    GtkWidget *mainw;
-
 } space;
-
-
 
 static void
 space_destructor(Plugin *p)
@@ -50,8 +44,15 @@ space_destructor(Plugin *p)
     RET();
 }
 
-
-
+static gboolean on_btn_press( GtkWidget* w, GdkEventButton* evt, Plugin* plugin )
+{
+    if( evt->button == 3 )
+    {
+        GtkMenu* popup = lxpanel_get_panel_menu( plugin->panel, plugin, FALSE );
+        gtk_menu_popup( popup, NULL, NULL, NULL, NULL, evt->button, evt->time );
+    }
+    return TRUE;
+}
 
 static int
 space_constructor(Plugin *p, char** fp)
@@ -87,8 +88,7 @@ space_constructor(Plugin *p, char** fp)
     }
     if (!sp->size)
         sp->size = 2;
-    sp->mainw = gtk_vbox_new(TRUE, 0);
-    gtk_widget_show(sp->mainw);
+
     if (p->panel->orientation == ORIENT_HORIZ) {
         h = 2;
         w = sp->size;
@@ -96,10 +96,14 @@ space_constructor(Plugin *p, char** fp)
         w = 2;
         h = sp->size;
     }
-    gtk_widget_set_size_request(sp->mainw, w, h);
-    gtk_container_set_border_width(GTK_CONTAINER(sp->mainw), 0);
 
-    p->pwid = sp->mainw;
+    p->pwid = gtk_event_box_new();
+    GTK_WIDGET_SET_FLAGS( p->pwid, GTK_NO_WINDOW);
+    gtk_widget_add_events( p->pwid, GDK_BUTTON_PRESS_MASK );
+    g_signal_connect( p->pwid, "button-press-event", G_CALLBACK( on_btn_press ), p );
+    gtk_widget_show( p->pwid );
+    gtk_container_set_border_width(GTK_CONTAINER(p->pwid), 0);
+    gtk_widget_set_size_request(p->pwid, w, h);
 
     RET(1);
 

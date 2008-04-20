@@ -36,8 +36,8 @@ GQuark PTK_APP_MENU_ITEM_ID = 0;
 
 GtkWidget* ptk_app_menu_new();
 
-const char desktop_ent[] = "Desktop Entry";
-const char app_dir_name[] = "applications";
+static const char desktop_ent[] = "Desktop Entry";
+static const char app_dir_name[] = "applications";
 
 static time_t* times = NULL;
 
@@ -57,7 +57,7 @@ typedef struct _PtkAppMenuItem
     char* exec;
 }PtkAppMenuItem;
 
-const char* development_cats[]={
+static const char* development_cats[]={
    "Development",
    "Translation",
    "Building","Debugger",
@@ -68,7 +68,8 @@ const char* development_cats[]={
    "WebDevelopment",
    NULL
 };
-const char* office_cats[] = {
+
+static const char* office_cats[] = {
    "Office",
    "Dictionary",
    "Chart",
@@ -77,7 +78,8 @@ const char* office_cats[] = {
    "Database",
    NULL
 };
-const char* graphics_cats[] = {
+
+static const char* graphics_cats[] = {
    "Graphics",
    "2DGraphics",
    "3DGraphics",
@@ -86,7 +88,8 @@ const char* graphics_cats[] = {
    "Viewer",
    NULL
 };
-const char* network_cats[] = {
+
+static const char* network_cats[] = {
    "Network",
    "Dialup",
    "Email",
@@ -100,21 +103,24 @@ const char* network_cats[] = {
    "Telephony",
    NULL
 };
-const char* settings_cats[] = {
+
+static const char* settings_cats[] = {
    "Settings",
    "DesktopSettings",
    "HardwareSettings",
    "Accessibility",
    NULL
 };
-const char* system_cats[] = {
+
+static const char* system_cats[] = {
    "System",
    "Core",
    "Security",
    "PackageManager",
    NULL
 };
-const char* audiovideo_cats[] ={
+
+static const char* audiovideo_cats[] ={
    "AudioVideo",
    "Audio",
    "Video",
@@ -129,21 +135,24 @@ const char* audiovideo_cats[] ={
    "Music",
    NULL
 };
-const char* game_cats[] = {
+
+static const char* game_cats[] = {
    "Game",
    "Amusement",
    NULL
 };
-const char* education_cats[] = {
+
+static const char* education_cats[] = {
    "Education",
    NULL
 };
-const char* utility_cats[] = {
+
+static const char* utility_cats[] = {
    "Utility",
    NULL
 };
 
-const CatInfo known_cats[]=
+static const CatInfo known_cats[]=
 {
     {N_("Other"), "Other", "gnome-other", NULL},
     {N_("Game"), "Games", "gnome-joystick", game_cats},
@@ -158,7 +167,7 @@ const CatInfo known_cats[]=
     {N_("Accessories"), "Accessories", "gnome-util", utility_cats}
 };
 
-int find_cat( char** cats )
+static int find_cat( char** cats )
 {
     char** cat;
     for( cat = cats; *cat; ++cat )
@@ -242,7 +251,7 @@ static char* translate_exec( const char* exec, const char* icon,
 }
 #endif
 
-char* load_cat_title( GKeyFile* kf, CatInfo* inf )
+static char* load_cat_title( GKeyFile* kf, CatInfo* inf )
 {
     char* ret = NULL;
     char* fn = g_strconcat( "desktop-directories/", inf->directory_file, ".directory", NULL );
@@ -252,7 +261,7 @@ char* load_cat_title( GKeyFile* kf, CatInfo* inf )
     return ret;
 }
 
-void  unload_old_icons( GtkWidget* menu )
+static void  unload_old_icons( GtkWidget* menu )
 {
     GList* items = gtk_container_get_children( GTK_CONTAINER(menu) );
     GList* l;
@@ -493,7 +502,7 @@ static void on_menu( GtkWidget* btn, gpointer user_data )
 }
 #endif
 
-void on_app_menu_destroy( gpointer user_data, GObject* menu )
+static void on_app_menu_destroy( gpointer user_data, GObject* menu )
 {
     g_signal_handler_disconnect( gtk_icon_theme_get_default(),
                                  GPOINTER_TO_INT(user_data) );
@@ -577,7 +586,7 @@ GtkWidget* ptk_app_menu_new()
     return menu;
 }
 
-void app_dirs_foreach( GFunc func, gpointer user_data )
+static void app_dirs_foreach( GFunc func, gpointer user_data )
 {
     const char** sys_dirs = (const char**)g_get_system_data_dirs();
     char* path;
