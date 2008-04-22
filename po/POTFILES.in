@@ -13,14 +13,13 @@ src/systray/tray.c
 
 # Putting translation of plugins in main catelog is not a good idea...
 src/plugins/cpu/cpu.c
-src/plugins/deskno/deskno2.c
+src/plugins/deskno/deskno.c
 src/plugins/launchbar.c
 src/plugins/ptk-app-menu.c
 src/plugins/taskbar.c
 src/plugins/dclock.c
 src/plugins/menu.c
 src/plugins/separator.c
-src/plugins/image.c
 src/plugins/pager.c
 src/plugins/space.c
 src/plugins/wincmd.c
