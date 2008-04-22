@@ -256,19 +256,35 @@ background_toggle( GtkWidget *b, Panel* p)
             /* Update background immediately. */
             panel_update_background( p );
             //restart();
-            }
+        }
     }
 }
 
 static void
 background_changed(GtkFileChooser *file_chooser,  Panel* p )
 {
-    p->transparent = 0;
-    p->background = 1;
-    p->background_file = g_strdup(gtk_file_chooser_get_filename(file_chooser));
-    /* Update background immediately. */
-    panel_update_background( p );
-    //restart();
+    GtkWidget* btn = ptk_ui_xml_get_widget( p->pref_dialog, "bg_image" );
+    char* file;
+
+    file = g_strdup(gtk_file_chooser_get_filename(file_chooser));
+    if( ! file )
+        return;
+
+    if( p->background_file && 0 == strcmp( p->background_file, file ) )
+    {
+        g_free( file );
+        return;
+    }
+
+    p->background_file = file;
+
+    if( gtk_toggle_button_get_active( (GtkToggleButton*)btn ) )
+    {
+        p->transparent = 0;
+        p->background = 1;
+        /* Update background immediately. */
+        panel_update_background( p );
+    }
 }
 
 static void
@@ -842,10 +858,11 @@ panel_configure( Panel* p, int sel_page  )
         if (!p->background)
             gtk_widget_set_sensitive( w, FALSE);
 
-        /* FIXME: Important!! */
-        /* This is only available in gtk+ >= 2.12 */
-        /* Use gtk_file_chooser_button_new_with_dialog and intercept "response" signal instead. */
-        g_signal_connect( w, "file-set", G_CALLBACK (background_changed), p);
+        /* NOTE: Important!! */
+        /* "file-set" signal of GtkFileChooserButton is only available in gtk+ >= 2.12 */
+        /* So we use some dirty tricks here and make things more complicated. :-( */
+        g_signal_connect( w, "selection-changed", G_CALLBACK (background_changed), p);
+        /* g_signal_connect( w, "file-set", G_CALLBACK (background_changed), p); */
     }
 
     /* font color */
