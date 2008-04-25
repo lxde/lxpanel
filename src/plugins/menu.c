@@ -211,7 +211,7 @@ gboolean show_system_menu( gpointer system_menu )
 }
 
 static GtkWidget *
-make_button(Plugin *p, gchar *fname, gchar *name, GtkWidget *menu)
+make_button(Plugin *p, gchar *fname, gchar *name, GdkColor* tint, GtkWidget *menu)
 {
     int w, h;
     menup *m;
@@ -226,7 +226,7 @@ make_button(Plugin *p, gchar *fname, gchar *name, GtkWidget *menu)
         w = p->panel->aw;
         h = 10000;
     }
-    m->bg = fb_button_new_from_file_with_label(fname, w, h, 0xFF0000, TRUE,
+    m->bg = fb_button_new_from_file_with_label(fname, w, h, gcolor2rgb24(tint), TRUE,
           (p->panel->orientation == ORIENT_HORIZ ? name : NULL));
     gtk_widget_show(m->bg);
     gtk_box_pack_start(GTK_BOX(m->box), m->bg, FALSE, FALSE, 0);
@@ -421,6 +421,7 @@ read_submenu(Plugin *p, char** fp, gboolean as_item)
     GtkWidget *mi, *menu;
     gchar name[256], *fname;
     menup *m = (menup *)p->priv;
+    GdkColor color={0, 0, 36 * 0xffff / 0xff, 96 * 0xffff / 0xff};
 
     ENTER;
     s.len = 256;
@@ -459,6 +460,8 @@ read_submenu(Plugin *p, char** fp, gboolean as_item)
                 fname = expand_tilda(s.t[1]);
             else if (!g_ascii_strcasecmp(s.t[0], "name"))
                 strcpy(name, s.t[1]);
+            else if (!g_ascii_strcasecmp(s.t[0], "tintcolor"))
+                gdk_color_parse( s.t[1], &color);
             else {
                 ERR("menu: unknown var %s\n", s.t[0]);
                 goto error;
@@ -488,7 +491,7 @@ read_submenu(Plugin *p, char** fp, gboolean as_item)
         gtk_menu_item_set_submenu (GTK_MENU_ITEM (mi), menu);
         RET(mi);
     } else {
-        mi = make_button(p, fname, name, menu);
+        mi = make_button(p, fname, name, &color, menu);
         if (fname)
             g_free(fname);
         RET(mi);
@@ -507,17 +510,13 @@ menu_constructor(Plugin *p, char **fp)
 {
     menup *m;
     static char default_config[] =
-        "image=" PACKAGE_DATA_DIR "/lxpanel/images/my-computer.svg\n"
+        "image=" PACKAGE_DATA_DIR "/lxpanel/images/my-computer.png\n"
         "system {\n"
         "}\n"
         "separator {\n"
         "}\n"
         "item {\n"
             "command=run\n"
-        "}\n"
-        "item {\n"
-            "image=" PACKAGE_DATA_DIR "/lxpanel/images/gnome-setting.svg\n"
-            "command = configure\n"
         "}\n"
         "separator {\n"
         "}\n"
