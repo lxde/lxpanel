@@ -157,8 +157,9 @@ static int kbled_constructor(Plugin *p, char **fp)
 {
     KbLed *kl;
     GtkWidget *image;
-/*
+    gboolean visible[ 3 ] = {TRUE, TRUE ,TRUE};
     line s;
+/*
     GdkPixbuf *icon;
     GtkIconTheme* theme;
     GtkIconInfo* info;
@@ -173,7 +174,33 @@ static int kbled_constructor(Plugin *p, char **fp)
     if (!XkbSelectEvents(GDK_DISPLAY(), XkbUseCoreKbd, XkbIndicatorStateNotifyMask, XkbIndicatorStateNotifyMask))
         return FALSE;
 
-    /* s.len = 256; */
+    s.len = 256;
+
+    if (fp) {
+        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
+            if (s.type == LINE_NONE) {
+                ERR( "kbled: illegal token %s\n", s.str);
+                return FALSE;
+            }
+            if (s.type == LINE_VAR) {
+                if (!g_ascii_strcasecmp(s.t[0], "ShowCapsLock"))
+                    visible[CapsLock] = atoi(s.t[1]);
+                else if (!g_ascii_strcasecmp(s.t[0], "ShowNumLock"))
+                    visible[NumLock] = atoi(s.t[1]);
+                else if (!g_ascii_strcasecmp(s.t[0], "ShowScrollLock"))
+                    visible[ScrlLock] = atoi(s.t[1]);
+                else {
+                    ERR( "batt: unknown var %s\n", s.t[0]);
+                    continue;
+                }
+            }
+            else {
+                ERR( "kbled: illegal in this context %s\n", s.str);
+                return FALSE;
+            }
+        }
+    }
+
     kl = g_new0( KbLed, 1);
     g_return_val_if_fail(kl != NULL, 0);
     p->priv = kl;
@@ -190,6 +217,8 @@ static int kbled_constructor(Plugin *p, char **fp)
         gtk_widget_set_size_request( image, 22, 22 );
         gtk_box_pack_start( (GtkBox*)kl->mainw, image, FALSE, FALSE, 0 );
         kl->img[i] = image;
+        if( visible[i] )
+            gtk_widget_show( image );
     }
     gtk_container_add( (GtkContainer*)p->pwid, kl->mainw );
 
@@ -200,7 +229,7 @@ static int kbled_constructor(Plugin *p, char **fp)
     /* add event filter to monitor xkb events */
     gdk_window_add_filter(NULL, (GdkFilterFunc)event_filter, p );
 
-    gtk_widget_show_all(kl->mainw);
+    gtk_widget_show(kl->mainw);
     kl->tooltips = g_object_ref( p->panel->tooltips );
     //gtk_tooltips_set_tip (vol->tooltips, vol->mainw, _("Volume control"), NULL);
 
