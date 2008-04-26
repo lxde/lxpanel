@@ -1,7 +1,7 @@
 # Hungarian translation of lxpanel.
 # Copyright (C) 2006 the lxde team
 # This file is distributed under the same license as the lxpanel package.
-# SZERVÁC Attila <sas@321>, 2006.
+# SZERVÁC Attila <sas@321>, 2006-2008.
 #
 msgid ""
 msgstr ""
