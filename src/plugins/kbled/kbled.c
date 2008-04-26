@@ -174,8 +174,8 @@ static int kbled_constructor(Plugin *p, char **fp)
     if (!XkbSelectEvents(GDK_DISPLAY(), XkbUseCoreKbd, XkbIndicatorStateNotifyMask, XkbIndicatorStateNotifyMask))
         return FALSE;
 
+	/* FIXME: this doesn't work :-( */
     s.len = 256;
-
     if (fp) {
         while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
             if (s.type == LINE_NONE) {
@@ -188,9 +188,11 @@ static int kbled_constructor(Plugin *p, char **fp)
                 else if (!g_ascii_strcasecmp(s.t[0], "ShowNumLock"))
                     visible[NumLock] = atoi(s.t[1]);
                 else if (!g_ascii_strcasecmp(s.t[0], "ShowScrollLock"))
+                {
                     visible[ScrlLock] = atoi(s.t[1]);
+				}
                 else {
-                    ERR( "batt: unknown var %s\n", s.t[0]);
+                    ERR( "kbled: unknown var %s\n", s.t[0]);
                     continue;
                 }
             }
@@ -219,6 +221,8 @@ static int kbled_constructor(Plugin *p, char **fp)
         kl->img[i] = image;
         if( visible[i] )
             gtk_widget_show( image );
+        else
+        	gtk_widget_hide( image );
     }
     gtk_container_add( (GtkContainer*)p->pwid, kl->mainw );
 
