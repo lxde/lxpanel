@@ -315,6 +315,10 @@ int netproc_scandevice(int sockfd, int iwsockfd, FILE *fp, NETDEVLIST_PTR *netde
 			}
 
 			if (devptr->info.enable) {
+				/* Workaround for Atheros Cards */
+				if (strncmp(devptr->info.ifname, "ath", 3)==0)
+					wireless_refresh(iwsockfd, devptr->info.ifname);
+				
 				/* plug */
 				bzero(&ifr, sizeof(ifr));
 				strcpy(ifr.ifr_name, devptr->info.ifname);

@@ -40,7 +40,7 @@
 #include "dbg.h"
 
 /* 1 second */
-#define NETSTAT_IFACE_POLL_DELAY 1000
+#define NETSTAT_IFACE_POLL_DELAY 3000
 
 static int actionProcess(void *arg)
 {

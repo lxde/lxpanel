@@ -123,6 +123,60 @@ wireless_parse_scanning_event(struct iw_event *event, ap_info *oldinfo)
     return info;
 }
 
+gboolean wireless_refresh(int iwsockfd, const char *ifname)
+{
+	struct iwreq wrq;
+	struct iw_range range;
+	struct timeval tv;
+	fd_set rfds; /* File descriptors for select */
+	int selfd;
+	char buffer[IW_SCAN_MAX_DATA];
+
+	/* setting interfaces name */
+	strncpy(wrq.ifr_name, ifname, IFNAMSIZ);
+
+	/* Getting range */
+	iw_get_range_info(iwsockfd, ifname, &range);
+
+	/* check scanning support */
+	if (range.we_version_compiled < 14)
+		return FALSE;
+
+	/* Initiate Scanning */
+	wrq.u.data.pointer = buffer;
+	wrq.u.data.length = IW_SCAN_MAX_DATA;
+	wrq.u.data.flags = 0;
+
+	if (ioctl(iwsockfd, SIOCSIWSCAN, &wrq) < 0) {
+		if (errno!=EPERM)
+			return FALSE;
+	}
+
+	/* Init timeout value -> 250ms */
+	tv.tv_sec = 0;
+	tv.tv_usec = 250000;
+
+	/* Scanning APs */
+	while(1) {
+		if (ioctl(iwsockfd, SIOCGIWSCAN, &wrq) < 0) {
+			if (errno == EAGAIN) { /* not yet ready */
+				FD_ZERO(&rfds);
+				selfd = -1;
+
+				if (select(selfd + 1, &rfds, NULL, NULL, &tv)==0)
+					continue; /* timeout */
+			} else {
+				break;
+			}
+		}
+
+		if (wrq.u.data.length <= 0)
+			break;
+	}
+
+	return TRUE;
+}
+
 APLIST *wireless_scanning(int iwsockfd, const char *ifname)
 {
 	APLIST *ap = NULL;
