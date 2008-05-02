@@ -96,7 +96,7 @@ msgid ""
 msgstr ""
 "Vasemmalla\n"
 "Keskellä\n"
-"Oikealla\n"
+"Oikealla"
 
 #: ../data/ui/panel-pref.glade.h:23
 msgid ""
@@ -784,6 +784,8 @@ msgstr "Yhteyden tiedot: %s"
 #, fuzzy, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
+msgstr[0] "%lu paketti"
+msgstr[1] "%lu pakettia"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:395
 #, c-format
