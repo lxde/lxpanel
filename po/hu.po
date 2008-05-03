@@ -318,7 +318,7 @@ msgstr " -C  -- lásd --configure\n"
 #, c-format
 msgid ""
 "\n"
-"Visit http://lxde.sourceforge.net/ for detail.\n"
+"Visit http://lxde.org/ for detail.\n"
 "\n"
 msgstr ""
 "\n"

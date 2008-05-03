@@ -316,11 +316,11 @@ msgstr "-C  -- sama kuin --configure\n"
 #, c-format
 msgid ""
 "\n"
-"Visit http://lxde.sourceforge.net/ for detail.\n"
+"Visit http://lxde.org/ for detail.\n"
 "\n"
 msgstr ""
 "\n"
-"Vieraile sivustolla http://lxde.sourceforge.net/, jos haluat lisätietoja.\n"
+"Vieraile sivustolla http://lxde.org/, jos haluat lisätietoja.\n"
 "\n"
 
 #: ../src/gtk-run.c:126
