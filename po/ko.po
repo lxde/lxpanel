@@ -307,7 +307,7 @@ msgstr " -C  -- --configure와 같습니다\n"
 #, fuzzy, c-format
 msgid ""
 "\n"
-"Visit http://lxde.sourceforge.net/ for detail.\n"
+"Visit http://lxde.org/ for detail.\n"
 "\n"
 msgstr ""
 "\n"

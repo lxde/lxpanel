@@ -313,11 +313,11 @@ msgstr " -C  -- wie --configure\n"
 #, c-format
 msgid ""
 "\n"
-"Visit http://lxde.sourceforge.net/ for detail.\n"
+"Visit http://lxde.org/ for detail.\n"
 "\n"
 msgstr ""
 "\n"
-"Besuchen Sie http://lxde.sourceforge.net/ für detaillierte Informationen.\n"
+"Besuchen Sie http://lxde.org/ für detaillierte Informationen.\n"
 "\n"
 
 #: ../src/gtk-run.c:126

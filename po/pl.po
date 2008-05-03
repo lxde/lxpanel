@@ -314,7 +314,7 @@ msgstr " -C  -- to samo co --configure\n"
 #, fuzzy, c-format
 msgid ""
 "\n"
-"Visit http://lxde.sourceforge.net/ for detail.\n"
+"Visit http://lxde.org/ for detail.\n"
 "\n"
 msgstr ""
 "\n"

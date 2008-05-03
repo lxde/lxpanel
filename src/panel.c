@@ -1246,7 +1246,7 @@ usage()
     g_print(_(" -p  -- same as --profile\n"));
     g_print(_(" -v  -- same as --version\n"));
     g_print(_(" -C  -- same as --configure\n"));
-    g_print(_("\nVisit http://lxde.sourceforge.net/ for detail.\n\n"));
+    g_print(_("\nVisit http://lxde.org/ for detail.\n\n"));
 }
 
 static void
