@@ -9,7 +9,7 @@ Homepage: http://www.gnomefiles.org/app.php/LXPanel
 Package: lxpanel
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Suggests: lxsession
+Suggests: lxsession-lite (>=0.3.5) | lxsession (>=0.3.2) | menu
 Description: a lightweight desktop panel for X
  LXPanel is a lightweight GTK+ 2.x based desktop panel with following 
  features:
