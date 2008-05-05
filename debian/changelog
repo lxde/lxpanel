@@ -1,7 +1,12 @@
-lxpanel (0.2.8.2-1) unstable; urgency=low
+lxpanel (0.3.5.2+svn20080426-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Andrew Lee <andrew@linux.org.tw>  Sat, 26 Apr 2008 08:21:46 +0800
+
+lxpanel (0.3.5.2-1) unstable; urgency=low
 
   * Initial release (Closes: #466562)
 
- -- Andrew Lee <andrew@linux.org.tw>  Tue, 25 Mar 2008 23:47:22 +0800
-
+ -- Andrew Lee <andrew@linux.org.tw>  Sun, 20 Apr 2008 18:54:40 +0800
 

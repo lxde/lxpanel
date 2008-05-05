@@ -73,9 +73,9 @@ install: build
 
 	# Install .desktop files
 	install -d $(CURDIR)/debian/lxpanel/usr/share/applications
-	install -m644 $(CURDIR)/debian/lxde-terminal-emulator.desktop \
+	install -m644 $(CURDIR)/debian/lxde-x-terminal-emulator.desktop \
 			$(CURDIR)/debian/lxpanel/usr/share/applications
-	install -m644 $(CURDIR)/debian/lxde-www-browser.desktop \
+	install -m644 $(CURDIR)/debian/lxde-x-www-browser.desktop \
 			$(CURDIR)/debian/lxpanel/usr/share/applications
 
 
@@ -101,7 +101,7 @@ binary-arch: build install
 #	dh_installinit
 #	dh_installcron
 #	dh_installinfo
-	dh_desktop -A lxde-terminal-emulator.desktop lxde-www-browser.desktop
+	dh_desktop -A lxde-x-terminal-emulator.desktop lxde-x-www-browser.desktop
 	dh_installman
 	dh_link
 	dh_strip
