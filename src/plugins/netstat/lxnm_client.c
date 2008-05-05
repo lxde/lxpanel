@@ -127,3 +127,29 @@ lxnm_send_command(GIOChannel *gio, int command, const char* cmdargs)
     g_io_channel_write_chars(gio, msg, -1, &len, NULL);
     g_io_channel_flush(gio, NULL);
 }
+
+char *lxnm_wireless_command_make(const char *ifname, const char *essid,
+								 const char *apaddr, const char *key,
+								 int protocol, int key_mgmt,
+								 int group, int pairwise)
+{
+    char *cmd_essid;
+    char *cmd_key;
+
+    if (strlen(essid)==0) {
+        cmd_essid = g_strdup("NULL");
+    } else {
+        cmd_essid = essid;
+    }
+
+    if (strlen(key)==0) {
+        cmd_key = g_strdup("OFF");
+    } else {
+        cmd_key = key;
+    }
+
+    return g_strdup_printf("%s %s %s %s %d %d %d %d", ifname, asc2hex(cmd_essid),
+                                                   apaddr, asc2hex(cmd_key),
+                                                   protocol, key_mgmt,
+                                                   group, pairwise);
+}

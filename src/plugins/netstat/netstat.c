@@ -70,21 +70,17 @@ static void ethernet_down(GtkWidget *widget, netdev_info *ni)
 
 static void wireless_connect(GtkWidget *widget, ap_setting *aps)
 {
-
     char *cmdargs;
 
     /* without encryption */
-    if (aps->en_type==NS_WIRELESS_AUTH_OFF) {
-        if (strlen(aps->essid)!=0)
-            cmdargs = g_strdup_printf("%s %s OFF NULL %s", aps->ifname, asc2hex(aps->essid), aps->apaddr);
-        else
-            cmdargs = g_strdup_printf("%s NULL OFF NULL %s", aps->ifname, aps->apaddr);
-
+    if (!aps->apinfo->haskey) {
+        cmdargs = lxnm_wireless_command_make(aps->ifname, aps->apinfo->essid, aps->apinfo->apaddr, "",
+                                   aps->apinfo->en_method, aps->apinfo->key_mgmt,
+                                   aps->apinfo->group, aps->apinfo->pairwise);
         lxnm_send_command(aps->gio, LXNM_WIRELESS_CONNECT, cmdargs);
         g_free(cmdargs);
     } else {
         /* with encryption */
-
         if (aps->ni->netdev_list->info.pg!=NULL)
             passwd_gui_destroy(aps->ni->netdev_list->info.pg);
 
@@ -119,38 +115,41 @@ wireless_menu(netdev_info *ni)
     if (aplist!=NULL) {
         ptr = aplist;
         do {
+            /* skip hidden AP with Encryption */
+            if (ptr->info->haskey&&ptr->info->essid==NULL) {
+                /* handle next AP */
+                ptr = ptr->next;
+				continue;
+            }
+
             aps = g_new0(ap_setting, 1);
             aps->ni = ni;
-            aps->essid = ptr->info->essid;
-            aps->ifname = ni->netdev_list->info.ifname;
             aps->gio = ni->ns->fnetd->lxnmchannel;
-            aps->apaddr = ptr->info->apaddr;
-            aps->en_type = ptr->info->en_method;
+            aps->ifname = ni->netdev_list->info.ifname;
+			aps->apinfo = ptr->info;
 
             /* create a new item */
             menu_item = gtk_menu_item_new();
             item_box = gtk_hbox_new(FALSE, 0);
 
             /* Encryption */
-            if (ptr->info->haskey) {
+            if (aps->apinfo->haskey) {
                 lockicon = gtk_image_new_from_file(ICONS_WL_LOCK);
                 gtk_box_pack_start(GTK_BOX(item_box), lockicon, FALSE, FALSE, 0);
-                if (aps->en_type==NS_WIRELESS_AUTH_OFF)
-                    aps->en_type = NS_WIRELESS_AUTH_WEP;
             }
 
             /* ESSID */
-            if (aps->essid==NULL)
+            if (aps->apinfo->essid==NULL)
                 essid_label = gtk_label_new(_("<Hidden Access Point>"));
             else
-                essid_label = gtk_label_new(ptr->info->essid);
+                essid_label = gtk_label_new(aps->apinfo->essid);
 
             gtk_label_set_justify(essid_label, GTK_JUSTIFY_LEFT);
             gtk_misc_set_padding(GTK_MISC(essid_label), 2, 0);
             gtk_box_pack_start(GTK_BOX(item_box), essid_label, TRUE, FALSE, 0);
 
             /* Quality */
-            quality_per = (gdouble)((double)ptr->info->quality/100);
+            quality_per = (gdouble)((double)aps->apinfo->quality/100);
             if (quality_per>1)
                 quality_per = 1;
             else if (quality_per<0)

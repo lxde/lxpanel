@@ -32,43 +32,20 @@ struct passwd_resp {
     GtkEntry *entry;
 };
 
-char *wireless_auth_name[] = {
-    "OFF",
-    "WEP",
-    "WPA-PSK"
-};
-
 static void passwd_gui_on_response(GtkDialog* dlg, gint response, struct passwd_resp *pr)
 {
     char *cmdargs;
     //GtkEntry* entry = (GtkEntry*)user_data;
 
     if(G_LIKELY(response == GTK_RESPONSE_OK)) {
-        if (strlen(pr->aps->essid)!=0)
-            cmdargs = g_strdup_printf("%s %s %s \"%s\" %s",
-                        pr->aps->ifname,
-                        asc2hex(pr->aps->essid),
-                        wireless_auth_name[pr->aps->en_type],
-                        gtk_entry_get_text(pr->entry),
-                        pr->aps->apaddr);
-        else
-            cmdargs = g_strdup_printf("%s NULL %s \"%s\" %s",
-                        pr->aps->ifname,
-                        wireless_auth_name[pr->aps->en_type],
-                        gtk_entry_get_text(pr->entry),
-                        pr->aps->apaddr);
-
-/*
-        cmdargs = g_strdup_printf("%s %s WEP %s %s",
-                    pr->aps->ifname,
-                    pr->aps->essid,
-                    gtk_entry_get_text(pr->entry),
-                    pr->aps->apaddr);
-*/
+        cmdargs = lxnm_wireless_command_make(pr->aps->ifname, pr->aps->apinfo->essid,
+                                             pr->aps->apinfo->apaddr, gtk_entry_get_text(pr->entry),
+                                             pr->aps->apinfo->en_method, pr->aps->apinfo->key_mgmt,
+                                             pr->aps->apinfo->group, pr->aps->apinfo->pairwise);
         lxnm_send_command(pr->aps->gio, LXNM_WIRELESS_CONNECT, cmdargs);
+    	g_free(cmdargs);
     }
 
-    g_free(cmdargs);
     g_source_remove_by_user_data(pr->entry); /* remove timeout */
     gtk_widget_destroy((GtkWidget*)dlg);
 }

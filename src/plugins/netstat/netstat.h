@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <netinet/in.h>
+#include "wireless.h"
 #include "passwd_gui.h"
 
 #define NETDEV_STAT_NORMAL	0
@@ -77,11 +78,8 @@ typedef struct {
 typedef struct {
 	netdev_info *ni;
 	GIOChannel *gio;
-	int en_type;
+	ap_info *apinfo;
 	char *ifname;
-	char *apaddr;
-	char *essid;
-	char *password;
 } ap_setting;
 
 #endif

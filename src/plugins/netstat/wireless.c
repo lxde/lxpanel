@@ -24,6 +24,23 @@
 #include "netstat.h"
 #include "wireless.h"
 
+/*
+static const char * iw_ie_cypher_name[] = {
+	"none",
+	"WEP-40",
+	"TKIP",
+	"WRAP",
+	"CCMP",
+	"WEP-104",
+};
+
+static const char * iw_ie_key_mgmt_name[] = {
+	"none",
+	"802.1x",
+	"PSK",
+};
+*/
+
 void wireless_aplist_free(APLIST *aplist)
 {
 	APLIST *ptr;
@@ -40,6 +57,136 @@ void wireless_aplist_free(APLIST *aplist)
             ptr = ptr->next;
 			g_free(delptr);
         } while(ptr!=NULL);
+    }
+}
+
+void 
+wireless_gen_ie(ap_info *info, unsigned char *buffer, int ielen)
+{
+	int offset = 2;
+	int count;
+	int i;
+	unsigned char wpa1_oui[3] = {0x00, 0x50, 0xf2};
+	unsigned char wpa2_oui[3] = {0x00, 0x0f, 0xac};
+	unsigned char *wpa_oui;
+
+	/* check IE type */
+	switch(buffer[0]) {
+		case 0xdd: /* WPA or else */
+			wpa_oui = wpa1_oui;
+
+			if((ielen < 8)
+				|| (memcmp(&buffer[offset], wpa_oui, 3) != 0)
+				|| (buffer[offset + 3] != 0x01)) {
+				if (info->haskey)
+					info->en_method = NS_WIRELESS_AUTH_WEP;
+				else
+					info->en_method = NS_WIRELESS_AUTH_OFF;
+
+				info->key_mgmt = NS_IW_IE_KEY_MGMT_NONE;
+				info->group = NS_IW_IE_CIPHER_NONE;
+				info->pairwise = NS_IW_IE_CIPHER_NONE;
+
+				return;
+			}
+
+			/* OUI and 0x01 */
+			offset += 4;
+			break;
+
+		case 0x30: /* IEEE 802.11i/WPA2 */ 
+			wpa_oui = wpa2_oui;
+			break;
+
+		default: /* Unknown */
+			if (info->haskey)
+				info->en_method = NS_WIRELESS_AUTH_WEP;
+			else
+				info->en_method = NS_WIRELESS_AUTH_OFF;
+
+			info->key_mgmt = NS_IW_IE_KEY_MGMT_NONE;
+			info->group = NS_IW_IE_CIPHER_NONE;
+			info->pairwise = NS_IW_IE_CIPHER_NONE;
+			return;
+	}
+
+	/* assume TKIP */
+	info->en_method = NS_WIRELESS_AUTH_WPA;
+	info->key_mgmt = NS_IW_IE_KEY_MGMT_NONE;
+	info->group = NS_IW_IE_CIPHER_TKIP;
+	info->pairwise = NS_IW_IE_CIPHER_TKIP;
+
+	/* 2 bytes for version number (little endian) */
+	offset += 2;
+
+	/* check group cipher for short IE */
+	if ((offset+4) > ielen) {
+		/* this is a short IE, we can assume TKIP/TKIP. */
+		info->group = NS_IW_IE_CIPHER_TKIP;
+		info->pairwise = NS_IW_IE_CIPHER_TKIP;
+		return;
+	}
+
+	/* 4 Bytes for group cipher information [3 bytes][1 Byte] */
+	if(memcmp(&buffer[offset], wpa_oui, 3)!=0) {
+		/* the group cipher is proprietary */
+		info->group = NS_IW_IE_CIPHER_NONE;
+	} else {
+		/* pick a byte for type of group cipher */
+		info->group = buffer[offset+3];
+	}
+	offset += 4;
+
+	/* check pairwise cipher for short IE */
+	if ((offset+2) > ielen) {
+		/* this is a short IE, we can assume TKIP. */
+		info->pairwise = NS_IW_IE_CIPHER_TKIP;
+		return;
+	}
+
+	/* 2 bytes for number of pairwise ciphers (little endian) */
+	count = buffer[offset] | (buffer[offset + 1] << 8);
+	offset += 2;
+
+	/* if we are done */
+	if ((offset+4*count) > ielen) {
+		return;
+	}
+
+	/* choose first cipher of pairwise ciphers to use,
+	 * FIXME: Let user decide the cipher is the best way. */
+	for(i=0;i<count;i++) {
+		if(memcmp(&buffer[offset], wpa_oui, 3)==0) {
+			/* pick a byte for type of group cipher */
+			info->pairwise = buffer[offset+3];
+		}
+		offset += 4;
+    }
+
+	/* check authentication suites */
+	if ((offset+2) > ielen) {
+		/* this is a short IE, we can assume TKIP. */
+		info->key_mgmt = NS_IW_IE_KEY_MGMT_NONE;
+		return;
+	}
+
+	/* 2 bytes for number of authentication suites (little endian) */
+	count = buffer[offset] | (buffer[offset + 1] << 8);
+	offset += 2;
+
+	/* if we are done */
+	if ((offset+4*count) > ielen) {
+		return;
+	}
+
+	/* choose first key_mgmt of authentication suites to use,
+	 * FIXME: Let user decide the key_mgmt is the best way. */
+	for(i=0;i<count;i++) {
+		if(memcmp(&buffer[offset], wpa_oui, 3)==0) {
+			/* pick a byte for type of key_mgmt */
+			info->key_mgmt = buffer[offset+3];
+		}
+		offset += 4;
     }
 }
 
@@ -76,6 +223,11 @@ wireless_parse_scanning_event(struct iw_event *event, ap_info *oldinfo)
 
 			if (!(event->u.data.flags & IW_ENCODE_DISABLED)) {
 				info->haskey = TRUE;
+				/* assume WEP */
+				info->en_method = NS_WIRELESS_AUTH_WEP;
+			} else {
+				info->haskey = FALSE;
+				info->en_method = NS_WIRELESS_AUTH_OFF;
 			}
             break;
 		case IWEVGENIE: /* Extra information */
@@ -89,29 +241,8 @@ wireless_parse_scanning_event(struct iw_event *event, ap_info *oldinfo)
 				/* check IE type */
 				switch(iebuf[offset]) {
 					case 0xdd: /* WPA or else */
-					{
-						unsigned char wpa1_oui[3] = {0x00, 0x50, 0xf2};
-						/* Not all IEs that start with 0xdd are WPA. 
-						* So check that the OUI is valid. Note : offset==2 */
-						if((ielen < 8) || (memcmp(&iebuf[offset], wpa1_oui, 3) != 0)
-							|| (iebuf[offset + 3] != 0x01)) {
-								/* WEP or else */
-								info->en_method = NS_WIRELESS_AUTH_WEP;
-							break;
-						}
-							offset += 4;
-					}
 					case 0x30: /* IEEE 802.11i/WPA2 */ 
-						offset += 2;
-						/* fix me */
-						if(ielen<(offset + 4)) {
-							/* IEEE 802.11i/WPA2 */
-							info->en_method = NS_WIRELESS_AUTH_WPA_PSK;
-						} else {
-							/* WPA-PSK */
-							info->en_method = NS_WIRELESS_AUTH_WPA_PSK;
-						}
-							
+						wireless_gen_ie(info, iebuf, ielen);
 						break;
 				}
 				offset += iebuf[offset+1] + 2;
@@ -123,6 +254,9 @@ wireless_parse_scanning_event(struct iw_event *event, ap_info *oldinfo)
     return info;
 }
 
+/* when we have some workaround problems,
+ * we need this function to rescanning access-point.
+ * */
 gboolean wireless_refresh(int iwsockfd, const char *ifname)
 {
 	struct iwreq wrq;
