@@ -226,10 +226,13 @@ set_width_type( GtkWidget *item, Panel* p )
 static void
 transparency_toggle( GtkWidget *b, Panel* p)
 {
-    gboolean t;
+    GtkWidget* tr = ptk_ui_xml_get_widget( gtk_widget_get_toplevel(b), "tint_clr");
+	gboolean t;
 
     ENTER;
+
     t = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(b));
+    gtk_widget_set_sensitive(tr, t);
 /*
     gtk_widget_set_sensitive(tr_colorl, t);
     gtk_widget_set_sensitive(tr_colorb, t);
