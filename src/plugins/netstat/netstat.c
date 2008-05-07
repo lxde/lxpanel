@@ -201,6 +201,7 @@ static gint menupopup(GtkWidget *widget, GdkEvent *event, netdev_info *ni)
             if (ni->netdev_list->info.wireless) {
                 gtk_menu_popup(wireless_menu(ni), NULL, NULL, NULL, NULL, event_button->button, event_button->time);
             }
+            return TRUE;
         } else if (event_button->button == 3) {
             GtkWidget *menu;
             GtkWidget *menu_item;

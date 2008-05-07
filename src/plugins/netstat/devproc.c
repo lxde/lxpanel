@@ -473,7 +473,7 @@ void netproc_devicelist_clear(NETDEVLIST_PTR *netdev_list)
 			del_ptr = ptr;
 			ptr = ptr->next;
 			netproc_netdevlist_destroy(del_ptr);
-			free(del_ptr);
+			g_free(del_ptr);
 		} else {
 			prev_ptr = ptr;
 			ptr = ptr->next;
