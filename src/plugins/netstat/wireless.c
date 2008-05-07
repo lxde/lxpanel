@@ -49,9 +49,9 @@ void wireless_aplist_free(APLIST *aplist)
     if (aplist!=NULL) {
         ptr = aplist;
         do {
-			g_free(aplist->info->essid);
-			g_free(aplist->info->apaddr);
-			g_free(aplist->info);
+			g_free(ptr->info->essid);
+			g_free(ptr->info->apaddr);
+			g_free(ptr->info);
 
             delptr = ptr;
             ptr = ptr->next;

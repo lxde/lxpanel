@@ -109,10 +109,13 @@ wireless_menu(netdev_info *ni)
 
     /* create menu */
     menu = gtk_menu_new();
+	g_signal_connect(menu, "selection-done", gtk_widget_destroy, NULL);
 
     /* Scanning AP */
     aplist = wireless_scanning(ni->ns->fnetd->iwsockfd, ni->netdev_list->info.ifname);
     if (aplist!=NULL) {
+        /* release AP list after menu */
+        g_object_weak_ref(menu, wireless_aplist_free, aplist);
         ptr = aplist;
         do {
             /* skip hidden AP with Encryption */
@@ -181,9 +184,6 @@ wireless_menu(netdev_info *ni)
     }
 
     gtk_widget_show_all(menu);
-
-    /* release AP list after menu */
-    g_object_weak_ref(menu, wireless_aplist_free, aplist);
 
     return menu;
 }
