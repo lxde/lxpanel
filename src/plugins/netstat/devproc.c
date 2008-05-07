@@ -212,20 +212,21 @@ int netproc_scandevice(int sockfd, int iwsockfd, FILE *fp, NETDEVLIST_PTR *netde
 	gulong in_packets, out_packets, in_bytes, out_bytes;
 	NETDEVLIST_PTR devptr = NULL;
 
+	/* interface information */
+	struct ifreq ifr;
+	struct ethtool_test edata;
+	iwstats iws;
+	struct iwreq iwr;
+	char *status;
+	char *name;
+	struct iw_range iwrange;
+	int has_iwrange;
+
 	fgets (buffer, sizeof(buffer), fp);
 	fgets (buffer, sizeof(buffer), fp);
 	netproc_parse_stats_header(buffer, &prx_idx, &ptx_idx, &brx_idx, &btx_idx);
 
 	while (fgets(buffer, sizeof(buffer), fp)) {
-		struct ifreq ifr;
-		struct ethtool_test edata;
-		iwstats iws;
-		struct iwreq iwr;
-		char *status;
-		char *name;
-		struct iw_range iwrange;
-		int has_iwrange;
-
 		/* getting interface name */
 		name = buffer;
 		while (g_ascii_isspace(name[0])) {
@@ -239,7 +240,7 @@ int netproc_scandevice(int sockfd, int iwsockfd, FILE *fp, NETDEVLIST_PTR *netde
 
 		/* check interface hw_type */
 		bzero(&ifr, sizeof(ifr));
-		strncpy(ifr.ifr_name, name, strlen(name)+1);
+		strncpy(ifr.ifr_name, name, strlen(name));
   		ifr.ifr_name[strlen(name)+1] = '\0';
 		if (ioctl(sockfd, SIOCGIFHWADDR, &ifr)<0)
 			continue;
@@ -304,6 +305,7 @@ int netproc_scandevice(int sockfd, int iwsockfd, FILE *fp, NETDEVLIST_PTR *netde
 		/* Enable */
 		bzero(&ifr, sizeof(ifr));
 		strcpy(ifr.ifr_name, devptr->info.ifname);
+		ifr.ifr_name[IF_NAMESIZE - 1] = '\0';
 		if (ioctl(sockfd, SIOCGIFFLAGS, &ifr)>=0) {
 			devptr->info.flags = ifr.ifr_flags;
 			if (ifr.ifr_flags & IFF_UP) {
@@ -322,6 +324,7 @@ int netproc_scandevice(int sockfd, int iwsockfd, FILE *fp, NETDEVLIST_PTR *netde
 				/* plug */
 				bzero(&ifr, sizeof(ifr));
 				strcpy(ifr.ifr_name, devptr->info.ifname);
+				ifr.ifr_name[IF_NAMESIZE - 1] = '\0';
 
 				edata.cmd = 0x0000000a;
 				ifr.ifr_data = (caddr_t)&edata;
@@ -360,12 +363,14 @@ int netproc_scandevice(int sockfd, int iwsockfd, FILE *fp, NETDEVLIST_PTR *netde
 
 						/* IP Address */
 						strcpy(ifr.ifr_name, devptr->info.ifname);
+						ifr.ifr_name[IF_NAMESIZE - 1] = '\0';
 						ioctl(sockfd, SIOCGIFADDR, &ifr);
 						devptr->info.ipaddr = g_strdup(inet_ntoa(((struct sockaddr_in*)&ifr.ifr_addr)->sin_addr));
 
 						/* Point-to-Porint Address */
 						if (devptr->info.flags & IFF_POINTOPOINT) {
 							strcpy(ifr.ifr_name, devptr->info.ifname);
+							ifr.ifr_name[IF_NAMESIZE - 1] = '\0';
 							ioctl(sockfd, SIOCGIFDSTADDR, &ifr);
 							devptr->info.dest = g_strdup(inet_ntoa(((struct sockaddr_in*)&ifr.ifr_dstaddr)->sin_addr));
 						}
@@ -373,12 +378,14 @@ int netproc_scandevice(int sockfd, int iwsockfd, FILE *fp, NETDEVLIST_PTR *netde
 						/* Broadcast */
 						if (devptr->info.flags & IFF_BROADCAST) {
 							strcpy(ifr.ifr_name, devptr->info.ifname);
+							ifr.ifr_name[IF_NAMESIZE - 1] = '\0';
 							ioctl(sockfd, SIOCGIFBRDADDR, &ifr);
 							devptr->info.bcast = g_strdup(inet_ntoa(((struct sockaddr_in*)&ifr.ifr_broadaddr)->sin_addr));
 						}
 
 						/* Netmask */
 						strcpy(ifr.ifr_name, devptr->info.ifname);
+						ifr.ifr_name[IF_NAMESIZE - 1] = '\0';
 						ioctl(sockfd, SIOCGIFNETMASK, &ifr);
 						devptr->info.mask = g_strdup(inet_ntoa(((struct sockaddr_in*)&ifr.ifr_addr)->sin_addr));
 
