@@ -1,14 +1,14 @@
 # Slovak translation of lxpanel
 # Copyright (C) 2006 lxde team
 # This file is distributed under the same license as the lxpanel package.
-# Ivan Masár <helix84@centrum.sk>, 2007.
+# Fábio Antunes <fabio.antunes@hotmail.com>, 2008.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-20 23:19+0800\n"
-"PO-Revision-Date: 2008-04-22 13:29-0300\n"
+"PO-Revision-Date: 2008-05-05 19:17-0300\n"
 "Last-Translator: \n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
@@ -320,7 +320,7 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"Visite http://lxde.org/ para outros detalhes.\n"
+"Visite http://lxde.org/ para detalhes.\n"
 "\n"
 
 #: ../src/gtk-run.c:126
@@ -995,11 +995,11 @@ msgstr "Mostra o status da bateria utilizando ACPI"
 
 #: ../src/plugins/kbled/kbled.c:208
 msgid "Keyboard Led"
-msgstr "鍵盤燈號"
+msgstr "Luzes do Teclado"
 
 #: ../src/plugins/kbled/kbled.c:210
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr "顯示 CapsLock、NumLock、及 ScrollLock 鍵的狀態"
+msgstr "Indicadores para teclas CapsLock, NumLock, e ScrollLock"
 
 #~ msgid "Applications"
 #~ msgstr "Programas"
