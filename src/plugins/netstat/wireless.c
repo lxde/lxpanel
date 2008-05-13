@@ -211,7 +211,9 @@ wireless_parse_scanning_event(struct iw_event *event, ap_info *oldinfo)
 
     switch (event->cmd) {
         case SIOCGIWESSID: /* ESSID */
-			if (!event->u.essid.flags||event->u.essid.length==0) {
+			if (!event->u.essid.flags
+				|| event->u.essid.length==0
+				|| strlen(event->u.essid.pointer)==0) {
 				info->essid = NULL;
 			} else {
 				info->essid = g_strndup(event->u.essid.pointer, event->u.essid.length);
