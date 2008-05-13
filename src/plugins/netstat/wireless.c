@@ -202,6 +202,9 @@ wireless_parse_scanning_event(struct iw_event *event, ap_info *oldinfo)
 		info->apaddr = g_strdup(iw_saether_ntop(&event->u.ap_addr, buf));
 		info->en_method = NS_WIRELESS_AUTH_OFF;
 		info->haskey = FALSE;
+		info->key_mgmt = NS_IW_IE_KEY_MGMT_NONE;
+		info->group = NS_IW_IE_CIPHER_TKIP;
+		info->pairwise = NS_IW_IE_CIPHER_TKIP;
 	} else {
 		info = oldinfo;
 	}

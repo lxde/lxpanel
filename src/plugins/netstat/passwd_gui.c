@@ -55,6 +55,16 @@ void passwd_gui_set_style(struct pgui *pg, GtkStyle *style)
     gtk_widget_set_style(pg->dlg, style);
 }
 
+void passwd_gui_free(struct passwd_resp *pr)
+{
+    g_free(pr->aps->ifname);
+    g_free(pr->aps->apinfo->essid);
+    g_free(pr->aps->apinfo->apaddr);
+    g_free(pr->aps->apinfo);
+    g_free(pr->aps);
+    g_free(pr);
+}
+
 void passwd_gui_destroy(struct pgui *pg)
 {
     gtk_widget_destroy((GtkWidget*)pg->dlg);
@@ -100,7 +110,7 @@ struct pgui *passwd_gui_new(ap_setting *aps)
 
     /* g_signal */
     g_signal_connect(pwdgui->dlg, "response", G_CALLBACK(passwd_gui_on_response), pr);
-    g_object_weak_ref(pwdgui->dlg, g_free, pr);
+    g_object_weak_ref(pwdgui->dlg, passwd_gui_free, pr);
 
     gtk_widget_show_all(pwdgui->dlg);
 

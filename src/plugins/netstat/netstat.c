@@ -84,8 +84,26 @@ static void wireless_connect(GtkWidget *widget, ap_setting *aps)
         if (aps->ni->netdev_list->info.pg!=NULL)
             passwd_gui_destroy(aps->ni->netdev_list->info.pg);
 
+        /* record information for password dialog */
+        ap_setting *aps_new;
+        ap_info *apinfo;
+	apinfo = malloc(sizeof(ap_info));
+	apinfo->essid = g_strdup(aps->apinfo->essid);
+	apinfo->apaddr = g_strdup(aps->apinfo->apaddr);
+	apinfo->quality = aps->apinfo->quality;
+	apinfo->en_method = aps->apinfo->en_method;
+	apinfo->pairwise = aps->apinfo->pairwise;
+	apinfo->group = aps->apinfo->group;
+	apinfo->key_mgmt = aps->apinfo->key_mgmt;
+	apinfo->haskey = aps->apinfo->haskey;
+
+        aps_new = g_new0(ap_setting, 1);
+        aps_new->ni = aps->ni;
+        aps_new->gio = aps->gio;
+        aps_new->ifname = g_strdup(aps->ifname);
+        aps_new->apinfo = apinfo;
         /* create dialog window for typing password */
-        aps->ni->netdev_list->info.pg = passwd_gui_new(aps);
+        aps->ni->netdev_list->info.pg = passwd_gui_new(aps_new);
         //passwd_gui_set_style(aps->ni->netdev_list->info.pg, gtk_style_new());
     }
 }
