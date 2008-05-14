@@ -214,6 +214,7 @@ static GtkWidget *
 make_button(Plugin *p, gchar *fname, gchar *name, GdkColor* tint, GtkWidget *menu)
 {
     int w, h;
+    char* title = NULL;
     menup *m;
 
     ENTER;
@@ -226,8 +227,34 @@ make_button(Plugin *p, gchar *fname, gchar *name, GdkColor* tint, GtkWidget *men
         w = p->panel->aw;
         h = 10000;
     }
-    m->bg = fb_button_new_from_file_with_label(fname, w, h, gcolor2rgb24(tint), TRUE,
-          (p->panel->orientation == ORIENT_HORIZ ? name : NULL));
+
+    if( name )
+    {
+        /* load the name from *.directory file if needed */
+        if( g_str_has_suffix( name, ".directory" ) )
+        {
+            GKeyFile* kf = g_key_file_new();
+            char* dir_file = g_build_filename( "desktop-directories", name, NULL ); 
+            if( g_key_file_load_from_data_dirs( kf, dir_file, NULL, 0, NULL ) )
+            {
+                title = g_key_file_get_locale_string( kf, "Desktop Entry", "Name", NULL, NULL );
+            }
+            g_free( dir_file );
+            g_key_file_free( kf );
+        }
+        else
+            title = name;
+
+        /* FIXME: handle orientation problems */
+        m->bg = fb_button_new_from_file_with_label(fname, w, h, gcolor2rgb24(tint), TRUE, title );
+
+        if( title != name )
+            g_free( title );
+    }
+    else
+    {
+        m->bg = fb_button_new_from_file(fname, w, h, gcolor2rgb24(tint), TRUE );
+    }
     gtk_widget_show(m->bg);
     gtk_box_pack_start(GTK_BOX(m->box), m->bg, FALSE, FALSE, 0);
 
