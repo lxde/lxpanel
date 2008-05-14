@@ -36,6 +36,7 @@ typedef struct {
     Panel* panel;
     char* image;
     char* path;
+    char* name;
     GtkWidget *button;
 } dirmenu;
 
@@ -308,6 +309,9 @@ dirmenu_constructor(Plugin *p, char **fp)
                 else if (!g_ascii_strcasecmp(s.t[0], "path")) {
                     dm->path = g_strdup( s.t[1] );
                 }
+		else if (!g_ascii_strcasecmp(s.t[0], "name")) {
+                    dm->name = g_strdup( s.t[1] );
+                }
                 else {
                     ERR( "dirmenu: unknown var %s\n", s.t[0]);
                     goto error;
@@ -329,7 +333,7 @@ dirmenu_constructor(Plugin *p, char **fp)
     if (! fname)
         fname = strdup("file-manager");
 
-    dm->button = fb_button_new_from_file(fname, w, h, 0x202020, TRUE);
+    dm->button = fb_button_new_from_file_with_label(fname, w, h, 0x202020, TRUE, (p->panel->orientation == ORIENT_HORIZ ? dm->name : NULL));
 
     gtk_container_set_border_width( GTK_CONTAINER(dm->button), 0 );
     g_signal_connect( dm->button, "button_press_event",
