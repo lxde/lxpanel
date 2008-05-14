@@ -339,6 +339,7 @@ read_button(Plugin *p, char** fp)
     lb->btns = g_slist_append( lb->btns, btn );
 
     gtk_widget_show(button);
+    plugin_widget_set_background( button, p->panel );
 
     g_free(fname);
 
