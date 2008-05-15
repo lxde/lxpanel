@@ -1088,6 +1088,11 @@ static void on_toggle_changed( GtkToggleButton* btn, gpointer user_data )
     notify_apply_config( GTK_WIDGET(btn) );
 }
 
+void generic_config_dlg_save(Panel *panel)
+{
+    panel_config_save(panel);
+}
+
 /* Parameters: const char* name, gpointer ret_value, GType type, ....NULL */
 GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
                                       GSourceFunc apply_func, gpointer plugin,
@@ -1101,11 +1106,12 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
                                                   NULL );
 
     /* fix background */
-    if (p->background)
-        gtk_widget_set_style(dlg, p->defstyle);
+//    if (p->background)
+//        gtk_widget_set_style(dlg, p->defstyle);
 
     /* this is a dirty hack.  We need to check if this response is GTK_RESPONSE_CLOSE or not. */
     g_signal_connect( dlg, "response", G_CALLBACK(gtk_widget_destroy), NULL );
+    g_object_weak_ref(dlg, generic_config_dlg_save, p);
     if( apply_func )
         g_object_set_data( G_OBJECT(dlg), "apply_func", apply_func );
     if( plugin )
