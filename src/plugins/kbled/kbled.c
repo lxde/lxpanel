@@ -32,13 +32,13 @@
 #include "panel.h"
 #include "misc.h"
 #include "plugin.h"
-
+/*
 enum {
     CapsLock = 0,
     NumLock,
     ScrlLock
 };
-
+*/
 const char* on_icons[]={
     "capslock-on.png",
     "numlock-on.png",
@@ -59,7 +59,10 @@ typedef struct _KbLed{
     GtkWidget *img[3];
     GtkTooltips* tooltips;
     int old_state;
+    gboolean visible[3];
 } KbLed;
+
+static void apply_config( Plugin* p );
 
 static void update_display( Plugin* p, unsigned int state )
 {
@@ -68,6 +71,9 @@ static void update_display( Plugin* p, unsigned int state )
 
     for( i = 0; i < 3; ++i )
     {
+        if (!kl->visible[i])
+            continue;
+
         gboolean old = kl->old_state & (1 << i);
         gboolean cur = state & (1 << i);
         if( old != cur )
@@ -157,7 +163,6 @@ static int kbled_constructor(Plugin *p, char **fp)
 {
     KbLed *kl;
     GtkWidget *image;
-    gboolean visible[ 3 ] = {TRUE, TRUE ,TRUE};
     line s;
 /*
     GdkPixbuf *icon;
@@ -174,7 +179,12 @@ static int kbled_constructor(Plugin *p, char **fp)
     if (!XkbSelectEvents(GDK_DISPLAY(), XkbUseCoreKbd, XkbIndicatorStateNotifyMask, XkbIndicatorStateNotifyMask))
         return FALSE;
 
-	/* FIXME: this doesn't work :-( */
+    kl = g_new0( KbLed, 1);
+    g_return_val_if_fail(kl != NULL, 0);
+    kl->visible[0] = TRUE;
+    kl->visible[1] = TRUE;
+    kl->visible[2] = TRUE;
+    p->priv = kl;
     s.len = 256;
     if (fp) {
         while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
@@ -184,13 +194,11 @@ static int kbled_constructor(Plugin *p, char **fp)
             }
             if (s.type == LINE_VAR) {
                 if (!g_ascii_strcasecmp(s.t[0], "ShowCapsLock"))
-                    visible[CapsLock] = atoi(s.t[1]);
+                    kl->visible[0] = str2num(bool_pair, s.t[1], 0);
                 else if (!g_ascii_strcasecmp(s.t[0], "ShowNumLock"))
-                    visible[NumLock] = atoi(s.t[1]);
+                    kl->visible[1] = str2num(bool_pair, s.t[1], 0);
                 else if (!g_ascii_strcasecmp(s.t[0], "ShowScrollLock"))
-                {
-                    visible[ScrlLock] = atoi(s.t[1]);
-				}
+                    kl->visible[2] = str2num(bool_pair, s.t[1], 0);
                 else {
                     ERR( "kbled: unknown var %s\n", s.t[0]);
                     continue;
@@ -203,26 +211,23 @@ static int kbled_constructor(Plugin *p, char **fp)
         }
     }
 
-    kl = g_new0( KbLed, 1);
-    g_return_val_if_fail(kl != NULL, 0);
-    p->priv = kl;
-
+    /* create a container */
     p->pwid = gtk_event_box_new();
     gtk_widget_add_events( p->pwid, GDK_BUTTON_PRESS_MASK );
     g_signal_connect( p->pwid, "button-press-event",
             G_CALLBACK(on_button_press), p );
 
+    /* create a box */
     kl->mainw = p->panel->my_box_new( FALSE, 0 );
-    for( i =0; i < 3; ++i )
-    {
-        image = gtk_image_new();
-        gtk_widget_set_size_request( image, 22, 22 );
-        gtk_box_pack_start( (GtkBox*)kl->mainw, image, FALSE, FALSE, 0 );
-        kl->img[i] = image;
-        if( visible[i] )
-            gtk_widget_show( image );
-        else
-        	gtk_widget_hide( image );
+    for( i =0; i < 3; ++i ) {
+        kl->img[i] = gtk_image_new();
+        //gtk_widget_set_size_request( kl->img[i], 22, 22 );
+        gtk_box_pack_start( (GtkBox*)kl->mainw, kl->img[i], FALSE, FALSE, 0 );
+        if (kl->visible[i]) {
+            gtk_widget_show(kl->img[i]);
+        } else {
+            gtk_widget_hide(kl->img[i]);
+	}
     }
     gtk_container_add( (GtkContainer*)p->pwid, kl->mainw );
 
@@ -240,6 +245,45 @@ static int kbled_constructor(Plugin *p, char **fp)
     return TRUE;
 }
 
+static void apply_config( Plugin* p )
+{
+    int i;
+    KbLed *kl = (KbLed *)p->priv;
+
+    for( i =0; i < 3; i++ ) {
+        if (kl->visible[i]) {
+            char* file = g_build_filename( PACKAGE_DATA_DIR "/lxpanel/images",
+                                                    kl->old_state ? on_icons[i] : off_icons[i], NULL );
+            gtk_image_set_from_file(kl->img[ i ], file);
+            g_free(file);
+            gtk_widget_show(kl->img[i]);
+        } else {
+            gtk_widget_hide(kl->img[i]);
+	}
+    }
+}
+
+static void save_config( Plugin* p, FILE* fp )
+{
+    KbLed *kl = (KbLed *)p->priv;
+    lxpanel_put_int( fp, "ShowCapsLock", kl->visible[0] );
+    lxpanel_put_int( fp, "ShowNumLock", kl->visible[1] );
+    lxpanel_put_int( fp, "ShowScrollLock", kl->visible[2] );
+}
+
+static void kbled_config( Plugin *p, GtkWindow* parent )
+{
+    GtkWidget* dlg;
+    KbLed *kl = (KbLed *)p->priv;
+    dlg = create_generic_config_dlg( _(p->class->name),
+                                     GTK_WIDGET(parent),
+                                    (GSourceFunc) apply_config, (gpointer) p,
+                                     _("Show CapsLock"), &kl->visible[0], G_TYPE_BOOLEAN,
+                                     _("Show NumLock"), &kl->visible[1], G_TYPE_BOOLEAN,
+                                     _("Show ScrollLock"), &kl->visible[2], G_TYPE_BOOLEAN,
+                                     NULL );
+    gtk_window_present( GTK_WINDOW(dlg) );
+}
 
 PluginClass kbled_plugin_class = {
     fname: NULL,
@@ -252,7 +296,7 @@ PluginClass kbled_plugin_class = {
 
     constructor : kbled_constructor,
     destructor  : kbled_destructor,
-    config : NULL,
-    save : NULL,
+    config : kbled_config,
+    save : save_config,
     orientation : kbled_orientation
 };
