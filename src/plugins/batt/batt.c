@@ -340,13 +340,20 @@ void update_display(batt *b, gboolean repaint) {
                         capacity ? charge * 100 / capacity : 0,
                         (charge >= capacity) ? _("charging finished") : _("not charging") );
 
+        } else {
+            /* if we have enough rate information for battery */
+            if (rate) {
+                snprintf(tooltip, 256,
+                        _("Battery: %d%% charged, %d:%02d left"),
+                        capacity ? charge * 100 / capacity : 0,
+                        charge / rate,
+                        (charge * 60 / rate) % 60);
+            } else {
+                snprintf(tooltip, 256,
+                        _("Battery: %d%% charged"),
+                        capacity ? charge * 100 / capacity : 0);
+            }
         }
-        else
-            snprintf(tooltip, 256,
-                    _("Battery: %d%% charged, %d:%02d left"),
-                    capacity ? charge * 100 / capacity : 0,
-                    rate ? charge / rate : 0,
-                    rate ? (charge * 60 / rate) % 60 : 0);
 
         gtk_tooltips_set_tip(b->tooltip, b->drawingArea, tooltip, NULL);
 
