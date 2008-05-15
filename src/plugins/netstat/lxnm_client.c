@@ -136,7 +136,9 @@ char *lxnm_wireless_command_make(const char *ifname, const char *essid,
     char *cmd_essid;
     char *cmd_key;
 
-    if (strlen(essid)==0) {
+    if (essid==NULL) {
+        cmd_essid = g_strdup("NULL");
+    } else if (strlen(essid)==0) {
         cmd_essid = g_strdup("NULL");
     } else {
         cmd_essid = essid;

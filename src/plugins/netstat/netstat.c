@@ -88,7 +88,11 @@ static void wireless_connect(GtkWidget *widget, ap_setting *aps)
         ap_setting *aps_new;
         ap_info *apinfo;
 	apinfo = malloc(sizeof(ap_info));
-	apinfo->essid = g_strdup(aps->apinfo->essid);
+	if (aps->apinfo->essid==NULL)
+		apinfo->essid = NULL;
+	else
+		apinfo->essid = g_strdup(aps->apinfo->essid);
+
 	apinfo->apaddr = g_strdup(aps->apinfo->apaddr);
 	apinfo->quality = aps->apinfo->quality;
 	apinfo->en_method = aps->apinfo->en_method;
