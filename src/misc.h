@@ -88,6 +88,8 @@ GtkWidget *fb_button_new_from_file(gchar *fname, int width, int height, gulong h
       gboolean keep_ratio);
 GtkWidget *fb_button_new_from_file_with_label(gchar *fname, int width, int height,
       gulong hicolor, gboolean keep_ratio, gchar *label);
+GtkWidget *fb_button_new_from_file_with_colorlabel(gchar *fname, int width, int height,
+      gulong hicolor, gulong fcolor, gboolean keep_ratio, gchar *name);
 
 char* translate_exec_to_cmd( const char* exec, const char* icon,
                              const char* title, const char* fpath );

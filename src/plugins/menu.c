@@ -44,12 +44,14 @@
 typedef struct {
     GtkTooltips *tips;
     GtkWidget *menu, *box, *bg, *label;
+    char *fname, *caption;
     gulong handler_id;
     int iconsize, paneliconsize;
     GSList *files;
     gboolean has_system_menu;
     char* config_data;
     int sysmenu_pos;
+    char *config_start, *config_end;
 } menup;
 
 static guint idle_loader = 0;
@@ -74,6 +76,8 @@ menu_destructor(Plugin *p)
     /* The widget is destroyed in plugin_stop().
     gtk_widget_destroy(m->box);
     */
+    g_free(m->fname);
+    g_free(m->caption);
     g_free(m);
     RET();
 }
@@ -246,7 +250,11 @@ make_button(Plugin *p, gchar *fname, gchar *name, GdkColor* tint, GtkWidget *men
             title = name;
 
         /* FIXME: handle orientation problems */
-        m->bg = fb_button_new_from_file_with_label(fname, w, h, gcolor2rgb24(tint), TRUE, title );
+        if (p->panel->usefontcolor)
+            m->bg = fb_button_new_from_file_with_colorlabel(fname, w, h, gcolor2rgb24(tint),
+                p->panel->fontcolor, TRUE, title);
+        else
+            m->bg = fb_button_new_from_file_with_label(fname, w, h, gcolor2rgb24(tint), TRUE, title);
 
         if( title != name )
             g_free( title );
@@ -255,6 +263,7 @@ make_button(Plugin *p, gchar *fname, gchar *name, GdkColor* tint, GtkWidget *men
     {
         m->bg = fb_button_new_from_file(fname, w, h, gcolor2rgb24(tint), TRUE );
     }
+
     gtk_widget_show(m->bg);
     gtk_box_pack_start(GTK_BOX(m->box), m->bg, FALSE, FALSE, 0);
 
@@ -451,6 +460,8 @@ read_submenu(Plugin *p, char** fp, gboolean as_item)
     GdkColor color={0, 0, 36 * 0xffff / 0xff, 96 * 0xffff / 0xff};
 
     ENTER;
+
+
     s.len = 256;
     menu = gtk_menu_new ();
     gtk_container_set_border_width(GTK_CONTAINER(menu), 0);
@@ -483,10 +494,12 @@ read_submenu(Plugin *p, char** fp, gboolean as_item)
             gtk_widget_show(mi);
             gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
         } else if (s.type == LINE_VAR) {
+            m->config_start = *fp;
             if (!g_ascii_strcasecmp(s.t[0], "image"))
                 fname = expand_tilda(s.t[1]);
             else if (!g_ascii_strcasecmp(s.t[0], "name"))
                 strcpy(name, s.t[1]);
+	    /* FIXME: tintcolor will not be saved.  */
             else if (!g_ascii_strcasecmp(s.t[0], "tintcolor"))
                 gdk_color_parse( s.t[1], &color);
             else {
@@ -518,6 +531,8 @@ read_submenu(Plugin *p, char** fp, gboolean as_item)
         gtk_menu_item_set_submenu (GTK_MENU_ITEM (mi), menu);
         RET(mi);
     } else {
+        m->fname = g_strdup(fname);
+        m->caption = g_strdup(name);
         mi = make_button(p, fname, name, &color, menu);
         if (fname)
             g_free(fname);
@@ -557,6 +572,8 @@ menu_constructor(Plugin *p, char **fp)
     ENTER;
     m = g_new0(menup, 1);
     g_return_val_if_fail(m != NULL, 0);
+    m->fname = NULL;
+    m->caption = NULL;
     p->priv = m;
 
     //gtk_rc_parse_string(menu_rc);
@@ -574,20 +591,20 @@ menu_constructor(Plugin *p, char **fp)
     if( ! fp )
         fp = &config_default;
 
-    config_start = *fp;
+    m->config_start = *fp;
     if (!read_submenu(p, fp, FALSE)) {
         ERR("menu: plugin init failed\n");
         goto error;
     }
-    config_end = *fp - 1;
-    while( *config_end != '}' && config_end > config_start ) {
-        --config_end;
+    m->config_end = *fp - 1;
+    while( *m->config_end != '}' && m->config_end > m->config_start ) {
+        --m->config_end;
     }
-    if( *config_end == '}' )
-        --config_end;
+    if( *m->config_end == '}' )
+        --m->config_end;
 
-    m->config_data = g_strndup( config_start,
-                                (config_end-config_start) );
+    m->config_data = g_strndup( m->config_start,
+                                (m->config_end-m->config_start) );
 
     p->pwid = m->box;
 
@@ -601,6 +618,8 @@ menu_constructor(Plugin *p, char **fp)
 static void save_config( Plugin* p, FILE* fp )
 {
     menup* menu = (menup*)p->priv;
+    lxpanel_put_str( fp, "name", menu->caption );
+    lxpanel_put_str( fp, "image", menu->fname );
     if( menu->config_data ) {
         char** lines = g_strsplit( menu->config_data, "\n", 0 );
         char** line;
@@ -611,6 +630,24 @@ static void save_config( Plugin* p, FILE* fp )
         }
         g_strfreev( lines );
     }
+}
+
+static void apply_config(Plugin* p)
+{
+    /* FIXME: update menu for new setting */
+}
+
+static void menu_config( Plugin *p, GtkWindow* parent )
+{
+    GtkWidget* dlg;
+    menup* menu = (menup*)p->priv;
+    dlg = create_generic_config_dlg( _(p->class->name),
+                                     GTK_WIDGET(parent),
+                                    (GSourceFunc) apply_config, (gpointer) p,
+                                     _("Icon"), &menu->fname, G_TYPE_STRING,
+                                     _("Caption"), &menu->caption, G_TYPE_STRING,
+                                     NULL );
+    gtk_window_present( GTK_WINDOW(dlg) );
 }
 
 PluginClass menu_plugin_class = {
@@ -624,7 +661,7 @@ PluginClass menu_plugin_class = {
 
     constructor : menu_constructor,
     destructor  : menu_destructor,
-    config : NULL,
+    config : menu_config,
     save : save_config
 };
 

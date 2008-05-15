@@ -1165,6 +1165,45 @@ fb_button_new_from_file(gchar *fname, int width, int height, gulong hicolor, gbo
 }
 
 GtkWidget *
+fb_button_new_from_file_with_colorlabel(gchar *fname, int width, int height,
+      gulong hicolor, gulong fcolor, gboolean keep_ratio, gchar *name)
+{
+    GtkWidget *b, *image, *box, *label;
+
+    ENTER;
+    b = gtk_event_box_new();
+    gtk_container_set_border_width(GTK_CONTAINER(b), 0);
+    GTK_WIDGET_UNSET_FLAGS (b, GTK_CAN_FOCUS);
+
+    box = gtk_hbox_new(FALSE, 0);
+    gtk_container_set_border_width(GTK_CONTAINER(box), 0);
+    GTK_WIDGET_UNSET_FLAGS (box, GTK_CAN_FOCUS);
+    gtk_container_add(GTK_CONTAINER(b), box);
+
+    image = gtk_image_new_from_file_scaled(fname, width, height, keep_ratio);
+    g_object_set_data(G_OBJECT(image), "hicolor", (gpointer)hicolor);
+    gtk_misc_set_padding (GTK_MISC(image), 0, 0);
+    if (hicolor > 0) {
+        gtk_widget_add_events(b, GDK_ENTER_NOTIFY_MASK | GDK_LEAVE_NOTIFY_MASK);
+        g_signal_connect_swapped (G_OBJECT (b), "enter-notify-event",
+              G_CALLBACK (fb_button_enter), image);
+        g_signal_connect_swapped (G_OBJECT (b), "leave-notify-event",
+              G_CALLBACK (fb_button_leave), image);
+    }
+    gtk_box_pack_start(GTK_BOX(box), image, FALSE, FALSE, 0);
+    if (name) {
+        label =  gtk_label_new("");
+        char *lname = g_strdup_printf("<span color=\"#%06x\">%s</span>", fcolor, name);
+	gtk_label_set_markup(GTK_LABEL(label), lname);
+        gtk_misc_set_padding(GTK_MISC(label), 2, 0);
+	g_free(lname);
+        gtk_box_pack_end(GTK_BOX(box), label, FALSE, FALSE, 0);
+    }
+    gtk_widget_show_all(b);
+    RET(b);
+}
+
+GtkWidget *
 fb_button_new_from_file_with_label(gchar *fname, int width, int height,
       gulong hicolor, gboolean keep_ratio, gchar *name)
 {
