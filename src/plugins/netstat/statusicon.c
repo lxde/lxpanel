@@ -56,6 +56,9 @@ struct statusicon *create_statusicon(GtkWidget *box, const char *filename,
 
 void statusicon_destroy(struct statusicon *icon)
 {
+	if (icon==NULL)
+        return;
+
     g_object_unref(icon->tooltips);
     gtk_widget_destroy(GTK_WIDGET(icon->icon));
     gtk_widget_destroy(GTK_WIDGET(icon->main));
