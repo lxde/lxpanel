@@ -328,7 +328,8 @@ APLIST *wireless_scanning(int iwsockfd, const char *ifname)
 	fd_set rfds; /* File descriptors for select */
 	int selfd;
 	int ret;
-	char buffer[IW_SCAN_MAX_DATA];
+	int bufferlen = IW_SCAN_MAX_DATA;
+	int timeout = 15000000;
 
 	strncpy(wrq.ifr_name, ifname, IFNAMSIZ);
 
@@ -340,7 +341,7 @@ APLIST *wireless_scanning(int iwsockfd, const char *ifname)
 		return NULL;
 
 	/* Initiate Scanning */
-	wrq.u.data.pointer = buffer;
+	wrq.u.data.pointer = malloc(sizeof(char)*IW_SCAN_MAX_DATA);
 	wrq.u.data.length = IW_SCAN_MAX_DATA;
 	wrq.u.data.flags = 0;
 
@@ -359,9 +360,23 @@ APLIST *wireless_scanning(int iwsockfd, const char *ifname)
 			if (errno == EAGAIN) { /* not yet ready */
 				FD_ZERO(&rfds);
 				selfd = -1;
+				if (select(selfd + 1, &rfds, NULL, NULL, &tv)==0) {
+					tv.tv_usec = 100000;
+					timeout -= tv.tv_usec;
+					if (timeout>0)
+						continue;
+					else
+						break; /* timeout */
+				} else
+					break;
+			} else if ((errno == E2BIG) && (range.we_version_compiled > 16)) {
+				if(wrq.u.data.length > bufferlen)
+					bufferlen = wrq.u.data.length;
+				else
+					bufferlen *= 2;
 
-				if (select(selfd + 1, &rfds, NULL, NULL, &tv)==0)
-					continue; /* timeout */
+				wrq.u.data.pointer = realloc(wrq.u.data.pointer, bufferlen);
+				continue;
 			} else {
 				break;
 			}
@@ -371,7 +386,7 @@ APLIST *wireless_scanning(int iwsockfd, const char *ifname)
 			break;
 
 		/* Initializing event */
-		iw_init_event_stream(&stream, buffer, wrq.u.data.length); 
+		iw_init_event_stream(&stream, wrq.u.data.pointer, wrq.u.data.length); 
 		do {
 			ret = iw_extract_event_stream(&stream, &event, range.we_version_compiled);
 			if (ret > 0) {
@@ -387,6 +402,8 @@ APLIST *wireless_scanning(int iwsockfd, const char *ifname)
 				ap->info = wireless_parse_scanning_event(&event, ap->info);
 			}
 		} while (ret > 0);
+
+		break;
 	}
 
 	return ap;
