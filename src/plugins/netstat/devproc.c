@@ -354,14 +354,13 @@ int netproc_scandevice(int sockfd, int iwsockfd, FILE *fp, NETDEVLIST_PTR *netde
 				/* get network information */
 				if (devptr->info.enable&&devptr->info.plug) {
 					if (devptr->info.flags & IFF_RUNNING) {
-						bzero(&ifr, sizeof(ifr));
-
 						/* release old information */
 						g_free(devptr->info.ipaddr);
 						g_free(devptr->info.bcast);
 						g_free(devptr->info.mask);
 
 						/* IP Address */
+						bzero(&ifr, sizeof(ifr));
 						strcpy(ifr.ifr_name, devptr->info.ifname);
 						ifr.ifr_name[IF_NAMESIZE - 1] = '\0';
 						ioctl(sockfd, SIOCGIFADDR, &ifr);
@@ -369,6 +368,7 @@ int netproc_scandevice(int sockfd, int iwsockfd, FILE *fp, NETDEVLIST_PTR *netde
 
 						/* Point-to-Porint Address */
 						if (devptr->info.flags & IFF_POINTOPOINT) {
+							bzero(&ifr, sizeof(ifr));
 							strcpy(ifr.ifr_name, devptr->info.ifname);
 							ifr.ifr_name[IF_NAMESIZE - 1] = '\0';
 							ioctl(sockfd, SIOCGIFDSTADDR, &ifr);
@@ -377,6 +377,7 @@ int netproc_scandevice(int sockfd, int iwsockfd, FILE *fp, NETDEVLIST_PTR *netde
 
 						/* Broadcast */
 						if (devptr->info.flags & IFF_BROADCAST) {
+							bzero(&ifr, sizeof(ifr));
 							strcpy(ifr.ifr_name, devptr->info.ifname);
 							ifr.ifr_name[IF_NAMESIZE - 1] = '\0';
 							ioctl(sockfd, SIOCGIFBRDADDR, &ifr);
@@ -384,6 +385,7 @@ int netproc_scandevice(int sockfd, int iwsockfd, FILE *fp, NETDEVLIST_PTR *netde
 						}
 
 						/* Netmask */
+						bzero(&ifr, sizeof(ifr));
 						strcpy(ifr.ifr_name, devptr->info.ifname);
 						ifr.ifr_name[IF_NAMESIZE - 1] = '\0';
 						ioctl(sockfd, SIOCGIFNETMASK, &ifr);
