@@ -492,14 +492,12 @@ void netproc_devicelist_clear(NETDEVLIST_PTR *netdev_list)
 
 void netproc_listener(FNETD *fnetd)
 {
-//	if (fnetd->sockfd) {
+	if (fnetd->sockfd) {
 		netproc_alive(fnetd->netdevlist);
 		fnetd->netdev_fp = netproc_open();
-		fnetd->sockfd = socket(AF_INET, SOCK_DGRAM, 0);
 		netproc_scandevice(fnetd->sockfd, fnetd->iwsockfd, fnetd->netdev_fp, &fnetd->netdevlist);
 		netproc_close(fnetd->netdev_fp);
-		close(fnetd->sockfd);
-//	}
+	}
 }
 
 #ifdef DEBUG
