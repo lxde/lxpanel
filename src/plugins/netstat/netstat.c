@@ -375,7 +375,7 @@ static void netstat_destructor(Plugin *p)
     gtk_widget_destroy(ns->mainw);
     */
     lxnm_close(ns->fnetd->lxnmchannel);
-    close(ns->fnetd->sockfd);
+    //close(ns->fnetd->sockfd);
     close(ns->fnetd->iwsockfd);
     g_free(ns->fnetd);
     g_free(ns->fixcmd);
@@ -431,6 +431,7 @@ static int netstat_constructor(Plugin *p, char **fp)
     ns->fnetd->dev_count = netproc_netdevlist_clear(&ns->fnetd->netdevlist);
     ns->fnetd->dev_count = netproc_scandevice(ns->fnetd->sockfd, ns->fnetd->iwsockfd, ns->fnetd->netdev_fp, &ns->fnetd->netdevlist);
     netproc_close(ns->fnetd->netdev_fp);
+	close(ns->fnetd->sockfd);
     refresh_systray(ns, ns->fnetd->netdevlist);
 
     ns->ttag = g_timeout_add(NETSTAT_IFACE_POLL_DELAY, (GSourceFunc)refresh_devstat, ns);
