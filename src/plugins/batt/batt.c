@@ -183,6 +183,10 @@ static gboolean get_batt_state( batt_info* bi, gboolean use_sysfs )
                 pstr += 24;
                 sscanf (pstr, "%d",&bi->charge);
             }
+
+            /* thisState will be 'c' if the batter is charging and 'd'
+               otherwise */
+            bi->is_charging = !( thisState - 'C' );
         } else {
             /* Read the file until the battery's charging state is found or
                until there are no more lines to be read */
@@ -205,11 +209,13 @@ static gboolean get_batt_state( batt_info* bi, gboolean use_sysfs )
                 pstr += 25;
                 sscanf (pstr, "%d",&bi->charge);
             }
+	    
+            /* thisState will be 'c' if the batter is charging and 'd'
+               otherwise */
+            bi->is_charging = !( thisState - 'c' );
         }
 
-        /* thisState will be 'c' if the batter is charging and 'd'
-           otherwise */
-        bi->is_charging = !( thisState - 'c' );
+
 
         fclose(state);
         return TRUE;
@@ -373,7 +379,7 @@ void update_display(batt *b, gboolean repaint) {
                 snprintf(tooltip, 256,
                         _("Battery: %d%% charged, %s"),
                         capacity ? charge * 100 / capacity : 0,
-                        (charge >= capacity) ? _("charging finished") : _("not charging") );
+                        (charge >= capacity) ? _("charging finished") : _("charging") );
 
         } else {
             /* if we have enough rate information for battery */
