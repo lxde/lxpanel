@@ -153,8 +153,6 @@ static gboolean get_batt_state( batt_info* bi, gboolean use_sysfs )
     FILE *state;
     char buf[ 512 ];
     
-    ERR("%d\n", use_sysfs);
-
     if (use_sysfs)
         g_snprintf( buf, 512, "%s%s/uevent", BATTERY_SYSFS_DIRECTORY, bi->name );
     else
@@ -187,7 +185,6 @@ static gboolean get_batt_state( batt_info* bi, gboolean use_sysfs )
                 pstr += 24;
                 sscanf (pstr, "%d",&bi->charge);
             }
-	    ERR("%d\n", bi->charge);
 
             /* thisState will be 'c' if the batter is charging and 'd'
                otherwise */
