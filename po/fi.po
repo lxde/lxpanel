@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-30 08:32+0300\n"
-"PO-Revision-Date: 2008-05-01 15:35+0200\n"
+"PO-Revision-Date: 2008-05-20 20:35+0200\n"
 "Last-Translator: Elias Julkunen <elias.julkunen@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -136,11 +136,11 @@ msgstr "Paneelin asetukset"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "Pixels"
-msgstr "Pikseliä"
+msgstr "pikseliä"
 
 #: ../data/ui/panel-pref.glade.h:34
 msgid "Reserve space, and not covered by maximized windows"
-msgstr ""
+msgstr "Varaa tilaa, etteivät suurennetut ikkunat mene paneelin alle"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Select an image file"
@@ -192,7 +192,7 @@ msgstr "Käytettävissä olevat liitännäiset"
 
 #: ../src/configurator.c:1049
 msgid "Logout command is not set"
-msgstr "Komento kirjautumiselle ulos ei ole asetettu"
+msgstr "Uloskirjautumisen komentoa ei ole asetettu"
 
 #: ../src/panel.c:613
 msgid "Left"
@@ -225,7 +225,7 @@ msgid ""
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
 "Haluatko varmasti poistaa tämän paneelin?\n"
-"<b>Varoitus: tätä toimintoa ei voi kumota.</b>"
+"<b>Varoitus: tätä toimintoa ei voi perua.</b>"
 
 #: ../src/panel.c:680
 msgid "Confirm"
@@ -255,7 +255,7 @@ msgstr "Paneeli"
 #: ../src/panel.c:773
 #, c-format
 msgid "\"%s\" Settings"
-msgstr "\"%s\"-asetukset"
+msgstr "Sovelman \"%s\" asetukset"
 
 #: ../src/panel.c:1237
 #, c-format
@@ -270,17 +270,17 @@ msgstr "Komentorivivalinnat:\n"
 #: ../src/panel.c:1239
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr "--help      -- tulostaa tämän ohjeen ja poistuu\n"
+msgstr "--help      -- näyttää tämän ohjeen ja poistuu\n"
 
 #: ../src/panel.c:1240
 #, c-format
 msgid " --version   -- print version and exit\n"
-msgstr "--version   -- tulostaa versionumeron ja poistuu\n"
+msgstr "--version   -- näyttää versionumeron ja poistuu\n"
 
 #: ../src/panel.c:1241
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --log <numero> -- asettaa lokin tasoksi 0-5. 0: ei mitään ja 5: lavertelija\n"
+msgstr " --log <numero> -- asettaa lokin tasoksi 0-5. 0 = ei mitään, 5 = lavertelija\n"
 
 #: ../src/panel.c:1242
 #, c-format
@@ -320,12 +320,12 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"Vieraile sivustolla http://lxde.org/, jos haluat lisätietoja.\n"
+"Vieraile sivustolla http://lxde.org/ lisätietoja varten.\n"
 "\n"
 
 #: ../src/gtk-run.c:126
 msgid "Enter the command you want to execute:"
-msgstr "Syötä komento, joka suoritetaan:"
+msgstr "Syötä suoritettava komento:"
 
 #: ../src/systray/tray.c:206
 msgid "System Tray"
@@ -341,7 +341,7 @@ msgstr "CPU:n käytön valvoja"
 
 #: ../src/plugins/cpu/cpu.c:224
 msgid "Display CPU usage"
-msgstr "Näyttää CPU:n käytön"
+msgstr "Näyttää CPU:n käyttöasteen"
 
 #: ../src/plugins/deskno/deskno.c:99
 msgid "Desktop No / Workspace Name"
@@ -388,57 +388,46 @@ msgid "Bar with buttons to launch application"
 msgstr "Käynnistyspalkki painikkeiden kanssa"
 
 #: ../src/plugins/ptk-app-menu.c:157
-#, fuzzy
 msgid "Other"
-msgstr "Muuta"
+msgstr "Muut"
 
 #: ../src/plugins/ptk-app-menu.c:158
-#, fuzzy
 msgid "Game"
 msgstr "Pelit"
 
 #: ../src/plugins/ptk-app-menu.c:159
-#, fuzzy
 msgid "Education"
 msgstr "Opiskelu"
 
 #: ../src/plugins/ptk-app-menu.c:160
-#, fuzzy
 msgid "Development"
 msgstr "Kehitys"
 
 #: ../src/plugins/ptk-app-menu.c:161
-#, fuzzy
 msgid "Audio & Video"
-msgstr "Äänet ja videot"
+msgstr "Ääni & video"
 
 #: ../src/plugins/ptk-app-menu.c:162
-#, fuzzy
 msgid "Graphics"
 msgstr "Grafiikka"
 
 #: ../src/plugins/ptk-app-menu.c:163
-#, fuzzy
 msgid "Settings"
 msgstr "Asetukset"
 
 #: ../src/plugins/ptk-app-menu.c:164
-#, fuzzy
 msgid "System Tools"
 msgstr "Järjestelmätyökalut"
 
 #: ../src/plugins/ptk-app-menu.c:165
-#, fuzzy
 msgid "Network"
 msgstr "Internet"
 
 #: ../src/plugins/ptk-app-menu.c:166
-#, fuzzy
 msgid "Office"
 msgstr "Toimisto"
 
 #: ../src/plugins/ptk-app-menu.c:167
-#, fuzzy
 msgid "Accessories"
 msgstr "Apuohjelmat"
 
