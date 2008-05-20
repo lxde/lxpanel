@@ -940,10 +940,19 @@ msgstr "充電完成"
 msgid "not charging"
 msgstr "未充電"
 
-#: ../src/plugins/batt/batt.c:346
+#: ../src/plugins/batt/batt.c:341
+msgid "charging"
+msgstr "充電中"
+
+#: ../src/plugins/batt/batt.c:348
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr "電池：剩餘電量 %d%%，剩餘可用時間 %d:%02d"
+
+#: ../src/plugins/batt/batt.c:355
+#, c-format
+msgid "Battery: %d%% charged"
+msgstr "電池：剩餘電量 %d%%"
 
 #: ../src/plugins/batt/batt.c:394
 #, c-format
