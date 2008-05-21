@@ -463,7 +463,7 @@ void netproc_devicelist_clear(NETDEVLIST_PTR *netdev_list)
 	NETDEVLIST_PTR prev_ptr;
 	NETDEVLIST_PTR del_ptr;
 
-	if (netdev_list==NULL) {
+	if (*netdev_list==NULL) {
 		return;
 	}
 

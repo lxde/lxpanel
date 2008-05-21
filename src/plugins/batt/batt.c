@@ -207,8 +207,8 @@ static gboolean get_batt_state( batt_info* bi, gboolean use_sysfs )
 
             /* Read the file until the battery's charge is found or until
                there are no more lines to be read */
-            if (pstr = strstr (buf, "remaining capacity")) {
-                pstr += 25;
+            if (pstr = strstr (buf, "remaining capacity:")) {
+                pstr += 20;
                 sscanf (pstr, "%d",&bi->charge);
             }
 	    
