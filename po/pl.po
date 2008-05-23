@@ -721,7 +721,7 @@ msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:294 ../src/plugins/netstat/netstat.c:305
 #, fuzzy
-msgid "Boradcast:"
+msgid "Broadcast:"
 msgstr "Adres rozgłoszeniowy"
 
 #: ../src/plugins/netstat/netstat.c:296 ../src/plugins/netstat/netstat.c:307

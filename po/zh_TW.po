@@ -713,7 +713,7 @@ msgstr "通訊協定："
 
 #: ../src/plugins/netstat/netstat.c:294
 #: ../src/plugins/netstat/netstat.c:305
-msgid "Boradcast:"
+msgid "Broadcast:"
 msgstr "廣播位址："
 
 #: ../src/plugins/netstat/netstat.c:296
