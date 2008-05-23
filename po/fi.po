@@ -710,7 +710,7 @@ msgstr "Yhteyskäytäntö"
 
 #: ../src/plugins/netstat/netstat.c:294
 #: ../src/plugins/netstat/netstat.c:305
-msgid "Boradcast:"
+msgid "Broadcast:"
 msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:296

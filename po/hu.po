@@ -715,7 +715,7 @@ msgstr "Protokol:"
 
 #: ../src/plugins/netstat/netstat.c:294
 #: ../src/plugins/netstat/netstat.c:305
-msgid "Boradcast:"
+msgid "Broadcast:"
 msgstr "Broadcast:"
 
 #: ../src/plugins/netstat/netstat.c:296

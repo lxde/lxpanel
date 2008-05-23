@@ -703,7 +703,7 @@ msgid "Protocol:"
 msgstr "Protocole"
 
 #: ../src/plugins/netstat/netstat.c:294 ../src/plugins/netstat/netstat.c:305
-msgid "Boradcast:"
+msgid "Broadcast:"
 msgstr "Adresse de diffusion:"
 
 #: ../src/plugins/netstat/netstat.c:296 ../src/plugins/netstat/netstat.c:307
