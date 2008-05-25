@@ -220,8 +220,6 @@ dclock_constructor(Plugin *p, char** fp)
     gtk_container_add(GTK_CONTAINER(dc->main), dc->clockw);
     gtk_widget_show_all(dc->main);
 
-    dc->tip = p->panel->tooltips;
-
     dc->tip = gtk_tooltips_new();
 #if GLIB_CHECK_VERSION( 2, 10, 0 )
     g_object_ref_sink( dc->tip );
@@ -254,11 +252,12 @@ dclock_destructor(Plugin *p)
     dclock *dc = (dclock *)p->priv;
 
     ENTER;
-    dc = (dclock *) p->priv;
     if (dc->timer)
         g_source_remove(dc->timer);
 
     /* g_object_unref( dc->tip ); */
+	gtk_widget_destroy(dc->clockw);
+	gtk_widget_destroy(dc->main);
     g_free(dc->cfmt);
     g_free(dc->tfmt);
     g_free(dc->action);
