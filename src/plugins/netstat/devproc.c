@@ -363,16 +363,16 @@ int netproc_scandevice(int sockfd, int iwsockfd, FILE *fp, NETDEVLIST_PTR *netde
 						bzero(&ifr, sizeof(ifr));
 						strcpy(ifr.ifr_name, devptr->info.ifname);
 						ifr.ifr_name[IF_NAMESIZE - 1] = '\0';
-						ioctl(sockfd, SIOCGIFADDR, &ifr);
-						devptr->info.ipaddr = g_strdup(inet_ntoa(((struct sockaddr_in*)&ifr.ifr_addr)->sin_addr));
+						if (ioctl(sockfd, SIOCGIFADDR, &ifr)>=0)
+							devptr->info.ipaddr = g_strdup(inet_ntoa(((struct sockaddr_in*)&ifr.ifr_addr)->sin_addr));
 
 						/* Point-to-Porint Address */
 						if (devptr->info.flags & IFF_POINTOPOINT) {
 							bzero(&ifr, sizeof(ifr));
 							strcpy(ifr.ifr_name, devptr->info.ifname);
 							ifr.ifr_name[IF_NAMESIZE - 1] = '\0';
-							ioctl(sockfd, SIOCGIFDSTADDR, &ifr);
-							devptr->info.dest = g_strdup(inet_ntoa(((struct sockaddr_in*)&ifr.ifr_dstaddr)->sin_addr));
+							if (ioctl(sockfd, SIOCGIFDSTADDR, &ifr)>=0)
+								devptr->info.dest = g_strdup(inet_ntoa(((struct sockaddr_in*)&ifr.ifr_dstaddr)->sin_addr));
 						}
 
 						/* Broadcast */
@@ -380,16 +380,16 @@ int netproc_scandevice(int sockfd, int iwsockfd, FILE *fp, NETDEVLIST_PTR *netde
 							bzero(&ifr, sizeof(ifr));
 							strcpy(ifr.ifr_name, devptr->info.ifname);
 							ifr.ifr_name[IF_NAMESIZE - 1] = '\0';
-							ioctl(sockfd, SIOCGIFBRDADDR, &ifr);
-							devptr->info.bcast = g_strdup(inet_ntoa(((struct sockaddr_in*)&ifr.ifr_broadaddr)->sin_addr));
+							if (ioctl(sockfd, SIOCGIFBRDADDR, &ifr)>=0)
+								devptr->info.bcast = g_strdup(inet_ntoa(((struct sockaddr_in*)&ifr.ifr_broadaddr)->sin_addr));
 						}
 
 						/* Netmask */
 						bzero(&ifr, sizeof(ifr));
 						strcpy(ifr.ifr_name, devptr->info.ifname);
 						ifr.ifr_name[IF_NAMESIZE - 1] = '\0';
-						ioctl(sockfd, SIOCGIFNETMASK, &ifr);
-						devptr->info.mask = g_strdup(inet_ntoa(((struct sockaddr_in*)&ifr.ifr_addr)->sin_addr));
+						if (ioctl(sockfd, SIOCGIFNETMASK, &ifr)>=0)
+							devptr->info.mask = g_strdup(inet_ntoa(((struct sockaddr_in*)&ifr.ifr_addr)->sin_addr));
 
 						/* Wireless Information */
 						if (devptr->info.wireless) {
