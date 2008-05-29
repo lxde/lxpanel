@@ -51,7 +51,7 @@
 
 #define BATTERY_DIRECTORY "/proc/acpi/battery/" /* must be slash-terminated */
 #define BATTERY_SYSFS_DIRECTORY "/sys/class/power_supply/"
-#define AC_ADAPTER_STATE_FILE "/proc/acpi/ac_adapter/AC/state"
+#define AC_ADAPTER_STATE_FILE "/proc/acpi/ac_adapter/AC0/state"
 #define AC_ADAPTER_STATE_SYSFS_FILE "/sys/class/power_supply/AC0/online"
 
 /* The last MAX_SAMPLES samples are averaged when charge rates are evaluated.
@@ -135,10 +135,10 @@ static gboolean get_batt_info( batt_info* bi, gboolean use_sysfs )
     if ((info = fopen(buf, "r"))) {
         /* Read the file until the battery's capacity is found or until
            there are no more lines to be read */
-	if (use_sysfs)
+        if (use_sysfs)
             while( fgets(buf, 256, info) &&
-                    ! sscanf(buf, "%d", &bi->capacity) );
-	else
+                    ! sscanf(buf, "%ld", &bi->capacity) );
+        else
             while( fgets(buf, 256, info) &&
                     ! sscanf(buf, "last full capacity: %d",
                     &bi->capacity) );
@@ -173,7 +173,7 @@ static gboolean get_batt_state( batt_info* bi, gboolean use_sysfs )
                found or until there are no more lines to be read */
             if (pstr = strstr(buf, "POWER_SUPPLY_CURRENT_NOW=")) {
                 pstr += 25;
-                sscanf (pstr, "%d",&bi->rate );
+                sscanf (pstr, "%ld",&bi->rate );
 
                 if( bi->rate < 0 )
                     bi->rate = 0;
@@ -183,7 +183,7 @@ static gboolean get_batt_state( batt_info* bi, gboolean use_sysfs )
                there are no more lines to be read */
             if (pstr = strstr (buf, "POWER_SUPPLY_CHARGE_NOW=")) {
                 pstr += 24;
-                sscanf (pstr, "%d",&bi->charge);
+                sscanf (pstr, "%ld", &bi->charge);
             }
 
             /* thisState will be 'c' if the batter is charging and 'd'
@@ -230,11 +230,10 @@ static gboolean check_ac_adapter( batt* b )
     FILE *state;
     char buf[ 256 ];
     char* pstr;
-    b->use_sysfs = FALSE;
 
     if (!(state = fopen( AC_ADAPTER_STATE_FILE, "r"))) {
         if ((state = fopen( AC_ADAPTER_STATE_SYSFS_FILE, "r"))) {
-	    b->use_sysfs = TRUE;
+			b->use_sysfs = TRUE;
         } else {
             return FALSE;
         }
@@ -393,7 +392,6 @@ void update_display(batt *b, gboolean repaint) {
                         _("Battery: %d%% charged, %s"),
                         capacity ? charge * 100 / capacity : 0,
                         (charge >= capacity) ? _("charging finished") : _("charging") );
-
         } else {
             /* if we have enough rate information for battery */
             if (rate) {
@@ -475,7 +473,7 @@ static void check_batteries( batt* b )
             g_list_free( b->batteries );
             b->batteries = NULL;
             return;
-	}
+        }
 	    b->use_sysfs = TRUE;
     }
 
@@ -485,10 +483,11 @@ static void check_batteries( batt* b )
         GList* next = l->next;
         batt_info* bi = (batt_info*)l->data;
         char* path;
-	if (b->use_sysfs)
+        if (b->use_sysfs)
             path = g_build_filename( BATTERY_SYSFS_DIRECTORY, bi->name, NULL );
-	else
+        else
             path = g_build_filename( BATTERY_DIRECTORY, bi->name, NULL );
+
         if( ! g_file_test( path, G_FILE_TEST_EXISTS ) ) /* file no more exists */
         {
             b->batteries = g_list_remove_link( b->batteries, l );   /* remove from the list */
