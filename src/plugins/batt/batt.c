@@ -193,12 +193,13 @@ static gboolean get_batt_state( batt_info* bi, gboolean use_sysfs )
             /* Read the file until the battery's charging state is found or
                until there are no more lines to be read */
             if (pstr = strstr(buf, "charging state:"))
-                thisState = *(pstr + 15);
+                thisState = *(pstr + 25);
 
             /* Read the file until the battery's charge/discharge rate is
                found or until there are no more lines to be read */
             if (pstr = strstr(buf, "present rate:")) {
-                pstr += 13;
+                //pstr += 13;
+                pstr += 25;
                 sscanf (pstr, "%d",&bi->rate );
 
                 if( bi->rate < 0 )
@@ -208,7 +209,7 @@ static gboolean get_batt_state( batt_info* bi, gboolean use_sysfs )
             /* Read the file until the battery's charge is found or until
                there are no more lines to be read */
             if (pstr = strstr (buf, "remaining capacity:")) {
-                pstr += 19;
+                pstr += 25;
                 sscanf (pstr, "%d",&bi->charge);
             }
 	    
