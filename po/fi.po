@@ -836,10 +836,6 @@ msgstr "Osoite:"
 msgid "Destination:"
 msgstr "Kohde:"
 
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
-msgid "Broadcast:"
-msgstr ""
-
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
 msgid "Subnet Mask:"
 msgstr "Aliverkon peite:"

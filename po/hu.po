@@ -839,10 +839,6 @@ msgstr "Cím:"
 msgid "Destination:"
 msgstr "Cél:"
 
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
-msgid "Broadcast:"
-msgstr "Kör-üzenet:"
-
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
 msgid "Subnet Mask:"
 msgstr "Alhálózati maszk"
