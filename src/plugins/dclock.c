@@ -220,7 +220,7 @@ dclock_constructor(Plugin *p, char** fp)
     gtk_container_add(GTK_CONTAINER(dc->main), dc->clockw);
     gtk_widget_show_all(dc->main);
 
-    dc->tip = gtk_tooltips_new();
+    dc->tip = p->panel->tooltips;
 #if GLIB_CHECK_VERSION( 2, 10, 0 )
     g_object_ref_sink( dc->tip );
 #else
