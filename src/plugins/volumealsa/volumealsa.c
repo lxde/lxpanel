@@ -239,7 +239,6 @@ volumealsa_destructor(Plugin *p)
     ENTER;
     if (vol->dlg)
         gtk_widget_destroy(vol->dlg);
-    g_object_unref( vol->tooltips );
 
     g_free(vol);
     RET();
@@ -288,7 +287,7 @@ volumealsa_constructor(Plugin *p, char **fp)
 
     gtk_widget_show_all(vol->mainw);
 
-    vol->tooltips = gtk_tooltips_new ();
+    vol->tooltips = p->panel->tooltips;;
 #if GLIB_CHECK_VERSION( 2, 10, 0 )
     g_object_ref_sink( vol->tooltips );
 #else
