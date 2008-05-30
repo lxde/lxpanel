@@ -827,10 +827,6 @@ msgstr "Adresse MAC:"
 msgid "Destination:"
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
-msgid "Broadcast:"
-msgstr "Adresse de diffusion:"
-
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
 msgid "Subnet Mask:"
 msgstr "Masque de sous-réseau:"

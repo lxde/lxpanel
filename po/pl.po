@@ -845,10 +845,6 @@ msgstr "Adres:"
 msgid "Destination:"
 msgstr "Przeznaczenie:"
 
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
-msgid "Broadcast:"
-msgstr "Adres rozgłoszeniowy"
-
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
 msgid "Subnet Mask:"
 msgstr "Maska podsieci"

@@ -824,10 +824,6 @@ msgstr "Adresse:"
 msgid "Destination:"
 msgstr "Ziel:"
 
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
-msgid "Broadcast:"
-msgstr "Broadcast:"
-
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
 msgid "Subnet Mask:"
 msgstr "Subnetzmaske:"

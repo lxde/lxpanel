@@ -837,10 +837,6 @@ msgstr "Endereço:"
 msgid "Destination:"
 msgstr "Destino:"
 
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
-msgid "Broadcast:"
-msgstr "Transmissão:"
-
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
 msgid "Subnet Mask:"
 msgstr "Máscara de Sub-rede:"

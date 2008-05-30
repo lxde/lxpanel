@@ -838,10 +838,6 @@ msgstr "位址："
 msgid "Destination:"
 msgstr "目的地："
 
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
-msgid "Broadcast:"
-msgstr "廣播："
-
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
 msgid "Subnet Mask:"
 msgstr "子網路遮罩："
