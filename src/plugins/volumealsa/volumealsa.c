@@ -77,7 +77,8 @@ static gboolean asound_init(volume_t *vol)
     if (!find_element(vol, "Master"))
         if (!find_element(vol, "Front"))
             if (!find_element(vol, "PCM"))
-                return FALSE;
+            	if (!find_element(vol, "LineOut"))
+                    return FALSE;
 
 
     snd_mixer_selem_get_playback_volume_range(vol->master_element, &vol->alsa_min_vol, &vol->alsa_max_vol);
