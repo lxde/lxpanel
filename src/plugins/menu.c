@@ -661,7 +661,7 @@ PluginClass menu_plugin_class = {
 
     constructor : menu_constructor,
     destructor  : menu_destructor,
-    config : menu_config,
+    /* config : menu_config, */
     save : save_config
 };
 
