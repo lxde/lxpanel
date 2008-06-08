@@ -367,10 +367,12 @@ void
 plugin_widget_set_background( GtkWidget* w, Panel* p )
 {
 	static gboolean in_tray = FALSE;
-	gboolean is_tray = FALSE;
+	gboolean is_tray;
 
     if( ! w )
         return;
+
+    is_tray = ( GTK_IS_CONTAINER(w) && strcmp( gtk_widget_get_name( w ), "tray" ) == 0 );
 
     if( ! GTK_WIDGET_NO_WINDOW( w ) )
     {
@@ -400,7 +402,6 @@ plugin_widget_set_background( GtkWidget* w, Panel* p )
     */
     if( GTK_IS_CONTAINER( w ) )
     {
-		is_tray = ( strcmp( gtk_widget_get_name( w ), "tray" ) == 0 );
     	if( is_tray )
     		in_tray = TRUE;
 
