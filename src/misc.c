@@ -840,17 +840,17 @@ calculate_position(Panel *np)
     int sswidth, ssheight, minx, miny;
 
     ENTER;
+    /* FIXME: Why this doesn't work? */
     if (0)  {
-        //if (np->curdesk < np->wa_len/4) {
+//        if (np->curdesk < np->wa_len/4) {
         minx = np->workarea[np->curdesk*4 + 0];
         miny = np->workarea[np->curdesk*4 + 1];
         sswidth  = np->workarea[np->curdesk*4 + 2];
         ssheight = np->workarea[np->curdesk*4 + 3];
     } else {
         minx = miny = 0;
-        sswidth  = gdk_screen_width();
-        ssheight = gdk_screen_height();
-
+        sswidth  = gdk_screen_get_width( gtk_widget_get_screen(np->topgwin) );
+        ssheight = gdk_screen_get_height( gtk_widget_get_screen(np->topgwin) );
     }
 
     if (np->edge == EDGE_TOP || np->edge == EDGE_BOTTOM) {

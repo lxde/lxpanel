@@ -125,6 +125,7 @@ void panel_set_wm_strut(Panel *p)
     RET();
 }
 
+#if 0
 static void
 print_wmdata(Panel *p)
 {
@@ -141,7 +142,7 @@ print_wmdata(Panel *p)
               p->workarea[4*i + 3]);
     RET();
 }
-
+#endif
 
 /* defined in plugins/menu.c */
 gboolean show_system_menu( gpointer system_menu );
@@ -249,7 +250,7 @@ panel_event_filter(GdkXEvent *xevent, GdkEvent *event, gpointer not_used)
                 Panel* p = (Panel*)l->data;
                 g_free( p->workarea );
                 p->workarea = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_WORKAREA, XA_CARDINAL, &p->wa_len);
-                print_wmdata(p);
+                /* print_wmdata(p); */
             }
         } else
             return GDK_FILTER_CONTINUE;
@@ -1030,7 +1031,7 @@ panel_parse_global(Panel *p, char **fp)
     p->curdesk = get_net_current_desktop();
     p->desknum = get_net_number_of_desktops();
     p->workarea = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_WORKAREA, XA_CARDINAL, &p->wa_len);
-    print_wmdata(p);
+    /* print_wmdata(p); */
 
     panel_start_gui(p);
     RET(1);
@@ -1162,7 +1163,7 @@ int panel_start( Panel *p, char **fp )
     /* update backgrond of panel and all plugins */
     panel_update_background( p );
 
-    print_wmdata(p);
+    /* print_wmdata(p); */
     RET(1);
 }
 
@@ -1425,7 +1426,10 @@ restart:
 
     load_global_config();
 
-    XSelectInput (GDK_DISPLAY(), GDK_ROOT_WINDOW(), SubstructureNotifyMask|PropertyChangeMask);
+	/* NOTE: StructureNotifyMask is required by XRandR
+	 * See init_randr_support() in gdkscreen-x11.c of gtk+ for detail.
+	 */
+    XSelectInput (GDK_DISPLAY(), GDK_ROOT_WINDOW(), StructureNotifyMask|SubstructureNotifyMask|PropertyChangeMask);
     gdk_window_add_filter(gdk_get_default_root_window (), (GdkFilterFunc)panel_event_filter, NULL);
 
     if( G_UNLIKELY( ! start_all_panels() ) )
