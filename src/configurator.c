@@ -1018,6 +1018,7 @@ void panel_config_save( Panel* p )
 
     /* save the global config file */
     save_global_config();
+    p->config_changed = 0;
 }
 
 void restart(void)

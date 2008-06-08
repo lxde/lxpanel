@@ -88,6 +88,8 @@ typedef struct launchbar {
     GtkWidget* config_dlg;
 } launchbar;
 
+void panel_config_save(Panel* panel);
+
 void btn_free( btn_t* btn )
 {
     g_free( btn->desktop_id );
@@ -763,6 +765,8 @@ static void launchbar_config( Plugin *p, GtkWindow* parent )
         init_btn_list( p, view );
 
         gtk_widget_show_all( dlg );
+
+        g_object_weak_ref(dlg, panel_config_save, p->panel );
     }
     gtk_window_present( GTK_WINDOW(lb->config_dlg) );
 }

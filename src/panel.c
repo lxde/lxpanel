@@ -452,6 +452,9 @@ panel_press_button_event(GtkWidget *widget, GdkEvent *event, gpointer user_data)
 static void panel_popupmenu_config_plugin( GtkMenuItem* item, Plugin* plugin )
 {
     plugin->class->config( plugin, plugin->panel->topgwin );
+
+    /* FIXME: this should be more elegant */
+    plugin->panel->config_changed = TRUE;
 }
 
 #if 0
@@ -693,7 +696,7 @@ static void panel_popupmenu_delete_panel( GtkMenuItem* item, Panel* panel )
         fname = g_build_filename( dir, panel->name, NULL );
         g_free( dir );
         g_unlink( fname );
-
+        panel->config_changed = 0;
         panel_destroy( panel );
     }
 }
@@ -1181,6 +1184,9 @@ delete_plugin(gpointer data, gpointer udata)
 void panel_destroy(Panel *p)
 {
     ENTER;
+
+    if( p->config_changed )
+        panel_config_save( p );
 
     g_list_foreach(p->plugins, delete_plugin, NULL);
     g_list_free(p->plugins);

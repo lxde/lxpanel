@@ -69,6 +69,7 @@ struct _Panel{
     int widthtype, width;
     int heighttype, height;
 
+    guint config_changed : 1;
     guint self_destroy : 1;
     guint setdocktype : 1;
     guint setstrut : 1;
