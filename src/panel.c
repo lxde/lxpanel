@@ -350,6 +350,8 @@ void panel_update_background( Panel* p )
 
 static gboolean delay_update_background( Panel* p )
 {
+    /* FIXME: can this work? */
+    gdk_display_sync( gtk_widget_get_display(p->topgwin) );
     panel_update_background( p );
     return FALSE;
 }

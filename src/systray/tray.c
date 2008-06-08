@@ -50,7 +50,11 @@ tray_added (NaTrayManager *manager, GtkWidget *icon, tray *tr)
     gtk_box_pack_end (GTK_BOX (tr->box), icon, FALSE, FALSE, 0);
     gtk_widget_show (icon);
     /* g_debug( "add icon %p", icon ); */
-    plugin_widget_set_background( icon, tr->plug->panel );
+    gdk_display_sync( gtk_widget_get_display(icon) );
+    
+    /* FIXME: This is very dirty, but it works. */
+    plugin_widget_set_background( tr->plug->pwid, tr->plug->panel );
+    /* plugin_widget_set_background( icon, tr->plug->panel ); */
 
     if (!tr->icon_num) {
         DBG("first icon\n");
@@ -109,9 +113,9 @@ tray_destructor(Plugin *p)
 }
 
 /* Dirty hacks used to handle background of systray */
-static gboolean delay_update_bg( Plugin* p )
+static gboolean delay_update_bg( Plugin* pl )
 {
-	plugin_widget_set_background( p->pwid, p->panel );
+	plugin_widget_set_background( pl->pwid, pl->panel );
 	return FALSE;
 }
 
