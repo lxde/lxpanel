@@ -359,7 +359,7 @@ static gboolean refresh_devstat(netstat *ns)
 {
     netproc_listener(ns->fnetd);
 #ifdef DEBUG
-    netproc_print(fnetd->netdevlist);
+    netproc_print(ns->fnetd->netdevlist);
 #endif
     refresh_systray(ns, ns->fnetd->netdevlist);
     netproc_devicelist_clear(&ns->fnetd->netdevlist);

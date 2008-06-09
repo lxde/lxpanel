@@ -258,13 +258,14 @@ read_button(Plugin *p, char** fp)
                 else {
                     ERR( "launchbar: unknown var %s\n", s.t[0]);
                     goto error;
+
                 }
+                DBG("action=%s\n", action);
             } else {
                 ERR( "launchbar: illegal in this context %s\n", s.str);
                 goto error;
             }
         }
-        DBG("action=%s\n", action);
     }
 
     if( btn->desktop_id ) {
