@@ -294,9 +294,12 @@ static void refresh_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
                 set_statusicon_visible(ptr->info.status_icon, FALSE);
             }
         } else if (ptr->info.updated) {
-            if (!ptr->info.plug)
-                tooltip = g_strdup_printf("%s\n  %s", ptr->info.ifname, _("Network cable is plugged out"));
-            else if (!ptr->info.connected)
+            if (!ptr->info.plug) {
+                if (ptr->info.wireless)
+                    tooltip = g_strdup_printf("%s\n  %s", ptr->info.ifname, _("Wireless Connection has no connectivity"));
+				else
+                    tooltip = g_strdup_printf("%s\n  %s", ptr->info.ifname, _("Network cable is plugged out"));
+            } else if (!ptr->info.connected)
                 tooltip = g_strdup_printf("%s\n  %s", ptr->info.ifname, _("Connection has limited or no connectivity"));
             else if (ptr->info.flags & IFF_POINTOPOINT)
                 tooltip = g_strdup_printf("%s\n  %s\t%s\n  %s\t%s\n  %s\t%s\n\n %s(%s/%s)\n   %d/%d %s\n   %d/%d %s",
