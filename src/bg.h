@@ -60,4 +60,5 @@ void fb_bg_composite(GdkDrawable *base, GdkGC *gc, guint32 tintcolor, gint alpha
 GdkPixmap *fb_bg_get_xroot_pix_for_win(FbBg *bg, GtkWidget *widget);
 void fb_bg_notify_changed_bg(FbBg *bg);
 FbBg *fb_bg_get_for_display(void);
+GdkPixmap *fb_bg_get_pix_from_file(GtkWidget *widget, const char *filename);
 #endif /* __FB_BG_H__ */
