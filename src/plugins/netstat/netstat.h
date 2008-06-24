@@ -3,8 +3,8 @@
 
 #include <stdio.h>
 #include <netinet/in.h>
+#include <gtk/gtk.h>
 #include "wireless.h"
-#include "passwd_gui.h"
 
 #define NETDEV_STAT_NORMAL	0
 #define NETDEV_STAT_PROBLEM	1
@@ -15,6 +15,11 @@
 
 /* forward declaration for UI interaction. */
 struct statusicon;
+
+struct pgui {
+    GtkWidget *dlg;
+    GtkWidget *pentry;
+};
 
 typedef struct {
 	char *ifname;
