@@ -468,9 +468,9 @@ PluginClass netstat_plugin_class = {
     count: 0,
 
     type : "netstat",
-    name : N_("Net Status Monitor"),
+    name : N_("Manage Networks"),
     version: "1.0",
-    description : N_("Monitor network status"),
+    description : N_("Monitor and Manage networks"),
 
     constructor : netstat_constructor,
     destructor  : netstat_destructor,
