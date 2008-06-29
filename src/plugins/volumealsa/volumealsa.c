@@ -24,6 +24,7 @@
 #include <glib/gi18n.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <alsa/asoundlib.h>
+#include <poll.h>
 #include "panel.h"
 #include "misc.h"
 #include "plugin.h"
@@ -45,6 +46,7 @@ typedef struct {
     long alsa_min_vol, alsa_max_vol;
     int mute;
     int show;
+    gboolean mixer_evt_idle;
 } volume_t;
 
 
@@ -65,8 +67,58 @@ static gboolean find_element(volume_t *vol, const char *ename)
     return FALSE;
 }
 
+/* NOTE by PCMan:
+ * This is magic! Since ALSA uses its own machanism to handle this part.
+ * After polling of mixer fds, it requires that we should call
+ * snd_mixer_handle_events to clear all pending mixer events.
+ * However, when using the glib IO channels approach, we don't have
+ * poll() and snd_mixer_poll_descriptors_revents(). Due to the design of
+ * glib, on_mixer_event() will be called for every fd whose status was
+ * changed. So, after each poll(), it's called for several times,
+ * not just once. Therefore, we cannot call snd_mixer_handle_events()
+ * directly in the event handler. Otherwise, it will get called for
+ * several times, which might clear unprocessed pending events in the queue.
+ * So, here we call it once in the event callback for the first fd.
+ * Then, we don't call it for the following fds. After all fds with changed
+ * status are handled, we remove this restriction in an idle handler.
+ * The next time the event callback is involked for the first fs, we can
+ * call snd_mixer_handle_events() again. Racing shouldn't happen here
+ * because the idle handler has the same priority as the io channel callback.
+ * So, io callbacks for future pending events should be in the next gmain
+ * iteration, and won't be affected.
+ */
+static gboolean reset_mixer_evt_idle( volume_t* vol )
+{
+    vol->mixer_evt_idle = 0;
+    return FALSE;
+}
+
+static gboolean on_mixer_event( GIOChannel* channel, GIOCondition cond, volume_t *vol )
+{
+    if( cond & G_IO_IN )
+    {
+        /* the status of mixer is changed. update of display is needed. */
+    }
+    if( cond & G_IO_HUP )
+    {
+        /* FIXME: This means there're some problems with alsa. */
+
+        return FALSE;
+    }
+
+    if( 0 == vol->mixer_evt_idle )
+    {
+        vol->mixer_evt_idle = g_idle_add_full( G_PRIORITY_DEFAULT, (GSourceFunc)reset_mixer_evt_idle, vol, NULL );
+        snd_mixer_handle_events( vol->mixer );
+    }
+    return TRUE;
+}
+
 static gboolean asound_init(volume_t *vol)
 {
+    int i, n_fds;
+    struct pollfd *fds;
+
     snd_mixer_selem_id_alloca(&vol->sid);
     snd_mixer_open(&vol->mixer, 0);
     snd_mixer_attach(vol->mixer, "default");
@@ -85,6 +137,19 @@ static gboolean asound_init(volume_t *vol)
 
     snd_mixer_selem_set_playback_volume_range(vol->master_element, 0, 100);
 
+    /* listen to events from alsa */
+    n_fds = snd_mixer_poll_descriptors_count( vol->mixer );
+    fds = g_new0( struct pollfd, n_fds );
+
+    snd_mixer_poll_descriptors( vol->mixer, fds, n_fds );
+    for( i = 0; i < n_fds; ++i )
+    {
+        /* g_debug("fd=%d", fds[i]); */
+        GIOChannel* channel = g_io_channel_unix_new( fds[i].fd );
+        g_io_add_watch( channel, G_IO_IN|G_IO_HUP, on_mixer_event, vol );
+        g_io_channel_unref( channel );
+    }
+    g_free( fds );
     return TRUE;
 }
 
@@ -238,6 +303,10 @@ volumealsa_destructor(Plugin *p)
     volume_t *vol = (volume_t *) p->priv;
 
     ENTER;
+
+    if( vol->mixer_evt_idle )
+        g_source_remove( vol->mixer_evt_idle );
+
     if (vol->dlg)
         gtk_widget_destroy(vol->dlg);
 
