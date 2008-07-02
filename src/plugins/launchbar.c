@@ -156,7 +156,6 @@ launchbar_destructor(Plugin *p)
     launchbar *lb = (launchbar *)p->priv;
 
     ENTER;
-    /* g_object_unref( lb->tips ); */
 
     gtk_widget_destroy(lb->box);
     g_slist_foreach( lb->btns, (GFunc)btn_free, NULL );
@@ -316,7 +315,6 @@ read_button(Plugin *p, char** fp)
         w = p->panel->aw;
         h = 10000;
     }
-
     button = fb_button_new_from_file( fname, w, h, 0x202020, TRUE );
     btn->widget = button;
 
@@ -336,7 +334,7 @@ read_button(Plugin *p, char** fp)
     g_signal_connect ( button, "drag_data_received",
           G_CALLBACK (drag_data_received_cb),  (gpointer) btn );
 
-    gtk_box_pack_start(GTK_BOX(lb->box), button, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(lb->box), button, FALSE, TRUE, 0);
 
     /* append is more time-consuming, but we really care about the order. */
     lb->btns = g_slist_append( lb->btns, btn );
@@ -369,9 +367,6 @@ launchbar_constructor(Plugin *p, char **fp)
             "id=pcmanfm.desktop\n"
         "}\n"
         "button {\n"
-            "id=gnome-terminal.desktop\n"
-        "}\n"
-        "button {\n"
             "id=firefox.desktop\n"
         "}\n"
         "}\n";
@@ -385,12 +380,10 @@ launchbar_constructor(Plugin *p, char **fp)
         "}\n"
         "widget '*launchbar*' style 'launchbar-style'";
 
-    ENTER;
     gtk_rc_parse_string(launchbar_rc);
 
     p->pwid = gtk_event_box_new();
     GTK_WIDGET_SET_FLAGS( p->pwid, GTK_NO_WINDOW );
-
     gtk_widget_set_name(p->pwid, "launchbar");
     get_button_spacing(&req, GTK_CONTAINER(p->pwid), "");
 
@@ -438,12 +431,11 @@ launchbar_constructor(Plugin *p, char **fp)
         }
     }
 
-    RET(1);
+    return TRUE;
 
  error:
     launchbar_destructor(p);
-    RET(0);
-
+    return FALSE;
 }
 
 static void save_config( Plugin* p, FILE* fp )

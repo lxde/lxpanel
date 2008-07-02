@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-20 23:19+0800\n"
-"PO-Revision-Date: 2008-05-05 19:17-0300\n"
+"PO-Revision-Date: 2008-05-22 12:45-0300\n"
 "Last-Translator: \n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
@@ -711,7 +711,7 @@ msgstr "Protocolo:"
 
 #: ../src/plugins/netstat/netstat.c:294
 #: ../src/plugins/netstat/netstat.c:305
-msgid "Broadcast:"
+msgid "Boradcast:"
 msgstr "Transmissão:"
 
 #: ../src/plugins/netstat/netstat.c:296
@@ -935,10 +935,19 @@ msgstr "carregamento finalizado"
 msgid "not charging"
 msgstr "não carregado"
 
-#: ../src/plugins/batt/batt.c:346
+#: ../src/plugins/batt/batt.c:341
+msgid "charging"
+msgstr "carregada"
+
+#: ../src/plugins/batt/batt.c:348
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr "Bateria: %d%% carregada, %d:%02d esquerda"
+
+#: ../src/plugins/batt/batt.c:355
+#, c-format
+msgid "Battery: %d%% charged"
+msgstr "Bateria: %d%% carregada"
 
 #: ../src/plugins/batt/batt.c:394
 #, c-format

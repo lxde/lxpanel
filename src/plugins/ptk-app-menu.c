@@ -268,7 +268,10 @@ static void  unload_old_icons( GtkWidget* menu )
     for( l = items; l; l = l->next )
     {
         GtkWidget* sub_menu = gtk_menu_item_get_submenu( GTK_MENU_ITEM(l->data) );
-        GtkWidget* img = gtk_image_menu_item_get_image( GTK_IMAGE_MENU_ITEM(l->data) );
+        GtkWidget* img;
+        if( ! GTK_IS_IMAGE_MENU_ITEM(l->data) )
+            continue;
+        img = gtk_image_menu_item_get_image( (GtkImageMenuItem*)l->data );
         if( ! g_object_get_qdata( G_OBJECT(l->data), PTK_APP_MENU_ITEM_ID ) )
             continue;
         if( img )
