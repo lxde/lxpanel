@@ -49,7 +49,7 @@ separator_constructor(Plugin *p, char **fp)
             RET(0);
         }
     }
-    eb = gtk_event_box_new();
+    p->pwid = eb = gtk_event_box_new();
     GTK_WIDGET_SET_FLAGS( eb, GTK_NO_WINDOW );
     gtk_widget_add_events( p->pwid, GDK_BUTTON_PRESS_MASK );
     g_signal_connect( p->pwid, "button-press-event", G_CALLBACK( on_btn_press ), p );
@@ -62,7 +62,6 @@ separator_constructor(Plugin *p, char **fp)
     gtk_container_add (GTK_CONTAINER (eb), sep);
     p->priv = eb; /* just to alloc smth */
 
-    p->pwid = eb;
     RET(1);
 }
 

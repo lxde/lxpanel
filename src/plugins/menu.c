@@ -238,7 +238,7 @@ make_button(Plugin *p, gchar *fname, gchar *name, GdkColor* tint, GtkWidget *men
         if( g_str_has_suffix( name, ".directory" ) )
         {
             GKeyFile* kf = g_key_file_new();
-            char* dir_file = g_build_filename( "desktop-directories", name, NULL ); 
+            char* dir_file = g_build_filename( "desktop-directories", name, NULL );
             if( g_key_file_load_from_data_dirs( kf, dir_file, NULL, 0, NULL ) )
             {
                 title = g_key_file_get_locale_string( kf, "Desktop Entry", "Name", NULL, NULL );
@@ -332,7 +332,7 @@ read_item(Plugin *p, char** fp)
     if (fname) {
         GtkWidget *img;
 
-        img = gtk_image_new_from_file_scaled(fname, m->iconsize, m->iconsize, TRUE);
+        img = _gtk_image_new_from_file_scaled(fname, m->iconsize, m->iconsize, TRUE);
         gtk_widget_show(img);
         gtk_image_menu_item_set_image(GTK_IMAGE_MENU_ITEM(item), img);
         g_free(fname);
@@ -523,7 +523,7 @@ read_submenu(Plugin *p, char** fp, gboolean as_item)
         mi = gtk_image_menu_item_new_with_label(name ? name : "");
         if (fname) {
             GtkWidget *img;
-            img = gtk_image_new_from_file_scaled(fname, m->iconsize, m->iconsize, TRUE);
+            img = _gtk_image_new_from_file_scaled(fname, m->iconsize, m->iconsize, TRUE);
             gtk_widget_show(img);
             gtk_image_menu_item_set_image(GTK_IMAGE_MENU_ITEM(mi), img);
             g_free(fname);
