@@ -181,7 +181,7 @@ static int kbled_constructor(Plugin *p, char **fp)
 
     kl = g_new0( KbLed, 1);
     g_return_val_if_fail(kl != NULL, 0);
-    kl->visible[0] = TRUE;
+    kl->visible[0] = FALSE;
     kl->visible[1] = TRUE;
     kl->visible[2] = TRUE;
     p->priv = kl;
