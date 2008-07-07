@@ -274,6 +274,7 @@ dirmenu_destructor(Plugin *p)
     ENTER;
     g_free( dm->image );
     g_free( dm->path );
+    g_free( dm->name );
     g_free(dm);
     RET();
 }
@@ -364,6 +365,7 @@ static void save_config( Plugin* p, FILE* fp )
 {
     dirmenu* dm = (dirmenu*)p->priv;
     lxpanel_put_str( fp, "path", dm->path );
+    lxpanel_put_str( fp, "name", dm->name );
     lxpanel_put_str( fp, "image", dm->image );
 }
 
