@@ -120,7 +120,7 @@ clicked( GtkWidget *widget, GdkEventButton* evt, Plugin* plugin)
             dc->calwin = NULL;
         }
     }
-    RET2(TRUE);
+    RET2(FALSE);
 }
 
 static gint

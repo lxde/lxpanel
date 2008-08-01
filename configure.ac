@@ -147,6 +147,7 @@ plugin_deskno=
 plugin_batt=
 plugin_xkb=
 plugin_kbled=
+plugin_thermal=thermal
 
 AC_MSG_CHECKING([which plugins should be built dynamically])
 AC_ARG_WITH(plugins,
@@ -154,7 +155,7 @@ AC_ARG_WITH(plugins,
 [                         plugins may be comma separated ]
 [                         'all' builds all plugins (default), 'none' builds none ]
 [                         Possible plugins are: ]
-[                         netstatus, netstat, volume, volumealsa, cpu, deskno, batt, kbled, xkb], plugins="$withval",[plugins="all"])
+[                         netstatus, netstat, volume, volumealsa, cpu, deskno, batt, kbled, xkb, thermal], plugins="$withval",[plugins="all"])
 
 if test x"$plugins" != xall -a x"$plugins" != xnone; then
     if test x"$plugins_loading" = xno; then
@@ -163,7 +164,7 @@ if test x"$plugins" != xall -a x"$plugins" != xnone; then
     fi
 fi
 
-ALL_PLUGINS_LIST="netstatus netstat volume volumealsa cpu deskno batt kbled xkb"
+ALL_PLUGINS_LIST="netstatus netstat volume volumealsa cpu deskno batt kbled xkb thermal"
 AC_SUBST(ALL_PLUGINS_LIST)
 
 if test x"$plugins" = xall; then
@@ -181,6 +182,7 @@ dnl    done
     plugin_batt=batt
     plugin_kbled=kbled
     plugin_xkb=
+    plugin_thermal=thermal
 
     AC_MSG_RESULT(all)
 else
@@ -215,6 +217,9 @@ else
                 ;;
             xkb)
                 plugin_xkb=xkb
+                ;;
+            thermal)
+                plugin_thermal=thermal
                 ;;
             *)
                 echo "Unknown plugin $plugin."
@@ -251,7 +256,8 @@ PLUGINS_LIST="\
     $plugin_deskno \
     $plugin_batt \
     $plugin_kbled \
-    $plugin_xkb"
+    $plugin_xkb \
+    $plugin_thermal"
 
 AC_SUBST(PLUGINS_LIST)
 
@@ -298,6 +304,7 @@ AC_CONFIG_FILES([
     src/plugins/batt/Makefile
     src/plugins/kbled/Makefile
     src/plugins/xkb/Makefile
+    src/plugins/thermal/Makefile
     po/Makefile.in
     data/Makefile
     data/default/panels/panel
@@ -337,6 +344,9 @@ echo Building dynamic plugins:
     fi
     if test x"$plugin_xkb" != x; then
         AC_MSG_RESULT([    xkb - Keyboard layout switcher])
+    fi
+    if test x"$plugin_thermal" != x; then
+        AC_MSG_RESULT([    thermal - Temperature monitor])
     fi
 else
 echo Dynamic loader for plugins....... : disabled.
