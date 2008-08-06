@@ -52,6 +52,7 @@ add_pixmap_directory                   (const gchar     *directory)
                                         g_strdup (directory));
 }
 
+#if 0
 /* This is an internally used function to find pixmap files. */
 static gchar*
 find_pixmap_file                       (const gchar     *filename)
@@ -141,4 +142,5 @@ glade_set_atk_action_description       (AtkAction       *action,
         atk_action_set_description (action, i, description);
     }
 }
+#endif
 

@@ -223,7 +223,7 @@ netstatus_sysdeps_read_iface_statistics (const char  *iface,
       break;
     }
 
-  if ((*in_packets == -1 || *out_packets == -1 || *in_bytes == -1 || *out_bytes == -1) && !error_message)
+  if ((*in_packets == (gulong) -1 || *out_packets == (gulong) -1 || *in_bytes == (gulong) -1 || *out_bytes == (gulong) -1) && !error_message)
     error_message = g_strdup_printf ("Could not find information on interface '%s' in /proc/net/dev", iface);
 
   rewind (fh);

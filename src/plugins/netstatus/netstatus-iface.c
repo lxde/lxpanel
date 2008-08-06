@@ -125,7 +125,7 @@ netstatus_iface_get_type (void)
 
 static void
 netstatus_iface_instance_init (NetstatusIface      *iface,
-			       NetstatusIfaceClass *klass)
+			       NetstatusIfaceClass *klass __attribute__((unused)))
 {
   iface->priv = g_new0 (NetstatusIfacePrivate, 1);
   iface->priv->state = NETSTATUS_STATE_DISCONNECTED;
@@ -1021,7 +1021,7 @@ netstatus_iface_get_hw_details (NetstatusIface  *iface,
   static struct HwType *hw_type = NULL;
   struct ifreq          if_req;
   int                   fd;
-  int                   i;
+  unsigned int                   i;
 
   if (hw_addr)
     *hw_addr = NULL;

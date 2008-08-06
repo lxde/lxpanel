@@ -147,7 +147,7 @@ netstatus_constructor(Plugin *p, char** fp)
     RET(0);
 }
 
-static void apply_config( Plugin* p )
+static void apply_config( Plugin* p __attribute__((unused)))
 {
 
 }
