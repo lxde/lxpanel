@@ -93,7 +93,7 @@ static GObjectClass *parent_class;
 static guint icon_signals [LAST_SIGNAL] = { 0 };
 
 static GdkPixbuf *
-netstatus_icon_get_default_pixbuf (NetstatusIcon *icon)
+netstatus_icon_get_default_pixbuf (NetstatusIcon *icon __attribute__((unused)))
 {
   static GdkPixbuf *fallback_pixbuf = NULL;
 
@@ -114,7 +114,7 @@ netstatus_icon_get_default_pixbuf (NetstatusIcon *icon)
 
 static void
 netstatus_icon_theme_changed (NetstatusIcon *icon,
-			      GtkIconTheme  *icon_theme)
+			      GtkIconTheme  *icon_theme __attribute__((unused)))
 {
   int i;
 
@@ -365,8 +365,8 @@ netstatus_icon_update_image (NetstatusIcon *icon)
 }
 
 static void
-netstatus_icon_name_changed (NetstatusIface *iface,
-			     GParamSpec     *pspec,
+netstatus_icon_name_changed (NetstatusIface *iface __attribute__((unused)),
+			     GParamSpec     *pspec __attribute__((unused)),
 			     NetstatusIcon  *icon)
 {
   const char *iface_name;
@@ -391,7 +391,7 @@ netstatus_icon_name_changed (NetstatusIface *iface,
 
 static void
 netstatus_icon_state_changed (NetstatusIface *iface,
-			      GParamSpec     *pspec,
+			      GParamSpec     *pspec __attribute__((unused)),
 			      NetstatusIcon  *icon)
 {
   NetstatusState state;
@@ -410,7 +410,7 @@ netstatus_icon_state_changed (NetstatusIface *iface,
 
 static void
 netstatus_icon_is_wireless_changed (NetstatusIface *iface,
-				    GParamSpec     *pspec,
+				    GParamSpec     *pspec __attribute__((unused)),
 				    NetstatusIcon  *icon)
 {
   if (netstatus_iface_get_is_wireless (iface) && icon->priv->show_signal)
@@ -421,7 +421,7 @@ netstatus_icon_is_wireless_changed (NetstatusIface *iface,
 
 static void
 netstatus_icon_signal_changed (NetstatusIface *iface,
-			       GParamSpec     *pspec,
+			       GParamSpec     *pspec __attribute__((unused)),
 			       NetstatusIcon  *icon)
 {
   NetstatusSignal signal_strength;
@@ -851,7 +851,7 @@ netstatus_icon_class_init (NetstatusIconClass *klass)
 
 static void
 netstatus_icon_instance_init (NetstatusIcon      *icon,
-			      NetstatusIconClass *klass)
+			      NetstatusIconClass *klass __attribute__((unused)))
 {
   icon->priv = g_new0 (NetstatusIconPrivate, 1);
 
