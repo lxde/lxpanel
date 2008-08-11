@@ -7,14 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-05 22:00+0200\n"
-"PO-Revision-Date: 2008-07-05 22:10+0100\n"
+"POT-Creation-Date: 2008-08-11 11:14+0200\n"
+"PO-Revision-Date: 2008-08-11 11:23+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@t-online.de>\n"
 "Language-Team: Deutsch <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
 
 #: ../data/ui/panel-pref.glade.h:1
 msgid "<b>Background</b>"
@@ -73,7 +75,7 @@ msgstr "Bild:"
 
 #: ../data/ui/panel-pref.glade.h:16
 msgid "Enable Transparency"
-msgstr "Transparenz"
+msgstr "Transparenz aktivieren"
 
 #: ../data/ui/panel-pref.glade.h:17
 msgid "File Manager:"
@@ -225,7 +227,7 @@ msgid ""
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
 "Dieses Panel wirklich entfernen?\n"
-"<b>Warning: Es kann nicht wiederhergestellt werden.</b>"
+"<b>Warnung: Es kann nicht wiederhergestellt werden.</b>"
 
 #: ../src/panel.c:686
 msgid "Confirm"
@@ -546,7 +548,6 @@ msgid "Icon"
 msgstr "Symbol"
 
 #: ../src/plugins/menu.c:648
-#, fuzzy
 msgid "Caption"
 msgstr "Beschriftung"
 
@@ -605,13 +606,13 @@ msgstr ""
 
 #: ../src/plugins/dirmenu.c:211
 msgid "Open in _Terminal"
-msgstr "_Terminal öffnen"
+msgstr "Im _Terminal öffnen"
 
-#: ../src/plugins/dirmenu.c:375
+#: ../src/plugins/dirmenu.c:377
 msgid "Directory Menu"
 msgstr "Verzeichnismenü"
 
-#: ../src/plugins/dirmenu.c:377
+#: ../src/plugins/dirmenu.c:379
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "Verzeichnisbaum über das Menü durchsuchen (Autor: PCMan)"
 
@@ -704,7 +705,7 @@ msgstr "Empfangen"
 #: ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
-msgstr "bytes"
+msgstr "Bytes"
 
 #: ../src/plugins/netstat/netstat.c:312
 #: ../src/plugins/netstat/netstat.c:324
@@ -755,11 +756,11 @@ msgstr ""
 
 #: ../src/plugins/netstat/passwd_gui.c:99
 msgid "Encryption Key:"
-msgstr "Schlüssel-ID:"
+msgstr "Schlüssel."
 
 #: ../src/plugins/netstatus/netstatus.c:163
 msgid "Interface to monitor"
-msgstr "Interface zum Monitor"
+msgstr "Schnittstelle zum Monitor"
 
 #: ../src/plugins/netstatus/netstatus.c:164
 msgid "Config tool"
@@ -1025,7 +1026,7 @@ msgstr "ScrollLock zeigen"
 
 #: ../src/plugins/kbled/kbled.c:293
 msgid "Keyboard Led"
-msgstr "Tastatur-LED's"
+msgstr "Tastatur-LEDs"
 
 #: ../src/plugins/kbled/kbled.c:295
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
