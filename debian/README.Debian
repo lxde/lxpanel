@@ -1,5 +1,15 @@
-lxpanel for Debian
-------------------
+                         lxpanel for Debian
+                         ------------------
 
+Netstat Plugin
+--------------
+ The netstat plugin's wifi configuration required lxnm daemon.
+
+shutdown/reboot/suspend/hibernate via HAL or gdm
+------------------------------------------------
+ If you use lxpanel without GDM, the logout dialog would have ability
+ to shutdown/reboot/suspend/hibernate via HAL support. 
+ Make sure your account have powerdev group permission.
+ eg: adduser user powerdev
 
  -- Andrew Lee <andrew@linux.org.tw>  Thu, 21 Feb 2008 21:21:11 +0800

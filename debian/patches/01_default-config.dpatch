@@ -5,17 +5,16 @@
 ## DP: Change default terminal and web browser.
 
 @DPATCH@
-diff -urNad lxpanel-0.3.5.2~/data/default/panels/panel.in lxpanel-0.3.5.2/data/default/panels/panel.in
---- lxpanel-0.3.5.2~/data/default/panels/panel.in	2008-04-20 18:09:12.000000000 +0800
-+++ lxpanel-0.3.5.2/data/default/panels/panel.in	2008-04-20 18:53:54.000000000 +0800
-@@ -53,10 +53,10 @@
+diff -urNad lxpanel-0.3.7~/data/default/panels/panel.in lxpanel-0.3.7/data/default/panels/panel.in
+--- lxpanel-0.3.7~/data/default/panels/panel.in	2008-04-27 00:47:22.000000000 +0800
++++ lxpanel-0.3.7/data/default/panels/panel.in	2008-06-14 05:50:44.000000000 +0800
+@@ -53,10 +53,7 @@
              id=pcmanfm.desktop
          }
          Button {
 -            id=gnome-terminal.desktop
-+            id=lxde-x-terminal-emulator.desktop
-         }
-         Button {
+-        }
+-        Button {
 -            id=firefox.desktop
 +            id=lxde-x-www-browser.desktop
          }

@@ -1,12 +1,75 @@
-lxpanel (0.3.5.2+svn20080426-1) unstable; urgency=low
+lxpanel (0.3.8.1-2) unstable; urgency=low
+
+  * Install lxde-x-terminal-emulator.desktop to prevent missing icon
+    for user who installed old version of lxpanel.
+
+ -- Andrew Lee <andrew@linux.org.tw>  Wed, 09 Jul 2008 16:03:10 +0800
+
+lxpanel (0.3.8.1-1) unstable; urgency=high
 
   * New upstream release
+    - ALSA volume plugin is improved. If the state of alsa mixer get
+      changed, the plugin get updated immediately.
+    - The application icons get updated correctly when icon theme is
+      changed. (Closes: #485710)
+    - Fixed implicit pointer conversions problem. (Closes: #487737)
+  * Removed lxde-x-terminal-emulator.desktop in default config,
+    requested removal from upstream author.
+  * debian/control:
+    - Suggests on www-browser for lxde-x-www-browser.desktop
 
- -- Andrew Lee <andrew@linux.org.tw>  Sat, 26 Apr 2008 08:21:46 +0800
+ -- Andrew Lee <andrew@linux.org.tw>  Tue, 08 Jul 2008 04:31:36 +0800
 
-lxpanel (0.3.5.2-1) unstable; urgency=low
+lxpanel (0.3.7-1) unstable; urgency=low
+
+  * New upstream release
+    - Fixed the background of systray icons.
+    - Fix incorrect position of the panels after screen resolution is
+      changed via xrandr.
+    - Saves config files more correctly when plugin configuration is
+      modified.
+  * Bumped Standards-Version to 3.8.0.0
+    - Supporting the standardized environment variable `DEB_BUILD_OPTIONS'
+  * Package split for lxpanel-netstat-plugin 
+
+ -- Andrew Lee <andrew@linux.org.tw>  Mon, 09 Jun 2008 16:05:48 +0800
+
+lxpanel (0.3.6.3-1) unstable; urgency=low
+
+  * New upstream release
+    - fixed memory leaks in dclock plugin.
+    - fixed a bug that no network device be detected cause crash.
+    - fixed incorrect battery information.
+    - fixed some crash bugs in netstat pugins.
+  * Update README.Debian
+
+ -- Andrew Lee <andrew@linux.org.tw>  Mon, 02 Jun 2008 14:59:09 +0800
+
+lxpanel (0.3.6-1) unstable; urgency=low
+
+  * New upstream release
+    - Fixed config dialog's setting can not be saved problem
+    - Add German locale
+    - Add Finnish locale
+    - new kbleb plugin
+    dirmenu plugin: add config dialog for setting icon and label
+    dirmenu plugin: support setting name of menu button with .directory file
+    dirmenu plugin: fixed font color.
+    dirmenu plugin: add label display for dirmenu plugin.
+    batt plugin: support battery information of sysfs for linux 2.6.25
+    batt plugin: fixed left time bug for some battery
+    netstat plugin: improve and fix some bugs for Wireless AP Scanning
+    netstat plugin: fixed a lot of crashes.
+    netstat plugin: hidden AP with encryption will not display
+    netstat plugin: improving IE information handler to support WPA/WPA2 
+  * Added lintian-overrides
+  * Suggests: lxnm 
+  * Minor fix in debian/copyright 
+
+ -- Andrew Lee <andrew@linux.org.tw>  Thu, 29 May 2008 15:52:52 +0800
+
+lxpanel (0.3.5.2+svn20080509-1) unstable; urgency=low
 
   * Initial release (Closes: #466562)
 
- -- Andrew Lee <andrew@linux.org.tw>  Sun, 20 Apr 2008 18:54:40 +0800
-
+ -- Andrew Lee <andrew@linux.org.tw>  Fri, 09 May 2008 17:10:24 +0800
