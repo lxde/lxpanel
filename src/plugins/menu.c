@@ -193,7 +193,8 @@ my_button_pressed(GtkWidget *widget, GdkEventButton *event, Plugin* plugin)
 
     if( event->button == 3 )  /* right button */
     {
-        GtkMenu* popup = lxpanel_get_panel_menu( plugin->panel, plugin, FALSE );
+        GtkMenu* popup =lxpanel_get_panel_menu
+                ( plugin->panel, plugin, FALSE );
         gtk_menu_popup( popup, NULL, NULL, NULL, NULL, event->button, event->time );
         return TRUE;
     }
@@ -400,8 +401,9 @@ read_system_menu(GtkMenu* menu, Plugin *p, char** fp)
     * and we utilize reload_system_menu() to load the real menu later. */
     fake = gtk_separator_menu_item_new();
     PTK_APP_MENU_ITEM_ID = g_quark_from_static_string( "PtkAppMenuItem" );
-    g_object_set_qdata( fake, PTK_APP_MENU_ITEM_ID, GUINT_TO_POINTER(TRUE) );
-   gtk_menu_shell_append( menu, fake);
+    g_object_set_qdata( G_OBJECT(fake), 
+            PTK_APP_MENU_ITEM_ID, GUINT_TO_POINTER(TRUE) );
+   gtk_menu_shell_append( (GtkMenuShell*)menu, fake);
 
    m->has_system_menu = TRUE;
 
