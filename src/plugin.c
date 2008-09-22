@@ -161,7 +161,7 @@ GList* plugin_find_class( const char* type )
 }
 
 static PluginClass*
-plugin_load_dynamic( const char* type, const char* path )
+plugin_load_dynamic( const char* type, const gchar* path )
 {
     PluginClass *pc = NULL;
     GModule *m;
@@ -204,7 +204,8 @@ plugin_load(char *type)
     }
 #ifndef DISABLE_PLUGINS_LOADING
     else if ( g_module_supported() ) {
-        char* path[ PATH_MAX ];
+        gchar path[ PATH_MAX ];
+        
 #if 0   /* put plugins in config dir is too dirty... */
         g_snprintf(path, PATH_MAX, "%s/.lxpanel/plugins/%s.so", getenv("HOME"), type);
         pc = plugin_load_dynamic( type, path );
@@ -295,7 +296,8 @@ void plugin_class_unref( PluginClass* pc )
 GList* plugin_get_available_classes()
 {
     GList* classes = NULL;
-    char *path, *dir_path;
+    gchar *path;
+    char *dir_path;
     const char* file;
     GDir* dir;
     GList* l;
@@ -359,7 +361,7 @@ GList* plugin_get_available_classes()
 
 void plugin_class_list_free( GList* classes )
 {
-   g_list_foreach( classes, plugin_class_unref, NULL );
+   g_list_foreach( classes, (GFunc)plugin_class_unref, NULL );
    g_list_free( classes );
 }
 
@@ -405,7 +407,8 @@ plugin_widget_set_background( GtkWidget* w, Panel* p )
     	if( is_tray )
     		in_tray = TRUE;
 
-        gtk_container_foreach( w, plugin_widget_set_background, p );
+        gtk_container_foreach( (GtkContainer*)w, 
+                (GtkCallback)plugin_widget_set_background, p );
 
         if( is_tray )
 			in_tray = FALSE;
