@@ -80,7 +80,7 @@ static void update_display( Plugin* p, unsigned int state )
         {
             char* file = g_build_filename( PACKAGE_DATA_DIR "/lxpanel/images",
                                                     cur ? on_icons[i] : off_icons[i], NULL );
-            gtk_image_set_from_file( kl->img[ i ], file );
+            gtk_image_set_from_file( (GtkImage *)kl->img[ i ], file );
             g_free( file );
         }
     }
@@ -114,7 +114,7 @@ static gboolean on_button_press (GtkWidget* widget, GdkEventButton* evt, Plugin*
 {
     KbLed *kl = (KbLed*)p->priv;
     if( evt->button == 3 ) { /* Right click*/
-        GtkMenu* popup = lxpanel_get_panel_menu( p->panel, p, FALSE );
+        GtkMenu* popup = (GtkMenu*)lxpanel_get_panel_menu( p->panel, p, FALSE );
         gtk_menu_popup( popup, NULL, NULL, NULL, NULL, evt->button, evt->time );
         return TRUE;
     }
@@ -254,7 +254,7 @@ static void apply_config( Plugin* p )
         if (kl->visible[i]) {
             char* file = g_build_filename( PACKAGE_DATA_DIR "/lxpanel/images",
                                                     kl->old_state ? on_icons[i] : off_icons[i], NULL );
-            gtk_image_set_from_file(kl->img[ i ], file);
+            gtk_image_set_from_file((GtkImage *)kl->img[ i ], file);
             g_free(file);
             gtk_widget_show(kl->img[i]);
         } else {
