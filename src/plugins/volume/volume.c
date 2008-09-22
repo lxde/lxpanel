@@ -66,7 +66,7 @@ static void on_volume_focus (GtkWidget* dlg, GdkEventFocus *event, volume_t *vol
     vol->dlg = NULL;
 }
 
-static void on_button_press (GtkWidget* widget, GdkEventButton* evt, Plugin* p)
+static int on_button_press (GtkWidget* widget, GdkEventButton* evt, Plugin* p)
 {
     volume_t *vol = (volume_t*) p->priv;
 
