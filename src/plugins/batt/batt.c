@@ -265,7 +265,8 @@ static gboolean check_ac_adapter( batt* b )
         /* g_debug( "ac_state_changed: %d", has_ac_adapter ); */
         b->has_ac_adapter = has_ac_adapter;
         /* update the state of all batteries */
-        g_list_foreach( b->batteries, (GFunc)get_batt_state, b->use_sysfs );
+        g_list_foreach( b->batteries, (GFunc)get_batt_state,
+                &b->use_sysfs );
         update_display( b, TRUE );
     }
     return TRUE;
@@ -543,14 +544,14 @@ static int update_timout(batt *b) {
     if( b->state_elapsed_time == 30/3 )  /* 30 sec */
     {
         /* update state of batteries */
-        g_list_foreach( b->batteries, (GFunc)get_batt_state, b->use_sysfs );
+        g_list_foreach( b->batteries, (GFunc)get_batt_state, &b->use_sysfs );
         b->state_elapsed_time = 0;
     }
     /* check the capacity of batteries every 1 hour */
     if( b->info_elapsed_time == 3600/3 )  /* 1 hour */
     {
         /* update info of batteries */
-        g_list_foreach( b->batteries, (GFunc)get_batt_info, b->use_sysfs );
+        g_list_foreach( b->batteries, (GFunc)get_batt_info, &b->use_sysfs );
         b->info_elapsed_time = 0;
     }
 
@@ -900,8 +901,9 @@ static void save(Plugin* p, FILE* fp) {
     ENTER;
 
     batt *b = (batt *) p->priv;
+    char l_char=(char)b->hide_if_no_battery;
 
-    lxpanel_put_str(fp, "HideIfNoBattery", b->hide_if_no_battery);
+    lxpanel_put_str(fp, "HideIfNoBattery",&l_char);
     lxpanel_put_str(fp, "AlarmCommand", b->alarmCommand);
     lxpanel_put_int(fp, "AlarmTime", b->alarmTime);
     lxpanel_put_str(fp, "BackgroundColor", b->backgroundColor);
