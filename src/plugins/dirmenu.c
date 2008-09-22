@@ -63,7 +63,7 @@ static void open_dir( Plugin* p, const char* path )
 static void on_open_dir( GtkWidget* item, Plugin* p )
 {
     GtkWidget* menu = gtk_widget_get_parent(item);
-    const char* path = g_object_get_qdata( menu, PATH_ID );
+    const char* path = g_object_get_qdata( G_OBJECT(menu), PATH_ID );
     open_dir( p, path );
 }
 
@@ -81,7 +81,7 @@ static void open_in_term( Plugin* p, const char* path )
 static void on_open_in_term( GtkWidget* item, Plugin* p )
 {
     GtkWidget* menu = gtk_widget_get_parent(item);
-    const char* path = g_object_get_qdata( menu, PATH_ID );
+    const char* path = g_object_get_qdata( G_OBJECT(menu), PATH_ID );
     open_in_term( p, path );
 }
 
@@ -122,10 +122,12 @@ static void on_select( GtkMenuItem* item, Plugin* p )
     if( !sub )
         return;
     parent = (GtkMenu*)gtk_widget_get_parent( (GtkWidget*)item );
-    path = (char*)g_object_get_qdata( sub, PATH_ID );
+    path = (char*)g_object_get_qdata( G_OBJECT(sub), PATH_ID );
     if( !path ){
-        path = g_build_filename( (char*)g_object_get_qdata( parent, PATH_ID ),
-                                 (char*)g_object_get_qdata( item, NAME_ID ), NULL );
+        path = g_build_filename( (char*)g_object_get_qdata( G_OBJECT(parent),
+                PATH_ID ),
+                                 (char*)g_object_get_qdata( G_OBJECT(item),
+                NAME_ID ), NULL );
         sub = create_menu( p, path, TRUE );
         g_free( path );
         gtk_menu_item_set_submenu( item, sub );
@@ -172,7 +174,7 @@ static GtkWidget* create_menu( Plugin* p,
             folder_icon = gtk_widget_render_icon( menu, GTK_STOCK_DIRECTORY, GTK_ICON_SIZE_MENU, NULL );
     }
 
-    g_object_set_qdata_full( menu, PATH_ID, g_strdup(path), g_free );
+    g_object_set_qdata_full( G_OBJECT(menu), PATH_ID, g_strdup(path), g_free );
 
     if( dir = g_dir_open( path, 0, NULL ) ) {
         const char* name;
@@ -185,11 +187,12 @@ static GtkWidget* create_menu( Plugin* p,
                 GtkWidget *dummy;
                 item = gtk_image_menu_item_new_with_label( disp );
                 g_free( disp );
-                g_object_set_qdata_full( item, NAME_ID, g_strdup(name), g_free );
+                g_object_set_qdata_full( G_OBJECT(item),
+                        NAME_ID, g_strdup(name), g_free );
                 gtk_image_menu_item_set_image( (GtkImageMenuItem*)item,
                                                gtk_image_new_from_stock(GTK_STOCK_DIRECTORY, GTK_ICON_SIZE_MENU) );
                 dummy = gtk_menu_new();
-                gtk_menu_item_set_submenu( item, dummy );
+                gtk_menu_item_set_submenu( (GtkMenuItem*)item, dummy );
                 gtk_menu_shell_append( GTK_MENU_SHELL(menu), item );
                 g_signal_connect( item, "select",
                                   G_CALLBACK(on_select), p );

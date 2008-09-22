@@ -899,6 +899,7 @@ GtkWidget* ptk_ui_xml_create_widget_from_file( const char* file )
     GtkWidget* widget = NULL;
 
     tree = xml_tree_load( file );
+   
     if( G_LIKELY(tree) )
     {
         widget = ptk_ui_xml_create_widget( tree );
