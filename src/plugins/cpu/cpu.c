@@ -151,7 +151,7 @@ static gboolean  on_button_press(GtkWidget* w, GdkEventButton* evt, Plugin* plug
 {
     if( evt->button == 3 )  /* right button */
     {
-        GtkMenu* popup = lxpanel_get_panel_menu( plugin->panel, plugin, FALSE );
+        GtkMenu* popup = (GtkMenu*)lxpanel_get_panel_menu( plugin->panel, plugin, FALSE );
         gtk_menu_popup( popup, NULL, NULL, NULL, NULL, evt->button, evt->time );
         return TRUE;
     }
