@@ -322,7 +322,7 @@ fb_ev_number_of_desktops(FbEv *ev)
 
 Window *fb_ev_active_window(FbEv *ev)
 {
-	return ev->active_window;	
+	return &ev->active_window;	
 }
 
 Window *fb_ev_client_list(FbEv *ev)
