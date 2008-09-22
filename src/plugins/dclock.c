@@ -71,7 +71,7 @@ static GtkWidget *create_calendar()
     gtk_window_set_position(GTK_WINDOW(win), GTK_WIN_POS_MOUSE);
     gtk_window_stick (GTK_WINDOW(win));
 
-    GtkVBox* box = gtk_vbox_new(FALSE, 0);
+    GtkVBox* box = (GtkVBox*)gtk_vbox_new(FALSE, 0);
 
     /* calendar */
     calendar = gtk_calendar_new();
@@ -80,8 +80,8 @@ static GtkWidget *create_calendar()
                                  GTK_CALENDAR_SHOW_DAY_NAMES |
                                  GTK_CALENDAR_SHOW_HEADING);
 //    gtk_container_add(GTK_CONTAINER(win), calendar);
-    gtk_box_pack_start_defaults( box, calendar );
-    gtk_container_add(GTK_CONTAINER(win), box);
+    gtk_box_pack_start_defaults( GTK_BOX(box), calendar );
+    gtk_container_add(GTK_CONTAINER(win), GTK_WIDGET(box));
 
     gtk_widget_show_all(win);
 
@@ -180,7 +180,8 @@ dclock_constructor(Plugin *p, char** fp)
     dc->panel = p->panel;
 
     s.len = 256;
-    dc->cfmt = dc->tfmt = dc->action = dc->bold = 0;
+    dc->cfmt = dc->tfmt = dc->action = NULL;
+    dc->bold = 0;
     dc->bold = TRUE;
     dc->cal_show = FALSE;
     if( fp )
