@@ -329,7 +329,8 @@ desk_button_press_event(GtkWidget * widget, GdkEventButton * event, desk *d)
 {
     ENTER;
     if( event->button == 3 ) { /* right button */
-        GtkMenu* popup = lxpanel_get_panel_menu( d->pg->plugin->panel, d->pg->plugin, FALSE );
+        GtkMenu* popup =(GtkMenu*) lxpanel_get_panel_menu
+                ( d->pg->plugin->panel, d->pg->plugin, FALSE );
         gtk_menu_popup( popup, NULL, NULL, NULL, NULL, event->button, event->time );
         return TRUE;
     }

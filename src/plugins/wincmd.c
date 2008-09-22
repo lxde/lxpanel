@@ -153,7 +153,8 @@ clicked (GtkWidget *widget, GdkEventButton *event, Plugin* plugin)
         toggle_shaded(wc, wc->action2);
         DBG("wincmd: shade all\n");
     } else if( event->button == 3 ) { /* right button */
-        GtkMenu* popup = lxpanel_get_panel_menu( plugin->panel, plugin, FALSE );
+        GtkMenu* popup = (GtkMenu*)lxpanel_get_panel_menu
+                ( plugin->panel, plugin, FALSE );
         gtk_menu_popup( popup, NULL, NULL, NULL, NULL, event->button, event->time );
         return TRUE;
     }
