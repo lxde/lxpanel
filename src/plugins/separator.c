@@ -28,7 +28,8 @@ static gboolean on_btn_press( GtkWidget* w, GdkEventButton* evt, Plugin* plugin 
 {
     if( evt->button == 3 )
     {
-        GtkMenu* popup = lxpanel_get_panel_menu( plugin->panel, plugin, FALSE );
+        GtkMenu* popup = lxpanel_get_panel_menu
+                ( plugin->panel, plugin, FALSE );
         gtk_menu_popup( popup, NULL, NULL, NULL, NULL, evt->button, evt->time );
     }
     return TRUE;
