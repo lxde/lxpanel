@@ -320,94 +320,149 @@ APLIST *wireless_scanning(int iwsockfd, const char *ifname)
 {
 	APLIST *ap = NULL;
 	APLIST *newap;
+
 	struct iwreq wrq;
-	struct iw_range range;
-	struct iw_event event;
-	struct stream_descr stream;
-	struct timeval tv;
-	fd_set rfds; /* File descriptors for select */
-	int selfd;
-	int ret;
-	int bufferlen = IW_SCAN_MAX_DATA;
-	int timeout = 15000000;
+	int scanflags = 0;		/* Flags for scan */
+	unsigned char *	buffer = NULL;	/* Results */
+	int buflen = IW_SCAN_MAX_DATA;	/* Min for compat WE < 17 */
+	struct iw_range	range;
+	int has_range;
+	struct timeval tv;		/* select timeout */
+	int timeout = 15000000;		/* 15s */
 
-	strncpy(wrq.ifr_name, ifname, IFNAMSIZ);
+	/* Get range stuff */
+	has_range = (iw_get_range_info(iwsockfd, ifname, &range) >= 0);
 
-	/* Getting range */
-	iw_get_range_info(iwsockfd, ifname, &range);
-
-	/* check scanning support */
-	if (range.we_version_compiled < 14)
+	/* Check if the interface could support scanning. */
+	if ((!has_range) || (range.we_version_compiled < 14)) {
+		fprintf(stderr, "%-8.16s  Interface doesn't support scanning.\n\n",
+				ifname);
 		return NULL;
-
-	/* Initiate Scanning */
-	wrq.u.data.pointer = malloc(sizeof(char)*IW_SCAN_MAX_DATA);
-	wrq.u.data.length = IW_SCAN_MAX_DATA;
-	wrq.u.data.flags = 0;
-
-	if (ioctl(iwsockfd, SIOCSIWSCAN, &wrq) < 0) {
-		if (errno!=EPERM)
-			return NULL;
 	}
 
-	/* Init timeout value -> 250ms */
+	/* Init timeout value -> 250ms between set and first get */
 	tv.tv_sec = 0;
 	tv.tv_usec = 250000;
 
-	/* Scanning APs */
-	while(1) {
-		if (ioctl(iwsockfd, SIOCGIWSCAN, &wrq) < 0) {
-			if (errno == EAGAIN) { /* not yet ready */
-				FD_ZERO(&rfds);
-				selfd = -1;
-				ret = select(selfd + 1, &rfds, NULL, NULL, &tv);
-				if (ret==0) {
-					tv.tv_usec = 100000;
-					timeout -= tv.tv_usec;
-					if (timeout>0)
-						continue;
-				} else if (ret<0) {
-					if (errno == EAGAIN || errno == EINTR)
-						continue;
-				}
+	wrq.u.data.pointer = NULL;
+	wrq.u.data.flags = 0;
+	wrq.u.data.length = 0;
 
-				break;
-			} else if ((errno == E2BIG) && (range.we_version_compiled > 16)) {
-				if(wrq.u.data.length > bufferlen)
-					bufferlen = wrq.u.data.length;
-				else
-					bufferlen *= 2;
+	/* Initiate Scanning */
+	if (iw_set_ext(iwsockfd, ifname, SIOCSIWSCAN, &wrq) < 0) {
+		if ((errno != EPERM) || (scanflags != 0)) {
+			fprintf(stderr, "%-8.16s  Interface doesn't support "
+				"scanning : %s\n\n", ifname, strerror(errno));
+			return NULL;
+		}
+		tv.tv_usec = 0;
+	}
+	timeout -= tv.tv_usec;
 
-				wrq.u.data.pointer = realloc(wrq.u.data.pointer, bufferlen);
+	/* Forever */
+	while (1) {
+		fd_set rfds;		/* File descriptors for select */
+		int last_fd;	/* Last fd */
+		int ret;
+
+		/* Guess what ? We must re-generate rfds each time */
+		FD_ZERO(&rfds);
+		last_fd = -1;
+
+		/* In here, add the rtnetlink fd in the list */
+
+		/* Wait until something happens */
+		ret = select(last_fd + 1, &rfds, NULL, NULL, &tv);
+
+		/* Check if there was an error */
+		if (ret < 0) {
+			if (errno == EAGAIN || errno == EINTR)
 				continue;
-			} else {
-				break;
-			}
+			fprintf(stderr, "Unhandled signal - exiting...\n");
+			return NULL;
 		}
 
-		if (wrq.u.data.length <= 0)
-			break;
+		/* Check if there was a timeout */
+		if (ret == 0) {
+			unsigned char *newbuf;
 
-		/* Initializing event */
-		iw_init_event_stream(&stream, wrq.u.data.pointer, wrq.u.data.length); 
-		do {
-			ret = iw_extract_event_stream(&stream, &event, range.we_version_compiled);
-			if (ret > 0) {
-				/* found a new AP */
-				if (event.cmd==SIOCGIWAP) {
-					newap = g_new0(APLIST, 1);
-					newap->info = NULL;
-					newap->next = ap;
-					ap = newap;
+realloc:
+			/* (Re)allocate the buffer - realloc(NULL, len) == malloc(len) */
+			newbuf = realloc(buffer, buflen);
+			if (newbuf == NULL) {
+				if (buffer)
+					free(buffer);
+				fprintf(stderr, "%s: Allocation failed\n", __FUNCTION__);
+				return NULL;
+			}
+			buffer = newbuf;
+
+			/* Try to read the results */
+			wrq.u.data.pointer = buffer;
+			wrq.u.data.flags = 0;
+			wrq.u.data.length = buflen;
+			if (iw_get_ext(iwsockfd, ifname, SIOCGIWSCAN, &wrq) < 0)	{
+				/* Check if buffer was too small (WE-17 only) */
+				if ((errno == E2BIG) &&
+				    (range.we_version_compiled > 16)) {
+					/* Check if the driver gave us any hints. */
+					if (wrq.u.data.length > buflen)
+						buflen = wrq.u.data.length;
+					else
+						buflen *= 2;
+					/* Try again */
+					goto realloc;
 				}
 
-				/* Scanning Event */
-				ap->info = wireless_parse_scanning_event(&event, ap->info);
-			}
-		} while (ret > 0);
+				/* Check if results not available yet */
+				if(errno == EAGAIN) {
+					/* Restart timer for only 100ms*/
+					tv.tv_sec = 0;
+					tv.tv_usec = 100000;
+					timeout -= tv.tv_usec;
+					if (timeout > 0)
+						continue; /* Try again later */
+				}
 
-		break;
+				/* Bad error */
+				free(buffer);
+				fprintf(stderr, 
+				"%-8.16s  Failed to read scan data : %s\n\n",
+						ifname, strerror(errno));
+				return NULL;
+			}
+			else
+				/* We have the results, go to process them */
+				break;
+		}
+
+		/* In here, check if event and event type
+		 * if scan event, read results. All errors bad & no reset timeout */
 	}
 
+	if(wrq.u.data.length) {
+		struct iw_event           iwe;
+		struct stream_descr       stream;
+		int                       ret;
+
+		iw_init_event_stream(&stream, (char *) buffer, wrq.u.data.length);
+		do {
+			/* Extract an event and print it */
+			ret = iw_extract_event_stream(&stream, &iwe, range.we_version_compiled);
+			if (iwe.cmd==SIOCGIWAP) {
+				newap = malloc(sizeof(APLIST));
+				newap->info = NULL;
+				newap->next = ap;
+				ap = newap;
+			}
+			ap->info = wireless_parse_scanning_event(&iwe, ap->info);
+		}
+		while (ret > 0);
+		printf("\n");
+	}
+	else
+		printf("%-8.16s  No scan results\n\n", ifname);
+
+	free(buffer);
 	return ap;
 }
