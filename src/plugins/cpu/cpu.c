@@ -1,6 +1,7 @@
 /*
  * CPU usage plugin to lxpanel
  *
+ * Copyright (c) 2008 LxDE Developers, see the file AUTHORS for details.
  * Copyright (C) 2004 by Alexandre Pereira da Silva <alexandre.pereira@poli.usp.br>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -34,6 +35,8 @@
 
 #define KILOBYTE 1024
 #define MAX_WGSIZE 100
+
+#define BORDER_SIZE 2
 
 #include "dbg.h"
 typedef unsigned long tick;
@@ -85,23 +88,23 @@ cpu_update(cpu_t *c)
     cpu_r.i = cpu.i - c->cpu_anterior.i;
 
     total = cpu_r.u + cpu_r.n + cpu_r.s + cpu_r.i;
-    cpu_u = cpu_r.u * c->Hwg / total;
-    cpu_s = cpu_r.n * c->Hwg / total;
-    cpu_n = cpu_r.s * c->Hwg / total;
-    cpu_i = cpu_r.i * c->Hwg / total;
+    cpu_u = cpu_r.u * (c->Hwg-BORDER_SIZE * 2) / total;
+    cpu_s = cpu_r.n * (c->Hwg-BORDER_SIZE * 2) / total;
+    cpu_n = cpu_r.s * (c->Hwg-BORDER_SIZE * 2) / total;
+    cpu_i = cpu_r.i * (c->Hwg-BORDER_SIZE * 2) / total;
 
     c->cpu_anterior = cpu;
 
     c->stats_cpu[c->ini_stats++] = cpu_u + cpu_s + cpu_n;
     c->ini_stats %= c->Wwg;
 
-    gdk_draw_rectangle(c->pixmap, c->da->style->black_gc, TRUE, 0, 0, c->Wwg, c->Hwg);
-    for (i = 0; i < c->Wwg; i++) {
+    gdk_draw_rectangle(c->pixmap, c->da->style->black_gc, TRUE, 0, 0, c->Wwg - BORDER_SIZE * 2, c->Hwg - BORDER_SIZE * 2);
+    for (i = 0; i < (c->Wwg - BORDER_SIZE); i++) {
     int val;
 
-    val = c->stats_cpu[(i + c->ini_stats) % c->Wwg];
+    val = c->stats_cpu[(i + c->ini_stats) % (c->Wwg - BORDER_SIZE * 2) ];
         if (val)
-            gdk_draw_line(c->pixmap, c->gc_cpu, i, c->Hwg, i, c->Hwg - val);
+            gdk_draw_line(c->pixmap, c->gc_cpu, i, (c->Hwg - BORDER_SIZE * 2), i, (c->Hwg - BORDER_SIZE * 2) - val);
     }
     gtk_widget_queue_draw(c->da);
     RET(TRUE);
@@ -118,16 +121,17 @@ configure_event(GtkWidget *widget, GdkEventConfigure *event, cpu_t *c)
     if (c->stats_cpu)
         g_free(c->stats_cpu);
     c->stats_cpu = g_new0( typeof(*c->stats_cpu), c->Wwg);
+    /* set pixmap size */
     c->pixmap = gdk_pixmap_new (widget->window,
-          widget->allocation.width,
-          widget->allocation.height,
+          widget->allocation.width-BORDER_SIZE * 2,
+          widget->allocation.height-BORDER_SIZE * 2,
           -1);
     gdk_draw_rectangle (c->pixmap,
           widget->style->black_gc,
           TRUE,
           0, 0,
-          widget->allocation.width,
-          widget->allocation.height);
+          widget->allocation.width-BORDER_SIZE * 2,
+          widget->allocation.height-BORDER_SIZE * 2); 
 
    RET(TRUE);
 }
@@ -141,7 +145,7 @@ expose_event(GtkWidget *widget, GdkEventExpose *event, cpu_t *c)
           c->da->style->black_gc,
           c->pixmap,
           event->area.x, event->area.y,
-          event->area.x, event->area.y,
+          event->area.x+BORDER_SIZE, event->area.y+BORDER_SIZE,
           event->area.width, event->area.height);
 
     RET(FALSE);
@@ -151,7 +155,7 @@ static gboolean  on_button_press(GtkWidget* w, GdkEventButton* evt, Plugin* plug
 {
     if( evt->button == 3 )  /* right button */
     {
-        GtkMenu* popup = (GtkMenu*)lxpanel_get_panel_menu( plugin->panel, plugin, FALSE );
+        GtkMenu* popup = lxpanel_get_panel_menu( plugin->panel, plugin, FALSE );
         gtk_menu_popup( popup, NULL, NULL, NULL, NULL, evt->button, evt->time );
         return TRUE;
     }
@@ -193,7 +197,7 @@ cpu_constructor(Plugin *p, char **fp)
     g_signal_connect( c->da, "button-press-event",
           G_CALLBACK(on_button_press), p );
 
-    c->timer = g_timeout_add(1000, (GSourceFunc) cpu_update, (gpointer) c);
+    c->timer = g_timeout_add(1500, (GSourceFunc) cpu_update, (gpointer) c);
     RET(1);
 }
 
