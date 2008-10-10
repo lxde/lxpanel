@@ -1,5 +1,6 @@
 /**
- * Copyright (c) 2006 LxDE Developers, see the file AUTHORS for details.
+ * Copyright (c) 2006, 2008 LxDE Developers,
+ * 	see the file AUTHORS for details.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -40,6 +41,7 @@
 #include <fcntl.h>
 
 extern int mixer_fd;
+extern GtkSpinButton* vol_spin;
 
 typedef struct stereovolume
 {
@@ -176,6 +178,8 @@ create_volume_window (void)
 				(GDestroyNotify) gtk_widget_unref);
 
 	gtk_window_add_accel_group (GTK_WINDOW (volume_window), accel_group);
+
+	vol_spin = spinbutton1;
 
 	return volume_window;
 }
