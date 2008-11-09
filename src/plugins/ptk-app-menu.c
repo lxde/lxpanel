@@ -156,7 +156,7 @@ static const CatInfo known_cats[]=
 {
     {N_("Other"), "Other", "gnome-other", NULL},
     {N_("Game"), "Games", "gnome-joystick", game_cats},
-    {N_("Education"), "Education", "gnome-amusements", education_cats},
+    {N_("Education"), "Education", "applications-science", education_cats},
     {N_("Development"), "Development", "gnome-devel", development_cats},
     {N_("Audio & Video"), "Multimedia", "gnome-multimedia", audiovideo_cats},
     {N_("Graphics"), "Graphics", "gnome-graphics", graphics_cats},
