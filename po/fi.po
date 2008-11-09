@@ -1,14 +1,14 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Finnish translation for LXPanel
+# Copyright (C) 2008
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Elias Julkunen <elias.julkunen@gmail.com>, 2008.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-30 08:32+0300\n"
-"PO-Revision-Date: 2008-05-20 20:35+0200\n"
+"PO-Revision-Date: 2008-11-09 13:07+0200\n"
 "Last-Translator: Elias Julkunen <elias.julkunen@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -116,7 +116,7 @@ msgstr "Uloskirjautumisen komento:"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "Make window managers treat the panel as dock"
-msgstr ""
+msgstr "Ikkunaohjelmat käsittelevät paneelia telakkana"
 
 #: ../data/ui/panel-pref.glade.h:29
 msgid "Margin:"
@@ -560,11 +560,11 @@ msgstr "Lisää väli paneeliin"
 
 #: ../src/plugins/pager.c:709
 msgid "Desktop Pager"
-msgstr ""
+msgstr "Työtilan vaihtaja"
 
 #: ../src/plugins/pager.c:711
 msgid "Simple pager plugin"
-msgstr ""
+msgstr "Yksinkertainen työtilavaihtajaliitännäinen"
 
 #: ../src/plugins/space.c:137
 #: ../src/plugins/batt/batt.c:824
@@ -630,7 +630,7 @@ msgstr "Hiljennä"
 
 #: ../src/plugins/netstat/netstat.c:144
 msgid "<Hidden Access Point>"
-msgstr ""
+msgstr "<Piilotettu tukiasema>"
 
 #: ../src/plugins/netstat/netstat.c:177
 msgid "Wireless Networks not found in range"
@@ -644,11 +644,11 @@ msgstr "Korjaa"
 #. interface down
 #: ../src/plugins/netstat/netstat.c:218
 msgid "Disable"
-msgstr ""
+msgstr "Älä käytä"
 
 #: ../src/plugins/netstat/netstat.c:276
 msgid "Network cable is plugged out"
-msgstr ""
+msgstr "Verkkojohto irrotettiin"
 
 #: ../src/plugins/netstat/netstat.c:278
 msgid "Connection has limited or no connectivity"
@@ -662,13 +662,13 @@ msgstr "IP-osoite:"
 
 #: ../src/plugins/netstat/netstat.c:283
 msgid "Remote IP:"
-msgstr ""
+msgstr "Etä-IP:"
 
 #: ../src/plugins/netstat/netstat.c:284
 #: ../src/plugins/netstat/netstat.c:295
 #: ../src/plugins/netstat/netstat.c:306
 msgid "Netmask:"
-msgstr ""
+msgstr "Verkon peitto:"
 
 #: ../src/plugins/netstat/netstat.c:285
 #: ../src/plugins/netstat/netstat.c:297
@@ -730,7 +730,6 @@ msgstr "Valvoo verkon tilaa"
 
 #. create dialog
 #: ../src/plugins/netstat/passwd_gui.c:97
-#, fuzzy
 msgid "Setting Encryption Key"
 msgstr "Asetetaan salausavainta"
 
@@ -770,11 +769,9 @@ msgid "Connection Properties: %s"
 msgstr "Yhteyden tiedot: %s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:134
-#, fuzzy, c-format
+#, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
-msgstr[0] "%lu paketti"
-msgstr[1] "%lu pakettia"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:395
 #, c-format
@@ -883,11 +880,11 @@ msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-icon.c:819
 msgid "Orientation"
-msgstr ""
+msgstr "Suunta"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:820
 msgid "The orientation of the tray."
-msgstr ""
+msgstr "Ilmoitusalueen suunta"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:828
 msgid "Tooltips Enabled"
@@ -978,7 +975,7 @@ msgstr "Purkautumisen väri 2"
 
 #: ../src/plugins/batt/batt.c:823
 msgid "Border width"
-msgstr ""
+msgstr "Reunuksen leveys"
 
 #: ../src/plugins/batt/batt.c:858
 msgid "Battery Monitor"
