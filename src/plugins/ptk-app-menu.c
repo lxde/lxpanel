@@ -455,12 +455,6 @@ static void do_load_dir( int prefix_len,
                                           "size-request",
                       G_CALLBACK(on_menu_item_size_request), data );
                         icon = g_strdup( g_key_file_get_string( file, desktop_ent, "Icon", NULL) );
-                        if( icon )
-                        {
-                            char* dot = strchr( icon, '.' );
-                            if( icon[0] !='/' && dot )
-                                *dot = '\0';
-                        }
                         data->icon = icon;
                         if( !prev )
                         {
@@ -543,7 +537,6 @@ void ptk_app_menu_insert_items( GtkMenu* menu, int position )
       GtkMenu* sub_menu;
       GtkWidget* menu_item;
       PtkAppMenuItem* data;
-      CatInfo l_cinfo;
       char* title;
 
       if( ! (sub_items = sub_menus[i]) )
@@ -553,8 +546,8 @@ void ptk_app_menu_insert_items( GtkMenu* menu, int position )
       for( l = sub_items; l; l = l->next )
          gtk_menu_shell_append( GTK_MENU_SHELL(sub_menu), GTK_WIDGET(l->data) );
       g_list_free( sub_items );
-      l_cinfo=known_cats[i];
-      title = load_cat_title( kf, &l_cinfo );
+
+      title = load_cat_title( kf, &known_cats[i] );
       menu_item = gtk_image_menu_item_new_with_label( title ? title : _(known_cats[i].title) );
       g_free( title );
 
