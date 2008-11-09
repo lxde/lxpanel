@@ -13,9 +13,9 @@ Global {
     alpha=0
     setdocktype=1
     setpartialstrut=1
-    usefontcolor=0
+    usefontcolor=1
     fontcolor=#ffffff
-    background=0
+    background=1
     backgroundfile=@prefix@/share/lxpanel/images/background.png
 }
 
@@ -29,7 +29,7 @@ Plugin {
 Plugin {
     type = menu
     Config {
-        image=@prefix@/share/icons/mandrake.png
+        image=@prefix@/share/lxpanel/images/my-computer.png
         system {
         }
         separator {
@@ -53,11 +53,11 @@ Plugin {
             id=pcmanfm.desktop
         }
         Button {
+            id=gnome-terminal.desktop
+        }
+        Button {
             id=firefox.desktop
         }
-	Button {
-	    id=mandriva-drakconf.desktop
-	}
     }
 }
 
@@ -113,13 +113,21 @@ Plugin {
 }
 
 Plugin {
+    type = netstat
+}
+
+Plugin {
+    type = cpu
+}
+
+Plugin {
     type = tray
 }
 
 Plugin {
     type = dclock
     Config {
-        ClockFmt=%H:%M:%S
+        ClockFmt=%R
         TooltipFmt=%A %x
         BoldFont=0
     }
