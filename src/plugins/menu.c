@@ -154,8 +154,14 @@ menu_pos(GtkMenu *menu, gint *x, gint *y, gboolean *push_in, GtkWidget *widget)
 
 static void on_menu_item( GtkMenuItem* mi, MenuCacheItem* item )
 {
+    const char* exec = menu_cache_app_get_exec(MENU_CACHE_APP(item));
+    char* sep = strchr(exec, ' ');
+    char* cmd = sep ? g_strndup(exec, sep - exec) : exec;
     g_debug( "Exec = %s", menu_cache_app_get_exec(MENU_CACHE_APP(item)) );
     g_debug( "Terminal = %d", menu_cache_app_get_use_terminal(MENU_CACHE_APP(item)) );
+    spawn_app( NULL, cmd );
+    if( cmd != exec )
+        g_free(cmd);
 }
 
 static void on_menu_item_style_set(GtkWidget* mi, GtkStyle* prev, MenuCacheItem* item)
@@ -547,7 +553,7 @@ read_system_menu(GtkMenu* menu, Plugin *p, char** fp)
 
     if(! m->menu_cache)
     {
-        m->menu_cache = menu_cache_lookup("applications.menu");
+        m->menu_cache = menu_cache_lookup(g_getenv("XDG_MENU_PREFIX") ? "applications.menu" : "lxde-applications.menu" );
         if( G_UNLIKELY(!m->menu_cache) )
         {
             ERR("error loading applications menu");
