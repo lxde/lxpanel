@@ -171,8 +171,14 @@ static void on_menu_item_style_set(GtkWidget* mi, GtkStyle* prev, MenuCacheItem*
     {
         if( gtk_image_get_storage_type(img) == GTK_IMAGE_EMPTY )
         {
+            GdkPixbuf* icon;
+            int w, h;
+            /* FIXME: this is inefficient */
+            gtk_icon_size_lookup(GTK_ICON_SIZE_MENU, &w, &h);
             item = g_object_get_qdata(mi, SYS_MENU_ITEM_ID);
-            gtk_image_set_from_icon_name(img, menu_cache_item_get_icon(item), GTK_ICON_SIZE_MENU);
+            icon = lxpanel_load_icon(menu_cache_item_get_icon(item), MAX(w,h), TRUE);
+            gtk_image_set_from_pixbuf(img, icon);
+            g_object_unref(icon);
         }
     }
     g_debug("style set!");
@@ -201,14 +207,11 @@ static GtkWidget* create_item( MenuCacheItem* item )
     {
         GtkWidget* img;
         mi = gtk_image_menu_item_new_with_label( menu_cache_item_get_name(item) );
-        gtk_widget_set_tooltip_text( mi, menu_cache_item_get_comment(item) );
-        /*
-            img = gtk_image_new_from_icon_name(menu_cache_item_get_icon(item), GTK_ICON_SIZE_MENU );
-        */
         img = gtk_image_new();
         gtk_image_menu_item_set_image( mi, img );
         if( menu_cache_item_get_type(item) == MENU_CACHE_TYPE_APP )
         {
+            gtk_widget_set_tooltip_text( mi, menu_cache_item_get_comment(item) );
             g_signal_connect( mi, "activate", on_menu_item, item );
         }
         g_signal_connect(mi, "style-set", G_CALLBACK(on_menu_item_style_set), item);
