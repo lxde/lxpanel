@@ -196,6 +196,4 @@ void panel_update_background( Panel* p );
 extern const char* lxpanel_get_file_manager();
 extern const char* lxpanel_get_terminal();
 
-extern MenuCache* lxpanel_get_menu_cache();
-
 #endif

@@ -47,8 +47,6 @@ gchar *cprofile = "default";
 static int config = 0;
 FbEv *fbev = NULL;
 
-static MenuCache* menu_cache = NULL;
-
 int log_level;
 
 GSList* all_panels = NULL;  /* a single-linked list storing all panels */
@@ -800,14 +798,6 @@ extern GtkMenu* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean u
     return ret;
 }
 
-extern MenuCache* lxpanel_get_menu_cache()
-{
-	if( G_UNLIKELY( ! menu_cache ) )
-		menu_cache = menu_cache_new( "/home/pcman/.cache/menus/zh_TW/applications.menu.cache", NULL, NULL );
-	return menu_cache ? menu_cache_ref( menu_cache ) : NULL;
-}
-
-
 /****************************************************
  *         panel creation                           *
  ****************************************************/
@@ -1477,9 +1467,6 @@ restart:
         goto restart;
 
     g_object_unref(fbev);
-
-	if( menu_cache )
-		menu_cache_unref( menu_cache );
 
     return 0;
 }
