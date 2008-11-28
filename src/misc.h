@@ -118,4 +118,6 @@ char* get_config_file( const char* profile, const char* file_name, gboolean is_g
 
 extern GtkMenu* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean use_sub_menu );
 
+extern GdkPixbuf* lxpanel_load_icon( const char* name, int size, gboolean use_fallback );
+
 #endif

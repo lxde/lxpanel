@@ -22,7 +22,6 @@ INCLUDES = \
 
 PLUGINS_SOURCES= \
 	launchbar.c \
-	ptk-app-menu.c ptk-app-menu.h \
 	taskbar.c \
 	dclock.c \
 	menu.c \

@@ -798,8 +798,6 @@ extern GtkMenu* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean u
     return ret;
 }
 
-
-
 /****************************************************
  *         panel creation                           *
  ****************************************************/

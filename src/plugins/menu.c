@@ -23,12 +23,12 @@
 #include <glib.h>
 #include <glib/gi18n.h>
 
+#include <menu-cache.h>
+
 #include "panel.h"
 #include "misc.h"
 #include "plugin.h"
 #include "bg.h"
-
-#include "ptk-app-menu.h"
 
 #include "dbg.h"
 
@@ -52,9 +52,15 @@ typedef struct {
     char* config_data;
     int sysmenu_pos;
     char *config_start, *config_end;
+
+    MenuCache* menu_cache;
+    gpointer reload_notify;
 } menup;
 
 static guint idle_loader = 0;
+
+GQuark SYS_MENU_ITEM_ID = 0;
+
 
 static void
 menu_destructor(Plugin *p)
@@ -76,6 +82,13 @@ menu_destructor(Plugin *p)
     /* The widget is destroyed in plugin_stop().
     gtk_widget_destroy(m->box);
     */
+
+    if( m->menu_cache )
+    {
+        menu_cache_remove_reload_notify(m->menu_cache, m->reload_notify);
+        menu_cache_unref( m->menu_cache );
+    }
+
     g_free(m->fname);
     g_free(m->caption);
     g_free(m);
@@ -139,28 +152,186 @@ menu_pos(GtkMenu *menu, gint *x, gint *y, gboolean *push_in, GtkWidget *widget)
     RET();
 }
 
+static void on_menu_item( GtkMenuItem* mi, MenuCacheItem* item )
+{
+    const char* exec = menu_cache_app_get_exec(MENU_CACHE_APP(item));
+    char* sep = strchr(exec, '%');
+    char* cmd = sep ? g_strndup(exec, sep - exec) : exec;
+    g_strchomp(cmd);
+    g_debug( "Exec = %s", menu_cache_app_get_exec(MENU_CACHE_APP(item)) );
+    g_debug( "Terminal = %d", menu_cache_app_get_use_terminal(MENU_CACHE_APP(item)) );
+    spawn_app( NULL, cmd );
+    if( cmd != exec )
+        g_free(cmd);
+}
+
+static void on_menu_item_style_set(GtkWidget* mi, GtkStyle* prev, MenuCacheItem* item)
+{
+    GtkImage* img = gtk_image_menu_item_get_image(mi);
+    if( img )
+    {
+        if( gtk_image_get_storage_type(img) == GTK_IMAGE_EMPTY )
+        {
+            GdkPixbuf* icon;
+            int w, h;
+            /* FIXME: this is inefficient */
+            gtk_icon_size_lookup(GTK_ICON_SIZE_MENU, &w, &h);
+            item = g_object_get_qdata(mi, SYS_MENU_ITEM_ID);
+            icon = lxpanel_load_icon(menu_cache_item_get_icon(item), MAX(w,h), TRUE);
+            gtk_image_set_from_pixbuf(img, icon);
+            g_object_unref(icon);
+        }
+    }
+    g_debug("style set!");
+}
+
+static gboolean on_menu_button_press(GtkWidget* mi, GdkEventButton* evt, MenuCacheItem* item)
+{
+    if( evt->button == 3 )  // right
+    {
+        g_debug("right click!");
+        GtkMenu* p = gtk_menu_new();
+        gtk_menu_shell_append(p, gtk_menu_item_new_with_label("XXX"));
+        gtk_widget_show_all(p);
+        gtk_menu_popup(p, NULL, NULL, NULL, NULL, NULL, evt->time );
+//        return TRUE;
+    }
+    return FALSE;
+}
+
+static GtkWidget* create_item( MenuCacheItem* item )
+{
+    GtkWidget* mi;
+    if( menu_cache_item_get_type(item) == MENU_CACHE_TYPE_SEP )
+        mi = gtk_separator_menu_item_new();
+    else
+    {
+        GtkWidget* img;
+        mi = gtk_image_menu_item_new_with_label( menu_cache_item_get_name(item) );
+        img = gtk_image_new();
+        gtk_image_menu_item_set_image( mi, img );
+        if( menu_cache_item_get_type(item) == MENU_CACHE_TYPE_APP )
+        {
+            gtk_widget_set_tooltip_text( mi, menu_cache_item_get_comment(item) );
+            g_signal_connect( mi, "activate", on_menu_item, item );
+        }
+        g_signal_connect(mi, "style-set", G_CALLBACK(on_menu_item_style_set), item);
+        g_signal_connect(mi, "button-press-event", G_CALLBACK(on_menu_button_press), item);
+    }
+    gtk_widget_show( mi );
+    g_object_set_qdata_full( mi, SYS_MENU_ITEM_ID, menu_cache_item_ref(item), menu_cache_item_unref );
+    return mi;
+}
+
+static void load_menu(MenuCacheDir* dir, GtkWidget* menu, int pos )
+{
+    GSList* l;
+    GtkWidget* mi;
+    for( l = menu_cache_dir_get_children(dir); l; l = l->next )
+    {
+        MenuCacheItem* item = MENU_CACHE_ITEM(l->data);
+        mi = create_item(item);
+        gtk_menu_shell_insert( (GtkMenuShell*)menu, mi, pos );
+        if( pos >= 0 )
+            ++pos;
+        if( menu_cache_item_get_type(item) == MENU_CACHE_TYPE_DIR )
+        {
+            GtkWidget* sub = gtk_menu_new();
+            load_menu( item, sub, -1 );    /* always pass -1 for position */
+            gtk_menu_item_set_submenu( mi, sub );
+        }
+    }
+}
+
+
+static gboolean sys_menu_item_has_data( GtkMenuItem* item )
+{
+   return (g_object_get_qdata( G_OBJECT(item), SYS_MENU_ITEM_ID ) != NULL);
+}
+
+static void unload_old_icons(GtkMenu* menu, GtkIconTheme* theme)
+{
+    GList *children, *child;
+    GtkMenuItem* item;
+    GtkWidget* sub_menu;
+
+    children = gtk_container_get_children( GTK_CONTAINER(menu) );
+    for( child = children; child; child = child->next )
+    {
+        item = GTK_MENU_ITEM( child->data );
+        if( sys_menu_item_has_data( item ) )
+        {
+            GtkImage* img;
+            item = GTK_MENU_ITEM( child->data );
+            if( GTK_IS_IMAGE_MENU_ITEM(item) )
+            {
+                img = gtk_image_menu_item_get_image(item);
+                gtk_image_clear(img);
+            }
+        }
+        else if( ( sub_menu = gtk_menu_item_get_submenu( item ) ) )
+        {
+            unload_old_icons( theme, menu );
+        }
+    }
+    g_list_free( children );
+}
+
+static void remove_change_handler(gpointer id, GObject* theme)
+{
+    g_signal_handler_disconnect(theme, GPOINTER_TO_INT(id));
+}
+
+/*
+ * Insert application menus into specified menu
+ * menu: The parent menu to which the items should be inserted
+ * pisition: Position to insert items.
+             Passing -1 in this parameter means append all items
+             at the end of menu.
+ */
+static void sys_menu_insert_items( menup* m, GtkMenu* menu, int position )
+{
+    MenuCacheDir* dir;
+    guint change_handler;
+
+    if( G_UNLIKELY( SYS_MENU_ITEM_ID == 0 ) )
+        SYS_MENU_ITEM_ID = g_quark_from_static_string( "SysMenuItem" );
+
+    dir = menu_cache_get_root_dir( m->menu_cache );
+    load_menu( dir, menu, position );
+
+    change_handler = g_signal_connect_swapped( gtk_icon_theme_get_default(), "changed", G_CALLBACK(unload_old_icons), menu );
+    g_object_weak_ref( G_OBJECT(menu), remove_change_handler, GINT_TO_POINTER(change_handler) );
+}
+
+
 static void
-reload_system_menu( GtkMenu* menu )
+reload_system_menu( menup* m, GtkMenu* menu )
 {
     GList *children, *child;
     GtkMenuItem* item;
     GtkWidget* sub_menu;
     gint idx;
+
     children = gtk_container_get_children( GTK_CONTAINER(menu) );
-    for( child = children, idx = 0; child; child = child->next, ++idx ) {
+    for( child = children, idx = 0; child; child = child->next, ++idx )
+    {
         item = GTK_MENU_ITEM( child->data );
-        if( ptk_app_menu_item_has_data( item ) ) {
-            do {
+        if( sys_menu_item_has_data( item ) )
+        {
+            do
+            {
                 item = GTK_MENU_ITEM( child->data );
                 child = child->next;
                 gtk_widget_destroy( GTK_WIDGET(item) );
-            }while( child && ptk_app_menu_item_has_data( child->data ) );
-            ptk_app_menu_insert_items( menu, idx );
+            }while( child && sys_menu_item_has_data( child->data ) );
+            sys_menu_insert_items( m, menu, idx );
             if( ! child )
                 break;
         }
-        else if( ( sub_menu = gtk_menu_item_get_submenu( item ) ) ) {
-            reload_system_menu( GTK_MENU(sub_menu) );
+        else if( ( sub_menu = gtk_menu_item_get_submenu( item ) ) )
+        {
+            reload_system_menu( m, GTK_MENU(sub_menu) );
         }
     }
     g_list_free( children );
@@ -169,17 +340,6 @@ reload_system_menu( GtkMenu* menu )
 static void show_menu( GtkWidget* widget, Plugin* p, int btn, guint32 time )
 {
     menup* m = (menup*)p->priv;
-    /* reload system menu items if needed */
-    if( m->has_system_menu && ptk_app_menu_need_reload() ) {
-        GSList* l;
-        /* FIXME: Reload all system menus here.
-                  This is dirty, but I don't know any better way. */
-        for( l = p->panel->system_menus; l; l = l->next ) {
-            Plugin* _p = (Plugin*)l->data;
-            menup* _m = (menup*)_p->priv;
-            reload_system_menu( GTK_MENU(_m->menu) );
-        }
-    }
     gtk_menu_popup(GTK_MENU(m->menu),
                    NULL, NULL,
                    (GtkMenuPositionFunc)menu_pos, widget,
@@ -193,7 +353,8 @@ my_button_pressed(GtkWidget *widget, GdkEventButton *event, Plugin* plugin)
 
     if( event->button == 3 )  /* right button */
     {
-        GtkMenu* popup = lxpanel_get_panel_menu( plugin->panel, plugin, FALSE );
+        GtkMenu* popup =lxpanel_get_panel_menu
+                ( plugin->panel, plugin, FALSE );
         gtk_menu_popup( popup, NULL, NULL, NULL, NULL, event->button, event->time );
         return TRUE;
     }
@@ -363,54 +524,43 @@ read_separator(Plugin *p, char **fp)
     RET(gtk_separator_menu_item_new());
 }
 
-static gboolean on_idle( Panel* p )
+static void on_reload_menu( MenuCache* cache, menup* m )
 {
-    GSList* l;
-    /* Reload all system menus here.
-        This is dirty, but I don't know any better way. */
-    for( l = p->system_menus; l; l = l->next ) {
-        Plugin* _p = (Plugin*)l->data;
-        menup* _m = (menup*)_p->priv;
-        reload_system_menu( GTK_MENU(_m->menu) );
-    }
-    idle_loader = 0;
-    return FALSE;   /* remove the handler */
+    g_debug("reload system menu!!");
+    reload_system_menu( m, m->menu );
 }
 
 static void
 read_system_menu(GtkMenu* menu, Plugin *p, char** fp)
 {
-   line s;
-   menup *m = (menup *)p->priv;
+    line s;
+    menup *m = (menup *)p->priv;
     GtkWidget* fake;
 
-   ENTER;
-   s.len = 256;
-   if( fp )
-   {
+    if(! m->menu_cache)
+    {
+        m->menu_cache = menu_cache_lookup(g_getenv("XDG_MENU_PREFIX") ? "applications.menu" : "lxde-applications.menu" );
+        if( G_UNLIKELY(!m->menu_cache) )
+        {
+            ERR("error loading applications menu");
+            return;
+        }
+        m->reload_notify = menu_cache_add_reload_notify(m->menu_cache, on_reload_menu, m);
+    }
+
+    s.len = 256;
+    if( fp )
+    {
         while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
             ERR("menu: error - system can not have paramteres\n");
-            RET();
+            return;
         }
-   }
+    }
 
-   /* ptk_app_menu_insert_items( menu, -1 ); */
-   /* Don't load the real system menu here to speed up startup.
-    * Let's add a fake item to cheat PtkAppMenu as a place holder,
-    * and we utilize reload_system_menu() to load the real menu later. */
-    fake = gtk_separator_menu_item_new();
-    PTK_APP_MENU_ITEM_ID = g_quark_from_static_string( "PtkAppMenuItem" );
-    g_object_set_qdata( fake, PTK_APP_MENU_ITEM_ID, GUINT_TO_POINTER(TRUE) );
-   gtk_menu_shell_append( menu, fake);
+    sys_menu_insert_items( m, menu, -1 );
+    m->has_system_menu = TRUE;
 
-   m->has_system_menu = TRUE;
-
-   p->panel->system_menus = g_slist_append( p->panel->system_menus, p );
-
-    if( idle_loader == 0 )  /* delay the loading, and do it in idle handler */
-        idle_loader = g_idle_add( (GSourceFunc)on_idle, p->panel );
-
-   RET();
+    p->panel->system_menus = g_slist_append( p->panel->system_menus, p );
 }
 
 static void
@@ -499,7 +649,7 @@ read_submenu(Plugin *p, char** fp, gboolean as_item)
                 fname = expand_tilda(s.t[1]);
             else if (!g_ascii_strcasecmp(s.t[0], "name"))
                 strcpy(name, s.t[1]);
-	    /* FIXME: tintcolor will not be saved.  */
+        /* FIXME: tintcolor will not be saved.  */
             else if (!g_ascii_strcasecmp(s.t[0], "tintcolor"))
                 gdk_color_parse( s.t[1], &color);
             else {
@@ -550,7 +700,6 @@ read_submenu(Plugin *p, char** fp, gboolean as_item)
 static int
 menu_constructor(Plugin *p, char **fp)
 {
-    char *start;
     menup *m;
     static char default_config[] =
         "image=" PACKAGE_DATA_DIR "/lxpanel/images/my-computer.png\n"
@@ -575,9 +724,9 @@ menu_constructor(Plugin *p, char **fp)
     g_return_val_if_fail(m != NULL, 0);
     m->fname = NULL;
     m->caption = NULL;
+
     p->priv = m;
 
-    //gtk_rc_parse_string(menu_rc);
     if  (p->panel->orientation == ORIENT_HORIZ)
         m->paneliconsize = p->panel->ah
             - 2* GTK_WIDGET(p->panel->box)->style->ythickness;
@@ -592,7 +741,7 @@ menu_constructor(Plugin *p, char **fp)
     if( ! fp )
         fp = &config_default;
 
-    m->config_start = start = *fp;
+    m->config_start = *fp;
     if (!read_submenu(p, fp, FALSE)) {
         ERR("menu: plugin init failed\n");
         goto error;
@@ -604,7 +753,8 @@ menu_constructor(Plugin *p, char **fp)
     if( *m->config_end == '}' )
         --m->config_end;
 
-    m->config_data = g_strndup( start, (m->config_end - start) );
+    m->config_data = g_strndup( m->config_start,
+                                (m->config_end-m->config_start) );
 
     p->pwid = m->box;
 
@@ -656,7 +806,7 @@ PluginClass menu_plugin_class = {
 
     type : "menu",
     name : N_("Menu"),
-    version: "1.0",
+    version: "2.0",
     description : N_("Provide Menu"),
 
     constructor : menu_constructor,

@@ -1,3 +1,7 @@
+menufile_DATA= \
+	lxde-applications.menu
+menufiledir=/etc/xdg/menus
+
 default_config_DATA = \
 	default/config
 default_configdir = $(datadir)/lxpanel/profile/default
@@ -59,6 +63,7 @@ lxpanel_images_DATA = \
 lxpanel_imagesdir = $(datadir)/lxpanel/images
 
 EXTRA_DIST = \
+	$(menufile_DATA) \
 	default/panels/panel.in \
 	$(lxpanel_DATA) \
 	$(lxpanel_images_DATA) \

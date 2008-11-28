@@ -23,7 +23,6 @@
 
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
-//#include <X11/xpm.h>
 
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gdk-pixbuf-xlib/gdk-pixbuf-xlib.h>
@@ -572,9 +571,13 @@ tk_raise_window( task *tk, guint32 time )
         Xclimsg(GDK_ROOT_WINDOW(), a_NET_CURRENT_DESKTOP, tk->desktop, 0, 0, 0, 0);
         XSync (gdk_display, False);
     }
-    XSetInputFocus (GDK_DISPLAY(), tk->win, RevertToNone, CurrentTime);
-    XRaiseWindow (GDK_DISPLAY(), tk->win);
-    Xclimsg(tk->win, a_NET_ACTIVE_WINDOW, 2, time, 0, 0, 0);
+    if(use_net_active) {
+        Xclimsg(tk->win, a_NET_ACTIVE_WINDOW, 2, time, 0, 0, 0);
+    }
+    else {
+        XRaiseWindow (GDK_DISPLAY(), tk->win);
+        XSetInputFocus (GDK_DISPLAY(), tk->win, RevertToNone, CurrentTime);
+    }
     DBG("XRaiseWindow %x\n", tk->win);
 }
 
@@ -1203,7 +1206,7 @@ static void
 menu_move_to_workspace( GtkWidget* mi, taskbar* tb )
 {
     GdkWindow* win;
-    int num = GPOINTER_TO_INT( g_object_get_data( mi, "num" ) );
+    int num = GPOINTER_TO_INT( g_object_get_data( G_OBJECT(mi), "num" ) );
     _wnck_change_workspace( DefaultScreenOfDisplay(GDK_DISPLAY()), tb->menutask->win, num );
 }
 
@@ -1240,14 +1243,14 @@ taskbar_make_menu(taskbar *tb)
         {
             g_snprintf( label, 128, _("Workspace %d"), i);
             mi = gtk_menu_item_new_with_label( label );
-            g_object_set_data( mi, "num", GINT_TO_POINTER(i - 1) );
+            g_object_set_data( G_OBJECT(mi), "num", GINT_TO_POINTER(i - 1) );
             g_signal_connect( mi, "activate", G_CALLBACK(menu_move_to_workspace), tb );
             gtk_menu_shell_append( (GtkMenuShell*)workspace_menu, mi );
         }
         gtk_menu_shell_append( GTK_MENU_SHELL (workspace_menu),
                                                    gtk_separator_menu_item_new());
         mi = gtk_menu_item_new_with_label(_("All workspaces"));
-        g_object_set_data( mi, "num", GINT_TO_POINTER(ALL_WORKSPACES) );
+        g_object_set_data( G_OBJECT(mi), "num", GINT_TO_POINTER(ALL_WORKSPACES) );
         g_signal_connect( mi, "activate", G_CALLBACK(menu_move_to_workspace), tb );
         gtk_menu_shell_append( (GtkMenuShell*)workspace_menu, mi );
 
@@ -1256,7 +1259,7 @@ taskbar_make_menu(taskbar *tb)
         mi = gtk_menu_item_new_with_label (_("Move to Workspace"));
         gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
 
-        gtk_menu_item_set_submenu( mi, workspace_menu );
+        gtk_menu_item_set_submenu( (GtkMenuItem*)mi, workspace_menu );
         workspace_menu = mi;
     }
 

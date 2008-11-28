@@ -1,0 +1,20 @@
+<!DOCTYPE Menu
+  PUBLIC '-//freedesktop//DTD Menu 1.0//EN'
+  'http://standards.freedesktop.org/menu-spec/menu-1.0.dtd'>
+<Menu>
+	<Name>Applications</Name>
+	<MergeFile type="parent">/etc/xdg/menus/applications.menu</MergeFile>
+	<Menu>
+		<Name>ControlPanel</Name>
+		<Include>
+			<Filename>gnome-app-install.desktop</Filename>
+		</Include>
+		<MergeFile type="path">/etc/xdg/menus/settings.menu</MergeFile>
+	</Menu>
+	<Layout>
+		<Merge type="menus"/>
+		<Merge type="files"/>
+		<Separator/>
+		<Menuname>ControlPanel</Menuname>
+	</Layout>
+</Menu>

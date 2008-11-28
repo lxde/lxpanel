@@ -23,6 +23,8 @@
 #include <gtk/gtk.h>
 #include <gdk/gdk.h>
 
+#include <menu-cache.h>
+
 #include "config.h"
 
 #include "bg.h"

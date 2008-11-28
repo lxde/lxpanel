@@ -42,6 +42,7 @@ typedef struct
     GdkPixbuf* pixbuf;
     GdkPixbuf* hilight;
     gulong hicolor;
+    int dw, dh; /* desired size */
     gboolean keep_ratio;
 }ImgData;
 
@@ -314,7 +315,6 @@ lxpanel_get_line(char**fp, line *s)
             s->type = LINE_BLOCK_START;
         } else {
             ERR( "parser: unknown token: '%c'\n", *tmp2);
-            g_debug("\"%s\"", tmp2);
         }
         break;
     }
@@ -1012,13 +1012,32 @@ static void on_theme_changed(GtkIconTheme* theme, GtkWidget* img)
 /* FIXME: currently, the size of those images cannot be changed dynamically */
 static void on_img_size_allocated(GtkWidget* img, GtkAllocation *allocation, ImgData* data)
 {
-    if( img->allocation.width == allocation->width &&
-        img->allocation.height == allocation->height )
+    int size;
+
+    /* enlarge */
+    if( allocation->width > data->dw ||
+        allocation->height > data->dh )
+    {
+        size = MAX(allocation->width, allocation->height);
+    }
+    /* shrinkage */
+    else if( allocation->width < data->dw ||
+        allocation->height < data->dh )
+    {
+        size = MIN(allocation->width, allocation->height);
+    }
+    else
         return;
+    data->dw = data->dh = size;
+    /*
+    g_debug("size = %d, pix: %d, %d, alloc:%d, %d", size,
+       gdk_pixbuf_get_width(data->pixbuf), gdk_pixbuf_get_height(data->pixbuf),
+       allocation->width, allocation->height );
+    */
     g_signal_handlers_block_by_func( img, on_img_size_allocated, data );
     /* g_debug("size-allocated: %d, %d", allocation->width, allocation->height); */
     _gtk_image_set_from_file_scaled( img, data->fname,
-                    allocation->height, allocation->height, data->keep_ratio );
+                    size, size, data->keep_ratio );
     g_signal_handlers_unblock_by_func( img, on_img_size_allocated, data );
 }
 
@@ -1027,8 +1046,11 @@ _gtk_image_set_from_file_scaled( GtkWidget* img, const gchar *file, gint width,
         gint height, gboolean keep_ratio)
 {
     GdkPixbuf *pb_scaled;
-    GtkIconInfo *inf = NULL;
+    gboolean themed = TRUE;
     ImgData* data = (ImgData*)g_object_get_qdata( G_OBJECT(img), img_data_id );
+
+    data->dw = width;
+    data->dh = height;
 
     if( data->pixbuf )
     {
@@ -1053,24 +1075,24 @@ _gtk_image_set_from_file_scaled( GtkWidget* img, const gchar *file, gint width,
     if( G_UNLIKELY( ! file ) )
         goto err;
 
-    if( ! g_file_test(file, G_FILE_TEST_EXISTS) )
+    if( g_file_test(file, G_FILE_TEST_EXISTS) )
     {
-        inf = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
-                                         file, MAX(width, height), 0);
-        if( ! inf )
+        pb_scaled = gdk_pixbuf_new_from_file_at_scale( file, width, height,
+                                                       keep_ratio, NULL );
+        if( !pb_scaled )
             goto err;
-        file = gtk_icon_info_get_filename(inf);
+        data->pixbuf = pb_scaled;
+        themed = FALSE;
     }
+    else
+    {
+        data->pixbuf = lxpanel_load_icon(file, MAX(width, height),TRUE);
+        if( ! data->pixbuf )
+            goto err;
+    }
+    gtk_image_set_from_pixbuf((GtkImage *)img, data->pixbuf);
 
-    pb_scaled = gdk_pixbuf_new_from_file_at_scale( file, width, height,
-                                                   keep_ratio, NULL );
-    if( !pb_scaled )
-        goto err;
-
-    data->pixbuf = pb_scaled;
-    gtk_image_set_from_pixbuf((GtkImage *)img, pb_scaled);
-
-    if( inf ) /* This image is loaded from icon theme */
+    if( themed ) /* This image is loaded from icon theme */
     {
         /* update the image when icon theme get changed */
         if( ! data->theme_changed_handler )
@@ -1078,7 +1100,6 @@ _gtk_image_set_from_file_scaled( GtkWidget* img, const gchar *file, gint width,
             data->theme_changed_handler = g_signal_connect( gtk_icon_theme_get_default(), "changed",
                                             G_CALLBACK(on_theme_changed), img );
         }
-        gtk_icon_info_free ( inf );
     }
     else /* this is not loaded from icon theme */
     {
@@ -1088,7 +1109,6 @@ _gtk_image_set_from_file_scaled( GtkWidget* img, const gchar *file, gint width,
             data->theme_changed_handler = 0;
         }
     }
-
     return;
 
  err:
@@ -1237,8 +1257,8 @@ fb_button_new_from_file(gchar *fname, int width, int height, gulong hicolor, gbo
     GTK_WIDGET_UNSET_FLAGS (b, GTK_CAN_FOCUS);
 
     image = _gtk_image_new_from_file_scaled(fname, width, height, keep_ratio);
-    gtk_misc_set_alignment( (GtkMisc*)image, 0, 0 );
     gtk_misc_set_padding (GTK_MISC(image), 0, 0);
+    gtk_misc_set_alignment( (GtkMisc*)image, 0, 0 );
 
     if(hicolor > 0)
     {
@@ -1434,4 +1454,118 @@ void show_error( GtkWindow* parent_win, const char* msg )
                                              GTK_BUTTONS_OK, msg );
     gtk_dialog_run( (GtkDialog*)dlg );
     gtk_widget_destroy( dlg );
+}
+
+static GdkPixbuf* load_icon_file( const char* file_name, int size )
+{
+    GdkPixbuf* icon = NULL;
+    char* file_path;
+    const gchar** dirs = (const gchar**) g_get_system_data_dirs();
+    const gchar** dir;
+    for( dir = dirs; *dir; ++dir )
+    {
+        file_path = g_build_filename( *dir, "pixmaps", file_name, NULL );
+        icon = gdk_pixbuf_new_from_file_at_scale( file_path, size, size, TRUE, NULL );
+        g_free( file_path );
+        if( icon )
+            break;
+    }
+    return icon;
+}
+
+static GdkPixbuf* vfs_load_icon( GtkIconTheme* theme, const char* icon_name, int size )
+{
+    GdkPixbuf* icon = NULL;
+    const char* file;
+    GtkIconInfo* inf = gtk_icon_theme_lookup_icon( theme, icon_name, size,
+                                             GTK_ICON_LOOKUP_USE_BUILTIN );
+    if( G_UNLIKELY( ! inf ) )
+        return NULL;
+    file = gtk_icon_info_get_filename( inf );
+    if( G_LIKELY( file ) )
+    {
+        /* icon = gdk_pixbuf_new_from_file_at_scale( file, size, size, TRUE, NULL ); */
+        icon = gdk_pixbuf_new_from_file( file, NULL );
+    }
+    else
+        icon = gtk_icon_info_get_builtin_pixbuf( inf );
+    gtk_icon_info_free( inf );
+
+    if( G_LIKELY( icon ) )  /* scale down the icon if it's too big */
+    {
+        int width, height;
+        height = gdk_pixbuf_get_height(icon);
+        width = gdk_pixbuf_get_width(icon);
+        if( G_UNLIKELY( height > size || width > size ) )
+        {
+            GdkPixbuf* scaled;
+            if( height > width )
+            {
+                width = size * height / width;
+                height = size;
+            }
+            else if( height < width )
+            {
+                height = size * width / height;
+                width = size;
+            }
+            else
+                height = width = size;
+            scaled = gdk_pixbuf_scale_simple( icon, width, height, GDK_INTERP_BILINEAR );
+            g_object_unref( icon );
+            icon = scaled;
+        }
+    }
+    return icon;
+}
+
+GdkPixbuf* lxpanel_load_icon( const char* name, int size, gboolean use_fallback )
+{
+    GtkIconTheme* theme;
+    char *icon_name = NULL, *suffix;
+    GdkPixbuf* icon = NULL;
+    if( name )
+    {
+        if( g_path_is_absolute( name) )
+        {
+            icon = gdk_pixbuf_new_from_file_at_scale( name,
+                                                     size, size, TRUE, NULL );
+        }
+        else
+        {
+            theme = gtk_icon_theme_get_default();
+            suffix = strchr( name, '.' );
+            if( suffix
+                && (0 == g_strcasecmp(++suffix, "png")
+                || 0 == g_strcasecmp(suffix, "svg")
+                || 0 == g_strcasecmp(suffix, "xpm")) ) /* has file extension, it's a basename of icon file */
+            {
+                /* try to find it in pixmaps dirs */
+                icon = load_icon_file( name, size );
+                if( G_UNLIKELY( ! icon ) )  /* unfortunately, not found */
+                {
+                    /* Let's remove the suffix, and see if this name can match an icon
+                         in current icon theme */
+                    icon_name = g_strndup( name,
+                                           (suffix - name - 1) );
+                    icon = vfs_load_icon( theme, icon_name, size );
+                    g_free( icon_name );
+                }
+            }
+            else  /* no file extension, it could be an icon name in the icon theme */
+            {
+                icon = vfs_load_icon( theme, name, size );
+            }
+        }
+    }
+    if( G_UNLIKELY( ! icon ) && use_fallback )  /* fallback to generic icon */
+    {
+        theme = gtk_icon_theme_get_default();
+        icon = vfs_load_icon( theme, "application-x-executable", size );
+        if( G_UNLIKELY( ! icon ) )  /* fallback to generic icon */
+        {
+            icon = vfs_load_icon( theme, "gnome-mime-application-x-executable", size );
+        }
+    }
+    return icon;
 }

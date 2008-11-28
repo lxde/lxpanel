@@ -280,14 +280,9 @@ read_button(Plugin *p, char** fp)
             icon = g_key_file_get_string( desktop, desktop_ent, "Icon", NULL);
             title = g_key_file_get_locale_string( desktop, desktop_ent,
                                                 "Name", NULL, NULL);
-            if( !fname && icon ){
-                gchar* sep;
-                /* not a full path, remove the extension */
-                if( icon[0] != '/' && (sep = strchr( icon, '.' )) )
-                    fname = g_strndup( icon, (sep - icon) );
-                else
-                    fname = icon;
-            }
+            if( !fname && icon )
+                fname = icon;
+
             if( ! btn->customize_action ) {
                 gchar* exec;
                 exec = g_key_file_get_string( desktop, desktop_ent, "Exec", NULL);
@@ -308,13 +303,11 @@ read_button(Plugin *p, char** fp)
 
     // button
     if (p->panel->orientation == ORIENT_HORIZ) {
-        w = 10000;
-        //h = GTK_WIDGET(p->panel->box)->allocation.height;
         h = p->panel->ah;
+        w = h;
     } else {
-        //w = GTK_WIDGET(p->panel->box)->allocation.width;
         w = p->panel->aw;
-        h = 10000;
+        h = w;
     }
     button = fb_button_new_from_file( fname, w, h, 0x202020, TRUE );
     btn->widget = button;

@@ -239,11 +239,11 @@ wincmd_constructor(Plugin *p, char **fp)
     }
 
     if (p->panel->orientation == ORIENT_HORIZ) {
-        w = 10000;
         h = p->panel->ah;
+        w = h;
     } else {
         w = p->panel->aw;
-        h = 10000;
+        h = w;
     }
     button = fb_button_new_from_file(fname, w, h, 0x202020, TRUE);
     gtk_container_set_border_width(GTK_CONTAINER(button), 0);
