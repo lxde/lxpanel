@@ -1029,9 +1029,11 @@ static void on_img_size_allocated(GtkWidget* img, GtkAllocation *allocation, Img
     else
         return;
     data->dw = data->dh = size;
-g_debug("size = %d, pix: %d, %d, alloc:%d, %d", size,
+    /*
+    g_debug("size = %d, pix: %d, %d, alloc:%d, %d", size,
        gdk_pixbuf_get_width(data->pixbuf), gdk_pixbuf_get_height(data->pixbuf),
        allocation->width, allocation->height );
+    */
     g_signal_handlers_block_by_func( img, on_img_size_allocated, data );
     /* g_debug("size-allocated: %d, %d", allocation->width, allocation->height); */
     _gtk_image_set_from_file_scaled( img, data->fname,
@@ -1256,6 +1258,7 @@ fb_button_new_from_file(gchar *fname, int width, int height, gulong hicolor, gbo
 
     image = _gtk_image_new_from_file_scaled(fname, width, height, keep_ratio);
     gtk_misc_set_padding (GTK_MISC(image), 0, 0);
+    gtk_misc_set_alignment( (GtkMisc*)image, 0, 0 );
 
     if(hicolor > 0)
     {
