@@ -155,8 +155,9 @@ menu_pos(GtkMenu *menu, gint *x, gint *y, gboolean *push_in, GtkWidget *widget)
 static void on_menu_item( GtkMenuItem* mi, MenuCacheItem* item )
 {
     const char* exec = menu_cache_app_get_exec(MENU_CACHE_APP(item));
-    char* sep = strchr(exec, ' ');
+    char* sep = strchr(exec, '%');
     char* cmd = sep ? g_strndup(exec, sep - exec) : exec;
+    g_strchomp(cmd);
     g_debug( "Exec = %s", menu_cache_app_get_exec(MENU_CACHE_APP(item)) );
     g_debug( "Terminal = %d", menu_cache_app_get_use_terminal(MENU_CACHE_APP(item)) );
     spawn_app( NULL, cmd );
@@ -231,6 +232,8 @@ static void load_menu(MenuCacheDir* dir, GtkWidget* menu, int pos )
         MenuCacheItem* item = MENU_CACHE_ITEM(l->data);
         mi = create_item(item);
         gtk_menu_shell_insert( (GtkMenuShell*)menu, mi, pos );
+        if( pos >= 0 )
+            ++pos;
         if( menu_cache_item_get_type(item) == MENU_CACHE_TYPE_DIR )
         {
             GtkWidget* sub = gtk_menu_new();
@@ -297,8 +300,8 @@ static void sys_menu_insert_items( menup* m, GtkMenu* menu, int position )
     dir = menu_cache_get_root_dir( m->menu_cache );
     load_menu( dir, menu, position );
 
-   change_handler = g_signal_connect_swapped( gtk_icon_theme_get_default(), "changed", G_CALLBACK(unload_old_icons), menu );
-   g_object_weak_ref( G_OBJECT(menu), remove_change_handler, GINT_TO_POINTER(change_handler) );
+    change_handler = g_signal_connect_swapped( gtk_icon_theme_get_default(), "changed", G_CALLBACK(unload_old_icons), menu );
+    g_object_weak_ref( G_OBJECT(menu), remove_change_handler, GINT_TO_POINTER(change_handler) );
 }
 
 
