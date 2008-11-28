@@ -277,9 +277,9 @@ static void unload_old_icons(GtkMenu* menu, GtkIconTheme* theme)
     g_list_free( children );
 }
 
-static void remove_change_handler(gpointer id, GObject* theme)
+static void remove_change_handler(gpointer id, GObject* menu)
 {
-    g_signal_handler_disconnect(theme, GPOINTER_TO_INT(id));
+    g_signal_handler_disconnect(gtk_icon_theme_get_default(), GPOINTER_TO_INT(id));
 }
 
 /*
