@@ -353,8 +353,7 @@ my_button_pressed(GtkWidget *widget, GdkEventButton *event, Plugin* plugin)
 
     if( event->button == 3 )  /* right button */
     {
-        GtkMenu* popup =lxpanel_get_panel_menu
-                ( plugin->panel, plugin, FALSE );
+        GtkMenu* popup = lxpanel_get_panel_menu( plugin->panel, plugin, FALSE );
         gtk_menu_popup( popup, NULL, NULL, NULL, NULL, event->button, event->time );
         return TRUE;
     }
@@ -700,6 +699,7 @@ read_submenu(Plugin *p, char** fp, gboolean as_item)
 static int
 menu_constructor(Plugin *p, char **fp)
 {
+    char *start;
     menup *m;
     static char default_config[] =
         "image=" PACKAGE_DATA_DIR "/lxpanel/images/my-computer.png\n"
@@ -741,7 +741,7 @@ menu_constructor(Plugin *p, char **fp)
     if( ! fp )
         fp = &config_default;
 
-    m->config_start = *fp;
+    m->config_start = start = *fp;
     if (!read_submenu(p, fp, FALSE)) {
         ERR("menu: plugin init failed\n");
         goto error;
@@ -753,8 +753,7 @@ menu_constructor(Plugin *p, char **fp)
     if( *m->config_end == '}' )
         --m->config_end;
 
-    m->config_data = g_strndup( m->config_start,
-                                (m->config_end-m->config_start) );
+    m->config_data = g_strndup( start, (m->config_end - start) );
 
     p->pwid = m->box;
 
