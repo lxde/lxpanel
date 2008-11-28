@@ -246,6 +246,39 @@ static gboolean sys_menu_item_has_data( GtkMenuItem* item )
    return (g_object_get_qdata( G_OBJECT(item), SYS_MENU_ITEM_ID ) != NULL);
 }
 
+static void unload_old_icons(GtkMenu* menu, GtkIconTheme* theme)
+{
+    GList *children, *child;
+    GtkMenuItem* item;
+    GtkWidget* sub_menu;
+
+    children = gtk_container_get_children( GTK_CONTAINER(menu) );
+    for( child = children; child; child = child->next )
+    {
+        item = GTK_MENU_ITEM( child->data );
+        if( sys_menu_item_has_data( item ) )
+        {
+            GtkImage* img;
+            item = GTK_MENU_ITEM( child->data );
+            if( GTK_IS_IMAGE_MENU_ITEM(item) )
+            {
+                img = gtk_image_menu_item_get_image(item);
+                gtk_image_clear(img);
+            }
+        }
+        else if( ( sub_menu = gtk_menu_item_get_submenu( item ) ) )
+        {
+            unload_old_icons( theme, menu );
+        }
+    }
+    g_list_free( children );
+}
+
+static void remove_change_handler(gpointer id, GObject* theme)
+{
+    g_signal_handler_disconnect(theme, GPOINTER_TO_INT(id));
+}
+
 /*
  * Insert application menus into specified menu
  * menu: The parent menu to which the items should be inserted
@@ -256,67 +289,16 @@ static gboolean sys_menu_item_has_data( GtkMenuItem* item )
 static void sys_menu_insert_items( menup* m, GtkMenu* menu, int position )
 {
     MenuCacheDir* dir;
+    guint change_handler;
+
     if( G_UNLIKELY( SYS_MENU_ITEM_ID == 0 ) )
         SYS_MENU_ITEM_ID = g_quark_from_static_string( "SysMenuItem" );
 
     dir = menu_cache_get_root_dir( m->menu_cache );
     load_menu( dir, menu, position );
 
-#if 0
-   GList* sub_menus[ G_N_ELEMENTS(known_cats) ] = {0};
-   int i;
-   GList *sub_items, *l;
-   guint change_handler;
-   GKeyFile* kf;
-
-   app_dirs_foreach( (GFunc) load_dir, sub_menus );
-
-   kf = g_key_file_new();
-
-   for( i = 0; i < G_N_ELEMENTS(known_cats); ++i )
-   {
-      GtkMenu* sub_menu;
-      GtkWidget* menu_item;
-      PtkAppMenuItem* data;
-      CatInfo l_cinfo;
-      char* title;
-
-      if( ! (sub_items = sub_menus[i]) )
-         continue;
-      sub_menu = GTK_MENU(gtk_menu_new());
-
-      for( l = sub_items; l; l = l->next )
-         gtk_menu_shell_append( GTK_MENU_SHELL(sub_menu), GTK_WIDGET(l->data) );
-      g_list_free( sub_items );
-      l_cinfo=known_cats[i];
-      title = load_cat_title( kf, &l_cinfo );
-      menu_item = gtk_image_menu_item_new_with_label( title ? title : _(known_cats[i].title) );
-      g_free( title );
-
-      data = g_slice_new0( PtkAppMenuItem );
-      data->icon = g_strdup(known_cats[i].icon);
-      g_object_set_qdata_full( G_OBJECT(menu_item), PTK_APP_MENU_ITEM_ID, data, (GDestroyNotify) sys_menu_item_free );
-      //g_signal_connect( menu_item, "expose-event", G_CALLBACK(on_menu_item_expose), data );
-      //g_signal_connect( menu_item, "size-request", G_CALLBACK(on_menu_item_size_request), data );
-      on_menu_item_expose( menu_item, NULL, data );
-      gtk_menu_item_set_submenu( GTK_MENU_ITEM(menu_item), GTK_WIDGET(sub_menu) );
-
-      if( position == -1 )
-         gtk_menu_shell_append( GTK_MENU_SHELL(menu), menu_item );
-      else
-      {
-         gtk_menu_shell_insert( GTK_MENU_SHELL(menu), menu_item, position );
-         ++position;
-      }
-   }
-
-   g_key_file_free( kf );
-
-   gtk_widget_show_all(GTK_WIDGET(menu));
    change_handler = g_signal_connect_swapped( gtk_icon_theme_get_default(), "changed", G_CALLBACK(unload_old_icons), menu );
-   g_object_weak_ref( G_OBJECT(menu), on_app_menu_destroy, GINT_TO_POINTER(change_handler) );
-#endif
-
+   g_object_weak_ref( G_OBJECT(menu), remove_change_handler, GINT_TO_POINTER(change_handler) );
 }
 
 
@@ -327,8 +309,6 @@ reload_system_menu( menup* m, GtkMenu* menu )
     GtkMenuItem* item;
     GtkWidget* sub_menu;
     gint idx;
-
-    return;
 
     children = gtk_container_get_children( GTK_CONTAINER(menu) );
     for( child = children, idx = 0; child; child = child->next, ++idx )
