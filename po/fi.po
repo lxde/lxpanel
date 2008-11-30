@@ -7,12 +7,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-30 08:32+0300\n"
-"PO-Revision-Date: 2008-05-20 20:35+0200\n"
+"POT-Creation-Date: 2008-11-30 11:55+0200\n"
+"PO-Revision-Date: 2008-11-30 12:05+0200\n"
 "Last-Translator: Elias Julkunen <elias.julkunen@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
@@ -116,11 +116,11 @@ msgstr "Uloskirjautumisen komento:"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "Make window managers treat the panel as dock"
-msgstr ""
+msgstr "Uskottele ikkunakäsittelijälle paneelin olevan telakka"
 
 #: ../data/ui/panel-pref.glade.h:29
 msgid "Margin:"
-msgstr "Marginaali:"
+msgstr "Reunus:"
 
 #: ../data/ui/panel-pref.glade.h:30
 msgid "None (Use system theme)"
@@ -172,54 +172,54 @@ msgstr "Käynnistä uudelleen"
 msgid "Logout"
 msgstr "Kirjaudu ulos"
 
-#: ../src/configurator.c:404
+#: ../src/configurator.c:407
 msgid "Currently loaded plugins"
 msgstr "Käytössä olevat liitännäiset"
 
-#: ../src/configurator.c:413
+#: ../src/configurator.c:416
 msgid "Stretch"
 msgstr "Venytä"
 
-#: ../src/configurator.c:511
-#: ../src/panel.c:505
+#: ../src/configurator.c:514
+#: ../src/panel.c:514
 msgid "Add plugin to panel"
 msgstr "Lisää liitännäinen paneeliin"
 
-#: ../src/configurator.c:538
-#: ../src/panel.c:528
+#: ../src/configurator.c:541
+#: ../src/panel.c:537
 msgid "Available plugins"
 msgstr "Käytettävissä olevat liitännäiset"
 
-#: ../src/configurator.c:1049
+#: ../src/configurator.c:1053
 msgid "Logout command is not set"
 msgstr "Uloskirjautumisen komentoa ei ole asetettu"
 
-#: ../src/panel.c:613
+#: ../src/panel.c:622
 msgid "Left"
 msgstr "Vasemmalla"
 
-#: ../src/panel.c:613
+#: ../src/panel.c:622
 msgid "Right"
 msgstr "Oikealla"
 
-#: ../src/panel.c:613
+#: ../src/panel.c:622
 msgid "Top"
 msgstr "Ylhäällä"
 
-#: ../src/panel.c:613
+#: ../src/panel.c:622
 msgid "Bottom"
 msgstr "Alhaalla"
 
-#: ../src/panel.c:615
-#: ../src/panel.c:739
+#: ../src/panel.c:624
+#: ../src/panel.c:750
 msgid "Create New Panel"
 msgstr "Luo uusi paneeli"
 
-#: ../src/panel.c:621
+#: ../src/panel.c:630
 msgid "Where to put the panel?"
 msgstr "Minne paneeli laitetaan?"
 
-#: ../src/panel.c:679
+#: ../src/panel.c:688
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -227,92 +227,92 @@ msgstr ""
 "Haluatko varmasti poistaa tämän paneelin?\n"
 "<b>Varoitus: tätä toimintoa ei voi perua.</b>"
 
-#: ../src/panel.c:680
+#: ../src/panel.c:689
 msgid "Confirm"
 msgstr "Varmista"
 
-#: ../src/panel.c:713
+#: ../src/panel.c:724
 msgid "Add / Remove Panel Items"
 msgstr "Lisää/poista paneelin sovelmia"
 
-#: ../src/panel.c:721
+#: ../src/panel.c:732
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Poista \"%s\" paneelista"
 
-#: ../src/panel.c:733
+#: ../src/panel.c:744
 msgid "Panel Settings"
 msgstr "Paneelin asetukset"
 
-#: ../src/panel.c:750
+#: ../src/panel.c:761
 msgid "Delete This Panel"
 msgstr "Poista tämä paneeli"
 
-#: ../src/panel.c:760
+#: ../src/panel.c:771
 msgid "Panel"
 msgstr "Paneeli"
 
-#: ../src/panel.c:773
+#: ../src/panel.c:784
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "Sovelman \"%s\" asetukset"
 
-#: ../src/panel.c:1237
+#: ../src/panel.c:1249
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - kevyt GTK2+-paneeli UNIX-työpöydille\n"
 
-#: ../src/panel.c:1238
+#: ../src/panel.c:1250
 #, c-format
 msgid "Command line options:\n"
 msgstr "Komentorivivalinnat:\n"
 
-#: ../src/panel.c:1239
+#: ../src/panel.c:1251
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr "--help      -- näyttää tämän ohjeen ja poistuu\n"
 
-#: ../src/panel.c:1240
+#: ../src/panel.c:1252
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr "--version   -- näyttää versionumeron ja poistuu\n"
 
-#: ../src/panel.c:1241
+#: ../src/panel.c:1253
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --log <numero> -- asettaa lokin tasoksi 0-5. 0 = ei mitään, 5 = lavertelija\n"
 
-#: ../src/panel.c:1242
+#: ../src/panel.c:1254
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr "--configure -- käynnistää asetustyökalun\n"
 
-#: ../src/panel.c:1243
+#: ../src/panel.c:1255
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr "--profile <nimi> -- käyttää tiettyä profiilia\n"
 
-#: ../src/panel.c:1245
+#: ../src/panel.c:1257
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr "-h  -- sama kuin --help\n"
 
-#: ../src/panel.c:1246
+#: ../src/panel.c:1258
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr "-p  -- sama kuin --profile\n"
 
-#: ../src/panel.c:1247
+#: ../src/panel.c:1259
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr "-v  -- sama kuin --version\n"
 
-#: ../src/panel.c:1248
+#: ../src/panel.c:1260
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr "-C  -- sama kuin --configure\n"
 
-#: ../src/panel.c:1249
+#: ../src/panel.c:1261
 #, c-format
 msgid ""
 "\n"
@@ -327,19 +327,19 @@ msgstr ""
 msgid "Enter the command you want to execute:"
 msgstr "Syötä suoritettava komento:"
 
-#: ../src/systray/tray.c:206
+#: ../src/systray/tray.c:210
 msgid "System Tray"
 msgstr "Ilmoitusalue"
 
-#: ../src/systray/tray.c:208
+#: ../src/systray/tray.c:212
 msgid "Old KDE/GNOME Tray"
 msgstr "Vanha KDE/Gnome-ilmoitusalue"
 
-#: ../src/plugins/cpu/cpu.c:222
+#: ../src/plugins/cpu/cpu.c:226
 msgid "CPU Usage Monitor"
 msgstr "CPU:n käytön valvoja"
 
-#: ../src/plugins/cpu/cpu.c:224
+#: ../src/plugins/cpu/cpu.c:228
 msgid "Display CPU usage"
 msgstr "Näyttää CPU:n käyttöasteen"
 
@@ -351,11 +351,11 @@ msgstr "Työpöydän numero/työtilan nimi"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Näyttää työtilan numeron, tehnyt cmeury@users.sf.net"
 
-#: ../src/plugins/launchbar.c:132
+#: ../src/plugins/launchbar.c:135
 msgid "Add Button"
 msgstr "Lisää painike"
 
-#: ../src/plugins/launchbar.c:134
+#: ../src/plugins/launchbar.c:137
 msgid "Button Properties"
 msgstr "Painikkeen asetukset"
 
@@ -363,7 +363,7 @@ msgstr "Painikkeen asetukset"
 #. title = g_strdup_printf( _("Remove \"%s\""), b-> );
 #. item = gtk_image_menu_item_new_with_label( _("Remove ") );
 #.
-#: ../src/plugins/launchbar.c:140
+#: ../src/plugins/launchbar.c:143
 msgid "Remove Button"
 msgstr "Poista painike"
 
@@ -371,150 +371,105 @@ msgstr "Poista painike"
 #. 1. We can borrow the menu from menu plugin (PtkAppMenu).
 #. 2. We can borrow the app chooser from PCManFM.
 #.
-#: ../src/plugins/launchbar.c:512
+#: ../src/plugins/launchbar.c:502
 msgid "Select Application"
 msgstr "Valitse sovellus"
 
-#: ../src/plugins/launchbar.c:661
+#: ../src/plugins/launchbar.c:656
 msgid "Buttons"
 msgstr "Painikkeet"
 
-#: ../src/plugins/launchbar.c:774
+#: ../src/plugins/launchbar.c:773
 msgid "Application Launch Bar"
 msgstr "Sovelluksien käynnistyspalkki"
 
-#: ../src/plugins/launchbar.c:776
+#: ../src/plugins/launchbar.c:775
 msgid "Bar with buttons to launch application"
 msgstr "Käynnistyspalkki painikkeiden kanssa"
 
-#: ../src/plugins/ptk-app-menu.c:157
-msgid "Other"
-msgstr "Muut"
-
-#: ../src/plugins/ptk-app-menu.c:158
-msgid "Game"
-msgstr "Pelit"
-
-#: ../src/plugins/ptk-app-menu.c:159
-msgid "Education"
-msgstr "Opiskelu"
-
-#: ../src/plugins/ptk-app-menu.c:160
-msgid "Development"
-msgstr "Kehitys"
-
-#: ../src/plugins/ptk-app-menu.c:161
-msgid "Audio & Video"
-msgstr "Ääni & video"
-
-#: ../src/plugins/ptk-app-menu.c:162
-msgid "Graphics"
-msgstr "Grafiikka"
-
-#: ../src/plugins/ptk-app-menu.c:163
-msgid "Settings"
-msgstr "Asetukset"
-
-#: ../src/plugins/ptk-app-menu.c:164
-msgid "System Tools"
-msgstr "Järjestelmätyökalut"
-
-#: ../src/plugins/ptk-app-menu.c:165
-msgid "Network"
-msgstr "Internet"
-
-#: ../src/plugins/ptk-app-menu.c:166
-msgid "Office"
-msgstr "Toimisto"
-
-#: ../src/plugins/ptk-app-menu.c:167
-msgid "Accessories"
-msgstr "Apuohjelmat"
-
-#: ../src/plugins/taskbar.c:1224
+#: ../src/plugins/taskbar.c:1219
 msgid "Raise"
 msgstr "Nosta"
 
-#: ../src/plugins/taskbar.c:1228
+#: ../src/plugins/taskbar.c:1223
 msgid "Restore"
 msgstr "Palauta"
 
-#: ../src/plugins/taskbar.c:1232
+#: ../src/plugins/taskbar.c:1227
 msgid "Maximize"
 msgstr "Suurenna"
 
-#: ../src/plugins/taskbar.c:1236
+#: ../src/plugins/taskbar.c:1231
 msgid "Iconify"
 msgstr "Pienennä"
 
-#: ../src/plugins/taskbar.c:1245
+#: ../src/plugins/taskbar.c:1240
 #, c-format
 msgid "Workspace %d"
 msgstr "Työtila %d"
 
-#: ../src/plugins/taskbar.c:1253
+#: ../src/plugins/taskbar.c:1248
 msgid "All workspaces"
 msgstr "Kaikki työtilat"
 
-#: ../src/plugins/taskbar.c:1260
+#: ../src/plugins/taskbar.c:1255
 msgid "Move to Workspace"
 msgstr "Siirrä työtilaan"
 
 #. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1268
+#: ../src/plugins/taskbar.c:1263
 msgid "Close Window"
 msgstr "Sulje ikkuna"
 
-#: ../src/plugins/taskbar.c:1516
+#: ../src/plugins/taskbar.c:1511
 msgid "Show tooltips"
 msgstr "Näytä työkaluvihjeet"
 
-#: ../src/plugins/taskbar.c:1517
+#: ../src/plugins/taskbar.c:1512
 msgid "Icons only"
 msgstr "Vain kuvakkeet"
 
-#: ../src/plugins/taskbar.c:1518
+#: ../src/plugins/taskbar.c:1513
 msgid "Flat Buttons"
 msgstr "Latteat painikkeet"
 
-#: ../src/plugins/taskbar.c:1519
-#, fuzzy
+#: ../src/plugins/taskbar.c:1514
 msgid "Accept SkipPager"
 msgstr "Salli SkipPager"
 
-#: ../src/plugins/taskbar.c:1520
+#: ../src/plugins/taskbar.c:1515
 msgid "Show Iconified windows"
 msgstr "Näytä pienennetyt ikkunat"
 
-#: ../src/plugins/taskbar.c:1521
+#: ../src/plugins/taskbar.c:1516
 msgid "Show mapped windows"
-msgstr ""
+msgstr "Näytä auki olevat ikkunat"
 
-#: ../src/plugins/taskbar.c:1522
+#: ../src/plugins/taskbar.c:1517
 msgid "Show windows from all desktops"
 msgstr "Näytä ikkunat kaikilta työpöydiltä"
 
-#: ../src/plugins/taskbar.c:1523
+#: ../src/plugins/taskbar.c:1518
 msgid "Use mouse wheel"
 msgstr "Käytä hiiren rullaa"
 
-#: ../src/plugins/taskbar.c:1524
+#: ../src/plugins/taskbar.c:1519
 msgid "Flash when there is any window requiring attention"
 msgstr "Huomauta, kun joku ikkuna vaatii huomiota"
 
-#: ../src/plugins/taskbar.c:1525
+#: ../src/plugins/taskbar.c:1520
 msgid "Max width of task button"
 msgstr "Tehtäväpainikkeen enimmäisleveys"
 
-#: ../src/plugins/taskbar.c:1526
+#: ../src/plugins/taskbar.c:1521
 msgid "Spacing"
 msgstr "Väli"
 
-#: ../src/plugins/taskbar.c:1604
+#: ../src/plugins/taskbar.c:1599
 msgid "Task Bar (Window List)"
 msgstr "Tehtäväpalkki (ikkunalista)"
 
-#: ../src/plugins/taskbar.c:1606
+#: ../src/plugins/taskbar.c:1601
 msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
 msgstr "Tehtäväpalkki näyttää kaikki avoinna olevat ikkunat ja sallii niiden pienentämisen, piilottamisen ja aktivoimisen."
 
@@ -542,11 +497,19 @@ msgstr "Digitaalikello"
 msgid "Display Digital clock and Tooltip"
 msgstr "Näyttää digitaalikellon ja työkaluvihjeen"
 
-#: ../src/plugins/menu.c:594
+#: ../src/plugins/menu.c:796
+msgid "Icon"
+msgstr "Kuvake"
+
+#: ../src/plugins/menu.c:797
+msgid "Caption"
+msgstr ""
+
+#: ../src/plugins/menu.c:807
 msgid "Menu"
 msgstr "Valikko"
 
-#: ../src/plugins/menu.c:596
+#: ../src/plugins/menu.c:809
 msgid "Provide Menu"
 msgstr "Toimittaa valikon"
 
@@ -560,34 +523,34 @@ msgstr "Lisää väli paneeliin"
 
 #: ../src/plugins/pager.c:709
 msgid "Desktop Pager"
-msgstr ""
+msgstr "Työtilan vaihtaja"
 
 #: ../src/plugins/pager.c:711
 msgid "Simple pager plugin"
-msgstr ""
+msgstr "Yksinkertainen työtilan vaihtaja"
 
-#: ../src/plugins/space.c:137
-#: ../src/plugins/batt/batt.c:824
+#: ../src/plugins/space.c:138
+#: ../src/plugins/batt/batt.c:891
 msgid "Size"
 msgstr "Koko"
 
-#: ../src/plugins/space.c:152
+#: ../src/plugins/space.c:153
 msgid "<Space>"
 msgstr "<väli>"
 
-#: ../src/plugins/space.c:154
+#: ../src/plugins/space.c:155
 msgid "Allocate space"
 msgstr "Varaa tyhjää tilaa"
 
-#: ../src/plugins/wincmd.c:255
+#: ../src/plugins/wincmd.c:256
 msgid "Left click to iconify all windows. Middle click to shade them"
 msgstr "Napsauta hiiren vasemmalla napilla pienentääksesi ikkunat, keskinapilla piilottaaksesi ne"
 
-#: ../src/plugins/wincmd.c:284
+#: ../src/plugins/wincmd.c:285
 msgid "Minimize All Windows"
 msgstr "Pienennä kaikki ikkuna"
 
-#: ../src/plugins/wincmd.c:286
+#: ../src/plugins/wincmd.c:287
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commnds are 1)toggle iconify and 2) toggle shade"
@@ -595,147 +558,149 @@ msgstr ""
 "Lähettää komentoja kaikille työpöydän ikkunoille.\n"
 "Tuetut komennot ovat 1)pienentäminen 2)piilottaminen"
 
-#: ../src/plugins/dirmenu.c:210
+#: ../src/plugins/dirmenu.c:214
 msgid "Open in _Terminal"
 msgstr "Avaa _päätteessä"
 
-#: ../src/plugins/dirmenu.c:371
+#: ../src/plugins/dirmenu.c:380
 msgid "Directory Menu"
 msgstr "Hakemistovalikko"
 
-#: ../src/plugins/dirmenu.c:373
+#: ../src/plugins/dirmenu.c:382
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "Selaa hakemistopuuta valikon kautta (tekijä: PCMan)"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
-#: ../src/plugins/volume/volume.c:153
-#: ../src/plugins/volumealsa/volumealsa.c:300
+#: ../src/plugins/volume/volume.c:305
+#: ../src/plugins/volumealsa/volumealsa.c:408
 msgid "Volume control"
 msgstr "Äänenhallinta"
 
-#: ../src/plugins/volume/volume.c:165
-#: ../src/plugins/volumealsa/volumealsa.c:314
+#: ../src/plugins/volume/volume.c:317
+#: ../src/plugins/volumealsa/volumealsa.c:422
 msgid "Volume Control"
 msgstr "Äänenhallinta"
 
 #. create frame
-#: ../src/plugins/volume/volume-impl.c:107
-#: ../src/plugins/volumealsa/volumealsa.c:200
+#: ../src/plugins/volume/volume-impl.c:109
+#: ../src/plugins/volumealsa/volumealsa.c:310
 msgid "Volume"
 msgstr "Voimakkuus"
 
-#: ../src/plugins/volumealsa/volumealsa.c:216
+#: ../src/plugins/volumealsa/volumealsa.c:327
 msgid "Mute"
 msgstr "Hiljennä"
 
-#: ../src/plugins/netstat/netstat.c:144
+#: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
-msgstr ""
+msgstr "<Piilotettu tukiasema>"
 
-#: ../src/plugins/netstat/netstat.c:177
+#: ../src/plugins/netstat/netstat.c:201
 msgid "Wireless Networks not found in range"
 msgstr "Langattomia verkkoja ei löytynyt"
 
 #. Repair
-#: ../src/plugins/netstat/netstat.c:213
+#: ../src/plugins/netstat/netstat.c:235
 msgid "Repair"
 msgstr "Korjaa"
 
 #. interface down
-#: ../src/plugins/netstat/netstat.c:218
+#: ../src/plugins/netstat/netstat.c:240
 msgid "Disable"
-msgstr ""
+msgstr "Älä käytä"
 
-#: ../src/plugins/netstat/netstat.c:276
+#: ../src/plugins/netstat/netstat.c:299
+msgid "Wireless Connection has no connectivity"
+msgstr "Langatonta yhteyttä ei ole"
+
+#: ../src/plugins/netstat/netstat.c:301
 msgid "Network cable is plugged out"
-msgstr ""
+msgstr "Verkkojohto on irrotettu."
 
-#: ../src/plugins/netstat/netstat.c:278
+#: ../src/plugins/netstat/netstat.c:303
 msgid "Connection has limited or no connectivity"
 msgstr "Yhteyttä on rajoitettu tai yhteyttä ei ole"
 
-#: ../src/plugins/netstat/netstat.c:282
-#: ../src/plugins/netstat/netstat.c:293
-#: ../src/plugins/netstat/netstat.c:304
+#: ../src/plugins/netstat/netstat.c:307
+#: ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "IP-osoite:"
 
-#: ../src/plugins/netstat/netstat.c:283
-msgid "Remote IP:"
-msgstr ""
-
-#: ../src/plugins/netstat/netstat.c:284
-#: ../src/plugins/netstat/netstat.c:295
-#: ../src/plugins/netstat/netstat.c:306
-msgid "Netmask:"
-msgstr ""
-
-#: ../src/plugins/netstat/netstat.c:285
-#: ../src/plugins/netstat/netstat.c:297
 #: ../src/plugins/netstat/netstat.c:308
+msgid "Remote IP:"
+msgstr "Etä-IP:"
+
+#: ../src/plugins/netstat/netstat.c:309
+#: ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:331
+msgid "Netmask:"
+msgstr "Verkon peite:"
+
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "Aktiivisuus"
 
-#: ../src/plugins/netstat/netstat.c:285
-#: ../src/plugins/netstat/netstat.c:297
-#: ../src/plugins/netstat/netstat.c:308
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "Lähetetty"
 
-#: ../src/plugins/netstat/netstat.c:285
-#: ../src/plugins/netstat/netstat.c:297
-#: ../src/plugins/netstat/netstat.c:308
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "Vastaanotettu"
 
-#: ../src/plugins/netstat/netstat.c:286
-#: ../src/plugins/netstat/netstat.c:298
-#: ../src/plugins/netstat/netstat.c:309
+#: ../src/plugins/netstat/netstat.c:311
+#: ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "tavua"
 
-#: ../src/plugins/netstat/netstat.c:287
-#: ../src/plugins/netstat/netstat.c:299
-#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:312
+#: ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "pakettia"
 
-#: ../src/plugins/netstat/netstat.c:290
+#: ../src/plugins/netstat/netstat.c:315
 msgid "Wireless"
 msgstr "Langaton"
 
-#: ../src/plugins/netstat/netstat.c:292
+#: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
 msgstr "Yhteyskäytäntö"
 
-#: ../src/plugins/netstat/netstat.c:294
-#: ../src/plugins/netstat/netstat.c:305
+#: ../src/plugins/netstat/netstat.c:319
+#: ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
 msgid "Broadcast:"
-msgstr ""
+msgstr "Lähetys:"
 
-#: ../src/plugins/netstat/netstat.c:296
-#: ../src/plugins/netstat/netstat.c:307
+#: ../src/plugins/netstat/netstat.c:321
+#: ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "HW-osoite"
 
-#: ../src/plugins/netstat/netstat.c:446
-#: ../src/plugins/netstatus/netstatus.c:181
-msgid "Net Status Monitor"
-msgstr "Verkon tilan valvoja"
+#: ../src/plugins/netstat/netstat.c:471
+msgid "Manage Networks"
+msgstr "Hallitse verkkoja"
 
-#: ../src/plugins/netstat/netstat.c:448
-#: ../src/plugins/netstatus/netstatus.c:183
-msgid "Monitor network status"
-msgstr "Valvoo verkon tilaa"
+#: ../src/plugins/netstat/netstat.c:473
+msgid "Monitor and Manage networks"
+msgstr "Valvo ja hallitse verkkoja"
 
 #. create dialog
-#: ../src/plugins/netstat/passwd_gui.c:97
-#, fuzzy
+#: ../src/plugins/netstat/passwd_gui.c:84
 msgid "Setting Encryption Key"
 msgstr "Asetetaan salausavainta"
 
 #. messages
-#: ../src/plugins/netstat/passwd_gui.c:107
+#: ../src/plugins/netstat/passwd_gui.c:94
 msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
@@ -743,7 +708,7 @@ msgstr ""
 "Tämä langaton verkko on suojattu.\n"
 "Sinulla täytyy olla salausavain."
 
-#: ../src/plugins/netstat/passwd_gui.c:112
+#: ../src/plugins/netstat/passwd_gui.c:99
 msgid "Encryption Key:"
 msgstr "Salausavain:"
 
@@ -754,6 +719,14 @@ msgstr "Valvottava laite"
 #: ../src/plugins/netstatus/netstatus.c:164
 msgid "Config tool"
 msgstr "Asetustyökalu"
+
+#: ../src/plugins/netstatus/netstatus.c:181
+msgid "Net Status Monitor"
+msgstr "Verkon tilan valvoja"
+
+#: ../src/plugins/netstatus/netstatus.c:183
+msgid "Monitor network status"
+msgstr "Valvoo verkon tilaa"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:52
 #: ../src/plugins/netstatus/netstatus-dialog.c:311
@@ -770,7 +743,7 @@ msgid "Connection Properties: %s"
 msgstr "Yhteyden tiedot: %s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:134
-#, fuzzy, c-format
+#, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
 msgstr[0] "%lu paketti"
@@ -883,11 +856,11 @@ msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-icon.c:819
 msgid "Orientation"
-msgstr ""
+msgstr "Asento"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:820
 msgid "The orientation of the tray."
-msgstr ""
+msgstr "Ilmoitusalueen asento."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:828
 msgid "Tooltips Enabled"
@@ -916,83 +889,119 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../src/plugins/batt/batt.c:330
+#: ../src/plugins/batt/batt.c:385
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
 msgstr "Akku: %d%% ladattu, %d:%02d kunnes täynnä"
 
-#: ../src/plugins/batt/batt.c:339
+#: ../src/plugins/batt/batt.c:394
 #, c-format
 msgid "Battery: %d%% charged, %s"
 msgstr "Akku: %d%% ladattu, %s"
 
-#: ../src/plugins/batt/batt.c:341
+#: ../src/plugins/batt/batt.c:396
 msgid "charging finished"
 msgstr "lataus on valmis"
 
-#: ../src/plugins/batt/batt.c:341
-msgid "not charging"
-msgstr "ei ladata"
+#: ../src/plugins/batt/batt.c:396
+msgid "charging"
+msgstr "ladataan"
 
-#: ../src/plugins/batt/batt.c:346
+#: ../src/plugins/batt/batt.c:401
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr "Akku: %d%% ladattu, %d:%02d jäljellä"
 
-#: ../src/plugins/batt/batt.c:394
+#: ../src/plugins/batt/batt.c:407
+#, c-format
+msgid "Battery: %d%% charged"
+msgstr "Akku: %d%% ladattu"
+
+#: ../src/plugins/batt/batt.c:455
 #, c-format
 msgid "No batteries found"
 msgstr "Akkua ei löytynyt"
 
-#: ../src/plugins/batt/batt.c:814
+#: ../src/plugins/batt/batt.c:881
 msgid "Hide if there is no battery"
 msgstr "Piilota, jos akkua ei ole"
 
-#: ../src/plugins/batt/batt.c:816
+#: ../src/plugins/batt/batt.c:883
 msgid "Alarm command"
 msgstr "Hälytyskomento"
 
-#: ../src/plugins/batt/batt.c:817
+#: ../src/plugins/batt/batt.c:884
 msgid "Alarm time (minutes left)"
 msgstr "Hälytysaika (minuuttia jäljellä)"
 
-#: ../src/plugins/batt/batt.c:818
+#: ../src/plugins/batt/batt.c:885
 msgid "Background color"
 msgstr "Taustaväri"
 
-#: ../src/plugins/batt/batt.c:819
+#: ../src/plugins/batt/batt.c:886
 msgid "Charging color 1"
 msgstr "Latausväri 1"
 
-#: ../src/plugins/batt/batt.c:820
+#: ../src/plugins/batt/batt.c:887
 msgid "Charging color 2"
 msgstr "Latausväri 2"
 
-#: ../src/plugins/batt/batt.c:821
+#: ../src/plugins/batt/batt.c:888
 msgid "Discharging color 1"
 msgstr "Purkautumisen väri 1"
 
-#: ../src/plugins/batt/batt.c:822
+#: ../src/plugins/batt/batt.c:889
 msgid "Discharging color 2"
 msgstr "Purkautumisen väri 2"
 
-#: ../src/plugins/batt/batt.c:823
+#: ../src/plugins/batt/batt.c:890
 msgid "Border width"
-msgstr ""
+msgstr "Reunuksen leveys"
 
-#: ../src/plugins/batt/batt.c:858
+#: ../src/plugins/batt/batt.c:926
 msgid "Battery Monitor"
 msgstr "Akun valvoja"
 
-#: ../src/plugins/batt/batt.c:860
+#: ../src/plugins/batt/batt.c:928
 msgid "Display battery status using ACPI"
 msgstr "Näyttää akun tila käyttäen ACPI:a."
 
-#: ../src/plugins/kbled/kbled.c:249
+#: ../src/plugins/kbled/kbled.c:281
+msgid "Show CapsLock"
+msgstr "Näytä CapsLock"
+
+#: ../src/plugins/kbled/kbled.c:282
+msgid "Show NumLock"
+msgstr "Näytä NumLock"
+
+#: ../src/plugins/kbled/kbled.c:283
+msgid "Show ScrollLock"
+msgstr "Näytä ScrollLock"
+
+#: ../src/plugins/kbled/kbled.c:293
 msgid "Keyboard Led"
 msgstr "Näppäimistön valot"
 
-#: ../src/plugins/kbled/kbled.c:251
+#: ../src/plugins/kbled/kbled.c:295
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "CapsLock-, NumLock- ja ScrollLock-näppäinten ilmaisin"
+
+#~ msgid "Other"
+#~ msgstr "Muut"
+#~ msgid "Game"
+#~ msgstr "Pelit"
+#~ msgid "Development"
+#~ msgstr "Kehitys"
+#~ msgid "Audio & Video"
+#~ msgstr "Ääni & video"
+#~ msgid "Graphics"
+#~ msgstr "Grafiikka"
+#~ msgid "Settings"
+#~ msgstr "Asetukset"
+#~ msgid "System Tools"
+#~ msgstr "Järjestelmätyökalut"
+#~ msgid "Office"
+#~ msgstr "Toimisto"
+#~ msgid "Accessories"
+#~ msgstr "Apuohjelmat"
 
