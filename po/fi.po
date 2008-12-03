@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-30 11:55+0200\n"
-"PO-Revision-Date: 2008-11-30 12:05+0200\n"
+"POT-Creation-Date: 2008-12-03 20:48+0200\n"
+"PO-Revision-Date: 2008-12-03 20:50+0200\n"
 "Last-Translator: Elias Julkunen <elias.julkunen@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -160,7 +160,7 @@ msgstr "Leveys:"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:53
-#: ../src/gtk-run.c:112
+#: ../src/gtk-run.c:224
 msgid "Run"
 msgstr "Suorita"
 
@@ -323,7 +323,7 @@ msgstr ""
 "Vieraile sivustolla http://lxde.org/ lisätietoja varten.\n"
 "\n"
 
-#: ../src/gtk-run.c:126
+#: ../src/gtk-run.c:238
 msgid "Enter the command you want to execute:"
 msgstr "Syötä suoritettava komento:"
 
@@ -371,19 +371,19 @@ msgstr "Poista painike"
 #. 1. We can borrow the menu from menu plugin (PtkAppMenu).
 #. 2. We can borrow the app chooser from PCManFM.
 #.
-#: ../src/plugins/launchbar.c:502
+#: ../src/plugins/launchbar.c:499
 msgid "Select Application"
 msgstr "Valitse sovellus"
 
-#: ../src/plugins/launchbar.c:656
+#: ../src/plugins/launchbar.c:653
 msgid "Buttons"
 msgstr "Painikkeet"
 
-#: ../src/plugins/launchbar.c:773
+#: ../src/plugins/launchbar.c:770
 msgid "Application Launch Bar"
 msgstr "Sovelluksien käynnistyspalkki"
 
-#: ../src/plugins/launchbar.c:775
+#: ../src/plugins/launchbar.c:772
 msgid "Bar with buttons to launch application"
 msgstr "Käynnistyspalkki painikkeiden kanssa"
 
@@ -473,43 +473,55 @@ msgstr "Tehtäväpalkki (ikkunalista)"
 msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
 msgstr "Tehtäväpalkki näyttää kaikki avoinna olevat ikkunat ja sallii niiden pienentämisen, piilottamisen ja aktivoimisen."
 
-#: ../src/plugins/dclock.c:286
+#: ../src/plugins/dclock.c:288
 msgid "Clock Format"
 msgstr "Kellon muoto"
 
-#: ../src/plugins/dclock.c:287
+#: ../src/plugins/dclock.c:289
 msgid "Tooltip Format"
 msgstr "Työkaluvihjeen muoto"
 
-#: ../src/plugins/dclock.c:288
+#: ../src/plugins/dclock.c:290
 msgid "Action"
 msgstr "Toiminto"
 
-#: ../src/plugins/dclock.c:289
+#: ../src/plugins/dclock.c:291
 msgid "Bold font"
 msgstr "Paksunnettu kirjasin"
 
-#: ../src/plugins/dclock.c:324
+#: ../src/plugins/dclock.c:326
 msgid "Digital Clock"
 msgstr "Digitaalikello"
 
-#: ../src/plugins/dclock.c:326
+#: ../src/plugins/dclock.c:328
 msgid "Display Digital clock and Tooltip"
 msgstr "Näyttää digitaalikellon ja työkaluvihjeen"
 
-#: ../src/plugins/menu.c:796
+#: ../src/plugins/menu.c:193
+msgid "Add to desktop panel"
+msgstr "Lisää työpöytäpaneeliin"
+
+#: ../src/plugins/menu.c:195
+msgid "Add to desktop"
+msgstr "Lisää työpöydälle"
+
+#: ../src/plugins/menu.c:199
+msgid "Properties"
+msgstr "Asetukset"
+
+#: ../src/plugins/menu.c:807
 msgid "Icon"
 msgstr "Kuvake"
 
-#: ../src/plugins/menu.c:797
+#: ../src/plugins/menu.c:808
 msgid "Caption"
 msgstr ""
 
-#: ../src/plugins/menu.c:807
+#: ../src/plugins/menu.c:818
 msgid "Menu"
 msgstr "Valikko"
 
-#: ../src/plugins/menu.c:809
+#: ../src/plugins/menu.c:820
 msgid "Provide Menu"
 msgstr "Toimittaa valikon"
 
