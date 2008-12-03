@@ -268,7 +268,7 @@ plugin_start(Plugin *this, char** fp)
 void plugin_stop(Plugin *this)
 {
     ENTER;
-    DBG("%s\n", this->class->type);
+    /* g_debug("%s\n", this->class->type); */
     this->class->destructor(this);
     this->panel->plug_num--;
     if (!this->class->invisible && this->pwid )

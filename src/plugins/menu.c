@@ -67,16 +67,14 @@ menu_destructor(Plugin *p)
 {
     menup *m = (menup *)p->priv;
 
-    ENTER;
-
     if( G_UNLIKELY( idle_loader ) )
     {
         g_source_remove( idle_loader );
         idle_loader = 0;
     }
+
     if( m->has_system_menu )
         p->panel->system_menus = g_slist_remove( p->panel->system_menus, p );
-
     g_signal_handler_disconnect(G_OBJECT(m->bg), m->handler_id);
     gtk_widget_destroy(m->menu);
     /* The widget is destroyed in plugin_stop().
@@ -182,7 +180,7 @@ static void on_menu_item_style_set(GtkWidget* mi, GtkStyle* prev, MenuCacheItem*
             g_object_unref(icon);
         }
     }
-    g_debug("style set!");
+    /* g_debug("style set!"); */
 }
 
 static gboolean on_menu_button_press(GtkWidget* mi, GdkEventButton* evt, MenuCacheItem* item)
@@ -190,8 +188,16 @@ static gboolean on_menu_button_press(GtkWidget* mi, GdkEventButton* evt, MenuCac
     if( evt->button == 3 )  // right
     {
         g_debug("right click!");
+        GtkWidget* item;
         GtkMenu* p = gtk_menu_new();
-        gtk_menu_shell_append(p, gtk_menu_item_new_with_label("XXX"));
+        item = gtk_menu_item_new_with_label(_("Add to desktop panel"));
+        gtk_menu_shell_append(p, item);
+        item = gtk_menu_item_new_with_label(_("Add to desktop"));
+        gtk_menu_shell_append(p, item);
+        item = gtk_separator_menu_item_new();
+        gtk_menu_shell_append(p, item);
+        item = gtk_menu_item_new_with_label(_("Properties"));
+        gtk_menu_shell_append(p, item);
         gtk_widget_show_all(p);
         gtk_menu_popup(p, NULL, NULL, NULL, NULL, NULL, evt->time );
 //        return TRUE;
@@ -219,6 +225,7 @@ static GtkWidget* create_item( MenuCacheItem* item )
         g_signal_connect(mi, "button-press-event", G_CALLBACK(on_menu_button_press), item);
     }
     gtk_widget_show( mi );
+    /* g_debug("set_item_data"); */
     g_object_set_qdata_full( mi, SYS_MENU_ITEM_ID, menu_cache_item_ref(item), menu_cache_item_unref );
     return mi;
 }
@@ -385,11 +392,11 @@ make_button(Plugin *p, gchar *fname, gchar *name, GdkColor* tint, GtkWidget *men
     m = (menup *)p->priv;
     m->menu = menu;
     if (p->panel->orientation == ORIENT_HORIZ) {
-        w = 10000;
         h = p->panel->ah;
+        w = h * p->panel->aw / p->panel->ah;
     } else {
         w = p->panel->aw;
-        h = 10000;
+        h = w * p->panel->ah / p->panel->aw;
     }
 
     if( name )
@@ -718,8 +725,8 @@ menu_constructor(Plugin *p, char **fp)
         "}\n"
         "}\n";
     char *config_start, *config_end, *config_default = default_config;
+    int iw, ih;
 
-    ENTER;
     m = g_new0(menup, 1);
     g_return_val_if_fail(m != NULL, 0);
     m->fname = NULL;
@@ -727,6 +734,7 @@ menu_constructor(Plugin *p, char **fp)
 
     p->priv = m;
 
+/*
     if  (p->panel->orientation == ORIENT_HORIZ)
         m->paneliconsize = p->panel->ah
             - 2* GTK_WIDGET(p->panel->box)->style->ythickness;
@@ -734,6 +742,9 @@ menu_constructor(Plugin *p, char **fp)
         m->paneliconsize = p->panel->aw
             - 2* GTK_WIDGET(p->panel->box)->style->xthickness;
     m->iconsize = 22;
+*/
+    gtk_icon_size_lookup( GTK_ICON_SIZE_MENU, &iw, &ih );
+    m->iconsize = MAX(iw, ih);
 
     m->box = gtk_hbox_new(FALSE, 0);
     gtk_container_set_border_width(GTK_CONTAINER(m->box), 0);

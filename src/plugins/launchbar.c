@@ -156,12 +156,9 @@ launchbar_destructor(Plugin *p)
 {
     launchbar *lb = (launchbar *)p->priv;
 
-    ENTER;
-
     gtk_widget_destroy(GTK_WIDGET(lb->box));
     g_slist_foreach( lb->btns, (GFunc)btn_free, NULL );
     g_slice_free(launchbar, lb);
-    RET();
 }
 
 

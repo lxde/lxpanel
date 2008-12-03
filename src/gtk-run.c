@@ -21,8 +21,84 @@
 #include <glib/gi18n.h>
 #include <string.h>
 #include "misc.h"
+#include <menu-cache.h>
 
 extern Panel *p;	/* FIXME: this should be removed */
+
+static GtkWidget* win = NULL;
+static GSList* app_list = NULL;
+
+static MenuCacheApp* match_app_by_exec(const char* exec)
+{
+    GSList* l;
+    MenuCacheApp* ret = NULL;
+    char* exec_path = g_find_program_in_path(exec);
+    const char* pexec;
+    int path_len, exec_len, len;
+
+    if( ! exec_path )
+        return NULL;
+
+    path_len = strlen(exec_path);
+    exec_len = strlen(exec);
+
+    for( l = app_list; l; l = l->next )
+    {
+        MenuCacheApp* app = MENU_CACHE_APP(l->data);
+        const char* app_exec = menu_cache_app_get_exec(app);
+#if 0   /* This is useless and incorrect. */
+        /* Dirty hacks to skip sudo programs. This can be a little bit buggy */
+        if( g_str_has_prefix(app_exec, "gksu") )
+        {
+            app_exec += 4;
+            if( app_exec[0] == '\0' ) /* "gksu" itself */
+                app_exec -= 4;
+            else if( app_exec[0] == ' ' ) /* "gksu something..." */
+                ++app_exec;
+            else if( g_str_has_prefix(app_exec, "do ") ) /* "gksudo something" */
+                app_exec += 3;
+        }
+        else if( g_str_has_prefix(app_exec, "kdesu ") ) /* kdesu */
+            app_exec += 6;
+#endif
+
+        if( g_path_is_absolute(app_exec) )
+        {
+            pexec = exec_path;
+            len = path_len;
+        }
+        else
+        {
+            pexec = exec;
+            len = exec_len;
+        }
+
+        if( strncmp(app_exec, pexec, len) == 0 )
+        {
+            /* exact match has the highest priority */
+            if( app_exec[len] == '\0' )
+            {
+                ret = app;
+                break;
+            }
+            /* those matches the pattern: exe_name %F|%f|%U|%u have higher priority */
+            if( app_exec[len] == ' ' )
+            {
+                if( app_exec[len + 1] == '%' )
+                {
+                    if( strchr( "FfUu", app_exec[len + 2] ) )
+                    {
+                        ret = app;
+                        break;
+                    }
+                }
+                ret = app;
+            }
+        }
+    }
+    g_free(exec_path);
+    return ret;
+}
 
 static gboolean setup_auto_complete( gpointer entry )
 {
@@ -104,11 +180,47 @@ static void on_response( GtkDialog* dlg, gint response, gpointer user_data )
     }
     g_source_remove_by_user_data( entry ); /* remove timeout */
     gtk_widget_destroy( (GtkWidget*)dlg );
+    win = NULL;
+
+    /* free app list */
+    g_slist_foreach(app_list, (GFunc)menu_cache_item_unref, NULL);
+    g_slist_free(app_list);
+    app_list = NULL;
+}
+
+static void on_entry_changed( GtkEntry* entry, GtkImage* img )
+{
+    const char* str = gtk_entry_get_text(entry);
+    MenuCacheApp* app = NULL;
+    if( str && *str )
+        app = match_app_by_exec(str);
+
+    if( app )
+    {
+        int w, h;
+        GdkPixbuf* pix;
+        gtk_icon_size_lookup(GTK_ICON_SIZE_DIALOG, &w, &h);
+        pix = lxpanel_load_icon(menu_cache_item_get_icon(app), MAX(w, h), TRUE);
+        gtk_image_set_from_pixbuf(img, pix);
+        g_object_unref(pix);
+    }
+    else
+    {
+        gtk_image_set_from_stock(img, GTK_STOCK_EXECUTE, GTK_ICON_SIZE_DIALOG);
+    }
 }
 
 void gtk_run()
 {
-    GtkWidget *win, *entry, *hbox;
+    GtkWidget *entry, *hbox, *img;
+    MenuCache* menu_cache;
+
+    if( win )
+    {
+        gtk_window_present(win);
+        return;
+    }
+
     win = gtk_dialog_new_with_buttons( _("Run"),
                                        NULL,
                                        GTK_DIALOG_NO_SEPARATOR,
@@ -126,8 +238,8 @@ void gtk_run()
                          gtk_label_new(_("Enter the command you want to execute:")),
                          FALSE, FALSE, 8 );
     hbox = gtk_hbox_new( FALSE, 2 );
-    gtk_box_pack_start( (GtkBox*)hbox,
-                         gtk_image_new_from_stock( GTK_STOCK_EXECUTE, GTK_ICON_SIZE_DIALOG ),
+    img = gtk_image_new_from_stock( GTK_STOCK_EXECUTE, GTK_ICON_SIZE_DIALOG );
+    gtk_box_pack_start( (GtkBox*)hbox, img,
                          FALSE, FALSE, 4 );
     gtk_box_pack_start( (GtkBox*)hbox, entry, TRUE, TRUE, 4 );
     gtk_box_pack_start( (GtkBox*)((GtkDialog*)win)->vbox,
@@ -139,5 +251,15 @@ void gtk_run()
     /* g_timeout_add( 500, setup_auto_complete, entry ); */
     setup_auto_complete( entry );
     gtk_widget_show( win );
+
+    g_signal_connect(entry ,"changed", G_CALLBACK(on_entry_changed), img);
+
+    /* get all apps */
+    menu_cache = menu_cache_lookup(g_getenv("XDG_MENU_PREFIX") ? "applications.menu" : "lxde-applications.menu" );
+    if( menu_cache )
+    {
+        app_list = (GSList*)menu_cache_list_all_apps(menu_cache);
+        menu_cache_unref(menu_cache);
+    }
 }
 
