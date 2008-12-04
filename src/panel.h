@@ -53,6 +53,7 @@ struct _Panel{
     Window topxwin;               /* and it X window   */
     GtkStyle *defstyle;
     GtkWidget *box;              /* primary layout box which contains all plugins */
+
     GtkRequisition requisition;
     GtkWidget *(*my_box_new) (gboolean, gint);
     GtkWidget *(*my_separator_new) ();

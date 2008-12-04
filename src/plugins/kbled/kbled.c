@@ -278,9 +278,9 @@ static void kbled_config( Plugin *p, GtkWindow* parent )
     dlg = create_generic_config_dlg( _(p->class->name),
                                      GTK_WIDGET(parent),
                                     (GSourceFunc) apply_config, (gpointer) p,
-                                     _("Show CapsLock"), &kl->visible[0], G_TYPE_BOOLEAN,
-                                     _("Show NumLock"), &kl->visible[1], G_TYPE_BOOLEAN,
-                                     _("Show ScrollLock"), &kl->visible[2], G_TYPE_BOOLEAN,
+                                     _("Show CapsLock"), &kl->visible[0], CONF_TYPE_BOOL,
+                                     _("Show NumLock"), &kl->visible[1], CONF_TYPE_BOOL,
+                                     _("Show ScrollLock"), &kl->visible[2], CONF_TYPE_BOOL,
                                      NULL );
     gtk_window_present( GTK_WINDOW(dlg) );
 }

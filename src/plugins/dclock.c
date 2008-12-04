@@ -285,10 +285,10 @@ static void dclock_config( Plugin *p, GtkWindow* parent )
     dlg = create_generic_config_dlg( _(p->class->name),
                                      GTK_WIDGET(parent),
                                     (GSourceFunc) apply_config, (gpointer) p,
-                                     _("Clock Format"), &dc->cfmt, G_TYPE_STRING,
-                                     _("Tooltip Format"), &dc->tfmt, G_TYPE_STRING,
-                                     _("Action"), &dc->action, G_TYPE_STRING,
-                                     _("Bold font"), &dc->bold, G_TYPE_BOOLEAN,
+                                     _("Clock Format"), &dc->cfmt, CONF_TYPE_STR,
+                                     _("Tooltip Format"), &dc->tfmt, CONF_TYPE_STR,
+                                     _("Action"), &dc->action, CONF_TYPE_STR,
+                                     _("Bold font"), &dc->bold, CONF_TYPE_BOOL,
                                      NULL );
     gtk_window_present( GTK_WINDOW(dlg) );
 }

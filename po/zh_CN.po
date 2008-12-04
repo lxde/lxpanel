@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.3.8.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-20 23:19+0800\n"
+"POT-Creation-Date: 2008-12-04 20:41+0800\n"
 "PO-Revision-Date: 2008-10-05 09:20+0800\n"
 "Last-Translator: 冷罡华 <hiweed@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -159,8 +159,7 @@ msgid "Width:"
 msgstr "宽度："
 
 #. { "configure", N_("Preferences"), configure },
-#: ../src/configurator.c:53
-#: ../src/gtk-run.c:112
+#: ../src/configurator.c:53 ../src/gtk-run.c:224
 msgid "Run"
 msgstr "运行"
 
@@ -172,54 +171,60 @@ msgstr "重新启动"
 msgid "Logout"
 msgstr "注销"
 
-#: ../src/configurator.c:388
+#: ../src/configurator.c:407
 msgid "Currently loaded plugins"
 msgstr "目前载入的插件"
 
-#: ../src/configurator.c:397
+#: ../src/configurator.c:416
 msgid "Stretch"
 msgstr "延展"
 
-#: ../src/configurator.c:495
-#: ../src/panel.c:505
+#: ../src/configurator.c:514 ../src/panel.c:516
 msgid "Add plugin to panel"
 msgstr "新增插件到面板"
 
-#: ../src/configurator.c:522
-#: ../src/panel.c:528
+#: ../src/configurator.c:541 ../src/panel.c:539
 msgid "Available plugins"
 msgstr "可选用的插件"
 
-#: ../src/configurator.c:1032
+#: ../src/configurator.c:1053
 msgid "Logout command is not set"
 msgstr "注销命令尚未设置"
 
-#: ../src/panel.c:613
+#: ../src/configurator.c:1102 ../src/configurator.c:1182
+#, fuzzy
+msgid "Select a file"
+msgstr "选择图片文件"
+
+#: ../src/configurator.c:1200
+msgid "_Browse"
+msgstr ""
+
+#: ../src/panel.c:624
 msgid "Left"
 msgstr "左"
 
-#: ../src/panel.c:613
+#: ../src/panel.c:624
 msgid "Right"
 msgstr "右"
 
-#: ../src/panel.c:613
+#: ../src/panel.c:624
 msgid "Top"
 msgstr "上"
 
-#: ../src/panel.c:613
+#: ../src/panel.c:624
 msgid "Bottom"
 msgstr "下"
 
-#: ../src/panel.c:615
-#: ../src/panel.c:739
+#: ../src/panel.c:626 ../src/panel.c:752
 msgid "Create New Panel"
 msgstr "建立新面板"
 
-#: ../src/panel.c:621
+#: ../src/panel.c:632
 msgid "Where to put the panel?"
 msgstr "要把面板放到哪里？"
 
-#: ../src/panel.c:679
+#: ../src/panel.c:690
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -227,92 +232,92 @@ msgstr ""
 "确定要删除这个面板？\n"
 "<b>警告： 这个动作没办法复原。</b>"
 
-#: ../src/panel.c:680
+#: ../src/panel.c:691
 msgid "Confirm"
 msgstr "确认"
 
-#: ../src/panel.c:713
+#: ../src/panel.c:726
 msgid "Add / Remove Panel Items"
 msgstr "新增/移除面板项目"
 
-#: ../src/panel.c:721
+#: ../src/panel.c:734
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "从面板移除 \"%s\""
 
-#: ../src/panel.c:733
+#: ../src/panel.c:746
 msgid "Panel Settings"
 msgstr "设置面板"
 
-#: ../src/panel.c:750
+#: ../src/panel.c:763
 msgid "Delete This Panel"
 msgstr "删除这个面板"
 
-#: ../src/panel.c:760
+#: ../src/panel.c:773
 msgid "Panel"
 msgstr "面板"
 
-#: ../src/panel.c:773
+#: ../src/panel.c:786
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "设置 \"%s\""
 
-#: ../src/panel.c:1237
+#: ../src/panel.c:1255
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - UNIX 桌面的轻量级 GTK2+ 面板\n"
 
-#: ../src/panel.c:1238
+#: ../src/panel.c:1256
 #, c-format
 msgid "Command line options:\n"
 msgstr "命令列选项：\n"
 
-#: ../src/panel.c:1239
+#: ../src/panel.c:1257
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- 显示使用说明并离开\n"
 
-#: ../src/panel.c:1240
+#: ../src/panel.c:1258
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- 显示版本信息并离开\n"
 
-#: ../src/panel.c:1241
+#: ../src/panel.c:1259
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --log <数值>   -- 设置程序运作纪录的层级 (0-5). 0 - 无, 5 - 全部\n"
 
-#: ../src/panel.c:1242
+#: ../src/panel.c:1260
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- 运行设置工具\n"
 
-#: ../src/panel.c:1243
+#: ../src/panel.c:1261
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- 指定使用其他设置文件\n"
 
-#: ../src/panel.c:1245
+#: ../src/panel.c:1263
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- 和 --help 作用相同\n"
 
-#: ../src/panel.c:1246
+#: ../src/panel.c:1264
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- 和 --profile 作用相同\n"
 
-#: ../src/panel.c:1247
+#: ../src/panel.c:1265
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- 和 --version 作用相同\n"
 
-#: ../src/panel.c:1248
+#: ../src/panel.c:1266
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- 和 --configure 作用相同\n"
 
-#: ../src/panel.c:1249
+#: ../src/panel.c:1267
 #, c-format
 msgid ""
 "\n"
@@ -323,39 +328,39 @@ msgstr ""
 "详细信息请参观 http://lxde.org/\n"
 "\n"
 
-#: ../src/gtk-run.c:126
+#: ../src/gtk-run.c:238
 msgid "Enter the command you want to execute:"
 msgstr "输入你要想运行的命令："
 
-#: ../src/systray/tray.c:206
+#: ../src/systray/tray.c:210
 msgid "System Tray"
 msgstr "系统托盘 (通知区域)"
 
-#: ../src/systray/tray.c:208
+#: ../src/systray/tray.c:212
 msgid "Old KDE/GNOME Tray"
 msgstr "KDE/GNOME 系统托盘"
 
-#: ../src/plugins/cpu/cpu.c:222
+#: ../src/plugins/cpu/cpu.c:226
 msgid "CPU Usage Monitor"
 msgstr "CPU 监视器"
 
-#: ../src/plugins/cpu/cpu.c:224
+#: ../src/plugins/cpu/cpu.c:228
 msgid "Display CPU usage"
 msgstr "显示 CPU 使用情况"
 
-#: ../src/plugins/deskno/deskno2.c:129
+#: ../src/plugins/deskno/deskno.c:99
 msgid "Desktop No / Workspace Name"
 msgstr "桌面编号 / 工作区名称"
 
-#: ../src/plugins/deskno/deskno2.c:131
+#: ../src/plugins/deskno/deskno.c:101
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "显示工作区编号，由 cmeury@users.sf.net 撰写"
 
-#: ../src/plugins/launchbar.c:132
+#: ../src/plugins/launchbar.c:135
 msgid "Add Button"
 msgstr "新增按钮"
 
-#: ../src/plugins/launchbar.c:134
+#: ../src/plugins/launchbar.c:137
 msgid "Button Properties"
 msgstr "按钮属性"
 
@@ -363,7 +368,7 @@ msgstr "按钮属性"
 #. title = g_strdup_printf( _("Remove \"%s\""), b-> );
 #. item = gtk_image_menu_item_new_with_label( _("Remove ") );
 #.
-#: ../src/plugins/launchbar.c:140
+#: ../src/plugins/launchbar.c:143
 msgid "Remove Button"
 msgstr "移除按钮"
 
@@ -371,181 +376,158 @@ msgstr "移除按钮"
 #. 1. We can borrow the menu from menu plugin (PtkAppMenu).
 #. 2. We can borrow the app chooser from PCManFM.
 #.
-#: ../src/plugins/launchbar.c:512
+#: ../src/plugins/launchbar.c:499
 msgid "Select Application"
 msgstr "选择应用程序"
 
-#: ../src/plugins/launchbar.c:661
+#: ../src/plugins/launchbar.c:653
 msgid "Buttons"
 msgstr "按钮"
 
-#: ../src/plugins/launchbar.c:774
+#: ../src/plugins/launchbar.c:770
 msgid "Application Launch Bar"
 msgstr "快速启动栏"
 
-#: ../src/plugins/launchbar.c:776
+#: ../src/plugins/launchbar.c:772
 msgid "Bar with buttons to launch application"
 msgstr "用以快速启动应用程序的工具栏"
 
-#: ../src/plugins/ptk-app-menu.c:157
-msgid "Other"
-msgstr "其他"
-
-#: ../src/plugins/ptk-app-menu.c:158
-msgid "Game"
-msgstr "游戏"
-
-#: ../src/plugins/ptk-app-menu.c:159
-msgid "Education"
-msgstr "教育"
-
-#: ../src/plugins/ptk-app-menu.c:160
-msgid "Development"
-msgstr "开发"
-
-#: ../src/plugins/ptk-app-menu.c:161
-msgid "Audio & Video"
-msgstr "多媒体"
-
-#: ../src/plugins/ptk-app-menu.c:162
-msgid "Graphics"
-msgstr "绘图"
-
-#: ../src/plugins/ptk-app-menu.c:163
-msgid "Settings"
-msgstr "设置"
-
-#: ../src/plugins/ptk-app-menu.c:164
-msgid "System Tools"
-msgstr "系统工具"
-
-#: ../src/plugins/ptk-app-menu.c:165
-msgid "Network"
-msgstr "网络"
-
-#: ../src/plugins/ptk-app-menu.c:166
-msgid "Office"
-msgstr "办公软件"
-
-#: ../src/plugins/ptk-app-menu.c:167
-msgid "Accessories"
-msgstr "附件"
-
-#: ../src/plugins/taskbar.c:1224
+#: ../src/plugins/taskbar.c:1219
 msgid "Raise"
 msgstr "移到最上层"
 
-#: ../src/plugins/taskbar.c:1228
+#: ../src/plugins/taskbar.c:1223
 msgid "Restore"
 msgstr "复原"
 
-#: ../src/plugins/taskbar.c:1232
+#: ../src/plugins/taskbar.c:1227
 msgid "Maximize"
 msgstr "最大化"
 
-#: ../src/plugins/taskbar.c:1236
+#: ../src/plugins/taskbar.c:1231
 msgid "Iconify"
 msgstr "最小化"
 
-#: ../src/plugins/taskbar.c:1245
+#: ../src/plugins/taskbar.c:1240
 #, c-format
 msgid "Workspace %d"
 msgstr "工作区 %d"
 
-#: ../src/plugins/taskbar.c:1253
+#: ../src/plugins/taskbar.c:1248
 msgid "All workspaces"
 msgstr "所有工作区"
 
-#: ../src/plugins/taskbar.c:1260
+#: ../src/plugins/taskbar.c:1255
 msgid "Move to Workspace"
 msgstr "移动到工作区"
 
 #. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1268
+#: ../src/plugins/taskbar.c:1263
 msgid "Close Window"
 msgstr "关闭窗口"
 
-#: ../src/plugins/taskbar.c:1516
+#: ../src/plugins/taskbar.c:1511
 msgid "Show tooltips"
 msgstr "显示工具提示"
 
-#: ../src/plugins/taskbar.c:1517
+#: ../src/plugins/taskbar.c:1512
 msgid "Icons only"
 msgstr "只显示图标"
 
-#: ../src/plugins/taskbar.c:1518
+#: ../src/plugins/taskbar.c:1513
 msgid "Flat Buttons"
 msgstr "平面按钮"
 
-#: ../src/plugins/taskbar.c:1519
+#: ../src/plugins/taskbar.c:1514
 msgid "Accept SkipPager"
 msgstr "接受 SkipPager Hint"
 
-#: ../src/plugins/taskbar.c:1520
+#: ../src/plugins/taskbar.c:1515
 msgid "Show Iconified windows"
 msgstr "显示最小化的窗口"
 
-#: ../src/plugins/taskbar.c:1521
+#: ../src/plugins/taskbar.c:1516
 msgid "Show mapped windows"
 msgstr "显示已被映射的窗口"
 
-#: ../src/plugins/taskbar.c:1522
+#: ../src/plugins/taskbar.c:1517
 msgid "Show windows from all desktops"
 msgstr "显示来自所有桌面的窗口"
 
-#: ../src/plugins/taskbar.c:1523
+#: ../src/plugins/taskbar.c:1518
 msgid "Use mouse wheel"
 msgstr "使用鼠标滚轮"
 
-#: ../src/plugins/taskbar.c:1524
+#: ../src/plugins/taskbar.c:1519
 msgid "Flash when there is any window requiring attention"
 msgstr "当有窗口要求用户注意时，闪烁面板"
 
-#: ../src/plugins/taskbar.c:1525
+#: ../src/plugins/taskbar.c:1520
 msgid "Max width of task button"
 msgstr "面板按钮最大宽度"
 
-#: ../src/plugins/taskbar.c:1526
+#: ../src/plugins/taskbar.c:1521
 msgid "Spacing"
 msgstr "间距"
 
-#: ../src/plugins/taskbar.c:1604
+#: ../src/plugins/taskbar.c:1599
 msgid "Task Bar (Window List)"
 msgstr "面板 (窗口清单)"
 
-#: ../src/plugins/taskbar.c:1606
-msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+#: ../src/plugins/taskbar.c:1601
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
 msgstr "面板显示所有开启的窗口，并让能窗口最小化、折叠、或取得焦点"
 
-#: ../src/plugins/dclock.c:286
+#: ../src/plugins/dclock.c:288
 msgid "Clock Format"
 msgstr "时钟格式"
 
-#: ../src/plugins/dclock.c:287
+#: ../src/plugins/dclock.c:289
 msgid "Tooltip Format"
 msgstr "工具提示格式"
 
-#: ../src/plugins/dclock.c:288
+#: ../src/plugins/dclock.c:290
 msgid "Action"
 msgstr "动作"
 
-#: ../src/plugins/dclock.c:289
+#: ../src/plugins/dclock.c:291
 msgid "Bold font"
 msgstr "粗体字型"
 
-#: ../src/plugins/dclock.c:324
+#: ../src/plugins/dclock.c:326
 msgid "Digital Clock"
 msgstr "数字时钟"
 
-#: ../src/plugins/dclock.c:326
+#: ../src/plugins/dclock.c:328
 msgid "Display Digital clock and Tooltip"
 msgstr "显示数字时钟并显示日期"
 
-#: ../src/plugins/menu.c:595
+#: ../src/plugins/menu.c:193
+#, fuzzy
+msgid "Add to desktop panel"
+msgstr "新增插件到面板"
+
+#: ../src/plugins/menu.c:195
+msgid "Add to desktop"
+msgstr ""
+
+#: ../src/plugins/menu.c:199
+#, fuzzy
+msgid "Properties"
+msgstr "<b>属性</b>"
+
+#: ../src/plugins/menu.c:809
+#, fuzzy
+msgid "Icon"
+msgstr "最小化"
+
+#: ../src/plugins/menu.c:820
 msgid "Menu"
 msgstr "菜单"
 
-#: ../src/plugins/menu.c:597
+#: ../src/plugins/menu.c:822
 msgid "Provide Menu"
 msgstr "提供菜单"
 
@@ -557,10 +539,6 @@ msgstr "---分隔线---"
 msgid "Add a separator to the panel"
 msgstr "在面板上增加分隔线"
 
-#: ../src/plugins/image.c:177
-msgid "Dispaly Image and Tooltip"
-msgstr "显示图标及工具提示"
-
 #: ../src/plugins/pager.c:709
 msgid "Desktop Pager"
 msgstr "切换桌面"
@@ -569,28 +547,27 @@ msgstr "切换桌面"
 msgid "Simple pager plugin"
 msgstr "简易的桌面切换插件"
 
-#: ../src/plugins/space.c:137
-#: ../src/plugins/batt/batt.c:824
+#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:891
 msgid "Size"
 msgstr "大小"
 
-#: ../src/plugins/space.c:152
+#: ../src/plugins/space.c:153
 msgid "<Space>"
 msgstr "<---空白分隔--->"
 
-#: ../src/plugins/space.c:154
+#: ../src/plugins/space.c:155
 msgid "Allocate space"
 msgstr "配置空间"
 
-#: ../src/plugins/wincmd.c:255
+#: ../src/plugins/wincmd.c:256
 msgid "Left click to iconify all windows. Middle click to shade them"
 msgstr "按左键最小化所有窗口 / 中键折叠所有窗口"
 
-#: ../src/plugins/wincmd.c:284
+#: ../src/plugins/wincmd.c:285
 msgid "Minimize All Windows"
 msgstr "最小化所有窗口"
 
-#: ../src/plugins/wincmd.c:286
+#: ../src/plugins/wincmd.c:287
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commnds are 1)toggle iconify and 2) toggle shade"
@@ -598,146 +575,187 @@ msgstr ""
 "发送命令给所有桌面窗口\n"
 "支持的命令  1) 最小化  2) 折叠"
 
-#: ../src/plugins/dirmenu.c:210
+#: ../src/plugins/dirmenu.c:214
 msgid "Open in _Terminal"
 msgstr "在终端机内开启(_T)"
 
-#: ../src/plugins/dirmenu.c:371
+#: ../src/plugins/dirmenu.c:380
 msgid "Directory Menu"
 msgstr "目录菜单"
 
-#: ../src/plugins/dirmenu.c:373
+#: ../src/plugins/dirmenu.c:382
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "使用菜单浏览目录 (作者：PCMan)"
 
+#: ../src/plugins/thermal/thermal.c:299
+msgid "Normal"
+msgstr ""
+
+#: ../src/plugins/thermal/thermal.c:300
+#, fuzzy
+msgid "Warning1"
+msgstr "充电中"
+
+#: ../src/plugins/thermal/thermal.c:301
+#, fuzzy
+msgid "Warning2"
+msgstr "充电中"
+
+#: ../src/plugins/thermal/thermal.c:302
+msgid "Automatic sensor location"
+msgstr ""
+
+#: ../src/plugins/thermal/thermal.c:303
+#, fuzzy
+msgid "Sensor"
+msgstr "复原"
+
+#: ../src/plugins/thermal/thermal.c:304
+msgid "Automatic temperature levels"
+msgstr ""
+
+#: ../src/plugins/thermal/thermal.c:305
+msgid "Warning1 Temperatur"
+msgstr ""
+
+#: ../src/plugins/thermal/thermal.c:306
+msgid "Warning2 Temperatur"
+msgstr ""
+
+#: ../src/plugins/thermal/thermal.c:348
+#, fuzzy
+msgid "Temperature Monitor"
+msgstr "网络状态监视器"
+
+#: ../src/plugins/thermal/thermal.c:350
+msgid "Display system temperature, by kesler.daniel@gmail.com"
+msgstr ""
+
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
-#: ../src/plugins/volume/volume.c:153
-#: ../src/plugins/volumealsa/volumealsa.c:300
+#: ../src/plugins/volume/volume.c:305
+#: ../src/plugins/volumealsa/volumealsa.c:408
 msgid "Volume control"
 msgstr "音量控制"
 
-#: ../src/plugins/volume/volume.c:165
-#: ../src/plugins/volumealsa/volumealsa.c:314
+#: ../src/plugins/volume/volume.c:317
+#: ../src/plugins/volumealsa/volumealsa.c:422
 msgid "Volume Control"
 msgstr "音量控制"
 
 #. create frame
-#: ../src/plugins/volume/volume-impl.c:107
-#: ../src/plugins/volumealsa/volumealsa.c:200
+#: ../src/plugins/volume/volume-impl.c:109
+#: ../src/plugins/volumealsa/volumealsa.c:310
 msgid "Volume"
 msgstr "音量"
 
-#: ../src/plugins/volumealsa/volumealsa.c:216
+#: ../src/plugins/volumealsa/volumealsa.c:327
 msgid "Mute"
 msgstr "静音"
 
-#: ../src/plugins/netstat/netstat.c:144
+#: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
 msgstr "<隐藏的无线存取点>"
 
-#: ../src/plugins/netstat/netstat.c:177
+#: ../src/plugins/netstat/netstat.c:201
 msgid "Wireless Networks not found in range"
 msgstr "范围内找不到无线网络"
 
 #. Repair
-#: ../src/plugins/netstat/netstat.c:213
+#: ../src/plugins/netstat/netstat.c:235
 msgid "Repair"
 msgstr "修复网络连接"
 
 #. interface down
-#: ../src/plugins/netstat/netstat.c:218
+#: ../src/plugins/netstat/netstat.c:240
 msgid "Disable"
 msgstr "停用"
 
-#: ../src/plugins/netstat/netstat.c:276
+#: ../src/plugins/netstat/netstat.c:299
+#, fuzzy
+msgid "Wireless Connection has no connectivity"
+msgstr "连接受限或无法连接"
+
+#: ../src/plugins/netstat/netstat.c:301
 msgid "Network cable is plugged out"
 msgstr "网络线已拔除"
 
-#: ../src/plugins/netstat/netstat.c:278
+#: ../src/plugins/netstat/netstat.c:303
 msgid "Connection has limited or no connectivity"
 msgstr "连接受限或无法连接"
 
-#: ../src/plugins/netstat/netstat.c:282
-#: ../src/plugins/netstat/netstat.c:293
-#: ../src/plugins/netstat/netstat.c:304
+#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "IP 地址："
 
-#: ../src/plugins/netstat/netstat.c:283
+#: ../src/plugins/netstat/netstat.c:308
 msgid "Remote IP:"
 msgstr "远端 IP 地址："
 
-#: ../src/plugins/netstat/netstat.c:284
-#: ../src/plugins/netstat/netstat.c:295
-#: ../src/plugins/netstat/netstat.c:306
+#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "子网掩码："
 
-#: ../src/plugins/netstat/netstat.c:285
-#: ../src/plugins/netstat/netstat.c:297
-#: ../src/plugins/netstat/netstat.c:308
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "活动"
 
-#: ../src/plugins/netstat/netstat.c:285
-#: ../src/plugins/netstat/netstat.c:297
-#: ../src/plugins/netstat/netstat.c:308
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "已传送"
 
-#: ../src/plugins/netstat/netstat.c:285
-#: ../src/plugins/netstat/netstat.c:297
-#: ../src/plugins/netstat/netstat.c:308
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "已接收"
 
-#: ../src/plugins/netstat/netstat.c:286
-#: ../src/plugins/netstat/netstat.c:298
-#: ../src/plugins/netstat/netstat.c:309
+#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "字节"
 
-#: ../src/plugins/netstat/netstat.c:287
-#: ../src/plugins/netstat/netstat.c:299
-#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "数据包"
 
-#: ../src/plugins/netstat/netstat.c:290
+#: ../src/plugins/netstat/netstat.c:315
 msgid "Wireless"
 msgstr "无线网络"
 
-#: ../src/plugins/netstat/netstat.c:292
+#: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
 msgstr "通讯协议："
 
-#: ../src/plugins/netstat/netstat.c:294
-#: ../src/plugins/netstat/netstat.c:305
+#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
 msgid "Broadcast:"
 msgstr "广播地址："
 
-#: ../src/plugins/netstat/netstat.c:296
-#: ../src/plugins/netstat/netstat.c:307
+#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "硬件地址："
 
-#: ../src/plugins/netstat/netstat.c:446
-#: ../src/plugins/netstatus/netstatus.c:181
-msgid "Net Status Monitor"
-msgstr "网络状态监视器"
+#: ../src/plugins/netstat/netstat.c:471
+#, fuzzy
+msgid "Manage Networks"
+msgstr "网络"
 
-#: ../src/plugins/netstat/netstat.c:448
-#: ../src/plugins/netstatus/netstatus.c:183
-msgid "Monitor network status"
+#: ../src/plugins/netstat/netstat.c:473
+#, fuzzy
+msgid "Monitor and Manage networks"
 msgstr "监控网络状态"
 
 #. create dialog
-#: ../src/plugins/netstat/passwd_gui.c:97
+#: ../src/plugins/netstat/passwd_gui.c:84
 msgid "Setting Encryption Key"
 msgstr "设置加密密钥"
 
 #. messages
-#: ../src/plugins/netstat/passwd_gui.c:107
+#: ../src/plugins/netstat/passwd_gui.c:94
 msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
@@ -745,7 +763,7 @@ msgstr ""
 "这是经过加密的无线网络连接。\n"
 "你必须要有加密密钥。"
 
-#: ../src/plugins/netstat/passwd_gui.c:112
+#: ../src/plugins/netstat/passwd_gui.c:99
 msgid "Encryption Key:"
 msgstr "加密密钥："
 
@@ -756,6 +774,14 @@ msgstr "要监控的接口"
 #: ../src/plugins/netstatus/netstatus.c:164
 msgid "Config tool"
 msgstr "设置工具"
+
+#: ../src/plugins/netstatus/netstatus.c:181
+msgid "Net Status Monitor"
+msgstr "网络状态监视器"
+
+#: ../src/plugins/netstatus/netstatus.c:183
+msgid "Monitor network status"
+msgstr "监控网络状态"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:52
 #: ../src/plugins/netstatus/netstatus-dialog.c:311
@@ -918,119 +944,172 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../src/plugins/batt/batt.c:330
+#: ../src/plugins/batt/batt.c:385
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
 msgstr "电池：剩余电量 %d%%，充满还需 %d:%02d"
 
-#: ../src/plugins/batt/batt.c:339
+#: ../src/plugins/batt/batt.c:394
 #, c-format
 msgid "Battery: %d%% charged, %s"
 msgstr "电池：剩余电量 %d%%，%s"
 
-#: ../src/plugins/batt/batt.c:341
+#: ../src/plugins/batt/batt.c:396
 msgid "charging finished"
 msgstr "充电完成"
 
-#: ../src/plugins/batt/batt.c:341
-msgid "not charging"
-msgstr "未充电"
-
-#: ../src/plugins/batt/batt.c:341
+#: ../src/plugins/batt/batt.c:396
 msgid "charging"
 msgstr "充电中"
 
-#: ../src/plugins/batt/batt.c:348
+#: ../src/plugins/batt/batt.c:401
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr "电池：剩余电量 %d%%，剩余可用时间 %d:%02d"
 
-#: ../src/plugins/batt/batt.c:355
+#: ../src/plugins/batt/batt.c:407
 #, c-format
 msgid "Battery: %d%% charged"
 msgstr "电池：剩余电量 %d%%"
 
-#: ../src/plugins/batt/batt.c:394
+#: ../src/plugins/batt/batt.c:455
 #, c-format
 msgid "No batteries found"
 msgstr "没有电池"
 
-#: ../src/plugins/batt/batt.c:814
+#: ../src/plugins/batt/batt.c:881
 msgid "Hide if there is no battery"
 msgstr "没有电池时隐藏"
 
-#: ../src/plugins/batt/batt.c:816
+#: ../src/plugins/batt/batt.c:883
 msgid "Alarm command"
 msgstr "发出警告时要运行的命令"
 
-#: ../src/plugins/batt/batt.c:817
+#: ../src/plugins/batt/batt.c:884
 msgid "Alarm time (minutes left)"
 msgstr "电池剩余时间低于此数值时警告 (分钟)"
 
-#: ../src/plugins/batt/batt.c:818
+#: ../src/plugins/batt/batt.c:885
 msgid "Background color"
 msgstr "背景颜色"
 
-#: ../src/plugins/batt/batt.c:819
+#: ../src/plugins/batt/batt.c:886
 msgid "Charging color 1"
 msgstr "充电显示颜色 1"
 
-#: ../src/plugins/batt/batt.c:820
+#: ../src/plugins/batt/batt.c:887
 msgid "Charging color 2"
 msgstr "充电显示颜色 2"
 
-#: ../src/plugins/batt/batt.c:821
+#: ../src/plugins/batt/batt.c:888
 msgid "Discharging color 1"
 msgstr "放电显示颜色 1"
 
-#: ../src/plugins/batt/batt.c:822
+#: ../src/plugins/batt/batt.c:889
 msgid "Discharging color 2"
 msgstr "放电显示颜色 2"
 
-#: ../src/plugins/batt/batt.c:823
+#: ../src/plugins/batt/batt.c:890
 msgid "Border width"
 msgstr "边框宽度"
 
-#: ../src/plugins/batt/batt.c:858
+#: ../src/plugins/batt/batt.c:921
 msgid "Battery Monitor"
 msgstr "电池电量显示"
 
-#: ../src/plugins/batt/batt.c:860
+#: ../src/plugins/batt/batt.c:923
 msgid "Display battery status using ACPI"
 msgstr "通过 ACPI 显示电池状态"
 
-#: ../src/plugins/kbled/kbled.c:208
+#: ../src/plugins/kbled/kbled.c:281
+msgid "Show CapsLock"
+msgstr ""
+
+#: ../src/plugins/kbled/kbled.c:282
+msgid "Show NumLock"
+msgstr ""
+
+#: ../src/plugins/kbled/kbled.c:283
+msgid "Show ScrollLock"
+msgstr ""
+
+#: ../src/plugins/kbled/kbled.c:293
 msgid "Keyboard Led"
 msgstr "键盘指示灯"
 
-#: ../src/plugins/kbled/kbled.c:210
+#: ../src/plugins/kbled/kbled.c:295
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "显示 CapsLock、NumLock、及 ScrollLock 键的状态"
 
+#~ msgid "Other"
+#~ msgstr "其他"
+
+#~ msgid "Game"
+#~ msgstr "游戏"
+
+#~ msgid "Education"
+#~ msgstr "教育"
+
+#~ msgid "Development"
+#~ msgstr "开发"
+
+#~ msgid "Audio & Video"
+#~ msgstr "多媒体"
+
+#~ msgid "Graphics"
+#~ msgstr "绘图"
+
+#~ msgid "Settings"
+#~ msgstr "设置"
+
+#~ msgid "System Tools"
+#~ msgstr "系统工具"
+
+#~ msgid "Office"
+#~ msgstr "办公软件"
+
+#~ msgid "Accessories"
+#~ msgstr "附件"
+
+#~ msgid "Dispaly Image and Tooltip"
+#~ msgstr "显示图标及工具提示"
+
+#~ msgid "not charging"
+#~ msgstr "未充电"
+
 #~ msgid "Applications"
 #~ msgstr "应用程序"
+
 #~ msgid "dynamic"
 #~ msgstr "动态"
+
 #~ msgid "pixels"
 #~ msgstr "像素 (pixels)"
+
 #~ msgid "% of edge"
 #~ msgstr "% 百分比"
+
 #~ msgid "Select a background image file"
 #~ msgstr "选择背景图片"
+
 #~ msgid "Appearance"
 #~ msgstr "外观"
+
 #~ msgid "Plugins"
 #~ msgstr "插件"
+
 #~ msgid "Center"
 #~ msgstr "置中"
 
 #, fuzzy
 #~ msgid "Logout Command"
 #~ msgstr "注销命令："
+
 #~ msgid "lxpanel configurator"
 #~ msgstr "lxpanel 设置"
+
 #~ msgid "Background"
 #~ msgstr "背景"
+
 #~ msgid "Update interval (seconds)"
 #~ msgstr "更新频率 (秒)"
-

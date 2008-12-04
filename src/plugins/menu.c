@@ -43,7 +43,7 @@
 
 typedef struct {
     GtkTooltips *tips;
-    GtkWidget *menu, *box, *bg, *label;
+    GtkWidget *menu, *box, *img, *label;
     char *fname, *caption;
     gulong handler_id;
     int iconsize, paneliconsize;
@@ -75,7 +75,7 @@ menu_destructor(Plugin *p)
 
     if( m->has_system_menu )
         p->panel->system_menus = g_slist_remove( p->panel->system_menus, p );
-    g_signal_handler_disconnect(G_OBJECT(m->bg), m->handler_id);
+    g_signal_handler_disconnect(G_OBJECT(m->img), m->handler_id);
     gtk_widget_destroy(m->menu);
     /* The widget is destroyed in plugin_stop().
     gtk_widget_destroy(m->box);
@@ -377,7 +377,7 @@ gboolean show_system_menu( gpointer system_menu )
 {
     Plugin* p = (Plugin*)system_menu;
     menup* m = (menup*)p->priv;
-    show_menu( m->bg, p, 0, GDK_CURRENT_TIME );
+    show_menu( m->img, p, 0, GDK_CURRENT_TIME );
     return FALSE;
 }
 
@@ -418,27 +418,27 @@ make_button(Plugin *p, gchar *fname, gchar *name, GdkColor* tint, GtkWidget *men
 
         /* FIXME: handle orientation problems */
         if (p->panel->usefontcolor)
-            m->bg = fb_button_new_from_file_with_colorlabel(fname, w, h, gcolor2rgb24(tint),
+            m->img = fb_button_new_from_file_with_colorlabel(fname, w, h, gcolor2rgb24(tint),
                 p->panel->fontcolor, TRUE, title);
         else
-            m->bg = fb_button_new_from_file_with_label(fname, w, h, gcolor2rgb24(tint), TRUE, title);
+            m->img = fb_button_new_from_file_with_label(fname, w, h, gcolor2rgb24(tint), TRUE, title);
 
         if( title != name )
             g_free( title );
     }
     else
     {
-        m->bg = fb_button_new_from_file(fname, w, h, gcolor2rgb24(tint), TRUE );
+        m->img = fb_button_new_from_file(fname, w, h, gcolor2rgb24(tint), TRUE );
     }
 
-    gtk_widget_show(m->bg);
-    gtk_box_pack_start(GTK_BOX(m->box), m->bg, FALSE, FALSE, 0);
+    gtk_widget_show(m->img);
+    gtk_box_pack_start(GTK_BOX(m->box), m->img, FALSE, FALSE, 0);
 
-    m->handler_id = g_signal_connect (G_OBJECT (m->bg), "button-press-event",
+    m->handler_id = g_signal_connect (G_OBJECT (m->img), "button-press-event",
           G_CALLBACK (my_button_pressed), p);
-    g_object_set_data(G_OBJECT(m->bg), "plugin", p);
+    g_object_set_data(G_OBJECT(m->img), "plugin", p);
 
-    RET(m->bg);
+    RET(m->img);
 }
 
 
@@ -794,7 +794,9 @@ static void save_config( Plugin* p, FILE* fp )
 
 static void apply_config(Plugin* p)
 {
-    /* FIXME: update menu for new setting */
+    menup* m = (menup*)p->priv;
+    if( m->fname )
+        fb_button_set_from_file( m->img, m->fname );
 }
 
 static void menu_config( Plugin *p, GtkWindow* parent )
@@ -804,8 +806,8 @@ static void menu_config( Plugin *p, GtkWindow* parent )
     dlg = create_generic_config_dlg( _(p->class->name),
                                      GTK_WIDGET(parent),
                                     (GSourceFunc) apply_config, (gpointer) p,
-                                     _("Icon"), &menu->fname, G_TYPE_STRING,
-                                     _("Caption"), &menu->caption, G_TYPE_STRING,
+                                     _("Icon"), &menu->fname, CONF_TYPE_FILE_ENTRY,
+                                     /* _("Caption"), &menu->caption, CONF_TYPE_STR, */
                                      NULL );
     gtk_window_present( GTK_WINDOW(dlg) );
 }
@@ -821,7 +823,7 @@ PluginClass menu_plugin_class = {
 
     constructor : menu_constructor,
     destructor  : menu_destructor,
-    /* config : menu_config, */
+    config : menu_config,
     save : save_config
 };
 

@@ -44,6 +44,8 @@ static gchar *cfgfile = NULL;
 static gchar version[] = VERSION;
 gchar *cprofile = "default";
 
+static GtkWindowGroup* win_grp; /* window group used to limit the scope of model dialog. */
+
 static int config = 0;
 FbEv *fbev = NULL;
 
@@ -839,6 +841,8 @@ panel_start_gui(Panel *p)
     gtk_window_set_position(GTK_WINDOW(p->topgwin), GTK_WIN_POS_NONE);
     gtk_window_set_decorated(GTK_WINDOW(p->topgwin), FALSE);
 
+    gtk_window_group_add_window( win_grp, (GtkWindow*)p->topgwin );
+
     g_signal_connect(G_OBJECT(p->topgwin), "delete-event",
           G_CALLBACK(panel_delete_event), p);
     g_signal_connect(G_OBJECT(p->topgwin), "destroy-event",
@@ -1200,6 +1204,8 @@ void panel_destroy(Panel *p)
         } while ( g_source_remove_by_user_data( p->system_menus ) );
     }
 
+    gtk_window_group_remove_window(win_grp, p->topgwin);
+
     if( p->tooltips )
         g_object_unref( p->tooltips );
 
@@ -1431,6 +1437,7 @@ int main(int argc, char *argv[], char *env[])
                                        PACKAGE_DATA_DIR "/lxpanel/images" );
 
     fbev = fb_ev_new();
+    win_grp = gtk_window_group_new();
 
 restart:
     is_restarting = FALSE;
@@ -1466,6 +1473,7 @@ restart:
     if( is_restarting )
         goto restart;
 
+    g_object_unref(win_grp);
     g_object_unref(fbev);
 
     return 0;

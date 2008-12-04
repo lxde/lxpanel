@@ -7,14 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-20 23:19+0800\n"
+"POT-Creation-Date: 2008-12-04 20:41+0800\n"
 "PO-Revision-Date: 2008-05-22 12:45-0300\n"
 "Last-Translator: \n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../data/ui/panel-pref.glade.h:1
 msgid "<b>Background</b>"
@@ -159,8 +160,7 @@ msgid "Width:"
 msgstr "Largura:"
 
 #. { "configure", N_("Preferences"), configure },
-#: ../src/configurator.c:53
-#: ../src/gtk-run.c:112
+#: ../src/configurator.c:53 ../src/gtk-run.c:224
 msgid "Run"
 msgstr "Executar"
 
@@ -172,54 +172,60 @@ msgstr "Reiniciar"
 msgid "Logout"
 msgstr "Sair"
 
-#: ../src/configurator.c:388
+#: ../src/configurator.c:407
 msgid "Currently loaded plugins"
 msgstr "Plug-ins utilizados atualmente"
 
-#: ../src/configurator.c:397
+#: ../src/configurator.c:416
 msgid "Stretch"
 msgstr "Forçar"
 
-#: ../src/configurator.c:495
-#: ../src/panel.c:505
+#: ../src/configurator.c:514 ../src/panel.c:516
 msgid "Add plugin to panel"
 msgstr "Adicionar plug-in ao painel"
 
-#: ../src/configurator.c:522
-#: ../src/panel.c:528
+#: ../src/configurator.c:541 ../src/panel.c:539
 msgid "Available plugins"
 msgstr "Plug-ins disponíveis"
 
-#: ../src/configurator.c:1032
+#: ../src/configurator.c:1053
 msgid "Logout command is not set"
 msgstr "Comando sair não está definido"
 
-#: ../src/panel.c:613
+#: ../src/configurator.c:1102 ../src/configurator.c:1182
+#, fuzzy
+msgid "Select a file"
+msgstr "Selecionar arquivo de imagem"
+
+#: ../src/configurator.c:1200
+msgid "_Browse"
+msgstr ""
+
+#: ../src/panel.c:624
 msgid "Left"
 msgstr "Esquerda"
 
-#: ../src/panel.c:613
+#: ../src/panel.c:624
 msgid "Right"
 msgstr "Direita"
 
-#: ../src/panel.c:613
+#: ../src/panel.c:624
 msgid "Top"
 msgstr "Topo"
 
-#: ../src/panel.c:613
+#: ../src/panel.c:624
 msgid "Bottom"
 msgstr "Botão"
 
-#: ../src/panel.c:615
-#: ../src/panel.c:739
+#: ../src/panel.c:626 ../src/panel.c:752
 msgid "Create New Panel"
 msgstr "Criar Novo Painel"
 
-#: ../src/panel.c:621
+#: ../src/panel.c:632
 msgid "Where to put the panel?"
 msgstr "Onde posicionar o painel?"
 
-#: ../src/panel.c:679
+#: ../src/panel.c:690
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -227,92 +233,92 @@ msgstr ""
 "Tem certeza que deseja remover este painel?\n"
 "<b>Cuidado: Ele não poderá ser recuperado.</b>"
 
-#: ../src/panel.c:680
+#: ../src/panel.c:691
 msgid "Confirm"
 msgstr "Confirmar"
 
-#: ../src/panel.c:713
+#: ../src/panel.c:726
 msgid "Add / Remove Panel Items"
 msgstr "Adicionar / Remover Itens do Painel"
 
-#: ../src/panel.c:721
+#: ../src/panel.c:734
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Remover \"%s\" do Painel"
 
-#: ../src/panel.c:733
+#: ../src/panel.c:746
 msgid "Panel Settings"
 msgstr "Configurações do Painel"
 
-#: ../src/panel.c:750
+#: ../src/panel.c:763
 msgid "Delete This Panel"
 msgstr "Remover este Painel"
 
-#: ../src/panel.c:760
+#: ../src/panel.c:773
 msgid "Panel"
 msgstr "Painel"
 
-#: ../src/panel.c:773
+#: ../src/panel.c:786
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "Configurações do \"%s\" "
 
-#: ../src/panel.c:1237
+#: ../src/panel.c:1255
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - painel leve feito em GTK2 para sistemas UNIX\n"
 
-#: ../src/panel.c:1238
+#: ../src/panel.c:1256
 #, c-format
 msgid "Command line options:\n"
 msgstr "Opções em linha de comando:\n"
 
-#: ../src/panel.c:1239
+#: ../src/panel.c:1257
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- exibe esta ajuda\n"
 
-#: ../src/panel.c:1240
+#: ../src/panel.c:1258
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- exibe a versão\n"
 
-#: ../src/panel.c:1241
+#: ../src/panel.c:1259
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 
-#: ../src/panel.c:1242
+#: ../src/panel.c:1260
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- abre a ferramenta de configuração\n"
 
-#: ../src/panel.c:1243
+#: ../src/panel.c:1261
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile nome -- utiliza perfil específico\n"
 
-#: ../src/panel.c:1245
+#: ../src/panel.c:1263
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- o mesmo que --help\n"
 
-#: ../src/panel.c:1246
+#: ../src/panel.c:1264
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- o mesmo que --profile\n"
 
-#: ../src/panel.c:1247
+#: ../src/panel.c:1265
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- o mesmo que --version\n"
 
-#: ../src/panel.c:1248
+#: ../src/panel.c:1266
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- o mesmo que --configure\n"
 
-#: ../src/panel.c:1249
+#: ../src/panel.c:1267
 #, c-format
 msgid ""
 "\n"
@@ -323,39 +329,39 @@ msgstr ""
 "Visite http://lxde.org/ para detalhes.\n"
 "\n"
 
-#: ../src/gtk-run.c:126
+#: ../src/gtk-run.c:238
 msgid "Enter the command you want to execute:"
 msgstr "Digite o comando que deseja executar:"
 
-#: ../src/systray/tray.c:206
+#: ../src/systray/tray.c:210
 msgid "System Tray"
 msgstr "Bandeja do Sistema"
 
-#: ../src/systray/tray.c:208
+#: ../src/systray/tray.c:212
 msgid "Old KDE/GNOME Tray"
 msgstr "Mostra a antiga Bandeja de Sistema KDE/GNOME"
 
-#: ../src/plugins/cpu/cpu.c:222
+#: ../src/plugins/cpu/cpu.c:226
 msgid "CPU Usage Monitor"
 msgstr "Monitor de Uso da CPU"
 
-#: ../src/plugins/cpu/cpu.c:224
+#: ../src/plugins/cpu/cpu.c:228
 msgid "Display CPU usage"
 msgstr "Mostra o uso da CPU"
 
-#: ../src/plugins/deskno/deskno2.c:129
+#: ../src/plugins/deskno/deskno.c:99
 msgid "Desktop No / Workspace Name"
 msgstr "Número da Área de Trabalho / Nome da Área de Trabalho"
 
-#: ../src/plugins/deskno/deskno2.c:131
+#: ../src/plugins/deskno/deskno.c:101
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Mostra o número da área de trabalho"
 
-#: ../src/plugins/launchbar.c:132
+#: ../src/plugins/launchbar.c:135
 msgid "Add Button"
 msgstr "Adicionar Botão"
 
-#: ../src/plugins/launchbar.c:134
+#: ../src/plugins/launchbar.c:137
 msgid "Button Properties"
 msgstr "Propriedades do Botão"
 
@@ -363,7 +369,7 @@ msgstr "Propriedades do Botão"
 #. title = g_strdup_printf( _("Remove \"%s\""), b-> );
 #. item = gtk_image_menu_item_new_with_label( _("Remove ") );
 #.
-#: ../src/plugins/launchbar.c:140
+#: ../src/plugins/launchbar.c:143
 msgid "Remove Button"
 msgstr "Remover Botão"
 
@@ -371,181 +377,158 @@ msgstr "Remover Botão"
 #. 1. We can borrow the menu from menu plugin (PtkAppMenu).
 #. 2. We can borrow the app chooser from PCManFM.
 #.
-#: ../src/plugins/launchbar.c:512
+#: ../src/plugins/launchbar.c:499
 msgid "Select Application"
 msgstr "Selecionar Programa"
 
-#: ../src/plugins/launchbar.c:661
+#: ../src/plugins/launchbar.c:653
 msgid "Buttons"
 msgstr "Botões"
 
-#: ../src/plugins/launchbar.c:774
+#: ../src/plugins/launchbar.c:770
 msgid "Application Launch Bar"
 msgstr "Lançador de Programas"
 
-#: ../src/plugins/launchbar.c:776
+#: ../src/plugins/launchbar.c:772
 msgid "Bar with buttons to launch application"
 msgstr "Mostra uma barra com botões para lançar programas"
 
-#: ../src/plugins/ptk-app-menu.c:157
-msgid "Other"
-msgstr "Outro"
-
-#: ../src/plugins/ptk-app-menu.c:158
-msgid "Game"
-msgstr "Jogos"
-
-#: ../src/plugins/ptk-app-menu.c:159
-msgid "Education"
-msgstr "Educação"
-
-#: ../src/plugins/ptk-app-menu.c:160
-msgid "Development"
-msgstr "Desenvolvimento"
-
-#: ../src/plugins/ptk-app-menu.c:161
-msgid "Audio & Video"
-msgstr "Multimídia"
-
-#: ../src/plugins/ptk-app-menu.c:162
-msgid "Graphics"
-msgstr "Gráficos"
-
-#: ../src/plugins/ptk-app-menu.c:163
-msgid "Settings"
-msgstr "Configurações"
-
-#: ../src/plugins/ptk-app-menu.c:164
-msgid "System Tools"
-msgstr "Sistema"
-
-#: ../src/plugins/ptk-app-menu.c:165
-msgid "Network"
-msgstr "Rede"
-
-#: ../src/plugins/ptk-app-menu.c:166
-msgid "Office"
-msgstr "Escritório"
-
-#: ../src/plugins/ptk-app-menu.c:167
-msgid "Accessories"
-msgstr "Utilidades"
-
-#: ../src/plugins/taskbar.c:1224
+#: ../src/plugins/taskbar.c:1219
 msgid "Raise"
 msgstr "Mostrar"
 
-#: ../src/plugins/taskbar.c:1228
+#: ../src/plugins/taskbar.c:1223
 msgid "Restore"
 msgstr "Restaurar"
 
-#: ../src/plugins/taskbar.c:1232
+#: ../src/plugins/taskbar.c:1227
 msgid "Maximize"
 msgstr "Maximizar"
 
-#: ../src/plugins/taskbar.c:1236
+#: ../src/plugins/taskbar.c:1231
 msgid "Iconify"
 msgstr "Minimizar"
 
-#: ../src/plugins/taskbar.c:1245
+#: ../src/plugins/taskbar.c:1240
 #, c-format
 msgid "Workspace %d"
 msgstr "Área de Trabalho %d"
 
-#: ../src/plugins/taskbar.c:1253
+#: ../src/plugins/taskbar.c:1248
 msgid "All workspaces"
 msgstr "Todas as Áreas de Trabalho"
 
-#: ../src/plugins/taskbar.c:1260
+#: ../src/plugins/taskbar.c:1255
 msgid "Move to Workspace"
 msgstr "Mover para a Área de Trabalho"
 
 #. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1268
+#: ../src/plugins/taskbar.c:1263
 msgid "Close Window"
 msgstr "Fechar"
 
-#: ../src/plugins/taskbar.c:1516
+#: ../src/plugins/taskbar.c:1511
 msgid "Show tooltips"
 msgstr "Mostrar informações"
 
-#: ../src/plugins/taskbar.c:1517
+#: ../src/plugins/taskbar.c:1512
 msgid "Icons only"
 msgstr "Somente ícones"
 
-#: ../src/plugins/taskbar.c:1518
+#: ../src/plugins/taskbar.c:1513
 msgid "Flat Buttons"
 msgstr "Botões"
 
-#: ../src/plugins/taskbar.c:1519
+#: ../src/plugins/taskbar.c:1514
 msgid "Accept SkipPager"
 msgstr "Aceitar Pular Áreas de Trabalho"
 
-#: ../src/plugins/taskbar.c:1520
+#: ../src/plugins/taskbar.c:1515
 msgid "Show Iconified windows"
 msgstr "Mostrar janelas minimizadas"
 
-#: ../src/plugins/taskbar.c:1521
+#: ../src/plugins/taskbar.c:1516
 msgid "Show mapped windows"
 msgstr "Mostrar janelas mapeadas"
 
-#: ../src/plugins/taskbar.c:1522
+#: ../src/plugins/taskbar.c:1517
 msgid "Show windows from all desktops"
 msgstr "Mostrar janelas de todas as áreas de trabalho"
 
-#: ../src/plugins/taskbar.c:1523
+#: ../src/plugins/taskbar.c:1518
 msgid "Use mouse wheel"
 msgstr "Utilizar roda do mouse"
 
-#: ../src/plugins/taskbar.c:1524
+#: ../src/plugins/taskbar.c:1519
 msgid "Flash when there is any window requiring attention"
 msgstr "Alertar quando há qualquer janela requerendo atenção"
 
-#: ../src/plugins/taskbar.c:1525
+#: ../src/plugins/taskbar.c:1520
 msgid "Max width of task button"
 msgstr "Largura máxima do botão da barra de tarefas"
 
-#: ../src/plugins/taskbar.c:1526
+#: ../src/plugins/taskbar.c:1521
 msgid "Spacing"
 msgstr "Espaçamento"
 
-#: ../src/plugins/taskbar.c:1604
+#: ../src/plugins/taskbar.c:1599
 msgid "Task Bar (Window List)"
 msgstr "Barra de Tarefas (Lista de Janelas)"
 
-#: ../src/plugins/taskbar.c:1606
-msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+#: ../src/plugins/taskbar.c:1601
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
 msgstr "Mostra todas as janelas abertas e minimizadas"
 
-#: ../src/plugins/dclock.c:286
+#: ../src/plugins/dclock.c:288
 msgid "Clock Format"
 msgstr "Formato do Relógio"
 
-#: ../src/plugins/dclock.c:287
+#: ../src/plugins/dclock.c:289
 msgid "Tooltip Format"
 msgstr "Formato"
 
-#: ../src/plugins/dclock.c:288
+#: ../src/plugins/dclock.c:290
 msgid "Action"
 msgstr "Ação"
 
-#: ../src/plugins/dclock.c:289
+#: ../src/plugins/dclock.c:291
 msgid "Bold font"
 msgstr "Negrito"
 
-#: ../src/plugins/dclock.c:324
+#: ../src/plugins/dclock.c:326
 msgid "Digital Clock"
 msgstr "Relógio Digital"
 
-#: ../src/plugins/dclock.c:326
+#: ../src/plugins/dclock.c:328
 msgid "Display Digital clock and Tooltip"
 msgstr "Mostra o relógio digital"
 
-#: ../src/plugins/menu.c:595
+#: ../src/plugins/menu.c:193
+#, fuzzy
+msgid "Add to desktop panel"
+msgstr "Adicionar plug-in ao painel"
+
+#: ../src/plugins/menu.c:195
+msgid "Add to desktop"
+msgstr ""
+
+#: ../src/plugins/menu.c:199
+#, fuzzy
+msgid "Properties"
+msgstr "<b>Propriedades</b>"
+
+#: ../src/plugins/menu.c:809
+#, fuzzy
+msgid "Icon"
+msgstr "Ikony"
+
+#: ../src/plugins/menu.c:820
 msgid "Menu"
 msgstr "Menu"
 
-#: ../src/plugins/menu.c:597
+#: ../src/plugins/menu.c:822
 msgid "Provide Menu"
 msgstr "Menu"
 
@@ -557,10 +540,6 @@ msgstr "Separador"
 msgid "Add a separator to the panel"
 msgstr "Adicionar separador ao painel"
 
-#: ../src/plugins/image.c:177
-msgid "Dispaly Image and Tooltip"
-msgstr "Mostrar Imagem e Informações"
-
 #: ../src/plugins/pager.c:709
 msgid "Desktop Pager"
 msgstr "Paginador da Área de Trabalho"
@@ -569,173 +548,218 @@ msgstr "Paginador da Área de Trabalho"
 msgid "Simple pager plugin"
 msgstr "Mostra o plug-in paginador"
 
-#: ../src/plugins/space.c:137
-#: ../src/plugins/batt/batt.c:824
+#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:891
 msgid "Size"
 msgstr "Tamanho"
 
-#: ../src/plugins/space.c:152
+#: ../src/plugins/space.c:153
 msgid "<Space>"
 msgstr "<Espaço>"
 
-#: ../src/plugins/space.c:154
+#: ../src/plugins/space.c:155
 msgid "Allocate space"
 msgstr "Espaçamento reservado"
 
-#: ../src/plugins/wincmd.c:255
+#: ../src/plugins/wincmd.c:256
 msgid "Left click to iconify all windows. Middle click to shade them"
-msgstr "Clique com o botão esquerdo reduz a ícones todas as janelas. Clique com o botão do meio enrola as janelas."
+msgstr ""
+"Clique com o botão esquerdo reduz a ícones todas as janelas. Clique com o "
+"botão do meio enrola as janelas."
 
-#: ../src/plugins/wincmd.c:284
+#: ../src/plugins/wincmd.c:285
 msgid "Minimize All Windows"
 msgstr "Minimizar Todas as Janelas"
 
-#: ../src/plugins/wincmd.c:286
+#: ../src/plugins/wincmd.c:287
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commnds are 1)toggle iconify and 2) toggle shade"
-msgstr "Mostra um ícone que se pressionado minimiza todas as janelas e mostra a área de trabalho"
+msgstr ""
+"Mostra um ícone que se pressionado minimiza todas as janelas e mostra a área "
+"de trabalho"
 
-#: ../src/plugins/dirmenu.c:210
+#: ../src/plugins/dirmenu.c:214
 msgid "Open in _Terminal"
 msgstr "Abrir no _Terminal"
 
-#: ../src/plugins/dirmenu.c:371
+#: ../src/plugins/dirmenu.c:380
 msgid "Directory Menu"
 msgstr "Menu Diretório"
 
-#: ../src/plugins/dirmenu.c:373
+#: ../src/plugins/dirmenu.c:382
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "Mostrar menu de navegação em diretórios"
 
+#: ../src/plugins/thermal/thermal.c:299
+msgid "Normal"
+msgstr ""
+
+#: ../src/plugins/thermal/thermal.c:300
+#, fuzzy
+msgid "Warning1"
+msgstr "carregada"
+
+#: ../src/plugins/thermal/thermal.c:301
+#, fuzzy
+msgid "Warning2"
+msgstr "carregada"
+
+#: ../src/plugins/thermal/thermal.c:302
+msgid "Automatic sensor location"
+msgstr ""
+
+#: ../src/plugins/thermal/thermal.c:303
+#, fuzzy
+msgid "Sensor"
+msgstr "Restaurar"
+
+#: ../src/plugins/thermal/thermal.c:304
+msgid "Automatic temperature levels"
+msgstr ""
+
+#: ../src/plugins/thermal/thermal.c:305
+msgid "Warning1 Temperatur"
+msgstr ""
+
+#: ../src/plugins/thermal/thermal.c:306
+msgid "Warning2 Temperatur"
+msgstr ""
+
+#: ../src/plugins/thermal/thermal.c:348
+#, fuzzy
+msgid "Temperature Monitor"
+msgstr "Monitor de Status da Internet"
+
+#: ../src/plugins/thermal/thermal.c:350
+msgid "Display system temperature, by kesler.daniel@gmail.com"
+msgstr ""
+
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
-#: ../src/plugins/volume/volume.c:153
-#: ../src/plugins/volumealsa/volumealsa.c:300
+#: ../src/plugins/volume/volume.c:305
+#: ../src/plugins/volumealsa/volumealsa.c:408
 msgid "Volume control"
 msgstr "Controle de volume"
 
-#: ../src/plugins/volume/volume.c:165
-#: ../src/plugins/volumealsa/volumealsa.c:314
+#: ../src/plugins/volume/volume.c:317
+#: ../src/plugins/volumealsa/volumealsa.c:422
 msgid "Volume Control"
 msgstr "Controle de Volume"
 
 #. create frame
-#: ../src/plugins/volume/volume-impl.c:107
-#: ../src/plugins/volumealsa/volumealsa.c:200
+#: ../src/plugins/volume/volume-impl.c:109
+#: ../src/plugins/volumealsa/volumealsa.c:310
 msgid "Volume"
 msgstr "Volume"
 
-#: ../src/plugins/volumealsa/volumealsa.c:216
+#: ../src/plugins/volumealsa/volumealsa.c:327
 msgid "Mute"
 msgstr "Mudo"
 
-#: ../src/plugins/netstat/netstat.c:144
+#: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
 msgstr "<Ponto de Acesso Escondido>"
 
-#: ../src/plugins/netstat/netstat.c:177
+#: ../src/plugins/netstat/netstat.c:201
 msgid "Wireless Networks not found in range"
 msgstr "Redes Wireless não foram encontradas na faixa"
 
 #. Repair
-#: ../src/plugins/netstat/netstat.c:213
+#: ../src/plugins/netstat/netstat.c:235
 msgid "Repair"
 msgstr "Reparar"
 
 #. interface down
-#: ../src/plugins/netstat/netstat.c:218
+#: ../src/plugins/netstat/netstat.c:240
 msgid "Disable"
 msgstr "Desativar"
 
-#: ../src/plugins/netstat/netstat.c:276
+#: ../src/plugins/netstat/netstat.c:299
+#, fuzzy
+msgid "Wireless Connection has no connectivity"
+msgstr "Conexão limitada ou não há conectividade"
+
+#: ../src/plugins/netstat/netstat.c:301
 msgid "Network cable is plugged out"
 msgstr "Cabo da Rede está desplugado"
 
-#: ../src/plugins/netstat/netstat.c:278
+#: ../src/plugins/netstat/netstat.c:303
 msgid "Connection has limited or no connectivity"
 msgstr "Conexão limitada ou não há conectividade"
 
-#: ../src/plugins/netstat/netstat.c:282
-#: ../src/plugins/netstat/netstat.c:293
-#: ../src/plugins/netstat/netstat.c:304
+#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "Endereço de IP:"
 
-#: ../src/plugins/netstat/netstat.c:283
+#: ../src/plugins/netstat/netstat.c:308
 msgid "Remote IP:"
 msgstr "IP Remoto:"
 
-#: ../src/plugins/netstat/netstat.c:284
-#: ../src/plugins/netstat/netstat.c:295
-#: ../src/plugins/netstat/netstat.c:306
+#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "Máscara de rede:"
 
-#: ../src/plugins/netstat/netstat.c:285
-#: ../src/plugins/netstat/netstat.c:297
-#: ../src/plugins/netstat/netstat.c:308
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "Atividade"
 
-#: ../src/plugins/netstat/netstat.c:285
-#: ../src/plugins/netstat/netstat.c:297
-#: ../src/plugins/netstat/netstat.c:308
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "Enviado"
 
-#: ../src/plugins/netstat/netstat.c:285
-#: ../src/plugins/netstat/netstat.c:297
-#: ../src/plugins/netstat/netstat.c:308
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "Recebido"
 
-#: ../src/plugins/netstat/netstat.c:286
-#: ../src/plugins/netstat/netstat.c:298
-#: ../src/plugins/netstat/netstat.c:309
+#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "bytes"
 
-#: ../src/plugins/netstat/netstat.c:287
-#: ../src/plugins/netstat/netstat.c:299
-#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "pacotes"
 
-#: ../src/plugins/netstat/netstat.c:290
+#: ../src/plugins/netstat/netstat.c:315
 msgid "Wireless"
 msgstr "Wireless"
 
-#: ../src/plugins/netstat/netstat.c:292
+#: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
 msgstr "Protocolo:"
 
-#: ../src/plugins/netstat/netstat.c:294
-#: ../src/plugins/netstat/netstat.c:305
-msgid "Boradcast:"
+#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
+#, fuzzy
+msgid "Broadcast:"
 msgstr "Transmissão:"
 
-#: ../src/plugins/netstat/netstat.c:296
-#: ../src/plugins/netstat/netstat.c:307
+#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "Endereço HW:"
 
-#: ../src/plugins/netstat/netstat.c:446
-#: ../src/plugins/netstatus/netstatus.c:181
-msgid "Net Status Monitor"
-msgstr "Monitor de Status da Internet"
+#: ../src/plugins/netstat/netstat.c:471
+#, fuzzy
+msgid "Manage Networks"
+msgstr "Rede"
 
-#: ../src/plugins/netstat/netstat.c:448
-#: ../src/plugins/netstatus/netstatus.c:183
-msgid "Monitor network status"
+#: ../src/plugins/netstat/netstat.c:473
+#, fuzzy
+msgid "Monitor and Manage networks"
 msgstr "Mostra o Status da Internet"
 
 #. create dialog
-#: ../src/plugins/netstat/passwd_gui.c:97
+#: ../src/plugins/netstat/passwd_gui.c:84
 msgid "Setting Encryption Key"
 msgstr "Configurar Chave de Encriptação"
 
 #. messages
-#: ../src/plugins/netstat/passwd_gui.c:107
+#: ../src/plugins/netstat/passwd_gui.c:94
 msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
@@ -743,7 +767,7 @@ msgstr ""
 "Esta rede wireless é encriptada.\n"
 "Você precisa ter a chave de encriptação."
 
-#: ../src/plugins/netstat/passwd_gui.c:112
+#: ../src/plugins/netstat/passwd_gui.c:99
 msgid "Encryption Key:"
 msgstr "Chave de Encriptação:"
 
@@ -754,6 +778,14 @@ msgstr "Interface para o monitor"
 #: ../src/plugins/netstatus/netstatus.c:164
 msgid "Config tool"
 msgstr "Ferramenta de configurações"
+
+#: ../src/plugins/netstatus/netstatus.c:181
+msgid "Net Status Monitor"
+msgstr "Monitor de Status da Internet"
+
+#: ../src/plugins/netstatus/netstatus.c:183
+msgid "Monitor network status"
+msgstr "Mostra o Status da Internet"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:52
 #: ../src/plugins/netstatus/netstatus-dialog.c:311
@@ -917,141 +949,198 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../src/plugins/batt/batt.c:330
+#: ../src/plugins/batt/batt.c:385
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
 msgstr "Bateria: %d%% carregada, %d:%02d completamente"
 
-#: ../src/plugins/batt/batt.c:339
+#: ../src/plugins/batt/batt.c:394
 #, c-format
 msgid "Battery: %d%% charged, %s"
 msgstr "Bateria: %d%% carregada, %s"
 
-#: ../src/plugins/batt/batt.c:341
+#: ../src/plugins/batt/batt.c:396
 msgid "charging finished"
 msgstr "carregamento finalizado"
 
-#: ../src/plugins/batt/batt.c:341
-msgid "not charging"
-msgstr "não carregado"
-
-#: ../src/plugins/batt/batt.c:341
+#: ../src/plugins/batt/batt.c:396
 msgid "charging"
 msgstr "carregada"
 
-#: ../src/plugins/batt/batt.c:348
+#: ../src/plugins/batt/batt.c:401
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr "Bateria: %d%% carregada, %d:%02d esquerda"
 
-#: ../src/plugins/batt/batt.c:355
+#: ../src/plugins/batt/batt.c:407
 #, c-format
 msgid "Battery: %d%% charged"
 msgstr "Bateria: %d%% carregada"
 
-#: ../src/plugins/batt/batt.c:394
+#: ../src/plugins/batt/batt.c:455
 #, c-format
 msgid "No batteries found"
 msgstr "Baterias não encontradas"
 
-#: ../src/plugins/batt/batt.c:814
+#: ../src/plugins/batt/batt.c:881
 msgid "Hide if there is no battery"
 msgstr "Esconder se não houver bateria"
 
-#: ../src/plugins/batt/batt.c:816
+#: ../src/plugins/batt/batt.c:883
 msgid "Alarm command"
 msgstr "Comando de alarme"
 
-#: ../src/plugins/batt/batt.c:817
+#: ../src/plugins/batt/batt.c:884
 msgid "Alarm time (minutes left)"
 msgstr "Tempo de alarme (minutos restantes)"
 
-#: ../src/plugins/batt/batt.c:818
+#: ../src/plugins/batt/batt.c:885
 msgid "Background color"
 msgstr "Cor de plano de fundo"
 
-#: ../src/plugins/batt/batt.c:819
+#: ../src/plugins/batt/batt.c:886
 msgid "Charging color 1"
 msgstr "Carregando cor 1"
 
-#: ../src/plugins/batt/batt.c:820
+#: ../src/plugins/batt/batt.c:887
 msgid "Charging color 2"
 msgstr "Carregando cor 2"
 
-#: ../src/plugins/batt/batt.c:821
+#: ../src/plugins/batt/batt.c:888
 msgid "Discharging color 1"
 msgstr "Descarregando cor 1"
 
-#: ../src/plugins/batt/batt.c:822
+#: ../src/plugins/batt/batt.c:889
 msgid "Discharging color 2"
 msgstr "Descarregando cor 2"
 
-#: ../src/plugins/batt/batt.c:823
+#: ../src/plugins/batt/batt.c:890
 msgid "Border width"
 msgstr "Largura da borda"
 
-#: ../src/plugins/batt/batt.c:858
+#: ../src/plugins/batt/batt.c:921
 msgid "Battery Monitor"
 msgstr "Monitor de Bateria"
 
-#: ../src/plugins/batt/batt.c:860
+#: ../src/plugins/batt/batt.c:923
 msgid "Display battery status using ACPI"
 msgstr "Mostra o status da bateria utilizando ACPI"
 
-#: ../src/plugins/kbled/kbled.c:208
+#: ../src/plugins/kbled/kbled.c:281
+msgid "Show CapsLock"
+msgstr ""
+
+#: ../src/plugins/kbled/kbled.c:282
+msgid "Show NumLock"
+msgstr ""
+
+#: ../src/plugins/kbled/kbled.c:283
+msgid "Show ScrollLock"
+msgstr ""
+
+#: ../src/plugins/kbled/kbled.c:293
 msgid "Keyboard Led"
 msgstr "Luzes do Teclado"
 
-#: ../src/plugins/kbled/kbled.c:210
+#: ../src/plugins/kbled/kbled.c:295
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Indicadores para teclas CapsLock, NumLock, e ScrollLock"
 
+#~ msgid "Other"
+#~ msgstr "Outro"
+
+#~ msgid "Game"
+#~ msgstr "Jogos"
+
+#~ msgid "Education"
+#~ msgstr "Educação"
+
+#~ msgid "Development"
+#~ msgstr "Desenvolvimento"
+
+#~ msgid "Audio & Video"
+#~ msgstr "Multimídia"
+
+#~ msgid "Graphics"
+#~ msgstr "Gráficos"
+
+#~ msgid "Settings"
+#~ msgstr "Configurações"
+
+#~ msgid "System Tools"
+#~ msgstr "Sistema"
+
+#~ msgid "Office"
+#~ msgstr "Escritório"
+
+#~ msgid "Accessories"
+#~ msgstr "Utilidades"
+
+#~ msgid "Dispaly Image and Tooltip"
+#~ msgstr "Mostrar Imagem e Informações"
+
+#~ msgid "not charging"
+#~ msgstr "não carregado"
+
 #~ msgid "Applications"
 #~ msgstr "Programas"
+
 #~ msgid "dynamic"
 #~ msgstr "dinâmico"
+
 #~ msgid "pixels"
 #~ msgstr "pixels"
+
 #~ msgid "% of edge"
 #~ msgstr "% da tela"
 
 #, fuzzy
 #~ msgid "Select a background image file"
 #~ msgstr "Selelecione uma imagem para plano de fundo"
+
 #~ msgid "Appearance"
 #~ msgstr "Aparência"
+
 #~ msgid "Plugins"
 #~ msgstr "Plugins"
+
 #~ msgid "Center"
 #~ msgstr "Centro"
 
 #, fuzzy
 #~ msgid "Logout Command"
 #~ msgstr "Comando de Saída:"
+
 #~ msgid "lxpanel configurator"
 #~ msgstr "configurações do lxpanel"
 
 #, fuzzy
 #~ msgid "Background"
 #~ msgstr "Cor de plano de fundo"
+
 #~ msgid "Update interval (seconds)"
 #~ msgstr "Intervalo de atualização (segundos)"
+
 #~ msgid "Set Strut"
 #~ msgstr "Ustaw belkę"
+
 #~ msgid "<b>Transparency</b>"
 #~ msgstr "<b>Priesvitnosť</b>"
+
 #~ msgid "Set Dock Type"
 #~ msgstr "Dokk típus beállítása"
-#~ msgid "Icons"
-#~ msgstr "Ikony"
+
 #~ msgid "Change window icons"
 #~ msgstr "Zmeniť ikony okna"
+
 #~ msgid "_Add"
 #~ msgstr "新增(_A)"
+
 #~ msgid "_Remove"
 #~ msgstr "移除(_R)"
+
 #~ msgid "Right-click to get context menu. Drag & Drop to change order."
 #~ msgstr "可以按右鍵使用選單，用拖曳改變順序"
+
 #~ msgid "Plugins..."
 #~ msgstr "外掛..."
-

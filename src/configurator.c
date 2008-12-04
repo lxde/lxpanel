@@ -1089,6 +1089,35 @@ static void on_toggle_changed( GtkToggleButton* btn, gpointer user_data )
     notify_apply_config( GTK_WIDGET(btn) );
 }
 
+static void on_file_chooser_btn_file_set(GtkFileChooser* btn, char** val)
+{
+    g_free( *val );
+    *val = gtk_file_chooser_get_filename(btn);
+    notify_apply_config( GTK_WIDGET(btn) );
+}
+
+static void on_browse_btn_clicked(GtkButton* btn, GtkEntry* entry)
+{
+    char* file;
+    GtkWidget* fc = gtk_file_chooser_dialog_new(_("Select a file"),
+                                        (GtkWindow*)g_object_get_data(btn, "dlg"),
+                                        GTK_FILE_CHOOSER_ACTION_OPEN,
+                                        GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+                                        GTK_STOCK_OK, GTK_RESPONSE_OK,
+                                        NULL);
+    gtk_dialog_set_alternative_button_order(fc, GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
+    file = (char*)gtk_entry_get_text(entry);
+    if( file && *file )
+        gtk_file_chooser_set_filename(fc, file );
+    if( gtk_dialog_run(fc) == GTK_RESPONSE_OK )
+    {
+        file = gtk_file_chooser_get_filename(fc);
+        gtk_entry_set_text(entry, file);
+        g_free(file);
+    }
+    gtk_widget_destroy(fc);
+}
+
 void generic_config_dlg_save(Panel *panel)
 {
     panel_config_save(panel);
@@ -1101,14 +1130,10 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
 {
     va_list args;
     Panel* p = ((Plugin*)plugin)->panel;
-    GtkWidget* dlg = gtk_dialog_new_with_buttons( title, GTK_WINDOW(parent), 0,
+    GtkWidget* dlg = gtk_dialog_new_with_buttons( title, NULL, 0,
                                                   GTK_STOCK_CLOSE,
                                                   GTK_RESPONSE_CLOSE,
                                                   NULL );
-
-    /* fix background */
-//    if (p->background)
-//        gtk_widget_set_style(dlg, p->defstyle);
 
     /* this is a dirty hack.  We need to check if this response is GTK_RESPONSE_CLOSE or not. */
     g_signal_connect( dlg, "response", G_CALLBACK(gtk_widget_destroy), NULL );
@@ -1129,14 +1154,15 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
         GType type = va_arg( args, GType );
         switch( type )
         {
-            case G_TYPE_STRING:
+            case CONF_TYPE_STR:
+            case CONF_TYPE_FILE_ENTRY: /* entry with a button to browse for files. */
                 entry = gtk_entry_new();
                 if( *(char**)val )
                     gtk_entry_set_text( GTK_ENTRY(entry), *(char**)val );
                 g_signal_connect( entry, "changed",
                   G_CALLBACK(on_entry_changed), val );
                 break;
-            case G_TYPE_INT:
+            case CONF_TYPE_INT:
             {
                 /* FIXME: the range shouldn't be hardcoded */
                 entry = gtk_spin_button_new_with_range( 0, 1000, 1 );
@@ -1145,17 +1171,23 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
                   G_CALLBACK(on_spin_changed), val );
                 break;
             }
-            case G_TYPE_BOOLEAN:
+            case CONF_TYPE_BOOL:
                 entry = gtk_check_button_new();
                 gtk_container_add( GTK_CONTAINER(entry), label );
                 gtk_toggle_button_set_active( GTK_TOGGLE_BUTTON(entry), *(gboolean*)val );
                 g_signal_connect( entry, "toggled",
                   G_CALLBACK(on_toggle_changed), val );
                 break;
+            case CONF_TYPE_FILE:
+                entry = gtk_file_chooser_button_new(_("Select a file"), GTK_FILE_CHOOSER_ACTION_OPEN);
+                if( *(char**)val )
+                    gtk_file_chooser_set_filename( GTK_FILE_CHOOSER(entry), *(char**)val );
+                g_signal_connect( entry, "file-set",
+                  G_CALLBACK(on_file_chooser_btn_file_set), val );
         }
         if( entry )
         {
-            if( type == G_TYPE_BOOLEAN )
+            if( type == CONF_TYPE_BOOL )
                 gtk_box_pack_start( GTK_BOX(GTK_DIALOG(dlg)->vbox), entry, FALSE, FALSE, 2 );
             else
             {
@@ -1163,6 +1195,13 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
                 gtk_box_pack_start( GTK_BOX(hbox), label, FALSE, FALSE, 2 );
                 gtk_box_pack_start( GTK_BOX(hbox), entry, TRUE, TRUE, 2 );
                 gtk_box_pack_start( GTK_BOX(GTK_DIALOG(dlg)->vbox), hbox, FALSE, FALSE, 2 );
+                if( type == CONF_TYPE_FILE_ENTRY )
+                {
+                    GtkWidget* browse = gtk_button_new_with_mnemonic(_("_Browse"));
+                    gtk_box_pack_start( GTK_BOX(hbox), browse, TRUE, TRUE, 2 );
+                    g_object_set_data(browse, "dlg", dlg);
+                    g_signal_connect( browse, "clicked", G_CALLBACK(on_browse_btn_clicked), entry );
+                }
             }
         }
         name = va_arg( args, const char* );

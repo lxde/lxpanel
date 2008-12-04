@@ -15,7 +15,6 @@ src/systray/tray.c
 src/plugins/cpu/cpu.c
 src/plugins/deskno/deskno.c
 src/plugins/launchbar.c
-src/plugins/ptk-app-menu.c
 src/plugins/taskbar.c
 src/plugins/dclock.c
 src/plugins/menu.c
@@ -24,6 +23,7 @@ src/plugins/pager.c
 src/plugins/space.c
 src/plugins/wincmd.c
 src/plugins/dirmenu.c
+src/plugins/thermal/thermal.c
 
 src/plugins/volume/volume.c
 src/plugins/volume/volume-impl.c

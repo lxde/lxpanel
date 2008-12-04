@@ -28,6 +28,14 @@
 #include "panel.h"
 #include "plugin.h"
 
+enum {
+    CONF_TYPE_STR,
+    CONF_TYPE_INT,
+    CONF_TYPE_BOOL,
+    CONF_TYPE_FILE,
+    CONF_TYPE_FILE_ENTRY
+};
+
 enum { LINE_NONE, LINE_BLOCK_START, LINE_BLOCK_END, LINE_VAR };
 
 typedef struct {
@@ -119,5 +127,7 @@ char* get_config_file( const char* profile, const char* file_name, gboolean is_g
 extern GtkMenu* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean use_sub_menu );
 
 extern GdkPixbuf* lxpanel_load_icon( const char* name, int size, gboolean use_fallback );
+
+void fb_button_set_from_file(GtkWidget* btn, const char* img_file);
 
 #endif

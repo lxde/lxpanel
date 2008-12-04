@@ -878,17 +878,17 @@ static void config(Plugin *p, GtkWindow* parent) {
             GTK_WIDGET(parent),
             (GSourceFunc) applyConfig, (gpointer) p,
 #if 0
-            _("Hide if there is no battery"), &b->hide_if_no_battery, G_TYPE_BOOLEAN,
+            _("Hide if there is no battery"), &b->hide_if_no_battery, CONF_TYPE_BOOL,
 #endif
-            _("Alarm command"), &b->alarmCommand, G_TYPE_STRING,
-            _("Alarm time (minutes left)"), &b->alarmTime, G_TYPE_INT,
-            _("Background color"), &b->backgroundColor, G_TYPE_STRING,
-            _("Charging color 1"), &b->chargingColor1, G_TYPE_STRING,
-            _("Charging color 2"), &b->chargingColor2, G_TYPE_STRING,
-            _("Discharging color 1"), &b->dischargingColor1, G_TYPE_STRING,
-            _("Discharging color 2"), &b->dischargingColor2, G_TYPE_STRING,
-            _("Border width"), &b->requestedBorder, G_TYPE_INT,
-            _("Size"), &b->thickness, G_TYPE_INT,
+            _("Alarm command"), &b->alarmCommand, CONF_TYPE_STR,
+            _("Alarm time (minutes left)"), &b->alarmTime, CONF_TYPE_INT,
+            _("Background color"), &b->backgroundColor, CONF_TYPE_STR,
+            _("Charging color 1"), &b->chargingColor1, CONF_TYPE_STR,
+            _("Charging color 2"), &b->chargingColor2, CONF_TYPE_STR,
+            _("Discharging color 1"), &b->dischargingColor1, CONF_TYPE_STR,
+            _("Discharging color 2"), &b->dischargingColor2, CONF_TYPE_STR,
+            _("Border width"), &b->requestedBorder, CONF_TYPE_INT,
+            _("Size"), &b->thickness, CONF_TYPE_INT,
             NULL);
     gtk_window_present(GTK_WINDOW(dialog));
 
@@ -897,9 +897,6 @@ static void config(Plugin *p, GtkWindow* parent) {
 
 
 static void save(Plugin* p, FILE* fp) {
-
-    ENTER;
-
     batt *b = (batt *) p->priv;
     char l_char=(char)b->hide_if_no_battery;
 
@@ -913,8 +910,6 @@ static void save(Plugin* p, FILE* fp) {
     lxpanel_put_str(fp, "DischargingColor1", b->dischargingColor1);
     lxpanel_put_str(fp, "DischargingColor2", b->dischargingColor2);
     lxpanel_put_int(fp, "Size", b->thickness);
-
-    RET();
 }
 
 

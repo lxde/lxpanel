@@ -296,14 +296,14 @@ static void config(Plugin *p, GtkWindow* parent) {
     dialog = create_generic_config_dlg(_(p->class->name),
             GTK_WIDGET(parent),
             (GSourceFunc) applyConfig, (gpointer) p,
-            _("Normal"), &th->str_cl_normal, G_TYPE_STRING,
-            _("Warning1"), &th->str_cl_warning1, G_TYPE_STRING,
-            _("Warning2"), &th->str_cl_warning2, G_TYPE_STRING,
-            _("Automatic sensor location"), &th->auto_sensor, G_TYPE_BOOLEAN,
-            _("Sensor"), &th->sensor, G_TYPE_STRING,
-            _("Automatic temperature levels"), &th->custom_levels, G_TYPE_BOOLEAN,
-            _("Warning1 Temperatur"), &th->warning1, G_TYPE_INT,
-            _("Warning2 Temperatur"), &th->warning2, G_TYPE_INT,
+            _("Normal"), &th->str_cl_normal, CONF_TYPE_STR,
+            _("Warning1"), &th->str_cl_warning1, CONF_TYPE_STR,
+            _("Warning2"), &th->str_cl_warning2, CONF_TYPE_STR,
+            _("Automatic sensor location"), &th->auto_sensor, CONF_TYPE_BOOL,
+            _("Sensor"), &th->sensor, CONF_TYPE_STR,
+            _("Automatic temperature levels"), &th->custom_levels, CONF_TYPE_BOOL,
+            _("Warning1 Temperatur"), &th->warning1, CONF_TYPE_INT,
+            _("Warning2 Temperatur"), &th->warning2, CONF_TYPE_INT,
             NULL);
     gtk_window_present(GTK_WINDOW(dialog));
 

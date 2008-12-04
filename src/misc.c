@@ -1006,7 +1006,31 @@ static void on_theme_changed(GtkIconTheme* theme, GtkWidget* img)
     ImgData* data = (ImgData*)g_object_get_qdata( G_OBJECT(img), img_data_id );
     /* g_debug("reload icon: %s", data->fname); */
     _gtk_image_set_from_file_scaled(img, data->fname,
-                    img->allocation.width, img->allocation.height, data->keep_ratio );
+                    data->dw, data->dh, data->keep_ratio );
+}
+
+void fb_button_set_from_file(GtkWidget* btn, const char* img_file)
+{
+    GtkWidget* child = gtk_bin_get_child(btn);
+    GtkWidget* img = NULL;
+
+    if( GTK_IS_IMAGE(child) )
+        img = child;
+    else if( GTK_IS_BOX(child) )
+    {
+        GList* children = gtk_container_get_children(child);
+        img = GTK_IMAGE(children->data);
+        g_list_free( children );
+    }
+
+    if(G_LIKELY(img))
+    {
+        ImgData* data = (ImgData*)g_object_get_qdata( G_OBJECT(img), img_data_id );
+        g_free(data->fname);
+        data->fname = g_strdup(img_file);
+        _gtk_image_set_from_file_scaled(img, data->fname,
+                        data->dw, data->dh, data->keep_ratio );
+    }
 }
 
 /* FIXME: currently, the size of those images cannot be changed dynamically */
