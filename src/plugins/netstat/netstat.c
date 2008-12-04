@@ -302,7 +302,7 @@ static void refresh_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
             } else if (!ptr->info.connected)
                 tooltip = g_strdup_printf("%s\n  %s", ptr->info.ifname, _("Connection has limited or no connectivity"));
             else if (ptr->info.flags & IFF_POINTOPOINT)
-                tooltip = g_strdup_printf("%s\n  %s\t%s\n  %s\t%s\n  %s\t%s\n\n %s(%s/%s)\n   %d/%d %s\n   %d/%d %s",
+                tooltip = g_strdup_printf("%s\n  %s\t%s\n  %s\t%s\n  %s\t%s\n\n %s(%s/%s)\n   %lu/%lu %s\n   %lu/%lu %s",
                                                                  ptr->info.ifname,
                                                                 _("IP Address:"), ptr->info.ipaddr,
                                                                 _("Remote IP:"), ptr->info.dest,
@@ -311,7 +311,7 @@ static void refresh_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
                                                                 ptr->info.trans_bytes, ptr->info.recv_bytes, _("bytes"),
                                                                 ptr->info.trans_packets, ptr->info.recv_packets, _("packets"));
             else if (ptr->info.wireless)
-                tooltip = g_strdup_printf("%s(%s) - %s(%d%%)\n  %s\t%s\n  %s\t%s\n  %s\t%s\n  %s\t%s\n  %s\t%s\n\n %s(%s/%s)\n   %d/%d %s\n   %d/%d %s",
+                tooltip = g_strdup_printf("%s(%s) - %s(%d%%)\n  %s\t%s\n  %s\t%s\n  %s\t%s\n  %s\t%s\n  %s\t%s\n\n %s(%s/%s)\n   %lu/%lu %s\n   %lu/%lu %s",
                                                                 ptr->info.ifname, _("Wireless"),
                                                                 ptr->info.essid, ptr->info.quality,
                                                                 _("Protocol:"), ptr->info.protocol,
@@ -324,7 +324,7 @@ static void refresh_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
                                                                 ptr->info.trans_packets, ptr->info.recv_packets, _("packets"));
 
             else
-                tooltip = g_strdup_printf("%s\n  %s\t%s\n  %s\t%s\n  %s\t%s\n  %s\t%s\n\n %s(%s/%s)\n   %d/%d %s\n   %d/%d %s",
+                tooltip = g_strdup_printf("%s\n  %s\t%s\n  %s\t%s\n  %s\t%s\n  %s\t%s\n\n %s(%s/%s)\n   %lu/%lu %s\n   %lu/%lu %s",
                                                                 ptr->info.ifname,
                                                                 _("IP Address:"), ptr->info.ipaddr,
                                                                 _("Broadcast:"), ptr->info.bcast,

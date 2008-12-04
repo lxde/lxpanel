@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-04 20:41+0800\n"
+"POT-Creation-Date: 2008-12-04 20:48+0800\n"
 "PO-Revision-Date: 2008-12-04 20:41+0800\n"
 "Last-Translator: \n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -159,8 +159,7 @@ msgid "Width:"
 msgstr "寬度："
 
 #. { "configure", N_("Preferences"), configure },
-#: ../src/configurator.c:53
-#: ../src/gtk-run.c:224
+#: ../src/configurator.c:53 ../src/gtk-run.c:224
 msgid "Run"
 msgstr "執行"
 
@@ -180,13 +179,11 @@ msgstr "目前載入的外掛"
 msgid "Stretch"
 msgstr "延展"
 
-#: ../src/configurator.c:514
-#: ../src/panel.c:516
+#: ../src/configurator.c:514 ../src/panel.c:516
 msgid "Add plugin to panel"
 msgstr "新增外掛到工作列"
 
-#: ../src/configurator.c:541
-#: ../src/panel.c:539
+#: ../src/configurator.c:541 ../src/panel.c:539
 msgid "Available plugins"
 msgstr "可選用的外掛"
 
@@ -194,8 +191,7 @@ msgstr "可選用的外掛"
 msgid "Logout command is not set"
 msgstr "登出指令尚未設定"
 
-#: ../src/configurator.c:1102
-#: ../src/configurator.c:1182
+#: ../src/configurator.c:1102 ../src/configurator.c:1182
 msgid "Select a file"
 msgstr "選擇一個檔案"
 
@@ -219,8 +215,7 @@ msgstr "上"
 msgid "Bottom"
 msgstr "下"
 
-#: ../src/panel.c:626
-#: ../src/panel.c:752
+#: ../src/panel.c:626 ../src/panel.c:752
 msgid "Create New Panel"
 msgstr "建立新工作列"
 
@@ -479,7 +474,9 @@ msgid "Task Bar (Window List)"
 msgstr "工作列 (視窗清單)"
 
 #: ../src/plugins/taskbar.c:1601
-msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
 msgstr "工作列顯示所有開啟的視窗，並讓能視窗最小化、折疊、或取得焦點"
 
 #: ../src/plugins/dclock.c:288
@@ -546,8 +543,7 @@ msgstr "切換桌面"
 msgid "Simple pager plugin"
 msgstr "簡易桌面切換外掛"
 
-#: ../src/plugins/space.c:138
-#: ../src/plugins/batt/batt.c:891
+#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:891
 msgid "Size"
 msgstr "大小"
 
@@ -678,8 +674,7 @@ msgstr "網路線已拔除"
 msgid "Connection has limited or no connectivity"
 msgstr "只能有限制的連線或無法連線"
 
-#: ../src/plugins/netstat/netstat.c:307
-#: ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "IP 位址："
@@ -688,38 +683,32 @@ msgstr "IP 位址："
 msgid "Remote IP:"
 msgstr "遠端 IP 位址："
 
-#: ../src/plugins/netstat/netstat.c:309
-#: ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "子網路遮罩："
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "活動"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "已傳送"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "已接收"
 
-#: ../src/plugins/netstat/netstat.c:311
-#: ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "位元組"
 
-#: ../src/plugins/netstat/netstat.c:312
-#: ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "封包"
@@ -732,14 +721,12 @@ msgstr "無線網路"
 msgid "Protocol:"
 msgstr "通訊協定："
 
-#: ../src/plugins/netstat/netstat.c:319
-#: ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
 msgid "Broadcast:"
 msgstr "廣播位址："
 
-#: ../src/plugins/netstat/netstat.c:321
-#: ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "實體位址："
 
@@ -1044,52 +1031,73 @@ msgstr "顯示 CapsLock、NumLock、及 ScrollLock 鍵的狀態"
 
 #~ msgid "Other"
 #~ msgstr "其他"
+
 #~ msgid "Game"
 #~ msgstr "遊戲"
+
 #~ msgid "Education"
 #~ msgstr "教育"
+
 #~ msgid "Development"
 #~ msgstr "軟體開發"
+
 #~ msgid "Audio & Video"
 #~ msgstr "影音多媒體"
+
 #~ msgid "Graphics"
 #~ msgstr "繪圖"
+
 #~ msgid "Settings"
 #~ msgstr "設定"
+
 #~ msgid "System Tools"
 #~ msgstr "系統工具"
+
 #~ msgid "Office"
 #~ msgstr "辦公軟體"
+
 #~ msgid "Accessories"
 #~ msgstr "附屬應用程式"
+
 #~ msgid "Dispaly Image and Tooltip"
 #~ msgstr "顯示圖示及工具提示"
+
 #~ msgid "not charging"
 #~ msgstr "未充電"
+
 #~ msgid "Applications"
 #~ msgstr "應用程式"
+
 #~ msgid "dynamic"
 #~ msgstr "動態"
+
 #~ msgid "pixels"
 #~ msgstr "像素 (pixels)"
+
 #~ msgid "% of edge"
 #~ msgstr "% 百分比"
+
 #~ msgid "Select a background image file"
 #~ msgstr "選擇背景圖片"
+
 #~ msgid "Appearance"
 #~ msgstr "外觀"
+
 #~ msgid "Plugins"
 #~ msgstr "外掛"
+
 #~ msgid "Center"
 #~ msgstr "置中"
 
 #, fuzzy
 #~ msgid "Logout Command"
 #~ msgstr "登出指令："
+
 #~ msgid "lxpanel configurator"
 #~ msgstr "lxpanel 偏好設定"
+
 #~ msgid "Background"
 #~ msgstr "背景"
+
 #~ msgid "Update interval (seconds)"
 #~ msgstr "更新頻率 (秒)"
-
