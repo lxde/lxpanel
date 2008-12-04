@@ -108,11 +108,15 @@ static MenuCacheApp* match_app_by_exec(const char* exec)
             ret = match_app_by_exec(target);
             if( ! ret )
             {
+                /* FIXME: Actually, target could be relative paths.
+                 *        So, actually path resolution is needed here. */
                 char* basename = g_path_get_basename(target);
                 char* locate = g_find_program_in_path(basename);
-                if( strcmp(locate, target) == 0 )
+                if( locate && strcmp(locate, target) == 0 )
+                {
                     ret = match_app_by_exec(basename);
-                g_free(locate);
+                    g_free(locate);
+                }
                 g_free(basename);
             }
         }
