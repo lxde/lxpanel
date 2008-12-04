@@ -96,6 +96,28 @@ static MenuCacheApp* match_app_by_exec(const char* exec)
             }
         }
     }
+
+    /* if this is a symlink */
+    if( ! ret && g_file_test(exec_path, G_FILE_TEST_IS_SYMLINK) )
+    {
+        char target[512]; /* FIXME: is this enough? */
+        len = readlink( exec_path, target, sizeof(target) - 1);
+        if( len > 0 )
+        {
+            target[len] = '\0';
+            ret = match_app_by_exec(target);
+            if( ! ret )
+            {
+                char* basename = g_path_get_basename(target);
+                char* locate = g_find_program_in_path(basename);
+                if( strcmp(locate, target) == 0 )
+                    ret = match_app_by_exec(basename);
+                g_free(locate);
+                g_free(basename);
+            }
+        }
+    }
+    
     g_free(exec_path);
     return ret;
 }
