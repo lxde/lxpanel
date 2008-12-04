@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-04 20:48+0800\n"
-"PO-Revision-Date: 2008-12-03 20:50+0200\n"
+"POT-Creation-Date: 2008-12-04 15:30+0200\n"
+"PO-Revision-Date: 2008-12-04 15:32+0200\n"
 "Last-Translator: Elias Julkunen <elias.julkunen@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -159,7 +159,8 @@ msgid "Width:"
 msgstr "Leveys:"
 
 #. { "configure", N_("Preferences"), configure },
-#: ../src/configurator.c:53 ../src/gtk-run.c:224
+#: ../src/configurator.c:53
+#: ../src/gtk-run.c:246
 msgid "Run"
 msgstr "Suorita"
 
@@ -179,11 +180,13 @@ msgstr "Käytössä olevat liitännäiset"
 msgid "Stretch"
 msgstr "Venytä"
 
-#: ../src/configurator.c:514 ../src/panel.c:516
+#: ../src/configurator.c:514
+#: ../src/panel.c:516
 msgid "Add plugin to panel"
 msgstr "Lisää liitännäinen paneeliin"
 
-#: ../src/configurator.c:541 ../src/panel.c:539
+#: ../src/configurator.c:541
+#: ../src/panel.c:539
 msgid "Available plugins"
 msgstr "Käytettävissä olevat liitännäiset"
 
@@ -191,14 +194,14 @@ msgstr "Käytettävissä olevat liitännäiset"
 msgid "Logout command is not set"
 msgstr "Uloskirjautumisen komentoa ei ole asetettu"
 
-#: ../src/configurator.c:1102 ../src/configurator.c:1182
-#, fuzzy
+#: ../src/configurator.c:1102
+#: ../src/configurator.c:1182
 msgid "Select a file"
-msgstr "Valitse kuvatiedosto"
+msgstr "Valitse tiedosto"
 
 #: ../src/configurator.c:1200
 msgid "_Browse"
-msgstr ""
+msgstr "_Selaa"
 
 #: ../src/panel.c:624
 msgid "Left"
@@ -216,7 +219,8 @@ msgstr "Ylhäällä"
 msgid "Bottom"
 msgstr "Alhaalla"
 
-#: ../src/panel.c:626 ../src/panel.c:752
+#: ../src/panel.c:626
+#: ../src/panel.c:752
 msgid "Create New Panel"
 msgstr "Luo uusi paneeli"
 
@@ -285,9 +289,7 @@ msgstr "--version   -- näyttää versionumeron ja poistuu\n"
 #: ../src/panel.c:1259
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <numero> -- asettaa lokin tasoksi 0-5. 0 = ei mitään, 5 = "
-"lavertelija\n"
+msgstr " --log <numero> -- asettaa lokin tasoksi 0-5. 0 = ei mitään, 5 = lavertelija\n"
 
 #: ../src/panel.c:1260
 #, c-format
@@ -330,7 +332,7 @@ msgstr ""
 "Vieraile sivustolla http://lxde.org/ lisätietoja varten.\n"
 "\n"
 
-#: ../src/gtk-run.c:238
+#: ../src/gtk-run.c:260
 msgid "Enter the command you want to execute:"
 msgstr "Syötä suoritettava komento:"
 
@@ -477,12 +479,8 @@ msgid "Task Bar (Window List)"
 msgstr "Tehtäväpalkki (ikkunalista)"
 
 #: ../src/plugins/taskbar.c:1601
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
-msgstr ""
-"Tehtäväpalkki näyttää kaikki avoinna olevat ikkunat ja sallii niiden "
-"pienentämisen, piilottamisen ja aktivoimisen."
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr "Tehtäväpalkki näyttää kaikki avoinna olevat ikkunat ja sallii niiden pienentämisen, piilottamisen ja aktivoimisen."
 
 #: ../src/plugins/dclock.c:288
 msgid "Clock Format"
@@ -548,7 +546,8 @@ msgstr "Työtilan vaihtaja"
 msgid "Simple pager plugin"
 msgstr "Yksinkertainen työtilan vaihtaja"
 
-#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:891
+#: ../src/plugins/space.c:138
+#: ../src/plugins/batt/batt.c:891
 msgid "Size"
 msgstr "Koko"
 
@@ -562,9 +561,7 @@ msgstr "Varaa tyhjää tilaa"
 
 #: ../src/plugins/wincmd.c:256
 msgid "Left click to iconify all windows. Middle click to shade them"
-msgstr ""
-"Napsauta hiiren vasemmalla napilla pienentääksesi ikkunat, keskinapilla "
-"piilottaaksesi ne"
+msgstr "Napsauta hiiren vasemmalla napilla pienentääksesi ikkunat, keskinapilla piilottaaksesi ne"
 
 #: ../src/plugins/wincmd.c:285
 msgid "Minimize All Windows"
@@ -592,47 +589,43 @@ msgstr "Selaa hakemistopuuta valikon kautta (tekijä: PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:299
 msgid "Normal"
-msgstr ""
+msgstr "Normaali"
 
 #: ../src/plugins/thermal/thermal.c:300
-#, fuzzy
 msgid "Warning1"
-msgstr "ladataan"
+msgstr "Varoitus1"
 
 #: ../src/plugins/thermal/thermal.c:301
-#, fuzzy
 msgid "Warning2"
-msgstr "ladataan"
+msgstr "Varoitus2"
 
 #: ../src/plugins/thermal/thermal.c:302
 msgid "Automatic sensor location"
-msgstr ""
+msgstr "Automaattinen sensorin sijainti"
 
 #: ../src/plugins/thermal/thermal.c:303
-#, fuzzy
 msgid "Sensor"
-msgstr "Palauta"
+msgstr "Sensori"
 
 #: ../src/plugins/thermal/thermal.c:304
 msgid "Automatic temperature levels"
-msgstr ""
+msgstr "Automaattiset lämpötilan tasot"
 
 #: ../src/plugins/thermal/thermal.c:305
 msgid "Warning1 Temperatur"
-msgstr ""
+msgstr "Varoitus1 lämpötila"
 
 #: ../src/plugins/thermal/thermal.c:306
 msgid "Warning2 Temperatur"
-msgstr ""
+msgstr "Varoitus2 lämpötila"
 
 #: ../src/plugins/thermal/thermal.c:348
-#, fuzzy
 msgid "Temperature Monitor"
-msgstr "Verkon tilan valvoja"
+msgstr "Lämpötilan näyttäjä"
 
 #: ../src/plugins/thermal/thermal.c:350
 msgid "Display system temperature, by kesler.daniel@gmail.com"
-msgstr ""
+msgstr "Näyttää järjestelmän lämpötilan. Tekijä: kesler.daniel@gmail.com"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #: ../src/plugins/volume/volume.c:305
@@ -685,7 +678,8 @@ msgstr "Verkkojohto on irrotettu."
 msgid "Connection has limited or no connectivity"
 msgstr "Yhteyttä on rajoitettu tai yhteyttä ei ole"
 
-#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307
+#: ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "IP-osoite:"
@@ -694,32 +688,38 @@ msgstr "IP-osoite:"
 msgid "Remote IP:"
 msgstr "Etä-IP:"
 
-#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309
+#: ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "Verkon peite:"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "Aktiivisuus"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "Lähetetty"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "Vastaanotettu"
 
-#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311
+#: ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "tavua"
 
-#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312
+#: ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "pakettia"
@@ -732,12 +732,14 @@ msgstr "Langaton"
 msgid "Protocol:"
 msgstr "Yhteyskäytäntö"
 
-#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstat/netstat.c:319
+#: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
 msgid "Broadcast:"
 msgstr "Lähetys:"
 
-#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321
+#: ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "HW-osoite"
 
@@ -1043,27 +1045,20 @@ msgstr "CapsLock-, NumLock- ja ScrollLock-näppäinten ilmaisin"
 
 #~ msgid "Other"
 #~ msgstr "Muut"
-
 #~ msgid "Game"
 #~ msgstr "Pelit"
-
 #~ msgid "Development"
 #~ msgstr "Kehitys"
-
 #~ msgid "Audio & Video"
 #~ msgstr "Ääni & video"
-
 #~ msgid "Graphics"
 #~ msgstr "Grafiikka"
-
 #~ msgid "Settings"
 #~ msgstr "Asetukset"
-
 #~ msgid "System Tools"
 #~ msgstr "Järjestelmätyökalut"
-
 #~ msgid "Office"
 #~ msgstr "Toimisto"
-
 #~ msgid "Accessories"
 #~ msgstr "Apuohjelmat"
+
