@@ -282,16 +282,25 @@ static void on_add_menu_item_to_panel(GtkMenuItem* item, MenuCacheApp* app)
 
 static void on_menu_item_properties(GtkMenuItem* item, MenuCacheApp* app)
 {
-    char* file = g_build_filename(menu_cache_app_get_file_dirname(app),
+    /* FIXME: if the source desktop is in AppDir other then default
+     * applications dirs, where should we store the user-specific file?
+    */
+    char* ifile = g_build_filename(menu_cache_app_get_file_dirname(app),
+                                  menu_cache_item_get_id(app), NULL);
+    char* ofile = g_build_filename(g_get_user_data_dir(), "applications",
                                   menu_cache_item_get_id(app), NULL);
     char** argv[] = {
         "lxshortcut",
         "-i",
         NULL,
+        "-o",
+        NULL,
         NULL};
-    argv[2] = file;
+    argv[2] = ifile;
+    argv[4] = ofile;
     g_spawn_async( NULL, argv, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, NULL );
-    g_free( file );
+    g_free( ifile );
+    g_free( ofile );
 }
 
 /* This following function restore_grabs is taken from menu.c of
