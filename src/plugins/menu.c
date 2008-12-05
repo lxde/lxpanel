@@ -235,6 +235,7 @@ static void on_add_menu_item_to_desktop(GtkMenuItem* item, MenuCacheApp* app)
     g_free(dest);
 }
 
+/* TODO: add menu item to panel */
 static void on_add_menu_item_to_panel(GtkMenuItem* item, MenuCacheApp* app)
 {
     /* Find a penel containing launchbar applet.
@@ -356,11 +357,11 @@ static gboolean on_menu_button_press(GtkWidget* mi, GdkEventButton* evt, MenuCac
         char* tmp;
         GtkWidget* item;
         GtkMenu* p = gtk_menu_new();
-
+/*
         item = gtk_menu_item_new_with_label(_("Add to desktop panel"));
         g_signal_connect(item, "activate", G_CALLBACK(on_add_menu_item_to_panel), data);
         gtk_menu_shell_append(p, item);
-
+*/
         item = gtk_menu_item_new_with_label(_("Add to desktop"));
         g_signal_connect(item, "activate", G_CALLBACK(on_add_menu_item_to_desktop), data);
         gtk_menu_shell_append(p, item);
