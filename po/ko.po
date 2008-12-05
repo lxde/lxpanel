@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-04 20:48+0800\n"
+"POT-Creation-Date: 2008-12-05 17:16+0800\n"
 "PO-Revision-Date: 2006-11-27 00:13+0800\n"
 "Last-Translator: 洪任諭 <pcman.tw@gmail.com>\n"
 "Language-Team: GNOME Korean Team <gnome-kr-hackers@lists.kldp.net>\n"
@@ -16,180 +16,153 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../data/ui/panel-pref.glade.h:1
+#: ../data/ui/panel-pref.ui.h:1
+#, fuzzy
 msgid "<b>Background</b>"
-msgstr ""
+msgstr "<b>자리</b>"
 
-#: ../data/ui/panel-pref.glade.h:2
+#: ../data/ui/panel-pref.ui.h:2
 #, fuzzy
 msgid "<b>Font</b>"
 msgstr "<b>자리</b>"
 
-#: ../data/ui/panel-pref.glade.h:3
+#: ../data/ui/panel-pref.ui.h:3
 msgid "<b>Position</b>"
 msgstr "<b>자리</b>"
 
-#: ../data/ui/panel-pref.glade.h:4
+#: ../data/ui/panel-pref.ui.h:4
 msgid "<b>Properties</b>"
 msgstr "<b>속성</b>"
 
-#: ../data/ui/panel-pref.glade.h:5
+#: ../data/ui/panel-pref.ui.h:5
 msgid "<b>Set Preferred Applications</b>"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:6
+#: ../data/ui/panel-pref.ui.h:6
 msgid "<b>Size</b>"
 msgstr "<b>크기</b>"
 
-#: ../data/ui/panel-pref.glade.h:7
+#: ../data/ui/panel-pref.ui.h:7
 msgid "Advanced"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:8
+#: ../data/ui/panel-pref.ui.h:8
 msgid "Alignment:"
 msgstr "배치:"
 
-#: ../data/ui/panel-pref.glade.h:9
+#: ../data/ui/panel-pref.ui.h:9
 msgid "Custom Color"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:11
-#, no-c-format
-msgid ""
-"Dynamic\n"
-"Pixels\n"
-"% Percent"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:14
+#: ../data/ui/panel-pref.ui.h:10
 msgid "Edge:"
 msgstr "자리:"
 
-#: ../data/ui/panel-pref.glade.h:15
+#: ../data/ui/panel-pref.ui.h:11
 msgid "Enable Image:"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:16
+#: ../data/ui/panel-pref.ui.h:12
 msgid "Enable Transparency"
 msgstr "투명하게"
 
-#: ../data/ui/panel-pref.glade.h:17
+#: ../data/ui/panel-pref.ui.h:13
 msgid "File Manager:"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:18
+#: ../data/ui/panel-pref.ui.h:14
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr "일반"
 
-#: ../data/ui/panel-pref.glade.h:19
+#: ../data/ui/panel-pref.ui.h:15
 msgid "Height:"
 msgstr "높이:"
 
-#: ../data/ui/panel-pref.glade.h:20
-msgid ""
-"Left\n"
-"Center\n"
-"Right"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:23
-msgid ""
-"Left\n"
-"Right\n"
-"Top\n"
-"Bottom"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:27
+#: ../data/ui/panel-pref.ui.h:16
 msgid "Logout Command:"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:28
+#: ../data/ui/panel-pref.ui.h:17
 msgid "Make window managers treat the panel as dock"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:29
+#: ../data/ui/panel-pref.ui.h:18
 msgid "Margin:"
 msgstr "띄우기:"
 
-#: ../data/ui/panel-pref.glade.h:30
+#: ../data/ui/panel-pref.ui.h:19
 msgid "None (Use system theme)"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:31
+#: ../data/ui/panel-pref.ui.h:20
 #, fuzzy
 msgid "Panel Applets"
 msgstr "설정"
 
-#: ../data/ui/panel-pref.glade.h:32
+#: ../data/ui/panel-pref.ui.h:21
 #, fuzzy
 msgid "Panel Preferences"
 msgstr "속성"
 
-#: ../data/ui/panel-pref.glade.h:33
-#, fuzzy
-msgid "Pixels"
-msgstr "픽셀"
-
-#: ../data/ui/panel-pref.glade.h:34
+#: ../data/ui/panel-pref.ui.h:22
 msgid "Reserve space, and not covered by maximized windows"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:35
+#: ../data/ui/panel-pref.ui.h:23
 msgid "Select an image file"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:36
+#: ../data/ui/panel-pref.ui.h:24
 msgid "Terminal Emulator:"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:37
+#: ../data/ui/panel-pref.ui.h:25
 msgid "Tint color:"
 msgstr "색조:"
 
-#: ../data/ui/panel-pref.glade.h:38
+#: ../data/ui/panel-pref.ui.h:26
 msgid "Width:"
 msgstr "너비"
 
 #. { "configure", N_("Preferences"), configure },
-#: ../src/configurator.c:53 ../src/gtk-run.c:224
+#: ../src/configurator.c:51 ../src/gtk-run.c:250
 msgid "Run"
 msgstr "실행"
 
-#: ../src/configurator.c:54
+#: ../src/configurator.c:52
 msgid "Restart"
 msgstr "다시 시작"
 
-#: ../src/configurator.c:55
+#: ../src/configurator.c:53
 msgid "Logout"
 msgstr ""
 
-#: ../src/configurator.c:407
+#: ../src/configurator.c:399
 msgid "Currently loaded plugins"
 msgstr "지금 쓰는 플러그인"
 
-#: ../src/configurator.c:416
+#: ../src/configurator.c:408
 msgid "Stretch"
 msgstr ""
 
-#: ../src/configurator.c:514 ../src/panel.c:516
+#: ../src/configurator.c:506 ../src/panel.c:516
 msgid "Add plugin to panel"
 msgstr ""
 
-#: ../src/configurator.c:541 ../src/panel.c:539
+#: ../src/configurator.c:533 ../src/panel.c:539
 msgid "Available plugins"
 msgstr ""
 
-#: ../src/configurator.c:1053
+#: ../src/configurator.c:1047
 msgid "Logout command is not set"
 msgstr ""
 
-#: ../src/configurator.c:1102 ../src/configurator.c:1182
+#: ../src/configurator.c:1096 ../src/configurator.c:1176
 msgid "Select a file"
 msgstr ""
 
-#: ../src/configurator.c:1200
+#: ../src/configurator.c:1194
 msgid "_Browse"
 msgstr ""
 
@@ -254,64 +227,64 @@ msgstr ""
 msgid "\"%s\" Settings"
 msgstr "설정"
 
-#: ../src/panel.c:1255
+#: ../src/panel.c:1244
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - GTK2+를 쓴 유닉스 환경의 가벼운 패널\n"
 
-#: ../src/panel.c:1256
+#: ../src/panel.c:1245
 #, c-format
 msgid "Command line options:\n"
 msgstr "명령줄 옵션:\n"
 
-#: ../src/panel.c:1257
+#: ../src/panel.c:1246
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- 도움말이 나오고 끝납니다\n"
 
-#: ../src/panel.c:1258
+#: ../src/panel.c:1247
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- 버전이 나오고 끝납니다\n"
 
-#: ../src/panel.c:1259
+#: ../src/panel.c:1248
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 " --log <숫자>   -- 기록 수준을 0부터 5까지 정합니다. 0은 조용하고 5는 수다쟁"
 "이\n"
 
-#: ../src/panel.c:1260
+#: ../src/panel.c:1249
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- 설정창을 띄웁니다\n"
 
-#: ../src/panel.c:1261
+#: ../src/panel.c:1250
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile 이름 -- 지정한 프로파일을 씁니다\n"
 
-#: ../src/panel.c:1263
+#: ../src/panel.c:1252
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- --help와 같습니다\n"
 
-#: ../src/panel.c:1264
+#: ../src/panel.c:1253
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- --profile과 같습니다\n"
 
-#: ../src/panel.c:1265
+#: ../src/panel.c:1254
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- --version과 같습니다\n"
 
-#: ../src/panel.c:1266
+#: ../src/panel.c:1255
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- --configure와 같습니다\n"
 
-#: ../src/panel.c:1267
+#: ../src/panel.c:1256
 #, fuzzy, c-format
 msgid ""
 "\n"
@@ -322,7 +295,7 @@ msgstr ""
 "자세한 문서는 http://lxpanel.sourceforge.net/ 에 들러주세요,\n"
 "\n"
 
-#: ../src/gtk-run.c:238
+#: ../src/gtk-run.c:264
 msgid "Enter the command you want to execute:"
 msgstr "실행할 명령을 입력하세요:"
 
@@ -350,11 +323,11 @@ msgstr "데스크탑 번호 / 작업공간 이름"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "작업공간 번호를 표시합니다. cmeury@users.sf.net 제작"
 
-#: ../src/plugins/launchbar.c:135
+#: ../src/plugins/launchbar.c:143
 msgid "Add Button"
 msgstr ""
 
-#: ../src/plugins/launchbar.c:137
+#: ../src/plugins/launchbar.c:145
 #, fuzzy
 msgid "Button Properties"
 msgstr "연결 상태"
@@ -363,7 +336,7 @@ msgstr "연결 상태"
 #. title = g_strdup_printf( _("Remove \"%s\""), b-> );
 #. item = gtk_image_menu_item_new_with_label( _("Remove ") );
 #.
-#: ../src/plugins/launchbar.c:143
+#: ../src/plugins/launchbar.c:151
 #, fuzzy
 msgid "Remove Button"
 msgstr "빼기(_R)"
@@ -372,19 +345,19 @@ msgstr "빼기(_R)"
 #. 1. We can borrow the menu from menu plugin (PtkAppMenu).
 #. 2. We can borrow the app chooser from PCManFM.
 #.
-#: ../src/plugins/launchbar.c:499
+#: ../src/plugins/launchbar.c:503
 msgid "Select Application"
 msgstr ""
 
-#: ../src/plugins/launchbar.c:653
+#: ../src/plugins/launchbar.c:657
 msgid "Buttons"
 msgstr ""
 
-#: ../src/plugins/launchbar.c:770
+#: ../src/plugins/launchbar.c:774
 msgid "Application Launch Bar"
 msgstr "실행 막대"
 
-#: ../src/plugins/launchbar.c:772
+#: ../src/plugins/launchbar.c:776
 msgid "Bar with buttons to launch application"
 msgstr "응용 프로그램을 실행하는 버튼들입니다"
 
@@ -478,53 +451,53 @@ msgstr ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 
-#: ../src/plugins/dclock.c:288
+#: ../src/plugins/dclock.c:279
 msgid "Clock Format"
 msgstr "시계 형식"
 
-#: ../src/plugins/dclock.c:289
+#: ../src/plugins/dclock.c:280
 msgid "Tooltip Format"
 msgstr "툴팁 형식"
 
-#: ../src/plugins/dclock.c:290
+#: ../src/plugins/dclock.c:281
 msgid "Action"
 msgstr "명령"
 
-#: ../src/plugins/dclock.c:291
+#: ../src/plugins/dclock.c:282
 msgid "Bold font"
 msgstr ""
 
-#: ../src/plugins/dclock.c:326
+#: ../src/plugins/dclock.c:317
 msgid "Digital Clock"
 msgstr "숫자 시계"
 
-#: ../src/plugins/dclock.c:328
+#: ../src/plugins/dclock.c:319
 msgid "Display Digital clock and Tooltip"
 msgstr "숫자 시계와 툴팁을 보여줍니다"
 
-#: ../src/plugins/menu.c:193
+#: ../src/plugins/menu.c:360
 msgid "Add to desktop panel"
 msgstr ""
 
-#: ../src/plugins/menu.c:195
+#: ../src/plugins/menu.c:364
 msgid "Add to desktop"
 msgstr ""
 
-#: ../src/plugins/menu.c:199
+#: ../src/plugins/menu.c:374
 #, fuzzy
 msgid "Properties"
 msgstr "<b>속성</b>"
 
-#: ../src/plugins/menu.c:809
+#: ../src/plugins/menu.c:990
 #, fuzzy
 msgid "Icon"
 msgstr "아이콘"
 
-#: ../src/plugins/menu.c:820
+#: ../src/plugins/menu.c:1001
 msgid "Menu"
 msgstr "메뉴"
 
-#: ../src/plugins/menu.c:822
+#: ../src/plugins/menu.c:1003
 msgid "Provide Menu"
 msgstr ""
 
@@ -544,7 +517,7 @@ msgstr "pager"
 msgid "Simple pager plugin"
 msgstr "간단한 pager 플러그인"
 
-#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:891
+#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:889
 msgid "Size"
 msgstr "크기"
 
@@ -556,22 +529,22 @@ msgstr "사이 띄우기"
 msgid "Allocate space"
 msgstr ""
 
-#: ../src/plugins/wincmd.c:256
+#: ../src/plugins/wincmd.c:245
 msgid "Left click to iconify all windows. Middle click to shade them"
 msgstr ""
 "왼쪽 클릭으로 모든 창을 최소화하고, 가운데 클릭으로 모든 창을 말아올립니다"
 
-#: ../src/plugins/wincmd.c:285
+#: ../src/plugins/wincmd.c:274
 msgid "Minimize All Windows"
 msgstr "모든 창 최소화"
 
-#: ../src/plugins/wincmd.c:287
+#: ../src/plugins/wincmd.c:276
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commnds are 1)toggle iconify and 2) toggle shade"
 msgstr ""
 
-#: ../src/plugins/dirmenu.c:214
+#: ../src/plugins/dirmenu.c:215
 msgid "Open in _Terminal"
 msgstr ""
 
@@ -932,104 +905,108 @@ msgid ""
 "%s"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:385
+#: ../src/plugins/batt/batt.c:384
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:394
+#: ../src/plugins/batt/batt.c:393
 #, c-format
 msgid "Battery: %d%% charged, %s"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:396
+#: ../src/plugins/batt/batt.c:395
 msgid "charging finished"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:396
+#: ../src/plugins/batt/batt.c:395
 #, fuzzy
 msgid "charging"
 msgstr "띄우기:"
 
-#: ../src/plugins/batt/batt.c:401
+#: ../src/plugins/batt/batt.c:400
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:407
+#: ../src/plugins/batt/batt.c:406
 #, c-format
 msgid "Battery: %d%% charged"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:455
+#: ../src/plugins/batt/batt.c:454
 #, c-format
 msgid "No batteries found"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:881
+#: ../src/plugins/batt/batt.c:879
 msgid "Hide if there is no battery"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:883
+#: ../src/plugins/batt/batt.c:881
 msgid "Alarm command"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:884
+#: ../src/plugins/batt/batt.c:882
 msgid "Alarm time (minutes left)"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:885
+#: ../src/plugins/batt/batt.c:883
 msgid "Background color"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:886
+#: ../src/plugins/batt/batt.c:884
 msgid "Charging color 1"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:887
+#: ../src/plugins/batt/batt.c:885
 msgid "Charging color 2"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:888
+#: ../src/plugins/batt/batt.c:886
 msgid "Discharging color 1"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:889
+#: ../src/plugins/batt/batt.c:887
 msgid "Discharging color 2"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:890
+#: ../src/plugins/batt/batt.c:888
 msgid "Border width"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:921
+#: ../src/plugins/batt/batt.c:919
 #, fuzzy
 msgid "Battery Monitor"
 msgstr "CPU 사용 감시"
 
-#: ../src/plugins/batt/batt.c:923
+#: ../src/plugins/batt/batt.c:921
 msgid "Display battery status using ACPI"
 msgstr ""
 
-#: ../src/plugins/kbled/kbled.c:281
+#: ../src/plugins/kbled/kbled.c:277
 msgid "Show CapsLock"
 msgstr ""
 
-#: ../src/plugins/kbled/kbled.c:282
+#: ../src/plugins/kbled/kbled.c:278
 msgid "Show NumLock"
 msgstr ""
 
-#: ../src/plugins/kbled/kbled.c:283
+#: ../src/plugins/kbled/kbled.c:279
 msgid "Show ScrollLock"
 msgstr ""
 
-#: ../src/plugins/kbled/kbled.c:293
+#: ../src/plugins/kbled/kbled.c:289
 msgid "Keyboard Led"
 msgstr ""
 
-#: ../src/plugins/kbled/kbled.c:295
+#: ../src/plugins/kbled/kbled.c:291
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Pixels"
+#~ msgstr "픽셀"
 
 #~ msgid "Other"
 #~ msgstr "기타"

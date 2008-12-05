@@ -1,4 +1,5 @@
-data/ui/panel-pref.glade
+[encoding: UTF-8]
+[type: gettext/glade]data/ui/panel-pref.ui
 
 src/bg.c
 src/configurator.c

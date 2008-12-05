@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-04 20:48+0800\n"
+"POT-Creation-Date: 2008-12-05 17:16+0800\n"
 "PO-Revision-Date: 2007-09-17 01:25+0100\n"
 "Last-Translator: Ivan Masár <helix84@centrum.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -17,180 +17,153 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ../data/ui/panel-pref.glade.h:1
+#: ../data/ui/panel-pref.ui.h:1
+#, fuzzy
 msgid "<b>Background</b>"
-msgstr ""
+msgstr "<b>Poloha</b>"
 
-#: ../data/ui/panel-pref.glade.h:2
+#: ../data/ui/panel-pref.ui.h:2
 #, fuzzy
 msgid "<b>Font</b>"
 msgstr "<b>Poloha</b>"
 
-#: ../data/ui/panel-pref.glade.h:3
+#: ../data/ui/panel-pref.ui.h:3
 msgid "<b>Position</b>"
 msgstr "<b>Poloha</b>"
 
-#: ../data/ui/panel-pref.glade.h:4
+#: ../data/ui/panel-pref.ui.h:4
 msgid "<b>Properties</b>"
 msgstr "<b>Vlastnosti</b>"
 
-#: ../data/ui/panel-pref.glade.h:5
+#: ../data/ui/panel-pref.ui.h:5
 msgid "<b>Set Preferred Applications</b>"
 msgstr "<b>Nastaviť preferované aplikácie</b>"
 
-#: ../data/ui/panel-pref.glade.h:6
+#: ../data/ui/panel-pref.ui.h:6
 msgid "<b>Size</b>"
 msgstr "<b>Veľkosť</b>"
 
-#: ../data/ui/panel-pref.glade.h:7
+#: ../data/ui/panel-pref.ui.h:7
 msgid "Advanced"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:8
+#: ../data/ui/panel-pref.ui.h:8
 msgid "Alignment:"
 msgstr "Zarovnanie:"
 
-#: ../data/ui/panel-pref.glade.h:9
+#: ../data/ui/panel-pref.ui.h:9
 msgid "Custom Color"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:11
-#, no-c-format
-msgid ""
-"Dynamic\n"
-"Pixels\n"
-"% Percent"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:14
+#: ../data/ui/panel-pref.ui.h:10
 msgid "Edge:"
 msgstr "Okraj:"
 
-#: ../data/ui/panel-pref.glade.h:15
+#: ../data/ui/panel-pref.ui.h:11
 msgid "Enable Image:"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:16
+#: ../data/ui/panel-pref.ui.h:12
 msgid "Enable Transparency"
 msgstr "Zapnúť priesvitnosť"
 
-#: ../data/ui/panel-pref.glade.h:17
+#: ../data/ui/panel-pref.ui.h:13
 msgid "File Manager:"
 msgstr "Správca súborov:"
 
-#: ../data/ui/panel-pref.glade.h:18
+#: ../data/ui/panel-pref.ui.h:14
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr "Všeobecné"
 
-#: ../data/ui/panel-pref.glade.h:19
+#: ../data/ui/panel-pref.ui.h:15
 msgid "Height:"
 msgstr "Výška:"
 
-#: ../data/ui/panel-pref.glade.h:20
-msgid ""
-"Left\n"
-"Center\n"
-"Right"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:23
-msgid ""
-"Left\n"
-"Right\n"
-"Top\n"
-"Bottom"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:27
+#: ../data/ui/panel-pref.ui.h:16
 msgid "Logout Command:"
 msgstr "Príkaz na odhlásenie:"
 
-#: ../data/ui/panel-pref.glade.h:28
+#: ../data/ui/panel-pref.ui.h:17
 msgid "Make window managers treat the panel as dock"
 msgstr "Správcovia okien majú ukotvovať panel"
 
-#: ../data/ui/panel-pref.glade.h:29
+#: ../data/ui/panel-pref.ui.h:18
 msgid "Margin:"
 msgstr "Okraj:"
 
-#: ../data/ui/panel-pref.glade.h:30
+#: ../data/ui/panel-pref.ui.h:19
 msgid "None (Use system theme)"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:31
+#: ../data/ui/panel-pref.ui.h:20
 #, fuzzy
 msgid "Panel Applets"
 msgstr "Nastavenia"
 
-#: ../data/ui/panel-pref.glade.h:32
+#: ../data/ui/panel-pref.ui.h:21
 #, fuzzy
 msgid "Panel Preferences"
 msgstr "Nastavenia"
 
-#: ../data/ui/panel-pref.glade.h:33
-#, fuzzy
-msgid "Pixels"
-msgstr "pixely"
-
-#: ../data/ui/panel-pref.glade.h:34
+#: ../data/ui/panel-pref.ui.h:22
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Rezervovať miesto, nezakrývať maximalizovanými oknami"
 
-#: ../data/ui/panel-pref.glade.h:35
+#: ../data/ui/panel-pref.ui.h:23
 msgid "Select an image file"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:36
+#: ../data/ui/panel-pref.ui.h:24
 msgid "Terminal Emulator:"
 msgstr "Emulátor terminálu:"
 
-#: ../data/ui/panel-pref.glade.h:37
+#: ../data/ui/panel-pref.ui.h:25
 msgid "Tint color:"
 msgstr "Zafarbenie:"
 
-#: ../data/ui/panel-pref.glade.h:38
+#: ../data/ui/panel-pref.ui.h:26
 msgid "Width:"
 msgstr "Šírka:"
 
 #. { "configure", N_("Preferences"), configure },
-#: ../src/configurator.c:53 ../src/gtk-run.c:224
+#: ../src/configurator.c:51 ../src/gtk-run.c:250
 msgid "Run"
 msgstr "Spustiť"
 
-#: ../src/configurator.c:54
+#: ../src/configurator.c:52
 msgid "Restart"
 msgstr "Reštartovať"
 
-#: ../src/configurator.c:55
+#: ../src/configurator.c:53
 msgid "Logout"
 msgstr "Odhlásiť"
 
-#: ../src/configurator.c:407
+#: ../src/configurator.c:399
 msgid "Currently loaded plugins"
 msgstr "Momentálne načítané moduly"
 
-#: ../src/configurator.c:416
+#: ../src/configurator.c:408
 msgid "Stretch"
 msgstr ""
 
-#: ../src/configurator.c:514 ../src/panel.c:516
+#: ../src/configurator.c:506 ../src/panel.c:516
 msgid "Add plugin to panel"
 msgstr "Pridať modul do panela"
 
-#: ../src/configurator.c:541 ../src/panel.c:539
+#: ../src/configurator.c:533 ../src/panel.c:539
 msgid "Available plugins"
 msgstr "Dostupné moduly"
 
-#: ../src/configurator.c:1053
+#: ../src/configurator.c:1047
 msgid "Logout command is not set"
 msgstr "Príkaz na odhlásenie nie je nastavený"
 
-#: ../src/configurator.c:1102 ../src/configurator.c:1182
+#: ../src/configurator.c:1096 ../src/configurator.c:1176
 msgid "Select a file"
 msgstr ""
 
-#: ../src/configurator.c:1200
+#: ../src/configurator.c:1194
 msgid "_Browse"
 msgstr ""
 
@@ -257,62 +230,62 @@ msgstr ""
 msgid "\"%s\" Settings"
 msgstr "Nastavenia"
 
-#: ../src/panel.c:1255
+#: ../src/panel.c:1244
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - odľahčený GTK2+ panel pre unixové pracovné prostredia\n"
 
-#: ../src/panel.c:1256
+#: ../src/panel.c:1245
 #, c-format
 msgid "Command line options:\n"
 msgstr "Voľby príkazového riadka:\n"
 
-#: ../src/panel.c:1257
+#: ../src/panel.c:1246
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr ""
 
-#: ../src/panel.c:1258
+#: ../src/panel.c:1247
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr ""
 
-#: ../src/panel.c:1259
+#: ../src/panel.c:1248
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 
-#: ../src/panel.c:1260
+#: ../src/panel.c:1249
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr ""
 
-#: ../src/panel.c:1261
+#: ../src/panel.c:1250
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr ""
 
-#: ../src/panel.c:1263
+#: ../src/panel.c:1252
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr ""
 
-#: ../src/panel.c:1264
+#: ../src/panel.c:1253
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr ""
 
-#: ../src/panel.c:1265
+#: ../src/panel.c:1254
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr ""
 
-#: ../src/panel.c:1266
+#: ../src/panel.c:1255
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr ""
 
-#: ../src/panel.c:1267
+#: ../src/panel.c:1256
 #, fuzzy, c-format
 msgid ""
 "\n"
@@ -323,7 +296,7 @@ msgstr ""
 "Podrobnú dokumentáciu nájdete na http://lxpanel.sourceforge.net/,\n"
 "\n"
 
-#: ../src/gtk-run.c:238
+#: ../src/gtk-run.c:264
 msgid "Enter the command you want to execute:"
 msgstr "Zadajte príkaz, ktorý chcete vykonať:"
 
@@ -351,12 +324,12 @@ msgstr "Č. plochy / Názov plochy"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Zobrazenie čísla plochy, cmeury@users.sf.net"
 
-#: ../src/plugins/launchbar.c:135
+#: ../src/plugins/launchbar.c:143
 #, fuzzy
 msgid "Add Button"
 msgstr "Tlačidlá"
 
-#: ../src/plugins/launchbar.c:137
+#: ../src/plugins/launchbar.c:145
 msgid "Button Properties"
 msgstr ""
 
@@ -364,7 +337,7 @@ msgstr ""
 #. title = g_strdup_printf( _("Remove \"%s\""), b-> );
 #. item = gtk_image_menu_item_new_with_label( _("Remove ") );
 #.
-#: ../src/plugins/launchbar.c:143
+#: ../src/plugins/launchbar.c:151
 #, fuzzy
 msgid "Remove Button"
 msgstr "Tlačidlá"
@@ -373,19 +346,19 @@ msgstr "Tlačidlá"
 #. 1. We can borrow the menu from menu plugin (PtkAppMenu).
 #. 2. We can borrow the app chooser from PCManFM.
 #.
-#: ../src/plugins/launchbar.c:499
+#: ../src/plugins/launchbar.c:503
 msgid "Select Application"
 msgstr "Vybrať aplikáciu"
 
-#: ../src/plugins/launchbar.c:653
+#: ../src/plugins/launchbar.c:657
 msgid "Buttons"
 msgstr "Tlačidlá"
 
-#: ../src/plugins/launchbar.c:770
+#: ../src/plugins/launchbar.c:774
 msgid "Application Launch Bar"
 msgstr "Spúšťací panel"
 
-#: ../src/plugins/launchbar.c:772
+#: ../src/plugins/launchbar.c:776
 msgid "Bar with buttons to launch application"
 msgstr "Panel s tlačidlami pre spúšťanie aplikácií"
 
@@ -482,54 +455,54 @@ msgstr ""
 "Panel úloh zobrazuje všetky otvorené okná a umoňuje ich ikonifikovať, "
 "zatieniť alebo aktivovať"
 
-#: ../src/plugins/dclock.c:288
+#: ../src/plugins/dclock.c:279
 msgid "Clock Format"
 msgstr "Formát hodín"
 
-#: ../src/plugins/dclock.c:289
+#: ../src/plugins/dclock.c:280
 msgid "Tooltip Format"
 msgstr "Formát bublinových tipov"
 
-#: ../src/plugins/dclock.c:290
+#: ../src/plugins/dclock.c:281
 msgid "Action"
 msgstr "Činnosť"
 
-#: ../src/plugins/dclock.c:291
+#: ../src/plugins/dclock.c:282
 msgid "Bold font"
 msgstr ""
 
-#: ../src/plugins/dclock.c:326
+#: ../src/plugins/dclock.c:317
 msgid "Digital Clock"
 msgstr "Digitálne hodiny"
 
-#: ../src/plugins/dclock.c:328
+#: ../src/plugins/dclock.c:319
 msgid "Display Digital clock and Tooltip"
 msgstr "Zobraziť digitálne hodiny a bublinové tipy"
 
-#: ../src/plugins/menu.c:193
+#: ../src/plugins/menu.c:360
 #, fuzzy
 msgid "Add to desktop panel"
 msgstr "Pridať modul do panela"
 
-#: ../src/plugins/menu.c:195
+#: ../src/plugins/menu.c:364
 msgid "Add to desktop"
 msgstr ""
 
-#: ../src/plugins/menu.c:199
+#: ../src/plugins/menu.c:374
 #, fuzzy
 msgid "Properties"
 msgstr "<b>Vlastnosti</b>"
 
-#: ../src/plugins/menu.c:809
+#: ../src/plugins/menu.c:990
 #, fuzzy
 msgid "Icon"
 msgstr "Ikony"
 
-#: ../src/plugins/menu.c:820
+#: ../src/plugins/menu.c:1001
 msgid "Menu"
 msgstr "Ponuka"
 
-#: ../src/plugins/menu.c:822
+#: ../src/plugins/menu.c:1003
 msgid "Provide Menu"
 msgstr "Poskytnúť ponuku"
 
@@ -549,7 +522,7 @@ msgstr "Stránkovač plôch"
 msgid "Simple pager plugin"
 msgstr "Jednoduchý stránkovací modul"
 
-#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:891
+#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:889
 msgid "Size"
 msgstr "Veľkosť"
 
@@ -561,21 +534,21 @@ msgstr "<Miesto>"
 msgid "Allocate space"
 msgstr "Vyhradiť miesto"
 
-#: ../src/plugins/wincmd.c:256
+#: ../src/plugins/wincmd.c:245
 msgid "Left click to iconify all windows. Middle click to shade them"
 msgstr ""
 
-#: ../src/plugins/wincmd.c:285
+#: ../src/plugins/wincmd.c:274
 msgid "Minimize All Windows"
 msgstr ""
 
-#: ../src/plugins/wincmd.c:287
+#: ../src/plugins/wincmd.c:276
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commnds are 1)toggle iconify and 2) toggle shade"
 msgstr ""
 
-#: ../src/plugins/dirmenu.c:214
+#: ../src/plugins/dirmenu.c:215
 msgid "Open in _Terminal"
 msgstr ""
 
@@ -934,104 +907,108 @@ msgid ""
 "%s"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:385
+#: ../src/plugins/batt/batt.c:384
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:394
+#: ../src/plugins/batt/batt.c:393
 #, c-format
 msgid "Battery: %d%% charged, %s"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:396
+#: ../src/plugins/batt/batt.c:395
 msgid "charging finished"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:396
+#: ../src/plugins/batt/batt.c:395
 #, fuzzy
 msgid "charging"
 msgstr "Okraj:"
 
-#: ../src/plugins/batt/batt.c:401
+#: ../src/plugins/batt/batt.c:400
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:407
+#: ../src/plugins/batt/batt.c:406
 #, c-format
 msgid "Battery: %d%% charged"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:455
+#: ../src/plugins/batt/batt.c:454
 #, c-format
 msgid "No batteries found"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:881
+#: ../src/plugins/batt/batt.c:879
 msgid "Hide if there is no battery"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:883
+#: ../src/plugins/batt/batt.c:881
 msgid "Alarm command"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:884
+#: ../src/plugins/batt/batt.c:882
 msgid "Alarm time (minutes left)"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:885
+#: ../src/plugins/batt/batt.c:883
 msgid "Background color"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:886
+#: ../src/plugins/batt/batt.c:884
 msgid "Charging color 1"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:887
+#: ../src/plugins/batt/batt.c:885
 msgid "Charging color 2"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:888
+#: ../src/plugins/batt/batt.c:886
 msgid "Discharging color 1"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:889
+#: ../src/plugins/batt/batt.c:887
 msgid "Discharging color 2"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:890
+#: ../src/plugins/batt/batt.c:888
 msgid "Border width"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:921
+#: ../src/plugins/batt/batt.c:919
 #, fuzzy
 msgid "Battery Monitor"
 msgstr "Monitor využitia CPU"
 
-#: ../src/plugins/batt/batt.c:923
+#: ../src/plugins/batt/batt.c:921
 msgid "Display battery status using ACPI"
 msgstr ""
 
-#: ../src/plugins/kbled/kbled.c:281
+#: ../src/plugins/kbled/kbled.c:277
 msgid "Show CapsLock"
 msgstr ""
 
-#: ../src/plugins/kbled/kbled.c:282
+#: ../src/plugins/kbled/kbled.c:278
 msgid "Show NumLock"
 msgstr ""
 
-#: ../src/plugins/kbled/kbled.c:283
+#: ../src/plugins/kbled/kbled.c:279
 msgid "Show ScrollLock"
 msgstr ""
 
-#: ../src/plugins/kbled/kbled.c:293
+#: ../src/plugins/kbled/kbled.c:289
 msgid "Keyboard Led"
 msgstr ""
 
-#: ../src/plugins/kbled/kbled.c:295
+#: ../src/plugins/kbled/kbled.c:291
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Pixels"
+#~ msgstr "pixely"
 
 #~ msgid "Other"
 #~ msgstr "Iné"

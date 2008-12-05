@@ -238,7 +238,6 @@ static void transparency_toggle( GtkWidget *b, Panel* p)
         p->transparent = 1;
         p->background = 0;
         panel_update_background( p );
-        //restart();
     }
     RET();
 }
@@ -253,7 +252,6 @@ static void background_toggle( GtkWidget *b, Panel* p)
             p->background = 1;
             /* Update background immediately. */
             panel_update_background( p );
-            //restart();
         }
     }
 }

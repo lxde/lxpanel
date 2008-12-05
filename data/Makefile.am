@@ -20,6 +20,9 @@ ui_DATA = $(ui_in_files:.glade=.ui)
 	$(GTK_BUILDER_CONVERT) $< $@
 	$(top_builddir)/src/xml-purge $@
 
+CLEANFILES = \
+        $(ui_DATA)
+
 
 lxpanel_images_DATA = \
 	images/my-computer.png \

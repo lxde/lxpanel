@@ -1,6 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 
-SUBDIRS = src po data man
+SUBDIRS = src data po man
 
 EXTRA_DIST = \
 	autogen.sh \
