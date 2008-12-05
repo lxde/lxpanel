@@ -25,11 +25,10 @@ AC_SUBST(PACKAGE_CFLAGS)
 AC_SUBST(PACKAGE_LIBS)
 
 # Gtk Builder
-AC_PATH_PROG([GTK_BUILDER_CONVERT],[gtk-builder-convert],[false])
-if test "$GTK_BUILDER_CONVERT" = "false"; then
-  AC_MSG_ERROR([gtk-builder-convert not found])
-fi
-
+#AC_PATH_PROG([GTK_BUILDER_CONVERT],[gtk-builder-convert],[false])
+#if test "$GTK_BUILDER_CONVERT" = "false"; then
+#  AC_MSG_ERROR([gtk-builder-convert not found])
+#fi
 
 AC_ARG_ENABLE([cast-checks],
     AS_HELP_STRING([--enable-cast-checks],

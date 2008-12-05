@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-05 17:16+0800\n"
+"POT-Creation-Date: 2008-12-05 19:15+0800\n"
 "PO-Revision-Date: 2007-09-17 01:25+0100\n"
 "Last-Translator: Ivan Masár <helix84@centrum.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -17,112 +17,147 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ../data/ui/panel-pref.ui.h:1
+#: ../data/ui/panel-pref.ui.h:2
+#, no-c-format
+msgid "% Percent"
+msgstr ""
+
+#: ../data/ui/panel-pref.ui.h:3
 #, fuzzy
 msgid "<b>Background</b>"
 msgstr "<b>Poloha</b>"
 
-#: ../data/ui/panel-pref.ui.h:2
+#: ../data/ui/panel-pref.ui.h:4
 #, fuzzy
 msgid "<b>Font</b>"
 msgstr "<b>Poloha</b>"
 
-#: ../data/ui/panel-pref.ui.h:3
+#: ../data/ui/panel-pref.ui.h:5
 msgid "<b>Position</b>"
 msgstr "<b>Poloha</b>"
 
-#: ../data/ui/panel-pref.ui.h:4
+#: ../data/ui/panel-pref.ui.h:6
 msgid "<b>Properties</b>"
 msgstr "<b>Vlastnosti</b>"
 
-#: ../data/ui/panel-pref.ui.h:5
+#: ../data/ui/panel-pref.ui.h:7
 msgid "<b>Set Preferred Applications</b>"
 msgstr "<b>Nastaviť preferované aplikácie</b>"
 
-#: ../data/ui/panel-pref.ui.h:6
+#: ../data/ui/panel-pref.ui.h:8
 msgid "<b>Size</b>"
 msgstr "<b>Veľkosť</b>"
 
-#: ../data/ui/panel-pref.ui.h:7
+#: ../data/ui/panel-pref.ui.h:9
 msgid "Advanced"
 msgstr ""
 
-#: ../data/ui/panel-pref.ui.h:8
+#: ../data/ui/panel-pref.ui.h:10
 msgid "Alignment:"
 msgstr "Zarovnanie:"
 
-#: ../data/ui/panel-pref.ui.h:9
+#: ../data/ui/panel-pref.ui.h:11 ../src/panel.c:624
+msgid "Bottom"
+msgstr "Dolu"
+
+#: ../data/ui/panel-pref.ui.h:12
+msgid "Center"
+msgstr "Stred"
+
+#: ../data/ui/panel-pref.ui.h:13
 msgid "Custom Color"
 msgstr ""
 
-#: ../data/ui/panel-pref.ui.h:10
+#: ../data/ui/panel-pref.ui.h:14
+#, fuzzy
+msgid "Dynamic"
+msgstr "dynamická"
+
+#: ../data/ui/panel-pref.ui.h:15
 msgid "Edge:"
 msgstr "Okraj:"
 
-#: ../data/ui/panel-pref.ui.h:11
+#: ../data/ui/panel-pref.ui.h:16
 msgid "Enable Image:"
 msgstr ""
 
-#: ../data/ui/panel-pref.ui.h:12
+#: ../data/ui/panel-pref.ui.h:17
 msgid "Enable Transparency"
 msgstr "Zapnúť priesvitnosť"
 
-#: ../data/ui/panel-pref.ui.h:13
+#: ../data/ui/panel-pref.ui.h:18
 msgid "File Manager:"
 msgstr "Správca súborov:"
 
-#: ../data/ui/panel-pref.ui.h:14
+#: ../data/ui/panel-pref.ui.h:19
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr "Všeobecné"
 
-#: ../data/ui/panel-pref.ui.h:15
+#: ../data/ui/panel-pref.ui.h:20
 msgid "Height:"
 msgstr "Výška:"
 
-#: ../data/ui/panel-pref.ui.h:16
+#: ../data/ui/panel-pref.ui.h:21 ../src/panel.c:624
+msgid "Left"
+msgstr "Vľavo"
+
+#: ../data/ui/panel-pref.ui.h:22
 msgid "Logout Command:"
 msgstr "Príkaz na odhlásenie:"
 
-#: ../data/ui/panel-pref.ui.h:17
+#: ../data/ui/panel-pref.ui.h:23
 msgid "Make window managers treat the panel as dock"
 msgstr "Správcovia okien majú ukotvovať panel"
 
-#: ../data/ui/panel-pref.ui.h:18
+#: ../data/ui/panel-pref.ui.h:24
 msgid "Margin:"
 msgstr "Okraj:"
 
-#: ../data/ui/panel-pref.ui.h:19
+#: ../data/ui/panel-pref.ui.h:25
 msgid "None (Use system theme)"
 msgstr ""
 
-#: ../data/ui/panel-pref.ui.h:20
+#: ../data/ui/panel-pref.ui.h:26
 #, fuzzy
 msgid "Panel Applets"
 msgstr "Nastavenia"
 
-#: ../data/ui/panel-pref.ui.h:21
+#: ../data/ui/panel-pref.ui.h:27
 #, fuzzy
 msgid "Panel Preferences"
 msgstr "Nastavenia"
 
-#: ../data/ui/panel-pref.ui.h:22
+#: ../data/ui/panel-pref.ui.h:28
+#, fuzzy
+msgid "Pixels"
+msgstr "pixely"
+
+#: ../data/ui/panel-pref.ui.h:29
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Rezervovať miesto, nezakrývať maximalizovanými oknami"
 
-#: ../data/ui/panel-pref.ui.h:23
+#: ../data/ui/panel-pref.ui.h:30 ../src/panel.c:624
+msgid "Right"
+msgstr "Vpravo"
+
+#: ../data/ui/panel-pref.ui.h:31
 msgid "Select an image file"
 msgstr ""
 
-#: ../data/ui/panel-pref.ui.h:24
+#: ../data/ui/panel-pref.ui.h:32
 msgid "Terminal Emulator:"
 msgstr "Emulátor terminálu:"
 
-#: ../data/ui/panel-pref.ui.h:25
+#: ../data/ui/panel-pref.ui.h:33
 msgid "Tint color:"
 msgstr "Zafarbenie:"
 
-#: ../data/ui/panel-pref.ui.h:26
+#: ../data/ui/panel-pref.ui.h:34 ../src/panel.c:624
+msgid "Top"
+msgstr "Hore"
+
+#: ../data/ui/panel-pref.ui.h:35
 msgid "Width:"
 msgstr "Šírka:"
 
@@ -166,22 +201,6 @@ msgstr ""
 #: ../src/configurator.c:1194
 msgid "_Browse"
 msgstr ""
-
-#: ../src/panel.c:624
-msgid "Left"
-msgstr "Vľavo"
-
-#: ../src/panel.c:624
-msgid "Right"
-msgstr "Vpravo"
-
-#: ../src/panel.c:624
-msgid "Top"
-msgstr "Hore"
-
-#: ../src/panel.c:624
-msgid "Bottom"
-msgstr "Dolu"
 
 #: ../src/panel.c:626 ../src/panel.c:752
 msgid "Create New Panel"
@@ -1006,10 +1025,6 @@ msgstr ""
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr ""
 
-#, fuzzy
-#~ msgid "Pixels"
-#~ msgstr "pixely"
-
 #~ msgid "Other"
 #~ msgstr "Iné"
 
@@ -1046,9 +1061,6 @@ msgstr ""
 #~ msgid "Applications"
 #~ msgstr "Aplikácie"
 
-#~ msgid "dynamic"
-#~ msgstr "dynamická"
-
 #~ msgid "pixels"
 #~ msgstr "pixely"
 
@@ -1057,9 +1069,6 @@ msgstr ""
 
 #~ msgid "Plugins"
 #~ msgstr "Moduly"
-
-#~ msgid "Center"
-#~ msgstr "Stred"
 
 #, fuzzy
 #~ msgid "Logout Command"

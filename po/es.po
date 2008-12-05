@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel-0.3.5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-05 17:16+0800\n"
+"POT-Creation-Date: 2008-12-05 19:15+0800\n"
 "PO-Revision-Date: 2008-05-29 23:39-0500\n"
 "Last-Translator: Daniel Pacheco <daniel@tunki.org>\n"
 "Language-Team: Spanish <daniel@tunki.org>\n"
@@ -19,108 +19,142 @@ msgstr ""
 "X-Poedit-Country: PERU\n"
 "X-Poedit-Language: Spanish\n"
 
-#: ../data/ui/panel-pref.ui.h:1
+#: ../data/ui/panel-pref.ui.h:2
+#, no-c-format
+msgid "% Percent"
+msgstr ""
+
+#: ../data/ui/panel-pref.ui.h:3
 msgid "<b>Background</b>"
 msgstr "<b>Fondo</b>"
 
-#: ../data/ui/panel-pref.ui.h:2
+#: ../data/ui/panel-pref.ui.h:4
 msgid "<b>Font</b>"
 msgstr "<b>Fuente</b>"
 
-#: ../data/ui/panel-pref.ui.h:3
+#: ../data/ui/panel-pref.ui.h:5
 msgid "<b>Position</b>"
 msgstr "<b>Posición</b>"
 
-#: ../data/ui/panel-pref.ui.h:4
+#: ../data/ui/panel-pref.ui.h:6
 msgid "<b>Properties</b>"
 msgstr "<b>Propiedades</b>"
 
-#: ../data/ui/panel-pref.ui.h:5
+#: ../data/ui/panel-pref.ui.h:7
 msgid "<b>Set Preferred Applications</b>"
 msgstr "<b>Configurar aplicaciones preferidas</b>"
 
-#: ../data/ui/panel-pref.ui.h:6
+#: ../data/ui/panel-pref.ui.h:8
 msgid "<b>Size</b>"
 msgstr "<b>Tamaño</b>"
 
-#: ../data/ui/panel-pref.ui.h:7
+#: ../data/ui/panel-pref.ui.h:9
 msgid "Advanced"
 msgstr "Avanzado"
 
-#: ../data/ui/panel-pref.ui.h:8
+#: ../data/ui/panel-pref.ui.h:10
 msgid "Alignment:"
 msgstr "Alineación:"
 
-#: ../data/ui/panel-pref.ui.h:9
+#: ../data/ui/panel-pref.ui.h:11 ../src/panel.c:624
+msgid "Bottom"
+msgstr "Abajo"
+
+#: ../data/ui/panel-pref.ui.h:12
+#, fuzzy
+msgid "Center"
+msgstr "General"
+
+#: ../data/ui/panel-pref.ui.h:13
 msgid "Custom Color"
 msgstr "Color personalizado"
 
-#: ../data/ui/panel-pref.ui.h:10
+#: ../data/ui/panel-pref.ui.h:14
+msgid "Dynamic"
+msgstr ""
+
+#: ../data/ui/panel-pref.ui.h:15
 msgid "Edge:"
 msgstr "Ubicación:"
 
-#: ../data/ui/panel-pref.ui.h:11
+#: ../data/ui/panel-pref.ui.h:16
 msgid "Enable Image:"
 msgstr "Usar imagen:"
 
-#: ../data/ui/panel-pref.ui.h:12
+#: ../data/ui/panel-pref.ui.h:17
 msgid "Enable Transparency"
 msgstr "Usar transparencia"
 
-#: ../data/ui/panel-pref.ui.h:13
+#: ../data/ui/panel-pref.ui.h:18
 msgid "File Manager:"
 msgstr "Explorador de archivos:"
 
-#: ../data/ui/panel-pref.ui.h:14
+#: ../data/ui/panel-pref.ui.h:19
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr "General"
 
-#: ../data/ui/panel-pref.ui.h:15
+#: ../data/ui/panel-pref.ui.h:20
 msgid "Height:"
 msgstr "Altura:"
 
-#: ../data/ui/panel-pref.ui.h:16
+#: ../data/ui/panel-pref.ui.h:21 ../src/panel.c:624
+msgid "Left"
+msgstr "Izquierda"
+
+#: ../data/ui/panel-pref.ui.h:22
 msgid "Logout Command:"
 msgstr "Comando para salir:"
 
-#: ../data/ui/panel-pref.ui.h:17
+#: ../data/ui/panel-pref.ui.h:23
 msgid "Make window managers treat the panel as dock"
 msgstr "Permitir fijar el panel"
 
-#: ../data/ui/panel-pref.ui.h:18
+#: ../data/ui/panel-pref.ui.h:24
 msgid "Margin:"
 msgstr "Margen:"
 
-#: ../data/ui/panel-pref.ui.h:19
+#: ../data/ui/panel-pref.ui.h:25
 msgid "None (Use system theme)"
 msgstr "Ninguno (usar el tema del sistema)"
 
-#: ../data/ui/panel-pref.ui.h:20
+#: ../data/ui/panel-pref.ui.h:26
 msgid "Panel Applets"
 msgstr "Applets del panel"
 
-#: ../data/ui/panel-pref.ui.h:21
+#: ../data/ui/panel-pref.ui.h:27
 msgid "Panel Preferences"
 msgstr "Preferencias del panel"
 
-#: ../data/ui/panel-pref.ui.h:22
+#: ../data/ui/panel-pref.ui.h:28
+msgid "Pixels"
+msgstr ""
+
+#: ../data/ui/panel-pref.ui.h:29
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Reservar el espacio, no cubrir con ventanas maximizadas"
 
-#: ../data/ui/panel-pref.ui.h:23
+#: ../data/ui/panel-pref.ui.h:30 ../src/panel.c:624
+msgid "Right"
+msgstr "Derecha"
+
+#: ../data/ui/panel-pref.ui.h:31
 msgid "Select an image file"
 msgstr "Seleccionar una imagen"
 
-#: ../data/ui/panel-pref.ui.h:24
+#: ../data/ui/panel-pref.ui.h:32
 msgid "Terminal Emulator:"
 msgstr "Terminal:"
 
-#: ../data/ui/panel-pref.ui.h:25
+#: ../data/ui/panel-pref.ui.h:33
 msgid "Tint color:"
 msgstr "Tinte:"
 
-#: ../data/ui/panel-pref.ui.h:26
+#: ../data/ui/panel-pref.ui.h:34 ../src/panel.c:624
+msgid "Top"
+msgstr "Arriba"
+
+#: ../data/ui/panel-pref.ui.h:35
 msgid "Width:"
 msgstr "Ancho:"
 
@@ -165,22 +199,6 @@ msgstr "Seleccionar una imagen"
 #: ../src/configurator.c:1194
 msgid "_Browse"
 msgstr ""
-
-#: ../src/panel.c:624
-msgid "Left"
-msgstr "Izquierda"
-
-#: ../src/panel.c:624
-msgid "Right"
-msgstr "Derecha"
-
-#: ../src/panel.c:624
-msgid "Top"
-msgstr "Arriba"
-
-#: ../src/panel.c:624
-msgid "Bottom"
-msgstr "Abajo"
 
 #: ../src/panel.c:626 ../src/panel.c:752
 msgid "Create New Panel"

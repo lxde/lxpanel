@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-05 17:16+0800\n"
-"PO-Revision-Date: 2008-12-04 20:41+0800\n"
+"POT-Creation-Date: 2008-12-05 19:15+0800\n"
+"PO-Revision-Date: 2008-12-05 19:15+0800\n"
 "Last-Translator: \n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -16,113 +16,151 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=;\n"
 
-#: ../data/ui/panel-pref.ui.h:1
+#: ../data/ui/panel-pref.ui.h:2
+#, no-c-format
+msgid "% Percent"
+msgstr "% 百分比"
+
+#: ../data/ui/panel-pref.ui.h:3
 msgid "<b>Background</b>"
 msgstr "<b>背景</b>"
 
-#: ../data/ui/panel-pref.ui.h:2
+#: ../data/ui/panel-pref.ui.h:4
 msgid "<b>Font</b>"
 msgstr "<b>字型</b>"
 
-#: ../data/ui/panel-pref.ui.h:3
+#: ../data/ui/panel-pref.ui.h:5
 msgid "<b>Position</b>"
 msgstr "<b>位置</b>"
 
-#: ../data/ui/panel-pref.ui.h:4
+#: ../data/ui/panel-pref.ui.h:6
 msgid "<b>Properties</b>"
 msgstr "<b>屬性</b>"
 
-#: ../data/ui/panel-pref.ui.h:5
+#: ../data/ui/panel-pref.ui.h:7
 msgid "<b>Set Preferred Applications</b>"
 msgstr "<b>設定偏好使用的程式</b>"
 
-#: ../data/ui/panel-pref.ui.h:6
+#: ../data/ui/panel-pref.ui.h:8
 msgid "<b>Size</b>"
 msgstr "<b>大小</b>"
 
-#: ../data/ui/panel-pref.ui.h:7
+#: ../data/ui/panel-pref.ui.h:9
 msgid "Advanced"
 msgstr "進階"
 
-#: ../data/ui/panel-pref.ui.h:8
+#: ../data/ui/panel-pref.ui.h:10
 msgid "Alignment:"
 msgstr "排列方式："
 
-#: ../data/ui/panel-pref.ui.h:9
+#: ../data/ui/panel-pref.ui.h:11
+#: ../src/panel.c:624
+msgid "Bottom"
+msgstr "下"
+
+#: ../data/ui/panel-pref.ui.h:12
+msgid "Center"
+msgstr "置中"
+
+#: ../data/ui/panel-pref.ui.h:13
 msgid "Custom Color"
 msgstr "自訂色彩"
 
-#: ../data/ui/panel-pref.ui.h:10
+#: ../data/ui/panel-pref.ui.h:14
+msgid "Dynamic"
+msgstr "動態"
+
+#: ../data/ui/panel-pref.ui.h:15
 msgid "Edge:"
 msgstr "吸附邊緣："
 
-#: ../data/ui/panel-pref.ui.h:11
+#: ../data/ui/panel-pref.ui.h:16
 msgid "Enable Image:"
 msgstr "啟用背景圖："
 
-#: ../data/ui/panel-pref.ui.h:12
+#: ../data/ui/panel-pref.ui.h:17
 msgid "Enable Transparency"
 msgstr "啟用透明效果"
 
-#: ../data/ui/panel-pref.ui.h:13
+#: ../data/ui/panel-pref.ui.h:18
 msgid "File Manager:"
 msgstr "檔案管理員："
 
-#: ../data/ui/panel-pref.ui.h:14
+#: ../data/ui/panel-pref.ui.h:19
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr "一般"
 
-#: ../data/ui/panel-pref.ui.h:15
+#: ../data/ui/panel-pref.ui.h:20
 msgid "Height:"
 msgstr "高度："
 
-#: ../data/ui/panel-pref.ui.h:16
+#: ../data/ui/panel-pref.ui.h:21
+#: ../src/panel.c:624
+msgid "Left"
+msgstr "左"
+
+#: ../data/ui/panel-pref.ui.h:22
 msgid "Logout Command:"
 msgstr "登出指令："
 
-#: ../data/ui/panel-pref.ui.h:17
+#: ../data/ui/panel-pref.ui.h:23
 msgid "Make window managers treat the panel as dock"
 msgstr "讓視窗管理員把工作列當成 Dock 處理"
 
-#: ../data/ui/panel-pref.ui.h:18
+#: ../data/ui/panel-pref.ui.h:24
 msgid "Margin:"
 msgstr "留空："
 
-#: ../data/ui/panel-pref.ui.h:19
+#: ../data/ui/panel-pref.ui.h:25
 msgid "None (Use system theme)"
 msgstr "無 (使用系統佈景主題)"
 
-#: ../data/ui/panel-pref.ui.h:20
+#: ../data/ui/panel-pref.ui.h:26
 msgid "Panel Applets"
 msgstr "工作列元件"
 
-#: ../data/ui/panel-pref.ui.h:21
+#: ../data/ui/panel-pref.ui.h:27
 msgid "Panel Preferences"
 msgstr "工作列偏好設定"
 
-#: ../data/ui/panel-pref.ui.h:22
+#: ../data/ui/panel-pref.ui.h:28
+msgid "Pixels"
+msgstr "像素 (pixels)"
+
+#: ../data/ui/panel-pref.ui.h:29
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "保留空間，不被最大化視窗覆蓋"
 
-#: ../data/ui/panel-pref.ui.h:23
+#: ../data/ui/panel-pref.ui.h:30
+#: ../src/panel.c:624
+msgid "Right"
+msgstr "右"
+
+#: ../data/ui/panel-pref.ui.h:31
 msgid "Select an image file"
 msgstr "選擇圖片檔"
 
-#: ../data/ui/panel-pref.ui.h:24
+#: ../data/ui/panel-pref.ui.h:32
 msgid "Terminal Emulator:"
 msgstr "終端機："
 
-#: ../data/ui/panel-pref.ui.h:25
+#: ../data/ui/panel-pref.ui.h:33
 msgid "Tint color:"
 msgstr "色彩："
 
-#: ../data/ui/panel-pref.ui.h:26
+#: ../data/ui/panel-pref.ui.h:34
+#: ../src/panel.c:624
+msgid "Top"
+msgstr "上"
+
+#: ../data/ui/panel-pref.ui.h:35
 msgid "Width:"
 msgstr "寬度："
 
 #. { "configure", N_("Preferences"), configure },
-#: ../src/configurator.c:51 ../src/gtk-run.c:250
+#: ../src/configurator.c:51
+#: ../src/gtk-run.c:250
 msgid "Run"
 msgstr "執行"
 
@@ -142,11 +180,13 @@ msgstr "目前載入的外掛"
 msgid "Stretch"
 msgstr "延展"
 
-#: ../src/configurator.c:506 ../src/panel.c:516
+#: ../src/configurator.c:506
+#: ../src/panel.c:516
 msgid "Add plugin to panel"
 msgstr "新增外掛到工作列"
 
-#: ../src/configurator.c:533 ../src/panel.c:539
+#: ../src/configurator.c:533
+#: ../src/panel.c:539
 msgid "Available plugins"
 msgstr "可選用的外掛"
 
@@ -154,7 +194,8 @@ msgstr "可選用的外掛"
 msgid "Logout command is not set"
 msgstr "登出指令尚未設定"
 
-#: ../src/configurator.c:1096 ../src/configurator.c:1176
+#: ../src/configurator.c:1096
+#: ../src/configurator.c:1176
 msgid "Select a file"
 msgstr "選擇一個檔案"
 
@@ -162,23 +203,8 @@ msgstr "選擇一個檔案"
 msgid "_Browse"
 msgstr "瀏覽(_B)"
 
-#: ../src/panel.c:624
-msgid "Left"
-msgstr "左"
-
-#: ../src/panel.c:624
-msgid "Right"
-msgstr "右"
-
-#: ../src/panel.c:624
-msgid "Top"
-msgstr "上"
-
-#: ../src/panel.c:624
-msgid "Bottom"
-msgstr "下"
-
-#: ../src/panel.c:626 ../src/panel.c:752
+#: ../src/panel.c:626
+#: ../src/panel.c:752
 msgid "Create New Panel"
 msgstr "建立新工作列"
 
@@ -437,9 +463,7 @@ msgid "Task Bar (Window List)"
 msgstr "工作列 (視窗清單)"
 
 #: ../src/plugins/taskbar.c:1601
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
 msgstr "工作列顯示所有開啟的視窗，並讓能視窗最小化、折疊、或取得焦點"
 
 #: ../src/plugins/dclock.c:279
@@ -506,7 +530,8 @@ msgstr "切換桌面"
 msgid "Simple pager plugin"
 msgstr "簡易桌面切換外掛"
 
-#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:889
+#: ../src/plugins/space.c:138
+#: ../src/plugins/batt/batt.c:889
 msgid "Size"
 msgstr "大小"
 
@@ -637,7 +662,8 @@ msgstr "網路線已拔除"
 msgid "Connection has limited or no connectivity"
 msgstr "只能有限制的連線或無法連線"
 
-#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307
+#: ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "IP 位址："
@@ -646,32 +672,38 @@ msgstr "IP 位址："
 msgid "Remote IP:"
 msgstr "遠端 IP 位址："
 
-#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309
+#: ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "子網路遮罩："
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "活動"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "已傳送"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "已接收"
 
-#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311
+#: ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "位元組"
 
-#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312
+#: ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "封包"
@@ -684,12 +716,14 @@ msgstr "無線網路"
 msgid "Protocol:"
 msgstr "通訊協定："
 
-#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstat/netstat.c:319
+#: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
 msgid "Broadcast:"
 msgstr "廣播位址："
 
-#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321
+#: ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "實體位址："
 
@@ -1000,7 +1034,6 @@ msgstr "顯示 CapsLock、NumLock、及 ScrollLock 鍵的狀態"
 #~ "動態\n"
 #~ "像素 (pixels)\n"
 #~ "% 百分比"
-
 #~ msgid ""
 #~ "Left\n"
 #~ "Center\n"
@@ -1009,7 +1042,6 @@ msgstr "顯示 CapsLock、NumLock、及 ScrollLock 鍵的狀態"
 #~ "靠左\n"
 #~ "置中\n"
 #~ "靠右"
-
 #~ msgid ""
 #~ "Left\n"
 #~ "Right\n"
@@ -1020,79 +1052,50 @@ msgstr "顯示 CapsLock、NumLock、及 ScrollLock 鍵的狀態"
 #~ "右\n"
 #~ "上\n"
 #~ "下"
-
-#~ msgid "Pixels"
-#~ msgstr "像素 (pixels)"
-
 #~ msgid "Other"
 #~ msgstr "其他"
-
 #~ msgid "Game"
 #~ msgstr "遊戲"
-
 #~ msgid "Education"
 #~ msgstr "教育"
-
 #~ msgid "Development"
 #~ msgstr "軟體開發"
-
 #~ msgid "Audio & Video"
 #~ msgstr "影音多媒體"
-
 #~ msgid "Graphics"
 #~ msgstr "繪圖"
-
 #~ msgid "Settings"
 #~ msgstr "設定"
-
 #~ msgid "System Tools"
 #~ msgstr "系統工具"
-
 #~ msgid "Office"
 #~ msgstr "辦公軟體"
-
 #~ msgid "Accessories"
 #~ msgstr "附屬應用程式"
-
 #~ msgid "Dispaly Image and Tooltip"
 #~ msgstr "顯示圖示及工具提示"
-
 #~ msgid "not charging"
 #~ msgstr "未充電"
-
 #~ msgid "Applications"
 #~ msgstr "應用程式"
-
-#~ msgid "dynamic"
-#~ msgstr "動態"
-
 #~ msgid "pixels"
 #~ msgstr "像素 (pixels)"
-
 #~ msgid "% of edge"
 #~ msgstr "% 百分比"
-
 #~ msgid "Select a background image file"
 #~ msgstr "選擇背景圖片"
-
 #~ msgid "Appearance"
 #~ msgstr "外觀"
-
 #~ msgid "Plugins"
 #~ msgstr "外掛"
-
-#~ msgid "Center"
-#~ msgstr "置中"
 
 #, fuzzy
 #~ msgid "Logout Command"
 #~ msgstr "登出指令："
-
 #~ msgid "lxpanel configurator"
 #~ msgstr "lxpanel 偏好設定"
-
 #~ msgid "Background"
 #~ msgstr "背景"
-
 #~ msgid "Update interval (seconds)"
 #~ msgstr "更新頻率 (秒)"
+

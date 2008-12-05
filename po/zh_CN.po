@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.3.8.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-05 17:16+0800\n"
+"POT-Creation-Date: 2008-12-05 19:15+0800\n"
 "PO-Revision-Date: 2008-10-05 09:20+0800\n"
 "Last-Translator: 冷罡华 <hiweed@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,108 +16,142 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: ../data/ui/panel-pref.ui.h:1
+#: ../data/ui/panel-pref.ui.h:2
+#, no-c-format
+msgid "% Percent"
+msgstr ""
+
+#: ../data/ui/panel-pref.ui.h:3
 msgid "<b>Background</b>"
 msgstr "<b>背景</b>"
 
-#: ../data/ui/panel-pref.ui.h:2
+#: ../data/ui/panel-pref.ui.h:4
 msgid "<b>Font</b>"
 msgstr "<b>字体</b>"
 
-#: ../data/ui/panel-pref.ui.h:3
+#: ../data/ui/panel-pref.ui.h:5
 msgid "<b>Position</b>"
 msgstr "<b>位置</b>"
 
-#: ../data/ui/panel-pref.ui.h:4
+#: ../data/ui/panel-pref.ui.h:6
 msgid "<b>Properties</b>"
 msgstr "<b>属性</b>"
 
-#: ../data/ui/panel-pref.ui.h:5
+#: ../data/ui/panel-pref.ui.h:7
 msgid "<b>Set Preferred Applications</b>"
 msgstr "<b>设置最喜爱的应用程序</b>"
 
-#: ../data/ui/panel-pref.ui.h:6
+#: ../data/ui/panel-pref.ui.h:8
 msgid "<b>Size</b>"
 msgstr "<b>大小</b>"
 
-#: ../data/ui/panel-pref.ui.h:7
+#: ../data/ui/panel-pref.ui.h:9
 msgid "Advanced"
 msgstr "高级"
 
-#: ../data/ui/panel-pref.ui.h:8
+#: ../data/ui/panel-pref.ui.h:10
 msgid "Alignment:"
 msgstr "排列方式："
 
-#: ../data/ui/panel-pref.ui.h:9
+#: ../data/ui/panel-pref.ui.h:11 ../src/panel.c:624
+msgid "Bottom"
+msgstr "下"
+
+#: ../data/ui/panel-pref.ui.h:12
+msgid "Center"
+msgstr "置中"
+
+#: ../data/ui/panel-pref.ui.h:13
 msgid "Custom Color"
 msgstr "定制色彩"
 
-#: ../data/ui/panel-pref.ui.h:10
+#: ../data/ui/panel-pref.ui.h:14
+#, fuzzy
+msgid "Dynamic"
+msgstr "动态"
+
+#: ../data/ui/panel-pref.ui.h:15
 msgid "Edge:"
 msgstr "吸附边缘："
 
-#: ../data/ui/panel-pref.ui.h:11
+#: ../data/ui/panel-pref.ui.h:16
 msgid "Enable Image:"
 msgstr "启用背景图："
 
-#: ../data/ui/panel-pref.ui.h:12
+#: ../data/ui/panel-pref.ui.h:17
 msgid "Enable Transparency"
 msgstr "启用透明效果"
 
-#: ../data/ui/panel-pref.ui.h:13
+#: ../data/ui/panel-pref.ui.h:18
 msgid "File Manager:"
 msgstr "文件管理器："
 
-#: ../data/ui/panel-pref.ui.h:14
+#: ../data/ui/panel-pref.ui.h:19
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr "一般"
 
-#: ../data/ui/panel-pref.ui.h:15
+#: ../data/ui/panel-pref.ui.h:20
 msgid "Height:"
 msgstr "高度："
 
-#: ../data/ui/panel-pref.ui.h:16
+#: ../data/ui/panel-pref.ui.h:21 ../src/panel.c:624
+msgid "Left"
+msgstr "左"
+
+#: ../data/ui/panel-pref.ui.h:22
 msgid "Logout Command:"
 msgstr "注销命令："
 
-#: ../data/ui/panel-pref.ui.h:17
+#: ../data/ui/panel-pref.ui.h:23
 msgid "Make window managers treat the panel as dock"
 msgstr "让窗口管理器把面板当成 Dock 处理"
 
-#: ../data/ui/panel-pref.ui.h:18
+#: ../data/ui/panel-pref.ui.h:24
 msgid "Margin:"
 msgstr "留空："
 
-#: ../data/ui/panel-pref.ui.h:19
+#: ../data/ui/panel-pref.ui.h:25
 msgid "None (Use system theme)"
 msgstr "无 (使用系统布景主题)"
 
-#: ../data/ui/panel-pref.ui.h:20
+#: ../data/ui/panel-pref.ui.h:26
 msgid "Panel Applets"
 msgstr "面板元件"
 
-#: ../data/ui/panel-pref.ui.h:21
+#: ../data/ui/panel-pref.ui.h:27
 msgid "Panel Preferences"
 msgstr "面板偏好设置"
 
-#: ../data/ui/panel-pref.ui.h:22
+#: ../data/ui/panel-pref.ui.h:28
+msgid "Pixels"
+msgstr "像素 (pixels)"
+
+#: ../data/ui/panel-pref.ui.h:29
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "保留空间，不被最大化窗口覆盖"
 
-#: ../data/ui/panel-pref.ui.h:23
+#: ../data/ui/panel-pref.ui.h:30 ../src/panel.c:624
+msgid "Right"
+msgstr "右"
+
+#: ../data/ui/panel-pref.ui.h:31
 msgid "Select an image file"
 msgstr "选择图片文件"
 
-#: ../data/ui/panel-pref.ui.h:24
+#: ../data/ui/panel-pref.ui.h:32
 msgid "Terminal Emulator:"
 msgstr "终端机："
 
-#: ../data/ui/panel-pref.ui.h:25
+#: ../data/ui/panel-pref.ui.h:33
 msgid "Tint color:"
 msgstr "色彩："
 
-#: ../data/ui/panel-pref.ui.h:26
+#: ../data/ui/panel-pref.ui.h:34 ../src/panel.c:624
+msgid "Top"
+msgstr "上"
+
+#: ../data/ui/panel-pref.ui.h:35
 msgid "Width:"
 msgstr "宽度："
 
@@ -162,22 +196,6 @@ msgstr "选择图片文件"
 #: ../src/configurator.c:1194
 msgid "_Browse"
 msgstr ""
-
-#: ../src/panel.c:624
-msgid "Left"
-msgstr "左"
-
-#: ../src/panel.c:624
-msgid "Right"
-msgstr "右"
-
-#: ../src/panel.c:624
-msgid "Top"
-msgstr "上"
-
-#: ../src/panel.c:624
-msgid "Bottom"
-msgstr "下"
 
 #: ../src/panel.c:626 ../src/panel.c:752
 msgid "Create New Panel"
@@ -1033,9 +1051,6 @@ msgstr "显示 CapsLock、NumLock、及 ScrollLock 键的状态"
 #~ "上\n"
 #~ "下"
 
-#~ msgid "Pixels"
-#~ msgstr "像素 (pixels)"
-
 #~ msgid "Other"
 #~ msgstr "其他"
 
@@ -1075,9 +1090,6 @@ msgstr "显示 CapsLock、NumLock、及 ScrollLock 键的状态"
 #~ msgid "Applications"
 #~ msgstr "应用程序"
 
-#~ msgid "dynamic"
-#~ msgstr "动态"
-
 #~ msgid "pixels"
 #~ msgstr "像素 (pixels)"
 
@@ -1092,9 +1104,6 @@ msgstr "显示 CapsLock、NumLock、及 ScrollLock 键的状态"
 
 #~ msgid "Plugins"
 #~ msgstr "插件"
-
-#~ msgid "Center"
-#~ msgstr "置中"
 
 #, fuzzy
 #~ msgid "Logout Command"
