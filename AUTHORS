@@ -24,5 +24,8 @@ Asviyan and Peter Zelezny, the original creator for this little panel. And
 the most important, thank free software, which gives us the freedom to 
 modify existing projects to serve our needs. :-)
 
+src/plugins/menu.c contains few pieces of code from menu.c of gnome-panel.
+
 [1] fbpanel, http://fbpanel.sourceforge.net/
 [2] fspanel, http://freshmeat.net/projects/fspanel/
+

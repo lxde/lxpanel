@@ -25,6 +25,10 @@
 
 #include <menu-cache.h>
 
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
 #include "panel.h"
 #include "misc.h"
 #include "plugin.h"
@@ -60,6 +64,9 @@ typedef struct {
 static guint idle_loader = 0;
 
 GQuark SYS_MENU_ITEM_ID = 0;
+
+/* a single-linked list storing all panels */
+extern GSList* all_panels;
 
 
 static void
@@ -183,24 +190,198 @@ static void on_menu_item_style_set(GtkWidget* mi, GtkStyle* prev, MenuCacheItem*
     /* g_debug("style set!"); */
 }
 
-static gboolean on_menu_button_press(GtkWidget* mi, GdkEventButton* evt, MenuCacheItem* item)
+static void on_add_menu_item_to_desktop(GtkMenuItem* item, MenuCacheApp* app)
 {
-    if( evt->button == 3 )  // right
+    char* dest;
+    char* src;
+    g_debug("app: %p", app);
+    const char* desktop = g_get_user_special_dir(G_USER_DIRECTORY_DESKTOP);
+    int dir_len = strlen(desktop);
+    int basename_len = strlen(menu_cache_item_get_id(app));
+    int dest_fd;
+
+    dest = g_malloc( dir_len + basename_len + 6 + 1 + 1 );
+    memcpy(dest, desktop, dir_len);
+    dest[dir_len] = '/';
+    memcpy(dest + dir_len + 1, menu_cache_item_get_id(app), basename_len + 1);
+
+    /* if the destination file already exists, make a unique name. */
+    if( g_file_test( dest, G_FILE_TEST_EXISTS ) )
     {
-        g_debug("right click!");
+        memcpy( dest + dir_len + 1 + basename_len - 8 /* .desktop */, "XXXXXX.desktop", 15 );
+        dest_fd = g_mkstemp(dest);
+        if( dest_fd >= 0 )
+            chmod(dest, 0600);
+    }
+    else
+    {
+        dest_fd = creat(dest, 0600);
+    }
+
+    if( dest_fd >=0 )
+    {
+        char* data;
+        gsize len;
+        src = g_build_filename(menu_cache_app_get_file_dirname(app),
+                               menu_cache_item_get_id(app), NULL);
+        if( g_file_get_contents(src, &data, &len, NULL) )
+        {
+            write( dest_fd, data, len );
+            g_free(data);
+        }
+        close(dest_fd);
+        g_free(src);
+    }
+    g_free(dest);
+}
+
+static void on_add_menu_item_to_panel(GtkMenuItem* item, MenuCacheApp* app)
+{
+    /* Find a penel containing launchbar applet.
+     * The launchbar with most buttons will be choosen if
+     * there are several launchbar applets loaded.
+     */
+    GSList* l;
+    Plugin* lb = NULL;
+    int n_btns = -1;
+
+    for(l = all_panels; !lb && l; l = l->next)
+    {
+        Panel* panel = (Panel*)l->data;
+        GList* pl;
+        for(pl=panel->plugins; pl; pl = pl->next)
+        {
+            Plugin* plugin = (Plugin*)pl;
+            if( strcmp(plugin->class->type, "launchbar") == 0 )
+            {
+                /* FIXME: should we let the users choose which launcherbar to add the btn? */
+                break;
+#if 0
+                int n = launchbar_get_n_btns(plugin);
+                if( n > n_btns )
+                {
+                    lb = plugin;
+                    n_btns = n;
+                }
+#endif
+            }
+        }
+    }
+
+    if( ! lb ) /* launchbar is not currently in use */
+    {
+        /* FIXME: add a launchbar plugin to the panel which has a menu, too. */
+    }
+
+    if( lb )
+    {
+
+    }
+}
+
+static void on_menu_item_properties(GtkMenuItem* item, MenuCacheApp* app)
+{
+    char* file = g_build_filename(menu_cache_app_get_file_dirname(app),
+                                  menu_cache_item_get_id(app), NULL);
+    char** argv[] = {
+        "lxshortcut",
+        "-i",
+        NULL,
+        NULL};
+    argv[2] = file;
+    g_spawn_async( NULL, argv, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, NULL );
+    g_free( file );
+}
+
+/* This following function restore_grabs is taken from menu.c of
+ * gnome-panel.
+ */
+/*most of this function stolen from the real gtk_menu_popup*/
+static void restore_grabs(GtkWidget *w, gpointer data)
+{
+    GtkWidget *menu_item = data;
+    GtkMenu *menu = GTK_MENU(menu_item->parent);
+    GtkWidget *xgrab_shell;
+    GtkWidget *parent;
+
+    /* Find the last viewable ancestor, and make an X grab on it
+    */
+    parent = GTK_WIDGET (menu);
+    xgrab_shell = NULL;
+    while (parent)
+    {
+        gboolean viewable = TRUE;
+        GtkWidget *tmp = parent;
+
+        while (tmp)
+        {
+            if (!GTK_WIDGET_MAPPED (tmp))
+            {
+                viewable = FALSE;
+                break;
+            }
+            tmp = tmp->parent;
+        }
+
+        if (viewable)
+            xgrab_shell = parent;
+
+        parent = GTK_MENU_SHELL (parent)->parent_menu_shell;
+    }
+
+    /*only grab if this HAD a grab before*/
+    if (xgrab_shell && (GTK_MENU_SHELL (xgrab_shell)->have_xgrab))
+    {
+        if (gdk_pointer_grab (xgrab_shell->window, TRUE,
+                    GDK_BUTTON_PRESS_MASK |
+                    GDK_BUTTON_RELEASE_MASK |
+                    GDK_ENTER_NOTIFY_MASK |
+                    GDK_LEAVE_NOTIFY_MASK,
+                    NULL, NULL, 0) == 0)
+        {
+            if (gdk_keyboard_grab (xgrab_shell->window, TRUE,
+                    GDK_CURRENT_TIME) == 0)
+                GTK_MENU_SHELL (xgrab_shell)->have_xgrab = TRUE;
+            else
+                gdk_pointer_ungrab (GDK_CURRENT_TIME);
+        }
+    }
+    gtk_grab_add (GTK_WIDGET (menu));
+}
+
+static gboolean on_menu_button_press(GtkWidget* mi, GdkEventButton* evt, MenuCacheItem* data)
+{
+    if( evt->button == 3 )  /* right */
+    {
+        char* tmp;
         GtkWidget* item;
         GtkMenu* p = gtk_menu_new();
+
         item = gtk_menu_item_new_with_label(_("Add to desktop panel"));
+        g_signal_connect(item, "activate", G_CALLBACK(on_add_menu_item_to_panel), data);
         gtk_menu_shell_append(p, item);
+
         item = gtk_menu_item_new_with_label(_("Add to desktop"));
+        g_signal_connect(item, "activate", G_CALLBACK(on_add_menu_item_to_desktop), data);
         gtk_menu_shell_append(p, item);
-        item = gtk_separator_menu_item_new();
-        gtk_menu_shell_append(p, item);
-        item = gtk_menu_item_new_with_label(_("Properties"));
-        gtk_menu_shell_append(p, item);
+
+        tmp = g_find_program_in_path("lxshortcut");
+        if( tmp )
+        {
+            item = gtk_separator_menu_item_new();
+            gtk_menu_shell_append(p, item);
+
+            item = gtk_menu_item_new_with_label(_("Properties"));
+            g_signal_connect(item, "activate", G_CALLBACK(on_menu_item_properties), data);
+            gtk_menu_shell_append(p, item);
+            g_free(tmp);
+        }
+        g_signal_connect(p, "selection-done", G_CALLBACK(gtk_widget_destroy), NULL);
+        g_signal_connect(p, "deactivate", G_CALLBACK(restore_grabs), mi);
+
         gtk_widget_show_all(p);
-        gtk_menu_popup(p, NULL, NULL, NULL, NULL, NULL, evt->time );
-//        return TRUE;
+        gtk_menu_popup(p, NULL, NULL, NULL, NULL, NULL, evt->time);
+        return TRUE;
     }
     return FALSE;
 }

@@ -74,7 +74,7 @@ typedef struct btn_t {
     gchar *action;
     gchar *tooltip;
 /*  NOTE: Users can override the values specified in desktop file,
-          and we should process these special cease. */
+          and we should process these special cases. */
     guchar customize_image : 1;
     guchar customize_action : 1;
     guchar customize_tooltip : 1;
@@ -89,6 +89,14 @@ typedef struct launchbar {
 } launchbar;
 
 void panel_config_save(Panel* panel);
+
+#if 0
+/* used in menu.c to find the launchbar with most buttons */
+int launchbar_get_n_btns( Plugin* pl )
+{
+    return g_slist_length(((launchbar*)pl->priv)->btns);
+}
+#endif
 
 void btn_free( btn_t* btn )
 {
@@ -335,9 +343,9 @@ read_button(Plugin *p, char** fp)
 
     g_free(fname);
 
-    // tooltip
+    /* tooltip */
     if ( btn->tooltip ) {
-        gtk_tooltips_set_tip(GTK_TOOLTIPS (lb->tips), button, btn->tooltip, NULL);
+        gtk_widget_set_tooltip_text(button, btn->tooltip);
     }
     RET(1);
 
@@ -387,10 +395,6 @@ launchbar_constructor(Plugin *p, char **fp)
 
     gtk_container_set_border_width (GTK_CONTAINER (lb->box), 0);
     gtk_widget_show(GTK_WIDGET(lb->box));
-
-    /* Use the shared tooltip object provided by the panel, and
-       we don't need to create a new one. */
-    lb->tips = p->panel->tooltips;
 
     if  (p->panel->orientation == ORIENT_HORIZ)
         lb->iconsize = GTK_WIDGET(p->panel->box)->allocation.height;

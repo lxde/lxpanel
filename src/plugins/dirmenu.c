@@ -69,6 +69,7 @@ static void on_open_dir( GtkWidget* item, Plugin* p )
 
 static void open_in_term( Plugin* p, const char* path )
 {
+    /* FIXME: open in terminal */
     char* term = g_strdup( lxpanel_get_terminal() );
     char* sp = strchr( term, ' ' );
     if( sp )
@@ -347,9 +348,8 @@ dirmenu_constructor(Plugin *p, char **fp)
     g_free(fname);
 
     fname = dm->path ? expand_tilda(dm->path) : NULL;
-    gtk_tooltips_set_tip(GTK_TOOLTIPS (dm->panel->tooltips),
-                         dm->button,
-                         fname ? fname : g_get_home_dir(), NULL);
+    gtk_widget_set_tooltip_text( dm->button,
+                                 fname ? fname : g_get_home_dir());
     g_free( fname );
 
     /* store the created plugin widget in plugin->pwid */

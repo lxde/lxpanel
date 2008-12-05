@@ -912,14 +912,6 @@ panel_start_gui(Panel *p)
     gdk_window_move_resize(p->topgwin->window, p->ax, p->ay, p->aw, p->ah);
     panel_set_wm_strut(p);
 
-    p->tooltips = gtk_tooltips_new();
-#if GLIB_CHECK_VERSION( 2, 10, 0 )
-    g_object_ref_sink( p->tooltips );
-#else
-    g_object_ref( p->tooltips );
-    gtk_object_sink( p->tooltips );
-#endif
-
     RET();
 }
 
@@ -1205,9 +1197,6 @@ void panel_destroy(Panel *p)
     }
 
     gtk_window_group_remove_window(win_grp, p->topgwin);
-
-    if( p->tooltips )
-        g_object_unref( p->tooltips );
 
     if( p->topgwin )
         gtk_widget_destroy(p->topgwin);

@@ -27,7 +27,6 @@
 #include "dbg.h"
 
 typedef struct {
-    GtkTooltips *tips;
     char* image;
     int button1, button2;
     int action1, action2;
@@ -190,16 +189,6 @@ wincmd_constructor(Plugin *p, char **fp)
     wc = g_new0(wincmd, 1);
     g_return_val_if_fail(wc != NULL, 0);
 
-    wc->tips = p->panel->tooltips;
-/*
-    wc->tips = gtk_tooltips_new();
-#if GLIB_CHECK_VERSION( 2, 10, 0 )
-    g_object_ref_sink( wc->tips );
-#else
-    g_object_ref( wc->tips );
-    gtk_object_sink( wc->tips );
-#endif
-*/
     p->priv = wc;
     fname = NULL;
     if( fp )
@@ -253,7 +242,7 @@ wincmd_constructor(Plugin *p, char **fp)
     gtk_widget_show(button);
 
     g_free(fname);
-    gtk_tooltips_set_tip(GTK_TOOLTIPS (wc->tips), button, _("Left click to iconify all windows. Middle click to shade them"), NULL);
+    gtk_widget_set_tooltip_text( button, _("Left click to iconify all windows. Middle click to shade them") );
 
     /* store the created plugin widget in plugin->pwid */
     p->pwid = button;

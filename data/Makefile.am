@@ -7,12 +7,19 @@ default_config_DATA = \
 default_configdir = $(datadir)/lxpanel/profile/default
 
 default_config_panel_DATA = \
-        default/panels/panel
+	default/panels/panel
 default_config_paneldir = $(datadir)/lxpanel/profile/default/panels
 
 uidir=$(datadir)/lxpanel/ui
-ui_DATA= \
-        ui/panel-pref.glade
+ui_in_files= \
+	ui/panel-pref.glade
+ui_DATA = $(ui_in_files:.glade=.ui)
+
+# Generate GtkBuilder UI files from Glade files
+%.ui: %.glade
+	$(GTK_BUILDER_CONVERT) $< $@
+	$(top_builddir)/src/xml-purge $@
+
 
 lxpanel_images_DATA = \
 	images/my-computer.png \

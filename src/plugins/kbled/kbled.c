@@ -57,7 +57,6 @@ static int xkb_error_base = 0;
 typedef struct _KbLed{
     GtkWidget *mainw;
     GtkWidget *img[3];
-    GtkTooltips* tooltips;
     int old_state;
     gboolean visible[3];
 } KbLed;
@@ -140,8 +139,6 @@ kbled_destructor(Plugin *p)
     KbLed *kl = (KbLed*)p->priv;
 
     gdk_window_remove_filter(NULL, (GdkFilterFunc)event_filter, p);
-
-    g_object_unref( kl->tooltips );
     g_free( kl );
 }
 
@@ -239,7 +236,6 @@ static int kbled_constructor(Plugin *p, char **fp)
     gdk_window_add_filter(NULL, (GdkFilterFunc)event_filter, p );
 
     gtk_widget_show(kl->mainw);
-    kl->tooltips = g_object_ref( p->panel->tooltips );
     //gtk_tooltips_set_tip (vol->tooltips, vol->mainw, _("Volume control"), NULL);
 
     return TRUE;

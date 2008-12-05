@@ -15,13 +15,20 @@ AC_PROG_LIBTOOL
 AC_PROG_INTLTOOL(, [no-xml])
 
 # Checks for libraries.
-pkg_modules="gtk+-2.0 >= 2.6.0 \
+pkg_modules="gtk+-2.0 >= 2.12.0 \
              gthread-2.0 \
              libmenu-cache"
 #             libstartup-notification-1.0"
 PKG_CHECK_MODULES(PACKAGE, [$pkg_modules])
 AC_SUBST(PACKAGE_CFLAGS)
 AC_SUBST(PACKAGE_LIBS)
+
+# Gtk Builder
+AC_PATH_PROG([GTK_BUILDER_CONVERT],[gtk-builder-convert],[false])
+if test "$GTK_BUILDER_CONVERT" = "false"; then
+  AC_MSG_ERROR([gtk-builder-convert not found])
+fi
+
 
 AC_ARG_ENABLE([cast-checks],
     AS_HELP_STRING([--enable-cast-checks],

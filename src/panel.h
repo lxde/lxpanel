@@ -94,8 +94,6 @@ struct _Panel{
 
     GSList* system_menus;
 
-    /* tooltip controller shared by many plugins */
-    GtkTooltips *tooltips;
     GtkWidget* pref_dialog; /* preference dialog */
 };
 

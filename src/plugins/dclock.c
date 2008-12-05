@@ -41,7 +41,6 @@ typedef struct {
     GtkWidget *main;
     GtkWidget *clockw;
     GtkWidget *calwin;
-    GtkTooltips *tip;
     char *tfmt;
     char *cfmt;
     char *action;
@@ -157,7 +156,7 @@ clock_update(gpointer data )
         strftime (output, sizeof(output),
                   (dc->tfmt ? dc->tfmt : DEFAULT_TIP_FORMAT), detail);
             if ((utf8 = g_locale_to_utf8(output, -1, NULL, NULL, NULL))) {
-                gtk_tooltips_set_tip(dc->tip, dc->main, utf8, NULL);
+                gtk_widget_set_tooltip_text(dc->main, utf8);
                 g_free(utf8);
             }
     }
@@ -220,14 +219,6 @@ dclock_constructor(Plugin *p, char** fp)
     update_label_orient( p );
     gtk_container_add(GTK_CONTAINER(dc->main), dc->clockw);
     gtk_widget_show_all(dc->main);
-
-    dc->tip = p->panel->tooltips;
-#if GLIB_CHECK_VERSION( 2, 10, 0 )
-    g_object_ref_sink( dc->tip );
-#else
-    g_object_ref( dc->tip );
-    gtk_object_sink( dc->tip );
-#endif
 
     dc->timer = g_timeout_add(1000, (GSourceFunc) clock_update, (gpointer)dc);
 

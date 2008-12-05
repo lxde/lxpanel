@@ -83,7 +83,6 @@ typedef struct {
         *gc1,
         *gc2;
     GdkPixmap *pixmap;
-    GtkTooltips *tooltip;
     GtkWidget *drawingArea;
     int orientation;
     unsigned int alarmTime,
@@ -409,7 +408,7 @@ void update_display(batt *b, gboolean repaint) {
             }
         }
 
-        gtk_tooltips_set_tip(b->tooltip, b->drawingArea, tooltip, NULL);
+        gtk_widget_set_tooltip(b->drawingArea, tooltip, NULL);
 
         int chargeLevel = capacity ?
                 charge * (b->length - 2 * b->border) / capacity : 0;
@@ -453,7 +452,7 @@ void update_display(batt *b, gboolean repaint) {
     {
         char tip[ 256 ];
         g_snprintf( tip, 256, _("No batteries found") );
-        gtk_tooltips_set_tip(b->tooltip, b->drawingArea, tip, NULL);
+        gtk_widget_set_tooltip_text( b->drawingArea, tip );
     }
 
     if( repaint )
@@ -650,7 +649,6 @@ constructor(Plugin *p, char **fp)
     gtk_widget_set_size_request(b->drawingArea, b->width, b->height);
 
     gtk_widget_show(b->drawingArea);
-    b->tooltip = p->panel->tooltips;
 
     b->bg = gdk_gc_new(p->panel->topgwin->window);
     b->gc1 = gdk_gc_new(p->panel->topgwin->window);
