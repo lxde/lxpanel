@@ -6,6 +6,7 @@ LXPanel - Lightweight X11 desktop panel
     Jim Huang  <jserv.tw@gmail.com>
     Greg McNew <gmcnew@gmail.com> (battery plugin)
     Fred Chien <cfsghost@gmail.com>
+    Daniel Kesler <kesler.daniel@gmail.com>
 
 [History]
 LXPanel is a derivative work from fbpanel [1] written by Anatoly Asviyan,
