@@ -1,8 +1,8 @@
 prefix=@prefix@
 exec_prefix=@exec_prefix@
-libdir=@libdir@/lxpanel
+libdir=@libdir@
 includedir=@includedir@
-datadir=@datadir@/lxpanel
+datadir=@datadir@
 
 Name: lxpanel
 Description: A lightweight X11 desktop panel
