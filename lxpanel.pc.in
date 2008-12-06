@@ -2,8 +2,9 @@ prefix=@prefix@
 exec_prefix=@exec_prefix@
 libdir=@libdir@/lxpanel
 includedir=@includedir@
+datadir=@datadir@
 
 Name: lxpanel
 Description: A lightweight X11 desktop panel
-Requires: glib-2.0
+Requires: glib-2.0 libmenu-cache
 Version: @VERSION@
