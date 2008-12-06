@@ -44,6 +44,7 @@ lxpanel_include_HEADERS = \
 	ev.h \
 	misc.h \
 	panel.h \
+	glib-mem.h \
 	plugin.h
 endif
 lxpanel_LDFLAGS = $(DYNAMIC_FLAGS)
