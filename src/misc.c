@@ -1062,6 +1062,11 @@ static void on_img_size_allocated(GtkWidget* img, GtkAllocation *allocation, Img
     /* g_debug("size-allocated: %d, %d", allocation->width, allocation->height); */
     _gtk_image_set_from_file_scaled( img, data->fname,
                     size, size, data->keep_ratio );
+
+    /* FIXME: This is a very bad dirty hack! */
+    if( gtk_events_pending() )
+        gtk_main_iteration();
+
     g_signal_handlers_unblock_by_func( img, on_img_size_allocated, data );
 }
 

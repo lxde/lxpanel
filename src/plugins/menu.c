@@ -891,7 +891,7 @@ read_submenu(Plugin *p, char** fp, gboolean as_item)
         gtk_menu_item_set_submenu (GTK_MENU_ITEM (mi), menu);
         RET(mi);
     } else {
-        m->fname = g_strdup(fname);
+        m->fname = fname ? g_strdup(fname) : g_strdup( PACKAGE_DATA_DIR "/lxpanel/images/my-computer.png" );
         m->caption = g_strdup(name);
         mi = make_button(p, fname, name, &color, menu);
         if (fname)
