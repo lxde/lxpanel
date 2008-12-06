@@ -408,7 +408,7 @@ void update_display(batt *b, gboolean repaint) {
             }
         }
 
-        gtk_widget_set_tooltip(b->drawingArea, tooltip, NULL);
+        gtk_widget_set_tooltip_text(b->drawingArea, tooltip, NULL);
 
         int chargeLevel = capacity ?
                 charge * (b->length - 2 * b->border) / capacity : 0;
