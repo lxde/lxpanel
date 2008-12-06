@@ -808,7 +808,6 @@ read_submenu(Plugin *p, char** fp, gboolean as_item)
 
     ENTER;
 
-
     s.len = 256;
     menu = gtk_menu_new ();
     gtk_container_set_border_width(GTK_CONTAINER(menu), 0);
@@ -900,7 +899,6 @@ menu_constructor(Plugin *p, char **fp)
     char *start;
     menup *m;
     static char default_config[] =
-        "image=" PACKAGE_DATA_DIR "/lxpanel/images/my-computer.png\n"
         "system {\n"
         "}\n"
         "separator {\n"
@@ -969,6 +967,7 @@ menu_constructor(Plugin *p, char **fp)
 static void save_config( Plugin* p, FILE* fp )
 {
     menup* menu = (menup*)p->priv;
+    int level = 0;
     lxpanel_put_str( fp, "name", menu->caption );
     lxpanel_put_str( fp, "image", menu->fname );
     if( menu->config_data ) {
@@ -977,7 +976,20 @@ static void save_config( Plugin* p, FILE* fp )
         for( line = lines; *line; ++line ) {
             g_strstrip( *line );
             if( **line )
+            {
+                if( level == 0 )
+                {
+                    /* skip image and caption since we already save these two items */
+                    if( g_str_has_prefix(*line, "image") || g_str_has_prefix(*line, "caption") )
+                        continue;
+                }
+                g_strchomp(*line); /* remove trailing spaces */
+                if( g_str_has_suffix( *line, "{" ) )
+                    ++level;
+                else if( g_str_has_suffix( *line, "}" ) )
+                    --level;
                 lxpanel_put_line( fp, *line );
+            }
         }
         g_strfreev( lines );
     }
