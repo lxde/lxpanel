@@ -9,7 +9,6 @@ AC_DISABLE_STATIC
 
 # Checks for programs.
 AC_PROG_CC
-AM_PROG_CC_C_O
 AC_PROG_INSTALL
 AC_PROG_LN_S
 AC_PROG_LIBTOOL
@@ -300,6 +299,7 @@ ALL_LINGUAS="zh_TW ko hu sk pl fr pt_BR fi de es zh_CN"
 AM_GLIB_GNU_GETTEXT
 
 AC_CONFIG_FILES([
+    lxpanel.pc
     Makefile
     src/Makefile
     src/plugins/Makefile

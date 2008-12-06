@@ -37,6 +37,14 @@ lxpanel_SOURCES = \
 
 if BUILD_PLUGIN_LOADER
 DYNAMIC_FLAGS = -export-dynamic
+lxpanel_includedir = $(includedir)/lxpanel
+lxpanel_include_HEADERS = \
+	bg.h \
+	dbg.h \
+	ev.h \
+	misc.h \
+	panel.h \
+	plugin.h
 endif
 lxpanel_LDFLAGS = $(DYNAMIC_FLAGS)
 
