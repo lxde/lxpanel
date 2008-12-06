@@ -38,7 +38,6 @@ typedef struct {
     GtkWidget *mainw;
     GtkWidget *tray_icon;
     GtkWidget *dlg;
-    GtkTooltips* tooltips;
     GtkWidget *vscale;
     guint vscale_handler;
     GtkWidget* mute_check;
@@ -396,16 +395,8 @@ volumealsa_constructor(Plugin *p, char **fp)
 
     gtk_widget_show_all(vol->mainw);
 
-    vol->tooltips = p->panel->tooltips;;
-#if GLIB_CHECK_VERSION( 2, 10, 0 )
-    g_object_ref_sink( vol->tooltips );
-#else
-    g_object_ref( vol->tooltips );
-    gtk_object_sink( vol->tooltips );
-#endif
-
     /* FIXME: display current level in tooltip. ex: "Volume Control: 80%"  */
-    gtk_tooltips_set_tip (vol->tooltips, vol->mainw, _("Volume control"), NULL);
+    gtk_widget_set_tooltip_text( vol->mainw, _("Volume control"));
 
     /* store the created plugin widget in plugin->pwid */
     p->pwid = vol->mainw;
