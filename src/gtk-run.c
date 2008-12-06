@@ -21,7 +21,7 @@
 #include <glib/gi18n.h>
 #include <string.h>
 #include "misc.h"
-#include <menu-cache.h>
+#include <menu-cache/menu-cache.h>
 
 extern Panel *p;	/* FIXME: this should be removed */
 

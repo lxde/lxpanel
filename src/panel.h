@@ -23,8 +23,6 @@
 #include <gtk/gtk.h>
 #include <gdk/gdk.h>
 
-#include <menu-cache.h>
-
 #include "config.h"
 
 #include "bg.h"
@@ -44,6 +42,9 @@ enum { POS_NONE, POS_START, POS_END };
 #define PANEL_HEIGHT_DEFAULT  26
 #define PANEL_HEIGHT_MAX      200
 #define PANEL_HEIGHT_MIN      16
+
+/* to check if we are in LXDE */
+extern gboolean is_in_lxde;
 
 typedef struct _Panel Panel;
 

@@ -58,6 +58,8 @@ gboolean is_restarting = FALSE;
 static int panel_start( Panel *p, char **fp );
 void panel_config_save(Panel* panel);   /* defined in configurator.c */
 
+gboolean is_in_lxde = FALSE;
+
 /****************************************************
  *         panel's handlers for WM events           *
  ****************************************************/
@@ -1365,6 +1367,7 @@ void free_global_config();
 int main(int argc, char *argv[], char *env[])
 {
     int i;
+    char* session_name;
 
     setlocale(LC_CTYPE, "");
 
@@ -1380,6 +1383,9 @@ int main(int argc, char *argv[], char *env[])
     XSetErrorHandler((XErrorHandler) handle_error);
 
     resolve_atoms();
+
+    session_name = g_getenv("DESKTOP_SESSION");
+    is_in_lxde = session_name && (0 == strcmp(session_name, "LXDE"));
 
     for (i = 1; i < argc; i++) {
         if (!strcmp(argv[i], "-h") || !strcmp(argv[i], "--help")) {

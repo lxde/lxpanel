@@ -23,7 +23,7 @@
 #include <glib.h>
 #include <glib/gi18n.h>
 
-#include <menu-cache.h>
+#include <menu-cache/menu-cache.h>
 
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -222,8 +222,7 @@ static void on_add_menu_item_to_desktop(GtkMenuItem* item, MenuCacheApp* app)
     {
         char* data;
         gsize len;
-        src = g_build_filename(menu_cache_app_get_file_dirname(app),
-                               menu_cache_item_get_id(app), NULL);
+        src = menu_cache_item_get_file_path(app);
         if( g_file_get_contents(src, &data, &len, NULL) )
         {
             write( dest_fd, data, len );
@@ -285,10 +284,9 @@ static void on_menu_item_properties(GtkMenuItem* item, MenuCacheApp* app)
     /* FIXME: if the source desktop is in AppDir other then default
      * applications dirs, where should we store the user-specific file?
     */
-    char* ifile = g_build_filename(menu_cache_app_get_file_dirname(app),
-                                  menu_cache_item_get_id(app), NULL);
+    char* ifile = menu_cache_item_get_file_path(app);
     char* ofile = g_build_filename(g_get_user_data_dir(), "applications",
-                                  menu_cache_item_get_id(app), NULL);
+                                  menu_cache_item_get_file_basename(app), NULL);
     char** argv[] = {
         "lxshortcut",
         "-i",
@@ -428,7 +426,23 @@ static void load_menu(MenuCacheDir* dir, GtkWidget* menu, int pos )
     for( l = menu_cache_dir_get_children(dir); l; l = l->next )
     {
         MenuCacheItem* item = MENU_CACHE_ITEM(l->data);
+        if( menu_cache_item_get_type(item) == MENU_CACHE_TYPE_APP )
+        {
+            if( is_in_lxde )
+            {
+                if( !menu_cache_app_should_show(item, SHOW_IN_LXDE) )
+                    continue;
+            }
+            else
+            {
+                /* FIXME: showing apps from all desktops is not very pleasant. */
+                if( !menu_cache_app_should_show(item, SHOW_IN_LXDE|SHOW_IN_GNOME|SHOW_IN_XFCE) )
+                    continue;
+            }
+        }
         mi = create_item(item);
+        if( ! mi )
+            continue;
         gtk_menu_shell_insert( (GtkMenuShell*)menu, mi, pos );
         if( pos >= 0 )
             ++pos;
