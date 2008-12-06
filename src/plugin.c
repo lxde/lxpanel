@@ -95,7 +95,6 @@ register_plugin_class(PluginClass *pc, int dynamic)
 static void
 init_plugin_class_list()
 {
-    ENTER;
 #ifdef STATIC_SEPARATOR
     REGISTER_PLUGIN_CLASS(separator_plugin_class, 0);
 #endif
@@ -302,6 +301,9 @@ GList* plugin_get_available_classes()
     GDir* dir;
     GList* l;
     PluginClass *pc;
+
+    if (!pcl)
+        init_plugin_class_list();
 
     for( l = pcl; l; l = l->next ) {
         pc = (PluginClass*)l->data;
