@@ -164,6 +164,7 @@ static void process_client_msg ( XClientMessageEvent* ev )
     int cmd = ev->data.b[0];
     switch( cmd )
     {
+#ifndef DISABLE_MENU
         case LXPANEL_CMD_SYS_MENU:
         {
             GSList* l;
@@ -181,9 +182,12 @@ static void process_client_msg ( XClientMessageEvent* ev )
             }
             break;
         }
+#endif
+#ifndef DISABLE_MENU
         case LXPANEL_CMD_RUN:
             gtk_run();
             break;
+#endif
         case LXPANEL_CMD_CONFIG:
             //FIXME: configure();
             break;

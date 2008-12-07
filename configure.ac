@@ -16,12 +16,25 @@ AC_PROG_INTLTOOL(, [no-xml])
 
 # Checks for libraries.
 pkg_modules="gtk+-2.0 >= 2.12.0 \
-             gthread-2.0 \
-             libmenu-cache"
+             gthread-2.0"
 #             libstartup-notification-1.0"
 PKG_CHECK_MODULES(PACKAGE, [$pkg_modules])
 AC_SUBST(PACKAGE_CFLAGS)
 AC_SUBST(PACKAGE_LIBS)
+
+pkg_modules="libmenu-cache"
+PKG_CHECK_MODULES(MENU_CACHE, [$pkg_modules],
+		  enable_menu_cache=yes, enable_menu_cache=no)
+if test x"$enable_menu_cache" = "xno"; then
+	AC_WARN([No libmenu-cache found.  All menu related routines are not built.])
+	AC_DEFINE(DISABLE_MENU, [1], [Disable menu related routines])
+fi
+AC_SUBST(MENU_CACHE_CFLAGS)
+AC_SUBST(MENU_CACHE_LIBS)
+AM_CONDITIONAL(ENABLE_MENU_CACHE, test x"$enable_menu_cache" = x"yes") 
+
+PACKAGE_CFLAGS="$PACKAGE_CFLAGS $MENU_CACHE_CFLAGS"
+PACKAGE_LIBS="$PACKAGE_LIBS $MENU_CACHE_LIBS"
 
 # Gtk Builder
 #AC_PATH_PROG([GTK_BUILDER_CONVERT],[gtk-builder-convert],[false])

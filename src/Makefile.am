@@ -11,7 +11,7 @@ INCLUDES = \
 	-DPACKAGE_DATA_DIR=\""$(datadir)"\" \
 	-DPACKAGE_BIN_DIR=\""$(bindir)"\" \
 	-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
-	$(PACKAGE_CFLAGS) \
+	$(PACKAGE_CFLAGS)
 	$(G_CAST_CHECKS)
 
 BUILTIN_PLUGINS = $(top_builddir)/src/plugins/libbuiltin_plugins.a
@@ -21,6 +21,10 @@ TRAY_SOURCES= \
 	systray/eggtraymanager.c systray/eggtraymanager.h \
 	systray/fixedtip.c systray/fixedtip.h \
 	systray/tray.c
+
+if ENABLE_MENU_CACHE
+MENU_SOURCES = gtk-run.c
+endif
 
 lxpanel_SOURCES = \
 	glib-mem.h \
@@ -33,7 +37,7 @@ lxpanel_SOURCES = \
 	gtkbar.h gtkbar.c \
 	panel.c panel.h \
 	plugin.c plugin.h \
-	gtk-run.c
+	$(MENU_SOURCES)
 
 if BUILD_PLUGIN_LOADER
 DYNAMIC_FLAGS = -export-dynamic

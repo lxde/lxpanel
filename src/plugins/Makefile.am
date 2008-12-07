@@ -20,11 +20,16 @@ INCLUDES = \
 	$(PACKAGE_CFLAGS) \
 	$(G_CAST_CHECKS)
 
-PLUGINS_SOURCES= \
+if ENABLE_MENU_CACHE
+MENU_SOURCES = \
+	menu.c
+endif
+
+PLUGINS_SOURCES = \
 	launchbar.c \
 	taskbar.c \
 	dclock.c \
-	menu.c \
+	$(MENU_SOURCES) \
 	separator.c \
 	pager.c \
 	space.c \

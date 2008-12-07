@@ -134,8 +134,10 @@ init_plugin_class_list()
     REGISTER_PLUGIN_CLASS(tray_plugin_class, 0);
 #endif
 
+#ifndef DISABLE_MENU
 #ifdef STATIC_MENU
     REGISTER_PLUGIN_CLASS(menu_plugin_class, 0);
+#endif
 #endif
 
 #ifdef STATIC_SPACE
