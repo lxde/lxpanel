@@ -537,10 +537,10 @@ class GtkBuilderConverter(object):
     def _convert_combobox_items(self, node, prop):
         parent = prop.parentNode
 
-        translatable_attr = prop.attributes['translatable']
         translatable = False;
-        if translatable_attr and translatable_attr.value == 'yes':
-            translatable = True
+        if prop.hasAttribute('translatable'):
+            if prop.attributes['translatable'].value == 'yes':
+                translatable = True
 
         if not prop.childNodes:
             parent.removeChild(prop)
