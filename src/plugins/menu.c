@@ -23,7 +23,7 @@
 #include <glib.h>
 #include <glib/gi18n.h>
 
-#include <menu-cache/menu-cache.h>
+#include <menu-cache.h>
 
 #include <sys/types.h>
 #include <sys/stat.h>
