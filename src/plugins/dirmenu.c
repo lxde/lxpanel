@@ -69,14 +69,17 @@ static void on_open_dir( GtkWidget* item, Plugin* p )
 
 static void open_in_term( Plugin* p, const char* path )
 {
-    /* FIXME: open in terminal */
-    char* term = g_strdup( lxpanel_get_terminal() );
+    const char* term = lxpanel_get_terminal();
+    char* argv[2];
     char* sp = strchr( term, ' ' );
     if( sp )
-        *sp = '\0';
-    chdir( path );
-    g_spawn_command_line_async( term, NULL );
-    g_free( term );
+        argv[0] = g_strndup( term, sp - term );
+    else
+        argv[0] = term;
+    argv[1] = NULL;
+    g_spawn_async( path, argv, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, NULL );
+    if( argv[0] != term )
+        g_free( argv[0] );
 }
 
 static void on_open_in_term( GtkWidget* item, Plugin* p )

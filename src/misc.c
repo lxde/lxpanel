@@ -1053,20 +1053,21 @@ static void on_img_size_allocated(GtkWidget* img, GtkAllocation *allocation, Img
     else
         return;
     data->dw = data->dh = size;
-    /*
-    g_debug("size = %d, pix: %d, %d, alloc:%d, %d", size,
+
+    /*g_debug("size = %d, pix: %d, %d, alloc:%d, %d", size,
        gdk_pixbuf_get_width(data->pixbuf), gdk_pixbuf_get_height(data->pixbuf),
-       allocation->width, allocation->height );
-    */
+       allocation->width, allocation->height ); */
+
     g_signal_handlers_block_by_func( img, on_img_size_allocated, data );
-    /* g_debug("size-allocated: %d, %d", allocation->width, allocation->height); */
+    gtk_widget_set_size_request(img, size, size);
+    //g_debug("size-allocated: %d, %d", allocation->width, allocation->height);
     _gtk_image_set_from_file_scaled( img, data->fname,
                     size, size, data->keep_ratio );
-
+#if 0
     /* FIXME: This is a very bad dirty hack! */
     if( gtk_events_pending() )
         gtk_main_iteration();
-
+#endif
     g_signal_handlers_unblock_by_func( img, on_img_size_allocated, data );
 }
 

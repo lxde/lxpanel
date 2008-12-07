@@ -1287,6 +1287,6 @@ lxpanel_get_file_manager()
 extern const char*
 lxpanel_get_terminal()
 {
-    return terminal_cmd ? terminal_cmd : "xterm -e";
+    return terminal_cmd ? terminal_cmd : "xterm -e %s";
 }
 
