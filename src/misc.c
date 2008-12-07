@@ -1160,6 +1160,7 @@ _gtk_image_new_from_file_scaled(const gchar *file, gint width,
     g_object_set_qdata_full( G_OBJECT(img), img_data_id, data, 
             (GDestroyNotify)img_data_free );
     _gtk_image_set_from_file_scaled( img, file, width, height, keep_ratio );
+//    gtk_widget_set_size_request(img, width, height);
     g_signal_connect( img, "size-allocate", G_CALLBACK(on_img_size_allocated), data );
     return img;
 }
