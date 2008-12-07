@@ -441,13 +441,13 @@ static void load_menu(MenuCacheDir* dir, GtkWidget* menu, int pos )
         {
             if( is_in_lxde )
             {
-                if( !menu_cache_app_should_show(item, SHOW_IN_LXDE) )
+                if( !menu_cache_app_get_is_visible(item, SHOW_IN_LXDE) )
                     continue;
             }
             else
             {
                 /* FIXME: showing apps from all desktops is not very pleasant. */
-                if( !menu_cache_app_should_show(item, SHOW_IN_LXDE|SHOW_IN_GNOME|SHOW_IN_XFCE) )
+                if( !menu_cache_app_get_is_visible(item, SHOW_IN_LXDE|SHOW_IN_GNOME|SHOW_IN_XFCE) )
                     continue;
             }
         }
