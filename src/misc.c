@@ -262,26 +262,6 @@ lxpanel_put_line(FILE* fp, const char* format, ...)
     return (ret + 1);
 }
 
-extern int
-lxpanel_put_str( FILE* fp, const char* name, const char* val )
-{
-    if( G_UNLIKELY( !val || !*val ) )
-        return 0;
-    return lxpanel_put_line( fp, "%s=%s", name, val );
-}
-
-extern int
-lxpanel_put_bool( FILE* fp, const char* name, gboolean val )
-{
-    return lxpanel_put_line( fp, "%s=%c", name, val ? '1' : '0' );
-}
-
-extern int
-lxpanel_put_int( FILE* fp, const char* name, int val )
-{
-    return lxpanel_put_line( fp, "%s=%d", name, val );
-}
-
 extern  int
 lxpanel_get_line(char**fp, line *s)
 {

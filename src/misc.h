@@ -62,9 +62,12 @@ gchar *num2str(pair *p, int num, gchar *defval);
 
 extern int lxpanel_get_line(char **fp, line *s);
 extern int lxpanel_put_line(FILE* fp, const char* format, ...);
-extern int lxpanel_put_str( FILE* fp, const char* name, const char* val );
-extern int lxpanel_put_bool( FILE* fp, const char* name, gboolean val );
-extern int lxpanel_put_int( FILE* fp, const char* name, int val );
+#define lxpanel_put_str(fp, name, val) (G_UNLIKELY( !(val) || !*(val) )) ? 0 : lxpanel_put_line(fp, "%s=%s", name, val)
+#define lxpanel_put_bool(fp, name, val) lxpanel_put_line(fp, "%s=%c", name, (val) ? '1' : '0')
+#define lxpanel_put_int(fp, name, val) lxpanel_put_line(fp, "%s=%d", name, val)
+//extern int lxpanel_put_str( FILE* fp, const char* name, const char* val );
+//extern int lxpanel_put_bool( FILE* fp, const char* name, gboolean val );
+//extern int lxpanel_put_int( FILE* fp, const char* name, int val );
 int get_line_as_is(char **fp, line *s);
 
 void Xclimsg(Window win, long type, long l0, long l1, long l2, long l3, long l4);
