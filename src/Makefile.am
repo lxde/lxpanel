@@ -6,6 +6,7 @@ bin_PROGRAMS = lxpanel lxpanelctl
 
 INCLUDES = \
 	-I$(top_srcdir) \
+	-I$(top_srcdir)/include \
 	-I$(top_srcdir)/src/plugins \
 	-DPACKAGE_LIB_DIR=\""$(libdir)"\" \
 	-DPACKAGE_DATA_DIR=\""$(datadir)"\" \
@@ -42,14 +43,7 @@ lxpanel_SOURCES = \
 if BUILD_PLUGIN_LOADER
 DYNAMIC_FLAGS = -export-dynamic
 lxpanel_includedir = $(includedir)/lxpanel
-lxpanel_include_HEADERS = \
-	bg.h \
-	dbg.h \
-	ev.h \
-	misc.h \
-	panel.h \
-	glib-mem.h \
-	plugin.h
+lxpanel_include_HEADERS = $(top_srcdir)/include/lxpanel/plugin.h
 endif
 lxpanel_LDFLAGS = $(DYNAMIC_FLAGS)
 
