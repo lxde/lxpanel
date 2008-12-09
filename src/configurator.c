@@ -1114,7 +1114,7 @@ static void on_browse_btn_clicked(GtkButton* btn, GtkEntry* entry)
     gtk_widget_destroy(fc);
 }
 
-void generic_config_dlg_save(Panel *panel)
+inline void generic_config_dlg_save(Panel *panel)
 {
     panel_config_save(panel);
 }

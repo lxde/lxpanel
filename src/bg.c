@@ -137,14 +137,6 @@ fb_bg_init (FbBg *bg)
     RET();
 }
 
-
-FbBg *
-fb_bg_new()
-{
-    ENTER;
-    RET(g_object_new (FB_TYPE_BG, NULL));
-}
-
 static void
 fb_bg_finalize (GObject *object)
 {
@@ -264,8 +256,7 @@ fb_bg_changed(FbBg *bg)
     RET();
 }
 
-
-void fb_bg_notify_changed_bg(FbBg *bg)
+inline void fb_bg_notify_changed_bg(FbBg *bg)
 {
     ENTER;
     g_signal_emit (bg, signals [CHANGED], 0);
