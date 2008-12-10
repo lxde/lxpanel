@@ -1,5 +1,9 @@
 LXPanel is a lightweight X11 desktop panel.
 
+To install this program, two other packages are needed:
+  menu-cache, lxmenu-data.
+Please install them before installing lxpanel.
+
 There are 2 programs contained in the package.
 
 1. lxpanel: the panel
