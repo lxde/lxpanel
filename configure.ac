@@ -1,5 +1,5 @@
 AC_PREREQ(2.53)
-AC_INIT(lxpanel, 0.3.8.1, http://lxde.org/)
+AC_INIT(lxpanel, 0.4.0, http://lxde.org/)
 AM_INIT_AUTOMAKE
 AC_CONFIG_SRCDIR([src/bg.c])
 AC_CONFIG_HEADER([config.h])
@@ -372,3 +372,9 @@ echo Building dynamic plugins:
 else
 echo Dynamic loader for plugins....... : disabled.
 fi
+
+echo
+echo LXPanel requires menu-cache and lxmenu-data packages since
+echo version 0.4.0. Please make sure they are correctly installed.
+echo Otherwise, you won't be able to use applications menu.
+
