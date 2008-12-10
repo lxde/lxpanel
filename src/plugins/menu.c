@@ -761,7 +761,9 @@ read_system_menu(GtkMenu* menu, Plugin *p, char** fp)
 
     if(! m->menu_cache)
     {
-        m->menu_cache = menu_cache_lookup(g_getenv("XDG_MENU_PREFIX") ? "applications.menu" : "lxde-applications.menu" );
+        if( !g_getenv("XDG_MENU_PREFIX") )
+            g_setenv("XDG_MENU_PREFIX", "lxde-", TRUE);
+        m->menu_cache = menu_cache_lookup( "applications.menu" );
         if( G_UNLIKELY(!m->menu_cache) )
         {
             ERR("error loading applications menu");
