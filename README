@@ -9,7 +9,7 @@ There are 2 programs contained in the package.
 1. lxpanel: the panel
 
 2. lxpanelctl: the controller of lxpanel, can be used to control lxpanel in 
-               other programs.  The best place to use lxpanelctl is bar far 
+               other programs.  The best place to use lxpanelctl is by far 
                the numerous key bindings provided by window managers.
                When the key combination is pressed, call lxpanelctl to popup
                system menu, or to open run dialog in lxpanel.
