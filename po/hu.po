@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel-0.2.8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-12-05 19:15+0800\n"
-"PO-Revision-Date: 2008-04-21 07:41+0100\n"
+"PO-Revision-Date: 2008-12-26 11:41+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: hu <hu@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -55,7 +55,8 @@ msgstr "Haladó"
 msgid "Alignment:"
 msgstr "Igazítás:"
 
-#: ../data/ui/panel-pref.ui.h:11 ../src/panel.c:624
+#: ../data/ui/panel-pref.ui.h:11
+#: ../src/panel.c:624
 msgid "Bottom"
 msgstr "Lent"
 
@@ -97,7 +98,8 @@ msgstr "Általános"
 msgid "Height:"
 msgstr "Magasság:"
 
-#: ../data/ui/panel-pref.ui.h:21 ../src/panel.c:624
+#: ../data/ui/panel-pref.ui.h:21
+#: ../src/panel.c:624
 msgid "Left"
 msgstr "Balra"
 
@@ -133,7 +135,8 @@ msgstr "Kép-pontok"
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Terület védelme a maximált ablakokkal szemben"
 
-#: ../data/ui/panel-pref.ui.h:30 ../src/panel.c:624
+#: ../data/ui/panel-pref.ui.h:30
+#: ../src/panel.c:624
 msgid "Right"
 msgstr "Jobbra"
 
@@ -149,7 +152,8 @@ msgstr "Terminál emulátor:"
 msgid "Tint color:"
 msgstr "Szín:"
 
-#: ../data/ui/panel-pref.ui.h:34 ../src/panel.c:624
+#: ../data/ui/panel-pref.ui.h:34
+#: ../src/panel.c:624
 msgid "Top"
 msgstr "Fent"
 
@@ -158,7 +162,8 @@ msgid "Width:"
 msgstr "Szélesség:"
 
 #. { "configure", N_("Preferences"), configure },
-#: ../src/configurator.c:51 ../src/gtk-run.c:250
+#: ../src/configurator.c:51
+#: ../src/gtk-run.c:250
 msgid "Run"
 msgstr "Futtatás"
 
@@ -178,11 +183,13 @@ msgstr "A most betöltött elemek"
 msgid "Stretch"
 msgstr "Nyújt"
 
-#: ../src/configurator.c:506 ../src/panel.c:516
+#: ../src/configurator.c:506
+#: ../src/panel.c:516
 msgid "Add plugin to panel"
 msgstr "Elemek hozzáadása a panelhoz"
 
-#: ../src/configurator.c:533 ../src/panel.c:539
+#: ../src/configurator.c:533
+#: ../src/panel.c:539
 msgid "Available plugins"
 msgstr "Elemek hozzáadása"
 
@@ -190,7 +197,8 @@ msgstr "Elemek hozzáadása"
 msgid "Logout command is not set"
 msgstr "Nincs beállítva kijelentkező parancs"
 
-#: ../src/configurator.c:1096 ../src/configurator.c:1176
+#: ../src/configurator.c:1096
+#: ../src/configurator.c:1176
 #, fuzzy
 msgid "Select a file"
 msgstr "Válassz egy kép fájlt"
@@ -199,7 +207,8 @@ msgstr "Válassz egy kép fájlt"
 msgid "_Browse"
 msgstr ""
 
-#: ../src/panel.c:626 ../src/panel.c:752
+#: ../src/panel.c:626
+#: ../src/panel.c:752
 msgid "Create New Panel"
 msgstr "Új panel létrehozása"
 
@@ -458,12 +467,8 @@ msgid "Task Bar (Window List)"
 msgstr "Ablaklista"
 
 #: ../src/plugins/taskbar.c:1601
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
-msgstr ""
-"Mutatja a megnyitott ablakokat és lehetővé teszi a minimalizálást, "
-"felgördítést és a közöttük lévő váltást"
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr "Mutatja a megnyitott ablakokat és lehetővé teszi a minimalizálást, felgördítést és a közöttük lévő váltást"
 
 #: ../src/plugins/dclock.c:279
 msgid "Clock Format"
@@ -532,7 +537,8 @@ msgstr "Munkaterület-váltó"
 msgid "Simple pager plugin"
 msgstr "Egyszerű munkaterület-váltó"
 
-#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:889
+#: ../src/plugins/space.c:138
+#: ../src/plugins/batt/batt.c:889
 msgid "Size"
 msgstr "Méret"
 
@@ -666,7 +672,8 @@ msgstr "Egy hálózati kábel nincs bedugva"
 msgid "Connection has limited or no connectivity"
 msgstr "Nincs, vagy korlátozott a kapcsolat"
 
-#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307
+#: ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "IP-cím:"
@@ -675,32 +682,38 @@ msgstr "IP-cím:"
 msgid "Remote IP:"
 msgstr "Távoli IP:"
 
-#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309
+#: ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "Hálózati maszk:"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "Aktivitás"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "Küldött"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "Fogadott"
 
-#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311
+#: ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "bájt"
 
-#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312
+#: ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "csomagok"
@@ -713,12 +726,14 @@ msgstr "Vezetéknélküli"
 msgid "Protocol:"
 msgstr "Protokol:"
 
-#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstat/netstat.c:319
+#: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
 msgid "Broadcast:"
 msgstr "Broadcast:"
 
-#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321
+#: ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "Hardver cím:"
 
@@ -934,26 +949,25 @@ msgstr "Akkumulátor töltöttség: %d%%, még %d:%02d a teljes feltöltésig"
 #: ../src/plugins/batt/batt.c:393
 #, c-format
 msgid "Battery: %d%% charged, %s"
-msgstr "Akkumuátor töltöttség: %d%%, %s"
+msgstr "Akkumulátor töltöttség: %d%%, %s"
 
 #: ../src/plugins/batt/batt.c:395
 msgid "charging finished"
 msgstr "feltöltés befejezve"
 
 #: ../src/plugins/batt/batt.c:395
-#, fuzzy
 msgid "charging"
-msgstr "nincs töltés"
+msgstr "töltés"
 
 #: ../src/plugins/batt/batt.c:400
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
-msgstr "akkumulátor töltöttség: %d%%, még %d:%02d van hátra"
+msgstr "Akkumulátor töltöttség: %d%%, még %d:%02d van hátra"
 
 #: ../src/plugins/batt/batt.c:406
-#, fuzzy, c-format
+#, c-format
 msgid "Battery: %d%% charged"
-msgstr "Akkumuátor töltöttség: %d%%, %s"
+msgstr "Akkumulátor töltöttség: %d%%"
 
 #: ../src/plugins/batt/batt.c:454
 #, c-format
@@ -1032,7 +1046,6 @@ msgstr "Állapot-jelzők a CapsLock, NumLock és ScrollLock billentyűkhöz"
 #~ "Dinamikus\n"
 #~ "Kép-pontok\n"
 #~ "% százalék"
-
 #~ msgid ""
 #~ "Left\n"
 #~ "Center\n"
@@ -1041,7 +1054,6 @@ msgstr "Állapot-jelzők a CapsLock, NumLock és ScrollLock billentyűkhöz"
 #~ "Balra\n"
 #~ "Középen\n"
 #~ "Jobbra"
-
 #~ msgid ""
 #~ "Left\n"
 #~ "Right\n"
@@ -1052,69 +1064,48 @@ msgstr "Állapot-jelzők a CapsLock, NumLock és ScrollLock billentyűkhöz"
 #~ "Jobbra\n"
 #~ "Fel\n"
 #~ "Le"
-
 #~ msgid "Other"
 #~ msgstr "Egyéb"
-
 #~ msgid "Game"
 #~ msgstr "Játékok"
-
 #~ msgid "Education"
 #~ msgstr "Oktatás"
-
 #~ msgid "Development"
 #~ msgstr "Fejlesztés"
-
 #~ msgid "Audio & Video"
 #~ msgstr "Hang és videó"
-
 #~ msgid "Graphics"
 #~ msgstr "Grafika"
-
 #~ msgid "Settings"
 #~ msgstr "Beállítások"
-
 #~ msgid "System Tools"
 #~ msgstr "Rendszereszközök"
-
 #~ msgid "Office"
 #~ msgstr "Iroda"
-
 #~ msgid "Accessories"
 #~ msgstr "Kellékek"
-
 #~ msgid "Dispaly Image and Tooltip"
 #~ msgstr "Képek és eszköztippek"
-
 #~ msgid "% of edge"
 #~ msgstr "% a széléből"
-
 #~ msgid "lxpanel configurator"
 #~ msgstr "lxpanel beállító"
-
 #~ msgid "Plugins"
 #~ msgstr "Elemek"
-
 #~ msgid "Applications"
 #~ msgstr "Alkalmazások"
-
 #~ msgid "<b>Transparency</b>"
 #~ msgstr "<b>Átlátszóság</b>"
-
 #~ msgid "Change window icons"
 #~ msgstr "Ablak ikonok cseréje"
-
 #~ msgid "Set Dock Type"
 #~ msgstr "Dokk típus beállítása"
-
 #~ msgid "_Add"
 #~ msgstr "Hozzá_ad"
-
 #~ msgid "_Remove"
 #~ msgstr "Tö_röl"
-
 #~ msgid "Right-click to get context menu. Drag & Drop to change order."
 #~ msgstr "Jobb egérgomb a menühöz, fogd-és-húzd az átrendezéshez"
-
 #~ msgid "Plugins..."
 #~ msgstr "Elemek..."
+
