@@ -45,6 +45,7 @@ void restart(void);
 void gtk_run(void);
 void panel_config_save(Panel* panel);
 static void logout(void);
+static void save_global_config();
 
 Command commands[] = {
     //{ "configure", N_("Preferences"), configure },
@@ -1254,7 +1255,7 @@ void load_global_config()
     g_key_file_free( kf );
 }
 
-void save_global_config()
+static void save_global_config()
 {
     char* file = get_config_file( cprofile, "config", FALSE );
     FILE* f = fopen( file, "w" );

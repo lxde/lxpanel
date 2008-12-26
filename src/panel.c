@@ -49,8 +49,6 @@ static GtkWindowGroup* win_grp; /* window group used to limit the scope of model
 static int config = 0;
 FbEv *fbev = NULL;
 
-int log_level;
-
 GSList* all_panels = NULL;  /* a single-linked list storing all panels */
 
 gboolean is_restarting = FALSE;
