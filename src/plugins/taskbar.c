@@ -447,6 +447,12 @@ get_netwm_icon(Window tkwin, int iw, int ih)
     RET(ret);
 }
 
+static void
+free_pixels(guchar *pixels, gpointer data)
+{
+    g_free(pixels);
+}
+
 static GdkPixbuf *
 get_wm_icon(Window tkwin, int iw, int ih)
 {
@@ -454,45 +460,195 @@ get_wm_icon(Window tkwin, int iw, int ih)
     Pixmap xpixmap = None, xmask = None;
     Window win;
     unsigned int w, h;
-    int sd;
+    int sd, result, format;
     GdkPixbuf *ret, *masked, *pixmap, *mask = NULL;
+    Atom type = None;
+    gulong *data = NULL;
+    gulong *rot_data = NULL;
+    gulong  nitems;
+    gulong  rot_nitems;
+    gulong  bytes_after;
+    guchar *pixdata, *p;
+    int     i;
 
     ENTER;
-    hints = (XWMHints *) get_xaproperty (tkwin, XA_WM_HINTS, XA_WM_HINTS, 0);
-    if (!hints)
-        RET(NULL);
-
-    if ((hints->flags & IconPixmapHint))
-        xpixmap = hints->icon_pixmap;
-    if ((hints->flags & IconMaskHint))
-        xmask = hints->icon_mask;
-
-    XFree(hints);
-    if (xpixmap == None)
-        RET(NULL);
-
-    if (!XGetGeometry (GDK_DISPLAY(), xpixmap, &win, &sd, &sd, &w, &h,
-              (guint *)&sd, (guint *)&sd)) {
-        LOG(LOG_WARN,"XGetGeometry failed for %x pixmap\n", (unsigned int)xpixmap);
-        RET(NULL);
+    
+    result = XGetWindowProperty(GDK_DISPLAY(),
+                                tkwin,
+                                gdk_x11_get_xatom_by_name("_NET_WM_ICON"),
+                                0, G_MAXLONG,
+                                0, XA_CARDINAL, &type, &format, &nitems,
+                                &bytes_after, (void*)&data);
+    
+    if(type != XA_CARDINAL)
+    {
+        LOG(LOG_WARN, "lxpanel : type is not XA_CARDINAL");
+        g_free(data);
+        result = 0;
     }
-    DBG("tkwin=%x icon pixmap w=%d h=%d\n", tkwin, w, h);
-    pixmap = _wnck_gdk_pixbuf_get_from_pixmap (NULL, xpixmap, 0, 0, 0, 0, w, h);
-    if (!pixmap)
-        RET(NULL);
-    if (xmask != None && XGetGeometry (GDK_DISPLAY(), xmask,
-              &win, &sd, &sd, &w, &h, (guint *)&sd, (guint *)&sd)) {
-        mask = _wnck_gdk_pixbuf_get_from_pixmap (NULL, xmask, 0, 0, 0, 0, w, h);
+    
+    if(result == Success)
+    {
+	    unsigned int w1 = 0;
+        unsigned int h1 = 0;
+        rot_nitems = nitems;
+        rot_data   = data;
+        
+        // find max size
+        while(rot_nitems > 0)
+        {
+            unsigned int w2, h2;
+            
+            if(nitems < 3)
+            {
+                result = 0;
+                LOG(LOG_WARN, "lxpanel : no space for w, h\n");
+                break;
+            }
+            
+            w2 = data[0];
+            h2 = data[1];
+            
+            if(rot_nitems < ((w2 * h2) + 2))
+            {
+                result = 0;
+                LOG(LOG_WARN, "lxpanel : not enough data\n");
+                break;
+            }
+            
+            w1 = w1>w2?w1:w2;
+            h1 = h1>h2?h1:h2;
+            
+            rot_data   += (w1 * h1) + 2;
+            rot_nitems -= (w1 * h1) + 2;
+        }
+        
+        if(result == Success)
+        {
+            pixdata = g_new(guchar, w1 * h1 * 4);
+            p = pixdata;
 
-        if (mask) {
-            masked = apply_mask (pixmap, mask);
-            g_object_unref (G_OBJECT (pixmap));
-            g_object_unref (G_OBJECT (mask));
-            pixmap = masked;
+            i = 0;
+            while(i < (w1 * h1))
+            {
+                guint argb, rgba;
+                
+                argb = data[i];
+                rgba = (argb << 8) | (argb >> 24);
+
+                *p = rgba >> 24;
+                ++p;
+                *p = (rgba >> 16) & 0xff;
+                ++p;
+                *p = (rgba >> 8) & 0xff;
+                ++p;
+                *p = rgba & 0xff;
+                ++p;
+
+                ++i;
+            }
+            
+            pixmap = gdk_pixbuf_new_from_data(pixdata,
+                                              GDK_COLORSPACE_RGB,
+                                              1, 8,
+                                              w1, h1, w1 * 4,
+                                              free_pixels,
+                                              NULL);
+        }
+        
+        g_free(data);
+    }
+
+    if(result != Success)
+    {
+        LOG(LOG_WARN, "lxpanel : Can't read _NET_WM_ICON, try to read pixmap icon\n");
+
+        hints = XGetWMHints(GDK_DISPLAY(), tkwin);
+        
+        result = (hints != NULL)?Success:0;
+
+        if(result == Success)
+        {
+            if ((hints->flags & IconPixmapHint))
+                xpixmap = hints->icon_pixmap;
+            if ((hints->flags & IconMaskHint))
+                xmask = hints->icon_mask;
+
+            XFree(hints);
+            
+            result = (xpixmap != None)?Success:0;
+        }
+        
+        ///
+        if(result != Success)
+        {
+            Pixmap *icons;
+            LOG(LOG_WARN, "lxpanel : can't get icon using HINTS try to use KWM_WIN_ICON\n");
+        
+            result = XGetWindowProperty(GDK_DISPLAY(), tkwin,
+                                        gdk_x11_get_xatom_by_name("KWM_WIN_ICON"),
+                                        0, G_MAXLONG,
+                                        False,
+                                        gdk_x11_get_xatom_by_name("KWM_WIN_ICON"),
+                                        &type, &format, &nitems,
+                                        &bytes_after, (void*)&icons);
+            if(type != gdk_x11_get_xatom_by_name("KWM_WIN_ICON"))
+            {
+                result = 0;
+            }
+        
+            if(result == Success)
+            {
+                xpixmap = icons[0];
+                xmask   = icons[1];
+            
+                result = (xpixmap != None)?Success:0;
+            }
+        }
+        ///
+            
+        if(result == Success)
+        {
+            result = XGetGeometry(GDK_DISPLAY(),
+                                  xpixmap, &win,
+                                  &sd, &sd, &w, &h,
+                                  (guint *)&sd, (guint *)&sd);
+        }
+        
+        if(result != Success) 
+        {
+            LOG(LOG_WARN,"lxpanel : XGetGeometry failed for %x pixmap\n", (unsigned int)xpixmap);
+        }
+        else
+        {
+            DBG("tkwin=%x icon pixmap w=%d h=%d\n", tkwin, w, h);
+            pixmap = _wnck_gdk_pixbuf_get_from_pixmap (NULL, xpixmap, 0, 0, 0, 0, w, h);
+            
+            result = pixmap?Success:0;
+        }
+
+        if(result == Success)
+        {
+            if (xmask != None && XGetGeometry(GDK_DISPLAY(), xmask,
+                                              &win, &sd, &sd, &w, &h,
+                                              (guint *)&sd, (guint *)&sd))
+            {
+                mask = _wnck_gdk_pixbuf_get_from_pixmap (NULL, xmask, 0, 0, 0, 0, w, h);
+                if (mask)
+                {
+                    masked = apply_mask (pixmap, mask);
+                    g_object_unref (G_OBJECT (pixmap));
+                    g_object_unref (G_OBJECT (mask));
+                    pixmap = masked;
+                }
+            }
         }
     }
+    
+    /////////////////////////////////////////////////////////////////////
     if (!pixmap)
         RET(NULL);
+
     ret = gdk_pixbuf_scale_simple (pixmap, iw, ih, GDK_INTERP_TILES);
     g_object_unref(pixmap);
 
