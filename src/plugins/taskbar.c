@@ -78,7 +78,6 @@ typedef struct _taskbar{
     int win_num;
     GHashTable  *task_list;
     GtkWidget *bar, *menu;
-    GtkTooltips *tips;
     GdkPixbuf *gen_pixbuf;
     GtkStateType normal_state;
     GtkStateType focused_state;
@@ -216,7 +215,7 @@ tk_set_names(task *tk)
     }
     gtk_label_set_text(GTK_LABEL(tk->label), name);
     if (tk->tb->tooltips)
-        gtk_tooltips_set_tip(tk->tb->tips, tk->button, tk->name, NULL);
+        gtk_widget_set_tooltip_text( tk->button, tk->name );
     RET();
 }
 
@@ -414,6 +413,19 @@ apply_mask (GdkPixbuf *pixbuf,
   RET(with_alpha);
 }
 
+/* set the iconification destination */
+static void set_iconification_dest( Window win, int x, int y, int w, int h )
+{
+  guint32 data[4];
+
+  data[0] = x;
+  data[1] = y;
+  data[2] = w;
+  data[3] = h;
+  XChangeProperty(GDK_DISPLAY(), win,
+        gdk_x11_get_xatom_by_name("_NET_WM_ICON_GEOMETRY"),
+        XA_CARDINAL, 32, PropModeReplace, (guchar *)&data, 4);
+}
 
 static GdkPixbuf *
 get_netwm_icon(Window tkwin, int iw, int ih)
@@ -731,7 +743,7 @@ tk_raise_window( task *tk, guint32 time )
 }
 
 static void
-tk_callback_leave( GtkWidget *widget, task *tk)
+on_tk_leave( GtkWidget *widget, task *tk)
 {
     ENTER;
 /*
@@ -743,7 +755,7 @@ tk_callback_leave( GtkWidget *widget, task *tk)
 
 
 static void
-tk_callback_enter( GtkWidget *widget, task *tk )
+on_tk_enter( GtkWidget *widget, task *tk )
 {
     ENTER;
 /*
@@ -763,7 +775,7 @@ static gboolean delay_active_win(task* tk)
 }
 
 static gboolean
-tk_callback_drag_motion( GtkWidget *widget,
+on_tk_drag_motion( GtkWidget *widget,
       GdkDragContext *drag_context,
       gint x, gint y,
       guint time, task *tk)
@@ -778,7 +790,7 @@ tk_callback_drag_motion( GtkWidget *widget,
 }
 
 static void
-tk_callback_drag_leave (GtkWidget *widget,
+on_tk_drag_leave (GtkWidget *widget,
       GdkDragContext *drag_context,
       guint time, task *tk)
 {
@@ -791,7 +803,7 @@ tk_callback_drag_leave (GtkWidget *widget,
 
 #if 0
 static gboolean
-tk_callback_expose(GtkWidget *widget, GdkEventExpose *event, task *tk)
+on_tk_expose(GtkWidget *widget, GdkEventExpose *event, task *tk)
 {
     GtkStateType state;
     ENTER;
@@ -826,7 +838,7 @@ tk_callback_expose(GtkWidget *widget, GdkEventExpose *event, task *tk)
 #endif
 
 static gint
-tk_callback_scroll_event (GtkWidget *widget, GdkEventScroll *event, task *tk)
+on_tk_scroll_event (GtkWidget *widget, GdkEventScroll *event, task *tk)
 {
     ENTER;
     if( ! tk->tb->use_mouse_wheel )
@@ -852,7 +864,7 @@ tk_callback_scroll_event (GtkWidget *widget, GdkEventScroll *event, task *tk)
 }
 
 static gboolean
-tk_callback_button_press_event(GtkWidget *widget, GdkEventButton *event, task *tk)
+on_tk_btn_press_event(GtkWidget *widget, GdkEventButton *event, task *tk)
 {
     if( event->type == GDK_BUTTON_PRESS && event->button == 3 )
     {
@@ -864,7 +876,7 @@ tk_callback_button_press_event(GtkWidget *widget, GdkEventButton *event, task *t
 }
 
 static gboolean
-tk_callback_button_release_event(GtkWidget *widget, GdkEventButton *event, task *tk)
+on_tk_btn_release_event(GtkWidget *widget, GdkEventButton *event, task *tk)
 {
     XWindowAttributes xwa;
 
@@ -925,7 +937,7 @@ tk_update(gpointer key, task *tk, taskbar *tb)
         gtk_widget_show(tk->button);
         if (tb->tooltips) {
             //DBG2("tip %x %s\n", tk->win, tk->name);
-            gtk_tooltips_set_tip(tb->tips, tk->button, tk->name, NULL);
+            gtk_widget_set_tooltip_text( tk->button, tk->name );
         }
     RET();
     }
@@ -949,6 +961,15 @@ tb_display(taskbar *tb)
         g_hash_table_foreach(tb->task_list, (GHFunc) tk_update, (gpointer) tb);
     RET();
 
+}
+
+static void on_tk_btn_size_allocate(GtkWidget* btn, GtkAllocation* alloc, task* tk)
+{
+    int x, y;
+    if( ! GTK_WIDGET_REALIZED(btn) )
+        return;
+    gdk_window_get_origin(GTK_BUTTON(btn)->event_window, &x, &y);
+    set_iconification_dest( tk->win, x, y, alloc->width, alloc->height );
 }
 
 static void
@@ -979,29 +1000,31 @@ tk_build_gui(taskbar *tb, task *tk)
     gtk_widget_show(tk->button);
     gtk_container_set_border_width(GTK_CONTAINER(tk->button), 0);
     gtk_widget_add_events (tk->button, GDK_BUTTON_RELEASE_MASK );
-    g_signal_connect(G_OBJECT(tk->button), "button_press_event",
-          G_CALLBACK(tk_callback_button_press_event), (gpointer)tk);
-    g_signal_connect(G_OBJECT(tk->button), "button_release_event",
-          G_CALLBACK(tk_callback_button_release_event), (gpointer)tk);
+    g_signal_connect(tk->button, "button_press_event",
+          G_CALLBACK(on_tk_btn_press_event), (gpointer)tk);
+    g_signal_connect(tk->button, "button_release_event",
+          G_CALLBACK(on_tk_btn_release_event), (gpointer)tk);
 /*
     g_signal_connect_after (G_OBJECT (tk->button), "leave",
-          G_CALLBACK (tk_callback_leave), (gpointer) tk);
+          G_CALLBACK (on_tk_leave), (gpointer) tk);
     g_signal_connect_after (G_OBJECT (tk->button), "enter",
-          G_CALLBACK (tk_callback_enter), (gpointer) tk);
+          G_CALLBACK (on_tk_enter), (gpointer) tk);
 */
+    gtk_widget_add_events(tk->button, GDK_STRUCTURE_MASK);
+    g_signal_connect(tk->button, "size-allocate",
+          G_CALLBACK(on_tk_btn_size_allocate), (gpointer)tk);
 
 #if 0
     g_signal_connect_after (G_OBJECT (tk->button), "expose-event",
-          G_CALLBACK (tk_callback_expose), (gpointer) tk);
+          G_CALLBACK (on_tk_expose), (gpointer) tk);
 #endif
     gtk_drag_dest_set( tk->button, 0, NULL, 0, 0);
     g_signal_connect (G_OBJECT (tk->button), "drag-motion",
-          G_CALLBACK (tk_callback_drag_motion), (gpointer) tk);
+          G_CALLBACK (on_tk_drag_motion), (gpointer) tk);
     g_signal_connect (G_OBJECT (tk->button), "drag-leave",
-          G_CALLBACK (tk_callback_drag_leave), (gpointer) tk);
+          G_CALLBACK (on_tk_drag_leave), (gpointer) tk);
     g_signal_connect_after(G_OBJECT(tk->button), "scroll-event",
-            G_CALLBACK(tk_callback_scroll_event), (gpointer)tk);
-
+            G_CALLBACK(on_tk_scroll_event), (gpointer)tk);
 
     /* pix and name */
     w1 = tb->plug->panel->my_box_new(FALSE, 1);
@@ -1468,16 +1491,6 @@ taskbar_build_gui(Plugin *p)
     tb->cur_desk = get_net_current_desktop();
     tb->focused = NULL;
 
-    /* FIXME:
-        Can we delete the tooltip object if tooltips is not enabled?
-    if (tb->tooltips) */
-    tb->tips = gtk_tooltips_new();
-#if GLIB_CHECK_VERSION( 2, 10, 0 )
-    g_object_ref_sink( tb->tips );
-#else
-    g_object_ref( tb->tips );
-    gtk_object_sink( tb->tips );
-#endif
     tb->menu = taskbar_make_menu(tb);
     gtk_container_set_border_width(GTK_CONTAINER(p->pwid), 0);
     gtk_widget_show_all(tb->bar);
@@ -1610,7 +1623,6 @@ taskbar_destructor(Plugin *p)
     g_signal_handlers_disconnect_by_func(G_OBJECT (fbev), tb_net_number_of_desktops, tb);
     g_signal_handlers_disconnect_by_func(G_OBJECT (fbev), tb_net_client_list, tb);
     gdk_window_remove_filter(NULL, (GdkFilterFunc)tb_event_filter, tb );
-    g_object_unref( tb->tips );
     g_hash_table_destroy(tb->task_list);
     /* The widget is destroyed in plugin_stop().
     gtk_widget_destroy(tb->bar);
@@ -1636,13 +1648,16 @@ static void apply_config( Plugin* p )
 {
     taskbar *tb = (taskbar *)p->priv;
     if( tb->tooltips )
-        gtk_tooltips_enable(tb->tips);
+        gtk_container_foreach( tb->bar, (GtkCallback)gtk_widget_set_has_tooltip, (gpointer)TRUE );
     else
-        gtk_tooltips_disable(tb->tips);
-     if (tb->icons_only) {
+        gtk_container_foreach( tb->bar, (GtkCallback)gtk_widget_set_has_tooltip, (gpointer)FALSE );
+
+    if (tb->icons_only)
+    {
         gtk_bar_set_max_child_size(GTK_BAR(tb->bar),
-              GTK_WIDGET(p->panel->box)->allocation.height -2);
-     } else
+          GTK_WIDGET(p->panel->box)->allocation.height -2);
+    }
+    else
         gtk_bar_set_max_child_size(GTK_BAR(tb->bar), tb->task_width_max);
 
     gtk_box_set_spacing( GTK_BOX(tb->bar), tb->spacing );
