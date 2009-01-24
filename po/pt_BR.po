@@ -149,6 +149,3 @@ msgstr "Tonalidade de cor:"
 #: ../data/ui/panel-pref.ui.h:34 ../src/panel.c:624
 msgid "Top"
 msgstr "Topo"
-
-#: ../data/ui/panel-pref.ui.h:35
-m
