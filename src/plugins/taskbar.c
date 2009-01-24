@@ -463,8 +463,8 @@ get_wm_icon(Window tkwin, int iw, int ih)
     int sd, result, format;
     GdkPixbuf *ret, *masked, *pixmap, *mask = NULL;
     Atom type = None;
-    gulong *data = NULL;
-    gulong *rot_data = NULL;
+    guint32 *data = NULL;
+    guint32 *rot_data = NULL;
     gulong  nitems;
     gulong  rot_nitems;
     gulong  bytes_after;
@@ -479,61 +479,59 @@ get_wm_icon(Window tkwin, int iw, int ih)
                                 0, G_MAXLONG,
                                 0, XA_CARDINAL, &type, &format, &nitems,
                                 &bytes_after, (void*)&data);
-    
-    if(type != XA_CARDINAL)
+
+    if(type != XA_CARDINAL || nitems <= 0 )
     {
         LOG(LOG_WARN, "lxpanel : type is not XA_CARDINAL");
-        g_free(data);
+        XFree(data);
         result = 0;
     }
     
     if(result == Success)
     {
-	    unsigned int w1 = 0;
-        unsigned int h1 = 0;
-        rot_nitems = nitems;
-        rot_data   = data;
-        
-        // find max size
-        while(rot_nitems > 0)
+        guint32* pdata = data;
+        guint32* pdata_end = data + nitems;
+        guint32* max_icon = NULL;
+        guint32 max_w = 0, max_h = 0;
+
+        /* get the largest icon available. */
+        /* FIXME: should we try to find an icon whose size is closest to
+         * iw and ih to reduce unnecessary resizing? */
+        while(pdata + 2 < pdata_end)
         {
-            unsigned int w2, h2;
-            
-            if(nitems < 3)
-            {
-                result = 0;
-                LOG(LOG_WARN, "lxpanel : no space for w, h\n");
+            guint32 w = pdata[0];
+            guint32 h = pdata[1];
+            guint32 size = (w * h);
+            pdata += 2;
+            if( pdata + size > pdata_end ) /* corrupt icon */
                 break;
-            }
-            
-            w2 = data[0];
-            h2 = data[1];
-            
-            if(rot_nitems < ((w2 * h2) + 2))
+
+            if( w > max_w && h > max_h )
             {
-                result = 0;
-                LOG(LOG_WARN, "lxpanel : not enough data\n");
-                break;
+                max_icon = pdata;
+                max_w = w;
+                max_h = h;
             }
-            
-            w1 = w1>w2?w1:w2;
-            h1 = h1>h2?h1:h2;
-            
-            rot_data   += (w1 * h1) + 2;
-            rot_nitems -= (w1 * h1) + 2;
+
+            /* rare special case: the desire size is the same as icon size */
+            if( iw == w && ih == h )
+                break;
+
+            pdata += size;
         }
-        
-        if(result == Success)
+
+        if( max_icon )
         {
-            pixdata = g_new(guchar, w1 * h1 * 4);
+            guint32 len = max_w * max_h;
+            pixdata = g_new(guchar, len * 4);
             p = pixdata;
 
             i = 0;
-            while(i < (w1 * h1))
+            while(i < len)
             {
                 guint argb, rgba;
                 
-                argb = data[i];
+                argb = max_icon[i];
                 rgba = (argb << 8) | (argb >> 24);
 
                 *p = rgba >> 24;
@@ -551,12 +549,11 @@ get_wm_icon(Window tkwin, int iw, int ih)
             pixmap = gdk_pixbuf_new_from_data(pixdata,
                                               GDK_COLORSPACE_RGB,
                                               1, 8,
-                                              w1, h1, w1 * 4,
+                                              max_w, max_h, max_w * 4,
                                               free_pixels,
                                               NULL);
         }
-        
-        g_free(data);
+        XFree(data);
     }
 
     if(result != Success)
