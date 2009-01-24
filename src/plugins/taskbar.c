@@ -1010,7 +1010,6 @@ tk_build_gui(taskbar *tb, task *tk)
     g_signal_connect_after (G_OBJECT (tk->button), "enter",
           G_CALLBACK (on_tk_enter), (gpointer) tk);
 */
-    gtk_widget_add_events(tk->button, GDK_STRUCTURE_MASK);
     g_signal_connect(tk->button, "size-allocate",
           G_CALLBACK(on_tk_btn_size_allocate), (gpointer)tk);
 
