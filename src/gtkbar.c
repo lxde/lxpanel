@@ -157,6 +157,7 @@ gtk_bar_size_allocate (GtkWidget     *widget,
     gint nvis_children;
     gint bw;
     gint tmp;
+    gboolean is_rtl = (gtk_widget_get_direction(widget) == GTK_TEXT_DIR_RTL);
 
     ENTER;
     box = GTK_BOX (widget);
@@ -167,7 +168,8 @@ gtk_bar_size_allocate (GtkWidget     *widget,
     nvis_children = 0;
     bar->maxx = bar->maxy = 0;
     children = box->children;
-    while (children) {
+    while (children)
+    {
         child = children->data;
         children = children->next;
 
@@ -178,30 +180,46 @@ gtk_bar_size_allocate (GtkWidget     *widget,
     if (nvis_children == 0)
         RET();
 
-    child_allocation.x = allocation->x + bw;
+    if( is_rtl )
+        child_allocation.x = allocation->x + allocation->width - bw;
+    else
+        child_allocation.x = allocation->x + bw;
     child_allocation.y = allocation->y + bw;
 
-    if (bar->orient == GTK_ORIENTATION_HORIZONTAL) {
+    if (bar->orient == GTK_ORIENTATION_HORIZONTAL)
+    {
         child_allocation.height = MAX (1, (gint) allocation->height - bw * 2);
         tmp = (allocation->width - bw * 2 - (nvis_children - 1) * box->spacing);
         child_allocation.width = MAX (1, MIN(tmp / nvis_children, bar->max_child_size));
-    } else {
+
+        if(is_rtl)
+            child_allocation.x -= child_allocation.width;
+    }
+    else
+    {
         child_allocation.width = MAX (1, (gint) allocation->width - bw * 2);
         tmp = (allocation->height - bw * 2 - (nvis_children - 1) * box->spacing);
         child_allocation.height = MAX (1, MIN(tmp / nvis_children, bar->max_child_size));
     }
 
     children = box->children;
-    while (children) {
+    while (children)
+    {
         child = children->data;
         children = children->next;
 
-        if (GTK_WIDGET_VISIBLE (child->widget)) {
+        if (GTK_WIDGET_VISIBLE (child->widget))
+        {
             gtk_widget_size_allocate (child->widget, &child_allocation);
             bar->maxx = child_allocation.x;
             bar->maxy = child_allocation.y;
             if (bar->orient == GTK_ORIENTATION_HORIZONTAL)
-                child_allocation.x += child_allocation.width + box->spacing;
+            {
+                if( is_rtl )
+                    child_allocation.x -= (child_allocation.width + box->spacing);
+                else
+                    child_allocation.x += child_allocation.width + box->spacing;
+            }
             else
                 child_allocation.y += child_allocation.height + box->spacing;
         }
