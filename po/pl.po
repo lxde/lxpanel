@@ -1,38 +1,36 @@
 # translation of pl.po to Polish
+# Artur Kruszewski <mazdac@gmail.com>, 2006.
+# Grzegorz Gibas <amigib@gmail.com>, 2009.
 # Copyright (C) 2006 the lxde team
 # This file is distributed under the same license as the lxpanel package.
-# Artur Kruszewski <mazdac@gmail.com>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: lxpanel-0.1\n"
+"Project-Id-Version: pl\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-12-05 19:15+0800\n"
-"PO-Revision-Date: 2006-11-27 21:56+0100\n"
-"Last-Translator: Artur Kruszewski <mazdac@gmail.com>\n"
+"PO-Revision-Date: 2009-01-10 23:22+0100\n"
+"Last-Translator: Grzegorz Gibas <amigib@gmail.com>\n"
 "Language-Team: Polish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: poEdit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: KBabel 1.11.4\n"
 "X-Poedit-Bookmarks: 19,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
 "X-Poedit-Country: Poland\n"
 
 #: ../data/ui/panel-pref.ui.h:2
 #, no-c-format
 msgid "% Percent"
-msgstr ""
+msgstr "% Procent"
 
 #: ../data/ui/panel-pref.ui.h:3
-#, fuzzy
 msgid "<b>Background</b>"
-msgstr "<b>Połączenie</b>"
+msgstr "<b>Tło</b>"
 
 #: ../data/ui/panel-pref.ui.h:4
-#, fuzzy
 msgid "<b>Font</b>"
-msgstr "<b>Połączenie</b>"
+msgstr "<b>Czcionka</b>"
 
 #: ../data/ui/panel-pref.ui.h:5
 msgid "<b>Position</b>"
@@ -44,7 +42,7 @@ msgstr "<b>Właściwości</b>"
 
 #: ../data/ui/panel-pref.ui.h:7
 msgid "<b>Set Preferred Applications</b>"
-msgstr ""
+msgstr "<b>Ustaw Preferowane Aplikacje</b>"
 
 #: ../data/ui/panel-pref.ui.h:8
 msgid "<b>Size</b>"
@@ -52,7 +50,7 @@ msgstr "<b>Rozmiar</b>"
 
 #: ../data/ui/panel-pref.ui.h:9
 msgid "Advanced"
-msgstr ""
+msgstr "Zaawansowane"
 
 #: ../data/ui/panel-pref.ui.h:10
 msgid "Alignment:"
@@ -68,12 +66,11 @@ msgstr "Środek"
 
 #: ../data/ui/panel-pref.ui.h:13
 msgid "Custom Color"
-msgstr ""
+msgstr "Wybierz Kolor"
 
 #: ../data/ui/panel-pref.ui.h:14
-#, fuzzy
 msgid "Dynamic"
-msgstr "dynamiczna"
+msgstr "Dynamiczna"
 
 #: ../data/ui/panel-pref.ui.h:15
 msgid "Edge:"
@@ -81,15 +78,15 @@ msgstr "Krawędź:"
 
 #: ../data/ui/panel-pref.ui.h:16
 msgid "Enable Image:"
-msgstr ""
+msgstr "Włącz Obrazek:"
 
 #: ../data/ui/panel-pref.ui.h:17
 msgid "Enable Transparency"
-msgstr "Włącz przezroczystość"
+msgstr "Włącz przeźroczystość"
 
 #: ../data/ui/panel-pref.ui.h:18
 msgid "File Manager:"
-msgstr ""
+msgstr "Menedżer Plików:"
 
 #: ../data/ui/panel-pref.ui.h:19
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
@@ -107,9 +104,8 @@ msgid "Left"
 msgstr "Lewa"
 
 #: ../data/ui/panel-pref.ui.h:22
-#, fuzzy
 msgid "Logout Command:"
-msgstr "Komenda wylogowania nie jest ustawiona"
+msgstr "Komenda wylogowania:"
 
 #: ../data/ui/panel-pref.ui.h:23
 msgid "Make window managers treat the panel as dock"
@@ -121,22 +117,19 @@ msgstr "Margines:"
 
 #: ../data/ui/panel-pref.ui.h:25
 msgid "None (Use system theme)"
-msgstr ""
+msgstr "Brak (Użyj systemowego)"
 
 #: ../data/ui/panel-pref.ui.h:26
-#, fuzzy
 msgid "Panel Applets"
-msgstr "Ustawienia"
+msgstr "Aplety Panelu"
 
 #: ../data/ui/panel-pref.ui.h:27
-#, fuzzy
 msgid "Panel Preferences"
-msgstr "Preferencje"
+msgstr "Preferencje Panelu"
 
 #: ../data/ui/panel-pref.ui.h:28
-#, fuzzy
 msgid "Pixels"
-msgstr "piksele"
+msgstr "Piksele"
 
 #: ../data/ui/panel-pref.ui.h:29
 msgid "Reserve space, and not covered by maximized windows"
@@ -148,11 +141,11 @@ msgstr "Prawa"
 
 #: ../data/ui/panel-pref.ui.h:31
 msgid "Select an image file"
-msgstr ""
+msgstr "Wybierz obrazek"
 
 #: ../data/ui/panel-pref.ui.h:32
 msgid "Terminal Emulator:"
-msgstr ""
+msgstr "Emulator Terminala:"
 
 #: ../data/ui/panel-pref.ui.h:33
 msgid "Tint color:"
@@ -185,7 +178,7 @@ msgstr "Załadowane wtyczki"
 
 #: ../src/configurator.c:408
 msgid "Stretch"
-msgstr ""
+msgstr "Rozciągnij"
 
 #: ../src/configurator.c:506 ../src/panel.c:516
 msgid "Add plugin to panel"
@@ -201,58 +194,57 @@ msgstr "Komenda wylogowania nie jest ustawiona"
 
 #: ../src/configurator.c:1096 ../src/configurator.c:1176
 msgid "Select a file"
-msgstr ""
+msgstr "Wybierz plik"
 
 #: ../src/configurator.c:1194
 msgid "_Browse"
-msgstr ""
+msgstr "_Przeglądaj"
 
 #: ../src/panel.c:626 ../src/panel.c:752
 msgid "Create New Panel"
-msgstr ""
+msgstr "Stwórz Nowy Panel"
 
 #: ../src/panel.c:632
 msgid "Where to put the panel?"
-msgstr ""
+msgstr "Gdzie ustawić panel?"
 
 #: ../src/panel.c:690
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
+"NAprawdę usunąć ten panel?\n"
+"<b>Uwaga: Ta operacja nie może być cofnięta</b>"
 
 #: ../src/panel.c:691
-#, fuzzy
 msgid "Confirm"
-msgstr "Konfiguruj"
+msgstr "Potwierdź"
 
 #: ../src/panel.c:726
-#, fuzzy
 msgid "Add / Remove Panel Items"
-msgstr "Dodaj wtyczkę do panelu"
+msgstr "Dodaj/Usuń wtyczkę do/z panelu"
 
 #: ../src/panel.c:734
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr ""
+msgstr "Usuń \"%s\" z panelu"
 
 #: ../src/panel.c:746
-#, fuzzy
 msgid "Panel Settings"
-msgstr "Ustawienia"
+msgstr "Ustawienia Panelu"
 
 #: ../src/panel.c:763
 msgid "Delete This Panel"
-msgstr ""
+msgstr "Usuń Ten Panel"
 
 #: ../src/panel.c:773
 msgid "Panel"
-msgstr ""
+msgstr "Panel"
 
 #: ../src/panel.c:786
-#, fuzzy, c-format
+#, c-format
 msgid "\"%s\" Settings"
-msgstr "Ustawienia"
+msgstr "Ustawienia \"%s\""
 
 #: ../src/panel.c:1244
 #, c-format
@@ -277,8 +269,7 @@ msgstr " --version   -- wyświetla numer wersji i wychodzi\n"
 #: ../src/panel.c:1248
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <number> -- ustawia poziom raportowania 0-5. 0 - brak 5 - wylewny\n"
+msgstr " --log <number> -- ustawia poziom raportowania 0-5. 0 - brak 5 - wylewny\n"
 
 #: ../src/panel.c:1249
 #, c-format
@@ -351,23 +342,20 @@ msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Pokaż numer przestrzeni roboczej, dzięki cmeury@users.sf.net"
 
 #: ../src/plugins/launchbar.c:143
-#, fuzzy
 msgid "Add Button"
-msgstr "Przyciski"
+msgstr "Dodaj Przycisk"
 
 #: ../src/plugins/launchbar.c:145
-#, fuzzy
 msgid "Button Properties"
-msgstr "Właściwośći połączenia"
+msgstr "Właściwości przycisku"
 
 #.
 #. title = g_strdup_printf( _("Remove \"%s\""), b-> );
 #. item = gtk_image_menu_item_new_with_label( _("Remove ") );
 #.
 #: ../src/plugins/launchbar.c:151
-#, fuzzy
 msgid "Remove Button"
-msgstr "Przyciski"
+msgstr "Usuń Przycisk"
 
 #. FIXME: We should have a better interface for this in the fututure.
 #. 1. We can borrow the menu from menu plugin (PtkAppMenu).
@@ -408,15 +396,15 @@ msgstr "Minimalizuj"
 #: ../src/plugins/taskbar.c:1240
 #, c-format
 msgid "Workspace %d"
-msgstr ""
+msgstr "Pulpit %d"
 
 #: ../src/plugins/taskbar.c:1248
 msgid "All workspaces"
-msgstr ""
+msgstr "Wszystkie pulpity"
 
 #: ../src/plugins/taskbar.c:1255
 msgid "Move to Workspace"
-msgstr ""
+msgstr "Przenieś na inny pulpit"
 
 #. we want this item to be farest from mouse pointer
 #: ../src/plugins/taskbar.c:1263
@@ -432,9 +420,8 @@ msgid "Icons only"
 msgstr "Tylko ikony"
 
 #: ../src/plugins/taskbar.c:1513
-#, fuzzy
 msgid "Flat Buttons"
-msgstr "Przyciski"
+msgstr "Płaskie Przyciski"
 
 #: ../src/plugins/taskbar.c:1514
 msgid "Accept SkipPager"
@@ -442,7 +429,7 @@ msgstr ""
 
 #: ../src/plugins/taskbar.c:1515
 msgid "Show Iconified windows"
-msgstr "Pokaż zikonizowane oka"
+msgstr "Pokaż zikonizowane okna"
 
 #: ../src/plugins/taskbar.c:1516
 msgid "Show mapped windows"
@@ -450,7 +437,7 @@ msgstr ""
 
 #: ../src/plugins/taskbar.c:1517
 msgid "Show windows from all desktops"
-msgstr "Pokaż okna ze wszytskich pulpitów"
+msgstr "Pokaż okna ze wszystkich pulpitów"
 
 #: ../src/plugins/taskbar.c:1518
 msgid "Use mouse wheel"
@@ -494,7 +481,7 @@ msgstr "Akcja"
 
 #: ../src/plugins/dclock.c:282
 msgid "Bold font"
-msgstr ""
+msgstr "Czcionka pogrubiona"
 
 #: ../src/plugins/dclock.c:317
 msgid "Digital Clock"
@@ -511,7 +498,7 @@ msgstr "Dodaj wtyczkę do panelu"
 
 #: ../src/plugins/menu.c:364
 msgid "Add to desktop"
-msgstr ""
+msgstr "Dodaj do pulpitu"
 
 #: ../src/plugins/menu.c:374
 #, fuzzy
@@ -533,11 +520,11 @@ msgstr ""
 
 #: ../src/plugins/separator.c:103
 msgid "Separator"
-msgstr ""
+msgstr "Separator"
 
 #: ../src/plugins/separator.c:105
 msgid "Add a separator to the panel"
-msgstr ""
+msgstr "Dodaj separator do panelu"
 
 #: ../src/plugins/pager.c:709
 msgid "Desktop Pager"
@@ -579,7 +566,7 @@ msgstr ""
 
 #: ../src/plugins/dirmenu.c:215
 msgid "Open in _Terminal"
-msgstr ""
+msgstr "Otwórz w _Terminalu"
 
 #: ../src/plugins/dirmenu.c:380
 msgid "Directory Menu"
@@ -623,9 +610,8 @@ msgid "Warning2 Temperatur"
 msgstr ""
 
 #: ../src/plugins/thermal/thermal.c:348
-#, fuzzy
 msgid "Temperature Monitor"
-msgstr "Monitor statusu sieci"
+msgstr "Monitor Temperatury"
 
 #: ../src/plugins/thermal/thermal.c:350
 msgid "Display system temperature, by kesler.daniel@gmail.com"
@@ -635,7 +621,7 @@ msgstr ""
 #: ../src/plugins/volume/volume.c:305
 #: ../src/plugins/volumealsa/volumealsa.c:408
 msgid "Volume control"
-msgstr "Poziom głoścności"
+msgstr "Poziom głośności"
 
 #: ../src/plugins/volume/volume.c:317
 #: ../src/plugins/volumealsa/volumealsa.c:422
@@ -650,7 +636,7 @@ msgstr "Głośność"
 
 #: ../src/plugins/volumealsa/volumealsa.c:327
 msgid "Mute"
-msgstr ""
+msgstr "Wycisz"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
@@ -658,18 +644,17 @@ msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:201
 msgid "Wireless Networks not found in range"
-msgstr ""
+msgstr "Nie znaleziono bezprzewodowej sieci w zasięgu"
 
 #. Repair
 #: ../src/plugins/netstat/netstat.c:235
-#, fuzzy
 msgid "Repair"
-msgstr "Restartuj"
+msgstr "Napraw"
 
 #. interface down
 #: ../src/plugins/netstat/netstat.c:240
 msgid "Disable"
-msgstr ""
+msgstr "Wyłącz"
 
 #: ../src/plugins/netstat/netstat.c:299
 msgid "Wireless Connection has no connectivity"
@@ -685,9 +670,8 @@ msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
-#, fuzzy
 msgid "IP Address:"
-msgstr "Adres:"
+msgstr "Adres IP:"
 
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Remote IP:"
@@ -713,20 +697,18 @@ msgstr "Wysłano:"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
-#, fuzzy
 msgid "Received"
-msgstr "FogadOdebrano:"
+msgstr "Odebrano:"
 
 #: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
-msgstr ""
+msgstr "bajtów"
 
 #: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
-#, fuzzy
 msgid "packets"
-msgstr "%lu pakiet"
+msgstr "pakietów"
 
 #: ../src/plugins/netstat/netstat.c:315
 msgid "Wireless"
@@ -734,7 +716,7 @@ msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
-msgstr ""
+msgstr "Protokół:"
 
 #: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
@@ -743,19 +725,16 @@ msgid "Broadcast:"
 msgstr "Adres rozgłoszeniowy"
 
 #: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
-#, fuzzy
 msgid "HW Address:"
-msgstr "Adres:"
+msgstr "Adres HW:"
 
 #: ../src/plugins/netstat/netstat.c:471
-#, fuzzy
 msgid "Manage Networks"
-msgstr "Sieć"
+msgstr "Zarządzaj Sieciami"
 
 #: ../src/plugins/netstat/netstat.c:473
-#, fuzzy
 msgid "Monitor and Manage networks"
-msgstr "Status monitora sieci"
+msgstr "Monitoruj i zarządzaj sieciami"
 
 #. create dialog
 #: ../src/plugins/netstat/passwd_gui.c:84
@@ -796,7 +775,7 @@ msgstr "Nieznany"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:115
 msgid "Connection Properties"
-msgstr "Właściwośći połączenia"
+msgstr "Właściwości połączenia"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:121
 #, c-format
@@ -807,7 +786,7 @@ msgstr "Właściwości połączenia: %s"
 #, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
-msgstr[0] "%lu pakiet"
+msgstr[0] "%lu pakietów"
 msgstr[1] "%lu pakiety"
 msgstr[2] "%lu pakietów"
 
@@ -843,7 +822,7 @@ msgstr "<b>Aktywność</b>"
 
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:232
 msgid "Received:"
-msgstr "FogadOdebrano:"
+msgstr "Odebrano:"
 
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:239
 msgid "Sent:"
@@ -930,7 +909,7 @@ msgstr "Włącz podpowiedzi"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:829
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr "Mutassa-e az ikon eszköztippeket."
+msgstr "Czy ikony podpowiedzi mają być włączone."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:836
 msgid "Show Signal"
@@ -938,7 +917,7 @@ msgstr "Pokaż sygnał"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:837
 msgid "Whether or not the signal strength should be displayed."
-msgstr "Nie można wyświetlić poziomu sygnału."
+msgstr "Czy wyświetlić poziomu sygnału."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:950
 #, c-format
@@ -966,9 +945,8 @@ msgid "charging finished"
 msgstr ""
 
 #: ../src/plugins/batt/batt.c:395
-#, fuzzy
 msgid "charging"
-msgstr "Margines:"
+msgstr "ładowanie"
 
 #: ../src/plugins/batt/batt.c:400
 #, c-format
@@ -999,7 +977,7 @@ msgstr ""
 
 #: ../src/plugins/batt/batt.c:883
 msgid "Background color"
-msgstr ""
+msgstr "Kolor tła"
 
 #: ../src/plugins/batt/batt.c:884
 msgid "Charging color 1"
@@ -1050,76 +1028,3 @@ msgstr ""
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr ""
 
-#~ msgid "Other"
-#~ msgstr "Inne"
-
-#~ msgid "Game"
-#~ msgstr "Gry"
-
-#~ msgid "Education"
-#~ msgstr "Edukacyjne"
-
-#~ msgid "Development"
-#~ msgstr "Programistyczne"
-
-#~ msgid "Audio & Video"
-#~ msgstr "Audio i Wideo"
-
-#~ msgid "Graphics"
-#~ msgstr "Grafika"
-
-#~ msgid "Settings"
-#~ msgstr "Ustawienia"
-
-#~ msgid "System Tools"
-#~ msgstr "Narzędzia systmowe"
-
-#~ msgid "Office"
-#~ msgstr "Biuro"
-
-#~ msgid "Accessories"
-#~ msgstr "Akcesoria"
-
-#~ msgid "Dispaly Image and Tooltip"
-#~ msgstr "Wyświetl obraz i podpowiedź"
-
-#, fuzzy
-#~ msgid "Applications"
-#~ msgstr "Wybierz program"
-
-#~ msgid "pixels"
-#~ msgstr "piksele"
-
-#~ msgid "Plugins"
-#~ msgstr "Wtyczki"
-
-#, fuzzy
-#~ msgid "Logout Command"
-#~ msgstr "Komenda wylogowania nie jest ustawiona"
-
-#~ msgid "lxpanel configurator"
-#~ msgstr "konfigurator lxpanel"
-
-#~ msgid "<b>Transparency</b>"
-#~ msgstr "<b>Przezroczystość</b>"
-
-#~ msgid "Set Dock Type"
-#~ msgstr "Ustaw typ doku"
-
-#~ msgid "Set Strut"
-#~ msgstr "Ustaw belkę"
-
-#~ msgid "Change window icons"
-#~ msgstr "Zmień ikony okien"
-
-#~ msgid "_Add"
-#~ msgstr "新增(_A)"
-
-#~ msgid "_Remove"
-#~ msgstr "移除(_R)"
-
-#~ msgid "Right-click to get context menu. Drag & Drop to change order."
-#~ msgstr "可以按右鍵使用選單，用拖曳改變順序"
-
-#~ msgid "Plugins..."
-#~ msgstr "外掛..."
