@@ -181,7 +181,8 @@ static void on_menu_item( GtkMenuItem* mi, MenuCacheItem* item )
         g_free(cmd);
 }
 
-static void on_menu_item_style_set(GtkWidget* mi, GtkStyle* prev, MenuCacheItem* item)
+/* load icon when mapping the menu item to speed up */
+static void on_menu_item_map(GtkWidget* mi, MenuCacheItem* item)
 {
     GtkImage* img = gtk_image_menu_item_get_image(mi);
     if( img )
@@ -198,7 +199,12 @@ static void on_menu_item_style_set(GtkWidget* mi, GtkStyle* prev, MenuCacheItem*
             g_object_unref(icon);
         }
     }
-    /* g_debug("style set!"); */
+}
+
+static void on_menu_item_style_set(GtkWidget* mi, GtkStyle* prev, MenuCacheItem* item)
+{
+    /* reload icon */
+    on_menu_item_map(mi, item);
 }
 
 static void on_add_menu_item_to_desktop(GtkMenuItem* item, MenuCacheApp* app)
@@ -421,6 +427,7 @@ static GtkWidget* create_item( MenuCacheItem* item )
             gtk_widget_set_tooltip_text( mi, menu_cache_item_get_comment(item) );
             g_signal_connect( mi, "activate", on_menu_item, item );
         }
+        g_signal_connect(mi, "map", G_CALLBACK(on_menu_item_map), item);
         g_signal_connect(mi, "style-set", G_CALLBACK(on_menu_item_style_set), item);
         g_signal_connect(mi, "button-press-event", G_CALLBACK(on_menu_button_press), item);
     }
@@ -477,7 +484,7 @@ static void unload_old_icons(GtkMenu* menu, GtkIconTheme* theme)
     GList *children, *child;
     GtkMenuItem* item;
     GtkWidget* sub_menu;
-
+g_debug("UNLOAD OLD ICONS");
     children = gtk_container_get_children( GTK_CONTAINER(menu) );
     for( child = children; child; child = child->next )
     {
@@ -535,7 +542,7 @@ reload_system_menu( menup* m, GtkMenu* menu )
     GtkMenuItem* item;
     GtkWidget* sub_menu;
     gint idx;
-
+g_debug("RELOAD SYS MENU");
     children = gtk_container_get_children( GTK_CONTAINER(menu) );
     for( child = children, idx = 0; child; child = child->next, ++idx )
     {
