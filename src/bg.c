@@ -123,7 +123,7 @@ fb_bg_init (FbBg *bg)
     ENTER;
     bg->dpy = GDK_DISPLAY();
     bg->xroot = DefaultRootWindow(bg->dpy);
-    bg->id = XInternAtom(bg->dpy, "_XROOTPMAP_ID", False);
+    bg->id = gdk_x11_get_xatom_by_name("_XROOTPMAP_ID");
     bg->pixmap = fb_bg_get_xrootpmap(bg);
     gcv.ts_x_origin = 0;
     gcv.ts_y_origin = 0;

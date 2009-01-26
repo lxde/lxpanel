@@ -484,7 +484,7 @@ static void unload_old_icons(GtkMenu* menu, GtkIconTheme* theme)
     GList *children, *child;
     GtkMenuItem* item;
     GtkWidget* sub_menu;
-g_debug("UNLOAD OLD ICONS");
+
     children = gtk_container_get_children( GTK_CONTAINER(menu) );
     for( child = children; child; child = child->next )
     {
@@ -542,7 +542,7 @@ reload_system_menu( menup* m, GtkMenu* menu )
     GtkMenuItem* item;
     GtkWidget* sub_menu;
     gint idx;
-g_debug("RELOAD SYS MENU");
+
     children = gtk_container_get_children( GTK_CONTAINER(menu) );
     for( child = children, idx = 0; child; child = child->next, ++idx )
     {
@@ -755,7 +755,7 @@ read_separator(Plugin *p, char **fp)
 
 static void on_reload_menu( MenuCache* cache, menup* m )
 {
-    g_debug("reload system menu!!");
+    /* g_debug("reload system menu!!"); */
     reload_system_menu( m, m->menu );
 }
 
