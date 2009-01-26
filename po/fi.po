@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-05 19:15+0800\n"
+"POT-Creation-Date: 2009-01-26 22:13+0800\n"
 "PO-Revision-Date: 2008-12-04 15:32+0200\n"
 "Last-Translator: Elias Julkunen <elias.julkunen@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,7 +53,7 @@ msgstr "Lisäasetukset"
 msgid "Alignment:"
 msgstr "Tasaus:"
 
-#: ../data/ui/panel-pref.ui.h:11 ../src/panel.c:624
+#: ../data/ui/panel-pref.ui.h:11 ../src/panel.c:628
 msgid "Bottom"
 msgstr "Alhaalla"
 
@@ -95,7 +95,7 @@ msgstr "Yleinen"
 msgid "Height:"
 msgstr "Korkeus:"
 
-#: ../data/ui/panel-pref.ui.h:21 ../src/panel.c:624
+#: ../data/ui/panel-pref.ui.h:21 ../src/panel.c:628
 msgid "Left"
 msgstr "Vasemmalla"
 
@@ -131,7 +131,7 @@ msgstr "pikseliä"
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Varaa tilaa, etteivät suurennetut ikkunat mene paneelin alle"
 
-#: ../data/ui/panel-pref.ui.h:30 ../src/panel.c:624
+#: ../data/ui/panel-pref.ui.h:30 ../src/panel.c:628
 msgid "Right"
 msgstr "Oikealla"
 
@@ -147,7 +147,7 @@ msgstr "Pääteohjelma:"
 msgid "Tint color:"
 msgstr "Läpinäkyvyyden väri:"
 
-#: ../data/ui/panel-pref.ui.h:34 ../src/panel.c:624
+#: ../data/ui/panel-pref.ui.h:34 ../src/panel.c:628
 msgid "Top"
 msgstr "Ylhäällä"
 
@@ -155,56 +155,55 @@ msgstr "Ylhäällä"
 msgid "Width:"
 msgstr "Leveys:"
 
-#. { "configure", N_("Preferences"), configure },
-#: ../src/configurator.c:51 ../src/gtk-run.c:250
+#: ../src/configurator.c:53 ../src/gtk-run.c:250
 msgid "Run"
 msgstr "Suorita"
 
-#: ../src/configurator.c:52
+#: ../src/configurator.c:55
 msgid "Restart"
 msgstr "Käynnistä uudelleen"
 
-#: ../src/configurator.c:53
+#: ../src/configurator.c:56
 msgid "Logout"
 msgstr "Kirjaudu ulos"
 
-#: ../src/configurator.c:399
+#: ../src/configurator.c:402
 msgid "Currently loaded plugins"
 msgstr "Käytössä olevat liitännäiset"
 
-#: ../src/configurator.c:408
+#: ../src/configurator.c:411
 msgid "Stretch"
 msgstr "Venytä"
 
-#: ../src/configurator.c:506 ../src/panel.c:516
+#: ../src/configurator.c:509 ../src/panel.c:520
 msgid "Add plugin to panel"
 msgstr "Lisää liitännäinen paneeliin"
 
-#: ../src/configurator.c:533 ../src/panel.c:539
+#: ../src/configurator.c:536 ../src/panel.c:543
 msgid "Available plugins"
 msgstr "Käytettävissä olevat liitännäiset"
 
-#: ../src/configurator.c:1047
+#: ../src/configurator.c:1050
 msgid "Logout command is not set"
 msgstr "Uloskirjautumisen komentoa ei ole asetettu"
 
-#: ../src/configurator.c:1096 ../src/configurator.c:1176
+#: ../src/configurator.c:1099 ../src/configurator.c:1179
 msgid "Select a file"
 msgstr "Valitse tiedosto"
 
-#: ../src/configurator.c:1194
+#: ../src/configurator.c:1197
 msgid "_Browse"
 msgstr "_Selaa"
 
-#: ../src/panel.c:626 ../src/panel.c:752
+#: ../src/panel.c:630 ../src/panel.c:756
 msgid "Create New Panel"
 msgstr "Luo uusi paneeli"
 
-#: ../src/panel.c:632
+#: ../src/panel.c:636
 msgid "Where to put the panel?"
 msgstr "Minne paneeli laitetaan?"
 
-#: ../src/panel.c:690
+#: ../src/panel.c:694
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -212,94 +211,94 @@ msgstr ""
 "Haluatko varmasti poistaa tämän paneelin?\n"
 "<b>Varoitus: tätä toimintoa ei voi perua.</b>"
 
-#: ../src/panel.c:691
+#: ../src/panel.c:695
 msgid "Confirm"
 msgstr "Varmista"
 
-#: ../src/panel.c:726
+#: ../src/panel.c:730
 msgid "Add / Remove Panel Items"
 msgstr "Lisää/poista paneelin sovelmia"
 
-#: ../src/panel.c:734
+#: ../src/panel.c:738
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Poista \"%s\" paneelista"
 
-#: ../src/panel.c:746
+#: ../src/panel.c:750
 msgid "Panel Settings"
 msgstr "Paneelin asetukset"
 
-#: ../src/panel.c:763
+#: ../src/panel.c:767
 msgid "Delete This Panel"
 msgstr "Poista tämä paneeli"
 
-#: ../src/panel.c:773
+#: ../src/panel.c:777
 msgid "Panel"
 msgstr "Paneeli"
 
-#: ../src/panel.c:786
+#: ../src/panel.c:790
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "Sovelman \"%s\" asetukset"
 
-#: ../src/panel.c:1244
+#: ../src/panel.c:1248
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - kevyt GTK2+-paneeli UNIX-työpöydille\n"
 
-#: ../src/panel.c:1245
+#: ../src/panel.c:1249
 #, c-format
 msgid "Command line options:\n"
 msgstr "Komentorivivalinnat:\n"
 
-#: ../src/panel.c:1246
+#: ../src/panel.c:1250
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr "--help      -- näyttää tämän ohjeen ja poistuu\n"
 
-#: ../src/panel.c:1247
+#: ../src/panel.c:1251
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr "--version   -- näyttää versionumeron ja poistuu\n"
 
-#: ../src/panel.c:1248
+#: ../src/panel.c:1252
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 " --log <numero> -- asettaa lokin tasoksi 0-5. 0 = ei mitään, 5 = "
 "lavertelija\n"
 
-#: ../src/panel.c:1249
+#: ../src/panel.c:1253
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr "--configure -- käynnistää asetustyökalun\n"
 
-#: ../src/panel.c:1250
+#: ../src/panel.c:1254
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr "--profile <nimi> -- käyttää tiettyä profiilia\n"
 
-#: ../src/panel.c:1252
+#: ../src/panel.c:1256
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr "-h  -- sama kuin --help\n"
 
-#: ../src/panel.c:1253
+#: ../src/panel.c:1257
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr "-p  -- sama kuin --profile\n"
 
-#: ../src/panel.c:1254
+#: ../src/panel.c:1258
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr "-v  -- sama kuin --version\n"
 
-#: ../src/panel.c:1255
+#: ../src/panel.c:1259
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr "-C  -- sama kuin --configure\n"
 
-#: ../src/panel.c:1256
+#: ../src/panel.c:1260
 #, c-format
 msgid ""
 "\n"
@@ -338,11 +337,11 @@ msgstr "Työpöydän numero/työtilan nimi"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Näyttää työtilan numeron, tehnyt cmeury@users.sf.net"
 
-#: ../src/plugins/launchbar.c:143
+#: ../src/plugins/launchbar.c:145
 msgid "Add Button"
 msgstr "Lisää painike"
 
-#: ../src/plugins/launchbar.c:145
+#: ../src/plugins/launchbar.c:147
 msgid "Button Properties"
 msgstr "Painikkeen asetukset"
 
@@ -350,7 +349,7 @@ msgstr "Painikkeen asetukset"
 #. title = g_strdup_printf( _("Remove \"%s\""), b-> );
 #. item = gtk_image_menu_item_new_with_label( _("Remove ") );
 #.
-#: ../src/plugins/launchbar.c:151
+#: ../src/plugins/launchbar.c:153
 msgid "Remove Button"
 msgstr "Poista painike"
 
@@ -358,105 +357,105 @@ msgstr "Poista painike"
 #. 1. We can borrow the menu from menu plugin (PtkAppMenu).
 #. 2. We can borrow the app chooser from PCManFM.
 #.
-#: ../src/plugins/launchbar.c:503
+#: ../src/plugins/launchbar.c:515
 msgid "Select Application"
 msgstr "Valitse sovellus"
 
-#: ../src/plugins/launchbar.c:657
+#: ../src/plugins/launchbar.c:669
 msgid "Buttons"
 msgstr "Painikkeet"
 
-#: ../src/plugins/launchbar.c:774
+#: ../src/plugins/launchbar.c:786
 msgid "Application Launch Bar"
 msgstr "Sovelluksien käynnistyspalkki"
 
-#: ../src/plugins/launchbar.c:776
+#: ../src/plugins/launchbar.c:788
 msgid "Bar with buttons to launch application"
 msgstr "Käynnistyspalkki painikkeiden kanssa"
 
-#: ../src/plugins/taskbar.c:1219
+#: ../src/plugins/taskbar.c:1397
 msgid "Raise"
 msgstr "Nosta"
 
-#: ../src/plugins/taskbar.c:1223
+#: ../src/plugins/taskbar.c:1401
 msgid "Restore"
 msgstr "Palauta"
 
-#: ../src/plugins/taskbar.c:1227
+#: ../src/plugins/taskbar.c:1405
 msgid "Maximize"
 msgstr "Suurenna"
 
-#: ../src/plugins/taskbar.c:1231
+#: ../src/plugins/taskbar.c:1409
 msgid "Iconify"
 msgstr "Pienennä"
 
-#: ../src/plugins/taskbar.c:1240
+#: ../src/plugins/taskbar.c:1418
 #, c-format
 msgid "Workspace %d"
 msgstr "Työtila %d"
 
-#: ../src/plugins/taskbar.c:1248
+#: ../src/plugins/taskbar.c:1426
 msgid "All workspaces"
 msgstr "Kaikki työtilat"
 
-#: ../src/plugins/taskbar.c:1255
+#: ../src/plugins/taskbar.c:1433
 msgid "Move to Workspace"
 msgstr "Siirrä työtilaan"
 
 #. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1263
+#: ../src/plugins/taskbar.c:1441
 msgid "Close Window"
 msgstr "Sulje ikkuna"
 
-#: ../src/plugins/taskbar.c:1511
+#: ../src/plugins/taskbar.c:1681
 msgid "Show tooltips"
 msgstr "Näytä työkaluvihjeet"
 
-#: ../src/plugins/taskbar.c:1512
+#: ../src/plugins/taskbar.c:1682
 msgid "Icons only"
 msgstr "Vain kuvakkeet"
 
-#: ../src/plugins/taskbar.c:1513
+#: ../src/plugins/taskbar.c:1683
 msgid "Flat Buttons"
 msgstr "Latteat painikkeet"
 
-#: ../src/plugins/taskbar.c:1514
+#: ../src/plugins/taskbar.c:1684
 msgid "Accept SkipPager"
 msgstr "Salli SkipPager"
 
-#: ../src/plugins/taskbar.c:1515
+#: ../src/plugins/taskbar.c:1685
 msgid "Show Iconified windows"
 msgstr "Näytä pienennetyt ikkunat"
 
-#: ../src/plugins/taskbar.c:1516
+#: ../src/plugins/taskbar.c:1686
 msgid "Show mapped windows"
 msgstr "Näytä auki olevat ikkunat"
 
-#: ../src/plugins/taskbar.c:1517
+#: ../src/plugins/taskbar.c:1687
 msgid "Show windows from all desktops"
 msgstr "Näytä ikkunat kaikilta työpöydiltä"
 
-#: ../src/plugins/taskbar.c:1518
+#: ../src/plugins/taskbar.c:1688
 msgid "Use mouse wheel"
 msgstr "Käytä hiiren rullaa"
 
-#: ../src/plugins/taskbar.c:1519
+#: ../src/plugins/taskbar.c:1689
 msgid "Flash when there is any window requiring attention"
 msgstr "Huomauta, kun joku ikkuna vaatii huomiota"
 
-#: ../src/plugins/taskbar.c:1520
+#: ../src/plugins/taskbar.c:1690
 msgid "Max width of task button"
 msgstr "Tehtäväpainikkeen enimmäisleveys"
 
-#: ../src/plugins/taskbar.c:1521
+#: ../src/plugins/taskbar.c:1691
 msgid "Spacing"
 msgstr "Väli"
 
-#: ../src/plugins/taskbar.c:1599
+#: ../src/plugins/taskbar.c:1769
 msgid "Task Bar (Window List)"
 msgstr "Tehtäväpalkki (ikkunalista)"
 
-#: ../src/plugins/taskbar.c:1601
+#: ../src/plugins/taskbar.c:1771
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -488,27 +487,28 @@ msgstr "Digitaalikello"
 msgid "Display Digital clock and Tooltip"
 msgstr "Näyttää digitaalikellon ja työkaluvihjeen"
 
-#: ../src/plugins/menu.c:360
-msgid "Add to desktop panel"
-msgstr "Lisää työpöytäpaneeliin"
-
-#: ../src/plugins/menu.c:364
+#.
+#. item = gtk_menu_item_new_with_label(_("Add to desktop panel"));
+#. g_signal_connect(item, "activate", G_CALLBACK(on_add_menu_item_to_panel), data);
+#. gtk_menu_shell_append(p, item);
+#.
+#: ../src/plugins/menu.c:371
 msgid "Add to desktop"
 msgstr "Lisää työpöydälle"
 
-#: ../src/plugins/menu.c:374
+#: ../src/plugins/menu.c:381
 msgid "Properties"
 msgstr "Asetukset"
 
-#: ../src/plugins/menu.c:990
+#: ../src/plugins/menu.c:1028
 msgid "Icon"
 msgstr "Kuvake"
 
-#: ../src/plugins/menu.c:1001
+#: ../src/plugins/menu.c:1039
 msgid "Menu"
 msgstr "Valikko"
 
-#: ../src/plugins/menu.c:1003
+#: ../src/plugins/menu.c:1041
 msgid "Provide Menu"
 msgstr "Toimittaa valikon"
 
@@ -558,15 +558,15 @@ msgstr ""
 "Lähettää komentoja kaikille työpöydän ikkunoille.\n"
 "Tuetut komennot ovat 1)pienentäminen 2)piilottaminen"
 
-#: ../src/plugins/dirmenu.c:215
+#: ../src/plugins/dirmenu.c:218
 msgid "Open in _Terminal"
 msgstr "Avaa _päätteessä"
 
-#: ../src/plugins/dirmenu.c:380
+#: ../src/plugins/dirmenu.c:383
 msgid "Directory Menu"
 msgstr "Hakemistovalikko"
 
-#: ../src/plugins/dirmenu.c:382
+#: ../src/plugins/dirmenu.c:385
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "Selaa hakemistopuuta valikon kautta (tekijä: PCMan)"
 
@@ -612,22 +612,22 @@ msgstr "Näyttää järjestelmän lämpötilan. Tekijä: kesler.daniel@gmail.com
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #: ../src/plugins/volume/volume.c:305
-#: ../src/plugins/volumealsa/volumealsa.c:408
+#: ../src/plugins/volumealsa/volumealsa.c:399
 msgid "Volume control"
 msgstr "Äänenhallinta"
 
 #: ../src/plugins/volume/volume.c:317
-#: ../src/plugins/volumealsa/volumealsa.c:422
+#: ../src/plugins/volumealsa/volumealsa.c:413
 msgid "Volume Control"
 msgstr "Äänenhallinta"
 
 #. create frame
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:310
+#: ../src/plugins/volumealsa/volumealsa.c:309
 msgid "Volume"
 msgstr "Voimakkuus"
 
-#: ../src/plugins/volumealsa/volumealsa.c:327
+#: ../src/plugins/volumealsa/volumealsa.c:326
 msgid "Mute"
 msgstr "Hiljennä"
 
@@ -1016,6 +1016,9 @@ msgstr "Näppäimistön valot"
 #: ../src/plugins/kbled/kbled.c:291
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "CapsLock-, NumLock- ja ScrollLock-näppäinten ilmaisin"
+
+#~ msgid "Add to desktop panel"
+#~ msgstr "Lisää työpöytäpaneeliin"
 
 #~ msgid ""
 #~ "Dynamic\n"

@@ -188,6 +188,7 @@ extern FbEv *fbev;
 
 #define FBPANEL_WIN(win)  gdk_window_lookup(win)
 
+void panel_destroy(Panel *p);
 void panel_set_wm_strut(Panel *p);
 void panel_set_dock_type(Panel *p);
 void panel_set_orientation(Panel *p);

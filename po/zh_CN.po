@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.3.8.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-05 19:15+0800\n"
+"POT-Creation-Date: 2009-01-26 22:13+0800\n"
 "PO-Revision-Date: 2008-10-05 09:20+0800\n"
 "Last-Translator: 冷罡华 <hiweed@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,7 +53,7 @@ msgstr "高级"
 msgid "Alignment:"
 msgstr "排列方式："
 
-#: ../data/ui/panel-pref.ui.h:11 ../src/panel.c:624
+#: ../data/ui/panel-pref.ui.h:11 ../src/panel.c:628
 msgid "Bottom"
 msgstr "下"
 
@@ -95,7 +95,7 @@ msgstr "一般"
 msgid "Height:"
 msgstr "高度："
 
-#: ../data/ui/panel-pref.ui.h:21 ../src/panel.c:624
+#: ../data/ui/panel-pref.ui.h:21 ../src/panel.c:628
 msgid "Left"
 msgstr "左"
 
@@ -131,7 +131,7 @@ msgstr "像素 (pixels)"
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "保留空间，不被最大化窗口覆盖"
 
-#: ../data/ui/panel-pref.ui.h:30 ../src/panel.c:624
+#: ../data/ui/panel-pref.ui.h:30 ../src/panel.c:628
 msgid "Right"
 msgstr "右"
 
@@ -147,7 +147,7 @@ msgstr "终端机："
 msgid "Tint color:"
 msgstr "色彩："
 
-#: ../data/ui/panel-pref.ui.h:34 ../src/panel.c:624
+#: ../data/ui/panel-pref.ui.h:34 ../src/panel.c:628
 msgid "Top"
 msgstr "上"
 
@@ -155,57 +155,56 @@ msgstr "上"
 msgid "Width:"
 msgstr "宽度："
 
-#. { "configure", N_("Preferences"), configure },
-#: ../src/configurator.c:51 ../src/gtk-run.c:250
+#: ../src/configurator.c:53 ../src/gtk-run.c:250
 msgid "Run"
 msgstr "运行"
 
-#: ../src/configurator.c:52
+#: ../src/configurator.c:55
 msgid "Restart"
 msgstr "重新启动"
 
-#: ../src/configurator.c:53
+#: ../src/configurator.c:56
 msgid "Logout"
 msgstr "注销"
 
-#: ../src/configurator.c:399
+#: ../src/configurator.c:402
 msgid "Currently loaded plugins"
 msgstr "目前载入的插件"
 
-#: ../src/configurator.c:408
+#: ../src/configurator.c:411
 msgid "Stretch"
 msgstr "延展"
 
-#: ../src/configurator.c:506 ../src/panel.c:516
+#: ../src/configurator.c:509 ../src/panel.c:520
 msgid "Add plugin to panel"
 msgstr "新增插件到面板"
 
-#: ../src/configurator.c:533 ../src/panel.c:539
+#: ../src/configurator.c:536 ../src/panel.c:543
 msgid "Available plugins"
 msgstr "可选用的插件"
 
-#: ../src/configurator.c:1047
+#: ../src/configurator.c:1050
 msgid "Logout command is not set"
 msgstr "注销命令尚未设置"
 
-#: ../src/configurator.c:1096 ../src/configurator.c:1176
+#: ../src/configurator.c:1099 ../src/configurator.c:1179
 #, fuzzy
 msgid "Select a file"
 msgstr "选择图片文件"
 
-#: ../src/configurator.c:1194
+#: ../src/configurator.c:1197
 msgid "_Browse"
 msgstr ""
 
-#: ../src/panel.c:626 ../src/panel.c:752
+#: ../src/panel.c:630 ../src/panel.c:756
 msgid "Create New Panel"
 msgstr "建立新面板"
 
-#: ../src/panel.c:632
+#: ../src/panel.c:636
 msgid "Where to put the panel?"
 msgstr "要把面板放到哪里？"
 
-#: ../src/panel.c:690
+#: ../src/panel.c:694
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -213,92 +212,92 @@ msgstr ""
 "确定要删除这个面板？\n"
 "<b>警告： 这个动作没办法复原。</b>"
 
-#: ../src/panel.c:691
+#: ../src/panel.c:695
 msgid "Confirm"
 msgstr "确认"
 
-#: ../src/panel.c:726
+#: ../src/panel.c:730
 msgid "Add / Remove Panel Items"
 msgstr "新增/移除面板项目"
 
-#: ../src/panel.c:734
+#: ../src/panel.c:738
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "从面板移除 \"%s\""
 
-#: ../src/panel.c:746
+#: ../src/panel.c:750
 msgid "Panel Settings"
 msgstr "设置面板"
 
-#: ../src/panel.c:763
+#: ../src/panel.c:767
 msgid "Delete This Panel"
 msgstr "删除这个面板"
 
-#: ../src/panel.c:773
+#: ../src/panel.c:777
 msgid "Panel"
 msgstr "面板"
 
-#: ../src/panel.c:786
+#: ../src/panel.c:790
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "设置 \"%s\""
 
-#: ../src/panel.c:1244
+#: ../src/panel.c:1248
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - UNIX 桌面的轻量级 GTK2+ 面板\n"
 
-#: ../src/panel.c:1245
+#: ../src/panel.c:1249
 #, c-format
 msgid "Command line options:\n"
 msgstr "命令列选项：\n"
 
-#: ../src/panel.c:1246
+#: ../src/panel.c:1250
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- 显示使用说明并离开\n"
 
-#: ../src/panel.c:1247
+#: ../src/panel.c:1251
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- 显示版本信息并离开\n"
 
-#: ../src/panel.c:1248
+#: ../src/panel.c:1252
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --log <数值>   -- 设置程序运作纪录的层级 (0-5). 0 - 无, 5 - 全部\n"
 
-#: ../src/panel.c:1249
+#: ../src/panel.c:1253
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- 运行设置工具\n"
 
-#: ../src/panel.c:1250
+#: ../src/panel.c:1254
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- 指定使用其他设置文件\n"
 
-#: ../src/panel.c:1252
+#: ../src/panel.c:1256
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- 和 --help 作用相同\n"
 
-#: ../src/panel.c:1253
+#: ../src/panel.c:1257
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- 和 --profile 作用相同\n"
 
-#: ../src/panel.c:1254
+#: ../src/panel.c:1258
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- 和 --version 作用相同\n"
 
-#: ../src/panel.c:1255
+#: ../src/panel.c:1259
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- 和 --configure 作用相同\n"
 
-#: ../src/panel.c:1256
+#: ../src/panel.c:1260
 #, c-format
 msgid ""
 "\n"
@@ -337,11 +336,11 @@ msgstr "桌面编号 / 工作区名称"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "显示工作区编号，由 cmeury@users.sf.net 撰写"
 
-#: ../src/plugins/launchbar.c:143
+#: ../src/plugins/launchbar.c:145
 msgid "Add Button"
 msgstr "新增按钮"
 
-#: ../src/plugins/launchbar.c:145
+#: ../src/plugins/launchbar.c:147
 msgid "Button Properties"
 msgstr "按钮属性"
 
@@ -349,7 +348,7 @@ msgstr "按钮属性"
 #. title = g_strdup_printf( _("Remove \"%s\""), b-> );
 #. item = gtk_image_menu_item_new_with_label( _("Remove ") );
 #.
-#: ../src/plugins/launchbar.c:151
+#: ../src/plugins/launchbar.c:153
 msgid "Remove Button"
 msgstr "移除按钮"
 
@@ -357,105 +356,105 @@ msgstr "移除按钮"
 #. 1. We can borrow the menu from menu plugin (PtkAppMenu).
 #. 2. We can borrow the app chooser from PCManFM.
 #.
-#: ../src/plugins/launchbar.c:503
+#: ../src/plugins/launchbar.c:515
 msgid "Select Application"
 msgstr "选择应用程序"
 
-#: ../src/plugins/launchbar.c:657
+#: ../src/plugins/launchbar.c:669
 msgid "Buttons"
 msgstr "按钮"
 
-#: ../src/plugins/launchbar.c:774
+#: ../src/plugins/launchbar.c:786
 msgid "Application Launch Bar"
 msgstr "快速启动栏"
 
-#: ../src/plugins/launchbar.c:776
+#: ../src/plugins/launchbar.c:788
 msgid "Bar with buttons to launch application"
 msgstr "用以快速启动应用程序的工具栏"
 
-#: ../src/plugins/taskbar.c:1219
+#: ../src/plugins/taskbar.c:1397
 msgid "Raise"
 msgstr "移到最上层"
 
-#: ../src/plugins/taskbar.c:1223
+#: ../src/plugins/taskbar.c:1401
 msgid "Restore"
 msgstr "复原"
 
-#: ../src/plugins/taskbar.c:1227
+#: ../src/plugins/taskbar.c:1405
 msgid "Maximize"
 msgstr "最大化"
 
-#: ../src/plugins/taskbar.c:1231
+#: ../src/plugins/taskbar.c:1409
 msgid "Iconify"
 msgstr "最小化"
 
-#: ../src/plugins/taskbar.c:1240
+#: ../src/plugins/taskbar.c:1418
 #, c-format
 msgid "Workspace %d"
 msgstr "工作区 %d"
 
-#: ../src/plugins/taskbar.c:1248
+#: ../src/plugins/taskbar.c:1426
 msgid "All workspaces"
 msgstr "所有工作区"
 
-#: ../src/plugins/taskbar.c:1255
+#: ../src/plugins/taskbar.c:1433
 msgid "Move to Workspace"
 msgstr "移动到工作区"
 
 #. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1263
+#: ../src/plugins/taskbar.c:1441
 msgid "Close Window"
 msgstr "关闭窗口"
 
-#: ../src/plugins/taskbar.c:1511
+#: ../src/plugins/taskbar.c:1681
 msgid "Show tooltips"
 msgstr "显示工具提示"
 
-#: ../src/plugins/taskbar.c:1512
+#: ../src/plugins/taskbar.c:1682
 msgid "Icons only"
 msgstr "只显示图标"
 
-#: ../src/plugins/taskbar.c:1513
+#: ../src/plugins/taskbar.c:1683
 msgid "Flat Buttons"
 msgstr "平面按钮"
 
-#: ../src/plugins/taskbar.c:1514
+#: ../src/plugins/taskbar.c:1684
 msgid "Accept SkipPager"
 msgstr "接受 SkipPager Hint"
 
-#: ../src/plugins/taskbar.c:1515
+#: ../src/plugins/taskbar.c:1685
 msgid "Show Iconified windows"
 msgstr "显示最小化的窗口"
 
-#: ../src/plugins/taskbar.c:1516
+#: ../src/plugins/taskbar.c:1686
 msgid "Show mapped windows"
 msgstr "显示已被映射的窗口"
 
-#: ../src/plugins/taskbar.c:1517
+#: ../src/plugins/taskbar.c:1687
 msgid "Show windows from all desktops"
 msgstr "显示来自所有桌面的窗口"
 
-#: ../src/plugins/taskbar.c:1518
+#: ../src/plugins/taskbar.c:1688
 msgid "Use mouse wheel"
 msgstr "使用鼠标滚轮"
 
-#: ../src/plugins/taskbar.c:1519
+#: ../src/plugins/taskbar.c:1689
 msgid "Flash when there is any window requiring attention"
 msgstr "当有窗口要求用户注意时，闪烁面板"
 
-#: ../src/plugins/taskbar.c:1520
+#: ../src/plugins/taskbar.c:1690
 msgid "Max width of task button"
 msgstr "面板按钮最大宽度"
 
-#: ../src/plugins/taskbar.c:1521
+#: ../src/plugins/taskbar.c:1691
 msgid "Spacing"
 msgstr "间距"
 
-#: ../src/plugins/taskbar.c:1599
+#: ../src/plugins/taskbar.c:1769
 msgid "Task Bar (Window List)"
 msgstr "面板 (窗口清单)"
 
-#: ../src/plugins/taskbar.c:1601
+#: ../src/plugins/taskbar.c:1771
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -485,30 +484,30 @@ msgstr "数字时钟"
 msgid "Display Digital clock and Tooltip"
 msgstr "显示数字时钟并显示日期"
 
-#: ../src/plugins/menu.c:360
-#, fuzzy
-msgid "Add to desktop panel"
-msgstr "新增插件到面板"
-
-#: ../src/plugins/menu.c:364
+#.
+#. item = gtk_menu_item_new_with_label(_("Add to desktop panel"));
+#. g_signal_connect(item, "activate", G_CALLBACK(on_add_menu_item_to_panel), data);
+#. gtk_menu_shell_append(p, item);
+#.
+#: ../src/plugins/menu.c:371
 msgid "Add to desktop"
 msgstr ""
 
-#: ../src/plugins/menu.c:374
+#: ../src/plugins/menu.c:381
 #, fuzzy
 msgid "Properties"
 msgstr "<b>属性</b>"
 
-#: ../src/plugins/menu.c:990
+#: ../src/plugins/menu.c:1028
 #, fuzzy
 msgid "Icon"
 msgstr "最小化"
 
-#: ../src/plugins/menu.c:1001
+#: ../src/plugins/menu.c:1039
 msgid "Menu"
 msgstr "菜单"
 
-#: ../src/plugins/menu.c:1003
+#: ../src/plugins/menu.c:1041
 msgid "Provide Menu"
 msgstr "提供菜单"
 
@@ -556,15 +555,15 @@ msgstr ""
 "发送命令给所有桌面窗口\n"
 "支持的命令  1) 最小化  2) 折叠"
 
-#: ../src/plugins/dirmenu.c:215
+#: ../src/plugins/dirmenu.c:218
 msgid "Open in _Terminal"
 msgstr "在终端机内开启(_T)"
 
-#: ../src/plugins/dirmenu.c:380
+#: ../src/plugins/dirmenu.c:383
 msgid "Directory Menu"
 msgstr "目录菜单"
 
-#: ../src/plugins/dirmenu.c:382
+#: ../src/plugins/dirmenu.c:385
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "使用菜单浏览目录 (作者：PCMan)"
 
@@ -614,22 +613,22 @@ msgstr ""
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #: ../src/plugins/volume/volume.c:305
-#: ../src/plugins/volumealsa/volumealsa.c:408
+#: ../src/plugins/volumealsa/volumealsa.c:399
 msgid "Volume control"
 msgstr "音量控制"
 
 #: ../src/plugins/volume/volume.c:317
-#: ../src/plugins/volumealsa/volumealsa.c:422
+#: ../src/plugins/volumealsa/volumealsa.c:413
 msgid "Volume Control"
 msgstr "音量控制"
 
 #. create frame
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:310
+#: ../src/plugins/volumealsa/volumealsa.c:309
 msgid "Volume"
 msgstr "音量"
 
-#: ../src/plugins/volumealsa/volumealsa.c:327
+#: ../src/plugins/volumealsa/volumealsa.c:326
 msgid "Mute"
 msgstr "静音"
 
@@ -1021,6 +1020,10 @@ msgstr "键盘指示灯"
 #: ../src/plugins/kbled/kbled.c:291
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "显示 CapsLock、NumLock、及 ScrollLock 键的状态"
+
+#, fuzzy
+#~ msgid "Add to desktop panel"
+#~ msgstr "新增插件到面板"
 
 #~ msgid ""
 #~ "Dynamic\n"

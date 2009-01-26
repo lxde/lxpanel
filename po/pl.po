@@ -7,14 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-05 19:15+0800\n"
+"POT-Creation-Date: 2009-01-26 22:13+0800\n"
 "PO-Revision-Date: 2009-01-10 23:22+0100\n"
 "Last-Translator: Grzegorz Gibas <amigib@gmail.com>\n"
 "Language-Team: Polish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: KBabel 1.11.4\n"
 "X-Poedit-Bookmarks: 19,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
 "X-Poedit-Country: Poland\n"
@@ -56,7 +57,7 @@ msgstr "Zaawansowane"
 msgid "Alignment:"
 msgstr "Wyrównanie:"
 
-#: ../data/ui/panel-pref.ui.h:11 ../src/panel.c:624
+#: ../data/ui/panel-pref.ui.h:11 ../src/panel.c:628
 msgid "Bottom"
 msgstr "Dolna"
 
@@ -99,7 +100,7 @@ msgstr "Ogólne"
 msgid "Height:"
 msgstr "Wysokość:"
 
-#: ../data/ui/panel-pref.ui.h:21 ../src/panel.c:624
+#: ../data/ui/panel-pref.ui.h:21 ../src/panel.c:628
 msgid "Left"
 msgstr "Lewa"
 
@@ -135,7 +136,7 @@ msgstr "Piksele"
 msgid "Reserve space, and not covered by maximized windows"
 msgstr ""
 
-#: ../data/ui/panel-pref.ui.h:30 ../src/panel.c:624
+#: ../data/ui/panel-pref.ui.h:30 ../src/panel.c:628
 msgid "Right"
 msgstr "Prawa"
 
@@ -151,7 +152,7 @@ msgstr "Emulator Terminala:"
 msgid "Tint color:"
 msgstr "Kolor przesłony:"
 
-#: ../data/ui/panel-pref.ui.h:34 ../src/panel.c:624
+#: ../data/ui/panel-pref.ui.h:34 ../src/panel.c:628
 msgid "Top"
 msgstr "Górna"
 
@@ -159,56 +160,55 @@ msgstr "Górna"
 msgid "Width:"
 msgstr "Szerokość:"
 
-#. { "configure", N_("Preferences"), configure },
-#: ../src/configurator.c:51 ../src/gtk-run.c:250
+#: ../src/configurator.c:53 ../src/gtk-run.c:250
 msgid "Run"
 msgstr "Uruchom"
 
-#: ../src/configurator.c:52
+#: ../src/configurator.c:55
 msgid "Restart"
 msgstr "Restartuj"
 
-#: ../src/configurator.c:53
+#: ../src/configurator.c:56
 msgid "Logout"
 msgstr "Wyloguj"
 
-#: ../src/configurator.c:399
+#: ../src/configurator.c:402
 msgid "Currently loaded plugins"
 msgstr "Załadowane wtyczki"
 
-#: ../src/configurator.c:408
+#: ../src/configurator.c:411
 msgid "Stretch"
 msgstr "Rozciągnij"
 
-#: ../src/configurator.c:506 ../src/panel.c:516
+#: ../src/configurator.c:509 ../src/panel.c:520
 msgid "Add plugin to panel"
 msgstr "Dodaj wtyczkę do panelu"
 
-#: ../src/configurator.c:533 ../src/panel.c:539
+#: ../src/configurator.c:536 ../src/panel.c:543
 msgid "Available plugins"
 msgstr "Dostępne wtyczki"
 
-#: ../src/configurator.c:1047
+#: ../src/configurator.c:1050
 msgid "Logout command is not set"
 msgstr "Komenda wylogowania nie jest ustawiona"
 
-#: ../src/configurator.c:1096 ../src/configurator.c:1176
+#: ../src/configurator.c:1099 ../src/configurator.c:1179
 msgid "Select a file"
 msgstr "Wybierz plik"
 
-#: ../src/configurator.c:1194
+#: ../src/configurator.c:1197
 msgid "_Browse"
 msgstr "_Przeglądaj"
 
-#: ../src/panel.c:626 ../src/panel.c:752
+#: ../src/panel.c:630 ../src/panel.c:756
 msgid "Create New Panel"
 msgstr "Stwórz Nowy Panel"
 
-#: ../src/panel.c:632
+#: ../src/panel.c:636
 msgid "Where to put the panel?"
 msgstr "Gdzie ustawić panel?"
 
-#: ../src/panel.c:690
+#: ../src/panel.c:694
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -216,92 +216,93 @@ msgstr ""
 "NAprawdę usunąć ten panel?\n"
 "<b>Uwaga: Ta operacja nie może być cofnięta</b>"
 
-#: ../src/panel.c:691
+#: ../src/panel.c:695
 msgid "Confirm"
 msgstr "Potwierdź"
 
-#: ../src/panel.c:726
+#: ../src/panel.c:730
 msgid "Add / Remove Panel Items"
 msgstr "Dodaj/Usuń wtyczkę do/z panelu"
 
-#: ../src/panel.c:734
+#: ../src/panel.c:738
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Usuń \"%s\" z panelu"
 
-#: ../src/panel.c:746
+#: ../src/panel.c:750
 msgid "Panel Settings"
 msgstr "Ustawienia Panelu"
 
-#: ../src/panel.c:763
+#: ../src/panel.c:767
 msgid "Delete This Panel"
 msgstr "Usuń Ten Panel"
 
-#: ../src/panel.c:773
+#: ../src/panel.c:777
 msgid "Panel"
 msgstr "Panel"
 
-#: ../src/panel.c:786
+#: ../src/panel.c:790
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "Ustawienia \"%s\""
 
-#: ../src/panel.c:1244
+#: ../src/panel.c:1248
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - lekki panel GTK2+ dla pulpitów UNIX\n"
 
-#: ../src/panel.c:1245
+#: ../src/panel.c:1249
 #, c-format
 msgid "Command line options:\n"
 msgstr "Opcje lini komend:\n"
 
-#: ../src/panel.c:1246
+#: ../src/panel.c:1250
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- wyświetla tą pomoc i wychodzi\n"
 
-#: ../src/panel.c:1247
+#: ../src/panel.c:1251
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- wyświetla numer wersji i wychodzi\n"
 
-#: ../src/panel.c:1248
+#: ../src/panel.c:1252
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --log <number> -- ustawia poziom raportowania 0-5. 0 - brak 5 - wylewny\n"
+msgstr ""
+" --log <number> -- ustawia poziom raportowania 0-5. 0 - brak 5 - wylewny\n"
 
-#: ../src/panel.c:1249
+#: ../src/panel.c:1253
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- uruchamia narzędzie konfiguracji\n"
 
-#: ../src/panel.c:1250
+#: ../src/panel.c:1254
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile nazwa -- używa określonego profilu\n"
 
-#: ../src/panel.c:1252
+#: ../src/panel.c:1256
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- to samo co --help\n"
 
-#: ../src/panel.c:1253
+#: ../src/panel.c:1257
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- to samo co --profile\n"
 
-#: ../src/panel.c:1254
+#: ../src/panel.c:1258
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- to samo co --version\n"
 
-#: ../src/panel.c:1255
+#: ../src/panel.c:1259
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- to samo co --configure\n"
 
-#: ../src/panel.c:1256
+#: ../src/panel.c:1260
 #, fuzzy, c-format
 msgid ""
 "\n"
@@ -341,11 +342,11 @@ msgstr "Pulpit Numer / Nazwa przestrzeni roboczej"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Pokaż numer przestrzeni roboczej, dzięki cmeury@users.sf.net"
 
-#: ../src/plugins/launchbar.c:143
+#: ../src/plugins/launchbar.c:145
 msgid "Add Button"
 msgstr "Dodaj Przycisk"
 
-#: ../src/plugins/launchbar.c:145
+#: ../src/plugins/launchbar.c:147
 msgid "Button Properties"
 msgstr "Właściwości przycisku"
 
@@ -353,7 +354,7 @@ msgstr "Właściwości przycisku"
 #. title = g_strdup_printf( _("Remove \"%s\""), b-> );
 #. item = gtk_image_menu_item_new_with_label( _("Remove ") );
 #.
-#: ../src/plugins/launchbar.c:151
+#: ../src/plugins/launchbar.c:153
 msgid "Remove Button"
 msgstr "Usuń Przycisk"
 
@@ -361,105 +362,105 @@ msgstr "Usuń Przycisk"
 #. 1. We can borrow the menu from menu plugin (PtkAppMenu).
 #. 2. We can borrow the app chooser from PCManFM.
 #.
-#: ../src/plugins/launchbar.c:503
+#: ../src/plugins/launchbar.c:515
 msgid "Select Application"
 msgstr "Wybierz program"
 
-#: ../src/plugins/launchbar.c:657
+#: ../src/plugins/launchbar.c:669
 msgid "Buttons"
 msgstr "Przyciski"
 
-#: ../src/plugins/launchbar.c:774
+#: ../src/plugins/launchbar.c:786
 msgid "Application Launch Bar"
 msgstr "Pasek uruchamiania programów"
 
-#: ../src/plugins/launchbar.c:776
+#: ../src/plugins/launchbar.c:788
 msgid "Bar with buttons to launch application"
 msgstr "Pasek z przyciskami do uruchamiania programów"
 
-#: ../src/plugins/taskbar.c:1219
+#: ../src/plugins/taskbar.c:1397
 msgid "Raise"
 msgstr "Rozwiń"
 
-#: ../src/plugins/taskbar.c:1223
+#: ../src/plugins/taskbar.c:1401
 msgid "Restore"
 msgstr "Przywróć"
 
-#: ../src/plugins/taskbar.c:1227
+#: ../src/plugins/taskbar.c:1405
 msgid "Maximize"
 msgstr "Maksymalizuj"
 
-#: ../src/plugins/taskbar.c:1231
+#: ../src/plugins/taskbar.c:1409
 msgid "Iconify"
 msgstr "Minimalizuj"
 
-#: ../src/plugins/taskbar.c:1240
+#: ../src/plugins/taskbar.c:1418
 #, c-format
 msgid "Workspace %d"
 msgstr "Pulpit %d"
 
-#: ../src/plugins/taskbar.c:1248
+#: ../src/plugins/taskbar.c:1426
 msgid "All workspaces"
 msgstr "Wszystkie pulpity"
 
-#: ../src/plugins/taskbar.c:1255
+#: ../src/plugins/taskbar.c:1433
 msgid "Move to Workspace"
 msgstr "Przenieś na inny pulpit"
 
 #. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1263
+#: ../src/plugins/taskbar.c:1441
 msgid "Close Window"
 msgstr "Zamknij okno"
 
-#: ../src/plugins/taskbar.c:1511
+#: ../src/plugins/taskbar.c:1681
 msgid "Show tooltips"
 msgstr "Pokaż podpowiedzi"
 
-#: ../src/plugins/taskbar.c:1512
+#: ../src/plugins/taskbar.c:1682
 msgid "Icons only"
 msgstr "Tylko ikony"
 
-#: ../src/plugins/taskbar.c:1513
+#: ../src/plugins/taskbar.c:1683
 msgid "Flat Buttons"
 msgstr "Płaskie Przyciski"
 
-#: ../src/plugins/taskbar.c:1514
+#: ../src/plugins/taskbar.c:1684
 msgid "Accept SkipPager"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1515
+#: ../src/plugins/taskbar.c:1685
 msgid "Show Iconified windows"
 msgstr "Pokaż zikonizowane okna"
 
-#: ../src/plugins/taskbar.c:1516
+#: ../src/plugins/taskbar.c:1686
 msgid "Show mapped windows"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1517
+#: ../src/plugins/taskbar.c:1687
 msgid "Show windows from all desktops"
 msgstr "Pokaż okna ze wszystkich pulpitów"
 
-#: ../src/plugins/taskbar.c:1518
+#: ../src/plugins/taskbar.c:1688
 msgid "Use mouse wheel"
 msgstr "Użyj rolki myszy"
 
-#: ../src/plugins/taskbar.c:1519
+#: ../src/plugins/taskbar.c:1689
 msgid "Flash when there is any window requiring attention"
 msgstr "Migaj gdy okno wymaga uwagi"
 
-#: ../src/plugins/taskbar.c:1520
+#: ../src/plugins/taskbar.c:1690
 msgid "Max width of task button"
 msgstr "Maksymalna szerokośc przycisku zadań"
 
-#: ../src/plugins/taskbar.c:1521
+#: ../src/plugins/taskbar.c:1691
 msgid "Spacing"
 msgstr "Odstępy"
 
-#: ../src/plugins/taskbar.c:1599
+#: ../src/plugins/taskbar.c:1769
 msgid "Task Bar (Window List)"
 msgstr "Pasek zadań (Lista okien)"
 
-#: ../src/plugins/taskbar.c:1601
+#: ../src/plugins/taskbar.c:1771
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -491,30 +492,30 @@ msgstr "Zegar cyfrowy"
 msgid "Display Digital clock and Tooltip"
 msgstr "Wyświetl zegar cyfrowy i podpowiedź"
 
-#: ../src/plugins/menu.c:360
-#, fuzzy
-msgid "Add to desktop panel"
-msgstr "Dodaj wtyczkę do panelu"
-
-#: ../src/plugins/menu.c:364
+#.
+#. item = gtk_menu_item_new_with_label(_("Add to desktop panel"));
+#. g_signal_connect(item, "activate", G_CALLBACK(on_add_menu_item_to_panel), data);
+#. gtk_menu_shell_append(p, item);
+#.
+#: ../src/plugins/menu.c:371
 msgid "Add to desktop"
 msgstr "Dodaj do pulpitu"
 
-#: ../src/plugins/menu.c:374
+#: ../src/plugins/menu.c:381
 #, fuzzy
 msgid "Properties"
 msgstr "<b>Właściwości</b>"
 
-#: ../src/plugins/menu.c:990
+#: ../src/plugins/menu.c:1028
 #, fuzzy
 msgid "Icon"
 msgstr "Ikony"
 
-#: ../src/plugins/menu.c:1001
+#: ../src/plugins/menu.c:1039
 msgid "Menu"
 msgstr "Menu"
 
-#: ../src/plugins/menu.c:1003
+#: ../src/plugins/menu.c:1041
 msgid "Provide Menu"
 msgstr ""
 
@@ -564,15 +565,15 @@ msgstr ""
 "Wysyła komendę do wszystkich okien pulpity.\n"
 "Wsppierane komendy 1)minimalizuj wszystko 2) zwiń wszystko"
 
-#: ../src/plugins/dirmenu.c:215
+#: ../src/plugins/dirmenu.c:218
 msgid "Open in _Terminal"
 msgstr "Otwórz w _Terminalu"
 
-#: ../src/plugins/dirmenu.c:380
+#: ../src/plugins/dirmenu.c:383
 msgid "Directory Menu"
 msgstr ""
 
-#: ../src/plugins/dirmenu.c:382
+#: ../src/plugins/dirmenu.c:385
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr ""
 
@@ -619,22 +620,22 @@ msgstr ""
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #: ../src/plugins/volume/volume.c:305
-#: ../src/plugins/volumealsa/volumealsa.c:408
+#: ../src/plugins/volumealsa/volumealsa.c:399
 msgid "Volume control"
 msgstr "Poziom głośności"
 
 #: ../src/plugins/volume/volume.c:317
-#: ../src/plugins/volumealsa/volumealsa.c:422
+#: ../src/plugins/volumealsa/volumealsa.c:413
 msgid "Volume Control"
 msgstr "Kontrola głośności"
 
 #. create frame
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:310
+#: ../src/plugins/volumealsa/volumealsa.c:309
 msgid "Volume"
 msgstr "Głośność"
 
-#: ../src/plugins/volumealsa/volumealsa.c:327
+#: ../src/plugins/volumealsa/volumealsa.c:326
 msgid "Mute"
 msgstr "Wycisz"
 
@@ -1028,3 +1029,6 @@ msgstr ""
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr ""
 
+#, fuzzy
+#~ msgid "Add to desktop panel"
+#~ msgstr "Dodaj wtyczkę do panelu"

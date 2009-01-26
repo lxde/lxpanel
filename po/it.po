@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.3.99\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-05 19:15+0800\n"
+"POT-Creation-Date: 2009-01-26 22:13+0800\n"
 "PO-Revision-Date: 2009-01-07 00:09+0100\n"
 "Last-Translator: Fabio Barone <phonky@gmx.net>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "X-Poedit-Language: Italian\n"
 "X-Poedit-Country: ITALY\n"
-"Language-Team: \n"
 
 #: ../data/ui/panel-pref.ui.h:2
 #, no-c-format
@@ -55,8 +55,7 @@ msgstr "Esperto"
 msgid "Alignment:"
 msgstr "Allineamento:"
 
-#: ../data/ui/panel-pref.ui.h:11
-#: ../src/panel.c:624
+#: ../data/ui/panel-pref.ui.h:11 ../src/panel.c:628
 msgid "Bottom"
 msgstr "Inferiore"
 
@@ -97,8 +96,7 @@ msgstr "Generale"
 msgid "Height:"
 msgstr "Altezza:"
 
-#: ../data/ui/panel-pref.ui.h:21
-#: ../src/panel.c:624
+#: ../data/ui/panel-pref.ui.h:21 ../src/panel.c:628
 msgid "Left"
 msgstr "Sinistra"
 
@@ -134,8 +132,7 @@ msgstr "Pixel"
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Riservare spazio, e non coperto da finestre maximizzate"
 
-#: ../data/ui/panel-pref.ui.h:30
-#: ../src/panel.c:624
+#: ../data/ui/panel-pref.ui.h:30 ../src/panel.c:628
 msgid "Right"
 msgstr "Destra"
 
@@ -151,8 +148,7 @@ msgstr "Emulatore terminale:"
 msgid "Tint color:"
 msgstr "Colore:"
 
-#: ../data/ui/panel-pref.ui.h:34
-#: ../src/panel.c:624
+#: ../data/ui/panel-pref.ui.h:34 ../src/panel.c:628
 msgid "Top"
 msgstr "Superiore"
 
@@ -160,61 +156,55 @@ msgstr "Superiore"
 msgid "Width:"
 msgstr "Larghezza:"
 
-#. { "configure", N_("Preferences"), configure },
-#: ../src/configurator.c:51
-#: ../src/gtk-run.c:250
+#: ../src/configurator.c:53 ../src/gtk-run.c:250
 msgid "Run"
 msgstr "Eseguire"
 
-#: ../src/configurator.c:52
+#: ../src/configurator.c:55
 msgid "Restart"
 msgstr "Riavviare"
 
-#: ../src/configurator.c:53
+#: ../src/configurator.c:56
 msgid "Logout"
 msgstr "Chiudere sessione"
 
-#: ../src/configurator.c:399
+#: ../src/configurator.c:402
 msgid "Currently loaded plugins"
 msgstr "Plugins attualmente caricati"
 
-#: ../src/configurator.c:408
+#: ../src/configurator.c:411
 msgid "Stretch"
 msgstr "Stendere"
 
-#: ../src/configurator.c:506
-#: ../src/panel.c:516
+#: ../src/configurator.c:509 ../src/panel.c:520
 msgid "Add plugin to panel"
 msgstr "Aggiungere plugin a pannello"
 
-#: ../src/configurator.c:533
-#: ../src/panel.c:539
+#: ../src/configurator.c:536 ../src/panel.c:543
 msgid "Available plugins"
 msgstr "Plugins disponibili"
 
-#: ../src/configurator.c:1047
+#: ../src/configurator.c:1050
 msgid "Logout command is not set"
 msgstr "Comando di chiusura sessione non è definito"
 
-#: ../src/configurator.c:1096
-#: ../src/configurator.c:1176
+#: ../src/configurator.c:1099 ../src/configurator.c:1179
 msgid "Select a file"
 msgstr "Scegliere un file"
 
-#: ../src/configurator.c:1194
+#: ../src/configurator.c:1197
 msgid "_Browse"
 msgstr "_Sfoglia"
 
-#: ../src/panel.c:626
-#: ../src/panel.c:752
+#: ../src/panel.c:630 ../src/panel.c:756
 msgid "Create New Panel"
 msgstr "Creare nuovo pannello"
 
-#: ../src/panel.c:632
+#: ../src/panel.c:636
 msgid "Where to put the panel?"
 msgstr "Dove devo piazzare il pannello?"
 
-#: ../src/panel.c:690
+#: ../src/panel.c:694
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -222,92 +212,94 @@ msgstr ""
 "Eliminare davvero questo pannello?\n"
 "<b>Attenzione: non potrà essere ricuperato</b>"
 
-#: ../src/panel.c:691
+#: ../src/panel.c:695
 msgid "Confirm"
 msgstr "Confermare"
 
-#: ../src/panel.c:726
+#: ../src/panel.c:730
 msgid "Add / Remove Panel Items"
 msgstr "Aggiungere/Rimuovere elementi pannello"
 
-#: ../src/panel.c:734
+#: ../src/panel.c:738
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Eliminare \"%s\" dal pannello"
 
-#: ../src/panel.c:746
+#: ../src/panel.c:750
 msgid "Panel Settings"
 msgstr "Impostazioni pannello"
 
-#: ../src/panel.c:763
+#: ../src/panel.c:767
 msgid "Delete This Panel"
 msgstr "Eliminare questo pannello"
 
-#: ../src/panel.c:773
+#: ../src/panel.c:777
 msgid "Panel"
 msgstr "Pannello"
 
-#: ../src/panel.c:786
+#: ../src/panel.c:790
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" impostazioni"
 
-#: ../src/panel.c:1244
+#: ../src/panel.c:1248
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - pannello GTK2+ leggero per desktop UNIX\n"
 
-#: ../src/panel.c:1245
+#: ../src/panel.c:1249
 #, c-format
 msgid "Command line options:\n"
 msgstr "Opzioni di linea di comando:\n"
 
-#: ../src/panel.c:1246
+#: ../src/panel.c:1250
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      --mostra questo aiuto e termina\n"
 
-#: ../src/panel.c:1247
+#: ../src/panel.c:1251
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- mostra versione e termina\n"
 
-#: ../src/panel.c:1248
+#: ../src/panel.c:1252
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --log <numero>   --definisce il level del log 0-5. 0 - niente logs, 5 - completo\n"
+msgstr ""
+" --log <numero>   --definisce il level del log 0-5. 0 - niente logs, 5 - "
+"completo\n"
 
-#: ../src/panel.c:1249
+#: ../src/panel.c:1253
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- avvia il programma di configurazione\n"
 
-#: ../src/panel.c:1250
+#: ../src/panel.c:1254
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile Name -- usa un profilo personalizzato\n"
 
-#: ../src/panel.c:1252
+#: ../src/panel.c:1256
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- analogo a --help\n"
 
-#: ../src/panel.c:1253
+#: ../src/panel.c:1257
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- analogo a --profile\n"
 
-#: ../src/panel.c:1254
+#: ../src/panel.c:1258
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- analogo a --version\n"
 
-#: ../src/panel.c:1255
+#: ../src/panel.c:1259
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- analogo a --configure\n"
 
-#: ../src/panel.c:1256
+#: ../src/panel.c:1260
 #, c-format
 msgid ""
 "\n"
@@ -346,11 +338,11 @@ msgstr "Numero scrivania / area di lavoro"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Mostra numero di area di lavoro, da cmeury@users.sf.net"
 
-#: ../src/plugins/launchbar.c:143
+#: ../src/plugins/launchbar.c:145
 msgid "Add Button"
 msgstr "Aggiungi bottone"
 
-#: ../src/plugins/launchbar.c:145
+#: ../src/plugins/launchbar.c:147
 msgid "Button Properties"
 msgstr "Proprietà bottone"
 
@@ -358,7 +350,7 @@ msgstr "Proprietà bottone"
 #. title = g_strdup_printf( _("Remove \"%s\""), b-> );
 #. item = gtk_image_menu_item_new_with_label( _("Remove ") );
 #.
-#: ../src/plugins/launchbar.c:151
+#: ../src/plugins/launchbar.c:153
 msgid "Remove Button"
 msgstr "Eliminare bottone"
 
@@ -366,107 +358,111 @@ msgstr "Eliminare bottone"
 #. 1. We can borrow the menu from menu plugin (PtkAppMenu).
 #. 2. We can borrow the app chooser from PCManFM.
 #.
-#: ../src/plugins/launchbar.c:503
+#: ../src/plugins/launchbar.c:515
 msgid "Select Application"
 msgstr "Selezionare applicazione"
 
-#: ../src/plugins/launchbar.c:657
+#: ../src/plugins/launchbar.c:669
 msgid "Buttons"
 msgstr "Bottoni"
 
-#: ../src/plugins/launchbar.c:774
+#: ../src/plugins/launchbar.c:786
 msgid "Application Launch Bar"
 msgstr "Barra avvio di applicazioni"
 
-#: ../src/plugins/launchbar.c:776
+#: ../src/plugins/launchbar.c:788
 msgid "Bar with buttons to launch application"
 msgstr "Barra con bottoni per avviare applicazioni"
 
-#: ../src/plugins/taskbar.c:1219
+#: ../src/plugins/taskbar.c:1397
 msgid "Raise"
 msgstr "Rialzare"
 
-#: ../src/plugins/taskbar.c:1223
+#: ../src/plugins/taskbar.c:1401
 msgid "Restore"
 msgstr "Ripristinare"
 
-#: ../src/plugins/taskbar.c:1227
+#: ../src/plugins/taskbar.c:1405
 msgid "Maximize"
 msgstr "Maximizzare"
 
-#: ../src/plugins/taskbar.c:1231
+#: ../src/plugins/taskbar.c:1409
 msgid "Iconify"
 msgstr "Minimizzare"
 
-#: ../src/plugins/taskbar.c:1240
+#: ../src/plugins/taskbar.c:1418
 #, c-format
 msgid "Workspace %d"
 msgstr "Area di lavoro %d"
 
-#: ../src/plugins/taskbar.c:1248
+#: ../src/plugins/taskbar.c:1426
 msgid "All workspaces"
 msgstr "Tutte le aree di lavoro"
 
-#: ../src/plugins/taskbar.c:1255
+#: ../src/plugins/taskbar.c:1433
 msgid "Move to Workspace"
 msgstr "Muovere ad area di lavoro"
 
 #. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1263
+#: ../src/plugins/taskbar.c:1441
 msgid "Close Window"
 msgstr "Chiudere finestra"
 
-#: ../src/plugins/taskbar.c:1511
+#: ../src/plugins/taskbar.c:1681
 msgid "Show tooltips"
 msgstr "Mostrare aiuti"
 
-#: ../src/plugins/taskbar.c:1512
+#: ../src/plugins/taskbar.c:1682
 msgid "Icons only"
 msgstr "Solo icone"
 
-#: ../src/plugins/taskbar.c:1513
+#: ../src/plugins/taskbar.c:1683
 msgid "Flat Buttons"
 msgstr "Bottoni piani"
 
-#: ../src/plugins/taskbar.c:1514
+#: ../src/plugins/taskbar.c:1684
 msgid "Accept SkipPager"
 msgstr "Accettare SkipPager"
 
-#: ../src/plugins/taskbar.c:1515
+#: ../src/plugins/taskbar.c:1685
 msgid "Show Iconified windows"
 msgstr "Mostrare finestre minimizzate"
 
-#: ../src/plugins/taskbar.c:1516
+#: ../src/plugins/taskbar.c:1686
 msgid "Show mapped windows"
 msgstr "Mostrare finestre arrotolate"
 
-#: ../src/plugins/taskbar.c:1517
+#: ../src/plugins/taskbar.c:1687
 msgid "Show windows from all desktops"
 msgstr "Mostrare finestre su tutte le scrivanie"
 
-#: ../src/plugins/taskbar.c:1518
+#: ../src/plugins/taskbar.c:1688
 msgid "Use mouse wheel"
 msgstr "Usare la ruota mouse"
 
-#: ../src/plugins/taskbar.c:1519
+#: ../src/plugins/taskbar.c:1689
 msgid "Flash when there is any window requiring attention"
 msgstr "Lampeggiare se c'è qualsiasi finestra richiamando attenzione"
 
-#: ../src/plugins/taskbar.c:1520
+#: ../src/plugins/taskbar.c:1690
 msgid "Max width of task button"
 msgstr "Larghezza massima di bottone programma"
 
-#: ../src/plugins/taskbar.c:1521
+#: ../src/plugins/taskbar.c:1691
 msgid "Spacing"
 msgstr "Spazio"
 
-#: ../src/plugins/taskbar.c:1599
+#: ../src/plugins/taskbar.c:1769
 msgid "Task Bar (Window List)"
 msgstr "Barra di programmi (Lista finestre)"
 
-#: ../src/plugins/taskbar.c:1601
-msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
-msgstr "La barra di programmi mostra tutte le finestre aperte e permette di minimizzarle, arrotolare o aggiudicare fuoco"
+#: ../src/plugins/taskbar.c:1771
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
+msgstr ""
+"La barra di programmi mostra tutte le finestre aperte e permette di "
+"minimizzarle, arrotolare o aggiudicare fuoco"
 
 #: ../src/plugins/dclock.c:279
 msgid "Clock Format"
@@ -492,27 +488,28 @@ msgstr "Orologio digitale"
 msgid "Display Digital clock and Tooltip"
 msgstr "Orologio digitale e aiuto tooltip"
 
-#: ../src/plugins/menu.c:360
-msgid "Add to desktop panel"
-msgstr "Aggiungere al pannello scrivania"
-
-#: ../src/plugins/menu.c:364
+#.
+#. item = gtk_menu_item_new_with_label(_("Add to desktop panel"));
+#. g_signal_connect(item, "activate", G_CALLBACK(on_add_menu_item_to_panel), data);
+#. gtk_menu_shell_append(p, item);
+#.
+#: ../src/plugins/menu.c:371
 msgid "Add to desktop"
 msgstr "Aggiungere alla scrivania"
 
-#: ../src/plugins/menu.c:374
+#: ../src/plugins/menu.c:381
 msgid "Properties"
 msgstr "<b>Proprietà</b>"
 
-#: ../src/plugins/menu.c:990
+#: ../src/plugins/menu.c:1028
 msgid "Icon"
 msgstr "Icono"
 
-#: ../src/plugins/menu.c:1001
+#: ../src/plugins/menu.c:1039
 msgid "Menu"
 msgstr "Menu"
 
-#: ../src/plugins/menu.c:1003
+#: ../src/plugins/menu.c:1041
 msgid "Provide Menu"
 msgstr "Mostrare menu"
 
@@ -532,8 +529,7 @@ msgstr "Pager scrivania"
 msgid "Simple pager plugin"
 msgstr "Plugin pager semplice"
 
-#: ../src/plugins/space.c:138
-#: ../src/plugins/batt/batt.c:889
+#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:889
 msgid "Size"
 msgstr "Dimensione"
 
@@ -559,17 +555,18 @@ msgid ""
 "Supported commnds are 1)toggle iconify and 2) toggle shade"
 msgstr ""
 "Manda comandi a tutte le finestre della scrivania.\n"
-"Comandi supporati sono: 1)Alternatore minimizzare/maximizzare e 2)arrotolare/srotolare"
+"Comandi supporati sono: 1)Alternatore minimizzare/maximizzare e 2)arrotolare/"
+"srotolare"
 
-#: ../src/plugins/dirmenu.c:215
+#: ../src/plugins/dirmenu.c:218
 msgid "Open in _Terminal"
 msgstr "Aprire nel _Terminale"
 
-#: ../src/plugins/dirmenu.c:380
+#: ../src/plugins/dirmenu.c:383
 msgid "Directory Menu"
 msgstr "Menu cartella"
 
-#: ../src/plugins/dirmenu.c:382
+#: ../src/plugins/dirmenu.c:385
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "Sfogliare l'albero di cartelle tramite menu (Autore: PCMan)"
 
@@ -615,22 +612,22 @@ msgstr "Mostrare temperatura del sistema, da kesler.daniel@gmail.com"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #: ../src/plugins/volume/volume.c:305
-#: ../src/plugins/volumealsa/volumealsa.c:408
+#: ../src/plugins/volumealsa/volumealsa.c:399
 msgid "Volume control"
 msgstr "Volume"
 
 #: ../src/plugins/volume/volume.c:317
-#: ../src/plugins/volumealsa/volumealsa.c:422
+#: ../src/plugins/volumealsa/volumealsa.c:413
 msgid "Volume Control"
 msgstr "Volume"
 
 #. create frame
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:310
+#: ../src/plugins/volumealsa/volumealsa.c:309
 msgid "Volume"
 msgstr "Lautstärke"
 
-#: ../src/plugins/volumealsa/volumealsa.c:327
+#: ../src/plugins/volumealsa/volumealsa.c:326
 msgid "Mute"
 msgstr "Muto"
 
@@ -664,8 +661,7 @@ msgstr "Cavo rete è disconnesso"
 msgid "Connection has limited or no connectivity"
 msgstr "Connessione limitata o nessuna connessione"
 
-#: ../src/plugins/netstat/netstat.c:307
-#: ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "Indirizzo IP:"
@@ -674,38 +670,32 @@ msgstr "Indirizzo IP:"
 msgid "Remote IP:"
 msgstr "IP remoto:"
 
-#: ../src/plugins/netstat/netstat.c:309
-#: ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "Maschera di rete (netmask):"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "Attività"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "Inviato"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "Ricevuto"
 
-#: ../src/plugins/netstat/netstat.c:311
-#: ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "Bytes"
 
-#: ../src/plugins/netstat/netstat.c:312
-#: ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "Pacchetti"
@@ -718,14 +708,12 @@ msgstr "Wireless"
 msgid "Protocol:"
 msgstr "Protocollo:"
 
-#: ../src/plugins/netstat/netstat.c:319
-#: ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
 msgid "Broadcast:"
 msgstr "Broadcast:"
 
-#: ../src/plugins/netstat/netstat.c:321
-#: ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "Indirizzo HW:"
 
@@ -928,7 +916,8 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Per favore mettersi in contatto con l'amministratore del sistema per risolvere il seguente problema:\n"
+"Per favore mettersi in contatto con l'amministratore del sistema per "
+"risolvere il seguente problema:\n"
 "\n"
 "%s"
 
@@ -1029,6 +1018,9 @@ msgstr "LED della tastatura"
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Indicatori per i tasti CapsLock, NumLock e ScrollLock"
 
+#~ msgid "Add to desktop panel"
+#~ msgstr "Aggiungere al pannello scrivania"
+
 #~ msgid ""
 #~ "Dynamic\n"
 #~ "Pixels\n"
@@ -1037,6 +1029,7 @@ msgstr "Indicatori per i tasti CapsLock, NumLock e ScrollLock"
 #~ "Dynamische\n"
 #~ "Pixel\n"
 #~ "% Prozent"
+
 #~ msgid ""
 #~ "Left\n"
 #~ "Center\n"
@@ -1045,6 +1038,7 @@ msgstr "Indicatori per i tasti CapsLock, NumLock e ScrollLock"
 #~ "Links\n"
 #~ "Mitte\n"
 #~ "Rechts"
+
 #~ msgid ""
 #~ "Left\n"
 #~ "Right\n"
@@ -1055,28 +1049,39 @@ msgstr "Indicatori per i tasti CapsLock, NumLock e ScrollLock"
 #~ "Rechts\n"
 #~ "Oben\n"
 #~ "Unten"
+
 #~ msgid "Other"
 #~ msgstr "Andere"
+
 #~ msgid "Game"
 #~ msgstr "Spiele"
+
 #~ msgid "Education"
 #~ msgstr "Bildung"
+
 #~ msgid "Development"
 #~ msgstr "Entwicklung"
+
 #~ msgid "Audio & Video"
 #~ msgstr "Audio & Video"
+
 #~ msgid "Graphics"
 #~ msgstr "Grafik"
+
 #~ msgid "Settings"
 #~ msgstr "Einstellungen"
+
 #~ msgid "System Tools"
 #~ msgstr "Systemwerkzeuge"
+
 #~ msgid "Network"
 #~ msgstr "Netzwerk"
+
 #~ msgid "Office"
 #~ msgstr "Büroanwendungen"
+
 #~ msgid "Accessories"
 #~ msgstr "Zubehör"
+
 #~ msgid "Caption"
 #~ msgstr "Beschriftung"
-

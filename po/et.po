@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-04-30 08:32+0300\n"
+"POT-Creation-Date: 2009-01-26 22:13+0800\n"
 "PO-Revision-Date: 2008-11-29 23:51+0300\n"
 "Last-Translator: Mattias Põldaru <mahfiaz gmail com>\n"
 "Language-Team: Gnome Estonian translation team <gnome-et@linux.ee>\n"
@@ -17,210 +17,195 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: ../data/ui/panel-pref.glade.h:1
+#: ../data/ui/panel-pref.ui.h:2
+#, no-c-format
+msgid "% Percent"
+msgstr ""
+
+#: ../data/ui/panel-pref.ui.h:3
 msgid "<b>Background</b>"
 msgstr "<b>Taust</b>"
 
-#: ../data/ui/panel-pref.glade.h:2
+#: ../data/ui/panel-pref.ui.h:4
 msgid "<b>Font</b>"
 msgstr "<b>Kiri</b>"
 
-#: ../data/ui/panel-pref.glade.h:3
+#: ../data/ui/panel-pref.ui.h:5
 msgid "<b>Position</b>"
 msgstr "<b>Asukoht</b>"
 
-#: ../data/ui/panel-pref.glade.h:4
+#: ../data/ui/panel-pref.ui.h:6
 msgid "<b>Properties</b>"
 msgstr "<b>Omadused</b>"
 
-#: ../data/ui/panel-pref.glade.h:5
+#: ../data/ui/panel-pref.ui.h:7
 msgid "<b>Set Preferred Applications</b>"
 msgstr "<b>Eelistatud rakendused</b>"
 
-#: ../data/ui/panel-pref.glade.h:6
+#: ../data/ui/panel-pref.ui.h:8
 msgid "<b>Size</b>"
 msgstr "<b>Suurus</b>"
 
-#: ../data/ui/panel-pref.glade.h:7
+#: ../data/ui/panel-pref.ui.h:9
 msgid "Advanced"
 msgstr "Laiendatud"
 
-#: ../data/ui/panel-pref.glade.h:8
+#: ../data/ui/panel-pref.ui.h:10
 msgid "Alignment:"
 msgstr "Joondus:"
 
-#: ../data/ui/panel-pref.glade.h:9
+#: ../data/ui/panel-pref.ui.h:11 ../src/panel.c:628
+msgid "Bottom"
+msgstr "All"
+
+#: ../data/ui/panel-pref.ui.h:12
+#, fuzzy
+msgid "Center"
+msgstr "Üldine"
+
+#: ../data/ui/panel-pref.ui.h:13
 msgid "Custom Color"
 msgstr "Muu värvus"
 
-#: ../data/ui/panel-pref.glade.h:11
-#, no-c-format
-msgid ""
-"Dynamic\n"
-"Pixels\n"
-"% Percent"
+#: ../data/ui/panel-pref.ui.h:14
+msgid "Dynamic"
 msgstr ""
-"dünaamiline\n"
-"pikslit\n"
-"% protsenti"
 
-#: ../data/ui/panel-pref.glade.h:14
+#: ../data/ui/panel-pref.ui.h:15
 msgid "Edge:"
 msgstr "Paigutus:"
 
-#: ../data/ui/panel-pref.glade.h:15
+#: ../data/ui/panel-pref.ui.h:16
 msgid "Enable Image:"
 msgstr "Kasutatakse pilti:"
 
-#: ../data/ui/panel-pref.glade.h:16
+#: ../data/ui/panel-pref.ui.h:17
 msgid "Enable Transparency"
 msgstr "Kasutatakse läbipaistvust"
 
-#: ../data/ui/panel-pref.glade.h:17
+#: ../data/ui/panel-pref.ui.h:18
 msgid "File Manager:"
 msgstr "Failihaldur:"
 
-#: ../data/ui/panel-pref.glade.h:18
+#: ../data/ui/panel-pref.ui.h:19
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr "Üldine"
 
-#: ../data/ui/panel-pref.glade.h:19
+#: ../data/ui/panel-pref.ui.h:20
 msgid "Height:"
 msgstr "Kõrgus:"
 
-#: ../data/ui/panel-pref.glade.h:20
-msgid ""
-"Left\n"
-"Center\n"
-"Right"
-msgstr ""
-"Vasakule\n"
-"Keskele\n"
-"Paremale"
-
-#: ../data/ui/panel-pref.glade.h:23
-msgid ""
-"Left\n"
-"Right\n"
-"Top\n"
-"Bottom"
-msgstr ""
-"Vasakul\n"
-"Paremal\n"
-"Üleval\n"
-"All"
-
-#: ../data/ui/panel-pref.glade.h:27
-msgid "Logout Command:"
-msgstr "Väljalogimise käsk:"
-
-#: ../data/ui/panel-pref.glade.h:28
-msgid "Make window managers treat the panel as dock"
-msgstr "Aknahaldur kohtleb paneeli dokina"
-
-#: ../data/ui/panel-pref.glade.h:29
-msgid "Margin:"
-msgstr "Ääris:"
-
-#: ../data/ui/panel-pref.glade.h:30
-msgid "None (Use system theme)"
-msgstr "Puudub (kasutatakse süsteemi teemat)"
-
-#: ../data/ui/panel-pref.glade.h:31
-msgid "Panel Applets"
-msgstr "Paneeli rakendid"
-
-#: ../data/ui/panel-pref.glade.h:32
-msgid "Panel Preferences"
-msgstr "Paneeli eelistused"
-
-#: ../data/ui/panel-pref.glade.h:33
-msgid "Pixels"
-msgstr "pikslit"
-
-#: ../data/ui/panel-pref.glade.h:34
-msgid "Reserve space, and not covered by maximized windows"
-msgstr "Maksimeeritud aknad ei kata paneeli"
-
-#: ../data/ui/panel-pref.glade.h:35
-msgid "Select an image file"
-msgstr "Vali pildifail"
-
-#: ../data/ui/panel-pref.glade.h:36
-msgid "Terminal Emulator:"
-msgstr "Terminal:"
-
-#: ../data/ui/panel-pref.glade.h:37
-msgid "Tint color:"
-msgstr "Toonimine:"
-
-#: ../data/ui/panel-pref.glade.h:38
-msgid "Width:"
-msgstr "Laius:"
-
-#. { "configure", N_("Preferences"), configure },
-#: ../src/configurator.c:53
-#: ../src/gtk-run.c:112
-msgid "Run"
-msgstr "Käivita"
-
-#: ../src/configurator.c:54
-msgid "Restart"
-msgstr "Taaskäivita"
-
-#: ../src/configurator.c:55
-msgid "Logout"
-msgstr "Logi välja"
-
-#: ../src/configurator.c:404
-msgid "Currently loaded plugins"
-msgstr "Kasutusel olevad pluginad"
-
-#: ../src/configurator.c:413
-msgid "Stretch"
-msgstr "Venitamine"
-
-#: ../src/configurator.c:511
-#: ../src/panel.c:505
-msgid "Add plugin to panel"
-msgstr "Lisa plugin paneelile"
-
-#: ../src/configurator.c:538
-#: ../src/panel.c:528
-msgid "Available plugins"
-msgstr "Saadaolevad pluginad"
-
-#: ../src/configurator.c:1049
-msgid "Logout command is not set"
-msgstr "Väljalogimise käsk pole määratud"
-
-#: ../src/panel.c:613
+#: ../data/ui/panel-pref.ui.h:21 ../src/panel.c:628
 msgid "Left"
 msgstr "Vasakul"
 
-#: ../src/panel.c:613
+#: ../data/ui/panel-pref.ui.h:22
+msgid "Logout Command:"
+msgstr "Väljalogimise käsk:"
+
+#: ../data/ui/panel-pref.ui.h:23
+msgid "Make window managers treat the panel as dock"
+msgstr "Aknahaldur kohtleb paneeli dokina"
+
+#: ../data/ui/panel-pref.ui.h:24
+msgid "Margin:"
+msgstr "Ääris:"
+
+#: ../data/ui/panel-pref.ui.h:25
+msgid "None (Use system theme)"
+msgstr "Puudub (kasutatakse süsteemi teemat)"
+
+#: ../data/ui/panel-pref.ui.h:26
+msgid "Panel Applets"
+msgstr "Paneeli rakendid"
+
+#: ../data/ui/panel-pref.ui.h:27
+msgid "Panel Preferences"
+msgstr "Paneeli eelistused"
+
+#: ../data/ui/panel-pref.ui.h:28
+msgid "Pixels"
+msgstr "pikslit"
+
+#: ../data/ui/panel-pref.ui.h:29
+msgid "Reserve space, and not covered by maximized windows"
+msgstr "Maksimeeritud aknad ei kata paneeli"
+
+#: ../data/ui/panel-pref.ui.h:30 ../src/panel.c:628
 msgid "Right"
 msgstr "Paremal"
 
-#: ../src/panel.c:613
+#: ../data/ui/panel-pref.ui.h:31
+msgid "Select an image file"
+msgstr "Vali pildifail"
+
+#: ../data/ui/panel-pref.ui.h:32
+msgid "Terminal Emulator:"
+msgstr "Terminal:"
+
+#: ../data/ui/panel-pref.ui.h:33
+msgid "Tint color:"
+msgstr "Toonimine:"
+
+#: ../data/ui/panel-pref.ui.h:34 ../src/panel.c:628
 msgid "Top"
 msgstr "Üleval"
 
-#: ../src/panel.c:613
-msgid "Bottom"
-msgstr "All"
+#: ../data/ui/panel-pref.ui.h:35
+msgid "Width:"
+msgstr "Laius:"
 
-#: ../src/panel.c:615
-#: ../src/panel.c:739
+#: ../src/configurator.c:53 ../src/gtk-run.c:250
+msgid "Run"
+msgstr "Käivita"
+
+#: ../src/configurator.c:55
+msgid "Restart"
+msgstr "Taaskäivita"
+
+#: ../src/configurator.c:56
+msgid "Logout"
+msgstr "Logi välja"
+
+#: ../src/configurator.c:402
+msgid "Currently loaded plugins"
+msgstr "Kasutusel olevad pluginad"
+
+#: ../src/configurator.c:411
+msgid "Stretch"
+msgstr "Venitamine"
+
+#: ../src/configurator.c:509 ../src/panel.c:520
+msgid "Add plugin to panel"
+msgstr "Lisa plugin paneelile"
+
+#: ../src/configurator.c:536 ../src/panel.c:543
+msgid "Available plugins"
+msgstr "Saadaolevad pluginad"
+
+#: ../src/configurator.c:1050
+msgid "Logout command is not set"
+msgstr "Väljalogimise käsk pole määratud"
+
+#: ../src/configurator.c:1099 ../src/configurator.c:1179
+#, fuzzy
+msgid "Select a file"
+msgstr "Vali pildifail"
+
+#: ../src/configurator.c:1197
+msgid "_Browse"
+msgstr ""
+
+#: ../src/panel.c:630 ../src/panel.c:756
 msgid "Create New Panel"
 msgstr "Lisa uus paneel"
 
-#: ../src/panel.c:621
+#: ../src/panel.c:636
 msgid "Where to put the panel?"
 msgstr "Kuhu paneel asetada?"
 
-#: ../src/panel.c:679
+#: ../src/panel.c:694
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -228,92 +213,93 @@ msgstr ""
 "Kas see paneel tõesti kustutada?\n"
 "<b>Hoiatus: Seda pole võimalik taastada.</b>"
 
-#: ../src/panel.c:680
+#: ../src/panel.c:695
 msgid "Confirm"
 msgstr "Kinnita"
 
-#: ../src/panel.c:713
+#: ../src/panel.c:730
 msgid "Add / Remove Panel Items"
 msgstr "Lisa/eemalda paneelikirjeid"
 
-#: ../src/panel.c:721
+#: ../src/panel.c:738
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Eemalda \"%s\" paneelilt"
 
-#: ../src/panel.c:733
+#: ../src/panel.c:750
 msgid "Panel Settings"
 msgstr "Paneeli sätted"
 
-#: ../src/panel.c:750
+#: ../src/panel.c:767
 msgid "Delete This Panel"
 msgstr "Kustuta see paneel"
 
-#: ../src/panel.c:760
+#: ../src/panel.c:777
 msgid "Panel"
 msgstr "Paneel"
 
-#: ../src/panel.c:773
+#: ../src/panel.c:790
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" sätted"
 
-#: ../src/panel.c:1237
+#: ../src/panel.c:1248
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - kerge GTK2+ paneel UNIX töölaudadele\n"
 
-#: ../src/panel.c:1238
+#: ../src/panel.c:1249
 #, c-format
 msgid "Command line options:\n"
 msgstr "Käsurea valikud:\n"
 
-#: ../src/panel.c:1239
+#: ../src/panel.c:1250
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr "--help      -- näitab seda abi ja väljub\n"
 
-#: ../src/panel.c:1240
+#: ../src/panel.c:1251
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr "--version   -- näitab versiooninumbri ja väljub\n"
 
-#: ../src/panel.c:1241
+#: ../src/panel.c:1252
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --log <number> -- määrab logimise tasemeks 0-5. 0 = puudub, 5 = jutukas\n"
+msgstr ""
+" --log <number> -- määrab logimise tasemeks 0-5. 0 = puudub, 5 = jutukas\n"
 
-#: ../src/panel.c:1242
+#: ../src/panel.c:1253
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr "--configure -- käivitab häälestamise tööriista\n"
 
-#: ../src/panel.c:1243
+#: ../src/panel.c:1254
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr "--profile <nimi> -- kasutatakse määratud profiili\n"
 
-#: ../src/panel.c:1245
+#: ../src/panel.c:1256
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr "-h  -- sama kui --help\n"
 
-#: ../src/panel.c:1246
+#: ../src/panel.c:1257
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr "-p  -- sama kui --profile\n"
 
-#: ../src/panel.c:1247
+#: ../src/panel.c:1258
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr "-v  -- sama nagu --version\n"
 
-#: ../src/panel.c:1248
+#: ../src/panel.c:1259
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr "-C  -- sama kuin --configure\n"
 
-#: ../src/panel.c:1249
+#: ../src/panel.c:1260
 #, c-format
 msgid ""
 "\n"
@@ -324,23 +310,23 @@ msgstr ""
 "Üksikasjad leiad lehelt http://lxde.org/ .\n"
 "\n"
 
-#: ../src/gtk-run.c:126
+#: ../src/gtk-run.c:264
 msgid "Enter the command you want to execute:"
 msgstr "Sisesta käsk, mida tahad käivitada:"
 
-#: ../src/systray/tray.c:206
+#: ../src/systray/tray.c:210
 msgid "System Tray"
 msgstr "Süsteemisalv"
 
-#: ../src/systray/tray.c:208
+#: ../src/systray/tray.c:212
 msgid "Old KDE/GNOME Tray"
 msgstr "Vana KDE/GNOME salv"
 
-#: ../src/plugins/cpu/cpu.c:222
+#: ../src/plugins/cpu/cpu.c:226
 msgid "CPU Usage Monitor"
 msgstr "Protsessori kasutuse monitor"
 
-#: ../src/plugins/cpu/cpu.c:224
+#: ../src/plugins/cpu/cpu.c:228
 msgid "Display CPU usage"
 msgstr "Protsessori kasutuse kuva"
 
@@ -352,11 +338,11 @@ msgstr "Töölaua number / tööala nimi"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Tööala numbri näitaja, autor cmeury@users.sf.net"
 
-#: ../src/plugins/launchbar.c:132
+#: ../src/plugins/launchbar.c:145
 msgid "Add Button"
 msgstr "Lisa nupp"
 
-#: ../src/plugins/launchbar.c:134
+#: ../src/plugins/launchbar.c:147
 msgid "Button Properties"
 msgstr "Nupu omadused"
 
@@ -364,7 +350,7 @@ msgstr "Nupu omadused"
 #. title = g_strdup_printf( _("Remove \"%s\""), b-> );
 #. item = gtk_image_menu_item_new_with_label( _("Remove ") );
 #.
-#: ../src/plugins/launchbar.c:140
+#: ../src/plugins/launchbar.c:153
 msgid "Remove Button"
 msgstr "Eemalda nupp"
 
@@ -372,183 +358,160 @@ msgstr "Eemalda nupp"
 #. 1. We can borrow the menu from menu plugin (PtkAppMenu).
 #. 2. We can borrow the app chooser from PCManFM.
 #.
-#: ../src/plugins/launchbar.c:512
+#: ../src/plugins/launchbar.c:515
 msgid "Select Application"
 msgstr "Rakenduse valimine"
 
-#: ../src/plugins/launchbar.c:661
+#: ../src/plugins/launchbar.c:669
 msgid "Buttons"
 msgstr "Nupud"
 
-#: ../src/plugins/launchbar.c:774
+#: ../src/plugins/launchbar.c:786
 msgid "Application Launch Bar"
 msgstr "Rakenduste käivitamise riba"
 
-#: ../src/plugins/launchbar.c:776
+#: ../src/plugins/launchbar.c:788
 msgid "Bar with buttons to launch application"
 msgstr "Rakenduste käivitamise nuppude riba"
 
-#: ../src/plugins/ptk-app-menu.c:157
-msgid "Other"
-msgstr "Teised"
-
-#: ../src/plugins/ptk-app-menu.c:158
-msgid "Game"
-msgstr "Mängud"
-
-#: ../src/plugins/ptk-app-menu.c:159
-msgid "Education"
-msgstr "Õppeprogrammid"
-
-#: ../src/plugins/ptk-app-menu.c:160
-msgid "Development"
-msgstr "Programmeerimine"
-
-#: ../src/plugins/ptk-app-menu.c:161
-msgid "Audio & Video"
-msgstr "Heli & video"
-
-#: ../src/plugins/ptk-app-menu.c:162
-msgid "Graphics"
-msgstr "Graafika"
-
-#: ../src/plugins/ptk-app-menu.c:163
-msgid "Settings"
-msgstr "Sätted"
-
-#: ../src/plugins/ptk-app-menu.c:164
-msgid "System Tools"
-msgstr "Süsteemitööriistad"
-
-#: ../src/plugins/ptk-app-menu.c:165
-msgid "Network"
-msgstr "Internet"
-
-#: ../src/plugins/ptk-app-menu.c:166
-msgid "Office"
-msgstr "Kontor"
-
-#: ../src/plugins/ptk-app-menu.c:167
-msgid "Accessories"
-msgstr "Tarvikud"
-
-#: ../src/plugins/taskbar.c:1224
+#: ../src/plugins/taskbar.c:1397
 msgid "Raise"
 msgstr "Tõsta"
 
-#: ../src/plugins/taskbar.c:1228
+#: ../src/plugins/taskbar.c:1401
 msgid "Restore"
 msgstr "Taasta"
 
-#: ../src/plugins/taskbar.c:1232
+#: ../src/plugins/taskbar.c:1405
 msgid "Maximize"
 msgstr "Maksimeeri"
 
-#: ../src/plugins/taskbar.c:1236
+#: ../src/plugins/taskbar.c:1409
 msgid "Iconify"
 msgstr "Minimeeri"
 
-#: ../src/plugins/taskbar.c:1245
+#: ../src/plugins/taskbar.c:1418
 #, c-format
 msgid "Workspace %d"
 msgstr "Tööala %d"
 
-#: ../src/plugins/taskbar.c:1253
+#: ../src/plugins/taskbar.c:1426
 msgid "All workspaces"
 msgstr "Kõik tööalad"
 
-#: ../src/plugins/taskbar.c:1260
+#: ../src/plugins/taskbar.c:1433
 msgid "Move to Workspace"
 msgstr "Liiguta tööalale"
 
 #. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1268
+#: ../src/plugins/taskbar.c:1441
 msgid "Close Window"
 msgstr "Sulge aken"
 
-#: ../src/plugins/taskbar.c:1516
+#: ../src/plugins/taskbar.c:1681
 msgid "Show tooltips"
 msgstr "Kohtspikrite näitamine"
 
-#: ../src/plugins/taskbar.c:1517
+#: ../src/plugins/taskbar.c:1682
 msgid "Icons only"
 msgstr "Ainult ikoonid"
 
-#: ../src/plugins/taskbar.c:1518
+#: ../src/plugins/taskbar.c:1683
 msgid "Flat Buttons"
 msgstr "Lamedad nupud"
 
-#: ../src/plugins/taskbar.c:1519
+#: ../src/plugins/taskbar.c:1684
 msgid "Accept SkipPager"
 msgstr "Tegumiriba kirjest keeldumise lubamine"
 
-#: ../src/plugins/taskbar.c:1520
+#: ../src/plugins/taskbar.c:1685
 msgid "Show Iconified windows"
 msgstr "Näidatakse minimeeritud aknaid"
 
-#: ../src/plugins/taskbar.c:1521
+#: ../src/plugins/taskbar.c:1686
 msgid "Show mapped windows"
 msgstr "Näidatakse avatud aknaid"
 
-#: ../src/plugins/taskbar.c:1522
+#: ../src/plugins/taskbar.c:1687
 msgid "Show windows from all desktops"
 msgstr "Näidatakse aknaid kõigilt töölaudadelt"
 
-#: ../src/plugins/taskbar.c:1523
+#: ../src/plugins/taskbar.c:1688
 msgid "Use mouse wheel"
 msgstr "Hiire rulliku kasutamine"
 
-#: ../src/plugins/taskbar.c:1524
+#: ../src/plugins/taskbar.c:1689
 msgid "Flash when there is any window requiring attention"
 msgstr "Vilgutatakse, kui aken nõuab tähelepanu"
 
-#: ../src/plugins/taskbar.c:1525
+#: ../src/plugins/taskbar.c:1690
 msgid "Max width of task button"
 msgstr "Nupu suurim laius"
 
-#: ../src/plugins/taskbar.c:1526
+#: ../src/plugins/taskbar.c:1691
 msgid "Spacing"
 msgstr "Eraldusvahe"
 
-#: ../src/plugins/taskbar.c:1604
+#: ../src/plugins/taskbar.c:1769
 msgid "Task Bar (Window List)"
 msgstr "Tegumiriba (akende nimekiri)"
 
-#: ../src/plugins/taskbar.c:1606
-msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+#: ../src/plugins/taskbar.c:1771
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
 msgstr ""
 "Tegumiribal kuvatakse kõiki avatud aknaid,\n"
 "neid saab minimeerida, varjata või fokuseerida"
 
-#: ../src/plugins/dclock.c:286
+#: ../src/plugins/dclock.c:279
 msgid "Clock Format"
 msgstr "Kella vorming"
 
-#: ../src/plugins/dclock.c:287
+#: ../src/plugins/dclock.c:280
 msgid "Tooltip Format"
 msgstr "Kohtspikri vorming"
 
-#: ../src/plugins/dclock.c:288
+#: ../src/plugins/dclock.c:281
 msgid "Action"
 msgstr "Tegevus"
 
-#: ../src/plugins/dclock.c:289
+#: ../src/plugins/dclock.c:282
 msgid "Bold font"
 msgstr "Rasvane kiri"
 
-#: ../src/plugins/dclock.c:324
+#: ../src/plugins/dclock.c:317
 msgid "Digital Clock"
 msgstr "Digikell"
 
-#: ../src/plugins/dclock.c:326
+#: ../src/plugins/dclock.c:319
 msgid "Display Digital clock and Tooltip"
 msgstr "Digikell kuupäeva kohtspikriga"
 
-#: ../src/plugins/menu.c:594
+#.
+#. item = gtk_menu_item_new_with_label(_("Add to desktop panel"));
+#. g_signal_connect(item, "activate", G_CALLBACK(on_add_menu_item_to_panel), data);
+#. gtk_menu_shell_append(p, item);
+#.
+#: ../src/plugins/menu.c:371
+msgid "Add to desktop"
+msgstr ""
+
+#: ../src/plugins/menu.c:381
+#, fuzzy
+msgid "Properties"
+msgstr "<b>Omadused</b>"
+
+#: ../src/plugins/menu.c:1028
+#, fuzzy
+msgid "Icon"
+msgstr "Minimeeri"
+
+#: ../src/plugins/menu.c:1039
 msgid "Menu"
 msgstr "Menüü"
 
-#: ../src/plugins/menu.c:596
+#: ../src/plugins/menu.c:1041
 msgid "Provide Menu"
 msgstr "Menüü"
 
@@ -568,28 +531,28 @@ msgstr "Töölaudade vahetamine"
 msgid "Simple pager plugin"
 msgstr "Töölaudade vahetaja plugin"
 
-#: ../src/plugins/space.c:137
-#: ../src/plugins/batt/batt.c:824
+#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:889
 msgid "Size"
 msgstr "Suurus"
 
-#: ../src/plugins/space.c:152
+#: ../src/plugins/space.c:153
 msgid "<Space>"
 msgstr "<vahe>"
 
-#: ../src/plugins/space.c:154
+#: ../src/plugins/space.c:155
 msgid "Allocate space"
 msgstr "Eraldab ruumi"
 
-#: ../src/plugins/wincmd.c:255
+#: ../src/plugins/wincmd.c:245
 msgid "Left click to iconify all windows. Middle click to shade them"
-msgstr "Kõigi akende minimeerimiseks vasakklõps, varjamiseks keskmise klahvi klõps"
+msgstr ""
+"Kõigi akende minimeerimiseks vasakklõps, varjamiseks keskmise klahvi klõps"
 
-#: ../src/plugins/wincmd.c:284
+#: ../src/plugins/wincmd.c:274
 msgid "Minimize All Windows"
 msgstr "Kõigi akende minimeerimine"
 
-#: ../src/plugins/wincmd.c:286
+#: ../src/plugins/wincmd.c:276
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commnds are 1)toggle iconify and 2) toggle shade"
@@ -597,146 +560,185 @@ msgstr ""
 "Saadab käsu töölaua kõigile akendele.\n"
 "Võimalik on 1)minimeerimine ja 2)varjamine"
 
-#: ../src/plugins/dirmenu.c:210
+#: ../src/plugins/dirmenu.c:218
 msgid "Open in _Terminal"
 msgstr "Ava _terminalis"
 
-#: ../src/plugins/dirmenu.c:371
+#: ../src/plugins/dirmenu.c:383
 msgid "Directory Menu"
 msgstr "Kataloogimenüü"
 
-#: ../src/plugins/dirmenu.c:373
+#: ../src/plugins/dirmenu.c:385
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "Lehitse kataloogipuu menüüd (autor: PCMan)"
 
+#: ../src/plugins/thermal/thermal.c:299
+msgid "Normal"
+msgstr ""
+
+#: ../src/plugins/thermal/thermal.c:300
+msgid "Warning1"
+msgstr ""
+
+#: ../src/plugins/thermal/thermal.c:301
+msgid "Warning2"
+msgstr ""
+
+#: ../src/plugins/thermal/thermal.c:302
+msgid "Automatic sensor location"
+msgstr ""
+
+#: ../src/plugins/thermal/thermal.c:303
+#, fuzzy
+msgid "Sensor"
+msgstr "Taasta"
+
+#: ../src/plugins/thermal/thermal.c:304
+msgid "Automatic temperature levels"
+msgstr ""
+
+#: ../src/plugins/thermal/thermal.c:305
+msgid "Warning1 Temperatur"
+msgstr ""
+
+#: ../src/plugins/thermal/thermal.c:306
+msgid "Warning2 Temperatur"
+msgstr ""
+
+#: ../src/plugins/thermal/thermal.c:348
+#, fuzzy
+msgid "Temperature Monitor"
+msgstr "Võrgu oleku monitor"
+
+#: ../src/plugins/thermal/thermal.c:350
+msgid "Display system temperature, by kesler.daniel@gmail.com"
+msgstr ""
+
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
-#: ../src/plugins/volume/volume.c:153
-#: ../src/plugins/volumealsa/volumealsa.c:300
+#: ../src/plugins/volume/volume.c:305
+#: ../src/plugins/volumealsa/volumealsa.c:399
 msgid "Volume control"
 msgstr "Helitugevus"
 
-#: ../src/plugins/volume/volume.c:165
-#: ../src/plugins/volumealsa/volumealsa.c:314
+#: ../src/plugins/volume/volume.c:317
+#: ../src/plugins/volumealsa/volumealsa.c:413
 msgid "Volume Control"
 msgstr "Helitugevuse juhtimine"
 
 #. create frame
-#: ../src/plugins/volume/volume-impl.c:107
-#: ../src/plugins/volumealsa/volumealsa.c:200
+#: ../src/plugins/volume/volume-impl.c:109
+#: ../src/plugins/volumealsa/volumealsa.c:309
 msgid "Volume"
 msgstr "Valjus"
 
-#: ../src/plugins/volumealsa/volumealsa.c:216
+#: ../src/plugins/volumealsa/volumealsa.c:326
 msgid "Mute"
 msgstr "Hääletu"
 
-#: ../src/plugins/netstat/netstat.c:144
+#: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
 msgstr "<Varjatud Access Point>"
 
-#: ../src/plugins/netstat/netstat.c:177
+#: ../src/plugins/netstat/netstat.c:201
 msgid "Wireless Networks not found in range"
 msgstr "Traadita võrke ei leitud"
 
 #. Repair
-#: ../src/plugins/netstat/netstat.c:213
+#: ../src/plugins/netstat/netstat.c:235
 msgid "Repair"
 msgstr "Paranda"
 
 #. interface down
-#: ../src/plugins/netstat/netstat.c:218
+#: ../src/plugins/netstat/netstat.c:240
 msgid "Disable"
 msgstr "Keela"
 
-#: ../src/plugins/netstat/netstat.c:276
+#: ../src/plugins/netstat/netstat.c:299
+#, fuzzy
+msgid "Wireless Connection has no connectivity"
+msgstr "Ühendust pole või on see piiratud"
+
+#: ../src/plugins/netstat/netstat.c:301
 msgid "Network cable is plugged out"
 msgstr "Võrgujuhe on lahti ühendatud"
 
-#: ../src/plugins/netstat/netstat.c:278
+#: ../src/plugins/netstat/netstat.c:303
 msgid "Connection has limited or no connectivity"
 msgstr "Ühendust pole või on see piiratud"
 
-#: ../src/plugins/netstat/netstat.c:282
-#: ../src/plugins/netstat/netstat.c:293
-#: ../src/plugins/netstat/netstat.c:304
+#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "IP-aadress:"
 
-#: ../src/plugins/netstat/netstat.c:283
+#: ../src/plugins/netstat/netstat.c:308
 msgid "Remote IP:"
 msgstr "Kaug-IP:"
 
-#: ../src/plugins/netstat/netstat.c:284
-#: ../src/plugins/netstat/netstat.c:295
-#: ../src/plugins/netstat/netstat.c:306
+#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "Võrgumask:"
 
-#: ../src/plugins/netstat/netstat.c:285
-#: ../src/plugins/netstat/netstat.c:297
-#: ../src/plugins/netstat/netstat.c:308
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "Aktiivsus"
 
-#: ../src/plugins/netstat/netstat.c:285
-#: ../src/plugins/netstat/netstat.c:297
-#: ../src/plugins/netstat/netstat.c:308
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "Saadetud"
 
-#: ../src/plugins/netstat/netstat.c:285
-#: ../src/plugins/netstat/netstat.c:297
-#: ../src/plugins/netstat/netstat.c:308
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "Vastu võetud"
 
-#: ../src/plugins/netstat/netstat.c:286
-#: ../src/plugins/netstat/netstat.c:298
-#: ../src/plugins/netstat/netstat.c:309
+#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "baiti"
 
-#: ../src/plugins/netstat/netstat.c:287
-#: ../src/plugins/netstat/netstat.c:299
-#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "paketti"
 
-#: ../src/plugins/netstat/netstat.c:290
+#: ../src/plugins/netstat/netstat.c:315
 msgid "Wireless"
 msgstr "Traadita"
 
-#: ../src/plugins/netstat/netstat.c:292
+#: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
 msgstr "Protokoll:"
 
-#: ../src/plugins/netstat/netstat.c:294
-#: ../src/plugins/netstat/netstat.c:305
+#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
 msgid "Broadcast:"
 msgstr "Eetriaadress:"
 
-#: ../src/plugins/netstat/netstat.c:296
-#: ../src/plugins/netstat/netstat.c:307
+#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "Raua aadress:"
 
-#: ../src/plugins/netstat/netstat.c:446
-#: ../src/plugins/netstatus/netstatus.c:181
-msgid "Net Status Monitor"
-msgstr "Võrgu oleku monitor"
+#: ../src/plugins/netstat/netstat.c:471
+#, fuzzy
+msgid "Manage Networks"
+msgstr "Internet"
 
-#: ../src/plugins/netstat/netstat.c:448
-#: ../src/plugins/netstatus/netstatus.c:183
-msgid "Monitor network status"
+#: ../src/plugins/netstat/netstat.c:473
+#, fuzzy
+msgid "Monitor and Manage networks"
 msgstr "Võrgu oleku monitoorimine"
 
 #. create dialog
-#: ../src/plugins/netstat/passwd_gui.c:97
+#: ../src/plugins/netstat/passwd_gui.c:84
 msgid "Setting Encryption Key"
 msgstr "Krüptimisvõtme määramine"
 
 #. messages
-#: ../src/plugins/netstat/passwd_gui.c:107
+#: ../src/plugins/netstat/passwd_gui.c:94
 msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
@@ -744,7 +746,7 @@ msgstr ""
 "See traadita võrk on krüptitud.\n"
 "Sisesta krüptimise võti."
 
-#: ../src/plugins/netstat/passwd_gui.c:112
+#: ../src/plugins/netstat/passwd_gui.c:99
 msgid "Encryption Key:"
 msgstr "Krüptimise võti:"
 
@@ -755,6 +757,14 @@ msgstr "Monitooritav liides"
 #: ../src/plugins/netstatus/netstatus.c:164
 msgid "Config tool"
 msgstr "Seadistamise tööriist"
+
+#: ../src/plugins/netstatus/netstatus.c:181
+msgid "Net Status Monitor"
+msgstr "Võrgu oleku monitor"
+
+#: ../src/plugins/netstatus/netstatus.c:183
+msgid "Monitor network status"
+msgstr "Võrgu oleku monitoorimine"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:52
 #: ../src/plugins/netstatus/netstatus-dialog.c:311
@@ -917,83 +927,159 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../src/plugins/batt/batt.c:330
+#: ../src/plugins/batt/batt.c:384
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
 msgstr "Aku: %d%% laaditud, täitumiseni jäänud %d:%02d"
 
-#: ../src/plugins/batt/batt.c:339
+#: ../src/plugins/batt/batt.c:393
 #, c-format
 msgid "Battery: %d%% charged, %s"
 msgstr "Aku: %d%% laaditud, %s"
 
-#: ../src/plugins/batt/batt.c:341
+#: ../src/plugins/batt/batt.c:395
 msgid "charging finished"
 msgstr "laadimine lõpetatud"
 
-#: ../src/plugins/batt/batt.c:341
-msgid "not charging"
+#: ../src/plugins/batt/batt.c:395
+#, fuzzy
+msgid "charging"
 msgstr "ei laadita"
 
-#: ../src/plugins/batt/batt.c:346
+#: ../src/plugins/batt/batt.c:400
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr "Aku: %d%% laaditud, %d:%02d jäänud"
 
-#: ../src/plugins/batt/batt.c:394
+#: ../src/plugins/batt/batt.c:406
+#, fuzzy, c-format
+msgid "Battery: %d%% charged"
+msgstr "Aku: %d%% laaditud, %s"
+
+#: ../src/plugins/batt/batt.c:454
 #, c-format
 msgid "No batteries found"
 msgstr "Akusid ei leitud"
 
-#: ../src/plugins/batt/batt.c:814
+#: ../src/plugins/batt/batt.c:879
 msgid "Hide if there is no battery"
 msgstr "Peidetakse, kui aku puudub"
 
-#: ../src/plugins/batt/batt.c:816
+#: ../src/plugins/batt/batt.c:881
 msgid "Alarm command"
 msgstr "Häirekäsk"
 
-#: ../src/plugins/batt/batt.c:817
+#: ../src/plugins/batt/batt.c:882
 msgid "Alarm time (minutes left)"
 msgstr "Häire ajastamine (minutit jäänud)"
 
-#: ../src/plugins/batt/batt.c:818
+#: ../src/plugins/batt/batt.c:883
 msgid "Background color"
 msgstr "Taustavärvus"
 
-#: ../src/plugins/batt/batt.c:819
+#: ../src/plugins/batt/batt.c:884
 msgid "Charging color 1"
 msgstr "Laadimise värvus 1"
 
-#: ../src/plugins/batt/batt.c:820
+#: ../src/plugins/batt/batt.c:885
 msgid "Charging color 2"
 msgstr "Laadimise värvus 2"
 
-#: ../src/plugins/batt/batt.c:821
+#: ../src/plugins/batt/batt.c:886
 msgid "Discharging color 1"
 msgstr "Tühjenemise värvus 1"
 
-#: ../src/plugins/batt/batt.c:822
+#: ../src/plugins/batt/batt.c:887
 msgid "Discharging color 2"
 msgstr "Tühjenemise värvus 2"
 
-#: ../src/plugins/batt/batt.c:823
+#: ../src/plugins/batt/batt.c:888
 msgid "Border width"
 msgstr "Raami laius"
 
-#: ../src/plugins/batt/batt.c:858
+#: ../src/plugins/batt/batt.c:919
 msgid "Battery Monitor"
 msgstr "Aku monitor"
 
-#: ../src/plugins/batt/batt.c:860
+#: ../src/plugins/batt/batt.c:921
 msgid "Display battery status using ACPI"
 msgstr "Aku oleku kuvamine ACPI järgi"
 
-#: ../src/plugins/kbled/kbled.c:249
+#: ../src/plugins/kbled/kbled.c:277
+msgid "Show CapsLock"
+msgstr ""
+
+#: ../src/plugins/kbled/kbled.c:278
+msgid "Show NumLock"
+msgstr ""
+
+#: ../src/plugins/kbled/kbled.c:279
+msgid "Show ScrollLock"
+msgstr ""
+
+#: ../src/plugins/kbled/kbled.c:289
 msgid "Keyboard Led"
 msgstr "Klaviatuurituled"
 
-#: ../src/plugins/kbled/kbled.c:251
+#: ../src/plugins/kbled/kbled.c:291
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "CapsLock-, NumLock- ja ScrollLock-klahvi olek"
 
+#~ msgid ""
+#~ "Dynamic\n"
+#~ "Pixels\n"
+#~ "% Percent"
+#~ msgstr ""
+#~ "dünaamiline\n"
+#~ "pikslit\n"
+#~ "% protsenti"
+
+#~ msgid ""
+#~ "Left\n"
+#~ "Center\n"
+#~ "Right"
+#~ msgstr ""
+#~ "Vasakule\n"
+#~ "Keskele\n"
+#~ "Paremale"
+
+#~ msgid ""
+#~ "Left\n"
+#~ "Right\n"
+#~ "Top\n"
+#~ "Bottom"
+#~ msgstr ""
+#~ "Vasakul\n"
+#~ "Paremal\n"
+#~ "Üleval\n"
+#~ "All"
+
+#~ msgid "Other"
+#~ msgstr "Teised"
+
+#~ msgid "Game"
+#~ msgstr "Mängud"
+
+#~ msgid "Education"
+#~ msgstr "Õppeprogrammid"
+
+#~ msgid "Development"
+#~ msgstr "Programmeerimine"
+
+#~ msgid "Audio & Video"
+#~ msgstr "Heli & video"
+
+#~ msgid "Graphics"
+#~ msgstr "Graafika"
+
+#~ msgid "Settings"
+#~ msgstr "Sätted"
+
+#~ msgid "System Tools"
+#~ msgstr "Süsteemitööriistad"
+
+#~ msgid "Office"
+#~ msgstr "Kontor"
+
+#~ msgid "Accessories"
+#~ msgstr "Tarvikud"

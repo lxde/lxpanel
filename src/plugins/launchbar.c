@@ -129,7 +129,6 @@ on_button_event(GtkWidget *widget, GdkEventButton *event, btn_t *b )
         }
         else if (event->type == GDK_BUTTON_PRESS)
         {
-
             gtk_misc_set_padding (GTK_MISC(image), 0, 3);
             //ERR("here\n");
         }
