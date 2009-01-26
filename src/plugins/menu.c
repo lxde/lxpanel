@@ -159,26 +159,8 @@ menu_pos(GtkMenu *menu, gint *x, gint *y, gboolean *push_in, GtkWidget *widget)
 
 static void on_menu_item( GtkMenuItem* mi, MenuCacheItem* item )
 {
-    const char* exec = menu_cache_app_get_exec(MENU_CACHE_APP(item));
-    char* sep = strchr(exec, '%');
-    char* cmd = sep ? g_strndup(exec, sep - exec) : exec;
-    g_strchomp(cmd);
-    /* g_debug( "Exec = %s", menu_cache_app_get_exec(MENU_CACHE_APP(item)) ); */
-    if( menu_cache_app_get_use_terminal(MENU_CACHE_APP(item)) )
-    {
-        char* term_cmd;
-        const char* term = lxpanel_get_terminal();
-        if( strstr(term, "%s") )
-            term_cmd = g_strdup_printf(term, cmd);
-        else
-            term_cmd = g_strconcat( term, " -e ", cmd, NULL );
-        if( cmd != exec )
-            g_free(cmd);
-        cmd = term_cmd;
-    }
-    spawn_app( NULL, cmd );
-    if( cmd != exec )
-        g_free(cmd);
+    lxpanel_launch_app( menu_cache_app_get_exec(MENU_CACHE_APP(item)),
+            NULL, menu_cache_app_get_use_terminal(MENU_CACHE_APP(item)));
 }
 
 /* load icon when mapping the menu item to speed up */
