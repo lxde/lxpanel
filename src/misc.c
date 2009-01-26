@@ -1717,7 +1717,10 @@ _finish:
 gboolean lxpanel_launch_app(const char* exec, GList* files, gboolean in_terminal)
 {
     GError *error = NULL;
-    char* cmd = translate_app_exec_to_command_line(exec, files);
+    char* cmd;
+    if( ! exec )
+        return FALSE;
+    cmd = translate_app_exec_to_command_line(exec, files);
     if( in_terminal )
     {
         char* term_cmd;

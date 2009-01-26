@@ -121,7 +121,8 @@ on_button_event(GtkWidget *widget, GdkEventButton *event, btn_t *b )
             if ((event->x >=0 && event->x < widget->allocation.width)
                   && (event->y >=0 && event->y < widget->allocation.height))
             {
-                lxpanel_launch_app(b->action, NULL, b->use_terminal);
+                if( b->action )
+                    lxpanel_launch_app(b->action, NULL, b->use_terminal);
             }
             gtk_misc_set_padding (GTK_MISC(image), 0, 0);
 
