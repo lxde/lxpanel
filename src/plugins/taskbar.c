@@ -94,7 +94,7 @@ typedef struct _taskbar{
     guint dnd_activate;
 
     gboolean iconsize;
-    gboolean task_width_max;
+    int task_width_max;
     gboolean accept_skip_pager;// : 1;
     gboolean show_iconified;// : 1;
     gboolean show_mapped;// : 1;
@@ -475,45 +475,55 @@ get_wm_icon(Window tkwin, int iw, int ih)
     int sd, result, format;
     GdkPixbuf *ret, *masked, *pixmap, *mask = NULL;
     Atom type = None;
-    guint32 *data = NULL;
-    guint32 *rot_data = NULL;
+    gulong *data = NULL;
     gulong  nitems;
-    gulong  rot_nitems;
     gulong  bytes_after;
     guchar *pixdata, *p;
     int     i;
 
-    ENTER;
-    
+    /* Important Notes:
+     * According to freedesktop.org document:
+     * http://standards.freedesktop.org/wm-spec/wm-spec-1.4.html#id2552223
+     * _NET_WM_ICON contains an array of 32-bit packed CARDINAL ARGB.
+     * However, this is incorrect. Actually it's an array of long integers.
+     * Toolkits like gtk+ use unsigned long here to store icons.
+     * Besides, according to manpage of XGetWindowProperty, when returned format,
+     * is 32, the property data will be stored as an array of longs
+     * (which in a 64-bit application will be 64-bit values that are
+     * padded in the upper 4 bytes).
+     */
+
     result = XGetWindowProperty(GDK_DISPLAY(),
                                 tkwin,
                                 gdk_x11_get_xatom_by_name("_NET_WM_ICON"),
                                 0, G_MAXLONG,
                                 0, XA_CARDINAL, &type, &format, &nitems,
                                 &bytes_after, (void*)&data);
-
+    /* g_debug("type=%d, format=%d, nitems=%d", type, format, nitems); */
     if(type != XA_CARDINAL || nitems <= 0 )
     {
         LOG(LOG_WARN, "lxpanel : type is not XA_CARDINAL");
-        XFree(data);
+        if(data)
+            XFree(data);
         result = 0;
     }
-    
+
     if(result == Success)
     {
-        guint32* pdata = data;
-        guint32* pdata_end = data + nitems;
-        guint32* max_icon = NULL;
-        guint32 max_w = 0, max_h = 0;
+        gulong* pdata = data;
+        gulong* pdata_end = data + nitems;
+        gulong* max_icon = NULL;
+        gulong max_w = 0, max_h = 0;
 
         /* get the largest icon available. */
         /* FIXME: should we try to find an icon whose size is closest to
          * iw and ih to reduce unnecessary resizing? */
         while(pdata + 2 < pdata_end)
         {
-            guint32 w = pdata[0];
-            guint32 h = pdata[1];
-            guint32 size = (w * h);
+            gulong w = pdata[0];
+            gulong h = pdata[1];
+            gulong size = (w * h);
+
             pdata += 2;
             if( pdata + size > pdata_end ) /* corrupt icon */
                 break;
@@ -534,7 +544,7 @@ get_wm_icon(Window tkwin, int iw, int ih)
 
         if( max_icon )
         {
-            guint32 len = max_w * max_h;
+            gulong len = max_w * max_h;
             pixdata = g_new(guchar, len * 4);
             p = pixdata;
 
@@ -587,8 +597,7 @@ get_wm_icon(Window tkwin, int iw, int ih)
             
             result = (xpixmap != None)?Success:0;
         }
-        
-        ///
+
         if(result != Success)
         {
             Pixmap *icons;
@@ -614,8 +623,7 @@ get_wm_icon(Window tkwin, int iw, int ih)
                 result = (xpixmap != None)?Success:0;
             }
         }
-        ///
-            
+
         if(result == Success)
         {
             result = XGetGeometry(GDK_DISPLAY(),
@@ -623,7 +631,7 @@ get_wm_icon(Window tkwin, int iw, int ih)
                                   &sd, &sd, &w, &h,
                                   (guint *)&sd, (guint *)&sd);
         }
-        
+
         if(result != Success) 
         {
             LOG(LOG_WARN,"lxpanel : XGetGeometry failed for %x pixmap\n", (unsigned int)xpixmap);
@@ -654,14 +662,13 @@ get_wm_icon(Window tkwin, int iw, int ih)
         }
     }
     
-    /////////////////////////////////////////////////////////////////////
     if (!pixmap)
         RET(NULL);
 
     ret = gdk_pixbuf_scale_simple (pixmap, iw, ih, GDK_INTERP_TILES);
     g_object_unref(pixmap);
 
-    RET(ret);
+    return ret;
 }
 
 inline static GdkPixbuf*
