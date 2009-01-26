@@ -583,8 +583,7 @@ get_wm_icon(Window tkwin, int iw, int ih)
         LOG(LOG_WARN, "lxpanel : Can't read _NET_WM_ICON, try to read pixmap icon\n");
 
         hints = XGetWMHints(GDK_DISPLAY(), tkwin);
-        
-        result = (hints != NULL)?Success:0;
+        result = (hints != NULL) ? Success : 0;
 
         if(result == Success)
         {
@@ -592,35 +591,33 @@ get_wm_icon(Window tkwin, int iw, int ih)
                 xpixmap = hints->icon_pixmap;
             if ((hints->flags & IconMaskHint))
                 xmask = hints->icon_mask;
-
             XFree(hints);
-            
             result = (xpixmap != None)?Success:0;
         }
 
         if(result != Success)
         {
-            Pixmap *icons;
+            Pixmap *icons = NULL;
             LOG(LOG_WARN, "lxpanel : can't get icon using HINTS try to use KWM_WIN_ICON\n");
-        
+            Atom kwin_win_icon_atom = gdk_x11_get_xatom_by_name("KWM_WIN_ICON");
             result = XGetWindowProperty(GDK_DISPLAY(), tkwin,
-                                        gdk_x11_get_xatom_by_name("KWM_WIN_ICON"),
+                                        kwin_win_icon_atom,
                                         0, G_MAXLONG,
                                         False,
-                                        gdk_x11_get_xatom_by_name("KWM_WIN_ICON"),
+                                        kwin_win_icon_atom,
                                         &type, &format, &nitems,
                                         &bytes_after, (void*)&icons);
-            if(type != gdk_x11_get_xatom_by_name("KWM_WIN_ICON"))
+            if(type != kwin_win_icon_atom)
             {
+                if( icons )
+                    XFree(icons);
                 result = 0;
             }
-        
             if(result == Success)
             {
                 xpixmap = icons[0];
                 xmask   = icons[1];
-            
-                result = (xpixmap != None)?Success:0;
+                result = (xpixmap != None) ? Success : 0;
             }
         }
 
@@ -640,7 +637,6 @@ get_wm_icon(Window tkwin, int iw, int ih)
         {
             DBG("tkwin=%x icon pixmap w=%d h=%d\n", tkwin, w, h);
             pixmap = _wnck_gdk_pixbuf_get_from_pixmap (NULL, xpixmap, 0, 0, 0, 0, w, h);
-            
             result = pixmap?Success:0;
         }
 
@@ -661,7 +657,7 @@ get_wm_icon(Window tkwin, int iw, int ih)
             }
         }
     }
-    
+
     if (!pixmap)
         RET(NULL);
 

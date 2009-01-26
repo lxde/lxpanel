@@ -75,6 +75,7 @@ typedef struct btn_t {
     gchar *tooltip;
 /*  NOTE: Users can override the values specified in desktop file,
           and we should process these special cases. */
+    guchar use_terminal : 1;
     guchar customize_image : 1;
     guchar customize_action : 1;
     guchar customize_tooltip : 1;
@@ -111,21 +112,23 @@ static gboolean
 on_button_event(GtkWidget *widget, GdkEventButton *event, btn_t *b )
 {
     GtkWidget *image;
-
     if( event->button == 1 )    /* left button */
     {
         image = gtk_bin_get_child(GTK_BIN(widget));
         g_assert(b != NULL);
-        if (event->type == GDK_BUTTON_RELEASE) {
+        if (event->type == GDK_BUTTON_RELEASE)
+        {
             if ((event->x >=0 && event->x < widget->allocation.width)
-                  && (event->y >=0 && event->y < widget->allocation.height)) {
-
-                g_spawn_command_line_async(b->action, NULL);
+                  && (event->y >=0 && event->y < widget->allocation.height))
+            {
+                lxpanel_launch_app(b->action, NULL, b->use_terminal);
             }
             gtk_misc_set_padding (GTK_MISC(image), 0, 0);
 
             //system(b->action);
-        } else if (event->type == GDK_BUTTON_PRESS) {
+        }
+        else if (event->type == GDK_BUTTON_PRESS)
+        {
 
             gtk_misc_set_padding (GTK_MISC(image), 0, 3);
             //ERR("here\n");
@@ -244,23 +247,28 @@ read_button(Plugin *p, char** fp)
                 ERR( "launchbar: illegal token %s\n", s.str);
                 RET(0);
             }
-            if (s.type == LINE_VAR) {
+            if (s.type == LINE_VAR)
+            {
                 if( !g_ascii_strcasecmp(s.t[0], "id") )
                     btn->desktop_id = g_strdup(s.t[1]);
-                else if (!g_ascii_strcasecmp(s.t[0], "image")) {
+                else if (!g_ascii_strcasecmp(s.t[0], "image"))
+                {
                     btn->customize_image = 1;
                     btn->image = g_strdup(s.t[1]);
                     fname = expand_tilda(s.t[1]);
                 }
-                else if (!g_ascii_strcasecmp(s.t[0], "tooltip")) {
+                else if (!g_ascii_strcasecmp(s.t[0], "tooltip"))
+                {
                     btn->customize_tooltip = 1;
                     btn->tooltip = g_strdup(s.t[1]);
                 }
-                else if (!g_ascii_strcasecmp(s.t[0], "action")) {
+                else if (!g_ascii_strcasecmp(s.t[0], "action"))
+                {
                     btn->customize_action = 1;
                     btn->action = g_strdup(s.t[1]);
                 }
-                else {
+                else
+                {
                     ERR( "launchbar: unknown var %s\n", s.t[0]);
                     goto error;
 
@@ -273,7 +281,8 @@ read_button(Plugin *p, char** fp)
         }
     }
 
-    if( btn->desktop_id ) {
+    if( btn->desktop_id )
+    {
         gchar *desktop_file = NULL;
         gchar *full_id = NULL;
         GKeyFile* desktop = g_key_file_new();
@@ -288,12 +297,16 @@ read_button(Plugin *p, char** fp)
             if( !fname && icon )
                 fname = icon;
 
-            if( ! btn->customize_action ) {
+            if( ! btn->customize_action )
+            {
                 gchar* exec;
                 exec = g_key_file_get_string( desktop, desktop_ent, "Exec", NULL);
                 btn->action = translate_exec_to_cmd( exec, icon, title, desktop_file );
                 g_free( exec );
             }
+
+            btn->use_terminal = g_key_file_get_boolean(desktop, desktop_ent, "Terminal", NULL);
+
             if( ! btn->customize_tooltip )
                 btn->tooltip = title;
             if( fname != icon )
