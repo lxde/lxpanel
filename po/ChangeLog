@@ -1,3 +1,10 @@
+2009-01-26 Og Maciel <ogmaciel@gnome.org>
+
+	* POTFILES.in: Updated. Fixes SF.net #2376809.
+	* LINGUAS: Added with all available languages. Fixes SF.net #2376809.
+	* lxpanel.pot: Added.
+	* .po: Updated against the new lxpanel.pot.
+
 2009-01-26  Ming-Ting Wei  <medicalwei@gmail.com>
 
 	* ar.po: Added Arabic translation

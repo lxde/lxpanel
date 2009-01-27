@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-26 22:13+0800\n"
+"POT-Creation-Date: 2009-01-26 20:28-0500\n"
 "PO-Revision-Date: 2008-08-11 11:23+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@t-online.de>\n"
 "Language-Team: Deutsch <LL@li.org>\n"
@@ -18,185 +18,205 @@ msgstr ""
 "X-Poedit-Language: German\n"
 "X-Poedit-Country: GERMANY\n"
 
-#: ../data/ui/panel-pref.ui.h:2
-#, no-c-format
-msgid "% Percent"
-msgstr ""
-
-#: ../data/ui/panel-pref.ui.h:3
+#: ../data/ui/panel-pref.glade.h:1
 msgid "<b>Background</b>"
 msgstr "<b>Hintergrund</b>"
 
-#: ../data/ui/panel-pref.ui.h:4
+#: ../data/ui/panel-pref.glade.h:2
 msgid "<b>Font</b>"
 msgstr "<b>Schrift</b>"
 
-#: ../data/ui/panel-pref.ui.h:5
+#: ../data/ui/panel-pref.glade.h:3
 msgid "<b>Position</b>"
 msgstr "<b>Position</b>"
 
-#: ../data/ui/panel-pref.ui.h:6
+#: ../data/ui/panel-pref.glade.h:4
 msgid "<b>Properties</b>"
 msgstr "<b>Eigenschaften</b>"
 
-#: ../data/ui/panel-pref.ui.h:7
+#: ../data/ui/panel-pref.glade.h:5
 msgid "<b>Set Preferred Applications</b>"
 msgstr "<b>Bevorzugte Anwendungen wählen</b>"
 
-#: ../data/ui/panel-pref.ui.h:8
+#: ../data/ui/panel-pref.glade.h:6
 msgid "<b>Size</b>"
 msgstr "<b>Größe</b>"
 
-#: ../data/ui/panel-pref.ui.h:9
+#: ../data/ui/panel-pref.glade.h:7
 msgid "Advanced"
 msgstr "Erweitert"
 
-#: ../data/ui/panel-pref.ui.h:10
+#: ../data/ui/panel-pref.glade.h:8
 msgid "Alignment:"
 msgstr "Lage:"
 
-#: ../data/ui/panel-pref.ui.h:11 ../src/panel.c:628
-msgid "Bottom"
-msgstr "Unten"
-
-#: ../data/ui/panel-pref.ui.h:12
-#, fuzzy
-msgid "Center"
-msgstr "Allgemein"
-
-#: ../data/ui/panel-pref.ui.h:13
+#: ../data/ui/panel-pref.glade.h:9
 msgid "Custom Color"
 msgstr "Benutzerdefinierte Farbe"
 
-#: ../data/ui/panel-pref.ui.h:14
-msgid "Dynamic"
+#: ../data/ui/panel-pref.glade.h:11
+#, no-c-format
+msgid ""
+"Dynamic\n"
+"Pixels\n"
+"% Percent"
 msgstr ""
+"Dynamische\n"
+"Pixel\n"
+"% Prozent"
 
-#: ../data/ui/panel-pref.ui.h:15
+#: ../data/ui/panel-pref.glade.h:14
 msgid "Edge:"
 msgstr "Rand:"
 
-#: ../data/ui/panel-pref.ui.h:16
+#: ../data/ui/panel-pref.glade.h:15
 msgid "Enable Image:"
 msgstr "Bild:"
 
-#: ../data/ui/panel-pref.ui.h:17
+#: ../data/ui/panel-pref.glade.h:16
 msgid "Enable Transparency"
 msgstr "Transparenz aktivieren"
 
-#: ../data/ui/panel-pref.ui.h:18
+#: ../data/ui/panel-pref.glade.h:17
 msgid "File Manager:"
 msgstr "Dateimanager:"
 
-#: ../data/ui/panel-pref.ui.h:19
+#: ../data/ui/panel-pref.glade.h:18
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr "Allgemein"
 
-#: ../data/ui/panel-pref.ui.h:20
+#: ../data/ui/panel-pref.glade.h:19
 msgid "Height:"
 msgstr "Höhe:"
 
-#: ../data/ui/panel-pref.ui.h:21 ../src/panel.c:628
-msgid "Left"
-msgstr "Links"
+#: ../data/ui/panel-pref.glade.h:20
+msgid ""
+"Left\n"
+"Center\n"
+"Right"
+msgstr ""
+"Links\n"
+"Mitte\n"
+"Rechts"
 
-#: ../data/ui/panel-pref.ui.h:22
+#: ../data/ui/panel-pref.glade.h:23
+msgid ""
+"Left\n"
+"Right\n"
+"Top\n"
+"Bottom"
+msgstr ""
+"Links\n"
+"Rechts\n"
+"Oben\n"
+"Unten"
+
+#: ../data/ui/panel-pref.glade.h:27
 msgid "Logout Command:"
 msgstr "Befehl zum Abmelden:"
 
-#: ../data/ui/panel-pref.ui.h:23
+#: ../data/ui/panel-pref.glade.h:28
 msgid "Make window managers treat the panel as dock"
 msgstr "Fenstermanager soll das Panel als Dock identifizieren"
 
-#: ../data/ui/panel-pref.ui.h:24
+#: ../data/ui/panel-pref.glade.h:29
 msgid "Margin:"
 msgstr "Ränder:"
 
-#: ../data/ui/panel-pref.ui.h:25
+#: ../data/ui/panel-pref.glade.h:30
 msgid "None (Use system theme)"
 msgstr "Kein (Systemthema verwenden)"
 
-#: ../data/ui/panel-pref.ui.h:26
+#: ../data/ui/panel-pref.glade.h:31
 msgid "Panel Applets"
 msgstr "Panel-Erweiterungen"
 
-#: ../data/ui/panel-pref.ui.h:27
+#: ../data/ui/panel-pref.glade.h:32
 msgid "Panel Preferences"
 msgstr "Panel-Einstellungen"
 
-#: ../data/ui/panel-pref.ui.h:28
+#: ../data/ui/panel-pref.glade.h:33
 msgid "Pixels"
 msgstr "Pixel"
 
-#: ../data/ui/panel-pref.ui.h:29
+#: ../data/ui/panel-pref.glade.h:34
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Platz, der nicht von maximierten Fenstern überdeckt wird"
 
-#: ../data/ui/panel-pref.ui.h:30 ../src/panel.c:628
-msgid "Right"
-msgstr "Rechts"
-
-#: ../data/ui/panel-pref.ui.h:31
+#: ../data/ui/panel-pref.glade.h:35
 msgid "Select an image file"
 msgstr "Bilddatei auswählen"
 
-#: ../data/ui/panel-pref.ui.h:32
+#: ../data/ui/panel-pref.glade.h:36
 msgid "Terminal Emulator:"
 msgstr "Terminal-Emulator:"
 
-#: ../data/ui/panel-pref.ui.h:33
+#: ../data/ui/panel-pref.glade.h:37
 msgid "Tint color:"
 msgstr "Farbe:"
 
-#: ../data/ui/panel-pref.ui.h:34 ../src/panel.c:628
-msgid "Top"
-msgstr "Oben"
-
-#: ../data/ui/panel-pref.ui.h:35
+#: ../data/ui/panel-pref.glade.h:38
 msgid "Width:"
 msgstr "Breite:"
 
-#: ../src/configurator.c:53 ../src/gtk-run.c:250
+#: ../src/configurator.c:54 ../src/gtk-run.c:250
 msgid "Run"
 msgstr "Ausführen"
 
-#: ../src/configurator.c:55
+#: ../src/configurator.c:56
 msgid "Restart"
 msgstr "Neu starten"
 
-#: ../src/configurator.c:56
+#: ../src/configurator.c:57
 msgid "Logout"
 msgstr "Abmelden"
 
-#: ../src/configurator.c:402
+#: ../src/configurator.c:403
 msgid "Currently loaded plugins"
 msgstr "Gegenwärtig geladene Erweiterungen"
 
-#: ../src/configurator.c:411
+#: ../src/configurator.c:412
 msgid "Stretch"
 msgstr "Ausdehnen"
 
-#: ../src/configurator.c:509 ../src/panel.c:520
+#: ../src/configurator.c:510 ../src/panel.c:520
 msgid "Add plugin to panel"
 msgstr "Erweiterung zum Panel hinzufügen"
 
-#: ../src/configurator.c:536 ../src/panel.c:543
+#: ../src/configurator.c:537 ../src/panel.c:543
 msgid "Available plugins"
 msgstr "Verfügbare Erweiterungen"
 
-#: ../src/configurator.c:1050
+#: ../src/configurator.c:1051
 msgid "Logout command is not set"
 msgstr "Abmeldebefehl ist nicht definiert"
 
-#: ../src/configurator.c:1099 ../src/configurator.c:1179
+#: ../src/configurator.c:1100 ../src/configurator.c:1180
 #, fuzzy
 msgid "Select a file"
 msgstr "Bilddatei auswählen"
 
-#: ../src/configurator.c:1197
+#: ../src/configurator.c:1198
 msgid "_Browse"
 msgstr ""
+
+#: ../src/panel.c:628
+msgid "Left"
+msgstr "Links"
+
+#: ../src/panel.c:628
+msgid "Right"
+msgstr "Rechts"
+
+#: ../src/panel.c:628
+msgid "Top"
+msgstr "Oben"
+
+#: ../src/panel.c:628
+msgid "Bottom"
+msgstr "Unten"
 
 #: ../src/panel.c:630 ../src/panel.c:756
 msgid "Create New Panel"
@@ -332,19 +352,24 @@ msgstr "Prozessorlast-Monitor"
 msgid "Display CPU usage"
 msgstr "Prozessorlast anzeigen"
 
-#: ../src/plugins/deskno/deskno.c:99
+#: ../src/plugins/deskno/deskno.c:99 ../src/plugins/deskno/deskno2.c:129
 msgid "Desktop No / Workspace Name"
 msgstr "Arbeitsflächennummer und -name"
 
-#: ../src/plugins/deskno/deskno.c:101
+#: ../src/plugins/deskno/deskno.c:101 ../src/plugins/deskno/deskno2.c:131
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Arbeitsflächennummer anzeigen"
 
-#: ../src/plugins/launchbar.c:145
+#: ../src/plugins/image.c:177
+#, fuzzy
+msgid "Dispaly Image and Tooltip"
+msgstr "Digitale Uhr und Tooltip anzeigen"
+
+#: ../src/plugins/launchbar.c:146
 msgid "Add Button"
 msgstr "Knopf hinzufügen"
 
-#: ../src/plugins/launchbar.c:147
+#: ../src/plugins/launchbar.c:148
 msgid "Button Properties"
 msgstr "Knopfeigenschaften"
 
@@ -352,7 +377,7 @@ msgstr "Knopfeigenschaften"
 #. title = g_strdup_printf( _("Remove \"%s\""), b-> );
 #. item = gtk_image_menu_item_new_with_label( _("Remove ") );
 #.
-#: ../src/plugins/launchbar.c:153
+#: ../src/plugins/launchbar.c:154
 msgid "Remove Button"
 msgstr "Knopf entfernen"
 
@@ -360,19 +385,19 @@ msgstr "Knopf entfernen"
 #. 1. We can borrow the menu from menu plugin (PtkAppMenu).
 #. 2. We can borrow the app chooser from PCManFM.
 #.
-#: ../src/plugins/launchbar.c:515
+#: ../src/plugins/launchbar.c:516
 msgid "Select Application"
 msgstr "Anwendung auswählen"
 
-#: ../src/plugins/launchbar.c:669
+#: ../src/plugins/launchbar.c:670
 msgid "Buttons"
 msgstr "Knöpfe"
 
-#: ../src/plugins/launchbar.c:786
+#: ../src/plugins/launchbar.c:787
 msgid "Application Launch Bar"
 msgstr "Anwendungsstartleiste"
 
-#: ../src/plugins/launchbar.c:788
+#: ../src/plugins/launchbar.c:789
 msgid "Bar with buttons to launch application"
 msgstr "Leiste mit Knöpfen zum Starten von Anwendungen"
 
@@ -516,6 +541,368 @@ msgstr "Menü"
 msgid "Provide Menu"
 msgstr "Menü anzeigen"
 
+#: ../src/plugins/netstatus/glade-support.c:91
+#: ../src/plugins/netstatus/glade-support.c:115
+#, c-format
+msgid "Couldn't find pixmap file: %s"
+msgstr ""
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
+#, no-c-format
+msgid "0%"
+msgstr "0%"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:194
+msgid "<b>Activity</b>"
+msgstr "<b>Aktivität</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:131
+msgid "<b>Connection</b>"
+msgstr "<b>Verbindung</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:289
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr "<b>Internetprotokoll (IPv4)</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:376
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<B>Internetprotokoll (IPv6)</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:432
+msgid "<b>Network Device</b>"
+msgstr "<b>Netzwerkgerät</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:250
+msgid "<b>Signal Strength</b>"
+msgstr "<b>Signalstärke</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:309
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:396
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:452
+msgid "Address:"
+msgstr "Adresse:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
+#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
+msgid "Broadcast:"
+msgstr "Broadcast:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:513
+msgid "Con_figure"
+msgstr "Ein_stellungen"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:316
+msgid "Destination:"
+msgstr "Ziel:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:232
+msgid "Received:"
+msgstr "Empfangen:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:403
+msgid "Scope:"
+msgstr "Scope:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:239
+msgid "Sent:"
+msgstr "Gesendet:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:155
+msgid "Status:"
+msgstr "Status:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
+msgid "Subnet Mask:"
+msgstr "Subnetzmaske:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:484
+msgid "Support"
+msgstr "Support"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:477
+msgid "Type:"
+msgstr "Typ:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:171
+msgid "_Name:"
+msgstr "_Name:"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:148
+#, fuzzy
+msgid "Name"
+msgstr "_Name:"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:149
+msgid "The interface name"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:156
+#, fuzzy
+msgid "State"
+msgstr "Status:"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:157
+msgid "The interface state"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:165
+#, fuzzy
+msgid "Stats"
+msgstr "Status:"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:166
+msgid "The interface packets/bytes statistics"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:173
+#: ../src/plugins/netstat/netstat.c:315
+msgid "Wireless"
+msgstr "Drahtlos"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:174
+msgid "Whether the interface is a wireless interface"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:181
+#, fuzzy
+msgid "Signal"
+msgstr "Signal anzeigen"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:182
+msgid "Wireless signal strength percentage"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:191
+#: ../src/plugins/netstatus/netstatus-util.c:167
+msgid "Error"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:192
+#, fuzzy
+msgid "The current error condition"
+msgstr "Die aktuelle Schnittstelle zeigt das Symbol an."
+
+#: ../src/plugins/netstatus/netstatus-iface.c:434
+#: ../src/plugins/netstatus/netstatus-iface.c:1197
+#, c-format
+msgid "Unable to open socket: %s"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:496
+#: ../src/plugins/netstatus/netstatus-iface.c:1223
+#, c-format
+msgid "SIOCGIFFLAGS error: %s"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:870
+msgid "AMPR NET/ROM"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:873
+#, fuzzy
+msgid "Ethernet"
+msgstr "Andere"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:879
+msgid "AMPR AX.25"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:888
+#: ../src/plugins/netstatus/netstatus-iface.c:1008
+msgid "16/4 Mbps Token Ring"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:891
+msgid "ARCnet"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:897
+msgid "Frame Relay DLCI"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:903
+msgid "Metricom Starmode IP"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:906
+msgid "Serial Line IP"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:909
+msgid "VJ Serial Line IP"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:912
+msgid "6-bit Serial Line IP"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:915
+msgid "VJ 6-bit Serial Line IP"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:921
+msgid "Adaptive Serial Line IP"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:924
+msgid "AMPR ROSE"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:927
+msgid "Generic X.25"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:930
+msgid "Point-to-Point Protocol"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:936
+msgid "(Cisco)-HDLC"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:939
+msgid "LAPB"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:948
+msgid "IPIP Tunnel"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:954
+msgid "Frame Relay Access Device"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:960
+msgid "Local Loopback"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:966
+msgid "Fiber Distributed Data Interface"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:972
+msgid "IPv6-in-IPv4"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:984
+msgid "HIPPI"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:987
+msgid "Ash"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:990
+#, fuzzy
+msgid "Econet"
+msgstr "Symbol"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:993
+msgid "IrLAP"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:1155
+#, c-format
+msgid "SIOCGIFCONF error: %s"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:1248
+#, fuzzy, c-format
+msgid "No network devices found"
+msgstr "Kein Akku gefunden"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:180
+#, c-format
+msgid "Cannot open /proc/net/dev: %s"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:189
+msgid "Could not parse /proc/net/dev. Unknown format."
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:204
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:330
+#, c-format
+msgid "Could not parse interface name from '%s'"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:217
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:645
+#, c-format
+msgid ""
+"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:314
+msgid "Could not parse /proc/net/wireless. Unknown format."
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:341
+#, c-format
+msgid "Could not parse wireless details from '%s'. link_idx = %d;"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:414
+#, c-format
+msgid "Could not connect to interface, '%s'"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:420
+#, c-format
+msgid "Could not send ioctl to interface, '%s'"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:598
+#, c-format
+msgid "Could not parse command line '%s': %s"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:635
+msgid "Could not parse 'netstat' output. Unknown format"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-util.c:152
+msgid "Disconnected"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-util.c:155
+msgid "Idle"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-util.c:158
+#, fuzzy
+msgid "Sending"
+msgstr "Einstellungen"
+
+#: ../src/plugins/netstatus/netstatus-util.c:161
+#, fuzzy
+msgid "Receiving"
+msgstr "Empfangen"
+
+#: ../src/plugins/netstatus/netstatus-util.c:164
+msgid "Sending/Receiving"
+msgstr ""
+
 #: ../src/plugins/separator.c:103
 msgid "Separator"
 msgstr "Trenner"
@@ -543,6 +930,57 @@ msgstr "<Zwischenraum>"
 #: ../src/plugins/space.c:155
 msgid "Allocate space"
 msgstr "Zwischenraum zuweisen"
+
+#: ../src/plugins/xkb/xkb-plugin.c:241
+#, fuzzy
+msgid "Keyboard Layout Switcher"
+msgstr "Tastatur-LEDs"
+
+#: ../src/plugins/xkb/xkb-plugin.c:247
+msgid ""
+"Allows you to switch the keyboard layout and\n"
+"displays the currently selected layout."
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:252
+msgid "Other plugins available here"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:385
+msgid "Configure Keyboard Layout Switcher"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:398
+msgid "Show layout as"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:413
+msgid "image"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:414
+msgid "text"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:418
+msgid "Per application settings"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:432
+msgid "_Remember layout for each application"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:441
+msgid "Default layout:"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:499
+msgid "Kayboard Layout switcher"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:501
+msgid "Switch between available keyboard layouts"
+msgstr ""
 
 #: ../src/plugins/wincmd.c:245
 msgid "Left click to iconify all windows. Middle click to shade them"
@@ -706,18 +1144,9 @@ msgstr "Bytes"
 msgid "packets"
 msgstr "Pakete"
 
-#: ../src/plugins/netstat/netstat.c:315
-msgid "Wireless"
-msgstr "Drahtlos"
-
 #: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
 msgstr "Protokoll:"
-
-#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
-msgid "Broadcast:"
-msgstr "Broadcast:"
 
 #: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
@@ -799,80 +1228,6 @@ msgstr ""
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
 msgstr "Werkzeug zur Zeiteinstellung konnte nicht gestartet werden: %s"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:131
-msgid "<b>Connection</b>"
-msgstr "<b>Verbindung</b>"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:155
-msgid "Status:"
-msgstr "Status:"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:171
-msgid "_Name:"
-msgstr "_Name:"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:194
-msgid "<b>Activity</b>"
-msgstr "<b>Aktivität</b>"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:232
-msgid "Received:"
-msgstr "Empfangen:"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:239
-msgid "Sent:"
-msgstr "Gesendet:"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:250
-msgid "<b>Signal Strength</b>"
-msgstr "<b>Signalstärke</b>"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
-msgid "0%"
-msgstr "0%"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:289
-msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr "<b>Internetprotokoll (IPv4)</b>"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:309
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:396
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:452
-msgid "Address:"
-msgstr "Adresse:"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:316
-msgid "Destination:"
-msgstr "Ziel:"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
-msgid "Subnet Mask:"
-msgstr "Subnetzmaske:"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:376
-msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr "<B>Internetprotokoll (IPv6)</b>"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:403
-msgid "Scope:"
-msgstr "Scope:"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:432
-msgid "<b>Network Device</b>"
-msgstr "<b>Netzwerkgerät</b>"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:477
-msgid "Type:"
-msgstr "Typ:"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:484
-msgid "Support"
-msgstr "Support"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:513
-msgid "Con_figure"
-msgstr "Ein_stellungen"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:379
 #, c-format
@@ -1025,40 +1380,12 @@ msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Indikatoren für CapsLock, NumLock und ScrollLock-Tasten"
 
 #, fuzzy
+#~ msgid "Center"
+#~ msgstr "Allgemein"
+
+#, fuzzy
 #~ msgid "Add to desktop panel"
 #~ msgstr "Erweiterung zum Panel hinzufügen"
-
-#~ msgid ""
-#~ "Dynamic\n"
-#~ "Pixels\n"
-#~ "% Percent"
-#~ msgstr ""
-#~ "Dynamische\n"
-#~ "Pixel\n"
-#~ "% Prozent"
-
-#~ msgid ""
-#~ "Left\n"
-#~ "Center\n"
-#~ "Right"
-#~ msgstr ""
-#~ "Links\n"
-#~ "Mitte\n"
-#~ "Rechts"
-
-#~ msgid ""
-#~ "Left\n"
-#~ "Right\n"
-#~ "Top\n"
-#~ "Bottom"
-#~ msgstr ""
-#~ "Links\n"
-#~ "Rechts\n"
-#~ "Oben\n"
-#~ "Unten"
-
-#~ msgid "Other"
-#~ msgstr "Andere"
 
 #~ msgid "Game"
 #~ msgstr "Spiele"
@@ -1074,9 +1401,6 @@ msgstr "Indikatoren für CapsLock, NumLock und ScrollLock-Tasten"
 
 #~ msgid "Graphics"
 #~ msgstr "Grafik"
-
-#~ msgid "Settings"
-#~ msgstr "Einstellungen"
 
 #~ msgid "System Tools"
 #~ msgstr "Systemwerkzeuge"

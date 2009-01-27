@@ -1,6 +1,5 @@
 [encoding: UTF-8]
-[type: gettext/glade]data/ui/panel-pref.ui
-
+data/ui/panel-pref.glade
 src/bg.c
 src/configurator.c
 src/dbg.c
@@ -12,16 +11,24 @@ src/gtk-run.c
 
 src/systray/tray.c
 
-# Putting translation of plugins in main catelog is not a good idea...
+# Putting translation of plugins in main catalog is not a good idea...
 src/plugins/cpu/cpu.c
 src/plugins/deskno/deskno.c
+src/plugins/deskno/deskno2.c
+src/plugins/image.c
 src/plugins/launchbar.c
 src/plugins/taskbar.c
 src/plugins/dclock.c
 src/plugins/menu.c
+src/plugins/netstatus/glade-support.c
+src/plugins/netstatus/gnome-netstatus.glade
+src/plugins/netstatus/netstatus-iface.c
+src/plugins/netstatus/netstatus-sysdeps.c
+src/plugins/netstatus/netstatus-util.c
 src/plugins/separator.c
 src/plugins/pager.c
 src/plugins/space.c
+src/plugins/xkb/xkb-plugin.c
 src/plugins/wincmd.c
 src/plugins/dirmenu.c
 src/plugins/thermal/thermal.c
