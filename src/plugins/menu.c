@@ -479,6 +479,9 @@ static void unload_old_icons(GtkMenu* menu, GtkIconTheme* theme)
             {
                 img = gtk_image_menu_item_get_image(item);
                 gtk_image_clear(img);
+                if( GTK_WIDGET_MAPPED(img) )
+                    on_menu_item_map(item,
+                        (MenuCacheItem*)g_object_get_qdata(item, SYS_MENU_ITEM_ID) );
             }
         }
         else if( ( sub_menu = gtk_menu_item_get_submenu( item ) ) )
