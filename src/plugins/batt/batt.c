@@ -528,6 +528,7 @@ static void check_batteries( batt* b )
 
 /* This callback is called every 3 seconds */
 static int update_timout(batt *b) {
+    GList* l;
     GDK_THREADS_ENTER();
     ++b->state_elapsed_time;
     ++b->info_elapsed_time;
@@ -543,14 +544,16 @@ static int update_timout(batt *b) {
     if( b->state_elapsed_time == 30/3 )  /* 30 sec */
     {
         /* update state of batteries */
-        g_list_foreach( b->batteries, (GFunc)get_batt_state, &b->use_sysfs );
+        for( l = b->batteries; l; l = l->next )
+            get_batt_info( (batt_info*)l->data, b->use_sysfs );
         b->state_elapsed_time = 0;
     }
     /* check the capacity of batteries every 1 hour */
     if( b->info_elapsed_time == 3600/3 )  /* 1 hour */
     {
         /* update info of batteries */
-        g_list_foreach( b->batteries, (GFunc)get_batt_info, &b->use_sysfs );
+        for( l = b->batteries; l; l = l->next )
+            get_batt_info( (batt_info*)l->data, b->use_sysfs );
         b->info_elapsed_time = 0;
     }
 
