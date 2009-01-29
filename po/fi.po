@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-26 20:28-0500\n"
-"PO-Revision-Date: 2008-12-04 15:32+0200\n"
+"POT-Creation-Date: 2009-01-29 19:57+0200\n"
+"PO-Revision-Date: 2009-01-29 20:16+0200\n"
 "Last-Translator: Elias Julkunen <elias.julkunen@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -69,11 +69,11 @@ msgstr "Reuna:"
 
 #: ../data/ui/panel-pref.glade.h:15
 msgid "Enable Image:"
-msgstr "Salli kuva:"
+msgstr "Käytä kuvaa:"
 
 #: ../data/ui/panel-pref.glade.h:16
 msgid "Enable Transparency"
-msgstr "Salli läpinäkyvyys"
+msgstr "Käytä läpinäkyvyyttä"
 
 #: ../data/ui/panel-pref.glade.h:17
 msgid "File Manager:"
@@ -159,7 +159,8 @@ msgstr "Läpinäkyvyyden väri:"
 msgid "Width:"
 msgstr "Leveys:"
 
-#: ../src/configurator.c:54 ../src/gtk-run.c:250
+#: ../src/configurator.c:54
+#: ../src/gtk-run.c:250
 msgid "Run"
 msgstr "Suorita"
 
@@ -179,11 +180,13 @@ msgstr "Käytössä olevat liitännäiset"
 msgid "Stretch"
 msgstr "Venytä"
 
-#: ../src/configurator.c:510 ../src/panel.c:520
+#: ../src/configurator.c:510
+#: ../src/panel.c:520
 msgid "Add plugin to panel"
 msgstr "Lisää liitännäinen paneeliin"
 
-#: ../src/configurator.c:537 ../src/panel.c:543
+#: ../src/configurator.c:537
+#: ../src/panel.c:543
 msgid "Available plugins"
 msgstr "Käytettävissä olevat liitännäiset"
 
@@ -191,7 +194,8 @@ msgstr "Käytettävissä olevat liitännäiset"
 msgid "Logout command is not set"
 msgstr "Uloskirjautumisen komentoa ei ole asetettu"
 
-#: ../src/configurator.c:1100 ../src/configurator.c:1180
+#: ../src/configurator.c:1100
+#: ../src/configurator.c:1180
 msgid "Select a file"
 msgstr "Valitse tiedosto"
 
@@ -215,7 +219,8 @@ msgstr "Ylhäällä"
 msgid "Bottom"
 msgstr "Alhaalla"
 
-#: ../src/panel.c:630 ../src/panel.c:756
+#: ../src/panel.c:630
+#: ../src/panel.c:756
 msgid "Create New Panel"
 msgstr "Luo uusi paneeli"
 
@@ -284,9 +289,7 @@ msgstr "--version   -- näyttää versionumeron ja poistuu\n"
 #: ../src/panel.c:1252
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <numero> -- asettaa lokin tasoksi 0-5. 0 = ei mitään, 5 = "
-"lavertelija\n"
+msgstr " --log <numero> -- asettaa lokin tasoksi 0-5. 0 = ei mitään, 5 = lavertelija\n"
 
 #: ../src/panel.c:1253
 #, c-format
@@ -349,18 +352,19 @@ msgstr "CPU:n käytön valvoja"
 msgid "Display CPU usage"
 msgstr "Näyttää CPU:n käyttöasteen"
 
-#: ../src/plugins/deskno/deskno.c:99 ../src/plugins/deskno/deskno2.c:129
+#: ../src/plugins/deskno/deskno.c:99
+#: ../src/plugins/deskno/deskno2.c:129
 msgid "Desktop No / Workspace Name"
 msgstr "Työpöydän numero/työtilan nimi"
 
-#: ../src/plugins/deskno/deskno.c:101 ../src/plugins/deskno/deskno2.c:131
+#: ../src/plugins/deskno/deskno.c:101
+#: ../src/plugins/deskno/deskno2.c:131
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Näyttää työtilan numeron, tehnyt cmeury@users.sf.net"
 
 #: ../src/plugins/image.c:177
-#, fuzzy
 msgid "Dispaly Image and Tooltip"
-msgstr "Näyttää digitaalikellon ja työkaluvihjeen"
+msgstr "Näytä kuva ja työkaluvihje"
 
 #: ../src/plugins/launchbar.c:146
 msgid "Add Button"
@@ -481,12 +485,8 @@ msgid "Task Bar (Window List)"
 msgstr "Tehtäväpalkki (ikkunalista)"
 
 #: ../src/plugins/taskbar.c:1771
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
-msgstr ""
-"Tehtäväpalkki näyttää kaikki avoinna olevat ikkunat ja sallii niiden "
-"pienentämisen, piilottamisen ja aktivoimisen."
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr "Tehtäväpalkki näyttää kaikki avoinna olevat ikkunat ja sallii niiden pienentämisen, piilottamisen ja aktivoimisen."
 
 #: ../src/plugins/dclock.c:279
 msgid "Clock Format"
@@ -525,15 +525,15 @@ msgstr "Lisää työpöydälle"
 msgid "Properties"
 msgstr "Asetukset"
 
-#: ../src/plugins/menu.c:1028
+#: ../src/plugins/menu.c:1031
 msgid "Icon"
 msgstr "Kuvake"
 
-#: ../src/plugins/menu.c:1039
+#: ../src/plugins/menu.c:1042
 msgid "Menu"
 msgstr "Valikko"
 
-#: ../src/plugins/menu.c:1041
+#: ../src/plugins/menu.c:1044
 msgid "Provide Menu"
 msgstr "Toimittaa valikon"
 
@@ -541,7 +541,7 @@ msgstr "Toimittaa valikon"
 #: ../src/plugins/netstatus/glade-support.c:115
 #, c-format
 msgid "Couldn't find pixmap file: %s"
-msgstr ""
+msgstr "Ei löydetty "
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
@@ -587,7 +587,8 @@ msgid "Address:"
 msgstr "Osoite:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstat/netstat.c:319
+#: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
 msgid "Broadcast:"
 msgstr "Lähetys:"
@@ -643,31 +644,28 @@ msgid "_Name:"
 msgstr "_Nimi:"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:148
-#, fuzzy
 msgid "Name"
-msgstr "_Nimi:"
+msgstr "Nimi"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:149
 msgid "The interface name"
-msgstr ""
+msgstr "Verkkolaitteen nimi"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:156
-#, fuzzy
 msgid "State"
-msgstr "Tila:"
+msgstr "Tila"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:157
 msgid "The interface state"
-msgstr ""
+msgstr "Verkkolaitteen tila"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:165
-#, fuzzy
 msgid "Stats"
-msgstr "Tila:"
+msgstr "Tilastot"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:166
 msgid "The interface packets/bytes statistics"
-msgstr ""
+msgstr "Verkkolaitteen paketti- ja tavutilastot"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:173
 #: ../src/plugins/netstat/netstat.c:315
@@ -676,12 +674,11 @@ msgstr "Langaton"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:174
 msgid "Whether the interface is a wireless interface"
-msgstr ""
+msgstr "Onko verkkolaite langaton verkkolaite"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:181
-#, fuzzy
 msgid "Signal"
-msgstr "Näytä signaali"
+msgstr "Signaali"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:182
 msgid "Wireless signal strength percentage"
@@ -690,7 +687,7 @@ msgstr ""
 #: ../src/plugins/netstatus/netstatus-iface.c:191
 #: ../src/plugins/netstatus/netstatus-util.c:167
 msgid "Error"
-msgstr ""
+msgstr "Virhe"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:192
 msgid "The current error condition"
@@ -700,26 +697,25 @@ msgstr ""
 #: ../src/plugins/netstatus/netstatus-iface.c:1197
 #, c-format
 msgid "Unable to open socket: %s"
-msgstr ""
+msgstr "Ei voida avata pistoketta: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:496
 #: ../src/plugins/netstatus/netstatus-iface.c:1223
 #, c-format
 msgid "SIOCGIFFLAGS error: %s"
-msgstr ""
+msgstr "SIOCGIFFLAGS-virhe: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:870
 msgid "AMPR NET/ROM"
-msgstr ""
+msgstr "AMPR NET/ROM"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:873
-#, fuzzy
 msgid "Ethernet"
-msgstr "Muut"
+msgstr "Ethernet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:879
 msgid "AMPR AX.25"
-msgstr ""
+msgstr "AMPR AX.25"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:888
 #: ../src/plugins/netstatus/netstatus-iface.c:1008
@@ -728,7 +724,7 @@ msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:891
 msgid "ARCnet"
-msgstr ""
+msgstr "ARCnet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:897
 msgid "Frame Relay DLCI"
@@ -760,27 +756,27 @@ msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:924
 msgid "AMPR ROSE"
-msgstr ""
+msgstr "AMPR ROSE"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:927
 msgid "Generic X.25"
-msgstr ""
+msgstr "Yleinen X.25"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:930
 msgid "Point-to-Point Protocol"
-msgstr ""
+msgstr "Point-to-Point-yhteyskäytäntö"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:936
 msgid "(Cisco)-HDLC"
-msgstr ""
+msgstr "(Cisco)-HDLC"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:939
 msgid "LAPB"
-msgstr ""
+msgstr "LAPB"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:948
 msgid "IPIP Tunnel"
-msgstr ""
+msgstr "IPIP-tunneli"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:954
 msgid "Frame Relay Access Device"
@@ -788,7 +784,7 @@ msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:960
 msgid "Local Loopback"
-msgstr ""
+msgstr "Paikallinen silmukka"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:966
 msgid "Fiber Distributed Data Interface"
@@ -800,35 +796,34 @@ msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:984
 msgid "HIPPI"
-msgstr ""
+msgstr "HIPPI"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:987
 msgid "Ash"
 msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:990
-#, fuzzy
 msgid "Econet"
-msgstr "Kuvake"
+msgstr "Econet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:993
 msgid "IrLAP"
-msgstr ""
+msgstr "IrLAP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:1155
 #, c-format
 msgid "SIOCGIFCONF error: %s"
-msgstr ""
+msgstr "SIOCGIFCONF-virhe: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:1248
-#, fuzzy, c-format
+#, c-format
 msgid "No network devices found"
-msgstr "Akkua ei löytynyt"
+msgstr "Verkkolaitteita ei löytynyt"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:180
 #, c-format
 msgid "Cannot open /proc/net/dev: %s"
-msgstr ""
+msgstr "Ei voida avata polkua /proc/net/dev: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:189
 msgid "Could not parse /proc/net/dev. Unknown format."
@@ -843,9 +838,7 @@ msgstr ""
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid ""
-"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
+msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
@@ -878,25 +871,23 @@ msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
-msgstr ""
+msgstr "Ei yhteyttä"
 
 #: ../src/plugins/netstatus/netstatus-util.c:155
 msgid "Idle"
-msgstr ""
+msgstr "Jouten"
 
 #: ../src/plugins/netstatus/netstatus-util.c:158
-#, fuzzy
 msgid "Sending"
-msgstr "Asetukset"
+msgstr "Lähetetään"
 
 #: ../src/plugins/netstatus/netstatus-util.c:161
-#, fuzzy
 msgid "Receiving"
-msgstr "Vastaanotettu"
+msgstr "Vastaanotetaan"
 
 #: ../src/plugins/netstatus/netstatus-util.c:164
 msgid "Sending/Receiving"
-msgstr ""
+msgstr "Lähetetään/Vastaanotetaan"
 
 #: ../src/plugins/separator.c:103
 msgid "Separator"
@@ -914,7 +905,8 @@ msgstr "Työtilan vaihtaja"
 msgid "Simple pager plugin"
 msgstr "Yksinkertainen työtilan vaihtaja"
 
-#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:889
+#: ../src/plugins/space.c:138
+#: ../src/plugins/batt/batt.c:892
 msgid "Size"
 msgstr "Koko"
 
@@ -927,15 +919,16 @@ msgid "Allocate space"
 msgstr "Varaa tyhjää tilaa"
 
 #: ../src/plugins/xkb/xkb-plugin.c:241
-#, fuzzy
 msgid "Keyboard Layout Switcher"
-msgstr "Näppäimistön valot"
+msgstr "Näppäimistöasettelun vaihtaja"
 
 #: ../src/plugins/xkb/xkb-plugin.c:247
 msgid ""
 "Allows you to switch the keyboard layout and\n"
 "displays the currently selected layout."
 msgstr ""
+"Sallii näppäimistöasettelun vaihtamisen ja\n"
+"näyttää käytössä olevan asettelun."
 
 #: ../src/plugins/xkb/xkb-plugin.c:252
 msgid "Other plugins available here"
@@ -943,45 +936,43 @@ msgstr ""
 
 #: ../src/plugins/xkb/xkb-plugin.c:385
 msgid "Configure Keyboard Layout Switcher"
-msgstr ""
+msgstr "Muokkaa näppäimistöasettelunvaihtajan asetuksia"
 
 #: ../src/plugins/xkb/xkb-plugin.c:398
 msgid "Show layout as"
-msgstr ""
+msgstr "Näytä asettelu"
 
 #: ../src/plugins/xkb/xkb-plugin.c:413
 msgid "image"
-msgstr ""
+msgstr "kuvana"
 
 #: ../src/plugins/xkb/xkb-plugin.c:414
 msgid "text"
-msgstr ""
+msgstr "tekstinä"
 
 #: ../src/plugins/xkb/xkb-plugin.c:418
 msgid "Per application settings"
-msgstr ""
+msgstr "Sovelluskohtaiset asetukset"
 
 #: ../src/plugins/xkb/xkb-plugin.c:432
 msgid "_Remember layout for each application"
-msgstr ""
+msgstr "_Muista asettelu jokaiselle sovellukselle"
 
 #: ../src/plugins/xkb/xkb-plugin.c:441
 msgid "Default layout:"
-msgstr ""
+msgstr "Oletusasettelu:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:499
 msgid "Kayboard Layout switcher"
-msgstr ""
+msgstr "Näppäimistöasettelun vaihtaja"
 
 #: ../src/plugins/xkb/xkb-plugin.c:501
 msgid "Switch between available keyboard layouts"
-msgstr ""
+msgstr "Vaihda käytettävissä olevien näppäimistöasettelujen välillä"
 
 #: ../src/plugins/wincmd.c:245
 msgid "Left click to iconify all windows. Middle click to shade them"
-msgstr ""
-"Napsauta hiiren vasemmalla napilla pienentääksesi ikkunat, keskinapilla "
-"piilottaaksesi ne"
+msgstr "Napsauta hiiren vasemmalla napilla pienentääksesi ikkunat, keskinapilla piilottaaksesi ne"
 
 #: ../src/plugins/wincmd.c:274
 msgid "Minimize All Windows"
@@ -1098,7 +1089,8 @@ msgstr "Verkkojohto on irrotettu."
 msgid "Connection has limited or no connectivity"
 msgstr "Yhteyttä on rajoitettu tai yhteyttä ei ole"
 
-#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307
+#: ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "IP-osoite:"
@@ -1107,32 +1099,38 @@ msgstr "IP-osoite:"
 msgid "Remote IP:"
 msgstr "Etä-IP:"
 
-#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309
+#: ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "Verkon peite:"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "Aktiivisuus"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "Lähetetty"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "Vastaanotettu"
 
-#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311
+#: ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "tavua"
 
-#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312
+#: ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "pakettia"
@@ -1141,7 +1139,8 @@ msgstr "pakettia"
 msgid "Protocol:"
 msgstr "Yhteyskäytäntö"
 
-#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321
+#: ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "HW-osoite"
 
@@ -1307,47 +1306,47 @@ msgstr "Akku: %d%% ladattu"
 msgid "No batteries found"
 msgstr "Akkua ei löytynyt"
 
-#: ../src/plugins/batt/batt.c:879
+#: ../src/plugins/batt/batt.c:882
 msgid "Hide if there is no battery"
 msgstr "Piilota, jos akkua ei ole"
 
-#: ../src/plugins/batt/batt.c:881
+#: ../src/plugins/batt/batt.c:884
 msgid "Alarm command"
 msgstr "Hälytyskomento"
 
-#: ../src/plugins/batt/batt.c:882
+#: ../src/plugins/batt/batt.c:885
 msgid "Alarm time (minutes left)"
 msgstr "Hälytysaika (minuuttia jäljellä)"
 
-#: ../src/plugins/batt/batt.c:883
+#: ../src/plugins/batt/batt.c:886
 msgid "Background color"
 msgstr "Taustaväri"
 
-#: ../src/plugins/batt/batt.c:884
+#: ../src/plugins/batt/batt.c:887
 msgid "Charging color 1"
 msgstr "Latausväri 1"
 
-#: ../src/plugins/batt/batt.c:885
+#: ../src/plugins/batt/batt.c:888
 msgid "Charging color 2"
 msgstr "Latausväri 2"
 
-#: ../src/plugins/batt/batt.c:886
+#: ../src/plugins/batt/batt.c:889
 msgid "Discharging color 1"
 msgstr "Purkautumisen väri 1"
 
-#: ../src/plugins/batt/batt.c:887
+#: ../src/plugins/batt/batt.c:890
 msgid "Discharging color 2"
 msgstr "Purkautumisen väri 2"
 
-#: ../src/plugins/batt/batt.c:888
+#: ../src/plugins/batt/batt.c:891
 msgid "Border width"
 msgstr "Reunuksen leveys"
 
-#: ../src/plugins/batt/batt.c:919
+#: ../src/plugins/batt/batt.c:922
 msgid "Battery Monitor"
 msgstr "Akun valvoja"
 
-#: ../src/plugins/batt/batt.c:921
+#: ../src/plugins/batt/batt.c:924
 msgid "Display battery status using ACPI"
 msgstr "Näyttää akun tila käyttäen ACPI:a."
 
@@ -1374,27 +1373,20 @@ msgstr "CapsLock-, NumLock- ja ScrollLock-näppäinten ilmaisin"
 #, fuzzy
 #~ msgid "Center"
 #~ msgstr "Yleinen"
-
 #~ msgid "Add to desktop panel"
 #~ msgstr "Lisää työpöytäpaneeliin"
-
 #~ msgid "Game"
 #~ msgstr "Pelit"
-
 #~ msgid "Development"
 #~ msgstr "Kehitys"
-
 #~ msgid "Audio & Video"
 #~ msgstr "Ääni & video"
-
 #~ msgid "Graphics"
 #~ msgstr "Grafiikka"
-
 #~ msgid "System Tools"
 #~ msgstr "Järjestelmätyökalut"
-
 #~ msgid "Office"
 #~ msgstr "Toimisto"
-
 #~ msgid "Accessories"
 #~ msgstr "Apuohjelmat"
+

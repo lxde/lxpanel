@@ -174,7 +174,7 @@ PluginClass image_plugin_class = {
     type : "image",
     name : "image",
     version: "1.0",
-    description : N_("Dispaly Image and Tooltip"),
+    description : N_("Display Image and Tooltip"),
 
     constructor : image_constructor,
     destructor  : image_destructor,
