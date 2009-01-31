@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-29 19:57+0200\n"
-"PO-Revision-Date: 2009-01-29 20:16+0200\n"
+"POT-Creation-Date: 2009-01-31 12:19+0200\n"
+"PO-Revision-Date: 2009-01-31 12:19+0200\n"
 "Last-Translator: Elias Julkunen <elias.julkunen@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -363,7 +363,7 @@ msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Näyttää työtilan numeron, tehnyt cmeury@users.sf.net"
 
 #: ../src/plugins/image.c:177
-msgid "Dispaly Image and Tooltip"
+msgid "Display Image and Tooltip"
 msgstr "Näytä kuva ja työkaluvihje"
 
 #: ../src/plugins/launchbar.c:146
