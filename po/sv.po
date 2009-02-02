@@ -1,0 +1,1376 @@
+# Translation of lxpanel to Swedish
+# Copyright (C) 2009 Martin Bagge <brother@bsnet.se>
+# This file is distributed under the same license as the lxpanel package.
+#
+# Martin Bagge <brother@bsnet.se>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: lxpanel\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-05 02:16+0100\n"
+"PO-Revision-Date: 2009-01-05 19:08+0100\n"
+"Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
+"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Language: Swedish\n"
+
+#: ../data/ui/panel-pref.glade.h:1
+msgid "<b>Background</b>"
+msgstr "<b>Bakgrund</b>"
+
+#: ../data/ui/panel-pref.glade.h:2
+msgid "<b>Font</b>"
+msgstr "<b>Teckensnitt</b>"
+
+#: ../data/ui/panel-pref.glade.h:3
+msgid "<b>Position</b>"
+msgstr "<b>Position>/b>"
+
+#: ../data/ui/panel-pref.glade.h:4
+msgid "<b>Properties</b>"
+msgstr "<b>Egenskaper</b>"
+
+# what?
+#: ../data/ui/panel-pref.glade.h:5
+msgid "<b>Set Preferred Applications</b>"
+msgstr "<b>Ange huvudsakliga program</b>"
+
+#: ../data/ui/panel-pref.glade.h:6
+msgid "<b>Size</b>"
+msgstr "<b>Storlek</b>"
+
+#: ../data/ui/panel-pref.glade.h:7
+msgid "Advanced"
+msgstr "Avancerat"
+
+#: ../data/ui/panel-pref.glade.h:8
+msgid "Alignment:"
+msgstr "Justering:"
+
+#: ../data/ui/panel-pref.glade.h:9
+msgid "Custom Color"
+msgstr "Alternativ färg"
+
+#: ../data/ui/panel-pref.glade.h:11
+#, no-c-format
+msgid ""
+"Dynamic\n"
+"Pixels\n"
+"% Percent"
+msgstr ""
+"Dynamisk\n"
+"Pixlar\n"
+"% procent"
+
+#: ../data/ui/panel-pref.glade.h:14
+msgid "Edge:"
+msgstr "Kant:"
+
+#: ../data/ui/panel-pref.glade.h:15
+msgid "Enable Image:"
+msgstr "Aktivera bild:"
+
+#: ../data/ui/panel-pref.glade.h:16
+msgid "Enable Transparency"
+msgstr "Aktivera genomskinlighet"
+
+#: ../data/ui/panel-pref.glade.h:17
+msgid "File Manager:"
+msgstr "Filhanterare:"
+
+#: ../data/ui/panel-pref.glade.h:18
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
+msgid "General"
+msgstr "Allmänt"
+
+#: ../data/ui/panel-pref.glade.h:19
+msgid "Height:"
+msgstr "Höjd"
+
+#: ../data/ui/panel-pref.glade.h:20
+msgid ""
+"Left\n"
+"Center\n"
+"Right"
+msgstr ""
+"Vänster\n"
+"Centrerad\n"
+"Höger"
+
+#: ../data/ui/panel-pref.glade.h:23
+msgid ""
+"Left\n"
+"Right\n"
+"Top\n"
+"Bottom"
+msgstr ""
+"Vänster\n"
+"Höger\n"
+"Upptill\n"
+"Nertill"
+
+#: ../data/ui/panel-pref.glade.h:27
+msgid "Logout Command:"
+msgstr "Utlogningskommando:"
+
+#: ../data/ui/panel-pref.glade.h:28
+msgid "Make window managers treat the panel as dock"
+msgstr "Låt fönsterhanteraren hantera panelen som en dockningslist"
+
+#: ../data/ui/panel-pref.glade.h:29
+msgid "Margin:"
+msgstr "Marginal:"
+
+#: ../data/ui/panel-pref.glade.h:30
+msgid "None (Use system theme)"
+msgstr "Inget (använd systemtema)"
+
+#: ../data/ui/panel-pref.glade.h:31
+msgid "Panel Applets"
+msgstr "Panelapplet"
+
+#: ../data/ui/panel-pref.glade.h:32
+msgid "Panel Preferences"
+msgstr "Panelinställningar"
+
+#: ../data/ui/panel-pref.glade.h:33
+msgid "Pixels"
+msgstr "Pixlar"
+
+#: ../data/ui/panel-pref.glade.h:34
+msgid "Reserve space, and not covered by maximized windows"
+msgstr "Reservutrymme, täcks inte av maximerade fönster"
+
+#: ../data/ui/panel-pref.glade.h:35
+msgid "Select an image file"
+msgstr "Välj en bildfil"
+
+#: ../data/ui/panel-pref.glade.h:36
+msgid "Terminal Emulator:"
+msgstr "Terminalemultor:"
+
+#: ../data/ui/panel-pref.glade.h:37
+msgid "Tint color:"
+msgstr "Färg för toning:"
+
+#: ../data/ui/panel-pref.glade.h:38
+msgid "Width:"
+msgstr "Bredd:"
+
+#: ../src/plugins/deskno/deskno2.c:129
+#: ../src/plugins/deskno/deskno.c:99
+msgid "Desktop No / Workspace Name"
+msgstr "Skrivbordsnummer / Arbetsytans namn"
+
+#: ../src/plugins/deskno/deskno2.c:131
+#: ../src/plugins/deskno/deskno.c:101
+msgid "Display workspace number, by cmeury@users.sf.net"
+msgstr "Visa arbetsytans nummer av cmeury@users.sf.net"
+
+#: ../src/plugins/image.c:177
+msgid "Dispaly Image and Tooltip"
+msgstr "Visa bild och verktygstips"
+
+#: ../src/plugins/netstatus/glade-support.c:91
+#: ../src/plugins/netstatus/glade-support.c:115
+#, c-format
+msgid "Couldn't find pixmap file: %s"
+msgstr "Kunde inte hitta pixmap-fil: %s"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
+#, no-c-format
+msgid "0%"
+msgstr "0%"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:194
+msgid "<b>Activity</b>"
+msgstr "<b>Aktivitet</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:131
+msgid "<b>Connection</b>"
+msgstr "<b>Anslutning</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:289
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr "<b>Internet Protocol (IPv4)</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:376
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>Internet Protocol (IPv6)</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:432
+msgid "<b>Network Device</b>"
+msgstr "<b>Nätverksenhet</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:250
+msgid "<b>Signal Strength</b>"
+msgstr "<b>Signalstyrka</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:309
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:396
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:452
+msgid "Address:"
+msgstr "Adress:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
+#: ../src/plugins/netstat/netstat.c:319
+#: ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
+msgid "Broadcast:"
+msgstr "Broadcast:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:513
+msgid "Con_figure"
+msgstr "An_passa"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:316
+msgid "Destination:"
+msgstr "Mottagare:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:232
+msgid "Received:"
+msgstr "Mottaget:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:403
+msgid "Scope:"
+msgstr "Omfång:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:239
+msgid "Sent:"
+msgstr "Skickat:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:155
+msgid "Status:"
+msgstr "Status:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
+msgid "Subnet Mask:"
+msgstr "Nätmask:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:484
+msgid "Support"
+msgstr "Support"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:477
+msgid "Type:"
+msgstr "Typ:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:171
+msgid "_Name:"
+msgstr "_Namn:"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:148
+msgid "Name"
+msgstr "Namn"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:149
+msgid "The interface name"
+msgstr "Gränssnittets namn"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:156
+msgid "State"
+msgstr "Status"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:157
+msgid "The interface state"
+msgstr "Gränssnittets status"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:165
+msgid "Stats"
+msgstr "Statistik"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:166
+msgid "The interface packets/bytes statistics"
+msgstr "Gränssnittets paket/byte-statistik"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:173
+#: ../src/plugins/netstat/netstat.c:315
+msgid "Wireless"
+msgstr "Trådlöst"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:174
+msgid "Whether the interface is a wireless interface"
+msgstr "Indikerar att gränssnittet är trådlöst"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:181
+msgid "Signal"
+msgstr "Signal"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:182
+msgid "Wireless signal strength percentage"
+msgstr "Signalstyrka för trådlöst i procent"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:191
+#: ../src/plugins/netstatus/netstatus-util.c:167
+msgid "Error"
+msgstr "Fel"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:192
+msgid "The current error condition"
+msgstr "Aktuell feltyp"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:434
+#: ../src/plugins/netstatus/netstatus-iface.c:1197
+#, c-format
+msgid "Unable to open socket: %s"
+msgstr "Kan inte öppna socket: %s"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:496
+#: ../src/plugins/netstatus/netstatus-iface.c:1223
+#, c-format
+msgid "SIOCGIFFLAGS error: %s"
+msgstr "SIOCGIFFLAGS-fel: %s"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:870
+msgid "AMPR NET/ROM"
+msgstr "AMPR NET/ROM"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:873
+msgid "Ethernet"
+msgstr "Ethernet"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:879
+msgid "AMPR AX.25"
+msgstr "AMPR AX.25"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:888
+#: ../src/plugins/netstatus/netstatus-iface.c:1008
+msgid "16/4 Mbps Token Ring"
+msgstr "16/4 Mbps Token Ring"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:891
+msgid "ARCnet"
+msgstr "ARCnet"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:897
+msgid "Frame Relay DLCI"
+msgstr "Frame Relay DLCI"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:903
+msgid "Metricom Starmode IP"
+msgstr "Metricom Starmode IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:906
+msgid "Serial Line IP"
+msgstr "Serial Line IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:909
+msgid "VJ Serial Line IP"
+msgstr "VJ Serial Line IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:912
+msgid "6-bit Serial Line IP"
+msgstr "6-bit Serial Line IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:915
+msgid "VJ 6-bit Serial Line IP"
+msgstr "VJ 6-bit Serial Line IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:921
+msgid "Adaptive Serial Line IP"
+msgstr "Adaptive Serial Line IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:924
+msgid "AMPR ROSE"
+msgstr "AMPR ROSE"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:927
+msgid "Generic X.25"
+msgstr "Allmän X.25"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:930
+msgid "Point-to-Point Protocol"
+msgstr "Punkt-till-punkt-protokoll"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:936
+msgid "(Cisco)-HDLC"
+msgstr "(Cisco)-HDLC"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:939
+msgid "LAPB"
+msgstr "LAPB"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:948
+msgid "IPIP Tunnel"
+msgstr "IPIP-tunnel"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:954
+msgid "Frame Relay Access Device"
+msgstr "Frame Relay Access Device"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:960
+msgid "Local Loopback"
+msgstr "Lokal loopback"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:966
+msgid "Fiber Distributed Data Interface"
+msgstr "Fiber Distributed Data Interface"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:972
+msgid "IPv6-in-IPv4"
+msgstr "IPv6-ii-IPv4"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:984
+msgid "HIPPI"
+msgstr "HIPPI"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:987
+msgid "Ash"
+msgstr "Ash"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:990
+msgid "Econet"
+msgstr "Econet"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:993
+msgid "IrLAP"
+msgstr "IrLAP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:1155
+#, c-format
+msgid "SIOCGIFCONF error: %s"
+msgstr "SIOCGIFCONF-fel: %s"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:1248
+#, c-format
+msgid "No network devices found"
+msgstr "Hittade inga nätverksenheter"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:180
+#, c-format
+msgid "Cannot open /proc/net/dev: %s"
+msgstr "Kan inte öppna /proc/net/dev: %s"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:189
+msgid "Could not parse /proc/net/dev. Unknown format."
+msgstr "Kunde inte läsa /proc/net/dev. Okänt format."
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:204
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:330
+#, c-format
+msgid "Could not parse interface name from '%s'"
+msgstr "Kunde inte läsa gränssnittets namn från \"%s\""
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:217
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:645
+#, c-format
+msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgstr "Kunde inte läsa gränssnittsstatistiken från \"%s\". prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:314
+msgid "Could not parse /proc/net/wireless. Unknown format."
+msgstr "Kunde inte läsa /proc/net/wireless. Okänt format."
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:341
+#, c-format
+msgid "Could not parse wireless details from '%s'. link_idx = %d;"
+msgstr "Kunde inte läsa trådlösinformation från \"%s\". link_idx = %d;"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:414
+#, c-format
+msgid "Could not connect to interface, '%s'"
+msgstr "Kunde inte ansluta till gränssnitt, \"%s\""
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:420
+#, c-format
+msgid "Could not send ioctl to interface, '%s'"
+msgstr "Kunde inte skicka ioctl till gränssnitt, \"%s\""
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:598
+#, c-format
+msgid "Could not parse command line '%s': %s"
+msgstr "Kunde inte läsa kommandorad \"%s\": %s"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:635
+msgid "Could not parse 'netstat' output. Unknown format"
+msgstr "Kunde inte läsa \"netstat\"-utdata. Okänt format"
+
+#: ../src/plugins/netstatus/netstatus-util.c:152
+msgid "Disconnected"
+msgstr "Nedkopplad"
+
+#: ../src/plugins/netstatus/netstatus-util.c:155
+msgid "Idle"
+msgstr "Vilar"
+
+#: ../src/plugins/netstatus/netstatus-util.c:158
+msgid "Sending"
+msgstr "Skickar"
+
+#: ../src/plugins/netstatus/netstatus-util.c:161
+msgid "Receiving"
+msgstr "Tar emot"
+
+#: ../src/plugins/netstatus/netstatus-util.c:164
+msgid "Sending/Receiving"
+msgstr "Skickar/Tar emot"
+
+#: ../src/plugins/xkb/xkb-plugin.c:241
+msgid "Keyboard Layout Switcher"
+msgstr "Hanterare för tangentbordsuppsättning"
+
+#: ../src/plugins/xkb/xkb-plugin.c:247
+msgid ""
+"Allows you to switch the keyboard layout and\n"
+"displays the currently selected layout."
+msgstr ""
+"Möjliggör byte av tangentbordsuppsättning och\n"
+"visar aktuell tangentbordsuppsätting."
+
+#: ../src/plugins/xkb/xkb-plugin.c:252
+msgid "Other plugins available here"
+msgstr "Andra instick tillgängliga här"
+
+#: ../src/plugins/xkb/xkb-plugin.c:385
+msgid "Configure Keyboard Layout Switcher"
+msgstr "Anpassa hanterare för tangentbordsuppsättning"
+
+#: ../src/plugins/xkb/xkb-plugin.c:398
+msgid "Show layout as"
+msgstr "Visa uppsättning som"
+
+#: ../src/plugins/xkb/xkb-plugin.c:413
+msgid "image"
+msgstr "bild"
+
+#: ../src/plugins/xkb/xkb-plugin.c:414
+msgid "text"
+msgstr "text"
+
+#: ../src/plugins/xkb/xkb-plugin.c:418
+msgid "Per application settings"
+msgstr "Per programinställningar"
+
+#: ../src/plugins/xkb/xkb-plugin.c:432
+msgid "_Remember layout for each application"
+msgstr "_Kom ihåg tangentbordsuppsättning för varje program"
+
+#: ../src/plugins/xkb/xkb-plugin.c:441
+msgid "Default layout:"
+msgstr "Standarduppsättning:"
+
+#: ../src/plugins/xkb/xkb-plugin.c:499
+msgid "Kayboard Layout switcher"
+msgstr "Hanterare för tangentbordsuppsättningar"
+
+#: ../src/plugins/xkb/xkb-plugin.c:501
+msgid "Switch between available keyboard layouts"
+msgstr "Byta mellan tillgängliga tangentbordsuppsättningar"
+
+#: ../src/configurator.c:53
+#: ../src/gtk-run.c:250
+msgid "Run"
+msgstr "Kör"
+
+#: ../src/configurator.c:55
+msgid "Restart"
+msgstr "Starta om"
+
+#: ../src/configurator.c:56
+msgid "Logout"
+msgstr "Logga ut"
+
+#: ../src/configurator.c:402
+msgid "Currently loaded plugins"
+msgstr "Laddade instick"
+
+#: ../src/configurator.c:411
+msgid "Stretch"
+msgstr "Sträck ut"
+
+#: ../src/configurator.c:509
+#: ../src/panel.c:520
+msgid "Add plugin to panel"
+msgstr "Lägg till instick till panel"
+
+#: ../src/configurator.c:536
+#: ../src/panel.c:543
+msgid "Available plugins"
+msgstr "Tillgängliga instick"
+
+#: ../src/configurator.c:1050
+msgid "Logout command is not set"
+msgstr "Utloggningskommando skickades inte"
+
+#: ../src/configurator.c:1099
+#: ../src/configurator.c:1179
+msgid "Select a file"
+msgstr "Välj fil"
+
+#: ../src/configurator.c:1197
+msgid "_Browse"
+msgstr "_Bläddra"
+
+#: ../src/panel.c:628
+msgid "Left"
+msgstr "Vänster"
+
+#: ../src/panel.c:628
+msgid "Right"
+msgstr "Höger"
+
+#: ../src/panel.c:628
+msgid "Top"
+msgstr "Upptill"
+
+#: ../src/panel.c:628
+msgid "Bottom"
+msgstr "Nedtilld"
+
+#: ../src/panel.c:630
+#: ../src/panel.c:756
+msgid "Create New Panel"
+msgstr "Skapa ny panel"
+
+#: ../src/panel.c:636
+msgid "Where to put the panel?"
+msgstr "Var ska panelen placeras?"
+
+#: ../src/panel.c:694
+msgid ""
+"Really delete this panel?\n"
+"<b>Warning: This can not be recovered.</b>"
+msgstr ""
+"Ska panelen verkligen raderas?\n"
+"<b>Varning: Detta kan inte ångras.</b"
+
+#: ../src/panel.c:695
+msgid "Confirm"
+msgstr "Acceptera"
+
+#: ../src/panel.c:730
+msgid "Add / Remove Panel Items"
+msgstr "Lägg till/Ta bort panelelement"
+
+#: ../src/panel.c:738
+#, c-format
+msgid "Remove \"%s\" From Panel"
+msgstr "Ta bort \"%s\" från panel"
+
+#: ../src/panel.c:750
+msgid "Panel Settings"
+msgstr "Panelinställningar"
+
+#: ../src/panel.c:767
+msgid "Delete This Panel"
+msgstr "Ta bort panel"
+
+#: ../src/panel.c:777
+msgid "Panel"
+msgstr "Panel"
+
+#: ../src/panel.c:790
+#, c-format
+msgid "\"%s\" Settings"
+msgstr "Inställningar för \"%s\""
+
+#: ../src/panel.c:1248
+#, c-format
+msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
+msgstr "lxpanel %s - enkel GTK2+-panel för UNIX-skrivbord\n"
+
+#: ../src/panel.c:1249
+#, c-format
+msgid "Command line options:\n"
+msgstr "Kommandoradsalternativ:\n"
+
+#: ../src/panel.c:1250
+#, c-format
+msgid " --help      -- print this help and exit\n"
+msgstr " --help      -- visar denna hjälptext och avslutar\n"
+
+#: ../src/panel.c:1251
+#, c-format
+msgid " --version   -- print version and exit\n"
+msgstr " --version   -- visar versionsinformation och avslutar\n"
+
+#: ../src/panel.c:1252
+#, c-format
+msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
+msgstr " --log <nummer> -- ange loggningsnivå 0-5. 0 - ingen 5 - pratig\n"
+
+#: ../src/panel.c:1253
+#, c-format
+msgid " --configure -- launch configuration utility\n"
+msgstr " --configure -- starta inställningsprogrammet\n"
+
+#: ../src/panel.c:1254
+#, c-format
+msgid " --profile name -- use specified profile\n"
+msgstr " --profile namn -- använd specificerad profil\n"
+
+#: ../src/panel.c:1256
+#, c-format
+msgid " -h  -- same as --help\n"
+msgstr " -h  -- samma som --help\n"
+
+#: ../src/panel.c:1257
+#, c-format
+msgid " -p  -- same as --profile\n"
+msgstr " -p  -- samma som --profile\n"
+
+#: ../src/panel.c:1258
+#, c-format
+msgid " -v  -- same as --version\n"
+msgstr " -v  -- samma som --version\n"
+
+#: ../src/panel.c:1259
+#, c-format
+msgid " -C  -- same as --configure\n"
+msgstr " -C  -- samma som --configure\n"
+
+#: ../src/panel.c:1260
+#, c-format
+msgid ""
+"\n"
+"Visit http://lxde.org/ for detail.\n"
+"\n"
+msgstr ""
+"\n"
+"Besök http://lxde.org för närmare information.\n"
+"\n"
+
+#: ../src/gtk-run.c:264
+msgid "Enter the command you want to execute:"
+msgstr "Ange kommandot du vill köra:"
+
+#: ../src/systray/tray.c:210
+msgid "System Tray"
+msgstr "Systemdocka"
+
+#: ../src/systray/tray.c:212
+msgid "Old KDE/GNOME Tray"
+msgstr "Äldre KDE/GNOME docka"
+
+#: ../src/plugins/cpu/cpu.c:226
+msgid "CPU Usage Monitor"
+msgstr "Övervakning av CPU-användning"
+
+#: ../src/plugins/cpu/cpu.c:228
+msgid "Display CPU usage"
+msgstr "Visa CPU-användning"
+
+#: ../src/plugins/launchbar.c:143
+msgid "Add Button"
+msgstr "Lägg till knapp"
+
+#: ../src/plugins/launchbar.c:145
+msgid "Button Properties"
+msgstr "Knappalternativ"
+
+#.
+#. title = g_strdup_printf( _("Remove \"%s\""), b-> );
+#. item = gtk_image_menu_item_new_with_label( _("Remove ") );
+#.
+#: ../src/plugins/launchbar.c:151
+msgid "Remove Button"
+msgstr "Ta bort knapp"
+
+#. FIXME: We should have a better interface for this in the fututure.
+#. 1. We can borrow the menu from menu plugin (PtkAppMenu).
+#. 2. We can borrow the app chooser from PCManFM.
+#.
+#: ../src/plugins/launchbar.c:503
+msgid "Select Application"
+msgstr "Välj program"
+
+#: ../src/plugins/launchbar.c:657
+msgid "Buttons"
+msgstr "Knappar"
+
+#: ../src/plugins/launchbar.c:774
+msgid "Application Launch Bar"
+msgstr "Programstartspanel"
+
+#: ../src/plugins/launchbar.c:776
+msgid "Bar with buttons to launch application"
+msgstr "Panel med knappar för att starta program"
+
+#: ../src/plugins/taskbar.c:1219
+msgid "Raise"
+msgstr "Återställ"
+
+#: ../src/plugins/taskbar.c:1223
+msgid "Restore"
+msgstr "Återställ"
+
+#: ../src/plugins/taskbar.c:1227
+msgid "Maximize"
+msgstr "Maximera"
+
+#: ../src/plugins/taskbar.c:1231
+msgid "Iconify"
+msgstr "Minimera"
+
+#: ../src/plugins/taskbar.c:1240
+#, c-format
+msgid "Workspace %d"
+msgstr "Arbetsyta %d"
+
+#: ../src/plugins/taskbar.c:1248
+msgid "All workspaces"
+msgstr "Alla arbetsytor"
+
+#: ../src/plugins/taskbar.c:1255
+msgid "Move to Workspace"
+msgstr "Flytta till arbetsyta"
+
+#. we want this item to be farest from mouse pointer
+#: ../src/plugins/taskbar.c:1263
+msgid "Close Window"
+msgstr "Stäng fönster"
+
+#: ../src/plugins/taskbar.c:1511
+msgid "Show tooltips"
+msgstr "Visa verktygstips"
+
+#: ../src/plugins/taskbar.c:1512
+msgid "Icons only"
+msgstr "Endast ikoner"
+
+#: ../src/plugins/taskbar.c:1513
+msgid "Flat Buttons"
+msgstr "Platta knappar"
+
+# ?
+#: ../src/plugins/taskbar.c:1514
+msgid "Accept SkipPager"
+msgstr "Acceptera SkipPager"
+
+#: ../src/plugins/taskbar.c:1515
+msgid "Show Iconified windows"
+msgstr "Visa minimerade fönster"
+
+# mapped?
+#: ../src/plugins/taskbar.c:1516
+msgid "Show mapped windows"
+msgstr ""
+
+#: ../src/plugins/taskbar.c:1517
+msgid "Show windows from all desktops"
+msgstr "Visa fönster från alla skrivbord"
+
+#: ../src/plugins/taskbar.c:1518
+msgid "Use mouse wheel"
+msgstr "Använd mushjul"
+
+#: ../src/plugins/taskbar.c:1519
+msgid "Flash when there is any window requiring attention"
+msgstr "Blinka när fönster kräver uppmärksamhet"
+
+#: ../src/plugins/taskbar.c:1520
+msgid "Max width of task button"
+msgstr "Maximal bredd för aktivitetsknapp"
+
+#: ../src/plugins/taskbar.c:1521
+msgid "Spacing"
+msgstr "Mellanrum"
+
+#: ../src/plugins/taskbar.c:1599
+msgid "Task Bar (Window List)"
+msgstr "Aktivitetspanel (fönsterlista)"
+
+#: ../src/plugins/taskbar.c:1601
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr "Aktivitetspanelen visar alla öppnade fönster och möjliggör minimering, upprullning eller att sätta fokus på dem"
+
+#: ../src/plugins/dclock.c:279
+msgid "Clock Format"
+msgstr "Klockforma"
+
+#: ../src/plugins/dclock.c:280
+msgid "Tooltip Format"
+msgstr "Format på vrktygstips"
+
+#: ../src/plugins/dclock.c:281
+msgid "Action"
+msgstr "Händelse"
+
+#: ../src/plugins/dclock.c:282
+msgid "Bold font"
+msgstr "Fetstil"
+
+#: ../src/plugins/dclock.c:317
+msgid "Digital Clock"
+msgstr "Digitalklocka"
+
+#: ../src/plugins/dclock.c:319
+msgid "Display Digital clock and Tooltip"
+msgstr "Visa digitalklocka och verktygstips"
+
+#.
+#. item = gtk_menu_item_new_with_label(_("Add to desktop panel"));
+#. g_signal_connect(item, "activate", G_CALLBACK(on_add_menu_item_to_panel), data);
+#. gtk_menu_shell_append(p, item);
+#.
+#: ../src/plugins/menu.c:383
+msgid "Add to desktop"
+msgstr "Lägg till på skrivbord"
+
+#: ../src/plugins/menu.c:393
+msgid "Properties"
+msgstr "Inställningar"
+
+#: ../src/plugins/menu.c:1039
+msgid "Icon"
+msgstr "Ikon"
+
+#: ../src/plugins/menu.c:1050
+msgid "Menu"
+msgstr "Meny"
+
+#: ../src/plugins/menu.c:1052
+msgid "Provide Menu"
+msgstr "Tillhandahåll meny"
+
+#: ../src/plugins/separator.c:103
+msgid "Separator"
+msgstr "Separator"
+
+#: ../src/plugins/separator.c:105
+msgid "Add a separator to the panel"
+msgstr "Lägg till separator till panelen"
+
+#: ../src/plugins/pager.c:709
+msgid "Desktop Pager"
+msgstr "Hanterare för skrivbord"
+
+#: ../src/plugins/pager.c:711
+msgid "Simple pager plugin"
+msgstr "Enkel skrivbordshanterare"
+
+#: ../src/plugins/space.c:138
+#: ../src/plugins/batt/batt.c:889
+msgid "Size"
+msgstr "Storlek"
+
+#: ../src/plugins/space.c:153
+msgid "<Space>"
+msgstr "<tomrum>"
+
+#: ../src/plugins/space.c:155
+msgid "Allocate space"
+msgstr "Reservera utrymme"
+
+#: ../src/plugins/wincmd.c:245
+msgid "Left click to iconify all windows. Middle click to shade them"
+msgstr "Vänsterklick för att minimera alla fönster. Mittklick för att rulla upp."
+
+#: ../src/plugins/wincmd.c:274
+msgid "Minimize All Windows"
+msgstr "Minimera alla fönster"
+
+#: ../src/plugins/wincmd.c:276
+msgid ""
+"Sends commands to all desktop windows.\n"
+"Supported commnds are 1)toggle iconify and 2) toggle shade"
+msgstr ""
+"Skickar kommando till alla fönster på skrivbordet.\n"
+"Kommandon 1) hantera minimering/maximering 2) hantera upprullning/nedrullning"
+
+#: ../src/plugins/dirmenu.c:218
+msgid "Open in _Terminal"
+msgstr "Öppna i _terminal"
+
+#: ../src/plugins/dirmenu.c:383
+msgid "Directory Menu"
+msgstr "Katalogmeny"
+
+#: ../src/plugins/dirmenu.c:385
+msgid "Browse directory tree via menu (Author: PCMan)"
+msgstr "Bläddra i katalogstrukturen med hjälp av meny (Skapad av: PCMan)"
+
+#: ../src/plugins/thermal/thermal.c:299
+msgid "Normal"
+msgstr "Normal"
+
+#: ../src/plugins/thermal/thermal.c:300
+msgid "Warning1"
+msgstr "Varning1"
+
+#: ../src/plugins/thermal/thermal.c:301
+msgid "Warning2"
+msgstr "Varning2"
+
+#: ../src/plugins/thermal/thermal.c:302
+msgid "Automatic sensor location"
+msgstr "Automatisk sensorplats"
+
+#: ../src/plugins/thermal/thermal.c:303
+msgid "Sensor"
+msgstr "Sensor"
+
+#: ../src/plugins/thermal/thermal.c:304
+msgid "Automatic temperature levels"
+msgstr "Automatisk temperaturnivå"
+
+#: ../src/plugins/thermal/thermal.c:305
+msgid "Warning1 Temperatur"
+msgstr "Varning1 temperatur"
+
+#: ../src/plugins/thermal/thermal.c:306
+msgid "Warning2 Temperatur"
+msgstr "Varning2 temperatur"
+
+#: ../src/plugins/thermal/thermal.c:348
+msgid "Temperature Monitor"
+msgstr "Temperaturövervakning"
+
+#: ../src/plugins/thermal/thermal.c:350
+msgid "Display system temperature, by kesler.daniel@gmail.com"
+msgstr "Visa systemtemperatur av kesler.daniel@gmail.com"
+
+#. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
+#: ../src/plugins/volume/volume.c:305
+#: ../src/plugins/volumealsa/volumealsa.c:399
+msgid "Volume control"
+msgstr "Volymkontorll"
+
+#: ../src/plugins/volume/volume.c:317
+#: ../src/plugins/volumealsa/volumealsa.c:413
+msgid "Volume Control"
+msgstr "Volymkontorll"
+
+#. create frame
+#: ../src/plugins/volume/volume-impl.c:109
+#: ../src/plugins/volumealsa/volumealsa.c:309
+msgid "Volume"
+msgstr "Volym"
+
+#: ../src/plugins/volumealsa/volumealsa.c:326
+msgid "Mute"
+msgstr "Tyst"
+
+#: ../src/plugins/netstat/netstat.c:168
+msgid "<Hidden Access Point>"
+msgstr "<Gömd accesspunkt>"
+
+#: ../src/plugins/netstat/netstat.c:201
+msgid "Wireless Networks not found in range"
+msgstr "Inga trådlösa nätverk funna i närheten"
+
+#. Repair
+#: ../src/plugins/netstat/netstat.c:235
+msgid "Repair"
+msgstr "Laga"
+
+#. interface down
+#: ../src/plugins/netstat/netstat.c:240
+msgid "Disable"
+msgstr "Avaktivera"
+
+#: ../src/plugins/netstat/netstat.c:299
+msgid "Wireless Connection has no connectivity"
+msgstr "Kan inte nyttja trådlös anslutning"
+
+#: ../src/plugins/netstat/netstat.c:301
+msgid "Network cable is plugged out"
+msgstr "Ingen aktiv nätverksakabel"
+
+#: ../src/plugins/netstat/netstat.c:303
+msgid "Connection has limited or no connectivity"
+msgstr "Ingen eller begränsad anslutning"
+
+#: ../src/plugins/netstat/netstat.c:307
+#: ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:329
+msgid "IP Address:"
+msgstr "IP-adress:"
+
+#: ../src/plugins/netstat/netstat.c:308
+msgid "Remote IP:"
+msgstr "Fjärr-IP"
+
+#: ../src/plugins/netstat/netstat.c:309
+#: ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:331
+msgid "Netmask:"
+msgstr "Nätmask:"
+
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:333
+msgid "Activity"
+msgstr "Aktivitet"
+
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:333
+msgid "Sent"
+msgstr "Skickat"
+
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:333
+msgid "Received"
+msgstr "MOttagit"
+
+#: ../src/plugins/netstat/netstat.c:311
+#: ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:334
+msgid "bytes"
+msgstr "byte"
+
+#: ../src/plugins/netstat/netstat.c:312
+#: ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:335
+msgid "packets"
+msgstr "paket"
+
+#: ../src/plugins/netstat/netstat.c:317
+msgid "Protocol:"
+msgstr "Protokoll:"
+
+#: ../src/plugins/netstat/netstat.c:321
+#: ../src/plugins/netstat/netstat.c:332
+msgid "HW Address:"
+msgstr "Hårdvaruadress:"
+
+#: ../src/plugins/netstat/netstat.c:471
+msgid "Manage Networks"
+msgstr "Hantera nätverk"
+
+#: ../src/plugins/netstat/netstat.c:473
+msgid "Monitor and Manage networks"
+msgstr "Övervaka och hantera nätverk"
+
+#. create dialog
+#: ../src/plugins/netstat/passwd_gui.c:84
+msgid "Setting Encryption Key"
+msgstr "Ange krypteringsnyckel"
+
+#. messages
+#: ../src/plugins/netstat/passwd_gui.c:94
+msgid ""
+"This wireless network was encrypted.\n"
+"You must have the encryption key."
+msgstr ""
+"Det trådlösa nätverket är krypterat.\n"
+"Du måste ange krypteringsnyckel."
+
+#: ../src/plugins/netstat/passwd_gui.c:99
+msgid "Encryption Key:"
+msgstr "Krypteringsnyckel:"
+
+#: ../src/plugins/netstatus/netstatus.c:163
+msgid "Interface to monitor"
+msgstr "Gränssnitt at övervaka"
+
+#: ../src/plugins/netstatus/netstatus.c:164
+msgid "Config tool"
+msgstr "Inställningsverktyg"
+
+#: ../src/plugins/netstatus/netstatus.c:181
+msgid "Net Status Monitor"
+msgstr "Övervakning av nätverksstatus"
+
+#: ../src/plugins/netstatus/netstatus.c:183
+msgid "Monitor network status"
+msgstr "Övervaka nätverksstatus"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:52
+#: ../src/plugins/netstatus/netstatus-dialog.c:311
+msgid "Unknown"
+msgstr "Okänt"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:115
+msgid "Connection Properties"
+msgstr "Anslutningsinställningar"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:121
+#, c-format
+msgid "Connection Properties: %s"
+msgstr "Anslutningsinställningar: %s"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:134
+#, c-format
+msgid "%lu packet"
+msgid_plural "%lu packets"
+msgstr[0] "%lu paket"
+msgstr[1] "%lu paket"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:395
+#, c-format
+msgid ""
+"There was an error displaying help:\n"
+"%s"
+msgstr ""
+"Det uppstod ett fel vid visning av hjälpen:\n"
+"%s"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:579
+#, c-format
+msgid "Failed to launch time configuration tool: %s"
+msgstr "Kunde inte starta inställningsverktyget: %s"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:379
+#, c-format
+msgid "Network Connection: %s"
+msgstr "Nätverksanslutning: %s"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:384
+msgid "Network Connection"
+msgstr "Nätverksanslutning"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:811
+msgid "Interface"
+msgstr "Gränssnitt"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:812
+msgid "The current interface the icon is monitoring."
+msgstr "Ikonen övervakar detta gränssnitt."
+
+#: ../src/plugins/netstatus/netstatus-icon.c:819
+msgid "Orientation"
+msgstr "Orientering"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:820
+msgid "The orientation of the tray."
+msgstr "Orienteringen för dockan."
+
+#: ../src/plugins/netstatus/netstatus-icon.c:828
+msgid "Tooltips Enabled"
+msgstr "Verktygstips aktiverat"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:829
+msgid "Whether or not the icon's tooltips are enabled."
+msgstr "Anger om ikonens verktygstips visas."
+
+#: ../src/plugins/netstatus/netstatus-icon.c:836
+msgid "Show Signal"
+msgstr "Visa signal"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:837
+msgid "Whether or not the signal strength should be displayed."
+msgstr "Anger om signalstyrka ska visas eller ej"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:950
+#, c-format
+msgid ""
+"Please contact your system administrator to resolve the following problem:\n"
+"\n"
+"%s"
+msgstr ""
+"Kontakta din systemadministratör för att lösa följande problem:\n"
+"\n"
+"%s"
+
+#: ../src/plugins/batt/batt.c:384
+#, c-format
+msgid "Battery: %d%% charged, %d:%02d until full"
+msgstr "Batteri; %d%% laddat, %d%02d tills det är fullt."
+
+#: ../src/plugins/batt/batt.c:393
+#, c-format
+msgid "Battery: %d%% charged, %s"
+msgstr "Batteri: %d%% laddat, %s"
+
+#: ../src/plugins/batt/batt.c:395
+msgid "charging finished"
+msgstr "laddning klar"
+
+#: ../src/plugins/batt/batt.c:395
+msgid "charging"
+msgstr "ladar"
+
+#: ../src/plugins/batt/batt.c:400
+#, c-format
+msgid "Battery: %d%% charged, %d:%02d left"
+msgstr "Batteri: %d%% laddat, %d%02d kvar"
+
+#: ../src/plugins/batt/batt.c:406
+#, c-format
+msgid "Battery: %d%% charged"
+msgstr "Batteri: %d%% laddat"
+
+#: ../src/plugins/batt/batt.c:454
+#, c-format
+msgid "No batteries found"
+msgstr "Inget batteri hittat"
+
+#: ../src/plugins/batt/batt.c:879
+msgid "Hide if there is no battery"
+msgstr "Göm om det inte finns något batteri"
+
+#: ../src/plugins/batt/batt.c:881
+msgid "Alarm command"
+msgstr "Alarmkommando"
+
+#: ../src/plugins/batt/batt.c:882
+msgid "Alarm time (minutes left)"
+msgstr "Alarmtid (minuter kvar)"
+
+#: ../src/plugins/batt/batt.c:883
+msgid "Background color"
+msgstr "Bakgrundsfärg"
+
+#: ../src/plugins/batt/batt.c:884
+msgid "Charging color 1"
+msgstr "Laddningsfärg 1"
+
+#: ../src/plugins/batt/batt.c:885
+msgid "Charging color 2"
+msgstr "Laddningsfärg 2"
+
+#: ../src/plugins/batt/batt.c:886
+msgid "Discharging color 1"
+msgstr "Urladdningsfärg 1"
+
+#: ../src/plugins/batt/batt.c:887
+msgid "Discharging color 2"
+msgstr "Urladdningsfärg 2"
+
+#: ../src/plugins/batt/batt.c:888
+msgid "Border width"
+msgstr "Kantbredd"
+
+#: ../src/plugins/batt/batt.c:919
+msgid "Battery Monitor"
+msgstr "Batteriövervakning"
+
+#: ../src/plugins/batt/batt.c:921
+msgid "Display battery status using ACPI"
+msgstr "Visa batteristatus med hjälp av ACPI"
+
+#: ../src/plugins/kbled/kbled.c:277
+msgid "Show CapsLock"
+msgstr "Visa CapsLock"
+
+#: ../src/plugins/kbled/kbled.c:278
+msgid "Show NumLock"
+msgstr "VIsa NumLock"
+
+#: ../src/plugins/kbled/kbled.c:279
+msgid "Show ScrollLock"
+msgstr "Visa ScrollLock"
+
+#: ../src/plugins/kbled/kbled.c:289
+msgid "Keyboard Led"
+msgstr "Tangentbordslampor"
+
+#: ../src/plugins/kbled/kbled.c:291
+msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
+msgstr "Indikatorer för tangenterna CapsLock, NumLock och ScrollLock "
+
