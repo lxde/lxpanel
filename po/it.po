@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.3.99\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-26 20:28-0500\n"
+"POT-Creation-Date: 2009-02-09 01:49+0100\n"
 "PO-Revision-Date: 2009-01-07 00:09+0100\n"
 "Last-Translator: Fabio Barone <phonky@gmx.net>\n"
 "Language-Team: \n"
@@ -361,7 +361,7 @@ msgstr "Mostra numero di area di lavoro, da cmeury@users.sf.net"
 
 #: ../src/plugins/image.c:177
 #, fuzzy
-msgid "Dispaly Image and Tooltip"
+msgid "Display Image and Tooltip"
 msgstr "Orologio digitale e aiuto tooltip"
 
 #: ../src/plugins/launchbar.c:146
@@ -527,15 +527,15 @@ msgstr "Aggiungere alla scrivania"
 msgid "Properties"
 msgstr "<b>Proprietà</b>"
 
-#: ../src/plugins/menu.c:1028
+#: ../src/plugins/menu.c:1031
 msgid "Icon"
 msgstr "Icono"
 
-#: ../src/plugins/menu.c:1039
+#: ../src/plugins/menu.c:1042
 msgid "Menu"
 msgstr "Menu"
 
-#: ../src/plugins/menu.c:1041
+#: ../src/plugins/menu.c:1044
 msgid "Provide Menu"
 msgstr "Mostrare menu"
 
@@ -917,7 +917,7 @@ msgstr "Pager scrivania"
 msgid "Simple pager plugin"
 msgstr "Plugin pager semplice"
 
-#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:889
+#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:892
 msgid "Size"
 msgstr "Dimensione"
 
@@ -1310,47 +1310,47 @@ msgstr "Batteria: %d%% caricata"
 msgid "No batteries found"
 msgstr "Nessuna batteria localizzata"
 
-#: ../src/plugins/batt/batt.c:879
+#: ../src/plugins/batt/batt.c:882
 msgid "Hide if there is no battery"
 msgstr "Nascondi se non ci sono batterie"
 
-#: ../src/plugins/batt/batt.c:881
+#: ../src/plugins/batt/batt.c:884
 msgid "Alarm command"
 msgstr "Comando di allarme"
 
-#: ../src/plugins/batt/batt.c:882
+#: ../src/plugins/batt/batt.c:885
 msgid "Alarm time (minutes left)"
 msgstr "Tempo fino all'allarme (...minuti restanti)"
 
-#: ../src/plugins/batt/batt.c:883
+#: ../src/plugins/batt/batt.c:886
 msgid "Background color"
 msgstr "Colore sfondo"
 
-#: ../src/plugins/batt/batt.c:884
+#: ../src/plugins/batt/batt.c:887
 msgid "Charging color 1"
 msgstr "Caricando - colore 1"
 
-#: ../src/plugins/batt/batt.c:885
+#: ../src/plugins/batt/batt.c:888
 msgid "Charging color 2"
 msgstr "Caricando - colore 2"
 
-#: ../src/plugins/batt/batt.c:886
+#: ../src/plugins/batt/batt.c:889
 msgid "Discharging color 1"
 msgstr "Scaricando - colore 1"
 
-#: ../src/plugins/batt/batt.c:887
+#: ../src/plugins/batt/batt.c:890
 msgid "Discharging color 2"
 msgstr "Scaricando - colore 2"
 
-#: ../src/plugins/batt/batt.c:888
+#: ../src/plugins/batt/batt.c:891
 msgid "Border width"
 msgstr "Larghezza bordo"
 
-#: ../src/plugins/batt/batt.c:919
+#: ../src/plugins/batt/batt.c:922
 msgid "Battery Monitor"
 msgstr "Monitor batteria"
 
-#: ../src/plugins/batt/batt.c:921
+#: ../src/plugins/batt/batt.c:924
 msgid "Display battery status using ACPI"
 msgstr "Mostra stato batteria tramite ACPI"
 

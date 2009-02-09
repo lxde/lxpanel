@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-26 20:28-0500\n"
+"POT-Creation-Date: 2009-02-09 01:49+0100\n"
 "PO-Revision-Date: 2009-01-10 23:22+0100\n"
 "Last-Translator: Grzegorz Gibas <amigib@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -355,7 +355,7 @@ msgstr "Pokaż numer przestrzeni roboczej, dzięki cmeury@users.sf.net"
 
 #: ../src/plugins/image.c:177
 #, fuzzy
-msgid "Dispaly Image and Tooltip"
+msgid "Display Image and Tooltip"
 msgstr "Wyświetl zegar cyfrowy i podpowiedź"
 
 #: ../src/plugins/launchbar.c:146
@@ -522,16 +522,16 @@ msgstr "Dodaj do pulpitu"
 msgid "Properties"
 msgstr "<b>Właściwości</b>"
 
-#: ../src/plugins/menu.c:1028
+#: ../src/plugins/menu.c:1031
 #, fuzzy
 msgid "Icon"
 msgstr "Ikony"
 
-#: ../src/plugins/menu.c:1039
+#: ../src/plugins/menu.c:1042
 msgid "Menu"
 msgstr "Menu"
 
-#: ../src/plugins/menu.c:1041
+#: ../src/plugins/menu.c:1044
 msgid "Provide Menu"
 msgstr ""
 
@@ -911,7 +911,7 @@ msgstr "Pager pulpitu"
 msgid "Simple pager plugin"
 msgstr "Prosta wtyczka pagera"
 
-#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:889
+#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:892
 msgid "Size"
 msgstr "Rozmiar"
 
@@ -1306,48 +1306,48 @@ msgstr ""
 msgid "No batteries found"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:879
+#: ../src/plugins/batt/batt.c:882
 msgid "Hide if there is no battery"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:881
+#: ../src/plugins/batt/batt.c:884
 msgid "Alarm command"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:882
+#: ../src/plugins/batt/batt.c:885
 msgid "Alarm time (minutes left)"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:883
+#: ../src/plugins/batt/batt.c:886
 msgid "Background color"
 msgstr "Kolor tła"
 
-#: ../src/plugins/batt/batt.c:884
+#: ../src/plugins/batt/batt.c:887
 msgid "Charging color 1"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:885
+#: ../src/plugins/batt/batt.c:888
 msgid "Charging color 2"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:886
+#: ../src/plugins/batt/batt.c:889
 msgid "Discharging color 1"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:887
+#: ../src/plugins/batt/batt.c:890
 msgid "Discharging color 2"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:888
+#: ../src/plugins/batt/batt.c:891
 msgid "Border width"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:919
+#: ../src/plugins/batt/batt.c:922
 #, fuzzy
 msgid "Battery Monitor"
 msgstr "Monitor użycia CPU"
 
-#: ../src/plugins/batt/batt.c:921
+#: ../src/plugins/batt/batt.c:924
 msgid "Display battery status using ACPI"
 msgstr ""
 

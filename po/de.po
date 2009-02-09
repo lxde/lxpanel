@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-26 20:28-0500\n"
+"POT-Creation-Date: 2009-02-09 01:49+0100\n"
 "PO-Revision-Date: 2008-08-11 11:23+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@t-online.de>\n"
 "Language-Team: Deutsch <LL@li.org>\n"
@@ -362,7 +362,7 @@ msgstr "Arbeitsflächennummer anzeigen"
 
 #: ../src/plugins/image.c:177
 #, fuzzy
-msgid "Dispaly Image and Tooltip"
+msgid "Display Image and Tooltip"
 msgstr "Digitale Uhr und Tooltip anzeigen"
 
 #: ../src/plugins/launchbar.c:146
@@ -529,15 +529,15 @@ msgstr ""
 msgid "Properties"
 msgstr "<b>Eigenschaften</b>"
 
-#: ../src/plugins/menu.c:1028
+#: ../src/plugins/menu.c:1031
 msgid "Icon"
 msgstr "Symbol"
 
-#: ../src/plugins/menu.c:1039
+#: ../src/plugins/menu.c:1042
 msgid "Menu"
 msgstr "Menü"
 
-#: ../src/plugins/menu.c:1041
+#: ../src/plugins/menu.c:1044
 msgid "Provide Menu"
 msgstr "Menü anzeigen"
 
@@ -919,7 +919,7 @@ msgstr "Desktop-Pager"
 msgid "Simple pager plugin"
 msgstr "Einfache Pager-Erweiterung"
 
-#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:889
+#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:892
 msgid "Size"
 msgstr "Größe"
 
@@ -1315,47 +1315,47 @@ msgstr "Akku: %d%% geladen"
 msgid "No batteries found"
 msgstr "Kein Akku gefunden"
 
-#: ../src/plugins/batt/batt.c:879
+#: ../src/plugins/batt/batt.c:882
 msgid "Hide if there is no battery"
 msgstr "Verstecken, falls kein Akku existiert"
 
-#: ../src/plugins/batt/batt.c:881
+#: ../src/plugins/batt/batt.c:884
 msgid "Alarm command"
 msgstr "Alarmbefehl"
 
-#: ../src/plugins/batt/batt.c:882
+#: ../src/plugins/batt/batt.c:885
 msgid "Alarm time (minutes left)"
 msgstr "Alarmzeit (...Minuten verbleiben)"
 
-#: ../src/plugins/batt/batt.c:883
+#: ../src/plugins/batt/batt.c:886
 msgid "Background color"
 msgstr "Hintergrundfarbe"
 
-#: ../src/plugins/batt/batt.c:884
+#: ../src/plugins/batt/batt.c:887
 msgid "Charging color 1"
 msgstr "Laden - Farbe 1"
 
-#: ../src/plugins/batt/batt.c:885
+#: ../src/plugins/batt/batt.c:888
 msgid "Charging color 2"
 msgstr "Laden - Farbe 2"
 
-#: ../src/plugins/batt/batt.c:886
+#: ../src/plugins/batt/batt.c:889
 msgid "Discharging color 1"
 msgstr "Entladen - Farbe 1"
 
-#: ../src/plugins/batt/batt.c:887
+#: ../src/plugins/batt/batt.c:890
 msgid "Discharging color 2"
 msgstr "Entladen - Farbe 2"
 
-#: ../src/plugins/batt/batt.c:888
+#: ../src/plugins/batt/batt.c:891
 msgid "Border width"
 msgstr "Randbreite"
 
-#: ../src/plugins/batt/batt.c:919
+#: ../src/plugins/batt/batt.c:922
 msgid "Battery Monitor"
 msgstr "Akkumonitor"
 
-#: ../src/plugins/batt/batt.c:921
+#: ../src/plugins/batt/batt.c:924
 msgid "Display battery status using ACPI"
 msgstr "Zeigt den Akkuzustand mittels ACPI an"
 

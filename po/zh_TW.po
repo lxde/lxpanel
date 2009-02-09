@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-26 20:28-0500\n"
+"POT-Creation-Date: 2009-02-09 01:49+0100\n"
 "PO-Revision-Date: 2008-12-05 19:15+0800\n"
 "Last-Translator: \n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -356,7 +356,8 @@ msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "顯示工作區編號，由 cmeury@users.sf.net 撰寫"
 
 #: ../src/plugins/image.c:177
-msgid "Dispaly Image and Tooltip"
+#, fuzzy
+msgid "Display Image and Tooltip"
 msgstr "顯示圖示及工具提示"
 
 #: ../src/plugins/launchbar.c:146
@@ -520,15 +521,15 @@ msgstr "加到桌面"
 msgid "Properties"
 msgstr "屬性"
 
-#: ../src/plugins/menu.c:1028
+#: ../src/plugins/menu.c:1031
 msgid "Icon"
 msgstr "圖示"
 
-#: ../src/plugins/menu.c:1039
+#: ../src/plugins/menu.c:1042
 msgid "Menu"
 msgstr "選單"
 
-#: ../src/plugins/menu.c:1041
+#: ../src/plugins/menu.c:1044
 msgid "Provide Menu"
 msgstr "提供選單"
 
@@ -910,7 +911,7 @@ msgstr "切換桌面"
 msgid "Simple pager plugin"
 msgstr "簡易桌面切換外掛"
 
-#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:889
+#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:892
 msgid "Size"
 msgstr "大小"
 
@@ -1301,47 +1302,47 @@ msgstr "電池：剩餘電量 %d%%"
 msgid "No batteries found"
 msgstr "沒有電池"
 
-#: ../src/plugins/batt/batt.c:879
+#: ../src/plugins/batt/batt.c:882
 msgid "Hide if there is no battery"
 msgstr "沒有電池時隱藏"
 
-#: ../src/plugins/batt/batt.c:881
+#: ../src/plugins/batt/batt.c:884
 msgid "Alarm command"
 msgstr "發出警示時要執行的命令"
 
-#: ../src/plugins/batt/batt.c:882
+#: ../src/plugins/batt/batt.c:885
 msgid "Alarm time (minutes left)"
 msgstr "電池剩餘時間低於此數值時警示 (分鐘)"
 
-#: ../src/plugins/batt/batt.c:883
+#: ../src/plugins/batt/batt.c:886
 msgid "Background color"
 msgstr "背景顏色"
 
-#: ../src/plugins/batt/batt.c:884
+#: ../src/plugins/batt/batt.c:887
 msgid "Charging color 1"
 msgstr "充電顯示顏色 1"
 
-#: ../src/plugins/batt/batt.c:885
+#: ../src/plugins/batt/batt.c:888
 msgid "Charging color 2"
 msgstr "充電顯示顏色 2"
 
-#: ../src/plugins/batt/batt.c:886
+#: ../src/plugins/batt/batt.c:889
 msgid "Discharging color 1"
 msgstr "放電顯示顏色 1"
 
-#: ../src/plugins/batt/batt.c:887
+#: ../src/plugins/batt/batt.c:890
 msgid "Discharging color 2"
 msgstr "放電顯示顏色 2"
 
-#: ../src/plugins/batt/batt.c:888
+#: ../src/plugins/batt/batt.c:891
 msgid "Border width"
 msgstr "邊框寬度"
 
-#: ../src/plugins/batt/batt.c:919
+#: ../src/plugins/batt/batt.c:922
 msgid "Battery Monitor"
 msgstr "電池電量顯示"
 
-#: ../src/plugins/batt/batt.c:921
+#: ../src/plugins/batt/batt.c:924
 msgid "Display battery status using ACPI"
 msgstr "透過 ACPI 顯示電池狀態"
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-26 20:28-0500\n"
+"POT-Creation-Date: 2009-02-09 01:49+0100\n"
 "PO-Revision-Date: 2008-11-29 23:51+0300\n"
 "Last-Translator: Mattias Põldaru <mahfiaz gmail com>\n"
 "Language-Team: Gnome Estonian translation team <gnome-et@linux.ee>\n"
@@ -360,7 +360,7 @@ msgstr "Tööala numbri näitaja, autor cmeury@users.sf.net"
 
 #: ../src/plugins/image.c:177
 #, fuzzy
-msgid "Dispaly Image and Tooltip"
+msgid "Display Image and Tooltip"
 msgstr "Digikell kuupäeva kohtspikriga"
 
 #: ../src/plugins/launchbar.c:146
@@ -527,16 +527,16 @@ msgstr ""
 msgid "Properties"
 msgstr "<b>Omadused</b>"
 
-#: ../src/plugins/menu.c:1028
+#: ../src/plugins/menu.c:1031
 #, fuzzy
 msgid "Icon"
 msgstr "Minimeeri"
 
-#: ../src/plugins/menu.c:1039
+#: ../src/plugins/menu.c:1042
 msgid "Menu"
 msgstr "Menüü"
 
-#: ../src/plugins/menu.c:1041
+#: ../src/plugins/menu.c:1044
 msgid "Provide Menu"
 msgstr "Menüü"
 
@@ -918,7 +918,7 @@ msgstr "Töölaudade vahetamine"
 msgid "Simple pager plugin"
 msgstr "Töölaudade vahetaja plugin"
 
-#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:889
+#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:892
 msgid "Size"
 msgstr "Suurus"
 
@@ -1316,47 +1316,47 @@ msgstr "Aku: %d%% laaditud, %s"
 msgid "No batteries found"
 msgstr "Akusid ei leitud"
 
-#: ../src/plugins/batt/batt.c:879
+#: ../src/plugins/batt/batt.c:882
 msgid "Hide if there is no battery"
 msgstr "Peidetakse, kui aku puudub"
 
-#: ../src/plugins/batt/batt.c:881
+#: ../src/plugins/batt/batt.c:884
 msgid "Alarm command"
 msgstr "Häirekäsk"
 
-#: ../src/plugins/batt/batt.c:882
+#: ../src/plugins/batt/batt.c:885
 msgid "Alarm time (minutes left)"
 msgstr "Häire ajastamine (minutit jäänud)"
 
-#: ../src/plugins/batt/batt.c:883
+#: ../src/plugins/batt/batt.c:886
 msgid "Background color"
 msgstr "Taustavärvus"
 
-#: ../src/plugins/batt/batt.c:884
+#: ../src/plugins/batt/batt.c:887
 msgid "Charging color 1"
 msgstr "Laadimise värvus 1"
 
-#: ../src/plugins/batt/batt.c:885
+#: ../src/plugins/batt/batt.c:888
 msgid "Charging color 2"
 msgstr "Laadimise värvus 2"
 
-#: ../src/plugins/batt/batt.c:886
+#: ../src/plugins/batt/batt.c:889
 msgid "Discharging color 1"
 msgstr "Tühjenemise värvus 1"
 
-#: ../src/plugins/batt/batt.c:887
+#: ../src/plugins/batt/batt.c:890
 msgid "Discharging color 2"
 msgstr "Tühjenemise värvus 2"
 
-#: ../src/plugins/batt/batt.c:888
+#: ../src/plugins/batt/batt.c:891
 msgid "Border width"
 msgstr "Raami laius"
 
-#: ../src/plugins/batt/batt.c:919
+#: ../src/plugins/batt/batt.c:922
 msgid "Battery Monitor"
 msgstr "Aku monitor"
 
-#: ../src/plugins/batt/batt.c:921
+#: ../src/plugins/batt/batt.c:924
 msgid "Display battery status using ACPI"
 msgstr "Aku oleku kuvamine ACPI järgi"
 
