@@ -1,0 +1,997 @@
+# Japanese translations for lxpanel package
+# lxpanel パッケージに対する日本語訳.
+# Copyright (C) 2008-2009 THE lxpanel'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the lxpanel package.
+# Hironao Komatsu <hironao@users.sourceforge.net>, 2008-2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lxpanel 0.3.999\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-02-07 15:46+0900\n"
+"PO-Revision-Date: 2009-02-07 16:02+0900\n"
+"Last-Translator: Hironao Komatsu <hironao@users.sourceforge.net>\n"
+"Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ../data/ui/panel-pref.ui.h:1
+msgid "<b>Background</b>"
+msgstr "<b>背景</b>"
+
+#: ../data/ui/panel-pref.ui.h:2
+msgid "<b>Font</b>"
+msgstr "<b>フォント</b>"
+
+#: ../data/ui/panel-pref.ui.h:3
+msgid "<b>Position</b>"
+msgstr "<b>位置</b>"
+
+#: ../data/ui/panel-pref.ui.h:4
+msgid "<b>Properties</b>"
+msgstr "<b>プロパティ</b>"
+
+#: ../data/ui/panel-pref.ui.h:5
+msgid "<b>Set Preferred Applications</b>"
+msgstr "<b>優先するアプリケーションの設定</b>"
+
+#: ../data/ui/panel-pref.ui.h:6
+msgid "<b>Size</b>"
+msgstr "<b>サイズ</b>"
+
+#: ../data/ui/panel-pref.ui.h:7
+msgid "Advanced"
+msgstr "高度な設定"
+
+#: ../data/ui/panel-pref.ui.h:8
+msgid "Alignment:"
+msgstr "配置:"
+
+#: ../data/ui/panel-pref.ui.h:9
+msgid "Custom Color"
+msgstr "独自の色"
+
+#: ../data/ui/panel-pref.ui.h:10
+msgid "Edge:"
+msgstr "端:"
+
+#: ../data/ui/panel-pref.ui.h:11
+msgid "Enable Image:"
+msgstr "画像を有効に"
+
+#: ../data/ui/panel-pref.ui.h:12
+msgid "Enable Transparency"
+msgstr "透過を有効にする"
+
+#: ../data/ui/panel-pref.ui.h:13
+msgid "File Manager:"
+msgstr "ファイルマネージャ"
+
+#: ../data/ui/panel-pref.ui.h:14
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
+msgid "General"
+msgstr "一般"
+
+#: ../data/ui/panel-pref.ui.h:15
+msgid "Height:"
+msgstr "高さ:"
+
+#: ../data/ui/panel-pref.ui.h:16
+msgid "Logout Command:"
+msgstr "ログアウトのコマンド:"
+
+#: ../data/ui/panel-pref.ui.h:17
+msgid "Make window managers treat the panel as dock"
+msgstr "ウィンドウマネージャがパネルを dock として扱うようにする"
+
+#: ../data/ui/panel-pref.ui.h:18
+msgid "Margin:"
+msgstr "余白:"
+
+#: ../data/ui/panel-pref.ui.h:19
+msgid "None (Use system theme)"
+msgstr "なし (システムのテーマを使う)"
+
+#: ../data/ui/panel-pref.ui.h:20
+msgid "Panel Applets"
+msgstr "パネルアプレット"
+
+#: ../data/ui/panel-pref.ui.h:21
+msgid "Panel Preferences"
+msgstr "パネルの設定"
+
+#: ../data/ui/panel-pref.ui.h:22
+msgid "Reserve space, and not covered by maximized windows"
+msgstr "場所を確保し、最大化したウィンドウに隠れないようにする"
+
+#: ../data/ui/panel-pref.ui.h:23
+msgid "Select an image file"
+msgstr "画像ファイルの選択"
+
+#: ../data/ui/panel-pref.ui.h:24
+msgid "Terminal Emulator:"
+msgstr "端末エミュレータ:"
+
+#: ../data/ui/panel-pref.ui.h:25
+msgid "Tint color:"
+msgstr "色合い:"
+
+#: ../data/ui/panel-pref.ui.h:26
+msgid "Width:"
+msgstr "幅:"
+
+#: ../src/configurator.c:53 ../src/gtk-run.c:250
+msgid "Run"
+msgstr "実行"
+
+#: ../src/configurator.c:55
+msgid "Restart"
+msgstr "再起動"
+
+#: ../src/configurator.c:56
+msgid "Logout"
+msgstr "ログアウト"
+
+#: ../src/configurator.c:402
+msgid "Currently loaded plugins"
+msgstr "現在ロードされているプラグイン"
+
+#: ../src/configurator.c:411
+msgid "Stretch"
+msgstr "引き伸ばす"
+
+#: ../src/configurator.c:509 ../src/panel.c:520
+msgid "Add plugin to panel"
+msgstr "パネルにプラグインを追加"
+
+#: ../src/configurator.c:536 ../src/panel.c:543
+msgid "Available plugins"
+msgstr "利用可能なプラグイン"
+
+#: ../src/configurator.c:1050
+msgid "Logout command is not set"
+msgstr "ログアウトのコマンドが設定されていません"
+
+#: ../src/configurator.c:1099 ../src/configurator.c:1179
+msgid "Select a file"
+msgstr "ファイルの選択"
+
+#: ../src/configurator.c:1197
+msgid "_Browse"
+msgstr "ダイアログから選択(_B)"
+
+#: ../src/panel.c:628
+msgid "Left"
+msgstr "左"
+
+#: ../src/panel.c:628
+msgid "Right"
+msgstr "右"
+
+#: ../src/panel.c:628
+msgid "Top"
+msgstr "上"
+
+#: ../src/panel.c:628
+msgid "Bottom"
+msgstr "下"
+
+#: ../src/panel.c:630 ../src/panel.c:756
+msgid "Create New Panel"
+msgstr "新規パネルの作成"
+
+#: ../src/panel.c:636
+msgid "Where to put the panel?"
+msgstr "パネルをどこに配置しますか?"
+
+#: ../src/panel.c:694
+msgid ""
+"Really delete this panel?\n"
+"<b>Warning: This can not be recovered.</b>"
+msgstr ""
+"本当にこのパネルを削除しますか?\n"
+"<b>警告: 削除すると元には戻せません。</b>"
+
+#: ../src/panel.c:695
+msgid "Confirm"
+msgstr "確認"
+
+#: ../src/panel.c:730
+msgid "Add / Remove Panel Items"
+msgstr "パネルのアイテムの追加・削除"
+
+#: ../src/panel.c:738
+#, c-format
+msgid "Remove \"%s\" From Panel"
+msgstr "パネルから \"%s\" を削除する"
+
+#: ../src/panel.c:750
+msgid "Panel Settings"
+msgstr "パネルの設定"
+
+#: ../src/panel.c:767
+msgid "Delete This Panel"
+msgstr "このパネルを削除する"
+
+#: ../src/panel.c:777
+msgid "Panel"
+msgstr "パネル"
+
+#: ../src/panel.c:790
+#, c-format
+msgid "\"%s\" Settings"
+msgstr "\"%s\" の設定"
+
+#: ../src/panel.c:1248
+#, c-format
+msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
+msgstr "lxpanel %s - UNIX デスクトップのための軽量な GTK2+ パネル\n"
+
+#: ../src/panel.c:1249
+#, c-format
+msgid "Command line options:\n"
+msgstr "コマンドラインのオプション:\n"
+
+#: ../src/panel.c:1250
+#, c-format
+msgid " --help      -- print this help and exit\n"
+msgstr " --help      -- このヘルプを表示して終了\n"
+
+#: ../src/panel.c:1251
+#, c-format
+msgid " --version   -- print version and exit\n"
+msgstr " --version   -- バージョンを表示して終了\n"
+
+#: ../src/panel.c:1252
+#, c-format
+msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
+msgstr ""
+" --log <number> -- ログをとるレベルを 0(なし) 〜 5(詳細) の範囲で設定\n"
+
+#: ../src/panel.c:1253
+#, c-format
+msgid " --configure -- launch configuration utility\n"
+msgstr " --configure -- 設定ユーティリティを開始する\n"
+
+#: ../src/panel.c:1254
+#, c-format
+msgid " --profile name -- use specified profile\n"
+msgstr " --profile name -- 指定したプロファイルを使用する\n"
+
+#: ../src/panel.c:1256
+#, c-format
+msgid " -h  -- same as --help\n"
+msgstr " -h  -- --help と同じ\n"
+
+#: ../src/panel.c:1257
+#, c-format
+msgid " -p  -- same as --profile\n"
+msgstr " -p  -- --profile と同じ\n"
+
+#: ../src/panel.c:1258
+#, c-format
+msgid " -v  -- same as --version\n"
+msgstr " -v  -- --version と同じ\n"
+
+#: ../src/panel.c:1259
+#, c-format
+msgid " -C  -- same as --configure\n"
+msgstr " -C  -- --configure と同じ\n"
+
+#: ../src/panel.c:1260
+#, c-format
+msgid ""
+"\n"
+"Visit http://lxde.org/ for detail.\n"
+"\n"
+msgstr ""
+"\n"
+"詳細については http://lxde.org/ をご覧下さい。\n"
+"\n"
+
+#: ../src/gtk-run.c:264
+msgid "Enter the command you want to execute:"
+msgstr "実行したいコマンドを入力してください:"
+
+#: ../src/systray/tray.c:210
+msgid "System Tray"
+msgstr "システムトレイ"
+
+#: ../src/systray/tray.c:212
+msgid "Old KDE/GNOME Tray"
+msgstr "古い KDE/GNOME のトレイ"
+
+#: ../src/plugins/cpu/cpu.c:226
+msgid "CPU Usage Monitor"
+msgstr "CPU 使用量モニタ"
+
+#: ../src/plugins/cpu/cpu.c:228
+msgid "Display CPU usage"
+msgstr "CPU の使用状況を表示する"
+
+#: ../src/plugins/deskno/deskno.c:99
+msgid "Desktop No / Workspace Name"
+msgstr "デスクトップ番号 / ワークスペースの名前"
+
+#: ../src/plugins/deskno/deskno.c:101
+msgid "Display workspace number, by cmeury@users.sf.net"
+msgstr "ワークスペースの番号を表示する。cmeury@users.sf.net 氏による"
+
+#: ../src/plugins/launchbar.c:145
+msgid "Add Button"
+msgstr "ボタンの追加"
+
+#: ../src/plugins/launchbar.c:147
+msgid "Button Properties"
+msgstr "ボタンのプロパティ"
+
+#.
+#. title = g_strdup_printf( _("Remove \"%s\""), b-> );
+#. item = gtk_image_menu_item_new_with_label( _("Remove ") );
+#.
+#: ../src/plugins/launchbar.c:153
+msgid "Remove Button"
+msgstr "ボタンの削除"
+
+#. FIXME: We should have a better interface for this in the fututure.
+#. 1. We can borrow the menu from menu plugin (PtkAppMenu).
+#. 2. We can borrow the app chooser from PCManFM.
+#.
+#: ../src/plugins/launchbar.c:515
+msgid "Select Application"
+msgstr "アプリケーションの選択"
+
+#: ../src/plugins/launchbar.c:669
+msgid "Buttons"
+msgstr "ボタン"
+
+#: ../src/plugins/launchbar.c:786
+msgid "Application Launch Bar"
+msgstr "アプリケーション・ランチャー"
+
+#: ../src/plugins/launchbar.c:788
+msgid "Bar with buttons to launch application"
+msgstr "アプリケーションを呼び出すボタンのついたバー"
+
+#: ../src/plugins/taskbar.c:1397
+msgid "Raise"
+msgstr "最前面に"
+
+#: ../src/plugins/taskbar.c:1401
+msgid "Restore"
+msgstr "元に戻す"
+
+#: ../src/plugins/taskbar.c:1405
+msgid "Maximize"
+msgstr "最大化"
+
+#: ../src/plugins/taskbar.c:1409
+msgid "Iconify"
+msgstr "最小化"
+
+#: ../src/plugins/taskbar.c:1418
+#, c-format
+msgid "Workspace %d"
+msgstr "ワークスペース %d"
+
+#: ../src/plugins/taskbar.c:1426
+msgid "All workspaces"
+msgstr "すべてのワークスペース"
+
+#: ../src/plugins/taskbar.c:1433
+msgid "Move to Workspace"
+msgstr "ワークスペースへ移動"
+
+#. we want this item to be farest from mouse pointer
+#: ../src/plugins/taskbar.c:1441
+msgid "Close Window"
+msgstr "ウィンドウを閉じる"
+
+#: ../src/plugins/taskbar.c:1681
+msgid "Show tooltips"
+msgstr "ツールチップを表示する"
+
+#: ../src/plugins/taskbar.c:1682
+msgid "Icons only"
+msgstr "アイコンのみ"
+
+#: ../src/plugins/taskbar.c:1683
+msgid "Flat Buttons"
+msgstr "平らなボタン"
+
+#: ../src/plugins/taskbar.c:1684
+msgid "Accept SkipPager"
+msgstr "SkipPager を受け入れる"
+
+#: ../src/plugins/taskbar.c:1685
+msgid "Show Iconified windows"
+msgstr "最小化したウィンドウを表示する"
+
+#: ../src/plugins/taskbar.c:1686
+msgid "Show mapped windows"
+msgstr "割り当てられたウィンドウを表示する"
+
+#: ../src/plugins/taskbar.c:1687
+msgid "Show windows from all desktops"
+msgstr "すべてのデスクトップのウィンドウを表示する"
+
+#: ../src/plugins/taskbar.c:1688
+msgid "Use mouse wheel"
+msgstr "マウスホイールを使う"
+
+#: ../src/plugins/taskbar.c:1689
+msgid "Flash when there is any window requiring attention"
+msgstr "注意を引く必要のあるウィンドウは強調させる"
+
+#: ../src/plugins/taskbar.c:1690
+msgid "Max width of task button"
+msgstr "タスクボタンの最大幅"
+
+#: ../src/plugins/taskbar.c:1691
+msgid "Spacing"
+msgstr "間隔"
+
+#: ../src/plugins/taskbar.c:1769
+msgid "Task Bar (Window List)"
+msgstr "タスクバー (ウィンドウのリスト)"
+
+#: ../src/plugins/taskbar.c:1771
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
+msgstr ""
+"タスクバーは開いているすべてのウィンドウを表示し、最小化やシェード化、フォー"
+"カスの移動を可能にします"
+
+#: ../src/plugins/dclock.c:279
+msgid "Clock Format"
+msgstr "時刻表示のフォーマット"
+
+#: ../src/plugins/dclock.c:280
+msgid "Tooltip Format"
+msgstr "ツールチップのフォーマット"
+
+#: ../src/plugins/dclock.c:281
+msgid "Action"
+msgstr "動作"
+
+#: ../src/plugins/dclock.c:282
+msgid "Bold font"
+msgstr "太字"
+
+#: ../src/plugins/dclock.c:317
+msgid "Digital Clock"
+msgstr "デジタル時計"
+
+#: ../src/plugins/dclock.c:319
+msgid "Display Digital clock and Tooltip"
+msgstr "デジタル時計とツールチップを表示します"
+
+#.
+#. item = gtk_menu_item_new_with_label(_("Add to desktop panel"));
+#. g_signal_connect(item, "activate", G_CALLBACK(on_add_menu_item_to_panel), data);
+#. gtk_menu_shell_append(p, item);
+#.
+#: ../src/plugins/menu.c:371
+msgid "Add to desktop"
+msgstr "デスクトップに追加"
+
+#: ../src/plugins/menu.c:381
+msgid "Properties"
+msgstr "プロパティ"
+
+#: ../src/plugins/menu.c:1028
+msgid "Icon"
+msgstr "アイコン"
+
+#: ../src/plugins/menu.c:1039
+msgid "Menu"
+msgstr "メニュー"
+
+#: ../src/plugins/menu.c:1041
+msgid "Provide Menu"
+msgstr "メニューを提供します"
+
+#: ../src/plugins/separator.c:103
+msgid "Separator"
+msgstr "セパレータ"
+
+#: ../src/plugins/separator.c:105
+msgid "Add a separator to the panel"
+msgstr "パネルにセパレータを追加します"
+
+#: ../src/plugins/pager.c:709
+msgid "Desktop Pager"
+msgstr "デスクトップページャ"
+
+#: ../src/plugins/pager.c:711
+msgid "Simple pager plugin"
+msgstr "シンプルなページャのプラグインです"
+
+#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:889
+msgid "Size"
+msgstr "大きさ"
+
+#: ../src/plugins/space.c:153
+msgid "<Space>"
+msgstr "<空白>"
+
+#: ../src/plugins/space.c:155
+msgid "Allocate space"
+msgstr "空白を割り当てます"
+
+#: ../src/plugins/wincmd.c:245
+msgid "Left click to iconify all windows. Middle click to shade them"
+msgstr "左クリックですべてのウィンドウを最小化し、中クリックでシェード化します"
+
+#: ../src/plugins/wincmd.c:274
+msgid "Minimize All Windows"
+msgstr "すべてのウィンドウを最小化"
+
+#: ../src/plugins/wincmd.c:276
+msgid ""
+"Sends commands to all desktop windows.\n"
+"Supported commnds are 1)toggle iconify and 2) toggle shade"
+msgstr ""
+"すべてのデスクトップのウィンドウにコマンドを送ります。\n"
+"可能なのは 1)最小化の切り替え 2)シェード化の切り替え"
+
+#: ../src/plugins/dirmenu.c:218
+msgid "Open in _Terminal"
+msgstr "端末で開く(_T)"
+
+#: ../src/plugins/dirmenu.c:383
+msgid "Directory Menu"
+msgstr "ディレクトリメニュー"
+
+#: ../src/plugins/dirmenu.c:385
+msgid "Browse directory tree via menu (Author: PCMan)"
+msgstr "ディレクトリ・ツリーをメニュー形式で表示します (作者: PCMan)"
+
+#: ../src/plugins/thermal/thermal.c:299
+msgid "Normal"
+msgstr "通常"
+
+#: ../src/plugins/thermal/thermal.c:300
+msgid "Warning1"
+msgstr "警戒1"
+
+#: ../src/plugins/thermal/thermal.c:301
+msgid "Warning2"
+msgstr "警戒2"
+
+#: ../src/plugins/thermal/thermal.c:302
+msgid "Automatic sensor location"
+msgstr "自動センサの位置"
+
+#: ../src/plugins/thermal/thermal.c:303
+msgid "Sensor"
+msgstr "センサ"
+
+#: ../src/plugins/thermal/thermal.c:304
+msgid "Automatic temperature levels"
+msgstr "自動温度警戒域"
+
+#: ../src/plugins/thermal/thermal.c:305
+msgid "Warning1 Temperatur"
+msgstr "警戒1 の温度"
+
+#: ../src/plugins/thermal/thermal.c:306
+msgid "Warning2 Temperatur"
+msgstr "警戒2 の温度"
+
+#: ../src/plugins/thermal/thermal.c:348
+msgid "Temperature Monitor"
+msgstr "温度モニタ"
+
+#: ../src/plugins/thermal/thermal.c:350
+msgid "Display system temperature, by kesler.daniel@gmail.com"
+msgstr "システムの温度を表示します。kesler.daniel@gmail.com 氏による"
+
+#. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
+#: ../src/plugins/volume/volume.c:305
+#: ../src/plugins/volumealsa/volumealsa.c:399
+msgid "Volume control"
+msgstr "音量コントロール"
+
+#: ../src/plugins/volume/volume.c:317
+#: ../src/plugins/volumealsa/volumealsa.c:413
+msgid "Volume Control"
+msgstr "音量コントロール"
+
+#. create frame
+#: ../src/plugins/volume/volume-impl.c:109
+#: ../src/plugins/volumealsa/volumealsa.c:309
+msgid "Volume"
+msgstr "音量"
+
+#: ../src/plugins/volumealsa/volumealsa.c:326
+msgid "Mute"
+msgstr "ミュート"
+
+#: ../src/plugins/netstat/netstat.c:168
+msgid "<Hidden Access Point>"
+msgstr "<隠れたアクセスポイント>"
+
+#: ../src/plugins/netstat/netstat.c:201
+msgid "Wireless Networks not found in range"
+msgstr "範囲内に無線ネットワークは見つかりません"
+
+#. Repair
+#: ../src/plugins/netstat/netstat.c:235
+msgid "Repair"
+msgstr "修復"
+
+#. interface down
+#: ../src/plugins/netstat/netstat.c:240
+msgid "Disable"
+msgstr "無効化"
+
+#: ../src/plugins/netstat/netstat.c:299
+msgid "Wireless Connection has no connectivity"
+msgstr "無線ネットワークへ接続できません"
+
+#: ../src/plugins/netstat/netstat.c:301
+msgid "Network cable is plugged out"
+msgstr "ネットワークケーブルが抜けています"
+
+#: ../src/plugins/netstat/netstat.c:303
+msgid "Connection has limited or no connectivity"
+msgstr "接続が制限されているか、または接続できません"
+
+#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:329
+msgid "IP Address:"
+msgstr "IP アドレス:"
+
+#: ../src/plugins/netstat/netstat.c:308
+msgid "Remote IP:"
+msgstr "リモート IP:"
+
+#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:331
+msgid "Netmask:"
+msgstr "ネットマスク:"
+
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:333
+msgid "Activity"
+msgstr "稼働状況"
+
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:333
+msgid "Sent"
+msgstr "送信"
+
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:333
+msgid "Received"
+msgstr "受信"
+
+#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:334
+msgid "bytes"
+msgstr "バイト"
+
+#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:335
+msgid "packets"
+msgstr "パケット"
+
+#: ../src/plugins/netstat/netstat.c:315
+msgid "Wireless"
+msgstr "無線"
+
+#: ../src/plugins/netstat/netstat.c:317
+msgid "Protocol:"
+msgstr "プロトコル:"
+
+#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
+msgid "Broadcast:"
+msgstr "ブロードキャスト:"
+
+#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
+msgid "HW Address:"
+msgstr "HW アドレス:"
+
+#: ../src/plugins/netstat/netstat.c:471
+msgid "Manage Networks"
+msgstr "ネットワークの管理"
+
+#: ../src/plugins/netstat/netstat.c:473
+msgid "Monitor and Manage networks"
+msgstr "ネットワークを表示・管理する"
+
+#. create dialog
+#: ../src/plugins/netstat/passwd_gui.c:84
+msgid "Setting Encryption Key"
+msgstr "暗号化キーの設定"
+
+#. messages
+#: ../src/plugins/netstat/passwd_gui.c:94
+msgid ""
+"This wireless network was encrypted.\n"
+"You must have the encryption key."
+msgstr ""
+"この無線ネットワークは暗号化されています。\n"
+"暗号化キーが必要です。"
+
+#: ../src/plugins/netstat/passwd_gui.c:99
+msgid "Encryption Key:"
+msgstr "暗号化キー:"
+
+#: ../src/plugins/netstatus/netstatus.c:163
+msgid "Interface to monitor"
+msgstr "監視するインタフェース"
+
+#: ../src/plugins/netstatus/netstatus.c:164
+msgid "Config tool"
+msgstr "設定ツール"
+
+#: ../src/plugins/netstatus/netstatus.c:181
+msgid "Net Status Monitor"
+msgstr "ネット状態モニタ"
+
+#: ../src/plugins/netstatus/netstatus.c:183
+msgid "Monitor network status"
+msgstr "ネットワークの状態を監視します"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:52
+#: ../src/plugins/netstatus/netstatus-dialog.c:311
+msgid "Unknown"
+msgstr "未知"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:115
+msgid "Connection Properties"
+msgstr "接続のプロパティ"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:121
+#, c-format
+msgid "Connection Properties: %s"
+msgstr "接続のプロパティ: %s"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:134
+#, c-format
+msgid "%lu packet"
+msgid_plural "%lu packets"
+msgstr[0] "%lu 個のパケット"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:395
+#, c-format
+msgid ""
+"There was an error displaying help:\n"
+"%s"
+msgstr ""
+"ヘルプの表示でエラーがありました:\n"
+"%s"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:579
+#, c-format
+msgid "Failed to launch time configuration tool: %s"
+msgstr "時刻設定ツールの呼び出しに失敗しました: %s"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:131
+msgid "<b>Connection</b>"
+msgstr "<b>接続</b>"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:155
+msgid "Status:"
+msgstr "状態:"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:171
+msgid "_Name:"
+msgstr "名前(_N):"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:194
+msgid "<b>Activity</b>"
+msgstr "<b>稼働状況</b>"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:232
+msgid "Received:"
+msgstr "受信:"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:239
+msgid "Sent:"
+msgstr "送信:"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:250
+msgid "<b>Signal Strength</b>"
+msgstr "<b>信号の強さ</b>"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
+msgid "0%"
+msgstr "0%"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:289
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr "<b>インターネット・プロトコル (IPv4)</b>"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:309
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:396
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:452
+msgid "Address:"
+msgstr "アドレス:"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:316
+msgid "Destination:"
+msgstr "接続先:"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
+msgid "Subnet Mask:"
+msgstr "サブネットマスク:"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:376
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>インターネット・プロトコル (IPv6)</b>"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:403
+msgid "Scope:"
+msgstr "スコープ:"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:432
+msgid "<b>Network Device</b>"
+msgstr "<b>ネットワーク・デバイス</b>"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:477
+msgid "Type:"
+msgstr "形式:"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:484
+msgid "Support"
+msgstr "サポート"
+
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:513
+msgid "Con_figure"
+msgstr "設定(_F)"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:379
+#, c-format
+msgid "Network Connection: %s"
+msgstr "ネットワーク接続: %s"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:384
+msgid "Network Connection"
+msgstr "ネットワーク接続"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:811
+msgid "Interface"
+msgstr "インタフェース"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:812
+msgid "The current interface the icon is monitoring."
+msgstr "このアイコンがモニタしている現在のインタフェースです。"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:819
+msgid "Orientation"
+msgstr "方向"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:820
+msgid "The orientation of the tray."
+msgstr "トレイの向く方向です。"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:828
+msgid "Tooltips Enabled"
+msgstr "ツールチップが有効か"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:829
+msgid "Whether or not the icon's tooltips are enabled."
+msgstr "アイコンのツールチップが有効かどうかです。"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:836
+msgid "Show Signal"
+msgstr "信号を表示するか"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:837
+msgid "Whether or not the signal strength should be displayed."
+msgstr "信号の強さを表示するかどうかです"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:950
+#, c-format
+msgid ""
+"Please contact your system administrator to resolve the following problem:\n"
+"\n"
+"%s"
+msgstr ""
+"以下の問題を解決するため、システム管理者に問い合わせてください:\n"
+"\n"
+"%s"
+
+#: ../src/plugins/batt/batt.c:384
+#, c-format
+msgid "Battery: %d%% charged, %d:%02d until full"
+msgstr "バッテリ: 残量 %d%%、充電してから %d:%02d"
+
+#: ../src/plugins/batt/batt.c:393
+#, c-format
+msgid "Battery: %d%% charged, %s"
+msgstr "バッテリ: 残量 %d%%, %s"
+
+#: ../src/plugins/batt/batt.c:395
+msgid "charging finished"
+msgstr "充電完了"
+
+#: ../src/plugins/batt/batt.c:395
+msgid "charging"
+msgstr "充電中"
+
+#: ../src/plugins/batt/batt.c:400
+#, c-format
+msgid "Battery: %d%% charged, %d:%02d left"
+msgstr "バッテリ: 残量 %d%%、残り %d:%02d"
+
+#: ../src/plugins/batt/batt.c:406
+#, c-format
+msgid "Battery: %d%% charged"
+msgstr "バッテリ: 残量 %d%%"
+
+#: ../src/plugins/batt/batt.c:454
+#, c-format
+msgid "No batteries found"
+msgstr "バッテリが見つかりません"
+
+#: ../src/plugins/batt/batt.c:879
+msgid "Hide if there is no battery"
+msgstr "バッテリがないときは隠す"
+
+#: ../src/plugins/batt/batt.c:881
+msgid "Alarm command"
+msgstr "アラームのコマンド"
+
+#: ../src/plugins/batt/batt.c:882
+msgid "Alarm time (minutes left)"
+msgstr "アラームの時間 (分単位で)"
+
+#: ../src/plugins/batt/batt.c:883
+msgid "Background color"
+msgstr "背景色"
+
+#: ../src/plugins/batt/batt.c:884
+msgid "Charging color 1"
+msgstr "残量の色 1"
+
+#: ../src/plugins/batt/batt.c:885
+msgid "Charging color 2"
+msgstr "残量の色 2"
+
+#: ../src/plugins/batt/batt.c:886
+msgid "Discharging color 1"
+msgstr "放電の色 1"
+
+#: ../src/plugins/batt/batt.c:887
+msgid "Discharging color 2"
+msgstr "放電の色 2"
+
+#: ../src/plugins/batt/batt.c:888
+msgid "Border width"
+msgstr "境界の幅"
+
+#: ../src/plugins/batt/batt.c:919
+msgid "Battery Monitor"
+msgstr "バッテリモニタ"
+
+#: ../src/plugins/batt/batt.c:921
+msgid "Display battery status using ACPI"
+msgstr "バッテリの状態を ACPI で表示します"
+
+#: ../src/plugins/kbled/kbled.c:277
+msgid "Show CapsLock"
+msgstr "CapsLock を表示する"
+
+#: ../src/plugins/kbled/kbled.c:278
+msgid "Show NumLock"
+msgstr "NumLock を表示する"
+
+#: ../src/plugins/kbled/kbled.c:279
+msgid "Show ScrollLock"
+msgstr "ScrollLock を表示する"
+
+#: ../src/plugins/kbled/kbled.c:289
+msgid "Keyboard Led"
+msgstr "キーボード LED"
+
+#: ../src/plugins/kbled/kbled.c:291
+msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
+msgstr "CapsLock と NumLock、ScrollLock キーの状態を表示します"
