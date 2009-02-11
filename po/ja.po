@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.3.999\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-07 15:46+0900\n"
+"POT-Creation-Date: 2009-02-11 20:31+0100\n"
 "PO-Revision-Date: 2009-02-07 16:02+0900\n"
 "Last-Translator: Hironao Komatsu <hironao@users.sourceforge.net>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
@@ -17,148 +17,176 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../data/ui/panel-pref.ui.h:1
+#: ../data/ui/panel-pref.glade.h:1
 msgid "<b>Background</b>"
 msgstr "<b>背景</b>"
 
-#: ../data/ui/panel-pref.ui.h:2
+#: ../data/ui/panel-pref.glade.h:2
 msgid "<b>Font</b>"
 msgstr "<b>フォント</b>"
 
-#: ../data/ui/panel-pref.ui.h:3
+#: ../data/ui/panel-pref.glade.h:3
 msgid "<b>Position</b>"
 msgstr "<b>位置</b>"
 
-#: ../data/ui/panel-pref.ui.h:4
+#: ../data/ui/panel-pref.glade.h:4
 msgid "<b>Properties</b>"
 msgstr "<b>プロパティ</b>"
 
-#: ../data/ui/panel-pref.ui.h:5
+#: ../data/ui/panel-pref.glade.h:5
 msgid "<b>Set Preferred Applications</b>"
 msgstr "<b>優先するアプリケーションの設定</b>"
 
-#: ../data/ui/panel-pref.ui.h:6
+#: ../data/ui/panel-pref.glade.h:6
 msgid "<b>Size</b>"
 msgstr "<b>サイズ</b>"
 
-#: ../data/ui/panel-pref.ui.h:7
+#: ../data/ui/panel-pref.glade.h:7
 msgid "Advanced"
 msgstr "高度な設定"
 
-#: ../data/ui/panel-pref.ui.h:8
+#: ../data/ui/panel-pref.glade.h:8
 msgid "Alignment:"
 msgstr "配置:"
 
-#: ../data/ui/panel-pref.ui.h:9
+#: ../data/ui/panel-pref.glade.h:9
 msgid "Custom Color"
 msgstr "独自の色"
 
-#: ../data/ui/panel-pref.ui.h:10
+#: ../data/ui/panel-pref.glade.h:11
+#, no-c-format
+msgid ""
+"Dynamic\n"
+"Pixels\n"
+"% Percent"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:14
 msgid "Edge:"
 msgstr "端:"
 
-#: ../data/ui/panel-pref.ui.h:11
+#: ../data/ui/panel-pref.glade.h:15
 msgid "Enable Image:"
 msgstr "画像を有効に"
 
-#: ../data/ui/panel-pref.ui.h:12
+#: ../data/ui/panel-pref.glade.h:16
 msgid "Enable Transparency"
 msgstr "透過を有効にする"
 
-#: ../data/ui/panel-pref.ui.h:13
+#: ../data/ui/panel-pref.glade.h:17
 msgid "File Manager:"
 msgstr "ファイルマネージャ"
 
-#: ../data/ui/panel-pref.ui.h:14
+#: ../data/ui/panel-pref.glade.h:18
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr "一般"
 
-#: ../data/ui/panel-pref.ui.h:15
+#: ../data/ui/panel-pref.glade.h:19
 msgid "Height:"
 msgstr "高さ:"
 
-#: ../data/ui/panel-pref.ui.h:16
+#: ../data/ui/panel-pref.glade.h:20
+msgid ""
+"Left\n"
+"Center\n"
+"Right"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:23
+msgid ""
+"Left\n"
+"Right\n"
+"Top\n"
+"Bottom"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:27
 msgid "Logout Command:"
 msgstr "ログアウトのコマンド:"
 
-#: ../data/ui/panel-pref.ui.h:17
+#: ../data/ui/panel-pref.glade.h:28
 msgid "Make window managers treat the panel as dock"
 msgstr "ウィンドウマネージャがパネルを dock として扱うようにする"
 
-#: ../data/ui/panel-pref.ui.h:18
+#: ../data/ui/panel-pref.glade.h:29
 msgid "Margin:"
 msgstr "余白:"
 
-#: ../data/ui/panel-pref.ui.h:19
+#: ../data/ui/panel-pref.glade.h:30
 msgid "None (Use system theme)"
 msgstr "なし (システムのテーマを使う)"
 
-#: ../data/ui/panel-pref.ui.h:20
+#: ../data/ui/panel-pref.glade.h:31
 msgid "Panel Applets"
 msgstr "パネルアプレット"
 
-#: ../data/ui/panel-pref.ui.h:21
+#: ../data/ui/panel-pref.glade.h:32
 msgid "Panel Preferences"
 msgstr "パネルの設定"
 
-#: ../data/ui/panel-pref.ui.h:22
+#: ../data/ui/panel-pref.glade.h:33
+msgid "Pixels"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:34
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "場所を確保し、最大化したウィンドウに隠れないようにする"
 
-#: ../data/ui/panel-pref.ui.h:23
+#: ../data/ui/panel-pref.glade.h:35
 msgid "Select an image file"
 msgstr "画像ファイルの選択"
 
-#: ../data/ui/panel-pref.ui.h:24
+#: ../data/ui/panel-pref.glade.h:36
 msgid "Terminal Emulator:"
 msgstr "端末エミュレータ:"
 
-#: ../data/ui/panel-pref.ui.h:25
+#: ../data/ui/panel-pref.glade.h:37
 msgid "Tint color:"
 msgstr "色合い:"
 
-#: ../data/ui/panel-pref.ui.h:26
+#: ../data/ui/panel-pref.glade.h:38
 msgid "Width:"
 msgstr "幅:"
 
-#: ../src/configurator.c:53 ../src/gtk-run.c:250
+#: ../src/configurator.c:54 ../src/gtk-run.c:250
 msgid "Run"
 msgstr "実行"
 
-#: ../src/configurator.c:55
+#: ../src/configurator.c:56
 msgid "Restart"
 msgstr "再起動"
 
-#: ../src/configurator.c:56
+#: ../src/configurator.c:57
 msgid "Logout"
 msgstr "ログアウト"
 
-#: ../src/configurator.c:402
+#: ../src/configurator.c:403
 msgid "Currently loaded plugins"
 msgstr "現在ロードされているプラグイン"
 
-#: ../src/configurator.c:411
+#: ../src/configurator.c:412
 msgid "Stretch"
 msgstr "引き伸ばす"
 
-#: ../src/configurator.c:509 ../src/panel.c:520
+#: ../src/configurator.c:510 ../src/panel.c:520
 msgid "Add plugin to panel"
 msgstr "パネルにプラグインを追加"
 
-#: ../src/configurator.c:536 ../src/panel.c:543
+#: ../src/configurator.c:537 ../src/panel.c:543
 msgid "Available plugins"
 msgstr "利用可能なプラグイン"
 
-#: ../src/configurator.c:1050
+#: ../src/configurator.c:1051
 msgid "Logout command is not set"
 msgstr "ログアウトのコマンドが設定されていません"
 
-#: ../src/configurator.c:1099 ../src/configurator.c:1179
+#: ../src/configurator.c:1100 ../src/configurator.c:1180
 msgid "Select a file"
 msgstr "ファイルの選択"
 
-#: ../src/configurator.c:1197
+#: ../src/configurator.c:1198
 msgid "_Browse"
 msgstr "ダイアログから選択(_B)"
 
@@ -311,19 +339,24 @@ msgstr "CPU 使用量モニタ"
 msgid "Display CPU usage"
 msgstr "CPU の使用状況を表示する"
 
-#: ../src/plugins/deskno/deskno.c:99
+#: ../src/plugins/deskno/deskno.c:99 ../src/plugins/deskno/deskno2.c:129
 msgid "Desktop No / Workspace Name"
 msgstr "デスクトップ番号 / ワークスペースの名前"
 
-#: ../src/plugins/deskno/deskno.c:101
+#: ../src/plugins/deskno/deskno.c:101 ../src/plugins/deskno/deskno2.c:131
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "ワークスペースの番号を表示する。cmeury@users.sf.net 氏による"
 
-#: ../src/plugins/launchbar.c:145
+#: ../src/plugins/image.c:177
+#, fuzzy
+msgid "Display Image and Tooltip"
+msgstr "デジタル時計とツールチップを表示します"
+
+#: ../src/plugins/launchbar.c:146
 msgid "Add Button"
 msgstr "ボタンの追加"
 
-#: ../src/plugins/launchbar.c:147
+#: ../src/plugins/launchbar.c:148
 msgid "Button Properties"
 msgstr "ボタンのプロパティ"
 
@@ -331,7 +364,7 @@ msgstr "ボタンのプロパティ"
 #. title = g_strdup_printf( _("Remove \"%s\""), b-> );
 #. item = gtk_image_menu_item_new_with_label( _("Remove ") );
 #.
-#: ../src/plugins/launchbar.c:153
+#: ../src/plugins/launchbar.c:154
 msgid "Remove Button"
 msgstr "ボタンの削除"
 
@@ -339,19 +372,19 @@ msgstr "ボタンの削除"
 #. 1. We can borrow the menu from menu plugin (PtkAppMenu).
 #. 2. We can borrow the app chooser from PCManFM.
 #.
-#: ../src/plugins/launchbar.c:515
+#: ../src/plugins/launchbar.c:516
 msgid "Select Application"
 msgstr "アプリケーションの選択"
 
-#: ../src/plugins/launchbar.c:669
+#: ../src/plugins/launchbar.c:670
 msgid "Buttons"
 msgstr "ボタン"
 
-#: ../src/plugins/launchbar.c:786
+#: ../src/plugins/launchbar.c:787
 msgid "Application Launch Bar"
 msgstr "アプリケーション・ランチャー"
 
-#: ../src/plugins/launchbar.c:788
+#: ../src/plugins/launchbar.c:789
 msgid "Bar with buttons to launch application"
 msgstr "アプリケーションを呼び出すボタンのついたバー"
 
@@ -482,17 +515,377 @@ msgstr "デスクトップに追加"
 msgid "Properties"
 msgstr "プロパティ"
 
-#: ../src/plugins/menu.c:1028
+#: ../src/plugins/menu.c:1031
 msgid "Icon"
 msgstr "アイコン"
 
-#: ../src/plugins/menu.c:1039
+#: ../src/plugins/menu.c:1042
 msgid "Menu"
 msgstr "メニュー"
 
-#: ../src/plugins/menu.c:1041
+#: ../src/plugins/menu.c:1044
 msgid "Provide Menu"
 msgstr "メニューを提供します"
+
+#: ../src/plugins/netstatus/glade-support.c:91
+#: ../src/plugins/netstatus/glade-support.c:115
+#, c-format
+msgid "Couldn't find pixmap file: %s"
+msgstr ""
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
+#, no-c-format
+msgid "0%"
+msgstr "0%"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:194
+msgid "<b>Activity</b>"
+msgstr "<b>稼働状況</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:131
+msgid "<b>Connection</b>"
+msgstr "<b>接続</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:289
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr "<b>インターネット・プロトコル (IPv4)</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:376
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>インターネット・プロトコル (IPv6)</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:432
+msgid "<b>Network Device</b>"
+msgstr "<b>ネットワーク・デバイス</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:250
+msgid "<b>Signal Strength</b>"
+msgstr "<b>信号の強さ</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:309
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:396
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:452
+msgid "Address:"
+msgstr "アドレス:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
+#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
+msgid "Broadcast:"
+msgstr "ブロードキャスト:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:513
+msgid "Con_figure"
+msgstr "設定(_F)"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:316
+msgid "Destination:"
+msgstr "接続先:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:232
+msgid "Received:"
+msgstr "受信:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:403
+msgid "Scope:"
+msgstr "スコープ:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:239
+msgid "Sent:"
+msgstr "送信:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:155
+msgid "Status:"
+msgstr "状態:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
+msgid "Subnet Mask:"
+msgstr "サブネットマスク:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:484
+msgid "Support"
+msgstr "サポート"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:477
+msgid "Type:"
+msgstr "形式:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:171
+msgid "_Name:"
+msgstr "名前(_N):"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:148
+#, fuzzy
+msgid "Name"
+msgstr "名前(_N):"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:149
+msgid "The interface name"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:156
+#, fuzzy
+msgid "State"
+msgstr "状態:"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:157
+msgid "The interface state"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:165
+#, fuzzy
+msgid "Stats"
+msgstr "状態:"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:166
+msgid "The interface packets/bytes statistics"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:173
+#: ../src/plugins/netstat/netstat.c:315
+msgid "Wireless"
+msgstr "無線"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:174
+msgid "Whether the interface is a wireless interface"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:181
+#, fuzzy
+msgid "Signal"
+msgstr "信号を表示するか"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:182
+msgid "Wireless signal strength percentage"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:191
+#: ../src/plugins/netstatus/netstatus-util.c:167
+msgid "Error"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:192
+#, fuzzy
+msgid "The current error condition"
+msgstr "このアイコンがモニタしている現在のインタフェースです。"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:434
+#: ../src/plugins/netstatus/netstatus-iface.c:1197
+#, c-format
+msgid "Unable to open socket: %s"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:496
+#: ../src/plugins/netstatus/netstatus-iface.c:1223
+#, c-format
+msgid "SIOCGIFFLAGS error: %s"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:870
+msgid "AMPR NET/ROM"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:873
+msgid "Ethernet"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:879
+msgid "AMPR AX.25"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:888
+#: ../src/plugins/netstatus/netstatus-iface.c:1008
+msgid "16/4 Mbps Token Ring"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:891
+msgid "ARCnet"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:897
+msgid "Frame Relay DLCI"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:903
+msgid "Metricom Starmode IP"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:906
+msgid "Serial Line IP"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:909
+msgid "VJ Serial Line IP"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:912
+msgid "6-bit Serial Line IP"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:915
+msgid "VJ 6-bit Serial Line IP"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:921
+msgid "Adaptive Serial Line IP"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:924
+msgid "AMPR ROSE"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:927
+msgid "Generic X.25"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:930
+msgid "Point-to-Point Protocol"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:936
+msgid "(Cisco)-HDLC"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:939
+msgid "LAPB"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:948
+msgid "IPIP Tunnel"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:954
+msgid "Frame Relay Access Device"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:960
+msgid "Local Loopback"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:966
+msgid "Fiber Distributed Data Interface"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:972
+msgid "IPv6-in-IPv4"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:984
+msgid "HIPPI"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:987
+msgid "Ash"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:990
+#, fuzzy
+msgid "Econet"
+msgstr "アイコン"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:993
+msgid "IrLAP"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:1155
+#, c-format
+msgid "SIOCGIFCONF error: %s"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:1248
+#, fuzzy, c-format
+msgid "No network devices found"
+msgstr "バッテリが見つかりません"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:180
+#, c-format
+msgid "Cannot open /proc/net/dev: %s"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:189
+msgid "Could not parse /proc/net/dev. Unknown format."
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:204
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:330
+#, c-format
+msgid "Could not parse interface name from '%s'"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:217
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:645
+#, c-format
+msgid ""
+"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:314
+msgid "Could not parse /proc/net/wireless. Unknown format."
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:341
+#, c-format
+msgid "Could not parse wireless details from '%s'. link_idx = %d;"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:414
+#, c-format
+msgid "Could not connect to interface, '%s'"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:420
+#, c-format
+msgid "Could not send ioctl to interface, '%s'"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:598
+#, c-format
+msgid "Could not parse command line '%s': %s"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:635
+msgid "Could not parse 'netstat' output. Unknown format"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-util.c:152
+msgid "Disconnected"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-util.c:155
+msgid "Idle"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-util.c:158
+msgid "Sending"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-util.c:161
+#, fuzzy
+msgid "Receiving"
+msgstr "受信"
+
+#: ../src/plugins/netstatus/netstatus-util.c:164
+msgid "Sending/Receiving"
+msgstr ""
 
 #: ../src/plugins/separator.c:103
 msgid "Separator"
@@ -510,7 +903,7 @@ msgstr "デスクトップページャ"
 msgid "Simple pager plugin"
 msgstr "シンプルなページャのプラグインです"
 
-#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:889
+#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:892
 msgid "Size"
 msgstr "大きさ"
 
@@ -521,6 +914,57 @@ msgstr "<空白>"
 #: ../src/plugins/space.c:155
 msgid "Allocate space"
 msgstr "空白を割り当てます"
+
+#: ../src/plugins/xkb/xkb-plugin.c:241
+#, fuzzy
+msgid "Keyboard Layout Switcher"
+msgstr "キーボード LED"
+
+#: ../src/plugins/xkb/xkb-plugin.c:247
+msgid ""
+"Allows you to switch the keyboard layout and\n"
+"displays the currently selected layout."
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:252
+msgid "Other plugins available here"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:385
+msgid "Configure Keyboard Layout Switcher"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:398
+msgid "Show layout as"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:413
+msgid "image"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:414
+msgid "text"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:418
+msgid "Per application settings"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:432
+msgid "_Remember layout for each application"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:441
+msgid "Default layout:"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:499
+msgid "Kayboard Layout switcher"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:501
+msgid "Switch between available keyboard layouts"
+msgstr ""
 
 #: ../src/plugins/wincmd.c:245
 msgid "Left click to iconify all windows. Middle click to shade them"
@@ -680,18 +1124,9 @@ msgstr "バイト"
 msgid "packets"
 msgstr "パケット"
 
-#: ../src/plugins/netstat/netstat.c:315
-msgid "Wireless"
-msgstr "無線"
-
 #: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
 msgstr "プロトコル:"
-
-#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
-msgid "Broadcast:"
-msgstr "ブロードキャスト:"
 
 #: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
@@ -772,80 +1207,6 @@ msgstr ""
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
 msgstr "時刻設定ツールの呼び出しに失敗しました: %s"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:131
-msgid "<b>Connection</b>"
-msgstr "<b>接続</b>"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:155
-msgid "Status:"
-msgstr "状態:"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:171
-msgid "_Name:"
-msgstr "名前(_N):"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:194
-msgid "<b>Activity</b>"
-msgstr "<b>稼働状況</b>"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:232
-msgid "Received:"
-msgstr "受信:"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:239
-msgid "Sent:"
-msgstr "送信:"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:250
-msgid "<b>Signal Strength</b>"
-msgstr "<b>信号の強さ</b>"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
-msgid "0%"
-msgstr "0%"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:289
-msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr "<b>インターネット・プロトコル (IPv4)</b>"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:309
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:396
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:452
-msgid "Address:"
-msgstr "アドレス:"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:316
-msgid "Destination:"
-msgstr "接続先:"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
-msgid "Subnet Mask:"
-msgstr "サブネットマスク:"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:376
-msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr "<b>インターネット・プロトコル (IPv6)</b>"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:403
-msgid "Scope:"
-msgstr "スコープ:"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:432
-msgid "<b>Network Device</b>"
-msgstr "<b>ネットワーク・デバイス</b>"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:477
-msgid "Type:"
-msgstr "形式:"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:484
-msgid "Support"
-msgstr "サポート"
-
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:513
-msgid "Con_figure"
-msgstr "設定(_F)"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:379
 #, c-format
@@ -932,47 +1293,47 @@ msgstr "バッテリ: 残量 %d%%"
 msgid "No batteries found"
 msgstr "バッテリが見つかりません"
 
-#: ../src/plugins/batt/batt.c:879
+#: ../src/plugins/batt/batt.c:882
 msgid "Hide if there is no battery"
 msgstr "バッテリがないときは隠す"
 
-#: ../src/plugins/batt/batt.c:881
+#: ../src/plugins/batt/batt.c:884
 msgid "Alarm command"
 msgstr "アラームのコマンド"
 
-#: ../src/plugins/batt/batt.c:882
+#: ../src/plugins/batt/batt.c:885
 msgid "Alarm time (minutes left)"
 msgstr "アラームの時間 (分単位で)"
 
-#: ../src/plugins/batt/batt.c:883
+#: ../src/plugins/batt/batt.c:886
 msgid "Background color"
 msgstr "背景色"
 
-#: ../src/plugins/batt/batt.c:884
+#: ../src/plugins/batt/batt.c:887
 msgid "Charging color 1"
 msgstr "残量の色 1"
 
-#: ../src/plugins/batt/batt.c:885
+#: ../src/plugins/batt/batt.c:888
 msgid "Charging color 2"
 msgstr "残量の色 2"
 
-#: ../src/plugins/batt/batt.c:886
+#: ../src/plugins/batt/batt.c:889
 msgid "Discharging color 1"
 msgstr "放電の色 1"
 
-#: ../src/plugins/batt/batt.c:887
+#: ../src/plugins/batt/batt.c:890
 msgid "Discharging color 2"
 msgstr "放電の色 2"
 
-#: ../src/plugins/batt/batt.c:888
+#: ../src/plugins/batt/batt.c:891
 msgid "Border width"
 msgstr "境界の幅"
 
-#: ../src/plugins/batt/batt.c:919
+#: ../src/plugins/batt/batt.c:922
 msgid "Battery Monitor"
 msgstr "バッテリモニタ"
 
-#: ../src/plugins/batt/batt.c:921
+#: ../src/plugins/batt/batt.c:924
 msgid "Display battery status using ACPI"
 msgstr "バッテリの状態を ACPI で表示します"
 
