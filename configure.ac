@@ -308,7 +308,7 @@ AM_GNU_GETTEXT_VERSION(0.14.1)
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package.])
 
-ALL_LINGUAS="zh_TW cs ko hu sk pl fr pt_BR fi de es zh_CN ru pt_PT et it ar sv da ja"
+ALL_LINGUAS="ar cs da de es et eu fa fi fr gl hu id it ja ko lt ml nb nl nn pl pt pt_BR ru sk sv uk vi zh_CN zh_TW"
 AM_GLIB_GNU_GETTEXT
 
 AC_CONFIG_FILES([
