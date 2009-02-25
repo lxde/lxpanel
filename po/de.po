@@ -8,13 +8,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-02-09 01:49+0100\n"
-"PO-Revision-Date: 2008-08-11 11:23+0100\n"
-"Last-Translator: Mario Blättermann <mario.blaettermann@t-online.de>\n"
+"PO-Revision-Date: 2009-02-25 02:09+0100\n"
+"Last-Translator: Christoph Wickert <christoph.wickert@googlemail.com>\n"
 "Language-Team: Deutsch <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 1.1.0\n"
 "X-Poedit-Language: German\n"
 "X-Poedit-Country: GERMANY\n"
 
@@ -194,13 +195,12 @@ msgid "Logout command is not set"
 msgstr "Abmeldebefehl ist nicht definiert"
 
 #: ../src/configurator.c:1100 ../src/configurator.c:1180
-#, fuzzy
 msgid "Select a file"
 msgstr "Bilddatei auswählen"
 
 #: ../src/configurator.c:1198
 msgid "_Browse"
-msgstr ""
+msgstr "A_uswählen "
 
 #: ../src/panel.c:628
 msgid "Left"
@@ -262,7 +262,7 @@ msgstr "Panel"
 #: ../src/panel.c:790
 #, c-format
 msgid "\"%s\" Settings"
-msgstr "\"%s\" Einstellungen"
+msgstr "\"%s\"-Einstellungen"
 
 #: ../src/panel.c:1248
 #, c-format
@@ -361,9 +361,8 @@ msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Arbeitsflächennummer anzeigen"
 
 #: ../src/plugins/image.c:177
-#, fuzzy
 msgid "Display Image and Tooltip"
-msgstr "Digitale Uhr und Tooltip anzeigen"
+msgstr "Bild und Minihilfe anzeigen"
 
 #: ../src/plugins/launchbar.c:146
 msgid "Add Button"
@@ -428,7 +427,7 @@ msgstr "Alle Arbeitsflächen"
 
 #: ../src/plugins/taskbar.c:1433
 msgid "Move to Workspace"
-msgstr "Verschieben nach Arbeitsfläche"
+msgstr "Verschieben auf Arbeitsfläche"
 
 #. we want this item to be farest from mouse pointer
 #: ../src/plugins/taskbar.c:1441
@@ -437,7 +436,7 @@ msgstr "Fenster schließen"
 
 #: ../src/plugins/taskbar.c:1681
 msgid "Show tooltips"
-msgstr "Tooltips anzeigen"
+msgstr "Minihilfen anzeigen"
 
 #: ../src/plugins/taskbar.c:1682
 msgid "Icons only"
@@ -484,12 +483,13 @@ msgid "Task Bar (Window List)"
 msgstr "Taskbar (Fensterliste)"
 
 #: ../src/plugins/taskbar.c:1771
+#, fuzzy
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
-"Die Taskbar zeigt alle geöffneten Fenster, erlaubt das Minimieren oder "
-"Aktivieren"
+"Die Fensterliste zeigt alle geöffneten Fenster und erlaubt das Minimieren "
+"oder Aktivieren"
 
 #: ../src/plugins/dclock.c:279
 msgid "Clock Format"
@@ -497,7 +497,7 @@ msgstr "Zeitformat"
 
 #: ../src/plugins/dclock.c:280
 msgid "Tooltip Format"
-msgstr "Tooltip-Format"
+msgstr "Minihilfe-Format"
 
 #: ../src/plugins/dclock.c:281
 msgid "Action"
@@ -513,7 +513,7 @@ msgstr "Digitale Uhr"
 
 #: ../src/plugins/dclock.c:319
 msgid "Display Digital clock and Tooltip"
-msgstr "Digitale Uhr und Tooltip anzeigen"
+msgstr "Digitale Uhr und Minihilfe anzeigen"
 
 #.
 #. item = gtk_menu_item_new_with_label(_("Add to desktop panel"));
@@ -545,7 +545,7 @@ msgstr "Menü anzeigen"
 #: ../src/plugins/netstatus/glade-support.c:115
 #, c-format
 msgid "Couldn't find pixmap file: %s"
-msgstr ""
+msgstr "Bilddatei konnte nicht gefunden werden: %s"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
@@ -614,7 +614,7 @@ msgstr "Empfangen:"
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:403
 msgid "Scope:"
-msgstr "Scope:"
+msgstr "Bandbreite:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:239
@@ -634,7 +634,7 @@ msgstr "Subnetzmaske:"
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:484
 msgid "Support"
-msgstr "Support"
+msgstr "Unterstützung"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:477
@@ -647,13 +647,12 @@ msgid "_Name:"
 msgstr "_Name:"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:148
-#, fuzzy
 msgid "Name"
-msgstr "_Name:"
+msgstr "Name"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:149
 msgid "The interface name"
-msgstr ""
+msgstr "Name der Schnittstelle"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:156
 #, fuzzy
@@ -662,12 +661,11 @@ msgstr "Status:"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:157
 msgid "The interface state"
-msgstr ""
+msgstr "Status der Schnittstelle"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:165
-#, fuzzy
 msgid "Stats"
-msgstr "Status:"
+msgstr "Statistik:"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:166
 msgid "The interface packets/bytes statistics"
@@ -694,7 +692,7 @@ msgstr ""
 #: ../src/plugins/netstatus/netstatus-iface.c:191
 #: ../src/plugins/netstatus/netstatus-util.c:167
 msgid "Error"
-msgstr ""
+msgstr "Fehler"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:192
 #, fuzzy
@@ -772,8 +770,9 @@ msgid "Generic X.25"
 msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:930
+#, fuzzy
 msgid "Point-to-Point Protocol"
-msgstr ""
+msgstr "Punkt-zu-Punkt-Protokoll"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:936
 msgid "(Cisco)-HDLC"
@@ -826,9 +825,9 @@ msgid "SIOCGIFCONF error: %s"
 msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:1248
-#, fuzzy, c-format
+#, c-format
 msgid "No network devices found"
-msgstr "Kein Akku gefunden"
+msgstr "Keine Netzwerkgeräte gefunden"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:180
 #, c-format
@@ -890,18 +889,16 @@ msgid "Idle"
 msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-util.c:158
-#, fuzzy
 msgid "Sending"
-msgstr "Einstellungen"
+msgstr "Senden"
 
 #: ../src/plugins/netstatus/netstatus-util.c:161
-#, fuzzy
 msgid "Receiving"
 msgstr "Empfangen"
 
 #: ../src/plugins/netstatus/netstatus-util.c:164
 msgid "Sending/Receiving"
-msgstr ""
+msgstr "Senden/Empfangen"
 
 #: ../src/plugins/separator.c:103
 msgid "Separator"
@@ -941,6 +938,8 @@ msgid ""
 "Allows you to switch the keyboard layout and\n"
 "displays the currently selected layout."
 msgstr ""
+"Erlaubt die Tastaturbelegung zu wechseln und zeigt die aktuell gewählte "
+"Belegung an."
 
 #: ../src/plugins/xkb/xkb-plugin.c:252
 msgid "Other plugins available here"
@@ -952,15 +951,15 @@ msgstr ""
 
 #: ../src/plugins/xkb/xkb-plugin.c:398
 msgid "Show layout as"
-msgstr ""
+msgstr "Belegung anzeigen als"
 
 #: ../src/plugins/xkb/xkb-plugin.c:413
 msgid "image"
-msgstr ""
+msgstr "Bild"
 
 #: ../src/plugins/xkb/xkb-plugin.c:414
 msgid "text"
-msgstr ""
+msgstr "Text"
 
 #: ../src/plugins/xkb/xkb-plugin.c:418
 msgid "Per application settings"
@@ -1012,26 +1011,25 @@ msgstr "Verzeichnisbaum über das Menü durchsuchen (Autor: PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:299
 msgid "Normal"
-msgstr ""
+msgstr "Normal"
 
 #: ../src/plugins/thermal/thermal.c:300
 #, fuzzy
 msgid "Warning1"
-msgstr "laden"
+msgstr "Warnung1"
 
 #: ../src/plugins/thermal/thermal.c:301
 #, fuzzy
 msgid "Warning2"
-msgstr "laden"
+msgstr "Warnung2"
 
 #: ../src/plugins/thermal/thermal.c:302
 msgid "Automatic sensor location"
 msgstr ""
 
 #: ../src/plugins/thermal/thermal.c:303
-#, fuzzy
 msgid "Sensor"
-msgstr "Wiederherstellen"
+msgstr "Sensor"
 
 #: ../src/plugins/thermal/thermal.c:304
 msgid "Automatic temperature levels"
@@ -1046,9 +1044,8 @@ msgid "Warning2 Temperatur"
 msgstr ""
 
 #: ../src/plugins/thermal/thermal.c:348
-#, fuzzy
 msgid "Temperature Monitor"
-msgstr "Netzwerkmonitor"
+msgstr "Temperaturmonitor"
 
 #: ../src/plugins/thermal/thermal.c:350
 msgid "Display system temperature, by kesler.daniel@gmail.com"
@@ -1058,12 +1055,12 @@ msgstr ""
 #: ../src/plugins/volume/volume.c:305
 #: ../src/plugins/volumealsa/volumealsa.c:399
 msgid "Volume control"
-msgstr "Lautstärke"
+msgstr "Lautstärkeregler"
 
 #: ../src/plugins/volume/volume.c:317
 #: ../src/plugins/volumealsa/volumealsa.c:413
 msgid "Volume Control"
-msgstr "Lautstärke"
+msgstr "Lautstärkeregler"
 
 #. create frame
 #: ../src/plugins/volume/volume-impl.c:109
@@ -1081,7 +1078,7 @@ msgstr "<Versteckter Zugangspunkt>"
 
 #: ../src/plugins/netstat/netstat.c:201
 msgid "Wireless Networks not found in range"
-msgstr "Keine drahtlosen Netzwerke erreichbar"
+msgstr "Keine drahtlosen Netzwerke in Reichweite"
 
 #. Repair
 #: ../src/plugins/netstat/netstat.c:235
@@ -1091,7 +1088,7 @@ msgstr "Reparieren"
 #. interface down
 #: ../src/plugins/netstat/netstat.c:240
 msgid "Disable"
-msgstr "Abschalten"
+msgstr "Deaktivieren"
 
 #: ../src/plugins/netstat/netstat.c:299
 msgid "Wireless Connection has no connectivity"
@@ -1176,11 +1173,11 @@ msgstr ""
 
 #: ../src/plugins/netstat/passwd_gui.c:99
 msgid "Encryption Key:"
-msgstr "Schlüssel."
+msgstr "Schlüssel:"
 
 #: ../src/plugins/netstatus/netstatus.c:163
 msgid "Interface to monitor"
-msgstr "Schnittstelle zum Monitor"
+msgstr "Schnittstelle zum Überwachen"
 
 #: ../src/plugins/netstatus/netstatus.c:164
 msgid "Config tool"
@@ -1244,7 +1241,7 @@ msgstr "Schnittstelle"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:812
 msgid "The current interface the icon is monitoring."
-msgstr "Die aktuelle Schnittstelle zeigt das Symbol an."
+msgstr "Die Schnittstelle, die vom Symbol zur Zeit überwacht wird."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:819
 msgid "Orientation"
@@ -1256,11 +1253,11 @@ msgstr "Orientierung des Systembereichs"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:828
 msgid "Tooltips Enabled"
-msgstr "Tooltips eingeschaltet"
+msgstr "Minihilfen eingeschaltet"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:829
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr "Tooltips ein- oder ausgeschaltet"
+msgstr "Minihilfen ein- oder ausgeschaltet"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:836
 msgid "Show Signal"
@@ -1277,7 +1274,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Bitte kontaktieren Sie Ihren Systemverwalter zwecks Lösung des folgenden "
+"Bitte kontaktieren Sie Ihren Systemverwalter zur Lösung des folgenden "
 "Problems:\n"
 "\n"
 "%s"
