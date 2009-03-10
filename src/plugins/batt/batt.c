@@ -545,7 +545,7 @@ static int update_timout(batt *b) {
     {
         /* update state of batteries */
         for( l = b->batteries; l; l = l->next )
-            get_batt_info( (batt_info*)l->data, b->use_sysfs );
+            get_batt_state( (batt_info*)l->data, b->use_sysfs );
         b->state_elapsed_time = 0;
     }
     /* check the capacity of batteries every 1 hour */
