@@ -1,5 +1,5 @@
-# Brazilian Portuguese translation of lxpanel
-# Copyright (C) 2006 lxde team
+# Brazilian Portuguese translation of lxpanel package.
+# Copyright (C) 2006 The LXDE Team.
 # This file is distributed under the same license as the lxpanel package.
 # Fábio Antunes <fabio.antunes@hotmail.com>, 2008.
 # Henrique P. Machado <zehrique@gmail.com>, 2008.
@@ -7,11 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-09 01:49+0100\n"
-"PO-Revision-Date: 2009-01-08 18:53-0300\n"
+"POT-Creation-Date: 2009-03-12 08:48-0400\n"
+"PO-Revision-Date: 2009-03-12 01:38-0300\n"
 "Last-Translator: Henrique P. Machado <zehrique@gmail.com>\n"
-"Language-Team: Projeto de Documentação do Linux <ldp-br@bazar2.conectiva.com."
-"br>\n"
+"Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -60,6 +59,9 @@ msgid ""
 "Pixels\n"
 "% Percent"
 msgstr ""
+"Dinâmico\n"
+"Pixeis\n"
+"% Porcento"
 
 #: ../data/ui/panel-pref.glade.h:14
 msgid "Edge:"
@@ -93,6 +95,9 @@ msgid ""
 "Center\n"
 "Right"
 msgstr ""
+"Esquerda\n"
+"Centro\n"
+"Direita"
 
 #: ../data/ui/panel-pref.glade.h:23
 msgid ""
@@ -101,6 +106,10 @@ msgid ""
 "Top\n"
 "Bottom"
 msgstr ""
+"Esquerda\n"
+"Direita\n"
+"Superior\n"
+"Inferior"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Logout Command:"
@@ -108,7 +117,7 @@ msgstr "Comando de saída:"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "Make window managers treat the panel as dock"
-msgstr "Fazer gerenciadores de janela reconhecerem este painel como dock"
+msgstr "Fazer gerenciadores de janela tratarem este painel como dock"
 
 #: ../data/ui/panel-pref.glade.h:29
 msgid "Margin:"
@@ -128,11 +137,11 @@ msgstr "Preferências do Painel"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "Pixels"
-msgstr "Pixels"
+msgstr "Pixeis"
 
 #: ../data/ui/panel-pref.glade.h:34
 msgid "Reserve space, and not covered by maximized windows"
-msgstr "Reservar espaço e não cobrir por janelas maximizadas"
+msgstr "Reservar espaço e não coberto por janelas maximizadas"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Select an image file"
@@ -148,49 +157,47 @@ msgstr "Tonalidade de cor:"
 
 #: ../data/ui/panel-pref.glade.h:38
 msgid "Width:"
-msgstr ""
+msgstr "Largura:"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:250
 msgid "Run"
-msgstr ""
+msgstr "Executar"
 
 #: ../src/configurator.c:56
 msgid "Restart"
-msgstr ""
+msgstr "Reiniciar"
 
 #: ../src/configurator.c:57
 msgid "Logout"
-msgstr ""
+msgstr "Desconectar"
 
 #: ../src/configurator.c:403
 msgid "Currently loaded plugins"
-msgstr ""
+msgstr "Plug-ins atualmente carregados"
 
 #: ../src/configurator.c:412
 msgid "Stretch"
-msgstr ""
+msgstr "Esticar"
 
 #: ../src/configurator.c:510 ../src/panel.c:520
 msgid "Add plugin to panel"
-msgstr ""
+msgstr "Adicionar plug-in ao painel"
 
 #: ../src/configurator.c:537 ../src/panel.c:543
 msgid "Available plugins"
-msgstr ""
+msgstr "Plug-ins disponíveis"
 
 #: ../src/configurator.c:1051
-#, fuzzy
 msgid "Logout command is not set"
-msgstr "Comando de saída:"
+msgstr "Comando para desconectar não está definido"
 
 #: ../src/configurator.c:1100 ../src/configurator.c:1180
-#, fuzzy
 msgid "Select a file"
-msgstr "Selecionar arquivo de imagem"
+msgstr "Selecionar um arquivo"
 
 #: ../src/configurator.c:1198
 msgid "_Browse"
-msgstr ""
+msgstr "_Navegar"
 
 #: ../src/panel.c:628
 msgid "Left"
@@ -202,7 +209,7 @@ msgstr "Direita"
 
 #: ../src/panel.c:628
 msgid "Top"
-msgstr "Topo"
+msgstr "Superior"
 
 #: ../src/panel.c:628
 msgid "Bottom"
@@ -210,103 +217,105 @@ msgstr "Inferior"
 
 #: ../src/panel.c:630 ../src/panel.c:756
 msgid "Create New Panel"
-msgstr ""
+msgstr "Criar novo painel"
 
 #: ../src/panel.c:636
 msgid "Where to put the panel?"
-msgstr ""
+msgstr "Onde colocar o painel?"
 
 #: ../src/panel.c:694
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
+"Excluir realmente este painel?\n"
+"<b>Aviso: Esta ação não pode ser refeita.</b>"
 
 #: ../src/panel.c:695
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmar"
 
 #: ../src/panel.c:730
 msgid "Add / Remove Panel Items"
-msgstr ""
+msgstr "Adicionar/Remover itens do painel"
 
 #: ../src/panel.c:738
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr ""
+msgstr "Remover \"%s\" do painel"
 
 #: ../src/panel.c:750
-#, fuzzy
 msgid "Panel Settings"
-msgstr "Miniaplicativos do Painel"
+msgstr "Configurações do painel"
 
 #: ../src/panel.c:767
 msgid "Delete This Panel"
-msgstr ""
+msgstr "Excluir este painel"
 
 #: ../src/panel.c:777
 msgid "Panel"
-msgstr ""
+msgstr "Painel"
 
 #: ../src/panel.c:790
 #, c-format
 msgid "\"%s\" Settings"
-msgstr ""
+msgstr "Configurações de \"%s\""
 
 #: ../src/panel.c:1248
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr ""
+msgstr "lxpanel %s - Painel leve em GTK2+ para ambientes UNIX\n"
 
 #: ../src/panel.c:1249
 #, c-format
 msgid "Command line options:\n"
-msgstr ""
+msgstr "Opções de linha de comando:\n"
 
 #: ../src/panel.c:1250
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr ""
+msgstr " --help       -- imprime esta ajuda e sai\n"
 
 #: ../src/panel.c:1251
 #, c-format
 msgid " --version   -- print version and exit\n"
-msgstr ""
+msgstr " --version    -- imprime a versão e sai\n"
 
 #: ../src/panel.c:1252
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
+" --log <número>  -- define o nível de log 0-5. 0 - nenhum 5 - detalhado\n"
 
 #: ../src/panel.c:1253
 #, c-format
 msgid " --configure -- launch configuration utility\n"
-msgstr ""
+msgstr " --configure  -- lança o utilitário de configuração\n"
 
 #: ../src/panel.c:1254
 #, c-format
 msgid " --profile name -- use specified profile\n"
-msgstr ""
+msgstr " --profile name  -- usa o perfil especificado\n"
 
 #: ../src/panel.c:1256
 #, c-format
 msgid " -h  -- same as --help\n"
-msgstr ""
+msgstr " -h   -- o mesmo que --help\n"
 
 #: ../src/panel.c:1257
 #, c-format
 msgid " -p  -- same as --profile\n"
-msgstr ""
+msgstr " -p  -- o mesmo que --profile\n"
 
 #: ../src/panel.c:1258
 #, c-format
 msgid " -v  -- same as --version\n"
-msgstr ""
+msgstr " -v  - o mesmo que --version\n"
 
 #: ../src/panel.c:1259
 #, c-format
 msgid " -C  -- same as --configure\n"
-msgstr ""
+msgstr " -C  -- o mesmo que --configure\n"
 
 #: ../src/panel.c:1260
 #, c-format
@@ -315,46 +324,49 @@ msgid ""
 "Visit http://lxde.org/ for detail.\n"
 "\n"
 msgstr ""
+"\n"
+"Visite http://lxde.org/ para detalhes.\n"
+"\n"
 
 #: ../src/gtk-run.c:264
 msgid "Enter the command you want to execute:"
-msgstr ""
+msgstr "Digite o comando que você quer executar:"
 
 #: ../src/systray/tray.c:210
 msgid "System Tray"
-msgstr ""
+msgstr "Área de notificação"
 
 #: ../src/systray/tray.c:212
 msgid "Old KDE/GNOME Tray"
-msgstr ""
+msgstr "Antigo notificador KDE/GNOME"
 
 #: ../src/plugins/cpu/cpu.c:226
 msgid "CPU Usage Monitor"
-msgstr ""
+msgstr "Monitor de uso da CPU"
 
 #: ../src/plugins/cpu/cpu.c:228
 msgid "Display CPU usage"
-msgstr ""
+msgstr "Exibe o uso da CPU"
 
 #: ../src/plugins/deskno/deskno.c:99 ../src/plugins/deskno/deskno2.c:129
 msgid "Desktop No / Workspace Name"
-msgstr ""
+msgstr "Área de trabalho Nº / Nome do espaço de trabalho"
 
 #: ../src/plugins/deskno/deskno.c:101 ../src/plugins/deskno/deskno2.c:131
 msgid "Display workspace number, by cmeury@users.sf.net"
-msgstr ""
+msgstr "Mostra o número do espaço de trabalho. Por cmeury@users.sf.net"
 
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
-msgstr ""
+msgstr "Mostra imagem e dica de ferramenta"
 
 #: ../src/plugins/launchbar.c:146
 msgid "Add Button"
-msgstr ""
+msgstr "Botão adicionar"
 
 #: ../src/plugins/launchbar.c:148
 msgid "Button Properties"
-msgstr ""
+msgstr "Propriedades do botão"
 
 #.
 #. title = g_strdup_printf( _("Remove \"%s\""), b-> );
@@ -362,7 +374,7 @@ msgstr ""
 #.
 #: ../src/plugins/launchbar.c:154
 msgid "Remove Button"
-msgstr ""
+msgstr "Remover botão"
 
 #. FIXME: We should have a better interface for this in the fututure.
 #. 1. We can borrow the menu from menu plugin (PtkAppMenu).
@@ -370,132 +382,134 @@ msgstr ""
 #.
 #: ../src/plugins/launchbar.c:516
 msgid "Select Application"
-msgstr ""
+msgstr "Selecionar aplicativo"
 
 #: ../src/plugins/launchbar.c:670
-#, fuzzy
 msgid "Buttons"
-msgstr "Inferior"
+msgstr "Botões"
 
 #: ../src/plugins/launchbar.c:787
 msgid "Application Launch Bar"
-msgstr ""
+msgstr "Barra de lançamento de aplicativos"
 
 #: ../src/plugins/launchbar.c:789
 msgid "Bar with buttons to launch application"
-msgstr ""
+msgstr "Barra com botões para lançar aplicativos"
 
 #: ../src/plugins/taskbar.c:1397
 msgid "Raise"
-msgstr ""
+msgstr "Mostrar"
 
 #: ../src/plugins/taskbar.c:1401
 msgid "Restore"
-msgstr ""
+msgstr "Restaurar"
 
 #: ../src/plugins/taskbar.c:1405
 msgid "Maximize"
-msgstr ""
+msgstr "Maximizar"
 
+# N.T.: O termo correto é este mesmo? Iconificar?
 #: ../src/plugins/taskbar.c:1409
 msgid "Iconify"
-msgstr ""
+msgstr "Iconificar"
 
 #: ../src/plugins/taskbar.c:1418
 #, c-format
 msgid "Workspace %d"
-msgstr ""
+msgstr "Espaço de trabalho %d"
 
 #: ../src/plugins/taskbar.c:1426
 msgid "All workspaces"
-msgstr ""
+msgstr "Todos os espaços de trabalho"
 
 #: ../src/plugins/taskbar.c:1433
 msgid "Move to Workspace"
-msgstr ""
+msgstr "Mover para o espaço de trabalho"
 
 #. we want this item to be farest from mouse pointer
 #: ../src/plugins/taskbar.c:1441
 msgid "Close Window"
-msgstr ""
+msgstr "Fechar janela"
 
 #: ../src/plugins/taskbar.c:1681
 msgid "Show tooltips"
-msgstr ""
+msgstr "Mostrar dicas de ferramentas"
 
 #: ../src/plugins/taskbar.c:1682
 msgid "Icons only"
-msgstr ""
+msgstr "Somente ícones"
 
 #: ../src/plugins/taskbar.c:1683
 msgid "Flat Buttons"
-msgstr ""
+msgstr "Botões planos"
 
 #: ../src/plugins/taskbar.c:1684
 msgid "Accept SkipPager"
-msgstr ""
+msgstr "Aceitar SkipPager"
 
 #: ../src/plugins/taskbar.c:1685
 msgid "Show Iconified windows"
-msgstr ""
+msgstr "Mostrar janelas iconificadas"
 
 #: ../src/plugins/taskbar.c:1686
 msgid "Show mapped windows"
-msgstr ""
+msgstr "Mostrar janelas mapeadas"
 
 #: ../src/plugins/taskbar.c:1687
 msgid "Show windows from all desktops"
-msgstr ""
+msgstr "Mostrar janelas de todas as áreas de trabalho"
 
 #: ../src/plugins/taskbar.c:1688
 msgid "Use mouse wheel"
-msgstr ""
+msgstr "Usar a roda do mouse"
 
 #: ../src/plugins/taskbar.c:1689
 msgid "Flash when there is any window requiring attention"
-msgstr ""
+msgstr "Piscar quando há uma janela requisitando atenção"
 
 #: ../src/plugins/taskbar.c:1690
 msgid "Max width of task button"
-msgstr ""
+msgstr "Largura máxima do botão de tarefas"
 
 #: ../src/plugins/taskbar.c:1691
 msgid "Spacing"
-msgstr ""
+msgstr "Espaçamento"
 
 #: ../src/plugins/taskbar.c:1769
 msgid "Task Bar (Window List)"
-msgstr ""
+msgstr "Barra de tarefas (Lista de janelas)"
 
 #: ../src/plugins/taskbar.c:1771
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
+"A barra de tarefas mostra todas as janelas abertas e permite iconificá-las, "
+"enrolar ou obter o foco"
 
 #: ../src/plugins/dclock.c:279
 msgid "Clock Format"
-msgstr ""
+msgstr "Formato do relógio"
 
 #: ../src/plugins/dclock.c:280
 msgid "Tooltip Format"
-msgstr ""
+msgstr "Formato de Dica de ferramentas"
 
 #: ../src/plugins/dclock.c:281
 msgid "Action"
-msgstr ""
+msgstr "Ação"
 
 #: ../src/plugins/dclock.c:282
 msgid "Bold font"
-msgstr ""
+msgstr "Fonte em negrito"
 
 #: ../src/plugins/dclock.c:317
 msgid "Digital Clock"
-msgstr ""
+msgstr "Relógio digital"
 
 #: ../src/plugins/dclock.c:319
 msgid "Display Digital clock and Tooltip"
-msgstr ""
+msgstr "Exibir Relógio digital e Dicas de ferramentas"
 
 #.
 #. item = gtk_menu_item_new_with_label(_("Add to desktop panel"));
@@ -504,324 +518,320 @@ msgstr ""
 #.
 #: ../src/plugins/menu.c:371
 msgid "Add to desktop"
-msgstr ""
+msgstr "Adicionar à área de trabalho"
 
 #: ../src/plugins/menu.c:381
-#, fuzzy
 msgid "Properties"
-msgstr "<b>Propriedades</b>"
+msgstr "Propriedades"
 
 #: ../src/plugins/menu.c:1031
 msgid "Icon"
-msgstr ""
+msgstr "Ícone"
 
 #: ../src/plugins/menu.c:1042
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 #: ../src/plugins/menu.c:1044
 msgid "Provide Menu"
-msgstr ""
+msgstr "Menu prover"
 
 #: ../src/plugins/netstatus/glade-support.c:91
 #: ../src/plugins/netstatus/glade-support.c:115
 #, c-format
 msgid "Couldn't find pixmap file: %s"
-msgstr ""
+msgstr "Não foi possível encontrar o arquivo de pixmap: %s"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
 #, no-c-format
 msgid "0%"
-msgstr ""
+msgstr "0%"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:194
-#, fuzzy
 msgid "<b>Activity</b>"
-msgstr "<b>Fonte</b>"
+msgstr "<b>Atividade</b>"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:131
-#, fuzzy
 msgid "<b>Connection</b>"
-msgstr "<b>Posição</b>"
+msgstr "<b>Conexão</b>"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:289
 msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr ""
+msgstr "<b>Protocolo de Internet (IPv4)</b>"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:376
 msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr ""
+msgstr "<b>Protocolo de Internet (IPv6)</b>"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:432
 msgid "<b>Network Device</b>"
-msgstr ""
+msgstr "<b>Dispositivo de rede</b>"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:250
-#, fuzzy
 msgid "<b>Signal Strength</b>"
-msgstr "<b>Tamanho</b>"
+msgstr "<b>Potência do sinal</b>"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:309
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:396
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:452
 msgid "Address:"
-msgstr ""
+msgstr "Endereço:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
 #: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
 msgid "Broadcast:"
-msgstr ""
+msgstr "Broadcast:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:513
 msgid "Con_figure"
-msgstr ""
+msgstr "Con_figurar"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:316
 msgid "Destination:"
-msgstr ""
+msgstr "Destino:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:232
 msgid "Received:"
-msgstr ""
+msgstr "Recebido:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:403
 msgid "Scope:"
-msgstr ""
+msgstr "Escopo:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:239
 msgid "Sent:"
-msgstr ""
+msgstr "Enviado:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:155
 msgid "Status:"
-msgstr ""
+msgstr "Estado:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
 msgid "Subnet Mask:"
-msgstr ""
+msgstr "Máscara de sub-rede:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:484
 msgid "Support"
-msgstr ""
+msgstr "Suporte"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:477
 msgid "Type:"
-msgstr ""
+msgstr "Tipo:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:171
 msgid "_Name:"
-msgstr ""
+msgstr "_Nome:"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:148
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:149
 msgid "The interface name"
-msgstr ""
+msgstr "O nome da interface"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:156
 msgid "State"
-msgstr ""
+msgstr "Estado"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:157
 msgid "The interface state"
-msgstr ""
+msgstr "O estado da interface"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:165
 msgid "Stats"
-msgstr ""
+msgstr "Estados"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:166
 msgid "The interface packets/bytes statistics"
-msgstr ""
+msgstr "Estatísticas dos pacotes/bytes da interface"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:173
 #: ../src/plugins/netstat/netstat.c:315
 msgid "Wireless"
-msgstr ""
+msgstr "Sem fio"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:174
 msgid "Whether the interface is a wireless interface"
-msgstr ""
+msgstr "Se a interface é uma interface sem fio"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:181
 msgid "Signal"
-msgstr ""
+msgstr "Sinal"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:182
 msgid "Wireless signal strength percentage"
-msgstr ""
+msgstr "Porcentagem da potência do sinal sem fio"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:191
 #: ../src/plugins/netstatus/netstatus-util.c:167
 msgid "Error"
-msgstr ""
+msgstr "Erro"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:192
 msgid "The current error condition"
-msgstr ""
+msgstr "A condição do erro atual"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:434
 #: ../src/plugins/netstatus/netstatus-iface.c:1197
 #, c-format
 msgid "Unable to open socket: %s"
-msgstr ""
+msgstr "Não foi possível abrir socket: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:496
 #: ../src/plugins/netstatus/netstatus-iface.c:1223
 #, c-format
 msgid "SIOCGIFFLAGS error: %s"
-msgstr ""
+msgstr "Erro SIOCGIFFLAGS: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:870
 msgid "AMPR NET/ROM"
-msgstr ""
+msgstr "AMPR NET/ROM"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:873
 msgid "Ethernet"
-msgstr ""
+msgstr "Ethernet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:879
 msgid "AMPR AX.25"
-msgstr ""
+msgstr "AMPR AX.25"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:888
 #: ../src/plugins/netstatus/netstatus-iface.c:1008
 msgid "16/4 Mbps Token Ring"
-msgstr ""
+msgstr "16/4 Mbps Token Ring"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:891
 msgid "ARCnet"
-msgstr ""
+msgstr "ARCnet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:897
 msgid "Frame Relay DLCI"
-msgstr ""
+msgstr "DLCI Frame Relay"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:903
 msgid "Metricom Starmode IP"
-msgstr ""
+msgstr "Metricom Starmode IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:906
 msgid "Serial Line IP"
-msgstr ""
+msgstr "IP de linha serial"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:909
 msgid "VJ Serial Line IP"
-msgstr ""
+msgstr "IP de linha serial VJ"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:912
 msgid "6-bit Serial Line IP"
-msgstr ""
+msgstr "IP de linha serial 6-bit"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:915
 msgid "VJ 6-bit Serial Line IP"
-msgstr ""
+msgstr "IP de linha serial VJ 6-bit"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:921
 msgid "Adaptive Serial Line IP"
-msgstr ""
+msgstr "IP de linha serial Adaptive"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:924
 msgid "AMPR ROSE"
-msgstr ""
+msgstr "AMPR ROSE"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:927
 msgid "Generic X.25"
-msgstr ""
+msgstr "X.25 Genérica"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:930
 msgid "Point-to-Point Protocol"
-msgstr ""
+msgstr "Protocolo Ponto-a-ponto"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:936
 msgid "(Cisco)-HDLC"
-msgstr ""
+msgstr "(Cisco)-HDLC"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:939
 msgid "LAPB"
-msgstr ""
+msgstr "LAPB"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:948
 msgid "IPIP Tunnel"
-msgstr ""
+msgstr "Tunel IPIP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:954
 msgid "Frame Relay Access Device"
-msgstr ""
+msgstr "Dispositivo de acesso Frame Relay"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:960
 msgid "Local Loopback"
-msgstr ""
+msgstr "Interface local"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:966
 msgid "Fiber Distributed Data Interface"
-msgstr ""
+msgstr "Interface de Dados Distribuidos em Fibra (FDDI)"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:972
 msgid "IPv6-in-IPv4"
-msgstr ""
+msgstr "IPv6-em-IPv4"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:984
 msgid "HIPPI"
-msgstr ""
+msgstr "HIPPI"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:987
 msgid "Ash"
-msgstr ""
+msgstr "Ash"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:990
 msgid "Econet"
-msgstr ""
+msgstr "Econet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:993
 msgid "IrLAP"
-msgstr ""
+msgstr "IrLAP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:1155
 #, c-format
 msgid "SIOCGIFCONF error: %s"
-msgstr ""
+msgstr "Erro SIOCGIFCONF: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:1248
 #, c-format
 msgid "No network devices found"
-msgstr ""
+msgstr "Nenhum dispositivo de rede encontrado"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:180
 #, c-format
 msgid "Cannot open /proc/net/dev: %s"
-msgstr ""
+msgstr "Não foi possível abrir /proc/net/dev: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:189
 msgid "Could not parse /proc/net/dev. Unknown format."
-msgstr ""
+msgstr "Não foi possível analisar /proc/net/dev. Formato desconhecido."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:204
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:330
 #, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr ""
+msgstr "Não foi possível analisar o nome da interface de '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
@@ -830,310 +840,317 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
+"Não foi possível analisar estatísticas de interface de '%s'. prx_idx = %d; "
+"ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr ""
+msgstr "Não foi possível analisar /proc/net/wireless. Formato desconhecido."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr ""
+msgstr "Não foi possível analisar detalhes sem fio de '%s'. link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
 msgid "Could not connect to interface, '%s'"
-msgstr ""
+msgstr "Não foi possível conectar à interface '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:420
 #, c-format
 msgid "Could not send ioctl to interface, '%s'"
-msgstr ""
+msgstr "Não foi possível enviar ioctl para a interface '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr ""
+msgstr "Não foi possível analisar a linha de comando '%s': %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr ""
+msgstr "Não foi possível analisar a saída do 'netstat'. Formato desconhecido."
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
-msgstr ""
+msgstr "Desconectado"
 
 #: ../src/plugins/netstatus/netstatus-util.c:155
 msgid "Idle"
-msgstr ""
+msgstr "Inativo"
 
 #: ../src/plugins/netstatus/netstatus-util.c:158
 msgid "Sending"
-msgstr ""
+msgstr "Enviando"
 
 #: ../src/plugins/netstatus/netstatus-util.c:161
 msgid "Receiving"
-msgstr ""
+msgstr "Recebendo"
 
 #: ../src/plugins/netstatus/netstatus-util.c:164
 msgid "Sending/Receiving"
-msgstr ""
+msgstr "Enviando/Recebendo"
 
 #: ../src/plugins/separator.c:103
 msgid "Separator"
-msgstr ""
+msgstr "Separador"
 
 #: ../src/plugins/separator.c:105
 msgid "Add a separator to the panel"
-msgstr ""
+msgstr "Adicionar um separador ao painel"
 
 #: ../src/plugins/pager.c:709
 msgid "Desktop Pager"
-msgstr ""
+msgstr "Paginador da área de trabalho"
 
 #: ../src/plugins/pager.c:711
 msgid "Simple pager plugin"
-msgstr ""
+msgstr "Plug-in paginador simples"
 
 #: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:892
 msgid "Size"
-msgstr ""
+msgstr "Tamanho"
 
 #: ../src/plugins/space.c:153
 msgid "<Space>"
-msgstr ""
+msgstr "<Espaço>"
 
 #: ../src/plugins/space.c:155
 msgid "Allocate space"
-msgstr ""
+msgstr "Reservar espaço"
 
 #: ../src/plugins/xkb/xkb-plugin.c:241
 msgid "Keyboard Layout Switcher"
-msgstr ""
+msgstr "Alternador de layout de teclado"
 
 #: ../src/plugins/xkb/xkb-plugin.c:247
 msgid ""
 "Allows you to switch the keyboard layout and\n"
 "displays the currently selected layout."
 msgstr ""
+"Permite que você alterne o layout do teclado e\n"
+"exiba o layout selecionado atualmente."
 
 #: ../src/plugins/xkb/xkb-plugin.c:252
 msgid "Other plugins available here"
-msgstr ""
+msgstr "Outros plug-ins disponíveis aqui"
 
 #: ../src/plugins/xkb/xkb-plugin.c:385
 msgid "Configure Keyboard Layout Switcher"
-msgstr ""
+msgstr "Configurar o Alternador de layout de teclados"
 
 #: ../src/plugins/xkb/xkb-plugin.c:398
 msgid "Show layout as"
-msgstr ""
+msgstr "Mostrar layout como"
 
 #: ../src/plugins/xkb/xkb-plugin.c:413
 msgid "image"
-msgstr ""
+msgstr "imagem"
 
 #: ../src/plugins/xkb/xkb-plugin.c:414
 msgid "text"
-msgstr ""
+msgstr "texto"
 
 #: ../src/plugins/xkb/xkb-plugin.c:418
 msgid "Per application settings"
-msgstr ""
+msgstr "Por configurações do aplicativo"
 
 #: ../src/plugins/xkb/xkb-plugin.c:432
 msgid "_Remember layout for each application"
-msgstr ""
+msgstr "_Lembrar o layout para cada aplicativo"
 
 #: ../src/plugins/xkb/xkb-plugin.c:441
 msgid "Default layout:"
-msgstr ""
+msgstr "Layout padrão:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:499
 msgid "Kayboard Layout switcher"
-msgstr ""
+msgstr "Alternador de layout de teclado"
 
 #: ../src/plugins/xkb/xkb-plugin.c:501
 msgid "Switch between available keyboard layouts"
-msgstr ""
+msgstr "Alterna entre os layouts de teclados disponíveis"
 
 #: ../src/plugins/wincmd.c:245
 msgid "Left click to iconify all windows. Middle click to shade them"
 msgstr ""
+"Clique esquerdo para iconificar todas as janelas. Clique botão do meio para "
+"enrolar"
 
 #: ../src/plugins/wincmd.c:274
 msgid "Minimize All Windows"
-msgstr ""
+msgstr "Minimizar todas as janelas"
 
 #: ../src/plugins/wincmd.c:276
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commnds are 1)toggle iconify and 2) toggle shade"
 msgstr ""
+"Envia comandos para todas as janelas da área de trabalho.\n"
+"Os comandos suportados são 1) alternar iconificado e 2) alternar enrolado"
 
 #: ../src/plugins/dirmenu.c:218
 msgid "Open in _Terminal"
-msgstr ""
+msgstr "Abrir no _Terminal"
 
 #: ../src/plugins/dirmenu.c:383
 msgid "Directory Menu"
-msgstr ""
+msgstr "Menu Diretório"
 
 #: ../src/plugins/dirmenu.c:385
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr ""
+msgstr "Navega a árvore de diretórios por um menu. (Autor: PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:299
 msgid "Normal"
-msgstr ""
+msgstr "Normal"
 
 #: ../src/plugins/thermal/thermal.c:300
 msgid "Warning1"
-msgstr ""
+msgstr "Atenção1"
 
 #: ../src/plugins/thermal/thermal.c:301
 msgid "Warning2"
-msgstr ""
+msgstr "Atenção2"
 
 #: ../src/plugins/thermal/thermal.c:302
 msgid "Automatic sensor location"
-msgstr ""
+msgstr "Localização automática do sensor"
 
 #: ../src/plugins/thermal/thermal.c:303
 msgid "Sensor"
-msgstr ""
+msgstr "Sensor"
 
 #: ../src/plugins/thermal/thermal.c:304
 msgid "Automatic temperature levels"
-msgstr ""
+msgstr "Níveis automáticos de temperatura"
 
 #: ../src/plugins/thermal/thermal.c:305
 msgid "Warning1 Temperatur"
-msgstr ""
+msgstr "Temperatura de Atenção1"
 
 #: ../src/plugins/thermal/thermal.c:306
 msgid "Warning2 Temperatur"
-msgstr ""
+msgstr "Temperatura de Atenção2"
 
 #: ../src/plugins/thermal/thermal.c:348
 msgid "Temperature Monitor"
-msgstr ""
+msgstr "Monitor de Temperatura"
 
 #: ../src/plugins/thermal/thermal.c:350
 msgid "Display system temperature, by kesler.daniel@gmail.com"
-msgstr ""
+msgstr "Exite o sistema de temperatura. Por kesler.daniel@gmail.com"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #: ../src/plugins/volume/volume.c:305
 #: ../src/plugins/volumealsa/volumealsa.c:399
 msgid "Volume control"
-msgstr ""
+msgstr "Controle de volume"
 
 #: ../src/plugins/volume/volume.c:317
 #: ../src/plugins/volumealsa/volumealsa.c:413
 msgid "Volume Control"
-msgstr ""
+msgstr "Controle de volume"
 
 #. create frame
 #: ../src/plugins/volume/volume-impl.c:109
 #: ../src/plugins/volumealsa/volumealsa.c:309
 msgid "Volume"
-msgstr ""
+msgstr "Volume"
 
 #: ../src/plugins/volumealsa/volumealsa.c:326
 msgid "Mute"
-msgstr ""
+msgstr "Mudo"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
-msgstr ""
+msgstr "<Ponto de acesso escondido>"
 
 #: ../src/plugins/netstat/netstat.c:201
 msgid "Wireless Networks not found in range"
-msgstr ""
+msgstr "Redes sem fio não encontradas na área"
 
 #. Repair
 #: ../src/plugins/netstat/netstat.c:235
 msgid "Repair"
-msgstr ""
+msgstr "Reparar"
 
 #. interface down
 #: ../src/plugins/netstat/netstat.c:240
 msgid "Disable"
-msgstr ""
+msgstr "Desabilitar"
 
 #: ../src/plugins/netstat/netstat.c:299
 msgid "Wireless Connection has no connectivity"
-msgstr ""
+msgstr "Conexão sem fio não tem conectividade"
 
 #: ../src/plugins/netstat/netstat.c:301
 msgid "Network cable is plugged out"
-msgstr ""
+msgstr "Cabo de rede está desconectado"
 
 #: ../src/plugins/netstat/netstat.c:303
 msgid "Connection has limited or no connectivity"
-msgstr ""
+msgstr "Conexão está limitada ou não há conectividade"
 
 #: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
-msgstr ""
+msgstr "Endereço IP:"
 
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Remote IP:"
-msgstr ""
+msgstr "IP remoto:"
 
 #: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
-msgstr ""
+msgstr "Máscara de rede:"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
-msgstr ""
+msgstr "Atividade"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
-#, fuzzy
 msgid "Sent"
-msgstr "Centro"
+msgstr "Enviado"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
-msgstr ""
+msgstr "Recebido"
 
 #: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
-msgstr ""
+msgstr "bytes"
 
 #: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
-msgstr ""
+msgstr "pacotes"
 
 #: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
-msgstr ""
+msgstr "Protocolo:"
 
 #: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
-msgstr ""
+msgstr "Endereço de HW:"
 
 #: ../src/plugins/netstat/netstat.c:471
 msgid "Manage Networks"
-msgstr ""
+msgstr "Gerenciar redes"
 
 #: ../src/plugins/netstat/netstat.c:473
 msgid "Monitor and Manage networks"
-msgstr ""
+msgstr "Monitorar e gerenciar redes"
 
 #. create dialog
 #: ../src/plugins/netstat/passwd_gui.c:84
 msgid "Setting Encryption Key"
-msgstr ""
+msgstr "Configurações da chave de criptografia"
 
 #. messages
 #: ../src/plugins/netstat/passwd_gui.c:94
@@ -1141,47 +1158,49 @@ msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
 msgstr ""
+"Esta conexão sem fio foi criptografada.\n"
+"Você deve ter a chave de criptografia."
 
 #: ../src/plugins/netstat/passwd_gui.c:99
 msgid "Encryption Key:"
-msgstr ""
+msgstr "Chave de criptografia:"
 
 #: ../src/plugins/netstatus/netstatus.c:163
 msgid "Interface to monitor"
-msgstr ""
+msgstr "Interface para monitorar"
 
 #: ../src/plugins/netstatus/netstatus.c:164
 msgid "Config tool"
-msgstr ""
+msgstr "Ferramenta Config"
 
 #: ../src/plugins/netstatus/netstatus.c:181
 msgid "Net Status Monitor"
-msgstr ""
+msgstr "Monitor de estado da rede"
 
 #: ../src/plugins/netstatus/netstatus.c:183
 msgid "Monitor network status"
-msgstr ""
+msgstr "Monitora o estado da rede"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:52
 #: ../src/plugins/netstatus/netstatus-dialog.c:311
 msgid "Unknown"
-msgstr ""
+msgstr "Desconhecido"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:115
 msgid "Connection Properties"
-msgstr ""
+msgstr "Propriedades da conexão"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:121
 #, c-format
 msgid "Connection Properties: %s"
-msgstr ""
+msgstr "Propriedades da conexão: %s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:134
 #, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%lu pacote"
+msgstr[1] "%lu pacotes"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:395
 #, c-format
@@ -1189,52 +1208,54 @@ msgid ""
 "There was an error displaying help:\n"
 "%s"
 msgstr ""
+"Houve um erro ao exibir a ajuda:\n"
+"%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:579
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
-msgstr ""
+msgstr "Falhou ao lançar a ferramenta de configuração de hora: %s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:379
 #, c-format
 msgid "Network Connection: %s"
-msgstr ""
+msgstr "Conexão de rede: %s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:384
 msgid "Network Connection"
-msgstr ""
+msgstr "Conexão de rede"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:811
 msgid "Interface"
-msgstr ""
+msgstr "Interface"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:812
 msgid "The current interface the icon is monitoring."
-msgstr ""
+msgstr "O ícone da interface que está sendo monitorada atualmente."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:819
 msgid "Orientation"
-msgstr ""
+msgstr "Orientação"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:820
 msgid "The orientation of the tray."
-msgstr ""
+msgstr "A orientação da bandeja do sistema."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:828
 msgid "Tooltips Enabled"
-msgstr ""
+msgstr "Dicas de ferramentas habilitadas"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:829
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr ""
+msgstr "Se os ícones de dicas de ferramentas estão habilitados ou não."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:836
 msgid "Show Signal"
-msgstr ""
+msgstr "Mostrar sinal"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:837
 msgid "Whether or not the signal strength should be displayed."
-msgstr ""
+msgstr "Se a potência do sinal deve ser exibida ou não."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:950
 #, c-format
@@ -1243,105 +1264,107 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Por favor, contate seu administrador de sistemas para resolver o seguinte "
+"problema:\n"
+"\n"
+"%s"
 
 #: ../src/plugins/batt/batt.c:384
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
-msgstr ""
+msgstr "Bateria: %d%% carregada, %d:%02d até ficar cheia"
 
 #: ../src/plugins/batt/batt.c:393
 #, c-format
 msgid "Battery: %d%% charged, %s"
-msgstr ""
+msgstr "Bateria: %d%% carregada, %s"
 
 #: ../src/plugins/batt/batt.c:395
 msgid "charging finished"
-msgstr ""
+msgstr "Carregamento finalizado"
 
 #: ../src/plugins/batt/batt.c:395
-#, fuzzy
 msgid "charging"
-msgstr "Margem:"
+msgstr "carregando"
 
 #: ../src/plugins/batt/batt.c:400
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
-msgstr ""
+msgstr "Bateria: %d%% carregado, %d:%02d restantes"
 
 #: ../src/plugins/batt/batt.c:406
 #, c-format
 msgid "Battery: %d%% charged"
-msgstr ""
+msgstr "Bateria: %d%% carregada"
 
 #: ../src/plugins/batt/batt.c:454
 #, c-format
 msgid "No batteries found"
-msgstr ""
+msgstr "Nenhuma bateria encontrada"
 
 #: ../src/plugins/batt/batt.c:882
 msgid "Hide if there is no battery"
-msgstr ""
+msgstr "Esconder se não houver bateria"
 
 #: ../src/plugins/batt/batt.c:884
 msgid "Alarm command"
-msgstr ""
+msgstr "Comando de alarme"
 
 #: ../src/plugins/batt/batt.c:885
 msgid "Alarm time (minutes left)"
-msgstr ""
+msgstr "Tempo de alarme (minutos restantes)"
 
 #: ../src/plugins/batt/batt.c:886
-#, fuzzy
 msgid "Background color"
-msgstr "<b>Plano de fundo</b>"
+msgstr "Cor de fundo"
 
 #: ../src/plugins/batt/batt.c:887
 msgid "Charging color 1"
-msgstr ""
+msgstr "Cor de carregamento 1"
 
 #: ../src/plugins/batt/batt.c:888
 msgid "Charging color 2"
-msgstr ""
+msgstr "Cor de carregamento 2"
 
 #: ../src/plugins/batt/batt.c:889
 msgid "Discharging color 1"
-msgstr ""
+msgstr "Cor de descarregamento 1"
 
 #: ../src/plugins/batt/batt.c:890
 msgid "Discharging color 2"
-msgstr ""
+msgstr "Cor de descarregamento 2"
 
 #: ../src/plugins/batt/batt.c:891
 msgid "Border width"
-msgstr ""
+msgstr "Largura da borda"
 
 #: ../src/plugins/batt/batt.c:922
 msgid "Battery Monitor"
-msgstr ""
+msgstr "Monitor de baterias"
 
 #: ../src/plugins/batt/batt.c:924
 msgid "Display battery status using ACPI"
-msgstr ""
+msgstr "Exibir estado da bateria usando ACPI"
 
 #: ../src/plugins/kbled/kbled.c:277
 msgid "Show CapsLock"
-msgstr ""
+msgstr "Mostrar CapsLock"
 
 #: ../src/plugins/kbled/kbled.c:278
 msgid "Show NumLock"
-msgstr ""
+msgstr "Mostrar NumLock"
 
 #: ../src/plugins/kbled/kbled.c:279
 msgid "Show ScrollLock"
-msgstr ""
+msgstr "Mostrar ScrollLock"
 
 #: ../src/plugins/kbled/kbled.c:289
 msgid "Keyboard Led"
-msgstr ""
+msgstr "Led do teclado"
 
 #: ../src/plugins/kbled/kbled.c:291
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr ""
+msgstr "Teclas indicadoras para CapsLock, NumLock e ScrollLock"
 
 #~ msgid "% Percent"
 #~ msgstr "# porcento"
