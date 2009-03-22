@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxpanel-0.3.5.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-02-09 01:49+0100\n"
-"PO-Revision-Date: 2009-03-22 00:44+0100\n"
+"PO-Revision-Date: 2009-03-22 22:02+0100\n"
 "Last-Translator: Guillermo Iguaran <johnnyprez@gmail.com>\n"
 "Language-Team: Spanish <daniel@tunki.org>\n"
 "MIME-Version: 1.0\n"
@@ -328,7 +328,7 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"Visite http://lxpanel.sourceforge.net/ para mayor detalle.\n"
+"Visite http://lxpanel.sourceforge.net/ para más información.\n"
 "\n"
 
 #: ../src/gtk-run.c:264
@@ -440,7 +440,7 @@ msgstr "Mostrar ayudas"
 
 #: ../src/plugins/taskbar.c:1682
 msgid "Icons only"
-msgstr "Sólo íconos"
+msgstr "Sólo iconos"
 
 #: ../src/plugins/taskbar.c:1683
 msgid "Flat Buttons"
@@ -523,12 +523,11 @@ msgstr "Agregar al escritorio"
 
 #: ../src/plugins/menu.c:381
 msgid "Properties"
-msgstr "<b>Propiedades</b>"
+msgstr "Propiedades"
 
 #: ../src/plugins/menu.c:1031
-#, fuzzy
 msgid "Icon"
-msgstr "Minimizar"
+msgstr "Icono"
 
 #: ../src/plugins/menu.c:1042
 msgid "Menu"
@@ -542,7 +541,7 @@ msgstr "Proveer menú"
 #: ../src/plugins/netstatus/glade-support.c:115
 #, c-format
 msgid "Couldn't find pixmap file: %s"
-msgstr ""
+msgstr "No se pudo encontrar la imagen: %s"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
@@ -690,9 +689,8 @@ msgid "Error"
 msgstr "Error"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:192
-#, fuzzy
 msgid "The current error condition"
-msgstr "La actual condición de error"
+msgstr "La condición de error actual"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:434
 #: ../src/plugins/netstatus/netstatus-iface.c:1197
@@ -753,7 +751,7 @@ msgstr "VJ 6-bit Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:921
 msgid "Adaptive Serial Line IP"
-msgstr ""
+msgstr "Adaptive Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:924
 msgid "AMPR ROSE"
@@ -920,57 +918,59 @@ msgstr "<Espacio>"
 
 #: ../src/plugins/space.c:155
 msgid "Allocate space"
-msgstr "Ubicar"
+msgstr "Asignar espacio"
 
 #: ../src/plugins/xkb/xkb-plugin.c:241
 msgid "Keyboard Layout Switcher"
-msgstr ""
+msgstr "Seleccionador de Distribución del Teclado"
 
 #: ../src/plugins/xkb/xkb-plugin.c:247
 msgid ""
 "Allows you to switch the keyboard layout and\n"
 "displays the currently selected layout."
 msgstr ""
+"Permite seleccionar la distribución del teclado y\n"
+"muestra la distribucción seleccionada actualmente."
 
 #: ../src/plugins/xkb/xkb-plugin.c:252
 msgid "Other plugins available here"
-msgstr ""
+msgstr "Otros plugins disponibles acá"
 
 #: ../src/plugins/xkb/xkb-plugin.c:385
 msgid "Configure Keyboard Layout Switcher"
-msgstr ""
+msgstr "Configurar Seleccionador de Distribución del Teclado"
 
 #: ../src/plugins/xkb/xkb-plugin.c:398
 msgid "Show layout as"
-msgstr ""
+msgstr "Mostrar distribución como"
 
 #: ../src/plugins/xkb/xkb-plugin.c:413
 msgid "image"
-msgstr ""
+msgstr "imagen"
 
 #: ../src/plugins/xkb/xkb-plugin.c:414
 msgid "text"
-msgstr ""
+msgstr "texto"
 
 #: ../src/plugins/xkb/xkb-plugin.c:418
 msgid "Per application settings"
-msgstr ""
+msgstr "Ajustes por aplicación"
 
 #: ../src/plugins/xkb/xkb-plugin.c:432
 msgid "_Remember layout for each application"
-msgstr ""
+msgstr "_Recordar distribución para cada aplicación"
 
 #: ../src/plugins/xkb/xkb-plugin.c:441
 msgid "Default layout:"
-msgstr ""
+msgstr "Distribución por defecto:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:499
 msgid "Kayboard Layout switcher"
-msgstr ""
+msgstr "Seleccionador de Distribución del Teclado"
 
 #: ../src/plugins/xkb/xkb-plugin.c:501
 msgid "Switch between available keyboard layouts"
-msgstr ""
+msgstr "Selecciona entre distribuciones de teclados disponible."
 
 #: ../src/plugins/wincmd.c:245
 msgid "Left click to iconify all windows. Middle click to shade them"
@@ -990,7 +990,7 @@ msgstr "Enviar comandos a todas las áreas de trabajo."
 
 #: ../src/plugins/dirmenu.c:218
 msgid "Open in _Terminal"
-msgstr "Abrir en terminal"
+msgstr "Abrir en _terminal"
 
 #: ../src/plugins/dirmenu.c:383
 msgid "Directory Menu"
@@ -1002,45 +1002,43 @@ msgstr "Examinar árbol de carpetas por medio del menú (Author: PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:299
 msgid "Normal"
-msgstr ""
+msgstr "Normal"
 
 #: ../src/plugins/thermal/thermal.c:300
 msgid "Warning1"
-msgstr ""
+msgstr "Advertencia1"
 
 #: ../src/plugins/thermal/thermal.c:301
 msgid "Warning2"
-msgstr ""
+msgstr "Advertencia2"
 
 #: ../src/plugins/thermal/thermal.c:302
 msgid "Automatic sensor location"
-msgstr ""
+msgstr "Posición del sensor automatica"
 
 #: ../src/plugins/thermal/thermal.c:303
-#, fuzzy
 msgid "Sensor"
-msgstr "Restaurar"
+msgstr "Sensor"
 
 #: ../src/plugins/thermal/thermal.c:304
 msgid "Automatic temperature levels"
-msgstr ""
+msgstr "Niveles de temperatura automáticos"
 
 #: ../src/plugins/thermal/thermal.c:305
 msgid "Warning1 Temperatur"
-msgstr ""
+msgstr "Advertencia1 de Temperatura"
 
 #: ../src/plugins/thermal/thermal.c:306
 msgid "Warning2 Temperatur"
-msgstr ""
+msgstr "Advertencia2 de Temperatura"
 
 #: ../src/plugins/thermal/thermal.c:348
-#, fuzzy
 msgid "Temperature Monitor"
-msgstr "Monitor de estado de red"
+msgstr "Monitor de Temperatura"
 
 #: ../src/plugins/thermal/thermal.c:350
 msgid "Display system temperature, by kesler.daniel@gmail.com"
-msgstr ""
+msgstr "Muestra la temperatura del sistema, de kesler.daniel@gmail.com"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #: ../src/plugins/volume/volume.c:305
@@ -1082,9 +1080,8 @@ msgid "Disable"
 msgstr "Desactivar"
 
 #: ../src/plugins/netstat/netstat.c:299
-#, fuzzy
 msgid "Wireless Connection has no connectivity"
-msgstr "Conexión limitada o no existente"
+msgstr "Conexión inalámbrica limitada o nula"
 
 #: ../src/plugins/netstat/netstat.c:301
 msgid "Network cable is plugged out"
@@ -1101,7 +1098,7 @@ msgstr "Dirección IP:"
 
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Remote IP:"
-msgstr "IP remoto"
+msgstr "IP remota:"
 
 #: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
@@ -1142,14 +1139,12 @@ msgid "HW Address:"
 msgstr "Dirección MAC:"
 
 #: ../src/plugins/netstat/netstat.c:471
-#, fuzzy
 msgid "Manage Networks"
-msgstr "Internet"
+msgstr "Administrar redes"
 
 #: ../src/plugins/netstat/netstat.c:473
-#, fuzzy
 msgid "Monitor and Manage networks"
-msgstr "Monitor del estado de la red"
+msgstr "Monitorear y administrar estado de las redes"
 
 #. create dialog
 #: ../src/plugins/netstat/passwd_gui.c:84
@@ -1231,7 +1226,7 @@ msgstr "Conexión de red"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:811
 msgid "Interface"
-msgstr "Interfase"
+msgstr "Interface"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:812
 msgid "The current interface the icon is monitoring."
@@ -1276,7 +1271,7 @@ msgstr ""
 #: ../src/plugins/batt/batt.c:384
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
-msgstr "Batería: %d%% recargada, %d:%02d por completo"
+msgstr "Batería: %d%% recargada, %d:%02d para completar"
 
 #: ../src/plugins/batt/batt.c:393
 #, c-format
@@ -1288,19 +1283,18 @@ msgid "charging finished"
 msgstr "recarga terminada"
 
 #: ../src/plugins/batt/batt.c:395
-#, fuzzy
 msgid "charging"
-msgstr "no se está recargando"
+msgstr "recargando"
 
 #: ../src/plugins/batt/batt.c:400
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
-msgstr "Batería: %d%% recargada, %d:%02d restante"
+msgstr "Batería: %d%% de carga, %d:%02d restante"
 
 #: ../src/plugins/batt/batt.c:406
-#, fuzzy, c-format
+#, c-format
 msgid "Battery: %d%% charged"
-msgstr "Batería: %d%% recargada, %s"
+msgstr "Batería: %d%% de carga"
 
 #: ../src/plugins/batt/batt.c:454
 #, c-format
@@ -1353,23 +1347,23 @@ msgstr "Mostrar el estado de la batería por medio de ACPI"
 
 #: ../src/plugins/kbled/kbled.c:277
 msgid "Show CapsLock"
-msgstr ""
+msgstr "Mostrar BloqMayús"
 
 #: ../src/plugins/kbled/kbled.c:278
 msgid "Show NumLock"
-msgstr ""
+msgstr "Mostrar BloqNum"
 
 #: ../src/plugins/kbled/kbled.c:279
 msgid "Show ScrollLock"
-msgstr ""
+msgstr "Mostrar BloqDespl"
 
 #: ../src/plugins/kbled/kbled.c:289
 msgid "Keyboard Led"
-msgstr ""
+msgstr "Led de teclado"
 
 #: ../src/plugins/kbled/kbled.c:291
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr ""
+msgstr "Indicadores para las teclas  BloqMayús, BloqNum, BloqDespl"
 
 #, fuzzy
 #~ msgid "Center"
