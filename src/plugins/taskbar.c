@@ -473,7 +473,7 @@ get_wm_icon(Window tkwin, int iw, int ih)
     Window win;
     unsigned int w, h;
     int sd, result, format;
-    GdkPixbuf *ret, *masked, *pixmap, *mask = NULL;
+    GdkPixbuf *ret, *masked, *pixmap = NULL, *mask = NULL;
     Atom type = None;
     gulong *data = NULL;
     gulong  nitems;
@@ -505,7 +505,7 @@ get_wm_icon(Window tkwin, int iw, int ih)
         LOG(LOG_WARN, "lxpanel : type is not XA_CARDINAL");
         if(data)
             XFree(data);
-        result = 0;
+        result = -1;
     }
 
     if(result == Success)
@@ -583,7 +583,7 @@ get_wm_icon(Window tkwin, int iw, int ih)
         LOG(LOG_WARN, "lxpanel : Can't read _NET_WM_ICON, try to read pixmap icon\n");
 
         hints = XGetWMHints(GDK_DISPLAY(), tkwin);
-        result = (hints != NULL) ? Success : 0;
+        result = (hints != NULL) ? Success : -1;
 
         if(result == Success)
         {
@@ -592,7 +592,7 @@ get_wm_icon(Window tkwin, int iw, int ih)
             if ((hints->flags & IconMaskHint))
                 xmask = hints->icon_mask;
             XFree(hints);
-            result = (xpixmap != None)?Success:0;
+            result = (xpixmap != None)?Success:-1;
         }
 
         if(result != Success)
@@ -611,13 +611,13 @@ get_wm_icon(Window tkwin, int iw, int ih)
             {
                 if( icons )
                     XFree(icons);
-                result = 0;
+                result = -1;
             }
             if(result == Success)
             {
                 xpixmap = icons[0];
                 xmask   = icons[1];
-                result = (xpixmap != None) ? Success : 0;
+                result = (xpixmap != None) ? Success : -1;
             }
         }
 
@@ -637,7 +637,7 @@ get_wm_icon(Window tkwin, int iw, int ih)
         {
             DBG("tkwin=%x icon pixmap w=%d h=%d\n", tkwin, w, h);
             pixmap = _wnck_gdk_pixbuf_get_from_pixmap (NULL, xpixmap, 0, 0, 0, 0, w, h);
-            result = pixmap?Success:0;
+            result = pixmap?Success:-1;
         }
 
         if(result == Success)
