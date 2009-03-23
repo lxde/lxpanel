@@ -575,6 +575,10 @@ get_wm_icon(Window tkwin, int iw, int ih)
                                               free_pixels,
                                               NULL);
         }
+	else
+	{
+	    result = -1;
+	}
         XFree(data);
     }
 
@@ -626,7 +630,7 @@ get_wm_icon(Window tkwin, int iw, int ih)
             result = XGetGeometry(GDK_DISPLAY(),
                                   xpixmap, &win,
                                   &sd, &sd, &w, &h,
-                                  (guint *)&sd, (guint *)&sd);
+                                  (guint *)&sd, (guint *)&sd) ? Success : -1;
         }
 
         if(result != Success) 
