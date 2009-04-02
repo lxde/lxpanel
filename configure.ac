@@ -134,8 +134,8 @@ AM_CONDITIONAL(BUILD_OSS_PLUGINS, test x$compile_alsa = xno)
 # check libiw for netstat plugin
 AC_ARG_ENABLE([libiw],
     AS_HELP_STRING([--disable-libiw],
-                    [compile libiw-based netstat plugin (default: enable)]),
-            compile_libiw=$enableval, compile_libiw="yes")
+                    [compile libiw-based netstat plugin (default: disable)]),
+            compile_libiw=$enableval, compile_libiw="no")
 if test x"$compile_libiw" = "xyes"; then
     AC_CHECK_HEADERS(iwlib.h,
                      [AC_CHECK_LIB(iw,
@@ -194,7 +194,7 @@ dnl        export plugin_$name="$name"
 dnl    done
 
     plugin_netstatus=netstatus
-    plugin_netstat=netstat
+    plugin_netstat=
     plugin_volume=volume
     plugin_volumealsa=volumealsa
     plugin_cpu=cpu

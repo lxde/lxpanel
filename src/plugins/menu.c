@@ -46,7 +46,6 @@
  */
 
 typedef struct {
-    GtkTooltips *tips;
     GtkWidget *menu, *box, *img, *label;
     char *fname, *caption;
     gulong handler_id;
