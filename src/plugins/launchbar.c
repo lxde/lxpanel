@@ -286,9 +286,24 @@ read_button(Plugin *p, char** fp)
         gchar *desktop_file = NULL;
         gchar *full_id = NULL;
         GKeyFile* desktop = g_key_file_new();
-        full_id = g_strconcat( "applications/", btn->desktop_id, NULL );
-        if( g_key_file_load_from_data_dirs( desktop, full_id, &desktop_file,
-                                            G_KEY_FILE_NONE, NULL ) )
+	gboolean loaded;
+	
+	if ( g_path_is_absolute( btn->desktop_id ) ) 
+	{
+	    desktop_file = g_strdup( btn->desktop_id );
+	    loaded =  g_key_file_load_from_file( desktop, desktop_file,
+						 G_KEY_FILE_NONE, NULL );
+	}
+	else 
+	{
+	    full_id = g_strconcat( "applications/", btn->desktop_id, NULL );
+	    loaded = g_key_file_load_from_data_dirs( desktop, full_id, &desktop_file,
+						     G_KEY_FILE_NONE, NULL );
+	    g_free( full_id );
+	}
+
+	/* key file located */
+	if ( loaded )
         {
             gchar *icon = NULL, *title = NULL;
             icon = g_key_file_get_string( desktop, desktop_ent, "Icon", NULL);
@@ -314,7 +329,6 @@ read_button(Plugin *p, char** fp)
             if( btn->tooltip != title )
                 g_free( title );
         }
-        g_free( full_id );
         g_free( desktop_file );
         g_key_file_free( desktop );
     }
@@ -537,10 +551,8 @@ static void on_add_btn( GtkButton* widget, Plugin* p )
         char* filename = gtk_file_chooser_get_filename( (GtkFileChooser *)dlg );
         if( filename ) {
             if( g_str_has_suffix( filename, ".desktop" ) ) {
-                char* desktop_id = g_path_get_basename( filename );
                 char *config, *pconfig;
-                config = pconfig = g_strdup_printf( "id=%s\n}\n", desktop_id );
-                g_free( desktop_id );
+                config = pconfig = g_strdup_printf( "id=%s\n}\n", filename );
                 /* Make a fake config entry, and let read_button() parst it. */
                 /* FIXME: This is a quick hack, which is dirty but easy and useful.
                           Need to be re-written in the future.
