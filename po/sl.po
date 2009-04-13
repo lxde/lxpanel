@@ -1,4 +1,4 @@
-# Slovenian translation for lxpanel.
+﻿# Slovenian translation for lxpanel.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
@@ -7,14 +7,13 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.3.8.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-03-12 08:48-0400\n"
-"PO-Revision-Date: 2009-04-09 13:08+0200\n"
+"PO-Revision-Date: 2009-04-10 11:00+0100\n"
 "Last-Translator: Matej <paxmanpwnz@gmail.com>\n"
 "Language-Team: / <paxmanpwnz@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 1.1.0\n"
 "X-Poedit-Language: Slovenian\n"
 "X-Poedit-Country: SLOVENIA\n"
@@ -62,8 +61,8 @@ msgid ""
 "Pixels\n"
 "% Percent"
 msgstr ""
-"dinamično\r\n"
-"pikslov\r\n"
+"dinamično\n"
+"pikslov\n"
 "% odstotkov"
 
 #: ../data/ui/panel-pref.glade.h:14
@@ -236,7 +235,7 @@ msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
-"Ste prepričani da hočete izbrisati opravilno vrstico?\r\n"
+"Ste prepričani da hočete izbrisati opravilno vrstico?\n"
 "<b>Pozor: ni je mogoče obnoviti!</b>"
 
 #: ../src/panel.c:695
@@ -272,7 +271,7 @@ msgstr "\"%s\" Nastavitve"
 #: ../src/panel.c:1248
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr "LXPanel %s - Opravilna vrstica za namizja UNIX, spisana v GTK2+\r\n"
+msgstr "LXPanel %s - Opravilna vrstica za namizja UNIX, spisana v GTK2+\n"
 
 #: ../src/panel.c:1249
 #, c-format
@@ -282,23 +281,22 @@ msgstr "Možnosti ukazne vrstice:\n"
 #: ../src/panel.c:1250
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr " --help      -- prikaže pomoč in konča\r\n"
+msgstr " --help      -- prikaže pomoč in konča\n"
 
 #: ../src/panel.c:1251
 #, c-format
 msgid " --version   -- print version and exit\n"
-msgstr " --version   -- prikaži različico in konča\r\n"
+msgstr " --version   -- prikaži različico in konča\n"
 
 #: ../src/panel.c:1252
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --log <številka>   -- določi stopnjo dnevniškega izpia od 0 do 5. 0 - brez "
-"dnevnika, 5 - izdaten\r\n"
+msgstr " --log <številka>   -- določi stopnjo dnevniškega izpia od 0 do 5. 0 - brez dnevnika, 5 - izdaten\n"
 
 #: ../src/panel.c:1253
 #, c-format
 msgid " --configure -- launch configuration utility\n"
-msgstr " --configure -- zažene izbrano konfiguracijo\r\n"
+msgstr " --configure -- zažene izbrano konfiguracijo\n"
 
 #: ../src/panel.c:1254
 #, c-format
@@ -848,9 +846,7 @@ msgstr "Ni bilo mogoče razčleniti imena vmesnika z '%s'"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
 msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
-msgstr ""
-"Ni bilo mogoče razčleniti statistike vmesnika '%s'. prx_idx = %d; ptx_idx = "
-"%d; brx_idx = %d; btx_idx = %d;"
+msgstr "Ni bilo mogoče razčleniti statistike vmesnika '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -859,9 +855,7 @@ msgstr "Ni bilo mogoče razčleniti /proc/net/wireless. Neznana oblika zapisa."
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr ""
-"Ni bilo mogoče razčleniti podrobnosti o brezžičnem omrežju '%s'. link_idx = "
-"%d;"
+msgstr "Ni bilo mogoče razčleniti podrobnosti o brezžičnem omrežju '%s'. link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
@@ -880,8 +874,7 @@ msgstr "Ni bilo mogoče razčleniti ukaza '%s': %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr ""
-"Izhoda ukaza 'netstat' ni bilo mogoče razčleniti. Neznana oblika zapisa."
+msgstr "Izhoda ukaza 'netstat' ni bilo mogoče razčleniti. Neznana oblika zapisa."
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
@@ -1386,11 +1379,3 @@ msgstr "LED tipkovnice"
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Indikatorji CapsLock, NumLock in ScrollLock"
 
-#~ msgid "Game"
-#~ msgstr "Igre"
-
-#~ msgid ""
-#~ msgstr "Izobraževanje"
-
-#~ msgid ""
-#~ msgstr "Razvoj"
