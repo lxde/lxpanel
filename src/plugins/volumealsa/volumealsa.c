@@ -80,9 +80,9 @@ static void update_display(volume_t* vol)
     snd_mixer_selem_get_playback_switch(vol->master_element, 0, &vol->mute);
 
     if (vol->mute==0)
-        gtk_image_set_from_file(vol->tray_icon, ICONS_MUTE);
+        gtk_image_set_from_file(GTK_IMAGE(vol->tray_icon), ICONS_MUTE);
     else
-        gtk_image_set_from_file(vol->tray_icon, ICONS_VOLUME);
+        gtk_image_set_from_file(GTK_IMAGE(vol->tray_icon), ICONS_VOLUME);
 
     g_signal_handler_block( vol->mute_check, vol->mute_handler );
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(vol->mute_check), !vol->mute );
@@ -256,12 +256,12 @@ static void click_mute(GtkWidget *widget, volume_t *vol)
     int chn;
 
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget))) {
-        gtk_image_set_from_file(vol->tray_icon, ICONS_MUTE);
+        gtk_image_set_from_file(GTK_IMAGE(vol->tray_icon), ICONS_MUTE);
         for (chn = 0; chn <= SND_MIXER_SCHN_LAST; chn++) {
             snd_mixer_selem_set_playback_switch(vol->master_element, chn, 0);
         }
     } else {
-        gtk_image_set_from_file(vol->tray_icon, ICONS_VOLUME);
+        gtk_image_set_from_file(GTK_IMAGE(vol->tray_icon), ICONS_VOLUME);
         for (chn = 0; chn <= SND_MIXER_SCHN_LAST; chn++) {
             snd_mixer_selem_set_playback_switch(vol->master_element, chn, 1);
         }
