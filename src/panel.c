@@ -22,7 +22,7 @@
 
 #include <glib/gi18n.h>
 #include <stdlib.h>
-#include <stdio.h>
+#include <glib/gstdio.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
@@ -445,7 +445,6 @@ static gint
 panel_press_button_event(GtkWidget *widget, GdkEvent *event, gpointer user_data)
 {
     GdkEventButton *event_button;
-    GtkWidget* img;
 
     g_return_val_if_fail (event != NULL, FALSE);
     event_button = (GdkEventButton *)event;
@@ -1203,7 +1202,7 @@ void panel_destroy(Panel *p)
         } while ( g_source_remove_by_user_data( p->system_menus ) );
     }
 
-    gtk_window_group_remove_window(win_grp, p->topgwin);
+    gtk_window_group_remove_window( win_grp, GTK_WINDOW(  p->topgwin ) );
 
     if( p->topgwin )
         gtk_widget_destroy(p->topgwin);
@@ -1223,7 +1222,7 @@ Panel* panel_new( const char* config_file, const char* config_name )
 {
     char *fp, *pfp; /* point to current position of profile data in memory */
     Panel* panel = NULL;
-    char* ret;
+
     if( G_LIKELY(config_file) )
     {
         g_file_get_contents( config_file, &fp, NULL, NULL );
@@ -1372,7 +1371,7 @@ void free_global_config();
 int main(int argc, char *argv[], char *env[])
 {
     int i;
-    char* session_name;
+    const char* session_name;
 
     setlocale(LC_CTYPE, "");
 
