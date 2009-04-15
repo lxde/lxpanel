@@ -165,7 +165,7 @@ static void on_menu_item( GtkMenuItem* mi, MenuCacheItem* item )
 /* load icon when mapping the menu item to speed up */
 static void on_menu_item_map(GtkWidget* mi, MenuCacheItem* item)
 {
-    GtkImage* img = gtk_image_menu_item_get_image(mi);
+  GtkImage* img = GTK_IMAGE(gtk_image_menu_item_get_image(GTK_IMAGE_MENU_ITEM(mi)));
     if( img )
     {
         if( gtk_image_get_storage_type(img) == GTK_IMAGE_EMPTY )
@@ -174,7 +174,7 @@ static void on_menu_item_map(GtkWidget* mi, MenuCacheItem* item)
             int w, h;
             /* FIXME: this is inefficient */
             gtk_icon_size_lookup(GTK_ICON_SIZE_MENU, &w, &h);
-            item = g_object_get_qdata(mi, SYS_MENU_ITEM_ID);
+            item = g_object_get_qdata(G_OBJECT(mi), SYS_MENU_ITEM_ID);
             icon = lxpanel_load_icon(menu_cache_item_get_icon(item), MAX(w,h), TRUE);
             gtk_image_set_from_pixbuf(img, icon);
             g_object_unref(icon);
@@ -195,13 +195,13 @@ static void on_add_menu_item_to_desktop(GtkMenuItem* item, MenuCacheApp* app)
     g_debug("app: %p", app);
     const char* desktop = g_get_user_special_dir(G_USER_DIRECTORY_DESKTOP);
     int dir_len = strlen(desktop);
-    int basename_len = strlen(menu_cache_item_get_id(app));
+    int basename_len = strlen(menu_cache_item_get_id(MENU_CACHE_ITEM(app)));
     int dest_fd;
 
     dest = g_malloc( dir_len + basename_len + 6 + 1 + 1 );
     memcpy(dest, desktop, dir_len);
     dest[dir_len] = '/';
-    memcpy(dest + dir_len + 1, menu_cache_item_get_id(app), basename_len + 1);
+    memcpy(dest + dir_len + 1, menu_cache_item_get_id(MENU_CACHE_ITEM(app)), basename_len + 1);
 
     /* if the destination file already exists, make a unique name. */
     if( g_file_test( dest, G_FILE_TEST_EXISTS ) )
@@ -220,7 +220,7 @@ static void on_add_menu_item_to_desktop(GtkMenuItem* item, MenuCacheApp* app)
     {
         char* data;
         gsize len;
-        src = menu_cache_item_get_file_path(app);
+        src = menu_cache_item_get_file_path(MENU_CACHE_ITEM(app));
         if( g_file_get_contents(src, &data, &len, NULL) )
         {
             write( dest_fd, data, len );
@@ -282,10 +282,10 @@ static void on_menu_item_properties(GtkMenuItem* item, MenuCacheApp* app)
     /* FIXME: if the source desktop is in AppDir other then default
      * applications dirs, where should we store the user-specific file?
     */
-    char* ifile = menu_cache_item_get_file_path(app);
+    char* ifile = menu_cache_item_get_file_path(MENU_CACHE_ITEM(app));
     char* ofile = g_build_filename(g_get_user_data_dir(), "applications",
-                                  menu_cache_item_get_file_basename(app), NULL);
-    char** argv[] = {
+				   menu_cache_item_get_file_basename(MENU_CACHE_ITEM(app)), NULL);
+    char* argv[] = {
         "lxshortcut",
         "-i",
         NULL,
@@ -361,7 +361,7 @@ static gboolean on_menu_button_press(GtkWidget* mi, GdkEventButton* evt, MenuCac
     {
         char* tmp;
         GtkWidget* item;
-        GtkMenu* p = gtk_menu_new();
+        GtkMenu* p = GTK_MENU(gtk_menu_new());
 /*
         item = gtk_menu_item_new_with_label(_("Add to desktop panel"));
         g_signal_connect(item, "activate", G_CALLBACK(on_add_menu_item_to_panel), data);
@@ -369,24 +369,24 @@ static gboolean on_menu_button_press(GtkWidget* mi, GdkEventButton* evt, MenuCac
 */
         item = gtk_menu_item_new_with_label(_("Add to desktop"));
         g_signal_connect(item, "activate", G_CALLBACK(on_add_menu_item_to_desktop), data);
-        gtk_menu_shell_append(p, item);
+        gtk_menu_shell_append(GTK_MENU_SHELL(p), item);
 
         tmp = g_find_program_in_path("lxshortcut");
         if( tmp )
         {
             item = gtk_separator_menu_item_new();
-            gtk_menu_shell_append(p, item);
+            gtk_menu_shell_append(GTK_MENU_SHELL(p), item);
 
             item = gtk_menu_item_new_with_label(_("Properties"));
             g_signal_connect(item, "activate", G_CALLBACK(on_menu_item_properties), data);
-            gtk_menu_shell_append(p, item);
+            gtk_menu_shell_append(GTK_MENU_SHELL(p), item);
             g_free(tmp);
         }
         g_signal_connect(p, "selection-done", G_CALLBACK(gtk_widget_destroy), NULL);
         g_signal_connect(p, "deactivate", G_CALLBACK(restore_grabs), mi);
 
-        gtk_widget_show_all(p);
-        gtk_menu_popup(p, NULL, NULL, NULL, NULL, NULL, evt->time);
+        gtk_widget_show_all(GTK_WIDGET(p));
+        gtk_menu_popup(p, NULL, NULL, NULL, NULL, 0, evt->time);
         return TRUE;
     }
     return FALSE;
@@ -402,7 +402,7 @@ static GtkWidget* create_item( MenuCacheItem* item )
         GtkWidget* img;
         mi = gtk_image_menu_item_new_with_label( menu_cache_item_get_name(item) );
         img = gtk_image_new();
-        gtk_image_menu_item_set_image( mi, img );
+        gtk_image_menu_item_set_image( GTK_IMAGE_MENU_ITEM(mi), img );
         if( menu_cache_item_get_type(item) == MENU_CACHE_TYPE_APP )
         {
             gtk_widget_set_tooltip_text( mi, menu_cache_item_get_comment(item) );
@@ -414,7 +414,7 @@ static GtkWidget* create_item( MenuCacheItem* item )
     }
     gtk_widget_show( mi );
     /* g_debug("set_item_data"); */
-    g_object_set_qdata_full( mi, SYS_MENU_ITEM_ID, menu_cache_item_ref(item), menu_cache_item_unref );
+    g_object_set_qdata_full( G_OBJECT(mi), SYS_MENU_ITEM_ID, menu_cache_item_ref(item), menu_cache_item_unref );
     return mi;
 }
 
@@ -429,13 +429,13 @@ static void load_menu(MenuCacheDir* dir, GtkWidget* menu, int pos )
         {
             if( is_in_lxde )
             {
-                if( !menu_cache_app_get_is_visible(item, SHOW_IN_LXDE) )
+	        if( !menu_cache_app_get_is_visible(MENU_CACHE_APP(item), SHOW_IN_LXDE) )
                     continue;
             }
             else
             {
                 /* FIXME: showing apps from all desktops is not very pleasant. */
-                if( !menu_cache_app_get_is_visible(item, SHOW_IN_LXDE|SHOW_IN_GNOME|SHOW_IN_XFCE) )
+	        if( !menu_cache_app_get_is_visible(MENU_CACHE_APP(item), SHOW_IN_LXDE|SHOW_IN_GNOME|SHOW_IN_XFCE) )
                     continue;
             }
         }
@@ -448,8 +448,8 @@ static void load_menu(MenuCacheDir* dir, GtkWidget* menu, int pos )
         if( menu_cache_item_get_type(item) == MENU_CACHE_TYPE_DIR )
         {
             GtkWidget* sub = gtk_menu_new();
-            load_menu( item, sub, -1 );    /* always pass -1 for position */
-            gtk_menu_item_set_submenu( mi, sub );
+            load_menu( MENU_CACHE_DIR(item), sub, -1 );    /* always pass -1 for position */
+            gtk_menu_item_set_submenu( GTK_MENU_ITEM(mi), sub );
         }
     }
 }
@@ -476,16 +476,16 @@ static void unload_old_icons(GtkMenu* menu, GtkIconTheme* theme)
             item = GTK_MENU_ITEM( child->data );
             if( GTK_IS_IMAGE_MENU_ITEM(item) )
             {
-                img = gtk_image_menu_item_get_image(item);
+	        img = GTK_IMAGE(gtk_image_menu_item_get_image(GTK_IMAGE_MENU_ITEM(item)));
                 gtk_image_clear(img);
                 if( GTK_WIDGET_MAPPED(img) )
-                    on_menu_item_map(item,
-                        (MenuCacheItem*)g_object_get_qdata(item, SYS_MENU_ITEM_ID) );
+		    on_menu_item_map(GTK_WIDGET(item),
+			(MenuCacheItem*)g_object_get_qdata(G_OBJECT(item), SYS_MENU_ITEM_ID) );
             }
         }
         else if( ( sub_menu = gtk_menu_item_get_submenu( item ) ) )
         {
-            unload_old_icons( theme, menu );
+	    unload_old_icons( theme, menu );
         }
     }
     g_list_free( children );

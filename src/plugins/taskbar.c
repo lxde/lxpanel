@@ -1384,7 +1384,7 @@ static void
 menu_move_to_workspace( GtkWidget* mi, taskbar* tb )
 {
     GdkWindow* win;
-    int num = GPOINTER_TO_INT( g_object_get_data( mi, "num" ) );
+    int num = GPOINTER_TO_INT( g_object_get_data( G_OBJECT(mi), "num" ) );
     _wnck_change_workspace( DefaultScreenOfDisplay(GDK_DISPLAY()), tb->menutask->win, num );
 }
 
@@ -1421,14 +1421,14 @@ taskbar_make_menu(taskbar *tb)
         {
             g_snprintf( label, 128, _("Workspace %d"), i);
             mi = gtk_menu_item_new_with_label( label );
-            g_object_set_data( mi, "num", GINT_TO_POINTER(i - 1) );
+            g_object_set_data( G_OBJECT(mi), "num", GINT_TO_POINTER(i - 1) );
             g_signal_connect( mi, "activate", G_CALLBACK(menu_move_to_workspace), tb );
             gtk_menu_shell_append( (GtkMenuShell*)workspace_menu, mi );
         }
         gtk_menu_shell_append( GTK_MENU_SHELL (workspace_menu),
                                                    gtk_separator_menu_item_new());
         mi = gtk_menu_item_new_with_label(_("All workspaces"));
-        g_object_set_data( mi, "num", GINT_TO_POINTER(ALL_WORKSPACES) );
+        g_object_set_data( G_OBJECT(mi), "num", GINT_TO_POINTER(ALL_WORKSPACES) );
         g_signal_connect( mi, "activate", G_CALLBACK(menu_move_to_workspace), tb );
         gtk_menu_shell_append( (GtkMenuShell*)workspace_menu, mi );
 
@@ -1437,7 +1437,7 @@ taskbar_make_menu(taskbar *tb)
         mi = gtk_menu_item_new_with_label (_("Move to Workspace"));
         gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
 
-        gtk_menu_item_set_submenu( mi, workspace_menu );
+        gtk_menu_item_set_submenu( GTK_MENU_ITEM(mi), workspace_menu );
         workspace_menu = mi;
     }
 
@@ -1654,9 +1654,9 @@ static void apply_config( Plugin* p )
 {
     taskbar *tb = (taskbar *)p->priv;
     if( tb->tooltips )
-        gtk_container_foreach( tb->bar, (GtkCallback)gtk_widget_set_has_tooltip, (gpointer)TRUE );
+        gtk_container_foreach( GTK_CONTAINER(tb->bar), (GtkCallback)gtk_widget_set_has_tooltip, (gpointer)TRUE );
     else
-        gtk_container_foreach( tb->bar, (GtkCallback)gtk_widget_set_has_tooltip, (gpointer)FALSE );
+        gtk_container_foreach( GTK_CONTAINER(tb->bar), (GtkCallback)gtk_widget_set_has_tooltip, (gpointer)FALSE );
 
     if (tb->icons_only)
     {
