@@ -10,13 +10,14 @@ msgstr ""
 "Project-Id-Version: lxpanel r839\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-02-09 01:49+0100\n"
-"PO-Revision-Date: 2008-04-22 17:00+0100\n"
-"Last-Translator: Robert-André Mauchin <zebob.m@pengzone.org>\n"
+"PO-Revision-Date: 2009-04-10 01:33+0200\n"
+"Last-Translator: Cilyan Olowen <gaknar@gmail.com>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Pootle 1.1.0\n"
 
 #: ../data/ui/panel-pref.glade.h:1
 msgid "<b>Background</b>"
@@ -289,9 +290,8 @@ msgstr " --version   -- affiche la version et quitte\n"
 #: ../src/panel.c:1252
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <nombre> -- défini la quantité d'informations de débogage 0-5. 0 - "
-"aucun 5 -  maximum\n"
+msgstr " --log <nombre> -- défini la quantité d'informations de déboguage 0-5. 0 - "
+"aucun 5 - maximum\n"
 
 #: ../src/panel.c:1253
 #, c-format
@@ -484,7 +484,7 @@ msgstr "Espacement"
 
 #: ../src/plugins/taskbar.c:1769
 msgid "Task Bar (Window List)"
-msgstr "Liste des fenêtres"
+msgstr "Barre des tâches (Liste des fenêtres)"
 
 #: ../src/plugins/taskbar.c:1771
 msgid ""
@@ -1014,7 +1014,7 @@ msgstr "Menu des répertoires"
 
 #: ../src/plugins/dirmenu.c:385
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr "Parcours de l'arborescence via un menu"
+msgstr "Parcours de l'arborescence via un menu (Auteur: PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:299
 msgid "Normal"
