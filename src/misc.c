@@ -979,15 +979,15 @@ static void on_theme_changed(GtkIconTheme* theme, GtkWidget* img)
 
 void fb_button_set_from_file(GtkWidget* btn, const char* img_file)
 {
-    GtkWidget* child = gtk_bin_get_child(btn);
+    GtkWidget* child = gtk_bin_get_child(GTK_BIN(btn));
     GtkWidget* img = NULL;
 
     if( GTK_IS_IMAGE(child) )
         img = child;
     else if( GTK_IS_BOX(child) )
     {
-        GList* children = gtk_container_get_children(child);
-        img = GTK_IMAGE(children->data);
+        GList* children = gtk_container_get_children(GTK_CONTAINER(child));
+        img = GTK_WIDGET(GTK_IMAGE(children->data));
         g_list_free( children );
     }
 

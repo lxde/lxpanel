@@ -464,7 +464,7 @@ static void unload_old_icons(GtkMenu* menu, GtkIconTheme* theme)
 {
     GList *children, *child;
     GtkMenuItem* item;
-    GtkWidget* sub_menu;
+    GtkWidget* sub_menu=NULL;
 
     children = gtk_container_get_children( GTK_CONTAINER(menu) );
     for( child = children; child; child = child->next )
@@ -485,7 +485,7 @@ static void unload_old_icons(GtkMenu* menu, GtkIconTheme* theme)
         }
         else if( ( sub_menu = gtk_menu_item_get_submenu( item ) ) )
         {
-	    unload_old_icons( theme, menu );
+	    unload_old_icons( GTK_MENU(sub_menu), theme );
         }
     }
     g_list_free( children );
@@ -512,7 +512,7 @@ static void sys_menu_insert_items( menup* m, GtkMenu* menu, int position )
         SYS_MENU_ITEM_ID = g_quark_from_static_string( "SysMenuItem" );
 
     dir = menu_cache_get_root_dir( m->menu_cache );
-    load_menu( dir, menu, position );
+    load_menu( dir, GTK_WIDGET(menu), position );
 
     change_handler = g_signal_connect_swapped( gtk_icon_theme_get_default(), "changed", G_CALLBACK(unload_old_icons), menu );
     g_object_weak_ref( G_OBJECT(menu), remove_change_handler, GINT_TO_POINTER(change_handler) );
@@ -740,7 +740,7 @@ read_separator(Plugin *p, char **fp)
 static void on_reload_menu( MenuCache* cache, menup* m )
 {
     /* g_debug("reload system menu!!"); */
-    reload_system_menu( m, m->menu );
+    reload_system_menu( m, GTK_MENU(m->menu) );
 }
 
 static void
