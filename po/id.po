@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-11 20:31+0100\n"
+"POT-Creation-Date: 2009-04-15 19:41+0200\n"
 "PO-Revision-Date: 2009-03-07 22:53+0700\n"
 "Last-Translator: Andhika Padmawan <andhika.padmawan@gmail.com>\n"
 "Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
@@ -159,8 +159,7 @@ msgstr "Warna cat:"
 msgid "Width:"
 msgstr "Lebar:"
 
-#: ../src/configurator.c:54
-#: ../src/gtk-run.c:250
+#: ../src/configurator.c:54 ../src/gtk-run.c:250
 msgid "Run"
 msgstr "Jalan"
 
@@ -180,13 +179,11 @@ msgstr "Plugin dimuat saat ini"
 msgid "Stretch"
 msgstr "Regang"
 
-#: ../src/configurator.c:510
-#: ../src/panel.c:520
+#: ../src/configurator.c:510 ../src/panel.c:522
 msgid "Add plugin to panel"
 msgstr "Tambah plugin ke panel"
 
-#: ../src/configurator.c:537
-#: ../src/panel.c:543
+#: ../src/configurator.c:537 ../src/panel.c:545
 msgid "Available plugins"
 msgstr "Plugin tersedia"
 
@@ -194,8 +191,7 @@ msgstr "Plugin tersedia"
 msgid "Logout command is not set"
 msgstr "Perintah keluar tidak diatur"
 
-#: ../src/configurator.c:1100
-#: ../src/configurator.c:1180
+#: ../src/configurator.c:1100 ../src/configurator.c:1180
 msgid "Select a file"
 msgstr "Pilih berkas"
 
@@ -203,32 +199,31 @@ msgstr "Pilih berkas"
 msgid "_Browse"
 msgstr "_Ramban"
 
-#: ../src/panel.c:628
+#: ../src/panel.c:630
 msgid "Left"
 msgstr "Kiri"
 
-#: ../src/panel.c:628
+#: ../src/panel.c:630
 msgid "Right"
 msgstr "Kanan"
 
-#: ../src/panel.c:628
+#: ../src/panel.c:630
 msgid "Top"
 msgstr "Atas"
 
-#: ../src/panel.c:628
+#: ../src/panel.c:630
 msgid "Bottom"
 msgstr "Bawah"
 
-#: ../src/panel.c:630
-#: ../src/panel.c:756
+#: ../src/panel.c:632 ../src/panel.c:758
 msgid "Create New Panel"
 msgstr "Buat Panel Baru"
 
-#: ../src/panel.c:636
+#: ../src/panel.c:638
 msgid "Where to put the panel?"
 msgstr "Dimana ingin menaruh panel?"
 
-#: ../src/panel.c:694
+#: ../src/panel.c:696
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -236,92 +231,92 @@ msgstr ""
 "Yakin hapus panel ini?\n"
 "<b>Peringatan: Ini tak dapat dikembalikan.</b>"
 
-#: ../src/panel.c:695
+#: ../src/panel.c:697
 msgid "Confirm"
 msgstr "Konfirmasi"
 
-#: ../src/panel.c:730
+#: ../src/panel.c:732
 msgid "Add / Remove Panel Items"
 msgstr "Tambah / Hapus Item Panel"
 
-#: ../src/panel.c:738
+#: ../src/panel.c:740
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Hapus \"%s\" Dari Panel"
 
-#: ../src/panel.c:750
+#: ../src/panel.c:752
 msgid "Panel Settings"
 msgstr "Pengaturan Panel"
 
-#: ../src/panel.c:767
+#: ../src/panel.c:769
 msgid "Delete This Panel"
 msgstr "Hapus Panel Ini"
 
-#: ../src/panel.c:777
+#: ../src/panel.c:779
 msgid "Panel"
 msgstr "Panel"
 
-#: ../src/panel.c:790
+#: ../src/panel.c:792
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "Pengaturan \"%s\""
 
-#: ../src/panel.c:1248
+#: ../src/panel.c:1250
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - panel GTK2+ ringan untuk desktop UNIX\n"
 
-#: ../src/panel.c:1249
+#: ../src/panel.c:1251
 #, c-format
 msgid "Command line options:\n"
 msgstr "Opsi baris perintah:\n"
 
-#: ../src/panel.c:1250
+#: ../src/panel.c:1252
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- cetak bantuan ini dan keluar\n"
 
-#: ../src/panel.c:1251
+#: ../src/panel.c:1253
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- cetak versi dan keluar\n"
 
-#: ../src/panel.c:1252
+#: ../src/panel.c:1254
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --log <nomor> -- atur level log 0-5. 0 - tak ada 5 - lengkap\n"
 
-#: ../src/panel.c:1253
+#: ../src/panel.c:1255
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- jalankan utilitas konfigurasi\n"
 
-#: ../src/panel.c:1254
+#: ../src/panel.c:1256
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile nama -- gunakan profil yang ditentukan\n"
 
-#: ../src/panel.c:1256
+#: ../src/panel.c:1258
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- sama seperti --help\n"
 
-#: ../src/panel.c:1257
+#: ../src/panel.c:1259
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- sama seperti --profile\n"
 
-#: ../src/panel.c:1258
+#: ../src/panel.c:1260
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- sama seperti --version\n"
 
-#: ../src/panel.c:1259
+#: ../src/panel.c:1261
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- sama seperti --configure\n"
 
-#: ../src/panel.c:1260
+#: ../src/panel.c:1262
 #, c-format
 msgid ""
 "\n"
@@ -352,13 +347,11 @@ msgstr "Monitor Penggunaan CPU"
 msgid "Display CPU usage"
 msgstr "Tampilkan penggunaan CPU"
 
-#: ../src/plugins/deskno/deskno.c:99
-#: ../src/plugins/deskno/deskno2.c:129
+#: ../src/plugins/deskno/deskno.c:99 ../src/plugins/deskno/deskno2.c:129
 msgid "Desktop No / Workspace Name"
 msgstr "Nama Ruang / Nomor Desktop"
 
-#: ../src/plugins/deskno/deskno.c:101
-#: ../src/plugins/deskno/deskno2.c:131
+#: ../src/plugins/deskno/deskno.c:101 ../src/plugins/deskno/deskno2.c:131
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Tampilkan nomor ruang kerja, oleh cmeury@users.sf.net"
 
@@ -386,107 +379,111 @@ msgstr "Hapus Tombol"
 #. 1. We can borrow the menu from menu plugin (PtkAppMenu).
 #. 2. We can borrow the app chooser from PCManFM.
 #.
-#: ../src/plugins/launchbar.c:516
+#: ../src/plugins/launchbar.c:530
 msgid "Select Application"
 msgstr "Pilih Aplikasi"
 
-#: ../src/plugins/launchbar.c:670
+#: ../src/plugins/launchbar.c:682
 msgid "Buttons"
 msgstr "Tombol"
 
-#: ../src/plugins/launchbar.c:787
+#: ../src/plugins/launchbar.c:799
 msgid "Application Launch Bar"
 msgstr "Batang Jalankan Aplikasi"
 
-#: ../src/plugins/launchbar.c:789
+#: ../src/plugins/launchbar.c:801
 msgid "Bar with buttons to launch application"
 msgstr "Batang dengan tombol untuk menjalankan aplikasi"
 
-#: ../src/plugins/taskbar.c:1397
+#: ../src/plugins/taskbar.c:1401
 msgid "Raise"
 msgstr "Naikkan"
 
-#: ../src/plugins/taskbar.c:1401
+#: ../src/plugins/taskbar.c:1405
 msgid "Restore"
 msgstr "Kembalikan"
 
-#: ../src/plugins/taskbar.c:1405
+#: ../src/plugins/taskbar.c:1409
 msgid "Maximize"
 msgstr "Maksimalkan"
 
-#: ../src/plugins/taskbar.c:1409
+#: ../src/plugins/taskbar.c:1413
 msgid "Iconify"
 msgstr "Ikonifikasi"
 
-#: ../src/plugins/taskbar.c:1418
+#: ../src/plugins/taskbar.c:1422
 #, c-format
 msgid "Workspace %d"
 msgstr "Ruang kerja %d"
 
-#: ../src/plugins/taskbar.c:1426
+#: ../src/plugins/taskbar.c:1430
 msgid "All workspaces"
 msgstr "Semua ruang kerja"
 
-#: ../src/plugins/taskbar.c:1433
+#: ../src/plugins/taskbar.c:1437
 msgid "Move to Workspace"
 msgstr "Pindah ke Ruang Kerja"
 
 #. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1441
+#: ../src/plugins/taskbar.c:1445
 msgid "Close Window"
 msgstr "Tutup Jendela"
 
-#: ../src/plugins/taskbar.c:1681
+#: ../src/plugins/taskbar.c:1685
 msgid "Show tooltips"
 msgstr "Tampilan tip alat"
 
-#: ../src/plugins/taskbar.c:1682
+#: ../src/plugins/taskbar.c:1686
 msgid "Icons only"
 msgstr "Hanya ikon"
 
-#: ../src/plugins/taskbar.c:1683
+#: ../src/plugins/taskbar.c:1687
 msgid "Flat Buttons"
 msgstr "Tombol Rata"
 
-#: ../src/plugins/taskbar.c:1684
+#: ../src/plugins/taskbar.c:1688
 msgid "Accept SkipPager"
 msgstr "Terima SkipPager"
 
-#: ../src/plugins/taskbar.c:1685
+#: ../src/plugins/taskbar.c:1689
 msgid "Show Iconified windows"
 msgstr "Tampilkan jendela terikonifikasi"
 
-#: ../src/plugins/taskbar.c:1686
+#: ../src/plugins/taskbar.c:1690
 msgid "Show mapped windows"
 msgstr "Tampilkan jendela terpetakan"
 
-#: ../src/plugins/taskbar.c:1687
+#: ../src/plugins/taskbar.c:1691
 msgid "Show windows from all desktops"
 msgstr "Tampilkan jendela dari semua desktop"
 
-#: ../src/plugins/taskbar.c:1688
+#: ../src/plugins/taskbar.c:1692
 msgid "Use mouse wheel"
 msgstr "Gunakan roda tetikus"
 
-#: ../src/plugins/taskbar.c:1689
+#: ../src/plugins/taskbar.c:1693
 msgid "Flash when there is any window requiring attention"
 msgstr "Kedip bila ada jendela yang memerlukan perhatian"
 
-#: ../src/plugins/taskbar.c:1690
+#: ../src/plugins/taskbar.c:1694
 msgid "Max width of task button"
 msgstr "Lebar maksimum tombol tugas"
 
-#: ../src/plugins/taskbar.c:1691
+#: ../src/plugins/taskbar.c:1695
 msgid "Spacing"
 msgstr "Jarak"
 
-#: ../src/plugins/taskbar.c:1769
+#: ../src/plugins/taskbar.c:1773
 msgid "Task Bar (Window List)"
 msgstr "Batang Tugas (Senarai Jendela)"
 
-#: ../src/plugins/taskbar.c:1771
-msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
-msgstr "Batang tugas menampilkan semua jendela terbuka dan izinkan untuk mengikonifikasi mereka, bayang atau mendapatkan fokus"
+#: ../src/plugins/taskbar.c:1775
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
+msgstr ""
+"Batang tugas menampilkan semua jendela terbuka dan izinkan untuk "
+"mengikonifikasi mereka, bayang atau mendapatkan fokus"
 
 #: ../src/plugins/dclock.c:279
 msgid "Clock Format"
@@ -517,23 +514,23 @@ msgstr "Tampilkan Jam Digital dan Batang Alat"
 #. g_signal_connect(item, "activate", G_CALLBACK(on_add_menu_item_to_panel), data);
 #. gtk_menu_shell_append(p, item);
 #.
-#: ../src/plugins/menu.c:371
+#: ../src/plugins/menu.c:370
 msgid "Add to desktop"
 msgstr "Tambah ke desktop"
 
-#: ../src/plugins/menu.c:381
+#: ../src/plugins/menu.c:380
 msgid "Properties"
 msgstr "Properti"
 
-#: ../src/plugins/menu.c:1031
+#: ../src/plugins/menu.c:1030
 msgid "Icon"
 msgstr "Ikon"
 
-#: ../src/plugins/menu.c:1042
+#: ../src/plugins/menu.c:1041
 msgid "Menu"
 msgstr "Menu"
 
-#: ../src/plugins/menu.c:1044
+#: ../src/plugins/menu.c:1043
 msgid "Provide Menu"
 msgstr "Sediakan Menu "
 
@@ -587,8 +584,7 @@ msgid "Address:"
 msgstr "Alamat:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-#: ../src/plugins/netstat/netstat.c:319
-#: ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
 msgid "Broadcast:"
 msgstr "Broadcast:"
@@ -838,8 +834,12 @@ msgstr "Tak dapat mengurai nama antarmuka dari '%s'"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
-msgstr "Tak dapat mengurai statistik antarmuka dari '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgid ""
+"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
+msgstr ""
+"Tak dapat mengurai statistik antarmuka dari '%s'. prx_idx = %d; ptx_idx = %"
+"d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -897,16 +897,15 @@ msgstr "Pemisah"
 msgid "Add a separator to the panel"
 msgstr "Tambah pemisah ke panel"
 
-#: ../src/plugins/pager.c:709
+#: ../src/plugins/pager.c:707
 msgid "Desktop Pager"
 msgstr "Pemisah Desktop"
 
-#: ../src/plugins/pager.c:711
+#: ../src/plugins/pager.c:709
 msgid "Simple pager plugin"
 msgstr "Plugin pemisah sederhana"
 
-#: ../src/plugins/space.c:138
-#: ../src/plugins/batt/batt.c:892
+#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:892
 msgid "Size"
 msgstr "Ukuran"
 
@@ -973,7 +972,8 @@ msgstr "Ubah di antara tata letak papan ketik yang tersedia"
 
 #: ../src/plugins/wincmd.c:245
 msgid "Left click to iconify all windows. Middle click to shade them"
-msgstr "Klik kiri untuk mengikonifikasi semua jendela. Klik tengah untuk bayang"
+msgstr ""
+"Klik kiri untuk mengikonifikasi semua jendela. Klik tengah untuk bayang"
 
 #: ../src/plugins/wincmd.c:274
 msgid "Minimize All Windows"
@@ -1090,8 +1090,7 @@ msgstr "Kabel jaringan dicabut"
 msgid "Connection has limited or no connectivity"
 msgstr "Koneksi terbatas atau tak ada konektivitas"
 
-#: ../src/plugins/netstat/netstat.c:307
-#: ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "Alamat IP:"
@@ -1100,38 +1099,32 @@ msgstr "Alamat IP:"
 msgid "Remote IP:"
 msgstr "IP Jarak Jauh:"
 
-#: ../src/plugins/netstat/netstat.c:309
-#: ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "Netmask:"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "Aktivitas"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "Dikirim"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "Diterima"
 
-#: ../src/plugins/netstat/netstat.c:311
-#: ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "bita"
 
-#: ../src/plugins/netstat/netstat.c:312
-#: ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "paket"
@@ -1140,8 +1133,7 @@ msgstr "paket"
 msgid "Protocol:"
 msgstr "Protokol:"
 
-#: ../src/plugins/netstat/netstat.c:321
-#: ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "Alamat Peranti Keras:"
 
@@ -1370,4 +1362,3 @@ msgstr "Led Papan Ketik"
 #: ../src/plugins/kbled/kbled.c:291
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Indikator untuk tombol CapsLock, NumLock, dan ScrollLock"
-

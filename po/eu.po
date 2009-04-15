@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-11 20:31+0100\n"
+"POT-Creation-Date: 2009-04-15 19:41+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Alain Mendizabal <alainmendi@gmail.com>\n"
 "Language-Team: Basque <alainmendi@gmail.com>\n"
@@ -118,7 +118,8 @@ msgstr "Saioa amaierako komandoa:"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "Make window managers treat the panel as dock"
-msgstr "Leiho kudeatzaileak panela atrakagarria bezala tratatzea ahalbideratzen du"
+msgstr ""
+"Leiho kudeatzaileak panela atrakagarria bezala tratatzea ahalbideratzen du"
 
 #: ../data/ui/panel-pref.glade.h:29
 msgid "Margin:"
@@ -160,8 +161,7 @@ msgstr "Tintaren kolorea:"
 msgid "Width:"
 msgstr "Zabalera:"
 
-#: ../src/configurator.c:54
-#: ../src/gtk-run.c:250
+#: ../src/configurator.c:54 ../src/gtk-run.c:250
 msgid "Run"
 msgstr "Exekutatu"
 
@@ -181,13 +181,11 @@ msgstr "Kargatutako plugin-ak"
 msgid "Stretch"
 msgstr "Luzatu"
 
-#: ../src/configurator.c:510
-#: ../src/panel.c:520
+#: ../src/configurator.c:510 ../src/panel.c:522
 msgid "Add plugin to panel"
 msgstr "Gehitu plugin-a panelari"
 
-#: ../src/configurator.c:537
-#: ../src/panel.c:543
+#: ../src/configurator.c:537 ../src/panel.c:545
 msgid "Available plugins"
 msgstr "Eskuragarri dauden pluginak"
 
@@ -195,8 +193,7 @@ msgstr "Eskuragarri dauden pluginak"
 msgid "Logout command is not set"
 msgstr "Saioa amaitzeko komandoa ez dago ezarririk"
 
-#: ../src/configurator.c:1100
-#: ../src/configurator.c:1180
+#: ../src/configurator.c:1100 ../src/configurator.c:1180
 msgid "Select a file"
 msgstr "Hautatu fitxategia"
 
@@ -204,32 +201,31 @@ msgstr "Hautatu fitxategia"
 msgid "_Browse"
 msgstr "_Arakatu"
 
-#: ../src/panel.c:628
+#: ../src/panel.c:630
 msgid "Left"
 msgstr "Ezkerrean"
 
-#: ../src/panel.c:628
+#: ../src/panel.c:630
 msgid "Right"
 msgstr "Eskuinean"
 
-#: ../src/panel.c:628
+#: ../src/panel.c:630
 msgid "Top"
 msgstr "Goian"
 
-#: ../src/panel.c:628
+#: ../src/panel.c:630
 msgid "Bottom"
 msgstr "Behean"
 
-#: ../src/panel.c:630
-#: ../src/panel.c:756
+#: ../src/panel.c:632 ../src/panel.c:758
 msgid "Create New Panel"
 msgstr "Sortu panel berria"
 
-#: ../src/panel.c:636
+#: ../src/panel.c:638
 msgid "Where to put the panel?"
 msgstr "Non jarri behar da panela?"
 
-#: ../src/panel.c:694
+#: ../src/panel.c:696
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -237,92 +233,94 @@ msgstr ""
 "Panel hau ezabatu?\n"
 "<b>Kontuz: panela ezingo da berreskuratu.</b>"
 
-#: ../src/panel.c:695
+#: ../src/panel.c:697
 msgid "Confirm"
 msgstr "Berretsi"
 
-#: ../src/panel.c:730
+#: ../src/panel.c:732
 msgid "Add / Remove Panel Items"
 msgstr "Gehitu / Ezabatu paneleko elementuak"
 
-#: ../src/panel.c:738
+#: ../src/panel.c:740
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Ezabatu \"%s\" paneletik"
 
-#: ../src/panel.c:750
+#: ../src/panel.c:752
 msgid "Panel Settings"
 msgstr "Panelaren hobespenak"
 
-#: ../src/panel.c:767
+#: ../src/panel.c:769
 msgid "Delete This Panel"
 msgstr "Ezabatu panel hau"
 
-#: ../src/panel.c:777
+#: ../src/panel.c:779
 msgid "Panel"
 msgstr "Panela"
 
-#: ../src/panel.c:790
+#: ../src/panel.c:792
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" hobespenak"
 
-#: ../src/panel.c:1248
+#: ../src/panel.c:1250
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr ""
 
-#: ../src/panel.c:1249
+#: ../src/panel.c:1251
 #, c-format
 msgid "Command line options:\n"
 msgstr "Komando-lerroko aukerak:\n"
 
-#: ../src/panel.c:1250
+#: ../src/panel.c:1252
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help       -- erakutsi laguntza hau eta irten\n"
 
-#: ../src/panel.c:1251
+#: ../src/panel.c:1253
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version    -- erakutsi bertsioa eta irten\n"
 
-#: ../src/panel.c:1252
+#: ../src/panel.c:1254
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --log <zenbakia> -- ezarri log-aren maila 0-5. 0 - bat ere ez 5 - berritsua\n"
+msgstr ""
+" --log <zenbakia> -- ezarri log-aren maila 0-5. 0 - bat ere ez 5 - "
+"berritsua\n"
 
-#: ../src/panel.c:1253
+#: ../src/panel.c:1255
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- abiarazi konfigurazio utilitatea\n"
 
-#: ../src/panel.c:1254
+#: ../src/panel.c:1256
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile izena  -- erabili adierazitako profila\n"
 
-#: ../src/panel.c:1256
+#: ../src/panel.c:1258
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  --help-en berdina\n"
 
-#: ../src/panel.c:1257
+#: ../src/panel.c:1259
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  --profile-ren berdina\n"
 
-#: ../src/panel.c:1258
+#: ../src/panel.c:1260
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  --version-en berdina\n"
 
-#: ../src/panel.c:1259
+#: ../src/panel.c:1261
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr " -C  --configure-ren berdina\n"
 
-#: ../src/panel.c:1260
+#: ../src/panel.c:1262
 #, c-format
 msgid ""
 "\n"
@@ -353,13 +351,11 @@ msgstr "CPU erabileraren monitorea"
 msgid "Display CPU usage"
 msgstr "Bistaratu CPU erabilera"
 
-#: ../src/plugins/deskno/deskno.c:99
-#: ../src/plugins/deskno/deskno2.c:129
+#: ../src/plugins/deskno/deskno.c:99 ../src/plugins/deskno/deskno2.c:129
 msgid "Desktop No / Workspace Name"
 msgstr "Idazmahaiaren zenb / Laneko arearen zenb"
 
-#: ../src/plugins/deskno/deskno.c:101
-#: ../src/plugins/deskno/deskno2.c:131
+#: ../src/plugins/deskno/deskno.c:101 ../src/plugins/deskno/deskno2.c:131
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Bistaratu laneko arearen zenbakia (cmeury@users.sf.net)"
 
@@ -387,107 +383,111 @@ msgstr "Ezabatu botoia"
 #. 1. We can borrow the menu from menu plugin (PtkAppMenu).
 #. 2. We can borrow the app chooser from PCManFM.
 #.
-#: ../src/plugins/launchbar.c:516
+#: ../src/plugins/launchbar.c:530
 msgid "Select Application"
 msgstr "Hautatu aplikazioa"
 
-#: ../src/plugins/launchbar.c:670
+#: ../src/plugins/launchbar.c:682
 msgid "Buttons"
 msgstr "Botoiak"
 
-#: ../src/plugins/launchbar.c:787
+#: ../src/plugins/launchbar.c:799
 msgid "Application Launch Bar"
 msgstr "Aplikazioen abiarazle barra"
 
-#: ../src/plugins/launchbar.c:789
+#: ../src/plugins/launchbar.c:801
 msgid "Bar with buttons to launch application"
 msgstr "Aplikazioak abiarazteko botoiak dituen barra"
 
-#: ../src/plugins/taskbar.c:1397
+#: ../src/plugins/taskbar.c:1401
 msgid "Raise"
 msgstr "Goratu"
 
-#: ../src/plugins/taskbar.c:1401
+#: ../src/plugins/taskbar.c:1405
 msgid "Restore"
 msgstr "Leheneratu"
 
-#: ../src/plugins/taskbar.c:1405
+#: ../src/plugins/taskbar.c:1409
 msgid "Maximize"
 msgstr "Maximizatu"
 
-#: ../src/plugins/taskbar.c:1409
+#: ../src/plugins/taskbar.c:1413
 msgid "Iconify"
 msgstr "Ikonotu"
 
-#: ../src/plugins/taskbar.c:1418
+#: ../src/plugins/taskbar.c:1422
 #, c-format
 msgid "Workspace %d"
 msgstr "%d laneko area"
 
-#: ../src/plugins/taskbar.c:1426
+#: ../src/plugins/taskbar.c:1430
 msgid "All workspaces"
 msgstr "Laneko area guztiak"
 
-#: ../src/plugins/taskbar.c:1433
+#: ../src/plugins/taskbar.c:1437
 msgid "Move to Workspace"
 msgstr "Joan laneko areara"
 
 #. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1441
+#: ../src/plugins/taskbar.c:1445
 msgid "Close Window"
 msgstr "Itxi leihoa"
 
-#: ../src/plugins/taskbar.c:1681
+#: ../src/plugins/taskbar.c:1685
 msgid "Show tooltips"
 msgstr "Erakutsi argibideak"
 
-#: ../src/plugins/taskbar.c:1682
+#: ../src/plugins/taskbar.c:1686
 msgid "Icons only"
 msgstr "Ikonoak soilik"
 
-#: ../src/plugins/taskbar.c:1683
+#: ../src/plugins/taskbar.c:1687
 msgid "Flat Buttons"
 msgstr "Botoi lauak"
 
-#: ../src/plugins/taskbar.c:1684
+#: ../src/plugins/taskbar.c:1688
 msgid "Accept SkipPager"
 msgstr "Onartu SkipPager"
 
-#: ../src/plugins/taskbar.c:1685
+#: ../src/plugins/taskbar.c:1689
 msgid "Show Iconified windows"
 msgstr "Erakutsi ikonotutako leihoak"
 
-#: ../src/plugins/taskbar.c:1686
+#: ../src/plugins/taskbar.c:1690
 msgid "Show mapped windows"
 msgstr "Erakutsi mapatutako leihoak"
 
-#: ../src/plugins/taskbar.c:1687
+#: ../src/plugins/taskbar.c:1691
 msgid "Show windows from all desktops"
 msgstr "Erakutsi laneko area guztietako leihoak"
 
-#: ../src/plugins/taskbar.c:1688
+#: ../src/plugins/taskbar.c:1692
 msgid "Use mouse wheel"
 msgstr "Erabili saguaren gurpila"
 
-#: ../src/plugins/taskbar.c:1689
+#: ../src/plugins/taskbar.c:1693
 msgid "Flash when there is any window requiring attention"
 msgstr "Keinukatu leihoren batek adi egoteko eskatzen duenean"
 
-#: ../src/plugins/taskbar.c:1690
+#: ../src/plugins/taskbar.c:1694
 msgid "Max width of task button"
 msgstr "Zeregin botoiaren zabalera maximoa"
 
-#: ../src/plugins/taskbar.c:1691
+#: ../src/plugins/taskbar.c:1695
 msgid "Spacing"
 msgstr "Tartea"
 
-#: ../src/plugins/taskbar.c:1769
+#: ../src/plugins/taskbar.c:1773
 msgid "Task Bar (Window List)"
 msgstr "Zereginen barra (Leihoen zerrenda)"
 
-#: ../src/plugins/taskbar.c:1771
-msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
-msgstr "Zereginen barrak irekitako leiho guztiak erakusten ditu eta ikonotzen, biltzen edo fokua ezartzen uzten du"
+#: ../src/plugins/taskbar.c:1775
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
+msgstr ""
+"Zereginen barrak irekitako leiho guztiak erakusten ditu eta ikonotzen, "
+"biltzen edo fokua ezartzen uzten du"
 
 #: ../src/plugins/dclock.c:279
 msgid "Clock Format"
@@ -518,23 +518,23 @@ msgstr "Bistaratu erloju digitala eta argibidea"
 #. g_signal_connect(item, "activate", G_CALLBACK(on_add_menu_item_to_panel), data);
 #. gtk_menu_shell_append(p, item);
 #.
-#: ../src/plugins/menu.c:371
+#: ../src/plugins/menu.c:370
 msgid "Add to desktop"
 msgstr "Gehitu idazmahaira"
 
-#: ../src/plugins/menu.c:381
+#: ../src/plugins/menu.c:380
 msgid "Properties"
 msgstr "Propietateak"
 
-#: ../src/plugins/menu.c:1031
+#: ../src/plugins/menu.c:1030
 msgid "Icon"
 msgstr "Ikonoa"
 
-#: ../src/plugins/menu.c:1042
+#: ../src/plugins/menu.c:1041
 msgid "Menu"
 msgstr "Menua"
 
-#: ../src/plugins/menu.c:1044
+#: ../src/plugins/menu.c:1043
 msgid "Provide Menu"
 msgstr "Erakutsi menua"
 
@@ -588,8 +588,7 @@ msgid "Address:"
 msgstr "Helbidea:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-#: ../src/plugins/netstat/netstat.c:319
-#: ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
 msgid "Broadcast:"
 msgstr "Igorpena:"
@@ -839,8 +838,12 @@ msgstr "Ezin izan da '%s' interfaze-izena analizatu"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
-msgstr "Ezin izan da interfazea datu estatistikoak lortzeko analizatu: '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgid ""
+"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
+msgstr ""
+"Ezin izan da interfazea datu estatistikoak lortzeko analizatu: '%s'. prx_idx "
+"= %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -849,7 +852,8 @@ msgstr "Ezin izan da /proc/net/wireless analizatu. Formatu ezezaguna."
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr "Ezin izan dira haririk gabeko xehetasunak analizatu: '%s'. link_idx = %d;"
+msgstr ""
+"Ezin izan dira haririk gabeko xehetasunak analizatu: '%s'. link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
@@ -898,16 +902,15 @@ msgstr "Bereizlea"
 msgid "Add a separator to the panel"
 msgstr "Gehitu bereizlea panelari"
 
-#: ../src/plugins/pager.c:709
+#: ../src/plugins/pager.c:707
 msgid "Desktop Pager"
 msgstr "Idazmahai orrialdekatzailea"
 
-#: ../src/plugins/pager.c:711
+#: ../src/plugins/pager.c:709
 msgid "Simple pager plugin"
 msgstr "Orrialdekatzaile plugin sinplea"
 
-#: ../src/plugins/space.c:138
-#: ../src/plugins/batt/batt.c:892
+#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:892
 msgid "Size"
 msgstr "Tamaina"
 
@@ -973,7 +976,8 @@ msgstr "Aldatu eskuragarri dauden teklatuaren diseinuen artean"
 
 #: ../src/plugins/wincmd.c:245
 msgid "Left click to iconify all windows. Middle click to shade them"
-msgstr "Klikatu ezkerreko botoiarekin leiho guztiak ikonotzeko. Erdikoarekin biltzeko"
+msgstr ""
+"Klikatu ezkerreko botoiarekin leiho guztiak ikonotzeko. Erdikoarekin biltzeko"
 
 #: ../src/plugins/wincmd.c:274
 msgid "Minimize All Windows"
@@ -985,7 +989,8 @@ msgid ""
 "Supported commnds are 1)toggle iconify and 2) toggle shade"
 msgstr ""
 "Bidali komandoak idazmahaiko leiho guztietara\n"
-"Erabili daitezken komandoak dira 1) txandakatu ikonotzea eta 2) txandakatu biltzea"
+"Erabili daitezken komandoak dira 1) txandakatu ikonotzea eta 2) txandakatu "
+"biltzea"
 
 #: ../src/plugins/dirmenu.c:218
 msgid "Open in _Terminal"
@@ -1090,8 +1095,7 @@ msgstr "Sareko kablea deskonektaturik dago"
 msgid "Connection has limited or no connectivity"
 msgstr "Konexioak ez du konektibitaterik edo mugaturik dago"
 
-#: ../src/plugins/netstat/netstat.c:307
-#: ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "IP helbidea:"
@@ -1100,38 +1104,32 @@ msgstr "IP helbidea:"
 msgid "Remote IP:"
 msgstr "Hurruneko IP-a:"
 
-#: ../src/plugins/netstat/netstat.c:309
-#: ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "Sareko maskara:"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "Jarduera"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "Bidalita"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "Jasota"
 
-#: ../src/plugins/netstat/netstat.c:311
-#: ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "byteak"
 
-#: ../src/plugins/netstat/netstat.c:312
-#: ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "paketeak"
@@ -1140,8 +1138,7 @@ msgstr "paketeak"
 msgid "Protocol:"
 msgstr "Protokoloa:"
 
-#: ../src/plugins/netstat/netstat.c:321
-#: ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "HW helbidea:"
 
@@ -1270,7 +1267,8 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Mesedez, kontaktatu zure sistema-administratzailearekin ondorengo errorea konpontzeko:\n"
+"Mesedez, kontaktatu zure sistema-administratzailearekin ondorengo errorea "
+"konpontzeko:\n"
 "\n"
 "%s"
 
@@ -1370,4 +1368,3 @@ msgstr "Teklatuaren Led-a"
 #: ../src/plugins/kbled/kbled.c:291
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "CapsLock, NumLock eta ScrollLock teklen adierazleak"
-

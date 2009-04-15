@@ -6,14 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.3.8.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-12 08:48-0400\n"
+"POT-Creation-Date: 2009-04-15 19:41+0200\n"
 "PO-Revision-Date: 2009-04-10 11:00+0100\n"
 "Last-Translator: Matej <paxmanpwnz@gmail.com>\n"
 "Language-Team: / <paxmanpwnz@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 1.1.0\n"
 "X-Poedit-Language: Slovenian\n"
 "X-Poedit-Country: SLOVENIA\n"
@@ -161,8 +162,7 @@ msgstr "Barva:"
 msgid "Width:"
 msgstr "Širina:"
 
-#: ../src/configurator.c:54
-#: ../src/gtk-run.c:250
+#: ../src/configurator.c:54 ../src/gtk-run.c:250
 msgid "Run"
 msgstr "Zaženi"
 
@@ -182,13 +182,11 @@ msgstr "Trenutno naloženi vtičniki"
 msgid "Stretch"
 msgstr "Raztegni"
 
-#: ../src/configurator.c:510
-#: ../src/panel.c:520
+#: ../src/configurator.c:510 ../src/panel.c:522
 msgid "Add plugin to panel"
 msgstr "Dodaj vtičnik na opravilno vrstico"
 
-#: ../src/configurator.c:537
-#: ../src/panel.c:543
+#: ../src/configurator.c:537 ../src/panel.c:545
 msgid "Available plugins"
 msgstr "Razpoložljivi vtičniki"
 
@@ -196,8 +194,7 @@ msgstr "Razpoložljivi vtičniki"
 msgid "Logout command is not set"
 msgstr "Odjavni ukaz ni nastavljen"
 
-#: ../src/configurator.c:1100
-#: ../src/configurator.c:1180
+#: ../src/configurator.c:1100 ../src/configurator.c:1180
 msgid "Select a file"
 msgstr "Izberi datoteko"
 
@@ -205,32 +202,31 @@ msgstr "Izberi datoteko"
 msgid "_Browse"
 msgstr "_Brskaj"
 
-#: ../src/panel.c:628
+#: ../src/panel.c:630
 msgid "Left"
 msgstr "Levo"
 
-#: ../src/panel.c:628
+#: ../src/panel.c:630
 msgid "Right"
 msgstr "Desno"
 
-#: ../src/panel.c:628
+#: ../src/panel.c:630
 msgid "Top"
 msgstr "Zgoraj"
 
-#: ../src/panel.c:628
+#: ../src/panel.c:630
 msgid "Bottom"
 msgstr "Spodaj"
 
-#: ../src/panel.c:630
-#: ../src/panel.c:756
+#: ../src/panel.c:632 ../src/panel.c:758
 msgid "Create New Panel"
 msgstr "Ustvari novo opravilno vrstico"
 
-#: ../src/panel.c:636
+#: ../src/panel.c:638
 msgid "Where to put the panel?"
 msgstr "Določi položaj opravilne vrstice"
 
-#: ../src/panel.c:694
+#: ../src/panel.c:696
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -238,92 +234,94 @@ msgstr ""
 "Ste prepričani da hočete izbrisati opravilno vrstico?\n"
 "<b>Pozor: ni je mogoče obnoviti!</b>"
 
-#: ../src/panel.c:695
+#: ../src/panel.c:697
 msgid "Confirm"
 msgstr "Potrdi"
 
-#: ../src/panel.c:730
+#: ../src/panel.c:732
 msgid "Add / Remove Panel Items"
 msgstr "Dodaj / Odstrani vtičnike"
 
-#: ../src/panel.c:738
+#: ../src/panel.c:740
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Odstrani \"%s\" z opravilne vrstice"
 
-#: ../src/panel.c:750
+#: ../src/panel.c:752
 msgid "Panel Settings"
 msgstr "Nastavitve opravilne vrstice"
 
-#: ../src/panel.c:767
+#: ../src/panel.c:769
 msgid "Delete This Panel"
 msgstr "Izbriši to opravilno vrstico"
 
-#: ../src/panel.c:777
+#: ../src/panel.c:779
 msgid "Panel"
 msgstr "Opravilna vrstica"
 
-#: ../src/panel.c:790
+#: ../src/panel.c:792
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" Nastavitve"
 
-#: ../src/panel.c:1248
+#: ../src/panel.c:1250
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "LXPanel %s - Opravilna vrstica za namizja UNIX, spisana v GTK2+\n"
 
-#: ../src/panel.c:1249
+#: ../src/panel.c:1251
 #, c-format
 msgid "Command line options:\n"
 msgstr "Možnosti ukazne vrstice:\n"
 
-#: ../src/panel.c:1250
+#: ../src/panel.c:1252
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- prikaže pomoč in konča\n"
 
-#: ../src/panel.c:1251
+#: ../src/panel.c:1253
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- prikaži različico in konča\n"
 
-#: ../src/panel.c:1252
+#: ../src/panel.c:1254
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --log <številka>   -- določi stopnjo dnevniškega izpia od 0 do 5. 0 - brez dnevnika, 5 - izdaten\n"
+msgstr ""
+" --log <številka>   -- določi stopnjo dnevniškega izpia od 0 do 5. 0 - brez "
+"dnevnika, 5 - izdaten\n"
 
-#: ../src/panel.c:1253
+#: ../src/panel.c:1255
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- zažene izbrano konfiguracijo\n"
 
-#: ../src/panel.c:1254
+#: ../src/panel.c:1256
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile Ime -- uporabi podan profil\n"
 
-#: ../src/panel.c:1256
+#: ../src/panel.c:1258
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- enako kot --help\n"
 
-#: ../src/panel.c:1257
+#: ../src/panel.c:1259
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- enako kot --profile\n"
 
-#: ../src/panel.c:1258
+#: ../src/panel.c:1260
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- enako kot --version\n"
 
-#: ../src/panel.c:1259
+#: ../src/panel.c:1261
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- enako kot --configure\n"
 
-#: ../src/panel.c:1260
+#: ../src/panel.c:1262
 #, c-format
 msgid ""
 "\n"
@@ -354,13 +352,11 @@ msgstr "Nadzornik uporabe CPE"
 msgid "Display CPU usage"
 msgstr "Prikaži zasedenost CPE"
 
-#: ../src/plugins/deskno/deskno.c:99
-#: ../src/plugins/deskno/deskno2.c:129
+#: ../src/plugins/deskno/deskno.c:99 ../src/plugins/deskno/deskno2.c:129
 msgid "Desktop No / Workspace Name"
 msgstr "Številka namizja / Ime namizja"
 
-#: ../src/plugins/deskno/deskno.c:101
-#: ../src/plugins/deskno/deskno2.c:131
+#: ../src/plugins/deskno/deskno.c:101 ../src/plugins/deskno/deskno2.c:131
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Prikaži številko namizja"
 
@@ -388,109 +384,113 @@ msgstr "Odstrani gumb"
 #. 1. We can borrow the menu from menu plugin (PtkAppMenu).
 #. 2. We can borrow the app chooser from PCManFM.
 #.
-#: ../src/plugins/launchbar.c:516
+#: ../src/plugins/launchbar.c:530
 msgid "Select Application"
 msgstr "Izberi program"
 
-#: ../src/plugins/launchbar.c:670
+#: ../src/plugins/launchbar.c:682
 msgid "Buttons"
 msgstr "Gumbi"
 
-#: ../src/plugins/launchbar.c:787
+#: ../src/plugins/launchbar.c:799
 msgid "Application Launch Bar"
 msgstr "Zaganjalnik aplikacij"
 
-#: ../src/plugins/launchbar.c:789
+#: ../src/plugins/launchbar.c:801
 msgid "Bar with buttons to launch application"
 msgstr "Pult z gumbi za zagon aplikacij"
 
-#: ../src/plugins/taskbar.c:1397
+#: ../src/plugins/taskbar.c:1401
 msgid "Raise"
 msgstr "V ospredje"
 
-#: ../src/plugins/taskbar.c:1401
+#: ../src/plugins/taskbar.c:1405
 msgid "Restore"
 msgstr "Obnovi"
 
-#: ../src/plugins/taskbar.c:1405
+#: ../src/plugins/taskbar.c:1409
 msgid "Maximize"
 msgstr "Razpri"
 
-#: ../src/plugins/taskbar.c:1409
+#: ../src/plugins/taskbar.c:1413
 msgid "Iconify"
 msgstr "Pomanjšaj"
 
-#: ../src/plugins/taskbar.c:1418
+#: ../src/plugins/taskbar.c:1422
 #, c-format
 msgid "Workspace %d"
 msgstr "Namizje %d"
 
-#: ../src/plugins/taskbar.c:1426
+#: ../src/plugins/taskbar.c:1430
 msgid "All workspaces"
 msgstr "Vsa namizja"
 
-#: ../src/plugins/taskbar.c:1433
+#: ../src/plugins/taskbar.c:1437
 msgid "Move to Workspace"
 msgstr "Premakni na namizje"
 
 #. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1441
+#: ../src/plugins/taskbar.c:1445
 msgid "Close Window"
 msgstr "Zapri okno"
 
-#: ../src/plugins/taskbar.c:1681
+#: ../src/plugins/taskbar.c:1685
 msgid "Show tooltips"
 msgstr "Prikaži zaslonski namig"
 
-#: ../src/plugins/taskbar.c:1682
+#: ../src/plugins/taskbar.c:1686
 msgid "Icons only"
 msgstr "Samo ikone"
 
-#: ../src/plugins/taskbar.c:1683
+#: ../src/plugins/taskbar.c:1687
 msgid "Flat Buttons"
 msgstr "Vbočeni gumbi"
 
-#: ../src/plugins/taskbar.c:1684
+#: ../src/plugins/taskbar.c:1688
 msgid "Accept SkipPager"
 msgstr "Sprejmi SkipPager"
 
-#: ../src/plugins/taskbar.c:1685
+#: ../src/plugins/taskbar.c:1689
 msgid "Show Iconified windows"
 msgstr "Prikaži pomanjšana okna"
 
-#: ../src/plugins/taskbar.c:1686
+#: ../src/plugins/taskbar.c:1690
 #, fuzzy
 msgid "Show mapped windows"
 msgstr "Prikaži mapirane gumbe?"
 
-#: ../src/plugins/taskbar.c:1687
+#: ../src/plugins/taskbar.c:1691
 msgid "Show windows from all desktops"
 msgstr "Prikaži okna z vseh namizij"
 
-#: ../src/plugins/taskbar.c:1688
+#: ../src/plugins/taskbar.c:1692
 msgid "Use mouse wheel"
 msgstr "Uporabi miškin kolešček"
 
-#: ../src/plugins/taskbar.c:1689
+#: ../src/plugins/taskbar.c:1693
 #, fuzzy
 msgid "Flash when there is any window requiring attention"
 msgstr "Animiraj okno, ki hoče pozornost?"
 
-#: ../src/plugins/taskbar.c:1690
+#: ../src/plugins/taskbar.c:1694
 msgid "Max width of task button"
 msgstr "Maksimalna širina gumbov"
 
-#: ../src/plugins/taskbar.c:1691
+#: ../src/plugins/taskbar.c:1695
 msgid "Spacing"
 msgstr "Razmik"
 
-#: ../src/plugins/taskbar.c:1769
+#: ../src/plugins/taskbar.c:1773
 msgid "Task Bar (Window List)"
 msgstr "Seznam oken"
 
-#: ../src/plugins/taskbar.c:1771
-msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
-msgstr "Opravilna vrstica prikaže vsa odprta okna in omogoča, da jih pomanjšate, osenčite ali fokusirate"
+#: ../src/plugins/taskbar.c:1775
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
+msgstr ""
+"Opravilna vrstica prikaže vsa odprta okna in omogoča, da jih pomanjšate, "
+"osenčite ali fokusirate"
 
 #: ../src/plugins/dclock.c:279
 msgid "Clock Format"
@@ -521,23 +521,23 @@ msgstr "Prikaži digitalni uro in zaslonski namig"
 #. g_signal_connect(item, "activate", G_CALLBACK(on_add_menu_item_to_panel), data);
 #. gtk_menu_shell_append(p, item);
 #.
-#: ../src/plugins/menu.c:371
+#: ../src/plugins/menu.c:370
 msgid "Add to desktop"
 msgstr "Dodaj na namizje"
 
-#: ../src/plugins/menu.c:381
+#: ../src/plugins/menu.c:380
 msgid "Properties"
 msgstr "Nastavitve"
 
-#: ../src/plugins/menu.c:1031
+#: ../src/plugins/menu.c:1030
 msgid "Icon"
 msgstr "Ikona"
 
-#: ../src/plugins/menu.c:1042
+#: ../src/plugins/menu.c:1041
 msgid "Menu"
 msgstr "Meni"
 
-#: ../src/plugins/menu.c:1044
+#: ../src/plugins/menu.c:1043
 #, fuzzy
 msgid "Provide Menu"
 msgstr "Nudi menu?"
@@ -592,8 +592,7 @@ msgid "Address:"
 msgstr "Naslov:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-#: ../src/plugins/netstat/netstat.c:319
-#: ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
 msgid "Broadcast:"
 msgstr "Naslov za razpršeno oddajanje:"
@@ -845,8 +844,12 @@ msgstr "Ni bilo mogoče razčleniti imena vmesnika z '%s'"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
-msgstr "Ni bilo mogoče razčleniti statistike vmesnika '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgid ""
+"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
+msgstr ""
+"Ni bilo mogoče razčleniti statistike vmesnika '%s'. prx_idx = %d; ptx_idx = %"
+"d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -855,7 +858,9 @@ msgstr "Ni bilo mogoče razčleniti /proc/net/wireless. Neznana oblika zapisa."
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr "Ni bilo mogoče razčleniti podrobnosti o brezžičnem omrežju '%s'. link_idx = %d;"
+msgstr ""
+"Ni bilo mogoče razčleniti podrobnosti o brezžičnem omrežju '%s'. link_idx = %"
+"d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
@@ -874,7 +879,8 @@ msgstr "Ni bilo mogoče razčleniti ukaza '%s': %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr "Izhoda ukaza 'netstat' ni bilo mogoče razčleniti. Neznana oblika zapisa."
+msgstr ""
+"Izhoda ukaza 'netstat' ni bilo mogoče razčleniti. Neznana oblika zapisa."
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
@@ -904,16 +910,15 @@ msgstr "Ločilo"
 msgid "Add a separator to the panel"
 msgstr "Dodaj ločilo na opravilno vrstico"
 
-#: ../src/plugins/pager.c:709
+#: ../src/plugins/pager.c:707
 msgid "Desktop Pager"
 msgstr "Desktop Pager"
 
-#: ../src/plugins/pager.c:711
+#: ../src/plugins/pager.c:709
 msgid "Simple pager plugin"
 msgstr "Enostaven pager vtičnik"
 
-#: ../src/plugins/space.c:138
-#: ../src/plugins/batt/batt.c:892
+#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:892
 msgid "Size"
 msgstr "Velikost"
 
@@ -991,7 +996,9 @@ msgstr "Pomanjšaj okna"
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commnds are 1)toggle iconify and 2) toggle shade"
-msgstr "Pošlji ukaz vsem oknom na namizju. Podprti ukazi so: 1.) pomanjšaj/povečaj in 2.) osenči"
+msgstr ""
+"Pošlji ukaz vsem oknom na namizju. Podprti ukazi so: 1.) pomanjšaj/povečaj "
+"in 2.) osenči"
 
 #: ../src/plugins/dirmenu.c:218
 msgid "Open in _Terminal"
@@ -1096,8 +1103,7 @@ msgstr "Mrežni kabel je iztaknjen"
 msgid "Connection has limited or no connectivity"
 msgstr "Zveza je omejena ali brez povezave"
 
-#: ../src/plugins/netstat/netstat.c:307
-#: ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "IP-naslov:"
@@ -1106,38 +1112,32 @@ msgstr "IP-naslov:"
 msgid "Remote IP:"
 msgstr "Oddaljeni IP-naslov:"
 
-#: ../src/plugins/netstat/netstat.c:309
-#: ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "Omrežna maska:"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "Aktivnost"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "Poslano"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "Prejeto"
 
-#: ../src/plugins/netstat/netstat.c:311
-#: ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "bajtov"
 
-#: ../src/plugins/netstat/netstat.c:312
-#: ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "paketkov"
@@ -1146,8 +1146,7 @@ msgstr "paketkov"
 msgid "Protocol:"
 msgstr "Protokol:"
 
-#: ../src/plugins/netstat/netstat.c:321
-#: ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "MAC nasloc:"
 
@@ -1278,7 +1277,8 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Prosim, kontaktiraje sistemskega administratorja za razrešitev naslednjega problema:\n"
+"Prosim, kontaktiraje sistemskega administratorja za razrešitev naslednjega "
+"problema:\n"
 "\n"
 "%s"
 
@@ -1378,4 +1378,3 @@ msgstr "LED tipkovnice"
 #: ../src/plugins/kbled/kbled.c:291
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Indikatorji CapsLock, NumLock in ScrollLock"
-
