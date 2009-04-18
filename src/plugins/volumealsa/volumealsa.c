@@ -125,8 +125,9 @@ static gboolean reset_mixer_evt_idle( volume_t* vol )
     return FALSE;
 }
 
-static gboolean on_mixer_event( GIOChannel* channel, GIOCondition cond, volume_t *vol )
+static gboolean on_mixer_event( GIOChannel* channel, GIOCondition cond, gpointer vol_gpointer)
 {
+    volume_t *vol = (volume_t *)(vol_gpointer);
     if( 0 == vol->mixer_evt_idle )
     {
         vol->mixer_evt_idle = g_idle_add_full( G_PRIORITY_DEFAULT, (GSourceFunc)reset_mixer_evt_idle, vol, NULL );

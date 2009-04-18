@@ -559,7 +559,7 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
     g_object_unref( list );
 
     g_signal_connect( dlg, "response",
-                      on_add_plugin_response, _view );
+                      G_CALLBACK(on_add_plugin_response), _view );
     g_object_set_data( G_OBJECT(dlg), "avail-plugins", view );
     g_object_weak_ref( G_OBJECT(dlg), plugin_class_list_free, classes );
 
@@ -1116,8 +1116,9 @@ static void on_browse_btn_clicked(GtkButton* btn, GtkEntry* entry)
     gtk_widget_destroy(fc);
 }
 
-inline void generic_config_dlg_save(Panel *panel)
+inline void generic_config_dlg_save(gpointer panel_gpointer,GObject *where_the_object_was)
 {
+    Panel *panel = (Panel *)(panel_gpointer);
     panel_config_save(panel);
 }
 

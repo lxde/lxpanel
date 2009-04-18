@@ -87,11 +87,11 @@ static GtkWidget *create_calendar()
     RET(win);
 }
 
-static int
+static void *
 actionProcess( void *arg )
 {
     ENTER;
-    RET(system((char *) arg));
+    RET((void *)system((char *) arg));
 }
 
 static  gboolean

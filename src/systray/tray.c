@@ -113,8 +113,9 @@ tray_destructor(Plugin *p)
 }
 
 /* Dirty hacks used to handle background of systray */
-static gboolean delay_update_bg( Plugin* pl )
+static gboolean delay_update_bg( gpointer pl_gpointer )
 {
+        Plugin* pl = (Plugin *)(pl_gpointer);
 	plugin_widget_set_background( pl->pwid, pl->panel );
 	return FALSE;
 }
