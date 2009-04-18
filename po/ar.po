@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-15 19:41+0200\n"
-"PO-Revision-Date: 2009-01-25 13:59+0200\n"
+"PO-Revision-Date: 2009-04-16 17:13+0200\n"
 "Last-Translator: Ahmad Farghal <ahmad.farghal@gmail.com>\n"
 "Language-Team: Arabic\n"
 "MIME-Version: 1.0\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Pootle 1.1.0\n"
 
 #: ../data/ui/panel-pref.glade.h:1
 msgid "<b>Background</b>"
@@ -358,9 +359,8 @@ msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "إظهار رقم مساحة العمل، كتبه cmeury@users.sf.net"
 
 #: ../src/plugins/image.c:177
-#, fuzzy
 msgid "Display Image and Tooltip"
-msgstr "أظهر صورة وتلميح"
+msgstr "أظهر صورة وتلميحا"
 
 #: ../src/plugins/launchbar.c:146
 msgid "Add Button"
