@@ -473,12 +473,12 @@ get_wm_icon(Window tkwin, int iw, int ih)
     Window win;
     unsigned int w, h;
     int sd, result, format;
-    GdkPixbuf *ret, *masked, *pixmap = NULL, *mask = NULL;
+    GdkPixbuf *ret=NULL, *masked=NULL, *pixmap = NULL, *mask = NULL;
     Atom type = None;
     gulong *data = NULL;
     gulong  nitems;
     gulong  bytes_after;
-    guchar *pixdata, *p;
+    guchar *pixdata=NULL, *p=NULL;
     int     i;
 
     /* Important Notes:
@@ -502,9 +502,11 @@ get_wm_icon(Window tkwin, int iw, int ih)
     /* g_debug("type=%d, format=%d, nitems=%d", type, format, nitems); */
     if(type != XA_CARDINAL || nitems <= 0 )
     {
-        LOG(LOG_WARN, "lxpanel : type is not XA_CARDINAL");
-        if(data)
+        LOG(LOG_WARN, "lxpanel : type is not XA_CARDINAL\n");
+        if(data) {
             XFree(data);
+	    data=NULL;
+        }
         result = -1;
     }
 
@@ -580,6 +582,7 @@ get_wm_icon(Window tkwin, int iw, int ih)
 	    result = -1;
 	}
         XFree(data);
+	data=NULL;
     }
 
     if(result != Success)
@@ -596,6 +599,7 @@ get_wm_icon(Window tkwin, int iw, int ih)
             if ((hints->flags & IconMaskHint))
                 xmask = hints->icon_mask;
             XFree(hints);
+	    hints=NULL;
             result = (xpixmap != None)?Success:-1;
         }
 
@@ -613,8 +617,10 @@ get_wm_icon(Window tkwin, int iw, int ih)
                                         &bytes_after, (void*)&icons);
             if(type != kwin_win_icon_atom)
             {
-                if( icons )
+	        if( icons ) {
                     XFree(icons);
+		    icons=NULL;
+		}
                 result = -1;
             }
             if(result == Success)
