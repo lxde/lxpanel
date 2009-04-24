@@ -3,14 +3,15 @@
 # Copyright (C) 2008-2009 THE lxpanel'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the lxpanel package.
 # Hironao Komatsu <hironao@users.sourceforge.net>, 2008-2009.
+# IWAI, Masaharu <iwai@alib.jp>, 2009.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.3.999\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-15 19:41+0200\n"
-"PO-Revision-Date: 2009-02-07 16:02+0900\n"
-"Last-Translator: Hironao Komatsu <hironao@users.sourceforge.net>\n"
+"PO-Revision-Date: 2009-04-24 19:03+0900\n"
+"Last-Translator: IWAI, Masaharu <iwai@alib.jp>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -60,6 +61,9 @@ msgid ""
 "Pixels\n"
 "% Percent"
 msgstr ""
+"ダイナミック\n"
+"ピクセル\n"
+"% パーセント"
 
 #: ../data/ui/panel-pref.glade.h:14
 msgid "Edge:"
@@ -93,6 +97,9 @@ msgid ""
 "Center\n"
 "Right"
 msgstr ""
+"左\n"
+"中央\n"
+"右"
 
 #: ../data/ui/panel-pref.glade.h:23
 msgid ""
@@ -101,6 +108,10 @@ msgid ""
 "Top\n"
 "Bottom"
 msgstr ""
+"左\n"
+"右\n"
+"上\n"
+"下"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Logout Command:"
@@ -128,7 +139,7 @@ msgstr "パネルの設定"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "Pixels"
-msgstr ""
+msgstr "ピクセル"
 
 #: ../data/ui/panel-pref.glade.h:34
 msgid "Reserve space, and not covered by maximized windows"
@@ -348,9 +359,8 @@ msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "ワークスペースの番号を表示する。cmeury@users.sf.net 氏による"
 
 #: ../src/plugins/image.c:177
-#, fuzzy
 msgid "Display Image and Tooltip"
-msgstr "デジタル時計とツールチップを表示します"
+msgstr "画像とツールチップを表示します"
 
 #: ../src/plugins/launchbar.c:146
 msgid "Add Button"
@@ -531,7 +541,7 @@ msgstr "メニューを提供します"
 #: ../src/plugins/netstatus/glade-support.c:115
 #, c-format
 msgid "Couldn't find pixmap file: %s"
-msgstr ""
+msgstr "pixmapファイルが見つかりません: %s"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
@@ -633,27 +643,24 @@ msgid "_Name:"
 msgstr "名前(_N):"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:148
-#, fuzzy
 msgid "Name"
-msgstr "名前(_N):"
+msgstr "名前"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:149
 msgid "The interface name"
-msgstr ""
+msgstr "インタフェース名"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:156
-#, fuzzy
 msgid "State"
-msgstr "状態:"
+msgstr "状態"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:157
 msgid "The interface state"
-msgstr ""
+msgstr "インタフェースの状態"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:165
-#, fuzzy
 msgid "Stats"
-msgstr "状態:"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:166
 msgid "The interface packets/bytes statistics"
@@ -669,9 +676,8 @@ msgid "Whether the interface is a wireless interface"
 msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:181
-#, fuzzy
 msgid "Signal"
-msgstr "信号を表示するか"
+msgstr "信号"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:182
 msgid "Wireless signal strength percentage"
@@ -680,12 +686,11 @@ msgstr ""
 #: ../src/plugins/netstatus/netstatus-iface.c:191
 #: ../src/plugins/netstatus/netstatus-util.c:167
 msgid "Error"
-msgstr ""
+msgstr "エラー"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:192
-#, fuzzy
 msgid "The current error condition"
-msgstr "このアイコンがモニタしている現在のインタフェースです。"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:434
 #: ../src/plugins/netstatus/netstatus-iface.c:1197
@@ -705,7 +710,7 @@ msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:873
 msgid "Ethernet"
-msgstr ""
+msgstr "イーサネット"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:879
 msgid "AMPR AX.25"
@@ -797,9 +802,8 @@ msgid "Ash"
 msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:990
-#, fuzzy
 msgid "Econet"
-msgstr "アイコン"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:993
 msgid "IrLAP"
@@ -811,24 +815,24 @@ msgid "SIOCGIFCONF error: %s"
 msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:1248
-#, fuzzy, c-format
+#, c-format
 msgid "No network devices found"
-msgstr "バッテリが見つかりません"
+msgstr "ネットワークデバイスが見つかりません"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:180
 #, c-format
 msgid "Cannot open /proc/net/dev: %s"
-msgstr ""
+msgstr "/proc/net/dev が開けません: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:189
 msgid "Could not parse /proc/net/dev. Unknown format."
-msgstr ""
+msgstr "/proc/net/dev がパースできません。未知の形式です。"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:204
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:330
 #, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr ""
+msgstr "'%s'からインタフェース名がパースできません"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
@@ -840,7 +844,7 @@ msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr ""
+msgstr "/proc/net/wireless がパースできません。未知の形式です。"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
@@ -860,32 +864,31 @@ msgstr ""
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr ""
+msgstr "コマンドライン '%s' がパースできません: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr ""
+msgstr "'netstat' の出力がパースできません。未知の形式です。"
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
-msgstr ""
+msgstr "切断"
 
 #: ../src/plugins/netstatus/netstatus-util.c:155
 msgid "Idle"
-msgstr ""
+msgstr "アイドル"
 
 #: ../src/plugins/netstatus/netstatus-util.c:158
 msgid "Sending"
-msgstr ""
+msgstr "送信"
 
 #: ../src/plugins/netstatus/netstatus-util.c:161
-#, fuzzy
 msgid "Receiving"
 msgstr "受信"
 
 #: ../src/plugins/netstatus/netstatus-util.c:164
 msgid "Sending/Receiving"
-msgstr ""
+msgstr "送信/受信"
 
 #: ../src/plugins/separator.c:103
 msgid "Separator"
@@ -916,9 +919,8 @@ msgid "Allocate space"
 msgstr "空白を割り当てます"
 
 #: ../src/plugins/xkb/xkb-plugin.c:241
-#, fuzzy
 msgid "Keyboard Layout Switcher"
-msgstr "キーボード LED"
+msgstr "キーボード レイアウト スイッチャー"
 
 #: ../src/plugins/xkb/xkb-plugin.c:247
 msgid ""
@@ -940,11 +942,11 @@ msgstr ""
 
 #: ../src/plugins/xkb/xkb-plugin.c:413
 msgid "image"
-msgstr ""
+msgstr "画像"
 
 #: ../src/plugins/xkb/xkb-plugin.c:414
 msgid "text"
-msgstr ""
+msgstr "テキスト"
 
 #: ../src/plugins/xkb/xkb-plugin.c:418
 msgid "Per application settings"
@@ -956,11 +958,11 @@ msgstr ""
 
 #: ../src/plugins/xkb/xkb-plugin.c:441
 msgid "Default layout:"
-msgstr ""
+msgstr "デフォルトのレイアウト:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:499
 msgid "Kayboard Layout switcher"
-msgstr ""
+msgstr "キーボード レイアウト スイッチャー"
 
 #: ../src/plugins/xkb/xkb-plugin.c:501
 msgid "Switch between available keyboard layouts"
