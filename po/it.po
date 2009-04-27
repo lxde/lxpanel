@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.3.99\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-04-15 19:41+0200\n"
-"PO-Revision-Date: 2009-04-17 19:42+0200\n"
+"PO-Revision-Date: 2009-04-27 17:50+0200\n"
 "Last-Translator: Alessandro Pellizzari <alex@amiran.it>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -62,7 +62,7 @@ msgid ""
 "Pixels\n"
 "% Percent"
 msgstr ""
-"Dynamico\n"
+"Dinamico\n"
 "Pixel\n"
 "% Percento"
 
@@ -72,11 +72,11 @@ msgstr "Lato:"
 
 #: ../data/ui/panel-pref.glade.h:15
 msgid "Enable Image:"
-msgstr "Attivare immagine:"
+msgstr "Attiva immagine:"
 
 #: ../data/ui/panel-pref.glade.h:16
 msgid "Enable Transparency"
-msgstr "Attivare trasparenza"
+msgstr "Attiva trasparenza"
 
 #: ../data/ui/panel-pref.glade.h:17
 msgid "File Manager:"
@@ -144,7 +144,7 @@ msgstr "Pixel"
 
 #: ../data/ui/panel-pref.glade.h:34
 msgid "Reserve space, and not covered by maximized windows"
-msgstr "Riservare spazio, e non coperto da finestre maximizzate"
+msgstr "Riservare spazio, e non coperto da finestre massimizzate"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Select an image file"
