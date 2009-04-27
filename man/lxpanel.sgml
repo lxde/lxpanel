@@ -83,13 +83,13 @@ manpage.1: manpage.sgml
     		</para>
 	</listitem>
     	<listitem><para>Launcher bar (small icons clicked to launch apps)</para></listitem>
-    	<listitem><para>Task bar supporting urgency hint (can be flash when gaim gets new
-    		incoming messages)</para>
+    	<listitem><para>Task bar supporting ICCCM/EWMH `urgency' hint (Pidgin IM windows
+    can flash on new incoming messages)</para>
 	</listitem>
     	<listitem><para>Notification area (system tray)</para></listitem>
     	<listitem><para>Digital clock</para></listitem>
-    	<listitem><para>Run dialog (a dialog let you type a command and run, can be called
-    		in external programs)</para>
+    	<listitem><para>Run dialog (type command to run, without opening a terminal
+)</para>
 	</listitem>
     	<listitem><para>Net status icon plug-in (optional)</para></listitem>
     	<listitem><para>Volume control plug-in (optional)</para></listitem>
