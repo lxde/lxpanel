@@ -952,9 +952,7 @@ panel_global_config_save( Panel* p, FILE *fp)
     lxpanel_put_bool(fp, "transparent", p->transparent );
 //    gtk_color_button_get_color(GTK_COLOR_BUTTON(tr_colorb), &c);
     lxpanel_put_line(fp, "tintcolor=#%06x", gcolor2rgb24(&p->gtintcolor));
-//    lxpanel_put_int(fp, "alpha", gtk_color_button_get_alpha(GTK_COLOR_BUTTON(tr_colorb)) * 0xff / 0xffff);
-/* FIXME: is this correct?? */
-    lxpanel_put_int(fp, "alpha", p->alpha * 0xff / 0xffff);
+    lxpanel_put_int(fp, "alpha", p->alpha);
     lxpanel_put_bool(fp, "setdocktype", p->setdocktype);
     lxpanel_put_bool(fp, "setpartialstrut", p->setstrut);
     lxpanel_put_bool(fp, "usefontcolor", p->usefontcolor);
