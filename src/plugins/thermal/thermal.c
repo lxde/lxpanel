@@ -302,8 +302,8 @@ static void config(Plugin *p, GtkWindow* parent) {
             _("Automatic sensor location"), &th->auto_sensor, CONF_TYPE_BOOL,
             _("Sensor"), &th->sensor, CONF_TYPE_STR,
             _("Automatic temperature levels"), &th->custom_levels, CONF_TYPE_BOOL,
-            _("Warning1 Temperatur"), &th->warning1, CONF_TYPE_INT,
-            _("Warning2 Temperatur"), &th->warning2, CONF_TYPE_INT,
+            _("Warning1 Temperature"), &th->warning1, CONF_TYPE_INT,
+            _("Warning2 Temperature"), &th->warning2, CONF_TYPE_INT,
             NULL);
     gtk_window_present(GTK_WINDOW(dialog));
 
