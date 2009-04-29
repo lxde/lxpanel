@@ -167,7 +167,7 @@ plugin_deskno=
 plugin_batt=
 plugin_xkb=
 plugin_kbled=
-plugin_thermal=thermal
+plugin_thermal=
 
 AC_MSG_CHECKING([which plugins should be built dynamically])
 AC_ARG_WITH(plugins,
