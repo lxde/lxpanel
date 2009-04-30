@@ -80,10 +80,8 @@ struct _pager {
 };
 
 
-
-#define TASK_VISIBLE(tk) \
- (!( ((tk)->ws != NormalState) || (tk)->nws.hidden || (tk)->nws.skip_pager ))
-
+#define TASK_VISIBLE(tk)                            \
+ (!( (tk)->nws.hidden || (tk)->nws.skip_pager ))
 //if (t->nws.skip_pager || t->nwwt.desktop /*|| t->nwwt.dock || t->nwwt.splash*/ )
 
 static void pager_rebuild_all(FbEv *ev, pager *pg);
