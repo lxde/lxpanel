@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-15 19:41+0200\n"
+"POT-Creation-Date: 2009-05-01 15:28+0200\n"
 "PO-Revision-Date: 2008-12-14 11:23+0100\n"
 "Last-Translator: Alex Pavlunenko <pavlunenko@gmail.com>\n"
 "Language-Team: Russian <LL@li.org>\n"
@@ -189,16 +189,16 @@ msgstr "Добавить приложение к панели"
 msgid "Available plugins"
 msgstr "Приложения доступные для установки"
 
-#: ../src/configurator.c:1051
+#: ../src/configurator.c:1049
 msgid "Logout command is not set"
 msgstr "Команда для завершения сеанса не определена"
 
-#: ../src/configurator.c:1100 ../src/configurator.c:1180
+#: ../src/configurator.c:1098 ../src/configurator.c:1179
 #, fuzzy
 msgid "Select a file"
 msgstr "Выберите файл"
 
-#: ../src/configurator.c:1198
+#: ../src/configurator.c:1197
 msgid "_Browse"
 msgstr "Обозреватель"
 
@@ -336,11 +336,11 @@ msgstr ""
 msgid "Enter the command you want to execute:"
 msgstr "Напечатайте программу для запуска:"
 
-#: ../src/systray/tray.c:210
+#: ../src/systray/tray.c:211
 msgid "System Tray"
 msgstr "Системный Док"
 
-#: ../src/systray/tray.c:212
+#: ../src/systray/tray.c:213
 msgid "Old KDE/GNOME Tray"
 msgstr "Старый KDE/GNOME Док"
 
@@ -401,89 +401,89 @@ msgstr "Место для Запуска Приложений"
 msgid "Bar with buttons to launch application"
 msgstr "Место с кнопками для запуска приложений"
 
-#: ../src/plugins/taskbar.c:1401
+#: ../src/plugins/taskbar.c:1407
 msgid "Raise"
 msgstr "Поднять"
 
-#: ../src/plugins/taskbar.c:1405
+#: ../src/plugins/taskbar.c:1411
 msgid "Restore"
 msgstr "Восстановить"
 
-#: ../src/plugins/taskbar.c:1409
+#: ../src/plugins/taskbar.c:1415
 msgid "Maximize"
 msgstr "На весь экран"
 
-#: ../src/plugins/taskbar.c:1413
+#: ../src/plugins/taskbar.c:1419
 msgid "Iconify"
 msgstr "Свернуть"
 
-#: ../src/plugins/taskbar.c:1422
+#: ../src/plugins/taskbar.c:1428
 #, c-format
 msgid "Workspace %d"
 msgstr "Рабочее пространство %d"
 
-#: ../src/plugins/taskbar.c:1430
+#: ../src/plugins/taskbar.c:1436
 msgid "All workspaces"
 msgstr "Все рабочие пространства"
 
-#: ../src/plugins/taskbar.c:1437
+#: ../src/plugins/taskbar.c:1443
 msgid "Move to Workspace"
 msgstr "Переместить в рабочее пространство"
 
 #. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1445
+#: ../src/plugins/taskbar.c:1451
 msgid "Close Window"
 msgstr "Закрыть Окно"
 
-#: ../src/plugins/taskbar.c:1685
+#: ../src/plugins/taskbar.c:1691
 msgid "Show tooltips"
 msgstr "Показать тултипы"
 
-#: ../src/plugins/taskbar.c:1686
+#: ../src/plugins/taskbar.c:1692
 msgid "Icons only"
 msgstr "Только иконки"
 
-#: ../src/plugins/taskbar.c:1687
+#: ../src/plugins/taskbar.c:1693
 msgid "Flat Buttons"
 msgstr "Плоские Кнопки"
 
-#: ../src/plugins/taskbar.c:1688
+#: ../src/plugins/taskbar.c:1694
 msgid "Accept SkipPager"
 msgstr "Добавить СкипПейджер"
 
-#: ../src/plugins/taskbar.c:1689
+#: ../src/plugins/taskbar.c:1695
 msgid "Show Iconified windows"
 msgstr "Показывать Свернутые Окна"
 
-#: ../src/plugins/taskbar.c:1690
+#: ../src/plugins/taskbar.c:1696
 msgid "Show mapped windows"
 msgstr "Показывать определенные окна"
 
-#: ../src/plugins/taskbar.c:1691
+#: ../src/plugins/taskbar.c:1697
 msgid "Show windows from all desktops"
 msgstr "Показывать окна со всех рабочих пространств"
 
-#: ../src/plugins/taskbar.c:1692
+#: ../src/plugins/taskbar.c:1698
 msgid "Use mouse wheel"
 msgstr "Использовать колесо прокрутки мыши"
 
-#: ../src/plugins/taskbar.c:1693
+#: ../src/plugins/taskbar.c:1699
 msgid "Flash when there is any window requiring attention"
 msgstr "Мигать, когда присутствует окно которое нуждается во внимании"
 
-#: ../src/plugins/taskbar.c:1694
+#: ../src/plugins/taskbar.c:1700
 msgid "Max width of task button"
 msgstr "Максимальная ширина кнопок управления"
 
-#: ../src/plugins/taskbar.c:1695
+#: ../src/plugins/taskbar.c:1701
 msgid "Spacing"
 msgstr "Дистанция"
 
-#: ../src/plugins/taskbar.c:1773
+#: ../src/plugins/taskbar.c:1779
 msgid "Task Bar (Window List)"
 msgstr "Таск Бар (Список Окон)"
 
-#: ../src/plugins/taskbar.c:1775
+#: ../src/plugins/taskbar.c:1781
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -1038,11 +1038,13 @@ msgid "Automatic temperature levels"
 msgstr "Автоматический уровень температуры"
 
 #: ../src/plugins/thermal/thermal.c:305
-msgid "Warning1 Temperatur"
+#, fuzzy
+msgid "Warning1 Temperature"
 msgstr "Внимание1 Температура"
 
 #: ../src/plugins/thermal/thermal.c:306
-msgid "Warning2 Temperatur"
+#, fuzzy
+msgid "Warning2 Temperature"
 msgstr "Внимание2 Температура"
 
 #: ../src/plugins/thermal/thermal.c:348
@@ -1056,22 +1058,22 @@ msgstr "Показывает температуру компьютера, kesler
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #: ../src/plugins/volume/volume.c:305
-#: ../src/plugins/volumealsa/volumealsa.c:399
+#: ../src/plugins/volumealsa/volumealsa.c:400
 msgid "Volume control"
 msgstr "Управление звуком"
 
 #: ../src/plugins/volume/volume.c:317
-#: ../src/plugins/volumealsa/volumealsa.c:413
+#: ../src/plugins/volumealsa/volumealsa.c:414
 msgid "Volume Control"
 msgstr "Управление звуком"
 
 #. create frame
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:309
+#: ../src/plugins/volumealsa/volumealsa.c:310
 msgid "Volume"
 msgstr "Звук"
 
-#: ../src/plugins/volumealsa/volumealsa.c:326
+#: ../src/plugins/volumealsa/volumealsa.c:327
 msgid "Mute"
 msgstr "Заглушить"
 

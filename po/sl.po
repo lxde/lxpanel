@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.3.8.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-15 19:41+0200\n"
+"POT-Creation-Date: 2009-05-01 15:28+0200\n"
 "PO-Revision-Date: 2009-04-10 11:00+0100\n"
 "Last-Translator: Matej <paxmanpwnz@gmail.com>\n"
 "Language-Team: / <paxmanpwnz@gmail.com>\n"
@@ -190,15 +190,15 @@ msgstr "Dodaj vtičnik na opravilno vrstico"
 msgid "Available plugins"
 msgstr "Razpoložljivi vtičniki"
 
-#: ../src/configurator.c:1051
+#: ../src/configurator.c:1049
 msgid "Logout command is not set"
 msgstr "Odjavni ukaz ni nastavljen"
 
-#: ../src/configurator.c:1100 ../src/configurator.c:1180
+#: ../src/configurator.c:1098 ../src/configurator.c:1179
 msgid "Select a file"
 msgstr "Izberi datoteko"
 
-#: ../src/configurator.c:1198
+#: ../src/configurator.c:1197
 msgid "_Browse"
 msgstr "_Brskaj"
 
@@ -336,11 +336,11 @@ msgstr ""
 msgid "Enter the command you want to execute:"
 msgstr "Izvedi ukaz:"
 
-#: ../src/systray/tray.c:210
+#: ../src/systray/tray.c:211
 msgid "System Tray"
 msgstr "Sistemski pladenj"
 
-#: ../src/systray/tray.c:212
+#: ../src/systray/tray.c:213
 msgid "Old KDE/GNOME Tray"
 msgstr "Stari KDE/GNOME sistemski pladenj"
 
@@ -400,91 +400,91 @@ msgstr "Zaganjalnik aplikacij"
 msgid "Bar with buttons to launch application"
 msgstr "Pult z gumbi za zagon aplikacij"
 
-#: ../src/plugins/taskbar.c:1401
+#: ../src/plugins/taskbar.c:1407
 msgid "Raise"
 msgstr "V ospredje"
 
-#: ../src/plugins/taskbar.c:1405
+#: ../src/plugins/taskbar.c:1411
 msgid "Restore"
 msgstr "Obnovi"
 
-#: ../src/plugins/taskbar.c:1409
+#: ../src/plugins/taskbar.c:1415
 msgid "Maximize"
 msgstr "Razpri"
 
-#: ../src/plugins/taskbar.c:1413
+#: ../src/plugins/taskbar.c:1419
 msgid "Iconify"
 msgstr "Pomanjšaj"
 
-#: ../src/plugins/taskbar.c:1422
+#: ../src/plugins/taskbar.c:1428
 #, c-format
 msgid "Workspace %d"
 msgstr "Namizje %d"
 
-#: ../src/plugins/taskbar.c:1430
+#: ../src/plugins/taskbar.c:1436
 msgid "All workspaces"
 msgstr "Vsa namizja"
 
-#: ../src/plugins/taskbar.c:1437
+#: ../src/plugins/taskbar.c:1443
 msgid "Move to Workspace"
 msgstr "Premakni na namizje"
 
 #. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1445
+#: ../src/plugins/taskbar.c:1451
 msgid "Close Window"
 msgstr "Zapri okno"
 
-#: ../src/plugins/taskbar.c:1685
+#: ../src/plugins/taskbar.c:1691
 msgid "Show tooltips"
 msgstr "Prikaži zaslonski namig"
 
-#: ../src/plugins/taskbar.c:1686
+#: ../src/plugins/taskbar.c:1692
 msgid "Icons only"
 msgstr "Samo ikone"
 
-#: ../src/plugins/taskbar.c:1687
+#: ../src/plugins/taskbar.c:1693
 msgid "Flat Buttons"
 msgstr "Vbočeni gumbi"
 
-#: ../src/plugins/taskbar.c:1688
+#: ../src/plugins/taskbar.c:1694
 msgid "Accept SkipPager"
 msgstr "Sprejmi SkipPager"
 
-#: ../src/plugins/taskbar.c:1689
+#: ../src/plugins/taskbar.c:1695
 msgid "Show Iconified windows"
 msgstr "Prikaži pomanjšana okna"
 
-#: ../src/plugins/taskbar.c:1690
+#: ../src/plugins/taskbar.c:1696
 #, fuzzy
 msgid "Show mapped windows"
 msgstr "Prikaži mapirane gumbe?"
 
-#: ../src/plugins/taskbar.c:1691
+#: ../src/plugins/taskbar.c:1697
 msgid "Show windows from all desktops"
 msgstr "Prikaži okna z vseh namizij"
 
-#: ../src/plugins/taskbar.c:1692
+#: ../src/plugins/taskbar.c:1698
 msgid "Use mouse wheel"
 msgstr "Uporabi miškin kolešček"
 
-#: ../src/plugins/taskbar.c:1693
+#: ../src/plugins/taskbar.c:1699
 #, fuzzy
 msgid "Flash when there is any window requiring attention"
 msgstr "Animiraj okno, ki hoče pozornost?"
 
-#: ../src/plugins/taskbar.c:1694
+#: ../src/plugins/taskbar.c:1700
 msgid "Max width of task button"
 msgstr "Maksimalna širina gumbov"
 
-#: ../src/plugins/taskbar.c:1695
+#: ../src/plugins/taskbar.c:1701
 msgid "Spacing"
 msgstr "Razmik"
 
-#: ../src/plugins/taskbar.c:1773
+#: ../src/plugins/taskbar.c:1779
 msgid "Task Bar (Window List)"
 msgstr "Seznam oken"
 
-#: ../src/plugins/taskbar.c:1775
+#: ../src/plugins/taskbar.c:1781
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -1037,11 +1037,13 @@ msgid "Automatic temperature levels"
 msgstr "Samodejno nastavi temperaturni prag"
 
 #: ../src/plugins/thermal/thermal.c:305
-msgid "Warning1 Temperatur"
+#, fuzzy
+msgid "Warning1 Temperature"
 msgstr "Pozor1 Temperatura"
 
 #: ../src/plugins/thermal/thermal.c:306
-msgid "Warning2 Temperatur"
+#, fuzzy
+msgid "Warning2 Temperature"
 msgstr "Pozor1 Temperatura"
 
 #: ../src/plugins/thermal/thermal.c:348
@@ -1054,22 +1056,22 @@ msgstr "Prikazovalnik temperatur v sistemu, avtor kesler.daniel@gmail.com"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #: ../src/plugins/volume/volume.c:305
-#: ../src/plugins/volumealsa/volumealsa.c:399
+#: ../src/plugins/volumealsa/volumealsa.c:400
 msgid "Volume control"
 msgstr "Nastavi jakost zvoka"
 
 #: ../src/plugins/volume/volume.c:317
-#: ../src/plugins/volumealsa/volumealsa.c:413
+#: ../src/plugins/volumealsa/volumealsa.c:414
 msgid "Volume Control"
 msgstr "Nastavi jakost zvoka"
 
 #. create frame
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:309
+#: ../src/plugins/volumealsa/volumealsa.c:310
 msgid "Volume"
 msgstr "Zvok"
 
-#: ../src/plugins/volumealsa/volumealsa.c:326
+#: ../src/plugins/volumealsa/volumealsa.c:327
 msgid "Mute"
 msgstr "Nemo"
 

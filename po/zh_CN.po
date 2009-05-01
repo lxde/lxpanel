@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.3.8.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-15 19:41+0200\n"
+"POT-Creation-Date: 2009-05-01 15:28+0200\n"
 "PO-Revision-Date: 2008-10-05 09:20+0800\n"
 "Last-Translator: 冷罡华 <hiweed@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -187,16 +187,16 @@ msgstr "新增插件到面板"
 msgid "Available plugins"
 msgstr "可选用的插件"
 
-#: ../src/configurator.c:1051
+#: ../src/configurator.c:1049
 msgid "Logout command is not set"
 msgstr "注销命令尚未设置"
 
-#: ../src/configurator.c:1100 ../src/configurator.c:1180
+#: ../src/configurator.c:1098 ../src/configurator.c:1179
 #, fuzzy
 msgid "Select a file"
 msgstr "选择图片文件"
 
-#: ../src/configurator.c:1198
+#: ../src/configurator.c:1197
 msgid "_Browse"
 msgstr ""
 
@@ -332,11 +332,11 @@ msgstr ""
 msgid "Enter the command you want to execute:"
 msgstr "输入你要想运行的命令："
 
-#: ../src/systray/tray.c:210
+#: ../src/systray/tray.c:211
 msgid "System Tray"
 msgstr "系统托盘 (通知区域)"
 
-#: ../src/systray/tray.c:212
+#: ../src/systray/tray.c:213
 msgid "Old KDE/GNOME Tray"
 msgstr "KDE/GNOME 系统托盘"
 
@@ -397,89 +397,89 @@ msgstr "快速启动栏"
 msgid "Bar with buttons to launch application"
 msgstr "用以快速启动应用程序的工具栏"
 
-#: ../src/plugins/taskbar.c:1401
+#: ../src/plugins/taskbar.c:1407
 msgid "Raise"
 msgstr "移到最上层"
 
-#: ../src/plugins/taskbar.c:1405
+#: ../src/plugins/taskbar.c:1411
 msgid "Restore"
 msgstr "复原"
 
-#: ../src/plugins/taskbar.c:1409
+#: ../src/plugins/taskbar.c:1415
 msgid "Maximize"
 msgstr "最大化"
 
-#: ../src/plugins/taskbar.c:1413
+#: ../src/plugins/taskbar.c:1419
 msgid "Iconify"
 msgstr "最小化"
 
-#: ../src/plugins/taskbar.c:1422
+#: ../src/plugins/taskbar.c:1428
 #, c-format
 msgid "Workspace %d"
 msgstr "工作区 %d"
 
-#: ../src/plugins/taskbar.c:1430
+#: ../src/plugins/taskbar.c:1436
 msgid "All workspaces"
 msgstr "所有工作区"
 
-#: ../src/plugins/taskbar.c:1437
+#: ../src/plugins/taskbar.c:1443
 msgid "Move to Workspace"
 msgstr "移动到工作区"
 
 #. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1445
+#: ../src/plugins/taskbar.c:1451
 msgid "Close Window"
 msgstr "关闭窗口"
 
-#: ../src/plugins/taskbar.c:1685
+#: ../src/plugins/taskbar.c:1691
 msgid "Show tooltips"
 msgstr "显示工具提示"
 
-#: ../src/plugins/taskbar.c:1686
+#: ../src/plugins/taskbar.c:1692
 msgid "Icons only"
 msgstr "只显示图标"
 
-#: ../src/plugins/taskbar.c:1687
+#: ../src/plugins/taskbar.c:1693
 msgid "Flat Buttons"
 msgstr "平面按钮"
 
-#: ../src/plugins/taskbar.c:1688
+#: ../src/plugins/taskbar.c:1694
 msgid "Accept SkipPager"
 msgstr "接受 SkipPager Hint"
 
-#: ../src/plugins/taskbar.c:1689
+#: ../src/plugins/taskbar.c:1695
 msgid "Show Iconified windows"
 msgstr "显示最小化的窗口"
 
-#: ../src/plugins/taskbar.c:1690
+#: ../src/plugins/taskbar.c:1696
 msgid "Show mapped windows"
 msgstr "显示已被映射的窗口"
 
-#: ../src/plugins/taskbar.c:1691
+#: ../src/plugins/taskbar.c:1697
 msgid "Show windows from all desktops"
 msgstr "显示来自所有桌面的窗口"
 
-#: ../src/plugins/taskbar.c:1692
+#: ../src/plugins/taskbar.c:1698
 msgid "Use mouse wheel"
 msgstr "使用鼠标滚轮"
 
-#: ../src/plugins/taskbar.c:1693
+#: ../src/plugins/taskbar.c:1699
 msgid "Flash when there is any window requiring attention"
 msgstr "当有窗口要求用户注意时，闪烁面板"
 
-#: ../src/plugins/taskbar.c:1694
+#: ../src/plugins/taskbar.c:1700
 msgid "Max width of task button"
 msgstr "面板按钮最大宽度"
 
-#: ../src/plugins/taskbar.c:1695
+#: ../src/plugins/taskbar.c:1701
 msgid "Spacing"
 msgstr "间距"
 
-#: ../src/plugins/taskbar.c:1773
+#: ../src/plugins/taskbar.c:1779
 msgid "Task Bar (Window List)"
 msgstr "面板 (窗口清单)"
 
-#: ../src/plugins/taskbar.c:1775
+#: ../src/plugins/taskbar.c:1781
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -1034,11 +1034,11 @@ msgid "Automatic temperature levels"
 msgstr ""
 
 #: ../src/plugins/thermal/thermal.c:305
-msgid "Warning1 Temperatur"
+msgid "Warning1 Temperature"
 msgstr ""
 
 #: ../src/plugins/thermal/thermal.c:306
-msgid "Warning2 Temperatur"
+msgid "Warning2 Temperature"
 msgstr ""
 
 #: ../src/plugins/thermal/thermal.c:348
@@ -1052,22 +1052,22 @@ msgstr ""
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #: ../src/plugins/volume/volume.c:305
-#: ../src/plugins/volumealsa/volumealsa.c:399
+#: ../src/plugins/volumealsa/volumealsa.c:400
 msgid "Volume control"
 msgstr "音量控制"
 
 #: ../src/plugins/volume/volume.c:317
-#: ../src/plugins/volumealsa/volumealsa.c:413
+#: ../src/plugins/volumealsa/volumealsa.c:414
 msgid "Volume Control"
 msgstr "音量控制"
 
 #. create frame
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:309
+#: ../src/plugins/volumealsa/volumealsa.c:310
 msgid "Volume"
 msgstr "音量"
 
-#: ../src/plugins/volumealsa/volumealsa.c:326
+#: ../src/plugins/volumealsa/volumealsa.c:327
 msgid "Mute"
 msgstr "静音"
 

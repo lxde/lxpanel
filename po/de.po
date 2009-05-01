@@ -2,12 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Mario Blättermann <mario.blaettermann@t-online.de>, 2008.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-15 19:41+0200\n"
+"POT-Creation-Date: 2009-05-01 15:28+0200\n"
 "PO-Revision-Date: 2009-04-30 01:02+0200\n"
 "Last-Translator: Christoph Wickert <christoph.wickert@googlemail.com>\n"
 "Language-Team: Deutsch <LL@li.org>\n"
@@ -162,8 +162,7 @@ msgstr "Farbe:"
 msgid "Width:"
 msgstr "Breite:"
 
-#: ../src/configurator.c:54
-#: ../src/gtk-run.c:250
+#: ../src/configurator.c:54 ../src/gtk-run.c:250
 msgid "Run"
 msgstr "Ausführen"
 
@@ -183,26 +182,23 @@ msgstr "Gegenwärtig geladene Erweiterungen"
 msgid "Stretch"
 msgstr "Ausdehnen"
 
-#: ../src/configurator.c:510
-#: ../src/panel.c:522
+#: ../src/configurator.c:510 ../src/panel.c:522
 msgid "Add plugin to panel"
 msgstr "Erweiterung zum Panel hinzufügen"
 
-#: ../src/configurator.c:537
-#: ../src/panel.c:545
+#: ../src/configurator.c:537 ../src/panel.c:545
 msgid "Available plugins"
 msgstr "Verfügbare Erweiterungen"
 
-#: ../src/configurator.c:1051
+#: ../src/configurator.c:1049
 msgid "Logout command is not set"
 msgstr "Abmeldebefehl ist nicht definiert"
 
-#: ../src/configurator.c:1100
-#: ../src/configurator.c:1180
+#: ../src/configurator.c:1098 ../src/configurator.c:1179
 msgid "Select a file"
 msgstr "Bilddatei auswählen"
 
-#: ../src/configurator.c:1198
+#: ../src/configurator.c:1197
 msgid "_Browse"
 msgstr "A_uswählen "
 
@@ -222,8 +218,7 @@ msgstr "Oben"
 msgid "Bottom"
 msgstr "Unten"
 
-#: ../src/panel.c:632
-#: ../src/panel.c:758
+#: ../src/panel.c:632 ../src/panel.c:758
 msgid "Create New Panel"
 msgstr "Neues Panel anlegen"
 
@@ -292,7 +287,9 @@ msgstr " --version   -- zeigt Versionshinweise an und beendet\n"
 #: ../src/panel.c:1254
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --log <Zahl>   -- setzt den Loglevel auf 0-5. 0 - keine Logs, 5 - vollständig\n"
+msgstr ""
+" --log <Zahl>   -- setzt den Loglevel auf 0-5. 0 - keine Logs, 5 - "
+"vollständig\n"
 
 #: ../src/panel.c:1255
 #, c-format
@@ -339,11 +336,11 @@ msgstr ""
 msgid "Enter the command you want to execute:"
 msgstr "Auszuführenden Befehl eingeben:"
 
-#: ../src/systray/tray.c:210
+#: ../src/systray/tray.c:211
 msgid "System Tray"
 msgstr "Systembereich"
 
-#: ../src/systray/tray.c:212
+#: ../src/systray/tray.c:213
 msgid "Old KDE/GNOME Tray"
 msgstr "Alter KDE/GNOME-Systembereich"
 
@@ -355,13 +352,11 @@ msgstr "Prozessorlast-Monitor"
 msgid "Display CPU usage"
 msgstr "Prozessorlast anzeigen"
 
-#: ../src/plugins/deskno/deskno.c:99
-#: ../src/plugins/deskno/deskno2.c:129
+#: ../src/plugins/deskno/deskno.c:99 ../src/plugins/deskno/deskno2.c:129
 msgid "Desktop No / Workspace Name"
 msgstr "Arbeitsflächennummer und -name"
 
-#: ../src/plugins/deskno/deskno.c:101
-#: ../src/plugins/deskno/deskno2.c:131
+#: ../src/plugins/deskno/deskno.c:101 ../src/plugins/deskno/deskno2.c:131
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Arbeitsflächennummer anzeigen"
 
@@ -405,91 +400,95 @@ msgstr "Anwendungsstartleiste"
 msgid "Bar with buttons to launch application"
 msgstr "Leiste mit Knöpfen zum Starten von Anwendungen"
 
-#: ../src/plugins/taskbar.c:1401
+#: ../src/plugins/taskbar.c:1407
 msgid "Raise"
 msgstr "Hervorheben"
 
-#: ../src/plugins/taskbar.c:1405
+#: ../src/plugins/taskbar.c:1411
 msgid "Restore"
 msgstr "Wiederherstellen"
 
-#: ../src/plugins/taskbar.c:1409
+#: ../src/plugins/taskbar.c:1415
 msgid "Maximize"
 msgstr "Maximieren"
 
-#: ../src/plugins/taskbar.c:1413
+#: ../src/plugins/taskbar.c:1419
 msgid "Iconify"
 msgstr "Minimieren"
 
-#: ../src/plugins/taskbar.c:1422
+#: ../src/plugins/taskbar.c:1428
 #, c-format
 msgid "Workspace %d"
 msgstr "Arbeitsfläche %d"
 
-#: ../src/plugins/taskbar.c:1430
+#: ../src/plugins/taskbar.c:1436
 msgid "All workspaces"
 msgstr "Alle Arbeitsflächen"
 
-#: ../src/plugins/taskbar.c:1437
+#: ../src/plugins/taskbar.c:1443
 msgid "Move to Workspace"
 msgstr "Verschieben auf Arbeitsfläche"
 
 #. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1445
+#: ../src/plugins/taskbar.c:1451
 msgid "Close Window"
 msgstr "Fenster schließen"
 
-#: ../src/plugins/taskbar.c:1685
+#: ../src/plugins/taskbar.c:1691
 msgid "Show tooltips"
 msgstr "Minihilfen anzeigen"
 
-#: ../src/plugins/taskbar.c:1686
+#: ../src/plugins/taskbar.c:1692
 msgid "Icons only"
 msgstr "Nur Symbole"
 
-#: ../src/plugins/taskbar.c:1687
+#: ../src/plugins/taskbar.c:1693
 msgid "Flat Buttons"
 msgstr "Flache Knöpfe"
 
-#: ../src/plugins/taskbar.c:1688
+#: ../src/plugins/taskbar.c:1694
 msgid "Accept SkipPager"
 msgstr "SkipPager akzeptieren"
 
-#: ../src/plugins/taskbar.c:1689
+#: ../src/plugins/taskbar.c:1695
 msgid "Show Iconified windows"
 msgstr "Minimierte Fenster anzeigen"
 
-#: ../src/plugins/taskbar.c:1690
+#: ../src/plugins/taskbar.c:1696
 msgid "Show mapped windows"
 msgstr "Eingerollte Fenster anzeigen"
 
-#: ../src/plugins/taskbar.c:1691
+#: ../src/plugins/taskbar.c:1697
 msgid "Show windows from all desktops"
 msgstr "Fenster aller Arbeitsflächen anzeigen"
 
-#: ../src/plugins/taskbar.c:1692
+#: ../src/plugins/taskbar.c:1698
 msgid "Use mouse wheel"
 msgstr "Mausrad benutzen"
 
-#: ../src/plugins/taskbar.c:1693
+#: ../src/plugins/taskbar.c:1699
 msgid "Flash when there is any window requiring attention"
 msgstr "Blinken, wenn ein Fenster um Aufmerksamkeit bittet"
 
-#: ../src/plugins/taskbar.c:1694
+#: ../src/plugins/taskbar.c:1700
 msgid "Max width of task button"
 msgstr "Maximale Breite des Knopfes"
 
-#: ../src/plugins/taskbar.c:1695
+#: ../src/plugins/taskbar.c:1701
 msgid "Spacing"
 msgstr "Zwischenraum"
 
-#: ../src/plugins/taskbar.c:1773
+#: ../src/plugins/taskbar.c:1779
 msgid "Task Bar (Window List)"
 msgstr "Taskbar (Fensterliste)"
 
-#: ../src/plugins/taskbar.c:1775
-msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
-msgstr "Die Taskbar zeigt alle geöffneten Fenster und erlaubt die Reduktion auf Desktop-Symbole, Schattierungen und Fokussierungen"
+#: ../src/plugins/taskbar.c:1781
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
+msgstr ""
+"Die Taskbar zeigt alle geöffneten Fenster und erlaubt die Reduktion auf "
+"Desktop-Symbole, Schattierungen und Fokussierungen"
 
 #: ../src/plugins/dclock.c:279
 msgid "Clock Format"
@@ -590,8 +589,7 @@ msgid "Address:"
 msgstr "Adresse:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-#: ../src/plugins/netstat/netstat.c:319
-#: ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
 msgid "Broadcast:"
 msgstr "Broadcast:"
@@ -841,8 +839,12 @@ msgstr "Konnte den Schnittstellen-Namen von '%s' nicht auslesen"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
-msgstr "Konnte die Schnittstellen-Statistik von '%s' nicht auslesen. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgid ""
+"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
+msgstr ""
+"Konnte die Schnittstellen-Statistik von '%s' nicht auslesen. prx_idx = %d; "
+"ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -851,7 +853,9 @@ msgstr "Konnte /proc/net/wireless nicht auslesen. Unbekanntes Format."
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr "Konnte die Details für die drahtlose Verbindung von '%s' nicht auslesen. link_idx = %d;"
+msgstr ""
+"Konnte die Details für die drahtlose Verbindung von '%s' nicht auslesen. "
+"link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
@@ -908,8 +912,7 @@ msgstr "Desktop-Pager"
 msgid "Simple pager plugin"
 msgstr "Einfache Pager-Erweiterung"
 
-#: ../src/plugins/space.c:138
-#: ../src/plugins/batt/batt.c:892
+#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:892
 msgid "Size"
 msgstr "Größe"
 
@@ -929,7 +932,9 @@ msgstr "Tastatur-Layout-Schalter"
 msgid ""
 "Allows you to switch the keyboard layout and\n"
 "displays the currently selected layout."
-msgstr "Erlaubt die Tastaturbelegung zu wechseln und zeigt die aktuell gewählte Belegung an."
+msgstr ""
+"Erlaubt die Tastaturbelegung zu wechseln und zeigt die aktuell gewählte "
+"Belegung an."
 
 #: ../src/plugins/xkb/xkb-plugin.c:252
 msgid "Other plugins available here"
@@ -1024,11 +1029,13 @@ msgid "Automatic temperature levels"
 msgstr "Automatische Temperatur-Stufen"
 
 #: ../src/plugins/thermal/thermal.c:305
-msgid "Warning1 Temperatur"
+#, fuzzy
+msgid "Warning1 Temperature"
 msgstr "Warnung1 Temperatur"
 
 #: ../src/plugins/thermal/thermal.c:306
-msgid "Warning2 Temperatur"
+#, fuzzy
+msgid "Warning2 Temperature"
 msgstr "Warnung2 Temperatur"
 
 #: ../src/plugins/thermal/thermal.c:348
@@ -1041,22 +1048,22 @@ msgstr "Zeige System-Temperatur an, von kesler.daniel@gmail.com"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #: ../src/plugins/volume/volume.c:305
-#: ../src/plugins/volumealsa/volumealsa.c:399
+#: ../src/plugins/volumealsa/volumealsa.c:400
 msgid "Volume control"
 msgstr "Lautstärkeregler"
 
 #: ../src/plugins/volume/volume.c:317
-#: ../src/plugins/volumealsa/volumealsa.c:413
+#: ../src/plugins/volumealsa/volumealsa.c:414
 msgid "Volume Control"
 msgstr "Lautstärkeregler"
 
 #. create frame
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:309
+#: ../src/plugins/volumealsa/volumealsa.c:310
 msgid "Volume"
 msgstr "Lautstärke"
 
-#: ../src/plugins/volumealsa/volumealsa.c:326
+#: ../src/plugins/volumealsa/volumealsa.c:327
 msgid "Mute"
 msgstr "Stumm"
 
@@ -1090,8 +1097,7 @@ msgstr "Netzwerkkabel wurde herausgezogen"
 msgid "Connection has limited or no connectivity"
 msgstr "Verbindung eingeschränkt oder gar keine Verbindung"
 
-#: ../src/plugins/netstat/netstat.c:307
-#: ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "IP-Adresse:"
@@ -1100,38 +1106,32 @@ msgstr "IP-Adresse:"
 msgid "Remote IP:"
 msgstr "Entfernte IP-Adresse:"
 
-#: ../src/plugins/netstat/netstat.c:309
-#: ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "Netzmaske:"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "Aktivität"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "Gesendet"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "Empfangen"
 
-#: ../src/plugins/netstat/netstat.c:311
-#: ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "Bytes"
 
-#: ../src/plugins/netstat/netstat.c:312
-#: ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "Pakete"
@@ -1140,8 +1140,7 @@ msgstr "Pakete"
 msgid "Protocol:"
 msgstr "Protokoll:"
 
-#: ../src/plugins/netstat/netstat.c:321
-#: ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "HW-Adresse:"
 
@@ -1270,7 +1269,8 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Bitte kontaktieren Sie Ihren Systemverwalter zur Lösung des folgenden Problems:\n"
+"Bitte kontaktieren Sie Ihren Systemverwalter zur Lösung des folgenden "
+"Problems:\n"
 "\n"
 "%s"
 
@@ -1378,9 +1378,3 @@ msgstr "Indikatoren für CapsLock, NumLock und ScrollLock-Tasten"
 #, fuzzy
 #~ msgid "Add to desktop panel"
 #~ msgstr "Erweiterung zum Panel hinzufügen"
-
-#~ msgid ""
-#~ msgstr "Spiele"
-
-#~ msgid ""
-#~ msgstr "Bildung"

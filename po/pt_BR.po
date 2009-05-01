@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-27 21:49-0400\n"
+"POT-Creation-Date: 2009-05-01 15:28+0200\n"
 "PO-Revision-Date: 2009-03-12 01:38-0300\n"
 "Last-Translator: Henrique P. Machado <zehrique@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
@@ -188,15 +188,15 @@ msgstr "Adicionar plug-in ao painel"
 msgid "Available plugins"
 msgstr "Plug-ins disponíveis"
 
-#: ../src/configurator.c:1051
+#: ../src/configurator.c:1049
 msgid "Logout command is not set"
 msgstr "Comando para desconectar não está definido"
 
-#: ../src/configurator.c:1100 ../src/configurator.c:1181
+#: ../src/configurator.c:1098 ../src/configurator.c:1179
 msgid "Select a file"
 msgstr "Selecionar um arquivo"
 
-#: ../src/configurator.c:1199
+#: ../src/configurator.c:1197
 msgid "_Browse"
 msgstr "_Navegar"
 
@@ -1027,11 +1027,13 @@ msgid "Automatic temperature levels"
 msgstr "Níveis automáticos de temperatura"
 
 #: ../src/plugins/thermal/thermal.c:305
-msgid "Warning1 Temperatur"
+#, fuzzy
+msgid "Warning1 Temperature"
 msgstr "Aviso de temperatura 1"
 
 #: ../src/plugins/thermal/thermal.c:306
-msgid "Warning2 Temperatur"
+#, fuzzy
+msgid "Warning2 Temperature"
 msgstr "Aviso de temperatura 2"
 
 #: ../src/plugins/thermal/thermal.c:348

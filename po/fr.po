@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel r839\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-15 19:41+0200\n"
+"POT-Creation-Date: 2009-05-01 15:28+0200\n"
 "PO-Revision-Date: 2009-04-16 10:11+0200\n"
 "Last-Translator: Cilyan Olowen <gaknar@gmail.com>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -192,16 +192,16 @@ msgstr "Ajouter un greffon au tableau de bord"
 msgid "Available plugins"
 msgstr "Greffons disponibles"
 
-#: ../src/configurator.c:1051
+#: ../src/configurator.c:1049
 msgid "Logout command is not set"
 msgstr "La commande de déconnexion n'est pas définie"
 
-#: ../src/configurator.c:1100 ../src/configurator.c:1180
+#: ../src/configurator.c:1098 ../src/configurator.c:1179
 #, fuzzy
 msgid "Select a file"
 msgstr "Sélectionner un fichier image"
 
-#: ../src/configurator.c:1198
+#: ../src/configurator.c:1197
 msgid "_Browse"
 msgstr "_Parcourir"
 
@@ -340,11 +340,11 @@ msgstr ""
 msgid "Enter the command you want to execute:"
 msgstr "Saisissez la commande à exécuter :"
 
-#: ../src/systray/tray.c:210
+#: ../src/systray/tray.c:211
 msgid "System Tray"
 msgstr "Zone de notification"
 
-#: ../src/systray/tray.c:212
+#: ../src/systray/tray.c:213
 msgid "Old KDE/GNOME Tray"
 msgstr "Ancienne zone de notification KDE/GNOME"
 
@@ -405,89 +405,89 @@ msgstr "Barre de lancement d'applications"
 msgid "Bar with buttons to launch application"
 msgstr "Barre contenant des boutons pour lancer des applications"
 
-#: ../src/plugins/taskbar.c:1401
+#: ../src/plugins/taskbar.c:1407
 msgid "Raise"
 msgstr "Afficher"
 
-#: ../src/plugins/taskbar.c:1405
+#: ../src/plugins/taskbar.c:1411
 msgid "Restore"
 msgstr "Restaurer"
 
-#: ../src/plugins/taskbar.c:1409
+#: ../src/plugins/taskbar.c:1415
 msgid "Maximize"
 msgstr "Maximiser"
 
-#: ../src/plugins/taskbar.c:1413
+#: ../src/plugins/taskbar.c:1419
 msgid "Iconify"
 msgstr "Minimiser"
 
-#: ../src/plugins/taskbar.c:1422
+#: ../src/plugins/taskbar.c:1428
 #, c-format
 msgid "Workspace %d"
 msgstr "Espace de travail %d"
 
-#: ../src/plugins/taskbar.c:1430
+#: ../src/plugins/taskbar.c:1436
 msgid "All workspaces"
 msgstr "Tous les espaces de travail"
 
-#: ../src/plugins/taskbar.c:1437
+#: ../src/plugins/taskbar.c:1443
 msgid "Move to Workspace"
 msgstr "Déplacer vers l'espace de travail"
 
 #. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1445
+#: ../src/plugins/taskbar.c:1451
 msgid "Close Window"
 msgstr "Fermer la fenêtre"
 
-#: ../src/plugins/taskbar.c:1685
+#: ../src/plugins/taskbar.c:1691
 msgid "Show tooltips"
 msgstr "Afficher les infobulles"
 
-#: ../src/plugins/taskbar.c:1686
+#: ../src/plugins/taskbar.c:1692
 msgid "Icons only"
 msgstr "Icônes uniquement"
 
-#: ../src/plugins/taskbar.c:1687
+#: ../src/plugins/taskbar.c:1693
 msgid "Flat Buttons"
 msgstr "Boutons simples"
 
-#: ../src/plugins/taskbar.c:1688
+#: ../src/plugins/taskbar.c:1694
 msgid "Accept SkipPager"
 msgstr "Inclure le gestionnaire de bureaux virtuels"
 
-#: ../src/plugins/taskbar.c:1689
+#: ../src/plugins/taskbar.c:1695
 msgid "Show Iconified windows"
 msgstr "Afficher les fenêtres minimisées"
 
-#: ../src/plugins/taskbar.c:1690
+#: ../src/plugins/taskbar.c:1696
 msgid "Show mapped windows"
 msgstr "Afficher les fenêtres mappées"
 
-#: ../src/plugins/taskbar.c:1691
+#: ../src/plugins/taskbar.c:1697
 msgid "Show windows from all desktops"
 msgstr "Afficher les fenêtres de tous les espaces de travail"
 
-#: ../src/plugins/taskbar.c:1692
+#: ../src/plugins/taskbar.c:1698
 msgid "Use mouse wheel"
 msgstr "Utiliser la molette de la souris"
 
-#: ../src/plugins/taskbar.c:1693
+#: ../src/plugins/taskbar.c:1699
 msgid "Flash when there is any window requiring attention"
 msgstr "Clignoter lorsque une fenêtre requiert de l'attention"
 
-#: ../src/plugins/taskbar.c:1694
+#: ../src/plugins/taskbar.c:1700
 msgid "Max width of task button"
 msgstr "Largeur maximale d'un bouton de tâche"
 
-#: ../src/plugins/taskbar.c:1695
+#: ../src/plugins/taskbar.c:1701
 msgid "Spacing"
 msgstr "Espacement"
 
-#: ../src/plugins/taskbar.c:1773
+#: ../src/plugins/taskbar.c:1779
 msgid "Task Bar (Window List)"
 msgstr "Barre des tâches (Liste des fenêtres)"
 
-#: ../src/plugins/taskbar.c:1775
+#: ../src/plugins/taskbar.c:1781
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -863,8 +863,8 @@ msgstr "Impossible d'analyser /proc/net/wireless. Format inconnu."
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
 msgstr ""
-"Impossible de récupérer les détails de l'interface sans fil à partir de "
-"'%s'. link_idx = %d;"
+"Impossible de récupérer les détails de l'interface sans fil à partir de '%"
+"s'. link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
@@ -1047,11 +1047,13 @@ msgid "Automatic temperature levels"
 msgstr "Niveaux de température automatiques"
 
 #: ../src/plugins/thermal/thermal.c:305
-msgid "Warning1 Temperatur"
+#, fuzzy
+msgid "Warning1 Temperature"
 msgstr "Avertissement1 Température"
 
 #: ../src/plugins/thermal/thermal.c:306
-msgid "Warning2 Temperatur"
+#, fuzzy
+msgid "Warning2 Temperature"
 msgstr "Avertissement2 Température"
 
 #: ../src/plugins/thermal/thermal.c:348
@@ -1064,22 +1066,22 @@ msgstr "Affiche la température du système, par kesler.daniel@gmail.com"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #: ../src/plugins/volume/volume.c:305
-#: ../src/plugins/volumealsa/volumealsa.c:399
+#: ../src/plugins/volumealsa/volumealsa.c:400
 msgid "Volume control"
 msgstr "Contrôle du volume"
 
 #: ../src/plugins/volume/volume.c:317
-#: ../src/plugins/volumealsa/volumealsa.c:413
+#: ../src/plugins/volumealsa/volumealsa.c:414
 msgid "Volume Control"
 msgstr "Contrôle du volume"
 
 #. create frame
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:309
+#: ../src/plugins/volumealsa/volumealsa.c:310
 msgid "Volume"
 msgstr "Volume"
 
-#: ../src/plugins/volumealsa/volumealsa.c:326
+#: ../src/plugins/volumealsa/volumealsa.c:327
 msgid "Mute"
 msgstr "Sourdine"
 

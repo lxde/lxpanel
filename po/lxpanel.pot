@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-04-27 21:49-0400\n"
+"POT-Creation-Date: 2009-05-01 15:28+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -178,15 +178,15 @@ msgstr ""
 msgid "Available plugins"
 msgstr ""
 
-#: ../src/configurator.c:1051
+#: ../src/configurator.c:1049
 msgid "Logout command is not set"
 msgstr ""
 
-#: ../src/configurator.c:1100 ../src/configurator.c:1181
+#: ../src/configurator.c:1098 ../src/configurator.c:1179
 msgid "Select a file"
 msgstr ""
 
-#: ../src/configurator.c:1199
+#: ../src/configurator.c:1197
 msgid "_Browse"
 msgstr ""
 
@@ -1000,11 +1000,11 @@ msgid "Automatic temperature levels"
 msgstr ""
 
 #: ../src/plugins/thermal/thermal.c:305
-msgid "Warning1 Temperatur"
+msgid "Warning1 Temperature"
 msgstr ""
 
 #: ../src/plugins/thermal/thermal.c:306
-msgid "Warning2 Temperatur"
+msgid "Warning2 Temperature"
 msgstr ""
 
 #: ../src/plugins/thermal/thermal.c:348
