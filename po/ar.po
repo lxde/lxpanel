@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-01 15:28+0200\n"
-"PO-Revision-Date: 2009-04-16 17:13+0200\n"
+"PO-Revision-Date: 2009-05-02 18:01+0200\n"
 "Last-Translator: Ahmad Farghal <ahmad.farghal@gmail.com>\n"
 "Language-Team: Arabic\n"
 "MIME-Version: 1.0\n"
@@ -1027,12 +1027,10 @@ msgid "Automatic temperature levels"
 msgstr "عين درجات الحرارة آليا"
 
 #: ../src/plugins/thermal/thermal.c:305
-#, fuzzy
 msgid "Warning1 Temperature"
 msgstr "درجة حرارة تحذير1"
 
 #: ../src/plugins/thermal/thermal.c:306
-#, fuzzy
 msgid "Warning2 Temperature"
 msgstr "درجة حرارة تحذير2"
 
