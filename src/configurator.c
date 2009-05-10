@@ -72,7 +72,7 @@ void panel_plugin_config_save( Panel* p, FILE *fp);
 static void update_opt_menu(GtkWidget *w, int ind);
 static void update_toggle_button(GtkWidget *w, gboolean n);
 static void modify_plugin( GtkTreeView* view );
-static void on_entry_changed( GtkEditable* edit, gpointer user_data );
+static void on_entry_focus_out( GtkWidget* edit, GdkEventFocus *evt, gpointer user_data );
 
 /* older versions of glib don't provde these API */
 #if ! GLIB_CHECK_VERSION(2, 8, 0)
@@ -902,15 +902,15 @@ void panel_configure( Panel* p, int sel_page )
     w = (GtkWidget*)gtk_builder_get_object( builder, "file_manager" );
     if (file_manager_cmd)
         gtk_entry_set_text( (GtkEntry*)w, file_manager_cmd );
-    g_signal_connect( w, "changed",
-                      G_CALLBACK(on_entry_changed),
+    g_signal_connect( w, "focus-out-event",
+                      G_CALLBACK(on_entry_focus_out),
                       &file_manager_cmd);
 
     w = (GtkWidget*)gtk_builder_get_object( builder, "term" );
     if (terminal_cmd)
         gtk_entry_set_text( (GtkEntry*)w, terminal_cmd );
-    g_signal_connect( w, "changed",
-                      G_CALLBACK(on_entry_changed),
+    g_signal_connect( w, "focus-out-event",
+                      G_CALLBACK(on_entry_focus_out),
                       &terminal_cmd);
 
     /* If we are under LXSession, setting logout command is not necessary. */
@@ -923,8 +923,8 @@ void panel_configure( Panel* p, int sel_page )
     else {
         if(logout_cmd)
             gtk_entry_set_text( (GtkEntry*)w, logout_cmd );
-        g_signal_connect( w, "changed",
-                        G_CALLBACK(on_entry_changed),
+        g_signal_connect( w, "focus-out-event",
+                        G_CALLBACK(on_entry_focus_out),
                         &logout_cmd);
     }
 
@@ -1061,14 +1061,14 @@ static void notify_apply_config( GtkWidget* widget )
         apply_func( g_object_get_data(G_OBJECT(dlg), "plugin") );
 }
 
-static void on_entry_changed( GtkEditable* edit, gpointer user_data )
+static void on_entry_focus_out( GtkWidget* edit, GdkEventFocus *evt, gpointer user_data )
 {
     char** val = (char**)user_data;
     const char *new_val;
     g_free( *val );
-    new_val = gtk_entry_get_text(GTK_ENTRY(edit));
+    new_val = gtk_entry_get_text((GtkEntry*)edit);
     *val = (new_val && *new_val) ? g_strdup( new_val ) : NULL;
-    notify_apply_config( GTK_WIDGET(edit) );
+    notify_apply_config( edit );
 }
 
 static void on_spin_changed( GtkSpinButton* spin, gpointer user_data )
@@ -1156,8 +1156,8 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
                 entry = gtk_entry_new();
                 if( *(char**)val )
                     gtk_entry_set_text( GTK_ENTRY(entry), *(char**)val );
-                g_signal_connect( entry, "changed",
-                  G_CALLBACK(on_entry_changed), val );
+                g_signal_connect( entry, "focus-out-event",
+                  G_CALLBACK(on_entry_focus_out), val );
                 break;
             case CONF_TYPE_INT:
             {

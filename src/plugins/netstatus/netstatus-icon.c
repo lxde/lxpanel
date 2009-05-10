@@ -1098,7 +1098,7 @@ netstatus_icon_set_show_signal (NetstatusIcon *icon,
       else
 	gtk_widget_hide (icon->priv->signal_image);
 
-      g_object_notify (G_OBJECT (icon), "show-signal");
+      /* g_object_notify (G_OBJECT (icon), "show-signal"); */
     }
 }
 
