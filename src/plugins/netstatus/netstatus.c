@@ -84,7 +84,6 @@ static void on_button_press( GtkWidget* widget, GdkEventButton* evt, Plugin* p )
         {
             iface = netstatus_icon_get_iface( NETSTATUS_ICON(widget) );
             ns->dlg = netstatus_dialog_new(iface);
-            g_object_unref(iface);
 
             /* fix background */
             gtk_widget_set_style(ns->dlg, p->panel->defstyle);
