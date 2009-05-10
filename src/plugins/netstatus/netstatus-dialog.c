@@ -814,3 +814,11 @@ const char* netstatus_dialog_get_configuration_tool( GtkWidget* dialog )
     data = g_object_get_data (G_OBJECT (dialog), "netstatus-dialog-data");
     return data->config_tool;
 }
+
+/* 2009.05.10 Add by Hong Jen Yee (PCMan) to be used in lxpanel plugin */
+const char* netstatus_dialog_get_iface_name( GtkWidget* dialog )
+{
+    NetstatusDialogData *data;
+    data = g_object_get_data (G_OBJECT (dialog), "netstatus-dialog-data");
+    return netstatus_iface_get_name (data->iface);
+}

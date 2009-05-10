@@ -35,6 +35,9 @@ GtkWidget *netstatus_dialog_new (NetstatusIface *iface);
 void netstatus_dialog_set_configuration_tool( GtkWidget* dialog, const char* tool );
 const char* netstatus_dialog_get_configuration_tool( GtkWidget* dialog );
 
+/* 2009.05.10 Add by Hong Jen Yee (PCMan) to be used in lxpanel plugin */
+const char* netstatus_dialog_get_iface_name( GtkWidget* dialog );
+
 G_END_DECLS
 
 #endif /* __NETSTATUS_DIALOG_H__ */
