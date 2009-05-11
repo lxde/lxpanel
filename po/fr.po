@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: lxpanel r839\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-01 15:28+0200\n"
-"PO-Revision-Date: 2009-04-16 10:11+0200\n"
+"PO-Revision-Date: 2009-05-09 03:56+0200\n"
 "Last-Translator: Cilyan Olowen <gaknar@gmail.com>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
@@ -197,9 +197,8 @@ msgid "Logout command is not set"
 msgstr "La commande de déconnexion n'est pas définie"
 
 #: ../src/configurator.c:1098 ../src/configurator.c:1179
-#, fuzzy
 msgid "Select a file"
-msgstr "Sélectionner un fichier image"
+msgstr "Sélectionner un fichier"
 
 #: ../src/configurator.c:1197
 msgid "_Browse"
@@ -365,9 +364,8 @@ msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Affiche le numéro de l'espace de travail"
 
 #: ../src/plugins/image.c:177
-#, fuzzy
 msgid "Display Image and Tooltip"
-msgstr "Afficher l'horloge numérique et les infobulles"
+msgstr "Affiche des images et des infobulles"
 
 #: ../src/plugins/launchbar.c:146
 msgid "Add Button"
@@ -650,7 +648,6 @@ msgid "_Name:"
 msgstr "_Nom :"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:148
-#, fuzzy
 msgid "Name"
 msgstr "Nom"
 
@@ -697,9 +694,8 @@ msgid "Error"
 msgstr "Erreur"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:192
-#, fuzzy
 msgid "The current error condition"
-msgstr "La condition actuelle de l'erreur"
+msgstr "Le contexte actuelle de l'erreur"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:434
 #: ../src/plugins/netstatus/netstatus-iface.c:1197
@@ -714,7 +710,6 @@ msgid "SIOCGIFFLAGS error: %s"
 msgstr "Erreur SIOCGIFFLAGS : %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:870
-#, fuzzy
 msgid "AMPR NET/ROM"
 msgstr "AMPR NET/ROM"
 
@@ -812,7 +807,6 @@ msgid "Ash"
 msgstr "Ash"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:990
-#, fuzzy
 msgid "Econet"
 msgstr "Econet"
 
@@ -894,17 +888,14 @@ msgid "Idle"
 msgstr "Inoccupé"
 
 #: ../src/plugins/netstatus/netstatus-util.c:158
-#, fuzzy
 msgid "Sending"
 msgstr "Envoi"
 
 #: ../src/plugins/netstatus/netstatus-util.c:161
-#, fuzzy
 msgid "Receiving"
 msgstr "Réception"
 
 #: ../src/plugins/netstatus/netstatus-util.c:164
-#, fuzzy
 msgid "Sending/Receiving"
 msgstr "Envoi/Réception"
 
@@ -949,26 +940,24 @@ msgstr ""
 "affiche la disposition en cours."
 
 #: ../src/plugins/xkb/xkb-plugin.c:252
-#, fuzzy
 msgid "Other plugins available here"
-msgstr "Autres greffons disponibles ici"
+msgstr "D'autres greffons sont disponibles ici"
 
 #: ../src/plugins/xkb/xkb-plugin.c:385
 msgid "Configure Keyboard Layout Switcher"
 msgstr "Configuration du Sélecteur de Disposition du Clavier"
 
 #: ../src/plugins/xkb/xkb-plugin.c:398
-#, fuzzy
 msgid "Show layout as"
-msgstr "Afficher la disposition comme"
+msgstr "Afficher la disposition"
 
 #: ../src/plugins/xkb/xkb-plugin.c:413
 msgid "image"
-msgstr "image"
+msgstr "par une icône"
 
 #: ../src/plugins/xkb/xkb-plugin.c:414
 msgid "text"
-msgstr "texte"
+msgstr "textuellement"
 
 #: ../src/plugins/xkb/xkb-plugin.c:418
 msgid "Per application settings"
@@ -987,7 +976,6 @@ msgid "Kayboard Layout switcher"
 msgstr "Sélecteur de Disposition du Clavier"
 
 #: ../src/plugins/xkb/xkb-plugin.c:501
-#, fuzzy
 msgid "Switch between available keyboard layouts"
 msgstr "Basculer entre les dispositions du clavier disponibles"
 
@@ -1026,17 +1014,18 @@ msgstr "Parcours de l'arborescence via un menu (Auteur: PCMan)"
 msgid "Normal"
 msgstr "Normal"
 
+# Truly more explained than english version
 #: ../src/plugins/thermal/thermal.c:300
 msgid "Warning1"
-msgstr "Avertissement1"
+msgstr "Couleur d'avertissement, niveau 1"
 
 #: ../src/plugins/thermal/thermal.c:301
 msgid "Warning2"
-msgstr "Avertissement2"
+msgstr "Couleur d'avertissement, niveau 2"
 
 #: ../src/plugins/thermal/thermal.c:302
 msgid "Automatic sensor location"
-msgstr "Emplacement du capteur automatique"
+msgstr "Sélection automatique du capteur"
 
 #: ../src/plugins/thermal/thermal.c:303
 msgid "Sensor"
@@ -1046,15 +1035,14 @@ msgstr "Capteur"
 msgid "Automatic temperature levels"
 msgstr "Niveaux de température automatiques"
 
+# Truly more explained than english version
 #: ../src/plugins/thermal/thermal.c:305
-#, fuzzy
 msgid "Warning1 Temperature"
-msgstr "Avertissement1 Température"
+msgstr "Seuil d'avertissement, niveau 1"
 
 #: ../src/plugins/thermal/thermal.c:306
-#, fuzzy
 msgid "Warning2 Temperature"
-msgstr "Avertissement2 Température"
+msgstr "Seuil d'avertissement, niveau 2"
 
 #: ../src/plugins/thermal/thermal.c:348
 msgid "Temperature Monitor"
