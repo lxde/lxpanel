@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-01 15:28+0200\n"
+"POT-Creation-Date: 2009-05-13 08:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1137,19 +1137,19 @@ msgstr ""
 msgid "Encryption Key:"
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus.c:163
+#: ../src/plugins/netstatus/netstatus.c:175
 msgid "Interface to monitor"
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus.c:164
+#: ../src/plugins/netstatus/netstatus.c:176
 msgid "Config tool"
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus.c:181
+#: ../src/plugins/netstatus/netstatus.c:193
 msgid "Net Status Monitor"
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus.c:183
+#: ../src/plugins/netstatus/netstatus.c:195
 msgid "Monitor network status"
 msgstr ""
 
