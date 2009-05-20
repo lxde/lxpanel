@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-01 15:28+0200\n"
-"PO-Revision-Date: 2009-05-16 12:36+0200\n"
+"PO-Revision-Date: 2009-05-20 09:24+0200\n"
 "Last-Translator: Y P <yupadmin@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -821,7 +821,7 @@ msgstr "Не знайдено мережних пристроїв"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:180
 #, c-format
 msgid "Cannot open /proc/net/dev: %s"
-msgstr "Не можу відкрити proc/net/dev: %s"
+msgstr "Не можу відкрити /proc/net/dev: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:189
 msgid "Could not parse /proc/net/dev. Unknown format."
@@ -913,7 +913,7 @@ msgstr "Розмір"
 
 #: ../src/plugins/space.c:153
 msgid "<Space>"
-msgstr "<Пробіл>"
+msgstr "<Пропуск>"
 
 #: ../src/plugins/space.c:155
 msgid "Allocate space"
@@ -974,7 +974,8 @@ msgstr "Переключення між доступними розкладка�
 #: ../src/plugins/wincmd.c:245
 msgid "Left click to iconify all windows. Middle click to shade them"
 msgstr ""
-"Клікнути правою калвішою, щоб мінімалізувати, середньою щоб згорнутивсі вікна"
+"Клікнути правою клавішою, щоб мінімалізувати. Середньою, щоб згорнутивсі "
+"вікна"
 
 #: ../src/plugins/wincmd.c:274
 msgid "Minimize All Windows"
@@ -1067,7 +1068,7 @@ msgstr "<Прихована точка доступу>"
 
 #: ../src/plugins/netstat/netstat.c:201
 msgid "Wireless Networks not found in range"
-msgstr "Жодної безпровідної мережі не знайдено"
+msgstr "Не знайдено безпровідних мереж"
 
 #. Repair
 #: ../src/plugins/netstat/netstat.c:235
