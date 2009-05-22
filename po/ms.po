@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-13 08:30+0200\n"
-"PO-Revision-Date: 2009-05-22 02:46+0200\n"
+"PO-Revision-Date: 2009-05-22 18:09+0200\n"
 "Last-Translator: Payne Samad Loh <sploh77@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -815,22 +815,22 @@ msgstr "Ralat SIOCGIFCONF: %s"
 #: ../src/plugins/netstatus/netstatus-iface.c:1248
 #, c-format
 msgid "No network devices found"
-msgstr "Tiada jaringan peranti-peranti dijumpai"
+msgstr "Tiada peranti-peranti rangkaian dijumpai"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:180
 #, c-format
 msgid "Cannot open /proc/net/dev: %s"
-msgstr ""
+msgstr "Tidak boleh membuka /proc/net/dev:%s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:189
 msgid "Could not parse /proc/net/dev. Unknown format."
-msgstr ""
+msgstr "Tidak dapat hurai /proc/net/dev. Format tidak dikenali.  "
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:204
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:330
 #, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr ""
+msgstr "Tidak dapat hurai nama antaramuka dari '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
@@ -839,170 +839,177 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
+"Tidak dapat hurai statistik-statistik antaramuka daripada '%s\". prx_idx = "
+"%d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr ""
+msgstr "Tidak dapat hurai /proc/net/wireless. Format tidak dikenali."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr ""
+msgstr "Tidak dapat hurai perincian-perincian wayarles '%s'. link_idx=%d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
 msgid "Could not connect to interface, '%s'"
-msgstr ""
+msgstr "Tidak dapat menyambungkan ke antaramuka, '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:420
 #, c-format
 msgid "Could not send ioctl to interface, '%s'"
-msgstr ""
+msgstr "Tidak dapat menghantarkan ioctl kepada antaramuka, '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr ""
+msgstr "Tidak dapat hurai arahan baris '%s: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr ""
+msgstr "Tidak dapat hurai 'netstat' output. Format tidak dikenali"
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
-msgstr ""
+msgstr "Terputus"
 
 #: ../src/plugins/netstatus/netstatus-util.c:155
 msgid "Idle"
-msgstr ""
+msgstr "Terbiar"
 
 #: ../src/plugins/netstatus/netstatus-util.c:158
 msgid "Sending"
-msgstr ""
+msgstr "Penghantaran"
 
 #: ../src/plugins/netstatus/netstatus-util.c:161
 msgid "Receiving"
-msgstr ""
+msgstr "Penerimaan"
 
 #: ../src/plugins/netstatus/netstatus-util.c:164
 msgid "Sending/Receiving"
-msgstr ""
+msgstr "Penghantaran/Penerimaan"
 
 #: ../src/plugins/separator.c:103
 msgid "Separator"
-msgstr ""
+msgstr "Pemisah"
 
 #: ../src/plugins/separator.c:105
 msgid "Add a separator to the panel"
-msgstr ""
+msgstr "Tambah satu pemisah ke panel"
 
 #: ../src/plugins/pager.c:707
 msgid "Desktop Pager"
-msgstr ""
+msgstr "Keloi Desktop"
 
 #: ../src/plugins/pager.c:709
 msgid "Simple pager plugin"
-msgstr ""
+msgstr "Plugin keloi mudah"
 
 #: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:892
 msgid "Size"
-msgstr ""
+msgstr "Saiz"
 
 #: ../src/plugins/space.c:153
 msgid "<Space>"
-msgstr ""
+msgstr "<Ruang>"
 
 #: ../src/plugins/space.c:155
 msgid "Allocate space"
-msgstr ""
+msgstr "Memperuntukkan ruang"
 
 #: ../src/plugins/xkb/xkb-plugin.c:241
 msgid "Keyboard Layout Switcher"
-msgstr ""
+msgstr "Suis Bentangan Papan Kekunci"
 
 #: ../src/plugins/xkb/xkb-plugin.c:247
 msgid ""
 "Allows you to switch the keyboard layout and\n"
 "displays the currently selected layout."
 msgstr ""
+"Membenarkan anda membentang suis papan kekunci dan\n"
+"pamerkan bentangan pilihan kini."
 
 #: ../src/plugins/xkb/xkb-plugin.c:252
 msgid "Other plugins available here"
-msgstr ""
+msgstr "Plugin-plugin lain boleh didapati disini"
 
 #: ../src/plugins/xkb/xkb-plugin.c:385
 msgid "Configure Keyboard Layout Switcher"
-msgstr ""
+msgstr "Mengkonfigurasi Suis Bentangan Papan Kekunci"
 
 #: ../src/plugins/xkb/xkb-plugin.c:398
 msgid "Show layout as"
-msgstr ""
+msgstr "Tunjukkan bentangan sebagai"
 
 #: ../src/plugins/xkb/xkb-plugin.c:413
 msgid "image"
-msgstr ""
+msgstr "imej"
 
 #: ../src/plugins/xkb/xkb-plugin.c:414
 msgid "text"
-msgstr ""
+msgstr "teks"
 
 #: ../src/plugins/xkb/xkb-plugin.c:418
 msgid "Per application settings"
-msgstr ""
+msgstr "Penetapan per aplikasi"
 
 #: ../src/plugins/xkb/xkb-plugin.c:432
 msgid "_Remember layout for each application"
-msgstr ""
+msgstr "_Ingatkan bentangan untuk setiap aplikasi"
 
 #: ../src/plugins/xkb/xkb-plugin.c:441
 msgid "Default layout:"
-msgstr ""
+msgstr "Bentangan Ingkar:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:499
 msgid "Kayboard Layout switcher"
-msgstr ""
+msgstr "Suis Bentangan Papan Kekunci"
 
 #: ../src/plugins/xkb/xkb-plugin.c:501
 msgid "Switch between available keyboard layouts"
-msgstr ""
+msgstr "Suis antara bentangan papan kekunci yang boleh didapati"
 
 #: ../src/plugins/wincmd.c:245
 msgid "Left click to iconify all windows. Middle click to shade them"
 msgstr ""
+"Klik kiri untuk iconify semua tetingkap. Kick tengah untuk meneduh mereka"
 
 #: ../src/plugins/wincmd.c:274
 msgid "Minimize All Windows"
-msgstr ""
+msgstr "Meminimumkan Semua Tetingkap"
 
 #: ../src/plugins/wincmd.c:276
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commnds are 1)toggle iconify and 2) toggle shade"
 msgstr ""
+"Hantarkan arahan-arahan ke semua desktop tetingkap.\n"
+"Arahan-arahan yang disokong adalah 1)toggle iconify dan 2) toggle shade"
 
 #: ../src/plugins/dirmenu.c:218
 msgid "Open in _Terminal"
-msgstr ""
+msgstr "Buka dalam _Terminal"
 
 #: ../src/plugins/dirmenu.c:383
 msgid "Directory Menu"
-msgstr ""
+msgstr "Menu Direktori"
 
 #: ../src/plugins/dirmenu.c:385
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr ""
+msgstr "Layari pokok direktori melalui menu (Pengarang: PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:299
 msgid "Normal"
-msgstr ""
+msgstr "Normal"
 
 #: ../src/plugins/thermal/thermal.c:300
 msgid "Warning1"
-msgstr ""
+msgstr "Amaran1"
 
 #: ../src/plugins/thermal/thermal.c:301
 msgid "Warning2"
-msgstr ""
+msgstr "Amaran2"
 
 #: ../src/plugins/thermal/thermal.c:302
 msgid "Automatic sensor location"
