@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-13 08:30+0200\n"
-"PO-Revision-Date: 2009-05-21 00:48+0200\n"
-"Last-Translator: samad loh <sploh77@yahoo.com>\n"
+"PO-Revision-Date: 2009-05-22 02:46+0200\n"
+"Last-Translator: Payne Samad Loh <sploh77@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -39,11 +39,11 @@ msgstr "<b>Tetapkan Aplikasi Kesukaan</b>"
 
 #: ../data/ui/panel-pref.glade.h:6
 msgid "<b>Size</b>"
-msgstr "<b>Size</b>"
+msgstr "<b>Saiz</b>"
 
 #: ../data/ui/panel-pref.glade.h:7
 msgid "Advanced"
-msgstr "Kecanggihan"
+msgstr "Maju"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "Alignment:"
@@ -74,7 +74,7 @@ msgstr "Membolehkan Imej:"
 
 #: ../data/ui/panel-pref.glade.h:16
 msgid "Enable Transparency"
-msgstr "Membolehkan Transparesi"
+msgstr "Membolehkan Transperasi"
 
 #: ../data/ui/panel-pref.glade.h:17
 msgid "File Manager:"
@@ -162,7 +162,7 @@ msgstr "Kelebaran:"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:250
 msgid "Run"
-msgstr "Lari"
+msgstr "Jalankan"
 
 #: ../src/configurator.c:56
 msgid "Restart"
@@ -198,11 +198,11 @@ msgstr "Pilih satu fail"
 
 #: ../src/configurator.c:1197
 msgid "_Browse"
-msgstr "Melayari"
+msgstr "_Melayari"
 
 #: ../src/panel.c:630
 msgid "Left"
-msgstr " Kiri"
+msgstr "Kiri"
 
 #: ../src/panel.c:630
 msgid "Right"
@@ -238,7 +238,7 @@ msgstr "Mengesahkan"
 
 #: ../src/panel.c:732
 msgid "Add / Remove Panel Items"
-msgstr "Tambah / Buang barangan di Panel"
+msgstr "Tambah / Buang Barangan  Dipanel"
 
 #: ../src/panel.c:740
 #, c-format
@@ -260,17 +260,17 @@ msgstr "Panel"
 #: ../src/panel.c:792
 #, c-format
 msgid "\"%s\" Settings"
-msgstr "\"%s\" Tetapan"
+msgstr "\"%s\" Tetapan-Tetapan"
 
 #: ../src/panel.c:1250
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr "lxpanel %s - GTK2+ panel untuk UNIXdesktops\n"
+msgstr "lxpanel %s - panel GTK2+  ringan untuk desktop-desktop UNIX \n"
 
 #: ../src/panel.c:1251
 #, c-format
 msgid "Command line options:\n"
-msgstr "Command line options:\n"
+msgstr "Opsyen baris arahan:\n"
 
 #: ../src/panel.c:1252
 #, c-format
@@ -436,7 +436,7 @@ msgstr "Tunjuk tip-tip peralatan"
 
 #: ../src/plugins/taskbar.c:1692
 msgid "Icons only"
-msgstr "Icon-icon sahaja"
+msgstr "Ikon-ikon sahaja"
 
 #: ../src/plugins/taskbar.c:1693
 msgid "Flat Buttons"
@@ -452,7 +452,7 @@ msgstr "Menunjukkan Iconified bertingkap "
 
 #: ../src/plugins/taskbar.c:1696
 msgid "Show mapped windows"
-msgstr "Menunjukkan petaan tetingkap"
+msgstr "Menunjukkan pemetaan tetingkap"
 
 #: ../src/plugins/taskbar.c:1697
 msgid "Show windows from all desktops"
@@ -483,7 +483,7 @@ msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
-"Bartugas menunjukkan semua tingkap-tingkap yang dibuka dan dibenarkan untuk "
+"Bar tugas menunjukkan semua tingkap-tingkap yang dibuka dan dibenarkan untuk "
 "iconify mereka, warna atau fokuskan "
 
 #: ../src/plugins/dclock.c:279
