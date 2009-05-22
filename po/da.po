@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-01 15:28+0200\n"
-"PO-Revision-Date: 2009-03-16 20:35+0100\n"
+"PO-Revision-Date: 2009-05-22 14:01+0200\n"
 "Last-Translator: charlie tyrrestrup <chalze06@gmail.com>\n"
 "Language-Team: Danish\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +37,7 @@ msgstr "<b>Egenskaber</b>"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>Foretrukne Applikationer</b>"
+msgstr "<b>Foretrukne programmer</b>"
 
 #: ../data/ui/panel-pref.glade.h:6
 msgid "<b>Size</b>"
@@ -49,11 +49,11 @@ msgstr "Avanceret"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "Alignment:"
-msgstr "Orientering:"
+msgstr "Placering:"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "Custom Color"
-msgstr "Vælg Farve"
+msgstr "Vælg farve"
 
 #: ../data/ui/panel-pref.glade.h:11
 #, no-c-format
@@ -62,25 +62,25 @@ msgid ""
 "Pixels\n"
 "% Percent"
 msgstr ""
-"Dynamiske\n"
+"Dynamisk\n"
 "Pixels\n"
 "% Procent"
 
 #: ../data/ui/panel-pref.glade.h:14
 msgid "Edge:"
-msgstr "Kanter:"
+msgstr "Kant:"
 
 #: ../data/ui/panel-pref.glade.h:15
 msgid "Enable Image:"
-msgstr "Vælg Billede:"
+msgstr "Vælg billede:"
 
 #: ../data/ui/panel-pref.glade.h:16
 msgid "Enable Transparency"
-msgstr "Gennemsigtighed:"
+msgstr "Aktivér gennemsigtighed:"
 
 #: ../data/ui/panel-pref.glade.h:17
 msgid "File Manager:"
-msgstr "Filbehandler:"
+msgstr "Filhåndtering:"
 
 #: ../data/ui/panel-pref.glade.h:18
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
@@ -116,7 +116,7 @@ msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Logout Command:"
-msgstr "Kommando til at logge ud"
+msgstr "Kommando til at logge ud:"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "Make window managers treat the panel as dock"
@@ -128,15 +128,15 @@ msgstr "Margin:"
 
 #: ../data/ui/panel-pref.glade.h:30
 msgid "None (Use system theme)"
-msgstr "Ingen (Systemets Tema)"
+msgstr "Ingen (systemets tema)"
 
 #: ../data/ui/panel-pref.glade.h:31
 msgid "Panel Applets"
-msgstr "Panel Appleter"
+msgstr "Panel appleter"
 
 #: ../data/ui/panel-pref.glade.h:32
 msgid "Panel Preferences"
-msgstr "Indstillinger for Panel"
+msgstr "Indstillinger for panel"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "Pixels"
@@ -152,11 +152,11 @@ msgstr "Vælg en billedfil"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "Terminal Emulator:"
-msgstr "Terminal Emulator:"
+msgstr "Terminal emulator:"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "Tint color:"
-msgstr "Farve:"
+msgstr "Farvetone:"
 
 #: ../data/ui/panel-pref.glade.h:38
 msgid "Width:"
@@ -192,7 +192,7 @@ msgstr "Tilgængelige plugins"
 
 #: ../src/configurator.c:1049
 msgid "Logout command is not set"
-msgstr "Kommando til at Logge ud er ikke valgt"
+msgstr "Kommando til at logge ud er ikke valgt"
 
 #: ../src/configurator.c:1098 ../src/configurator.c:1179
 msgid "Select a file"
@@ -220,7 +220,7 @@ msgstr "Bund"
 
 #: ../src/panel.c:632 ../src/panel.c:758
 msgid "Create New Panel"
-msgstr "Opret Nyt Panel"
+msgstr "Opret nyt panel"
 
 #: ../src/panel.c:638
 msgid "Where to put the panel?"
@@ -240,20 +240,20 @@ msgstr "Bekræft"
 
 #: ../src/panel.c:732
 msgid "Add / Remove Panel Items"
-msgstr "Tilføj/Fjern Objekter på Panelet"
+msgstr "Tilføj/fjern objekter på panelet"
 
 #: ../src/panel.c:740
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr "Fjern \"%s\" Fra Panelet"
+msgstr "Fjern \"%s\" fra panelet"
 
 #: ../src/panel.c:752
 msgid "Panel Settings"
-msgstr "Indstillinger for Panelet"
+msgstr "Indstillinger for panelet"
 
 #: ../src/panel.c:769
 msgid "Delete This Panel"
-msgstr "Slet Dette Panel"
+msgstr "Slet dette panel"
 
 #: ../src/panel.c:779
 msgid "Panel"
@@ -262,7 +262,7 @@ msgstr "Panel"
 #: ../src/panel.c:792
 #, c-format
 msgid "\"%s\" Settings"
-msgstr "\"%s\" Indstillinger"
+msgstr "\"%s\" indstillinger"
 
 #: ../src/panel.c:1250
 #, c-format
@@ -272,7 +272,7 @@ msgstr "lxpanel %s - letvægts GTK2+ panel for UNIX skrivebord\n"
 #: ../src/panel.c:1251
 #, c-format
 msgid "Command line options:\n"
-msgstr "Valg fra Kommandolinjen:\n"
+msgstr "Valg fra kommandolinjen:\n"
 
 #: ../src/panel.c:1252
 #, c-format
@@ -336,15 +336,15 @@ msgstr "Kommando der skal afvikles:"
 
 #: ../src/systray/tray.c:211
 msgid "System Tray"
-msgstr "System Dock"
+msgstr "Statusfelt"
 
 #: ../src/systray/tray.c:213
 msgid "Old KDE/GNOME Tray"
-msgstr "Gammel KDE/GNOME Dock"
+msgstr "Gammel KDE/GNOME felt"
 
 #: ../src/plugins/cpu/cpu.c:226
 msgid "CPU Usage Monitor"
-msgstr "CPU Belastning"
+msgstr "CPU belastning"
 
 #: ../src/plugins/cpu/cpu.c:228
 msgid "Display CPU usage"
@@ -352,23 +352,23 @@ msgstr "Vis CPU belastning"
 
 #: ../src/plugins/deskno/deskno.c:99 ../src/plugins/deskno/deskno2.c:129
 msgid "Desktop No / Workspace Name"
-msgstr "Skrivebords Nr/Navn til Arbejdsområde"
+msgstr "Skrivebords nummer/navn til arbejdsområde"
 
 #: ../src/plugins/deskno/deskno.c:101 ../src/plugins/deskno/deskno2.c:131
 msgid "Display workspace number, by cmeury@users.sf.net"
-msgstr "Vis Nr til arbejdsområde, af cmeury@users.sf.net"
+msgstr "Vis nummer til arbejdsområde, af cmeury@users.sf.net"
 
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
-msgstr "Vis Billede og værktøjstip"
+msgstr "Vis billede og værktøjstip"
 
 #: ../src/plugins/launchbar.c:146
 msgid "Add Button"
-msgstr "Tilføj Knap"
+msgstr "Tilføj knap"
 
 #: ../src/plugins/launchbar.c:148
 msgid "Button Properties"
-msgstr "Egenskaber for Knap"
+msgstr "Egenskaber for knap"
 
 #.
 #. title = g_strdup_printf( _("Remove \"%s\""), b-> );
@@ -376,7 +376,7 @@ msgstr "Egenskaber for Knap"
 #.
 #: ../src/plugins/launchbar.c:154
 msgid "Remove Button"
-msgstr "Fjern Knap"
+msgstr "Fjern knap"
 
 #. FIXME: We should have a better interface for this in the fututure.
 #. 1. We can borrow the menu from menu plugin (PtkAppMenu).
@@ -384,7 +384,7 @@ msgstr "Fjern Knap"
 #.
 #: ../src/plugins/launchbar.c:530
 msgid "Select Application"
-msgstr "Vælg Applikation"
+msgstr "Vælg program"
 
 #: ../src/plugins/launchbar.c:682
 msgid "Buttons"
@@ -392,7 +392,7 @@ msgstr "Knapper"
 
 #: ../src/plugins/launchbar.c:799
 msgid "Application Launch Bar"
-msgstr "Område til Start af Applikationer"
+msgstr "Område til start af programmer"
 
 #: ../src/plugins/launchbar.c:801
 msgid "Bar with buttons to launch application"
@@ -400,19 +400,19 @@ msgstr "Område med knapper til start af applikationer"
 
 #: ../src/plugins/taskbar.c:1407
 msgid "Raise"
-msgstr "Gendan"
+msgstr "Løft"
 
 #: ../src/plugins/taskbar.c:1411
 msgid "Restore"
-msgstr "Genopret"
+msgstr "Gendan"
 
 #: ../src/plugins/taskbar.c:1415
 msgid "Maximize"
-msgstr "Maksimer"
+msgstr "Maksimér"
 
 #: ../src/plugins/taskbar.c:1419
 msgid "Iconify"
-msgstr "Minimer"
+msgstr "Minimér"
 
 #: ../src/plugins/taskbar.c:1428
 #, c-format
@@ -421,40 +421,40 @@ msgstr "Arbejdsområde %d"
 
 #: ../src/plugins/taskbar.c:1436
 msgid "All workspaces"
-msgstr "Alle Arbejdsområder"
+msgstr "Alle arbejdsområder"
 
 #: ../src/plugins/taskbar.c:1443
 msgid "Move to Workspace"
-msgstr "Flyt til Arbejdsområde"
+msgstr "Flyt til arbejdsområde"
 
 #. we want this item to be farest from mouse pointer
 #: ../src/plugins/taskbar.c:1451
 msgid "Close Window"
-msgstr "Luk Vindue"
+msgstr "Luk vindue"
 
 #: ../src/plugins/taskbar.c:1691
 msgid "Show tooltips"
-msgstr "Vis VærktøjsTip"
+msgstr "Vis værktøjstips"
 
 #: ../src/plugins/taskbar.c:1692
 msgid "Icons only"
-msgstr "Kun Ikoner"
+msgstr "Kun ikoner"
 
 #: ../src/plugins/taskbar.c:1693
 msgid "Flat Buttons"
-msgstr "Flade Knapper"
+msgstr "Flade knapper"
 
 #: ../src/plugins/taskbar.c:1694
 msgid "Accept SkipPager"
-msgstr "Accepter SkipPager"
+msgstr "Acceptér SkipPager"
 
 #: ../src/plugins/taskbar.c:1695
 msgid "Show Iconified windows"
-msgstr "Vis Minimerede Vinduer"
+msgstr "Vis minimerede vinduer"
 
 #: ../src/plugins/taskbar.c:1696
 msgid "Show mapped windows"
-msgstr "Vis mappede Vinduer"
+msgstr "Vis mappede vinduer"
 
 #: ../src/plugins/taskbar.c:1697
 msgid "Show windows from all desktops"
@@ -474,11 +474,11 @@ msgstr "Opgavelinjens maksimale bredde"
 
 #: ../src/plugins/taskbar.c:1701
 msgid "Spacing"
-msgstr "Spacing"
+msgstr "Afstand"
 
 #: ../src/plugins/taskbar.c:1779
 msgid "Task Bar (Window List)"
-msgstr "Opgave Line (Vindue Liste)"
+msgstr "Opgavelinje (vindues liste)"
 
 #: ../src/plugins/taskbar.c:1781
 msgid ""
@@ -502,11 +502,11 @@ msgstr "Handling"
 
 #: ../src/plugins/dclock.c:282
 msgid "Bold font"
-msgstr "Fed Font"
+msgstr "Fed skrifttype"
 
 #: ../src/plugins/dclock.c:317
 msgid "Digital Clock"
-msgstr "Digitalt Ur"
+msgstr "Digitalt ur"
 
 #: ../src/plugins/dclock.c:319
 msgid "Display Digital clock and Tooltip"
@@ -535,7 +535,7 @@ msgstr "Menu"
 
 #: ../src/plugins/menu.c:1043
 msgid "Provide Menu"
-msgstr "Tilføj Menu"
+msgstr "Tilføj menu"
 
 #: ../src/plugins/netstatus/glade-support.c:91
 #: ../src/plugins/netstatus/glade-support.c:115
@@ -562,22 +562,22 @@ msgstr "<b>Forbindelse</b>"
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:289
 msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr "<b>Internet Protokol (IPv4)</b>"
+msgstr "<b>Internet protokol (IPv4)</b>"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:376
 msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr "<b>Internet Protokol (IPv6)</b>"
+msgstr "<b>Internet protokol (IPv6)</b>"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:432
 msgid "<b>Network Device</b>"
-msgstr "<b>Netværks Enhed</b>"
+msgstr "<b>Netværks enhed</b>"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:250
 msgid "<b>Signal Strength</b>"
-msgstr "<b>Signal Styrke</b>"
+msgstr "<b>Signal styrke</b>"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:309
@@ -590,12 +590,12 @@ msgstr "Addresse:"
 #: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
 msgid "Broadcast:"
-msgstr "Transmitter:"
+msgstr "Rundsending:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:513
 msgid "Con_figure"
-msgstr "Kon_figurer"
+msgstr "Konf_igurér"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:316
@@ -610,7 +610,7 @@ msgstr "Modtaget:"
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:403
 msgid "Scope:"
-msgstr "Omfang:"
+msgstr "Virkefelt:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:239
@@ -625,12 +625,12 @@ msgstr "Status:"
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
 msgid "Subnet Mask:"
-msgstr "Subnet Maske:"
+msgstr "Subnet maske:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:484
 msgid "Support"
-msgstr "Support"
+msgstr "Understøttelse"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:477
@@ -648,7 +648,7 @@ msgstr "Navn:"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:149
 msgid "The interface name"
-msgstr "Navn til grænsesnit"
+msgstr "Navn på grænsefladen"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:156
 msgid "State"
@@ -656,7 +656,7 @@ msgstr "Status"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:157
 msgid "The interface state"
-msgstr "Status for grænsesnit"
+msgstr "Status for grænsefladen"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:165
 msgid "Stats"
@@ -664,7 +664,7 @@ msgstr "Statistik"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:166
 msgid "The interface packets/bytes statistics"
-msgstr "Statistik for grænsesnit i pakker/bytes"
+msgstr "Statistik for grænseflade i pakker/bytes"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:173
 #: ../src/plugins/netstat/netstat.c:315
@@ -673,7 +673,7 @@ msgstr "Trådløs"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:174
 msgid "Whether the interface is a wireless interface"
-msgstr "Angiv om grænsesnittet er trådløst"
+msgstr "Angiv om grænsefladen er trådløs"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:181
 msgid "Signal"
@@ -690,13 +690,13 @@ msgstr "Fejl"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:192
 msgid "The current error condition"
-msgstr "Aktuel fejl tilstand"
+msgstr "Aktuel fejltilstand"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:434
 #: ../src/plugins/netstatus/netstatus-iface.c:1197
 #, c-format
 msgid "Unable to open socket: %s"
-msgstr "Kan ikke åbne socket: %s"
+msgstr "Kan ikke åbne sokkel: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:496
 #: ../src/plugins/netstatus/netstatus-iface.c:1223
@@ -826,13 +826,13 @@ msgstr "Kan ikke åbne /proc/net/dev: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:189
 msgid "Could not parse /proc/net/dev. Unknown format."
-msgstr "Kunne ikke parse /proc/net/dev. Ukendt format."
+msgstr "Kunne ikke fortolke /proc/net/dev. Ukendt format."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:204
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:330
 #, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr "Kunne ikke parse grænsesnit navn fra '%s'"
+msgstr "Kunne ikke fortolke grænseflade navn fra '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
@@ -841,36 +841,36 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"Kunne ikke parse grænsesnit statistik fra '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
+"Kunne ikke fortolke grænseflade statistik fra '%s'. prx_idx = %d; ptx_idx = "
+"%d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr "Kunne ikke parse /proc/net/wireless. Ukendt format."
+msgstr "Kunne ikke fortolke /proc/net/wireless. Ukendt format."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr "Kunne ikke parse detaljer om trådløs fra '%s'. link_idx = %d;"
+msgstr "Kunne ikke fortolke detaljer om trådløs fra '%s'. link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
 msgid "Could not connect to interface, '%s'"
-msgstr "Kunne ikke koble til grænsesnit, '%s'"
+msgstr "Kunne ikke koble til grænseflade, '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:420
 #, c-format
 msgid "Could not send ioctl to interface, '%s'"
-msgstr "Kunne ikke sende ioctl til grænsesnit, '%s'"
+msgstr "Kunne ikke sende ioctl til grænseflade, '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr "Kunne ikke parse kommando linje '%s': %s"
+msgstr "Kunne ikke fortolke kommandolinje '%s': %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr "Kunne ikke parse 'netstat' output. Ukendt format"
+msgstr "Kunne ikke fortolke 'netstat' output. Ukendt format"
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
@@ -902,7 +902,7 @@ msgstr "Tilføj en separator til panelet"
 
 #: ../src/plugins/pager.c:707
 msgid "Desktop Pager"
-msgstr "Arbejdsområde Skifter"
+msgstr "Arbejdsområdeskifter"
 
 #: ../src/plugins/pager.c:709
 msgid "Simple pager plugin"
@@ -922,7 +922,7 @@ msgstr "Tildel plads"
 
 #: ../src/plugins/xkb/xkb-plugin.c:241
 msgid "Keyboard Layout Switcher"
-msgstr "Omskifter for Tastatur Layout"
+msgstr "Omskifter for tastatur layout"
 
 #: ../src/plugins/xkb/xkb-plugin.c:247
 msgid ""
@@ -938,11 +938,11 @@ msgstr "Andre tilgængelige plugins"
 
 #: ../src/plugins/xkb/xkb-plugin.c:385
 msgid "Configure Keyboard Layout Switcher"
-msgstr "Konfigurer Omskifter for Tastatur Layout"
+msgstr "Konfigurer omskifter for tastatur layout"
 
 #: ../src/plugins/xkb/xkb-plugin.c:398
 msgid "Show layout as"
-msgstr "Vis Layout som"
+msgstr "Vis layout som"
 
 #: ../src/plugins/xkb/xkb-plugin.c:413
 msgid "image"
@@ -954,11 +954,11 @@ msgstr "tekst"
 
 #: ../src/plugins/xkb/xkb-plugin.c:418
 msgid "Per application settings"
-msgstr "Indstillinger for hver applikation"
+msgstr "Indstillinger for hvert program"
 
 #: ../src/plugins/xkb/xkb-plugin.c:432
 msgid "_Remember layout for each application"
-msgstr "Husk layout for hver applikation"
+msgstr "Husk layout for hvert program"
 
 #: ../src/plugins/xkb/xkb-plugin.c:441
 msgid "Default layout:"
@@ -966,11 +966,11 @@ msgstr "Standard layout:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:499
 msgid "Kayboard Layout switcher"
-msgstr "Omskifter for Keyboard Layout"
+msgstr "Omskifter for kayboard layout"
 
 #: ../src/plugins/xkb/xkb-plugin.c:501
 msgid "Switch between available keyboard layouts"
-msgstr "Skift mellem tilgængelige keyboard layouts"
+msgstr "Skift mellem tilgængelige tastatur layouts"
 
 #: ../src/plugins/wincmd.c:245
 msgid "Left click to iconify all windows. Middle click to shade them"
@@ -979,7 +979,7 @@ msgstr ""
 
 #: ../src/plugins/wincmd.c:274
 msgid "Minimize All Windows"
-msgstr "Minimer Alle Vinduer"
+msgstr "Minimér alle vinduer"
 
 #: ../src/plugins/wincmd.c:276
 msgid ""
@@ -987,11 +987,11 @@ msgid ""
 "Supported commnds are 1)toggle iconify and 2) toggle shade"
 msgstr ""
 "Sender kommandoer til alle vinduer på skrivebordet.\n"
-"Understøttede kommandoer: 1) Minimer og 2) Rul op"
+"Understøttede kommandoer: 1) Minimér og 2) Rul op"
 
 #: ../src/plugins/dirmenu.c:218
 msgid "Open in _Terminal"
-msgstr "Åbne i _Terminal"
+msgstr "Åbne i _terminal"
 
 #: ../src/plugins/dirmenu.c:383
 msgid "Directory Menu"
@@ -999,7 +999,7 @@ msgstr "Menu for mapper"
 
 #: ../src/plugins/dirmenu.c:385
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr "Gennemse mappe træet via menu(Forfatter: PCMan)"
+msgstr "Gennemse mappetræet via menu (Forfatter: PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:299
 msgid "Normal"
@@ -1026,18 +1026,16 @@ msgid "Automatic temperature levels"
 msgstr "Automatiske temperatur niveauer"
 
 #: ../src/plugins/thermal/thermal.c:305
-#, fuzzy
 msgid "Warning1 Temperature"
-msgstr "Advarsel1 Temperatur"
+msgstr "Advarsel1 temperatur"
 
 #: ../src/plugins/thermal/thermal.c:306
-#, fuzzy
 msgid "Warning2 Temperature"
-msgstr "Advarsel2 Temperatur"
+msgstr "Advarsel2 temperatur"
 
 #: ../src/plugins/thermal/thermal.c:348
 msgid "Temperature Monitor"
-msgstr "Temperatur Monitor"
+msgstr "Temperatur monitor"
 
 #: ../src/plugins/thermal/thermal.c:350
 msgid "Display system temperature, by kesler.daniel@gmail.com"
@@ -1052,7 +1050,7 @@ msgstr "Volumen kontrol"
 #: ../src/plugins/volume/volume.c:317
 #: ../src/plugins/volumealsa/volumealsa.c:414
 msgid "Volume Control"
-msgstr "Volumen Kontrol"
+msgstr "Volumen kontrol"
 
 #. create frame
 #: ../src/plugins/volume/volume-impl.c:109
@@ -1062,7 +1060,7 @@ msgstr "Volumen"
 
 #: ../src/plugins/volumealsa/volumealsa.c:327
 msgid "Mute"
-msgstr "Lyd Fra"
+msgstr "Lyd fra"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
@@ -1080,15 +1078,15 @@ msgstr "Reparer"
 #. interface down
 #: ../src/plugins/netstat/netstat.c:240
 msgid "Disable"
-msgstr "Slå Fra"
+msgstr "Deaktivér"
 
 #: ../src/plugins/netstat/netstat.c:299
 msgid "Wireless Connection has no connectivity"
-msgstr "Trådløse Forbindelser har ingen kontakt"
+msgstr "Trådløs forbindelse har ingen kontakt"
 
 #: ../src/plugins/netstat/netstat.c:301
 msgid "Network cable is plugged out"
-msgstr "Et Netværkskabel er fjernet"
+msgstr "Et netværkskabel er fjernet"
 
 #: ../src/plugins/netstat/netstat.c:303
 msgid "Connection has limited or no connectivity"
@@ -1143,16 +1141,16 @@ msgstr "HW Addresse:"
 
 #: ../src/plugins/netstat/netstat.c:471
 msgid "Manage Networks"
-msgstr "Håndter Netværk"
+msgstr "Håndtér netværk"
 
 #: ../src/plugins/netstat/netstat.c:473
 msgid "Monitor and Manage networks"
-msgstr "Overvåg og Håndter netværk"
+msgstr "Overvåg og håndtér netværk"
 
 #. create dialog
 #: ../src/plugins/netstat/passwd_gui.c:84
 msgid "Setting Encryption Key"
-msgstr "Sæt Krypteringsnøgle"
+msgstr "Sæt krypteringsnøgle"
 
 #. messages
 #: ../src/plugins/netstat/passwd_gui.c:94
@@ -1181,7 +1179,7 @@ msgstr "Net Status Monitor"
 
 #: ../src/plugins/netstatus/netstatus.c:183
 msgid "Monitor network status"
-msgstr "Overvåg Netværkets status"
+msgstr "Overvåg netværkets status"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:52
 #: ../src/plugins/netstatus/netstatus-dialog.c:311
@@ -1221,19 +1219,19 @@ msgstr "Fejl under åbning af konfigurationsværktøj til uret: %s"
 #: ../src/plugins/netstatus/netstatus-icon.c:379
 #, c-format
 msgid "Network Connection: %s"
-msgstr "Netværks Forbindelse: %s"
+msgstr "Netværks forbindelse: %s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:384
 msgid "Network Connection"
-msgstr "Netværks Forbindelse"
+msgstr "Netværks forbindelse"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:811
 msgid "Interface"
-msgstr "Grænsesnit"
+msgstr "Grænseflade"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:812
 msgid "The current interface the icon is monitoring."
-msgstr "Det Aktuelle grænsesnit der overvåges af ikonet."
+msgstr "Den aktuelle grænseflade, der overvåges af ikonet."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:819
 msgid "Orientation"
@@ -1245,15 +1243,15 @@ msgstr "Systembakkens orientering"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:828
 msgid "Tooltips Enabled"
-msgstr "Tooltips Aktiveret"
+msgstr "Værktøjstips aktiveret"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:829
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr "Om ikonets tooltips er aktiveret."
+msgstr "Om ikonets værktøjstip er aktiveret."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:836
 msgid "Show Signal"
-msgstr "Vis Signal"
+msgstr "Vis signal"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:837
 msgid "Whether or not the signal strength should be displayed."
