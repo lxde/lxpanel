@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-13 08:30+0200\n"
-"PO-Revision-Date: 2009-05-23 14:29+0200\n"
+"PO-Revision-Date: 2009-05-23 15:53+0200\n"
 "Last-Translator: Payne Samad Loh <sploh77@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:1
 msgid "<b>Background</b>"
-msgstr "<b>Latar Belakang</b>"
+msgstr "<b>Latarbelakang</b>"
 
 #: ../data/ui/panel-pref.glade.h:2
 msgid "<b>Font</b>"
@@ -66,7 +66,7 @@ msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:14
 msgid "Edge:"
-msgstr "Tepi:"
+msgstr "Sisi:"
 
 #: ../data/ui/panel-pref.glade.h:15
 msgid "Enable Image:"
@@ -295,7 +295,7 @@ msgstr " --configure -- lancarkan konfigurasi utility\n"
 #: ../src/panel.c:1256
 #, c-format
 msgid " --profile name -- use specified profile\n"
-msgstr "--profile name -- gunakan profile yang ditentukan\n"
+msgstr "--profile name -- gunakan profail yang ditentukan\n"
 
 #: ../src/panel.c:1258
 #, c-format
@@ -456,7 +456,7 @@ msgstr "Menunjukkan pemetaan tetingkap"
 
 #: ../src/plugins/taskbar.c:1697
 msgid "Show windows from all desktops"
-msgstr "Menunjukkan tingkap-tingkap dari semua desktop"
+msgstr "Menunjukkan tetingkap dari semua desktop"
 
 #: ../src/plugins/taskbar.c:1698
 msgid "Use mouse wheel"
@@ -464,7 +464,7 @@ msgstr "Gunakan roda tetikus"
 
 #: ../src/plugins/taskbar.c:1699
 msgid "Flash when there is any window requiring attention"
-msgstr "Kilat apabila terdapat mana-mana tingkap memerlukan perhatian "
+msgstr "Kilat apabila terdapat mana-mana tingkap yang memerlukan perhatian "
 
 #: ../src/plugins/taskbar.c:1700
 msgid "Max width of task button"
@@ -646,7 +646,7 @@ msgstr "Nama"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:149
 msgid "The interface name"
-msgstr "Nama antara muka "
+msgstr "Nama antaramuka "
 
 #: ../src/plugins/netstatus/netstatus-iface.c:156
 msgid "State"
@@ -654,7 +654,7 @@ msgstr "Negeri"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:157
 msgid "The interface state"
-msgstr "Negeri antara muka"
+msgstr "Negeri antaramuka"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:165
 msgid "Stats"
@@ -662,16 +662,16 @@ msgstr "Stats"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:166
 msgid "The interface packets/bytes statistics"
-msgstr "Statistik antara muka packets/bytes"
+msgstr "Statistik antaramuka packets/bytes"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:173
 #: ../src/plugins/netstat/netstat.c:315
 msgid "Wireless"
-msgstr "Wayarles"
+msgstr "Tanpa wayar"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:174
 msgid "Whether the interface is a wireless interface"
-msgstr "Sama ada antara muka ialah antara muka wayarles"
+msgstr "Sama ada antaramuka ialah antaramuka tanpa wayar"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:181
 msgid "Signal"
@@ -679,7 +679,7 @@ msgstr "Isyarat"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:182
 msgid "Wireless signal strength percentage"
-msgstr "Peratusan kekuatan isyarat wayarles"
+msgstr "Peratusan kekuatan isyarat tanpa wayar"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:191
 #: ../src/plugins/netstatus/netstatus-util.c:167
@@ -785,7 +785,7 @@ msgstr "Local Loopback"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:966
 msgid "Fiber Distributed Data Interface"
-msgstr "Data Fiber Teragih Antara Muka "
+msgstr "Data Fiber Teragih Antaramuka "
 
 #: ../src/plugins/netstatus/netstatus-iface.c:972
 msgid "IPv6-in-IPv4"
@@ -849,7 +849,7 @@ msgstr "Tidak dapat hurai /proc/net/wireless. Format tidak dikenali."
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr "Tidak dapat hurai perincian-perincian wayarles '%s'. link_idx=%d;"
+msgstr "Tidak dapat hurai perincian-perincian tanpa wayar '%s'. link_idx=%d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
@@ -1066,7 +1066,7 @@ msgstr "<Sorokkan Poin Akses>"
 
 #: ../src/plugins/netstat/netstat.c:201
 msgid "Wireless Networks not found in range"
-msgstr "Rangkaian-rangkain wayarles tak dijumpai dalam julat"
+msgstr "Rangkaian-rangkain tanpa wayar tak dijumpai dalam julat"
 
 #. Repair
 #: ../src/plugins/netstat/netstat.c:235
@@ -1080,7 +1080,7 @@ msgstr "Lumpuh"
 
 #: ../src/plugins/netstat/netstat.c:299
 msgid "Wireless Connection has no connectivity"
-msgstr "Sambungan Wayarles tiada penyambungan"
+msgstr "Sambungan Tanpa Wayar tiada penyambungan"
 
 #: ../src/plugins/netstat/netstat.c:301
 msgid "Network cable is plugged out"
@@ -1155,7 +1155,8 @@ msgstr "Sediakan Kunci Penyulitan"
 msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
-msgstr "Rangkaian wayarles telah disulitkan.\\Anda mesti ada kunci penyulitan."
+msgstr ""
+"Rangkaian tanpa wayar telah disulitkan.\\Anda mesti ada kunci penyulitan."
 
 #: ../src/plugins/netstat/passwd_gui.c:99
 msgid "Encryption Key:"
@@ -1277,7 +1278,7 @@ msgstr "Bateri: %d%% dicaskan, %s"
 
 #: ../src/plugins/batt/batt.c:395
 msgid "charging finished"
-msgstr "pengecasan tamat"
+msgstr "pengecasan selesai"
 
 #: ../src/plugins/batt/batt.c:395
 msgid "charging"
