@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-13 08:30+0200\n"
-"PO-Revision-Date: 2009-05-22 18:09+0200\n"
+"PO-Revision-Date: 2009-05-23 14:29+0200\n"
 "Last-Translator: Payne Samad Loh <sploh77@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -960,7 +960,7 @@ msgstr "_Ingatkan bentangan untuk setiap aplikasi"
 
 #: ../src/plugins/xkb/xkb-plugin.c:441
 msgid "Default layout:"
-msgstr "Bentangan Ingkar:"
+msgstr "Bentangan default:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:499
 msgid "Kayboard Layout switcher"
@@ -1013,190 +1013,189 @@ msgstr "Amaran2"
 
 #: ../src/plugins/thermal/thermal.c:302
 msgid "Automatic sensor location"
-msgstr ""
+msgstr "Lokasi Penderia Automatik"
 
 #: ../src/plugins/thermal/thermal.c:303
 msgid "Sensor"
-msgstr ""
+msgstr "Penderia"
 
 #: ../src/plugins/thermal/thermal.c:304
 msgid "Automatic temperature levels"
-msgstr ""
+msgstr "Pengetahapan suhu automatik"
 
 #: ../src/plugins/thermal/thermal.c:305
 msgid "Warning1 Temperature"
-msgstr ""
+msgstr "Amaran1 Suhu"
 
 #: ../src/plugins/thermal/thermal.c:306
 msgid "Warning2 Temperature"
-msgstr ""
+msgstr "Amaran2 Suhu"
 
 #: ../src/plugins/thermal/thermal.c:348
 msgid "Temperature Monitor"
-msgstr ""
+msgstr "Pemantau Suhu"
 
 #: ../src/plugins/thermal/thermal.c:350
 msgid "Display system temperature, by kesler.daniel@gmail.com"
-msgstr ""
+msgstr "Pamerkan suhu sistem, oleh kesler.daniel@gmail.com"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #: ../src/plugins/volume/volume.c:305
 #: ../src/plugins/volumealsa/volumealsa.c:400
 msgid "Volume control"
-msgstr ""
+msgstr "Kawalan bahana"
 
 #: ../src/plugins/volume/volume.c:317
 #: ../src/plugins/volumealsa/volumealsa.c:414
 msgid "Volume Control"
-msgstr ""
+msgstr "Kawalan Bahana"
 
 #. create frame
 #: ../src/plugins/volume/volume-impl.c:109
 #: ../src/plugins/volumealsa/volumealsa.c:310
 msgid "Volume"
-msgstr ""
+msgstr "Bahana"
 
 #: ../src/plugins/volumealsa/volumealsa.c:327
 msgid "Mute"
-msgstr ""
+msgstr "Bisu"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
-msgstr ""
+msgstr "<Sorokkan Poin Akses>"
 
 #: ../src/plugins/netstat/netstat.c:201
 msgid "Wireless Networks not found in range"
-msgstr ""
+msgstr "Rangkaian-rangkain wayarles tak dijumpai dalam julat"
 
 #. Repair
 #: ../src/plugins/netstat/netstat.c:235
 msgid "Repair"
-msgstr ""
+msgstr "Baiki"
 
 #. interface down
 #: ../src/plugins/netstat/netstat.c:240
 msgid "Disable"
-msgstr ""
+msgstr "Lumpuh"
 
 #: ../src/plugins/netstat/netstat.c:299
 msgid "Wireless Connection has no connectivity"
-msgstr ""
+msgstr "Sambungan Wayarles tiada penyambungan"
 
 #: ../src/plugins/netstat/netstat.c:301
 msgid "Network cable is plugged out"
-msgstr ""
+msgstr "Kabel rangkaian telah dikeluarkan"
 
 #: ../src/plugins/netstat/netstat.c:303
 msgid "Connection has limited or no connectivity"
-msgstr ""
+msgstr "Sambungan dihadkan atau tiada penyambungan"
 
 #: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
-msgstr ""
+msgstr "Alamat IP:"
 
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Remote IP:"
-msgstr ""
+msgstr "IP Pencil:"
 
 #: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
-msgstr ""
+msgstr "Topeng Rangkaian:"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
-msgstr ""
+msgstr "Aktiviti"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
-msgstr ""
+msgstr "Menghantar"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
-msgstr ""
+msgstr "Menerima"
 
 #: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
-msgstr ""
+msgstr "bytes"
 
 #: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
-msgstr ""
+msgstr "paket-paket"
 
 #: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
-msgstr ""
+msgstr "Protokol:"
 
 #: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
-msgstr ""
+msgstr "Alamat HW:"
 
 #: ../src/plugins/netstat/netstat.c:471
 msgid "Manage Networks"
-msgstr ""
+msgstr "Mengurus Rangkaian-Rangkaian"
 
 #: ../src/plugins/netstat/netstat.c:473
 msgid "Monitor and Manage networks"
-msgstr ""
+msgstr "Memantau dan Mengurus rangkaian-rangkaian"
 
 #. create dialog
 #: ../src/plugins/netstat/passwd_gui.c:84
 msgid "Setting Encryption Key"
-msgstr ""
+msgstr "Sediakan Kunci Penyulitan"
 
 #. messages
 #: ../src/plugins/netstat/passwd_gui.c:94
 msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
-msgstr ""
+msgstr "Rangkaian wayarles telah disulitkan.\\Anda mesti ada kunci penyulitan."
 
 #: ../src/plugins/netstat/passwd_gui.c:99
 msgid "Encryption Key:"
-msgstr ""
+msgstr "Kunci Penyulitan:"
 
 #: ../src/plugins/netstatus/netstatus.c:175
 msgid "Interface to monitor"
-msgstr ""
+msgstr "Antaramuka ke pemantau"
 
 #: ../src/plugins/netstatus/netstatus.c:176
 msgid "Config tool"
-msgstr ""
+msgstr "Alat konfig"
 
 #: ../src/plugins/netstatus/netstatus.c:193
 msgid "Net Status Monitor"
-msgstr ""
+msgstr "Pemantau Status Rangkaian"
 
 #: ../src/plugins/netstatus/netstatus.c:195
 msgid "Monitor network status"
-msgstr ""
+msgstr "Status mantau rangkaian"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:52
 #: ../src/plugins/netstatus/netstatus-dialog.c:311
 msgid "Unknown"
-msgstr ""
+msgstr "Tidak Dikenali"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:115
 msgid "Connection Properties"
-msgstr ""
+msgstr "Ciri-Ciri Penyambungan"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:121
 #, c-format
 msgid "Connection Properties: %s"
-msgstr ""
+msgstr "Ciri-Ciri Penyambungan: %s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:134
 #, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "paket-paket"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:395
 #, c-format
@@ -1204,52 +1203,55 @@ msgid ""
 "There was an error displaying help:\n"
 "%s"
 msgstr ""
+"Terdapat satu ralat mempamerkan bantuan:\n"
+"%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:579
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
-msgstr ""
+msgstr "Kegagalan untuk melancarkan alat konfigurasi masa: %s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:379
 #, c-format
 msgid "Network Connection: %s"
-msgstr ""
+msgstr "Penyambungan Rangkaian: %s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:384
 msgid "Network Connection"
-msgstr ""
+msgstr "Penyambungan Rangkaian"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:811
 msgid "Interface"
-msgstr ""
+msgstr "Antaramuka"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:812
 msgid "The current interface the icon is monitoring."
-msgstr ""
+msgstr "Antaramuka kini yang icon sedang mantau."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:819
 msgid "Orientation"
-msgstr ""
+msgstr "Orientasi"
 
+# tray for dulang?
 #: ../src/plugins/netstatus/netstatus-icon.c:820
 msgid "The orientation of the tray."
-msgstr ""
+msgstr "Orientasi dulang."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:828
 msgid "Tooltips Enabled"
-msgstr ""
+msgstr "Membolehkan Tip Peranti"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:829
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr ""
+msgstr "Sama ada atau tidak ikon-ikon tip peranti telah dibolehkan"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:836
 msgid "Show Signal"
-msgstr ""
+msgstr "Tunjukkan Isyarat"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:837
 msgid "Whether or not the signal strength should be displayed."
-msgstr ""
+msgstr "Sama ada atau tidak, kekuatan isyarat patut dipamerkan."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:950
 #, c-format
@@ -1258,100 +1260,104 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Sila hubungi anda punya sistem administrator untuk menyelesaikan masalah "
+"berikut:\n"
+"\n"
+"%s"
 
 #: ../src/plugins/batt/batt.c:384
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
-msgstr ""
+msgstr "Bateri: %d%% dicaskan, %d:%02d hingga penuh"
 
 #: ../src/plugins/batt/batt.c:393
 #, c-format
 msgid "Battery: %d%% charged, %s"
-msgstr ""
+msgstr "Bateri: %d%% dicaskan, %s"
 
 #: ../src/plugins/batt/batt.c:395
 msgid "charging finished"
-msgstr ""
+msgstr "pengecasan tamat"
 
 #: ../src/plugins/batt/batt.c:395
 msgid "charging"
-msgstr ""
+msgstr "mengecaskan"
 
 #: ../src/plugins/batt/batt.c:400
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
-msgstr ""
+msgstr "Bateri: %d%% dicaskan, %d:%02d tertinggal"
 
 #: ../src/plugins/batt/batt.c:406
 #, c-format
 msgid "Battery: %d%% charged"
-msgstr ""
+msgstr "Bateri: %d%% dicaskan"
 
 #: ../src/plugins/batt/batt.c:454
 #, c-format
 msgid "No batteries found"
-msgstr ""
+msgstr "Tiada bateri dijumpai"
 
 #: ../src/plugins/batt/batt.c:882
 msgid "Hide if there is no battery"
-msgstr ""
+msgstr "Sorok jika tiada bateri"
 
 #: ../src/plugins/batt/batt.c:884
 msgid "Alarm command"
-msgstr ""
+msgstr "Arahan penggera"
 
 #: ../src/plugins/batt/batt.c:885
 msgid "Alarm time (minutes left)"
-msgstr ""
+msgstr "Masa penggera (minit tinggal)"
 
 #: ../src/plugins/batt/batt.c:886
 msgid "Background color"
-msgstr ""
+msgstr "Warna laterbelakang"
 
 #: ../src/plugins/batt/batt.c:887
 msgid "Charging color 1"
-msgstr ""
+msgstr "Warna dicaskan 1"
 
 #: ../src/plugins/batt/batt.c:888
 msgid "Charging color 2"
-msgstr ""
+msgstr "Warna dicaskan 2"
 
 #: ../src/plugins/batt/batt.c:889
 msgid "Discharging color 1"
-msgstr ""
+msgstr "Warna dinyahcaskan 1"
 
 #: ../src/plugins/batt/batt.c:890
 msgid "Discharging color 2"
-msgstr ""
+msgstr "Warna dinyahcaskan 2"
 
 #: ../src/plugins/batt/batt.c:891
 msgid "Border width"
-msgstr ""
+msgstr "Kelebaran Sempadan"
 
 #: ../src/plugins/batt/batt.c:922
 msgid "Battery Monitor"
-msgstr ""
+msgstr "Pemantau Bateri"
 
 #: ../src/plugins/batt/batt.c:924
 msgid "Display battery status using ACPI"
-msgstr ""
+msgstr "Pamerkan status bateri menggunakan ACPI"
 
 #: ../src/plugins/kbled/kbled.c:277
 msgid "Show CapsLock"
-msgstr ""
+msgstr "Tunjukkan CapsLock"
 
 #: ../src/plugins/kbled/kbled.c:278
 msgid "Show NumLock"
-msgstr ""
+msgstr "Tunjukkan NumLock"
 
 #: ../src/plugins/kbled/kbled.c:279
 msgid "Show ScrollLock"
-msgstr ""
+msgstr "Tunjukkan ScrollLock"
 
 #: ../src/plugins/kbled/kbled.c:289
 msgid "Keyboard Led"
-msgstr ""
+msgstr "LED Papan Kekunci"
 
 #: ../src/plugins/kbled/kbled.c:291
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr ""
+msgstr "Indikasi untuk kunci-kunci CapsLock, NumLock dan ScrollLock "

@@ -8,13 +8,14 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-01 15:28+0200\n"
-"PO-Revision-Date: 2009-03-07 22:53+0700\n"
-"Last-Translator: Andhika Padmawan <andhika.padmawan@gmail.com>\n"
+"PO-Revision-Date: 2009-05-23 04:11+0200\n"
+"Last-Translator: Rahman Yusri Aftian <aftian@yahoo.com>\n"
 "Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 1.1.0\n"
 
 #: ../data/ui/panel-pref.glade.h:1
 msgid "<b>Background</b>"
@@ -1024,12 +1025,10 @@ msgid "Automatic temperature levels"
 msgstr "Level temperatur otomatis"
 
 #: ../src/plugins/thermal/thermal.c:305
-#, fuzzy
 msgid "Warning1 Temperature"
 msgstr "Peringatan1 Temperatur"
 
 #: ../src/plugins/thermal/thermal.c:306
-#, fuzzy
 msgid "Warning2 Temperature"
 msgstr "Peringatan2 Temperatur"
 
