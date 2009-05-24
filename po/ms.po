@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-13 08:30+0200\n"
-"PO-Revision-Date: 2009-05-23 15:53+0200\n"
+"PO-Revision-Date: 2009-05-24 01:20+0200\n"
 "Last-Translator: Payne Samad Loh <sploh77@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -134,7 +134,7 @@ msgstr "Applikasi Panel"
 
 #: ../data/ui/panel-pref.glade.h:32
 msgid "Panel Preferences"
-msgstr "Panel Kesukaan"
+msgstr "Panel Kegemaran"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "Pixels"
