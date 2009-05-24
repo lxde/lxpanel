@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-13 08:30+0200\n"
-"PO-Revision-Date: 2009-05-24 01:20+0200\n"
+"PO-Revision-Date: 2009-05-24 06:45+0200\n"
 "Last-Translator: Payne Samad Loh <sploh77@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -35,7 +35,7 @@ msgstr "<b>Ciri-ciri</b>"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>Tetapkan Aplikasi Kesukaan</b>"
+msgstr "<b>Tetapkan Aplikasi Kegemaran</b>"
 
 #: ../data/ui/panel-pref.glade.h:6
 msgid "<b>Size</b>"
@@ -43,7 +43,7 @@ msgstr "<b>Saiz</b>"
 
 #: ../data/ui/panel-pref.glade.h:7
 msgid "Advanced"
-msgstr "Maju"
+msgstr "Majuan"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "Alignment:"
@@ -51,7 +51,7 @@ msgstr "Penjajaran:"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "Custom Color"
-msgstr "Warna Adat"
+msgstr "Warna Resam"
 
 #: ../data/ui/panel-pref.glade.h:11
 #, no-c-format
@@ -66,7 +66,7 @@ msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:14
 msgid "Edge:"
-msgstr "Sisi:"
+msgstr "Tepi:"
 
 #: ../data/ui/panel-pref.glade.h:15
 msgid "Enable Image:"
@@ -928,7 +928,7 @@ msgid ""
 "displays the currently selected layout."
 msgstr ""
 "Membenarkan anda membentang suis papan kekunci dan\n"
-"pamerkan bentangan pilihan kini."
+"paparkan bentangan pilihan kini."
 
 #: ../src/plugins/xkb/xkb-plugin.c:252
 msgid "Other plugins available here"
@@ -940,7 +940,7 @@ msgstr "Mengkonfigurasi Suis Bentangan Papan Kekunci"
 
 #: ../src/plugins/xkb/xkb-plugin.c:398
 msgid "Show layout as"
-msgstr "Tunjukkan bentangan sebagai"
+msgstr "Paparkan bentangan sebagai"
 
 #: ../src/plugins/xkb/xkb-plugin.c:413
 msgid "image"
@@ -1037,7 +1037,7 @@ msgstr "Pemantau Suhu"
 
 #: ../src/plugins/thermal/thermal.c:350
 msgid "Display system temperature, by kesler.daniel@gmail.com"
-msgstr "Pamerkan suhu sistem, oleh kesler.daniel@gmail.com"
+msgstr "Paparkan suhu sistem, oleh kesler.daniel@gmail.com"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #: ../src/plugins/volume/volume.c:305
@@ -1204,7 +1204,7 @@ msgid ""
 "There was an error displaying help:\n"
 "%s"
 msgstr ""
-"Terdapat satu ralat mempamerkan bantuan:\n"
+"Terdapat satu ralat memaparkan bantuan:\n"
 "%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:579
@@ -1248,11 +1248,11 @@ msgstr "Sama ada atau tidak ikon-ikon tip peranti telah dibolehkan"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:836
 msgid "Show Signal"
-msgstr "Tunjukkan Isyarat"
+msgstr "Paparkan Isyarat"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:837
 msgid "Whether or not the signal strength should be displayed."
-msgstr "Sama ada atau tidak, kekuatan isyarat patut dipamerkan."
+msgstr "Sama ada atau tidak, kekuatan isyarat patut dipaparkan."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:950
 #, c-format
@@ -1341,19 +1341,19 @@ msgstr "Pemantau Bateri"
 
 #: ../src/plugins/batt/batt.c:924
 msgid "Display battery status using ACPI"
-msgstr "Pamerkan status bateri menggunakan ACPI"
+msgstr "Paparkan status bateri menggunakan ACPI"
 
 #: ../src/plugins/kbled/kbled.c:277
 msgid "Show CapsLock"
-msgstr "Tunjukkan CapsLock"
+msgstr "Paparkan CapsLock"
 
 #: ../src/plugins/kbled/kbled.c:278
 msgid "Show NumLock"
-msgstr "Tunjukkan NumLock"
+msgstr "Paparkan NumLock"
 
 #: ../src/plugins/kbled/kbled.c:279
 msgid "Show ScrollLock"
-msgstr "Tunjukkan ScrollLock"
+msgstr "Paparkan ScrollLock"
 
 #: ../src/plugins/kbled/kbled.c:289
 msgid "Keyboard Led"
