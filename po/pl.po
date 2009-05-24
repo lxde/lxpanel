@@ -8,14 +8,13 @@ msgstr ""
 "Project-Id-Version: pl\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-01 15:28+0200\n"
-"PO-Revision-Date: 2009-02-20 15:58-0000\n"
+"PO-Revision-Date: 2009-05-24 04:03-0000\n"
 "Last-Translator: Artur Kruszewski <mazdac@gmail.com>\n"
 "Language-Team: Polish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: KBabel 1.11.4\n"
 "X-Poedit-Bookmarks: 19,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
 "X-Poedit-Country: Poland\n"
@@ -165,7 +164,8 @@ msgstr "Kolor przesłony:"
 msgid "Width:"
 msgstr "Szerokość:"
 
-#: ../src/configurator.c:54 ../src/gtk-run.c:250
+#: ../src/configurator.c:54
+#: ../src/gtk-run.c:250
 msgid "Run"
 msgstr "Uruchom"
 
@@ -185,11 +185,13 @@ msgstr "Załadowane wtyczki"
 msgid "Stretch"
 msgstr "Rozciągnij"
 
-#: ../src/configurator.c:510 ../src/panel.c:522
+#: ../src/configurator.c:510
+#: ../src/panel.c:522
 msgid "Add plugin to panel"
 msgstr "Dodaj wtyczkę do panelu"
 
-#: ../src/configurator.c:537 ../src/panel.c:545
+#: ../src/configurator.c:537
+#: ../src/panel.c:545
 msgid "Available plugins"
 msgstr "Dostępne wtyczki"
 
@@ -197,7 +199,8 @@ msgstr "Dostępne wtyczki"
 msgid "Logout command is not set"
 msgstr "Komenda wylogowania nie jest ustawiona"
 
-#: ../src/configurator.c:1098 ../src/configurator.c:1179
+#: ../src/configurator.c:1098
+#: ../src/configurator.c:1179
 msgid "Select a file"
 msgstr "Wybierz plik"
 
@@ -221,7 +224,8 @@ msgstr "Górna"
 msgid "Bottom"
 msgstr "Dolna"
 
-#: ../src/panel.c:632 ../src/panel.c:758
+#: ../src/panel.c:632
+#: ../src/panel.c:758
 msgid "Create New Panel"
 msgstr "Stwórz Nowy Panel"
 
@@ -290,8 +294,7 @@ msgstr " --version   -- wyświetla numer wersji i wychodzi\n"
 #: ../src/panel.c:1254
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <number> -- ustawia poziom raportowania 0-5. 0 - brak 5 - wylewny\n"
+msgstr " --log <number> -- ustawia poziom raportowania 0-5. 0 - brak 5 - wylewny\n"
 
 #: ../src/panel.c:1255
 #, c-format
@@ -354,11 +357,13 @@ msgstr "Monitor użycia CPU"
 msgid "Display CPU usage"
 msgstr "Wyświetl użycie CPU"
 
-#: ../src/plugins/deskno/deskno.c:99 ../src/plugins/deskno/deskno2.c:129
+#: ../src/plugins/deskno/deskno.c:99
+#: ../src/plugins/deskno/deskno2.c:129
 msgid "Desktop No / Workspace Name"
 msgstr "Pulpit Numer / Nazwa przestrzeni roboczej"
 
-#: ../src/plugins/deskno/deskno.c:101 ../src/plugins/deskno/deskno2.c:131
+#: ../src/plugins/deskno/deskno.c:101
+#: ../src/plugins/deskno/deskno2.c:131
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Pokaż numer przestrzeni roboczej, dzięki cmeury@users.sf.net"
 
@@ -485,12 +490,8 @@ msgid "Task Bar (Window List)"
 msgstr "Pasek zadań (Lista okien)"
 
 #: ../src/plugins/taskbar.c:1781
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
-msgstr ""
-"Pasek zadań pokazuje wszyski otwarte okna i umożliwia ich ikonizację, "
-"zwinięcie lub wywołanie"
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr "Pasek zadań pokazuje wszyski otwarte okna i umożliwia ich ikonizację, zwinięcie lub wywołanie"
 
 #: ../src/plugins/dclock.c:279
 msgid "Clock Format"
@@ -591,7 +592,8 @@ msgid "Address:"
 msgstr "Adres:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstat/netstat.c:319
+#: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
 msgid "Broadcast:"
 msgstr "Adres rozgłoszeniowy:"
@@ -841,12 +843,8 @@ msgstr "Nie można przeanalizować nazwy interfejsu z '%s'"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid ""
-"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
-msgstr ""
-"Nie można przeanalizować statystyk interfejsu z '%s'. prx_idx = %d; ptx_idx "
-"= %d; brx_idx = %d; btx_idx = %d;"
+msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgstr "Nie można przeanalizować statystyk interfejsu z '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -855,9 +853,7 @@ msgstr "Nie można przeanalizować /prov/net/wireless. Nieznany format."
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr ""
-"Nie można przeanalizować szczegółów interfejsu bezprzewodowego z '%s'. "
-"link_idx = %d;"
+msgstr "Nie można przeanalizować szczegółów interfejsu bezprzewodowego z '%s'. link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
@@ -914,7 +910,8 @@ msgstr "Pager pulpitu"
 msgid "Simple pager plugin"
 msgstr "Prosta wtyczka pagera"
 
-#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:892
+#: ../src/plugins/space.c:138
+#: ../src/plugins/batt/batt.c:892
 msgid "Size"
 msgstr "Rozmiar"
 
@@ -980,9 +977,7 @@ msgstr "Przełącz między dostępnymi układami klwiatury"
 
 #: ../src/plugins/wincmd.c:245
 msgid "Left click to iconify all windows. Middle click to shade them"
-msgstr ""
-"Kilknij prawym klawiszem myszy aby zminimalizować, środkowym aby zwinąć "
-"wszystkie okna."
+msgstr "Kilknij prawym klawiszem myszy aby zminimalizować, środkowym aby zwinąć wszystkie okna."
 
 #: ../src/plugins/wincmd.c:274
 msgid "Minimize All Windows"
@@ -1033,14 +1028,12 @@ msgid "Automatic temperature levels"
 msgstr "Automatyczne poziomy temperatur"
 
 #: ../src/plugins/thermal/thermal.c:305
-#, fuzzy
 msgid "Warning1 Temperature"
 msgstr "Temperatura Ostrzeżenia1"
 
 #: ../src/plugins/thermal/thermal.c:306
-#, fuzzy
 msgid "Warning2 Temperature"
-msgstr "Temperatura Ostrzeżenia1"
+msgstr "Temperatura Ostrzeżenia2"
 
 #: ../src/plugins/thermal/thermal.c:348
 msgid "Temperature Monitor"
@@ -1101,7 +1094,8 @@ msgstr "Kabel sieciowy jest odłączony"
 msgid "Connection has limited or no connectivity"
 msgstr "Połączenie sieciowe ma ograniczoną lub brak łączności"
 
-#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307
+#: ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "Adres IP:"
@@ -1110,32 +1104,38 @@ msgstr "Adres IP:"
 msgid "Remote IP:"
 msgstr "Zewnętrzny adres IP:"
 
-#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309
+#: ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "Maska podsieci:"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "Aktywność"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "Wysłano"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "Odebrano:"
 
-#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311
+#: ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "bajtów"
 
-#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312
+#: ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "pakietów"
@@ -1144,7 +1144,8 @@ msgstr "pakietów"
 msgid "Protocol:"
 msgstr "Protokół:"
 
-#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321
+#: ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "Adres HW:"
 
@@ -1377,13 +1378,14 @@ msgstr "Wskaźniki klawiszy CapsLock, NumLock i ScrollLock"
 
 #~ msgid "% Percent"
 #~ msgstr "% Procent"
-
 #~ msgid "Center"
 #~ msgstr "Środek"
-
 #~ msgid "Dynamic"
 #~ msgstr "Dynamiczna"
 
 #, fuzzy
 #~ msgid "Add to desktop panel"
 #~ msgstr "Dodaj wtyczkę do panelu"
+
+
+ 	  	 
