@@ -712,6 +712,41 @@ static void panel_popupmenu_delete_panel( GtkMenuItem* item, Panel* panel )
     }
 }
 
+static void panel_popupmenu_about( GtkMenuItem* item, Panel* panel )
+{
+    GtkWidget *about;
+    const gchar* authors[] = {
+        "Hong Jen Yee (PCMan) <pcman.tw@gmail.com>",
+        "Jim Huang <jserv.tw@gmail.com>",
+        "Greg McNew <gmcnew@gmail.com> (battery plugin)",
+        "Fred Chien <cfsghost@gmail.com>",
+        "Daniel Kesler <kesler.daniel@gmail.com>",
+        "Juergen Hoetzel <juergen@archlinux.org>",
+        NULL
+    };
+    /* TRANSLATORS: Replace this string with your names, one name per line. */
+    gchar *translators = _( "translator-credits" );
+
+    about = gtk_about_dialog_new();
+    panel_apply_icon(GTK_WINDOW(about));
+    gtk_about_dialog_set_version(GTK_ABOUT_DIALOG(about), VERSION);
+    gtk_about_dialog_set_name(GTK_ABOUT_DIALOG(about), _("LXPanel"));
+    gtk_about_dialog_set_logo(GTK_ABOUT_DIALOG(about), gdk_pixbuf_new_from_file(PACKAGE_DATA_DIR "/lxpanel/images/my-computer.png", NULL));
+    gtk_about_dialog_set_copyright(GTK_ABOUT_DIALOG(about), _("Copyright (C) 2008-2009"));
+    gtk_about_dialog_set_comments(GTK_ABOUT_DIALOG(about), _( "Desktop panel for LXDE project"));
+    gtk_about_dialog_set_license(GTK_ABOUT_DIALOG(about), "This program is free software; you can redistribute it and/or\nmodify it under the terms of the GNU General Public License\nas published by the Free Software Foundation; either version 2\nof the License, or (at your option) any later version.\n\nThis program is distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\nGNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License\nalong with this program; if not, write to the Free Software\nFoundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.");
+    gtk_about_dialog_set_website(GTK_ABOUT_DIALOG(about), "http://lxde.org/");
+    gtk_about_dialog_set_authors(GTK_ABOUT_DIALOG(about), authors);
+    gtk_about_dialog_set_translator_credits(GTK_ABOUT_DIALOG(about), translators);
+    gtk_dialog_run(GTK_DIALOG(about));
+    gtk_widget_destroy(about); 
+}
+
+void panel_apply_icon( GtkWindow *w )
+{
+    gtk_window_set_icon_from_file(w, PACKAGE_DATA_DIR "/lxpanel/images/my-computer.png", NULL);
+}
+
 extern GtkMenu* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean use_sub_menu )
 {
     GtkWidget  *menu_item, *img;
@@ -772,6 +807,15 @@ extern GtkMenu* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean u
     g_signal_connect( menu_item, "activate", G_CALLBACK(panel_popupmenu_delete_panel), panel );
     if( ! all_panels->next )    /* if this is the only panel */
         gtk_widget_set_sensitive( menu_item, FALSE );
+
+    menu_item = gtk_separator_menu_item_new();
+    gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
+
+    img = gtk_image_new_from_stock( GTK_STOCK_ABOUT, GTK_ICON_SIZE_MENU );
+    menu_item = gtk_image_menu_item_new_with_label(_("About"));
+    gtk_image_menu_item_set_image( (GtkImageMenuItem*)menu_item, img );
+    gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
+    g_signal_connect( menu_item, "activate", G_CALLBACK(panel_popupmenu_about), panel );
 
     if( use_sub_menu )
     {
@@ -1427,7 +1471,7 @@ int main(int argc, char *argv[], char *env[])
 
     /* Check for duplicated lxpanel instances */
     if (!check_main_lock() && !config) {
-        printf("There is alreay an instance of LXPanel. Now to exit\n");
+        printf("There is already an instance of LXPanel.  Now to exit\n");
         exit(1);
     }
 

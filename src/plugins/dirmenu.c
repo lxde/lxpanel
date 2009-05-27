@@ -75,7 +75,7 @@ static void open_in_term( Plugin* p, const char* path )
     if( sp )
         argv[0] = g_strndup( term, sp - term );
     else
-        argv[0] = term;
+        argv[0] = (char *) term;
     argv[1] = NULL;
     g_spawn_async( path, argv, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, NULL );
     if( argv[0] != term )

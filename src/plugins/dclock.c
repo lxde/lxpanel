@@ -278,6 +278,7 @@ static void dclock_config( Plugin *p, GtkWindow* parent )
                                     (GSourceFunc) apply_config, (gpointer) p,
                                      _("Clock Format"), &dc->cfmt, CONF_TYPE_STR,
                                      _("Tooltip Format"), &dc->tfmt, CONF_TYPE_STR,
+                                     _("Format codes: man 3 strftime"), NULL, CONF_TYPE_TRIM,
                                      _("Action"), &dc->action, CONF_TYPE_STR,
                                      _("Bold font"), &dc->bold, CONF_TYPE_BOOL,
                                      NULL );

@@ -737,6 +737,7 @@ static void launchbar_config( Plugin *p, GtkWindow* parent )
                                         GTK_RESPONSE_CLOSE,
                                         NULL );
         lb->config_dlg = dlg;
+        panel_apply_icon(GTK_WINDOW(dlg));
 
         hbox = gtk_hbox_new( FALSE, 4 );
         gtk_box_pack_start( (GtkBox*)GTK_DIALOG(dlg)->vbox, hbox, TRUE, TRUE, 2 );

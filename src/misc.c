@@ -790,7 +790,7 @@ calculate_width(int scrw, int wtype, int allign, int margin,
 {
     ENTER;
     DBG("scrw=%d\n", scrw);
-    DBG("IN panw=%d\n", *panw);
+    DBG("IN panw=%d, margin=%d\n", *panw, margin);
     //scrw -= 2;
     if (wtype == WIDTH_PERCENT) {
         /* sanity check */
@@ -806,11 +806,7 @@ calculate_width(int scrw, int wtype, int allign, int margin,
                   margin, scrw);
             margin = 0;
         }
-        if (wtype == WIDTH_PERCENT)
-            //*panw = MAX(scrw - margin, *panw);
-            ;
-        else
-            *panw = MIN(scrw - margin, *panw);
+	*panw = MIN(scrw - margin, *panw);
     }
     DBG("OUT panw=%d\n", *panw);
     if (allign == ALLIGN_LEFT)
@@ -1541,7 +1537,7 @@ GdkPixbuf* lxpanel_load_icon( const char* name, int size, gboolean use_fallback 
         else
         {
             theme = gtk_icon_theme_get_default();
-            suffix = strchr( name, '.' );
+            suffix = strrchr( name, '.' );
             if( suffix
                 && (0 == g_strcasecmp(++suffix, "png")
                 || 0 == g_strcasecmp(suffix, "svg")

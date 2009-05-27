@@ -137,7 +137,7 @@ netstatus_constructor(Plugin *p, char** fp)
 
     iface = netstatus_iface_new(ns->iface);
     ns->mainw = netstatus_icon_new( iface );
-    netstatus_icon_set_show_signal(ns->mainw, TRUE);
+    netstatus_icon_set_show_signal((NetstatusIcon *)ns->mainw, TRUE);
     gtk_widget_add_events( ns->mainw, GDK_BUTTON_PRESS_MASK );
     g_object_unref( iface );
     g_signal_connect( ns->mainw, "button-press-event",
@@ -161,7 +161,7 @@ static void apply_config(Plugin* p)
     NetstatusIface* iface;
 
     iface = netstatus_iface_new(ns->iface);
-    netstatus_icon_set_iface(ns->mainw, iface);
+    netstatus_icon_set_iface((NetstatusIcon *)ns->mainw, iface);
 }
 
 static void netstatus_config( Plugin* p, GtkWindow* parent  )

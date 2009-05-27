@@ -13,6 +13,7 @@ AC_PROG_INSTALL
 AC_PROG_LN_S
 AC_PROG_LIBTOOL
 AC_PROG_INTLTOOL(, [no-xml])
+AM_PROG_CC_C_O
 
 # Checks for libraries.
 pkg_modules="gtk+-2.0 >= 2.12.0 \

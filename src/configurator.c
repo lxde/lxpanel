@@ -170,11 +170,8 @@ set_allign( GtkComboBox *widget,  Panel* p )
 
     ENTER;
     allign = gtk_combo_box_get_active(widget) + 1;
-    t = (allign != ALLIGN_CENTER);
-    /*
-    gtk_widget_set_sensitive(margin_label, t);
-    gtk_widget_set_sensitive(margin_spinb, t);
-    */
+    if (p->margin_control) 
+        gtk_widget_set_sensitive(p->margin_control, (allign != ALLIGN_CENTER));
     p->allign = allign;
     update_panel_geometry(p);
     RET();
@@ -213,10 +210,10 @@ static void set_width_type( GtkWidget *item, Panel* p )
     t = (widthtype != WIDTH_REQUEST);
     gtk_widget_set_sensitive( spin, t );
     if (widthtype == WIDTH_PERCENT) {
-        gtk_spin_button_set_range( (GtkSpinButton*)spin, 0, 100 );
+        gtk_spin_button_set_range( (GtkSpinButton*)spin, 0, 110 );	/* Bug in spin buttons, must set maximum range up by page size */
         gtk_spin_button_set_value( (GtkSpinButton*)spin, 100 );
     } else if  (widthtype == WIDTH_PIXEL) {
-        gtk_spin_button_set_range( (GtkSpinButton*)spin, 0, gdk_screen_width() );
+        gtk_spin_button_set_range( (GtkSpinButton*)spin, 0, gdk_screen_width() + 10 );
         gtk_spin_button_set_value( (GtkSpinButton*)spin, gdk_screen_width() );
     } else
         return;
@@ -513,6 +510,7 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
                                        GTK_RESPONSE_CANCEL,
                                        GTK_STOCK_ADD,
                                        GTK_RESPONSE_OK, NULL );
+    panel_apply_icon(GTK_WINDOW(dlg));
 
     /* fix background */
     if (p->background)
@@ -561,7 +559,7 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
     g_signal_connect( dlg, "response",
                       G_CALLBACK(on_add_plugin_response), _view );
     g_object_set_data( G_OBJECT(dlg), "avail-plugins", view );
-    g_object_weak_ref( G_OBJECT(dlg), plugin_class_list_free, classes );
+    g_object_weak_ref( G_OBJECT(dlg), (GWeakNotify) plugin_class_list_free, classes );
 
     gtk_window_set_default_size( (GtkWindow*)dlg, 320, 400 );
     gtk_widget_show_all( dlg );
@@ -754,8 +752,9 @@ void panel_configure( Panel* p, int sel_page )
 
     p->pref_dialog = (GtkWidget*)gtk_builder_get_object( builder, "panel_pref" );
     g_signal_connect(p->pref_dialog, "response", (GCallback) response_event, p);
-    g_object_add_weak_pointer( G_OBJECT(p->pref_dialog), &p->pref_dialog );
+    g_object_add_weak_pointer( G_OBJECT(p->pref_dialog), (gpointer) &p->pref_dialog );
     gtk_window_set_position( (GtkWindow*)p->pref_dialog, GTK_WIN_POS_CENTER );
+    panel_apply_icon(GTK_WINDOW(p->pref_dialog));
 
     /* position */
     w = (GtkWidget*)gtk_builder_get_object( builder, "edge" );
@@ -766,19 +765,22 @@ void panel_configure( Panel* p, int sel_page )
     update_opt_menu( w, p->allign - 1 );
     g_signal_connect( w, "changed", G_CALLBACK(set_allign), p);
 
-    w = (GtkWidget*)gtk_builder_get_object( builder, "margin" );
+    p->margin_control = w = (GtkWidget*)gtk_builder_get_object( builder, "margin" );
     gtk_spin_button_set_value( (GtkSpinButton*)w, p->margin );
+    gtk_widget_set_sensitive(p->margin_control, (p->allign != ALLIGN_CENTER));
     g_signal_connect( w, "value-changed",
                       G_CALLBACK(set_margin), p);
 
     /* size */
     width = w = (GtkWidget*)gtk_builder_get_object( builder, "width" );
     gtk_widget_set_sensitive( w, p->widthtype != WIDTH_REQUEST );
+    gint upper = 0;
     if( p->widthtype == WIDTH_PERCENT) {
-        gtk_spin_button_set_range( (GtkSpinButton*)w, 0, 100 );
+        upper = 100;
     } else if( p->widthtype == WIDTH_PIXEL) {
-        gtk_spin_button_set_range( (GtkSpinButton*)w, 0, gdk_screen_width() );
+        upper = gdk_screen_width();
     }
+    gtk_spin_button_set_range( (GtkSpinButton*)w, 0, upper + 10 );	/* Appears to be a problem in spin buttons, must add the page size */
     gtk_spin_button_set_value( (GtkSpinButton*)w, p->width );
     g_signal_connect( w, "value-changed", G_CALLBACK(set_width), p );
 
@@ -789,6 +791,7 @@ void panel_configure( Panel* p, int sel_page )
                      G_CALLBACK(set_width_type), p);
 
     w = (GtkWidget*)gtk_builder_get_object( builder, "height" );
+    gtk_spin_button_set_range( (GtkSpinButton*)w, PANEL_HEIGHT_MIN, PANEL_HEIGHT_MAX + 10 );	/* Appears to be a problem in spin buttons, must add the page size */
     gtk_spin_button_set_value( (GtkSpinButton*)w, p->height );
     g_signal_connect( w, "value-changed", G_CALLBACK(set_height), p );
 
@@ -1131,6 +1134,7 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
                                                   GTK_STOCK_CLOSE,
                                                   GTK_RESPONSE_CLOSE,
                                                   NULL );
+    panel_apply_icon(GTK_WINDOW(dlg));
 
     /* this is a dirty hack.  We need to check if this response is GTK_RESPONSE_CLOSE or not. */
     g_signal_connect( dlg, "response", G_CALLBACK(gtk_widget_destroy), NULL );
@@ -1156,6 +1160,7 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
                 entry = gtk_entry_new();
                 if( *(char**)val )
                     gtk_entry_set_text( GTK_ENTRY(entry), *(char**)val );
+                gtk_entry_set_width_chars(GTK_ENTRY(entry), 40);
                 g_signal_connect( entry, "focus-out-event",
                   G_CALLBACK(on_entry_focus_out), val );
                 break;
@@ -1181,10 +1186,19 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
                     gtk_file_chooser_set_filename( GTK_FILE_CHOOSER(entry), *(char**)val );
                 g_signal_connect( entry, "file-set",
                   G_CALLBACK(on_file_chooser_btn_file_set), val );
+                break;
+            case CONF_TYPE_TRIM:
+                {
+                entry = gtk_label_new(NULL);
+                char *markup = g_markup_printf_escaped ("<span style=\"italic\">%s</span>", name );
+                gtk_label_set_markup (GTK_LABEL (entry), markup);
+                g_free (markup);
+                }
+                break;
         }
         if( entry )
         {
-            if( type == CONF_TYPE_BOOL )
+            if(( type == CONF_TYPE_BOOL ) || ( type == CONF_TYPE_TRIM ))
                 gtk_box_pack_start( GTK_BOX(GTK_DIALOG(dlg)->vbox), entry, FALSE, FALSE, 2 );
             else
             {

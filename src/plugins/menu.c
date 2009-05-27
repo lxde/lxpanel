@@ -176,8 +176,11 @@ static void on_menu_item_map(GtkWidget* mi, MenuCacheItem* item)
             gtk_icon_size_lookup(GTK_ICON_SIZE_MENU, &w, &h);
             item = g_object_get_qdata(G_OBJECT(mi), SYS_MENU_ITEM_ID);
             icon = lxpanel_load_icon(menu_cache_item_get_icon(item), MAX(w,h), TRUE);
-            gtk_image_set_from_pixbuf(img, icon);
-            g_object_unref(icon);
+            if (icon)
+	        {
+                gtk_image_set_from_pixbuf(img, icon);
+                g_object_unref(icon);
+	        }
         }
     }
 }
@@ -362,11 +365,7 @@ static gboolean on_menu_button_press(GtkWidget* mi, GdkEventButton* evt, MenuCac
         char* tmp;
         GtkWidget* item;
         GtkMenu* p = GTK_MENU(gtk_menu_new());
-/*
-        item = gtk_menu_item_new_with_label(_("Add to desktop panel"));
-        g_signal_connect(item, "activate", G_CALLBACK(on_add_menu_item_to_panel), data);
-        gtk_menu_shell_append(p, item);
-*/
+
         item = gtk_menu_item_new_with_label(_("Add to desktop"));
         g_signal_connect(item, "activate", G_CALLBACK(on_add_menu_item_to_desktop), data);
         gtk_menu_shell_append(GTK_MENU_SHELL(p), item);
@@ -406,7 +405,7 @@ static GtkWidget* create_item( MenuCacheItem* item )
         if( menu_cache_item_get_type(item) == MENU_CACHE_TYPE_APP )
         {
             gtk_widget_set_tooltip_text( mi, menu_cache_item_get_comment(item) );
-            g_signal_connect( mi, "activate", on_menu_item, item );
+            g_signal_connect( mi, "activate", G_CALLBACK(on_menu_item), item );
         }
         g_signal_connect(mi, "map", G_CALLBACK(on_menu_item_map), item);
         g_signal_connect(mi, "style-set", G_CALLBACK(on_menu_item_style_set), item);
@@ -414,7 +413,7 @@ static GtkWidget* create_item( MenuCacheItem* item )
     }
     gtk_widget_show( mi );
     /* g_debug("set_item_data"); */
-    g_object_set_qdata_full( G_OBJECT(mi), SYS_MENU_ITEM_ID, menu_cache_item_ref(item), menu_cache_item_unref );
+    g_object_set_qdata_full( G_OBJECT(mi), SYS_MENU_ITEM_ID, menu_cache_item_ref(item), (GDestroyNotify) menu_cache_item_unref );
     return mi;
 }
 
@@ -760,7 +759,7 @@ read_system_menu(GtkMenu* menu, Plugin *p, char** fp)
             ERR("error loading applications menu");
             return;
         }
-        m->reload_notify = menu_cache_add_reload_notify(m->menu_cache, on_reload_menu, m);
+        m->reload_notify = menu_cache_add_reload_notify(m->menu_cache, (GFunc) on_reload_menu, m);
     }
 
     s.len = 256;

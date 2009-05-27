@@ -1404,19 +1404,19 @@ taskbar_make_menu(taskbar *tb)
     ENTER;
     menu = gtk_menu_new ();
 
-    mi = gtk_menu_item_new_with_label (_("Raise"));
+    mi = gtk_menu_item_new_with_mnemonic (_("_Raise"));
     gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
     g_signal_connect(G_OBJECT(mi), "activate", (GCallback)menu_raise_window, tb);
 
-    mi = gtk_menu_item_new_with_label (_("Restore"));
+    mi = gtk_menu_item_new_with_mnemonic (_("R_estore"));
     gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
     g_signal_connect(G_OBJECT(mi), "activate", (GCallback)menu_restore_window, tb);
 
-    mi = gtk_menu_item_new_with_label (_("Maximize"));
+    mi = gtk_menu_item_new_with_mnemonic (_("Ma_ximize"));
     gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
     g_signal_connect(G_OBJECT(mi), "activate", (GCallback)menu_maximize_window, tb);
 
-    mi = gtk_menu_item_new_with_label (_("Iconify"));
+    mi = gtk_menu_item_new_with_mnemonic (_("Ico_nify"));
     gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
     g_signal_connect(G_OBJECT(mi), "activate", (GCallback)menu_iconify_window, tb);
 
@@ -1440,7 +1440,7 @@ taskbar_make_menu(taskbar *tb)
 
         gtk_widget_show_all( workspace_menu );
 
-        mi = gtk_menu_item_new_with_label (_("Move to Workspace"));
+        mi = gtk_menu_item_new_with_mnemonic (_("_Move to Workspace"));
         gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
 
         gtk_menu_item_set_submenu( GTK_MENU_ITEM(mi), workspace_menu );
@@ -1448,7 +1448,7 @@ taskbar_make_menu(taskbar *tb)
     }
 
     /* we want this item to be farest from mouse pointer */
-    mi = gtk_menu_item_new_with_label (_("Close Window"));
+    mi = gtk_menu_item_new_with_mnemonic (_("_Close Window"));
     if (tb->plug->panel->edge == EDGE_BOTTOM)
     {
         gtk_menu_shell_prepend (GTK_MENU_SHELL (menu), gtk_separator_menu_item_new());
@@ -1664,13 +1664,7 @@ static void apply_config( Plugin* p )
     else
         gtk_container_foreach( GTK_CONTAINER(tb->bar), (GtkCallback)gtk_widget_set_has_tooltip, (gpointer)FALSE );
 
-    if (tb->icons_only)
-    {
-        gtk_bar_set_max_child_size(GTK_BAR(tb->bar),
-          GTK_WIDGET(p->panel->box)->allocation.height -2);
-    }
-    else
-        gtk_bar_set_max_child_size(GTK_BAR(tb->bar), tb->task_width_max);
+    gtk_bar_set_max_child_size(GTK_BAR(tb->bar), ((tb->icons_only) ? GTK_WIDGET(p->panel->box)->allocation.height - 2 : tb->task_width_max));
 
     gtk_box_set_spacing( GTK_BOX(tb->bar), tb->spacing );
     tb_net_client_list(NULL, tb);
@@ -1690,8 +1684,8 @@ static void taskbar_config( Plugin* p, GtkWindow* parent )
                 (GSourceFunc) apply_config, (gpointer) p,
                 _("Show tooltips"), &tb->tooltips, CONF_TYPE_BOOL,
                 _("Icons only"), &tb->icons_only, CONF_TYPE_BOOL,
-                 _("Flat Buttons"), &tb->flat_button, CONF_TYPE_BOOL,
-               _("Accept SkipPager"), &tb->accept_skip_pager, CONF_TYPE_BOOL,
+                _("Flat Buttons"), &tb->flat_button, CONF_TYPE_BOOL,
+                _("Accept SkipPager"), &tb->accept_skip_pager, CONF_TYPE_BOOL,
                 _("Show Iconified windows"), &tb->show_iconified, CONF_TYPE_BOOL,
                 _("Show mapped windows"), &tb->show_mapped, CONF_TYPE_BOOL,
                 _("Show windows from all desktops"), &tb->show_all_desks, CONF_TYPE_BOOL,
