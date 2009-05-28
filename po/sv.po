@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-28 17:32+0200\n"
-"PO-Revision-Date: 2009-05-01 15:41+0200\n"
+"PO-Revision-Date: 2009-05-28 19:26+0200\n"
 "Last-Translator: Martin Bagge <brother@bsnet.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -242,19 +242,21 @@ msgstr "Acceptera"
 #: ../src/panel.c:728
 msgid "translator-credits"
 msgstr ""
+"Martin Bagge 2009 <brother@bsnet.se>\n"
+"\n"
+"Synpunkter på översättningen kan sändas till tp-sv@listor.tp-sv.se"
 
 #: ../src/panel.c:733
-#, fuzzy
 msgid "LXPanel"
-msgstr "Panel"
+msgstr "LXPanel"
 
 #: ../src/panel.c:735
 msgid "Copyright (C) 2008-2009"
-msgstr ""
+msgstr "Copyright © 2008-2009"
 
 #: ../src/panel.c:736
 msgid "Desktop panel for LXDE project"
-msgstr ""
+msgstr "Skrivbordspanel för LXDE-projektet"
 
 #: ../src/panel.c:767
 msgid "Add / Remove Panel Items"
@@ -275,7 +277,7 @@ msgstr "Ta bort panel"
 
 #: ../src/panel.c:815
 msgid "About"
-msgstr ""
+msgstr "Om"
 
 #: ../src/panel.c:823
 msgid "Panel"
@@ -421,24 +423,20 @@ msgid "Bar with buttons to launch application"
 msgstr "Panel med knappar för att starta program"
 
 #: ../src/plugins/taskbar.c:1407
-#, fuzzy
 msgid "_Raise"
-msgstr "Återställ"
+msgstr "Ta f_ram"
 
 #: ../src/plugins/taskbar.c:1411
-#, fuzzy
 msgid "R_estore"
-msgstr "Återställ"
+msgstr "Åt_erställ"
 
 #: ../src/plugins/taskbar.c:1415
-#, fuzzy
 msgid "Ma_ximize"
-msgstr "Maximera"
+msgstr "Ma_ximera"
 
 #: ../src/plugins/taskbar.c:1419
-#, fuzzy
 msgid "Ico_nify"
-msgstr "Minimera"
+msgstr "Mi_nimera"
 
 #: ../src/plugins/taskbar.c:1428
 #, c-format
@@ -450,15 +448,13 @@ msgid "All workspaces"
 msgstr "Alla arbetsytor"
 
 #: ../src/plugins/taskbar.c:1443
-#, fuzzy
 msgid "_Move to Workspace"
-msgstr "Flytta till arbetsyta"
+msgstr "_Flytta till arbetsyta"
 
 #. we want this item to be farest from mouse pointer
 #: ../src/plugins/taskbar.c:1451
-#, fuzzy
 msgid "_Close Window"
-msgstr "Stäng fönster"
+msgstr "_Stäng fönster"
 
 #: ../src/plugins/taskbar.c:1685
 msgid "Show tooltips"
@@ -519,15 +515,15 @@ msgstr ""
 
 #: ../src/plugins/dclock.c:279
 msgid "Clock Format"
-msgstr "Klockforma"
+msgstr "Klockformat"
 
 #: ../src/plugins/dclock.c:280
 msgid "Tooltip Format"
-msgstr "Format på vrktygstips"
+msgstr "Format på verktygstips"
 
 #: ../src/plugins/dclock.c:281
 msgid "Format codes: man 3 strftime"
-msgstr ""
+msgstr "Manipulering av format: man 3 strftime"
 
 #: ../src/plugins/dclock.c:282
 msgid "Action"
