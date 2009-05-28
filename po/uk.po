@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-01 15:28+0200\n"
+"POT-Creation-Date: 2009-05-28 17:32+0200\n"
 "PO-Revision-Date: 2009-05-20 09:24+0200\n"
 "Last-Translator: Y P <yupadmin@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 1.1.0\n"
 
 #: ../data/ui/panel-pref.glade.h:1
@@ -173,31 +173,31 @@ msgstr "Перезапустити"
 msgid "Logout"
 msgstr "Вийти"
 
-#: ../src/configurator.c:403
+#: ../src/configurator.c:400
 msgid "Currently loaded plugins"
 msgstr "Запущені плагіни"
 
-#: ../src/configurator.c:412
+#: ../src/configurator.c:409
 msgid "Stretch"
 msgstr "Розтягнути"
 
-#: ../src/configurator.c:510 ../src/panel.c:522
+#: ../src/configurator.c:507 ../src/panel.c:522
 msgid "Add plugin to panel"
 msgstr "Додати плагін до панелі"
 
-#: ../src/configurator.c:537 ../src/panel.c:545
+#: ../src/configurator.c:535 ../src/panel.c:545
 msgid "Available plugins"
 msgstr "Доступні плагіни"
 
-#: ../src/configurator.c:1049
+#: ../src/configurator.c:1052
 msgid "Logout command is not set"
 msgstr "Команда вилогування не встановлена"
 
-#: ../src/configurator.c:1098 ../src/configurator.c:1179
+#: ../src/configurator.c:1101 ../src/configurator.c:1184
 msgid "Select a file"
 msgstr "Вибрати файл"
 
-#: ../src/configurator.c:1197
+#: ../src/configurator.c:1211
 msgid "_Browse"
 msgstr "_Переглянути"
 
@@ -217,7 +217,7 @@ msgstr "Вверху"
 msgid "Bottom"
 msgstr "Внизу"
 
-#: ../src/panel.c:632 ../src/panel.c:758
+#: ../src/panel.c:632 ../src/panel.c:793
 msgid "Create New Panel"
 msgstr "Створити нову панель"
 
@@ -237,88 +237,110 @@ msgstr ""
 msgid "Confirm"
 msgstr "Підтвердити"
 
-#: ../src/panel.c:732
+#. TRANSLATORS: Replace this string with your names, one name per line.
+#: ../src/panel.c:728
+msgid "translator-credits"
+msgstr ""
+
+#: ../src/panel.c:733
+#, fuzzy
+msgid "LXPanel"
+msgstr "Панель"
+
+#: ../src/panel.c:735
+msgid "Copyright (C) 2008-2009"
+msgstr ""
+
+#: ../src/panel.c:736
+msgid "Desktop panel for LXDE project"
+msgstr ""
+
+#: ../src/panel.c:767
 msgid "Add / Remove Panel Items"
 msgstr "Додати/Видалити компоненти панелі"
 
-#: ../src/panel.c:740
+#: ../src/panel.c:775
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Видалити \"%s\" з панелі"
 
-#: ../src/panel.c:752
+#: ../src/panel.c:787
 msgid "Panel Settings"
 msgstr "Налаштування панелі"
 
-#: ../src/panel.c:769
+#: ../src/panel.c:804
 msgid "Delete This Panel"
 msgstr "Видалити цю панель"
 
-#: ../src/panel.c:779
+#: ../src/panel.c:815
+msgid "About"
+msgstr ""
+
+#: ../src/panel.c:823
 msgid "Panel"
 msgstr "Панель"
 
-#: ../src/panel.c:792
+#: ../src/panel.c:836
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "Налаштування \"%s\""
 
-#: ../src/panel.c:1250
+#: ../src/panel.c:1294
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - легка GTK2+ панель для UNIX десктопів\n"
 
-#: ../src/panel.c:1251
+#: ../src/panel.c:1295
 #, c-format
 msgid "Command line options:\n"
 msgstr "Опції командного рядка:\n"
 
-#: ../src/panel.c:1252
+#: ../src/panel.c:1296
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- надрукувати цю допомогу і вийти\n"
 
-#: ../src/panel.c:1253
+#: ../src/panel.c:1297
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- надрукувати версію та вийти\n"
 
-#: ../src/panel.c:1254
+#: ../src/panel.c:1298
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --log <number> -- виставити рівень логів 0-5. 0 - нема, 5 - повний\n"
 
-#: ../src/panel.c:1255
+#: ../src/panel.c:1299
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr "--configure -- запустити конфігураційну програму\n"
 
-#: ../src/panel.c:1256
+#: ../src/panel.c:1300
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr "--profile name -- використовувати вибраний профіль\n"
 
-#: ../src/panel.c:1258
+#: ../src/panel.c:1302
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr "-h  -- то саме що й --help\n"
 
-#: ../src/panel.c:1259
+#: ../src/panel.c:1303
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- то саме що й --profile\n"
 
-#: ../src/panel.c:1260
+#: ../src/panel.c:1304
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- то саме що й --version\n"
 
-#: ../src/panel.c:1261
+#: ../src/panel.c:1305
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- то саме що й  --configure\n"
 
-#: ../src/panel.c:1262
+#: ../src/panel.c:1306
 #, c-format
 msgid ""
 "\n"
@@ -389,28 +411,32 @@ msgstr "Вибрати програму"
 msgid "Buttons"
 msgstr "Кнопки"
 
-#: ../src/plugins/launchbar.c:799
+#: ../src/plugins/launchbar.c:800
 msgid "Application Launch Bar"
 msgstr "Панель запуску програм"
 
-#: ../src/plugins/launchbar.c:801
+#: ../src/plugins/launchbar.c:802
 msgid "Bar with buttons to launch application"
 msgstr "Панель з кнопками для запуску програм"
 
 #: ../src/plugins/taskbar.c:1407
-msgid "Raise"
+#, fuzzy
+msgid "_Raise"
 msgstr "Розгорнути"
 
 #: ../src/plugins/taskbar.c:1411
-msgid "Restore"
+#, fuzzy
+msgid "R_estore"
 msgstr "Відновити"
 
 #: ../src/plugins/taskbar.c:1415
-msgid "Maximize"
+#, fuzzy
+msgid "Ma_ximize"
 msgstr "Максималізувати"
 
 #: ../src/plugins/taskbar.c:1419
-msgid "Iconify"
+#, fuzzy
+msgid "Ico_nify"
 msgstr "Згорнути в іконку"
 
 #: ../src/plugins/taskbar.c:1428
@@ -423,63 +449,65 @@ msgid "All workspaces"
 msgstr "Всі робочі області"
 
 #: ../src/plugins/taskbar.c:1443
-msgid "Move to Workspace"
+#, fuzzy
+msgid "_Move to Workspace"
 msgstr "Перенести до робочої області"
 
 #. we want this item to be farest from mouse pointer
 #: ../src/plugins/taskbar.c:1451
-msgid "Close Window"
+#, fuzzy
+msgid "_Close Window"
 msgstr "Закрити вікно"
 
-#: ../src/plugins/taskbar.c:1691
+#: ../src/plugins/taskbar.c:1685
 msgid "Show tooltips"
 msgstr "Показати підказки"
 
-#: ../src/plugins/taskbar.c:1692
+#: ../src/plugins/taskbar.c:1686
 msgid "Icons only"
 msgstr "Тільки іконки"
 
-#: ../src/plugins/taskbar.c:1693
+#: ../src/plugins/taskbar.c:1687
 msgid "Flat Buttons"
 msgstr "Плоскі кнопки"
 
-#: ../src/plugins/taskbar.c:1694
+#: ../src/plugins/taskbar.c:1688
 msgid "Accept SkipPager"
 msgstr "Прийняти SkipPager"
 
-#: ../src/plugins/taskbar.c:1695
+#: ../src/plugins/taskbar.c:1689
 msgid "Show Iconified windows"
 msgstr "Показати мінімалізовані вікна"
 
-#: ../src/plugins/taskbar.c:1696
+#: ../src/plugins/taskbar.c:1690
 msgid "Show mapped windows"
 msgstr "Показати позначені вікна"
 
-#: ../src/plugins/taskbar.c:1697
+#: ../src/plugins/taskbar.c:1691
 msgid "Show windows from all desktops"
 msgstr "Показати вікна з усіх стільниць"
 
-#: ../src/plugins/taskbar.c:1698
+#: ../src/plugins/taskbar.c:1692
 msgid "Use mouse wheel"
 msgstr "Використовувати коліщатко миші"
 
-#: ../src/plugins/taskbar.c:1699
+#: ../src/plugins/taskbar.c:1693
 msgid "Flash when there is any window requiring attention"
 msgstr "Мигати, якщо вікно потребує уваги"
 
-#: ../src/plugins/taskbar.c:1700
+#: ../src/plugins/taskbar.c:1694
 msgid "Max width of task button"
 msgstr "Максимальна ширина кнопки завдань"
 
-#: ../src/plugins/taskbar.c:1701
+#: ../src/plugins/taskbar.c:1695
 msgid "Spacing"
 msgstr "Відступи"
 
-#: ../src/plugins/taskbar.c:1779
+#: ../src/plugins/taskbar.c:1773
 msgid "Task Bar (Window List)"
 msgstr "Панель задач (Список вікон)"
 
-#: ../src/plugins/taskbar.c:1781
+#: ../src/plugins/taskbar.c:1775
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -496,43 +524,42 @@ msgid "Tooltip Format"
 msgstr "Формат підказок"
 
 #: ../src/plugins/dclock.c:281
+msgid "Format codes: man 3 strftime"
+msgstr ""
+
+#: ../src/plugins/dclock.c:282
 msgid "Action"
 msgstr "Дія"
 
-#: ../src/plugins/dclock.c:282
+#: ../src/plugins/dclock.c:283
 msgid "Bold font"
 msgstr "Погрублений фонт"
 
-#: ../src/plugins/dclock.c:317
+#: ../src/plugins/dclock.c:318
 msgid "Digital Clock"
 msgstr "Цифровий годинник"
 
-#: ../src/plugins/dclock.c:319
+#: ../src/plugins/dclock.c:320
 msgid "Display Digital clock and Tooltip"
 msgstr "Показувати цифровий годинник і підказки"
 
-#.
-#. item = gtk_menu_item_new_with_label(_("Add to desktop panel"));
-#. g_signal_connect(item, "activate", G_CALLBACK(on_add_menu_item_to_panel), data);
-#. gtk_menu_shell_append(p, item);
-#.
-#: ../src/plugins/menu.c:370
+#: ../src/plugins/menu.c:369
 msgid "Add to desktop"
 msgstr "Додати до стільниці"
 
-#: ../src/plugins/menu.c:380
+#: ../src/plugins/menu.c:379
 msgid "Properties"
 msgstr "Властивості"
 
-#: ../src/plugins/menu.c:1030
+#: ../src/plugins/menu.c:1029
 msgid "Icon"
 msgstr "Іконка"
 
-#: ../src/plugins/menu.c:1041
+#: ../src/plugins/menu.c:1040
 msgid "Menu"
 msgstr "Меню"
 
-#: ../src/plugins/menu.c:1043
+#: ../src/plugins/menu.c:1042
 msgid "Provide Menu"
 msgstr "Вставити меню"
 
@@ -1165,19 +1192,19 @@ msgstr ""
 msgid "Encryption Key:"
 msgstr "Ключ шифрування:"
 
-#: ../src/plugins/netstatus/netstatus.c:163
+#: ../src/plugins/netstatus/netstatus.c:175
 msgid "Interface to monitor"
 msgstr "Моніторинг інтерфейсу"
 
-#: ../src/plugins/netstatus/netstatus.c:164
+#: ../src/plugins/netstatus/netstatus.c:176
 msgid "Config tool"
 msgstr "Утиліти конфігурації"
 
-#: ../src/plugins/netstatus/netstatus.c:181
+#: ../src/plugins/netstatus/netstatus.c:193
 msgid "Net Status Monitor"
 msgstr "Монітор статусу мережі"
 
-#: ../src/plugins/netstatus/netstatus.c:183
+#: ../src/plugins/netstatus/netstatus.c:195
 msgid "Monitor network status"
 msgstr "Моніторинг статусу мережі"
 

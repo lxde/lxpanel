@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel-0.3.5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-01 15:28+0200\n"
+"POT-Creation-Date: 2009-05-28 17:32+0200\n"
 "PO-Revision-Date: 2009-05-03 02:52+0200\n"
 "Last-Translator: Guillermo Iguaran <johnnyprez@gmail.com>\n"
 "Language-Team: Spanish <daniel@tunki.org>\n"
@@ -174,31 +174,31 @@ msgstr "Reiniciar"
 msgid "Logout"
 msgstr "Salir"
 
-#: ../src/configurator.c:403
+#: ../src/configurator.c:400
 msgid "Currently loaded plugins"
 msgstr "Plugins activos"
 
-#: ../src/configurator.c:412
+#: ../src/configurator.c:409
 msgid "Stretch"
 msgstr "Ajustar"
 
-#: ../src/configurator.c:510 ../src/panel.c:522
+#: ../src/configurator.c:507 ../src/panel.c:522
 msgid "Add plugin to panel"
 msgstr "Agregar un plugin al panel"
 
-#: ../src/configurator.c:537 ../src/panel.c:545
+#: ../src/configurator.c:535 ../src/panel.c:545
 msgid "Available plugins"
 msgstr "Plugins disponibles"
 
-#: ../src/configurator.c:1049
+#: ../src/configurator.c:1052
 msgid "Logout command is not set"
 msgstr "El comando para salir no ha sido configurado"
 
-#: ../src/configurator.c:1098 ../src/configurator.c:1179
+#: ../src/configurator.c:1101 ../src/configurator.c:1184
 msgid "Select a file"
 msgstr "Seleccionar un archivo"
 
-#: ../src/configurator.c:1197
+#: ../src/configurator.c:1211
 msgid "_Browse"
 msgstr "_Examinar"
 
@@ -218,7 +218,7 @@ msgstr "Arriba"
 msgid "Bottom"
 msgstr "Abajo"
 
-#: ../src/panel.c:632 ../src/panel.c:758
+#: ../src/panel.c:632 ../src/panel.c:793
 msgid "Create New Panel"
 msgstr "Crear un nuevo panel"
 
@@ -238,89 +238,111 @@ msgstr ""
 msgid "Confirm"
 msgstr "Confirmar"
 
-#: ../src/panel.c:732
+#. TRANSLATORS: Replace this string with your names, one name per line.
+#: ../src/panel.c:728
+msgid "translator-credits"
+msgstr ""
+
+#: ../src/panel.c:733
+#, fuzzy
+msgid "LXPanel"
+msgstr "Panel"
+
+#: ../src/panel.c:735
+msgid "Copyright (C) 2008-2009"
+msgstr ""
+
+#: ../src/panel.c:736
+msgid "Desktop panel for LXDE project"
+msgstr ""
+
+#: ../src/panel.c:767
 msgid "Add / Remove Panel Items"
 msgstr "Agregar / Suprimir elementos del panel"
 
-#: ../src/panel.c:740
+#: ../src/panel.c:775
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Remover \"%s\" del panel"
 
-#: ../src/panel.c:752
+#: ../src/panel.c:787
 msgid "Panel Settings"
 msgstr "Configuración del panel"
 
-#: ../src/panel.c:769
+#: ../src/panel.c:804
 msgid "Delete This Panel"
 msgstr "Eliminar este panel"
 
-#: ../src/panel.c:779
+#: ../src/panel.c:815
+msgid "About"
+msgstr ""
+
+#: ../src/panel.c:823
 msgid "Panel"
 msgstr "Panel"
 
-#: ../src/panel.c:792
+#: ../src/panel.c:836
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "Configuración \"%s\""
 
-#: ../src/panel.c:1250
+#: ../src/panel.c:1294
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - panel ligero GTK2+ para escritorios UNIX\n"
 
-#: ../src/panel.c:1251
+#: ../src/panel.c:1295
 #, c-format
 msgid "Command line options:\n"
 msgstr "Opciones de la línea de comandos:\n"
 
-#: ../src/panel.c:1252
+#: ../src/panel.c:1296
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help    -- muestra este mensaje y termina\n"
 
-#: ../src/panel.c:1253
+#: ../src/panel.c:1297
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- muestra la versión y termina\n"
 
-#: ../src/panel.c:1254
+#: ../src/panel.c:1298
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 " --log <nombre> -- Configura el nivel del log 0-5. 0 - ninguno 5 -  máximo\n"
 
-#: ../src/panel.c:1255
+#: ../src/panel.c:1299
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- Inicia la utilidad de configuración\n"
 
-#: ../src/panel.c:1256
+#: ../src/panel.c:1300
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile nom -- Usa el perfil especificado\n"
 
-#: ../src/panel.c:1258
+#: ../src/panel.c:1302
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- equivalente a --help\n"
 
-#: ../src/panel.c:1259
+#: ../src/panel.c:1303
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- equivalente a --profile\n"
 
-#: ../src/panel.c:1260
+#: ../src/panel.c:1304
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- equivalente a --version\n"
 
-#: ../src/panel.c:1261
+#: ../src/panel.c:1305
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- equivalente a  --configure\n"
 
-#: ../src/panel.c:1262
+#: ../src/panel.c:1306
 #, c-format
 msgid ""
 "\n"
@@ -392,28 +414,32 @@ msgstr "Seleccionar aplicación"
 msgid "Buttons"
 msgstr "Botones"
 
-#: ../src/plugins/launchbar.c:799
+#: ../src/plugins/launchbar.c:800
 msgid "Application Launch Bar"
 msgstr "Barra de aplicaciones"
 
-#: ../src/plugins/launchbar.c:801
+#: ../src/plugins/launchbar.c:802
 msgid "Bar with buttons to launch application"
 msgstr "Barra de acceso a aplicaciones"
 
 #: ../src/plugins/taskbar.c:1407
-msgid "Raise"
+#, fuzzy
+msgid "_Raise"
 msgstr "Alzar"
 
 #: ../src/plugins/taskbar.c:1411
-msgid "Restore"
+#, fuzzy
+msgid "R_estore"
 msgstr "Restaurar"
 
 #: ../src/plugins/taskbar.c:1415
-msgid "Maximize"
+#, fuzzy
+msgid "Ma_ximize"
 msgstr "Maximizar"
 
 #: ../src/plugins/taskbar.c:1419
-msgid "Iconify"
+#, fuzzy
+msgid "Ico_nify"
 msgstr "Minimizar"
 
 #: ../src/plugins/taskbar.c:1428
@@ -426,63 +452,65 @@ msgid "All workspaces"
 msgstr "Todas la áreas de trabajo"
 
 #: ../src/plugins/taskbar.c:1443
-msgid "Move to Workspace"
+#, fuzzy
+msgid "_Move to Workspace"
 msgstr "Mover a área de trabajo"
 
 #. we want this item to be farest from mouse pointer
 #: ../src/plugins/taskbar.c:1451
-msgid "Close Window"
+#, fuzzy
+msgid "_Close Window"
 msgstr "Cerrar ventana"
 
-#: ../src/plugins/taskbar.c:1691
+#: ../src/plugins/taskbar.c:1685
 msgid "Show tooltips"
 msgstr "Mostrar consejos"
 
-#: ../src/plugins/taskbar.c:1692
+#: ../src/plugins/taskbar.c:1686
 msgid "Icons only"
 msgstr "Sólo iconos"
 
-#: ../src/plugins/taskbar.c:1693
+#: ../src/plugins/taskbar.c:1687
 msgid "Flat Buttons"
 msgstr "Botones simples"
 
-#: ../src/plugins/taskbar.c:1694
+#: ../src/plugins/taskbar.c:1688
 msgid "Accept SkipPager"
 msgstr "Aceptar SkipPager"
 
-#: ../src/plugins/taskbar.c:1695
+#: ../src/plugins/taskbar.c:1689
 msgid "Show Iconified windows"
 msgstr "Mostrar ventanas minimizadas"
 
-#: ../src/plugins/taskbar.c:1696
+#: ../src/plugins/taskbar.c:1690
 msgid "Show mapped windows"
 msgstr "Mostrar ventanas mapeadas"
 
-#: ../src/plugins/taskbar.c:1697
+#: ../src/plugins/taskbar.c:1691
 msgid "Show windows from all desktops"
 msgstr "Mostar ventanas de todas las áreas de trabajo"
 
-#: ../src/plugins/taskbar.c:1698
+#: ../src/plugins/taskbar.c:1692
 msgid "Use mouse wheel"
 msgstr "Usar la rueda del ratón"
 
-#: ../src/plugins/taskbar.c:1699
+#: ../src/plugins/taskbar.c:1693
 msgid "Flash when there is any window requiring attention"
 msgstr "Avisar cuando una ventana requiere atención"
 
-#: ../src/plugins/taskbar.c:1700
+#: ../src/plugins/taskbar.c:1694
 msgid "Max width of task button"
 msgstr "Ancho máximo de botón de tarea"
 
-#: ../src/plugins/taskbar.c:1701
+#: ../src/plugins/taskbar.c:1695
 msgid "Spacing"
 msgstr "Espaciado"
 
-#: ../src/plugins/taskbar.c:1779
+#: ../src/plugins/taskbar.c:1773
 msgid "Task Bar (Window List)"
 msgstr "Barra de tareas"
 
-#: ../src/plugins/taskbar.c:1781
+#: ../src/plugins/taskbar.c:1775
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -497,43 +525,42 @@ msgid "Tooltip Format"
 msgstr "Formato de consejo"
 
 #: ../src/plugins/dclock.c:281
+msgid "Format codes: man 3 strftime"
+msgstr ""
+
+#: ../src/plugins/dclock.c:282
 msgid "Action"
 msgstr "Acción"
 
-#: ../src/plugins/dclock.c:282
+#: ../src/plugins/dclock.c:283
 msgid "Bold font"
 msgstr "Negrita"
 
-#: ../src/plugins/dclock.c:317
+#: ../src/plugins/dclock.c:318
 msgid "Digital Clock"
 msgstr "Reloj digital"
 
-#: ../src/plugins/dclock.c:319
+#: ../src/plugins/dclock.c:320
 msgid "Display Digital clock and Tooltip"
 msgstr "Mostrar reloj digital y consejo"
 
-#.
-#. item = gtk_menu_item_new_with_label(_("Add to desktop panel"));
-#. g_signal_connect(item, "activate", G_CALLBACK(on_add_menu_item_to_panel), data);
-#. gtk_menu_shell_append(p, item);
-#.
-#: ../src/plugins/menu.c:370
+#: ../src/plugins/menu.c:369
 msgid "Add to desktop"
 msgstr "Agregar al escritorio"
 
-#: ../src/plugins/menu.c:380
+#: ../src/plugins/menu.c:379
 msgid "Properties"
 msgstr "Propiedades"
 
-#: ../src/plugins/menu.c:1030
+#: ../src/plugins/menu.c:1029
 msgid "Icon"
 msgstr "Icono"
 
-#: ../src/plugins/menu.c:1041
+#: ../src/plugins/menu.c:1040
 msgid "Menu"
 msgstr "Menú"
 
-#: ../src/plugins/menu.c:1043
+#: ../src/plugins/menu.c:1042
 msgid "Provide Menu"
 msgstr "Proveer menú"
 
@@ -1164,19 +1191,19 @@ msgstr ""
 msgid "Encryption Key:"
 msgstr "Clave de encriptación:"
 
-#: ../src/plugins/netstatus/netstatus.c:163
+#: ../src/plugins/netstatus/netstatus.c:175
 msgid "Interface to monitor"
 msgstr "Dispositivo a supervisar"
 
-#: ../src/plugins/netstatus/netstatus.c:164
+#: ../src/plugins/netstatus/netstatus.c:176
 msgid "Config tool"
 msgstr "Herramienta de configuración"
 
-#: ../src/plugins/netstatus/netstatus.c:181
+#: ../src/plugins/netstatus/netstatus.c:193
 msgid "Net Status Monitor"
 msgstr "Monitor de estado de red"
 
-#: ../src/plugins/netstatus/netstatus.c:183
+#: ../src/plugins/netstatus/netstatus.c:195
 msgid "Monitor network status"
 msgstr "Monitor del estado de la red"
 

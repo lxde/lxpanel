@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-01 15:28+0200\n"
+"POT-Creation-Date: 2009-05-28 17:32+0200\n"
 "PO-Revision-Date: 2009-05-03 11:31+0200\n"
 "Last-Translator: Александр Голубев <ag@lhp.ru>\n"
 "Language-Team: Russian <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 1.1.0\n"
 "X-Poedit-Language: russian\n"
 "X-Poedit-Country: Russia\n"
@@ -175,32 +175,32 @@ msgstr "Перезапустить"
 msgid "Logout"
 msgstr "Завершить Сеанс"
 
-#: ../src/configurator.c:403
+#: ../src/configurator.c:400
 msgid "Currently loaded plugins"
 msgstr "Загруженные приложения"
 
-#: ../src/configurator.c:412
+#: ../src/configurator.c:409
 msgid "Stretch"
 msgstr "Растянуть"
 
-#: ../src/configurator.c:510 ../src/panel.c:522
+#: ../src/configurator.c:507 ../src/panel.c:522
 msgid "Add plugin to panel"
 msgstr "Добавить приложение к панели"
 
-#: ../src/configurator.c:537 ../src/panel.c:545
+#: ../src/configurator.c:535 ../src/panel.c:545
 msgid "Available plugins"
 msgstr "Приложения доступные для установки"
 
-#: ../src/configurator.c:1049
+#: ../src/configurator.c:1052
 msgid "Logout command is not set"
 msgstr "Команда для завершения сеанса не определена"
 
-#: ../src/configurator.c:1098 ../src/configurator.c:1179
+#: ../src/configurator.c:1101 ../src/configurator.c:1184
 #, fuzzy
 msgid "Select a file"
 msgstr "Выберите файл"
 
-#: ../src/configurator.c:1197
+#: ../src/configurator.c:1211
 msgid "_Browse"
 msgstr "Обозреватель"
 
@@ -220,7 +220,7 @@ msgstr "Верх"
 msgid "Bottom"
 msgstr "Низ"
 
-#: ../src/panel.c:632 ../src/panel.c:758
+#: ../src/panel.c:632 ../src/panel.c:793
 msgid "Create New Panel"
 msgstr "Создать Новую Панель"
 
@@ -240,90 +240,112 @@ msgstr ""
 msgid "Confirm"
 msgstr "Подтвердить"
 
-#: ../src/panel.c:732
+#. TRANSLATORS: Replace this string with your names, one name per line.
+#: ../src/panel.c:728
+msgid "translator-credits"
+msgstr ""
+
+#: ../src/panel.c:733
+#, fuzzy
+msgid "LXPanel"
+msgstr "Панель"
+
+#: ../src/panel.c:735
+msgid "Copyright (C) 2008-2009"
+msgstr ""
+
+#: ../src/panel.c:736
+msgid "Desktop panel for LXDE project"
+msgstr ""
+
+#: ../src/panel.c:767
 msgid "Add / Remove Panel Items"
 msgstr "Добавить/Убрать Приложения Панели"
 
-#: ../src/panel.c:740
+#: ../src/panel.c:775
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Убрать \"%s\" Из Панели"
 
-#: ../src/panel.c:752
+#: ../src/panel.c:787
 msgid "Panel Settings"
 msgstr "Настройки Панели"
 
-#: ../src/panel.c:769
+#: ../src/panel.c:804
 msgid "Delete This Panel"
 msgstr "Удалить Эту Панель"
 
-#: ../src/panel.c:779
+#: ../src/panel.c:815
+msgid "About"
+msgstr ""
+
+#: ../src/panel.c:823
 msgid "Panel"
 msgstr "Панель"
 
-#: ../src/panel.c:792
+#: ../src/panel.c:836
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" Настойка"
 
-#: ../src/panel.c:1250
+#: ../src/panel.c:1294
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - легкая GTK2+ панель для UNIX-Desktops\n"
 
-#: ../src/panel.c:1251
+#: ../src/panel.c:1295
 #, c-format
 msgid "Command line options:\n"
 msgstr "Командные опции:\n"
 
-#: ../src/panel.c:1252
+#: ../src/panel.c:1296
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      --распечатать эту помощь и закрыть программу\n"
 
-#: ../src/panel.c:1253
+#: ../src/panel.c:1297
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- распечатать версию и закрыть программу\n"
 
-#: ../src/panel.c:1254
+#: ../src/panel.c:1298
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 " --log <Zahl>   -- определить уровень распечатки от 0 до 5, 0 - никакого 5 - "
 "самый полный\n"
 
-#: ../src/panel.c:1255
+#: ../src/panel.c:1299
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- запустить приложение конфигурации\n"
 
-#: ../src/panel.c:1256
+#: ../src/panel.c:1300
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile Name -- использовать определенную конфигурацию\n"
 
-#: ../src/panel.c:1258
+#: ../src/panel.c:1302
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- то-же что --help\n"
 
-#: ../src/panel.c:1259
+#: ../src/panel.c:1303
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- то-же что --profile\n"
 
-#: ../src/panel.c:1260
+#: ../src/panel.c:1304
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- то-же что --version\n"
 
-#: ../src/panel.c:1261
+#: ../src/panel.c:1305
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- то-же что --configure\n"
 
-#: ../src/panel.c:1262
+#: ../src/panel.c:1306
 #, c-format
 msgid ""
 "\n"
@@ -395,28 +417,32 @@ msgstr "Выбрать Приложение"
 msgid "Buttons"
 msgstr "Кнопки"
 
-#: ../src/plugins/launchbar.c:799
+#: ../src/plugins/launchbar.c:800
 msgid "Application Launch Bar"
 msgstr "Место для Запуска Приложений"
 
-#: ../src/plugins/launchbar.c:801
+#: ../src/plugins/launchbar.c:802
 msgid "Bar with buttons to launch application"
 msgstr "Место с кнопками для запуска приложений"
 
 #: ../src/plugins/taskbar.c:1407
-msgid "Raise"
+#, fuzzy
+msgid "_Raise"
 msgstr "Поднять"
 
 #: ../src/plugins/taskbar.c:1411
-msgid "Restore"
+#, fuzzy
+msgid "R_estore"
 msgstr "Восстановить"
 
 #: ../src/plugins/taskbar.c:1415
-msgid "Maximize"
+#, fuzzy
+msgid "Ma_ximize"
 msgstr "На весь экран"
 
 #: ../src/plugins/taskbar.c:1419
-msgid "Iconify"
+#, fuzzy
+msgid "Ico_nify"
 msgstr "Свернуть"
 
 #: ../src/plugins/taskbar.c:1428
@@ -429,63 +455,65 @@ msgid "All workspaces"
 msgstr "Все рабочие пространства"
 
 #: ../src/plugins/taskbar.c:1443
-msgid "Move to Workspace"
+#, fuzzy
+msgid "_Move to Workspace"
 msgstr "Переместить в рабочее пространство"
 
 #. we want this item to be farest from mouse pointer
 #: ../src/plugins/taskbar.c:1451
-msgid "Close Window"
+#, fuzzy
+msgid "_Close Window"
 msgstr "Закрыть Окно"
 
-#: ../src/plugins/taskbar.c:1691
+#: ../src/plugins/taskbar.c:1685
 msgid "Show tooltips"
 msgstr "Показать тултипы"
 
-#: ../src/plugins/taskbar.c:1692
+#: ../src/plugins/taskbar.c:1686
 msgid "Icons only"
 msgstr "Только иконки"
 
-#: ../src/plugins/taskbar.c:1693
+#: ../src/plugins/taskbar.c:1687
 msgid "Flat Buttons"
 msgstr "Плоские Кнопки"
 
-#: ../src/plugins/taskbar.c:1694
+#: ../src/plugins/taskbar.c:1688
 msgid "Accept SkipPager"
 msgstr "Добавить СкипПейджер"
 
-#: ../src/plugins/taskbar.c:1695
+#: ../src/plugins/taskbar.c:1689
 msgid "Show Iconified windows"
 msgstr "Показывать Свернутые Окна"
 
-#: ../src/plugins/taskbar.c:1696
+#: ../src/plugins/taskbar.c:1690
 msgid "Show mapped windows"
 msgstr "Показывать определенные окна"
 
-#: ../src/plugins/taskbar.c:1697
+#: ../src/plugins/taskbar.c:1691
 msgid "Show windows from all desktops"
 msgstr "Показывать окна со всех рабочих пространств"
 
-#: ../src/plugins/taskbar.c:1698
+#: ../src/plugins/taskbar.c:1692
 msgid "Use mouse wheel"
 msgstr "Использовать колесо прокрутки мыши"
 
-#: ../src/plugins/taskbar.c:1699
+#: ../src/plugins/taskbar.c:1693
 msgid "Flash when there is any window requiring attention"
 msgstr "Мигать, когда присутствует окно которое нуждается во внимании"
 
-#: ../src/plugins/taskbar.c:1700
+#: ../src/plugins/taskbar.c:1694
 msgid "Max width of task button"
 msgstr "Максимальная ширина кнопок управления"
 
-#: ../src/plugins/taskbar.c:1701
+#: ../src/plugins/taskbar.c:1695
 msgid "Spacing"
 msgstr "Дистанция"
 
-#: ../src/plugins/taskbar.c:1779
+#: ../src/plugins/taskbar.c:1773
 msgid "Task Bar (Window List)"
 msgstr "Таск Бар (Список Окон)"
 
-#: ../src/plugins/taskbar.c:1781
+#: ../src/plugins/taskbar.c:1775
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -502,44 +530,43 @@ msgid "Tooltip Format"
 msgstr "Формат Тултипов"
 
 #: ../src/plugins/dclock.c:281
+msgid "Format codes: man 3 strftime"
+msgstr ""
+
+#: ../src/plugins/dclock.c:282
 msgid "Action"
 msgstr "Запустить"
 
-#: ../src/plugins/dclock.c:282
+#: ../src/plugins/dclock.c:283
 msgid "Bold font"
 msgstr "Жирный Шрифт"
 
-#: ../src/plugins/dclock.c:317
+#: ../src/plugins/dclock.c:318
 msgid "Digital Clock"
 msgstr "Цифровые Часы"
 
-#: ../src/plugins/dclock.c:319
+#: ../src/plugins/dclock.c:320
 msgid "Display Digital clock and Tooltip"
 msgstr "Показывать Цифровые Часы и Тултипы"
 
-#.
-#. item = gtk_menu_item_new_with_label(_("Add to desktop panel"));
-#. g_signal_connect(item, "activate", G_CALLBACK(on_add_menu_item_to_panel), data);
-#. gtk_menu_shell_append(p, item);
-#.
-#: ../src/plugins/menu.c:370
+#: ../src/plugins/menu.c:369
 msgid "Add to desktop"
 msgstr "Добавить к десктопу"
 
-#: ../src/plugins/menu.c:380
+#: ../src/plugins/menu.c:379
 #, fuzzy
 msgid "Properties"
 msgstr "<b>Свойства</b>"
 
-#: ../src/plugins/menu.c:1030
+#: ../src/plugins/menu.c:1029
 msgid "Icon"
 msgstr "Символы"
 
-#: ../src/plugins/menu.c:1041
+#: ../src/plugins/menu.c:1040
 msgid "Menu"
 msgstr "Меню"
 
-#: ../src/plugins/menu.c:1043
+#: ../src/plugins/menu.c:1042
 msgid "Provide Menu"
 msgstr "Показать Меню"
 
@@ -1182,19 +1209,19 @@ msgstr ""
 msgid "Encryption Key:"
 msgstr "Ключ Шифрования."
 
-#: ../src/plugins/netstatus/netstatus.c:163
+#: ../src/plugins/netstatus/netstatus.c:175
 msgid "Interface to monitor"
 msgstr "Интерфейс к контролёру"
 
-#: ../src/plugins/netstatus/netstatus.c:164
+#: ../src/plugins/netstatus/netstatus.c:176
 msgid "Config tool"
 msgstr "Приложение для конфигурации"
 
-#: ../src/plugins/netstatus/netstatus.c:181
+#: ../src/plugins/netstatus/netstatus.c:193
 msgid "Net Status Monitor"
 msgstr "Контролёр Статуса Сети"
 
-#: ../src/plugins/netstatus/netstatus.c:183
+#: ../src/plugins/netstatus/netstatus.c:195
 msgid "Monitor network status"
 msgstr "Следить за статусом сети"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-01 15:28+0200\n"
+"POT-Creation-Date: 2009-05-28 17:32+0200\n"
 "PO-Revision-Date: 2009-05-02 18:01+0200\n"
 "Last-Translator: Ahmad Farghal <ahmad.farghal@gmail.com>\n"
 "Language-Team: Arabic\n"
@@ -173,31 +173,31 @@ msgstr "أعد التشغيل"
 msgid "Logout"
 msgstr "اخرج"
 
-#: ../src/configurator.c:403
+#: ../src/configurator.c:400
 msgid "Currently loaded plugins"
 msgstr "الملحقات المحملة حاليا"
 
-#: ../src/configurator.c:412
+#: ../src/configurator.c:409
 msgid "Stretch"
 msgstr "مَدِّدْ"
 
-#: ../src/configurator.c:510 ../src/panel.c:522
+#: ../src/configurator.c:507 ../src/panel.c:522
 msgid "Add plugin to panel"
 msgstr "أضف ملحقا للشريط"
 
-#: ../src/configurator.c:537 ../src/panel.c:545
+#: ../src/configurator.c:535 ../src/panel.c:545
 msgid "Available plugins"
 msgstr "الملحقات المتوفرة"
 
-#: ../src/configurator.c:1049
+#: ../src/configurator.c:1052
 msgid "Logout command is not set"
 msgstr "لم يتم تعيين أمر للخروج"
 
-#: ../src/configurator.c:1098 ../src/configurator.c:1179
+#: ../src/configurator.c:1101 ../src/configurator.c:1184
 msgid "Select a file"
 msgstr "انتق ملفا"
 
-#: ../src/configurator.c:1197
+#: ../src/configurator.c:1211
 msgid "_Browse"
 msgstr "_تصفح"
 
@@ -217,7 +217,7 @@ msgstr "الأعلى"
 msgid "Bottom"
 msgstr "الأسفل"
 
-#: ../src/panel.c:632 ../src/panel.c:758
+#: ../src/panel.c:632 ../src/panel.c:793
 msgid "Create New Panel"
 msgstr "أنشي شريطا جديدا"
 
@@ -237,89 +237,111 @@ msgstr ""
 msgid "Confirm"
 msgstr "أكد"
 
-#: ../src/panel.c:732
+#. TRANSLATORS: Replace this string with your names, one name per line.
+#: ../src/panel.c:728
+msgid "translator-credits"
+msgstr ""
+
+#: ../src/panel.c:733
+#, fuzzy
+msgid "LXPanel"
+msgstr "الشريط"
+
+#: ../src/panel.c:735
+msgid "Copyright (C) 2008-2009"
+msgstr ""
+
+#: ../src/panel.c:736
+msgid "Desktop panel for LXDE project"
+msgstr ""
+
+#: ../src/panel.c:767
 msgid "Add / Remove Panel Items"
 msgstr "أضف أو أزل عناصر من الشريط"
 
-#: ../src/panel.c:740
+#: ../src/panel.c:775
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "أزل \"%s\" من الشريط"
 
-#: ../src/panel.c:752
+#: ../src/panel.c:787
 msgid "Panel Settings"
 msgstr "إعدادات الشريط"
 
-#: ../src/panel.c:769
+#: ../src/panel.c:804
 msgid "Delete This Panel"
 msgstr "احذف هذا الشريط"
 
-#: ../src/panel.c:779
+#: ../src/panel.c:815
+msgid "About"
+msgstr ""
+
+#: ../src/panel.c:823
 msgid "Panel"
 msgstr "الشريط"
 
-#: ../src/panel.c:792
+#: ../src/panel.c:836
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "إعدادات \"%s\""
 
-#: ../src/panel.c:1250
+#: ../src/panel.c:1294
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - شريط GTK2+ خفيف لأسطح مكتب UNIX\n"
 
-#: ../src/panel.c:1251
+#: ../src/panel.c:1295
 #, c-format
 msgid "Command line options:\n"
 msgstr "خيارات سطر الاوامر:\n"
 
-#: ../src/panel.c:1252
+#: ../src/panel.c:1296
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- يظهر هذه المساعدة ويخرج\n"
 
-#: ../src/panel.c:1253
+#: ../src/panel.c:1297
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- يظهر رقم الإصدار ويخرج\n"
 
-#: ../src/panel.c:1254
+#: ../src/panel.c:1298
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 " --log <رقم> -- يعين مستوى التسجيل من 0 إلى 5. 0 - لا تسجيل 5 - ثرثار\n"
 
-#: ../src/panel.c:1255
+#: ../src/panel.c:1299
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- تشغيل أداة الضبط\n"
 
-#: ../src/panel.c:1256
+#: ../src/panel.c:1300
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile اسم -- يستخدم اسم الضبط المحدد\n"
 
-#: ../src/panel.c:1258
+#: ../src/panel.c:1302
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- نفس ما يفعله --help\n"
 
-#: ../src/panel.c:1259
+#: ../src/panel.c:1303
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- نفس ما يفعله --profile\n"
 
-#: ../src/panel.c:1260
+#: ../src/panel.c:1304
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- نفس ما يفعله --version\n"
 
-#: ../src/panel.c:1261
+#: ../src/panel.c:1305
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- نفس ما يفعله --configure\n"
 
-#: ../src/panel.c:1262
+#: ../src/panel.c:1306
 #, c-format
 msgid ""
 "\n"
@@ -390,28 +412,32 @@ msgstr "انتق تطبيقا"
 msgid "Buttons"
 msgstr "الأزرار"
 
-#: ../src/plugins/launchbar.c:799
+#: ../src/plugins/launchbar.c:800
 msgid "Application Launch Bar"
 msgstr "شريط اختصارات التطبيقات"
 
-#: ../src/plugins/launchbar.c:801
+#: ../src/plugins/launchbar.c:802
 msgid "Bar with buttons to launch application"
 msgstr "شريط يحتوي على أزرار لفتح تطبيقات"
 
 #: ../src/plugins/taskbar.c:1407
-msgid "Raise"
+#, fuzzy
+msgid "_Raise"
 msgstr "ارفع"
 
 #: ../src/plugins/taskbar.c:1411
-msgid "Restore"
+#, fuzzy
+msgid "R_estore"
 msgstr "استعِد"
 
 #: ../src/plugins/taskbar.c:1415
-msgid "Maximize"
+#, fuzzy
+msgid "Ma_ximize"
 msgstr "كبّر"
 
 #: ../src/plugins/taskbar.c:1419
-msgid "Iconify"
+#, fuzzy
+msgid "Ico_nify"
 msgstr "صغّر"
 
 #: ../src/plugins/taskbar.c:1428
@@ -424,63 +450,65 @@ msgid "All workspaces"
 msgstr "جميع مساحات العمل"
 
 #: ../src/plugins/taskbar.c:1443
-msgid "Move to Workspace"
+#, fuzzy
+msgid "_Move to Workspace"
 msgstr "انقل إلى مساحة العمل"
 
 #. we want this item to be farest from mouse pointer
 #: ../src/plugins/taskbar.c:1451
-msgid "Close Window"
+#, fuzzy
+msgid "_Close Window"
 msgstr "أغلق النافذة"
 
-#: ../src/plugins/taskbar.c:1691
+#: ../src/plugins/taskbar.c:1685
 msgid "Show tooltips"
 msgstr "أظهر تلميحات"
 
-#: ../src/plugins/taskbar.c:1692
+#: ../src/plugins/taskbar.c:1686
 msgid "Icons only"
 msgstr "أيقونات فقط"
 
-#: ../src/plugins/taskbar.c:1693
+#: ../src/plugins/taskbar.c:1687
 msgid "Flat Buttons"
 msgstr "أزرار مسطحة"
 
-#: ../src/plugins/taskbar.c:1694
+#: ../src/plugins/taskbar.c:1688
 msgid "Accept SkipPager"
 msgstr "اقبل أمر تخطي شريط المهام SkipPager"
 
-#: ../src/plugins/taskbar.c:1695
+#: ../src/plugins/taskbar.c:1689
 msgid "Show Iconified windows"
 msgstr "أظهر النوافذ التي تم تصغيرها"
 
-#: ../src/plugins/taskbar.c:1696
+#: ../src/plugins/taskbar.c:1690
 msgid "Show mapped windows"
 msgstr "لا تُظهِر إلا النوافذ المصغرة"
 
-#: ../src/plugins/taskbar.c:1697
+#: ../src/plugins/taskbar.c:1691
 msgid "Show windows from all desktops"
 msgstr "أظهر نوافذ جميع أسطح المكتب"
 
-#: ../src/plugins/taskbar.c:1698
+#: ../src/plugins/taskbar.c:1692
 msgid "Use mouse wheel"
 msgstr "استخدم عجلة الفأرة"
 
-#: ../src/plugins/taskbar.c:1699
+#: ../src/plugins/taskbar.c:1693
 msgid "Flash when there is any window requiring attention"
 msgstr "أبرز زر النافذة التي تتطلب اهتماما"
 
-#: ../src/plugins/taskbar.c:1700
+#: ../src/plugins/taskbar.c:1694
 msgid "Max width of task button"
 msgstr "أقصى عرض لزر المهمة"
 
-#: ../src/plugins/taskbar.c:1701
+#: ../src/plugins/taskbar.c:1695
 msgid "Spacing"
 msgstr "مسافة"
 
-#: ../src/plugins/taskbar.c:1779
+#: ../src/plugins/taskbar.c:1773
 msgid "Task Bar (Window List)"
 msgstr "شريط المهام (قائمة النوافذ)"
 
-#: ../src/plugins/taskbar.c:1781
+#: ../src/plugins/taskbar.c:1775
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -497,43 +525,42 @@ msgid "Tooltip Format"
 msgstr "هيئة التلميح"
 
 #: ../src/plugins/dclock.c:281
+msgid "Format codes: man 3 strftime"
+msgstr ""
+
+#: ../src/plugins/dclock.c:282
 msgid "Action"
 msgstr "الإجراء"
 
-#: ../src/plugins/dclock.c:282
+#: ../src/plugins/dclock.c:283
 msgid "Bold font"
 msgstr "خط عريض"
 
-#: ../src/plugins/dclock.c:317
+#: ../src/plugins/dclock.c:318
 msgid "Digital Clock"
 msgstr "الساعة الرقمية"
 
-#: ../src/plugins/dclock.c:319
+#: ../src/plugins/dclock.c:320
 msgid "Display Digital clock and Tooltip"
 msgstr "يظهر ساعة رقمية وتلميح"
 
-#.
-#. item = gtk_menu_item_new_with_label(_("Add to desktop panel"));
-#. g_signal_connect(item, "activate", G_CALLBACK(on_add_menu_item_to_panel), data);
-#. gtk_menu_shell_append(p, item);
-#.
-#: ../src/plugins/menu.c:370
+#: ../src/plugins/menu.c:369
 msgid "Add to desktop"
 msgstr "أضف إلى سطح مكتب"
 
-#: ../src/plugins/menu.c:380
+#: ../src/plugins/menu.c:379
 msgid "Properties"
 msgstr "خصائص"
 
-#: ../src/plugins/menu.c:1030
+#: ../src/plugins/menu.c:1029
 msgid "Icon"
 msgstr "أيقونة"
 
-#: ../src/plugins/menu.c:1041
+#: ../src/plugins/menu.c:1040
 msgid "Menu"
 msgstr "القائمة"
 
-#: ../src/plugins/menu.c:1043
+#: ../src/plugins/menu.c:1042
 msgid "Provide Menu"
 msgstr "يوفر قائمة"
 
@@ -1166,19 +1193,19 @@ msgstr ""
 msgid "Encryption Key:"
 msgstr "مفتاح التعمية:"
 
-#: ../src/plugins/netstatus/netstatus.c:163
+#: ../src/plugins/netstatus/netstatus.c:175
 msgid "Interface to monitor"
 msgstr "الواجهة المُراقَبة"
 
-#: ../src/plugins/netstatus/netstatus.c:164
+#: ../src/plugins/netstatus/netstatus.c:176
 msgid "Config tool"
 msgstr "أداة الضبط"
 
-#: ../src/plugins/netstatus/netstatus.c:181
+#: ../src/plugins/netstatus/netstatus.c:193
 msgid "Net Status Monitor"
 msgstr "مراقب حالة الشبكة"
 
-#: ../src/plugins/netstatus/netstatus.c:183
+#: ../src/plugins/netstatus/netstatus.c:195
 msgid "Monitor network status"
 msgstr "يراقب حالة الشبكة"
 
