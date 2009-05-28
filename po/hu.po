@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel-0.2.8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-28 17:32+0200\n"
-"PO-Revision-Date: 2009-05-28 18:20+0100\n"
+"PO-Revision-Date: 2009-05-28 18:55+0100\n"
 "Last-Translator: Zsolt Peter Basak <shiki@biomernok.hu>\n"
 "Language-Team: hu <hu@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -245,7 +245,7 @@ msgstr "Jóváhagy"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:728
 msgid "translator-credits"
-msgstr "SZERVÁC Attila"
+msgstr "SZERVÁC Attila ; Basák Péter Zsolt"
 
 #: ../src/panel.c:733
 msgid "LXPanel"
