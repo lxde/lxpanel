@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel-0.2.8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-28 17:32+0200\n"
-"PO-Revision-Date: 2009-05-28 17:54+0100\n"
+"PO-Revision-Date: 2009-05-28 18:20+0100\n"
 "Last-Translator: Zsolt Peter Basak <shiki@biomernok.hu>\n"
 "Language-Team: hu <hu@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -161,7 +161,8 @@ msgstr "Szín:"
 msgid "Width:"
 msgstr "Szélesség:"
 
-#: ../src/configurator.c:54 ../src/gtk-run.c:250
+#: ../src/configurator.c:54
+#: ../src/gtk-run.c:250
 msgid "Run"
 msgstr "Futtatás"
 
@@ -181,11 +182,13 @@ msgstr "A most betöltött elemek"
 msgid "Stretch"
 msgstr "Nyújt"
 
-#: ../src/configurator.c:507 ../src/panel.c:522
+#: ../src/configurator.c:507
+#: ../src/panel.c:522
 msgid "Add plugin to panel"
 msgstr "Elemek hozzáadása a panelhoz"
 
-#: ../src/configurator.c:535 ../src/panel.c:545
+#: ../src/configurator.c:535
+#: ../src/panel.c:545
 msgid "Available plugins"
 msgstr "Elemek hozzáadása"
 
@@ -193,7 +196,8 @@ msgstr "Elemek hozzáadása"
 msgid "Logout command is not set"
 msgstr "Nincs beállítva kijelentkező parancs"
 
-#: ../src/configurator.c:1101 ../src/configurator.c:1184
+#: ../src/configurator.c:1101
+#: ../src/configurator.c:1184
 msgid "Select a file"
 msgstr "Válassz egy fájlt"
 
@@ -217,7 +221,8 @@ msgstr "Fent"
 msgid "Bottom"
 msgstr "Lent"
 
-#: ../src/panel.c:632 ../src/panel.c:793
+#: ../src/panel.c:632
+#: ../src/panel.c:793
 msgid "Create New Panel"
 msgstr "Új panel létrehozása"
 
@@ -240,20 +245,19 @@ msgstr "Jóváhagy"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:728
 msgid "translator-credits"
-msgstr ""
+msgstr "SZERVÁC Attila"
 
 #: ../src/panel.c:733
-#, fuzzy
 msgid "LXPanel"
-msgstr "Panel"
+msgstr "LXPanel"
 
 #: ../src/panel.c:735
 msgid "Copyright (C) 2008-2009"
-msgstr ""
+msgstr "Copyright (C) 2008-2009"
 
 #: ../src/panel.c:736
 msgid "Desktop panel for LXDE project"
-msgstr ""
+msgstr "Asztali panel az LXDE projekt számára"
 
 #: ../src/panel.c:767
 msgid "Add / Remove Panel Items"
@@ -274,7 +278,7 @@ msgstr "E panel törlése"
 
 #: ../src/panel.c:815
 msgid "About"
-msgstr ""
+msgstr "Rólunk"
 
 #: ../src/panel.c:823
 msgid "Panel"
@@ -371,11 +375,13 @@ msgstr "CPU-használat figyelő"
 msgid "Display CPU usage"
 msgstr "CPU-használat mutatása"
 
-#: ../src/plugins/deskno/deskno.c:99 ../src/plugins/deskno/deskno2.c:129
+#: ../src/plugins/deskno/deskno.c:99
+#: ../src/plugins/deskno/deskno2.c:129
 msgid "Desktop No / Workspace Name"
 msgstr "Munkaasztal szám / Munkaterület neve"
 
-#: ../src/plugins/deskno/deskno.c:101 ../src/plugins/deskno/deskno2.c:131
+#: ../src/plugins/deskno/deskno.c:101
+#: ../src/plugins/deskno/deskno2.c:131
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Munkaterület szám kiírása: cmeury@users.sf.net"
 
@@ -420,24 +426,20 @@ msgid "Bar with buttons to launch application"
 msgstr "Alkalmazás-indító gombokkal"
 
 #: ../src/plugins/taskbar.c:1407
-#, fuzzy
 msgid "_Raise"
-msgstr "Felülre helyez"
+msgstr "_Előhív"
 
 #: ../src/plugins/taskbar.c:1411
-#, fuzzy
 msgid "R_estore"
-msgstr "Visszaállít"
+msgstr "_Visszaállít"
 
 #: ../src/plugins/taskbar.c:1415
-#, fuzzy
 msgid "Ma_ximize"
-msgstr "Maximalizál"
+msgstr "Ki_nagyít"
 
 #: ../src/plugins/taskbar.c:1419
-#, fuzzy
 msgid "Ico_nify"
-msgstr "Minimalizál"
+msgstr "min_imalizál"
 
 #: ../src/plugins/taskbar.c:1428
 #, c-format
@@ -449,15 +451,13 @@ msgid "All workspaces"
 msgstr "Minden munkaterület"
 
 #: ../src/plugins/taskbar.c:1443
-#, fuzzy
 msgid "_Move to Workspace"
-msgstr "Áthelyezés más munkaterületre"
+msgstr "_Áthelyezés másik Munkaterületre"
 
 #. we want this item to be farest from mouse pointer
 #: ../src/plugins/taskbar.c:1451
-#, fuzzy
 msgid "_Close Window"
-msgstr "Bezárás"
+msgstr "_Ablak bezárása"
 
 #: ../src/plugins/taskbar.c:1685
 msgid "Show tooltips"
@@ -508,12 +508,8 @@ msgid "Task Bar (Window List)"
 msgstr "Ablaklista"
 
 #: ../src/plugins/taskbar.c:1775
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
-msgstr ""
-"Mutatja a megnyitott ablakokat és lehetővé teszi a minimalizálást, "
-"felgördítést és a közöttük lévő váltást"
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr "Mutatja a megnyitott ablakokat és lehetővé teszi a minimalizálást, felgördítést és a közöttük lévő váltást"
 
 #: ../src/plugins/dclock.c:279
 msgid "Clock Format"
@@ -525,7 +521,7 @@ msgstr "Eszköztipp formátuma"
 
 #: ../src/plugins/dclock.c:281
 msgid "Format codes: man 3 strftime"
-msgstr ""
+msgstr "Formázási kódok: man 3 strftime"
 
 #: ../src/plugins/dclock.c:282
 msgid "Action"
@@ -613,7 +609,8 @@ msgid "Address:"
 msgstr "Cím:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstat/netstat.c:319
+#: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
 msgid "Broadcast:"
 msgstr "Broadcast:"
@@ -863,12 +860,8 @@ msgstr "Olvashatatlan csatolónév innen: '%s'"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid ""
-"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
-msgstr ""
-"Olvashatatlan hálózati statisztika innen: '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
+msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgstr "Olvashatatlan hálózati statisztika innen: '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -934,7 +927,8 @@ msgstr "Munkaterület-váltó"
 msgid "Simple pager plugin"
 msgstr "Egyszerű munkaterület-váltó"
 
-#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:892
+#: ../src/plugins/space.c:138
+#: ../src/plugins/batt/batt.c:892
 msgid "Size"
 msgstr "Méret"
 
@@ -1117,7 +1111,8 @@ msgstr "Egy hálózati kábel nincs bedugva"
 msgid "Connection has limited or no connectivity"
 msgstr "Nincs, vagy korlátozott a kapcsolat"
 
-#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307
+#: ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "IP-cím:"
@@ -1126,32 +1121,38 @@ msgstr "IP-cím:"
 msgid "Remote IP:"
 msgstr "Távoli IP:"
 
-#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309
+#: ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "Hálózati maszk:"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "Aktivitás"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "Küldött"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "Fogadott"
 
-#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311
+#: ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "bájt"
 
-#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312
+#: ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "csomagok"
@@ -1160,7 +1161,8 @@ msgstr "csomagok"
 msgid "Protocol:"
 msgstr "Protokol:"
 
-#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321
+#: ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "Hardver cím:"
 
@@ -1399,57 +1401,40 @@ msgstr "Állapot-jelzők a CapsLock, NumLock és ScrollLock billentyűkhöz"
 #, fuzzy
 #~ msgid "Add to desktop panel"
 #~ msgstr "Elemek hozzáadása a panelhoz"
-
 #~ msgid "Game"
 #~ msgstr "Játékok"
-
 #~ msgid "Education"
 #~ msgstr "Oktatás"
-
 #~ msgid "Development"
 #~ msgstr "Fejlesztés"
-
 #~ msgid "Audio & Video"
 #~ msgstr "Hang és videó"
-
 #~ msgid "Graphics"
 #~ msgstr "Grafika"
-
 #~ msgid "System Tools"
 #~ msgstr "Rendszereszközök"
-
 #~ msgid "Office"
 #~ msgstr "Iroda"
-
 #~ msgid "Accessories"
 #~ msgstr "Kellékek"
-
 #~ msgid "% of edge"
 #~ msgstr "% a széléből"
-
 #~ msgid "lxpanel configurator"
 #~ msgstr "lxpanel beállító"
-
 #~ msgid "Plugins"
 #~ msgstr "Elemek"
-
 #~ msgid "<b>Transparency</b>"
 #~ msgstr "<b>Átlátszóság</b>"
-
 #~ msgid "Change window icons"
 #~ msgstr "Ablak ikonok cseréje"
-
 #~ msgid "Set Dock Type"
 #~ msgstr "Dokk típus beállítása"
-
 #~ msgid "_Add"
 #~ msgstr "Hozzá_ad"
-
 #~ msgid "_Remove"
 #~ msgstr "Tö_röl"
-
 #~ msgid "Right-click to get context menu. Drag & Drop to change order."
 #~ msgstr "Jobb egérgomb a menühöz, fogd-és-húzd az átrendezéshez"
-
 #~ msgid "Plugins..."
 #~ msgstr "Elemek..."
+
