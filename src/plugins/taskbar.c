@@ -745,7 +745,8 @@ tk_unflash_window( task *tk )
 static void
 tk_raise_window( task *tk, guint32 time )
 {
-    if (tk->desktop != -1 && tk->desktop != tk->tb->cur_desk){
+    if (tk->desktop != -1 && tk->desktop != tk->tb->cur_desk)
+    {
         Xclimsg(GDK_ROOT_WINDOW(), a_NET_CURRENT_DESKTOP, tk->desktop, 0, 0, 0, 0);
         XSync (gdk_display, False);
     }
@@ -898,6 +899,9 @@ on_tk_btn_release_event(GtkWidget *widget, GdkEventButton *event, task *tk)
 
     if( event->button == 1 )
     {
+	if ((tk->desktop != -1) && (tk->desktop != tk->tb->cur_desk))
+            Xclimsg(GDK_ROOT_WINDOW(), a_NET_CURRENT_DESKTOP, tk->desktop, 0, 0, 0, 0);
+
         if (tk->iconified)
         {
             if(use_net_active)
@@ -1348,6 +1352,8 @@ menu_raise_window(GtkWidget *widget, taskbar *tb)
 {
     ENTER;
     DBG("win %x\n", tb->menutask->win);
+    if (tb->menutask->desktop != -1 && tb->menutask->desktop != tb->cur_desk)
+        Xclimsg(GDK_ROOT_WINDOW(), a_NET_CURRENT_DESKTOP, tb->menutask->desktop, 0, 0, 0, 0);
     XMapRaised(GDK_DISPLAY(), tb->menutask->win);
     RET();
 }
@@ -1425,15 +1431,23 @@ taskbar_make_menu(taskbar *tb)
         workspace_menu = gtk_menu_new();
         for( i = 1; i <= tb->desk_num; ++i )
         {
-            g_snprintf( label, 128, _("Workspace %d"), i);
-            mi = gtk_menu_item_new_with_label( label );
+            if (i <= 9)
+            {
+                g_snprintf( label, 128, _("Workspace _%d"), i);
+                mi = gtk_menu_item_new_with_mnemonic( label );
+            }
+            else
+            {
+                g_snprintf( label, 128, _("Workspace %d"), i);
+                mi = gtk_menu_item_new_with_label( label );
+            }
             g_object_set_data( G_OBJECT(mi), "num", GINT_TO_POINTER(i - 1) );
             g_signal_connect( mi, "activate", G_CALLBACK(menu_move_to_workspace), tb );
             gtk_menu_shell_append( (GtkMenuShell*)workspace_menu, mi );
         }
         gtk_menu_shell_append( GTK_MENU_SHELL (workspace_menu),
                                                    gtk_separator_menu_item_new());
-        mi = gtk_menu_item_new_with_label(_("All workspaces"));
+        mi = gtk_menu_item_new_with_mnemonic(_("_All workspaces"));
         g_object_set_data( G_OBJECT(mi), "num", GINT_TO_POINTER(ALL_WORKSPACES) );
         g_signal_connect( mi, "activate", G_CALLBACK(menu_move_to_workspace), tb );
         gtk_menu_shell_append( (GtkMenuShell*)workspace_menu, mi );

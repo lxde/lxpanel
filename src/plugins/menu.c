@@ -177,10 +177,10 @@ static void on_menu_item_map(GtkWidget* mi, MenuCacheItem* item)
             item = g_object_get_qdata(G_OBJECT(mi), SYS_MENU_ITEM_ID);
             icon = lxpanel_load_icon(menu_cache_item_get_icon(item), MAX(w,h), TRUE);
             if (icon)
-	        {
+            {
                 gtk_image_set_from_pixbuf(img, icon);
                 g_object_unref(icon);
-	        }
+            }
         }
     }
 }

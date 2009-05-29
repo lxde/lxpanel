@@ -72,7 +72,7 @@ void panel_plugin_config_save( Panel* p, FILE *fp);
 static void update_opt_menu(GtkWidget *w, int ind);
 static void update_toggle_button(GtkWidget *w, gboolean n);
 static void modify_plugin( GtkTreeView* view );
-static void on_entry_focus_out( GtkWidget* edit, GdkEventFocus *evt, gpointer user_data );
+static gboolean on_entry_focus_out( GtkWidget* edit, GdkEventFocus *evt, gpointer user_data );
 
 /* older versions of glib don't provde these API */
 #if ! GLIB_CHECK_VERSION(2, 8, 0)
@@ -1061,10 +1061,10 @@ static void notify_apply_config( GtkWidget* widget )
     dlg = gtk_widget_get_toplevel( widget );
     apply_func = g_object_get_data( G_OBJECT(dlg), "apply_func" );
     if( apply_func )
-        apply_func( g_object_get_data(G_OBJECT(dlg), "plugin") );
+        (*apply_func)( g_object_get_data(G_OBJECT(dlg), "plugin") );
 }
 
-static void on_entry_focus_out( GtkWidget* edit, GdkEventFocus *evt, gpointer user_data )
+static gboolean on_entry_focus_out( GtkWidget* edit, GdkEventFocus *evt, gpointer user_data )
 {
     char** val = (char**)user_data;
     const char *new_val;
@@ -1072,6 +1072,7 @@ static void on_entry_focus_out( GtkWidget* edit, GdkEventFocus *evt, gpointer us
     new_val = gtk_entry_get_text((GtkEntry*)edit);
     *val = (new_val && *new_val) ? g_strdup( new_val ) : NULL;
     notify_apply_config( edit );
+    return FALSE;
 }
 
 static void on_spin_changed( GtkSpinButton* spin, gpointer user_data )
@@ -1098,8 +1099,9 @@ static void on_file_chooser_btn_file_set(GtkFileChooser* btn, char** val)
 static void on_browse_btn_clicked(GtkButton* btn, GtkEntry* entry)
 {
     char* file;
+    GtkWidget* dlg = GTK_WIDGET(g_object_get_data(G_OBJECT(btn), "dlg"));    
     GtkWidget* fc = gtk_file_chooser_dialog_new(_("Select a file"),
-					(GtkWindow*)g_object_get_data(G_OBJECT(btn), "dlg"),
+                                        GTK_WINDOW(dlg),
                                         GTK_FILE_CHOOSER_ACTION_OPEN,
                                         GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
                                         GTK_STOCK_OK, GTK_RESPONSE_OK,
@@ -1112,6 +1114,7 @@ static void on_browse_btn_clicked(GtkButton* btn, GtkEntry* entry)
     {
         file = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(fc));
         gtk_entry_set_text(entry, file);
+        on_entry_focus_out(GTK_WIDGET(entry), NULL, g_object_get_data(G_OBJECT(dlg), "file-val"));
         g_free(file);
     }
     gtk_widget_destroy(fc);
@@ -1210,6 +1213,7 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
                 {
                     GtkWidget* browse = gtk_button_new_with_mnemonic(_("_Browse"));
                     gtk_box_pack_start( GTK_BOX(hbox), browse, TRUE, TRUE, 2 );
+                    g_object_set_data(G_OBJECT(dlg), "file-val", val);
                     g_object_set_data(G_OBJECT(browse), "dlg", dlg);
                     g_signal_connect( browse, "clicked", G_CALLBACK(on_browse_btn_clicked), entry );
                 }

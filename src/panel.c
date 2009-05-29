@@ -525,6 +525,7 @@ void panel_add_plugin( Panel* panel, GtkWindow* parent_win )
                                        GTK_RESPONSE_CANCEL,
                                        GTK_STOCK_ADD,
                                        GTK_RESPONSE_OK, NULL );
+    panel_apply_icon(GTK_WINDOW(dlg));
 
     /* gtk_widget_set_sensitive( parent_win, FALSE ); */
     scroll = gtk_scrolled_window_new( NULL, NULL );
@@ -754,14 +755,6 @@ extern GtkMenu* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean u
     
     char* tmp;
     ret = menu = GTK_MENU(gtk_menu_new());
-
-/*
-    img = gtk_image_new_from_stock( GTK_STOCK_ADD, GTK_ICON_SIZE_MENU );
-    menu_item = gtk_image_menu_item_new_with_label(_("Add Item To Panel"));
-    gtk_image_menu_item_set_image( (GtkImageMenuItem*)menu_item, img );
-    gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
-    g_signal_connect( menu_item, "activate", G_CALLBACK(panel_popupmenu_add_item), panel );
-*/
 
     img = gtk_image_new_from_stock( GTK_STOCK_EDIT, GTK_ICON_SIZE_MENU );
     menu_item = gtk_image_menu_item_new_with_label(_("Add / Remove Panel Items"));
