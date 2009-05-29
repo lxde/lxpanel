@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-28 17:32+0200\n"
-"PO-Revision-Date: 2009-05-24 06:45+0200\n"
+"PO-Revision-Date: 2009-05-29 01:02+0200\n"
 "Last-Translator: Payne Samad Loh <sploh77@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -62,7 +62,7 @@ msgid ""
 msgstr ""
 "Dinamik\n"
 "Piksel\n"
-"% Percent"
+"% Peratus"
 
 #: ../data/ui/panel-pref.glade.h:14
 msgid "Edge:"
@@ -240,19 +240,20 @@ msgstr "Mengesahkan"
 #: ../src/panel.c:728
 msgid "translator-credits"
 msgstr ""
+"罗森炳 Payne Samad Loh <sploh77@yahoo.com>\n"
+"Phyz <phyz2010@gmail.com>"
 
 #: ../src/panel.c:733
-#, fuzzy
 msgid "LXPanel"
-msgstr "Panel"
+msgstr "LXPanel"
 
 #: ../src/panel.c:735
 msgid "Copyright (C) 2008-2009"
-msgstr ""
+msgstr "Hakcipta Terpelihara (C) 2008-2009"
 
 #: ../src/panel.c:736
 msgid "Desktop panel for LXDE project"
-msgstr ""
+msgstr "Panel desktop untuk projek LXDE"
 
 #: ../src/panel.c:767
 msgid "Add / Remove Panel Items"
@@ -273,7 +274,7 @@ msgstr "Padam Panel Ini"
 
 #: ../src/panel.c:815
 msgid "About"
-msgstr ""
+msgstr "Tentang"
 
 #: ../src/panel.c:823
 msgid "Panel"
@@ -419,24 +420,20 @@ msgid "Bar with buttons to launch application"
 msgstr "Bar dengan butang untuk melancarkan aplikasi"
 
 #: ../src/plugins/taskbar.c:1407
-#, fuzzy
 msgid "_Raise"
-msgstr "Menaikkan"
+msgstr "_Menaikkan"
 
 #: ../src/plugins/taskbar.c:1411
-#, fuzzy
 msgid "R_estore"
-msgstr "Memulihkan"
+msgstr "Mem_ulihkan"
 
 #: ../src/plugins/taskbar.c:1415
-#, fuzzy
 msgid "Ma_ximize"
-msgstr "Memaksimumkan"
+msgstr "M_emaksimumkan"
 
 #: ../src/plugins/taskbar.c:1419
-#, fuzzy
 msgid "Ico_nify"
-msgstr "Iconify"
+msgstr "Ico_nify"
 
 #: ../src/plugins/taskbar.c:1428
 #, c-format
@@ -448,15 +445,13 @@ msgid "All workspaces"
 msgstr "Semua ruangkerja"
 
 #: ../src/plugins/taskbar.c:1443
-#, fuzzy
 msgid "_Move to Workspace"
-msgstr "Pindah ke Ruangkerja"
+msgstr "_Pindah ke Ruangkerja"
 
 #. we want this item to be farest from mouse pointer
 #: ../src/plugins/taskbar.c:1451
-#, fuzzy
 msgid "_Close Window"
-msgstr "Tutup Tingkap"
+msgstr "_Tutup Tingkap"
 
 #: ../src/plugins/taskbar.c:1685
 msgid "Show tooltips"
@@ -524,7 +519,7 @@ msgstr "Format Tip Peralatan"
 
 #: ../src/plugins/dclock.c:281
 msgid "Format codes: man 3 strftime"
-msgstr ""
+msgstr "Kod format: man 3 strftime"
 
 #: ../src/plugins/dclock.c:282
 msgid "Action"
