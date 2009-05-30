@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-28 17:32+0200\n"
-"PO-Revision-Date: 2009-05-20 09:24+0200\n"
+"PO-Revision-Date: 2009-05-29 23:43+0200\n"
 "Last-Translator: Y P <yupadmin@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 1.1.0\n"
 
 #: ../data/ui/panel-pref.glade.h:1
@@ -240,20 +240,19 @@ msgstr "Підтвердити"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:728
 msgid "translator-credits"
-msgstr ""
+msgstr "Yarema aka Knedlyk <yupadmin@gmail.com>"
 
 #: ../src/panel.c:733
-#, fuzzy
 msgid "LXPanel"
-msgstr "Панель"
+msgstr "LX-панель"
 
 #: ../src/panel.c:735
 msgid "Copyright (C) 2008-2009"
-msgstr ""
+msgstr "Всі права застережено (С) 2008-2009"
 
 #: ../src/panel.c:736
 msgid "Desktop panel for LXDE project"
-msgstr ""
+msgstr "Панель робочого столу для проекту LXDE"
 
 #: ../src/panel.c:767
 msgid "Add / Remove Panel Items"
@@ -274,7 +273,7 @@ msgstr "Видалити цю панель"
 
 #: ../src/panel.c:815
 msgid "About"
-msgstr ""
+msgstr "Про LXDE-панель"
 
 #: ../src/panel.c:823
 msgid "Panel"
@@ -420,24 +419,20 @@ msgid "Bar with buttons to launch application"
 msgstr "Панель з кнопками для запуску програм"
 
 #: ../src/plugins/taskbar.c:1407
-#, fuzzy
 msgid "_Raise"
-msgstr "Розгорнути"
+msgstr "_Розгорнути"
 
 #: ../src/plugins/taskbar.c:1411
-#, fuzzy
 msgid "R_estore"
-msgstr "Відновити"
+msgstr "В_ідновити"
 
 #: ../src/plugins/taskbar.c:1415
-#, fuzzy
 msgid "Ma_ximize"
-msgstr "Максималізувати"
+msgstr "М_аксималізувати"
 
 #: ../src/plugins/taskbar.c:1419
-#, fuzzy
 msgid "Ico_nify"
-msgstr "Згорнути в іконку"
+msgstr "_Згорнути в іконку"
 
 #: ../src/plugins/taskbar.c:1428
 #, c-format
@@ -449,15 +444,13 @@ msgid "All workspaces"
 msgstr "Всі робочі області"
 
 #: ../src/plugins/taskbar.c:1443
-#, fuzzy
 msgid "_Move to Workspace"
-msgstr "Перенести до робочої області"
+msgstr "_Перенести до робочої області"
 
 #. we want this item to be farest from mouse pointer
 #: ../src/plugins/taskbar.c:1451
-#, fuzzy
 msgid "_Close Window"
-msgstr "Закрити вікно"
+msgstr "За_крити вікно"
 
 #: ../src/plugins/taskbar.c:1685
 msgid "Show tooltips"
@@ -525,7 +518,7 @@ msgstr "Формат підказок"
 
 #: ../src/plugins/dclock.c:281
 msgid "Format codes: man 3 strftime"
-msgstr ""
+msgstr "Коди формати: запустіть man 3 strftime"
 
 #: ../src/plugins/dclock.c:282
 msgid "Action"
