@@ -61,70 +61,85 @@ gboolean is_in_lxde = FALSE;
 /****************************************************
  *         panel's handlers for WM events           *
  ****************************************************/
-/*
-static void
-panel_del_wm_strut(Panel *p)
-{
-    XDeleteProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STRUT);
-    XDeleteProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STRUT_PARTIAL);
-}
-*/
-
 
 void panel_set_wm_strut(Panel *p)
 {
-    gulong data[12] = { 0 };
-    int i = 4;
+    int index;
+    gulong strut_size;
+    gulong strut_lower;
+    gulong strut_upper;
 
-    if (!GTK_WIDGET_MAPPED (p->topgwin))
-        return;
-    if ( ! p->setstrut )
+    /* Dispatch on edge to set up strut parameters. */
+    switch (p->edge)
     {
-        XDeleteProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STRUT_PARTIAL);
-        /* old spec, for wms that do not support STRUT_PARTIAL */
-        XDeleteProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STRUT);
-        return;
+        case EDGE_LEFT:
+            index = 0;
+            strut_size = p->aw;
+            strut_lower = p->ay;
+            strut_upper = p->ay + p->ah;
+            break;
+        case EDGE_RIGHT:
+            index = 1;
+            strut_size = p->aw;
+            strut_lower = p->ay;
+            strut_upper = p->ay + p->ah;
+            break;
+        case EDGE_TOP:
+            index = 2;
+            strut_size = p->ah;
+            strut_lower = p->ax;
+            strut_upper = p->ax + p->aw;
+            break;
+        case EDGE_BOTTOM:
+            index = 3;
+            strut_size = p->ah;
+            strut_lower = p->ax;
+            strut_upper = p->ax + p->aw;
+            break;
+        default:
+            return;
     }
 
-    switch (p->edge) {
-    case EDGE_LEFT:
-        i = 0;
-        data[i] = p->aw;
-        data[4 + i*2] = p->ay;
-        data[5 + i*2] = p->ay + p->ah;
-        break;
-    case EDGE_RIGHT:
-        i = 1;
-        data[i] = p->aw;
-        data[4 + i*2] = p->ay;
-        data[5 + i*2] = p->ay + p->ah;
-        break;
-    case EDGE_TOP:
-        i = 2;
-        data[i] = p->ah;
-        data[4 + i*2] = p->ax;
-        data[5 + i*2] = p->ax + p->aw;
-        break;
-    case EDGE_BOTTOM:
-        i = 3;
-        data[i] = p->ah;
-        data[4 + i*2] = p->ax;
-        data[5 + i*2] = p->ax + p->aw;
-        break;
-    default:
-        ERR("wrong edge %d. strut won't be set\n", p->edge);
-        RET();
+    /* Set up strut value in property format. */
+    gulong desired_strut[12];
+    memset(desired_strut, 0, sizeof(desired_strut));
+    if (p->setstrut)
+    {
+        desired_strut[index] = strut_size;
+        desired_strut[4 + index * 2] = strut_lower;
+        desired_strut[5 + index * 2] = strut_upper;
     }
-    DBG("type %d. width %d. from %d to %d\n", i, data[i], data[4 + i*2], data[5 + i*2]);
+    else
+    {
+        strut_size = 0;
+        strut_lower = 0;
+        strut_upper = 0;
+    }
 
-    /* if wm supports STRUT_PARTIAL it will ignore STRUT */
-    XChangeProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STRUT_PARTIAL,
-          XA_CARDINAL, 32, PropModeReplace,  (unsigned char *) data, 12);
-    /* old spec, for wms that do not support STRUT_PARTIAL */
-    XChangeProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STRUT,
-          XA_CARDINAL, 32, PropModeReplace,  (unsigned char *) data, 4);
+    /* If strut value changed, set the property value on the panel window.
+     * This avoids property change traffic when the panel layout is recalculated but strut geometry hasn't changed. */
+    if ((GTK_WIDGET_MAPPED(p->topgwin))
+    && ((p->strut_size != strut_size) || (p->strut_lower != strut_lower) || (p->strut_upper != strut_upper)))
+    {
+        p->strut_size = strut_size;
+        p->strut_lower = strut_lower;
+        p->strut_upper = strut_upper;
 
-    RET();
+        /* If window manager supports STRUT_PARTIAL, it will ignore STRUT.
+         * Set STRUT also for window managers that do not support STRUT_PARTIAL. */
+        if (strut_size != 0)
+        {
+            XChangeProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STRUT_PARTIAL,
+                XA_CARDINAL, 32, PropModeReplace,  (unsigned char *) desired_strut, 12);
+            XChangeProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STRUT,
+                XA_CARDINAL, 32, PropModeReplace,  (unsigned char *) desired_strut, 4);
+        }
+        else
+        {
+            XDeleteProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STRUT);
+            XDeleteProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STRUT_PARTIAL);
+        }
+    }
 }
 
 #if 0
@@ -635,6 +650,7 @@ static void panel_popupmenu_create_panel( GtkMenuItem* item, Panel* panel )
                                         GTK_DIALOG_MODAL,
                                         GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
                                         GTK_STOCK_OK, GTK_RESPONSE_OK, NULL );
+    panel_apply_icon(GTK_WINDOW(dlg));
     gtk_container_set_border_width( (GtkContainer*)dlg, 8 );
     frame = gtk_frame_new( _("Where to put the panel?"));
     gtk_box_pack_start( (GtkBox*)((GtkDialog*)dlg)->vbox, frame, TRUE, TRUE, 0 );
@@ -695,6 +711,7 @@ static void panel_popupmenu_delete_panel( GtkMenuItem* item, Panel* panel )
                                                     GTK_MESSAGE_QUESTION,
                                                     GTK_BUTTONS_OK_CANCEL,
                                                     _("Really delete this panel?\n<b>Warning: This can not be recovered.</b>") );
+    panel_apply_icon(GTK_WINDOW(dlg));
     gtk_window_set_title( (GtkWindow*)dlg, _("Confirm") );
     ok = ( gtk_dialog_run( (GtkDialog*)dlg ) == GTK_RESPONSE_OK );
     gtk_widget_destroy( dlg );

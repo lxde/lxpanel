@@ -210,7 +210,7 @@ static void set_width_type( GtkWidget *item, Panel* p )
     t = (widthtype != WIDTH_REQUEST);
     gtk_widget_set_sensitive( spin, t );
     if (widthtype == WIDTH_PERCENT) {
-        gtk_spin_button_set_range( (GtkSpinButton*)spin, 0, 110 );	/* Bug in spin buttons, must set maximum range up by page size */
+        gtk_spin_button_set_range( (GtkSpinButton*)spin, 0, 100 );
         gtk_spin_button_set_value( (GtkSpinButton*)spin, 100 );
     } else if  (widthtype == WIDTH_PIXEL) {
         gtk_spin_button_set_range( (GtkSpinButton*)spin, 0, gdk_screen_width() + 10 );
@@ -780,7 +780,7 @@ void panel_configure( Panel* p, int sel_page )
     } else if( p->widthtype == WIDTH_PIXEL) {
         upper = gdk_screen_width();
     }
-    gtk_spin_button_set_range( (GtkSpinButton*)w, 0, upper + 10 );	/* Appears to be a problem in spin buttons, must add the page size */
+    gtk_spin_button_set_range( (GtkSpinButton*)w, 0, upper );
     gtk_spin_button_set_value( (GtkSpinButton*)w, p->width );
     g_signal_connect( w, "value-changed", G_CALLBACK(set_width), p );
 
@@ -791,7 +791,7 @@ void panel_configure( Panel* p, int sel_page )
                      G_CALLBACK(set_width_type), p);
 
     w = (GtkWidget*)gtk_builder_get_object( builder, "height" );
-    gtk_spin_button_set_range( (GtkSpinButton*)w, PANEL_HEIGHT_MIN, PANEL_HEIGHT_MAX + 10 );	/* Appears to be a problem in spin buttons, must add the page size */
+    gtk_spin_button_set_range( (GtkSpinButton*)w, PANEL_HEIGHT_MIN, PANEL_HEIGHT_MAX );
     gtk_spin_button_set_value( (GtkSpinButton*)w, p->height );
     g_signal_connect( w, "value-changed", G_CALLBACK(set_height), p );
 

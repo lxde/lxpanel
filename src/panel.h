@@ -72,6 +72,9 @@ struct _Panel{
     int orientation;
     int widthtype, width;
     int heighttype, height;
+    gulong strut_size;			/* Values for WM_STRUT_PARTIAL */
+    gulong strut_lower;
+    gulong strut_upper;
 
     guint config_changed : 1;
     guint self_destroy : 1;
