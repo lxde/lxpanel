@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxpanel-0.3.5.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-28 17:32+0200\n"
-"PO-Revision-Date: 2009-05-30 13:47+0200\n"
+"PO-Revision-Date: 2009-05-31 16:29+0200\n"
 "Last-Translator: Hugo Florentino <sysadmin@cips.cu>\n"
 "Language-Team: Spanish <daniel@tunki.org>\n"
 "MIME-Version: 1.0\n"
@@ -242,8 +242,9 @@ msgstr "Confirmar"
 #: ../src/panel.c:728
 msgid "translator-credits"
 msgstr ""
-"Daniel Pacheco <daniel@tunki.org>,\n"
-"Hugo Florentino <sysadmin@cips.cu>"
+"Daniel Pacheco <daniel@tunki.org>, 2008\n"
+"Guillermo Iguarán <johnnyprez@gmail.com>, 2009\n"
+"Hugo Florentino <sysadmin@cips.cu>, 2009"
 
 #: ../src/panel.c:733
 msgid "LXPanel"
@@ -276,7 +277,7 @@ msgstr "Eliminar este panel"
 
 #: ../src/panel.c:815
 msgid "About"
-msgstr "Acerca de..."
+msgstr "Acerca de ..."
 
 #: ../src/panel.c:823
 msgid "Panel"
@@ -300,7 +301,7 @@ msgstr "Opciones de la línea de comandos:\n"
 #: ../src/panel.c:1296
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr " --help     -- mostrar esta ayuda y salir\n"
+msgstr " --help      -- mostrar esta ayuda y salir\n"
 
 #: ../src/panel.c:1297
 #, c-format
@@ -315,7 +316,7 @@ msgstr " --log <número> -- establecer el nivel del log 0-5. 0 - ninguno 5 - má
 #: ../src/panel.c:1299
 #, c-format
 msgid " --configure -- launch configuration utility\n"
-msgstr " --configure -- Inicia la utilidad de configuración\n"
+msgstr " --configure -- iniciar la utilidad de configuración\n"
 
 #: ../src/panel.c:1300
 #, c-format
@@ -423,9 +424,8 @@ msgid "Bar with buttons to launch application"
 msgstr "Barra de acceso a aplicaciones"
 
 #: ../src/plugins/taskbar.c:1407
-#, fuzzy
 msgid "_Raise"
-msgstr "Alza_r"
+msgstr "Eleva_r"
 
 #: ../src/plugins/taskbar.c:1411
 msgid "R_estore"
@@ -435,8 +435,8 @@ msgstr "R_estaurar"
 msgid "Ma_ximize"
 msgstr "Ma_ximizar"
 
+# Podría usarse "Iconizar", pero Minimizar es mejor para los que migran desde Windows
 #: ../src/plugins/taskbar.c:1419
-#, fuzzy
 msgid "Ico_nify"
 msgstr "Mi_nimizar"
 
@@ -504,7 +504,7 @@ msgstr "Espaciado"
 
 #: ../src/plugins/taskbar.c:1773
 msgid "Task Bar (Window List)"
-msgstr "Barra de tareas"
+msgstr "Barra de tareas (lista de ventanas)"
 
 #: ../src/plugins/taskbar.c:1775
 msgid ""
@@ -945,7 +945,7 @@ msgstr "Asignar espacio"
 
 #: ../src/plugins/xkb/xkb-plugin.c:241
 msgid "Keyboard Layout Switcher"
-msgstr "Seleccionador de Distribución del Teclado"
+msgstr "Selector de distribución del teclado"
 
 #: ../src/plugins/xkb/xkb-plugin.c:247
 msgid ""
@@ -961,7 +961,7 @@ msgstr "Otros plugins disponibles acá"
 
 #: ../src/plugins/xkb/xkb-plugin.c:385
 msgid "Configure Keyboard Layout Switcher"
-msgstr "Configurar Seleccionador de Distribución del Teclado"
+msgstr "Configurar el selector de distribución del teclado"
 
 #: ../src/plugins/xkb/xkb-plugin.c:398
 msgid "Show layout as"
@@ -989,16 +989,16 @@ msgstr "Distribución por defecto:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:499
 msgid "Kayboard Layout switcher"
-msgstr "Seleccionador de Distribución del Teclado"
+msgstr "Selector de distribución del teclado"
 
 #: ../src/plugins/xkb/xkb-plugin.c:501
 msgid "Switch between available keyboard layouts"
-msgstr "Selecciona entre distribuciones de teclados disponible."
+msgstr "Selecciona entre las distribuciones de teclados disponibles"
 
 #: ../src/plugins/wincmd.c:245
 msgid "Left click to iconify all windows. Middle click to shade them"
 msgstr ""
-"Botón izquierdo para minimizar todas las ventanas.  Botón medio para "
+"Botón izquierdo para minimizar todas las ventanas. Botón medio para "
 "replegarlas"
 
 #: ../src/plugins/wincmd.c:274
@@ -1009,7 +1009,9 @@ msgstr "Minimizar todas las ventanas"
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commnds are 1)toggle iconify and 2) toggle shade"
-msgstr "Enviar comandos a todas las áreas de trabajo."
+msgstr ""
+"Envía comandos a todas las áreas de trabajo.\n"
+"Los comandos admitidos son: 1) alternar minimizado y 2) alternar replegado"
 
 #: ../src/plugins/dirmenu.c:218
 msgid "Open in _Terminal"
@@ -1037,7 +1039,7 @@ msgstr "Advertencia2"
 
 #: ../src/plugins/thermal/thermal.c:302
 msgid "Automatic sensor location"
-msgstr "Posición del sensor automatica"
+msgstr "Ubicación automática del sensor"
 
 #: ../src/plugins/thermal/thermal.c:303
 msgid "Sensor"
@@ -1045,7 +1047,7 @@ msgstr "Sensor"
 
 #: ../src/plugins/thermal/thermal.c:304
 msgid "Automatic temperature levels"
-msgstr "Niveles de temperatura automáticos"
+msgstr "Niveles automáticos de temperatura"
 
 #: ../src/plugins/thermal/thermal.c:305
 msgid "Warning1 Temperature"
@@ -1086,11 +1088,12 @@ msgstr "Silenciar"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
-msgstr "<Punto de acceso escondido>"
+msgstr "<Punto de acceso oculto>"
 
+# cambiado de voz pasiva a activa
 #: ../src/plugins/netstat/netstat.c:201
 msgid "Wireless Networks not found in range"
-msgstr "Redes inalámbricas no encontradas en el rango"
+msgstr "No se encontraron redes inalámbricas en el rango"
 
 #. Repair
 #: ../src/plugins/netstat/netstat.c:235
@@ -1112,7 +1115,7 @@ msgstr "El cable de red está desconectado"
 
 #: ../src/plugins/netstat/netstat.c:303
 msgid "Connection has limited or no connectivity"
-msgstr "Conexión limitada o no existente"
+msgstr "Conexión limitada o inexistente"
 
 #: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
@@ -1249,11 +1252,11 @@ msgstr "Conexión de red"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:811
 msgid "Interface"
-msgstr "Interface"
+msgstr "Interfaz"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:812
 msgid "The current interface the icon is monitoring."
-msgstr "Dispositivo actualmente supervisado"
+msgstr "La interfaz actual que el icono monitorea."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:819
 msgid "Orientation"
@@ -1322,11 +1325,11 @@ msgstr "Batería: %d%% de carga"
 #: ../src/plugins/batt/batt.c:454
 #, c-format
 msgid "No batteries found"
-msgstr "No se encontró batería"
+msgstr "No se encontraron baterías"
 
 #: ../src/plugins/batt/batt.c:882
 msgid "Hide if there is no battery"
-msgstr "Esconder si no hay batería"
+msgstr "Ocultar si no hay baterías"
 
 #: ../src/plugins/batt/batt.c:884
 msgid "Alarm command"
@@ -1358,7 +1361,7 @@ msgstr "Color de descarga n°2"
 
 #: ../src/plugins/batt/batt.c:891
 msgid "Border width"
-msgstr "Ancho de borde"
+msgstr "Ancho del borde"
 
 #: ../src/plugins/batt/batt.c:922
 msgid "Battery Monitor"
@@ -1386,7 +1389,7 @@ msgstr "Led de teclado"
 
 #: ../src/plugins/kbled/kbled.c:291
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr "Indicadores para las teclas  BloqMayús, BloqNum, BloqDespl"
+msgstr "Indicadores para las teclas BloqMayús, BloqNum, BloqDespl"
 
 #, fuzzy
 #~ msgid "Center"
