@@ -313,6 +313,7 @@ static void
 on_tint_color_set( GtkColorButton* clr,  Panel* p )
 {
     gtk_color_button_get_color( clr, &p->gtintcolor );
+    p->tintcolor = gcolor2rgb24(&p->gtintcolor);
     p->alpha = gtk_color_button_get_alpha( clr ) / 256;
     /* FIXME: need some better mechanism to update the panel */
     panel_update_background( p );
