@@ -310,6 +310,15 @@ on_font_color_set( GtkColorButton* clr,  Panel* p )
 }
 
 static void
+on_tint_color_set( GtkColorButton* clr,  Panel* p )
+{
+    gtk_color_button_get_color( clr, &p->gtintcolor );
+    p->alpha = gtk_color_button_get_alpha( clr ) / 256;
+    /* FIXME: need some better mechanism to update the panel */
+    panel_update_background( p );
+}
+
+static void
 on_use_font_color_toggled( GtkToggleButton* btn,   Panel* p )
 {
     GtkWidget* clr = (GtkWidget*)g_object_get_data( G_OBJECT(btn), "clr" );
@@ -833,6 +842,7 @@ void panel_configure( Panel* p, int sel_page )
     gtk_color_button_set_alpha((GtkColorButton*)w, 256*p->alpha);
     if ( ! p->transparent )
         gtk_widget_set_sensitive( w, FALSE );
+    g_signal_connect( w, "color-set", G_CALLBACK( on_tint_color_set ), p );
 
     /* background */
     {
