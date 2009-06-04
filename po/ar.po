@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-28 17:32+0200\n"
-"PO-Revision-Date: 2009-05-02 18:01+0200\n"
+"PO-Revision-Date: 2009-06-04 14:18+0200\n"
 "Last-Translator: Ahmad Farghal <ahmad.farghal@gmail.com>\n"
 "Language-Team: Arabic\n"
 "MIME-Version: 1.0\n"
@@ -240,20 +240,19 @@ msgstr "أكد"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:728
 msgid "translator-credits"
-msgstr ""
+msgstr "أحمد فرغل <ahmad.farghal@gmail.com>"
 
 #: ../src/panel.c:733
-#, fuzzy
 msgid "LXPanel"
-msgstr "الشريط"
+msgstr "شريط لكسدي"
 
 #: ../src/panel.c:735
 msgid "Copyright (C) 2008-2009"
-msgstr ""
+msgstr "حقوق النشر محفوظة (C) 2008-2009"
 
 #: ../src/panel.c:736
 msgid "Desktop panel for LXDE project"
-msgstr ""
+msgstr "شريط لمشروع سطح مكتب لكسدي"
 
 #: ../src/panel.c:767
 msgid "Add / Remove Panel Items"
@@ -274,7 +273,7 @@ msgstr "احذف هذا الشريط"
 
 #: ../src/panel.c:815
 msgid "About"
-msgstr ""
+msgstr "عَنْ"
 
 #: ../src/panel.c:823
 msgid "Panel"
@@ -421,24 +420,20 @@ msgid "Bar with buttons to launch application"
 msgstr "شريط يحتوي على أزرار لفتح تطبيقات"
 
 #: ../src/plugins/taskbar.c:1407
-#, fuzzy
 msgid "_Raise"
-msgstr "ارفع"
+msgstr "ا_رفع"
 
 #: ../src/plugins/taskbar.c:1411
-#, fuzzy
 msgid "R_estore"
-msgstr "استعِد"
+msgstr "ا_ستعِدْ"
 
 #: ../src/plugins/taskbar.c:1415
-#, fuzzy
 msgid "Ma_ximize"
-msgstr "كبّر"
+msgstr "_كبّر"
 
 #: ../src/plugins/taskbar.c:1419
-#, fuzzy
 msgid "Ico_nify"
-msgstr "صغّر"
+msgstr "_صغّر"
 
 #: ../src/plugins/taskbar.c:1428
 #, c-format
@@ -450,15 +445,13 @@ msgid "All workspaces"
 msgstr "جميع مساحات العمل"
 
 #: ../src/plugins/taskbar.c:1443
-#, fuzzy
 msgid "_Move to Workspace"
-msgstr "انقل إلى مساحة العمل"
+msgstr "ا_نقل إلى مساحة العمل"
 
 #. we want this item to be farest from mouse pointer
 #: ../src/plugins/taskbar.c:1451
-#, fuzzy
 msgid "_Close Window"
-msgstr "أغلق النافذة"
+msgstr "أ_غلق النافذة"
 
 #: ../src/plugins/taskbar.c:1685
 msgid "Show tooltips"
@@ -527,6 +520,8 @@ msgstr "هيئة التلميح"
 #: ../src/plugins/dclock.c:281
 msgid "Format codes: man 3 strftime"
 msgstr ""
+"لتعرف المزيد عن شفرات تنسيق التاريخ والوقت، أدخل هذا الأمر في سطر الأوامر: "
+"man 3 strftime"
 
 #: ../src/plugins/dclock.c:282
 msgid "Action"
