@@ -143,8 +143,9 @@ static void
 update_panel_geometry( Panel* p )
 {
     calculate_position(p);
-    gdk_window_move_resize(p->topgwin->window, p->ax, p->ay, p->aw, p->ah);
-
+    gtk_widget_set_size_request(p->topgwin, p->aw, p->ah);
+    gdk_window_move(p->topgwin->window, p->ax, p->ay);
+    panel_establish_autohide(p);
     panel_set_wm_strut( p );
 }
 
@@ -213,7 +214,7 @@ static void set_width_type( GtkWidget *item, Panel* p )
         gtk_spin_button_set_range( (GtkSpinButton*)spin, 0, 100 );
         gtk_spin_button_set_value( (GtkSpinButton*)spin, 100 );
     } else if  (widthtype == WIDTH_PIXEL) {
-        gtk_spin_button_set_range( (GtkSpinButton*)spin, 0, gdk_screen_width() + 10 );
+        gtk_spin_button_set_range( (GtkSpinButton*)spin, 0, gdk_screen_width() );
         gtk_spin_button_set_value( (GtkSpinButton*)spin, gdk_screen_width() );
     } else
         return;
@@ -343,9 +344,23 @@ set_dock_type(GtkToggleButton* toggle,  Panel* p )
 }
 
 static void
-set_struct(GtkToggleButton* toggle,  Panel* p )
+set_strut(GtkToggleButton* toggle,  Panel* p )
 {
     p->setstrut = gtk_toggle_button_get_active(toggle) ? 1 : 0;
+    update_panel_geometry(p);
+}
+
+static void
+set_autohide(GtkToggleButton* toggle,  Panel* p )
+{
+    p->autohide = gtk_toggle_button_get_active(toggle) ? 1 : 0;
+    update_panel_geometry(p);
+}
+
+static void
+set_height_when_minimized( GtkSpinButton* spin,  Panel* p  )
+{
+    p->height_when_hidden = (int)gtk_spin_button_get_value(spin);
     update_panel_geometry(p);
 }
 
@@ -749,7 +764,7 @@ void panel_configure( Panel* p, int sel_page )
 
     if( p->pref_dialog )
     {
-        gtk_window_present((GtkWindow*)p->pref_dialog);
+        gtk_window_present(GTK_WINDOW(p->pref_dialog));
         return;
     }
 
@@ -835,7 +850,17 @@ void panel_configure( Panel* p, int sel_page )
     w = (GtkWidget*)gtk_builder_get_object( builder, "reserve_space" );
     update_toggle_button( w, p->setstrut );
     g_signal_connect( w, "toggled",
-                      G_CALLBACK(set_struct), p );
+                      G_CALLBACK(set_strut), p );
+
+    w = (GtkWidget*)gtk_builder_get_object( builder, "autohide" );
+    update_toggle_button( w, p->autohide );
+    g_signal_connect( w, "toggled",
+                      G_CALLBACK(set_autohide), p );
+
+    w = (GtkWidget*)gtk_builder_get_object( builder, "height_when_minimized" );
+    gtk_spin_button_set_value(GTK_SPIN_BUTTON(w), p->height_when_hidden);
+    g_signal_connect( w, "value-changed",
+                      G_CALLBACK(set_height_when_minimized), p);
 
     /* transparancy */
     tint_clr = w = (GtkWidget*)gtk_builder_get_object( builder, "tint_clr" );
@@ -942,7 +967,7 @@ void panel_configure( Panel* p, int sel_page )
                         &logout_cmd);
     }
 
-    gtk_widget_show(GTK_WIDGET((GtkWindow*)p->pref_dialog));
+    gtk_widget_show(GTK_WIDGET(p->pref_dialog));
     w = (GtkWidget*)gtk_builder_get_object( builder, "notebook" );
     gtk_notebook_set_current_page( (GtkNotebook*)w, sel_page );
 
@@ -964,9 +989,10 @@ panel_global_config_save( Panel* p, FILE *fp)
     lxpanel_put_int(fp, "width", p->width);
     lxpanel_put_int(fp, "height", p->height);
     lxpanel_put_bool(fp, "transparent", p->transparent );
-//    gtk_color_button_get_color(GTK_COLOR_BUTTON(tr_colorb), &c);
     lxpanel_put_line(fp, "tintcolor=#%06x", gcolor2rgb24(&p->gtintcolor));
     lxpanel_put_int(fp, "alpha", p->alpha);
+    lxpanel_put_bool(fp, "autohide", p->autohide);
+    lxpanel_put_int(fp, "heightwhenhidden", p->height_when_hidden);
     lxpanel_put_bool(fp, "setdocktype", p->setdocktype);
     lxpanel_put_bool(fp, "setpartialstrut", p->setstrut);
     lxpanel_put_bool(fp, "usefontcolor", p->usefontcolor);

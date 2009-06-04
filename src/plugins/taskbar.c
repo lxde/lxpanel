@@ -502,7 +502,6 @@ get_wm_icon(Window tkwin, int iw, int ih)
     /* g_debug("type=%d, format=%d, nitems=%d", type, format, nitems); */
     if(type != XA_CARDINAL || nitems <= 0 )
     {
-        LOG(LOG_WARN, "lxpanel : type is not XA_CARDINAL\n");
         if(data) {
             XFree(data);
 	    data=NULL;
@@ -587,8 +586,6 @@ get_wm_icon(Window tkwin, int iw, int ih)
 
     if(result != Success)
     {
-        LOG(LOG_WARN, "lxpanel : Can't read _NET_WM_ICON, try to read pixmap icon\n");
-
         hints = XGetWMHints(GDK_DISPLAY(), tkwin);
         result = (hints != NULL) ? Success : -1;
 
@@ -606,7 +603,6 @@ get_wm_icon(Window tkwin, int iw, int ih)
         if(result != Success)
         {
             Pixmap *icons = NULL;
-            LOG(LOG_WARN, "lxpanel : can't get icon using HINTS try to use KWM_WIN_ICON\n");
             Atom kwin_win_icon_atom = gdk_x11_get_xatom_by_name("KWM_WIN_ICON");
             result = XGetWindowProperty(GDK_DISPLAY(), tkwin,
                                         kwin_win_icon_atom,
@@ -639,11 +635,7 @@ get_wm_icon(Window tkwin, int iw, int ih)
                                   (guint *)&sd, (guint *)&sd) ? Success : -1;
         }
 
-        if(result != Success) 
-        {
-            LOG(LOG_WARN,"lxpanel : XGetGeometry failed for %x pixmap\n", (unsigned int)xpixmap);
-        }
-        else
+        if(result == Success) 
         {
             DBG("tkwin=%x icon pixmap w=%d h=%d\n", tkwin, w, h);
             pixmap = _wnck_gdk_pixbuf_get_from_pixmap (NULL, xpixmap, 0, 0, 0, 0, w, h);

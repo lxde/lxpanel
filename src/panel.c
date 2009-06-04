@@ -100,6 +100,10 @@ void panel_set_wm_strut(Panel *p)
             return;
     }
 
+    /* Handle autohide case.  EWMH recommends having the strut be the minimized size. */
+    if ( ! p->visible)
+        strut_size = p->height_when_hidden;
+
     /* Set up strut value in property format. */
     gulong desired_strut[12];
     memset(desired_strut, 0, sizeof(desired_strut));
@@ -141,25 +145,6 @@ void panel_set_wm_strut(Panel *p)
         }
     }
 }
-
-#if 0
-static void
-print_wmdata(Panel *p)
-{
-    int i;
-
-    RET();
-    DBG("desktop %d/%d\n", p->curdesk, p->desknum);
-    DBG("workarea\n");
-    for (i = 0; i < p->wa_len/4; i++)
-        DBG("(%d, %d) x (%d, %d)\n",
-              p->workarea[4*i + 0],
-              p->workarea[4*i + 1],
-              p->workarea[4*i + 2],
-              p->workarea[4*i + 3]);
-    RET();
-}
-#endif
 
 /* defined in plugins/menu.c */
 gboolean show_system_menu( gpointer system_menu );
@@ -863,6 +848,7 @@ extern GtkMenu* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean u
 /****************************************************
  *         panel creation                           *
  ****************************************************/
+
 static void
 make_round_corners(Panel *p)
 {
@@ -883,6 +869,70 @@ void panel_set_dock_type(Panel *p)
     }
 }
 
+static void panel_set_visibility(Panel *p, gboolean visible)
+{
+    if ( ! visible) gtk_widget_hide(p->box);
+    p->visible = visible;
+    calculate_position(p);
+    gtk_widget_set_size_request(p->topgwin, p->aw, p->ah);
+    gdk_window_move(p->topgwin->window, p->ax, p->ay);
+    if (visible) gtk_widget_show(p->box);
+    panel_set_wm_strut(p);
+}
+
+static gboolean panel_leave_real(Panel *p)
+{
+    if (gdk_display_pointer_is_grabbed(p->display))
+        return TRUE;
+
+    gint x, y;
+    gdk_display_get_pointer(p->display, NULL, &x, &y, NULL);
+    if ((p->cx <= x) && (x <= (p->cx + p->cw)) && (p->cy <= y) && (y <= (p->cy + p->ch)))
+        return TRUE;
+
+    if ((p->autohide) && (p->visible))
+        panel_set_visibility(p, FALSE);
+
+    p->hide_timeout = 0;
+    return FALSE;
+}
+
+static gboolean panel_enter(GtkImage *widget, GdkEventCrossing *event, Panel *p)
+{
+    if (p->hide_timeout)
+        return FALSE;
+
+    p->hide_timeout = g_timeout_add(500, (GSourceFunc) panel_leave_real, p);
+
+    panel_set_visibility(p, TRUE);
+    return TRUE;
+}
+
+static gboolean panel_drag_motion(GtkWidget *widget, GdkDragContext *drag_context, gint x,
+      gint y, guint time, Panel *p)
+{
+    panel_enter(NULL, NULL, p);
+    return TRUE;
+}
+
+void panel_establish_autohide(Panel *p)
+{
+    if (p->autohide)
+    {
+        gtk_widget_add_events(p->topgwin, GDK_ENTER_NOTIFY_MASK | GDK_LEAVE_NOTIFY_MASK);
+        g_signal_connect(G_OBJECT(p->topgwin), "enter-notify-event", G_CALLBACK(panel_enter), p);
+        g_signal_connect(G_OBJECT(p->topgwin), "drag-motion", (GCallback) panel_drag_motion, p);
+        gtk_drag_dest_set(p->topgwin, GTK_DEST_DEFAULT_MOTION, NULL, 0, 0);
+        gtk_drag_dest_set_track_motion(p->topgwin, TRUE);
+        panel_enter(NULL, NULL, p);
+    }
+    else if ( ! p->visible)
+    {
+	gtk_widget_show(p->box);
+        p->visible = TRUE;
+    }
+}
+
 static void
 panel_start_gui(Panel *p)
 {
@@ -894,6 +944,7 @@ panel_start_gui(Panel *p)
 
     // main toplevel window
     p->topgwin =  gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    p->display = gdk_display_get_default();
     gtk_container_set_border_width(GTK_CONTAINER(p->topgwin), 0);
     gtk_window_set_resizable(GTK_WINDOW(p->topgwin), FALSE);
     gtk_window_set_wmclass(GTK_WINDOW(p->topgwin), "panel", "lxpanel");
@@ -954,6 +1005,7 @@ panel_start_gui(Panel *p)
     gtk_widget_show_all(p->topgwin);
 
     /* the settings that should be done after window is mapped */
+    panel_establish_autohide(p);
 
     /* send it to running wm */
     Xclimsg(p->topxwin, a_NET_WM_DESKTOP, 0xFFFFFFFF, 0, 0, 0, 0);
@@ -1047,6 +1099,10 @@ panel_parse_global(Panel *p, char **fp)
                     p->alpha = atoi(s.t[1]);
                     if (p->alpha > 255)
                         p->alpha = 255;
+                } else if (!g_ascii_strcasecmp(s.t[0], "AutoHide")) {
+                    p->autohide = str2num(bool_pair, s.t[1], 0);
+                } else if (!g_ascii_strcasecmp(s.t[0], "HeightWhenHidden")) {
+                    p->height_when_hidden = atoi(s.t[1]);
                 } else if (!g_ascii_strcasecmp(s.t[0], "TintColor")) {
                     if (!gdk_color_parse (s.t[1], &p->gtintcolor))
                         gdk_color_parse ("white", &p->gtintcolor);
@@ -1201,6 +1257,9 @@ int panel_start( Panel *p, char **fp )
     p->setdocktype = 1;
     p->setstrut = 1;
     p->round_corners = 0;
+    p->autohide = 0;
+    p->visible = TRUE;
+    p->height_when_hidden = 2;
     p->transparent = 0;
     p->alpha = 127;
     p->tintcolor = 0xFFFFFFFF;

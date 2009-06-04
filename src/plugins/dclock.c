@@ -48,6 +48,7 @@ typedef struct {
     int bold;
     int timer;
     gboolean cal_show;
+    gchar *prev_str;
 } dclock;
 
 static void
@@ -149,7 +150,14 @@ clock_update(gpointer data )
     else
         g_snprintf(str, 64, "%s", output);
 
-    gtk_label_set_markup (GTK_LABEL(dc->clockw), str);
+    /* When we write the clock value, it causes the panel to do a full relayout.
+     * Since this function is called once per second, we take the trouble to check if the string actually changed first. */
+    if ((dc->prev_str == NULL) || (strcmp(dc->prev_str, str) != 0))
+    {
+        g_free(dc->prev_str);
+        dc->prev_str = g_strdup(str);
+        gtk_label_set_markup (GTK_LABEL(dc->clockw), str);
+    }
 
     if (detail->tm_mday != dc->lastDay) {
         dc->lastDay = detail->tm_mday ;
@@ -233,6 +241,7 @@ dclock_constructor(Plugin *p, char** fp)
     g_free(dc->cfmt);
     g_free(dc->tfmt);
     g_free(dc->action);
+    g_free(dc->prev_str);
     g_slice_free(dclock, dc);
     RET(0);
 }

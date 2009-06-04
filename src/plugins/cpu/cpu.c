@@ -99,10 +99,9 @@ cpu_update(cpu_t *c)
     c->ini_stats %= c->Wwg;
 
     gdk_draw_rectangle(c->pixmap, c->da->style->black_gc, TRUE, 0, 0, c->Wwg - BORDER_SIZE * 2, c->Hwg - BORDER_SIZE * 2);
-    for (i = 0; i < (c->Wwg - BORDER_SIZE); i++) {
-    int val;
-
-    val = c->stats_cpu[(i + c->ini_stats) % (c->Wwg - BORDER_SIZE * 2) ];
+    for (i = 0; i < (c->Wwg - BORDER_SIZE); i++)
+    {
+        int val = c->stats_cpu[(i + c->ini_stats) % (c->Wwg - BORDER_SIZE * 2) ];
         if (val)
             gdk_draw_line(c->pixmap, c->gc_cpu, i, (c->Hwg - BORDER_SIZE * 2), i, (c->Hwg - BORDER_SIZE * 2) - val);
     }
@@ -116,11 +115,17 @@ configure_event(GtkWidget *widget, GdkEventConfigure *event, cpu_t *c)
     ENTER;
     if (c->pixmap)
         g_object_unref(c->pixmap);
+
+    tick *t0 = g_new0(typeof(*c->stats_cpu), widget->allocation.width);
+    unsigned int imax = ((c->Wwg > widget->allocation.width) ? widget->allocation.width : c->Wwg);
+    memcpy(t0, c->stats_cpu, imax * sizeof(tick));
+
     c->Wwg = widget->allocation.width;
     c->Hwg = widget->allocation.height;
     if (c->stats_cpu)
         g_free(c->stats_cpu);
-    c->stats_cpu = g_new0( typeof(*c->stats_cpu), c->Wwg);
+    c->stats_cpu = t0;
+
     /* set pixmap size */
     c->pixmap = gdk_pixmap_new (widget->window,
           widget->allocation.width-BORDER_SIZE * 2,

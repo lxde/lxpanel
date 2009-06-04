@@ -845,9 +845,7 @@ calculate_position(Panel *np)
         np->ax = minx;
         calculate_width(sswidth, np->widthtype, np->allign, np->margin,
               &np->aw, &np->ax);
-        np->ah = np->height;
-        np->ah = MIN(PANEL_HEIGHT_MAX, np->ah);
-        np->ah = MAX(PANEL_HEIGHT_MIN, np->ah);
+        np->ah = ((( ! np->autohide) || (np->visible)) ? np->height : np->height_when_hidden);
         np->ay = miny + ((np->edge == EDGE_TOP) ? 0 : (ssheight - np->ah));
 
     } else {
@@ -855,9 +853,7 @@ calculate_position(Panel *np)
         np->ay = miny;
         calculate_width(ssheight, np->widthtype, np->allign, np->margin,
               &np->ah, &np->ay);
-        np->aw = np->height;
-        np->aw = MIN(PANEL_HEIGHT_MAX, np->aw);
-        np->aw = MAX(PANEL_HEIGHT_MIN, np->aw);
+        np->aw = ((( ! np->autohide) || (np->visible)) ? np->height : np->height_when_hidden);
         np->ax = minx + ((np->edge == EDGE_LEFT) ? 0 : (sswidth - np->aw));
     }
     //g_debug("%s - x=%d y=%d w=%d h=%d\n", __FUNCTION__, np->ax, np->ay, np->aw, np->ah);

@@ -52,6 +52,7 @@ struct _Panel{
     char* name;
     GtkWidget *topgwin;           /* main panel window */
     Window topxwin;               /* and it X window   */
+    GdkDisplay *display;               /* Main panel's GdkDisplay */
     GtkStyle *defstyle;
     GtkWidget *box;              /* primary layout box which contains all plugins */
 
@@ -85,6 +86,11 @@ struct _Panel{
     guint transparent : 1;
     guint background : 1;
     guint spacing;
+
+    guint autohide : 1;
+    guint visible : 1;
+    int height_when_hidden;
+    guint hide_timeout;
 
     int desknum;
     int curdesk;
@@ -194,6 +200,7 @@ extern FbEv *fbev;
 
 void panel_apply_icon(GtkWindow *w);
 void panel_destroy(Panel *p);
+void panel_establish_autohide(Panel *p);
 void panel_set_wm_strut(Panel *p);
 void panel_set_dock_type(Panel *p);
 void panel_set_orientation(Panel *p);
