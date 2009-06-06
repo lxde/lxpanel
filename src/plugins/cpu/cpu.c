@@ -76,6 +76,10 @@ cpu_update(cpu_t *c)
     if(!c->pixmap)
         RET(TRUE);
 
+    /* possible because of autohide */
+    if ( (c->Wwg - BORDER_SIZE) < 0 ) 
+	RET(TRUE);
+	
     stat = fopen("/proc/stat", "r");
     if(!stat)
         RET(TRUE);
@@ -99,6 +103,7 @@ cpu_update(cpu_t *c)
     c->ini_stats %= c->Wwg;
 
     gdk_draw_rectangle(c->pixmap, c->da->style->black_gc, TRUE, 0, 0, c->Wwg - BORDER_SIZE * 2, c->Hwg - BORDER_SIZE * 2);
+    
     for (i = 0; i < (c->Wwg - BORDER_SIZE); i++)
     {
         int val = c->stats_cpu[(i + c->ini_stats) % (c->Wwg - BORDER_SIZE * 2) ];
