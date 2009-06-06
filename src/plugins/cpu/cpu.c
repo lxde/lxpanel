@@ -118,12 +118,14 @@ configure_event(GtkWidget *widget, GdkEventConfigure *event, cpu_t *c)
 
     tick *t0 = g_new0(typeof(*c->stats_cpu), widget->allocation.width);
     unsigned int imax = ((c->Wwg > widget->allocation.width) ? widget->allocation.width : c->Wwg);
-    memcpy(t0, c->stats_cpu, imax * sizeof(tick));
 
     c->Wwg = widget->allocation.width;
     c->Hwg = widget->allocation.height;
     if (c->stats_cpu)
+    {
+        memcpy(t0, c->stats_cpu, imax * sizeof(tick));
         g_free(c->stats_cpu);
+    }
     c->stats_cpu = t0;
 
     /* set pixmap size */
