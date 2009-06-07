@@ -121,7 +121,7 @@ static MenuCacheApp* match_app_by_exec(const char* exec)
             }
         }
     }
-    
+
     g_free(exec_path);
     return ret;
 }
@@ -139,7 +139,7 @@ static gboolean setup_auto_complete( gpointer entry )
     gtk_entry_completion_set_popup_set_width( comp, TRUE );
     gtk_entry_completion_set_popup_single_match( comp, FALSE );
 #endif
-     store = gtk_list_store_new( 1, G_TYPE_STRING );
+    store = gtk_list_store_new( 1, G_TYPE_STRING );
 
     for( dirname = dirnames; *dirname; ++dirname )
     {

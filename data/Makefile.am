@@ -13,8 +13,6 @@ ui_DATA = $(ui_in_files:.glade=.ui)
 
 # Generate GtkBuilder UI files from Glade files
 %.ui: %.glade
-	$(top_srcdir)/gtk-builder-convert $< $@
-#	$(GTK_BUILDER_CONVERT) $< $@
 	$(top_builddir)/src/xml-purge $@
 
 CLEANFILES = \

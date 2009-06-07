@@ -37,12 +37,6 @@ AM_CONDITIONAL(ENABLE_MENU_CACHE, test x"$enable_menu_cache" = x"yes")
 PACKAGE_CFLAGS="$PACKAGE_CFLAGS $MENU_CACHE_CFLAGS"
 PACKAGE_LIBS="$PACKAGE_LIBS $MENU_CACHE_LIBS"
 
-# Gtk Builder
-#AC_PATH_PROG([GTK_BUILDER_CONVERT],[gtk-builder-convert],[false])
-#if test "$GTK_BUILDER_CONVERT" = "false"; then
-#  AC_MSG_ERROR([gtk-builder-convert not found])
-#fi
-
 AC_ARG_ENABLE([cast-checks],
     AS_HELP_STRING([--enable-cast-checks],
                [enable Glib casting checks (default: disable)]),
