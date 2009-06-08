@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: lxpanel r839\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-28 17:32+0200\n"
-"PO-Revision-Date: 2009-05-09 03:56+0200\n"
-"Last-Translator: Cilyan Olowen <gaknar@gmail.com>\n"
+"PO-Revision-Date: 2009-06-07 21:26+0200\n"
+"Last-Translator: Cyprien Gay <cyprien.gay@aful.org>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,7 +37,7 @@ msgstr "<b>Propriétés</b>"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>Applications préférées</b>"
+msgstr "<b>Choisir les applications préférées</b>"
 
 #: ../data/ui/panel-pref.glade.h:6
 msgid "<b>Size</b>"
@@ -146,7 +146,8 @@ msgstr "Pixels"
 #: ../data/ui/panel-pref.glade.h:34
 msgid "Reserve space, and not covered by maximized windows"
 msgstr ""
-"Réserver de l'espace et empêcher d'être recouvert par les fenêtres maximisées"
+"Réserver de l'espace et l'empêcher d'être recouvert par les fenêtres "
+"maximisées"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Select an image file"
@@ -233,7 +234,7 @@ msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
-"Voulez vous vraiment supprimer ce panneau ?\n"
+"Voulez-vous vraiment supprimer ce panneau ?\n"
 "<b>Avertissement : cette opération ne peut être annulée.</b>"
 
 #: ../src/panel.c:697
@@ -256,7 +257,7 @@ msgstr ""
 
 #: ../src/panel.c:736
 msgid "Desktop panel for LXDE project"
-msgstr ""
+msgstr "Tableau de bord du bureau pour le projet LXDE"
 
 #: ../src/panel.c:767
 msgid "Add / Remove Panel Items"
@@ -277,7 +278,7 @@ msgstr "Supprimer ce tableau de bord"
 
 #: ../src/panel.c:815
 msgid "About"
-msgstr ""
+msgstr "À propos"
 
 #: ../src/panel.c:823
 msgid "Panel"
@@ -301,29 +302,28 @@ msgstr "Options de la ligne de commande :\n"
 #: ../src/panel.c:1296
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr " --help      -- affiche ce message d'aide et quitte\n"
+msgstr " --help      -- afficher ce message d'aide et quitter\n"
 
 #: ../src/panel.c:1297
 #, c-format
 msgid " --version   -- print version and exit\n"
-msgstr " --version   -- affiche la version et quitte\n"
+msgstr " --version   -- afficher la version et quitter\n"
 
 #: ../src/panel.c:1298
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <nombre> -- défini la quantité d'informations de déboguage 0-5. 0 - "
+msgstr " --log <nombre> -- définir la quantité d'informations de déboguage 0-5. 0 - "
 "aucun 5 - maximum\n"
 
 #: ../src/panel.c:1299
 #, c-format
 msgid " --configure -- launch configuration utility\n"
-msgstr " --configure -- lance l'utilitaire de configuration\n"
+msgstr " --configure -- lancer l'utilitaire de configuration\n"
 
 #: ../src/panel.c:1300
 #, c-format
 msgid " --profile name -- use specified profile\n"
-msgstr " --profile nom -- utilise le profile indiqué\n"
+msgstr " --profile nom -- utiliser le profile indiqué\n"
 
 #: ../src/panel.c:1302
 #, c-format
@@ -531,7 +531,7 @@ msgstr "Format des infobulles"
 
 #: ../src/plugins/dclock.c:281
 msgid "Format codes: man 3 strftime"
-msgstr ""
+msgstr "Codes de format : man 3 strftime"
 
 #: ../src/plugins/dclock.c:282
 msgid "Action"
@@ -939,8 +939,9 @@ msgid "Desktop Pager"
 msgstr "Bureaux virtuels"
 
 #: ../src/plugins/pager.c:709
+#, fuzzy
 msgid "Simple pager plugin"
-msgstr "Affiche les bureaux virtuels"
+msgstr "Plugin du pager simple"
 
 #: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:892
 msgid "Size"
@@ -952,7 +953,7 @@ msgstr "<Espace>"
 
 #: ../src/plugins/space.c:155
 msgid "Allocate space"
-msgstr "Espace alloué"
+msgstr "Allouer de l'espace"
 
 #: ../src/plugins/xkb/xkb-plugin.c:241
 msgid "Keyboard Layout Switcher"
@@ -988,7 +989,7 @@ msgstr "textuellement"
 
 #: ../src/plugins/xkb/xkb-plugin.c:418
 msgid "Per application settings"
-msgstr "Paramètres par application"
+msgstr "Paramètres pour chaque application"
 
 #: ../src/plugins/xkb/xkb-plugin.c:432
 msgid "_Remember layout for each application"
@@ -1022,7 +1023,7 @@ msgid ""
 "Supported commnds are 1)toggle iconify and 2) toggle shade"
 msgstr ""
 "Envoie des commands à toutes les fenêtres du bureau.\n"
-"Les commandes prises en charge sont 1)basculer la réduction et 2) basculer "
+"Les commandes prises en charge sont 1) basculer la réduction et 2) basculer "
 "l'enroulement"
 
 #: ../src/plugins/dirmenu.c:218
@@ -1035,7 +1036,7 @@ msgstr "Menu des répertoires"
 
 #: ../src/plugins/dirmenu.c:385
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr "Parcours de l'arborescence via un menu (Auteur: PCMan)"
+msgstr "Parcourir l'arborescence via un menu (Auteur: PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:299
 msgid "Normal"
@@ -1197,7 +1198,7 @@ msgid ""
 "You must have the encryption key."
 msgstr ""
 "Ce réseau sans fil est chiffré.\n"
-"Vous devez avoir une clé de chiffrement."
+"Vous devez avoir la clé de chiffrement."
 
 #: ../src/plugins/netstat/passwd_gui.c:99
 msgid "Encryption Key:"
@@ -1213,7 +1214,7 @@ msgstr "Outil de configuration"
 
 #: ../src/plugins/netstatus/netstatus.c:193
 msgid "Net Status Monitor"
-msgstr "Moniteur des connexions réseau"
+msgstr "Moniteur de l'état du réseau"
 
 #: ../src/plugins/netstatus/netstatus.c:195
 msgid "Monitor network status"
@@ -1267,7 +1268,9 @@ msgstr "Connexion réseau"
 msgid "Interface"
 msgstr "Interface"
 
+# Le texte anglais est bizarre (une icône ne surveille rien du tout). Il faudrait dire : The current interface represented by the icon, ou quelque chose comme ça. Et pour le français : L'interface actuelle représentée par l'icône.
 #: ../src/plugins/netstatus/netstatus-icon.c:812
+#, fuzzy
 msgid "The current interface the icon is monitoring."
 msgstr "L'interface actuelle que l'icône surveille."
 
