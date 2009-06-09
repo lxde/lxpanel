@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-28 17:32+0200\n"
-"PO-Revision-Date: 2009-05-12 03:49+0500\n"
+"PO-Revision-Date: 2009-06-09 16:25+0500\n"
 "Last-Translator: Muhammad Ali Makki <makki.ma@gmail.com>\n"
 "Language-Team: Urdu <makki.ma@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -162,7 +162,8 @@ msgstr "ہلکا رنگ:"
 msgid "Width:"
 msgstr "چوڑائی:"
 
-#: ../src/configurator.c:54 ../src/gtk-run.c:250
+#: ../src/configurator.c:54
+#: ../src/gtk-run.c:250
 msgid "Run"
 msgstr "چلائیں"
 
@@ -182,11 +183,13 @@ msgstr "حالیہ لوڈ کردہ پلگ ان"
 msgid "Stretch"
 msgstr "کھنچا ہوا"
 
-#: ../src/configurator.c:507 ../src/panel.c:522
+#: ../src/configurator.c:507
+#: ../src/panel.c:522
 msgid "Add plugin to panel"
 msgstr "پینل میں پلگ ان شامل کریں"
 
-#: ../src/configurator.c:535 ../src/panel.c:545
+#: ../src/configurator.c:535
+#: ../src/panel.c:545
 msgid "Available plugins"
 msgstr "دستیاب پلگ ان"
 
@@ -194,7 +197,8 @@ msgstr "دستیاب پلگ ان"
 msgid "Logout command is not set"
 msgstr "لاگ آؤٹ کمانڈ مرتب نہیں ہے"
 
-#: ../src/configurator.c:1101 ../src/configurator.c:1184
+#: ../src/configurator.c:1101
+#: ../src/configurator.c:1184
 msgid "Select a file"
 msgstr "فائل منتخب کریں"
 
@@ -218,7 +222,8 @@ msgstr "اوپر"
 msgid "Bottom"
 msgstr "نیچے"
 
-#: ../src/panel.c:632 ../src/panel.c:793
+#: ../src/panel.c:632
+#: ../src/panel.c:793
 msgid "Create New Panel"
 msgstr "نیا پینل بنائیں"
 
@@ -242,19 +247,24 @@ msgstr "تصدیق"
 #: ../src/panel.c:728
 msgid "translator-credits"
 msgstr ""
+"محمد علی مکی\n"
+"makki.ma@gmail.com\n"
+"اردو کوڈر لینکس فورم\n"
+"http://www.urducoder.com\n"
+"مکی کا بلاگ\n"
+"http://makki.urducoder.com"
 
 #: ../src/panel.c:733
-#, fuzzy
 msgid "LXPanel"
-msgstr "پینل"
+msgstr "ایل ایکس پینل"
 
 #: ../src/panel.c:735
 msgid "Copyright (C) 2008-2009"
-msgstr ""
+msgstr "کاپی رائٹ (C) 2008-2009"
 
 #: ../src/panel.c:736
 msgid "Desktop panel for LXDE project"
-msgstr ""
+msgstr "ڈیسک ٹاپ پینل برائے ایل ایکس ڈی ای پراجیکٹ"
 
 #: ../src/panel.c:767
 msgid "Add / Remove Panel Items"
@@ -275,7 +285,7 @@ msgstr "یہ پینل حذف کریں"
 
 #: ../src/panel.c:815
 msgid "About"
-msgstr ""
+msgstr "بابت"
 
 #: ../src/panel.c:823
 msgid "Panel"
@@ -372,11 +382,13 @@ msgstr "سی پی یو استعمال معائنہ کار"
 msgid "Display CPU usage"
 msgstr "سی پی یو کا استعمال ظاہر کریں"
 
-#: ../src/plugins/deskno/deskno.c:99 ../src/plugins/deskno/deskno2.c:129
+#: ../src/plugins/deskno/deskno.c:99
+#: ../src/plugins/deskno/deskno2.c:129
 msgid "Desktop No / Workspace Name"
 msgstr "ڈیسک ٹاپ نمبر / مقام کار کا نام"
 
-#: ../src/plugins/deskno/deskno.c:101 ../src/plugins/deskno/deskno2.c:131
+#: ../src/plugins/deskno/deskno.c:101
+#: ../src/plugins/deskno/deskno2.c:131
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "مقام کار کا نمبر ظاہر کریں، از cmeury@users.sf.net"
 
@@ -421,24 +433,20 @@ msgid "Bar with buttons to launch application"
 msgstr "اطلاقیہ چلانے کی پٹی بمع بٹن"
 
 #: ../src/plugins/taskbar.c:1407
-#, fuzzy
 msgid "_Raise"
-msgstr "اونچائی"
+msgstr "_اونچائی"
 
 #: ../src/plugins/taskbar.c:1411
-#, fuzzy
 msgid "R_estore"
-msgstr "بحالی"
+msgstr "_بحال کریں"
 
 #: ../src/plugins/taskbar.c:1415
-#, fuzzy
 msgid "Ma_ximize"
-msgstr "بڑا کریں"
+msgstr "ب_ڑا کریں"
 
 #: ../src/plugins/taskbar.c:1419
-#, fuzzy
 msgid "Ico_nify"
-msgstr "نیچے کریں"
+msgstr "نیچے ک_ریں"
 
 #: ../src/plugins/taskbar.c:1428
 #, c-format
@@ -450,15 +458,13 @@ msgid "All workspaces"
 msgstr "تمام مقام کار"
 
 #: ../src/plugins/taskbar.c:1443
-#, fuzzy
 msgid "_Move to Workspace"
-msgstr "مقام کار پر منتقل کریں"
+msgstr "مقام کار پر _منتقل کریں"
 
 #. we want this item to be farest from mouse pointer
 #: ../src/plugins/taskbar.c:1451
-#, fuzzy
 msgid "_Close Window"
-msgstr "ونڈو بند کریں"
+msgstr "ونڈو _بند کریں"
 
 #: ../src/plugins/taskbar.c:1685
 msgid "Show tooltips"
@@ -509,12 +515,8 @@ msgid "Task Bar (Window List)"
 msgstr "ٹاسک پٹی (ونڈو فہرست)"
 
 #: ../src/plugins/taskbar.c:1775
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
-msgstr ""
-"ٹاسک بار تمام کھلی ہوئی ونڈوز کو دکھاتا ہے اور آپ کو انہیں چھوٹا کرنے، "
-"سمیٹنے، اور فوکس پر لینے کی صلاحیت دیتا ہے"
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr "ٹاسک بار تمام کھلی ہوئی ونڈوز کو دکھاتا ہے اور آپ کو انہیں چھوٹا کرنے، سمیٹنے، اور فوکس پر لینے کی صلاحیت دیتا ہے"
 
 #: ../src/plugins/dclock.c:279
 msgid "Clock Format"
@@ -526,7 +528,7 @@ msgstr "ٹول ٹِپ فارمیٹ"
 
 #: ../src/plugins/dclock.c:281
 msgid "Format codes: man 3 strftime"
-msgstr ""
+msgstr "فارمیٹ کوڈ: man 3 strftime"
 
 #: ../src/plugins/dclock.c:282
 msgid "Action"
@@ -614,7 +616,8 @@ msgid "Address:"
 msgstr "پتہ:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstat/netstat.c:319
+#: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
 msgid "Broadcast:"
 msgstr "نشریہ:"
@@ -864,12 +867,8 @@ msgstr "'%s' سے مواجہ نام کی نحوی جانچ نہیں ہوسکتی
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid ""
-"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
-msgstr ""
-"مواجہ شماریات کی نحوی جانچ نہیں ہوسکتی از '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
+msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgstr "مواجہ شماریات کی نحوی جانچ نہیں ہوسکتی از '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -897,8 +896,7 @@ msgstr "کمانڈ لائن کی نحوی جانچ نہیں کی جاسکتی '%
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr ""
-"نیٹ سٹیٹ 'netstat' کے ماحاصل کی نحوی جانچ نہیں کی جاسکتی. نامعلوم فارمیٹ"
+msgstr "نیٹ سٹیٹ 'netstat' کے ماحاصل کی نحوی جانچ نہیں کی جاسکتی. نامعلوم فارمیٹ"
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
@@ -936,7 +934,8 @@ msgstr "ڈیسک ٹاپ پیجر"
 msgid "Simple pager plugin"
 msgstr "سادہ پیجر پلگ ان"
 
-#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:892
+#: ../src/plugins/space.c:138
+#: ../src/plugins/batt/batt.c:892
 msgid "Size"
 msgstr "حجم"
 
@@ -1053,12 +1052,10 @@ msgid "Automatic temperature levels"
 msgstr "خودکار ٹمپریچر درجہ"
 
 #: ../src/plugins/thermal/thermal.c:305
-#, fuzzy
 msgid "Warning1 Temperature"
 msgstr "انتباہ1 ٹمپریچر"
 
 #: ../src/plugins/thermal/thermal.c:306
-#, fuzzy
 msgid "Warning2 Temperature"
 msgstr "انتباہ2 ٹمپریچر"
 
@@ -1121,7 +1118,8 @@ msgstr "نیٹ ورک کیبل نکال دی گئی"
 msgid "Connection has limited or no connectivity"
 msgstr "اتصال محدود کردیا گیا یا کوئی اتصال ہی نہیں ہے"
 
-#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307
+#: ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "آئی پی پتہ:"
@@ -1130,32 +1128,38 @@ msgstr "آئی پی پتہ:"
 msgid "Remote IP:"
 msgstr "بعید آئی پی:"
 
-#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309
+#: ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "نیٹ ماسک:"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "سرگرمی"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "ارسال کردہ"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "وصول کردہ"
 
-#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311
+#: ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "بائٹس"
 
-#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312
+#: ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "پیکٹس"
@@ -1164,7 +1168,8 @@ msgstr "پیکٹس"
 msgid "Protocol:"
 msgstr "پروٹوکول:"
 
-#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321
+#: ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "HW پتہ:"
 
@@ -1393,3 +1398,4 @@ msgstr "کیبورڈ ایل ای ڈی"
 #: ../src/plugins/kbled/kbled.c:291
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "نشان کار برائے کیپس لاک، نم لاک، اور سکرول لاک کلید"
+
