@@ -2,7 +2,7 @@
 AC_VERSION=
 
 AUTOMAKE=${AUTOMAKE:-automake}
-AM_INSTALLED_VERSION=$($AUTOMAKE --version | sed -e '2,$ d' -e 's/ *([^()]*)$//' -e 's/.* \(.*\)/\1/' -e 's/-p[0-9]\+//')
+AM_INSTALLED_VERSION=$($AUTOMAKE --version | sed -e '2,$ d' -e 's/ *([^()]*)$//' -e 's/.* \([0-9]*\.[0-9]*\)\..*/\1/' -e 's/-p[0-9]\+//')
 
 if [ "$AM_INSTALLED_VERSION" != "1.10" \
     -a "$AM_INSTALLED_VERSION" != "1.11" ];then
