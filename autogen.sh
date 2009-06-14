@@ -21,12 +21,12 @@ fi
 
 ${ACLOCAL:-aclocal$AM_VERSION} ${ACLOCAL_ARG}
 ${AUTOHEADER:-autoheader$AC_VERSION} --force
-$AUTOMAKE libtoolize -c --automake --force
-$AUTOMAKE intltoolize -c --automake --force
+AUTOMAKE=$AUTOMAKE libtoolize -c --automake --force
+AUTOMAKE=$AUTOMAKE intltoolize -c --automake --force
 $AUTOMAKE --add-missing --copy --include-deps
 ${AUTOCONF:-autoconf$AC_VERSION}
 
 # mkinstalldirs was not correctly installed in some cases.
-cp -f /usr/share/${AUTOMAKE:-automake$AM_VERSION}/mkinstalldirs .
+cp -f /usr/share/${AUTOMAKE}-*/mkinstalldirs .
 
 rm -rf autom4te.cache
