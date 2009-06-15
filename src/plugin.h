@@ -36,6 +36,10 @@ typedef struct {
 
     int dynamic : 1;
     int invisible : 1;
+    int not_unloadable : 1;			/* Not unloadable due to GModule restriction */
+    int one_per_system : 1;			/* Special: only one possible per system, such as system tray */
+    int one_per_system_instantiated : 1;	/* True if one instance exists */
+
     /* these fields are pointers to the data within loaded dll */
     char *type;
     char *name;
@@ -77,10 +81,10 @@ void plugin_class_list_free( GList* classes );
 
 void plugin_set_background( Plugin* pl, Panel* p );
 void plugin_widget_set_background( GtkWidget* w, Panel* p );
+gboolean plugin_button_press_event(GtkWidget *widget, GdkEventButton *event, Plugin *plugin);
 
 /* FIXME: optional definitions */
 #define STATIC_SEPARATOR
-/* #define STATIC_IMAGE */
 #define STATIC_LAUNCHBAR
 #define STATIC_DCLOCK
 #define STATIC_WINCMD

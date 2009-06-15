@@ -24,24 +24,12 @@
 
 #include "dbg.h"
 
-static gboolean on_btn_press( GtkWidget* w, GdkEventButton* evt, Plugin* plugin )
-{
-    if( evt->button == 3 )
-    {
-        GtkMenu* popup = lxpanel_get_panel_menu
-                ( plugin->panel, plugin, FALSE );
-        gtk_menu_popup( popup, NULL, NULL, NULL, NULL, evt->button, evt->time );
-    }
-    return TRUE;
-}
-
 static int
 separator_constructor(Plugin *p, char **fp)
 {
     GtkWidget *sep, *eb;
     line s;
 
-    ENTER;
     s.len = 256;
     if( fp )
     {
@@ -50,10 +38,11 @@ separator_constructor(Plugin *p, char **fp)
             RET(0);
         }
     }
+
     p->pwid = eb = gtk_event_box_new();
     GTK_WIDGET_SET_FLAGS( eb, GTK_NO_WINDOW );
     gtk_widget_add_events( p->pwid, GDK_BUTTON_PRESS_MASK );
-    g_signal_connect( p->pwid, "button-press-event", G_CALLBACK( on_btn_press ), p );
+    g_signal_connect( p->pwid, "button-press-event", G_CALLBACK(plugin_button_press_event), p );
 
     gtk_container_set_border_width(GTK_CONTAINER(eb), 1);
     gtk_widget_show(eb);
@@ -61,25 +50,18 @@ separator_constructor(Plugin *p, char **fp)
     sep = p->panel->my_separator_new();
     gtk_widget_show(sep);
     gtk_container_add (GTK_CONTAINER (eb), sep);
-    p->priv = eb; /* just to alloc smth */
 
-    RET(1);
+    return 1;
 }
 
 static void
 separator_destructor(Plugin *p)
 {
-    ENTER;
-/* The widget is destroyed in plugin_stop().
-    GtkWidget* eb = GTK_WIDGET((GtkEventBox*)p->priv);
-    gtk_widget_destroy( eb );
-*/
-    RET();
 }
 
 static void orientation_changed( Plugin* p )
 {
-    GtkWidget* eb = GTK_WIDGET((GtkEventBox*)p->priv);
+    GtkWidget* eb = GTK_WIDGET((GtkEventBox*)p->pwid);
     GtkWidget* sep = gtk_bin_get_child( GTK_BIN(eb) );
     if( GTK_IS_VSEPARATOR(sep) ) {
         if( p->panel->orientation == GTK_ORIENTATION_HORIZONTAL )
@@ -96,8 +78,6 @@ static void orientation_changed( Plugin* p )
 }
 
 PluginClass separator_plugin_class = {
-    fname: NULL,
-    count: 0,
 
     type : "separator",
     name : N_("Separator"),

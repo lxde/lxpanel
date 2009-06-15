@@ -54,9 +54,54 @@ GSList* all_panels = NULL;  /* a single-linked list storing all panels */
 gboolean is_restarting = FALSE;
 
 static int panel_start( Panel *p, char **fp );
+static void panel_start_gui(Panel *p);
 void panel_config_save(Panel* panel);   /* defined in configurator.c */
 
 gboolean is_in_lxde = FALSE;
+
+/* Allocate and initialize new Panel structure. */
+static Panel* panel_allocate(void)
+{
+    Panel* p = g_slice_new0(Panel);
+    p->allign = ALLIGN_CENTER;
+    p->edge = EDGE_NONE;
+    p->widthtype = WIDTH_PERCENT;
+    p->width = 100;
+    p->heighttype = HEIGHT_PIXEL;
+    p->height = PANEL_HEIGHT_DEFAULT;
+    p->setdocktype = 1;
+    p->setstrut = 1;
+    p->round_corners = 0;
+    p->autohide = 0;
+    p->visible = TRUE;
+    p->height_when_hidden = 2;
+    p->transparent = 0;
+    p->alpha = 127;
+    p->tintcolor = 0xFFFFFFFF;
+    p->usefontcolor = 0;
+    p->fontcolor = 0x00000000;
+    p->spacing = 0;
+    return p;
+}
+
+/* Normalize panel configuration after load from file or reconfiguration. */
+static void panel_normalize_configuration(Panel* p)
+{
+    panel_set_orientation( p );
+    if (p->width < 0)
+        p->width = 100;
+    if (p->widthtype == WIDTH_PERCENT && p->width > 100)
+        p->width = 100;
+    p->heighttype = HEIGHT_PIXEL;
+    if (p->heighttype == HEIGHT_PIXEL) {
+        if (p->height < PANEL_HEIGHT_MIN)
+            p->height = PANEL_HEIGHT_MIN;
+        else if (p->height > PANEL_HEIGHT_MAX)
+            p->height = PANEL_HEIGHT_MAX;
+    }
+    if (p->background)
+        p->transparent = 0;
+}
 
 /****************************************************
  *         panel's handlers for WM events           *
@@ -151,6 +196,7 @@ gboolean show_system_menu( gpointer system_menu );
 
 /* defined in configurator.c */
 void panel_configure(Panel* p, int sel_page );
+gboolean panel_edge_available(Panel* p, int edge);
 
 /* built-in commands, defined in configurator.c */
 void restart(void);
@@ -441,22 +487,15 @@ panel_popupmenu_configure(GtkWidget *widget, gpointer user_data)
     return TRUE;
 }
 
-static gint
-panel_press_button_event(GtkWidget *widget, GdkEvent *event, gpointer user_data)
+/* Handler for "button_press_event" signal with Panel as parameter. */
+static gboolean panel_button_press_event_with_panel(GtkWidget *widget, GdkEventButton *event, Panel *panel)
 {
-    GdkEventButton *event_button;
-
-    g_return_val_if_fail (event != NULL, FALSE);
-    event_button = (GdkEventButton *)event;
-    if (event_button->button == 3) {
-            GtkMenu *menu;
-            Panel* panel = (Panel*)user_data;
-            /* create menu */
-            menu = lxpanel_get_panel_menu( panel, NULL, FALSE );
-            gtk_menu_popup(menu, NULL, NULL, NULL, NULL, event_button->button, event_button->time);
-            return TRUE;
-    }
-
+    if (event->button == 3)	 /* right button */
+    {
+        GtkMenu* popup = (GtkMenu*) lxpanel_get_panel_menu(panel, NULL, FALSE);
+        gtk_menu_popup(popup, NULL, NULL, NULL, NULL, event->button, event->time);
+        return TRUE;
+    }    
     return FALSE;
 }
 
@@ -467,115 +506,6 @@ static void panel_popupmenu_config_plugin( GtkMenuItem* item, Plugin* plugin )
     /* FIXME: this should be more elegant */
     plugin->panel->config_changed = TRUE;
 }
-
-#if 0
-static void on_add_plugin_response( GtkDialog* dlg,
-                                    int response,
-                                    Panel* p )
-{
-    if( response == GTK_RESPONSE_OK )
-    {
-        GtkTreeView* view;
-        GtkTreeSelection* tree_sel;
-        GtkTreeIter it;
-        GtkTreeModel* model;
-
-        view = (GtkTreeView*)g_object_get_data( G_OBJECT(dlg), "avail-plugins" );
-        tree_sel = gtk_tree_view_get_selection( view );
-        if( gtk_tree_selection_get_selected( tree_sel, &model, &it ) )
-        {
-            char* type = NULL;
-            Plugin* pl;
-            gtk_tree_model_get( model, &it, 1, &type, -1 );
-            if( pl = plugin_load( type ) )
-            {
-                GtkTreePath* tree_path;
-
-                pl->panel = p;
-                plugin_start( pl, NULL );
-                p->plugins = g_list_append(p->plugins, pl);
-                /* FIXME: will show all cause problems? */
-                gtk_widget_show_all( pl->pwid );
-
-                /* update background of the newly added plugin */
-                plugin_widget_set_background( pl->pwid, pl->panel );
-            }
-            g_free( type );
-        }
-    }
-    gtk_widget_destroy( (GtkWidget*)dlg );
-}
-
-void panel_add_plugin( Panel* panel, GtkWindow* parent_win )
-{
-    GtkWidget* dlg, *scroll;
-    GList* classes;
-    GList* tmp;
-    GtkTreeViewColumn* col;
-    GtkCellRenderer* render;
-    GtkTreeView* view;
-    GtkListStore* list;
-    GtkTreeSelection* tree_sel;
-
-    classes = plugin_get_available_classes();
-
-    dlg = gtk_dialog_new_with_buttons( _("Add plugin to panel"),
-                                       GTK_WINDOW(parent_win), 0,
-                                       GTK_STOCK_CANCEL,
-                                       GTK_RESPONSE_CANCEL,
-                                       GTK_STOCK_ADD,
-                                       GTK_RESPONSE_OK, NULL );
-    panel_apply_icon(GTK_WINDOW(dlg));
-
-    /* gtk_widget_set_sensitive( parent_win, FALSE ); */
-    scroll = gtk_scrolled_window_new( NULL, NULL );
-    gtk_scrolled_window_set_shadow_type( (GtkScrolledWindow*)scroll,
-                                          GTK_SHADOW_IN );
-    gtk_scrolled_window_set_policy((GtkScrolledWindow*)scroll,
-                                   GTK_POLICY_AUTOMATIC,
-                                   GTK_POLICY_AUTOMATIC );
-    gtk_box_pack_start( (GtkBox*)GTK_DIALOG(dlg)->vbox, scroll,
-                         TRUE, TRUE, 4 );
-    view = (GtkTreeView*)gtk_tree_view_new();
-    gtk_container_add( (GtkContainer*)scroll, view );
-    tree_sel = gtk_tree_view_get_selection( view );
-    gtk_tree_selection_set_mode( tree_sel, GTK_SELECTION_BROWSE );
-
-    render = gtk_cell_renderer_text_new();
-    col = gtk_tree_view_column_new_with_attributes(
-                                            _("Available plugins"),
-                                            render, "text", 0, NULL );
-    gtk_tree_view_append_column( view, col );
-
-    list = gtk_list_store_new( 2,
-                               G_TYPE_STRING,
-                               G_TYPE_STRING );
-
-    for( tmp = classes; tmp; tmp = tmp->next ) {
-        PluginClass* pc = (PluginClass*)tmp->data;
-        if( ! pc->invisible ) {
-            /* FIXME: should we display invisible plugins? */
-            GtkTreeIter it;
-            gtk_list_store_append( list, &it );
-            gtk_list_store_set( list, &it,
-                                0, _(pc->name),
-                                1, pc->type, -1 );
-            /* g_debug( "%s (%s)", pc->type, _(pc->name) ); */
-        }
-    }
-
-    gtk_tree_view_set_model( view, GTK_TREE_MODEL(list) );
-    g_object_unref( list );
-
-    g_signal_connect( dlg, "response",
-                      on_add_plugin_response, panel );
-    g_object_set_data( dlg, "avail-plugins", view );
-    g_object_weak_ref( dlg, plugin_class_list_free, classes );
-
-    gtk_window_set_default_size( (GtkWindow*)dlg, 320, 400 );
-    gtk_widget_show_all( dlg );
-}
-#endif
 
 static void panel_popupmenu_add_item( GtkMenuItem* item, Panel* panel )
 {
@@ -621,70 +551,32 @@ static char* gen_panel_name( int edge )
     return name;
 }
 
+static void try_allocate_edge(Panel* p, int edge)
+{
+    if ((p->edge == EDGE_NONE) && (panel_edge_available(p, edge)))
+        p->edge = edge;
+}
+
 /* FIXME: Potentially we can support multiple panels at the same edge,
  * but currently this cannot be done due to some positioning problems. */
 static void panel_popupmenu_create_panel( GtkMenuItem* item, Panel* panel )
 {
-    int i;
-    GSList* group = NULL;
-    GtkWidget* btns[ 4 ], *box, *frame;
-    const char* edges[]={N_("Left"), N_("Right"), N_("Top"), N_("Bottom")};
-    GtkWidget* dlg = gtk_dialog_new_with_buttons(
-                                        _("Create New Panel"),
-                                        GTK_WINDOW(panel->topgwin),
-                                        GTK_DIALOG_MODAL,
-                                        GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-                                        GTK_STOCK_OK, GTK_RESPONSE_OK, NULL );
-    panel_apply_icon(GTK_WINDOW(dlg));
-    gtk_container_set_border_width( (GtkContainer*)dlg, 8 );
-    frame = gtk_frame_new( _("Where to put the panel?"));
-    gtk_box_pack_start( (GtkBox*)((GtkDialog*)dlg)->vbox, frame, TRUE, TRUE, 0 );
-    box = gtk_vbox_new( FALSE, 2 );
-    gtk_container_add( (GtkContainer*)frame, box );
-    for( i = 0; i < 4; ++i )
-    {
-        GSList* l;
-        btns[ i ] = gtk_radio_button_new_with_label( group, _(edges[i]) );
-        group = gtk_radio_button_get_group( (GtkRadioButton*)btns[ i ] );
-        gtk_box_pack_start( GTK_BOX(box), btns[ i ], FALSE, TRUE, 2 );
-        for( l = all_panels; l; l = l->next )
-        {
-            Panel* p = (Panel*)l->data;
-            /* If there is already a panel on this edge */
-            if( p->edge == (i + 1) )
-                gtk_widget_set_sensitive( btns[i], FALSE );
-            /* FIXME: multiple panel at the same edge should be supported in the future. */
-        }
-    }
-    gtk_widget_show_all( dlg );
+    Panel* new_panel = panel_allocate();
 
-    if( gtk_dialog_run( GTK_DIALOG(dlg) ) == GTK_RESPONSE_OK )
-    {
-        char* pfp;
-        char default_conf[128];
-        for( i = 0; i < 4; ++i )
-        {
-            if( gtk_toggle_button_get_active( (GtkToggleButton*)btns[i] ) )
-                break;
-        }
-        ++i;    /* 0 is EDGE_NONE, all edge values start from 1 */
-        g_snprintf( default_conf, 128,
-                "global{\n"
-                "edge=%s\n"
-                "}\n",
-                num2str( edge_pair, i, "bottom" ) );
-        panel = g_slice_new0( Panel );
-        panel->name = gen_panel_name(i);
-        pfp = default_conf;
-        if ( panel_start( panel, &pfp )) {
-            panel_config_save( panel );
-            all_panels = g_slist_prepend( all_panels, panel );
-        }
-        else {
-            panel_destroy( panel );
-        }
-    }
-    gtk_widget_destroy( dlg );
+    /* Allocate the edge. */
+    try_allocate_edge(new_panel, EDGE_BOTTOM);
+    try_allocate_edge(new_panel, EDGE_TOP);
+    try_allocate_edge(new_panel, EDGE_LEFT);
+    try_allocate_edge(new_panel, EDGE_RIGHT);
+    new_panel->name = gen_panel_name(new_panel->edge);
+
+    panel_configure(new_panel, 0);
+    panel_normalize_configuration(new_panel);
+    panel_start_gui(new_panel);
+    gtk_widget_show_all(new_panel->topgwin);
+
+    panel_config_save(new_panel);
+    all_panels = g_slist_prepend(all_panels, new_panel);
 }
 
 static void panel_popupmenu_delete_panel( GtkMenuItem* item, Panel* panel )
@@ -750,7 +642,7 @@ void panel_apply_icon( GtkWindow *w )
     gtk_window_set_icon_from_file(w, PACKAGE_DATA_DIR "/lxpanel/images/my-computer.png", NULL);
 }
 
-extern GtkMenu* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean use_sub_menu )
+GtkMenu* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean use_sub_menu )
 {
     GtkWidget  *menu_item, *img;
     GtkMenu *ret,*menu;
@@ -942,6 +834,10 @@ panel_start_gui(Panel *p)
 
     ENTER;
 
+    p->curdesk = get_net_current_desktop();
+    p->desknum = get_net_number_of_desktops();
+    p->workarea = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_WORKAREA, XA_CARDINAL, &p->wa_len);
+
     // main toplevel window
     p->topgwin =  gtk_window_new(GTK_WINDOW_TOPLEVEL);
     p->display = gdk_display_get_default();
@@ -967,7 +863,7 @@ panel_start_gui(Panel *p)
 
     gtk_widget_add_events( p->topgwin, GDK_BUTTON_PRESS_MASK );
     g_signal_connect(G_OBJECT (p->topgwin), "button_press_event",
-          (GCallback) panel_press_button_event, p);
+          (GCallback) panel_button_press_event_with_panel, p);
 
     g_signal_connect (G_OBJECT (p->topgwin), "realize",
           (GCallback) panel_realize, p);
@@ -1027,11 +923,39 @@ panel_start_gui(Panel *p)
     RET();
 }
 
+void panel_adjust_geometry_terminology(Panel *p)
+{
+    if ((p->height_label != NULL) && (p->width_label != NULL))
+    {
+        if ((p->edge == EDGE_TOP) || (p->edge == EDGE_BOTTOM))
+        {
+            gtk_label_set_text(GTK_LABEL(p->height_label), _("Height:"));
+            gtk_label_set_text(GTK_LABEL(p->width_label), _("Width:"));
+        }
+        else
+        {
+            gtk_label_set_text(GTK_LABEL(p->height_label), _("Width:"));
+            gtk_label_set_text(GTK_LABEL(p->width_label), _("Height:"));
+        }
+    }
+}
+
 void panel_set_orientation(Panel *p)
 {
     GList* l;
+
+    int previous_orientation = p->orientation;
     p->orientation = (p->edge == EDGE_TOP || p->edge == EDGE_BOTTOM)
         ? ORIENT_HORIZ : ORIENT_VERT;
+
+    if (previous_orientation != p->orientation)
+    {
+        panel_adjust_geometry_terminology(p);
+        p->height = ((p->orientation == ORIENT_HORIZ) ? PANEL_HEIGHT_DEFAULT : PANEL_WIDTH_DEFAULT);
+        if (p->height_control != NULL)
+            gtk_spin_button_set_value(GTK_SPIN_BUTTON(p->height_control), p->height);
+    }
+
     if (p->orientation == ORIENT_HORIZ) {
         p->my_box_new = gtk_hbox_new;
         p->my_separator_new = gtk_vseparator_new;
@@ -1048,6 +972,7 @@ void panel_set_orientation(Panel *p)
             gtk_container_add( GTK_CONTAINER(p->topgwin), GTK_WIDGET(newbox) );
         }
     }
+
     /* NOTE: This loop won't be executed when panel started since
        plugins are not loaded at that time.
        This is used when the orientation of the panel is changed
@@ -1131,30 +1056,10 @@ panel_parse_global(Panel *p, char **fp)
             }
         }
     }
-    panel_set_orientation( p );
 
-    if (p->width < 0)
-        p->width = 100;
-    if (p->widthtype == WIDTH_PERCENT && p->width > 100)
-        p->width = 100;
-    p->heighttype = HEIGHT_PIXEL;
-    if (p->heighttype == HEIGHT_PIXEL) {
-        if (p->height < PANEL_HEIGHT_MIN)
-            p->height = PANEL_HEIGHT_MIN;
-        else if (p->height > PANEL_HEIGHT_MAX)
-            p->height = PANEL_HEIGHT_MAX;
-    }
+    panel_normalize_configuration(p);
 
-    if (p->background)
-        p->transparent = 0;
-
-    p->curdesk = get_net_current_desktop();
-    p->desknum = get_net_number_of_desktops();
-    p->workarea = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_WORKAREA, XA_CARDINAL, &p->wa_len);
-    /* print_wmdata(p); */
-
-    panel_start_gui(p);
-    RET(1);
+    return 1;
 }
 
 static int
@@ -1248,31 +1153,14 @@ int panel_start( Panel *p, char **fp )
     ENTER;
     s.len = 256;
 
-    p->allign = ALLIGN_CENTER;
-    p->edge = EDGE_BOTTOM;
-    p->widthtype = WIDTH_PERCENT;
-    p->width = 100;
-    p->heighttype = HEIGHT_PIXEL;
-    p->height = PANEL_HEIGHT_DEFAULT;
-    p->setdocktype = 1;
-    p->setstrut = 1;
-    p->round_corners = 0;
-    p->autohide = 0;
-    p->visible = TRUE;
-    p->height_when_hidden = 2;
-    p->transparent = 0;
-    p->alpha = 127;
-    p->tintcolor = 0xFFFFFFFF;
-    p->usefontcolor = 0;
-    p->fontcolor = 0x00000000;
-    p->spacing = 0;
-
     if ((lxpanel_get_line(fp, &s) != LINE_BLOCK_START) || g_ascii_strcasecmp(s.t[0], "Global")) {
         ERR( "lxpanel: config file must start from Global section\n");
         RET(0);
     }
     if (!panel_parse_global(p, fp))
         RET(0);
+
+    panel_start_gui(p);
 
     while (lxpanel_get_line(fp, &s) != LINE_NONE) {
         if ((s.type  != LINE_BLOCK_START) || g_ascii_strcasecmp(s.t[0], "Plugin")) {
@@ -1281,13 +1169,10 @@ int panel_start( Panel *p, char **fp )
         }
         panel_parse_plugin(p, fp);
     }
-    gtk_widget_show_all(p->topgwin);
 
     /* update backgrond of panel and all plugins */
     panel_update_background( p );
-
-    /* print_wmdata(p); */
-    RET(1);
+    return 1;
 }
 
 static void
@@ -1341,7 +1226,7 @@ Panel* panel_new( const char* config_file, const char* config_name )
         g_file_get_contents( config_file, &fp, NULL, NULL );
         if( fp )
         {
-            panel = g_slice_new0( Panel );
+            panel = panel_allocate();
             panel->name = g_strdup( config_name );
             pfp = fp;
 

@@ -149,33 +149,80 @@ update_panel_geometry( Panel* p )
     panel_set_wm_strut( p );
 }
 
-static void
-set_edge( GtkComboBox *widget,  Panel* p )
+static gboolean edge_selector(Panel* p, int edge)
 {
-    int edge;
-
-    ENTER;
-    edge = gtk_combo_box_get_active(widget) + 1;
-    p->edge = edge;
-    panel_set_orientation( p );
-    update_panel_geometry(p);
-    panel_update_background( p );
-    RET();
+    return (p->edge == edge);
 }
 
-static void
-set_allign( GtkComboBox *widget,  Panel* p )
+/* If there is a panel on this edge and it is not the panel being configured, set the edge unavailable. */
+gboolean panel_edge_available(Panel* p, int edge)
 {
-    int allign;
-    gboolean t;
+    GSList* l;
+    for (l = all_panels; l != NULL; l = l->next)
+        {
+        Panel* pl = (Panel*) l->data;
+        if ((pl != p) && (pl->edge == edge))
+            return FALSE;
+        }
+    return TRUE;
+}
 
-    ENTER;
-    allign = gtk_combo_box_get_active(widget) + 1;
-    if (p->margin_control) 
-        gtk_widget_set_sensitive(p->margin_control, (allign != ALLIGN_CENTER));
-    p->allign = allign;
+static void set_edge(Panel* p, int edge)
+{
+    p->edge = edge;
+    panel_set_orientation(p);
     update_panel_geometry(p);
-    RET();
+    panel_update_background(p);
+}
+
+static void edge_bottom_toggle(GtkToggleButton *widget, Panel *p)
+{
+    if (gtk_toggle_button_get_active(widget))
+        set_edge(p, EDGE_BOTTOM);
+}
+
+static void edge_top_toggle(GtkToggleButton *widget, Panel *p)
+{
+    if (gtk_toggle_button_get_active(widget))
+        set_edge(p, EDGE_TOP);
+}
+
+static void edge_left_toggle(GtkToggleButton *widget, Panel *p)
+{
+    if (gtk_toggle_button_get_active(widget))
+        set_edge(p, EDGE_LEFT);
+}
+
+static void edge_right_toggle(GtkToggleButton *widget, Panel *p)
+{
+    if (gtk_toggle_button_get_active(widget))
+        set_edge(p, EDGE_RIGHT);
+}
+
+static void set_alignment(Panel* p, int align)
+{
+    if (p->margin_control) 
+        gtk_widget_set_sensitive(p->margin_control, (align != ALLIGN_CENTER));
+    p->allign = align;
+    update_panel_geometry(p);
+}
+
+static void align_left_toggle(GtkToggleButton *widget, Panel *p)
+{
+    if (gtk_toggle_button_get_active(widget))
+        set_alignment(p, ALLIGN_LEFT);
+}
+
+static void align_center_toggle(GtkToggleButton *widget, Panel *p)
+{
+    if (gtk_toggle_button_get_active(widget))
+        set_alignment(p, ALLIGN_CENTER);
+}
+
+static void align_right_toggle(GtkToggleButton *widget, Panel *p)
+{
+    if (gtk_toggle_button_get_active(widget))
+        set_alignment(p, ALLIGN_RIGHT);
 }
 
 static void
@@ -565,10 +612,12 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
                                G_TYPE_STRING,
                                G_TYPE_STRING );
 
+    /* Populate list of available plugins.
+     * Omit plugins that can only exist once per system if it is already configured. */
     for( tmp = classes; tmp; tmp = tmp->next ) {
         PluginClass* pc = (PluginClass*)tmp->data;
-        if( ! pc->invisible ) {
-            /* FIXME: should we display invisible plugins? */
+        if (( ! pc->one_per_system ) || ( ! pc->one_per_system_instantiated))
+        {
             GtkTreeIter it;
             gtk_list_store_append( list, &it );
             gtk_list_store_set( list, &it,
@@ -764,6 +813,7 @@ void panel_configure( Panel* p, int sel_page )
 
     if( p->pref_dialog )
     {
+        panel_adjust_geometry_terminology(p);
         gtk_window_present(GTK_WINDOW(p->pref_dialog));
         return;
     }
@@ -782,14 +832,35 @@ void panel_configure( Panel* p, int sel_page )
     panel_apply_icon(GTK_WINDOW(p->pref_dialog));
 
     /* position */
-    w = (GtkWidget*)gtk_builder_get_object( builder, "edge" );
-    update_opt_menu( w, p->edge - 1 );
-    g_signal_connect( w, "changed", G_CALLBACK(set_edge), p);
+    w = (GtkWidget*)gtk_builder_get_object( builder, "edge_bottom" );
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(w), edge_selector(p, EDGE_BOTTOM));
+    gtk_widget_set_sensitive(w, panel_edge_available(p, EDGE_BOTTOM));
+    g_signal_connect(w, "toggled", G_CALLBACK(edge_bottom_toggle), p);
+    w = (GtkWidget*)gtk_builder_get_object( builder, "edge_top" );
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(w), edge_selector(p, EDGE_TOP));
+    gtk_widget_set_sensitive(w, panel_edge_available(p, EDGE_TOP));
+    g_signal_connect(w, "toggled", G_CALLBACK(edge_top_toggle), p);
+    w = (GtkWidget*)gtk_builder_get_object( builder, "edge_left" );
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(w), edge_selector(p, EDGE_LEFT));
+    gtk_widget_set_sensitive(w, panel_edge_available(p, EDGE_LEFT));
+    g_signal_connect(w, "toggled", G_CALLBACK(edge_left_toggle), p);
+    w = (GtkWidget*)gtk_builder_get_object( builder, "edge_right" );
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(w), edge_selector(p, EDGE_RIGHT));
+    gtk_widget_set_sensitive(w, panel_edge_available(p, EDGE_RIGHT));
+    g_signal_connect(w, "toggled", G_CALLBACK(edge_right_toggle), p);
 
-    w = (GtkWidget*)gtk_builder_get_object( builder, "align" );
-    update_opt_menu( w, p->allign - 1 );
-    g_signal_connect( w, "changed", G_CALLBACK(set_allign), p);
+    /* alignment */
+    w = (GtkWidget*)gtk_builder_get_object( builder, "alignment_left" );
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(w), (p->allign == ALLIGN_LEFT));
+    g_signal_connect(w, "toggled", G_CALLBACK(align_left_toggle), p);
+    w = (GtkWidget*)gtk_builder_get_object( builder, "alignment_center" );
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(w), (p->allign == ALLIGN_CENTER));
+    g_signal_connect(w, "toggled", G_CALLBACK(align_center_toggle), p);
+    w = (GtkWidget*)gtk_builder_get_object( builder, "alignment_right" );
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(w), (p->allign == ALLIGN_RIGHT));
+    g_signal_connect(w, "toggled", G_CALLBACK(align_left_toggle), p);
 
+    /* margin */
     p->margin_control = w = (GtkWidget*)gtk_builder_get_object( builder, "margin" );
     gtk_spin_button_set_value( (GtkSpinButton*)w, p->margin );
     gtk_widget_set_sensitive(p->margin_control, (p->allign != ALLIGN_CENTER));
@@ -797,6 +868,7 @@ void panel_configure( Panel* p, int sel_page )
                       G_CALLBACK(set_margin), p);
 
     /* size */
+    p->width_label = (GtkWidget*)gtk_builder_get_object( builder, "width_label");
     width = w = (GtkWidget*)gtk_builder_get_object( builder, "width" );
     gtk_widget_set_sensitive( w, p->widthtype != WIDTH_REQUEST );
     gint upper = 0;
@@ -815,7 +887,8 @@ void panel_configure( Panel* p, int sel_page )
     g_signal_connect( w, "changed",
                      G_CALLBACK(set_width_type), p);
 
-    w = (GtkWidget*)gtk_builder_get_object( builder, "height" );
+    p->height_label = (GtkWidget*)gtk_builder_get_object( builder, "height_label");
+    p->height_control = w = (GtkWidget*)gtk_builder_get_object( builder, "height" );
     gtk_spin_button_set_range( (GtkSpinButton*)w, PANEL_HEIGHT_MIN, PANEL_HEIGHT_MAX );
     gtk_spin_button_set_value( (GtkSpinButton*)w, p->height );
     g_signal_connect( w, "value-changed", G_CALLBACK(set_height), p );
@@ -967,6 +1040,7 @@ void panel_configure( Panel* p, int sel_page )
                         &logout_cmd);
     }
 
+    panel_adjust_geometry_terminology(p);
     gtk_widget_show(GTK_WIDGET(p->pref_dialog));
     w = (GtkWidget*)gtk_builder_get_object( builder, "notebook" );
     gtk_notebook_set_current_page( (GtkNotebook*)w, sel_page );
@@ -1136,10 +1210,12 @@ static void on_file_chooser_btn_file_set(GtkFileChooser* btn, char** val)
 static void on_browse_btn_clicked(GtkButton* btn, GtkEntry* entry)
 {
     char* file;
+    GtkFileChooserAction action = (GtkFileChooserAction) g_object_get_data(G_OBJECT(btn), "chooser-action");
     GtkWidget* dlg = GTK_WIDGET(g_object_get_data(G_OBJECT(btn), "dlg"));    
-    GtkWidget* fc = gtk_file_chooser_dialog_new(_("Select a file"),
+    GtkWidget* fc = gtk_file_chooser_dialog_new(
+                                        (action == GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER) ? _("Select a directory") : _("Select a file"),
                                         GTK_WINDOW(dlg),
-                                        GTK_FILE_CHOOSER_ACTION_OPEN,
+                                        action,
                                         GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
                                         GTK_STOCK_OK, GTK_RESPONSE_OK,
                                         NULL);
@@ -1197,6 +1273,7 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
         {
             case CONF_TYPE_STR:
             case CONF_TYPE_FILE_ENTRY: /* entry with a button to browse for files. */
+            case CONF_TYPE_DIRECTORY_ENTRY: /* entry with a button to browse for directories. */
                 entry = gtk_entry_new();
                 if( *(char**)val )
                     gtk_entry_set_text( GTK_ENTRY(entry), *(char**)val );
@@ -1246,12 +1323,14 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
                 gtk_box_pack_start( GTK_BOX(hbox), label, FALSE, FALSE, 2 );
                 gtk_box_pack_start( GTK_BOX(hbox), entry, TRUE, TRUE, 2 );
                 gtk_box_pack_start( GTK_BOX(GTK_DIALOG(dlg)->vbox), hbox, FALSE, FALSE, 2 );
-                if( type == CONF_TYPE_FILE_ENTRY )
+                if ((type == CONF_TYPE_FILE_ENTRY) || (type == CONF_TYPE_DIRECTORY_ENTRY))
                 {
                     GtkWidget* browse = gtk_button_new_with_mnemonic(_("_Browse"));
                     gtk_box_pack_start( GTK_BOX(hbox), browse, TRUE, TRUE, 2 );
                     g_object_set_data(G_OBJECT(dlg), "file-val", val);
                     g_object_set_data(G_OBJECT(browse), "dlg", dlg);
+                    g_object_set_data(G_OBJECT(browse), "chooser-action",
+                        (gpointer) ((type == CONF_TYPE_DIRECTORY_ENTRY) ? GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER : GTK_FILE_CHOOSER_ACTION_OPEN));
                     g_signal_connect( browse, "clicked", G_CALLBACK(on_browse_btn_clicked), entry );
                 }
             }
@@ -1343,6 +1422,6 @@ lxpanel_get_file_manager()
 extern const char*
 lxpanel_get_terminal()
 {
-    return terminal_cmd ? terminal_cmd : "xterm -e %s";
+    return terminal_cmd ? terminal_cmd : "lxterminal -e %s";
 }
 

@@ -214,12 +214,9 @@ static gboolean focus_out_event(GtkWidget *widget, GdkEvent *event, volume_t *vo
 
 static gboolean tray_icon_press(GtkWidget *widget, GdkEventButton *event, volume_t *vol)
 {
-    if( event->button == 3 )  /* right button */
-    {
-        GtkMenu* popup = lxpanel_get_panel_menu( vol->plugin->panel, vol->plugin, FALSE );
-        gtk_menu_popup( popup, NULL, NULL, NULL, NULL, event->button, event->time );
+    /* Standard right-click handling. */
+    if (plugin_button_press_event(widget, event, vol->plugin))
         return TRUE;
-    }
 
     if (vol->show==0) {
         gtk_window_set_position(GTK_WINDOW(vol->dlg), GTK_WIN_POS_MOUSE);
@@ -383,7 +380,7 @@ volumealsa_constructor(Plugin *p, char **fp)
     vol->mainw = gtk_event_box_new();
 
     gtk_widget_add_events(vol->mainw, GDK_BUTTON_PRESS_MASK);
-    gtk_widget_set_size_request( vol->mainw, 24, 24 );
+    gtk_widget_set_size_request( vol->mainw, PANEL_ICON_SIZE, PANEL_ICON_SIZE );
 
     g_signal_connect(G_OBJECT(vol->mainw), "button-press-event",
                          G_CALLBACK(tray_icon_press), vol);

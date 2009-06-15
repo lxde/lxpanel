@@ -39,9 +39,11 @@ enum {
 };
 enum { POS_NONE, POS_START, POS_END };
 
-#define PANEL_HEIGHT_DEFAULT  26
-#define PANEL_HEIGHT_MAX      200
-#define PANEL_HEIGHT_MIN      16
+#define PANEL_ICON_SIZE               24	/* Default size of panel icons */
+#define PANEL_HEIGHT_DEFAULT          26	/* Default height of horizontal panel */
+#define PANEL_WIDTH_DEFAULT           26	/* Default "height" of vertical panel: not yet finished, will be wide */
+#define PANEL_HEIGHT_MAX              200	/* Maximum height of panel */
+#define PANEL_HEIGHT_MIN              16	/* Minimum height of panel */
 
 /* to check if we are in LXDE */
 extern gboolean is_in_lxde;
@@ -106,6 +108,9 @@ struct _Panel{
 
     GtkWidget* pref_dialog; /* preference dialog */
     GtkWidget* margin_control;		/* Margin control in preference dialog */
+    GtkWidget* height_label;		/* Label of height control */
+    GtkWidget* width_label;		/* Label of width control */
+    GtkWidget* height_control;		/* Height control in preference dialog */
 };
 
 
@@ -200,6 +205,7 @@ extern FbEv *fbev;
 
 void panel_apply_icon(GtkWindow *w);
 void panel_destroy(Panel *p);
+void panel_adjust_geometry_terminology(Panel *p);
 void panel_establish_autohide(Panel *p);
 void panel_set_wm_strut(Panel *p);
 void panel_set_dock_type(Panel *p);

@@ -194,6 +194,9 @@ PluginClass netstatus_plugin_class = {
     version: "1.0",
     description : N_("Monitor network status"),
 
+    /* Reloading netstatus results in segfault due to registering static type. */
+    not_unloadable : TRUE,
+
     constructor : netstatus_constructor,
     destructor  : netstatus_destructor,
     config : netstatus_config,

@@ -137,11 +137,9 @@ clicked (GtkWidget *widget, GdkEventButton *event, Plugin* plugin)
 {
     wincmd *wc = (wincmd *)plugin->priv;
 
-    ENTER;
-    if (event->type != GDK_BUTTON_PRESS)
-        RET(FALSE);
-
-    ENTER2;
+    /* Standard right-click handling. */
+    if (plugin_button_press_event(widget, event, plugin))
+        return TRUE;
 
     if (event->button == 1) {
         wc->action1 = 1 - wc->action1;
@@ -151,13 +149,8 @@ clicked (GtkWidget *widget, GdkEventButton *event, Plugin* plugin)
         wc->action2 = 1 - wc->action2;
         toggle_shaded(wc, wc->action2);
         DBG("wincmd: shade all\n");
-    } else if( event->button == 3 ) { /* right button */
-        GtkMenu* popup = (GtkMenu*)lxpanel_get_panel_menu
-                ( plugin->panel, plugin, FALSE );
-        gtk_menu_popup( popup, NULL, NULL, NULL, NULL, event->button, event->time );
-        return TRUE;
     }
-    RET(FALSE);
+    return FALSE;
 }
 
 static void
@@ -165,11 +158,8 @@ wincmd_destructor(Plugin *p)
 {
     wincmd *wc = (wincmd *)p->priv;
 
-    ENTER;
     g_free( wc->image );
-    /* g_object_unref( wc->tips ); */
     g_free(wc);
-    RET();
 }
 
 
@@ -180,11 +170,9 @@ wincmd_constructor(Plugin *p, char **fp)
     line s;
     gchar *fname;
     wincmd *wc;
-    //GdkPixbuf *gp, *gps;
     GtkWidget *button;
     int w, h;
 
-    ENTER;
     s.len = 256;
     wc = g_new0(wincmd, 1);
     g_return_val_if_fail(wc != NULL, 0);
@@ -247,13 +235,13 @@ wincmd_constructor(Plugin *p, char **fp)
     /* store the created plugin widget in plugin->pwid */
     p->pwid = button;
 
-    RET(1);
+    return 1;
 
  error:
     g_free(fname);
     wincmd_destructor(p);
     ERR( "%s - exit\n", __FUNCTION__);
-    RET(0);
+    return 0;
 }
 
 static void save_config( Plugin* p, FILE* fp )
@@ -273,7 +261,7 @@ PluginClass wincmd_plugin_class = {
     type : "wincmd",
     name : N_("Minimize All Windows"),
     version: "1.0",
-    description : N_("Sends commands to all desktop windows.\nSupported commnds are 1)toggle iconify and 2) toggle shade"),
+    description : N_("Sends commands to all desktop windows.\nSupported commands are 1)toggle iconify and 2) toggle shade"),
 
     constructor : wincmd_constructor,
     destructor  : wincmd_destructor,

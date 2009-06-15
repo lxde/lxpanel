@@ -69,13 +69,12 @@ GTypePlugin* lx_type_plugin_get(const char* plugin_name)
 }
 #endif
 
-/* counter for static (built-in) plugins must be greater then zero
+/* Dynamic parameter for static (built-in) plugins must be FALSE
  * so lxpanel will not try to unload them */
-
-#define REGISTER_PLUGIN_CLASS(pc, dynamic) \
+#define REGISTER_STATIC_PLUGIN_CLASS(pc) \
 do {\
     extern PluginClass pc;\
-    register_plugin_class(&pc, dynamic);\
+    register_plugin_class(&pc, FALSE);\
 } while (0)
 
 
@@ -84,67 +83,52 @@ register_plugin_class(PluginClass *pc, int dynamic)
 {
     pcl = g_list_append(pcl, pc);
     pc->dynamic = dynamic;
-    if (!pc->dynamic)
-        pc->count++;
-    /* reloading netstatus results in segfault due to registering static type in dll.
-     * so keep it always onboard until bug fix */
-    if (!strcmp(pc->type, "netstatus"))
-        pc->count++;
 }
 
 static void
 init_plugin_class_list()
 {
 #ifdef STATIC_SEPARATOR
-    REGISTER_PLUGIN_CLASS(separator_plugin_class, 0);
+    REGISTER_STATIC_PLUGIN_CLASS(separator_plugin_class);
 #endif
-
-/* Remove image plugin since it seems to be useless. */
-/*
-#ifdef STATIC_IMAGE
-    REGISTER_PLUGIN_CLASS(image_plugin_class, 0);
-#endif
-*/
 
 #ifdef STATIC_LAUNCHBAR
-    REGISTER_PLUGIN_CLASS(launchbar_plugin_class, 0);
+    REGISTER_STATIC_PLUGIN_CLASS(launchbar_plugin_class);
 #endif
 
 #ifdef STATIC_DCLOCK
-    REGISTER_PLUGIN_CLASS(dclock_plugin_class, 0);
+    REGISTER_STATIC_PLUGIN_CLASS(dclock_plugin_class);
 #endif
 
 #ifdef STATIC_WINCMD
-    REGISTER_PLUGIN_CLASS(wincmd_plugin_class, 0);
+    REGISTER_STATIC_PLUGIN_CLASS(wincmd_plugin_class);
 #endif
 
 #ifdef STATIC_DIRMENU
-    REGISTER_PLUGIN_CLASS(dirmenu_plugin_class, 0);
+    REGISTER_STATIC_PLUGIN_CLASS(dirmenu_plugin_class);
 #endif
 
 #ifdef STATIC_TASKBAR
-    REGISTER_PLUGIN_CLASS(taskbar_plugin_class, 0);
+    REGISTER_STATIC_PLUGIN_CLASS(taskbar_plugin_class);
 #endif
 
 #ifdef STATIC_PAGER
-    REGISTER_PLUGIN_CLASS(pager_plugin_class, 0);
+    REGISTER_STATIC_PLUGIN_CLASS(pager_plugin_class);
 #endif
 
 #ifdef STATIC_TRAY
-    REGISTER_PLUGIN_CLASS(tray_plugin_class, 0);
+    REGISTER_STATIC_PLUGIN_CLASS(tray_plugin_class);
 #endif
 
 #ifndef DISABLE_MENU
 #ifdef STATIC_MENU
-    REGISTER_PLUGIN_CLASS(menu_plugin_class, 0);
+    REGISTER_STATIC_PLUGIN_CLASS(menu_plugin_class);
 #endif
 #endif
 
 #ifdef STATIC_SPACE
-    REGISTER_PLUGIN_CLASS(space_plugin_class, 0);
+    REGISTER_STATIC_PLUGIN_CLASS(space_plugin_class);
 #endif
-
-    RET();
 }
 
 GList* plugin_find_class( const char* type )
@@ -171,7 +155,7 @@ plugin_load_dynamic( const char* type, const gchar* path )
     m = g_module_open(path, G_MODULE_BIND_LAZY);
     if (!m) {
         /* ERR("error is %s\n", g_module_error()); */
-        RET(NULL);
+        return NULL;
     }
     g_snprintf( class_name, 128, "%s_plugin_class", type );
 
@@ -183,7 +167,7 @@ plugin_load_dynamic( const char* type, const gchar* path )
         RET(NULL);
     }
     pc->gmodule = m;
-    register_plugin_class(pc, 1);
+    register_plugin_class(pc, TRUE);
     return pc;
 }
 
@@ -194,7 +178,6 @@ plugin_load(char *type)
     PluginClass *pc = NULL;
     Plugin *plug = NULL;
 
-    ENTER;
     if (!pcl)
         init_plugin_class_list();
 
@@ -207,10 +190,6 @@ plugin_load(char *type)
     else if ( g_module_supported() ) {
         gchar path[ PATH_MAX ];
         
-#if 0   /* put plugins in config dir is too dirty... */
-        g_snprintf(path, PATH_MAX, "%s/.lxpanel/plugins/%s.so", getenv("HOME"), type);
-        pc = plugin_load_dynamic( type, path );
-#endif
         if( !pc ) {
             g_snprintf(path, PATH_MAX, PACKAGE_LIB_DIR "/lxpanel/plugins/%s.so", type);
             pc = plugin_load_dynamic( type, path );
@@ -220,41 +199,38 @@ plugin_load(char *type)
 
     /* nothing was found */
     if (!pc)
-        RET(NULL);
+        return NULL;
 
     plug = g_new0(Plugin, 1);
     g_return_val_if_fail (plug != NULL, NULL);
     plug->class = pc;
     pc->count++;
-    RET(plug);
+    return plug;
 }
 
 
 void plugin_put(Plugin *this)
 {
     PluginClass *pc = this->class;
-    ENTER;
     plugin_class_unref( pc );
     g_free(this);
-    RET();
 }
 
 int
 plugin_start(Plugin *this, char** fp)
 {
-    ENTER;
 
     DBG("%s\n", this->class->type);
 
     if (!this->class->constructor(this, fp)) {
-//        if (!this->class->invisible)
-//            gtk_widget_destroy(this->pwid);
-        RET(0);
+        return 0;
     }
 
-    if (!this->class->invisible && this->pwid ) {
+    if (this->class->one_per_system)
+        this->class->one_per_system_instantiated = TRUE;
+
+    if (this->pwid ) {
         /* this->pwid is created by the plugin */
-        //this->pwid = gtk_bgbox_new();
         gtk_widget_set_name(this->pwid, this->class->type);
         gtk_box_pack_start(GTK_BOX(this->panel->box), this->pwid, this->expand, TRUE,
               this->padding);
@@ -262,29 +238,27 @@ plugin_start(Plugin *this, char** fp)
 
         gtk_widget_show(this->pwid);
     }
-    RET(1);
+    return 1;
 }
 
 
 void plugin_stop(Plugin *this)
 {
-    ENTER;
-    /* g_debug("%s\n", this->class->type); */
+    if (/*!this->class->invisible &&*/ this->pwid )
+    {
+        gtk_widget_destroy(this->pwid);
+        this->pwid = NULL;
+    }
     this->class->destructor(this);
     this->panel->plug_num--;
-    if (!this->class->invisible && this->pwid )
-        gtk_widget_destroy(this->pwid);
-    /* this->pwid is destroyed in the dtor of plugins */
-    RET();
+    this->class->one_per_system_instantiated = FALSE;
 }
 
 void plugin_class_unref( PluginClass* pc )
 {
     --pc->count;
-    if (pc->count == 0 && pc->dynamic) {
+    if (pc->count == 0 && pc->dynamic && ( ! pc->not_unloadable)) {
         pcl = g_list_remove(pcl, pc);
-        /* pc points now somewhere inside loaded lib, so if g_module_close
-         * will touch it after dlclose (and 2.6 does) it will result in segfault */
         g_module_close(pc->gmodule);
     }
 }
@@ -314,30 +288,6 @@ GList* plugin_get_available_classes()
     }
 
 #ifndef DISABLE_PLUGINS_LOADING
-#if 0   /* Put plugins in config dir is too dirty... */
-    dir_path = g_build_filename( g_get_home_dir(), ".lxpanel/plugins", NULL );
-    if( dir = g_dir_open( dir_path, 0, NULL ) ) {
-        while( file = g_dir_read_name( dir ) ) {
-            GModule *m;
-            char* type;
-            if( ! g_str_has_suffix( file, ".so" ) )
-                  continue;
-            type = g_strndup( file, strlen(file) - 3 );
-            l = plugin_find_class( type );
-            if( l == NULL ) { /* If it has not been loaded */
-                path = g_build_filename( dir_path, file, NULL );
-                if( pc = plugin_load_dynamic( type, path ) ) {
-                    ++pc->count;
-                    classes = g_list_prepend( classes, pc );
-                }
-                g_free( path );
-            }
-            g_free( type );
-        }
-        g_dir_close( dir );
-    }
-    g_free( dir_path );
-#endif
     if( dir = g_dir_open( PACKAGE_LIB_DIR "/lxpanel/plugins", 0, NULL ) ) {
         while( file = g_dir_read_name( dir ) ) {
             GModule *m;
@@ -437,7 +387,19 @@ plugin_widget_set_background( GtkWidget* w, Panel* p )
 
 void plugin_set_background( Plugin* pl, Panel* p )
 {
-    if( G_UNLIKELY( pl->class->invisible || ! pl->pwid ) )
-        return;
-    plugin_widget_set_background( pl->pwid, p );
+    if (pl->pwid != NULL)
+        plugin_widget_set_background( pl->pwid, p );
+}
+
+/* Handler for "button_press_event" signal with Plugin as parameter.
+ * External so can be used from a plugin. */
+gboolean plugin_button_press_event(GtkWidget *widget, GdkEventButton *event, Plugin *plugin)
+{
+    if (event->button == 3)	 /* right button */
+    {
+        GtkMenu* popup = (GtkMenu*) lxpanel_get_panel_menu(plugin->panel, plugin, FALSE);
+        gtk_menu_popup(popup, NULL, NULL, NULL, NULL, event->button, event->time);
+        return TRUE;
+    }    
+    return FALSE;
 }

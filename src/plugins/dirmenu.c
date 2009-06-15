@@ -45,6 +45,7 @@ static GdkPixbuf* folder_icon = NULL;
 static GtkWidget* create_menu( Plugin* p,
                                const char* path,
                                gboolean open_at_top );
+static void dirmenu_apply_config_to_children(GtkWidget *w, dirmenu* dm);
 
 static void open_dir( Plugin* p, const char* path )
 {
@@ -138,14 +139,11 @@ static void on_select( GtkMenuItem* item, Plugin* p )
     }
 }
 
-#if GTK_CHECK_VERSION(2, 10, 0)
-/* NOTE: It seems that this doesn't work in older versions of gtk+?? */
 static void on_deselect( GtkMenuItem* item, Plugin* p )
 {
     /* delete old menu on deselect to save resource */
     gtk_menu_item_set_submenu( item, gtk_menu_new() );
 }
-#endif
 
 void on_sel_done( GtkWidget *menu, Plugin* p )
 {
@@ -200,12 +198,8 @@ static GtkWidget* create_menu( Plugin* p,
                 gtk_menu_shell_append( GTK_MENU_SHELL(menu), item );
                 g_signal_connect( item, "select",
                                   G_CALLBACK(on_select), p );
-#if GTK_CHECK_VERSION(2, 10, 0)
-                /* NOTE: It seems that this doesn't work in older
-                         versions of gtk+?? */
                 g_signal_connect( item, "deselect",
                                   G_CALLBACK(on_deselect), p);
-#endif
             }
             g_free( full );
         }
@@ -255,9 +249,9 @@ clicked (GtkWidget *widget, GdkEventButton *event, Plugin *p)
 {
     dirmenu *dm = (dirmenu *)p->priv;
 
-    ENTER;
-    if (event->type != GDK_BUTTON_PRESS)
-        RET(FALSE);
+    /* Standard left-click handling. */
+    if (plugin_button_press_event(widget, event, p))
+        return TRUE;
 
     if (event->button == 1) {
         show_menu( widget, p, event->button, event->time );
@@ -271,19 +265,17 @@ clicked (GtkWidget *widget, GdkEventButton *event, Plugin *p)
         g_free( path );
     }
 
-    RET(TRUE);
+    return TRUE;
 }
 
 static void
 dirmenu_destructor(Plugin *p)
 {
     dirmenu *dm = (dirmenu *)p->priv;
-    ENTER;
     g_free( dm->image );
     g_free( dm->path );
     g_free( dm->name );
     g_free(dm);
-    RET();
 }
 
 static int
@@ -294,7 +286,6 @@ dirmenu_constructor(Plugin *p, char **fp)
     dirmenu *dm;
     int w, h;
 
-    ENTER;
     s.len = 256;
     dm = g_new0(dirmenu, 1);
     g_return_val_if_fail(dm != NULL, 0);
@@ -341,11 +332,17 @@ dirmenu_constructor(Plugin *p, char **fp)
     if (! fname)
         fname = strdup("file-manager");
 
-    dm->button = fb_button_new_from_file_with_label(fname, w, h, 0x202020, TRUE, (p->panel->orientation == ORIENT_HORIZ ? dm->name : NULL));
-
+    /* Create button.
+     * It is not known why, but the button text will not draw if it is edited from empty to non-empty
+     * unless this strategy of initializing it with a non-empty value first is followed. */
+    p->pwid = dm->button = fb_button_new_from_file_with_colorlabel(fname, w, h,
+        0x202020, ((p->panel->usefontcolor) ? gcolor2rgb24(&p->panel->gfontcolor) : 0), TRUE,
+        "Temp");
+    dirmenu_apply_config_to_children(dm->button, dm);
     gtk_container_set_border_width( GTK_CONTAINER(dm->button), 0 );
     g_signal_connect( dm->button, "button_press_event",
                       G_CALLBACK(clicked), p );
+    gtk_widget_set_size_request( dm->button, -1, PANEL_ICON_SIZE );
 
     gtk_widget_show( dm->button );
     g_free(fname);
@@ -354,17 +351,13 @@ dirmenu_constructor(Plugin *p, char **fp)
     gtk_widget_set_tooltip_text( dm->button,
                                  fname ? fname : g_get_home_dir());
     g_free( fname );
-
-    /* store the created plugin widget in plugin->pwid */
-    p->pwid = dm->button;
-
-    RET(1);
+    return 1;
 
  error:
     g_free(fname);
     dirmenu_destructor(p);
     ERR( "%s - exit\n", __FUNCTION__);
-    RET(0);
+    return 0;
 }
 
 static void save_config( Plugin* p, FILE* fp )
@@ -375,9 +368,46 @@ static void save_config( Plugin* p, FILE* fp )
     lxpanel_put_str( fp, "image", dm->image );
 }
 
+static void dirmenu_apply_config_to_children(GtkWidget *w, dirmenu* dm)
+{
+    if (GTK_IS_CONTAINER(w))
+	gtk_container_foreach(GTK_CONTAINER(w), (GtkCallback) dirmenu_apply_config_to_children, (gpointer) dm);
+    else if (GTK_IS_LABEL(w))
+    {
+        if (dm->name == NULL)
+	    gtk_label_set_text(GTK_LABEL(w), NULL);
+        else
+        {
+            gchar str[512];
+            g_snprintf(str, sizeof(str), "<span color=\"#%06x\">%s</span>",
+                ((dm->panel->usefontcolor) ? gcolor2rgb24(&dm->panel->gfontcolor) : 0), dm->name);
+            gtk_label_set_markup(GTK_LABEL(w), str);
+        }
+    }
+}
+
+static void dirmenu_apply_config(Plugin* p)
+{
+    dirmenu* dm = (dirmenu*)p->priv;
+    gtk_widget_set_tooltip_text(dm->button, ((dm->path != NULL) ? expand_tilda(dm->path) : g_get_home_dir()));
+    gtk_container_foreach(GTK_CONTAINER(dm->button), (GtkCallback) dirmenu_apply_config_to_children, (gpointer) dm);
+}
+
+static void dirmenu_configure( Plugin *p, GtkWindow* parent )
+{
+    GtkWidget* dlg;
+    dirmenu* dm = (dirmenu*)p->priv;
+    dlg = create_generic_config_dlg( _(p->class->name),
+                                     GTK_WIDGET(parent),
+                                    (GSourceFunc) dirmenu_apply_config, (gpointer) p,
+                                     _("Directory"), &dm->path, CONF_TYPE_DIRECTORY_ENTRY,
+                                     _("Label"), &dm->name, CONF_TYPE_STR,
+//                                     _("Icon"), &dm->image, CONF_TYPE_FILE_ENTRY,
+                                     NULL );
+    gtk_window_present( GTK_WINDOW(dlg) );
+}
+
 PluginClass dirmenu_plugin_class = {
-    fname: NULL,
-    count: 0,
 
     type : "dirmenu",
     name : N_("Directory Menu"),
@@ -386,6 +416,6 @@ PluginClass dirmenu_plugin_class = {
 
     constructor : dirmenu_constructor,
     destructor  : dirmenu_destructor,
-    config : NULL,
+    config : dirmenu_configure,
     save : save_config
 };

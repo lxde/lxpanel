@@ -36,12 +36,7 @@ space_destructor(Plugin *p)
 {
     space *sp = (space *)p->priv;
 
-    ENTER;
-    /* The widget is destroyed in plugin_stop().
-    gtk_widget_destroy(sp->mainw);
-    */
     g_free(sp);
-    RET();
 }
 
 static gboolean on_btn_press( GtkWidget* w, GdkEventButton* evt, Plugin* plugin )

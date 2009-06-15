@@ -85,27 +85,23 @@ static GtkWidget *create_calendar()
 
     gtk_widget_show_all(win);
 
-    RET(win);
+    return win;
 }
 
 static void *
 actionProcess( void *arg )
 {
-    ENTER;
-    RET((void *)system((char *) arg));
+    return ((void *)system((char *) arg));
 }
 
 static  gboolean
 clicked( GtkWidget *widget, GdkEventButton* evt, Plugin* plugin)
 {
     dclock *dc = (dclock*)plugin->priv;
-    ENTER2;
-    if( evt->button == 3 )  /* right button */
-    {
-        GtkMenu* popup = lxpanel_get_panel_menu( plugin->panel, plugin, FALSE );
-        gtk_menu_popup( popup, NULL, NULL, NULL, NULL, evt->button, evt->time );
+
+    /* Standard right-click handling. */
+    if (plugin_button_press_event(widget, evt, plugin))
         return TRUE;
-    }
 
     if( dc->action ) {
         pthread_t actionThread;
@@ -120,7 +116,7 @@ clicked( GtkWidget *widget, GdkEventButton* evt, Plugin* plugin)
             dc->calwin = NULL;
         }
     }
-    RET2(FALSE);
+    return FALSE;
 }
 
 static gint
@@ -132,7 +128,6 @@ clock_update(gpointer data )
     dclock *dc;
     gchar *utf8;
 
-    ENTER;
     g_assert(data != NULL);
     dc = (dclock *)data;
 
@@ -169,7 +164,7 @@ clock_update(gpointer data )
             }
     }
 
-    RET(TRUE);
+    return TRUE;
 }
 
 
@@ -179,7 +174,6 @@ dclock_constructor(Plugin *p, char** fp)
     line s;
     dclock *dc;
 
-    ENTER;
     dc = g_slice_new0(dclock);
     g_return_val_if_fail(dc != NULL, 0);
     p->priv = dc;
@@ -217,11 +211,12 @@ dclock_constructor(Plugin *p, char** fp)
             }
         }
     }
-    dc->main = gtk_event_box_new();
+
+    p->pwid = dc->main = gtk_event_box_new();
 
     g_signal_connect (G_OBJECT (dc->main), "button_press_event",
           G_CALLBACK (clicked), (gpointer) p);
-    dc->clockw = gtk_label_new("");
+    dc->clockw = gtk_label_new(NULL);
     gtk_misc_set_alignment(GTK_MISC(dc->clockw), 0.5, 0.5);
     gtk_misc_set_padding(GTK_MISC(dc->clockw), 4, 0);
     update_label_orient( p );
@@ -232,10 +227,7 @@ dclock_constructor(Plugin *p, char** fp)
 
     clock_update( dc );
 
-    /* store the created Plugin widget in Plugin->pwid */
-    p->pwid = dc->main;
-
-    RET(1);
+    return 1;
 
  error:
     g_free(dc->cfmt);
@@ -243,7 +235,7 @@ dclock_constructor(Plugin *p, char** fp)
     g_free(dc->action);
     g_free(dc->prev_str);
     g_slice_free(dclock, dc);
-    RET(0);
+    return 0;
 }
 
 
@@ -252,20 +244,15 @@ dclock_destructor(Plugin *p)
 {
     dclock *dc = (dclock *)p->priv;
 
-    ENTER;
     if (dc->timer)
         g_source_remove(dc->timer);
 
-    /* g_object_unref( dc->tip ); */
     gtk_widget_destroy(dc->clockw);
 
-    /* p->pwid = dc->main;
-    gtk_widget_destroy(dc->main); */
     g_free(dc->cfmt);
     g_free(dc->tfmt);
     g_free(dc->action);
     g_slice_free(dclock, dc);
-    RET();
 }
 
 static void apply_config( Plugin* p )
@@ -320,8 +307,6 @@ update_label_orient( Plugin* p )
 }
 
 PluginClass dclock_plugin_class = {
-    fname: NULL,
-    count: 0,
 
     type : "dclock",
     name : N_("Digital Clock"),

@@ -212,6 +212,9 @@ PluginClass tray_plugin_class = {
     version: "1.0",
     description : N_("Old KDE/GNOME Tray"),
 
+    /* Set a flag to identify the system tray.  It is special in that only one per system can exist. */
+    one_per_system : TRUE,
+
     constructor : tray_constructor,
     destructor  : tray_destructor,
     config : NULL,

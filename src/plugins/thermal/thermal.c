@@ -36,22 +36,6 @@ typedef struct {
              cl_warning2;
 } thermal;
 
-static  gboolean
-clicked( GtkWidget *widget, GdkEventButton* evt, Plugin* plugin)
-{
-
-    ENTER2;
-    if( evt->button == 3 )  /* right button */
-    {
-        GtkMenu* popup = (GtkMenu*)lxpanel_get_panel_menu
-                ( plugin->panel, plugin, FALSE );
-        gtk_menu_popup( popup, NULL, NULL, NULL, NULL, evt->button, evt->time );
-        return TRUE;
-    }
-
-    RET2(TRUE);
-}
-
 static gint
 get_critical(thermal *th){
     FILE *state;
@@ -193,7 +177,7 @@ thermal_constructor(Plugin *p, char** fp)
     th->tip  = gtk_tooltips_new();
 
     g_signal_connect (G_OBJECT (p->pwid), "button_press_event",
-          G_CALLBACK (clicked), (gpointer) p);
+          G_CALLBACK (plugin_button_press_event), (gpointer) p);
 
     line s;
     s.len = 256;

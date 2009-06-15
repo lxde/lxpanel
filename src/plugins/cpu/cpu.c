@@ -1,4 +1,4 @@
-/*
+/**
  * CPU usage plugin to lxpanel
  *
  * Copyright (c) 2008 LxDE Developers, see the file AUTHORS for details.
@@ -21,7 +21,6 @@
  */
 /*A little bug fixed by Mykola <mykola@2ka.mipt.ru>:) */
 
-
 #include <string.h>
 #include <sys/time.h>
 #include <time.h>
@@ -33,206 +32,235 @@
 #include "panel.h"
 #include "misc.h"
 
-#define KILOBYTE 1024
-#define MAX_WGSIZE 100
-
 #define BORDER_SIZE 2
 
 #include "dbg.h"
-typedef unsigned long tick;
+
+typedef unsigned long CPUTick;			/* Value from /proc/stat */
+typedef float CPUSample;			/* Saved CPU utilization value as 0.0..1.0 */
 
 struct cpu_stat {
-    tick u, n, s, i;
+    CPUTick u, n, s, i;				/* User, nice, system, idle */
 };
 
-
+/* Private context for CPU plugin. */
 typedef struct {
-    GdkGC *gc_cpu;
-    GdkColor *ccpu;
-    GtkWidget *da;
-    GtkWidget *evbox;
-    GdkPixmap *pixmap;
-    /* GtkTooltips *tip; */
+    GdkGC * graphics_context;			/* Graphics context for drawing area */
+    GdkColor foreground_color;			/* Foreground color for drawing area */
+    GtkWidget * da;				/* Drawing area */
+    GdkPixmap * pixmap;				/* Pixmap to be drawn on drawing area */
 
-    int timer;
-    tick *stats_cpu;
-    unsigned int ini_stats;
-    int Wwg;
-    int Hwg;
-    struct cpu_stat cpu_anterior;
-} cpu_t;
+    int timer;					/* Timer for periodic update */
+    CPUSample * stats_cpu;			/* Ring buffer of CPU utilization values */
+    unsigned int ring_cursor;			/* Cursor for ring buffer */
+    int pixmap_width;				/* Width of drawing area pixmap; also size of ring buffer; does not include border size */
+    int pixmap_height;				/* Height of drawing area pixmap; does not include border size */
+    struct cpu_stat previous_cpu_stat;		/* Previous value of cpu_stat */
+} CPUPlugin;
 
+static void redraw_pixmap(CPUPlugin * c);
+static gboolean cpu_update(CPUPlugin * c);
+static gboolean configure_event(GtkWidget * widget, GdkEventConfigure * event, CPUPlugin * c);
+static gboolean expose_event(GtkWidget * widget, GdkEventExpose * event, CPUPlugin * c);
+static int cpu_constructor(Plugin * p, char ** fp);
+static void cpu_destructor(Plugin * p);
 
-static int
-cpu_update(cpu_t *c)
+/* Redraw after timer callback or resize. */
+static void redraw_pixmap(CPUPlugin * c)
 {
-    int cpu_u=0, cpu_s=0, cpu_n=0, cpu_i=100;
+    /* Erase pixmap. */
+    gdk_draw_rectangle(c->pixmap, c->da->style->black_gc, TRUE, 0, 0, c->pixmap_width, c->pixmap_height);
+
+    /* Recompute pixmap. */
     unsigned int i;
-    struct cpu_stat cpu, cpu_r;
-    FILE *stat;
-    float total;
-
-    ENTER;
-    if(!c->pixmap)
-        RET(TRUE);
-
-    /* possible because of autohide */
-    if ( (c->Wwg - BORDER_SIZE) < 0 ) 
-	RET(TRUE);
-	
-    stat = fopen("/proc/stat", "r");
-    if(!stat)
-        RET(TRUE);
-    fscanf(stat, "cpu %lu %lu %lu %lu", &cpu.u, &cpu.n, &cpu.s, &cpu.i);
-    fclose(stat);
-
-    cpu_r.u = cpu.u - c->cpu_anterior.u;
-    cpu_r.n = cpu.n - c->cpu_anterior.n;
-    cpu_r.s = cpu.s - c->cpu_anterior.s;
-    cpu_r.i = cpu.i - c->cpu_anterior.i;
-
-    total = cpu_r.u + cpu_r.n + cpu_r.s + cpu_r.i;
-    cpu_u = cpu_r.u * (c->Hwg-BORDER_SIZE * 2) / total;
-    cpu_s = cpu_r.n * (c->Hwg-BORDER_SIZE * 2) / total;
-    cpu_n = cpu_r.s * (c->Hwg-BORDER_SIZE * 2) / total;
-    cpu_i = cpu_r.i * (c->Hwg-BORDER_SIZE * 2) / total;
-
-    c->cpu_anterior = cpu;
-
-    c->stats_cpu[c->ini_stats++] = cpu_u + cpu_s + cpu_n;
-    c->ini_stats %= c->Wwg;
-
-    gdk_draw_rectangle(c->pixmap, c->da->style->black_gc, TRUE, 0, 0, c->Wwg - BORDER_SIZE * 2, c->Hwg - BORDER_SIZE * 2);
-    
-    for (i = 0; i < (c->Wwg - BORDER_SIZE); i++)
+    unsigned int drawing_cursor = c->ring_cursor;
+    for (i = 0; i < c->pixmap_width; i++)
     {
-        int val = c->stats_cpu[(i + c->ini_stats) % (c->Wwg - BORDER_SIZE * 2) ];
-        if (val)
-            gdk_draw_line(c->pixmap, c->gc_cpu, i, (c->Hwg - BORDER_SIZE * 2), i, (c->Hwg - BORDER_SIZE * 2) - val);
+        /* Draw one bar of the CPU usage graph. */
+        if (c->stats_cpu[drawing_cursor] != 0.0)
+            gdk_draw_line(c->pixmap, c->graphics_context,
+                i, c->pixmap_height,
+                i, c->pixmap_height - c->stats_cpu[drawing_cursor] * c->pixmap_height);
+
+        /* Increment and wrap drawing cursor. */
+        drawing_cursor += 1;
+	if (drawing_cursor >= c->pixmap_width)
+            drawing_cursor = 0;
     }
+
+    /* Redraw pixmap. */
     gtk_widget_queue_draw(c->da);
-    RET(TRUE);
 }
 
-static gint
-configure_event(GtkWidget *widget, GdkEventConfigure *event, cpu_t *c)
+/* Periodic timer callback. */
+static gboolean cpu_update(CPUPlugin * c)
 {
-    ENTER;
-    if (c->pixmap)
-        g_object_unref(c->pixmap);
-
-    tick *t0 = g_new0(typeof(*c->stats_cpu), widget->allocation.width);
-    unsigned int imax = ((c->Wwg > widget->allocation.width) ? widget->allocation.width : c->Wwg);
-
-    c->Wwg = widget->allocation.width;
-    c->Hwg = widget->allocation.height;
-    if (c->stats_cpu)
+    if ((c->stats_cpu != NULL) && (c->pixmap != NULL))
     {
-        memcpy(t0, c->stats_cpu, imax * sizeof(tick));
-        g_free(c->stats_cpu);
+        /* Open statistics file and scan out CPU usage. */
+        struct cpu_stat cpu;
+        FILE * stat = fopen("/proc/stat", "r");
+        if (stat == NULL)
+            return TRUE;
+        int fscanf_result = fscanf(stat, "cpu %lu %lu %lu %lu", &cpu.u, &cpu.n, &cpu.s, &cpu.i);
+        fclose(stat);
+
+        /* Ensure that fscanf succeeded. */
+        if (fscanf_result == 4)
+        {
+            /* Compute delta from previous statistics. */
+            struct cpu_stat cpu_delta;
+            cpu_delta.u = cpu.u - c->previous_cpu_stat.u;
+            cpu_delta.n = cpu.n - c->previous_cpu_stat.n;
+            cpu_delta.s = cpu.s - c->previous_cpu_stat.s;
+            cpu_delta.i = cpu.i - c->previous_cpu_stat.i;
+
+            /* Copy current to previous. */
+            memcpy(&c->previous_cpu_stat, &cpu, sizeof(struct cpu_stat));
+
+            /* Compute user+nice+system as a fraction of total.
+             * Introduce this sample to ring buffer, increment and wrap ring buffer cursor. */
+            float cpu_uns = cpu_delta.u + cpu_delta.n + cpu_delta.s;
+            c->stats_cpu[c->ring_cursor] = cpu_uns / (cpu_uns + cpu_delta.i);
+            c->ring_cursor += 1;
+            if (c->ring_cursor >= c->pixmap_width)
+                c->ring_cursor = 0;
+
+            /* Redraw with the new sample. */
+            redraw_pixmap(c);
+        }
     }
-    c->stats_cpu = t0;
-
-    /* set pixmap size */
-    c->pixmap = gdk_pixmap_new (widget->window,
-          widget->allocation.width-BORDER_SIZE * 2,
-          widget->allocation.height-BORDER_SIZE * 2,
-          -1);
-    gdk_draw_rectangle (c->pixmap,
-          widget->style->black_gc,
-          TRUE,
-          0, 0,
-          widget->allocation.width-BORDER_SIZE * 2,
-          widget->allocation.height-BORDER_SIZE * 2); 
-
-   RET(TRUE);
+    return TRUE;
 }
 
-
-static gint
-expose_event(GtkWidget *widget, GdkEventExpose *event, cpu_t *c)
+/* Handler for configure_event on drawing area. */
+static gboolean configure_event(GtkWidget * widget, GdkEventConfigure * event, CPUPlugin * c)
 {
-    ENTER;
-    gdk_draw_drawable (widget->window,
-          c->da->style->black_gc,
-          c->pixmap,
-          event->area.x, event->area.y,
-          event->area.x+BORDER_SIZE, event->area.y+BORDER_SIZE,
-          event->area.width, event->area.height);
-
-    RET(FALSE);
-}
-
-static gboolean  on_button_press(GtkWidget* w, GdkEventButton* evt, Plugin* plugin)
-{
-    if( evt->button == 3 )  /* right button */
+    /* Allocate pixmap and statistics buffer without border pixels. */
+    int new_pixmap_width = widget->allocation.width - BORDER_SIZE * 2;
+    int new_pixmap_height = widget->allocation.height - BORDER_SIZE * 2;
+    if ((new_pixmap_width > 0) && (new_pixmap_height > 0))
     {
-        GtkMenu* popup = lxpanel_get_panel_menu( plugin->panel, plugin, FALSE );
-        gtk_menu_popup( popup, NULL, NULL, NULL, NULL, evt->button, evt->time );
-        return TRUE;
+        /* If statistics buffer does not exist or it changed size, reallocate and preserve existing data. */
+        if ((c->stats_cpu == NULL) || (new_pixmap_width != c->pixmap_width))
+        {
+            CPUSample * new_stats_cpu = g_new0(typeof(*c->stats_cpu), new_pixmap_width);
+            if (c->stats_cpu != NULL)
+            {
+                if (new_pixmap_width > c->pixmap_width)
+                {
+                    /* New allocation is larger.
+                     * Introduce new "oldest" samples of zero following the cursor. */
+                    memcpy(&new_stats_cpu[0],
+                        &c->stats_cpu[0], c->ring_cursor * sizeof(CPUSample));
+                    memcpy(&new_stats_cpu[new_pixmap_width - c->pixmap_width + c->ring_cursor],
+                        &c->stats_cpu[c->ring_cursor], (c->pixmap_width - c->ring_cursor) * sizeof(CPUSample));
+                }
+                else if (c->ring_cursor <= new_pixmap_width)
+                {
+                    /* New allocation is smaller, but still larger than the ring buffer cursor.
+                     * Discard the oldest samples following the cursor. */
+                    memcpy(&new_stats_cpu[0],
+                        &c->stats_cpu[0], c->ring_cursor * sizeof(CPUSample));
+                    memcpy(&new_stats_cpu[c->ring_cursor],
+                        &c->stats_cpu[c->pixmap_width - new_pixmap_width + c->ring_cursor], (new_pixmap_width - c->ring_cursor) * sizeof(CPUSample));
+                }
+                else
+                {
+                    /* New allocation is smaller, and also smaller than the ring buffer cursor.
+                     * Discard all oldest samples following the ring buffer cursor and additional samples at the beginning of the buffer. */
+                    memcpy(&new_stats_cpu[0],
+                        &c->stats_cpu[c->ring_cursor - new_pixmap_width], new_pixmap_width * sizeof(CPUSample));
+                    c->ring_cursor = 0;
+                }
+                g_free(c->stats_cpu);
+            }
+            c->stats_cpu = new_stats_cpu;
+        }
+
+        /* Allocate or reallocate pixmap. */
+        c->pixmap_width = new_pixmap_width;
+        c->pixmap_height = new_pixmap_height;
+        if (c->pixmap)
+            g_object_unref(c->pixmap);
+        c->pixmap = gdk_pixmap_new(widget->window, c->pixmap_width, c->pixmap_height, -1);
+
+        /* Redraw pixmap at the new size. */
+        redraw_pixmap(c);
+    }
+    return TRUE;
+}
+
+/* Handler for expose_event on drawing area. */
+static gboolean expose_event(GtkWidget * widget, GdkEventExpose * event, CPUPlugin * c)
+{
+    /* Draw the requested part of the pixmap onto the drawing area.
+     * Translate it in both x and y by the border size. */
+    if (c->pixmap != NULL)
+    {
+        gdk_draw_drawable (widget->window,
+              c->da->style->black_gc,
+              c->pixmap,
+              event->area.x, event->area.y,
+              event->area.x + BORDER_SIZE, event->area.y + BORDER_SIZE,
+              event->area.width, event->area.height);
     }
     return FALSE;
 }
 
-static int
-cpu_constructor(Plugin *p, char **fp)
+/* Plugin constructor. */
+static int cpu_constructor(Plugin * p, char ** fp)
 {
-    cpu_t *c;
-
-    ENTER;
-    c = g_new0(cpu_t, 1);
+    /* Allocate plugin context and set into Plugin private data pointer. */
+    CPUPlugin * c = g_new0(CPUPlugin, 1);
     p->priv = c;
 
+    /* Allocate top level widget and set into Plugin widget pointer. */
     p->pwid = gtk_event_box_new();
-    GTK_WIDGET_SET_FLAGS( p->pwid, GTK_NO_WINDOW );
+    gtk_container_set_border_width(GTK_CONTAINER(p->pwid), 1);
+    GTK_WIDGET_SET_FLAGS(p->pwid, GTK_NO_WINDOW);
 
+    /* Allocate drawing area as a child of top level widget.  Enable button press events. */
     c->da = gtk_drawing_area_new();
-    gtk_widget_set_size_request(c->da, 40, 20);
-    gtk_widget_add_events( c->da, GDK_BUTTON_PRESS_MASK );
-
-    gtk_widget_show(c->da);
-
-    c->gc_cpu = gdk_gc_new(p->panel->topgwin->window);
-
-    c->ccpu = (GdkColor *)malloc(sizeof(GdkColor));
-    gdk_color_parse("green",  c->ccpu);
-    gdk_colormap_alloc_color(gdk_drawable_get_colormap(p->panel->topgwin->window),  c->ccpu, FALSE, TRUE);
-    gdk_gc_set_foreground(c->gc_cpu,  c->ccpu);
-
+    gtk_widget_set_size_request(c->da, 40, PANEL_HEIGHT_DEFAULT);
+    gtk_widget_add_events(c->da, GDK_BUTTON_PRESS_MASK);
     gtk_container_add(GTK_CONTAINER(p->pwid), c->da);
-    gtk_container_set_border_width (GTK_CONTAINER (p->pwid), 1);
 
-    g_signal_connect (G_OBJECT (c->da),"configure_event",
-          G_CALLBACK (configure_event), (gpointer) c);
-    g_signal_connect (G_OBJECT (c->da), "expose_event",
-          G_CALLBACK (expose_event), (gpointer) c);
-    g_signal_connect( c->da, "button-press-event",
-          G_CALLBACK(on_button_press), p );
+    /* Clone a graphics context and set "green" as its foreground color.
+     * We will use this to draw the graph. */
+    c->graphics_context = gdk_gc_new(p->panel->topgwin->window);
+    gdk_color_parse("green",  &c->foreground_color);
+    gdk_colormap_alloc_color(gdk_drawable_get_colormap(p->panel->topgwin->window), &c->foreground_color, FALSE, TRUE);
+    gdk_gc_set_foreground(c->graphics_context, &c->foreground_color);
 
+    /* Connect signals. */
+    g_signal_connect(G_OBJECT(c->da), "configure_event", G_CALLBACK(configure_event), (gpointer) c);
+    g_signal_connect(G_OBJECT(c->da), "expose_event", G_CALLBACK(expose_event), (gpointer) c);
+    g_signal_connect(c->da, "button-press-event", G_CALLBACK(plugin_button_press_event), p);
+
+    /* Show the widget.  Connect a timer to refresh the statistics. */
+    gtk_widget_show(c->da);
     c->timer = g_timeout_add(1500, (GSourceFunc) cpu_update, (gpointer) c);
-    RET(1);
+    return 1;
 }
 
-static void
-cpu_destructor(Plugin *p)
+/* Plugin destructor. */
+static void cpu_destructor(Plugin * p)
 {
-    cpu_t *c = (cpu_t *) p->priv;
+    CPUPlugin * c = (CPUPlugin *) p->priv;
 
-    ENTER;
-    g_object_unref(c->pixmap);
-    g_object_unref(c->gc_cpu);
-    g_free(c->stats_cpu);
-    g_free(c->ccpu);
+    /* Disconnect the timer. */
     g_source_remove(c->timer);
-    /* g_object_unref( c->tip ); */
-    g_free(p->priv);
-    RET();
+
+    /* Deallocate memory. */
+    g_object_unref(c->graphics_context);
+    g_object_unref(c->pixmap);
+    g_free(c->stats_cpu);
+    g_free(c);
 }
 
-
+/* Plugin descriptor. */
 PluginClass cpu_plugin_class = {
-    fname: NULL,
-    count: 0,
 
     type : "cpu",
     name : N_("CPU Usage Monitor"),

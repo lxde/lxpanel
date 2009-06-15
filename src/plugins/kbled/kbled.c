@@ -109,17 +109,6 @@ event_filter(GdkXEvent *gdkxevent, GdkEvent *event, Plugin* p)
     return GDK_FILTER_CONTINUE;
 }
 
-static gboolean on_button_press (GtkWidget* widget, GdkEventButton* evt, Plugin* p)
-{
-    KbLed *kl = (KbLed*)p->priv;
-    if( evt->button == 3 ) { /* Right click*/
-        GtkMenu* popup = (GtkMenu*)lxpanel_get_panel_menu( p->panel, p, FALSE );
-        gtk_menu_popup( popup, NULL, NULL, NULL, NULL, evt->button, evt->time );
-        return TRUE;
-    }
-    return FALSE;
-}
-
 static void kbled_orientation( Plugin* p )
 {
     KbLed* kl = (KbLed*)p->priv;
@@ -212,7 +201,7 @@ static int kbled_constructor(Plugin *p, char **fp)
     p->pwid = gtk_event_box_new();
     gtk_widget_add_events( p->pwid, GDK_BUTTON_PRESS_MASK );
     g_signal_connect( p->pwid, "button-press-event",
-            G_CALLBACK(on_button_press), p );
+            G_CALLBACK(plugin_button_press_event), p );
 
     /* create a box */
     kl->mainw = p->panel->my_box_new( FALSE, 0 );
@@ -278,6 +267,7 @@ static void kbled_config( Plugin *p, GtkWindow* parent )
                                      _("Show NumLock"), &kl->visible[1], CONF_TYPE_BOOL,
                                      _("Show ScrollLock"), &kl->visible[2], CONF_TYPE_BOOL,
                                      NULL );
+    gtk_widget_set_size_request(GTK_WIDGET(dlg), 200, -1);
     gtk_window_present( GTK_WINDOW(dlg) );
 }
 
@@ -286,7 +276,7 @@ PluginClass kbled_plugin_class = {
     count: 0,
 
     type : "kbled",
-    name : N_("Keyboard Led"),
+    name : N_("Keyboard LED"),
     version: "1.0",
     description : N_("Indicators for CapsLock, NumLock, and ScrollLock keys"),
 
