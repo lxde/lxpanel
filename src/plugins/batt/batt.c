@@ -202,7 +202,7 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
 
         gtk_widget_set_tooltip_text(lx_b->drawingArea, tooltip);
 
-        int chargeLevel = lx_b->b->percentage;
+        int chargeLevel = lx_b->b->percentage * (lx_b->length - 2 * lx_b->border) / 100;
 
         /* Choose the right colors for the charge bar */
         if (isCharging) {
