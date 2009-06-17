@@ -10,7 +10,6 @@ moduledir = $(libdir)/lxpanel/plugins
 
 batt_la_SOURCES = \
 	batt.c \
-	batt.h \
 	batt_sys.h \
 	batt_sys.c
 
