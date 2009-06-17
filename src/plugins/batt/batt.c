@@ -44,7 +44,6 @@
 #include <string.h>
 
 #include "dbg.h"
-#include "batt.h"
 #include "batt_sys.h"
 #include "misc.h" /* used for the line struct */
 #include "panel.h" /* used to determine panel orientation */
