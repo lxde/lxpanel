@@ -472,7 +472,6 @@ constructor(Plugin *p, char **fp)
     RET(TRUE);
 
 error:
-    destructor( p );
     RET(FALSE);
 }
 
@@ -487,8 +486,10 @@ destructor(Plugin *p)
     if (b->pixmap)
         g_object_unref(b->pixmap);
 
-    g_object_unref(b->gc1);
-    g_object_unref(b->gc2);
+    if (b->gc1)
+        g_object_unref(b->gc1);
+    if (b->gc2)
+        g_object_unref(b->gc2);
     g_free(b->alarmCommand);
     g_free(b->backgroundColor);
     g_free(b->chargingColor1);
@@ -498,7 +499,8 @@ destructor(Plugin *p)
 
     g_free(b->rateSamples);
     sem_destroy(&(b->alarmProcessLock));
-    g_source_remove(b->timer);
+    if (b->timer)
+        g_source_remove(b->timer);
     g_free(b);
 
     RET();
