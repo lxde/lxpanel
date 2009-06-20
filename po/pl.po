@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pl\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-28 17:32+0200\n"
-"PO-Revision-Date: 2009-05-24 04:03-0000\n"
+"PO-Revision-Date: 2009-06-19 15:01+0200\n"
 "Last-Translator: Artur Kruszewski <mazdac@gmail.com>\n"
 "Language-Team: Polish\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Pootle 1.1.0\n"
 "X-Poedit-Bookmarks: 19,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
 "X-Poedit-Country: Poland\n"
 
@@ -245,19 +245,21 @@ msgstr "Potwierdź"
 #: ../src/panel.c:728
 msgid "translator-credits"
 msgstr ""
+"Grzegorz Gibas <amigib@gmail.com>, 2009.Artur Kruszewski <mazdac@gmail.com>, "
+"2009."
 
 #: ../src/panel.c:733
-#, fuzzy
 msgid "LXPanel"
-msgstr "Panel"
+msgstr "LXPanel"
 
+# a może "Chronione Prawami Autorskimi (C) 2009-2009"
 #: ../src/panel.c:735
 msgid "Copyright (C) 2008-2009"
-msgstr ""
+msgstr "Wszelkie prawa zastrzeżone (C) 2008-2009"
 
 #: ../src/panel.c:736
 msgid "Desktop panel for LXDE project"
-msgstr ""
+msgstr "Panel pulpitu dla LXDE"
 
 #: ../src/panel.c:767
 msgid "Add / Remove Panel Items"
@@ -278,7 +280,7 @@ msgstr "Usuń Ten Panel"
 
 #: ../src/panel.c:815
 msgid "About"
-msgstr ""
+msgstr "O..."
 
 #: ../src/panel.c:823
 msgid "Panel"
@@ -425,22 +427,18 @@ msgid "Bar with buttons to launch application"
 msgstr "Pasek z przyciskami do uruchamiania programów"
 
 #: ../src/plugins/taskbar.c:1407
-#, fuzzy
 msgid "_Raise"
 msgstr "Rozwiń"
 
 #: ../src/plugins/taskbar.c:1411
-#, fuzzy
 msgid "R_estore"
 msgstr "Przywróć"
 
 #: ../src/plugins/taskbar.c:1415
-#, fuzzy
 msgid "Ma_ximize"
 msgstr "Maksymalizuj"
 
 #: ../src/plugins/taskbar.c:1419
-#, fuzzy
 msgid "Ico_nify"
 msgstr "Minimalizuj"
 
@@ -454,13 +452,11 @@ msgid "All workspaces"
 msgstr "Wszystkie pulpity"
 
 #: ../src/plugins/taskbar.c:1443
-#, fuzzy
 msgid "_Move to Workspace"
 msgstr "Przenieś na inny pulpit"
 
 #. we want this item to be farest from mouse pointer
 #: ../src/plugins/taskbar.c:1451
-#, fuzzy
 msgid "_Close Window"
 msgstr "Zamknij okno"
 
@@ -474,7 +470,7 @@ msgstr "Tylko ikony"
 
 #: ../src/plugins/taskbar.c:1687
 msgid "Flat Buttons"
-msgstr "Płaskie Przyciski"
+msgstr "Płaskie przyciski"
 
 #: ../src/plugins/taskbar.c:1688
 msgid "Accept SkipPager"
@@ -482,7 +478,7 @@ msgstr "Akceptuj SkipPager"
 
 #: ../src/plugins/taskbar.c:1689
 msgid "Show Iconified windows"
-msgstr "Pokaż zikonizowane okna"
+msgstr "Pokaż zminimalizowane okna"
 
 #: ../src/plugins/taskbar.c:1690
 msgid "Show mapped windows"
@@ -517,7 +513,7 @@ msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
-"Pasek zadań pokazuje wszyski otwarte okna i umożliwia ich ikonizację, "
+"Pasek zadań pokazuje wszyski otwarte okna i umożliwia ich minimalizację, "
 "zwinięcie lub wywołanie"
 
 #: ../src/plugins/dclock.c:279
@@ -530,7 +526,7 @@ msgstr "Format podpowiedzi"
 
 #: ../src/plugins/dclock.c:281
 msgid "Format codes: man 3 strftime"
-msgstr ""
+msgstr "Legenda formatowania: patrz polecenie 'man 3 sfrtime'"
 
 #: ../src/plugins/dclock.c:282
 msgid "Action"
