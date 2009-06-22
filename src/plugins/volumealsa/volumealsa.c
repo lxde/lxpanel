@@ -218,13 +218,23 @@ static gboolean tray_icon_press(GtkWidget *widget, GdkEventButton *event, volume
     if (plugin_button_press_event(widget, event, vol->plugin))
         return TRUE;
 
-    if (vol->show==0) {
-        gtk_window_set_position(GTK_WINDOW(vol->dlg), GTK_WIN_POS_MOUSE);
-        gtk_widget_show_all(vol->dlg);
-        vol->show = 1;
-    } else {
-        gtk_widget_hide(vol->dlg);
-        vol->show = 0;
+    if (event->button == 1)
+    {
+        if (vol->show == 0)
+        {
+            gtk_window_set_position(GTK_WINDOW(vol->dlg), GTK_WIN_POS_MOUSE);
+            gtk_widget_show_all(vol->dlg);
+            vol->show = 1;
+        }
+        else
+        {
+            gtk_widget_hide(vol->dlg);
+            vol->show = 0;
+        }
+    }
+    else if (event->button == 2)
+    {
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(vol->mute_check), ! gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(vol->mute_check)));
     }
     return TRUE;
 }
@@ -236,17 +246,19 @@ static void on_vscale_value_changed(GtkRange *range, volume_t *vol)
 
 static void on_vscale_scrolled( GtkScale* scale, GdkEventScroll *evt, volume_t* vol )
 {
-    gdouble val = gtk_range_get_value((GtkRange*)scale);
+    gdouble val = gtk_range_get_value((GtkRange*)vol->vscale);
     switch( evt->direction )
     {
     case GDK_SCROLL_UP:
+    case GDK_SCROLL_LEFT:
         val += 2;
         break;
     case GDK_SCROLL_DOWN:
+    case GDK_SCROLL_RIGHT:
         val -= 2;
         break;
     }
-    gtk_range_set_value((GtkRange*)scale, CLAMP((int)val, 0, 100) );
+    gtk_range_set_value((GtkRange*)vol->vscale, CLAMP((int)val, 0, 100) );
 }
 
 static void click_mute(GtkWidget *widget, volume_t *vol)
@@ -384,6 +396,7 @@ volumealsa_constructor(Plugin *p, char **fp)
 
     g_signal_connect(G_OBJECT(vol->mainw), "button-press-event",
                          G_CALLBACK(tray_icon_press), vol);
+    g_signal_connect(G_OBJECT(vol->mainw), "scroll-event", G_CALLBACK(on_vscale_scrolled), vol );
 
     /* tray icon */
     vol->tray_icon = gtk_image_new();
