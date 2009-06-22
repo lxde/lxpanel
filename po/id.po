@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-28 17:32+0200\n"
+"POT-Creation-Date: 2009-06-22 23:58+0200\n"
 "PO-Revision-Date: 2009-06-10 14:35+0200\n"
 "Last-Translator: Rahman Yusri Aftian <aftian@yahoo.com>\n"
 "Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
@@ -17,136 +17,146 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 1.1.0\n"
 
-#: ../data/ui/panel-pref.glade.h:1
+#: ../data/ui/panel-pref.glade.h:2
+#, no-c-format
+msgid "% Percent"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:3
+msgid "<b>Automatic hiding</b>"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:4
 msgid "<b>Background</b>"
 msgstr "<b>Latar Belakang</b>"
 
-#: ../data/ui/panel-pref.glade.h:2
+#: ../data/ui/panel-pref.glade.h:5
 msgid "<b>Font</b>"
 msgstr "<b>Fonta</b>"
 
-#: ../data/ui/panel-pref.glade.h:3
+#: ../data/ui/panel-pref.glade.h:6
 msgid "<b>Position</b>"
 msgstr "<b>Posisi</b>"
 
-#: ../data/ui/panel-pref.glade.h:4
+#: ../data/ui/panel-pref.glade.h:7
 msgid "<b>Properties</b>"
 msgstr "<b>Properti</b>"
 
-#: ../data/ui/panel-pref.glade.h:5
+#: ../data/ui/panel-pref.glade.h:8
 msgid "<b>Set Preferred Applications</b>"
 msgstr "<b>Atur Aplikasi Kesukaan</b>"
 
-#: ../data/ui/panel-pref.glade.h:6
+#: ../data/ui/panel-pref.glade.h:9
 msgid "<b>Size</b>"
 msgstr "<b>Ukuran</b>"
 
-#: ../data/ui/panel-pref.glade.h:7
+#: ../data/ui/panel-pref.glade.h:10
 msgid "Advanced"
 msgstr "Mahir"
 
-#: ../data/ui/panel-pref.glade.h:8
+#: ../data/ui/panel-pref.glade.h:11
 msgid "Alignment:"
 msgstr "Perataan:"
 
-#: ../data/ui/panel-pref.glade.h:9
+#: ../data/ui/panel-pref.glade.h:12
+msgid "Bottom"
+msgstr "Bawah"
+
+#: ../data/ui/panel-pref.glade.h:13
+#, fuzzy
+msgid "Center"
+msgstr "Umum"
+
+#: ../data/ui/panel-pref.glade.h:14
 msgid "Custom Color"
 msgstr "Warna Suai"
 
-#: ../data/ui/panel-pref.glade.h:11
-#, no-c-format
-msgid ""
-"Dynamic\n"
-"Pixels\n"
-"% Percent"
+#: ../data/ui/panel-pref.glade.h:15
+msgid "Dynamic"
 msgstr ""
-"Dinamis\n"
-"Pixel\n"
-"% Persen"
 
-#: ../data/ui/panel-pref.glade.h:14
+#: ../data/ui/panel-pref.glade.h:16
 msgid "Edge:"
 msgstr "Tepi:"
 
-#: ../data/ui/panel-pref.glade.h:15
+#: ../data/ui/panel-pref.glade.h:17
 msgid "Enable Image:"
 msgstr "Aktifkan Citra:"
 
-#: ../data/ui/panel-pref.glade.h:16
+#: ../data/ui/panel-pref.glade.h:18
 msgid "Enable Transparency"
 msgstr "Aktifkan Transparansi"
 
-#: ../data/ui/panel-pref.glade.h:17
+#: ../data/ui/panel-pref.glade.h:19
 msgid "File Manager:"
 msgstr "Manajer Berkas:"
 
-#: ../data/ui/panel-pref.glade.h:18
+#: ../data/ui/panel-pref.glade.h:20
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr "Umum"
 
-#: ../data/ui/panel-pref.glade.h:19
+#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:932 ../src/panel.c:938
 msgid "Height:"
 msgstr "Tinggi:"
 
-#: ../data/ui/panel-pref.glade.h:20
-msgid ""
-"Left\n"
-"Center\n"
-"Right"
-msgstr ""
-"Kiri\n"
-"Tengah\n"
-"Kanan"
+#: ../data/ui/panel-pref.glade.h:22
+msgid "Left"
+msgstr "Kiri"
 
 #: ../data/ui/panel-pref.glade.h:23
-msgid ""
-"Left\n"
-"Right\n"
-"Top\n"
-"Bottom"
-msgstr ""
-"Kiri\n"
-"Kanan\n"
-"Atas\n"
-"Bawah"
+#, fuzzy
+msgid "Left\t"
+msgstr "Kiri"
 
-#: ../data/ui/panel-pref.glade.h:27
+#: ../data/ui/panel-pref.glade.h:24
 msgid "Logout Command:"
 msgstr "Perintah Keluar:"
 
-#: ../data/ui/panel-pref.glade.h:28
+#: ../data/ui/panel-pref.glade.h:25
 msgid "Make window managers treat the panel as dock"
 msgstr "Buat manajer jendela memperlakukan panel sebagai dok"
 
-#: ../data/ui/panel-pref.glade.h:29
+#: ../data/ui/panel-pref.glade.h:26
 msgid "Margin:"
 msgstr "Margin:"
 
-#: ../data/ui/panel-pref.glade.h:30
+#: ../data/ui/panel-pref.glade.h:27
+msgid "Minimize panel when not in use"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:28
 msgid "None (Use system theme)"
 msgstr "Tak ada (Gunakan tema sistem)"
 
-#: ../data/ui/panel-pref.glade.h:31
+#: ../data/ui/panel-pref.glade.h:29
 msgid "Panel Applets"
 msgstr "Aplet Panel"
 
-#: ../data/ui/panel-pref.glade.h:32
+#: ../data/ui/panel-pref.glade.h:30
 msgid "Panel Preferences"
 msgstr "Pengaturan Panel"
 
-#: ../data/ui/panel-pref.glade.h:33
+#: ../data/ui/panel-pref.glade.h:31
 msgid "Pixels"
 msgstr "Pixel"
 
-#: ../data/ui/panel-pref.glade.h:34
+#: ../data/ui/panel-pref.glade.h:32
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Ruang cadangan, dan tidak tercakup oleh jendela yang dimaksimalkan"
 
-#: ../data/ui/panel-pref.glade.h:35
+#: ../data/ui/panel-pref.glade.h:33
+msgid "Right"
+msgstr "Kanan"
+
+#: ../data/ui/panel-pref.glade.h:34
 msgid "Select an image file"
 msgstr "Pilih berkas citra"
+
+#: ../data/ui/panel-pref.glade.h:35
+msgid "Size when minimized"
+msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "Terminal Emulator:"
@@ -157,8 +167,18 @@ msgid "Tint color:"
 msgstr "Warna cat:"
 
 #: ../data/ui/panel-pref.glade.h:38
+#, fuzzy
+msgid "Top\t"
+msgstr "Atas"
+
+#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:933 ../src/panel.c:937
 msgid "Width:"
 msgstr "Lebar:"
+
+#: ../data/ui/panel-pref.glade.h:40
+#, fuzzy
+msgid "pixels"
+msgstr "Pixel"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:250
 msgid "Run"
@@ -172,59 +192,40 @@ msgstr "Start Ulang"
 msgid "Logout"
 msgstr "Keluar"
 
-#: ../src/configurator.c:400
+#: ../src/configurator.c:472
 msgid "Currently loaded plugins"
 msgstr "Plugin dimuat saat ini"
 
-#: ../src/configurator.c:409
+#: ../src/configurator.c:481
 msgid "Stretch"
 msgstr "Regang"
 
-#: ../src/configurator.c:507 ../src/panel.c:522
+#: ../src/configurator.c:579
 msgid "Add plugin to panel"
 msgstr "Tambah plugin ke panel"
 
-#: ../src/configurator.c:535 ../src/panel.c:545
+#: ../src/configurator.c:607
 msgid "Available plugins"
 msgstr "Plugin tersedia"
 
-#: ../src/configurator.c:1052
+#: ../src/configurator.c:1163
 msgid "Logout command is not set"
 msgstr "Perintah keluar tidak diatur"
 
-#: ../src/configurator.c:1101 ../src/configurator.c:1184
+#: ../src/configurator.c:1216
+#, fuzzy
+msgid "Select a directory"
+msgstr "Pilih berkas"
+
+#: ../src/configurator.c:1216 ../src/configurator.c:1301
 msgid "Select a file"
 msgstr "Pilih berkas"
 
-#: ../src/configurator.c:1211
+#: ../src/configurator.c:1328
 msgid "_Browse"
 msgstr "_Ramban"
 
-#: ../src/panel.c:630
-msgid "Left"
-msgstr "Kiri"
-
-#: ../src/panel.c:630
-msgid "Right"
-msgstr "Kanan"
-
-#: ../src/panel.c:630
-msgid "Top"
-msgstr "Atas"
-
-#: ../src/panel.c:630
-msgid "Bottom"
-msgstr "Bawah"
-
-#: ../src/panel.c:632 ../src/panel.c:793
-msgid "Create New Panel"
-msgstr "Buat Panel Baru"
-
-#: ../src/panel.c:638
-msgid "Where to put the panel?"
-msgstr "Dimana ingin menaruh panel?"
-
-#: ../src/panel.c:696
+#: ../src/panel.c:590
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -232,113 +233,117 @@ msgstr ""
 "Yakin hapus panel ini?\n"
 "<b>Peringatan: Ini tak dapat dikembalikan.</b>"
 
-#: ../src/panel.c:697
+#: ../src/panel.c:592
 msgid "Confirm"
 msgstr "Konfirmasi"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:728
+#: ../src/panel.c:623
 msgid "translator-credits"
 msgstr "Tentang-Penerjemah"
 
-#: ../src/panel.c:733
+#: ../src/panel.c:628
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:735
+#: ../src/panel.c:630
 msgid "Copyright (C) 2008-2009"
 msgstr "Copyright (C) 2008-2009"
 
-#: ../src/panel.c:736
+#: ../src/panel.c:631
 msgid "Desktop panel for LXDE project"
 msgstr "Panel Desktop  untuk proyek LXDE "
 
-#: ../src/panel.c:767
+#: ../src/panel.c:654
 msgid "Add / Remove Panel Items"
 msgstr "Tambah / Hapus Item Panel"
 
-#: ../src/panel.c:775
+#: ../src/panel.c:662
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Hapus \"%s\" Dari Panel"
 
-#: ../src/panel.c:787
+#: ../src/panel.c:674
 msgid "Panel Settings"
 msgstr "Pengaturan Panel"
 
-#: ../src/panel.c:804
+#: ../src/panel.c:680
+msgid "Create New Panel"
+msgstr "Buat Panel Baru"
+
+#: ../src/panel.c:691
 msgid "Delete This Panel"
 msgstr "Hapus Panel Ini"
 
-#: ../src/panel.c:815
+#: ../src/panel.c:702
 msgid "About"
 msgstr "Tentang"
 
-#: ../src/panel.c:823
+#: ../src/panel.c:710
 msgid "Panel"
 msgstr "Panel"
 
-#: ../src/panel.c:836
+#: ../src/panel.c:723
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "Pengaturan \"%s\""
 
-#: ../src/panel.c:1294
+#: ../src/panel.c:1248
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - panel GTK2+ ringan untuk desktop UNIX\n"
 
-#: ../src/panel.c:1295
+#: ../src/panel.c:1249
 #, c-format
 msgid "Command line options:\n"
 msgstr "Opsi baris perintah:\n"
 
-#: ../src/panel.c:1296
+#: ../src/panel.c:1250
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- cetak bantuan ini dan keluar\n"
 
-#: ../src/panel.c:1297
+#: ../src/panel.c:1251
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- cetak versi dan keluar\n"
 
-#: ../src/panel.c:1298
+#: ../src/panel.c:1252
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --log <nomor> -- atur level log 0-5. 0 - tak ada 5 - lengkap\n"
 
-#: ../src/panel.c:1299
+#: ../src/panel.c:1253
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr " --configure -- jalankan utilitas konfigurasi\n"
 
-#: ../src/panel.c:1300
+#: ../src/panel.c:1254
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile nama -- gunakan profil yang ditentukan\n"
 
-#: ../src/panel.c:1302
+#: ../src/panel.c:1256
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- sama seperti --help\n"
 
-#: ../src/panel.c:1303
+#: ../src/panel.c:1257
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- sama seperti --profile\n"
 
-#: ../src/panel.c:1304
+#: ../src/panel.c:1258
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- sama seperti --version\n"
 
-#: ../src/panel.c:1305
+#: ../src/panel.c:1259
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr " -C  -- sama seperti --configure\n"
 
-#: ../src/panel.c:1306
+#: ../src/panel.c:1260
 #, c-format
 msgid ""
 "\n"
@@ -361,19 +366,19 @@ msgstr "Baki Sistem"
 msgid "Old KDE/GNOME Tray"
 msgstr "Baki KDE/GNOME lama"
 
-#: ../src/plugins/cpu/cpu.c:226
+#: ../src/plugins/cpu/cpu.c:266
 msgid "CPU Usage Monitor"
 msgstr "Monitor Penggunaan CPU"
 
-#: ../src/plugins/cpu/cpu.c:228
+#: ../src/plugins/cpu/cpu.c:268
 msgid "Display CPU usage"
 msgstr "Tampilkan penggunaan CPU"
 
-#: ../src/plugins/deskno/deskno.c:99 ../src/plugins/deskno/deskno2.c:129
+#: ../src/plugins/deskno/deskno.c:118 ../src/plugins/deskno/deskno2.c:129
 msgid "Desktop No / Workspace Name"
 msgstr "Nama Ruang / Nomor Desktop"
 
-#: ../src/plugins/deskno/deskno.c:101 ../src/plugins/deskno/deskno2.c:131
+#: ../src/plugins/deskno/deskno.c:120 ../src/plugins/deskno/deskno2.c:131
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Tampilkan nomor ruang kerja, oleh cmeury@users.sf.net"
 
@@ -417,89 +422,95 @@ msgstr "Batang Jalankan Aplikasi"
 msgid "Bar with buttons to launch application"
 msgstr "Batang dengan tombol untuk menjalankan aplikasi"
 
-#: ../src/plugins/taskbar.c:1407
+#: ../src/plugins/taskbar.c:1405
 msgid "_Raise"
 msgstr "Naik_kan"
 
-#: ../src/plugins/taskbar.c:1411
+#: ../src/plugins/taskbar.c:1409
 msgid "R_estore"
 msgstr "K_embalikan"
 
-#: ../src/plugins/taskbar.c:1415
+#: ../src/plugins/taskbar.c:1413
 msgid "Ma_ximize"
 msgstr "Ma_ksimalkan"
 
-#: ../src/plugins/taskbar.c:1419
+#: ../src/plugins/taskbar.c:1417
 msgid "Ico_nify"
 msgstr "Iko_nifikasi"
 
 #: ../src/plugins/taskbar.c:1428
+#, fuzzy, c-format
+msgid "Workspace _%d"
+msgstr "Ruang kerja %d"
+
+#: ../src/plugins/taskbar.c:1433
 #, c-format
 msgid "Workspace %d"
 msgstr "Ruang kerja %d"
 
-#: ../src/plugins/taskbar.c:1436
-msgid "All workspaces"
+#: ../src/plugins/taskbar.c:1442
+#, fuzzy
+msgid "_All workspaces"
 msgstr "Semua ruang kerja"
 
-#: ../src/plugins/taskbar.c:1443
+#: ../src/plugins/taskbar.c:1449
 msgid "_Move to Workspace"
 msgstr "Pin_dah ke Ruang Kerja"
 
 #. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1451
+#: ../src/plugins/taskbar.c:1457
 msgid "_Close Window"
 msgstr "Tutup _Jendela"
 
-#: ../src/plugins/taskbar.c:1685
+#: ../src/plugins/taskbar.c:1691
 msgid "Show tooltips"
 msgstr "Tampilan tip alat"
 
-#: ../src/plugins/taskbar.c:1686
+#: ../src/plugins/taskbar.c:1692
 msgid "Icons only"
 msgstr "Hanya ikon"
 
-#: ../src/plugins/taskbar.c:1687
+#: ../src/plugins/taskbar.c:1693
 msgid "Flat Buttons"
 msgstr "Tombol Rata"
 
-#: ../src/plugins/taskbar.c:1688
+#: ../src/plugins/taskbar.c:1694
 msgid "Accept SkipPager"
 msgstr "Terima SkipPager"
 
-#: ../src/plugins/taskbar.c:1689
+#: ../src/plugins/taskbar.c:1695
 msgid "Show Iconified windows"
 msgstr "Tampilkan jendela terikonifikasi"
 
-#: ../src/plugins/taskbar.c:1690
+#: ../src/plugins/taskbar.c:1696
 msgid "Show mapped windows"
 msgstr "Tampilkan jendela terpetakan"
 
-#: ../src/plugins/taskbar.c:1691
+#: ../src/plugins/taskbar.c:1697
 msgid "Show windows from all desktops"
 msgstr "Tampilkan jendela dari semua desktop"
 
-#: ../src/plugins/taskbar.c:1692
+#: ../src/plugins/taskbar.c:1698
 msgid "Use mouse wheel"
 msgstr "Gunakan roda tetikus"
 
-#: ../src/plugins/taskbar.c:1693
+#: ../src/plugins/taskbar.c:1699
 msgid "Flash when there is any window requiring attention"
 msgstr "Kedip bila ada jendela yang memerlukan perhatian"
 
-#: ../src/plugins/taskbar.c:1694
+#: ../src/plugins/taskbar.c:1700
 msgid "Max width of task button"
 msgstr "Lebar maksimum tombol tugas"
 
-#: ../src/plugins/taskbar.c:1695
+#: ../src/plugins/taskbar.c:1701
 msgid "Spacing"
 msgstr "Jarak"
 
-#: ../src/plugins/taskbar.c:1773
+#: ../src/plugins/taskbar.c:1779
 msgid "Task Bar (Window List)"
 msgstr "Batang Tugas (Senarai Jendela)"
 
-#: ../src/plugins/taskbar.c:1775
+#: ../src/plugins/taskbar.c:1781
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -507,31 +518,31 @@ msgstr ""
 "Batang tugas menampilkan semua jendela terbuka dan izinkan untuk "
 "mengikonifikasi mereka, bayang atau mendapatkan fokus"
 
-#: ../src/plugins/dclock.c:279
+#: ../src/plugins/dclock.c:275
 msgid "Clock Format"
 msgstr "Format Jam"
 
-#: ../src/plugins/dclock.c:280
+#: ../src/plugins/dclock.c:276
 msgid "Tooltip Format"
 msgstr "Format Tip Alat"
 
-#: ../src/plugins/dclock.c:281
+#: ../src/plugins/dclock.c:277
 msgid "Format codes: man 3 strftime"
 msgstr "Kode Format : man 3 strftime"
 
-#: ../src/plugins/dclock.c:282
+#: ../src/plugins/dclock.c:278
 msgid "Action"
 msgstr "Aksi"
 
-#: ../src/plugins/dclock.c:283
+#: ../src/plugins/dclock.c:279
 msgid "Bold font"
 msgstr "Fonta tebal"
 
-#: ../src/plugins/dclock.c:318
+#: ../src/plugins/dclock.c:312
 msgid "Digital Clock"
 msgstr "Jam Digital"
 
-#: ../src/plugins/dclock.c:320
+#: ../src/plugins/dclock.c:314
 msgid "Display Digital clock and Tooltip"
 msgstr "Tampilkan Jam Digital dan Batang Alat"
 
@@ -910,11 +921,11 @@ msgstr "Menerima"
 msgid "Sending/Receiving"
 msgstr "Mengirim/Menerima"
 
-#: ../src/plugins/separator.c:103
+#: ../src/plugins/separator.c:83
 msgid "Separator"
 msgstr "Pemisah"
 
-#: ../src/plugins/separator.c:105
+#: ../src/plugins/separator.c:85
 msgid "Add a separator to the panel"
 msgstr "Tambah pemisah ke panel"
 
@@ -926,15 +937,15 @@ msgstr "Pemisah Desktop"
 msgid "Simple pager plugin"
 msgstr "Plugin pemisah sederhana"
 
-#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:892
+#: ../src/plugins/space.c:133 ../src/plugins/batt/batt.c:591
 msgid "Size"
 msgstr "Ukuran"
 
-#: ../src/plugins/space.c:153
+#: ../src/plugins/space.c:148
 msgid "<Space>"
 msgstr "<Ruang>"
 
-#: ../src/plugins/space.c:155
+#: ../src/plugins/space.c:150
 msgid "Allocate space"
 msgstr "Alokasi ruang"
 
@@ -991,93 +1002,104 @@ msgstr "Pengubah Tata Letak Papan Ketik"
 msgid "Switch between available keyboard layouts"
 msgstr "Ubah di antara tata letak papan ketik yang tersedia"
 
-#: ../src/plugins/wincmd.c:245
+#: ../src/plugins/wincmd.c:233
 msgid "Left click to iconify all windows. Middle click to shade them"
 msgstr ""
 "Klik kiri untuk mengikonifikasi semua jendela. Klik tengah untuk bayang"
 
-#: ../src/plugins/wincmd.c:274
+#: ../src/plugins/wincmd.c:262
 msgid "Minimize All Windows"
 msgstr "Minimalkan Semua Jendela"
 
-#: ../src/plugins/wincmd.c:276
+#: ../src/plugins/wincmd.c:264
+#, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
-"Supported commnds are 1)toggle iconify and 2) toggle shade"
+"Supported commands are 1)toggle iconify and 2) toggle shade"
 msgstr ""
 "Kirim perintah ke semua jendela desktop.\n"
 "Perintah yang didukung adalah 1) ubah ikonifikasi dan 2) ubah bayang"
 
-#: ../src/plugins/dirmenu.c:218
+#: ../src/plugins/dirmenu.c:212
 msgid "Open in _Terminal"
 msgstr "Buka di _Terminal"
 
-#: ../src/plugins/dirmenu.c:383
+#: ../src/plugins/dirmenu.c:403
+#, fuzzy
+msgid "Directory"
+msgstr "Menu Direktori"
+
+#: ../src/plugins/dirmenu.c:404
+#, fuzzy
+msgid "Label"
+msgstr "LXPanel"
+
+#: ../src/plugins/dirmenu.c:413
 msgid "Directory Menu"
 msgstr "Menu Direktori"
 
-#: ../src/plugins/dirmenu.c:385
+#: ../src/plugins/dirmenu.c:415
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "Ramban pohon direktori via menu (Penulis: PCMan)"
 
-#: ../src/plugins/thermal/thermal.c:299
+#: ../src/plugins/thermal/thermal.c:283
 msgid "Normal"
 msgstr "Normal"
 
-#: ../src/plugins/thermal/thermal.c:300
+#: ../src/plugins/thermal/thermal.c:284
 msgid "Warning1"
 msgstr "Peringatan1"
 
-#: ../src/plugins/thermal/thermal.c:301
+#: ../src/plugins/thermal/thermal.c:285
 msgid "Warning2"
 msgstr "Peringatan2"
 
-#: ../src/plugins/thermal/thermal.c:302
+#: ../src/plugins/thermal/thermal.c:286
 msgid "Automatic sensor location"
 msgstr "Lokasi sensor otomatis"
 
-#: ../src/plugins/thermal/thermal.c:303
+#: ../src/plugins/thermal/thermal.c:287
 msgid "Sensor"
 msgstr "Sensor"
 
-#: ../src/plugins/thermal/thermal.c:304
+#: ../src/plugins/thermal/thermal.c:288
 msgid "Automatic temperature levels"
 msgstr "Level temperatur otomatis"
 
-#: ../src/plugins/thermal/thermal.c:305
+#: ../src/plugins/thermal/thermal.c:289
 msgid "Warning1 Temperature"
 msgstr "Peringatan1 Temperatur"
 
-#: ../src/plugins/thermal/thermal.c:306
+#: ../src/plugins/thermal/thermal.c:290
 msgid "Warning2 Temperature"
 msgstr "Peringatan2 Temperatur"
 
-#: ../src/plugins/thermal/thermal.c:348
+#: ../src/plugins/thermal/thermal.c:332
 msgid "Temperature Monitor"
 msgstr "Monitor Temperatur"
 
-#: ../src/plugins/thermal/thermal.c:350
+#: ../src/plugins/thermal/thermal.c:334
 msgid "Display system temperature, by kesler.daniel@gmail.com"
 msgstr "Tampilkan temperatur sistem, oleh kesler.daniel@gmail.com"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #: ../src/plugins/volume/volume.c:305
-#: ../src/plugins/volumealsa/volumealsa.c:400
+#: ../src/plugins/volumealsa/volumealsa.c:410
 msgid "Volume control"
 msgstr "Kendali volume"
 
 #: ../src/plugins/volume/volume.c:317
-#: ../src/plugins/volumealsa/volumealsa.c:414
+#: ../src/plugins/volumealsa/volumealsa.c:424
 msgid "Volume Control"
 msgstr "Kendali Volume"
 
 #. create frame
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:310
+#: ../src/plugins/volumealsa/volumealsa.c:319
 msgid "Volume"
 msgstr "Volume"
 
-#: ../src/plugins/volumealsa/volumealsa.c:327
+#: ../src/plugins/volumealsa/volumealsa.c:336
 msgid "Mute"
 msgstr "Diam"
 
@@ -1287,99 +1309,127 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../src/plugins/batt/batt.c:384
+#: ../src/plugins/batt/batt.c:132
+msgid "No batteries found"
+msgstr "Tak ada baterai yang ditemukan"
+
+#: ../src/plugins/batt/batt.c:180
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
 msgstr "Baterai: %d%% terisi, %d:%02d sampai penuh"
 
-#: ../src/plugins/batt/batt.c:393
-#, c-format
-msgid "Battery: %d%% charged, %s"
-msgstr "Baterai: %d%% terisi, %s"
-
-#: ../src/plugins/batt/batt.c:395
-msgid "charging finished"
-msgstr "pengisian selesai"
-
-#: ../src/plugins/batt/batt.c:395
-msgid "charging"
-msgstr "mengisi"
-
-#: ../src/plugins/batt/batt.c:400
+#: ../src/plugins/batt/batt.c:191
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr "Baterai: %d%% terisi, %d:%02d lagi"
 
-#: ../src/plugins/batt/batt.c:406
+#: ../src/plugins/batt/batt.c:197
 #, c-format
 msgid "Battery: %d%% charged"
 msgstr "Baterai: %d%% terisi"
 
-#: ../src/plugins/batt/batt.c:454
-#, c-format
-msgid "No batteries found"
-msgstr "Tak ada baterai yang ditemukan"
-
-#: ../src/plugins/batt/batt.c:882
+#: ../src/plugins/batt/batt.c:581
 msgid "Hide if there is no battery"
 msgstr "Sembunyikan jika tidak ada baterai"
 
-#: ../src/plugins/batt/batt.c:884
+#: ../src/plugins/batt/batt.c:583
 msgid "Alarm command"
 msgstr "Perintah alarm"
 
-#: ../src/plugins/batt/batt.c:885
+#: ../src/plugins/batt/batt.c:584
 msgid "Alarm time (minutes left)"
 msgstr "Waktu alarm (menit lagi)"
 
-#: ../src/plugins/batt/batt.c:886
+#: ../src/plugins/batt/batt.c:585
 msgid "Background color"
 msgstr "Warna latar belakang"
 
-#: ../src/plugins/batt/batt.c:887
+#: ../src/plugins/batt/batt.c:586
 msgid "Charging color 1"
 msgstr "Warna pengisian 1"
 
-#: ../src/plugins/batt/batt.c:888
+#: ../src/plugins/batt/batt.c:587
 msgid "Charging color 2"
 msgstr "Warna pengisian 2"
 
-#: ../src/plugins/batt/batt.c:889
+#: ../src/plugins/batt/batt.c:588
 msgid "Discharging color 1"
 msgstr "Warna tidak mengisi 1"
 
-#: ../src/plugins/batt/batt.c:890
+#: ../src/plugins/batt/batt.c:589
 msgid "Discharging color 2"
 msgstr "Warna tidak mengisi 2"
 
-#: ../src/plugins/batt/batt.c:891
+#: ../src/plugins/batt/batt.c:590
 msgid "Border width"
 msgstr "Lebar batas"
 
-#: ../src/plugins/batt/batt.c:922
+#: ../src/plugins/batt/batt.c:621
 msgid "Battery Monitor"
 msgstr "Monitor Baterai"
 
-#: ../src/plugins/batt/batt.c:924
+#: ../src/plugins/batt/batt.c:623
 msgid "Display battery status using ACPI"
 msgstr "Tampilkan status baterai menggunakan ACPI"
 
-#: ../src/plugins/kbled/kbled.c:277
+#: ../src/plugins/kbled/kbled.c:266
 msgid "Show CapsLock"
 msgstr "Tampilkan CapsLock"
 
-#: ../src/plugins/kbled/kbled.c:278
+#: ../src/plugins/kbled/kbled.c:267
 msgid "Show NumLock"
 msgstr "Tampilkan NumLock"
 
-#: ../src/plugins/kbled/kbled.c:279
+#: ../src/plugins/kbled/kbled.c:268
 msgid "Show ScrollLock"
 msgstr "Tampilkan ScrollLock"
 
-#: ../src/plugins/kbled/kbled.c:289
-msgid "Keyboard Led"
+#: ../src/plugins/kbled/kbled.c:279
+#, fuzzy
+msgid "Keyboard LED"
 msgstr "Led Papan Ketik"
 
-#: ../src/plugins/kbled/kbled.c:291
+#: ../src/plugins/kbled/kbled.c:281
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Indikator untuk tombol CapsLock, NumLock, dan ScrollLock"
+
+#~ msgid ""
+#~ "Dynamic\n"
+#~ "Pixels\n"
+#~ "% Percent"
+#~ msgstr ""
+#~ "Dinamis\n"
+#~ "Pixel\n"
+#~ "% Persen"
+
+#~ msgid ""
+#~ "Left\n"
+#~ "Center\n"
+#~ "Right"
+#~ msgstr ""
+#~ "Kiri\n"
+#~ "Tengah\n"
+#~ "Kanan"
+
+#~ msgid ""
+#~ "Left\n"
+#~ "Right\n"
+#~ "Top\n"
+#~ "Bottom"
+#~ msgstr ""
+#~ "Kiri\n"
+#~ "Kanan\n"
+#~ "Atas\n"
+#~ "Bawah"
+
+#~ msgid "Where to put the panel?"
+#~ msgstr "Dimana ingin menaruh panel?"
+
+#~ msgid "Battery: %d%% charged, %s"
+#~ msgstr "Baterai: %d%% terisi, %s"
+
+#~ msgid "charging finished"
+#~ msgstr "pengisian selesai"
+
+#~ msgid "charging"
+#~ msgstr "mengisi"

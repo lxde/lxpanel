@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-28 17:32+0200\n"
+"POT-Creation-Date: 2009-06-22 23:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,125 +17,143 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: ../data/ui/panel-pref.glade.h:1
-msgid "<b>Background</b>"
-msgstr ""
-
 #: ../data/ui/panel-pref.glade.h:2
-msgid "<b>Font</b>"
+#, no-c-format
+msgid "% Percent"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:3
-msgid "<b>Position</b>"
+msgid "<b>Automatic hiding</b>"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:4
-msgid "<b>Properties</b>"
+msgid "<b>Background</b>"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:5
-msgid "<b>Set Preferred Applications</b>"
+msgid "<b>Font</b>"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:6
-msgid "<b>Size</b>"
+msgid "<b>Position</b>"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:7
-msgid "Advanced"
+msgid "<b>Properties</b>"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:8
-msgid "Alignment:"
+msgid "<b>Set Preferred Applications</b>"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:9
-msgid "Custom Color"
+msgid "<b>Size</b>"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:10
+msgid "Advanced"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:11
-#, no-c-format
-msgid ""
-"Dynamic\n"
-"Pixels\n"
-"% Percent"
+msgid "Alignment:"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:12
+msgid "Bottom"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:13
+msgid "Center"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:14
-msgid "Edge:"
+msgid "Custom Color"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:15
-msgid "Enable Image:"
+msgid "Dynamic"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:16
-msgid "Enable Transparency"
+msgid "Edge:"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:17
-msgid "File Manager:"
+msgid "Enable Image:"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:18
+msgid "Enable Transparency"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:19
+msgid "File Manager:"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:20
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:19
+#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:932 ../src/panel.c:938
 msgid "Height:"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:20
-msgid ""
-"Left\n"
-"Center\n"
-"Right"
+#: ../data/ui/panel-pref.glade.h:22
+msgid "Left"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:23
-msgid ""
-"Left\n"
-"Right\n"
-"Top\n"
-"Bottom"
+msgid "Left\t"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:27
+#: ../data/ui/panel-pref.glade.h:24
 msgid "Logout Command:"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:28
+#: ../data/ui/panel-pref.glade.h:25
 msgid "Make window managers treat the panel as dock"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:29
+#: ../data/ui/panel-pref.glade.h:26
 msgid "Margin:"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:30
+#: ../data/ui/panel-pref.glade.h:27
+msgid "Minimize panel when not in use"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:28
 msgid "None (Use system theme)"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:31
+#: ../data/ui/panel-pref.glade.h:29
 msgid "Panel Applets"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:32
+#: ../data/ui/panel-pref.glade.h:30
 msgid "Panel Preferences"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:33
+#: ../data/ui/panel-pref.glade.h:31
 msgid "Pixels"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:34
+#: ../data/ui/panel-pref.glade.h:32
 msgid "Reserve space, and not covered by maximized windows"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:35
+#: ../data/ui/panel-pref.glade.h:33
+msgid "Right"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:34
 msgid "Select an image file"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:35
+msgid "Size when minimized"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:36
@@ -147,7 +165,15 @@ msgid "Tint color:"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:38
+msgid "Top\t"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:933 ../src/panel.c:937
 msgid "Width:"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:40
+msgid "pixels"
 msgstr ""
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:250
@@ -162,171 +188,155 @@ msgstr ""
 msgid "Logout"
 msgstr ""
 
-#: ../src/configurator.c:400
+#: ../src/configurator.c:472
 msgid "Currently loaded plugins"
 msgstr ""
 
-#: ../src/configurator.c:409
+#: ../src/configurator.c:481
 msgid "Stretch"
 msgstr ""
 
-#: ../src/configurator.c:507 ../src/panel.c:522
+#: ../src/configurator.c:579
 msgid "Add plugin to panel"
 msgstr ""
 
-#: ../src/configurator.c:535 ../src/panel.c:545
+#: ../src/configurator.c:607
 msgid "Available plugins"
 msgstr ""
 
-#: ../src/configurator.c:1052
+#: ../src/configurator.c:1163
 msgid "Logout command is not set"
 msgstr ""
 
-#: ../src/configurator.c:1101 ../src/configurator.c:1184
+#: ../src/configurator.c:1216
+msgid "Select a directory"
+msgstr ""
+
+#: ../src/configurator.c:1216 ../src/configurator.c:1301
 msgid "Select a file"
 msgstr ""
 
-#: ../src/configurator.c:1211
+#: ../src/configurator.c:1328
 msgid "_Browse"
 msgstr ""
 
-#: ../src/panel.c:630
-msgid "Left"
-msgstr ""
-
-#: ../src/panel.c:630
-msgid "Right"
-msgstr ""
-
-#: ../src/panel.c:630
-msgid "Top"
-msgstr ""
-
-#: ../src/panel.c:630
-msgid "Bottom"
-msgstr ""
-
-#: ../src/panel.c:632 ../src/panel.c:793
-msgid "Create New Panel"
-msgstr ""
-
-#: ../src/panel.c:638
-msgid "Where to put the panel?"
-msgstr ""
-
-#: ../src/panel.c:696
+#: ../src/panel.c:590
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
 
-#: ../src/panel.c:697
+#: ../src/panel.c:592
 msgid "Confirm"
 msgstr ""
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:728
+#: ../src/panel.c:623
 msgid "translator-credits"
 msgstr ""
 
-#: ../src/panel.c:733
+#: ../src/panel.c:628
 msgid "LXPanel"
 msgstr ""
 
-#: ../src/panel.c:735
+#: ../src/panel.c:630
 msgid "Copyright (C) 2008-2009"
 msgstr ""
 
-#: ../src/panel.c:736
+#: ../src/panel.c:631
 msgid "Desktop panel for LXDE project"
 msgstr ""
 
-#: ../src/panel.c:767
+#: ../src/panel.c:654
 msgid "Add / Remove Panel Items"
 msgstr ""
 
-#: ../src/panel.c:775
+#: ../src/panel.c:662
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr ""
 
-#: ../src/panel.c:787
+#: ../src/panel.c:674
 msgid "Panel Settings"
 msgstr ""
 
-#: ../src/panel.c:804
+#: ../src/panel.c:680
+msgid "Create New Panel"
+msgstr ""
+
+#: ../src/panel.c:691
 msgid "Delete This Panel"
 msgstr ""
 
-#: ../src/panel.c:815
+#: ../src/panel.c:702
 msgid "About"
 msgstr ""
 
-#: ../src/panel.c:823
+#: ../src/panel.c:710
 msgid "Panel"
 msgstr ""
 
-#: ../src/panel.c:836
+#: ../src/panel.c:723
 #, c-format
 msgid "\"%s\" Settings"
 msgstr ""
 
-#: ../src/panel.c:1294
+#: ../src/panel.c:1248
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr ""
 
-#: ../src/panel.c:1295
+#: ../src/panel.c:1249
 #, c-format
 msgid "Command line options:\n"
 msgstr ""
 
-#: ../src/panel.c:1296
+#: ../src/panel.c:1250
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr ""
 
-#: ../src/panel.c:1297
+#: ../src/panel.c:1251
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr ""
 
-#: ../src/panel.c:1298
+#: ../src/panel.c:1252
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 
-#: ../src/panel.c:1299
+#: ../src/panel.c:1253
 #, c-format
 msgid " --configure -- launch configuration utility\n"
 msgstr ""
 
-#: ../src/panel.c:1300
+#: ../src/panel.c:1254
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr ""
 
-#: ../src/panel.c:1302
+#: ../src/panel.c:1256
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr ""
 
-#: ../src/panel.c:1303
+#: ../src/panel.c:1257
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr ""
 
-#: ../src/panel.c:1304
+#: ../src/panel.c:1258
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr ""
 
-#: ../src/panel.c:1305
+#: ../src/panel.c:1259
 #, c-format
 msgid " -C  -- same as --configure\n"
 msgstr ""
 
-#: ../src/panel.c:1306
+#: ../src/panel.c:1260
 #, c-format
 msgid ""
 "\n"
@@ -346,19 +356,19 @@ msgstr ""
 msgid "Old KDE/GNOME Tray"
 msgstr ""
 
-#: ../src/plugins/cpu/cpu.c:226
+#: ../src/plugins/cpu/cpu.c:266
 msgid "CPU Usage Monitor"
 msgstr ""
 
-#: ../src/plugins/cpu/cpu.c:228
+#: ../src/plugins/cpu/cpu.c:268
 msgid "Display CPU usage"
 msgstr ""
 
-#: ../src/plugins/deskno/deskno.c:99 ../src/plugins/deskno/deskno2.c:129
+#: ../src/plugins/deskno/deskno.c:118 ../src/plugins/deskno/deskno2.c:129
 msgid "Desktop No / Workspace Name"
 msgstr ""
 
-#: ../src/plugins/deskno/deskno.c:101 ../src/plugins/deskno/deskno2.c:131
+#: ../src/plugins/deskno/deskno.c:120 ../src/plugins/deskno/deskno2.c:131
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr ""
 
@@ -402,119 +412,124 @@ msgstr ""
 msgid "Bar with buttons to launch application"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1407
+#: ../src/plugins/taskbar.c:1405
 msgid "_Raise"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1411
+#: ../src/plugins/taskbar.c:1409
 msgid "R_estore"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1415
+#: ../src/plugins/taskbar.c:1413
 msgid "Ma_ximize"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1419
+#: ../src/plugins/taskbar.c:1417
 msgid "Ico_nify"
 msgstr ""
 
 #: ../src/plugins/taskbar.c:1428
 #, c-format
+msgid "Workspace _%d"
+msgstr ""
+
+#: ../src/plugins/taskbar.c:1433
+#, c-format
 msgid "Workspace %d"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1436
-msgid "All workspaces"
+#: ../src/plugins/taskbar.c:1442
+msgid "_All workspaces"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1443
+#: ../src/plugins/taskbar.c:1449
 msgid "_Move to Workspace"
 msgstr ""
 
 #. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1451
+#: ../src/plugins/taskbar.c:1457
 msgid "_Close Window"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1685
+#: ../src/plugins/taskbar.c:1691
 msgid "Show tooltips"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1686
+#: ../src/plugins/taskbar.c:1692
 msgid "Icons only"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1687
+#: ../src/plugins/taskbar.c:1693
 msgid "Flat Buttons"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1688
+#: ../src/plugins/taskbar.c:1694
 msgid "Accept SkipPager"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1689
+#: ../src/plugins/taskbar.c:1695
 msgid "Show Iconified windows"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1690
+#: ../src/plugins/taskbar.c:1696
 msgid "Show mapped windows"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1691
+#: ../src/plugins/taskbar.c:1697
 msgid "Show windows from all desktops"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1692
+#: ../src/plugins/taskbar.c:1698
 msgid "Use mouse wheel"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1693
+#: ../src/plugins/taskbar.c:1699
 msgid "Flash when there is any window requiring attention"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1694
+#: ../src/plugins/taskbar.c:1700
 msgid "Max width of task button"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1695
+#: ../src/plugins/taskbar.c:1701
 msgid "Spacing"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1773
+#: ../src/plugins/taskbar.c:1779
 msgid "Task Bar (Window List)"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1775
+#: ../src/plugins/taskbar.c:1781
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
 
-#: ../src/plugins/dclock.c:279
+#: ../src/plugins/dclock.c:275
 msgid "Clock Format"
 msgstr ""
 
-#: ../src/plugins/dclock.c:280
+#: ../src/plugins/dclock.c:276
 msgid "Tooltip Format"
 msgstr ""
 
-#: ../src/plugins/dclock.c:281
+#: ../src/plugins/dclock.c:277
 msgid "Format codes: man 3 strftime"
 msgstr ""
 
-#: ../src/plugins/dclock.c:282
+#: ../src/plugins/dclock.c:278
 msgid "Action"
 msgstr ""
 
-#: ../src/plugins/dclock.c:283
+#: ../src/plugins/dclock.c:279
 msgid "Bold font"
 msgstr ""
 
-#: ../src/plugins/dclock.c:318
+#: ../src/plugins/dclock.c:312
 msgid "Digital Clock"
 msgstr ""
 
-#: ../src/plugins/dclock.c:320
+#: ../src/plugins/dclock.c:314
 msgid "Display Digital clock and Tooltip"
 msgstr ""
 
@@ -891,11 +906,11 @@ msgstr ""
 msgid "Sending/Receiving"
 msgstr ""
 
-#: ../src/plugins/separator.c:103
+#: ../src/plugins/separator.c:83
 msgid "Separator"
 msgstr ""
 
-#: ../src/plugins/separator.c:105
+#: ../src/plugins/separator.c:85
 msgid "Add a separator to the panel"
 msgstr ""
 
@@ -907,15 +922,15 @@ msgstr ""
 msgid "Simple pager plugin"
 msgstr ""
 
-#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:892
+#: ../src/plugins/space.c:133 ../src/plugins/batt/batt.c:591
 msgid "Size"
 msgstr ""
 
-#: ../src/plugins/space.c:153
+#: ../src/plugins/space.c:148
 msgid "<Space>"
 msgstr ""
 
-#: ../src/plugins/space.c:155
+#: ../src/plugins/space.c:150
 msgid "Allocate space"
 msgstr ""
 
@@ -969,90 +984,98 @@ msgstr ""
 msgid "Switch between available keyboard layouts"
 msgstr ""
 
-#: ../src/plugins/wincmd.c:245
+#: ../src/plugins/wincmd.c:233
 msgid "Left click to iconify all windows. Middle click to shade them"
 msgstr ""
 
-#: ../src/plugins/wincmd.c:274
+#: ../src/plugins/wincmd.c:262
 msgid "Minimize All Windows"
 msgstr ""
 
-#: ../src/plugins/wincmd.c:276
+#: ../src/plugins/wincmd.c:264
 msgid ""
 "Sends commands to all desktop windows.\n"
-"Supported commnds are 1)toggle iconify and 2) toggle shade"
+"Supported commands are 1)toggle iconify and 2) toggle shade"
 msgstr ""
 
-#: ../src/plugins/dirmenu.c:218
+#: ../src/plugins/dirmenu.c:212
 msgid "Open in _Terminal"
 msgstr ""
 
-#: ../src/plugins/dirmenu.c:383
+#: ../src/plugins/dirmenu.c:403
+msgid "Directory"
+msgstr ""
+
+#: ../src/plugins/dirmenu.c:404
+msgid "Label"
+msgstr ""
+
+#: ../src/plugins/dirmenu.c:413
 msgid "Directory Menu"
 msgstr ""
 
-#: ../src/plugins/dirmenu.c:385
+#: ../src/plugins/dirmenu.c:415
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr ""
 
-#: ../src/plugins/thermal/thermal.c:299
+#: ../src/plugins/thermal/thermal.c:283
 msgid "Normal"
 msgstr ""
 
-#: ../src/plugins/thermal/thermal.c:300
+#: ../src/plugins/thermal/thermal.c:284
 msgid "Warning1"
 msgstr ""
 
-#: ../src/plugins/thermal/thermal.c:301
+#: ../src/plugins/thermal/thermal.c:285
 msgid "Warning2"
 msgstr ""
 
-#: ../src/plugins/thermal/thermal.c:302
+#: ../src/plugins/thermal/thermal.c:286
 msgid "Automatic sensor location"
 msgstr ""
 
-#: ../src/plugins/thermal/thermal.c:303
+#: ../src/plugins/thermal/thermal.c:287
 msgid "Sensor"
 msgstr ""
 
-#: ../src/plugins/thermal/thermal.c:304
+#: ../src/plugins/thermal/thermal.c:288
 msgid "Automatic temperature levels"
 msgstr ""
 
-#: ../src/plugins/thermal/thermal.c:305
+#: ../src/plugins/thermal/thermal.c:289
 msgid "Warning1 Temperature"
 msgstr ""
 
-#: ../src/plugins/thermal/thermal.c:306
+#: ../src/plugins/thermal/thermal.c:290
 msgid "Warning2 Temperature"
 msgstr ""
 
-#: ../src/plugins/thermal/thermal.c:348
+#: ../src/plugins/thermal/thermal.c:332
 msgid "Temperature Monitor"
 msgstr ""
 
-#: ../src/plugins/thermal/thermal.c:350
+#: ../src/plugins/thermal/thermal.c:334
 msgid "Display system temperature, by kesler.daniel@gmail.com"
 msgstr ""
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #: ../src/plugins/volume/volume.c:305
-#: ../src/plugins/volumealsa/volumealsa.c:400
+#: ../src/plugins/volumealsa/volumealsa.c:410
 msgid "Volume control"
 msgstr ""
 
 #: ../src/plugins/volume/volume.c:317
-#: ../src/plugins/volumealsa/volumealsa.c:414
+#: ../src/plugins/volumealsa/volumealsa.c:424
 msgid "Volume Control"
 msgstr ""
 
 #. create frame
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:310
+#: ../src/plugins/volumealsa/volumealsa.c:319
 msgid "Volume"
 msgstr ""
 
-#: ../src/plugins/volumealsa/volumealsa.c:327
+#: ../src/plugins/volumealsa/volumealsa.c:336
 msgid "Mute"
 msgstr ""
 
@@ -1255,99 +1278,85 @@ msgid ""
 "%s"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:384
+#: ../src/plugins/batt/batt.c:132
+msgid "No batteries found"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:180
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:393
-#, c-format
-msgid "Battery: %d%% charged, %s"
-msgstr ""
-
-#: ../src/plugins/batt/batt.c:395
-msgid "charging finished"
-msgstr ""
-
-#: ../src/plugins/batt/batt.c:395
-msgid "charging"
-msgstr ""
-
-#: ../src/plugins/batt/batt.c:400
+#: ../src/plugins/batt/batt.c:191
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:406
+#: ../src/plugins/batt/batt.c:197
 #, c-format
 msgid "Battery: %d%% charged"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:454
-#, c-format
-msgid "No batteries found"
-msgstr ""
-
-#: ../src/plugins/batt/batt.c:882
+#: ../src/plugins/batt/batt.c:581
 msgid "Hide if there is no battery"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:884
+#: ../src/plugins/batt/batt.c:583
 msgid "Alarm command"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:885
+#: ../src/plugins/batt/batt.c:584
 msgid "Alarm time (minutes left)"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:886
+#: ../src/plugins/batt/batt.c:585
 msgid "Background color"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:887
+#: ../src/plugins/batt/batt.c:586
 msgid "Charging color 1"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:888
+#: ../src/plugins/batt/batt.c:587
 msgid "Charging color 2"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:889
+#: ../src/plugins/batt/batt.c:588
 msgid "Discharging color 1"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:890
+#: ../src/plugins/batt/batt.c:589
 msgid "Discharging color 2"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:891
+#: ../src/plugins/batt/batt.c:590
 msgid "Border width"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:922
+#: ../src/plugins/batt/batt.c:621
 msgid "Battery Monitor"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:924
+#: ../src/plugins/batt/batt.c:623
 msgid "Display battery status using ACPI"
 msgstr ""
 
-#: ../src/plugins/kbled/kbled.c:277
+#: ../src/plugins/kbled/kbled.c:266
 msgid "Show CapsLock"
 msgstr ""
 
-#: ../src/plugins/kbled/kbled.c:278
+#: ../src/plugins/kbled/kbled.c:267
 msgid "Show NumLock"
 msgstr ""
 
-#: ../src/plugins/kbled/kbled.c:279
+#: ../src/plugins/kbled/kbled.c:268
 msgid "Show ScrollLock"
 msgstr ""
 
-#: ../src/plugins/kbled/kbled.c:289
-msgid "Keyboard Led"
+#: ../src/plugins/kbled/kbled.c:279
+msgid "Keyboard LED"
 msgstr ""
 
-#: ../src/plugins/kbled/kbled.c:291
+#: ../src/plugins/kbled/kbled.c:281
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr ""
