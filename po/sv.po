@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-06-22 23:58+0200\n"
-"PO-Revision-Date: 2009-05-28 19:26+0200\n"
+"PO-Revision-Date: 2009-06-23 00:12+0200\n"
 "Last-Translator: Martin Bagge <brother@bsnet.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -21,11 +21,11 @@ msgstr ""
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
 msgid "% Percent"
-msgstr ""
+msgstr "% Procent"
 
 #: ../data/ui/panel-pref.glade.h:3
 msgid "<b>Automatic hiding</b>"
-msgstr ""
+msgstr "<b>Dölj automatiskt</b>"
 
 #: ../data/ui/panel-pref.glade.h:4
 msgid "<b>Background</b>"
@@ -65,9 +65,8 @@ msgid "Bottom"
 msgstr "Nedtilld"
 
 #: ../data/ui/panel-pref.glade.h:13
-#, fuzzy
 msgid "Center"
-msgstr "Allmänt"
+msgstr "Centrerad"
 
 #: ../data/ui/panel-pref.glade.h:14
 msgid "Custom Color"
@@ -75,7 +74,7 @@ msgstr "Alternativ färg"
 
 #: ../data/ui/panel-pref.glade.h:15
 msgid "Dynamic"
-msgstr ""
+msgstr "Dynamisk"
 
 #: ../data/ui/panel-pref.glade.h:16
 msgid "Edge:"
@@ -108,9 +107,8 @@ msgid "Left"
 msgstr "Vänster"
 
 #: ../data/ui/panel-pref.glade.h:23
-#, fuzzy
 msgid "Left\t"
-msgstr "Vänster"
+msgstr "Vänster\t"
 
 #: ../data/ui/panel-pref.glade.h:24
 msgid "Logout Command:"
@@ -126,7 +124,7 @@ msgstr "Marginal:"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Minimize panel when not in use"
-msgstr ""
+msgstr "Minimera panelen när den inte används"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "None (Use system theme)"
@@ -158,7 +156,7 @@ msgstr "Välj en bildfil"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Size when minimized"
-msgstr ""
+msgstr "Storlek vid minimering"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "Terminal Emulator:"
@@ -169,18 +167,16 @@ msgid "Tint color:"
 msgstr "Färg för toning:"
 
 #: ../data/ui/panel-pref.glade.h:38
-#, fuzzy
 msgid "Top\t"
-msgstr "Upptill"
+msgstr "Upptill\t"
 
 #: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:933 ../src/panel.c:937
 msgid "Width:"
 msgstr "Bredd:"
 
 #: ../data/ui/panel-pref.glade.h:40
-#, fuzzy
 msgid "pixels"
-msgstr "Pixlar"
+msgstr "pixlar"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:250
 msgid "Run"
@@ -215,9 +211,8 @@ msgid "Logout command is not set"
 msgstr "Utloggningskommando skickades inte"
 
 #: ../src/configurator.c:1216
-#, fuzzy
 msgid "Select a directory"
-msgstr "Välj fil"
+msgstr "Välj katalog"
 
 #: ../src/configurator.c:1216 ../src/configurator.c:1301
 msgid "Select a file"
@@ -444,9 +439,9 @@ msgid "Ico_nify"
 msgstr "Mi_nimera"
 
 #: ../src/plugins/taskbar.c:1428
-#, fuzzy, c-format
+#, c-format
 msgid "Workspace _%d"
-msgstr "Arbetsyta %d"
+msgstr "Arbetsyta _%d"
 
 #: ../src/plugins/taskbar.c:1433
 #, c-format
@@ -454,9 +449,8 @@ msgid "Workspace %d"
 msgstr "Arbetsyta %d"
 
 #: ../src/plugins/taskbar.c:1442
-#, fuzzy
 msgid "_All workspaces"
-msgstr "Alla arbetsytor"
+msgstr "_Alla arbetsytor"
 
 #: ../src/plugins/taskbar.c:1449
 msgid "_Move to Workspace"
@@ -1017,27 +1011,25 @@ msgid "Minimize All Windows"
 msgstr "Minimera alla fönster"
 
 #: ../src/plugins/wincmd.c:264
-#, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1)toggle iconify and 2) toggle shade"
 msgstr ""
 "Skickar kommando till alla fönster på skrivbordet.\n"
-"Kommandon 1) hantera minimering/maximering 2) hantera upprullning/nedrullning"
+"Tillgängliga kommandon 1) hantera minimering/maximering 2) hantera "
+"upprullning/nedrullning"
 
 #: ../src/plugins/dirmenu.c:212
 msgid "Open in _Terminal"
 msgstr "Öppna i _terminal"
 
 #: ../src/plugins/dirmenu.c:403
-#, fuzzy
 msgid "Directory"
-msgstr "Katalogmeny"
+msgstr "Katalog"
 
 #: ../src/plugins/dirmenu.c:404
-#, fuzzy
 msgid "Label"
-msgstr "LXPanel"
+msgstr "Ettikett"
 
 #: ../src/plugins/dirmenu.c:413
 msgid "Directory Menu"
@@ -1390,7 +1382,6 @@ msgid "Show ScrollLock"
 msgstr "Visa ScrollLock"
 
 #: ../src/plugins/kbled/kbled.c:279
-#, fuzzy
 msgid "Keyboard LED"
 msgstr "Tangentbordslampor"
 
