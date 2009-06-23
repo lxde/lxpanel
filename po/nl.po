@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-06-22 23:58+0200\n"
-"PO-Revision-Date: 2009-05-19 13:31+0200\n"
+"PO-Revision-Date: 2009-06-23 13:55+0200\n"
 "Last-Translator: Sander De Voogdt <celettu@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -20,11 +20,11 @@ msgstr ""
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
 msgid "% Percent"
-msgstr ""
+msgstr "% Percent"
 
 #: ../data/ui/panel-pref.glade.h:3
 msgid "<b>Automatic hiding</b>"
-msgstr ""
+msgstr "<b>Automatisch verbergen</b>"
 
 #: ../data/ui/panel-pref.glade.h:4
 msgid "<b>Background</b>"
@@ -63,9 +63,8 @@ msgid "Bottom"
 msgstr "Onder"
 
 #: ../data/ui/panel-pref.glade.h:13
-#, fuzzy
 msgid "Center"
-msgstr "Algemeen"
+msgstr "Midden"
 
 #: ../data/ui/panel-pref.glade.h:14
 msgid "Custom Color"
@@ -73,7 +72,7 @@ msgstr "Aangepaste kleur"
 
 #: ../data/ui/panel-pref.glade.h:15
 msgid "Dynamic"
-msgstr ""
+msgstr "Dynamisch"
 
 #: ../data/ui/panel-pref.glade.h:16
 msgid "Edge:"
@@ -106,9 +105,8 @@ msgid "Left"
 msgstr "Links"
 
 #: ../data/ui/panel-pref.glade.h:23
-#, fuzzy
 msgid "Left\t"
-msgstr "Links"
+msgstr "Links\t"
 
 #: ../data/ui/panel-pref.glade.h:24
 msgid "Logout Command:"
@@ -124,7 +122,7 @@ msgstr "Marge: "
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Minimize panel when not in use"
-msgstr ""
+msgstr "Minimaliseer paneel indien niet in gebruik"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "None (Use system theme)"
@@ -156,7 +154,7 @@ msgstr "Kies een afbeelding"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Size when minimized"
-msgstr ""
+msgstr "Grootte indien geminimaliseerd"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "Terminal Emulator:"
@@ -167,18 +165,16 @@ msgid "Tint color:"
 msgstr "Tintkleur:"
 
 #: ../data/ui/panel-pref.glade.h:38
-#, fuzzy
 msgid "Top\t"
-msgstr "Boven"
+msgstr "Boven\t"
 
 #: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:933 ../src/panel.c:937
 msgid "Width:"
 msgstr "Breedte"
 
 #: ../data/ui/panel-pref.glade.h:40
-#, fuzzy
 msgid "pixels"
-msgstr "Pixels"
+msgstr "pixels"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:250
 msgid "Run"
@@ -213,9 +209,8 @@ msgid "Logout command is not set"
 msgstr "Commando voor uitloggen is niet ingesteld"
 
 #: ../src/configurator.c:1216
-#, fuzzy
 msgid "Select a directory"
-msgstr "Kies een bestand"
+msgstr "Kies een map"
 
 #: ../src/configurator.c:1216 ../src/configurator.c:1301
 msgid "Select a file"
@@ -240,20 +235,19 @@ msgstr "Bevestig"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:623
 msgid "translator-credits"
-msgstr ""
+msgstr "Sander De Voogdt (celettu@gmail.com)"
 
 #: ../src/panel.c:628
-#, fuzzy
 msgid "LXPanel"
-msgstr "Paneel"
+msgstr "LXPanel"
 
 #: ../src/panel.c:630
 msgid "Copyright (C) 2008-2009"
-msgstr ""
+msgstr "Copyright (C) 2008-2009"
 
 #: ../src/panel.c:631
 msgid "Desktop panel for LXDE project"
-msgstr ""
+msgstr "Desktop paneel voor het LXDE project"
 
 #: ../src/panel.c:654
 msgid "Add / Remove Panel Items"
@@ -278,7 +272,7 @@ msgstr "Dit paneel verwijderen"
 
 #: ../src/panel.c:702
 msgid "About"
-msgstr ""
+msgstr "Over"
 
 #: ../src/panel.c:710
 msgid "Panel"
@@ -424,29 +418,25 @@ msgid "Bar with buttons to launch application"
 msgstr "Bar met knoppen om applicaties te starten"
 
 #: ../src/plugins/taskbar.c:1405
-#, fuzzy
 msgid "_Raise"
 msgstr "Naar voren brengen"
 
 #: ../src/plugins/taskbar.c:1409
-#, fuzzy
 msgid "R_estore"
 msgstr "Herstellen"
 
 #: ../src/plugins/taskbar.c:1413
-#, fuzzy
 msgid "Ma_ximize"
 msgstr "Maximaliseren"
 
 #: ../src/plugins/taskbar.c:1417
-#, fuzzy
 msgid "Ico_nify"
 msgstr "Iconifieren"
 
 #: ../src/plugins/taskbar.c:1428
-#, fuzzy, c-format
+#, c-format
 msgid "Workspace _%d"
-msgstr "Werkblad %d"
+msgstr "Werkblad _%d"
 
 #: ../src/plugins/taskbar.c:1433
 #, c-format
@@ -454,18 +444,15 @@ msgid "Workspace %d"
 msgstr "Werkblad %d"
 
 #: ../src/plugins/taskbar.c:1442
-#, fuzzy
 msgid "_All workspaces"
 msgstr "Alle werkbladen"
 
 #: ../src/plugins/taskbar.c:1449
-#, fuzzy
 msgid "_Move to Workspace"
 msgstr "Verplaats naar werkblad"
 
 #. we want this item to be farest from mouse pointer
 #: ../src/plugins/taskbar.c:1457
-#, fuzzy
 msgid "_Close Window"
 msgstr "Venster sluiten"
 
@@ -536,7 +523,7 @@ msgstr "Tooltip formaat"
 
 #: ../src/plugins/dclock.c:277
 msgid "Format codes: man 3 strftime"
-msgstr ""
+msgstr "Format codes: man 3 strftime"
 
 #: ../src/plugins/dclock.c:278
 msgid "Action"
@@ -1020,7 +1007,6 @@ msgid "Minimize All Windows"
 msgstr "Alle vensters minimaliseren"
 
 #: ../src/plugins/wincmd.c:264
-#, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1)toggle iconify and 2) toggle shade"
@@ -1034,14 +1020,12 @@ msgid "Open in _Terminal"
 msgstr "In Terminal openen"
 
 #: ../src/plugins/dirmenu.c:403
-#, fuzzy
 msgid "Directory"
-msgstr "Map Menu"
+msgstr "Map"
 
 #: ../src/plugins/dirmenu.c:404
-#, fuzzy
 msgid "Label"
-msgstr "Paneel"
+msgstr "Label"
 
 #: ../src/plugins/dirmenu.c:413
 msgid "Directory Menu"
@@ -1394,9 +1378,8 @@ msgid "Show ScrollLock"
 msgstr "Toon ScrollLock"
 
 #: ../src/plugins/kbled/kbled.c:279
-#, fuzzy
 msgid "Keyboard LED"
-msgstr "Toetsenbord Led"
+msgstr "Toetsenbord LED"
 
 #: ../src/plugins/kbled/kbled.c:281
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
