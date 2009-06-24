@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<refentry
+>  <refentryinfo
+>    <address
+>      <email
+>grandpaul@gmail.com</email>
+    </address>
+    <author
+>      <firstname
+>Ying-Chun</firstname>
+      <surname
+>Liu</surname>
+    </author>
+    <copyright
+>      <year
+>2008</year>
+      <holder
+>paulliu</holder>
+    </copyright>
+    <date
+>March  2, 2008</date>
+  </refentryinfo>
+  <refmeta
+>    <refentrytitle
+>LXPANEL</refentrytitle>
+
+    <manvolnum
+>1</manvolnum>
+  </refmeta>
+  <refnamediv
+>    <refname
+>lxpanel</refname>
+
+    <refpurpose
+>a lightweight GTK2-based panel for LXDE desktop.</refpurpose>
+  </refnamediv>
+  <refsynopsisdiv
+>    <cmdsynopsis
+>      <command
+>lxpanel</command>
+    </cmdsynopsis>
+  </refsynopsisdiv>
+  <refsect1
+>    <title
+>DESCRIPTION</title>
+
+    <para
+>This manual page documents briefly the
+      <command
+>lxpanel</command> command.</para>
+
+    <para
+><command
+>lxpanel</command> is a program that provides a panel
+    for desktop, usually for LXDE. It is lightweight GTK+ 2.x based desktop 
+    panel.
+    </para>
+   
+    <para
+>    <itemizedlist
+spacing="normal"
+mark="bullet"
+>    	<title
+>Features</title>
+    	<listitem
+><para
+>User-friendly application menu automatically generated from <filename
+>.desktop</filename>
+    		files on the system.
+    		</para>
+	</listitem>
+    	<listitem
+><para
+>Launcher bar (small icons clicked to launch apps)</para></listitem>
+    	<listitem
+><para
+>Task bar supporting ICCCM/EWMH `urgency' hint (Pidgin IM windows
+    can flash on new incoming messages)</para>
+	</listitem>
+    	<listitem
+><para
+>Notification area (system tray)</para></listitem>
+    	<listitem
+><para
+>Digital clock</para></listitem>
+    	<listitem
+><para
+>Run dialog (type command to run, without opening a terminal
+)</para>
+	</listitem>
+    	<listitem
+><para
+>Net status icon plug-in (optional)</para></listitem>
+    	<listitem
+><para
+>Volume control plug-in (optional)</para></listitem>
+    	<listitem
+><para
+>lxpanelctl, an external controller let you control lxpanel in
+    		other programs. For example, "lxpanelctl run" will show the Run
+    		dialog in lxpanel, and "lxpanelctl menu" will show the application
+    		menu. This is useful in key bindings provided by window managers.</para>
+    	</listitem>
+    </itemizedlist>
+    </para>
+  </refsect1>
+  <refsect1
+>    <title
+>FILES</title>
+    <variablelist
+>     <varlistentry
+>       <term
+><filename
+>~/.config/lxpanel</filename></term>
+       <listitem
+>         <para
+>config file, can be edited by preference dialog.</para>
+       </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+  <refsect1
+>    <title
+>SEE ALSO</title>
+
+    <para
+>lxsession (1), lxpanelctl (1).</para>
+
+  </refsect1>
+  <refsect1
+>    <title
+>AUTHOR</title>
+
+    <para
+>This manual page was written by paulliu <email
+>grandpaul@gmail.com</email> for
+      the <productname
+>Debian</productname> system (but may be used by others).  Permission is
+      granted to copy, distribute and/or modify this document under
+      the terms of the <acronym
+>GNU</acronym> General Public License, Version 2 any 
+      later version published by the Free Software Foundation.
+    </para>
+    <para
+>	  On Debian systems, the complete text of the GNU General Public
+	  License can be found in /usr/share/common-licenses/GPL.
+    </para>
+
+  </refsect1></refentry>
