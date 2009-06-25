@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxpanel-0.3.5.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-06-22 23:58+0200\n"
-"PO-Revision-Date: 2009-06-24 07:36+0200\n"
+"PO-Revision-Date: 2009-06-25 13:09+0200\n"
 "Last-Translator: Hugo Florentino <sysadmin@cips.cu>\n"
 "Language-Team: Spanish <daniel@tunki.org>\n"
 "MIME-Version: 1.0\n"
@@ -442,9 +442,9 @@ msgid "Ico_nify"
 msgstr "Mi_nimizar"
 
 #: ../src/plugins/taskbar.c:1428
-#, fuzzy, c-format
+#, c-format
 msgid "Workspace _%d"
-msgstr "Área de trabajo %d"
+msgstr "Área de trabajo _%d"
 
 #: ../src/plugins/taskbar.c:1433
 #, c-format
@@ -452,9 +452,8 @@ msgid "Workspace %d"
 msgstr "Área de trabajo %d"
 
 #: ../src/plugins/taskbar.c:1442
-#, fuzzy
 msgid "_All workspaces"
-msgstr "Todas la áreas de trabajo"
+msgstr "_Todas la áreas de trabajo"
 
 #: ../src/plugins/taskbar.c:1449
 msgid "_Move to Workspace"
@@ -678,7 +677,7 @@ msgstr "Nombre"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:149
 msgid "The interface name"
-msgstr "Nombre de la interface"
+msgstr "Nombre de la interfaz"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:156
 msgid "State"
@@ -686,7 +685,7 @@ msgstr "Estado"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:157
 msgid "The interface state"
-msgstr "Estado de la interface"
+msgstr "Estado de la interfaz"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:165
 msgid "Stats"
@@ -694,7 +693,7 @@ msgstr "Estadísticas"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:166
 msgid "The interface packets/bytes statistics"
-msgstr "Estadísticas de paquetes/bytes de la interface"
+msgstr "Estadísticas de paquetes/bytes de la interfaz"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:173
 #: ../src/plugins/netstat/netstat.c:315
@@ -703,7 +702,7 @@ msgstr "Inalámbrica"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:174
 msgid "Whether the interface is a wireless interface"
-msgstr "Si la interface es una interface inalámbrica"
+msgstr "Si la interfaz es inalámbrica"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:181
 msgid "Signal"
@@ -936,7 +935,7 @@ msgstr "Escritorios virtuales"
 
 #: ../src/plugins/pager.c:709
 msgid "Simple pager plugin"
-msgstr "Plugin simple para escritorios virtuales"
+msgstr "Complemento simple para escritorios virtuales"
 
 #: ../src/plugins/space.c:133 ../src/plugins/batt/batt.c:591
 msgid "Size"
@@ -964,7 +963,7 @@ msgstr ""
 
 #: ../src/plugins/xkb/xkb-plugin.c:252
 msgid "Other plugins available here"
-msgstr "Otros plugins disponibles acá"
+msgstr "Otros complementos disponibles aquí"
 
 #: ../src/plugins/xkb/xkb-plugin.c:385
 msgid "Configure Keyboard Layout Switcher"
@@ -1013,12 +1012,11 @@ msgid "Minimize All Windows"
 msgstr "Minimizar todas las ventanas"
 
 #: ../src/plugins/wincmd.c:264
-#, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1)toggle iconify and 2) toggle shade"
 msgstr ""
-"Envía comandos a todas las áreas de trabajo.\n"
+"Envía comandos a todas las ventanas del escritorio.\n"
 "Los comandos admitidos son: 1) alternar minimizado y 2) alternar replegado"
 
 #: ../src/plugins/dirmenu.c:212
@@ -1026,14 +1024,12 @@ msgid "Open in _Terminal"
 msgstr "Abrir en _terminal"
 
 #: ../src/plugins/dirmenu.c:403
-#, fuzzy
 msgid "Directory"
-msgstr "Menú de carpetas"
+msgstr "Directorio"
 
 #: ../src/plugins/dirmenu.c:404
-#, fuzzy
 msgid "Label"
-msgstr "LXPanel"
+msgstr "Etiqueta"
 
 #: ../src/plugins/dirmenu.c:413
 msgid "Directory Menu"
@@ -1388,9 +1384,8 @@ msgid "Show ScrollLock"
 msgstr "Mostrar BloqDespl"
 
 #: ../src/plugins/kbled/kbled.c:279
-#, fuzzy
 msgid "Keyboard LED"
-msgstr "Led de teclado"
+msgstr "Indicadores del teclado"
 
 #: ../src/plugins/kbled/kbled.c:281
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
