@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.4.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-06-22 23:58+0200\n"
-"PO-Revision-Date: 2009-06-02 10:59-0000\n"
+"PO-Revision-Date: 2009-06-25 16:09-0000\n"
 "Last-Translator: Sérgio Marques <smarquespt@gmail.com>\n"
 "Language-Team: Portuguese PT <alvarommorais@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -21,11 +21,11 @@ msgstr ""
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
 msgid "% Percent"
-msgstr "% porcento"
+msgstr "% Por cento"
 
 #: ../data/ui/panel-pref.glade.h:3
 msgid "<b>Automatic hiding</b>"
-msgstr ""
+msgstr "<b>Ocultação Automática</b>"
 
 #: ../data/ui/panel-pref.glade.h:4
 msgid "<b>Background</b>"
@@ -97,7 +97,9 @@ msgstr "Gestor de Ficheiros:"
 msgid "General"
 msgstr "Geral"
 
-#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:932 ../src/panel.c:938
+#: ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:932
+#: ../src/panel.c:938
 msgid "Height:"
 msgstr "Altura:"
 
@@ -106,9 +108,8 @@ msgid "Left"
 msgstr "Esquerda"
 
 #: ../data/ui/panel-pref.glade.h:23
-#, fuzzy
 msgid "Left\t"
-msgstr "Esquerda"
+msgstr "Esquerda\t"
 
 #: ../data/ui/panel-pref.glade.h:24
 msgid "Logout Command:"
@@ -124,7 +125,7 @@ msgstr "Margem:"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Minimize panel when not in use"
-msgstr ""
+msgstr "Minimizar painel se não estiver em uso"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "None (Use system theme)"
@@ -156,7 +157,7 @@ msgstr "Seleccione uma imagem"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Size when minimized"
-msgstr ""
+msgstr "Tamanho ao minimizar"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "Terminal Emulator:"
@@ -167,20 +168,21 @@ msgid "Tint color:"
 msgstr "Tom de cor:"
 
 #: ../data/ui/panel-pref.glade.h:38
-#, fuzzy
 msgid "Top\t"
-msgstr "Superior"
+msgstr "Superior\t"
 
-#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:933 ../src/panel.c:937
+#: ../data/ui/panel-pref.glade.h:39
+#: ../src/panel.c:933
+#: ../src/panel.c:937
 msgid "Width:"
 msgstr "Largura:"
 
 #: ../data/ui/panel-pref.glade.h:40
-#, fuzzy
 msgid "pixels"
-msgstr "Pixeis"
+msgstr "pixeis"
 
-#: ../src/configurator.c:54 ../src/gtk-run.c:250
+#: ../src/configurator.c:54
+#: ../src/gtk-run.c:250
 msgid "Run"
 msgstr "Executar"
 
@@ -213,11 +215,11 @@ msgid "Logout command is not set"
 msgstr "Comando para terminar sessão não está definido"
 
 #: ../src/configurator.c:1216
-#, fuzzy
 msgid "Select a directory"
-msgstr "Seleccione um ficheiro"
+msgstr "Seleccione um directório"
 
-#: ../src/configurator.c:1216 ../src/configurator.c:1301
+#: ../src/configurator.c:1216
+#: ../src/configurator.c:1301
 msgid "Select a file"
 msgstr "Seleccione um ficheiro"
 
@@ -313,8 +315,7 @@ msgstr " --version   -- imprime a versão e sai\n"
 #: ../src/panel.c:1252
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <número> -- define o nível de registo 0-5. 0 - nenhum 5 - detalhado\n"
+msgstr " --log <número> -- define o nível de registo 0-5. 0 - nenhum 5 - detalhado\n"
 
 #: ../src/panel.c:1253
 #, c-format
@@ -377,11 +378,13 @@ msgstr "Monitor de Utilização do CPU"
 msgid "Display CPU usage"
 msgstr "Apresentar utilização do CPU"
 
-#: ../src/plugins/deskno/deskno.c:118 ../src/plugins/deskno/deskno2.c:129
+#: ../src/plugins/deskno/deskno.c:118
+#: ../src/plugins/deskno/deskno2.c:129
 msgid "Desktop No / Workspace Name"
 msgstr "Ambiente de Trabalho N.º / Nome da Área de Trabalho "
 
-#: ../src/plugins/deskno/deskno.c:120 ../src/plugins/deskno/deskno2.c:131
+#: ../src/plugins/deskno/deskno.c:120
+#: ../src/plugins/deskno/deskno2.c:131
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Apresentar número da área de trabalho, por cmeury@users.sf.net"
 
@@ -442,9 +445,9 @@ msgid "Ico_nify"
 msgstr "Mi_nimizar"
 
 #: ../src/plugins/taskbar.c:1428
-#, fuzzy, c-format
+#, c-format
 msgid "Workspace _%d"
-msgstr "Área de Trabalho %d"
+msgstr "Área de Trabalho _%d"
 
 #: ../src/plugins/taskbar.c:1433
 #, c-format
@@ -452,9 +455,8 @@ msgid "Workspace %d"
 msgstr "Área de Trabalho %d"
 
 #: ../src/plugins/taskbar.c:1442
-#, fuzzy
 msgid "_All workspaces"
-msgstr "Todas as Áreas de Trabalho"
+msgstr "_Todas as Áreas de Trabalho"
 
 #: ../src/plugins/taskbar.c:1449
 msgid "_Move to Workspace"
@@ -514,12 +516,8 @@ msgid "Task Bar (Window List)"
 msgstr "Barra de Tarefas (Lista de Janelas)"
 
 #: ../src/plugins/taskbar.c:1781
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
-msgstr ""
-"A barra de tarefas mostra todas as janelas abertas e permite minimizá-las, "
-"sombrear ou obter foco"
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr "A barra de tarefas mostra todas as janelas abertas e permite minimizá-las, sombrear ou obter foco"
 
 #: ../src/plugins/dclock.c:275
 msgid "Clock Format"
@@ -619,7 +617,8 @@ msgid "Address:"
 msgstr "Endereço:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstat/netstat.c:319
+#: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
 msgid "Broadcast:"
 msgstr "Difusão:"
@@ -869,12 +868,8 @@ msgstr "Não foi possível analisar o nome de interface de  '%s'"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid ""
-"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
-msgstr ""
-"Não foi possível analisar estatísticas de interface de '%s'. prx_idx = %d; "
-"ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgstr "Não foi possível analisar estatísticas de interface de '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -883,9 +878,7 @@ msgstr "Não foi possível analisar /proc/net/wireless. Formato desconhecido."
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr ""
-"Não foi possível analisar os detalhes de rede sem fios de '%s'. link_idx = %"
-"d;"
+msgstr "Não foi possível analisar os detalhes de rede sem fios de '%s'. link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
@@ -942,7 +935,8 @@ msgstr "Pager do Ambiente de trabalho"
 msgid "Simple pager plugin"
 msgstr "Pager simples de plugins"
 
-#: ../src/plugins/space.c:133 ../src/plugins/batt/batt.c:591
+#: ../src/plugins/space.c:133
+#: ../src/plugins/batt/batt.c:591
 msgid "Size"
 msgstr "Tamanho"
 
@@ -1008,36 +1002,31 @@ msgstr "Trocar entre disposições de teclado disponíveis"
 
 #: ../src/plugins/wincmd.c:233
 msgid "Left click to iconify all windows. Middle click to shade them"
-msgstr ""
-"Botão esquerdo do rato para minimizar todas as janelas. Botão do meio para "
-"sombreá-las"
+msgstr "Botão esquerdo do rato para minimizar todas as janelas. Botão do meio para sombreá-las"
 
 #: ../src/plugins/wincmd.c:262
 msgid "Minimize All Windows"
 msgstr "Minimizar Todas as Janelas"
 
 #: ../src/plugins/wincmd.c:264
-#, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1)toggle iconify and 2) toggle shade"
 msgstr ""
 "Envia comandos a todas as janelas do ambiente de trabalho.\n"
-"Comandos suportados são 1)alternar minimização e 2) alternar sombreado"
+"Os comandos suportados são 1)alternar minimização e 2) alternar sombreado"
 
 #: ../src/plugins/dirmenu.c:212
 msgid "Open in _Terminal"
 msgstr "Abrir no _Terminal"
 
 #: ../src/plugins/dirmenu.c:403
-#, fuzzy
 msgid "Directory"
-msgstr "Menu de Directório"
+msgstr "Directório"
 
 #: ../src/plugins/dirmenu.c:404
-#, fuzzy
 msgid "Label"
-msgstr "LXPanel"
+msgstr "Etiqueta"
 
 #: ../src/plugins/dirmenu.c:413
 msgid "Directory Menu"
@@ -1138,7 +1127,8 @@ msgstr "O cabo de rede está desligado"
 msgid "Connection has limited or no connectivity"
 msgstr "A ligação é limitada ou está desligada"
 
-#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307
+#: ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "Endereço IP:"
@@ -1147,32 +1137,38 @@ msgstr "Endereço IP:"
 msgid "Remote IP:"
 msgstr "IP Remoto:"
 
-#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309
+#: ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "Máscara de Rede:"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "Actividade"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "Enviado"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "Recebido"
 
-#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311
+#: ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "bytes"
 
-#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312
+#: ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "pacotes"
@@ -1181,7 +1177,8 @@ msgstr "pacotes"
 msgid "Protocol:"
 msgstr "Protocolo:"
 
-#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321
+#: ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "Endereço HW:"
 
@@ -1390,7 +1387,6 @@ msgid "Show ScrollLock"
 msgstr "Mostrar ScrollLock"
 
 #: ../src/plugins/kbled/kbled.c:279
-#, fuzzy
 msgid "Keyboard LED"
 msgstr "Led do Teclado"
 
@@ -1406,7 +1402,6 @@ msgstr "Indicadores para as teclas CapsLock, Numlock e ScrollLock"
 #~ "Dinâmico\n"
 #~ "Pixeis\n"
 #~ "% por cento"
-
 #~ msgid ""
 #~ "Left\n"
 #~ "Center\n"
@@ -1415,7 +1410,6 @@ msgstr "Indicadores para as teclas CapsLock, Numlock e ScrollLock"
 #~ "Esquerda\n"
 #~ "Centro\n"
 #~ "Direita"
-
 #~ msgid ""
 #~ "Left\n"
 #~ "Right\n"
@@ -1426,15 +1420,12 @@ msgstr "Indicadores para as teclas CapsLock, Numlock e ScrollLock"
 #~ "Direita\n"
 #~ "Superior\n"
 #~ "Inferior"
-
 #~ msgid "Where to put the panel?"
 #~ msgstr "Posição do Painel ?"
-
 #~ msgid "Battery: %d%% charged, %s"
 #~ msgstr "Bateria: %d%% carregada, %s"
-
 #~ msgid "charging finished"
 #~ msgstr "concluiu carregamento"
-
 #~ msgid "charging"
 #~ msgstr "carregando"
+
