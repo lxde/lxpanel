@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-06-22 23:58+0200\n"
-"PO-Revision-Date: 2009-06-10 14:35+0200\n"
+"PO-Revision-Date: 2009-07-01 15:11+0200\n"
 "Last-Translator: Rahman Yusri Aftian <aftian@yahoo.com>\n"
 "Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -20,11 +20,11 @@ msgstr ""
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
 msgid "% Percent"
-msgstr ""
+msgstr "% Persen"
 
 #: ../data/ui/panel-pref.glade.h:3
 msgid "<b>Automatic hiding</b>"
-msgstr ""
+msgstr "<b>Sembunyi Otomatis</b>"
 
 #: ../data/ui/panel-pref.glade.h:4
 msgid "<b>Background</b>"
@@ -63,9 +63,8 @@ msgid "Bottom"
 msgstr "Bawah"
 
 #: ../data/ui/panel-pref.glade.h:13
-#, fuzzy
 msgid "Center"
-msgstr "Umum"
+msgstr "Tengah"
 
 #: ../data/ui/panel-pref.glade.h:14
 msgid "Custom Color"
@@ -73,7 +72,7 @@ msgstr "Warna Suai"
 
 #: ../data/ui/panel-pref.glade.h:15
 msgid "Dynamic"
-msgstr ""
+msgstr "Dinamis"
 
 #: ../data/ui/panel-pref.glade.h:16
 msgid "Edge:"
@@ -106,9 +105,8 @@ msgid "Left"
 msgstr "Kiri"
 
 #: ../data/ui/panel-pref.glade.h:23
-#, fuzzy
 msgid "Left\t"
-msgstr "Kiri"
+msgstr "Kiri\t"
 
 #: ../data/ui/panel-pref.glade.h:24
 msgid "Logout Command:"
@@ -124,7 +122,7 @@ msgstr "Margin:"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Minimize panel when not in use"
-msgstr ""
+msgstr "Mengecilkan Panel Ketika tidak dapat digunakan"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "None (Use system theme)"
@@ -156,7 +154,7 @@ msgstr "Pilih berkas citra"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Size when minimized"
-msgstr ""
+msgstr "Ukuran ketika diminimalkan"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "Terminal Emulator:"
@@ -167,16 +165,14 @@ msgid "Tint color:"
 msgstr "Warna cat:"
 
 #: ../data/ui/panel-pref.glade.h:38
-#, fuzzy
 msgid "Top\t"
-msgstr "Atas"
+msgstr "Atas\t"
 
 #: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:933 ../src/panel.c:937
 msgid "Width:"
 msgstr "Lebar:"
 
 #: ../data/ui/panel-pref.glade.h:40
-#, fuzzy
 msgid "pixels"
 msgstr "Pixel"
 
@@ -213,7 +209,6 @@ msgid "Logout command is not set"
 msgstr "Perintah keluar tidak diatur"
 
 #: ../src/configurator.c:1216
-#, fuzzy
 msgid "Select a directory"
 msgstr "Pilih berkas"
 
@@ -439,7 +434,7 @@ msgid "Ico_nify"
 msgstr "Iko_nifikasi"
 
 #: ../src/plugins/taskbar.c:1428
-#, fuzzy, c-format
+#, c-format
 msgid "Workspace _%d"
 msgstr "Ruang kerja %d"
 
@@ -449,9 +444,8 @@ msgid "Workspace %d"
 msgstr "Ruang kerja %d"
 
 #: ../src/plugins/taskbar.c:1442
-#, fuzzy
 msgid "_All workspaces"
-msgstr "Semua ruang kerja"
+msgstr "Semu_a ruang kerja"
 
 #: ../src/plugins/taskbar.c:1449
 msgid "_Move to Workspace"
@@ -1012,7 +1006,6 @@ msgid "Minimize All Windows"
 msgstr "Minimalkan Semua Jendela"
 
 #: ../src/plugins/wincmd.c:264
-#, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1)toggle iconify and 2) toggle shade"
@@ -1025,14 +1018,12 @@ msgid "Open in _Terminal"
 msgstr "Buka di _Terminal"
 
 #: ../src/plugins/dirmenu.c:403
-#, fuzzy
 msgid "Directory"
-msgstr "Menu Direktori"
+msgstr "Direktori"
 
 #: ../src/plugins/dirmenu.c:404
-#, fuzzy
 msgid "Label"
-msgstr "LXPanel"
+msgstr "Label"
 
 #: ../src/plugins/dirmenu.c:413
 msgid "Directory Menu"
@@ -1385,9 +1376,8 @@ msgid "Show ScrollLock"
 msgstr "Tampilkan ScrollLock"
 
 #: ../src/plugins/kbled/kbled.c:279
-#, fuzzy
 msgid "Keyboard LED"
-msgstr "Led Papan Ketik"
+msgstr "Papan Ketik LED"
 
 #: ../src/plugins/kbled/kbled.c:281
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
