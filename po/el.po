@@ -1,354 +1,348 @@
-# Slovenian translation for lxpanel.
+# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: lxpanel 0.3.8.1\n"
+"Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-06-22 23:58+0200\n"
-"PO-Revision-Date: 2009-06-29 10:42+0100\n"
-"Last-Translator: Matej Gačnik <paxmanpwnz@gmail.com>\n"
-"Language-Team: / <paxmanpwnz@gmail.com>\n"
+"PO-Revision-Date: 2009-06-29 03:34+0200\n"
+"Last-Translator: Giorgos Koutsikos <oege89@hotmail.com>\n"
+"Language-Team: Greek\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
-"X-Generator: Pootle 1.1.0\n"
-"X-Poedit-Language: Slovenian\n"
-"X-Poedit-Country: SLOVENIA\n"
+"X-Poedit-Language: Greek\n"
+"X-Poedit-Country: GREECE\n"
 
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
 msgid "% Percent"
-msgstr "% odstotkov"
+msgstr "% Επι τις εκατό"
 
 #: ../data/ui/panel-pref.glade.h:3
 msgid "<b>Automatic hiding</b>"
-msgstr "<b>Samodejno skrivanje</b>"
+msgstr "<b>Αυτόματη απόκρυψη</b>"
 
 #: ../data/ui/panel-pref.glade.h:4
 msgid "<b>Background</b>"
-msgstr "<b>Ozadje</b>"
+msgstr "<b>Φόντο</b>"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "<b>Font</b>"
-msgstr "<b>Pisava</b>"
+msgstr "<b>Γραμματοσειρά</b>"
 
 #: ../data/ui/panel-pref.glade.h:6
 msgid "<b>Position</b>"
-msgstr "<b>Položaj</b>"
+msgstr "<b>Τοποθεσία</b>"
 
 #: ../data/ui/panel-pref.glade.h:7
 msgid "<b>Properties</b>"
-msgstr "<b>Nastavitve</b>"
+msgstr "<b>Ιδιότητες</b>"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>Nastavi ukaze privzetih aplikacij</b>"
+msgstr "<b>Ορισμός προτεινόμενων προγραμμάτων</b>"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "<b>Size</b>"
-msgstr "<b>Velikost</b>"
+msgstr "<b>Μέγεθος</b>"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "Advanced"
-msgstr "Napredno"
+msgstr "Για προχωρημένους"
 
 #: ../data/ui/panel-pref.glade.h:11
 msgid "Alignment:"
-msgstr "Poravnava:"
+msgstr "Στοίχιση"
 
 #: ../data/ui/panel-pref.glade.h:12
 msgid "Bottom"
-msgstr "Spodaj"
+msgstr "Κάτω"
 
 #: ../data/ui/panel-pref.glade.h:13
-#, fuzzy
 msgid "Center"
-msgstr "Splošno"
+msgstr "Κέντρο"
 
 #: ../data/ui/panel-pref.glade.h:14
 msgid "Custom Color"
-msgstr "Barva po meri"
+msgstr "Προσαρμοσμένο χρώμα"
 
 #: ../data/ui/panel-pref.glade.h:15
 msgid "Dynamic"
-msgstr "dinamično"
+msgstr "Δυναμικό"
 
 #: ../data/ui/panel-pref.glade.h:16
 msgid "Edge:"
-msgstr "Rob:"
+msgstr "Άκρη:"
 
 #: ../data/ui/panel-pref.glade.h:17
 msgid "Enable Image:"
-msgstr "Slika:"
+msgstr "Ενεργοποίηση εικόνας:"
 
 #: ../data/ui/panel-pref.glade.h:18
 msgid "Enable Transparency"
-msgstr "Uporabi transparentnost"
+msgstr "Ενεργοποίηση διαφάνειας"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "File Manager:"
-msgstr "Ukaz za zagon upravitelja datotek:"
+msgstr "Διαχειριστής αρχείων:"
 
 #: ../data/ui/panel-pref.glade.h:20
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
-msgstr "Splošno"
+msgstr "Γενικά"
 
 #: ../data/ui/panel-pref.glade.h:21
 #: ../src/panel.c:932
 #: ../src/panel.c:938
 msgid "Height:"
-msgstr "Višina:"
+msgstr "Ύψος:"
 
 #: ../data/ui/panel-pref.glade.h:22
 msgid "Left"
-msgstr "Levo"
+msgstr "Αριστερά"
 
 #: ../data/ui/panel-pref.glade.h:23
-#, fuzzy
 msgid "Left\t"
-msgstr "Levo"
+msgstr "Αριστερά\t"
 
 #: ../data/ui/panel-pref.glade.h:24
 msgid "Logout Command:"
-msgstr "Ukaz za odjavo:"
+msgstr "Εντολή αποσύνδεσης:"
 
 #: ../data/ui/panel-pref.glade.h:25
 msgid "Make window managers treat the panel as dock"
-msgstr "Naj okenski upravitelji uporabijo opravilno vrstico kot odlagališče"
+msgstr "Κάνε τον διαχειριστή παραθύρων να συμπεριφέρεται στο πλαίσιο σαν προσάρτηση"
 
 #: ../data/ui/panel-pref.glade.h:26
 msgid "Margin:"
-msgstr "Rob:"
+msgstr "Όρια:"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Minimize panel when not in use"
-msgstr "Pomanjšaj opravilno vrstico, ko le-ta ni v uporabi"
+msgstr "Ελαχιστοποίηση πλαισίου όταν δε χρησιμοποιείται"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "None (Use system theme)"
-msgstr "Brez (uporabi sistemsko temo)"
+msgstr "Κανένα (Χρήση θέματος συστήματος)"
 
 #: ../data/ui/panel-pref.glade.h:29
 msgid "Panel Applets"
-msgstr "Vtičniki"
+msgstr "Μικροεφαρμογές πλαισίου"
 
 #: ../data/ui/panel-pref.glade.h:30
 msgid "Panel Preferences"
-msgstr "Nastavitve opravilne vrstice"
+msgstr "Ιδιότητες πλαισίου"
 
 #: ../data/ui/panel-pref.glade.h:31
 msgid "Pixels"
-msgstr "pikslov"
+msgstr "Πίξελ"
 
 #: ../data/ui/panel-pref.glade.h:32
 msgid "Reserve space, and not covered by maximized windows"
-msgstr "Rezerviraj prostor, ki ne bo prekrit z maksimiziranimi okni "
+msgstr "Δέσμευση χώρου, να μην καλύπτεται από τα μεγιστοποιημένα παράθυρα"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "Right"
-msgstr "Desno"
+msgstr "Δεξιά"
 
 #: ../data/ui/panel-pref.glade.h:34
 msgid "Select an image file"
-msgstr "Izberi slikovno datoteko"
+msgstr "Επιλέξτε ένα αρχείο εικόνας"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Size when minimized"
-msgstr "Velikost pomanjšane opravilne vrstice"
+msgstr "Μέγεθος όταν ελαχιστοποιηθεί"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "Terminal Emulator:"
-msgstr "Ukaz za zagon konzole:"
+msgstr "Προσωμοιτής τερματικού:"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "Tint color:"
-msgstr "Barva:"
+msgstr "Απόχρωση:"
 
 #: ../data/ui/panel-pref.glade.h:38
 msgid "Top\t"
-msgstr "Na vrhu\t"
+msgstr "Πάνω\t"
 
 #: ../data/ui/panel-pref.glade.h:39
 #: ../src/panel.c:933
 #: ../src/panel.c:937
 msgid "Width:"
-msgstr "Širina:"
+msgstr "Πλάτος:"
 
 #: ../data/ui/panel-pref.glade.h:40
-#, fuzzy
 msgid "pixels"
-msgstr "pikslov"
+msgstr "πίξελ"
 
 #: ../src/configurator.c:54
 #: ../src/gtk-run.c:250
 msgid "Run"
-msgstr "Zaženi"
+msgstr "Εκτέλεση"
 
 #: ../src/configurator.c:56
 msgid "Restart"
-msgstr "Ponovni zagon"
+msgstr "Επανεκκίνηση"
 
 #: ../src/configurator.c:57
 msgid "Logout"
-msgstr "Odjava"
+msgstr "Αποσύνδεση"
 
 #: ../src/configurator.c:472
 msgid "Currently loaded plugins"
-msgstr "Naloženi vtičniki"
+msgstr "Φορτωμένες προσθήκες"
 
 #: ../src/configurator.c:481
 msgid "Stretch"
-msgstr "Raztegni vtičnik"
+msgstr "Τέντωμα"
 
 #: ../src/configurator.c:579
 msgid "Add plugin to panel"
-msgstr "Dodaj vtičnik na opravilno vrstico"
+msgstr "Προσθήκη πρόσθετου"
 
 #: ../src/configurator.c:607
 msgid "Available plugins"
-msgstr "Razpoložljivi vtičniki"
+msgstr "Διαθέσημες προσθήκες"
 
 #: ../src/configurator.c:1163
 msgid "Logout command is not set"
-msgstr "Odjavni ukaz ni nastavljen"
+msgstr "Δεν έχει οριστεί εντολή αποσύνδεσης"
 
 #: ../src/configurator.c:1216
-#, fuzzy
 msgid "Select a directory"
-msgstr "Izberi datoteko"
+msgstr "Επιλογή καταλόγου"
 
 #: ../src/configurator.c:1216
 #: ../src/configurator.c:1301
 msgid "Select a file"
-msgstr "Izberi datoteko"
+msgstr "Επιλογή αρχείου"
 
 #: ../src/configurator.c:1328
 msgid "_Browse"
-msgstr "_Brskaj"
+msgstr "_Περιήγηση"
 
 #: ../src/panel.c:590
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
-"Ste prepričani da hočete izbrisati opravilno vrstico?\n"
-"<b>Pozor: ni je mogoče obnoviti!</b>"
+"Να διαγραφεί αυτό το πλαίσιο;\n"
+"<b>Προειδοποίηση: Δεν μπορεί να επαναφερθεί</b>"
 
 #: ../src/panel.c:592
 msgid "Confirm"
-msgstr "Potrdi"
+msgstr "Επιβεβαίωση"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:623
 msgid "translator-credits"
-msgstr "paxman"
+msgstr ""
 
 #: ../src/panel.c:628
-#, fuzzy
 msgid "LXPanel"
-msgstr "Opravilna vrstica"
+msgstr "LXPanel"
 
 #: ../src/panel.c:630
 msgid "Copyright (C) 2008-2009"
-msgstr "Vse pravice pridržane (C) 2008-2009"
+msgstr "Copyright (C) 2008-2009"
 
 #: ../src/panel.c:631
 msgid "Desktop panel for LXDE project"
-msgstr "Opravilna vrstica za projekt LXDE"
+msgstr "Πλαίσιο επιφάνειας εργασίας για το LXDE project"
 
 #: ../src/panel.c:654
 msgid "Add / Remove Panel Items"
-msgstr "Dodaj / odstrani vtičnike"
+msgstr "Προσθήκη / Αφαίρεση αντικειμένων πλαισίου"
 
 #: ../src/panel.c:662
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr "Odstrani \"%s\" z opravilne vrstice"
+msgstr "Αφαίρεση του \"%s\" από το πλαίσιο"
 
 #: ../src/panel.c:674
 msgid "Panel Settings"
-msgstr "Nastavitve opravilne vrstice"
+msgstr "Επιλογές πλαισίου"
 
 #: ../src/panel.c:680
 msgid "Create New Panel"
-msgstr "Ustvari novo opravilno vrstico"
+msgstr "Δημιουργία νέου πλαισίου"
 
 #: ../src/panel.c:691
 msgid "Delete This Panel"
-msgstr "Izbriši to opravilno vrstico"
+msgstr "Διαγραφή του πλαισίου "
 
 #: ../src/panel.c:702
 msgid "About"
-msgstr "O programu"
+msgstr "Περί"
 
 #: ../src/panel.c:710
 msgid "Panel"
-msgstr "Opravilna vrstica"
+msgstr "Πλαίσιο"
 
 #: ../src/panel.c:723
 #, c-format
 msgid "\"%s\" Settings"
-msgstr "\"%s\" Nastavitve"
+msgstr "\"%s\" Επιλογές"
 
 #: ../src/panel.c:1248
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr "LXPanel %s - Opravilna vrstica za namizja UNIX, spisana v GTK2+\n"
+msgstr "lxpanel %s - Ελαφρύ GTK2+ πάνελ για UNIX desktops\n"
 
 #: ../src/panel.c:1249
 #, c-format
 msgid "Command line options:\n"
-msgstr "Možnosti ukazne vrstice:\n"
+msgstr "Επιλογές γραμμής εντολών:\n"
 
 #: ../src/panel.c:1250
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr " --help      -- prikaže pomoč in konča\n"
+msgstr "--help      -- εμφάνιση της βοήθειας και έξοδος\n"
 
 #: ../src/panel.c:1251
 #, c-format
 msgid " --version   -- print version and exit\n"
-msgstr " --version   -- prikaži različico in konča\n"
+msgstr " --version   -- Εμφάνιση έκδοσης και έξοδος\n"
 
 #: ../src/panel.c:1252
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --log <številka>   -- določi stopnjo dnevniškega izpia od 0 do 5. 0 - brez dnevnika, 5 - izdaten\n"
+msgstr " --log <αριθμός> -- ορισμός επιπέδου καταγραφής 0-5. 0 - καθόλου 5 - πολύ\n"
 
 #: ../src/panel.c:1253
 #, c-format
 msgid " --configure -- launch configuration utility\n"
-msgstr " --configure -- zažene izbrano konfiguracijo\n"
+msgstr " --configure -- εκτέλεση του εργαλείου διαχείρησης\n"
 
 #: ../src/panel.c:1254
 #, c-format
 msgid " --profile name -- use specified profile\n"
-msgstr " --profile Ime -- uporabi podan profil\n"
+msgstr " --profile όνομα -- χρήση καθορισμένου προφίλ\n"
 
 #: ../src/panel.c:1256
 #, c-format
 msgid " -h  -- same as --help\n"
-msgstr " -h  -- enako kot --help\n"
+msgstr " -h  -- όπως το --help\n"
 
 #: ../src/panel.c:1257
 #, c-format
 msgid " -p  -- same as --profile\n"
-msgstr " -p  -- enako kot --profile\n"
+msgstr " -p  -- όπως το --profile\n"
 
 #: ../src/panel.c:1258
 #, c-format
 msgid " -v  -- same as --version\n"
-msgstr " -v  -- enako kot --version\n"
+msgstr " -v  -- όπως το --version\n"
 
 #: ../src/panel.c:1259
 #, c-format
 msgid " -C  -- same as --configure\n"
-msgstr " -C  -- enako kot --configure\n"
+msgstr " -C  -- όπως το --configure\n"
 
 #: ../src/panel.c:1260
 #, c-format
@@ -358,50 +352,50 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"Za več informacij obiščite http://lxde.org/.\n"
+"Επισκευτείτε το http://lxde.org/ για λεπτομέριες.\n"
 "\n"
 
 #: ../src/gtk-run.c:264
 msgid "Enter the command you want to execute:"
-msgstr "Izvedi ukaz:"
+msgstr "Εισάγετε την εντολή προς εκτέλεση:"
 
 #: ../src/systray/tray.c:211
 msgid "System Tray"
-msgstr "Sistemski pladenj"
+msgstr "Πλαίσιο συστήματος"
 
 #: ../src/systray/tray.c:213
 msgid "Old KDE/GNOME Tray"
-msgstr "Stari KDE/GNOME sistemski pladenj"
+msgstr "Παλιό KDE/GNOME πλαίσιο συστήματος"
 
 #: ../src/plugins/cpu/cpu.c:266
 msgid "CPU Usage Monitor"
-msgstr "Nadzornik uporabe CPE"
+msgstr "Παρακολούθηση χρήσης CPU"
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "Display CPU usage"
-msgstr "Prikaži zasedenost CPE"
+msgstr "Εμφάνιση χρήσης cpu"
 
 #: ../src/plugins/deskno/deskno.c:118
 #: ../src/plugins/deskno/deskno2.c:129
 msgid "Desktop No / Workspace Name"
-msgstr "Številka namizja / Ime namizja"
+msgstr "Αριθμός επιφάνειας εργασίας / όνομα χώρου εργασίας"
 
 #: ../src/plugins/deskno/deskno.c:120
 #: ../src/plugins/deskno/deskno2.c:131
 msgid "Display workspace number, by cmeury@users.sf.net"
-msgstr "Prikaži številko namizja"
+msgstr "Εμφάνιση αριθμού χώρου εργασίας, από cmeury@users.sf.net"
 
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
-msgstr "Prikaži sliko in zaslonski namig"
+msgstr "Εμφάνιση εικόνας και υπόδειξης"
 
 #: ../src/plugins/launchbar.c:146
 msgid "Add Button"
-msgstr "Dodaj gumb"
+msgstr "Προσθήκη κουμπιού"
 
 #: ../src/plugins/launchbar.c:148
 msgid "Button Properties"
-msgstr "Lastnosti gumba"
+msgstr "Ιδιότητες Κουμπιού"
 
 #.
 #. title = g_strdup_printf( _("Remove \"%s\""), b-> );
@@ -409,7 +403,7 @@ msgstr "Lastnosti gumba"
 #.
 #: ../src/plugins/launchbar.c:154
 msgid "Remove Button"
-msgstr "Odstrani gumb"
+msgstr "Αφαίρεση κουμπιού"
 
 #. FIXME: We should have a better interface for this in the fututure.
 #. 1. We can borrow the menu from menu plugin (PtkAppMenu).
@@ -417,173 +411,164 @@ msgstr "Odstrani gumb"
 #.
 #: ../src/plugins/launchbar.c:530
 msgid "Select Application"
-msgstr "Izberi program"
+msgstr "Επιλογή εφαρμογής"
 
 #: ../src/plugins/launchbar.c:682
 msgid "Buttons"
-msgstr "Nastavljeni gumbi"
+msgstr "Κουμπιά"
 
 #: ../src/plugins/launchbar.c:800
 msgid "Application Launch Bar"
-msgstr "Hitri zagon aplikacij"
+msgstr "Μπάρα εκκίνησης εφαρμογών"
 
 #: ../src/plugins/launchbar.c:802
 msgid "Bar with buttons to launch application"
-msgstr "Pult z gumbi za zagon aplikacij"
+msgstr "Μπάρα με κουμπιά για την εκκίνηση εφαρμογών"
 
 #: ../src/plugins/taskbar.c:1405
-#, fuzzy
 msgid "_Raise"
-msgstr "V ospredje"
+msgstr "_Ανύψωση"
 
 #: ../src/plugins/taskbar.c:1409
-#, fuzzy
 msgid "R_estore"
-msgstr "Obnovi"
+msgstr "Ε_παναφορά"
 
 #: ../src/plugins/taskbar.c:1413
-#, fuzzy
 msgid "Ma_ximize"
-msgstr "Razpri"
+msgstr "Με_γιστοποίηση"
 
 #: ../src/plugins/taskbar.c:1417
-#, fuzzy
 msgid "Ico_nify"
-msgstr "Pomanjšaj"
+msgstr "Εικονιδοποίηση"
 
 #: ../src/plugins/taskbar.c:1428
-#, fuzzy, c-format
+#, c-format
 msgid "Workspace _%d"
-msgstr "Namizje %d"
+msgstr "Χώρος εργασίας _%d"
 
 #: ../src/plugins/taskbar.c:1433
 #, c-format
 msgid "Workspace %d"
-msgstr "Namizje %d"
+msgstr "Χώρος εργασίας %d"
 
 #: ../src/plugins/taskbar.c:1442
-#, fuzzy
 msgid "_All workspaces"
-msgstr "Vsa namizja"
+msgstr "_Όλοι οι χώροι εργασίας"
 
 #: ../src/plugins/taskbar.c:1449
-#, fuzzy
 msgid "_Move to Workspace"
-msgstr "Premakni na namizje"
+msgstr "_Μεταφορά στο χώρο εργασίας"
 
 #. we want this item to be farest from mouse pointer
 #: ../src/plugins/taskbar.c:1457
-#, fuzzy
 msgid "_Close Window"
-msgstr "Zapri okno"
+msgstr "_Κλείσιμο παραθύρου"
 
 #: ../src/plugins/taskbar.c:1691
 msgid "Show tooltips"
-msgstr "Prikaži zaslonski namig"
+msgstr "Εμφάνιση υποδείξεων"
 
 #: ../src/plugins/taskbar.c:1692
 msgid "Icons only"
-msgstr "Samo ikone"
+msgstr "Μόνο εικονίδια"
 
 #: ../src/plugins/taskbar.c:1693
 msgid "Flat Buttons"
-msgstr "Vboči gumbe"
+msgstr "Επίπεδα κουμπιά"
 
 #: ../src/plugins/taskbar.c:1694
 msgid "Accept SkipPager"
-msgstr "Sprejmi SkipPager"
+msgstr ""
 
 #: ../src/plugins/taskbar.c:1695
 msgid "Show Iconified windows"
-msgstr "Prikaži pomanjšana okna"
+msgstr "Εμφάνιση εικονιδοποιημένων παραθύρων"
 
 #: ../src/plugins/taskbar.c:1696
-#, fuzzy
 msgid "Show mapped windows"
-msgstr "Prikaži mapirane gumbe?"
+msgstr ""
 
 #: ../src/plugins/taskbar.c:1697
 msgid "Show windows from all desktops"
-msgstr "Prikaži okna z vseh namizij"
+msgstr "Εμφάνιση παραθύρων από όλες τις επιφάνειες εργασίας"
 
 #: ../src/plugins/taskbar.c:1698
 msgid "Use mouse wheel"
-msgstr "Uporabi miškin kolešček"
+msgstr "Χρήση της ροδέλας ποντικιού"
 
 #: ../src/plugins/taskbar.c:1699
 msgid "Flash when there is any window requiring attention"
-msgstr "Animiraj okno, ki zahteva pozornost"
+msgstr ""
 
 #: ../src/plugins/taskbar.c:1700
 msgid "Max width of task button"
-msgstr "Maksimalna širina gumbov"
+msgstr "Μέγιστο πλάτος κουμπιού εργασιών"
 
 #: ../src/plugins/taskbar.c:1701
 msgid "Spacing"
-msgstr "Razmik med gumbi"
+msgstr "Διάστημα"
 
 #: ../src/plugins/taskbar.c:1779
 msgid "Task Bar (Window List)"
-msgstr "Seznam oken"
+msgstr "Μπάρα εργασιών"
 
 #: ../src/plugins/taskbar.c:1781
 msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
-msgstr "Opravilna vrstica prikaže vsa odprta okna in omogoča, da jih pomanjšate, osenčite ali fokusirate"
+msgstr ""
 
 #: ../src/plugins/dclock.c:275
 msgid "Clock Format"
-msgstr "Oblika urinega zapisa:"
+msgstr "Μορφή ρολογιού"
 
 #: ../src/plugins/dclock.c:276
 msgid "Tooltip Format"
-msgstr "Oblika zaslonskega namiga:"
+msgstr "Μορφή υπόδειξης"
 
 #: ../src/plugins/dclock.c:277
 msgid "Format codes: man 3 strftime"
-msgstr ""
+msgstr "Μορφή κώδικα: man 3 strftime"
 
 #: ../src/plugins/dclock.c:278
 msgid "Action"
-msgstr "Dejanje:"
+msgstr "Ενέργεια"
 
 #: ../src/plugins/dclock.c:279
 msgid "Bold font"
-msgstr "Uporabi polkrepko pisavo"
+msgstr "Έντονη γραμματοσειρά"
 
 #: ../src/plugins/dclock.c:312
 msgid "Digital Clock"
-msgstr "Digitalna ura"
+msgstr "Ψηφιακό ρολόι"
 
 #: ../src/plugins/dclock.c:314
 msgid "Display Digital clock and Tooltip"
-msgstr "Prikazuje digitalno uro in datum (kot zaslonski namig)"
+msgstr "Εμφάνιση ψηφιακού ρολογιού και βοηθητικού κειμένου"
 
 #: ../src/plugins/menu.c:369
 msgid "Add to desktop"
-msgstr "Dodaj na namizje"
+msgstr "Προσθήκη στην επιφάνεια εργασίας"
 
 #: ../src/plugins/menu.c:379
 msgid "Properties"
-msgstr "Nastavitve"
+msgstr "Ιδιότητες"
 
 #: ../src/plugins/menu.c:1029
 msgid "Icon"
-msgstr "Ikona:"
+msgstr "Εικονίδιο"
 
 #: ../src/plugins/menu.c:1040
 msgid "Menu"
-msgstr "Glavni meni"
+msgstr "Μενού"
 
 #: ../src/plugins/menu.c:1042
-#, fuzzy
 msgid "Provide Menu"
-msgstr "Nudi menu?"
+msgstr ""
 
 #: ../src/plugins/netstatus/glade-support.c:91
 #: ../src/plugins/netstatus/glade-support.c:115
 #, c-format
 msgid "Couldn't find pixmap file: %s"
-msgstr ""
+msgstr "Αδύνατη η εύρεση αρχείου pixmap: %s"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
@@ -594,160 +579,158 @@ msgstr "0%"
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:194
 msgid "<b>Activity</b>"
-msgstr "<b>Aktivnost</b>"
+msgstr "<b>Δραστηριότητα</b>"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:131
 msgid "<b>Connection</b>"
-msgstr "<b>Povezava</b>"
+msgstr "<b>Σύνδεση</b>"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:289
 msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr "<b>Internetni protokol (IPv4)</b>"
+msgstr "<b>Πρωτόκολλο Internet (IPv4)</b>"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:376
 msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr "<B>Internetni protokol (IPv6)</b>"
+msgstr "<b>Πρωτόκολλο Internet (IPv6)</b>"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:432
 msgid "<b>Network Device</b>"
-msgstr "<b>Mrežna naprava</b>"
+msgstr "<b>Συσκευή δικτύου</b>"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:250
 msgid "<b>Signal Strength</b>"
-msgstr "<b>Jakost signala</b>"
+msgstr "<b>Ισχύς σήματος</b>"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:309
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:396
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:452
 msgid "Address:"
-msgstr "Naslov:"
+msgstr "Διεύθυνση:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
 #: ../src/plugins/netstat/netstat.c:319
 #: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
 msgid "Broadcast:"
-msgstr "Naslov za razpršeno oddajanje:"
+msgstr "Broadcast:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:513
 msgid "Con_figure"
-msgstr "Na_stavi"
+msgstr "_Ρύθμιση"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:316
 msgid "Destination:"
-msgstr "Cilj:"
+msgstr "Προορισμός"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:232
 msgid "Received:"
-msgstr "Prejeto:"
+msgstr "Λήφθηκαν:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:403
 msgid "Scope:"
-msgstr "Scope:"
+msgstr ""
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:239
 msgid "Sent:"
-msgstr "Poslano:"
+msgstr "Στάλθηκαν:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:155
 msgid "Status:"
-msgstr "Status:"
+msgstr "Κατάσταση:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
 msgid "Subnet Mask:"
-msgstr "Maska omrežja:"
+msgstr "Μάσκα υποδικτύωσης:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:484
 msgid "Support"
-msgstr "Tehnična podpora"
+msgstr "Υποστήριξη"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:477
 msgid "Type:"
-msgstr "Tip:"
+msgstr "Τύπος:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:171
 msgid "_Name:"
-msgstr "_Ime:"
+msgstr "_Όνομα:"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:148
 msgid "Name"
-msgstr "Ime"
+msgstr "Όνομα"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:149
 msgid "The interface name"
-msgstr "Ime vmsenika"
+msgstr "Το όνομα της διεπαφής"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:156
 msgid "State"
-msgstr "Stanje:"
+msgstr "Κατάσταση"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:157
 msgid "The interface state"
-msgstr "Stanje vmesnika"
+msgstr "Η κατάσταση της διεπαφής"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:165
-#, fuzzy
 msgid "Stats"
-msgstr "Status:"
+msgstr "Στατιστικά"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:166
 msgid "The interface packets/bytes statistics"
-msgstr "Statistika paketkov/bajtov na vmesniku"
+msgstr "Στατιστικά πακέτων/byte της διεπαφής"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:173
 #: ../src/plugins/netstat/netstat.c:315
 msgid "Wireless"
-msgstr "Brezžično"
+msgstr "Ασύρματο"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:174
 msgid "Whether the interface is a wireless interface"
-msgstr "Ali je vmesnik brezžičen"
+msgstr "Αν η διεπαφή είναι μια ασύρματη διεπαφή"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:181
 msgid "Signal"
-msgstr "Signal"
+msgstr "Σήμα"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:182
 msgid "Wireless signal strength percentage"
-msgstr "Signal brezžičnega omrežja - v odstotkih"
+msgstr "Ισχύς ασύρματου σήματος επί τις εκατό"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:191
 #: ../src/plugins/netstatus/netstatus-util.c:167
 msgid "Error"
-msgstr "Napaka"
+msgstr "Σφάλμα"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:192
-#, fuzzy
 msgid "The current error condition"
-msgstr "Trenutni status napake"
+msgstr "Η τρέχουσα κατάσταση του σφάλματος"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:434
 #: ../src/plugins/netstatus/netstatus-iface.c:1197
 #, c-format
 msgid "Unable to open socket: %s"
-msgstr "Ni bilo možno odpreti vtičnice: %s"
+msgstr "Αδύνατη η εκκίνηση της σύνδεσης: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:496
 #: ../src/plugins/netstatus/netstatus-iface.c:1223
 #, c-format
 msgid "SIOCGIFFLAGS error: %s"
-msgstr "Napaka SIOCGIFFLAGS: %s"
+msgstr "Σφάλμα SIOCGIFFLAGS: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:870
 msgid "AMPR NET/ROM"
@@ -764,7 +747,7 @@ msgstr "AMPR AX.25"
 #: ../src/plugins/netstatus/netstatus-iface.c:888
 #: ../src/plugins/netstatus/netstatus-iface.c:1008
 msgid "16/4 Mbps Token Ring"
-msgstr "16/4 Mbps Token Ring"
+msgstr "16/4 Mbps Δίκτυο δακτυλίου"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:891
 msgid "ARCnet"
@@ -780,7 +763,7 @@ msgstr "Metricom Starmode IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:906
 msgid "Serial Line IP"
-msgstr "Serial Line IP"
+msgstr "IP Σειριακής γραμμής"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:909
 msgid "VJ Serial Line IP"
@@ -788,7 +771,7 @@ msgstr "VJ Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:912
 msgid "6-bit Serial Line IP"
-msgstr "6-bit Serial Line IP"
+msgstr "IP Σειριακής γραμμής 6-bit"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:915
 msgid "VJ 6-bit Serial Line IP"
@@ -804,7 +787,7 @@ msgstr "AMPR ROSE"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:927
 msgid "Generic X.25"
-msgstr "Generic X.25"
+msgstr "Γενικευμένο X.25"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:930
 msgid "Point-to-Point Protocol"
@@ -824,19 +807,19 @@ msgstr "IPIP Tunnel"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:954
 msgid "Frame Relay Access Device"
-msgstr "Frame Relay Access Device (FRAD)"
+msgstr "Frame Relay Access Device"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:960
 msgid "Local Loopback"
-msgstr "Local Loopback"
+msgstr "Τοπικό Loopback"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:966
 msgid "Fiber Distributed Data Interface"
-msgstr "Fiber Distributed Data Interface (FDDI)"
+msgstr "Fiber Distributed Data Interface"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:972
 msgid "IPv6-in-IPv4"
-msgstr "IPv6-in-IPv4"
+msgstr "IPv6-σε-IPv4"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:984
 msgid "HIPPI"
@@ -857,361 +840,358 @@ msgstr "IrLAP"
 #: ../src/plugins/netstatus/netstatus-iface.c:1155
 #, c-format
 msgid "SIOCGIFCONF error: %s"
-msgstr "Napaka SIOCGIFCONF: %s"
+msgstr "Σφάλμα SIOCGIFCONF: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:1248
 #, c-format
 msgid "No network devices found"
-msgstr "Ni najdenih mrežnih naprav"
+msgstr "Δε βρέθηκαν συσκευές δικτύου"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:180
 #, c-format
 msgid "Cannot open /proc/net/dev: %s"
-msgstr "Ni bilo mogoče odpreti /proc/net/dev: %s"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:189
 msgid "Could not parse /proc/net/dev. Unknown format."
-msgstr "Ni bilo mogoče razčleniti /proc/net/dev. Neznana oblika zapisa."
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:204
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:330
 #, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr "Ni bilo mogoče razčleniti imena vmesnika z '%s'"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
 msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
-msgstr "Ni bilo mogoče razčleniti statistike vmesnika '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr "Ni bilo mogoče razčleniti /proc/net/wireless. Neznana oblika zapisa."
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr "Ni bilo mogoče razčleniti podrobnosti o brezžičnem omrežju '%s'. link_idx = %d;"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
 msgid "Could not connect to interface, '%s'"
-msgstr "Ni se bilo mogoče povezati z vmesnikom, '%s'"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:420
 #, c-format
 msgid "Could not send ioctl to interface, '%s'"
-msgstr "Signala ioctl ni bilo mogoče poslati na vmesnik, '%s'"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr "Ni bilo mogoče razčleniti ukaza '%s': %s"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr "Izhoda ukaza 'netstat' ni bilo mogoče razčleniti. Neznana oblika zapisa."
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
-msgstr "Nepovezan"
+msgstr "Αποσυνδεθήκατε"
 
 #: ../src/plugins/netstatus/netstatus-util.c:155
 msgid "Idle"
-msgstr "Nedejaven"
+msgstr "Ανενεργό"
 
 #: ../src/plugins/netstatus/netstatus-util.c:158
 msgid "Sending"
-msgstr "Pošiljam"
+msgstr "Αποστέλονται"
 
 #: ../src/plugins/netstatus/netstatus-util.c:161
 msgid "Receiving"
-msgstr "Prejemam"
+msgstr "Λαμβάνονται"
 
 #: ../src/plugins/netstatus/netstatus-util.c:164
 msgid "Sending/Receiving"
-msgstr "Pošiljam/Prejemam"
+msgstr "Αποστολή/Λήψη"
 
 #: ../src/plugins/separator.c:83
 msgid "Separator"
-msgstr "Ločilo"
+msgstr "Διαχωριστής"
 
 #: ../src/plugins/separator.c:85
 msgid "Add a separator to the panel"
-msgstr "Dodaj ločilo na opravilno vrstico"
+msgstr "Προσθήκη διαχωριστή στο πλαίσιο"
 
 #: ../src/plugins/pager.c:707
 msgid "Desktop Pager"
-msgstr "Desktop Pager"
+msgstr "Διαχειριστής επιφάνειας εργασίας"
 
 #: ../src/plugins/pager.c:709
 msgid "Simple pager plugin"
-msgstr "Enostaven pager vtičnik"
+msgstr "Απλή επέκταση διαχειριστή επιφάνειας"
 
 #: ../src/plugins/space.c:133
 #: ../src/plugins/batt/batt.c:591
 msgid "Size"
-msgstr "Širina"
+msgstr "Μέγεθος"
 
 #: ../src/plugins/space.c:148
 msgid "<Space>"
-msgstr "<prazno>"
+msgstr "<Περιθόριο>"
 
 #: ../src/plugins/space.c:150
 msgid "Allocate space"
-msgstr "Prazen prostor med vtičniki"
+msgstr "Δέσμευση χώρου"
 
 #: ../src/plugins/xkb/xkb-plugin.c:241
 msgid "Keyboard Layout Switcher"
-msgstr "Preklapljanje med razporeditvami tipk"
+msgstr "Εναλλακτής διάταξης πληκτρολογίου"
 
 #: ../src/plugins/xkb/xkb-plugin.c:247
 msgid ""
 "Allows you to switch the keyboard layout and\n"
 "displays the currently selected layout."
 msgstr ""
-"Omogoča preklapljanje med ter prikaz trenutno\n"
-"izbrane razporeditve tipk."
+"Επιτρέπει την εναλλαγή της διάταξης πληκτρολογίου\n"
+"και εμφανίζει την επιλεγμένη διάταξη."
 
 #: ../src/plugins/xkb/xkb-plugin.c:252
 msgid "Other plugins available here"
-msgstr "Drugi vtičniki"
+msgstr "Λοιπά διαθέσιμα πρόσθετα"
 
 #: ../src/plugins/xkb/xkb-plugin.c:385
 msgid "Configure Keyboard Layout Switcher"
-msgstr "Nastavi preklapljanje med razporeditvami tipk"
+msgstr "Ρύθμιση του εναλλακτή διάταξης πληκτρολογίου"
 
 #: ../src/plugins/xkb/xkb-plugin.c:398
 msgid "Show layout as"
-msgstr "Prikaži razporeditev kot"
+msgstr "Εμφάνιση διάταξης ως"
 
 #: ../src/plugins/xkb/xkb-plugin.c:413
 msgid "image"
-msgstr "slika"
+msgstr "εικόνα"
 
 #: ../src/plugins/xkb/xkb-plugin.c:414
 msgid "text"
-msgstr "tekst"
+msgstr "κείμενο"
 
 #: ../src/plugins/xkb/xkb-plugin.c:418
-#, fuzzy
 msgid "Per application settings"
-msgstr "Nastavitve glede na program"
+msgstr "Ρυθμίσεις ανα εφαρμογή"
 
 #: ../src/plugins/xkb/xkb-plugin.c:432
 msgid "_Remember layout for each application"
-msgstr "_Zapomni si razporeditev tipk za vsak program"
+msgstr "_Ενθύμιση διάταξης για κάθε εφαρμογή"
 
 #: ../src/plugins/xkb/xkb-plugin.c:441
 msgid "Default layout:"
-msgstr "Privzeta razporeditev:"
+msgstr "Προεπιλεγμένη διάταξη πληκτρολογίου:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:499
 msgid "Kayboard Layout switcher"
-msgstr "Preklapljanje med razporeditvami tipk"
+msgstr "Εναλλαγή διάταξης πληκτρολογίου"
 
 #: ../src/plugins/xkb/xkb-plugin.c:501
 msgid "Switch between available keyboard layouts"
-msgstr "Preklopi med razpoložljivimi razporeditvami tipk"
+msgstr "Εναλλαγή μεταξύ των διαθέσιμων διατάξεων πληκτρολογίου"
 
 #: ../src/plugins/wincmd.c:233
-#, fuzzy
 msgid "Left click to iconify all windows. Middle click to shade them"
-msgstr "Levi klik pomanjša vsa okna. Srednji klik osenči? "
+msgstr "Αριστερό κλίκ για εικονιδιοποίηση όλων των παραθύρων. Μεσαίο κλίκ για σκίαση τους"
 
 #: ../src/plugins/wincmd.c:262
 msgid "Minimize All Windows"
-msgstr "Upravitelj oken"
+msgstr "Ελαχιστοποίηση όλων των παραθύρων"
 
 #: ../src/plugins/wincmd.c:264
-#, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1)toggle iconify and 2) toggle shade"
-msgstr "Pošlji ukaz vsem oknom na namizju. Podprti ukazi so: 1.) pomanjšaj/povečaj in 2.) osenči"
+msgstr ""
+"Αποστέλει εντολές προς όλα τα παράθυρα.\n"
+"Υποστιριζόμενες εντολές είναι 1) Εικονιδιοποίηση και 2) Σκίαση"
 
 #: ../src/plugins/dirmenu.c:212
 msgid "Open in _Terminal"
-msgstr "Odpri v _konzoli"
+msgstr "Άνοιγμα στο _τερματικό"
 
 #: ../src/plugins/dirmenu.c:403
 msgid "Directory"
-msgstr "Hitri dostop do map"
+msgstr "Κατάλογος"
 
 #: ../src/plugins/dirmenu.c:404
-#, fuzzy
 msgid "Label"
-msgstr "Opravilna vrstica"
+msgstr "Ταμπέλα"
 
 #: ../src/plugins/dirmenu.c:413
+#, fuzzy
 msgid "Directory Menu"
-msgstr "Menu z mapami"
+msgstr "Μενού καταλόγου"
 
 #: ../src/plugins/dirmenu.c:415
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr "Dostopaj do map iz hitrega menija (Avtor: PCMan)"
+msgstr ""
 
 #: ../src/plugins/thermal/thermal.c:283
 msgid "Normal"
-msgstr "Normalno"
+msgstr "Κανονικό"
 
 #: ../src/plugins/thermal/thermal.c:284
 msgid "Warning1"
-msgstr "Opozorilo1"
+msgstr "Προειδοποίηση1"
 
 #: ../src/plugins/thermal/thermal.c:285
 msgid "Warning2"
-msgstr "Opozorilo2"
+msgstr "Προειδοποίηση2"
 
 #: ../src/plugins/thermal/thermal.c:286
 msgid "Automatic sensor location"
-msgstr "Samodejno zaznaj senzorje"
+msgstr "Αυτόματη περιοχή αισθητήρα"
 
 #: ../src/plugins/thermal/thermal.c:287
 msgid "Sensor"
-msgstr "Senzor"
+msgstr "Αισθητήρας"
 
 #: ../src/plugins/thermal/thermal.c:288
 msgid "Automatic temperature levels"
-msgstr "Samodejno nastavi temperaturni prag"
+msgstr "Αυτόματα επίπεδα θερμοκρασίας"
 
 #: ../src/plugins/thermal/thermal.c:289
-#, fuzzy
 msgid "Warning1 Temperature"
-msgstr "Pozor1 Temperatura"
+msgstr "Προειδοποίηση θερμοκρασίας 1"
 
 #: ../src/plugins/thermal/thermal.c:290
-#, fuzzy
 msgid "Warning2 Temperature"
-msgstr "Pozor2 Temperatura"
+msgstr "Προειδοποίηση θερμοκρασίας 2"
 
 #: ../src/plugins/thermal/thermal.c:332
 msgid "Temperature Monitor"
-msgstr "Nadzornik temperatur"
+msgstr "Παρακολούθηση θερμοκρασίας"
 
 #: ../src/plugins/thermal/thermal.c:334
 msgid "Display system temperature, by kesler.daniel@gmail.com"
-msgstr "Prikazovalnik temperatur v sistemu, avtor kesler.daniel@gmail.com"
+msgstr "Εμφάνιση θερμοκρασίας συστήματος, από τον kesler.daniel@gmail.com"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #: ../src/plugins/volume/volume.c:305
 #: ../src/plugins/volumealsa/volumealsa.c:410
 msgid "Volume control"
-msgstr "Nastavi jakost zvoka"
+msgstr "Έλεγχος έντασης"
 
 #: ../src/plugins/volume/volume.c:317
 #: ../src/plugins/volumealsa/volumealsa.c:424
 msgid "Volume Control"
-msgstr "Nadzornik glasnosti"
+msgstr "Έλεγχος έντασης"
 
 #. create frame
 #: ../src/plugins/volume/volume-impl.c:109
 #: ../src/plugins/volumealsa/volumealsa.c:319
 msgid "Volume"
-msgstr "Glasnost"
+msgstr "Ένταση ήχου"
 
 #: ../src/plugins/volumealsa/volumealsa.c:336
 msgid "Mute"
-msgstr "Nemo"
+msgstr "Σίγαση"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
-msgstr "<Skrita dostopna točka>"
+msgstr "<Κρυφό σημείο πρόσβασης>"
 
 #: ../src/plugins/netstat/netstat.c:201
 msgid "Wireless Networks not found in range"
-msgstr "Brezžična omrežja niso bila najdena"
+msgstr "Δεν βρέθηκαν ασύρματα δίκτυα εντός εμβέλειας"
 
 #. Repair
 #: ../src/plugins/netstat/netstat.c:235
 msgid "Repair"
-msgstr "Popravi"
+msgstr "Επιδιόρθωση"
 
 #. interface down
 #: ../src/plugins/netstat/netstat.c:240
 msgid "Disable"
-msgstr "Onemogoči"
+msgstr "Απενεργοποίηση"
 
 #: ../src/plugins/netstat/netstat.c:299
 msgid "Wireless Connection has no connectivity"
-msgstr "Brezžična povezava je omejena"
+msgstr "Η ασύρματη σύνδεση δεν έχει συνδεσιμότητα"
 
 #: ../src/plugins/netstat/netstat.c:301
 msgid "Network cable is plugged out"
-msgstr "Mrežni kabel je iztaknjen"
+msgstr "Καλώδιο δικτύου αποσυνδέθηκε"
 
 #: ../src/plugins/netstat/netstat.c:303
 msgid "Connection has limited or no connectivity"
-msgstr "Zveza je omejena ali brez povezave"
+msgstr "Η σύνδεση έχει περιορισμένη ή καθόλου συνδεσιμότητα"
 
 #: ../src/plugins/netstat/netstat.c:307
 #: ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
-msgstr "IP-naslov:"
+msgstr "Διεύθυνση IP:"
 
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Remote IP:"
-msgstr "Oddaljeni IP-naslov:"
+msgstr "Απομακρυσμένη IP:"
 
 #: ../src/plugins/netstat/netstat.c:309
 #: ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
-msgstr "Omrežna maska:"
+msgstr "Μάσκα δικτύου:"
 
 #: ../src/plugins/netstat/netstat.c:310
 #: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
-msgstr "Aktivnost"
+msgstr "Δραστηριότητα"
 
 #: ../src/plugins/netstat/netstat.c:310
 #: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
-msgstr "Poslano"
+msgstr "Αποστολή"
 
 #: ../src/plugins/netstat/netstat.c:310
 #: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
-msgstr "Prejeto"
+msgstr "Λήψη"
 
 #: ../src/plugins/netstat/netstat.c:311
 #: ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
-msgstr "bajtov"
+msgstr "byte"
 
 #: ../src/plugins/netstat/netstat.c:312
 #: ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
-msgstr "paketkov"
+msgstr "πακέτα"
 
 #: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
-msgstr "Protokol:"
+msgstr "Πρωτόκολλο:"
 
 #: ../src/plugins/netstat/netstat.c:321
 #: ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
-msgstr "MAC nasloc:"
+msgstr "Διεύθυνση υλικού:"
 
 #: ../src/plugins/netstat/netstat.c:471
 msgid "Manage Networks"
-msgstr "Upravitelj omrežij"
+msgstr "Διαχείρηση δικτύων"
 
 #: ../src/plugins/netstat/netstat.c:473
 msgid "Monitor and Manage networks"
-msgstr "Nadzor in upravljanje omrežij"
+msgstr "Παρακολούθηση και διαχείρηση δικτύων"
 
 #. create dialog
 #: ../src/plugins/netstat/passwd_gui.c:84
 msgid "Setting Encryption Key"
-msgstr "Nastavi šifrirni ključ"
+msgstr "Ρύθμιση κλειδιού κρυπτογράφησης"
 
 #. messages
 #: ../src/plugins/netstat/passwd_gui.c:94
@@ -1219,51 +1199,47 @@ msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
 msgstr ""
-"Brezžično omrežje je šifrirano. \n"
-"Imeti morate šifrirni ključ."
+"Το ασύρματο δίκτυο είναι κρυπτογραφημένο.\n"
+"Πρέπει να έχετε το κλειδί κρυπτογράφησης."
 
 #: ../src/plugins/netstat/passwd_gui.c:99
 msgid "Encryption Key:"
-msgstr "Šifrirni ključ:"
+msgstr "Κλειδί κρυπτογράφησης:"
 
 #: ../src/plugins/netstatus/netstatus.c:175
 msgid "Interface to monitor"
-msgstr "Spremljanje vmesnika"
+msgstr "Διεπαφή προς παρακολούθηση"
 
 #: ../src/plugins/netstatus/netstatus.c:176
 msgid "Config tool"
-msgstr "Nastavitveno orodje"
+msgstr "Εργαλείο ρύθμισης"
 
 #: ../src/plugins/netstatus/netstatus.c:193
 msgid "Net Status Monitor"
-msgstr "Stanje mreže"
+msgstr "Παρακολούθηση κατάστασης δικτύου"
 
 #: ../src/plugins/netstatus/netstatus.c:195
 msgid "Monitor network status"
-msgstr "Prikazuje delovanje mrežne povezave"
+msgstr "Παρακολούθηση κατάστασης δικτύου"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:52
 #: ../src/plugins/netstatus/netstatus-dialog.c:311
 msgid "Unknown"
-msgstr "Neznano"
+msgstr "Άγνωστο"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:115
 msgid "Connection Properties"
-msgstr "Nastavitve povezave"
+msgstr "Ρυθμίσεις σύνδεσης"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:121
 #, c-format
 msgid "Connection Properties: %s"
-msgstr "Nastavitve povezave: %s"
+msgstr "Ρυθμίσεις σύνδεσης: %s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:134
 #, c-format
 msgid "%lu packet"
-msgid_plural "%lu packets"
-msgstr[0] "%lu paket"
-msgstr[1] "%lu paketa"
-msgstr[2] "%lu paketi"
-msgstr[3] "%lu paketov"
+msgstr "%lu packets"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:395
 #, c-format
@@ -1271,54 +1247,54 @@ msgid ""
 "There was an error displaying help:\n"
 "%s"
 msgstr ""
-"Pri prikazu pomoči je prišlo do napake:\n"
+"Υπήρξε σφάλμα κατά την προβολή βοήθειας:\n"
 "%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:579
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
-msgstr "Nastavitvenega orodja ni bilo mogoče prikazati: %s"
+msgstr "Απέτυχε η εκκίνηση του εργαλείου ρύθμισης ώρας: %s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:379
 #, c-format
 msgid "Network Connection: %s"
-msgstr "Mrežna povezava: %s"
+msgstr "Σύνδεση δικτύου: %s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:384
 msgid "Network Connection"
-msgstr "Mrežna povezava"
+msgstr "Σύνδεση δικτύου"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:811
 msgid "Interface"
-msgstr "Vmesnik"
+msgstr "Διεπαφή"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:812
 msgid "The current interface the icon is monitoring."
-msgstr "Trenutni vmesnik"
+msgstr "Η τρέχουσα διεπαφή που παρακολουθεί το εικονίδιο."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:819
 msgid "Orientation"
-msgstr "Orientacija"
+msgstr "Προσανατολισμός"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:820
 msgid "The orientation of the tray."
-msgstr "Orientacija sistemskega pladnja"
+msgstr "Ο προσανατολισμός του tray."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:828
 msgid "Tooltips Enabled"
-msgstr "Zaslonski namigi omogočeni"
+msgstr "Ενεργοποίηση γρήγορης βοήθειας"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:829
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr "Vključi/izključi prikaz zaslonskih namigov"
+msgstr "Αν θα είναι ενεργοποιημένη η γρήγορη βοήθεια του εικονιδίου."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:836
 msgid "Show Signal"
-msgstr "Prikaži signal"
+msgstr "Εμφάνιση σήματος"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:837
 msgid "Whether or not the signal strength should be displayed."
-msgstr "Prikaz jakosti signala"
+msgstr "Αν η δύναμη του σήματος θα εμφανίζεται."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:950
 #, c-format
@@ -1327,125 +1303,90 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Prosim, kontaktiraje sistemskega administratorja za razrešitev naslednjega problema:\n"
+"Παρακαλώ επικοινωνήστε με τον διαχειριστή του συστήματος για την επίλυση του ακόλουθου προβλήματος:\n"
 "\n"
 "%s"
 
 #: ../src/plugins/batt/batt.c:132
 msgid "No batteries found"
-msgstr "Ni najdenih baterij"
+msgstr "Δε βρέθηκαν μπαταρίες"
 
 #: ../src/plugins/batt/batt.c:180
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
-msgstr "Baterija: %d%% napolnjeno, %d:%02d do polnega"
+msgstr "Μπαταρία: %d%% φορτισμένη, %d:%02d απομένουν για πλήρη φόρτιση"
 
 #: ../src/plugins/batt/batt.c:191
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
-msgstr "Baterija: %d%% napolnjeno, %d:%02d do konca"
+msgstr "Μπαταρία: %d%% φορτισμένη, %d:%02d απομένουν"
 
 #: ../src/plugins/batt/batt.c:197
 #, c-format
 msgid "Battery: %d%% charged"
-msgstr "Baterija: %d%% napolnjeno"
+msgstr "Μπαταρία: %d%% φορτισμένη"
 
 #: ../src/plugins/batt/batt.c:581
 msgid "Hide if there is no battery"
-msgstr "Skrij, če ni baterije"
+msgstr "Απόκρυψη αν δεν υπάρχει μπαταρία"
 
 #: ../src/plugins/batt/batt.c:583
 msgid "Alarm command"
-msgstr "Ukaz ob alarmu"
+msgstr "Εντολή προειδοποίησης"
 
 #: ../src/plugins/batt/batt.c:584
 msgid "Alarm time (minutes left)"
-msgstr "Časovni alarm (ostalih minut)"
+msgstr "Χρόνος προειδοποίησης (εναπομείναντα λεπτά)"
 
 #: ../src/plugins/batt/batt.c:585
 msgid "Background color"
-msgstr "Barva ozadja"
+msgstr "Χρώμα φόντου"
 
 #: ../src/plugins/batt/batt.c:586
 msgid "Charging color 1"
-msgstr "Polnjenje - barva 1"
+msgstr "Χρώμα φόρτισης 1"
 
 #: ../src/plugins/batt/batt.c:587
 msgid "Charging color 2"
-msgstr "Polnjenje - barva 2"
+msgstr "Χρώμα φόρτισης 2"
 
 #: ../src/plugins/batt/batt.c:588
 msgid "Discharging color 1"
-msgstr "Praznjenje - barva 1"
+msgstr "Χρώμα αποφόρτισης 1"
 
 #: ../src/plugins/batt/batt.c:589
 msgid "Discharging color 2"
-msgstr "Praznjenje - barva 2"
+msgstr "Χρώμα αποφόρτισης 2"
 
 #: ../src/plugins/batt/batt.c:590
 msgid "Border width"
-msgstr "Širina meje"
+msgstr "Πλάτος περιγράμματος"
 
 #: ../src/plugins/batt/batt.c:621
 msgid "Battery Monitor"
-msgstr "Nadzornik baterije"
+msgstr "Παρακολούθηση μπαταρίας"
 
 #: ../src/plugins/batt/batt.c:623
 msgid "Display battery status using ACPI"
-msgstr "Prikaži ACPI status baterije"
+msgstr "Προβολή κατάστασης μπαταρίας με χρήση ACPI"
 
 #: ../src/plugins/kbled/kbled.c:266
 msgid "Show CapsLock"
-msgstr "Prikaži CapsLock"
+msgstr "Εμφάνιση CapsLock"
 
 #: ../src/plugins/kbled/kbled.c:267
 msgid "Show NumLock"
-msgstr "Prikaži NumLock"
+msgstr "Εμφάνιση NumLock"
 
 #: ../src/plugins/kbled/kbled.c:268
 msgid "Show ScrollLock"
-msgstr "Prikaži ScrollLock"
+msgstr "Εμφάνιση ScrollLock"
 
 #: ../src/plugins/kbled/kbled.c:279
 msgid "Keyboard LED"
-msgstr "Indikatorji tipkovnice"
+msgstr "Ενδείξεις πληκτρολογίου"
 
 #: ../src/plugins/kbled/kbled.c:281
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr "Prikazuje stanje CapsLocka, NumLocka in ScrollLocka"
-
-#~ msgid ""
-#~ "Dynamic\n"
-#~ "Pixels\n"
-#~ "% Percent"
-#~ msgstr ""
-#~ "dinamično\n"
-#~ "pikslov\n"
-#~ "% odstotkov"
-#~ msgid ""
-#~ "Left\n"
-#~ "Center\n"
-#~ "Right"
-#~ msgstr ""
-#~ "Levo\n"
-#~ "Sredinsko\n"
-#~ "Desno"
-#~ msgid ""
-#~ "Left\n"
-#~ "Right\n"
-#~ "Top\n"
-#~ "Bottom"
-#~ msgstr ""
-#~ "Levo\n"
-#~ "Desno\n"
-#~ "Nad\n"
-#~ "Pod"
-#~ msgid "Where to put the panel?"
-#~ msgstr "Določi položaj opravilne vrstice"
-#~ msgid "Battery: %d%% charged, %s"
-#~ msgstr "Baterija: %d%% napolnjeno, %s"
-#~ msgid "charging finished"
-#~ msgstr "Polnjenje končano"
-#~ msgid "charging"
-#~ msgstr "polni"
+msgstr "Ενδείξεις για τα κουμπιά CapsLock, NumLock, και ScrollLock"
 
