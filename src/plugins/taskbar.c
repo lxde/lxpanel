@@ -1917,7 +1917,7 @@ static void taskbar_configure(Plugin * p, GtkWindow * parent)
 {
     TaskbarPlugin * tb = (TaskbarPlugin *) p->priv;
     GtkWidget* dlg = create_generic_config_dlg(
-        p->class->name,
+        _(p->class->name),
         GTK_WIDGET(parent),
         (GSourceFunc) taskbar_apply_configuration, (gpointer) p,
         _("Show tooltips"), &tb->tooltips, CONF_TYPE_BOOL,

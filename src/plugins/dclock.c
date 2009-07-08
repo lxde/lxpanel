@@ -255,7 +255,7 @@ static void dclock_configure(Plugin * p, GtkWindow * parent)
 {
     DClockPlugin * dc = (DClockPlugin *) p->priv;
     GtkWidget * dlg = create_generic_config_dlg(
-        p->class->name,
+        _(p->class->name),
         GTK_WIDGET(parent),
         (GSourceFunc) dclock_apply_configuration, (gpointer) p,
         _("Clock Format"), &dc->clock_format, CONF_TYPE_STR,

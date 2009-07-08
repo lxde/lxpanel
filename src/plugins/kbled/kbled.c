@@ -221,7 +221,7 @@ static void kbled_configure(Plugin * p, GtkWindow * parent)
 {
     KeyboardLEDPlugin * kl = (KeyboardLEDPlugin *) p->priv;
     GtkWidget * dlg = create_generic_config_dlg(
-        p->class->name,
+        _(p->class->name),
         GTK_WIDGET(parent),
         (GSourceFunc) kbled_apply_configuration, (gpointer) p,
         _("Show CapsLock"), &kl->visible[0], CONF_TYPE_BOOL,

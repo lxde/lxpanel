@@ -703,7 +703,7 @@ static void launchbar_configure(Plugin * p, GtkWindow * parent)
     {
         /* Create the configuration dialog. */
         GtkWidget * dlg = gtk_dialog_new_with_buttons(
-            p->class->name,
+            _(p->class->name),
             parent,
             0,
             GTK_STOCK_CLOSE,
