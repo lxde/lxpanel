@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.4.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-06-22 23:58+0200\n"
+"POT-Creation-Date: 2009-07-08 23:03+0200\n"
 "PO-Revision-Date: 2009-06-16 13:37+0900\n"
 "Last-Translator: Hironao Komatsu <hironao@users.sourceforge.net>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
@@ -59,7 +59,7 @@ msgstr "高度な設定"
 msgid "Alignment:"
 msgstr "配置:"
 
-#: ../data/ui/panel-pref.glade.h:12
+#: ../data/ui/panel-pref.glade.h:12 ../src/panel.c:942
 msgid "Bottom"
 msgstr "下"
 
@@ -68,7 +68,8 @@ msgid "Center"
 msgstr "中央"
 
 #: ../data/ui/panel-pref.glade.h:14
-msgid "Custom Color"
+#, fuzzy
+msgid "Custom color"
 msgstr "独自の色"
 
 #: ../data/ui/panel-pref.glade.h:15
@@ -80,100 +81,98 @@ msgid "Edge:"
 msgstr "端:"
 
 #: ../data/ui/panel-pref.glade.h:17
-msgid "Enable Image:"
-msgstr "画像を有効に"
-
-#: ../data/ui/panel-pref.glade.h:18
-msgid "Enable Transparency"
-msgstr "透過を有効にする"
-
-#: ../data/ui/panel-pref.glade.h:19
 msgid "File Manager:"
 msgstr "ファイルマネージャ"
 
-#: ../data/ui/panel-pref.glade.h:20
+#: ../data/ui/panel-pref.glade.h:18
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr "一般"
 
-#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:932 ../src/panel.c:938
+#: ../data/ui/panel-pref.glade.h:19 ../src/panel.c:932 ../src/panel.c:940
 msgid "Height:"
 msgstr "高さ:"
 
-#: ../data/ui/panel-pref.glade.h:22
+#: ../data/ui/panel-pref.glade.h:20
+#, fuzzy
+msgid "Image"
+msgstr "画像"
+
+#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:934
 msgid "Left"
 msgstr "左"
 
-#: ../data/ui/panel-pref.glade.h:23
+#: ../data/ui/panel-pref.glade.h:22
 msgid "Left\t"
 msgstr "左\t"
 
-#: ../data/ui/panel-pref.glade.h:24
+#: ../data/ui/panel-pref.glade.h:23
 msgid "Logout Command:"
 msgstr "ログアウトのコマンド:"
 
-#: ../data/ui/panel-pref.glade.h:25
+#: ../data/ui/panel-pref.glade.h:24
 msgid "Make window managers treat the panel as dock"
 msgstr "ウィンドウマネージャがパネルを dock として扱うようにする"
 
-#: ../data/ui/panel-pref.glade.h:26
+#: ../data/ui/panel-pref.glade.h:25
 msgid "Margin:"
 msgstr "余白:"
 
-#: ../data/ui/panel-pref.glade.h:27
+#: ../data/ui/panel-pref.glade.h:26
 msgid "Minimize panel when not in use"
 msgstr "使わないときはパネルを最小化する"
 
-#: ../data/ui/panel-pref.glade.h:28
-msgid "None (Use system theme)"
-msgstr "なし (システムのテーマを使う)"
-
-#: ../data/ui/panel-pref.glade.h:29
+#: ../data/ui/panel-pref.glade.h:27
 msgid "Panel Applets"
 msgstr "パネルアプレット"
 
-#: ../data/ui/panel-pref.glade.h:30
+#: ../data/ui/panel-pref.glade.h:28
 msgid "Panel Preferences"
 msgstr "パネルの設定"
 
-#: ../data/ui/panel-pref.glade.h:31
+#: ../data/ui/panel-pref.glade.h:29
 msgid "Pixels"
 msgstr "ピクセル"
 
-#: ../data/ui/panel-pref.glade.h:32
+#: ../data/ui/panel-pref.glade.h:30
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "場所を確保し、最大化したウィンドウに隠れないようにする"
 
-#: ../data/ui/panel-pref.glade.h:33
+#: ../data/ui/panel-pref.glade.h:31 ../src/panel.c:935
 msgid "Right"
 msgstr "右"
 
-#: ../data/ui/panel-pref.glade.h:34
+#: ../data/ui/panel-pref.glade.h:32
 msgid "Select an image file"
 msgstr "画像ファイルの選択"
 
-#: ../data/ui/panel-pref.glade.h:35
+#: ../data/ui/panel-pref.glade.h:33
 msgid "Size when minimized"
 msgstr "最小化時のサイズ"
+
+#: ../data/ui/panel-pref.glade.h:34
+msgid "Solid color (with opacity)"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:35
+#, fuzzy
+msgid "System theme"
+msgstr "なし (システムのテーマを使う)"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "Terminal Emulator:"
 msgstr "端末エミュレータ:"
 
 #: ../data/ui/panel-pref.glade.h:37
-msgid "Tint color:"
-msgstr "色合い:"
-
-#: ../data/ui/panel-pref.glade.h:38
 msgid "Top\t"
 msgstr "上\t"
 
-#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:933 ../src/panel.c:937
+#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:933 ../src/panel.c:939
 msgid "Width:"
 msgstr "幅:"
 
-#: ../data/ui/panel-pref.glade.h:40
+#: ../data/ui/panel-pref.glade.h:39
 msgid "pixels"
 msgstr "ピクセル"
 
@@ -189,39 +188,39 @@ msgstr "再起動"
 msgid "Logout"
 msgstr "ログアウト"
 
-#: ../src/configurator.c:472
+#: ../src/configurator.c:438
 msgid "Currently loaded plugins"
 msgstr "現在ロードされているプラグイン"
 
-#: ../src/configurator.c:481
+#: ../src/configurator.c:447
 msgid "Stretch"
 msgstr "引き伸ばす"
 
-#: ../src/configurator.c:579
+#: ../src/configurator.c:552
 msgid "Add plugin to panel"
 msgstr "パネルにプラグインを追加"
 
-#: ../src/configurator.c:607
+#: ../src/configurator.c:580
 msgid "Available plugins"
 msgstr "利用可能なプラグイン"
 
-#: ../src/configurator.c:1163
+#: ../src/configurator.c:1134
 msgid "Logout command is not set"
 msgstr "ログアウトのコマンドが設定されていません"
 
-#: ../src/configurator.c:1216
+#: ../src/configurator.c:1187
 msgid "Select a directory"
 msgstr "ディレクトリの選択"
 
-#: ../src/configurator.c:1216 ../src/configurator.c:1301
+#: ../src/configurator.c:1187 ../src/configurator.c:1278
 msgid "Select a file"
 msgstr "ファイルの選択"
 
-#: ../src/configurator.c:1328
+#: ../src/configurator.c:1305
 msgid "_Browse"
 msgstr "ダイアログから選択(_B)"
 
-#: ../src/panel.c:590
+#: ../src/panel.c:588
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -229,120 +228,117 @@ msgstr ""
 "本当にこのパネルを削除しますか?\n"
 "<b>警告: 削除すると元には戻せません。</b>"
 
-#: ../src/panel.c:592
+#: ../src/panel.c:590
 msgid "Confirm"
 msgstr "確認"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:623
+#: ../src/panel.c:622
 msgid "translator-credits"
 msgstr ""
 "Hironao Komatsu <hironao@users.sourceforge.net>\n"
 "IWAI, Masaharu <iwai@alib.jp>"
 
-#: ../src/panel.c:628
+#: ../src/panel.c:627
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:630
+#: ../src/panel.c:629
 msgid "Copyright (C) 2008-2009"
 msgstr "Copyright (C) 2008-2009"
 
-#: ../src/panel.c:631
+#: ../src/panel.c:630
 msgid "Desktop panel for LXDE project"
 msgstr "LXDE プロジェクトのためのデスクトップパネル"
 
-#: ../src/panel.c:654
+#: ../src/panel.c:653
 msgid "Add / Remove Panel Items"
 msgstr "パネルのアイテムの追加・削除"
 
-#: ../src/panel.c:662
+#: ../src/panel.c:661
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "パネルから \"%s\" を削除する"
 
-#: ../src/panel.c:674
+#: ../src/panel.c:673
 msgid "Panel Settings"
 msgstr "パネルの設定"
 
-#: ../src/panel.c:680
+#: ../src/panel.c:679
 msgid "Create New Panel"
 msgstr "新規パネルの作成"
 
-#: ../src/panel.c:691
+#: ../src/panel.c:690
 msgid "Delete This Panel"
 msgstr "このパネルを削除する"
 
-#: ../src/panel.c:702
+#: ../src/panel.c:701
 msgid "About"
 msgstr "このソフトウェアについて"
 
-#: ../src/panel.c:710
+#: ../src/panel.c:709
 msgid "Panel"
 msgstr "パネル"
 
-#: ../src/panel.c:723
+#: ../src/panel.c:722
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" の設定"
 
-#: ../src/panel.c:1248
+#: ../src/panel.c:941
+#, fuzzy
+msgid "Top"
+msgstr "上\t"
+
+#: ../src/panel.c:1332
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - UNIX デスクトップのための軽量な GTK2+ パネル\n"
 
-#: ../src/panel.c:1249
+#: ../src/panel.c:1333
 #, c-format
 msgid "Command line options:\n"
 msgstr "コマンドラインのオプション:\n"
 
-#: ../src/panel.c:1250
+#: ../src/panel.c:1334
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- このヘルプを表示して終了\n"
 
-#: ../src/panel.c:1251
+#: ../src/panel.c:1335
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- バージョンを表示して終了\n"
 
-#: ../src/panel.c:1252
+#: ../src/panel.c:1336
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 " --log <number> -- ログをとるレベルを 0(なし) 〜 5(詳細) の範囲で設定\n"
 
-#: ../src/panel.c:1253
-#, c-format
-msgid " --configure -- launch configuration utility\n"
-msgstr " --configure -- 設定ユーティリティを開始する\n"
-
-#: ../src/panel.c:1254
+#. g_print(_(" --configure -- launch configuration utility\n"));
+#: ../src/panel.c:1338
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- 指定したプロファイルを使用する\n"
 
-#: ../src/panel.c:1256
+#: ../src/panel.c:1340
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- --help と同じ\n"
 
-#: ../src/panel.c:1257
+#: ../src/panel.c:1341
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- --profile と同じ\n"
 
-#: ../src/panel.c:1258
+#: ../src/panel.c:1342
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- --version と同じ\n"
 
-#: ../src/panel.c:1259
-#, c-format
-msgid " -C  -- same as --configure\n"
-msgstr " -C  -- --configure と同じ\n"
-
-#: ../src/panel.c:1260
+#. g_print(_(" -C  -- same as --configure\n"));
+#: ../src/panel.c:1344
 #, c-format
 msgid ""
 "\n"
@@ -357,7 +353,7 @@ msgstr ""
 msgid "Enter the command you want to execute:"
 msgstr "実行したいコマンドを入力してください:"
 
-#: ../src/systray/tray.c:211
+#: ../src/systray/tray.c:211 ../src/plugins/tray.c:731
 msgid "System Tray"
 msgstr "システムトレイ"
 
@@ -365,150 +361,137 @@ msgstr "システムトレイ"
 msgid "Old KDE/GNOME Tray"
 msgstr "古い KDE/GNOME のトレイ"
 
-#: ../src/plugins/cpu/cpu.c:266
+#: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
 msgstr "CPU 使用量モニタ"
 
-#: ../src/plugins/cpu/cpu.c:268
+#: ../src/plugins/cpu/cpu.c:270
 msgid "Display CPU usage"
 msgstr "CPU の使用状況を表示する"
 
-#: ../src/plugins/deskno/deskno.c:118 ../src/plugins/deskno/deskno2.c:129
-msgid "Desktop No / Workspace Name"
+#: ../src/plugins/deskno/deskno.c:165
+#, fuzzy
+msgid "Desktop Number / Workspace Name"
 msgstr "デスクトップ番号 / ワークスペースの名前"
 
-#: ../src/plugins/deskno/deskno.c:120 ../src/plugins/deskno/deskno2.c:131
+#: ../src/plugins/deskno/deskno.c:167 ../src/plugins/deskno/deskno2.c:131
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "ワークスペースの番号を表示する。cmeury@users.sf.net 氏による"
+
+#: ../src/plugins/deskno/deskno2.c:129
+msgid "Desktop No / Workspace Name"
+msgstr "デスクトップ番号 / ワークスペースの名前"
 
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
 msgstr "画像とツールチップを表示します"
 
-#: ../src/plugins/launchbar.c:146
-msgid "Add Button"
-msgstr "ボタンの追加"
+#: ../src/plugins/launchbar.c:648
+#, fuzzy
+msgid "Available Applications"
+msgstr "利用可能なプラグイン"
 
-#: ../src/plugins/launchbar.c:148
-msgid "Button Properties"
-msgstr "ボタンのプロパティ"
-
-#.
-#. title = g_strdup_printf( _("Remove \"%s\""), b-> );
-#. item = gtk_image_menu_item_new_with_label( _("Remove ") );
-#.
-#: ../src/plugins/launchbar.c:154
-msgid "Remove Button"
-msgstr "ボタンの削除"
-
-#. FIXME: We should have a better interface for this in the fututure.
-#. 1. We can borrow the menu from menu plugin (PtkAppMenu).
-#. 2. We can borrow the app chooser from PCManFM.
-#.
-#: ../src/plugins/launchbar.c:530
-msgid "Select Application"
+#: ../src/plugins/launchbar.c:648
+#, fuzzy
+msgid "Applications"
 msgstr "アプリケーションの選択"
 
-#: ../src/plugins/launchbar.c:682
-msgid "Buttons"
-msgstr "ボタン"
-
-#: ../src/plugins/launchbar.c:800
+#: ../src/plugins/launchbar.c:816
 msgid "Application Launch Bar"
 msgstr "アプリケーション・ランチャー"
 
-#: ../src/plugins/launchbar.c:802
+#: ../src/plugins/launchbar.c:818
 msgid "Bar with buttons to launch application"
 msgstr "アプリケーションを呼び出すボタンのついたバー"
 
-#: ../src/plugins/taskbar.c:1405
+#. Add Raise menu item.
+#: ../src/plugins/taskbar.c:1644
 msgid "_Raise"
 msgstr "最前面に(_R)"
 
-#: ../src/plugins/taskbar.c:1409
+#. Add Restore menu item.
+#: ../src/plugins/taskbar.c:1649
 msgid "R_estore"
 msgstr "元に戻す(_E)"
 
-#: ../src/plugins/taskbar.c:1413
+#. Add Maximize menu item.
+#: ../src/plugins/taskbar.c:1654
 msgid "Ma_ximize"
 msgstr "最大化(_X)"
 
-#: ../src/plugins/taskbar.c:1417
+#. Add Iconify menu item.
+#: ../src/plugins/taskbar.c:1659
 msgid "Ico_nify"
 msgstr "最小化(_N)"
 
-#: ../src/plugins/taskbar.c:1428
+#: ../src/plugins/taskbar.c:1678
 #, c-format
 msgid "Workspace _%d"
 msgstr "ワークスペース _%d"
 
-#: ../src/plugins/taskbar.c:1433
+#: ../src/plugins/taskbar.c:1683
 #, c-format
 msgid "Workspace %d"
 msgstr "ワークスペース %d"
 
-#: ../src/plugins/taskbar.c:1442
+#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
+#: ../src/plugins/taskbar.c:1697
 msgid "_All workspaces"
 msgstr "すべてのワークスペース(_A)"
 
-#: ../src/plugins/taskbar.c:1449
+#. Add Move to Workspace menu item as a submenu.
+#: ../src/plugins/taskbar.c:1703
 msgid "_Move to Workspace"
 msgstr "ワークスペースへ移動(_M)"
 
-#. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1457
+#. Add Close menu item.  By policy, we place this item farthest from the cursor.
+#: ../src/plugins/taskbar.c:1709
 msgid "_Close Window"
 msgstr "ウィンドウを閉じる(_C)"
 
-#: ../src/plugins/taskbar.c:1691
+#: ../src/plugins/taskbar.c:1923
 msgid "Show tooltips"
 msgstr "ツールチップを表示する"
 
-#: ../src/plugins/taskbar.c:1692
+#: ../src/plugins/taskbar.c:1924
 msgid "Icons only"
 msgstr "アイコンのみ"
 
-#: ../src/plugins/taskbar.c:1693
-msgid "Flat Buttons"
+#: ../src/plugins/taskbar.c:1925
+#, fuzzy
+msgid "Flat buttons"
 msgstr "平らなボタン"
 
-#: ../src/plugins/taskbar.c:1694
-msgid "Accept SkipPager"
-msgstr "SkipPager を受け入れる"
-
-#: ../src/plugins/taskbar.c:1695
-msgid "Show Iconified windows"
-msgstr "最小化したウィンドウを表示する"
-
-#: ../src/plugins/taskbar.c:1696
-msgid "Show mapped windows"
-msgstr "割り当てられたウィンドウを表示する"
-
-#: ../src/plugins/taskbar.c:1697
+#: ../src/plugins/taskbar.c:1926
 msgid "Show windows from all desktops"
 msgstr "すべてのデスクトップのウィンドウを表示する"
 
-#: ../src/plugins/taskbar.c:1698
+#: ../src/plugins/taskbar.c:1927
 msgid "Use mouse wheel"
 msgstr "マウスホイールを使う"
 
-#: ../src/plugins/taskbar.c:1699
+#: ../src/plugins/taskbar.c:1928
 msgid "Flash when there is any window requiring attention"
 msgstr "注意を引く必要のあるウィンドウは強調させる"
 
-#: ../src/plugins/taskbar.c:1700
-msgid "Max width of task button"
+#: ../src/plugins/taskbar.c:1929
+msgid "Combine multiple application windows into a single button"
+msgstr ""
+
+#: ../src/plugins/taskbar.c:1930
+#, fuzzy
+msgid "Maximum width of task button"
 msgstr "タスクボタンの最大幅"
 
-#: ../src/plugins/taskbar.c:1701
+#: ../src/plugins/taskbar.c:1931
 msgid "Spacing"
 msgstr "間隔"
 
-#: ../src/plugins/taskbar.c:1779
+#: ../src/plugins/taskbar.c:1966
 msgid "Task Bar (Window List)"
 msgstr "タスクバー (ウィンドウのリスト)"
 
-#: ../src/plugins/taskbar.c:1781
+#: ../src/plugins/taskbar.c:1968
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -516,32 +499,33 @@ msgstr ""
 "タスクバーは開いているすべてのウィンドウを表示し、最小化やシェード化、フォー"
 "カスの移動を可能にします"
 
-#: ../src/plugins/dclock.c:275
+#: ../src/plugins/dclock.c:261
 msgid "Clock Format"
 msgstr "時刻表示のフォーマット"
 
-#: ../src/plugins/dclock.c:276
+#: ../src/plugins/dclock.c:262
 msgid "Tooltip Format"
 msgstr "ツールチップのフォーマット"
 
-#: ../src/plugins/dclock.c:277
+#: ../src/plugins/dclock.c:263
 msgid "Format codes: man 3 strftime"
 msgstr "フォーマットについては: man 3 strftime"
 
-#: ../src/plugins/dclock.c:278
-msgid "Action"
-msgstr "動作"
+#: ../src/plugins/dclock.c:264
+msgid "Action when clicked (default: display calendar)"
+msgstr ""
 
-#: ../src/plugins/dclock.c:279
+#: ../src/plugins/dclock.c:265
 msgid "Bold font"
 msgstr "太字"
 
-#: ../src/plugins/dclock.c:312
+#: ../src/plugins/dclock.c:292
 msgid "Digital Clock"
 msgstr "デジタル時計"
 
-#: ../src/plugins/dclock.c:314
-msgid "Display Digital clock and Tooltip"
+#: ../src/plugins/dclock.c:294
+#, fuzzy
+msgid "Display digital clock and tooltip"
 msgstr "デジタル時計とツールチップを表示します"
 
 #: ../src/plugins/menu.c:369
@@ -552,17 +536,18 @@ msgstr "デスクトップに追加"
 msgid "Properties"
 msgstr "プロパティ"
 
-#: ../src/plugins/menu.c:1029
+#: ../src/plugins/menu.c:990
 msgid "Icon"
 msgstr "アイコン"
 
-#: ../src/plugins/menu.c:1040
+#: ../src/plugins/menu.c:1001
 msgid "Menu"
 msgstr "メニュー"
 
-#: ../src/plugins/menu.c:1042
-msgid "Provide Menu"
-msgstr "メニューを提供します"
+#: ../src/plugins/menu.c:1003
+#, fuzzy
+msgid "Application Menu"
+msgstr "アプリケーション・ランチャー"
 
 #: ../src/plugins/netstatus/glade-support.c:91
 #: ../src/plugins/netstatus/glade-support.c:115
@@ -919,96 +904,100 @@ msgstr "受信"
 msgid "Sending/Receiving"
 msgstr "送信/受信"
 
-#: ../src/plugins/separator.c:83
+#: ../src/plugins/separator.c:98
 msgid "Separator"
 msgstr "セパレータ"
 
-#: ../src/plugins/separator.c:85
+#: ../src/plugins/separator.c:100
 msgid "Add a separator to the panel"
 msgstr "パネルにセパレータを追加します"
 
-#: ../src/plugins/pager.c:707
+#: ../src/plugins/pager.c:795
 msgid "Desktop Pager"
 msgstr "デスクトップページャ"
 
-#: ../src/plugins/pager.c:709
+#: ../src/plugins/pager.c:797
 msgid "Simple pager plugin"
 msgstr "シンプルなページャのプラグインです"
 
-#: ../src/plugins/space.c:133 ../src/plugins/batt/batt.c:591
+#: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
 msgid "Size"
 msgstr "大きさ"
 
-#: ../src/plugins/space.c:148
-msgid "<Space>"
+#: ../src/plugins/space.c:139
+#, fuzzy
+msgid "Spacer"
 msgstr "<空白>"
 
-#: ../src/plugins/space.c:150
+#: ../src/plugins/space.c:141
 msgid "Allocate space"
 msgstr "空白を割り当てます"
 
-#: ../src/plugins/xkb/xkb-plugin.c:241
+#: ../src/plugins/tray.c:733
+#, fuzzy
+msgid "System tray"
+msgstr "システムトレイ"
+
+#: ../src/plugins/xkb/xkb-plugin.c:242 ../src/plugins/xkb/xkb-plugin.c:506
 msgid "Keyboard Layout Switcher"
 msgstr "キーボード レイアウト スイッチャー"
 
-#: ../src/plugins/xkb/xkb-plugin.c:247
+#: ../src/plugins/xkb/xkb-plugin.c:248
 msgid ""
 "Allows you to switch the keyboard layout and\n"
 "displays the currently selected layout."
 msgstr "キーボードのレイアウトの切り替えと現在のレイアウトの表示を行います。"
 
-#: ../src/plugins/xkb/xkb-plugin.c:252
+#: ../src/plugins/xkb/xkb-plugin.c:253
 msgid "Other plugins available here"
 msgstr "その他のプラグイン"
 
-#: ../src/plugins/xkb/xkb-plugin.c:385
+#: ../src/plugins/xkb/xkb-plugin.c:392
 msgid "Configure Keyboard Layout Switcher"
 msgstr "キーボードレイアウトスイッチャーの設定"
 
-#: ../src/plugins/xkb/xkb-plugin.c:398
+#: ../src/plugins/xkb/xkb-plugin.c:405
 msgid "Show layout as"
 msgstr "レイアウトを次のように表す:"
 
-#: ../src/plugins/xkb/xkb-plugin.c:413
+#: ../src/plugins/xkb/xkb-plugin.c:420
 msgid "image"
 msgstr "画像"
 
-#: ../src/plugins/xkb/xkb-plugin.c:414
+#: ../src/plugins/xkb/xkb-plugin.c:421
 msgid "text"
 msgstr "テキスト"
 
-#: ../src/plugins/xkb/xkb-plugin.c:418
+#: ../src/plugins/xkb/xkb-plugin.c:425
 msgid "Per application settings"
 msgstr "アプリケーションごとの設定"
 
-#: ../src/plugins/xkb/xkb-plugin.c:432
+#: ../src/plugins/xkb/xkb-plugin.c:439
 msgid "_Remember layout for each application"
 msgstr "それぞれのアプリケーションについてレイアウトを記憶する(_R)"
 
-#: ../src/plugins/xkb/xkb-plugin.c:441
+#: ../src/plugins/xkb/xkb-plugin.c:448
 msgid "Default layout:"
 msgstr "デフォルトのレイアウト:"
 
-#: ../src/plugins/xkb/xkb-plugin.c:499
-msgid "Kayboard Layout switcher"
-msgstr "キーボード レイアウト スイッチャー"
-
-#: ../src/plugins/xkb/xkb-plugin.c:501
+#: ../src/plugins/xkb/xkb-plugin.c:508
 msgid "Switch between available keyboard layouts"
 msgstr "キーボードレイアウトを切り替えるスイッチ"
 
-#: ../src/plugins/wincmd.c:233
-msgid "Left click to iconify all windows. Middle click to shade them"
+#: ../src/plugins/wincmd.c:167
+#, fuzzy
+msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr "左クリックですべてのウィンドウを最小化し、中クリックでシェード化します"
 
-#: ../src/plugins/wincmd.c:262
+#: ../src/plugins/wincmd.c:197
 msgid "Minimize All Windows"
 msgstr "すべてのウィンドウを最小化"
 
-#: ../src/plugins/wincmd.c:264
+#: ../src/plugins/wincmd.c:199
+#, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
-"Supported commands are 1)toggle iconify and 2) toggle shade"
+"Supported commands are 1) iconify and 2) shade"
 msgstr ""
 "すべてのデスクトップのウィンドウにコマンドを送ります。\n"
 "可能なのは 1)最小化の切り替え 2)シェード化の切り替え"
@@ -1017,69 +1006,69 @@ msgstr ""
 msgid "Open in _Terminal"
 msgstr "端末で開く(_T)"
 
-#: ../src/plugins/dirmenu.c:403
+#: ../src/plugins/dirmenu.c:386
 msgid "Directory"
 msgstr "ディレクトリ"
 
-#: ../src/plugins/dirmenu.c:404
+#: ../src/plugins/dirmenu.c:387
 msgid "Label"
 msgstr "ラベル"
 
-#: ../src/plugins/dirmenu.c:413
+#: ../src/plugins/dirmenu.c:404
 msgid "Directory Menu"
 msgstr "ディレクトリメニュー"
 
-#: ../src/plugins/dirmenu.c:415
+#: ../src/plugins/dirmenu.c:406
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "ディレクトリ・ツリーをメニュー形式で表示します (作者: PCMan)"
 
-#: ../src/plugins/thermal/thermal.c:283
+#: ../src/plugins/thermal/thermal.c:284
 msgid "Normal"
 msgstr "通常"
 
-#: ../src/plugins/thermal/thermal.c:284
+#: ../src/plugins/thermal/thermal.c:285
 msgid "Warning1"
 msgstr "警戒1"
 
-#: ../src/plugins/thermal/thermal.c:285
+#: ../src/plugins/thermal/thermal.c:286
 msgid "Warning2"
 msgstr "警戒2"
 
-#: ../src/plugins/thermal/thermal.c:286
+#: ../src/plugins/thermal/thermal.c:287
 msgid "Automatic sensor location"
 msgstr "自動センサの位置"
 
-#: ../src/plugins/thermal/thermal.c:287
+#: ../src/plugins/thermal/thermal.c:288
 msgid "Sensor"
 msgstr "センサ"
 
-#: ../src/plugins/thermal/thermal.c:288
+#: ../src/plugins/thermal/thermal.c:289
 msgid "Automatic temperature levels"
 msgstr "自動温度警戒域"
 
-#: ../src/plugins/thermal/thermal.c:289
+#: ../src/plugins/thermal/thermal.c:290
 msgid "Warning1 Temperature"
 msgstr "警戒1 の温度"
 
-#: ../src/plugins/thermal/thermal.c:290
+#: ../src/plugins/thermal/thermal.c:291
 msgid "Warning2 Temperature"
 msgstr "警戒2 の温度"
 
-#: ../src/plugins/thermal/thermal.c:332
+#: ../src/plugins/thermal/thermal.c:333
 msgid "Temperature Monitor"
 msgstr "温度モニタ"
 
-#: ../src/plugins/thermal/thermal.c:334
+#: ../src/plugins/thermal/thermal.c:335
 msgid "Display system temperature, by kesler.daniel@gmail.com"
 msgstr "システムの温度を表示します。kesler.daniel@gmail.com 氏による"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
-#: ../src/plugins/volume/volume.c:305
+#: ../src/plugins/volume/volume.c:300
 #: ../src/plugins/volumealsa/volumealsa.c:410
 msgid "Volume control"
 msgstr "音量コントロール"
 
-#: ../src/plugins/volume/volume.c:317
+#: ../src/plugins/volume/volume.c:312
 #: ../src/plugins/volumealsa/volumealsa.c:424
 msgid "Volume Control"
 msgstr "音量コントロール"
@@ -1171,11 +1160,11 @@ msgstr "プロトコル:"
 msgid "HW Address:"
 msgstr "HW アドレス:"
 
-#: ../src/plugins/netstat/netstat.c:471
+#: ../src/plugins/netstat/netstat.c:470
 msgid "Manage Networks"
 msgstr "ネットワークの管理"
 
-#: ../src/plugins/netstat/netstat.c:473
+#: ../src/plugins/netstat/netstat.c:472
 msgid "Monitor and Manage networks"
 msgstr "ネットワークを表示・管理する"
 
@@ -1197,19 +1186,20 @@ msgstr ""
 msgid "Encryption Key:"
 msgstr "暗号化キー:"
 
-#: ../src/plugins/netstatus/netstatus.c:175
+#: ../src/plugins/netstatus/netstatus.c:178
 msgid "Interface to monitor"
 msgstr "監視するインタフェース"
 
-#: ../src/plugins/netstatus/netstatus.c:176
+#: ../src/plugins/netstatus/netstatus.c:179
 msgid "Config tool"
 msgstr "設定ツール"
 
-#: ../src/plugins/netstatus/netstatus.c:193
-msgid "Net Status Monitor"
+#: ../src/plugins/netstatus/netstatus.c:196
+#, fuzzy
+msgid "Network Status Monitor"
 msgstr "ネット状態モニタ"
 
-#: ../src/plugins/netstatus/netstatus.c:195
+#: ../src/plugins/netstatus/netstatus.c:198
 msgid "Monitor network status"
 msgstr "ネットワークの状態を監視します"
 
@@ -1299,88 +1289,133 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../src/plugins/batt/batt.c:132
+#: ../src/plugins/batt/batt.c:131
 msgid "No batteries found"
 msgstr "バッテリが見つかりません"
 
-#: ../src/plugins/batt/batt.c:180
+#: ../src/plugins/batt/batt.c:179
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
 msgstr "バッテリ: 残量 %d%%、充電してから %d:%02d"
 
-#: ../src/plugins/batt/batt.c:191
+#: ../src/plugins/batt/batt.c:190
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr "バッテリ: 残量 %d%%、残り %d:%02d"
 
-#: ../src/plugins/batt/batt.c:197
+#: ../src/plugins/batt/batt.c:196
 #, c-format
 msgid "Battery: %d%% charged"
 msgstr "バッテリ: 残量 %d%%"
 
-#: ../src/plugins/batt/batt.c:581
+#: ../src/plugins/batt/batt.c:580
 msgid "Hide if there is no battery"
 msgstr "バッテリがないときは隠す"
 
-#: ../src/plugins/batt/batt.c:583
+#: ../src/plugins/batt/batt.c:582
 msgid "Alarm command"
 msgstr "アラームのコマンド"
 
-#: ../src/plugins/batt/batt.c:584
+#: ../src/plugins/batt/batt.c:583
 msgid "Alarm time (minutes left)"
 msgstr "アラームの時間 (分単位で)"
 
-#: ../src/plugins/batt/batt.c:585
+#: ../src/plugins/batt/batt.c:584
 msgid "Background color"
 msgstr "背景色"
 
-#: ../src/plugins/batt/batt.c:586
+#: ../src/plugins/batt/batt.c:585
 msgid "Charging color 1"
 msgstr "残量の色 1"
 
-#: ../src/plugins/batt/batt.c:587
+#: ../src/plugins/batt/batt.c:586
 msgid "Charging color 2"
 msgstr "残量の色 2"
 
-#: ../src/plugins/batt/batt.c:588
+#: ../src/plugins/batt/batt.c:587
 msgid "Discharging color 1"
 msgstr "放電の色 1"
 
-#: ../src/plugins/batt/batt.c:589
+#: ../src/plugins/batt/batt.c:588
 msgid "Discharging color 2"
 msgstr "放電の色 2"
 
-#: ../src/plugins/batt/batt.c:590
+#: ../src/plugins/batt/batt.c:589
 msgid "Border width"
 msgstr "境界の幅"
 
-#: ../src/plugins/batt/batt.c:621
+#: ../src/plugins/batt/batt.c:620
 msgid "Battery Monitor"
 msgstr "バッテリモニタ"
 
-#: ../src/plugins/batt/batt.c:623
+#: ../src/plugins/batt/batt.c:622
 msgid "Display battery status using ACPI"
 msgstr "バッテリの状態を ACPI で表示します"
 
-#: ../src/plugins/kbled/kbled.c:266
+#: ../src/plugins/kbled/kbled.c:227
 msgid "Show CapsLock"
 msgstr "CapsLock を表示する"
 
-#: ../src/plugins/kbled/kbled.c:267
+#: ../src/plugins/kbled/kbled.c:228
 msgid "Show NumLock"
 msgstr "NumLock を表示する"
 
-#: ../src/plugins/kbled/kbled.c:268
+#: ../src/plugins/kbled/kbled.c:229
 msgid "Show ScrollLock"
 msgstr "ScrollLock を表示する"
 
-#: ../src/plugins/kbled/kbled.c:279
+#: ../src/plugins/kbled/kbled.c:259
 msgid "Keyboard LED"
 msgstr "キーボード LED"
 
-#: ../src/plugins/kbled/kbled.c:281
+#: ../src/plugins/kbled/kbled.c:261
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "CapsLock と NumLock、ScrollLock キーの状態を表示します"
+
+#~ msgid "Enable Image:"
+#~ msgstr "画像を有効に"
+
+#~ msgid "Enable Transparency"
+#~ msgstr "透過を有効にする"
+
+#~ msgid "Tint color:"
+#~ msgstr "色合い:"
+
+#~ msgid " --configure -- launch configuration utility\n"
+#~ msgstr " --configure -- 設定ユーティリティを開始する\n"
+
+#~ msgid " -C  -- same as --configure\n"
+#~ msgstr " -C  -- --configure と同じ\n"
+
+#~ msgid "Add Button"
+#~ msgstr "ボタンの追加"
+
+#~ msgid "Button Properties"
+#~ msgstr "ボタンのプロパティ"
+
+#~ msgid "Remove Button"
+#~ msgstr "ボタンの削除"
+
+#~ msgid "Buttons"
+#~ msgstr "ボタン"
+
+#~ msgid "Accept SkipPager"
+#~ msgstr "SkipPager を受け入れる"
+
+#~ msgid "Show Iconified windows"
+#~ msgstr "最小化したウィンドウを表示する"
+
+#~ msgid "Show mapped windows"
+#~ msgstr "割り当てられたウィンドウを表示する"
+
+#~ msgid "Action"
+#~ msgstr "動作"
+
+#~ msgid "Provide Menu"
+#~ msgstr "メニューを提供します"
+
+#~ msgid "Kayboard Layout switcher"
+#~ msgstr "キーボード レイアウト スイッチャー"
 
 #~ msgid "Battery: %d%% charged, %s"
 #~ msgstr "バッテリ: 残量 %d%%, %s"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-06-22 23:58+0200\n"
+"POT-Creation-Date: 2009-07-08 23:03+0200\n"
 "PO-Revision-Date: 2009-07-06 19:50+0200\n"
 "Last-Translator: Martin Bagge <brother@bsnet.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -60,7 +60,7 @@ msgstr "Avancerat"
 msgid "Alignment:"
 msgstr "Justering:"
 
-#: ../data/ui/panel-pref.glade.h:12
+#: ../data/ui/panel-pref.glade.h:12 ../src/panel.c:942
 msgid "Bottom"
 msgstr "Nedtilld"
 
@@ -69,7 +69,8 @@ msgid "Center"
 msgstr "Centrerad"
 
 #: ../data/ui/panel-pref.glade.h:14
-msgid "Custom Color"
+#, fuzzy
+msgid "Custom color"
 msgstr "Alternativ färg"
 
 #: ../data/ui/panel-pref.glade.h:15
@@ -81,100 +82,98 @@ msgid "Edge:"
 msgstr "Kant:"
 
 #: ../data/ui/panel-pref.glade.h:17
-msgid "Enable Image:"
-msgstr "Aktivera bild:"
-
-#: ../data/ui/panel-pref.glade.h:18
-msgid "Enable Transparency"
-msgstr "Aktivera genomskinlighet"
-
-#: ../data/ui/panel-pref.glade.h:19
 msgid "File Manager:"
 msgstr "Filhanterare:"
 
-#: ../data/ui/panel-pref.glade.h:20
+#: ../data/ui/panel-pref.glade.h:18
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr "Allmänt"
 
-#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:932 ../src/panel.c:938
+#: ../data/ui/panel-pref.glade.h:19 ../src/panel.c:932 ../src/panel.c:940
 msgid "Height:"
 msgstr "Höjd"
 
-#: ../data/ui/panel-pref.glade.h:22
+#: ../data/ui/panel-pref.glade.h:20
+#, fuzzy
+msgid "Image"
+msgstr "bild"
+
+#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:934
 msgid "Left"
 msgstr "Vänster"
 
-#: ../data/ui/panel-pref.glade.h:23
+#: ../data/ui/panel-pref.glade.h:22
 msgid "Left\t"
 msgstr "Vänster\t"
 
-#: ../data/ui/panel-pref.glade.h:24
+#: ../data/ui/panel-pref.glade.h:23
 msgid "Logout Command:"
 msgstr "Utlogningskommando:"
 
-#: ../data/ui/panel-pref.glade.h:25
+#: ../data/ui/panel-pref.glade.h:24
 msgid "Make window managers treat the panel as dock"
 msgstr "Låt fönsterhanteraren hantera panelen som en dockningslist"
 
-#: ../data/ui/panel-pref.glade.h:26
+#: ../data/ui/panel-pref.glade.h:25
 msgid "Margin:"
 msgstr "Marginal:"
 
-#: ../data/ui/panel-pref.glade.h:27
+#: ../data/ui/panel-pref.glade.h:26
 msgid "Minimize panel when not in use"
 msgstr "Minimera panelen när den inte används"
 
-#: ../data/ui/panel-pref.glade.h:28
-msgid "None (Use system theme)"
-msgstr "Inget (använd systemtema)"
-
-#: ../data/ui/panel-pref.glade.h:29
+#: ../data/ui/panel-pref.glade.h:27
 msgid "Panel Applets"
 msgstr "Panelapplet"
 
-#: ../data/ui/panel-pref.glade.h:30
+#: ../data/ui/panel-pref.glade.h:28
 msgid "Panel Preferences"
 msgstr "Panelinställningar"
 
-#: ../data/ui/panel-pref.glade.h:31
+#: ../data/ui/panel-pref.glade.h:29
 msgid "Pixels"
 msgstr "Pixlar"
 
-#: ../data/ui/panel-pref.glade.h:32
+#: ../data/ui/panel-pref.glade.h:30
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Reservutrymme, täcks inte av maximerade fönster"
 
-#: ../data/ui/panel-pref.glade.h:33
+#: ../data/ui/panel-pref.glade.h:31 ../src/panel.c:935
 msgid "Right"
 msgstr "Höger"
 
-#: ../data/ui/panel-pref.glade.h:34
+#: ../data/ui/panel-pref.glade.h:32
 msgid "Select an image file"
 msgstr "Välj en bildfil"
 
-#: ../data/ui/panel-pref.glade.h:35
+#: ../data/ui/panel-pref.glade.h:33
 msgid "Size when minimized"
 msgstr "Storlek vid minimering"
+
+#: ../data/ui/panel-pref.glade.h:34
+msgid "Solid color (with opacity)"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:35
+#, fuzzy
+msgid "System theme"
+msgstr "Inget (använd systemtema)"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "Terminal Emulator:"
 msgstr "Terminalemultor:"
 
 #: ../data/ui/panel-pref.glade.h:37
-msgid "Tint color:"
-msgstr "Färg för toning:"
-
-#: ../data/ui/panel-pref.glade.h:38
 msgid "Top\t"
 msgstr "Upptill\t"
 
-#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:933 ../src/panel.c:937
+#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:933 ../src/panel.c:939
 msgid "Width:"
 msgstr "Bredd:"
 
-#: ../data/ui/panel-pref.glade.h:40
+#: ../data/ui/panel-pref.glade.h:39
 msgid "pixels"
 msgstr "pixlar"
 
@@ -190,39 +189,39 @@ msgstr "Starta om"
 msgid "Logout"
 msgstr "Logga ut"
 
-#: ../src/configurator.c:472
+#: ../src/configurator.c:438
 msgid "Currently loaded plugins"
 msgstr "Laddade instick"
 
-#: ../src/configurator.c:481
+#: ../src/configurator.c:447
 msgid "Stretch"
 msgstr "Sträck ut"
 
-#: ../src/configurator.c:579
+#: ../src/configurator.c:552
 msgid "Add plugin to panel"
 msgstr "Lägg till instick till panel"
 
-#: ../src/configurator.c:607
+#: ../src/configurator.c:580
 msgid "Available plugins"
 msgstr "Tillgängliga instick"
 
-#: ../src/configurator.c:1163
+#: ../src/configurator.c:1134
 msgid "Logout command is not set"
 msgstr "Utloggningskommando skickades inte"
 
-#: ../src/configurator.c:1216
+#: ../src/configurator.c:1187
 msgid "Select a directory"
 msgstr "Välj katalog"
 
-#: ../src/configurator.c:1216 ../src/configurator.c:1301
+#: ../src/configurator.c:1187 ../src/configurator.c:1278
 msgid "Select a file"
 msgstr "Välj fil"
 
-#: ../src/configurator.c:1328
+#: ../src/configurator.c:1305
 msgid "_Browse"
 msgstr "_Bläddra"
 
-#: ../src/panel.c:590
+#: ../src/panel.c:588
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -230,120 +229,117 @@ msgstr ""
 "Ska panelen verkligen raderas?\n"
 "<b>Varning: Detta kan inte ångras.</b"
 
-#: ../src/panel.c:592
+#: ../src/panel.c:590
 msgid "Confirm"
 msgstr "Acceptera"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:623
+#: ../src/panel.c:622
 msgid "translator-credits"
 msgstr ""
 "Martin Bagge 2009 <brother@bsnet.se>\n"
 "\n"
 "Synpunkter på översättningen kan sändas till tp-sv@listor.tp-sv.se"
 
-#: ../src/panel.c:628
+#: ../src/panel.c:627
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:630
+#: ../src/panel.c:629
 msgid "Copyright (C) 2008-2009"
 msgstr "Copyright © 2008-2009"
 
-#: ../src/panel.c:631
+#: ../src/panel.c:630
 msgid "Desktop panel for LXDE project"
 msgstr "Skrivbordspanel för LXDE-projektet"
 
-#: ../src/panel.c:654
+#: ../src/panel.c:653
 msgid "Add / Remove Panel Items"
 msgstr "Lägg till/Ta bort panelelement"
 
-#: ../src/panel.c:662
+#: ../src/panel.c:661
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Ta bort \"%s\" från panel"
 
-#: ../src/panel.c:674
+#: ../src/panel.c:673
 msgid "Panel Settings"
 msgstr "Panelinställningar"
 
-#: ../src/panel.c:680
+#: ../src/panel.c:679
 msgid "Create New Panel"
 msgstr "Skapa ny panel"
 
-#: ../src/panel.c:691
+#: ../src/panel.c:690
 msgid "Delete This Panel"
 msgstr "Ta bort panel"
 
-#: ../src/panel.c:702
+#: ../src/panel.c:701
 msgid "About"
 msgstr "Om"
 
-#: ../src/panel.c:710
+#: ../src/panel.c:709
 msgid "Panel"
 msgstr "Panel"
 
-#: ../src/panel.c:723
+#: ../src/panel.c:722
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "Inställningar för \"%s\""
 
-#: ../src/panel.c:1248
+#: ../src/panel.c:941
+#, fuzzy
+msgid "Top"
+msgstr "Upptill\t"
+
+#: ../src/panel.c:1332
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - lättviktig GTK2+-panel för UNIX-skrivbord\n"
 
-#: ../src/panel.c:1249
+#: ../src/panel.c:1333
 #, c-format
 msgid "Command line options:\n"
 msgstr "Kommandoradsalternativ:\n"
 
-#: ../src/panel.c:1250
+#: ../src/panel.c:1334
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- visar denna hjälptext och avslutar\n"
 
-#: ../src/panel.c:1251
+#: ../src/panel.c:1335
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- visar versionsinformation och avslutar\n"
 
-#: ../src/panel.c:1252
+#: ../src/panel.c:1336
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --log <nummer> -- ange loggningsnivå 0-5. 0 - ingen 5 - pratig\n"
 
-#: ../src/panel.c:1253
-#, c-format
-msgid " --configure -- launch configuration utility\n"
-msgstr " --configure -- starta inställningsprogrammet\n"
-
-#: ../src/panel.c:1254
+#. g_print(_(" --configure -- launch configuration utility\n"));
+#: ../src/panel.c:1338
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile namn -- använd specificerad profil\n"
 
-#: ../src/panel.c:1256
+#: ../src/panel.c:1340
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- samma som --help\n"
 
-#: ../src/panel.c:1257
+#: ../src/panel.c:1341
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- samma som --profile\n"
 
-#: ../src/panel.c:1258
+#: ../src/panel.c:1342
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- samma som --version\n"
 
-#: ../src/panel.c:1259
-#, c-format
-msgid " -C  -- same as --configure\n"
-msgstr " -C  -- samma som --configure\n"
-
-#: ../src/panel.c:1260
+#. g_print(_(" -C  -- same as --configure\n"));
+#: ../src/panel.c:1344
 #, c-format
 msgid ""
 "\n"
@@ -358,7 +354,7 @@ msgstr ""
 msgid "Enter the command you want to execute:"
 msgstr "Ange kommandot du vill köra:"
 
-#: ../src/systray/tray.c:211
+#: ../src/systray/tray.c:211 ../src/plugins/tray.c:731
 msgid "System Tray"
 msgstr "Systemdocka"
 
@@ -366,151 +362,137 @@ msgstr "Systemdocka"
 msgid "Old KDE/GNOME Tray"
 msgstr "Äldre KDE/GNOME docka"
 
-#: ../src/plugins/cpu/cpu.c:266
+#: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
 msgstr "Övervakning av CPU-användning"
 
-#: ../src/plugins/cpu/cpu.c:268
+#: ../src/plugins/cpu/cpu.c:270
 msgid "Display CPU usage"
 msgstr "Visa CPU-användning"
 
-#: ../src/plugins/deskno/deskno.c:118 ../src/plugins/deskno/deskno2.c:129
-msgid "Desktop No / Workspace Name"
+#: ../src/plugins/deskno/deskno.c:165
+#, fuzzy
+msgid "Desktop Number / Workspace Name"
 msgstr "Skrivbordsnummer / Arbetsytans namn"
 
-#: ../src/plugins/deskno/deskno.c:120 ../src/plugins/deskno/deskno2.c:131
+#: ../src/plugins/deskno/deskno.c:167 ../src/plugins/deskno/deskno2.c:131
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Visa arbetsytans nummer av cmeury@users.sf.net"
+
+#: ../src/plugins/deskno/deskno2.c:129
+msgid "Desktop No / Workspace Name"
+msgstr "Skrivbordsnummer / Arbetsytans namn"
 
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
 msgstr "Visa bild och verktygstips"
 
-#: ../src/plugins/launchbar.c:146
-msgid "Add Button"
-msgstr "Lägg till knapp"
+#: ../src/plugins/launchbar.c:648
+#, fuzzy
+msgid "Available Applications"
+msgstr "Tillgängliga instick"
 
-#: ../src/plugins/launchbar.c:148
-msgid "Button Properties"
-msgstr "Knappalternativ"
-
-#.
-#. title = g_strdup_printf( _("Remove \"%s\""), b-> );
-#. item = gtk_image_menu_item_new_with_label( _("Remove ") );
-#.
-#: ../src/plugins/launchbar.c:154
-msgid "Remove Button"
-msgstr "Ta bort knapp"
-
-#. FIXME: We should have a better interface for this in the fututure.
-#. 1. We can borrow the menu from menu plugin (PtkAppMenu).
-#. 2. We can borrow the app chooser from PCManFM.
-#.
-#: ../src/plugins/launchbar.c:530
-msgid "Select Application"
+#: ../src/plugins/launchbar.c:648
+#, fuzzy
+msgid "Applications"
 msgstr "Välj program"
 
-#: ../src/plugins/launchbar.c:682
-msgid "Buttons"
-msgstr "Knappar"
-
-#: ../src/plugins/launchbar.c:800
+#: ../src/plugins/launchbar.c:816
 msgid "Application Launch Bar"
 msgstr "Programstartspanel"
 
-#: ../src/plugins/launchbar.c:802
+#: ../src/plugins/launchbar.c:818
 msgid "Bar with buttons to launch application"
 msgstr "Panel med knappar för att starta program"
 
-#: ../src/plugins/taskbar.c:1405
+#. Add Raise menu item.
+#: ../src/plugins/taskbar.c:1644
 msgid "_Raise"
 msgstr "Ta f_ram"
 
-#: ../src/plugins/taskbar.c:1409
+#. Add Restore menu item.
+#: ../src/plugins/taskbar.c:1649
 msgid "R_estore"
 msgstr "Åt_erställ"
 
-#: ../src/plugins/taskbar.c:1413
+#. Add Maximize menu item.
+#: ../src/plugins/taskbar.c:1654
 msgid "Ma_ximize"
 msgstr "Ma_ximera"
 
-#: ../src/plugins/taskbar.c:1417
+#. Add Iconify menu item.
+#: ../src/plugins/taskbar.c:1659
 msgid "Ico_nify"
 msgstr "Mi_nimera"
 
-#: ../src/plugins/taskbar.c:1428
+#: ../src/plugins/taskbar.c:1678
 #, c-format
 msgid "Workspace _%d"
 msgstr "Arbetsyta _%d"
 
-#: ../src/plugins/taskbar.c:1433
+#: ../src/plugins/taskbar.c:1683
 #, c-format
 msgid "Workspace %d"
 msgstr "Arbetsyta %d"
 
-#: ../src/plugins/taskbar.c:1442
+#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
+#: ../src/plugins/taskbar.c:1697
 msgid "_All workspaces"
 msgstr "_Alla arbetsytor"
 
-#: ../src/plugins/taskbar.c:1449
+#. Add Move to Workspace menu item as a submenu.
+#: ../src/plugins/taskbar.c:1703
 msgid "_Move to Workspace"
 msgstr "_Flytta till arbetsyta"
 
-#. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1457
+#. Add Close menu item.  By policy, we place this item farthest from the cursor.
+#: ../src/plugins/taskbar.c:1709
 msgid "_Close Window"
 msgstr "_Stäng fönster"
 
-#: ../src/plugins/taskbar.c:1691
+#: ../src/plugins/taskbar.c:1923
 msgid "Show tooltips"
 msgstr "Visa verktygstips"
 
-#: ../src/plugins/taskbar.c:1692
+#: ../src/plugins/taskbar.c:1924
 msgid "Icons only"
 msgstr "Endast ikoner"
 
-#: ../src/plugins/taskbar.c:1693
-msgid "Flat Buttons"
+#: ../src/plugins/taskbar.c:1925
+#, fuzzy
+msgid "Flat buttons"
 msgstr "Platta knappar"
 
-# ?
-#: ../src/plugins/taskbar.c:1694
-msgid "Accept SkipPager"
-msgstr "Acceptera SkipPager"
-
-#: ../src/plugins/taskbar.c:1695
-msgid "Show Iconified windows"
-msgstr "Visa minimerade fönster"
-
-#: ../src/plugins/taskbar.c:1696
-msgid "Show mapped windows"
-msgstr "Visa fönster för aktuellt skrivbord"
-
-#: ../src/plugins/taskbar.c:1697
+#: ../src/plugins/taskbar.c:1926
 msgid "Show windows from all desktops"
 msgstr "Visa fönster från alla skrivbord"
 
-#: ../src/plugins/taskbar.c:1698
+#: ../src/plugins/taskbar.c:1927
 msgid "Use mouse wheel"
 msgstr "Använd mushjul"
 
-#: ../src/plugins/taskbar.c:1699
+#: ../src/plugins/taskbar.c:1928
 msgid "Flash when there is any window requiring attention"
 msgstr "Blinka när fönster kräver uppmärksamhet"
 
-#: ../src/plugins/taskbar.c:1700
-msgid "Max width of task button"
+#: ../src/plugins/taskbar.c:1929
+msgid "Combine multiple application windows into a single button"
+msgstr ""
+
+#: ../src/plugins/taskbar.c:1930
+#, fuzzy
+msgid "Maximum width of task button"
 msgstr "Maximal bredd för aktivitetsknapp"
 
-#: ../src/plugins/taskbar.c:1701
+#: ../src/plugins/taskbar.c:1931
 msgid "Spacing"
 msgstr "Mellanrum"
 
-#: ../src/plugins/taskbar.c:1779
+#: ../src/plugins/taskbar.c:1966
 msgid "Task Bar (Window List)"
 msgstr "Aktivitetspanel (fönsterlista)"
 
-#: ../src/plugins/taskbar.c:1781
+#: ../src/plugins/taskbar.c:1968
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -518,32 +500,33 @@ msgstr ""
 "Aktivitetspanelen visar alla öppnade fönster och möjliggör minimering, "
 "upprullning eller att sätta fokus på dem"
 
-#: ../src/plugins/dclock.c:275
+#: ../src/plugins/dclock.c:261
 msgid "Clock Format"
 msgstr "Klockformat"
 
-#: ../src/plugins/dclock.c:276
+#: ../src/plugins/dclock.c:262
 msgid "Tooltip Format"
 msgstr "Format på verktygstips"
 
-#: ../src/plugins/dclock.c:277
+#: ../src/plugins/dclock.c:263
 msgid "Format codes: man 3 strftime"
 msgstr "Manipulering av format: man 3 strftime"
 
-#: ../src/plugins/dclock.c:278
-msgid "Action"
-msgstr "Händelse"
+#: ../src/plugins/dclock.c:264
+msgid "Action when clicked (default: display calendar)"
+msgstr ""
 
-#: ../src/plugins/dclock.c:279
+#: ../src/plugins/dclock.c:265
 msgid "Bold font"
 msgstr "Fetstil"
 
-#: ../src/plugins/dclock.c:312
+#: ../src/plugins/dclock.c:292
 msgid "Digital Clock"
 msgstr "Digitalklocka"
 
-#: ../src/plugins/dclock.c:314
-msgid "Display Digital clock and Tooltip"
+#: ../src/plugins/dclock.c:294
+#, fuzzy
+msgid "Display digital clock and tooltip"
 msgstr "Visa digitalklocka och verktygstips"
 
 #: ../src/plugins/menu.c:369
@@ -554,17 +537,18 @@ msgstr "Lägg till på skrivbord"
 msgid "Properties"
 msgstr "Inställningar"
 
-#: ../src/plugins/menu.c:1029
+#: ../src/plugins/menu.c:990
 msgid "Icon"
 msgstr "Ikon"
 
-#: ../src/plugins/menu.c:1040
+#: ../src/plugins/menu.c:1001
 msgid "Menu"
 msgstr "Meny"
 
-#: ../src/plugins/menu.c:1042
-msgid "Provide Menu"
-msgstr "Tillhandahåll meny"
+#: ../src/plugins/menu.c:1003
+#, fuzzy
+msgid "Application Menu"
+msgstr "Programstartspanel"
 
 #: ../src/plugins/netstatus/glade-support.c:91
 #: ../src/plugins/netstatus/glade-support.c:115
@@ -921,39 +905,45 @@ msgstr "Tar emot"
 msgid "Sending/Receiving"
 msgstr "Skickar/Tar emot"
 
-#: ../src/plugins/separator.c:83
+#: ../src/plugins/separator.c:98
 msgid "Separator"
 msgstr "Separator"
 
-#: ../src/plugins/separator.c:85
+#: ../src/plugins/separator.c:100
 msgid "Add a separator to the panel"
 msgstr "Lägg till separator till panelen"
 
-#: ../src/plugins/pager.c:707
+#: ../src/plugins/pager.c:795
 msgid "Desktop Pager"
 msgstr "Hanterare för skrivbord"
 
-#: ../src/plugins/pager.c:709
+#: ../src/plugins/pager.c:797
 msgid "Simple pager plugin"
 msgstr "Enkel skrivbordshanterare"
 
-#: ../src/plugins/space.c:133 ../src/plugins/batt/batt.c:591
+#: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
 msgid "Size"
 msgstr "Storlek"
 
-#: ../src/plugins/space.c:148
-msgid "<Space>"
+#: ../src/plugins/space.c:139
+#, fuzzy
+msgid "Spacer"
 msgstr "<tomrum>"
 
-#: ../src/plugins/space.c:150
+#: ../src/plugins/space.c:141
 msgid "Allocate space"
 msgstr "Reservera utrymme"
 
-#: ../src/plugins/xkb/xkb-plugin.c:241
+#: ../src/plugins/tray.c:733
+#, fuzzy
+msgid "System tray"
+msgstr "Systemdocka"
+
+#: ../src/plugins/xkb/xkb-plugin.c:242 ../src/plugins/xkb/xkb-plugin.c:506
 msgid "Keyboard Layout Switcher"
 msgstr "Hanterare för tangentbordsuppsättning"
 
-#: ../src/plugins/xkb/xkb-plugin.c:247
+#: ../src/plugins/xkb/xkb-plugin.c:248
 msgid ""
 "Allows you to switch the keyboard layout and\n"
 "displays the currently selected layout."
@@ -961,59 +951,57 @@ msgstr ""
 "Möjliggör byte av tangentbordsuppsättning och\n"
 "visar aktuell tangentbordsuppsätting."
 
-#: ../src/plugins/xkb/xkb-plugin.c:252
+#: ../src/plugins/xkb/xkb-plugin.c:253
 msgid "Other plugins available here"
 msgstr "Andra instick tillgängliga här"
 
-#: ../src/plugins/xkb/xkb-plugin.c:385
+#: ../src/plugins/xkb/xkb-plugin.c:392
 msgid "Configure Keyboard Layout Switcher"
 msgstr "Anpassa hanterare för tangentbordsuppsättning"
 
-#: ../src/plugins/xkb/xkb-plugin.c:398
+#: ../src/plugins/xkb/xkb-plugin.c:405
 msgid "Show layout as"
 msgstr "Visa uppsättning som"
 
-#: ../src/plugins/xkb/xkb-plugin.c:413
+#: ../src/plugins/xkb/xkb-plugin.c:420
 msgid "image"
 msgstr "bild"
 
-#: ../src/plugins/xkb/xkb-plugin.c:414
+#: ../src/plugins/xkb/xkb-plugin.c:421
 msgid "text"
 msgstr "text"
 
-#: ../src/plugins/xkb/xkb-plugin.c:418
+#: ../src/plugins/xkb/xkb-plugin.c:425
 msgid "Per application settings"
 msgstr "Per programinställningar"
 
-#: ../src/plugins/xkb/xkb-plugin.c:432
+#: ../src/plugins/xkb/xkb-plugin.c:439
 msgid "_Remember layout for each application"
 msgstr "_Kom ihåg tangentbordsuppsättning för varje program"
 
-#: ../src/plugins/xkb/xkb-plugin.c:441
+#: ../src/plugins/xkb/xkb-plugin.c:448
 msgid "Default layout:"
 msgstr "Standarduppsättning:"
 
-#: ../src/plugins/xkb/xkb-plugin.c:499
-msgid "Kayboard Layout switcher"
-msgstr "Hanterare för tangentbordsuppsättningar"
-
-#: ../src/plugins/xkb/xkb-plugin.c:501
+#: ../src/plugins/xkb/xkb-plugin.c:508
 msgid "Switch between available keyboard layouts"
 msgstr "Byta mellan tillgängliga tangentbordsuppsättningar"
 
-#: ../src/plugins/wincmd.c:233
-msgid "Left click to iconify all windows. Middle click to shade them"
+#: ../src/plugins/wincmd.c:167
+#, fuzzy
+msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
 "Vänsterklick för att minimera alla fönster. Mittklick för att rulla upp."
 
-#: ../src/plugins/wincmd.c:262
+#: ../src/plugins/wincmd.c:197
 msgid "Minimize All Windows"
 msgstr "Minimera alla fönster"
 
-#: ../src/plugins/wincmd.c:264
+#: ../src/plugins/wincmd.c:199
+#, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
-"Supported commands are 1)toggle iconify and 2) toggle shade"
+"Supported commands are 1) iconify and 2) shade"
 msgstr ""
 "Skickar kommando till alla fönster på skrivbordet.\n"
 "Tillgängliga kommandon 1) hantera minimering/maximering 2) hantera "
@@ -1023,69 +1011,69 @@ msgstr ""
 msgid "Open in _Terminal"
 msgstr "Öppna i _terminal"
 
-#: ../src/plugins/dirmenu.c:403
+#: ../src/plugins/dirmenu.c:386
 msgid "Directory"
 msgstr "Katalog"
 
-#: ../src/plugins/dirmenu.c:404
+#: ../src/plugins/dirmenu.c:387
 msgid "Label"
 msgstr "Ettikett"
 
-#: ../src/plugins/dirmenu.c:413
+#: ../src/plugins/dirmenu.c:404
 msgid "Directory Menu"
 msgstr "Katalogmeny"
 
-#: ../src/plugins/dirmenu.c:415
+#: ../src/plugins/dirmenu.c:406
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "Bläddra i katalogstrukturen med hjälp av meny (Skapad av: PCMan)"
 
-#: ../src/plugins/thermal/thermal.c:283
+#: ../src/plugins/thermal/thermal.c:284
 msgid "Normal"
 msgstr "Normal"
 
-#: ../src/plugins/thermal/thermal.c:284
+#: ../src/plugins/thermal/thermal.c:285
 msgid "Warning1"
 msgstr "Varning1"
 
-#: ../src/plugins/thermal/thermal.c:285
+#: ../src/plugins/thermal/thermal.c:286
 msgid "Warning2"
 msgstr "Varning2"
 
-#: ../src/plugins/thermal/thermal.c:286
+#: ../src/plugins/thermal/thermal.c:287
 msgid "Automatic sensor location"
 msgstr "Automatisk sensorplats"
 
-#: ../src/plugins/thermal/thermal.c:287
+#: ../src/plugins/thermal/thermal.c:288
 msgid "Sensor"
 msgstr "Sensor"
 
-#: ../src/plugins/thermal/thermal.c:288
+#: ../src/plugins/thermal/thermal.c:289
 msgid "Automatic temperature levels"
 msgstr "Automatisk temperaturnivå"
 
-#: ../src/plugins/thermal/thermal.c:289
+#: ../src/plugins/thermal/thermal.c:290
 msgid "Warning1 Temperature"
 msgstr "Varning1 temperatur"
 
-#: ../src/plugins/thermal/thermal.c:290
+#: ../src/plugins/thermal/thermal.c:291
 msgid "Warning2 Temperature"
 msgstr "Varning2 temperatur"
 
-#: ../src/plugins/thermal/thermal.c:332
+#: ../src/plugins/thermal/thermal.c:333
 msgid "Temperature Monitor"
 msgstr "Temperaturövervakning"
 
-#: ../src/plugins/thermal/thermal.c:334
+#: ../src/plugins/thermal/thermal.c:335
 msgid "Display system temperature, by kesler.daniel@gmail.com"
 msgstr "Visa systemtemperatur av kesler.daniel@gmail.com"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
-#: ../src/plugins/volume/volume.c:305
+#: ../src/plugins/volume/volume.c:300
 #: ../src/plugins/volumealsa/volumealsa.c:410
 msgid "Volume control"
 msgstr "Volymkontorll"
 
-#: ../src/plugins/volume/volume.c:317
+#: ../src/plugins/volume/volume.c:312
 #: ../src/plugins/volumealsa/volumealsa.c:424
 msgid "Volume Control"
 msgstr "Volymkontorll"
@@ -1177,11 +1165,11 @@ msgstr "Protokoll:"
 msgid "HW Address:"
 msgstr "Hårdvaruadress:"
 
-#: ../src/plugins/netstat/netstat.c:471
+#: ../src/plugins/netstat/netstat.c:470
 msgid "Manage Networks"
 msgstr "Hantera nätverk"
 
-#: ../src/plugins/netstat/netstat.c:473
+#: ../src/plugins/netstat/netstat.c:472
 msgid "Monitor and Manage networks"
 msgstr "Övervaka och hantera nätverk"
 
@@ -1203,19 +1191,20 @@ msgstr ""
 msgid "Encryption Key:"
 msgstr "Krypteringsnyckel:"
 
-#: ../src/plugins/netstatus/netstatus.c:175
+#: ../src/plugins/netstatus/netstatus.c:178
 msgid "Interface to monitor"
 msgstr "Gränssnitt at övervaka"
 
-#: ../src/plugins/netstatus/netstatus.c:176
+#: ../src/plugins/netstatus/netstatus.c:179
 msgid "Config tool"
 msgstr "Inställningsverktyg"
 
-#: ../src/plugins/netstatus/netstatus.c:193
-msgid "Net Status Monitor"
+#: ../src/plugins/netstatus/netstatus.c:196
+#, fuzzy
+msgid "Network Status Monitor"
 msgstr "Övervakning av nätverksstatus"
 
-#: ../src/plugins/netstatus/netstatus.c:195
+#: ../src/plugins/netstatus/netstatus.c:198
 msgid "Monitor network status"
 msgstr "Övervaka nätverksstatus"
 
@@ -1306,88 +1295,134 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../src/plugins/batt/batt.c:132
+#: ../src/plugins/batt/batt.c:131
 msgid "No batteries found"
 msgstr "Inget batteri hittat"
 
-#: ../src/plugins/batt/batt.c:180
+#: ../src/plugins/batt/batt.c:179
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
 msgstr "Batteri; %d%% laddat, %d%02d tills det är fullt."
 
-#: ../src/plugins/batt/batt.c:191
+#: ../src/plugins/batt/batt.c:190
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr "Batteri: %d%% laddat, %d%02d kvar"
 
-#: ../src/plugins/batt/batt.c:197
+#: ../src/plugins/batt/batt.c:196
 #, c-format
 msgid "Battery: %d%% charged"
 msgstr "Batteri: %d%% laddat"
 
-#: ../src/plugins/batt/batt.c:581
+#: ../src/plugins/batt/batt.c:580
 msgid "Hide if there is no battery"
 msgstr "Göm om det inte finns något batteri"
 
-#: ../src/plugins/batt/batt.c:583
+#: ../src/plugins/batt/batt.c:582
 msgid "Alarm command"
 msgstr "Alarmkommando"
 
-#: ../src/plugins/batt/batt.c:584
+#: ../src/plugins/batt/batt.c:583
 msgid "Alarm time (minutes left)"
 msgstr "Alarmtid (minuter kvar)"
 
-#: ../src/plugins/batt/batt.c:585
+#: ../src/plugins/batt/batt.c:584
 msgid "Background color"
 msgstr "Bakgrundsfärg"
 
-#: ../src/plugins/batt/batt.c:586
+#: ../src/plugins/batt/batt.c:585
 msgid "Charging color 1"
 msgstr "Laddningsfärg 1"
 
-#: ../src/plugins/batt/batt.c:587
+#: ../src/plugins/batt/batt.c:586
 msgid "Charging color 2"
 msgstr "Laddningsfärg 2"
 
-#: ../src/plugins/batt/batt.c:588
+#: ../src/plugins/batt/batt.c:587
 msgid "Discharging color 1"
 msgstr "Urladdningsfärg 1"
 
-#: ../src/plugins/batt/batt.c:589
+#: ../src/plugins/batt/batt.c:588
 msgid "Discharging color 2"
 msgstr "Urladdningsfärg 2"
 
-#: ../src/plugins/batt/batt.c:590
+#: ../src/plugins/batt/batt.c:589
 msgid "Border width"
 msgstr "Kantbredd"
 
-#: ../src/plugins/batt/batt.c:621
+#: ../src/plugins/batt/batt.c:620
 msgid "Battery Monitor"
 msgstr "Batteriövervakning"
 
-#: ../src/plugins/batt/batt.c:623
+#: ../src/plugins/batt/batt.c:622
 msgid "Display battery status using ACPI"
 msgstr "Visa batteristatus med hjälp av ACPI"
 
-#: ../src/plugins/kbled/kbled.c:266
+#: ../src/plugins/kbled/kbled.c:227
 msgid "Show CapsLock"
 msgstr "Visa CapsLock"
 
-#: ../src/plugins/kbled/kbled.c:267
+#: ../src/plugins/kbled/kbled.c:228
 msgid "Show NumLock"
 msgstr "VIsa NumLock"
 
-#: ../src/plugins/kbled/kbled.c:268
+#: ../src/plugins/kbled/kbled.c:229
 msgid "Show ScrollLock"
 msgstr "Visa ScrollLock"
 
-#: ../src/plugins/kbled/kbled.c:279
+#: ../src/plugins/kbled/kbled.c:259
 msgid "Keyboard LED"
 msgstr "Tangentbordslampor"
 
-#: ../src/plugins/kbled/kbled.c:281
+#: ../src/plugins/kbled/kbled.c:261
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Indikatorer för tangenterna CapsLock, NumLock och ScrollLock "
+
+#~ msgid "Enable Image:"
+#~ msgstr "Aktivera bild:"
+
+#~ msgid "Enable Transparency"
+#~ msgstr "Aktivera genomskinlighet"
+
+#~ msgid "Tint color:"
+#~ msgstr "Färg för toning:"
+
+#~ msgid " --configure -- launch configuration utility\n"
+#~ msgstr " --configure -- starta inställningsprogrammet\n"
+
+#~ msgid " -C  -- same as --configure\n"
+#~ msgstr " -C  -- samma som --configure\n"
+
+#~ msgid "Add Button"
+#~ msgstr "Lägg till knapp"
+
+#~ msgid "Button Properties"
+#~ msgstr "Knappalternativ"
+
+#~ msgid "Remove Button"
+#~ msgstr "Ta bort knapp"
+
+#~ msgid "Buttons"
+#~ msgstr "Knappar"
+
+# ?
+#~ msgid "Accept SkipPager"
+#~ msgstr "Acceptera SkipPager"
+
+#~ msgid "Show Iconified windows"
+#~ msgstr "Visa minimerade fönster"
+
+#~ msgid "Show mapped windows"
+#~ msgstr "Visa fönster för aktuellt skrivbord"
+
+#~ msgid "Action"
+#~ msgstr "Händelse"
+
+#~ msgid "Provide Menu"
+#~ msgstr "Tillhandahåll meny"
+
+#~ msgid "Kayboard Layout switcher"
+#~ msgstr "Hanterare för tangentbordsuppsättningar"
 
 #~ msgid ""
 #~ "Dynamic\n"

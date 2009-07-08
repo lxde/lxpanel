@@ -8,76 +8,81 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-01 15:28+0200\n"
+"POT-Creation-Date: 2009-07-08 23:03+0200\n"
 "PO-Revision-Date: 2009-06-29 19:33+0400\n"
 "Last-Translator: akdengi <kazancas@gmail.com>\n"
 "Language-Team: Russian <gnu@mx.ru>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms:  nplurals=2; plural=(n != 1);\n\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+"\n"
 "X-Poedit-Language: russian\n"
 "X-Poedit-Country: Russia\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#: ../data/ui/panel-pref.glade.h:1
+#: ../data/ui/panel-pref.glade.h:2
+#, no-c-format
+msgid "% Percent"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:3
+msgid "<b>Automatic hiding</b>"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:4
 msgid "<b>Background</b>"
 msgstr "<b>Фон</b>"
 
-#: ../data/ui/panel-pref.glade.h:2
+#: ../data/ui/panel-pref.glade.h:5
 msgid "<b>Font</b>"
 msgstr "<b>Шрифт</b>"
 
-#: ../data/ui/panel-pref.glade.h:3
+#: ../data/ui/panel-pref.glade.h:6
 msgid "<b>Position</b>"
 msgstr "<b>Позиция</b>"
 
-#: ../data/ui/panel-pref.glade.h:4
+#: ../data/ui/panel-pref.glade.h:7
 msgid "<b>Properties</b>"
 msgstr "<b>Параметры</b>"
 
-#: ../data/ui/panel-pref.glade.h:5
+#: ../data/ui/panel-pref.glade.h:8
 msgid "<b>Set Preferred Applications</b>"
 msgstr "<b>Выбрать Любимые Приложения</b>"
 
-#: ../data/ui/panel-pref.glade.h:6
+#: ../data/ui/panel-pref.glade.h:9
 msgid "<b>Size</b>"
 msgstr "<b>Размер</b>"
 
-#: ../data/ui/panel-pref.glade.h:7
+#: ../data/ui/panel-pref.glade.h:10
 msgid "Advanced"
 msgstr "Опытные"
 
-#: ../data/ui/panel-pref.glade.h:8
+#: ../data/ui/panel-pref.glade.h:11
 msgid "Alignment:"
 msgstr "Направление:"
 
-#: ../data/ui/panel-pref.glade.h:9
-msgid "Custom Color"
-msgstr "Свой Цвет"
+#: ../data/ui/panel-pref.glade.h:12 ../src/panel.c:942
+msgid "Bottom"
+msgstr "Низ"
 
-#: ../data/ui/panel-pref.glade.h:11
-#, no-c-format
-msgid ""
-"Dynamic\n"
-"Pixels\n"
-"% Percent"
-msgstr ""
-"Динамично\n"
-"Пиксели\n"
-"% Проценты"
+#: ../data/ui/panel-pref.glade.h:13
+#, fuzzy
+msgid "Center"
+msgstr "Упрощённые"
 
 #: ../data/ui/panel-pref.glade.h:14
-msgid "Edge:"
-msgstr "Сторона:"
+#, fuzzy
+msgid "Custom color"
+msgstr "Свой Цвет"
 
 #: ../data/ui/panel-pref.glade.h:15
-msgid "Enable Image:"
-msgstr "Использовать Изображение:"
+msgid "Dynamic"
+msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:16
-msgid "Enable Transparency"
-msgstr "Включить Прозрачность"
+msgid "Edge:"
+msgstr "Сторона:"
 
 #: ../data/ui/panel-pref.glade.h:17
 msgid "File Manager:"
@@ -89,79 +94,95 @@ msgstr "Менеджер Файлов:"
 msgid "General"
 msgstr "Упрощённые"
 
-#: ../data/ui/panel-pref.glade.h:19
+#: ../data/ui/panel-pref.glade.h:19 ../src/panel.c:932 ../src/panel.c:940
 msgid "Height:"
 msgstr "Высота:"
 
 #: ../data/ui/panel-pref.glade.h:20
-msgid ""
-"Left\n"
-"Center\n"
-"Right"
-msgstr ""
-"Лево\n"
-"Центр\n"
-"Право"
+#, fuzzy
+msgid "Image"
+msgstr "изображение"
+
+#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:934
+msgid "Left"
+msgstr "Лево"
+
+#: ../data/ui/panel-pref.glade.h:22
+#, fuzzy
+msgid "Left\t"
+msgstr "Лево"
 
 #: ../data/ui/panel-pref.glade.h:23
-msgid ""
-"Left\n"
-"Right\n"
-"Top\n"
-"Bottom"
-msgstr ""
-"Лево\n"
-"Право\n"
-"Верх\n"
-"Низ"
-
-#: ../data/ui/panel-pref.glade.h:27
 msgid "Logout Command:"
 msgstr "Команда для Выхода из Системы:"
 
-#: ../data/ui/panel-pref.glade.h:28
+#: ../data/ui/panel-pref.glade.h:24
 msgid "Make window managers treat the panel as dock"
 msgstr "Приказать менеджерам окон использовать панель как док"
 
-#: ../data/ui/panel-pref.glade.h:29
+#: ../data/ui/panel-pref.glade.h:25
 msgid "Margin:"
 msgstr "Край:"
 
-#: ../data/ui/panel-pref.glade.h:30
-msgid "None (Use system theme)"
-msgstr "Никакой (Использовать тему системы)"
+#: ../data/ui/panel-pref.glade.h:26
+msgid "Minimize panel when not in use"
+msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:31
+#: ../data/ui/panel-pref.glade.h:27
 msgid "Panel Applets"
 msgstr "Апплеты Панели"
 
-#: ../data/ui/panel-pref.glade.h:32
+#: ../data/ui/panel-pref.glade.h:28
 msgid "Panel Preferences"
 msgstr "Свойства Панели"
 
-#: ../data/ui/panel-pref.glade.h:33
+#: ../data/ui/panel-pref.glade.h:29
 msgid "Pixels"
 msgstr "Пиксели"
 
-#: ../data/ui/panel-pref.glade.h:34
+#: ../data/ui/panel-pref.glade.h:30
 msgid "Reserve space, and not covered by maximized windows"
-msgstr "Зарезервировать место, и не закрывать окнами развернутыми на весь экран"
+msgstr ""
+"Зарезервировать место, и не закрывать окнами развернутыми на весь экран"
 
-#: ../data/ui/panel-pref.glade.h:35
+#: ../data/ui/panel-pref.glade.h:31 ../src/panel.c:935
+msgid "Right"
+msgstr "Право"
+
+#: ../data/ui/panel-pref.glade.h:32
 msgid "Select an image file"
 msgstr "Выбрать файл изображения"
+
+#: ../data/ui/panel-pref.glade.h:33
+msgid "Size when minimized"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:34
+msgid "Solid color (with opacity)"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:35
+#, fuzzy
+msgid "System theme"
+msgstr "Никакой (Использовать тему системы)"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "Terminal Emulator:"
 msgstr "Эмулятор Терминала:"
 
 #: ../data/ui/panel-pref.glade.h:37
-msgid "Tint color:"
-msgstr "Цвет оттенка"
+#, fuzzy
+msgid "Top\t"
+msgstr "Верх"
 
-#: ../data/ui/panel-pref.glade.h:38
+#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:933 ../src/panel.c:939
 msgid "Width:"
 msgstr "Ширина:"
+
+#: ../data/ui/panel-pref.glade.h:39
+#, fuzzy
+msgid "pixels"
+msgstr "Пиксели"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:250
 msgid "Run"
@@ -175,60 +196,41 @@ msgstr "Перезапустить"
 msgid "Logout"
 msgstr "Завершить Сеанс"
 
-#: ../src/configurator.c:403
+#: ../src/configurator.c:438
 msgid "Currently loaded plugins"
 msgstr "Загруженные приложения"
 
-#: ../src/configurator.c:412
+#: ../src/configurator.c:447
 msgid "Stretch"
 msgstr "Растянуть"
 
-#: ../src/configurator.c:510 ../src/panel.c:522
+#: ../src/configurator.c:552
 msgid "Add plugin to panel"
 msgstr "Добавить приложение к панели"
 
-#: ../src/configurator.c:537 ../src/panel.c:545
+#: ../src/configurator.c:580
 msgid "Available plugins"
 msgstr "Приложения доступные для установки"
 
-#: ../src/configurator.c:1049
+#: ../src/configurator.c:1134
 msgid "Logout command is not set"
 msgstr "Команда для завершения сеанса не определена"
 
-#: ../src/configurator.c:1098 ../src/configurator.c:1179
+#: ../src/configurator.c:1187
+#, fuzzy
+msgid "Select a directory"
+msgstr "Выберите файл"
+
+#: ../src/configurator.c:1187 ../src/configurator.c:1278
 #, fuzzy
 msgid "Select a file"
 msgstr "Выберите файл"
 
-#: ../src/configurator.c:1197
+#: ../src/configurator.c:1305
 msgid "_Browse"
 msgstr "Обозреватель"
 
-#: ../src/panel.c:630
-msgid "Left"
-msgstr "Лево"
-
-#: ../src/panel.c:630
-msgid "Right"
-msgstr "Право"
-
-#: ../src/panel.c:630
-msgid "Top"
-msgstr "Верх"
-
-#: ../src/panel.c:630
-msgid "Bottom"
-msgstr "Низ"
-
-#: ../src/panel.c:632 ../src/panel.c:758
-msgid "Create New Panel"
-msgstr "Создать Новую Панель"
-
-#: ../src/panel.c:638
-msgid "Where to put the panel?"
-msgstr "Где поставить панель?"
-
-#: ../src/panel.c:696
+#: ../src/panel.c:588
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -236,94 +238,116 @@ msgstr ""
 "Убрать Панель?\n"
 "<b>Внимание: Эту операцию невозможно возвратить.</b>"
 
-#: ../src/panel.c:697
+#: ../src/panel.c:590
 msgid "Confirm"
 msgstr "Подтвердить"
 
-#: ../src/panel.c:732
+#. TRANSLATORS: Replace this string with your names, one name per line.
+#: ../src/panel.c:622
+msgid "translator-credits"
+msgstr ""
+
+#: ../src/panel.c:627
+#, fuzzy
+msgid "LXPanel"
+msgstr "Панель"
+
+#: ../src/panel.c:629
+msgid "Copyright (C) 2008-2009"
+msgstr ""
+
+#: ../src/panel.c:630
+msgid "Desktop panel for LXDE project"
+msgstr ""
+
+#: ../src/panel.c:653
 msgid "Add / Remove Panel Items"
 msgstr "Добавить/Убрать Приложения Панели"
 
-#: ../src/panel.c:740
+#: ../src/panel.c:661
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Убрать \"%s\" Из Панели"
 
-#: ../src/panel.c:752
+#: ../src/panel.c:673
 msgid "Panel Settings"
 msgstr "Настройки Панели"
 
-#: ../src/panel.c:769
+#: ../src/panel.c:679
+msgid "Create New Panel"
+msgstr "Создать Новую Панель"
+
+#: ../src/panel.c:690
 msgid "Delete This Panel"
 msgstr "Удалить Эту Панель"
 
-#: ../src/panel.c:779
+#: ../src/panel.c:701
+msgid "About"
+msgstr ""
+
+#: ../src/panel.c:709
 msgid "Panel"
 msgstr "Панель"
 
-#: ../src/panel.c:792
+#: ../src/panel.c:722
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" Настойка"
 
-#: ../src/panel.c:1250
+#: ../src/panel.c:941
+msgid "Top"
+msgstr "Верх"
+
+#: ../src/panel.c:1332
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - легкая GTK2+ панель для UNIX-Desktops\n"
 
-#: ../src/panel.c:1251
+#: ../src/panel.c:1333
 #, c-format
 msgid "Command line options:\n"
 msgstr "Командные опции:\n"
 
-#: ../src/panel.c:1252
+#: ../src/panel.c:1334
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      --распечатать эту помощь и закрыть программу\n"
 
-#: ../src/panel.c:1253
+#: ../src/panel.c:1335
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- распечатать версию и закрыть программу\n"
 
-#: ../src/panel.c:1254
+#: ../src/panel.c:1336
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 " --log <Zahl>   -- определить уровень распечатки от 0 до 5, 0 - никакого 5 - "
 "самый полный\n"
 
-#: ../src/panel.c:1255
-#, c-format
-msgid " --configure -- launch configuration utility\n"
-msgstr " --configure -- запустить приложение конфигурации\n"
-
-#: ../src/panel.c:1256
+#. g_print(_(" --configure -- launch configuration utility\n"));
+#: ../src/panel.c:1338
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile Name -- использовать определенную конфигурацию\n"
 
-#: ../src/panel.c:1258
+#: ../src/panel.c:1340
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- то-же что --help\n"
 
-#: ../src/panel.c:1259
+#: ../src/panel.c:1341
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- то-же что --profile\n"
 
-#: ../src/panel.c:1260
+#: ../src/panel.c:1342
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- то-же что --version\n"
 
-#: ../src/panel.c:1261
-#, c-format
-msgid " -C  -- same as --configure\n"
-msgstr " -C  -- то-же что --configure\n"
-
-#: ../src/panel.c:1262
+#. g_print(_(" -C  -- same as --configure\n"));
+#: ../src/panel.c:1344
 #, c-format
 msgid ""
 "\n"
@@ -338,7 +362,7 @@ msgstr ""
 msgid "Enter the command you want to execute:"
 msgstr "Напечатайте программу для запуска:"
 
-#: ../src/systray/tray.c:211
+#: ../src/systray/tray.c:211 ../src/plugins/tray.c:731
 msgid "System Tray"
 msgstr "Системный Док"
 
@@ -346,146 +370,145 @@ msgstr "Системный Док"
 msgid "Old KDE/GNOME Tray"
 msgstr "Старый KDE/GNOME Док"
 
-#: ../src/plugins/cpu/cpu.c:226
+#: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
 msgstr "Контролёр Использования Процессора"
 
-#: ../src/plugins/cpu/cpu.c:228
+#: ../src/plugins/cpu/cpu.c:270
 msgid "Display CPU usage"
 msgstr "Показать утилизацию Процессора"
 
-#: ../src/plugins/deskno/deskno.c:99 ../src/plugins/deskno/deskno2.c:129
-msgid "Desktop No / Workspace Name"
+#: ../src/plugins/deskno/deskno.c:165
+#, fuzzy
+msgid "Desktop Number / Workspace Name"
 msgstr "Номер Десктопа / Название Рабочего Пространства"
 
-#: ../src/plugins/deskno/deskno.c:101 ../src/plugins/deskno/deskno2.c:131
+#: ../src/plugins/deskno/deskno.c:167 ../src/plugins/deskno/deskno2.c:131
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Показать номер рабочего пространства"
+
+#: ../src/plugins/deskno/deskno2.c:129
+msgid "Desktop No / Workspace Name"
+msgstr "Номер Десктопа / Название Рабочего Пространства"
 
 #: ../src/plugins/image.c:177
 #, fuzzy
 msgid "Display Image and Tooltip"
 msgstr "Показывать Цифровые Часы и Тултипы"
 
-#: ../src/plugins/launchbar.c:146
-msgid "Add Button"
-msgstr "Добавить Кнопку"
+#: ../src/plugins/launchbar.c:648
+#, fuzzy
+msgid "Available Applications"
+msgstr "Приложения доступные для установки"
 
-#: ../src/plugins/launchbar.c:148
-msgid "Button Properties"
-msgstr "Свойства Кнопки"
-
-#.
-#. title = g_strdup_printf( _("Remove \"%s\""), b-> );
-#. item = gtk_image_menu_item_new_with_label( _("Remove ") );
-#.
-#: ../src/plugins/launchbar.c:154
-msgid "Remove Button"
-msgstr "Удалить Кнопку"
-
-#. FIXME: We should have a better interface for this in the fututure.
-#. 1. We can borrow the menu from menu plugin (PtkAppMenu).
-#. 2. We can borrow the app chooser from PCManFM.
-#.
-#: ../src/plugins/launchbar.c:530
-msgid "Select Application"
+#: ../src/plugins/launchbar.c:648
+#, fuzzy
+msgid "Applications"
 msgstr "Выбрать Приложение"
 
-#: ../src/plugins/launchbar.c:682
-msgid "Buttons"
-msgstr "Кнопки"
-
-#: ../src/plugins/launchbar.c:799
+#: ../src/plugins/launchbar.c:816
 msgid "Application Launch Bar"
 msgstr "Место для Запуска Приложений"
 
-#: ../src/plugins/launchbar.c:801
+#: ../src/plugins/launchbar.c:818
 msgid "Bar with buttons to launch application"
 msgstr "Место с кнопками для запуска приложений"
 
-#: ../src/plugins/taskbar.c:1407
-msgid "Raise"
+#. Add Raise menu item.
+#: ../src/plugins/taskbar.c:1644
+#, fuzzy
+msgid "_Raise"
 msgstr "Поднять"
 
-#: ../src/plugins/taskbar.c:1411
-msgid "Restore"
+#. Add Restore menu item.
+#: ../src/plugins/taskbar.c:1649
+#, fuzzy
+msgid "R_estore"
 msgstr "Восстановить"
 
-#: ../src/plugins/taskbar.c:1415
-msgid "Maximize"
+#. Add Maximize menu item.
+#: ../src/plugins/taskbar.c:1654
+#, fuzzy
+msgid "Ma_ximize"
 msgstr "На весь экран"
 
-#: ../src/plugins/taskbar.c:1419
-msgid "Iconify"
+#. Add Iconify menu item.
+#: ../src/plugins/taskbar.c:1659
+#, fuzzy
+msgid "Ico_nify"
 msgstr "Свернуть"
 
-#: ../src/plugins/taskbar.c:1428
+#: ../src/plugins/taskbar.c:1678
+#, fuzzy, c-format
+msgid "Workspace _%d"
+msgstr "Рабочее пространство %d"
+
+#: ../src/plugins/taskbar.c:1683
 #, c-format
 msgid "Workspace %d"
 msgstr "Рабочее пространство %d"
 
-#: ../src/plugins/taskbar.c:1436
-msgid "All workspaces"
+#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
+#: ../src/plugins/taskbar.c:1697
+#, fuzzy
+msgid "_All workspaces"
 msgstr "Все рабочие пространства"
 
-#: ../src/plugins/taskbar.c:1443
-msgid "Move to Workspace"
+#. Add Move to Workspace menu item as a submenu.
+#: ../src/plugins/taskbar.c:1703
+#, fuzzy
+msgid "_Move to Workspace"
 msgstr "Переместить в рабочее пространство"
 
-#. we want this item to be farest from mouse pointer
-#: ../src/plugins/taskbar.c:1451
-msgid "Close Window"
+#. Add Close menu item.  By policy, we place this item farthest from the cursor.
+#: ../src/plugins/taskbar.c:1709
+#, fuzzy
+msgid "_Close Window"
 msgstr "Закрыть Окно"
 
-#: ../src/plugins/taskbar.c:1691
+#: ../src/plugins/taskbar.c:1923
 msgid "Show tooltips"
 msgstr "Показать тултипы"
 
-#: ../src/plugins/taskbar.c:1692
+#: ../src/plugins/taskbar.c:1924
 msgid "Icons only"
 msgstr "Только иконки"
 
-#: ../src/plugins/taskbar.c:1693
-msgid "Flat Buttons"
+#: ../src/plugins/taskbar.c:1925
+#, fuzzy
+msgid "Flat buttons"
 msgstr "Плоские Кнопки"
 
-#: ../src/plugins/taskbar.c:1694
-msgid "Accept SkipPager"
-msgstr "Добавить СкипПейджер"
-
-#: ../src/plugins/taskbar.c:1695
-msgid "Show Iconified windows"
-msgstr "Показывать Свернутые Окна"
-
-#: ../src/plugins/taskbar.c:1696
-msgid "Show mapped windows"
-msgstr "Показывать определенные окна"
-
-#: ../src/plugins/taskbar.c:1697
+#: ../src/plugins/taskbar.c:1926
 msgid "Show windows from all desktops"
 msgstr "Показывать окна со всех рабочих пространств"
 
-#: ../src/plugins/taskbar.c:1698
+#: ../src/plugins/taskbar.c:1927
 msgid "Use mouse wheel"
 msgstr "Использовать колесо прокрутки мыши"
 
-#: ../src/plugins/taskbar.c:1699
+#: ../src/plugins/taskbar.c:1928
 msgid "Flash when there is any window requiring attention"
 msgstr "Мигать, когда присутствует окно которое нуждается во внимании"
 
-#: ../src/plugins/taskbar.c:1700
-msgid "Max width of task button"
+#: ../src/plugins/taskbar.c:1929
+msgid "Combine multiple application windows into a single button"
+msgstr ""
+
+#: ../src/plugins/taskbar.c:1930
+#, fuzzy
+msgid "Maximum width of task button"
 msgstr "Максимальная ширина кнопок управления"
 
-#: ../src/plugins/taskbar.c:1701
+#: ../src/plugins/taskbar.c:1931
 msgid "Spacing"
 msgstr "Дистанция"
 
-#: ../src/plugins/taskbar.c:1779
+#: ../src/plugins/taskbar.c:1966
 msgid "Task Bar (Window List)"
 msgstr "Таск Бар (Список Окон)"
 
-#: ../src/plugins/taskbar.c:1781
+#: ../src/plugins/taskbar.c:1968
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -493,55 +516,56 @@ msgstr ""
 "Таск Бар показывает все открытые окна и предоставляет возможность их "
 "свернуть, затемнить, или восстановить"
 
-#: ../src/plugins/dclock.c:279
+#: ../src/plugins/dclock.c:261
 msgid "Clock Format"
 msgstr "Формат Часов"
 
-#: ../src/plugins/dclock.c:280
+#: ../src/plugins/dclock.c:262
 msgid "Tooltip Format"
 msgstr "Формат Тултипов"
 
-#: ../src/plugins/dclock.c:281
-msgid "Action"
-msgstr "Запустить"
+#: ../src/plugins/dclock.c:263
+msgid "Format codes: man 3 strftime"
+msgstr ""
 
-#: ../src/plugins/dclock.c:282
+#: ../src/plugins/dclock.c:264
+msgid "Action when clicked (default: display calendar)"
+msgstr ""
+
+#: ../src/plugins/dclock.c:265
 msgid "Bold font"
 msgstr "Жирный Шрифт"
 
-#: ../src/plugins/dclock.c:317
+#: ../src/plugins/dclock.c:292
 msgid "Digital Clock"
 msgstr "Цифровые Часы"
 
-#: ../src/plugins/dclock.c:319
-msgid "Display Digital clock and Tooltip"
+#: ../src/plugins/dclock.c:294
+#, fuzzy
+msgid "Display digital clock and tooltip"
 msgstr "Показывать Цифровые Часы и Тултипы"
 
-#.
-#. item = gtk_menu_item_new_with_label(_("Add to desktop panel"));
-#. g_signal_connect(item, "activate", G_CALLBACK(on_add_menu_item_to_panel), data);
-#. gtk_menu_shell_append(p, item);
-#.
-#: ../src/plugins/menu.c:370
+#: ../src/plugins/menu.c:369
 msgid "Add to desktop"
 msgstr "Добавить к десктопу"
 
-#: ../src/plugins/menu.c:380
+#: ../src/plugins/menu.c:379
 #, fuzzy
 msgid "Properties"
 msgstr "<b>Свойства</b>"
 
-#: ../src/plugins/menu.c:1030
+#: ../src/plugins/menu.c:990
 msgid "Icon"
 msgstr "Символы"
 
-#: ../src/plugins/menu.c:1041
+#: ../src/plugins/menu.c:1001
 msgid "Menu"
 msgstr "Меню"
 
-#: ../src/plugins/menu.c:1043
-msgid "Provide Menu"
-msgstr "Показать Меню"
+#: ../src/plugins/menu.c:1003
+#, fuzzy
+msgid "Application Menu"
+msgstr "Место для Запуска Приложений"
 
 #: ../src/plugins/netstatus/glade-support.c:91
 #: ../src/plugins/netstatus/glade-support.c:115
@@ -854,8 +878,8 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"Невозможно обработать статистику интерфейса из '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
+"Невозможно обработать статистику интерфейса из '%s'. prx_idx = %d; ptx_idx = "
+"%d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -864,7 +888,8 @@ msgstr "Не возможно обработать /proc/net/wireless. Неиз�
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr "Не возможно получить детали беспроводного соединения из '%s'. link_idx = %d;"
+msgstr ""
+"Не возможно получить детали беспроводного соединения из '%s'. link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
@@ -907,40 +932,46 @@ msgstr "Получено"
 msgid "Sending/Receiving"
 msgstr "Прием/Передача"
 
-#: ../src/plugins/separator.c:103
+#: ../src/plugins/separator.c:98
 msgid "Separator"
 msgstr "Разделитель"
 
-#: ../src/plugins/separator.c:105
+#: ../src/plugins/separator.c:100
 msgid "Add a separator to the panel"
 msgstr "Добавить разделитель к панели"
 
-#: ../src/plugins/pager.c:707
+#: ../src/plugins/pager.c:795
 msgid "Desktop Pager"
 msgstr "Десктоп-Пейджер"
 
-#: ../src/plugins/pager.c:709
+#: ../src/plugins/pager.c:797
 msgid "Simple pager plugin"
 msgstr "Упрощённое приложение пейджера"
 
-#: ../src/plugins/space.c:138 ../src/plugins/batt/batt.c:892
+#: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
 msgid "Size"
 msgstr "Размер"
 
-#: ../src/plugins/space.c:153
-msgid "<Space>"
+#: ../src/plugins/space.c:139
+#, fuzzy
+msgid "Spacer"
 msgstr "<Пробел>"
 
-#: ../src/plugins/space.c:155
+#: ../src/plugins/space.c:141
 msgid "Allocate space"
 msgstr "Зарезервировать место"
 
-#: ../src/plugins/xkb/xkb-plugin.c:241
+#: ../src/plugins/tray.c:733
+#, fuzzy
+msgid "System tray"
+msgstr "Системный Док"
+
+#: ../src/plugins/xkb/xkb-plugin.c:242 ../src/plugins/xkb/xkb-plugin.c:506
 #, fuzzy
 msgid "Keyboard Layout Switcher"
 msgstr "Лампочки клавиатуры"
 
-#: ../src/plugins/xkb/xkb-plugin.c:247
+#: ../src/plugins/xkb/xkb-plugin.c:248
 msgid ""
 "Allows you to switch the keyboard layout and\n"
 "displays the currently selected layout."
@@ -948,138 +979,146 @@ msgstr ""
 "Позволяет вам переключать раскладку клавиатуры\n"
 "и отображать текущую раскладку на экране."
 
-#: ../src/plugins/xkb/xkb-plugin.c:252
+#: ../src/plugins/xkb/xkb-plugin.c:253
 msgid "Other plugins available here"
 msgstr "Остальные плагины доступны здесь"
 
-#: ../src/plugins/xkb/xkb-plugin.c:385
+#: ../src/plugins/xkb/xkb-plugin.c:392
 msgid "Configure Keyboard Layout Switcher"
 msgstr "Настройка Переключателя раскладок клавиатуры"
 
-#: ../src/plugins/xkb/xkb-plugin.c:398
+#: ../src/plugins/xkb/xkb-plugin.c:405
 msgid "Show layout as"
 msgstr "Показывать раскладку как"
 
-#: ../src/plugins/xkb/xkb-plugin.c:413
+#: ../src/plugins/xkb/xkb-plugin.c:420
 msgid "image"
 msgstr "изображение"
 
-#: ../src/plugins/xkb/xkb-plugin.c:414
+#: ../src/plugins/xkb/xkb-plugin.c:421
 msgid "text"
 msgstr "текст"
 
-#: ../src/plugins/xkb/xkb-plugin.c:418
+#: ../src/plugins/xkb/xkb-plugin.c:425
 msgid "Per application settings"
 msgstr "Настройки для конкретного приложения"
 
-#: ../src/plugins/xkb/xkb-plugin.c:432
+#: ../src/plugins/xkb/xkb-plugin.c:439
 msgid "_Remember layout for each application"
 msgstr "_Помнить раскладку для каждого приложения"
 
-#: ../src/plugins/xkb/xkb-plugin.c:441
+#: ../src/plugins/xkb/xkb-plugin.c:448
 msgid "Default layout:"
 msgstr "Раскладка по-умолчанию:"
 
-#: ../src/plugins/xkb/xkb-plugin.c:499
-msgid "Kayboard Layout switcher"
-msgstr "Переключатель раскладок клавиатуры"
-
-#: ../src/plugins/xkb/xkb-plugin.c:501
+#: ../src/plugins/xkb/xkb-plugin.c:508
 msgid "Switch between available keyboard layouts"
 msgstr "Переключение между доступными раскладками клавиатуры"
 
-#: ../src/plugins/wincmd.c:245
-msgid "Left click to iconify all windows. Middle click to shade them"
+#: ../src/plugins/wincmd.c:167
+#, fuzzy
+msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr "Левая кнопка мыши свернуть все окна. Средняя кнопка затемнить."
 
-#: ../src/plugins/wincmd.c:274
+#: ../src/plugins/wincmd.c:197
 msgid "Minimize All Windows"
 msgstr "Восстановить Все Окна"
 
-#: ../src/plugins/wincmd.c:276
+#: ../src/plugins/wincmd.c:199
+#, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
-"Supported commnds are 1)toggle iconify and 2) toggle shade"
+"Supported commands are 1) iconify and 2) shade"
 msgstr ""
 "Посылает команды всем окнам.\n"
 "Возможные команды 1)свернуть/восстановить и 2)затемнить"
 
-#: ../src/plugins/dirmenu.c:218
+#: ../src/plugins/dirmenu.c:212
 msgid "Open in _Terminal"
 msgstr "Открыть в _Терминале"
 
-#: ../src/plugins/dirmenu.c:383
+#: ../src/plugins/dirmenu.c:386
+#, fuzzy
+msgid "Directory"
+msgstr "Меню Папки"
+
+#: ../src/plugins/dirmenu.c:387
+#, fuzzy
+msgid "Label"
+msgstr "Панель"
+
+#: ../src/plugins/dirmenu.c:404
 msgid "Directory Menu"
 msgstr "Меню Папки"
 
-#: ../src/plugins/dirmenu.c:385
+#: ../src/plugins/dirmenu.c:406
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "Просматривать папку через меню (Автор: PCMan)"
 
-#: ../src/plugins/thermal/thermal.c:299
+#: ../src/plugins/thermal/thermal.c:284
 msgid "Normal"
 msgstr "Нормально"
 
-#: ../src/plugins/thermal/thermal.c:300
+#: ../src/plugins/thermal/thermal.c:285
 #, fuzzy
 msgid "Warning1"
 msgstr "Внимание1"
 
-#: ../src/plugins/thermal/thermal.c:301
+#: ../src/plugins/thermal/thermal.c:286
 #, fuzzy
 msgid "Warning2"
 msgstr "Внимание2"
 
-#: ../src/plugins/thermal/thermal.c:302
+#: ../src/plugins/thermal/thermal.c:287
 msgid "Automatic sensor location"
 msgstr "Автоматическое определение сенсора"
 
-#: ../src/plugins/thermal/thermal.c:303
+#: ../src/plugins/thermal/thermal.c:288
 #, fuzzy
 msgid "Sensor"
 msgstr "Сенсор"
 
-#: ../src/plugins/thermal/thermal.c:304
+#: ../src/plugins/thermal/thermal.c:289
 msgid "Automatic temperature levels"
 msgstr "Автоматический уровень температуры"
 
-#: ../src/plugins/thermal/thermal.c:305
+#: ../src/plugins/thermal/thermal.c:290
 #, fuzzy
 msgid "Warning1 Temperature"
 msgstr "Внимание1 Температура"
 
-#: ../src/plugins/thermal/thermal.c:306
+#: ../src/plugins/thermal/thermal.c:291
 #, fuzzy
 msgid "Warning2 Temperature"
 msgstr "Внимание2 Температура"
 
-#: ../src/plugins/thermal/thermal.c:348
+#: ../src/plugins/thermal/thermal.c:333
 #, fuzzy
 msgid "Temperature Monitor"
 msgstr "Контролёр Температуры"
 
-#: ../src/plugins/thermal/thermal.c:350
+#: ../src/plugins/thermal/thermal.c:335
 msgid "Display system temperature, by kesler.daniel@gmail.com"
 msgstr "Показывает температуру компьютера, kesler.daniel@gmail.com"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
-#: ../src/plugins/volume/volume.c:305
-#: ../src/plugins/volumealsa/volumealsa.c:400
+#: ../src/plugins/volume/volume.c:300
+#: ../src/plugins/volumealsa/volumealsa.c:410
 msgid "Volume control"
 msgstr "Управление звуком"
 
-#: ../src/plugins/volume/volume.c:317
-#: ../src/plugins/volumealsa/volumealsa.c:414
+#: ../src/plugins/volume/volume.c:312
+#: ../src/plugins/volumealsa/volumealsa.c:424
 msgid "Volume Control"
 msgstr "Управление звуком"
 
 #. create frame
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:310
+#: ../src/plugins/volumealsa/volumealsa.c:319
 msgid "Volume"
 msgstr "Звук"
 
-#: ../src/plugins/volumealsa/volumealsa.c:327
+#: ../src/plugins/volumealsa/volumealsa.c:336
 msgid "Mute"
 msgstr "Заглушить"
 
@@ -1160,11 +1199,11 @@ msgstr "Протокол:"
 msgid "HW Address:"
 msgstr "HW-Адрес:"
 
-#: ../src/plugins/netstat/netstat.c:471
+#: ../src/plugins/netstat/netstat.c:470
 msgid "Manage Networks"
 msgstr "Управлять Сетями"
 
-#: ../src/plugins/netstat/netstat.c:473
+#: ../src/plugins/netstat/netstat.c:472
 msgid "Monitor and Manage networks"
 msgstr "Управлять и Следить за сетями"
 
@@ -1186,19 +1225,20 @@ msgstr ""
 msgid "Encryption Key:"
 msgstr "Ключ Шифрования."
 
-#: ../src/plugins/netstatus/netstatus.c:163
+#: ../src/plugins/netstatus/netstatus.c:178
 msgid "Interface to monitor"
 msgstr "Интерфейс к контролёру"
 
-#: ../src/plugins/netstatus/netstatus.c:164
+#: ../src/plugins/netstatus/netstatus.c:179
 msgid "Config tool"
 msgstr "Приложение для конфигурации"
 
-#: ../src/plugins/netstatus/netstatus.c:181
-msgid "Net Status Monitor"
+#: ../src/plugins/netstatus/netstatus.c:196
+#, fuzzy
+msgid "Network Status Monitor"
 msgstr "Контролёр Статуса Сети"
 
-#: ../src/plugins/netstatus/netstatus.c:183
+#: ../src/plugins/netstatus/netstatus.c:198
 msgid "Monitor network status"
 msgstr "Следить за статусом сети"
 
@@ -1290,102 +1330,172 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../src/plugins/batt/batt.c:384
+#: ../src/plugins/batt/batt.c:131
+msgid "No batteries found"
+msgstr "Аккумуляторы на найдены"
+
+#: ../src/plugins/batt/batt.c:179
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
 msgstr "Аккумулятор: %d%% заряжен, %d:%02d до полного заряда"
 
-#: ../src/plugins/batt/batt.c:393
-#, c-format
-msgid "Battery: %d%% charged, %s"
-msgstr "Аккумулятор: %d%% заряжен, %s"
-
-#: ../src/plugins/batt/batt.c:395
-msgid "charging finished"
-msgstr "Зарядка завершена"
-
-#: ../src/plugins/batt/batt.c:395
-msgid "charging"
-msgstr "заряжается"
-
-#: ../src/plugins/batt/batt.c:400
+#: ../src/plugins/batt/batt.c:190
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr "Аккумулятор: %d%% заряжен, %d:%02d лево"
 
-#: ../src/plugins/batt/batt.c:406
+#: ../src/plugins/batt/batt.c:196
 #, c-format
 msgid "Battery: %d%% charged"
 msgstr "Аккумулятор: %d%% заряжен"
 
-#: ../src/plugins/batt/batt.c:454
-#, c-format
-msgid "No batteries found"
-msgstr "Аккумуляторы на найдены"
-
-#: ../src/plugins/batt/batt.c:882
+#: ../src/plugins/batt/batt.c:580
 msgid "Hide if there is no battery"
 msgstr "Спрятать если нет аккумулятора"
 
-#: ../src/plugins/batt/batt.c:884
+#: ../src/plugins/batt/batt.c:582
 msgid "Alarm command"
 msgstr "Команда тревоги"
 
-#: ../src/plugins/batt/batt.c:885
+#: ../src/plugins/batt/batt.c:583
 msgid "Alarm time (minutes left)"
 msgstr "Время тревоги (осталось минут)"
 
-#: ../src/plugins/batt/batt.c:886
+#: ../src/plugins/batt/batt.c:584
 msgid "Background color"
 msgstr "Цвет фона"
 
-#: ../src/plugins/batt/batt.c:887
+#: ../src/plugins/batt/batt.c:585
 msgid "Charging color 1"
 msgstr "Цвет - зарядки 1"
 
-#: ../src/plugins/batt/batt.c:888
+#: ../src/plugins/batt/batt.c:586
 msgid "Charging color 2"
 msgstr "Цвет - зарядки 2"
 
-#: ../src/plugins/batt/batt.c:889
+#: ../src/plugins/batt/batt.c:587
 msgid "Discharging color 1"
 msgstr "Цвет - разарядки 1"
 
-#: ../src/plugins/batt/batt.c:890
+#: ../src/plugins/batt/batt.c:588
 msgid "Discharging color 2"
 msgstr "Цвет - разарядки 2"
 
-#: ../src/plugins/batt/batt.c:891
+#: ../src/plugins/batt/batt.c:589
 msgid "Border width"
 msgstr "Ширина границы"
 
-#: ../src/plugins/batt/batt.c:922
+#: ../src/plugins/batt/batt.c:620
 msgid "Battery Monitor"
 msgstr "Контроль Аккумулятора"
 
-#: ../src/plugins/batt/batt.c:924
+#: ../src/plugins/batt/batt.c:622
 msgid "Display battery status using ACPI"
 msgstr "Показывает статус аккумулятора используя систему ACPI"
 
-#: ../src/plugins/kbled/kbled.c:277
+#: ../src/plugins/kbled/kbled.c:227
 msgid "Show CapsLock"
 msgstr "Показать CapsLock"
 
-#: ../src/plugins/kbled/kbled.c:278
+#: ../src/plugins/kbled/kbled.c:228
 msgid "Show NumLock"
 msgstr "Показать NumLock"
 
-#: ../src/plugins/kbled/kbled.c:279
+#: ../src/plugins/kbled/kbled.c:229
 msgid "Show ScrollLock"
 msgstr "Показать ScrollLock"
 
-#: ../src/plugins/kbled/kbled.c:289
-msgid "Keyboard Led"
+#: ../src/plugins/kbled/kbled.c:259
+#, fuzzy
+msgid "Keyboard LED"
 msgstr "Лампочки клавиатуры"
 
-#: ../src/plugins/kbled/kbled.c:291
+#: ../src/plugins/kbled/kbled.c:261
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Индикаторы для CapsLock, NumLock и ScrollLock"
 
+#~ msgid ""
+#~ "Dynamic\n"
+#~ "Pixels\n"
+#~ "% Percent"
+#~ msgstr ""
+#~ "Динамично\n"
+#~ "Пиксели\n"
+#~ "% Проценты"
 
- 	  	 
+#~ msgid "Enable Image:"
+#~ msgstr "Использовать Изображение:"
+
+#~ msgid "Enable Transparency"
+#~ msgstr "Включить Прозрачность"
+
+#~ msgid ""
+#~ "Left\n"
+#~ "Center\n"
+#~ "Right"
+#~ msgstr ""
+#~ "Лево\n"
+#~ "Центр\n"
+#~ "Право"
+
+#~ msgid ""
+#~ "Left\n"
+#~ "Right\n"
+#~ "Top\n"
+#~ "Bottom"
+#~ msgstr ""
+#~ "Лево\n"
+#~ "Право\n"
+#~ "Верх\n"
+#~ "Низ"
+
+#~ msgid "Tint color:"
+#~ msgstr "Цвет оттенка"
+
+#~ msgid "Where to put the panel?"
+#~ msgstr "Где поставить панель?"
+
+#~ msgid " --configure -- launch configuration utility\n"
+#~ msgstr " --configure -- запустить приложение конфигурации\n"
+
+#~ msgid " -C  -- same as --configure\n"
+#~ msgstr " -C  -- то-же что --configure\n"
+
+#~ msgid "Add Button"
+#~ msgstr "Добавить Кнопку"
+
+#~ msgid "Button Properties"
+#~ msgstr "Свойства Кнопки"
+
+#~ msgid "Remove Button"
+#~ msgstr "Удалить Кнопку"
+
+#~ msgid "Buttons"
+#~ msgstr "Кнопки"
+
+#~ msgid "Accept SkipPager"
+#~ msgstr "Добавить СкипПейджер"
+
+#~ msgid "Show Iconified windows"
+#~ msgstr "Показывать Свернутые Окна"
+
+#~ msgid "Show mapped windows"
+#~ msgstr "Показывать определенные окна"
+
+#~ msgid "Action"
+#~ msgstr "Запустить"
+
+#~ msgid "Provide Menu"
+#~ msgstr "Показать Меню"
+
+#~ msgid "Kayboard Layout switcher"
+#~ msgstr "Переключатель раскладок клавиатуры"
+
+#~ msgid "Battery: %d%% charged, %s"
+#~ msgstr "Аккумулятор: %d%% заряжен, %s"
+
+#~ msgid "charging finished"
+#~ msgstr "Зарядка завершена"
+
+#~ msgid "charging"
+#~ msgstr "заряжается"
