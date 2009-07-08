@@ -8,23 +8,22 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-08 23:03+0200\n"
-"PO-Revision-Date: 2009-05-28 17:27+0100\n"
+"PO-Revision-Date: 2009-07-09 00:14+0100\n"
 "Last-Translator: Ivan Masár <helix84@centrum.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
 msgid "% Percent"
-msgstr ""
+msgstr "% percent"
 
 #: ../data/ui/panel-pref.glade.h:3
 msgid "<b>Automatic hiding</b>"
-msgstr ""
+msgstr "<b>Automatické skrývanie</b>"
 
 #: ../data/ui/panel-pref.glade.h:4
 msgid "<b>Background</b>"
@@ -58,7 +57,8 @@ msgstr "Pokročilé"
 msgid "Alignment:"
 msgstr "Zarovnanie:"
 
-#: ../data/ui/panel-pref.glade.h:12 ../src/panel.c:942
+#: ../data/ui/panel-pref.glade.h:12
+#: ../src/panel.c:942
 msgid "Bottom"
 msgstr "Dolu"
 
@@ -67,14 +67,12 @@ msgid "Center"
 msgstr "Stred"
 
 #: ../data/ui/panel-pref.glade.h:14
-#, fuzzy
 msgid "Custom color"
 msgstr "Vlastná farba"
 
 #: ../data/ui/panel-pref.glade.h:15
-#, fuzzy
 msgid "Dynamic"
-msgstr "dynamická"
+msgstr "Dynamická"
 
 #: ../data/ui/panel-pref.glade.h:16
 msgid "Edge:"
@@ -90,23 +88,24 @@ msgstr "Správca súborov:"
 msgid "General"
 msgstr "Všeobecné"
 
-#: ../data/ui/panel-pref.glade.h:19 ../src/panel.c:932 ../src/panel.c:940
+#: ../data/ui/panel-pref.glade.h:19
+#: ../src/panel.c:932
+#: ../src/panel.c:940
 msgid "Height:"
 msgstr "Výška:"
 
 #: ../data/ui/panel-pref.glade.h:20
-#, fuzzy
 msgid "Image"
-msgstr "obrázok"
+msgstr "Obrázok"
 
-#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:934
+#: ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:934
 msgid "Left"
 msgstr "Vľavo"
 
 #: ../data/ui/panel-pref.glade.h:22
-#, fuzzy
 msgid "Left\t"
-msgstr "Vľavo"
+msgstr "Vľavo\t"
 
 #: ../data/ui/panel-pref.glade.h:23
 msgid "Logout Command:"
@@ -122,7 +121,7 @@ msgstr "Okraj:"
 
 #: ../data/ui/panel-pref.glade.h:26
 msgid "Minimize panel when not in use"
-msgstr ""
+msgstr "Minimalizovať panel, keď sa napoužíva"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Panel Applets"
@@ -140,7 +139,8 @@ msgstr "Pixelov"
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Rezervovať miesto, nezakrývať maximalizovanými oknami"
 
-#: ../data/ui/panel-pref.glade.h:31 ../src/panel.c:935
+#: ../data/ui/panel-pref.glade.h:31
+#: ../src/panel.c:935
 msgid "Right"
 msgstr "Vpravo"
 
@@ -150,27 +150,27 @@ msgstr "Vyberte súbor obrázka"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "Size when minimized"
-msgstr ""
+msgstr "Veľkosť keď je minimalizovaný"
 
 #: ../data/ui/panel-pref.glade.h:34
 msgid "Solid color (with opacity)"
-msgstr ""
+msgstr "Súvislá farba (s krytím)"
 
 #: ../data/ui/panel-pref.glade.h:35
-#, fuzzy
 msgid "System theme"
-msgstr "Žiadny (použiť  vzhľad systému)"
+msgstr "Vzhľad systému"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "Terminal Emulator:"
 msgstr "Emulátor terminálu:"
 
 #: ../data/ui/panel-pref.glade.h:37
-#, fuzzy
 msgid "Top\t"
-msgstr "Hore"
+msgstr "Hore\t"
 
-#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:933 ../src/panel.c:939
+#: ../data/ui/panel-pref.glade.h:38
+#: ../src/panel.c:933
+#: ../src/panel.c:939
 msgid "Width:"
 msgstr "Šírka:"
 
@@ -178,7 +178,8 @@ msgstr "Šírka:"
 msgid "pixels"
 msgstr "pixely"
 
-#: ../src/configurator.c:54 ../src/gtk-run.c:250
+#: ../src/configurator.c:54
+#: ../src/gtk-run.c:250
 msgid "Run"
 msgstr "Spustiť"
 
@@ -211,11 +212,11 @@ msgid "Logout command is not set"
 msgstr "Príkaz na odhlásenie nie je nastavený"
 
 #: ../src/configurator.c:1187
-#, fuzzy
 msgid "Select a directory"
-msgstr "Vyberte súbor"
+msgstr "Vyberte adresár"
 
-#: ../src/configurator.c:1187 ../src/configurator.c:1278
+#: ../src/configurator.c:1187
+#: ../src/configurator.c:1278
 msgid "Select a file"
 msgstr "Vyberte súbor"
 
@@ -287,7 +288,6 @@ msgid "\"%s\" Settings"
 msgstr "Nastavenia „%s“"
 
 #: ../src/panel.c:941
-#, fuzzy
 msgid "Top"
 msgstr "Hore"
 
@@ -314,9 +314,7 @@ msgstr " --version   -- vypísať verziu a skončiť\n"
 #: ../src/panel.c:1336
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <číslo>  -- nastaviť podrobnosti záznamu 0-5. 0 - žiadny 5 - "
-"podrobný\n"
+msgstr " --log <číslo>  -- nastaviť podrobnosti záznamu 0-5. 0 - žiadny 5 - podrobný\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1338
@@ -355,7 +353,8 @@ msgstr ""
 msgid "Enter the command you want to execute:"
 msgstr "Zadajte príkaz, ktorý chcete vykonať:"
 
-#: ../src/systray/tray.c:211 ../src/plugins/tray.c:731
+#: ../src/systray/tray.c:211
+#: ../src/plugins/tray.c:731
 msgid "System Tray"
 msgstr "Oznamovacia oblasť"
 
@@ -372,11 +371,11 @@ msgid "Display CPU usage"
 msgstr "Zobraziť využitie CPU"
 
 #: ../src/plugins/deskno/deskno.c:165
-#, fuzzy
 msgid "Desktop Number / Workspace Name"
-msgstr "Č. plochy / Názov plochy"
+msgstr "Číslo plochy / Názov plochy"
 
-#: ../src/plugins/deskno/deskno.c:167 ../src/plugins/deskno/deskno2.c:131
+#: ../src/plugins/deskno/deskno.c:167
+#: ../src/plugins/deskno/deskno2.c:131
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Zobrazenie čísla plochy, cmeury@users.sf.net"
 
@@ -389,14 +388,12 @@ msgid "Display Image and Tooltip"
 msgstr "Zobraziť obrázok a bublinový tip"
 
 #: ../src/plugins/launchbar.c:648
-#, fuzzy
 msgid "Available Applications"
-msgstr "Dostupné moduly"
+msgstr "Dostupné aplikácie"
 
 #: ../src/plugins/launchbar.c:648
-#, fuzzy
 msgid "Applications"
-msgstr "Vybrať aplikáciu"
+msgstr "Aplikácie"
 
 #: ../src/plugins/launchbar.c:816
 msgid "Application Launch Bar"
@@ -427,9 +424,9 @@ msgid "Ico_nify"
 msgstr "Iko_nifikovať"
 
 #: ../src/plugins/taskbar.c:1678
-#, fuzzy, c-format
+#, c-format
 msgid "Workspace _%d"
-msgstr "Pracovná plocha %d"
+msgstr "Pracovná plocha _%d"
 
 #: ../src/plugins/taskbar.c:1683
 #, c-format
@@ -438,9 +435,8 @@ msgstr "Pracovná plocha %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../src/plugins/taskbar.c:1697
-#, fuzzy
 msgid "_All workspaces"
-msgstr "Všetky pracovné plochy"
+msgstr "Všetky pr_acovné plochy"
 
 #. Add Move to Workspace menu item as a submenu.
 #: ../src/plugins/taskbar.c:1703
@@ -461,7 +457,6 @@ msgid "Icons only"
 msgstr "Iba ikony"
 
 #: ../src/plugins/taskbar.c:1925
-#, fuzzy
 msgid "Flat buttons"
 msgstr "Ploché tlačidlá"
 
@@ -479,12 +474,11 @@ msgstr "Blikať, keď niektoré okno vyžaduje pozornosť"
 
 #: ../src/plugins/taskbar.c:1929
 msgid "Combine multiple application windows into a single button"
-msgstr ""
+msgstr "Zoskupovať okná viacerých aplikácií do jedného tlačidla"
 
 #: ../src/plugins/taskbar.c:1930
-#, fuzzy
 msgid "Maximum width of task button"
-msgstr "Max. šírka tlačidla úlohy"
+msgstr "Maximálna šírka tlačidla úlohy"
 
 #: ../src/plugins/taskbar.c:1931
 msgid "Spacing"
@@ -495,12 +489,8 @@ msgid "Task Bar (Window List)"
 msgstr "Panel úloh (Zoznam okien)"
 
 #: ../src/plugins/taskbar.c:1968
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
-msgstr ""
-"Panel úloh zobrazuje všetky otvorené okná a umoňuje ich ikonifikovať, "
-"zatieniť alebo aktivovať"
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr "Panel úloh zobrazuje všetky otvorené okná a umoňuje ich ikonifikovať, zatieniť alebo aktivovať"
 
 #: ../src/plugins/dclock.c:261
 msgid "Clock Format"
@@ -516,7 +506,7 @@ msgstr "Formátovacie kódy: man 3 strftime"
 
 #: ../src/plugins/dclock.c:264
 msgid "Action when clicked (default: display calendar)"
-msgstr ""
+msgstr "Operácia po kliknutí (predvolená: zobraziť kalendár)"
 
 #: ../src/plugins/dclock.c:265
 msgid "Bold font"
@@ -527,7 +517,6 @@ msgid "Digital Clock"
 msgstr "Digitálne hodiny"
 
 #: ../src/plugins/dclock.c:294
-#, fuzzy
 msgid "Display digital clock and tooltip"
 msgstr "Zobraziť digitálne hodiny a bublinové tipy"
 
@@ -548,9 +537,8 @@ msgid "Menu"
 msgstr "Ponuka"
 
 #: ../src/plugins/menu.c:1003
-#, fuzzy
 msgid "Application Menu"
-msgstr "Spúšťací panel"
+msgstr "Aplikačné menu"
 
 #: ../src/plugins/netstatus/glade-support.c:91
 #: ../src/plugins/netstatus/glade-support.c:115
@@ -602,7 +590,8 @@ msgid "Address:"
 msgstr "Adresa:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstat/netstat.c:319
+#: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
 msgid "Broadcast:"
 msgstr "Broadcast:"
@@ -852,12 +841,8 @@ msgstr "Nepodarilo sa zistiť názov rozhrania z „%s“"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid ""
-"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
-msgstr ""
-"Nepodarili sa zistiť štatistiky rozhrania z „%s“. prx_idx = %d; ptx_idx = %"
-"d; brx_idx = %d; btx_idx = %d;"
+msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgstr "Nepodarili sa zistiť štatistiky rozhrania z „%s“. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -866,9 +851,7 @@ msgstr "Nepodarilo sa prečítať /proc/net/wireless. Neznámy formát."
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr ""
-"Nepodarili sa zistiť podrobnosti bezdrôtového pripojenia z „%s“. link_idx = %"
-"d;"
+msgstr "Nepodarili sa zistiť podrobnosti bezdrôtového pripojenia z „%s“. link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
@@ -925,25 +908,25 @@ msgstr "Stránkovač plôch"
 msgid "Simple pager plugin"
 msgstr "Jednoduchý stránkovací modul"
 
-#: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
+#: ../src/plugins/space.c:121
+#: ../src/plugins/batt/batt.c:590
 msgid "Size"
 msgstr "Veľkosť"
 
 #: ../src/plugins/space.c:139
-#, fuzzy
 msgid "Spacer"
-msgstr "<Miesto>"
+msgstr "Rozostup"
 
 #: ../src/plugins/space.c:141
 msgid "Allocate space"
 msgstr "Vyhradiť miesto"
 
 #: ../src/plugins/tray.c:733
-#, fuzzy
 msgid "System tray"
 msgstr "Oznamovacia oblasť"
 
-#: ../src/plugins/xkb/xkb-plugin.c:242 ../src/plugins/xkb/xkb-plugin.c:506
+#: ../src/plugins/xkb/xkb-plugin.c:242
+#: ../src/plugins/xkb/xkb-plugin.c:506
 msgid "Keyboard Layout Switcher"
 msgstr "Prepínanie rozloženia klávesnice"
 
@@ -992,38 +975,32 @@ msgid "Switch between available keyboard layouts"
 msgstr "Prepínať medzi dostupnými rozloženiami klávesnice"
 
 #: ../src/plugins/wincmd.c:167
-#, fuzzy
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr ""
-"Po kliknutí ľavým tlačidlom zmeniť všetky okná na ikony. Stredným tlačidlom "
-"ich tieňovať"
+msgstr "Po kliknutí ľavým tlačidlom zmeniť všetky okná na ikony. Stredným tlačidlom ich tieňovať."
 
 #: ../src/plugins/wincmd.c:197
 msgid "Minimize All Windows"
 msgstr "Minimalizovať všetky okná"
 
 #: ../src/plugins/wincmd.c:199
-#, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
 "Posiela príkazy všetkým oknám plochy.\n"
-"Podporované príkazy sú 1) zmeniť ikonifikáciu a 2) zmeniť tieňovanie"
+"Podporované príkazy sú 1) ikonifikovať a 2) tieňovať"
 
 #: ../src/plugins/dirmenu.c:212
 msgid "Open in _Terminal"
 msgstr "Otvoriť v _termináli"
 
 #: ../src/plugins/dirmenu.c:386
-#, fuzzy
 msgid "Directory"
-msgstr "Menu adresára"
+msgstr "Adresár"
 
 #: ../src/plugins/dirmenu.c:387
-#, fuzzy
 msgid "Label"
-msgstr "LXPanel"
+msgstr "Označenie"
 
 #: ../src/plugins/dirmenu.c:404
 msgid "Directory Menu"
@@ -1124,7 +1101,8 @@ msgstr "Sieťový kábel je odpojený"
 msgid "Connection has limited or no connectivity"
 msgstr "Pripojenie je obmedzené alebo nepripojené"
 
-#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307
+#: ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "IP adresa:"
@@ -1133,32 +1111,38 @@ msgstr "IP adresa:"
 msgid "Remote IP:"
 msgstr "Vzdialená IP:"
 
-#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309
+#: ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "Maska siete:"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "Aktivita"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "Poslané"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "Prijaté"
 
-#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311
+#: ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "bajtov"
 
-#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312
+#: ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "paketov"
@@ -1167,7 +1151,8 @@ msgstr "paketov"
 msgid "Protocol:"
 msgstr "Protokol:"
 
-#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321
+#: ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "HW adresa:"
 
@@ -1206,7 +1191,6 @@ msgid "Config tool"
 msgstr "Konfiguračný nástroj"
 
 #: ../src/plugins/netstatus/netstatus.c:196
-#, fuzzy
 msgid "Network Status Monitor"
 msgstr "Monitor stavu siete"
 
@@ -1298,8 +1282,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Prosím, kontaktujte správcu svojho systému, aby vyriešil nasledovný "
-"problém:\n"
+"Prosím, kontaktujte správcu svojho systému, aby vyriešil nasledovný problém:\n"
 "\n"
 "%s"
 
@@ -1379,7 +1362,6 @@ msgid "Show ScrollLock"
 msgstr "Zobrazovať ScrollLock"
 
 #: ../src/plugins/kbled/kbled.c:259
-#, fuzzy
 msgid "Keyboard LED"
 msgstr "LED klávesnice"
 
@@ -1389,49 +1371,34 @@ msgstr "Indikátory stavu klávesov CapsLock, NumLock a ScrollLock"
 
 #~ msgid "Enable Image:"
 #~ msgstr "Zapnúť obrázok:"
-
 #~ msgid "Enable Transparency"
 #~ msgstr "Zapnúť priesvitnosť"
-
 #~ msgid "Tint color:"
 #~ msgstr "Zafarbenie:"
-
 #~ msgid " --configure -- launch configuration utility\n"
 #~ msgstr " --configure -- spustiť konfiguračný nástroj\n"
-
 #~ msgid " -C  -- same as --configure\n"
 #~ msgstr " -C  -- ekvivalent --configure\n"
-
 #~ msgid "Add Button"
 #~ msgstr "Pridať tlačidlo"
-
 #~ msgid "Button Properties"
 #~ msgstr "Vlastnosti tlačidla"
-
 #~ msgid "Remove Button"
 #~ msgstr "Odstrániť tlačidlo"
-
 #~ msgid "Buttons"
 #~ msgstr "Tlačidlá"
-
 #~ msgid "Accept SkipPager"
 #~ msgstr "Prijať SkipPager"
-
 #~ msgid "Show Iconified windows"
 #~ msgstr "Zobraziť ikonifikované okná"
-
 #~ msgid "Show mapped windows"
 #~ msgstr "Zobraziť mapované okná"
-
 #~ msgid "Action"
 #~ msgstr "Činnosť"
-
 #~ msgid "Provide Menu"
 #~ msgstr "Poskytnúť ponuku"
-
 #~ msgid "Kayboard Layout switcher"
 #~ msgstr "Prepínanie rozloženia klávesnice"
-
 #~ msgid ""
 #~ "Dynamic\n"
 #~ "Pixels\n"
@@ -1440,7 +1407,6 @@ msgstr "Indikátory stavu klávesov CapsLock, NumLock a ScrollLock"
 #~ "Dynamicky\n"
 #~ "Pixelov\n"
 #~ "% percent"
-
 #~ msgid ""
 #~ "Left\n"
 #~ "Center\n"
@@ -1449,7 +1415,6 @@ msgstr "Indikátory stavu klávesov CapsLock, NumLock a ScrollLock"
 #~ "Vľavo\n"
 #~ "Na stred\n"
 #~ "Vpravo"
-
 #~ msgid ""
 #~ "Left\n"
 #~ "Right\n"
@@ -1460,74 +1425,54 @@ msgstr "Indikátory stavu klávesov CapsLock, NumLock a ScrollLock"
 #~ "Vpravo\n"
 #~ "Hore\n"
 #~ "Dolu"
-
 #~ msgid "Where to put the panel?"
 #~ msgstr "Kam umiestniť panel?"
-
 #~ msgid "Battery: %d%% charged, %s"
 #~ msgstr "Batéria: nabitá na %d %%, %s"
-
 #~ msgid "charging finished"
 #~ msgstr "nabíjanie dokončené"
-
 #~ msgid "charging"
 #~ msgstr "nabíja sa"
 
 #, fuzzy
 #~ msgid "Add to desktop panel"
 #~ msgstr "Pridať modul do panela"
-
 #~ msgid "Education"
 #~ msgstr "Výučba"
-
 #~ msgid "Development"
 #~ msgstr "Vývoj"
-
 #~ msgid "Audio & Video"
 #~ msgstr "Zvuk a video"
-
 #~ msgid "Graphics"
 #~ msgstr "Grafika"
-
 #~ msgid "System Tools"
 #~ msgstr "Systémové nástroje"
-
 #~ msgid "Office"
 #~ msgstr "Kancelária"
-
 #~ msgid "Accessories"
 #~ msgstr "Príslušenstvo"
-
 #~ msgid "% of edge"
 #~ msgstr "% okraja"
-
 #~ msgid "Plugins"
 #~ msgstr "Moduly"
 
 #, fuzzy
 #~ msgid "Logout Command"
 #~ msgstr "Príkaz na odhlásenie:"
-
 #~ msgid "lxpanel configurator"
 #~ msgstr "Konfigurátor lxpanel"
-
 #~ msgid "<b>Transparency</b>"
 #~ msgstr "<b>Priesvitnosť</b>"
-
 #~ msgid "Change window icons"
 #~ msgstr "Zmeniť ikony okna"
-
 #~ msgid "Set Dock Type"
 #~ msgstr "Dokk típus beállítása"
-
 #~ msgid "_Add"
 #~ msgstr "新增(_A)"
-
 #~ msgid "_Remove"
 #~ msgstr "移除(_R)"
-
 #~ msgid "Right-click to get context menu. Drag & Drop to change order."
 #~ msgstr "可以按右鍵使用選單，用拖曳改變順序"
-
 #~ msgid "Plugins..."
 #~ msgstr "外掛..."
+
