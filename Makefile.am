@@ -4,7 +4,6 @@ SUBDIRS = src data po man
 
 EXTRA_DIST = \
 	autogen.sh \
-        mkinstalldirs \
         autogen.sh \
         intltool-extract.in \
         intltool-merge.in \
