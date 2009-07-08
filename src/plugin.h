@@ -28,60 +28,69 @@
 
 struct _Plugin;
 
-typedef struct {
-    /* common */
-    char *fname;
-    int count;
-    GModule *gmodule;
+/* Support for external plugin versioning.
+ * Plugins must invoke PLUGINCLASS_VERSIONING when they instantiate PluginClass. */
+#define PLUGINCLASS_VERSION 1
+#define PLUGINCLASS_VERSIONING \
+    structure_size : sizeof(PluginClass), \
+    structure_version : PLUGINCLASS_VERSION
 
-    int dynamic : 1;
-    int invisible : 1;
+/* Representative of an available plugin. */
+typedef struct {
+
+    /* Keep these first.  Do not make unnecessary changes in structure layout. */
+    unsigned short structure_size;		/* Structure size, for versioning support */
+    unsigned short structure_version;		/* Structure version, for versioning support */
+
+    char * fname;				/* Plugin file pathname */
+    int count;					/* Reference count */
+    GModule * gmodule;				/* Associated GModule structure */
+
+    int dynamic : 1;				/* True if dynamically loaded */
+    int unused_invisible : 1;			/* Unused; reserved bit */
     int not_unloadable : 1;			/* Not unloadable due to GModule restriction */
     int one_per_system : 1;			/* Special: only one possible per system, such as system tray */
     int one_per_system_instantiated : 1;	/* True if one instance exists */
+    int expand_available : 1;			/* True if "stretch" option is available */
+    int expand_default : 1;			/* True if "stretch" option is default */
 
-    /* these fields are pointers to the data within loaded dll */
-    char *type;
-    char *name;
-    char *version;
-    char *description;
+    /* These fields point within the plugin image. */
+    char * type;				/* Internal name of plugin, to match external filename */
+    char * name;				/* Display name of plugin for selection UI */
+    char * version;				/* Version of plugin */
+    char * description;				/* Brief textual description of plugin for selection UI */
 
-    int (*constructor)(struct _Plugin *this, char **fp);
-    void (*destructor)(struct _Plugin *this);
-    void (*config)(struct _Plugin *this, GtkWindow* parent); /* config UI */
-    void (*save)(struct _Plugin *this, FILE* fp);
-    void (*orientation)(struct _Plugin *this);
+    int (*constructor)(struct _Plugin * plugin, char ** fp);		/* Create an instance of the plugin */
+    void (*destructor)(struct _Plugin * plugin);			/* Destroy an instance of the plugin */
+    void (*config)(struct _Plugin * plugin, GtkWindow * parent);	/* Request the plugin to display its configuration dialog */
+    void (*save)(struct _Plugin * plugin, FILE * fp);			/* Request the plugin to save its configuration to a file */
+    void (*panel_configuration_changed)(struct _Plugin * plugin);	/* Request the plugin to do a full redraw after a panel configuration change */
 } PluginClass;
 
-typedef struct _Plugin{
-    PluginClass *class;
-    Panel        *panel;
-    GtkWidget    *pwid;
-    int           expand;
-    int           padding;
-    int           border;
-    gpointer      priv;
+/* Representative of a loaded and active plugin attached to a panel. */
+typedef struct _Plugin {
+    PluginClass * class;			/* Back pointer to PluginClass */
+    Panel * panel;				/* Back pointer to Panel */
+    GtkWidget * pwid;				/* Top level widget; plugin allocates, but plugin mechanism, not plugin itself, destroys this */
+    int expand;					/* Expand ("stretch") setting for container */
+    int padding;				/* Padding setting for container */
+    int border;					/* Border setting for container */
+    gpointer priv;				/* Private context for plugin; plugin frees this in its destructor */
 } Plugin;
 
-/* if plugin is external it will load its dll */
-Plugin * plugin_load(char *type);
-void plugin_put(Plugin *this);
-int plugin_start(Plugin *this, char **fp);
-void plugin_stop(Plugin *this);
-
-void plugin_class_unref( PluginClass* pc );
-
-/*
-   Get a list of all available plugin classes
-   Return a newly allocated GList which should be freed with
-   plugin_class_list_free( list );
-*/
-GList* plugin_get_available_classes();
-void plugin_class_list_free( GList* classes );
-
-void plugin_set_background( Plugin* pl, Panel* p );
-void plugin_widget_set_background( GtkWidget* w, Panel* p );
-gboolean plugin_button_press_event(GtkWidget *widget, GdkEventButton *event, Plugin *plugin);
+extern Plugin * plugin_load(char * type);		/* Create an instance of a plugin, loading it if necessary */
+extern int plugin_start(Plugin * this, char ** fp);	/* Configure and start a plugin by calling its constructor */
+extern void plugin_unload(Plugin * pl);			/* Delete an instance of a plugin if initialization fails */
+extern void plugin_delete(Plugin * pl);			/* Delete an instance of a plugin */
+extern GList * plugin_get_available_classes(void);	/* Get a list of all plugin classes; free with plugin_class_list_free */
+extern void plugin_class_list_free(GList * list);	/* Free the list allocated by plugin_get_available_classes */
+extern void plugin_widget_set_background(GtkWidget * w, Panel * p);
+							/* Recursively set the background of all widgets on a panel background configuration change. */
+extern void plugin_set_background( Plugin* pl, Panel* p );  /* Set the background of a plugin. */
+extern gboolean plugin_button_press_event(GtkWidget *widget, GdkEventButton *event, Plugin *plugin);
+                                                        /* Handler for "button_press_event" signal with Plugin as parameter. */
+extern void plugin_popup_set_position_helper(Plugin * p, GtkWidget * near, GtkWidget * popup, GtkRequisition * popup_req, gint * px, gint * py);
+							/* Helper for position-calculation callback for popup menus. */
 
 /* FIXME: optional definitions */
 #define STATIC_SEPARATOR
@@ -95,26 +104,5 @@ gboolean plugin_button_press_event(GtkWidget *widget, GdkEventButton *event, Plu
 #define STATIC_MENU
 #define STATIC_SPACE
 #define STATIC_ICONS
-
-#if 0
-/* Try to handle GTypePlugin problems, but in vain. :-( */
-#define LX_TYPE_TYPE_PLUGIN           (lx_type_plugin_get_type ())
-#define LX_TYPE_PLUGIN(obj)           (G_TYPE_CHECK_INSTANCE_CAST ((obj), LX_TYPE_TYPE_PLUGIN, LXTypePlugin))
-#define LX_TYPE_PLUGIN_CLASS(klass)   (G_TYPE_CHECK_CLASS_CAST ((klass), LX_TYPE_TYPE_PLUGIN, LXTypePluginClass))
-#define LX_IS_TYPE_PLUGIN(obj)        (G_TYPE_CHECK_INSTANCE_TYPE ((obj), LX_TYPE_TYPE_PLUGIN))
-
-typedef struct _LXTypePlugin LXTypePlugin;
-typedef struct _LXTypePluginClass LXTypePluginClass;
-
-struct _LXTypePlugin {
-    GObject parent;
-};
-
-struct _LXTypePluginClass {
-    GObjectClass parent;
-};
-
-GTypePlugin* lx_type_plugin_get( const char* plugin_name );
-#endif
 
 #endif

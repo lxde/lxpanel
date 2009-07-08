@@ -88,7 +88,7 @@ gboolean gio_callback(GIOChannel *source, GIOCondition condition, gpointer data)
 int get_connection_number();
 gboolean is_current_group_flag_available(void);
 /* "locale per process" functions */
-void react_active_window_changed(gint pid, t_xkb *ctrl);
+void react_active_window_changed(GPid pid, t_xkb *ctrl);
 void react_window_closed(gint pid);
 int do_set_group(gint group, t_xkb *ctrl);
 

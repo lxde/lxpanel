@@ -33,9 +33,11 @@
 #include "misc.h"
 #include "plugin.h"
 #include "bg.h"
+#include "menu-policy.h"
 
 #include "dbg.h"
 
+#define DEFAULT_MENU_ICON PACKAGE_DATA_DIR "/lxpanel/images/my-computer.png"
 /*
  * SuxPanel version 0.1
  * Copyright (c) 2003 Leandro Pereira <leandro@linuxmag.com.br>
@@ -81,11 +83,9 @@ menu_destructor(Plugin *p)
 
     if( m->has_system_menu )
         p->panel->system_menus = g_slist_remove( p->panel->system_menus, p );
+
     g_signal_handler_disconnect(G_OBJECT(m->img), m->handler_id);
     gtk_widget_destroy(m->menu);
-    /* The widget is destroyed in plugin_stop().
-    gtk_widget_destroy(m->box);
-    */
 
     if( m->menu_cache )
     {
@@ -175,7 +175,7 @@ static void on_menu_item_map(GtkWidget* mi, MenuCacheItem* item)
             /* FIXME: this is inefficient */
             gtk_icon_size_lookup(GTK_ICON_SIZE_MENU, &w, &h);
             item = g_object_get_qdata(G_OBJECT(mi), SYS_MENU_ITEM_ID);
-            icon = lxpanel_load_icon(menu_cache_item_get_icon(item), MAX(w,h), TRUE);
+            icon = lxpanel_load_icon(menu_cache_item_get_icon(item), w, h, TRUE);
             if (icon)
             {
                 gtk_image_set_from_pixbuf(img, icon);
@@ -412,43 +412,32 @@ static GtkWidget* create_item( MenuCacheItem* item )
         g_signal_connect(mi, "button-press-event", G_CALLBACK(on_menu_button_press), item);
     }
     gtk_widget_show( mi );
-    /* g_debug("set_item_data"); */
     g_object_set_qdata_full( G_OBJECT(mi), SYS_MENU_ITEM_ID, menu_cache_item_ref(item), (GDestroyNotify) menu_cache_item_unref );
     return mi;
 }
 
 static void load_menu(MenuCacheDir* dir, GtkWidget* menu, int pos )
 {
-    GSList* l;
-    GtkWidget* mi;
+    GSList * l;
     for( l = menu_cache_dir_get_children(dir); l; l = l->next )
     {
         MenuCacheItem* item = MENU_CACHE_ITEM(l->data);
-        if( menu_cache_item_get_type(item) == MENU_CACHE_TYPE_APP )
+        if ((menu_cache_item_get_type(item) != MENU_CACHE_TYPE_APP)
+        || (panel_menu_item_evaluate_visibility(item)))
         {
-            if( is_in_lxde )
+            GtkWidget * mi = create_item(item);
+            if (mi != NULL)
             {
-	        if( !menu_cache_app_get_is_visible(MENU_CACHE_APP(item), SHOW_IN_LXDE) )
-                    continue;
+                gtk_menu_shell_insert( (GtkMenuShell*)menu, mi, pos );
+                if( pos >= 0 )
+                    ++pos;
+                if (menu_cache_item_get_type(item) == MENU_CACHE_TYPE_DIR)
+                {
+                    GtkWidget* sub = gtk_menu_new();
+                    load_menu( MENU_CACHE_DIR(item), sub, -1 );    /* always pass -1 for position */
+                    gtk_menu_item_set_submenu( GTK_MENU_ITEM(mi), sub );
+                }
             }
-            else
-            {
-                /* FIXME: showing apps from all desktops is not very pleasant. */
-	        if( !menu_cache_app_get_is_visible(MENU_CACHE_APP(item), SHOW_IN_LXDE|SHOW_IN_GNOME|SHOW_IN_XFCE) )
-                    continue;
-            }
-        }
-        mi = create_item(item);
-        if( ! mi )
-            continue;
-        gtk_menu_shell_insert( (GtkMenuShell*)menu, mi, pos );
-        if( pos >= 0 )
-            ++pos;
-        if( menu_cache_item_get_type(item) == MENU_CACHE_TYPE_DIR )
-        {
-            GtkWidget* sub = gtk_menu_new();
-            load_menu( MENU_CACHE_DIR(item), sub, -1 );    /* always pass -1 for position */
-            gtk_menu_item_set_submenu( GTK_MENU_ITEM(mi), sub );
         }
     }
 }
@@ -564,12 +553,9 @@ my_button_pressed(GtkWidget *widget, GdkEventButton *event, Plugin* plugin)
 {
     ENTER;
 
-    if( event->button == 3 )  /* right button */
-    {
-        GtkMenu* popup = lxpanel_get_panel_menu( plugin->panel, plugin, FALSE );
-        gtk_menu_popup( popup, NULL, NULL, NULL, NULL, event->button, event->time );
+    /* Standard right-click handling. */
+    if (plugin_button_press_event(widget, event, plugin))
         return TRUE;
-    }
 
     if ((event->type == GDK_BUTTON_PRESS)
           && (event->x >=0 && event->x < widget->allocation.width)
@@ -590,20 +576,13 @@ gboolean show_system_menu( gpointer system_menu )
 static GtkWidget *
 make_button(Plugin *p, gchar *fname, gchar *name, GdkColor* tint, GtkWidget *menu)
 {
-    int w, h;
+    int w = -1, h = PANEL_ICON_SIZE;
     char* title = NULL;
     menup *m;
 
     ENTER;
     m = (menup *)p->priv;
     m->menu = menu;
-    if (p->panel->orientation == ORIENT_HORIZ) {
-        h = p->panel->ah;
-        w = h * p->panel->aw / p->panel->ah;
-    } else {
-        w = p->panel->aw;
-        h = w * p->panel->ah / p->panel->aw;
-    }
 
     if( name )
     {
@@ -622,19 +601,14 @@ make_button(Plugin *p, gchar *fname, gchar *name, GdkColor* tint, GtkWidget *men
         else
             title = name;
 
-        /* FIXME: handle orientation problems */
-        if (p->panel->usefontcolor)
-            m->img = fb_button_new_from_file_with_colorlabel(fname, w, h, gcolor2rgb24(tint),
-                p->panel->fontcolor, TRUE, title);
-        else
-            m->img = fb_button_new_from_file_with_label(fname, w, h, gcolor2rgb24(tint), TRUE, title);
+        m->img = fb_button_new_from_file_with_label(fname, w, h, gcolor2rgb24(tint), TRUE, p->panel, title);
 
         if( title != name )
             g_free( title );
     }
     else
     {
-        m->img = fb_button_new_from_file(fname, w, h, gcolor2rgb24(tint), TRUE );
+        m->img = fb_button_new_from_file(fname, w, h, gcolor2rgb24(tint), TRUE);
     }
 
     gtk_widget_show(m->img);
@@ -749,12 +723,10 @@ read_system_menu(GtkMenu* menu, Plugin *p, char** fp)
     menup *m = (menup *)p->priv;
     GtkWidget* fake;
 
-    if(! m->menu_cache)
+    if (m->menu_cache == NULL)
     {
-        if( !g_getenv("XDG_MENU_PREFIX") )
-            g_setenv("XDG_MENU_PREFIX", "lxde-", TRUE);
-        m->menu_cache = menu_cache_lookup( "applications.menu" );
-        if( G_UNLIKELY(!m->menu_cache) )
+        m->menu_cache = panel_menu_cache_new();
+        if (m->menu_cache == NULL)
         {
             ERR("error loading applications menu");
             return;
@@ -894,7 +866,7 @@ read_submenu(Plugin *p, char** fp, gboolean as_item)
         gtk_menu_item_set_submenu (GTK_MENU_ITEM (mi), menu);
         RET(mi);
     } else {
-        m->fname = fname ? g_strdup(fname) : g_strdup( PACKAGE_DATA_DIR "/lxpanel/images/my-computer.png" );
+        m->fname = fname ? g_strdup(fname) : g_strdup( DEFAULT_MENU_ICON );
         m->caption = g_strdup(name);
         mi = make_button(p, fname, name, &color, menu);
         if (fname)
@@ -929,6 +901,7 @@ menu_constructor(Plugin *p, char **fp)
             "image=gnome-logout\n"
             "command=logout\n"
         "}\n"
+        "image=" DEFAULT_MENU_ICON "\n"
         "}\n";
     char *config_start, *config_end, *config_default = default_config;
     int iw, ih;
@@ -940,15 +913,6 @@ menu_constructor(Plugin *p, char **fp)
 
     p->priv = m;
 
-/*
-    if  (p->panel->orientation == ORIENT_HORIZ)
-        m->paneliconsize = p->panel->ah
-            - 2* GTK_WIDGET(p->panel->box)->style->ythickness;
-    else
-        m->paneliconsize = p->panel->aw
-            - 2* GTK_WIDGET(p->panel->box)->style->xthickness;
-    m->iconsize = 22;
-*/
     gtk_icon_size_lookup( GTK_ICON_SIZE_MENU, &iw, &ih );
     m->iconsize = MAX(iw, ih);
 
@@ -961,7 +925,7 @@ menu_constructor(Plugin *p, char **fp)
     m->config_start = start = *fp;
     if (!read_submenu(p, fp, FALSE)) {
         ERR("menu: plugin init failed\n");
-        goto error;
+        return 0;
     }
     m->config_end = *fp - 1;
     while( *m->config_end != '}' && m->config_end > m->config_start ) {
@@ -976,9 +940,6 @@ menu_constructor(Plugin *p, char **fp)
 
     RET(1);
 
- error:
-    menu_destructor(p);
-    RET(0);
 }
 
 static void save_config( Plugin* p, FILE* fp )
@@ -1033,13 +994,13 @@ static void menu_config( Plugin *p, GtkWindow* parent )
 }
 
 PluginClass menu_plugin_class = {
-    fname: NULL,
-    count: 0,
+
+    PLUGINCLASS_VERSIONING,
 
     type : "menu",
     name : N_("Menu"),
     version: "2.0",
-    description : N_("Provide Menu"),
+    description : N_("Application Menu"),
 
     constructor : menu_constructor,
     destructor  : menu_destructor,

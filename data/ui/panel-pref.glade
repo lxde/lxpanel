@@ -4,7 +4,7 @@
   <!-- interface-naming-policy toplevel-contextual -->
   <object class="GtkListStore" id="liststore1">
     <columns>
-      <!-- column-name item text -->
+      <!-- column-name item -->
       <column type="gchararray"/>
     </columns>
     <data>
@@ -21,7 +21,7 @@
   </object>
   <object class="GtkListStore" id="liststore2">
     <columns>
-      <!-- column-name item text -->
+      <!-- column-name item -->
       <column type="gchararray"/>
     </columns>
     <data>
@@ -395,7 +395,7 @@
                             <property name="spacing">2</property>
                             <child>
                               <object class="GtkRadioButton" id="bg_none">
-                                <property name="label" translatable="yes">None (Use system theme)</property>
+                                <property name="label" translatable="yes">System theme</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
@@ -411,10 +411,10 @@
                             <child>
                               <object class="GtkHBox" id="hbox2">
                                 <property name="visible">True</property>
-                                <property name="spacing">12</property>
+                                <property name="spacing">10</property>
                                 <child>
                                   <object class="GtkRadioButton" id="bg_transparency">
-                                    <property name="label" translatable="yes">Enable Transparency</property>
+                                    <property name="label" translatable="yes">Solid color (with opacity)</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">False</property>
@@ -429,36 +429,16 @@
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkHBox" id="hbox3">
+                                  <object class="GtkColorButton" id="tint_clr">
                                     <property name="visible">True</property>
-                                    <property name="spacing">2</property>
-                                    <child>
-                                      <object class="GtkLabel" id="label20">
-                                        <property name="visible">True</property>
-                                        <property name="label" translatable="yes">Tint color:</property>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">False</property>
-                                        <property name="position">0</property>
-                                      </packing>
-                                    </child>
-                                    <child>
-                                      <object class="GtkColorButton" id="tint_clr">
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">False</property>
-                                        <property name="use_alpha">True</property>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">False</property>
-                                        <property name="position">1</property>
-                                      </packing>
-                                    </child>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                    <property name="use_alpha">True</property>
+                                    <property name="color">#000000000000</property>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
+                                    <property name="fill">False</property>
                                     <property name="position">1</property>
                                   </packing>
                                 </child>
@@ -472,9 +452,10 @@
                             <child>
                               <object class="GtkHBox" id="hbox4">
                                 <property name="visible">True</property>
+                                <property name="spacing">40</property>
                                 <child>
                                   <object class="GtkRadioButton" id="bg_image">
-                                    <property name="label" translatable="yes">Enable Image:</property>
+                                    <property name="label" translatable="yes">Image</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">False</property>
@@ -533,10 +514,10 @@
                         <child>
                           <object class="GtkHBox" id="hbox1">
                             <property name="visible">True</property>
-                            <property name="spacing">2</property>
+                            <property name="spacing">10</property>
                             <child>
                               <object class="GtkCheckButton" id="use_font_clr">
-                                <property name="label" translatable="yes">Custom Color</property>
+                                <property name="label" translatable="yes">Custom color</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">False</property>
@@ -684,15 +665,11 @@
                     </child>
                     <child>
                       <object class="GtkButton" id="moveup_btn">
+                        <property name="label">gtk-go-up</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
-                        <child>
-                          <object class="GtkImage" id="image1">
-                            <property name="visible">True</property>
-                            <property name="stock">gtk-go-up</property>
-                          </object>
-                        </child>
+                        <property name="use_stock">True</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -702,15 +679,11 @@
                     </child>
                     <child>
                       <object class="GtkButton" id="movedown_btn">
+                        <property name="label">gtk-go-down</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
-                        <child>
-                          <object class="GtkImage" id="image2">
-                            <property name="visible">True</property>
-                            <property name="stock">gtk-go-down</property>
-                          </object>
-                        </child>
+                        <property name="use_stock">True</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>

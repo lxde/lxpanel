@@ -284,7 +284,6 @@ dirmenu_constructor(Plugin *p, char **fp)
     line s;
     gchar *fname;
     dirmenu *dm;
-    int w, h;
 
     s.len = 256;
     dm = g_new0(dirmenu, 1);
@@ -313,20 +312,12 @@ dirmenu_constructor(Plugin *p, char **fp)
                 }
                 else {
                     ERR( "dirmenu: unknown var %s\n", s.t[0]);
-                    goto error;
                 }
             } else {
                 ERR( "dirmenu: illegal in this context %s\n", s.str);
                 goto error;
             }
         }
-    }
-    if (p->panel->orientation == ORIENT_HORIZ) {
-        w = 10000;
-        h = p->panel->ah;
-    } else {
-        w = p->panel->aw;
-        h = 10000;
     }
 
     if (! fname)
@@ -335,9 +326,8 @@ dirmenu_constructor(Plugin *p, char **fp)
     /* Create button.
      * It is not known why, but the button text will not draw if it is edited from empty to non-empty
      * unless this strategy of initializing it with a non-empty value first is followed. */
-    p->pwid = dm->button = fb_button_new_from_file_with_colorlabel(fname, w, h,
-        0x202020, ((p->panel->usefontcolor) ? gcolor2rgb24(&p->panel->gfontcolor) : 0), TRUE,
-        "Temp");
+    p->pwid = dm->button = fb_button_new_from_file_with_label(fname, PANEL_ICON_SIZE, PANEL_ICON_SIZE,
+        PANEL_ICON_HIGHLIGHT, TRUE, p->panel, "Temp");
     dirmenu_apply_config_to_children(dm->button, dm);
     gtk_container_set_border_width( GTK_CONTAINER(dm->button), 0 );
     g_signal_connect( dm->button, "button_press_event",
@@ -355,8 +345,6 @@ dirmenu_constructor(Plugin *p, char **fp)
 
  error:
     g_free(fname);
-    dirmenu_destructor(p);
-    ERR( "%s - exit\n", __FUNCTION__);
     return 0;
 }
 
@@ -377,12 +365,7 @@ static void dirmenu_apply_config_to_children(GtkWidget *w, dirmenu* dm)
         if (dm->name == NULL)
 	    gtk_label_set_text(GTK_LABEL(w), NULL);
         else
-        {
-            gchar str[512];
-            g_snprintf(str, sizeof(str), "<span color=\"#%06x\">%s</span>",
-                ((dm->panel->usefontcolor) ? gcolor2rgb24(&dm->panel->gfontcolor) : 0), dm->name);
-            gtk_label_set_markup(GTK_LABEL(w), str);
-        }
+            panel_draw_label_text(dm->panel, w, dm->name, FALSE);
     }
 }
 
@@ -407,7 +390,15 @@ static void dirmenu_configure( Plugin *p, GtkWindow* parent )
     gtk_window_present( GTK_WINDOW(dlg) );
 }
 
+/* Callback when panel configuration changes. */
+static void dirmenu_panel_configuration_changed(Plugin * p)
+{
+    dirmenu_apply_config(p);
+}
+
 PluginClass dirmenu_plugin_class = {
+
+    PLUGINCLASS_VERSIONING,
 
     type : "dirmenu",
     name : N_("Directory Menu"),
@@ -417,5 +408,7 @@ PluginClass dirmenu_plugin_class = {
     constructor : dirmenu_constructor,
     destructor  : dirmenu_destructor,
     config : dirmenu_configure,
-    save : save_config
+    save : save_config,
+    panel_configuration_changed : dirmenu_panel_configuration_changed
+
 };

@@ -417,8 +417,8 @@ volumealsa_constructor(Plugin *p, char **fp)
 
 
 PluginClass volumealsa_plugin_class = {
-    fname: NULL,
-    count: 0,
+
+    PLUGINCLASS_VERSIONING,
 
     type : "volumealsa",
     name : N_("Volume Control"),

@@ -294,12 +294,7 @@ static int volume_constructor(Plugin *p, char **fp)
     vol->dlg = NULL;  
 
     vol->tooltips = gtk_tooltips_new ();
-#if GLIB_CHECK_VERSION( 2, 10, 0 )
     g_object_ref_sink( vol->tooltips );
-#else
-    g_object_ref( vol->tooltips );
-    gtk_object_sink( vol->tooltips );
-#endif
 
     /* FIXME: display current level in tooltip. ex: "Volume Control: 80%"  */
     gtk_tooltips_set_tip (vol->tooltips, vol->mainw, _("Volume control"), NULL);
@@ -310,8 +305,8 @@ static int volume_constructor(Plugin *p, char **fp)
 
 
 PluginClass volume_plugin_class = {
-    fname: NULL,
-    count: 0,
+
+    PLUGINCLASS_VERSIONING,
 
     type : "volume",
     name : N_("Volume Control"),

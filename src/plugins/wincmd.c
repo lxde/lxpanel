@@ -26,13 +26,21 @@
 #include "plugin.h"
 #include "dbg.h"
 
-typedef struct {
-    char* image;
-    int button1, button2;
-    int action1, action2;
-} wincmd;
+/* Commands that can be issued. */
+typedef enum {
+    WC_NONE,
+    WC_ICONIFY,
+    WC_SHADE
+} WindowCommand;
 
-enum { WC_NONE = 1, WC_ICONIFY, WC_SHADE };
+/* Private context for window command plugin. */
+typedef struct {
+    char * image;				/* Main icon */
+    WindowCommand button_1_command;		/* Command for mouse button 1 */
+    WindowCommand button_2_command;		/* Command for mouse button 2 */
+} WinCmdPlugin;
+
+
 static pair wincmd_pair [] = {
     { WC_NONE,    "none" },
     { WC_ICONIFY, "iconify" },
@@ -40,231 +48,158 @@ static pair wincmd_pair [] = {
     { 0, NULL },
 };
 
-static void
-toggle_shaded(wincmd *wc, guint32 action)
+static void wincmd_execute(WindowCommand command);
+static gboolean wincmd_button_clicked(GtkWidget * widget, GdkEventButton * event, Plugin * plugin);
+static int wincmd_constructor(Plugin * p, char ** fp);
+static void wincmd_destructor(Plugin * p);
+static void wincmd_save_configuration(Plugin * p, FILE * fp);
+
+/* Execute a window command. */
+static void wincmd_execute(WindowCommand command)
 {
-    Window *win = NULL;
-    int num, i;
-    guint32 tmp2, dno;
-    NetWMWindowType nwwt;
+    /* Get the list of all windows. */
+    int client_count;
+    Window * client_list = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_CLIENT_LIST, XA_WINDOW, &client_count);
+    if (client_list != NULL)
+    {
+        /* Loop over all windows. */
+        guint current_desktop = get_net_current_desktop();
+        int i;
+        for (i = 0; i < client_count; i++)
+        {
+            /* Get the desktop and window type properties. */
+            NetWMWindowType nwwt;
+            guint task_desktop = get_net_wm_desktop(client_list[i]);
+            get_net_wm_window_type(client_list[i], &nwwt);
 
-    ENTER;
-    win = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_CLIENT_LIST, XA_WINDOW, &num);
-    if (!win)
-    RET();
-    if (!num)
-        goto end;
-    //tmp = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_CURRENT_DESKTOP, XA_CARDINAL, 0);
-    //dno = *tmp;
-    dno = get_net_current_desktop();
-    DBG("wincmd: #desk=%d\n", dno);
-    //XFree(tmp);
-    for (i = 0; i < num; i++) {
-        int skip;
+            /* If the task is visible on the current desktop and it is an ordinary window,
+             * execute the requested Iconify or Shade change. */
+            if ((task_desktop == -1) || (task_desktop == current_desktop)
+            && (( ! nwwt.dock) && ( ! nwwt.desktop) && ( ! nwwt.splash)))
+            {
+                switch (command)
+                {
+                    case WC_ICONIFY:
+                        XIconifyWindow(GDK_DISPLAY(), client_list[i], DefaultScreen(GDK_DISPLAY()));
 
-        tmp2 = get_net_wm_desktop(win[i]);
-        DBG("wincmd: win=0x%x dno=%d...", win[i], tmp2);
-        if ((tmp2 != -1) && (tmp2 != dno)) {
-            DBG("skip - not cur desk\n");
-            continue;
+                    case WC_SHADE:
+                        Xclimsg(client_list[i], a_NET_WM_STATE,
+                            a_NET_WM_STATE_ADD,
+                            a_NET_WM_STATE_SHADED, 0, 0, 0);
+                        break;
+                }
+            }
         }
-        get_net_wm_window_type(win[i], &nwwt);
-        skip = (nwwt.dock || nwwt.desktop || nwwt.splash);
-        if (skip) {
-            DBG("skip - omnipresent window type\n");
-            continue;
-        }
-        Xclimsg(win[i], a_NET_WM_STATE,
-              action ? a_NET_WM_STATE_ADD : a_NET_WM_STATE_REMOVE,
-              a_NET_WM_STATE_SHADED, 0, 0, 0);
-        DBG("ok\n");
+        XFree(client_list);
     }
-
- end:
-    XFree(win);
-    RET();
 }
 
-
-
-static void
-toggle_iconify(wincmd *wc, guint32 action)
+/* Handler for "clicked" signal on main widget. */
+static gboolean wincmd_button_clicked(GtkWidget * widget, GdkEventButton * event, Plugin * plugin)
 {
-    Window *win = NULL;
-    int num, i;
-    guint32 tmp2, dno;
-    NetWMWindowType nwwt;
-
-    ENTER;
-    win = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_CLIENT_LIST, XA_WINDOW, &num);
-    if (!win)
-    RET();
-    if (!num)
-        goto end;
-    //tmp = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_CURRENT_DESKTOP, XA_CARDINAL, 0);
-    dno = get_net_current_desktop();
-    DBG("wincmd: #desk=%d\n", dno);
-    //XFree(tmp);
-    for (i = 0; i < num; i++) {
-        int skip;
-
-        tmp2 = get_net_wm_desktop(win[i]);
-        DBG("wincmd: win=0x%x dno=%d...", win[i], tmp2);
-        if ((tmp2 != -1) && (tmp2 != dno)) {
-            DBG("skip - not cur desk\n");
-            continue;
-        }
-        get_net_wm_window_type(win[i], &nwwt);
-        skip = (nwwt.dock || nwwt.desktop || nwwt.splash);
-        if (skip) {
-            DBG("skip - omnipresent window type\n");
-            continue;
-        }
-        if (action)
-            XIconifyWindow(GDK_DISPLAY(), win[i], DefaultScreen(GDK_DISPLAY()));
-        else
-            XMapWindow (GDK_DISPLAY(), win[i]);
-        DBG("ok\n");
-    }
-
- end:
-    XFree(win);
-    RET();
-}
-
-static gint
-clicked (GtkWidget *widget, GdkEventButton *event, Plugin* plugin)
-{
-    wincmd *wc = (wincmd *)plugin->priv;
+    WinCmdPlugin * wc = (WinCmdPlugin *) plugin->priv;
 
     /* Standard right-click handling. */
     if (plugin_button_press_event(widget, event, plugin))
         return TRUE;
 
-    if (event->button == 1) {
-        wc->action1 = 1 - wc->action1;
-        toggle_iconify(wc, wc->action1);
-        DBG("wincmd: iconify all\n");
-    } else if (event->button == 2) {
-        wc->action2 = 1 - wc->action2;
-        toggle_shaded(wc, wc->action2);
-        DBG("wincmd: shade all\n");
-    }
-    return FALSE;
+    /* Left-click to iconify. */
+    if (event->button == 1)
+        wincmd_execute(WC_ICONIFY);
+
+    /* Middle-click to shade. */
+    else if (event->button == 2)
+        wincmd_execute(WC_SHADE);
+
+    return TRUE;
 }
 
-static void
-wincmd_destructor(Plugin *p)
+/* Plugin constructor. */
+static int wincmd_constructor(Plugin * p, char ** fp)
 {
-    wincmd *wc = (wincmd *)p->priv;
-
-    g_free( wc->image );
-    g_free(wc);
-}
-
-
-
-static int
-wincmd_constructor(Plugin *p, char **fp)
-{
-    line s;
-    gchar *fname;
-    wincmd *wc;
-    GtkWidget *button;
-    int w, h;
-
-    s.len = 256;
-    wc = g_new0(wincmd, 1);
-    g_return_val_if_fail(wc != NULL, 0);
-
+    /* Allocate plugin context and set into Plugin private data pointer. */
+    WinCmdPlugin * wc = g_new0(WinCmdPlugin, 1);
     p->priv = wc;
-    fname = NULL;
-    if( fp )
+
+    /* Initialize to defaults. */
+    wc->button_1_command = WC_ICONIFY;
+    wc->button_2_command = WC_SHADE;
+
+    /* Load parameters from the configuration file. */
+    line s;
+    s.len = 256;
+    if(fp != NULL)
     {
-        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
-            if (s.type == LINE_NONE) {
-                ERR( "wincmd: illegal token %s\n", s.str);
-                goto error;
+        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END)
+        {
+            if (s.type == LINE_NONE)
+            {
+                ERR("wincmd: illegal token %s\n", s.str);
+                return 0;
             }
-            if (s.type == LINE_VAR) {
-                if (!g_ascii_strcasecmp(s.t[0], "Button1"))
-                    wc->button1 = str2num(wincmd_pair, s.t[1], WC_ICONIFY);
-                else if (!g_ascii_strcasecmp(s.t[0], "Button2"))
-                    wc->button2 = str2num(wincmd_pair, s.t[1], WC_SHADE);
-                else if (!g_ascii_strcasecmp(s.t[0], "image")) {
-                    wc->image = g_strdup( s.t[1] );
-                    fname = expand_tilda(s.t[1]);
-                }
-                else {
-                    ERR( "wincmd: unknown var %s\n", s.t[0]);
-                    goto error;
-                }
-            } else {
-                ERR( "wincmd: illegal in this context %s\n", s.str);
-                goto error;
+            if (s.type == LINE_VAR)
+            {
+                if (g_ascii_strcasecmp(s.t[0], "Button1") == 0)
+                    wc->button_1_command = str2num(wincmd_pair, s.t[1], WC_ICONIFY);
+                else if (g_ascii_strcasecmp(s.t[0], "Button2") == 0)
+                    wc->button_2_command = str2num(wincmd_pair, s.t[1], WC_SHADE);
+                else if (g_ascii_strcasecmp(s.t[0], "image") == 0)
+                    wc->image = expand_tilda(g_strdup(s.t[1]));
+                else
+                    ERR("wincmd: unknown var %s\n", s.t[0]);
+            }
+            else
+            {
+                ERR("wincmd: illegal in this context %s\n", s.str);
+                return 0;
             }
         }
     }
-    else
-    {
-        wc->button1 = WC_ICONIFY;
-        wc->button2 = WC_SHADE;
-    }
 
-    if( !fname ){
-        fname = g_strdup("gnome-fs-desktop");
-    }
+    /* Default the image if unspecified. */
+    if (wc->image == NULL)
+        wc->image = g_strdup("window-manager");
 
-    if (p->panel->orientation == ORIENT_HORIZ) {
-        h = p->panel->ah;
-        w = h;
-    } else {
-        w = p->panel->aw;
-        h = w;
-    }
-    button = fb_button_new_from_file(fname, w, h, 0x202020, TRUE);
-    gtk_container_set_border_width(GTK_CONTAINER(button), 0);
-    g_signal_connect(G_OBJECT(button), "button_press_event",
-          G_CALLBACK(clicked), (gpointer)p);
+    /* Allocate top level widget and set into Plugin widget pointer. */
+    p->pwid = fb_button_new_from_file(wc->image, PANEL_ICON_SIZE, PANEL_ICON_SIZE, PANEL_ICON_HIGHLIGHT, TRUE);
+    gtk_container_set_border_width(GTK_CONTAINER(p->pwid), 0);
+    g_signal_connect(G_OBJECT(p->pwid), "button_press_event", G_CALLBACK(wincmd_button_clicked), (gpointer) p);
+    gtk_widget_set_tooltip_text(p->pwid, _("Left click to iconify all windows.  Middle click to shade them."));
 
-    gtk_widget_show(button);
-
-    g_free(fname);
-    gtk_widget_set_tooltip_text( button, _("Left click to iconify all windows. Middle click to shade them") );
-
-    /* store the created plugin widget in plugin->pwid */
-    p->pwid = button;
-
+    /* Show the widget and return. */
+    gtk_widget_show(p->pwid);
     return 1;
-
- error:
-    g_free(fname);
-    wincmd_destructor(p);
-    ERR( "%s - exit\n", __FUNCTION__);
-    return 0;
 }
 
-static void save_config( Plugin* p, FILE* fp )
+/* Plugin destructor. */
+static void wincmd_destructor(Plugin * p)
 {
-    wincmd* wc = (wincmd*)p->priv;
-
-    lxpanel_put_str( fp, "image", wc->image );
-    lxpanel_put_str( fp, "Button1", num2str(wincmd_pair, wc->button1, NULL) );
-    lxpanel_put_str( fp, "Button2", num2str(wincmd_pair, wc->button2, NULL) );
+    WinCmdPlugin * wc = (WinCmdPlugin * ) p->priv;
+    g_free(wc->image);
+    g_free(wc);
 }
 
+/* Save the configuration to the configuration file. */
+static void wincmd_save_configuration(Plugin * p, FILE * fp)
+{
+    WinCmdPlugin * wc = (WinCmdPlugin *) p->priv;
+    lxpanel_put_str(fp, "image", wc->image);
+    lxpanel_put_str(fp, "Button1", num2str(wincmd_pair, wc->button_1_command, NULL));
+    lxpanel_put_str(fp, "Button2", num2str(wincmd_pair, wc->button_2_command, NULL));
+}
 
+/* Plugin descriptor. */
 PluginClass wincmd_plugin_class = {
-    fname: NULL,
-    count: 0,
+
+    PLUGINCLASS_VERSIONING,
 
     type : "wincmd",
     name : N_("Minimize All Windows"),
     version: "1.0",
-    description : N_("Sends commands to all desktop windows.\nSupported commands are 1)toggle iconify and 2) toggle shade"),
+    description : N_("Sends commands to all desktop windows.\nSupported commands are 1) iconify and 2) shade"),
 
     constructor : wincmd_constructor,
     destructor  : wincmd_destructor,
     config : NULL,
-    save : save_config
+    save : wincmd_save_configuration
 };

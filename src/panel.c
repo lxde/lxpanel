@@ -36,7 +36,6 @@
 #include "misc.h"
 #include "bg.h"
 
-#include "glib-mem.h"
 #include "lxpanelctl.h"
 #include "dbg.h"
 
@@ -62,7 +61,7 @@ gboolean is_in_lxde = FALSE;
 /* Allocate and initialize new Panel structure. */
 static Panel* panel_allocate(void)
 {
-    Panel* p = g_slice_new0(Panel);
+    Panel* p = g_new0(Panel, 1);
     p->allign = ALLIGN_CENTER;
     p->edge = EDGE_NONE;
     p->widthtype = WIDTH_PERCENT;
@@ -87,7 +86,7 @@ static Panel* panel_allocate(void)
 /* Normalize panel configuration after load from file or reconfiguration. */
 static void panel_normalize_configuration(Panel* p)
 {
-    panel_set_orientation( p );
+    panel_set_panel_configuration_changed( p );
     if (p->width < 0)
         p->width = 100;
     if (p->widthtype == WIDTH_PERCENT && p->width > 100)
@@ -340,65 +339,66 @@ on_root_bg_changed(FbBg *bg, Panel* p)
     panel_update_background( p );
 }
 
-/* This function should only be called after the panel has been realized */
-void panel_update_background( Panel* p )
+void panel_determine_background_pixmap(Panel * p, GtkWidget * widget, GdkWindow * window)
 {
-    GList* l;
-    GdkPixmap* pixmap = NULL;
+    GdkPixmap * pixmap = NULL;
 
-    /* handle background image of panel */
-    gtk_widget_set_app_paintable(p->topgwin, TRUE);
+    /* Free p->bg if it is not going to be used. */
+    if (( ! p->transparent) && (p->bg != NULL))
+    {
+        g_signal_handlers_disconnect_by_func(G_OBJECT(p->bg), on_root_bg_changed, p);
+        g_object_unref(p->bg);
+        p->bg = NULL;
+    }
 
-    if (p->background) {
-        pixmap = fb_bg_get_pix_from_file(p->topgwin, p->background_file);
-        if( p->bg )
-        {
-            g_object_unref( p->bg );
-            p->bg = NULL;
-        }
-    } else if (p->transparent) {
-        if( ! p->bg )
+    if (p->background)
+    {
+        /* User specified background pixmap. */
+        if (p->background_file != NULL)
+            pixmap = fb_bg_get_pix_from_file(widget, p->background_file);
+    }
+
+    else if (p->transparent)
+    {
+        /* Transparent.  Determine the appropriate value from the root pixmap. */
+        if (p->bg == NULL)
         {
             p->bg = fb_bg_get_for_display();
             g_signal_connect(G_OBJECT(p->bg), "changed", G_CALLBACK(on_root_bg_changed), p);
         }
-        pixmap = fb_bg_get_xroot_pix_for_win( p->bg, p->topgwin );
+        pixmap = fb_bg_get_xroot_pix_for_win(p->bg, widget);
+        if ((pixmap != NULL) && (pixmap != GDK_NO_BG) && (p->alpha != 0))
+            fb_bg_composite(pixmap, widget->style->black_gc, p->tintcolor, p->alpha);
+    }
 
-        if (pixmap && pixmap !=  GDK_NO_BG) {
-            if (p->alpha)
-                fb_bg_composite( pixmap, p->topgwin->style->black_gc, p->tintcolor, p->alpha );
-        }
+    if (pixmap != NULL)
+    {
+        gtk_widget_set_app_paintable(widget, TRUE );
+        gdk_window_set_back_pixmap(window, pixmap, FALSE);
+        g_object_unref(pixmap);
     }
     else
+        gtk_widget_set_app_paintable(widget, FALSE);
+}
+
+/* Update the background of the entire panel.
+ * This function should only be called after the panel has been realized. */
+void panel_update_background(Panel * p)
+{
+    /* Redraw the top level widget. */
+    panel_determine_background_pixmap(p, p->topgwin, p->topgwin->window);
+    gdk_window_clear(p->topgwin->window);
+    gtk_widget_queue_draw(p->topgwin);
+    if (gtk_events_pending()) gtk_main_iteration();
+
+    /* Loop over all plugins redrawing each plugin. */
+    GList * l;
+    for (l = p->plugins; l != NULL; l = l->next)
     {
-        if( p->bg )
-        {
-            g_object_unref( p->bg );
-            p->bg = NULL;
-        }
+        Plugin * pl = (Plugin *) l->data;
+        plugin_set_background(pl, p);
     }
 
-    if( pixmap )
-    {
-        gtk_widget_set_app_paintable( p->topgwin, TRUE );
-        gdk_window_set_back_pixmap( p->topgwin->window, pixmap, FALSE );
-        g_object_unref( pixmap );
-    }
-    else
-    {
-//        gdk_window_set_back_pixmap( p->topgwin->window, p->topgwin->style->bg_pixmap[0], FALSE );
-        gtk_widget_set_app_paintable( p->topgwin, FALSE );
-//        gdk_window_set_background( p->topgwin->window, &p->topgwin->style->bg[0] );
-    }
-
-    for( l = p->plugins; l; l = l->next )
-    {
-        Plugin* pl = (Plugin*)l->data;
-        plugin_set_background( pl, p );
-    }
-
-    gdk_window_clear( p->topgwin->window );
-    gtk_widget_queue_draw( p->topgwin );
 }
 
 static gboolean delay_update_background( Panel* p )
@@ -517,9 +517,7 @@ static void panel_popupmenu_remove_item( GtkMenuItem* item, Plugin* plugin )
 {
     Panel* panel = plugin->panel;
     panel->plugins = g_list_remove( panel->plugins, plugin );
-    plugin_stop( plugin ); /* free the plugin widget & its data */
-    plugin_put( plugin ); /* free the lib if necessary */
-
+    plugin_delete(plugin);
     panel_config_save( plugin->panel );
 }
 
@@ -617,6 +615,7 @@ static void panel_popupmenu_about( GtkMenuItem* item, Panel* panel )
         "Fred Chien <cfsghost@gmail.com>",
         "Daniel Kesler <kesler.daniel@gmail.com>",
         "Juergen Hoetzel <juergen@archlinux.org>",
+        "Marty Jack <martyj19@comcast.net>",
         NULL
     };
     /* TRANSLATORS: Replace this string with your names, one name per line. */
@@ -923,7 +922,8 @@ panel_start_gui(Panel *p)
     RET();
 }
 
-void panel_adjust_geometry_terminology(Panel *p)
+/* Exchange the "width" and "height" terminology for vertical and horizontal panels. */
+void panel_adjust_geometry_terminology(Panel * p)
 {
     if ((p->height_label != NULL) && (p->width_label != NULL))
     {
@@ -931,16 +931,84 @@ void panel_adjust_geometry_terminology(Panel *p)
         {
             gtk_label_set_text(GTK_LABEL(p->height_label), _("Height:"));
             gtk_label_set_text(GTK_LABEL(p->width_label), _("Width:"));
+            gtk_button_set_label(GTK_BUTTON(p->alignment_left_label), _("Left"));
+            gtk_button_set_label(GTK_BUTTON(p->alignment_right_label), _("Right"));
         }
         else
         {
             gtk_label_set_text(GTK_LABEL(p->height_label), _("Width:"));
             gtk_label_set_text(GTK_LABEL(p->width_label), _("Height:"));
+            gtk_button_set_label(GTK_BUTTON(p->alignment_left_label), _("Top"));
+            gtk_button_set_label(GTK_BUTTON(p->alignment_right_label), _("Bottom"));
         }
     }
 }
 
-void panel_set_orientation(Panel *p)
+/* Draw an integer value into a label, with the user preference color and optionally bold. */
+void panel_draw_label_integer(Panel * p, GtkWidget * label, int value, gboolean bold)
+{
+    char buffer[12];
+    sprintf(buffer, "%d", value);
+    panel_draw_label_text(p, label, buffer, bold);
+
+}
+
+/* Draw text into a label, with the user preference color and optionally bold. */
+void panel_draw_label_text(Panel * p, GtkWidget * label, char * text, gboolean bold)
+{
+    char buffer[512];
+
+    if (text == NULL)
+    {
+        /* Null string. */
+        gtk_label_set_text(GTK_LABEL(label), NULL);
+    }
+
+    else if ((p->usefontcolor) || (bold))
+    {
+        char * valid_markup = text;
+        char * escaped_text = NULL;
+
+        /* Check the string for characters that need to be escaped.
+         * If any are found, create the properly escaped string and use it instead. */
+        char * q;
+        for (q = text; *q != '\0'; q += 1)
+        {
+            if ((*q == '<') || (*q == '>') || (*q == '&'))
+            {
+                escaped_text = g_markup_escape_text(text, -1);
+                valid_markup = escaped_text;
+                break;
+            }
+        }
+
+        if (p->usefontcolor)
+        {
+            /* Color, optionally bold. */
+            g_snprintf(buffer, sizeof(buffer), "<span color=\"#%06x\">%s%s%s</span>",
+                gcolor2rgb24(&p->gfontcolor),
+                ((bold) ? "<b>" : ""),
+                valid_markup,
+                ((bold) ? "</b>" : ""));
+            gtk_label_set_markup(GTK_LABEL(label), buffer);
+        }
+        else if (bold)
+        {
+            /* No color, bold. */
+            g_snprintf(buffer, sizeof(buffer), "<span><b>%s</b></span>", valid_markup);
+            gtk_label_set_markup(GTK_LABEL(label), buffer);
+        }
+        g_free(escaped_text);
+    }
+
+    else
+    {
+        /* No color, no bold. */
+        gtk_label_set_text(GTK_LABEL(label), text);
+    }
+}
+
+void panel_set_panel_configuration_changed(Panel *p)
 {
     GList* l;
 
@@ -954,6 +1022,13 @@ void panel_set_orientation(Panel *p)
         p->height = ((p->orientation == ORIENT_HORIZ) ? PANEL_HEIGHT_DEFAULT : PANEL_WIDTH_DEFAULT);
         if (p->height_control != NULL)
             gtk_spin_button_set_value(GTK_SPIN_BUTTON(p->height_control), p->height);
+        if ((p->widthtype == WIDTH_PIXEL) && (p->width_control != NULL))
+        {
+            int value = ((p->orientation == ORIENT_HORIZ) ? gdk_screen_width() : gdk_screen_height());
+            gtk_spin_button_set_range(GTK_SPIN_BUTTON(p->width_control), 0, value);
+            gtk_spin_button_set_value(GTK_SPIN_BUTTON(p->width_control), value);
+        }
+
     }
 
     if (p->orientation == ORIENT_HORIZ) {
@@ -980,8 +1055,8 @@ void panel_set_orientation(Panel *p)
     */
     for( l = p->plugins; l; l = l->next ) {
         Plugin* pl = (Plugin*)l->data;
-        if( pl->class->orientation ) {
-            pl->class->orientation( pl );
+        if( pl->class->panel_configuration_changed ) {
+            pl->class->panel_configuration_changed( pl );
         }
     }
 }
@@ -1046,7 +1121,6 @@ panel_parse_global(Panel *p, char **fp)
                     p->background_file = g_strdup( s.t[1] );
                 } else {
                     ERR( "lxpanel: %s - unknown var in Global section\n", s.t[0]);
-                    RET(0);
                 }
             } else if (s.type == LINE_BLOCK_END) {
                 break;
@@ -1091,7 +1165,6 @@ panel_parse_plugin(Panel *p, char **fp)
                 border = atoi(s.t[1]);
             else {
                 ERR( "lxpanel: unknown var %s\n", s.t[0]);
-                goto error;
             }
         } else if (s.type == LINE_BLOCK_START) {
             if (!g_ascii_strcasecmp(s.t[0], "Config")) {
@@ -1124,7 +1197,7 @@ panel_parse_plugin(Panel *p, char **fp)
     }
 
     plug->panel = p;
-    plug->expand = expand;
+    if (plug->class->expand_available) plug->expand = expand;
     plug->padding = padding;
     plug->border = border;
     DBG("starting\n");
@@ -1139,9 +1212,9 @@ panel_parse_plugin(Panel *p, char **fp)
     RET(1);
 
  error:
+    if (plug != NULL)
+        plugin_unload(plug);
     g_free(type);
-    if (plug)
-          plugin_put(plug);
     RET(0);
 }
 
@@ -1178,15 +1251,26 @@ int panel_start( Panel *p, char **fp )
 static void
 delete_plugin(gpointer data, gpointer udata)
 {
-    ENTER;
-    plugin_stop((Plugin *)data);
-    plugin_put((Plugin *)data);
-    RET();
+    plugin_delete((Plugin *)data);
 }
 
 void panel_destroy(Panel *p)
 {
     ENTER;
+
+    if (p->pref_dialog != NULL)
+        gtk_widget_destroy(p->pref_dialog);
+    if (p->plugin_pref_dialog != NULL)
+    {
+        gtk_widget_destroy(p->plugin_pref_dialog);
+        p->plugin_pref_dialog = NULL;
+    }
+
+    if (p->bg != NULL)
+    {
+        g_signal_handlers_disconnect_by_func(G_OBJECT(p->bg), on_root_bg_changed, p);
+        g_object_unref(p->bg);
+    }
 
     if( p->config_changed )
         panel_config_save( p );
@@ -1212,7 +1296,7 @@ void panel_destroy(Panel *p)
     XSync(GDK_DISPLAY(), True);
 
     g_free( p->name );
-    g_slice_free( Panel, p );
+    g_free(p);
     RET();
 }
 
@@ -1250,27 +1334,32 @@ usage()
     g_print(_(" --help      -- print this help and exit\n"));
     g_print(_(" --version   -- print version and exit\n"));
     g_print(_(" --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"));
-    g_print(_(" --configure -- launch configuration utility\n"));
+//    g_print(_(" --configure -- launch configuration utility\n"));
     g_print(_(" --profile name -- use specified profile\n"));
     g_print("\n");
     g_print(_(" -h  -- same as --help\n"));
     g_print(_(" -p  -- same as --profile\n"));
     g_print(_(" -v  -- same as --version\n"));
-    g_print(_(" -C  -- same as --configure\n"));
+ //   g_print(_(" -C  -- same as --configure\n"));
     g_print(_("\nVisit http://lxde.org/ for detail.\n\n"));
 }
 
-static void
-handle_error(Display * d, XErrorEvent * ev)
+int panel_handle_x_error(Display * d, XErrorEvent * ev)
 {
     char buf[256];
 
-    ENTER;
     if (log_level >= LOG_WARN) {
         XGetErrorText(GDK_DISPLAY(), ev->error_code, buf, 256);
         LOG(LOG_WARN, "lxpanel : X error: %s\n", buf);
     }
-    RET();
+    return 0;	/* Ignored */
+}
+
+int panel_handle_x_error_swallow_BadWindow_BadDrawable(Display * d, XErrorEvent * ev)
+{
+    if ((ev->error_code != BadWindow) && (ev->error_code != BadDrawable))
+        panel_handle_x_error(d, ev);
+    return 0;	/* Ignored */
 }
 
 /* Lightweight lock related functions - X clipboard hacks */
@@ -1352,9 +1441,12 @@ static gboolean start_all_panels( )
         while( name = g_dir_read_name( dir ) )
         {
             char* panel_config = g_build_filename( panel_dir, name, NULL );
-            Panel* panel = panel_new( panel_config, name );
-            if( panel )
-                all_panels = g_slist_prepend( all_panels, panel );
+            if (strchr(panel_config, '~') == NULL)	/* Skip editor backup files in case user has hand edited in this directory */
+            {
+                Panel* panel = panel_new( panel_config, name );
+                if( panel )
+                    all_panels = g_slist_prepend( all_panels, panel );
+            }
             g_free( panel_config );
         }
         g_dir_close( dir );
@@ -1382,7 +1474,7 @@ int main(int argc, char *argv[], char *env[])
 #endif
 
     XSetLocaleModifiers("");
-    XSetErrorHandler((XErrorHandler) handle_error);
+    XSetErrorHandler((XErrorHandler) panel_handle_x_error);
 
     resolve_atoms();
 

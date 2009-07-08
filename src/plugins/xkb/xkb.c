@@ -368,7 +368,9 @@ set_new_locale(t_xkb *ctrl)
     }
   } else { /* loaded successfully */
     temporary_changed_display_type = TRUE;
-    pixbuf = gdk_pixbuf_scale_simple(tmp, size, size - (int) (size / 3), GDK_INTERP_BILINEAR);
+    int width = gdk_pixbuf_get_width(tmp);
+    int height = gdk_pixbuf_get_height(tmp);
+    pixbuf = gdk_pixbuf_scale_simple(tmp, size * width / height, size, GDK_INTERP_BILINEAR);
     gtk_image_set_from_pixbuf((GtkImage *) plugin->image, pixbuf);
     if (tmp)
       g_object_unref(G_OBJECT(tmp));
@@ -390,10 +392,14 @@ set_new_locale(t_xkb *ctrl)
   /* TBF:: bad here, it's not really a "window" related file */
   if (pGroupHash && fb_ev_active_window( fbev ) != None )
   {
-    pid = get_net_wm_pid( fb_ev_active_window( fbev ) );
-    DBG("Storing locale %s for %d\n", get_symbol_name_by_res_no(current_group_xkb_no), pid);
+    Window * win = fb_ev_active_window(fbev);
+    if (*win != None)
+    {
+        pid = get_net_wm_pid( *fb_ev_active_window( fbev ) );
+        DBG("Storing locale %s for %d\n", get_symbol_name_by_res_no(current_group_xkb_no), pid);
 
-    g_hash_table_insert(pGroupHash, GINT_TO_POINTER(pid), GINT_TO_POINTER(current_group_xkb_no));
+        g_hash_table_insert(pGroupHash, GINT_TO_POINTER(pid), GINT_TO_POINTER(current_group_xkb_no));
+    }
   }
 }
 

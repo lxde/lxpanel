@@ -27,130 +27,124 @@
 
 #include "dbg.h"
 
+/* Private context for space plugin. */
 typedef struct {
-    int size;
-} space;
+    int size;				/* Size of spacer */
+} SpacePlugin;
 
-static void
-space_destructor(Plugin *p)
+static int space_constructor(Plugin * p, char ** fp);
+static void space_destructor(Plugin * p);
+static void space_apply_configuration(Plugin * p);
+static void space_configure(Plugin * p, GtkWindow * parent);
+static void space_save_configuration(Plugin * p, FILE * fp);
+
+/* Plugin constructor. */
+static int space_constructor(Plugin * p, char ** fp)
 {
-    space *sp = (space *)p->priv;
-
-    g_free(sp);
-}
-
-static gboolean on_btn_press( GtkWidget* w, GdkEventButton* evt, Plugin* plugin )
-{
-    if( evt->button == 3 )
-    {
-        GtkMenu* popup =(GtkMenu*)lxpanel_get_panel_menu
-                ( plugin->panel, plugin, FALSE );
-        gtk_menu_popup( popup, NULL, NULL, NULL, NULL, evt->button, evt->time );
-    }
-    return TRUE;
-}
-
-static int
-space_constructor(Plugin *p, char** fp)
-{
-    space *sp;
-    line s;
-    int w, h;
-
-    ENTER;
-    s.len = 256;
-    sp = g_new0(space, 1);
-    g_return_val_if_fail(sp != NULL, 0);
+    /* Allocate plugin context and set into Plugin private data pointer. */
+    SpacePlugin * sp = g_new0(SpacePlugin, 1);
     p->priv = sp;
-    if( fp )
+
+    /* Load parameters from the configuration file. */
+    line s;
+    s.len = 256;
+    if (fp != NULL)
     {
-        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
-            if (s.type == LINE_NONE) {
+        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END)
+        {
+            if (s.type == LINE_NONE)
+            {
                 ERR( "space: illegal token %s\n", s.str);
-                goto error;
+                return 0;
             }
-            if (s.type == LINE_VAR) {
-                if (!g_ascii_strcasecmp(s.t[0], "size"))
+            if (s.type == LINE_VAR)
+            {
+                if (g_ascii_strcasecmp(s.t[0], "size") == 0)
                     sp->size = atoi(s.t[1]);
-                else {
+                else
                     ERR( "space: unknown var %s\n", s.t[0]);
-                    goto error;
-                }
-            } else {
+            }
+            else
+            {
                 ERR( "space: illegal in this context %s\n", s.str);
-                goto error;
+                return 0;
             }
         }
     }
-    if (!sp->size)
+
+    /* Default the size parameter. */
+    if (sp->size == 0)
         sp->size = 2;
 
-    if (p->panel->orientation == ORIENT_HORIZ) {
-        h = 2;
-        w = sp->size;
-    } else {
-        w = 2;
-        h = sp->size;
-    }
-
+    /* Allocate top level widget and set into Plugin widget pointer. */
     p->pwid = gtk_event_box_new();
-    GTK_WIDGET_SET_FLAGS( p->pwid, GTK_NO_WINDOW);
-    gtk_widget_add_events( p->pwid, GDK_BUTTON_PRESS_MASK );
-    g_signal_connect( p->pwid, "button-press-event", G_CALLBACK( on_btn_press ), p );
-    gtk_widget_show( p->pwid );
+    GTK_WIDGET_SET_FLAGS(p->pwid, GTK_NO_WINDOW);
+    gtk_widget_add_events(p->pwid, GDK_BUTTON_PRESS_MASK);
     gtk_container_set_border_width(GTK_CONTAINER(p->pwid), 0);
-    gtk_widget_set_size_request(p->pwid, w, h);
 
-    RET(1);
+    /* Connect signals. */
+    g_signal_connect(p->pwid, "button-press-event", G_CALLBACK(plugin_button_press_event), p);
 
- error:
-    space_destructor(p);
-    RET(0);
+    /* Apply the configuration and show the widget. */
+    space_apply_configuration(p);
+    gtk_widget_show(p->pwid);
+    return 1;
 }
 
-static void apply_config( Plugin* p )
+/* Plugin destructor. */
+static void space_destructor(Plugin * p)
 {
-    int w, h;
-    space *sp = (space *)p->priv;
-    /* Apply settings */
-    if (p->panel->orientation == ORIENT_HORIZ) {
-        h = 2;
-        w = sp->size;
-    } else {
-        w = 2;
-        h = sp->size;
-    }
-    gtk_widget_set_size_request(p->pwid, w, h);
+    SpacePlugin * sp = (SpacePlugin *) p->priv;
+    g_free(sp);
 }
 
-static void space_config(Plugin* p, GtkWindow* parent )
+/* Callback when the configuration dialog has recorded a configuration change. */
+static void space_apply_configuration(Plugin * p)
 {
-    GtkWidget* dlg;
-    space *sp = (space *)p->priv;
-    dlg =  create_generic_config_dlg( _(p->class->name),
-                                     GTK_WIDGET(parent),
-                                     (GSourceFunc) apply_config, (gpointer) p,
-                                     _("Size"), &sp->size, CONF_TYPE_INT,  NULL );
-    gtk_window_present( GTK_WINDOW(dlg) );
+    SpacePlugin * sp = (SpacePlugin *) p->priv;
+
+    /* Apply settings. */
+    if (p->panel->orientation == ORIENT_HORIZ)
+        gtk_widget_set_size_request(p->pwid, sp->size, 2);
+    else
+        gtk_widget_set_size_request(p->pwid, 2, sp->size);
 }
 
-static void save_config( Plugin* p, FILE* fp )
+/* Callback when the configuration dialog is to be shown. */
+static void space_configure(Plugin * p, GtkWindow * parent)
 {
-    space *sp = (space *)p->priv;
-    lxpanel_put_int( fp, "Size", sp->size );
+    SpacePlugin * sp = (SpacePlugin *) p->priv;
+    GtkWidget * dlg = create_generic_config_dlg(
+        p->class->name,
+        GTK_WIDGET(parent),
+        (GSourceFunc) space_apply_configuration, (gpointer) p,
+        _("Size"), &sp->size, CONF_TYPE_INT,  NULL);
+    gtk_widget_set_size_request(GTK_WIDGET(dlg), 200, -1);	/* Improve geometry */
+    gtk_window_present(GTK_WINDOW(dlg));
 }
 
+/* Callback when the configuration is to be saved. */
+static void space_save_configuration(Plugin * p, FILE * fp)
+{
+    SpacePlugin * sp = (SpacePlugin *) p->priv;
+    lxpanel_put_int(fp, "Size", sp->size);
+}
+
+/* Plugin descriptor. */
 PluginClass space_plugin_class = {
-    fname: NULL,
-    count: 0,
+
+    PLUGINCLASS_VERSIONING,
 
     type : "space",
-    name : N_("<Space>"),
+    name : N_("Spacer"),
     version: "1.0",
     description : N_("Allocate space"),
 
+    /* Stretch is available but not default for this plugin. */
+    expand_available : TRUE,
+
     constructor : space_constructor,
     destructor  : space_destructor,
-    config : space_config,
-    save : save_config
+    config : space_configure,
+    save : space_save_configuration
 };

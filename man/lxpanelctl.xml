@@ -85,16 +85,6 @@ choice="req"
       <varlistentry
 >        <term
 ><command
->config</command>
-        </term>
-        <listitem
->          <para
->show config dialog</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry
->        <term
-><command
 >restart</command>
         </term>
         <listitem

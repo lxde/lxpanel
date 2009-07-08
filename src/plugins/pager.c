@@ -1,4 +1,4 @@
-/* pager.c -- pager module of lxpanel project
+/** pager.c -- pager module of lxpanel project
  *
  * Copyright (C) 2002-2003 Anatoly Asviyan <aanatoly@users.sf.net>
  *                         Joe MacDonald   <joe@deserted.net>
@@ -20,6 +20,7 @@
  * the Free Software Foundation, 51 Franklin Street, Fifth Floor,
  * Boston, MA 02110-1301 USA.
  */
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -34,682 +35,770 @@
 #include "panel.h"
 #include "misc.h"
 #include "plugin.h"
+#include "icon-grid.h"
 
 #include "dbg.h"
 
-/* managed window: all related info that wm holds about its managed windows */
-typedef struct task {
-    Window win;
-    int x, y;
-    guint w, h;
-    gint refcount;
-    guint stacking;
-    guint desktop;
-    char *name, *iname;
-    int ws;
-    NetWMState nws;
-    NetWMWindowType nwwt;
-    guint focused:1;
-} task;
+struct _task;
+struct _desk;
+struct _pager;
 
-typedef struct _desk   desk;
-typedef struct _pager  pager;
+#define ALL_DESKTOPS   (-1)
+#define BORDER_WIDTH   2
 
-#define MAX_DESK_NUM   20
-/* map of a desktop */
-struct _desk {
-    GtkWidget *da;
-    GdkPixmap *pix;
-    int no, dirty, first;
-    gfloat scalew, scaleh;
-    pager *pg;
-};
+/* Structure representing a "task", an open window. */
+typedef struct _task {
+    struct _task * task_flink;			/* Forward link of task list */
+    Window win;					/* X window ID */
+    int x;					/* Geometry as reported by X server */
+    int y;
+    guint w;
+    guint h;
+    int stacking;				/* Stacking order as reported by NET_WM_CLIENT_STACKING */
+    int desktop;				/* Desktop that contains task */
+    int ws;					/* WM_STATE value */
+    NetWMState nws;				/* NET_WM_STATE value */
+    NetWMWindowType nwwt;			/* NET_WM_WINDOW_TYPE value */
+    guint focused : 1;				/* True if window has focus */
+    guint present_in_client_list : 1;		/* State during WM_CLIENT_LIST processing to detect deletions */
+} PagerTask;
 
-struct _pager {
-    Plugin* plugin;
-    GtkWidget *box, *eb;
-    desk *desks[MAX_DESK_NUM];
-    guint desknum;
-    guint curdesk;
-    int dw, dh;
-    gfloat scalex, scaley, ratio;
-    Window *wins;
-    int winnum, dirty;
-    GHashTable* htable;
-    task *focusedtask;
-};
+/* Structure representing a desktop. */
+typedef struct _desk {
+    struct _pager * pg;				/* Back pointer to plugin context */
+    GtkWidget * da;				/* Drawing area */
+    GdkPixmap * pixmap;				/* Pixmap to be drawn on drawing area */
+    int desktop_number;				/* Desktop number */
+    gboolean dirty;				/* True if needs to be recomputed */
+    gfloat scale_x;				/* Horizontal scale factor */
+    gfloat scale_y;				/* Vertical scale factor */
+} PagerDesk;
 
+/* Private context for pager plugin. */
+typedef struct _pager {
+    Plugin * plugin;				/* Back pointer to plugin */
+    IconGrid * icon_grid;			/* Container widget */
+    int desk_extent;				/* Extent of desks vector */
+    PagerDesk * * desks;			/* Vector of desktop structures */
+    guint number_of_desktops;			/* Number of desktops, from NET_WM_NUMBER_OF_DESKTOPS */
+    guint current_desktop;			/* Current desktop, from NET_WM_CURRENT_DESKTOP */
+    gfloat aspect_ratio;			/* Aspect ratio of screen image */
+    int client_count;				/* Count of tasks in stacking order */
+    PagerTask * * tasks_in_stacking_order;	/* Vector of tasks in stacking order */
+    PagerTask * task_list;			/* Tasks in window ID order */
+    PagerTask * focused_task;			/* Task that has focus */
+} PagerPlugin;
 
-#define TASK_VISIBLE(tk)                            \
- (!( (tk)->nws.hidden || (tk)->nws.skip_pager ))
-//if (t->nws.skip_pager || t->nwwt.desktop /*|| t->nwwt.dock || t->nwwt.splash*/ )
-
-static void pager_rebuild_all(FbEv *ev, pager *pg);
-
-static inline void desk_set_dirty_by_win(pager *p, task *t);
-static inline void desk_set_dirty(desk *d);
-static inline void desk_set_dirty_all(pager *pg);
-/*
-static void desk_clear_pixmap(desk *d);
-static gboolean task_remove_stale(Window *win, task *t, pager *p);
-static gboolean task_remove_all(Window *win, task *t, pager *p);
-*/
-
-
-
+static gboolean task_is_visible(PagerTask * tk);
+static PagerTask * task_lookup(PagerPlugin * pg, Window win);
+static void task_delete(PagerPlugin * pg, PagerTask * tk, gboolean unlink);
+static void task_get_geometry(PagerTask * tk);
+static void task_update_pixmap(PagerTask * tk, PagerDesk * d);
+static void desk_set_dirty(PagerDesk * d);
+static void desk_set_dirty_all(PagerPlugin * pg);
+static void desk_set_dirty_by_win(PagerPlugin * pg, PagerTask * tk);
+static gboolean desk_configure_event(GtkWidget * widget, GdkEventConfigure * event, PagerDesk * d);
+static gboolean desk_expose_event(GtkWidget * widget, GdkEventExpose * event, PagerDesk * d);
+static gboolean desk_scroll_event(GtkWidget * widget, GdkEventScroll * event, PagerDesk * d);
+static gboolean desk_button_press_event(GtkWidget * widget, GdkEventButton * event, PagerDesk * d);
+static void desk_new(PagerPlugin * pg, int desktop_number);
+static void desk_free(PagerPlugin * pg, int desktop_number);
+static void pager_property_notify_event(PagerPlugin * p, XEvent * ev);
+static void pager_configure_notify_event(PagerPlugin * pg, XEvent * ev);
+static GdkFilterReturn pager_event_filter(XEvent * xev, GdkEvent * event, PagerPlugin * pg);
+static void pager_net_active_window(FbEv * ev, PagerPlugin * pg);
+static void pager_net_desktop_names(FbEv * ev, PagerPlugin * pg);
+static void pager_net_number_of_desktops(FbEv * ev, PagerPlugin * pg);
+static void pager_net_client_list_stacking(FbEv * ev, PagerPlugin * pg);
+static int pager_constructor(Plugin * plug, char ** fp);
+static void pager_destructor(Plugin * p);
+static void pager_panel_configuration_changed(Plugin * p);
 
 /*****************************************************************
  * Task Management Routines                                      *
  *****************************************************************/
 
-
-/* tell to remove element with zero refcount */
-static gboolean
-task_remove_stale(Window *win, task *t, pager *p)
+/* Determine if a task is visible. */
+static gboolean task_is_visible(PagerTask * tk)
 {
-    if (t->refcount-- == 0) {
-        desk_set_dirty_by_win(p, t);
-        if (p->focusedtask == t)
-            p->focusedtask = NULL;
-        DBG("del %x\n", t->win);
-        g_free(t);
-        return TRUE;
-    }
-    return FALSE;
+    return ( ! ((tk->nws.hidden) || (tk->nws.skip_pager) || (tk->nwwt.dock)));
 }
 
-/* tell to remove element with zero refcount */
-static gboolean
-task_remove_all(Window *win, task *t, pager *p)
+/* Look up a task in the task list. */
+static PagerTask * task_lookup(PagerPlugin * pg, Window win)
 {
-    g_free(t);
-    return TRUE;
-}
-
-
-static void
-task_get_sizepos(task *t)
-{
-    Window root, junkwin;
-    int rx, ry;
-    guint dummy;
-    XWindowAttributes win_attributes;
-
-    ENTER;
-    if (!XGetWindowAttributes(GDK_DISPLAY(), t->win, &win_attributes)) {
-        if (!XGetGeometry (GDK_DISPLAY(), t->win, &root, &t->x, &t->y, &t->w, &t->h,
-                  &dummy, &dummy)) {
-            t->x = t->y = t->w = t->h = 2;
+    PagerTask * tk;
+    for (tk = pg->task_list; tk != NULL; tk = tk->task_flink)
+        {
+        if (tk->win == win)
+	    return tk;
+        if (tk->win > win)
+            break;
         }
-
-    } else {
-        XTranslateCoordinates (GDK_DISPLAY(), t->win, win_attributes.root,
-              -win_attributes.border_width,
-              -win_attributes.border_width,
-              &rx, &ry, &junkwin);
-        t->x = rx;
-        t->y = ry;
-        t->w = win_attributes.width;
-        t->h = win_attributes.height;
-        DBG("win=0x%x WxH=%dx%d\n", t->win,t->w, t->h);
-    }
-    RET();
+    return NULL;
 }
 
-
-static void
-task_update_pix(task *t, desk *d)
+/* Delete a task and optionally unlink it from the task list. */
+static void task_delete(PagerPlugin * pg, PagerTask * tk, gboolean unlink)
 {
-    int x, y, w, h;
-    GtkWidget *widget;
-    Panel* p;
+    /* If we think this task had focus, remove that. */
+    if (pg->focused_task == tk)
+        pg->focused_task = NULL;
 
-    ENTER;
-    g_return_if_fail(d->pix != NULL);
-    if (!TASK_VISIBLE(t))
-        RET();;
+    /* If requested, unlink the task from the task list.
+     * If not requested, the caller will do this. */
+    if (unlink)
+    {
+        if (pg->task_list == tk)
+            pg->task_list = tk->task_flink;
+        else
+        {
+            /* Locate the task and its predecessor in the list and then remove it.  For safety, ensure it is found. */
+            PagerTask * tk_pred = NULL;
+            PagerTask * tk_cursor;
+            for (
+              tk_cursor = pg->task_list;
+              ((tk_cursor != NULL) && (tk_cursor != tk));
+              tk_pred = tk_cursor, tk_cursor = tk_cursor->task_flink) ;
+            if (tk_cursor == tk)
+                tk_pred->task_flink = tk->task_flink;
+        }
+    }
 
-    p = d->pg->plugin->panel;
-    if (t->desktop < p->desknum &&
-          t->desktop != d->no)
-        RET();
-
-    x = (gfloat)t->x * d->scalew;
-    y = (gfloat)t->y * d->scaleh;
-    w = (gfloat)t->w * d->scalew;
-    //h = (gfloat)t->h * d->scaleh;
-    h = (t->nws.shaded) ? 3 : (gfloat)t->h * d->scaleh;
-    if (w < 3 || h < 3)
-        RET();
-    widget = GTK_WIDGET(d->da);
-    gdk_draw_rectangle (d->pix,
-          (d->pg->focusedtask == t) ?
-          widget->style->bg_gc[GTK_STATE_SELECTED] :
-          widget->style->bg_gc[GTK_STATE_NORMAL],
-          TRUE,
-          x+1, y+1, w-1, h-1);
-    gdk_draw_rectangle (d->pix,
-          (d->pg->focusedtask == t) ?
-          widget->style->fg_gc[GTK_STATE_SELECTED] :
-          widget->style->fg_gc[GTK_STATE_NORMAL],
-          FALSE,
-          x, y, w, h);
-    RET();
+    /* Deallocate the task structure. */
+    g_free(tk);
 }
 
+/* Get the geometry of a task window in screen coordinates. */
+static void task_get_geometry(PagerTask * tk)
+{
+    /* Install an error handler that ignores BadWindow and BadDrawable.
+     * We frequently get a ConfigureNotify event on deleted windows. */
+    XErrorHandler previous_error_handler = XSetErrorHandler(panel_handle_x_error_swallow_BadWindow_BadDrawable);
+
+    XWindowAttributes win_attributes;
+    if (XGetWindowAttributes(GDK_DISPLAY(), tk->win, &win_attributes))
+    {
+        Window unused_win;
+        int rx, ry;
+        XTranslateCoordinates(GDK_DISPLAY(), tk->win, win_attributes.root,
+              - win_attributes.border_width,
+              - win_attributes.border_width,
+              &rx, &ry, &unused_win);
+        tk->x = rx;
+        tk->y = ry;
+        tk->w = win_attributes.width;
+        tk->h = win_attributes.height;
+    }
+    else
+    {
+        Window unused_win;
+        guint unused;
+        if ( ! XGetGeometry(GDK_DISPLAY(), tk->win,
+            &unused_win, &tk->x, &tk->y, &tk->w, &tk->h, &unused, &unused))
+        {
+            tk->x = tk->y = tk->w = tk->h = 2;
+        }
+    }
+
+    XSetErrorHandler(previous_error_handler);
+}
+
+/* Draw the representation of a task's window on the backing pixmap. */
+static void task_update_pixmap(PagerTask * tk, PagerDesk * d)
+{
+    if ((d->pixmap != NULL) && (task_is_visible(tk)))
+    {
+        Panel * p = d->pg->plugin->panel;
+        if ((tk->desktop == ALL_DESKTOPS) || (tk->desktop == d->desktop_number))
+        {
+            /* Scale the representation of the window to the drawing area. */
+            int x = (gfloat) tk->x * d->scale_x;
+            int y = (gfloat) tk->y * d->scale_y;
+            int w = (gfloat) tk->w * d->scale_x;
+            int h = ((tk->nws.shaded) ? 3 : (gfloat) tk->h * d->scale_y);
+            if ((w >= 3) && (h >= 3))
+            {
+                /* Draw the window representation and a border. */
+                GtkWidget * widget = GTK_WIDGET(d->da);
+                gdk_draw_rectangle(d->pixmap,
+                    (d->pg->focused_task == tk) ? widget->style->bg_gc[GTK_STATE_SELECTED] : widget->style->bg_gc[GTK_STATE_NORMAL],
+                    TRUE,
+                    x + 1, y + 1, w - 1, h - 1);
+                gdk_draw_rectangle(d->pixmap,
+                    (d->pg->focused_task == tk) ? widget->style->fg_gc[GTK_STATE_SELECTED] : widget->style->fg_gc[GTK_STATE_NORMAL],
+                    FALSE,
+                    x, y, w, h);
+            }
+        }
+    }
+}
 
 /*****************************************************************
  * Desk Functions                                                *
  *****************************************************************/
-static void
-desk_clear_pixmap(desk *d)
+
+/* Mark a specified desktop for redraw. */
+static void desk_set_dirty(PagerDesk * d)
 {
-    GtkWidget *widget;
-
-    ENTER;
-    DBG("d->no=%d\n", d->no);
-    if (!d->pix)
-        RET();
-    widget = GTK_WIDGET(d->da);
-    gdk_draw_rectangle (d->pix,
-          ((d->no == d->pg->curdesk) ?
-                widget->style->dark_gc[GTK_STATE_SELECTED] :
-                widget->style->dark_gc[GTK_STATE_NORMAL]),
-          TRUE,
-          0, 0,
-          widget->allocation.width,
-          widget->allocation.height);
-
-    RET();
-}
-
-
-
-static inline void
-desk_set_dirty(desk *d)
-{
-    ENTER;
-    d->dirty = 1;
+    d->dirty = TRUE;
     gtk_widget_queue_draw(d->da);
-    RET();
 }
 
-static inline void
-desk_set_dirty_all(pager *pg)
+/* Mark all desktops for redraw. */
+static void desk_set_dirty_all(PagerPlugin * pg)
 {
     int i;
-    ENTER;
-    for (i = 0; i < pg->desknum; i++)
+    for (i = 0; i < pg->number_of_desktops; i++)
         desk_set_dirty(pg->desks[i]);
-    RET();
 }
 
-static inline void
-desk_set_dirty_by_win(pager *p, task *t)
+/* Mark the desktop on which a specified window resides for redraw. */
+static void desk_set_dirty_by_win(PagerPlugin * pg, PagerTask * tk)
 {
-    ENTER;
-    if (t->nws.skip_pager || t->nwwt.desktop /*|| t->nwwt.dock || t->nwwt.splash*/ )
-        RET();
-    if (t->desktop < p->desknum)
-        desk_set_dirty(p->desks[t->desktop]);
+    if ( ! (tk->nws.skip_pager || tk->nwwt.desktop) || tk->nwwt.dock /*|| tk->nwwt.splash*/ )
+    {
+        if (tk->desktop < pg->number_of_desktops)
+            desk_set_dirty(pg->desks[tk->desktop]);
+        else
+            desk_set_dirty_all(pg);
+    }
+}
+
+/* Handler for configure_event on drawing area. */
+static gboolean desk_configure_event(GtkWidget * widget, GdkEventConfigure * event, PagerDesk * d)
+{
+    /* Allocate pixmap and statistics buffer without border pixels. */
+    int new_pixmap_width = widget->allocation.width;
+    int new_pixmap_height = widget->allocation.height;
+    if ((new_pixmap_width > 0) && (new_pixmap_height > 0))
+    {
+        /* Allocate a new pixmap of the allocated size. */
+        if (d->pixmap != NULL)
+            g_object_unref(d->pixmap);
+        d->pixmap = gdk_pixmap_new(widget->window, new_pixmap_width, new_pixmap_height, -1);
+
+        /* Compute the horizontal and vertical scale factors, and mark the desktop for redraw. */
+        d->scale_y = (gfloat) widget->allocation.height / (gfloat) gdk_screen_height();
+        d->scale_x = (gfloat) widget->allocation.width  / (gfloat) gdk_screen_width();
+        desk_set_dirty(d);
+     }
+
+    /* Resize to optimal size. */
+    gtk_widget_set_size_request(widget,
+        (PANEL_HEIGHT_DEFAULT - BORDER_WIDTH * 2) * d->pg->aspect_ratio,
+        PANEL_HEIGHT_DEFAULT - BORDER_WIDTH * 2);
+    return FALSE;
+}
+
+/* Handler for expose_event on drawing area. */
+static gboolean desk_expose_event(GtkWidget * widget, GdkEventExpose * event, PagerDesk * d)
+{
+    if (d->pixmap != NULL)
+    {
+        /* Recompute the pixmap if needed. */
+        if (d->dirty)
+        {
+            d->dirty = FALSE;
+            PagerPlugin * pg = d->pg;
+
+            /* Erase the pixmap. */
+            if (d->pixmap != NULL)
+            {
+                GtkWidget * widget = GTK_WIDGET(d->da);
+                gdk_draw_rectangle(
+                    d->pixmap,
+                    ((d->desktop_number == d->pg->current_desktop)
+                        ? widget->style->dark_gc[GTK_STATE_SELECTED]
+                        : widget->style->dark_gc[GTK_STATE_NORMAL]),
+                    TRUE,
+                    0, 0, widget->allocation.width, widget->allocation.height);
+            }
+
+            /* Draw tasks onto the pixmap. */
+            int j;
+            for (j = 0; j < pg->client_count; j++)
+                task_update_pixmap(pg->tasks_in_stacking_order[j], d);
+        }
+
+        /* Draw the requested part of the pixmap onto the drawing area. */
+        gdk_draw_drawable(widget->window,
+              widget->style->fg_gc[GTK_WIDGET_STATE(widget)],
+              d->pixmap,
+              event->area.x, event->area.y,
+              event->area.x, event->area.y,
+              event->area.width, event->area.height);
+    }
+    return FALSE;
+}
+
+/* Handler for "scroll-event" on drawing area. */
+static gboolean desk_scroll_event(GtkWidget * widget, GdkEventScroll * event, PagerDesk * d)
+{
+    /* Compute the new desktop from the scroll direction, wrapping at either extreme. */
+    int current_desktop = d->pg->current_desktop;
+    if ((event->direction == GDK_SCROLL_UP) || (event->direction == GDK_SCROLL_RIGHT))
+    {
+        current_desktop += 1;
+        if (current_desktop >= d->pg->number_of_desktops)
+            current_desktop = 0;
+    }
     else
-        desk_set_dirty_all(p);
-    RET();
+    {
+        current_desktop -= 1;
+        if (current_desktop < 0)
+            current_desktop = d->pg->number_of_desktops - 1;
+    }
+
+    /* Ask the window manager to make the new desktop current. */
+    Xclimsg(GDK_ROOT_WINDOW(), a_NET_CURRENT_DESKTOP, current_desktop, 0, 0, 0, 0);
+    return TRUE;
 }
 
-/* Redraw the screen from the backing pixmap */
-static gint
-desk_expose_event (GtkWidget *widget, GdkEventExpose *event, desk *d)
+/* Handler for "button-press-event" on drawing area. */
+static gboolean desk_button_press_event(GtkWidget * widget, GdkEventButton * event, PagerDesk * d)
 {
-    ENTER;
-    DBG("d->no=%d\n", d->no);
+    /* Standard right-click handling. */
+    if (plugin_button_press_event(widget, event, d->pg->plugin))
+        return TRUE;
 
-    if (d->dirty) {
-        pager *pg = d->pg;
-        task *t;
-        int j;
+    /* Ask the window manager to make the new desktop current. */
+    Xclimsg(GDK_ROOT_WINDOW(), a_NET_CURRENT_DESKTOP, d->desktop_number, 0, 0, 0, 0);
+    return TRUE;
+}
 
-        d->dirty = 0;
-        desk_clear_pixmap(d);
-        for (j = 0; j < pg->winnum; j++) {
-            if (!(t = g_hash_table_lookup(pg->htable, &pg->wins[j])))
-                continue;
-            task_update_pix(t, d);
+/* Allocate the structure and the graphic elements representing a desktop. */
+static void desk_new(PagerPlugin * pg, int desktop_number)
+{
+    
+    /* Allocate and initialize structure. */
+    PagerDesk * d = pg->desks[desktop_number] = g_new0(PagerDesk, 1);
+    d->pg = pg;
+    d->desktop_number = desktop_number;
+
+    /* Allocate drawing area. */
+    d->da = gtk_drawing_area_new();
+
+    icon_grid_add(pg->icon_grid, d->da, TRUE);
+    gtk_widget_add_events (d->da, GDK_EXPOSURE_MASK | GDK_BUTTON_PRESS_MASK);
+
+    /* Connect signals. */
+    g_signal_connect(G_OBJECT(d->da), "expose_event", G_CALLBACK(desk_expose_event), (gpointer) d);
+    g_signal_connect(G_OBJECT(d->da), "configure_event", G_CALLBACK(desk_configure_event), (gpointer) d);
+    g_signal_connect(G_OBJECT(d->da), "scroll-event", G_CALLBACK(desk_scroll_event), (gpointer) d);
+    g_signal_connect(G_OBJECT(d->da), "button_press_event", G_CALLBACK(desk_button_press_event), (gpointer) d);
+
+    /* Show the widget. */
+    gtk_widget_show(d->da);
+}
+
+/* Free the structure representing a desktop. */
+static void desk_free(PagerPlugin * pg, int desktop_number)
+{
+    PagerDesk * d = pg->desks[desktop_number];
+
+    g_signal_handlers_disconnect_by_func(G_OBJECT(d->da), desk_expose_event, d);
+    g_signal_handlers_disconnect_by_func(G_OBJECT(d->da), desk_configure_event, d);
+    g_signal_handlers_disconnect_by_func(G_OBJECT(d->da), desk_scroll_event, d);
+    g_signal_handlers_disconnect_by_func(G_OBJECT(d->da), desk_button_press_event, d);
+
+    icon_grid_remove(pg->icon_grid, d->da);
+
+    if (d->pixmap != NULL)
+        g_object_unref(d->pixmap);
+
+    g_free(d);
+}
+
+/*****************************************************************
+ * Pager Functions                                               *
+ *****************************************************************/
+
+/* Handle PropertyNotify event.
+ * http://tronche.com/gui/x/icccm/
+ * http://standards.freedesktop.org/wm-spec/wm-spec-1.4.html */
+static void pager_property_notify_event(PagerPlugin * pg, XEvent * ev)
+{
+    /* State may be PropertyNewValue, PropertyDeleted. */
+    if (((XPropertyEvent*) ev)->state == PropertyNewValue)
+    {
+        Atom at = ev->xproperty.atom;
+        Window win = ev->xproperty.window;
+        if (win != GDK_ROOT_WINDOW())
+        {
+            /* Look up task structure by X window handle. */
+            PagerTask * tk = task_lookup(pg, win);
+            if (tk != NULL)
+            {
+                /* Install an error handler that ignores BadWindow.
+                 * We frequently get a PropertyNotify event on deleted windows. */
+                XErrorHandler previous_error_handler = XSetErrorHandler(panel_handle_x_error_swallow_BadWindow_BadDrawable);
+
+                /* Dispatch on atom. */
+                if (at == a_WM_STATE)   
+                {
+                    /* Window changed state. */
+                    tk->ws = get_wm_state(tk->win);
+                    desk_set_dirty_by_win(pg, tk);
+                }
+                else if (at == a_NET_WM_STATE)
+                {
+                    /* Window changed EWMH state. */
+                    get_net_wm_state(tk->win, &tk->nws);
+                    desk_set_dirty_by_win(pg, tk);
+                }
+                else if (at == a_NET_WM_DESKTOP)
+                {
+                    /* Window changed desktop.
+                     * Mark both old and new desktops for redraw. */
+                    desk_set_dirty_by_win(pg, tk);
+                    tk->desktop = get_net_wm_desktop(tk->win);
+                    desk_set_dirty_by_win(pg, tk);
+
+                XSetErrorHandler(previous_error_handler);
+                }
+            }
         }
     }
-    gdk_draw_drawable(widget->window,
-          widget->style->fg_gc[GTK_WIDGET_STATE (widget)],
-          d->pix,
-          event->area.x, event->area.y,
-          event->area.x, event->area.y,
-          event->area.width, event->area.height);
-    RET(FALSE);
 }
 
-/* Upon realize and every resize creates a new backing pixmap of the appropriate size */
-static gint
-desk_configure_event (GtkWidget *widget, GdkEventConfigure *event, desk *d)
+/* Handle ConfigureNotify event. */
+static void pager_configure_notify_event(PagerPlugin * pg, XEvent * ev)
 {
-    Panel* p;
-    int w, h;
-    ENTER;
-    DBG("d->no=%d %dx%d\n", d->no, widget->allocation.width, widget->allocation.height);
-    if (d->pix)
-        g_object_unref(d->pix);
-
-    d->pix = gdk_pixmap_new(widget->window,
-          widget->allocation.width,
-          widget->allocation.height,
-          -1);
-
-    d->scalew = (gfloat)widget->allocation.height / (gfloat)gdk_screen_height();
-    d->scaleh = (gfloat)widget->allocation.width  / (gfloat)gdk_screen_width();
-    desk_set_dirty(d);
-
-    p = d->pg->plugin->panel;
-    //request best size
-    if (p->orientation != ORIENT_HORIZ) {
-        w = widget->allocation.width;
-        h = (gfloat) w / d->pg->ratio;
-    } else {
-        h = widget->allocation.height;
-        w = (gfloat) h * d->pg->ratio;
+    Window win = ev->xconfigure.window;
+    PagerTask * tk = task_lookup(pg, win);
+    if (tk != NULL)
+    {
+        task_get_geometry(tk);
+        desk_set_dirty_by_win(pg, tk);
     }
-    DBG("requesting %dx%d\n", w, h);
-    gtk_widget_set_size_request(widget, w, h);
-
-    RET(FALSE);
 }
 
-static gint
-desk_button_press_event(GtkWidget * widget, GdkEventButton * event, desk *d)
+/* GDK event filter. */
+static GdkFilterReturn pager_event_filter(XEvent * xev, GdkEvent * event, PagerPlugin * pg)
 {
-    ENTER;
-    if( event->button == 3 ) { /* right button */
-        GtkMenu* popup =(GtkMenu*) lxpanel_get_panel_menu
-                ( d->pg->plugin->panel, d->pg->plugin, FALSE );
-        gtk_menu_popup( popup, NULL, NULL, NULL, NULL, event->button, event->time );
-        return TRUE;
-    }
-
-    Xclimsg(GDK_ROOT_WINDOW(), a_NET_CURRENT_DESKTOP, d->no, 0, 0, 0, 0);
-    RET(TRUE);
+    /* Look for PropertyNotify and ConfigureNotify events and update state. */
+    if (xev->type == PropertyNotify)
+        pager_property_notify_event(pg, xev);
+    else if (xev->type == ConfigureNotify)
+        pager_configure_notify_event(pg, xev);
+    return GDK_FILTER_CONTINUE;
 }
-
-/*
-static gint
-desk_button_release_event(GtkWidget * widget, GdkEventButton * event, desk *d)
-{
-    ENTER;
-    DBG("t=%d\n", d->no);
-    Xclimsg(GDK_ROOT_WINDOW(), a_NET_CURRENT_DESKTOP, d->no, 0, 0, 0, 0);
-    RET(TRUE);
-}
-*/
-
-static gint
-desk_scroll_event (GtkWidget *widget, GdkEventScroll *event, desk *d)
-{
-    int i;
-
-    ENTER;
-    DBG("scroll direction = %d\n", event->direction);
-    i = d->pg->curdesk;
-    if (event->direction == GDK_SCROLL_UP ||event->direction == GDK_SCROLL_LEFT) {
-        i--;
-        if (i < 0)
-            i = d->pg->desknum - 1;
-    } else {
-        i++;
-        if (i >= d->pg->desknum)
-            i = 0;
-    }
-    Xclimsg(GDK_ROOT_WINDOW(), a_NET_CURRENT_DESKTOP, i, 0, 0, 0, 0);
-    RET(TRUE);
-}
-
-static void
-desk_new(pager *pg, int i)
-{
-    desk *d;
-
-    ENTER;
-    g_assert(i < pg->desknum);
-    d = pg->desks[i] = g_new0(desk, 1);
-    d->pg = pg;
-    d->pix = NULL;
-    d->dirty = 0;
-    d->first = 1;
-    d->no = i;
-
-    d->da = gtk_drawing_area_new();
-    //gtk_widget_set_size_request(GTK_WIDGET(d->da), 10, 10);
-    gtk_box_pack_start(GTK_BOX(pg->box), d->da, TRUE, TRUE, 0);
-    gtk_widget_add_events (d->da, GDK_EXPOSURE_MASK
-          | GDK_BUTTON_PRESS_MASK
-          | GDK_BUTTON_RELEASE_MASK);
-    g_signal_connect (G_OBJECT (d->da), "expose_event",
-          (GCallback) desk_expose_event, (gpointer)d);
-    g_signal_connect (G_OBJECT (d->da), "configure_event",
-          (GCallback) desk_configure_event, (gpointer)d);
-    g_signal_connect (G_OBJECT (d->da), "scroll-event",
-          (GCallback) desk_scroll_event, (gpointer)d);
-    g_signal_connect (G_OBJECT (d->da), "button_press_event",
-         (GCallback) desk_button_press_event, (gpointer)d);
-    //g_signal_connect (G_OBJECT (d->da), "button_release_event",
-    //     (GCallback) desk_button_release_event, (gpointer)d);
-    gtk_widget_show(d->da);
-    DBG("before pack\n");
-
-    DBG("after show\n");
-    RET();
-}
-
-static void
-desk_free(pager *pg, int i)
-{
-    desk *d;
-
-    ENTER;
-    d = pg->desks[i];
-    DBG("i=%d d->no=%d d->da=%p d->pix=%p\n",
-          i, d->no, d->da, d->pix);
-    if (d->pix)
-        g_object_unref(d->pix);
-    gtk_widget_destroy(d->da);
-    g_free(d);
-    RET();
-}
-
 
 /*****************************************************************
  * Netwm/WM Interclient Communication                            *
  *****************************************************************/
 
-static void
-do_net_active_window(FbEv *ev, pager *p)
+/* Handler for "active-window" event from root window listener. */
+static void pager_net_active_window(FbEv * ev, PagerPlugin * pg)
 {
-    Window *fwin;
-    task *t;
-
-    ENTER;
-    fwin = get_xaproperty(GDK_ROOT_WINDOW(), a_NET_ACTIVE_WINDOW, XA_WINDOW, 0);
-    DBG("win=%x\n", fwin ? *fwin : 0);
-    if (fwin) {
-        t = g_hash_table_lookup(p->htable, fwin);
-        if (t != p->focusedtask) {
-            if (p->focusedtask)
-                desk_set_dirty_by_win(p, p->focusedtask);
-            p->focusedtask = t;
-            if (t)
-                desk_set_dirty_by_win(p, t);
+    Window * focused_window = get_xaproperty(GDK_ROOT_WINDOW(), a_NET_ACTIVE_WINDOW, XA_WINDOW, 0);
+    if (focused_window != NULL)
+    {
+        PagerTask * tk = task_lookup(pg, *focused_window);
+        if (tk != pg->focused_task)
+        {
+            /* Focused task changed.  Redraw both old and new. */
+            if (pg->focused_task != NULL)
+                desk_set_dirty_by_win(pg, pg->focused_task);
+            pg->focused_task = tk;
+            if (tk != NULL)
+                desk_set_dirty_by_win(pg, tk);
         }
-        XFree(fwin);
-    } else {
-        if (p->focusedtask) {
-            desk_set_dirty_by_win(p, p->focusedtask);
-            p->focusedtask = NULL;
+        XFree(focused_window);
+    }
+    else
+    {
+        /* Focused task disappeared.  Redraw old. */
+        if (pg->focused_task != NULL)
+        {
+            desk_set_dirty_by_win(pg, pg->focused_task);
+            pg->focused_task = NULL;
         }
     }
-    RET();
 }
 
-static void
-do_net_current_desktop(FbEv *ev, pager *p)
+/* Handler for desktop_name event from window manager. */
+static void pager_net_desktop_names(FbEv * fbev, PagerPlugin * pg)
 {
-    ENTER;
-    desk_set_dirty(p->desks[p->curdesk]);
-    p->curdesk =  get_net_current_desktop ();
-    if (p->curdesk >= p->desknum)
-        p->curdesk = 0;
-    desk_set_dirty(p->desks[p->curdesk]);
-    RET();
-}
+    /* Get the NET_DESKTOP_NAMES property. */
+    int number_of_desktop_names;
+    char * * desktop_names;
+    desktop_names = get_utf8_property_list(GDK_ROOT_WINDOW(), a_NET_DESKTOP_NAMES, &number_of_desktop_names);
 
-
-static void
-do_net_client_list_stacking(FbEv *ev, pager *p)
-{
+    /* Loop to copy the desktop names to the vector of labels.
+     * If there are more desktops than labels, label the extras with a decimal number. */
     int i;
-    task *t;
+    for (i = 0; ((desktop_names != NULL) && (i < MIN(pg->number_of_desktops, number_of_desktop_names))); i++)
+        gtk_widget_set_tooltip_text(pg->desks[i]->da, desktop_names[i]);
+    for ( ; i < pg->number_of_desktops; i++)
+    {
+        char temp[10];
+        sprintf(temp, "%d", i + 1);
+        gtk_widget_set_tooltip_text(pg->desks[i]->da, temp);
+    }
 
-    ENTER;
-    if (p->wins)
-        XFree(p->wins);
-    p->wins = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_CLIENT_LIST_STACKING,
-          XA_WINDOW, &p->winnum);
-    if (!p->wins || !p->winnum)
-        RET();
+    /* Free the property. */
+    if (desktop_names != NULL)
+        g_strfreev(desktop_names);
+}
 
-    /* refresh existing tasks and add new */
-    for (i = 0; i < p->winnum; i++) {
-        if ((t = g_hash_table_lookup(p->htable, &p->wins[i]))) {
-            t->refcount++;
-            if (t->stacking != i) {
-                t->stacking = i;
-                desk_set_dirty_by_win(p, t);
-            }
-        } else {
-            t = g_new0(task, 1);
-            t->refcount++;
-            t->win = p->wins[i];
-            t->ws = get_wm_state (t->win);
-            t->desktop = get_net_wm_desktop(t->win);
-            get_net_wm_state(t->win, &t->nws);
-            get_net_wm_window_type(t->win, &t->nwwt);
-            task_get_sizepos(t);
-            if (!FBPANEL_WIN(t->win))
-                XSelectInput (GDK_DISPLAY(), t->win, PropertyChangeMask | StructureNotifyMask);
-            g_hash_table_insert(p->htable, &t->win, t);
-            DBG("add %x\n", t->win);
-            desk_set_dirty_by_win(p, t);
+/* Handler for "current-desktop" event from root window listener. */
+static void pager_net_current_desktop(FbEv * ev, PagerPlugin * pg)
+{
+    desk_set_dirty(pg->desks[pg->current_desktop]);
+    pg->current_desktop = get_net_current_desktop();
+    if (pg->current_desktop >= pg->number_of_desktops)
+        pg->current_desktop = 0;
+    desk_set_dirty(pg->desks[pg->current_desktop]);
+}
+
+
+/* Handler for "number-of-desktops" event from root window listener.
+ * Also used to initialize plugin. */
+static void pager_net_number_of_desktops(FbEv * ev, PagerPlugin * pg)
+{
+    /* Get existing values. */
+    int number_of_desktops = pg->number_of_desktops;
+    int current_desktop = pg->current_desktop;
+
+    /* Get the correct number of desktops. */
+    pg->number_of_desktops = get_net_number_of_desktops();
+    if (pg->number_of_desktops < 1)
+        pg->number_of_desktops = 1;
+
+    /* Reallocate the structure if necessary. */
+    if (pg->number_of_desktops > pg->desk_extent)
+    {
+        PagerDesk * * new_desks = g_new(PagerDesk *, pg->number_of_desktops);
+        if (pg->desks != NULL)
+        {
+            memcpy(new_desks, pg->desks, pg->desk_extent * sizeof(PagerDesk *));
+            g_free(pg->desks);
+        }
+        pg->desks = new_desks;
+        pg->desk_extent = pg->number_of_desktops;
+    }
+
+    /* Reconcile the current desktop number. */
+    pg->current_desktop = get_net_current_desktop();
+    if (pg->current_desktop >= pg->number_of_desktops)
+        pg->current_desktop = 0;
+
+    /* Reconcile the old and new number of desktops. */
+    int difference = pg->number_of_desktops - number_of_desktops;
+    if (difference != 0)
+    {
+        if (difference < 0)
+        {
+            /* If desktops were deleted, then delete their maps also. */
+            int i;
+            for (i = pg->number_of_desktops; i < number_of_desktops; i++)
+                desk_free(pg, i);
+        }
+        else
+        {
+            /* If desktops were added, then create their maps also. */
+            int i;
+            for (i = number_of_desktops; i < pg->number_of_desktops; i++)
+                desk_new(pg, i);
         }
     }
-    /* pass throu hash table and delete stale windows */
-    g_hash_table_foreach_remove(p->htable, (GHRFunc) task_remove_stale, (gpointer)p);
-    RET();
+
+    /* Refresh the client list. */
+    pager_net_client_list_stacking(NULL, pg);
 }
 
-
-/*****************************************************************
- * Pager Functions                                               *
- *****************************************************************/
-/*
-static void
-pager_unmapnotify(pager *p, XEvent *ev)
+/* Handler for "net-client-list-stacking" event from root window listener. */
+static void pager_net_client_list_stacking(FbEv * ev, PagerPlugin * pg)
 {
-    Window win = ev->xunmap.window;
-    task *t;
-    if (!(t = g_hash_table_lookup(p->htable, &win)))
-        RET();
-    DBG("pager_unmapnotify: win=0x%x\n", win);
-    RET();
-    t->ws = WithdrawnState;
-    desk_set_dirty_by_win(p, t);
-    RET();
-}
-*/
-static void
-pager_configurenotify(pager *p, XEvent *ev)
-{
-    Window win = ev->xconfigure.window;
-    task *t;
+    /* Get the NET_CLIENT_LIST_STACKING property. */
+    Window * client_list = get_xaproperty(GDK_ROOT_WINDOW(), a_NET_CLIENT_LIST_STACKING, XA_WINDOW, &pg->client_count);
+    g_free(pg->tasks_in_stacking_order);
+    if (pg->client_count != 0)
+        pg->tasks_in_stacking_order = g_new(PagerTask *, pg->client_count);
 
-    ENTER;
+    if (client_list != NULL)
+    {
+        /* Loop over client list, correlating it with task list.
+         * Also generate a vector of task pointers in stacking order. */
+        int i;
+        for (i = 0; i < pg->client_count; i++)
+        {
+            /* Search for the window in the task list.  Set up context to do an insert right away if needed. */
+            PagerTask * tk_pred = NULL;
+            PagerTask * tk_cursor;
+            PagerTask * tk = NULL;
+            for (tk_cursor = pg->task_list; tk_cursor != NULL; tk_pred = tk_cursor, tk_cursor = tk_cursor->task_flink)
+            {
+                if (tk_cursor->win == client_list[i])
+                {
+                    tk = tk_cursor;
+                    break;
+                }
+                if (tk_cursor->win > client_list[i])
+                    break;
+            }
 
-    if (!(t = g_hash_table_lookup(p->htable, &win)))
-        RET();
-    DBG("win=0x%x\n", win);
-    task_get_sizepos(t);
-    desk_set_dirty_by_win(p, t);
-    RET();
-}
+            /* Task is already in task list. */
+            if (tk != NULL)
+            {
+                tk->present_in_client_list = TRUE;
 
-static void
-pager_propertynotify(pager *p, XEvent *ev)
-{
-    Atom at = ev->xproperty.atom;
-    Window win = ev->xproperty.window;
-    task *t;
+                /* If the stacking position changed, redraw the desktop. */
+                if (tk->stacking != i)
+                {
+                    tk->stacking = i;
+                    desk_set_dirty_by_win(pg, tk);
+                }
+            }
 
-    ENTER;
-    if ((win == GDK_ROOT_WINDOW()) || !(t = g_hash_table_lookup(p->htable, &win)))
-        RET();
+            /* Task is not in task list. */
+            else
+            {
+                /* Allocate and initialize new task structure. */
+                tk = g_new0(PagerTask, 1);
+                tk->present_in_client_list = TRUE;
+                tk->win = client_list[i];
+                tk->ws = get_wm_state(tk->win);
+                tk->desktop = get_net_wm_desktop(tk->win);
+                get_net_wm_state(tk->win, &tk->nws);
+                get_net_wm_window_type(tk->win, &tk->nwwt);
+                task_get_geometry(tk);
+                if ( ! FBPANEL_WIN(tk->win))
+                    XSelectInput(GDK_DISPLAY(), tk->win, PropertyChangeMask | StructureNotifyMask);
+                desk_set_dirty_by_win(pg, tk);
 
-    /* The property is deleted */
-    if( ((XPropertyEvent*)ev)->state == 1 )
-        return;
-
-    DBG("window=0x%x\n", t->win);
-    if (at == a_WM_STATE)    {
-        DBG("event=WM_STATE\n");
-        t->ws = get_wm_state (t->win);
-    } else if (at == a_NET_WM_STATE) {
-        DBG("event=NET_WM_STATE\n");
-        get_net_wm_state(t->win, &t->nws);
-    } else if (at == a_NET_WM_DESKTOP) {
-        DBG("event=NET_WM_DESKTOP\n");
-        desk_set_dirty_by_win(p, t); // to clean up desks where this task was
-        t->desktop = get_net_wm_desktop(t->win);
-    } else {
-        RET();
+                /* Link the task structure into the task list. */
+                if (tk_pred == NULL)
+                {
+                    tk->task_flink = pg->task_list;
+                    pg->task_list = tk;
+                }
+                else
+                {
+                    tk->task_flink = tk_pred->task_flink;
+                    tk_pred->task_flink = tk;
+                }
+            }
+            pg->tasks_in_stacking_order[i] = tk;
+        }
+        Xfree(client_list);
     }
-    desk_set_dirty_by_win(p, t);
-    RET();
-}
 
-static GdkFilterReturn
-pager_event_filter( XEvent *xev, GdkEvent *event, pager *pg)
-{
-    ENTER;
-    if (xev->type == PropertyNotify )
-        pager_propertynotify(pg, xev);
-    else if (xev->type == ConfigureNotify )
-        pager_configurenotify(pg, xev);
-    RET(GDK_FILTER_CONTINUE);
-}
-
-
-
-
-
-static void
-pager_rebuild_all(FbEv *ev, pager *pg)
-{
-    int desknum, curdesk, dif, i;
-
-    ENTER;
-    desknum = pg->desknum;
-    curdesk = pg->curdesk;
-
-    pg->desknum = get_net_number_of_desktops();
-    if (pg->desknum < 1)
-        pg->desknum = 1;
-    else if (pg->desknum > MAX_DESK_NUM) {
-        pg->desknum = MAX_DESK_NUM;
-        ERR("pager: max number of supported desks is %d\n", MAX_DESK_NUM);
+    /* Remove windows from the task list that are not present in the NET_CLIENT_LIST_STACKING. */
+    PagerTask * tk_pred = NULL;
+    PagerTask * tk = pg->task_list;
+    while (tk != NULL)
+    {
+        PagerTask * tk_succ = tk->task_flink;
+        if (tk->present_in_client_list)
+        {
+            tk->present_in_client_list = FALSE;
+            tk_pred = tk;
+        }
+        else
+        {
+            if (tk_pred == NULL)
+                pg->task_list = tk_succ;
+                else tk_pred->task_flink = tk_succ;
+            task_delete(pg, tk, FALSE);
+        }
+        tk = tk_succ;
     }
-    pg->curdesk = get_net_current_desktop();
-    if (pg->curdesk >= pg->desknum)
-        pg->curdesk = 0;
-    DBG("desknum=%d curdesk=%d\n", desknum, curdesk);
-    DBG("pg->desknum=%d pg->curdesk=%d\n", pg->desknum, pg->curdesk);
-    dif = pg->desknum - desknum;
-
-    if (dif == 0)
-        RET();
-
-    if (dif < 0) {
-        /* if desktops were deleted then delete their maps also */
-        for (i = pg->desknum; i < desknum; i++)
-            desk_free(pg, i);
-    } else {
-        for (i = desknum; i < pg->desknum; i++)
-            desk_new(pg, i);
-    }
-    do_net_client_list_stacking(NULL, pg);
-    RET();
 }
 
-
-static int
-pager_constructor(Plugin *plug, char **fp)
+/* Plugin constructor. */
+static int pager_constructor(Plugin * plug, char ** fp)
 {
-    pager *pg;
-
-    ENTER;
-    pg = g_new0(pager, 1);
-    g_return_val_if_fail(pg != NULL, 0);
+    /* Allocate plugin context and set into Plugin private data pointer. */
+    PagerPlugin * pg = g_new0(PagerPlugin, 1);
     plug->priv = pg;
     pg->plugin = plug;
 
+    /* Compute aspect ratio of screen image. */
+    pg->aspect_ratio = (gfloat) gdk_screen_width() / (gfloat) gdk_screen_height();
+
+    /* Allocate top level widget and set into Plugin widget pointer. */
     plug->pwid = gtk_event_box_new();
-    GTK_WIDGET_SET_FLAGS( plug->pwid, GTK_NO_WINDOW );
+    GTK_WIDGET_SET_FLAGS(plug->pwid, GTK_NO_WINDOW);
+    gtk_container_set_border_width(GTK_CONTAINER(plug->pwid), 0);
 
-    pg->htable = g_hash_table_new (g_int_hash, g_int_equal);
+    /* Create an icon grid manager to manage the drawing areas within the container. */
+    GtkOrientation bo = (plug->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
+    pg->icon_grid = icon_grid_new(plug->panel, plug->pwid, bo,
+        (PANEL_HEIGHT_DEFAULT - BORDER_WIDTH * 2) * pg->aspect_ratio,
+        PANEL_HEIGHT_DEFAULT - BORDER_WIDTH * 2,
+        1, BORDER_WIDTH,
+        plug->panel->height);
 
-    pg->box = plug->panel->my_box_new(TRUE, 1);
-    gtk_container_set_border_width (GTK_CONTAINER (pg->box), 2);
-    gtk_widget_show(pg->box);
+    /* Add GDK event filter. */
+    gdk_window_add_filter(NULL, (GdkFilterFunc) pager_event_filter, pg);
 
-    gtk_container_set_border_width (GTK_CONTAINER (plug->pwid), 1);
-    gtk_container_add(GTK_CONTAINER(plug->pwid), pg->box);
-    pg->eb = pg->box;
+    /* Connect signals to receive root window events and initialize root window properties. */
+    g_signal_connect(G_OBJECT(fbev), "current_desktop", G_CALLBACK(pager_net_current_desktop), (gpointer) pg);
+    g_signal_connect(G_OBJECT(fbev), "active_window", G_CALLBACK(pager_net_active_window), (gpointer) pg);
+    g_signal_connect(G_OBJECT(fbev), "desktop_names", G_CALLBACK(pager_net_desktop_names), (gpointer) pg);
+    g_signal_connect(G_OBJECT(fbev), "number_of_desktops", G_CALLBACK(pager_net_number_of_desktops), (gpointer) pg);
+    g_signal_connect(G_OBJECT(fbev), "client_list_stacking", G_CALLBACK(pager_net_client_list_stacking), (gpointer) pg);
 
-    pg->ratio = (gfloat)gdk_screen_width() / (gfloat)gdk_screen_height();
-    pg->scaley = (gfloat)pg->dh / (gfloat)gdk_screen_height();
-    pg->scalex = (gfloat)pg->dw / (gfloat)gdk_screen_width();
-
-    pager_rebuild_all(fbev, pg);
-    //do_net_current_desktop(fbev, pg);
-    //do_net_client_list_stacking(fbev, pg);
-
-    gdk_window_add_filter(NULL, (GdkFilterFunc)pager_event_filter, pg );
-
-    g_signal_connect (G_OBJECT (fbev), "current_desktop",
-          G_CALLBACK (do_net_current_desktop), (gpointer) pg);
-    g_signal_connect (G_OBJECT (fbev), "active_window",
-          G_CALLBACK (do_net_active_window), (gpointer) pg);
-    g_signal_connect (G_OBJECT (fbev), "number_of_desktops",
-          G_CALLBACK (pager_rebuild_all), (gpointer) pg);
-    g_signal_connect (G_OBJECT (fbev), "client_list_stacking",
-          G_CALLBACK (do_net_client_list_stacking), (gpointer) pg);
-    RET(1);
+    /* Allocate per-desktop structures. */
+    pager_net_number_of_desktops(fbev, pg);
+    pager_net_desktop_names(fbev, pg);
+    return 1;
 }
 
-static void
-pager_destructor(Plugin *p)
+/* Plugin destructor. */
+static void pager_destructor(Plugin * p)
 {
-    pager *pg = (pager *)p->priv;
+    PagerPlugin * pg = (PagerPlugin *) p->priv;
 
-    ENTER;
-    g_signal_handlers_disconnect_by_func(G_OBJECT (fbev), do_net_current_desktop, pg);
-    g_signal_handlers_disconnect_by_func(G_OBJECT (fbev), do_net_active_window, pg);
-    g_signal_handlers_disconnect_by_func(G_OBJECT (fbev), pager_rebuild_all, pg);
-    g_signal_handlers_disconnect_by_func(G_OBJECT (fbev), do_net_client_list_stacking, pg);
-    gdk_window_remove_filter(NULL, (GdkFilterFunc)pager_event_filter, pg);
-    while (--pg->desknum) {
-        desk_free(pg, pg->desknum);
-    }
-    g_hash_table_foreach_remove(pg->htable, (GHRFunc) task_remove_all, (gpointer)pg);
-    g_hash_table_destroy(pg->htable);
-    gtk_widget_destroy(pg->eb);
+    /* Remove GDK event filter. */
+    gdk_window_remove_filter(NULL, (GdkFilterFunc) pager_event_filter, pg);
+
+    /* Remove root window signal handlers. */
+    g_signal_handlers_disconnect_by_func(G_OBJECT(fbev), pager_net_current_desktop, pg);
+    g_signal_handlers_disconnect_by_func(G_OBJECT(fbev), pager_net_active_window, pg);
+    g_signal_handlers_disconnect_by_func(G_OBJECT(fbev), pager_net_number_of_desktops, pg);
+    g_signal_handlers_disconnect_by_func(G_OBJECT(fbev), pager_net_client_list_stacking, pg);
+
+    /* Deallocate desktop structures. */
+    int i;
+    for (i = 0; i < pg->number_of_desktops; i += 1)
+        desk_free(pg, i);
+
+    /* Deallocate task list. */
+    while (pg->task_list != NULL)
+        task_delete(pg, pg->task_list, TRUE);
+
+    /* Deallocate all memory. */
+    icon_grid_free(pg->icon_grid);
+    g_free(pg->tasks_in_stacking_order);
     g_free(pg);
-    RET();
 }
 
+/* Callback when panel configuration changes. */
+static void pager_panel_configuration_changed(Plugin * p)
+{
+    /* Reset the icon grid orientation. */
+    PagerPlugin * pg = (PagerPlugin *) p->priv;
+    GtkOrientation bo = (p->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
+    icon_grid_set_orientation(pg->icon_grid, bo, p->panel->height); 
+}
 
+/* Plugin descriptor. */
 PluginClass pager_plugin_class = {
-    fname: NULL,
-    count: 0,
+
+    PLUGINCLASS_VERSIONING,
 
     type : "pager",
     name : N_("Desktop Pager"),
     version: "1.0",
     description : N_("Simple pager plugin"),
-    /* FIXME: orientation should be handled!! */
+
     constructor : pager_constructor,
     destructor  : pager_destructor,
     config : NULL,
-    save : NULL
+    save : NULL,
+    panel_configuration_changed : pager_panel_configuration_changed
 };

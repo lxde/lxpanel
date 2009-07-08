@@ -409,7 +409,6 @@ static int netstat_constructor(Plugin *p, char **fp)
                     ns->fixcmd = g_strdup(s.t[1]);
                 else {
                     ERR( "netstat: unknown var %s\n", s.t[0]);
-                    goto error;
                 }
             } else {
                 ERR( "netstat: illegal in this context %s\n", s.str);
@@ -464,8 +463,8 @@ static void orientation_changed(Plugin* p)
 }
 
 PluginClass netstat_plugin_class = {
-    fname: NULL,
-    count: 0,
+    
+    PLUGINCLASS_VERSIONING,
 
     type : "netstat",
     name : N_("Manage Networks"),

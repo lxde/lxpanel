@@ -8,6 +8,7 @@ LXPanel - Lightweight X11 desktop panel
     Fred Chien <cfsghost@gmail.com>
     Daniel Kesler <kesler.daniel@gmail.com>
     Juergen Hoetzel <juergen@archlinux.org>
+    Marty Jack <martyj19@comcast.net>
 
 [History]
 LXPanel is a derivative work from fbpanel [1] written by Anatoly Asviyan,
@@ -32,6 +33,7 @@ modify existing projects to serve our needs. :-)
   gtk+ package. It's originally developed by gtk+ developers, but it contains
   some bugs. So a fixed version is included here.
 
+Window commands plugin icon from http://www.oxygen-icons.org/ (licensed under LGPL)
+
 [1] fbpanel, http://fbpanel.sourceforge.net/
 [2] fspanel, http://freshmeat.net/projects/fspanel/
-

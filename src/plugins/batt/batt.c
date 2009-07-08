@@ -48,7 +48,6 @@
 #include "misc.h" /* used for the line struct */
 #include "panel.h" /* used to determine panel orientation */
 #include "plugin.h"
-#include "glib-mem.h" /* compatibility macros for g_slice* */
 
 /* The last MAX_SAMPLES samples are averaged when charge rates are evaluated.
    This helps prevent spikes in the "time left" values the user sees. */
@@ -614,8 +613,8 @@ static void save(Plugin* p, FILE* fp) {
 
 
 PluginClass batt_plugin_class = {
-    fname       : NULL,
-    count       : 0,
+    
+    PLUGINCLASS_VERSIONING,
 
     type        : "batt",
     name        : N_("Battery Monitor"),
@@ -626,5 +625,5 @@ PluginClass batt_plugin_class = {
     destructor  : destructor,
     config      : config,
     save        : save,
-    orientation : orientation
+    panel_configuration_changed : orientation
 };

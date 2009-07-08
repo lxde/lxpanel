@@ -9,8 +9,6 @@ src/panel.c
 src/plugin.c
 src/gtk-run.c
 
-src/systray/tray.c
-
 # Putting translation of plugins in main catalog is not a good idea...
 src/plugins/cpu/cpu.c
 src/plugins/deskno/deskno.c
@@ -28,6 +26,7 @@ src/plugins/netstatus/netstatus-util.c
 src/plugins/separator.c
 src/plugins/pager.c
 src/plugins/space.c
+src/plugins/tray.c
 src/plugins/xkb/xkb-plugin.c
 src/plugins/wincmd.c
 src/plugins/dirmenu.c

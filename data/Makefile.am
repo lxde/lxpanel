@@ -50,7 +50,8 @@ lxpanel_images_DATA = \
 	images/numlock-on.png \
 	images/numlock-off.png \
 	images/scrllock-on.png \
-	images/scrllock-off.png
+	images/scrllock-off.png \
+	images/window-manager.png
 
 
 lxpanel_imagesdir = $(datadir)/lxpanel/images

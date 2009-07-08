@@ -17,12 +17,6 @@ INCLUDES = \
 
 BUILTIN_PLUGINS = $(top_builddir)/src/plugins/libbuiltin_plugins.a
 
-TRAY_SOURCES= \
-	systray/eggmarshalers.c systray/eggmarshalers.h \
-	systray/eggtraymanager.c systray/eggtraymanager.h \
-	systray/fixedtip.c systray/fixedtip.h \
-	systray/tray.c
-
 if ENABLE_MENU_CACHE
 MENU_SOURCES = gtk-run.c
 endif
@@ -30,12 +24,13 @@ endif
 lxpanel_SOURCES = \
 	glib-mem.h \
 	misc.c misc.h \
-	$(TRAY_SOURCES) \
 	bg.c bg.h  \
 	configurator.c \
 	dbg.c dbg.h \
 	ev.c ev.h \
 	gtkbar.h gtkbar.c \
+	icon-grid.h icon-grid.c \
+	menu-policy.h menu-policy.c \
 	panel.c panel.h \
 	plugin.c plugin.h \
 	$(MENU_SOURCES)

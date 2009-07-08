@@ -73,10 +73,14 @@ static void on_response( GtkDialog* dlg, gint response, netstatus *ns )
     }
 }
 
-static void on_button_press( GtkWidget* widget, GdkEventButton* evt, Plugin* p )
+static gboolean on_button_press( GtkWidget* widget, GdkEventButton* evt, Plugin* p )
 {
     NetstatusIface* iface;
     netstatus *ns = (netstatus*)p->priv;
+
+    /* Standard right-click handling. */
+    if (plugin_button_press_event(widget, evt, p))
+        return TRUE;
 
     if( evt->button == 1 ) /*  Left click*/
     {
@@ -93,6 +97,7 @@ static void on_button_press( GtkWidget* widget, GdkEventButton* evt, Plugin* p )
         }
         gtk_window_present( GTK_WINDOW(ns->dlg) );
     }
+    return TRUE;
 }
 
 static int
@@ -121,7 +126,6 @@ netstatus_constructor(Plugin *p, char** fp)
                     ns->config_tool = g_strdup(s.t[1]);
                 else {
                     ERR( "netstatus: unknown var %s\n", s.t[0]);
-                    goto error;
                 }
             } else {
                 ERR( "netstatus: illegal in this context %s\n", s.str);
@@ -151,7 +155,6 @@ netstatus_constructor(Plugin *p, char** fp)
     RET(1);
 
  error:
-    netstatus_destructor(p);
     RET(0);
 }
 
@@ -186,11 +189,11 @@ static void save_config( Plugin* p, FILE* fp )
 }
 
 PluginClass netstatus_plugin_class = {
-    fname: NULL,
-    count: 0,
+
+    PLUGINCLASS_VERSIONING,
 
     type : "netstatus",
-    name : N_("Net Status Monitor"),
+    name : N_("Network Status Monitor"),
     version: "1.0",
     description : N_("Monitor network status"),
 

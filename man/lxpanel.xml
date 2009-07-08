@@ -33,7 +33,7 @@
 >lxpanel</refname>
 
     <refpurpose
->a lightweight GTK2-based panel for LXDE desktop.</refpurpose>
+>a lightweight GTK2-based panel for the LXDE desktop.</refpurpose>
   </refnamediv>
   <refsynopsisdiv
 >    <cmdsynopsis
@@ -53,7 +53,7 @@
     <para
 ><command
 >lxpanel</command> is a program that provides a panel
-    for desktop, usually for LXDE. It is lightweight GTK+ 2.x based desktop 
+    for the desktop, usually for LXDE. It is a lightweight GTK+ 2.x based desktop 
     panel.
     </para>
    
@@ -97,7 +97,7 @@ mark="bullet"
 >Volume control plug-in (optional)</para></listitem>
     	<listitem
 ><para
->lxpanelctl, an external controller let you control lxpanel in
+>lxpanelctl, an external controller lets you control lxpanel in
     		other programs. For example, "lxpanelctl run" will show the Run
     		dialog in lxpanel, and "lxpanelctl menu" will show the application
     		menu. This is useful in key bindings provided by window managers.</para>

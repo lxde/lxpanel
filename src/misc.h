@@ -72,7 +72,7 @@ extern int lxpanel_put_line(FILE* fp, const char* format, ...);
 //extern int lxpanel_put_int( FILE* fp, const char* name, int val );
 int get_line_as_is(char **fp, line *s);
 
-void Xclimsg(Window win, long type, long l0, long l1, long l2, long l3, long l4);
+void Xclimsg(Window win, Atom type, long l0, long l1, long l2, long l3, long l4);
 void Xclimsgwm(Window win, Atom type, Atom arg);
 void *get_xaproperty (Window win, Atom prop, Atom type, int *nitems);
 char *get_textproperty(Window win, Atom prop);
@@ -91,22 +91,15 @@ GPid get_net_wm_pid(Window win);
 
 void calculate_position(Panel *np);
 gchar *expand_tilda(gchar *file);
-GdkPixbuf *gdk_pixbuf_scale_ratio(GdkPixbuf *p, int width, int height, GdkInterpType itype,
-                                  gboolean keep_ratio);
-GtkWidget *_gtk_image_new_from_file_scaled(const gchar *file, gint width, gint height,
-                                          gboolean keep_ratio);
+
 GtkWidget *_gtk_image_new_from_file_scaled(const gchar *file, gint width,
                                            gint height, gboolean keep_ratio);
 void get_button_spacing(GtkRequisition *req, GtkContainer *parent, gchar *name);
 guint32 gcolor2rgb24(GdkColor *color);
-GtkWidget *fb_button_new_from_file(gchar *fname, int width, int height, gulong hicolor,
-      gboolean keep_ratio);
-GtkWidget *fb_button_new_from_file_with_label(gchar *fname, int width, int height,
-      gulong hicolor, gboolean keep_ratio, gchar *label);
-GtkWidget *fb_button_new_from_file_with_colorlabel(gchar *fname, int width, int height,
-      gulong hicolor, gulong fcolor, gboolean keep_ratio, gchar *name);
-void _gtk_image_set_from_file_scaled( GtkWidget* img, const gchar *file, gint width,
-	gint height, gboolean keep_ratio);
+GtkWidget * fb_button_new_from_file(
+    gchar * image_file, int width, int height, gulong highlight_color, gboolean keep_ratio);
+GtkWidget * fb_button_new_from_file_with_label(
+    gchar * image_file, int width, int height, gulong highlight_color, gboolean keep_ratio, Panel * panel, gchar * label);
 
 char* translate_exec_to_cmd( const char* exec, const char* icon,
                              const char* title, const char* fpath );
@@ -125,7 +118,7 @@ void show_error( GtkWindow* parent_win, const char* msg );
 
 /* Parameters: const char* name, gpointer ret_value, GType type, ....NULL */
 GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
-                              GSourceFunc apply_func, gpointer plugin,
+                              GSourceFunc apply_func, Plugin * plugin,
                       const char* name, ... );
 
 
@@ -133,7 +126,7 @@ char* get_config_file( const char* profile, const char* file_name, gboolean is_g
 
 extern GtkMenu* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean use_sub_menu );
 
-extern GdkPixbuf* lxpanel_load_icon( const char* name, int size, gboolean use_fallback );
+extern GdkPixbuf* lxpanel_load_icon( const char* name, int width, int height, gboolean use_fallback );
 
 void fb_button_set_from_file(GtkWidget* btn, const char* img_file);
 

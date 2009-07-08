@@ -46,8 +46,8 @@ free_xkb_options_dlg(GtkDialog *dialog, gint arg1, gpointer user_data);
 static void
 xkb_options_dlg_set_xkb(t_xkb_options_dlg *dlg, t_xkb *xkb);
 
-static void 
-change_group(GtkButton *btn, gpointer data) ;
+static gboolean 
+change_group(GtkWidget * widget, GdkEventButton * event, gpointer data) ;
 
 static void 
 active_window_changed(FbEv *ev, gpointer data) ;
@@ -62,7 +62,7 @@ xkb_refresh_gui(t_xkb *data) ;
  *                     Panel Plugin Interface                         *
  * ------------------------------------------------------------------ */
 
-static void 
+static int
 xkb_constructor (Plugin *plugin, char** fp);
 
 static void 
@@ -90,7 +90,7 @@ static void
 xkb_about(Plugin *plugin, t_xkb *xkb);
 
 /* create widgets and connect to signals */
-static void 
+static int
 xkb_constructor (Plugin *plugin, char** fp)
 {
   t_xkb *xkb;
@@ -120,7 +120,6 @@ xkb_constructor (Plugin *plugin, char** fp)
                     xkb->default_group = atoi(s.t[1]);
                 else {
                     ERR( "xkb: unknown var %s\n", s.t[0]);
-                    goto error;
                 }
             } else {
                 ERR( "xkb: illegal in this context %s\n", s.str);
@@ -129,14 +128,17 @@ xkb_constructor (Plugin *plugin, char** fp)
         }
     }
 
-  xkb->size = plugin->panel->height;
+  xkb->size = PANEL_ICON_SIZE;
 
+  plugin->pwid = gtk_event_box_new();
+  gtk_widget_add_events(plugin->pwid, GDK_BUTTON_PRESS_MASK);
   xkb->btn = gtk_button_new();
+  gtk_container_add(GTK_CONTAINER(plugin->pwid), xkb->btn);
   gtk_button_set_relief(GTK_BUTTON(xkb->btn), GTK_RELIEF_NONE);
   // gtk_container_add(GTK_CONTAINER(xkb->plugin->pwid), xkb->btn);
 
   gtk_widget_show(xkb->btn);
-  g_signal_connect(xkb->btn, "clicked", G_CALLBACK(change_group), xkb);
+  g_signal_connect(xkb->btn, "button-press-event", G_CALLBACK(change_group), xkb);
 
   xkb->vbox = gtk_vbox_new(FALSE, 0);
   gtk_container_add(GTK_CONTAINER(xkb->btn), xkb->vbox);
@@ -161,18 +163,17 @@ xkb_constructor (Plugin *plugin, char** fp)
   win_change_hanler = g_signal_connect( G_OBJECT (fbev), 
       "active_window", G_CALLBACK(active_window_changed), xkb);
 
-  win_close_hanler = g_signal_connect( G_OBJECT (fbev), 
-      "destroy_window", G_CALLBACK(application_closed), xkb);
+//  win_close_hanler = g_signal_connect( G_OBJECT (fbev), 
+//      "destroy_window", G_CALLBACK(application_closed), xkb);
 
-  gtk_widget_show_all(xkb->btn);
+  gtk_widget_show_all(plugin->pwid);
 
   xkb->plugin = plugin;
   plugin->priv = xkb;
-  plugin->pwid = xkb->btn;
+  
   
     RET(1);
 error:
-	xkb_destructor( plugin );
     RET(0);
 }
 
@@ -187,9 +188,9 @@ gboolean
 xkb_set_size(Plugin *plugin, gint size,
                   t_xkb *xkb)
 {
-  GtkOrientation orientation;
-  DBG ("setting size %d", size);
-  xkb->size = size;
+//  GtkOrientation orientation;
+//  DBG ("setting size %d", size);
+//  xkb->size = size;
 /*
   orientation = xfce_panel_plugin_get_orientation (plugin);
   if (orientation == GTK_ORIENTATION_HORIZONTAL)
@@ -282,11 +283,11 @@ xkb_save_config(t_xkb *xkb, gchar *filename)
 void 
 active_window_changed(FbEv *ev, gpointer data) 
 {
-	Window *win = fb_ev_active_window( ev );
+	Window * win = fb_ev_active_window( ev );
 	DBG( "win = %p, pid=%d", win, get_net_wm_pid(win) );
-	if( win == None )
+	if( *win == None )
 		return;
-  react_active_window_changed(get_net_wm_pid( win ), (t_xkb *) data);
+  react_active_window_changed(get_net_wm_pid( *win ), (t_xkb *) data);
 }
 
 void 
@@ -296,10 +297,16 @@ application_closed( FbEv* ev, Window win, gpointer data)
   react_application_closed(get_net_wm_pid(win));  
 }
 
-void 
-change_group(GtkButton *btn, gpointer data) 
+static gboolean 
+change_group(GtkWidget *widget,  GdkEventButton * event, gpointer data) 
 {
-  do_change_group(1, (t_xkb *) data);
+    t_xkb * xkb = (t_xkb *) data;
+
+    /* Standard right-click handling. */
+    if (plugin_button_press_event(widget, event, xkb->plugin))
+        return TRUE;
+
+  do_change_group(1, xkb);
 }
 
 void 
@@ -492,11 +499,11 @@ xkb_options_dlg_set_xkb(t_xkb_options_dlg *dlg, t_xkb *xkb)
 
 
 PluginClass xkb_plugin_class = {
-    fname: NULL,
-    count: 0,
+
+    PLUGINCLASS_VERSIONING,
 
     type : "xkb",
-    name : N_("Kayboard Layout switcher"),
+    name : N_("Keyboard Layout Switcher"),
     version: "1.0",
     description : N_("Switch between available keyboard layouts"),
 

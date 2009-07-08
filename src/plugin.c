@@ -36,57 +36,30 @@
 //#define DEBUG
 #include "dbg.h"
 
-static GList *pcl = NULL;
+static GList * pcl = NULL;			/* List of PluginClass structures */
 
-#if 0
-/* dummy type plugin for dynamic plugins registering new types */
-static void
-lx_type_plugin_iface_init(gpointer g_iface, gpointer g_iface_data);
+static void register_plugin_class(PluginClass * pc, gboolean dynamic);
+static void init_plugin_class_list(void);
+static PluginClass * plugin_find_class(const char * type);
+static PluginClass * plugin_load_dynamic(const char * type, const gchar * path);
+static void plugin_class_unref(PluginClass * pc);
 
-G_DEFINE_TYPE_EXTENDED ( LXTypePlugin,
-                         lx_type_plugin,
-                         G_TYPE_OBJECT,
-                         0,
-                         G_IMPLEMENT_INTERFACE (G_TYPE_TYPE_PLUGIN,
-                                         lx_type_plugin_iface_init))
-
-void lx_type_plugin_init( LXTypePlugin* tp )
-{
-}
-
-void lx_type_plugin_class_init(LXTypePluginClass* klass)
-{
-}
-
-void lx_type_plugin_iface_init(gpointer g_iface, gpointer g_iface_data)
-{
-}
-
-GTypePlugin* lx_type_plugin_get(const char* plugin_name)
-{
-    LXTypePlugin* tp = g_object_new(LX_TYPE_TYPE_PLUGIN, NULL);
-    return tp;
-}
-#endif
-
-/* Dynamic parameter for static (built-in) plugins must be FALSE
- * so lxpanel will not try to unload them */
+/* Dynamic parameter for static (built-in) plugins must be FALSE so we will not try to unload them */
 #define REGISTER_STATIC_PLUGIN_CLASS(pc) \
 do {\
     extern PluginClass pc;\
     register_plugin_class(&pc, FALSE);\
 } while (0)
 
-
-static void
-register_plugin_class(PluginClass *pc, int dynamic)
+/* Register a PluginClass. */
+static void register_plugin_class(PluginClass * pc, gboolean dynamic)
 {
     pcl = g_list_append(pcl, pc);
     pc->dynamic = dynamic;
 }
 
-static void
-init_plugin_class_list()
+/* Initialize the static plugins. */
+static void init_plugin_class_list(void)
 {
 #ifdef STATIC_SEPARATOR
     REGISTER_STATIC_PLUGIN_CLASS(separator_plugin_class);
@@ -131,264 +104,272 @@ init_plugin_class_list()
 #endif
 }
 
-GList* plugin_find_class( const char* type )
+/* Look up a plugin class by name. */
+static PluginClass * plugin_find_class(const char * type)
 {
-    GList *tmp;
-    PluginClass *pc = NULL;
-    for (tmp = pcl; tmp; tmp = g_list_next(tmp)) {
-        pc = (PluginClass *) tmp->data;
-        if (!g_ascii_strcasecmp(type, pc->type)) {
-            LOG(LOG_INFO, "   already have it\n");
-            break;
-        }
+    GList * tmp;
+    for (tmp = pcl; tmp != NULL; tmp = g_list_next(tmp))
+    {
+        PluginClass * pc = (PluginClass *) tmp->data;
+        if (g_ascii_strcasecmp(type, pc->type) == 0)
+            return pc;
     }
-    return tmp;
+    return NULL;
 }
 
-static PluginClass*
-plugin_load_dynamic( const char* type, const gchar* path )
+/* Load a dynamic plugin. */
+static PluginClass * plugin_load_dynamic(const char * type, const gchar * path)
 {
-    PluginClass *pc = NULL;
-    GModule *m;
-    gpointer tmpsym;
-    char class_name[ 128 ];
-    m = g_module_open(path, G_MODULE_BIND_LAZY);
-    if (!m) {
-        /* ERR("error is %s\n", g_module_error()); */
-        return NULL;
-    }
-    g_snprintf( class_name, 128, "%s_plugin_class", type );
+    PluginClass * pc = NULL;
 
-    if (!g_module_symbol(m, class_name, &tmpsym)
-         || (pc = tmpsym) == NULL
-         || strcmp(type, pc->type)) {
-        g_module_close(m);
-        ERR("%s.so is not a lxpanel plugin\n", type);
-        RET(NULL);
+    /* Load the external module. */
+    GModule * m = g_module_open(path, G_MODULE_BIND_LAZY);
+    if (m != NULL)
+    {
+        /* Formulate the name of the expected external variable of type PluginClass. */
+        char class_name[128];
+        g_snprintf(class_name, sizeof(class_name), "%s_plugin_class", type);
+
+        /* Validate that the external variable is of type PluginClass. */
+        gpointer tmpsym;
+        if (( ! g_module_symbol(m, class_name, &tmpsym))	/* Ensure symbol is present */
+        || ((pc = tmpsym) == NULL)
+        || (pc->structure_size != sizeof(PluginClass))		/* Then check versioning information */
+        || (pc->structure_version != PLUGINCLASS_VERSION)
+        || (strcmp(type, pc->type) != 0))			/* Then and only then access other fields; check name */
+        {
+            g_module_close(m);
+            ERR("%s.so is not a lxpanel plugin\n", type);
+            return NULL;
+        }
+
+        /* Register the newly loaded and valid plugin. */
+        pc->gmodule = m;
+        register_plugin_class(pc, TRUE);
     }
-    pc->gmodule = m;
-    register_plugin_class(pc, TRUE);
     return pc;
 }
 
-Plugin *
-plugin_load(char *type)
+/* Create an instance of a plugin with a specified name, loading it if external. */
+Plugin * plugin_load(char * type)
 {
-    GList *tmp;
-    PluginClass *pc = NULL;
-    Plugin *plug = NULL;
-
-    if (!pcl)
+    /* Initialize static plugins on first call. */
+    if (pcl == NULL)
         init_plugin_class_list();
 
-    tmp = plugin_find_class( type );
+    /* Look up the PluginClass. */
+    PluginClass * pc = plugin_find_class(type);
 
-    if( tmp ) {
-        pc = (PluginClass *) tmp->data;
-    }
 #ifndef DISABLE_PLUGINS_LOADING
-    else if ( g_module_supported() ) {
-        gchar path[ PATH_MAX ];
-        
-        if( !pc ) {
-            g_snprintf(path, PATH_MAX, PACKAGE_LIB_DIR "/lxpanel/plugins/%s.so", type);
-            pc = plugin_load_dynamic( type, path );
-        }
+    /* If not found and dynamic loading is available, try to locate an external plugin. */
+    if ((pc == NULL) && (g_module_supported()))
+    {
+        gchar path[PATH_MAX];
+        g_snprintf(path, sizeof(path), PACKAGE_LIB_DIR "/lxpanel/plugins/%s.so", type);
+        pc = plugin_load_dynamic(type, path);
     }
 #endif  /* DISABLE_PLUGINS_LOADING */
 
-    /* nothing was found */
-    if (!pc)
+    /* If not found, return failure. */
+    if (pc == NULL)
         return NULL;
 
-    plug = g_new0(Plugin, 1);
-    g_return_val_if_fail (plug != NULL, NULL);
+    /* Instantiate the plugin */
+    Plugin * plug = g_new0(Plugin, 1);
     plug->class = pc;
-    pc->count++;
+    pc->count += 1;
     return plug;
 }
 
-
-void plugin_put(Plugin *this)
+/* Configure and start a plugin by calling its constructor. */
+int plugin_start(Plugin * pl, char ** fp)
 {
-    PluginClass *pc = this->class;
-    plugin_class_unref( pc );
-    g_free(this);
-}
-
-int
-plugin_start(Plugin *this, char** fp)
-{
-
-    DBG("%s\n", this->class->type);
-
-    if (!this->class->constructor(this, fp)) {
+    /* Call the constructor.
+     * It is responsible for parsing the parameters, and setting "pwid" to the top level widget. */
+    if ( ! pl->class->constructor(pl, fp))
         return 0;
-    }
 
-    if (this->class->one_per_system)
-        this->class->one_per_system_instantiated = TRUE;
+    /* If this plugin can only be instantiated once, count the instantiation.
+     * This causes the configuration system to avoid displaying the plugin as one that can be added. */
+    if (pl->class->one_per_system)
+        pl->class->one_per_system_instantiated = TRUE;
 
-    if (this->pwid ) {
-        /* this->pwid is created by the plugin */
-        gtk_widget_set_name(this->pwid, this->class->type);
-        gtk_box_pack_start(GTK_BOX(this->panel->box), this->pwid, this->expand, TRUE,
-              this->padding);
-        gtk_container_set_border_width(GTK_CONTAINER(this->pwid), this->border);
-
-        gtk_widget_show(this->pwid);
+    /* If the plugin has a top level widget, add it to the panel's container. */
+    if (pl->pwid != NULL)
+    {
+        gtk_widget_set_name(pl->pwid, pl->class->type);
+        gtk_box_pack_start(GTK_BOX(pl->panel->box), pl->pwid, pl->expand, TRUE, pl->padding);
+        gtk_container_set_border_width(GTK_CONTAINER(pl->pwid), pl->border);
+        gtk_widget_show(pl->pwid);
     }
     return 1;
 }
 
-
-void plugin_stop(Plugin *this)
+/* Unload a plugin if initialization fails. */
+void plugin_unload(Plugin * pl)
 {
-    if (/*!this->class->invisible &&*/ this->pwid )
-    {
-        gtk_widget_destroy(this->pwid);
-        this->pwid = NULL;
-    }
-    this->class->destructor(this);
-    this->panel->plug_num--;
-    this->class->one_per_system_instantiated = FALSE;
+    plugin_class_unref(pl->class);
+    g_free(pl);
 }
 
-void plugin_class_unref( PluginClass* pc )
+/* Delete a plugin. */
+void plugin_delete(Plugin * pl)
 {
-    --pc->count;
-    if (pc->count == 0 && pc->dynamic && ( ! pc->not_unloadable)) {
+    Panel * p = pl->panel;
+    PluginClass * pc = pl->class;
+
+    /* If a plugin configuration dialog is open, close it. */
+    if (p->plugin_pref_dialog != NULL)
+    {
+        gtk_widget_destroy(p->plugin_pref_dialog);
+        p->plugin_pref_dialog = NULL;
+    }
+
+    /* Run the destructor and then destroy the top level widget.
+     * This prevents problems with the plugin destroying child widgets. */
+    pc->destructor(pl);
+    if (pl->pwid != NULL)
+        gtk_widget_destroy(pl->pwid);
+
+    /* Data structure bookkeeping. */
+    pc->one_per_system_instantiated = FALSE;
+    plugin_class_unref(pc);
+
+    /* Free the Plugin structure. */
+    g_free(pl);
+}
+
+/* Unreference a dynamic plugin. */
+static void plugin_class_unref(PluginClass * pc)
+{
+    pc->count -= 1;
+
+    /* If the reference count drops to zero, unload the plugin if it is dynamic and has declared itself unloadable. */
+    if ((pc->count == 0)
+    && (pc->dynamic)
+    && ( ! pc->not_unloadable))
+    {
         pcl = g_list_remove(pcl, pc);
         g_module_close(pc->gmodule);
     }
 }
 
-/*
-   Get a list of all available plugin classes
-   Return a newly allocated GList which should be freed with
-   plugin_class_list_free( list );
-*/
-GList* plugin_get_available_classes()
+/* Get a list of all available plugin classes.
+ * Returns a newly allocated GList which should be freed with plugin_class_list_free(list). */
+GList * plugin_get_available_classes(void)
 {
-    GList* classes = NULL;
-    gchar *path;
-    char *dir_path;
-    const char* file;
-    GDir* dir;
-    GList* l;
-    PluginClass *pc;
-
-    if (!pcl)
+    /* Initialize static plugins on first call. */
+    if (pcl == NULL)
         init_plugin_class_list();
 
-    for( l = pcl; l; l = l->next ) {
-        pc = (PluginClass*)l->data;
-        classes = g_list_prepend( classes, pc );
-        ++pc->count;
+    /* Loop over all classes to formulate the result.
+     * Increase the reference count; it will be decreased in plugin_class_list_free. */
+    GList * classes = NULL;
+    GList * l;
+    for (l = pcl; l != NULL; l = l->next)
+    {
+        PluginClass * pc = (PluginClass *) l->data;
+        classes = g_list_prepend(classes, pc);
+        pc->count += 1;
     }
 
 #ifndef DISABLE_PLUGINS_LOADING
-    if( dir = g_dir_open( PACKAGE_LIB_DIR "/lxpanel/plugins", 0, NULL ) ) {
-        while( file = g_dir_read_name( dir ) ) {
-            GModule *m;
-            char* type;
-            if( ! g_str_has_suffix( file, ".so" ) )
-                  continue;
-            type = g_strndup( file, strlen(file) - 3 );
-            l = plugin_find_class( type );
-            if( l == NULL ) { /* If it has not been loaded */
-                path = g_build_filename( PACKAGE_LIB_DIR "/lxpanel/plugins", file, NULL );
-                if( pc = plugin_load_dynamic( type, path ) ) {
-                    ++pc->count;
-                    classes = g_list_prepend( classes, pc );
+    GDir * dir = g_dir_open(PACKAGE_LIB_DIR "/lxpanel/plugins", 0, NULL);
+    if (dir != NULL)
+    {
+        const char * file;
+        while ((file = g_dir_read_name(dir)) != NULL)
+        {
+            if (g_str_has_suffix(file, ".so"))
+            {
+                char * type = g_strndup(file, strlen(file) - 3);
+                if (plugin_find_class(type) == NULL)
+                {
+                    /* If it has not been loaded, do it.  If successful, add it to the result. */
+                    char * path = g_build_filename(PACKAGE_LIB_DIR "/lxpanel/plugins", file, NULL );
+                    PluginClass * pc = plugin_load_dynamic(type, path);
+                    if (pc != NULL)
+                    {
+                        pc->count += 1;
+                        classes = g_list_prepend(classes, pc);
+                    }
+                    g_free(path);
                 }
-                g_free( path );
+                g_free(type);
             }
-            g_free( type );
         }
-        g_dir_close( dir );
+        g_dir_close(dir);
     }
 #endif
-    /* classes = g_list_reverse( classes ); */
     return classes;
 }
 
-void plugin_class_list_free( GList* classes )
+/* Free the list allocated by plugin_get_available_classes. */
+void plugin_class_list_free(GList * list)
 {
-   g_list_foreach( classes, (GFunc)plugin_class_unref, NULL );
-   g_list_free( classes );
+   g_list_foreach(list, (GFunc) plugin_class_unref, NULL);
+   g_list_free(list);
 }
 
-void
-plugin_widget_set_background( GtkWidget* w, Panel* p )
+/* Recursively set the background of all widgets on a panel background configuration change. */
+void plugin_widget_set_background(GtkWidget * w, Panel * p)
 {
-	static gboolean in_tray = FALSE;
-	gboolean is_tray;
-
-    if( ! w )
-        return;
-
-    is_tray = ( GTK_IS_CONTAINER(w) && strcmp( gtk_widget_get_name( w ), "tray" ) == 0 );
-
-    if( ! GTK_WIDGET_NO_WINDOW( w ) )
+    if (w != NULL)
     {
-        if( p->background || p->transparent )
+        if ( ! GTK_WIDGET_NO_WINDOW(w))
         {
-            gtk_widget_set_app_paintable( w, TRUE );
-            if( GTK_WIDGET_REALIZED(w) )
-                gdk_window_set_back_pixmap( w->window, NULL, TRUE );
-        }
-        else
-        {
-            gtk_widget_set_app_paintable( w, FALSE );
-            if( GTK_WIDGET_REALIZED(w) )
+            if ((p->background) || (p->transparent))
             {
-                gdk_window_set_back_pixmap( w->window, NULL, FALSE );
-
-				/* dirty hack to fix the background color of tray icons :-( */
-                if( in_tray )
-					gdk_window_set_background( w->window, &w->style->bg[ GTK_STATE_NORMAL ] );
-			}
+                gtk_widget_set_app_paintable(w, TRUE);
+                if (GTK_WIDGET_REALIZED(w))
+                    gdk_window_set_back_pixmap(w->window, NULL, TRUE);
+            }
+            else
+            {
+                /* Set background according to the current GTK style. */
+                gtk_widget_set_app_paintable(w, FALSE);
+                if (GTK_WIDGET_REALIZED(w))
+                    gtk_style_set_background(w->style, w->window, GTK_STATE_NORMAL);
+            }
         }
-        // g_debug("%s has window (%s)", gtk_widget_get_name(w), G_OBJECT_TYPE_NAME(w) );
-    }
-    /*
-    else
-        g_debug("%s has NO window (%s)", gtk_widget_get_name(w), G_OBJECT_TYPE_NAME(w) );
-    */
-    if( GTK_IS_CONTAINER( w ) )
-    {
-    	if( is_tray )
-    		in_tray = TRUE;
 
-        gtk_container_foreach( (GtkContainer*)w, 
-                (GtkCallback)plugin_widget_set_background, p );
+        /* Special handling for layout widget, used in icon grid.
+         * The widget has a "bin window", which is where the actual drawing is done. */
+        if (GTK_IS_LAYOUT(w))
+        {
+            GdkWindow * bin_window = gtk_layout_get_bin_window(GTK_LAYOUT(w));
+            if (bin_window != NULL)
+            {
+                if ((p->background) || (p->transparent))
+                    panel_determine_background_pixmap(p, w, bin_window);
+                else
+                    gtk_style_set_background(w->style, bin_window, GTK_STATE_NORMAL);
+                    
+	        gdk_window_clear(bin_window);
+                gdk_window_invalidate_rect(bin_window, NULL, TRUE);
+            }
+        }
 
-        if( is_tray )
-			in_tray = FALSE;
-    }
+        /* Special handling to get tray icons redrawn.  This is the only known working technique to date. */
+        if (GTK_IS_SOCKET(w))
+        {
+            gtk_widget_hide(w);
+            if (gtk_events_pending()) gtk_main_iteration();
+            gtk_widget_show(w);
+            if (gtk_events_pending()) gtk_main_iteration();
+        }
 
-    /* Dirty hack: Force repaint of tray icons!!
-     * Normal gtk+ repaint cannot work across different processes.
-     * So, we need some dirty tricks here.
-     */
-    if( is_tray )
-    {
-        gtk_widget_set_size_request( w, w->allocation.width, w->allocation.height );
-        gtk_widget_hide (gtk_bin_get_child((GtkBin*)w));
-        if( gtk_events_pending() )
-            gtk_main_iteration();
-        gtk_widget_show (gtk_bin_get_child((GtkBin*)w));
-        if( gtk_events_pending() )
-            gtk_main_iteration();
-        gtk_widget_set_size_request( w, -1, -1 );
+        /* Recursively process all children of a container. */
+        if (GTK_IS_CONTAINER(w))
+            gtk_container_foreach(GTK_CONTAINER(w), (GtkCallback) plugin_widget_set_background, p);
     }
 }
 
-void plugin_set_background( Plugin* pl, Panel* p )
+/* Set the background of a plugin. */
+void plugin_set_background(Plugin * pl, Panel * p)
 {
     if (pl->pwid != NULL)
-        plugin_widget_set_background( pl->pwid, p );
+        plugin_widget_set_background(pl->pwid, p);
 }
 
 /* Handler for "button_press_event" signal with Plugin as parameter.
@@ -402,4 +383,26 @@ gboolean plugin_button_press_event(GtkWidget *widget, GdkEventButton *event, Plu
         return TRUE;
     }    
     return FALSE;
+}
+
+/* Helper for position-calculation callback for popup menus. */
+void plugin_popup_set_position_helper(Plugin * p, GtkWidget * near, GtkWidget * popup, GtkRequisition * popup_req, gint * px, gint * py)
+{
+    /* Get the origin of the requested-near widget in screen coordinates. */
+    gint x, y;
+    gdk_window_get_origin(GDK_WINDOW(near->window), &x, &y);
+    x += near->allocation.x;
+    y += near->allocation.y;
+
+    /* Dispatch on edge to lay out the popup menu with respect to the button.
+     * Also set "push-in" to avoid any case where it might flow off screen. */
+    switch (p->panel->edge)
+    {
+        case EDGE_TOP:          y += near->allocation.height;         break;
+        case EDGE_BOTTOM:       y -= popup_req->height;                break;
+        case EDGE_LEFT:         x += near->allocation.width;          break;
+        case EDGE_RIGHT:        x -= popup_req->width;                 break;
+    }
+    *px = x;
+    *py = y;
 }

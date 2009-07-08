@@ -50,7 +50,7 @@ typedef struct {
     GtkWidget * da;				/* Drawing area */
     GdkPixmap * pixmap;				/* Pixmap to be drawn on drawing area */
 
-    int timer;					/* Timer for periodic update */
+    guint timer;				/* Timer for periodic update */
     CPUSample * stats_cpu;			/* Ring buffer of CPU utilization values */
     unsigned int ring_cursor;			/* Cursor for ring buffer */
     int pixmap_width;				/* Width of drawing area pixmap; also size of ring buffer; does not include border size */
@@ -261,6 +261,8 @@ static void cpu_destructor(Plugin * p)
 
 /* Plugin descriptor. */
 PluginClass cpu_plugin_class = {
+
+    PLUGINCLASS_VERSIONING,
 
     type : "cpu",
     name : N_("CPU Usage Monitor"),

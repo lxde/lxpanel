@@ -226,7 +226,7 @@ static void on_entry_changed( GtkEntry* entry, GtkImage* img )
         int w, h;
         GdkPixbuf* pix;
         gtk_icon_size_lookup(GTK_ICON_SIZE_DIALOG, &w, &h);
-        pix = lxpanel_load_icon(menu_cache_item_get_icon(MENU_CACHE_ITEM(app)), MAX(w, h), TRUE);
+        pix = lxpanel_load_icon(menu_cache_item_get_icon(MENU_CACHE_ITEM(app)), w, h, TRUE);
         gtk_image_set_from_pixbuf(img, pix);
         g_object_unref(pix);
     }
