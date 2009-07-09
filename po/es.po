@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel-0.3.5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-09 13:30+0800\n"
+"POT-Creation-Date: 2009-07-09 09:19+0200\n"
 "PO-Revision-Date: 2009-06-25 13:09+0200\n"
 "Last-Translator: Hugo Florentino <sysadmin@cips.cu>\n"
 "Language-Team: Spanish <daniel@tunki.org>\n"
@@ -356,14 +356,6 @@ msgstr ""
 #: ../src/gtk-run.c:264
 msgid "Enter the command you want to execute:"
 msgstr "Ingrese comando a ejecutar:"
-
-#: ../src/systray/tray.c:211 ../src/plugins/tray.c:731
-msgid "System Tray"
-msgstr "Zona de notificación"
-
-#: ../src/systray/tray.c:213
-msgid "Old KDE/GNOME Tray"
-msgstr "Antigua zona de notificación KDE/GNOME"
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
@@ -942,6 +934,10 @@ msgstr "<Espacio>"
 msgid "Allocate space"
 msgstr "Asignar espacio"
 
+#: ../src/plugins/tray.c:731
+msgid "System Tray"
+msgstr "Zona de notificación"
+
 #: ../src/plugins/tray.c:733
 #, fuzzy
 msgid "System tray"
@@ -1387,6 +1383,9 @@ msgstr "Indicadores del teclado"
 #: ../src/plugins/kbled/kbled.c:261
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Indicadores para las teclas BloqMayús, BloqNum, BloqDespl"
+
+#~ msgid "Old KDE/GNOME Tray"
+#~ msgstr "Antigua zona de notificación KDE/GNOME"
 
 #~ msgid "Enable Image:"
 #~ msgstr "Usar imagen:"

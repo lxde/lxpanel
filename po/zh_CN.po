@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.3.8.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-09 13:30+0800\n"
+"POT-Creation-Date: 2009-07-09 09:19+0200\n"
 "PO-Revision-Date: 2008-10-05 09:20+0800\n"
 "Last-Translator: 冷罡华 <hiweed@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -354,14 +354,6 @@ msgstr ""
 #: ../src/gtk-run.c:264
 msgid "Enter the command you want to execute:"
 msgstr "输入你要想运行的命令："
-
-#: ../src/systray/tray.c:211 ../src/plugins/tray.c:731
-msgid "System Tray"
-msgstr "系统托盘 (通知区域)"
-
-#: ../src/systray/tray.c:213
-msgid "Old KDE/GNOME Tray"
-msgstr "KDE/GNOME 系统托盘"
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
@@ -955,6 +947,10 @@ msgstr "<---空白分隔--->"
 msgid "Allocate space"
 msgstr "配置空间"
 
+#: ../src/plugins/tray.c:731
+msgid "System Tray"
+msgstr "系统托盘 (通知区域)"
+
 #: ../src/plugins/tray.c:733
 #, fuzzy
 msgid "System tray"
@@ -1406,6 +1402,9 @@ msgstr "键盘指示灯"
 #: ../src/plugins/kbled/kbled.c:261
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "显示 CapsLock、NumLock、及 ScrollLock 键的状态"
+
+#~ msgid "Old KDE/GNOME Tray"
+#~ msgstr "KDE/GNOME 系统托盘"
 
 #~ msgid "Enable Image:"
 #~ msgstr "启用背景图："

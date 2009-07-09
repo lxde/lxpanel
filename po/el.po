@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-09 13:30+0800\n"
+"POT-Creation-Date: 2009-07-09 09:19+0200\n"
 "PO-Revision-Date: 2009-06-29 03:34+0200\n"
 "Last-Translator: Giorgos Koutsikos <oege89@hotmail.com>\n"
 "Language-Team: Greek\n"
@@ -352,14 +352,6 @@ msgstr ""
 #: ../src/gtk-run.c:264
 msgid "Enter the command you want to execute:"
 msgstr "Εισάγετε την εντολή προς εκτέλεση:"
-
-#: ../src/systray/tray.c:211 ../src/plugins/tray.c:731
-msgid "System Tray"
-msgstr "Πλαίσιο συστήματος"
-
-#: ../src/systray/tray.c:213
-msgid "Old KDE/GNOME Tray"
-msgstr "Παλιό KDE/GNOME πλαίσιο συστήματος"
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
@@ -934,6 +926,10 @@ msgstr "<Περιθόριο>"
 msgid "Allocate space"
 msgstr "Δέσμευση χώρου"
 
+#: ../src/plugins/tray.c:731
+msgid "System Tray"
+msgstr "Πλαίσιο συστήματος"
+
 #: ../src/plugins/tray.c:733
 #, fuzzy
 msgid "System tray"
@@ -1379,6 +1375,9 @@ msgstr "Ενδείξεις πληκτρολογίου"
 #: ../src/plugins/kbled/kbled.c:261
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Ενδείξεις για τα κουμπιά CapsLock, NumLock, και ScrollLock"
+
+#~ msgid "Old KDE/GNOME Tray"
+#~ msgstr "Παλιό KDE/GNOME πλαίσιο συστήματος"
 
 #~ msgid "Enable Image:"
 #~ msgstr "Ενεργοποίηση εικόνας:"

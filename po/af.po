@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-09 13:30+0800\n"
+"POT-Creation-Date: 2009-07-09 09:19+0200\n"
 "PO-Revision-Date: 2009-05-19 00:42+0200\n"
 "Last-Translator: F Wolff <friedel@translate.org.za>\n"
 "Language-Team: translate-discuss-af@lists.sourceforge.net\n"
@@ -356,14 +356,6 @@ msgstr ""
 #: ../src/gtk-run.c:264
 msgid "Enter the command you want to execute:"
 msgstr "Gee die opdrag om uit te voer:"
-
-#: ../src/systray/tray.c:211 ../src/plugins/tray.c:731
-msgid "System Tray"
-msgstr "Stelsellaai"
-
-#: ../src/systray/tray.c:213
-msgid "Old KDE/GNOME Tray"
-msgstr "Ou KDE/GNOME-laai"
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
@@ -950,6 +942,10 @@ msgstr "<Spasie>"
 msgid "Allocate space"
 msgstr "Ken plek toe"
 
+#: ../src/plugins/tray.c:731
+msgid "System Tray"
+msgstr "Stelsellaai"
+
 #: ../src/plugins/tray.c:733
 #, fuzzy
 msgid "System tray"
@@ -1392,6 +1388,9 @@ msgstr "Sleutelbord-LED"
 #: ../src/plugins/kbled/kbled.c:261
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Aanwyser vir die sleutels CapsLock, NumLock en ScrollLock"
+
+#~ msgid "Old KDE/GNOME Tray"
+#~ msgstr "Ou KDE/GNOME-laai"
 
 #~ msgid "Enable Image:"
 #~ msgstr "Aktiveer beeld:"

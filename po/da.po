@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-09 13:30+0800\n"
+"POT-Creation-Date: 2009-07-09 09:19+0200\n"
 "PO-Revision-Date: 2009-07-08 15:39+0200\n"
 "Last-Translator: Vidar Jon Bauge <vidarjb@gmail.com>\n"
 "Language-Team: Danish\n"
@@ -352,14 +352,6 @@ msgstr ""
 #: ../src/gtk-run.c:264
 msgid "Enter the command you want to execute:"
 msgstr "Kommando der skal afvikles:"
-
-#: ../src/systray/tray.c:211 ../src/plugins/tray.c:731
-msgid "System Tray"
-msgstr "Statusfelt"
-
-#: ../src/systray/tray.c:213
-msgid "Old KDE/GNOME Tray"
-msgstr "Gammel KDE/GNOME felt"
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
@@ -945,6 +937,10 @@ msgstr "<Mellemrum>"
 msgid "Allocate space"
 msgstr "Tildel plads"
 
+#: ../src/plugins/tray.c:731
+msgid "System Tray"
+msgstr "Statusfelt"
+
 #: ../src/plugins/tray.c:733
 #, fuzzy
 msgid "System tray"
@@ -1390,6 +1386,9 @@ msgstr "Tastatur Leds"
 #: ../src/plugins/kbled/kbled.c:261
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Indikatorer for CapsLock, NumLock, og ScrollLock keys"
+
+#~ msgid "Old KDE/GNOME Tray"
+#~ msgstr "Gammel KDE/GNOME felt"
 
 #~ msgid "Enable Image:"
 #~ msgstr "Vælg billede:"

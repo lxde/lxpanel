@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-09 13:30+0800\n"
+"POT-Creation-Date: 2009-07-09 09:19+0200\n"
 "PO-Revision-Date: 2009-07-08 23:35+0200\n"
 "Last-Translator: Artur Kruszewski <mazdac@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -355,14 +355,6 @@ msgstr ""
 #: ../src/gtk-run.c:264
 msgid "Enter the command you want to execute:"
 msgstr "Wprowadź komendę którą chcesz wykonać:"
-
-#: ../src/systray/tray.c:211 ../src/plugins/tray.c:731
-msgid "System Tray"
-msgstr "Tacka systemowa"
-
-#: ../src/systray/tray.c:213
-msgid "Old KDE/GNOME Tray"
-msgstr "Stara tacka KDE/GNOME"
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
@@ -935,6 +927,10 @@ msgstr "Odstęp"
 msgid "Allocate space"
 msgstr "Przydziel miejsce"
 
+#: ../src/plugins/tray.c:731
+msgid "System Tray"
+msgstr "Tacka systemowa"
+
 #: ../src/plugins/tray.c:733
 msgid "System tray"
 msgstr "Tacka systemowa"
@@ -1375,6 +1371,9 @@ msgstr "Diody klawiatury"
 #: ../src/plugins/kbled/kbled.c:261
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Wskaźniki klawiszy CapsLock, NumLock i ScrollLock"
+
+#~ msgid "Old KDE/GNOME Tray"
+#~ msgstr "Stara tacka KDE/GNOME"
 
 #~ msgid "Enable Image:"
 #~ msgstr "Włącz Obrazek:"

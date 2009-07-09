@@ -8,7 +8,6 @@ src/gtkbar.c
 src/panel.c
 src/plugin.c
 src/gtk-run.c
-src/systray/tray.c
 
 # Putting translation of plugins in main catalog is not a good idea...
 src/plugins/cpu/cpu.c

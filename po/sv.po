@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-09 13:30+0800\n"
+"POT-Creation-Date: 2009-07-09 09:19+0200\n"
 "PO-Revision-Date: 2009-07-08 23:12+0200\n"
 "Last-Translator: Martin Bagge <brother@bsnet.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -351,14 +351,6 @@ msgstr ""
 #: ../src/gtk-run.c:264
 msgid "Enter the command you want to execute:"
 msgstr "Ange kommandot du vill köra:"
-
-#: ../src/systray/tray.c:211 ../src/plugins/tray.c:731
-msgid "System Tray"
-msgstr "Systemdocka"
-
-#: ../src/systray/tray.c:213
-msgid "Old KDE/GNOME Tray"
-msgstr "Äldre KDE/GNOME docka"
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
@@ -929,6 +921,10 @@ msgstr "Tomrum"
 msgid "Allocate space"
 msgstr "Reservera utrymme"
 
+#: ../src/plugins/tray.c:731
+msgid "System Tray"
+msgstr "Systemdocka"
+
 #: ../src/plugins/tray.c:733
 msgid "System tray"
 msgstr "Systembricka"
@@ -1368,6 +1364,9 @@ msgstr "Tangentbordslampor"
 #: ../src/plugins/kbled/kbled.c:261
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Indikatorer för tangenterna CapsLock, NumLock och ScrollLock "
+
+#~ msgid "Old KDE/GNOME Tray"
+#~ msgstr "Äldre KDE/GNOME docka"
 
 #~ msgid "Enable Image:"
 #~ msgstr "Aktivera bild:"
