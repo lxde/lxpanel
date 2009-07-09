@@ -265,10 +265,16 @@ void icon_grid_remove(IconGrid * ig, GtkWidget * child)
     {
         if (ige->widget == child)
         {
-            /* The child is found.
-             * Layout containers apparently do not like having their children removed.
-             * Set the child invisible. */
-            icon_grid_set_visible(ig, child, FALSE);
+            /* The child is found.  Remove from child list and layout container. */
+            gtk_widget_hide(ige->widget);
+            gtk_container_remove(GTK_CONTAINER(ig->widget), ige->widget);
+
+            if (ige_pred == NULL)
+                ig->child_list = ige->flink;
+            else
+                ige_pred->flink = ige->flink;
+
+            /* Do a relayout. */
             icon_grid_demand_resize(ig);
             break;
         }

@@ -359,6 +359,7 @@ static GdkFilterReturn balloon_message_data_event(GdkXEvent * xev, GdkEvent * ev
                 else
                     msg_pred->flink = msg->flink;
 
+                /* If the client window is valid, queue the message.  Otherwise discard it. */
                 TrayClient * client = client_lookup(tr, msg->window);
                 if (client != NULL)
                     balloon_message_queue(tr, msg);
@@ -416,9 +417,12 @@ static void balloon_message_cancel_event(TrayPlugin * tr, XClientMessageEvent * 
 /* Handler for "plug-removed" event on socket widget. */
 static gboolean trayclient_plug_removed(GtkWidget * socket, TrayPlugin * tr)
 {
+    /* Get the window. */
     Window win = (Window) g_object_get_data(G_OBJECT(socket), "client-window");
     g_object_set_data(G_OBJECT(socket), "client-window", NULL);
 
+    /* Look up the client structure.
+     * Delete any balloon messages owned by the client, and the client structure itself. */
     TrayClient * tc = client_lookup(tr, win);
     if (tc != NULL)
     {
@@ -426,6 +430,8 @@ static gboolean trayclient_plug_removed(GtkWidget * socket, TrayPlugin * tr)
         balloon_message_remove(tr, win, TRUE, 0);
         client_delete(tr, tc);
     }
+
+    /* Remove the socket from the icon grid. */
     icon_grid_remove(tr->icon_grid, socket);
 
     /* This destroys the socket. */
@@ -481,12 +487,14 @@ static void trayclient_request_dock(TrayPlugin * tr, XClientMessageEvent * xeven
         tc_pred->client_flink = tc;
     }
 
+    /* Set up widget parameters and connect signals. */
     gtk_widget_set_app_paintable(tc->socket, TRUE);
     gtk_widget_set_double_buffered(tc->socket, FALSE);
     g_signal_connect(tc->socket, "realize", G_CALLBACK(trayclient_realized), NULL);
     g_signal_connect(tc->socket, "expose_event", G_CALLBACK(trayclient_expose_event), NULL);
     g_signal_connect(tc->socket, "plug_removed", G_CALLBACK(trayclient_plug_removed), tc->tr);
 
+    /* Add the socket to the icon grid. */
     icon_grid_add(tr->icon_grid, tc->socket, TRUE);
     
     /* Connect the socket to the plug. */
@@ -568,7 +576,7 @@ static void tray_unmanage_selection(TrayPlugin * tr)
          * At this time, there is no way to remove the client message filters. */
         gdk_window_remove_filter(invisible->window, tray_window_filter, tr);
 
-        /*Destroy the invisible window. */
+        /* Destroy the invisible window. */
         tr->invisible = NULL;
         gtk_widget_destroy(invisible);
         g_object_unref(G_OBJECT(invisible));
@@ -675,7 +683,7 @@ static int tray_constructor(Plugin * p, char ** fp)
     /* Allocate top level widget and set into Plugin widget pointer. */
     p->pwid = gtk_event_box_new();
     GTK_WIDGET_SET_FLAGS(p->pwid, GTK_NO_WINDOW);
-    gtk_widget_set_name(p->pwid, "tray");	/* this hack is required for plugin_widget_set_background() */
+    gtk_widget_set_name(p->pwid, "tray");
     gtk_container_set_border_width(GTK_CONTAINER(p->pwid), 1);
 
     /* Create an icon grid to manage the container. */
