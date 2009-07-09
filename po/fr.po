@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel r839\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-08 23:03+0200\n"
+"POT-Creation-Date: 2009-07-09 13:30+0800\n"
 "PO-Revision-Date: 2009-06-29 00:14+0200\n"
 "Last-Translator: Cilyan Olowen <gaknar@gmail.com>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -60,123 +60,125 @@ msgstr "Avancé"
 msgid "Alignment:"
 msgstr "Alignement :"
 
-#: ../data/ui/panel-pref.glade.h:12 ../src/panel.c:942
+#: ../data/ui/panel-pref.glade.h:12
+msgid "Appearance"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:13 ../src/panel.c:942
 msgid "Bottom"
 msgstr "Bas"
 
-#: ../data/ui/panel-pref.glade.h:13
+#: ../data/ui/panel-pref.glade.h:14
 msgid "Center"
 msgstr "Centrer"
 
-#: ../data/ui/panel-pref.glade.h:14
+#: ../data/ui/panel-pref.glade.h:15
 #, fuzzy
 msgid "Custom color"
 msgstr "Couleur personnalisée"
 
-#: ../data/ui/panel-pref.glade.h:15
+#: ../data/ui/panel-pref.glade.h:16
 msgid "Dynamic"
 msgstr "Dynamique"
 
-#: ../data/ui/panel-pref.glade.h:16
+#: ../data/ui/panel-pref.glade.h:17
 msgid "Edge:"
 msgstr "Bord :"
 
-#: ../data/ui/panel-pref.glade.h:17
+#: ../data/ui/panel-pref.glade.h:18
 msgid "File Manager:"
 msgstr "Gestionnaire de fichiers :"
 
-#: ../data/ui/panel-pref.glade.h:18
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
-msgid "General"
-msgstr "Général"
+#: ../data/ui/panel-pref.glade.h:19
+msgid "Geometry"
+msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:19 ../src/panel.c:932 ../src/panel.c:940
+#: ../data/ui/panel-pref.glade.h:20 ../src/panel.c:932 ../src/panel.c:940
 msgid "Height:"
 msgstr "Hauteur :"
 
-#: ../data/ui/panel-pref.glade.h:20
+#: ../data/ui/panel-pref.glade.h:21
 #, fuzzy
 msgid "Image"
 msgstr "par une icône"
 
-#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:934
+#: ../data/ui/panel-pref.glade.h:22 ../src/panel.c:934
 msgid "Left"
 msgstr "Gauche"
 
-#: ../data/ui/panel-pref.glade.h:22
+#: ../data/ui/panel-pref.glade.h:23
 msgid "Left\t"
 msgstr "Gauche\t"
 
-#: ../data/ui/panel-pref.glade.h:23
+#: ../data/ui/panel-pref.glade.h:24
 msgid "Logout Command:"
 msgstr "Commande de déconnexion :"
 
-#: ../data/ui/panel-pref.glade.h:24
+#: ../data/ui/panel-pref.glade.h:25
 msgid "Make window managers treat the panel as dock"
 msgstr ""
 "Le gestionnaire de fenêtre doit considérer le tableau de bord comme un dock"
 
-#: ../data/ui/panel-pref.glade.h:25
+#: ../data/ui/panel-pref.glade.h:26
 msgid "Margin:"
 msgstr "Marge :"
 
-#: ../data/ui/panel-pref.glade.h:26
+#: ../data/ui/panel-pref.glade.h:27
 msgid "Minimize panel when not in use"
 msgstr "Réduire le tableau de bord lorsqu'il n'est pas utilisé"
 
-#: ../data/ui/panel-pref.glade.h:27
+#: ../data/ui/panel-pref.glade.h:28
 msgid "Panel Applets"
 msgstr "Applets du tableau de bord"
 
-#: ../data/ui/panel-pref.glade.h:28
+#: ../data/ui/panel-pref.glade.h:29
 msgid "Panel Preferences"
 msgstr "Préférences du tableau de bord"
 
-#: ../data/ui/panel-pref.glade.h:29
+#: ../data/ui/panel-pref.glade.h:30
 msgid "Pixels"
 msgstr "Pixels"
 
-#: ../data/ui/panel-pref.glade.h:30
+#: ../data/ui/panel-pref.glade.h:31
 msgid "Reserve space, and not covered by maximized windows"
 msgstr ""
 "Réserver de l'espace et l'empêcher d'être recouvert par les fenêtres "
 "maximisées"
 
-#: ../data/ui/panel-pref.glade.h:31 ../src/panel.c:935
+#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:935
 msgid "Right"
 msgstr "Droite"
 
-#: ../data/ui/panel-pref.glade.h:32
+#: ../data/ui/panel-pref.glade.h:33
 msgid "Select an image file"
 msgstr "Sélectionner un fichier image"
 
-#: ../data/ui/panel-pref.glade.h:33
+#: ../data/ui/panel-pref.glade.h:34
 msgid "Size when minimized"
 msgstr "Taille une fois réduit"
 
-#: ../data/ui/panel-pref.glade.h:34
+#: ../data/ui/panel-pref.glade.h:35
 msgid "Solid color (with opacity)"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:35
+#: ../data/ui/panel-pref.glade.h:36
 #, fuzzy
 msgid "System theme"
 msgstr "Aucun (utiliser le thème système)"
 
-#: ../data/ui/panel-pref.glade.h:36
+#: ../data/ui/panel-pref.glade.h:37
 msgid "Terminal Emulator:"
 msgstr "Émulateur de terminal :"
 
-#: ../data/ui/panel-pref.glade.h:37
+#: ../data/ui/panel-pref.glade.h:38
 msgid "Top\t"
 msgstr "Haut\t"
 
-#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:933 ../src/panel.c:939
+#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:933 ../src/panel.c:939
 msgid "Width:"
 msgstr "Largeur :"
 
-#: ../data/ui/panel-pref.glade.h:39
+#: ../data/ui/panel-pref.glade.h:40
 msgid "pixels"
 msgstr "pixels"
 
@@ -617,6 +619,11 @@ msgstr "Con_figuration"
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:316
 msgid "Destination:"
 msgstr "Destination :"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
+msgid "General"
+msgstr "Général"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:232

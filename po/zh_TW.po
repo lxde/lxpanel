@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-08 23:03+0200\n"
+"POT-Creation-Date: 2009-07-09 13:30+0800\n"
 "PO-Revision-Date: 2008-12-05 19:15+0800\n"
 "Last-Translator: \n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,121 +57,123 @@ msgstr "進階"
 msgid "Alignment:"
 msgstr "排列方式："
 
-#: ../data/ui/panel-pref.glade.h:12 ../src/panel.c:942
+#: ../data/ui/panel-pref.glade.h:12
+msgid "Appearance"
+msgstr "外觀"
+
+#: ../data/ui/panel-pref.glade.h:13 ../src/panel.c:942
 msgid "Bottom"
 msgstr "下"
 
-#: ../data/ui/panel-pref.glade.h:13
+#: ../data/ui/panel-pref.glade.h:14
 msgid "Center"
 msgstr "置中"
 
-#: ../data/ui/panel-pref.glade.h:14
+#: ../data/ui/panel-pref.glade.h:15
 #, fuzzy
 msgid "Custom color"
 msgstr "自訂色彩"
 
-#: ../data/ui/panel-pref.glade.h:15
+#: ../data/ui/panel-pref.glade.h:16
 msgid "Dynamic"
 msgstr "動態"
 
-#: ../data/ui/panel-pref.glade.h:16
+#: ../data/ui/panel-pref.glade.h:17
 msgid "Edge:"
 msgstr "吸附邊緣："
 
-#: ../data/ui/panel-pref.glade.h:17
+#: ../data/ui/panel-pref.glade.h:18
 msgid "File Manager:"
 msgstr "檔案管理員："
 
-#: ../data/ui/panel-pref.glade.h:18
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
-msgid "General"
-msgstr "一般"
+#: ../data/ui/panel-pref.glade.h:19
+msgid "Geometry"
+msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:19 ../src/panel.c:932 ../src/panel.c:940
+#: ../data/ui/panel-pref.glade.h:20 ../src/panel.c:932 ../src/panel.c:940
 msgid "Height:"
 msgstr "高度："
 
-#: ../data/ui/panel-pref.glade.h:20
+#: ../data/ui/panel-pref.glade.h:21
 msgid "Image"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:934
+#: ../data/ui/panel-pref.glade.h:22 ../src/panel.c:934
 msgid "Left"
 msgstr "左"
 
-#: ../data/ui/panel-pref.glade.h:22
+#: ../data/ui/panel-pref.glade.h:23
 #, fuzzy
 msgid "Left\t"
 msgstr "左"
 
-#: ../data/ui/panel-pref.glade.h:23
+#: ../data/ui/panel-pref.glade.h:24
 msgid "Logout Command:"
 msgstr "登出指令："
 
-#: ../data/ui/panel-pref.glade.h:24
+#: ../data/ui/panel-pref.glade.h:25
 msgid "Make window managers treat the panel as dock"
 msgstr "讓視窗管理員把工作列當成 Dock 處理"
 
-#: ../data/ui/panel-pref.glade.h:25
+#: ../data/ui/panel-pref.glade.h:26
 msgid "Margin:"
 msgstr "留空："
 
-#: ../data/ui/panel-pref.glade.h:26
+#: ../data/ui/panel-pref.glade.h:27
 msgid "Minimize panel when not in use"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:27
+#: ../data/ui/panel-pref.glade.h:28
 msgid "Panel Applets"
 msgstr "工作列元件"
 
-#: ../data/ui/panel-pref.glade.h:28
+#: ../data/ui/panel-pref.glade.h:29
 msgid "Panel Preferences"
 msgstr "工作列偏好設定"
 
-#: ../data/ui/panel-pref.glade.h:29
+#: ../data/ui/panel-pref.glade.h:30
 msgid "Pixels"
 msgstr "像素 (pixels)"
 
-#: ../data/ui/panel-pref.glade.h:30
+#: ../data/ui/panel-pref.glade.h:31
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "保留空間，不被最大化視窗覆蓋"
 
-#: ../data/ui/panel-pref.glade.h:31 ../src/panel.c:935
+#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:935
 msgid "Right"
 msgstr "右"
 
-#: ../data/ui/panel-pref.glade.h:32
+#: ../data/ui/panel-pref.glade.h:33
 msgid "Select an image file"
 msgstr "選擇圖片檔"
 
-#: ../data/ui/panel-pref.glade.h:33
+#: ../data/ui/panel-pref.glade.h:34
 msgid "Size when minimized"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:34
+#: ../data/ui/panel-pref.glade.h:35
 msgid "Solid color (with opacity)"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:35
+#: ../data/ui/panel-pref.glade.h:36
 #, fuzzy
 msgid "System theme"
 msgstr "無 (使用系統佈景主題)"
 
-#: ../data/ui/panel-pref.glade.h:36
+#: ../data/ui/panel-pref.glade.h:37
 msgid "Terminal Emulator:"
 msgstr "終端機："
 
-#: ../data/ui/panel-pref.glade.h:37
+#: ../data/ui/panel-pref.glade.h:38
 #, fuzzy
 msgid "Top\t"
 msgstr "上"
 
-#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:933 ../src/panel.c:939
+#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:933 ../src/panel.c:939
 msgid "Width:"
 msgstr "寬度："
 
-#: ../data/ui/panel-pref.glade.h:39
+#: ../data/ui/panel-pref.glade.h:40
 msgid "pixels"
 msgstr "像素 (pixels)"
 
@@ -617,6 +619,11 @@ msgstr "設定(_F)"
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:316
 msgid "Destination:"
 msgstr "目的地："
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
+msgid "General"
+msgstr "一般"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:232
@@ -1508,9 +1515,6 @@ msgstr "顯示 CapsLock、NumLock、及 ScrollLock 鍵的狀態"
 
 #~ msgid "Select a background image file"
 #~ msgstr "選擇背景圖片"
-
-#~ msgid "Appearance"
-#~ msgstr "外觀"
 
 #~ msgid "Plugins"
 #~ msgstr "外掛"

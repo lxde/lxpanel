@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel_hr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-08 23:03+0200\n"
+"POT-Creation-Date: 2009-07-09 13:30+0800\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Boljsa <asjlob AT vip.hr>\n"
 "Language-Team:  <asjlob AT vip.hr>\n"
@@ -53,123 +53,125 @@ msgstr "Napredno"
 msgid "Alignment:"
 msgstr "Poravnanje:"
 
-#: ../data/ui/panel-pref.glade.h:12 ../src/panel.c:942
+#: ../data/ui/panel-pref.glade.h:12
+msgid "Appearance"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:13 ../src/panel.c:942
 msgid "Bottom"
 msgstr "Dno"
 
-#: ../data/ui/panel-pref.glade.h:13
+#: ../data/ui/panel-pref.glade.h:14
 #, fuzzy
 msgid "Center"
 msgstr "Osnovno"
 
-#: ../data/ui/panel-pref.glade.h:14
+#: ../data/ui/panel-pref.glade.h:15
 #, fuzzy
 msgid "Custom color"
 msgstr "Korisnièka Boja"
 
-#: ../data/ui/panel-pref.glade.h:15
+#: ../data/ui/panel-pref.glade.h:16
 msgid "Dynamic"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:16
+#: ../data/ui/panel-pref.glade.h:17
 msgid "Edge:"
 msgstr "Rub:"
 
-#: ../data/ui/panel-pref.glade.h:17
+#: ../data/ui/panel-pref.glade.h:18
 msgid "File Manager:"
 msgstr "Upravitelj Datoteka:"
 
-#: ../data/ui/panel-pref.glade.h:18
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
-msgid "General"
-msgstr "Osnovno"
+#: ../data/ui/panel-pref.glade.h:19
+msgid "Geometry"
+msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:19 ../src/panel.c:932 ../src/panel.c:940
+#: ../data/ui/panel-pref.glade.h:20 ../src/panel.c:932 ../src/panel.c:940
 msgid "Height:"
 msgstr "Visina:"
 
-#: ../data/ui/panel-pref.glade.h:20
+#: ../data/ui/panel-pref.glade.h:21
 #, fuzzy
 msgid "Image"
 msgstr "slika"
 
-#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:934
+#: ../data/ui/panel-pref.glade.h:22 ../src/panel.c:934
 msgid "Left"
 msgstr "Lijevo"
 
-#: ../data/ui/panel-pref.glade.h:22
+#: ../data/ui/panel-pref.glade.h:23
 #, fuzzy
 msgid "Left\t"
 msgstr "Lijevo"
 
-#: ../data/ui/panel-pref.glade.h:23
+#: ../data/ui/panel-pref.glade.h:24
 msgid "Logout Command:"
 msgstr "Naredba Odjave:"
 
-#: ../data/ui/panel-pref.glade.h:24
+#: ../data/ui/panel-pref.glade.h:25
 msgid "Make window managers treat the panel as dock"
 msgstr "Neka upravitelji prozora tretiraju panel kao dock"
 
-#: ../data/ui/panel-pref.glade.h:25
+#: ../data/ui/panel-pref.glade.h:26
 msgid "Margin:"
 msgstr "Margine:"
 
-#: ../data/ui/panel-pref.glade.h:26
+#: ../data/ui/panel-pref.glade.h:27
 msgid "Minimize panel when not in use"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:27
+#: ../data/ui/panel-pref.glade.h:28
 msgid "Panel Applets"
 msgstr "Apleti Panela"
 
-#: ../data/ui/panel-pref.glade.h:28
+#: ../data/ui/panel-pref.glade.h:29
 msgid "Panel Preferences"
 msgstr "Svojstva Panela"
 
-#: ../data/ui/panel-pref.glade.h:29
+#: ../data/ui/panel-pref.glade.h:30
 msgid "Pixels"
 msgstr "Pixeli"
 
-#: ../data/ui/panel-pref.glade.h:30
+#: ../data/ui/panel-pref.glade.h:31
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Rezerviraj prostor nepokriven od strane maksimiziranih prozora"
 
-#: ../data/ui/panel-pref.glade.h:31 ../src/panel.c:935
+#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:935
 msgid "Right"
 msgstr "Desno"
 
-#: ../data/ui/panel-pref.glade.h:32
+#: ../data/ui/panel-pref.glade.h:33
 msgid "Select an image file"
 msgstr "Odaberi slikovnu datoteku"
 
-#: ../data/ui/panel-pref.glade.h:33
+#: ../data/ui/panel-pref.glade.h:34
 msgid "Size when minimized"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:34
+#: ../data/ui/panel-pref.glade.h:35
 msgid "Solid color (with opacity)"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:35
+#: ../data/ui/panel-pref.glade.h:36
 #, fuzzy
 msgid "System theme"
 msgstr "Ni¹ta (Koristi sustavsku temu)"
 
-#: ../data/ui/panel-pref.glade.h:36
+#: ../data/ui/panel-pref.glade.h:37
 msgid "Terminal Emulator:"
 msgstr "Emulator Terminala:"
 
-#: ../data/ui/panel-pref.glade.h:37
+#: ../data/ui/panel-pref.glade.h:38
 #, fuzzy
 msgid "Top\t"
 msgstr "Vrh"
 
-#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:933 ../src/panel.c:939
+#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:933 ../src/panel.c:939
 msgid "Width:"
 msgstr "©irina:"
 
-#: ../data/ui/panel-pref.glade.h:39
+#: ../data/ui/panel-pref.glade.h:40
 #, fuzzy
 msgid "pixels"
 msgstr "Pixeli"
@@ -617,6 +619,11 @@ msgstr "Kon_figuracija"
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:316
 msgid "Destination:"
 msgstr "Odredi¹te:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
+msgid "General"
+msgstr "Osnovno"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:232
