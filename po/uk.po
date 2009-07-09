@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-09 13:30+0800\n"
-"PO-Revision-Date: 2009-06-26 03:25+0200\n"
+"PO-Revision-Date: 2009-07-08 23:43+0200\n"
 "Last-Translator: Y P <yupadmin@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 1.1.0\n"
 
 #: ../data/ui/panel-pref.glade.h:2
@@ -72,7 +72,6 @@ msgid "Center"
 msgstr "Центр"
 
 #: ../data/ui/panel-pref.glade.h:15
-#, fuzzy
 msgid "Custom color"
 msgstr "Спеціальний колір"
 
@@ -97,9 +96,8 @@ msgid "Height:"
 msgstr "Висота:"
 
 #: ../data/ui/panel-pref.glade.h:21
-#, fuzzy
 msgid "Image"
-msgstr "зображення"
+msgstr "Зображення"
 
 #: ../data/ui/panel-pref.glade.h:22 ../src/panel.c:934
 msgid "Left"
@@ -155,12 +153,11 @@ msgstr "Розмір при мінімізації"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Solid color (with opacity)"
-msgstr ""
+msgstr "Колір підкладки (з прозорістю)"
 
 #: ../data/ui/panel-pref.glade.h:36
-#, fuzzy
 msgid "System theme"
-msgstr "Жодна (Використовувати системну тему)"
+msgstr "Системна тема"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "Terminal Emulator:"
@@ -286,9 +283,8 @@ msgid "\"%s\" Settings"
 msgstr "Налаштування \"%s\""
 
 #: ../src/panel.c:941
-#, fuzzy
 msgid "Top"
-msgstr "Вверху\t"
+msgstr "Вверху"
 
 #: ../src/panel.c:1332
 #, c-format
@@ -369,7 +365,6 @@ msgid "Display CPU usage"
 msgstr "Показати завантаження CPU"
 
 #: ../src/plugins/deskno/deskno.c:165
-#, fuzzy
 msgid "Desktop Number / Workspace Name"
 msgstr "Номер стільниці / Назва робочої області"
 
@@ -386,14 +381,12 @@ msgid "Display Image and Tooltip"
 msgstr "Показати зображення та підказки"
 
 #: ../src/plugins/launchbar.c:648
-#, fuzzy
 msgid "Available Applications"
-msgstr "Доступні плагіни"
+msgstr "Доступні програми"
 
 #: ../src/plugins/launchbar.c:648
-#, fuzzy
 msgid "Applications"
-msgstr "Вибрати програму"
+msgstr "Програми"
 
 #: ../src/plugins/launchbar.c:816
 msgid "Application Launch Bar"
@@ -457,7 +450,6 @@ msgid "Icons only"
 msgstr "Тільки іконки"
 
 #: ../src/plugins/taskbar.c:1925
-#, fuzzy
 msgid "Flat buttons"
 msgstr "Плоскі кнопки"
 
@@ -475,10 +467,9 @@ msgstr "Мигати, якщо вікно потребує уваги"
 
 #: ../src/plugins/taskbar.c:1929
 msgid "Combine multiple application windows into a single button"
-msgstr ""
+msgstr "Зібрати вікна з кількома програмами в одну кнопку"
 
 #: ../src/plugins/taskbar.c:1930
-#, fuzzy
 msgid "Maximum width of task button"
 msgstr "Максимальна ширина кнопки завдань"
 
@@ -512,7 +503,7 @@ msgstr "Коди формати: запустіть man 3 strftime"
 
 #: ../src/plugins/dclock.c:264
 msgid "Action when clicked (default: display calendar)"
-msgstr ""
+msgstr "Дія при кліканні (по замовчуванню: показати календар)"
 
 #: ../src/plugins/dclock.c:265
 msgid "Bold font"
@@ -523,7 +514,6 @@ msgid "Digital Clock"
 msgstr "Цифровий годинник"
 
 #: ../src/plugins/dclock.c:294
-#, fuzzy
 msgid "Display digital clock and tooltip"
 msgstr "Показувати цифровий годинник і підказки"
 
@@ -544,9 +534,8 @@ msgid "Menu"
 msgstr "Меню"
 
 #: ../src/plugins/menu.c:1003
-#, fuzzy
 msgid "Application Menu"
-msgstr "Панель запуску програм"
+msgstr "Панель програм"
 
 #: ../src/plugins/netstatus/glade-support.c:91
 #: ../src/plugins/netstatus/glade-support.c:115
@@ -929,16 +918,14 @@ msgid "Size"
 msgstr "Розмір"
 
 #: ../src/plugins/space.c:139
-#, fuzzy
 msgid "Spacer"
-msgstr "<Пропуск>"
+msgstr "Пропуск"
 
 #: ../src/plugins/space.c:141
 msgid "Allocate space"
 msgstr "Виділити місце"
 
 #: ../src/plugins/tray.c:733
-#, fuzzy
 msgid "System tray"
 msgstr "Системний лоток"
 
@@ -991,18 +978,15 @@ msgid "Switch between available keyboard layouts"
 msgstr "Переключення між доступними розкладками клавіатури"
 
 #: ../src/plugins/wincmd.c:167
-#, fuzzy
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
-"Клікнути правою клавішою, щоб мінімалізувати. Середньою, щоб згорнутивсі "
-"вікна"
+"Клік лівою кнопкою миші мінімалізує всі вікна. Середня кнопка затіняє їх."
 
 #: ../src/plugins/wincmd.c:197
 msgid "Minimize All Windows"
 msgstr "Мінімалізувати всі вікна"
 
 #: ../src/plugins/wincmd.c:199
-#, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
@@ -1203,7 +1187,6 @@ msgid "Config tool"
 msgstr "Утиліти конфігурації"
 
 #: ../src/plugins/netstatus/netstatus.c:196
-#, fuzzy
 msgid "Network Status Monitor"
 msgstr "Монітор статусу мережі"
 

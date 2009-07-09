@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-09 13:30+0800\n"
-"PO-Revision-Date: 2009-07-06 19:50+0200\n"
+"PO-Revision-Date: 2009-07-08 23:12+0200\n"
 "Last-Translator: Martin Bagge <brother@bsnet.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -73,7 +73,6 @@ msgid "Center"
 msgstr "Centrerad"
 
 #: ../data/ui/panel-pref.glade.h:15
-#, fuzzy
 msgid "Custom color"
 msgstr "Alternativ färg"
 
@@ -98,9 +97,8 @@ msgid "Height:"
 msgstr "Höjd"
 
 #: ../data/ui/panel-pref.glade.h:21
-#, fuzzy
 msgid "Image"
-msgstr "bild"
+msgstr "Bild"
 
 #: ../data/ui/panel-pref.glade.h:22 ../src/panel.c:934
 msgid "Left"
@@ -156,12 +154,11 @@ msgstr "Storlek vid minimering"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Solid color (with opacity)"
-msgstr ""
+msgstr "Solid färg (vid genomskinlighet)"
 
 #: ../data/ui/panel-pref.glade.h:36
-#, fuzzy
 msgid "System theme"
-msgstr "Inget (använd systemtema)"
+msgstr "Systemtema"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "Terminal Emulator:"
@@ -290,9 +287,8 @@ msgid "\"%s\" Settings"
 msgstr "Inställningar för \"%s\""
 
 #: ../src/panel.c:941
-#, fuzzy
 msgid "Top"
-msgstr "Upptill\t"
+msgstr "Upptill"
 
 #: ../src/panel.c:1332
 #, c-format
@@ -373,7 +369,6 @@ msgid "Display CPU usage"
 msgstr "Visa CPU-användning"
 
 #: ../src/plugins/deskno/deskno.c:165
-#, fuzzy
 msgid "Desktop Number / Workspace Name"
 msgstr "Skrivbordsnummer / Arbetsytans namn"
 
@@ -390,14 +385,12 @@ msgid "Display Image and Tooltip"
 msgstr "Visa bild och verktygstips"
 
 #: ../src/plugins/launchbar.c:648
-#, fuzzy
 msgid "Available Applications"
-msgstr "Tillgängliga instick"
+msgstr "Tillgängliga applikationer"
 
 #: ../src/plugins/launchbar.c:648
-#, fuzzy
 msgid "Applications"
-msgstr "Välj program"
+msgstr "Applikationer"
 
 #: ../src/plugins/launchbar.c:816
 msgid "Application Launch Bar"
@@ -461,7 +454,6 @@ msgid "Icons only"
 msgstr "Endast ikoner"
 
 #: ../src/plugins/taskbar.c:1925
-#, fuzzy
 msgid "Flat buttons"
 msgstr "Platta knappar"
 
@@ -479,10 +471,9 @@ msgstr "Blinka när fönster kräver uppmärksamhet"
 
 #: ../src/plugins/taskbar.c:1929
 msgid "Combine multiple application windows into a single button"
-msgstr ""
+msgstr "Kombinerar flera applikationsfönster till en gemensam knapp"
 
 #: ../src/plugins/taskbar.c:1930
-#, fuzzy
 msgid "Maximum width of task button"
 msgstr "Maximal bredd för aktivitetsknapp"
 
@@ -516,7 +507,7 @@ msgstr "Manipulering av format: man 3 strftime"
 
 #: ../src/plugins/dclock.c:264
 msgid "Action when clicked (default: display calendar)"
-msgstr ""
+msgstr "Händelse vid klick (standardläge är att visa kalendern)"
 
 #: ../src/plugins/dclock.c:265
 msgid "Bold font"
@@ -527,7 +518,6 @@ msgid "Digital Clock"
 msgstr "Digitalklocka"
 
 #: ../src/plugins/dclock.c:294
-#, fuzzy
 msgid "Display digital clock and tooltip"
 msgstr "Visa digitalklocka och verktygstips"
 
@@ -548,9 +538,8 @@ msgid "Menu"
 msgstr "Meny"
 
 #: ../src/plugins/menu.c:1003
-#, fuzzy
 msgid "Application Menu"
-msgstr "Programstartspanel"
+msgstr "Applikationsmeny"
 
 #: ../src/plugins/netstatus/glade-support.c:91
 #: ../src/plugins/netstatus/glade-support.c:115
@@ -933,18 +922,16 @@ msgid "Size"
 msgstr "Storlek"
 
 #: ../src/plugins/space.c:139
-#, fuzzy
 msgid "Spacer"
-msgstr "<tomrum>"
+msgstr "Tomrum"
 
 #: ../src/plugins/space.c:141
 msgid "Allocate space"
 msgstr "Reservera utrymme"
 
 #: ../src/plugins/tray.c:733
-#, fuzzy
 msgid "System tray"
-msgstr "Systemdocka"
+msgstr "Systembricka"
 
 #: ../src/plugins/xkb/xkb-plugin.c:242 ../src/plugins/xkb/xkb-plugin.c:506
 msgid "Keyboard Layout Switcher"
@@ -995,17 +982,15 @@ msgid "Switch between available keyboard layouts"
 msgstr "Byta mellan tillgängliga tangentbordsuppsättningar"
 
 #: ../src/plugins/wincmd.c:167
-#, fuzzy
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
-"Vänsterklick för att minimera alla fönster. Mittklick för att rulla upp."
+"Vänsterklick för att minimera alla fönster.  Mittklick för att rulla upp."
 
 #: ../src/plugins/wincmd.c:197
 msgid "Minimize All Windows"
 msgstr "Minimera alla fönster"
 
 #: ../src/plugins/wincmd.c:199
-#, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
@@ -1207,9 +1192,8 @@ msgid "Config tool"
 msgstr "Inställningsverktyg"
 
 #: ../src/plugins/netstatus/netstatus.c:196
-#, fuzzy
 msgid "Network Status Monitor"
-msgstr "Övervakning av nätverksstatus"
+msgstr "Övervakare av nätverksstatus"
 
 #: ../src/plugins/netstatus/netstatus.c:198
 msgid "Monitor network status"
