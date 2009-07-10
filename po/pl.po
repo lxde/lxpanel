@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: pl\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-09 09:19+0200\n"
-"PO-Revision-Date: 2009-07-08 23:35+0200\n"
+"PO-Revision-Date: 2009-07-10 01:37+0200\n"
 "Last-Translator: Artur Kruszewski <mazdac@gmail.com>\n"
 "Language-Team: Polish\n"
 "MIME-Version: 1.0\n"
@@ -63,7 +63,7 @@ msgstr "Wyrównanie:"
 
 #: ../data/ui/panel-pref.glade.h:12
 msgid "Appearance"
-msgstr ""
+msgstr "Wygląd"
 
 #: ../data/ui/panel-pref.glade.h:13 ../src/panel.c:942
 msgid "Bottom"
@@ -91,7 +91,7 @@ msgstr "Menedżer Plików:"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "Geometry"
-msgstr ""
+msgstr "Geometria"
 
 # msgid "% of edge"
 # msgstr "% krawędźi"

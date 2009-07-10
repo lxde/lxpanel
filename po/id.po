@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-09 09:19+0200\n"
-"PO-Revision-Date: 2009-07-01 15:11+0200\n"
+"PO-Revision-Date: 2009-07-10 06:43+0200\n"
 "Last-Translator: Rahman Yusri Aftian <aftian@yahoo.com>\n"
 "Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -60,7 +60,7 @@ msgstr "Perataan:"
 
 #: ../data/ui/panel-pref.glade.h:12
 msgid "Appearance"
-msgstr ""
+msgstr "Tampilan"
 
 #: ../data/ui/panel-pref.glade.h:13 ../src/panel.c:942
 msgid "Bottom"
@@ -71,9 +71,8 @@ msgid "Center"
 msgstr "Tengah"
 
 #: ../data/ui/panel-pref.glade.h:15
-#, fuzzy
 msgid "Custom color"
-msgstr "Warna Suai"
+msgstr "Warna Kebiasaan"
 
 #: ../data/ui/panel-pref.glade.h:16
 msgid "Dynamic"
@@ -89,14 +88,13 @@ msgstr "Manajer Berkas:"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "Geometry"
-msgstr ""
+msgstr "Geometry"
 
 #: ../data/ui/panel-pref.glade.h:20 ../src/panel.c:932 ../src/panel.c:940
 msgid "Height:"
 msgstr "Tinggi:"
 
 #: ../data/ui/panel-pref.glade.h:21
-#, fuzzy
 msgid "Image"
 msgstr "citra"
 
@@ -154,12 +152,11 @@ msgstr "Ukuran ketika diminimalkan"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Solid color (with opacity)"
-msgstr ""
+msgstr "Warna solid (dengan keburaman)"
 
 #: ../data/ui/panel-pref.glade.h:36
-#, fuzzy
 msgid "System theme"
-msgstr "Tak ada (Gunakan tema sistem)"
+msgstr "Tema Sistem"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "Terminal Emulator:"
@@ -285,9 +282,8 @@ msgid "\"%s\" Settings"
 msgstr "Pengaturan \"%s\""
 
 #: ../src/panel.c:941
-#, fuzzy
 msgid "Top"
-msgstr "Atas\t"
+msgstr "Atas"
 
 #: ../src/panel.c:1332
 #, c-format
@@ -360,9 +356,8 @@ msgid "Display CPU usage"
 msgstr "Tampilkan penggunaan CPU"
 
 #: ../src/plugins/deskno/deskno.c:165
-#, fuzzy
 msgid "Desktop Number / Workspace Name"
-msgstr "Nama Ruang / Nomor Desktop"
+msgstr "Nomor Desktop / Nama Ruang"
 
 #: ../src/plugins/deskno/deskno.c:167 ../src/plugins/deskno/deskno2.c:131
 msgid "Display workspace number, by cmeury@users.sf.net"
@@ -377,14 +372,12 @@ msgid "Display Image and Tooltip"
 msgstr "Tampilkan Citra dan Tip Alat"
 
 #: ../src/plugins/launchbar.c:648
-#, fuzzy
 msgid "Available Applications"
-msgstr "Plugin tersedia"
+msgstr "Aplikasi tersedia"
 
 #: ../src/plugins/launchbar.c:648
-#, fuzzy
 msgid "Applications"
-msgstr "Pilih Aplikasi"
+msgstr "Aplikasi"
 
 #: ../src/plugins/launchbar.c:816
 msgid "Application Launch Bar"
@@ -448,7 +441,6 @@ msgid "Icons only"
 msgstr "Hanya ikon"
 
 #: ../src/plugins/taskbar.c:1925
-#, fuzzy
 msgid "Flat buttons"
 msgstr "Tombol Rata"
 
@@ -466,10 +458,9 @@ msgstr "Kedip bila ada jendela yang memerlukan perhatian"
 
 #: ../src/plugins/taskbar.c:1929
 msgid "Combine multiple application windows into a single button"
-msgstr ""
+msgstr "Menggabungkan beberapa jendela aplikasi dalam satu tombol"
 
 #: ../src/plugins/taskbar.c:1930
-#, fuzzy
 msgid "Maximum width of task button"
 msgstr "Lebar maksimum tombol tugas"
 
@@ -503,7 +494,7 @@ msgstr "Kode Format : man 3 strftime"
 
 #: ../src/plugins/dclock.c:264
 msgid "Action when clicked (default: display calendar)"
-msgstr ""
+msgstr "Tindakan saat diklik (standar: menampilkan kalender)"
 
 #: ../src/plugins/dclock.c:265
 msgid "Bold font"
@@ -514,9 +505,8 @@ msgid "Digital Clock"
 msgstr "Jam Digital"
 
 #: ../src/plugins/dclock.c:294
-#, fuzzy
 msgid "Display digital clock and tooltip"
-msgstr "Tampilkan Jam Digital dan Batang Alat"
+msgstr "Tampilkan Jam Digital dan Tip Alat"
 
 #: ../src/plugins/menu.c:369
 msgid "Add to desktop"
@@ -535,9 +525,8 @@ msgid "Menu"
 msgstr "Menu"
 
 #: ../src/plugins/menu.c:1003
-#, fuzzy
 msgid "Application Menu"
-msgstr "Batang Jalankan Aplikasi"
+msgstr "Menu Aplikasi"
 
 #: ../src/plugins/netstatus/glade-support.c:91
 #: ../src/plugins/netstatus/glade-support.c:115
@@ -920,9 +909,8 @@ msgid "Size"
 msgstr "Ukuran"
 
 #: ../src/plugins/space.c:139
-#, fuzzy
 msgid "Spacer"
-msgstr "<Ruang>"
+msgstr "Ruang"
 
 #: ../src/plugins/space.c:141
 msgid "Allocate space"
@@ -933,9 +921,8 @@ msgid "System Tray"
 msgstr "Baki Sistem"
 
 #: ../src/plugins/tray.c:733
-#, fuzzy
 msgid "System tray"
-msgstr "Baki Sistem"
+msgstr "Sistem Baki"
 
 #: ../src/plugins/xkb/xkb-plugin.c:242 ../src/plugins/xkb/xkb-plugin.c:506
 msgid "Keyboard Layout Switcher"
@@ -987,17 +974,15 @@ msgid "Switch between available keyboard layouts"
 msgstr "Ubah di antara tata letak papan ketik yang tersedia"
 
 #: ../src/plugins/wincmd.c:167
-#, fuzzy
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
-"Klik kiri untuk mengikonifikasi semua jendela. Klik tengah untuk bayang"
+"Klik kiri untuk mengikonifikasi semua jendela. _ _ Klik tengah untuk bayang."
 
 #: ../src/plugins/wincmd.c:197
 msgid "Minimize All Windows"
 msgstr "Minimalkan Semua Jendela"
 
 #: ../src/plugins/wincmd.c:199
-#, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
@@ -1198,7 +1183,6 @@ msgid "Config tool"
 msgstr "Alat konfigurasi"
 
 #: ../src/plugins/netstatus/netstatus.c:196
-#, fuzzy
 msgid "Network Status Monitor"
 msgstr "Monitor Status Jaringan"
 

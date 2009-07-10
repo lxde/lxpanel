@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-09 09:19+0200\n"
-"PO-Revision-Date: 2009-07-08 15:39+0200\n"
+"PO-Revision-Date: 2009-07-09 22:00+0200\n"
 "Last-Translator: Vidar Jon Bauge <vidarjb@gmail.com>\n"
 "Language-Team: Danish\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr "% Procent"
 
 #: ../data/ui/panel-pref.glade.h:3
 msgid "<b>Automatic hiding</b>"
-msgstr ""
+msgstr "<b>Skjul automatisk</b>"
 
 #: ../data/ui/panel-pref.glade.h:4
 msgid "<b>Background</b>"
@@ -62,7 +62,7 @@ msgstr "Placering:"
 
 #: ../data/ui/panel-pref.glade.h:12
 msgid "Appearance"
-msgstr ""
+msgstr "Udseende"
 
 #: ../data/ui/panel-pref.glade.h:13 ../src/panel.c:942
 msgid "Bottom"
@@ -73,9 +73,8 @@ msgid "Center"
 msgstr "Center"
 
 #: ../data/ui/panel-pref.glade.h:15
-#, fuzzy
 msgid "Custom color"
-msgstr "Vælg farve"
+msgstr "Vælg en farve"
 
 #: ../data/ui/panel-pref.glade.h:16
 msgid "Dynamic"
@@ -91,16 +90,15 @@ msgstr "Filhåndtering:"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "Geometry"
-msgstr ""
+msgstr "Ændr størrelse"
 
 #: ../data/ui/panel-pref.glade.h:20 ../src/panel.c:932 ../src/panel.c:940
 msgid "Height:"
 msgstr "Højde:"
 
 #: ../data/ui/panel-pref.glade.h:21
-#, fuzzy
 msgid "Image"
-msgstr "billede"
+msgstr "Billede"
 
 #: ../data/ui/panel-pref.glade.h:22 ../src/panel.c:934
 msgid "Left"
@@ -156,12 +154,11 @@ msgstr "Størrelse når minimeret"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Solid color (with opacity)"
-msgstr ""
+msgstr "Ensfarvet (Med gennemsigtighed)"
 
 #: ../data/ui/panel-pref.glade.h:36
-#, fuzzy
 msgid "System theme"
-msgstr "Ingen (systemets tema)"
+msgstr "Systemets tema"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "Terminal Emulator:"
@@ -239,6 +236,8 @@ msgstr "Bekræft"
 #: ../src/panel.c:622
 msgid "translator-credits"
 msgstr ""
+"Vidar Jon Bauge <vidarjb@gmail.com>\n"
+"Charlie Tyrrestrup <chalze06@gmail.com>"
 
 #: ../src/panel.c:627
 msgid "LXPanel"
@@ -275,7 +274,7 @@ msgstr "Slet dette panel"
 
 #: ../src/panel.c:701
 msgid "About"
-msgstr ""
+msgstr "Om"
 
 #: ../src/panel.c:709
 msgid "Panel"
@@ -287,7 +286,6 @@ msgid "\"%s\" Settings"
 msgstr "\"%s\" indstillinger"
 
 #: ../src/panel.c:941
-#, fuzzy
 msgid "Top"
 msgstr "Top"
 
@@ -362,7 +360,6 @@ msgid "Display CPU usage"
 msgstr "Vis CPU belastning"
 
 #: ../src/plugins/deskno/deskno.c:165
-#, fuzzy
 msgid "Desktop Number / Workspace Name"
 msgstr "Skrivebords nummer/navn til arbejdsområde"
 
@@ -379,14 +376,12 @@ msgid "Display Image and Tooltip"
 msgstr "Vis billede og værktøjstip"
 
 #: ../src/plugins/launchbar.c:648
-#, fuzzy
 msgid "Available Applications"
-msgstr "Tilgængelige plugins"
+msgstr "Tilgængelige programmer"
 
 #: ../src/plugins/launchbar.c:648
-#, fuzzy
 msgid "Applications"
-msgstr "Vælg program"
+msgstr "Programmer"
 
 #: ../src/plugins/launchbar.c:816
 msgid "Application Launch Bar"
@@ -398,30 +393,26 @@ msgstr "Område med knapper til start af applikationer"
 
 #. Add Raise menu item.
 #: ../src/plugins/taskbar.c:1644
-#, fuzzy
 msgid "_Raise"
 msgstr "Løft"
 
 #. Add Restore menu item.
 #: ../src/plugins/taskbar.c:1649
-#, fuzzy
 msgid "R_estore"
-msgstr "Gendan"
+msgstr "G_endan"
 
 #. Add Maximize menu item.
 #: ../src/plugins/taskbar.c:1654
-#, fuzzy
 msgid "Ma_ximize"
-msgstr "Maksimér"
+msgstr "Maksi_mér"
 
 #. Add Iconify menu item.
 #: ../src/plugins/taskbar.c:1659
-#, fuzzy
 msgid "Ico_nify"
-msgstr "Minimér"
+msgstr "Mi_nimér"
 
 #: ../src/plugins/taskbar.c:1678
-#, fuzzy, c-format
+#, c-format
 msgid "Workspace _%d"
 msgstr "Arbejdsområde %d"
 
@@ -432,19 +423,16 @@ msgstr "Arbejdsområde %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../src/plugins/taskbar.c:1697
-#, fuzzy
 msgid "_All workspaces"
-msgstr "Alle arbejdsområder"
+msgstr "_Alle arbejdsområder"
 
 #. Add Move to Workspace menu item as a submenu.
 #: ../src/plugins/taskbar.c:1703
-#, fuzzy
 msgid "_Move to Workspace"
 msgstr "Flyt til arbejdsområde"
 
 #. Add Close menu item.  By policy, we place this item farthest from the cursor.
 #: ../src/plugins/taskbar.c:1709
-#, fuzzy
 msgid "_Close Window"
 msgstr "Luk vindue"
 
@@ -457,7 +445,6 @@ msgid "Icons only"
 msgstr "Kun ikoner"
 
 #: ../src/plugins/taskbar.c:1925
-#, fuzzy
 msgid "Flat buttons"
 msgstr "Flade knapper"
 
@@ -475,10 +462,9 @@ msgstr "Blink vinduer der kræver input"
 
 #: ../src/plugins/taskbar.c:1929
 msgid "Combine multiple application windows into a single button"
-msgstr ""
+msgstr "Samle mange programvinduer i en knap"
 
 #: ../src/plugins/taskbar.c:1930
-#, fuzzy
 msgid "Maximum width of task button"
 msgstr "Opgavelinjens maksimale bredde"
 
@@ -508,11 +494,11 @@ msgstr "Format for værktøjs Tip"
 
 #: ../src/plugins/dclock.c:263
 msgid "Format codes: man 3 strftime"
-msgstr ""
+msgstr "Format koder: man 3 strftime"
 
 #: ../src/plugins/dclock.c:264
 msgid "Action when clicked (default: display calendar)"
-msgstr ""
+msgstr "Hændelse ved klik (Default: Kalender vises)"
 
 #: ../src/plugins/dclock.c:265
 msgid "Bold font"
@@ -523,7 +509,6 @@ msgid "Digital Clock"
 msgstr "Digitalt ur"
 
 #: ../src/plugins/dclock.c:294
-#, fuzzy
 msgid "Display digital clock and tooltip"
 msgstr "Vis digitalt ur og værktøjstip"
 
@@ -544,9 +529,8 @@ msgid "Menu"
 msgstr "Menu"
 
 #: ../src/plugins/menu.c:1003
-#, fuzzy
 msgid "Application Menu"
-msgstr "Område til start af programmer"
+msgstr "Program Menu"
 
 #: ../src/plugins/netstatus/glade-support.c:91
 #: ../src/plugins/netstatus/glade-support.c:115
@@ -929,9 +913,8 @@ msgid "Size"
 msgstr "Størrelse"
 
 #: ../src/plugins/space.c:139
-#, fuzzy
 msgid "Spacer"
-msgstr "<Mellemrum>"
+msgstr "Adskiller"
 
 #: ../src/plugins/space.c:141
 msgid "Allocate space"
@@ -942,7 +925,6 @@ msgid "System Tray"
 msgstr "Statusfelt"
 
 #: ../src/plugins/tray.c:733
-#, fuzzy
 msgid "System tray"
 msgstr "Statusfelt"
 
@@ -995,7 +977,6 @@ msgid "Switch between available keyboard layouts"
 msgstr "Skift mellem tilgængelige tastatur layouts"
 
 #: ../src/plugins/wincmd.c:167
-#, fuzzy
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
 "Venstreklik for at minimere alle vinduer. Klik på midten for at rulle dem op"
@@ -1005,7 +986,6 @@ msgid "Minimize All Windows"
 msgstr "Minimér alle vinduer"
 
 #: ../src/plugins/wincmd.c:199
-#, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
@@ -1018,14 +998,12 @@ msgid "Open in _Terminal"
 msgstr "Åbne i _terminal"
 
 #: ../src/plugins/dirmenu.c:386
-#, fuzzy
 msgid "Directory"
-msgstr "Menu for mapper"
+msgstr "Mappe"
 
 #: ../src/plugins/dirmenu.c:387
-#, fuzzy
 msgid "Label"
-msgstr "Panel"
+msgstr "Mærke"
 
 #: ../src/plugins/dirmenu.c:404
 msgid "Directory Menu"
@@ -1208,9 +1186,8 @@ msgid "Config tool"
 msgstr "Konfigurationsværktøj"
 
 #: ../src/plugins/netstatus/netstatus.c:196
-#, fuzzy
 msgid "Network Status Monitor"
-msgstr "Net Status Monitor"
+msgstr "Netværksmonitor"
 
 #: ../src/plugins/netstatus/netstatus.c:198
 msgid "Monitor network status"
@@ -1379,9 +1356,8 @@ msgid "Show ScrollLock"
 msgstr "Vis ScrollLock"
 
 #: ../src/plugins/kbled/kbled.c:259
-#, fuzzy
 msgid "Keyboard LED"
-msgstr "Tastatur Leds"
+msgstr "Tastatur Indikatorer"
 
 #: ../src/plugins/kbled/kbled.c:261
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"

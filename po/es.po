@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxpanel-0.3.5.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-09 09:19+0200\n"
-"PO-Revision-Date: 2009-06-25 13:09+0200\n"
+"PO-Revision-Date: 2009-07-09 14:01+0200\n"
 "Last-Translator: Hugo Florentino <sysadmin@cips.cu>\n"
 "Language-Team: Spanish <daniel@tunki.org>\n"
 "MIME-Version: 1.0\n"
@@ -62,7 +62,7 @@ msgstr "Alineación:"
 
 #: ../data/ui/panel-pref.glade.h:12
 msgid "Appearance"
-msgstr ""
+msgstr "Apariencia"
 
 #: ../data/ui/panel-pref.glade.h:13 ../src/panel.c:942
 msgid "Bottom"
@@ -73,7 +73,6 @@ msgid "Center"
 msgstr "Centro"
 
 #: ../data/ui/panel-pref.glade.h:15
-#, fuzzy
 msgid "Custom color"
 msgstr "Color personalizado"
 
@@ -91,16 +90,15 @@ msgstr "Gestor de archivos:"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "Geometry"
-msgstr ""
+msgstr "Geometría"
 
 #: ../data/ui/panel-pref.glade.h:20 ../src/panel.c:932 ../src/panel.c:940
 msgid "Height:"
 msgstr "Altura:"
 
 #: ../data/ui/panel-pref.glade.h:21
-#, fuzzy
 msgid "Image"
-msgstr "imagen"
+msgstr "Imagen"
 
 #: ../data/ui/panel-pref.glade.h:22 ../src/panel.c:934
 msgid "Left"
@@ -116,7 +114,7 @@ msgstr "Comando para salir:"
 
 #: ../data/ui/panel-pref.glade.h:25
 msgid "Make window managers treat the panel as dock"
-msgstr "Permitir fijar el panel"
+msgstr "Hacer que los gestores de ventanas traten el panel como acoplable"
 
 #: ../data/ui/panel-pref.glade.h:26
 msgid "Margin:"
@@ -156,16 +154,15 @@ msgstr "Tamaño al minimizar"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Solid color (with opacity)"
-msgstr ""
+msgstr "Color sólido (con opacidad)"
 
 #: ../data/ui/panel-pref.glade.h:36
-#, fuzzy
 msgid "System theme"
-msgstr "Ninguno (usar el tema del sistema)"
+msgstr "Tema del sistema"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "Terminal Emulator:"
-msgstr "Terminal:"
+msgstr "Emulador de terminal:"
 
 #: ../data/ui/panel-pref.glade.h:38
 msgid "Top\t"
@@ -290,9 +287,8 @@ msgid "\"%s\" Settings"
 msgstr "Configuración \"%s\""
 
 #: ../src/panel.c:941
-#, fuzzy
 msgid "Top"
-msgstr "Arriba\t"
+msgstr "Arriba"
 
 #: ../src/panel.c:1332
 #, c-format
@@ -366,9 +362,8 @@ msgid "Display CPU usage"
 msgstr "Mostrar uso del procesador"
 
 #: ../src/plugins/deskno/deskno.c:165
-#, fuzzy
 msgid "Desktop Number / Workspace Name"
-msgstr "Escritorio n° / Nombre del área de trabajo"
+msgstr "Número de escritorio / Nombre del área de trabajo"
 
 #: ../src/plugins/deskno/deskno.c:167 ../src/plugins/deskno/deskno2.c:131
 msgid "Display workspace number, by cmeury@users.sf.net"
@@ -384,14 +379,12 @@ msgid "Display Image and Tooltip"
 msgstr "Mostrar imagen y consejo"
 
 #: ../src/plugins/launchbar.c:648
-#, fuzzy
 msgid "Available Applications"
-msgstr "Plugins disponibles"
+msgstr "Aplicaciones disponibles"
 
 #: ../src/plugins/launchbar.c:648
-#, fuzzy
 msgid "Applications"
-msgstr "Seleccionar aplicación"
+msgstr "Aplicaciones"
 
 #: ../src/plugins/launchbar.c:816
 msgid "Application Launch Bar"
@@ -456,9 +449,8 @@ msgid "Icons only"
 msgstr "Sólo iconos"
 
 #: ../src/plugins/taskbar.c:1925
-#, fuzzy
 msgid "Flat buttons"
-msgstr "Botones simples"
+msgstr "Botones planos"
 
 #: ../src/plugins/taskbar.c:1926
 msgid "Show windows from all desktops"
@@ -474,12 +466,11 @@ msgstr "Avisar cuando una ventana requiere atención"
 
 #: ../src/plugins/taskbar.c:1929
 msgid "Combine multiple application windows into a single button"
-msgstr ""
+msgstr "Combinar múltiples ventanas de aplicaciones en un solo botón"
 
 #: ../src/plugins/taskbar.c:1930
-#, fuzzy
 msgid "Maximum width of task button"
-msgstr "Ancho máximo de botón de tarea"
+msgstr "Ancho máximo del botón de tareas"
 
 #: ../src/plugins/taskbar.c:1931
 msgid "Spacing"
@@ -493,7 +484,9 @@ msgstr "Barra de tareas (lista de ventanas)"
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
-msgstr "Mostrar la lista de ventanas"
+msgstr ""
+"La barra de tareas muestra todas las ventanas abiertas y permite "
+"minimizarlas, replegarlas o enfocarlas"
 
 #: ../src/plugins/dclock.c:261
 msgid "Clock Format"
@@ -501,7 +494,7 @@ msgstr "Formato de hora"
 
 #: ../src/plugins/dclock.c:262
 msgid "Tooltip Format"
-msgstr "Formato de consejo"
+msgstr "Formato del consejo"
 
 #: ../src/plugins/dclock.c:263
 msgid "Format codes: man 3 strftime"
@@ -509,7 +502,7 @@ msgstr "Códigos de formato: man 3 strftime"
 
 #: ../src/plugins/dclock.c:264
 msgid "Action when clicked (default: display calendar)"
-msgstr ""
+msgstr "Acción al hacer clic (predeterminado: mostrar el calendario)"
 
 #: ../src/plugins/dclock.c:265
 msgid "Bold font"
@@ -520,7 +513,6 @@ msgid "Digital Clock"
 msgstr "Reloj digital"
 
 #: ../src/plugins/dclock.c:294
-#, fuzzy
 msgid "Display digital clock and tooltip"
 msgstr "Mostrar reloj digital y consejo"
 
@@ -541,15 +533,14 @@ msgid "Menu"
 msgstr "Menú"
 
 #: ../src/plugins/menu.c:1003
-#, fuzzy
 msgid "Application Menu"
-msgstr "Barra de aplicaciones"
+msgstr "Menú de aplicaciones"
 
 #: ../src/plugins/netstatus/glade-support.c:91
 #: ../src/plugins/netstatus/glade-support.c:115
 #, c-format
 msgid "Couldn't find pixmap file: %s"
-msgstr "No se pudo encontrar la imagen: %s"
+msgstr "Imposible encontrar la imagen: %s"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
@@ -598,12 +589,12 @@ msgstr "Dirección:"
 #: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
 msgid "Broadcast:"
-msgstr "Publicación:"
+msgstr "Difusión:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:513
 msgid "Con_figure"
-msgstr "Con_figuración"
+msgstr "Con_figurar"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:316
@@ -638,7 +629,7 @@ msgstr "Estado:"
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
 msgid "Subnet Mask:"
-msgstr "Máscara de sub red:"
+msgstr "Máscara de subred:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:484
@@ -926,9 +917,8 @@ msgid "Size"
 msgstr "Tamaño"
 
 #: ../src/plugins/space.c:139
-#, fuzzy
 msgid "Spacer"
-msgstr "<Espacio>"
+msgstr "Espaciador"
 
 #: ../src/plugins/space.c:141
 msgid "Allocate space"
@@ -939,7 +929,6 @@ msgid "System Tray"
 msgstr "Zona de notificación"
 
 #: ../src/plugins/tray.c:733
-#, fuzzy
 msgid "System tray"
 msgstr "Zona de notificación"
 
@@ -992,10 +981,9 @@ msgid "Switch between available keyboard layouts"
 msgstr "Selecciona entre las distribuciones de teclados disponibles"
 
 #: ../src/plugins/wincmd.c:167
-#, fuzzy
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
-"Botón izquierdo para minimizar todas las ventanas. Botón medio para "
+"Botón izquierdo para minimizar todas las ventanas.  Botón medio para "
 "replegarlas"
 
 #: ../src/plugins/wincmd.c:197
@@ -1003,13 +991,12 @@ msgid "Minimize All Windows"
 msgstr "Minimizar todas las ventanas"
 
 #: ../src/plugins/wincmd.c:199
-#, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
 "Envía comandos a todas las ventanas del escritorio.\n"
-"Los comandos admitidos son: 1) alternar minimizado y 2) alternar replegado"
+"Los comandos admitidos son: 1) minimizar y 2) replegar"
 
 #: ../src/plugins/dirmenu.c:212
 msgid "Open in _Terminal"
@@ -1168,7 +1155,7 @@ msgstr "Protocolo:"
 
 #: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
-msgstr "Dirección MAC:"
+msgstr "Dirección física:"
 
 #: ../src/plugins/netstat/netstat.c:470
 msgid "Manage Networks"
@@ -1205,13 +1192,12 @@ msgid "Config tool"
 msgstr "Herramienta de configuración"
 
 #: ../src/plugins/netstatus/netstatus.c:196
-#, fuzzy
 msgid "Network Status Monitor"
 msgstr "Monitor de estado de red"
 
 #: ../src/plugins/netstatus/netstatus.c:198
 msgid "Monitor network status"
-msgstr "Monitor del estado de la red"
+msgstr "Monitorear estado de la red"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:52
 #: ../src/plugins/netstatus/netstatus-dialog.c:311
