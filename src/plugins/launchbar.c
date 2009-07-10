@@ -207,7 +207,8 @@ static void launchbutton_build_bootstrap(Plugin * p)
         lb->bootstrap_button = g_new0(LaunchButton, 1);
         lb->bootstrap_button->plugin = p;
         lb->bootstrap_button->widget = gtk_button_new();
-        gtk_button_set_image(GTK_BUTTON(lb->bootstrap_button->widget), gtk_image_new_from_stock(GTK_STOCK_ADD, GTK_ICON_SIZE_MENU));
+        gtk_button_set_image(GTK_BUTTON(lb->bootstrap_button->widget),
+            gtk_image_new_from_pixbuf(lxpanel_load_icon(GTK_STOCK_ADD, p->panel->icon_size, p->panel->icon_size, FALSE)));
         g_signal_connect(lb->bootstrap_button->widget, "button-press-event", G_CALLBACK(launchbutton_press_event), lb->bootstrap_button);
 
         /* Add the bootstrap button to the icon grid.  By policy it is empty at this point. */
@@ -273,7 +274,7 @@ static void launchbutton_build_gui(Plugin * p, LaunchButton * btn)
     }
 
     /* Create a button with the specified icon. */
-    GtkWidget * button = fb_button_new_from_file(btn->image, PANEL_ICON_SIZE, PANEL_ICON_SIZE, PANEL_ICON_HIGHLIGHT, TRUE);
+    GtkWidget * button = fb_button_new_from_file(btn->image, p->panel->icon_size, p->panel->icon_size, PANEL_ICON_HIGHLIGHT, TRUE);
     btn->widget = button;
     GTK_WIDGET_UNSET_FLAGS(button, GTK_CAN_FOCUS);
     if (btn->tooltip != NULL)
@@ -387,7 +388,7 @@ static int launchbar_constructor(Plugin * p, char ** fp)
 
     /* Allocate an icon grid manager to manage the container. */
     GtkOrientation bo = (p->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
-    lb->icon_grid = icon_grid_new(p->panel, p->pwid, bo, PANEL_ICON_SIZE, PANEL_ICON_SIZE, 3, 0, p->panel->height);
+    lb->icon_grid = icon_grid_new(p->panel, p->pwid, bo, p->panel->icon_size, p->panel->icon_size, 3, 0, p->panel->height);
 
     /* Read parameters from the configuration file. */
     if (fp != NULL)
@@ -804,7 +805,20 @@ static void launchbar_panel_configuration_changed(Plugin * p)
     /* Set orientation into the icon grid. */
     LaunchbarPlugin * lb = (LaunchbarPlugin *) p->priv;
     GtkOrientation bo = (p->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
-    icon_grid_set_orientation(lb->icon_grid, bo, p->panel->height);
+    icon_grid_set_geometry(lb->icon_grid, bo, p->panel->icon_size, p->panel->icon_size, 3, 0, p->panel->height);
+
+    /* Reset all the images to resize them. */
+    GSList * l;
+    for (l = lb->buttons; l != NULL; l = l->next)
+    {
+        LaunchButton * btn = (LaunchButton *) l->data;
+        fb_button_set_from_file(btn->widget, btn->image, p->panel->icon_size, p->panel->icon_size, TRUE);
+    }
+
+    /* Reset the bootstrap button. */
+    if (lb->bootstrap_button != NULL)
+        gtk_button_set_image(GTK_BUTTON(lb->bootstrap_button->widget),
+            gtk_image_new_from_pixbuf(lxpanel_load_icon(GTK_STOCK_ADD, p->panel->icon_size, p->panel->icon_size, FALSE)));
 }
 
 /* Plugin descriptor. */

@@ -80,6 +80,7 @@ static Panel* panel_allocate(void)
     p->usefontcolor = 0;
     p->fontcolor = 0x00000000;
     p->spacing = 0;
+    p->icon_size = PANEL_ICON_SIZE;
     return p;
 }
 
@@ -824,6 +825,17 @@ void panel_establish_autohide(Panel *p)
     }
 }
 
+/* Set an image from a file with scaling to the panel icon size. */
+void panel_image_set_from_file(Panel * p, GtkWidget * image, char * file)
+{
+    GdkPixbuf * pixbuf = gdk_pixbuf_new_from_file_at_scale(file, p->icon_size, p->icon_size, TRUE, NULL);
+    if (pixbuf != NULL)
+    {
+        gtk_image_set_from_pixbuf(GTK_IMAGE(image), pixbuf);
+        g_object_unref(pixbuf);
+    }
+}
+
 static void
 panel_start_gui(Panel *p)
 {
@@ -1119,6 +1131,8 @@ panel_parse_global(Panel *p, char **fp)
                     p->background = str2num(bool_pair, s.t[1], 0);
                 } else if( !g_ascii_strcasecmp(s.t[0], "BackgroundFile") ) {
                     p->background_file = g_strdup( s.t[1] );
+                } else if (!g_ascii_strcasecmp(s.t[0], "IconSize")) {
+                    p->icon_size = atoi(s.t[1]);
                 } else {
                     ERR( "lxpanel: %s - unknown var in Global section\n", s.t[0]);
                 }

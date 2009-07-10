@@ -347,13 +347,8 @@ set_new_locale(t_xkb *ctrl)
   GdkPixbuf *pixbuf = NULL, *tmp = NULL;
   gint pid;
 
-  /* Set the label   */
-  label_markup = xkb_get_label_markup (plugin); 
-  gtk_label_set_markup (GTK_LABEL (plugin->label), label_markup);
-  g_free(label_markup);
-  
   /* Set the image */
-  size = 0.9 * plugin->size;
+  size = plugin->size;
   group_name = get_current_group_name();
   filename = g_strdup_printf("%s/%s.png", FLAGSDIR, group_name);
   DBG ("Try to load image: %s", filename);
@@ -385,6 +380,15 @@ set_new_locale(t_xkb *ctrl)
     }
   }
 
+  /* Set the label */
+  if (plugin->display_type == TEXT)
+  {
+//    label_markup = xkb_get_label_markup (plugin);
+    panel_draw_label_text(plugin->plugin->panel, plugin->label, (char *) get_symbol_name_by_res_no (current_group_xkb_no), TRUE);
+//    gtk_label_set_markup (GTK_LABEL (plugin->label), label_markup);
+//    g_free(label_markup);
+  }
+  
   /* Part of the image may remain visible after image or display type change */
   gtk_widget_queue_draw_area(plugin->btn, 0, 0, plugin->size, plugin->size);
 

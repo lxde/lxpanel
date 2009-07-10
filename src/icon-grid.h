@@ -53,11 +53,12 @@ typedef struct _icon_grid {
 } IconGrid;
 
 extern IconGrid * icon_grid_new(
-    Panel * panel, GtkWidget * container, GtkOrientation orientation,
-    gint child_width, gint child_height, gint spacing, gint border, gint target_dimension);
+    Panel * panel, GtkWidget * container,
+    GtkOrientation orientation, gint child_width, gint child_height, gint spacing, gint border, gint target_dimension);
 						/* Create an icon grid */
-extern void icon_grid_set_orientation(IconGrid * ig, GtkOrientation orientation, gint target_dimension);
-						/* Change the orientation of an icon grid */
+extern void icon_grid_set_geometry(IconGrid * ig,
+    GtkOrientation orientation, gint child_width, gint child_height, gint spacing, gint border, gint target_dimension);
+						/* Change the geometry of an icon grid */
 extern void icon_grid_add(IconGrid * ig, GtkWidget * child, gboolean visible);
 						/* Add a child to the icon grid */
 extern void icon_grid_remove(IconGrid * ig, GtkWidget * child);

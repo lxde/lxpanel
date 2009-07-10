@@ -203,7 +203,7 @@ dnl    done
     plugin_deskno=deskno
     plugin_batt=batt
     plugin_kbled=kbled
-    plugin_xkb=
+    plugin_xkb=xkb
     plugin_thermal=thermal
 
     AC_MSG_RESULT(all)
@@ -363,7 +363,7 @@ echo Building dynamic plugins:
         AC_MSG_RESULT([    netstat - Monitor networking status (Linux Only)])
     fi
     if test x"$plugin_volume" != x; then
-        AC_MSG_RESULT([    volume - Display and adjust volume of sound card])
+        AC_MSG_RESULT([    volume - Display and adjust volume of sound card for OSS])
     fi
     if test x"$plugin_volumealsa" != x; then
         AC_MSG_RESULT([    volumealsa - Display and adjust volume of sound card for ALSA])

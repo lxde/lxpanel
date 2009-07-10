@@ -576,7 +576,6 @@ gboolean show_system_menu( gpointer system_menu )
 static GtkWidget *
 make_button(Plugin *p, gchar *fname, gchar *name, GdkColor* tint, GtkWidget *menu)
 {
-    int w = -1, h = PANEL_ICON_SIZE;
     char* title = NULL;
     menup *m;
 
@@ -601,14 +600,14 @@ make_button(Plugin *p, gchar *fname, gchar *name, GdkColor* tint, GtkWidget *men
         else
             title = name;
 
-        m->img = fb_button_new_from_file_with_label(fname, w, h, gcolor2rgb24(tint), TRUE, p->panel, title);
+        m->img = fb_button_new_from_file_with_label(fname, -1, p->panel->icon_size, gcolor2rgb24(tint), TRUE, p->panel, title);
 
         if( title != name )
             g_free( title );
     }
     else
     {
-        m->img = fb_button_new_from_file(fname, w, h, gcolor2rgb24(tint), TRUE);
+        m->img = fb_button_new_from_file(fname, -1, p->panel->icon_size, gcolor2rgb24(tint), TRUE);
     }
 
     gtk_widget_show(m->img);
@@ -977,7 +976,7 @@ static void apply_config(Plugin* p)
 {
     menup* m = (menup*)p->priv;
     if( m->fname )
-        fb_button_set_from_file( m->img, m->fname );
+        fb_button_set_from_file( m->img, m->fname, -1, p->panel->icon_size, TRUE );
 }
 
 static void menu_config( Plugin *p, GtkWindow* parent )
@@ -993,6 +992,12 @@ static void menu_config( Plugin *p, GtkWindow* parent )
     gtk_window_present( GTK_WINDOW(dlg) );
 }
 
+/* Callback when panel configuration changes. */
+static void menu_panel_configuration_changed(Plugin * p)
+{
+    apply_config(p);
+}
+
 PluginClass menu_plugin_class = {
 
     PLUGINCLASS_VERSIONING,
@@ -1005,6 +1010,7 @@ PluginClass menu_plugin_class = {
     constructor : menu_constructor,
     destructor  : menu_destructor,
     config : menu_config,
-    save : save_config
+    save : save_config,
+    panel_configuration_changed : menu_panel_configuration_changed
 };
 

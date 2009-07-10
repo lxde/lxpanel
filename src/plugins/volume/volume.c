@@ -78,22 +78,22 @@ static void update_icon (Plugin* p)
 	theme = gtk_icon_theme_get_default();
 	
 	if (curr_volume <= 0) {
-		info = gtk_icon_theme_lookup_icon( theme, "stock_volume-mute", 24, 0 );
+		info = gtk_icon_theme_lookup_icon( theme, "stock_volume-mute", p->panel->icon_size, 0 );
 	}
 	else if (curr_volume > 0 && curr_volume <= 50) {
-		info = gtk_icon_theme_lookup_icon( theme, "stock_volume-min", 24, 0 );
+		info = gtk_icon_theme_lookup_icon( theme, "stock_volume-min", p->panel->icon_size, 0 );
 	}
 	else if (curr_volume > 50 && curr_volume <= 75) {
-		info = gtk_icon_theme_lookup_icon( theme, "stock_volume-med", 24, 0 );
+		info = gtk_icon_theme_lookup_icon( theme, "stock_volume-med", p->panel->icon_size, 0 );
 	}
 	else if (curr_volume > 75) {
-		info = gtk_icon_theme_lookup_icon( theme, "stock_volume-max", 24, 0 );
+		info = gtk_icon_theme_lookup_icon( theme, "stock_volume-max", p->panel->icon_size, 0 );
 	}
 
 	if (info ) {
 		icon = gdk_pixbuf_new_from_file_at_size(
 				gtk_icon_info_get_filename( info ),
-				24, 24, NULL );
+				p->panel->icon_size, p->panel->icon_size, NULL );
 		gtk_icon_info_free( info );
 	}
 	else {
@@ -164,7 +164,7 @@ static void on_mouse_scroll (GtkWidget* widget, GdkEventScroll* evt, Plugin* p)
 	}
 }
 
-static void on_button_press (GtkWidget* widget, GdkEventButton* evt, Plugin* p)
+static gboolean on_button_press (GtkWidget* widget, GdkEventButton* evt, Plugin* p)
 {
 	volume_t *vol = (volume_t*) p->priv;
 
@@ -279,7 +279,7 @@ static int volume_constructor(Plugin *p, char **fp)
             
     g_signal_connect( vol->mainw, "scroll-event",
             G_CALLBACK(on_mouse_scroll), p );
-    gtk_widget_set_size_request( vol->mainw, 24, 24 );
+    gtk_widget_set_size_request( vol->mainw, p->panel->icon_size, p->panel->icon_size );
 
     /* obtain current volume */
     vol->dlg = create_volume_window();

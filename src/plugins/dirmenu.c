@@ -326,7 +326,7 @@ dirmenu_constructor(Plugin *p, char **fp)
     /* Create button.
      * It is not known why, but the button text will not draw if it is edited from empty to non-empty
      * unless this strategy of initializing it with a non-empty value first is followed. */
-    p->pwid = dm->button = fb_button_new_from_file_with_label(fname, PANEL_ICON_SIZE, PANEL_ICON_SIZE,
+    p->pwid = dm->button = fb_button_new_from_file_with_label(fname, p->panel->icon_size, p->panel->icon_size,
         PANEL_ICON_HIGHLIGHT, TRUE, p->panel, "Temp");
     dirmenu_apply_config_to_children(dm->button, dm);
     gtk_container_set_border_width( GTK_CONTAINER(dm->button), 0 );
@@ -393,6 +393,10 @@ static void dirmenu_configure( Plugin *p, GtkWindow* parent )
 /* Callback when panel configuration changes. */
 static void dirmenu_panel_configuration_changed(Plugin * p)
 {
+    dirmenu* dm = (dirmenu*)p->priv;
+    fb_button_set_from_file(p->pwid,
+        ((dm->image != NULL) ? dm->image : "file-manager"),
+        p->panel->icon_size, p->panel->icon_size, TRUE);
     dirmenu_apply_config(p);
 }
 

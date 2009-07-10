@@ -783,7 +783,11 @@ static void pager_panel_configuration_changed(Plugin * p)
     /* Reset the icon grid orientation. */
     PagerPlugin * pg = (PagerPlugin *) p->priv;
     GtkOrientation bo = (p->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
-    icon_grid_set_orientation(pg->icon_grid, bo, p->panel->height); 
+    icon_grid_set_geometry(pg->icon_grid, bo,
+        (PANEL_HEIGHT_DEFAULT - BORDER_WIDTH * 2) * pg->aspect_ratio,
+        PANEL_HEIGHT_DEFAULT - BORDER_WIDTH * 2,
+        1, BORDER_WIDTH,
+        p->panel->height); 
 }
 
 /* Plugin descriptor. */

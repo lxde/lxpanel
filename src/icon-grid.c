@@ -201,8 +201,8 @@ static void icon_grid_demand_resize(IconGrid * ig)
  * The icon grid manages the contents of the container.
  * The orientation, geometry of the elements, and spacing can be varied.  All elements are the same size. */
 IconGrid * icon_grid_new(
-    Panel * panel, GtkWidget * container, GtkOrientation orientation,
-    gint child_width, gint child_height, gint spacing, gint border, gint target_dimension)
+    Panel * panel, GtkWidget * container,
+    GtkOrientation orientation, gint child_width, gint child_height, gint spacing, gint border, gint target_dimension)
 {
     /* Create a structure representing the icon grid and collect the parameters. */
     IconGrid * ig = g_new0(IconGrid, 1);
@@ -330,10 +330,15 @@ extern void icon_grid_reorder_child(IconGrid * ig, GtkWidget * child, gint posit
     }
 }
 
-/* Change the orientation of an icon grid. */
-void icon_grid_set_orientation(IconGrid * ig, GtkOrientation orientation, gint target_dimension)
+/* Change the geometry of an icon grid. */
+void icon_grid_set_geometry(IconGrid * ig,
+    GtkOrientation orientation, gint child_width, gint child_height, gint spacing, gint border, gint target_dimension)
 {
     ig->orientation = orientation;
+    ig->child_width = child_width;
+    ig->child_height = child_height;
+    ig->spacing = spacing;
+    ig->border = border;
     ig->target_dimension = target_dimension;
     icon_grid_demand_resize(ig);
 }

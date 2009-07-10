@@ -28,10 +28,10 @@
 
 #include "dbg.h"
 
-#define ICONSIZETINY 24 
-#define ICONSIZESMALL 30
-#define ICONSIZEMEDIUM 45
-#define ICONSIZELARGE 60
+//#define ICONSIZETINY 24 
+//#define ICONSIZESMALL 30
+//#define ICONSIZEMEDIUM 45
+//#define ICONSIZELARGE 60
 
 typedef enum 
 {

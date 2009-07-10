@@ -53,6 +53,8 @@ static gboolean wincmd_button_clicked(GtkWidget * widget, GdkEventButton * event
 static int wincmd_constructor(Plugin * p, char ** fp);
 static void wincmd_destructor(Plugin * p);
 static void wincmd_save_configuration(Plugin * p, FILE * fp);
+static void wincmd_panel_configuration_changed(Plugin * p);
+
 
 /* Execute a window command. */
 static void wincmd_execute(WindowCommand command)
@@ -161,7 +163,7 @@ static int wincmd_constructor(Plugin * p, char ** fp)
         wc->image = g_strdup("window-manager");
 
     /* Allocate top level widget and set into Plugin widget pointer. */
-    p->pwid = fb_button_new_from_file(wc->image, PANEL_ICON_SIZE, PANEL_ICON_SIZE, PANEL_ICON_HIGHLIGHT, TRUE);
+    p->pwid = fb_button_new_from_file(wc->image, p->panel->icon_size, p->panel->icon_size, PANEL_ICON_HIGHLIGHT, TRUE);
     gtk_container_set_border_width(GTK_CONTAINER(p->pwid), 0);
     g_signal_connect(G_OBJECT(p->pwid), "button_press_event", G_CALLBACK(wincmd_button_clicked), (gpointer) p);
     gtk_widget_set_tooltip_text(p->pwid, _("Left click to iconify all windows.  Middle click to shade them."));
@@ -174,7 +176,7 @@ static int wincmd_constructor(Plugin * p, char ** fp)
 /* Plugin destructor. */
 static void wincmd_destructor(Plugin * p)
 {
-    WinCmdPlugin * wc = (WinCmdPlugin * ) p->priv;
+    WinCmdPlugin * wc = (WinCmdPlugin *) p->priv;
     g_free(wc->image);
     g_free(wc);
 }
@@ -186,6 +188,13 @@ static void wincmd_save_configuration(Plugin * p, FILE * fp)
     lxpanel_put_str(fp, "image", wc->image);
     lxpanel_put_str(fp, "Button1", num2str(wincmd_pair, wc->button_1_command, NULL));
     lxpanel_put_str(fp, "Button2", num2str(wincmd_pair, wc->button_2_command, NULL));
+}
+
+/* Callback when panel configuration changes. */
+static void wincmd_panel_configuration_changed(Plugin * p)
+{
+    WinCmdPlugin * wc = (WinCmdPlugin *) p->priv;
+    fb_button_set_from_file(p->pwid, wc->image, p->panel->icon_size, p->panel->icon_size, TRUE);
 }
 
 /* Plugin descriptor. */
@@ -201,5 +210,6 @@ PluginClass wincmd_plugin_class = {
     constructor : wincmd_constructor,
     destructor  : wincmd_destructor,
     config : NULL,
-    save : wincmd_save_configuration
+    save : wincmd_save_configuration,
+    panel_configuration_changed : wincmd_panel_configuration_changed
 };

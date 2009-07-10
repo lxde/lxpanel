@@ -94,6 +94,7 @@ typedef struct _Panel {
     guint visible : 1;
     int height_when_hidden;
     guint hide_timeout;
+    int icon_size;			/* Icon size */
 
     int desknum;
     int curdesk;
@@ -218,6 +219,7 @@ extern void panel_determine_background_pixmap(Panel * p, GtkWidget * widget, Gdk
 extern void panel_draw_label_integer(Panel * p, GtkWidget * label, int value, gboolean bold);
 extern void panel_draw_label_text(Panel * p, GtkWidget * label, char * text, gboolean bold);
 extern void panel_establish_autohide(Panel *p);
+extern void panel_image_set_from_file(Panel * p, GtkWidget * image, char * file);
 extern void panel_set_wm_strut(Panel *p);
 extern void panel_set_dock_type(Panel *p);
 extern void panel_set_panel_configuration_changed(Panel *p);

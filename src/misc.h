@@ -128,7 +128,7 @@ extern GtkMenu* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean u
 
 extern GdkPixbuf* lxpanel_load_icon( const char* name, int width, int height, gboolean use_fallback );
 
-void fb_button_set_from_file(GtkWidget* btn, const char* img_file);
+void fb_button_set_from_file(GtkWidget* btn, const char* img_file, gint width, gint height, gboolean keep_ratio);
 
 gboolean lxpanel_launch_app(const char* exec, GList* files, gboolean in_terminal);
 

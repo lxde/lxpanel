@@ -79,10 +79,7 @@ static void update_display(volume_t* vol)
     /* mute status */
     snd_mixer_selem_get_playback_switch(vol->master_element, 0, &vol->mute);
 
-    if (vol->mute==0)
-        gtk_image_set_from_file(GTK_IMAGE(vol->tray_icon), ICONS_MUTE);
-    else
-        gtk_image_set_from_file(GTK_IMAGE(vol->tray_icon), ICONS_VOLUME);
+    panel_image_set_from_file(vol->plugin->panel, vol->tray_icon, ((vol->mute) ? ICONS_VOLUME : ICONS_MUTE));
 
     g_signal_handler_block( vol->mute_check, vol->mute_handler );
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(vol->mute_check), !vol->mute );
@@ -266,12 +263,12 @@ static void click_mute(GtkWidget *widget, volume_t *vol)
     int chn;
 
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget))) {
-        gtk_image_set_from_file(GTK_IMAGE(vol->tray_icon), ICONS_MUTE);
+        panel_image_set_from_file(vol->plugin->panel, GTK_IMAGE(vol->tray_icon), ICONS_MUTE);
         for (chn = 0; chn <= SND_MIXER_SCHN_LAST; chn++) {
             snd_mixer_selem_set_playback_switch(vol->master_element, chn, 0);
         }
     } else {
-        gtk_image_set_from_file(GTK_IMAGE(vol->tray_icon), ICONS_VOLUME);
+        panel_image_set_from_file(vol->plugin->panel, GTK_IMAGE(vol->tray_icon), ICONS_VOLUME);
         for (chn = 0; chn <= SND_MIXER_SCHN_LAST; chn++) {
             snd_mixer_selem_set_playback_switch(vol->master_element, chn, 1);
         }
@@ -392,7 +389,7 @@ volumealsa_constructor(Plugin *p, char **fp)
     vol->mainw = gtk_event_box_new();
 
     gtk_widget_add_events(vol->mainw, GDK_BUTTON_PRESS_MASK);
-    gtk_widget_set_size_request( vol->mainw, PANEL_ICON_SIZE, PANEL_ICON_SIZE );
+    gtk_widget_set_size_request( vol->mainw, p->panel->icon_size, p->panel->icon_size );
 
     g_signal_connect(G_OBJECT(vol->mainw), "button-press-event",
                          G_CALLBACK(tray_icon_press), vol);
@@ -415,6 +412,12 @@ volumealsa_constructor(Plugin *p, char **fp)
     RET(1);
 }
 
+/* Callback when panel configuration changes. */
+static void volumealsa_panel_configuration_changed(Plugin * p)
+{
+    /* Do a full redraw. */
+    update_display((volume_t *) p->priv);
+}
 
 PluginClass volumealsa_plugin_class = {
 
@@ -428,5 +431,6 @@ PluginClass volumealsa_plugin_class = {
     constructor : volumealsa_constructor,
     destructor  : volumealsa_destructor,
     config : NULL,
-    save : NULL
+    save : NULL,
+    panel_configuration_changed : volumealsa_panel_configuration_changed
 };

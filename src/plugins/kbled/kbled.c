@@ -51,6 +51,7 @@ static int xkb_error_base = 0;
 
 /* Private context for keyboard LED plugin. */
 typedef struct {
+    Plugin * plugin;				/* Back pointer to plugin */
     IconGrid * icon_grid;			/* Icon grid manager */
     GtkWidget *indicator_image[3];		/* Image for each indicator */
     int current_state;				/* Current LED state, bit encoded */
@@ -74,7 +75,7 @@ static void kbled_update_image(KeyboardLEDPlugin * kl, int i, int state)
         PACKAGE_DATA_DIR "/lxpanel/images",
         ((state) ? on_icons[i] : off_icons[i]),
         NULL);
-    gtk_image_set_from_file(GTK_IMAGE(kl->indicator_image[i]), file);
+    panel_image_set_from_file(kl->plugin->panel, GTK_IMAGE(kl->indicator_image[i]), file);
     g_free(file);
 }
 
@@ -115,6 +116,7 @@ static int kbled_constructor(Plugin * p, char ** fp)
 {
     /* Allocate and initialize plugin context and set into Plugin private data pointer. */
     KeyboardLEDPlugin * kl = g_new0(KeyboardLEDPlugin, 1);
+    kl->plugin = p;
     kl->visible[0] = FALSE;
     kl->visible[1] = TRUE;
     kl->visible[2] = TRUE;
@@ -159,7 +161,7 @@ static int kbled_constructor(Plugin * p, char ** fp)
     /* Allocate an icon grid manager to manage the container.
      * Then allocate three images for the three indications, but make them visible only when the configuration requests. */
     GtkOrientation bo = (p->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
-    kl->icon_grid = icon_grid_new(p->panel, p->pwid, bo, PANEL_ICON_SIZE, PANEL_ICON_SIZE, 0, 0, p->panel->height); 
+    kl->icon_grid = icon_grid_new(p->panel, p->pwid, bo, p->panel->icon_size, p->panel->icon_size, 0, 0, p->panel->height); 
     int i;
     for (i = 0; i < 3; i++)
     {
@@ -247,7 +249,12 @@ static void kbled_panel_configuration_changed(Plugin * p)
     /* Set orientation into the icon grid. */
     KeyboardLEDPlugin * kl = (KeyboardLEDPlugin *) p->priv;
     GtkOrientation bo = (p->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
-    icon_grid_set_orientation(kl->icon_grid, bo, p->panel->height);
+    icon_grid_set_geometry(kl->icon_grid, bo, p->panel->icon_size, p->panel->icon_size, 0, 0, p->panel->height);
+
+    /* Do a full redraw. */
+    int current_state = kl->current_state;
+    kl->current_state = ~ kl->current_state;
+    kbled_update_display(p, current_state);
 }
 
 /* Plugin descriptor. */

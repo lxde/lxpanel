@@ -919,7 +919,7 @@ static void on_theme_changed(GtkIconTheme * theme, GtkWidget * img)
     _gtk_image_set_from_file_scaled(img, data->fname, data->dw, data->dh, data->keep_ratio);
 }
 
-void fb_button_set_from_file(GtkWidget * btn, const char * img_file)
+void fb_button_set_from_file(GtkWidget * btn, const char * img_file, gint width, gint height, gboolean keep_ratio)
 {
     /* Locate the image within the button. */
     GtkWidget * child = gtk_bin_get_child(GTK_BIN(btn));
@@ -938,6 +938,9 @@ void fb_button_set_from_file(GtkWidget * btn, const char * img_file)
         ImgData * data = (ImgData *) g_object_get_qdata(G_OBJECT(img), img_data_id);
         g_free(data->fname);
         data->fname = g_strdup(img_file);
+        data->dw = width;
+        data->dh = height;
+        data->keep_ratio = keep_ratio;
         _gtk_image_set_from_file_scaled(img, data->fname, data->dw, data->dh, data->keep_ratio);
     }
 }
