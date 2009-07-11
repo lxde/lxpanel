@@ -108,6 +108,8 @@ static int tray_constructor(Plugin * p, char ** fp);
 static void tray_destructor(Plugin * p);
 static void tray_panel_configuration_changed(Plugin * p);
 
+static TrayPlugin* tray_singleton = NULL;
+
 /* Look up a client in the client list. */
 static TrayClient * client_lookup(TrayPlugin * tr, Window window)
 {
@@ -333,14 +335,18 @@ static void balloon_message_remove(TrayPlugin * tr, Window window, gboolean all_
 /* Handle a balloon message _NET_SYSTEM_TRAY_MESSAGE_DATA event. */
 static GdkFilterReturn balloon_message_data_event(GdkXEvent * xev, GdkEvent * event, gpointer data)
 {
-  int                  len;
-
-    XClientMessageEvent * xevent = (XClientMessageEvent *) xev;
-    TrayPlugin * tr = data;
-
+    int len;
+    XClientMessageEvent * xevent  = (XClientMessageEvent *) xev;
+    TrayPlugin * tr = tray_singleton;
     /* Look up the pending message in the list. */
     BalloonMessage * msg_pred = NULL;
     BalloonMessage * msg;
+
+	/* this is dirty but inevitable since gdk client message filter 
+	 * cannot be removed. */
+	if(!tr)
+		return GDK_FILTER_CONTINUE;
+
     for (msg = tr->incomplete_messages; msg != NULL; msg_pred = msg, msg = msg->flink)
     {
         if (xevent->window == msg->window)
@@ -496,7 +502,7 @@ static void trayclient_request_dock(TrayPlugin * tr, XClientMessageEvent * xeven
 
     /* Add the socket to the icon grid. */
     icon_grid_add(tr->icon_grid, tc->socket, TRUE);
-    
+
     /* Connect the socket to the plug. */
     gtk_socket_add_id(GTK_SOCKET(tc->socket), tc->window);
 }
@@ -532,7 +538,12 @@ static GdkFilterReturn tray_window_filter(GdkXEvent * xev, GdkEvent * event, gpo
 static GdkFilterReturn tray_client_message_opcode_filter(GdkXEvent * xev, GdkEvent * event, gpointer data)
 {
     XClientMessageEvent * xevent  = (XClientMessageEvent *) xev;
-    TrayPlugin * tr = data;
+    TrayPlugin * tr = tray_singleton;
+
+	/* this is dirty but inevitable since gdk client message filter 
+	 * cannot be removed. */
+	if(!tr)
+		return GDK_FILTER_CONTINUE;
 
     /* Dispatch on the message. */
     switch (xevent->data.l[1])
@@ -662,16 +673,22 @@ static int tray_constructor(Plugin * p, char ** fp)
         /* Add GDK window filter to handle SYSTEM_TRAY_REQUEST_DOCK and SelectionClear. */
         gdk_window_add_filter(invisible->window, tray_window_filter, tr);
 
+        /* FIXME: There is no way to remove the installed client message filter.
+		 *        If later gtk+ provide API to remove them, this should be fixed. */
+
         /* Add filter for _NET_SYSTEM_TRAY_OPCODE (SYSTEM_TRAY_BEGIN_MESSAGE and SYSTEM_TRAY_CANCEL_MESSAGE). */
         GdkAtom opcode_atom = gdk_atom_intern("_NET_SYSTEM_TRAY_OPCODE", FALSE);
-        gdk_display_add_client_message_filter(display, opcode_atom, tray_client_message_opcode_filter, tr);
+        gdk_display_add_client_message_filter(display, opcode_atom, tray_client_message_opcode_filter, &tray_singleton);
 
         /* Add filter for _NET_SYSTEM_TRAY_MESSAGE_DATA. */
         GdkAtom message_data_atom = gdk_atom_intern("_NET_SYSTEM_TRAY_MESSAGE_DATA", FALSE);
-        gdk_display_add_client_message_filter(display, message_data_atom, balloon_message_data_event, tr);
+        gdk_display_add_client_message_filter(display, message_data_atom, balloon_message_data_event, &tray_singleton);
 
         tr->invisible = invisible;
-        g_object_ref(G_OBJECT(tr->invisible));
+		tray_singleton = tr;
+
+        /* FIXME: why this is needed? */
+        g_object_ref(G_OBJECT(invisible));
     }
     else
     {
@@ -718,7 +735,13 @@ static void tray_destructor(Plugin * p)
 
     /* Deallocate memory. */
     icon_grid_free(tr->icon_grid);
+
     g_free(tr);
+
+	/* we should set this to NULL Otherwise invalid pointer
+	 * will be referenced in client message filter since
+	 * gdk client message filters unfortunately cannot be removed. */
+	tray_singleton = NULL;
 }
 
 /* Callback when panel configuration changes. */
