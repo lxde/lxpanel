@@ -33,8 +33,10 @@ static void icon_grid_demand_resize(IconGrid * ig);
 /* Establish the widget placement of an icon grid. */
 static gboolean icon_grid_placement(IconGrid * ig)
 {
+    /* Make sure the container is visible. */
     gtk_widget_show(ig->container);
 
+    /* In a GtkLayout, drawing is done into the bin window.  Erase it. */
     GdkWindow * bin_window = gtk_layout_get_bin_window(GTK_LAYOUT(ig->widget));
     if (bin_window != NULL)
     {
@@ -42,36 +44,66 @@ static gboolean icon_grid_placement(IconGrid * ig)
 	gdk_window_clear(bin_window);
     }
 
+    /* Get and save the desired container geometry. */
+    ig->container_width = ig->container->allocation.width;
+    ig->container_height = ig->container->allocation.height;
+    int child_width = ig->child_width;
+    int child_height = ig->child_height;
+
+    /* Get the required container geometry if all elements get the client's desired allocation. */
+    int container_width_needed = (ig->columns * (child_width + ig->spacing)) - ig->spacing;
+    int container_height_needed = (ig->rows * (child_height + ig->spacing)) - ig->spacing;
+
+    /* Get the constrained child geometry if the allocated geometry is insufficient.
+     * All children are still the same size and share equally in the deficit. */
+    if (container_width_needed > ig->container_width)
+        child_width = (ig->container_width - ((ig->columns - 1) * ig->spacing)) / ig->columns;
+    if (container_height_needed > ig->container_height)
+        child_height = (ig->container_height - ((ig->rows - 1) * ig->spacing)) / ig->rows;
+
     /* Reposition each visible child. */
     int x = ig->border;
     int y = ig->border;
     int limit = ig->border + ((ig->orientation == GTK_ORIENTATION_HORIZONTAL)
-        ?  (ig->rows * (ig->child_height + ig->spacing))
-        :  (ig->columns * (ig->child_width + ig->spacing)));
+        ?  (ig->rows * (child_height + ig->spacing))
+        :  (ig->columns * (child_width + ig->spacing)));
     IconGridElement * ige;
     for (ige = ig->child_list; ige != NULL; ige = ige->flink)
     {
         if (ige->visible)
         {
+            /* Do necessary operations on the child. */
             gtk_widget_show(ige->widget);
+            if (((child_width != ige->widget->allocation.width) || (child_height != ige->widget->allocation.height))
+            && (child_width > 0) && (child_height > 0))
+                {
+                GtkAllocation alloc;
+                alloc.x = x;
+                alloc.y = y;
+                alloc.width = child_width;
+                alloc.height = child_height;
+                gtk_widget_size_allocate(ige->widget, &alloc);
+                }
             gtk_layout_move(GTK_LAYOUT(ig->widget), ige->widget, x, y);
             gtk_widget_queue_draw(ige->widget);
+
+            /* Advance to the next grid position. */
             if (ig->orientation == GTK_ORIENTATION_HORIZONTAL)
             {
-                y += ig->child_height + ig->spacing;
+                y += child_height + ig->spacing;
                 if (y >= limit)
                 {
                     y = ig->border;
-                    x += ig->child_width + ig->spacing;
+                    x += child_width + ig->spacing;
                 }
             }
             else
             {
-                x += ig->child_width + ig->spacing;
+                x += child_width + ig->spacing;
                 if (x >= limit)
                 {
                     x = ig->border;
-                    y += ig->child_height + ig->spacing;
+                    y += child_height + ig->spacing;
                 }
             }
         }
@@ -133,7 +165,10 @@ static void icon_grid_geometry(IconGrid * ig, gboolean layout)
      * We do the placement later, also to prevent a recursive loop. */
     if ((layout)
     && (( ! ig->actual_dimension)
-      || (ig->rows != original_rows) || (ig->columns != original_columns)
+      || (ig->rows != original_rows)
+      || (ig->columns != original_columns)
+      || (ig->container_width != ig->container->allocation.width)
+      || (ig->container_height != ig->container->allocation.height)
       || (ig->children_changed)))
         {
         ig->actual_dimension = TRUE;
@@ -155,7 +190,7 @@ static void icon_grid_element_size_request(GtkWidget * widget, GtkRequisition * 
 static void icon_grid_size_request(GtkWidget * widget, GtkRequisition * requisition, IconGrid * ig)
 {
     /* This is our opportunity to request space for the layout container.
-     * Compute the geometry.  Do not attach children at this time to avoid a recursive loop. */
+     * Compute the geometry.  Do not lay out children at this time to avoid a recursive loop. */
     icon_grid_geometry(ig, FALSE);
 
     /* Compute the requisition. */

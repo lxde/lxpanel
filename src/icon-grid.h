@@ -50,6 +50,8 @@ typedef struct _icon_grid {
     GtkWidget * widget;				/* Layout widget we use for packing */
     int rows;					/* Computed layout rows */
     int columns;				/* Computed layout columns */
+    int container_width;			/* Container's allocated width */
+    int container_height;			/* Container's allocated height */
 } IconGrid;
 
 extern IconGrid * icon_grid_new(

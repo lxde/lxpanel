@@ -34,6 +34,7 @@
 #include "plugin.h"
 #include "icon.xpm"
 #include "gtkbar.h"
+#include "icon-grid.h"
 
 /*
  * 2006.09.10 modified by Hong Jen Yee (PCMan) pcman.tw (AT) gmail.com
@@ -87,7 +88,7 @@ typedef struct _taskbar {
     Plugin * plug;				/* Back pointer to Plugin */
     Task * task_list;				/* List of tasks to be displayed in taskbar */
     TaskClass * res_class_list;			/* Window class list */
-    GtkWidget * bar;				/* Container for taskbar buttons */
+    IconGrid * icon_grid;			/* Manager for taskbar buttons */
     GtkWidget * menu;				/* Popup menu for task control (Close, Raise, etc.) */
     GtkWidget * group_menu;			/* Popup menu for grouping selection */
     GdkPixbuf * fallback_pixbuf;		/* Fallback task icon when none is available */
@@ -97,7 +98,7 @@ typedef struct _taskbar {
     Task * focused_previous;			/* Task that had focus just before panel got it */
     Task * menutask;				/* Task for which popup menu is open */
     guint dnd_delay_timer;			/* Timer for drag and drop delay */
-    int iconsize;				/* Size of task icons */
+    int icon_size;				/* Size of task icons */
     gboolean show_all_desks;			/* User preference: show windows from all desktops */
     gboolean tooltips;				/* User preference: show tooltips */
     gboolean icons_only;			/* User preference: show icons only, omit name */
@@ -125,6 +126,7 @@ static gchar *taskbar_rc = "style 'taskbar-style'\n"
 #define TASK_WIDTH_MAX       200
 #define TASK_PADDING         4
 #define ALL_WORKSPACES       (-1)
+#define ICON_ONLY_EXTRA      6		/* Amount needed to have button lay out symmetrically */
 
 static void set_timer_on_task(Task * tk);
 static gboolean task_is_visible_on_current_desktop(TaskbarPlugin * tb, Task * tk);
@@ -277,8 +279,10 @@ static void task_draw_label(Task * tk)
     TaskClass * tc = tk->res_class;
     if ((tk->tb->grouped_tasks) && (tc != NULL) && (tc->visible_task == tk) && (tc->visible_count > 1))
         {
-        gtk_widget_set_tooltip_text(tk->button, NULL);
-        panel_draw_label_integer(tk->tb->plug->panel, tk->label, tc->visible_count, (tk->entered_state || tk->flash_state));
+        char buffer[20];
+        sprintf(buffer, "%d", tc->visible_count);
+        gtk_widget_set_tooltip_text(tk->button, buffer);
+        panel_draw_label_text(tk->tb->plug->panel, tk->label, buffer, (tk->entered_state || tk->flash_state));
         }
     else
     {
@@ -309,10 +313,10 @@ static void task_button_redraw(Task * tk, TaskbarPlugin * tb)
     if (task_is_visible(tb, tk))
     {
         task_draw_label(tk);
-        gtk_widget_show(tk->button);
+        icon_grid_set_visible(tb->icon_grid, tk->button, TRUE);
     }
     else
-        gtk_widget_hide(tk->button);
+        icon_grid_set_visible(tb->icon_grid, tk->button, FALSE);
 }
 
 /* Redraw all tasks in the taskbar. */
@@ -475,7 +479,7 @@ static void task_set_class(Task * tk)
      * This identifies the application that created the window and is the basis for taskbar grouping. */
     if (ch.res_class != NULL)
     {
-        /* Convert the class to UTF-8 and enter it in the hash table. */
+        /* Convert the class to UTF-8 and enter it in the class table. */
         gchar * res_class = g_locale_to_utf8(ch.res_class, -1, NULL, NULL, NULL);
         gboolean name_consumed;
         TaskClass * tc = taskbar_enter_res_class(tk->tb, res_class, &name_consumed);
@@ -529,7 +533,7 @@ static void task_delete(TaskbarPlugin * tb, Task * tk, gboolean unlink)
         tb->focused = NULL;
 
     /* Deallocate structures. */
-    gtk_widget_destroy(tk->button);
+    icon_grid_remove(tb->icon_grid, tk->button);
     task_free_names(tk);
     task_unlink_class(tk);
 
@@ -906,7 +910,7 @@ static GdkPixbuf * get_wm_icon(Window task_win, int required_width, int required
 static GdkPixbuf * task_update_icon(TaskbarPlugin * tb, Task * tk, Atom source)
 {
     /* Get the icon from the window's hints. */
-    GdkPixbuf * pixbuf = get_wm_icon(tk->win, tb->iconsize, tb->iconsize, source, &tk->image_source);
+    GdkPixbuf * pixbuf = get_wm_icon(tk->win, tb->icon_size, tb->icon_size, source, &tk->image_source);
 
     /* If that fails, and we have no other icon yet, return the fallback icon. */
     if ((pixbuf == NULL)
@@ -1207,10 +1211,10 @@ static void taskbar_button_size_allocate(GtkWidget * btn, GtkAllocation * alloc,
 /* Update style on the taskbar when created or after a configuration change. */
 static void taskbar_update_style(TaskbarPlugin * tb)
 {
-    gtk_bar_set_max_child_size(GTK_BAR(tb->bar),
-        ((tb->icons_only) ? PANEL_HEIGHT_DEFAULT + 4 :
-        (tb->plug->panel->orientation == ORIENT_HORIZ) ? tb->task_width_max : PANEL_HEIGHT_DEFAULT));
-    gtk_box_set_spacing(GTK_BOX(tb->bar), tb->spacing);
+    GtkOrientation bo = (tb->plug->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
+    icon_grid_set_geometry(tb->icon_grid, bo,
+        ((tb->icons_only) ? tb->icon_size + ICON_ONLY_EXTRA : tb->task_width_max), tb->icon_size,
+        tb->spacing, 0, tb->plug->panel->height);
 }
 
 /* Update style on a task button when created or after a configuration change. */
@@ -1263,6 +1267,8 @@ static void task_build_gui(TaskbarPlugin * tb, Task * tk)
 
     /* Create a label to contain the window title and add it to the box. */
     tk->label = gtk_label_new(NULL);
+    gtk_misc_set_alignment(GTK_MISC(tk->label), 0.0, 0.5);
+    gtk_label_set_ellipsize(GTK_LABEL(tk->label), PANGO_ELLIPSIZE_END);
     gtk_box_pack_start(GTK_BOX(container), tk->label, TRUE, TRUE, 0);
 
     /* Add the box to the button. */
@@ -1270,7 +1276,7 @@ static void task_build_gui(TaskbarPlugin * tb, Task * tk)
     gtk_container_add(GTK_CONTAINER(tk->button), container);
 
     /* Add the button to the taskbar. */
-    gtk_box_pack_start(GTK_BOX(tb->bar), tk->button, FALSE, TRUE, 0);
+    icon_grid_add(tb->icon_grid, tk->button, TRUE); 
     GTK_WIDGET_UNSET_FLAGS(tk->button, GTK_CAN_FOCUS);
     GTK_WIDGET_UNSET_FLAGS(tk->button, GTK_CAN_DEFAULT);
 
@@ -1709,13 +1715,13 @@ static void taskbar_make_menu(TaskbarPlugin * tb)
     mi = gtk_menu_item_new_with_mnemonic (_("_Close Window"));
     if (tb->plug->panel->edge == EDGE_BOTTOM)
     {
-        gtk_menu_shell_prepend (GTK_MENU_SHELL (menu), gtk_separator_menu_item_new());
-        gtk_menu_shell_prepend (GTK_MENU_SHELL (menu), mi);
+        gtk_menu_shell_prepend(GTK_MENU_SHELL(menu), gtk_separator_menu_item_new());
+        gtk_menu_shell_prepend(GTK_MENU_SHELL(menu), mi);
     }
     else
     {
-        gtk_menu_shell_append (GTK_MENU_SHELL (menu), gtk_separator_menu_item_new());
-        gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
+        gtk_menu_shell_append(GTK_MENU_SHELL(menu), gtk_separator_menu_item_new());
+        gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
     }
     g_signal_connect(G_OBJECT(mi), "activate", (GCallback)menu_close_window, tb);
 
@@ -1739,9 +1745,8 @@ static void taskbar_build_gui(Plugin * p)
 
     /* Make container for task buttons as a child of top level widget. */
     GtkOrientation bo = (tb->plug->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
-    tb->bar = gtk_bar_new(bo, tb->spacing);
+    tb->icon_grid = icon_grid_new(p->panel, p->pwid, bo, tb->task_width_max, tb->icon_size, tb->spacing, 0, p->panel->height);
     taskbar_update_style(tb);
-    gtk_container_add(GTK_CONTAINER(p->pwid), tb->bar);
 
     /* Add GDK event filter. */
     gdk_window_add_filter(NULL, (GdkFilterFunc) taskbar_event_filter, tb);
@@ -1761,9 +1766,6 @@ static void taskbar_build_gui(Plugin * p)
      * It is retained for the life of the taskbar and will be shown as needed.
      * Number of desktops and edge is needed for this operation. */
     taskbar_make_menu(tb);
-
-    /* Show the taskbar. */
-    gtk_widget_show_all(tb->bar);
 }
 
 /* Determine if the window manager supports NET_ACTIVE_WINDOW. */
@@ -1795,7 +1797,7 @@ static int taskbar_constructor(Plugin * p, char ** fp)
     p->priv = tb;
 
     /* Initialize to defaults. */
-    tb->iconsize          = PANEL_ICON_SIZE;
+    tb->icon_size         = p->panel->icon_size;
     tb->tooltips          = TRUE;
     tb->icons_only        = FALSE;
     tb->show_all_desks    = FALSE;
@@ -1954,7 +1956,23 @@ static void taskbar_panel_configuration_changed(Plugin * p)
     TaskbarPlugin * tb = (TaskbarPlugin *) p->priv;
     taskbar_update_style(tb);
     taskbar_make_menu(tb);
-    gtk_bar_set_orientation(GTK_BAR(tb->bar), p->panel->orientation);
+    GtkOrientation bo = (tb->plug->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
+    icon_grid_set_geometry(tb->icon_grid, bo,
+        ((tb->icons_only) ? tb->plug->panel->icon_size + ICON_ONLY_EXTRA : tb->task_width_max), tb->plug->panel->icon_size,
+        tb->spacing, 0, tb->plug->panel->height);
+
+    /* If the icon size changed, refetch all the icons. */
+    if (tb->plug->panel->icon_size != tb->icon_size)
+    {
+        tb->icon_size = tb->plug->panel->icon_size;
+        Task * tk;
+        for (tk = tb->task_list; tk != NULL; tk = tk->task_flink)
+        {
+            GdkPixbuf * pixbuf = task_update_icon(tb, tk, None);
+            if (pixbuf != NULL)
+                gtk_image_set_from_pixbuf(GTK_IMAGE(tk->image), pixbuf);
+        }
+    }
 }
 
 /* Plugin descriptor. */
