@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: lxpanel r839\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-09 09:19+0200\n"
-"PO-Revision-Date: 2009-06-29 00:14+0200\n"
+"PO-Revision-Date: 2009-07-11 15:46+0200\n"
 "Last-Translator: Cilyan Olowen <gaknar@gmail.com>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
@@ -62,7 +62,7 @@ msgstr "Alignement :"
 
 #: ../data/ui/panel-pref.glade.h:12
 msgid "Appearance"
-msgstr ""
+msgstr "Apparence"
 
 #: ../data/ui/panel-pref.glade.h:13 ../src/panel.c:942
 msgid "Bottom"
@@ -73,7 +73,6 @@ msgid "Center"
 msgstr "Centrer"
 
 #: ../data/ui/panel-pref.glade.h:15
-#, fuzzy
 msgid "Custom color"
 msgstr "Couleur personnalisée"
 
@@ -91,16 +90,15 @@ msgstr "Gestionnaire de fichiers :"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "Geometry"
-msgstr ""
+msgstr "Taille"
 
 #: ../data/ui/panel-pref.glade.h:20 ../src/panel.c:932 ../src/panel.c:940
 msgid "Height:"
 msgstr "Hauteur :"
 
 #: ../data/ui/panel-pref.glade.h:21
-#, fuzzy
 msgid "Image"
-msgstr "par une icône"
+msgstr "Image"
 
 #: ../data/ui/panel-pref.glade.h:22 ../src/panel.c:934
 msgid "Left"
@@ -159,12 +157,11 @@ msgstr "Taille une fois réduit"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Solid color (with opacity)"
-msgstr ""
+msgstr "Couleur unie (avec opacité)"
 
 #: ../data/ui/panel-pref.glade.h:36
-#, fuzzy
 msgid "System theme"
-msgstr "Aucun (utiliser le thème système)"
+msgstr "Thème du système"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "Terminal Emulator:"
@@ -290,9 +287,8 @@ msgid "\"%s\" Settings"
 msgstr "Paramètres de « %s »"
 
 #: ../src/panel.c:941
-#, fuzzy
 msgid "Top"
-msgstr "Haut\t"
+msgstr "Haut"
 
 #: ../src/panel.c:1332
 #, c-format
@@ -368,9 +364,8 @@ msgid "Display CPU usage"
 msgstr "Affiche le taux d'utilisation du processeur"
 
 #: ../src/plugins/deskno/deskno.c:165
-#, fuzzy
 msgid "Desktop Number / Workspace Name"
-msgstr "Bureau n° / Nom de l'espace de travail"
+msgstr "Numéro de bureau / Nom de l'espace de travail"
 
 #: ../src/plugins/deskno/deskno.c:167 ../src/plugins/deskno/deskno2.c:131
 msgid "Display workspace number, by cmeury@users.sf.net"
@@ -385,14 +380,12 @@ msgid "Display Image and Tooltip"
 msgstr "Affiche des images et des infobulles"
 
 #: ../src/plugins/launchbar.c:648
-#, fuzzy
 msgid "Available Applications"
 msgstr "Greffons disponibles"
 
 #: ../src/plugins/launchbar.c:648
-#, fuzzy
 msgid "Applications"
-msgstr "Sélectionnez l'application"
+msgstr "Greffons"
 
 #: ../src/plugins/launchbar.c:816
 msgid "Application Launch Bar"
@@ -456,7 +449,6 @@ msgid "Icons only"
 msgstr "Icônes uniquement"
 
 #: ../src/plugins/taskbar.c:1925
-#, fuzzy
 msgid "Flat buttons"
 msgstr "Boutons simples"
 
@@ -474,10 +466,9 @@ msgstr "Clignoter lorsque une fenêtre requiert de l'attention"
 
 #: ../src/plugins/taskbar.c:1929
 msgid "Combine multiple application windows into a single button"
-msgstr ""
+msgstr "Rassembler les fenêtres d'une même application dans un seul bouton"
 
 #: ../src/plugins/taskbar.c:1930
-#, fuzzy
 msgid "Maximum width of task button"
 msgstr "Largeur maximale d'un bouton de tâche"
 
@@ -511,7 +502,7 @@ msgstr "Codes de format : man 3 strftime"
 
 #: ../src/plugins/dclock.c:264
 msgid "Action when clicked (default: display calendar)"
-msgstr ""
+msgstr "Action lors d'un clic (par défaut : afficher le calendrier)"
 
 #: ../src/plugins/dclock.c:265
 msgid "Bold font"
@@ -522,7 +513,6 @@ msgid "Digital Clock"
 msgstr "Horloge numérique"
 
 #: ../src/plugins/dclock.c:294
-#, fuzzy
 msgid "Display digital clock and tooltip"
 msgstr "Affiche l'horloge numérique et les infobulles"
 
@@ -543,9 +533,8 @@ msgid "Menu"
 msgstr "Menu"
 
 #: ../src/plugins/menu.c:1003
-#, fuzzy
 msgid "Application Menu"
-msgstr "Barre de lancement d'applications"
+msgstr "Menu des applications"
 
 #: ../src/plugins/netstatus/glade-support.c:91
 #: ../src/plugins/netstatus/glade-support.c:115
@@ -930,7 +919,6 @@ msgid "Size"
 msgstr "Taille"
 
 #: ../src/plugins/space.c:139
-#, fuzzy
 msgid "Spacer"
 msgstr "<Espace>"
 
@@ -943,7 +931,6 @@ msgid "System Tray"
 msgstr "Zone de notification"
 
 #: ../src/plugins/tray.c:733
-#, fuzzy
 msgid "System tray"
 msgstr "Zone de notification"
 
@@ -996,25 +983,22 @@ msgid "Switch between available keyboard layouts"
 msgstr "Basculer entre les dispositions du clavier disponibles"
 
 #: ../src/plugins/wincmd.c:167
-#, fuzzy
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
-"Clic gauche pour minimiser toutes les fenêtres. Bouton du milieu pour les "
-"enrouler"
+"Clic gauche pour minimiser toutes les fenêtres.  Clic milieu pour les "
+"enrouler."
 
 #: ../src/plugins/wincmd.c:197
 msgid "Minimize All Windows"
 msgstr "Minimiser toutes les fenêtres"
 
 #: ../src/plugins/wincmd.c:199
-#, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
 "Envoie des commandes à toutes les fenêtres du bureau.\n"
-"Les commandes prises en charge sont 1) basculer la réduction et 2) basculer "
-"l'enroulement"
+"Les commandes prises en charge sont 1) réduire et 2) enrouler"
 
 #: ../src/plugins/dirmenu.c:212
 msgid "Open in _Terminal"
@@ -1212,7 +1196,6 @@ msgid "Config tool"
 msgstr "Outil de configuration"
 
 #: ../src/plugins/netstatus/netstatus.c:196
-#, fuzzy
 msgid "Network Status Monitor"
 msgstr "Moniteur de l'état du réseau"
 
