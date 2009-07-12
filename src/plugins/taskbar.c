@@ -56,6 +56,7 @@ typedef struct _task_class {
     char * res_class;				/* Class name */
     struct _task * res_class_head;		/* Head of list of tasks with this class */
     struct _task * visible_task;		/* Task that is visible in current desktop, if any */
+    char * visible_name;			/* Name that will be visible for grouped tasks */
     int visible_count;				/* Count of tasks that are visible in current desktop */
 } TaskClass;
 
@@ -212,6 +213,7 @@ static void recompute_group_visibility_for_class(TaskbarPlugin * tb, TaskClass *
 {
     tc->visible_count = 0;
     tc->visible_task = NULL;
+    tc->visible_name = NULL;
     Task * flashing_task = NULL;
     gboolean class_has_urgency = FALSE;
     Task * tk;
@@ -219,15 +221,27 @@ static void recompute_group_visibility_for_class(TaskbarPlugin * tb, TaskClass *
     {
         if (task_is_visible_on_current_desktop(tb, tk))
         {
+            /* Count visible tasks and make the first visible task the one that is used for display. */
             if (tc->visible_count == 0)
                 tc->visible_task = tk;
             tc->visible_count += 1;
+
+            /* Compute summary bit for urgency anywhere in the class. */
             if (tk->urgency)
                 class_has_urgency = TRUE;
+
+            /* If there is urgency, record the currently flashing task. */
             if (tk->flash_timeout != 0)
                 flashing_task = tk;
-        }
 
+            /* Compute the visible name.  If all visible windows have the same title, use that.
+             * Otherwise, use the class name.  This follows WNCK.
+             * Note that the visible name is not a separate string, but is set to point to one of the others. */
+            if (tc->visible_name == NULL)
+                tc->visible_name = tk->name;
+            else if ((tc->visible_name != tc->res_class) && (strcmp(tc->visible_name, tk->name) != 0))
+                tc->visible_name = tc->res_class;
+        }
     }
 
     /* Transfer the flash timeout to the visible task. */
@@ -255,6 +269,7 @@ static void recompute_group_visibility_for_class(TaskbarPlugin * tb, TaskClass *
     }
     else
     {
+        /* No task has urgency.  Cancel the timer if one is set. */
         if (flashing_task != NULL)
         {
             g_source_remove(flashing_task->flash_timeout);
@@ -279,10 +294,10 @@ static void task_draw_label(Task * tk)
     TaskClass * tc = tk->res_class;
     if ((tk->tb->grouped_tasks) && (tc != NULL) && (tc->visible_task == tk) && (tc->visible_count > 1))
         {
-        char buffer[20];
-        sprintf(buffer, "%d", tc->visible_count);
-        gtk_widget_set_tooltip_text(tk->button, buffer);
-        panel_draw_label_text(tk->tb->plug->panel, tk->label, buffer, (tk->entered_state || tk->flash_state));
+        char * label = g_strdup_printf("(%d) %s", tc->visible_count, tc->visible_name);
+        gtk_widget_set_tooltip_text(tk->button, label);
+        panel_draw_label_text(tk->tb->plug->panel, tk->label, label, (tk->entered_state || tk->flash_state));
+        g_free(label);
         }
     else
     {
@@ -1512,6 +1527,13 @@ static void taskbar_property_notify_event(TaskbarPlugin *tb, XEvent *ev)
                 {
                     /* Window changed name. */
                     task_set_names(tk, at);
+                    if (tk->res_class != NULL)
+                    {
+                        /* A change to the window name may change the visible name of the class. */
+                        recompute_group_visibility_for_class(tb, tk->res_class);
+                        if (tk->res_class->visible_task != NULL)
+                            task_draw_label(tk->res_class->visible_task);
+                    }
                 }
                 else if (at == XA_WM_CLASS)
                 {
