@@ -239,7 +239,9 @@ static void recompute_group_visibility_for_class(TaskbarPlugin * tb, TaskClass *
              * Note that the visible name is not a separate string, but is set to point to one of the others. */
             if (tc->visible_name == NULL)
                 tc->visible_name = tk->name;
-            else if ((tc->visible_name != tc->res_class) && (strcmp(tc->visible_name, tk->name) != 0))
+            else if ((tc->visible_name != tc->res_class)
+            && (tc->visible_name != NULL) && (tk->name != NULL)
+            && (strcmp(tc->visible_name, tk->name) != 0))
                 tc->visible_name = tc->res_class;
         }
     }
