@@ -216,7 +216,6 @@ extern void panel_apply_icon(GtkWindow *w);
 extern void panel_destroy(Panel *p);
 extern void panel_adjust_geometry_terminology(Panel *p);
 extern void panel_determine_background_pixmap(Panel * p, GtkWidget * widget, GdkWindow * window);
-extern void panel_draw_label_integer(Panel * p, GtkWidget * label, int value, gboolean bold);
 extern void panel_draw_label_text(Panel * p, GtkWidget * label, char * text, gboolean bold);
 extern void panel_establish_autohide(Panel *p);
 extern void panel_image_set_from_file(Panel * p, GtkWidget * image, char * file);

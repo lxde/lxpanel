@@ -956,15 +956,6 @@ void panel_adjust_geometry_terminology(Panel * p)
     }
 }
 
-/* Draw an integer value into a label, with the user preference color and optionally bold. */
-void panel_draw_label_integer(Panel * p, GtkWidget * label, int value, gboolean bold)
-{
-    char buffer[12];
-    sprintf(buffer, "%d", value);
-    panel_draw_label_text(p, label, buffer, bold);
-
-}
-
 /* Draw text into a label, with the user preference color and optionally bold. */
 void panel_draw_label_text(Panel * p, GtkWidget * label, char * text, gboolean bold)
 {
@@ -976,13 +967,27 @@ void panel_draw_label_text(Panel * p, GtkWidget * label, char * text, gboolean b
         gtk_label_set_text(GTK_LABEL(label), NULL);
     }
 
-    else if ((p->usefontcolor) || (bold))
+    else
     {
-        char * valid_markup = text;
-        char * escaped_text = NULL;
+        /* Compute an appropriate size so the font will scale with the panel's icon size. */
+        int font_desc;
+        if (p->icon_size < 20) 
+            font_desc = 9;
+        else if (p->icon_size >= 20 && p->icon_size < 26)
+            font_desc = 10;
+        else if (p->icon_size >= 26 && p->icon_size < 32)
+            font_desc = 14;
+        else if (p->icon_size >= 32 && p->icon_size < 40)
+            font_desc = 16;
+        else if (p->icon_size >= 40 && p->icon_size < 52)
+            font_desc = 18;
+        else
+            font_desc = 20;
 
         /* Check the string for characters that need to be escaped.
          * If any are found, create the properly escaped string and use it instead. */
+        char * valid_markup = text;
+        char * escaped_text = NULL;
         char * q;
         for (q = text; *q != '\0'; q += 1)
         {
@@ -997,26 +1002,25 @@ void panel_draw_label_text(Panel * p, GtkWidget * label, char * text, gboolean b
         if (p->usefontcolor)
         {
             /* Color, optionally bold. */
-            g_snprintf(buffer, sizeof(buffer), "<span color=\"#%06x\">%s%s%s</span>",
+            g_snprintf(buffer, sizeof(buffer), "<span font_desc=\"%d\" color=\"#%06x\">%s%s%s</span>",
+                font_desc,
                 gcolor2rgb24(&p->gfontcolor),
                 ((bold) ? "<b>" : ""),
                 valid_markup,
                 ((bold) ? "</b>" : ""));
             gtk_label_set_markup(GTK_LABEL(label), buffer);
         }
-        else if (bold)
+        else
         {
-            /* No color, bold. */
-            g_snprintf(buffer, sizeof(buffer), "<span><b>%s</b></span>", valid_markup);
+            /* No color, optionally bold. */
+            g_snprintf(buffer, sizeof(buffer), "<span font_desc=\"%d\">%s%s%s</span>",
+                font_desc,
+                ((bold) ? "<b>" : ""),
+                valid_markup,
+                ((bold) ? "</b>" : ""));
             gtk_label_set_markup(GTK_LABEL(label), buffer);
         }
         g_free(escaped_text);
-    }
-
-    else
-    {
-        /* No color, no bold. */
-        gtk_label_set_text(GTK_LABEL(label), text);
     }
 }
 

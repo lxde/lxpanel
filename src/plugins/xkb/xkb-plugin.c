@@ -55,9 +55,6 @@ active_window_changed(FbEv *ev, gpointer data) ;
 static void 
 application_closed( FbEv* ev, Window win, gpointer data) ;
 
-static void 
-xkb_refresh_gui(t_xkb * plugin);
-
 /* ------------------------------------------------------------------ *
  *                     Panel Plugin Interface                         *
  * ------------------------------------------------------------------ */
@@ -89,7 +86,7 @@ static int
 xkb_constructor (Plugin *plugin, char** fp)
 {
   t_xkb *xkb;
-  line s;
+
 
   const char *initial_group;
 
@@ -102,6 +99,8 @@ xkb_constructor (Plugin *plugin, char** fp)
   xkb->enable_perapp = TRUE;
   xkb->default_group = 0;
 
+  line s;
+    s.len = 256;
     if( fp )
     {
         while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
@@ -138,20 +137,17 @@ xkb_constructor (Plugin *plugin, char** fp)
   gtk_widget_show(xkb->btn);
   g_signal_connect(xkb->btn, "button-press-event", G_CALLBACK(change_group), xkb);
 
-  xkb->vbox = gtk_vbox_new(FALSE, 0);
-  gtk_container_add(GTK_CONTAINER(xkb->btn), xkb->vbox);
+  xkb->hbox = gtk_hbox_new(FALSE, 0);
+  gtk_container_add(GTK_CONTAINER(xkb->btn), xkb->hbox);
+  gtk_widget_show(xkb->hbox);
 
   xkb->label = gtk_label_new("");
-  gtk_label_set_use_markup (GTK_LABEL (xkb->label), TRUE);
-  gtk_container_add(GTK_CONTAINER(xkb->vbox), xkb->label);
+  gtk_container_add(GTK_CONTAINER(xkb->hbox), xkb->label);
   xkb->image = gtk_image_new();
-  gtk_container_add(GTK_CONTAINER(xkb->vbox), xkb->image);
-
-  gtk_widget_show(xkb->vbox);
+  gtk_container_add(GTK_CONTAINER(xkb->hbox), xkb->image);
 
   initial_group = initialize_xkb(xkb);
 
-  xkb_refresh_gui(xkb);
   set_new_locale(xkb);
 
   channel = g_io_channel_unix_new(get_connection_number());
@@ -272,20 +268,6 @@ change_group(GtkWidget *widget,  GdkEventButton * event, gpointer data)
   do_change_group(1, xkb);
 }
 
-void xkb_refresh_gui(t_xkb * plugin) 
-{
-    if ((plugin->display_type == TEXT) || ( ! is_current_group_flag_available())) 
-    {
-        gtk_widget_hide(plugin->image);
-        gtk_widget_show(plugin->label);
-    }
-    else
-    {
-        gtk_widget_hide(plugin->label);
-        gtk_widget_show(plugin->image);
-    }
-}
-
 static void 
 xkb_free(t_xkb *xkb) 
 {
@@ -309,7 +291,6 @@ xkb_display_type_changed(GtkComboBox *cb, gpointer *data)
 {
   t_xkb *xkb = (t_xkb *) data;
   xkb->display_type = gtk_combo_box_get_active(cb);
-  xkb_refresh_gui(xkb);
   set_new_locale(xkb);
 }
 

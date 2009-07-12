@@ -54,7 +54,7 @@ typedef struct
   GtkWidget *btn;
   GtkWidget *label;
   GtkWidget *image;
-  GtkWidget *vbox;
+  GtkWidget *hbox;
   GtkWidget *def_lang_menu;
 } t_xkb;
 

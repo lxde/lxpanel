@@ -283,7 +283,6 @@ HastaLaVista:
   return status;
 }
 
-static gboolean temporary_changed_display_type = FALSE;
 
 gboolean 
 is_current_group_flag_available(void) 
@@ -303,108 +302,60 @@ is_current_group_flag_available(void)
   return result;
 }
 
-char *
-xkb_get_label_markup(t_xkb *xkb)
-{
-  int font_desc;
- 
-  if (xkb->size < 20) 
-    font_desc = 4;
-  else if (xkb->size >= 20 && xkb->size < 26)
-    font_desc = 6;
-  else if (xkb->size >= 26 && xkb->size < 32)
-    font_desc = 10;
-  else if (xkb->size >= 32 && xkb->size < 40)
-    font_desc = 12;
-  else if (xkb->size >= 40 && xkb->size < 52)
-    font_desc = 14;
-  else if (xkb->size >= 52 && xkb->size < 62)
-    font_desc = 16;
-  else if (xkb->size >= 62 && xkb->size < 70)
-    font_desc = 18;
-  else if (xkb->size >= 70 && xkb->size < 86)
-    font_desc = 20;
-  else if (xkb->size >= 86 && xkb->size < 100)
-    font_desc = 24;
-  else if (xkb->size >= 100 && xkb->size < 112)
-    font_desc = 28;
-  else if (xkb->size >= 112 && xkb->size < 124)
-    font_desc = 36;
-  else if (xkb->size >= 124)
-    font_desc = 48;
-
-  return g_markup_printf_escaped ("<span font_desc=\"%d\">%s</span>", font_desc, get_symbol_name_by_res_no (current_group_xkb_no));
-}
-
 void 
 set_new_locale(t_xkb *ctrl) 
 {
-  t_xkb *plugin = (t_xkb *) ctrl;
-  char *filename;
-  char *label_markup;
-  char *group_name;
-  int size;
-  GdkPixbuf *pixbuf = NULL, *tmp = NULL;
-  gint pid;
+    t_xkb *plugin = (t_xkb *) ctrl;
 
-  /* Set the image */
-  size = plugin->size;
-  group_name = get_current_group_name();
-  filename = g_strdup_printf("%s/%s.png", FLAGSDIR, group_name);
-  DBG ("Try to load image: %s", filename);
-  tmp = gdk_pixbuf_new_from_file(filename, NULL);
-  g_free(filename);
-  g_free(group_name);
-  if (tmp == NULL) { /* could not be loaded for some reason */
-    if (plugin->display_type == IMAGE) {
-      temporary_changed_display_type = TRUE;
-      gtk_widget_hide(plugin->image);
-      gtk_widget_show(plugin->label);
-    }
-  } else { /* loaded successfully */
-    temporary_changed_display_type = TRUE;
-    int width = gdk_pixbuf_get_width(tmp);
-    int height = gdk_pixbuf_get_height(tmp);
-    pixbuf = gdk_pixbuf_scale_simple(tmp, size * width / height, size, GDK_INTERP_BILINEAR);
-    gtk_image_set_from_pixbuf((GtkImage *) plugin->image, pixbuf);
-    if (tmp)
-      g_object_unref(G_OBJECT(tmp));
-      
-    if (pixbuf)
-      g_object_unref(G_OBJECT(pixbuf));
-
-    if (plugin->display_type == IMAGE) { 
-      /* the image for the previous active layout could not be loaded */
-      gtk_widget_hide(plugin->label);
-      gtk_widget_show(plugin->image);
-    }
-  }
-
-  /* Set the label */
-  if (plugin->display_type == TEXT)
-  {
-//    label_markup = xkb_get_label_markup (plugin);
-    panel_draw_label_text(plugin->plugin->panel, plugin->label, (char *) get_symbol_name_by_res_no (current_group_xkb_no), TRUE);
-//    gtk_label_set_markup (GTK_LABEL (plugin->label), label_markup);
-//    g_free(label_markup);
-  }
-  
-  /* Part of the image may remain visible after image or display type change */
-  gtk_widget_queue_draw_area(plugin->btn, 0, 0, plugin->size, plugin->size);
-
-  /* "locale per process" */
-  /* TBF:: bad here, it's not really a "window" related file */
-  if (pGroupHash && fb_ev_active_window( fbev ) != None )
-  {
-    Window * win = fb_ev_active_window(fbev);
-    if (*win != None)
+    /* Set the image. */
+    gboolean valid_image = FALSE;
+    if (plugin->display_type == IMAGE)
     {
-        pid = get_net_wm_pid( *fb_ev_active_window( fbev ) );
-        DBG("Storing locale %s for %d\n", get_symbol_name_by_res_no(current_group_xkb_no), pid);
+        int size = plugin->size;
+        char * group_name = get_current_group_name();
+        char * filename = g_strdup_printf("%s/%s.png", FLAGSDIR, group_name);
+        GdkPixbuf * unscaled_pixbuf = gdk_pixbuf_new_from_file(filename, NULL);
+        g_free(filename);
+        g_free(group_name);
 
-        g_hash_table_insert(pGroupHash, GINT_TO_POINTER(pid), GINT_TO_POINTER(current_group_xkb_no));
+        if (unscaled_pixbuf != NULL)
+        {
+            /* Loaded successfully. */
+            int width = gdk_pixbuf_get_width(unscaled_pixbuf);
+            int height = gdk_pixbuf_get_height(unscaled_pixbuf);
+            GdkPixbuf * pixbuf = gdk_pixbuf_scale_simple(unscaled_pixbuf, size * width / height, size, GDK_INTERP_BILINEAR);
+            if (pixbuf != NULL)
+            {
+                gtk_image_set_from_pixbuf(GTK_IMAGE(plugin->image), pixbuf);
+                g_object_unref(G_OBJECT(pixbuf));
+                gtk_widget_hide(plugin->label);
+                gtk_widget_show(plugin->image);
+                valid_image = TRUE;
+            }
+            g_object_unref(unscaled_pixbuf);
+        }
     }
-  }
+
+    /* Set the label. */
+    if ((plugin->display_type == TEXT) || ( ! valid_image))
+    {
+        panel_draw_label_text(plugin->plugin->panel, plugin->label, (char *) get_symbol_name_by_res_no (current_group_xkb_no), TRUE);
+        gtk_widget_hide(plugin->image);
+        gtk_widget_show(plugin->label);
+    }
+
+    /* "locale per process" */
+    /* TBF:: bad here, it's not really a "window" related file */
+    if (pGroupHash && fb_ev_active_window( fbev ) != None )
+    {
+        Window * win = fb_ev_active_window(fbev);
+        if (*win != None)
+        {
+            GPid pid = get_net_wm_pid( *fb_ev_active_window( fbev ) );
+            DBG("Storing locale %s for %d\n", get_symbol_name_by_res_no(current_group_xkb_no), pid);
+            g_hash_table_insert(pGroupHash, GINT_TO_POINTER(pid), GINT_TO_POINTER(current_group_xkb_no));
+        }
+    }
 }
 
 static void 

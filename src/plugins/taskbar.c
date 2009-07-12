@@ -304,10 +304,7 @@ static void task_draw_label(Task * tk)
         char * name = tk->iconified ? tk->name_iconified : tk->name;
         if (tk->tb->tooltips)
             gtk_widget_set_tooltip_text(tk->button, name);
-        if (tk->tb->flat_button)
-            panel_draw_label_text(tk->tb->plug->panel, tk->label, name, (tk->entered_state || tk->flash_state));
-        else
-            gtk_label_set_text(GTK_LABEL(tk->label), name);
+        panel_draw_label_text(tk->tb->plug->panel, tk->label, name, (tk->entered_state || tk->flash_state));
     }
 }
 
@@ -1983,7 +1980,7 @@ static void taskbar_panel_configuration_changed(Plugin * p)
         ((tb->icons_only) ? tb->plug->panel->icon_size + ICON_ONLY_EXTRA : tb->task_width_max), tb->plug->panel->icon_size,
         tb->spacing, 0, tb->plug->panel->height);
 
-    /* If the icon size changed, refetch all the icons. */
+    /* If the icon size changed, refetch all the icons and redraw the labels. */
     if (tb->plug->panel->icon_size != tb->icon_size)
     {
         tb->icon_size = tb->plug->panel->icon_size;
@@ -1993,6 +1990,7 @@ static void taskbar_panel_configuration_changed(Plugin * p)
             GdkPixbuf * pixbuf = task_update_icon(tb, tk, None);
             if (pixbuf != NULL)
                 gtk_image_set_from_pixbuf(GTK_IMAGE(tk->image), pixbuf);
+            taskbar_redraw(tb);
         }
     }
 }
