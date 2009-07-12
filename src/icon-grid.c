@@ -56,10 +56,13 @@ static gboolean icon_grid_placement(IconGrid * ig)
 
     /* Get the constrained child geometry if the allocated geometry is insufficient.
      * All children are still the same size and share equally in the deficit. */
-    if (container_width_needed > ig->container_width)
-        child_width = (ig->container_width - ((ig->columns - 1) * ig->spacing)) / ig->columns;
-    if (container_height_needed > ig->container_height)
-        child_height = (ig->container_height - ((ig->rows - 1) * ig->spacing)) / ig->rows;
+    if ((ig->columns != 0) && (ig->rows != 0))
+    {
+        if (container_width_needed > ig->container_width)
+            child_width = (ig->container_width - ((ig->columns - 1) * ig->spacing)) / ig->columns;
+        if (container_height_needed > ig->container_height)
+            child_height = (ig->container_height - ((ig->rows - 1) * ig->spacing)) / ig->rows;
+    }
 
     /* Reposition each visible child. */
     int x = ig->border;
