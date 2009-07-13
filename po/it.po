@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.3.99\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-09 09:19+0200\n"
-"PO-Revision-Date: 2009-05-19 16:57+0200\n"
+"PO-Revision-Date: 2009-07-12 19:09+0200\n"
 "Last-Translator: Alessandro Pellizzari <alex@amiran.it>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr "% percento"
 
 #: ../data/ui/panel-pref.glade.h:3
 msgid "<b>Automatic hiding</b>"
-msgstr ""
+msgstr "<b>Nascondere automaticamente</b>"
 
 #: ../data/ui/panel-pref.glade.h:4
 msgid "<b>Background</b>"
@@ -62,7 +62,7 @@ msgstr "Allineamento:"
 
 #: ../data/ui/panel-pref.glade.h:12
 msgid "Appearance"
-msgstr ""
+msgstr "Aspetto"
 
 #: ../data/ui/panel-pref.glade.h:13 ../src/panel.c:942
 msgid "Bottom"
@@ -73,7 +73,6 @@ msgid "Center"
 msgstr "Centro"
 
 #: ../data/ui/panel-pref.glade.h:15
-#, fuzzy
 msgid "Custom color"
 msgstr "Colore personalizzato"
 
@@ -91,25 +90,23 @@ msgstr "Gestione file:"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "Geometry"
-msgstr ""
+msgstr "Geometria"
 
 #: ../data/ui/panel-pref.glade.h:20 ../src/panel.c:932 ../src/panel.c:940
 msgid "Height:"
 msgstr "Altezza:"
 
 #: ../data/ui/panel-pref.glade.h:21
-#, fuzzy
 msgid "Image"
-msgstr "immagine"
+msgstr "Immagine"
 
 #: ../data/ui/panel-pref.glade.h:22 ../src/panel.c:934
 msgid "Left"
 msgstr "Sinistra"
 
 #: ../data/ui/panel-pref.glade.h:23
-#, fuzzy
 msgid "Left\t"
-msgstr "Sinistra"
+msgstr "Sinistra\t"
 
 #: ../data/ui/panel-pref.glade.h:24
 msgid "Logout Command:"
@@ -125,7 +122,7 @@ msgstr "Margine:"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Minimize panel when not in use"
-msgstr ""
+msgstr "Minimizza il pannello quando non è in uso"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "Panel Applets"
@@ -153,34 +150,31 @@ msgstr "Selezionare un immagine"
 
 #: ../data/ui/panel-pref.glade.h:34
 msgid "Size when minimized"
-msgstr ""
+msgstr "Dimensione quando minimizzato"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Solid color (with opacity)"
-msgstr ""
+msgstr "Colore solido (con trasparenza)"
 
 #: ../data/ui/panel-pref.glade.h:36
-#, fuzzy
 msgid "System theme"
-msgstr "Nessuno (usare il tema del sistema)"
+msgstr "Tema di sistema"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "Terminal Emulator:"
 msgstr "Emulatore terminale:"
 
 #: ../data/ui/panel-pref.glade.h:38
-#, fuzzy
 msgid "Top\t"
-msgstr "Superiore"
+msgstr "Superiore\t"
 
 #: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:933 ../src/panel.c:939
 msgid "Width:"
 msgstr "Larghezza:"
 
 #: ../data/ui/panel-pref.glade.h:40
-#, fuzzy
 msgid "pixels"
-msgstr "Pixel"
+msgstr "pixel"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:250
 msgid "Run"
@@ -215,9 +209,8 @@ msgid "Logout command is not set"
 msgstr "Comando di chiusura sessione non è definito"
 
 #: ../src/configurator.c:1187
-#, fuzzy
 msgid "Select a directory"
-msgstr "Scegliere un file"
+msgstr "Scegliere una directory"
 
 #: ../src/configurator.c:1187 ../src/configurator.c:1278
 msgid "Select a file"
@@ -242,20 +235,19 @@ msgstr "Conferma"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:622
 msgid "translator-credits"
-msgstr ""
+msgstr "Alessandro Pellizzari"
 
 #: ../src/panel.c:627
-#, fuzzy
 msgid "LXPanel"
-msgstr "Pannello"
+msgstr "LXPanel"
 
 #: ../src/panel.c:629
 msgid "Copyright (C) 2008-2009"
-msgstr ""
+msgstr "Copyright (C) 2008-2009"
 
 #: ../src/panel.c:630
 msgid "Desktop panel for LXDE project"
-msgstr ""
+msgstr "Pannello del desktop per il Progetto LXDE"
 
 #: ../src/panel.c:653
 msgid "Add / Remove Panel Items"
@@ -280,7 +272,7 @@ msgstr "Eliminare questo pannello"
 
 #: ../src/panel.c:701
 msgid "About"
-msgstr ""
+msgstr "Informazioni"
 
 #: ../src/panel.c:709
 msgid "Panel"
@@ -292,7 +284,6 @@ msgid "\"%s\" Settings"
 msgstr "Impostazioni \"%s\""
 
 #: ../src/panel.c:941
-#, fuzzy
 msgid "Top"
 msgstr "Superiore"
 
@@ -369,7 +360,6 @@ msgid "Display CPU usage"
 msgstr "Mostra uso CPU"
 
 #: ../src/plugins/deskno/deskno.c:165
-#, fuzzy
 msgid "Desktop Number / Workspace Name"
 msgstr "Numero scrivania / area di lavoro"
 
@@ -386,14 +376,12 @@ msgid "Display Image and Tooltip"
 msgstr "Mostra immagine e aiuto tooltip"
 
 #: ../src/plugins/launchbar.c:648
-#, fuzzy
 msgid "Available Applications"
-msgstr "Plugin disponibili"
+msgstr "Applicazioni Disponibili"
 
 #: ../src/plugins/launchbar.c:648
-#, fuzzy
 msgid "Applications"
-msgstr "Selezionare applicazione"
+msgstr "Applicazioni"
 
 #: ../src/plugins/launchbar.c:816
 msgid "Application Launch Bar"
@@ -405,32 +393,28 @@ msgstr "Barra con bottoni per avviare applicazioni"
 
 #. Add Raise menu item.
 #: ../src/plugins/taskbar.c:1644
-#, fuzzy
 msgid "_Raise"
-msgstr "Rialza"
+msgstr "_Rialza"
 
 #. Add Restore menu item.
 #: ../src/plugins/taskbar.c:1649
-#, fuzzy
 msgid "R_estore"
-msgstr "Ripristina"
+msgstr "R_ipristina"
 
 #. Add Maximize menu item.
 #: ../src/plugins/taskbar.c:1654
-#, fuzzy
 msgid "Ma_ximize"
-msgstr "Massimizza"
+msgstr "Massimi_zza"
 
 #. Add Iconify menu item.
 #: ../src/plugins/taskbar.c:1659
-#, fuzzy
 msgid "Ico_nify"
-msgstr "Iconifica"
+msgstr "Ico_nifica"
 
 #: ../src/plugins/taskbar.c:1678
-#, fuzzy, c-format
+#, c-format
 msgid "Workspace _%d"
-msgstr "Area di lavoro %d"
+msgstr "Area di lavoro _%d"
 
 #: ../src/plugins/taskbar.c:1683
 #, c-format
@@ -439,21 +423,18 @@ msgstr "Area di lavoro %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../src/plugins/taskbar.c:1697
-#, fuzzy
 msgid "_All workspaces"
-msgstr "Tutte le aree di lavoro"
+msgstr "_Tutte le aree di lavoro"
 
 #. Add Move to Workspace menu item as a submenu.
 #: ../src/plugins/taskbar.c:1703
-#, fuzzy
 msgid "_Move to Workspace"
-msgstr "Muovi ad area di lavoro"
+msgstr "_Muovi ad area di lavoro"
 
 #. Add Close menu item.  By policy, we place this item farthest from the cursor.
 #: ../src/plugins/taskbar.c:1709
-#, fuzzy
 msgid "_Close Window"
-msgstr "Chiudi finestra"
+msgstr "_Chiudi finestra"
 
 #: ../src/plugins/taskbar.c:1923
 msgid "Show tooltips"
@@ -464,7 +445,6 @@ msgid "Icons only"
 msgstr "Solo icone"
 
 #: ../src/plugins/taskbar.c:1925
-#, fuzzy
 msgid "Flat buttons"
 msgstr "Bottoni piani"
 
@@ -478,16 +458,15 @@ msgstr "Usa la ruota mouse"
 
 #: ../src/plugins/taskbar.c:1928
 msgid "Flash when there is any window requiring attention"
-msgstr "Lampeggia una finestra richiede attenzione"
+msgstr "Lampeggia quando una finestra richiede attenzione"
 
 #: ../src/plugins/taskbar.c:1929
 msgid "Combine multiple application windows into a single button"
-msgstr ""
+msgstr "Combina finestre multiple applicazione in un singolo pulsante"
 
 #: ../src/plugins/taskbar.c:1930
-#, fuzzy
 msgid "Maximum width of task button"
-msgstr "Larghezza massima di bottone programma"
+msgstr "Larghezza massima di un pulsante applicazione"
 
 #: ../src/plugins/taskbar.c:1931
 msgid "Spacing"
@@ -495,14 +474,14 @@ msgstr "Spaziatura"
 
 #: ../src/plugins/taskbar.c:1966
 msgid "Task Bar (Window List)"
-msgstr "Barra di programmi (Lista finestre)"
+msgstr "Barra delle applicazioni (Lista finestre)"
 
 #: ../src/plugins/taskbar.c:1968
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
-"La barra di programmi mostra tutte le finestre aperte e permette di "
+"La barra delle applicazioni mostra tutte le finestre aperte e permette di "
 "minimizzarle, arrotolarle o attivarle"
 
 #: ../src/plugins/dclock.c:261
@@ -515,11 +494,11 @@ msgstr "Formato aiuto tooltip"
 
 #: ../src/plugins/dclock.c:263
 msgid "Format codes: man 3 strftime"
-msgstr ""
+msgstr "Codici formato: man 3 strftime"
 
 #: ../src/plugins/dclock.c:264
 msgid "Action when clicked (default: display calendar)"
-msgstr ""
+msgstr "Azione al click (default: mostra calendario)"
 
 #: ../src/plugins/dclock.c:265
 msgid "Bold font"
@@ -530,7 +509,6 @@ msgid "Digital Clock"
 msgstr "Orologio digitale"
 
 #: ../src/plugins/dclock.c:294
-#, fuzzy
 msgid "Display digital clock and tooltip"
 msgstr "Mostra orologio digitale e aiuto tooltip"
 
@@ -551,9 +529,8 @@ msgid "Menu"
 msgstr "Menu"
 
 #: ../src/plugins/menu.c:1003
-#, fuzzy
 msgid "Application Menu"
-msgstr "Barra avvio di applicazioni"
+msgstr "Menu Applicazioni"
 
 #: ../src/plugins/netstatus/glade-support.c:91
 #: ../src/plugins/netstatus/glade-support.c:115
@@ -936,9 +913,8 @@ msgid "Size"
 msgstr "Dimensione"
 
 #: ../src/plugins/space.c:139
-#, fuzzy
 msgid "Spacer"
-msgstr "<Spazio>"
+msgstr "Spaziatore"
 
 #: ../src/plugins/space.c:141
 msgid "Allocate space"
@@ -949,7 +925,6 @@ msgid "System Tray"
 msgstr "Pannello di sistema"
 
 #: ../src/plugins/tray.c:733
-#, fuzzy
 msgid "System tray"
 msgstr "Pannello di sistema"
 
@@ -1002,36 +977,32 @@ msgid "Switch between available keyboard layouts"
 msgstr "Scambia layout tastiera tra quelli disponibili"
 
 #: ../src/plugins/wincmd.c:167
-#, fuzzy
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr "Clic sinistro per iconificare. Clic centrale per arrotolare"
+msgstr "Clic sinistro per iconificare.  Clic centrale per arrotolare"
 
 #: ../src/plugins/wincmd.c:197
 msgid "Minimize All Windows"
 msgstr "Minimizza tutte le finestre"
 
 #: ../src/plugins/wincmd.c:199
-#, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
 "Manda comandi a tutte le finestre della scrivania.\n"
-"Comandi supporati sono: 1)Alterna minimizza/massimizza e 2)arrotola/srotola"
+"Comandi supportati: 1) iconifica e 2) arrotola"
 
 #: ../src/plugins/dirmenu.c:212
 msgid "Open in _Terminal"
 msgstr "Apri nel _Terminale"
 
 #: ../src/plugins/dirmenu.c:386
-#, fuzzy
 msgid "Directory"
-msgstr "Menu cartella"
+msgstr "Directory"
 
 #: ../src/plugins/dirmenu.c:387
-#, fuzzy
 msgid "Label"
-msgstr "Pannello"
+msgstr "Etichetta"
 
 #: ../src/plugins/dirmenu.c:404
 msgid "Directory Menu"
@@ -1214,7 +1185,6 @@ msgid "Config tool"
 msgstr "Strumento di configurazione"
 
 #: ../src/plugins/netstatus/netstatus.c:196
-#, fuzzy
 msgid "Network Status Monitor"
 msgstr "Monitor dello stato della rete"
 
@@ -1284,11 +1254,11 @@ msgstr "L'orientamento della barra di sistema"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:828
 msgid "Tooltips Enabled"
-msgstr "Aiuti tooltips azionati"
+msgstr "Aiuti tooltips attivi"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:829
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr "Aiuti tooltips azionati si/no"
+msgstr "Aiuti tooltips attivi si/no"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:836
 msgid "Show Signal"
@@ -1386,9 +1356,8 @@ msgid "Show ScrollLock"
 msgstr "Mostra ScrollLock"
 
 #: ../src/plugins/kbled/kbled.c:259
-#, fuzzy
 msgid "Keyboard LED"
-msgstr "LED della tastatura"
+msgstr "LED della tastiera"
 
 #: ../src/plugins/kbled/kbled.c:261
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-09 09:19+0200\n"
-"PO-Revision-Date: 2009-06-25 23:01+0200\n"
+"PO-Revision-Date: 2009-07-12 23:07+0200\n"
 "Last-Translator: Ahmad Farghal <ahmad.farghal@gmail.com>\n"
 "Language-Team: Arabic\n"
 "MIME-Version: 1.0\n"
@@ -61,7 +61,7 @@ msgstr "المحاذاة"
 
 #: ../data/ui/panel-pref.glade.h:12
 msgid "Appearance"
-msgstr ""
+msgstr "المظهر"
 
 #: ../data/ui/panel-pref.glade.h:13 ../src/panel.c:942
 msgid "Bottom"
@@ -72,7 +72,6 @@ msgid "Center"
 msgstr "المنتصف"
 
 #: ../data/ui/panel-pref.glade.h:15
-#, fuzzy
 msgid "Custom color"
 msgstr "لون مخصص"
 
@@ -90,14 +89,13 @@ msgstr "مدير الملفات:"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "Geometry"
-msgstr ""
+msgstr "الموقع والحجم"
 
 #: ../data/ui/panel-pref.glade.h:20 ../src/panel.c:932 ../src/panel.c:940
 msgid "Height:"
 msgstr "الطول:"
 
 #: ../data/ui/panel-pref.glade.h:21
-#, fuzzy
 msgid "Image"
 msgstr "صورة"
 
@@ -155,12 +153,11 @@ msgstr "حجم الشريط عند تقليصه"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Solid color (with opacity)"
-msgstr ""
+msgstr "لون (بشفافية)"
 
 #: ../data/ui/panel-pref.glade.h:36
-#, fuzzy
 msgid "System theme"
-msgstr "بدون خلفية (استخدم سمة النظام)"
+msgstr "سمة النظام"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "Terminal Emulator:"
@@ -286,9 +283,8 @@ msgid "\"%s\" Settings"
 msgstr "إعدادات \"%s\""
 
 #: ../src/panel.c:941
-#, fuzzy
 msgid "Top"
-msgstr "الأعلى\t"
+msgstr "الأعلى"
 
 #: ../src/panel.c:1332
 #, c-format
@@ -362,7 +358,6 @@ msgid "Display CPU usage"
 msgstr "أظهر استخدام المعالج"
 
 #: ../src/plugins/deskno/deskno.c:165
-#, fuzzy
 msgid "Desktop Number / Workspace Name"
 msgstr "رقم سطح المكتب أو اسم مساحة العمل"
 
@@ -379,14 +374,12 @@ msgid "Display Image and Tooltip"
 msgstr "أظهر صورة وتلميحا"
 
 #: ../src/plugins/launchbar.c:648
-#, fuzzy
 msgid "Available Applications"
-msgstr "الملحقات المتوفرة"
+msgstr "التطبيقات المتوفرة"
 
 #: ../src/plugins/launchbar.c:648
-#, fuzzy
 msgid "Applications"
-msgstr "انتق تطبيقا"
+msgstr "التطبيقات"
 
 #: ../src/plugins/launchbar.c:816
 msgid "Application Launch Bar"
@@ -450,7 +443,6 @@ msgid "Icons only"
 msgstr "أيقونات فقط"
 
 #: ../src/plugins/taskbar.c:1925
-#, fuzzy
 msgid "Flat buttons"
 msgstr "أزرار مسطحة"
 
@@ -468,10 +460,9 @@ msgstr "أبرز زر النافذة التي تتطلب اهتماما"
 
 #: ../src/plugins/taskbar.c:1929
 msgid "Combine multiple application windows into a single button"
-msgstr ""
+msgstr "اجمع نوافذ التطبيق الواحد مع بعضها في زر واحد"
 
 #: ../src/plugins/taskbar.c:1930
-#, fuzzy
 msgid "Maximum width of task button"
 msgstr "أقصى عرض لزر المهمة"
 
@@ -507,7 +498,7 @@ msgstr ""
 
 #: ../src/plugins/dclock.c:264
 msgid "Action when clicked (default: display calendar)"
-msgstr ""
+msgstr "الإجراء المتبع عند نقر الساعة (الإجراء المبدئي هو عرض تقويم)"
 
 #: ../src/plugins/dclock.c:265
 msgid "Bold font"
@@ -518,9 +509,8 @@ msgid "Digital Clock"
 msgstr "الساعة الرقمية"
 
 #: ../src/plugins/dclock.c:294
-#, fuzzy
 msgid "Display digital clock and tooltip"
-msgstr "يظهر ساعة رقمية وتلميح"
+msgstr "يظهر ساعة رقمية وتلميحا"
 
 #: ../src/plugins/menu.c:369
 msgid "Add to desktop"
@@ -539,9 +529,8 @@ msgid "Menu"
 msgstr "القائمة"
 
 #: ../src/plugins/menu.c:1003
-#, fuzzy
 msgid "Application Menu"
-msgstr "شريط اختصارات التطبيقات"
+msgstr "قائمة التطبيقات"
 
 #: ../src/plugins/netstatus/glade-support.c:91
 #: ../src/plugins/netstatus/glade-support.c:115
@@ -924,9 +913,8 @@ msgid "Size"
 msgstr "الحجم"
 
 #: ../src/plugins/space.c:139
-#, fuzzy
 msgid "Spacer"
-msgstr "<مسافة>"
+msgstr "مسافة"
 
 #: ../src/plugins/space.c:141
 msgid "Allocate space"
@@ -937,7 +925,6 @@ msgid "System Tray"
 msgstr "مساحة التبليغ"
 
 #: ../src/plugins/tray.c:733
-#, fuzzy
 msgid "System tray"
 msgstr "مساحة التبليغ"
 
@@ -990,7 +977,6 @@ msgid "Switch between available keyboard layouts"
 msgstr "بدّل بين تخطيطات لوحة المفاتيح المتوفرة"
 
 #: ../src/plugins/wincmd.c:167
-#, fuzzy
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
 "انقر بزر الفأرة الأيسر لتصغير جميع النوافذ. انقر بزر الفأرة الأوسط لتظليل "
@@ -1001,7 +987,6 @@ msgid "Minimize All Windows"
 msgstr "صغّر جميع النوافذ"
 
 #: ../src/plugins/wincmd.c:199
-#, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
@@ -1202,7 +1187,6 @@ msgid "Config tool"
 msgstr "أداة الضبط"
 
 #: ../src/plugins/netstatus/netstatus.c:196
-#, fuzzy
 msgid "Network Status Monitor"
 msgstr "مراقب حالة الشبكة"
 
