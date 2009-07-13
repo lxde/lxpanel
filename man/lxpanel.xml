@@ -105,6 +105,40 @@ mark="bullet"
     </itemizedlist>
     </para>
   </refsect1>
+<refsect1>    <title>OPTIONS</title>
+
+    <para>This program follows the usual <acronym>GNU</acronym> command line syntax,
+      with long options starting with two dashes (`-').  A summary of
+      options is included below.  
+    </para>
+
+    <variablelist>      
+      <varlistentry>        <term>	  <option>-h</option>
+          <option>--help</option>
+        </term>
+        <listitem>          <para>Print help on the options.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>        <term>	  <option>-v</option>
+          <option>--version</option>
+        </term>
+        <listitem>          <para>Print the program version.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>	<term>
+	  <option>--log <replaceable>level</replaceable></option>
+	</term>
+	<listitem>	  <para>Set the logging level in the range 0 (silent) through 5 (verbose).  </para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>        <term><option>-p <replaceable>NAME</replaceable></option></term>
+          <term>          <option>--profile <replaceable>NAME</replaceable></option>
+        </term>
+        <listitem>          <para>Set the profile to be loaded.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
   <refsect1
 >    <title
 >FILES</title>
@@ -112,7 +146,7 @@ mark="bullet"
 >     <varlistentry
 >       <term
 ><filename
->~/.config/lxpanel</filename></term>
+>~/.config/lxpanel/<replaceable>PROFILE</replaceable></filename></term>
        <listitem
 >         <para
 >config file, can be edited by preference dialog.</para>
@@ -120,6 +154,7 @@ mark="bullet"
       </varlistentry>
     </variablelist>
   </refsect1>
+
   <refsect1
 >    <title
 >SEE ALSO</title>
