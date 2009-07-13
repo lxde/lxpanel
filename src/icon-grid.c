@@ -65,11 +65,17 @@ static gboolean icon_grid_placement(IconGrid * ig)
     }
 
     /* Reposition each visible child. */
-    int x = ig->border;
-    int y = ig->border;
+    GtkTextDirection direction = gtk_widget_get_direction(ig->container);
     int limit = ig->border + ((ig->orientation == GTK_ORIENTATION_HORIZONTAL)
         ?  (ig->rows * (child_height + ig->spacing))
         :  (ig->columns * (child_width + ig->spacing)));
+    int x_initial = ((direction == GTK_TEXT_DIR_RTL)
+        ? ig->widget->allocation.width - child_width - ig->border
+        : ig->border);
+    int x_delta = child_width + ig->spacing;
+    if (direction == GTK_TEXT_DIR_RTL) x_delta = - x_delta;
+    int x = x_initial;
+    int y = ig->border;
     IconGridElement * ige;
     for (ige = ig->child_list; ige != NULL; ige = ige->flink)
     {
@@ -97,15 +103,15 @@ static gboolean icon_grid_placement(IconGrid * ig)
                 if (y >= limit)
                 {
                     y = ig->border;
-                    x += child_width + ig->spacing;
+                    x += x_delta;
                 }
             }
             else
             {
-                x += child_width + ig->spacing;
-                if (x >= limit)
+                x += x_delta;
+                if ((direction == GTK_TEXT_DIR_RTL) ? (x <= 0) : (x >= limit))
                 {
-                    x = ig->border;
+                    x = x_initial;
                     y += child_height + ig->spacing;
                 }
             }
@@ -415,7 +421,6 @@ void icon_grid_free(IconGrid * ig)
 
     /* Get the empty widget redrawn. */
     icon_grid_demand_resize(ig);
-    while (gtk_events_pending()) gtk_main_iteration();
 
     /* Free all memory. */
     while (ig->child_list != NULL)

@@ -206,13 +206,23 @@ static void launchbutton_build_bootstrap(Plugin * p)
          * The "desktop-id" being NULL is the marker that this is the bootstrap button. */
         lb->bootstrap_button = g_new0(LaunchButton, 1);
         lb->bootstrap_button->plugin = p;
-        lb->bootstrap_button->widget = gtk_button_new();
-        gtk_button_set_image(GTK_BUTTON(lb->bootstrap_button->widget),
-            gtk_image_new_from_pixbuf(lxpanel_load_icon(GTK_STOCK_ADD, p->panel->icon_size, p->panel->icon_size, FALSE)));
-        g_signal_connect(lb->bootstrap_button->widget, "button-press-event", G_CALLBACK(launchbutton_press_event), lb->bootstrap_button);
+
+        /* Create an event box. */
+        GtkWidget * event_box = gtk_event_box_new();
+        gtk_container_set_border_width(GTK_CONTAINER(event_box), 0);
+        GTK_WIDGET_UNSET_FLAGS(event_box, GTK_CAN_FOCUS);
+        lb->bootstrap_button->widget = event_box;
+        g_signal_connect(event_box, "button-press-event", G_CALLBACK(launchbutton_press_event), lb->bootstrap_button);
+
+        /* Create an image containing the stock "Add" icon as a child of the event box. */
+        GtkWidget * image = gtk_image_new_from_pixbuf(
+            lxpanel_load_icon(GTK_STOCK_ADD, p->panel->icon_size, p->panel->icon_size, FALSE));
+        gtk_misc_set_padding(GTK_MISC(image), 0, 0);
+        gtk_misc_set_alignment(GTK_MISC(image), 0, 0);
+        gtk_container_add(GTK_CONTAINER(event_box), image);
 
         /* Add the bootstrap button to the icon grid.  By policy it is empty at this point. */
-        icon_grid_add(lb->icon_grid, lb->bootstrap_button->widget, TRUE); 
+        icon_grid_add(lb->icon_grid, event_box, TRUE); 
     }
     else
         icon_grid_set_visible(lb->icon_grid, lb->bootstrap_button->widget, TRUE);
@@ -436,12 +446,19 @@ static void launchbar_destructor(Plugin * p)
 {
     LaunchbarPlugin * lb = (LaunchbarPlugin *) p->priv;
 
+    /* Free the launchbar. */
     g_slist_foreach(lb->buttons, (GFunc) launchbutton_free, NULL);
     icon_grid_free(lb->icon_grid);
+
+    /* Free the bootstrap button if it exists. */
     if (lb->bootstrap_button != NULL)
-        {
         g_free(lb->bootstrap_button);
-        }
+
+    /* Ensure that the configuration dialog is dismissed. */
+    if (lb->config_dlg != NULL)
+        gtk_widget_destroy(lb->config_dlg);
+
+    /* Deallocate all memory. */
     g_free(lb);
 }
 

@@ -133,21 +133,6 @@ AM_CONDITIONAL(BUILD_ALSA_PLUGINS, test x$compile_alsa = xyes)
 dnl FIXME: check OSS existence
 AM_CONDITIONAL(BUILD_OSS_PLUGINS, test x$compile_alsa = xno)
 
-# check libiw for netstat plugin
-AC_ARG_ENABLE([libiw],
-    AS_HELP_STRING([--disable-libiw],
-                    [compile libiw-based netstat plugin (default: disable)]),
-            compile_libiw=$enableval, compile_libiw="no")
-if test x"$compile_libiw" = "xyes"; then
-    AC_CHECK_HEADERS(iwlib.h,
-                     [AC_CHECK_LIB(iw,
-                                   iw_sockets_open,
-                                   compile_libiw=yes,
-                                   compile_libiw=no)],
-                                   compile_libiw=no)
-fi
-AM_CONDITIONAL(BUILD_LIBIW_PLUGINS, test x$compile_libiw = xyes)
-
 AC_ARG_ENABLE([plugins-loading],
     AS_HELP_STRING([--disable-plugins-loading],
                [disable plugin loading (default: enable)]),
@@ -161,7 +146,6 @@ fi
 
 dnl Here are plugin listing.
 plugin_netstatus=
-plugin_netstat=
 plugin_volume=
 plugin_volumealsa=
 plugin_cpu=
@@ -177,7 +161,7 @@ AC_ARG_WITH(plugins,
 [                         plugins may be comma separated ]
 [                         'all' builds all plugins (default), 'none' builds none ]
 [                         Possible plugins are: ]
-[                         netstatus, netstat, volume, volumealsa, cpu, deskno, batt, kbled, xkb, thermal], plugins="$withval",[plugins="all"])
+[                         netstatus, volume, volumealsa, cpu, deskno, batt, kbled, xkb, thermal], plugins="$withval",[plugins="all"])
 
 if test x"$plugins" != xall -a x"$plugins" != xnone; then
     if test x"$plugins_loading" = xno; then
@@ -186,7 +170,7 @@ if test x"$plugins" != xall -a x"$plugins" != xnone; then
     fi
 fi
 
-ALL_PLUGINS_LIST="netstatus netstat volume volumealsa cpu deskno batt kbled xkb thermal"
+ALL_PLUGINS_LIST="netstatus volume volumealsa cpu deskno batt kbled xkb thermal"
 AC_SUBST(ALL_PLUGINS_LIST)
 
 if test x"$plugins" = xall; then
@@ -196,7 +180,6 @@ dnl        export plugin_$name="$name"
 dnl    done
 
     plugin_netstatus=netstatus
-    plugin_netstat=
     plugin_volume=volume
     plugin_volumealsa=volumealsa
     plugin_cpu=cpu
@@ -215,9 +198,6 @@ else
         case "$plugin" in
             netstatus)
                 plugin_netstatus=netstatus
-                ;;
-            netstat)
-                plugin_netstat=netstat
                 ;;
             volume)
                 plugin_volume=volume
@@ -263,15 +243,8 @@ else
     dnl force OSS plugin to <null>
     plugin_volume=
 fi
-if test x"$compile_libiw" = "xno"; then
-   if test ! -z $plugin_netstat; then
-       AC_MSG_RESULT([no libiw headers/libraries found!])
-   fi
-   plugin_netstat=
-fi
 PLUGINS_LIST="\
     $plugin_netstatus \
-    $plugin_netstat \
     $plugin_volume \
     $plugin_volumealsa \
     $plugin_cpu \
@@ -334,7 +307,6 @@ AC_CONFIG_FILES([
     src/Makefile
     src/plugins/Makefile
     src/plugins/netstatus/Makefile
-    src/plugins/netstat/Makefile
     src/plugins/volume/Makefile
     src/plugins/volumealsa/Makefile
     src/plugins/cpu/Makefile
@@ -358,9 +330,6 @@ if test x$plugins_loading = xyes; then
 echo Building dynamic plugins:
     if test x"$plugin_netstatus" != x; then
         AC_MSG_RESULT([    netstatus - Monitor networking status])
-    fi
-    if test x"$plugin_netstat" != x; then
-        AC_MSG_RESULT([    netstat - Monitor networking status (Linux Only)])
     fi
     if test x"$plugin_volume" != x; then
         AC_MSG_RESULT([    volume - Display and adjust volume of sound card for OSS])
