@@ -241,7 +241,7 @@ static void
 ev_active_window(FbEv *ev, gpointer p)
 {
     ENTER;
-    ev->active_window = None;
+//    ev->active_window = None;		// Wrecks fb_ev_active window
     RET();
 }
 

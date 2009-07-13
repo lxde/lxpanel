@@ -25,422 +25,352 @@
 
 #include "xkb.h"
 
-static t_xkb_options_dlg *dlg = NULL;
-static GIOChannel *channel;
-static guint source_id;
+static void xkb_active_window_event(FbEv * ev, gpointer data);
+static gboolean xkb_scroll_event(GtkWidget * widget, GdkEventScroll * event, gpointer data);
+static gboolean xkb_button_press_event(GtkWidget * widget,  GdkEventButton * event, gpointer data);
+static int xkb_constructor(Plugin * plugin, char ** fp);
+static void xkb_destructor(Plugin * plugin);
+static void xkb_display_type_changed(GtkComboBox * cb, gpointer * data);
+static void xkb_enable_per_application_changed(GtkToggleButton * tb, gpointer * data);
+static void xkb_default_language_changed(GtkComboBox * cb, gpointer * data);
+static void xkb_configuration_response(GtkDialog * dialog, gint arg1, gpointer data);
+static void xkb_configure(Plugin * p, GtkWindow * parent);
+static void xkb_save_configuration(Plugin * p, FILE * fp);
+static void xkb_panel_configuration_changed(Plugin * p);
 
-static gulong win_change_hanler, win_close_hanler;
-
-static void
-xkb_free(t_xkb *xkb);
-
-static void
-xkb_configure(Plugin * p, GtkWindow * parent);
-
-static t_xkb_options_dlg*
-xkb_options_dlg_create(t_xkb * xkb);
-
-static void
-free_xkb_options_dlg(GtkDialog *dialog, gint arg1, gpointer user_data);
-
-static void
-xkb_options_dlg_set_xkb(t_xkb_options_dlg *dlg, t_xkb *xkb);
-
-static gboolean 
-change_group(GtkWidget * widget, GdkEventButton * event, gpointer data) ;
-
-static void 
-active_window_changed(FbEv *ev, gpointer data) ;
-
-static void 
-application_closed( FbEv* ev, Window win, gpointer data) ;
-
-/* ------------------------------------------------------------------ *
- *                     Panel Plugin Interface                         *
- * ------------------------------------------------------------------ */
-
-static int
-xkb_constructor (Plugin *plugin, char** fp);
-
-static void 
-xkb_destructor (Plugin *plugin);
-
-static void 
-xkb_orientation_changed(Plugin *plugin,
-                             GtkOrientation orientation,
-                             t_xkb *xkb);
-
-static gboolean 
-xkb_set_size(Plugin *plugin,gint size,
-                  t_xkb *xkb);
-
-static void 
-xkb_free_data(Plugin *plugin,t_xkb *xkb);
-
-
-static void 
-xkb_about(Plugin *plugin, t_xkb *xkb);
-
-/* create widgets and connect to signals */
-static int
-xkb_constructor (Plugin *plugin, char** fp)
+/* Redraw the graphics. */
+void xkb_redraw(XkbPlugin * xkb) 
 {
-  t_xkb *xkb;
-
-
-  const char *initial_group;
-
-  xkb = g_new0(t_xkb, 1);
-  xkb->plugin = plugin;
-  plugin->priv = xkb;
-
-  xkb->size = plugin->panel->icon_size;
-  xkb->display_type = IMAGE;
-  xkb->enable_perapp = TRUE;
-  xkb->default_group = 0;
-
-  line s;
-    s.len = 256;
-    if( fp )
+    /* Set the image. */
+    gboolean valid_image = FALSE;
+    if (xkb->display_type == IMAGE)
     {
-        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
-            if (s.type == LINE_NONE) {
-                ERR( "xkb: illegal token %s\n", s.str);
-                goto error;
+        int size = xkb->plugin->panel->icon_size;
+        char * group_name = (char *) xkb_get_current_group_name_lowercase(xkb);
+        char * filename = g_strdup_printf("%s/%s.png", FLAGSDIR, group_name);
+        GdkPixbuf * unscaled_pixbuf = gdk_pixbuf_new_from_file(filename, NULL);
+        g_free(filename);
+        g_free(group_name);
+
+        if (unscaled_pixbuf != NULL)
+        {
+            /* Loaded successfully. */
+            int width = gdk_pixbuf_get_width(unscaled_pixbuf);
+            int height = gdk_pixbuf_get_height(unscaled_pixbuf);
+            GdkPixbuf * pixbuf = gdk_pixbuf_scale_simple(unscaled_pixbuf, size * width / height, size, GDK_INTERP_BILINEAR);
+            if (pixbuf != NULL)
+            {
+                gtk_image_set_from_pixbuf(GTK_IMAGE(xkb->image), pixbuf);
+                g_object_unref(G_OBJECT(pixbuf));
+                gtk_widget_hide(xkb->label);
+                gtk_widget_show(xkb->image);
+                gtk_widget_set_tooltip_text(xkb->btn, xkb_get_current_group_name(xkb));
+                valid_image = TRUE;
             }
-            if (s.type == LINE_VAR) {
-                if (!g_ascii_strcasecmp(s.t[0], "DisplayType"))
-                    xkb->display_type = atoi(s.t[1]);
-                else if (!g_ascii_strcasecmp(s.t[0], "PerAppLayout"))
-                    xkb->enable_perapp = str2num(bool_pair, s.t[1], 0);
-                else if (!g_ascii_strcasecmp(s.t[0], "DefaultGroup"))
-                    xkb->default_group = atoi(s.t[1]);
-                else {
-                    ERR( "xkb: unknown var %s\n", s.t[0]);
-                }
-            } else {
-                ERR( "xkb: illegal in this context %s\n", s.str);
-                goto error;
-            }
+            g_object_unref(unscaled_pixbuf);
         }
     }
 
-
-  plugin->pwid = gtk_event_box_new();
-  gtk_widget_add_events(plugin->pwid, GDK_BUTTON_PRESS_MASK);
-  xkb->btn = gtk_button_new();
-  gtk_container_add(GTK_CONTAINER(plugin->pwid), xkb->btn);
-  gtk_button_set_relief(GTK_BUTTON(xkb->btn), GTK_RELIEF_NONE);
-  GTK_WIDGET_UNSET_FLAGS(xkb->btn, GTK_CAN_FOCUS);
-  GTK_WIDGET_UNSET_FLAGS(xkb->btn, GTK_CAN_DEFAULT);
-
-  gtk_widget_show(xkb->btn);
-  g_signal_connect(xkb->btn, "button-press-event", G_CALLBACK(change_group), xkb);
-
-  xkb->hbox = gtk_hbox_new(FALSE, 0);
-  gtk_container_add(GTK_CONTAINER(xkb->btn), xkb->hbox);
-  gtk_widget_show(xkb->hbox);
-
-  xkb->label = gtk_label_new("");
-  gtk_container_add(GTK_CONTAINER(xkb->hbox), xkb->label);
-  xkb->image = gtk_image_new();
-  gtk_container_add(GTK_CONTAINER(xkb->hbox), xkb->image);
-
-  initial_group = initialize_xkb(xkb);
-
-  set_new_locale(xkb);
-
-  channel = g_io_channel_unix_new(get_connection_number());
-  source_id = g_io_add_watch(channel, G_IO_IN | G_IO_PRI, 
-      (GIOFunc) &gio_callback, (gpointer) xkb);
-
-  /* track signals about window change */
-  win_change_hanler = g_signal_connect( G_OBJECT (fbev), 
-      "active_window", G_CALLBACK(active_window_changed), xkb);
-
-//  win_close_hanler = g_signal_connect( G_OBJECT (fbev), 
-//      "destroy_window", G_CALLBACK(application_closed), xkb);
-
-  gtk_widget_show(plugin->pwid);
-
-  
-  
-    RET(1);
-error:
-    RET(0);
+    /* Set the label. */
+    if ((xkb->display_type == TEXT) || ( ! valid_image))
+    {
+        panel_draw_label_text(xkb->plugin->panel, xkb->label, (char *) xkb_get_current_group_name(xkb), TRUE);
+        gtk_widget_hide(xkb->image);
+        gtk_widget_show(xkb->label);
+        gtk_widget_set_tooltip_text(xkb->btn, NULL);
+    }
 }
 
-static void 
-xkb_destructor (Plugin *plugin)
+/* Handler for "active_window" event on root window listener. */
+static void xkb_active_window_event(FbEv * ev, gpointer data) 
 {
-  t_xkb *xkb = (t_xkb*)plugin->priv;
-  xkb_free( xkb );
+    XkbPlugin * xkb = (XkbPlugin *) data;
+    if (xkb->enable_perapp)
+    {
+        Window * win = fb_ev_active_window(ev);
+        if (*win != None)
+        {
+            xkb_active_window_changed(xkb, get_net_wm_pid(*win));
+            xkb_redraw(xkb);
+        }
+    }
 }
 
-gboolean 
-xkb_set_size(Plugin *plugin, gint size,
-                  t_xkb *xkb)
+/* Handler for "scroll-event" on drawing area. */
+static gboolean xkb_scroll_event(GtkWidget * widget, GdkEventScroll * event, gpointer data)
 {
-//  GtkOrientation orientation;
-//  DBG ("setting size %d", size);
-//  xkb->size = size;
-/*
-  orientation = xfce_panel_plugin_get_orientation (plugin);
-  if (orientation == GTK_ORIENTATION_HORIZONTAL)
-    gtk_widget_set_size_request(xkb->btn, -1, xkb->size);
-  else
-    gtk_widget_set_size_request(xkb->btn, xkb->size, -1);
-  */
-  set_new_locale(xkb);
-  return TRUE;
+    XkbPlugin * xkb = (XkbPlugin *) data;
+
+    /* Change to next or previous group. */
+    xkb_change_group(xkb,
+        (((event->direction == GDK_SCROLL_UP) || (event->direction == GDK_SCROLL_RIGHT)) ? 1 : -1));
+    return TRUE;
 }
 
-void 
-xkb_free_data(Plugin *plugin, t_xkb *xkb)
+/* Handler for button-press-event on top level widget. */
+static gboolean xkb_button_press_event(GtkWidget * widget,  GdkEventButton * event, gpointer data) 
 {
-  xkb_free(xkb);
-}
-
-/* Callback when the configuration dialog is to be shown. */
-static void xkb_configure(Plugin * p, GtkWindow * parent)
-{
-    t_xkb * xkb = (t_xkb *) p->priv; 
-    dlg = xkb_options_dlg_create(xkb);
-    xkb_options_dlg_set_xkb(dlg, xkb);
-    gtk_widget_set_size_request(GTK_WIDGET(dlg->dialog), 400, -1);	/* Improve geometry */
-    gtk_dialog_run(GTK_DIALOG(dlg->dialog));
-}
-
-void 
-xkb_about(Plugin *plugin, t_xkb *xkb)
-{
-  GtkWidget *about;
-  const gchar* authors[2] = {
-    "Alexander Iliev <sasoiliev@mamul.org>", 
-    NULL
-  };
-  about = gtk_about_dialog_new();
-  gtk_about_dialog_set_name(GTK_ABOUT_DIALOG(about), 
-      _("Keyboard Layout Switcher"));
-  gtk_about_dialog_set_logo(GTK_ABOUT_DIALOG(about), 
-      NULL);
-  gtk_about_dialog_set_authors(GTK_ABOUT_DIALOG(about), 
-      (const gchar**) authors);
-  gtk_about_dialog_set_comments(GTK_ABOUT_DIALOG(about), 
-      _("Allows you to switch the keyboard layout and\n"
-        "displays the currently selected layout."));
-  gtk_about_dialog_set_website(GTK_ABOUT_DIALOG(about), 
-      "http://xfce-goodies.berlios.de");
-  gtk_about_dialog_set_website_label(GTK_ABOUT_DIALOG(about), 
-      _("Other plugins available here"));
-  gtk_dialog_run(GTK_DIALOG(about));
-  gtk_widget_destroy (about); 
-}
-
-/* ----------------- xkb plugin stuff -----------------------*/
-
-void 
-active_window_changed(FbEv *ev, gpointer data) 
-{
-	Window * win = fb_ev_active_window( ev );
-	DBG( "win = %p, pid=%d", win, get_net_wm_pid(win) );
-	if( *win == None )
-		return;
-  react_active_window_changed(get_net_wm_pid( *win ), (t_xkb *) data);
-}
-
-void 
-application_closed( FbEv* ev, Window win, gpointer data) 
-{
-	DBG("win: %p", win);
-  react_application_closed(get_net_wm_pid(win));  
-}
-
-static gboolean 
-change_group(GtkWidget *widget,  GdkEventButton * event, gpointer data) 
-{
-    t_xkb * xkb = (t_xkb *) data;
+    XkbPlugin * xkb = (XkbPlugin *) data;
 
     /* Standard right-click handling. */
     if (plugin_button_press_event(widget, event, xkb->plugin))
         return TRUE;
 
-  do_change_group(1, xkb);
+    /* Change to next group. */
+    xkb_change_group(xkb, 1);
 }
 
-static void 
-xkb_free(t_xkb *xkb) 
+/* Plugin constructor. */
+static int xkb_constructor(Plugin * plugin, char ** fp)
 {
-  g_signal_handler_disconnect(fbev, win_change_hanler);
-//  g_signal_handler_disconnect(netk_screen, win_close_hanler);
+    /* Allocate plugin context and set into Plugin private data pointer. */
+    XkbPlugin * xkb = g_new0(XkbPlugin, 1);
+    xkb->plugin = plugin;
+    plugin->priv = xkb;
 
-  g_source_remove(source_id);
-  deinitialize_xkb();
+    /* Initialize to defaults. */
+    xkb->display_type = IMAGE;
+    xkb->enable_perapp = TRUE;
+    xkb->default_group = 0;
 
-  g_return_if_fail(xkb != NULL);
+    /* Load parameters from the configuration file. */
+    line s;
+    s.len = 256;
+    if (fp != NULL)
+    {
+        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END)
+        {
+            if (s.type == LINE_NONE)
+            {
+                ERR( "xkb: illegal token %s\n", s.str);
+                return 0;
+            }
+            if (s.type == LINE_VAR)
+            {
+                if (g_ascii_strcasecmp(s.t[0], "DisplayType") == 0)
+                    xkb->display_type = atoi(s.t[1]);
+                else if (g_ascii_strcasecmp(s.t[0], "PerAppLayout") == 0)
+                    xkb->enable_perapp = str2num(bool_pair, s.t[1], 0);
+                else if (g_ascii_strcasecmp(s.t[0], "DefaultGroup") == 0)
+                    xkb->default_group = atoi(s.t[1]);
+                else
+                    ERR( "xkb: unknown var %s\n", s.t[0]);
+            }
+            else
+            {
+                ERR( "xkb: illegal in this context %s\n", s.str);
+                return 0;
+            }
+        }
+    }
 
-  gtk_widget_destroy(xkb->btn);
+    /* Allocate top level widget and set into Plugin widget pointer. */
+    plugin->pwid = gtk_event_box_new();
+    gtk_widget_add_events(plugin->pwid, GDK_BUTTON_PRESS_MASK);
 
-  g_free(xkb);
+    /* Create a button as the child of the event box. */
+    xkb->btn = gtk_button_new();
+    gtk_container_add(GTK_CONTAINER(plugin->pwid), xkb->btn);
+    gtk_button_set_relief(GTK_BUTTON(xkb->btn), GTK_RELIEF_NONE);
+    GTK_WIDGET_UNSET_FLAGS(xkb->btn, GTK_CAN_FOCUS);
+    GTK_WIDGET_UNSET_FLAGS(xkb->btn, GTK_CAN_DEFAULT);
+    gtk_widget_show(xkb->btn);
+
+    /* Create a horizontal box as the child of the button. */
+    GtkWidget * hbox = gtk_hbox_new(FALSE, 0);
+    gtk_container_add(GTK_CONTAINER(xkb->btn), hbox);
+    gtk_widget_show(hbox);
+
+    /* Create a label and an image as children of the horizontal box.
+     * Only one of these is visible at a time, controlled by user preference
+     * and the successful loading of the image. */
+    xkb->label = gtk_label_new("");
+    gtk_container_add(GTK_CONTAINER(hbox), xkb->label);
+    xkb->image = gtk_image_new();
+    gtk_container_add(GTK_CONTAINER(hbox), xkb->image);
+
+    /* Initialize the XKB interface. */
+    xkb_mechanism_constructor(xkb);
+
+    /* Initialize a channel to listen for XKB events. */
+    GIOChannel * channel = g_io_channel_unix_new(xkb_get_connection_number(xkb));
+    xkb->source_id = g_io_add_watch(channel, G_IO_IN | G_IO_PRI, (GIOFunc) xkb_gio_callback, (gpointer) xkb);
+
+    /* Connect signals. */
+    g_signal_connect(xkb->btn, "button-press-event", G_CALLBACK(xkb_button_press_event), xkb);
+    g_signal_connect(xkb->btn, "scroll-event", G_CALLBACK(xkb_scroll_event), xkb);
+    g_signal_connect(G_OBJECT(fbev), "active_window", G_CALLBACK(xkb_active_window_event), xkb);
+
+    /* Show the widget and return. */
+    xkb_redraw(xkb);
+    gtk_widget_show(plugin->pwid);
+    return 1;
 }
 
-/* ----------------- xkb options dialog callbacks -----------------------*/
-
-static void 
-xkb_display_type_changed(GtkComboBox *cb, gpointer *data) 
+/* Plugin destructor. */
+static void xkb_destructor(Plugin * plugin)
 {
-  t_xkb *xkb = (t_xkb *) data;
-  xkb->display_type = gtk_combo_box_get_active(cb);
-  set_new_locale(xkb);
+    XkbPlugin * xkb = (XkbPlugin *) plugin->priv;
+
+    /* Disconnect root window event handler. */
+    g_signal_handlers_disconnect_by_func(G_OBJECT(fbev), xkb_active_window_event, xkb);
+
+    /* Disconnect from the XKB mechanism. */
+    g_source_remove(xkb->source_id);
+    xkb_mechanism_destructor(xkb);
+
+    /* Ensure that the configuration dialog is dismissed. */
+    if (xkb->config_dlg != NULL)
+        gtk_widget_destroy(xkb->config_dlg);
+
+    /* Deallocate all memory. */
+    g_free(xkb);
 }
 
-static void 
-xkb_enable_perapp_changed(GtkToggleButton *tb, gpointer *data) 
+/* Handler for "changed" event on default language combo box of configuration dialog. */
+static void xkb_display_type_changed(GtkComboBox * cb, gpointer * data) 
 {
-  t_xkb_options_dlg *dlg = (t_xkb_options_dlg *) data;
-  dlg->xkb->enable_perapp = gtk_toggle_button_get_active(tb);
-  gtk_widget_set_sensitive(dlg->per_app_default_layout_menu, 
-      dlg->xkb->enable_perapp);
-  set_new_locale(dlg->xkb);
+    /* Fetch the new value and redraw. */
+    XkbPlugin * xkb = (XkbPlugin *) data;
+    xkb->display_type = gtk_combo_box_get_active(cb);
+    xkb_redraw(xkb);
 }
 
-static void 
-xkb_def_lang_changed(GtkComboBox *cb, gpointer *data) 
+/* Handler for "toggled" event on per-application check box of configuration dialog. */
+static void xkb_enable_per_application_changed(GtkToggleButton * tb, gpointer * data) 
 {
-  t_xkb *xkb = (t_xkb *) data;
-  xkb->default_group = gtk_combo_box_get_active(cb);
-  set_new_locale(xkb);
+    /* Fetch the new value and redraw. */
+    XkbPlugin * xkb = (XkbPlugin *) data;
+    xkb->enable_perapp = gtk_toggle_button_get_active(tb);
+    gtk_widget_set_sensitive(xkb->per_app_default_layout_menu, xkb->enable_perapp);
+    xkb_redraw(xkb);
 }
 
-/* ----------------- xkb options dialog -----------------------*/
-
-static t_xkb_options_dlg*
-xkb_options_dlg_create(t_xkb * xkb)
+/* Handler for "changed" event on default language combo box of configuration dialog. */
+static void xkb_default_language_changed(GtkComboBox * cb, gpointer * data)
 {
-  int x;
-  GtkWidget *vbox, *hbox, *display_type_frame,
-            *per_app_frame, *alignment1, *alignment2, *hbox3, *label4;
+    /* Fetch the new value and redraw. */
+    XkbPlugin * xkb = (XkbPlugin *) data;
+    xkb->default_group = gtk_combo_box_get_active(cb);
+    xkb_redraw(xkb);
+}
 
-  dlg = g_new0(t_xkb_options_dlg, 1);
+/* Handler for "response" event on configuration dialog. */
+static void xkb_configuration_response(GtkDialog * dialog, int response, gpointer data)
+{
+    XkbPlugin * xkb = (XkbPlugin *) data;
 
-  dlg->dialog = gtk_dialog_new_with_buttons (
-      _("Configure Keyboard Layout Switcher"), 
-      NULL,
-      GTK_DIALOG_NO_SEPARATOR,
-      GTK_STOCK_CLOSE, 
-      GTK_RESPONSE_OK,
-      NULL
-  );
-  panel_apply_icon(GTK_WINDOW(dlg->dialog));
+    /* Save the new configuration and redraw the plugin. */
+    panel_config_save(xkb->plugin->panel);
+    xkb_redraw(xkb);
 
- 
-  vbox = gtk_vbox_new(FALSE, 2);
-  gtk_widget_show(vbox);
-  gtk_container_add(GTK_CONTAINER(GTK_DIALOG(dlg->dialog)->vbox), vbox);
+    /* Destroy the dialog. */
+    gtk_widget_destroy(xkb->config_dlg);
+    xkb->config_dlg = NULL;
+}
 
-  display_type_frame = gtk_frame_new (NULL);
-  gtk_frame_set_label (GTK_FRAME (display_type_frame), _("Show layout as"));
-  gtk_widget_show (display_type_frame);
-  gtk_box_pack_start (GTK_BOX (vbox), display_type_frame, TRUE, TRUE, 2);
-  gtk_container_set_border_width (GTK_CONTAINER (display_type_frame), 5);
+/* Callback when the configuration dialog is to be shown. */
+static void xkb_configure(Plugin * p, GtkWindow * parent)
+{
+    XkbPlugin * xkb = (XkbPlugin *) p->priv;
 
-  alignment2 = gtk_alignment_new (0.5, 0.5, 1, 1);
-  gtk_widget_show (alignment2);
-  gtk_container_add (GTK_CONTAINER (display_type_frame), alignment2);
-  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment2), 4, 4, 10, 10);
+    /* Create dialog window. */
+    GtkWidget * dlg = gtk_dialog_new_with_buttons(
+        _("Configure Keyboard Layout Switcher"), 
+        NULL,
+        GTK_DIALOG_NO_SEPARATOR,
+        GTK_STOCK_CLOSE, 
+        GTK_RESPONSE_OK,
+        NULL);
+    xkb->config_dlg = dlg;
+    panel_apply_icon(GTK_WINDOW(dlg));
+
+    /* Create a vertical box as the child of the dialog. */
+    GtkWidget * vbox = gtk_vbox_new(FALSE, 2);
+    gtk_container_add(GTK_CONTAINER(GTK_DIALOG(dlg)->vbox), vbox);
+
+    /* Create a frame as the child of the vertical box. */
+    GtkWidget * display_type_frame = gtk_frame_new(NULL);
+    gtk_frame_set_label(GTK_FRAME(display_type_frame), _("Show layout as"));
+    gtk_box_pack_start(GTK_BOX(vbox), display_type_frame, TRUE, TRUE, 2);
+    gtk_container_set_border_width(GTK_CONTAINER(display_type_frame), 5);
+
+    /* Create an alignment as the child of the frame. */
+    GtkWidget * alignment2 = gtk_alignment_new(0.5, 0.5, 1, 1);
+    gtk_container_add(GTK_CONTAINER(display_type_frame), alignment2);
+    gtk_alignment_set_padding(GTK_ALIGNMENT(alignment2), 4, 4, 10, 10);
   
-  hbox = gtk_hbox_new(FALSE, 2);
-  gtk_widget_show(hbox);
-  gtk_container_add (GTK_CONTAINER (alignment2), hbox);
+    /* Create a horizontal box as the child of the alignment. */
+    GtkWidget * hbox = gtk_hbox_new(FALSE, 2);
+    gtk_container_add(GTK_CONTAINER(alignment2), hbox);
 
-  dlg->display_type_optmenu = gtk_combo_box_new_text ();
-  gtk_combo_box_append_text (GTK_COMBO_BOX (dlg->display_type_optmenu), _("image"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (dlg->display_type_optmenu), _("text"));
-  gtk_box_pack_start(GTK_BOX(hbox), dlg->display_type_optmenu, TRUE, TRUE, 2);
+    /* Create a combo box as the child of the horizontal box. */
+    GtkWidget * display_type_optmenu = gtk_combo_box_new_text();
+    gtk_combo_box_append_text(GTK_COMBO_BOX(display_type_optmenu), _("image"));
+    gtk_combo_box_append_text(GTK_COMBO_BOX(display_type_optmenu), _("text"));
+    gtk_box_pack_start(GTK_BOX(hbox), display_type_optmenu, TRUE, TRUE, 2);
+    g_signal_connect(display_type_optmenu, "changed", G_CALLBACK(xkb_display_type_changed), xkb);
+    gtk_combo_box_set_active(GTK_COMBO_BOX(display_type_optmenu), xkb->display_type);
 
-  per_app_frame = gtk_frame_new (NULL);
-  gtk_frame_set_label (GTK_FRAME (per_app_frame), _("Per application settings"));
-  gtk_widget_show (per_app_frame);
-  gtk_box_pack_start (GTK_BOX (vbox), per_app_frame, TRUE, TRUE, 2);
-  gtk_container_set_border_width (GTK_CONTAINER (per_app_frame), 5);
+    /* Create a frame as the child of the vertical box. */
+    GtkWidget * per_app_frame = gtk_frame_new(NULL);
+    gtk_frame_set_label(GTK_FRAME(per_app_frame), _("Per application settings"));
+    gtk_widget_show(per_app_frame);
+    gtk_box_pack_start(GTK_BOX(vbox), per_app_frame, TRUE, TRUE, 2);
+    gtk_container_set_border_width(GTK_CONTAINER(per_app_frame), 5);
 
-  alignment1 = gtk_alignment_new (0.5, 0.5, 1, 1);
-  gtk_widget_show (alignment1);
-  gtk_container_add (GTK_CONTAINER (per_app_frame), alignment1);
-  gtk_alignment_set_padding (GTK_ALIGNMENT (alignment1), 4, 4, 10, 10);
+    /* Create an alignment as the child of the frame. */
+    GtkWidget * alignment1 = gtk_alignment_new(0.5, 0.5, 1, 1);
+    gtk_container_add(GTK_CONTAINER(per_app_frame), alignment1);
+    gtk_alignment_set_padding(GTK_ALIGNMENT(alignment1), 4, 4, 10, 10);
 
-  dlg->per_app_vbox = gtk_vbox_new (FALSE, 2);
-  gtk_widget_show (dlg->per_app_vbox);
-  gtk_container_add (GTK_CONTAINER (alignment1), dlg->per_app_vbox);
+    /* Create a vertical box as the child of the alignment. */
+    GtkWidget * per_app_vbox = gtk_vbox_new(FALSE, 2);
+    gtk_container_add(GTK_CONTAINER(alignment1), per_app_vbox);
 
-  dlg->per_app_checkbutton = gtk_check_button_new_with_mnemonic(_("_Remember layout for each application"));
-  gtk_widget_show (dlg->per_app_checkbutton);
-  gtk_box_pack_start (GTK_BOX (dlg->per_app_vbox), dlg->per_app_checkbutton, FALSE, FALSE, 2);
-  gtk_toggle_button_set_active((GtkToggleButton*) dlg->per_app_checkbutton, TRUE);
+    /* Create a check button as the child of the vertical box. */
+    GtkWidget * per_app_checkbutton = gtk_check_button_new_with_mnemonic(_("_Remember layout for each application"));
+    gtk_box_pack_start(GTK_BOX(per_app_vbox), per_app_checkbutton, FALSE, FALSE, 2);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(per_app_checkbutton), xkb->enable_perapp);
+    g_signal_connect(per_app_checkbutton, "toggled", G_CALLBACK(xkb_enable_per_application_changed), xkb);
 
-  hbox3 = gtk_hbox_new (FALSE, 2);
-  gtk_widget_show (hbox3);
-  gtk_box_pack_start (GTK_BOX (dlg->per_app_vbox), hbox3, TRUE, TRUE, 2);
+    /* Create a horizontal box as the child of the vertical box. */
+    GtkWidget * hbox3 = gtk_hbox_new(FALSE, 2);
+    gtk_box_pack_start(GTK_BOX(per_app_vbox), hbox3, TRUE, TRUE, 2);
 
-  label4 = gtk_label_new (_("Default layout:"));
-  gtk_widget_show (label4);
-  gtk_box_pack_start (GTK_BOX (hbox3), label4, FALSE, FALSE, 2);
+    /* Create a label as the child of the horizontal box. */
+    GtkWidget * label4 = gtk_label_new(_("Default layout:"));
+    gtk_box_pack_start(GTK_BOX(hbox3), label4, FALSE, FALSE, 2);
 
-  dlg->per_app_default_layout_menu = gtk_combo_box_new_text ();
-  gtk_widget_show (dlg->per_app_default_layout_menu);
-  gtk_box_pack_start (GTK_BOX (hbox3), dlg->per_app_default_layout_menu, FALSE, TRUE, 2);
-  
-  for (x = 0; x < get_group_count(); x++) 
-  {
-    gtk_combo_box_append_text(
-        GTK_COMBO_BOX(dlg->per_app_default_layout_menu), 
-        get_symbol_name_by_res_no(x));
-  }
+    /* Create a combo box as the child of the horizontal box. */
+    xkb->per_app_default_layout_menu = gtk_combo_box_new_text();
+    gtk_box_pack_start(GTK_BOX(hbox3), xkb->per_app_default_layout_menu, FALSE, TRUE, 2);
+    gtk_widget_set_sensitive(xkb->per_app_default_layout_menu, xkb->enable_perapp);
 
+    /* Populate the combo box with the available choices. */
+    int i;
+    for (i = 0; i < xkb_get_group_count(xkb); i++) 
+    {
+        gtk_combo_box_append_text(
+            GTK_COMBO_BOX(xkb->per_app_default_layout_menu), 
+            xkb_get_symbol_name_by_res_no(xkb, i));
+    }
+    gtk_combo_box_set_active(GTK_COMBO_BOX(xkb->per_app_default_layout_menu), xkb->default_group);
+    g_signal_connect(xkb->per_app_default_layout_menu, "changed", G_CALLBACK(xkb_default_language_changed), xkb);
 
+    /* Connect signals. */
+    g_signal_connect(xkb->config_dlg, "response", G_CALLBACK(xkb_configuration_response), xkb);
 
-  gtk_widget_show_all(vbox);
-  
-  g_signal_connect_swapped( (gpointer)dlg->dialog, "response",
-                            G_CALLBACK (free_xkb_options_dlg), NULL);
-  
-  return dlg;
-}
-
-void
-free_xkb_options_dlg(GtkDialog *dialog, gint arg1, gpointer user_data)
-{
-  DBG("destroy options dialog\n");
-  gtk_widget_hide(dlg->dialog);
-  gtk_widget_destroy(dlg->dialog);
-
-  panel_config_save(dlg->xkb->plugin->panel);
-  set_new_locale(dlg->xkb);
-  
-  g_free(dlg);
-  dlg = NULL;
-}
-
-static void
-xkb_options_dlg_set_xkb(t_xkb_options_dlg *dlg, t_xkb *xkb)
-{
-  dlg->xkb = xkb;
-
-  gtk_combo_box_set_active(GTK_COMBO_BOX(dlg->display_type_optmenu), xkb->display_type);
-
-  gtk_combo_box_set_active((GtkComboBox*)dlg->per_app_default_layout_menu, xkb->default_group);
-
-  gtk_toggle_button_set_active((GtkToggleButton*)dlg->per_app_checkbutton, xkb->enable_perapp);
-
-  g_signal_connect(dlg->display_type_optmenu, "changed", G_CALLBACK(xkb_display_type_changed), xkb);
-  g_signal_connect(dlg->per_app_checkbutton, "toggled", G_CALLBACK(xkb_enable_perapp_changed), dlg);
-  g_signal_connect(dlg->per_app_default_layout_menu, "changed", G_CALLBACK(xkb_def_lang_changed), xkb);
+    /* Display the dialog. */
+    gtk_widget_set_size_request(GTK_WIDGET(xkb->config_dlg), 400, -1);	/* Improve geometry */
+    gtk_widget_show_all(xkb->config_dlg);
+    gtk_window_present(GTK_WINDOW(xkb->config_dlg));
 }
 
 /* Callback when the configuration is to be saved. */
 static void xkb_save_configuration(Plugin * p, FILE * fp)
 {
-    t_xkb * xkb = (t_xkb *) p->priv;
+    XkbPlugin * xkb = (XkbPlugin *) p->priv;
     lxpanel_put_int(fp, "DisplayType", xkb->display_type);
     lxpanel_put_int(fp, "PerAppLayout", xkb->enable_perapp);
     lxpanel_put_int(fp, "DefaultGroup", xkb->default_group);
@@ -450,11 +380,11 @@ static void xkb_save_configuration(Plugin * p, FILE * fp)
 static void xkb_panel_configuration_changed(Plugin * p)
 {
     /* Do a full redraw. */
-    t_xkb * xkb = (t_xkb *) p->priv;
-    xkb->size = p->panel->icon_size;
-    set_new_locale(xkb);
+    XkbPlugin * xkb = (XkbPlugin *) p->priv;
+    xkb_redraw(xkb);
 }
 
+/* Plugin descriptor. */
 PluginClass xkb_plugin_class = {
 
     PLUGINCLASS_VERSIONING,
@@ -464,12 +394,10 @@ PluginClass xkb_plugin_class = {
     version: "1.0",
     description : N_("Switch between available keyboard layouts"),
 
-    /* Due to static variable usage; when context migrated to t_xkb, can be removed. */
-    one_per_system : TRUE,
-
     constructor : xkb_constructor,
     destructor  : xkb_destructor,
     config : xkb_configure,
     save : xkb_save_configuration,
     panel_configuration_changed : xkb_panel_configuration_changed
+
 };

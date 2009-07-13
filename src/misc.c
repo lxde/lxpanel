@@ -438,6 +438,7 @@ void resolve_atoms()
     a_NET_WM_WINDOW_TYPE_DIALOG = atoms[ I_NET_WM_WINDOW_TYPE_DIALOG ];
     a_NET_WM_WINDOW_TYPE_NORMAL = atoms[ I_NET_WM_WINDOW_TYPE_NORMAL ];
     a_NET_WM_DESKTOP = atoms[ I_NET_WM_DESKTOP ];
+    a_NET_WM_PID = atoms[ I_NET_WM_PID ];
     a_NET_WM_NAME = atoms[ I_NET_WM_NAME ];
     a_NET_WM_VISIBLE_NAME = atoms[ I_NET_WM_VISIBLE_NAME ];
     a_NET_WM_STRUT = atoms[ I_NET_WM_STRUT ];

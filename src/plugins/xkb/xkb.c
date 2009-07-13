@@ -26,491 +26,328 @@
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <glib.h>
 
-static Display *dsp;
+static void xkb_enter_locale_by_process(XkbPlugin * xkb);
+static void refresh_group_xkb(XkbPlugin * xkb);
+static int do_init_xkb(XkbPlugin * xkb);
 
-static int group_title_source;
-static int group_code_count;
-static Bool flexy_groups;
-static char **group_codes;
-static char **custom_names;
-
-static int base_event_code;
-static int base_error_code;
-
-static int device_id;
-
-static int current_group_xkb_no, current_group_res_no;
-static int group_count;
-
-static char *group_names[XkbNumKbdGroups];
-static char *symbol_names[XkbNumKbdGroups];
-
-static GHashTable* pGroupHash = NULL;
-
-gint 
-get_group_count() 
-{ 
-  return group_count;
-}
-
-static int 
-group_lookup(int source_value, char *from_texts[], char *to_texts[], int count) 
+/* Insert a process and its layout into the hash table. */
+static void xkb_enter_locale_by_process(XkbPlugin * xkb)
 {
-  if (flexy_groups) {
-    const char *source_text = from_texts[source_value];
-
-    if (source_text != NULL) {
-      const char *target_text;
-      int i;
-
-      for (i=0; i<count; i++) {
-        target_text = to_texts[i];
-        if (strcasecmp(source_text, target_text) == 0) {
-          source_value = i;
-          break;
-        }
-      }
-    }
-  }
-
-  return source_value;
-
-}
-
-static int 
-group_xkb_to_res(int group_xkb_no)
-{
-  return group_lookup(group_xkb_no, symbol_names, group_codes, group_code_count);
-}
-
-static int 
-group_no_res_to_xkb(int group_res_no) 
-{
-  return group_lookup(group_res_no, group_codes, symbol_names, group_count);
-}
-
-static const char * 
-get_group_name_by_res_no(int group_res_no) 
-{
-  return group_names[group_no_res_to_xkb(group_res_no)];
-}
-
-const char * 
-get_symbol_name_by_res_no(int group_res_no) 
-{
-  return symbol_names[group_no_res_to_xkb(group_res_no)];
-}
-
-static char *
-get_current_group_name(void) 
-{
-  const char *tmp = get_symbol_name_by_res_no(current_group_xkb_no);
-  return g_utf8_strdown (tmp, -1);
-}
-
-static void 
-accomodate_group_xkb(void) 
-{
-  XkbStateRec xkb_state;
-  XkbGetState(dsp, device_id, &xkb_state);
-  current_group_xkb_no = xkb_state.group;
-
-  current_group_res_no = group_xkb_to_res(current_group_xkb_no);
-}
-
-int 
-do_init_xkb() 
-{
-  const Atom *group_source;
-  Bool status;
-  int major, minor, oppcode;
-  int i;
-  XkbStateRec xkb_state;
-  XkbDescRec *kbd_desc_ptr = NULL;
-  const Atom *tmp_group_source;
-  Atom cur_group_atom;
-  Atom sym_name_atom;
-  char *ptr;
-  char *sym_name;
-  char *ptr1;
-  int  count;
-
-  /* create hash asap, so it'll be ready when events arrive */
-  pGroupHash = g_hash_table_new(g_direct_hash, NULL);
-
-
-  /* Initialize the Xkb extension */
-  status = XkbQueryExtension(dsp, &oppcode,
-      &base_event_code, &base_error_code, &major, &minor);
-
-  device_id = XkbUseCoreKbd;
-
-  kbd_desc_ptr = XkbAllocKeyboard();
-  if (kbd_desc_ptr == NULL) {
-    ERR("Failed to get keyboard description\n");
-    goto HastaLaVista;
-  }
-
-  kbd_desc_ptr->dpy = dsp;
-  if (device_id != XkbUseCoreKbd) kbd_desc_ptr->device_spec = device_id;
-
-  XkbGetControls(dsp, XkbAllControlsMask, kbd_desc_ptr);
-  XkbGetNames(dsp, XkbSymbolsNameMask, kbd_desc_ptr);
-  XkbGetNames(dsp, XkbGroupNamesMask, kbd_desc_ptr);
-
-  if (kbd_desc_ptr->names == NULL) {
-    ERR("Failed to get keyboard description\n");
-    goto HastaLaVista;
-  }
-
-  group_source = kbd_desc_ptr->names->groups;
-
-  /* And more bug patches ! */
-  if (kbd_desc_ptr->ctrls != NULL) {
-    group_count = kbd_desc_ptr->ctrls->num_groups;
-  } else {
-    for (group_count=0;
-        group_count<XkbNumKbdGroups && group_source[group_count] != None;
-        group_count++);
-  }
-
-  if (group_count == 0) group_count=1;
-
-  for (i = 0; i < group_count; i++) {
-    group_names[i] = NULL;
-    symbol_names[i] = NULL;
-  }
-
-  tmp_group_source = kbd_desc_ptr->names->groups;
-
-  for (i = 0; i < group_count; i++) {
-    if ((cur_group_atom = tmp_group_source[i]) != None) {
-      group_names[i] = ptr = XGetAtomName(dsp, cur_group_atom);
-      if (ptr != NULL && (ptr=strchr(ptr, '(')) != NULL)
-        *ptr = '\0';
-    }
-  }
-  sym_name_atom = kbd_desc_ptr->names->symbols;
-  if (sym_name_atom == None ||
-      (sym_name = XGetAtomName(dsp, sym_name_atom)) == NULL) return 0;
-
-  count = 0;
-
-  for(ptr = strtok(sym_name, "+"); ptr != NULL; ptr = strtok(NULL, "+")) {
-    ptr1 = strchr(ptr, '(');
-    if (ptr1 != NULL) *ptr1 = '\0';
-    ptr1 = strchr(ptr, '_');
-    if (ptr1 != NULL && !g_ascii_isupper((int) *(ptr1+1))) *ptr1 = '\0';
-    ptr1 = strchr(ptr, ':');
-    if (ptr1 != NULL) *ptr1 = '\0';
-
-    ptr1 = strrchr(ptr, '/');
-    if (ptr1 != NULL) {
-      /* Filter out cases like pc/pc */
-      if (memcmp(ptr, ptr1+1, ptr1-ptr) == 0) continue;
-
-      ptr = ptr1+1;
-    }
-
-    if (strncmp(ptr, "group", 5) == 0) continue;
-        if (strncmp(ptr, "inet", 4) == 0) continue;
-        /* Filter cases like pc(pc105) (Xorg 7.0 update) */
-        if (strncmp(ptr, "pc", 2) == 0) continue;
-        
-    symbol_names[count++] = g_utf8_strup(ptr, -1);
-  }
-
-  if (count == 1 && group_names[0] == NULL &&
-      strcmp(symbol_names[0], "jp") == 0) {
-    group_count = 2;
-    symbol_names[1] = symbol_names[0];
-    symbol_names[0] = strdup("us");
-    group_names[0] = strdup("US/ASCII");
-    group_names[1] = strdup("Japanese");
-  } else {
-    if (count<group_count) {
-      int j=count, k=group_count;
-      while(--j>=0) symbol_names[--k] = symbol_names[j];
-      while(--k>=0) symbol_names[k] = strdup("en_US");
-    }
-  }
-
-  count = (group_title_source == 2) ? group_code_count : group_count;
-
-  for (i = 0; i < count; i++) {
-    if (flexy_groups && group_codes[i] == NULL) {
-      ERR("\nCode is not specified for Group %i !\n", i+1);
-      ERR("Flexy mode is ignored\n");
-      flexy_groups = False;
-    }
-
-    switch(group_title_source) {
-      case 1: /* Group name */
-        if (group_names[i] == NULL) {
-          const char *name = get_symbol_name_by_res_no(i);
-          if (name == NULL) name = "U/A";
-          ERR("\nGroup Name %i is undefined, set to '%s' !\n", i+1, name);
-          group_names[i] = strdup(name);
-        }
-        break;
-
-      case 2: /* Gustom name */
-        if (custom_names[i] == NULL) {
-          const char *name = get_symbol_name_by_res_no(i);
-          if (name == NULL) name = get_group_name_by_res_no(i);
-          if (name == NULL) name = "U/A";
-          ERR("\nCustom Name %i is undefined, set to '%s' !\n", i+1, name);
-          custom_names[i] = strdup(name);
-        }
-        break;
-
-      default: /* Symbolic name (0), No title source but can be used for images (3) */
-        if (symbol_names[i] == NULL) {
-          ERR("\nGroup Symbol %i is undefined, set to 'U/A' !\n", i+1);
-          symbol_names[i] = strdup("U/A");
-        }
-        break;
-    }
-  }
-
-  XkbGetState(dsp, device_id, &xkb_state);
-  current_group_xkb_no = xkb_state.group;
-
-  status = True;
-
-HastaLaVista:
-  if (kbd_desc_ptr) XkbFreeKeyboard(kbd_desc_ptr, 0, True);
-  return status;
-}
-
-
-gboolean 
-is_current_group_flag_available(void) 
-{
-  char *filename;
-  gboolean result = FALSE;
-  GdkPixbuf *tmp = NULL;
-  char *group_name = get_current_group_name();
-  filename = g_strdup_printf("%s/%s.png", FLAGSDIR, group_name);
-  DBG ("Try to load image: %s", filename);
-  tmp = gdk_pixbuf_new_from_file(filename, NULL);
-  g_free(filename);
-  g_free (group_name);
-  result = (gboolean) (tmp != NULL);
-  if (tmp)
-    g_object_unref(G_OBJECT (tmp));
-  return result;
-}
-
-void 
-set_new_locale(t_xkb *ctrl) 
-{
-    t_xkb *plugin = (t_xkb *) ctrl;
-
-    /* Set the image. */
-    gboolean valid_image = FALSE;
-    if (plugin->display_type == IMAGE)
-    {
-        int size = plugin->size;
-        char * group_name = get_current_group_name();
-        char * filename = g_strdup_printf("%s/%s.png", FLAGSDIR, group_name);
-        GdkPixbuf * unscaled_pixbuf = gdk_pixbuf_new_from_file(filename, NULL);
-        g_free(filename);
-        g_free(group_name);
-
-        if (unscaled_pixbuf != NULL)
-        {
-            /* Loaded successfully. */
-            int width = gdk_pixbuf_get_width(unscaled_pixbuf);
-            int height = gdk_pixbuf_get_height(unscaled_pixbuf);
-            GdkPixbuf * pixbuf = gdk_pixbuf_scale_simple(unscaled_pixbuf, size * width / height, size, GDK_INTERP_BILINEAR);
-            if (pixbuf != NULL)
-            {
-                gtk_image_set_from_pixbuf(GTK_IMAGE(plugin->image), pixbuf);
-                g_object_unref(G_OBJECT(pixbuf));
-                gtk_widget_hide(plugin->label);
-                gtk_widget_show(plugin->image);
-                valid_image = TRUE;
-            }
-            g_object_unref(unscaled_pixbuf);
-        }
-    }
-
-    /* Set the label. */
-    if ((plugin->display_type == TEXT) || ( ! valid_image))
-    {
-        panel_draw_label_text(plugin->plugin->panel, plugin->label, (char *) get_symbol_name_by_res_no (current_group_xkb_no), TRUE);
-        gtk_widget_hide(plugin->image);
-        gtk_widget_show(plugin->label);
-    }
-
-    /* "locale per process" */
-    /* TBF:: bad here, it's not really a "window" related file */
-    if (pGroupHash && fb_ev_active_window( fbev ) != None )
+    if ((xkb->group_hash_table != NULL) && (fb_ev_active_window(fbev) != None))
     {
         Window * win = fb_ev_active_window(fbev);
         if (*win != None)
         {
-            GPid pid = get_net_wm_pid( *fb_ev_active_window( fbev ) );
-            DBG("Storing locale %s for %d\n", get_symbol_name_by_res_no(current_group_xkb_no), pid);
-            g_hash_table_insert(pGroupHash, GINT_TO_POINTER(pid), GINT_TO_POINTER(current_group_xkb_no));
+            GPid pid = get_net_wm_pid(*fb_ev_active_window(fbev));
+            g_hash_table_insert(xkb->group_hash_table, GINT_TO_POINTER(pid), GINT_TO_POINTER(xkb->current_group_xkb_no));
         }
     }
 }
 
-static void 
-handle_xevent(t_xkb *ctrl)
+/* Return the current group Xkb ID. */
+int xkb_get_current_group_xkb_no(XkbPlugin * xkb)
 {
-  XkbEvent evnt;
-  int new_group_no;
+    return xkb->current_group_xkb_no;
+}
 
-  XNextEvent(dsp, &evnt.core);
-  if (evnt.type == base_event_code) {
+/* Return the count of members in the current group. */
+int xkb_get_group_count(XkbPlugin * xkb) 
+{ 
+  return xkb->group_count;
+}
 
-    if (evnt.any.xkb_type == XkbStateNotify &&
-        (new_group_no = evnt.state.group) != current_group_xkb_no) {
-      current_group_xkb_no = new_group_no;
-      accomodate_group_xkb();
-      set_new_locale(ctrl);
+/* Convert a group number to a symbol name. */
+const char * xkb_get_symbol_name_by_res_no(XkbPlugin * xkb, int n) 
+{
+    return xkb->symbol_names[n];
+}
+
+/* Get the current group name. */
+const char * xkb_get_current_group_name(XkbPlugin * xkb) 
+{
+    return xkb_get_symbol_name_by_res_no(xkb, xkb->current_group_xkb_no);
+}
+
+/* Get the current group name converted to lowercase. */
+const char * xkb_get_current_group_name_lowercase(XkbPlugin * xkb) 
+{
+    const char * tmp = xkb_get_current_group_name(xkb);
+    return g_utf8_strdown(tmp, -1);
+}
+
+/* Refresh current group number from Xkb state. */
+static void refresh_group_xkb(XkbPlugin * xkb) 
+{
+    XkbStateRec xkb_state;
+    XkbGetState(xkb->dsp, xkb->device_id, &xkb_state);
+    xkb->current_group_xkb_no = xkb_state.group;
+}
+
+/* Initialize the Xkb structures. */
+static int do_init_xkb(XkbPlugin * xkb) 
+{
+    /* Create hash table. */
+    xkb->group_hash_table = g_hash_table_new(g_direct_hash, NULL);
+
+    /* Initialize the Xkb extension. */
+    int major, minor, opcode;
+    Bool status = XkbQueryExtension(xkb->dsp, &opcode,
+        &xkb->base_event_code, &xkb->base_error_code, &major, &minor);
+
+    /* Use the core keyboard. */
+    xkb->device_id = XkbUseCoreKbd;
+
+    /* Allocate a keyboard description structure. */
+    XkbDescRec * kbd_desc_ptr = XkbAllocKeyboard();
+    if (kbd_desc_ptr == NULL)
+    {
+        ERR("Failed to get keyboard description\n");
+        goto HastaLaVista;
     }
-  }
-}
+    kbd_desc_ptr->dpy = xkb->dsp;
 
-const char * 
-initialize_xkb(t_xkb *ctrl) 
-{
-  XkbStateRec state;
-  int event_code, error_rtrn, major, minor, reason_rtrn;
-  char * display_name;
-  const char *group;
+    /* Fetch information into the keyboard description. */
+    XkbGetControls(xkb->dsp, XkbAllControlsMask, kbd_desc_ptr);
+    XkbGetNames(xkb->dsp, XkbSymbolsNameMask, kbd_desc_ptr);
+    XkbGetNames(xkb->dsp, XkbGroupNamesMask, kbd_desc_ptr);
 
-  major = XkbMajorVersion;
-  minor = XkbMinorVersion;
-
-  display_name = "";
-  XkbIgnoreExtension(False);
-  dsp = XkbOpenDisplay(display_name, &event_code, &error_rtrn, &major, &minor, &reason_rtrn);
-
-  switch (reason_rtrn) {
-    case XkbOD_BadLibraryVersion:
-      ERR("Bad XKB library version.\n");
-      return NULL;
-    case XkbOD_ConnectionRefused:
-      ERR("Connection to X server refused.\n");
-      return NULL;
-    case XkbOD_BadServerVersion:
-      ERR("Bad X server version.\n");
-      return NULL;
-    case XkbOD_NonXkbServer:
-      ERR("XKB not present.\n");
-      return NULL;
-    case XkbOD_Success:
-      break;
-  }
-
-  if (do_init_xkb() != True) return "N/A";
-
-  group = get_symbol_name_by_res_no(current_group_xkb_no);
-
-  XkbSelectEventDetails(dsp, XkbUseCoreKbd, XkbStateNotify,
-      XkbAllStateComponentsMask, XkbGroupStateMask);
-
-  XkbGetState(dsp, device_id, &state);
-  current_group_xkb_no = (current_group_xkb_no != state.group) ? state.group : current_group_xkb_no;
-  accomodate_group_xkb();
-
-  if (ctrl != NULL) set_new_locale(ctrl);
-
-  return group;
-}
-
-static void 
-deinit_group_names() 
-{
-  int i;
-  for (i=0; i< group_count; i++) {
-    if (group_names[i] != NULL) {
-      free(group_names[i]);
-      group_names[i] = NULL;
+    if (kbd_desc_ptr->names == NULL)
+    {
+        ERR("Failed to get keyboard description\n");
+        goto HastaLaVista;
     }
-    if (symbol_names[i] != NULL) {
-      free(symbol_names[i]);
-      symbol_names[i] = NULL;
+
+    /* Determine the group count either from the "ctrls" structure
+     * or by enumerating the "groups" structure.  Normally the
+     * "ctrls" structure is valid. */
+    const Atom * group_source = kbd_desc_ptr->names->groups;
+    if (kbd_desc_ptr->ctrls != NULL)
+        xkb->group_count = kbd_desc_ptr->ctrls->num_groups;
+    else
+    {
+        for (
+          xkb->group_count = 0;
+          ((xkb->group_count < XkbNumKbdGroups) && (group_source[xkb->group_count] != None));
+          xkb->group_count++) ;
     }
-  }
+    if (xkb->group_count == 0)
+        xkb->group_count = 1;
+    if (xkb->group_count > XkbNumKbdGroups)
+        xkb->group_count = XkbNumKbdGroups;
+
+    /* Determine the group names.  Trim off text beginning at a '('. */
+    const Atom * tmp_group_source = kbd_desc_ptr->names->groups;
+    int i;
+    for (i = 0; i < xkb->group_count; i++)
+    {
+        if (tmp_group_source[i] != None)
+        {
+            char * ptr = XGetAtomName(xkb->dsp, tmp_group_source[i]);
+            xkb->group_names[i] = ptr;
+            if ((ptr != NULL) && ((ptr = strchr(ptr, '('))) != NULL)
+                *ptr = '\0';
+        }
+    }
+
+    /* Fetch the symbol names. */
+    Atom sym_name_atom = kbd_desc_ptr->names->symbols;
+    char * sym_name;
+    if ((sym_name_atom == None)
+    || ((sym_name = XGetAtomName(xkb->dsp, sym_name_atom)) == NULL))
+        goto HastaLaVista;
+
+    /* Parse and store symbol names. */
+    int count = 0;
+    char * ptr;
+    for (ptr = strtok(sym_name, "+"); ptr != NULL; ptr = strtok(NULL, "+"))
+    {
+        char * ptr1 = strchr(ptr, '(');
+        if (ptr1 != NULL) *ptr1 = '\0';
+        ptr1 = strchr(ptr, '_');
+        if ((ptr1 != NULL) && ( ! g_ascii_isupper(ptr1[1]))) *ptr1 = '\0';
+        ptr1 = strchr(ptr, ':');
+        if (ptr1 != NULL) *ptr1 = '\0';
+
+        ptr1 = strrchr(ptr, '/');
+        if (ptr1 != NULL)
+        {
+            /* Filter out cases like pc/pc */
+            if (memcmp(ptr, ptr1 + 1, ptr1 - ptr) == 0) continue;
+            ptr = ptr1 + 1;
+        }
+
+        if (strncmp(ptr, "group", 5) == 0) continue;
+        if (strncmp(ptr, "inet", 4) == 0) continue;
+        /* Filter cases like pc(pc105) (Xorg 7.0 update) */
+        if (strncmp(ptr, "pc", 2) == 0) continue;
+        
+        xkb->symbol_names[count] = g_utf8_strup(ptr, -1);
+        count += 1;
+    }
+
+    /* Special cases. */
+    if ((count == 1) && (xkb->group_names[0] == NULL) && (strcmp(xkb->symbol_names[0], "jp") == 0))
+    {
+        xkb->group_count = 2;
+        xkb->symbol_names[1] = xkb->symbol_names[0];
+        xkb->symbol_names[0] = strdup("us");
+        xkb->group_names[0] = strdup("US/ASCII");
+        xkb->group_names[1] = strdup("Japanese");
+    }
+    else if (count < xkb->group_count)
+    {
+        /* Ensure that the names are fully initialized. */
+        int j = count, k = xkb->group_count;
+        while(--j >= 0) xkb->symbol_names[--k] = xkb->symbol_names[j];
+        while(--k >= 0) xkb->symbol_names[k] = strdup("en_US");
+    }
+
+    /* Enxure that the names are fully initialized. */
+    for (i = 0; i < xkb->group_count; i++)
+    {
+        if (xkb->symbol_names[i] == NULL)
+        {
+            ERR("\nGroup Symbol %i is undefined, set to 'U/A' !\n", i+1);
+            xkb->symbol_names[i] = strdup("U/A");
+        }
+    }
+
+    status = True;
+
+HastaLaVista:
+    if (kbd_desc_ptr != NULL)
+        XkbFreeKeyboard(kbd_desc_ptr, 0, True);
+    return status;
 }
 
-void 
-deinitialize_xkb() 
+/* Initialize the Xkb interface. */
+void xkb_mechanism_constructor(XkbPlugin * xkb)
 {
-  deinit_group_names();
-  XCloseDisplay(dsp);
-  dsp = NULL;
+    /* Enable the Xkb extension on all clients. */
+    XkbIgnoreExtension(False);
 
-  g_hash_table_destroy(pGroupHash);
-  pGroupHash = NULL;
+    /* Open the display. */
+    int major = XkbMajorVersion;
+    int minor = XkbMinorVersion;
+    char * display_name = "";
+    int event_code;
+    int error_rtrn;
+    int reason_rtrn;
+    xkb->dsp = XkbOpenDisplay(display_name, &event_code, &error_rtrn, &major, &minor, &reason_rtrn);
+
+    switch (reason_rtrn)
+    {
+        case XkbOD_BadLibraryVersion:
+            ERR("Bad XKB library version.\n");
+            return;
+        case XkbOD_ConnectionRefused:
+            ERR("Connection to X server refused.\n");
+            return;
+        case XkbOD_BadServerVersion:
+            ERR("Bad X server version.\n");
+            return;
+        case XkbOD_NonXkbServer:
+            ERR("XKB not present.\n");
+            return;
+        case XkbOD_Success:
+            break;
+    }
+
+    /* Initialize our mechanism. */
+    if (do_init_xkb(xkb) != True)
+        return;
+
+    /* Specify events we will receive. */
+    XkbSelectEventDetails(xkb->dsp, xkb->device_id, XkbStateNotify, XkbAllStateComponentsMask, XkbGroupStateMask);
+
+    /* Get current state. */
+    refresh_group_xkb(xkb);
 }
 
-int 
-get_connection_number()
+/* Deallocate resources associated with Xkb interface. */
+void xkb_mechanism_destructor(XkbPlugin * xkb) 
 {
-  return ConnectionNumber(dsp);
+    /* Free group and symbol name memory. */
+    int i;
+    for (i = 0; i < xkb->group_count; i++)
+    {
+        if (xkb->group_names[i] != NULL)
+        {
+            free(xkb->group_names[i]);
+            xkb->group_names[i] = NULL;
+        }
+        if (xkb->symbol_names[i] != NULL)
+        {
+            free(xkb->symbol_names[i]);
+            xkb->symbol_names[i] = NULL;
+        }
+    }
+
+    /* Close the display. */
+    XCloseDisplay(xkb->dsp);
+    xkb->dsp = NULL;
+
+    /* Destroy the hash table. */
+    g_hash_table_destroy(xkb->group_hash_table);
+    xkb->group_hash_table = NULL;
 }
 
-/* Sets the kb layout to the next layout */
-int 
-do_change_group(int increment, t_xkb *ctrl) 
+/* Return the connection number for the display. */
+int xkb_get_connection_number(XkbPlugin * xkb)
 {
-  if (group_count <= 1) return 0;
-  XkbLockGroup(dsp, device_id,
-      (current_group_xkb_no + group_count + increment) % group_count); 
-      /* why not simply (current_group_xkb_no + increment) % group_count ? */
-  handle_xevent(ctrl);
-  return 1;
+    return ConnectionNumber(xkb->dsp);
 }
 
-int 
-do_set_group(int group, t_xkb *ctrl) 
+/* Set the layout to the next layout. */
+int xkb_change_group(XkbPlugin * xkb, int increment) 
 {
-  if (group >= group_count)
-    return 0;
-  
-  XkbLockGroup(dsp, device_id, group);
-  accomodate_group_xkb();
-  set_new_locale(ctrl);
+    /* Apply the increment and wrap the result. */
+    int next_group = xkb->current_group_xkb_no + increment;
+    if (next_group < 0) next_group = xkb->group_count - 1;
+    if (next_group >= xkb->group_count) next_group = 0;
 
-  return 1;
+    /* Execute the change. */
+    XkbLockGroup(xkb->dsp, xkb->device_id, next_group);
+    refresh_group_xkb(xkb);
+    xkb_redraw(xkb);
+    xkb_enter_locale_by_process(xkb);
+    return 1;
 }
 
-gboolean 
-gio_callback(GIOChannel *source, GIOCondition condition, gpointer data) 
+/* Callback when activity detected on the Xkb channel. */
+gboolean xkb_gio_callback(GIOChannel * source, GIOCondition condition, gpointer data) 
 {
-  handle_xevent((t_xkb *) data);
-  return TRUE;
+    XkbPlugin * xkb = (XkbPlugin *) data;
+
+    XkbEvent evnt;
+    XNextEvent(xkb->dsp, &evnt.core);
+    if ((evnt.type == xkb->base_event_code)
+    && (evnt.any.xkb_type == XkbStateNotify)
+    && (evnt.state.group != xkb->current_group_xkb_no))
+    {
+        /* Switch to the new group and redraw the display. */
+        xkb->current_group_xkb_no = evnt.state.group;
+        refresh_group_xkb(xkb);
+        xkb_redraw(xkb);
+        xkb_enter_locale_by_process(xkb);
+    }
+    return TRUE;
 }
 
-void 
-react_active_window_changed(gint pid, t_xkb *ctrl)
+/* React to change of focus by switching to the application's layout or the default layout. */
+void xkb_active_window_changed(XkbPlugin * xkb, gint pid)
 {
-  if (ctrl->enable_perapp)
-  {
-    gpointer pKey=0, pVal=0;
-    gint new_group_xkb_no = ctrl->default_group;
+    gint new_group_xkb_no = xkb->default_group;
 
-    if (pGroupHash && g_hash_table_lookup_extended(pGroupHash, GINT_TO_POINTER(pid), &pKey, &pVal))
-      new_group_xkb_no = GPOINTER_TO_INT(pVal);
+    gpointer pKey = 0, pVal = 0;
+    if ((xkb->group_hash_table != NULL) && (g_hash_table_lookup_extended(xkb->group_hash_table, GINT_TO_POINTER(pid), &pKey, &pVal)))
+        new_group_xkb_no = GPOINTER_TO_INT(pVal);
 
-    do_set_group(new_group_xkb_no, ctrl);
-  }
+    if (new_group_xkb_no < xkb->group_count)
+    {
+        XkbLockGroup(xkb->dsp, xkb->device_id, new_group_xkb_no);
+        refresh_group_xkb(xkb);
+    }
 }
 
-/* TODO: destroy hashtable if perapp layout is disabled? */
-void 
-react_application_closed(gint pid)
-{
-	DBG( "pid = %d", pid );
-  if ( pid && pGroupHash) {
-    g_hash_table_remove(pGroupHash, GINT_TO_POINTER(pid));
-  }
-}
 

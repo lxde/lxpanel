@@ -18,79 +18,62 @@
 #define _XKB_PLUGIN_H_
 
 #include <X11/Xlib.h>
+#include <X11/XKBlib.h>
 #include <gtk/gtk.h>
 #include <glib.h>
 
 #include "plugin.h"
 #include "misc.h"
 #include "panel.h"
-#include "ev.h"	/* for fbev */
+#include "ev.h"
 
 #include "dbg.h"
 
-//#define ICONSIZETINY 24 
-//#define ICONSIZESMALL 30
-//#define ICONSIZEMEDIUM 45
-//#define ICONSIZELARGE 60
+typedef enum {
+    IMAGE = 0,
+    TEXT = 1
+} DisplayType;
 
-typedef enum 
-{
-  IMAGE = 0,
-  TEXT = 1
-} t_display_type;
+typedef struct {
 
-typedef struct 
-{
-  Plugin *plugin;
+    /* Plugin interface. */
+    Plugin * plugin;				/* Back pointer to Plugin */
+    GtkWidget * btn;				/* Top level button */
+    GtkWidget * label;				/* Label containing country name */
+    GtkWidget * image;				/* Image containing country flag */
+    DisplayType display_type;			/* Display layout as image or text */
+    gboolean enable_perapp;			/* Enable per application (window) layout) */
+    gint default_group;				/* Default group for "locale per process" */
+    guint source_id;				/* Source ID for channel listening to XKB events */
+    GtkWidget * config_dlg;			/* Configuration dialog */
+    GtkWidget * per_app_default_layout_menu;	/* Combo box of all available layouts */
 
-  /* options */
-  gint size;                    /* plugin size */
-  t_display_type display_type;  /* display layout as image ot text */
-  gboolean enable_perapp;       /* enable per application (window) layout) */
-  gint default_group;           /* default group for "locale per process" */
+    /* Mechanism. */
+    Display * dsp;				/* Handle to X display */
+    int base_event_code;			/* Result of initializing Xkb extension */
+    int base_error_code;
+    int device_id;				/* Keyboard device ID (always "core keyboard") */
+    int current_group_xkb_no;			/* Current layout */
+    int group_count;				/* Count of groups as returned by Xkb */
+    char * group_names[XkbNumKbdGroups];	/* Group names as returned by Xkb */
+    char * symbol_names[XkbNumKbdGroups];	/* Symbol names as returned by Xkb */
+    GHashTable * group_hash_table;		/* Hash table to correlate application with layout */
 
-  /* widgets */
-  GtkWidget *ebox;
-  GtkWidget *btn;
-  GtkWidget *label;
-  GtkWidget *image;
-  GtkWidget *hbox;
-  GtkWidget *def_lang_menu;
-} t_xkb;
+} XkbPlugin;
 
-typedef struct
-{
-  t_xkb *xkb;
+extern void xkb_redraw(XkbPlugin * xkb);
 
-  GtkWidget *dialog;
-
-  /* display type menu */
-  GtkWidget *display_type_optmenu;    
-  GtkWidget *display_type_menu_label_text;
-  GtkWidget *display_type_menu_label_image;
- 
-  /* layout per application options */
-  GtkWidget *per_app_frame;
-  GtkWidget *per_app_vbox;
-  GtkWidget *per_app_checkbutton;
-  GtkWidget *per_app_default_layout_menu;
-} t_xkb_options_dlg;
-
-void set_new_locale(t_xkb *ctrl);
-const char *initialize_xkb(t_xkb *ctrl);
-void deinitialize_xkb();
-void react_application_closed(gint pid);
-gint get_group_count();
-const char * get_symbol_name_by_res_no(int group_res_no);
-
-int do_change_group(int increment, t_xkb *ctrl);
-gboolean gio_callback(GIOChannel *source, GIOCondition condition, gpointer data);
-int get_connection_number();
-gboolean is_current_group_flag_available(void);
-/* "locale per process" functions */
-void react_active_window_changed(GPid pid, t_xkb *ctrl);
-void react_window_closed(gint pid);
-int do_set_group(gint group, t_xkb *ctrl);
+extern int xkb_get_current_group_xkb_no(XkbPlugin * xkb);
+extern int xkb_get_group_count(XkbPlugin * xkb);
+extern const char * xkb_get_symbol_name_by_res_no(XkbPlugin * xkb, int group_res_no);
+extern const char * xkb_current_group_name(XkbPlugin * xkb);
+extern const char * xkb_get_current_group_name_lowercase(XkbPlugin * xkb);
+extern void xkb_mechanism_constructor(XkbPlugin * xkb);
+extern void xkb_mechanism_destructor(XkbPlugin * xkb);
+extern int xkb_get_connection_number(XkbPlugin * xkb);
+extern int xkb_change_group(XkbPlugin * xkb, int increment);
+extern gboolean xkb_gio_callback(GIOChannel * source, GIOCondition condition, gpointer data);
+extern void xkb_active_window_changed(XkbPlugin * xkb, GPid pid);
 
 #endif
 
