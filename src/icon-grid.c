@@ -36,12 +36,12 @@ static gboolean icon_grid_placement(IconGrid * ig)
     /* Make sure the container is visible. */
     gtk_widget_show(ig->container);
 
-    /* In a GtkLayout, drawing is done into the bin window.  Erase it. */
-    GdkWindow * bin_window = gtk_layout_get_bin_window(GTK_LAYOUT(ig->widget));
-    if (bin_window != NULL)
+    /* Erase the window. */
+    GdkWindow * window = ig->widget->window;
+    if (window != NULL)
     {
-        panel_determine_background_pixmap(ig->panel, ig->widget, bin_window);
-	gdk_window_clear(bin_window);
+        panel_determine_background_pixmap(ig->panel, ig->widget, window);
+	gdk_window_clear(window);
     }
 
     /* Get and save the desired container geometry. */
@@ -93,7 +93,7 @@ static gboolean icon_grid_placement(IconGrid * ig)
                 alloc.height = child_height;
                 gtk_widget_size_allocate(ige->widget, &alloc);
                 }
-            gtk_layout_move(GTK_LAYOUT(ig->widget), ige->widget, x, y);
+            gtk_fixed_move(GTK_FIXED(ig->widget), ige->widget, x, y);
             gtk_widget_queue_draw(ige->widget);
 
             /* Advance to the next grid position. */
@@ -119,8 +119,8 @@ static gboolean icon_grid_placement(IconGrid * ig)
     }
 
     /* Redraw the container. */
-    if (bin_window != NULL)
-	gdk_window_invalidate_rect(bin_window, NULL, TRUE);
+    if (window != NULL)
+        gdk_window_invalidate_rect(window, NULL, TRUE);
     gtk_widget_queue_draw(ig->container);
     return FALSE;
 }
@@ -235,7 +235,6 @@ static void icon_grid_demand_resize(IconGrid * ig)
     ig->children_changed = TRUE;
     GtkRequisition req;
     icon_grid_size_request(NULL, &req, ig);
-    gtk_layout_set_size(GTK_LAYOUT(ig->widget), req.width, req.height);
 
     if ((ig->rows != 0) || (ig->columns != 0))
         icon_grid_placement(ig);
@@ -260,7 +259,7 @@ IconGrid * icon_grid_new(
     ig->target_dimension = target_dimension;
 
     /* Create a layout container. */
-    ig->widget = gtk_layout_new(NULL, NULL);
+    ig->widget = gtk_fixed_new();
     GTK_WIDGET_SET_FLAGS(ig->widget, GTK_NO_WINDOW);
     gtk_container_add(GTK_CONTAINER(ig->container), ig->widget);
     gtk_widget_show(ig->widget);
@@ -293,7 +292,7 @@ void icon_grid_add(IconGrid * ig, GtkWidget * child, gboolean visible)
 
     /* Add the widget to the layout container. */
     gtk_widget_show(ige->widget);
-    gtk_layout_put(GTK_LAYOUT(ig->widget), ige->widget, 0, 0);
+    gtk_fixed_put(GTK_FIXED(ig->widget), ige->widget, 0, 0);
     g_signal_connect(G_OBJECT(child), "size-request", G_CALLBACK(icon_grid_element_size_request), (gpointer) ige);
 
     /* Do a relayout. */
@@ -358,14 +357,14 @@ extern void icon_grid_reorder_child(IconGrid * ig, GtkWidget * child, gint posit
         }
         else
             {
-            gint local_position = position - 1;
-            IconGridElement * ige_cursor;
+            int local_position = position;
+            IconGridElement * ige_pred;
             for (
-              ige_cursor = ig->child_list;
-              ((ige_cursor->flink != NULL) && (local_position > 0));
-              local_position -= 1, ige_cursor = ige_cursor->flink) ;
-            ige->flink = ige_cursor->flink;
-            ige_cursor->flink = ige;
+              ige_pred = ig->child_list;
+              ((ige_pred != NULL) && (local_position > 0));
+              local_position -= 1, ige_pred = ige_pred->flink) ;
+            ige->flink = ige_pred->flink;
+            ige_pred->flink = ige;
             }
 
         /* Do a relayout. */
@@ -411,23 +410,17 @@ void icon_grid_set_visible(IconGrid * ig, GtkWidget * child, gboolean visible)
 /* Deallocate the icon grid structures. */
 void icon_grid_free(IconGrid * ig)
 {
+    /* Hide the layout container. */
     if (ig->widget != NULL)
         gtk_widget_hide(ig->widget);
 
-    /* Remove all child elements. */
-    IconGridElement * ige;
-    for (ige = ig->child_list; ige != NULL; ige = ige->flink)
-        icon_grid_remove(ig, ige->widget);
-
-    /* Get the empty widget redrawn. */
-    icon_grid_demand_resize(ig);
-
     /* Free all memory. */
-    while (ig->child_list != NULL)
+    IconGridElement * ige = ig->child_list;
+    while (ige != NULL)
     {
-        IconGridElement * ige_succ = ig->child_list->flink;
-        g_free(ig->child_list);
-        ig->child_list = ige_succ;
+        IconGridElement * ige_succ = ige->flink;
+        g_free(ige);
+        ige = ige_succ;
     }
     g_free(ig);
 }

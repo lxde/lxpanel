@@ -333,23 +333,6 @@ void plugin_widget_set_background(GtkWidget * w, Panel * p)
             }
         }
 
-        /* Special handling for layout widget, used in icon grid.
-         * The widget has a "bin window", which is where the actual drawing is done. */
-        if (GTK_IS_LAYOUT(w))
-        {
-            GdkWindow * bin_window = gtk_layout_get_bin_window(GTK_LAYOUT(w));
-            if (bin_window != NULL)
-            {
-                if ((p->background) || (p->transparent))
-                    panel_determine_background_pixmap(p, w, bin_window);
-                else
-                    gtk_style_set_background(w->style, bin_window, GTK_STATE_NORMAL);
-                    
-	        gdk_window_clear(bin_window);
-                gdk_window_invalidate_rect(bin_window, NULL, TRUE);
-            }
-        }
-
         /* Special handling to get tray icons redrawn.  This is the only known working technique to date. */
         if (GTK_IS_SOCKET(w))
         {
