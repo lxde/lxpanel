@@ -683,7 +683,7 @@ static void pager_net_client_list_stacking(FbEv * ev, PagerPlugin * pg)
             }
             pg->tasks_in_stacking_order[i] = tk;
         }
-        Xfree(client_list);
+        XFree(client_list);
     }
 
     /* Remove windows from the task list that are not present in the NET_CLIENT_LIST_STACKING. */

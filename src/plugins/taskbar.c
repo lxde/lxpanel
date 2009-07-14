@@ -1377,7 +1377,7 @@ static void taskbar_net_client_list(GtkWidget * widget, TaskbarPlugin * tb)
                 }
             }
         }
-        Xfree(client_list);
+        XFree(client_list);
     }
 
     /* Remove windows from the task list that are not present in the NET_CLIENT_LIST. */
