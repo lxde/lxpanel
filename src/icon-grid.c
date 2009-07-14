@@ -56,10 +56,11 @@ static gboolean icon_grid_placement(IconGrid * ig)
 
     /* Get the constrained child geometry if the allocated geometry is insufficient.
      * All children are still the same size and share equally in the deficit. */
-    if ((ig->columns != 0) && (ig->rows != 0))
+    ig->constrained_child_width = ig->child_width;
+    if ((ig->columns != 0) && (ig->rows != 0) && (ig->container_width > 1))
     {
         if (container_width_needed > ig->container_width)
-            child_width = (ig->container_width - ((ig->columns - 1) * ig->spacing)) / ig->columns;
+            ig->constrained_child_width = child_width = (ig->container_width - ((ig->columns - 1) * ig->spacing)) / ig->columns;
         if (container_height_needed > ig->container_height)
             child_height = (ig->container_height - ((ig->rows - 1) * ig->spacing)) / ig->rows;
     }
@@ -192,6 +193,8 @@ static void icon_grid_element_size_request(GtkWidget * widget, GtkRequisition * 
     /* This is our opportunity to request space for the element. */
     IconGrid * ig = ige->ig;
     requisition->width = ig->child_width;
+    if ((ig->constrain_width) && (ig->actual_dimension) && (ig->constrained_child_width > 1))
+        requisition->width = ig->constrained_child_width;
     requisition->height = ig->child_height;
 }
 
@@ -253,6 +256,7 @@ IconGrid * icon_grid_new(
     ig->container = container;
     ig->orientation = orientation;
     ig->child_width = child_width;
+    ig->constrained_child_width = child_width;
     ig->child_height = child_height;
     ig->spacing = spacing;
     ig->border = border;
@@ -297,6 +301,11 @@ void icon_grid_add(IconGrid * ig, GtkWidget * child, gboolean visible)
 
     /* Do a relayout. */
     icon_grid_demand_resize(ig);
+}
+
+extern void icon_grid_set_constrain_width(IconGrid * ig, gboolean constrain_width)
+{
+    ig->constrain_width = constrain_width;
 }
 
 /* Remove an icon grid element. */
@@ -379,6 +388,7 @@ void icon_grid_set_geometry(IconGrid * ig,
 {
     ig->orientation = orientation;
     ig->child_width = child_width;
+    ig->constrained_child_width = child_width;
     ig->child_height = child_height;
     ig->spacing = spacing;
     ig->border = border;
