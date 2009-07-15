@@ -597,9 +597,8 @@ static void config(Plugin *p, GtkWindow* parent) {
 
 static void save(Plugin* p, FILE* fp) {
     lx_battery *lx_b = (lx_battery *) p->priv;
-    char l_char=(char)lx_b->hide_if_no_battery;
 
-    lxpanel_put_str(fp, "HideIfNoBattery",&l_char);
+    lxpanel_put_bool(fp, "HideIfNoBattery",lx_b->hide_if_no_battery);
     lxpanel_put_str(fp, "AlarmCommand", lx_b->alarmCommand);
     lxpanel_put_int(fp, "AlarmTime", lx_b->alarmTime);
     lxpanel_put_str(fp, "BackgroundColor", lx_b->backgroundColor);
