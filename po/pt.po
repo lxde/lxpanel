@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.4.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-09 09:19+0200\n"
-"PO-Revision-Date: 2009-06-25 16:09-0000\n"
+"PO-Revision-Date: 2009-07-15 15:50-0000\n"
 "Last-Translator: Sérgio Marques <smarquespt@gmail.com>\n"
 "Language-Team: Portuguese PT <alvarommorais@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr "% Por cento"
 
 #: ../data/ui/panel-pref.glade.h:3
 msgid "<b>Automatic hiding</b>"
-msgstr "<b>Ocultação Automática</b>"
+msgstr "<b>Ocultação automática</b>"
 
 #: ../data/ui/panel-pref.glade.h:4
 msgid "<b>Background</b>"
@@ -61,9 +61,10 @@ msgstr "Alinhamento:"
 
 #: ../data/ui/panel-pref.glade.h:12
 msgid "Appearance"
-msgstr ""
+msgstr "Aparência"
 
-#: ../data/ui/panel-pref.glade.h:13 ../src/panel.c:942
+#: ../data/ui/panel-pref.glade.h:13
+#: ../src/panel.c:942
 msgid "Bottom"
 msgstr "Inferior"
 
@@ -72,9 +73,8 @@ msgid "Center"
 msgstr "Centro"
 
 #: ../data/ui/panel-pref.glade.h:15
-#, fuzzy
 msgid "Custom color"
-msgstr "Cor Personalizada"
+msgstr "Cor personalizada"
 
 #: ../data/ui/panel-pref.glade.h:16
 msgid "Dynamic"
@@ -90,18 +90,20 @@ msgstr "Gestor de Ficheiros:"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "Geometry"
-msgstr ""
+msgstr "Geometria"
 
-#: ../data/ui/panel-pref.glade.h:20 ../src/panel.c:932 ../src/panel.c:940
+#: ../data/ui/panel-pref.glade.h:20
+#: ../src/panel.c:932
+#: ../src/panel.c:940
 msgid "Height:"
 msgstr "Altura:"
 
 #: ../data/ui/panel-pref.glade.h:21
-#, fuzzy
 msgid "Image"
-msgstr "imagem"
+msgstr "Imagem"
 
-#: ../data/ui/panel-pref.glade.h:22 ../src/panel.c:934
+#: ../data/ui/panel-pref.glade.h:22
+#: ../src/panel.c:934
 msgid "Left"
 msgstr "Esquerda"
 
@@ -141,7 +143,8 @@ msgstr "Pixeis"
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Reservar espaço e não cobrir por janelas maximizadas"
 
-#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:935
+#: ../data/ui/panel-pref.glade.h:32
+#: ../src/panel.c:935
 msgid "Right"
 msgstr "Direita"
 
@@ -155,12 +158,11 @@ msgstr "Tamanho ao minimizar"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Solid color (with opacity)"
-msgstr ""
+msgstr "Cor sólida (sem opacidade)"
 
 #: ../data/ui/panel-pref.glade.h:36
-#, fuzzy
 msgid "System theme"
-msgstr "Nenhum (Usar tema do sistema)"
+msgstr "Tema do sistema"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "Terminal Emulator:"
@@ -170,7 +172,9 @@ msgstr "Emulador de Terminal:"
 msgid "Top\t"
 msgstr "Superior\t"
 
-#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:933 ../src/panel.c:939
+#: ../data/ui/panel-pref.glade.h:39
+#: ../src/panel.c:933
+#: ../src/panel.c:939
 msgid "Width:"
 msgstr "Largura:"
 
@@ -178,7 +182,8 @@ msgstr "Largura:"
 msgid "pixels"
 msgstr "pixeis"
 
-#: ../src/configurator.c:54 ../src/gtk-run.c:250
+#: ../src/configurator.c:54
+#: ../src/gtk-run.c:250
 msgid "Run"
 msgstr "Executar"
 
@@ -214,7 +219,8 @@ msgstr "Comando para terminar sessão não está definido"
 msgid "Select a directory"
 msgstr "Seleccione um directório"
 
-#: ../src/configurator.c:1187 ../src/configurator.c:1278
+#: ../src/configurator.c:1187
+#: ../src/configurator.c:1278
 msgid "Select a file"
 msgstr "Seleccione um ficheiro"
 
@@ -288,9 +294,8 @@ msgid "\"%s\" Settings"
 msgstr "Definições de \"%s\" "
 
 #: ../src/panel.c:941
-#, fuzzy
 msgid "Top"
-msgstr "Superior\t"
+msgstr "Superior"
 
 #: ../src/panel.c:1332
 #, c-format
@@ -315,8 +320,7 @@ msgstr " --version   -- imprime a versão e sai\n"
 #: ../src/panel.c:1336
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <número> -- define o nível de registo 0-5. 0 - nenhum 5 - detalhado\n"
+msgstr " --log <número> -- define o nível de registo 0-5. 0 - nenhum 5 - detalhado\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1338
@@ -364,11 +368,11 @@ msgid "Display CPU usage"
 msgstr "Apresentar utilização do CPU"
 
 #: ../src/plugins/deskno/deskno.c:165
-#, fuzzy
 msgid "Desktop Number / Workspace Name"
 msgstr "Ambiente de Trabalho N.º / Nome da Área de Trabalho "
 
-#: ../src/plugins/deskno/deskno.c:167 ../src/plugins/deskno/deskno2.c:131
+#: ../src/plugins/deskno/deskno.c:167
+#: ../src/plugins/deskno/deskno2.c:131
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Apresentar número da área de trabalho, por cmeury@users.sf.net"
 
@@ -381,14 +385,12 @@ msgid "Display Image and Tooltip"
 msgstr "Apresentar Imagem e Dicas"
 
 #: ../src/plugins/launchbar.c:648
-#, fuzzy
 msgid "Available Applications"
-msgstr "Plugins disponíveis"
+msgstr "Aplicações Disponíveis"
 
 #: ../src/plugins/launchbar.c:648
-#, fuzzy
 msgid "Applications"
-msgstr "Seleccione a Aplicação"
+msgstr "Aplicações"
 
 #: ../src/plugins/launchbar.c:816
 msgid "Application Launch Bar"
@@ -396,7 +398,7 @@ msgstr "Barra de Aplicações"
 
 #: ../src/plugins/launchbar.c:818
 msgid "Bar with buttons to launch application"
-msgstr "Barra com botões para lançar aplicações"
+msgstr "Barra com botões para iniciar aplicações"
 
 #. Add Raise menu item.
 #: ../src/plugins/taskbar.c:1644
@@ -452,9 +454,8 @@ msgid "Icons only"
 msgstr "Apenas ícones"
 
 #: ../src/plugins/taskbar.c:1925
-#, fuzzy
 msgid "Flat buttons"
-msgstr "Botões Lisos"
+msgstr "Botões planos"
 
 #: ../src/plugins/taskbar.c:1926
 msgid "Show windows from all desktops"
@@ -470,12 +471,11 @@ msgstr "Piscar quando existir uma janela a requisitar atenção"
 
 #: ../src/plugins/taskbar.c:1929
 msgid "Combine multiple application windows into a single button"
-msgstr ""
+msgstr "Combinar as várias janelas de aplicações num único botão"
 
 #: ../src/plugins/taskbar.c:1930
-#, fuzzy
 msgid "Maximum width of task button"
-msgstr "Largura máxima do botão da tarefa"
+msgstr "Largura máxima do botão de tarefa"
 
 #: ../src/plugins/taskbar.c:1931
 msgid "Spacing"
@@ -486,12 +486,8 @@ msgid "Task Bar (Window List)"
 msgstr "Barra de Tarefas (Lista de Janelas)"
 
 #: ../src/plugins/taskbar.c:1968
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
-msgstr ""
-"A barra de tarefas mostra todas as janelas abertas e permite minimizá-las, "
-"sombrear ou obter foco"
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr "A barra de tarefas mostra todas as janelas abertas e permite minimiza-las, sombrear ou obter foco"
 
 #: ../src/plugins/dclock.c:261
 msgid "Clock Format"
@@ -507,7 +503,7 @@ msgstr "Códigos de Formato: man 3 strftime"
 
 #: ../src/plugins/dclock.c:264
 msgid "Action when clicked (default: display calendar)"
-msgstr ""
+msgstr "Acção ao clicar (omissão: apresentar calendário)"
 
 #: ../src/plugins/dclock.c:265
 msgid "Bold font"
@@ -518,9 +514,8 @@ msgid "Digital Clock"
 msgstr "Relógio Digital"
 
 #: ../src/plugins/dclock.c:294
-#, fuzzy
 msgid "Display digital clock and tooltip"
-msgstr "Apresentar Relógio digital e Dicas"
+msgstr "Apresentar relógio digital e dicas"
 
 #: ../src/plugins/menu.c:369
 msgid "Add to desktop"
@@ -539,9 +534,8 @@ msgid "Menu"
 msgstr "Menu"
 
 #: ../src/plugins/menu.c:1003
-#, fuzzy
 msgid "Application Menu"
-msgstr "Barra de Aplicações"
+msgstr "Menu de Aplicações"
 
 #: ../src/plugins/netstatus/glade-support.c:91
 #: ../src/plugins/netstatus/glade-support.c:115
@@ -593,7 +587,8 @@ msgid "Address:"
 msgstr "Endereço:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstat/netstat.c:319
+#: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
 msgid "Broadcast:"
 msgstr "Difusão:"
@@ -701,7 +696,7 @@ msgstr "Erro"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:192
 msgid "The current error condition"
-msgstr "A condição de erro actual"
+msgstr "A condição do erro actual"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:434
 #: ../src/plugins/netstatus/netstatus-iface.c:1197
@@ -848,12 +843,8 @@ msgstr "Não foi possível analisar o nome de interface de  '%s'"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid ""
-"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
-msgstr ""
-"Não foi possível analisar estatísticas de interface de '%s'. prx_idx = %d; "
-"ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgstr "Não foi possível analisar estatísticas de interface de '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -862,9 +853,7 @@ msgstr "Não foi possível analisar /proc/net/wireless. Formato desconhecido."
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr ""
-"Não foi possível analisar os detalhes de rede sem fios de '%s'. link_idx = %"
-"d;"
+msgstr "Não foi possível analisar os detalhes de rede sem fios de '%s'. link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
@@ -921,14 +910,14 @@ msgstr "Pager do Ambiente de trabalho"
 msgid "Simple pager plugin"
 msgstr "Pager simples de plugins"
 
-#: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
+#: ../src/plugins/space.c:121
+#: ../src/plugins/batt/batt.c:590
 msgid "Size"
 msgstr "Tamanho"
 
 #: ../src/plugins/space.c:139
-#, fuzzy
 msgid "Spacer"
-msgstr "<Espaço>"
+msgstr "Separador"
 
 #: ../src/plugins/space.c:141
 msgid "Allocate space"
@@ -939,11 +928,11 @@ msgid "System Tray"
 msgstr "Área de Notificação"
 
 #: ../src/plugins/tray.c:733
-#, fuzzy
 msgid "System tray"
-msgstr "Área de Notificação"
+msgstr "Área de notificação"
 
-#: ../src/plugins/xkb/xkb-plugin.c:242 ../src/plugins/xkb/xkb-plugin.c:506
+#: ../src/plugins/xkb/xkb-plugin.c:242
+#: ../src/plugins/xkb/xkb-plugin.c:506
 msgid "Keyboard Layout Switcher"
 msgstr "Alternador de Disposição do Teclado"
 
@@ -992,24 +981,20 @@ msgid "Switch between available keyboard layouts"
 msgstr "Trocar entre disposições de teclado disponíveis"
 
 #: ../src/plugins/wincmd.c:167
-#, fuzzy
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr ""
-"Botão esquerdo do rato para minimizar todas as janelas. Botão do meio para "
-"sombreá-las"
+msgstr "Botão esquerdo do rato para minimizar todas as janelas. Botão do meio para sombreá-las."
 
 #: ../src/plugins/wincmd.c:197
 msgid "Minimize All Windows"
 msgstr "Minimizar Todas as Janelas"
 
 #: ../src/plugins/wincmd.c:199
-#, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
 "Envia comandos a todas as janelas do ambiente de trabalho.\n"
-"Os comandos suportados são 1)alternar minimização e 2) alternar sombreado"
+"Comandos suportados 1)minimizar e 2) sombrear"
 
 #: ../src/plugins/dirmenu.c:212
 msgid "Open in _Terminal"
@@ -1122,7 +1107,8 @@ msgstr "O cabo de rede está desligado"
 msgid "Connection has limited or no connectivity"
 msgstr "A ligação é limitada ou está desligada"
 
-#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307
+#: ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "Endereço IP:"
@@ -1131,32 +1117,38 @@ msgstr "Endereço IP:"
 msgid "Remote IP:"
 msgstr "IP Remoto:"
 
-#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309
+#: ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "Máscara de Rede:"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "Actividade"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "Enviado"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "Recebido"
 
-#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311
+#: ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "bytes"
 
-#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312
+#: ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "pacotes"
@@ -1165,7 +1157,8 @@ msgstr "pacotes"
 msgid "Protocol:"
 msgstr "Protocolo:"
 
-#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321
+#: ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "Endereço HW:"
 
@@ -1204,9 +1197,8 @@ msgid "Config tool"
 msgstr "Ferramenta de Configuração"
 
 #: ../src/plugins/netstatus/netstatus.c:196
-#, fuzzy
 msgid "Network Status Monitor"
-msgstr "Monitor do Estado da Rede"
+msgstr "Monitor de Estado da Rede"
 
 #: ../src/plugins/netstatus/netstatus.c:198
 msgid "Monitor network status"
@@ -1384,52 +1376,36 @@ msgstr "Indicadores para as teclas CapsLock, Numlock e ScrollLock"
 
 #~ msgid "Old KDE/GNOME Tray"
 #~ msgstr "Antiga Área de Notificação KDE/GNOME"
-
 #~ msgid "Enable Image:"
 #~ msgstr "Activar Imagem:"
-
 #~ msgid "Enable Transparency"
 #~ msgstr "Activar Transparência"
-
 #~ msgid "Tint color:"
 #~ msgstr "Tom de cor:"
-
 #~ msgid " --configure -- launch configuration utility\n"
 #~ msgstr " --configure -- lança utilitário de configuração\n"
-
 #~ msgid " -C  -- same as --configure\n"
 #~ msgstr " -C  -- o mesmo que --configure\n"
-
 #~ msgid "Add Button"
 #~ msgstr "Adicionar Botão"
-
 #~ msgid "Button Properties"
 #~ msgstr "Propriedades do Botão"
-
 #~ msgid "Remove Button"
 #~ msgstr "Remover Botão"
-
 #~ msgid "Buttons"
 #~ msgstr "Botões"
-
 #~ msgid "Accept SkipPager"
 #~ msgstr "Aceitar SkipPager"
-
 #~ msgid "Show Iconified windows"
 #~ msgstr "Mostrar janelas Minimizadas"
-
 #~ msgid "Show mapped windows"
 #~ msgstr "Mostrar janelas mapeadas"
-
 #~ msgid "Action"
 #~ msgstr "Acção"
-
 #~ msgid "Provide Menu"
 #~ msgstr "Providenciar Menu"
-
 #~ msgid "Kayboard Layout switcher"
 #~ msgstr "Alternador de Disposição do Teclado"
-
 #~ msgid ""
 #~ "Dynamic\n"
 #~ "Pixels\n"
@@ -1438,7 +1414,6 @@ msgstr "Indicadores para as teclas CapsLock, Numlock e ScrollLock"
 #~ "Dinâmico\n"
 #~ "Pixeis\n"
 #~ "% por cento"
-
 #~ msgid ""
 #~ "Left\n"
 #~ "Center\n"
@@ -1447,7 +1422,6 @@ msgstr "Indicadores para as teclas CapsLock, Numlock e ScrollLock"
 #~ "Esquerda\n"
 #~ "Centro\n"
 #~ "Direita"
-
 #~ msgid ""
 #~ "Left\n"
 #~ "Right\n"
@@ -1458,15 +1432,12 @@ msgstr "Indicadores para as teclas CapsLock, Numlock e ScrollLock"
 #~ "Direita\n"
 #~ "Superior\n"
 #~ "Inferior"
-
 #~ msgid "Where to put the panel?"
 #~ msgstr "Posição do Painel ?"
-
 #~ msgid "Battery: %d%% charged, %s"
 #~ msgstr "Bateria: %d%% carregada, %s"
-
 #~ msgid "charging finished"
 #~ msgstr "concluiu carregamento"
-
 #~ msgid "charging"
 #~ msgstr "carregando"
+
