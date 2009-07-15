@@ -1847,11 +1847,11 @@ static int taskbar_constructor(Plugin * p, char ** fp)
                 else if (g_ascii_strcasecmp(s.t[0], "IconsOnly") == 0)
                     tb->icons_only = str2num(bool_pair, s.t[1], 0);
                 else if (g_ascii_strcasecmp(s.t[0], "AcceptSkipPager") == 0)		/* For backward compatibility */
-                    0;
+                    ;
                 else if (g_ascii_strcasecmp(s.t[0], "ShowIconified") == 0)		/* For backward compatibility */
-                    0;
+                    ;
                 else if (g_ascii_strcasecmp(s.t[0], "ShowMapped") == 0)			/* For backward compatibility */
-                    0;
+                    ;
                 else if (g_ascii_strcasecmp(s.t[0], "ShowAllDesks") == 0)
                     tb->show_all_desks = str2num(bool_pair, s.t[1], 0);
                 else if (g_ascii_strcasecmp(s.t[0], "MaxTaskWidth") == 0)

@@ -25,6 +25,8 @@
 
 #include "xkb.h"
 
+void panel_config_save(Panel * panel);   /* defined in configurator.c */
+
 static void xkb_active_window_event(FbEv * ev, gpointer data);
 static gboolean xkb_scroll_event(GtkWidget * widget, GdkEventScroll * event, gpointer data);
 static gboolean xkb_button_press_event(GtkWidget * widget,  GdkEventButton * event, gpointer data);
@@ -118,6 +120,7 @@ static gboolean xkb_button_press_event(GtkWidget * widget,  GdkEventButton * eve
 
     /* Change to next group. */
     xkb_change_group(xkb, 1);
+    return TRUE;
 }
 
 /* Plugin constructor. */

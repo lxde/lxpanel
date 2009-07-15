@@ -76,13 +76,17 @@ static void wincmd_execute(WindowCommand command)
 
             /* If the task is visible on the current desktop and it is an ordinary window,
              * execute the requested Iconify or Shade change. */
-            if ((task_desktop == -1) || (task_desktop == current_desktop)
+            if (((task_desktop == -1) || (task_desktop == current_desktop))
             && (( ! nwwt.dock) && ( ! nwwt.desktop) && ( ! nwwt.splash)))
             {
                 switch (command)
                 {
+                    case WC_NONE:
+                        break;
+
                     case WC_ICONIFY:
                         XIconifyWindow(GDK_DISPLAY(), client_list[i], DefaultScreen(GDK_DISPLAY()));
+                        break;
 
                     case WC_SHADE:
                         Xclimsg(client_list[i], a_NET_WM_STATE,
@@ -99,8 +103,6 @@ static void wincmd_execute(WindowCommand command)
 /* Handler for "clicked" signal on main widget. */
 static gboolean wincmd_button_clicked(GtkWidget * widget, GdkEventButton * event, Plugin * plugin)
 {
-    WinCmdPlugin * wc = (WinCmdPlugin *) plugin->priv;
-
     /* Standard right-click handling. */
     if (plugin_button_press_event(widget, event, plugin))
         return TRUE;

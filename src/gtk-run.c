@@ -20,6 +20,8 @@
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
 #include <string.h>
+#include <unistd.h>
+
 #include "misc.h"
 #include <menu-cache.h>
 

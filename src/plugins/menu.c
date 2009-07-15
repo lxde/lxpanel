@@ -27,6 +27,7 @@
 
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <unistd.h>
 #include <fcntl.h>
 
 #include "panel.h"
@@ -236,6 +237,7 @@ static void on_add_menu_item_to_desktop(GtkMenuItem* item, MenuCacheApp* app)
 }
 
 /* TODO: add menu item to panel */
+#if 0
 static void on_add_menu_item_to_panel(GtkMenuItem* item, MenuCacheApp* app)
 {
     /* Find a penel containing launchbar applet.
@@ -279,6 +281,7 @@ static void on_add_menu_item_to_panel(GtkMenuItem* item, MenuCacheApp* app)
 
     }
 }
+#endif
 
 static void on_menu_item_properties(GtkMenuItem* item, MenuCacheApp* app)
 {
@@ -720,7 +723,6 @@ read_system_menu(GtkMenu* menu, Plugin *p, char** fp)
 {
     line s;
     menup *m = (menup *)p->priv;
-    GtkWidget* fake;
 
     if (m->menu_cache == NULL)
     {
@@ -854,7 +856,7 @@ read_submenu(Plugin *p, char** fp, gboolean as_item)
         }
     }
     if (as_item) {
-        mi = gtk_image_menu_item_new_with_label(name ? name : "");
+        mi = gtk_image_menu_item_new_with_label(name);
         if (fname) {
             GtkWidget *img;
             img = _gtk_image_new_from_file_scaled(fname, m->iconsize, m->iconsize, TRUE);
@@ -902,7 +904,7 @@ menu_constructor(Plugin *p, char **fp)
         "}\n"
         "image=" DEFAULT_MENU_ICON "\n"
         "}\n";
-    char *config_start, *config_end, *config_default = default_config;
+    char *config_default = default_config;
     int iw, ih;
 
     m = g_new0(menup, 1);

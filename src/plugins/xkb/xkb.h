@@ -66,7 +66,7 @@ extern void xkb_redraw(XkbPlugin * xkb);
 extern int xkb_get_current_group_xkb_no(XkbPlugin * xkb);
 extern int xkb_get_group_count(XkbPlugin * xkb);
 extern const char * xkb_get_symbol_name_by_res_no(XkbPlugin * xkb, int group_res_no);
-extern const char * xkb_current_group_name(XkbPlugin * xkb);
+extern const char * xkb_get_current_group_name(XkbPlugin * xkb);
 extern const char * xkb_get_current_group_name_lowercase(XkbPlugin * xkb);
 extern void xkb_mechanism_constructor(XkbPlugin * xkb);
 extern void xkb_mechanism_destructor(XkbPlugin * xkb);

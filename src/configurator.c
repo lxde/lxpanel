@@ -1,5 +1,5 @@
 /**
-/**
+ *
  * Copyright (c) 2006 LxDE Developers, see the file AUTHORS for details.
  *
  * This program is free software; you can redistribute it and/or modify
@@ -397,7 +397,7 @@ on_plugin_expand_toggled(GtkCellRendererToggle* render, char* path, GtkTreeView*
     {
         Plugin* pl;
         gboolean old_expand, expand, fill;
-        int padding;
+        guint padding;
         GtkPackType pack_type;
 
         gtk_tree_model_get( model, &it, COL_DATA, &pl, COL_EXPAND, &expand, -1 );
@@ -499,7 +499,7 @@ static void on_add_plugin_response( GtkDialog* dlg,
             char* type = NULL;
             Plugin* pl;
             gtk_tree_model_get( model, &it, 1, &type, -1 );
-            if( pl = plugin_load( type ) )
+            if ((pl = plugin_load(type)) != NULL)
             {
                 GtkTreePath* tree_path;
 
@@ -524,7 +524,7 @@ static void on_add_plugin_response( GtkDialog* dlg,
                                     COL_DATA, pl, -1 );
                 tree_sel = gtk_tree_view_get_selection( _view );
                 gtk_tree_selection_select_iter( tree_sel, &it );
-                if( tree_path = gtk_tree_model_get_path( model, &it ) )
+                if ((tree_path = gtk_tree_model_get_path(model, &it)) != NULL)
                 {
                     gtk_tree_view_scroll_to_cell( _view, tree_path, NULL, FALSE, 0, 0 );
                     gtk_tree_path_free( tree_path );
@@ -789,7 +789,7 @@ update_toggle_button(GtkWidget *w, gboolean n)
 void panel_configure( Panel* p, int sel_page )
 {
     GtkBuilder* builder;
-    GtkWidget *w, *w2, *width, *tint_clr;
+    GtkWidget *w, *w2, *tint_clr;
 
     if( p->pref_dialog )
     {
@@ -929,7 +929,6 @@ void panel_configure( Panel* p, int sel_page )
     /* background */
     {
         GtkWidget* none, *trans, *img;
-        GSList* group;
         none = (GtkWidget*)gtk_builder_get_object( builder, "bg_none" );
         trans = (GtkWidget*)gtk_builder_get_object( builder, "bg_transparency" );
         img = (GtkWidget*)gtk_builder_get_object( builder, "bg_image" );
@@ -1033,8 +1032,6 @@ void panel_configure( Panel* p, int sel_page )
 void
 panel_global_config_save( Panel* p, FILE *fp)
 {
-    GdkColor c;
-
     fprintf(fp, "# lxpanel <profile> config file. Manually editing is not recommended.\n"
                 "# Use preference dialog in lxpanel to adjust config when you can.\n\n");
     lxpanel_put_line(fp, "Global {");

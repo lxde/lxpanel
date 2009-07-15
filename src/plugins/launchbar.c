@@ -109,7 +109,6 @@ static void launchbutton_build_gui(Plugin * p, LaunchButton * btn);
 static int launchbutton_constructor(Plugin * p, char ** fp);
 static int launchbar_constructor(Plugin * p, char ** fp);
 static void launchbar_destructor(Plugin * p);
-static void launchbar_configure_menu_item_add_button(GtkButton * widget, Plugin * p);
 static void launchbar_configure_add_button(GtkButton * widget, Plugin * p);
 static void launchbar_configure_remove_button(GtkButton * widget, Plugin * p);
 static void launchbar_configure_move_up_button(GtkButton * widget, Plugin * p);
@@ -133,8 +132,6 @@ static void launchbutton_free(LaunchButton * btn)
 /* Handler for "button-press-event" event from launchbar button. */
 static gboolean launchbutton_press_event(GtkWidget * widget, GdkEventButton * event, LaunchButton * b)
 {
-    GtkWidget *image;
-
     /* Standard right-click handling. */
     if (plugin_button_press_event(widget, event, b->plugin))
         return TRUE;
@@ -318,8 +315,6 @@ static void launchbutton_build_gui(Plugin * p, LaunchButton * btn)
 /* Read the configuration file entry for a launchbar button and create it. */
 static int launchbutton_constructor(Plugin * p, char ** fp)
 {
-    LaunchbarPlugin * lb = (LaunchbarPlugin *) p->priv;
-
     /* Allocate the LaunchButton structure. */
     LaunchButton * btn = g_new0(LaunchButton, 1);
     btn->plugin = p;
@@ -617,6 +612,10 @@ static void launchbar_configure_add_menu_recursive(GtkListStore * list, MenuCach
         MenuCacheItem * item = MENU_CACHE_ITEM(l->data);
         switch (menu_cache_item_get_type(item))
         {
+            case MENU_CACHE_TYPE_NONE:
+            case MENU_CACHE_TYPE_SEP:
+                break;
+
             case MENU_CACHE_TYPE_APP:
                 {
                 /* If an application, build a LaunchButton data structure so we can identify

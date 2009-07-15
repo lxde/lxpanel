@@ -209,7 +209,6 @@ static void task_update_pixmap(PagerTask * tk, PagerDesk * d)
 {
     if ((d->pixmap != NULL) && (task_is_visible(tk)))
     {
-        Panel * p = d->pg->plugin->panel;
         if ((tk->desktop == ALL_DESKTOPS) || (tk->desktop == d->desktop_number))
         {
             /* Scale the representation of the window to the drawing area. */
@@ -560,7 +559,6 @@ static void pager_net_number_of_desktops(FbEv * ev, PagerPlugin * pg)
 {
     /* Get existing values. */
     int number_of_desktops = pg->number_of_desktops;
-    int current_desktop = pg->current_desktop;
 
     /* Get the correct number of desktops. */
     pg->number_of_desktops = get_net_number_of_desktops();

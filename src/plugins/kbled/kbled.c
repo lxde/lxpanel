@@ -29,6 +29,7 @@
 
 #include <X11/XKBlib.h>
 
+#include "dbg.h"
 #include "panel.h"
 #include "misc.h"
 #include "plugin.h"
@@ -54,11 +55,11 @@ typedef struct {
     Plugin * plugin;				/* Back pointer to plugin */
     IconGrid * icon_grid;			/* Icon grid manager */
     GtkWidget *indicator_image[3];		/* Image for each indicator */
-    int current_state;				/* Current LED state, bit encoded */
+    unsigned int current_state;			/* Current LED state, bit encoded */
     gboolean visible[3];			/* True if control is visible (per user configuration) */
 } KeyboardLEDPlugin;
 
-static void kbled_update_image(KeyboardLEDPlugin * kl, int i, int state);
+static void kbled_update_image(KeyboardLEDPlugin * kl, int i, unsigned int state);
 static void kbled_update_display(Plugin * p, unsigned int state);
 static GdkFilterReturn kbled_event_filter(GdkXEvent * gdkxevent, GdkEvent * event, Plugin * p);
 static int kbled_constructor(Plugin * p, char ** fp);
@@ -69,13 +70,13 @@ static void kbled_save_configuration(Plugin * p, FILE * fp);
 static void kbled_panel_configuration_changed(Plugin * p);
 
 /* Update image to correspond to current state. */
-static void kbled_update_image(KeyboardLEDPlugin * kl, int i, int state)
+static void kbled_update_image(KeyboardLEDPlugin * kl, int i, unsigned int state)
 {
     char * file = g_build_filename(
         PACKAGE_DATA_DIR "/lxpanel/images",
         ((state) ? on_icons[i] : off_icons[i]),
         NULL);
-    panel_image_set_from_file(kl->plugin->panel, GTK_IMAGE(kl->indicator_image[i]), file);
+    panel_image_set_from_file(kl->plugin->panel, kl->indicator_image[i], file);
     g_free(file);
 }
 
@@ -188,7 +189,7 @@ static int kbled_constructor(Plugin * p, char ** fp)
 
     /* Get current indicator state and update display.
      * Force current state to differ in all bits so a full redraw will occur. */
-    int current_state;
+    unsigned int current_state;
     XkbGetIndicatorState(GDK_DISPLAY(), XkbUseCoreKbd, &current_state);
     kl->current_state = ~ current_state;
     kbled_update_display(p, current_state);
