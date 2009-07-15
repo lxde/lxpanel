@@ -127,7 +127,7 @@ static gboolean dclock_update_display(DClockPlugin * dc)
     /* Determine the content of the clock label. */
     char output[64];
     strftime(output, sizeof(output),
-             ((dc->clock_format != NULL) ? dc->clock_format : DEFAULT_CLOCK_FORMAT), detail);
+        ((dc->clock_format != NULL) ? dc->clock_format : DEFAULT_CLOCK_FORMAT), detail);
 
     /* When we write the clock value, it causes the panel to do a full relayout.
      * Since this function is called once per second, we take the trouble to check if the string actually changed first. */
@@ -136,12 +136,33 @@ static gboolean dclock_update_display(DClockPlugin * dc)
         g_free(dc->prev_output);
         dc->prev_output = g_strdup(output);
 
-        gchar * utf8 = g_locale_to_utf8(output, -1, NULL, NULL, NULL);
+        /* Convert "\n" escapes in the user's format string to newline characters. */
+        char * newlines_converted = NULL;
+        if (strstr(output, "\\n") != NULL)
+        {
+            newlines_converted = g_strdup(output);	/* Just to get enough space for the converted result */
+            char * p;
+            char * q;
+            for (p = output, q = newlines_converted; *p != '\0'; p += 1)
+            {
+                if ((p[0] == '\\') && (p[1] == 'n'))
+                {
+                    *q++ = '\n';
+                    p += 1;
+                }
+                else
+                    *q++ = *p;
+            }
+            *q = '\0';
+        }
+
+        gchar * utf8 = g_locale_to_utf8(((newlines_converted != NULL) ? newlines_converted : output), -1, NULL, NULL, NULL);
         if (utf8 != NULL)
         {
-            panel_draw_label_text(dc->plugin->panel, dc->clock_label, output, dc->bold);
+            panel_draw_label_text(dc->plugin->panel, dc->clock_label, utf8, dc->bold);
             g_free(utf8);
         }
+        g_free(newlines_converted);
     }
 
     /* Determine the content of the tooltip. */
