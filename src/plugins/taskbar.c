@@ -1984,7 +1984,7 @@ static void taskbar_panel_configuration_changed(Plugin * p)
         ((tb->icons_only) ? tb->plug->panel->icon_size + ICON_ONLY_EXTRA : tb->task_width_max), tb->plug->panel->icon_size + BUTTON_HEIGHT_EXTRA,
         tb->spacing, 0, tb->plug->panel->height);
 
-    /* If the icon size changed, refetch all the icons and redraw the labels. */
+    /* If the icon size changed, refetch all the icons. */
     if (tb->plug->panel->icon_size != tb->icon_size)
     {
         tb->icon_size = tb->plug->panel->icon_size;
@@ -1994,9 +1994,11 @@ static void taskbar_panel_configuration_changed(Plugin * p)
             GdkPixbuf * pixbuf = task_update_icon(tb, tk, None);
             if (pixbuf != NULL)
                 gtk_image_set_from_pixbuf(GTK_IMAGE(tk->image), pixbuf);
-            taskbar_redraw(tb);
         }
     }
+
+    /* Redraw all the labels.  Icon size or font color may have changed. */
+    taskbar_redraw(tb);
 }
 
 /* Plugin descriptor. */
