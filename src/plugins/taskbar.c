@@ -128,6 +128,7 @@ static gchar *taskbar_rc = "style 'taskbar-style'\n"
 #define TASK_PADDING         4
 #define ALL_WORKSPACES       (-1)
 #define ICON_ONLY_EXTRA      6		/* Amount needed to have button lay out symmetrically */
+#define BUTTON_HEIGHT_EXTRA  4          /* Amount needed to have button not clip icon */
 
 static void set_timer_on_task(Task * tk);
 static gboolean task_is_visible_on_current_desktop(TaskbarPlugin * tb, Task * tk);
@@ -1227,7 +1228,7 @@ static void taskbar_update_style(TaskbarPlugin * tb)
 {
     GtkOrientation bo = (tb->plug->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
     icon_grid_set_geometry(tb->icon_grid, bo,
-        ((tb->icons_only) ? tb->icon_size + ICON_ONLY_EXTRA : tb->task_width_max), tb->icon_size,
+        ((tb->icons_only) ? tb->icon_size + ICON_ONLY_EXTRA : tb->task_width_max), tb->icon_size + BUTTON_HEIGHT_EXTRA,
         tb->spacing, 0, tb->plug->panel->height);
 }
 
@@ -1980,7 +1981,7 @@ static void taskbar_panel_configuration_changed(Plugin * p)
     taskbar_make_menu(tb);
     GtkOrientation bo = (tb->plug->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
     icon_grid_set_geometry(tb->icon_grid, bo,
-        ((tb->icons_only) ? tb->plug->panel->icon_size + ICON_ONLY_EXTRA : tb->task_width_max), tb->plug->panel->icon_size,
+        ((tb->icons_only) ? tb->plug->panel->icon_size + ICON_ONLY_EXTRA : tb->task_width_max), tb->plug->panel->icon_size + BUTTON_HEIGHT_EXTRA,
         tb->spacing, 0, tb->plug->panel->height);
 
     /* If the icon size changed, refetch all the icons and redraw the labels. */
