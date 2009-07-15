@@ -65,7 +65,7 @@ static gboolean icon_grid_placement(IconGrid * ig)
             child_height = (ig->container_height - ((ig->rows - 1) * ig->spacing)) / ig->rows;
     }
 
-    /* Reposition each visible child. */
+    /* Initialize parameters to control repositioning each visible child. */
     GtkTextDirection direction = gtk_widget_get_direction(ig->container);
     int limit = ig->border + ((ig->orientation == GTK_ORIENTATION_HORIZONTAL)
         ?  (ig->rows * (child_height + ig->spacing))
@@ -75,8 +75,11 @@ static gboolean icon_grid_placement(IconGrid * ig)
         : ig->border);
     int x_delta = child_width + ig->spacing;
     if (direction == GTK_TEXT_DIR_RTL) x_delta = - x_delta;
+
+    /* Reposition each visible child. */
     int x = x_initial;
     int y = ig->border;
+    gboolean contains_sockets = FALSE;
     IconGridElement * ige;
     for (ige = ig->child_list; ige != NULL; ige = ige->flink)
     {
@@ -96,6 +99,10 @@ static gboolean icon_grid_placement(IconGrid * ig)
                 }
             gtk_fixed_move(GTK_FIXED(ig->widget), ige->widget, x, y);
             gtk_widget_queue_draw(ige->widget);
+
+            /* Note if a socket is placed. */
+            if (GTK_IS_SOCKET(ige->widget))
+                contains_sockets = TRUE;
 
             /* Advance to the next grid position. */
             if (ig->orientation == GTK_ORIENTATION_HORIZONTAL)
@@ -123,6 +130,10 @@ static gboolean icon_grid_placement(IconGrid * ig)
     if (window != NULL)
         gdk_window_invalidate_rect(window, NULL, TRUE);
     gtk_widget_queue_draw(ig->container);
+
+    /* If the icon grid contains sockets, do special handling to get the background erased. */
+    if (contains_sockets)
+        plugin_widget_set_background(ig->widget, ig->panel);
     return FALSE;
 }
 
