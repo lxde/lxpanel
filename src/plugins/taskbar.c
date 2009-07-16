@@ -1733,9 +1733,9 @@ static void taskbar_make_menu(TaskbarPlugin * tb)
         gtk_menu_item_set_submenu(GTK_MENU_ITEM(mi), workspace_menu);
     }
 
-    /* Add Close menu item.  By policy, we place this item farthest from the cursor. */
+    /* Add Close menu item.  By popular demand, we place this menu item closest to the cursor. */
     mi = gtk_menu_item_new_with_mnemonic (_("_Close Window"));
-    if (tb->plug->panel->edge == EDGE_BOTTOM)
+    if (tb->plug->panel->edge != EDGE_BOTTOM)
     {
         gtk_menu_shell_prepend(GTK_MENU_SHELL(menu), gtk_separator_menu_item_new());
         gtk_menu_shell_prepend(GTK_MENU_SHELL(menu), mi);
