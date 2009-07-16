@@ -975,14 +975,8 @@ void panel_draw_label_text(Panel * p, GtkWidget * label, char * text, gboolean b
             font_desc = 9;
         else if (p->icon_size >= 20 && p->icon_size < 26)
             font_desc = 10;
-        else if (p->icon_size >= 26 && p->icon_size < 32)
-            font_desc = 14;
-        else if (p->icon_size >= 32 && p->icon_size < 40)
-            font_desc = 16;
-        else if (p->icon_size >= 40 && p->icon_size < 52)
-            font_desc = 18;
         else
-            font_desc = 20;
+            font_desc = 12;
 
         /* Check the string for characters that need to be escaped.
          * If any are found, create the properly escaped string and use it instead. */
