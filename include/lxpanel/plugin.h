@@ -43,12 +43,15 @@ enum {
 enum { POS_NONE, POS_START, POS_END };
 
 typedef struct _Panel Panel;
-struct _Panel{
+/* Context of a panel on a given edge. */
+typedef struct _Panel {
     char* name;
-    GtkWidget *topgwin;
-    Window topxwin;
-    GtkStyle *defstyle;
-    GtkWidget *box;
+    GtkWidget * topgwin;		/* Main panel window */
+    Window topxwin;			/* Main panel's X window   */
+    GdkDisplay * display;		/* Main panel's GdkDisplay */
+    GtkStyle * defstyle;
+
+    GtkWidget * box;			/* Top level widget */
 
     GtkRequisition requisition;
     GtkWidget *(*my_box_new) (gboolean, gint);
@@ -61,12 +64,16 @@ struct _Panel{
     GdkColor gtintcolor;
     GdkColor gfontcolor;
 
-    int ax, ay, aw, ah;
-    int cx, cy, cw, ch;
+    int ax, ay, aw, ah;  /* prefferd allocation of a panel */
+    int cx, cy, cw, ch;  /* current allocation (as reported by configure event) allocation */
     int allign, edge, margin;
     int orientation;
     int widthtype, width;
     int heighttype, height;
+    gulong strut_size;			/* Values for WM_STRUT_PARTIAL */
+    gulong strut_lower;
+    gulong strut_upper;
+    int strut_edge;
 
     guint config_changed : 1;
     guint self_destroy : 1;
@@ -78,6 +85,12 @@ struct _Panel{
     guint background : 1;
     guint spacing;
 
+    guint autohide : 1;
+    guint visible : 1;
+    int height_when_hidden;
+    guint hide_timeout;
+    int icon_size;			/* Icon size */
+
     int desknum;
     int curdesk;
     guint32 *workarea;
@@ -85,13 +98,27 @@ struct _Panel{
 
     char* background_file;
 
-    int plug_num;
-    GList *plugins;
+    GList * plugins;			/* List of all plugins */
+    GSList * system_menus;		/* List of plugins having menus */
 
-    GSList* system_menus;
+    GtkWidget* plugin_pref_dialog;	/* Plugin preference dialog */
+    GtkWidget* pref_dialog;		/* preference dialog */
+    GtkWidget* margin_control;		/* Margin control in preference dialog */
+    GtkWidget* height_label;		/* Label of height control */
+    GtkWidget* width_label;		/* Label of width control */
+    GtkWidget* alignment_left_label;	/* Label of alignment: left control */
+    GtkWidget* alignment_right_label;	/* Label of alignment: right control */
+    GtkWidget* height_control;		/* Height control in preference dialog */
+    GtkWidget* width_control;		/* Width control in preference dialog */
+} Panel;
 
-    GtkWidget* pref_dialog;
-};
+typedef struct {
+    char *name;
+    char *disp_name;
+    void (*cmd)(void);
+} Command;
+
+extern Command commands[];
 
 /* Plugin */
 struct _Plugin;
