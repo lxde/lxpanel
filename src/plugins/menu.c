@@ -792,7 +792,7 @@ read_submenu(Plugin *p, char** fp, gboolean as_item)
 {
     line s;
     GtkWidget *mi, *menu;
-    gchar name[256], *fname;
+    gchar *name, *fname;
     menup *m = (menup *)p->priv;
     GdkColor color={0, 0, 36 * 0xffff / 0xff, 96 * 0xffff / 0xff};
 
@@ -802,8 +802,8 @@ read_submenu(Plugin *p, char** fp, gboolean as_item)
     menu = gtk_menu_new ();
     gtk_container_set_border_width(GTK_CONTAINER(menu), 0);
 
-    fname = 0;
-    name[0] = 0;
+    fname = NULL;
+    name = NULL;
     while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
         if (s.type == LINE_BLOCK_START) {
             mi = NULL;
@@ -834,13 +834,12 @@ read_submenu(Plugin *p, char** fp, gboolean as_item)
             if (!g_ascii_strcasecmp(s.t[0], "image"))
                 fname = expand_tilda(s.t[1]);
             else if (!g_ascii_strcasecmp(s.t[0], "name"))
-                strcpy(name, s.t[1]);
+                name = g_strdup(s.t[1]);
         /* FIXME: tintcolor will not be saved.  */
             else if (!g_ascii_strcasecmp(s.t[0], "tintcolor"))
                 gdk_color_parse( s.t[1], &color);
             else {
                 ERR("menu: unknown var %s\n", s.t[0]);
-                goto error;
             }
         } else if (s.type == LINE_NONE) {
             if (m->files) {
@@ -862,18 +861,18 @@ read_submenu(Plugin *p, char** fp, gboolean as_item)
             img = _gtk_image_new_from_file_scaled(fname, m->iconsize, m->iconsize, TRUE);
             gtk_widget_show(img);
             gtk_image_menu_item_set_image(GTK_IMAGE_MENU_ITEM(mi), img);
-            g_free(fname);
         }
         gtk_menu_item_set_submenu (GTK_MENU_ITEM (mi), menu);
-        RET(mi);
     } else {
         m->fname = fname ? g_strdup(fname) : g_strdup( DEFAULT_MENU_ICON );
-        m->caption = g_strdup(name);
+        m->caption = name ? g_strdup(name) : NULL;
         mi = make_button(p, fname, name, &color, menu);
-        if (fname)
-            g_free(fname);
         RET(mi);
     }
+
+    g_free(fname);
+    g_free(name);
+    RET(mi);
 
  error:
     // FIXME: we need to recursivly destroy all child menus and their items
