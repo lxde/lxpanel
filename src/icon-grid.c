@@ -97,6 +97,7 @@ static gboolean icon_grid_placement(IconGrid * ig)
                 alloc.width = child_width;
                 alloc.height = child_height;
                 gtk_widget_size_allocate(ige->widget, &alloc);
+                gtk_widget_queue_resize(ige->widget);		/* Get labels to redraw ellipsized */
                 }
             gtk_fixed_move(GTK_FIXED(ig->widget), ige->widget, x, y);
             gtk_widget_queue_draw(ige->widget);
