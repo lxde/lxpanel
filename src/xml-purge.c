@@ -24,7 +24,7 @@ static void purge_file( const char* file )
 	if( fstat( fd, &statbuf) == -1 )
 		return;
 
-	if( buf = (char*)malloc( statbuf.st_size + 1 ) )
+	if( (buf = (char*)malloc( statbuf.st_size + 1 )) )
 	{
 		if( read( fd, buf, statbuf.st_size) == -1 )
 		{

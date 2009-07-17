@@ -162,7 +162,6 @@ static int
 thermal_constructor(Plugin *p, char** fp)
 {
     thermal *th;
-    GtkWidget *button;
 
     ENTER;
     th = g_new0(thermal, 1);

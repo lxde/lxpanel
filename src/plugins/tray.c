@@ -345,7 +345,6 @@ static GdkFilterReturn balloon_message_data_event(GdkXEvent * xev, GdkEvent * ev
         return GDK_FILTER_CONTINUE;
 
     /* Look up the pending message in the list. */
-    int len;
     XClientMessageEvent * xevent  = (XClientMessageEvent *) xev;
     BalloonMessage * msg_pred = NULL;
     BalloonMessage * msg;
