@@ -79,6 +79,7 @@ typedef struct _Panel {
     gulong strut_size;			/* Values for WM_STRUT_PARTIAL */
     gulong strut_lower;
     gulong strut_upper;
+    int strut_edge;
 
     guint config_changed : 1;
     guint self_destroy : 1;

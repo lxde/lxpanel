@@ -168,11 +168,12 @@ void panel_set_wm_strut(Panel *p)
     /* If strut value changed, set the property value on the panel window.
      * This avoids property change traffic when the panel layout is recalculated but strut geometry hasn't changed. */
     if ((GTK_WIDGET_MAPPED(p->topgwin))
-    && ((p->strut_size != strut_size) || (p->strut_lower != strut_lower) || (p->strut_upper != strut_upper)))
+    && ((p->strut_size != strut_size) || (p->strut_lower != strut_lower) || (p->strut_upper != strut_upper) || (p->strut_edge != p->edge)))
     {
         p->strut_size = strut_size;
         p->strut_lower = strut_lower;
         p->strut_upper = strut_upper;
+        p->strut_edge = p->edge;
 
         /* If window manager supports STRUT_PARTIAL, it will ignore STRUT.
          * Set STRUT also for window managers that do not support STRUT_PARTIAL. */
@@ -1450,7 +1451,7 @@ static gboolean start_all_panels( )
             continue;
         }
 
-        while( name = g_dir_read_name( dir ) )
+        while((name = g_dir_read_name(dir)) != NULL)
         {
             char* panel_config = g_build_filename( panel_dir, name, NULL );
             if (strchr(panel_config, '~') == NULL)	/* Skip editor backup files in case user has hand edited in this directory */
