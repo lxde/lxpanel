@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.4.990\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-17 20:36+0900\n"
+"POT-Creation-Date: 2009-07-18 14:26+0200\n"
 "PO-Revision-Date: 2009-07-17 20:57+0900\n"
 "Last-Translator: Hironao Komatsu <hironao@users.sourceforge.net>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
@@ -67,7 +67,7 @@ msgstr "配置:"
 msgid "Appearance"
 msgstr "外観"
 
-#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:954
+#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:955
 msgid "Bottom"
 msgstr "下"
 
@@ -95,7 +95,7 @@ msgstr "ファイルマネージャ"
 msgid "Geometry"
 msgstr "ジオメトリ"
 
-#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:944 ../src/panel.c:952
+#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:945 ../src/panel.c:953
 msgid "Height:"
 msgstr "高さ:"
 
@@ -103,7 +103,7 @@ msgstr "高さ:"
 msgid "Image"
 msgstr "画像"
 
-#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:946
+#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:947
 msgid "Left"
 msgstr "左"
 
@@ -143,7 +143,7 @@ msgstr "ピクセル"
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "場所を確保し、最大化したウィンドウに隠れないようにする"
 
-#: ../data/ui/panel-pref.glade.h:33 ../src/panel.c:947
+#: ../data/ui/panel-pref.glade.h:33 ../src/panel.c:948
 msgid "Right"
 msgstr "右"
 
@@ -171,7 +171,7 @@ msgstr "端末エミュレータ:"
 msgid "Top\t"
 msgstr "上\t"
 
-#: ../data/ui/panel-pref.glade.h:40 ../src/panel.c:945 ../src/panel.c:951
+#: ../data/ui/panel-pref.glade.h:40 ../src/panel.c:946 ../src/panel.c:952
 msgid "Width:"
 msgstr "幅:"
 
@@ -223,7 +223,7 @@ msgstr "ファイルの選択"
 msgid "_Browse"
 msgstr "ダイアログから選択(_B)"
 
-#: ../src/panel.c:589
+#: ../src/panel.c:590
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -231,116 +231,116 @@ msgstr ""
 "本当にこのパネルを削除しますか?\n"
 "<b>警告: 削除すると元には戻せません。</b>"
 
-#: ../src/panel.c:591
+#: ../src/panel.c:592
 msgid "Confirm"
 msgstr "確認"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:623
+#: ../src/panel.c:624
 msgid "translator-credits"
 msgstr ""
 "Hironao Komatsu <hironao@users.sourceforge.net>\n"
 "IWAI, Masaharu <iwai@alib.jp>"
 
-#: ../src/panel.c:628
+#: ../src/panel.c:629
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:630
+#: ../src/panel.c:631
 msgid "Copyright (C) 2008-2009"
 msgstr "Copyright (C) 2008-2009"
 
-#: ../src/panel.c:631
+#: ../src/panel.c:632
 msgid "Desktop panel for LXDE project"
 msgstr "LXDE プロジェクトのためのデスクトップパネル"
 
-#: ../src/panel.c:654
+#: ../src/panel.c:655
 msgid "Add / Remove Panel Items"
 msgstr "パネルのアイテムの追加・削除"
 
-#: ../src/panel.c:662
+#: ../src/panel.c:663
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "パネルから \"%s\" を削除する"
 
-#: ../src/panel.c:674
+#: ../src/panel.c:675
 msgid "Panel Settings"
 msgstr "パネルの設定"
 
-#: ../src/panel.c:680
+#: ../src/panel.c:681
 msgid "Create New Panel"
 msgstr "新規パネルの作成"
 
-#: ../src/panel.c:691
+#: ../src/panel.c:692
 msgid "Delete This Panel"
 msgstr "このパネルを削除する"
 
-#: ../src/panel.c:702
+#: ../src/panel.c:703
 msgid "About"
 msgstr "このソフトウェアについて"
 
-#: ../src/panel.c:710
+#: ../src/panel.c:711
 msgid "Panel"
 msgstr "パネル"
 
-#: ../src/panel.c:723
+#: ../src/panel.c:724
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" の設定"
 
-#: ../src/panel.c:953
+#: ../src/panel.c:954
 msgid "Top"
 msgstr "上"
 
-#: ../src/panel.c:1350
+#: ../src/panel.c:1345
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - UNIX デスクトップのための軽量な GTK2+ パネル\n"
 
-#: ../src/panel.c:1351
+#: ../src/panel.c:1346
 #, c-format
 msgid "Command line options:\n"
 msgstr "コマンドラインのオプション:\n"
 
-#: ../src/panel.c:1352
+#: ../src/panel.c:1347
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- このヘルプを表示して終了\n"
 
-#: ../src/panel.c:1353
+#: ../src/panel.c:1348
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- バージョンを表示して終了\n"
 
-#: ../src/panel.c:1354
+#: ../src/panel.c:1349
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 " --log <number> -- ログをとるレベルを 0(なし) 〜 5(詳細) の範囲で設定\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1356
+#: ../src/panel.c:1351
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- 指定したプロファイルを使用する\n"
 
-#: ../src/panel.c:1358
+#: ../src/panel.c:1353
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- --help と同じ\n"
 
-#: ../src/panel.c:1359
+#: ../src/panel.c:1354
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- --profile と同じ\n"
 
-#: ../src/panel.c:1360
+#: ../src/panel.c:1355
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- --version と同じ\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1362
+#: ../src/panel.c:1357
 #, c-format
 msgid ""
 "\n"
@@ -431,7 +431,7 @@ msgstr "すべてのワークスペース(_A)"
 msgid "_Move to Workspace"
 msgstr "ワークスペースへ移動(_M)"
 
-#. Add Close menu item.  By policy, we place this item farthest from the cursor.
+#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../src/plugins/taskbar.c:1737
 msgid "_Close Window"
 msgstr "ウィンドウを閉じる(_C)"
@@ -520,15 +520,15 @@ msgstr "デスクトップに追加"
 msgid "Properties"
 msgstr "プロパティ"
 
-#: ../src/plugins/menu.c:991 ../src/plugins/dirmenu.c:367
+#: ../src/plugins/menu.c:990 ../src/plugins/dirmenu.c:367
 msgid "Icon"
 msgstr "アイコン"
 
-#: ../src/plugins/menu.c:1008
+#: ../src/plugins/menu.c:1007
 msgid "Menu"
 msgstr "メニュー"
 
-#: ../src/plugins/menu.c:1010
+#: ../src/plugins/menu.c:1009
 msgid "Application Menu"
 msgstr "アプリケーション・メニュー"
 
@@ -920,49 +920,49 @@ msgstr "空白"
 msgid "Allocate space"
 msgstr "空白を割り当てます"
 
-#: ../src/plugins/tray.c:755
+#: ../src/plugins/tray.c:754
 msgid "System Tray"
 msgstr "システムトレイ"
 
-#: ../src/plugins/tray.c:757
+#: ../src/plugins/tray.c:756
 msgid "System tray"
 msgstr "システムトレイ"
 
-#: ../src/plugins/xkb/xkb-plugin.c:282
+#: ../src/plugins/xkb/xkb-plugin.c:283
 msgid "Configure Keyboard Layout Switcher"
 msgstr "キーボードレイアウトスイッチャーの設定"
 
-#: ../src/plugins/xkb/xkb-plugin.c:297
+#: ../src/plugins/xkb/xkb-plugin.c:298
 msgid "Show layout as"
 msgstr "レイアウトを次のように表す:"
 
-#: ../src/plugins/xkb/xkb-plugin.c:312
+#: ../src/plugins/xkb/xkb-plugin.c:313
 msgid "image"
 msgstr "画像"
 
-#: ../src/plugins/xkb/xkb-plugin.c:313
+#: ../src/plugins/xkb/xkb-plugin.c:314
 msgid "text"
 msgstr "テキスト"
 
-#: ../src/plugins/xkb/xkb-plugin.c:320
+#: ../src/plugins/xkb/xkb-plugin.c:321
 msgid "Per application settings"
 msgstr "アプリケーションごとの設定"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/xkb/xkb-plugin.c:335
+#: ../src/plugins/xkb/xkb-plugin.c:336
 msgid "_Remember layout for each application"
 msgstr "それぞれのアプリケーションについてレイアウトを記憶する(_R)"
 
 #. Create a label as the child of the horizontal box.
-#: ../src/plugins/xkb/xkb-plugin.c:345
+#: ../src/plugins/xkb/xkb-plugin.c:346
 msgid "Default layout:"
 msgstr "デフォルトのレイアウト:"
 
-#: ../src/plugins/xkb/xkb-plugin.c:396
+#: ../src/plugins/xkb/xkb-plugin.c:397
 msgid "Keyboard Layout Switcher"
 msgstr "キーボード レイアウト スイッチャー"
 
-#: ../src/plugins/xkb/xkb-plugin.c:398
+#: ../src/plugins/xkb/xkb-plugin.c:399
 msgid "Switch between available keyboard layouts"
 msgstr "キーボードレイアウトを切り替えるスイッチ"
 
@@ -1002,43 +1002,43 @@ msgstr "ディレクトリメニュー"
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "ディレクトリ・ツリーをメニュー形式で表示します (作者: PCMan)"
 
-#: ../src/plugins/thermal/thermal.c:284
+#: ../src/plugins/thermal/thermal.c:283
 msgid "Normal"
 msgstr "通常"
 
-#: ../src/plugins/thermal/thermal.c:285
+#: ../src/plugins/thermal/thermal.c:284
 msgid "Warning1"
 msgstr "警戒1"
 
-#: ../src/plugins/thermal/thermal.c:286
+#: ../src/plugins/thermal/thermal.c:285
 msgid "Warning2"
 msgstr "警戒2"
 
-#: ../src/plugins/thermal/thermal.c:287
+#: ../src/plugins/thermal/thermal.c:286
 msgid "Automatic sensor location"
 msgstr "自動センサの位置"
 
-#: ../src/plugins/thermal/thermal.c:288
+#: ../src/plugins/thermal/thermal.c:287
 msgid "Sensor"
 msgstr "センサ"
 
-#: ../src/plugins/thermal/thermal.c:289
+#: ../src/plugins/thermal/thermal.c:288
 msgid "Automatic temperature levels"
 msgstr "自動温度警戒域"
 
-#: ../src/plugins/thermal/thermal.c:290
+#: ../src/plugins/thermal/thermal.c:289
 msgid "Warning1 Temperature"
 msgstr "警戒1 の温度"
 
-#: ../src/plugins/thermal/thermal.c:291
+#: ../src/plugins/thermal/thermal.c:290
 msgid "Warning2 Temperature"
 msgstr "警戒2 の温度"
 
-#: ../src/plugins/thermal/thermal.c:333
+#: ../src/plugins/thermal/thermal.c:332
 msgid "Temperature Monitor"
 msgstr "温度モニタ"
 
-#: ../src/plugins/thermal/thermal.c:335
+#: ../src/plugins/thermal/thermal.c:334
 msgid "Display system temperature, by kesler.daniel@gmail.com"
 msgstr "システムの温度を表示します。kesler.daniel@gmail.com 氏による"
 

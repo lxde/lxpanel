@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel_hr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-09 09:19+0200\n"
+"POT-Creation-Date: 2009-07-18 14:26+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Boljsa <asjlob AT vip.hr>\n"
 "Language-Team:  <asjlob AT vip.hr>\n"
@@ -30,153 +30,158 @@ msgid "<b>Font</b>"
 msgstr "<b>Font</b>"
 
 #: ../data/ui/panel-pref.glade.h:6
+#, fuzzy
+msgid "<b>Icon</b>"
+msgstr "<b>Font</b>"
+
+#: ../data/ui/panel-pref.glade.h:7
 msgid "<b>Position</b>"
 msgstr "<b>Pozicija</b>"
 
-#: ../data/ui/panel-pref.glade.h:7
+#: ../data/ui/panel-pref.glade.h:8
 msgid "<b>Properties</b>"
 msgstr "<b>Svojstva</b>"
 
-#: ../data/ui/panel-pref.glade.h:8
+#: ../data/ui/panel-pref.glade.h:9
 msgid "<b>Set Preferred Applications</b>"
 msgstr "<b>Postavi Preferirane Aplikacije</b>"
 
-#: ../data/ui/panel-pref.glade.h:9
+#: ../data/ui/panel-pref.glade.h:10
 msgid "<b>Size</b>"
 msgstr "<b>Velièina</b>"
 
-#: ../data/ui/panel-pref.glade.h:10
+#: ../data/ui/panel-pref.glade.h:11
 msgid "Advanced"
 msgstr "Napredno"
 
-#: ../data/ui/panel-pref.glade.h:11
+#: ../data/ui/panel-pref.glade.h:12
 msgid "Alignment:"
 msgstr "Poravnanje:"
 
-#: ../data/ui/panel-pref.glade.h:12
+#: ../data/ui/panel-pref.glade.h:13
 msgid "Appearance"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:13 ../src/panel.c:942
+#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:955
 msgid "Bottom"
 msgstr "Dno"
 
-#: ../data/ui/panel-pref.glade.h:14
+#: ../data/ui/panel-pref.glade.h:15
 #, fuzzy
 msgid "Center"
 msgstr "Osnovno"
 
-#: ../data/ui/panel-pref.glade.h:15
+#: ../data/ui/panel-pref.glade.h:16
 #, fuzzy
 msgid "Custom color"
 msgstr "Korisnièka Boja"
 
-#: ../data/ui/panel-pref.glade.h:16
+#: ../data/ui/panel-pref.glade.h:17
 msgid "Dynamic"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:17
+#: ../data/ui/panel-pref.glade.h:18
 msgid "Edge:"
 msgstr "Rub:"
 
-#: ../data/ui/panel-pref.glade.h:18
+#: ../data/ui/panel-pref.glade.h:19
 msgid "File Manager:"
 msgstr "Upravitelj Datoteka:"
 
-#: ../data/ui/panel-pref.glade.h:19
+#: ../data/ui/panel-pref.glade.h:20
 msgid "Geometry"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:20 ../src/panel.c:932 ../src/panel.c:940
+#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:945 ../src/panel.c:953
 msgid "Height:"
 msgstr "Visina:"
 
-#: ../data/ui/panel-pref.glade.h:21
+#: ../data/ui/panel-pref.glade.h:22
 #, fuzzy
 msgid "Image"
 msgstr "slika"
 
-#: ../data/ui/panel-pref.glade.h:22 ../src/panel.c:934
+#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:947
 msgid "Left"
 msgstr "Lijevo"
 
-#: ../data/ui/panel-pref.glade.h:23
+#: ../data/ui/panel-pref.glade.h:24
 #, fuzzy
 msgid "Left\t"
 msgstr "Lijevo"
 
-#: ../data/ui/panel-pref.glade.h:24
+#: ../data/ui/panel-pref.glade.h:25
 msgid "Logout Command:"
 msgstr "Naredba Odjave:"
 
-#: ../data/ui/panel-pref.glade.h:25
+#: ../data/ui/panel-pref.glade.h:26
 msgid "Make window managers treat the panel as dock"
 msgstr "Neka upravitelji prozora tretiraju panel kao dock"
 
-#: ../data/ui/panel-pref.glade.h:26
+#: ../data/ui/panel-pref.glade.h:27
 msgid "Margin:"
 msgstr "Margine:"
 
-#: ../data/ui/panel-pref.glade.h:27
+#: ../data/ui/panel-pref.glade.h:28
 msgid "Minimize panel when not in use"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:28
+#: ../data/ui/panel-pref.glade.h:29
 msgid "Panel Applets"
 msgstr "Apleti Panela"
 
-#: ../data/ui/panel-pref.glade.h:29
+#: ../data/ui/panel-pref.glade.h:30
 msgid "Panel Preferences"
 msgstr "Svojstva Panela"
 
-#: ../data/ui/panel-pref.glade.h:30
+#: ../data/ui/panel-pref.glade.h:31
 msgid "Pixels"
 msgstr "Pixeli"
 
-#: ../data/ui/panel-pref.glade.h:31
+#: ../data/ui/panel-pref.glade.h:32
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Rezerviraj prostor nepokriven od strane maksimiziranih prozora"
 
-#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:935
+#: ../data/ui/panel-pref.glade.h:33 ../src/panel.c:948
 msgid "Right"
 msgstr "Desno"
 
-#: ../data/ui/panel-pref.glade.h:33
+#: ../data/ui/panel-pref.glade.h:34
 msgid "Select an image file"
 msgstr "Odaberi slikovnu datoteku"
 
-#: ../data/ui/panel-pref.glade.h:34
+#: ../data/ui/panel-pref.glade.h:35
 msgid "Size when minimized"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:35
+#: ../data/ui/panel-pref.glade.h:36
 msgid "Solid color (with opacity)"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:36
+#: ../data/ui/panel-pref.glade.h:37
 #, fuzzy
 msgid "System theme"
 msgstr "Ni¹ta (Koristi sustavsku temu)"
 
-#: ../data/ui/panel-pref.glade.h:37
+#: ../data/ui/panel-pref.glade.h:38
 msgid "Terminal Emulator:"
 msgstr "Emulator Terminala:"
 
-#: ../data/ui/panel-pref.glade.h:38
+#: ../data/ui/panel-pref.glade.h:39
 #, fuzzy
 msgid "Top\t"
 msgstr "Vrh"
 
-#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:933 ../src/panel.c:939
+#: ../data/ui/panel-pref.glade.h:40 ../src/panel.c:946 ../src/panel.c:952
 msgid "Width:"
 msgstr "©irina:"
 
-#: ../data/ui/panel-pref.glade.h:40
+#: ../data/ui/panel-pref.glade.h:41
 #, fuzzy
 msgid "pixels"
 msgstr "Pixeli"
 
-#: ../src/configurator.c:54 ../src/gtk-run.c:250
+#: ../src/configurator.c:54 ../src/gtk-run.c:252
 msgid "Run"
 msgstr "Pokreni"
 
@@ -188,40 +193,40 @@ msgstr "Restart"
 msgid "Logout"
 msgstr "Odjava"
 
-#: ../src/configurator.c:438
+#: ../src/configurator.c:445
 msgid "Currently loaded plugins"
 msgstr "Trenutno uèitani dodaci"
 
-#: ../src/configurator.c:447
+#: ../src/configurator.c:454
 msgid "Stretch"
 msgstr "Ra¹iri"
 
-#: ../src/configurator.c:552
+#: ../src/configurator.c:559
 msgid "Add plugin to panel"
 msgstr "Dodaj dodatak panelu"
 
-#: ../src/configurator.c:580
+#: ../src/configurator.c:587
 msgid "Available plugins"
 msgstr "Dostupni dodaci"
 
-#: ../src/configurator.c:1134
+#: ../src/configurator.c:1143
 msgid "Logout command is not set"
 msgstr "Naredba odjave nije pode¹ena"
 
-#: ../src/configurator.c:1187
+#: ../src/configurator.c:1196
 #, fuzzy
 msgid "Select a directory"
 msgstr "Odaberite datoteku"
 
-#: ../src/configurator.c:1187 ../src/configurator.c:1278
+#: ../src/configurator.c:1196 ../src/configurator.c:1287
 msgid "Select a file"
 msgstr "Odaberite datoteku"
 
-#: ../src/configurator.c:1305
+#: ../src/configurator.c:1314
 msgid "_Browse"
 msgstr "_Pretraga"
 
-#: ../src/panel.c:588
+#: ../src/panel.c:590
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -229,115 +234,115 @@ msgstr ""
 "Stvarno obrisati ovaj panel?\n"
 "<b>Upozorenje: Ovo ne mo¾e biti poni¹teno.</b>"
 
-#: ../src/panel.c:590
+#: ../src/panel.c:592
 msgid "Confirm"
 msgstr "Potvrdi"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:622
+#: ../src/panel.c:624
 msgid "translator-credits"
 msgstr ""
 
-#: ../src/panel.c:627
+#: ../src/panel.c:629
 #, fuzzy
 msgid "LXPanel"
 msgstr "Panel"
 
-#: ../src/panel.c:629
+#: ../src/panel.c:631
 msgid "Copyright (C) 2008-2009"
 msgstr ""
 
-#: ../src/panel.c:630
+#: ../src/panel.c:632
 msgid "Desktop panel for LXDE project"
 msgstr ""
 
-#: ../src/panel.c:653
+#: ../src/panel.c:655
 msgid "Add / Remove Panel Items"
 msgstr "Dodaj / Ukloni Stavke Panela"
 
-#: ../src/panel.c:661
+#: ../src/panel.c:663
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Ukloni \"%s\" Iz Panela"
 
-#: ../src/panel.c:673
+#: ../src/panel.c:675
 msgid "Panel Settings"
 msgstr "Svojstva Panela"
 
-#: ../src/panel.c:679
+#: ../src/panel.c:681
 msgid "Create New Panel"
 msgstr "Kreiraj Novi Panel"
 
-#: ../src/panel.c:690
+#: ../src/panel.c:692
 msgid "Delete This Panel"
 msgstr "Obri¹i Ovaj Panel"
 
-#: ../src/panel.c:701
+#: ../src/panel.c:703
 msgid "About"
 msgstr ""
 
-#: ../src/panel.c:709
+#: ../src/panel.c:711
 msgid "Panel"
 msgstr "Panel"
 
-#: ../src/panel.c:722
+#: ../src/panel.c:724
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" Postavke"
 
-#: ../src/panel.c:941
+#: ../src/panel.c:954
 #, fuzzy
 msgid "Top"
 msgstr "Vrh"
 
-#: ../src/panel.c:1332
+#: ../src/panel.c:1345
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - lagani GTK2+ panel za UNIX radne povr¹ine\n"
 
-#: ../src/panel.c:1333
+#: ../src/panel.c:1346
 #, c-format
 msgid "Command line options:\n"
 msgstr "Opcije komandne linije:\n"
 
-#: ../src/panel.c:1334
+#: ../src/panel.c:1347
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- ispi¹uje ovu pomoæ i izlazi\n"
 
-#: ../src/panel.c:1335
+#: ../src/panel.c:1348
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- ispisuje verziju i izlazi\n"
 
-#: ../src/panel.c:1336
+#: ../src/panel.c:1349
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --log <number> -- postavlja nivo log-a 0-5. 0 - none 5 - chatty\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1338
+#: ../src/panel.c:1351
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- koristi specificiran profil\n"
 
-#: ../src/panel.c:1340
+#: ../src/panel.c:1353
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- isto kao --help\n"
 
-#: ../src/panel.c:1341
+#: ../src/panel.c:1354
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- isto kao --profil\n"
 
-#: ../src/panel.c:1342
+#: ../src/panel.c:1355
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- isto kao --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1344
+#: ../src/panel.c:1357
 #, c-format
 msgid ""
 "\n"
@@ -348,7 +353,7 @@ msgstr ""
 "Posjetite http://lxde.org/ za vi¹e detaljal.\n"
 "\n"
 
-#: ../src/gtk-run.c:264
+#: ../src/gtk-run.c:266
 msgid "Enter the command you want to execute:"
 msgstr "Upi¹ite naredbu koju ¾elite izvr¹iti:"
 
@@ -365,131 +370,127 @@ msgstr "Prika¾i kori¹tenje CPU"
 msgid "Desktop Number / Workspace Name"
 msgstr "Broj / Ime Radne Povr¹ine"
 
-#: ../src/plugins/deskno/deskno.c:167 ../src/plugins/deskno/deskno2.c:131
+#: ../src/plugins/deskno/deskno.c:167
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Prika¾i broj radne povr¹ine, od cmeury@users.sf.net"
-
-#: ../src/plugins/deskno/deskno2.c:129
-msgid "Desktop No / Workspace Name"
-msgstr "Broj / Ime Radne Povr¹ine"
 
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
 msgstr "Prika¾i Sliku i Naziv Alata"
 
-#: ../src/plugins/launchbar.c:648
+#: ../src/plugins/launchbar.c:665
 #, fuzzy
 msgid "Available Applications"
 msgstr "Dostupni dodaci"
 
-#: ../src/plugins/launchbar.c:648
+#: ../src/plugins/launchbar.c:665
 #, fuzzy
 msgid "Applications"
 msgstr "Odaberite Aplikaciju"
 
-#: ../src/plugins/launchbar.c:816
+#: ../src/plugins/launchbar.c:846
 msgid "Application Launch Bar"
 msgstr "Tabla za Pokretanje Aplikacija"
 
-#: ../src/plugins/launchbar.c:818
+#: ../src/plugins/launchbar.c:848
 msgid "Bar with buttons to launch application"
 msgstr "Tabla sa dugmadima za pokretanje aplikacija"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1644
+#: ../src/plugins/taskbar.c:1672
 #, fuzzy
 msgid "_Raise"
 msgstr "Poveèaj"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1649
+#: ../src/plugins/taskbar.c:1677
 #, fuzzy
 msgid "R_estore"
 msgstr "Obnovi"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1654
+#: ../src/plugins/taskbar.c:1682
 #, fuzzy
 msgid "Ma_ximize"
 msgstr "Maksimiziraj"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1659
+#: ../src/plugins/taskbar.c:1687
 #, fuzzy
 msgid "Ico_nify"
 msgstr "Minimiziraj"
 
-#: ../src/plugins/taskbar.c:1678
+#: ../src/plugins/taskbar.c:1706
 #, fuzzy, c-format
 msgid "Workspace _%d"
 msgstr "Radna Povr¹ina %d"
 
-#: ../src/plugins/taskbar.c:1683
+#: ../src/plugins/taskbar.c:1711
 #, c-format
 msgid "Workspace %d"
 msgstr "Radna Povr¹ina %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1697
+#: ../src/plugins/taskbar.c:1725
 #, fuzzy
 msgid "_All workspaces"
 msgstr "Sve Radne Povr¹ine"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1703
+#: ../src/plugins/taskbar.c:1731
 #, fuzzy
 msgid "_Move to Workspace"
 msgstr "Premjesti na Radnu Povr¹inu"
 
-#. Add Close menu item.  By policy, we place this item farthest from the cursor.
-#: ../src/plugins/taskbar.c:1709
+#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
+#: ../src/plugins/taskbar.c:1737
 #, fuzzy
 msgid "_Close Window"
 msgstr "Zatvori Prozor"
 
-#: ../src/plugins/taskbar.c:1923
+#: ../src/plugins/taskbar.c:1948
 msgid "Show tooltips"
 msgstr "Prika¾i opise alata"
 
-#: ../src/plugins/taskbar.c:1924
+#: ../src/plugins/taskbar.c:1949
 msgid "Icons only"
 msgstr "Samo Ikone"
 
-#: ../src/plugins/taskbar.c:1925
+#: ../src/plugins/taskbar.c:1950
 #, fuzzy
 msgid "Flat buttons"
 msgstr "Ravna Dugmad"
 
-#: ../src/plugins/taskbar.c:1926
+#: ../src/plugins/taskbar.c:1951
 msgid "Show windows from all desktops"
 msgstr "Prika¾i prozore sa svih radnih povr¹ina"
 
-#: ../src/plugins/taskbar.c:1927
+#: ../src/plugins/taskbar.c:1952
 msgid "Use mouse wheel"
 msgstr "Koristi kotaèiæ mi¹a"
 
-#: ../src/plugins/taskbar.c:1928
+#: ../src/plugins/taskbar.c:1953
 msgid "Flash when there is any window requiring attention"
 msgstr "Bljesni kada prozor zahtjeva pozornost"
 
-#: ../src/plugins/taskbar.c:1929
+#: ../src/plugins/taskbar.c:1954
 msgid "Combine multiple application windows into a single button"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1930
+#: ../src/plugins/taskbar.c:1955
 #, fuzzy
 msgid "Maximum width of task button"
 msgstr "Maksimalna ¹irina komandnih dugmadi"
 
-#: ../src/plugins/taskbar.c:1931
+#: ../src/plugins/taskbar.c:1956
 msgid "Spacing"
 msgstr "Razmak"
 
-#: ../src/plugins/taskbar.c:1966
+#: ../src/plugins/taskbar.c:2010
 msgid "Task Bar (Window List)"
 msgstr "Tabla Zadataka (Lista Prozora)"
 
-#: ../src/plugins/taskbar.c:1968
+#: ../src/plugins/taskbar.c:2012
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -497,52 +498,52 @@ msgstr ""
 "Tabla zadataka prikazuje sve otvorene prozore i dopu¹ta njihovu ikonizaciju, "
 "skrivanje ili fokus"
 
-#: ../src/plugins/dclock.c:261
+#: ../src/plugins/dclock.c:282
 msgid "Clock Format"
 msgstr "Format Sata"
 
-#: ../src/plugins/dclock.c:262
+#: ../src/plugins/dclock.c:283
 msgid "Tooltip Format"
 msgstr "Format Opisa Alata"
 
-#: ../src/plugins/dclock.c:263
+#: ../src/plugins/dclock.c:284
 msgid "Format codes: man 3 strftime"
 msgstr ""
 
-#: ../src/plugins/dclock.c:264
+#: ../src/plugins/dclock.c:285
 msgid "Action when clicked (default: display calendar)"
 msgstr ""
 
-#: ../src/plugins/dclock.c:265
+#: ../src/plugins/dclock.c:286
 msgid "Bold font"
 msgstr "Podebljani font"
 
-#: ../src/plugins/dclock.c:292
+#: ../src/plugins/dclock.c:313
 msgid "Digital Clock"
 msgstr "Digitalni Sat"
 
-#: ../src/plugins/dclock.c:294
+#: ../src/plugins/dclock.c:315
 #, fuzzy
 msgid "Display digital clock and tooltip"
 msgstr "Prika¾i Digitalni sat i opis"
 
-#: ../src/plugins/menu.c:369
+#: ../src/plugins/menu.c:372
 msgid "Add to desktop"
 msgstr "Dodaj na radnu povr¹inu"
 
-#: ../src/plugins/menu.c:379
+#: ../src/plugins/menu.c:382
 msgid "Properties"
 msgstr "Svojstva"
 
-#: ../src/plugins/menu.c:990
+#: ../src/plugins/menu.c:990 ../src/plugins/dirmenu.c:367
 msgid "Icon"
 msgstr "Ikona"
 
-#: ../src/plugins/menu.c:1001
+#: ../src/plugins/menu.c:1007
 msgid "Menu"
 msgstr "Izbornik"
 
-#: ../src/plugins/menu.c:1003
+#: ../src/plugins/menu.c:1009
 #, fuzzy
 msgid "Application Menu"
 msgstr "Tabla za Pokretanje Aplikacija"
@@ -915,11 +916,11 @@ msgstr "Razdjelnik"
 msgid "Add a separator to the panel"
 msgstr "Dodaj razdjelnik na panel"
 
-#: ../src/plugins/pager.c:795
+#: ../src/plugins/pager.c:797
 msgid "Desktop Pager"
 msgstr "Brojaè Radnih Povr¹ina"
 
-#: ../src/plugins/pager.c:797
+#: ../src/plugins/pager.c:799
 msgid "Simple pager plugin"
 msgstr "Jednostavan dodatak brojaè"
 
@@ -936,75 +937,65 @@ msgstr "<Razmak>"
 msgid "Allocate space"
 msgstr "Rezerviranje razmaka"
 
-#: ../src/plugins/tray.c:731
+#: ../src/plugins/tray.c:754
 msgid "System Tray"
 msgstr "Sustavska Traka"
 
-#: ../src/plugins/tray.c:733
+#: ../src/plugins/tray.c:756
 #, fuzzy
 msgid "System tray"
 msgstr "Sustavska Traka"
 
-#: ../src/plugins/xkb/xkb-plugin.c:242 ../src/plugins/xkb/xkb-plugin.c:506
-msgid "Keyboard Layout Switcher"
-msgstr "Mijenjaè Formata Tipkovnice"
-
-#: ../src/plugins/xkb/xkb-plugin.c:248
-msgid ""
-"Allows you to switch the keyboard layout and\n"
-"displays the currently selected layout."
-msgstr ""
-"Dopu¹ta vam mijenjanje formata tipkovnice i\n"
-"prikazuje trenutno odabran format."
-
-#: ../src/plugins/xkb/xkb-plugin.c:253
-msgid "Other plugins available here"
-msgstr "Ostali dodaci dostupni ovdje"
-
-#: ../src/plugins/xkb/xkb-plugin.c:392
+#: ../src/plugins/xkb/xkb-plugin.c:283
 msgid "Configure Keyboard Layout Switcher"
 msgstr "Konfiguriraj Mijenjaè Formata Tipkovnice"
 
-#: ../src/plugins/xkb/xkb-plugin.c:405
+#: ../src/plugins/xkb/xkb-plugin.c:298
 msgid "Show layout as"
 msgstr "Prika¾i format kao"
 
-#: ../src/plugins/xkb/xkb-plugin.c:420
+#: ../src/plugins/xkb/xkb-plugin.c:313
 msgid "image"
 msgstr "slika"
 
-#: ../src/plugins/xkb/xkb-plugin.c:421
+#: ../src/plugins/xkb/xkb-plugin.c:314
 msgid "text"
 msgstr "tekst"
 
-#: ../src/plugins/xkb/xkb-plugin.c:425
+#: ../src/plugins/xkb/xkb-plugin.c:321
 msgid "Per application settings"
 msgstr "Putem postavki aplikacije"
 
-#: ../src/plugins/xkb/xkb-plugin.c:439
+#. Create a check button as the child of the vertical box.
+#: ../src/plugins/xkb/xkb-plugin.c:336
 msgid "_Remember layout for each application"
 msgstr "_Zapamti format za svaku aplikaciju"
 
-#: ../src/plugins/xkb/xkb-plugin.c:448
+#. Create a label as the child of the horizontal box.
+#: ../src/plugins/xkb/xkb-plugin.c:346
 msgid "Default layout:"
 msgstr "Standardni format:"
 
-#: ../src/plugins/xkb/xkb-plugin.c:508
+#: ../src/plugins/xkb/xkb-plugin.c:397
+msgid "Keyboard Layout Switcher"
+msgstr "Mijenjaè Formata Tipkovnice"
+
+#: ../src/plugins/xkb/xkb-plugin.c:399
 msgid "Switch between available keyboard layouts"
 msgstr "Prebacuj izmeðu dostupnih formata tipkovnice"
 
-#: ../src/plugins/wincmd.c:167
+#: ../src/plugins/wincmd.c:171
 #, fuzzy
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
 "Lijevi klik za ikonizaciju svih prozora. Klik na kotaèiæ mi¹a za njihovo "
 "skrivanje"
 
-#: ../src/plugins/wincmd.c:197
+#: ../src/plugins/wincmd.c:208
 msgid "Minimize All Windows"
 msgstr "Minimiziraj Sve Prozore"
 
-#: ../src/plugins/wincmd.c:199
+#: ../src/plugins/wincmd.c:210
 #, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
@@ -1013,88 +1004,91 @@ msgstr ""
 "©alji naredbe svim prozorima radnih povr¹ina.\n"
 "Podr¾ane naredbe su 1) toggle iconify i 2) toggle shade"
 
-#: ../src/plugins/dirmenu.c:212
+#: ../src/plugins/dirmenu.c:200
 msgid "Open in _Terminal"
 msgstr "Otvori u _Terminalu"
 
-#: ../src/plugins/dirmenu.c:386
+#: ../src/plugins/dirmenu.c:365
 #, fuzzy
 msgid "Directory"
 msgstr "Izbornik Direktorija"
 
-#: ../src/plugins/dirmenu.c:387
+#: ../src/plugins/dirmenu.c:366
 #, fuzzy
 msgid "Label"
 msgstr "Panel"
 
-#: ../src/plugins/dirmenu.c:404
+#: ../src/plugins/dirmenu.c:397
 msgid "Directory Menu"
 msgstr "Izbornik Direktorija"
 
-#: ../src/plugins/dirmenu.c:406
+#: ../src/plugins/dirmenu.c:399
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "Pregledavaj stablo direktorija kroz izbornik (Autor: PCMan)"
 
-#: ../src/plugins/thermal/thermal.c:284
+#: ../src/plugins/thermal/thermal.c:283
 msgid "Normal"
 msgstr "Normalno"
 
-#: ../src/plugins/thermal/thermal.c:285
+#: ../src/plugins/thermal/thermal.c:284
 msgid "Warning1"
 msgstr "Upozorenje1"
 
-#: ../src/plugins/thermal/thermal.c:286
+#: ../src/plugins/thermal/thermal.c:285
 msgid "Warning2"
 msgstr "Upozorenje2"
 
-#: ../src/plugins/thermal/thermal.c:287
+#: ../src/plugins/thermal/thermal.c:286
 msgid "Automatic sensor location"
 msgstr "Automatska lokacija senzora"
 
-#: ../src/plugins/thermal/thermal.c:288
+#: ../src/plugins/thermal/thermal.c:287
 msgid "Sensor"
 msgstr "Senzor"
 
-#: ../src/plugins/thermal/thermal.c:289
+#: ../src/plugins/thermal/thermal.c:288
 msgid "Automatic temperature levels"
 msgstr "Automatski nivoi temperatura"
 
-#: ../src/plugins/thermal/thermal.c:290
+#: ../src/plugins/thermal/thermal.c:289
 #, fuzzy
 msgid "Warning1 Temperature"
 msgstr "Upozorenje1 Temperatura"
 
-#: ../src/plugins/thermal/thermal.c:291
+#: ../src/plugins/thermal/thermal.c:290
 #, fuzzy
 msgid "Warning2 Temperature"
 msgstr "Upozorenje2 Temperatura"
 
-#: ../src/plugins/thermal/thermal.c:333
+#: ../src/plugins/thermal/thermal.c:332
 msgid "Temperature Monitor"
 msgstr "Monitor Temperatura"
 
-#: ../src/plugins/thermal/thermal.c:335
+#: ../src/plugins/thermal/thermal.c:334
 msgid "Display system temperature, by kesler.daniel@gmail.com"
 msgstr "Prika¾i sustavsku temperaturu, od kesler.daniel@gmail.com"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
+#. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:410
+#: ../src/plugins/volumealsa/volumealsa.c:239
+#: ../src/plugins/volumealsa/volumealsa.c:400
 msgid "Volume control"
 msgstr "Kontrola glasnoæe"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:424
+#: ../src/plugins/volumealsa/volumealsa.c:449
 msgid "Volume Control"
 msgstr "Kontrola Glasnoæe"
 
-#. create frame
+#. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:319
+#: ../src/plugins/volumealsa/volumealsa.c:358
 msgid "Volume"
 msgstr "Glasnoæa"
 
-#: ../src/plugins/volumealsa/volumealsa.c:336
+#. Create a check button as the child of the vertical box.
+#: ../src/plugins/volumealsa/volumealsa.c:377
 msgid "Mute"
 msgstr "Uti¹aj"
 
@@ -1361,34 +1355,47 @@ msgstr "Boja pra¾njenja 2"
 msgid "Border width"
 msgstr "©irina ruba"
 
-#: ../src/plugins/batt/batt.c:620
+#: ../src/plugins/batt/batt.c:619
 msgid "Battery Monitor"
 msgstr "Nadzor Baterije"
 
-#: ../src/plugins/batt/batt.c:622
+#: ../src/plugins/batt/batt.c:621
 msgid "Display battery status using ACPI"
 msgstr "Prika¾i status baterije koristeæi ACPI"
 
-#: ../src/plugins/kbled/kbled.c:227
+#: ../src/plugins/kbled/kbled.c:230
 msgid "Show CapsLock"
 msgstr "Prika¾i CapsLock"
 
-#: ../src/plugins/kbled/kbled.c:228
+#: ../src/plugins/kbled/kbled.c:231
 msgid "Show NumLock"
 msgstr "Prika¾i NumLock"
 
-#: ../src/plugins/kbled/kbled.c:229
+#: ../src/plugins/kbled/kbled.c:232
 msgid "Show ScrollLock"
 msgstr "Prika¾i ScrollLock"
 
-#: ../src/plugins/kbled/kbled.c:259
+#: ../src/plugins/kbled/kbled.c:267
 #, fuzzy
 msgid "Keyboard LED"
 msgstr "LED-ica Tipkovnice"
 
-#: ../src/plugins/kbled/kbled.c:261
+#: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Indikatori za CapsLock, NumLock i ScrollLock tipke"
+
+#~ msgid "Desktop No / Workspace Name"
+#~ msgstr "Broj / Ime Radne Povr¹ine"
+
+#~ msgid ""
+#~ "Allows you to switch the keyboard layout and\n"
+#~ "displays the currently selected layout."
+#~ msgstr ""
+#~ "Dopu¹ta vam mijenjanje formata tipkovnice i\n"
+#~ "prikazuje trenutno odabran format."
+
+#~ msgid "Other plugins available here"
+#~ msgstr "Ostali dodaci dostupni ovdje"
 
 #~ msgid "Old KDE/GNOME Tray"
 #~ msgstr "Stara KDE/GNOME Traka"

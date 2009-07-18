@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel-0.2.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-09 09:19+0200\n"
+"POT-Creation-Date: 2009-07-18 14:26+0200\n"
 "PO-Revision-Date: 2009-07-09 18:34+0100\n"
 "Last-Translator: Zsolt Peter Basak <shiki@biomernok.hu>\n"
 "Language-Team: hu <hu@li.org>\n"
@@ -36,154 +36,151 @@ msgid "<b>Font</b>"
 msgstr "<b>Betű</b>"
 
 #: ../data/ui/panel-pref.glade.h:6
+#, fuzzy
+msgid "<b>Icon</b>"
+msgstr "<b>Betű</b>"
+
+#: ../data/ui/panel-pref.glade.h:7
 msgid "<b>Position</b>"
 msgstr "<b>Elhelyezkedés</b>"
 
-#: ../data/ui/panel-pref.glade.h:7
+#: ../data/ui/panel-pref.glade.h:8
 msgid "<b>Properties</b>"
 msgstr "<b>Tulajdonságok</b>"
 
-#: ../data/ui/panel-pref.glade.h:8
+#: ../data/ui/panel-pref.glade.h:9
 msgid "<b>Set Preferred Applications</b>"
 msgstr "<b>Kedvenc alkalmazások beállítása</b>"
 
-#: ../data/ui/panel-pref.glade.h:9
+#: ../data/ui/panel-pref.glade.h:10
 msgid "<b>Size</b>"
 msgstr "<b>Méret</b>"
 
-#: ../data/ui/panel-pref.glade.h:10
+#: ../data/ui/panel-pref.glade.h:11
 msgid "Advanced"
 msgstr "Haladó"
 
-#: ../data/ui/panel-pref.glade.h:11
+#: ../data/ui/panel-pref.glade.h:12
 msgid "Alignment:"
 msgstr "Igazítás:"
 
-#: ../data/ui/panel-pref.glade.h:12
+#: ../data/ui/panel-pref.glade.h:13
 msgid "Appearance"
 msgstr "Megjelenés"
 
-#: ../data/ui/panel-pref.glade.h:13
-#: ../src/panel.c:942
+#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:955
 msgid "Bottom"
 msgstr "Lent"
 
-#: ../data/ui/panel-pref.glade.h:14
+#: ../data/ui/panel-pref.glade.h:15
 msgid "Center"
 msgstr "Középre"
 
-#: ../data/ui/panel-pref.glade.h:15
+#: ../data/ui/panel-pref.glade.h:16
 msgid "Custom color"
 msgstr "Egyéni szín"
 
-#: ../data/ui/panel-pref.glade.h:16
+#: ../data/ui/panel-pref.glade.h:17
 msgid "Dynamic"
 msgstr "Dinamikus"
 
-#: ../data/ui/panel-pref.glade.h:17
+#: ../data/ui/panel-pref.glade.h:18
 msgid "Edge:"
 msgstr "Szél:"
 
-#: ../data/ui/panel-pref.glade.h:18
+#: ../data/ui/panel-pref.glade.h:19
 msgid "File Manager:"
 msgstr "Fájlkezelő:"
 
-#: ../data/ui/panel-pref.glade.h:19
+#: ../data/ui/panel-pref.glade.h:20
 msgid "Geometry"
 msgstr "Méret"
 
-#: ../data/ui/panel-pref.glade.h:20
-#: ../src/panel.c:932
-#: ../src/panel.c:940
+#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:945 ../src/panel.c:953
 msgid "Height:"
 msgstr "Magasság:"
 
-#: ../data/ui/panel-pref.glade.h:21
+#: ../data/ui/panel-pref.glade.h:22
 msgid "Image"
 msgstr "Kép"
 
-#: ../data/ui/panel-pref.glade.h:22
-#: ../src/panel.c:934
+#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:947
 msgid "Left"
 msgstr "Balra"
 
-#: ../data/ui/panel-pref.glade.h:23
+#: ../data/ui/panel-pref.glade.h:24
 msgid "Left\t"
 msgstr "Balra\t"
 
-#: ../data/ui/panel-pref.glade.h:24
+#: ../data/ui/panel-pref.glade.h:25
 msgid "Logout Command:"
 msgstr "Kijelentkező parancs:"
 
-#: ../data/ui/panel-pref.glade.h:25
+#: ../data/ui/panel-pref.glade.h:26
 msgid "Make window managers treat the panel as dock"
 msgstr "Az ablakkezelők a panelt dokként kezeljék"
 
-#: ../data/ui/panel-pref.glade.h:26
+#: ../data/ui/panel-pref.glade.h:27
 msgid "Margin:"
 msgstr "Margó"
 
-#: ../data/ui/panel-pref.glade.h:27
+#: ../data/ui/panel-pref.glade.h:28
 msgid "Minimize panel when not in use"
 msgstr "Panel kicsinyítése ha nincs használatban"
 
-#: ../data/ui/panel-pref.glade.h:28
+#: ../data/ui/panel-pref.glade.h:29
 msgid "Panel Applets"
 msgstr "Panel kisalkalmazások"
 
-#: ../data/ui/panel-pref.glade.h:29
+#: ../data/ui/panel-pref.glade.h:30
 msgid "Panel Preferences"
 msgstr "A panel jellemzői"
 
-#: ../data/ui/panel-pref.glade.h:30
+#: ../data/ui/panel-pref.glade.h:31
 msgid "Pixels"
 msgstr "Kép-pontok"
 
-#: ../data/ui/panel-pref.glade.h:31
+#: ../data/ui/panel-pref.glade.h:32
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Terület védelme a maximált ablakokkal szemben"
 
-#: ../data/ui/panel-pref.glade.h:32
-#: ../src/panel.c:935
+#: ../data/ui/panel-pref.glade.h:33 ../src/panel.c:948
 msgid "Right"
 msgstr "Jobbra"
 
-#: ../data/ui/panel-pref.glade.h:33
+#: ../data/ui/panel-pref.glade.h:34
 msgid "Select an image file"
 msgstr "Válassz egy kép fájlt"
 
-#: ../data/ui/panel-pref.glade.h:34
+#: ../data/ui/panel-pref.glade.h:35
 msgid "Size when minimized"
 msgstr "Kicsinyített panel mérete"
 
-#: ../data/ui/panel-pref.glade.h:35
+#: ../data/ui/panel-pref.glade.h:36
 msgid "Solid color (with opacity)"
 msgstr "Szín (átlátszósággal)"
 
-#: ../data/ui/panel-pref.glade.h:36
+#: ../data/ui/panel-pref.glade.h:37
 msgid "System theme"
 msgstr "Rendszertéma"
 
-#: ../data/ui/panel-pref.glade.h:37
+#: ../data/ui/panel-pref.glade.h:38
 msgid "Terminal Emulator:"
 msgstr "Terminál emulátor:"
 
-#: ../data/ui/panel-pref.glade.h:38
+#: ../data/ui/panel-pref.glade.h:39
 msgid "Top\t"
 msgstr "Felül\t"
 
-#: ../data/ui/panel-pref.glade.h:39
-#: ../src/panel.c:933
-#: ../src/panel.c:939
+#: ../data/ui/panel-pref.glade.h:40 ../src/panel.c:946 ../src/panel.c:952
 msgid "Width:"
 msgstr "Szélesség:"
 
-#: ../data/ui/panel-pref.glade.h:40
+#: ../data/ui/panel-pref.glade.h:41
 msgid "pixels"
 msgstr "pixelek"
 
-#: ../src/configurator.c:54
-#: ../src/gtk-run.c:250
+#: ../src/configurator.c:54 ../src/gtk-run.c:252
 msgid "Run"
 msgstr "Futtatás"
 
@@ -195,40 +192,39 @@ msgstr "Újraindítás"
 msgid "Logout"
 msgstr "Kilépés"
 
-#: ../src/configurator.c:438
+#: ../src/configurator.c:445
 msgid "Currently loaded plugins"
 msgstr "A most betöltött elemek"
 
-#: ../src/configurator.c:447
+#: ../src/configurator.c:454
 msgid "Stretch"
 msgstr "Nyújt"
 
-#: ../src/configurator.c:552
+#: ../src/configurator.c:559
 msgid "Add plugin to panel"
 msgstr "Elemek hozzáadása a panelhoz"
 
-#: ../src/configurator.c:580
+#: ../src/configurator.c:587
 msgid "Available plugins"
 msgstr "Elemek hozzáadása"
 
-#: ../src/configurator.c:1134
+#: ../src/configurator.c:1143
 msgid "Logout command is not set"
 msgstr "Nincs beállítva kijelentkező parancs"
 
-#: ../src/configurator.c:1187
+#: ../src/configurator.c:1196
 msgid "Select a directory"
 msgstr "Válassz egy mappát"
 
-#: ../src/configurator.c:1187
-#: ../src/configurator.c:1278
+#: ../src/configurator.c:1196 ../src/configurator.c:1287
 msgid "Select a file"
 msgstr "Válassz egy fájlt"
 
-#: ../src/configurator.c:1305
+#: ../src/configurator.c:1314
 msgid "_Browse"
 msgstr "_Böngész"
 
-#: ../src/panel.c:588
+#: ../src/panel.c:590
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -236,113 +232,113 @@ msgstr ""
 "Tényleg törlöd e panelt?\n"
 "<b>Figyelem: ez nem vonható vissza.</b>"
 
-#: ../src/panel.c:590
+#: ../src/panel.c:592
 msgid "Confirm"
 msgstr "Jóváhagy"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:622
+#: ../src/panel.c:624
 msgid "translator-credits"
 msgstr "SZERVÁC Attila ; Basák Péter Zsolt"
 
-#: ../src/panel.c:627
+#: ../src/panel.c:629
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:629
+#: ../src/panel.c:631
 msgid "Copyright (C) 2008-2009"
 msgstr "Copyright (C) 2008-2009"
 
-#: ../src/panel.c:630
+#: ../src/panel.c:632
 msgid "Desktop panel for LXDE project"
 msgstr "Asztali panel az LXDE projekt számára"
 
-#: ../src/panel.c:653
+#: ../src/panel.c:655
 msgid "Add / Remove Panel Items"
 msgstr "Panel-elemek hozzáadása/törlése"
 
-#: ../src/panel.c:661
+#: ../src/panel.c:663
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "\"%s\" törlése a panelról"
 
-#: ../src/panel.c:673
+#: ../src/panel.c:675
 msgid "Panel Settings"
 msgstr "Panel beállítások"
 
-#: ../src/panel.c:679
+#: ../src/panel.c:681
 msgid "Create New Panel"
 msgstr "Új panel létrehozása"
 
-#: ../src/panel.c:690
+#: ../src/panel.c:692
 msgid "Delete This Panel"
 msgstr "E panel törlése"
 
-#: ../src/panel.c:701
+#: ../src/panel.c:703
 msgid "About"
 msgstr "Rólunk"
 
-#: ../src/panel.c:709
+#: ../src/panel.c:711
 msgid "Panel"
 msgstr "Panel"
 
-#: ../src/panel.c:722
+#: ../src/panel.c:724
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" beállítások"
 
-#: ../src/panel.c:941
+#: ../src/panel.c:954
 msgid "Top"
 msgstr "Felül"
 
-#: ../src/panel.c:1332
+#: ../src/panel.c:1345
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - gyors GTK2+ panel UNIX munkafelületekhez\n"
 
-#: ../src/panel.c:1333
+#: ../src/panel.c:1346
 #, c-format
 msgid "Command line options:\n"
 msgstr "Parancssori lehetőségek:\n"
 
-#: ../src/panel.c:1334
+#: ../src/panel.c:1347
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- Súgólehetőségek megjelenítése\n"
 
-#: ../src/panel.c:1335
+#: ../src/panel.c:1348
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- Programverzió megjelenítése\n"
 
-#: ../src/panel.c:1336
+#: ../src/panel.c:1349
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --log <szám> -- Naplózási szint 0 (üres) és 5 (részletes) között\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1338
+#: ../src/panel.c:1351
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- Adott profil használata\n"
 
-#: ../src/panel.c:1340
+#: ../src/panel.c:1353
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- lásd --help\n"
 
-#: ../src/panel.c:1341
+#: ../src/panel.c:1354
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- lásd --profile\n"
 
-#: ../src/panel.c:1342
+#: ../src/panel.c:1355
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- lásd --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1344
+#: ../src/panel.c:1357
 #, c-format
 msgid ""
 "\n"
@@ -353,7 +349,7 @@ msgstr ""
 "Lásd a http://lxpanel.sourceforge.net/ címet a részletekért.\n"
 "\n"
 
-#: ../src/gtk-run.c:264
+#: ../src/gtk-run.c:266
 msgid "Enter the command you want to execute:"
 msgstr "Futtatandó parancs:"
 
@@ -370,168 +366,167 @@ msgid "Desktop Number / Workspace Name"
 msgstr "Munkaasztal száma / Munkaterület neve"
 
 #: ../src/plugins/deskno/deskno.c:167
-#: ../src/plugins/deskno/deskno2.c:131
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Munkaterület szám kiírása: cmeury@users.sf.net"
-
-#: ../src/plugins/deskno/deskno2.c:129
-msgid "Desktop No / Workspace Name"
-msgstr "Munkaasztal szám / Munkaterület neve"
 
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
 msgstr "Kép és eszköztipp mutatása"
 
-#: ../src/plugins/launchbar.c:648
+#: ../src/plugins/launchbar.c:665
 msgid "Available Applications"
 msgstr "Elérhető Alkalmazások"
 
-#: ../src/plugins/launchbar.c:648
+#: ../src/plugins/launchbar.c:665
 msgid "Applications"
 msgstr "Alkalmazások"
 
-#: ../src/plugins/launchbar.c:816
+#: ../src/plugins/launchbar.c:846
 msgid "Application Launch Bar"
 msgstr "Alkalmazás-indító"
 
-#: ../src/plugins/launchbar.c:818
+#: ../src/plugins/launchbar.c:848
 msgid "Bar with buttons to launch application"
 msgstr "Alkalmazás-indító gombokkal"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1644
+#: ../src/plugins/taskbar.c:1672
 msgid "_Raise"
 msgstr "_Előhív"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1649
+#: ../src/plugins/taskbar.c:1677
 msgid "R_estore"
 msgstr "_Visszaállít"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1654
+#: ../src/plugins/taskbar.c:1682
 msgid "Ma_ximize"
 msgstr "Ki_nagyít"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1659
+#: ../src/plugins/taskbar.c:1687
 msgid "Ico_nify"
 msgstr "min_imalizál"
 
-#: ../src/plugins/taskbar.c:1678
+#: ../src/plugins/taskbar.c:1706
 #, c-format
 msgid "Workspace _%d"
 msgstr "%d. Munkaterület"
 
-#: ../src/plugins/taskbar.c:1683
+#: ../src/plugins/taskbar.c:1711
 #, c-format
 msgid "Workspace %d"
 msgstr "%d. munkaterület"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1697
+#: ../src/plugins/taskbar.c:1725
 msgid "_All workspaces"
 msgstr "_Minden munkaterület"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1703
+#: ../src/plugins/taskbar.c:1731
 msgid "_Move to Workspace"
 msgstr "_Áthelyezés másik Munkaterületre"
 
-#. Add Close menu item.  By policy, we place this item farthest from the cursor.
-#: ../src/plugins/taskbar.c:1709
+#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
+#: ../src/plugins/taskbar.c:1737
 msgid "_Close Window"
 msgstr "_Ablak bezárása"
 
-#: ../src/plugins/taskbar.c:1923
+#: ../src/plugins/taskbar.c:1948
 msgid "Show tooltips"
 msgstr "Tippek mutatása"
 
-#: ../src/plugins/taskbar.c:1924
+#: ../src/plugins/taskbar.c:1949
 msgid "Icons only"
 msgstr "Csak ikonok"
 
-#: ../src/plugins/taskbar.c:1925
+#: ../src/plugins/taskbar.c:1950
 msgid "Flat buttons"
 msgstr "Lapos gombok"
 
-#: ../src/plugins/taskbar.c:1926
+#: ../src/plugins/taskbar.c:1951
 msgid "Show windows from all desktops"
 msgstr "Összes munkaterület ablakainak megjelenítése"
 
-#: ../src/plugins/taskbar.c:1927
+#: ../src/plugins/taskbar.c:1952
 msgid "Use mouse wheel"
 msgstr "Egérgörgő használata"
 
-#: ../src/plugins/taskbar.c:1928
+#: ../src/plugins/taskbar.c:1953
 msgid "Flash when there is any window requiring attention"
 msgstr "Villan, ha egy ablak figyelmet kér"
 
-#: ../src/plugins/taskbar.c:1929
+#: ../src/plugins/taskbar.c:1954
 msgid "Combine multiple application windows into a single button"
 msgstr "Több alkalmazás ablakainak egyesítése egy egyszerű gombbá"
 
-#: ../src/plugins/taskbar.c:1930
+#: ../src/plugins/taskbar.c:1955
 msgid "Maximum width of task button"
 msgstr "Gombok max. szélessége:"
 
-#: ../src/plugins/taskbar.c:1931
+#: ../src/plugins/taskbar.c:1956
 msgid "Spacing"
 msgstr "Térköz: "
 
-#: ../src/plugins/taskbar.c:1966
+#: ../src/plugins/taskbar.c:2010
 msgid "Task Bar (Window List)"
 msgstr "Ablaklista"
 
-#: ../src/plugins/taskbar.c:1968
-msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
-msgstr "Mutatja a megnyitott ablakokat és lehetővé teszi a minimalizálást, felgördítést és a közöttük lévő váltást"
+#: ../src/plugins/taskbar.c:2012
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
+msgstr ""
+"Mutatja a megnyitott ablakokat és lehetővé teszi a minimalizálást, "
+"felgördítést és a közöttük lévő váltást"
 
-#: ../src/plugins/dclock.c:261
+#: ../src/plugins/dclock.c:282
 msgid "Clock Format"
 msgstr "Óra formátuma"
 
-#: ../src/plugins/dclock.c:262
+#: ../src/plugins/dclock.c:283
 msgid "Tooltip Format"
 msgstr "Eszköztipp formátuma"
 
-#: ../src/plugins/dclock.c:263
+#: ../src/plugins/dclock.c:284
 msgid "Format codes: man 3 strftime"
 msgstr "Formázási kódok: man 3 strftime"
 
-#: ../src/plugins/dclock.c:264
+#: ../src/plugins/dclock.c:285
 msgid "Action when clicked (default: display calendar)"
 msgstr "Kattintasra elvégzendő művelet (alapesetben: naptár mutatása)"
 
-#: ../src/plugins/dclock.c:265
+#: ../src/plugins/dclock.c:286
 msgid "Bold font"
 msgstr "Félkövér betű"
 
-#: ../src/plugins/dclock.c:292
+#: ../src/plugins/dclock.c:313
 msgid "Digital Clock"
 msgstr "Digitális óra"
 
-#: ../src/plugins/dclock.c:294
+#: ../src/plugins/dclock.c:315
 msgid "Display digital clock and tooltip"
 msgstr "Digitális óra és eszköztippek"
 
-#: ../src/plugins/menu.c:369
+#: ../src/plugins/menu.c:372
 msgid "Add to desktop"
 msgstr "Asztal hozzáadása"
 
-#: ../src/plugins/menu.c:379
+#: ../src/plugins/menu.c:382
 msgid "Properties"
 msgstr "Tulajdonságok"
 
-#: ../src/plugins/menu.c:990
+#: ../src/plugins/menu.c:990 ../src/plugins/dirmenu.c:367
 msgid "Icon"
 msgstr "Ikon"
 
-#: ../src/plugins/menu.c:1001
+#: ../src/plugins/menu.c:1007
 msgid "Menu"
 msgstr "Menü"
 
-#: ../src/plugins/menu.c:1003
+#: ../src/plugins/menu.c:1009
 msgid "Application Menu"
 msgstr "Alkalmazás Menü"
 
@@ -585,8 +580,7 @@ msgid "Address:"
 msgstr "Cím:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-#: ../src/plugins/netstat/netstat.c:319
-#: ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
 msgid "Broadcast:"
 msgstr "Broadcast:"
@@ -841,8 +835,12 @@ msgstr "Olvashatatlan csatolónév innen: '%s'"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
-msgstr "Olvashatatlan hálózati statisztika innen: '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgid ""
+"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
+msgstr ""
+"Olvashatatlan hálózati statisztika innen: '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -900,16 +898,15 @@ msgstr "Elválasztó"
 msgid "Add a separator to the panel"
 msgstr "Elválasztó hozzáadása a panelhoz"
 
-#: ../src/plugins/pager.c:795
+#: ../src/plugins/pager.c:797
 msgid "Desktop Pager"
 msgstr "Munkaterület-váltó"
 
-#: ../src/plugins/pager.c:797
+#: ../src/plugins/pager.c:799
 msgid "Simple pager plugin"
 msgstr "Egyszerű munkaterület-váltó"
 
-#: ../src/plugins/space.c:121
-#: ../src/plugins/batt/batt.c:590
+#: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
 msgid "Size"
 msgstr "Méret"
 
@@ -921,72 +918,61 @@ msgstr "Térköz"
 msgid "Allocate space"
 msgstr "Hely lefoglalása"
 
-#: ../src/plugins/tray.c:731
+#: ../src/plugins/tray.c:754
 msgid "System Tray"
 msgstr "Értesítési terület"
 
-#: ../src/plugins/tray.c:733
+#: ../src/plugins/tray.c:756
 msgid "System tray"
 msgstr "Értesítési terület"
 
-#: ../src/plugins/xkb/xkb-plugin.c:242
-#: ../src/plugins/xkb/xkb-plugin.c:506
-msgid "Keyboard Layout Switcher"
-msgstr "Billentyűkiosztás-váltó"
-
-#: ../src/plugins/xkb/xkb-plugin.c:248
-msgid ""
-"Allows you to switch the keyboard layout and\n"
-"displays the currently selected layout."
-msgstr ""
-"Lehetővé teszi a billentyűkiosztás váltását és\n"
-"megjeleníti a most választott kiosztást."
-
-#: ../src/plugins/xkb/xkb-plugin.c:253
-msgid "Other plugins available here"
-msgstr "Más itt elérhető beillesztések"
-
-#: ../src/plugins/xkb/xkb-plugin.c:392
+#: ../src/plugins/xkb/xkb-plugin.c:283
 msgid "Configure Keyboard Layout Switcher"
 msgstr "Billentyűkiosztás-váltó beállítása"
 
-#: ../src/plugins/xkb/xkb-plugin.c:405
+#: ../src/plugins/xkb/xkb-plugin.c:298
 msgid "Show layout as"
 msgstr "Kiosztás mutatása mint"
 
-#: ../src/plugins/xkb/xkb-plugin.c:420
+#: ../src/plugins/xkb/xkb-plugin.c:313
 msgid "image"
 msgstr "kép"
 
-#: ../src/plugins/xkb/xkb-plugin.c:421
+#: ../src/plugins/xkb/xkb-plugin.c:314
 msgid "text"
 msgstr "szöveg"
 
-#: ../src/plugins/xkb/xkb-plugin.c:425
+#: ../src/plugins/xkb/xkb-plugin.c:321
 msgid "Per application settings"
 msgstr "Alkalmazásonkénti beállítások"
 
-#: ../src/plugins/xkb/xkb-plugin.c:439
+#. Create a check button as the child of the vertical box.
+#: ../src/plugins/xkb/xkb-plugin.c:336
 msgid "_Remember layout for each application"
 msgstr "Kiosztás megjegyzése az alkalmazásokhoz"
 
-#: ../src/plugins/xkb/xkb-plugin.c:448
+#. Create a label as the child of the horizontal box.
+#: ../src/plugins/xkb/xkb-plugin.c:346
 msgid "Default layout:"
 msgstr "Alap kiosztás:"
 
-#: ../src/plugins/xkb/xkb-plugin.c:508
+#: ../src/plugins/xkb/xkb-plugin.c:397
+msgid "Keyboard Layout Switcher"
+msgstr "Billentyűkiosztás-váltó"
+
+#: ../src/plugins/xkb/xkb-plugin.c:399
 msgid "Switch between available keyboard layouts"
 msgstr "Váltás az elérhető billentyűkiosztások közt"
 
-#: ../src/plugins/wincmd.c:167
+#: ../src/plugins/wincmd.c:171
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr "Bal egérgomb: minden ablakot minimalizál. Jobb gomb: mindet felgördíti"
 
-#: ../src/plugins/wincmd.c:197
+#: ../src/plugins/wincmd.c:208
 msgid "Minimize All Windows"
 msgstr "Ablakok minimalizálása"
 
-#: ../src/plugins/wincmd.c:199
+#: ../src/plugins/wincmd.c:210
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
@@ -994,84 +980,87 @@ msgstr ""
 "Parancsok küldése minden megnyitott ablaknak.\n"
 " Támogatott parancsok: 1) Minimalizálás váltása 2) Felgördítés váltása"
 
-#: ../src/plugins/dirmenu.c:212
+#: ../src/plugins/dirmenu.c:200
 msgid "Open in _Terminal"
 msgstr "Megnyitás _terminálban"
 
-#: ../src/plugins/dirmenu.c:386
+#: ../src/plugins/dirmenu.c:365
 msgid "Directory"
 msgstr "Könyvtár"
 
-#: ../src/plugins/dirmenu.c:387
+#: ../src/plugins/dirmenu.c:366
 msgid "Label"
 msgstr "Címke"
 
-#: ../src/plugins/dirmenu.c:404
+#: ../src/plugins/dirmenu.c:397
 msgid "Directory Menu"
 msgstr "Könyvtár menü"
 
-#: ../src/plugins/dirmenu.c:406
+#: ../src/plugins/dirmenu.c:399
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "Könyvtárböngésző menü (Szerző: PCMan)"
 
-#: ../src/plugins/thermal/thermal.c:284
+#: ../src/plugins/thermal/thermal.c:283
 msgid "Normal"
 msgstr "Normál"
 
-#: ../src/plugins/thermal/thermal.c:285
+#: ../src/plugins/thermal/thermal.c:284
 msgid "Warning1"
 msgstr "Figyelmeztetés1"
 
-#: ../src/plugins/thermal/thermal.c:286
+#: ../src/plugins/thermal/thermal.c:285
 msgid "Warning2"
 msgstr "Figyelmeztetés2"
 
-#: ../src/plugins/thermal/thermal.c:287
+#: ../src/plugins/thermal/thermal.c:286
 msgid "Automatic sensor location"
 msgstr "Automata érzékelő elhelyezés"
 
-#: ../src/plugins/thermal/thermal.c:288
+#: ../src/plugins/thermal/thermal.c:287
 msgid "Sensor"
 msgstr "Érzékelő"
 
-#: ../src/plugins/thermal/thermal.c:289
+#: ../src/plugins/thermal/thermal.c:288
 msgid "Automatic temperature levels"
 msgstr "Automata hőmérséklet szintek"
 
-#: ../src/plugins/thermal/thermal.c:290
+#: ../src/plugins/thermal/thermal.c:289
 msgid "Warning1 Temperature"
 msgstr "Figyelmeztetés1 Hőmérséklet"
 
-#: ../src/plugins/thermal/thermal.c:291
+#: ../src/plugins/thermal/thermal.c:290
 msgid "Warning2 Temperature"
 msgstr "Figyelmeztetés2 Hőmérséklet"
 
-#: ../src/plugins/thermal/thermal.c:333
+#: ../src/plugins/thermal/thermal.c:332
 msgid "Temperature Monitor"
 msgstr "Hőmérsékletfigyelő"
 
-#: ../src/plugins/thermal/thermal.c:335
+#: ../src/plugins/thermal/thermal.c:334
 msgid "Display system temperature, by kesler.daniel@gmail.com"
 msgstr "Rendszerhő-kijelző: kesler.daniel@gmail.com"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
+#. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:410
+#: ../src/plugins/volumealsa/volumealsa.c:239
+#: ../src/plugins/volumealsa/volumealsa.c:400
 msgid "Volume control"
 msgstr "Hangerő"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:424
+#: ../src/plugins/volumealsa/volumealsa.c:449
 msgid "Volume Control"
 msgstr "Hangerő-szabályzó"
 
-#. create frame
+#. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:319
+#: ../src/plugins/volumealsa/volumealsa.c:358
 msgid "Volume"
 msgstr "Hangerő"
 
-#: ../src/plugins/volumealsa/volumealsa.c:336
+#. Create a check button as the child of the vertical box.
+#: ../src/plugins/volumealsa/volumealsa.c:377
 msgid "Mute"
 msgstr "Némítás"
 
@@ -1105,8 +1094,7 @@ msgstr "Egy hálózati kábel nincs bedugva"
 msgid "Connection has limited or no connectivity"
 msgstr "Nincs, vagy korlátozott a kapcsolat"
 
-#: ../src/plugins/netstat/netstat.c:307
-#: ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "IP-cím:"
@@ -1115,38 +1103,32 @@ msgstr "IP-cím:"
 msgid "Remote IP:"
 msgstr "Távoli IP:"
 
-#: ../src/plugins/netstat/netstat.c:309
-#: ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "Hálózati maszk:"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "Aktivitás"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "Küldött"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "Fogadott"
 
-#: ../src/plugins/netstat/netstat.c:311
-#: ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "bájt"
 
-#: ../src/plugins/netstat/netstat.c:312
-#: ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "csomagok"
@@ -1155,8 +1137,7 @@ msgstr "csomagok"
 msgid "Protocol:"
 msgstr "Protokol:"
 
-#: ../src/plugins/netstat/netstat.c:321
-#: ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "Hardver cím:"
 
@@ -1343,66 +1324,95 @@ msgstr "Kisütés színe 2"
 msgid "Border width"
 msgstr "A keret mérete"
 
-#: ../src/plugins/batt/batt.c:620
+#: ../src/plugins/batt/batt.c:619
 msgid "Battery Monitor"
 msgstr "Akkumulátor-figyelő"
 
-#: ../src/plugins/batt/batt.c:622
+#: ../src/plugins/batt/batt.c:621
 msgid "Display battery status using ACPI"
 msgstr "Akkumulátor állapotának kijelzése ACPI segítségével"
 
-#: ../src/plugins/kbled/kbled.c:227
+#: ../src/plugins/kbled/kbled.c:230
 msgid "Show CapsLock"
 msgstr "CapsLock mutatása"
 
-#: ../src/plugins/kbled/kbled.c:228
+#: ../src/plugins/kbled/kbled.c:231
 msgid "Show NumLock"
 msgstr "NumLock mutatása"
 
-#: ../src/plugins/kbled/kbled.c:229
+#: ../src/plugins/kbled/kbled.c:232
 msgid "Show ScrollLock"
 msgstr "ScrollLock mutatása"
 
-#: ../src/plugins/kbled/kbled.c:259
+#: ../src/plugins/kbled/kbled.c:267
 msgid "Keyboard LED"
 msgstr "Billentyűzet LED"
 
-#: ../src/plugins/kbled/kbled.c:261
+#: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Állapot-jelzők a CapsLock, NumLock és ScrollLock billentyűkhöz"
 
+#~ msgid "Desktop No / Workspace Name"
+#~ msgstr "Munkaasztal szám / Munkaterület neve"
+
+#~ msgid ""
+#~ "Allows you to switch the keyboard layout and\n"
+#~ "displays the currently selected layout."
+#~ msgstr ""
+#~ "Lehetővé teszi a billentyűkiosztás váltását és\n"
+#~ "megjeleníti a most választott kiosztást."
+
+#~ msgid "Other plugins available here"
+#~ msgstr "Más itt elérhető beillesztések"
+
 #~ msgid "Old KDE/GNOME Tray"
 #~ msgstr "Régi KDE/GNOME tálca"
+
 #~ msgid "Enable Image:"
 #~ msgstr "Háttérkép:"
+
 #~ msgid "Enable Transparency"
 #~ msgstr "Átlátszóság bekapcsolva"
+
 #~ msgid "Tint color:"
 #~ msgstr "Szín:"
+
 #~ msgid " --configure -- launch configuration utility\n"
 #~ msgstr " --configure -- Beállítások ablak indítása\n"
+
 #~ msgid " -C  -- same as --configure\n"
 #~ msgstr " -C  -- lásd --configure\n"
+
 #~ msgid "Add Button"
 #~ msgstr "Gomb hozzáadása"
+
 #~ msgid "Button Properties"
 #~ msgstr "Gomb tulajdonságai"
+
 #~ msgid "Remove Button"
 #~ msgstr "Gomb törlése"
+
 #~ msgid "Buttons"
 #~ msgstr "Gombok"
+
 #~ msgid "Accept SkipPager"
 #~ msgstr "Munkaterület-váltó elkerülésének engedélyezése"
+
 #~ msgid "Show Iconified windows"
 #~ msgstr "Minimalizált ablakok mutatása"
+
 #~ msgid "Show mapped windows"
 #~ msgstr "Elhelyezett ablakok mutatása"
+
 #~ msgid "Action"
 #~ msgstr "Művelet"
+
 #~ msgid "Provide Menu"
 #~ msgstr "Menü mutatása"
+
 #~ msgid "Kayboard Layout switcher"
 #~ msgstr "Billentyűkiosztás-váltó"
+
 #~ msgid ""
 #~ "Dynamic\n"
 #~ "Pixels\n"
@@ -1411,6 +1421,7 @@ msgstr "Állapot-jelzők a CapsLock, NumLock és ScrollLock billentyűkhöz"
 #~ "Dinamikus\n"
 #~ "Kép-pontok\n"
 #~ "% százalék"
+
 #~ msgid ""
 #~ "Left\n"
 #~ "Center\n"
@@ -1419,6 +1430,7 @@ msgstr "Állapot-jelzők a CapsLock, NumLock és ScrollLock billentyűkhöz"
 #~ "Balra\n"
 #~ "Középen\n"
 #~ "Jobbra"
+
 #~ msgid ""
 #~ "Left\n"
 #~ "Right\n"
@@ -1429,52 +1441,73 @@ msgstr "Állapot-jelzők a CapsLock, NumLock és ScrollLock billentyűkhöz"
 #~ "Jobbra\n"
 #~ "Fel\n"
 #~ "Le"
+
 #~ msgid "Where to put the panel?"
 #~ msgstr "Hova tegyük a panelt?"
+
 #~ msgid "Battery: %d%% charged, %s"
 #~ msgstr "Akkumulátor töltöttség: %d%%, %s"
+
 #~ msgid "charging finished"
 #~ msgstr "feltöltés befejezve"
+
 #~ msgid "charging"
 #~ msgstr "töltés"
 
 #, fuzzy
 #~ msgid "Add to desktop panel"
 #~ msgstr "Elemek hozzáadása a panelhoz"
+
 #~ msgid "Game"
 #~ msgstr "Játékok"
+
 #~ msgid "Education"
 #~ msgstr "Oktatás"
+
 #~ msgid "Development"
 #~ msgstr "Fejlesztés"
+
 #~ msgid "Audio & Video"
 #~ msgstr "Hang és videó"
+
 #~ msgid "Graphics"
 #~ msgstr "Grafika"
+
 #~ msgid "System Tools"
 #~ msgstr "Rendszereszközök"
+
 #~ msgid "Office"
 #~ msgstr "Iroda"
+
 #~ msgid "Accessories"
 #~ msgstr "Kellékek"
+
 #~ msgid "% of edge"
 #~ msgstr "% a széléből"
+
 #~ msgid "lxpanel configurator"
 #~ msgstr "lxpanel beállító"
+
 #~ msgid "Plugins"
 #~ msgstr "Elemek"
+
 #~ msgid "<b>Transparency</b>"
 #~ msgstr "<b>Átlátszóság</b>"
+
 #~ msgid "Change window icons"
 #~ msgstr "Ablak ikonok cseréje"
+
 #~ msgid "Set Dock Type"
 #~ msgstr "Dokk típus beállítása"
+
 #~ msgid "_Add"
 #~ msgstr "Hozzá_ad"
+
 #~ msgid "_Remove"
 #~ msgstr "Tö_röl"
+
 #~ msgid "Right-click to get context menu. Drag & Drop to change order."
 #~ msgstr "Jobb egérgomb a menühöz, fogd-és-húzd az átrendezéshez"
+
 #~ msgid "Plugins..."
 #~ msgstr "Elemek..."
-

@@ -1,99 +1,96 @@
-# Slovenian translation for lxpanel.
+# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: lxpanel 0.3.8.1\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-18 14:26+0200\n"
-"PO-Revision-Date: 2009-07-17 13:26+0200\n"
-"Last-Translator: Matej <paxmanpwnz@gmail.com>\n"
-"Language-Team: / <paxmanpwnz@gmail.com>\n"
+"PO-Revision-Date: 2009-07-13 05:39+0200\n"
+"Last-Translator: Sankarshan <sankarshan.mukhopadhyay@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 1.1.0\n"
-"X-Poedit-Language: Slovenian\n"
-"X-Poedit-Country: SLOVENIA\n"
 
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
 msgid "% Percent"
-msgstr "% odstotkov"
+msgstr "% "
 
 #: ../data/ui/panel-pref.glade.h:3
 msgid "<b>Automatic hiding</b>"
-msgstr "<b>Samodejno skrivanje</b>"
+msgstr "<b>   </b>"
 
 #: ../data/ui/panel-pref.glade.h:4
 msgid "<b>Background</b>"
-msgstr "<b>Ozadje</b>"
+msgstr "<b></b>"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "<b>Font</b>"
-msgstr "<b>Pisava</b>"
+msgstr "<b></b>"
 
 #: ../data/ui/panel-pref.glade.h:6
 #, fuzzy
 msgid "<b>Icon</b>"
-msgstr "<b>Pisava</b>"
+msgstr "<b></b>"
 
 #: ../data/ui/panel-pref.glade.h:7
 msgid "<b>Position</b>"
-msgstr "<b>Položaj</b>"
+msgstr "<b></b>"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "<b>Properties</b>"
-msgstr "<b>Nastavitve</b>"
+msgstr "<b></b>"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>Nastavi ukaze privzetih aplikacij</b>"
+msgstr "<b>   </b>"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "<b>Size</b>"
-msgstr "<b>Velikost</b>"
+msgstr "<b></b>"
 
 #: ../data/ui/panel-pref.glade.h:11
 msgid "Advanced"
-msgstr "Napredno"
+msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:12
 msgid "Alignment:"
-msgstr "Poravnava:"
+msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:13
 msgid "Appearance"
-msgstr "Videz"
+msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:955
 msgid "Bottom"
-msgstr "Spodaj"
+msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:15
-#, fuzzy
 msgid "Center"
-msgstr "Sredina"
+msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:16
 #, fuzzy
 msgid "Custom color"
-msgstr "Barva po meri"
+msgstr " "
 
 #: ../data/ui/panel-pref.glade.h:17
 msgid "Dynamic"
-msgstr "dinamično"
+msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:18
 msgid "Edge:"
-msgstr "Rob:"
+msgstr ":"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "File Manager:"
-msgstr "Ukaz za zagon upravitelja datotek:"
+msgstr " :"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "Geometry"
@@ -101,65 +98,63 @@ msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:945 ../src/panel.c:953
 msgid "Height:"
-msgstr "Višina:"
+msgstr ":"
 
 #: ../data/ui/panel-pref.glade.h:22
-#, fuzzy
 msgid "Image"
-msgstr "Slika"
+msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:947
 msgid "Left"
-msgstr "Levo"
+msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:24
-#, fuzzy
 msgid "Left\t"
-msgstr "Levo"
+msgstr "\t"
 
 #: ../data/ui/panel-pref.glade.h:25
 msgid "Logout Command:"
-msgstr "Ukaz za odjavo:"
+msgstr "- :"
 
 #: ../data/ui/panel-pref.glade.h:26
 msgid "Make window managers treat the panel as dock"
-msgstr "Naj okenski upravitelji uporabijo opravilno vrstico kot odlagališče"
+msgstr "         "
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Margin:"
-msgstr "Rob:"
+msgstr ":"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "Minimize panel when not in use"
-msgstr "Pomanjšaj opravilno vrstico, ko le-ta ni v uporabi"
+msgstr "     "
 
 #: ../data/ui/panel-pref.glade.h:29
 msgid "Panel Applets"
-msgstr "Vtičniki"
+msgstr " "
 
 #: ../data/ui/panel-pref.glade.h:30
 msgid "Panel Preferences"
-msgstr "Nastavitve opravilne vrstice"
+msgstr " "
 
 #: ../data/ui/panel-pref.glade.h:31
 msgid "Pixels"
-msgstr "pikslov"
+msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:32
 msgid "Reserve space, and not covered by maximized windows"
-msgstr "Rezerviraj prostor, ki ne bo prekrit z maksimiziranimi okni "
+msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:33 ../src/panel.c:948
 msgid "Right"
-msgstr "Desno"
+msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:34
 msgid "Select an image file"
-msgstr "Izberi slikovno datoteko"
+msgstr "    "
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Size when minimized"
-msgstr "Velikost pomanjšane opravilne vrstice"
+msgstr "   "
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "Solid color (with opacity)"
@@ -168,186 +163,180 @@ msgstr ""
 #: ../data/ui/panel-pref.glade.h:37
 #, fuzzy
 msgid "System theme"
-msgstr "Brez (uporabi sistemsko temo)"
+msgstr "  (   )"
 
+# টার্মিনাল প্রতিরূপী করা হলেও বোধহয় মন্দ হত না।
 #: ../data/ui/panel-pref.glade.h:38
+#, fuzzy
 msgid "Terminal Emulator:"
-msgstr "Ukaz za zagon konzole:"
+msgstr " :"
 
 #: ../data/ui/panel-pref.glade.h:39
 msgid "Top\t"
-msgstr "Na vrhu\t"
+msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:40 ../src/panel.c:946 ../src/panel.c:952
 msgid "Width:"
-msgstr "Širina:"
+msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:41
-#, fuzzy
 msgid "pixels"
-msgstr "pikslov"
+msgstr ""
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:252
 msgid "Run"
-msgstr "Zaženi"
+msgstr ""
 
 #: ../src/configurator.c:56
 msgid "Restart"
-msgstr "Ponovni zagon"
+msgstr ""
 
 #: ../src/configurator.c:57
 msgid "Logout"
-msgstr "Odjava"
+msgstr ""
 
 #: ../src/configurator.c:445
 msgid "Currently loaded plugins"
-msgstr "Naloženi vtičniki"
+msgstr ""
 
 #: ../src/configurator.c:454
 msgid "Stretch"
-msgstr "Raztegni vtičnik"
+msgstr ""
 
 #: ../src/configurator.c:559
 msgid "Add plugin to panel"
-msgstr "Dodaj vtičnik na opravilno vrstico"
+msgstr ""
 
 #: ../src/configurator.c:587
 msgid "Available plugins"
-msgstr "Razpoložljivi vtičniki"
+msgstr ""
 
 #: ../src/configurator.c:1143
 msgid "Logout command is not set"
-msgstr "Odjavni ukaz ni nastavljen"
+msgstr ""
 
 #: ../src/configurator.c:1196
-#, fuzzy
 msgid "Select a directory"
-msgstr "Izberi datoteko"
+msgstr ""
 
 #: ../src/configurator.c:1196 ../src/configurator.c:1287
 msgid "Select a file"
-msgstr "Izberi datoteko"
+msgstr ""
 
 #: ../src/configurator.c:1314
 msgid "_Browse"
-msgstr "_Brskaj"
+msgstr ""
 
 #: ../src/panel.c:590
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
-"Ste prepričani da hočete izbrisati opravilno vrstico?\n"
-"<b>Pozor: ni je mogoče obnoviti!</b>"
 
 #: ../src/panel.c:592
 msgid "Confirm"
-msgstr "Potrdi"
+msgstr ""
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:624
 msgid "translator-credits"
-msgstr "paxman"
+msgstr ""
 
 #: ../src/panel.c:629
-#, fuzzy
 msgid "LXPanel"
-msgstr "Opravilna vrstica"
+msgstr ""
 
 #: ../src/panel.c:631
 msgid "Copyright (C) 2008-2009"
-msgstr "Vse pravice pridržane (C) 2008-2009"
+msgstr ""
 
 #: ../src/panel.c:632
 msgid "Desktop panel for LXDE project"
-msgstr "Opravilna vrstica za projekt LXDE"
+msgstr ""
 
 #: ../src/panel.c:655
 msgid "Add / Remove Panel Items"
-msgstr "Dodaj / odstrani vtičnike"
+msgstr ""
 
 #: ../src/panel.c:663
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr "Odstrani \"%s\" z opravilne vrstice"
+msgstr ""
 
 #: ../src/panel.c:675
 msgid "Panel Settings"
-msgstr "Nastavitve opravilne vrstice"
+msgstr ""
 
 #: ../src/panel.c:681
 msgid "Create New Panel"
-msgstr "Ustvari novo opravilno vrstico"
+msgstr ""
 
 #: ../src/panel.c:692
 msgid "Delete This Panel"
-msgstr "Izbriši to opravilno vrstico"
+msgstr ""
 
 #: ../src/panel.c:703
 msgid "About"
-msgstr "O programu"
+msgstr ""
 
 #: ../src/panel.c:711
 msgid "Panel"
-msgstr "Opravilna vrstica"
+msgstr ""
 
 #: ../src/panel.c:724
 #, c-format
 msgid "\"%s\" Settings"
-msgstr "\"%s\" Nastavitve"
+msgstr ""
 
 #: ../src/panel.c:954
-#, fuzzy
 msgid "Top"
-msgstr "Na vrhu\t"
+msgstr ""
 
 #: ../src/panel.c:1345
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr "LXPanel %s - Opravilna vrstica za namizja UNIX, spisana v GTK2+\n"
+msgstr ""
 
 #: ../src/panel.c:1346
 #, c-format
 msgid "Command line options:\n"
-msgstr "Možnosti ukazne vrstice:\n"
+msgstr ""
 
 #: ../src/panel.c:1347
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr " --help      -- prikaže pomoč in konča\n"
+msgstr ""
 
 #: ../src/panel.c:1348
 #, c-format
 msgid " --version   -- print version and exit\n"
-msgstr " --version   -- prikaži različico in konča\n"
+msgstr ""
 
 #: ../src/panel.c:1349
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
-" --log <številka>   -- določi stopnjo dnevniškega izpia od 0 do 5. 0 - brez "
-"dnevnika, 5 - izdaten\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1351
 #, c-format
 msgid " --profile name -- use specified profile\n"
-msgstr " --profile Ime -- uporabi podan profil\n"
+msgstr ""
 
 #: ../src/panel.c:1353
 #, c-format
 msgid " -h  -- same as --help\n"
-msgstr " -h  -- enako kot --help\n"
+msgstr ""
 
 #: ../src/panel.c:1354
 #, c-format
 msgid " -p  -- same as --profile\n"
-msgstr " -p  -- enako kot --profile\n"
+msgstr ""
 
 #: ../src/panel.c:1355
 #, c-format
 msgid " -v  -- same as --version\n"
-msgstr " -v  -- enako kot --version\n"
+msgstr ""
 
 #. g_print(_(" -C  -- same as --configure\n"));
 #: ../src/panel.c:1357
@@ -357,162 +346,145 @@ msgid ""
 "Visit http://lxde.org/ for detail.\n"
 "\n"
 msgstr ""
-"\n"
-"Za več informacij obiščite http://lxde.org/.\n"
-"\n"
 
 #: ../src/gtk-run.c:266
 msgid "Enter the command you want to execute:"
-msgstr "Izvedi ukaz:"
+msgstr ""
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
-msgstr "Nadzornik uporabe CPE"
+msgstr ""
 
 #: ../src/plugins/cpu/cpu.c:270
 msgid "Display CPU usage"
-msgstr "Prikaži zasedenost CPE"
+msgstr ""
 
 #: ../src/plugins/deskno/deskno.c:165
-#, fuzzy
 msgid "Desktop Number / Workspace Name"
-msgstr "Številka namizja / Ime namizja"
+msgstr ""
 
 #: ../src/plugins/deskno/deskno.c:167
 msgid "Display workspace number, by cmeury@users.sf.net"
-msgstr "Prikaži številko namizja"
+msgstr ""
 
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
-msgstr "Prikaži sliko in zaslonski namig"
+msgstr ""
 
 #: ../src/plugins/launchbar.c:665
-#, fuzzy
 msgid "Available Applications"
-msgstr "Razpoložljivi vtičniki"
+msgstr ""
 
 #: ../src/plugins/launchbar.c:665
-#, fuzzy
 msgid "Applications"
-msgstr "Izberi program"
+msgstr ""
 
 #: ../src/plugins/launchbar.c:846
 msgid "Application Launch Bar"
-msgstr "Hitri zagon aplikacij"
+msgstr ""
 
 #: ../src/plugins/launchbar.c:848
 msgid "Bar with buttons to launch application"
-msgstr "Pult z gumbi za zagon aplikacij"
+msgstr ""
 
 #. Add Raise menu item.
 #: ../src/plugins/taskbar.c:1672
-#, fuzzy
 msgid "_Raise"
-msgstr "V ospredje"
+msgstr ""
 
 #. Add Restore menu item.
 #: ../src/plugins/taskbar.c:1677
-#, fuzzy
 msgid "R_estore"
-msgstr "Obnovi"
+msgstr ""
 
 #. Add Maximize menu item.
 #: ../src/plugins/taskbar.c:1682
-#, fuzzy
 msgid "Ma_ximize"
-msgstr "Razpri"
+msgstr ""
 
 #. Add Iconify menu item.
 #: ../src/plugins/taskbar.c:1687
-#, fuzzy
 msgid "Ico_nify"
-msgstr "Pomanjšaj"
+msgstr ""
 
 #: ../src/plugins/taskbar.c:1706
-#, fuzzy, c-format
+#, c-format
 msgid "Workspace _%d"
-msgstr "Namizje %d"
+msgstr ""
 
 #: ../src/plugins/taskbar.c:1711
 #, c-format
 msgid "Workspace %d"
-msgstr "Namizje %d"
+msgstr ""
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../src/plugins/taskbar.c:1725
-#, fuzzy
 msgid "_All workspaces"
-msgstr "Vsa namizja"
+msgstr ""
 
 #. Add Move to Workspace menu item as a submenu.
 #: ../src/plugins/taskbar.c:1731
-#, fuzzy
 msgid "_Move to Workspace"
-msgstr "Premakni na namizje"
+msgstr ""
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../src/plugins/taskbar.c:1737
-#, fuzzy
 msgid "_Close Window"
-msgstr "Zapri okno"
+msgstr ""
 
 #: ../src/plugins/taskbar.c:1948
 msgid "Show tooltips"
-msgstr "Prikaži zaslonski namig"
+msgstr ""
 
 #: ../src/plugins/taskbar.c:1949
 msgid "Icons only"
-msgstr "Samo ikone"
+msgstr ""
 
 #: ../src/plugins/taskbar.c:1950
-#, fuzzy
 msgid "Flat buttons"
-msgstr "Vboči gumbe"
+msgstr ""
 
 #: ../src/plugins/taskbar.c:1951
 msgid "Show windows from all desktops"
-msgstr "Prikaži okna z vseh namizij"
+msgstr ""
 
 #: ../src/plugins/taskbar.c:1952
 msgid "Use mouse wheel"
-msgstr "Uporabi miškin kolešček"
+msgstr ""
 
 #: ../src/plugins/taskbar.c:1953
 msgid "Flash when there is any window requiring attention"
-msgstr "Animiraj okno, ki zahteva pozornost"
+msgstr ""
 
 #: ../src/plugins/taskbar.c:1954
 msgid "Combine multiple application windows into a single button"
-msgstr "Združi okna aplikacije pod en gumb"
+msgstr ""
 
 #: ../src/plugins/taskbar.c:1955
-#, fuzzy
 msgid "Maximum width of task button"
-msgstr "Maksimalna širina gumbov"
+msgstr ""
 
 #: ../src/plugins/taskbar.c:1956
 msgid "Spacing"
-msgstr "Razmik med gumbi"
+msgstr ""
 
 #: ../src/plugins/taskbar.c:2010
 msgid "Task Bar (Window List)"
-msgstr "Seznam oken"
+msgstr ""
 
 #: ../src/plugins/taskbar.c:2012
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
-"Opravilna vrstica prikaže vsa odprta okna in omogoča, da jih pomanjšate, "
-"osenčite ali fokusirate"
 
 #: ../src/plugins/dclock.c:282
 msgid "Clock Format"
-msgstr "Oblika urinega zapisa:"
+msgstr ""
 
 #: ../src/plugins/dclock.c:283
 msgid "Tooltip Format"
-msgstr "Oblika zaslonskega namiga:"
+msgstr ""
 
 #: ../src/plugins/dclock.c:284
 msgid "Format codes: man 3 strftime"
@@ -520,41 +492,39 @@ msgstr ""
 
 #: ../src/plugins/dclock.c:285
 msgid "Action when clicked (default: display calendar)"
-msgstr "Klik sproži: (privzeto: prikaz koledarja)"
+msgstr ""
 
 #: ../src/plugins/dclock.c:286
 msgid "Bold font"
-msgstr "Uporabi polkrepko pisavo"
+msgstr ""
 
 #: ../src/plugins/dclock.c:313
 msgid "Digital Clock"
-msgstr "Digitalna ura"
+msgstr ""
 
 #: ../src/plugins/dclock.c:315
-#, fuzzy
 msgid "Display digital clock and tooltip"
-msgstr "Prikazuje digitalno uro in datum (kot zaslonski namig)"
+msgstr ""
 
 #: ../src/plugins/menu.c:372
 msgid "Add to desktop"
-msgstr "Dodaj na namizje"
+msgstr ""
 
 #: ../src/plugins/menu.c:382
 msgid "Properties"
-msgstr "Nastavitve"
+msgstr ""
 
 #: ../src/plugins/menu.c:990 ../src/plugins/dirmenu.c:367
 msgid "Icon"
-msgstr "Ikona:"
+msgstr ""
 
 #: ../src/plugins/menu.c:1007
 msgid "Menu"
-msgstr "Glavni meni"
+msgstr ""
 
 #: ../src/plugins/menu.c:1009
-#, fuzzy
 msgid "Application Menu"
-msgstr "Hitri zagon aplikacij"
+msgstr ""
 
 #: ../src/plugins/netstatus/glade-support.c:91
 #: ../src/plugins/netstatus/glade-support.c:115
@@ -566,299 +536,297 @@ msgstr ""
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
 #, no-c-format
 msgid "0%"
-msgstr "0%"
+msgstr ""
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:194
 msgid "<b>Activity</b>"
-msgstr "<b>Aktivnost</b>"
+msgstr ""
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:131
 msgid "<b>Connection</b>"
-msgstr "<b>Povezava</b>"
+msgstr ""
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:289
 msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr "<b>Internetni protokol (IPv4)</b>"
+msgstr ""
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:376
 msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr "<B>Internetni protokol (IPv6)</b>"
+msgstr ""
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:432
 msgid "<b>Network Device</b>"
-msgstr "<b>Mrežna naprava</b>"
+msgstr ""
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:250
 msgid "<b>Signal Strength</b>"
-msgstr "<b>Jakost signala</b>"
+msgstr ""
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:309
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:396
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:452
 msgid "Address:"
-msgstr "Naslov:"
+msgstr ""
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
 #: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
 msgid "Broadcast:"
-msgstr "Naslov za razpršeno oddajanje:"
+msgstr ""
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:513
 msgid "Con_figure"
-msgstr "Na_stavi"
+msgstr ""
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:316
 msgid "Destination:"
-msgstr "Cilj:"
+msgstr ""
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
-msgstr "Splošno"
+msgstr ""
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:232
 msgid "Received:"
-msgstr "Prejeto:"
+msgstr ""
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:403
 msgid "Scope:"
-msgstr "Scope:"
+msgstr ""
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:239
 msgid "Sent:"
-msgstr "Poslano:"
+msgstr ""
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:155
 msgid "Status:"
-msgstr "Status:"
+msgstr ""
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
 msgid "Subnet Mask:"
-msgstr "Maska omrežja:"
+msgstr ""
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:484
 msgid "Support"
-msgstr "Tehnična podpora"
+msgstr ""
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:477
 msgid "Type:"
-msgstr "Tip:"
+msgstr ""
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:171
 msgid "_Name:"
-msgstr "_Ime:"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:148
 msgid "Name"
-msgstr "Ime"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:149
 msgid "The interface name"
-msgstr "Ime vmsenika"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:156
 msgid "State"
-msgstr "Stanje:"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:157
 msgid "The interface state"
-msgstr "Stanje vmesnika"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:165
-#, fuzzy
 msgid "Stats"
-msgstr "Status:"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:166
 msgid "The interface packets/bytes statistics"
-msgstr "Statistika paketkov/bajtov na vmesniku"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:173
 #: ../src/plugins/netstat/netstat.c:315
 msgid "Wireless"
-msgstr "Brezžično"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:174
 msgid "Whether the interface is a wireless interface"
-msgstr "Ali je vmesnik brezžičen"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:181
 msgid "Signal"
-msgstr "Signal"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:182
 msgid "Wireless signal strength percentage"
-msgstr "Signal brezžičnega omrežja - v odstotkih"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:191
 #: ../src/plugins/netstatus/netstatus-util.c:167
 msgid "Error"
-msgstr "Napaka"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:192
-#, fuzzy
 msgid "The current error condition"
-msgstr "Trenutni status napake"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:434
 #: ../src/plugins/netstatus/netstatus-iface.c:1197
 #, c-format
 msgid "Unable to open socket: %s"
-msgstr "Ni bilo možno odpreti vtičnice: %s"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:496
 #: ../src/plugins/netstatus/netstatus-iface.c:1223
 #, c-format
 msgid "SIOCGIFFLAGS error: %s"
-msgstr "Napaka SIOCGIFFLAGS: %s"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:870
 msgid "AMPR NET/ROM"
-msgstr "AMPR NET/ROM"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:873
 msgid "Ethernet"
-msgstr "Ethernet"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:879
 msgid "AMPR AX.25"
-msgstr "AMPR AX.25"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:888
 #: ../src/plugins/netstatus/netstatus-iface.c:1008
 msgid "16/4 Mbps Token Ring"
-msgstr "16/4 Mbps Token Ring"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:891
 msgid "ARCnet"
-msgstr "ARCnet"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:897
 msgid "Frame Relay DLCI"
-msgstr "Frame Relay DLCI"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:903
 msgid "Metricom Starmode IP"
-msgstr "Metricom Starmode IP"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:906
 msgid "Serial Line IP"
-msgstr "Serial Line IP"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:909
 msgid "VJ Serial Line IP"
-msgstr "VJ Serial Line IP"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:912
 msgid "6-bit Serial Line IP"
-msgstr "6-bit Serial Line IP"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:915
 msgid "VJ 6-bit Serial Line IP"
-msgstr "VJ 6-bit Serial Line IP"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:921
 msgid "Adaptive Serial Line IP"
-msgstr "Adaptive Serial Line IP"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:924
 msgid "AMPR ROSE"
-msgstr "AMPR ROSE"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:927
 msgid "Generic X.25"
-msgstr "Generic X.25"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:930
 msgid "Point-to-Point Protocol"
-msgstr "Point-to-Point Protocol"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:936
 msgid "(Cisco)-HDLC"
-msgstr "(Cisco)-HDLC"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:939
 msgid "LAPB"
-msgstr "LAPB"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:948
 msgid "IPIP Tunnel"
-msgstr "IPIP Tunnel"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:954
 msgid "Frame Relay Access Device"
-msgstr "Frame Relay Access Device (FRAD)"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:960
 msgid "Local Loopback"
-msgstr "Local Loopback"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:966
 msgid "Fiber Distributed Data Interface"
-msgstr "Fiber Distributed Data Interface (FDDI)"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:972
 msgid "IPv6-in-IPv4"
-msgstr "IPv6-in-IPv4"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:984
 msgid "HIPPI"
-msgstr "HIPPI"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:987
 msgid "Ash"
-msgstr "Ash"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:990
 msgid "Econet"
-msgstr "Econet"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:993
 msgid "IrLAP"
-msgstr "IrLAP"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:1155
 #, c-format
 msgid "SIOCGIFCONF error: %s"
-msgstr "Napaka SIOCGIFCONF: %s"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:1248
 #, c-format
 msgid "No network devices found"
-msgstr "Ni najdenih mrežnih naprav"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:180
 #, c-format
 msgid "Cannot open /proc/net/dev: %s"
-msgstr "Ni bilo mogoče odpreti /proc/net/dev: %s"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:189
 msgid "Could not parse /proc/net/dev. Unknown format."
-msgstr "Ni bilo mogoče razčleniti /proc/net/dev. Neznana oblika zapisa."
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:204
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:330
 #, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr "Ni bilo mogoče razčleniti imena vmesnika z '%s'"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
@@ -867,217 +835,202 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"Ni bilo mogoče razčleniti statistike vmesnika '%s'. prx_idx = %d; ptx_idx = %"
-"d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr "Ni bilo mogoče razčleniti /proc/net/wireless. Neznana oblika zapisa."
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
 msgstr ""
-"Ni bilo mogoče razčleniti podrobnosti o brezžičnem omrežju '%s'. link_idx = %"
-"d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
 msgid "Could not connect to interface, '%s'"
-msgstr "Ni se bilo mogoče povezati z vmesnikom, '%s'"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:420
 #, c-format
 msgid "Could not send ioctl to interface, '%s'"
-msgstr "Signala ioctl ni bilo mogoče poslati na vmesnik, '%s'"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr "Ni bilo mogoče razčleniti ukaza '%s': %s"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
 msgstr ""
-"Izhoda ukaza 'netstat' ni bilo mogoče razčleniti. Neznana oblika zapisa."
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
-msgstr "Nepovezan"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-util.c:155
 msgid "Idle"
-msgstr "Nedejaven"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-util.c:158
 msgid "Sending"
-msgstr "Pošiljam"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-util.c:161
 msgid "Receiving"
-msgstr "Prejemam"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-util.c:164
 msgid "Sending/Receiving"
-msgstr "Pošiljam/Prejemam"
+msgstr ""
 
 #: ../src/plugins/separator.c:98
 msgid "Separator"
-msgstr "Ločilo"
+msgstr ""
 
 #: ../src/plugins/separator.c:100
 msgid "Add a separator to the panel"
-msgstr "Dodaj ločilo na opravilno vrstico"
+msgstr ""
 
 #: ../src/plugins/pager.c:797
 msgid "Desktop Pager"
-msgstr "Desktop Pager"
+msgstr ""
 
 #: ../src/plugins/pager.c:799
 msgid "Simple pager plugin"
-msgstr "Enostaven pager vtičnik"
+msgstr ""
 
 #: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
 msgid "Size"
-msgstr "Širina"
+msgstr ""
 
 #: ../src/plugins/space.c:139
-#, fuzzy
 msgid "Spacer"
-msgstr "<prazno>"
+msgstr ""
 
 #: ../src/plugins/space.c:141
 msgid "Allocate space"
-msgstr "Prazen prostor med vtičniki"
+msgstr ""
 
 #: ../src/plugins/tray.c:754
 msgid "System Tray"
-msgstr "Sistemski pladenj"
+msgstr ""
 
 #: ../src/plugins/tray.c:756
-#, fuzzy
 msgid "System tray"
-msgstr "Sistemski pladenj"
+msgstr ""
 
 #: ../src/plugins/xkb/xkb-plugin.c:283
 msgid "Configure Keyboard Layout Switcher"
-msgstr "Nastavi preklapljanje med razporeditvami tipk"
+msgstr ""
 
 #: ../src/plugins/xkb/xkb-plugin.c:298
 msgid "Show layout as"
-msgstr "Prikaži razporeditev kot"
+msgstr ""
 
 #: ../src/plugins/xkb/xkb-plugin.c:313
 msgid "image"
-msgstr "slika"
+msgstr ""
 
 #: ../src/plugins/xkb/xkb-plugin.c:314
 msgid "text"
-msgstr "tekst"
+msgstr ""
 
 #: ../src/plugins/xkb/xkb-plugin.c:321
-#, fuzzy
 msgid "Per application settings"
-msgstr "Nastavitve glede na program"
+msgstr ""
 
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/xkb/xkb-plugin.c:336
 msgid "_Remember layout for each application"
-msgstr "_Zapomni si razporeditev tipk za vsak program"
+msgstr ""
 
 #. Create a label as the child of the horizontal box.
 #: ../src/plugins/xkb/xkb-plugin.c:346
 msgid "Default layout:"
-msgstr "Privzeta razporeditev:"
+msgstr ""
 
 #: ../src/plugins/xkb/xkb-plugin.c:397
 msgid "Keyboard Layout Switcher"
-msgstr "Preklapljanje med razporeditvami tipk"
+msgstr ""
 
 #: ../src/plugins/xkb/xkb-plugin.c:399
 msgid "Switch between available keyboard layouts"
-msgstr "Preklopi med razpoložljivimi razporeditvami tipk"
+msgstr ""
 
 #: ../src/plugins/wincmd.c:171
-#, fuzzy
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr "Levi klik pomanjša vsa okna. Srednji klik osenči? "
+msgstr ""
 
 #: ../src/plugins/wincmd.c:208
 msgid "Minimize All Windows"
-msgstr "Upravitelj oken"
+msgstr ""
 
 #: ../src/plugins/wincmd.c:210
-#, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
-"Pošlji ukaz vsem oknom na namizju. Podprti ukazi so: 1.) pomanjšaj/povečaj "
-"in 2.) osenči"
 
 #: ../src/plugins/dirmenu.c:200
 msgid "Open in _Terminal"
-msgstr "Odpri v _konzoli"
+msgstr ""
 
 #: ../src/plugins/dirmenu.c:365
 msgid "Directory"
-msgstr "Hitri dostop do map"
+msgstr ""
 
 #: ../src/plugins/dirmenu.c:366
-#, fuzzy
 msgid "Label"
-msgstr "Opravilna vrstica"
+msgstr ""
 
 #: ../src/plugins/dirmenu.c:397
 msgid "Directory Menu"
-msgstr "Menu z mapami"
+msgstr ""
 
 #: ../src/plugins/dirmenu.c:399
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr "Dostopaj do map iz hitrega menija (Avtor: PCMan)"
+msgstr ""
 
 #: ../src/plugins/thermal/thermal.c:283
 msgid "Normal"
-msgstr "Normalno"
+msgstr ""
 
 #: ../src/plugins/thermal/thermal.c:284
 msgid "Warning1"
-msgstr "Opozorilo1"
+msgstr ""
 
 #: ../src/plugins/thermal/thermal.c:285
 msgid "Warning2"
-msgstr "Opozorilo2"
+msgstr ""
 
 #: ../src/plugins/thermal/thermal.c:286
 msgid "Automatic sensor location"
-msgstr "Samodejno zaznaj senzorje"
+msgstr ""
 
 #: ../src/plugins/thermal/thermal.c:287
 msgid "Sensor"
-msgstr "Senzor"
+msgstr ""
 
 #: ../src/plugins/thermal/thermal.c:288
 msgid "Automatic temperature levels"
-msgstr "Samodejno nastavi temperaturni prag"
+msgstr ""
 
 #: ../src/plugins/thermal/thermal.c:289
-#, fuzzy
 msgid "Warning1 Temperature"
-msgstr "Pozor1 Temperatura"
+msgstr ""
 
 #: ../src/plugins/thermal/thermal.c:290
-#, fuzzy
 msgid "Warning2 Temperature"
-msgstr "Pozor2 Temperatura"
+msgstr ""
 
 #: ../src/plugins/thermal/thermal.c:332
 msgid "Temperature Monitor"
-msgstr "Nadzornik temperatur"
+msgstr ""
 
 #: ../src/plugins/thermal/thermal.c:334
 msgid "Display system temperature, by kesler.daniel@gmail.com"
-msgstr "Prikazovalnik temperatur v sistemu, avtor kesler.daniel@gmail.com"
+msgstr ""
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -1085,113 +1038,113 @@ msgstr "Prikazovalnik temperatur v sistemu, avtor kesler.daniel@gmail.com"
 #: ../src/plugins/volumealsa/volumealsa.c:239
 #: ../src/plugins/volumealsa/volumealsa.c:400
 msgid "Volume control"
-msgstr "Nastavi jakost zvoka"
+msgstr ""
 
 #: ../src/plugins/volume/volume.c:312
 #: ../src/plugins/volumealsa/volumealsa.c:449
 msgid "Volume Control"
-msgstr "Nadzornik glasnosti"
+msgstr ""
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
 #: ../src/plugins/volumealsa/volumealsa.c:358
 msgid "Volume"
-msgstr "Glasnost"
+msgstr ""
 
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/volumealsa/volumealsa.c:377
 msgid "Mute"
-msgstr "Nemo"
+msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
-msgstr "<Skrita dostopna točka>"
+msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:201
 msgid "Wireless Networks not found in range"
-msgstr "Brezžična omrežja niso bila najdena"
+msgstr ""
 
 #. Repair
 #: ../src/plugins/netstat/netstat.c:235
 msgid "Repair"
-msgstr "Popravi"
+msgstr ""
 
 #. interface down
 #: ../src/plugins/netstat/netstat.c:240
 msgid "Disable"
-msgstr "Onemogoči"
+msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:299
 msgid "Wireless Connection has no connectivity"
-msgstr "Brezžična povezava je omejena"
+msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:301
 msgid "Network cable is plugged out"
-msgstr "Mrežni kabel je iztaknjen"
+msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:303
 msgid "Connection has limited or no connectivity"
-msgstr "Zveza je omejena ali brez povezave"
+msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
-msgstr "IP-naslov:"
+msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Remote IP:"
-msgstr "Oddaljeni IP-naslov:"
+msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
-msgstr "Omrežna maska:"
+msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
-msgstr "Aktivnost"
+msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
-msgstr "Poslano"
+msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
-msgstr "Prejeto"
+msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
-msgstr "bajtov"
+msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
-msgstr "paketkov"
+msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
-msgstr "Protokol:"
+msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
-msgstr "MAC nasloc:"
+msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:470
 msgid "Manage Networks"
-msgstr "Upravitelj omrežij"
+msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:472
 msgid "Monitor and Manage networks"
-msgstr "Nadzor in upravljanje omrežij"
+msgstr ""
 
 #. create dialog
 #: ../src/plugins/netstat/passwd_gui.c:84
 msgid "Setting Encryption Key"
-msgstr "Nastavi šifrirni ključ"
+msgstr ""
 
 #. messages
 #: ../src/plugins/netstat/passwd_gui.c:94
@@ -1199,52 +1152,47 @@ msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
 msgstr ""
-"Brezžično omrežje je šifrirano. \n"
-"Imeti morate šifrirni ključ."
 
 #: ../src/plugins/netstat/passwd_gui.c:99
 msgid "Encryption Key:"
-msgstr "Šifrirni ključ:"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus.c:178
 msgid "Interface to monitor"
-msgstr "Spremljanje vmesnika"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus.c:179
 msgid "Config tool"
-msgstr "Nastavitveno orodje"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus.c:196
-#, fuzzy
 msgid "Network Status Monitor"
-msgstr "Stanje mreže"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus.c:198
 msgid "Monitor network status"
-msgstr "Prikazuje delovanje mrežne povezave"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:52
 #: ../src/plugins/netstatus/netstatus-dialog.c:311
 msgid "Unknown"
-msgstr "Neznano"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:115
 msgid "Connection Properties"
-msgstr "Nastavitve povezave"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:121
 #, c-format
 msgid "Connection Properties: %s"
-msgstr "Nastavitve povezave: %s"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:134
 #, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
-msgstr[0] "%lu paket"
-msgstr[1] "%lu paketa"
-msgstr[2] "%lu paketi"
-msgstr[3] "%lu paketov"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:395
 #, c-format
@@ -1252,54 +1200,52 @@ msgid ""
 "There was an error displaying help:\n"
 "%s"
 msgstr ""
-"Pri prikazu pomoči je prišlo do napake:\n"
-"%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:579
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
-msgstr "Nastavitvenega orodja ni bilo mogoče prikazati: %s"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-icon.c:379
 #, c-format
 msgid "Network Connection: %s"
-msgstr "Mrežna povezava: %s"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-icon.c:384
 msgid "Network Connection"
-msgstr "Mrežna povezava"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-icon.c:811
 msgid "Interface"
-msgstr "Vmesnik"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-icon.c:812
 msgid "The current interface the icon is monitoring."
-msgstr "Trenutni vmesnik"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-icon.c:819
 msgid "Orientation"
-msgstr "Orientacija"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-icon.c:820
 msgid "The orientation of the tray."
-msgstr "Orientacija sistemskega pladnja"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-icon.c:828
 msgid "Tooltips Enabled"
-msgstr "Zaslonski namigi omogočeni"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-icon.c:829
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr "Vključi/izključi prikaz zaslonskih namigov"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-icon.c:836
 msgid "Show Signal"
-msgstr "Prikaži signal"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-icon.c:837
 msgid "Whether or not the signal strength should be displayed."
-msgstr "Prikaz jakosti signala"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-icon.c:950
 #, c-format
@@ -1308,194 +1254,92 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Prosim, kontaktiraje sistemskega administratorja za razrešitev naslednjega "
-"problema:\n"
-"\n"
-"%s"
 
 #: ../src/plugins/batt/batt.c:131
 msgid "No batteries found"
-msgstr "Ni najdenih baterij"
+msgstr ""
 
 #: ../src/plugins/batt/batt.c:179
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
-msgstr "Baterija: %d%% napolnjeno, %d:%02d do polnega"
+msgstr ""
 
 #: ../src/plugins/batt/batt.c:190
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
-msgstr "Baterija: %d%% napolnjeno, %d:%02d do konca"
+msgstr ""
 
 #: ../src/plugins/batt/batt.c:196
 #, c-format
 msgid "Battery: %d%% charged"
-msgstr "Baterija: %d%% napolnjeno"
+msgstr ""
 
 #: ../src/plugins/batt/batt.c:580
 msgid "Hide if there is no battery"
-msgstr "Skrij, če ni baterije"
+msgstr ""
 
 #: ../src/plugins/batt/batt.c:582
 msgid "Alarm command"
-msgstr "Ukaz ob alarmu"
+msgstr ""
 
 #: ../src/plugins/batt/batt.c:583
 msgid "Alarm time (minutes left)"
-msgstr "Časovni alarm (ostalih minut)"
+msgstr ""
 
 #: ../src/plugins/batt/batt.c:584
 msgid "Background color"
-msgstr "Barva ozadja"
+msgstr ""
 
 #: ../src/plugins/batt/batt.c:585
 msgid "Charging color 1"
-msgstr "Polnjenje - barva 1"
+msgstr ""
 
 #: ../src/plugins/batt/batt.c:586
 msgid "Charging color 2"
-msgstr "Polnjenje - barva 2"
+msgstr ""
 
 #: ../src/plugins/batt/batt.c:587
 msgid "Discharging color 1"
-msgstr "Praznjenje - barva 1"
+msgstr ""
 
 #: ../src/plugins/batt/batt.c:588
 msgid "Discharging color 2"
-msgstr "Praznjenje - barva 2"
+msgstr ""
 
 #: ../src/plugins/batt/batt.c:589
 msgid "Border width"
-msgstr "Širina meje"
+msgstr ""
 
 #: ../src/plugins/batt/batt.c:619
 msgid "Battery Monitor"
-msgstr "Nadzornik baterije"
+msgstr ""
 
 #: ../src/plugins/batt/batt.c:621
 msgid "Display battery status using ACPI"
-msgstr "Prikaži ACPI status baterije"
+msgstr ""
 
 #: ../src/plugins/kbled/kbled.c:230
 msgid "Show CapsLock"
-msgstr "Prikaži CapsLock"
+msgstr ""
 
 #: ../src/plugins/kbled/kbled.c:231
 msgid "Show NumLock"
-msgstr "Prikaži NumLock"
+msgstr ""
 
 #: ../src/plugins/kbled/kbled.c:232
 msgid "Show ScrollLock"
-msgstr "Prikaži ScrollLock"
+msgstr ""
 
 #: ../src/plugins/kbled/kbled.c:267
 msgid "Keyboard LED"
-msgstr "Indikatorji tipkovnice"
+msgstr ""
 
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr "Prikazuje stanje CapsLocka, NumLocka in ScrollLocka"
-
-#~ msgid "Desktop No / Workspace Name"
-#~ msgstr "Številka namizja / Ime namizja"
-
-#~ msgid ""
-#~ "Allows you to switch the keyboard layout and\n"
-#~ "displays the currently selected layout."
-#~ msgstr ""
-#~ "Omogoča preklapljanje med ter prikaz trenutno\n"
-#~ "izbrane razporeditve tipk."
-
-#~ msgid "Other plugins available here"
-#~ msgstr "Drugi vtičniki"
-
-#~ msgid "Old KDE/GNOME Tray"
-#~ msgstr "Stari KDE/GNOME sistemski pladenj"
+msgstr ""
 
 #~ msgid "Enable Image:"
-#~ msgstr "Slika:"
+#~ msgstr "  :"
 
 #~ msgid "Enable Transparency"
-#~ msgstr "Uporabi transparentnost"
-
-#~ msgid "Tint color:"
-#~ msgstr "Barva:"
-
-#~ msgid " --configure -- launch configuration utility\n"
-#~ msgstr " --configure -- zažene izbrano konfiguracijo\n"
-
-#~ msgid " -C  -- same as --configure\n"
-#~ msgstr " -C  -- enako kot --configure\n"
-
-#~ msgid "Add Button"
-#~ msgstr "Dodaj gumb"
-
-#~ msgid "Button Properties"
-#~ msgstr "Lastnosti gumba"
-
-#~ msgid "Remove Button"
-#~ msgstr "Odstrani gumb"
-
-#~ msgid "Buttons"
-#~ msgstr "Nastavljeni gumbi"
-
-#~ msgid "Accept SkipPager"
-#~ msgstr "Sprejmi SkipPager"
-
-#~ msgid "Show Iconified windows"
-#~ msgstr "Prikaži pomanjšana okna"
-
-#, fuzzy
-#~ msgid "Show mapped windows"
-#~ msgstr "Prikaži mapirane gumbe?"
-
-#~ msgid "Action"
-#~ msgstr "Dejanje:"
-
-#, fuzzy
-#~ msgid "Provide Menu"
-#~ msgstr "Nudi menu?"
-
-#~ msgid "Kayboard Layout switcher"
-#~ msgstr "Preklapljanje med razporeditvami tipk"
-
-#~ msgid ""
-#~ "Dynamic\n"
-#~ "Pixels\n"
-#~ "% Percent"
-#~ msgstr ""
-#~ "dinamično\n"
-#~ "pikslov\n"
-#~ "% odstotkov"
-
-#~ msgid ""
-#~ "Left\n"
-#~ "Center\n"
-#~ "Right"
-#~ msgstr ""
-#~ "Levo\n"
-#~ "Sredinsko\n"
-#~ "Desno"
-
-#~ msgid ""
-#~ "Left\n"
-#~ "Right\n"
-#~ "Top\n"
-#~ "Bottom"
-#~ msgstr ""
-#~ "Levo\n"
-#~ "Desno\n"
-#~ "Nad\n"
-#~ "Pod"
-
-#~ msgid "Where to put the panel?"
-#~ msgstr "Določi položaj opravilne vrstice"
-
-#~ msgid "Battery: %d%% charged, %s"
-#~ msgstr "Baterija: %d%% napolnjeno, %s"
-
-#~ msgid "charging finished"
-#~ msgstr "Polnjenje končano"
-
-#~ msgid "charging"
-#~ msgstr "polni"
+#~ msgstr "  "

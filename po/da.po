@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-09 09:19+0200\n"
+"POT-Creation-Date: 2009-07-18 14:26+0200\n"
 "PO-Revision-Date: 2009-07-09 22:00+0200\n"
 "Last-Translator: Vidar Jon Bauge <vidarjb@gmail.com>\n"
 "Language-Team: Danish\n"
@@ -37,146 +37,151 @@ msgid "<b>Font</b>"
 msgstr "<b>Skrifttype</b>"
 
 #: ../data/ui/panel-pref.glade.h:6
+#, fuzzy
+msgid "<b>Icon</b>"
+msgstr "<b>Skrifttype</b>"
+
+#: ../data/ui/panel-pref.glade.h:7
 msgid "<b>Position</b>"
 msgstr "<b>Placering</b>"
 
-#: ../data/ui/panel-pref.glade.h:7
+#: ../data/ui/panel-pref.glade.h:8
 msgid "<b>Properties</b>"
 msgstr "<b>Egenskaber</b>"
 
-#: ../data/ui/panel-pref.glade.h:8
+#: ../data/ui/panel-pref.glade.h:9
 msgid "<b>Set Preferred Applications</b>"
 msgstr "<b>Foretrukne programmer</b>"
 
-#: ../data/ui/panel-pref.glade.h:9
+#: ../data/ui/panel-pref.glade.h:10
 msgid "<b>Size</b>"
 msgstr "<b>Størrelse</b>"
 
-#: ../data/ui/panel-pref.glade.h:10
+#: ../data/ui/panel-pref.glade.h:11
 msgid "Advanced"
 msgstr "Avanceret"
 
-#: ../data/ui/panel-pref.glade.h:11
+#: ../data/ui/panel-pref.glade.h:12
 msgid "Alignment:"
 msgstr "Placering:"
 
-#: ../data/ui/panel-pref.glade.h:12
+#: ../data/ui/panel-pref.glade.h:13
 msgid "Appearance"
 msgstr "Udseende"
 
-#: ../data/ui/panel-pref.glade.h:13 ../src/panel.c:942
+#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:955
 msgid "Bottom"
 msgstr "Bund"
 
-#: ../data/ui/panel-pref.glade.h:14
+#: ../data/ui/panel-pref.glade.h:15
 msgid "Center"
 msgstr "Center"
 
-#: ../data/ui/panel-pref.glade.h:15
+#: ../data/ui/panel-pref.glade.h:16
 msgid "Custom color"
 msgstr "Vælg en farve"
 
-#: ../data/ui/panel-pref.glade.h:16
+#: ../data/ui/panel-pref.glade.h:17
 msgid "Dynamic"
 msgstr "Dynamisk"
 
-#: ../data/ui/panel-pref.glade.h:17
+#: ../data/ui/panel-pref.glade.h:18
 msgid "Edge:"
 msgstr "Kant:"
 
-#: ../data/ui/panel-pref.glade.h:18
+#: ../data/ui/panel-pref.glade.h:19
 msgid "File Manager:"
 msgstr "Filhåndtering:"
 
-#: ../data/ui/panel-pref.glade.h:19
+#: ../data/ui/panel-pref.glade.h:20
 msgid "Geometry"
 msgstr "Ændr størrelse"
 
-#: ../data/ui/panel-pref.glade.h:20 ../src/panel.c:932 ../src/panel.c:940
+#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:945 ../src/panel.c:953
 msgid "Height:"
 msgstr "Højde:"
 
-#: ../data/ui/panel-pref.glade.h:21
+#: ../data/ui/panel-pref.glade.h:22
 msgid "Image"
 msgstr "Billede"
 
-#: ../data/ui/panel-pref.glade.h:22 ../src/panel.c:934
+#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:947
 msgid "Left"
 msgstr "Venstre"
 
-#: ../data/ui/panel-pref.glade.h:23
+#: ../data/ui/panel-pref.glade.h:24
 msgid "Left\t"
 msgstr "Venstre\t"
 
-#: ../data/ui/panel-pref.glade.h:24
+#: ../data/ui/panel-pref.glade.h:25
 msgid "Logout Command:"
 msgstr "Kommando til at logge ud:"
 
-#: ../data/ui/panel-pref.glade.h:25
+#: ../data/ui/panel-pref.glade.h:26
 msgid "Make window managers treat the panel as dock"
 msgstr "Vinduesbehandler anvender panelet som dock"
 
-#: ../data/ui/panel-pref.glade.h:26
+#: ../data/ui/panel-pref.glade.h:27
 msgid "Margin:"
 msgstr "Margin:"
 
-#: ../data/ui/panel-pref.glade.h:27
+#: ../data/ui/panel-pref.glade.h:28
 msgid "Minimize panel when not in use"
 msgstr "Minimer panelet når det ikke bruges"
 
-#: ../data/ui/panel-pref.glade.h:28
+#: ../data/ui/panel-pref.glade.h:29
 msgid "Panel Applets"
 msgstr "Panel appleter"
 
-#: ../data/ui/panel-pref.glade.h:29
+#: ../data/ui/panel-pref.glade.h:30
 msgid "Panel Preferences"
 msgstr "Indstillinger for panel"
 
-#: ../data/ui/panel-pref.glade.h:30
+#: ../data/ui/panel-pref.glade.h:31
 msgid "Pixels"
 msgstr "Pixels"
 
-#: ../data/ui/panel-pref.glade.h:31
+#: ../data/ui/panel-pref.glade.h:32
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Reserveret plads. Dækkes ikke af maksimerede vinduer"
 
-#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:935
+#: ../data/ui/panel-pref.glade.h:33 ../src/panel.c:948
 msgid "Right"
 msgstr "Højre"
 
-#: ../data/ui/panel-pref.glade.h:33
+#: ../data/ui/panel-pref.glade.h:34
 msgid "Select an image file"
 msgstr "Vælg en billedfil"
 
-#: ../data/ui/panel-pref.glade.h:34
+#: ../data/ui/panel-pref.glade.h:35
 msgid "Size when minimized"
 msgstr "Størrelse når minimeret"
 
-#: ../data/ui/panel-pref.glade.h:35
+#: ../data/ui/panel-pref.glade.h:36
 msgid "Solid color (with opacity)"
 msgstr "Ensfarvet (Med gennemsigtighed)"
 
-#: ../data/ui/panel-pref.glade.h:36
+#: ../data/ui/panel-pref.glade.h:37
 msgid "System theme"
 msgstr "Systemets tema"
 
-#: ../data/ui/panel-pref.glade.h:37
+#: ../data/ui/panel-pref.glade.h:38
 msgid "Terminal Emulator:"
 msgstr "Terminal emulator:"
 
-#: ../data/ui/panel-pref.glade.h:38
+#: ../data/ui/panel-pref.glade.h:39
 msgid "Top\t"
 msgstr "Top\t"
 
-#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:933 ../src/panel.c:939
+#: ../data/ui/panel-pref.glade.h:40 ../src/panel.c:946 ../src/panel.c:952
 msgid "Width:"
 msgstr "Bredde:"
 
-#: ../data/ui/panel-pref.glade.h:40
+#: ../data/ui/panel-pref.glade.h:41
 msgid "pixels"
 msgstr "px"
 
-#: ../src/configurator.c:54 ../src/gtk-run.c:250
+#: ../src/configurator.c:54 ../src/gtk-run.c:252
 msgid "Run"
 msgstr "Kør"
 
@@ -188,39 +193,39 @@ msgstr "Genstart"
 msgid "Logout"
 msgstr "Log ud"
 
-#: ../src/configurator.c:438
+#: ../src/configurator.c:445
 msgid "Currently loaded plugins"
 msgstr "Anvendte plugins"
 
-#: ../src/configurator.c:447
+#: ../src/configurator.c:454
 msgid "Stretch"
 msgstr "Stræk"
 
-#: ../src/configurator.c:552
+#: ../src/configurator.c:559
 msgid "Add plugin to panel"
 msgstr "Tilføj plugin til panelet"
 
-#: ../src/configurator.c:580
+#: ../src/configurator.c:587
 msgid "Available plugins"
 msgstr "Tilgængelige plugins"
 
-#: ../src/configurator.c:1134
+#: ../src/configurator.c:1143
 msgid "Logout command is not set"
 msgstr "Kommando til at logge ud er ikke valgt"
 
-#: ../src/configurator.c:1187
+#: ../src/configurator.c:1196
 msgid "Select a directory"
 msgstr "Vælg mappe"
 
-#: ../src/configurator.c:1187 ../src/configurator.c:1278
+#: ../src/configurator.c:1196 ../src/configurator.c:1287
 msgid "Select a file"
 msgstr "Vælg en fil"
 
-#: ../src/configurator.c:1305
+#: ../src/configurator.c:1314
 msgid "_Browse"
 msgstr "_Gennemse"
 
-#: ../src/panel.c:588
+#: ../src/panel.c:590
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -228,115 +233,115 @@ msgstr ""
 "Bekræft sletning af panel.\n"
 "<b>Advarsel: Dette kan ikke fortrydes.</b>"
 
-#: ../src/panel.c:590
+#: ../src/panel.c:592
 msgid "Confirm"
 msgstr "Bekræft"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:622
+#: ../src/panel.c:624
 msgid "translator-credits"
 msgstr ""
 "Vidar Jon Bauge <vidarjb@gmail.com>\n"
 "Charlie Tyrrestrup <chalze06@gmail.com>"
 
-#: ../src/panel.c:627
+#: ../src/panel.c:629
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:629
+#: ../src/panel.c:631
 msgid "Copyright (C) 2008-2009"
 msgstr "Copyright (C) 2008-2009"
 
-#: ../src/panel.c:630
+#: ../src/panel.c:632
 msgid "Desktop panel for LXDE project"
 msgstr "Panel for LXDE Projektet"
 
-#: ../src/panel.c:653
+#: ../src/panel.c:655
 msgid "Add / Remove Panel Items"
 msgstr "Tilføj/fjern objekter på panelet"
 
-#: ../src/panel.c:661
+#: ../src/panel.c:663
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Fjern \"%s\" fra panelet"
 
-#: ../src/panel.c:673
+#: ../src/panel.c:675
 msgid "Panel Settings"
 msgstr "Indstillinger for panelet"
 
-#: ../src/panel.c:679
+#: ../src/panel.c:681
 msgid "Create New Panel"
 msgstr "Opret nyt panel"
 
-#: ../src/panel.c:690
+#: ../src/panel.c:692
 msgid "Delete This Panel"
 msgstr "Slet dette panel"
 
-#: ../src/panel.c:701
+#: ../src/panel.c:703
 msgid "About"
 msgstr "Om"
 
-#: ../src/panel.c:709
+#: ../src/panel.c:711
 msgid "Panel"
 msgstr "Panel"
 
-#: ../src/panel.c:722
+#: ../src/panel.c:724
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" indstillinger"
 
-#: ../src/panel.c:941
+#: ../src/panel.c:954
 msgid "Top"
 msgstr "Top"
 
-#: ../src/panel.c:1332
+#: ../src/panel.c:1345
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - letvægts GTK2+ panel for UNIX skrivebord\n"
 
-#: ../src/panel.c:1333
+#: ../src/panel.c:1346
 #, c-format
 msgid "Command line options:\n"
 msgstr "Valg fra kommandolinjen:\n"
 
-#: ../src/panel.c:1334
+#: ../src/panel.c:1347
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- vis denne hjælp og afslut\n"
 
-#: ../src/panel.c:1335
+#: ../src/panel.c:1348
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- vis version og afslut\n"
 
-#: ../src/panel.c:1336
+#: ../src/panel.c:1349
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --log <tal> -- set log niveau 0-5. 0 - intet 5 - snaksalig\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1338
+#: ../src/panel.c:1351
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile navn -- anvendt navngivne profil\n"
 
-#: ../src/panel.c:1340
+#: ../src/panel.c:1353
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- samme som --help\n"
 
-#: ../src/panel.c:1341
+#: ../src/panel.c:1354
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- samme som --profile\n"
 
-#: ../src/panel.c:1342
+#: ../src/panel.c:1355
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- samme som --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1344
+#: ../src/panel.c:1357
 #, c-format
 msgid ""
 "\n"
@@ -347,7 +352,7 @@ msgstr ""
 "Se http://lxde.org/ for nærmere oplysninger.\n"
 "\n"
 
-#: ../src/gtk-run.c:264
+#: ../src/gtk-run.c:266
 msgid "Enter the command you want to execute:"
 msgstr "Kommando der skal afvikles:"
 
@@ -363,120 +368,116 @@ msgstr "Vis CPU belastning"
 msgid "Desktop Number / Workspace Name"
 msgstr "Skrivebords nummer/navn til arbejdsområde"
 
-#: ../src/plugins/deskno/deskno.c:167 ../src/plugins/deskno/deskno2.c:131
+#: ../src/plugins/deskno/deskno.c:167
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Vis nummer til arbejdsområde, af cmeury@users.sf.net"
-
-#: ../src/plugins/deskno/deskno2.c:129
-msgid "Desktop No / Workspace Name"
-msgstr "Skrivebords nummer/navn til arbejdsområde"
 
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
 msgstr "Vis billede og værktøjstip"
 
-#: ../src/plugins/launchbar.c:648
+#: ../src/plugins/launchbar.c:665
 msgid "Available Applications"
 msgstr "Tilgængelige programmer"
 
-#: ../src/plugins/launchbar.c:648
+#: ../src/plugins/launchbar.c:665
 msgid "Applications"
 msgstr "Programmer"
 
-#: ../src/plugins/launchbar.c:816
+#: ../src/plugins/launchbar.c:846
 msgid "Application Launch Bar"
 msgstr "Område til start af programmer"
 
-#: ../src/plugins/launchbar.c:818
+#: ../src/plugins/launchbar.c:848
 msgid "Bar with buttons to launch application"
 msgstr "Område med knapper til start af applikationer"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1644
+#: ../src/plugins/taskbar.c:1672
 msgid "_Raise"
 msgstr "Løft"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1649
+#: ../src/plugins/taskbar.c:1677
 msgid "R_estore"
 msgstr "G_endan"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1654
+#: ../src/plugins/taskbar.c:1682
 msgid "Ma_ximize"
 msgstr "Maksi_mér"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1659
+#: ../src/plugins/taskbar.c:1687
 msgid "Ico_nify"
 msgstr "Mi_nimér"
 
-#: ../src/plugins/taskbar.c:1678
+#: ../src/plugins/taskbar.c:1706
 #, c-format
 msgid "Workspace _%d"
 msgstr "Arbejdsområde %d"
 
-#: ../src/plugins/taskbar.c:1683
+#: ../src/plugins/taskbar.c:1711
 #, c-format
 msgid "Workspace %d"
 msgstr "Arbejdsområde %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1697
+#: ../src/plugins/taskbar.c:1725
 msgid "_All workspaces"
 msgstr "_Alle arbejdsområder"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1703
+#: ../src/plugins/taskbar.c:1731
 msgid "_Move to Workspace"
 msgstr "Flyt til arbejdsområde"
 
-#. Add Close menu item.  By policy, we place this item farthest from the cursor.
-#: ../src/plugins/taskbar.c:1709
+#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
+#: ../src/plugins/taskbar.c:1737
 msgid "_Close Window"
 msgstr "Luk vindue"
 
-#: ../src/plugins/taskbar.c:1923
+#: ../src/plugins/taskbar.c:1948
 msgid "Show tooltips"
 msgstr "Vis værktøjstips"
 
-#: ../src/plugins/taskbar.c:1924
+#: ../src/plugins/taskbar.c:1949
 msgid "Icons only"
 msgstr "Kun ikoner"
 
-#: ../src/plugins/taskbar.c:1925
+#: ../src/plugins/taskbar.c:1950
 msgid "Flat buttons"
 msgstr "Flade knapper"
 
-#: ../src/plugins/taskbar.c:1926
+#: ../src/plugins/taskbar.c:1951
 msgid "Show windows from all desktops"
 msgstr "Vis vinduer fra alle arbejdsområder"
 
-#: ../src/plugins/taskbar.c:1927
+#: ../src/plugins/taskbar.c:1952
 msgid "Use mouse wheel"
 msgstr "Anvend musens scrolle hjul"
 
-#: ../src/plugins/taskbar.c:1928
+#: ../src/plugins/taskbar.c:1953
 msgid "Flash when there is any window requiring attention"
 msgstr "Blink vinduer der kræver input"
 
-#: ../src/plugins/taskbar.c:1929
+#: ../src/plugins/taskbar.c:1954
 msgid "Combine multiple application windows into a single button"
 msgstr "Samle mange programvinduer i en knap"
 
-#: ../src/plugins/taskbar.c:1930
+#: ../src/plugins/taskbar.c:1955
 msgid "Maximum width of task button"
 msgstr "Opgavelinjens maksimale bredde"
 
-#: ../src/plugins/taskbar.c:1931
+#: ../src/plugins/taskbar.c:1956
 msgid "Spacing"
 msgstr "Afstand"
 
-#: ../src/plugins/taskbar.c:1966
+#: ../src/plugins/taskbar.c:2010
 msgid "Task Bar (Window List)"
 msgstr "Opgavelinje (vindues liste)"
 
-#: ../src/plugins/taskbar.c:1968
+#: ../src/plugins/taskbar.c:2012
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -484,51 +485,51 @@ msgstr ""
 "Opgavelinjen viser alle åbne vinduer, og tillader minimering, oprulning og "
 "fokus"
 
-#: ../src/plugins/dclock.c:261
+#: ../src/plugins/dclock.c:282
 msgid "Clock Format"
 msgstr "Format for klokkeslæt"
 
-#: ../src/plugins/dclock.c:262
+#: ../src/plugins/dclock.c:283
 msgid "Tooltip Format"
 msgstr "Format for værktøjs Tip"
 
-#: ../src/plugins/dclock.c:263
+#: ../src/plugins/dclock.c:284
 msgid "Format codes: man 3 strftime"
 msgstr "Format koder: man 3 strftime"
 
-#: ../src/plugins/dclock.c:264
+#: ../src/plugins/dclock.c:285
 msgid "Action when clicked (default: display calendar)"
 msgstr "Hændelse ved klik (Default: Kalender vises)"
 
-#: ../src/plugins/dclock.c:265
+#: ../src/plugins/dclock.c:286
 msgid "Bold font"
 msgstr "Fed skrifttype"
 
-#: ../src/plugins/dclock.c:292
+#: ../src/plugins/dclock.c:313
 msgid "Digital Clock"
 msgstr "Digitalt ur"
 
-#: ../src/plugins/dclock.c:294
+#: ../src/plugins/dclock.c:315
 msgid "Display digital clock and tooltip"
 msgstr "Vis digitalt ur og værktøjstip"
 
-#: ../src/plugins/menu.c:369
+#: ../src/plugins/menu.c:372
 msgid "Add to desktop"
 msgstr "Tilføj til skrivebordet"
 
-#: ../src/plugins/menu.c:379
+#: ../src/plugins/menu.c:382
 msgid "Properties"
 msgstr "Egenskaber"
 
-#: ../src/plugins/menu.c:990
+#: ../src/plugins/menu.c:990 ../src/plugins/dirmenu.c:367
 msgid "Icon"
 msgstr "Ikon"
 
-#: ../src/plugins/menu.c:1001
+#: ../src/plugins/menu.c:1007
 msgid "Menu"
 msgstr "Menu"
 
-#: ../src/plugins/menu.c:1003
+#: ../src/plugins/menu.c:1009
 msgid "Application Menu"
 msgstr "Program Menu"
 
@@ -900,11 +901,11 @@ msgstr "Separator"
 msgid "Add a separator to the panel"
 msgstr "Tilføj en separator til panelet"
 
-#: ../src/plugins/pager.c:795
+#: ../src/plugins/pager.c:797
 msgid "Desktop Pager"
 msgstr "Arbejdsområdeskifter"
 
-#: ../src/plugins/pager.c:797
+#: ../src/plugins/pager.c:799
 msgid "Simple pager plugin"
 msgstr "Enkelt plugin til skift af arbejdsområde"
 
@@ -920,72 +921,62 @@ msgstr "Adskiller"
 msgid "Allocate space"
 msgstr "Tildel plads"
 
-#: ../src/plugins/tray.c:731
+#: ../src/plugins/tray.c:754
 msgid "System Tray"
 msgstr "Statusfelt"
 
-#: ../src/plugins/tray.c:733
+#: ../src/plugins/tray.c:756
 msgid "System tray"
 msgstr "Statusfelt"
 
-#: ../src/plugins/xkb/xkb-plugin.c:242 ../src/plugins/xkb/xkb-plugin.c:506
-msgid "Keyboard Layout Switcher"
-msgstr "Omskifter for tastatur layout"
-
-#: ../src/plugins/xkb/xkb-plugin.c:248
-msgid ""
-"Allows you to switch the keyboard layout and\n"
-"displays the currently selected layout."
-msgstr ""
-"Giver mulighed for at skifte tastatur layout og\n"
-"viser hvilket layout der er valgt."
-
-#: ../src/plugins/xkb/xkb-plugin.c:253
-msgid "Other plugins available here"
-msgstr "Andre tilgængelige plugins"
-
-#: ../src/plugins/xkb/xkb-plugin.c:392
+#: ../src/plugins/xkb/xkb-plugin.c:283
 msgid "Configure Keyboard Layout Switcher"
 msgstr "Konfigurer omskifter for tastatur layout"
 
-#: ../src/plugins/xkb/xkb-plugin.c:405
+#: ../src/plugins/xkb/xkb-plugin.c:298
 msgid "Show layout as"
 msgstr "Vis layout som"
 
-#: ../src/plugins/xkb/xkb-plugin.c:420
+#: ../src/plugins/xkb/xkb-plugin.c:313
 msgid "image"
 msgstr "billede"
 
-#: ../src/plugins/xkb/xkb-plugin.c:421
+#: ../src/plugins/xkb/xkb-plugin.c:314
 msgid "text"
 msgstr "tekst"
 
-#: ../src/plugins/xkb/xkb-plugin.c:425
+#: ../src/plugins/xkb/xkb-plugin.c:321
 msgid "Per application settings"
 msgstr "Indstillinger for hvert program"
 
-#: ../src/plugins/xkb/xkb-plugin.c:439
+#. Create a check button as the child of the vertical box.
+#: ../src/plugins/xkb/xkb-plugin.c:336
 msgid "_Remember layout for each application"
 msgstr "Husk layout for hvert program"
 
-#: ../src/plugins/xkb/xkb-plugin.c:448
+#. Create a label as the child of the horizontal box.
+#: ../src/plugins/xkb/xkb-plugin.c:346
 msgid "Default layout:"
 msgstr "Standard layout:"
 
-#: ../src/plugins/xkb/xkb-plugin.c:508
+#: ../src/plugins/xkb/xkb-plugin.c:397
+msgid "Keyboard Layout Switcher"
+msgstr "Omskifter for tastatur layout"
+
+#: ../src/plugins/xkb/xkb-plugin.c:399
 msgid "Switch between available keyboard layouts"
 msgstr "Skift mellem tilgængelige tastatur layouts"
 
-#: ../src/plugins/wincmd.c:167
+#: ../src/plugins/wincmd.c:171
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
 "Venstreklik for at minimere alle vinduer. Klik på midten for at rulle dem op"
 
-#: ../src/plugins/wincmd.c:197
+#: ../src/plugins/wincmd.c:208
 msgid "Minimize All Windows"
 msgstr "Minimér alle vinduer"
 
-#: ../src/plugins/wincmd.c:199
+#: ../src/plugins/wincmd.c:210
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
@@ -993,84 +984,87 @@ msgstr ""
 "Sender kommandoer til alle vinduer på skrivebordet.\n"
 "Understøttede kommandoer: 1) Minimér og 2) Rul op"
 
-#: ../src/plugins/dirmenu.c:212
+#: ../src/plugins/dirmenu.c:200
 msgid "Open in _Terminal"
 msgstr "Åbne i _terminal"
 
-#: ../src/plugins/dirmenu.c:386
+#: ../src/plugins/dirmenu.c:365
 msgid "Directory"
 msgstr "Mappe"
 
-#: ../src/plugins/dirmenu.c:387
+#: ../src/plugins/dirmenu.c:366
 msgid "Label"
 msgstr "Mærke"
 
-#: ../src/plugins/dirmenu.c:404
+#: ../src/plugins/dirmenu.c:397
 msgid "Directory Menu"
 msgstr "Menu for mapper"
 
-#: ../src/plugins/dirmenu.c:406
+#: ../src/plugins/dirmenu.c:399
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "Gennemse mappetræet via menu (Forfatter: PCMan)"
 
-#: ../src/plugins/thermal/thermal.c:284
+#: ../src/plugins/thermal/thermal.c:283
 msgid "Normal"
 msgstr "Normal"
 
-#: ../src/plugins/thermal/thermal.c:285
+#: ../src/plugins/thermal/thermal.c:284
 msgid "Warning1"
 msgstr "Advarsel1"
 
-#: ../src/plugins/thermal/thermal.c:286
+#: ../src/plugins/thermal/thermal.c:285
 msgid "Warning2"
 msgstr "Advarsel2"
 
-#: ../src/plugins/thermal/thermal.c:287
+#: ../src/plugins/thermal/thermal.c:286
 msgid "Automatic sensor location"
 msgstr "Automatisk placering af sensorer"
 
-#: ../src/plugins/thermal/thermal.c:288
+#: ../src/plugins/thermal/thermal.c:287
 msgid "Sensor"
 msgstr "Sensor"
 
-#: ../src/plugins/thermal/thermal.c:289
+#: ../src/plugins/thermal/thermal.c:288
 msgid "Automatic temperature levels"
 msgstr "Automatiske temperatur niveauer"
 
-#: ../src/plugins/thermal/thermal.c:290
+#: ../src/plugins/thermal/thermal.c:289
 msgid "Warning1 Temperature"
 msgstr "Advarsel1 temperatur"
 
-#: ../src/plugins/thermal/thermal.c:291
+#: ../src/plugins/thermal/thermal.c:290
 msgid "Warning2 Temperature"
 msgstr "Advarsel2 temperatur"
 
-#: ../src/plugins/thermal/thermal.c:333
+#: ../src/plugins/thermal/thermal.c:332
 msgid "Temperature Monitor"
 msgstr "Temperatur monitor"
 
-#: ../src/plugins/thermal/thermal.c:335
+#: ../src/plugins/thermal/thermal.c:334
 msgid "Display system temperature, by kesler.daniel@gmail.com"
 msgstr "Vis system temperatur, af kesler.daniel@gmail.com"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
+#. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:410
+#: ../src/plugins/volumealsa/volumealsa.c:239
+#: ../src/plugins/volumealsa/volumealsa.c:400
 msgid "Volume control"
 msgstr "Volumen kontrol"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:424
+#: ../src/plugins/volumealsa/volumealsa.c:449
 msgid "Volume Control"
 msgstr "Volumen kontrol"
 
-#. create frame
+#. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:319
+#: ../src/plugins/volumealsa/volumealsa.c:358
 msgid "Volume"
 msgstr "Volumen"
 
-#: ../src/plugins/volumealsa/volumealsa.c:336
+#. Create a check button as the child of the vertical box.
+#: ../src/plugins/volumealsa/volumealsa.c:377
 msgid "Mute"
 msgstr "Lyd fra"
 
@@ -1335,33 +1329,46 @@ msgstr "Afladningsfarve 2"
 msgid "Border width"
 msgstr "Kantbredde"
 
-#: ../src/plugins/batt/batt.c:620
+#: ../src/plugins/batt/batt.c:619
 msgid "Battery Monitor"
 msgstr "Batterimonitor"
 
-#: ../src/plugins/batt/batt.c:622
+#: ../src/plugins/batt/batt.c:621
 msgid "Display battery status using ACPI"
 msgstr "Vis batteri status ved hjælp af ACPI"
 
-#: ../src/plugins/kbled/kbled.c:227
+#: ../src/plugins/kbled/kbled.c:230
 msgid "Show CapsLock"
 msgstr "Vis CapsLock"
 
-#: ../src/plugins/kbled/kbled.c:228
+#: ../src/plugins/kbled/kbled.c:231
 msgid "Show NumLock"
 msgstr "Vis NumLock"
 
-#: ../src/plugins/kbled/kbled.c:229
+#: ../src/plugins/kbled/kbled.c:232
 msgid "Show ScrollLock"
 msgstr "Vis ScrollLock"
 
-#: ../src/plugins/kbled/kbled.c:259
+#: ../src/plugins/kbled/kbled.c:267
 msgid "Keyboard LED"
 msgstr "Tastatur Indikatorer"
 
-#: ../src/plugins/kbled/kbled.c:261
+#: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Indikatorer for CapsLock, NumLock, og ScrollLock keys"
+
+#~ msgid "Desktop No / Workspace Name"
+#~ msgstr "Skrivebords nummer/navn til arbejdsområde"
+
+#~ msgid ""
+#~ "Allows you to switch the keyboard layout and\n"
+#~ "displays the currently selected layout."
+#~ msgstr ""
+#~ "Giver mulighed for at skifte tastatur layout og\n"
+#~ "viser hvilket layout der er valgt."
+
+#~ msgid "Other plugins available here"
+#~ msgstr "Andre tilgængelige plugins"
 
 #~ msgid "Old KDE/GNOME Tray"
 #~ msgstr "Gammel KDE/GNOME felt"

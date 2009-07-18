@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-09 09:19+0200\n"
+"POT-Creation-Date: 2009-07-18 14:26+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Alain Mendizabal <alainmendi@gmail.com>\n"
 "Language-Team: Basque <alainmendi@gmail.com>\n"
@@ -35,154 +35,159 @@ msgid "<b>Font</b>"
 msgstr "<b>Letra-tipoa</b>"
 
 #: ../data/ui/panel-pref.glade.h:6
+#, fuzzy
+msgid "<b>Icon</b>"
+msgstr "<b>Letra-tipoa</b>"
+
+#: ../data/ui/panel-pref.glade.h:7
 msgid "<b>Position</b>"
 msgstr "<b>Posizioa</b>"
 
-#: ../data/ui/panel-pref.glade.h:7
+#: ../data/ui/panel-pref.glade.h:8
 msgid "<b>Properties</b>"
 msgstr "<b>Propietateak</b>"
 
-#: ../data/ui/panel-pref.glade.h:8
+#: ../data/ui/panel-pref.glade.h:9
 msgid "<b>Set Preferred Applications</b>"
 msgstr "<b>Ezarri hobetsitako aplikazioak</b>"
 
-#: ../data/ui/panel-pref.glade.h:9
+#: ../data/ui/panel-pref.glade.h:10
 msgid "<b>Size</b>"
 msgstr "<b>Tamaina</b>"
 
-#: ../data/ui/panel-pref.glade.h:10
+#: ../data/ui/panel-pref.glade.h:11
 msgid "Advanced"
 msgstr "Aurreratua"
 
-#: ../data/ui/panel-pref.glade.h:11
+#: ../data/ui/panel-pref.glade.h:12
 msgid "Alignment:"
 msgstr "Lerrokatzea:"
 
-#: ../data/ui/panel-pref.glade.h:12
+#: ../data/ui/panel-pref.glade.h:13
 msgid "Appearance"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:13 ../src/panel.c:942
+#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:955
 msgid "Bottom"
 msgstr "Behean"
 
-#: ../data/ui/panel-pref.glade.h:14
+#: ../data/ui/panel-pref.glade.h:15
 #, fuzzy
 msgid "Center"
 msgstr "Orokorra"
 
-#: ../data/ui/panel-pref.glade.h:15
+#: ../data/ui/panel-pref.glade.h:16
 #, fuzzy
 msgid "Custom color"
 msgstr "Kolore pertsonalizatua"
 
-#: ../data/ui/panel-pref.glade.h:16
+#: ../data/ui/panel-pref.glade.h:17
 msgid "Dynamic"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:17
+#: ../data/ui/panel-pref.glade.h:18
 msgid "Edge:"
 msgstr "Ertza:"
 
-#: ../data/ui/panel-pref.glade.h:18
+#: ../data/ui/panel-pref.glade.h:19
 msgid "File Manager:"
 msgstr "Fitxategi kudeatzailea:"
 
-#: ../data/ui/panel-pref.glade.h:19
+#: ../data/ui/panel-pref.glade.h:20
 msgid "Geometry"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:20 ../src/panel.c:932 ../src/panel.c:940
+#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:945 ../src/panel.c:953
 msgid "Height:"
 msgstr "Altuera:"
 
-#: ../data/ui/panel-pref.glade.h:21
+#: ../data/ui/panel-pref.glade.h:22
 #, fuzzy
 msgid "Image"
 msgstr "irudia"
 
-#: ../data/ui/panel-pref.glade.h:22 ../src/panel.c:934
+#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:947
 msgid "Left"
 msgstr "Ezkerrean"
 
-#: ../data/ui/panel-pref.glade.h:23
+#: ../data/ui/panel-pref.glade.h:24
 #, fuzzy
 msgid "Left\t"
 msgstr "Ezkerrean"
 
-#: ../data/ui/panel-pref.glade.h:24
+#: ../data/ui/panel-pref.glade.h:25
 msgid "Logout Command:"
 msgstr "Saioa amaierako komandoa:"
 
-#: ../data/ui/panel-pref.glade.h:25
+#: ../data/ui/panel-pref.glade.h:26
 msgid "Make window managers treat the panel as dock"
 msgstr ""
 "Leiho kudeatzaileak panela atrakagarria bezala tratatzea ahalbideratzen du"
 
-#: ../data/ui/panel-pref.glade.h:26
+#: ../data/ui/panel-pref.glade.h:27
 msgid "Margin:"
 msgstr "Marjina:"
 
-#: ../data/ui/panel-pref.glade.h:27
+#: ../data/ui/panel-pref.glade.h:28
 msgid "Minimize panel when not in use"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:28
+#: ../data/ui/panel-pref.glade.h:29
 msgid "Panel Applets"
 msgstr "Paneleko applet-ak"
 
-#: ../data/ui/panel-pref.glade.h:29
+#: ../data/ui/panel-pref.glade.h:30
 msgid "Panel Preferences"
 msgstr "Panelaren hobespenak"
 
-#: ../data/ui/panel-pref.glade.h:30
+#: ../data/ui/panel-pref.glade.h:31
 msgid "Pixels"
 msgstr "Pixelak"
 
-#: ../data/ui/panel-pref.glade.h:31
+#: ../data/ui/panel-pref.glade.h:32
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Erreserbatu tokia eta ez estali maximizatutako leihoekin"
 
-#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:935
+#: ../data/ui/panel-pref.glade.h:33 ../src/panel.c:948
 msgid "Right"
 msgstr "Eskuinean"
 
-#: ../data/ui/panel-pref.glade.h:33
+#: ../data/ui/panel-pref.glade.h:34
 msgid "Select an image file"
 msgstr "Hautatu irudi-fitxategia"
 
-#: ../data/ui/panel-pref.glade.h:34
+#: ../data/ui/panel-pref.glade.h:35
 msgid "Size when minimized"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:35
+#: ../data/ui/panel-pref.glade.h:36
 msgid "Solid color (with opacity)"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:36
+#: ../data/ui/panel-pref.glade.h:37
 #, fuzzy
 msgid "System theme"
 msgstr "Bat ere ez (erabili sistemaren gaia)"
 
-#: ../data/ui/panel-pref.glade.h:37
+#: ../data/ui/panel-pref.glade.h:38
 msgid "Terminal Emulator:"
 msgstr "Terminal emulatzailea:"
 
-#: ../data/ui/panel-pref.glade.h:38
+#: ../data/ui/panel-pref.glade.h:39
 #, fuzzy
 msgid "Top\t"
 msgstr "Goian"
 
-#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:933 ../src/panel.c:939
+#: ../data/ui/panel-pref.glade.h:40 ../src/panel.c:946 ../src/panel.c:952
 msgid "Width:"
 msgstr "Zabalera:"
 
-#: ../data/ui/panel-pref.glade.h:40
+#: ../data/ui/panel-pref.glade.h:41
 #, fuzzy
 msgid "pixels"
 msgstr "Pixelak"
 
-#: ../src/configurator.c:54 ../src/gtk-run.c:250
+#: ../src/configurator.c:54 ../src/gtk-run.c:252
 msgid "Run"
 msgstr "Exekutatu"
 
@@ -194,40 +199,40 @@ msgstr "Berrabiarazi"
 msgid "Logout"
 msgstr "Amaitu saioa"
 
-#: ../src/configurator.c:438
+#: ../src/configurator.c:445
 msgid "Currently loaded plugins"
 msgstr "Kargatutako plugin-ak"
 
-#: ../src/configurator.c:447
+#: ../src/configurator.c:454
 msgid "Stretch"
 msgstr "Luzatu"
 
-#: ../src/configurator.c:552
+#: ../src/configurator.c:559
 msgid "Add plugin to panel"
 msgstr "Gehitu plugin-a panelari"
 
-#: ../src/configurator.c:580
+#: ../src/configurator.c:587
 msgid "Available plugins"
 msgstr "Eskuragarri dauden pluginak"
 
-#: ../src/configurator.c:1134
+#: ../src/configurator.c:1143
 msgid "Logout command is not set"
 msgstr "Saioa amaitzeko komandoa ez dago ezarririk"
 
-#: ../src/configurator.c:1187
+#: ../src/configurator.c:1196
 #, fuzzy
 msgid "Select a directory"
 msgstr "Hautatu fitxategia"
 
-#: ../src/configurator.c:1187 ../src/configurator.c:1278
+#: ../src/configurator.c:1196 ../src/configurator.c:1287
 msgid "Select a file"
 msgstr "Hautatu fitxategia"
 
-#: ../src/configurator.c:1305
+#: ../src/configurator.c:1314
 msgid "_Browse"
 msgstr "_Arakatu"
 
-#: ../src/panel.c:588
+#: ../src/panel.c:590
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -235,88 +240,88 @@ msgstr ""
 "Panel hau ezabatu?\n"
 "<b>Kontuz: panela ezingo da berreskuratu.</b>"
 
-#: ../src/panel.c:590
+#: ../src/panel.c:592
 msgid "Confirm"
 msgstr "Berretsi"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:622
+#: ../src/panel.c:624
 msgid "translator-credits"
 msgstr ""
 
-#: ../src/panel.c:627
+#: ../src/panel.c:629
 #, fuzzy
 msgid "LXPanel"
 msgstr "Panela"
 
-#: ../src/panel.c:629
+#: ../src/panel.c:631
 msgid "Copyright (C) 2008-2009"
 msgstr ""
 
-#: ../src/panel.c:630
+#: ../src/panel.c:632
 msgid "Desktop panel for LXDE project"
 msgstr ""
 
-#: ../src/panel.c:653
+#: ../src/panel.c:655
 msgid "Add / Remove Panel Items"
 msgstr "Gehitu / Ezabatu paneleko elementuak"
 
-#: ../src/panel.c:661
+#: ../src/panel.c:663
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Ezabatu \"%s\" paneletik"
 
-#: ../src/panel.c:673
+#: ../src/panel.c:675
 msgid "Panel Settings"
 msgstr "Panelaren hobespenak"
 
-#: ../src/panel.c:679
+#: ../src/panel.c:681
 msgid "Create New Panel"
 msgstr "Sortu panel berria"
 
-#: ../src/panel.c:690
+#: ../src/panel.c:692
 msgid "Delete This Panel"
 msgstr "Ezabatu panel hau"
 
-#: ../src/panel.c:701
+#: ../src/panel.c:703
 msgid "About"
 msgstr ""
 
-#: ../src/panel.c:709
+#: ../src/panel.c:711
 msgid "Panel"
 msgstr "Panela"
 
-#: ../src/panel.c:722
+#: ../src/panel.c:724
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" hobespenak"
 
-#: ../src/panel.c:941
+#: ../src/panel.c:954
 #, fuzzy
 msgid "Top"
 msgstr "Goian"
 
-#: ../src/panel.c:1332
+#: ../src/panel.c:1345
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr ""
 
-#: ../src/panel.c:1333
+#: ../src/panel.c:1346
 #, c-format
 msgid "Command line options:\n"
 msgstr "Komando-lerroko aukerak:\n"
 
-#: ../src/panel.c:1334
+#: ../src/panel.c:1347
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help       -- erakutsi laguntza hau eta irten\n"
 
-#: ../src/panel.c:1335
+#: ../src/panel.c:1348
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version    -- erakutsi bertsioa eta irten\n"
 
-#: ../src/panel.c:1336
+#: ../src/panel.c:1349
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
@@ -324,28 +329,28 @@ msgstr ""
 "berritsua\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1338
+#: ../src/panel.c:1351
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile izena  -- erabili adierazitako profila\n"
 
-#: ../src/panel.c:1340
+#: ../src/panel.c:1353
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  --help-en berdina\n"
 
-#: ../src/panel.c:1341
+#: ../src/panel.c:1354
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  --profile-ren berdina\n"
 
-#: ../src/panel.c:1342
+#: ../src/panel.c:1355
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  --version-en berdina\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1344
+#: ../src/panel.c:1357
 #, c-format
 msgid ""
 "\n"
@@ -356,7 +361,7 @@ msgstr ""
 "Bisitatu http://lxde.org/ xehetasun gehiagorentzako.\n"
 "\n"
 
-#: ../src/gtk-run.c:264
+#: ../src/gtk-run.c:266
 msgid "Enter the command you want to execute:"
 msgstr "Idatzi exekutatu nahi duzun komandoa:"
 
@@ -373,131 +378,127 @@ msgstr "Bistaratu CPU erabilera"
 msgid "Desktop Number / Workspace Name"
 msgstr "Idazmahaiaren zenb / Laneko arearen zenb"
 
-#: ../src/plugins/deskno/deskno.c:167 ../src/plugins/deskno/deskno2.c:131
+#: ../src/plugins/deskno/deskno.c:167
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Bistaratu laneko arearen zenbakia (cmeury@users.sf.net)"
-
-#: ../src/plugins/deskno/deskno2.c:129
-msgid "Desktop No / Workspace Name"
-msgstr "Idazmahaiaren zenb / Laneko arearen zenb"
 
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
 msgstr "Bistaratu irudia eta argibidea"
 
-#: ../src/plugins/launchbar.c:648
+#: ../src/plugins/launchbar.c:665
 #, fuzzy
 msgid "Available Applications"
 msgstr "Eskuragarri dauden pluginak"
 
-#: ../src/plugins/launchbar.c:648
+#: ../src/plugins/launchbar.c:665
 #, fuzzy
 msgid "Applications"
 msgstr "Hautatu aplikazioa"
 
-#: ../src/plugins/launchbar.c:816
+#: ../src/plugins/launchbar.c:846
 msgid "Application Launch Bar"
 msgstr "Aplikazioen abiarazle barra"
 
-#: ../src/plugins/launchbar.c:818
+#: ../src/plugins/launchbar.c:848
 msgid "Bar with buttons to launch application"
 msgstr "Aplikazioak abiarazteko botoiak dituen barra"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1644
+#: ../src/plugins/taskbar.c:1672
 #, fuzzy
 msgid "_Raise"
 msgstr "Goratu"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1649
+#: ../src/plugins/taskbar.c:1677
 #, fuzzy
 msgid "R_estore"
 msgstr "Leheneratu"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1654
+#: ../src/plugins/taskbar.c:1682
 #, fuzzy
 msgid "Ma_ximize"
 msgstr "Maximizatu"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1659
+#: ../src/plugins/taskbar.c:1687
 #, fuzzy
 msgid "Ico_nify"
 msgstr "Ikonotu"
 
-#: ../src/plugins/taskbar.c:1678
+#: ../src/plugins/taskbar.c:1706
 #, fuzzy, c-format
 msgid "Workspace _%d"
 msgstr "%d laneko area"
 
-#: ../src/plugins/taskbar.c:1683
+#: ../src/plugins/taskbar.c:1711
 #, c-format
 msgid "Workspace %d"
 msgstr "%d laneko area"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1697
+#: ../src/plugins/taskbar.c:1725
 #, fuzzy
 msgid "_All workspaces"
 msgstr "Laneko area guztiak"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1703
+#: ../src/plugins/taskbar.c:1731
 #, fuzzy
 msgid "_Move to Workspace"
 msgstr "Joan laneko areara"
 
-#. Add Close menu item.  By policy, we place this item farthest from the cursor.
-#: ../src/plugins/taskbar.c:1709
+#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
+#: ../src/plugins/taskbar.c:1737
 #, fuzzy
 msgid "_Close Window"
 msgstr "Itxi leihoa"
 
-#: ../src/plugins/taskbar.c:1923
+#: ../src/plugins/taskbar.c:1948
 msgid "Show tooltips"
 msgstr "Erakutsi argibideak"
 
-#: ../src/plugins/taskbar.c:1924
+#: ../src/plugins/taskbar.c:1949
 msgid "Icons only"
 msgstr "Ikonoak soilik"
 
-#: ../src/plugins/taskbar.c:1925
+#: ../src/plugins/taskbar.c:1950
 #, fuzzy
 msgid "Flat buttons"
 msgstr "Botoi lauak"
 
-#: ../src/plugins/taskbar.c:1926
+#: ../src/plugins/taskbar.c:1951
 msgid "Show windows from all desktops"
 msgstr "Erakutsi laneko area guztietako leihoak"
 
-#: ../src/plugins/taskbar.c:1927
+#: ../src/plugins/taskbar.c:1952
 msgid "Use mouse wheel"
 msgstr "Erabili saguaren gurpila"
 
-#: ../src/plugins/taskbar.c:1928
+#: ../src/plugins/taskbar.c:1953
 msgid "Flash when there is any window requiring attention"
 msgstr "Keinukatu leihoren batek adi egoteko eskatzen duenean"
 
-#: ../src/plugins/taskbar.c:1929
+#: ../src/plugins/taskbar.c:1954
 msgid "Combine multiple application windows into a single button"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1930
+#: ../src/plugins/taskbar.c:1955
 #, fuzzy
 msgid "Maximum width of task button"
 msgstr "Zeregin botoiaren zabalera maximoa"
 
-#: ../src/plugins/taskbar.c:1931
+#: ../src/plugins/taskbar.c:1956
 msgid "Spacing"
 msgstr "Tartea"
 
-#: ../src/plugins/taskbar.c:1966
+#: ../src/plugins/taskbar.c:2010
 msgid "Task Bar (Window List)"
 msgstr "Zereginen barra (Leihoen zerrenda)"
 
-#: ../src/plugins/taskbar.c:1968
+#: ../src/plugins/taskbar.c:2012
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -505,52 +506,52 @@ msgstr ""
 "Zereginen barrak irekitako leiho guztiak erakusten ditu eta ikonotzen, "
 "biltzen edo fokua ezartzen uzten du"
 
-#: ../src/plugins/dclock.c:261
+#: ../src/plugins/dclock.c:282
 msgid "Clock Format"
 msgstr "Erlojuaren formatua"
 
-#: ../src/plugins/dclock.c:262
+#: ../src/plugins/dclock.c:283
 msgid "Tooltip Format"
 msgstr "Argibideen formatua"
 
-#: ../src/plugins/dclock.c:263
+#: ../src/plugins/dclock.c:284
 msgid "Format codes: man 3 strftime"
 msgstr ""
 
-#: ../src/plugins/dclock.c:264
+#: ../src/plugins/dclock.c:285
 msgid "Action when clicked (default: display calendar)"
 msgstr ""
 
-#: ../src/plugins/dclock.c:265
+#: ../src/plugins/dclock.c:286
 msgid "Bold font"
 msgstr "Letra-tipo lodia"
 
-#: ../src/plugins/dclock.c:292
+#: ../src/plugins/dclock.c:313
 msgid "Digital Clock"
 msgstr "Erloju digitala"
 
-#: ../src/plugins/dclock.c:294
+#: ../src/plugins/dclock.c:315
 #, fuzzy
 msgid "Display digital clock and tooltip"
 msgstr "Bistaratu erloju digitala eta argibidea"
 
-#: ../src/plugins/menu.c:369
+#: ../src/plugins/menu.c:372
 msgid "Add to desktop"
 msgstr "Gehitu idazmahaira"
 
-#: ../src/plugins/menu.c:379
+#: ../src/plugins/menu.c:382
 msgid "Properties"
 msgstr "Propietateak"
 
-#: ../src/plugins/menu.c:990
+#: ../src/plugins/menu.c:990 ../src/plugins/dirmenu.c:367
 msgid "Icon"
 msgstr "Ikonoa"
 
-#: ../src/plugins/menu.c:1001
+#: ../src/plugins/menu.c:1007
 msgid "Menu"
 msgstr "Menua"
 
-#: ../src/plugins/menu.c:1003
+#: ../src/plugins/menu.c:1009
 #, fuzzy
 msgid "Application Menu"
 msgstr "Aplikazioen abiarazle barra"
@@ -924,11 +925,11 @@ msgstr "Bereizlea"
 msgid "Add a separator to the panel"
 msgstr "Gehitu bereizlea panelari"
 
-#: ../src/plugins/pager.c:795
+#: ../src/plugins/pager.c:797
 msgid "Desktop Pager"
 msgstr "Idazmahai orrialdekatzailea"
 
-#: ../src/plugins/pager.c:797
+#: ../src/plugins/pager.c:799
 msgid "Simple pager plugin"
 msgstr "Orrialdekatzaile plugin sinplea"
 
@@ -945,74 +946,64 @@ msgstr "<Tartea>"
 msgid "Allocate space"
 msgstr "Esleitu tokia"
 
-#: ../src/plugins/tray.c:731
+#: ../src/plugins/tray.c:754
 msgid "System Tray"
 msgstr "Sistemaren erretilua"
 
-#: ../src/plugins/tray.c:733
+#: ../src/plugins/tray.c:756
 #, fuzzy
 msgid "System tray"
 msgstr "Sistemaren erretilua"
 
-#: ../src/plugins/xkb/xkb-plugin.c:242 ../src/plugins/xkb/xkb-plugin.c:506
-msgid "Keyboard Layout Switcher"
-msgstr "Teklatuaren diseinuaren aldatzailea"
-
-#: ../src/plugins/xkb/xkb-plugin.c:248
-msgid ""
-"Allows you to switch the keyboard layout and\n"
-"displays the currently selected layout."
-msgstr ""
-"Teklatuaren diseinua aldatzen uzten dizu eta\n"
-"unean hautatutako diseinua bistaratzen du."
-
-#: ../src/plugins/xkb/xkb-plugin.c:253
-msgid "Other plugins available here"
-msgstr "Eskuragarri dauden plugin gehiago"
-
-#: ../src/plugins/xkb/xkb-plugin.c:392
+#: ../src/plugins/xkb/xkb-plugin.c:283
 msgid "Configure Keyboard Layout Switcher"
 msgstr "Konfiguratu teklatuaren diseinuaren aldatzailea"
 
-#: ../src/plugins/xkb/xkb-plugin.c:405
+#: ../src/plugins/xkb/xkb-plugin.c:298
 msgid "Show layout as"
 msgstr "Erakutsi itxura honela:"
 
-#: ../src/plugins/xkb/xkb-plugin.c:420
+#: ../src/plugins/xkb/xkb-plugin.c:313
 msgid "image"
 msgstr "irudia"
 
-#: ../src/plugins/xkb/xkb-plugin.c:421
+#: ../src/plugins/xkb/xkb-plugin.c:314
 msgid "text"
 msgstr "testua"
 
-#: ../src/plugins/xkb/xkb-plugin.c:425
+#: ../src/plugins/xkb/xkb-plugin.c:321
 msgid "Per application settings"
 msgstr "Aplikazio bakoitzerako hobespenak"
 
-#: ../src/plugins/xkb/xkb-plugin.c:439
+#. Create a check button as the child of the vertical box.
+#: ../src/plugins/xkb/xkb-plugin.c:336
 msgid "_Remember layout for each application"
 msgstr "_Gogoratu aplikazio bakoitzaren itxura"
 
-#: ../src/plugins/xkb/xkb-plugin.c:448
+#. Create a label as the child of the horizontal box.
+#: ../src/plugins/xkb/xkb-plugin.c:346
 msgid "Default layout:"
 msgstr "Itxura lehenetsia:"
 
-#: ../src/plugins/xkb/xkb-plugin.c:508
+#: ../src/plugins/xkb/xkb-plugin.c:397
+msgid "Keyboard Layout Switcher"
+msgstr "Teklatuaren diseinuaren aldatzailea"
+
+#: ../src/plugins/xkb/xkb-plugin.c:399
 msgid "Switch between available keyboard layouts"
 msgstr "Aldatu eskuragarri dauden teklatuaren diseinuen artean"
 
-#: ../src/plugins/wincmd.c:167
+#: ../src/plugins/wincmd.c:171
 #, fuzzy
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
 "Klikatu ezkerreko botoiarekin leiho guztiak ikonotzeko. Erdikoarekin biltzeko"
 
-#: ../src/plugins/wincmd.c:197
+#: ../src/plugins/wincmd.c:208
 msgid "Minimize All Windows"
 msgstr "Minimizatu leiho guztiak"
 
-#: ../src/plugins/wincmd.c:199
+#: ../src/plugins/wincmd.c:210
 #, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
@@ -1022,88 +1013,91 @@ msgstr ""
 "Erabili daitezken komandoak dira 1) txandakatu ikonotzea eta 2) txandakatu "
 "biltzea"
 
-#: ../src/plugins/dirmenu.c:212
+#: ../src/plugins/dirmenu.c:200
 msgid "Open in _Terminal"
 msgstr "Ireki _terminalean"
 
-#: ../src/plugins/dirmenu.c:386
+#: ../src/plugins/dirmenu.c:365
 #, fuzzy
 msgid "Directory"
 msgstr "Karpeta-menua"
 
-#: ../src/plugins/dirmenu.c:387
+#: ../src/plugins/dirmenu.c:366
 #, fuzzy
 msgid "Label"
 msgstr "Panela"
 
-#: ../src/plugins/dirmenu.c:404
+#: ../src/plugins/dirmenu.c:397
 msgid "Directory Menu"
 msgstr "Karpeta-menua"
 
-#: ../src/plugins/dirmenu.c:406
+#: ../src/plugins/dirmenu.c:399
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "Arakatu karpeta-zuhaitza menuaren bidez (Autorea: PCMan)"
 
-#: ../src/plugins/thermal/thermal.c:284
+#: ../src/plugins/thermal/thermal.c:283
 msgid "Normal"
 msgstr "Normala"
 
-#: ../src/plugins/thermal/thermal.c:285
+#: ../src/plugins/thermal/thermal.c:284
 msgid "Warning1"
 msgstr "Abisua1"
 
-#: ../src/plugins/thermal/thermal.c:286
+#: ../src/plugins/thermal/thermal.c:285
 msgid "Warning2"
 msgstr "Abisua2"
 
-#: ../src/plugins/thermal/thermal.c:287
+#: ../src/plugins/thermal/thermal.c:286
 msgid "Automatic sensor location"
 msgstr "Sentsorearen kokapen automatikoa"
 
-#: ../src/plugins/thermal/thermal.c:288
+#: ../src/plugins/thermal/thermal.c:287
 msgid "Sensor"
 msgstr "Sentsorea"
 
-#: ../src/plugins/thermal/thermal.c:289
+#: ../src/plugins/thermal/thermal.c:288
 msgid "Automatic temperature levels"
 msgstr "Tenperaturaren maila automatikoak"
 
-#: ../src/plugins/thermal/thermal.c:290
+#: ../src/plugins/thermal/thermal.c:289
 #, fuzzy
 msgid "Warning1 Temperature"
 msgstr "Abisua1 tenperatura"
 
-#: ../src/plugins/thermal/thermal.c:291
+#: ../src/plugins/thermal/thermal.c:290
 #, fuzzy
 msgid "Warning2 Temperature"
 msgstr "Abisua2 tenperatura"
 
-#: ../src/plugins/thermal/thermal.c:333
+#: ../src/plugins/thermal/thermal.c:332
 msgid "Temperature Monitor"
 msgstr "Tenperaturaren monitorea"
 
-#: ../src/plugins/thermal/thermal.c:335
+#: ../src/plugins/thermal/thermal.c:334
 msgid "Display system temperature, by kesler.daniel@gmail.com"
 msgstr "Bistaratu sistemaren tenperatura (kesler.daniel@gmail.com)"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
+#. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:410
+#: ../src/plugins/volumealsa/volumealsa.c:239
+#: ../src/plugins/volumealsa/volumealsa.c:400
 msgid "Volume control"
 msgstr "Bolumenaren kontrola"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:424
+#: ../src/plugins/volumealsa/volumealsa.c:449
 msgid "Volume Control"
 msgstr "Bolumenaren kontrola"
 
-#. create frame
+#. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:319
+#: ../src/plugins/volumealsa/volumealsa.c:358
 msgid "Volume"
 msgstr "Bolumena"
 
-#: ../src/plugins/volumealsa/volumealsa.c:336
+#. Create a check button as the child of the vertical box.
+#: ../src/plugins/volumealsa/volumealsa.c:377
 msgid "Mute"
 msgstr "Mututu"
 
@@ -1370,34 +1364,47 @@ msgstr "Deskargatzen dagoenerako kolorea 2"
 msgid "Border width"
 msgstr "Ertzaren zabalera"
 
-#: ../src/plugins/batt/batt.c:620
+#: ../src/plugins/batt/batt.c:619
 msgid "Battery Monitor"
 msgstr "Bateriaren monitorea"
 
-#: ../src/plugins/batt/batt.c:622
+#: ../src/plugins/batt/batt.c:621
 msgid "Display battery status using ACPI"
 msgstr "Bistaratu bateriaren egoera ACPI erabiliz"
 
-#: ../src/plugins/kbled/kbled.c:227
+#: ../src/plugins/kbled/kbled.c:230
 msgid "Show CapsLock"
 msgstr "Erakutsi BlokMaius"
 
-#: ../src/plugins/kbled/kbled.c:228
+#: ../src/plugins/kbled/kbled.c:231
 msgid "Show NumLock"
 msgstr "Erakutsi NumLock"
 
-#: ../src/plugins/kbled/kbled.c:229
+#: ../src/plugins/kbled/kbled.c:232
 msgid "Show ScrollLock"
 msgstr "Erakutsi ScrollLock"
 
-#: ../src/plugins/kbled/kbled.c:259
+#: ../src/plugins/kbled/kbled.c:267
 #, fuzzy
 msgid "Keyboard LED"
 msgstr "Teklatuaren Led-a"
 
-#: ../src/plugins/kbled/kbled.c:261
+#: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "CapsLock, NumLock eta ScrollLock teklen adierazleak"
+
+#~ msgid "Desktop No / Workspace Name"
+#~ msgstr "Idazmahaiaren zenb / Laneko arearen zenb"
+
+#~ msgid ""
+#~ "Allows you to switch the keyboard layout and\n"
+#~ "displays the currently selected layout."
+#~ msgstr ""
+#~ "Teklatuaren diseinua aldatzen uzten dizu eta\n"
+#~ "unean hautatutako diseinua bistaratzen du."
+
+#~ msgid "Other plugins available here"
+#~ msgstr "Eskuragarri dauden plugin gehiago"
 
 #~ msgid "Old KDE/GNOME Tray"
 #~ msgstr "KDE/GNOME erretilu zaharra"

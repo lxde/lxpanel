@@ -12,7 +12,6 @@ src/gtk-run.c
 # Putting translation of plugins in main catalog is not a good idea...
 src/plugins/cpu/cpu.c
 src/plugins/deskno/deskno.c
-src/plugins/deskno/deskno2.c
 src/plugins/image.c
 src/plugins/launchbar.c
 src/plugins/taskbar.c
