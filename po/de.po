@@ -1,15 +1,15 @@
 # German translation for lxpanel.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# Mario Blättermann <mario.blaettermann@t-online.de>, 2008.
-# 
+# This file is distributed under the same license as the lxpanel package.
+# Mario Blättermann <mariobl@gnome.org>, 2008-2009.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-18 14:26+0200\n"
-"PO-Revision-Date: 2009-07-18 20:28+0200\n"
-"Last-Translator: Christoph Wickert <christoph.wickert@googlemail.com>\n"
+"POT-Creation-Date: 2009-07-19 13:53+0200\n"
+"PO-Revision-Date: 2009-07-19 14:05+0100\n"
+"Last-Translator: Mario Blättermann <mariobl@gnome.org>\n"
 "Language-Team: Deutsch <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,7 +37,6 @@ msgid "<b>Font</b>"
 msgstr "<b>Schrift</b>"
 
 #: ../data/ui/panel-pref.glade.h:6
-#, fuzzy
 msgid "<b>Icon</b>"
 msgstr "<b>Symbol</b>"
 
@@ -126,7 +125,6 @@ msgid "Margin:"
 msgstr "Ränder:"
 
 #: ../data/ui/panel-pref.glade.h:28
-#, fuzzy
 msgid "Minimize panel when not in use"
 msgstr "Panel bei Nichtbenutzung minimieren"
 
@@ -163,7 +161,6 @@ msgid "Solid color (with opacity)"
 msgstr "Durchgehende Farbe (deckend)"
 
 #: ../data/ui/panel-pref.glade.h:37
-#, fuzzy
 msgid "System theme"
 msgstr "Kein (Systemthema verwenden)"
 
@@ -216,9 +213,8 @@ msgid "Logout command is not set"
 msgstr "Abmeldebefehl ist nicht definiert"
 
 #: ../src/configurator.c:1196
-#, fuzzy
 msgid "Select a directory"
-msgstr "Bilddatei auswählen"
+msgstr "Ordner auswählen"
 
 #: ../src/configurator.c:1196 ../src/configurator.c:1287
 msgid "Select a file"
@@ -243,22 +239,21 @@ msgstr "Bestätigen"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:624
 msgid "translator-credits"
-msgstr "Christoph Wickert <cwickert@fedorapeoject.org>\n"
+msgstr ""
+"Christoph Wickert <cwickert@fedorapeoject.org>\n"
+"Mario Blättermann <mariobl@gnome.org>"
 
 #: ../src/panel.c:629
-#, fuzzy
 msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:631
-#, fuzzy
 msgid "Copyright (C) 2008-2009"
 msgstr "Copyright (C) 2008-2009"
 
 #: ../src/panel.c:632
-#, fuzzy
 msgid "Desktop panel for LXDE project"
-msgstr "Desktop Panel für das LXDE Projekt"
+msgstr "Desktop-Panel für das LXDE-Projekt"
 
 #: ../src/panel.c:655
 msgid "Add / Remove Panel Items"
@@ -267,7 +262,7 @@ msgstr "Paneleinträge hinzufügen/entfernen"
 #: ../src/panel.c:663
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr "Entferne \"%s\" aus dem Panel"
+msgstr "»%s« aus dem Panel entfernen"
 
 #: ../src/panel.c:675
 msgid "Panel Settings"
@@ -292,10 +287,9 @@ msgstr "Panel"
 #: ../src/panel.c:724
 #, c-format
 msgid "\"%s\" Settings"
-msgstr "\"%s\"-Einstellungen"
+msgstr "»%s«-Einstellungen"
 
 #: ../src/panel.c:954
-#, fuzzy
 msgid "Top"
 msgstr "Oben"
 
@@ -322,7 +316,8 @@ msgstr " --version    -- zeigt Versionshinweise an und beendet\n"
 #: ../src/panel.c:1349
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --log <Zahl> -- setzt den Loglevel auf 0-5. 0 - keine Logs, 5 - vollständig\n"
+msgstr ""
+" --log <Zahl> -- setzt den Loglevel auf 0-5. 0 - keine Logs, 5 - vollständig\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1351
@@ -370,7 +365,6 @@ msgid "Display CPU usage"
 msgstr "Prozessorlast anzeigen"
 
 #: ../src/plugins/deskno/deskno.c:165
-#, fuzzy
 msgid "Desktop Number / Workspace Name"
 msgstr "Arbeitsflächennummer und -name"
 
@@ -383,14 +377,12 @@ msgid "Display Image and Tooltip"
 msgstr "Bild und Minihilfe anzeigen"
 
 #: ../src/plugins/launchbar.c:665
-#, fuzzy
 msgid "Available Applications"
-msgstr "Verfügbare Erweiterungen"
+msgstr "Verfügbare Anwendungen"
 
 #: ../src/plugins/launchbar.c:665
-#, fuzzy
 msgid "Applications"
-msgstr "Anwendung auswählen"
+msgstr "Anwendungen"
 
 #: ../src/plugins/launchbar.c:846
 msgid "Application Launch Bar"
@@ -422,7 +414,6 @@ msgstr "Minimieren"
 
 #: ../src/plugins/taskbar.c:1706
 #, c-format
-#, fuzzy
 msgid "Workspace _%d"
 msgstr "Arbeitsfläche _%d"
 
@@ -438,9 +429,8 @@ msgstr "_Alle Arbeitsflächen"
 
 #. Add Move to Workspace menu item as a submenu.
 #: ../src/plugins/taskbar.c:1731
-#, fuzzy
 msgid "_Move to Workspace"
-msgstr "Verschieben auf Arbeitsfläche"
+msgstr "_Verschieben auf Arbeitsfläche"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../src/plugins/taskbar.c:1737
@@ -456,7 +446,6 @@ msgid "Icons only"
 msgstr "Nur Symbole"
 
 #: ../src/plugins/taskbar.c:1950
-#, fuzzy
 msgid "Flat buttons"
 msgstr "Flache Knöpfe"
 
@@ -473,12 +462,10 @@ msgid "Flash when there is any window requiring attention"
 msgstr "Blinken, wenn ein Fenster um Aufmerksamkeit bittet"
 
 #: ../src/plugins/taskbar.c:1954
-#, fuzzy
 msgid "Combine multiple application windows into a single button"
 msgstr "Mehrere Fenster einer Anwendung in einem Knopf zusammenfassen"
 
 #: ../src/plugins/taskbar.c:1955
-#, fuzzy
 msgid "Maximum width of task button"
 msgstr "Maximale Breite des Knopfes"
 
@@ -492,8 +479,7 @@ msgstr "Taskbar (Fensterliste)"
 
 #: ../src/plugins/taskbar.c:2012
 msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
+"Taskbar shows all opened windows and allow to iconify them, shade or get focus"
 msgstr ""
 "Die Taskbar zeigt alle geöffneten Fenster und erlaubt die Reduktion auf "
 "Desktop-Symbole, Schattierungen und Fokussierungen"
@@ -507,7 +493,6 @@ msgid "Tooltip Format"
 msgstr "Minihilfe-Format"
 
 #: ../src/plugins/dclock.c:284
-#, fuzzy
 msgid "Format codes: man 3 strftime"
 msgstr "Formate: man 3 strftime"
 
@@ -544,7 +529,6 @@ msgid "Menu"
 msgstr "Menü"
 
 #: ../src/plugins/menu.c:1009
-#, fuzzy
 msgid "Application Menu"
 msgstr "Anwendungsmenü"
 
@@ -730,48 +714,48 @@ msgstr "Ethernet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:879
 msgid "AMPR AX.25"
-msgstr ""
+msgstr "AMPR AX.25"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:888
 #: ../src/plugins/netstatus/netstatus-iface.c:1008
 msgid "16/4 Mbps Token Ring"
-msgstr ""
+msgstr "16/4 Mbps Token Ring"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:891
 msgid "ARCnet"
-msgstr ""
+msgstr "ARCnet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:897
 msgid "Frame Relay DLCI"
-msgstr ""
+msgstr "Frame Relay DLCI"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:903
 msgid "Metricom Starmode IP"
-msgstr ""
+msgstr "Metricom Starmode IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:906
 msgid "Serial Line IP"
-msgstr ""
+msgstr "Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:909
 msgid "VJ Serial Line IP"
-msgstr ""
+msgstr "VJ Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:912
 msgid "6-bit Serial Line IP"
-msgstr ""
+msgstr "6-bit Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:915
 msgid "VJ 6-bit Serial Line IP"
-msgstr ""
+msgstr "VJ 6-bit Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:921
 msgid "Adaptive Serial Line IP"
-msgstr ""
+msgstr "Adaptive Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:924
 msgid "AMPR ROSE"
-msgstr ""
+msgstr "AMPR ROSE"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:927
 msgid "Generic X.25"
@@ -795,7 +779,7 @@ msgstr "IPIP-Tunnel"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:954
 msgid "Frame Relay Access Device"
-msgstr ""
+msgstr "Frame Relay Access Device"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:960
 msgid "Local Loopback"
@@ -803,7 +787,7 @@ msgstr "Lokale Schleife"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:966
 msgid "Fiber Distributed Data Interface"
-msgstr ""
+msgstr "Glasfaserkabel-Datenschnittstelle"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:972
 msgid "IPv6-in-IPv4"
@@ -815,7 +799,7 @@ msgstr "HIPPI"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:987
 msgid "Ash"
-msgstr ""
+msgstr "Ash"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:990
 msgid "Econet"
@@ -838,17 +822,17 @@ msgstr "Keine Netzwerkgeräte gefunden"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:180
 #, c-format
 msgid "Cannot open /proc/net/dev: %s"
-msgstr "Kann /proc/net/dev nicht öffnen: %s"
+msgstr "/proc/net/dev konnte nicht geöffnet werden: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:189
 msgid "Could not parse /proc/net/dev. Unknown format."
-msgstr "Konnte /proc/net/dev nicht auslesen. Unbekanntes Format."
+msgstr "/proc/net/dev konnte nicht ausgelesen werden. Unbekanntes Format."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:204
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:330
 #, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr "Konnte den Schnittstellen-Namen von '%s' nicht auslesen"
+msgstr "Schnittstellen-Namen von »%s« konnte nicht ausgelesen werden"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
@@ -857,18 +841,18 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"Konnte die Schnittstellen-Statistik von '%s' nicht auslesen. prx_idx = %d; "
-"ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+"Schnittstellen-Statistik von »%s« konnte nicht ausgelesen werden. prx_idx = %"
+"d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr "Konnte /proc/net/wireless nicht auslesen. Unbekanntes Format."
+msgstr "/proc/net/wireless konnte nicht ausgelesen werden. Unbekanntes Format."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
 msgstr ""
-"Konnte die Details für die drahtlose Verbindung von '%s' nicht auslesen. "
+"Details für die drahtlose Verbindung von »%s« konnten nicht ausgelesen werden. "
 "link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
@@ -879,16 +863,16 @@ msgstr "Keine Verbindung zur Schnittstelle, '%s'"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:420
 #, c-format
 msgid "Could not send ioctl to interface, '%s'"
-msgstr "Konnte ioctl nicht an die Schnittstelle senden, '%s'"
+msgstr "ioctl konnte nicht an die Schnittstelle gesendet werden, »%s«"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr "Konnte die Kommando-Zeile '%s' nicht auslesen: %s"
+msgstr "Befehlszeile von »%s« konnte nicht ausgelesen werden: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr "Konnte die Ausgabe von 'netstat' nicht lesen. Unbekanntes Format"
+msgstr "Ausgabe von »netstat« konnte nicht gelesen werden. Unbekanntes Format"
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
@@ -931,7 +915,6 @@ msgid "Size"
 msgstr "Größe"
 
 #: ../src/plugins/space.c:139
-#, fuzzy
 msgid "Spacer"
 msgstr "Abstand"
 
@@ -941,16 +924,15 @@ msgstr "Zwischenraum zuweisen"
 
 #: ../src/plugins/tray.c:754
 msgid "System Tray"
-msgstr "Systembereich"
+msgstr "Benachrichtigungsfeld"
 
 #: ../src/plugins/tray.c:756
-#, fuzzy
 msgid "System tray"
-msgstr "Systembereich"
+msgstr "Benachrichtigungsfeld"
 
 #: ../src/plugins/xkb/xkb-plugin.c:283
 msgid "Configure Keyboard Layout Switcher"
-msgstr "Konfiguration des Tastatur-Layout-Schalters"
+msgstr "Konfiguration des Tastaturbelegungsschalters"
 
 #: ../src/plugins/xkb/xkb-plugin.c:298
 msgid "Show layout as"
@@ -971,61 +953,56 @@ msgstr "Einstellungen für jede Anwendung"
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/xkb/xkb-plugin.c:336
 msgid "_Remember layout for each application"
-msgstr "_Behalte Layout für jede Anwendung bei"
+msgstr "Belegung für jede Anwendung _beibehalten"
 
 #. Create a label as the child of the horizontal box.
 #: ../src/plugins/xkb/xkb-plugin.c:346
 msgid "Default layout:"
-msgstr "Standard-Layout:"
+msgstr "Standardbelegung:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:397
 msgid "Keyboard Layout Switcher"
-msgstr "Tastatur-Layout-Schalter"
+msgstr "Tastaturbelegungsschalter"
 
 #: ../src/plugins/xkb/xkb-plugin.c:399
 msgid "Switch between available keyboard layouts"
-msgstr "Wechsele zwischen verfügbaren Tastatur-Layouts"
+msgstr "Zwischen verfügbaren Tastaturbelegungen wechseln"
 
 #: ../src/plugins/wincmd.c:171
-#, fuzzy
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr "Linksklick zum Minimieren aller Fenster. Mittelklick zum Einrollen"
+msgstr "Linksklick zum Minimieren aller Fenster. Mittelklick zum Einrollen."
 
 #: ../src/plugins/wincmd.c:208
 msgid "Minimize All Windows"
 msgstr "Alle Fenster minimieren"
 
 #: ../src/plugins/wincmd.c:210
-#, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
 "Sendet Befehle an alle Fenster.\n"
-"Unterstützte Befehle sind 1) Minimieren/Maximieren und 2) "
-"Einrollen/Ausrollen"
+"Unterstützte Befehle sind 1) Minimieren und 2) Einrollen"
 
 #: ../src/plugins/dirmenu.c:200
 msgid "Open in _Terminal"
 msgstr "Im _Terminal öffnen"
 
 #: ../src/plugins/dirmenu.c:365
-#, fuzzy
 msgid "Directory"
-msgstr "Verzeichnis"
+msgstr "Ordner"
 
 #: ../src/plugins/dirmenu.c:366
-#, fuzzy
 msgid "Label"
 msgstr "Bezeichnung"
 
 #: ../src/plugins/dirmenu.c:397
 msgid "Directory Menu"
-msgstr "Verzeichnismenü"
+msgstr "Ordnermenü"
 
 #: ../src/plugins/dirmenu.c:399
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr "Verzeichnisbaum über das Menü durchsuchen (Autor: PCMan)"
+msgstr "Ordnerstruktur über das Menü durchsuchen (Autor: PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:283
 msgid "Normal"
@@ -1052,12 +1029,10 @@ msgid "Automatic temperature levels"
 msgstr "Automatische Temperatur-Stufen"
 
 #: ../src/plugins/thermal/thermal.c:289
-#, fuzzy
 msgid "Warning1 Temperature"
 msgstr "Warnung1 Temperatur"
 
 #: ../src/plugins/thermal/thermal.c:290
-#, fuzzy
 msgid "Warning2 Temperature"
 msgstr "Warnung2 Temperatur"
 
@@ -1067,7 +1042,7 @@ msgstr "Temperaturmonitor"
 
 #: ../src/plugins/thermal/thermal.c:334
 msgid "Display system temperature, by kesler.daniel@gmail.com"
-msgstr "Zeige System-Temperatur an, von kesler.daniel@gmail.com"
+msgstr "Systemtemperatur anzeigen, von kesler.daniel@gmail.com"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
