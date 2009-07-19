@@ -124,8 +124,8 @@ gboolean panel_edge_available(Panel* p, int edge)
 static void set_edge(Panel* p, int edge)
 {
     p->edge = edge;
-    panel_set_panel_configuration_changed(p);
     update_panel_geometry(p);
+    panel_set_panel_configuration_changed(p);
     panel_update_background(p);
 }
 
