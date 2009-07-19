@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-18 14:26+0200\n"
-"PO-Revision-Date: 2009-06-23 13:55+0200\n"
+"PO-Revision-Date: 2009-07-19 11:27+0200\n"
 "Last-Translator: Sander De Voogdt <celettu@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -35,9 +35,8 @@ msgid "<b>Font</b>"
 msgstr "<b>Lettertype</b>"
 
 #: ../data/ui/panel-pref.glade.h:6
-#, fuzzy
 msgid "<b>Icon</b>"
-msgstr "<b>Lettertype</b>"
+msgstr "<b>Icoon</b>"
 
 #: ../data/ui/panel-pref.glade.h:7
 msgid "<b>Position</b>"
@@ -65,7 +64,7 @@ msgstr "Uitlijning"
 
 #: ../data/ui/panel-pref.glade.h:13
 msgid "Appearance"
-msgstr ""
+msgstr "Uiterlijk"
 
 #: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:955
 msgid "Bottom"
@@ -76,7 +75,6 @@ msgid "Center"
 msgstr "Midden"
 
 #: ../data/ui/panel-pref.glade.h:16
-#, fuzzy
 msgid "Custom color"
 msgstr "Aangepaste kleur"
 
@@ -94,16 +92,15 @@ msgstr "Bestandsbeheerder"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "Geometry"
-msgstr ""
+msgstr "Geometrie"
 
 #: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:945 ../src/panel.c:953
 msgid "Height:"
 msgstr "Hoogte:"
 
 #: ../data/ui/panel-pref.glade.h:22
-#, fuzzy
 msgid "Image"
-msgstr "afbeelding"
+msgstr "Afbeelding"
 
 #: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:947
 msgid "Left"
@@ -159,12 +156,11 @@ msgstr "Grootte indien geminimaliseerd"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "Solid color (with opacity)"
-msgstr ""
+msgstr "Effen kleur (met opaciteit)"
 
 #: ../data/ui/panel-pref.glade.h:37
-#, fuzzy
 msgid "System theme"
-msgstr "Geen (Gebruik systeemthema)"
+msgstr "Systeemthema"
 
 #: ../data/ui/panel-pref.glade.h:38
 msgid "Terminal Emulator:"
@@ -290,9 +286,8 @@ msgid "\"%s\" Settings"
 msgstr "\"%s\" Voorkeuren"
 
 #: ../src/panel.c:954
-#, fuzzy
 msgid "Top"
-msgstr "Boven\t"
+msgstr "Boven"
 
 #: ../src/panel.c:1345
 #, c-format
@@ -365,7 +360,6 @@ msgid "Display CPU usage"
 msgstr "Toon CPU gebruik"
 
 #: ../src/plugins/deskno/deskno.c:165
-#, fuzzy
 msgid "Desktop Number / Workspace Name"
 msgstr "Desktop Nr. / Naam werkblad"
 
@@ -378,14 +372,12 @@ msgid "Display Image and Tooltip"
 msgstr "Toon Afbeelding en Tooltip"
 
 #: ../src/plugins/launchbar.c:665
-#, fuzzy
 msgid "Available Applications"
-msgstr "Beschikbare plugins"
+msgstr "Beschikbare applicaties"
 
 #: ../src/plugins/launchbar.c:665
-#, fuzzy
 msgid "Applications"
-msgstr "Kies Applicatie"
+msgstr "Applicaties"
 
 #: ../src/plugins/launchbar.c:846
 msgid "Application Launch Bar"
@@ -449,7 +441,6 @@ msgid "Icons only"
 msgstr "Alleen iconen"
 
 #: ../src/plugins/taskbar.c:1950
-#, fuzzy
 msgid "Flat buttons"
 msgstr "Platte knoppen"
 
@@ -467,10 +458,9 @@ msgstr "Knipper wanneer een venster om aandacht vraagt"
 
 #: ../src/plugins/taskbar.c:1954
 msgid "Combine multiple application windows into a single button"
-msgstr ""
+msgstr "Combineer meerder applicatievensters in een enkele knop"
 
 #: ../src/plugins/taskbar.c:1955
-#, fuzzy
 msgid "Maximum width of task button"
 msgstr "Maximale breedte van een applicatie-knop"
 
@@ -504,7 +494,7 @@ msgstr "Format codes: man 3 strftime"
 
 #: ../src/plugins/dclock.c:285
 msgid "Action when clicked (default: display calendar)"
-msgstr ""
+msgstr "Actie bij muisklik (standaard: toon kalender)"
 
 #: ../src/plugins/dclock.c:286
 msgid "Bold font"
@@ -515,7 +505,6 @@ msgid "Digital Clock"
 msgstr "Digitale klok"
 
 #: ../src/plugins/dclock.c:315
-#, fuzzy
 msgid "Display digital clock and tooltip"
 msgstr "Toon digitale klok en tooltip"
 
@@ -536,9 +525,8 @@ msgid "Menu"
 msgstr "Menu"
 
 #: ../src/plugins/menu.c:1009
-#, fuzzy
 msgid "Application Menu"
-msgstr "Applicatiebar"
+msgstr "Applicatiemenu"
 
 #: ../src/plugins/netstatus/glade-support.c:91
 #: ../src/plugins/netstatus/glade-support.c:115
@@ -921,9 +909,8 @@ msgid "Size"
 msgstr "Grootte"
 
 #: ../src/plugins/space.c:139
-#, fuzzy
 msgid "Spacer"
-msgstr "<Ruimte>"
+msgstr "Tussenuimte"
 
 #: ../src/plugins/space.c:141
 msgid "Allocate space"
@@ -934,7 +921,6 @@ msgid "System Tray"
 msgstr "Systeemvak"
 
 #: ../src/plugins/tray.c:756
-#, fuzzy
 msgid "System tray"
 msgstr "Systeemvak"
 
@@ -977,7 +963,6 @@ msgid "Switch between available keyboard layouts"
 msgstr "Wisselen tussen beschikbare toetsenbord layouts"
 
 #: ../src/plugins/wincmd.c:171
-#, fuzzy
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
 "Linkermuisklik om alle vensters te iconifieren, middelmuisklik op ze op te "
@@ -988,7 +973,6 @@ msgid "Minimize All Windows"
 msgstr "Alle vensters minimaliseren"
 
 #: ../src/plugins/wincmd.c:210
-#, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
@@ -1193,9 +1177,8 @@ msgid "Config tool"
 msgstr "Instellingen"
 
 #: ../src/plugins/netstatus/netstatus.c:196
-#, fuzzy
 msgid "Network Status Monitor"
-msgstr "Net Status Monitor"
+msgstr "Netwerk Status Monitor"
 
 #: ../src/plugins/netstatus/netstatus.c:198
 msgid "Monitor network status"

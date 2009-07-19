@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.3.99\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-18 14:26+0200\n"
-"PO-Revision-Date: 2009-07-12 19:09+0200\n"
+"PO-Revision-Date: 2009-07-18 15:01+0200\n"
 "Last-Translator: Alessandro Pellizzari <alex@amiran.it>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -37,9 +37,8 @@ msgid "<b>Font</b>"
 msgstr "<b>Carattere</b>"
 
 #: ../data/ui/panel-pref.glade.h:6
-#, fuzzy
 msgid "<b>Icon</b>"
-msgstr "<b>Carattere</b>"
+msgstr "<b>Icona</b>"
 
 #: ../data/ui/panel-pref.glade.h:7
 msgid "<b>Position</b>"
