@@ -73,6 +73,7 @@ static const char desktop_ent[] = "Desktop Entry";
 typedef struct {
     Plugin * plugin;			/* Back pointer to plugin */
     GtkWidget * widget;			/* Pointer to button */
+    GtkWidget * image_widget;		/* Pointer to image */
     gchar * desktop_id;			/* Name of application (desktop file name less the .desktop) */
     gchar * image;			/* Image icon (from Icon entry) */
     gchar * action;			/* Action (from Exec entry) */
@@ -212,11 +213,11 @@ static void launchbutton_build_bootstrap(Plugin * p)
         g_signal_connect(event_box, "button-press-event", G_CALLBACK(launchbutton_press_event), lb->bootstrap_button);
 
         /* Create an image containing the stock "Add" icon as a child of the event box. */
-        GtkWidget * image = gtk_image_new_from_pixbuf(
+        lb->bootstrap_button->image_widget = gtk_image_new_from_pixbuf(
             lxpanel_load_icon(GTK_STOCK_ADD, p->panel->icon_size, p->panel->icon_size, FALSE));
-        gtk_misc_set_padding(GTK_MISC(image), 0, 0);
-        gtk_misc_set_alignment(GTK_MISC(image), 0, 0);
-        gtk_container_add(GTK_CONTAINER(event_box), image);
+        gtk_misc_set_padding(GTK_MISC(lb->bootstrap_button->image_widget), 0, 0);
+        gtk_misc_set_alignment(GTK_MISC(lb->bootstrap_button->image_widget), 0, 0);
+        gtk_container_add(GTK_CONTAINER(event_box), lb->bootstrap_button->image_widget);
 
         /* Add the bootstrap button to the icon grid.  By policy it is empty at this point. */
         icon_grid_add(lb->icon_grid, event_box, TRUE); 
@@ -833,8 +834,8 @@ static void launchbar_panel_configuration_changed(Plugin * p)
 
     /* Reset the bootstrap button. */
     if (lb->bootstrap_button != NULL)
-        gtk_button_set_image(GTK_BUTTON(lb->bootstrap_button->widget),
-            gtk_image_new_from_pixbuf(lxpanel_load_icon(GTK_STOCK_ADD, p->panel->icon_size, p->panel->icon_size, FALSE)));
+        gtk_image_set_from_pixbuf(GTK_IMAGE(lb->bootstrap_button->image_widget),
+            lxpanel_load_icon(GTK_STOCK_ADD, p->panel->icon_size, p->panel->icon_size, FALSE));
 }
 
 /* Plugin descriptor. */

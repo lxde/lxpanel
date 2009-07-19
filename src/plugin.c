@@ -329,7 +329,10 @@ void plugin_widget_set_background(GtkWidget * w, Panel * p)
                 /* Set background according to the current GTK style. */
                 gtk_widget_set_app_paintable(w, FALSE);
                 if (GTK_WIDGET_REALIZED(w))
+                {
+                    gdk_window_set_back_pixmap(w->window, NULL, TRUE);
                     gtk_style_set_background(w->style, w->window, GTK_STATE_NORMAL);
+                }
             }
         }
 
