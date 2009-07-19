@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-18 14:26+0200\n"
-"PO-Revision-Date: 2008-12-05 19:15+0800\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2009-07-18 09:16-0400\n"
+"PO-Revision-Date: 2009-07-19 17:19+0800\n"
+"Last-Translator: Hong Jen Yee (PCMan) <pcman.tw@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +23,7 @@ msgstr "% 百分比"
 
 #: ../data/ui/panel-pref.glade.h:3
 msgid "<b>Automatic hiding</b>"
-msgstr ""
+msgstr "<b>自動隱藏</b>"
 
 #: ../data/ui/panel-pref.glade.h:4
 msgid "<b>Background</b>"
@@ -34,9 +34,8 @@ msgid "<b>Font</b>"
 msgstr "<b>字型</b>"
 
 #: ../data/ui/panel-pref.glade.h:6
-#, fuzzy
 msgid "<b>Icon</b>"
-msgstr "<b>字型</b>"
+msgstr "<b>圖示</b>"
 
 #: ../data/ui/panel-pref.glade.h:7
 msgid "<b>Position</b>"
@@ -66,7 +65,8 @@ msgstr "排列方式："
 msgid "Appearance"
 msgstr "外觀"
 
-#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:955
+#: ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:955
 msgid "Bottom"
 msgstr "下"
 
@@ -75,7 +75,6 @@ msgid "Center"
 msgstr "置中"
 
 #: ../data/ui/panel-pref.glade.h:16
-#, fuzzy
 msgid "Custom color"
 msgstr "自訂色彩"
 
@@ -93,24 +92,26 @@ msgstr "檔案管理員："
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "Geometry"
-msgstr ""
+msgstr "大小及位置"
 
-#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:945 ../src/panel.c:953
+#: ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:945
+#: ../src/panel.c:953
 msgid "Height:"
 msgstr "高度："
 
 #: ../data/ui/panel-pref.glade.h:22
 msgid "Image"
-msgstr ""
+msgstr "影像"
 
-#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:947
+#: ../data/ui/panel-pref.glade.h:23
+#: ../src/panel.c:947
 msgid "Left"
 msgstr "左"
 
 #: ../data/ui/panel-pref.glade.h:24
-#, fuzzy
 msgid "Left\t"
-msgstr "左"
+msgstr "左\t"
 
 #: ../data/ui/panel-pref.glade.h:25
 msgid "Logout Command:"
@@ -126,7 +127,7 @@ msgstr "留空："
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "Minimize panel when not in use"
-msgstr ""
+msgstr "當不使用工作列時最小化"
 
 #: ../data/ui/panel-pref.glade.h:29
 msgid "Panel Applets"
@@ -144,7 +145,8 @@ msgstr "像素 (pixels)"
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "保留空間，不被最大化視窗覆蓋"
 
-#: ../data/ui/panel-pref.glade.h:33 ../src/panel.c:948
+#: ../data/ui/panel-pref.glade.h:33
+#: ../src/panel.c:948
 msgid "Right"
 msgstr "右"
 
@@ -154,27 +156,27 @@ msgstr "選擇圖片檔"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Size when minimized"
-msgstr ""
+msgstr "最小化時的大小"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "Solid color (with opacity)"
-msgstr ""
+msgstr "不透明色彩"
 
 #: ../data/ui/panel-pref.glade.h:37
-#, fuzzy
 msgid "System theme"
-msgstr "無 (使用系統佈景主題)"
+msgstr "系統佈景主題"
 
 #: ../data/ui/panel-pref.glade.h:38
 msgid "Terminal Emulator:"
 msgstr "終端機："
 
 #: ../data/ui/panel-pref.glade.h:39
-#, fuzzy
 msgid "Top\t"
-msgstr "上"
+msgstr "上\t"
 
-#: ../data/ui/panel-pref.glade.h:40 ../src/panel.c:946 ../src/panel.c:952
+#: ../data/ui/panel-pref.glade.h:40
+#: ../src/panel.c:946
+#: ../src/panel.c:952
 msgid "Width:"
 msgstr "寬度："
 
@@ -182,7 +184,8 @@ msgstr "寬度："
 msgid "pixels"
 msgstr "像素 (pixels)"
 
-#: ../src/configurator.c:54 ../src/gtk-run.c:252
+#: ../src/configurator.c:54
+#: ../src/gtk-run.c:252
 msgid "Run"
 msgstr "執行"
 
@@ -215,11 +218,11 @@ msgid "Logout command is not set"
 msgstr "登出指令尚未設定"
 
 #: ../src/configurator.c:1196
-#, fuzzy
 msgid "Select a directory"
-msgstr "選擇一個檔案"
+msgstr "選擇一個目錄"
 
-#: ../src/configurator.c:1196 ../src/configurator.c:1287
+#: ../src/configurator.c:1196
+#: ../src/configurator.c:1287
 msgid "Select a file"
 msgstr "選擇一個檔案"
 
@@ -242,20 +245,19 @@ msgstr "確認"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:624
 msgid "translator-credits"
-msgstr ""
+msgstr "洪任諭 (PCMan) <pcman.tw@gmail.com>"
 
 #: ../src/panel.c:629
-#, fuzzy
 msgid "LXPanel"
-msgstr "工作列"
+msgstr "LXPanel"
 
 #: ../src/panel.c:631
 msgid "Copyright (C) 2008-2009"
-msgstr ""
+msgstr "版權所有 (C) 2008-2009"
 
 #: ../src/panel.c:632
 msgid "Desktop panel for LXDE project"
-msgstr ""
+msgstr "LXDE 桌案的桌面工作列"
 
 #: ../src/panel.c:655
 msgid "Add / Remove Panel Items"
@@ -280,7 +282,7 @@ msgstr "刪除這個工作列"
 
 #: ../src/panel.c:703
 msgid "About"
-msgstr ""
+msgstr "關於"
 
 #: ../src/panel.c:711
 msgid "Panel"
@@ -292,7 +294,6 @@ msgid "\"%s\" Settings"
 msgstr "設定 \"%s\""
 
 #: ../src/panel.c:954
-#, fuzzy
 msgid "Top"
 msgstr "上"
 
@@ -367,7 +368,6 @@ msgid "Display CPU usage"
 msgstr "顯示 CPU 資源使用量"
 
 #: ../src/plugins/deskno/deskno.c:165
-#, fuzzy
 msgid "Desktop Number / Workspace Name"
 msgstr "桌面編號 / 工作區名稱"
 
@@ -376,19 +376,16 @@ msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "顯示工作區編號，由 cmeury@users.sf.net 撰寫"
 
 #: ../src/plugins/image.c:177
-#, fuzzy
 msgid "Display Image and Tooltip"
 msgstr "顯示圖示及工具提示"
 
 #: ../src/plugins/launchbar.c:665
-#, fuzzy
 msgid "Available Applications"
-msgstr "可選用的外掛"
+msgstr "可用的應用程式"
 
 #: ../src/plugins/launchbar.c:665
-#, fuzzy
 msgid "Applications"
-msgstr "選擇應用程式"
+msgstr "應用程式"
 
 #: ../src/plugins/launchbar.c:846
 msgid "Application Launch Bar"
@@ -400,30 +397,26 @@ msgstr "具有應用程式啟動按鈕的工具列"
 
 #. Add Raise menu item.
 #: ../src/plugins/taskbar.c:1672
-#, fuzzy
 msgid "_Raise"
-msgstr "移到最上層"
+msgstr "移到最上層(_R)"
 
 #. Add Restore menu item.
 #: ../src/plugins/taskbar.c:1677
-#, fuzzy
 msgid "R_estore"
-msgstr "復原"
+msgstr "復原(_E)"
 
 #. Add Maximize menu item.
 #: ../src/plugins/taskbar.c:1682
-#, fuzzy
 msgid "Ma_ximize"
-msgstr "最大化"
+msgstr "最大化(_X)"
 
 #. Add Iconify menu item.
 #: ../src/plugins/taskbar.c:1687
-#, fuzzy
 msgid "Ico_nify"
-msgstr "最小化"
+msgstr "最小化(_N)"
 
 #: ../src/plugins/taskbar.c:1706
-#, fuzzy, c-format
+#, c-format
 msgid "Workspace _%d"
 msgstr "工作區 %d"
 
@@ -434,21 +427,18 @@ msgstr "工作區 %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../src/plugins/taskbar.c:1725
-#, fuzzy
 msgid "_All workspaces"
-msgstr "所有工作區"
+msgstr "所有工作區(_A)"
 
 #. Add Move to Workspace menu item as a submenu.
 #: ../src/plugins/taskbar.c:1731
-#, fuzzy
 msgid "_Move to Workspace"
-msgstr "移動到工作區"
+msgstr "移動到工作區(_M)"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../src/plugins/taskbar.c:1737
-#, fuzzy
 msgid "_Close Window"
-msgstr "關閉視窗"
+msgstr "關閉視窗(_C)"
 
 #: ../src/plugins/taskbar.c:1948
 msgid "Show tooltips"
@@ -459,7 +449,6 @@ msgid "Icons only"
 msgstr "只顯示圖示"
 
 #: ../src/plugins/taskbar.c:1950
-#, fuzzy
 msgid "Flat buttons"
 msgstr "平面按鈕"
 
@@ -477,10 +466,9 @@ msgstr "當有視窗要求使用者注意時，閃爍工作列"
 
 #: ../src/plugins/taskbar.c:1954
 msgid "Combine multiple application windows into a single button"
-msgstr ""
+msgstr "將同一應用程式的視窗合併顯示為單一按鈕"
 
 #: ../src/plugins/taskbar.c:1955
-#, fuzzy
 msgid "Maximum width of task button"
 msgstr "工作列按鈕最大寬度"
 
@@ -493,9 +481,7 @@ msgid "Task Bar (Window List)"
 msgstr "工作列 (視窗清單)"
 
 #: ../src/plugins/taskbar.c:2012
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
 msgstr "工作列顯示所有開啟的視窗，並讓能視窗最小化、折疊、或取得焦點"
 
 #: ../src/plugins/dclock.c:282
@@ -508,11 +494,11 @@ msgstr "工具提示格式"
 
 #: ../src/plugins/dclock.c:284
 msgid "Format codes: man 3 strftime"
-msgstr ""
+msgstr "格式字串說明：man 3 strftime"
 
 #: ../src/plugins/dclock.c:285
 msgid "Action when clicked (default: display calendar)"
-msgstr ""
+msgstr "被滑鼠點擊時要執行的動作 (預設： 顯示月曆)"
 
 #: ../src/plugins/dclock.c:286
 msgid "Bold font"
@@ -523,9 +509,8 @@ msgid "Digital Clock"
 msgstr "數位時鐘"
 
 #: ../src/plugins/dclock.c:315
-#, fuzzy
 msgid "Display digital clock and tooltip"
-msgstr "顯示數位時鐘及在工具提示顯示日期"
+msgstr "顯示數位時鐘及其工具提示"
 
 #: ../src/plugins/menu.c:372
 msgid "Add to desktop"
@@ -535,7 +520,8 @@ msgstr "加到桌面"
 msgid "Properties"
 msgstr "屬性"
 
-#: ../src/plugins/menu.c:990 ../src/plugins/dirmenu.c:367
+#: ../src/plugins/menu.c:990
+#: ../src/plugins/dirmenu.c:367
 msgid "Icon"
 msgstr "圖示"
 
@@ -544,7 +530,6 @@ msgid "Menu"
 msgstr "選單"
 
 #: ../src/plugins/menu.c:1009
-#, fuzzy
 msgid "Application Menu"
 msgstr "應用程式啟動列"
 
@@ -552,7 +537,7 @@ msgstr "應用程式啟動列"
 #: ../src/plugins/netstatus/glade-support.c:115
 #, c-format
 msgid "Couldn't find pixmap file: %s"
-msgstr ""
+msgstr "找不到圖片檔：%s"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
@@ -598,7 +583,8 @@ msgid "Address:"
 msgstr "位址："
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstat/netstat.c:319
+#: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
 msgid "Broadcast:"
 msgstr "廣播位址："
@@ -659,31 +645,28 @@ msgid "_Name:"
 msgstr "名稱(_N)："
 
 #: ../src/plugins/netstatus/netstatus-iface.c:148
-#, fuzzy
 msgid "Name"
-msgstr "名稱(_N)："
+msgstr "名稱"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:149
 msgid "The interface name"
-msgstr ""
+msgstr "介面名稱"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:156
-#, fuzzy
 msgid "State"
-msgstr "狀態："
+msgstr "狀態"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:157
 msgid "The interface state"
-msgstr ""
+msgstr "介面狀態"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:165
-#, fuzzy
 msgid "Stats"
-msgstr "狀態："
+msgstr "統計"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:166
 msgid "The interface packets/bytes statistics"
-msgstr ""
+msgstr "介面 封包/位元組 統計"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:173
 #: ../src/plugins/netstat/netstat.c:315
@@ -692,228 +675,220 @@ msgstr "無線網路"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:174
 msgid "Whether the interface is a wireless interface"
-msgstr ""
+msgstr "介面卡是否為無線網卡"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:181
-#, fuzzy
 msgid "Signal"
-msgstr "顯示訊號"
+msgstr "訊號"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:182
 msgid "Wireless signal strength percentage"
-msgstr ""
+msgstr "無線訊號強度百分比"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:191
 #: ../src/plugins/netstatus/netstatus-util.c:167
 msgid "Error"
-msgstr ""
+msgstr "錯誤"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:192
-#, fuzzy
 msgid "The current error condition"
-msgstr "目前正在監控的介面"
+msgstr "目前的錯誤狀況"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:434
 #: ../src/plugins/netstatus/netstatus-iface.c:1197
 #, c-format
 msgid "Unable to open socket: %s"
-msgstr ""
+msgstr "無法開啟 socket: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:496
 #: ../src/plugins/netstatus/netstatus-iface.c:1223
 #, c-format
 msgid "SIOCGIFFLAGS error: %s"
-msgstr ""
+msgstr "SIOCGIFFLAGS 錯誤：%s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:870
 msgid "AMPR NET/ROM"
-msgstr ""
+msgstr "AMPR NET/ROM"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:873
-#, fuzzy
 msgid "Ethernet"
-msgstr "其他"
+msgstr "乙太網路"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:879
 msgid "AMPR AX.25"
-msgstr ""
+msgstr "AMPR AX.25"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:888
 #: ../src/plugins/netstatus/netstatus-iface.c:1008
 msgid "16/4 Mbps Token Ring"
-msgstr ""
+msgstr "16/4 Mbps Token Ring"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:891
 msgid "ARCnet"
-msgstr ""
+msgstr "ARCnet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:897
 msgid "Frame Relay DLCI"
-msgstr ""
+msgstr "Frame Relay DLCI"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:903
 msgid "Metricom Starmode IP"
-msgstr ""
+msgstr "Metricom Starmode IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:906
 msgid "Serial Line IP"
-msgstr ""
+msgstr "Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:909
 msgid "VJ Serial Line IP"
-msgstr ""
+msgstr "VJ Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:912
 msgid "6-bit Serial Line IP"
-msgstr ""
+msgstr "6-bit Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:915
 msgid "VJ 6-bit Serial Line IP"
-msgstr ""
+msgstr "VJ 6-bit Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:921
 msgid "Adaptive Serial Line IP"
-msgstr ""
+msgstr "Adaptive Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:924
 msgid "AMPR ROSE"
-msgstr ""
+msgstr "AMPR ROSE"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:927
 msgid "Generic X.25"
-msgstr ""
+msgstr "Generic X.25"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:930
 msgid "Point-to-Point Protocol"
-msgstr ""
+msgstr "Point-to-Point Protocol"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:936
 msgid "(Cisco)-HDLC"
-msgstr ""
+msgstr "(Cisco)-HDLC"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:939
 msgid "LAPB"
-msgstr ""
+msgstr "LAPB"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:948
 msgid "IPIP Tunnel"
-msgstr ""
+msgstr "IPIP Tunnel"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:954
 msgid "Frame Relay Access Device"
-msgstr ""
+msgstr "Frame Relay Access Device"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:960
 msgid "Local Loopback"
-msgstr ""
+msgstr "Local Loopback"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:966
 msgid "Fiber Distributed Data Interface"
-msgstr ""
+msgstr "Fiber Distributed Data Interface"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:972
 msgid "IPv6-in-IPv4"
-msgstr ""
+msgstr "IPv6-in-IPv4"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:984
 msgid "HIPPI"
-msgstr ""
+msgstr "HIPPI"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:987
 msgid "Ash"
-msgstr ""
+msgstr "Ash"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:990
-#, fuzzy
 msgid "Econet"
-msgstr "圖示"
+msgstr "Econet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:993
 msgid "IrLAP"
-msgstr ""
+msgstr "IrLAP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:1155
 #, c-format
 msgid "SIOCGIFCONF error: %s"
-msgstr ""
+msgstr "SIOCGIFCONF 錯誤： %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:1248
-#, fuzzy, c-format
+#, c-format
 msgid "No network devices found"
-msgstr "沒有電池"
+msgstr "找不到網路裝置"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:180
 #, c-format
 msgid "Cannot open /proc/net/dev: %s"
-msgstr ""
+msgstr "無法開啟 /proc/net/dev: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:189
 msgid "Could not parse /proc/net/dev. Unknown format."
-msgstr ""
+msgstr "無法解析 /proc/net/dev。未知的格式。"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:204
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:330
 #, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr ""
+msgstr "無法從 '%s' 解析介面卡名稱"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid ""
-"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
-msgstr ""
+msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgstr "無法從 '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d; 解析介面卡統計資料"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr ""
+msgstr "無法解析 /proc/net/wireless。未知格式。"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr ""
+msgstr "無法從 '%s'. link_idx = %d; 解析無線網路細節"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
 msgid "Could not connect to interface, '%s'"
-msgstr ""
+msgstr "無法連接到介面 '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:420
 #, c-format
 msgid "Could not send ioctl to interface, '%s'"
-msgstr ""
+msgstr "無法傳送 ioctl 到介面 '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr ""
+msgstr "無法解析命令列 '%s': %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr ""
+msgstr "無法解析 'netstat' 的輸出。未知格式"
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
-msgstr ""
+msgstr "斷線"
 
 #: ../src/plugins/netstatus/netstatus-util.c:155
 msgid "Idle"
-msgstr ""
+msgstr "閒置"
 
 #: ../src/plugins/netstatus/netstatus-util.c:158
-#, fuzzy
 msgid "Sending"
-msgstr "設定"
+msgstr "正在傳送"
 
 #: ../src/plugins/netstatus/netstatus-util.c:161
-#, fuzzy
 msgid "Receiving"
-msgstr "已接收"
+msgstr "正在接收"
 
 #: ../src/plugins/netstatus/netstatus-util.c:164
 msgid "Sending/Receiving"
-msgstr ""
+msgstr "傳送/接收"
 
 #: ../src/plugins/separator.c:98
 msgid "Separator"
@@ -931,14 +906,14 @@ msgstr "切換桌面"
 msgid "Simple pager plugin"
 msgstr "簡易桌面切換外掛"
 
-#: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
+#: ../src/plugins/space.c:121
+#: ../src/plugins/batt/batt.c:590
 msgid "Size"
 msgstr "大小"
 
 #: ../src/plugins/space.c:139
-#, fuzzy
 msgid "Spacer"
-msgstr "<空白分隔>"
+msgstr "空白分隔"
 
 #: ../src/plugins/space.c:141
 msgid "Allocate space"
@@ -949,52 +924,48 @@ msgid "System Tray"
 msgstr "系統匣 (通知區域)"
 
 #: ../src/plugins/tray.c:756
-#, fuzzy
 msgid "System tray"
 msgstr "系統匣 (通知區域)"
 
 #: ../src/plugins/xkb/xkb-plugin.c:283
 msgid "Configure Keyboard Layout Switcher"
-msgstr ""
+msgstr "設定鍵盤配置切換"
 
 #: ../src/plugins/xkb/xkb-plugin.c:298
 msgid "Show layout as"
-msgstr ""
+msgstr "將配置顯示為"
 
 #: ../src/plugins/xkb/xkb-plugin.c:313
 msgid "image"
-msgstr ""
+msgstr "圖片"
 
 #: ../src/plugins/xkb/xkb-plugin.c:314
 msgid "text"
-msgstr ""
+msgstr "文字"
 
 #: ../src/plugins/xkb/xkb-plugin.c:321
-#, fuzzy
 msgid "Per application settings"
-msgstr "應用程式"
+msgstr "個別應用程式的設定"
 
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/xkb/xkb-plugin.c:336
 msgid "_Remember layout for each application"
-msgstr ""
+msgstr "記住每個應用程式的配置(_R)"
 
 #. Create a label as the child of the horizontal box.
 #: ../src/plugins/xkb/xkb-plugin.c:346
 msgid "Default layout:"
-msgstr ""
+msgstr "預設配置："
 
 #: ../src/plugins/xkb/xkb-plugin.c:397
-#, fuzzy
 msgid "Keyboard Layout Switcher"
-msgstr "鍵盤燈號"
+msgstr "鍵盤配置切換"
 
 #: ../src/plugins/xkb/xkb-plugin.c:399
 msgid "Switch between available keyboard layouts"
-msgstr ""
+msgstr "在可用的鍵盤配置之間切換"
 
 #: ../src/plugins/wincmd.c:171
-#, fuzzy
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr "按左鍵最小化所有視窗 / 中鍵折疊所有視窗"
 
@@ -1003,7 +974,6 @@ msgid "Minimize All Windows"
 msgstr "最小化所有視窗"
 
 #: ../src/plugins/wincmd.c:210
-#, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
@@ -1016,14 +986,12 @@ msgid "Open in _Terminal"
 msgstr "在終端機內開啟(_T)"
 
 #: ../src/plugins/dirmenu.c:365
-#, fuzzy
 msgid "Directory"
-msgstr "目錄選單"
+msgstr "目錄"
 
 #: ../src/plugins/dirmenu.c:366
-#, fuzzy
 msgid "Label"
-msgstr "工作列"
+msgstr "標籤"
 
 #: ../src/plugins/dirmenu.c:397
 msgid "Directory Menu"
@@ -1058,12 +1026,10 @@ msgid "Automatic temperature levels"
 msgstr "自動溫度等級"
 
 #: ../src/plugins/thermal/thermal.c:289
-#, fuzzy
 msgid "Warning1 Temperature"
 msgstr "警告1的溫度"
 
 #: ../src/plugins/thermal/thermal.c:290
-#, fuzzy
 msgid "Warning2 Temperature"
 msgstr "警告2的溫度"
 
@@ -1129,7 +1095,8 @@ msgstr "網路線已拔除"
 msgid "Connection has limited or no connectivity"
 msgstr "只能有限制的連線或無法連線"
 
-#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307
+#: ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "IP 位址："
@@ -1138,32 +1105,38 @@ msgstr "IP 位址："
 msgid "Remote IP:"
 msgstr "遠端 IP 位址："
 
-#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309
+#: ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "子網路遮罩："
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "活動"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "已傳送"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "已接收"
 
-#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311
+#: ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "位元組"
 
-#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312
+#: ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "封包"
@@ -1172,7 +1145,8 @@ msgstr "封包"
 msgid "Protocol:"
 msgstr "通訊協定："
 
-#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321
+#: ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "實體位址："
 
@@ -1211,7 +1185,6 @@ msgid "Config tool"
 msgstr "設定工具"
 
 #: ../src/plugins/netstatus/netstatus.c:196
-#, fuzzy
 msgid "Network Status Monitor"
 msgstr "網路狀態監視器"
 
@@ -1381,62 +1354,53 @@ msgid "Show ScrollLock"
 msgstr "顯示 ScrollLock"
 
 #: ../src/plugins/kbled/kbled.c:267
-#, fuzzy
 msgid "Keyboard LED"
-msgstr "鍵盤燈號"
+msgstr "鍵盤 LED 燈號"
 
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "顯示 CapsLock、NumLock、及 ScrollLock 鍵的狀態"
 
+#~ msgid ""
+#~ "Allows you to switch the keyboard layout and\n"
+#~ "displays the currently selected layout."
+#~ msgstr ""
+#~ "顯示目前選用的鍵盤配置，以及\n"
+#~ "在不同的配置之間切換"
+#~ msgid "Other plugins available here"
+#~ msgstr "其他可用的外掛"
 #~ msgid "Desktop No / Workspace Name"
 #~ msgstr "桌面編號 / 工作區名稱"
-
 #~ msgid "Old KDE/GNOME Tray"
 #~ msgstr "KDE/GNOME 系統列"
-
 #~ msgid "Enable Image:"
 #~ msgstr "啟用背景圖："
-
 #~ msgid "Enable Transparency"
 #~ msgstr "啟用透明效果"
-
 #~ msgid "Tint color:"
 #~ msgstr "色彩："
-
 #~ msgid " --configure -- launch configuration utility\n"
 #~ msgstr " --configure -- 執行設定工具\n"
-
 #~ msgid " -C  -- same as --configure\n"
 #~ msgstr " -C  -- 和 --configure 作用相同\n"
-
 #~ msgid "Add Button"
 #~ msgstr "新增按鈕"
-
 #~ msgid "Button Properties"
 #~ msgstr "按鈕屬性"
-
 #~ msgid "Remove Button"
 #~ msgstr "移除按鈕"
-
 #~ msgid "Buttons"
 #~ msgstr "按鈕"
-
 #~ msgid "Accept SkipPager"
 #~ msgstr "接受 SkipPager Hint"
-
 #~ msgid "Show Iconified windows"
 #~ msgstr "顯示最小化的視窗"
-
 #~ msgid "Show mapped windows"
 #~ msgstr "顯示已被映射的視窗"
-
 #~ msgid "Action"
 #~ msgstr "動作"
-
 #~ msgid "Provide Menu"
 #~ msgstr "提供選單"
-
 #~ msgid ""
 #~ "Dynamic\n"
 #~ "Pixels\n"
@@ -1445,7 +1409,6 @@ msgstr "顯示 CapsLock、NumLock、及 ScrollLock 鍵的狀態"
 #~ "動態\n"
 #~ "像素 (pixels)\n"
 #~ "% 百分比"
-
 #~ msgid ""
 #~ "Left\n"
 #~ "Center\n"
@@ -1454,7 +1417,6 @@ msgstr "顯示 CapsLock、NumLock、及 ScrollLock 鍵的狀態"
 #~ "靠左\n"
 #~ "置中\n"
 #~ "靠右"
-
 #~ msgid ""
 #~ "Left\n"
 #~ "Right\n"
@@ -1465,67 +1427,48 @@ msgstr "顯示 CapsLock、NumLock、及 ScrollLock 鍵的狀態"
 #~ "右\n"
 #~ "上\n"
 #~ "下"
-
 #~ msgid "Where to put the panel?"
 #~ msgstr "要把工作列放到哪裡？"
-
 #~ msgid "Battery: %d%% charged, %s"
 #~ msgstr "電池：剩餘電量 %d%%，%s"
-
 #~ msgid "charging finished"
 #~ msgstr "充電完成"
-
 #~ msgid "charging"
 #~ msgstr "充電中"
-
 #~ msgid "Add to desktop panel"
 #~ msgstr "加入到工作列"
-
 #~ msgid "Game"
 #~ msgstr "遊戲"
-
 #~ msgid "Education"
 #~ msgstr "教育"
-
 #~ msgid "Development"
 #~ msgstr "軟體開發"
-
 #~ msgid "Audio & Video"
 #~ msgstr "影音多媒體"
-
 #~ msgid "Graphics"
 #~ msgstr "繪圖"
-
 #~ msgid "System Tools"
 #~ msgstr "系統工具"
-
 #~ msgid "Office"
 #~ msgstr "辦公軟體"
-
 #~ msgid "Accessories"
 #~ msgstr "附屬應用程式"
-
 #~ msgid "not charging"
 #~ msgstr "未充電"
-
 #~ msgid "% of edge"
 #~ msgstr "% 百分比"
-
 #~ msgid "Select a background image file"
 #~ msgstr "選擇背景圖片"
-
 #~ msgid "Plugins"
 #~ msgstr "外掛"
 
 #, fuzzy
 #~ msgid "Logout Command"
 #~ msgstr "登出指令："
-
 #~ msgid "lxpanel configurator"
 #~ msgstr "lxpanel 偏好設定"
-
 #~ msgid "Background"
 #~ msgstr "背景"
-
 #~ msgid "Update interval (seconds)"
 #~ msgstr "更新頻率 (秒)"
+
