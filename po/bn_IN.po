@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-18 14:26+0200\n"
-"PO-Revision-Date: 2009-07-22 11:35+0200\n"
+"PO-Revision-Date: 2009-07-22 11:37+0200\n"
 "Last-Translator: Sankarshan <sankarshan.mukhopadhyay@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -256,12 +256,12 @@ msgstr "LXDE প্রজেক্টের জন্য ডেস্কটপ �
 
 #: ../src/panel.c:655
 msgid "Add / Remove Panel Items"
-msgstr ""
+msgstr "প্যানেল বস্তু যোগ করুন বা সরিয়ে ফেলুন"
 
 #: ../src/panel.c:663
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr ""
+msgstr "\"%s\" কে প্যানেল থেকে সরিয়ে ফেলুন"
 
 #: ../src/panel.c:675
 msgid "Panel Settings"
