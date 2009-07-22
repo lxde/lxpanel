@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-18 14:26+0200\n"
-"PO-Revision-Date: 2009-07-13 05:39+0200\n"
+"PO-Revision-Date: 2009-07-22 11:35+0200\n"
 "Last-Translator: Sankarshan <sankarshan.mukhopadhyay@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -20,65 +20,66 @@ msgstr ""
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
 msgid "% Percent"
-msgstr "% "
+msgstr "% প্রতিশত"
 
 #: ../data/ui/panel-pref.glade.h:3
 msgid "<b>Automatic hiding</b>"
-msgstr "<b>   </b>"
+msgstr "<b>সয়ংক্রীয়ভাবে লুকিয়ে রাখা</b>"
 
 #: ../data/ui/panel-pref.glade.h:4
 msgid "<b>Background</b>"
-msgstr "<b></b>"
+msgstr "<b>প্রেক্ষাপট</b>"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "<b>Font</b>"
-msgstr "<b></b>"
+msgstr "<b>ফন্ট</b>"
 
 #: ../data/ui/panel-pref.glade.h:6
 #, fuzzy
 msgid "<b>Icon</b>"
-msgstr "<b></b>"
+msgstr "<b>আইকন</b>"
 
 #: ../data/ui/panel-pref.glade.h:7
 msgid "<b>Position</b>"
-msgstr "<b></b>"
+msgstr "<b>স্থান</b>"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "<b>Properties</b>"
-msgstr "<b></b>"
+msgstr "<b>বৈশিষ্ট্য</b>"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>   </b>"
+msgstr "<b>পছন্দসই অ্যাপ্লিকেশন নির্দিষ্ট করুন</b>"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "<b>Size</b>"
-msgstr "<b></b>"
+msgstr "<b>আকার</b>"
 
 #: ../data/ui/panel-pref.glade.h:11
 msgid "Advanced"
-msgstr ""
+msgstr "অতিরিক্ত"
 
 #: ../data/ui/panel-pref.glade.h:12
+#, fuzzy
 msgid "Alignment:"
-msgstr ""
+msgstr "সামঞ্জস্য"
 
 #: ../data/ui/panel-pref.glade.h:13
 msgid "Appearance"
-msgstr ""
+msgstr "রূপ"
 
 #: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:955
 msgid "Bottom"
-msgstr ""
+msgstr "নীচের"
 
 #: ../data/ui/panel-pref.glade.h:15
+#, fuzzy
 msgid "Center"
-msgstr ""
+msgstr "মাঝের"
 
 #: ../data/ui/panel-pref.glade.h:16
-#, fuzzy
 msgid "Custom color"
-msgstr " "
+msgstr "নিজেস্ব রং"
 
 #: ../data/ui/panel-pref.glade.h:17
 msgid "Dynamic"
@@ -86,35 +87,35 @@ msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:18
 msgid "Edge:"
-msgstr ":"
+msgstr "ধার:"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "File Manager:"
-msgstr " :"
+msgstr " ফাইল ম্যানেজার:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "Geometry"
-msgstr ""
+msgstr "জ্যামিতি বিন্যাস"
 
 #: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:945 ../src/panel.c:953
 msgid "Height:"
-msgstr ":"
+msgstr "উচ্চতা:"
 
 #: ../data/ui/panel-pref.glade.h:22
 msgid "Image"
-msgstr ""
+msgstr "প্রতিচ্ছবি"
 
 #: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:947
 msgid "Left"
-msgstr ""
+msgstr "বামদিক"
 
 #: ../data/ui/panel-pref.glade.h:24
 msgid "Left\t"
-msgstr "\t"
+msgstr "বামদিক\t"
 
 #: ../data/ui/panel-pref.glade.h:25
 msgid "Logout Command:"
-msgstr "- :"
+msgstr "লগ-আউট কম্যান্ড:"
 
 #: ../data/ui/panel-pref.glade.h:26
 msgid "Make window managers treat the panel as dock"
@@ -122,23 +123,23 @@ msgstr "         "
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Margin:"
-msgstr ":"
+msgstr "মার্জিন:"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "Minimize panel when not in use"
-msgstr "     "
+msgstr "ব্যবহারে না থাকলে প্যানেলটি সংকোচন করুন"
 
 #: ../data/ui/panel-pref.glade.h:29
 msgid "Panel Applets"
-msgstr " "
+msgstr "প্যানেল অ্যাপ্লেটসমূহ"
 
 #: ../data/ui/panel-pref.glade.h:30
 msgid "Panel Preferences"
-msgstr " "
+msgstr "প্যানেলের বৈশিষ্ট্য"
 
 #: ../data/ui/panel-pref.glade.h:31
 msgid "Pixels"
-msgstr ""
+msgstr "পিক্সেলগুচ্ছ"
 
 #: ../data/ui/panel-pref.glade.h:32
 msgid "Reserve space, and not covered by maximized windows"
@@ -146,58 +147,57 @@ msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:33 ../src/panel.c:948
 msgid "Right"
-msgstr ""
+msgstr "ডানদিক"
 
 #: ../data/ui/panel-pref.glade.h:34
 msgid "Select an image file"
-msgstr "    "
+msgstr "একটি প্রতিচ্ছবি বেছে নিন"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Size when minimized"
-msgstr "   "
+msgstr "সংকুচিত অবস্থায় আকার"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "Solid color (with opacity)"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:37
-#, fuzzy
 msgid "System theme"
-msgstr "  (   )"
+msgstr "সিস্টেম থিম"
 
 # টার্মিনাল প্রতিরূপী করা হলেও বোধহয় মন্দ হত না।
 #: ../data/ui/panel-pref.glade.h:38
 #, fuzzy
 msgid "Terminal Emulator:"
-msgstr " :"
+msgstr "টার্মিনাল এমুলটার:"
 
 #: ../data/ui/panel-pref.glade.h:39
 msgid "Top\t"
-msgstr ""
+msgstr "উপরের\t"
 
 #: ../data/ui/panel-pref.glade.h:40 ../src/panel.c:946 ../src/panel.c:952
 msgid "Width:"
-msgstr ""
+msgstr "ব্যাস:"
 
 #: ../data/ui/panel-pref.glade.h:41
 msgid "pixels"
-msgstr ""
+msgstr "পিক্সেলগুচ্ছ"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:252
 msgid "Run"
-msgstr ""
+msgstr "চালু করুন"
 
 #: ../src/configurator.c:56
 msgid "Restart"
-msgstr ""
+msgstr "পুনরায় চালু করুন"
 
 #: ../src/configurator.c:57
 msgid "Logout"
-msgstr ""
+msgstr "লগ-আউট"
 
 #: ../src/configurator.c:445
 msgid "Currently loaded plugins"
-msgstr ""
+msgstr "সম্প্রতি লোড করা প্লাগ-ইন"
 
 #: ../src/configurator.c:454
 msgid "Stretch"
@@ -205,27 +205,27 @@ msgstr ""
 
 #: ../src/configurator.c:559
 msgid "Add plugin to panel"
-msgstr ""
+msgstr "প্লাগ-ইনকে প্যানেলে যোগ করুন"
 
 #: ../src/configurator.c:587
 msgid "Available plugins"
-msgstr ""
+msgstr "উপস্থিত প্লাগ-ইন"
 
 #: ../src/configurator.c:1143
 msgid "Logout command is not set"
-msgstr ""
+msgstr "লগ-আউট কম্যান্ড নির্দিষ্ট করা হয়নি"
 
 #: ../src/configurator.c:1196
 msgid "Select a directory"
-msgstr ""
+msgstr "একটি ডিরেক্টরি বেছে নিন"
 
 #: ../src/configurator.c:1196 ../src/configurator.c:1287
 msgid "Select a file"
-msgstr ""
+msgstr "একটি ফাইল বেছে নিন"
 
 #: ../src/configurator.c:1314
 msgid "_Browse"
-msgstr ""
+msgstr "ব্রাউজ(_B)"
 
 #: ../src/panel.c:590
 msgid ""
@@ -240,19 +240,19 @@ msgstr ""
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:624
 msgid "translator-credits"
-msgstr ""
+msgstr "সঙ্কর্ষণ মুখোপাধ্যায়"
 
 #: ../src/panel.c:629
 msgid "LXPanel"
-msgstr ""
+msgstr "LXPanel"
 
 #: ../src/panel.c:631
 msgid "Copyright (C) 2008-2009"
-msgstr ""
+msgstr "সত্ত্বাধিকার (C) ২০০৮-২০০৯"
 
 #: ../src/panel.c:632
 msgid "Desktop panel for LXDE project"
-msgstr ""
+msgstr "LXDE প্রজেক্টের জন্য ডেস্কটপ প্যানেল"
 
 #: ../src/panel.c:655
 msgid "Add / Remove Panel Items"
