@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-18 14:26+0200\n"
-"PO-Revision-Date: 2009-07-22 11:37+0200\n"
+"PO-Revision-Date: 2009-07-23 11:56+0200\n"
 "Last-Translator: Sankarshan <sankarshan.mukhopadhyay@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -269,19 +269,19 @@ msgstr ""
 
 #: ../src/panel.c:681
 msgid "Create New Panel"
-msgstr ""
+msgstr "নতুন প্যানেল তৈরী করুন"
 
 #: ../src/panel.c:692
 msgid "Delete This Panel"
-msgstr ""
+msgstr "এই প্যানেলটি মুছে ফেলুন"
 
 #: ../src/panel.c:703
 msgid "About"
-msgstr ""
+msgstr "পরিচিতি"
 
 #: ../src/panel.c:711
 msgid "Panel"
-msgstr ""
+msgstr "প্যানেল"
 
 #: ../src/panel.c:724
 #, c-format
@@ -290,7 +290,7 @@ msgstr ""
 
 #: ../src/panel.c:954
 msgid "Top"
-msgstr ""
+msgstr "উপরের"
 
 #: ../src/panel.c:1345
 #, c-format
@@ -346,51 +346,55 @@ msgid ""
 "Visit http://lxde.org/ for detail.\n"
 "\n"
 msgstr ""
+"\n"
+"অতিরিক্ত তথ্যের জন্য http://lxde.org/ দেখুন।\n"
+"\n"
 
 #: ../src/gtk-run.c:266
 msgid "Enter the command you want to execute:"
-msgstr ""
+msgstr "যে কম্যান্ডটি চালাতে ইচ্ছুক সেটি লিখুন:"
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
-msgstr ""
+msgstr "CPU ব্যবহার মাপকাঠি"
 
 #: ../src/plugins/cpu/cpu.c:270
 msgid "Display CPU usage"
-msgstr ""
+msgstr "CPU ব্যবহার প্রদর্শন করুন"
 
 #: ../src/plugins/deskno/deskno.c:165
 msgid "Desktop Number / Workspace Name"
-msgstr ""
+msgstr "ডেস্কটপের নম্বর / ওয়ার্কস্পেসের নাম"
 
 #: ../src/plugins/deskno/deskno.c:167
 msgid "Display workspace number, by cmeury@users.sf.net"
-msgstr ""
+msgstr "ওয়ার্কস্পেসের নম্বর প্রদর্শন করুন, cmeury@users.sf.net দ্বারা"
 
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
-msgstr ""
+msgstr "প্রতিচ্ছবি ও টুলটীকা প্রদর্শন করুন"
 
 #: ../src/plugins/launchbar.c:665
 msgid "Available Applications"
-msgstr ""
+msgstr "উপস্থিত অ্যাপ্লিকেশন"
 
 #: ../src/plugins/launchbar.c:665
 msgid "Applications"
-msgstr ""
+msgstr "অ্যাপ্লিকেশন সমূহ"
 
 #: ../src/plugins/launchbar.c:846
+#, fuzzy
 msgid "Application Launch Bar"
-msgstr ""
+msgstr "অ্যাপ্লিকেশন চালু করার উপায়"
 
 #: ../src/plugins/launchbar.c:848
 msgid "Bar with buttons to launch application"
-msgstr ""
+msgstr "অ্যাপ্লিকেশন চালনা করার জন্য বটন সহ বার"
 
 #. Add Raise menu item.
 #: ../src/plugins/taskbar.c:1672
 msgid "_Raise"
-msgstr ""
+msgstr "উচুঁ করুন(_R)"
 
 #. Add Restore menu item.
 #: ../src/plugins/taskbar.c:1677
