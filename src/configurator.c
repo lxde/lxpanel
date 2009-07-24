@@ -126,7 +126,6 @@ static void set_edge(Panel* p, int edge)
     p->edge = edge;
     update_panel_geometry(p);
     panel_set_panel_configuration_changed(p);
-    panel_update_background(p);
 }
 
 static void edge_bottom_toggle(GtkToggleButton *widget, Panel *p)
@@ -1118,9 +1117,6 @@ void restart(void)
     ENTER;
     is_restarting = TRUE;
 
-    /* processing any possible idle handlers before we restart */
-    while (gtk_events_pending ())
-        gtk_main_iteration ();
     gtk_main_quit();
     RET();
 }

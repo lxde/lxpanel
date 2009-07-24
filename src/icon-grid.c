@@ -40,10 +40,7 @@ static gboolean icon_grid_placement(IconGrid * ig)
     /* Erase the window. */
     GdkWindow * window = ig->widget->window;
     if (window != NULL)
-    {
         panel_determine_background_pixmap(ig->panel, ig->widget, window);
-	gdk_window_clear(window);
-    }
 
     /* Get and save the desired container geometry. */
     ig->container_width = ig->container->allocation.width;

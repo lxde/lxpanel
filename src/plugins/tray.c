@@ -70,7 +70,6 @@ typedef struct _tray_client {
     struct _tray_plugin * tr;			/* Back pointer to tray plugin */
     Window window;				/* X window ID */
     GtkWidget * socket;				/* Socket */
-    gboolean request_dock_finished;		/* True if request dock finished */
 } TrayClient;
 
 /* Private context for system tray plugin. */
@@ -83,11 +82,12 @@ typedef struct _tray_plugin {
     GtkWidget * balloon_message_popup;		/* Popup showing balloon message */
     guint balloon_message_timer;		/* Timer controlling balloon message */
     GtkWidget * invisible;			/* Invisible window that holds manager selection */
+    Window invisible_window;			/* X window ID of invisible window */
     GdkAtom selection_atom;			/* Atom for _NET_SYSTEM_TRAY_S%d */
 } TrayPlugin;
 
 static TrayClient * client_lookup(TrayPlugin * tr, Window win);
-static void client_delete(TrayPlugin * tr, TrayClient * tc);
+static void client_delete(TrayPlugin * tr, TrayClient * tc, gboolean unlink);
 static void balloon_message_free(BalloonMessage * message);
 static void balloon_message_advance(TrayPlugin * tr, gboolean destroy_timer, gboolean display_next);
 static gboolean balloon_message_activate_event(GtkWidget * widget, GdkEventButton * event, TrayPlugin * tr);
@@ -96,23 +96,15 @@ static void balloon_message_display(TrayPlugin * tr, BalloonMessage * msg);
 static void balloon_message_queue(TrayPlugin * tr, BalloonMessage * msg);
 static void balloon_incomplete_message_remove(TrayPlugin * tr, Window window, gboolean all_ids, long id);
 static void balloon_message_remove(TrayPlugin * tr, Window window, gboolean all_ids, long id);
-static GdkFilterReturn balloon_message_data_event(GdkXEvent * xev, GdkEvent * event, gpointer data);
 static void balloon_message_begin_event(TrayPlugin * tr, XClientMessageEvent * xevent);
 static void balloon_message_cancel_event(TrayPlugin * tr, XClientMessageEvent * xevent);
-static gboolean trayclient_plug_removed(GtkWidget * socket, TrayPlugin * tr);
-static void trayclient_realized(GtkWidget * widget, gpointer user_data);
-static gboolean trayclient_expose_event(GtkWidget * widget, GdkEventExpose * event, gpointer user_data);
+static void balloon_message_data_event(TrayPlugin * tr, XClientMessageEvent * xevent);
 static void trayclient_request_dock(TrayPlugin * tr, XClientMessageEvent * xevent);
+static GdkFilterReturn tray_event_filter(XEvent * xev, GdkEvent * event, TrayPlugin * tr);
 static void tray_unmanage_selection(TrayPlugin * tr);
 static int tray_constructor(Plugin * p, char ** fp);
 static void tray_destructor(Plugin * p);
 static void tray_panel_configuration_changed(Plugin * p);
-
-/* There is no way to remove the installed client message filters.
- * Thus they reference the tray context through this static variable, which is set
- * and cleared depending upon whether an instance of the system tray exists.
- * If later GTK provides an API to remove them, this should be fixed. */
-static TrayPlugin * tray_singleton = NULL;
 
 /* Look up a client in the client list. */
 static TrayClient * client_lookup(TrayPlugin * tr, Window window)
@@ -129,22 +121,32 @@ static TrayClient * client_lookup(TrayPlugin * tr, Window window)
 }
 
 /* Delete a client. */
-static void client_delete(TrayPlugin * tr, TrayClient * tc)
+static void client_delete(TrayPlugin * tr, TrayClient * tc, gboolean unlink)
 {
-    if (tr->client_list == tc)
-        tr->client_list = tc->client_flink;
-    else
+    if (unlink)
     {
-        /* Locate the task and its predecessor in the list and then remove it.  For safety, ensure it is found. */
-        TrayClient * tc_pred = NULL;
-        TrayClient * tc_cursor;
-        for (
-          tc_cursor = tr->client_list;
-          ((tc_cursor != NULL) && (tc_cursor != tc));
-          tc_pred = tc_cursor, tc_cursor = tc_cursor->client_flink) ;
-          if (tc_cursor == tc)
-              tc_pred->client_flink = tc->client_flink;
+        if (tr->client_list == tc)
+            tr->client_list = tc->client_flink;
+        else
+        {
+            /* Locate the task and its predecessor in the list and then remove it.  For safety, ensure it is found. */
+            TrayClient * tc_pred = NULL;
+            TrayClient * tc_cursor;
+            for (
+              tc_cursor = tr->client_list;
+              ((tc_cursor != NULL) && (tc_cursor != tc));
+              tc_pred = tc_cursor, tc_cursor = tc_cursor->client_flink) ;
+            if (tc_cursor == tc)
+                tc_pred->client_flink = tc->client_flink;
+        }
     }
+
+    /* Clear out any balloon messages. */
+    balloon_incomplete_message_remove(tr, tc->window, TRUE, 0);
+    balloon_message_remove(tr, tc->window, TRUE, 0);
+
+    /* Remove the socket from the icon grid. */
+    icon_grid_remove(tr->icon_grid, tc->socket);
 
     /* Deallocate the client structure. */
     g_free(tc);
@@ -205,7 +207,7 @@ static void balloon_message_display(TrayPlugin * tr, BalloonMessage * msg)
     /* Create a window and an item containing the text. */
     tr->balloon_message_popup = gtk_window_new(GTK_WINDOW_POPUP);
     GtkWidget * balloon_text = gtk_label_new(msg->string);
-    gtk_label_set_line_wrap(GTK_LABEL (balloon_text), TRUE);
+    gtk_label_set_line_wrap(GTK_LABEL(balloon_text), TRUE);
     gtk_misc_set_alignment(GTK_MISC(balloon_text), 0.5, 0.5);
     gtk_widget_show(balloon_text);
     gtk_container_add(GTK_CONTAINER(tr->balloon_message_popup), balloon_text);
@@ -336,49 +338,6 @@ static void balloon_message_remove(TrayPlugin * tr, Window window, gboolean all_
 
 /*** Event interfaces ***/
 
-/* Handle a balloon message _NET_SYSTEM_TRAY_MESSAGE_DATA event. */
-static GdkFilterReturn balloon_message_data_event(GdkXEvent * xev, GdkEvent * event, gpointer data)
-{
-    /* Locate tray context via a static variable.  If there is no active tray plugin, ignore the event. */
-    TrayPlugin * tr = tray_singleton;
-    if (tr == NULL)
-        return GDK_FILTER_CONTINUE;
-
-    /* Look up the pending message in the list. */
-    XClientMessageEvent * xevent  = (XClientMessageEvent *) xev;
-    BalloonMessage * msg_pred = NULL;
-    BalloonMessage * msg;
-    for (msg = tr->incomplete_messages; msg != NULL; msg_pred = msg, msg = msg->flink)
-    {
-        if (xevent->window == msg->window)
-        {
-            /* Append the message segment to the message. */
-            int length = MIN(msg->remaining_length, 20);
-            memcpy((msg->string + msg->length - msg->remaining_length), &xevent->data, length);
-            msg->remaining_length -= length;
-
-            /* If the message has been completely collected, display it. */
-            if (msg->remaining_length == 0)
-            {
-                /* Unlink the message from the structure. */
-                if (msg_pred == NULL)
-                    tr->incomplete_messages = msg->flink;
-                else
-                    msg_pred->flink = msg->flink;
-
-                /* If the client window is valid, queue the message.  Otherwise discard it. */
-                TrayClient * client = client_lookup(tr, msg->window);
-                if (client != NULL)
-                    balloon_message_queue(tr, msg);
-                else
-                    balloon_message_free(msg);
-            }
-            break;
-        }
-    }
-    return GDK_FILTER_REMOVE;
-}
-
 /* Handle a balloon message SYSTEM_TRAY_BEGIN_MESSAGE event. */
 static void balloon_message_begin_event(TrayPlugin * tr, XClientMessageEvent * xevent)
 {
@@ -421,42 +380,40 @@ static void balloon_message_cancel_event(TrayPlugin * tr, XClientMessageEvent * 
         balloon_message_remove(tr, xevent->window, FALSE, xevent->data.l[2]);
 }
 
-/* Handler for "plug-removed" event on socket widget. */
-static gboolean trayclient_plug_removed(GtkWidget * socket, TrayPlugin * tr)
+/* Handle a balloon message _NET_SYSTEM_TRAY_MESSAGE_DATA event. */
+static void balloon_message_data_event(TrayPlugin * tr, XClientMessageEvent * xevent)
 {
-    /* Get the window. */
-    Window win = (Window) g_object_get_data(G_OBJECT(socket), "client-window");
-    g_object_set_data(G_OBJECT(socket), "client-window", NULL);
-
-    /* Look up the client structure.
-     * Delete any balloon messages owned by the client, and the client structure itself. */
-    TrayClient * tc = client_lookup(tr, win);
-    if (tc != NULL)
+    /* Look up the pending message in the list. */
+    BalloonMessage * msg_pred = NULL;
+    BalloonMessage * msg;
+    for (msg = tr->incomplete_messages; msg != NULL; msg_pred = msg, msg = msg->flink)
     {
-        balloon_incomplete_message_remove(tr, win, TRUE, 0);
-        balloon_message_remove(tr, win, TRUE, 0);
-        client_delete(tr, tc);
+        if (xevent->window == msg->window)
+        {
+            /* Append the message segment to the message. */
+            int length = MIN(msg->remaining_length, 20);
+            memcpy((msg->string + msg->length - msg->remaining_length), &xevent->data, length);
+            msg->remaining_length -= length;
+
+            /* If the message has been completely collected, display it. */
+            if (msg->remaining_length == 0)
+            {
+                /* Unlink the message from the structure. */
+                if (msg_pred == NULL)
+                    tr->incomplete_messages = msg->flink;
+                else
+                    msg_pred->flink = msg->flink;
+
+                /* If the client window is valid, queue the message.  Otherwise discard it. */
+                TrayClient * client = client_lookup(tr, msg->window);
+                if (client != NULL)
+                    balloon_message_queue(tr, msg);
+                else
+                    balloon_message_free(msg);
+            }
+            break;
+        }
     }
-
-    /* Remove the socket from the icon grid. */
-    icon_grid_remove(tr->icon_grid, socket);
-
-    /* This destroys the socket. */
-    return FALSE;
-}
-
-/* Handler for "realized" event on socket widget. */
-static void trayclient_realized(GtkWidget * widget, gpointer user_data)
-{
-   if ( ! GTK_WIDGET_NO_WINDOW(widget))
-        gdk_window_set_back_pixmap(widget->window, NULL, TRUE);
-}
-
-/* Handler for "expose_event" event on socket widget. */
-static gboolean trayclient_expose_event(GtkWidget * widget, GdkEventExpose * event, gpointer user_data)
-{
-    gdk_window_clear_area(widget->window, event->area.x, event->area.y, event->area.width, event->area.height);
-    return FALSE;
 }
 
 /* Handler for request dock message. */
@@ -480,7 +437,6 @@ static void trayclient_request_dock(TrayPlugin * tr, XClientMessageEvent * xeven
 
     /* Allocate a socket.  This is the tray side of the Xembed connection. */
     tc->socket = gtk_socket_new();
-    g_object_set_data(G_OBJECT(tc->socket), "client-window", GINT_TO_POINTER(xevent->data.l[2]));
 
     /* Link the client structure into the client list. */
     if (tc_pred == NULL)
@@ -494,73 +450,74 @@ static void trayclient_request_dock(TrayPlugin * tr, XClientMessageEvent * xeven
         tc_pred->client_flink = tc;
     }
 
-    /* Set up widget parameters and connect signals. */
-    gtk_widget_set_app_paintable(tc->socket, TRUE);
-    gtk_widget_set_double_buffered(tc->socket, FALSE);
-    g_signal_connect(tc->socket, "realize", G_CALLBACK(trayclient_realized), NULL);
-    g_signal_connect(tc->socket, "expose_event", G_CALLBACK(trayclient_expose_event), NULL);
-    g_signal_connect(tc->socket, "plug_removed", G_CALLBACK(trayclient_plug_removed), tc->tr);
-
     /* Add the socket to the icon grid. */
     icon_grid_add(tr->icon_grid, tc->socket, TRUE);
 
-    /* Connect the socket to the plug. */
+    /* Connect the socket to the plug.  This can only be done after the socket is realized. */
     gtk_socket_add_id(GTK_SOCKET(tc->socket), tc->window);
 }
 
 /* GDK event filter. */
-static GdkFilterReturn tray_window_filter(GdkXEvent * xev, GdkEvent * event, gpointer data)
+static GdkFilterReturn tray_event_filter(XEvent * xev, GdkEvent * event, TrayPlugin * tr)
 {
-    XEvent * xevent = (GdkXEvent *) xev;
-    TrayPlugin * tr = data;
-
-    if (xevent->type == ClientMessage)
+    if (xev->type == DestroyNotify)
     {
-        /* We handle the REQUEST_DOCK client message here.
-         * See also tray_client_message_opcode_filter. */
-        if ((xevent->xclient.message_type == a_NET_SYSTEM_TRAY_OPCODE)
-        && (xevent->xclient.data.l[1] == SYSTEM_TRAY_REQUEST_DOCK))
+        /* Look for DestroyNotify events on tray icon windows and update state.
+         * We do it this way rather than with a "plug_removed" event because delivery
+         * of plug_removed events is observed to be unreliable if the client
+         * disconnects within less than 10 ms. */
+        XDestroyWindowEvent * xev_destroy = (XDestroyWindowEvent *) xev;
+        TrayClient * tc = client_lookup(tr, xev_destroy->window);
+        if (tc != NULL)
+            client_delete(tr, tc, TRUE);
+    }
+
+    else if (xev->type == ClientMessage)
+    {
+        if (xev->xclient.message_type == a_NET_SYSTEM_TRAY_OPCODE)
         {
-            trayclient_request_dock(tr, (XClientMessageEvent *) xevent);
+            /* Client message of type _NET_SYSTEM_TRAY_OPCODE.
+             * Dispatch on the request. */
+            switch (xev->xclient.data.l[1])
+            {
+                case SYSTEM_TRAY_REQUEST_DOCK:
+                    /* If a Request Dock event on the invisible window, which is holding the manager selection, execute it. */
+                    if (xev->xclient.window == tr->invisible_window)
+                    {
+                        trayclient_request_dock(tr, (XClientMessageEvent *) xev);
+                        return GDK_FILTER_REMOVE;
+                    }
+                    break;
+
+                case SYSTEM_TRAY_BEGIN_MESSAGE:
+                    /* If a Begin Message event. look up the tray icon and execute it. */
+                    balloon_message_begin_event(tr, (XClientMessageEvent *) xev);
+                    return GDK_FILTER_REMOVE;
+
+                case SYSTEM_TRAY_CANCEL_MESSAGE:
+                    /* If a Cancel Message event. look up the tray icon and execute it. */
+                    balloon_message_cancel_event(tr, (XClientMessageEvent *) xev);
+                    return GDK_FILTER_REMOVE;
+            }
+        }
+
+        else if (xev->xclient.message_type == a_NET_SYSTEM_TRAY_MESSAGE_DATA)
+        {
+            /* Client message of type _NET_SYSTEM_TRAY_MESSAGE_DATA.
+             * Look up the tray icon and execute it. */
+            balloon_message_data_event(tr, (XClientMessageEvent *) xev);
             return GDK_FILTER_REMOVE;
         }
     }
 
-    else if (xevent->type == SelectionClear)
+    else if ((xev->type == SelectionClear)
+    && (xev->xclient.window == tr->invisible_window))
     {
-        /* We lost the selection, which should not happen. */
+        /* Look for SelectionClear events on the invisible window, which is holding the manager selection.
+         * This should not happen. */
         tray_unmanage_selection(tr);
     }
 
-  return GDK_FILTER_CONTINUE;
-}
-
-/* Filter for _NET_SYSTEM_TRAY_OPCODE (SYSTEM_TRAY_BEGIN_MESSAGE and SYSTEM_TRAY_CANCEL_MESSAGE). */
-static GdkFilterReturn tray_client_message_opcode_filter(GdkXEvent * xev, GdkEvent * event, gpointer data)
-{
-    /* Locate tray context via a static variable.  If there is no active tray plugin, ignore the event. */
-    TrayPlugin * tr = tray_singleton;
-    if (tr == NULL)
-        return GDK_FILTER_CONTINUE;
-
-    /* Dispatch on the message. */
-    XClientMessageEvent * xevent  = (XClientMessageEvent *) xev;
-    switch (xevent->data.l[1])
-    {
-        case SYSTEM_TRAY_REQUEST_DOCK:
-            /* Ignore this one since we don't know on which window this was received
-             * and so we can't know for which screen this is.  It will be handled
-             * in tray_window_filter since we also receive it there. */
-            break;
-
-        case SYSTEM_TRAY_BEGIN_MESSAGE:
-            balloon_message_begin_event(tr, xevent);
-            return GDK_FILTER_REMOVE;
-
-        case SYSTEM_TRAY_CANCEL_MESSAGE:
-            balloon_message_cancel_event(tr, xevent);
-            return GDK_FILTER_REMOVE;
-    }
     return GDK_FILTER_CONTINUE;
 }
 
@@ -582,12 +539,9 @@ static void tray_unmanage_selection(TrayPlugin * tr)
                 TRUE);
         }
 
-        /* Remove the event filters.
-         * At this time, there is no way to remove the client message filters. */
-        gdk_window_remove_filter(invisible->window, tray_window_filter, tr);
-
         /* Destroy the invisible window. */
         tr->invisible = NULL;
+        tr->invisible_window = None;
         gtk_widget_destroy(invisible);
         g_object_unref(G_OBJECT(invisible));
     }
@@ -612,7 +566,6 @@ static int tray_constructor(Plugin * p, char ** fp)
     TrayPlugin * tr = g_new0(TrayPlugin, 1);
     p->priv = tr;
     tr->plugin = p;
-    tray_singleton = tr;
 
     /* Get the screen and display. */
     GdkScreen * screen = gtk_widget_get_screen(GTK_WIDGET(p->panel->topgwin));
@@ -670,19 +623,12 @@ static int tray_constructor(Plugin * p, char ** fp)
             PropModeReplace,
             (guchar *) &data, 1);
 
-        /* Add GDK window filter to handle SYSTEM_TRAY_REQUEST_DOCK and SelectionClear. */
-        gdk_window_add_filter(invisible->window, tray_window_filter, tr);
-
-        /* Add filter for _NET_SYSTEM_TRAY_OPCODE (SYSTEM_TRAY_BEGIN_MESSAGE and SYSTEM_TRAY_CANCEL_MESSAGE). */
-        GdkAtom opcode_atom = gdk_atom_intern("_NET_SYSTEM_TRAY_OPCODE", FALSE);
-        gdk_display_add_client_message_filter(display, opcode_atom, tray_client_message_opcode_filter, &tray_singleton);
-
-        /* Add filter for _NET_SYSTEM_TRAY_MESSAGE_DATA. */
-        GdkAtom message_data_atom = gdk_atom_intern("_NET_SYSTEM_TRAY_MESSAGE_DATA", FALSE);
-        gdk_display_add_client_message_filter(display, message_data_atom, balloon_message_data_event, &tray_singleton);
+        /* Add GDK event filter. */
+        gdk_window_add_filter(NULL, (GdkFilterFunc) tray_event_filter, tr);
 
         /* Reference the window since it is never added to a container. */
         tr->invisible = invisible;
+        tr->invisible_window = GDK_WINDOW_XWINDOW(invisible->window);
         g_object_ref(G_OBJECT(invisible));
     }
     else
@@ -709,6 +655,9 @@ static void tray_destructor(Plugin * p)
 {
     TrayPlugin * tr = (TrayPlugin *) p->priv;
 
+    /* Remove GDK event filter. */
+    gdk_window_remove_filter(NULL, (GdkFilterFunc) tray_event_filter, tr);
+
     /* Make sure we drop the manager selection. */
     tray_unmanage_selection(tr);
 
@@ -726,13 +675,12 @@ static void tray_destructor(Plugin * p)
 
     /* Deallocate client list. */
     while (tr->client_list != NULL)
-        client_delete(tr, tr->client_list);
+        client_delete(tr, tr->client_list, TRUE);
 
     /* Deallocate memory. */
-    icon_grid_free(tr->icon_grid);
+    if (tr->icon_grid != NULL)
+        icon_grid_free(tr->icon_grid);
 
-    /* Ensure that the client message filters will discard events. */
-    tray_singleton = NULL;
     g_free(tr);
 }
 
@@ -763,4 +711,5 @@ PluginClass tray_plugin_class = {
     config : NULL,
     save : NULL,
     panel_configuration_changed : tray_panel_configuration_changed
+
 };

@@ -320,9 +320,11 @@ void plugin_widget_set_background(GtkWidget * w, Panel * p)
         {
             if ((p->background) || (p->transparent))
             {
-                gtk_widget_set_app_paintable(w, TRUE);
                 if (GTK_WIDGET_REALIZED(w))
-                    gdk_window_set_back_pixmap(w->window, NULL, TRUE);
+                {
+                    panel_determine_background_pixmap(p, w, w->window);
+                    gdk_window_invalidate_rect(w->window, NULL, TRUE);
+                }
             }
             else
             {
@@ -336,26 +338,19 @@ void plugin_widget_set_background(GtkWidget * w, Panel * p)
             }
         }
 
-        /* Special handling to get tray icons redrawn.  This is the only known working technique to date. */
+        /* Special handling to get tray icons redrawn. */
         if (GTK_IS_SOCKET(w))
         {
             gtk_widget_hide(w);
-            if (gtk_events_pending()) gtk_main_iteration();
+            gdk_window_process_all_updates();
             gtk_widget_show(w);
-            if (gtk_events_pending()) gtk_main_iteration();
+            gdk_window_process_all_updates();
         }
 
         /* Recursively process all children of a container. */
         if (GTK_IS_CONTAINER(w))
             gtk_container_foreach(GTK_CONTAINER(w), (GtkCallback) plugin_widget_set_background, p);
     }
-}
-
-/* Set the background of a plugin. */
-void plugin_set_background(Plugin * pl, Panel * p)
-{
-    if (pl->pwid != NULL)
-        plugin_widget_set_background(pl->pwid, p);
 }
 
 /* Handler for "button_press_event" signal with Plugin as parameter.

@@ -391,14 +391,14 @@ void panel_update_background(Panel * p)
     panel_determine_background_pixmap(p, p->topgwin, p->topgwin->window);
     gdk_window_clear(p->topgwin->window);
     gtk_widget_queue_draw(p->topgwin);
-    if (gtk_events_pending()) gtk_main_iteration();
 
     /* Loop over all plugins redrawing each plugin. */
     GList * l;
     for (l = p->plugins; l != NULL; l = l->next)
     {
         Plugin * pl = (Plugin *) l->data;
-        plugin_set_background(pl, p);
+        if (pl->pwid != NULL)
+            plugin_widget_set_background(pl->pwid, p);
     }
 
 }
@@ -1051,12 +1051,19 @@ void panel_set_panel_configuration_changed(Panel *p)
     }
 
     /* recreate the main layout box */
-    if( p->box ) {
-        GtkBox* newbox = GTK_BOX(recreate_box( GTK_BOX(p->box), p->orientation ));
-        if( GTK_WIDGET(newbox) != p->box ) {
+    if (p->box != NULL)
+    {
+#if GTK_CHECK_VERSION(2,16,0)
+        GtkOrientation bo = (p->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
+        gtk_orientable_set_orientation(GTK_ORIENTABLE(p->box), bo);
+#else
+        GtkBox * newbox = GTK_BOX(recreate_box(GTK_BOX(p->box), p->orientation));
+        if (GTK_WIDGET(newbox) != p->box)
+        {
             p->box = GTK_WIDGET(newbox);
-            gtk_container_add( GTK_CONTAINER(p->topgwin), GTK_WIDGET(newbox) );
+            gtk_container_add(GTK_CONTAINER(p->topgwin), GTK_WIDGET(newbox));
         }
+#endif
     }
 
     /* NOTE: This loop won't be executed when panel started since

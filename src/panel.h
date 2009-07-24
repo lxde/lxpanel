@@ -202,6 +202,7 @@ extern Atom a_NET_WM_ICON;
 extern Atom a_KDE_NET_WM_SYSTEM_TRAY_WINDOW_FOR;
 
 extern Atom a_NET_SYSTEM_TRAY_OPCODE;
+extern Atom a_NET_SYSTEM_TRAY_MESSAGE_DATA;
 extern Atom a_NET_SYSTEM_TRAY_ORIENTATION;
 extern Atom a_MANAGER;
 

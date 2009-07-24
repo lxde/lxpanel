@@ -85,12 +85,11 @@ extern void plugin_delete(Plugin * pl);			/* Delete an instance of a plugin */
 extern GList * plugin_get_available_classes(void);	/* Get a list of all plugin classes; free with plugin_class_list_free */
 extern void plugin_class_list_free(GList * list);	/* Free the list allocated by plugin_get_available_classes */
 extern void plugin_widget_set_background(GtkWidget * w, Panel * p);
-							/* Recursively set the background of all widgets on a panel background configuration change. */
-extern void plugin_set_background( Plugin* pl, Panel* p );  /* Set the background of a plugin. */
+							/* Recursively set the background of all widgets on a panel background configuration change */
 extern gboolean plugin_button_press_event(GtkWidget *widget, GdkEventButton *event, Plugin *plugin);
-                                                        /* Handler for "button_press_event" signal with Plugin as parameter. */
+                                                        /* Handler for "button_press_event" signal with Plugin as parameter */
 extern void plugin_popup_set_position_helper(Plugin * p, GtkWidget * near, GtkWidget * popup, GtkRequisition * popup_req, gint * px, gint * py);
-							/* Helper for position-calculation callback for popup menus. */
+							/* Helper for position-calculation callback for popup menus */
 
 /* FIXME: optional definitions */
 #define STATIC_SEPARATOR
