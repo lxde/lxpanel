@@ -114,12 +114,12 @@ typedef struct _taskbar {
 
 static gchar *taskbar_rc = "style 'taskbar-style'\n"
 "{\n"
-"GtkWidget::focus-line-width = 0\n"
-"GtkWidget::focus-padding = 0\n"
-"GtkButton::default-border = { 0, 0, 0, 0 }\n"
-"GtkButton::default-outside-border = { 0, 0, 0, 0 }\n"
-"GtkButton::default_border = { 0, 0, 0, 0 }\n"
-"GtkButton::default_outside_border = { 0, 0, 0, 0 }\n"
+"GtkWidget::focus-padding=0\n" /* FIXME: seem to fix #2821771, not sure if this is ok. */
+"GtkWidget::focus-line-width=0\n"
+"GtkWidget::focus-padding=0\n"
+"GtkButton::default-border={0,0,0,0}\n"
+"GtkButton::default-outside-border={0,0,0,0}\n"
+"GtkButton::inner-border={0,0,0,0}\n" /* added in gtk+ 2.10 */
 "}\n"
 "widget '*.taskbar.*' style 'taskbar-style'";
 
@@ -1276,7 +1276,10 @@ static void task_build_gui(TaskbarPlugin * tb, Task * tk)
     gtk_container_set_border_width(GTK_CONTAINER(container), 0);
 
     /* Create an image to contain the application icon and add it to the box. */
-    tk->image = gtk_image_new_from_pixbuf(task_update_icon(tb, tk, None));
+    GdkPixbuf* pixbuf = task_update_icon(tb, tk, None);
+    tk->image = gtk_image_new_from_pixbuf(pixbuf);
+    gtk_misc_set_padding(tk->image, 0, 0);
+    g_object_unref(pixbuf);
     gtk_widget_show(tk->image);
     gtk_box_pack_start(GTK_BOX(container), tk->image, FALSE, FALSE, 0);
 
@@ -1289,6 +1292,7 @@ static void task_build_gui(TaskbarPlugin * tb, Task * tk)
     /* Add the box to the button. */
     gtk_widget_show(container);
     gtk_container_add(GTK_CONTAINER(tk->button), container);
+    gtk_container_set_border_width(tk->button, 0);
 
     /* Add the button to the taskbar. */
     icon_grid_add(tb->icon_grid, tk->button, TRUE); 
@@ -1553,7 +1557,10 @@ static void taskbar_property_notify_event(TaskbarPlugin *tb, XEvent *ev)
                      * Some windows set their WM_HINTS icon after mapping. */
                     GdkPixbuf * pixbuf = task_update_icon(tb, tk, XA_WM_HINTS);
                     if (pixbuf != NULL)
+                    {
                         gtk_image_set_from_pixbuf(GTK_IMAGE(tk->image), pixbuf);
+                        g_object_unref(pixbuf);
+                    }
 
                     if (tb->use_urgency_hint)
                     {
@@ -1580,7 +1587,10 @@ static void taskbar_property_notify_event(TaskbarPlugin *tb, XEvent *ev)
                     /* Window changed EWMH icon. */
                     GdkPixbuf * pixbuf = task_update_icon(tb, tk, a_NET_WM_ICON);
                     if (pixbuf != NULL)
+                    {
                         gtk_image_set_from_pixbuf(GTK_IMAGE(tk->image), pixbuf);
+                        g_object_unref(pixbuf);
+                    }
                 }
                 else if (at == a_NET_WM_WINDOW_TYPE)
                 {
@@ -1993,7 +2003,10 @@ static void taskbar_panel_configuration_changed(Plugin * p)
         {
             GdkPixbuf * pixbuf = task_update_icon(tb, tk, None);
             if (pixbuf != NULL)
+            {
                 gtk_image_set_from_pixbuf(GTK_IMAGE(tk->image), pixbuf);
+                g_object_unref(pixbuf);
+            }
         }
     }
 
