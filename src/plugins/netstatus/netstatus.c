@@ -32,6 +32,7 @@
 #include "netstatus-dialog.h"
 
 typedef struct {
+    Plugin* plugin;
     char *iface;
     char *config_tool;
     GtkWidget *mainw;
@@ -112,6 +113,7 @@ netstatus_constructor(Plugin *p, char** fp)
     ns = g_new0(netstatus, 1);
     g_return_val_if_fail(ns != NULL, 0);
     p->priv = ns;
+    ns->plugin = p;
     if( fp )
     {
         while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
@@ -146,7 +148,6 @@ netstatus_constructor(Plugin *p, char** fp)
     g_object_unref( iface );
     g_signal_connect( ns->mainw, "button-press-event",
                       G_CALLBACK(on_button_press), p );
-    gtk_widget_set_size_request( ns->mainw, 26, 24 );
 
     gtk_widget_show_all(ns->mainw);
 
