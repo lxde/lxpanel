@@ -1178,7 +1178,7 @@ GtkWidget * fb_button_new_from_file_with_label(
         gtk_box_pack_start(GTK_BOX(inner), image, FALSE, FALSE, 0);
 
         GtkWidget * lbl = gtk_label_new("");
-        panel_draw_label_text(panel, lbl, label, FALSE);
+        panel_draw_label_text(panel, lbl, label, FALSE, TRUE);
         gtk_misc_set_padding(GTK_MISC(lbl), 2, 0);
         gtk_box_pack_end(GTK_BOX(inner), lbl, FALSE, FALSE, 0);
     }

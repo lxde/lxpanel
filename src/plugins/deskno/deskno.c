@@ -53,7 +53,7 @@ static gboolean name_update(GtkWidget * widget, DesknoPlugin * dc)
     /* Compute and redraw the desktop number. */
     int desktop_number = get_net_current_desktop();
     if (desktop_number < dc->number_of_desktops)
-        panel_draw_label_text(dc->panel, dc->label, dc->desktop_labels[desktop_number], TRUE);
+        panel_draw_label_text(dc->panel, dc->label, dc->desktop_labels[desktop_number], TRUE, TRUE);
     return TRUE;
 }
 

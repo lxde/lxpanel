@@ -958,7 +958,7 @@ void panel_adjust_geometry_terminology(Panel * p)
 }
 
 /* Draw text into a label, with the user preference color and optionally bold. */
-void panel_draw_label_text(Panel * p, GtkWidget * label, char * text, gboolean bold)
+void panel_draw_label_text(Panel * p, GtkWidget * label, char * text, gboolean bold, gboolean custom_color)
 {
     char buffer[512];
 
@@ -994,7 +994,7 @@ void panel_draw_label_text(Panel * p, GtkWidget * label, char * text, gboolean b
             }
         }
 
-        if (p->usefontcolor)
+        if ((custom_color) && (p->usefontcolor))
         {
             /* Color, optionally bold. */
             g_snprintf(buffer, sizeof(buffer), "<span font_desc=\"%d\" color=\"#%06x\">%s%s%s</span>",

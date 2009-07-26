@@ -336,7 +336,7 @@ static void dirmenu_apply_configuration_to_children(GtkWidget * w, DirMenuPlugin
         if (dm->name == NULL)
 	    gtk_label_set_text(GTK_LABEL(w), NULL);
         else
-            panel_draw_label_text(dm->plugin->panel, w, dm->name, FALSE);
+            panel_draw_label_text(dm->plugin->panel, w, dm->name, FALSE, TRUE);
     }
 }
 

@@ -77,7 +77,7 @@ void xkb_redraw(XkbPlugin * xkb)
     /* Set the label. */
     if ((xkb->display_type == TEXT) || ( ! valid_image))
     {
-        panel_draw_label_text(xkb->plugin->panel, xkb->label, (char *) xkb_get_current_group_name(xkb), TRUE);
+        panel_draw_label_text(xkb->plugin->panel, xkb->label, (char *) xkb_get_current_group_name(xkb), TRUE, TRUE);
         gtk_widget_hide(xkb->image);
         gtk_widget_show(xkb->label);
         gtk_widget_set_tooltip_text(xkb->btn, NULL);
