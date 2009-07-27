@@ -37,9 +37,8 @@ msgid "<b>Font</b>"
 msgstr "<b>Police</b>"
 
 #: ../data/ui/panel-pref.glade.h:6
-#, fuzzy
 msgid "<b>Icon</b>"
-msgstr "<b>Police</b>"
+msgstr "<b>Icône</b>"
 
 #: ../data/ui/panel-pref.glade.h:7
 msgid "<b>Position</b>"
@@ -1000,7 +999,6 @@ msgid "Directory"
 msgstr "Menu des répertoires"
 
 #: ../src/plugins/dirmenu.c:366
-#, fuzzy
 msgid "Label"
 msgstr "Tableau de bord"
 
