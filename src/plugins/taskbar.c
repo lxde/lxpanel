@@ -1278,7 +1278,7 @@ static void task_build_gui(TaskbarPlugin * tb, Task * tk)
     /* Create an image to contain the application icon and add it to the box. */
     GdkPixbuf* pixbuf = task_update_icon(tb, tk, None);
     tk->image = gtk_image_new_from_pixbuf(pixbuf);
-    gtk_misc_set_padding(tk->image, 0, 0);
+    gtk_misc_set_padding(GTK_MISC(tk->image), 0, 0);
     g_object_unref(pixbuf);
     gtk_widget_show(tk->image);
     gtk_box_pack_start(GTK_BOX(container), tk->image, FALSE, FALSE, 0);
@@ -1292,7 +1292,7 @@ static void task_build_gui(TaskbarPlugin * tb, Task * tk)
     /* Add the box to the button. */
     gtk_widget_show(container);
     gtk_container_add(GTK_CONTAINER(tk->button), container);
-    gtk_container_set_border_width(tk->button, 0);
+    gtk_container_set_border_width(GTK_CONTAINER(tk->button), 0);
 
     /* Add the button to the taskbar. */
     icon_grid_add(tb->icon_grid, tk->button, TRUE); 
