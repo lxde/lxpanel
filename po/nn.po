@@ -1,14 +1,13 @@
 # Translation of lxpanel to Norwegian Nynorsk
 # Copyright © 2009 Karl Ove Hufthammer <karl@huftis.org>
-#
 # This file is distributed under the same license as the lxpanel package.
-#
 # Karl Ove Hufthammer <karl@huftis.org>, 2009.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-26 11:35+0200\n"
+"POT-Creation-Date: 2009-07-27 19:17+0200\n"
 "PO-Revision-Date: 2009-07-26 12:06+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
@@ -36,7 +35,6 @@ msgid "<b>Font</b>"
 msgstr "<b>Skrift</b>"
 
 #: ../data/ui/panel-pref.glade.h:6
-#| msgid "<b>Font</b>"
 msgid "<b>Icon</b>"
 msgstr "<b>Ikon</b>"
 
@@ -77,7 +75,6 @@ msgid "Center"
 msgstr "I midten"
 
 #: ../data/ui/panel-pref.glade.h:16
-#| msgid "Custom Color"
 msgid "Custom color"
 msgstr "Sjølvvald farge"
 
@@ -110,7 +107,6 @@ msgid "Left"
 msgstr "Til venstre"
 
 #: ../data/ui/panel-pref.glade.h:24
-#| msgid "Left"
 msgid "Left\t"
 msgstr "Til venstre\t"
 
@@ -163,7 +159,6 @@ msgid "Solid color (with opacity)"
 msgstr "Heildekkjande farge (med gjennomsikt)"
 
 #: ../data/ui/panel-pref.glade.h:37
-#| msgid "None (Use system theme)"
 msgid "System theme"
 msgstr "Systemtema"
 
@@ -172,7 +167,6 @@ msgid "Terminal Emulator:"
 msgstr "Terminalemulator:"
 
 #: ../data/ui/panel-pref.glade.h:39
-#| msgid "Top"
 msgid "Top\t"
 msgstr "Oppe\t"
 
@@ -181,7 +175,6 @@ msgid "Width:"
 msgstr "Breidd:"
 
 #: ../data/ui/panel-pref.glade.h:41
-#| msgid "Pixels"
 msgid "pixels"
 msgstr "pikslar"
 
@@ -207,7 +200,7 @@ msgstr "Strekk"
 
 #: ../src/configurator.c:558
 msgid "Add plugin to panel"
-msgstr "Legg tilegget til panelet"
+msgstr "Legg tillegget til panelet"
 
 #: ../src/configurator.c:586
 msgid "Available plugins"
@@ -218,7 +211,6 @@ msgid "Logout command is not set"
 msgstr "Utloggingskommandoen er ikkje vald"
 
 #: ../src/configurator.c:1192
-#| msgid "Select a file"
 msgid "Select a directory"
 msgstr "Vel mappe"
 
@@ -248,7 +240,6 @@ msgid "translator-credits"
 msgstr "Karl Ove Hufthammer"
 
 #: ../src/panel.c:629
-#| msgid "Panel"
 msgid "LXPanel"
 msgstr "LXPanel"
 
@@ -381,12 +372,10 @@ msgid "Display Image and Tooltip"
 msgstr "Vis bilete og verktøytips"
 
 #: ../src/plugins/launchbar.c:666
-#| msgid "Available plugins"
 msgid "Available Applications"
 msgstr "Tilgjengelege program"
 
 #: ../src/plugins/launchbar.c:666
-#| msgid "Select Application"
 msgid "Applications"
 msgstr "Program"
 
@@ -399,105 +388,97 @@ msgid "Bar with buttons to launch application"
 msgstr "Linje med knappar for å starta program"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1672
-#| msgid "Raise"
+#: ../src/plugins/taskbar.c:1682
 msgid "_Raise"
 msgstr "_Hev"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1677
-#| msgid "Restore"
+#: ../src/plugins/taskbar.c:1687
 msgid "R_estore"
 msgstr "_Gjenopprett"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1682
-#| msgid "Maximize"
+#: ../src/plugins/taskbar.c:1692
 msgid "Ma_ximize"
 msgstr "_Maksimer"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1687
-#| msgid "Iconify"
+#: ../src/plugins/taskbar.c:1697
 msgid "Ico_nify"
 msgstr "M_inimer"
 
-#: ../src/plugins/taskbar.c:1706, c-format
-#| msgid "Workspace %d"
+#: ../src/plugins/taskbar.c:1716
+#, c-format
 msgid "Workspace _%d"
 msgstr "Arbeidsområde _%d"
 
-#: ../src/plugins/taskbar.c:1711
+#: ../src/plugins/taskbar.c:1721
 #, c-format
 msgid "Workspace %d"
 msgstr "Arbeidsområde %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1725
-#| msgid "All workspaces"
+#: ../src/plugins/taskbar.c:1735
 msgid "_All workspaces"
 msgstr "_Alle arbeidsområde"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1731
-#| msgid "Workspace %d"
+#: ../src/plugins/taskbar.c:1741
 msgid "_Move to Workspace"
 msgstr "_Flytt til arbeidsområde"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1737
-#| msgid "Close Window"
+#: ../src/plugins/taskbar.c:1747
 msgid "_Close Window"
 msgstr "_Lukk vindauge"
 
-#: ../src/plugins/taskbar.c:1948
+#: ../src/plugins/taskbar.c:1958
 msgid "Show tooltips"
 msgstr "Vis verktøytips"
 
-#: ../src/plugins/taskbar.c:1949
+#: ../src/plugins/taskbar.c:1959
 msgid "Icons only"
 msgstr "Berre ikon"
 
-#: ../src/plugins/taskbar.c:1950
-#| msgid "Flat Buttons"
+#: ../src/plugins/taskbar.c:1960
 msgid "Flat buttons"
 msgstr "Flate knappar"
 
-#: ../src/plugins/taskbar.c:1951
+#: ../src/plugins/taskbar.c:1961
 msgid "Show windows from all desktops"
 msgstr "Vis vindauge frå alle skriveborda"
 
-#: ../src/plugins/taskbar.c:1952
+#: ../src/plugins/taskbar.c:1962
 msgid "Use mouse wheel"
 msgstr "Bruk mushjul"
 
-#: ../src/plugins/taskbar.c:1953
+#: ../src/plugins/taskbar.c:1963
 msgid "Flash when there is any window requiring attention"
 msgstr "Blink når vindauge krev merksemd"
 
-#: ../src/plugins/taskbar.c:1954
+#: ../src/plugins/taskbar.c:1964
 msgid "Combine multiple application windows into a single button"
 msgstr "Slå saman fleire programvindauge til éin knapp"
 
-#: ../src/plugins/taskbar.c:1955
+#: ../src/plugins/taskbar.c:1965
 msgid "Maximum width of task button"
 msgstr "Maksbreidd på oppgåveknapp"
 
-#: ../src/plugins/taskbar.c:1956
+#: ../src/plugins/taskbar.c:1966
 msgid "Spacing"
 msgstr "Mellomrom"
 
-#: ../src/plugins/taskbar.c:2010
+#: ../src/plugins/taskbar.c:2023
 msgid "Task Bar (Window List)"
 msgstr "Oppgåvelinje (vindaugsliste)"
 
-#: ../src/plugins/taskbar.c:2012
+#: ../src/plugins/taskbar.c:2025
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
-"Oppgåvelinja viser alle opne vindauge, og lèt deg ikonifisera dei, rulla "
-"dei opp eller fokusera på dei"
+"Oppgåvelinja viser alle opne vindauge, og lèt deg ikonifisera dei, rulla dei "
+"opp eller fokusera på dei"
 
 #: ../src/plugins/dclock.c:282
 msgid "Clock Format"
@@ -544,7 +525,6 @@ msgid "Menu"
 msgstr "Meny"
 
 #: ../src/plugins/menu.c:1009
-#| msgid "Select Application"
 msgid "Application Menu"
 msgstr "Programmeny"
 
@@ -659,7 +639,6 @@ msgid "_Name:"
 msgstr "_Namn:"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:148
-#| msgid "_Name:"
 msgid "Name"
 msgstr "Namn"
 
@@ -668,7 +647,6 @@ msgid "The interface name"
 msgstr "Grensesnitt-namnet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:156
-#| msgid "Status:"
 msgid "State"
 msgstr "Status"
 
@@ -677,7 +655,6 @@ msgid "The interface state"
 msgstr "Grensesnitt-statusen"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:165
-#| msgid "Status:"
 msgid "Stats"
 msgstr "Statistikk"
 
@@ -695,7 +672,6 @@ msgid "Whether the interface is a wireless interface"
 msgstr "Om grensesnittet er eit trådlaust grensesnitt"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:181
-#| msgid "Show Signal"
 msgid "Signal"
 msgstr "Signalstyrke"
 
@@ -822,7 +798,6 @@ msgid "Ash"
 msgstr "Ash"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:990
-#| msgid "Icon"
 msgid "Econet"
 msgstr "Econet"
 
@@ -862,8 +837,8 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"Klarte ikkje tolka grensesnittstatistikk frå «%s» (prx_idx = %d; ptx_idx = "
-"%d; brx_idx = %d; btx_idx = %d;)"
+"Klarte ikkje tolka grensesnittstatistikk frå «%s» (prx_idx = %d; ptx_idx = %"
+"d; brx_idx = %d; btx_idx = %d;)"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -946,7 +921,6 @@ msgid "System Tray"
 msgstr "Systemtrau"
 
 #: ../src/plugins/tray.c:704
-#| msgid "System Tray"
 msgid "System tray"
 msgstr "Systemtrau"
 
@@ -1010,12 +984,10 @@ msgid "Open in _Terminal"
 msgstr "Opna i _terminal"
 
 #: ../src/plugins/dirmenu.c:365
-#| msgid "Directory Menu"
 msgid "Directory"
 msgstr "Mappe"
 
 #: ../src/plugins/dirmenu.c:366
-#| msgid "Panel"
 msgid "Label"
 msgstr "Merkelapp"
 
@@ -1194,20 +1166,19 @@ msgstr ""
 msgid "Encryption Key:"
 msgstr "Krypteringsnøkkel:"
 
-#: ../src/plugins/netstatus/netstatus.c:178
+#: ../src/plugins/netstatus/netstatus.c:179
 msgid "Interface to monitor"
 msgstr "Grensesnittet som skal overvakast"
 
-#: ../src/plugins/netstatus/netstatus.c:179
+#: ../src/plugins/netstatus/netstatus.c:180
 msgid "Config tool"
 msgstr "Oppsettverktøy"
 
-#: ../src/plugins/netstatus/netstatus.c:196
-#| msgid "Network Connection"
+#: ../src/plugins/netstatus/netstatus.c:197
 msgid "Network Status Monitor"
 msgstr "Overvaking av nettverksstatus"
 
-#: ../src/plugins/netstatus/netstatus.c:198
+#: ../src/plugins/netstatus/netstatus.c:199
 msgid "Monitor network status"
 msgstr "Overvak nettverksstatus"
 
@@ -1381,4 +1352,3 @@ msgstr "Lysdiodar for tastatur"
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr ""
 "Lysdiodeindikatorar for tastane «Caps Lock», «Num Lock» og «Scroll Lock»"
-
