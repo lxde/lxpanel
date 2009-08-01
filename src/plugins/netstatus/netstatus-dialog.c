@@ -811,6 +811,9 @@ netstatus_dialog_new (NetstatusIface *iface)
 			    G_CALLBACK (netstatus_dialog_set_iface_name),
 			    data);
 
+  g_object_unref(data->builder);
+  data->builder = NULL;
+
   return data->dialog;
 }
 
