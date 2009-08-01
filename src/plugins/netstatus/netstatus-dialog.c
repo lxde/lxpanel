@@ -27,9 +27,8 @@
 
 #include <gtk/gtk.h>
 
-#include "netstatus-dialog-ui.h"
+#include <glib/gi18n.h>
 #include "netstatus-dialog.h"
-#include "glade-support.h"
 
 #include <string.h>
 /* #include <gconf/gconf-client.h> */
@@ -54,6 +53,7 @@ static const char *network_config_tools[] = {
 
 typedef struct
 {
+  GtkBuilder* builder;
   GtkWidget      *dialog;
 
   NetstatusIface *iface;
@@ -64,6 +64,7 @@ typedef struct
   /* guint           listener; */
 
   GtkWidget      *name;
+  GtkWidget      *name_entry; /* child GtkEntry of name (GtkComboBoxEntry) */
   GtkWidget      *status;
   GtkWidget      *received;
   GtkWidget      *sent;
@@ -124,7 +125,7 @@ netstatus_dialog_update_name (NetstatusDialogData *data)
     }
   
   UNKNOWN_STR (text, iface_name);
-  gtk_entry_set_text (GTK_ENTRY (GTK_COMBO (data->name)->entry), text);
+  gtk_entry_set_text (GTK_ENTRY (data->name_entry), text);
 }
 
 static inline void
@@ -596,7 +597,7 @@ netstatus_iface_configure (GtkWidget           *configure_button,
 static void
 netstatus_dialog_setup_configure_button (NetstatusDialogData *data)
 {
-  data->configure_button = lookup_widget (data->dialog, "configure_button");
+  data->configure_button = (GtkWidget*)gtk_builder_get_object(data->builder, "configure_button");
 
   g_signal_connect (data->configure_button, "clicked",
 		    G_CALLBACK (netstatus_iface_configure), data);
@@ -615,8 +616,9 @@ netstatus_dialog_setup_connection (NetstatusDialogData *data)
 {
   GtkWidget *hbox;
   GtkWidget *icon;
+  GtkListStore* model;
   
-  hbox = lookup_widget (data->dialog, "connection_hbox");
+  hbox = (GtkWidget*)gtk_builder_get_object(data->builder, "connection_hbox");
 
   icon = netstatus_icon_new (data->iface);
   netstatus_icon_set_tooltips_enabled (NETSTATUS_ICON (icon), FALSE);
@@ -626,8 +628,14 @@ netstatus_dialog_setup_connection (NetstatusDialogData *data)
 
   data->icon = NETSTATUS_ICON (icon);
 
-  data->name   = lookup_widget (data->dialog, "name_combo");
-  data->status = lookup_widget (data->dialog, "status_label");
+  data->name   = (GtkWidget*)gtk_builder_get_object(data->builder, "name_combo");
+  data->name_entry = gtk_bin_get_child((GtkBin*)data->name);
+  model = gtk_list_store_new(1, G_TYPE_STRING);
+  gtk_combo_box_set_model(GTK_COMBO_BOX(data->name), model);
+  gtk_combo_box_entry_set_text_column(GTK_COMBO_BOX(data->name), 0);
+  g_object_unref(model);
+
+  data->status = (GtkWidget*)gtk_builder_get_object(data->builder, "status_label");
 
   netstatus_dialog_update_name (data);
   netstatus_dialog_update_state (data);
@@ -636,8 +644,8 @@ netstatus_dialog_setup_connection (NetstatusDialogData *data)
 static void
 netstatus_dialog_setup_activity (NetstatusDialogData *data)
 {
-  data->sent     = lookup_widget (data->dialog, "sent_label");
-  data->received = lookup_widget (data->dialog, "received_label");
+  data->sent     = (GtkWidget*)gtk_builder_get_object(data->builder, "sent_label");
+  data->received = (GtkWidget*)gtk_builder_get_object(data->builder, "received_label");
 
   netstatus_dialog_update_activity (data);
 }
@@ -645,9 +653,9 @@ netstatus_dialog_setup_activity (NetstatusDialogData *data)
 static void
 netstatus_dialog_setup_signal_strength_details (NetstatusDialogData *data)
 {
-  data->signal_strength_frame = lookup_widget (data->dialog, "signal_strength_frame");
-  data->signal_strength_bar   = lookup_widget (data->dialog, "signal_strength_bar");
-  data->signal_strength_label = lookup_widget (data->dialog, "signal_strength_label");
+  data->signal_strength_frame = (GtkWidget*)gtk_builder_get_object(data->builder, "signal_strength_frame");
+  data->signal_strength_bar   = (GtkWidget*)gtk_builder_get_object(data->builder, "signal_strength_bar");
+  data->signal_strength_label = (GtkWidget*)gtk_builder_get_object(data->builder, "signal_strength_label");
 
   netstatus_dialog_update_signal_strength (data);
 }
@@ -655,25 +663,25 @@ netstatus_dialog_setup_signal_strength_details (NetstatusDialogData *data)
 static void
 netstatus_dialog_setup_inet4_support (NetstatusDialogData *data)
 {
-  data->inet4_frame       = lookup_widget (data->dialog, "inet4_frame");
-  data->inet4_table       = lookup_widget (data->dialog, "inet4_table");
-  data->inet4_addr        = lookup_widget (data->dialog, "inet4_addr_label");
-  data->inet4_addr_title  = lookup_widget (data->dialog, "inet4_addr_title");
-  data->inet4_dest        = lookup_widget (data->dialog, "inet4_dest_label");
-  data->inet4_dest_title  = lookup_widget (data->dialog, "inet4_dest_title");
-  data->inet4_bcast       = lookup_widget (data->dialog, "inet4_bcast_label");
-  data->inet4_bcast_title = lookup_widget (data->dialog, "inet4_bcast_title");
-  data->inet4_mask        = lookup_widget (data->dialog, "inet4_mask_label");
-  data->inet4_mask_title  = lookup_widget (data->dialog, "inet4_mask_title");
+  data->inet4_frame       = (GtkWidget*)gtk_builder_get_object(data->builder, "inet4_frame");
+  data->inet4_table       = (GtkWidget*)gtk_builder_get_object(data->builder, "inet4_table");
+  data->inet4_addr        = (GtkWidget*)gtk_builder_get_object(data->builder, "inet4_addr_label");
+  data->inet4_addr_title  = (GtkWidget*)gtk_builder_get_object(data->builder, "inet4_addr_title");
+  data->inet4_dest        = (GtkWidget*)gtk_builder_get_object(data->builder, "inet4_dest_label");
+  data->inet4_dest_title  = (GtkWidget*)gtk_builder_get_object(data->builder, "inet4_dest_title");
+  data->inet4_bcast       = (GtkWidget*)gtk_builder_get_object(data->builder, "inet4_bcast_label");
+  data->inet4_bcast_title = (GtkWidget*)gtk_builder_get_object(data->builder, "inet4_bcast_title");
+  data->inet4_mask        = (GtkWidget*)gtk_builder_get_object(data->builder, "inet4_mask_label");
+  data->inet4_mask_title  = (GtkWidget*)gtk_builder_get_object(data->builder, "inet4_mask_title");
 
   netstatus_dialog_update_inet4_support (data);
 }
 static void
 netstatus_dialog_setup_device_support (NetstatusDialogData *data)
 {
-  data->dev_frame = lookup_widget (data->dialog, "dev_frame");
-  data->dev_type  = lookup_widget (data->dialog, "dev_type_label");
-  data->dev_addr  = lookup_widget (data->dialog, "dev_addr_label");
+  data->dev_frame = (GtkWidget*)gtk_builder_get_object(data->builder, "dev_frame");
+  data->dev_type  = (GtkWidget*)gtk_builder_get_object(data->builder, "dev_type_label");
+  data->dev_addr  = (GtkWidget*)gtk_builder_get_object(data->builder, "dev_addr_label");
   
   netstatus_dialog_update_device_support (data);
 }
@@ -700,6 +708,7 @@ netstatus_dialog_iface_list_monitor (NetstatusDialogData *data)
 {
   GList *iface_names, *l;
   int    n_ifaces;
+  GtkListStore* model;
 
   iface_names = netstatus_list_interface_names (NULL);
 
@@ -707,13 +716,22 @@ netstatus_dialog_iface_list_monitor (NetstatusDialogData *data)
 
   if (data->n_ifaces != n_ifaces)
     {
-      g_signal_handlers_block_by_func (GTK_COMBO (data->name)->entry,
+      model = (GtkListStore*)gtk_combo_box_get_model(data->name);
+      gtk_list_store_clear(model);
+      g_signal_handlers_block_by_func (data->name_entry,
 				       G_CALLBACK (netstatus_dialog_set_iface_name), data);
 				       
-      gtk_combo_set_popdown_strings (GTK_COMBO (data->name), iface_names);
+      for (l = iface_names; l; l = l->next)
+        {
+          GtkTreeIter it;
+          gtk_list_store_append(model, &it);
+          gtk_list_store_set(model, &it, 0, (char*)l->data, -1);
+        }
+      /* GtkCombo is deprecated. */
+      /* gtk_combo_set_popdown_strings (GTK_COMBO (data->name), iface_names); */
       netstatus_dialog_update_name (data);
 
-      g_signal_handlers_unblock_by_func (GTK_COMBO (data->name)->entry,
+      g_signal_handlers_unblock_by_func (data->name_entry,
 					 G_CALLBACK (netstatus_dialog_set_iface_name), data);
     }
 
@@ -732,7 +750,9 @@ netstatus_dialog_new (NetstatusIface *iface)
   NetstatusDialogData *data;
   data = g_new0 (NetstatusDialogData, 1);
 
-  data->dialog = create_network_status_dialog();
+  data->builder = gtk_builder_new();
+  gtk_builder_add_from_file(data->builder, PACKAGE_UI_DIR "/netstatus.ui", NULL);
+  data->dialog = gtk_builder_get_object(data->builder, "network_status_dialog");
 
   g_object_set_data (G_OBJECT (data->dialog), "netstatus-dialog-data", data);
 
@@ -787,7 +807,7 @@ netstatus_dialog_new (NetstatusIface *iface)
 					    data);
   netstatus_dialog_iface_list_monitor (data);
 
-  g_signal_connect_swapped (GTK_COMBO (data->name)->entry, "changed",
+  g_signal_connect_swapped (data->name_entry, "changed",
 			    G_CALLBACK (netstatus_dialog_set_iface_name),
 			    data);
 

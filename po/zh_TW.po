@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-18 09:16-0400\n"
+"POT-Creation-Date: 2009-08-02 01:35+0800\n"
 "PO-Revision-Date: 2009-07-19 17:19+0800\n"
 "Last-Translator: Hong Jen Yee (PCMan) <pcman.tw@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,8 +65,7 @@ msgstr "排列方式："
 msgid "Appearance"
 msgstr "外觀"
 
-#: ../data/ui/panel-pref.glade.h:14
-#: ../src/panel.c:955
+#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:955
 msgid "Bottom"
 msgstr "下"
 
@@ -94,9 +93,7 @@ msgstr "檔案管理員："
 msgid "Geometry"
 msgstr "大小及位置"
 
-#: ../data/ui/panel-pref.glade.h:21
-#: ../src/panel.c:945
-#: ../src/panel.c:953
+#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:945 ../src/panel.c:953
 msgid "Height:"
 msgstr "高度："
 
@@ -104,8 +101,7 @@ msgstr "高度："
 msgid "Image"
 msgstr "影像"
 
-#: ../data/ui/panel-pref.glade.h:23
-#: ../src/panel.c:947
+#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:947
 msgid "Left"
 msgstr "左"
 
@@ -145,8 +141,7 @@ msgstr "像素 (pixels)"
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "保留空間，不被最大化視窗覆蓋"
 
-#: ../data/ui/panel-pref.glade.h:33
-#: ../src/panel.c:948
+#: ../data/ui/panel-pref.glade.h:33 ../src/panel.c:948
 msgid "Right"
 msgstr "右"
 
@@ -174,9 +169,7 @@ msgstr "終端機："
 msgid "Top\t"
 msgstr "上\t"
 
-#: ../data/ui/panel-pref.glade.h:40
-#: ../src/panel.c:946
-#: ../src/panel.c:952
+#: ../data/ui/panel-pref.glade.h:40 ../src/panel.c:946 ../src/panel.c:952
 msgid "Width:"
 msgstr "寬度："
 
@@ -184,8 +177,131 @@ msgstr "寬度："
 msgid "pixels"
 msgstr "像素 (pixels)"
 
-#: ../src/configurator.c:54
-#: ../src/gtk-run.c:252
+#: ../data/ui/netstatus.glade.h:2
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
+#, no-c-format
+msgid "0%"
+msgstr "0%"
+
+#: ../data/ui/netstatus.glade.h:3
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:194
+msgid "<b>Activity</b>"
+msgstr "<b>活動</b>"
+
+#: ../data/ui/netstatus.glade.h:4
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:131
+msgid "<b>Connection</b>"
+msgstr "<b>連線</b>"
+
+#: ../data/ui/netstatus.glade.h:5
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:289
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr "<b>網路協定 (IPv4)</b>"
+
+#: ../data/ui/netstatus.glade.h:6
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:376
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>網路協定 (IPv6)</b>"
+
+#: ../data/ui/netstatus.glade.h:7
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:432
+msgid "<b>Network Device</b>"
+msgstr "<b>網路裝置</b>"
+
+#: ../data/ui/netstatus.glade.h:8
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:250
+msgid "<b>Signal Strength</b>"
+msgstr "<b>訊號強度</b>"
+
+#: ../data/ui/netstatus.glade.h:9
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:309
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:396
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:452
+msgid "Address:"
+msgstr "位址："
+
+#: ../data/ui/netstatus.glade.h:10
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
+#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
+msgid "Broadcast:"
+msgstr "廣播位址："
+
+#: ../data/ui/netstatus.glade.h:11
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:513
+msgid "Con_figure"
+msgstr "設定(_F)"
+
+#: ../data/ui/netstatus.glade.h:12
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:316
+msgid "Destination:"
+msgstr "目的地："
+
+#: ../data/ui/netstatus.glade.h:13
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
+msgid "General"
+msgstr "一般"
+
+#: ../data/ui/netstatus.glade.h:14
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:232
+msgid "Received:"
+msgstr "接收："
+
+#: ../data/ui/netstatus.glade.h:15
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:403
+msgid "Scope:"
+msgstr "範圍："
+
+#: ../data/ui/netstatus.glade.h:16
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:239
+msgid "Sent:"
+msgstr "送出："
+
+#: ../data/ui/netstatus.glade.h:17
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:155
+msgid "Status:"
+msgstr "狀態："
+
+#: ../data/ui/netstatus.glade.h:18
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
+msgid "Subnet Mask:"
+msgstr "子網路遮罩："
+
+#: ../data/ui/netstatus.glade.h:19
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:484
+msgid "Support"
+msgstr "支援"
+
+#: ../data/ui/netstatus.glade.h:20
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:477
+msgid "Type:"
+msgstr "型態："
+
+#: ../data/ui/netstatus.glade.h:21
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:171
+msgid "_Name:"
+msgstr "名稱(_N)："
+
+#: ../src/configurator.c:54 ../src/gtk-run.c:296
 msgid "Run"
 msgstr "執行"
 
@@ -197,36 +313,35 @@ msgstr "重新啟動"
 msgid "Logout"
 msgstr "登出"
 
-#: ../src/configurator.c:445
+#: ../src/configurator.c:444
 msgid "Currently loaded plugins"
 msgstr "目前載入的外掛"
 
-#: ../src/configurator.c:454
+#: ../src/configurator.c:453
 msgid "Stretch"
 msgstr "延展"
 
-#: ../src/configurator.c:559
+#: ../src/configurator.c:558
 msgid "Add plugin to panel"
 msgstr "新增外掛到工作列"
 
-#: ../src/configurator.c:587
+#: ../src/configurator.c:586
 msgid "Available plugins"
 msgstr "可選用的外掛"
 
-#: ../src/configurator.c:1143
+#: ../src/configurator.c:1139
 msgid "Logout command is not set"
 msgstr "登出指令尚未設定"
 
-#: ../src/configurator.c:1196
+#: ../src/configurator.c:1192
 msgid "Select a directory"
 msgstr "選擇一個目錄"
 
-#: ../src/configurator.c:1196
-#: ../src/configurator.c:1287
+#: ../src/configurator.c:1192 ../src/configurator.c:1283
 msgid "Select a file"
 msgstr "選擇一個檔案"
 
-#: ../src/configurator.c:1314
+#: ../src/configurator.c:1310
 msgid "_Browse"
 msgstr "瀏覽(_B)"
 
@@ -297,54 +412,54 @@ msgstr "設定 \"%s\""
 msgid "Top"
 msgstr "上"
 
-#: ../src/panel.c:1345
+#: ../src/panel.c:1352
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - UNIX 桌面的輕量級 GTK2+ 工作列\n"
 
-#: ../src/panel.c:1346
+#: ../src/panel.c:1353
 #, c-format
 msgid "Command line options:\n"
 msgstr "命令列選項：\n"
 
-#: ../src/panel.c:1347
+#: ../src/panel.c:1354
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- 顯示使用說明並離開\n"
 
-#: ../src/panel.c:1348
+#: ../src/panel.c:1355
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- 顯示版本資訊並離開\n"
 
-#: ../src/panel.c:1349
+#: ../src/panel.c:1356
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --log <數值>   -- 設定程式運作紀錄的層級 (0-5). 0 - 無, 5 - 全部\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1351
+#: ../src/panel.c:1358
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- 指定使用其他設定檔\n"
 
-#: ../src/panel.c:1353
+#: ../src/panel.c:1360
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- 和 --help 作用相同\n"
 
-#: ../src/panel.c:1354
+#: ../src/panel.c:1361
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- 和 --profile 作用相同\n"
 
-#: ../src/panel.c:1355
+#: ../src/panel.c:1362
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- 和 --version 作用相同\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1357
+#: ../src/panel.c:1364
 #, c-format
 msgid ""
 "\n"
@@ -355,7 +470,7 @@ msgstr ""
 "詳細資訊請參觀 http://lxde.org/\n"
 "\n"
 
-#: ../src/gtk-run.c:266
+#: ../src/gtk-run.c:309
 msgid "Enter the command you want to execute:"
 msgstr "輸入你要想執行的指令："
 
@@ -379,109 +494,111 @@ msgstr "顯示工作區編號，由 cmeury@users.sf.net 撰寫"
 msgid "Display Image and Tooltip"
 msgstr "顯示圖示及工具提示"
 
-#: ../src/plugins/launchbar.c:665
+#: ../src/plugins/launchbar.c:666
 msgid "Available Applications"
 msgstr "可用的應用程式"
 
-#: ../src/plugins/launchbar.c:665
+#: ../src/plugins/launchbar.c:666
 msgid "Applications"
 msgstr "應用程式"
 
-#: ../src/plugins/launchbar.c:846
+#: ../src/plugins/launchbar.c:847
 msgid "Application Launch Bar"
 msgstr "應用程式啟動列"
 
-#: ../src/plugins/launchbar.c:848
+#: ../src/plugins/launchbar.c:849
 msgid "Bar with buttons to launch application"
 msgstr "具有應用程式啟動按鈕的工具列"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1672
+#: ../src/plugins/taskbar.c:1696
 msgid "_Raise"
 msgstr "移到最上層(_R)"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1677
+#: ../src/plugins/taskbar.c:1701
 msgid "R_estore"
 msgstr "復原(_E)"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1682
+#: ../src/plugins/taskbar.c:1706
 msgid "Ma_ximize"
 msgstr "最大化(_X)"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1687
+#: ../src/plugins/taskbar.c:1711
 msgid "Ico_nify"
 msgstr "最小化(_N)"
 
-#: ../src/plugins/taskbar.c:1706
+#: ../src/plugins/taskbar.c:1730
 #, c-format
 msgid "Workspace _%d"
 msgstr "工作區 %d"
 
-#: ../src/plugins/taskbar.c:1711
+#: ../src/plugins/taskbar.c:1735
 #, c-format
 msgid "Workspace %d"
 msgstr "工作區 %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1725
+#: ../src/plugins/taskbar.c:1749
 msgid "_All workspaces"
 msgstr "所有工作區(_A)"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1731
+#: ../src/plugins/taskbar.c:1755
 msgid "_Move to Workspace"
 msgstr "移動到工作區(_M)"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1737
+#: ../src/plugins/taskbar.c:1761
 msgid "_Close Window"
 msgstr "關閉視窗(_C)"
 
-#: ../src/plugins/taskbar.c:1948
+#: ../src/plugins/taskbar.c:1972
 msgid "Show tooltips"
 msgstr "顯示工具提示"
 
-#: ../src/plugins/taskbar.c:1949
+#: ../src/plugins/taskbar.c:1973
 msgid "Icons only"
 msgstr "只顯示圖示"
 
-#: ../src/plugins/taskbar.c:1950
+#: ../src/plugins/taskbar.c:1974
 msgid "Flat buttons"
 msgstr "平面按鈕"
 
-#: ../src/plugins/taskbar.c:1951
+#: ../src/plugins/taskbar.c:1975
 msgid "Show windows from all desktops"
 msgstr "顯示來自所有桌面的視窗"
 
-#: ../src/plugins/taskbar.c:1952
+#: ../src/plugins/taskbar.c:1976
 msgid "Use mouse wheel"
 msgstr "使用滑鼠滾輪"
 
-#: ../src/plugins/taskbar.c:1953
+#: ../src/plugins/taskbar.c:1977
 msgid "Flash when there is any window requiring attention"
 msgstr "當有視窗要求使用者注意時，閃爍工作列"
 
-#: ../src/plugins/taskbar.c:1954
+#: ../src/plugins/taskbar.c:1978
 msgid "Combine multiple application windows into a single button"
 msgstr "將同一應用程式的視窗合併顯示為單一按鈕"
 
-#: ../src/plugins/taskbar.c:1955
+#: ../src/plugins/taskbar.c:1979
 msgid "Maximum width of task button"
 msgstr "工作列按鈕最大寬度"
 
-#: ../src/plugins/taskbar.c:1956
+#: ../src/plugins/taskbar.c:1980
 msgid "Spacing"
 msgstr "間距"
 
-#: ../src/plugins/taskbar.c:2010
+#: ../src/plugins/taskbar.c:2037
 msgid "Task Bar (Window List)"
 msgstr "工作列 (視窗清單)"
 
-#: ../src/plugins/taskbar.c:2012
-msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+#: ../src/plugins/taskbar.c:2039
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
 msgstr "工作列顯示所有開啟的視窗，並讓能視窗最小化、折疊、或取得焦點"
 
 #: ../src/plugins/dclock.c:282
@@ -520,8 +637,7 @@ msgstr "加到桌面"
 msgid "Properties"
 msgstr "屬性"
 
-#: ../src/plugins/menu.c:990
-#: ../src/plugins/dirmenu.c:367
+#: ../src/plugins/menu.c:990 ../src/plugins/dirmenu.c:367
 msgid "Icon"
 msgstr "圖示"
 
@@ -538,111 +654,6 @@ msgstr "應用程式啟動列"
 #, c-format
 msgid "Couldn't find pixmap file: %s"
 msgstr "找不到圖片檔：%s"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
-#, no-c-format
-msgid "0%"
-msgstr "0%"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:194
-msgid "<b>Activity</b>"
-msgstr "<b>活動</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:131
-msgid "<b>Connection</b>"
-msgstr "<b>連線</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:289
-msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr "<b>網路協定 (IPv4)</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:376
-msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr "<b>網路協定 (IPv6)</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:432
-msgid "<b>Network Device</b>"
-msgstr "<b>網路裝置</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:250
-msgid "<b>Signal Strength</b>"
-msgstr "<b>訊號強度</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:309
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:396
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:452
-msgid "Address:"
-msgstr "位址："
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-#: ../src/plugins/netstat/netstat.c:319
-#: ../src/plugins/netstat/netstat.c:330
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
-msgid "Broadcast:"
-msgstr "廣播位址："
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:513
-msgid "Con_figure"
-msgstr "設定(_F)"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:316
-msgid "Destination:"
-msgstr "目的地："
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
-msgid "General"
-msgstr "一般"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:232
-msgid "Received:"
-msgstr "接收："
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:403
-msgid "Scope:"
-msgstr "範圍："
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:239
-msgid "Sent:"
-msgstr "送出："
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:155
-msgid "Status:"
-msgstr "狀態："
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
-msgid "Subnet Mask:"
-msgstr "子網路遮罩："
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:484
-msgid "Support"
-msgstr "支援"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:477
-msgid "Type:"
-msgstr "型態："
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:171
-msgid "_Name:"
-msgstr "名稱(_N)："
 
 #: ../src/plugins/netstatus/netstatus-iface.c:148
 msgid "Name"
@@ -839,8 +850,12 @@ msgstr "無法從 '%s' 解析介面卡名稱"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
-msgstr "無法從 '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d; 解析介面卡統計資料"
+msgid ""
+"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
+msgstr ""
+"無法從 '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d; 解析介面"
+"卡統計資料"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -906,8 +921,7 @@ msgstr "切換桌面"
 msgid "Simple pager plugin"
 msgstr "簡易桌面切換外掛"
 
-#: ../src/plugins/space.c:121
-#: ../src/plugins/batt/batt.c:590
+#: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
 msgid "Size"
 msgstr "大小"
 
@@ -919,11 +933,11 @@ msgstr "空白分隔"
 msgid "Allocate space"
 msgstr "配置空間"
 
-#: ../src/plugins/tray.c:754
+#: ../src/plugins/tray.c:702
 msgid "System Tray"
 msgstr "系統匣 (通知區域)"
 
-#: ../src/plugins/tray.c:756
+#: ../src/plugins/tray.c:704
 msgid "System tray"
 msgstr "系統匣 (通知區域)"
 
@@ -1095,8 +1109,7 @@ msgstr "網路線已拔除"
 msgid "Connection has limited or no connectivity"
 msgstr "只能有限制的連線或無法連線"
 
-#: ../src/plugins/netstat/netstat.c:307
-#: ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "IP 位址："
@@ -1105,38 +1118,32 @@ msgstr "IP 位址："
 msgid "Remote IP:"
 msgstr "遠端 IP 位址："
 
-#: ../src/plugins/netstat/netstat.c:309
-#: ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "子網路遮罩："
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "活動"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "已傳送"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "已接收"
 
-#: ../src/plugins/netstat/netstat.c:311
-#: ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "位元組"
 
-#: ../src/plugins/netstat/netstat.c:312
-#: ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "封包"
@@ -1145,8 +1152,7 @@ msgstr "封包"
 msgid "Protocol:"
 msgstr "通訊協定："
 
-#: ../src/plugins/netstat/netstat.c:321
-#: ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "實體位址："
 
@@ -1176,43 +1182,43 @@ msgstr ""
 msgid "Encryption Key:"
 msgstr "加密金鑰："
 
-#: ../src/plugins/netstatus/netstatus.c:178
+#: ../src/plugins/netstatus/netstatus.c:179
 msgid "Interface to monitor"
 msgstr "要監控的介面"
 
-#: ../src/plugins/netstatus/netstatus.c:179
+#: ../src/plugins/netstatus/netstatus.c:180
 msgid "Config tool"
 msgstr "設定工具"
 
-#: ../src/plugins/netstatus/netstatus.c:196
+#: ../src/plugins/netstatus/netstatus.c:197
 msgid "Network Status Monitor"
 msgstr "網路狀態監視器"
 
-#: ../src/plugins/netstatus/netstatus.c:198
+#: ../src/plugins/netstatus/netstatus.c:199
 msgid "Monitor network status"
 msgstr "監控網路狀態"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:52
-#: ../src/plugins/netstatus/netstatus-dialog.c:311
+#: ../src/plugins/netstatus/netstatus-dialog.c:51
+#: ../src/plugins/netstatus/netstatus-dialog.c:312
 msgid "Unknown"
 msgstr "未知"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:115
+#: ../src/plugins/netstatus/netstatus-dialog.c:116
 msgid "Connection Properties"
 msgstr "連線屬性"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:121
+#: ../src/plugins/netstatus/netstatus-dialog.c:122
 #, c-format
 msgid "Connection Properties: %s"
 msgstr "連線屬性 %s"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:134
+#: ../src/plugins/netstatus/netstatus-dialog.c:135
 #, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
 msgstr[0] "%lu 封包"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:395
+#: ../src/plugins/netstatus/netstatus-dialog.c:396
 #, c-format
 msgid ""
 "There was an error displaying help:\n"
@@ -1221,7 +1227,7 @@ msgstr ""
 "顯示說明時發生錯誤：\n"
 "%s"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:579
+#: ../src/plugins/netstatus/netstatus-dialog.c:580
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
 msgstr "執行設定工具 %s 失敗"
@@ -1367,40 +1373,58 @@ msgstr "顯示 CapsLock、NumLock、及 ScrollLock 鍵的狀態"
 #~ msgstr ""
 #~ "顯示目前選用的鍵盤配置，以及\n"
 #~ "在不同的配置之間切換"
+
 #~ msgid "Other plugins available here"
 #~ msgstr "其他可用的外掛"
+
 #~ msgid "Desktop No / Workspace Name"
 #~ msgstr "桌面編號 / 工作區名稱"
+
 #~ msgid "Old KDE/GNOME Tray"
 #~ msgstr "KDE/GNOME 系統列"
+
 #~ msgid "Enable Image:"
 #~ msgstr "啟用背景圖："
+
 #~ msgid "Enable Transparency"
 #~ msgstr "啟用透明效果"
+
 #~ msgid "Tint color:"
 #~ msgstr "色彩："
+
 #~ msgid " --configure -- launch configuration utility\n"
 #~ msgstr " --configure -- 執行設定工具\n"
+
 #~ msgid " -C  -- same as --configure\n"
 #~ msgstr " -C  -- 和 --configure 作用相同\n"
+
 #~ msgid "Add Button"
 #~ msgstr "新增按鈕"
+
 #~ msgid "Button Properties"
 #~ msgstr "按鈕屬性"
+
 #~ msgid "Remove Button"
 #~ msgstr "移除按鈕"
+
 #~ msgid "Buttons"
 #~ msgstr "按鈕"
+
 #~ msgid "Accept SkipPager"
 #~ msgstr "接受 SkipPager Hint"
+
 #~ msgid "Show Iconified windows"
 #~ msgstr "顯示最小化的視窗"
+
 #~ msgid "Show mapped windows"
 #~ msgstr "顯示已被映射的視窗"
+
 #~ msgid "Action"
 #~ msgstr "動作"
+
 #~ msgid "Provide Menu"
 #~ msgstr "提供選單"
+
 #~ msgid ""
 #~ "Dynamic\n"
 #~ "Pixels\n"
@@ -1409,6 +1433,7 @@ msgstr "顯示 CapsLock、NumLock、及 ScrollLock 鍵的狀態"
 #~ "動態\n"
 #~ "像素 (pixels)\n"
 #~ "% 百分比"
+
 #~ msgid ""
 #~ "Left\n"
 #~ "Center\n"
@@ -1417,6 +1442,7 @@ msgstr "顯示 CapsLock、NumLock、及 ScrollLock 鍵的狀態"
 #~ "靠左\n"
 #~ "置中\n"
 #~ "靠右"
+
 #~ msgid ""
 #~ "Left\n"
 #~ "Right\n"
@@ -1427,48 +1453,67 @@ msgstr "顯示 CapsLock、NumLock、及 ScrollLock 鍵的狀態"
 #~ "右\n"
 #~ "上\n"
 #~ "下"
+
 #~ msgid "Where to put the panel?"
 #~ msgstr "要把工作列放到哪裡？"
+
 #~ msgid "Battery: %d%% charged, %s"
 #~ msgstr "電池：剩餘電量 %d%%，%s"
+
 #~ msgid "charging finished"
 #~ msgstr "充電完成"
+
 #~ msgid "charging"
 #~ msgstr "充電中"
+
 #~ msgid "Add to desktop panel"
 #~ msgstr "加入到工作列"
+
 #~ msgid "Game"
 #~ msgstr "遊戲"
+
 #~ msgid "Education"
 #~ msgstr "教育"
+
 #~ msgid "Development"
 #~ msgstr "軟體開發"
+
 #~ msgid "Audio & Video"
 #~ msgstr "影音多媒體"
+
 #~ msgid "Graphics"
 #~ msgstr "繪圖"
+
 #~ msgid "System Tools"
 #~ msgstr "系統工具"
+
 #~ msgid "Office"
 #~ msgstr "辦公軟體"
+
 #~ msgid "Accessories"
 #~ msgstr "附屬應用程式"
+
 #~ msgid "not charging"
 #~ msgstr "未充電"
+
 #~ msgid "% of edge"
 #~ msgstr "% 百分比"
+
 #~ msgid "Select a background image file"
 #~ msgstr "選擇背景圖片"
+
 #~ msgid "Plugins"
 #~ msgstr "外掛"
 
 #, fuzzy
 #~ msgid "Logout Command"
 #~ msgstr "登出指令："
+
 #~ msgid "lxpanel configurator"
 #~ msgstr "lxpanel 偏好設定"
+
 #~ msgid "Background"
 #~ msgstr "背景"
+
 #~ msgid "Update interval (seconds)"
 #~ msgstr "更新頻率 (秒)"
-

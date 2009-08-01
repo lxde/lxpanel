@@ -798,7 +798,7 @@ void panel_configure( Panel* p, int sel_page )
     }
 
     builder = gtk_builder_new();
-    if( !gtk_builder_add_from_file(builder, PACKAGE_DATA_DIR "/lxpanel/ui/panel-pref.ui", NULL) )
+    if( !gtk_builder_add_from_file(builder, PACKAGE_UI_DIR "/panel-pref.ui", NULL) )
     {
         g_object_unref(builder);
         return;

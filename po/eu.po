@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-18 14:26+0200\n"
+"POT-Creation-Date: 2009-08-02 01:35+0800\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Alain Mendizabal <alainmendi@gmail.com>\n"
 "Language-Team: Basque <alainmendi@gmail.com>\n"
@@ -187,7 +187,131 @@ msgstr "Zabalera:"
 msgid "pixels"
 msgstr "Pixelak"
 
-#: ../src/configurator.c:54 ../src/gtk-run.c:252
+#: ../data/ui/netstatus.glade.h:2
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
+#, no-c-format
+msgid "0%"
+msgstr "0%"
+
+#: ../data/ui/netstatus.glade.h:3
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:194
+msgid "<b>Activity</b>"
+msgstr "<b>Jarduera</b>"
+
+#: ../data/ui/netstatus.glade.h:4
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:131
+msgid "<b>Connection</b>"
+msgstr "<b>Konexioa</b>"
+
+#: ../data/ui/netstatus.glade.h:5
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:289
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr "<b>Internet protokoloa (IPv4)</b>"
+
+#: ../data/ui/netstatus.glade.h:6
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:376
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>Internet protokoloa (IPv6)</b>"
+
+#: ../data/ui/netstatus.glade.h:7
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:432
+msgid "<b>Network Device</b>"
+msgstr "<b>Sareko gailua</b>"
+
+#: ../data/ui/netstatus.glade.h:8
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:250
+msgid "<b>Signal Strength</b>"
+msgstr "<b>Seinalearen potentzia</b>"
+
+#: ../data/ui/netstatus.glade.h:9
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:309
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:396
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:452
+msgid "Address:"
+msgstr "Helbidea:"
+
+#: ../data/ui/netstatus.glade.h:10
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
+#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
+msgid "Broadcast:"
+msgstr "Igorpena:"
+
+#: ../data/ui/netstatus.glade.h:11
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:513
+msgid "Con_figure"
+msgstr "_Konfiguratu"
+
+#: ../data/ui/netstatus.glade.h:12
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:316
+msgid "Destination:"
+msgstr "Helburua:"
+
+#: ../data/ui/netstatus.glade.h:13
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
+msgid "General"
+msgstr "Orokorra"
+
+#: ../data/ui/netstatus.glade.h:14
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:232
+msgid "Received:"
+msgstr "Jasota:"
+
+#: ../data/ui/netstatus.glade.h:15
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:403
+msgid "Scope:"
+msgstr "Esparrua:"
+
+#: ../data/ui/netstatus.glade.h:16
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:239
+msgid "Sent:"
+msgstr "Bidalia:"
+
+#: ../data/ui/netstatus.glade.h:17
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:155
+msgid "Status:"
+msgstr "Egoera:"
+
+#: ../data/ui/netstatus.glade.h:18
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
+msgid "Subnet Mask:"
+msgstr "Azpisare-maskara:"
+
+#: ../data/ui/netstatus.glade.h:19
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:484
+msgid "Support"
+msgstr "Euskarria"
+
+#: ../data/ui/netstatus.glade.h:20
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:477
+msgid "Type:"
+msgstr "Mota:"
+
+#: ../data/ui/netstatus.glade.h:21
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:171
+msgid "_Name:"
+msgstr "_Izena:"
+
+#: ../src/configurator.c:54 ../src/gtk-run.c:296
 msgid "Run"
 msgstr "Exekutatu"
 
@@ -199,36 +323,36 @@ msgstr "Berrabiarazi"
 msgid "Logout"
 msgstr "Amaitu saioa"
 
-#: ../src/configurator.c:445
+#: ../src/configurator.c:444
 msgid "Currently loaded plugins"
 msgstr "Kargatutako plugin-ak"
 
-#: ../src/configurator.c:454
+#: ../src/configurator.c:453
 msgid "Stretch"
 msgstr "Luzatu"
 
-#: ../src/configurator.c:559
+#: ../src/configurator.c:558
 msgid "Add plugin to panel"
 msgstr "Gehitu plugin-a panelari"
 
-#: ../src/configurator.c:587
+#: ../src/configurator.c:586
 msgid "Available plugins"
 msgstr "Eskuragarri dauden pluginak"
 
-#: ../src/configurator.c:1143
+#: ../src/configurator.c:1139
 msgid "Logout command is not set"
 msgstr "Saioa amaitzeko komandoa ez dago ezarririk"
 
-#: ../src/configurator.c:1196
+#: ../src/configurator.c:1192
 #, fuzzy
 msgid "Select a directory"
 msgstr "Hautatu fitxategia"
 
-#: ../src/configurator.c:1196 ../src/configurator.c:1287
+#: ../src/configurator.c:1192 ../src/configurator.c:1283
 msgid "Select a file"
 msgstr "Hautatu fitxategia"
 
-#: ../src/configurator.c:1314
+#: ../src/configurator.c:1310
 msgid "_Browse"
 msgstr "_Arakatu"
 
@@ -301,27 +425,27 @@ msgstr "\"%s\" hobespenak"
 msgid "Top"
 msgstr "Goian"
 
-#: ../src/panel.c:1345
+#: ../src/panel.c:1352
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr ""
 
-#: ../src/panel.c:1346
+#: ../src/panel.c:1353
 #, c-format
 msgid "Command line options:\n"
 msgstr "Komando-lerroko aukerak:\n"
 
-#: ../src/panel.c:1347
+#: ../src/panel.c:1354
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help       -- erakutsi laguntza hau eta irten\n"
 
-#: ../src/panel.c:1348
+#: ../src/panel.c:1355
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version    -- erakutsi bertsioa eta irten\n"
 
-#: ../src/panel.c:1349
+#: ../src/panel.c:1356
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
@@ -329,28 +453,28 @@ msgstr ""
 "berritsua\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1351
+#: ../src/panel.c:1358
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile izena  -- erabili adierazitako profila\n"
 
-#: ../src/panel.c:1353
+#: ../src/panel.c:1360
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  --help-en berdina\n"
 
-#: ../src/panel.c:1354
+#: ../src/panel.c:1361
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  --profile-ren berdina\n"
 
-#: ../src/panel.c:1355
+#: ../src/panel.c:1362
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  --version-en berdina\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1357
+#: ../src/panel.c:1364
 #, c-format
 msgid ""
 "\n"
@@ -361,7 +485,7 @@ msgstr ""
 "Bisitatu http://lxde.org/ xehetasun gehiagorentzako.\n"
 "\n"
 
-#: ../src/gtk-run.c:266
+#: ../src/gtk-run.c:309
 msgid "Enter the command you want to execute:"
 msgstr "Idatzi exekutatu nahi duzun komandoa:"
 
@@ -386,119 +510,119 @@ msgstr "Bistaratu laneko arearen zenbakia (cmeury@users.sf.net)"
 msgid "Display Image and Tooltip"
 msgstr "Bistaratu irudia eta argibidea"
 
-#: ../src/plugins/launchbar.c:665
+#: ../src/plugins/launchbar.c:666
 #, fuzzy
 msgid "Available Applications"
 msgstr "Eskuragarri dauden pluginak"
 
-#: ../src/plugins/launchbar.c:665
+#: ../src/plugins/launchbar.c:666
 #, fuzzy
 msgid "Applications"
 msgstr "Hautatu aplikazioa"
 
-#: ../src/plugins/launchbar.c:846
+#: ../src/plugins/launchbar.c:847
 msgid "Application Launch Bar"
 msgstr "Aplikazioen abiarazle barra"
 
-#: ../src/plugins/launchbar.c:848
+#: ../src/plugins/launchbar.c:849
 msgid "Bar with buttons to launch application"
 msgstr "Aplikazioak abiarazteko botoiak dituen barra"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1672
+#: ../src/plugins/taskbar.c:1696
 #, fuzzy
 msgid "_Raise"
 msgstr "Goratu"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1677
+#: ../src/plugins/taskbar.c:1701
 #, fuzzy
 msgid "R_estore"
 msgstr "Leheneratu"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1682
+#: ../src/plugins/taskbar.c:1706
 #, fuzzy
 msgid "Ma_ximize"
 msgstr "Maximizatu"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1687
+#: ../src/plugins/taskbar.c:1711
 #, fuzzy
 msgid "Ico_nify"
 msgstr "Ikonotu"
 
-#: ../src/plugins/taskbar.c:1706
+#: ../src/plugins/taskbar.c:1730
 #, fuzzy, c-format
 msgid "Workspace _%d"
 msgstr "%d laneko area"
 
-#: ../src/plugins/taskbar.c:1711
+#: ../src/plugins/taskbar.c:1735
 #, c-format
 msgid "Workspace %d"
 msgstr "%d laneko area"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1725
+#: ../src/plugins/taskbar.c:1749
 #, fuzzy
 msgid "_All workspaces"
 msgstr "Laneko area guztiak"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1731
+#: ../src/plugins/taskbar.c:1755
 #, fuzzy
 msgid "_Move to Workspace"
 msgstr "Joan laneko areara"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1737
+#: ../src/plugins/taskbar.c:1761
 #, fuzzy
 msgid "_Close Window"
 msgstr "Itxi leihoa"
 
-#: ../src/plugins/taskbar.c:1948
+#: ../src/plugins/taskbar.c:1972
 msgid "Show tooltips"
 msgstr "Erakutsi argibideak"
 
-#: ../src/plugins/taskbar.c:1949
+#: ../src/plugins/taskbar.c:1973
 msgid "Icons only"
 msgstr "Ikonoak soilik"
 
-#: ../src/plugins/taskbar.c:1950
+#: ../src/plugins/taskbar.c:1974
 #, fuzzy
 msgid "Flat buttons"
 msgstr "Botoi lauak"
 
-#: ../src/plugins/taskbar.c:1951
+#: ../src/plugins/taskbar.c:1975
 msgid "Show windows from all desktops"
 msgstr "Erakutsi laneko area guztietako leihoak"
 
-#: ../src/plugins/taskbar.c:1952
+#: ../src/plugins/taskbar.c:1976
 msgid "Use mouse wheel"
 msgstr "Erabili saguaren gurpila"
 
-#: ../src/plugins/taskbar.c:1953
+#: ../src/plugins/taskbar.c:1977
 msgid "Flash when there is any window requiring attention"
 msgstr "Keinukatu leihoren batek adi egoteko eskatzen duenean"
 
-#: ../src/plugins/taskbar.c:1954
+#: ../src/plugins/taskbar.c:1978
 msgid "Combine multiple application windows into a single button"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1955
+#: ../src/plugins/taskbar.c:1979
 #, fuzzy
 msgid "Maximum width of task button"
 msgstr "Zeregin botoiaren zabalera maximoa"
 
-#: ../src/plugins/taskbar.c:1956
+#: ../src/plugins/taskbar.c:1980
 msgid "Spacing"
 msgstr "Tartea"
 
-#: ../src/plugins/taskbar.c:2010
+#: ../src/plugins/taskbar.c:2037
 msgid "Task Bar (Window List)"
 msgstr "Zereginen barra (Leihoen zerrenda)"
 
-#: ../src/plugins/taskbar.c:2012
+#: ../src/plugins/taskbar.c:2039
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -561,110 +685,6 @@ msgstr "Aplikazioen abiarazle barra"
 #, c-format
 msgid "Couldn't find pixmap file: %s"
 msgstr "Ezin izan da %s pixmap fitxategia aurkitu"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
-#, no-c-format
-msgid "0%"
-msgstr "0%"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:194
-msgid "<b>Activity</b>"
-msgstr "<b>Jarduera</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:131
-msgid "<b>Connection</b>"
-msgstr "<b>Konexioa</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:289
-msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr "<b>Internet protokoloa (IPv4)</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:376
-msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr "<b>Internet protokoloa (IPv6)</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:432
-msgid "<b>Network Device</b>"
-msgstr "<b>Sareko gailua</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:250
-msgid "<b>Signal Strength</b>"
-msgstr "<b>Seinalearen potentzia</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:309
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:396
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:452
-msgid "Address:"
-msgstr "Helbidea:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
-msgid "Broadcast:"
-msgstr "Igorpena:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:513
-msgid "Con_figure"
-msgstr "_Konfiguratu"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:316
-msgid "Destination:"
-msgstr "Helburua:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
-msgid "General"
-msgstr "Orokorra"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:232
-msgid "Received:"
-msgstr "Jasota:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:403
-msgid "Scope:"
-msgstr "Esparrua:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:239
-msgid "Sent:"
-msgstr "Bidalia:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:155
-msgid "Status:"
-msgstr "Egoera:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
-msgid "Subnet Mask:"
-msgstr "Azpisare-maskara:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:484
-msgid "Support"
-msgstr "Euskarria"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:477
-msgid "Type:"
-msgstr "Mota:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:171
-msgid "_Name:"
-msgstr "_Izena:"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:148
 msgid "Name"
@@ -946,11 +966,11 @@ msgstr "<Tartea>"
 msgid "Allocate space"
 msgstr "Esleitu tokia"
 
-#: ../src/plugins/tray.c:754
+#: ../src/plugins/tray.c:702
 msgid "System Tray"
 msgstr "Sistemaren erretilua"
 
-#: ../src/plugins/tray.c:756
+#: ../src/plugins/tray.c:704
 #, fuzzy
 msgid "System tray"
 msgstr "Sistemaren erretilua"
@@ -1204,45 +1224,45 @@ msgstr ""
 msgid "Encryption Key:"
 msgstr "Enkriptazio-gakoa:"
 
-#: ../src/plugins/netstatus/netstatus.c:178
+#: ../src/plugins/netstatus/netstatus.c:179
 msgid "Interface to monitor"
 msgstr "Monitorearen interfazea"
 
-#: ../src/plugins/netstatus/netstatus.c:179
+#: ../src/plugins/netstatus/netstatus.c:180
 msgid "Config tool"
 msgstr "Konfigurazio-tresna"
 
-#: ../src/plugins/netstatus/netstatus.c:196
+#: ../src/plugins/netstatus/netstatus.c:197
 #, fuzzy
 msgid "Network Status Monitor"
 msgstr "Sarearen egoeraren monitorea"
 
-#: ../src/plugins/netstatus/netstatus.c:198
+#: ../src/plugins/netstatus/netstatus.c:199
 msgid "Monitor network status"
 msgstr "Monitoreatu sarearen egoera"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:52
-#: ../src/plugins/netstatus/netstatus-dialog.c:311
+#: ../src/plugins/netstatus/netstatus-dialog.c:51
+#: ../src/plugins/netstatus/netstatus-dialog.c:312
 msgid "Unknown"
 msgstr "Ezezaguna"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:115
+#: ../src/plugins/netstatus/netstatus-dialog.c:116
 msgid "Connection Properties"
 msgstr "Konexioaren propietateak"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:121
+#: ../src/plugins/netstatus/netstatus-dialog.c:122
 #, c-format
 msgid "Connection Properties: %s"
 msgstr "Konexioaren propietateak: %s"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:134
+#: ../src/plugins/netstatus/netstatus-dialog.c:135
 #, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:395
+#: ../src/plugins/netstatus/netstatus-dialog.c:396
 #, c-format
 msgid ""
 "There was an error displaying help:\n"
@@ -1251,7 +1271,7 @@ msgstr ""
 "Laguntza bistaratzerakoan errorea egon da\n"
 "%s"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:579
+#: ../src/plugins/netstatus/netstatus-dialog.c:580
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
 msgstr "Ordua konfiguratzeko tresna abiaraztean hutsa: %s"

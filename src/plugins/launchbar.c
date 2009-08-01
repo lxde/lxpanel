@@ -38,8 +38,6 @@
 
 #include "dbg.h"
 
-#include "glib-mem.h"
-
 /* Drag and drop target info. */
 enum {
   TARGET_URILIST,

@@ -1,5 +1,6 @@
 [encoding: UTF-8]
 data/ui/panel-pref.glade
+data/ui/netstatus.glade
 src/bg.c
 src/configurator.c
 src/dbg.c

@@ -29,7 +29,6 @@
 #include <stdarg.h>
 
 #include "misc.h"
-#include "glib-mem.h"
 #include "panel.h"
 
 #include "dbg.h"

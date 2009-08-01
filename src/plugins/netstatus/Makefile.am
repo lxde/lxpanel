@@ -1,6 +1,8 @@
 INCLUDES = \
 	-I. \
 	-I$(top_srcdir)/src \
+	-DPACKAGE_DATA_DIR=\""$(datadir)"\" \
+	-DPACKAGE_UI_DIR=\""$(datadir)/lxpanel/ui"\" \
 	$(PACKAGE_CFLAGS) \
 	$(G_CAST_CHECKS)
 
@@ -12,12 +14,8 @@ netstatus_la_SOURCES = \
 	netstatus-dialog.h \
 	netstatus-fallback-pixbuf.h \
 	netstatus-sysdeps.c \
-	glade-support.c \
-	netstatus-dialog-ui.c \
 	netstatus-icon.c \
 	netstatus-sysdeps.h \
-	glade-support.h \
-	netstatus-dialog-ui.h \
 	netstatus-icon.h \
 	netstatus-util.c \
 	netstatus.c \

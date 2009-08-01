@@ -10,6 +10,7 @@ INCLUDES = \
 	-I$(top_srcdir)/src/plugins \
 	-DPACKAGE_LIB_DIR=\""$(libdir)"\" \
 	-DPACKAGE_DATA_DIR=\""$(datadir)"\" \
+	-DPACKAGE_UI_DIR=\""$(datadir)/lxpanel/ui"\" \
 	-DPACKAGE_BIN_DIR=\""$(bindir)"\" \
 	-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
 	$(PACKAGE_CFLAGS)
@@ -22,7 +23,6 @@ MENU_SOURCES = gtk-run.c
 endif
 
 lxpanel_SOURCES = \
-	glib-mem.h \
 	misc.c misc.h \
 	bg.c bg.h  \
 	configurator.c \

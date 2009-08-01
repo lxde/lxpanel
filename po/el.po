@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-18 14:26+0200\n"
+"POT-Creation-Date: 2009-08-02 01:35+0800\n"
 "PO-Revision-Date: 2009-07-21 23:51+0200\n"
 "Last-Translator: George Vasilakos <forfolias@linuxteam.cs.teilar.gr>\n"
 "Language-Team: Greek\n"
@@ -66,8 +66,7 @@ msgstr "Στοίχιση"
 msgid "Appearance"
 msgstr "Εμφάνιση"
 
-#: ../data/ui/panel-pref.glade.h:14
-#: ../src/panel.c:955
+#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:955
 msgid "Bottom"
 msgstr "Κάτω"
 
@@ -95,9 +94,7 @@ msgstr "Διαχειριστής αρχείων:"
 msgid "Geometry"
 msgstr "Γεωμετρία"
 
-#: ../data/ui/panel-pref.glade.h:21
-#: ../src/panel.c:945
-#: ../src/panel.c:953
+#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:945 ../src/panel.c:953
 msgid "Height:"
 msgstr "Ύψος:"
 
@@ -105,8 +102,7 @@ msgstr "Ύψος:"
 msgid "Image"
 msgstr "Εικόνα"
 
-#: ../data/ui/panel-pref.glade.h:23
-#: ../src/panel.c:947
+#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:947
 msgid "Left"
 msgstr "Αριστερά"
 
@@ -120,7 +116,8 @@ msgstr "Εντολή αποσύνδεσης:"
 
 #: ../data/ui/panel-pref.glade.h:26
 msgid "Make window managers treat the panel as dock"
-msgstr "Κάνε τον διαχειριστή παραθύρων να συμπεριφέρεται στο πλαίσιο σαν προσάρτηση"
+msgstr ""
+"Κάνε τον διαχειριστή παραθύρων να συμπεριφέρεται στο πλαίσιο σαν προσάρτηση"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Margin:"
@@ -146,8 +143,7 @@ msgstr "Πίξελ"
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Δέσμευση χώρου, να μην καλύπτεται από τα μεγιστοποιημένα παράθυρα"
 
-#: ../data/ui/panel-pref.glade.h:33
-#: ../src/panel.c:948
+#: ../data/ui/panel-pref.glade.h:33 ../src/panel.c:948
 msgid "Right"
 msgstr "Δεξιά"
 
@@ -175,9 +171,7 @@ msgstr "Προσωμοιτής τερματικού:"
 msgid "Top\t"
 msgstr "Πάνω\t"
 
-#: ../data/ui/panel-pref.glade.h:40
-#: ../src/panel.c:946
-#: ../src/panel.c:952
+#: ../data/ui/panel-pref.glade.h:40 ../src/panel.c:946 ../src/panel.c:952
 msgid "Width:"
 msgstr "Πλάτος:"
 
@@ -185,8 +179,131 @@ msgstr "Πλάτος:"
 msgid "pixels"
 msgstr "πίξελ"
 
-#: ../src/configurator.c:54
-#: ../src/gtk-run.c:252
+#: ../data/ui/netstatus.glade.h:2
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
+#, no-c-format
+msgid "0%"
+msgstr "0%"
+
+#: ../data/ui/netstatus.glade.h:3
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:194
+msgid "<b>Activity</b>"
+msgstr "<b>Δραστηριότητα</b>"
+
+#: ../data/ui/netstatus.glade.h:4
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:131
+msgid "<b>Connection</b>"
+msgstr "<b>Σύνδεση</b>"
+
+#: ../data/ui/netstatus.glade.h:5
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:289
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr "<b>Πρωτόκολλο Internet (IPv4)</b>"
+
+#: ../data/ui/netstatus.glade.h:6
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:376
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>Πρωτόκολλο Internet (IPv6)</b>"
+
+#: ../data/ui/netstatus.glade.h:7
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:432
+msgid "<b>Network Device</b>"
+msgstr "<b>Συσκευή δικτύου</b>"
+
+#: ../data/ui/netstatus.glade.h:8
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:250
+msgid "<b>Signal Strength</b>"
+msgstr "<b>Ισχύς σήματος</b>"
+
+#: ../data/ui/netstatus.glade.h:9
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:309
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:396
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:452
+msgid "Address:"
+msgstr "Διεύθυνση:"
+
+#: ../data/ui/netstatus.glade.h:10
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
+#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
+msgid "Broadcast:"
+msgstr "Broadcast:"
+
+#: ../data/ui/netstatus.glade.h:11
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:513
+msgid "Con_figure"
+msgstr "_Ρύθμιση"
+
+#: ../data/ui/netstatus.glade.h:12
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:316
+msgid "Destination:"
+msgstr "Προορισμός"
+
+#: ../data/ui/netstatus.glade.h:13
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
+msgid "General"
+msgstr "Γενικά"
+
+#: ../data/ui/netstatus.glade.h:14
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:232
+msgid "Received:"
+msgstr "Λήφθηκαν:"
+
+#: ../data/ui/netstatus.glade.h:15
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:403
+msgid "Scope:"
+msgstr "Σκοπιά:"
+
+#: ../data/ui/netstatus.glade.h:16
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:239
+msgid "Sent:"
+msgstr "Στάλθηκαν:"
+
+#: ../data/ui/netstatus.glade.h:17
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:155
+msgid "Status:"
+msgstr "Κατάσταση:"
+
+#: ../data/ui/netstatus.glade.h:18
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
+msgid "Subnet Mask:"
+msgstr "Μάσκα υποδικτύωσης:"
+
+#: ../data/ui/netstatus.glade.h:19
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:484
+msgid "Support"
+msgstr "Υποστήριξη"
+
+#: ../data/ui/netstatus.glade.h:20
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:477
+msgid "Type:"
+msgstr "Τύπος:"
+
+#: ../data/ui/netstatus.glade.h:21
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:171
+msgid "_Name:"
+msgstr "_Όνομα:"
+
+#: ../src/configurator.c:54 ../src/gtk-run.c:296
 msgid "Run"
 msgstr "Εκτέλεση"
 
@@ -198,36 +315,35 @@ msgstr "Επανεκκίνηση"
 msgid "Logout"
 msgstr "Αποσύνδεση"
 
-#: ../src/configurator.c:445
+#: ../src/configurator.c:444
 msgid "Currently loaded plugins"
 msgstr "Φορτωμένες προσθήκες"
 
-#: ../src/configurator.c:454
+#: ../src/configurator.c:453
 msgid "Stretch"
 msgstr "Τέντωμα"
 
-#: ../src/configurator.c:559
+#: ../src/configurator.c:558
 msgid "Add plugin to panel"
 msgstr "Προσθήκη πρόσθετου"
 
-#: ../src/configurator.c:587
+#: ../src/configurator.c:586
 msgid "Available plugins"
 msgstr "Διαθέσημες προσθήκες"
 
-#: ../src/configurator.c:1143
+#: ../src/configurator.c:1139
 msgid "Logout command is not set"
 msgstr "Δεν έχει οριστεί εντολή αποσύνδεσης"
 
-#: ../src/configurator.c:1196
+#: ../src/configurator.c:1192
 msgid "Select a directory"
 msgstr "Επιλογή καταλόγου"
 
-#: ../src/configurator.c:1196
-#: ../src/configurator.c:1287
+#: ../src/configurator.c:1192 ../src/configurator.c:1283
 msgid "Select a file"
 msgstr "Επιλογή αρχείου"
 
-#: ../src/configurator.c:1314
+#: ../src/configurator.c:1310
 msgid "_Browse"
 msgstr "_Περιήγηση"
 
@@ -301,54 +417,55 @@ msgstr "\"%s\" Επιλογές"
 msgid "Top"
 msgstr "Πάνω"
 
-#: ../src/panel.c:1345
+#: ../src/panel.c:1352
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - Ελαφρύ GTK2+ πάνελ για UNIX desktops\n"
 
-#: ../src/panel.c:1346
+#: ../src/panel.c:1353
 #, c-format
 msgid "Command line options:\n"
 msgstr "Επιλογές γραμμής εντολών:\n"
 
-#: ../src/panel.c:1347
+#: ../src/panel.c:1354
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr "--help      -- εμφάνιση της βοήθειας και έξοδος\n"
 
-#: ../src/panel.c:1348
+#: ../src/panel.c:1355
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- Εμφάνιση έκδοσης και έξοδος\n"
 
-#: ../src/panel.c:1349
+#: ../src/panel.c:1356
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --log <αριθμός> -- ορισμός επιπέδου καταγραφής 0-5. 0 - καθόλου 5 - πολύ\n"
+msgstr ""
+" --log <αριθμός> -- ορισμός επιπέδου καταγραφής 0-5. 0 - καθόλου 5 - πολύ\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1351
+#: ../src/panel.c:1358
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile όνομα -- χρήση καθορισμένου προφίλ\n"
 
-#: ../src/panel.c:1353
+#: ../src/panel.c:1360
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- όπως το --help\n"
 
-#: ../src/panel.c:1354
+#: ../src/panel.c:1361
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- όπως το --profile\n"
 
-#: ../src/panel.c:1355
+#: ../src/panel.c:1362
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- όπως το --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1357
+#: ../src/panel.c:1364
 #, c-format
 msgid ""
 "\n"
@@ -359,7 +476,7 @@ msgstr ""
 "Επισκευτείτε το http://lxde.org/ για λεπτομέριες.\n"
 "\n"
 
-#: ../src/gtk-run.c:266
+#: ../src/gtk-run.c:309
 msgid "Enter the command you want to execute:"
 msgstr "Εισάγετε την εντολή προς εκτέλεση:"
 
@@ -383,110 +500,114 @@ msgstr "Εμφάνιση αριθμού χώρου εργασίας, από cmeu
 msgid "Display Image and Tooltip"
 msgstr "Εμφάνιση εικόνας και υπόδειξης"
 
-#: ../src/plugins/launchbar.c:665
+#: ../src/plugins/launchbar.c:666
 msgid "Available Applications"
 msgstr "Διαθέσιμες προσθήκες"
 
-#: ../src/plugins/launchbar.c:665
+#: ../src/plugins/launchbar.c:666
 msgid "Applications"
 msgstr "Εφαρμογές"
 
-#: ../src/plugins/launchbar.c:846
+#: ../src/plugins/launchbar.c:847
 msgid "Application Launch Bar"
 msgstr "Μπάρα εκκίνησης εφαρμογών"
 
-#: ../src/plugins/launchbar.c:848
+#: ../src/plugins/launchbar.c:849
 msgid "Bar with buttons to launch application"
 msgstr "Μπάρα με κουμπιά για την εκκίνηση εφαρμογών"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1672
+#: ../src/plugins/taskbar.c:1696
 msgid "_Raise"
 msgstr "_Ανύψωση"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1677
+#: ../src/plugins/taskbar.c:1701
 msgid "R_estore"
 msgstr "Ε_παναφορά"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1682
+#: ../src/plugins/taskbar.c:1706
 msgid "Ma_ximize"
 msgstr "Με_γιστοποίηση"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1687
+#: ../src/plugins/taskbar.c:1711
 msgid "Ico_nify"
 msgstr "Εικονιδιοποίηση"
 
-#: ../src/plugins/taskbar.c:1706
+#: ../src/plugins/taskbar.c:1730
 #, c-format
 msgid "Workspace _%d"
 msgstr "Χώρος εργασίας _%d"
 
-#: ../src/plugins/taskbar.c:1711
+#: ../src/plugins/taskbar.c:1735
 #, c-format
 msgid "Workspace %d"
 msgstr "Χώρος εργασίας %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1725
+#: ../src/plugins/taskbar.c:1749
 msgid "_All workspaces"
 msgstr "_Όλοι οι χώροι εργασίας"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1731
+#: ../src/plugins/taskbar.c:1755
 msgid "_Move to Workspace"
 msgstr "_Μεταφορά στο χώρο εργασίας"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1737
+#: ../src/plugins/taskbar.c:1761
 msgid "_Close Window"
 msgstr "_Κλείσιμο παραθύρου"
 
-#: ../src/plugins/taskbar.c:1948
+#: ../src/plugins/taskbar.c:1972
 msgid "Show tooltips"
 msgstr "Εμφάνιση υποδείξεων"
 
-#: ../src/plugins/taskbar.c:1949
+#: ../src/plugins/taskbar.c:1973
 msgid "Icons only"
 msgstr "Μόνο εικονίδια"
 
-#: ../src/plugins/taskbar.c:1950
+#: ../src/plugins/taskbar.c:1974
 msgid "Flat buttons"
 msgstr "Επίπεδα κουμπιά"
 
-#: ../src/plugins/taskbar.c:1951
+#: ../src/plugins/taskbar.c:1975
 msgid "Show windows from all desktops"
 msgstr "Εμφάνιση παραθύρων από όλες τις επιφάνειες εργασίας"
 
-#: ../src/plugins/taskbar.c:1952
+#: ../src/plugins/taskbar.c:1976
 msgid "Use mouse wheel"
 msgstr "Χρήση της ροδέλας ποντικιού"
 
-#: ../src/plugins/taskbar.c:1953
+#: ../src/plugins/taskbar.c:1977
 msgid "Flash when there is any window requiring attention"
 msgstr "Αναβόσβηνε όταν κάποιο παράθυρο που απαιτεί προσοχή"
 
-#: ../src/plugins/taskbar.c:1954
+#: ../src/plugins/taskbar.c:1978
 msgid "Combine multiple application windows into a single button"
 msgstr "Σύμπτυξη όμοιων παραθύρων σε ένα κουμπί"
 
-#: ../src/plugins/taskbar.c:1955
+#: ../src/plugins/taskbar.c:1979
 msgid "Maximum width of task button"
 msgstr "Μέγιστο πλάτος κουμπιού εργασιών"
 
-#: ../src/plugins/taskbar.c:1956
+#: ../src/plugins/taskbar.c:1980
 msgid "Spacing"
 msgstr "Διάστημα"
 
-#: ../src/plugins/taskbar.c:2010
+#: ../src/plugins/taskbar.c:2037
 msgid "Task Bar (Window List)"
 msgstr "Μπάρα εργασιών"
 
-#: ../src/plugins/taskbar.c:2012
-msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
-msgstr "Η μπάρα εργασιών εμφανίζει όλα τα ανοιχτά παράθυρα και σας επιτρέπει να τα εικονιδιοποιήσετε, συμπτύξετε ή να εστιάσετε πάνω τους"
+#: ../src/plugins/taskbar.c:2039
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
+msgstr ""
+"Η μπάρα εργασιών εμφανίζει όλα τα ανοιχτά παράθυρα και σας επιτρέπει να τα "
+"εικονιδιοποιήσετε, συμπτύξετε ή να εστιάσετε πάνω τους"
 
 #: ../src/plugins/dclock.c:282
 msgid "Clock Format"
@@ -524,8 +645,7 @@ msgstr "Προσθήκη στην επιφάνεια εργασίας"
 msgid "Properties"
 msgstr "Ιδιότητες"
 
-#: ../src/plugins/menu.c:990
-#: ../src/plugins/dirmenu.c:367
+#: ../src/plugins/menu.c:990 ../src/plugins/dirmenu.c:367
 msgid "Icon"
 msgstr "Εικονίδιο"
 
@@ -542,111 +662,6 @@ msgstr "Μπάρα εκκίνησης εφαρμογών"
 #, c-format
 msgid "Couldn't find pixmap file: %s"
 msgstr "Αδύνατη η εύρεση αρχείου pixmap: %s"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
-#, no-c-format
-msgid "0%"
-msgstr "0%"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:194
-msgid "<b>Activity</b>"
-msgstr "<b>Δραστηριότητα</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:131
-msgid "<b>Connection</b>"
-msgstr "<b>Σύνδεση</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:289
-msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr "<b>Πρωτόκολλο Internet (IPv4)</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:376
-msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr "<b>Πρωτόκολλο Internet (IPv6)</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:432
-msgid "<b>Network Device</b>"
-msgstr "<b>Συσκευή δικτύου</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:250
-msgid "<b>Signal Strength</b>"
-msgstr "<b>Ισχύς σήματος</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:309
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:396
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:452
-msgid "Address:"
-msgstr "Διεύθυνση:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-#: ../src/plugins/netstat/netstat.c:319
-#: ../src/plugins/netstat/netstat.c:330
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
-msgid "Broadcast:"
-msgstr "Broadcast:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:513
-msgid "Con_figure"
-msgstr "_Ρύθμιση"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:316
-msgid "Destination:"
-msgstr "Προορισμός"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
-msgid "General"
-msgstr "Γενικά"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:232
-msgid "Received:"
-msgstr "Λήφθηκαν:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:403
-msgid "Scope:"
-msgstr "Σκοπιά:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:239
-msgid "Sent:"
-msgstr "Στάλθηκαν:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:155
-msgid "Status:"
-msgstr "Κατάσταση:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
-msgid "Subnet Mask:"
-msgstr "Μάσκα υποδικτύωσης:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:484
-msgid "Support"
-msgstr "Υποστήριξη"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:477
-msgid "Type:"
-msgstr "Τύπος:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:171
-msgid "_Name:"
-msgstr "_Όνομα:"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:148
 msgid "Name"
@@ -843,8 +858,12 @@ msgstr "Δε μπορεί να προσπελαστεί το όνομα της �
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, fuzzy, c-format
-msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
-msgstr "Δε μπορούν να προσπελαστούν τα στατιστικά της διεπαφής από το '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgid ""
+"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
+msgstr ""
+"Δε μπορούν να προσπελαστούν τα στατιστικά της διεπαφής από το '%s'. prx_idx "
+"= %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -853,7 +872,9 @@ msgstr "Δε μπορεί να προσπελαστεί το /proc/net/wireless.
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr "Δε μπορούν να προσπελαστούν οι λεπτομέρειες ασύρματου δικτύου από το '%s'. link_idx = %d;"
+msgstr ""
+"Δε μπορούν να προσπελαστούν οι λεπτομέρειες ασύρματου δικτύου από το '%s'. "
+"link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, fuzzy, c-format
@@ -873,7 +894,8 @@ msgstr "Δε μπορεί να προσπελαστεί η εντολή '%s': %s
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 #, fuzzy
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr "Δεν μπορεί να προσπελαστεί το αποτέλεσμα της 'netstat'. Άγνωστο φορμάτ."
+msgstr ""
+"Δεν μπορεί να προσπελαστεί το αποτέλεσμα της 'netstat'. Άγνωστο φορμάτ."
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
@@ -911,8 +933,7 @@ msgstr "Διαχειριστής επιφάνειας εργασίας"
 msgid "Simple pager plugin"
 msgstr "Απλή επέκταση διαχειριστή επιφάνειας"
 
-#: ../src/plugins/space.c:121
-#: ../src/plugins/batt/batt.c:590
+#: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
 msgid "Size"
 msgstr "Μέγεθος"
 
@@ -924,11 +945,11 @@ msgstr "Περιθώριο"
 msgid "Allocate space"
 msgstr "Δέσμευση χώρου"
 
-#: ../src/plugins/tray.c:754
+#: ../src/plugins/tray.c:702
 msgid "System Tray"
 msgstr "Πλαίσιο συστήματος"
 
-#: ../src/plugins/tray.c:756
+#: ../src/plugins/tray.c:704
 #, fuzzy
 msgid "System tray"
 msgstr "Πλαίσιο συστήματος"
@@ -974,7 +995,9 @@ msgstr "Εναλλαγή μεταξύ των διαθέσιμων διατάξε
 #: ../src/plugins/wincmd.c:171
 #, fuzzy
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr "Αριστερό κλικ για εικονιδιοποίηση όλων των παραθύρων. Μεσαίο κλικ για σκίαση τους"
+msgstr ""
+"Αριστερό κλικ για εικονιδιοποίηση όλων των παραθύρων. Μεσαίο κλικ για σκίαση "
+"τους"
 
 #: ../src/plugins/wincmd.c:208
 msgid "Minimize All Windows"
@@ -1104,8 +1127,7 @@ msgstr "Καλώδιο δικτύου αποσυνδέθηκε"
 msgid "Connection has limited or no connectivity"
 msgstr "Η σύνδεση έχει περιορισμένη ή καθόλου συνδεσιμότητα"
 
-#: ../src/plugins/netstat/netstat.c:307
-#: ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "Διεύθυνση IP:"
@@ -1114,38 +1136,32 @@ msgstr "Διεύθυνση IP:"
 msgid "Remote IP:"
 msgstr "Απομακρυσμένη IP:"
 
-#: ../src/plugins/netstat/netstat.c:309
-#: ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "Μάσκα δικτύου:"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "Δραστηριότητα"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "Αποστολή"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "Λήψη"
 
-#: ../src/plugins/netstat/netstat.c:311
-#: ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "byte"
 
-#: ../src/plugins/netstat/netstat.c:312
-#: ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "πακέτα"
@@ -1154,8 +1170,7 @@ msgstr "πακέτα"
 msgid "Protocol:"
 msgstr "Πρωτόκολλο:"
 
-#: ../src/plugins/netstat/netstat.c:321
-#: ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "Διεύθυνση υλικού:"
 
@@ -1185,44 +1200,44 @@ msgstr ""
 msgid "Encryption Key:"
 msgstr "Κλειδί κρυπτογράφησης:"
 
-#: ../src/plugins/netstatus/netstatus.c:178
+#: ../src/plugins/netstatus/netstatus.c:179
 msgid "Interface to monitor"
 msgstr "Διεπαφή προς παρακολούθηση"
 
-#: ../src/plugins/netstatus/netstatus.c:179
+#: ../src/plugins/netstatus/netstatus.c:180
 msgid "Config tool"
 msgstr "Εργαλείο ρύθμισης"
 
-#: ../src/plugins/netstatus/netstatus.c:196
+#: ../src/plugins/netstatus/netstatus.c:197
 msgid "Network Status Monitor"
 msgstr "Παρακολούθηση κατάστασης δικτύου"
 
-#: ../src/plugins/netstatus/netstatus.c:198
+#: ../src/plugins/netstatus/netstatus.c:199
 msgid "Monitor network status"
 msgstr "Παρακολούθηση κατάστασης δικτύου"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:52
-#: ../src/plugins/netstatus/netstatus-dialog.c:311
+#: ../src/plugins/netstatus/netstatus-dialog.c:51
+#: ../src/plugins/netstatus/netstatus-dialog.c:312
 msgid "Unknown"
 msgstr "Άγνωστο"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:115
+#: ../src/plugins/netstatus/netstatus-dialog.c:116
 msgid "Connection Properties"
 msgstr "Ρυθμίσεις σύνδεσης"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:121
+#: ../src/plugins/netstatus/netstatus-dialog.c:122
 #, c-format
 msgid "Connection Properties: %s"
 msgstr "Ρυθμίσεις σύνδεσης: %s"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:134
+#: ../src/plugins/netstatus/netstatus-dialog.c:135
 #, fuzzy, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
 msgstr[0] "%lu packets"
 msgstr[1] "%lu packets"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:395
+#: ../src/plugins/netstatus/netstatus-dialog.c:396
 #, c-format
 msgid ""
 "There was an error displaying help:\n"
@@ -1231,7 +1246,7 @@ msgstr ""
 "Υπήρξε σφάλμα κατά την προβολή βοήθειας:\n"
 "%s"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:579
+#: ../src/plugins/netstatus/netstatus-dialog.c:580
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
 msgstr "Απέτυχε η εκκίνηση του εργαλείου ρύθμισης ώρας: %s"
@@ -1284,7 +1299,8 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Παρακαλώ επικοινωνήστε με τον διαχειριστή του συστήματος για την επίλυση του ακόλουθου προβλήματος:\n"
+"Παρακαλώ επικοινωνήστε με τον διαχειριστή του συστήματος για την επίλυση του "
+"ακόλουθου προβλήματος:\n"
 "\n"
 "%s"
 
@@ -1373,38 +1389,52 @@ msgstr "Ενδείξεις για τα κουμπιά CapsLock, NumLock, και 
 
 #~ msgid "Desktop No / Workspace Name"
 #~ msgstr "Αριθμός επιφάνειας εργασίας / όνομα χώρου εργασίας"
+
 #~ msgid ""
 #~ "Allows you to switch the keyboard layout and\n"
 #~ "displays the currently selected layout."
 #~ msgstr ""
 #~ "Επιτρέπει την εναλλαγή της διάταξης πληκτρολογίου\n"
 #~ "και εμφανίζει την επιλεγμένη διάταξη."
+
 #~ msgid "Other plugins available here"
 #~ msgstr "Λοιπά διαθέσιμα πρόσθετα"
+
 #~ msgid "Old KDE/GNOME Tray"
 #~ msgstr "Παλιό KDE/GNOME πλαίσιο συστήματος"
+
 #~ msgid "Enable Image:"
 #~ msgstr "Ενεργοποίηση εικόνας:"
+
 #~ msgid "Enable Transparency"
 #~ msgstr "Ενεργοποίηση διαφάνειας"
+
 #~ msgid "Tint color:"
 #~ msgstr "Απόχρωση:"
+
 #~ msgid " --configure -- launch configuration utility\n"
 #~ msgstr " --configure -- εκτέλεση του εργαλείου διαχείρησης\n"
+
 #~ msgid " -C  -- same as --configure\n"
 #~ msgstr " -C  -- όπως το --configure\n"
+
 #~ msgid "Add Button"
 #~ msgstr "Προσθήκη κουμπιού"
+
 #~ msgid "Button Properties"
 #~ msgstr "Ιδιότητες Κουμπιού"
+
 #~ msgid "Remove Button"
 #~ msgstr "Αφαίρεση κουμπιού"
+
 #~ msgid "Buttons"
 #~ msgstr "Κουμπιά"
+
 #~ msgid "Show Iconified windows"
 #~ msgstr "Εμφάνιση εικονιδοποιημένων παραθύρων"
+
 #~ msgid "Action"
 #~ msgstr "Ενέργεια"
+
 #~ msgid "Kayboard Layout switcher"
 #~ msgstr "Εναλλαγή διάταξης πληκτρολογίου"
-

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.3.99\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-18 14:26+0200\n"
+"POT-Creation-Date: 2009-08-02 01:35+0800\n"
 "PO-Revision-Date: 2009-01-09 01:03+0100\n"
 "Last-Translator: Michal Várady <miko.vaji@gmail.com>\n"
 "Language-Team: Czech\n"
@@ -183,7 +183,131 @@ msgstr "Šířka:"
 msgid "pixels"
 msgstr "Pixely"
 
-#: ../src/configurator.c:54 ../src/gtk-run.c:252
+#: ../data/ui/netstatus.glade.h:2
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
+#, no-c-format
+msgid "0%"
+msgstr "0%"
+
+#: ../data/ui/netstatus.glade.h:3
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:194
+msgid "<b>Activity</b>"
+msgstr "<b>Aktivita</b>"
+
+#: ../data/ui/netstatus.glade.h:4
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:131
+msgid "<b>Connection</b>"
+msgstr "<b>Připojení</b>"
+
+#: ../data/ui/netstatus.glade.h:5
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:289
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr "<b>Internetový protokol (IPv4)</b>"
+
+#: ../data/ui/netstatus.glade.h:6
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:376
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>Internetový protokol (IPv6)</b>"
+
+#: ../data/ui/netstatus.glade.h:7
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:432
+msgid "<b>Network Device</b>"
+msgstr "<b>Síťové zařízení</b>"
+
+#: ../data/ui/netstatus.glade.h:8
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:250
+msgid "<b>Signal Strength</b>"
+msgstr "<b>Síla signálu</b>"
+
+#: ../data/ui/netstatus.glade.h:9
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:309
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:396
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:452
+msgid "Address:"
+msgstr "Adresa:"
+
+#: ../data/ui/netstatus.glade.h:10
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
+#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
+msgid "Broadcast:"
+msgstr "Broadcast:"
+
+#: ../data/ui/netstatus.glade.h:11
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:513
+msgid "Con_figure"
+msgstr "Kon_figurovat"
+
+#: ../data/ui/netstatus.glade.h:12
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:316
+msgid "Destination:"
+msgstr "Cíl:"
+
+#: ../data/ui/netstatus.glade.h:13
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
+msgid "General"
+msgstr "Obecné"
+
+#: ../data/ui/netstatus.glade.h:14
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:232
+msgid "Received:"
+msgstr "Přijato:"
+
+#: ../data/ui/netstatus.glade.h:15
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:403
+msgid "Scope:"
+msgstr "Rozsah:"
+
+#: ../data/ui/netstatus.glade.h:16
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:239
+msgid "Sent:"
+msgstr "Odesláno:"
+
+#: ../data/ui/netstatus.glade.h:17
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:155
+msgid "Status:"
+msgstr "Stav:"
+
+#: ../data/ui/netstatus.glade.h:18
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
+msgid "Subnet Mask:"
+msgstr "Maska podsítě:"
+
+#: ../data/ui/netstatus.glade.h:19
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:484
+msgid "Support"
+msgstr "Podpora"
+
+#: ../data/ui/netstatus.glade.h:20
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:477
+msgid "Type:"
+msgstr "Typ:"
+
+#: ../data/ui/netstatus.glade.h:21
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:171
+msgid "_Name:"
+msgstr "_Název:"
+
+#: ../src/configurator.c:54 ../src/gtk-run.c:296
 msgid "Run"
 msgstr "Spustit"
 
@@ -195,36 +319,36 @@ msgstr "Restartovat"
 msgid "Logout"
 msgstr "Odhlásit se"
 
-#: ../src/configurator.c:445
+#: ../src/configurator.c:444
 msgid "Currently loaded plugins"
 msgstr "Právě zavedené zásuvné moduly"
 
-#: ../src/configurator.c:454
+#: ../src/configurator.c:453
 msgid "Stretch"
 msgstr "Natáhnout"
 
-#: ../src/configurator.c:559
+#: ../src/configurator.c:558
 msgid "Add plugin to panel"
 msgstr "Při dat zásuvný modul na panel"
 
-#: ../src/configurator.c:587
+#: ../src/configurator.c:586
 msgid "Available plugins"
 msgstr "Dostupné zásuvné moduly"
 
-#: ../src/configurator.c:1143
+#: ../src/configurator.c:1139
 msgid "Logout command is not set"
 msgstr "Příkaz pro ohlášení není nastaven"
 
-#: ../src/configurator.c:1196
+#: ../src/configurator.c:1192
 #, fuzzy
 msgid "Select a directory"
 msgstr "Vyberte soubor"
 
-#: ../src/configurator.c:1196 ../src/configurator.c:1287
+#: ../src/configurator.c:1192 ../src/configurator.c:1283
 msgid "Select a file"
 msgstr "Vyberte soubor"
 
-#: ../src/configurator.c:1314
+#: ../src/configurator.c:1310
 msgid "_Browse"
 msgstr "_Procházet"
 
@@ -297,28 +421,28 @@ msgstr "Nastavení \"%s\""
 msgid "Top"
 msgstr "Nahoře"
 
-#: ../src/panel.c:1345
+#: ../src/panel.c:1352
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr ""
 "lxpanel %s - odlehčený panel napsaný v GTK2+ pro UNIXová pracovní prostředí\n"
 
-#: ../src/panel.c:1346
+#: ../src/panel.c:1353
 #, c-format
 msgid "Command line options:\n"
 msgstr "Volby příkazové řádky:\n"
 
-#: ../src/panel.c:1347
+#: ../src/panel.c:1354
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- zobrazí tuto nápovědu a ukončí se\n"
 
-#: ../src/panel.c:1348
+#: ../src/panel.c:1355
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- zobrazí informace o verzi a ukončí se\n"
 
-#: ../src/panel.c:1349
+#: ../src/panel.c:1356
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
@@ -326,28 +450,28 @@ msgstr ""
 "podrobné\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1351
+#: ../src/panel.c:1358
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile název -- použije zadaný profil\n"
 
-#: ../src/panel.c:1353
+#: ../src/panel.c:1360
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- stejné jako --help\n"
 
-#: ../src/panel.c:1354
+#: ../src/panel.c:1361
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- stejné jako --profile\n"
 
-#: ../src/panel.c:1355
+#: ../src/panel.c:1362
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- stejné jako --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1357
+#: ../src/panel.c:1364
 #, c-format
 msgid ""
 "\n"
@@ -358,7 +482,7 @@ msgstr ""
 "Podrobnosti naleznete na webové stránce http://lxde.org/\n"
 "\n"
 
-#: ../src/gtk-run.c:266
+#: ../src/gtk-run.c:309
 msgid "Enter the command you want to execute:"
 msgstr "Zadejte příkaz ke spuštění:"
 
@@ -384,119 +508,119 @@ msgstr "Zobrazuje číslo pracovní plochy, od cmeury@users.sf.net"
 msgid "Display Image and Tooltip"
 msgstr "Zobrazuje digitální hodiny a tipy"
 
-#: ../src/plugins/launchbar.c:665
+#: ../src/plugins/launchbar.c:666
 #, fuzzy
 msgid "Available Applications"
 msgstr "Dostupné zásuvné moduly"
 
-#: ../src/plugins/launchbar.c:665
+#: ../src/plugins/launchbar.c:666
 #, fuzzy
 msgid "Applications"
 msgstr "Vybrat aplikaci"
 
-#: ../src/plugins/launchbar.c:846
+#: ../src/plugins/launchbar.c:847
 msgid "Application Launch Bar"
 msgstr "Spouštěcí panel aplikací"
 
-#: ../src/plugins/launchbar.c:848
+#: ../src/plugins/launchbar.c:849
 msgid "Bar with buttons to launch application"
 msgstr "Panel s tlačítko pro spouštění aplikací"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1672
+#: ../src/plugins/taskbar.c:1696
 #, fuzzy
 msgid "_Raise"
 msgstr "Obnovit"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1677
+#: ../src/plugins/taskbar.c:1701
 #, fuzzy
 msgid "R_estore"
 msgstr "Obnovit"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1682
+#: ../src/plugins/taskbar.c:1706
 #, fuzzy
 msgid "Ma_ximize"
 msgstr "Maximalizovat"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1687
+#: ../src/plugins/taskbar.c:1711
 #, fuzzy
 msgid "Ico_nify"
 msgstr "Minimalizovat"
 
-#: ../src/plugins/taskbar.c:1706
+#: ../src/plugins/taskbar.c:1730
 #, fuzzy, c-format
 msgid "Workspace _%d"
 msgstr "Pracovní plocha %d"
 
-#: ../src/plugins/taskbar.c:1711
+#: ../src/plugins/taskbar.c:1735
 #, c-format
 msgid "Workspace %d"
 msgstr "Pracovní plocha %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1725
+#: ../src/plugins/taskbar.c:1749
 #, fuzzy
 msgid "_All workspaces"
 msgstr "Všechny pracovní plochy"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1731
+#: ../src/plugins/taskbar.c:1755
 #, fuzzy
 msgid "_Move to Workspace"
 msgstr "Přesunout na pracovní plochu"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1737
+#: ../src/plugins/taskbar.c:1761
 #, fuzzy
 msgid "_Close Window"
 msgstr "Zavřít okno"
 
-#: ../src/plugins/taskbar.c:1948
+#: ../src/plugins/taskbar.c:1972
 msgid "Show tooltips"
 msgstr "Zobrazovat tipy"
 
-#: ../src/plugins/taskbar.c:1949
+#: ../src/plugins/taskbar.c:1973
 msgid "Icons only"
 msgstr "Pouze ikony"
 
-#: ../src/plugins/taskbar.c:1950
+#: ../src/plugins/taskbar.c:1974
 #, fuzzy
 msgid "Flat buttons"
 msgstr "Rovná tlačítka"
 
-#: ../src/plugins/taskbar.c:1951
+#: ../src/plugins/taskbar.c:1975
 msgid "Show windows from all desktops"
 msgstr "Zobrazit okna všech pracovních ploch"
 
-#: ../src/plugins/taskbar.c:1952
+#: ../src/plugins/taskbar.c:1976
 msgid "Use mouse wheel"
 msgstr "Používat kolečko myši"
 
-#: ../src/plugins/taskbar.c:1953
+#: ../src/plugins/taskbar.c:1977
 msgid "Flash when there is any window requiring attention"
 msgstr "Blikat při žádosti okna"
 
-#: ../src/plugins/taskbar.c:1954
+#: ../src/plugins/taskbar.c:1978
 msgid "Combine multiple application windows into a single button"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1955
+#: ../src/plugins/taskbar.c:1979
 #, fuzzy
 msgid "Maximum width of task button"
 msgstr "Maximální šířka tlačítka úlohy"
 
-#: ../src/plugins/taskbar.c:1956
+#: ../src/plugins/taskbar.c:1980
 msgid "Spacing"
 msgstr "Rozestupy"
 
-#: ../src/plugins/taskbar.c:2010
+#: ../src/plugins/taskbar.c:2037
 msgid "Task Bar (Window List)"
 msgstr "Panel úloh (Seznam oken)"
 
-#: ../src/plugins/taskbar.c:2012
+#: ../src/plugins/taskbar.c:2039
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -559,110 +683,6 @@ msgstr "Spouštěcí panel aplikací"
 #, c-format
 msgid "Couldn't find pixmap file: %s"
 msgstr ""
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
-#, no-c-format
-msgid "0%"
-msgstr "0%"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:194
-msgid "<b>Activity</b>"
-msgstr "<b>Aktivita</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:131
-msgid "<b>Connection</b>"
-msgstr "<b>Připojení</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:289
-msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr "<b>Internetový protokol (IPv4)</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:376
-msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr "<b>Internetový protokol (IPv6)</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:432
-msgid "<b>Network Device</b>"
-msgstr "<b>Síťové zařízení</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:250
-msgid "<b>Signal Strength</b>"
-msgstr "<b>Síla signálu</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:309
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:396
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:452
-msgid "Address:"
-msgstr "Adresa:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
-msgid "Broadcast:"
-msgstr "Broadcast:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:513
-msgid "Con_figure"
-msgstr "Kon_figurovat"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:316
-msgid "Destination:"
-msgstr "Cíl:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
-msgid "General"
-msgstr "Obecné"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:232
-msgid "Received:"
-msgstr "Přijato:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:403
-msgid "Scope:"
-msgstr "Rozsah:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:239
-msgid "Sent:"
-msgstr "Odesláno:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:155
-msgid "Status:"
-msgstr "Stav:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
-msgid "Subnet Mask:"
-msgstr "Maska podsítě:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:484
-msgid "Support"
-msgstr "Podpora"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:477
-msgid "Type:"
-msgstr "Typ:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:171
-msgid "_Name:"
-msgstr "_Název:"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:148
 #, fuzzy
@@ -948,11 +968,11 @@ msgstr "<Prostor>"
 msgid "Allocate space"
 msgstr "Rezervovat prostor"
 
-#: ../src/plugins/tray.c:754
+#: ../src/plugins/tray.c:702
 msgid "System Tray"
 msgstr "Systémová oblast"
 
-#: ../src/plugins/tray.c:756
+#: ../src/plugins/tray.c:704
 #, fuzzy
 msgid "System tray"
 msgstr "Systémová oblast"
@@ -1207,38 +1227,38 @@ msgstr ""
 msgid "Encryption Key:"
 msgstr "Šifrovací klíč:"
 
-#: ../src/plugins/netstatus/netstatus.c:178
+#: ../src/plugins/netstatus/netstatus.c:179
 msgid "Interface to monitor"
 msgstr "Sledované zařízení"
 
-#: ../src/plugins/netstatus/netstatus.c:179
+#: ../src/plugins/netstatus/netstatus.c:180
 msgid "Config tool"
 msgstr "Konfigurační nástroj"
 
-#: ../src/plugins/netstatus/netstatus.c:196
+#: ../src/plugins/netstatus/netstatus.c:197
 #, fuzzy
 msgid "Network Status Monitor"
 msgstr "Sledování stavu sítě"
 
-#: ../src/plugins/netstatus/netstatus.c:198
+#: ../src/plugins/netstatus/netstatus.c:199
 msgid "Monitor network status"
 msgstr "Sleduje stav sítě"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:52
-#: ../src/plugins/netstatus/netstatus-dialog.c:311
+#: ../src/plugins/netstatus/netstatus-dialog.c:51
+#: ../src/plugins/netstatus/netstatus-dialog.c:312
 msgid "Unknown"
 msgstr "Neznámý"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:115
+#: ../src/plugins/netstatus/netstatus-dialog.c:116
 msgid "Connection Properties"
 msgstr "Vlastnosti připojení"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:121
+#: ../src/plugins/netstatus/netstatus-dialog.c:122
 #, c-format
 msgid "Connection Properties: %s"
 msgstr "Vlastnosti připojení: %s"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:134
+#: ../src/plugins/netstatus/netstatus-dialog.c:135
 #, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
@@ -1246,7 +1266,7 @@ msgstr[0] "%lu paket"
 msgstr[1] "%lu pakety"
 msgstr[2] "%lu paketů"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:395
+#: ../src/plugins/netstatus/netstatus-dialog.c:396
 #, c-format
 msgid ""
 "There was an error displaying help:\n"
@@ -1255,7 +1275,7 @@ msgstr ""
 "Při zobrazování nápovědy došlo k chybě:\n"
 "%s"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:579
+#: ../src/plugins/netstatus/netstatus-dialog.c:580
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
 msgstr "Nepodařio se spustit nástroj pro nastavení času: %s"
