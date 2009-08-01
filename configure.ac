@@ -1,5 +1,5 @@
 AC_PREREQ(2.53)
-AC_INIT(lxpanel, 0.5.0, http://lxde.org/)
+AC_INIT(lxpanel, 0.5.1, http://lxde.org/)
 AM_INIT_AUTOMAKE
 AC_CONFIG_SRCDIR([src/bg.c])
 AC_CONFIG_HEADER([config.h])
@@ -17,6 +17,7 @@ AM_PROG_CC_C_O
 
 # Checks for libraries.
 pkg_modules="gtk+-2.0 >= 2.12.0 \
+             gio-unix-2.0 \
              gthread-2.0"
 #             libstartup-notification-1.0"
 PKG_CHECK_MODULES(PACKAGE, [$pkg_modules])

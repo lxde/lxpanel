@@ -1485,6 +1485,9 @@ int main(int argc, char *argv[], char *env[])
 
     setlocale(LC_CTYPE, "");
 
+	g_thread_init(NULL);
+	gdk_threads_init();
+
     gtk_init(&argc, &argv);
 
 #ifdef ENABLE_NLS
