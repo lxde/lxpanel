@@ -296,12 +296,12 @@ static void task_draw_label(Task * tk)
 {
     TaskClass * tc = tk->res_class;
     if ((tk->tb->grouped_tasks) && (tc != NULL) && (tc->visible_task == tk) && (tc->visible_count > 1))
-        {
+	{
         char * label = g_strdup_printf("(%d) %s", tc->visible_count, tc->visible_name);
         gtk_widget_set_tooltip_text(tk->button, label);
         panel_draw_label_text(tk->tb->plug->panel, tk->label, label, (tk->entered_state || tk->flash_state), tk->tb->flat_button);
         g_free(label);
-        }
+	}
     else
     {
         char * name = tk->iconified ? tk->name_iconified : tk->name;
@@ -1240,7 +1240,16 @@ static void task_update_style(Task * tk, TaskbarPlugin * tb)
     else
         gtk_widget_show(tk->label);
 
-    gtk_button_set_relief(GTK_BUTTON(tk->button), ((tb->flat_button) ? GTK_RELIEF_NONE : GTK_RELIEF_NORMAL));
+    if( tb->flat_button )
+    {
+        gtk_toggle_button_set_active((GtkToggleButton*)tk->button, FALSE);
+        gtk_button_set_relief(GTK_BUTTON(tk->button), GTK_RELIEF_NONE);
+    }
+    else
+    {
+        gtk_toggle_button_set_active((GtkToggleButton*)tk->button, tk->focused);
+        gtk_button_set_relief(GTK_BUTTON(tk->button), GTK_RELIEF_NORMAL);
+    }
 
     task_draw_label(tk);
 }
@@ -1474,12 +1483,17 @@ static void taskbar_net_active_window(GtkWidget * widget, TaskbarPlugin * tb)
     {
         ctk->focused = FALSE;
         tb->focused = NULL;
+        if(!tb->flat_button) /* relieve the button if flat buttons is not used. */
+            gtk_toggle_button_set_active((GtkToggleButton*)ctk->button, FALSE);
+
         task_button_redraw(ctk, tb);
     }
 
     /* If a task gained focus, update data structures. */
     if ((ntk != NULL) && (make_new))
     {
+        if(!tb->flat_button) /* depress the button if flat buttons is not used. */
+            gtk_toggle_button_set_active((GtkToggleButton*)ntk->button, TRUE);
         ntk->focused = TRUE;
         tb->focused = ntk;
         task_button_redraw(ntk, tb);
@@ -1906,10 +1920,10 @@ static void taskbar_destructor(Plugin * p)
     gdk_window_remove_filter(NULL, (GdkFilterFunc) taskbar_event_filter, tb);
 
     /* Remove root window signal handlers. */
-    g_signal_handlers_disconnect_by_func(G_OBJECT(fbev), taskbar_net_current_desktop, tb);
-    g_signal_handlers_disconnect_by_func(G_OBJECT(fbev), taskbar_net_active_window, tb);
-    g_signal_handlers_disconnect_by_func(G_OBJECT(fbev), taskbar_net_number_of_desktops, tb);
-    g_signal_handlers_disconnect_by_func(G_OBJECT(fbev), taskbar_net_client_list, tb);
+    g_signal_handlers_disconnect_by_func(fbev, taskbar_net_current_desktop, tb);
+    g_signal_handlers_disconnect_by_func(fbev, taskbar_net_active_window, tb);
+    g_signal_handlers_disconnect_by_func(fbev, taskbar_net_number_of_desktops, tb);
+    g_signal_handlers_disconnect_by_func(fbev, taskbar_net_client_list, tb);
 
     /* Deallocate task list. */
     while (tb->task_list != NULL)

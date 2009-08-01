@@ -30,9 +30,9 @@ static GSList* app_list = NULL; /* all known apps in menu cache */
 
 typedef struct _ThreadData
 {
-	gboolean cancel; /* is the loading cancelled */
-	GSList* files; /* all executable files found */
-	GtkEntry* entry;
+    gboolean cancel; /* is the loading cancelled */
+    GSList* files; /* all executable files found */
+    GtkEntry* entry;
 }ThreadData;
 
 static ThreadData* thread_data = NULL; /* thread data used to load availble programs in PATH */
@@ -165,19 +165,19 @@ static void setup_auto_complete_with_data(ThreadData* data)
 
 void thread_data_free(ThreadData* data)
 {
-	g_slist_foreach(data->files, (GFunc)g_free, NULL);
-	g_slist_free(data->files);
-	g_slice_free(ThreadData, data);
+    g_slist_foreach(data->files, (GFunc)g_free, NULL);
+    g_slist_free(data->files);
+    g_slice_free(ThreadData, data);
 }
 
 static gboolean on_thread_finished(ThreadData* data)
 {
-	/* don't setup entry completion if the thread is already cancelled. */
-	if( !data->cancel )
-		setup_auto_complete_with_data(thread_data);
-	thread_data_free(data);
-	thread_data = NULL; /* global thread_data pointer */
-	return FALSE;
+    /* don't setup entry completion if the thread is already cancelled. */
+    if( !data->cancel )
+        setup_auto_complete_with_data(thread_data);
+    thread_data_free(data);
+    thread_data = NULL; /* global thread_data pointer */
+    return FALSE;
 }
 
 static gpointer thread_func(ThreadData* data)
@@ -197,8 +197,8 @@ static gpointer thread_func(ThreadData* data)
             char* filename = g_build_filename( *dirname, name, NULL );
             if( g_file_test( filename, G_FILE_TEST_IS_EXECUTABLE ) )
             {
-				if(thread_data->cancel)
-					break;
+                if(thread_data->cancel)
+                    break;
                 if( !g_slist_find_custom( list, name, (GCompareFunc)strcmp ) )
                     list = g_slist_prepend( list, g_strdup( name ) );
             }
@@ -208,28 +208,28 @@ static gpointer thread_func(ThreadData* data)
     }
     g_strfreev( dirnames );
 
-	data->files = list;
-	/* install an idle handler to free associated data */
-	g_idle_add((GSourceFunc)on_thread_finished, data);
+    data->files = list;
+    /* install an idle handler to free associated data */
+    g_idle_add((GSourceFunc)on_thread_finished, data);
 
-	return NULL;
+    return NULL;
 }
 
 static void setup_auto_complete( GtkEntry* entry )
 {
-	gboolean cache_is_available = FALSE;
-	/* FIXME: consider saving the list of commands as on-disk cache. */
-	if( cache_is_available )
-	{
-		/* load cached program list */
-	}
-	else
-	{
-		/* load in another working thread */
-		thread_data = g_slice_new0(ThreadData); /* the data will be freed in idle handler later. */
-		thread_data->entry = entry;
-		g_thread_create((GThreadFunc)thread_func, thread_data, FALSE, NULL);
-	}
+    gboolean cache_is_available = FALSE;
+    /* FIXME: consider saving the list of commands as on-disk cache. */
+    if( cache_is_available )
+    {
+        /* load cached program list */
+    }
+    else
+    {
+        /* load in another working thread */
+        thread_data = g_slice_new0(ThreadData); /* the data will be freed in idle handler later. */
+        thread_data->entry = entry;
+        g_thread_create((GThreadFunc)thread_func, thread_data, FALSE, NULL);
+    }
 }
 
 static void on_response( GtkDialog* dlg, gint response, gpointer user_data )
@@ -247,9 +247,9 @@ static void on_response( GtkDialog* dlg, gint response, gpointer user_data )
         }
     }
 
-	/* cancel running thread if needed */
-	if( thread_data ) /* the thread is still running */
-		thread_data->cancel = TRUE; /* cancel the thread */
+    /* cancel running thread if needed */
+    if( thread_data ) /* the thread is still running */
+        thread_data->cancel = TRUE; /* cancel the thread */
 
     gtk_widget_destroy( (GtkWidget*)dlg );
     win = NULL;
@@ -299,8 +299,8 @@ void gtk_run()
                                        GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
                                        GTK_STOCK_OK, GTK_RESPONSE_OK,
                                        NULL );
-	gtk_dialog_set_alternative_button_order((GtkDialog*)win, 
-							GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
+    gtk_dialog_set_alternative_button_order((GtkDialog*)win, 
+                            GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
     gtk_dialog_set_default_response( (GtkDialog*)win, GTK_RESPONSE_OK );
     entry = gtk_entry_new();
 

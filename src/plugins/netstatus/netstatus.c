@@ -149,7 +149,7 @@ netstatus_constructor(Plugin *p, char** fp)
     g_signal_connect( ns->mainw, "button-press-event",
                       G_CALLBACK(on_button_press), p );
 
-    gtk_widget_show_all(ns->mainw);
+    gtk_widget_show(ns->mainw);
 
     p->pwid = ns->mainw;
 
