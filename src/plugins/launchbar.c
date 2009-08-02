@@ -483,12 +483,15 @@ static void launchbar_configure_add_button(GtkButton * widget, Plugin * p)
         launchbutton_build_gui(p, defined_button);
         GtkListStore * list = GTK_LIST_STORE(gtk_tree_view_get_model(defined_view));
         GtkTreeIter it;
+        GdkPixbuf* pix;
         gtk_list_store_append(list, &it);
+        pix = lxpanel_load_icon(btn->image, PANEL_ICON_SIZE, PANEL_ICON_SIZE, TRUE);
         gtk_list_store_set(list, &it,
-            COL_ICON, lxpanel_load_icon(btn->image, PANEL_ICON_SIZE, PANEL_ICON_SIZE, TRUE),
+            COL_ICON, pix,
             COL_TITLE, ((btn->tooltip != NULL) ? btn->tooltip : btn->action),
             COL_BTN, defined_button,
             -1);
+        g_object_unref(pix);
     }
 }
 
@@ -641,23 +644,29 @@ static void launchbar_configure_add_menu_recursive(GtkTreeStore * tree, GtkTreeI
 
                 /* Add the row to the view. */
                 GtkTreeIter it;
+                GdkPixbuf* pix;
                 gtk_tree_store_append(tree, &it, parent_it);
+                pix = lxpanel_load_icon(menu_cache_item_get_icon(item), PANEL_ICON_SIZE, PANEL_ICON_SIZE, TRUE);
                 gtk_tree_store_set(tree, &it,
-                    COL_ICON, lxpanel_load_icon(menu_cache_item_get_icon(item), PANEL_ICON_SIZE, PANEL_ICON_SIZE, TRUE),
+                    COL_ICON, pix,
                     COL_TITLE, menu_cache_item_get_name(item),
                     COL_BTN, btn,
                     -1);
+                g_object_unref(pix);
                 }
                 break;
 
             case MENU_CACHE_TYPE_DIR:
                 {
                 GtkTreeIter it;
+                GdkPixbuf* pix;
                 gtk_tree_store_append(tree, &it, parent_it);
+                pix = lxpanel_load_icon(menu_cache_item_get_icon(item), PANEL_ICON_SIZE, PANEL_ICON_SIZE, TRUE);
                 gtk_tree_store_set(tree, &it,
-                    COL_ICON, lxpanel_load_icon(menu_cache_item_get_icon(item), PANEL_ICON_SIZE, PANEL_ICON_SIZE, TRUE),
+                    COL_ICON, pix,
                     COL_TITLE, menu_cache_item_get_name(item),
                     -1);
+                g_object_unref(pix);
                 /* If a directory, recursively add its menu items. */
                 launchbar_configure_add_menu_recursive(tree, &it, MENU_CACHE_DIR(item));
                 }
