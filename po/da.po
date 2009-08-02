@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-02 01:35+0800\n"
+"POT-Creation-Date: 2009-08-03 05:22+0800\n"
 "PO-Revision-Date: 2009-07-20 20:40+0200\n"
 "Last-Translator: Martin Bagge <brother@bsnet.se>\n"
 "Language-Team: Danish\n"
@@ -181,130 +181,100 @@ msgid "pixels"
 msgstr "px"
 
 #: ../data/ui/netstatus.glade.h:2
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
 #, no-c-format
 msgid "0%"
 msgstr "0%"
 
 #: ../data/ui/netstatus.glade.h:3
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:194
 msgid "<b>Activity</b>"
 msgstr "<b>Aktivitet</b>"
 
 #: ../data/ui/netstatus.glade.h:4
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:131
 msgid "<b>Connection</b>"
 msgstr "<b>Forbindelse</b>"
 
 #: ../data/ui/netstatus.glade.h:5
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:289
 msgid "<b>Internet Protocol (IPv4)</b>"
 msgstr "<b>Internet protokol (IPv4)</b>"
 
 #: ../data/ui/netstatus.glade.h:6
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:376
 msgid "<b>Internet Protocol (IPv6)</b>"
 msgstr "<b>Internet protokol (IPv6)</b>"
 
 #: ../data/ui/netstatus.glade.h:7
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:432
 msgid "<b>Network Device</b>"
 msgstr "<b>Netværks enhed</b>"
 
 #: ../data/ui/netstatus.glade.h:8
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:250
 msgid "<b>Signal Strength</b>"
 msgstr "<b>Signal styrke</b>"
 
 #: ../data/ui/netstatus.glade.h:9
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:309
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:396
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:452
 msgid "Address:"
 msgstr "Addresse:"
 
-#: ../data/ui/netstatus.glade.h:10
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
+#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
+#: ../src/plugins/netstat/netstat.c:330
 msgid "Broadcast:"
 msgstr "Rundsending:"
 
 #: ../data/ui/netstatus.glade.h:11
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:513
 msgid "Con_figure"
 msgstr "Konf_igurér"
 
 #: ../data/ui/netstatus.glade.h:12
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:316
 msgid "Destination:"
 msgstr "Placering:"
 
 #: ../data/ui/netstatus.glade.h:13
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr "Generelt"
 
 #: ../data/ui/netstatus.glade.h:14
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:232
 msgid "Received:"
 msgstr "Modtaget:"
 
 #: ../data/ui/netstatus.glade.h:15
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:403
 msgid "Scope:"
 msgstr "Virkefelt:"
 
 #: ../data/ui/netstatus.glade.h:16
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:239
 msgid "Sent:"
 msgstr "Sendt:"
 
 #: ../data/ui/netstatus.glade.h:17
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:155
 msgid "Status:"
 msgstr "Status:"
 
 #: ../data/ui/netstatus.glade.h:18
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
 msgid "Subnet Mask:"
 msgstr "Subnet maske:"
 
 #: ../data/ui/netstatus.glade.h:19
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:484
 msgid "Support"
 msgstr "Understøttelse"
 
 #: ../data/ui/netstatus.glade.h:20
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:477
 msgid "Type:"
 msgstr "Type:"
 
 #: ../data/ui/netstatus.glade.h:21
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:171
 msgid "_Name:"
 msgstr "_Navn:"
 
-#: ../src/configurator.c:54 ../src/gtk-run.c:296
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:821
+msgid "Application Launch Bar"
+msgstr "Område til start af programmer"
+
+#: ../data/ui/launchbar.glade.h:2
+msgid "Applications"
+msgstr "Programmer"
+
+#: ../data/ui/launchbar.glade.h:3
+msgid "Available Applications"
+msgstr "Tilgængelige programmer"
+
+#: ../src/configurator.c:54 ../src/gtk-run.c:299
 msgid "Run"
 msgstr "Kør"
 
@@ -475,7 +445,7 @@ msgstr ""
 "Se http://lxde.org/ for nærmere oplysninger.\n"
 "\n"
 
-#: ../src/gtk-run.c:309
+#: ../src/gtk-run.c:312
 msgid "Enter the command you want to execute:"
 msgstr "Kommando der skal afvikles:"
 
@@ -499,19 +469,7 @@ msgstr "Vis nummer til arbejdsområde, af cmeury@users.sf.net"
 msgid "Display Image and Tooltip"
 msgstr "Vis billede og værktøjstip"
 
-#: ../src/plugins/launchbar.c:666
-msgid "Available Applications"
-msgstr "Tilgængelige programmer"
-
-#: ../src/plugins/launchbar.c:666
-msgid "Applications"
-msgstr "Programmer"
-
-#: ../src/plugins/launchbar.c:847
-msgid "Application Launch Bar"
-msgstr "Område til start af programmer"
-
-#: ../src/plugins/launchbar.c:849
+#: ../src/plugins/launchbar.c:823
 msgid "Bar with buttons to launch application"
 msgstr "Område med knapper til start af applikationer"
 
@@ -655,262 +613,6 @@ msgstr "Menu"
 #: ../src/plugins/menu.c:1009
 msgid "Application Menu"
 msgstr "Program Menu"
-
-#: ../src/plugins/netstatus/glade-support.c:91
-#: ../src/plugins/netstatus/glade-support.c:115
-#, c-format
-msgid "Couldn't find pixmap file: %s"
-msgstr "Fandt ikke billedfilen: %s"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:148
-msgid "Name"
-msgstr "Navn:"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:149
-msgid "The interface name"
-msgstr "Navn på grænsefladen"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:156
-msgid "State"
-msgstr "Status"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:157
-msgid "The interface state"
-msgstr "Status for grænsefladen"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:165
-msgid "Stats"
-msgstr "Statistik"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:166
-msgid "The interface packets/bytes statistics"
-msgstr "Statistik for grænseflade i pakker/bytes"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:173
-#: ../src/plugins/netstat/netstat.c:315
-msgid "Wireless"
-msgstr "Trådløs"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:174
-msgid "Whether the interface is a wireless interface"
-msgstr "Angiv om grænsefladen er trådløs"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:181
-msgid "Signal"
-msgstr "Signal"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:182
-msgid "Wireless signal strength percentage"
-msgstr "Signalstyrke i procent"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:191
-#: ../src/plugins/netstatus/netstatus-util.c:167
-msgid "Error"
-msgstr "Fejl"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:192
-msgid "The current error condition"
-msgstr "Aktuel fejltilstand"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:434
-#: ../src/plugins/netstatus/netstatus-iface.c:1197
-#, c-format
-msgid "Unable to open socket: %s"
-msgstr "Kan ikke åbne sokkel: %s"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:496
-#: ../src/plugins/netstatus/netstatus-iface.c:1223
-#, c-format
-msgid "SIOCGIFFLAGS error: %s"
-msgstr "SIOCGIFFLAGS fejl: %s"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:870
-msgid "AMPR NET/ROM"
-msgstr "AMPR NET/ROM"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:873
-msgid "Ethernet"
-msgstr "Ethernet"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:879
-msgid "AMPR AX.25"
-msgstr "AMPR AX.25"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:888
-#: ../src/plugins/netstatus/netstatus-iface.c:1008
-msgid "16/4 Mbps Token Ring"
-msgstr "16/4 Mbps Token Ring"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:891
-msgid "ARCnet"
-msgstr "ARCnet"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:897
-msgid "Frame Relay DLCI"
-msgstr "Frame Relay DLCI"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:903
-msgid "Metricom Starmode IP"
-msgstr "Metricom Starmode IP"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:906
-msgid "Serial Line IP"
-msgstr "Serial Line IP"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:909
-msgid "VJ Serial Line IP"
-msgstr "VJ Serial Line IP"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:912
-msgid "6-bit Serial Line IP"
-msgstr "6-bit Serial Line IP"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:915
-msgid "VJ 6-bit Serial Line IP"
-msgstr "VJ 6-bit Serial Line IP"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:921
-msgid "Adaptive Serial Line IP"
-msgstr "Adaptive Serial Line IP"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:924
-msgid "AMPR ROSE"
-msgstr "AMPR ROSE"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:927
-msgid "Generic X.25"
-msgstr "Generic X.25"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:930
-msgid "Point-to-Point Protocol"
-msgstr "Point-to-Point Protokol"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:936
-msgid "(Cisco)-HDLC"
-msgstr "(Cisco)-HDLC"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:939
-msgid "LAPB"
-msgstr "LAPB"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:948
-msgid "IPIP Tunnel"
-msgstr "IPIP Tunnel"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:954
-msgid "Frame Relay Access Device"
-msgstr "Frame Relay Access Device"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:960
-msgid "Local Loopback"
-msgstr "Lokal Loopback"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:966
-msgid "Fiber Distributed Data Interface"
-msgstr "Fiber Distribueret Data Interface"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:972
-msgid "IPv6-in-IPv4"
-msgstr "IPv6-i-IPv4"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:984
-msgid "HIPPI"
-msgstr "HIPPI"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:987
-msgid "Ash"
-msgstr "Ash"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:990
-msgid "Econet"
-msgstr "Econet"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:993
-msgid "IrLAP"
-msgstr "IrLAP"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:1155
-#, c-format
-msgid "SIOCGIFCONF error: %s"
-msgstr "SIOCGIFCONF fejl: %s"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:1248
-#, c-format
-msgid "No network devices found"
-msgstr "Ingen netværksenheder fundet"
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:180
-#, c-format
-msgid "Cannot open /proc/net/dev: %s"
-msgstr "Kan ikke åbne /proc/net/dev: %s"
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:189
-msgid "Could not parse /proc/net/dev. Unknown format."
-msgstr "Kunne ikke fortolke /proc/net/dev. Ukendt format."
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:204
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:330
-#, c-format
-msgid "Could not parse interface name from '%s'"
-msgstr "Kunne ikke fortolke grænseflade navn fra '%s'"
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:217
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:645
-#, c-format
-msgid ""
-"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
-msgstr ""
-"Kunne ikke fortolke grænseflade statistik fra '%s'. prx_idx = %d; ptx_idx = %"
-"d; brx_idx = %d; btx_idx = %d;"
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:314
-msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr "Kunne ikke fortolke /proc/net/wireless. Ukendt format."
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:341
-#, c-format
-msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr "Kunne ikke fortolke detaljer om trådløs fra '%s'. link_idx = %d;"
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:414
-#, c-format
-msgid "Could not connect to interface, '%s'"
-msgstr "Kunne ikke koble til grænseflade, '%s'"
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:420
-#, c-format
-msgid "Could not send ioctl to interface, '%s'"
-msgstr "Kunne ikke sende ioctl til grænseflade, '%s'"
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:598
-#, c-format
-msgid "Could not parse command line '%s': %s"
-msgstr "Kunne ikke fortolke kommandolinje '%s': %s"
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:635
-msgid "Could not parse 'netstat' output. Unknown format"
-msgstr "Kunne ikke fortolke 'netstat' output. Ukendt format"
-
-#: ../src/plugins/netstatus/netstatus-util.c:152
-msgid "Disconnected"
-msgstr "Frakoblet"
-
-#: ../src/plugins/netstatus/netstatus-util.c:155
-msgid "Idle"
-msgstr "Ledig"
-
-#: ../src/plugins/netstatus/netstatus-util.c:158
-msgid "Sending"
-msgstr "Sender"
-
-#: ../src/plugins/netstatus/netstatus-util.c:161
-msgid "Receiving"
-msgstr "Modtager"
-
-#: ../src/plugins/netstatus/netstatus-util.c:164
-msgid "Sending/Receiving"
-msgstr "Sender/Modtager"
 
 #: ../src/plugins/separator.c:98
 msgid "Separator"
@@ -1156,6 +858,11 @@ msgstr "bytes"
 msgid "packets"
 msgstr "pakker"
 
+#: ../src/plugins/netstat/netstat.c:315
+#: ../src/plugins/netstatus/netstatus-iface.c:173
+msgid "Wireless"
+msgstr "Trådløs"
+
 #: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
 msgstr "Protokol:"
@@ -1293,6 +1000,251 @@ msgstr ""
 "\n"
 "%s"
 
+#: ../src/plugins/netstatus/netstatus-iface.c:148
+msgid "Name"
+msgstr "Navn:"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:149
+msgid "The interface name"
+msgstr "Navn på grænsefladen"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:156
+msgid "State"
+msgstr "Status"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:157
+msgid "The interface state"
+msgstr "Status for grænsefladen"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:165
+msgid "Stats"
+msgstr "Statistik"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:166
+msgid "The interface packets/bytes statistics"
+msgstr "Statistik for grænseflade i pakker/bytes"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:174
+msgid "Whether the interface is a wireless interface"
+msgstr "Angiv om grænsefladen er trådløs"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:181
+msgid "Signal"
+msgstr "Signal"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:182
+msgid "Wireless signal strength percentage"
+msgstr "Signalstyrke i procent"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:191
+#: ../src/plugins/netstatus/netstatus-util.c:167
+msgid "Error"
+msgstr "Fejl"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:192
+msgid "The current error condition"
+msgstr "Aktuel fejltilstand"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:434
+#: ../src/plugins/netstatus/netstatus-iface.c:1197
+#, c-format
+msgid "Unable to open socket: %s"
+msgstr "Kan ikke åbne sokkel: %s"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:496
+#: ../src/plugins/netstatus/netstatus-iface.c:1223
+#, c-format
+msgid "SIOCGIFFLAGS error: %s"
+msgstr "SIOCGIFFLAGS fejl: %s"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:870
+msgid "AMPR NET/ROM"
+msgstr "AMPR NET/ROM"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:873
+msgid "Ethernet"
+msgstr "Ethernet"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:879
+msgid "AMPR AX.25"
+msgstr "AMPR AX.25"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:888
+#: ../src/plugins/netstatus/netstatus-iface.c:1008
+msgid "16/4 Mbps Token Ring"
+msgstr "16/4 Mbps Token Ring"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:891
+msgid "ARCnet"
+msgstr "ARCnet"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:897
+msgid "Frame Relay DLCI"
+msgstr "Frame Relay DLCI"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:903
+msgid "Metricom Starmode IP"
+msgstr "Metricom Starmode IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:906
+msgid "Serial Line IP"
+msgstr "Serial Line IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:909
+msgid "VJ Serial Line IP"
+msgstr "VJ Serial Line IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:912
+msgid "6-bit Serial Line IP"
+msgstr "6-bit Serial Line IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:915
+msgid "VJ 6-bit Serial Line IP"
+msgstr "VJ 6-bit Serial Line IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:921
+msgid "Adaptive Serial Line IP"
+msgstr "Adaptive Serial Line IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:924
+msgid "AMPR ROSE"
+msgstr "AMPR ROSE"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:927
+msgid "Generic X.25"
+msgstr "Generic X.25"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:930
+msgid "Point-to-Point Protocol"
+msgstr "Point-to-Point Protokol"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:936
+msgid "(Cisco)-HDLC"
+msgstr "(Cisco)-HDLC"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:939
+msgid "LAPB"
+msgstr "LAPB"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:948
+msgid "IPIP Tunnel"
+msgstr "IPIP Tunnel"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:954
+msgid "Frame Relay Access Device"
+msgstr "Frame Relay Access Device"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:960
+msgid "Local Loopback"
+msgstr "Lokal Loopback"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:966
+msgid "Fiber Distributed Data Interface"
+msgstr "Fiber Distribueret Data Interface"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:972
+msgid "IPv6-in-IPv4"
+msgstr "IPv6-i-IPv4"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:984
+msgid "HIPPI"
+msgstr "HIPPI"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:987
+msgid "Ash"
+msgstr "Ash"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:990
+msgid "Econet"
+msgstr "Econet"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:993
+msgid "IrLAP"
+msgstr "IrLAP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:1155
+#, c-format
+msgid "SIOCGIFCONF error: %s"
+msgstr "SIOCGIFCONF fejl: %s"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:1248
+#, c-format
+msgid "No network devices found"
+msgstr "Ingen netværksenheder fundet"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:180
+#, c-format
+msgid "Cannot open /proc/net/dev: %s"
+msgstr "Kan ikke åbne /proc/net/dev: %s"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:189
+msgid "Could not parse /proc/net/dev. Unknown format."
+msgstr "Kunne ikke fortolke /proc/net/dev. Ukendt format."
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:204
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:330
+#, c-format
+msgid "Could not parse interface name from '%s'"
+msgstr "Kunne ikke fortolke grænseflade navn fra '%s'"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:217
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:645
+#, c-format
+msgid ""
+"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
+msgstr ""
+"Kunne ikke fortolke grænseflade statistik fra '%s'. prx_idx = %d; ptx_idx = %"
+"d; brx_idx = %d; btx_idx = %d;"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:314
+msgid "Could not parse /proc/net/wireless. Unknown format."
+msgstr "Kunne ikke fortolke /proc/net/wireless. Ukendt format."
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:341
+#, c-format
+msgid "Could not parse wireless details from '%s'. link_idx = %d;"
+msgstr "Kunne ikke fortolke detaljer om trådløs fra '%s'. link_idx = %d;"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:414
+#, c-format
+msgid "Could not connect to interface, '%s'"
+msgstr "Kunne ikke koble til grænseflade, '%s'"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:420
+#, c-format
+msgid "Could not send ioctl to interface, '%s'"
+msgstr "Kunne ikke sende ioctl til grænseflade, '%s'"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:598
+#, c-format
+msgid "Could not parse command line '%s': %s"
+msgstr "Kunne ikke fortolke kommandolinje '%s': %s"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:635
+msgid "Could not parse 'netstat' output. Unknown format"
+msgstr "Kunne ikke fortolke 'netstat' output. Ukendt format"
+
+#: ../src/plugins/netstatus/netstatus-util.c:152
+msgid "Disconnected"
+msgstr "Frakoblet"
+
+#: ../src/plugins/netstatus/netstatus-util.c:155
+msgid "Idle"
+msgstr "Ledig"
+
+#: ../src/plugins/netstatus/netstatus-util.c:158
+msgid "Sending"
+msgstr "Sender"
+
+#: ../src/plugins/netstatus/netstatus-util.c:161
+msgid "Receiving"
+msgstr "Modtager"
+
+#: ../src/plugins/netstatus/netstatus-util.c:164
+msgid "Sending/Receiving"
+msgstr "Sender/Modtager"
+
 #: ../src/plugins/batt/batt.c:131
 msgid "No batteries found"
 msgstr "Ingen batterier fundet"
@@ -1375,6 +1327,9 @@ msgstr "Tastatur Indikatorer"
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Indikatorer for CapsLock, NumLock, og ScrollLock keys"
+
+#~ msgid "Couldn't find pixmap file: %s"
+#~ msgstr "Fandt ikke billedfilen: %s"
 
 #~ msgid "Desktop No / Workspace Name"
 #~ msgstr "Skrivebords nummer/navn til arbejdsområde"

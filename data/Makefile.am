@@ -9,6 +9,7 @@ default_config_paneldir = $(datadir)/lxpanel/profile/default/panels
 uidir=$(datadir)/lxpanel/ui
 ui_in_files= \
 	ui/panel-pref.glade \
+	ui/launchbar.glade \
 	ui/netstatus.glade
 
 ui_DATA = $(ui_in_files:.glade=.ui)

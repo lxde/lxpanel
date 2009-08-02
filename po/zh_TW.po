@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-02 01:35+0800\n"
+"POT-Creation-Date: 2009-08-03 05:22+0800\n"
 "PO-Revision-Date: 2009-07-19 17:19+0800\n"
 "Last-Translator: Hong Jen Yee (PCMan) <pcman.tw@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -178,130 +178,100 @@ msgid "pixels"
 msgstr "像素 (pixels)"
 
 #: ../data/ui/netstatus.glade.h:2
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
 #, no-c-format
 msgid "0%"
 msgstr "0%"
 
 #: ../data/ui/netstatus.glade.h:3
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:194
 msgid "<b>Activity</b>"
 msgstr "<b>活動</b>"
 
 #: ../data/ui/netstatus.glade.h:4
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:131
 msgid "<b>Connection</b>"
 msgstr "<b>連線</b>"
 
 #: ../data/ui/netstatus.glade.h:5
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:289
 msgid "<b>Internet Protocol (IPv4)</b>"
 msgstr "<b>網路協定 (IPv4)</b>"
 
 #: ../data/ui/netstatus.glade.h:6
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:376
 msgid "<b>Internet Protocol (IPv6)</b>"
 msgstr "<b>網路協定 (IPv6)</b>"
 
 #: ../data/ui/netstatus.glade.h:7
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:432
 msgid "<b>Network Device</b>"
 msgstr "<b>網路裝置</b>"
 
 #: ../data/ui/netstatus.glade.h:8
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:250
 msgid "<b>Signal Strength</b>"
 msgstr "<b>訊號強度</b>"
 
 #: ../data/ui/netstatus.glade.h:9
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:309
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:396
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:452
 msgid "Address:"
 msgstr "位址："
 
-#: ../data/ui/netstatus.glade.h:10
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
+#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
+#: ../src/plugins/netstat/netstat.c:330
 msgid "Broadcast:"
 msgstr "廣播位址："
 
 #: ../data/ui/netstatus.glade.h:11
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:513
 msgid "Con_figure"
 msgstr "設定(_F)"
 
 #: ../data/ui/netstatus.glade.h:12
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:316
 msgid "Destination:"
 msgstr "目的地："
 
 #: ../data/ui/netstatus.glade.h:13
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
 msgstr "一般"
 
 #: ../data/ui/netstatus.glade.h:14
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:232
 msgid "Received:"
 msgstr "接收："
 
 #: ../data/ui/netstatus.glade.h:15
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:403
 msgid "Scope:"
 msgstr "範圍："
 
 #: ../data/ui/netstatus.glade.h:16
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:239
 msgid "Sent:"
 msgstr "送出："
 
 #: ../data/ui/netstatus.glade.h:17
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:155
 msgid "Status:"
 msgstr "狀態："
 
 #: ../data/ui/netstatus.glade.h:18
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
 msgid "Subnet Mask:"
 msgstr "子網路遮罩："
 
 #: ../data/ui/netstatus.glade.h:19
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:484
 msgid "Support"
 msgstr "支援"
 
 #: ../data/ui/netstatus.glade.h:20
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:477
 msgid "Type:"
 msgstr "型態："
 
 #: ../data/ui/netstatus.glade.h:21
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
-#: ../src/plugins/netstatus/netstatus-dialog-ui.c:171
 msgid "_Name:"
 msgstr "名稱(_N)："
 
-#: ../src/configurator.c:54 ../src/gtk-run.c:296
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:821
+msgid "Application Launch Bar"
+msgstr "應用程式啟動列"
+
+#: ../data/ui/launchbar.glade.h:2
+msgid "Applications"
+msgstr "應用程式"
+
+#: ../data/ui/launchbar.glade.h:3
+msgid "Available Applications"
+msgstr "可用的應用程式"
+
+#: ../src/configurator.c:54 ../src/gtk-run.c:299
 msgid "Run"
 msgstr "執行"
 
@@ -470,7 +440,7 @@ msgstr ""
 "詳細資訊請參觀 http://lxde.org/\n"
 "\n"
 
-#: ../src/gtk-run.c:309
+#: ../src/gtk-run.c:312
 msgid "Enter the command you want to execute:"
 msgstr "輸入你要想執行的指令："
 
@@ -494,19 +464,7 @@ msgstr "顯示工作區編號，由 cmeury@users.sf.net 撰寫"
 msgid "Display Image and Tooltip"
 msgstr "顯示圖示及工具提示"
 
-#: ../src/plugins/launchbar.c:666
-msgid "Available Applications"
-msgstr "可用的應用程式"
-
-#: ../src/plugins/launchbar.c:666
-msgid "Applications"
-msgstr "應用程式"
-
-#: ../src/plugins/launchbar.c:847
-msgid "Application Launch Bar"
-msgstr "應用程式啟動列"
-
-#: ../src/plugins/launchbar.c:849
+#: ../src/plugins/launchbar.c:823
 msgid "Bar with buttons to launch application"
 msgstr "具有應用程式啟動按鈕的工具列"
 
@@ -648,262 +606,6 @@ msgstr "選單"
 #: ../src/plugins/menu.c:1009
 msgid "Application Menu"
 msgstr "應用程式啟動列"
-
-#: ../src/plugins/netstatus/glade-support.c:91
-#: ../src/plugins/netstatus/glade-support.c:115
-#, c-format
-msgid "Couldn't find pixmap file: %s"
-msgstr "找不到圖片檔：%s"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:148
-msgid "Name"
-msgstr "名稱"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:149
-msgid "The interface name"
-msgstr "介面名稱"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:156
-msgid "State"
-msgstr "狀態"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:157
-msgid "The interface state"
-msgstr "介面狀態"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:165
-msgid "Stats"
-msgstr "統計"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:166
-msgid "The interface packets/bytes statistics"
-msgstr "介面 封包/位元組 統計"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:173
-#: ../src/plugins/netstat/netstat.c:315
-msgid "Wireless"
-msgstr "無線網路"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:174
-msgid "Whether the interface is a wireless interface"
-msgstr "介面卡是否為無線網卡"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:181
-msgid "Signal"
-msgstr "訊號"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:182
-msgid "Wireless signal strength percentage"
-msgstr "無線訊號強度百分比"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:191
-#: ../src/plugins/netstatus/netstatus-util.c:167
-msgid "Error"
-msgstr "錯誤"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:192
-msgid "The current error condition"
-msgstr "目前的錯誤狀況"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:434
-#: ../src/plugins/netstatus/netstatus-iface.c:1197
-#, c-format
-msgid "Unable to open socket: %s"
-msgstr "無法開啟 socket: %s"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:496
-#: ../src/plugins/netstatus/netstatus-iface.c:1223
-#, c-format
-msgid "SIOCGIFFLAGS error: %s"
-msgstr "SIOCGIFFLAGS 錯誤：%s"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:870
-msgid "AMPR NET/ROM"
-msgstr "AMPR NET/ROM"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:873
-msgid "Ethernet"
-msgstr "乙太網路"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:879
-msgid "AMPR AX.25"
-msgstr "AMPR AX.25"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:888
-#: ../src/plugins/netstatus/netstatus-iface.c:1008
-msgid "16/4 Mbps Token Ring"
-msgstr "16/4 Mbps Token Ring"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:891
-msgid "ARCnet"
-msgstr "ARCnet"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:897
-msgid "Frame Relay DLCI"
-msgstr "Frame Relay DLCI"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:903
-msgid "Metricom Starmode IP"
-msgstr "Metricom Starmode IP"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:906
-msgid "Serial Line IP"
-msgstr "Serial Line IP"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:909
-msgid "VJ Serial Line IP"
-msgstr "VJ Serial Line IP"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:912
-msgid "6-bit Serial Line IP"
-msgstr "6-bit Serial Line IP"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:915
-msgid "VJ 6-bit Serial Line IP"
-msgstr "VJ 6-bit Serial Line IP"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:921
-msgid "Adaptive Serial Line IP"
-msgstr "Adaptive Serial Line IP"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:924
-msgid "AMPR ROSE"
-msgstr "AMPR ROSE"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:927
-msgid "Generic X.25"
-msgstr "Generic X.25"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:930
-msgid "Point-to-Point Protocol"
-msgstr "Point-to-Point Protocol"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:936
-msgid "(Cisco)-HDLC"
-msgstr "(Cisco)-HDLC"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:939
-msgid "LAPB"
-msgstr "LAPB"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:948
-msgid "IPIP Tunnel"
-msgstr "IPIP Tunnel"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:954
-msgid "Frame Relay Access Device"
-msgstr "Frame Relay Access Device"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:960
-msgid "Local Loopback"
-msgstr "Local Loopback"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:966
-msgid "Fiber Distributed Data Interface"
-msgstr "Fiber Distributed Data Interface"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:972
-msgid "IPv6-in-IPv4"
-msgstr "IPv6-in-IPv4"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:984
-msgid "HIPPI"
-msgstr "HIPPI"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:987
-msgid "Ash"
-msgstr "Ash"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:990
-msgid "Econet"
-msgstr "Econet"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:993
-msgid "IrLAP"
-msgstr "IrLAP"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:1155
-#, c-format
-msgid "SIOCGIFCONF error: %s"
-msgstr "SIOCGIFCONF 錯誤： %s"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:1248
-#, c-format
-msgid "No network devices found"
-msgstr "找不到網路裝置"
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:180
-#, c-format
-msgid "Cannot open /proc/net/dev: %s"
-msgstr "無法開啟 /proc/net/dev: %s"
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:189
-msgid "Could not parse /proc/net/dev. Unknown format."
-msgstr "無法解析 /proc/net/dev。未知的格式。"
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:204
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:330
-#, c-format
-msgid "Could not parse interface name from '%s'"
-msgstr "無法從 '%s' 解析介面卡名稱"
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:217
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:645
-#, c-format
-msgid ""
-"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
-msgstr ""
-"無法從 '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d; 解析介面"
-"卡統計資料"
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:314
-msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr "無法解析 /proc/net/wireless。未知格式。"
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:341
-#, c-format
-msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr "無法從 '%s'. link_idx = %d; 解析無線網路細節"
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:414
-#, c-format
-msgid "Could not connect to interface, '%s'"
-msgstr "無法連接到介面 '%s'"
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:420
-#, c-format
-msgid "Could not send ioctl to interface, '%s'"
-msgstr "無法傳送 ioctl 到介面 '%s'"
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:598
-#, c-format
-msgid "Could not parse command line '%s': %s"
-msgstr "無法解析命令列 '%s': %s"
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:635
-msgid "Could not parse 'netstat' output. Unknown format"
-msgstr "無法解析 'netstat' 的輸出。未知格式"
-
-#: ../src/plugins/netstatus/netstatus-util.c:152
-msgid "Disconnected"
-msgstr "斷線"
-
-#: ../src/plugins/netstatus/netstatus-util.c:155
-msgid "Idle"
-msgstr "閒置"
-
-#: ../src/plugins/netstatus/netstatus-util.c:158
-msgid "Sending"
-msgstr "正在傳送"
-
-#: ../src/plugins/netstatus/netstatus-util.c:161
-msgid "Receiving"
-msgstr "正在接收"
-
-#: ../src/plugins/netstatus/netstatus-util.c:164
-msgid "Sending/Receiving"
-msgstr "傳送/接收"
 
 #: ../src/plugins/separator.c:98
 msgid "Separator"
@@ -1148,6 +850,11 @@ msgstr "位元組"
 msgid "packets"
 msgstr "封包"
 
+#: ../src/plugins/netstat/netstat.c:315
+#: ../src/plugins/netstatus/netstatus-iface.c:173
+msgid "Wireless"
+msgstr "無線網路"
+
 #: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
 msgstr "通訊協定："
@@ -1284,6 +991,251 @@ msgstr ""
 "\n"
 "%s"
 
+#: ../src/plugins/netstatus/netstatus-iface.c:148
+msgid "Name"
+msgstr "名稱"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:149
+msgid "The interface name"
+msgstr "介面名稱"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:156
+msgid "State"
+msgstr "狀態"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:157
+msgid "The interface state"
+msgstr "介面狀態"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:165
+msgid "Stats"
+msgstr "統計"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:166
+msgid "The interface packets/bytes statistics"
+msgstr "介面 封包/位元組 統計"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:174
+msgid "Whether the interface is a wireless interface"
+msgstr "介面卡是否為無線網卡"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:181
+msgid "Signal"
+msgstr "訊號"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:182
+msgid "Wireless signal strength percentage"
+msgstr "無線訊號強度百分比"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:191
+#: ../src/plugins/netstatus/netstatus-util.c:167
+msgid "Error"
+msgstr "錯誤"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:192
+msgid "The current error condition"
+msgstr "目前的錯誤狀況"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:434
+#: ../src/plugins/netstatus/netstatus-iface.c:1197
+#, c-format
+msgid "Unable to open socket: %s"
+msgstr "無法開啟 socket: %s"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:496
+#: ../src/plugins/netstatus/netstatus-iface.c:1223
+#, c-format
+msgid "SIOCGIFFLAGS error: %s"
+msgstr "SIOCGIFFLAGS 錯誤：%s"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:870
+msgid "AMPR NET/ROM"
+msgstr "AMPR NET/ROM"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:873
+msgid "Ethernet"
+msgstr "乙太網路"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:879
+msgid "AMPR AX.25"
+msgstr "AMPR AX.25"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:888
+#: ../src/plugins/netstatus/netstatus-iface.c:1008
+msgid "16/4 Mbps Token Ring"
+msgstr "16/4 Mbps Token Ring"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:891
+msgid "ARCnet"
+msgstr "ARCnet"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:897
+msgid "Frame Relay DLCI"
+msgstr "Frame Relay DLCI"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:903
+msgid "Metricom Starmode IP"
+msgstr "Metricom Starmode IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:906
+msgid "Serial Line IP"
+msgstr "Serial Line IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:909
+msgid "VJ Serial Line IP"
+msgstr "VJ Serial Line IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:912
+msgid "6-bit Serial Line IP"
+msgstr "6-bit Serial Line IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:915
+msgid "VJ 6-bit Serial Line IP"
+msgstr "VJ 6-bit Serial Line IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:921
+msgid "Adaptive Serial Line IP"
+msgstr "Adaptive Serial Line IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:924
+msgid "AMPR ROSE"
+msgstr "AMPR ROSE"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:927
+msgid "Generic X.25"
+msgstr "Generic X.25"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:930
+msgid "Point-to-Point Protocol"
+msgstr "Point-to-Point Protocol"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:936
+msgid "(Cisco)-HDLC"
+msgstr "(Cisco)-HDLC"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:939
+msgid "LAPB"
+msgstr "LAPB"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:948
+msgid "IPIP Tunnel"
+msgstr "IPIP Tunnel"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:954
+msgid "Frame Relay Access Device"
+msgstr "Frame Relay Access Device"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:960
+msgid "Local Loopback"
+msgstr "Local Loopback"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:966
+msgid "Fiber Distributed Data Interface"
+msgstr "Fiber Distributed Data Interface"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:972
+msgid "IPv6-in-IPv4"
+msgstr "IPv6-in-IPv4"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:984
+msgid "HIPPI"
+msgstr "HIPPI"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:987
+msgid "Ash"
+msgstr "Ash"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:990
+msgid "Econet"
+msgstr "Econet"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:993
+msgid "IrLAP"
+msgstr "IrLAP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:1155
+#, c-format
+msgid "SIOCGIFCONF error: %s"
+msgstr "SIOCGIFCONF 錯誤： %s"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:1248
+#, c-format
+msgid "No network devices found"
+msgstr "找不到網路裝置"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:180
+#, c-format
+msgid "Cannot open /proc/net/dev: %s"
+msgstr "無法開啟 /proc/net/dev: %s"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:189
+msgid "Could not parse /proc/net/dev. Unknown format."
+msgstr "無法解析 /proc/net/dev。未知的格式。"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:204
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:330
+#, c-format
+msgid "Could not parse interface name from '%s'"
+msgstr "無法從 '%s' 解析介面卡名稱"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:217
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:645
+#, c-format
+msgid ""
+"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
+msgstr ""
+"無法從 '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d; 解析介面"
+"卡統計資料"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:314
+msgid "Could not parse /proc/net/wireless. Unknown format."
+msgstr "無法解析 /proc/net/wireless。未知格式。"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:341
+#, c-format
+msgid "Could not parse wireless details from '%s'. link_idx = %d;"
+msgstr "無法從 '%s'. link_idx = %d; 解析無線網路細節"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:414
+#, c-format
+msgid "Could not connect to interface, '%s'"
+msgstr "無法連接到介面 '%s'"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:420
+#, c-format
+msgid "Could not send ioctl to interface, '%s'"
+msgstr "無法傳送 ioctl 到介面 '%s'"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:598
+#, c-format
+msgid "Could not parse command line '%s': %s"
+msgstr "無法解析命令列 '%s': %s"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:635
+msgid "Could not parse 'netstat' output. Unknown format"
+msgstr "無法解析 'netstat' 的輸出。未知格式"
+
+#: ../src/plugins/netstatus/netstatus-util.c:152
+msgid "Disconnected"
+msgstr "斷線"
+
+#: ../src/plugins/netstatus/netstatus-util.c:155
+msgid "Idle"
+msgstr "閒置"
+
+#: ../src/plugins/netstatus/netstatus-util.c:158
+msgid "Sending"
+msgstr "正在傳送"
+
+#: ../src/plugins/netstatus/netstatus-util.c:161
+msgid "Receiving"
+msgstr "正在接收"
+
+#: ../src/plugins/netstatus/netstatus-util.c:164
+msgid "Sending/Receiving"
+msgstr "傳送/接收"
+
 #: ../src/plugins/batt/batt.c:131
 msgid "No batteries found"
 msgstr "沒有電池"
@@ -1366,6 +1318,9 @@ msgstr "鍵盤 LED 燈號"
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "顯示 CapsLock、NumLock、及 ScrollLock 鍵的狀態"
+
+#~ msgid "Couldn't find pixmap file: %s"
+#~ msgstr "找不到圖片檔：%s"
 
 #~ msgid ""
 #~ "Allows you to switch the keyboard layout and\n"

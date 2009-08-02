@@ -16,6 +16,10 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -468,6 +472,8 @@ static void launchbar_configure_add_button(GtkButton * widget, Plugin * p)
     {
         LaunchButton * btn;
         gtk_tree_model_get(list, &it, COL_BTN, &btn, -1);
+        if( btn == NULL )
+            return;
 
         /* We have located a selected button.
          * Add a launch button to the launchbar and refresh the view in the configuration dialog. */
@@ -576,6 +582,24 @@ static void launchbar_configure_move_down_button(GtkButton * widget, Plugin * p)
     }
 }
 
+static void launchbar_configure_free_btns_in_model(GtkTreeModel* model, GtkTreeIter *parent_it)
+{
+    GtkTreeIter it;
+    if (gtk_tree_model_iter_children(model, &it, parent_it))
+    {
+        do
+        {
+            LaunchButton * btn;
+            gtk_tree_model_get(model, &it, COL_BTN, &btn, -1);
+            if(G_LIKELY(btn))
+                launchbutton_free(btn);
+            if( gtk_tree_model_iter_has_child(model, &it) )
+                launchbar_configure_free_btns_in_model(model, &it);
+        }
+        while (gtk_tree_model_iter_next(model, &it));
+    }
+}
+
 /* Handler for "response" signal from launchbar configuration dialog. */
 static void launchbar_configure_response(GtkDialog * dlg, int response, Plugin * p)
 {
@@ -584,24 +608,14 @@ static void launchbar_configure_response(GtkDialog * dlg, int response, Plugin *
     /* Deallocate LaunchButtons that were loaded from the menu. */
     GtkTreeView * menu_view = GTK_TREE_VIEW(g_object_get_data(G_OBJECT(lb->config_dlg), "menu_view"));
     GtkTreeModel * model = gtk_tree_view_get_model(menu_view);
-    GtkTreeIter it;
-    if (gtk_tree_model_get_iter_first(model, &it))
-    {
-        do
-        {
-            LaunchButton * btn;
-            gtk_tree_model_get(model, &it, COL_BTN, &btn, -1);
-            launchbutton_free(btn);           
-        }
-        while (gtk_tree_model_iter_next(model, &it));
-    }
+    launchbar_configure_free_btns_in_model(model, NULL);
 
     /* Deallocate the configuration dialog. */
     lb->config_dlg = NULL;
     gtk_widget_destroy(GTK_WIDGET(dlg));
 }
 
-static void launchbar_configure_add_menu_recursive(GtkListStore * list, MenuCacheDir * menu_dir)
+static void launchbar_configure_add_menu_recursive(GtkTreeStore * tree, GtkTreeIter* parent_it, MenuCacheDir * menu_dir)
 {
     /* Iterate over all menu items in this directory. */
     GSList * l;
@@ -621,27 +635,34 @@ static void launchbar_configure_add_menu_recursive(GtkListStore * list, MenuCach
                  * the button in the handler.  In this application, the desktop_id is the
                  * fully qualified desktop file path.  The image and tooltip are what is displayed in the view. */
                 LaunchButton * btn = g_new0(LaunchButton, 1);
-                btn->desktop_id = g_strdup(menu_cache_item_get_file_path(item));
+                btn->desktop_id = menu_cache_item_get_file_path(item);
                 btn->image = g_strdup(menu_cache_item_get_icon(item));
                 btn->tooltip = g_strdup(menu_cache_item_get_name(item));
 
                 /* Add the row to the view. */
                 GtkTreeIter it;
-                gtk_list_store_append(list, &it);
-                gtk_list_store_set(list, &it,
-                    COL_ICON, lxpanel_load_icon(btn->image, PANEL_ICON_SIZE, PANEL_ICON_SIZE, TRUE),
-                    COL_TITLE, ((btn->tooltip != NULL) ? btn->tooltip : btn->desktop_id),
+                gtk_tree_store_append(tree, &it, parent_it);
+                gtk_tree_store_set(tree, &it,
+                    COL_ICON, lxpanel_load_icon(menu_cache_item_get_icon(item), PANEL_ICON_SIZE, PANEL_ICON_SIZE, TRUE),
+                    COL_TITLE, menu_cache_item_get_name(item),
                     COL_BTN, btn,
                     -1);
                 }
                 break;
 
             case MENU_CACHE_TYPE_DIR:
+                {
+                GtkTreeIter it;
+                gtk_tree_store_append(tree, &it, parent_it);
+                gtk_tree_store_set(tree, &it,
+                    COL_ICON, lxpanel_load_icon(menu_cache_item_get_icon(item), PANEL_ICON_SIZE, PANEL_ICON_SIZE, TRUE),
+                    COL_TITLE, menu_cache_item_get_name(item),
+                    -1);
                 /* If a directory, recursively add its menu items. */
-                launchbar_configure_add_menu_recursive(list, MENU_CACHE_DIR(item));
+                launchbar_configure_add_menu_recursive(tree, &it, MENU_CACHE_DIR(item));
+                }
                 break;
         }
-
     }
 }
 
@@ -653,15 +674,8 @@ static void launchbar_configure_initialize_list(Plugin * p, GtkWidget * dlg, Gtk
     /* Set the selection mode. */
     gtk_tree_selection_set_mode(gtk_tree_view_get_selection(view), GTK_SELECTION_BROWSE);
 
-    /* Establish the column data types. */
-    GtkListStore * list = gtk_list_store_new(N_COLS,
-        GDK_TYPE_PIXBUF,
-        G_TYPE_STRING,
-        G_TYPE_POINTER);
-
     /* Define a column. */
-    GtkTreeViewColumn * col = gtk_tree_view_column_new();
-    gtk_tree_view_column_set_title(col, ((from_menu) ? _("Available Applications") : _("Applications")));
+    GtkTreeViewColumn* col = gtk_tree_view_get_column(view, 0);
 
     /* Establish the pixbuf column cell renderer. */
     GtkCellRenderer * render = gtk_cell_renderer_pixbuf_new();
@@ -673,25 +687,26 @@ static void launchbar_configure_initialize_list(Plugin * p, GtkWidget * dlg, Gtk
     gtk_tree_view_column_pack_start(col, render, TRUE);
     gtk_tree_view_column_add_attribute(col, render, "text", COL_TITLE);
 
-    /* Append the column to the view. */
-    gtk_tree_view_append_column(view, col);
-
     if (from_menu)
     {
+        GtkTreeStore* tree = GTK_TREE_STORE(gtk_tree_view_get_model(view));
         /* Initialize from all menu items. */
         MenuCache * menu_cache = panel_menu_cache_new();
         if (menu_cache != NULL)
         {
             MenuCacheDir * dir = menu_cache_get_root_dir(menu_cache);
-            launchbar_configure_add_menu_recursive(list, dir);
+            launchbar_configure_add_menu_recursive(tree, NULL, dir);
             menu_cache_unref(menu_cache);
         }
         g_object_set_data(G_OBJECT(dlg), "menu_view", view);
     }
     else
     {
+        /* Establish the column data types. */
+        GtkListStore* list = GTK_LIST_STORE(gtk_tree_view_get_model(view));
+
         /* Initialize from defined launchbar buttons. */
-        GSList * l;
+        GSList* l;
         for (l = lb->buttons; l != NULL; l = l->next)
         {
             LaunchButton * btn = (LaunchButton *) l->data;
@@ -705,9 +720,6 @@ static void launchbar_configure_initialize_list(Plugin * p, GtkWidget * dlg, Gtk
         }
         g_object_set_data(G_OBJECT(dlg), "defined_view", view);
     }
-
-    /* Finish the setup and return. */
-    gtk_tree_view_set_model(view, GTK_TREE_MODEL(list));
 }
 
 /* Callback when the configuration dialog is to be shown. */
@@ -717,79 +729,43 @@ static void launchbar_configure(Plugin * p, GtkWindow * parent)
 
     if (lb->config_dlg == NULL)
     {
-        /* Create the configuration dialog. */
-        GtkWidget * dlg = gtk_dialog_new_with_buttons(
-            _(p->class->name),
-            parent,
-            0,
-            GTK_STOCK_CLOSE,
-            GTK_RESPONSE_CLOSE,
-            NULL);
-        gtk_window_set_default_size(GTK_WINDOW(dlg), 640, 400);
+        GtkWidget *dlg, *btn, *defined_view, *menu_view;
+        GtkBuilder *builder = gtk_builder_new();
+
+        gtk_builder_add_from_file(builder, PACKAGE_UI_DIR "/launchbar.ui", NULL);
+        dlg = (GtkWidget*)gtk_builder_get_object(builder, "dlg");
         panel_apply_icon(GTK_WINDOW(dlg));
 
-        /* Create a horizontal box. */
-        GtkWidget * hbox = gtk_hbox_new(FALSE, 4);
-        gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dlg)->vbox), hbox, TRUE, TRUE, 2);
-
-        /* Create a scrollbar as the child of the horizontal box. */
-        GtkWidget * defined_scroll = gtk_scrolled_window_new(NULL, NULL);
-        gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(defined_scroll), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
-        gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(defined_scroll), GTK_SHADOW_IN);
-        gtk_box_pack_start(GTK_BOX(hbox), defined_scroll, TRUE, TRUE, 2);
-
-        /* Create a tree view as the child of the scrollbar. */
-        GtkWidget * defined_view = gtk_tree_view_new();
-        gtk_container_add(GTK_CONTAINER(defined_scroll), defined_view);
-
-        /* Create a vertical box as the child of the horizontal box. */
-        GtkWidget * vbox = gtk_vbox_new(FALSE, 2);
-        gtk_box_pack_start(GTK_BOX(hbox), vbox, FALSE, FALSE, 2);
-
-        /* Create a scrollbar as the child of the horizontal box. */
-        GtkWidget * menu_scroll = gtk_scrolled_window_new(NULL, NULL);
-        gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(menu_scroll), GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
-        gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(menu_scroll), GTK_SHADOW_IN);
-        gtk_box_pack_start(GTK_BOX(hbox), menu_scroll, TRUE, TRUE, 2);
-
-        /* Create a tree view as the child of the scrollbar. */
-        GtkWidget * menu_view = gtk_tree_view_new();
-        gtk_container_add(GTK_CONTAINER(menu_scroll), menu_view);
-
-        /* Create an "Add" button as the child of the vertical box. */
-        GtkWidget * btn = gtk_button_new_from_stock(GTK_STOCK_ADD);
-        g_signal_connect(btn, "clicked", G_CALLBACK(launchbar_configure_add_button), p);
-        gtk_box_pack_start(GTK_BOX(vbox), btn, FALSE, FALSE, 2);
-
-        /* Create a "Remove" button as the child of the vertical box. */
-        btn = gtk_button_new_from_stock(GTK_STOCK_REMOVE);
-        g_signal_connect(btn, "clicked", G_CALLBACK(launchbar_configure_remove_button), p);
-        gtk_box_pack_start(GTK_BOX(vbox), btn, FALSE, FALSE, 2);
-
-        /* Create a "Move Up" button as the child of the vertical box. */
-        btn = gtk_button_new_from_stock(GTK_STOCK_GO_UP);
-        g_signal_connect(btn, "clicked", G_CALLBACK(launchbar_configure_move_up_button), p);
-        gtk_box_pack_start(GTK_BOX(vbox), btn, FALSE, FALSE, 2);
-
-        /* Create a "Move Down" button as the child of the vertical box. */
-        btn = gtk_button_new_from_stock(GTK_STOCK_GO_DOWN);
-        g_signal_connect(btn, "clicked", G_CALLBACK(launchbar_configure_move_down_button), p);
-        gtk_box_pack_start(GTK_BOX(vbox), btn, FALSE, FALSE, 2);
+        defined_view = (GtkWidget*)gtk_builder_get_object(builder, "defined_view");
+        menu_view = (GtkWidget*)gtk_builder_get_object(builder, "menu_view");
 
         /* Connect signals. */
         g_signal_connect(dlg, "response", G_CALLBACK(launchbar_configure_response), p);
+
+        btn = (GtkWidget*)gtk_builder_get_object(builder, "add");
+        g_signal_connect(btn, "clicked", G_CALLBACK(launchbar_configure_add_button), p);
+
+        btn = (GtkWidget*)gtk_builder_get_object(builder, "remove");
+        g_signal_connect(btn, "clicked", G_CALLBACK(launchbar_configure_remove_button), p);
+
+        btn = (GtkWidget*)gtk_builder_get_object(builder, "up");
+        g_signal_connect(btn, "clicked", G_CALLBACK(launchbar_configure_move_up_button), p);
+
+        btn = (GtkWidget*)gtk_builder_get_object(builder, "down");
+        g_signal_connect(btn, "clicked", G_CALLBACK(launchbar_configure_move_down_button), p);
+
+        gtk_window_present(GTK_WINDOW(dlg));
+        lb->config_dlg = dlg;
+
+        /* Establish a callback when the dialog completes. */
+        g_object_weak_ref(G_OBJECT(dlg), (GWeakNotify) panel_config_save, p->panel);
 
         /* Initialize the tree view contents. */
         launchbar_configure_initialize_list(p, dlg, GTK_TREE_VIEW(defined_view), FALSE);
         launchbar_configure_initialize_list(p, dlg, GTK_TREE_VIEW(menu_view), TRUE);
 
-        /* Show the dialog. */
-        gtk_widget_show_all(dlg);
-
-        /* Establish a callback when the dialog completes. */
-        g_object_weak_ref(G_OBJECT(dlg), (GWeakNotify) panel_config_save, p->panel);
-        gtk_window_present(GTK_WINDOW(dlg));
-        lb->config_dlg = dlg;
+        g_object_unref(builder);
+        return;
     }
 }
 
@@ -843,7 +819,7 @@ PluginClass launchbar_plugin_class = {
 
     type : "launchbar",
     name : N_("Application Launch Bar"),
-    version: "1.0",
+    version: "2.0",
     description : N_("Bar with buttons to launch application"),
 
     constructor : launchbar_constructor,
