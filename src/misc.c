@@ -1301,7 +1301,7 @@ static GdkPixbuf * load_icon_file(const char * file_name, int height, int width)
 }
 
 /* Try to load an icon from the current theme. */
-static GdkPixbuf * load_icon_from_theme(GtkIconTheme * theme, const char * icon_name, int height, int width)
+static GdkPixbuf * load_icon_from_theme(GtkIconTheme * theme, const char * icon_name, int width, int height)
 {
     GdkPixbuf * icon = NULL;
 
@@ -1328,6 +1328,13 @@ static GdkPixbuf * load_icon_from_theme(GtkIconTheme * theme, const char * icon_
         {
             if ((height != gdk_pixbuf_get_height(icon)) || (width != gdk_pixbuf_get_width(icon)))
             {
+                /* Handle case of unspecified width; gdk_pixbuf_scale_simple does not. */
+                if (width < 0)
+                {
+                    int pixbuf_width = gdk_pixbuf_get_width(icon);
+                    int pixbuf_height = gdk_pixbuf_get_height(icon);
+                    width = height * pixbuf_width / pixbuf_height;
+                }
                 GdkPixbuf * scaled = gdk_pixbuf_scale_simple(icon, width, height, GDK_INTERP_BILINEAR);
                 g_object_unref(icon);
                 icon = scaled;
