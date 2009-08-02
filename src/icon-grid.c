@@ -376,7 +376,7 @@ extern void icon_grid_reorder_child(IconGrid * ig, GtkWidget * child, gint posit
         }
         else
             {
-            int local_position = position;
+            int local_position = position - 1;
             IconGridElement * ige_pred;
             for (
               ige_pred = ig->child_list;
