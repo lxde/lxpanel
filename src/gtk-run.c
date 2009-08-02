@@ -160,7 +160,10 @@ static void setup_auto_complete_with_data(ThreadData* data)
     g_object_unref( store );
     gtk_entry_completion_set_text_column( comp, 0 );
     gtk_entry_set_completion( (GtkEntry*)data->entry, comp );
-    g_object_unref( G_OBJECT(comp) );
+
+    /* trigger entry completion */
+    gtk_entry_completion_complete(comp);
+    g_object_unref( comp );
 }
 
 void thread_data_free(ThreadData* data)
