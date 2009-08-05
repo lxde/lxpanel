@@ -58,6 +58,32 @@ void panel_config_save(Panel* panel);   /* defined in configurator.c */
 
 gboolean is_in_lxde = FALSE;
 
+/* A hack used to be compatible with Gnome panel for gtk+ themes.
+ * Some gtk+ themes define special styles for desktop panels.
+ * http://live.gnome.org/GnomeArt/Tutorials/GtkThemes/GnomePanel
+ * So we make a derived class from GtkWindow named PanelToplevel
+ * and create the panels with it to be compatible with Gnome themes.
+ */
+#define PANEL_TOPLEVEL_TYPE				(panel_toplevel_get_type())
+
+typedef struct _PanelToplevel			PanelToplevel;
+typedef struct _PanelToplevelClass		PanelToplevelClass;
+struct _PanelToplevel
+{
+	GtkWindow parent;
+};
+struct _PanelToplevelClass
+{
+	GtkWindowClass parent_class;
+};
+G_DEFINE_TYPE(PanelToplevel, panel_toplevel, GTK_TYPE_WINDOW);
+static void panel_toplevel_class_init(PanelToplevelClass *klass)
+{
+}
+static void panel_toplevel_init(PanelToplevel *self)
+{
+}
+
 /* Allocate and initialize new Panel structure. */
 static Panel* panel_allocate(void)
 {
@@ -850,8 +876,10 @@ panel_start_gui(Panel *p)
     p->desknum = get_net_number_of_desktops();
     p->workarea = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_WORKAREA, XA_CARDINAL, &p->wa_len);
 
-    // main toplevel window
-    p->topgwin =  gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    /* main toplevel window */
+    /* p->topgwin =  gtk_window_new(GTK_WINDOW_TOPLEVEL); */
+    p->topgwin = (GtkWidget*)g_object_new(PANEL_TOPLEVEL_TYPE, NULL);
+    gtk_widget_set_name(p->topgwin, "PanelToplevel");
     p->display = gdk_display_get_default();
     gtk_container_set_border_width(GTK_CONTAINER(p->topgwin), 0);
     gtk_window_set_resizable(GTK_WINDOW(p->topgwin), FALSE);
