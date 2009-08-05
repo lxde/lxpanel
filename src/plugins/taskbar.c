@@ -1085,7 +1085,7 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
     else
     {
         /* Not a grouped-task representative, or entered from the grouped-task popup menu. */
-        Task * visible_task = ((tk->res_class == NULL) ? tk : tk->res_class->visible_task);
+        Task * visible_task = (((tk->res_class == NULL) || ( ! tk->tb->grouped_tasks)) ? tk : tk->res_class->visible_task);
         task_group_menu_destroy(tb);
 
         if (event->button == 1)
