@@ -38,6 +38,8 @@ typedef struct {
     char * image;				/* Main icon */
     WindowCommand button_1_command;		/* Command for mouse button 1 */
     WindowCommand button_2_command;		/* Command for mouse button 2 */
+    gboolean toggle_preference;			/* User preference: toggle iconify/shade and map */
+    gboolean toggle_state;			/* State of toggle */
 } WinCmdPlugin;
 
 
@@ -48,16 +50,17 @@ static pair wincmd_pair [] = {
     { 0, NULL },
 };
 
-static void wincmd_execute(WindowCommand command);
+static void wincmd_execute(WinCmdPlugin * wc, WindowCommand command);
 static gboolean wincmd_button_clicked(GtkWidget * widget, GdkEventButton * event, Plugin * plugin);
 static int wincmd_constructor(Plugin * p, char ** fp);
 static void wincmd_destructor(Plugin * p);
+static void wincmd_configure(Plugin * p, GtkWindow * parent);
 static void wincmd_save_configuration(Plugin * p, FILE * fp);
 static void wincmd_panel_configuration_changed(Plugin * p);
 
 
 /* Execute a window command. */
-static void wincmd_execute(WindowCommand command)
+static void wincmd_execute(WinCmdPlugin * wc, WindowCommand command)
 {
     /* Get the list of all windows. */
     int client_count;
@@ -85,35 +88,44 @@ static void wincmd_execute(WindowCommand command)
                         break;
 
                     case WC_ICONIFY:
-                        XIconifyWindow(GDK_DISPLAY(), client_list[i], DefaultScreen(GDK_DISPLAY()));
+                        if (( ! wc->toggle_preference) || (wc->toggle_state))
+                            XIconifyWindow(GDK_DISPLAY(), client_list[i], DefaultScreen(GDK_DISPLAY()));
+                        else
+                            XMapWindow (GDK_DISPLAY(), client_list[i]);
                         break;
 
                     case WC_SHADE:
                         Xclimsg(client_list[i], a_NET_WM_STATE,
-                            a_NET_WM_STATE_ADD,
+                            ((( ! wc->toggle_preference) || (wc->toggle_state)) ? a_NET_WM_STATE_ADD : a_NET_WM_STATE_REMOVE),
                             a_NET_WM_STATE_SHADED, 0, 0, 0);
                         break;
                 }
             }
         }
         XFree(client_list);
+
+	/* Toggle state change if configured. */
+        if (wc->toggle_preference)
+            wc->toggle_state = ! wc->toggle_state;
     }
 }
 
 /* Handler for "clicked" signal on main widget. */
 static gboolean wincmd_button_clicked(GtkWidget * widget, GdkEventButton * event, Plugin * plugin)
 {
+    WinCmdPlugin * wc = (WinCmdPlugin *) plugin->priv;
+
     /* Standard right-click handling. */
     if (plugin_button_press_event(widget, event, plugin))
         return TRUE;
 
     /* Left-click to iconify. */
     if (event->button == 1)
-        wincmd_execute(WC_ICONIFY);
+        wincmd_execute(wc, WC_ICONIFY);
 
     /* Middle-click to shade. */
     else if (event->button == 2)
-        wincmd_execute(WC_SHADE);
+        wincmd_execute(wc, WC_SHADE);
 
     return TRUE;
 }
@@ -149,6 +161,8 @@ static int wincmd_constructor(Plugin * p, char ** fp)
                     wc->button_2_command = str2num(wincmd_pair, s.t[1], WC_SHADE);
                 else if (g_ascii_strcasecmp(s.t[0], "image") == 0)
                     wc->image = expand_tilda(g_strdup(s.t[1]));
+                else if (g_ascii_strcasecmp(s.t[0], "Toggle") == 0)
+                    wc->toggle_preference = str2num(bool_pair, s.t[1], 0);
                 else
                     ERR("wincmd: unknown var %s\n", s.t[0]);
             }
@@ -183,6 +197,27 @@ static void wincmd_destructor(Plugin * p)
     g_free(wc);
 }
 
+/* Callback when the configuration dialog has recorded a configuration change. */
+static void wincmd_apply_configuration(Plugin * p)
+{
+    WinCmdPlugin * wc = (WinCmdPlugin *) p->priv;
+    wc->toggle_state = FALSE;
+}
+
+/* Callback when the configuration dialog is to be shown. */
+static void wincmd_configure(Plugin * p, GtkWindow * parent)
+{
+    WinCmdPlugin * wc = (WinCmdPlugin *) p->priv;
+    GtkWidget * dlg = create_generic_config_dlg(
+        _(p->class->name),
+        GTK_WIDGET(parent),
+        (GSourceFunc) wincmd_apply_configuration, (gpointer) p,
+        _("Alternately iconify/shade and raise"), &wc->toggle_preference, CONF_TYPE_BOOL,
+        NULL);
+    gtk_window_present(GTK_WINDOW(dlg));
+}
+
+
 /* Save the configuration to the configuration file. */
 static void wincmd_save_configuration(Plugin * p, FILE * fp)
 {
@@ -190,6 +225,7 @@ static void wincmd_save_configuration(Plugin * p, FILE * fp)
     lxpanel_put_str(fp, "image", wc->image);
     lxpanel_put_str(fp, "Button1", num2str(wincmd_pair, wc->button_1_command, NULL));
     lxpanel_put_str(fp, "Button2", num2str(wincmd_pair, wc->button_2_command, NULL));
+    lxpanel_put_bool(fp, "Toggle", wc->toggle_preference);
 }
 
 /* Callback when panel configuration changes. */
@@ -211,7 +247,8 @@ PluginClass wincmd_plugin_class = {
 
     constructor : wincmd_constructor,
     destructor  : wincmd_destructor,
-    config : NULL,
+    config : wincmd_configure,
     save : wincmd_save_configuration,
     panel_configuration_changed : wincmd_panel_configuration_changed
+
 };
