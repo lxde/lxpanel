@@ -295,11 +295,12 @@ static void recompute_group_visibility_on_current_desktop(TaskbarPlugin * tb)
 static void task_draw_label(Task * tk)
 {
     TaskClass * tc = tk->res_class;
+    gboolean bold_style = (((tk->entered_state) && (tk->tb->flat_button)) || tk->flash_state);
     if ((tk->tb->grouped_tasks) && (tc != NULL) && (tc->visible_task == tk) && (tc->visible_count > 1))
 	{
         char * label = g_strdup_printf("(%d) %s", tc->visible_count, tc->visible_name);
         gtk_widget_set_tooltip_text(tk->button, label);
-        panel_draw_label_text(tk->tb->plug->panel, tk->label, label, (tk->entered_state || tk->flash_state), tk->tb->flat_button);
+        panel_draw_label_text(tk->tb->plug->panel, tk->label, label, bold_style, tk->tb->flat_button);
         g_free(label);
 	}
     else
@@ -307,7 +308,7 @@ static void task_draw_label(Task * tk)
         char * name = tk->iconified ? tk->name_iconified : tk->name;
         if (tk->tb->tooltips)
             gtk_widget_set_tooltip_text(tk->button, name);
-        panel_draw_label_text(tk->tb->plug->panel, tk->label, name, (tk->entered_state || tk->flash_state), tk->tb->flat_button);
+        panel_draw_label_text(tk->tb->plug->panel, tk->label, name, bold_style, tk->tb->flat_button);
     }
 }
 
@@ -2047,5 +2048,5 @@ PluginClass taskbar_plugin_class = {
     config : taskbar_configure,
     save : taskbar_save_configuration,
     panel_configuration_changed : taskbar_panel_configuration_changed
-};
 
+};
