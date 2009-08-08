@@ -281,7 +281,7 @@ static void dclock_configure(Plugin * p, GtkWindow * parent)
         (GSourceFunc) dclock_apply_configuration, (gpointer) p,
         _("Clock Format"), &dc->clock_format, CONF_TYPE_STR,
         _("Tooltip Format"), &dc->tooltip_format, CONF_TYPE_STR,
-        _("Format codes: man 3 strftime"), NULL, CONF_TYPE_TRIM,
+        _("Format codes: man 3 strftime; \\n for line break"), NULL, CONF_TYPE_TRIM,
         _("Action when clicked (default: display calendar)"), &dc->action, CONF_TYPE_STR,
         _("Bold font"), &dc->bold, CONF_TYPE_BOOL,
         NULL);

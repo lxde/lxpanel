@@ -42,7 +42,6 @@ typedef struct {
     gboolean toggle_state;			/* State of toggle */
 } WinCmdPlugin;
 
-
 static pair wincmd_pair [] = {
     { WC_NONE,    "none" },
     { WC_ICONIFY, "iconify" },
@@ -54,10 +53,10 @@ static void wincmd_execute(WinCmdPlugin * wc, WindowCommand command);
 static gboolean wincmd_button_clicked(GtkWidget * widget, GdkEventButton * event, Plugin * plugin);
 static int wincmd_constructor(Plugin * p, char ** fp);
 static void wincmd_destructor(Plugin * p);
+static void wincmd_apply_configuration(Plugin * p);
 static void wincmd_configure(Plugin * p, GtkWindow * parent);
 static void wincmd_save_configuration(Plugin * p, FILE * fp);
 static void wincmd_panel_configuration_changed(Plugin * p);
-
 
 /* Execute a window command. */
 static void wincmd_execute(WinCmdPlugin * wc, WindowCommand command)
