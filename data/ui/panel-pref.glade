@@ -133,7 +133,7 @@
                                 </child>
                                 <child>
                                   <object class="GtkRadioButton" id="edge_top">
-                                    <property name="label" translatable="yes">Top	</property>
+                                    <property name="label" translatable="yes">Top</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">False</property>
@@ -183,7 +183,7 @@
                                 <property name="orientation">vertical</property>
                                 <child>
                                   <object class="GtkRadioButton" id="alignment_left">
-                                    <property name="label" translatable="yes">Left	</property>
+                                    <property name="label" translatable="yes">Left</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">False</property>
