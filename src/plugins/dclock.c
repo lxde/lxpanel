@@ -37,11 +37,13 @@
 typedef struct {
     Plugin * plugin;				/* Back pointer to Plugin */
     GtkWidget * clock_label;			/* Label containing clock value */
+    GtkWidget * clock_icon;			/* Icon when icon_only */
     GtkWidget * calendar_window;		/* Calendar window, if it is being displayed */
     char * clock_format;			/* Format string for clock value */
     char * tooltip_format;			/* Format string for tooltip value */
     char * action;				/* Command to execute on a click */
     gboolean bold;				/* True if bold font */
+    gboolean icon_only;				/* True if icon only (no clock value) */
     guint timer;				/* Timer for periodic update */
     char * prev_output;				/* Previous value of clock */
 } DClockPlugin;
@@ -131,7 +133,8 @@ static gboolean dclock_update_display(DClockPlugin * dc)
 
     /* When we write the clock value, it causes the panel to do a full relayout.
      * Since this function is called once per second, we take the trouble to check if the string actually changed first. */
-    if ((dc->prev_output == NULL) || (strcmp(dc->prev_output, output) != 0))
+    if (( ! dc->icon_only)
+    && ((dc->prev_output == NULL) || (strcmp(dc->prev_output, output) != 0)))
     {
         g_free(dc->prev_output);
         dc->prev_output = g_strdup(output);
@@ -207,6 +210,8 @@ static int dclock_constructor(Plugin * p, char ** fp)
                     dc->action = g_strdup(s.t[1]);
                 else if (g_ascii_strcasecmp(s.t[0], "BoldFont") == 0)
                     dc->bold = str2num(bool_pair, s.t[1], 0);
+                else if (g_ascii_strcasecmp(s.t[0], "IconOnly") == 0)
+                    dc->icon_only = str2num(bool_pair, s.t[1], 0);
                 else
                     ERR( "dclock: unknown var %s\n", s.t[0]);
             }
@@ -221,11 +226,19 @@ static int dclock_constructor(Plugin * p, char ** fp)
     /* Allocate top level widget and set into Plugin widget pointer. */
     p->pwid = gtk_event_box_new();
 
-    /* Allocate a label as the child of the top level. */
+    /* Allocate a horizontal box as the child of the top level. */
+    GtkWidget * hbox = gtk_hbox_new(FALSE, 0);
+    gtk_container_add(GTK_CONTAINER(p->pwid), hbox);
+    gtk_widget_show(hbox);
+
+    /* Create a label and an image as children of the horizontal box.
+     * Only one of these is visible at a time, controlled by user preference. */
     dc->clock_label = gtk_label_new(NULL);
     gtk_misc_set_alignment(GTK_MISC(dc->clock_label), 0.5, 0.5);
     gtk_misc_set_padding(GTK_MISC(dc->clock_label), 4, 0);
-    gtk_container_add(GTK_CONTAINER(p->pwid), dc->clock_label);
+    gtk_container_add(GTK_CONTAINER(hbox), dc->clock_label);
+    dc->clock_icon = gtk_image_new();
+    gtk_container_add(GTK_CONTAINER(hbox), dc->clock_icon);
 
     /* Connect signals. */
     g_signal_connect(G_OBJECT (p->pwid), "button_press_event", G_CALLBACK(dclock_button_press_event), (gpointer) p);
@@ -237,7 +250,7 @@ static int dclock_constructor(Plugin * p, char ** fp)
     dc->timer = g_timeout_add(1000, (GSourceFunc) dclock_update_display, (gpointer) dc);
 
     /* Show the widget and return. */
-    gtk_widget_show_all(p->pwid);
+    gtk_widget_show(p->pwid);
     return 1;
 }
 
@@ -266,6 +279,21 @@ static void dclock_destructor(Plugin * p)
 static void dclock_apply_configuration(Plugin * p)
 {
     DClockPlugin * dc = (DClockPlugin *) p->priv;
+
+    /* Set up the icon or the label as the displayable widget. */
+    if (dc->icon_only)
+    {
+        panel_image_set_from_file(p->panel, dc->clock_icon, PACKAGE_DATA_DIR "/lxpanel/images/clock.png");
+        gtk_widget_show(dc->clock_icon);
+        gtk_widget_hide(dc->clock_label);
+    }
+    else
+    {
+        gtk_widget_show(dc->clock_label);
+        gtk_widget_hide(dc->clock_icon);
+    }
+
+    /* Update the display. */
     g_free(dc->prev_output);	/* Force the update of the clock display */
     dc->prev_output = NULL;
     dclock_update_display(dc);
@@ -284,6 +312,7 @@ static void dclock_configure(Plugin * p, GtkWindow * parent)
         _("Format codes: man 3 strftime; \\n for line break"), NULL, CONF_TYPE_TRIM,
         _("Action when clicked (default: display calendar)"), &dc->action, CONF_TYPE_STR,
         _("Bold font"), &dc->bold, CONF_TYPE_BOOL,
+        _("Tooltip only"), &dc->icon_only, CONF_TYPE_BOOL,
         NULL);
     gtk_window_present(GTK_WINDOW(dlg));
 }
@@ -296,6 +325,7 @@ static void dclock_save_configuration(Plugin * p, FILE * fp)
     lxpanel_put_str(fp, "TooltipFmt", dc->tooltip_format);
     lxpanel_put_str(fp, "Action", dc->action);
     lxpanel_put_int(fp, "BoldFont", dc->bold);
+    lxpanel_put_int(fp, "IconOnly", dc->icon_only);
 }
 
 /* Callback when panel configuration changes. */
