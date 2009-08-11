@@ -1371,7 +1371,7 @@ GdkPixbuf * lxpanel_load_icon(const char * name, int width, int height, gboolean
                 {
                     /* Not found.
                      * Let's remove the suffix, and see if this name can match an icon in the current icon theme. */
-                    char * icon_name = g_strndup(name, suffix - name - 1);
+                    char * icon_name = g_strndup(name, suffix - name);
                     icon = load_icon_from_theme(theme, icon_name, width, height);
                     g_free(icon_name);
                 }
