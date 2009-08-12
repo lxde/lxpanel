@@ -95,12 +95,16 @@ response_event(GtkDialog *widget, gint arg1, Panel* panel )
 static void
 update_panel_geometry( Panel* p )
 {
-    calculate_position(p);
-    gtk_widget_set_size_request(p->topgwin, p->aw, p->ah);
-    gdk_window_move(p->topgwin->window, p->ax, p->ay);
-    panel_update_background(p);
-    panel_establish_autohide(p);
-    panel_set_wm_strut(p);
+    /* Guard against being called early in panel creation. */
+    if (p->topgwin != NULL)
+    {
+        calculate_position(p);
+        gtk_widget_set_size_request(p->topgwin, p->aw, p->ah);
+        gdk_window_move(p->topgwin->window, p->ax, p->ay);
+        panel_update_background(p);
+        panel_establish_autohide(p);
+        panel_set_wm_strut(p);
+    }
 }
 
 static gboolean edge_selector(Panel* p, int edge)

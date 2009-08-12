@@ -89,7 +89,6 @@ static Panel* panel_allocate(void)
 {
     Panel* p = g_new0(Panel, 1);
     p->allign = ALLIGN_CENTER;
-    p->orientation = ORIENT_NONE;
     p->edge = EDGE_NONE;
     p->widthtype = WIDTH_PERCENT;
     p->width = 100;
@@ -967,7 +966,8 @@ panel_start_gui(Panel *p)
 /* Exchange the "width" and "height" terminology for vertical and horizontal panels. */
 void panel_adjust_geometry_terminology(Panel * p)
 {
-    if ((p->height_label != NULL) && (p->width_label != NULL))
+    if ((p->height_label != NULL) && (p->width_label != NULL)
+    && (p->alignment_left_label != NULL) && (p->alignment_right_label != NULL))
     {
         if ((p->edge == EDGE_TOP) || (p->edge == EDGE_BOTTOM))
         {
@@ -1361,6 +1361,7 @@ Panel* panel_new( const char* config_file, const char* config_name )
         if( fp )
         {
             panel = panel_allocate();
+            panel->orientation = ORIENT_NONE;
             panel->name = g_strdup( config_name );
             pfp = fp;
 
