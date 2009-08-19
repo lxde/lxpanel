@@ -69,6 +69,7 @@ Atom a_NET_DESKTOP_VIEWPORT;
 Atom a_NET_DESKTOP_NAMES;
 Atom a_NET_ACTIVE_WINDOW;
 Atom a_NET_CLOSE_WINDOW;
+Atom a_NET_SHOWING_DESKTOP;
 Atom a_NET_SUPPORTED;
 Atom a_NET_WM_STATE;
 Atom a_NET_WM_STATE_SKIP_TASKBAR;
@@ -102,6 +103,9 @@ Atom a_MANAGER;
 
 Atom a_LXPANEL_CMD; /* for private client message */
 
+/* if current window manager is EWMH conforming. */
+gboolean is_ewmh_supported;
+
 enum{
     I_UTF8_STRING,
     I_XROOTPMAP_ID,
@@ -109,6 +113,7 @@ enum{
     I_WM_CLASS,
     I_WM_DELETE_WINDOW,
     I_WM_PROTOCOLS,
+
     I_NET_WORKAREA,
     I_NET_CLIENT_LIST,
     I_NET_CLIENT_LIST_STACKING,
@@ -117,6 +122,7 @@ enum{
     I_NET_DESKTOP_VIEWPORT,
     I_NET_DESKTOP_NAMES,
     I_NET_ACTIVE_WINDOW,
+    I_NET_SHOWING_DESKTOP,
     I_NET_SUPPORTED,
 
     I_NET_WM_STATE,
@@ -363,6 +369,7 @@ void resolve_atoms()
     atom_names[ I_NET_DESKTOP_VIEWPORT ] = "_NET_DESKTOP_VIEWPORT";
     atom_names[ I_NET_DESKTOP_NAMES ] = "_NET_DESKTOP_NAMES";
     atom_names[ I_NET_ACTIVE_WINDOW ] = "_NET_ACTIVE_WINDOW";
+    atom_names[ I_NET_SHOWING_DESKTOP ] = "_NET_SHOWING_DESKTOP";
     atom_names[ I_NET_SUPPORTED ] = "_NET_SUPPORTED";
     atom_names[ I_NET_WM_DESKTOP ] = "_NET_WM_DESKTOP";
     atom_names[ I_NET_WM_STATE ] = "_NET_WM_STATE";
@@ -414,6 +421,7 @@ void resolve_atoms()
     a_WM_CLASS = atoms[ I_WM_CLASS ];
     a_WM_DELETE_WINDOW = atoms[ I_WM_DELETE_WINDOW ];
     a_WM_PROTOCOLS = atoms[ I_WM_PROTOCOLS ];
+
     a_NET_WORKAREA = atoms[ I_NET_WORKAREA ];
     a_NET_CLIENT_LIST = atoms[ I_NET_CLIENT_LIST ];
     a_NET_CLIENT_LIST_STACKING = atoms[ I_NET_CLIENT_LIST_STACKING ];
@@ -422,6 +430,7 @@ void resolve_atoms()
     a_NET_DESKTOP_VIEWPORT = atoms[ I_NET_DESKTOP_VIEWPORT ];
     a_NET_DESKTOP_NAMES = atoms[ I_NET_DESKTOP_NAMES ];
     a_NET_ACTIVE_WINDOW = atoms[ I_NET_ACTIVE_WINDOW ];
+    a_NET_SHOWING_DESKTOP = atoms[ I_NET_SHOWING_DESKTOP ];
     a_NET_SUPPORTED = atoms[ I_NET_SUPPORTED ];
     a_NET_WM_STATE = atoms[ I_NET_WM_STATE ];
     a_NET_WM_STATE_SKIP_TASKBAR = atoms[ I_NET_WM_STATE_SKIP_TASKBAR ];

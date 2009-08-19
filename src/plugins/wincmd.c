@@ -120,7 +120,27 @@ static gboolean wincmd_button_clicked(GtkWidget * widget, GdkEventButton * event
 
     /* Left-click to iconify. */
     if (event->button == 1)
-        wincmd_execute(wc, WC_ICONIFY);
+    {
+        GdkScreen* screen = gtk_widget_get_screen(widget);
+        static GdkAtom atom = 0;
+        if( G_UNLIKELY(0 == atom) )
+            atom = gdk_atom_intern("_NET_SHOWING_DESKTOP", FALSE);
+
+        wc->toggle_state = !wc->toggle_state;
+
+        /* if current window manager supports EWMH spec */
+        if(gdk_x11_screen_supports_net_wm_hint(screen, atom))
+        {
+            Xclimsg(DefaultRootWindow(GDK_DISPLAY()),
+                        gdk_x11_atom_to_xatom(atom),
+                        wc->toggle_state, 0, 0, 0, 0);
+        }
+        else
+        {
+            /* fallback to iconifying windows one by one */
+            wincmd_execute(wc, WC_ICONIFY);
+        }
+    }
 
     /* Middle-click to shade. */
     else if (event->button == 2)

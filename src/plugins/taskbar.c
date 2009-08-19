@@ -186,7 +186,6 @@ static void menu_move_to_workspace(GtkWidget * widget, TaskbarPlugin * tb);
 static void menu_close_window(GtkWidget * widget, TaskbarPlugin * tb);
 static void taskbar_make_menu(TaskbarPlugin * tb);
 static void taskbar_build_gui(Plugin * p);
-static gboolean net_active_supported(void);
 static int taskbar_constructor(Plugin * p, char ** fp);
 static void taskbar_destructor(Plugin * p);
 static void taskbar_apply_configuration(Plugin * p);
@@ -1776,6 +1775,14 @@ static void taskbar_make_menu(TaskbarPlugin * tb)
     tb->menu = menu;
 }
 
+static void on_window_manager_changed(GdkScreen* screen, TaskbarPlugin* tb)
+{
+    GdkAtom net_active_atom;
+    GdkDisplay* display = gdk_screen_get_display(screen);
+    net_active_atom = gdk_x11_xatom_to_atom(a_NET_ACTIVE_WINDOW);
+    tb->use_net_active = gdk_x11_screen_supports_net_wm_hint(display, net_active_atom);
+}
+
 /* Build graphic elements needed for the taskbar. */
 static void taskbar_build_gui(Plugin * p)
 {
@@ -1814,26 +1821,9 @@ static void taskbar_build_gui(Plugin * p)
      * It is retained for the life of the taskbar and will be shown as needed.
      * Number of desktops and edge is needed for this operation. */
     taskbar_make_menu(tb);
-}
 
-/* Determine if the window manager supports NET_ACTIVE_WINDOW. */
-static gboolean net_active_supported(void)
-{
-    int nitems;
-    Atom * data = get_xaproperty(GDK_ROOT_WINDOW(), a_NET_SUPPORTED, XA_ATOM, &nitems);
-    if (data == NULL)
-        return FALSE;
-
-    while (nitems > 0)
-    {
-        if (data[--nitems] == a_NET_ACTIVE_WINDOW)
-        {
-            XFree(data);
-            return TRUE;
-        }
-    }
-    XFree(data);
-    return FALSE;
+    g_signal_connect(gtk_widget_get_screen(p->pwid), "window-manager-changed", G_CALLBACK(on_window_manager_changed), tb);
+    on_window_manager_changed(gtk_widget_get_screen(p->pwid), tb);
 }
 
 /* Plugin constructor. */
@@ -1854,7 +1844,6 @@ static int taskbar_constructor(Plugin * p, char ** fp)
     tb->use_mouse_wheel   = TRUE;
     tb->use_urgency_hint  = TRUE;
     tb->grouped_tasks     = FALSE;
-    tb->use_net_active    = net_active_supported();
 
     /* Process configuration file. */
     line s;
@@ -1925,6 +1914,10 @@ static void taskbar_destructor(Plugin * p)
     g_signal_handlers_disconnect_by_func(fbev, taskbar_net_active_window, tb);
     g_signal_handlers_disconnect_by_func(fbev, taskbar_net_number_of_desktops, tb);
     g_signal_handlers_disconnect_by_func(fbev, taskbar_net_client_list, tb);
+
+    /* Remove 'window-manager-changed' handler */
+    g_signal_handlers_disconnect_by_func(gtk_widget_get_screen(p->pwid),
+                                         on_window_manager_changed, tb);
 
     /* Deallocate task list. */
     while (tb->task_list != NULL)

@@ -280,7 +280,8 @@ panel_event_filter(GdkXEvent *xevent, GdkEvent *event, gpointer not_used)
 
     ENTER;
     DBG("win = 0x%x\n", ev->xproperty.window);
-    if (ev->type != PropertyNotify ) {
+    if (ev->type != PropertyNotify )
+    {
         /* private client message from lxpanelctl */
         if( ev->type == ClientMessage && ev->xproperty.atom == a_LXPANEL_CMD )
         {
@@ -295,26 +296,40 @@ panel_event_filter(GdkXEvent *xevent, GdkEvent *event, gpointer not_used)
 
     at = ev->xproperty.atom;
     win = ev->xproperty.window;
-    if (win == GDK_ROOT_WINDOW()) {
-        if (at == a_NET_CLIENT_LIST) {
-                fb_ev_emit(fbev, EV_CLIENT_LIST);
-        } else if (at == a_NET_CURRENT_DESKTOP) {
+    if (win == GDK_ROOT_WINDOW())
+    {
+        if (at == a_NET_CLIENT_LIST)
+        {
+            fb_ev_emit(fbev, EV_CLIENT_LIST);
+        }
+        else if (at == a_NET_CURRENT_DESKTOP)
+        {
             GSList* l;
             for( l = all_panels; l; l = l->next )
                 ((Panel*)l->data)->curdesk = get_net_current_desktop();
             fb_ev_emit(fbev, EV_CURRENT_DESKTOP);
-        } else if (at == a_NET_NUMBER_OF_DESKTOPS) {
+        }
+        else if (at == a_NET_NUMBER_OF_DESKTOPS)
+        {
             GSList* l;
             for( l = all_panels; l; l = l->next )
                 ((Panel*)l->data)->desknum = get_net_number_of_desktops();
             fb_ev_emit(fbev, EV_NUMBER_OF_DESKTOPS);
-        } else if (at == a_NET_DESKTOP_NAMES) {
+        }
+        else if (at == a_NET_DESKTOP_NAMES)
+        {
             fb_ev_emit(fbev, EV_DESKTOP_NAMES);
-        } else if (at == a_NET_ACTIVE_WINDOW) {
+        }
+        else if (at == a_NET_ACTIVE_WINDOW)
+        {
             fb_ev_emit(fbev, EV_ACTIVE_WINDOW );
-        } else if (at == a_NET_CLIENT_LIST_STACKING) {
+        }
+        else if (at == a_NET_CLIENT_LIST_STACKING)
+        {
             fb_ev_emit(fbev, EV_CLIENT_LIST_STACKING);
-        } else if (at == a_XROOTPMAP_ID) {
+        }
+        else if (at == a_XROOTPMAP_ID)
+        {
             GSList* l;
             for( l = all_panels; l; l = l->next )
             {
@@ -323,7 +338,9 @@ panel_event_filter(GdkXEvent *xevent, GdkEvent *event, gpointer not_used)
                     fb_bg_notify_changed_bg(p->bg);
                 }
             }
-        } else if (at == a_NET_WORKAREA) {
+        }
+        else if (at == a_NET_WORKAREA)
+        {
             GSList* l;
             for( l = all_panels; l; l = l->next )
             {
@@ -332,7 +349,8 @@ panel_event_filter(GdkXEvent *xevent, GdkEvent *event, gpointer not_used)
                 p->workarea = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_WORKAREA, XA_CARDINAL, &p->wa_len);
                 /* print_wmdata(p); */
             }
-        } else
+        }
+        else
             return GDK_FILTER_CONTINUE;
 
         return GDK_FILTER_REMOVE;

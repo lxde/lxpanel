@@ -171,6 +171,7 @@ extern Atom a_NET_DESKTOP_VIEWPORT;
 extern Atom a_NET_DESKTOP_NAMES;
 extern Atom a_NET_ACTIVE_WINDOW;
 extern Atom a_NET_CLOSE_WINDOW;
+extern Atom a_NET_SHOWING_DESKTOP;
 extern Atom a_NET_SUPPORTED;
 extern Atom a_NET_WM_STATE;
 extern Atom a_NET_WM_STATE_SKIP_TASKBAR;
@@ -209,6 +210,9 @@ extern Atom a_MANAGER;
 extern Atom a_LXPANEL_CMD; /* for private client message */
 
 extern int verbose;
+
+/* if current window manager is EWMH conforming. */
+extern gboolean is_ewmh_supported;
 
 extern FbEv *fbev;
 
