@@ -271,8 +271,10 @@ battery *battery_get() {
 	if ( b->type_battery == TRUE ) 
 	    break;
 	/* ignore non-batteries */
-	else 			
+	else { 			
 	    g_free(b);
+	    b = NULL;
+	}
     }
     g_dir_close( dir );
     return b;
