@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-18 14:26+0200\n"
-"PO-Revision-Date: 2009-07-23 11:56+0200\n"
+"PO-Revision-Date: 2009-08-23 03:26+0200\n"
 "Last-Translator: Sankarshan <sankarshan.mukhopadhyay@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -57,7 +57,7 @@ msgstr "<b>আকার</b>"
 
 #: ../data/ui/panel-pref.glade.h:11
 msgid "Advanced"
-msgstr "অতিরিক্ত"
+msgstr "উন্নত"
 
 #: ../data/ui/panel-pref.glade.h:12
 #, fuzzy
@@ -232,15 +232,17 @@ msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
+"এই প্যানেলটিকে মুছে ফেলা হবে কি?\n"
+"<b>সতর্কবার্তা: এটি পুনরুদ্ধার করা যাবে না।</b>"
 
 #: ../src/panel.c:592
 msgid "Confirm"
-msgstr ""
+msgstr "নিশ্চায়ণ"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:624
 msgid "translator-credits"
-msgstr "সঙ্কর্ষণ মুখোপাধ্যায়"
+msgstr "সঙ্কর্ষণ মুখোপাধ্যায় (sankarshan@randomink.org)"
 
 #: ../src/panel.c:629
 msgid "LXPanel"
@@ -265,7 +267,7 @@ msgstr "\"%s\" কে প্যানেল থেকে সরিয়ে ফে�
 
 #: ../src/panel.c:675
 msgid "Panel Settings"
-msgstr ""
+msgstr "প্যানেলের বিবিধ বৈশিষ্ট্য"
 
 #: ../src/panel.c:681
 msgid "Create New Panel"
@@ -286,7 +288,7 @@ msgstr "প্যানেল"
 #: ../src/panel.c:724
 #, c-format
 msgid "\"%s\" Settings"
-msgstr ""
+msgstr "\"%s\" বিবিধ বৈশিষ্ট্য"
 
 #: ../src/panel.c:954
 msgid "Top"
@@ -295,48 +297,48 @@ msgstr "উপরের"
 #: ../src/panel.c:1345
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr ""
+msgstr "lxpanel %s - UNIX ডেস্কটপের জন্য একটি হাল্কা GTK2+ প্যানেল\n"
 
 #: ../src/panel.c:1346
 #, c-format
 msgid "Command line options:\n"
-msgstr ""
+msgstr "কম্যান্ড লাইনে বিকল্প:\n"
 
 #: ../src/panel.c:1347
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr ""
+msgstr " --help      -- এই সহায়িকা প্রদর্শন করে প্রস্থান করুন\n"
 
 #: ../src/panel.c:1348
 #, c-format
 msgid " --version   -- print version and exit\n"
-msgstr ""
+msgstr " --version   -- সংস্করণ প্রদর্শন করে প্রস্থান করুন\n"
 
 #: ../src/panel.c:1349
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
+msgstr " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1351
 #, c-format
 msgid " --profile name -- use specified profile\n"
-msgstr ""
+msgstr " --profile name -- নির্দিষ্ট প্রোফাইল ব্যবহার করুন\n"
 
 #: ../src/panel.c:1353
 #, c-format
 msgid " -h  -- same as --help\n"
-msgstr ""
+msgstr " -h  -- যেমন --help\n"
 
 #: ../src/panel.c:1354
 #, c-format
 msgid " -p  -- same as --profile\n"
-msgstr ""
+msgstr " -p  -- যেমন --profile\n"
 
 #: ../src/panel.c:1355
 #, c-format
 msgid " -v  -- same as --version\n"
-msgstr ""
+msgstr " -v  -- যেমন --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
 #: ../src/panel.c:1357
@@ -399,62 +401,62 @@ msgstr "উচুঁ করুন(_R)"
 #. Add Restore menu item.
 #: ../src/plugins/taskbar.c:1677
 msgid "R_estore"
-msgstr ""
+msgstr "পুনরুদ্ধার করুন(_e)"
 
 #. Add Maximize menu item.
 #: ../src/plugins/taskbar.c:1682
 msgid "Ma_ximize"
-msgstr ""
+msgstr "সর্বোচ্চ মাপ(_x)"
 
 #. Add Iconify menu item.
 #: ../src/plugins/taskbar.c:1687
 msgid "Ico_nify"
-msgstr ""
+msgstr "আইকন যোগ করুন"
 
 #: ../src/plugins/taskbar.c:1706
 #, c-format
 msgid "Workspace _%d"
-msgstr ""
+msgstr "ওয়ার্কস্পেস _%d"
 
 #: ../src/plugins/taskbar.c:1711
 #, c-format
 msgid "Workspace %d"
-msgstr ""
+msgstr "ওয়ার্কস্পেস %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../src/plugins/taskbar.c:1725
 msgid "_All workspaces"
-msgstr ""
+msgstr "সকল ওয়ার্কস্পেসে(_A)"
 
 #. Add Move to Workspace menu item as a submenu.
 #: ../src/plugins/taskbar.c:1731
 msgid "_Move to Workspace"
-msgstr ""
+msgstr "ওয়ার্কস্পেসে সরিয়ে নিন(_M)"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../src/plugins/taskbar.c:1737
 msgid "_Close Window"
-msgstr ""
+msgstr "ওইন্ডো বন্ধ করুন(_C)"
 
 #: ../src/plugins/taskbar.c:1948
 msgid "Show tooltips"
-msgstr ""
+msgstr "টুলটিপ প্রদর্শন করুন"
 
 #: ../src/plugins/taskbar.c:1949
 msgid "Icons only"
-msgstr ""
+msgstr "কেবলমাত্র আইকন"
 
 #: ../src/plugins/taskbar.c:1950
 msgid "Flat buttons"
-msgstr ""
+msgstr "চাপা বটন"
 
 #: ../src/plugins/taskbar.c:1951
 msgid "Show windows from all desktops"
-msgstr ""
+msgstr "সকল ডেস্কটপ থেকে উইন্ডো প্রদর্শন করুন"
 
 #: ../src/plugins/taskbar.c:1952
 msgid "Use mouse wheel"
-msgstr ""
+msgstr "মাউস হুইল ব্যবহার করুন"
 
 #: ../src/plugins/taskbar.c:1953
 msgid "Flash when there is any window requiring attention"
@@ -466,15 +468,15 @@ msgstr ""
 
 #: ../src/plugins/taskbar.c:1955
 msgid "Maximum width of task button"
-msgstr ""
+msgstr "টাস্ক বটনের সর্বোচ্চ প্রস্থ"
 
 #: ../src/plugins/taskbar.c:1956
 msgid "Spacing"
-msgstr ""
+msgstr "স্পেস স্থাপন"
 
 #: ../src/plugins/taskbar.c:2010
 msgid "Task Bar (Window List)"
-msgstr ""
+msgstr "টাস্ক বার (উইন্ডো তালিকা)"
 
 #: ../src/plugins/taskbar.c:2012
 msgid ""
@@ -484,11 +486,11 @@ msgstr ""
 
 #: ../src/plugins/dclock.c:282
 msgid "Clock Format"
-msgstr ""
+msgstr "ঘড়ির বিন্যাস"
 
 #: ../src/plugins/dclock.c:283
 msgid "Tooltip Format"
-msgstr ""
+msgstr "টুলটিপের বিন্যাস"
 
 #: ../src/plugins/dclock.c:284
 msgid "Format codes: man 3 strftime"
@@ -496,341 +498,341 @@ msgstr ""
 
 #: ../src/plugins/dclock.c:285
 msgid "Action when clicked (default: display calendar)"
-msgstr ""
+msgstr "ক্লিক করলে ক্রিয়া (স্বাভাবিক: ক্যালেন্ডার প্রদর্শন)"
 
 #: ../src/plugins/dclock.c:286
 msgid "Bold font"
-msgstr ""
+msgstr "গাঢ় ফন্ট"
 
 #: ../src/plugins/dclock.c:313
 msgid "Digital Clock"
-msgstr ""
+msgstr "ডিজিটাল ঘড়ি"
 
 #: ../src/plugins/dclock.c:315
 msgid "Display digital clock and tooltip"
-msgstr ""
+msgstr "টুলটিপ ও ডিজিটাল ঘড়ি প্রদর্শন"
 
 #: ../src/plugins/menu.c:372
 msgid "Add to desktop"
-msgstr ""
+msgstr "ডেস্কটপে যোগ করুন"
 
 #: ../src/plugins/menu.c:382
 msgid "Properties"
-msgstr ""
+msgstr "বৈশিষ্ট্য"
 
 #: ../src/plugins/menu.c:990 ../src/plugins/dirmenu.c:367
 msgid "Icon"
-msgstr ""
+msgstr "আইকন"
 
 #: ../src/plugins/menu.c:1007
 msgid "Menu"
-msgstr ""
+msgstr "মেনু"
 
 #: ../src/plugins/menu.c:1009
 msgid "Application Menu"
-msgstr ""
+msgstr "অ্যাপ্লিকেশন মেনু"
 
 #: ../src/plugins/netstatus/glade-support.c:91
 #: ../src/plugins/netstatus/glade-support.c:115
 #, c-format
 msgid "Couldn't find pixmap file: %s"
-msgstr ""
+msgstr "পিক্সম্যাপ ফাইল খুঁজে পাওয়া যায়নি: %s"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
 #, no-c-format
 msgid "0%"
-msgstr ""
+msgstr "০%"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:194
 msgid "<b>Activity</b>"
-msgstr ""
+msgstr "<b>কর্ম</b>"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:131
 msgid "<b>Connection</b>"
-msgstr ""
+msgstr "<b>সংযোগ</b>"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:289
 msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr ""
+msgstr "<b>ইন্টার্নেট প্রোটোকল (IPv4)</b>"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:376
 msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr ""
+msgstr "<b>ইন্টার্নেট প্রোটোকল (IPv6)</b>"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:432
 msgid "<b>Network Device</b>"
-msgstr ""
+msgstr "<b>নেটওয়ার্ক ডিভাইস</b>"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:250
 msgid "<b>Signal Strength</b>"
-msgstr ""
+msgstr "<b>সিগনাল ক্ষমতা</b>"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:309
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:396
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:452
 msgid "Address:"
-msgstr ""
+msgstr "ঠিকানা:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
 #: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
 msgid "Broadcast:"
-msgstr ""
+msgstr "ব্রডকাস্ট:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:513
 msgid "Con_figure"
-msgstr ""
+msgstr "কনফিগার করুন(_f)"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:316
 msgid "Destination:"
-msgstr ""
+msgstr "গন্তব্যস্থল:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
 msgid "General"
-msgstr ""
+msgstr "সাধারণ"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:232
 msgid "Received:"
-msgstr ""
+msgstr "প্রাপ্ত হয়েছে:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:403
 msgid "Scope:"
-msgstr ""
+msgstr "পরিধি:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:239
 msgid "Sent:"
-msgstr ""
+msgstr "প্ররিত হয়েছে:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:155
 msgid "Status:"
-msgstr ""
+msgstr "অবস্থা:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
 msgid "Subnet Mask:"
-msgstr ""
+msgstr "সাবনেট মাস্ক:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:484
 msgid "Support"
-msgstr ""
+msgstr "সমর্থন"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:477
 msgid "Type:"
-msgstr ""
+msgstr "প্রকার:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
 #: ../src/plugins/netstatus/netstatus-dialog-ui.c:171
 msgid "_Name:"
-msgstr ""
+msgstr "নাম(_N):"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:148
 msgid "Name"
-msgstr ""
+msgstr "নাম"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:149
 msgid "The interface name"
-msgstr ""
+msgstr "ইন্টারফেসের নাম"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:156
 msgid "State"
-msgstr ""
+msgstr "অবস্থা"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:157
 msgid "The interface state"
-msgstr ""
+msgstr "ইন্টারফেসের অবস্থা"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:165
 msgid "Stats"
-msgstr ""
+msgstr "পরিসংখ্যান"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:166
 msgid "The interface packets/bytes statistics"
-msgstr ""
+msgstr "ইন্টারফেসের প্যাকেট‌্/বাইট পরিসংখ্যান"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:173
 #: ../src/plugins/netstat/netstat.c:315
 msgid "Wireless"
-msgstr ""
+msgstr "বেতার"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:174
 msgid "Whether the interface is a wireless interface"
-msgstr ""
+msgstr "ইন্টারফেসটি একটি বেতার সংযোগ ইন্টারফেস কিনা যাচাই করুন"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:181
 msgid "Signal"
-msgstr ""
+msgstr "সিগনাল"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:182
 msgid "Wireless signal strength percentage"
-msgstr ""
+msgstr "বেতার সিগনালের প্রতিশত ক্ষমতা পরিসংখ্যান"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:191
 #: ../src/plugins/netstatus/netstatus-util.c:167
 msgid "Error"
-msgstr ""
+msgstr "ত্রুটি"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:192
 msgid "The current error condition"
-msgstr ""
+msgstr "বর্তমান ত্রুটির অবস্থা"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:434
 #: ../src/plugins/netstatus/netstatus-iface.c:1197
 #, c-format
 msgid "Unable to open socket: %s"
-msgstr ""
+msgstr "সকেট খুলতে সক্ষম হয়নি: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:496
 #: ../src/plugins/netstatus/netstatus-iface.c:1223
 #, c-format
 msgid "SIOCGIFFLAGS error: %s"
-msgstr ""
+msgstr "SIOCGIFFLAGS ত্রুটি: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:870
 msgid "AMPR NET/ROM"
-msgstr ""
+msgstr "AMPR NET/ROM"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:873
 msgid "Ethernet"
-msgstr ""
+msgstr "ইথারনেট"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:879
 msgid "AMPR AX.25"
-msgstr ""
+msgstr "AMPR AX.25"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:888
 #: ../src/plugins/netstatus/netstatus-iface.c:1008
 msgid "16/4 Mbps Token Ring"
-msgstr ""
+msgstr "16/4 Mbps টোকেন রিং"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:891
 msgid "ARCnet"
-msgstr ""
+msgstr "ARCnet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:897
 msgid "Frame Relay DLCI"
-msgstr ""
+msgstr "Frame Relay DLCI"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:903
 msgid "Metricom Starmode IP"
-msgstr ""
+msgstr "Metricom Starmode IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:906
 msgid "Serial Line IP"
-msgstr ""
+msgstr "Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:909
 msgid "VJ Serial Line IP"
-msgstr ""
+msgstr "VJ Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:912
 msgid "6-bit Serial Line IP"
-msgstr ""
+msgstr "6-bit Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:915
 msgid "VJ 6-bit Serial Line IP"
-msgstr ""
+msgstr "VJ 6-bit Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:921
 msgid "Adaptive Serial Line IP"
-msgstr ""
+msgstr "Adaptive Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:924
 msgid "AMPR ROSE"
-msgstr ""
+msgstr "AMPR ROSE"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:927
 msgid "Generic X.25"
-msgstr ""
+msgstr "Generic X.25"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:930
 msgid "Point-to-Point Protocol"
-msgstr ""
+msgstr "Point-to-Point Protocol"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:936
 msgid "(Cisco)-HDLC"
-msgstr ""
+msgstr "(Cisco)-HDLC"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:939
 msgid "LAPB"
-msgstr ""
+msgstr "LAPB"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:948
 msgid "IPIP Tunnel"
-msgstr ""
+msgstr "IPIP Tunnel"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:954
 msgid "Frame Relay Access Device"
-msgstr ""
+msgstr "Frame Relay Access Device"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:960
 msgid "Local Loopback"
-msgstr ""
+msgstr "Local Loopback"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:966
 msgid "Fiber Distributed Data Interface"
-msgstr ""
+msgstr "Fiber Distributed Data Interface"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:972
 msgid "IPv6-in-IPv4"
-msgstr ""
+msgstr "IPv6-in-IPv4"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:984
 msgid "HIPPI"
-msgstr ""
+msgstr "HIPPI"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:987
 msgid "Ash"
-msgstr ""
+msgstr "Ash"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:990
 msgid "Econet"
-msgstr ""
+msgstr "Econet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:993
 msgid "IrLAP"
-msgstr ""
+msgstr "IrLAP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:1155
 #, c-format
 msgid "SIOCGIFCONF error: %s"
-msgstr ""
+msgstr "SIOCGIFCONF ত্রুটি: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:1248
 #, c-format
 msgid "No network devices found"
-msgstr ""
+msgstr "কোন নেটওয়ার্ক ডিভাইস খুঁজে পাওয়া যায়নি"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:180
 #, c-format
 msgid "Cannot open /proc/net/dev: %s"
-msgstr ""
+msgstr "/proc/net/dev খোলা সম্ভব হয়নি: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:189
 msgid "Could not parse /proc/net/dev. Unknown format."
-msgstr ""
+msgstr "/proc/net/dev পড়া সম্ভব হয়নি। অজানা ফর্ম্যাট।"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:204
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:330
 #, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr ""
+msgstr " '%s' থেকে ইন্টারফেসের নাম পড়া সম্ভব হয়নি"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
@@ -839,25 +841,27 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
+" '%s' থেকে ইন্টারফেস পরিসংখ্যান পড়া সম্ভব হয়নি।. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr ""
+msgstr "/proc/net/wireless পড়া সম্ভব হয়নি। অজানা বিন্যাস।"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr ""
+msgstr " '%s' থেকে বেতার সংযোগ তথ্য পড়া সম্ভব হয়নি।link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
 msgid "Could not connect to interface, '%s'"
-msgstr ""
+msgstr " '%s' ইন্টারফেসের সাথে সংযোগ সম্ভব হয়নি"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:420
 #, c-format
 msgid "Could not send ioctl to interface, '%s'"
-msgstr ""
+msgstr " '%s' ইন্টারফেসের সাথে ioctl প্রেরণ করা সম্ভব হয়নি"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
@@ -870,171 +874,175 @@ msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
-msgstr ""
+msgstr "সংযোগ বিচ্ছিন্ন হয়েছে"
 
 #: ../src/plugins/netstatus/netstatus-util.c:155
 msgid "Idle"
-msgstr ""
+msgstr "কর্মবিহীন"
 
 #: ../src/plugins/netstatus/netstatus-util.c:158
 msgid "Sending"
-msgstr ""
+msgstr "পাঠানো হচ্ছে"
 
 #: ../src/plugins/netstatus/netstatus-util.c:161
 msgid "Receiving"
-msgstr ""
+msgstr "গ্রহণ করা হচ্ছে"
 
 #: ../src/plugins/netstatus/netstatus-util.c:164
 msgid "Sending/Receiving"
-msgstr ""
+msgstr "প্রেরণ করা হচ্ছে/গ্রহণ করা হচ্ছে"
 
 #: ../src/plugins/separator.c:98
 msgid "Separator"
-msgstr ""
+msgstr "বিভাজক"
 
 #: ../src/plugins/separator.c:100
 msgid "Add a separator to the panel"
-msgstr ""
+msgstr "প্যানেলে বিভাজক যোগ করুন"
 
 #: ../src/plugins/pager.c:797
 msgid "Desktop Pager"
-msgstr ""
+msgstr "ডেস্কটপ পেজার"
 
 #: ../src/plugins/pager.c:799
 msgid "Simple pager plugin"
-msgstr ""
+msgstr "সহজ পেজার প্লাগ-ইন"
 
 #: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
 msgid "Size"
-msgstr ""
+msgstr "আকার"
 
 #: ../src/plugins/space.c:139
 msgid "Spacer"
-msgstr ""
+msgstr "স্পেসার"
 
 #: ../src/plugins/space.c:141
 msgid "Allocate space"
-msgstr ""
+msgstr "স্পেস যোগ করুন"
 
 #: ../src/plugins/tray.c:754
 msgid "System Tray"
-msgstr ""
+msgstr "সিস্টেম ট্রে"
 
 #: ../src/plugins/tray.c:756
 msgid "System tray"
-msgstr ""
+msgstr "সিস্টেম ট্রে"
 
 #: ../src/plugins/xkb/xkb-plugin.c:283
 msgid "Configure Keyboard Layout Switcher"
-msgstr ""
+msgstr "কি-বোর্ড বিন্যাস অদল-বদলকারী কনফিগার করুন"
 
 #: ../src/plugins/xkb/xkb-plugin.c:298
 msgid "Show layout as"
-msgstr ""
+msgstr "এইভাবে বিন্যাস প্রদর্শন করুন"
 
 #: ../src/plugins/xkb/xkb-plugin.c:313
 msgid "image"
-msgstr ""
+msgstr "ছবি"
 
 #: ../src/plugins/xkb/xkb-plugin.c:314
 msgid "text"
-msgstr ""
+msgstr "টেক্সট"
 
 #: ../src/plugins/xkb/xkb-plugin.c:321
 msgid "Per application settings"
-msgstr ""
+msgstr "প্রতি অ্যাপ্লিকেশনের বৈশিষ্ট্য"
 
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/xkb/xkb-plugin.c:336
 msgid "_Remember layout for each application"
-msgstr ""
+msgstr "প্রতি অ্যাপ্লিকেশনের বিন্যাস মনের রাখুন(_R)"
 
 #. Create a label as the child of the horizontal box.
 #: ../src/plugins/xkb/xkb-plugin.c:346
 msgid "Default layout:"
-msgstr ""
+msgstr "ডিফল্ট বিন্যাস:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:397
 msgid "Keyboard Layout Switcher"
-msgstr ""
+msgstr "কি-বোর্ড বিন্যাস অদল-বদলকারী"
 
 #: ../src/plugins/xkb/xkb-plugin.c:399
 msgid "Switch between available keyboard layouts"
-msgstr ""
+msgstr "উপস্থিত কি-বোর্ড বিন্যাসের মধ্যে অদল-বদল করুন"
 
 #: ../src/plugins/wincmd.c:171
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
+"উইন্ডোর সাথে আইকন যোগ করার জন্য বাঁদিকের ক্লিক করুন।  ছায়ন্বিত করার জন্য "
+"মাঝের ক্লিক করুন।"
 
 #: ../src/plugins/wincmd.c:208
 msgid "Minimize All Windows"
-msgstr ""
+msgstr "সকল উইন্ডোকে সর্বনিম্ন মাপ করুন"
 
 #: ../src/plugins/wincmd.c:210
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
+"সকল ডেস্কটপ উইন্ডোতে কম্যান্ড পাঠান হয়।\n"
+"সমর্থিত কম্যান্ড ১) আইকন যোগ এবং ২) ছায়ন্বিত"
 
 #: ../src/plugins/dirmenu.c:200
 msgid "Open in _Terminal"
-msgstr ""
+msgstr "টার্মিনাল ব্যবহার করে খুলুন(_T)"
 
 #: ../src/plugins/dirmenu.c:365
 msgid "Directory"
-msgstr ""
+msgstr "ডিরেক্টরি"
 
 #: ../src/plugins/dirmenu.c:366
 msgid "Label"
-msgstr ""
+msgstr "লেবেল"
 
 #: ../src/plugins/dirmenu.c:397
 msgid "Directory Menu"
-msgstr ""
+msgstr "ডিরেক্টরি মেনু"
 
 #: ../src/plugins/dirmenu.c:399
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr ""
+msgstr "মেনুর সাহায্যে ডিরেক্টরি ট্রী ব্রাউজ করুন (নির্মাতা: PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:283
 msgid "Normal"
-msgstr ""
+msgstr "স্বাভাবিক"
 
 #: ../src/plugins/thermal/thermal.c:284
 msgid "Warning1"
-msgstr ""
+msgstr "সতর্কবার্তা১"
 
 #: ../src/plugins/thermal/thermal.c:285
 msgid "Warning2"
-msgstr ""
+msgstr "সতর্কবার্তা২"
 
 #: ../src/plugins/thermal/thermal.c:286
 msgid "Automatic sensor location"
-msgstr ""
+msgstr "সয়ংক্রীয় সেন্সর অবস্থান"
 
 #: ../src/plugins/thermal/thermal.c:287
 msgid "Sensor"
-msgstr ""
+msgstr "সেন্সর"
 
 #: ../src/plugins/thermal/thermal.c:288
 msgid "Automatic temperature levels"
-msgstr ""
+msgstr "সয়ংক্রীয় তাপ মাত্রা"
 
 #: ../src/plugins/thermal/thermal.c:289
 msgid "Warning1 Temperature"
-msgstr ""
+msgstr "সতর্কবার্তা১ তাপমাত্রা"
 
 #: ../src/plugins/thermal/thermal.c:290
 msgid "Warning2 Temperature"
-msgstr ""
+msgstr "সতর্কবার্তা২ তাপমাত্রা"
 
 #: ../src/plugins/thermal/thermal.c:332
 msgid "Temperature Monitor"
-msgstr ""
+msgstr "তাপমাত্রা নিরীক্ষণ ব্যবস্থা"
 
 #: ../src/plugins/thermal/thermal.c:334
 msgid "Display system temperature, by kesler.daniel@gmail.com"
-msgstr ""
+msgstr "সিস্টেমের তাপমাত্রা প্রদর্শন করুন, kesler.daniel@gmail.com এর দ্বারা"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -1042,113 +1050,113 @@ msgstr ""
 #: ../src/plugins/volumealsa/volumealsa.c:239
 #: ../src/plugins/volumealsa/volumealsa.c:400
 msgid "Volume control"
-msgstr ""
+msgstr "ভলিউম নিয়ন্ত্রণ"
 
 #: ../src/plugins/volume/volume.c:312
 #: ../src/plugins/volumealsa/volumealsa.c:449
 msgid "Volume Control"
-msgstr ""
+msgstr "ভলিউম নিয়ন্ত্রণ"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
 #: ../src/plugins/volumealsa/volumealsa.c:358
 msgid "Volume"
-msgstr ""
+msgstr "ভলিউম"
 
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/volumealsa/volumealsa.c:377
 msgid "Mute"
-msgstr ""
+msgstr "নিঃশব্দ"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
-msgstr ""
+msgstr "<গোপন সংযোগ স্থান>"
 
 #: ../src/plugins/netstat/netstat.c:201
 msgid "Wireless Networks not found in range"
-msgstr ""
+msgstr "সুনির্দিষ্ট সীমার মধ্যে ওয়ার্লেস নেটওয়ার্ক পাওয়া যায়নি"
 
 #. Repair
 #: ../src/plugins/netstat/netstat.c:235
 msgid "Repair"
-msgstr ""
+msgstr "সারিয়ে নিন"
 
 #. interface down
 #: ../src/plugins/netstat/netstat.c:240
 msgid "Disable"
-msgstr ""
+msgstr "নিষ্ক্রিয়"
 
 #: ../src/plugins/netstat/netstat.c:299
 msgid "Wireless Connection has no connectivity"
-msgstr ""
+msgstr "বেতার সংযোগের কোন যোগাযোগ ব্যবস্থা নেই"
 
 #: ../src/plugins/netstat/netstat.c:301
 msgid "Network cable is plugged out"
-msgstr ""
+msgstr "নেটওয়ার্কের যোগাযোগ খোলা রয়েছে"
 
 #: ../src/plugins/netstat/netstat.c:303
 msgid "Connection has limited or no connectivity"
-msgstr ""
+msgstr "সংযোগ হয় সীমিত বা কোন যোগাযোগ ব্যবস্থা নেই"
 
 #: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
-msgstr ""
+msgstr "IP অ্যাড্রেস:"
 
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Remote IP:"
-msgstr ""
+msgstr "দূরবর্তী IP:"
 
 #: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
-msgstr ""
+msgstr "নেটমাস্ক:"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
-msgstr ""
+msgstr "কর্ম"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
-msgstr ""
+msgstr "পাঠানো হয়েছে"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
-msgstr ""
+msgstr "গ্রহণ করা হয়েছে"
 
 #: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
-msgstr ""
+msgstr "বাইট"
 
 #: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
-msgstr ""
+msgstr "প্যাকেট"
 
 #: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
-msgstr ""
+msgstr "প্রোটোকল:"
 
 #: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
-msgstr ""
+msgstr "HW অ্যাড্রেস:"
 
 #: ../src/plugins/netstat/netstat.c:470
 msgid "Manage Networks"
-msgstr ""
+msgstr "নেটওয়ার্ক পরিচালনা করুন"
 
 #: ../src/plugins/netstat/netstat.c:472
 msgid "Monitor and Manage networks"
-msgstr ""
+msgstr "নেটওয়ার্ক পরিদর্শন ও পরিচালনা করুন"
 
 #. create dialog
 #: ../src/plugins/netstat/passwd_gui.c:84
 msgid "Setting Encryption Key"
-msgstr ""
+msgstr "এনক্রীপশন কী নির্দিষ্ট করা হচ্ছে"
 
 #. messages
 #: ../src/plugins/netstat/passwd_gui.c:94
@@ -1156,47 +1164,49 @@ msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
 msgstr ""
+"এই বেতার নেটওয়ার্কটি এনক্রীপ করা রয়েছে।\n"
+"আপনার কাছে এনক্রীপশন কী থাকা প্রয়োজন।"
 
 #: ../src/plugins/netstat/passwd_gui.c:99
 msgid "Encryption Key:"
-msgstr ""
+msgstr "এনক্রীপশন কী:"
 
 #: ../src/plugins/netstatus/netstatus.c:178
 msgid "Interface to monitor"
-msgstr ""
+msgstr "পরিদর্শন করার জন্য ইন্টারফেস"
 
 #: ../src/plugins/netstatus/netstatus.c:179
 msgid "Config tool"
-msgstr ""
+msgstr "কনফিগ টুল"
 
 #: ../src/plugins/netstatus/netstatus.c:196
 msgid "Network Status Monitor"
-msgstr ""
+msgstr "নেটওয়ার্ক স্টেটাস মনিটর"
 
 #: ../src/plugins/netstatus/netstatus.c:198
 msgid "Monitor network status"
-msgstr ""
+msgstr "নেটওয়ার্কের স্টেটাস পরিদর্শন করুন"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:52
 #: ../src/plugins/netstatus/netstatus-dialog.c:311
 msgid "Unknown"
-msgstr ""
+msgstr "অজানা"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:115
 msgid "Connection Properties"
-msgstr ""
+msgstr "সংযোগের বিবিধ বৈশিষ্ট্য"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:121
 #, c-format
 msgid "Connection Properties: %s"
-msgstr ""
+msgstr "সংযোগের বিবিধ বৈশিষ্ট্য: %s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:134
 #, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%lu প্যাকেট"
+msgstr[1] "%lu প্যাকেট"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:395
 #, c-format
@@ -1204,52 +1214,54 @@ msgid ""
 "There was an error displaying help:\n"
 "%s"
 msgstr ""
+"সহায়িকা প্রদর্শন করতে ত্রুটি হয়েছে:\n"
+"%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:579
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
-msgstr ""
+msgstr "সময় কনফিগারেশন টুল চালানো সম্ভব হয়নি: %s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:379
 #, c-format
 msgid "Network Connection: %s"
-msgstr ""
+msgstr "নেটওয়ার্ক সংযোগ: %s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:384
 msgid "Network Connection"
-msgstr ""
+msgstr "নেটওয়ার্ক সংযোগ"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:811
 msgid "Interface"
-msgstr ""
+msgstr "ইন্টারফেস"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:812
 msgid "The current interface the icon is monitoring."
-msgstr ""
+msgstr "আইকনটি যে ইন্টারফেসটি নিরীক্ষণ করছে।"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:819
 msgid "Orientation"
-msgstr ""
+msgstr "দিশা"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:820
 msgid "The orientation of the tray."
-msgstr ""
+msgstr "ট্রে-এর দিশা।"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:828
 msgid "Tooltips Enabled"
-msgstr ""
+msgstr "টুলটিপ সক্রিয় করা হয়েছে"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:829
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr ""
+msgstr "আইকনের টুলটিপ সক্রিয় করা হয়েছে কিনা পরীক্ষা করুন।"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:836
 msgid "Show Signal"
-msgstr ""
+msgstr "সিগনাল প্রদর্শন করুন"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:837
 msgid "Whether or not the signal strength should be displayed."
-msgstr ""
+msgstr "সিগনালের ক্ষমতা প্রদর্শন করা হবে কিনা ধার্য করুন।"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:950
 #, c-format
@@ -1258,89 +1270,93 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"এই সমস্যার সমাধানের জন্য আপনার সিস্টেম অ্যাডমিনিস্ট্রেটারের সাথে যোগাযোগ "
+"করুন:\n"
+"\n"
+"%s"
 
 #: ../src/plugins/batt/batt.c:131
 msgid "No batteries found"
-msgstr ""
+msgstr "কোন ব্যাটারি পাওয়া যায়নি"
 
 #: ../src/plugins/batt/batt.c:179
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
-msgstr ""
+msgstr "ব্যাটারি: %d%% চার্জ হয়েছে, %d:%02d পুরো চার্জ হতে"
 
 #: ../src/plugins/batt/batt.c:190
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
-msgstr ""
+msgstr "ব্যাটারি: %d%% চার্জ হয়েছে, %d:%02d বাকি"
 
 #: ../src/plugins/batt/batt.c:196
 #, c-format
 msgid "Battery: %d%% charged"
-msgstr ""
+msgstr "ব্যাটারি: %d%% চার্জ করা হয়েছে"
 
 #: ../src/plugins/batt/batt.c:580
 msgid "Hide if there is no battery"
-msgstr ""
+msgstr "ব্যাটারি অনুপস্থিত হলে লুকিয়ে রাখুন"
 
 #: ../src/plugins/batt/batt.c:582
 msgid "Alarm command"
-msgstr ""
+msgstr "অ্যালার্ম কম্যান্ড"
 
 #: ../src/plugins/batt/batt.c:583
 msgid "Alarm time (minutes left)"
-msgstr ""
+msgstr "অ্যালার্মের সময় (বাকি মিনিট)"
 
 #: ../src/plugins/batt/batt.c:584
 msgid "Background color"
-msgstr ""
+msgstr "পটভূমির রং"
 
 #: ../src/plugins/batt/batt.c:585
 msgid "Charging color 1"
-msgstr ""
+msgstr "চার্জিং রং ১"
 
 #: ../src/plugins/batt/batt.c:586
 msgid "Charging color 2"
-msgstr ""
+msgstr "চার্জিং রং ২"
 
 #: ../src/plugins/batt/batt.c:587
 msgid "Discharging color 1"
-msgstr ""
+msgstr "ডিসচার্জিং রং ১"
 
 #: ../src/plugins/batt/batt.c:588
 msgid "Discharging color 2"
-msgstr ""
+msgstr "ডিসচার্জিং রং ২"
 
 #: ../src/plugins/batt/batt.c:589
 msgid "Border width"
-msgstr ""
+msgstr "প্রান্তরেখার প্রস্থ"
 
 #: ../src/plugins/batt/batt.c:619
 msgid "Battery Monitor"
-msgstr ""
+msgstr "ব্যাটারি নিরীক্ষণ"
 
 #: ../src/plugins/batt/batt.c:621
 msgid "Display battery status using ACPI"
-msgstr ""
+msgstr "ACPI ব্যবহার করে ব্যাটারিরি অবস্থা প্রদর্শন করুন"
 
 #: ../src/plugins/kbled/kbled.c:230
 msgid "Show CapsLock"
-msgstr ""
+msgstr "CapsLock প্রদর্শন করা হবে"
 
 #: ../src/plugins/kbled/kbled.c:231
 msgid "Show NumLock"
-msgstr ""
+msgstr "NumLock প্রদর্শন করা হবে"
 
 #: ../src/plugins/kbled/kbled.c:232
 msgid "Show ScrollLock"
-msgstr ""
+msgstr "ScrollLock প্রদর্শন করা হবে"
 
 #: ../src/plugins/kbled/kbled.c:267
 msgid "Keyboard LED"
-msgstr ""
+msgstr "কী-বোর্ডের LED"
 
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr ""
+msgstr "CapsLock, NumLock, ও ScrollLock কী এর জন্য নির্দেশক"
 
 #~ msgid "Enable Image:"
 #~ msgstr "  :"
