@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-03 05:22+0800\n"
-"PO-Revision-Date: 2009-07-26 12:06+0200\n"
+"POT-Creation-Date: 2009-08-08 12:10+0200\n"
+"PO-Revision-Date: 2009-08-08 12:13+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 0.3\n"
+"X-Generator: Lokalize 1.0\n"
 
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
@@ -66,7 +66,7 @@ msgstr "Justering:"
 msgid "Appearance"
 msgstr "Utsjånad"
 
-#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:955
+#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:983
 msgid "Bottom"
 msgstr "Nede"
 
@@ -94,7 +94,7 @@ msgstr "Filhandsamar:"
 msgid "Geometry"
 msgstr "Geometri"
 
-#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:945 ../src/panel.c:953
+#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:973 ../src/panel.c:981
 msgid "Height:"
 msgstr "Høgd:"
 
@@ -102,7 +102,7 @@ msgstr "Høgd:"
 msgid "Image"
 msgstr "Bilete"
 
-#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:947
+#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:975
 msgid "Left"
 msgstr "Til venstre"
 
@@ -142,7 +142,7 @@ msgstr "pikslar"
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Reserver plass, og ikkje dekk av maksimerte vindauge"
 
-#: ../data/ui/panel-pref.glade.h:33 ../src/panel.c:948
+#: ../data/ui/panel-pref.glade.h:33 ../src/panel.c:976
 msgid "Right"
 msgstr "Til høgre"
 
@@ -170,7 +170,7 @@ msgstr "Terminalemulator:"
 msgid "Top\t"
 msgstr "Oppe\t"
 
-#: ../data/ui/panel-pref.glade.h:40 ../src/panel.c:946 ../src/panel.c:952
+#: ../data/ui/panel-pref.glade.h:40 ../src/panel.c:974 ../src/panel.c:980
 msgid "Width:"
 msgstr "Breidd:"
 
@@ -260,7 +260,7 @@ msgstr "Type:"
 msgid "_Name:"
 msgstr "_Namn:"
 
-#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:821
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:830
 msgid "Application Launch Bar"
 msgstr "Programstartlinje"
 
@@ -316,7 +316,7 @@ msgstr "Vel fil"
 msgid "_Browse"
 msgstr "_Bla gjennom"
 
-#: ../src/panel.c:590
+#: ../src/panel.c:616
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -324,113 +324,113 @@ msgstr ""
 "Er du sikker på at du vil sletta dette panelet?\n"
 "<b>Åtvaring: Du kan ikkje angra denne handlinga.</b>"
 
-#: ../src/panel.c:592
+#: ../src/panel.c:618
 msgid "Confirm"
 msgstr "Stadfest"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:624
+#: ../src/panel.c:650
 msgid "translator-credits"
 msgstr "Karl Ove Hufthammer"
 
-#: ../src/panel.c:629
+#: ../src/panel.c:655
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:631
+#: ../src/panel.c:657
 msgid "Copyright (C) 2008-2009"
 msgstr "Copyright © 2008–2009"
 
-#: ../src/panel.c:632
+#: ../src/panel.c:658
 msgid "Desktop panel for LXDE project"
 msgstr "Skrivebordspanel for LXDE-prosjektet"
 
-#: ../src/panel.c:655
+#: ../src/panel.c:681
 msgid "Add / Remove Panel Items"
 msgstr "Legg til / fjern paneloppføringar"
 
-#: ../src/panel.c:663
+#: ../src/panel.c:689
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Fjern «%s» frå panelet"
 
-#: ../src/panel.c:675
+#: ../src/panel.c:701
 msgid "Panel Settings"
 msgstr "Paneloppsett"
 
-#: ../src/panel.c:681
+#: ../src/panel.c:707
 msgid "Create New Panel"
 msgstr "Lag nytt panel"
 
-#: ../src/panel.c:692
+#: ../src/panel.c:718
 msgid "Delete This Panel"
 msgstr "Fjern dette panelet"
 
-#: ../src/panel.c:703
+#: ../src/panel.c:729
 msgid "About"
 msgstr "Om"
 
-#: ../src/panel.c:711
+#: ../src/panel.c:737
 msgid "Panel"
 msgstr "Panel"
 
-#: ../src/panel.c:724
+#: ../src/panel.c:750
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "«%s»-oppsett"
 
-#: ../src/panel.c:954
+#: ../src/panel.c:982
 msgid "Top"
 msgstr "Oppe"
 
-#: ../src/panel.c:1352
+#: ../src/panel.c:1380
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s – lett GTK2+-panel for UNIX-skrivebord\n"
 
-#: ../src/panel.c:1353
+#: ../src/panel.c:1381
 #, c-format
 msgid "Command line options:\n"
 msgstr "Kommandolinjeval:\n"
 
-#: ../src/panel.c:1354
+#: ../src/panel.c:1382
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- Vis denne hjelpeteksten, og så avslutt.\n"
 
-#: ../src/panel.c:1355
+#: ../src/panel.c:1383
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- Vis versjonsinformasjon, og så avslutt.\n"
 
-#: ../src/panel.c:1356
+#: ../src/panel.c:1384
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --log <number> -- Bruk loggnivået 0–5 (0 = ingen, 5 = pratsom).\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1358
+#: ../src/panel.c:1386
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- Bruk den valde profilen.\n"
 
-#: ../src/panel.c:1360
+#: ../src/panel.c:1388
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- Det same som «--help».\n"
 
-#: ../src/panel.c:1361
+#: ../src/panel.c:1389
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- Det same som «--profile».\n"
 
-#: ../src/panel.c:1362
+#: ../src/panel.c:1390
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- Det same som «--version».\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1364
+#: ../src/panel.c:1392
 #, c-format
 msgid ""
 "\n"
@@ -465,7 +465,7 @@ msgstr "Vis arbeidsområdenummer – av cmeury@users.sf.net"
 msgid "Display Image and Tooltip"
 msgstr "Vis bilete og verktøytips"
 
-#: ../src/plugins/launchbar.c:823
+#: ../src/plugins/launchbar.c:832
 msgid "Bar with buttons to launch application"
 msgstr "Linje med knappar for å starta program"
 
@@ -559,7 +559,7 @@ msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
-"Oppgåvelinja viser alle opne vindauge, og lèt deg ikonifisera dei, rulla dei "
+"Oppgåvelinja viser alle opne vindauge, og lèt deg minimera dei, rulla dei "
 "opp eller fokusera på dei"
 
 #: ../src/plugins/dclock.c:282
@@ -684,16 +684,20 @@ msgstr "Tastaturoppsett-bytar"
 msgid "Switch between available keyboard layouts"
 msgstr "Byt mellom tilgjengelege tastaturoppsett"
 
-#: ../src/plugins/wincmd.c:171
+#: ../src/plugins/wincmd.c:185
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
-"Venstreklikk for å ikonifisera alle vindauga. Midtklikk for å rulla dei opp."
+"Venstreklikk for å minimera alle vindauga. Midtklikk for å rulla dei opp."
 
-#: ../src/plugins/wincmd.c:208
+#: ../src/plugins/wincmd.c:215
+msgid "Alternately iconify/shade and raise"
+msgstr "Byt mellom å minimera / rulla opp og gjenoppretta"
+
+#: ../src/plugins/wincmd.c:244
 msgid "Minimize All Windows"
 msgstr "Minimer alle vindauge"
 
-#: ../src/plugins/wincmd.c:210
+#: ../src/plugins/wincmd.c:246
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
@@ -1322,7 +1326,8 @@ msgstr "Lysdiodar for tastatur"
 
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr "Lysdiodeindikatorar for tastane «Caps Lock», «Num Lock» og «Scroll Lock»"
+msgstr ""
+"Lysdiodeindikatorar for tastane «Caps Lock», «Num Lock» og «Scroll Lock»"
 
 #~ msgid "Couldn't find pixmap file: %s"
 #~ msgstr "Fann ikkje biletfila: %s"
