@@ -613,8 +613,8 @@ static void pager_net_client_list_stacking(FbEv * ev, PagerPlugin * pg)
     /* Get the NET_CLIENT_LIST_STACKING property. */
     Window * client_list = get_xaproperty(GDK_ROOT_WINDOW(), a_NET_CLIENT_LIST_STACKING, XA_WINDOW, &pg->client_count);
     g_free(pg->tasks_in_stacking_order);
-    if (pg->client_count != 0)
-        pg->tasks_in_stacking_order = g_new(PagerTask *, pg->client_count);
+    /* g_new returns NULL if if n_structs == 0 */
+    pg->tasks_in_stacking_order = g_new(PagerTask *, pg->client_count);
 
     if (client_list != NULL)
     {
