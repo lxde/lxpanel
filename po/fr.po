@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: lxpanel r839\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-03 05:22+0800\n"
-"PO-Revision-Date: 2009-07-11 15:46+0200\n"
+"PO-Revision-Date: 2009-09-07 22:21+0200\n"
 "Last-Translator: Cilyan Olowen <gaknar@gmail.com>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
@@ -445,8 +445,7 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"Consultez le site http://lxpanel.sourceforge.net/ pour davantage de "
-"documentation.\n"
+"Consultez le site http://lxde.org/ pour plus d'informations.\n"
 "\n"
 
 #: ../src/gtk-run.c:312
@@ -467,7 +466,7 @@ msgstr "Numéro de bureau / Nom de l'espace de travail"
 
 #: ../src/plugins/deskno/deskno.c:167
 msgid "Display workspace number, by cmeury@users.sf.net"
-msgstr "Affiche le numéro de l'espace de travail"
+msgstr "Affiche le numéro de l'espace de travail, par cmeury@users.sf.net"
 
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
@@ -876,7 +875,7 @@ msgstr "Protocole :"
 
 #: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
-msgstr "Adresse MAC :"
+msgstr "Adresse physique :"
 
 #: ../src/plugins/netstat/netstat.c:470
 msgid "Manage Networks"
