@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-03 05:22+0800\n"
-"PO-Revision-Date: 2009-09-03 14:43+0200\n"
+"PO-Revision-Date: 2009-09-11 08:25+0200\n"
 "Last-Translator: Indalecio Freiría Santos <ifreiria@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -172,7 +172,7 @@ msgstr "Arriba\t"
 
 #: ../data/ui/panel-pref.glade.h:40 ../src/panel.c:946 ../src/panel.c:952
 msgid "Width:"
-msgstr "Ancho:"
+msgstr "Largura:"
 
 #: ../data/ui/panel-pref.glade.h:41
 msgid "pixels"
@@ -544,7 +544,7 @@ msgstr "Combinar múltiples xanelas de aplicacións nun só botón"
 
 #: ../src/plugins/taskbar.c:1979
 msgid "Maximum width of task button"
-msgstr "Ancho máximo de botón de tarefas"
+msgstr "Largura máxima do botón de tarefas"
 
 #: ../src/plugins/taskbar.c:1980
 msgid "Spacing"
@@ -1160,27 +1160,27 @@ msgstr "IrLAP"
 #: ../src/plugins/netstatus/netstatus-iface.c:1155
 #, c-format
 msgid "SIOCGIFCONF error: %s"
-msgstr ""
+msgstr "Erro SIOCGIFCONF: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:1248
 #, c-format
 msgid "No network devices found"
-msgstr ""
+msgstr "Non se atoparon dispositivos de rede"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:180
 #, c-format
 msgid "Cannot open /proc/net/dev: %s"
-msgstr ""
+msgstr "Non se pode abrir /proc/net/dev: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:189
 msgid "Could not parse /proc/net/dev. Unknown format."
-msgstr ""
+msgstr "Non se puido analizar /proc/net/dev. Formato descoñecido."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:204
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:330
 #, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr ""
+msgstr "Non se puido analizar a interface '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
@@ -1189,134 +1189,136 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
+"Non se puido analizar as estatísticas da interface de '%s'. prx_idx = %d; "
+"ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr ""
+msgstr "Non se puido analizar /proc/net/wireless. Formato descoñecido."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr ""
+msgstr "Non se puido analizar os detalles de '%s'. link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
 msgid "Could not connect to interface, '%s'"
-msgstr ""
+msgstr "Non se puido conectar á interface, '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:420
 #, c-format
 msgid "Could not send ioctl to interface, '%s'"
-msgstr ""
+msgstr "Non se puido enviar ioctl á interface, '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr ""
+msgstr "Non se puido analizar liña de ordes '%s': %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr ""
+msgstr "Non se puido analizar a saída de 'netstat'. Formato descoñecido"
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
-msgstr ""
+msgstr "Desconectado"
 
 #: ../src/plugins/netstatus/netstatus-util.c:155
 msgid "Idle"
-msgstr ""
+msgstr "Inactivo"
 
 #: ../src/plugins/netstatus/netstatus-util.c:158
 msgid "Sending"
-msgstr ""
+msgstr "Enviando"
 
 #: ../src/plugins/netstatus/netstatus-util.c:161
 msgid "Receiving"
-msgstr ""
+msgstr "Recibindo"
 
 #: ../src/plugins/netstatus/netstatus-util.c:164
 msgid "Sending/Receiving"
-msgstr ""
+msgstr "Enviando/Recibindo"
 
 #: ../src/plugins/batt/batt.c:131
 msgid "No batteries found"
-msgstr ""
+msgstr "Non se atoparon baterías"
 
 #: ../src/plugins/batt/batt.c:179
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
-msgstr ""
+msgstr "Batería: %d%% recargada, %d:%02d para completar"
 
 #: ../src/plugins/batt/batt.c:190
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
-msgstr ""
+msgstr "Batería: %d%% de carga, %d:%02d restante"
 
 #: ../src/plugins/batt/batt.c:196
 #, c-format
 msgid "Battery: %d%% charged"
-msgstr ""
+msgstr "Batería: %d%% de carga"
 
 #: ../src/plugins/batt/batt.c:580
 msgid "Hide if there is no battery"
-msgstr ""
+msgstr "Ocultar se non hai baterías"
 
 #: ../src/plugins/batt/batt.c:582
 msgid "Alarm command"
-msgstr ""
+msgstr "Orde de alarma"
 
 #: ../src/plugins/batt/batt.c:583
 msgid "Alarm time (minutes left)"
-msgstr ""
+msgstr "Hora de alarma (minutos restantes)"
 
 #: ../src/plugins/batt/batt.c:584
 msgid "Background color"
-msgstr ""
+msgstr "Cor de fondo"
 
 #: ../src/plugins/batt/batt.c:585
 msgid "Charging color 1"
-msgstr ""
+msgstr "Cor de recarga n°1"
 
 #: ../src/plugins/batt/batt.c:586
 msgid "Charging color 2"
-msgstr ""
+msgstr "Cor de recarga n°2"
 
 #: ../src/plugins/batt/batt.c:587
 msgid "Discharging color 1"
-msgstr ""
+msgstr "Cor de descarga n°1"
 
 #: ../src/plugins/batt/batt.c:588
 msgid "Discharging color 2"
-msgstr ""
+msgstr "Cor de descarga n°2"
 
 #: ../src/plugins/batt/batt.c:589
 msgid "Border width"
-msgstr ""
+msgstr "Largura do borde"
 
 #: ../src/plugins/batt/batt.c:619
 msgid "Battery Monitor"
-msgstr ""
+msgstr "Monitor de batería"
 
 #: ../src/plugins/batt/batt.c:621
 msgid "Display battery status using ACPI"
-msgstr ""
+msgstr "Mostrar o estado da batería por medio de ACPI"
 
 #: ../src/plugins/kbled/kbled.c:230
 msgid "Show CapsLock"
-msgstr ""
+msgstr "Mostrar BloqMaiús"
 
 #: ../src/plugins/kbled/kbled.c:231
 msgid "Show NumLock"
-msgstr ""
+msgstr "Mostrar BloqNum"
 
 #: ../src/plugins/kbled/kbled.c:232
 msgid "Show ScrollLock"
-msgstr ""
+msgstr "Mostrar BloqDespl"
 
 #: ../src/plugins/kbled/kbled.c:267
 msgid "Keyboard LED"
-msgstr ""
+msgstr "Indicadores do teclado"
 
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr ""
+msgstr "Indicadores para as teclas BloqMaiús, BloqNum, BloqDespl"

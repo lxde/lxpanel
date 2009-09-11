@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-03 05:22+0800\n"
-"PO-Revision-Date: 2009-09-08 22:00+0200\n"
+"PO-Revision-Date: 2009-09-10 20:31+0200\n"
 "Last-Translator: Julius Vitkauskas <zadintuvas@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -57,7 +57,7 @@ msgstr "<b>Dydis</b>"
 
 #: ../data/ui/panel-pref.glade.h:11
 msgid "Advanced"
-msgstr ""
+msgstr "Sudėtingesni"
 
 #: ../data/ui/panel-pref.glade.h:12
 msgid "Alignment:"
