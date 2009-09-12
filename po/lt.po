@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-03 05:22+0800\n"
-"PO-Revision-Date: 2009-09-10 20:31+0200\n"
+"PO-Revision-Date: 2009-09-11 20:24+0200\n"
 "Last-Translator: Julius Vitkauskas <zadintuvas@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -89,7 +89,7 @@ msgstr "Kampas:"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "File Manager:"
-msgstr ""
+msgstr "Failų tvarkytuvė:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "Geometry"
@@ -117,7 +117,7 @@ msgstr "Atsijungimo komanda:"
 
 #: ../data/ui/panel-pref.glade.h:26
 msgid "Make window managers treat the panel as dock"
-msgstr ""
+msgstr "Padaryti, kad langų tvarkytuvai matytų skydelį kaip doką"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Margin:"
