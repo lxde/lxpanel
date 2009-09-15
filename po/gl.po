@@ -994,6 +994,7 @@ msgid ""
 "%s"
 msgstr "Por favor, contacte co administrador do seu sistema para resolver o seguinte "
 "problema:\n"
+"%s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:148
 msgid "Name"
