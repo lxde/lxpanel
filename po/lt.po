@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-03 05:22+0800\n"
-"PO-Revision-Date: 2009-09-14 17:42+0200\n"
+"PO-Revision-Date: 2009-09-17 13:08+0200\n"
 "Last-Translator: Julius Vitkauskas <zadintuvas@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -129,7 +129,7 @@ msgstr "Sumažinti skydelį kai jis nenaudojamas"
 
 #: ../data/ui/panel-pref.glade.h:29
 msgid "Panel Applets"
-msgstr ""
+msgstr "Skydelio priedai"
 
 #: ../data/ui/panel-pref.glade.h:30
 msgid "Panel Preferences"
@@ -157,7 +157,7 @@ msgstr "Dydis sumažinus"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "Solid color (with opacity)"
-msgstr ""
+msgstr "Spalva (su permatomumu)"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "System theme"
@@ -223,7 +223,7 @@ msgstr "Kon_figūruoti"
 
 #: ../data/ui/netstatus.glade.h:12
 msgid "Destination:"
-msgstr ""
+msgstr "Paskirtis:"
 
 #: ../data/ui/netstatus.glade.h:13
 msgid "General"
@@ -263,7 +263,7 @@ msgstr "Pavadi_nimas:"
 
 #: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:821
 msgid "Application Launch Bar"
-msgstr ""
+msgstr "Programų paleidimo juosta"
 
 #: ../data/ui/launchbar.glade.h:2
 msgid "Applications"
@@ -287,7 +287,7 @@ msgstr "Atsijungti"
 
 #: ../src/configurator.c:444
 msgid "Currently loaded plugins"
-msgstr ""
+msgstr "Šiuo metu įkrauti priedai"
 
 #: ../src/configurator.c:453
 msgid "Stretch"
@@ -295,11 +295,11 @@ msgstr "Ištempti"
 
 #: ../src/configurator.c:558
 msgid "Add plugin to panel"
-msgstr ""
+msgstr "Įdėti priedą į skydelį"
 
 #: ../src/configurator.c:586
 msgid "Available plugins"
-msgstr ""
+msgstr "Prieinami priedai"
 
 #: ../src/configurator.c:1139
 msgid "Logout command is not set"
@@ -307,7 +307,7 @@ msgstr "Atsijungimo komanda nenustatyta"
 
 #: ../src/configurator.c:1192
 msgid "Select a directory"
-msgstr ""
+msgstr "Pasirinkite aplanką"
 
 #: ../src/configurator.c:1192 ../src/configurator.c:1283
 msgid "Select a file"
