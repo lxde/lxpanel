@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-03 05:22+0800\n"
-"PO-Revision-Date: 2009-09-17 13:08+0200\n"
+"PO-Revision-Date: 2009-09-21 09:19+0200\n"
 "Last-Translator: Julius Vitkauskas <zadintuvas@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -141,7 +141,7 @@ msgstr "Pikseliai"
 
 #: ../data/ui/panel-pref.glade.h:32
 msgid "Reserve space, and not covered by maximized windows"
-msgstr ""
+msgstr "Rezervuota vieta, neuždengta išdidintų langų"
 
 #: ../data/ui/panel-pref.glade.h:33 ../src/panel.c:948
 msgid "Right"
@@ -215,7 +215,7 @@ msgstr "Adresas:"
 #: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
 #: ../src/plugins/netstat/netstat.c:330
 msgid "Broadcast:"
-msgstr ""
+msgstr "Transliacija:"
 
 #: ../data/ui/netstatus.glade.h:11
 msgid "Con_figure"
@@ -235,7 +235,7 @@ msgstr "Gauta:"
 
 #: ../data/ui/netstatus.glade.h:15
 msgid "Scope:"
-msgstr ""
+msgstr "Apimtis:"
 
 #: ../data/ui/netstatus.glade.h:16
 msgid "Sent:"
@@ -247,7 +247,7 @@ msgstr "Būsena:"
 
 #: ../data/ui/netstatus.glade.h:18
 msgid "Subnet Mask:"
-msgstr ""
+msgstr "Potinklio kaukė:"
 
 #: ../data/ui/netstatus.glade.h:19
 msgid "Support"
@@ -473,42 +473,42 @@ msgstr "Juosta su mygtukais, skirtais paleisti programoms"
 #. Add Raise menu item.
 #: ../src/plugins/taskbar.c:1696
 msgid "_Raise"
-msgstr ""
+msgstr "Pa_rodyti"
 
 #. Add Restore menu item.
 #: ../src/plugins/taskbar.c:1701
 msgid "R_estore"
-msgstr ""
+msgstr "At_statyti"
 
 #. Add Maximize menu item.
 #: ../src/plugins/taskbar.c:1706
 msgid "Ma_ximize"
-msgstr ""
+msgstr "Iš_didinti"
 
 #. Add Iconify menu item.
 #: ../src/plugins/taskbar.c:1711
 msgid "Ico_nify"
-msgstr ""
+msgstr "Su_mažinti"
 
 #: ../src/plugins/taskbar.c:1730
 #, c-format
 msgid "Workspace _%d"
-msgstr ""
+msgstr "Darbo vieta _%d"
 
 #: ../src/plugins/taskbar.c:1735
 #, c-format
 msgid "Workspace %d"
-msgstr ""
+msgstr "Darbo vieta %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../src/plugins/taskbar.c:1749
 msgid "_All workspaces"
-msgstr ""
+msgstr "Visos d_arbo vietos"
 
 #. Add Move to Workspace menu item as a submenu.
 #: ../src/plugins/taskbar.c:1755
 msgid "_Move to Workspace"
-msgstr ""
+msgstr "Per_kelti į darbo vietą"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../src/plugins/taskbar.c:1761
@@ -688,6 +688,8 @@ msgstr "Leidžia perjungti prieinamus klaviatūros išdėstymus"
 #: ../src/plugins/wincmd.c:171
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
+"Kairysis pelės mygtukas sumažina visus langus.  Vidurinysis suskleidžia "
+"juos."
 
 #: ../src/plugins/wincmd.c:208
 msgid "Minimize All Windows"
@@ -698,6 +700,8 @@ msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
+"Nusiunčia komandas visiems darbastalio langams.\n"
+"Palaikomos komandos yra 1) sumažinti ir 2) suskleisti"
 
 #: ../src/plugins/dirmenu.c:200
 msgid "Open in _Terminal"
@@ -705,19 +709,19 @@ msgstr "Atverti _terminale"
 
 #: ../src/plugins/dirmenu.c:365
 msgid "Directory"
-msgstr ""
+msgstr "Aplankas"
 
 #: ../src/plugins/dirmenu.c:366
 msgid "Label"
-msgstr ""
+msgstr "Etiketė"
 
 #: ../src/plugins/dirmenu.c:397
 msgid "Directory Menu"
-msgstr ""
+msgstr "Aplanko meniu"
 
 #: ../src/plugins/dirmenu.c:399
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr ""
+msgstr "Naršyti aplankus per meniu (Autorius: PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:283
 msgid "Normal"
@@ -893,7 +897,7 @@ msgstr "Šifravimo raktas:"
 
 #: ../src/plugins/netstatus/netstatus.c:179
 msgid "Interface to monitor"
-msgstr ""
+msgstr "Stebėti sąsają"
 
 #: ../src/plugins/netstatus/netstatus.c:180
 msgid "Config tool"
@@ -925,8 +929,9 @@ msgstr "Ryšio savybės: %s"
 #, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%lu paketas"
+msgstr[1] "%lu paketai"
+msgstr[2] "%lu paketų"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:396
 #, c-format
@@ -953,19 +958,19 @@ msgstr "Tinklo ryšys"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:811
 msgid "Interface"
-msgstr ""
+msgstr "Sąsaja"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:812
 msgid "The current interface the icon is monitoring."
-msgstr ""
+msgstr "Sąsaja, kurią stebi piktograma."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:819
 msgid "Orientation"
-msgstr ""
+msgstr "Pozicija"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:820
 msgid "The orientation of the tray."
-msgstr ""
+msgstr "Sistemos dėklo pozicija"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:828
 msgid "Tooltips Enabled"
@@ -990,6 +995,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Šiai problemai išspręsti prašome susisiekti su sistemos administratoriumi:\n"
+"\n"
+"%s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:148
 msgid "Name"
@@ -997,7 +1005,7 @@ msgstr "Pavadinimas"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:149
 msgid "The interface name"
-msgstr ""
+msgstr "Sąsajos pavadinimas"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:156
 msgid "State"
@@ -1005,7 +1013,7 @@ msgstr "Būsena"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:157
 msgid "The interface state"
-msgstr ""
+msgstr "Sąsajos būsena"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:165
 msgid "Stats"
@@ -1013,11 +1021,11 @@ msgstr "Statistika"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:166
 msgid "The interface packets/bytes statistics"
-msgstr ""
+msgstr "Sąsajos paketų/baitų statistika"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:174
 msgid "Whether the interface is a wireless interface"
-msgstr ""
+msgstr "Ar sąsaja yra bevielė sąsaja"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:181
 msgid "Signal"
@@ -1034,13 +1042,13 @@ msgstr "Klaida"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:192
 msgid "The current error condition"
-msgstr ""
+msgstr "Dabartinė klaidos būsena"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:434
 #: ../src/plugins/netstatus/netstatus-iface.c:1197
 #, c-format
 msgid "Unable to open socket: %s"
-msgstr ""
+msgstr "Neįmanoma atidaryti jungties: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:496
 #: ../src/plugins/netstatus/netstatus-iface.c:1223
@@ -1127,7 +1135,7 @@ msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:960
 msgid "Local Loopback"
-msgstr ""
+msgstr "Vietinė grįžtamoji sąsaja"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:966
 msgid "Fiber Distributed Data Interface"
@@ -1166,17 +1174,17 @@ msgstr "Tinklo įrenginiai nerasti"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:180
 #, c-format
 msgid "Cannot open /proc/net/dev: %s"
-msgstr ""
+msgstr "Negalima atverti /proc/net/dev: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:189
 msgid "Could not parse /proc/net/dev. Unknown format."
-msgstr ""
+msgstr "Negalima apdoroti /proc/net/dev: nežnomas formatas."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:204
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:330
 #, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr ""
+msgstr "Negalima apdoroti sąsajos pavadinimo iš '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
@@ -1185,34 +1193,36 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
+"Negalima apdoroti sąsajos statistikos iš '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr ""
+msgstr "Negalima apdoroti /proc/net/wireless: nežnomas formatas."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr ""
+msgstr "Negalima apdoroti bevielio tinklo informacijos iš '%s'. link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
 msgid "Could not connect to interface, '%s'"
-msgstr ""
+msgstr "Negalima prisijungti prie sąsajos, '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:420
 #, c-format
 msgid "Could not send ioctl to interface, '%s'"
-msgstr ""
+msgstr "Negalima nusiųsti ioctl į sąsają, '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr ""
+msgstr "Negalima apdoroti komandinės eilutės '%s': %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr ""
+msgstr "Negalima apdoroti 'netstat' išvesties: nežinomas formatas"
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
