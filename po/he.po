@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-03 05:22+0800\n"
-"PO-Revision-Date: 2009-09-21 10:40+0200\n"
+"PO-Revision-Date: 2009-09-21 21:17+0200\n"
 "Last-Translator: Yaron Shahrbani <sh.yaron@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -246,7 +246,7 @@ msgstr "מצב:"
 
 #: ../data/ui/netstatus.glade.h:18
 msgid "Subnet Mask:"
-msgstr "מסכת רשת:"
+msgstr "מסכת רשת משנה:"
 
 #: ../data/ui/netstatus.glade.h:19
 msgid "Support"
@@ -807,76 +807,76 @@ msgstr "החיבור האלחוטי אינו מקושר"
 
 #: ../src/plugins/netstat/netstat.c:301
 msgid "Network cable is plugged out"
-msgstr ""
+msgstr "כבל הרשת מנותק"
 
 #: ../src/plugins/netstat/netstat.c:303
 msgid "Connection has limited or no connectivity"
-msgstr ""
+msgstr "הקישוריות מוגבלת או חסרה"
 
 #: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
-msgstr ""
+msgstr "כתובת ה־IP:"
 
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Remote IP:"
-msgstr ""
+msgstr "IP מרוחק:"
 
 #: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
-msgstr ""
+msgstr "מסכת רשת:"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
-msgstr ""
+msgstr "פעילות"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
-msgstr ""
+msgstr "נשלחו"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
-msgstr ""
+msgstr "התקבלו"
 
 #: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
-msgstr ""
+msgstr "בתים"
 
 #: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
-msgstr ""
+msgstr "מנות נתונים"
 
 #: ../src/plugins/netstat/netstat.c:315
 #: ../src/plugins/netstatus/netstatus-iface.c:173
 msgid "Wireless"
-msgstr ""
+msgstr "אלחוטי"
 
 #: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
-msgstr ""
+msgstr "פרוטוקול:"
 
 #: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
-msgstr ""
+msgstr "כתובת החומרה:"
 
 #: ../src/plugins/netstat/netstat.c:470
 msgid "Manage Networks"
-msgstr ""
+msgstr "ניהול רשתות"
 
 #: ../src/plugins/netstat/netstat.c:472
 msgid "Monitor and Manage networks"
-msgstr ""
+msgstr "מעקב וניהול רשתות"
 
 #. create dialog
 #: ../src/plugins/netstat/passwd_gui.c:84
 msgid "Setting Encryption Key"
-msgstr ""
+msgstr "הגדרת מפתח הצפנה"
 
 #. messages
 #: ../src/plugins/netstat/passwd_gui.c:94
@@ -884,47 +884,49 @@ msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
 msgstr ""
+"רשת אלחוטית זו היתה מוצפנת.\n"
+"על מפתח ההצפנה להיות ברשותך."
 
 #: ../src/plugins/netstat/passwd_gui.c:99
 msgid "Encryption Key:"
-msgstr ""
+msgstr "מפתח ההצפנה:"
 
 #: ../src/plugins/netstatus/netstatus.c:179
 msgid "Interface to monitor"
-msgstr ""
+msgstr "מנשק למעקב"
 
 #: ../src/plugins/netstatus/netstatus.c:180
 msgid "Config tool"
-msgstr ""
+msgstr "כלי תצורה"
 
 #: ../src/plugins/netstatus/netstatus.c:197
 msgid "Network Status Monitor"
-msgstr ""
+msgstr "צג מצב הרשת"
 
 #: ../src/plugins/netstatus/netstatus.c:199
 msgid "Monitor network status"
-msgstr ""
+msgstr "מעקב אחר מצב הרשת"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:51
 #: ../src/plugins/netstatus/netstatus-dialog.c:312
 msgid "Unknown"
-msgstr ""
+msgstr "בלתי ידוע"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:116
 msgid "Connection Properties"
-msgstr ""
+msgstr "מאפייני החיבור"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:122
 #, c-format
 msgid "Connection Properties: %s"
-msgstr ""
+msgstr "מאפייני החיבור: %s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:135
 #, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "מנת נתונים אחת"
+msgstr[1] "%lu מנות נתונים"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:396
 #, c-format
@@ -932,11 +934,13 @@ msgid ""
 "There was an error displaying help:\n"
 "%s"
 msgstr ""
+"ארעה שגיאה בעת הצגת העזרה:\n"
+"%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
-msgstr ""
+msgstr "ארע כשל בהפעלת כלי תצורת הזמן: %s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:379
 #, c-format
