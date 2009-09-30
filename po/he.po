@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-03 05:22+0800\n"
-"PO-Revision-Date: 2009-09-23 09:45+0200\n"
+"PO-Revision-Date: 2009-09-29 20:17+0200\n"
 "Last-Translator: Yaron Shahrbani <sh.yaron@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -168,7 +168,7 @@ msgstr "תוכנית להדמיית המסוף:"
 
 #: ../data/ui/panel-pref.glade.h:39
 msgid "Top\t"
-msgstr "עליון/t"
+msgstr "עליון\t"
 
 #: ../data/ui/panel-pref.glade.h:40 ../src/panel.c:946 ../src/panel.c:952
 msgid "Width:"
@@ -386,48 +386,48 @@ msgstr "עליון"
 #: ../src/panel.c:1352
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr "lxpanel %s - פאנל קל משקל מבוסס GTK2+ עבור שולחנות עבודה מסוג יוניקס"
+msgstr "lxpanel %s - פאנל קל משקל מבוסס GTK2+ עבור שולחנות עבודה מסוג יוניקס\n"
 
 #: ../src/panel.c:1353
 #, c-format
 msgid "Command line options:\n"
-msgstr "Command line options:"
+msgstr "Command line options:\n"
 
 #: ../src/panel.c:1354
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr " --help      -- print this help and exit"
+msgstr " --help      -- print this help and exit\n"
 
 #: ../src/panel.c:1355
 #, c-format
 msgid " --version   -- print version and exit\n"
-msgstr " --version   -- print version and exit"
+msgstr " --version   -- print version and exit\n"
 
 #: ../src/panel.c:1356
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --log <number> -- set log level 0-5. 0 - none 5 - chatty"
+msgstr " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1358
 #, c-format
 msgid " --profile name -- use specified profile\n"
-msgstr " --profile name -- use specified profile"
+msgstr " --profile name -- use specified profile\n"
 
 #: ../src/panel.c:1360
 #, c-format
 msgid " -h  -- same as --help\n"
-msgstr " -h  -- same as --help"
+msgstr " -h  -- same as --help\n"
 
 #: ../src/panel.c:1361
 #, c-format
 msgid " -p  -- same as --profile\n"
-msgstr " -p  -- same as --profile"
+msgstr " -p  -- same as --profile\n"
 
 #: ../src/panel.c:1362
 #, c-format
 msgid " -v  -- same as --version\n"
-msgstr " -v  -- same as --version"
+msgstr " -v  -- same as --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
 #: ../src/panel.c:1364
@@ -438,7 +438,8 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"בקרו ב־http://lxde.org/ לפרטים נוספים."
+"בקרו ב־http://lxde.org/ לפרטים נוספים.\n"
+"\n"
 
 #: ../src/gtk-run.c:312
 msgid "Enter the command you want to execute:"
@@ -685,7 +686,7 @@ msgstr "החלפה בין פריסות המקלדת הזמינות"
 
 #: ../src/plugins/wincmd.c:171
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr "לחיצה שמאלית למזעור כל החלונות לסמלים. לחיצה אמצעית כדי להצל אותם."
+msgstr "לחיצה שמאלית למזעור כל החלונות לסמלים.  לחיצה אמצעית כדי להצל אותם."
 
 #: ../src/plugins/wincmd.c:208
 msgid "Minimize All Windows"
@@ -1169,7 +1170,7 @@ msgstr "לא נמצאו התקני רשת"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:180
 #, c-format
 msgid "Cannot open /proc/net/dev: %s"
-msgstr "לא ניתן לפתוח את /proc/net/dev‏: %s"
+msgstr "לא ניתן לפתוח את ‎/proc/net/dev‏: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:189
 msgid "Could not parse /proc/net/dev. Unknown format."
@@ -1188,7 +1189,7 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"לא ניתן לנתח את סטטיסטיקת המנשק מ־%s'.‏ prx_idx = %d; ptx_idx = %d; brx_idx "
+"לא ניתן לנתח את סטטיסטיקת המנשק מ־'%s'.‏prx_idx = %d; ptx_idx = %d; brx_idx "
 "= %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
