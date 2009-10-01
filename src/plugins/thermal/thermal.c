@@ -1,4 +1,23 @@
-//  by Daniel Kesler <kesler.daniel@gmail.com>
+/**
+ * Thermal plugin to lxpanel
+ *
+ * Copyright (C) 2007 by Daniel Kesler <kesler.daniel@gmail.com>
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ */
 
 #include <sys/types.h>
 #include <stdio.h>
@@ -175,7 +194,7 @@ thermal_constructor(Plugin *p, char** fp)
     th->namew = gtk_label_new("ww");
     gtk_container_add(GTK_CONTAINER(p->pwid), th->namew);
 
-    th->main = gtk_event_box_new();
+    th->main = p->pwid;
     th->tip  = gtk_tooltips_new();
 
     g_signal_connect (G_OBJECT (p->pwid), "button_press_event",
@@ -241,6 +260,8 @@ thermal_constructor(Plugin *p, char** fp)
         th->warning1 = th->critical - 10;
         th->warning2 = th->critical - 5;
     }
+
+    gtk_widget_show(th->namew);
 
     update_display(th);
     th->timer = g_timeout_add(1000, (GSourceFunc) update_display, (gpointer)th);
@@ -331,10 +352,11 @@ PluginClass thermal_plugin_class = {
     type : "thermal",
     name : N_("Temperature Monitor"),
     version: "0.6",
-    description : N_("Display system temperature, by kesler.daniel@gmail.com"),
+    description : N_("Display system temperature"),
 
     constructor : thermal_constructor,
     destructor  : thermal_destructor,
     config : config,
     save : save_config
+    panel_configuration_changed : NULL
 };

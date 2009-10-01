@@ -155,6 +155,7 @@ plugin_batt=
 plugin_xkb=
 plugin_kbled=
 plugin_thermal=
+plugin_cpufreq=
 
 AC_MSG_CHECKING([which plugins should be built dynamically])
 AC_ARG_WITH(plugins,
@@ -162,7 +163,7 @@ AC_ARG_WITH(plugins,
 [                         plugins may be comma separated ]
 [                         'all' builds all plugins (default), 'none' builds none ]
 [                         Possible plugins are: ]
-[                         netstatus, volume, volumealsa, cpu, deskno, batt, kbled, xkb, thermal], plugins="$withval",[plugins="all"])
+[                         netstatus, volume, volumealsa, cpu, deskno, batt, kbled, xkb, thermal, cpufreq], plugins="$withval",[plugins="all"])
 
 if test x"$plugins" != xall -a x"$plugins" != xnone; then
     if test x"$plugins_loading" = xno; then
@@ -189,6 +190,7 @@ dnl    done
     plugin_kbled=kbled
     plugin_xkb=xkb
     plugin_thermal=thermal
+    plugin_cpufreq=cpufreq
 
     AC_MSG_RESULT(all)
 else
@@ -224,6 +226,9 @@ else
             thermal)
                 plugin_thermal=thermal
                 ;;
+            cpufreq)
+                plugin_cpufreq=cpufreq
+                ;;
             *)
                 echo "Unknown plugin $plugin."
                 exit 1
@@ -253,7 +258,8 @@ PLUGINS_LIST="\
     $plugin_batt \
     $plugin_kbled \
     $plugin_xkb \
-    $plugin_thermal"
+    $plugin_thermal \
+    $plugin_cpufreq"
 
 AC_SUBST(PLUGINS_LIST)
 
@@ -316,6 +322,7 @@ AC_CONFIG_FILES([
     src/plugins/kbled/Makefile
     src/plugins/xkb/Makefile
     src/plugins/thermal/Makefile
+    src/plugins/cpufreq/Makefile
     po/Makefile.in
     data/Makefile
     data/default/panels/panel
@@ -355,6 +362,9 @@ echo Building dynamic plugins:
     fi
     if test x"$plugin_thermal" != x; then
         AC_MSG_RESULT([    thermal - Temperature monitor])
+    fi
+    if test x"$plugin_cpufreq" != x; then
+        AC_MSG_RESULT([    cpufreq - CpuFreq frontend])
     fi
 else
 echo Dynamic loader for plugins....... : disabled.
