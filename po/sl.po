@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.3.8.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-03 05:22+0800\n"
-"PO-Revision-Date: 2009-08-06 16:52+0200\n"
+"PO-Revision-Date: 2009-10-10 13:49+0200\n"
 "Last-Translator: Matej <paxmanpwnz@gmail.com>\n"
 "Language-Team: / <paxmanpwnz@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -95,8 +95,9 @@ msgid "File Manager:"
 msgstr "Ukaz za zagon upravitelja datotek:"
 
 #: ../data/ui/panel-pref.glade.h:20
+#, fuzzy
 msgid "Geometry"
-msgstr ""
+msgstr "Geometrija"
 
 #: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:945 ../src/panel.c:953
 msgid "Height:"
@@ -280,7 +281,7 @@ msgstr "Programi"
 #: ../data/ui/launchbar.glade.h:3
 #, fuzzy
 msgid "Available Applications"
-msgstr "Razpoložljive aplikacije"
+msgstr "Razpoložljivi programi"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:299
 msgid "Run"
@@ -488,7 +489,7 @@ msgstr "Pult z gumbi za zagon aplikacij"
 #: ../src/plugins/taskbar.c:1696
 #, fuzzy
 msgid "_Raise"
-msgstr "V ospredje"
+msgstr "Premakni v _ospredje"
 
 #. Add Restore menu item.
 #: ../src/plugins/taskbar.c:1701
@@ -538,7 +539,7 @@ msgstr "_Zapri okno"
 
 #: ../src/plugins/taskbar.c:1972
 msgid "Show tooltips"
-msgstr "Prikaži zaslonski namig"
+msgstr "Prikaži zaslonske namige"
 
 #: ../src/plugins/taskbar.c:1973
 msgid "Icons only"
@@ -563,7 +564,7 @@ msgstr "Animiraj okno, ki zahteva pozornost"
 
 #: ../src/plugins/taskbar.c:1978
 msgid "Combine multiple application windows into a single button"
-msgstr "Združi okna aplikacije pod en gumb"
+msgstr "Združi več oken programa pod en gumb"
 
 #: ../src/plugins/taskbar.c:1979
 #, fuzzy
@@ -721,7 +722,7 @@ msgstr "Levi klik pomanjša vsa okna. Srednji klik osenči"
 
 #: ../src/plugins/wincmd.c:208
 msgid "Minimize All Windows"
-msgstr "Upravitelj oken"
+msgstr "Pomanjšaj vsa okna"
 
 #: ../src/plugins/wincmd.c:210
 #, fuzzy

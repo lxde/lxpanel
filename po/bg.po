@@ -3,48 +3,51 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-03 05:22+0800\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2009-10-09 15:54+0200\n"
+"Last-Translator: Rossen Karpuzov <gustav cointech net>\n"
+"Language-Team: Mandriva User Group - Bulgaria <mandriva-bg@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: Bulgarian\n"
+"X-Poedit-Country: BULGARIA\n"
 
 #: ../data/ui/panel-pref.glade.h:2
-#, no-c-format
+#, fuzzy, no-c-format
 msgid "% Percent"
-msgstr ""
+msgstr "&Процент:"
 
 #: ../data/ui/panel-pref.glade.h:3
+#, fuzzy
 msgid "<b>Automatic hiding</b>"
-msgstr ""
+msgstr "Автоматичен режим"
 
 #: ../data/ui/panel-pref.glade.h:4
 msgid "<b>Background</b>"
-msgstr ""
+msgstr "<b>Фон</b>"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "<b>Font</b>"
-msgstr ""
+msgstr "<b>Шрифт</b>"
 
 #: ../data/ui/panel-pref.glade.h:6
+#, fuzzy
 msgid "<b>Icon</b>"
-msgstr ""
+msgstr "Икона"
 
 #: ../data/ui/panel-pref.glade.h:7
 msgid "<b>Position</b>"
-msgstr ""
+msgstr "<b>Позиция</b>"
 
 #: ../data/ui/panel-pref.glade.h:8
+#, fuzzy
 msgid "<b>Properties</b>"
-msgstr ""
+msgstr "&Информация"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "<b>Set Preferred Applications</b>"
@@ -52,103 +55,116 @@ msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "<b>Size</b>"
-msgstr ""
+msgstr "<b>Размер</b>"
 
 #: ../data/ui/panel-pref.glade.h:11
 msgid "Advanced"
-msgstr ""
+msgstr "Допълнителни"
 
 #: ../data/ui/panel-pref.glade.h:12
 msgid "Alignment:"
-msgstr ""
+msgstr "Подравняване:"
 
 #: ../data/ui/panel-pref.glade.h:13
+#, fuzzy
 msgid "Appearance"
-msgstr ""
+msgstr "Системен панел"
 
-#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:955
+#: ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:955
 msgid "Bottom"
-msgstr ""
+msgstr "Долу"
 
 #: ../data/ui/panel-pref.glade.h:15
 msgid "Center"
-msgstr ""
+msgstr "Центрирано"
 
 #: ../data/ui/panel-pref.glade.h:16
 msgid "Custom color"
-msgstr ""
+msgstr "Потребителски цвят"
 
 #: ../data/ui/panel-pref.glade.h:17
+#, fuzzy
 msgid "Dynamic"
-msgstr ""
+msgstr "_Динамично:"
 
 #: ../data/ui/panel-pref.glade.h:18
+#, fuzzy
 msgid "Edge:"
-msgstr ""
+msgstr "Контур"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "File Manager:"
-msgstr ""
+msgstr "Файлов браузър"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "Geometry"
-msgstr ""
+msgstr "Геометрия"
 
-#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:945 ../src/panel.c:953
+#: ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:945
+#: ../src/panel.c:953
 msgid "Height:"
-msgstr ""
+msgstr "Височина:"
 
 #: ../data/ui/panel-pref.glade.h:22
 msgid "Image"
-msgstr ""
+msgstr "Изображение"
 
-#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:947
+#: ../data/ui/panel-pref.glade.h:23
+#: ../src/panel.c:947
 msgid "Left"
-msgstr ""
+msgstr "Ляво"
 
 #: ../data/ui/panel-pref.glade.h:24
+#, fuzzy
 msgid "Left\t"
-msgstr ""
+msgstr "Отляво на"
 
 #: ../data/ui/panel-pref.glade.h:25
+#, fuzzy
 msgid "Logout Command:"
-msgstr ""
+msgstr "Команда за изход"
 
 #: ../data/ui/panel-pref.glade.h:26
 msgid "Make window managers treat the panel as dock"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:27
+#, fuzzy
 msgid "Margin:"
-msgstr ""
+msgstr "Граница"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "Minimize panel when not in use"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:29
+#, fuzzy
 msgid "Panel Applets"
-msgstr ""
+msgstr "Добавяне на аплети..."
 
 #: ../data/ui/panel-pref.glade.h:30
+#, fuzzy
 msgid "Panel Preferences"
-msgstr ""
+msgstr "Настройки на сесията"
 
 #: ../data/ui/panel-pref.glade.h:31
 msgid "Pixels"
-msgstr ""
+msgstr "Пиксели"
 
 #: ../data/ui/panel-pref.glade.h:32
 msgid "Reserve space, and not covered by maximized windows"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:33 ../src/panel.c:948
+#: ../data/ui/panel-pref.glade.h:33
+#: ../src/panel.c:948
 msgid "Right"
-msgstr ""
+msgstr "Дясно"
 
 #: ../data/ui/panel-pref.glade.h:34
 msgid "Select an image file"
-msgstr ""
+msgstr "Избор на файл с изображение"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Size when minimized"
@@ -159,37 +175,44 @@ msgid "Solid color (with opacity)"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:37
+#, fuzzy
 msgid "System theme"
-msgstr ""
+msgstr "Премахване на тема"
 
 #: ../data/ui/panel-pref.glade.h:38
+#, fuzzy
 msgid "Terminal Emulator:"
-msgstr ""
+msgstr "Терминална емулация"
 
 #: ../data/ui/panel-pref.glade.h:39
+#, fuzzy
 msgid "Top\t"
-msgstr ""
+msgstr "Горе:"
 
-#: ../data/ui/panel-pref.glade.h:40 ../src/panel.c:946 ../src/panel.c:952
+#: ../data/ui/panel-pref.glade.h:40
+#: ../src/panel.c:946
+#: ../src/panel.c:952
 msgid "Width:"
-msgstr ""
+msgstr "Ширина:"
 
 #: ../data/ui/panel-pref.glade.h:41
 msgid "pixels"
-msgstr ""
+msgstr "пиксели"
 
 #: ../data/ui/netstatus.glade.h:2
 #, no-c-format
 msgid "0%"
-msgstr ""
+msgstr "0%"
 
 #: ../data/ui/netstatus.glade.h:3
+#, fuzzy
 msgid "<b>Activity</b>"
-msgstr ""
+msgstr "Дейност"
 
 #: ../data/ui/netstatus.glade.h:4
+#, fuzzy
 msgid "<b>Connection</b>"
-msgstr ""
+msgstr "Връзка"
 
 #: ../data/ui/netstatus.glade.h:5
 msgid "<b>Internet Protocol (IPv4)</b>"
@@ -200,121 +223,143 @@ msgid "<b>Internet Protocol (IPv6)</b>"
 msgstr ""
 
 #: ../data/ui/netstatus.glade.h:7
+#, fuzzy
 msgid "<b>Network Device</b>"
-msgstr ""
+msgstr "Стандартно мрежово устройство"
 
 #: ../data/ui/netstatus.glade.h:8
+#, fuzzy
 msgid "<b>Signal Strength</b>"
-msgstr ""
+msgstr "Сила на сигнала"
 
 #: ../data/ui/netstatus.glade.h:9
 msgid "Address:"
-msgstr ""
+msgstr "Адрес:"
 
-#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
+#: ../data/ui/netstatus.glade.h:10
+#: ../src/plugins/netstat/netstat.c:319
 #: ../src/plugins/netstat/netstat.c:330
 msgid "Broadcast:"
-msgstr ""
+msgstr "Разпръскване:"
 
 #: ../data/ui/netstatus.glade.h:11
+#, fuzzy
 msgid "Con_figure"
-msgstr ""
+msgstr "&Настройване..."
 
 #: ../data/ui/netstatus.glade.h:12
+#, fuzzy
 msgid "Destination:"
-msgstr ""
+msgstr "Целева директория:"
 
 #: ../data/ui/netstatus.glade.h:13
+#, fuzzy
 msgid "General"
-msgstr ""
+msgstr "Общи"
 
 #: ../data/ui/netstatus.glade.h:14
+#, fuzzy
 msgid "Received:"
-msgstr ""
+msgstr "получено: "
 
 #: ../data/ui/netstatus.glade.h:15
+#, fuzzy
 msgid "Scope:"
-msgstr ""
+msgstr "Обсег:"
 
 #: ../data/ui/netstatus.glade.h:16
 msgid "Sent:"
-msgstr ""
+msgstr "Изпратени:"
 
 #: ../data/ui/netstatus.glade.h:17
+#, fuzzy
 msgid "Status:"
-msgstr ""
+msgstr "Състояние:"
 
 #: ../data/ui/netstatus.glade.h:18
 msgid "Subnet Mask:"
-msgstr ""
+msgstr "Маска на подмрежа:"
 
 #: ../data/ui/netstatus.glade.h:19
 msgid "Support"
-msgstr ""
+msgstr "Поддръжка"
 
 #: ../data/ui/netstatus.glade.h:20
 msgid "Type:"
-msgstr ""
+msgstr "Тип:"
 
 #: ../data/ui/netstatus.glade.h:21
 msgid "_Name:"
-msgstr ""
+msgstr "_Име:"
 
-#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:821
+#: ../data/ui/launchbar.glade.h:1
+#: ../src/plugins/launchbar.c:821
+#, fuzzy
 msgid "Application Launch Bar"
-msgstr ""
+msgstr "Неуспех при стартирането на програмата"
 
 #: ../data/ui/launchbar.glade.h:2
 msgid "Applications"
-msgstr ""
+msgstr "Програми"
 
 #: ../data/ui/launchbar.glade.h:3
+#, fuzzy
 msgid "Available Applications"
-msgstr ""
+msgstr "Основни програми"
 
-#: ../src/configurator.c:54 ../src/gtk-run.c:299
+#: ../src/configurator.c:54
+#: ../src/gtk-run.c:299
 msgid "Run"
-msgstr ""
+msgstr "Изпълнение"
 
 #: ../src/configurator.c:56
 msgid "Restart"
-msgstr ""
+msgstr "Рестартиране"
 
 #: ../src/configurator.c:57
 msgid "Logout"
-msgstr ""
+msgstr "Излез"
 
 #: ../src/configurator.c:444
+#, fuzzy
 msgid "Currently loaded plugins"
-msgstr ""
+msgstr "Приставките са заредени"
 
 #: ../src/configurator.c:453
+#, fuzzy
 msgid "Stretch"
-msgstr ""
+msgstr "Разтягане"
 
 #: ../src/configurator.c:558
+#, fuzzy
 msgid "Add plugin to panel"
-msgstr ""
+msgstr "Добавяне на този стартер към _панела"
 
 #: ../src/configurator.c:586
+#, fuzzy
 msgid "Available plugins"
-msgstr ""
+msgstr "&Налични приставки:"
 
 #: ../src/configurator.c:1139
+#, fuzzy
 msgid "Logout command is not set"
-msgstr ""
+msgstr "Не е зададена команда."
 
 #: ../src/configurator.c:1192
+#, fuzzy
 msgid "Select a directory"
-msgstr ""
+msgstr "Изберете директория"
 
-#: ../src/configurator.c:1192 ../src/configurator.c:1283
+#: ../src/configurator.c:1192
+#: ../src/configurator.c:1283
+#, fuzzy
 msgid "Select a file"
-msgstr ""
+msgstr "Изберете файл"
 
 #: ../src/configurator.c:1310
+#, fuzzy
 msgid "_Browse"
-msgstr ""
+msgstr "_Разглеждане"
 
 #: ../src/panel.c:590
 msgid ""
@@ -323,21 +368,32 @@ msgid ""
 msgstr ""
 
 #: ../src/panel.c:592
+#, fuzzy
 msgid "Confirm"
-msgstr ""
+msgstr "Потвърждение"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:624
+#, fuzzy
 msgid "translator-credits"
 msgstr ""
+"Ясен Праматаров <turin@fsa-bg.org>\n"
+"Владимир Петков <vpetkov@i-space.org>\n"
+"Ростислав „zbrox“ Райков <zbrox@i-space.org>\n"
+"Александър Шопов <ash@contact.bg>\n"
+"\n"
+"Проектът за превод на GNOME има нужда от подкрепа.\n"
+"Научете повече за нас на http://gnome.cult.bg\n"
+"Докладвайте за грешки на http://gnome.cult.bg/bugs"
 
 #: ../src/panel.c:629
 msgid "LXPanel"
-msgstr ""
+msgstr "LXPanel"
 
 #: ../src/panel.c:631
+#, fuzzy
 msgid "Copyright (C) 2008-2009"
-msgstr ""
+msgstr "Права за разпространение (C) 2007 - 2009"
 
 #: ../src/panel.c:632
 msgid "Desktop panel for LXDE project"
@@ -348,38 +404,41 @@ msgid "Add / Remove Panel Items"
 msgstr ""
 
 #: ../src/panel.c:663
-#, c-format
+#, fuzzy, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr ""
+msgstr "_Премахване от панела"
 
 #: ../src/panel.c:675
 msgid "Panel Settings"
-msgstr ""
+msgstr "Настройки на панела"
 
 #: ../src/panel.c:681
+#, fuzzy
 msgid "Create New Panel"
-msgstr ""
+msgstr "Създаване на нов профил"
 
 #: ../src/panel.c:692
+#, fuzzy
 msgid "Delete This Panel"
-msgstr ""
+msgstr "Премахване на този панел?"
 
 #: ../src/panel.c:703
 msgid "About"
-msgstr ""
+msgstr "Относно"
 
 #: ../src/panel.c:711
+#, fuzzy
 msgid "Panel"
-msgstr ""
+msgstr "Системен панел"
 
 #: ../src/panel.c:724
-#, c-format
+#, fuzzy, c-format
 msgid "\"%s\" Settings"
-msgstr ""
+msgstr "Настройки"
 
 #: ../src/panel.c:954
 msgid "Top"
-msgstr ""
+msgstr "Горе"
 
 #: ../src/panel.c:1352
 #, c-format
@@ -387,19 +446,20 @@ msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr ""
 
 #: ../src/panel.c:1353
-#, c-format
+#, fuzzy, c-format
 msgid "Command line options:\n"
-msgstr ""
+msgstr "Ограничи опциите, задавани от командния ред"
 
 #: ../src/panel.c:1354
 #, c-format
+#, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr ""
+msgstr "      --help     извежда тази справка и завършва\n"
 
 #: ../src/panel.c:1355
-#, c-format
+#, fuzzy, c-format
 msgid " --version   -- print version and exit\n"
-msgstr ""
+msgstr "Изписване на версията и излизане"
 
 #: ../src/panel.c:1356
 #, c-format
@@ -413,19 +473,19 @@ msgid " --profile name -- use specified profile\n"
 msgstr ""
 
 #: ../src/panel.c:1360
-#, c-format
+#, fuzzy, c-format
 msgid " -h  -- same as --help\n"
-msgstr ""
+msgstr "същото като pax"
 
 #: ../src/panel.c:1361
-#, c-format
+#, fuzzy, c-format
 msgid " -p  -- same as --profile\n"
-msgstr ""
+msgstr "/З_апази профил като..."
 
 #: ../src/panel.c:1362
-#, c-format
+#, fuzzy, c-format
 msgid " -v  -- same as --version\n"
-msgstr ""
+msgstr "същото като pax"
 
 #. g_print(_(" -C  -- same as --configure\n"));
 #: ../src/panel.c:1364
@@ -441,20 +501,24 @@ msgid "Enter the command you want to execute:"
 msgstr ""
 
 #: ../src/plugins/cpu/cpu.c:268
+#, fuzzy
 msgid "CPU Usage Monitor"
-msgstr ""
+msgstr "Мониторинг на употребата на CPU"
 
 #: ../src/plugins/cpu/cpu.c:270
+#, fuzzy
 msgid "Display CPU usage"
-msgstr ""
+msgstr "Показва ползването на CPU"
 
 #: ../src/plugins/deskno/deskno.c:165
+#, fuzzy
 msgid "Desktop Number / Workspace Name"
-msgstr ""
+msgstr "Плот № / Работен плот Име"
 
 #: ../src/plugins/deskno/deskno.c:167
+#, fuzzy
 msgid "Display workspace number, by cmeury@users.sf.net"
-msgstr ""
+msgstr "Показване на номер на работен плот от cmeury@users.sf.net"
 
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
@@ -466,68 +530,78 @@ msgstr ""
 
 #. Add Raise menu item.
 #: ../src/plugins/taskbar.c:1696
+#, fuzzy
 msgid "_Raise"
-msgstr ""
+msgstr "Издигане"
 
 #. Add Restore menu item.
 #: ../src/plugins/taskbar.c:1701
+#, fuzzy
 msgid "R_estore"
-msgstr ""
+msgstr "_Възстановяване на настройките…"
 
 #. Add Maximize menu item.
 #: ../src/plugins/taskbar.c:1706
 msgid "Ma_ximize"
-msgstr ""
+msgstr "_Максимизиране"
 
 #. Add Iconify menu item.
 #: ../src/plugins/taskbar.c:1711
+#, fuzzy
 msgid "Ico_nify"
-msgstr ""
+msgstr "Форматът за изображения ICO"
 
 #: ../src/plugins/taskbar.c:1730
-#, c-format
+#, fuzzy, c-format
 msgid "Workspace _%d"
-msgstr ""
+msgstr "Работен плот %d"
 
 #: ../src/plugins/taskbar.c:1735
 #, c-format
+#, c-format
 msgid "Workspace %d"
-msgstr ""
+msgstr "Работен плот %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../src/plugins/taskbar.c:1749
+#, fuzzy
 msgid "_All workspaces"
-msgstr ""
+msgstr "всички работни плотове"
 
 #. Add Move to Workspace menu item as a submenu.
 #: ../src/plugins/taskbar.c:1755
+#, fuzzy
 msgid "_Move to Workspace"
-msgstr ""
+msgstr "Преместване на др_уг работен плот"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../src/plugins/taskbar.c:1761
+#, fuzzy
 msgid "_Close Window"
-msgstr ""
+msgstr "Зат_варяне на този прозорец"
 
 #: ../src/plugins/taskbar.c:1972
 msgid "Show tooltips"
-msgstr ""
+msgstr "Показване на подсказки"
 
 #: ../src/plugins/taskbar.c:1973
 msgid "Icons only"
-msgstr ""
+msgstr "Само икони"
 
 #: ../src/plugins/taskbar.c:1974
+#, fuzzy
 msgid "Flat buttons"
-msgstr ""
+msgstr "Открояване на бутоните"
 
 #: ../src/plugins/taskbar.c:1975
+#, fuzzy
 msgid "Show windows from all desktops"
-msgstr ""
+msgstr "Показване на п&розорците от всички работни плотове"
 
 #: ../src/plugins/taskbar.c:1976
+#, fuzzy
 msgid "Use mouse wheel"
-msgstr ""
+msgstr "Безжична мишка с колелце"
 
 #: ../src/plugins/taskbar.c:1977
 msgid "Flash when there is any window requiring attention"
@@ -543,25 +617,25 @@ msgstr ""
 
 #: ../src/plugins/taskbar.c:1980
 msgid "Spacing"
-msgstr ""
+msgstr "Разредка"
 
 #: ../src/plugins/taskbar.c:2037
 msgid "Task Bar (Window List)"
 msgstr ""
 
 #: ../src/plugins/taskbar.c:2039
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
 msgstr ""
 
 #: ../src/plugins/dclock.c:282
+#, fuzzy
 msgid "Clock Format"
-msgstr ""
+msgstr "Личен формат на времето"
 
 #: ../src/plugins/dclock.c:283
+#, fuzzy
 msgid "Tooltip Format"
-msgstr ""
+msgstr "Лента с инструменти за форматиране"
 
 #: ../src/plugins/dclock.c:284
 msgid "Format codes: man 3 strftime"
@@ -572,12 +646,14 @@ msgid "Action when clicked (default: display calendar)"
 msgstr ""
 
 #: ../src/plugins/dclock.c:286
+#, fuzzy
 msgid "Bold font"
-msgstr ""
+msgstr "Редактиране на шрифт..."
 
 #: ../src/plugins/dclock.c:313
+#, fuzzy
 msgid "Digital Clock"
-msgstr ""
+msgstr "&Часовникът на дядо"
 
 #: ../src/plugins/dclock.c:315
 msgid "Display digital clock and tooltip"
@@ -585,79 +661,90 @@ msgstr ""
 
 #: ../src/plugins/menu.c:372
 msgid "Add to desktop"
-msgstr ""
+msgstr "Добави към Плота"
 
 #: ../src/plugins/menu.c:382
+#, fuzzy
 msgid "Properties"
-msgstr ""
+msgstr "Информация"
 
-#: ../src/plugins/menu.c:990 ../src/plugins/dirmenu.c:367
+#: ../src/plugins/menu.c:990
+#: ../src/plugins/dirmenu.c:367
 msgid "Icon"
-msgstr ""
+msgstr "Икона"
 
 #: ../src/plugins/menu.c:1007
 msgid "Menu"
-msgstr ""
+msgstr "Меню"
 
 #: ../src/plugins/menu.c:1009
+#, fuzzy
 msgid "Application Menu"
-msgstr ""
+msgstr "Главно меню (K)"
 
 #: ../src/plugins/separator.c:98
+#, fuzzy
 msgid "Separator"
-msgstr ""
+msgstr "Разделител"
 
 #: ../src/plugins/separator.c:100
+#, fuzzy
 msgid "Add a separator to the panel"
-msgstr ""
+msgstr "Разделител, с който да организирате обектите върху панела"
 
 #: ../src/plugins/pager.c:797
+#, fuzzy
 msgid "Desktop Pager"
-msgstr ""
+msgstr "Извън превключвателя"
 
 #: ../src/plugins/pager.c:799
 msgid "Simple pager plugin"
 msgstr ""
 
-#: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
+#: ../src/plugins/space.c:121
+#: ../src/plugins/batt/batt.c:590
 msgid "Size"
-msgstr ""
+msgstr "Размер"
 
 #: ../src/plugins/space.c:139
 msgid "Spacer"
-msgstr ""
+msgstr "Отстояние"
 
 #: ../src/plugins/space.c:141
+#, fuzzy
 msgid "Allocate space"
-msgstr ""
+msgstr "Цветово пространство:"
 
 #: ../src/plugins/tray.c:702
 msgid "System Tray"
-msgstr ""
+msgstr "Системен панел"
 
 #: ../src/plugins/tray.c:704
 msgid "System tray"
-msgstr ""
+msgstr "Системен панел"
 
 #: ../src/plugins/xkb/xkb-plugin.c:283
+#, fuzzy
 msgid "Configure Keyboard Layout Switcher"
-msgstr ""
+msgstr "Клавиатурни подредби"
 
 #: ../src/plugins/xkb/xkb-plugin.c:298
+#, fuzzy
 msgid "Show layout as"
-msgstr ""
+msgstr "Да се показвам като"
 
 #: ../src/plugins/xkb/xkb-plugin.c:313
 msgid "image"
-msgstr ""
+msgstr "изображение"
 
 #: ../src/plugins/xkb/xkb-plugin.c:314
 msgid "text"
-msgstr ""
+msgstr "текст"
 
 #: ../src/plugins/xkb/xkb-plugin.c:321
+#, fuzzy
 msgid "Per application settings"
-msgstr ""
+msgstr "Настройки за %1"
 
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/xkb/xkb-plugin.c:336
@@ -666,12 +753,14 @@ msgstr ""
 
 #. Create a label as the child of the horizontal box.
 #: ../src/plugins/xkb/xkb-plugin.c:346
+#, fuzzy
 msgid "Default layout:"
-msgstr ""
+msgstr "Подредба по подразбиране:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:397
+#, fuzzy
 msgid "Keyboard Layout Switcher"
-msgstr ""
+msgstr "Клавиатурни подредби"
 
 #: ../src/plugins/xkb/xkb-plugin.c:399
 msgid "Switch between available keyboard layouts"
@@ -682,8 +771,9 @@ msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
 
 #: ../src/plugins/wincmd.c:208
+#, fuzzy
 msgid "Minimize All Windows"
-msgstr ""
+msgstr "/Прозорци/_Всички докове"
 
 #: ../src/plugins/wincmd.c:210
 msgid ""
@@ -692,20 +782,22 @@ msgid ""
 msgstr ""
 
 #: ../src/plugins/dirmenu.c:200
+#, fuzzy
 msgid "Open in _Terminal"
-msgstr ""
+msgstr "&Стартиране в терминал"
 
 #: ../src/plugins/dirmenu.c:365
 msgid "Directory"
-msgstr ""
+msgstr "Директория"
 
 #: ../src/plugins/dirmenu.c:366
 msgid "Label"
-msgstr ""
+msgstr "Етикет"
 
 #: ../src/plugins/dirmenu.c:397
+#, fuzzy
 msgid "Directory Menu"
-msgstr ""
+msgstr "Редактирай меню"
 
 #: ../src/plugins/dirmenu.c:399
 msgid "Browse directory tree via menu (Author: PCMan)"
@@ -713,15 +805,15 @@ msgstr ""
 
 #: ../src/plugins/thermal/thermal.c:283
 msgid "Normal"
-msgstr ""
+msgstr "Нормално"
 
 #: ../src/plugins/thermal/thermal.c:284
 msgid "Warning1"
-msgstr ""
+msgstr "Внимание1"
 
 #: ../src/plugins/thermal/thermal.c:285
 msgid "Warning2"
-msgstr ""
+msgstr "Внимание2"
 
 #: ../src/plugins/thermal/thermal.c:286
 msgid "Automatic sensor location"
@@ -729,27 +821,28 @@ msgstr ""
 
 #: ../src/plugins/thermal/thermal.c:287
 msgid "Sensor"
-msgstr ""
+msgstr "Сензор"
 
 #: ../src/plugins/thermal/thermal.c:288
 msgid "Automatic temperature levels"
-msgstr ""
+msgstr "Автоматични нива на температура"
 
 #: ../src/plugins/thermal/thermal.c:289
 msgid "Warning1 Temperature"
-msgstr ""
+msgstr "Внимание1 Температура"
 
 #: ../src/plugins/thermal/thermal.c:290
 msgid "Warning2 Temperature"
-msgstr ""
+msgstr "Внимание2 Температура"
 
 #: ../src/plugins/thermal/thermal.c:332
 msgid "Temperature Monitor"
-msgstr ""
+msgstr "Наблюдение на температура"
 
 #: ../src/plugins/thermal/thermal.c:334
+#, fuzzy
 msgid "Display system temperature, by kesler.daniel@gmail.com"
-msgstr ""
+msgstr "Екран на системната температура от kesler.daniel@gmail.com"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -757,23 +850,23 @@ msgstr ""
 #: ../src/plugins/volumealsa/volumealsa.c:239
 #: ../src/plugins/volumealsa/volumealsa.c:400
 msgid "Volume control"
-msgstr ""
+msgstr "Контрол на силата на звука"
 
 #: ../src/plugins/volume/volume.c:312
 #: ../src/plugins/volumealsa/volumealsa.c:449
 msgid "Volume Control"
-msgstr ""
+msgstr "Настройки на Звука"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
 #: ../src/plugins/volumealsa/volumealsa.c:358
 msgid "Volume"
-msgstr ""
+msgstr "Сила на звука"
 
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/volumealsa/volumealsa.c:377
 msgid "Mute"
-msgstr ""
+msgstr "Заглушаване"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
@@ -786,12 +879,12 @@ msgstr ""
 #. Repair
 #: ../src/plugins/netstat/netstat.c:235
 msgid "Repair"
-msgstr ""
+msgstr "Поправяне"
 
 #. interface down
 #: ../src/plugins/netstat/netstat.c:240
 msgid "Disable"
-msgstr ""
+msgstr "Забрана"
 
 #: ../src/plugins/netstat/netstat.c:299
 msgid "Wireless Connection has no connectivity"
@@ -805,61 +898,71 @@ msgstr ""
 msgid "Connection has limited or no connectivity"
 msgstr ""
 
-#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307
+#: ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
-msgstr ""
+msgstr "IP адрес:"
 
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Remote IP:"
-msgstr ""
+msgstr "Отдалечено IP: "
 
-#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309
+#: ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
-msgstr ""
+msgstr "Мрежова маска:"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
-msgstr ""
+msgstr "Активност"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
-msgstr ""
+msgstr "Изпратени"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
-msgstr ""
+msgstr "Получени"
 
-#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311
+#: ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
-msgstr ""
+msgstr "байта"
 
-#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312
+#: ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
-msgstr ""
+msgstr "Пакети"
 
 #: ../src/plugins/netstat/netstat.c:315
 #: ../src/plugins/netstatus/netstatus-iface.c:173
 msgid "Wireless"
-msgstr ""
+msgstr "Безжична връзка"
 
 #: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
-msgstr ""
+msgstr "Протокол:"
 
-#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321
+#: ../src/plugins/netstat/netstat.c:332
+#, fuzzy
 msgid "HW Address:"
-msgstr ""
+msgstr " Отиди на адрес "
 
 #: ../src/plugins/netstat/netstat.c:470
+#, fuzzy
 msgid "Manage Networks"
-msgstr ""
+msgstr "Управление на безжични връзки"
 
 #: ../src/plugins/netstat/netstat.c:472
 msgid "Monitor and Manage networks"
@@ -867,8 +970,9 @@ msgstr ""
 
 #. create dialog
 #: ../src/plugins/netstat/passwd_gui.c:84
+#, fuzzy
 msgid "Setting Encryption Key"
-msgstr ""
+msgstr "Ключ за разшифроване на файл."
 
 #. messages
 #: ../src/plugins/netstat/passwd_gui.c:94
@@ -879,69 +983,76 @@ msgstr ""
 
 #: ../src/plugins/netstat/passwd_gui.c:99
 msgid "Encryption Key:"
-msgstr ""
+msgstr "Ключ за криптиране:"
 
 #: ../src/plugins/netstatus/netstatus.c:179
+#, fuzzy
 msgid "Interface to monitor"
-msgstr ""
+msgstr "Процесор, който да се наблюдава"
 
 #: ../src/plugins/netstatus/netstatus.c:180
+#, fuzzy
 msgid "Config tool"
-msgstr ""
+msgstr "Изпълнява инструмент за конфигуриране"
 
 #: ../src/plugins/netstatus/netstatus.c:197
+#, fuzzy
 msgid "Network Status Monitor"
-msgstr ""
+msgstr "Наблюдение на мрежовите връзки"
 
 #: ../src/plugins/netstatus/netstatus.c:199
+#, fuzzy
 msgid "Monitor network status"
-msgstr ""
+msgstr "Състояние на връзката: Няма връзка"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:51
 #: ../src/plugins/netstatus/netstatus-dialog.c:312
 msgid "Unknown"
-msgstr ""
+msgstr "Неизвестен"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:116
+#, fuzzy
 msgid "Connection Properties"
-msgstr ""
+msgstr "Обща свойства"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:122
-#, c-format
+#, fuzzy, c-format
 msgid "Connection Properties: %s"
-msgstr ""
+msgstr "Обща свойства"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:135
-#, c-format
+#, fuzzy, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
-msgstr[0] ""
+msgstr[0] "Размер на пакета"
 msgstr[1] ""
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:396
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "There was an error displaying help:\n"
 "%s"
 msgstr ""
+"Имаше грешка при показване на помощта:\n"
+"%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
-#, c-format
+#, fuzzy, c-format
 msgid "Failed to launch time configuration tool: %s"
-msgstr ""
+msgstr "Инструментът за настройка на времето не може да бъде стартиран: %s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:379
 #, c-format
 msgid "Network Connection: %s"
-msgstr ""
+msgstr "Мрежова връзка:%s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:384
 msgid "Network Connection"
-msgstr ""
+msgstr "Мрежова връзка"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:811
 msgid "Interface"
-msgstr ""
+msgstr "Интерфейс"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:812
 msgid "The current interface the icon is monitoring."
@@ -949,23 +1060,26 @@ msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-icon.c:819
 msgid "Orientation"
-msgstr ""
+msgstr "Ориентация"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:820
+#, fuzzy
 msgid "The orientation of the tray."
-msgstr ""
+msgstr "Ориентация на тавата."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:828
+#, fuzzy
 msgid "Tooltips Enabled"
-msgstr ""
+msgstr "Редактирането е разрешено."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:829
 msgid "Whether or not the icon's tooltips are enabled."
 msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-icon.c:836
+#, fuzzy
 msgid "Show Signal"
-msgstr ""
+msgstr "%s: неправилен сигнал"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:837
 msgid "Whether or not the signal strength should be displayed."
@@ -981,23 +1095,25 @@ msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:148
 msgid "Name"
-msgstr ""
+msgstr "Име"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:149
+#, fuzzy
 msgid "The interface name"
-msgstr ""
+msgstr "Име на профил:"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:156
 msgid "State"
-msgstr ""
+msgstr "Състояние"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:157
+#, fuzzy
 msgid "The interface state"
-msgstr ""
+msgstr "Промяна на състоянието на интерфейс"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:165
 msgid "Stats"
-msgstr ""
+msgstr "Статистика"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:166
 msgid "The interface packets/bytes statistics"
@@ -1009,7 +1125,7 @@ msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:181
 msgid "Signal"
-msgstr ""
+msgstr "Сигнал"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:182
 msgid "Wireless signal strength percentage"
@@ -1018,7 +1134,7 @@ msgstr ""
 #: ../src/plugins/netstatus/netstatus-iface.c:191
 #: ../src/plugins/netstatus/netstatus-util.c:167
 msgid "Error"
-msgstr ""
+msgstr "Грешка"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:192
 msgid "The current error condition"
@@ -1026,32 +1142,32 @@ msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:434
 #: ../src/plugins/netstatus/netstatus-iface.c:1197
-#, c-format
+#, fuzzy, c-format
 msgid "Unable to open socket: %s"
-msgstr ""
+msgstr "Грешка при създаване на сокет"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:496
 #: ../src/plugins/netstatus/netstatus-iface.c:1223
-#, c-format
+#, fuzzy, c-format
 msgid "SIOCGIFFLAGS error: %s"
-msgstr ""
+msgstr "Грешка при създаване на `%s': %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:870
 msgid "AMPR NET/ROM"
-msgstr ""
+msgstr "AMPR NET/ROM"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:873
 msgid "Ethernet"
-msgstr ""
+msgstr "Локална мрежа (Ethernet)"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:879
 msgid "AMPR AX.25"
-msgstr ""
+msgstr "AMPR AX.25"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:888
 #: ../src/plugins/netstatus/netstatus-iface.c:1008
 msgid "16/4 Mbps Token Ring"
-msgstr ""
+msgstr "16/4 Mbps Token Ring"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:891
 msgid "ARCnet"
@@ -1086,36 +1202,43 @@ msgid "Adaptive Serial Line IP"
 msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:924
+#, fuzzy
 msgid "AMPR ROSE"
-msgstr ""
+msgstr "Роза Quinacridone"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:927
+#, fuzzy
 msgid "Generic X.25"
-msgstr ""
+msgstr "25 к/с"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:930
+#, fuzzy
 msgid "Point-to-Point Protocol"
-msgstr ""
+msgstr "Добавяне на ъгъл към %1"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:936
 msgid "(Cisco)-HDLC"
-msgstr ""
+msgstr "(Cisco)-HDLC"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:939
 msgid "LAPB"
-msgstr ""
+msgstr "LAPB"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:948
+#, fuzzy
 msgid "IPIP Tunnel"
-msgstr ""
+msgstr "Порт на тунела HTTP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:954
 msgid "Frame Relay Access Device"
 msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:960
+#, fuzzy
 msgid "Local Loopback"
 msgstr ""
+"Loopback файл(ове):\n"
+"   %s\n"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:966
 msgid "Fiber Distributed Data Interface"
@@ -1123,38 +1246,39 @@ msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:972
 msgid "IPv6-in-IPv4"
-msgstr ""
+msgstr "IPv6-в-IPv4"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:984
 msgid "HIPPI"
-msgstr ""
+msgstr "HIPPI"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:987
+#, fuzzy
 msgid "Ash"
-msgstr ""
+msgstr "Вулканична пепел"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:990
 msgid "Econet"
-msgstr ""
+msgstr "Econet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:993
 msgid "IrLAP"
-msgstr ""
+msgstr "IrLAP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:1155
-#, c-format
+#, fuzzy, c-format
 msgid "SIOCGIFCONF error: %s"
-msgstr ""
+msgstr "Грешка при създаване на `%s': %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:1248
-#, c-format
+#, fuzzy, c-format
 msgid "No network devices found"
-msgstr ""
+msgstr "Не са намерени вх/изх. устройства."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:180
-#, c-format
+#, fuzzy, c-format
 msgid "Cannot open /proc/net/dev: %s"
-msgstr ""
+msgstr "Не може да се отвори /proc/net/unix: %s\n"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:189
 msgid "Could not parse /proc/net/dev. Unknown format."
@@ -1169,9 +1293,7 @@ msgstr ""
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid ""
-"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
+msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
@@ -1184,9 +1306,9 @@ msgid "Could not parse wireless details from '%s'. link_idx = %d;"
 msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
-#, c-format
+#, fuzzy, c-format
 msgid "Could not connect to interface, '%s'"
-msgstr ""
+msgstr "Не може да се осъществи връзка към сървър."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:420
 #, c-format
@@ -1194,9 +1316,9 @@ msgid "Could not send ioctl to interface, '%s'"
 msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
-#, c-format
+#, fuzzy, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr ""
+msgstr "Грешка при анализ на скрипта. Ред: %1"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
@@ -1204,103 +1326,103 @@ msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
-msgstr ""
+msgstr "Несвързан"
 
 #: ../src/plugins/netstatus/netstatus-util.c:155
 msgid "Idle"
-msgstr ""
+msgstr "Неактивен"
 
 #: ../src/plugins/netstatus/netstatus-util.c:158
 msgid "Sending"
-msgstr ""
+msgstr "Изпращане"
 
 #: ../src/plugins/netstatus/netstatus-util.c:161
 msgid "Receiving"
-msgstr ""
+msgstr "Получаване"
 
 #: ../src/plugins/netstatus/netstatus-util.c:164
 msgid "Sending/Receiving"
-msgstr ""
+msgstr "Изпращане/Получаване"
 
 #: ../src/plugins/batt/batt.c:131
 msgid "No batteries found"
-msgstr ""
+msgstr "Няма открити батерии"
 
 #: ../src/plugins/batt/batt.c:179
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
-msgstr ""
+msgstr "Батерия: %d%% заредена, %d:%02d докато се напълни"
 
 #: ../src/plugins/batt/batt.c:190
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
-msgstr ""
+msgstr "Батерия: %d%% заредена, %d:%02d остават"
 
 #: ../src/plugins/batt/batt.c:196
 #, c-format
 msgid "Battery: %d%% charged"
-msgstr ""
+msgstr "Батерия: %d%% заредена"
 
 #: ../src/plugins/batt/batt.c:580
 msgid "Hide if there is no battery"
-msgstr ""
+msgstr "Скрий ако няма батерия"
 
 #: ../src/plugins/batt/batt.c:582
 msgid "Alarm command"
-msgstr ""
+msgstr "Команда за сигнализиране"
 
 #: ../src/plugins/batt/batt.c:583
 msgid "Alarm time (minutes left)"
-msgstr ""
+msgstr "Време за сигнализиране (оставащи минути)"
 
 #: ../src/plugins/batt/batt.c:584
 msgid "Background color"
-msgstr ""
+msgstr "Цвят на фона"
 
 #: ../src/plugins/batt/batt.c:585
 msgid "Charging color 1"
-msgstr ""
+msgstr "Цвят при зареждане 1"
 
 #: ../src/plugins/batt/batt.c:586
 msgid "Charging color 2"
-msgstr ""
+msgstr "Цвят при зареждане 2"
 
 #: ../src/plugins/batt/batt.c:587
 msgid "Discharging color 1"
-msgstr ""
+msgstr "Цвят при разреждане 1"
 
 #: ../src/plugins/batt/batt.c:588
 msgid "Discharging color 2"
-msgstr ""
+msgstr "Цвят при разреждане 2"
 
 #: ../src/plugins/batt/batt.c:589
 msgid "Border width"
-msgstr ""
+msgstr "Широчина на рамка"
 
 #: ../src/plugins/batt/batt.c:619
 msgid "Battery Monitor"
-msgstr ""
+msgstr "Датчик за батерията"
 
 #: ../src/plugins/batt/batt.c:621
 msgid "Display battery status using ACPI"
-msgstr ""
+msgstr "Показва статуса на батерията ползвайки ACPI"
 
 #: ../src/plugins/kbled/kbled.c:230
 msgid "Show CapsLock"
-msgstr ""
+msgstr "Покажи CapsLock"
 
 #: ../src/plugins/kbled/kbled.c:231
 msgid "Show NumLock"
-msgstr ""
+msgstr "Покажи NumLock"
 
 #: ../src/plugins/kbled/kbled.c:232
 msgid "Show ScrollLock"
-msgstr ""
+msgstr "Покажи ScrollLock"
 
 #: ../src/plugins/kbled/kbled.c:267
 msgid "Keyboard LED"
-msgstr ""
+msgstr "Клавиатурен индикатор"
 
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr ""
+msgstr "Индикатори за CapsLock, NumLock и ScrollLock клавиши"
