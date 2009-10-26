@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.5.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-27 14:13+0900\n"
-"PO-Revision-Date: 2009-08-27 14:19+0900\n"
+"POT-Creation-Date: 2009-10-24 14:46+0900\n"
+"PO-Revision-Date: 2009-10-24 14:48+0900\n"
 "Last-Translator: Hironao Komatsu <hironao@users.sourceforge.net>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -728,45 +728,45 @@ msgstr "ディレクトリメニュー"
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "ディレクトリ・ツリーをメニュー形式で表示します (作者: PCMan)"
 
-#: ../src/plugins/thermal/thermal.c:283
+#: ../src/plugins/thermal/thermal.c:304
 msgid "Normal"
 msgstr "通常"
 
-#: ../src/plugins/thermal/thermal.c:284
+#: ../src/plugins/thermal/thermal.c:305
 msgid "Warning1"
 msgstr "警戒1"
 
-#: ../src/plugins/thermal/thermal.c:285
+#: ../src/plugins/thermal/thermal.c:306
 msgid "Warning2"
 msgstr "警戒2"
 
-#: ../src/plugins/thermal/thermal.c:286
+#: ../src/plugins/thermal/thermal.c:307
 msgid "Automatic sensor location"
 msgstr "自動センサの位置"
 
-#: ../src/plugins/thermal/thermal.c:287
+#: ../src/plugins/thermal/thermal.c:308
 msgid "Sensor"
 msgstr "センサ"
 
-#: ../src/plugins/thermal/thermal.c:288
+#: ../src/plugins/thermal/thermal.c:309
 msgid "Automatic temperature levels"
 msgstr "自動温度警戒域"
 
-#: ../src/plugins/thermal/thermal.c:289
+#: ../src/plugins/thermal/thermal.c:310
 msgid "Warning1 Temperature"
 msgstr "警戒1 の温度"
 
-#: ../src/plugins/thermal/thermal.c:290
+#: ../src/plugins/thermal/thermal.c:311
 msgid "Warning2 Temperature"
 msgstr "警戒2 の温度"
 
-#: ../src/plugins/thermal/thermal.c:332
+#: ../src/plugins/thermal/thermal.c:353
 msgid "Temperature Monitor"
 msgstr "温度モニタ"
 
-#: ../src/plugins/thermal/thermal.c:334
-msgid "Display system temperature, by kesler.daniel@gmail.com"
-msgstr "システムの温度を表示します。kesler.daniel@gmail.com 氏による"
+#: ../src/plugins/thermal/thermal.c:355
+msgid "Display system temperature"
+msgstr "システムの温度を表示します"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
