@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-03 05:22+0800\n"
-"PO-Revision-Date: 2009-09-25 10:37+0200\n"
+"PO-Revision-Date: 2009-10-27 15:16+0100\n"
 "Last-Translator: Indalecio Freiría Santos <ifreiria@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Proxecto Trasno <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -48,7 +48,7 @@ msgstr "<b>Propiedades</b>"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>Configurar Aplicacións Preferidas</b>"
+msgstr "<b>Configurar as aplicacións preferidas</b>"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "<b>Size</b>"
@@ -60,13 +60,14 @@ msgstr "Avanzado"
 
 #: ../data/ui/panel-pref.glade.h:12
 msgid "Alignment:"
-msgstr "Aliñamento: "
+msgstr "Aliñamento:"
 
 #: ../data/ui/panel-pref.glade.h:13
 msgid "Appearance"
 msgstr "Aparencia"
 
-#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:955
+#: ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:955
 msgid "Bottom"
 msgstr "Abaixo"
 
@@ -76,25 +77,27 @@ msgstr "Centro"
 
 #: ../data/ui/panel-pref.glade.h:16
 msgid "Custom color"
-msgstr "Cor personalizada "
+msgstr "Cor personalizada"
 
 #: ../data/ui/panel-pref.glade.h:17
 msgid "Dynamic"
-msgstr "Dinámico "
+msgstr "Dinámico"
 
 #: ../data/ui/panel-pref.glade.h:18
 msgid "Edge:"
-msgstr "Borde: "
+msgstr "Borde:"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "File Manager:"
-msgstr "Xestor de Ficheiros:"
+msgstr "Xestor de ficheiros:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "Geometry"
 msgstr "Xeometría"
 
-#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:945 ../src/panel.c:953
+#: ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:945
+#: ../src/panel.c:953
 msgid "Height:"
 msgstr "Altura:"
 
@@ -102,7 +105,8 @@ msgstr "Altura:"
 msgid "Image"
 msgstr "Imaxe"
 
-#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:947
+#: ../data/ui/panel-pref.glade.h:23
+#: ../src/panel.c:947
 msgid "Left"
 msgstr "Esquerda"
 
@@ -112,11 +116,11 @@ msgstr "Esquerda\t"
 
 #: ../data/ui/panel-pref.glade.h:25
 msgid "Logout Command:"
-msgstr "Orde para Saír:"
+msgstr "Orde para saír:"
 
 #: ../data/ui/panel-pref.glade.h:26
 msgid "Make window managers treat the panel as dock"
-msgstr "Facer que os xestores de xanelas traten o panel como ancorábel "
+msgstr "Facer que os xestores de xanelas traten o panel como ancorábel"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Margin:"
@@ -128,21 +132,22 @@ msgstr "Minimizar o panel cando non se use"
 
 #: ../data/ui/panel-pref.glade.h:29
 msgid "Panel Applets"
-msgstr "Applets do Panel"
+msgstr "Applets do panel"
 
 #: ../data/ui/panel-pref.glade.h:30
 msgid "Panel Preferences"
-msgstr "Preferencias do Panel"
+msgstr "Preferencias do panel"
 
 #: ../data/ui/panel-pref.glade.h:31
 msgid "Pixels"
-msgstr "Píxeles "
+msgstr "Píxeles"
 
 #: ../data/ui/panel-pref.glade.h:32
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Reservar o espazo, non cubrir con xanelas maximizadas"
 
-#: ../data/ui/panel-pref.glade.h:33 ../src/panel.c:948
+#: ../data/ui/panel-pref.glade.h:33
+#: ../src/panel.c:948
 msgid "Right"
 msgstr "Dereita"
 
@@ -164,19 +169,21 @@ msgstr "Tema do sistema"
 
 #: ../data/ui/panel-pref.glade.h:38
 msgid "Terminal Emulator:"
-msgstr "Emulador de Terminal: "
+msgstr "Emulador de terminal:"
 
 #: ../data/ui/panel-pref.glade.h:39
 msgid "Top\t"
 msgstr "Arriba\t"
 
-#: ../data/ui/panel-pref.glade.h:40 ../src/panel.c:946 ../src/panel.c:952
+#: ../data/ui/panel-pref.glade.h:40
+#: ../src/panel.c:946
+#: ../src/panel.c:952
 msgid "Width:"
 msgstr "Largura:"
 
 #: ../data/ui/panel-pref.glade.h:41
 msgid "pixels"
-msgstr "píxeles "
+msgstr "píxeles"
 
 #: ../data/ui/netstatus.glade.h:2
 #, no-c-format
@@ -211,7 +218,8 @@ msgstr "<b>Potencia do sinal</b>"
 msgid "Address:"
 msgstr "Enderezo:"
 
-#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
+#: ../data/ui/netstatus.glade.h:10
+#: ../src/plugins/netstat/netstat.c:319
 #: ../src/plugins/netstat/netstat.c:330
 msgid "Broadcast:"
 msgstr "Difusión:"
@@ -222,7 +230,7 @@ msgstr "Con_figurar"
 
 #: ../data/ui/netstatus.glade.h:12
 msgid "Destination:"
-msgstr "Destino: "
+msgstr "Destino:"
 
 #: ../data/ui/netstatus.glade.h:13
 msgid "General"
@@ -260,9 +268,10 @@ msgstr "Tipo:"
 msgid "_Name:"
 msgstr "_Nome:"
 
-#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:821
+#: ../data/ui/launchbar.glade.h:1
+#: ../src/plugins/launchbar.c:821
 msgid "Application Launch Bar"
-msgstr "Barra de Aplicacións"
+msgstr "Barra de aplicacións"
 
 #: ../data/ui/launchbar.glade.h:2
 msgid "Applications"
@@ -270,9 +279,10 @@ msgstr "Aplicacións"
 
 #: ../data/ui/launchbar.glade.h:3
 msgid "Available Applications"
-msgstr "Aplicacións Dispoñíbeis "
+msgstr "Aplicacións dispoñíbeis"
 
-#: ../src/configurator.c:54 ../src/gtk-run.c:299
+#: ../src/configurator.c:54
+#: ../src/gtk-run.c:299
 msgid "Run"
 msgstr "Executar"
 
@@ -308,7 +318,8 @@ msgstr "A orde para saír non foi configurada"
 msgid "Select a directory"
 msgstr "Seleccionar un cartafol"
 
-#: ../src/configurator.c:1192 ../src/configurator.c:1283
+#: ../src/configurator.c:1192
+#: ../src/configurator.c:1283
 msgid "Select a file"
 msgstr "Seleccionar un ficheiro"
 
@@ -347,7 +358,7 @@ msgstr "Panel de escritorio para o proxecto LXDE"
 
 #: ../src/panel.c:655
 msgid "Add / Remove Panel Items"
-msgstr "Engadir / Eliminar Elementos do Panel"
+msgstr "Engadir / Eliminar elementos do panel"
 
 #: ../src/panel.c:663
 #, c-format
@@ -360,7 +371,7 @@ msgstr "Configuración do panel"
 
 #: ../src/panel.c:681
 msgid "Create New Panel"
-msgstr "Crear un Panel Novo"
+msgstr "Crear un panel novo"
 
 #: ../src/panel.c:692
 msgid "Delete This Panel"
@@ -447,7 +458,7 @@ msgstr "Ingrese a orde a executar:"
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
-msgstr "Monitor do Uso do Procesador"
+msgstr "Monitor do uso do procesador"
 
 #: ../src/plugins/cpu/cpu.c:270
 msgid "Display CPU usage"
@@ -455,7 +466,7 @@ msgstr "Mostrar o uso do procesador"
 
 #: ../src/plugins/deskno/deskno.c:165
 msgid "Desktop Number / Workspace Name"
-msgstr "Número de Escritorio / Area de Traballo"
+msgstr "Número de escritorio / área de traballo"
 
 #: ../src/plugins/deskno/deskno.c:167
 msgid "Display workspace number, by cmeury@users.sf.net"
@@ -463,7 +474,7 @@ msgstr "Mostra o número da área de traballo, por cmeury@users.sf.net"
 
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
-msgstr "Mostrar a Imaxe e o Consello"
+msgstr "Mostrar a imaxe e o consello"
 
 #: ../src/plugins/launchbar.c:823
 msgid "Bar with buttons to launch application"
@@ -472,12 +483,12 @@ msgstr "Barra de aceso a aplicacións"
 #. Add Raise menu item.
 #: ../src/plugins/taskbar.c:1696
 msgid "_Raise"
-msgstr "Ergue_r "
+msgstr "_Erguer"
 
 #. Add Restore menu item.
 #: ../src/plugins/taskbar.c:1701
 msgid "R_estore"
-msgstr "R_estaurar"
+msgstr "Restau_rar"
 
 #. Add Maximize menu item.
 #: ../src/plugins/taskbar.c:1706
@@ -512,7 +523,7 @@ msgstr "_Mover á área de traballo"
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../src/plugins/taskbar.c:1761
 msgid "_Close Window"
-msgstr "_Pechar a Xanela"
+msgstr "_Pechar a xanela"
 
 #: ../src/plugins/taskbar.c:1972
 msgid "Show tooltips"
@@ -524,7 +535,7 @@ msgstr "Só iconas"
 
 #: ../src/plugins/taskbar.c:1974
 msgid "Flat buttons"
-msgstr "Botóns planos "
+msgstr "Botóns planos"
 
 #: ../src/plugins/taskbar.c:1975
 msgid "Show windows from all desktops"
@@ -548,11 +559,11 @@ msgstr "Largura máxima do botón de tarefas"
 
 #: ../src/plugins/taskbar.c:1980
 msgid "Spacing"
-msgstr "Espaciado "
+msgstr "Espaciado"
 
 #: ../src/plugins/taskbar.c:2037
 msgid "Task Bar (Window List)"
-msgstr "Barra de Tarefas (Lista de Xanelas)"
+msgstr "Barra de tarefas (lista de xanelas)"
 
 #: ../src/plugins/taskbar.c:2039
 msgid ""
@@ -564,11 +575,11 @@ msgstr ""
 
 #: ../src/plugins/dclock.c:282
 msgid "Clock Format"
-msgstr "Formato de Hora"
+msgstr "Formato de hora"
 
 #: ../src/plugins/dclock.c:283
 msgid "Tooltip Format"
-msgstr "Formato do Consello"
+msgstr "Formato do consello"
 
 #: ../src/plugins/dclock.c:284
 msgid "Format codes: man 3 strftime"
@@ -584,7 +595,7 @@ msgstr "Negra"
 
 #: ../src/plugins/dclock.c:313
 msgid "Digital Clock"
-msgstr "Reloxo Dixital"
+msgstr "Reloxo dixital"
 
 #: ../src/plugins/dclock.c:315
 msgid "Display digital clock and tooltip"
@@ -598,7 +609,8 @@ msgstr "Engadir no escritorio"
 msgid "Properties"
 msgstr "Propiedades"
 
-#: ../src/plugins/menu.c:990 ../src/plugins/dirmenu.c:367
+#: ../src/plugins/menu.c:990
+#: ../src/plugins/dirmenu.c:367
 msgid "Icon"
 msgstr "Icona"
 
@@ -620,13 +632,14 @@ msgstr "Engadir un separador ao panel"
 
 #: ../src/plugins/pager.c:797
 msgid "Desktop Pager"
-msgstr "Escritorios Virtuais"
+msgstr "Escritorios virtuais"
 
 #: ../src/plugins/pager.c:799
 msgid "Simple pager plugin"
 msgstr "Complemento simple para escritorios virtuais"
 
-#: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
+#: ../src/plugins/space.c:121
+#: ../src/plugins/batt/batt.c:590
 msgid "Size"
 msgstr "Tamaño"
 
@@ -640,7 +653,7 @@ msgstr "Asignar espazo"
 
 #: ../src/plugins/tray.c:702
 msgid "System Tray"
-msgstr "Zona de Notificación"
+msgstr "Zona de notificación"
 
 #: ../src/plugins/tray.c:704
 msgid "System tray"
@@ -656,11 +669,11 @@ msgstr "Mostrar distribución como"
 
 #: ../src/plugins/xkb/xkb-plugin.c:313
 msgid "image"
-msgstr "Imaxe"
+msgstr "imaxe"
 
 #: ../src/plugins/xkb/xkb-plugin.c:314
 msgid "text"
-msgstr "Texto"
+msgstr "texto"
 
 #: ../src/plugins/xkb/xkb-plugin.c:321
 msgid "Per application settings"
@@ -669,7 +682,7 @@ msgstr "Axustes por aplicación"
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/xkb/xkb-plugin.c:336
 msgid "_Remember layout for each application"
-msgstr "Lemb_rar a distribución para cada aplicación"
+msgstr "_Lembrar a distribución para cada aplicación"
 
 #. Create a label as the child of the horizontal box.
 #: ../src/plugins/xkb/xkb-plugin.c:346
@@ -688,7 +701,7 @@ msgstr "Selecciona entre las distribucións de teclados dispoñíbeis"
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
 "Botón esquerdo para minimizar todas las xanelas.  Botón medio para "
-"repregalas"
+"repregalas."
 
 #: ../src/plugins/wincmd.c:208
 msgid "Minimize All Windows"
@@ -704,7 +717,7 @@ msgstr ""
 
 #: ../src/plugins/dirmenu.c:200
 msgid "Open in _Terminal"
-msgstr "Abrir en _Terminal"
+msgstr "Abrir en _terminal"
 
 #: ../src/plugins/dirmenu.c:365
 msgid "Directory"
@@ -716,7 +729,7 @@ msgstr "Etiqueta"
 
 #: ../src/plugins/dirmenu.c:397
 msgid "Directory Menu"
-msgstr "Menú de Directorios"
+msgstr "Menú de directorios"
 
 #: ../src/plugins/dirmenu.c:399
 msgid "Browse directory tree via menu (Author: PCMan)"
@@ -748,15 +761,15 @@ msgstr "Niveis automáticos de temperatura"
 
 #: ../src/plugins/thermal/thermal.c:289
 msgid "Warning1 Temperature"
-msgstr "Advertencia1 de Temperatura"
+msgstr "Advertencia1 de temperatura"
 
 #: ../src/plugins/thermal/thermal.c:290
 msgid "Warning2 Temperature"
-msgstr "Advertencia2 de Temperatura"
+msgstr "Advertencia2 de temperatura"
 
 #: ../src/plugins/thermal/thermal.c:332
 msgid "Temperature Monitor"
-msgstr "Monitor de Temperatura"
+msgstr "Monitor de temperatura"
 
 #: ../src/plugins/thermal/thermal.c:334
 msgid "Display system temperature, by kesler.daniel@gmail.com"
@@ -773,7 +786,7 @@ msgstr "Control de volume"
 #: ../src/plugins/volume/volume.c:312
 #: ../src/plugins/volumealsa/volumealsa.c:449
 msgid "Volume Control"
-msgstr "Control de Volume"
+msgstr "Control de volume"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
@@ -816,41 +829,48 @@ msgstr "O cable de rede está desconectado"
 msgid "Connection has limited or no connectivity"
 msgstr "Conexión limitada ou inexistente"
 
-#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307
+#: ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "Enderezo IP:"
 
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Remote IP:"
-msgstr "IP Remota:"
+msgstr "Enderezo IP remoto:"
 
-#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309
+#: ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "Máscara de rede:"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "Actividade"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "Enviado"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "Recibido"
 
-#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311
+#: ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "bytes"
 
-#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312
+#: ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "paquetes"
@@ -864,7 +884,8 @@ msgstr "Sen fíos"
 msgid "Protocol:"
 msgstr "Protocolo:"
 
-#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321
+#: ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "Enderezo físico:"
 
@@ -1076,7 +1097,7 @@ msgstr "ARCnet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:897
 msgid "Frame Relay DLCI"
-msgstr "Frame Relay DLCI"
+msgstr "DLCI de Frame Relay"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:903
 msgid "Metricom Starmode IP"
@@ -1112,7 +1133,7 @@ msgstr "X.25 xenérico"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:930
 msgid "Point-to-Point Protocol"
-msgstr "Protocolo Punto-a-Punto"
+msgstr "Protocolo punto a punto"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:936
 msgid "(Cisco)-HDLC"
@@ -1136,7 +1157,7 @@ msgstr "Loopback Local"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:966
 msgid "Fiber Distributed Data Interface"
-msgstr "Fiber Distributed Data Interface"
+msgstr "Interface de datos de fibra distribuída"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:972
 msgid "IPv6-in-IPv4"
