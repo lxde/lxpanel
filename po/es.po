@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxpanel-0.3.5.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-03 05:22+0800\n"
-"PO-Revision-Date: 2009-07-20 06:08+0200\n"
+"PO-Revision-Date: 2009-10-26 19:51+0100\n"
 "Last-Translator: Hugo Florentino <sysadmin@cips.cu>\n"
 "Language-Team: Spanish <daniel@tunki.org>\n"
 "MIME-Version: 1.0\n"
@@ -536,7 +536,7 @@ msgstr "Botones planos"
 
 #: ../src/plugins/taskbar.c:1975
 msgid "Show windows from all desktops"
-msgstr "Mostar ventanas de todas las áreas de trabajo"
+msgstr "Mostrar ventanas de todas las áreas de trabajo"
 
 #: ../src/plugins/taskbar.c:1976
 msgid "Use mouse wheel"
