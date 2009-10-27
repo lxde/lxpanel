@@ -1,0 +1,1547 @@
+# translation of LxPanel to Arpitan
+# Copyright (C) 2006-2008 the LXDE team
+# This file is distributed under the same license as the LxPanel package.
+#
+# Alexandre Raymond <Alexandre.Raymond@univ-lyon2.fr>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lxpanel r839\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-06-22 23:58+0200\n"
+"PO-Revision-Date: 2009-09-24 00:39+0200\n"
+"Last-Translator: alexandre raymond <alekcxjo@gmail.com>\n"
+"Language-Team: LXDE Traduccion Arpitan <alekcxjo+arpitan@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 1.1.0\n"
+
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+
+#: ../data/ui/panel-pref.glade.h:2
+#, no-c-format
+msgid "% Percent"
+msgstr "% percent"
+
+#: ../data/ui/panel-pref.glade.h:3
+msgid "<b>Automatic hiding</b>"
+msgstr "<b>Cachèr automacament</b>"
+
+#: ../data/ui/panel-pref.glade.h:4
+msgid "<b>Background</b>"
+msgstr "<b>Darrèr-Plan</b>"
+
+#: ../data/ui/panel-pref.glade.h:5
+msgid "<b>Font</b>"
+msgstr "<b>Fonda</b>"
+
+#: ../data/ui/panel-pref.glade.h:6
+msgid "<b>Icon</b>"
+msgstr "<b>Imaji</b>"
+
+#: ../data/ui/panel-pref.glade.h:6
+msgid "<b>Position</b>"
+msgstr "<b>Posicion</b>"
+
+#: ../data/ui/panel-pref.glade.h:7
+msgid "<b>Properties</b>"
+msgstr "<b>Proprietâ</b>"
+
+#: ../data/ui/panel-pref.glade.h:8
+msgid "<b>Set Preferred Applications</b>"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:9
+msgid "<b>Size</b>"
+msgstr "<b>Talyi</b>"
+
+#: ../data/ui/panel-pref.glade.h:10
+msgid "Advanced"
+msgstr "Avancî"
+
+#: ../data/ui/panel-pref.glade.h:11
+msgid "Alignment:"
+msgstr "Alinyiment:"
+
+#: ../data/ui/panel-pref.glade.h:13
+msgid "Appearance"
+msgstr "Aparenci"
+
+#: ../data/ui/panel-pref.glade.h:12
+msgid "Bottom"
+msgstr "Dessos"
+
+#: ../data/ui/panel-pref.glade.h:13
+msgid "Center"
+msgstr "Çantre"
+
+#: ../data/ui/panel-pref.glade.h:16
+#, fuzzy
+msgid "Custom color"
+msgstr "Colór personalisâyi"
+
+#: ../data/ui/panel-pref.glade.h:15
+msgid "Dynamic"
+msgstr "Dinamic"
+
+#: ../data/ui/panel-pref.glade.h:16
+msgid "Edge:"
+msgstr "Bórd:"
+
+#: ../data/ui/panel-pref.glade.h:19
+msgid "File Manager:"
+msgstr "Gestionnèro de fichiers:"
+
+#: ../data/ui/panel-pref.glade.h:20
+msgid "Geometry"
+msgstr "Geometrie"
+
+#: ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:932
+#: ../src/panel.c:938
+msgid "Height:"
+msgstr "Yautor:"
+
+#: ../data/ui/panel-pref.glade.h:22
+msgid "Image"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:22
+msgid "Left"
+msgstr "Gauchi"
+
+#: ../data/ui/panel-pref.glade.h:23
+msgid "Left\t"
+msgstr "Gauchi\t"
+
+#: ../data/ui/panel-pref.glade.h:24
+msgid "Logout Command:"
+msgstr "Commanda de déconneccion:"
+
+#: ../data/ui/panel-pref.glade.h:25
+msgid "Make window managers treat the panel as dock"
+msgstr "Le gestionnaire de fenehtra doit considérer le pancarta comme un dock"
+
+#: ../data/ui/panel-pref.glade.h:26
+msgid "Margin:"
+msgstr "Marji:"
+
+#: ../data/ui/panel-pref.glade.h:27
+msgid "Minimize panel when not in use"
+msgstr "Apetissar la pancarta quand n'eht pas usâyi"
+
+#: ../data/ui/panel-pref.glade.h:29
+msgid "Panel Applets"
+msgstr "Applicacions de la pancarta"
+
+#: ../data/ui/panel-pref.glade.h:30
+msgid "Panel Preferences"
+msgstr "Préférences de la pancarta"
+
+#: ../data/ui/panel-pref.glade.h:31
+msgid "Pixels"
+msgstr "Pixels"
+
+#: ../data/ui/panel-pref.glade.h:32
+msgid "Reserve space, and not covered by maximized windows"
+msgstr ""
+"Réserver de l'espace et l'empêcher d'être recouvert par les fenehtres "
+"maximisées"
+
+#: ../data/ui/panel-pref.glade.h:33
+msgid "Right"
+msgstr "Dreti"
+
+#: ../data/ui/panel-pref.glade.h:34
+msgid "Select an image file"
+msgstr "Acapar un fichier image"
+
+#: ../data/ui/panel-pref.glade.h:35
+msgid "Size when minimized"
+msgstr "Talyi quand apetissâ"
+
+#: ../data/ui/panel-pref.glade.h:36
+msgid "Solid color (with opacity)"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:37
+msgid "System theme"
+msgstr "Temo do sistemo"
+
+#: ../data/ui/panel-pref.glade.h:36
+msgid "Terminal Emulator:"
+msgstr "Emulator de terminal:"
+
+#: ../data/ui/panel-pref.glade.h:38
+msgid "Top\t"
+msgstr "Yaut"
+
+#: ../data/ui/panel-pref.glade.h:39
+#: ../src/panel.c:933
+#: ../src/panel.c:937
+msgid "Width:"
+msgstr "Larjor:"
+
+#: ../data/ui/panel-pref.glade.h:40
+#, fuzzy
+msgid "pixels"
+msgstr "Pixels"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:272
+#, no-c-format
+msgid "0%"
+msgstr "0%"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:194
+msgid "<b>Activity</b>"
+msgstr "<b>Activitâ</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:131
+msgid "<b>Connection</b>"
+msgstr "<b>Conneccion</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:289
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr "<b>Protocol Internet (IPv4)</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:376
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>Protocol Internet (IPv6)</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:432
+msgid "<b>Network Device</b>"
+msgstr "<b>Aparely de téla</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:250
+msgid "<b>Signal Strength</b>"
+msgstr "<b>Fórça do sinyal</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:309
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:396
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:452
+msgid "Address:"
+msgstr "Adreçi:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
+#: ../src/plugins/netstat/netstat.c:319
+#: ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:323
+msgid "Broadcast:"
+msgstr "Adreçi de difusion:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:513
+msgid "Con_figure"
+msgstr "Con_figurar"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:316
+msgid "Destination:"
+msgstr "Destinacion:"
+
+#: ../data/ui/panel-pref.glade.h:20
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:276
+msgid "General"
+msgstr "General"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:232
+msgid "Received:"
+msgstr "Recevû:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:403
+msgid "Scope:"
+msgstr "Portâ:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:239
+msgid "Sent:"
+msgstr "Mendâ:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:155
+msgid "Status:"
+msgstr "Ehtat:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:330
+msgid "Subnet Mask:"
+msgstr "Mâscuri de sostela:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:484
+msgid "Support"
+msgstr "Support"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:477
+msgid "Type:"
+msgstr "Tipe:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
+#: ../src/plugins/netstatus/netstatus-dialog-ui.c:171
+msgid "_Name:"
+msgstr "_Nom:"
+
+#: ../src/plugins/launchbar.c:800
+msgid "Application Launch Bar"
+msgstr "Barra dʹempreencion dʹapplicacions"
+
+#: ../data/ui/launchbar.glade.h:2
+msgid "Applications"
+msgstr "Applicacions"
+
+#: ../data/ui/launchbar.glade.h:3
+msgid "Available Applications"
+msgstr "Applicacions disponibles"
+
+#: ../src/configurator.c:54
+#: ../src/gtk-run.c:250
+msgid "Run"
+msgstr "Emprendre"
+
+#: ../src/configurator.c:56
+msgid "Restart"
+msgstr "Remprendre"
+
+#: ../src/configurator.c:57
+msgid "Logout"
+msgstr "Modar"
+
+#: ../src/configurator.c:472
+msgid "Currently loaded plugins"
+msgstr "Tacons yora charjis"
+
+#: ../src/configurator.c:481
+msgid "Stretch"
+msgstr "Rablar"
+
+#: ../src/configurator.c:579
+msgid "Add plugin to panel"
+msgstr "Apondre un tacon a la pancarta"
+
+#: ../src/configurator.c:607
+msgid "Available plugins"
+msgstr "Tacons disponiblos"
+
+#: ../src/configurator.c:1163
+msgid "Logout command is not set"
+msgstr "La commanda de deconneccion eht pâs definyîyi"
+
+#: ../src/configurator.c:1216
+msgid "Select a directory"
+msgstr "Acapar un gosset"
+
+#: ../src/configurator.c:1216
+#: ../src/configurator.c:1301
+msgid "Select a file"
+msgstr "Acapar un fichier"
+
+#: ../src/configurator.c:1328
+msgid "_Browse"
+msgstr "_Coratar"
+
+#: ../src/panel.c:590
+msgid ""
+"Really delete this panel?\n"
+"<b>Warning: This can not be recovered.</b>"
+msgstr ""
+"Dotar veretament cetâ pancarta?\n"
+"<b>Gâra: cetâ accion ne pòt ehtre annulâyi.</b>"
+
+#: ../src/panel.c:592
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. TRANSLATORS: Replace this string with your names, one name per line.
+#: ../src/panel.c:623
+msgid "translator-credits"
+msgstr "Credits de traduycion"
+
+#: ../src/panel.c:628
+#, fuzzy
+msgid "LXPanel"
+msgstr "LXPancarta"
+
+#: ../src/panel.c:630
+msgid "Copyright (C) 2008-2009"
+msgstr "Drèts de Copia Copyright (C) 2008-2009"
+
+#: ../src/panel.c:631
+msgid "Desktop panel for LXDE project"
+msgstr "Pancarta do lʹentorn per lo projet LXDE"
+
+#: ../src/panel.c:654
+msgid "Add / Remove Panel Items"
+msgstr "Apondre/Dotar de bagues a la pancarta"
+
+#: ../src/panel.c:662
+#, c-format
+msgid "Remove \"%s\" From Panel"
+msgstr "Dotar « %s » de la pancarta"
+
+#: ../src/panel.c:674
+msgid "Panel Settings"
+msgstr "Opcions de la pancarta"
+
+#: ../src/panel.c:680
+msgid "Create New Panel"
+msgstr "Crear ʻna novela pancarta"
+
+#: ../src/panel.c:691
+msgid "Delete This Panel"
+msgstr "Dotar cetâ pancarta"
+
+#: ../src/panel.c:702
+msgid "About"
+msgstr "A propos"
+
+#: ../src/panel.c:710
+msgid "Panel"
+msgstr "Pancarta"
+
+#: ../src/panel.c:723
+#, c-format
+msgid "\"%s\" Settings"
+msgstr "Opcions de « %s »"
+
+#: ../src/panel.c:954
+msgid "Top"
+msgstr "Yaut"
+
+#: ../src/panel.c:1248
+#, c-format
+msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
+msgstr "lxpanel %s - pancarta lejieri en GTK2+ per los entorns UNIX\n"
+
+#: ../src/panel.c:1249
+#, c-format
+msgid "Command line options:\n"
+msgstr "Opcions de la linyi de commanda:\n"
+
+#: ../src/panel.c:1250
+#, c-format
+msgid " --help      -- print this help and exit\n"
+msgstr " --help      -- mohtrar cetî messâjo dʹéda et quitar\n"
+
+#: ../src/panel.c:1251
+#, c-format
+msgid " --version   -- print version and exit\n"
+msgstr " --version   -- mohtrar la version et quitar\n"
+
+#: ../src/panel.c:1252
+#, c-format
+msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
+msgstr " --log <nombre> -- definyir la quantitâ dʹinformacions sauvâyes 0-5. 0 - "
+"aucun 5 - maximum\n"
+
+#. g_print(_(" --configure -- launch configuration utility\n"));
+#: ../src/panel.c:1254
+#, c-format
+msgid " --profile name -- use specified profile\n"
+msgstr " --profile nom -- usar lo perfil specifiâ\n"
+
+#: ../src/panel.c:1256
+#, c-format
+msgid " -h  -- same as --help\n"
+msgstr " -h  -- parily que --help\n"
+
+#: ../src/panel.c:1257
+#, c-format
+msgid " -p  -- same as --profile\n"
+msgstr " -p  -- parily que --profile\n"
+
+#: ../src/panel.c:1258
+#, c-format
+msgid " -v  -- same as --version\n"
+msgstr " -v  -- parily que --version\n"
+
+#. g_print(_(" -C  -- same as --configure\n"));
+#: ../src/panel.c:1260
+#, c-format
+msgid ""
+"\n"
+"Visit http://lxde.org/ for detail.\n"
+"\n"
+msgstr ""
+"\n"
+"Visitar lo site http://lxpanel.sourceforge.net/ per detalys.\n"
+"\n"
+
+#: ../src/gtk-run.c:264
+msgid "Enter the command you want to execute:"
+msgstr "Entrar la commanda a emprendre:"
+
+#: ../src/plugins/cpu/cpu.c:266
+msgid "CPU Usage Monitor"
+msgstr "Monitor d'usâjo do processor"
+
+#: ../src/plugins/cpu/cpu.c:268
+msgid "Display CPU usage"
+msgstr "Mohtra l'usâjo do processor"
+
+#: ../src/plugins/deskno/deskno.c:165
+msgid "Desktop Number / Workspace Name"
+msgstr "Numeró de Bureu / Nom de l'espaci de travaly"
+
+#: ../src/plugins/deskno/deskno.c:120
+#: ../src/plugins/deskno/deskno2.c:131
+msgid "Display workspace number, by cmeury@users.sf.net"
+msgstr "Mohtra le numéro de lʹentorn de travaly"
+
+#: ../src/plugins/image.c:177
+msgid "Display Image and Tooltip"
+msgstr "Mohtra dʹimâjes et de conselys"
+
+#: ../src/plugins/launchbar.c:802
+msgid "Bar with buttons to launch application"
+msgstr "Barre avoyc dʹapolyons per emprendre dʹapplicacions"
+
+#. Add Raise menu item.
+#: ../src/plugins/taskbar.c:1405
+msgid "_Raise"
+msgstr "_Mohtrar"
+
+#. Add Restore menu item.
+#: ../src/plugins/taskbar.c:1409
+msgid "R_estore"
+msgstr "_Cachier"
+
+#. Add Maximize menu item.
+#: ../src/plugins/taskbar.c:1413
+msgid "Ma_ximize"
+msgstr "A_grantir"
+
+#. Add Iconify menu item.
+#: ../src/plugins/taskbar.c:1417
+msgid "Ico_nify"
+msgstr "A_petissir"
+
+#: ../src/plugins/taskbar.c:1428
+#, c-format
+msgid "Workspace _%d"
+msgstr "Espaci de travaly _%d"
+
+#: ../src/plugins/taskbar.c:1433
+#, c-format
+msgid "Workspace %d"
+msgstr "Espaci de travaly %d"
+
+#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
+#: ../src/plugins/taskbar.c:1442
+msgid "_All workspaces"
+msgstr "_Tots los espaces de travaly"
+
+#. Add Move to Workspace menu item as a submenu.
+#: ../src/plugins/taskbar.c:1449
+#, fuzzy
+msgid "_Move to Workspace"
+msgstr "_Bujier a lʹentorn de travaly"
+
+#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
+#. we want this item to be farest from mouse pointer
+#: ../src/plugins/taskbar.c:1457
+msgid "_Close Window"
+msgstr "_Serrar la fenehtra"
+
+#: ../src/plugins/taskbar.c:1691
+msgid "Show tooltips"
+msgstr "Mohtrar les infobulles"
+
+#: ../src/plugins/taskbar.c:1692
+msgid "Icons only"
+msgstr "Icones soletament"
+
+#: ../src/plugins/taskbar.c:1974
+msgid "Flat buttons"
+msgstr "Botons plans"
+
+#: ../src/plugins/taskbar.c:1697
+msgid "Show windows from all desktops"
+msgstr "Mohtrar les fenehtres de tots los espaces de travaly"
+
+#: ../src/plugins/taskbar.c:1698
+msgid "Use mouse wheel"
+msgstr "Usar la roua de la rata"
+
+#: ../src/plugins/taskbar.c:1699
+msgid "Flash when there is any window requiring attention"
+msgstr "Elyódar quand na fenehtra demande lʹatencion"
+
+#: ../src/plugins/taskbar.c:1978
+msgid "Combine multiple application windows into a single button"
+msgstr ""
+
+#: ../src/plugins/taskbar.c:1979
+#, fuzzy
+msgid "Maximum width of task button"
+msgstr "Més-granta larjor do boton de tahchi"
+
+#: ../src/plugins/taskbar.c:1701
+msgid "Spacing"
+msgstr "Ehpaciment"
+
+#: ../src/plugins/taskbar.c:1779
+msgid "Task Bar (Window List)"
+msgstr "Barra de tâhches (Lista de fenehtres)"
+
+#: ../src/plugins/taskbar.c:1781
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
+msgstr ""
+"Mohtra la lista de fenehtres overtes e permet de les apetissar, les garotar "
+"u lyor balyier lo davant"
+
+#: ../src/plugins/dclock.c:275
+msgid "Clock Format"
+msgstr "Format do relojo"
+
+#: ../src/plugins/dclock.c:276
+msgid "Tooltip Format"
+msgstr "Format dos conselys"
+
+#: ../src/plugins/dclock.c:277
+msgid "Format codes: man 3 strftime"
+msgstr "Codes de format : man 3 strftime"
+
+#: ../src/plugins/dclock.c:285
+msgid "Action when clicked (default: display calendar)"
+msgstr "Accion do clic (defaut: mohtra lo calendrèr)"
+
+#: ../src/plugins/dclock.c:279
+msgid "Bold font"
+msgstr "Fonda grassa"
+
+#: ../src/plugins/dclock.c:312
+msgid "Digital Clock"
+msgstr "Relojo digital"
+
+#: ../src/plugins/dclock.c:315
+msgid "Display digital clock and tooltip"
+msgstr "Mohtrar lo relojo a chifra é lo consély"
+
+#: ../src/plugins/menu.c:369
+msgid "Add to desktop"
+msgstr "Apondre a lʹentorn"
+
+#: ../src/plugins/menu.c:379
+msgid "Properties"
+msgstr "Opcions"
+
+#: ../src/plugins/menu.c:1029
+msgid "Icon"
+msgstr "Icona"
+
+#: ../src/plugins/menu.c:1040
+msgid "Menu"
+msgstr "Menû"
+
+#: ../src/plugins/menu.c:1009
+msgid "Application Menu"
+msgstr "Menû d'applicacions"
+
+#: ../src/plugins/separator.c:83
+msgid "Separator"
+msgstr "Soparatór"
+
+#: ../src/plugins/separator.c:85
+msgid "Add a separator to the panel"
+msgstr "Apondre un separatór sur le pancarta"
+
+#: ../src/plugins/pager.c:707
+msgid "Desktop Pager"
+msgstr "Avertissór do bureu"
+
+#: ../src/plugins/pager.c:709
+#, fuzzy
+msgid "Simple pager plugin"
+msgstr "Simplo agleton d'avertissór"
+
+#: ../src/plugins/space.c:133
+#: ../src/plugins/batt/batt.c:591
+msgid "Size"
+msgstr "Talyi"
+
+#: ../src/plugins/space.c:139
+#, fuzzy
+msgid "Spacer"
+msgstr "Espaçór"
+
+#: ../src/plugins/space.c:150
+msgid "Allocate space"
+msgstr "Aloyier de l'espaci"
+
+#: ../src/systray/tray.c:211
+msgid "System Tray"
+msgstr "Barra de notificacion"
+
+#: ../src/plugins/tray.c:704
+msgid "System tray"
+msgstr "Barra de notificacion"
+
+#: ../src/plugins/xkb/xkb-plugin.c:385
+msgid "Configure Keyboard Layout Switcher"
+msgstr "Configuracion do l'echanjior de disposicion do clavier"
+
+#: ../src/plugins/xkb/xkb-plugin.c:398
+msgid "Show layout as"
+msgstr "Mohtrar la disposicion"
+
+#: ../src/plugins/xkb/xkb-plugin.c:413
+msgid "image"
+msgstr "avoyc ʻnʹimâji"
+
+#: ../src/plugins/xkb/xkb-plugin.c:414
+msgid "text"
+msgstr "avoyc un texte"
+
+#: ../src/plugins/xkb/xkb-plugin.c:418
+msgid "Per application settings"
+msgstr "Opcions per chârca application"
+
+#. Create a check button as the child of the vertical box.
+#: ../src/plugins/xkb/xkb-plugin.c:432
+msgid "_Remember layout for each application"
+msgstr "Se _sovenyir de la disposicion per chârca application"
+
+#. Create a label as the child of the horizontal box.
+#: ../src/plugins/xkb/xkb-plugin.c:441
+msgid "Default layout:"
+msgstr "Disposicion principala:"
+
+#: ../src/plugins/xkb/xkb-plugin.c:241
+msgid "Keyboard Layout Switcher"
+msgstr "Echanjiór de clavier"
+
+#: ../src/plugins/xkb/xkb-plugin.c:501
+msgid "Switch between available keyboard layouts"
+msgstr "Echanjier les disposicions disponibles do clavier"
+
+#: ../src/plugins/wincmd.c:171
+msgid "Left click to iconify all windows.  Middle click to shade them."
+msgstr ""
+
+#: ../src/plugins/wincmd.c:262
+msgid "Minimize All Windows"
+msgstr "Apetissar totes les fenehtres"
+
+#: ../src/plugins/wincmd.c:210
+msgid ""
+"Sends commands to all desktop windows.\n"
+"Supported commands are 1) iconify and 2) shade"
+msgstr ""
+
+#: ../src/plugins/dirmenu.c:212
+msgid "Open in _Terminal"
+msgstr "Ovrir avoyc un _terminal"
+
+#: ../src/plugins/dirmenu.c:403
+msgid "Directory"
+msgstr "Menû dos repetères"
+
+#: ../src/plugins/dirmenu.c:404
+#, fuzzy
+msgid "Label"
+msgstr "Pancarta"
+
+#: ../src/plugins/dirmenu.c:413
+msgid "Directory Menu"
+msgstr "Menu des repertères"
+
+#: ../src/plugins/dirmenu.c:415
+msgid "Browse directory tree via menu (Author: PCMan)"
+msgstr "Parcourir l'ârbro do repertère avoyc un menu (Auteur: PCMan)"
+
+#: ../src/plugins/thermal/thermal.c:283
+msgid "Normal"
+msgstr "Normal"
+
+# Truly more explained than english version
+#: ../src/plugins/thermal/thermal.c:284
+msgid "Warning1"
+msgstr "Colór de gârda, niveau 1"
+
+#: ../src/plugins/thermal/thermal.c:285
+msgid "Warning2"
+msgstr "Colór de gârda, niveau 2"
+
+#: ../src/plugins/thermal/thermal.c:286
+msgid "Automatic sensor location"
+msgstr ""
+
+#: ../src/plugins/thermal/thermal.c:287
+msgid "Sensor"
+msgstr "Captór"
+
+#: ../src/plugins/thermal/thermal.c:288
+msgid "Automatic temperature levels"
+msgstr "Niveus de temperaturi automaticos"
+
+# Truly more explained than english version
+#: ../src/plugins/thermal/thermal.c:289
+msgid "Warning1 Temperature"
+msgstr "Gârda de temperaturi, niveau 1"
+
+#: ../src/plugins/thermal/thermal.c:290
+msgid "Warning2 Temperature"
+msgstr "Gârda de temperaturi, niveau 2"
+
+#: ../src/plugins/thermal/thermal.c:332
+msgid "Temperature Monitor"
+msgstr "Monitór de la temperaturi"
+
+#: ../src/plugins/thermal/thermal.c:334
+msgid "Display system temperature, by kesler.daniel@gmail.com"
+msgstr "Mohtra la temperaturi do sistemo, par kesler.daniel@gmail.com"
+
+#. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
+#. Display current level in tooltip.
+#: ../src/plugins/volume/volume.c:305
+#: ../src/plugins/volumealsa/volumealsa.c:410
+msgid "Volume control"
+msgstr "Réglâjo de la força do son"
+
+#: ../src/plugins/volume/volume.c:317
+#: ../src/plugins/volumealsa/volumealsa.c:424
+msgid "Volume Control"
+msgstr "Réglâjo de la força do son"
+
+#. Create a frame as the child of the viewport.
+#. create frame
+#: ../src/plugins/volume/volume-impl.c:109
+#: ../src/plugins/volumealsa/volumealsa.c:319
+msgid "Volume"
+msgstr "Força do son"
+
+#. Create a check button as the child of the vertical box.
+#: ../src/plugins/volumealsa/volumealsa.c:336
+msgid "Mute"
+msgstr "Mudo"
+
+#: ../src/plugins/netstat/netstat.c:168
+msgid "<Hidden Access Point>"
+msgstr ""
+
+#: ../src/plugins/netstat/netstat.c:201
+msgid "Wireless Networks not found in range"
+msgstr "Nyuna téla sens câbla trovâyi"
+
+#. Repair
+#: ../src/plugins/netstat/netstat.c:235
+msgid "Repair"
+msgstr "Réparar"
+
+#. interface down
+#: ../src/plugins/netstat/netstat.c:240
+msgid "Disable"
+msgstr "Désactivar"
+
+#: ../src/plugins/netstat/netstat.c:299
+msgid "Wireless Connection has no connectivity"
+msgstr "Conneccion sens câblo at nyuna de connectivitâ"
+
+#: ../src/plugins/netstat/netstat.c:301
+msgid "Network cable is plugged out"
+msgstr "Le câble téla est débranché"
+
+#: ../src/plugins/netstat/netstat.c:303
+msgid "Connection has limited or no connectivity"
+msgstr "Conneccion limitâyi u nyuna connectivitâ"
+
+#: ../src/plugins/netstat/netstat.c:307
+#: ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:329
+msgid "IP Address:"
+msgstr "Adreçi IP:"
+
+#: ../src/plugins/netstat/netstat.c:308
+msgid "Remote IP:"
+msgstr "Adreçi IP distante:"
+
+#: ../src/plugins/netstat/netstat.c:309
+#: ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:331
+msgid "Netmask:"
+msgstr "Mâscuri de téla:"
+
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:333
+msgid "Activity"
+msgstr "Activitâ"
+
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:333
+msgid "Sent"
+msgstr "Mendâ"
+
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:333
+msgid "Received"
+msgstr "Recevû"
+
+#: ../src/plugins/netstat/netstat.c:311
+#: ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:334
+msgid "bytes"
+msgstr "octets"
+
+#: ../src/plugins/netstat/netstat.c:312
+#: ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:335
+msgid "packets"
+msgstr "paquets"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:173
+#: ../src/plugins/netstat/netstat.c:315
+msgid "Wireless"
+msgstr "Sens câblo"
+
+#: ../src/plugins/netstat/netstat.c:317
+msgid "Protocol:"
+msgstr "Protocol:"
+
+#: ../src/plugins/netstat/netstat.c:321
+#: ../src/plugins/netstat/netstat.c:332
+msgid "HW Address:"
+msgstr "Adreçi MAC:"
+
+#: ../src/plugins/netstat/netstat.c:471
+msgid "Manage Networks"
+msgstr "Manyier de téles"
+
+#: ../src/plugins/netstat/netstat.c:473
+msgid "Monitor and Manage networks"
+msgstr "Se velyier e manyier de téles"
+
+#. create dialog
+#: ../src/plugins/netstat/passwd_gui.c:84
+msgid "Setting Encryption Key"
+msgstr "Configuracion de la clâ d'encripcion"
+
+#. messages
+#: ../src/plugins/netstat/passwd_gui.c:94
+msgid ""
+"This wireless network was encrypted.\n"
+"You must have the encryption key."
+msgstr ""
+"Cetâ téla sens câblo est criptâ.\n"
+"Vos dèdes avér la clâ d'encripcion."
+
+#: ../src/plugins/netstat/passwd_gui.c:99
+msgid "Encryption Key:"
+msgstr "Clâ de encripcion:"
+
+#: ../src/plugins/netstatus/netstatus.c:179
+msgid "Interface to monitor"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus.c:176
+msgid "Config tool"
+msgstr "Util de configuracion"
+
+#: ../src/plugins/netstatus/netstatus.c:197
+msgid "Network Status Monitor"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus.c:195
+msgid "Monitor network status"
+msgstr "Mohtra lʹehtat des conneccions de la téla"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:52
+#: ../src/plugins/netstatus/netstatus-dialog.c:311
+msgid "Unknown"
+msgstr "Inconyû"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:115
+msgid "Connection Properties"
+msgstr "Configuracion de la conneccion"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:121
+#, c-format
+msgid "Connection Properties: %s"
+msgstr "Configuracion de la conneccion: %s"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:134
+#, c-format
+msgid "%lu packet"
+msgid_plural "%lu packets"
+msgstr[0] "%lu paquet"
+msgstr[1] "%lu paquets"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:395
+#, c-format
+msgid ""
+"There was an error displaying help:\n"
+"%s"
+msgstr ""
+"Errór lors de l'affichage de l'aide:\n"
+"%s"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:580
+#, c-format
+msgid "Failed to launch time configuration tool: %s"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-icon.c:379
+#, c-format
+msgid "Network Connection: %s"
+msgstr "Conneccion téla: %s"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:384
+msgid "Network Connection"
+msgstr "Conneccion téla"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:811
+msgid "Interface"
+msgstr ""
+
+# Le texte anglais est bizarre (une icône ne surveille rien du tout). Il faudrait dire : The current interface represented by the icon, ou quelque chose comme ça. Et pour le français : L'interface actuelle représentée par l'icône.
+#: ../src/plugins/netstatus/netstatus-icon.c:812
+#, fuzzy
+msgid "The current interface the icon is monitoring."
+msgstr "L'interface actuelle que l'icône surveille."
+
+#: ../src/plugins/netstatus/netstatus-icon.c:819
+msgid "Orientation"
+msgstr "Orientation"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:820
+msgid "The orientation of the tray."
+msgstr "L'orientation de la zone de notification."
+
+#: ../src/plugins/netstatus/netstatus-icon.c:828
+msgid "Tooltips Enabled"
+msgstr "Infobulles activées"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:829
+msgid "Whether or not the icon's tooltips are enabled."
+msgstr "Indique si les infobulles des icônes sont activées."
+
+#: ../src/plugins/netstatus/netstatus-icon.c:836
+msgid "Show Signal"
+msgstr "Mohtrar le signal"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:837
+msgid "Whether or not the signal strength should be displayed."
+msgstr "Indique si la puissance du signal doit être affichée."
+
+#: ../src/plugins/netstatus/netstatus-icon.c:950
+#, c-format
+msgid ""
+"Please contact your system administrator to resolve the following problem:\n"
+"\n"
+"%s"
+msgstr ""
+"Veuillez contacter votre administrateur sistemo pour résoudre le problème "
+"suivant:\n"
+"\n"
+"%s"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:148
+msgid "Name"
+msgstr "Nom"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:149
+msgid "The interface name"
+msgstr "Nom de lʹinterfaci"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:156
+msgid "State"
+msgstr "Ehtat"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:157
+msgid "The interface state"
+msgstr "Ehtat de lʹinterfaci"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:165
+msgid "Stats"
+msgstr "Statistiques"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:166
+msgid "The interface packets/bytes statistics"
+msgstr "Statistiques paquets/octets de lʹinterfaci"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:174
+msgid "Whether the interface is a wireless interface"
+msgstr "Si lʹinterfaci eht ʻnʹinterfaci sens fil"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:181
+msgid "Signal"
+msgstr "Sinyal"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:182
+msgid "Wireless signal strength percentage"
+msgstr "Fórça do sinyal sens fil en percentâjo"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:191
+#: ../src/plugins/netstatus/netstatus-util.c:167
+msgid "Error"
+msgstr "Errór"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:192
+msgid "The current error condition"
+msgstr "Le contexte actuelle de l'erreur"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:434
+#: ../src/plugins/netstatus/netstatus-iface.c:1197
+#, c-format
+msgid "Unable to open socket: %s"
+msgstr "Impossiblo d'ovrir lo port : %s"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:496
+#: ../src/plugins/netstatus/netstatus-iface.c:1223
+#, c-format
+msgid "SIOCGIFFLAGS error: %s"
+msgstr "Errór SIOCGIFFLAGS : %s"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:870
+msgid "AMPR NET/ROM"
+msgstr "AMPR NET/ROM"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:873
+msgid "Ethernet"
+msgstr "Ethernet"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:879
+msgid "AMPR AX.25"
+msgstr "AMPR AX.25"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:888
+#: ../src/plugins/netstatus/netstatus-iface.c:1008
+msgid "16/4 Mbps Token Ring"
+msgstr "16/4 Mo/s Token Ring"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:891
+msgid "ARCnet"
+msgstr "ARCnet"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:897
+msgid "Frame Relay DLCI"
+msgstr "Frame-Relay DLCI"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:903
+msgid "Metricom Starmode IP"
+msgstr "Metricom Starmode IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:906
+msgid "Serial Line IP"
+msgstr "Serial Line IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:909
+msgid "VJ Serial Line IP"
+msgstr "VJ Serial Line IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:912
+msgid "6-bit Serial Line IP"
+msgstr "6 bits Serial Line IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:915
+msgid "VJ 6-bit Serial Line IP"
+msgstr "VJ 6 bits Serial Line IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:921
+msgid "Adaptive Serial Line IP"
+msgstr "Adaptive Serial Line IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:924
+msgid "AMPR ROSE"
+msgstr "AMPR ROSE"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:927
+msgid "Generic X.25"
+msgstr "Generic X.25"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:930
+msgid "Point-to-Point Protocol"
+msgstr "Point-to-Point Protocol"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:936
+msgid "(Cisco)-HDLC"
+msgstr "(Cisco)-HDLC"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:939
+msgid "LAPB"
+msgstr "LAPB"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:948
+msgid "IPIP Tunnel"
+msgstr "Trafor IPIP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:954
+msgid "Frame Relay Access Device"
+msgstr "Frame Relay Access Device"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:960
+msgid "Local Loopback"
+msgstr "bócla locala"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:966
+msgid "Fiber Distributed Data Interface"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus-iface.c:972
+msgid "IPv6-in-IPv4"
+msgstr "IPv6 dins IPv4"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:984
+msgid "HIPPI"
+msgstr "HIPPI"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:987
+msgid "Ash"
+msgstr "Ash"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:990
+msgid "Econet"
+msgstr "Econet"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:993
+msgid "IrLAP"
+msgstr "IrLAP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:1155
+#, c-format
+msgid "SIOCGIFCONF error: %s"
+msgstr "Errór SIOCGIFCONF : %s"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:1248
+#, c-format
+msgid "No network devices found"
+msgstr "Nyuna interfaci de téla trovâyi"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:180
+#, c-format
+msgid "Cannot open /proc/net/dev: %s"
+msgstr "Impossiblo dʹovrir /proc/net/dev: %s"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:189
+msgid "Could not parse /proc/net/dev. Unknown format."
+msgstr "Impossiblo dʹanalisar /proc/net/dev. Format inconyû."
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:204
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:330
+#, c-format
+msgid "Could not parse interface name from '%s'"
+msgstr "Impossiblo dʹanalisar lo nom de lʹinterfaci dʹaval de '%s'."
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:217
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:645
+#, c-format
+msgid ""
+"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
+msgstr ""
+"Impossiblo dʹanalisar les statistiques de lʹinterfaci dʹaval de '%s'. "
+"prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:314
+msgid "Could not parse /proc/net/wireless. Unknown format."
+msgstr "Impossiblo dʹanalisar /proc/net/wireless. Format inconyû."
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:341
+#, c-format
+msgid "Could not parse wireless details from '%s'. link_idx = %d;"
+msgstr ""
+"Impossiblo dʹanalisar les détails de lʹinterfaci sens câblo dʹaval de '%s'. "
+"link_idx = %d;"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:414
+#, c-format
+msgid "Could not connect to interface, '%s'"
+msgstr "Impossiblo de se connectar a lʹinterfaci, '%s'"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:420
+#, c-format
+msgid "Could not send ioctl to interface, '%s'"
+msgstr "Impossiblo de mendar ʻna commanda ioctl a lʹinterfaci, '%s'"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:598
+#, c-format
+msgid "Could not parse command line '%s': %s"
+msgstr "Impossiblo dʹanalisar la linyi de commanda '%s', %s"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:635
+msgid "Could not parse 'netstat' output. Unknown format"
+msgstr "Impossiblo dʹanalisar la sortia de 'netstat'. Format inconyû"
+
+#: ../src/plugins/netstatus/netstatus-util.c:152
+msgid "Disconnected"
+msgstr "Deconnectâ"
+
+#: ../src/plugins/netstatus/netstatus-util.c:155
+msgid "Idle"
+msgstr "Inoccupâ"
+
+#: ../src/plugins/netstatus/netstatus-util.c:158
+msgid "Sending"
+msgstr "Mendar"
+
+#: ../src/plugins/netstatus/netstatus-util.c:161
+msgid "Receiving"
+msgstr "Recévre"
+
+#: ../src/plugins/netstatus/netstatus-util.c:164
+msgid "Sending/Receiving"
+msgstr "Mendar/Recévre"
+
+#: ../src/plugins/batt/batt.c:132
+msgid "No batteries found"
+msgstr "Aucune batterie trouvée"
+
+#: ../src/plugins/batt/batt.c:180
+#, c-format
+msgid "Battery: %d%% charged, %d:%02d until full"
+msgstr "Batterie: %d %% chargée, %d:%02d jusqu'a charge complète"
+
+#: ../src/plugins/batt/batt.c:191
+#, c-format
+msgid "Battery: %d%% charged, %d:%02d left"
+msgstr "Batterie: %d %% chargée, %d:%02d restant"
+
+#: ../src/plugins/batt/batt.c:197
+#, c-format
+msgid "Battery: %d%% charged"
+msgstr "Batterie: %d %% chargée"
+
+#: ../src/plugins/batt/batt.c:581
+msgid "Hide if there is no battery"
+msgstr "Masquer s'il n'y a pas de batterie"
+
+#: ../src/plugins/batt/batt.c:583
+msgid "Alarm command"
+msgstr "Commande d'alarme"
+
+#: ../src/plugins/batt/batt.c:584
+msgid "Alarm time (minutes left)"
+msgstr "Déclenchement de l'alarme (minutes restantes)"
+
+#: ../src/plugins/batt/batt.c:585
+msgid "Background color"
+msgstr "Couleur de fond"
+
+#: ../src/plugins/batt/batt.c:586
+msgid "Charging color 1"
+msgstr "Couleur de chargement n°1"
+
+#: ../src/plugins/batt/batt.c:587
+msgid "Charging color 2"
+msgstr "Couleur de chargement n°2"
+
+#: ../src/plugins/batt/batt.c:588
+msgid "Discharging color 1"
+msgstr "Couleur de déchargement n°1"
+
+#: ../src/plugins/batt/batt.c:589
+msgid "Discharging color 2"
+msgstr "Couleur de déchargement n°2"
+
+#: ../src/plugins/batt/batt.c:590
+msgid "Border width"
+msgstr "Larjor de la bordure"
+
+#: ../src/plugins/batt/batt.c:621
+msgid "Battery Monitor"
+msgstr "Monitor des batteries"
+
+#: ../src/plugins/batt/batt.c:623
+msgid "Display battery status using ACPI"
+msgstr "Mohtrar lʹehtat de charge des batteries en utilisant ACPI"
+
+#: ../src/plugins/kbled/kbled.c:266
+msgid "Show CapsLock"
+msgstr "Affichage verrouillage des majuscules"
+
+#: ../src/plugins/kbled/kbled.c:267
+msgid "Show NumLock"
+msgstr "Mohtrar verrouillage de pavé numérique"
+
+#: ../src/plugins/kbled/kbled.c:268
+msgid "Show ScrollLock"
+msgstr "Mohtrar arrêt du défilement"
+
+#: ../src/plugins/kbled/kbled.c:279
+msgid "Keyboard LED"
+msgstr "Crèset do clavier"
+
+#: ../src/plugins/kbled/kbled.c:281
+msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
+msgstr "Indicateurs pour les touches Ver. Maj., Verr. Num. et Arrêt défil."
+
+#: ../data/ui/panel-pref.glade.h:14
+msgid "Custom Color"
+msgstr "Couleur personnalisée"
+
+#: ../data/ui/panel-pref.glade.h:17
+msgid "Enable Image:"
+msgstr "Usar l'imâji:"
+
+#: ../data/ui/panel-pref.glade.h:18
+msgid "Enable Transparency"
+msgstr "Activar la transparenci"
+
+#: ../data/ui/panel-pref.glade.h:28
+msgid "None (Use system theme)"
+msgstr "Nyun (usar le temo do sistemo)"
+
+#: ../data/ui/panel-pref.glade.h:37
+msgid "Tint color:"
+msgstr "Color de tènta:"
+
+#: ../src/panel.c:1253
+#, c-format
+msgid " --configure -- launch configuracion utility\n"
+msgstr " --configure -- emprendre l'utilitèro de configuracion\n"
+
+#: ../src/panel.c:1259
+#, c-format
+msgid " -C  -- same as --configure\n"
+msgstr " -C  -- parily que --configure\n"
+
+#: ../src/systray/tray.c:213
+msgid "Old KDE/GNOME Tray"
+msgstr "Anciena barra de notificacion KDE/GNOME"
+
+#: ../src/plugins/deskno/deskno.c:118
+#: ../src/plugins/deskno/deskno2.c:129
+msgid "Desktop No / Workspace Name"
+msgstr "Entorn n° / Nom de l'entorn de travaly"
+
+#: ../src/plugins/launchbar.c:146
+msgid "Add Button"
+msgstr "Apondre un apolyon"
+
+#: ../src/plugins/launchbar.c:148
+msgid "Button Properties"
+msgstr "Opcions de lʹapolyon"
+
+#.
+#. title = g_strdup_printf( _("Remove \"%s\""), b-> );
+#. item = gtk_image_menu_item_new_with_label( _("Remove ") );
+#.
+#: ../src/plugins/launchbar.c:154
+msgid "Remove Button"
+msgstr "Dotar lʹapolyon"
+
+#. FIXME: We should have a better interface for this in the fututure.
+#. 1. We can borrow the menu from menu plugin (PtkAppMenu).
+#. 2. We can borrow the app chooser from PCManFM.
+#.
+#: ../src/plugins/launchbar.c:530
+msgid "Select Application"
+msgstr ""
+
+#: ../src/plugins/launchbar.c:682
+msgid "Buttons"
+msgstr "Apolyons"
+
+#: ../src/plugins/taskbar.c:1693
+msgid "Flat Buttons"
+msgstr "Apolyons plans"
+
+#: ../src/plugins/taskbar.c:1694
+msgid "Accept SkipPager"
+msgstr "Inclure le gestionnaire de bureaux virtuels"
+
+#: ../src/plugins/taskbar.c:1695
+msgid "Show Iconified windows"
+msgstr "Mohtrar les fenehtres apetissâyes"
+
+#: ../src/plugins/taskbar.c:1696
+msgid "Show mapped windows"
+msgstr "Mohtrar les fenehtres mapâyes"
+
+#: ../src/plugins/taskbar.c:1700
+msgid "Max width of task button"
+msgstr "Larjor maximala d'un apolyon de tâchi"
+
+#: ../src/plugins/dclock.c:278
+msgid "Action"
+msgstr "Accion"
+
+#: ../src/plugins/dclock.c:314
+msgid "Display Digital clock and Tooltip"
+msgstr "Mohtra lo relojo digital et los conselys"
+
+#: ../src/plugins/menu.c:1042
+msgid "Provide Menu"
+msgstr "Arrevas a les applicacions"
+
+#: ../src/plugins/netstatus/glade-support.c:91
+#: ../src/plugins/netstatus/glade-support.c:115
+#, c-format
+msgid "Couldn't find pixmap file: %s"
+msgstr "Impossiblo de trovar lo fichier pixmap : %s"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:966
+msgid "Fiber Distributed Data Interfaci"
+msgstr "Fiber Distributed Data Interfaci"
+
+#: ../src/plugins/space.c:148
+msgid "<Space>"
+msgstr "<Espaci>"
+
+#: ../src/plugins/xkb/xkb-plugin.c:247
+msgid ""
+"Allows you to switch the keyboard layout and\n"
+"displays the currently selected layout."
+msgstr ""
+"Vos permet d'echanjier la disposicion do clavier e\n"
+"mohtra la disposicion actuela."
+
+#: ../src/plugins/xkb/xkb-plugin.c:252
+msgid "Other plugins available here"
+msgstr "D'autros tacons sont disponiblos iqui"
+
+#: ../src/plugins/xkb/xkb-plugin.c:499
+msgid "Kayboard Layout switcher"
+msgstr "Echanjior de disposicion do clavier"
+
+#: ../src/plugins/wincmd.c:233
+msgid "Left click to iconify all windows. Middle click to shade them"
+msgstr "Clic gauche per apetissar totes les fenehtres. Clic central per les garotar"
+
+#: ../src/plugins/wincmd.c:264
+#, fuzzy
+msgid ""
+"Sends commands to all desktop windows.\n"
+"Supported commands are 1)toggle iconify and 2) toggle shade"
+msgstr ""
+"Menda de commandes a totes les fenehtres de lʹentorn.\n"
+"Les commandes sont 1) bascular l'apetissâjo et 2) bascular lo garotâjo"
+
+#: ../src/plugins/netstatus/netstatus.c:175
+msgid "Interfaci to monitor"
+msgstr "Interfaci a se velyier"
+
+#: ../src/plugins/netstatus/netstatus.c:193
+msgid "Net Status Monitor"
+msgstr "Monitor de lʹehtat de la téla"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:579
+#, c-format
+msgid "Failed to launch time configuracion tool: %s"
+msgstr "Le lancement l'outil de configuracion de l'heure a échoué: %s"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:811
+msgid "Interfaci"
+msgstr "Interfaci"
