@@ -42,6 +42,7 @@ src/plugins/netstatus/netstatus-icon.c
 src/plugins/netstatus/netstatus-iface.c
 src/plugins/netstatus/netstatus-sysdeps.c
 src/plugins/netstatus/netstatus-util.c
+src/plugins/netstatus/gnome-netstatus.glade
 
 src/plugins/batt/batt.c
 
