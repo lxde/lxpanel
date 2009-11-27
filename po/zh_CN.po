@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.3.8.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-31 15:46+0800\n"
+"POT-Creation-Date: 2009-11-27 11:24+0800\n"
 "PO-Revision-Date: 2008-10-05 09:20+0800\n"
 "Last-Translator: 冷罡华 <hiweed@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -649,7 +649,7 @@ msgstr "大小"
 
 #: ../src/plugins/space.c:139
 msgid "Spacer"
-msgstr ""
+msgstr "间距"
 
 #: ../src/plugins/space.c:141
 msgid "Allocate space"
@@ -657,7 +657,7 @@ msgstr "分配空间"
 
 #: ../src/plugins/tray.c:702
 msgid "System Tray"
-msgstr "系统托盘 (通知区域)"
+msgstr "系统托盘"
 
 #: ../src/plugins/tray.c:704
 msgid "System tray"
@@ -699,7 +699,7 @@ msgstr "键盘布局切换器"
 
 #: ../src/plugins/xkb/xkb-plugin.c:399
 msgid "Switch between available keyboard layouts"
-msgstr ""
+msgstr "在可用的键盘布局间切换"
 
 #: ../src/plugins/wincmd.c:204
 #, fuzzy
@@ -732,9 +732,8 @@ msgid "Directory"
 msgstr "目录"
 
 #: ../src/plugins/dirmenu.c:366
-#, fuzzy
 msgid "Label"
-msgstr "面板"
+msgstr "标签"
 
 #: ../src/plugins/dirmenu.c:397
 msgid "Directory Menu"
@@ -746,26 +745,23 @@ msgstr "使用菜单浏览目录 (作者：PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:304
 msgid "Normal"
-msgstr ""
+msgstr "普通"
 
 #: ../src/plugins/thermal/thermal.c:305
-#, fuzzy
 msgid "Warning1"
-msgstr "充电中"
+msgstr "警告1"
 
 #: ../src/plugins/thermal/thermal.c:306
-#, fuzzy
 msgid "Warning2"
-msgstr "充电中"
+msgstr "警告2"
 
 #: ../src/plugins/thermal/thermal.c:307
 msgid "Automatic sensor location"
 msgstr ""
 
 #: ../src/plugins/thermal/thermal.c:308
-#, fuzzy
 msgid "Sensor"
-msgstr "复原"
+msgstr "传感器"
 
 #: ../src/plugins/thermal/thermal.c:309
 msgid "Automatic temperature levels"
@@ -780,13 +776,12 @@ msgid "Warning2 Temperature"
 msgstr ""
 
 #: ../src/plugins/thermal/thermal.c:353
-#, fuzzy
 msgid "Temperature Monitor"
-msgstr "网络状态监视器"
+msgstr "温度监视器"
 
 #: ../src/plugins/thermal/thermal.c:355
 msgid "Display system temperature"
-msgstr ""
+msgstr "显示系统温度"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -823,7 +818,7 @@ msgstr "范围内找不到无线网络"
 #. Repair
 #: ../src/plugins/netstat/netstat.c:235
 msgid "Repair"
-msgstr "修复网络连接"
+msgstr "修复"
 
 #. interface down
 #: ../src/plugins/netstat/netstat.c:240
@@ -831,13 +826,12 @@ msgid "Disable"
 msgstr "停用"
 
 #: ../src/plugins/netstat/netstat.c:299
-#, fuzzy
 msgid "Wireless Connection has no connectivity"
-msgstr "连接受限或无法连接"
+msgstr "无线连接无法连接"
 
 #: ../src/plugins/netstat/netstat.c:301
 msgid "Network cable is plugged out"
-msgstr "网络线已拔除"
+msgstr "网线已拔出"
 
 #: ../src/plugins/netstat/netstat.c:303
 msgid "Connection has limited or no connectivity"
@@ -896,14 +890,12 @@ msgid "HW Address:"
 msgstr "硬件地址："
 
 #: ../src/plugins/netstat/netstat.c:470
-#, fuzzy
 msgid "Manage Networks"
-msgstr "网络"
+msgstr "管理网络"
 
 #: ../src/plugins/netstat/netstat.c:472
-#, fuzzy
 msgid "Monitor and Manage networks"
-msgstr "监控网络状态"
+msgstr "监视和管理网络"
 
 #. create dialog
 #: ../src/plugins/netstat/passwd_gui.c:84
@@ -932,13 +924,12 @@ msgid "Config tool"
 msgstr "设置工具"
 
 #: ../src/plugins/netstatus/netstatus.c:197
-#, fuzzy
 msgid "Network Status Monitor"
 msgstr "网络状态监视器"
 
 #: ../src/plugins/netstatus/netstatus.c:199
 msgid "Monitor network status"
-msgstr "监控网络状态"
+msgstr "监视网络状态"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:51
 #: ../src/plugins/netstatus/netstatus-dialog.c:312
@@ -972,7 +963,7 @@ msgstr ""
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
-msgstr "运行设置工具 %s 失败"
+msgstr "调用时间配置工具失败：%s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:379
 #, c-format
@@ -997,7 +988,7 @@ msgstr "方向"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:820
 msgid "The orientation of the tray."
-msgstr "系统列的排列方向"
+msgstr "系统列的方向。"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:828
 msgid "Tooltips Enabled"
@@ -1005,7 +996,7 @@ msgstr "显示工具提示"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:829
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr "是否使用图标的工具提示"
+msgstr "是否使用图标的工具提示。"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:836
 msgid "Show Signal"
@@ -1027,27 +1018,24 @@ msgstr ""
 "%s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:148
-#, fuzzy
 msgid "Name"
-msgstr "名称(_N)："
+msgstr "名称"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:149
 msgid "The interface name"
-msgstr ""
+msgstr "接口名称"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:156
-#, fuzzy
 msgid "State"
-msgstr "状态："
+msgstr "状态"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:157
 msgid "The interface state"
-msgstr ""
+msgstr "接口状态"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:165
-#, fuzzy
 msgid "Stats"
-msgstr "状态："
+msgstr "状态"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:166
 msgid "The interface packets/bytes statistics"
@@ -1058,9 +1046,8 @@ msgid "Whether the interface is a wireless interface"
 msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:181
-#, fuzzy
 msgid "Signal"
-msgstr "显示信号"
+msgstr "信号"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:182
 msgid "Wireless signal strength percentage"
@@ -1069,7 +1056,7 @@ msgstr ""
 #: ../src/plugins/netstatus/netstatus-iface.c:191
 #: ../src/plugins/netstatus/netstatus-util.c:167
 msgid "Error"
-msgstr ""
+msgstr "错误"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:192
 #, fuzzy
@@ -1093,9 +1080,8 @@ msgid "AMPR NET/ROM"
 msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:873
-#, fuzzy
 msgid "Ethernet"
-msgstr "其他"
+msgstr "以太网"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:879
 msgid "AMPR AX.25"
@@ -1258,25 +1244,23 @@ msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
-msgstr ""
+msgstr "断开"
 
 #: ../src/plugins/netstatus/netstatus-util.c:155
 msgid "Idle"
 msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-util.c:158
-#, fuzzy
 msgid "Sending"
-msgstr "设置"
+msgstr "发送"
 
 #: ../src/plugins/netstatus/netstatus-util.c:161
-#, fuzzy
 msgid "Receiving"
-msgstr "已接收"
+msgstr "接收"
 
 #: ../src/plugins/netstatus/netstatus-util.c:164
 msgid "Sending/Receiving"
-msgstr ""
+msgstr "发送/接受"
 
 #: ../src/plugins/batt/batt.c:131
 msgid "No batteries found"
