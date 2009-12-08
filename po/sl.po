@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.3.8.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-03 05:22+0800\n"
-"PO-Revision-Date: 2009-10-10 13:49+0200\n"
+"PO-Revision-Date: 2009-12-08 17:10+0100\n"
 "Last-Translator: Matej <paxmanpwnz@gmail.com>\n"
 "Language-Team: / <paxmanpwnz@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -50,7 +50,7 @@ msgstr "<b>Nastavitve</b>"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>Nastavi ukaze privzetih aplikacij</b>"
+msgstr "<b>Privzeti programi</b>"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "<b>Size</b>"
@@ -95,7 +95,6 @@ msgid "File Manager:"
 msgstr "Ukaz za zagon upravitelja datotek:"
 
 #: ../data/ui/panel-pref.glade.h:20
-#, fuzzy
 msgid "Geometry"
 msgstr "Geometrija"
 
@@ -147,7 +146,7 @@ msgstr "pikslov"
 
 #: ../data/ui/panel-pref.glade.h:32
 msgid "Reserve space, and not covered by maximized windows"
-msgstr "Rezerviraj prostor, ki ne bo prekrit z maksimiziranimi okni "
+msgstr "Ne prekrivaj opravilne vrstice z maksimiziranimi okni"
 
 #: ../data/ui/panel-pref.glade.h:33 ../src/panel.c:948
 msgid "Right"
@@ -168,7 +167,7 @@ msgstr ""
 #: ../data/ui/panel-pref.glade.h:37
 #, fuzzy
 msgid "System theme"
-msgstr "Brez (uporabi sistemsko temo)"
+msgstr "Brez (uporabi temo sistema)"
 
 #: ../data/ui/panel-pref.glade.h:38
 msgid "Terminal Emulator:"
@@ -218,12 +217,12 @@ msgstr "<b>Jakost signala</b>"
 
 #: ../data/ui/netstatus.glade.h:9
 msgid "Address:"
-msgstr "Naslov:"
+msgstr "IP naslov:"
 
 #: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
 #: ../src/plugins/netstat/netstat.c:330
 msgid "Broadcast:"
-msgstr "Naslov za razpršeno oddajanje:"
+msgstr "IP naslov razpršenega oddajanja:"
 
 #: ../data/ui/netstatus.glade.h:11
 msgid "Con_figure"
@@ -259,7 +258,7 @@ msgstr "Maska omrežja:"
 
 #: ../data/ui/netstatus.glade.h:19
 msgid "Support"
-msgstr "Tehnična podpora"
+msgstr "Podrobnosti"
 
 #: ../data/ui/netstatus.glade.h:20
 msgid "Type:"
@@ -355,7 +354,7 @@ msgstr "Vse pravice pridržane (C) 2008-2009"
 
 #: ../src/panel.c:632
 msgid "Desktop panel for LXDE project"
-msgstr "Opravilna vrstica za projekt LXDE"
+msgstr "Opravilna vrstica za LXDE"
 
 #: ../src/panel.c:655
 msgid "Add / Remove Panel Items"
@@ -853,11 +852,11 @@ msgstr "Zveza je omejena ali brez povezave"
 #: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
-msgstr "IP-naslov:"
+msgstr "IP naslov:"
 
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Remote IP:"
-msgstr "Oddaljeni IP-naslov:"
+msgstr "Oddaljeni IP naslov:"
 
 #: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
@@ -1338,7 +1337,7 @@ msgstr "Praznjenje - barva 2"
 
 #: ../src/plugins/batt/batt.c:589
 msgid "Border width"
-msgstr "Širina meje"
+msgstr "Širina obrobe"
 
 #: ../src/plugins/batt/batt.c:619
 msgid "Battery Monitor"
