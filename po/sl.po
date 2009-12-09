@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.3.8.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-03 05:22+0800\n"
-"PO-Revision-Date: 2009-12-08 17:10+0100\n"
+"PO-Revision-Date: 2009-12-08 20:04+0100\n"
 "Last-Translator: Matej <paxmanpwnz@gmail.com>\n"
 "Language-Team: / <paxmanpwnz@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -73,12 +73,10 @@ msgid "Bottom"
 msgstr "Spodaj"
 
 #: ../data/ui/panel-pref.glade.h:15
-#, fuzzy
 msgid "Center"
 msgstr "Sredina"
 
 #: ../data/ui/panel-pref.glade.h:16
-#, fuzzy
 msgid "Custom color"
 msgstr "Barva po meri"
 
@@ -103,7 +101,6 @@ msgid "Height:"
 msgstr "Višina:"
 
 #: ../data/ui/panel-pref.glade.h:22
-#, fuzzy
 msgid "Image"
 msgstr "Slika"
 
@@ -112,9 +109,8 @@ msgid "Left"
 msgstr "Levo"
 
 #: ../data/ui/panel-pref.glade.h:24
-#, fuzzy
 msgid "Left\t"
-msgstr "Levo"
+msgstr "Levo\t"
 
 #: ../data/ui/panel-pref.glade.h:25
 msgid "Logout Command:"
@@ -122,11 +118,11 @@ msgstr "Ukaz za odjavo:"
 
 #: ../data/ui/panel-pref.glade.h:26
 msgid "Make window managers treat the panel as dock"
-msgstr "Naj okenski upravitelji uporabijo opravilno vrstico kot odlagališče"
+msgstr "Uporaba opravilne vrstice kot odlagališča"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Margin:"
-msgstr "Rob:"
+msgstr "Oddaljenost od roba:"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "Minimize panel when not in use"
@@ -146,7 +142,7 @@ msgstr "pikslov"
 
 #: ../data/ui/panel-pref.glade.h:32
 msgid "Reserve space, and not covered by maximized windows"
-msgstr "Ne prekrivaj opravilne vrstice z maksimiziranimi okni"
+msgstr "Razprtim oknom onemogoči prekrivanje opravilne vrstice"
 
 #: ../data/ui/panel-pref.glade.h:33 ../src/panel.c:948
 msgid "Right"
@@ -162,12 +158,11 @@ msgstr "Velikost pomanjšane opravilne vrstice"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "Solid color (with opacity)"
-msgstr ""
+msgstr "Barvno (s transparenco)"
 
 #: ../data/ui/panel-pref.glade.h:37
-#, fuzzy
 msgid "System theme"
-msgstr "Brez (uporabi temo sistema)"
+msgstr "Uporabi temo sistema"
 
 #: ../data/ui/panel-pref.glade.h:38
 msgid "Terminal Emulator:"
@@ -182,7 +177,6 @@ msgid "Width:"
 msgstr "Širina:"
 
 #: ../data/ui/panel-pref.glade.h:41
-#, fuzzy
 msgid "pixels"
 msgstr "pikslov"
 
@@ -270,15 +264,13 @@ msgstr "_Ime:"
 
 #: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:821
 msgid "Application Launch Bar"
-msgstr "Hitri zagon aplikacij"
+msgstr "Hitri zagon programov"
 
 #: ../data/ui/launchbar.glade.h:2
-#, fuzzy
 msgid "Applications"
-msgstr "Programi"
+msgstr "Dodani programi"
 
 #: ../data/ui/launchbar.glade.h:3
-#, fuzzy
 msgid "Available Applications"
 msgstr "Razpoložljivi programi"
 
@@ -300,11 +292,11 @@ msgstr "Naloženi vtičniki"
 
 #: ../src/configurator.c:453
 msgid "Stretch"
-msgstr "Raztegni vtičnik"
+msgstr "Razpotegni vtičnik"
 
 #: ../src/configurator.c:558
 msgid "Add plugin to panel"
-msgstr "Dodaj vtičnik na opravilno vrstico"
+msgstr "Dodajanje vtičnikov"
 
 #: ../src/configurator.c:586
 msgid "Available plugins"
@@ -315,7 +307,6 @@ msgid "Logout command is not set"
 msgstr "Odjavni ukaz ni nastavljen"
 
 #: ../src/configurator.c:1192
-#, fuzzy
 msgid "Select a directory"
 msgstr "Izberi mapo"
 
@@ -391,9 +382,8 @@ msgid "\"%s\" Settings"
 msgstr "\"%s\" Nastavitve"
 
 #: ../src/panel.c:954
-#, fuzzy
 msgid "Top"
-msgstr "Na vrhu\t"
+msgstr "Zgoraj\t"
 
 #: ../src/panel.c:1352
 #, c-format
@@ -468,7 +458,6 @@ msgid "Display CPU usage"
 msgstr "Prikaži zasedenost CPE"
 
 #: ../src/plugins/deskno/deskno.c:165
-#, fuzzy
 msgid "Desktop Number / Workspace Name"
 msgstr "Številka namizja / Ime namizja"
 
@@ -482,34 +471,30 @@ msgstr "Prikaži sliko in zaslonski namig"
 
 #: ../src/plugins/launchbar.c:823
 msgid "Bar with buttons to launch application"
-msgstr "Pult z gumbi za zagon aplikacij"
+msgstr "Pult z gumbi za zagon programov"
 
 #. Add Raise menu item.
 #: ../src/plugins/taskbar.c:1696
-#, fuzzy
 msgid "_Raise"
-msgstr "Premakni v _ospredje"
+msgstr "V _ospredje"
 
 #. Add Restore menu item.
 #: ../src/plugins/taskbar.c:1701
-#, fuzzy
 msgid "R_estore"
 msgstr "O_bnovi"
 
 #. Add Maximize menu item.
 #: ../src/plugins/taskbar.c:1706
-#, fuzzy
 msgid "Ma_ximize"
 msgstr "R_azpri"
 
 #. Add Iconify menu item.
 #: ../src/plugins/taskbar.c:1711
-#, fuzzy
 msgid "Ico_nify"
 msgstr "Poma_njšaj"
 
 #: ../src/plugins/taskbar.c:1730
-#, fuzzy, c-format
+#, c-format
 msgid "Workspace _%d"
 msgstr "Namizje _%d"
 
@@ -520,19 +505,16 @@ msgstr "Namizje %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../src/plugins/taskbar.c:1749
-#, fuzzy
 msgid "_All workspaces"
 msgstr "Vs_a namizja"
 
 #. Add Move to Workspace menu item as a submenu.
 #: ../src/plugins/taskbar.c:1755
-#, fuzzy
 msgid "_Move to Workspace"
 msgstr "Pre_makni na namizje"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../src/plugins/taskbar.c:1761
-#, fuzzy
 msgid "_Close Window"
 msgstr "_Zapri okno"
 
@@ -545,7 +527,6 @@ msgid "Icons only"
 msgstr "Samo ikone"
 
 #: ../src/plugins/taskbar.c:1974
-#, fuzzy
 msgid "Flat buttons"
 msgstr "Vboči gumbe"
 
@@ -566,9 +547,8 @@ msgid "Combine multiple application windows into a single button"
 msgstr "Združi več oken programa pod en gumb"
 
 #: ../src/plugins/taskbar.c:1979
-#, fuzzy
 msgid "Maximum width of task button"
-msgstr "Maksimalna širina gumba opravil"
+msgstr "Največja širina gumba"
 
 #: ../src/plugins/taskbar.c:1980
 msgid "Spacing"
@@ -595,13 +575,12 @@ msgid "Tooltip Format"
 msgstr "Oblika zaslonskega namiga:"
 
 #: ../src/plugins/dclock.c:284
-#, fuzzy
 msgid "Format codes: man 3 strftime"
 msgstr "Za več oblik zapisa izvedite: man 3 strftime"
 
 #: ../src/plugins/dclock.c:285
 msgid "Action when clicked (default: display calendar)"
-msgstr "Klik sproži: (privzeto: prikaz koledarja)"
+msgstr "Klik sproži (privzeto: prikaz koledarja):"
 
 #: ../src/plugins/dclock.c:286
 msgid "Bold font"
@@ -612,7 +591,6 @@ msgid "Digital Clock"
 msgstr "Digitalna ura"
 
 #: ../src/plugins/dclock.c:315
-#, fuzzy
 msgid "Display digital clock and tooltip"
 msgstr "Prikazuje digitalno uro in datum (kot zaslonski namig)"
 
@@ -633,9 +611,8 @@ msgid "Menu"
 msgstr "Glavni meni"
 
 #: ../src/plugins/menu.c:1009
-#, fuzzy
 msgid "Application Menu"
-msgstr "Hitri zagon aplikacij"
+msgstr "Hitri zagon programov"
 
 #: ../src/plugins/separator.c:98
 msgid "Separator"
@@ -658,9 +635,8 @@ msgid "Size"
 msgstr "Širina"
 
 #: ../src/plugins/space.c:139
-#, fuzzy
 msgid "Spacer"
-msgstr "<prazno>"
+msgstr "<prazen prostor>"
 
 #: ../src/plugins/space.c:141
 msgid "Allocate space"
@@ -671,7 +647,6 @@ msgid "System Tray"
 msgstr "Sistemski pladenj"
 
 #: ../src/plugins/tray.c:704
-#, fuzzy
 msgid "System tray"
 msgstr "Sistemski pladenj"
 
@@ -692,7 +667,6 @@ msgid "text"
 msgstr "tekst"
 
 #: ../src/plugins/xkb/xkb-plugin.c:321
-#, fuzzy
 msgid "Per application settings"
 msgstr "Nastavitve glede na program"
 
@@ -741,7 +715,6 @@ msgid "Directory"
 msgstr "Hitri dostop do map"
 
 #: ../src/plugins/dirmenu.c:366
-#, fuzzy
 msgid "Label"
 msgstr "Opravilna vrstica"
 
@@ -778,14 +751,12 @@ msgid "Automatic temperature levels"
 msgstr "Samodejno nastavi temperaturni prag"
 
 #: ../src/plugins/thermal/thermal.c:289
-#, fuzzy
 msgid "Warning1 Temperature"
-msgstr "Pozor1 Temperatura"
+msgstr "1. opozorilo pri temperaturi"
 
 #: ../src/plugins/thermal/thermal.c:290
-#, fuzzy
 msgid "Warning2 Temperature"
-msgstr "Pozor2 Temperatura"
+msgstr "2. opozorilo pri temperaturi"
 
 #: ../src/plugins/thermal/thermal.c:332
 msgid "Temperature Monitor"
@@ -936,7 +907,6 @@ msgid "Config tool"
 msgstr "Nastavitveno orodje"
 
 #: ../src/plugins/netstatus/netstatus.c:197
-#, fuzzy
 msgid "Network Status Monitor"
 msgstr "Stanje mreže"
 
@@ -1051,7 +1021,6 @@ msgid "The interface state"
 msgstr "Stanje vmesnika"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:165
-#, fuzzy
 msgid "Stats"
 msgstr "Statistika:"
 
@@ -1077,9 +1046,8 @@ msgid "Error"
 msgstr "Napaka"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:192
-#, fuzzy
 msgid "The current error condition"
-msgstr "Trenutni status napake"
+msgstr "Trenutna napaka"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:434
 #: ../src/plugins/netstatus/netstatus-iface.c:1197
@@ -1313,7 +1281,7 @@ msgstr "Ukaz ob alarmu"
 
 #: ../src/plugins/batt/batt.c:583
 msgid "Alarm time (minutes left)"
-msgstr "Časovni alarm (ostalih minut)"
+msgstr "Opozorilo pri preostanku (v minutah)"
 
 #: ../src/plugins/batt/batt.c:584
 msgid "Background color"
@@ -1337,7 +1305,7 @@ msgstr "Praznjenje - barva 2"
 
 #: ../src/plugins/batt/batt.c:589
 msgid "Border width"
-msgstr "Širina obrobe"
+msgstr "Velikost obrobe"
 
 #: ../src/plugins/batt/batt.c:619
 msgid "Battery Monitor"

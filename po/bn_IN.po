@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-03 05:22+0800\n"
-"PO-Revision-Date: 2009-08-23 03:26+0200\n"
+"PO-Revision-Date: 2009-12-08 18:15+0100\n"
 "Last-Translator: Sankarshan <sankarshan.mukhopadhyay@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -35,7 +35,6 @@ msgid "<b>Font</b>"
 msgstr "<b>ফন্ট</b>"
 
 #: ../data/ui/panel-pref.glade.h:6
-#, fuzzy
 msgid "<b>Icon</b>"
 msgstr "<b>আইকন</b>"
 
@@ -60,7 +59,6 @@ msgid "Advanced"
 msgstr "উন্নত"
 
 #: ../data/ui/panel-pref.glade.h:12
-#, fuzzy
 msgid "Alignment:"
 msgstr "সামঞ্জস্য"
 
@@ -73,7 +71,6 @@ msgid "Bottom"
 msgstr "নীচের"
 
 #: ../data/ui/panel-pref.glade.h:15
-#, fuzzy
 msgid "Center"
 msgstr "মাঝের"
 
@@ -167,7 +164,6 @@ msgstr "সিস্টেম থিম"
 
 # টার্মিনাল প্রতিরূপী করা হলেও বোধহয় মন্দ হত না।
 #: ../data/ui/panel-pref.glade.h:38
-#, fuzzy
 msgid "Terminal Emulator:"
 msgstr "টার্মিনাল এমুলটার:"
 
@@ -266,9 +262,8 @@ msgid "_Name:"
 msgstr "নাম(_N):"
 
 #: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:821
-#, fuzzy
 msgid "Application Launch Bar"
-msgstr "অ্যাপ্লিকেশন চালু করার উপায়"
+msgstr "অ্যাপ্লিকেশন লঞ্চ বার"
 
 #: ../data/ui/launchbar.glade.h:2
 msgid "Applications"
@@ -296,7 +291,7 @@ msgstr "সম্প্রতি লোড করা প্লাগ-ইন"
 
 #: ../src/configurator.c:453
 msgid "Stretch"
-msgstr ""
+msgstr "বিস্তৃত করুন"
 
 #: ../src/configurator.c:558
 msgid "Add plugin to panel"
@@ -542,11 +537,11 @@ msgstr "মাউস হুইল ব্যবহার করুন"
 
 #: ../src/plugins/taskbar.c:1977
 msgid "Flash when there is any window requiring attention"
-msgstr ""
+msgstr "কোন উইন্ডোর অভিনিবেশের জন্য ঝলক প্রয়োগ করা হবে"
 
 #: ../src/plugins/taskbar.c:1978
 msgid "Combine multiple application windows into a single button"
-msgstr ""
+msgstr "বহুবিধ অ্যাপ্লিকেশন উইন্ডোকে একটি বটন-এ সংযুক্ত করুন"
 
 #: ../src/plugins/taskbar.c:1979
 msgid "Maximum width of task button"
@@ -576,7 +571,7 @@ msgstr "টুলটিপের বিন্যাস"
 
 #: ../src/plugins/dclock.c:284
 msgid "Format codes: man 3 strftime"
-msgstr ""
+msgstr "Format codes: man 3 strftime"
 
 #: ../src/plugins/dclock.c:285
 msgid "Action when clicked (default: display calendar)"
@@ -1220,11 +1215,11 @@ msgstr " '%s' ইন্টারফেসের সাথে ioctl প্রে�
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr ""
+msgstr "কম্যান্ড লাইন পড়তে অসফল '%s': %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr ""
+msgstr " 'netstat' এর আউটপুট পড়তে অসফল। অজানা বিন্যাস"
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
