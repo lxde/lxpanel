@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.3.8.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-03 05:22+0800\n"
-"PO-Revision-Date: 2009-12-08 20:04+0100\n"
+"PO-Revision-Date: 2009-12-10 12:28+0100\n"
 "Last-Translator: Matej <paxmanpwnz@gmail.com>\n"
 "Language-Team: / <paxmanpwnz@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -158,7 +158,7 @@ msgstr "Velikost pomanjšane opravilne vrstice"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "Solid color (with opacity)"
-msgstr "Barvno (s transparenco)"
+msgstr "Barvno (s prosojnostjo)"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "System theme"
@@ -564,7 +564,7 @@ msgid ""
 "focus"
 msgstr ""
 "Opravilna vrstica prikaže vsa odprta okna in omogoča, da jih pomanjšate, "
-"osenčite ali fokusirate"
+"skrčite ali fokusirate"
 
 #: ../src/plugins/dclock.c:282
 msgid "Clock Format"
@@ -689,22 +689,20 @@ msgid "Switch between available keyboard layouts"
 msgstr "Preklopi med razpoložljivimi razporeditvami tipk"
 
 #: ../src/plugins/wincmd.c:171
-#, fuzzy
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr "Levi klik pomanjša vsa okna. Srednji klik osenči"
+msgstr "Levi klik pomanjša vsa okna. Srednji klik jih skrči."
 
 #: ../src/plugins/wincmd.c:208
 msgid "Minimize All Windows"
 msgstr "Pomanjšaj vsa okna"
 
 #: ../src/plugins/wincmd.c:210
-#, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
 "Pošlji ukaz vsem oknom na namizju. Podprti ukazi so: 1.) pomanjšaj/povečaj "
-"in 2.) osenči"
+"in 2.) skrči"
 
 #: ../src/plugins/dirmenu.c:200
 msgid "Open in _Terminal"
