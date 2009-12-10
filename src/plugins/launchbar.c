@@ -700,7 +700,8 @@ static void launchbar_configure_initialize_list(Plugin * p, GtkWidget * dlg, Gtk
     {
         GtkTreeStore* tree = GTK_TREE_STORE(gtk_tree_view_get_model(view));
         /* Initialize from all menu items. */
-        MenuCache * menu_cache = panel_menu_cache_new();
+        guint32 flags;
+        MenuCache *menu_cache = panel_menu_cache_new(&flags);
         if (menu_cache != NULL)
         {
             MenuCacheDir * dir = menu_cache_get_root_dir(menu_cache);

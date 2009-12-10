@@ -1530,7 +1530,7 @@ void free_global_config();
 int main(int argc, char *argv[], char *env[])
 {
     int i;
-    const char* session_name;
+    const char* desktop_name;
 
     setlocale(LC_CTYPE, "");
 
@@ -1550,8 +1550,8 @@ int main(int argc, char *argv[], char *env[])
 
     resolve_atoms();
 
-    session_name = g_getenv("DESKTOP_SESSION");
-    is_in_lxde = session_name && (0 == strcmp(session_name, "LXDE"));
+    desktop_name = g_getenv("XDG_CURRENT_DESKTOP");
+    is_in_lxde = desktop_name && (0 == strcmp(desktop_name, "LXDE"));
 
     for (i = 1; i < argc; i++) {
         if (!strcmp(argv[i], "-h") || !strcmp(argv[i], "--help")) {

@@ -60,6 +60,7 @@ typedef struct {
     char *config_start, *config_end;
 
     MenuCache* menu_cache;
+    guint visibility_flags;
     gpointer reload_notify;
 } menup;
 
@@ -419,14 +420,14 @@ static GtkWidget* create_item( MenuCacheItem* item )
     return mi;
 }
 
-static void load_menu(MenuCacheDir* dir, GtkWidget* menu, int pos )
+static void load_menu(menup* m, MenuCacheDir* dir, GtkWidget* menu, int pos )
 {
     GSList * l;
     for( l = menu_cache_dir_get_children(dir); l; l = l->next )
     {
         MenuCacheItem* item = MENU_CACHE_ITEM(l->data);
         if ((menu_cache_item_get_type(item) != MENU_CACHE_TYPE_APP)
-        || (panel_menu_item_evaluate_visibility(item)))
+        || (panel_menu_item_evaluate_visibility(item, m->visibility_flags)))
         {
             GtkWidget * mi = create_item(item);
             if (mi != NULL)
@@ -437,7 +438,7 @@ static void load_menu(MenuCacheDir* dir, GtkWidget* menu, int pos )
                 if (menu_cache_item_get_type(item) == MENU_CACHE_TYPE_DIR)
                 {
                     GtkWidget* sub = gtk_menu_new();
-                    load_menu( MENU_CACHE_DIR(item), sub, -1 );    /* always pass -1 for position */
+                    load_menu( m, MENU_CACHE_DIR(item), sub, -1 );    /* always pass -1 for position */
                     gtk_menu_item_set_submenu( GTK_MENU_ITEM(mi), sub );
                 }
             }
@@ -503,7 +504,7 @@ static void sys_menu_insert_items( menup* m, GtkMenu* menu, int position )
         SYS_MENU_ITEM_ID = g_quark_from_static_string( "SysMenuItem" );
 
     dir = menu_cache_get_root_dir( m->menu_cache );
-    load_menu( dir, GTK_WIDGET(menu), position );
+    load_menu( m, dir, GTK_WIDGET(menu), position );
 
     change_handler = g_signal_connect_swapped( gtk_icon_theme_get_default(), "changed", G_CALLBACK(unload_old_icons), menu );
     g_object_weak_ref( G_OBJECT(menu), remove_change_handler, GINT_TO_POINTER(change_handler) );
@@ -726,12 +727,14 @@ read_system_menu(GtkMenu* menu, Plugin *p, char** fp)
 
     if (m->menu_cache == NULL)
     {
-        m->menu_cache = panel_menu_cache_new();
+        guint32 flags;
+        m->menu_cache = panel_menu_cache_new(&flags);
         if (m->menu_cache == NULL)
         {
             ERR("error loading applications menu");
             return;
         }
+        m->visibility_flags = flags;
         m->reload_notify = menu_cache_add_reload_notify(m->menu_cache, (GFunc) on_reload_menu, m);
     }
 
