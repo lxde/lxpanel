@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-27 11:24+0800\n"
+"POT-Creation-Date: 2009-12-13 12:49+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -276,7 +276,7 @@ msgstr ""
 msgid "_Name:"
 msgstr ""
 
-#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:830
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:831
 msgid "Application Launch Bar"
 msgstr ""
 
@@ -480,7 +480,7 @@ msgstr ""
 msgid "Display Image and Tooltip"
 msgstr ""
 
-#: ../src/plugins/launchbar.c:832
+#: ../src/plugins/launchbar.c:833
 msgid "Bar with buttons to launch application"
 msgstr ""
 
@@ -603,23 +603,23 @@ msgstr ""
 msgid "Display digital clock and tooltip"
 msgstr ""
 
-#: ../src/plugins/menu.c:372
+#: ../src/plugins/menu.c:373
 msgid "Add to desktop"
 msgstr ""
 
-#: ../src/plugins/menu.c:382
+#: ../src/plugins/menu.c:383
 msgid "Properties"
 msgstr ""
 
-#: ../src/plugins/menu.c:990 ../src/plugins/dirmenu.c:367
+#: ../src/plugins/menu.c:993 ../src/plugins/dirmenu.c:367
 msgid "Icon"
 msgstr ""
 
-#: ../src/plugins/menu.c:1007
+#: ../src/plugins/menu.c:1010
 msgid "Menu"
 msgstr ""
 
-#: ../src/plugins/menu.c:1009
+#: ../src/plugins/menu.c:1012
 msgid "Application Menu"
 msgstr ""
 

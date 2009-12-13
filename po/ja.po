@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.5.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-10-24 14:46+0900\n"
+"POT-Creation-Date: 2009-12-13 12:49+0800\n"
 "PO-Revision-Date: 2009-10-24 14:48+0900\n"
 "Last-Translator: Hironao Komatsu <hironao@users.sourceforge.net>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
@@ -176,88 +176,108 @@ msgid "pixels"
 msgstr "ピクセル"
 
 #: ../data/ui/netstatus.glade.h:2
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
 #, no-c-format
 msgid "0%"
 msgstr "0%"
 
 #: ../data/ui/netstatus.glade.h:3
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
 msgid "<b>Activity</b>"
 msgstr "<b>稼働状況</b>"
 
 #: ../data/ui/netstatus.glade.h:4
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
 msgid "<b>Connection</b>"
 msgstr "<b>接続</b>"
 
 #: ../data/ui/netstatus.glade.h:5
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
 msgid "<b>Internet Protocol (IPv4)</b>"
 msgstr "<b>インターネット・プロトコル (IPv4)</b>"
 
 #: ../data/ui/netstatus.glade.h:6
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
 msgid "<b>Internet Protocol (IPv6)</b>"
 msgstr "<b>インターネット・プロトコル (IPv6)</b>"
 
 #: ../data/ui/netstatus.glade.h:7
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
 msgid "<b>Network Device</b>"
 msgstr "<b>ネットワーク・デバイス</b>"
 
 #: ../data/ui/netstatus.glade.h:8
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
 msgid "<b>Signal Strength</b>"
 msgstr "<b>信号の強さ</b>"
 
 #: ../data/ui/netstatus.glade.h:9
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
 msgid "Address:"
 msgstr "アドレス:"
 
 #: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
 #: ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
 msgid "Broadcast:"
 msgstr "ブロードキャスト:"
 
 #: ../data/ui/netstatus.glade.h:11
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
 msgid "Con_figure"
 msgstr "設定(_F)"
 
 #: ../data/ui/netstatus.glade.h:12
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
 msgid "Destination:"
 msgstr "接続先:"
 
 #: ../data/ui/netstatus.glade.h:13
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
 msgid "General"
 msgstr "一般"
 
 #: ../data/ui/netstatus.glade.h:14
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
 msgid "Received:"
 msgstr "受信:"
 
 #: ../data/ui/netstatus.glade.h:15
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
 msgid "Scope:"
 msgstr "スコープ:"
 
 #: ../data/ui/netstatus.glade.h:16
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
 msgid "Sent:"
 msgstr "送信:"
 
 #: ../data/ui/netstatus.glade.h:17
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
 msgid "Status:"
 msgstr "状態:"
 
 #: ../data/ui/netstatus.glade.h:18
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
 msgid "Subnet Mask:"
 msgstr "サブネットマスク:"
 
 #: ../data/ui/netstatus.glade.h:19
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
 msgid "Support"
 msgstr "サポート"
 
 #: ../data/ui/netstatus.glade.h:20
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
 msgid "Type:"
 msgstr "形式:"
 
 #: ../data/ui/netstatus.glade.h:21
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
 msgid "_Name:"
 msgstr "名前(_N):"
 
-#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:830
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:831
 msgid "Application Launch Bar"
 msgstr "アプリケーション・ランチャー"
 
@@ -469,7 +489,7 @@ msgstr "ワークスペースの番号を表示する。cmeury@users.sf.net 氏�
 msgid "Display Image and Tooltip"
 msgstr "画像とツールチップを表示します"
 
-#: ../src/plugins/launchbar.c:832
+#: ../src/plugins/launchbar.c:833
 msgid "Bar with buttons to launch application"
 msgstr "アプリケーションを呼び出すボタンのついたバー"
 
@@ -594,23 +614,23 @@ msgstr "デジタル時計"
 msgid "Display digital clock and tooltip"
 msgstr "デジタル時計とツールチップを表示します"
 
-#: ../src/plugins/menu.c:372
+#: ../src/plugins/menu.c:373
 msgid "Add to desktop"
 msgstr "デスクトップに追加"
 
-#: ../src/plugins/menu.c:382
+#: ../src/plugins/menu.c:383
 msgid "Properties"
 msgstr "プロパティ"
 
-#: ../src/plugins/menu.c:990 ../src/plugins/dirmenu.c:367
+#: ../src/plugins/menu.c:993 ../src/plugins/dirmenu.c:367
 msgid "Icon"
 msgstr "アイコン"
 
-#: ../src/plugins/menu.c:1007
+#: ../src/plugins/menu.c:1010
 msgid "Menu"
 msgstr "メニュー"
 
-#: ../src/plugins/menu.c:1009
+#: ../src/plugins/menu.c:1012
 msgid "Application Menu"
 msgstr "アプリケーション・メニュー"
 
@@ -1329,6 +1349,24 @@ msgstr "キーボード LED"
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "CapsLock と NumLock、ScrollLock キーの状態を表示します"
+
+#~ msgid "Display system temperature, by kesler.daniel@gmail.com"
+#~ msgstr "システムの温度を表示します。kesler.daniel@gmail.com 氏による"
+
+#~ msgid "Keyboard Led"
+#~ msgstr "キーボード LED"
+
+#~ msgid "Desktop No / Workspace Name"
+#~ msgstr "デスクトップ番号 / ワークスペース名"
+
+#~ msgid "Battery: %d%% charged, %s"
+#~ msgstr "バッテリ: %d%% 充電, %s"
+
+#~ msgid "charging finished"
+#~ msgstr "充電完了"
+
+#~ msgid "charging"
+#~ msgstr "充電中"
 
 #~ msgid "Left\t"
 #~ msgstr "左\t"

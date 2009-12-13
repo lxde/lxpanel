@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.3.8.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-27 11:24+0800\n"
+"POT-Creation-Date: 2009-12-13 12:49+0800\n"
 "PO-Revision-Date: 2008-10-05 09:20+0800\n"
 "Last-Translator: 冷罡华 <hiweed@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -275,7 +275,7 @@ msgstr "类型："
 msgid "_Name:"
 msgstr "名称(_N)："
 
-#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:830
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:831
 msgid "Application Launch Bar"
 msgstr "快速启动栏"
 
@@ -484,7 +484,7 @@ msgstr "显示工作区编号，由 cmeury@users.sf.net 撰写"
 msgid "Display Image and Tooltip"
 msgstr "显示图标及工具提示"
 
-#: ../src/plugins/launchbar.c:832
+#: ../src/plugins/launchbar.c:833
 msgid "Bar with buttons to launch application"
 msgstr "用以快速启动应用程序的工具栏"
 
@@ -607,23 +607,23 @@ msgstr "数字时钟"
 msgid "Display digital clock and tooltip"
 msgstr "显示数字时钟和工具提示"
 
-#: ../src/plugins/menu.c:372
+#: ../src/plugins/menu.c:373
 msgid "Add to desktop"
 msgstr "添加到菜单"
 
-#: ../src/plugins/menu.c:382
+#: ../src/plugins/menu.c:383
 msgid "Properties"
 msgstr "属性"
 
-#: ../src/plugins/menu.c:990 ../src/plugins/dirmenu.c:367
+#: ../src/plugins/menu.c:993 ../src/plugins/dirmenu.c:367
 msgid "Icon"
 msgstr "图标"
 
-#: ../src/plugins/menu.c:1007
+#: ../src/plugins/menu.c:1010
 msgid "Menu"
 msgstr "菜单"
 
-#: ../src/plugins/menu.c:1009
+#: ../src/plugins/menu.c:1012
 msgid "Application Menu"
 msgstr "应用程序菜单"
 
