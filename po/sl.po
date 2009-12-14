@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.3.8.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-13 12:49+0800\n"
-"PO-Revision-Date: 2009-12-10 12:28+0100\n"
+"PO-Revision-Date: 2009-12-14 16:13+0100\n"
 "Last-Translator: Matej <paxmanpwnz@gmail.com>\n"
 "Language-Team: / <paxmanpwnz@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3);\n"
 "X-Generator: Pootle 1.1.0\n"
 "X-Poedit-Language: Slovenian\n"
 "X-Poedit-Country: SLOVENIA\n"
@@ -475,7 +475,7 @@ msgstr "Uporabi polkrepko pisavo"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
-msgstr ""
+msgstr "Prikaži imena namizij"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
@@ -595,18 +595,18 @@ msgid "Tooltip Format"
 msgstr "Oblika zaslonskega namiga:"
 
 #: ../src/plugins/dclock.c:312
-#, fuzzy
 msgid "Format codes: man 3 strftime; \\n for line break"
-msgstr "Za več oblik zapisa izvedite: man 3 strftime"
+msgstr ""
+"Za več oblik zapisa izvedite: man 3 strftime; \n"
+" za prelom vrstice"
 
 #: ../src/plugins/dclock.c:313
 msgid "Action when clicked (default: display calendar)"
 msgstr "Klik sproži (privzeto: prikaz koledarja):"
 
 #: ../src/plugins/dclock.c:315
-#, fuzzy
 msgid "Tooltip only"
-msgstr "Zaslonski namigi omogočeni"
+msgstr "Samo zaslonski namigi"
 
 #: ../src/plugins/dclock.c:343
 msgid "Digital Clock"
@@ -716,7 +716,7 @@ msgstr "Levi klik pomanjša vsa okna. Srednji klik jih skrči."
 
 #: ../src/plugins/wincmd.c:234
 msgid "Alternately iconify/shade and raise"
-msgstr ""
+msgstr "Alternativno pomanjšaj/skrči in dvigni"
 
 #: ../src/plugins/wincmd.c:263
 msgid "Minimize All Windows"
@@ -787,9 +787,8 @@ msgid "Temperature Monitor"
 msgstr "Nadzornik temperatur"
 
 #: ../src/plugins/thermal/thermal.c:355
-#, fuzzy
 msgid "Display system temperature"
-msgstr "Prikazovalnik temperatur v sistemu, avtor kesler.daniel@gmail.com"
+msgstr "Prikaži temperature sistema"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
