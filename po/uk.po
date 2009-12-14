@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-13 12:49+0800\n"
-"PO-Revision-Date: 2009-10-16 22:43+0200\n"
+"PO-Revision-Date: 2009-12-13 11:21+0100\n"
 "Last-Translator: Y P <yupadmin@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 1.1.0\n"
 
 #: ../data/ui/panel-pref.glade.h:2
@@ -472,7 +472,7 @@ msgstr "Погрублений фонт"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
-msgstr ""
+msgstr "Показати назви стільниць"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
@@ -592,18 +592,18 @@ msgid "Tooltip Format"
 msgstr "Формат підказок"
 
 #: ../src/plugins/dclock.c:312
-#, fuzzy
 msgid "Format codes: man 3 strftime; \\n for line break"
-msgstr "Коди формати: запустіть man 3 strftime"
+msgstr ""
+"Формат кодів: запустіть man 3 strftime; \n"
+" для розриву стрічки"
 
 #: ../src/plugins/dclock.c:313
 msgid "Action when clicked (default: display calendar)"
 msgstr "Дія при кліканні (по замовчуванню: показати календар)"
 
 #: ../src/plugins/dclock.c:315
-#, fuzzy
 msgid "Tooltip only"
-msgstr "Підказки запущено"
+msgstr "Тільки підказки"
 
 #: ../src/plugins/dclock.c:343
 msgid "Digital Clock"
@@ -714,7 +714,7 @@ msgstr ""
 
 #: ../src/plugins/wincmd.c:234
 msgid "Alternately iconify/shade and raise"
-msgstr ""
+msgstr "Поперемінно згортати/затінювати і розгортати"
 
 #: ../src/plugins/wincmd.c:263
 msgid "Minimize All Windows"
@@ -785,9 +785,8 @@ msgid "Temperature Monitor"
 msgstr "Монітор температури"
 
 #: ../src/plugins/thermal/thermal.c:355
-#, fuzzy
 msgid "Display system temperature"
-msgstr "Показати системну температуру (за kesler.daniel@gmail.com)"
+msgstr "Показати системну температуру"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
