@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxpanel-0.3.5.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-13 12:49+0800\n"
-"PO-Revision-Date: 2009-10-26 19:51+0100\n"
+"PO-Revision-Date: 2009-12-19 18:14+0100\n"
 "Last-Translator: Hugo Florentino <sysadmin@cips.cu>\n"
 "Language-Team: Spanish <daniel@tunki.org>\n"
 "MIME-Version: 1.0\n"
@@ -477,7 +477,7 @@ msgstr "Negrita"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
-msgstr ""
+msgstr "Mostrar nombres de escritorios"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
@@ -599,18 +599,18 @@ msgid "Tooltip Format"
 msgstr "Formato del consejo"
 
 #: ../src/plugins/dclock.c:312
-#, fuzzy
 msgid "Format codes: man 3 strftime; \\n for line break"
-msgstr "Códigos de formato: man 3 strftime"
+msgstr ""
+"Códigos de formato: man 3 strftime; \n"
+" para salto de línea"
 
 #: ../src/plugins/dclock.c:313
 msgid "Action when clicked (default: display calendar)"
 msgstr "Acción al hacer clic (predeterminado: mostrar el calendario)"
 
 #: ../src/plugins/dclock.c:315
-#, fuzzy
 msgid "Tooltip only"
-msgstr "Consejos activados"
+msgstr "Sólo sugerencias"
 
 #: ../src/plugins/dclock.c:343
 msgid "Digital Clock"
@@ -722,7 +722,7 @@ msgstr ""
 
 #: ../src/plugins/wincmd.c:234
 msgid "Alternately iconify/shade and raise"
-msgstr ""
+msgstr "Alternar entre minimizar/replegar/elevar"
 
 #: ../src/plugins/wincmd.c:263
 msgid "Minimize All Windows"
@@ -793,9 +793,8 @@ msgid "Temperature Monitor"
 msgstr "Monitor de Temperatura"
 
 #: ../src/plugins/thermal/thermal.c:355
-#, fuzzy
 msgid "Display system temperature"
-msgstr "Muestra la temperatura del sistema, de kesler.daniel@gmail.com"
+msgstr "Muestra la temperatura del sistema"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
