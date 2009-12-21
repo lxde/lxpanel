@@ -418,8 +418,7 @@ msgstr " --version   -- imprimir la versió i sortir\n"
 #: ../src/panel.c:1405
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-"  --log <nombre> -- defineix el nivell de registre 0-5. 0 - cap 5 - "
+msgstr " --log <nombre> -- defineix el nivell de registre 0-5. 0 - cap 5 - "
 "xerraire\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
@@ -472,7 +471,7 @@ msgstr "Lletra en negreta"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
-msgstr ""
+msgstr "Mostra els noms d'escriptori"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
@@ -592,16 +591,14 @@ msgid "Tooltip Format"
 msgstr "Format dels consells"
 
 #: ../src/plugins/dclock.c:312
-#, fuzzy
 msgid "Format codes: man 3 strftime; \\n for line break"
-msgstr "Codis de format: man 3 strftime"
+msgstr "Codis de format: man 3 strftime; \\n per trencament de línia"
 
 #: ../src/plugins/dclock.c:313
 msgid "Action when clicked (default: display calendar)"
 msgstr "Acció en fer clic (predeterminada: mostrar calendari)"
 
 #: ../src/plugins/dclock.c:315
-#, fuzzy
 msgid "Tooltip only"
 msgstr "S'han habilitat els consells"
 
@@ -715,7 +712,7 @@ msgstr ""
 
 #: ../src/plugins/wincmd.c:234
 msgid "Alternately iconify/shade and raise"
-msgstr ""
+msgstr "Alternativament iconifica/ombreja i aixeca"
 
 #: ../src/plugins/wincmd.c:263
 msgid "Minimize All Windows"
@@ -786,9 +783,8 @@ msgid "Temperature Monitor"
 msgstr "Monitor de temperatura"
 
 #: ../src/plugins/thermal/thermal.c:355
-#, fuzzy
 msgid "Display system temperature"
-msgstr "Mostra la temperatura del sistema, per kesler.daniel@gmail.com"
+msgstr "Mostra la temperatura del sistema"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
