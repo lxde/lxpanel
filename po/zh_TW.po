@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-13 12:49+0800\n"
+"POT-Creation-Date: 2009-12-21 10:32+0100\n"
 "PO-Revision-Date: 2009-12-13 13:11+0800\n"
 "Last-Translator: Hong Jen Yee (PCMan) <pcman.tw@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,8 +66,7 @@ msgstr "排列方式："
 msgid "Appearance"
 msgstr "外觀"
 
-#: ../data/ui/panel-pref.glade.h:14
-#: ../src/panel.c:1002
+#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1002
 msgid "Bottom"
 msgstr "下"
 
@@ -95,9 +94,7 @@ msgstr "檔案管理員："
 msgid "Geometry"
 msgstr "大小及位置"
 
-#: ../data/ui/panel-pref.glade.h:21
-#: ../src/panel.c:992
-#: ../src/panel.c:1000
+#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:992 ../src/panel.c:1000
 msgid "Height:"
 msgstr "高度："
 
@@ -105,8 +102,7 @@ msgstr "高度："
 msgid "Image"
 msgstr "影像"
 
-#: ../data/ui/panel-pref.glade.h:23
-#: ../src/panel.c:994
+#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:994
 msgid "Left"
 msgstr "左"
 
@@ -142,8 +138,7 @@ msgstr "像素 (pixels)"
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "保留空間，不被最大化視窗覆蓋"
 
-#: ../data/ui/panel-pref.glade.h:32
-#: ../src/panel.c:995
+#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:995
 msgid "Right"
 msgstr "右"
 
@@ -167,14 +162,11 @@ msgstr "系統佈景主題"
 msgid "Terminal Emulator:"
 msgstr "終端機："
 
-#: ../data/ui/panel-pref.glade.h:38
-#: ../src/panel.c:1001
+#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1001
 msgid "Top"
 msgstr "上"
 
-#: ../data/ui/panel-pref.glade.h:39
-#: ../src/panel.c:993
-#: ../src/panel.c:999
+#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:993 ../src/panel.c:999
 msgid "Width:"
 msgstr "寬度："
 
@@ -223,8 +215,7 @@ msgstr "<b>訊號強度</b>"
 msgid "Address:"
 msgstr "位址："
 
-#: ../data/ui/netstatus.glade.h:10
-#: ../src/plugins/netstat/netstat.c:319
+#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
 #: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
 msgid "Broadcast:"
@@ -285,8 +276,7 @@ msgstr "型態："
 msgid "_Name:"
 msgstr "名稱(_N)："
 
-#: ../data/ui/launchbar.glade.h:1
-#: ../src/plugins/launchbar.c:831
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:831
 msgid "Application Launch Bar"
 msgstr "應用程式啟動列"
 
@@ -298,8 +288,7 @@ msgstr "應用程式"
 msgid "Available Applications"
 msgstr "可用的應用程式"
 
-#: ../src/configurator.c:54
-#: ../src/gtk-run.c:299
+#: ../src/configurator.c:54 ../src/gtk-run.c:299
 msgid "Run"
 msgstr "執行"
 
@@ -335,8 +324,7 @@ msgstr "登出指令尚未設定"
 msgid "Select a directory"
 msgstr "選擇一個目錄"
 
-#: ../src/configurator.c:1196
-#: ../src/configurator.c:1287
+#: ../src/configurator.c:1196 ../src/configurator.c:1287
 msgid "Select a file"
 msgstr "選擇一個檔案"
 
@@ -477,8 +465,7 @@ msgstr "CPU 使用量監視器"
 msgid "Display CPU usage"
 msgstr "顯示 CPU 資源使用量"
 
-#: ../src/plugins/deskno/deskno.c:207
-#: ../src/plugins/dclock.c:314
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:314
 msgid "Bold font"
 msgstr "粗體字型"
 
@@ -588,7 +575,9 @@ msgid "Task Bar (Window List)"
 msgstr "工作列 (視窗清單)"
 
 #: ../src/plugins/taskbar.c:2033
-msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
 msgstr "工作列顯示所有開啟的視窗，並讓能視窗最小化、折疊、或取得焦點"
 
 #: ../src/plugins/dclock.c:310
@@ -600,12 +589,8 @@ msgid "Tooltip Format"
 msgstr "工具提示格式"
 
 #: ../src/plugins/dclock.c:312
-msgid ""
-"Format codes: man 3 strftime; \\n"
-" for line break"
-msgstr ""
-"格式字串說明：man 3 strftime; \\n"
-" 可以用來表示換行"
+msgid "Format codes: man 3 strftime; \\n for line break"
+msgstr "格式字串說明：man 3 strftime; \\n 可以用來表示換行"
 
 #: ../src/plugins/dclock.c:313
 msgid "Action when clicked (default: display calendar)"
@@ -631,8 +616,7 @@ msgstr "加到桌面"
 msgid "Properties"
 msgstr "屬性"
 
-#: ../src/plugins/menu.c:993
-#: ../src/plugins/dirmenu.c:367
+#: ../src/plugins/menu.c:993 ../src/plugins/dirmenu.c:367
 msgid "Icon"
 msgstr "圖示"
 
@@ -660,8 +644,7 @@ msgstr "切換桌面"
 msgid "Simple pager plugin"
 msgstr "簡易桌面切換外掛"
 
-#: ../src/plugins/space.c:121
-#: ../src/plugins/batt/batt.c:590
+#: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
 msgid "Size"
 msgstr "大小"
 
@@ -853,8 +836,7 @@ msgstr "網路線已拔除"
 msgid "Connection has limited or no connectivity"
 msgstr "只能有限制的連線或無法連線"
 
-#: ../src/plugins/netstat/netstat.c:307
-#: ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "IP 位址："
@@ -863,38 +845,32 @@ msgstr "IP 位址："
 msgid "Remote IP:"
 msgstr "遠端 IP 位址："
 
-#: ../src/plugins/netstat/netstat.c:309
-#: ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "子網路遮罩："
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "活動"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "已傳送"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "已接收"
 
-#: ../src/plugins/netstat/netstat.c:311
-#: ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "位元組"
 
-#: ../src/plugins/netstat/netstat.c:312
-#: ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "封包"
@@ -908,8 +884,7 @@ msgstr "無線網路"
 msgid "Protocol:"
 msgstr "通訊協定："
 
-#: ../src/plugins/netstat/netstat.c:321
-#: ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "實體位址："
 
@@ -1231,8 +1206,12 @@ msgstr "無法從 '%s' 解析介面卡名稱"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
-msgstr "無法從 '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d; 解析介面卡統計資料"
+msgid ""
+"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
+msgstr ""
+"無法從 '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d; 解析介面"
+"卡統計資料"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1367,54 +1346,77 @@ msgstr "顯示 CapsLock、NumLock、及 ScrollLock 鍵的狀態"
 
 #~ msgid "Display system temperature, by kesler.daniel@gmail.com"
 #~ msgstr "溫度顯示系統,由kesler.daniel@gmail.com製作"
+
 #~ msgid "Keyboard Led"
 #~ msgstr "鍵盤的Led燈"
+
 #~ msgid "Left\t"
 #~ msgstr "左\t"
+
 #~ msgid "Top\t"
 #~ msgstr "上\t"
+
 #~ msgid "Couldn't find pixmap file: %s"
 #~ msgstr "找不到圖片檔：%s"
+
 #~ msgid ""
 #~ "Allows you to switch the keyboard layout and\n"
 #~ "displays the currently selected layout."
 #~ msgstr ""
 #~ "顯示目前選用的鍵盤配置，以及\n"
 #~ "在不同的配置之間切換"
+
 #~ msgid "Other plugins available here"
 #~ msgstr "其他可用的外掛"
+
 #~ msgid "Desktop No / Workspace Name"
 #~ msgstr "桌面編號 / 工作區名稱"
+
 #~ msgid "Old KDE/GNOME Tray"
 #~ msgstr "KDE/GNOME 系統列"
+
 #~ msgid "Enable Image:"
 #~ msgstr "啟用背景圖："
+
 #~ msgid "Enable Transparency"
 #~ msgstr "啟用透明效果"
+
 #~ msgid "Tint color:"
 #~ msgstr "色彩："
+
 #~ msgid " --configure -- launch configuration utility\n"
 #~ msgstr " --configure -- 執行設定工具\n"
+
 #~ msgid " -C  -- same as --configure\n"
 #~ msgstr " -C  -- 和 --configure 作用相同\n"
+
 #~ msgid "Add Button"
 #~ msgstr "新增按鈕"
+
 #~ msgid "Button Properties"
 #~ msgstr "按鈕屬性"
+
 #~ msgid "Remove Button"
 #~ msgstr "移除按鈕"
+
 #~ msgid "Buttons"
 #~ msgstr "按鈕"
+
 #~ msgid "Accept SkipPager"
 #~ msgstr "接受 SkipPager Hint"
+
 #~ msgid "Show Iconified windows"
 #~ msgstr "顯示最小化的視窗"
+
 #~ msgid "Show mapped windows"
 #~ msgstr "顯示已被映射的視窗"
+
 #~ msgid "Action"
 #~ msgstr "動作"
+
 #~ msgid "Provide Menu"
 #~ msgstr "提供選單"
+
 #~ msgid ""
 #~ "Dynamic\n"
 #~ "Pixels\n"
@@ -1423,6 +1425,7 @@ msgstr "顯示 CapsLock、NumLock、及 ScrollLock 鍵的狀態"
 #~ "動態\n"
 #~ "像素 (pixels)\n"
 #~ "% 百分比"
+
 #~ msgid ""
 #~ "Left\n"
 #~ "Center\n"
@@ -1431,6 +1434,7 @@ msgstr "顯示 CapsLock、NumLock、及 ScrollLock 鍵的狀態"
 #~ "靠左\n"
 #~ "置中\n"
 #~ "靠右"
+
 #~ msgid ""
 #~ "Left\n"
 #~ "Right\n"
@@ -1441,48 +1445,67 @@ msgstr "顯示 CapsLock、NumLock、及 ScrollLock 鍵的狀態"
 #~ "右\n"
 #~ "上\n"
 #~ "下"
+
 #~ msgid "Where to put the panel?"
 #~ msgstr "要把工作列放到哪裡？"
+
 #~ msgid "Battery: %d%% charged, %s"
 #~ msgstr "電池：剩餘電量 %d%%，%s"
+
 #~ msgid "charging finished"
 #~ msgstr "充電完成"
+
 #~ msgid "charging"
 #~ msgstr "充電中"
+
 #~ msgid "Add to desktop panel"
 #~ msgstr "加入到工作列"
+
 #~ msgid "Game"
 #~ msgstr "遊戲"
+
 #~ msgid "Education"
 #~ msgstr "教育"
+
 #~ msgid "Development"
 #~ msgstr "軟體開發"
+
 #~ msgid "Audio & Video"
 #~ msgstr "影音多媒體"
+
 #~ msgid "Graphics"
 #~ msgstr "繪圖"
+
 #~ msgid "System Tools"
 #~ msgstr "系統工具"
+
 #~ msgid "Office"
 #~ msgstr "辦公軟體"
+
 #~ msgid "Accessories"
 #~ msgstr "附屬應用程式"
+
 #~ msgid "not charging"
 #~ msgstr "未充電"
+
 #~ msgid "% of edge"
 #~ msgstr "% 百分比"
+
 #~ msgid "Select a background image file"
 #~ msgstr "選擇背景圖片"
+
 #~ msgid "Plugins"
 #~ msgstr "外掛"
 
 #, fuzzy
 #~ msgid "Logout Command"
 #~ msgstr "登出指令："
+
 #~ msgid "lxpanel configurator"
 #~ msgstr "lxpanel 偏好設定"
+
 #~ msgid "Background"
 #~ msgstr "背景"
+
 #~ msgid "Update interval (seconds)"
 #~ msgstr "更新頻率 (秒)"
-

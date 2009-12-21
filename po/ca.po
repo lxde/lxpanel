@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-13 12:49+0800\n"
+"POT-Creation-Date: 2009-12-21 10:32+0100\n"
 "PO-Revision-Date: 2009-09-13 22:33+0200\n"
 "Last-Translator: Josep Sanchez <papapep@gmail.com>\n"
 "Language-Team: CATALAN <none>\n"
@@ -418,8 +418,8 @@ msgstr " --version   -- imprimir la versió i sortir\n"
 #: ../src/panel.c:1405
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --log <nombre> -- defineix el nivell de registre 0-5. 0 - cap 5 - "
-"xerraire\n"
+msgstr ""
+" --log <nombre> -- defineix el nivell de registre 0-5. 0 - cap 5 - xerraire\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1407
