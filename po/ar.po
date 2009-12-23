@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-21 10:32+0100\n"
-"PO-Revision-Date: 2009-10-29 23:41+0100\n"
-"Last-Translator: Ahmad Farghal <ahmad.farghal@gmail.com>\n"
+"PO-Revision-Date: 2009-12-21 11:39+0100\n"
+"Last-Translator: Ismaeel AL-zahrani <end-of-dream@hotmail.com>\n"
 "Language-Team: Arabic\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -275,11 +275,11 @@ msgstr "النوع:"
 #: ../data/ui/netstatus.glade.h:21
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
 msgid "_Name:"
-msgstr "ال_سم:"
+msgstr "_الاسم:"
 
 #: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:831
 msgid "Application Launch Bar"
-msgstr "شريط اختصارات التطبيقات"
+msgstr "شريط اختصار التطبيقات"
 
 #: ../data/ui/launchbar.glade.h:2
 msgid "Applications"
@@ -348,7 +348,7 @@ msgstr "أكد"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:668
 msgid "translator-credits"
-msgstr "أحمد فرغل <ahmad.farghal@gmail.com>"
+msgstr "مترجم ائتمانات"
 
 #: ../src/panel.c:673
 msgid "LXPanel"
@@ -409,12 +409,12 @@ msgstr "خيارات سطر الاوامر:\n"
 #: ../src/panel.c:1403
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr " --help      -- يظهر هذه المساعدة ويخرج\n"
+msgstr " --help      -- إظهار هذه المساعدة والخروج\n"
 
 #: ../src/panel.c:1404
 #, c-format
 msgid " --version   -- print version and exit\n"
-msgstr " --version   -- يظهر رقم الإصدار ويخرج\n"
+msgstr " --version   --إظهار رقم الإصدار والخروج\n"
 
 #: ../src/panel.c:1405
 #, c-format
@@ -473,7 +473,7 @@ msgstr "خط عريض"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
-msgstr ""
+msgstr "عرض اسماء سطح المكتب"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
@@ -499,7 +499,7 @@ msgstr "ا_رفع"
 #. Add Restore menu item.
 #: ../src/plugins/taskbar.c:1701
 msgid "R_estore"
-msgstr "ا_ستعِدْ"
+msgstr "_استعِدْ"
 
 #. Add Maximize menu item.
 #: ../src/plugins/taskbar.c:1706
@@ -529,12 +529,12 @@ msgstr "_جميع مساحات العمل"
 #. Add Move to Workspace menu item as a submenu.
 #: ../src/plugins/taskbar.c:1755
 msgid "_Move to Workspace"
-msgstr "ا_نقل إلى مساحة العمل"
+msgstr "_انقل إلى مساحة العمل"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../src/plugins/taskbar.c:1761
 msgid "_Close Window"
-msgstr "أ_غلق النافذة"
+msgstr "_أغلق النافذة"
 
 #: ../src/plugins/taskbar.c:1966
 msgid "Show tooltips"
@@ -695,7 +695,7 @@ msgstr "إعدادت كل تطبيق على حدة"
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/xkb/xkb-plugin.c:336
 msgid "_Remember layout for each application"
-msgstr "ت_ذكر تخطيط كل تطبيق وحده"
+msgstr "_تذكر تخطيط كل تطبيق"
 
 #. Create a label as the child of the horizontal box.
 #: ../src/plugins/xkb/xkb-plugin.c:346
@@ -791,7 +791,7 @@ msgstr "مراقب درجة الحرارة"
 #: ../src/plugins/thermal/thermal.c:355
 #, fuzzy
 msgid "Display system temperature"
-msgstr "إظهار درجة حرارة النظام، كتبه kesler.daniel@gmail.com"
+msgstr "إظهار درجة حرارة النظام"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -799,23 +799,23 @@ msgstr "إظهار درجة حرارة النظام، كتبه kesler.daniel@gma
 #: ../src/plugins/volumealsa/volumealsa.c:239
 #: ../src/plugins/volumealsa/volumealsa.c:400
 msgid "Volume control"
-msgstr "تحكم في علو الصوت"
+msgstr "تحكم في مستوى الصوت"
 
 #: ../src/plugins/volume/volume.c:312
 #: ../src/plugins/volumealsa/volumealsa.c:449
 msgid "Volume Control"
-msgstr "متحكم علو الصوت"
+msgstr "متحكم مستوى الصوت"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
 #: ../src/plugins/volumealsa/volumealsa.c:358
 msgid "Volume"
-msgstr "علو الصوت"
+msgstr "مستوى الصوت"
 
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/volumealsa/volumealsa.c:377
 msgid "Mute"
-msgstr "اصمت"
+msgstr "كتم"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
@@ -823,12 +823,12 @@ msgstr "<نقطة وصول مخفية>"
 
 #: ../src/plugins/netstat/netstat.c:201
 msgid "Wireless Networks not found in range"
-msgstr "لا توجد شبكات لاسلكية في المدى"
+msgstr "لم يتم العثور على شبكات لاسلكية في النطاق"
 
 #. Repair
 #: ../src/plugins/netstat/netstat.c:235
 msgid "Repair"
-msgstr "أصلح"
+msgstr "إصلاح"
 
 #. interface down
 #: ../src/plugins/netstat/netstat.c:240
@@ -837,11 +837,11 @@ msgstr "عطّل"
 
 #: ../src/plugins/netstat/netstat.c:299
 msgid "Wireless Connection has no connectivity"
-msgstr "الاتصال اللاسلكي معدوم الربط"
+msgstr "الاتصال اللاسلكي ﻻيوجد ربط"
 
 #: ../src/plugins/netstat/netstat.c:301
 msgid "Network cable is plugged out"
-msgstr "سلك الشبكة منزوع"
+msgstr "كيبل الشبكة منزوع"
 
 #: ../src/plugins/netstat/netstat.c:303
 msgid "Connection has limited or no connectivity"

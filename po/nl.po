@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-21 10:32+0100\n"
-"PO-Revision-Date: 2009-09-03 12:53+0200\n"
+"PO-Revision-Date: 2009-12-22 11:35+0100\n"
 "Last-Translator: Sander De Voogdt <celettu@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -136,7 +136,7 @@ msgstr "Pixels"
 
 #: ../data/ui/panel-pref.glade.h:31
 msgid "Reserve space, and not covered by maximized windows"
-msgstr "Ruimte die niet overlapt wordt door gemaximeliseerde vensters"
+msgstr "Ruimte die niet overlapt wordt door gemaximaliseerde vensters"
 
 #: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:995
 msgid "Right"
@@ -471,7 +471,7 @@ msgstr "Vet font"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
-msgstr ""
+msgstr "Toon bureaublad namen"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
@@ -560,7 +560,7 @@ msgstr "Knipper wanneer een venster om aandacht vraagt"
 
 #: ../src/plugins/taskbar.c:1972
 msgid "Combine multiple application windows into a single button"
-msgstr "Combineer meerder applicatievensters in een enkele knop"
+msgstr "Combineer meerdere applicatievensters in een enkele knop"
 
 #: ../src/plugins/taskbar.c:1973
 msgid "Maximum width of task button"
@@ -591,18 +591,18 @@ msgid "Tooltip Format"
 msgstr "Tooltip formaat"
 
 #: ../src/plugins/dclock.c:312
-#, fuzzy
 msgid "Format codes: man 3 strftime; \\n for line break"
-msgstr "Format codes: man 3 strftime"
+msgstr ""
+"Format codes: man 3 strftime; \n"
+" for line break"
 
 #: ../src/plugins/dclock.c:313
 msgid "Action when clicked (default: display calendar)"
 msgstr "Actie bij muisklik (standaard: toon kalender)"
 
 #: ../src/plugins/dclock.c:315
-#, fuzzy
 msgid "Tooltip only"
-msgstr "Tooltips ingeschakeld"
+msgstr "Alleen tooltip"
 
 #: ../src/plugins/dclock.c:343
 msgid "Digital Clock"
@@ -638,11 +638,11 @@ msgstr "Scheidingslijn"
 
 #: ../src/plugins/separator.c:100
 msgid "Add a separator to the panel"
-msgstr "Schijdingslijn toevoegen aan paneel"
+msgstr "Scheidingslijn toevoegen aan paneel"
 
 #: ../src/plugins/pager.c:797
 msgid "Desktop Pager"
-msgstr "Welkbladbeheer"
+msgstr "Werkbladbeheer"
 
 #: ../src/plugins/pager.c:799
 msgid "Simple pager plugin"
@@ -712,9 +712,10 @@ msgstr ""
 "Linkermuisklik om alle vensters te iconifieren, middelmuisklik op ze op te "
 "rollen"
 
+# "Heffen"?
 #: ../src/plugins/wincmd.c:234
 msgid "Alternately iconify/shade and raise"
-msgstr ""
+msgstr "Afwisselend iconifieren/oprollen en heffen"
 
 #: ../src/plugins/wincmd.c:263
 msgid "Minimize All Windows"
@@ -747,7 +748,7 @@ msgstr "Map Menu"
 
 #: ../src/plugins/dirmenu.c:399
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr "Boomstructeur doorbladeren via menu (Auteur: PCMan)"
+msgstr "Boomstructuur doorbladeren via menu (Auteur: PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:304
 msgid "Normal"
@@ -786,9 +787,8 @@ msgid "Temperature Monitor"
 msgstr "Temperatuur Monitor"
 
 #: ../src/plugins/thermal/thermal.c:355
-#, fuzzy
 msgid "Display system temperature"
-msgstr "Toon systeemtemperatuur, door kesler.daniel@gmail.com"
+msgstr "Toon systeemtemperatuur"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -1055,7 +1055,7 @@ msgstr "Is de interface draadloos of niet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:181
 msgid "Signal"
-msgstr "Singaal"
+msgstr "Signaal"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:182
 msgid "Wireless signal strength percentage"
