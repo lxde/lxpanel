@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-21 10:32+0100\n"
-"PO-Revision-Date: 2009-07-20 20:40+0200\n"
-"Last-Translator: Martin Bagge <brother@bsnet.se>\n"
+"PO-Revision-Date: 2009-12-30 10:30+0100\n"
+"Last-Translator: Vidar Jon Bauge <vidarjb@gmail.com>\n"
 "Language-Team: Danish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -475,7 +475,7 @@ msgstr "Fed skrifttype"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
-msgstr ""
+msgstr "Vis navne på skriveborde"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
@@ -595,18 +595,18 @@ msgid "Tooltip Format"
 msgstr "Format for værktøjs Tip"
 
 #: ../src/plugins/dclock.c:312
-#, fuzzy
 msgid "Format codes: man 3 strftime; \\n for line break"
-msgstr "Format koder: man 3 strftime"
+msgstr ""
+"Format koder: man 3 strftime; \n"
+" for linjeskift"
 
 #: ../src/plugins/dclock.c:313
 msgid "Action when clicked (default: display calendar)"
 msgstr "Hændelse ved klik (Default: Kalender vises)"
 
 #: ../src/plugins/dclock.c:315
-#, fuzzy
 msgid "Tooltip only"
-msgstr "Værktøjstips aktiveret"
+msgstr "Kun værktøjstips"
 
 #: ../src/plugins/dclock.c:343
 msgid "Digital Clock"
@@ -717,7 +717,7 @@ msgstr ""
 
 #: ../src/plugins/wincmd.c:234
 msgid "Alternately iconify/shade and raise"
-msgstr ""
+msgstr "Skiftevis minimer/rul op og gendan"
 
 #: ../src/plugins/wincmd.c:263
 msgid "Minimize All Windows"
@@ -788,9 +788,8 @@ msgid "Temperature Monitor"
 msgstr "Temperatur monitor"
 
 #: ../src/plugins/thermal/thermal.c:355
-#, fuzzy
 msgid "Display system temperature"
-msgstr "Vis system temperatur, af kesler.daniel@gmail.com"
+msgstr "Vis system temperatur"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.

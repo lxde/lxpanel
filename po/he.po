@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-12-21 10:32+0100\n"
-"PO-Revision-Date: 2009-09-29 20:17+0200\n"
+"PO-Revision-Date: 2009-12-29 22:28+0100\n"
 "Last-Translator: Yaron Shahrbani <sh.yaron@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -471,7 +471,7 @@ msgstr "גופן מודגש"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
-msgstr ""
+msgstr "הצגת שמות שולחנות העבודה"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
@@ -591,18 +591,18 @@ msgid "Tooltip Format"
 msgstr "מבנה התיאורים המוקפצים"
 
 #: ../src/plugins/dclock.c:312
-#, fuzzy
 msgid "Format codes: man 3 strftime; \\n for line break"
-msgstr "קודים למבנים אפשריים: man 3 strftime"
+msgstr ""
+"קודים למבנים אפשריים: man 3 strftime;‏ \n"
+" for line break"
 
 #: ../src/plugins/dclock.c:313
 msgid "Action when clicked (default: display calendar)"
 msgstr "פעולה בעת הלחיצה (ברירת המחדל: הצגת לוח השנה)"
 
 #: ../src/plugins/dclock.c:315
-#, fuzzy
 msgid "Tooltip only"
-msgstr "התיאורים המוקפצים פעילים"
+msgstr "תאורים מוקפצים בלבד"
 
 #: ../src/plugins/dclock.c:343
 msgid "Digital Clock"
@@ -708,11 +708,11 @@ msgstr "החלפה בין פריסות המקלדת הזמינות"
 
 #: ../src/plugins/wincmd.c:204
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr "לחיצה שמאלית למזעור כל החלונות לסמלים.  לחיצה אמצעית כדי להצל אותם."
+msgstr "לחיצה שמאלית למזעור כל החלונות לסמלים.  לחיצה אמצעית כדי להצל עליהם."
 
 #: ../src/plugins/wincmd.c:234
 msgid "Alternately iconify/shade and raise"
-msgstr ""
+msgstr "ביצוע לחילופין מזעור/הצללה והגבהה"
 
 #: ../src/plugins/wincmd.c:263
 msgid "Minimize All Windows"
@@ -783,9 +783,8 @@ msgid "Temperature Monitor"
 msgstr "צג הטמפרטורה"
 
 #: ../src/plugins/thermal/thermal.c:355
-#, fuzzy
 msgid "Display system temperature"
-msgstr "הצגת טמפרטורת המערכת, נוצר על ידי kesler.daniel@gmail.com"
+msgstr "הצגת טמפרטורת המערכת"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
