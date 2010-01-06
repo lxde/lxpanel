@@ -48,7 +48,7 @@ lxpanel_LDADD = \
 		$(INTLLIBS)
 
 lxpanelctl_SOURCES = lxpanelctl.c lxpanelctl.h
-lxpanelctl_LDADD = -lX11 $(INTLLIBS)
+lxpanelctl_LDADD = $(X11_LIBS) $(INTLLIBS)
 
 noinst_PROGRAMS=xml-purge
 xml_purge_SOURCES=xml-purge.c

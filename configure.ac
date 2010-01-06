@@ -24,6 +24,10 @@ PKG_CHECK_MODULES(PACKAGE, [$pkg_modules])
 AC_SUBST(PACKAGE_CFLAGS)
 AC_SUBST(PACKAGE_LIBS)
 
+pkg_modules="x11"
+PKG_CHECK_MODULES(X11, [$pkg_modules])
+AC_SUBST(X11_LIBS)
+
 pkg_modules="libmenu-cache"
 PKG_CHECK_MODULES(MENU_CACHE, [$pkg_modules],
 		  enable_menu_cache=yes, enable_menu_cache=no)
