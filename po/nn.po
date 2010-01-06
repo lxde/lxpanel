@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-21 10:32+0100\n"
-"PO-Revision-Date: 2009-08-08 12:13+0200\n"
+"POT-Creation-Date: 2009-12-31 00:16+0100\n"
+"PO-Revision-Date: 2009-12-31 00:14+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -471,7 +471,7 @@ msgstr "Halvfeit skrift"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
-msgstr ""
+msgstr "Vis skrivebordsnamn"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
@@ -591,18 +591,16 @@ msgid "Tooltip Format"
 msgstr "Verktøytipsformat"
 
 #: ../src/plugins/dclock.c:312
-#, fuzzy
 msgid "Format codes: man 3 strftime; \\n for line break"
-msgstr "Formatkodar: man 3 strftime"
+msgstr "Formatkodar: «man 3 strftime», og «\\n» for linjeskift"
 
 #: ../src/plugins/dclock.c:313
 msgid "Action when clicked (default: display calendar)"
 msgstr "Handling ved klikk (standard: vis kalender)"
 
 #: ../src/plugins/dclock.c:315
-#, fuzzy
 msgid "Tooltip only"
-msgstr "Verktøytips på"
+msgstr "Berre verktøytips"
 
 #: ../src/plugins/dclock.c:343
 msgid "Digital Clock"
@@ -784,9 +782,8 @@ msgid "Temperature Monitor"
 msgstr "Temperaturovervaking"
 
 #: ../src/plugins/thermal/thermal.c:355
-#, fuzzy
 msgid "Display system temperature"
-msgstr "Vis systemtemperaturen – av kesler.daniel@gmail.com"
+msgstr "Vis systemtemperaturen"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -1349,25 +1346,8 @@ msgstr "Lysdiodar for tastatur"
 
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr "Lysdiodeindikatorar for tastane «Caps Lock», «Num Lock» og «Scroll Lock»"
-
-#~ msgid "Display system temperature, by kesler.daniel@gmail.com"
-#~ msgstr "Vis systemtemperaturen – av kesler.daniel@gmail.com"
-
-#~ msgid "Keyboard Led"
-#~ msgstr "Tastaturlys"
-
-#~ msgid "Desktop No / Workspace Name"
-#~ msgstr "Skrivebordsnummer / namn på arbeidsområde"
-
-#~ msgid "Battery: %d%% charged, %s"
-#~ msgstr "Batteri: %d %% lada – %s"
-
-#~ msgid "charging finished"
-#~ msgstr "ferdiglada"
-
-#~ msgid "charging"
-#~ msgstr "ladar"
+msgstr ""
+"Lysdiodeindikatorar for tastane «Caps Lock», «Num Lock» og «Scroll Lock»"
 
 #~ msgid "Left\t"
 #~ msgstr "Til venstre\t"

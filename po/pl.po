@@ -7,15 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-21 10:32+0100\n"
-"PO-Revision-Date: 2009-12-28 02:53+0100\n"
-"Last-Translator: Artur Kruszewski <mazdac@gmail.com>\n"
+"POT-Creation-Date: 2009-12-24 20:02+0100\n"
+"PO-Revision-Date: 2009-12-24 20:12+0100\n"
+"Last-Translator: Grzegorz Gibas <amigib@gmail.com>\n"
 "Language-Team: Polish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 1.1.0\n"
 "X-Poedit-Bookmarks: 19,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
 "X-Poedit-Country: Poland\n"
@@ -27,7 +26,7 @@ msgstr "% Procent"
 
 #: ../data/ui/panel-pref.glade.h:3
 msgid "<b>Automatic hiding</b>"
-msgstr "<b>Automatczne ukrywanie</b>"
+msgstr "<b>Automatyczne ukrywanie</b>"
 
 #: ../data/ui/panel-pref.glade.h:4
 msgid "<b>Background</b>"
@@ -69,7 +68,8 @@ msgstr "Wyrównanie:"
 msgid "Appearance"
 msgstr "Wygląd"
 
-#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1002
+#: ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:1002
 msgid "Bottom"
 msgstr "Dolna"
 
@@ -99,7 +99,9 @@ msgstr "Geometria"
 
 # msgid "% of edge"
 # msgstr "% krawędźi"
-#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:992 ../src/panel.c:1000
+#: ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:992
+#: ../src/panel.c:1000
 msgid "Height:"
 msgstr "Wysokość:"
 
@@ -107,7 +109,8 @@ msgstr "Wysokość:"
 msgid "Image"
 msgstr "Obraz"
 
-#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:994
+#: ../data/ui/panel-pref.glade.h:23
+#: ../src/panel.c:994
 msgid "Left"
 msgstr "Lewa"
 
@@ -141,9 +144,10 @@ msgstr "Piksele"
 
 #: ../data/ui/panel-pref.glade.h:31
 msgid "Reserve space, and not covered by maximized windows"
-msgstr "Zajmij miejsce nie przyktywane przez zmaksymalizowane okna"
+msgstr "Zajmij miejsce nie przykrywane przez zmaksymalizowane okna"
 
-#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:995
+#: ../data/ui/panel-pref.glade.h:32
+#: ../src/panel.c:995
 msgid "Right"
 msgstr "Prawa"
 
@@ -167,11 +171,14 @@ msgstr "Motyw systemowy"
 msgid "Terminal Emulator:"
 msgstr "Emulator Terminala:"
 
-#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1001
+#: ../data/ui/panel-pref.glade.h:38
+#: ../src/panel.c:1001
 msgid "Top"
 msgstr "Góra\t"
 
-#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:993 ../src/panel.c:999
+#: ../data/ui/panel-pref.glade.h:39
+#: ../src/panel.c:993
+#: ../src/panel.c:999
 msgid "Width:"
 msgstr "Szerokość:"
 
@@ -220,7 +227,8 @@ msgstr "<b>Siła sygnału</b>"
 msgid "Address:"
 msgstr "Adres:"
 
-#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
+#: ../data/ui/netstatus.glade.h:10
+#: ../src/plugins/netstat/netstat.c:319
 #: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
 msgid "Broadcast:"
@@ -281,7 +289,8 @@ msgstr "Typ"
 msgid "_Name:"
 msgstr "_Nazwa:"
 
-#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:831
+#: ../data/ui/launchbar.glade.h:1
+#: ../src/plugins/launchbar.c:831
 msgid "Application Launch Bar"
 msgstr "Pasek uruchamiania programów"
 
@@ -293,7 +302,8 @@ msgstr "Programy"
 msgid "Available Applications"
 msgstr "Dostępne programy"
 
-#: ../src/configurator.c:54 ../src/gtk-run.c:299
+#: ../src/configurator.c:54
+#: ../src/gtk-run.c:299
 msgid "Run"
 msgstr "Uruchom"
 
@@ -329,7 +339,8 @@ msgstr "Komenda wylogowania nie jest ustawiona"
 msgid "Select a directory"
 msgstr "Wybierz katalog"
 
-#: ../src/configurator.c:1196 ../src/configurator.c:1287
+#: ../src/configurator.c:1196
+#: ../src/configurator.c:1287
 msgid "Select a file"
 msgstr "Wybierz plik"
 
@@ -342,7 +353,7 @@ msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
-"NAprawdę usunąć ten panel?\n"
+"Naprawdę usunąć ten panel?\n"
 "<b>Uwaga: Ta operacja nie może być cofnięta</b>"
 
 #: ../src/panel.c:636
@@ -352,9 +363,7 @@ msgstr "Potwierdź"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:668
 msgid "translator-credits"
-msgstr ""
-"Grzegorz Gibas <amigib@gmail.com>, 2009.Artur Kruszewski <mazdac@gmail.com>, "
-"2009."
+msgstr "Grzegorz Gibas <amigib@gmail.com>, 2009.Artur Kruszewski <mazdac@gmail.com>, 2009."
 
 #: ../src/panel.c:673
 msgid "LXPanel"
@@ -426,8 +435,7 @@ msgstr " --version   -- wyświetla numer wersji i wychodzi\n"
 #: ../src/panel.c:1405
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <number> -- ustawia poziom raportowania 0-5. 0 - brak 5 - wylewny\n"
+msgstr " --log <number> -- ustawia poziom raportowania 0-5. 0 - brak 5 - wylewny\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1407
@@ -474,13 +482,14 @@ msgstr "Monitor użycia CPU"
 msgid "Display CPU usage"
 msgstr "Wyświetl użycie CPU"
 
-#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:314
+#: ../src/plugins/deskno/deskno.c:207
+#: ../src/plugins/dclock.c:314
 msgid "Bold font"
 msgstr "Czcionka pogrubiona"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
-msgstr "Wyświetlaj nazwy pulpitów"
+msgstr "Pokaż nazwy pulpitów"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
@@ -584,12 +593,8 @@ msgid "Task Bar (Window List)"
 msgstr "Pasek zadań (Lista okien)"
 
 #: ../src/plugins/taskbar.c:2033
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
-msgstr ""
-"Pasek zadań pokazuje wszyski otwarte okna i umożliwia ich minimalizację, "
-"zwinięcie lub wywołanie"
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr "Pasek zadań pokazuje wszyski otwarte okna i umożliwia ich minimalizację, zwinięcie lub wywołanie"
 
 #: ../src/plugins/dclock.c:310
 msgid "Clock Format"
@@ -600,10 +605,10 @@ msgid "Tooltip Format"
 msgstr "Format podpowiedzi"
 
 #: ../src/plugins/dclock.c:312
-msgid "Format codes: man 3 strftime; \\n for line break"
-msgstr ""
-"Legenda formatowania: patrz polecenie 'man 3 sfrtime'; użyj \n"
-" dla nowego wiersza"
+msgid ""
+"Format codes: man 3 strftime; \\n"
+" for line break"
+msgstr "Legenda formatowania: patrz polecenie 'man 3 sfrtime'"
 
 #: ../src/plugins/dclock.c:313
 msgid "Action when clicked (default: display calendar)"
@@ -611,7 +616,7 @@ msgstr "Akcja po kliknięciu (domyślnie: wyświetl kalendarz)"
 
 #: ../src/plugins/dclock.c:315
 msgid "Tooltip only"
-msgstr "Tylko podpowiedzi"
+msgstr "Włącz podpowiedzi"
 
 #: ../src/plugins/dclock.c:343
 msgid "Digital Clock"
@@ -629,7 +634,8 @@ msgstr "Dodaj do pulpitu"
 msgid "Properties"
 msgstr "Właściwości"
 
-#: ../src/plugins/menu.c:993 ../src/plugins/dirmenu.c:367
+#: ../src/plugins/menu.c:993
+#: ../src/plugins/dirmenu.c:367
 msgid "Icon"
 msgstr "Ikona"
 
@@ -657,7 +663,8 @@ msgstr "Pager pulpitu"
 msgid "Simple pager plugin"
 msgstr "Prosta wtyczka pagera"
 
-#: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
+#: ../src/plugins/space.c:121
+#: ../src/plugins/batt/batt.c:590
 msgid "Size"
 msgstr "Rozmiar"
 
@@ -717,13 +724,11 @@ msgstr "Przełącz między dostępnymi układami klwiatury"
 
 #: ../src/plugins/wincmd.c:204
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr ""
-"Kilknij prawym klawiszem myszy aby zminimalizować, środkowym aby zwinąć "
-"wszystkie okna."
+msgstr "Kilknij prawym klawiszem myszy aby zminimalizować, środkowym aby zwinąć wszystkie okna."
 
 #: ../src/plugins/wincmd.c:234
 msgid "Alternately iconify/shade and raise"
-msgstr "Na przemian użyj minimalizacji/zwinięcia i wywołania"
+msgstr "Kolejno ikonifikuj/ukrywaj i maksymalizuj"
 
 #: ../src/plugins/wincmd.c:263
 msgid "Minimize All Windows"
@@ -795,7 +800,7 @@ msgstr "Monitor Temperatury"
 
 #: ../src/plugins/thermal/thermal.c:355
 msgid "Display system temperature"
-msgstr "Wyświetlaj temperaturę komputera"
+msgstr "Wyświetlanie temperatury komputera dzięki kesler.daniel@gmail.com"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -851,7 +856,8 @@ msgstr "Kabel sieciowy jest odłączony"
 msgid "Connection has limited or no connectivity"
 msgstr "Połączenie sieciowe ma ograniczoną lub brak łączności"
 
-#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307
+#: ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "Adres IP:"
@@ -860,32 +866,38 @@ msgstr "Adres IP:"
 msgid "Remote IP:"
 msgstr "Zewnętrzny adres IP:"
 
-#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309
+#: ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "Maska podsieci:"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "Aktywność"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "Wysłano"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "Odebrano:"
 
-#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311
+#: ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "bajtów"
 
-#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312
+#: ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "pakietów"
@@ -899,7 +911,8 @@ msgstr "Bezprzewodowy"
 msgid "Protocol:"
 msgstr "Protokół:"
 
-#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321
+#: ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "Adres HW:"
 
@@ -1223,12 +1236,8 @@ msgstr "Nie można przeanalizować nazwy interfejsu z '%s'"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid ""
-"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
-msgstr ""
-"Nie można przeanalizować statystyk interfejsu z '%s'. prx_idx = %d; ptx_idx "
-"= %d; brx_idx = %d; btx_idx = %d;"
+msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgstr "Nie można przeanalizować statystyk interfejsu z '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1237,9 +1246,7 @@ msgstr "Nie można przeanalizować /prov/net/wireless. Nieznany format."
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr ""
-"Nie można przeanalizować szczegółów interfejsu bezprzewodowego z '%s'. "
-"link_idx = %d;"
+msgstr "Nie można przeanalizować szczegółów interfejsu bezprzewodowego z '%s'. link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
@@ -1365,80 +1372,56 @@ msgstr "Wskaźniki klawiszy CapsLock, NumLock i ScrollLock"
 
 #~ msgid "Display system temperature, by kesler.daniel@gmail.com"
 #~ msgstr "Wyświetlanie temperatury komputera dzięki kesler.daniel@gmail.com"
-
 #~ msgid "Keyboard Led"
 #~ msgstr "Lampki klawiatury"
-
 #~ msgid "Left\t"
 #~ msgstr "Lewa\t"
-
 #~ msgid "Top\t"
 #~ msgstr "Górna\t"
-
 #~ msgid "Couldn't find pixmap file: %s"
 #~ msgstr "Nie można odnaleźć pliku pixmap: %s"
-
 #~ msgid "Desktop No / Workspace Name"
 #~ msgstr "Numer pulpitu / Nazwa przestrzeni roboczej"
-
 #~ msgid ""
 #~ "Allows you to switch the keyboard layout and\n"
 #~ "displays the currently selected layout."
 #~ msgstr ""
 #~ "Umożliwia przełączanie układu klawiatury\n"
 #~ "i wyświetla aktualny układ."
-
 #~ msgid "Other plugins available here"
 #~ msgstr "Inne wtyczki dostępne są tutaj"
-
 #~ msgid "Old KDE/GNOME Tray"
 #~ msgstr "Stara tacka KDE/GNOME"
-
 #~ msgid "Enable Image:"
 #~ msgstr "Włącz Obrazek:"
-
 #~ msgid "Enable Transparency"
 #~ msgstr "Włącz przeźroczystość"
-
 #~ msgid "Tint color:"
 #~ msgstr "Kolor przesłony:"
-
 #~ msgid " --configure -- launch configuration utility\n"
 #~ msgstr " --configure -- uruchamia narzędzie konfiguracji\n"
-
 #~ msgid " -C  -- same as --configure\n"
 #~ msgstr " -C  -- to samo co --configure\n"
-
 #~ msgid "Add Button"
 #~ msgstr "Dodaj Przycisk"
-
 #~ msgid "Button Properties"
 #~ msgstr "Właściwości przycisku"
-
 #~ msgid "Remove Button"
 #~ msgstr "Usuń Przycisk"
-
 #~ msgid "Buttons"
 #~ msgstr "Przyciski"
-
 #~ msgid "Accept SkipPager"
 #~ msgstr "Akceptuj SkipPager"
-
 #~ msgid "Show Iconified windows"
 #~ msgstr "Pokaż zminimalizowane okna"
-
 #~ msgid "Show mapped windows"
 #~ msgstr "Pokazuj zmapowane okna"
-
 #~ msgid "Action"
 #~ msgstr "Akcja"
-
 #~ msgid "Provide Menu"
 #~ msgstr "Użyj menu"
-
 #~ msgid "Kayboard Layout switcher"
 #~ msgstr "Przełącznik układów klawiatury"
-
 #~ msgid ""
 #~ "Dynamic\n"
 #~ "Pixels\n"
@@ -1447,7 +1430,6 @@ msgstr "Wskaźniki klawiszy CapsLock, NumLock i ScrollLock"
 #~ "Dynamicznie\n"
 #~ "Piksele\n"
 #~ "% procent"
-
 #~ msgid ""
 #~ "Left\n"
 #~ "Center\n"
@@ -1456,7 +1438,6 @@ msgstr "Wskaźniki klawiszy CapsLock, NumLock i ScrollLock"
 #~ "Lewo\n"
 #~ "Środek\n"
 #~ "Prawo"
-
 #~ msgid ""
 #~ "Left\n"
 #~ "Right\n"
@@ -1467,19 +1448,16 @@ msgstr "Wskaźniki klawiszy CapsLock, NumLock i ScrollLock"
 #~ "Prawo\n"
 #~ "Góra\n"
 #~ "Dół"
-
 #~ msgid "Where to put the panel?"
 #~ msgstr "Gdzie ustawić panel?"
-
 #~ msgid "Battery: %d%% charged, %s"
 #~ msgstr "Bateria: naładowana w %d%%, %s"
-
 #~ msgid "charging finished"
 #~ msgstr "ładowanie zakończone"
-
 #~ msgid "charging"
 #~ msgstr "ładowanie"
 
 #, fuzzy
 #~ msgid "Add to desktop panel"
 #~ msgstr "Dodaj wtyczkę do panelu"
+
