@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-12-31 00:16+0100\n"
+"POT-Creation-Date: 2010-01-12 01:17+0100\n"
 "PO-Revision-Date: 2009-12-31 00:14+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
@@ -1346,8 +1346,7 @@ msgstr "Lysdiodar for tastatur"
 
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr ""
-"Lysdiodeindikatorar for tastane «Caps Lock», «Num Lock» og «Scroll Lock»"
+msgstr "Lysdiodeindikatorar for tastane «Caps Lock», «Num Lock» og «Scroll Lock»"
 
 #~ msgid "Left\t"
 #~ msgstr "Til venstre\t"
