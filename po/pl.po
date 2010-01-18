@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: pl\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-01-12 01:17+0100\n"
-"PO-Revision-Date: 2009-12-24 20:12+0100\n"
-"Last-Translator: Grzegorz Gibas <amigib@gmail.com>\n"
+"PO-Revision-Date: 2010-01-13 23:28+0200\n"
+"Last-Translator: Artur <mazdac@gmail.com>\n"
 "Language-Team: Polish\n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 1.1.0\n"
+"X-Generator: Pootle 2.0.0\n"
 "X-Poedit-Bookmarks: 19,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
 "X-Poedit-Country: Poland\n"
 
@@ -169,7 +170,7 @@ msgstr "Emulator Terminala:"
 
 #: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1001
 msgid "Top"
-msgstr "Góra\t"
+msgstr "Góra"
 
 #: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:993 ../src/panel.c:999
 msgid "Width:"
@@ -264,7 +265,7 @@ msgstr "Status:"
 #: ../data/ui/netstatus.glade.h:18
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
 msgid "Subnet Mask:"
-msgstr "Maska podsieci"
+msgstr "Maska podsieci:"
 
 #: ../data/ui/netstatus.glade.h:19
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
@@ -274,7 +275,7 @@ msgstr "Wsparcie"
 #: ../data/ui/netstatus.glade.h:20
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
 msgid "Type:"
-msgstr "Typ"
+msgstr "Typ:"
 
 #: ../data/ui/netstatus.glade.h:21
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
@@ -354,7 +355,7 @@ msgstr "Potwierdź"
 msgid "translator-credits"
 msgstr ""
 "Grzegorz Gibas <amigib@gmail.com>, 2009.Artur Kruszewski <mazdac@gmail.com>, "
-"2009."
+"2009-2010."
 
 #: ../src/panel.c:673
 msgid "LXPanel"
@@ -459,7 +460,7 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"Odwiedź http://lxde.org/ aby zobaczyć szczegółową dokumentację\n"
+"Odwiedź http://lxde.org/ aby poznać więcej szczegółów.\n"
 "\n"
 
 #: ../src/gtk-run.c:312
@@ -501,7 +502,7 @@ msgstr "Pasek z przyciskami do uruchamiania programów"
 #. Add Raise menu item.
 #: ../src/plugins/taskbar.c:1696
 msgid "_Raise"
-msgstr "Rozwiń"
+msgstr "_Rozwiń"
 
 #. Add Restore menu item.
 #: ../src/plugins/taskbar.c:1701
@@ -531,17 +532,17 @@ msgstr "Pulpit %d"
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../src/plugins/taskbar.c:1749
 msgid "_All workspaces"
-msgstr "Wszystkie pulpity"
+msgstr "_Wszystkie pulpity"
 
 #. Add Move to Workspace menu item as a submenu.
 #: ../src/plugins/taskbar.c:1755
 msgid "_Move to Workspace"
-msgstr "Przenieś na inny pulpit"
+msgstr "_Przenieś na inny pulpit"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../src/plugins/taskbar.c:1761
 msgid "_Close Window"
-msgstr "Zamknij okno"
+msgstr "_Zamknij okno"
 
 #: ../src/plugins/taskbar.c:1966
 msgid "Show tooltips"
@@ -698,7 +699,7 @@ msgstr "Ustawienia poszczególnych aplikacji"
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/xkb/xkb-plugin.c:336
 msgid "_Remember layout for each application"
-msgstr "Zapamiętaj układ dla każdej aplikacji"
+msgstr "Zapamiętaj _układ dla każdej aplikacji"
 
 #. Create a label as the child of the horizontal box.
 #: ../src/plugins/xkb/xkb-plugin.c:346
@@ -876,7 +877,7 @@ msgstr "Wysłano"
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
-msgstr "Odebrano:"
+msgstr "Odebrano"
 
 #: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
@@ -1002,7 +1003,7 @@ msgstr "Położenie"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:820
 msgid "The orientation of the tray."
-msgstr "Położenie zasobnika"
+msgstr "Położenie zasobnika."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:828
 msgid "Tooltips Enabled"

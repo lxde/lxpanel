@@ -7,14 +7,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-01-12 01:17+0100\n"
-"PO-Revision-Date: 2009-05-19 00:42+0200\n"
+"PO-Revision-Date: 2010-01-14 12:05+0200\n"
 "Last-Translator: F Wolff <friedel@translate.org.za>\n"
 "Language-Team: translate-discuss-af@lists.sourceforge.net\n"
+"Language: af\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.3.1\n"
+"X-Generator: Pootle 2.0.0\n"
 
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
@@ -34,9 +35,8 @@ msgid "<b>Font</b>"
 msgstr "<b>Font</b>"
 
 #: ../data/ui/panel-pref.glade.h:6
-#, fuzzy
 msgid "<b>Icon</b>"
-msgstr "<b>Font</b>"
+msgstr "<b>Ikoon</b>"
 
 #: ../data/ui/panel-pref.glade.h:7
 msgid "<b>Position</b>"
@@ -64,25 +64,23 @@ msgstr "Belyning:"
 
 #: ../data/ui/panel-pref.glade.h:13
 msgid "Appearance"
-msgstr ""
+msgstr "Voorkoms"
 
 #: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1002
 msgid "Bottom"
 msgstr "Onder"
 
 #: ../data/ui/panel-pref.glade.h:15
-#, fuzzy
 msgid "Center"
-msgstr "Algemeen"
+msgstr "Middel"
 
 #: ../data/ui/panel-pref.glade.h:16
-#, fuzzy
 msgid "Custom color"
 msgstr "Eie kleur"
 
 #: ../data/ui/panel-pref.glade.h:17
 msgid "Dynamic"
-msgstr ""
+msgstr "Dinamies"
 
 #: ../data/ui/panel-pref.glade.h:18
 msgid "Edge:"
@@ -94,16 +92,15 @@ msgstr "Lêerbestuurder:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "Geometry"
-msgstr ""
+msgstr "Afmetings"
 
 #: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:992 ../src/panel.c:1000
 msgid "Height:"
 msgstr "Hoogte:"
 
 #: ../data/ui/panel-pref.glade.h:22
-#, fuzzy
 msgid "Image"
-msgstr "beeld"
+msgstr "Beeld"
 
 #: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:994
 msgid "Left"
@@ -123,7 +120,7 @@ msgstr "Kantlyn:"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Minimize panel when not in use"
-msgstr ""
+msgstr "Minimeer die paneel wanneer dit nie gebruik word nie"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "Panel Applets"
@@ -158,16 +155,14 @@ msgid "Solid color (with opacity)"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:36
-#, fuzzy
 msgid "System theme"
-msgstr "Geen (gebruik stelseltema)"
+msgstr "Stelseltema"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "Terminal Emulator:"
 msgstr "Terminaal-emuleerder:"
 
 #: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1001
-#, fuzzy
 msgid "Top"
 msgstr "Bo"
 
@@ -176,9 +171,8 @@ msgid "Width:"
 msgstr "Wydte:"
 
 #: ../data/ui/panel-pref.glade.h:40
-#, fuzzy
 msgid "pixels"
-msgstr "Beeldpunte"
+msgstr "beeldpunte"
 
 #: ../data/ui/netstatus.glade.h:2
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
@@ -287,14 +281,12 @@ msgid "Application Launch Bar"
 msgstr "Lanseerbalk vir toepassings"
 
 #: ../data/ui/launchbar.glade.h:2
-#, fuzzy
 msgid "Applications"
-msgstr "Kies 'n toepassing"
+msgstr "Toepassings"
 
 #: ../data/ui/launchbar.glade.h:3
-#, fuzzy
 msgid "Available Applications"
-msgstr "Beskikbare inproppe"
+msgstr "Beskikbare toepassings"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:299
 msgid "Run"
@@ -329,9 +321,8 @@ msgid "Logout command is not set"
 msgstr "Opdrag vir afmelding is nie gestel nie"
 
 #: ../src/configurator.c:1196
-#, fuzzy
 msgid "Select a directory"
-msgstr "Kies 'n lêer"
+msgstr "Kies 'n gids"
 
 #: ../src/configurator.c:1196 ../src/configurator.c:1287
 msgid "Select a file"
@@ -356,20 +347,19 @@ msgstr "Bevestig"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:668
 msgid "translator-credits"
-msgstr ""
+msgstr "Friedel Wolff"
 
 #: ../src/panel.c:673
-#, fuzzy
 msgid "LXPanel"
-msgstr "Paneel"
+msgstr "LXPanel"
 
 #: ../src/panel.c:675
 msgid "Copyright (C) 2008-2009"
-msgstr ""
+msgstr "Kopiereg (C) 2008-2009"
 
 #: ../src/panel.c:676
 msgid "Desktop panel for LXDE project"
-msgstr ""
+msgstr "Werkskermpaneel vir die LXDE-projek"
 
 #: ../src/panel.c:699
 msgid "Add / Remove Panel Items"
@@ -394,7 +384,7 @@ msgstr "Verwyder hierdie paneel"
 
 #: ../src/panel.c:747
 msgid "About"
-msgstr ""
+msgstr "Aangaande"
 
 #: ../src/panel.c:755
 msgid "Panel"
@@ -482,10 +472,9 @@ msgstr "Vetdruk"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
-msgstr ""
+msgstr "Wys werkskermname"
 
 #: ../src/plugins/deskno/deskno.c:235
-#, fuzzy
 msgid "Desktop Number / Workspace Name"
 msgstr "Werkskerm-nr. / Werkruimtenaam"
 
@@ -503,32 +492,28 @@ msgstr "Balk met knoppies om programme mee te begin"
 
 #. Add Raise menu item.
 #: ../src/plugins/taskbar.c:1696
-#, fuzzy
 msgid "_Raise"
-msgstr "Lig"
+msgstr "_Lig"
 
 #. Add Restore menu item.
 #: ../src/plugins/taskbar.c:1701
-#, fuzzy
 msgid "R_estore"
-msgstr "Herstel"
+msgstr "H_erstel"
 
 #. Add Maximize menu item.
 #: ../src/plugins/taskbar.c:1706
-#, fuzzy
 msgid "Ma_ximize"
-msgstr "Maksimeer"
+msgstr "Ma_ksimeer"
 
 #. Add Iconify menu item.
 #: ../src/plugins/taskbar.c:1711
-#, fuzzy
 msgid "Ico_nify"
-msgstr "Ikonifiseer"
+msgstr "Iko_nifiseer"
 
 #: ../src/plugins/taskbar.c:1730
-#, fuzzy, c-format
+#, c-format
 msgid "Workspace _%d"
-msgstr "Werkruimte %d"
+msgstr "Werkruimte _%d"
 
 #: ../src/plugins/taskbar.c:1735
 #, c-format
@@ -537,21 +522,18 @@ msgstr "Werkruimte %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../src/plugins/taskbar.c:1749
-#, fuzzy
 msgid "_All workspaces"
-msgstr "Alle werkruimtes"
+msgstr "_Alle werkruimtes"
 
 #. Add Move to Workspace menu item as a submenu.
 #: ../src/plugins/taskbar.c:1755
-#, fuzzy
 msgid "_Move to Workspace"
-msgstr "Skuif na werkruimte"
+msgstr "Skuif na werkrui_mte"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../src/plugins/taskbar.c:1761
-#, fuzzy
 msgid "_Close Window"
-msgstr "Sluit venster"
+msgstr "_Sluit venster"
 
 #: ../src/plugins/taskbar.c:1966
 msgid "Show tooltips"
@@ -562,7 +544,6 @@ msgid "Icons only"
 msgstr "Slegs ikone"
 
 #: ../src/plugins/taskbar.c:1968
-#, fuzzy
 msgid "Flat buttons"
 msgstr "Plat knoppies"
 
@@ -583,7 +564,6 @@ msgid "Combine multiple application windows into a single button"
 msgstr ""
 
 #: ../src/plugins/taskbar.c:1973
-#, fuzzy
 msgid "Maximum width of task button"
 msgstr "Maksimum wydte van taakknoppie"
 
@@ -596,7 +576,6 @@ msgid "Task Bar (Window List)"
 msgstr "Taakbalk (vensterlys)"
 
 #: ../src/plugins/taskbar.c:2033
-#, fuzzy
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -613,24 +592,25 @@ msgid "Tooltip Format"
 msgstr "Nutswenkformaat"
 
 #: ../src/plugins/dclock.c:312
+#, fuzzy
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr ""
+"Formaatkodes: man 3 strftime; \n"
+" vir 'n nuwe lyn"
 
 #: ../src/plugins/dclock.c:313
 msgid "Action when clicked (default: display calendar)"
-msgstr ""
+msgstr "Reaksie op klik (verstek: wys kalender)"
 
 #: ../src/plugins/dclock.c:315
-#, fuzzy
 msgid "Tooltip only"
-msgstr "Nutswenke geaktiveer"
+msgstr "Slegs nutswenk"
 
 #: ../src/plugins/dclock.c:343
 msgid "Digital Clock"
 msgstr "Digitale horlosie"
 
 #: ../src/plugins/dclock.c:345
-#, fuzzy
 msgid "Display digital clock and tooltip"
 msgstr "Vertoon digitale horlosie en nutswenk"
 
@@ -651,9 +631,8 @@ msgid "Menu"
 msgstr "Kieslys"
 
 #: ../src/plugins/menu.c:1012
-#, fuzzy
 msgid "Application Menu"
-msgstr "Lanseerbalk vir toepassings"
+msgstr "Toeapassingskieslys"
 
 #: ../src/plugins/separator.c:98
 msgid "Separator"
@@ -676,9 +655,8 @@ msgid "Size"
 msgstr "Grootte"
 
 #: ../src/plugins/space.c:139
-#, fuzzy
 msgid "Spacer"
-msgstr "<Spasie>"
+msgstr "Spasiëring"
 
 #: ../src/plugins/space.c:141
 msgid "Allocate space"
@@ -689,7 +667,6 @@ msgid "System Tray"
 msgstr "Stelsellaai"
 
 #: ../src/plugins/tray.c:704
-#, fuzzy
 msgid "System tray"
 msgstr "Stelsellaai"
 
@@ -732,10 +709,10 @@ msgid "Switch between available keyboard layouts"
 msgstr "Wissel tussen beskikbare sleutelborduitlegte"
 
 #: ../src/plugins/wincmd.c:204
-#, fuzzy
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
-"Klik links om alle vensters te ikonifiseer. Klik middel om hulle te verskadu"
+"Klik links om alle vensters te ikonifiseer.  Klik middel om hulle te "
+"verskadu."
 
 #: ../src/plugins/wincmd.c:234
 msgid "Alternately iconify/shade and raise"
@@ -756,14 +733,12 @@ msgid "Open in _Terminal"
 msgstr "Open in _terminaal"
 
 #: ../src/plugins/dirmenu.c:365
-#, fuzzy
 msgid "Directory"
-msgstr "Gidskieslys"
+msgstr "Gids"
 
 #: ../src/plugins/dirmenu.c:366
-#, fuzzy
 msgid "Label"
-msgstr "Paneel"
+msgstr "Etiket"
 
 #: ../src/plugins/dirmenu.c:397
 msgid "Directory Menu"
@@ -810,9 +785,8 @@ msgid "Temperature Monitor"
 msgstr "Monitor vir temperatuur"
 
 #: ../src/plugins/thermal/thermal.c:355
-#, fuzzy
 msgid "Display system temperature"
-msgstr "Vertoon stelseltemperatuur, deur kesler.daniel@gmail.com"
+msgstr "Vertoon stelseltemperatuur"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -955,7 +929,6 @@ msgid "Config tool"
 msgstr "Konfigurasieprogram"
 
 #: ../src/plugins/netstatus/netstatus.c:197
-#, fuzzy
 msgid "Network Status Monitor"
 msgstr "Monitor vir netwerkstatus"
 
@@ -1371,7 +1344,6 @@ msgid "Show ScrollLock"
 msgstr "Wys ScrollLock"
 
 #: ../src/plugins/kbled/kbled.c:267
-#, fuzzy
 msgid "Keyboard LED"
 msgstr "Sleutelbord-LED"
 
