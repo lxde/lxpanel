@@ -1,0 +1,1350 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: LXDE\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-12 01:17+0100\n"
+"PO-Revision-Date: 2010-01-24 11:10-0800\n"
+"Last-Translator: alexxed <alexxed@gmail.com>\n"
+"Language-Team: Romanian <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms:  nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+"X-Generator: Narro 0.9.4 on http://tradu.softwareliber.ro\n"
+
+#: ../data/ui/panel-pref.glade.h:2
+#, no-c-format
+msgid "% Percent"
+msgstr "% (în procente)"
+
+#: ../data/ui/panel-pref.glade.h:3
+msgid "<b>Automatic hiding</b>"
+msgstr "<b>Ascundere automată</b>"
+
+#: ../data/ui/panel-pref.glade.h:4
+msgid "<b>Background</b>"
+msgstr "<b>Fundal</b>"
+
+#: ../data/ui/panel-pref.glade.h:5
+msgid "<b>Font</b>"
+msgstr "<b>Font</b>"
+
+#: ../data/ui/panel-pref.glade.h:6
+msgid "<b>Icon</b>"
+msgstr "<b>Iconiță</b>"
+
+#: ../data/ui/panel-pref.glade.h:7
+msgid "<b>Position</b>"
+msgstr "<b>Poziție</b>"
+
+#: ../data/ui/panel-pref.glade.h:8
+msgid "<b>Properties</b>"
+msgstr "<b>Proprietăți</b>"
+
+#: ../data/ui/panel-pref.glade.h:9
+msgid "<b>Set Preferred Applications</b>"
+msgstr "<b>Alegere aplicații preferate</b>"
+
+#: ../data/ui/panel-pref.glade.h:10
+msgid "<b>Size</b>"
+msgstr "<b>Mărime</b>"
+
+#: ../data/ui/panel-pref.glade.h:11
+msgid "Advanced"
+msgstr "Avansat"
+
+#: ../data/ui/panel-pref.glade.h:12
+msgid "Alignment:"
+msgstr "Aliniere:"
+
+#: ../data/ui/panel-pref.glade.h:13
+msgid "Appearance"
+msgstr "Aspect"
+
+#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1002
+msgid "Bottom"
+msgstr "Jos"
+
+#: ../data/ui/panel-pref.glade.h:15
+msgid "Center"
+msgstr "Centru"
+
+#: ../data/ui/panel-pref.glade.h:16
+msgid "Custom color"
+msgstr "Culoare personalizată"
+
+#: ../data/ui/panel-pref.glade.h:17
+msgid "Dynamic"
+msgstr "dinamic"
+
+#: ../data/ui/panel-pref.glade.h:18
+msgid "Edge:"
+msgstr "Margine:"
+
+#: ../data/ui/panel-pref.glade.h:19
+msgid "File Manager:"
+msgstr "Administrator de fișiere:"
+
+#: ../data/ui/panel-pref.glade.h:20
+msgid "Geometry"
+msgstr "Geometrie"
+
+#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:992 ../src/panel.c:1000
+msgid "Height:"
+msgstr "Înălțime:"
+
+#: ../data/ui/panel-pref.glade.h:22
+msgid "Image"
+msgstr "Imagine"
+
+#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:994
+msgid "Left"
+msgstr "Stânga"
+
+#: ../data/ui/panel-pref.glade.h:24
+msgid "Logout Command:"
+msgstr "Comandă de deconectare:"
+
+#: ../data/ui/panel-pref.glade.h:25
+msgid "Make window managers treat the panel as dock"
+msgstr "Gestionarii de ferestre tratează panoul ca un doc"
+
+#: ../data/ui/panel-pref.glade.h:26
+msgid "Margin:"
+msgstr "Margine:"
+
+#: ../data/ui/panel-pref.glade.h:27
+msgid "Minimize panel when not in use"
+msgstr "Minimizează panoul când nu este folosit"
+
+#: ../data/ui/panel-pref.glade.h:28
+msgid "Panel Applets"
+msgstr "Aplicații de panou"
+
+#: ../data/ui/panel-pref.glade.h:29
+msgid "Panel Preferences"
+msgstr "Preferințe pentru panou"
+
+#: ../data/ui/panel-pref.glade.h:30
+msgid "Pixels"
+msgstr "pixeli"
+
+#: ../data/ui/panel-pref.glade.h:31
+msgid "Reserve space, and not covered by maximized windows"
+msgstr "Are spațiu rezervat și nu este acoperit de ferestrele maximizate"
+
+#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:995
+msgid "Right"
+msgstr "Dreapta"
+
+#: ../data/ui/panel-pref.glade.h:33
+msgid "Select an image file"
+msgstr "Selectați un fișier imagine"
+
+#: ../data/ui/panel-pref.glade.h:34
+msgid "Size when minimized"
+msgstr "Dimensiunea la minimizare"
+
+#: ../data/ui/panel-pref.glade.h:35
+msgid "Solid color (with opacity)"
+msgstr "Culoare solidă (cu opacitate)"
+
+#: ../data/ui/panel-pref.glade.h:36
+msgid "System theme"
+msgstr "Tema sistemului"
+
+#: ../data/ui/panel-pref.glade.h:37
+msgid "Terminal Emulator:"
+msgstr "Emulator de terminal:"
+
+#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1001
+msgid "Top"
+msgstr "Sus"
+
+#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:993 ../src/panel.c:999
+msgid "Width:"
+msgstr "Lățime:"
+
+#: ../data/ui/panel-pref.glade.h:40
+msgid "pixels"
+msgstr "pixeli"
+
+#: ../data/ui/netstatus.glade.h:2
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
+#, no-c-format
+msgid "0%"
+msgstr "0%"
+
+#: ../data/ui/netstatus.glade.h:3
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
+msgid "<b>Activity</b>"
+msgstr "<b>Activitate</b>"
+
+#: ../data/ui/netstatus.glade.h:4
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
+msgid "<b>Connection</b>"
+msgstr "<b>Conexiune</b>"
+
+#: ../data/ui/netstatus.glade.h:5
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr "<b>Protocolul Internet (IPv4)</b>"
+
+#: ../data/ui/netstatus.glade.h:6
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>Protocolul Internet (IPv6)</b>"
+
+#: ../data/ui/netstatus.glade.h:7
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
+msgid "<b>Network Device</b>"
+msgstr "<b>Dispozitiv de rețea</b>"
+
+#: ../data/ui/netstatus.glade.h:8
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
+msgid "<b>Signal Strength</b>"
+msgstr "<b>Putere semnal</b>"
+
+#: ../data/ui/netstatus.glade.h:9
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
+msgid "Address:"
+msgstr "Adresă:"
+
+#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
+#: ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
+msgid "Broadcast:"
+msgstr "Emitere:"
+
+#: ../data/ui/netstatus.glade.h:11
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
+msgid "Con_figure"
+msgstr "Con_figurare"
+
+#: ../data/ui/netstatus.glade.h:12
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
+msgid "Destination:"
+msgstr "Destinație:"
+
+#: ../data/ui/netstatus.glade.h:13
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
+msgid "General"
+msgstr "General"
+
+#: ../data/ui/netstatus.glade.h:14
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
+msgid "Received:"
+msgstr "Primit:"
+
+#: ../data/ui/netstatus.glade.h:15
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
+msgid "Scope:"
+msgstr "Domeniu:"
+
+#: ../data/ui/netstatus.glade.h:16
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
+msgid "Sent:"
+msgstr "Trimis:"
+
+#: ../data/ui/netstatus.glade.h:17
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
+msgid "Status:"
+msgstr "Stare:"
+
+#: ../data/ui/netstatus.glade.h:18
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
+msgid "Subnet Mask:"
+msgstr "Mască de subrețea:"
+
+#: ../data/ui/netstatus.glade.h:19
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
+msgid "Support"
+msgstr "Suport"
+
+#: ../data/ui/netstatus.glade.h:20
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
+msgid "Type:"
+msgstr "Tip:"
+
+#: ../data/ui/netstatus.glade.h:21
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
+msgid "_Name:"
+msgstr "_Nume:"
+
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:831
+msgid "Application Launch Bar"
+msgstr "Bară de lansare pentru aplicații"
+
+#: ../data/ui/launchbar.glade.h:2
+msgid "Applications"
+msgstr "Aplicații"
+
+#: ../data/ui/launchbar.glade.h:3
+msgid "Available Applications"
+msgstr "Aplicațiile disponibile"
+
+#: ../src/configurator.c:54 ../src/gtk-run.c:299
+msgid "Run"
+msgstr "Rulează"
+
+#: ../src/configurator.c:56
+msgid "Restart"
+msgstr "Repornește"
+
+#: ../src/configurator.c:57
+msgid "Logout"
+msgstr "Deconectare"
+
+#: ../src/configurator.c:448
+msgid "Currently loaded plugins"
+msgstr "Extensii încărcate acum"
+
+#: ../src/configurator.c:457
+msgid "Stretch"
+msgstr "Întinde "
+
+#: ../src/configurator.c:562
+msgid "Add plugin to panel"
+msgstr "Adaugă extensia la panou"
+
+#: ../src/configurator.c:590
+msgid "Available plugins"
+msgstr "Extensii disponibile"
+
+#: ../src/configurator.c:1143
+msgid "Logout command is not set"
+msgstr "Comanda de deconectare nu este setată"
+
+#: ../src/configurator.c:1196
+msgid "Select a directory"
+msgstr "Selectați un director"
+
+#: ../src/configurator.c:1196 ../src/configurator.c:1287
+msgid "Select a file"
+msgstr "Selectați un fișier"
+
+#: ../src/configurator.c:1314
+msgid "_Browse"
+msgstr "_Răsfoiește"
+
+#: ../src/panel.c:634
+msgid ""
+"Really delete this panel?\n"
+"<b>Warning: This can not be recovered.</b>"
+msgstr ""
+"Chiar doriți sa ștergeți acest panou?\n"
+"<b>Atenție: Nu va putea fi recuperat.</b>"
+
+#: ../src/panel.c:636
+msgid "Confirm"
+msgstr "Confirmare"
+
+#. TRANSLATORS: Replace this string with your names, one name per line.
+#: ../src/panel.c:668
+msgid "translator-credits"
+msgstr "Comunitatea de traducători de pe tradu.softwareliber.ro"
+
+#: ../src/panel.c:673
+msgid "LXPanel"
+msgstr "LXPanel"
+
+#: ../src/panel.c:675
+msgid "Copyright (C) 2008-2009"
+msgstr "Drepturi de autor pe 2008-2009"
+
+#: ../src/panel.c:676
+msgid "Desktop panel for LXDE project"
+msgstr "Panou pentru spațiul de lucru pentru LXDE"
+
+#: ../src/panel.c:699
+msgid "Add / Remove Panel Items"
+msgstr "Adaugă sau elimină elemente din panou"
+
+#: ../src/panel.c:707
+#, c-format
+msgid "Remove \"%s\" From Panel"
+msgstr "Elimină „%s” de pe panou"
+
+#: ../src/panel.c:719
+msgid "Panel Settings"
+msgstr "Setările panoului"
+
+#: ../src/panel.c:725
+msgid "Create New Panel"
+msgstr "Creează un panou nou"
+
+#: ../src/panel.c:736
+msgid "Delete This Panel"
+msgstr "Șterge acest panou"
+
+#: ../src/panel.c:747
+msgid "About"
+msgstr "Despre"
+
+#: ../src/panel.c:755
+msgid "Panel"
+msgstr "Panou"
+
+#: ../src/panel.c:768
+#, c-format
+msgid "\"%s\" Settings"
+msgstr "Setări pentru „%s”"
+
+#: ../src/panel.c:1401
+#, c-format
+msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
+msgstr "lxpanel %s - panou simplu, scris în GTK2+ pentru spații de lucru UNIX\n"
+
+#: ../src/panel.c:1402
+#, c-format
+msgid "Command line options:\n"
+msgstr "Opțiuni din linia de comandă:\n"
+
+#: ../src/panel.c:1403
+#, c-format
+msgid " --help      -- print this help and exit\n"
+msgstr " --help -- afișează acest ajutor\n"
+
+#: ../src/panel.c:1404
+#, c-format
+msgid " --version   -- print version and exit\n"
+msgstr " --version -- afișează versiunea\n"
+
+#: ../src/panel.c:1405
+#, c-format
+msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
+msgstr ""
+" --log <număr> -- stabilește nivelul de jurnalizare de la 0 la 5, unde 0 e "
+"nimic iar 5 e tot\n"
+
+#. g_print(_(" --configure -- launch configuration utility\n"));
+#: ../src/panel.c:1407
+#, c-format
+msgid " --profile name -- use specified profile\n"
+msgstr " --profile nume -- folosește profilul specificat\n"
+
+#: ../src/panel.c:1409
+#, c-format
+msgid " -h  -- same as --help\n"
+msgstr " -h -- la fel ca --help\n"
+
+#: ../src/panel.c:1410
+#, c-format
+msgid " -p  -- same as --profile\n"
+msgstr " -p -- la fel ca --profile\n"
+
+#: ../src/panel.c:1411
+#, c-format
+msgid " -v  -- same as --version\n"
+msgstr " -v -- la fel ca --version\n"
+
+#. g_print(_(" -C  -- same as --configure\n"));
+#: ../src/panel.c:1413
+#, c-format
+msgid ""
+"\n"
+"Visit http://lxde.org/ for detail.\n"
+"\n"
+msgstr ""
+"\n"
+"Vizitați http://lxde.org/ pentru detalii.\n"
+"\n"
+
+#: ../src/gtk-run.c:312
+msgid "Enter the command you want to execute:"
+msgstr "Introduceți comanda care doriți să o executați:"
+
+#: ../src/plugins/cpu/cpu.c:268
+msgid "CPU Usage Monitor"
+msgstr "Monitor pentru utilizarea procesorului"
+
+#: ../src/plugins/cpu/cpu.c:270
+msgid "Display CPU usage"
+msgstr "Afișează utilizarea procesorului"
+
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:314
+msgid "Bold font"
+msgstr "Font îngroșat"
+
+#: ../src/plugins/deskno/deskno.c:208
+msgid "Display desktop names"
+msgstr "Afișează numele spațiilor de lucru"
+
+#: ../src/plugins/deskno/deskno.c:235
+msgid "Desktop Number / Workspace Name"
+msgstr "Numărul ecranului sau numele spațiului de lucru"
+
+#: ../src/plugins/deskno/deskno.c:237
+msgid "Display workspace number, by cmeury@users.sf.net"
+msgstr "Afișează numărul spațiului de lucru, scris de cmeury@users.sf.net"
+
+#: ../src/plugins/image.c:177
+msgid "Display Image and Tooltip"
+msgstr "Afișează imaginea și textul ajutător"
+
+#: ../src/plugins/launchbar.c:833
+msgid "Bar with buttons to launch application"
+msgstr "Bară cu butoane pentru lansarea aplicațiilor"
+
+#. Add Raise menu item.
+#: ../src/plugins/taskbar.c:1696
+msgid "_Raise"
+msgstr "A_rată"
+
+#. Add Restore menu item.
+#: ../src/plugins/taskbar.c:1701
+msgid "R_estore"
+msgstr "R_estaurează"
+
+#. Add Maximize menu item.
+#: ../src/plugins/taskbar.c:1706
+msgid "Ma_ximize"
+msgstr "Ma_ximizează"
+
+#. Add Iconify menu item.
+#: ../src/plugins/taskbar.c:1711
+msgid "Ico_nify"
+msgstr "Ascu_nde"
+
+#: ../src/plugins/taskbar.c:1730
+#, c-format
+msgid "Workspace _%d"
+msgstr "Spațiul _%d"
+
+#: ../src/plugins/taskbar.c:1735
+#, c-format
+msgid "Workspace %d"
+msgstr "Spațiul de lucru nr. %d"
+
+#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
+#: ../src/plugins/taskbar.c:1749
+msgid "_All workspaces"
+msgstr "To_ate spațiile de lucru"
+
+#. Add Move to Workspace menu item as a submenu.
+#: ../src/plugins/taskbar.c:1755
+msgid "_Move to Workspace"
+msgstr "_Mută pe"
+
+#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
+#: ../src/plugins/taskbar.c:1761
+msgid "_Close Window"
+msgstr "În_chide fereastra"
+
+#: ../src/plugins/taskbar.c:1966
+msgid "Show tooltips"
+msgstr "Arată textele ajutătoare"
+
+#: ../src/plugins/taskbar.c:1967
+msgid "Icons only"
+msgstr "Doar iconițe"
+
+#: ../src/plugins/taskbar.c:1968
+msgid "Flat buttons"
+msgstr "Butoane plate"
+
+#: ../src/plugins/taskbar.c:1969
+msgid "Show windows from all desktops"
+msgstr "Arată ferestrele de pe toate ecranele"
+
+#: ../src/plugins/taskbar.c:1970
+msgid "Use mouse wheel"
+msgstr "Folosește rotița mausului"
+
+#: ../src/plugins/taskbar.c:1971
+msgid "Flash when there is any window requiring attention"
+msgstr "Clipește când vreo fereastră cere atenție"
+
+#: ../src/plugins/taskbar.c:1972
+msgid "Combine multiple application windows into a single button"
+msgstr "Combină ferestrele multiple ale unei aplicații într-un singur buton"
+
+#: ../src/plugins/taskbar.c:1973
+msgid "Maximum width of task button"
+msgstr "Lățimea maximă a unui buton de aplicație"
+
+#: ../src/plugins/taskbar.c:1974
+msgid "Spacing"
+msgstr "Spațiere"
+
+#: ../src/plugins/taskbar.c:2031
+msgid "Task Bar (Window List)"
+msgstr "Bara de procese (listă de ferestre)"
+
+#: ../src/plugins/taskbar.c:2033
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr ""
+"Bara de procese arată toate ferestrele deschise și vă permite să le ascundeți "
+"pe ea, să le rulați sau să le aduceți în față"
+
+#: ../src/plugins/dclock.c:310
+msgid "Clock Format"
+msgstr "Format ceas"
+
+#: ../src/plugins/dclock.c:311
+msgid "Tooltip Format"
+msgstr "Formatul textelor ajutătoare"
+
+#: ../src/plugins/dclock.c:312
+msgid "Format codes: man 3 strftime; \\n for line break"
+msgstr "Coduri de formatare: man 3 strftime; \\n pentru sfârșit de linie"
+
+#: ../src/plugins/dclock.c:313
+msgid "Action when clicked (default: display calendar)"
+msgstr "Acțiune la clic (implicit: afișare calendar)"
+
+#: ../src/plugins/dclock.c:315
+msgid "Tooltip only"
+msgstr "Doar textele ajutătoare"
+
+#: ../src/plugins/dclock.c:343
+msgid "Digital Clock"
+msgstr "Ceas digital"
+
+#: ../src/plugins/dclock.c:345
+msgid "Display digital clock and tooltip"
+msgstr "Afișează ceasul digital și informațiile suplimentare"
+
+#: ../src/plugins/menu.c:373
+msgid "Add to desktop"
+msgstr "Adaugă pe spațiul de lucru"
+
+#: ../src/plugins/menu.c:383
+msgid "Properties"
+msgstr "Proprietăți"
+
+#: ../src/plugins/menu.c:993 ../src/plugins/dirmenu.c:367
+msgid "Icon"
+msgstr "Iconiță"
+
+#: ../src/plugins/menu.c:1010
+msgid "Menu"
+msgstr "Meniu"
+
+#: ../src/plugins/menu.c:1012
+msgid "Application Menu"
+msgstr "Meniu cu aplicații"
+
+#: ../src/plugins/separator.c:98
+msgid "Separator"
+msgstr "Separator"
+
+#: ../src/plugins/separator.c:100
+msgid "Add a separator to the panel"
+msgstr "Adaugă un separator la panou"
+
+#: ../src/plugins/pager.c:797
+msgid "Desktop Pager"
+msgstr "Selector de ecrane"
+
+#: ../src/plugins/pager.c:799
+msgid "Simple pager plugin"
+msgstr "Extensie simplă de selectat ecrane"
+
+#: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
+msgid "Size"
+msgstr "Mărime"
+
+#: ../src/plugins/space.c:139
+msgid "Spacer"
+msgstr "Distanțier"
+
+#: ../src/plugins/space.c:141
+msgid "Allocate space"
+msgstr "Alocă spațiu"
+
+#: ../src/plugins/tray.c:702
+msgid "System Tray"
+msgstr "Zona de notificare"
+
+#: ../src/plugins/tray.c:704
+msgid "System tray"
+msgstr "Zona de notificare"
+
+#: ../src/plugins/xkb/xkb-plugin.c:283
+msgid "Configure Keyboard Layout Switcher"
+msgstr "Configurează comutatorul de mapări de taste"
+
+#: ../src/plugins/xkb/xkb-plugin.c:298
+msgid "Show layout as"
+msgstr "Arată maparea ca"
+
+#: ../src/plugins/xkb/xkb-plugin.c:313
+msgid "image"
+msgstr "imagine"
+
+#: ../src/plugins/xkb/xkb-plugin.c:314
+msgid "text"
+msgstr "text"
+
+#: ../src/plugins/xkb/xkb-plugin.c:321
+msgid "Per application settings"
+msgstr "Setări per aplicație"
+
+#. Create a check button as the child of the vertical box.
+#: ../src/plugins/xkb/xkb-plugin.c:336
+msgid "_Remember layout for each application"
+msgstr "Memo_rează maparea pentru fiecare aplicație"
+
+#. Create a label as the child of the horizontal box.
+#: ../src/plugins/xkb/xkb-plugin.c:346
+msgid "Default layout:"
+msgstr "Mapare implicită:"
+
+#: ../src/plugins/xkb/xkb-plugin.c:397
+msgid "Keyboard Layout Switcher"
+msgstr "Comutator de mapări de taste"
+
+#: ../src/plugins/xkb/xkb-plugin.c:399
+msgid "Switch between available keyboard layouts"
+msgstr "Comută între mapările de taste disponibile"
+
+#: ../src/plugins/wincmd.c:204
+msgid "Left click to iconify all windows.  Middle click to shade them."
+msgstr ""
+"Clic stânga pentru a ascunde toate ferestrele. Clic mijlociu pentru a afișa "
+"doar titlul lor."
+
+#: ../src/plugins/wincmd.c:234
+msgid "Alternately iconify/shade and raise"
+msgstr "Ascunde sau rulează și arată alternant"
+
+#: ../src/plugins/wincmd.c:263
+msgid "Minimize All Windows"
+msgstr "Minimizează toate ferestrele"
+
+#: ../src/plugins/wincmd.c:265
+msgid ""
+"Sends commands to all desktop windows.\n"
+"Supported commands are 1) iconify and 2) shade"
+msgstr ""
+"Trimite comenzi către toate ferestrele.\n"
+"Comenzi suportate: ascundere și rulare (afișare doar titlu)"
+
+#: ../src/plugins/dirmenu.c:200
+msgid "Open in _Terminal"
+msgstr "Deschide în _terminal"
+
+#: ../src/plugins/dirmenu.c:365
+msgid "Directory"
+msgstr "Director"
+
+#: ../src/plugins/dirmenu.c:366
+msgid "Label"
+msgstr "Etichetă"
+
+#: ../src/plugins/dirmenu.c:397
+msgid "Directory Menu"
+msgstr "Meniu de directoare"
+
+#: ../src/plugins/dirmenu.c:399
+msgid "Browse directory tree via menu (Author: PCMan)"
+msgstr "Răsfoiește arborescent un director printr-un meniu (Autor: PCMan)"
+
+#: ../src/plugins/thermal/thermal.c:304
+msgid "Normal"
+msgstr "Normal"
+
+#: ../src/plugins/thermal/thermal.c:305
+msgid "Warning1"
+msgstr "Avertisment1"
+
+#: ../src/plugins/thermal/thermal.c:306
+msgid "Warning2"
+msgstr "Avertisment2"
+
+#: ../src/plugins/thermal/thermal.c:307
+msgid "Automatic sensor location"
+msgstr "Localizare automată a senzorului"
+
+#: ../src/plugins/thermal/thermal.c:308
+msgid "Sensor"
+msgstr "Senzor"
+
+#: ../src/plugins/thermal/thermal.c:309
+msgid "Automatic temperature levels"
+msgstr "Niveluri automate de temperatură"
+
+#: ../src/plugins/thermal/thermal.c:310
+msgid "Warning1 Temperature"
+msgstr "Temperatură de avertizare 1"
+
+#: ../src/plugins/thermal/thermal.c:311
+msgid "Warning2 Temperature"
+msgstr "Temperatură de avertizare 2"
+
+#: ../src/plugins/thermal/thermal.c:353
+msgid "Temperature Monitor"
+msgstr "Monitor de temperatură"
+
+#: ../src/plugins/thermal/thermal.c:355
+msgid "Display system temperature"
+msgstr "Afișează temperatura sistemului"
+
+#. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
+#. Display current level in tooltip.
+#: ../src/plugins/volume/volume.c:300
+#: ../src/plugins/volumealsa/volumealsa.c:239
+#: ../src/plugins/volumealsa/volumealsa.c:400
+msgid "Volume control"
+msgstr "Control volum"
+
+#: ../src/plugins/volume/volume.c:312
+#: ../src/plugins/volumealsa/volumealsa.c:449
+msgid "Volume Control"
+msgstr "Control volum"
+
+#. Create a frame as the child of the viewport.
+#: ../src/plugins/volume/volume-impl.c:109
+#: ../src/plugins/volumealsa/volumealsa.c:358
+msgid "Volume"
+msgstr "Volum"
+
+#. Create a check button as the child of the vertical box.
+#: ../src/plugins/volumealsa/volumealsa.c:377
+msgid "Mute"
+msgstr "Oprește sonorul"
+
+#: ../src/plugins/netstat/netstat.c:168
+msgid "<Hidden Access Point>"
+msgstr "<Punct de acces ascuns>"
+
+#: ../src/plugins/netstat/netstat.c:201
+msgid "Wireless Networks not found in range"
+msgstr "Nu s-a găsit nicio rețea fără fir în zonă"
+
+#. Repair
+#: ../src/plugins/netstat/netstat.c:235
+msgid "Repair"
+msgstr "Repară"
+
+#. interface down
+#: ../src/plugins/netstat/netstat.c:240
+msgid "Disable"
+msgstr "Deactivează"
+
+#: ../src/plugins/netstat/netstat.c:299
+msgid "Wireless Connection has no connectivity"
+msgstr "Conexiunea fără fir nu are conectivitate"
+
+#: ../src/plugins/netstat/netstat.c:301
+msgid "Network cable is plugged out"
+msgstr "Cablul de rețea este scos"
+
+#: ../src/plugins/netstat/netstat.c:303
+msgid "Connection has limited or no connectivity"
+msgstr "Conexiune limitată sau inexistentă"
+
+#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:329
+msgid "IP Address:"
+msgstr "Adresă IP"
+
+#: ../src/plugins/netstat/netstat.c:308
+msgid "Remote IP:"
+msgstr "IP extern:"
+
+#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:331
+msgid "Netmask:"
+msgstr "Mască de rețea:"
+
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:333
+msgid "Activity"
+msgstr "Activitate"
+
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:333
+msgid "Sent"
+msgstr "Trimis"
+
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:333
+msgid "Received"
+msgstr "Primit"
+
+#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:334
+msgid "bytes"
+msgstr "octeți"
+
+#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:335
+msgid "packets"
+msgstr "pachete"
+
+#: ../src/plugins/netstat/netstat.c:315
+#: ../src/plugins/netstatus/netstatus-iface.c:173
+msgid "Wireless"
+msgstr "Fără fir"
+
+#: ../src/plugins/netstat/netstat.c:317
+msgid "Protocol:"
+msgstr "Protocol:"
+
+#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
+msgid "HW Address:"
+msgstr "Adresă HW:"
+
+#: ../src/plugins/netstat/netstat.c:470
+msgid "Manage Networks"
+msgstr "Gestionare rețele"
+
+#: ../src/plugins/netstat/netstat.c:472
+msgid "Monitor and Manage networks"
+msgstr "Monitorizați și gestionați rețelele"
+
+#. create dialog
+#: ../src/plugins/netstat/passwd_gui.c:84
+msgid "Setting Encryption Key"
+msgstr "Setare cheie de criptare"
+
+#. messages
+#: ../src/plugins/netstat/passwd_gui.c:94
+msgid ""
+"This wireless network was encrypted.\n"
+"You must have the encryption key."
+msgstr ""
+"Rețeaua fără fir este criptată.\n"
+"Trebuie să aveți o cheie de criptare."
+
+#: ../src/plugins/netstat/passwd_gui.c:99
+msgid "Encryption Key:"
+msgstr "Cheie de criptare:"
+
+#: ../src/plugins/netstatus/netstatus.c:179
+msgid "Interface to monitor"
+msgstr "Interfața de monitorizat"
+
+#: ../src/plugins/netstatus/netstatus.c:180
+msgid "Config tool"
+msgstr "Unealtă de configurare"
+
+#: ../src/plugins/netstatus/netstatus.c:197
+msgid "Network Status Monitor"
+msgstr "Monitor de stare a rețelei"
+
+#: ../src/plugins/netstatus/netstatus.c:199
+msgid "Monitor network status"
+msgstr "Monitorizează starea rețelei"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:51
+#: ../src/plugins/netstatus/netstatus-dialog.c:312
+msgid "Unknown"
+msgstr "Necunoscută"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:116
+msgid "Connection Properties"
+msgstr "Proprietățile conexiunii"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:122
+#, c-format
+msgid "Connection Properties: %s"
+msgstr "Proprietățile conexiunii %s"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:135
+#, c-format
+msgid "%lu packet"
+msgid_plural "%lu packets"
+msgstr[0] "%lu pachet"
+msgstr[1] "%lu pachete"
+msgstr[2] "%lu de pachete"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:396
+#, c-format
+msgid ""
+"There was an error displaying help:\n"
+"%s"
+msgstr ""
+"A intervenit o eroare la afișarea ajutorului:\n"
+"%s"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:580
+#, c-format
+msgid "Failed to launch time configuration tool: %s"
+msgstr "Lansarea uneltei pentru setarea ceasului a eșuat: %s"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:379
+#, c-format
+msgid "Network Connection: %s"
+msgstr "Conexiune la rețea: %s"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:384
+msgid "Network Connection"
+msgstr "Conexiune la rețea"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:811
+msgid "Interface"
+msgstr "Interfață"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:812
+msgid "The current interface the icon is monitoring."
+msgstr "Interfața monitorizată acum de iconiță."
+
+#: ../src/plugins/netstatus/netstatus-icon.c:819
+msgid "Orientation"
+msgstr "Orientare"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:820
+msgid "The orientation of the tray."
+msgstr "Orientarea zonei de notificare."
+
+#: ../src/plugins/netstatus/netstatus-icon.c:828
+msgid "Tooltips Enabled"
+msgstr "Texte ajutătoare activate"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:829
+msgid "Whether or not the icon's tooltips are enabled."
+msgstr "Dacă la trecerea cu mausul peste iconițe sunt afișate texte ajutătoare."
+
+#: ../src/plugins/netstatus/netstatus-icon.c:836
+msgid "Show Signal"
+msgstr "Arată semnalul"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:837
+msgid "Whether or not the signal strength should be displayed."
+msgstr "Dacă să fie afișată sau nu puterea semnalului."
+
+#: ../src/plugins/netstatus/netstatus-icon.c:950
+#, c-format
+msgid ""
+"Please contact your system administrator to resolve the following problem:\n"
+"\n"
+"%s"
+msgstr ""
+"Vă rugăm sa contactați administratorul de sistem pentru a rezolva problema "
+"următoare:\n"
+"\n"
+"%s"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:148
+msgid "Name"
+msgstr "Nume"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:149
+msgid "The interface name"
+msgstr "Numele interfeței"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:156
+msgid "State"
+msgstr "Stare"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:157
+msgid "The interface state"
+msgstr "Starea interfeței"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:165
+msgid "Stats"
+msgstr "Statistici"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:166
+msgid "The interface packets/bytes statistics"
+msgstr "Statistici ale interfeței (pachete/octeți)"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:174
+msgid "Whether the interface is a wireless interface"
+msgstr "Arată dacă interfața este una fără fir"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:181
+msgid "Signal"
+msgstr "Semnal"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:182
+msgid "Wireless signal strength percentage"
+msgstr "Puterea semnalului radio în procente"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:191
+#: ../src/plugins/netstatus/netstatus-util.c:167
+msgid "Error"
+msgstr "Eroare"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:192
+msgid "The current error condition"
+msgstr "Starea actuală de eroare"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:434
+#: ../src/plugins/netstatus/netstatus-iface.c:1197
+#, c-format
+msgid "Unable to open socket: %s"
+msgstr "Imposibil de deschis un soclu: %s"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:496
+#: ../src/plugins/netstatus/netstatus-iface.c:1223
+#, c-format
+msgid "SIOCGIFFLAGS error: %s"
+msgstr "Eroare SIOCGIFFLAGS: %s"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:870
+msgid "AMPR NET/ROM"
+msgstr "AMPR NET/ROM"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:873
+msgid "Ethernet"
+msgstr "Ethernet"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:879
+msgid "AMPR AX.25"
+msgstr "AMPR AX.25"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:888
+#: ../src/plugins/netstatus/netstatus-iface.c:1008
+msgid "16/4 Mbps Token Ring"
+msgstr "16/4 Mbps Token Ring"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:891
+msgid "ARCnet"
+msgstr "ARCnet"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:897
+msgid "Frame Relay DLCI"
+msgstr "Identificator de conexiune prin relee de cadre"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:903
+msgid "Metricom Starmode IP"
+msgstr "Metricom Starmode IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:906
+msgid "Serial Line IP"
+msgstr "Serial Line IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:909
+msgid "VJ Serial Line IP"
+msgstr "VJ Serial Line IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:912
+msgid "6-bit Serial Line IP"
+msgstr "6-bit Serial Line IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:915
+msgid "VJ 6-bit Serial Line IP"
+msgstr "VJ 6-bit Serial Line IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:921
+msgid "Adaptive Serial Line IP"
+msgstr "Adaptive Serial Line IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:924
+msgid "AMPR ROSE"
+msgstr "AMPR ROSE"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:927
+msgid "Generic X.25"
+msgstr "Generic X.25"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:930
+msgid "Point-to-Point Protocol"
+msgstr "Protocol Point-to-Point"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:936
+msgid "(Cisco)-HDLC"
+msgstr "(Cisco)-HDLC"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:939
+msgid "LAPB"
+msgstr "LAPB"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:948
+msgid "IPIP Tunnel"
+msgstr "Tunel IPIP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:954
+msgid "Frame Relay Access Device"
+msgstr "Dispozitiv de acces prin relee de cadre"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:960
+msgid "Local Loopback"
+msgstr "Buclă locală de rețea"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:966
+msgid "Fiber Distributed Data Interface"
+msgstr "Interfață de distribuție a datelor prin fibră"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:972
+msgid "IPv6-in-IPv4"
+msgstr "IPv6-în-IPv4"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:984
+msgid "HIPPI"
+msgstr "HIPPI"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:987
+msgid "Ash"
+msgstr "Ash"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:990
+msgid "Econet"
+msgstr "Econet"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:993
+msgid "IrLAP"
+msgstr "IrLAP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:1155
+#, c-format
+msgid "SIOCGIFCONF error: %s"
+msgstr "Eroare SIOCGIFCONF: %s"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:1248
+#, c-format
+msgid "No network devices found"
+msgstr "Nu s-a găsit un dispozitiv de rețea"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:180
+#, c-format
+msgid "Cannot open /proc/net/dev: %s"
+msgstr "Nu se poate deschide /proc/net/dev: %s"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:189
+msgid "Could not parse /proc/net/dev. Unknown format."
+msgstr "Nu s-a putut analiza /proc/net/dev. Format necunoscut."
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:204
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:330
+#, c-format
+msgid "Could not parse interface name from '%s'"
+msgstr "Nu s-a putut analiza numele interfeței din „%s”"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:217
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:645
+#, c-format
+msgid ""
+"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
+msgstr ""
+"Nu s-au putut analiza statisticile interfaței din „%s”. prx_idx = %d; ptx_idx "
+"= %d; brx_idx = %d; btx_idx = %d;"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:314
+msgid "Could not parse /proc/net/wireless. Unknown format."
+msgstr "Nu s-a putut analiza /proc/net/wireless. Format necunoscut."
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:341
+#, c-format
+msgid "Could not parse wireless details from '%s'. link_idx = %d;"
+msgstr ""
+"Nu s-au putut analiza detaliile conexiunii fără fir din „%s”. link_idx = %d;"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:414
+#, c-format
+msgid "Could not connect to interface, '%s'"
+msgstr "Nu se poate conecta la interfață, „%s”"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:420
+#, c-format
+msgid "Could not send ioctl to interface, '%s'"
+msgstr "Nu s-a putut trimite ioctl la interfață, „%s”"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:598
+#, c-format
+msgid "Could not parse command line '%s': %s"
+msgstr "Nu s-a putut evalua linia de comandă „%s”: %s"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:635
+msgid "Could not parse 'netstat' output. Unknown format"
+msgstr "Nu s-a putut interpreta rezultatul „netstat”. Format necunoscut"
+
+#: ../src/plugins/netstatus/netstatus-util.c:152
+msgid "Disconnected"
+msgstr "Deconectat"
+
+#: ../src/plugins/netstatus/netstatus-util.c:155
+msgid "Idle"
+msgstr "Inactiv"
+
+#: ../src/plugins/netstatus/netstatus-util.c:158
+msgid "Sending"
+msgstr "Trimitere"
+
+#: ../src/plugins/netstatus/netstatus-util.c:161
+msgid "Receiving"
+msgstr "Primire"
+
+#: ../src/plugins/netstatus/netstatus-util.c:164
+msgid "Sending/Receiving"
+msgstr "Trimitere/Primire"
+
+#: ../src/plugins/batt/batt.c:131
+msgid "No batteries found"
+msgstr "Niciun acumulator găsit"
+
+#: ../src/plugins/batt/batt.c:179
+#, c-format
+msgid "Battery: %d%% charged, %d:%02d until full"
+msgstr "Acumulator: %d%% încărcat, mai %d:%02d"
+
+#: ../src/plugins/batt/batt.c:190
+#, c-format
+msgid "Battery: %d%% charged, %d:%02d left"
+msgstr "Acumulator: %d%% încărcat, mai %d:%02d"
+
+#: ../src/plugins/batt/batt.c:196
+#, c-format
+msgid "Battery: %d%% charged"
+msgstr "Acumulator: %d%% încărcat"
+
+#: ../src/plugins/batt/batt.c:580
+msgid "Hide if there is no battery"
+msgstr "Ascunde dacă nu există un acumulator"
+
+#: ../src/plugins/batt/batt.c:582
+msgid "Alarm command"
+msgstr "Comandă de alarmă"
+
+#: ../src/plugins/batt/batt.c:583
+msgid "Alarm time (minutes left)"
+msgstr "Ora alarmei (minute rămase)"
+
+#: ../src/plugins/batt/batt.c:584
+msgid "Background color"
+msgstr "Culoare fundal"
+
+#: ../src/plugins/batt/batt.c:585
+msgid "Charging color 1"
+msgstr "Culoare de încărcare 1"
+
+#: ../src/plugins/batt/batt.c:586
+msgid "Charging color 2"
+msgstr "Culoare de încărcare 2"
+
+#: ../src/plugins/batt/batt.c:587
+msgid "Discharging color 1"
+msgstr "Culoare de descărcare 1"
+
+#: ../src/plugins/batt/batt.c:588
+msgid "Discharging color 2"
+msgstr "Culoare de descărcare 2"
+
+#: ../src/plugins/batt/batt.c:589
+msgid "Border width"
+msgstr "Lățimea bordurii"
+
+#: ../src/plugins/batt/batt.c:619
+msgid "Battery Monitor"
+msgstr "Monitor de acumulator"
+
+#: ../src/plugins/batt/batt.c:621
+msgid "Display battery status using ACPI"
+msgstr "Afișează starea acumulatorului folosind ACPI"
+
+#: ../src/plugins/kbled/kbled.c:230
+msgid "Show CapsLock"
+msgstr "Arată CapsLock"
+
+#: ../src/plugins/kbled/kbled.c:231
+msgid "Show NumLock"
+msgstr "Arată NumLock"
+
+#: ../src/plugins/kbled/kbled.c:232
+msgid "Show ScrollLock"
+msgstr "Arată ScrollLock"
+
+#: ../src/plugins/kbled/kbled.c:267
+msgid "Keyboard LED"
+msgstr "LED tastatură"
+
+#: ../src/plugins/kbled/kbled.c:269
+msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
+msgstr "Indicatori pentru tastele CapsLock, NumLock și ScrollLock"
