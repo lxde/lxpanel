@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-01-12 01:17+0100\n"
-"PO-Revision-Date: 2010-01-27 13:48+0200\n"
+"PO-Revision-Date: 2010-01-28 08:57+0200\n"
 "Last-Translator: Ali <aysabzevar@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fa\n"
@@ -280,31 +280,31 @@ msgstr "ـنام:"
 
 #: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:831
 msgid "Application Launch Bar"
-msgstr ""
+msgstr "نوار اجرای برنامه"
 
 #: ../data/ui/launchbar.glade.h:2
 msgid "Applications"
-msgstr ""
+msgstr "برنامه های کاربردی"
 
 #: ../data/ui/launchbar.glade.h:3
 msgid "Available Applications"
-msgstr ""
+msgstr "برنامه های موجود"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:299
 msgid "Run"
-msgstr ""
+msgstr "اجرای سریع"
 
 #: ../src/configurator.c:56
 msgid "Restart"
-msgstr ""
+msgstr "شروع مجدد"
 
 #: ../src/configurator.c:57
 msgid "Logout"
-msgstr ""
+msgstr "خروج"
 
 #: ../src/configurator.c:448
 msgid "Currently loaded plugins"
-msgstr ""
+msgstr "افزونه های بارگذاری شده ی حال حاضر"
 
 #: ../src/configurator.c:457
 msgid "Stretch"
@@ -324,86 +324,88 @@ msgstr ""
 
 #: ../src/configurator.c:1196
 msgid "Select a directory"
-msgstr ""
+msgstr "یک پوشه انتخاب کنید"
 
 #: ../src/configurator.c:1196 ../src/configurator.c:1287
 msgid "Select a file"
-msgstr ""
+msgstr "یک پرونده انتخاب کنید"
 
 #: ../src/configurator.c:1314
 msgid "_Browse"
-msgstr ""
+msgstr "ـاز مسیر"
 
 #: ../src/panel.c:634
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
+"واقعا می‌خواهید این پنل را حذف کنید؟\n"
+"<b>هشدار: این کار قابل برگشت نیست.</b>"
 
 #: ../src/panel.c:636
 msgid "Confirm"
-msgstr ""
+msgstr "تایید"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:668
 msgid "translator-credits"
-msgstr ""
+msgstr "مترجم‌ها"
 
 #: ../src/panel.c:673
 msgid "LXPanel"
-msgstr ""
+msgstr "اِل اِکس پنل"
 
 #: ../src/panel.c:675
 msgid "Copyright (C) 2008-2009"
-msgstr ""
+msgstr "حق نشر2009-2008"
 
 #: ../src/panel.c:676
 msgid "Desktop panel for LXDE project"
-msgstr ""
+msgstr "پنل میزکار برای پروژه ال اکس دی ای"
 
 #: ../src/panel.c:699
 msgid "Add / Remove Panel Items"
-msgstr ""
+msgstr "افزودن/حذف موارد پنل"
 
 #: ../src/panel.c:707
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr ""
+msgstr "حذف \"%s\" از پنل"
 
 #: ../src/panel.c:719
 msgid "Panel Settings"
-msgstr ""
+msgstr "تنظیمات پنل"
 
 #: ../src/panel.c:725
 msgid "Create New Panel"
-msgstr ""
+msgstr "ایجاد یک پنل جدید"
 
 #: ../src/panel.c:736
 msgid "Delete This Panel"
-msgstr ""
+msgstr "حذف این پنل"
 
 #: ../src/panel.c:747
 msgid "About"
-msgstr ""
+msgstr "درباره"
 
 #: ../src/panel.c:755
 msgid "Panel"
-msgstr ""
+msgstr "پنل"
 
 #: ../src/panel.c:768
 #, c-format
 msgid "\"%s\" Settings"
-msgstr ""
+msgstr "\"%s\" تنظیمات"
 
 #: ../src/panel.c:1401
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr ""
+msgstr "ال اکس پنل %s - سبک GTK2+ پنل برای میزکارهای یونیکسی\n"
 
 #: ../src/panel.c:1402
 #, c-format
 msgid "Command line options:\n"
-msgstr ""
+msgstr "گزینه‌های خط فرمانی:\n"
 
 #: ../src/panel.c:1403
 #, c-format
@@ -439,7 +441,7 @@ msgstr ""
 #: ../src/panel.c:1411
 #, c-format
 msgid " -v  -- same as --version\n"
-msgstr ""
+msgstr " -v  -- مشابه --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
 #: ../src/panel.c:1413
@@ -449,30 +451,33 @@ msgid ""
 "Visit http://lxde.org/ for detail.\n"
 "\n"
 msgstr ""
+"\n"
+"برای اطلاعات بیشتر http://lxde.org/ را ببینید.\n"
+"\n"
 
 #: ../src/gtk-run.c:312
 msgid "Enter the command you want to execute:"
-msgstr ""
+msgstr "دستوری را که می‌خواهید اجرا کنید واردکنید :"
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
-msgstr ""
+msgstr "نمایشگر استفاده از پردازنده"
 
 #: ../src/plugins/cpu/cpu.c:270
 msgid "Display CPU usage"
-msgstr ""
+msgstr "نمایش استفاده از پردازنده"
 
 #: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:314
 msgid "Bold font"
-msgstr ""
+msgstr "قلم ضخیم"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
-msgstr ""
+msgstr "نمایش نام میزکارها‍"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
-msgstr ""
+msgstr "نمایش تعداد / نام فضای‌کاری"
 
 #: ../src/plugins/deskno/deskno.c:237
 msgid "Display workspace number, by cmeury@users.sf.net"
