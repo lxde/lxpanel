@@ -50,6 +50,5 @@ MenuCache * panel_menu_cache_new(guint32* visibility_flags)
 /* Evaluate the visibility of a menu item. */
 gboolean panel_menu_item_evaluate_visibility(MenuCacheItem * item, guint32 visibility_flags)
 {
-    g_debug("flags: %d\n", visibility_flags);
     return menu_cache_app_get_is_visible(MENU_CACHE_APP(item), visibility_flags);
 }

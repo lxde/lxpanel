@@ -110,6 +110,7 @@ typedef struct _taskbar {
     int task_width_max;				/* Maximum width of a taskbar button in horizontal orientation */
     int spacing;				/* Spacing between taskbar buttons */
     gboolean use_net_active;			/* NET_WM_ACTIVE_WINDOW is supported by the window manager */
+    gboolean net_active_checked;		/* True if use_net_active is valid */
 } TaskbarPlugin;
 
 static gchar *taskbar_rc = "style 'taskbar-style'\n"
@@ -185,6 +186,7 @@ static void menu_iconify_window(GtkWidget * widget, TaskbarPlugin * tb);
 static void menu_move_to_workspace(GtkWidget * widget, TaskbarPlugin * tb);
 static void menu_close_window(GtkWidget * widget, TaskbarPlugin * tb);
 static void taskbar_make_menu(TaskbarPlugin * tb);
+static void taskbar_window_manager_changed(GdkScreen * screen, TaskbarPlugin * tb);
 static void taskbar_build_gui(Plugin * p);
 static int taskbar_constructor(Plugin * p, char ** fp);
 static void taskbar_destructor(Plugin * p);
@@ -1006,6 +1008,15 @@ static void task_raise_window(Task * tk, guint32 time)
     if ((tk->desktop != -1) && (tk->desktop != tk->tb->current_desktop))
         Xclimsg(GDK_ROOT_WINDOW(), a_NET_CURRENT_DESKTOP, tk->desktop, 0, 0, 0, 0);
 
+    /* Evaluate use_net_active if not yet done. */
+    if ( ! tk->tb->net_active_checked)
+    {
+        TaskbarPlugin * tb = tk->tb;
+        GdkAtom net_active_atom = gdk_x11_xatom_to_atom(a_NET_ACTIVE_WINDOW);
+        tb->use_net_active = gdk_x11_screen_supports_net_wm_hint(gtk_widget_get_screen(tb->plug->pwid), net_active_atom);
+        tb->net_active_checked = TRUE;
+    }
+
     /* Raise the window.  We can use NET_ACTIVE_WINDOW if the window manager supports it.
      * Otherwise, do it the old way with XMapRaised and XSetInputFocus. */
     if (tk->tb->use_net_active)
@@ -1017,8 +1028,13 @@ static void task_raise_window(Task * tk, guint32 time)
             gdk_window_show(gdkwindow);
         else
             XMapRaised(GDK_DISPLAY(), tk->win);
-        XSync(GDK_DISPLAY(), False);	/* This we need to avoid BadMatch */
-        XSetInputFocus(GDK_DISPLAY(), tk->win, RevertToNone, time);
+
+	/* There is a race condition between the X server actually executing the XMapRaised and this code executing XSetInputFocus.
+	 * If the window is not viewable, the XSetInputFocus will fail with BadMatch. */
+	XWindowAttributes attr;
+	XGetWindowAttributes(GDK_DISPLAY(), tk->win, &attr);
+	if (attr.map_state == IsViewable)
+            XSetInputFocus(GDK_DISPLAY(), tk->win, RevertToNone, time);
     }
 
     /* Change viewport if needed. */
@@ -1775,12 +1791,11 @@ static void taskbar_make_menu(TaskbarPlugin * tb)
     tb->menu = menu;
 }
 
-static void on_window_manager_changed(GdkScreen* screen, TaskbarPlugin* tb)
+/* Handler for "window-manager-changed" event. */
+static void taskbar_window_manager_changed(GdkScreen * screen, TaskbarPlugin * tb)
 {
-    GdkAtom net_active_atom;
-    GdkDisplay* display = gdk_screen_get_display(screen);
-    net_active_atom = gdk_x11_xatom_to_atom(a_NET_ACTIVE_WINDOW);
-    tb->use_net_active = gdk_x11_screen_supports_net_wm_hint(display, net_active_atom);
+    /* Force re-evaluation of use_net_active. */
+    tb->net_active_checked = FALSE;
 }
 
 /* Build graphic elements needed for the taskbar. */
@@ -1822,8 +1837,8 @@ static void taskbar_build_gui(Plugin * p)
      * Number of desktops and edge is needed for this operation. */
     taskbar_make_menu(tb);
 
-    g_signal_connect(gtk_widget_get_screen(p->pwid), "window-manager-changed", G_CALLBACK(on_window_manager_changed), tb);
-    on_window_manager_changed(gtk_widget_get_screen(p->pwid), tb);
+    /* Connect a signal to be notified when the window manager changes.  This causes re-evaluation of the "use_net_active" status. */
+    g_signal_connect(gtk_widget_get_screen(p->pwid), "window-manager-changed", G_CALLBACK(taskbar_window_manager_changed), tb);
 }
 
 /* Plugin constructor. */
@@ -1915,9 +1930,8 @@ static void taskbar_destructor(Plugin * p)
     g_signal_handlers_disconnect_by_func(fbev, taskbar_net_number_of_desktops, tb);
     g_signal_handlers_disconnect_by_func(fbev, taskbar_net_client_list, tb);
 
-    /* Remove 'window-manager-changed' handler */
-    g_signal_handlers_disconnect_by_func(gtk_widget_get_screen(p->pwid),
-                                         on_window_manager_changed, tb);
+    /* Remove "window-manager-changed" handler. */
+    g_signal_handlers_disconnect_by_func(gtk_widget_get_screen(p->pwid), taskbar_window_manager_changed, tb);
 
     /* Deallocate task list. */
     while (tb->task_list != NULL)
