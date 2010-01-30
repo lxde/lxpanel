@@ -819,29 +819,48 @@ static void panel_set_visibility(Panel *p, gboolean visible)
 
 static gboolean panel_leave_real(Panel *p)
 {
+    /* If the pointer is grabbed by this application, leave the panel displayed.
+     * There is no way to determine if it is grabbed by another application, such as an application that has a systray icon. */
     if (gdk_display_pointer_is_grabbed(p->display))
         return TRUE;
 
+    /* If the pointer is inside the panel, leave the panel displayed. */
     gint x, y;
     gdk_display_get_pointer(p->display, NULL, &x, &y, NULL);
     if ((p->cx <= x) && (x <= (p->cx + p->cw)) && (p->cy <= y) && (y <= (p->cy + p->ch)))
         return TRUE;
 
+    /* If the panel is configured to autohide and if it is visible, hide the panel. */
     if ((p->autohide) && (p->visible))
         panel_set_visibility(p, FALSE);
 
+    /* Clear the timer. */
     p->hide_timeout = 0;
     return FALSE;
 }
 
 static gboolean panel_enter(GtkImage *widget, GdkEventCrossing *event, Panel *p)
 {
-    if (p->hide_timeout)
-        return FALSE;
-
-    p->hide_timeout = g_timeout_add(500, (GSourceFunc) panel_leave_real, p);
-
-    panel_set_visibility(p, TRUE);
+    /* We may receive multiple enter-notify events when the pointer crosses into the panel.
+     * Do extra tests to make sure this does not cause misoperation such as blinking.
+     * If the pointer is inside the panel, unhide it. */
+    gint x, y;
+    gdk_display_get_pointer(p->display, NULL, &x, &y, NULL);
+    if ((p->cx <= x) && (x <= (p->cx + p->cw)) && (p->cy <= y) && (y <= (p->cy + p->ch)))
+    {
+        /* If the pointer is inside the panel and we have not already unhidden it, do so and
+         * set a timer to recheck it in a half second. */
+        if (p->hide_timeout == 0)
+        {
+            p->hide_timeout = g_timeout_add(500, (GSourceFunc) panel_leave_real, p);
+            panel_set_visibility(p, TRUE);
+        }
+    }
+    else
+    {
+        /* If the pointer is not inside the panel, simulate a timer expiration. */
+        panel_leave_real(p);
+    }
     return TRUE;
 }
 
