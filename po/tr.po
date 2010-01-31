@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-01-12 01:17+0100\n"
-"PO-Revision-Date: 2010-01-31 13:31+0200\n"
+"PO-Revision-Date: 2010-02-01 00:03+0200\n"
 "Last-Translator: Kılıç <kilickoken@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -245,7 +245,7 @@ msgstr "Alınan:"
 #: ../data/ui/netstatus.glade.h:15
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
 msgid "Scope:"
-msgstr ""
+msgstr "Kapsam:"
 
 #: ../data/ui/netstatus.glade.h:16
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
@@ -594,6 +594,8 @@ msgstr "Görsel İpucu Biçimi"
 #: ../src/plugins/dclock.c:312
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr ""
+"Biçim kodları: man 3 strftime; \n"
+" satır sonu için"
 
 #: ../src/plugins/dclock.c:313
 msgid "Action when clicked (default: display calendar)"
@@ -633,11 +635,11 @@ msgstr "Uygulama Menüsü"
 
 #: ../src/plugins/separator.c:98
 msgid "Separator"
-msgstr ""
+msgstr "Ayırgaç"
 
 #: ../src/plugins/separator.c:100
 msgid "Add a separator to the panel"
-msgstr ""
+msgstr "Tablaya bir ayırgaç ekle"
 
 #: ../src/plugins/pager.c:797
 msgid "Desktop Pager"
@@ -645,7 +647,7 @@ msgstr "Masaüstü Sayfalayıcı"
 
 #: ../src/plugins/pager.c:799
 msgid "Simple pager plugin"
-msgstr ""
+msgstr "Yalın sayfalayıcı takıntısı"
 
 #: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
 msgid "Size"
@@ -657,7 +659,7 @@ msgstr "Aralıklayıcı"
 
 #: ../src/plugins/space.c:141
 msgid "Allocate space"
-msgstr ""
+msgstr "Alan ayır"
 
 #: ../src/plugins/tray.c:702
 msgid "System Tray"
@@ -669,11 +671,11 @@ msgstr "Sistem tepsisi"
 
 #: ../src/plugins/xkb/xkb-plugin.c:283
 msgid "Configure Keyboard Layout Switcher"
-msgstr ""
+msgstr "Tuşluk Düzeni Değiştiriciyi Yapılandır"
 
 #: ../src/plugins/xkb/xkb-plugin.c:298
 msgid "Show layout as"
-msgstr ""
+msgstr "Düzeni şu olarak göster:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:313
 msgid "image"
@@ -690,24 +692,25 @@ msgstr "Uygulamaya göre ayarlar"
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/xkb/xkb-plugin.c:336
 msgid "_Remember layout for each application"
-msgstr ""
+msgstr "_Herbir uygulama için düzeni anımsa"
 
 #. Create a label as the child of the horizontal box.
 #: ../src/plugins/xkb/xkb-plugin.c:346
 msgid "Default layout:"
-msgstr ""
+msgstr "Öntanımlı düzen:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:397
 msgid "Keyboard Layout Switcher"
-msgstr ""
+msgstr "Tuşluk Düzeni Değiştirici"
 
 #: ../src/plugins/xkb/xkb-plugin.c:399
 msgid "Switch between available keyboard layouts"
-msgstr ""
+msgstr "Var olan tuşluk düzenleri arasında geçiş yap"
 
 #: ../src/plugins/wincmd.c:204
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
+"Tüm pencereleri simgeleştirmek için sol tık.  Loşlaştırmak için orta tık."
 
 #: ../src/plugins/wincmd.c:234
 msgid "Alternately iconify/shade and raise"
