@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-01-12 01:17+0100\n"
-"PO-Revision-Date: 2010-01-30 16:35+0200\n"
+"PO-Revision-Date: 2010-01-31 13:31+0200\n"
 "Last-Translator: Kılıç <kilickoken@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -260,7 +260,7 @@ msgstr "Durum:"
 #: ../data/ui/netstatus.glade.h:18
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
 msgid "Subnet Mask:"
-msgstr ""
+msgstr "Alt Ağ Maskesi"
 
 #: ../data/ui/netstatus.glade.h:19
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
@@ -303,19 +303,19 @@ msgstr "Oturumu Kapat"
 
 #: ../src/configurator.c:448
 msgid "Currently loaded plugins"
-msgstr ""
+msgstr "Şimdi yüklü olan takıntılar"
 
 #: ../src/configurator.c:457
 msgid "Stretch"
-msgstr ""
+msgstr "Uzat"
 
 #: ../src/configurator.c:562
 msgid "Add plugin to panel"
-msgstr ""
+msgstr "Tablaya bir takıntı ekle"
 
 #: ../src/configurator.c:590
 msgid "Available plugins"
-msgstr ""
+msgstr "Var olan takıntılar"
 
 #: ../src/configurator.c:1143
 msgid "Logout command is not set"
@@ -409,38 +409,38 @@ msgstr "Komut satırı seçenekleri:\n"
 #: ../src/panel.c:1403
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr ""
+msgstr " --yardım      -- bu yardımı yaz ve çık\n"
 
 #: ../src/panel.c:1404
 #, c-format
 msgid " --version   -- print version and exit\n"
-msgstr ""
+msgstr " --sürüm   -- sürümü yaz ve çık\n"
 
 #: ../src/panel.c:1405
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
+msgstr " --günlük <number> -- günlük düzeyini belirle 0-5. 0 - hiç 5 - geveze"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1407
 #, c-format
 msgid " --profile name -- use specified profile\n"
-msgstr ""
+msgstr " --belgi adı -- belirtilen belgiyi kullan\n"
 
 #: ../src/panel.c:1409
 #, c-format
 msgid " -h  -- same as --help\n"
-msgstr ""
+msgstr " -y  -- --yardım ile aynı\n"
 
 #: ../src/panel.c:1410
 #, c-format
 msgid " -p  -- same as --profile\n"
-msgstr ""
+msgstr " -b  -- --belgi ile aynı\n"
 
 #: ../src/panel.c:1411
 #, c-format
 msgid " -v  -- same as --version\n"
-msgstr ""
+msgstr " -s  -- --sürüm ile aynı\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
 #: ../src/panel.c:1413
@@ -460,7 +460,7 @@ msgstr "Çalıştırmak istediğiniz komutu girin:"
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
-msgstr ""
+msgstr "İşlemci Kullanım İzleyici"
 
 #: ../src/plugins/cpu/cpu.c:270
 msgid "Display CPU usage"
@@ -476,11 +476,11 @@ msgstr "Masaüstü adlarını göster"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
-msgstr ""
+msgstr "Masaüstü No / Çalışma Alanı Adı"
 
 #: ../src/plugins/deskno/deskno.c:237
 msgid "Display workspace number, by cmeury@users.sf.net"
-msgstr ""
+msgstr "cmeury@users.sf.net tarafından, çalışma alanı numarasını göster"
 
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
@@ -513,22 +513,22 @@ msgstr "Sim_geleştir"
 #: ../src/plugins/taskbar.c:1730
 #, c-format
 msgid "Workspace _%d"
-msgstr ""
+msgstr "Çalışma Alanı_%d"
 
 #: ../src/plugins/taskbar.c:1735
 #, c-format
 msgid "Workspace %d"
-msgstr ""
+msgstr "Çalışma Alanı %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../src/plugins/taskbar.c:1749
 msgid "_All workspaces"
-msgstr ""
+msgstr "_Tüm çalışma alanları"
 
 #. Add Move to Workspace menu item as a submenu.
 #: ../src/plugins/taskbar.c:1755
 msgid "_Move to Workspace"
-msgstr ""
+msgstr "Çalışma _Alanına Taşı"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../src/plugins/taskbar.c:1761
@@ -545,7 +545,7 @@ msgstr "Yalnızca simgeler"
 
 #: ../src/plugins/taskbar.c:1968
 msgid "Flat buttons"
-msgstr ""
+msgstr "Yassı düğmeler"
 
 #: ../src/plugins/taskbar.c:1969
 msgid "Show windows from all desktops"
@@ -557,7 +557,7 @@ msgstr "Farenin tekerini kullan"
 
 #: ../src/plugins/taskbar.c:1971
 msgid "Flash when there is any window requiring attention"
-msgstr ""
+msgstr "İlgi isteyen bir pencere olduğunda yanıp sön"
 
 #: ../src/plugins/taskbar.c:1972
 msgid "Combine multiple application windows into a single button"
@@ -580,6 +580,8 @@ msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
+"Görev çubuğu bütün açık pencereleri gösterir ve onları simgeleştirmenize, "
+"loşlaştırmanıza ya da odaklamanıza olanak verir."
 
 #: ../src/plugins/dclock.c:310
 msgid "Clock Format"
