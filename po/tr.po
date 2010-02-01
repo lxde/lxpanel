@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-01-12 01:17+0100\n"
-"PO-Revision-Date: 2010-02-01 00:03+0200\n"
+"PO-Revision-Date: 2010-02-01 00:43+0200\n"
 "Last-Translator: Kılıç <kilickoken@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -714,7 +714,7 @@ msgstr ""
 
 #: ../src/plugins/wincmd.c:234
 msgid "Alternately iconify/shade and raise"
-msgstr ""
+msgstr "Ya da simegeleştir/loşlaştır ve yükselt"
 
 #: ../src/plugins/wincmd.c:263
 msgid "Minimize All Windows"
@@ -725,6 +725,8 @@ msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
+"Bütün masaüstü pencerelerine komut gönderir.\n"
+"Desteklenen komutlar 1) simgeleştir ve 2) loşlaştır"
 
 #: ../src/plugins/dirmenu.c:200
 msgid "Open in _Terminal"
@@ -736,7 +738,7 @@ msgstr "Dizin"
 
 #: ../src/plugins/dirmenu.c:366
 msgid "Label"
-msgstr ""
+msgstr "Etiket"
 
 #: ../src/plugins/dirmenu.c:397
 msgid "Directory Menu"
@@ -748,7 +750,7 @@ msgstr "Dizin ağacına menü yoluyla gözat (Yazar: PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:304
 msgid "Normal"
-msgstr ""
+msgstr "Olağan"
 
 #: ../src/plugins/thermal/thermal.c:305
 msgid "Warning1"
@@ -760,11 +762,11 @@ msgstr "Uyarı2"
 
 #: ../src/plugins/thermal/thermal.c:307
 msgid "Automatic sensor location"
-msgstr ""
+msgstr "Kendiliğinden algılayıcının konumu"
 
 #: ../src/plugins/thermal/thermal.c:308
 msgid "Sensor"
-msgstr ""
+msgstr "Algılayıcı"
 
 #: ../src/plugins/thermal/thermal.c:309
 msgid "Automatic temperature levels"
