@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-01-12 01:17+0100\n"
-"PO-Revision-Date: 2010-02-01 00:43+0200\n"
+"PO-Revision-Date: 2010-02-01 17:38+0200\n"
 "Last-Translator: Kılıç <kilickoken@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -762,7 +762,7 @@ msgstr "Uyarı2"
 
 #: ../src/plugins/thermal/thermal.c:307
 msgid "Automatic sensor location"
-msgstr "Kendiliğinden algılayıcının konumu"
+msgstr "Özdevimli algılayıcının konumu"
 
 #: ../src/plugins/thermal/thermal.c:308
 msgid "Sensor"
@@ -770,7 +770,7 @@ msgstr "Algılayıcı"
 
 #: ../src/plugins/thermal/thermal.c:309
 msgid "Automatic temperature levels"
-msgstr ""
+msgstr "Özdevimli sıcaklık düzeyleri"
 
 #: ../src/plugins/thermal/thermal.c:310
 msgid "Warning1 Temperature"
@@ -782,7 +782,7 @@ msgstr "Uyarı2 Sıcaklık"
 
 #: ../src/plugins/thermal/thermal.c:353
 msgid "Temperature Monitor"
-msgstr ""
+msgstr "Sıcaklık İzleyici"
 
 #: ../src/plugins/thermal/thermal.c:355
 msgid "Display system temperature"
@@ -794,23 +794,23 @@ msgstr "Sistem sıcaklığını göster"
 #: ../src/plugins/volumealsa/volumealsa.c:239
 #: ../src/plugins/volumealsa/volumealsa.c:400
 msgid "Volume control"
-msgstr "Ses denetimi"
+msgstr "Ses düzeyi denetimi"
 
 #: ../src/plugins/volume/volume.c:312
 #: ../src/plugins/volumealsa/volumealsa.c:449
 msgid "Volume Control"
-msgstr "Ses Denetimi"
+msgstr "Ses Düzeyi Denetimi"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
 #: ../src/plugins/volumealsa/volumealsa.c:358
 msgid "Volume"
-msgstr "Ses"
+msgstr "Ses Düzeyi"
 
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/volumealsa/volumealsa.c:377
 msgid "Mute"
-msgstr ""
+msgstr "Sessiz"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
@@ -818,7 +818,7 @@ msgstr "<Gizli Erişim Noktası>"
 
 #: ../src/plugins/netstat/netstat.c:201
 msgid "Wireless Networks not found in range"
-msgstr ""
+msgstr "Erimde kablosuz ağ bulunamadı"
 
 #. Repair
 #: ../src/plugins/netstat/netstat.c:235
@@ -845,16 +845,16 @@ msgstr "Bağlantı ya sınırlı ya da hiç yok"
 #: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
-msgstr ""
+msgstr "IP Adresi"
 
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Remote IP:"
-msgstr ""
+msgstr "Uzak IP:"
 
 #: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
-msgstr ""
+msgstr "Ağ maskesi:"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
@@ -879,7 +879,7 @@ msgstr "bayt"
 #: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
-msgstr ""
+msgstr "paket"
 
 #: ../src/plugins/netstat/netstat.c:315
 #: ../src/plugins/netstatus/netstatus-iface.c:173
@@ -888,7 +888,7 @@ msgstr "Kablosuz"
 
 #: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
-msgstr ""
+msgstr "İletişim Kuralları:"
 
 #: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
@@ -900,12 +900,12 @@ msgstr "Ağları Yönet"
 
 #: ../src/plugins/netstat/netstat.c:472
 msgid "Monitor and Manage networks"
-msgstr ""
+msgstr "Ağları İzle ve Yönet"
 
 #. create dialog
 #: ../src/plugins/netstat/passwd_gui.c:84
 msgid "Setting Encryption Key"
-msgstr ""
+msgstr "Şifreleme Açkısı Ayarı"
 
 #. messages
 #: ../src/plugins/netstat/passwd_gui.c:94
@@ -913,14 +913,16 @@ msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
 msgstr ""
+"Bu kablosuz ağ şifreli.\n"
+"Şifreleme açkısı zorunlu."
 
 #: ../src/plugins/netstat/passwd_gui.c:99
 msgid "Encryption Key:"
-msgstr ""
+msgstr "Şifreleme Açkısı:"
 
 #: ../src/plugins/netstatus/netstatus.c:179
 msgid "Interface to monitor"
-msgstr ""
+msgstr "İzleyici arayüzü"
 
 #: ../src/plugins/netstatus/netstatus.c:180
 msgid "Config tool"
@@ -928,11 +930,11 @@ msgstr "Yapılandırma aracı"
 
 #: ../src/plugins/netstatus/netstatus.c:197
 msgid "Network Status Monitor"
-msgstr ""
+msgstr "Ağ Durumu İzleyici"
 
 #: ../src/plugins/netstatus/netstatus.c:199
 msgid "Monitor network status"
-msgstr ""
+msgstr "Ağ durumunu izle"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:51
 #: ../src/plugins/netstatus/netstatus-dialog.c:312
@@ -952,8 +954,7 @@ msgstr "Bağlantı Özellikleri: %s"
 #, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Singular%lu paketPlural%lu paketler"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:396
 #, c-format
@@ -961,6 +962,8 @@ msgid ""
 "There was an error displaying help:\n"
 "%s"
 msgstr ""
+"Yardımı göstermede bir kusur oluştu:\n"
+"%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
 #, c-format
@@ -982,15 +985,15 @@ msgstr "Arayüz"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:812
 msgid "The current interface the icon is monitoring."
-msgstr ""
+msgstr "Şimdiki arayüz, simge izliyor"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:819
 msgid "Orientation"
-msgstr ""
+msgstr "Yönelim"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:820
 msgid "The orientation of the tray."
-msgstr ""
+msgstr "Tepsinin yönelimi"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:828
 msgid "Tooltips Enabled"
