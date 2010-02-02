@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-12 01:17+0100\n"
+"POT-Creation-Date: 2010-02-02 01:32+0100\n"
 "PO-Revision-Date: 2009-12-16 16:00+0300\n"
 "Last-Translator: HsH <hsh@runtu.org>\n"
 "Language-Team: Russian <hsh@runtu.org>\n"
@@ -67,7 +67,7 @@ msgstr "Выравнивание:"
 msgid "Appearance"
 msgstr "Внешний вид"
 
-#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1002
+#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1021
 msgid "Bottom"
 msgstr "Снизу"
 
@@ -95,7 +95,7 @@ msgstr "Файловый менеджер:"
 msgid "Geometry"
 msgstr "Размещение"
 
-#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:992 ../src/panel.c:1000
+#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:1011 ../src/panel.c:1019
 msgid "Height:"
 msgstr "Высота:"
 
@@ -103,7 +103,7 @@ msgstr "Высота:"
 msgid "Image"
 msgstr "Шаблон фона\t"
 
-#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:994
+#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:1013
 msgid "Left"
 msgstr "Слева"
 
@@ -139,7 +139,7 @@ msgstr "Пикселов"
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Резервировать место и не перекрывать полноэкранными окнами"
 
-#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:995
+#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:1014
 msgid "Right"
 msgstr "Справа"
 
@@ -163,11 +163,11 @@ msgstr "Системная тема"
 msgid "Terminal Emulator:"
 msgstr "Эмулятор терминала:"
 
-#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1001
+#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1020
 msgid "Top"
 msgstr "Сверху"
 
-#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:993 ../src/panel.c:999
+#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:1012 ../src/panel.c:1018
 msgid "Width:"
 msgstr "Ширина:"
 
@@ -396,27 +396,27 @@ msgstr "Панель"
 msgid "\"%s\" Settings"
 msgstr "Настроить \"%s\""
 
-#: ../src/panel.c:1401
+#: ../src/panel.c:1420
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "LXPanel %s — лёгковесная GTK2+ панель для UNIX-десктопов\n"
 
-#: ../src/panel.c:1402
+#: ../src/panel.c:1421
 #, c-format
 msgid "Command line options:\n"
 msgstr "Параметры командной строки:\n"
 
-#: ../src/panel.c:1403
+#: ../src/panel.c:1422
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      --показать помощь и выйти\n"
 
-#: ../src/panel.c:1404
+#: ../src/panel.c:1423
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- показать версию и выйти\n"
 
-#: ../src/panel.c:1405
+#: ../src/panel.c:1424
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
@@ -424,28 +424,28 @@ msgstr ""
 "подробно\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1407
+#: ../src/panel.c:1426
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name — использовать заданный профиль\n"
 
-#: ../src/panel.c:1409
+#: ../src/panel.c:1428
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- то же, что и --help\n"
 
-#: ../src/panel.c:1410
+#: ../src/panel.c:1429
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- то же, что и --profile\n"
 
-#: ../src/panel.c:1411
+#: ../src/panel.c:1430
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- то же, что и --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1413
+#: ../src/panel.c:1432
 #, c-format
 msgid ""
 "\n"
@@ -493,91 +493,91 @@ msgid "Bar with buttons to launch application"
 msgstr "Панель со значками запуска приложений"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1696
+#: ../src/plugins/taskbar.c:1712
 msgid "_Raise"
 msgstr "Выше"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1701
+#: ../src/plugins/taskbar.c:1717
 msgid "R_estore"
 msgstr "Восстановить"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1706
+#: ../src/plugins/taskbar.c:1722
 msgid "Ma_ximize"
 msgstr "Развернуть"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1711
+#: ../src/plugins/taskbar.c:1727
 msgid "Ico_nify"
 msgstr "Значком"
 
-#: ../src/plugins/taskbar.c:1730
+#: ../src/plugins/taskbar.c:1746
 #, c-format
 msgid "Workspace _%d"
 msgstr "Место %d"
 
-#: ../src/plugins/taskbar.c:1735
+#: ../src/plugins/taskbar.c:1751
 #, c-format
 msgid "Workspace %d"
 msgstr "Рабочее место %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1749
+#: ../src/plugins/taskbar.c:1765
 msgid "_All workspaces"
 msgstr "Все рабочие места"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1755
+#: ../src/plugins/taskbar.c:1771
 msgid "_Move to Workspace"
 msgstr "Переместить на рабочее место"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1761
+#: ../src/plugins/taskbar.c:1777
 msgid "_Close Window"
 msgstr "Закрыть окно"
 
-#: ../src/plugins/taskbar.c:1966
+#: ../src/plugins/taskbar.c:1980
 msgid "Show tooltips"
 msgstr "Показывать подсказки"
 
-#: ../src/plugins/taskbar.c:1967
+#: ../src/plugins/taskbar.c:1981
 msgid "Icons only"
 msgstr "Только значки"
 
-#: ../src/plugins/taskbar.c:1968
+#: ../src/plugins/taskbar.c:1982
 msgid "Flat buttons"
 msgstr "Плоские кнопки"
 
-#: ../src/plugins/taskbar.c:1969
+#: ../src/plugins/taskbar.c:1983
 msgid "Show windows from all desktops"
 msgstr "Показывать окна всех рабочих мест"
 
-#: ../src/plugins/taskbar.c:1970
+#: ../src/plugins/taskbar.c:1984
 msgid "Use mouse wheel"
 msgstr "Использовать колесо мыши"
 
-#: ../src/plugins/taskbar.c:1971
+#: ../src/plugins/taskbar.c:1985
 msgid "Flash when there is any window requiring attention"
 msgstr "Мигать, если окно требует внимания"
 
-#: ../src/plugins/taskbar.c:1972
+#: ../src/plugins/taskbar.c:1986
 msgid "Combine multiple application windows into a single button"
 msgstr "Группировать сходные кнопки панели задач"
 
-#: ../src/plugins/taskbar.c:1973
+#: ../src/plugins/taskbar.c:1987
 msgid "Maximum width of task button"
 msgstr "Макс. ширина кнопки окна"
 
-#: ../src/plugins/taskbar.c:1974
+#: ../src/plugins/taskbar.c:1988
 msgid "Spacing"
 msgstr "Разделитель"
 
-#: ../src/plugins/taskbar.c:2031
+#: ../src/plugins/taskbar.c:2045
 msgid "Task Bar (Window List)"
 msgstr "Панель задач"
 
-#: ../src/plugins/taskbar.c:2033
+#: ../src/plugins/taskbar.c:2047
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-12 01:17+0100\n"
+"POT-Creation-Date: 2010-02-02 01:32+0100\n"
 "PO-Revision-Date: 2009-12-08 18:15+0100\n"
 "Last-Translator: Sankarshan <sankarshan.mukhopadhyay@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,7 +66,7 @@ msgstr "সামঞ্জস্য"
 msgid "Appearance"
 msgstr "রূপ"
 
-#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1002
+#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1021
 msgid "Bottom"
 msgstr "নীচের"
 
@@ -94,7 +94,7 @@ msgstr " ফাইল ম্যানেজার:"
 msgid "Geometry"
 msgstr "জ্যামিতি বিন্যাস"
 
-#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:992 ../src/panel.c:1000
+#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:1011 ../src/panel.c:1019
 msgid "Height:"
 msgstr "উচ্চতা:"
 
@@ -102,7 +102,7 @@ msgstr "উচ্চতা:"
 msgid "Image"
 msgstr "প্রতিচ্ছবি"
 
-#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:994
+#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:1013
 msgid "Left"
 msgstr "বামদিক"
 
@@ -138,7 +138,7 @@ msgstr "পিক্সেলগুচ্ছ"
 msgid "Reserve space, and not covered by maximized windows"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:995
+#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:1014
 msgid "Right"
 msgstr "ডানদিক"
 
@@ -163,11 +163,11 @@ msgstr "সিস্টেম থিম"
 msgid "Terminal Emulator:"
 msgstr "টার্মিনাল এমুলটার:"
 
-#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1001
+#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1020
 msgid "Top"
 msgstr "উপরের"
 
-#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:993 ../src/panel.c:999
+#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:1012 ../src/panel.c:1018
 msgid "Width:"
 msgstr "ব্যাস:"
 
@@ -396,54 +396,54 @@ msgstr "প্যানেল"
 msgid "\"%s\" Settings"
 msgstr "\"%s\" বিবিধ বৈশিষ্ট্য"
 
-#: ../src/panel.c:1401
+#: ../src/panel.c:1420
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - UNIX ডেস্কটপের জন্য একটি হাল্কা GTK2+ প্যানেল\n"
 
-#: ../src/panel.c:1402
+#: ../src/panel.c:1421
 #, c-format
 msgid "Command line options:\n"
 msgstr "কম্যান্ড লাইনে বিকল্প:\n"
 
-#: ../src/panel.c:1403
+#: ../src/panel.c:1422
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- এই সহায়িকা প্রদর্শন করে প্রস্থান করুন\n"
 
-#: ../src/panel.c:1404
+#: ../src/panel.c:1423
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- সংস্করণ প্রদর্শন করে প্রস্থান করুন\n"
 
-#: ../src/panel.c:1405
+#: ../src/panel.c:1424
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1407
+#: ../src/panel.c:1426
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- নির্দিষ্ট প্রোফাইল ব্যবহার করুন\n"
 
-#: ../src/panel.c:1409
+#: ../src/panel.c:1428
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- যেমন --help\n"
 
-#: ../src/panel.c:1410
+#: ../src/panel.c:1429
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- যেমন --profile\n"
 
-#: ../src/panel.c:1411
+#: ../src/panel.c:1430
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- যেমন --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1413
+#: ../src/panel.c:1432
 #, c-format
 msgid ""
 "\n"
@@ -491,91 +491,91 @@ msgid "Bar with buttons to launch application"
 msgstr "অ্যাপ্লিকেশন চালনা করার জন্য বটন সহ বার"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1696
+#: ../src/plugins/taskbar.c:1712
 msgid "_Raise"
 msgstr "উচুঁ করুন(_R)"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1701
+#: ../src/plugins/taskbar.c:1717
 msgid "R_estore"
 msgstr "পুনরুদ্ধার করুন(_e)"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1706
+#: ../src/plugins/taskbar.c:1722
 msgid "Ma_ximize"
 msgstr "সর্বোচ্চ মাপ(_x)"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1711
+#: ../src/plugins/taskbar.c:1727
 msgid "Ico_nify"
 msgstr "আইকন যোগ করুন"
 
-#: ../src/plugins/taskbar.c:1730
+#: ../src/plugins/taskbar.c:1746
 #, c-format
 msgid "Workspace _%d"
 msgstr "ওয়ার্কস্পেস _%d"
 
-#: ../src/plugins/taskbar.c:1735
+#: ../src/plugins/taskbar.c:1751
 #, c-format
 msgid "Workspace %d"
 msgstr "ওয়ার্কস্পেস %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1749
+#: ../src/plugins/taskbar.c:1765
 msgid "_All workspaces"
 msgstr "সকল ওয়ার্কস্পেসে(_A)"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1755
+#: ../src/plugins/taskbar.c:1771
 msgid "_Move to Workspace"
 msgstr "ওয়ার্কস্পেসে সরিয়ে নিন(_M)"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1761
+#: ../src/plugins/taskbar.c:1777
 msgid "_Close Window"
 msgstr "ওইন্ডো বন্ধ করুন(_C)"
 
-#: ../src/plugins/taskbar.c:1966
+#: ../src/plugins/taskbar.c:1980
 msgid "Show tooltips"
 msgstr "টুলটিপ প্রদর্শন করুন"
 
-#: ../src/plugins/taskbar.c:1967
+#: ../src/plugins/taskbar.c:1981
 msgid "Icons only"
 msgstr "কেবলমাত্র আইকন"
 
-#: ../src/plugins/taskbar.c:1968
+#: ../src/plugins/taskbar.c:1982
 msgid "Flat buttons"
 msgstr "চাপা বটন"
 
-#: ../src/plugins/taskbar.c:1969
+#: ../src/plugins/taskbar.c:1983
 msgid "Show windows from all desktops"
 msgstr "সকল ডেস্কটপ থেকে উইন্ডো প্রদর্শন করুন"
 
-#: ../src/plugins/taskbar.c:1970
+#: ../src/plugins/taskbar.c:1984
 msgid "Use mouse wheel"
 msgstr "মাউস হুইল ব্যবহার করুন"
 
-#: ../src/plugins/taskbar.c:1971
+#: ../src/plugins/taskbar.c:1985
 msgid "Flash when there is any window requiring attention"
 msgstr "কোন উইন্ডোর অভিনিবেশের জন্য ঝলক প্রয়োগ করা হবে"
 
-#: ../src/plugins/taskbar.c:1972
+#: ../src/plugins/taskbar.c:1986
 msgid "Combine multiple application windows into a single button"
 msgstr "বহুবিধ অ্যাপ্লিকেশন উইন্ডোকে একটি বটন-এ সংযুক্ত করুন"
 
-#: ../src/plugins/taskbar.c:1973
+#: ../src/plugins/taskbar.c:1987
 msgid "Maximum width of task button"
 msgstr "টাস্ক বটনের সর্বোচ্চ প্রস্থ"
 
-#: ../src/plugins/taskbar.c:1974
+#: ../src/plugins/taskbar.c:1988
 msgid "Spacing"
 msgstr "স্পেস স্থাপন"
 
-#: ../src/plugins/taskbar.c:2031
+#: ../src/plugins/taskbar.c:2045
 msgid "Task Bar (Window List)"
 msgstr "টাস্ক বার (উইন্ডো তালিকা)"
 
-#: ../src/plugins/taskbar.c:2033
+#: ../src/plugins/taskbar.c:2047
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
