@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-02-02 01:32+0100\n"
-"PO-Revision-Date: 2010-02-01 17:38+0200\n"
+"PO-Revision-Date: 2010-02-03 23:38+0200\n"
 "Last-Translator: Kılıç <kilickoken@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -989,11 +989,11 @@ msgstr "Şimdiki arayüz, simge izliyor"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:819
 msgid "Orientation"
-msgstr "Yönelim"
+msgstr "Yön ayarı"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:820
 msgid "The orientation of the tray."
-msgstr "Tepsinin yönelimi"
+msgstr "Tepsinin yönünü ayarlama"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:828
 msgid "Tooltips Enabled"
@@ -1005,11 +1005,11 @@ msgstr "Simgenin görsel ipuçları etkinlendi mi etkinlenmedi mi"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:836
 msgid "Show Signal"
-msgstr ""
+msgstr "Belirtkeyi Göster"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:837
 msgid "Whether or not the signal strength should be displayed."
-msgstr ""
+msgstr "Belirtke gücü gösterilsin mi"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:950
 #, c-format
@@ -1040,11 +1040,11 @@ msgstr "Arayüz durumu"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:165
 msgid "Stats"
-msgstr ""
+msgstr "Sayımlamalar"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:166
 msgid "The interface packets/bytes statistics"
-msgstr ""
+msgstr "Arayüz paket/bayt sayımlamaları"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:174
 msgid "Whether the interface is a wireless interface"
@@ -1052,11 +1052,11 @@ msgstr "Arayüz kablosuz arayüz mü"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:181
 msgid "Signal"
-msgstr ""
+msgstr "Belirtke"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:182
 msgid "Wireless signal strength percentage"
-msgstr ""
+msgstr "Kablosuz belirtke gücü yüzdesi"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:191
 #: ../src/plugins/netstatus/netstatus-util.c:167
@@ -1071,78 +1071,78 @@ msgstr "Şimdiki kusur durumu"
 #: ../src/plugins/netstatus/netstatus-iface.c:1197
 #, c-format
 msgid "Unable to open socket: %s"
-msgstr ""
+msgstr "Yuva açılamıyor: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:496
 #: ../src/plugins/netstatus/netstatus-iface.c:1223
 #, c-format
 msgid "SIOCGIFFLAGS error: %s"
-msgstr ""
+msgstr "SIOCGIFFLAGS kusuru: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:870
 msgid "AMPR NET/ROM"
-msgstr ""
+msgstr "AMPR NET/ROM"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:873
 msgid "Ethernet"
-msgstr ""
+msgstr "Eternet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:879
 msgid "AMPR AX.25"
-msgstr ""
+msgstr "AMPR AX.25"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:888
 #: ../src/plugins/netstatus/netstatus-iface.c:1008
 msgid "16/4 Mbps Token Ring"
-msgstr ""
+msgstr "16/4 Mb/s Dizgecik Dolanımı"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:891
 msgid "ARCnet"
-msgstr ""
+msgstr "İKBağı"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:897
 msgid "Frame Relay DLCI"
-msgstr ""
+msgstr "Dördül Aktarımı VLBK"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:903
 msgid "Metricom Starmode IP"
-msgstr ""
+msgstr "Metricom Starmode IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:906
 msgid "Serial Line IP"
-msgstr ""
+msgstr "Dizisel Bağlantı Noktası IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:909
 msgid "VJ Serial Line IP"
-msgstr ""
+msgstr "VJ Dizisel Bağlantı Noktası IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:912
 msgid "6-bit Serial Line IP"
-msgstr ""
+msgstr "6-bit Dizisel Bağlantı Noktası IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:915
 msgid "VJ 6-bit Serial Line IP"
-msgstr ""
+msgstr "VJ 6-bit Dizisel Bağlantı Noktası IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:921
 msgid "Adaptive Serial Line IP"
-msgstr ""
+msgstr "Uyarlanabilir Dizisel Bağlantı Noktası IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:924
 msgid "AMPR ROSE"
-msgstr ""
+msgstr "AMPR ROSE"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:927
 msgid "Generic X.25"
-msgstr ""
+msgstr "Markasız X.25"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:930
 msgid "Point-to-Point Protocol"
-msgstr ""
+msgstr "Noktadan Noktaya Bağlantı"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:936
 msgid "(Cisco)-HDLC"
-msgstr ""
+msgstr "(Cisco)-YVBD (HDLC)"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:939
 msgid "LAPB"
@@ -1166,7 +1166,7 @@ msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:972
 msgid "IPv6-in-IPv4"
-msgstr ""
+msgstr "IPv4 içinde IPv6"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:984
 msgid "HIPPI"
@@ -1286,7 +1286,7 @@ msgstr ""
 
 #: ../src/plugins/batt/batt.c:580
 msgid "Hide if there is no battery"
-msgstr ""
+msgstr "Pil yoksa gizle"
 
 #: ../src/plugins/batt/batt.c:582
 msgid "Alarm command"
