@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-02-02 01:32+0100\n"
-"PO-Revision-Date: 2010-02-03 23:38+0200\n"
+"PO-Revision-Date: 2010-02-05 06:21+0200\n"
 "Last-Translator: Kılıç <kilickoken@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -1081,7 +1081,7 @@ msgstr "SIOCGIFFLAGS kusuru: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:870
 msgid "AMPR NET/ROM"
-msgstr "AMPR NET/ROM"
+msgstr "ÖPT (AMPR) NET/ROM"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:873
 msgid "Ethernet"
@@ -1089,7 +1089,7 @@ msgstr "Eternet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:879
 msgid "AMPR AX.25"
-msgstr "AMPR AX.25"
+msgstr "ÖPT (AMPR) AX.25"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:888
 #: ../src/plugins/netstatus/netstatus-iface.c:1008
@@ -1098,11 +1098,11 @@ msgstr "16/4 Mb/s Dizgecik Dolanımı"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:891
 msgid "ARCnet"
-msgstr "İKBağı"
+msgstr "İKBağı (ARCnet)"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:897
 msgid "Frame Relay DLCI"
-msgstr "Dördül Aktarımı VLBK"
+msgstr "Dördül Aktarımı VLBK (DLCI)"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:903
 msgid "Metricom Starmode IP"
