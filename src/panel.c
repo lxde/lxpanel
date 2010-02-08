@@ -900,6 +900,19 @@ void panel_image_set_from_file(Panel * p, GtkWidget * image, char * file)
     }
 }
 
+/* Set an image from a icon theme with scaling to the panel icon size. */
+gboolean panel_image_set_icon_theme(Panel * p, GtkWidget * image, const gchar * icon)
+{
+    if (gtk_icon_theme_has_icon(gtk_icon_theme_get_default(), icon))
+    {
+        GdkPixbuf * pixbuf = gtk_icon_theme_load_icon(gtk_icon_theme_get_default(), icon, p->icon_size, 0, NULL);
+        gtk_image_set_from_pixbuf(GTK_IMAGE(image), pixbuf);
+        g_object_unref(pixbuf);
+        return TRUE;
+    }
+    return FALSE;
+}
+
 static void
 panel_start_gui(Panel *p)
 {

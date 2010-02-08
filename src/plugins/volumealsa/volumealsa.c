@@ -219,7 +219,11 @@ static void volumealsa_update_display(VolumeALSAPlugin * vol)
 {
     /* Mute status. */
     gboolean mute = asound_is_muted(vol);
-    panel_image_set_from_file(vol->plugin->panel, vol->tray_icon, ((mute) ? ICONS_MUTE : ICONS_VOLUME));
+    
+    if ( ! panel_image_set_icon_theme(vol->plugin->panel, vol->tray_icon, ((mute) ? "audio-volume-muted" : "audio-volume-high")))
+    {
+         panel_image_set_from_file(vol->plugin->panel, vol->tray_icon, ((mute) ? ICONS_MUTE : ICONS_VOLUME));
+    }
 
     g_signal_handler_block(vol->mute_check, vol->mute_check_handler);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(vol->mute_check), mute);
