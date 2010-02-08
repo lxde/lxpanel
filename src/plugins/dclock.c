@@ -48,7 +48,8 @@ typedef struct {
     char * prev_output;				/* Previous value of clock */
 } DClockPlugin;
 
-static GtkWidget * dclock_create_calendar(void);
+static void dclock_popup_map(GtkWidget * widget, DClockPlugin * dc);
+static GtkWidget * dclock_create_calendar(DClockPlugin * dc);
 static gboolean dclock_button_press_event(GtkWidget * widget, GdkEventButton * evt, Plugin * plugin);
 static gboolean dclock_update_display(DClockPlugin * dc);
 static int dclock_constructor(Plugin * p, char ** fp);
@@ -58,8 +59,14 @@ static void dclock_configure(Plugin * p, GtkWindow * parent);
 static void dclock_save_configuration(Plugin * p, FILE * fp);
 static void dclock_panel_configuration_changed(Plugin * p);
 
+/* Handler for "map" signal on popup window. */
+static void dclock_popup_map(GtkWidget * widget, DClockPlugin * dc)
+{
+    plugin_adjust_popup_position(widget, dc->plugin);
+}
+
 /* Display a window containing the standard calendar widget. */
-static GtkWidget * dclock_create_calendar(void)
+static GtkWidget * dclock_create_calendar(DClockPlugin * dc)
 {
     /* Create a new window. */
     GtkWidget * win = gtk_window_new(GTK_WINDOW_TOPLEVEL);
@@ -69,7 +76,6 @@ static GtkWidget * dclock_create_calendar(void)
     gtk_container_set_border_width(GTK_CONTAINER(win), 5);
     gtk_window_set_skip_taskbar_hint(GTK_WINDOW(win), TRUE);
     gtk_window_set_skip_pager_hint(GTK_WINDOW(win), TRUE);
-    gtk_window_set_position(GTK_WINDOW(win), GTK_WIN_POS_MOUSE);
     gtk_window_stick(GTK_WINDOW(win));
 
     /* Create a vertical box as a child of the window. */
@@ -82,6 +88,9 @@ static GtkWidget * dclock_create_calendar(void)
         GTK_CALENDAR(calendar),
         GTK_CALENDAR_SHOW_WEEK_NUMBERS | GTK_CALENDAR_SHOW_DAY_NAMES | GTK_CALENDAR_SHOW_HEADING);
     gtk_box_pack_start_defaults(GTK_BOX(box), calendar);
+
+    /* Connect signals. */
+    g_signal_connect(G_OBJECT(win), "map", G_CALLBACK(dclock_popup_map), dc);
 
     /* Return the widget. */
     return win;
@@ -105,7 +114,7 @@ static gboolean dclock_button_press_event(GtkWidget * widget, GdkEventButton * e
     {
         if (dc->calendar_window == NULL)
         {
-            dc->calendar_window = dclock_create_calendar();
+            dc->calendar_window = dclock_create_calendar(dc);
             gtk_widget_show_all(dc->calendar_window);
         }
         else
@@ -297,6 +306,13 @@ static void dclock_apply_configuration(Plugin * p)
     g_free(dc->prev_output);	/* Force the update of the clock display */
     dc->prev_output = NULL;
     dclock_update_display(dc);
+
+    /* Hide the calendar. */
+    if (dc->calendar_window != NULL)
+    {
+        gtk_widget_destroy(dc->calendar_window);
+        dc->calendar_window = NULL;
+    }
 }
 
 /* Callback when the configuration dialog is to be shown. */

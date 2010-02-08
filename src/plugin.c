@@ -387,3 +387,42 @@ void plugin_popup_set_position_helper(Plugin * p, GtkWidget * near, GtkWidget * 
     *px = x;
     *py = y;
 }
+
+/* Adjust the position of a popup window to ensure that it is not hidden by the panel.
+ * It is observed that some window managers do not honor the strut that is set on the panel. */
+void plugin_adjust_popup_position(GtkWidget * popup, Plugin * plugin)
+{
+    /* Initialize. */
+    Panel * p = plugin->panel;
+    GtkWidget * parent = plugin->pwid;
+
+    /* Get the coordinates of the plugin top level widget. */
+    int x = p->cx + parent->allocation.x;
+    int y = p->cy + parent->allocation.y;
+
+    /* Adjust these coordinates according to the panel edge. */
+    switch (p->edge)
+    {
+        case EDGE_TOP:
+	    y += parent->allocation.height;
+            break;
+        case EDGE_BOTTOM:
+            y -= popup->allocation.height;
+            break;
+        case EDGE_LEFT:
+            x += parent->allocation.width;
+            break;
+        case EDGE_RIGHT:
+            x -= popup->allocation.width;
+            break;
+    }
+
+    /* Clip the coordinates to ensure that the popup remains on screen. */
+    int screen_width = gdk_screen_width();
+    int screen_height = gdk_screen_height();
+    if ((x + popup->allocation.width) > screen_width) x = screen_width - popup->allocation.width;
+    if ((y + popup->allocation.height) > screen_height) y = screen_height - popup->allocation.height;
+
+    /* Move the popup to position. */
+    gdk_window_move(popup->window, x, y);
+}

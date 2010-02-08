@@ -90,6 +90,8 @@ extern gboolean plugin_button_press_event(GtkWidget *widget, GdkEventButton *eve
                                                         /* Handler for "button_press_event" signal with Plugin as parameter */
 extern void plugin_popup_set_position_helper(Plugin * p, GtkWidget * near, GtkWidget * popup, GtkRequisition * popup_req, gint * px, gint * py);
 							/* Helper for position-calculation callback for popup menus */
+extern void plugin_adjust_popup_position(GtkWidget * popup, Plugin * plugin);
+							/* Helper to move popup windows away from the panel */
 
 /* FIXME: optional definitions */
 #define STATIC_SEPARATOR

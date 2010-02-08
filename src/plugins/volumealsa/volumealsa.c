@@ -63,6 +63,7 @@ static void asound_set_volume(VolumeALSAPlugin * vol, int volume);
 static void volumealsa_update_display(VolumeALSAPlugin * vol);
 static gboolean volumealsa_button_press_event(GtkWidget * widget, GdkEventButton * event, VolumeALSAPlugin * vol);
 static gboolean volumealsa_popup_focus_out(GtkWidget * widget, GdkEvent * event, VolumeALSAPlugin * vol);
+static void volumealsa_popup_map(GtkWidget * widget, VolumeALSAPlugin * vol);
 static void volumealsa_popup_scale_changed(GtkRange * range, VolumeALSAPlugin * vol);
 static void volumealsa_popup_scale_scrolled(GtkScale * scale, GdkEventScroll * evt, VolumeALSAPlugin * vol);
 static void volumealsa_popup_mute_toggled(GtkWidget * widget, VolumeALSAPlugin * vol);
@@ -262,7 +263,6 @@ static gboolean volumealsa_button_press_event(GtkWidget * widget, GdkEventButton
         }
         else
         {
-            gtk_window_set_position(GTK_WINDOW(vol->popup_window), GTK_WIN_POS_MOUSE);
             gtk_widget_show_all(vol->popup_window);
             vol->show_popup = TRUE;
         }
@@ -283,6 +283,12 @@ static gboolean volumealsa_popup_focus_out(GtkWidget * widget, GdkEvent * event,
     gtk_widget_hide(vol->popup_window);
     vol->show_popup = FALSE;
     return FALSE;
+}
+
+/* Handler for "map" signal on popup window. */
+static void volumealsa_popup_map(GtkWidget * widget, VolumeALSAPlugin * vol)
+{
+    plugin_adjust_popup_position(widget, vol->plugin);
 }
 
 /* Handler for "value_changed" signal on popup window vertical scale. */
@@ -340,8 +346,9 @@ static void volumealsa_build_popup_window(Plugin * p)
     gtk_window_set_skip_pager_hint(GTK_WINDOW(vol->popup_window), TRUE);
     gtk_window_set_type_hint(GTK_WINDOW(vol->popup_window), GDK_WINDOW_TYPE_HINT_DIALOG);
 
-    /* Focus-out signal. */
+    /* Connect signals. */
     g_signal_connect(G_OBJECT(vol->popup_window), "focus_out_event", G_CALLBACK(volumealsa_popup_focus_out), vol);
+    g_signal_connect(G_OBJECT(vol->popup_window), "map", G_CALLBACK(volumealsa_popup_map), vol);
 
     /* Create a scrolled window as the child of the top level window. */
     GtkWidget * scrolledwindow = gtk_scrolled_window_new(NULL, NULL);
