@@ -148,9 +148,7 @@ static TaskClass * taskbar_enter_res_class(TaskbarPlugin * tb, char * res_class,
 static void task_set_class(Task * tk);
 static Task * task_lookup(TaskbarPlugin * tb, Window win);
 static void task_delete(TaskbarPlugin * tb, Task * tk, gboolean unlink);
-static GdkColormap * get_colormap_from_pixmap(GdkPixmap * pixmap);
-static GdkPixbuf * _wnck_gdk_pixbuf_get_from_pixmap(
-    GdkPixbuf * dest, Pixmap xpixmap, int src_x, int src_y, int dest_x, int dest_y, int width, int height);
+static GdkPixbuf * _wnck_gdk_pixbuf_get_from_pixmap(Pixmap xpixmap, int width, int height);
 static GdkPixbuf * apply_mask(GdkPixbuf * pixbuf, GdkPixbuf * mask);
 static GdkPixbuf * get_wm_icon(Window task_win, int required_width, int required_height, Atom source, Atom * current_source);
 static GdkPixbuf * task_update_icon(TaskbarPlugin * tb, Task * tk, Atom source);
@@ -582,71 +580,53 @@ static void task_delete(TaskbarPlugin * tb, Task * tk, gboolean unlink)
     g_free(tk);
 }
 
-/* Get the color map from a pixmap.
- * From libwnck, Copyright (C) 2001 Havoc Pennington. */
-static GdkColormap * get_colormap_from_pixmap(GdkPixmap * pixmap)
+/* Get a pixbuf from a pixmap.
+ * Originally from libwnck, Copyright (C) 2001 Havoc Pennington. */
+static GdkPixbuf * _wnck_gdk_pixbuf_get_from_pixmap(Pixmap xpixmap, int width, int height)
 {
-    GdkColormap * colormap = gdk_drawable_get_colormap(pixmap);
-    if (colormap != NULL)
-        g_object_ref(G_OBJECT(colormap));
-    else
-    {
-        if (gdk_drawable_get_depth(pixmap) == 1)
-        {
-            /* Try null colormap. */
-            colormap = NULL;
-        }
-        else
-        {
-            /* Try system colormap. */
-            GdkScreen * screen = gdk_drawable_get_screen(GDK_DRAWABLE(pixmap));
-            colormap = gdk_screen_get_system_colormap(screen);
-            g_object_ref(G_OBJECT(colormap));
-        }
-    }
-
-    /* Be sure we aren't going to blow up due to visual mismatch. */
-    if ((colormap != NULL) && (gdk_colormap_get_visual(colormap)->depth != gdk_drawable_get_depth(pixmap)))
-        colormap = NULL;
-
-    return colormap;
-}
-
-/* These functions with the prefix wnck are taken from libwnck
- * Copyright (C) 2001 Havoc Pennington
- * slightly modified by Hong Jen Yee for LXPanel
- */
-
-/* Get a pixbuf from a pixmap. */
-static GdkPixbuf * _wnck_gdk_pixbuf_get_from_pixmap(
-    GdkPixbuf * dest, Pixmap xpixmap, int src_x, int src_y, int dest_x, int dest_y, int width, int height)
-{
-    /* Initialize; get the drawable and its colormap. */
-    GdkPixbuf * retval = NULL;
+    /* Get the drawable. */
     GdkDrawable * drawable = gdk_xid_table_lookup(xpixmap);
     if (drawable != NULL)
         g_object_ref(G_OBJECT(drawable));
     else
         drawable = gdk_pixmap_foreign_new(xpixmap);
-    GdkColormap * colormap = get_colormap_from_pixmap(drawable);
 
-    /* Do the major work. */
-    retval = gdk_pixbuf_get_from_drawable(dest,
-        drawable,
-        colormap,
-        src_x, src_y,
-        dest_x, dest_y,
-        width, height);
+    GdkColormap * colormap = NULL;
+    GdkPixbuf * retval = NULL;
+    if (drawable != NULL)
+    {
+        /* Get the colormap.
+         * If the drawable has no colormap, use no colormap or the system colormap as recommended in the documentation of gdk_drawable_get_colormap. */
+        colormap = gdk_drawable_get_colormap(drawable);
+        gint depth = gdk_drawable_get_depth(drawable);
+        if (colormap != NULL)
+            g_object_ref(G_OBJECT(colormap));
+        else if (depth == 1)
+            colormap = NULL;
+        else
+        {
+            colormap = gdk_screen_get_system_colormap(gdk_drawable_get_screen(drawable));
+            g_object_ref(G_OBJECT(colormap));
+        }
+
+        /* Be sure we aren't going to fail due to visual mismatch. */
+        if ((colormap != NULL) && (gdk_colormap_get_visual(colormap)->depth != depth))
+            colormap = NULL;
+
+        /* Do the major work. */
+        retval = gdk_pixbuf_get_from_drawable(NULL, drawable, colormap, 0, 0, 0, 0, width, height);
+    }
 
     /* Clean up and return. */
     if (colormap != NULL)
         g_object_unref(G_OBJECT(colormap));
-    g_object_unref(G_OBJECT(drawable));
+    if (drawable != NULL)
+        g_object_unref(G_OBJECT(drawable));
     return retval;
 }
 
 /* Apply a mask to a pixbuf.
- * From libwnck, Copyright (C) 2001 Havoc Pennington. */
+ * Originally from libwnck, Copyright (C) 2001 Havoc Pennington. */
 static GdkPixbuf * apply_mask(GdkPixbuf * pixbuf, GdkPixbuf * mask)
 {
     /* Initialize. */
@@ -882,7 +862,7 @@ static GdkPixbuf * get_wm_icon(Window task_win, int required_width, int required
         /* If we have an X pixmap and its geometry, convert it to a GDK pixmap. */
         if (result == Success) 
         {
-            pixmap = _wnck_gdk_pixbuf_get_from_pixmap(NULL, xpixmap, 0, 0, 0, 0, w, h);
+            pixmap = _wnck_gdk_pixbuf_get_from_pixmap(xpixmap, w, h);
             result = ((pixmap != NULL) ? Success : -1);
         }
 
@@ -898,7 +878,7 @@ static GdkPixbuf * get_wm_icon(Window task_win, int required_width, int required
                 &unused_win, &unused, &unused, &w, &h, &unused_2, &unused_2))
             {
                 /* Convert the X mask to a GDK pixmap. */
-                GdkPixbuf * mask = _wnck_gdk_pixbuf_get_from_pixmap(NULL, xmask, 0, 0, 0, 0, w, h);
+                GdkPixbuf * mask = _wnck_gdk_pixbuf_get_from_pixmap(xmask, w, h);
                 if (mask != NULL)
                 {
                     /* Apply the mask. */
