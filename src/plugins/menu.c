@@ -197,7 +197,6 @@ static void on_add_menu_item_to_desktop(GtkMenuItem* item, MenuCacheApp* app)
 {
     char* dest;
     char* src;
-    g_debug("app: %p", app);
     const char* desktop = g_get_user_special_dir(G_USER_DIRECTORY_DESKTOP);
     int dir_len = strlen(desktop);
     int basename_len = strlen(menu_cache_item_get_id(MENU_CACHE_ITEM(app)));
@@ -504,7 +503,15 @@ static void sys_menu_insert_items( menup* m, GtkMenu* menu, int position )
         SYS_MENU_ITEM_ID = g_quark_from_static_string( "SysMenuItem" );
 
     dir = menu_cache_get_root_dir( m->menu_cache );
-    load_menu( m, dir, GTK_WIDGET(menu), position );
+    if(dir)
+        load_menu( m, dir, GTK_WIDGET(menu), position );
+    else /* menu content is empty */
+    {
+        /* add a place holder */
+        GtkWidget* mi = gtk_menu_item_new();
+        g_object_set_qdata( G_OBJECT(mi), SYS_MENU_ITEM_ID, GINT_TO_POINTER(1) );
+        gtk_menu_shell_insert(menu, mi, position);
+    }
 
     change_handler = g_signal_connect_swapped( gtk_icon_theme_get_default(), "changed", G_CALLBACK(unload_old_icons), menu );
     g_object_weak_ref( G_OBJECT(menu), remove_change_handler, GINT_TO_POINTER(change_handler) );
@@ -518,6 +525,7 @@ reload_system_menu( menup* m, GtkMenu* menu )
     GtkMenuItem* item;
     GtkWidget* sub_menu;
     gint idx;
+    gboolean found = FALSE;
 
     children = gtk_container_get_children( GTK_CONTAINER(menu) );
     for( child = children, idx = 0; child; child = child->next, ++idx )
@@ -534,6 +542,7 @@ reload_system_menu( menup* m, GtkMenu* menu )
             sys_menu_insert_items( m, menu, idx );
             if( ! child )
                 break;
+            found = TRUE;
         }
         else if( ( sub_menu = gtk_menu_item_get_submenu( item ) ) )
         {
