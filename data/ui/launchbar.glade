@@ -8,6 +8,8 @@
       <column type="GdkPixbuf"/>
       <!-- column-name title -->
       <column type="gchararray"/>
+      <!-- column-name icon_name -->
+      <column type="gchararray"/>
       <!-- column-name btn -->
       <column type="gpointer"/>
     </columns>
@@ -18,7 +20,9 @@
       <column type="GdkPixbuf"/>
       <!-- column-name title -->
       <column type="gchararray"/>
-      <!-- column-name item -->
+      <!-- column-name icon_name -->
+      <column type="gchararray"/>
+      <!-- column-name btn -->
       <column type="gpointer"/>
     </columns>
   </object>
@@ -53,7 +57,7 @@
                     <property name="search_column">1</property>
                     <child>
                       <object class="GtkTreeViewColumn" id="defined_col">
-                        <property name="title" translatable="yes">Applications</property>
+                        <property name="title">Applications</property>
                         <property name="expand">True</property>
                       </object>
                     </child>
@@ -142,7 +146,7 @@
                     <property name="search_column">1</property>
                     <child>
                       <object class="GtkTreeViewColumn" id="menu_col">
-                        <property name="title" translatable="yes">Available Applications</property>
+                        <property name="title">Available Applications</property>
                         <property name="expand">True</property>
                       </object>
                     </child>

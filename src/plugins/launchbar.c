@@ -63,6 +63,7 @@ static const GtkTargetEntry target_table[] = {
 enum {
     COL_ICON,
     COL_TITLE,
+    COL_ICON_NAME,
     COL_BTN,
     N_COLS
 };
@@ -618,6 +619,34 @@ static void launchbar_configure_response(GtkDialog * dlg, int response, Plugin *
     gtk_widget_destroy(GTK_WIDGET(dlg));
 }
 
+static void launchbar_configure_update_icons(GtkTreeStore* tree, GtkTreeIter* parent_it)
+{
+    GtkTreeIter it;
+    if(gtk_tree_model_iter_children(tree, &it, parent_it))
+    {
+        do
+        {
+            char* name;
+            GdkPixbuf* pix;
+            gtk_tree_model_get(tree, &it, COL_ICON, &pix, -1);
+            if(!pix)
+            {
+                gtk_tree_model_get(tree, &it, COL_ICON_NAME, &name, -1);
+                pix = lxpanel_load_icon(name, PANEL_ICON_SIZE, PANEL_ICON_SIZE, TRUE);
+                gtk_tree_store_set(tree, &it, COL_ICON, pix, -1);
+                g_free(name);
+            }
+            if(pix)
+                g_object_unref(pix);
+        }while(gtk_tree_model_iter_next(tree, &it));
+    }
+}
+
+static void on_app_tree_row_expanded(GtkTreeView* view, GtkTreeIter* it, GtkTreePath* tp, gpointer user_data)
+{
+    launchbar_configure_update_icons((GtkTreeStore*)user_data, it);
+}
+
 static void launchbar_configure_add_menu_recursive(GtkTreeStore * tree, GtkTreeIter* parent_it, MenuCacheDir * menu_dir)
 {
     /* Iterate over all menu items in this directory. */
@@ -644,35 +673,48 @@ static void launchbar_configure_add_menu_recursive(GtkTreeStore * tree, GtkTreeI
 
                 /* Add the row to the view. */
                 GtkTreeIter it;
-                GdkPixbuf* pix;
                 gtk_tree_store_append(tree, &it, parent_it);
-                pix = lxpanel_load_icon(menu_cache_item_get_icon(item), PANEL_ICON_SIZE, PANEL_ICON_SIZE, TRUE);
                 gtk_tree_store_set(tree, &it,
-                    COL_ICON, pix,
+                    COL_ICON_NAME, menu_cache_item_get_icon(item),
                     COL_TITLE, menu_cache_item_get_name(item),
                     COL_BTN, btn,
                     -1);
-                g_object_unref(pix);
                 }
                 break;
 
             case MENU_CACHE_TYPE_DIR:
                 {
                 GtkTreeIter it;
-                GdkPixbuf* pix;
                 gtk_tree_store_append(tree, &it, parent_it);
-                pix = lxpanel_load_icon(menu_cache_item_get_icon(item), PANEL_ICON_SIZE, PANEL_ICON_SIZE, TRUE);
                 gtk_tree_store_set(tree, &it,
-                    COL_ICON, pix,
+                    COL_ICON_NAME, menu_cache_item_get_icon(item),
                     COL_TITLE, menu_cache_item_get_name(item),
                     -1);
-                g_object_unref(pix);
                 /* If a directory, recursively add its menu items. */
                 launchbar_configure_add_menu_recursive(tree, &it, MENU_CACHE_DIR(item));
                 }
                 break;
         }
     }
+    if(!parent_it)
+        launchbar_configure_update_icons(tree, parent_it);
+}
+
+static void destroy_menu_cache(gpointer* param, GObject* tree)
+{
+    MenuCache* mc = (MenuCache*)param[0];
+    gpointer id = param[1];
+    menu_cache_remove_reload_notify(mc, id);
+    menu_cache_unref(mc);
+    g_slice_free1(sizeof(gpointer) * 2, param);
+}
+
+static void on_menu_cache_reload(MenuCache* menu_cache, GtkTreeStore* tree)
+{
+    MenuCacheDir * dir = menu_cache_get_root_dir(menu_cache);
+    gtk_tree_store_clear(tree);
+    if(dir)
+        launchbar_configure_add_menu_recursive(tree, NULL, dir);
 }
 
 /* Initialize the list of existing launchbar buttons when the configuration dialog is shown. */
@@ -702,11 +744,19 @@ static void launchbar_configure_initialize_list(Plugin * p, GtkWidget * dlg, Gtk
         /* Initialize from all menu items. */
         guint32 flags;
         MenuCache *menu_cache = panel_menu_cache_new(&flags);
+
+        g_signal_connect(view, "row-expanded", G_CALLBACK(on_app_tree_row_expanded), tree);
+
         if (menu_cache != NULL)
         {
             MenuCacheDir * dir = menu_cache_get_root_dir(menu_cache);
-            launchbar_configure_add_menu_recursive(tree, NULL, dir);
-            menu_cache_unref(menu_cache);
+            gpointer id = menu_cache_add_reload_notify(menu_cache, on_menu_cache_reload, tree);
+            gpointer *param = g_slice_alloc(sizeof(gpointer) * 2);
+            if(dir)
+                launchbar_configure_add_menu_recursive(tree, NULL, dir);
+            param[0] = menu_cache;
+            param[1] = id;
+            g_object_weak_ref(tree, (GWeakNotify)destroy_menu_cache, param);
         }
         g_object_set_data(G_OBJECT(dlg), "menu_view", view);
     }
