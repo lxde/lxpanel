@@ -55,6 +55,8 @@ static MenuCacheApp* match_app_by_exec(const char* exec)
     {
         MenuCacheApp* app = MENU_CACHE_APP(l->data);
         const char* app_exec = menu_cache_app_get_exec(app);
+        if ( ! app_exec)
+            continue;
 #if 0   /* This is useless and incorrect. */
         /* Dirty hacks to skip sudo programs. This can be a little bit buggy */
         if( g_str_has_prefix(app_exec, "gksu") )
