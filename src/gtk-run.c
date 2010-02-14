@@ -26,7 +26,9 @@
 #include <menu-cache.h>
 
 static GtkWidget* win = NULL; /* the run dialog */
+static MenuCache* menu_cache = NULL;
 static GSList* app_list = NULL; /* all known apps in menu cache */
+static gpointer reload_notify_id = NULL;
 
 typedef struct _ThreadData
 {
@@ -237,6 +239,16 @@ static void setup_auto_complete( GtkEntry* entry )
     }
 }
 
+static void reload_apps(MenuCache* cache, gpointer user_data)
+{
+    if(app_list)
+    {
+        g_slist_foreach(app_list, (GFunc)menu_cache_item_unref, NULL);
+        g_slist_free(app_list);
+    }
+    app_list = (GSList*)menu_cache_list_all_apps(cache);
+}
+
 static void on_response( GtkDialog* dlg, gint response, gpointer user_data )
 {
     GtkEntry* entry = (GtkEntry*)user_data;
@@ -263,6 +275,12 @@ static void on_response( GtkDialog* dlg, gint response, gpointer user_data )
     g_slist_foreach(app_list, (GFunc)menu_cache_item_unref, NULL);
     g_slist_free(app_list);
     app_list = NULL;
+
+    /* free menu cache */
+    menu_cache_remove_reload_notify(menu_cache, reload_notify_id);
+    reload_notify_id = NULL;
+    menu_cache_unref(menu_cache);
+    menu_cache = NULL;
 }
 
 static void on_entry_changed( GtkEntry* entry, GtkImage* img )
@@ -290,7 +308,6 @@ static void on_entry_changed( GtkEntry* entry, GtkImage* img )
 void gtk_run()
 {
     GtkWidget *entry, *hbox, *img;
-    MenuCache* menu_cache;
 
     if( win )
     {
@@ -333,9 +350,6 @@ void gtk_run()
     /* get all apps */
     menu_cache = menu_cache_lookup(g_getenv("XDG_MENU_PREFIX") ? "applications.menu" : "lxde-applications.menu" );
     if( menu_cache )
-    {
-        app_list = (GSList*)menu_cache_list_all_apps(menu_cache);
-        menu_cache_unref(menu_cache);
-    }
+        reload_notify_id = menu_cache_add_reload_notify(menu_cache, reload_apps, NULL);
 }
 
