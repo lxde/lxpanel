@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
@@ -15,10 +15,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 1.1.0\n"
 "X-Poedit-Language: Ukrainian\n"
-"X-Poedit-Country: UKRAINE\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Country: UKRAINE\n"
+"X-Generator: Pootle 1.1.0\n"
 
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
@@ -69,8 +69,7 @@ msgstr "Вирівнювання:"
 msgid "Appearance"
 msgstr "Вигляд"
 
-#: ../data/ui/panel-pref.glade.h:14
-#: ../src/panel.c:1034
+#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1034
 msgid "Bottom"
 msgstr "Внизу"
 
@@ -98,9 +97,7 @@ msgstr "Менеджер файлів:"
 msgid "Geometry"
 msgstr "Геометрія"
 
-#: ../data/ui/panel-pref.glade.h:21
-#: ../src/panel.c:1024
-#: ../src/panel.c:1032
+#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:1024 ../src/panel.c:1032
 msgid "Height:"
 msgstr "Висота:"
 
@@ -108,8 +105,7 @@ msgstr "Висота:"
 msgid "Image"
 msgstr "Зображення"
 
-#: ../data/ui/panel-pref.glade.h:23
-#: ../src/panel.c:1026
+#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:1026
 msgid "Left"
 msgstr "Зліва"
 
@@ -145,8 +141,7 @@ msgstr "Пікселі"
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Зарезервувати місце, яке не покривається максимізованим вікном"
 
-#: ../data/ui/panel-pref.glade.h:32
-#: ../src/panel.c:1027
+#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:1027
 msgid "Right"
 msgstr "Справа"
 
@@ -170,14 +165,11 @@ msgstr "Системна тема"
 msgid "Terminal Emulator:"
 msgstr "Емулятор терміналу"
 
-#: ../data/ui/panel-pref.glade.h:38
-#: ../src/panel.c:1033
+#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1033
 msgid "Top"
 msgstr "Вверху"
 
-#: ../data/ui/panel-pref.glade.h:39
-#: ../src/panel.c:1025
-#: ../src/panel.c:1031
+#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:1025 ../src/panel.c:1031
 msgid "Width:"
 msgstr "Ширина:"
 
@@ -226,8 +218,7 @@ msgstr "<b>Сила сигналу</b>"
 msgid "Address:"
 msgstr "Адреса:"
 
-#: ../data/ui/netstatus.glade.h:10
-#: ../src/plugins/netstat/netstat.c:319
+#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
 #: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
 msgid "Broadcast:"
@@ -288,13 +279,11 @@ msgstr "Тип:"
 msgid "_Name:"
 msgstr "_Назва:"
 
-#: ../data/ui/launchbar.glade.h:1
-#: ../src/plugins/launchbar.c:881
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:881
 msgid "Application Launch Bar"
 msgstr "Панель запуску програм"
 
-#: ../src/configurator.c:54
-#: ../src/gtk-run.c:319
+#: ../src/configurator.c:54 ../src/gtk-run.c:319
 msgid "Run"
 msgstr "Запустити"
 
@@ -330,8 +319,7 @@ msgstr "Команда вилогування не встановлена"
 msgid "Select a directory"
 msgstr "Вибрати каталог"
 
-#: ../src/configurator.c:1196
-#: ../src/configurator.c:1287
+#: ../src/configurator.c:1196 ../src/configurator.c:1287
 msgid "Select a file"
 msgstr "Вибрати файл"
 
@@ -472,8 +460,7 @@ msgstr "Монітор використання CPU"
 msgid "Display CPU usage"
 msgstr "Показати завантаження CPU"
 
-#: ../src/plugins/deskno/deskno.c:207
-#: ../src/plugins/dclock.c:330
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:330
 msgid "Bold font"
 msgstr "Погрублений фонт"
 
@@ -527,7 +514,8 @@ msgstr "Робоча область _%d"
 msgid "Workspace %d"
 msgstr "Робоча область %d"
 
-#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
+#. Add "move to all workspaces" item.  This causes the window to be visible no
+#. matter what desktop is active.
 #: ../src/plugins/taskbar.c:1745
 msgid "_All workspaces"
 msgstr "_Всі робочі області"
@@ -537,7 +525,8 @@ msgstr "_Всі робочі області"
 msgid "_Move to Workspace"
 msgstr "_Перенести до робочої області"
 
-#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
+#. Add Close menu item.  By popular demand, we place this menu item closest to
+#. the cursor.
 #: ../src/plugins/taskbar.c:1757
 msgid "_Close Window"
 msgstr "За_крити вікно"
@@ -595,12 +584,8 @@ msgid "Tooltip Format"
 msgstr "Формат підказок"
 
 #: ../src/plugins/dclock.c:328
-msgid ""
-"Format codes: man 3 strftime; \\n"
-" for line break"
-msgstr ""
-"Формат кодів: запустіть man 3 strftime; \n"
-" для розриву стрічки"
+msgid "Format codes: man 3 strftime; \\n for line break"
+msgstr "Формат кодів: запустіть man 3 strftime; \\n для розриву стрічки"
 
 #: ../src/plugins/dclock.c:329
 msgid "Action when clicked (default: display calendar)"
@@ -626,8 +611,7 @@ msgstr "Додати до стільниці"
 msgid "Properties"
 msgstr "Властивості"
 
-#: ../src/plugins/menu.c:1002
-#: ../src/plugins/dirmenu.c:367
+#: ../src/plugins/menu.c:1002 ../src/plugins/dirmenu.c:367
 msgid "Icon"
 msgstr "Іконка"
 
@@ -655,8 +639,7 @@ msgstr "Пейджер стільниці"
 msgid "Simple pager plugin"
 msgstr "Простий плагін пейджера"
 
-#: ../src/plugins/space.c:121
-#: ../src/plugins/batt/batt.c:590
+#: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
 msgid "Size"
 msgstr "Розмір"
 
@@ -848,8 +831,7 @@ msgstr "Мережний кабель від’єднано"
 msgid "Connection has limited or no connectivity"
 msgstr "Зв’язок обмежений або ж немає з’єднання"
 
-#: ../src/plugins/netstat/netstat.c:307
-#: ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "IP адреса:"
@@ -858,38 +840,32 @@ msgstr "IP адреса:"
 msgid "Remote IP:"
 msgstr "Віддалене IP:"
 
-#: ../src/plugins/netstat/netstat.c:309
-#: ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "Маска мережі:"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "Активність"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "Вислано"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "Отримано"
 
-#: ../src/plugins/netstat/netstat.c:311
-#: ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "байт"
 
-#: ../src/plugins/netstat/netstat.c:312
-#: ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "пакетів"
@@ -903,8 +879,7 @@ msgstr "Безпровідна сітка"
 msgid "Protocol:"
 msgstr "Протокол:"
 
-#: ../src/plugins/netstat/netstat.c:321
-#: ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "Адреса \"заліза\":"
 
