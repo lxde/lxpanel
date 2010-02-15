@@ -49,6 +49,7 @@ static pair wincmd_pair [] = {
     { 0, NULL },
 };
 
+static void wincmd_adjust_toggle_state(WinCmdPlugin * wc);
 static void wincmd_execute(WinCmdPlugin * wc, WindowCommand command);
 static gboolean wincmd_button_clicked(GtkWidget * widget, GdkEventButton * event, Plugin * plugin);
 static int wincmd_constructor(Plugin * p, char ** fp);
@@ -57,6 +58,15 @@ static void wincmd_apply_configuration(Plugin * p);
 static void wincmd_configure(Plugin * p, GtkWindow * parent);
 static void wincmd_save_configuration(Plugin * p, FILE * fp);
 static void wincmd_panel_configuration_changed(Plugin * p);
+
+/* Adjust the toggle state after a window command. */
+static void wincmd_adjust_toggle_state(WinCmdPlugin * wc)
+{
+    /* Ensure that if the user changes the preference from "unconditional" to "toggle", we do a raise on the next click. */
+    if (wc->toggle_preference)
+        wc->toggle_state = ! wc->toggle_state;
+        else wc->toggle_state = TRUE;
+}
 
 /* Execute a window command. */
 static void wincmd_execute(WinCmdPlugin * wc, WindowCommand command)
@@ -87,7 +97,7 @@ static void wincmd_execute(WinCmdPlugin * wc, WindowCommand command)
                         break;
 
                     case WC_ICONIFY:
-                        if (( ! wc->toggle_preference) || (wc->toggle_state))
+                        if (( ! wc->toggle_preference) || ( ! wc->toggle_state))
                             XIconifyWindow(GDK_DISPLAY(), client_list[i], DefaultScreen(GDK_DISPLAY()));
                         else
                             XMapWindow (GDK_DISPLAY(), client_list[i]);
@@ -95,7 +105,7 @@ static void wincmd_execute(WinCmdPlugin * wc, WindowCommand command)
 
                     case WC_SHADE:
                         Xclimsg(client_list[i], a_NET_WM_STATE,
-                            ((( ! wc->toggle_preference) || (wc->toggle_state)) ? a_NET_WM_STATE_ADD : a_NET_WM_STATE_REMOVE),
+                            ((( ! wc->toggle_preference) || ( ! wc->toggle_state)) ? a_NET_WM_STATE_ADD : a_NET_WM_STATE_REMOVE),
                             a_NET_WM_STATE_SHADED, 0, 0, 0);
                         break;
                 }
@@ -103,9 +113,8 @@ static void wincmd_execute(WinCmdPlugin * wc, WindowCommand command)
         }
         XFree(client_list);
 
-	/* Toggle state change if configured. */
-        if (wc->toggle_preference)
-            wc->toggle_state = ! wc->toggle_state;
+	/* Adjust toggle state. */
+        wincmd_adjust_toggle_state(wc);
     }
 }
 
@@ -126,20 +135,16 @@ static gboolean wincmd_button_clicked(GtkWidget * widget, GdkEventButton * event
         if( G_UNLIKELY(0 == atom) )
             atom = gdk_atom_intern("_NET_SHOWING_DESKTOP", FALSE);
 
-        wc->toggle_state = !wc->toggle_state;
-
-        /* if current window manager supports EWMH spec */
-        if(gdk_x11_screen_supports_net_wm_hint(screen, atom))
+        /* If window manager supports _NET_SHOWING_DESKTOP, use it.
+         * Otherwise, fall back to iconifying windows individually. */
+        if (gdk_x11_screen_supports_net_wm_hint(screen, atom))
         {
-            Xclimsg(DefaultRootWindow(GDK_DISPLAY()),
-                        gdk_x11_atom_to_xatom(atom),
-                        wc->toggle_state, 0, 0, 0, 0);
+            int showing_desktop = ((( ! wc->toggle_preference) || ( ! wc->toggle_state)) ? 1 : 0);
+            Xclimsg(DefaultRootWindow(GDK_DISPLAY()), a_NET_SHOWING_DESKTOP, showing_desktop, 0, 0, 0, 0);
+            wincmd_adjust_toggle_state(wc);
         }
         else
-        {
-            /* fallback to iconifying windows one by one */
             wincmd_execute(wc, WC_ICONIFY);
-        }
     }
 
     /* Middle-click to shade. */
@@ -219,8 +224,6 @@ static void wincmd_destructor(Plugin * p)
 /* Callback when the configuration dialog has recorded a configuration change. */
 static void wincmd_apply_configuration(Plugin * p)
 {
-    WinCmdPlugin * wc = (WinCmdPlugin *) p->priv;
-    wc->toggle_state = FALSE;
 }
 
 /* Callback when the configuration dialog is to be shown. */
