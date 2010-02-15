@@ -275,6 +275,7 @@ IconGrid * icon_grid_new(
     /* Create a layout container. */
     ig->widget = gtk_fixed_new();
     GTK_WIDGET_SET_FLAGS(ig->widget, GTK_NO_WINDOW);
+    gtk_widget_set_redraw_on_allocate(ig->widget, FALSE);
     gtk_container_add(GTK_CONTAINER(ig->container), ig->widget);
     gtk_widget_show(ig->widget);
 
