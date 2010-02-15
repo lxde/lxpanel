@@ -101,8 +101,9 @@ static Panel* panel_allocate(void)
     p->visible = TRUE;
     p->height_when_hidden = 2;
     p->transparent = 0;
-    p->alpha = 127;
-    p->tintcolor = 0xFFFFFFFF;
+    p->alpha = 255;
+    gdk_color_parse("white", &p->gtintcolor);
+    p->tintcolor = gcolor2rgb24(&p->gtintcolor);
     p->usefontcolor = 0;
     p->fontcolor = 0x00000000;
     p->spacing = 0;

@@ -611,7 +611,10 @@ static GdkPixbuf * _wnck_gdk_pixbuf_get_from_pixmap(Pixmap xpixmap, int width, i
 
         /* Be sure we aren't going to fail due to visual mismatch. */
         if ((colormap != NULL) && (gdk_colormap_get_visual(colormap)->depth != depth))
+        {
+            g_object_unref(G_OBJECT(colormap));
             colormap = NULL;
+        }
 
         /* Do the major work. */
         retval = gdk_pixbuf_get_from_drawable(NULL, drawable, colormap, 0, 0, 0, 0, width, height);
