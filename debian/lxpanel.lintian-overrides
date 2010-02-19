@@ -1,0 +1,5 @@
+#
+# The desktop-command-not-in-package bacause that's alternatives command.
+#
+lxpanel: desktop-command-not-in-package /usr/share/applications/lxde-x-www-browser.desktop /usr/bin/x-www-browser
+lxpanel: desktop-command-not-in-package /usr/share/applications/lxde-x-terminal-emulator.desktop /usr/bin/x-terminal-emulator

@@ -8,12 +8,12 @@ Comment=Terminal Emulator
 Comment[zh_TW]=終端機程式
 GenericName=Terminal Emulator
 GenericName[zh_TW]=終端機程式
-Exec=x-terminal-emulator
-Icon=Terminal
+Exec=/usr/bin/x-terminal-emulator
+Icon=terminal
 Terminal=false
 Type=Application
 Categories=System;TerminalEmulator;Utility;
 StartupNotify=true
-Hidden=True
+NoDisplay=true
 
 # vi:set encoding=UTF-8:

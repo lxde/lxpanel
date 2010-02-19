@@ -1,3 +1,151 @@
+lxpanel (0.5.5-1) unstable; urgency=low
+
+  * New upstream release
+    - Startup becomes slightly faster. (might not be visible to users)
+    - Configuration dialog of launchbar applet become much faster. (quite
+      prominent)
+    - Translations update
+    - Several minor bug fixes 
+    - Fixed crash problem with libmenu-cache >= 0.3.1
+  * Updated upstream url to http://lxde.org
+  * Bumped Standard-version to 3.8.4
+
+ -- Andrew Lee (李健秋) <ajqlee@debian.org>  Fri, 19 Feb 2010 15:37:59 +0100
+
+lxpanel (0.5.4.1-1) unstable; urgency=low
+
+  * New upstream release (Closes: #493253, #534222, #548333, #560843)
+    - Fixed crash problem on creating new panel
+    - Fixed segfault when battery is not exist 
+    - Use _NET_SHOWING_DESKTOP to toggle the desktop efficiently in wincmd 
+      applet when available
+    - Better checks for EWMH compliant window managers 
+    - Fixed cpufreq plugin, thermal plugin (Closes: #535568)
+    - Support recognizing current DE with $XDG_CURRENT_DESKTOP
+    - Fixed string format warning in src/misc.c
+    - Translation updated
+  * debian/control:
+    - drop deprecated lxpanel-netstat-plugin binary package
+  * Added README.source
+  * Updated README.Debian
+  * Bumped Standard-version to 3.8.3
+
+ -- Andrew Lee (李健秋) <ajqlee@debian.org>  Sat, 19 Dec 2009 00:34:40 +0800
+
+lxpanel (0.5.3-1) experimental; urgency=low
+
+  * New upstream release
+    - Added documentation of \n to dclock dialog
+    - Added configuration dialog to deskno plugin
+    - Improved usability on narrow vertical panel support, now it's possible
+      to configure a vertical panel as small as 16 pixels.
+  * debian/control:
+    - Recommends on manpages-dev to be able to have 'man 3 strftime' to
+      check the format codes of digital clock plugin. (Closes:#493245)
+
+ -- Andrew Lee (李健秋) <ajqlee@debian.org>  Mon, 10 Aug 2009 03:13:50 +0800
+
+lxpanel (0.5.2-1) experimental; urgency=low
+
+  * New upstream release
+    - Fixed "Run" dialog hangs problem.
+    - Restored the old behavior of taskbar in earlier versions
+    - Hided signal strength display in the icon of the netstatus applet 
+      if the monitored iface is not wireless.
+    - Improved application launcher, Available apps are now categorized 
+      as they are in applications menu.
+    - The class name of the desktop panels are now changed to 
+      "PanelToplevel". This is compatible with gnome and can be used by
+      theme authors to distinguish the panel widgets from others.
+    - Reduced program size.
+  * debian/control:
+    - Build-depends on xsltproc
+
+ -- Andrew Lee (李健秋) <ajqlee@debian.org>  Fri, 07 Aug 2009 22:20:31 +0800
+
+lxpanel (0.5.0-1) experimental; urgency=low
+
+  * New upstream release
+    - Change behavior of preference dialogs
+    - Added window icons to configuration dialogs
+    - Added help on dclock format strings
+    - Added keyboard equivalents to taskbar popup menu (FR2781949)
+    - Fixed width control range, fix geometry calculations so it
+      doesn't fly off edge of screen
+    - Improved geometry of menu configuration dialog
+    - Replaced xterm by lxterminal as default terminal
+    - Switch desktop on taskbar button Click and Raise (Bug2028953)
+    - Keyboard equivalents on taskbar popup submenu (FR2781949)
+    - Repaired bad function signature on focus-out callback
+    - Rewrited WM_STRUT setting so it doesn't update the property 
+      unless it changed
+    - Fixed the panel transparency colorbox
+    - Fixed CPU plugin loses context on a relayout (Patch 2800828, song6song)
+    - Added autohide
+    - Rewrote battery backend code (based on Linux acpi 1.4)
+    - Added scroll wheel on main icon to adjust volume and middle-click 
+      on main icon to adjust mute
+    - Use Docbook-XML instead of SGML
+    - Added --enable-man for manpage regeneration
+    - Added New wincmd icon from http://www.oxygen-icons.org/
+    - Icon size now configurable
+    - Enable xkb plugin
+    - Added logic to have a visible name on grouped tasks
+    - Added way to get line breaks in dclock formatting
+    - Rework system tray to do event handling at the X protocol level
+    - Rework background draw to solve observed systray corruption
+    - Rework 90 degree re-orientation to solve lost tray icons for
+      Qt applications, conditional on 2.16 or later
+    - Fix memory leaks
+  * debian/rules:
+    - Added --enable-man
+  * debian/control:
+    - Build-depends on docbook-xsl
+
+ -- Andrew Lee (李健秋) <ajqlee@debian.org>  Wed, 29 Jul 2009 20:56:08 +0200
+
+lxpanel (0.4.1+svn20090524-2) unstable; urgency=low
+
+  * Update debian/control (Thanks Jonas Smedegaard's for the advice):
+    - Move conflicts lxnm ( <0.3 ) from lxpanel-netstat-plugin to lxpanel
+    - Make lxpanel-netstat-plugin dummy package depends on connman
+      (See ITP #475022 for detail)
+  * Removed deprecated dh_desktop from debian/rules
+  * Bumped Standard-version to 3.8.2
+
+ -- Andrew Lee <andrew@linux.org.tw>  Sun, 19 Jul 2009 13:48:27 +0200
+
+lxpanel (0.4.1+svn20090524-1) unstable; urgency=low
+
+  * New upstream release (Closes: #516603, #511001, #493242, #486284, 
+    #515633, #484606, #495924, #517858)
+    - A whole new application menu generated according to 
+      freedesktop.org menu spec. (faster and more standard-compliant. 
+      has tooltips for menu items)
+    - Enhanced "Run" dialog.
+    - Auto resize of application launcher buttons when panel size gets 
+      changed.
+    - The problematic netstat plugin is now turned off by default. It 
+      will be moved to a separate project later.
+    - Building dynamic panel plugins outside the source tree of lxpanel 
+      is now possible.
+    - Fix icon display problems under 64-bit systems.
+    - Fixes to work with minimization animation provided by window 
+      manager.
+    - Fix RTL problems of the task list.
+    - Launch console applications in terminal properly
+    - Add new temperature monitor plugin by Daniel Kesler
+    - Size of icons now can automatically be automatically adjusted 
+      according to the height of the panel.
+  * debian/control:
+    - Build-depends on libmenu-cache0
+    - lxpanel-netstat-plugin become a dummy package to help transition 
+      to wicd or network-manage package.
+    - Update descriptions. Thanks Phil Miller <phildebian@mailinator.com>
+      (Closes: #513009)
+
+ -- Andrew Lee <andrew@linux.org.tw>  Sat, 30 May 2009 00:48:18 +0800
+
 lxpanel (0.3.8.1-2) unstable; urgency=low
 
   * Install lxde-x-terminal-emulator.desktop to prevent missing icon
