@@ -425,25 +425,28 @@ static void load_menu(menup* m, MenuCacheDir* dir, GtkWidget* menu, int pos )
     for( l = menu_cache_dir_get_children(dir); l; l = l->next )
     {
         MenuCacheItem* item = MENU_CACHE_ITEM(l->data);
-        if ((menu_cache_item_get_type(item) != MENU_CACHE_TYPE_APP)
-        || (panel_menu_item_evaluate_visibility(item, m->visibility_flags)))
-        {
+	
+        gboolean is_visible = ((menu_cache_item_get_type(item) != MENU_CACHE_TYPE_APP) || 
+			       (panel_menu_item_evaluate_visibility(item, m->visibility_flags)));
+	
+	if (is_visible) 
+	{
             GtkWidget * mi = create_item(item);
             if (mi != NULL)
-            {
                 gtk_menu_shell_insert( (GtkMenuShell*)menu, mi, pos );
                 if( pos >= 0 )
                     ++pos;
-                if (menu_cache_item_get_type(item) == MENU_CACHE_TYPE_DIR)
-                {
+		/* process subentries */
+		if (menu_cache_item_get_type(item) == MENU_CACHE_TYPE_DIR) 
+		{
                     GtkWidget* sub = gtk_menu_new();
                     load_menu( m, MENU_CACHE_DIR(item), sub, -1 );    /* always pass -1 for position */
-                    gtk_menu_item_set_submenu( GTK_MENU_ITEM(mi), sub );
-                }
-            }
-        }
+                    gtk_menu_item_set_submenu( GTK_MENU_ITEM(mi), sub );	    
+		}
+	}
     }
 }
+
 
 
 static gboolean sys_menu_item_has_data( GtkMenuItem* item )
