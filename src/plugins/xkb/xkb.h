@@ -49,10 +49,8 @@ typedef struct {
     GtkWidget * per_app_default_layout_menu;	/* Combo box of all available layouts */
 
     /* Mechanism. */
-    Display * dsp;				/* Handle to X display */
     int base_event_code;			/* Result of initializing Xkb extension */
     int base_error_code;
-    int device_id;				/* Keyboard device ID (always "core keyboard") */
     int current_group_xkb_no;			/* Current layout */
     int group_count;				/* Count of groups as returned by Xkb */
     char * group_names[XkbNumKbdGroups];	/* Group names as returned by Xkb */
@@ -67,12 +65,11 @@ extern int xkb_get_current_group_xkb_no(XkbPlugin * xkb);
 extern int xkb_get_group_count(XkbPlugin * xkb);
 extern const char * xkb_get_symbol_name_by_res_no(XkbPlugin * xkb, int group_res_no);
 extern const char * xkb_get_current_group_name(XkbPlugin * xkb);
-extern const char * xkb_get_current_group_name_lowercase(XkbPlugin * xkb);
+extern const char * xkb_get_current_symbol_name(XkbPlugin * xkb);
+extern const char * xkb_get_current_symbol_name_lowercase(XkbPlugin * xkb);
 extern void xkb_mechanism_constructor(XkbPlugin * xkb);
 extern void xkb_mechanism_destructor(XkbPlugin * xkb);
-extern int xkb_get_connection_number(XkbPlugin * xkb);
 extern int xkb_change_group(XkbPlugin * xkb, int increment);
-extern gboolean xkb_gio_callback(GIOChannel * source, GIOCondition condition, gpointer data);
 extern void xkb_active_window_changed(XkbPlugin * xkb, GPid pid);
 
 #endif

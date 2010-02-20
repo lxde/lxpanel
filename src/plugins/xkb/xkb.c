@@ -1,18 +1,23 @@
-/*
-// ====================================================================
-//  xfce4-xkb-plugin - XFCE4 Xkb Layout Indicator panel plugin
-// -------------------------------------------------------------------
-//  Alexander Iliev <sasoiliev@mamul.org>
-//  20-Feb-04
-// -------------------------------------------------------------------
-//  Parts of this code belong to Michael Glickman <wmalms@yahooo.com>
-//  and his program wmxkb.
-//  WARNING: DO NOT BOTHER Michael Glickman WITH QUESTIONS ABOUT THIS
-//           PROGRAM!!! SEND INSTEAD EMAILS TO <sasoiliev@mamul.org>
-//====================================================================
-*/
+/**
+ * Copyright (c) 2010 LxDE Developers, see the file AUTHORS for details.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ */
 
-/* Modified by Hong Jen Yee (PCMan) <pcman.tw@gmail.com> on 2008-04-06 for lxpanel */
+/* Originally derived from xfce4-xkb-plugin, Copyright 2004 Alexander Iliev,
+ * which credits Michael Glickman. */
 
 #include "xkb.h"
 
@@ -26,9 +31,13 @@
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <glib.h>
 
+/* The X Keyboard Extension: Library Specification
+ * http://www.xfree86.org/current/XKBlib.pdf */
+
 static void xkb_enter_locale_by_process(XkbPlugin * xkb);
 static void refresh_group_xkb(XkbPlugin * xkb);
-static int do_init_xkb(XkbPlugin * xkb);
+static int initialize_keyboard_description(XkbPlugin * xkb);
+static GdkFilterReturn xkb_event_filter(GdkXEvent * xevent, GdkEvent * event, XkbPlugin * xkb);
 
 /* Insert a process and its layout into the hash table. */
 static void xkb_enter_locale_by_process(XkbPlugin * xkb)
@@ -56,60 +65,65 @@ int xkb_get_group_count(XkbPlugin * xkb)
   return xkb->group_count;
 }
 
+/* Get the current group name. */
+const char * xkb_get_current_group_name(XkbPlugin * xkb) 
+{
+    return xkb->group_names[xkb->current_group_xkb_no];
+}
+
 /* Convert a group number to a symbol name. */
 const char * xkb_get_symbol_name_by_res_no(XkbPlugin * xkb, int n) 
 {
     return xkb->symbol_names[n];
 }
 
-/* Get the current group name. */
-const char * xkb_get_current_group_name(XkbPlugin * xkb) 
+/* Get the current symbol name. */
+const char * xkb_get_current_symbol_name(XkbPlugin * xkb) 
 {
     return xkb_get_symbol_name_by_res_no(xkb, xkb->current_group_xkb_no);
 }
 
-/* Get the current group name converted to lowercase. */
-const char * xkb_get_current_group_name_lowercase(XkbPlugin * xkb) 
+/* Get the current symbol name converted to lowercase. */
+const char * xkb_get_current_symbol_name_lowercase(XkbPlugin * xkb) 
 {
-    const char * tmp = xkb_get_current_group_name(xkb);
-    return g_utf8_strdown(tmp, -1);
+    const char * tmp = xkb_get_current_symbol_name(xkb);
+    return ((tmp != NULL) ? g_utf8_strdown(tmp, -1) : NULL);
 }
 
 /* Refresh current group number from Xkb state. */
 static void refresh_group_xkb(XkbPlugin * xkb) 
 {
     XkbStateRec xkb_state;
-    XkbGetState(xkb->dsp, xkb->device_id, &xkb_state);
+    XkbGetState(GDK_DISPLAY(), XkbUseCoreKbd, &xkb_state);
     xkb->current_group_xkb_no = xkb_state.group;
 }
 
-/* Initialize the Xkb structures. */
-static int do_init_xkb(XkbPlugin * xkb) 
+/* Initialize the keyboard description initially or after a NewKeyboard event. */
+static int initialize_keyboard_description(XkbPlugin * xkb)
 {
-    /* Create hash table. */
-    xkb->group_hash_table = g_hash_table_new(g_direct_hash, NULL);
-
-    /* Initialize the Xkb extension. */
-    int major, minor, opcode;
-    Bool status = XkbQueryExtension(xkb->dsp, &opcode,
-        &xkb->base_event_code, &xkb->base_error_code, &major, &minor);
-
-    /* Use the core keyboard. */
-    xkb->device_id = XkbUseCoreKbd;
+    /* Free the strings. */
+    int i;
+    for (i = 0; i < XkbNumKbdGroups; i += 1)
+    {
+        g_free(xkb->group_names[i]);
+        g_free(xkb->symbol_names[i]);
+        xkb->group_names[i] = NULL;
+        xkb->symbol_names[i] = NULL;
+    }
 
     /* Allocate a keyboard description structure. */
+    int status = False;
     XkbDescRec * kbd_desc_ptr = XkbAllocKeyboard();
     if (kbd_desc_ptr == NULL)
     {
         ERR("Failed to get keyboard description\n");
         goto HastaLaVista;
     }
-    kbd_desc_ptr->dpy = xkb->dsp;
 
     /* Fetch information into the keyboard description. */
-    XkbGetControls(xkb->dsp, XkbAllControlsMask, kbd_desc_ptr);
-    XkbGetNames(xkb->dsp, XkbSymbolsNameMask, kbd_desc_ptr);
-    XkbGetNames(xkb->dsp, XkbGroupNamesMask, kbd_desc_ptr);
+    XkbGetControls(GDK_DISPLAY(), XkbAllControlsMask, kbd_desc_ptr);
+    XkbGetNames(GDK_DISPLAY(), XkbSymbolsNameMask, kbd_desc_ptr);
+    XkbGetNames(GDK_DISPLAY(), XkbGroupNamesMask, kbd_desc_ptr);
 
     if (kbd_desc_ptr->names == NULL)
     {
@@ -137,12 +151,11 @@ static int do_init_xkb(XkbPlugin * xkb)
 
     /* Determine the group names.  Trim off text beginning at a '('. */
     const Atom * tmp_group_source = kbd_desc_ptr->names->groups;
-    int i;
     for (i = 0; i < xkb->group_count; i++)
     {
         if (tmp_group_source[i] != None)
         {
-            char * ptr = XGetAtomName(xkb->dsp, tmp_group_source[i]);
+            char * ptr = XGetAtomName(GDK_DISPLAY(), tmp_group_source[i]);
             xkb->group_names[i] = ptr;
             if ((ptr != NULL) && ((ptr = strchr(ptr, '('))) != NULL)
                 *ptr = '\0';
@@ -153,7 +166,7 @@ static int do_init_xkb(XkbPlugin * xkb)
     Atom sym_name_atom = kbd_desc_ptr->names->symbols;
     char * sym_name;
     if ((sym_name_atom == None)
-    || ((sym_name = XGetAtomName(xkb->dsp, sym_name_atom)) == NULL))
+    || ((sym_name = XGetAtomName(GDK_DISPLAY(), sym_name_atom)) == NULL))
         goto HastaLaVista;
 
     /* Parse and store symbol names. */
@@ -190,83 +203,106 @@ static int do_init_xkb(XkbPlugin * xkb)
     {
         xkb->group_count = 2;
         xkb->symbol_names[1] = xkb->symbol_names[0];
-        xkb->symbol_names[0] = strdup("us");
-        xkb->group_names[0] = strdup("US/ASCII");
-        xkb->group_names[1] = strdup("Japanese");
+        xkb->symbol_names[0] = g_strdup("us");
+        xkb->group_names[0] = g_strdup("US/ASCII");
+        xkb->group_names[1] = g_strdup("Japanese");
     }
     else if (count < xkb->group_count)
     {
         /* Ensure that the names are fully initialized. */
         int j = count, k = xkb->group_count;
         while(--j >= 0) xkb->symbol_names[--k] = xkb->symbol_names[j];
-        while(--k >= 0) xkb->symbol_names[k] = strdup("en_US");
+        while(--k >= 0) xkb->symbol_names[k] = g_strdup("en_US");
     }
 
-    /* Enxure that the names are fully initialized. */
+    /* Ensure that the names are fully initialized. */
     for (i = 0; i < xkb->group_count; i++)
     {
         if (xkb->symbol_names[i] == NULL)
         {
             ERR("\nGroup Symbol %i is undefined, set to 'U/A' !\n", i+1);
-            xkb->symbol_names[i] = strdup("U/A");
+            xkb->symbol_names[i] = g_strdup("U/A");
         }
     }
+
+    /* Create or recreate hash table.
+     * The layout that was associated to the windows may or may not be at the same group number,
+     * and worse, may no longer exist, which there is no meaningful way to deal with. */
+    if (xkb->group_hash_table != NULL)
+        g_hash_table_destroy(xkb->group_hash_table);
+    xkb->group_hash_table = g_hash_table_new(g_direct_hash, NULL);
 
     status = True;
 
 HastaLaVista:
     if (kbd_desc_ptr != NULL)
         XkbFreeKeyboard(kbd_desc_ptr, 0, True);
+
     return status;
+}
+
+/* GDK event filter that receives events from all windows and the Xkb extension. */
+static GdkFilterReturn xkb_event_filter(GdkXEvent * xevent, GdkEvent * event, XkbPlugin * xkb)
+{
+    XEvent * ev = (XEvent *) xevent;
+
+    if (ev->xany.type == xkb->base_event_code + XkbEventCode)
+    {
+        /* Xkb event. */
+        XkbEvent * xkbev = (XkbEvent *) ev;
+        if (xkbev->any.xkb_type == XkbNewKeyboardNotify)
+        {
+            initialize_keyboard_description(xkb);
+            refresh_group_xkb(xkb);
+            xkb_redraw(xkb);
+            xkb_enter_locale_by_process(xkb);
+        }
+        else if (xkbev->any.xkb_type == XkbStateNotify)
+        {
+            if (xkbev->state.group != xkb->current_group_xkb_no)
+            {
+                /* Switch to the new group and redraw the display. */
+                xkb->current_group_xkb_no = xkbev->state.group;
+                refresh_group_xkb(xkb);
+                xkb_redraw(xkb);
+                xkb_enter_locale_by_process(xkb);
+            }
+        }
+    }
+    return GDK_FILTER_CONTINUE;
 }
 
 /* Initialize the Xkb interface. */
 void xkb_mechanism_constructor(XkbPlugin * xkb)
 {
-    /* Enable the Xkb extension on all clients. */
-    XkbIgnoreExtension(False);
-
-    /* Open the display. */
-    int major = XkbMajorVersion;
-    int minor = XkbMinorVersion;
-    char * display_name = "";
-    int event_code;
-    int error_rtrn;
-    int reason_rtrn;
-    xkb->dsp = XkbOpenDisplay(display_name, &event_code, &error_rtrn, &major, &minor, &reason_rtrn);
-
-    switch (reason_rtrn)
+    /* Initialize Xkb extension. */
+    int opcode;
+    int maj = XkbMajorVersion;
+    int min = XkbMinorVersion;
+    if ((XkbLibraryVersion(&maj, &min))
+    && (XkbQueryExtension(GDK_DISPLAY(), &opcode, &xkb->base_event_code, &xkb->base_error_code, &maj, &min)))
     {
-        case XkbOD_BadLibraryVersion:
-            ERR("Bad XKB library version.\n");
-            return;
-        case XkbOD_ConnectionRefused:
-            ERR("Connection to X server refused.\n");
-            return;
-        case XkbOD_BadServerVersion:
-            ERR("Bad X server version.\n");
-            return;
-        case XkbOD_NonXkbServer:
-            ERR("XKB not present.\n");
-            return;
-        case XkbOD_Success:
-            break;
+        /* Read the keyboard description. */
+        initialize_keyboard_description(xkb);
+
+        /* Establish GDK event filter. */
+        gdk_window_add_filter(NULL, (GdkFilterFunc) xkb_event_filter, (gpointer) xkb);
+
+        /* Specify events we will receive. */
+        XkbSelectEvents(GDK_DISPLAY(), XkbUseCoreKbd, XkbNewKeyboardNotifyMask, XkbNewKeyboardNotifyMask);
+        XkbSelectEventDetails(GDK_DISPLAY(), XkbUseCoreKbd, XkbStateNotify, XkbAllStateComponentsMask, XkbGroupStateMask);
+
+        /* Get current state. */
+        refresh_group_xkb(xkb);
     }
-
-    /* Initialize our mechanism. */
-    if (do_init_xkb(xkb) != True)
-        return;
-
-    /* Specify events we will receive. */
-    XkbSelectEventDetails(xkb->dsp, xkb->device_id, XkbStateNotify, XkbAllStateComponentsMask, XkbGroupStateMask);
-
-    /* Get current state. */
-    refresh_group_xkb(xkb);
 }
 
 /* Deallocate resources associated with Xkb interface. */
 void xkb_mechanism_destructor(XkbPlugin * xkb) 
 {
+    /* Remove event filter. */
+    gdk_window_remove_filter(NULL, (GdkFilterFunc) xkb_event_filter, xkb);
+
     /* Free group and symbol name memory. */
     int i;
     for (i = 0; i < xkb->group_count; i++)
@@ -283,19 +319,9 @@ void xkb_mechanism_destructor(XkbPlugin * xkb)
         }
     }
 
-    /* Close the display. */
-    XCloseDisplay(xkb->dsp);
-    xkb->dsp = NULL;
-
     /* Destroy the hash table. */
     g_hash_table_destroy(xkb->group_hash_table);
     xkb->group_hash_table = NULL;
-}
-
-/* Return the connection number for the display. */
-int xkb_get_connection_number(XkbPlugin * xkb)
-{
-    return ConnectionNumber(xkb->dsp);
 }
 
 /* Set the layout to the next layout. */
@@ -307,31 +333,11 @@ int xkb_change_group(XkbPlugin * xkb, int increment)
     if (next_group >= xkb->group_count) next_group = 0;
 
     /* Execute the change. */
-    XkbLockGroup(xkb->dsp, xkb->device_id, next_group);
+    XkbLockGroup(GDK_DISPLAY(), XkbUseCoreKbd, next_group);
     refresh_group_xkb(xkb);
     xkb_redraw(xkb);
     xkb_enter_locale_by_process(xkb);
     return 1;
-}
-
-/* Callback when activity detected on the Xkb channel. */
-gboolean xkb_gio_callback(GIOChannel * source, GIOCondition condition, gpointer data) 
-{
-    XkbPlugin * xkb = (XkbPlugin *) data;
-
-    XkbEvent evnt;
-    XNextEvent(xkb->dsp, &evnt.core);
-    if ((evnt.type == xkb->base_event_code)
-    && (evnt.any.xkb_type == XkbStateNotify)
-    && (evnt.state.group != xkb->current_group_xkb_no))
-    {
-        /* Switch to the new group and redraw the display. */
-        xkb->current_group_xkb_no = evnt.state.group;
-        refresh_group_xkb(xkb);
-        xkb_redraw(xkb);
-        xkb_enter_locale_by_process(xkb);
-    }
-    return TRUE;
 }
 
 /* React to change of focus by switching to the application's layout or the default layout. */
@@ -345,7 +351,7 @@ void xkb_active_window_changed(XkbPlugin * xkb, gint pid)
 
     if (new_group_xkb_no < xkb->group_count)
     {
-        XkbLockGroup(xkb->dsp, xkb->device_id, new_group_xkb_no);
+        XkbLockGroup(GDK_DISPLAY(), XkbUseCoreKbd, new_group_xkb_no);
         refresh_group_xkb(xkb);
     }
 }

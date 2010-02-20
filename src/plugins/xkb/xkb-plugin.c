@@ -1,18 +1,23 @@
-/*
-//====================================================================
-//  xfce4-xkb-plugin - XFCE4 Xkb Layout Indicator panel plugin
-// -------------------------------------------------------------------
-//  Alexander Iliev <sasoiliev@mamul.org>
-//  20-Feb-04
-// -------------------------------------------------------------------
-//  Parts of this code belong to Michael Glickman <wmalms@yahooo.com>
-//  and his program wmxkb.
-//  WARNING: DO NOT BOTHER Michael Glickman WITH QUESTIONS ABOUT THIS
-//           PROGRAM!!! SEND INSTEAD EMAILS TO <sasoiliev@mamul.org>
-//====================================================================
-*/
+/**
+ * Copyright (c) 2010 LxDE Developers, see the file AUTHORS for details.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ */
 
-/* Modified by Hong Jen Yee (PCMan) <pcman.tw@gmail.com> on 2008-04-06 for lxpanel */
+/* Originally derived from xfce4-xkb-plugin, Copyright 2004 Alexander Iliev,
+ * which credits Michael Glickman. */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -49,38 +54,45 @@ void xkb_redraw(XkbPlugin * xkb)
     if (xkb->display_type == IMAGE)
     {
         int size = xkb->plugin->panel->icon_size;
-        char * group_name = (char *) xkb_get_current_group_name_lowercase(xkb);
-        char * filename = g_strdup_printf("%s/%s.png", FLAGSDIR, group_name);
-        GdkPixbuf * unscaled_pixbuf = gdk_pixbuf_new_from_file(filename, NULL);
-        g_free(filename);
-        g_free(group_name);
-
-        if (unscaled_pixbuf != NULL)
+        char * group_name = (char *) xkb_get_current_symbol_name_lowercase(xkb);
+        if (group_name != NULL)
         {
-            /* Loaded successfully. */
-            int width = gdk_pixbuf_get_width(unscaled_pixbuf);
-            int height = gdk_pixbuf_get_height(unscaled_pixbuf);
-            GdkPixbuf * pixbuf = gdk_pixbuf_scale_simple(unscaled_pixbuf, size * width / height, size, GDK_INTERP_BILINEAR);
-            if (pixbuf != NULL)
+            char * filename = g_strdup_printf("%s/%s.png", FLAGSDIR, group_name);
+            GdkPixbuf * unscaled_pixbuf = gdk_pixbuf_new_from_file(filename, NULL);
+            g_free(filename);
+            g_free(group_name);
+
+            if (unscaled_pixbuf != NULL)
             {
-                gtk_image_set_from_pixbuf(GTK_IMAGE(xkb->image), pixbuf);
-                g_object_unref(G_OBJECT(pixbuf));
-                gtk_widget_hide(xkb->label);
-                gtk_widget_show(xkb->image);
-                gtk_widget_set_tooltip_text(xkb->btn, xkb_get_current_group_name(xkb));
-                valid_image = TRUE;
+                /* Loaded successfully. */
+                int width = gdk_pixbuf_get_width(unscaled_pixbuf);
+                int height = gdk_pixbuf_get_height(unscaled_pixbuf);
+                GdkPixbuf * pixbuf = gdk_pixbuf_scale_simple(unscaled_pixbuf, size * width / height, size, GDK_INTERP_BILINEAR);
+                if (pixbuf != NULL)
+                {
+                    gtk_image_set_from_pixbuf(GTK_IMAGE(xkb->image), pixbuf);
+                    g_object_unref(G_OBJECT(pixbuf));
+                    gtk_widget_hide(xkb->label);
+                    gtk_widget_show(xkb->image);
+                    gtk_widget_set_tooltip_text(xkb->btn, xkb_get_current_group_name(xkb));
+                    valid_image = TRUE;
+                }
+                g_object_unref(unscaled_pixbuf);
             }
-            g_object_unref(unscaled_pixbuf);
         }
     }
 
     /* Set the label. */
     if ((xkb->display_type == TEXT) || ( ! valid_image))
     {
-        panel_draw_label_text(xkb->plugin->panel, xkb->label, (char *) xkb_get_current_group_name(xkb), TRUE, TRUE);
-        gtk_widget_hide(xkb->image);
-        gtk_widget_show(xkb->label);
-        gtk_widget_set_tooltip_text(xkb->btn, NULL);
+        char * group_name = (char *) xkb_get_current_symbol_name(xkb);
+        if (group_name != NULL)
+        {
+            panel_draw_label_text(xkb->plugin->panel, xkb->label, (char *) group_name, TRUE, TRUE);
+            gtk_widget_hide(xkb->image);
+            gtk_widget_show(xkb->label);
+            gtk_widget_set_tooltip_text(xkb->btn, xkb_get_current_group_name(xkb));
+        }
     }
 }
 
@@ -195,10 +207,6 @@ static int xkb_constructor(Plugin * plugin, char ** fp)
 
     /* Initialize the XKB interface. */
     xkb_mechanism_constructor(xkb);
-
-    /* Initialize a channel to listen for XKB events. */
-    GIOChannel * channel = g_io_channel_unix_new(xkb_get_connection_number(xkb));
-    xkb->source_id = g_io_add_watch(channel, G_IO_IN | G_IO_PRI, (GIOFunc) xkb_gio_callback, (gpointer) xkb);
 
     /* Connect signals. */
     g_signal_connect(xkb->btn, "button-press-event", G_CALLBACK(xkb_button_press_event), xkb);
