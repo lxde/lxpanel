@@ -355,6 +355,10 @@ static int launchbutton_constructor(Plugin * p, char ** fp)
                     btn->customize_action = TRUE;
                     btn->action = g_strdup(s.t[1]);
                 }
+                else if (g_ascii_strcasecmp(s.t[0], "terminal") == 0)
+                {
+                    btn->use_terminal = str2num(bool_pair, s.t[1], 0);
+                }
                 else
                     ERR( "launchbar: unknown var %s\n", s.t[0]);
             }
@@ -846,6 +850,8 @@ static void launchbar_save_configuration(Plugin * p, FILE * fp)
             lxpanel_put_str(fp, "tooltip", btn->tooltip);
         if (btn->customize_action)
             lxpanel_put_str(fp, "action", btn->action);
+        if (btn->use_terminal)
+            lxpanel_put_bool(fp, "terminal", TRUE);
         lxpanel_put_line(fp, "}");
     }
 }

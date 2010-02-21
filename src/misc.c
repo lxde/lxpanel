@@ -1558,12 +1558,14 @@ gboolean lxpanel_launch_app(const char* exec, GList* files, gboolean in_terminal
     cmd = translate_app_exec_to_command_line(exec, files);
     if( in_terminal )
     {
+	char * escaped_cmd = g_shell_quote(cmd);
         char* term_cmd;
         const char* term = lxpanel_get_terminal();
         if( strstr(term, "%s") )
-            term_cmd = g_strdup_printf(term, cmd);
+            term_cmd = g_strdup_printf(term, escaped_cmd);
         else
-            term_cmd = g_strconcat( term, " -e ", cmd, NULL );
+            term_cmd = g_strconcat( term, " -e ", escaped_cmd, NULL );
+	g_free(escaped_cmd);
         if( cmd != exec )
             g_free(cmd);
         cmd = term_cmd;
