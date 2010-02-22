@@ -69,7 +69,7 @@ choice="req"
         </term>
         <listitem
 >          <para
->show system menu</para>
+>Show the system menu.</para>
         </listitem>
       </varlistentry>
       <varlistentry
@@ -79,7 +79,18 @@ choice="req"
         </term>
         <listitem
 >          <para
->show run dialog</para>
+>Show the run dialog.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry
+>        <term
+><command
+>config</command>
+        </term>
+        <listitem
+>          <para
+>Show the panel configuration dialog.  If more than one panel is configured,
+it is undefined which panel configuration dialog will be shown.</para>
         </listitem>
       </varlistentry>
       <varlistentry
@@ -89,7 +100,7 @@ choice="req"
         </term>
         <listitem
 >          <para
->restart lxpanel</para>
+>Restart lxpanel.</para>
         </listitem>
       </varlistentry>
       <varlistentry
@@ -99,7 +110,7 @@ choice="req"
         </term>
         <listitem
 >          <para
->exit lxpanel</para>
+>Exit lxpanel.</para>
         </listitem>
       </varlistentry>
     </variablelist>

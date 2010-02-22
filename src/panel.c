@@ -261,7 +261,11 @@ static void process_client_msg ( XClientMessageEvent* ev )
             break;
 #endif
         case LXPANEL_CMD_CONFIG:
-            //FIXME: configure();
+            {
+            Panel * p = ((all_panels != NULL) ? all_panels->data : NULL);
+            if (p != NULL)
+                panel_configure(p, 0);
+            }
             break;
         case LXPANEL_CMD_RESTART:
             restart();
