@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-02 01:32+0100\n"
+"POT-Creation-Date: 2010-02-24 04:06+0000\n"
 "PO-Revision-Date: 2010-02-15 20:16+0100\n"
 "Last-Translator: Yarema aka Knedlyk <yupadmin@gmail.com>\n"
 "Language-Team: UKRAINIAN <translate@linux.org.ua>\n"
@@ -69,8 +69,7 @@ msgstr "Вирівнювання:"
 msgid "Appearance"
 msgstr "Вигляд"
 
-#: ../data/ui/panel-pref.glade.h:14
-#: ../src/panel.c:1021
+#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1039
 msgid "Bottom"
 msgstr "Внизу"
 
@@ -98,9 +97,7 @@ msgstr "Менеджер файлів:"
 msgid "Geometry"
 msgstr "Геометрія"
 
-#: ../data/ui/panel-pref.glade.h:21
-#: ../src/panel.c:1011
-#: ../src/panel.c:1019
+#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:1029 ../src/panel.c:1037
 msgid "Height:"
 msgstr "Висота:"
 
@@ -108,8 +105,7 @@ msgstr "Висота:"
 msgid "Image"
 msgstr "Зображення"
 
-#: ../data/ui/panel-pref.glade.h:23
-#: ../src/panel.c:1013
+#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:1031
 msgid "Left"
 msgstr "Зліва"
 
@@ -145,8 +141,7 @@ msgstr "Пікселі"
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Зарезервувати місце, яке не покривається максимізованим вікном"
 
-#: ../data/ui/panel-pref.glade.h:32
-#: ../src/panel.c:1014
+#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:1032
 msgid "Right"
 msgstr "Справа"
 
@@ -170,14 +165,11 @@ msgstr "Системна тема"
 msgid "Terminal Emulator:"
 msgstr "Емулятор терміналу"
 
-#: ../data/ui/panel-pref.glade.h:38
-#: ../src/panel.c:1020
+#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1038
 msgid "Top"
 msgstr "Вверху"
 
-#: ../data/ui/panel-pref.glade.h:39
-#: ../src/panel.c:1012
-#: ../src/panel.c:1018
+#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:1030 ../src/panel.c:1036
 msgid "Width:"
 msgstr "Ширина:"
 
@@ -226,8 +218,7 @@ msgstr "<b>Сила сигналу</b>"
 msgid "Address:"
 msgstr "Адреса:"
 
-#: ../data/ui/netstatus.glade.h:10
-#: ../src/plugins/netstat/netstat.c:319
+#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
 #: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
 msgid "Broadcast:"
@@ -288,21 +279,11 @@ msgstr "Тип:"
 msgid "_Name:"
 msgstr "_Назва:"
 
-#: ../data/ui/launchbar.glade.h:1
-#: ../src/plugins/launchbar.c:831
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:887
 msgid "Application Launch Bar"
 msgstr "Панель запуску програм"
 
-#: ../data/ui/launchbar.glade.h:2
-msgid "Applications"
-msgstr "Програми"
-
-#: ../data/ui/launchbar.glade.h:3
-msgid "Available Applications"
-msgstr "Доступні програми"
-
-#: ../src/configurator.c:54
-#: ../src/gtk-run.c:299
+#: ../src/configurator.c:54 ../src/gtk-run.c:319
 msgid "Run"
 msgstr "Запустити"
 
@@ -338,8 +319,7 @@ msgstr "Команда вилогування не встановлена"
 msgid "Select a directory"
 msgstr "Вибрати каталог"
 
-#: ../src/configurator.c:1196
-#: ../src/configurator.c:1287
+#: ../src/configurator.c:1196 ../src/configurator.c:1287
 msgid "Select a file"
 msgstr "Вибрати файл"
 
@@ -347,7 +327,7 @@ msgstr "Вибрати файл"
 msgid "_Browse"
 msgstr "_Переглянути"
 
-#: ../src/panel.c:634
+#: ../src/panel.c:639
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -355,109 +335,109 @@ msgstr ""
 "Дійсно видалити цю панель?\n"
 "<b>Увага: Повернення назад неможливе.</b>"
 
-#: ../src/panel.c:636
+#: ../src/panel.c:641
 msgid "Confirm"
 msgstr "Підтвердити"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:668
+#: ../src/panel.c:673
 msgid "translator-credits"
 msgstr "Yarema aka Knedlyk <yupadmin@gmail.com>"
 
-#: ../src/panel.c:673
+#: ../src/panel.c:678
 msgid "LXPanel"
 msgstr "LX-панель"
 
-#: ../src/panel.c:675
+#: ../src/panel.c:680
 msgid "Copyright (C) 2008-2009"
 msgstr "Всі права застережено (С) 2008-2009"
 
-#: ../src/panel.c:676
+#: ../src/panel.c:681
 msgid "Desktop panel for LXDE project"
 msgstr "Панель робочого столу для проекту LXDE"
 
-#: ../src/panel.c:699
+#: ../src/panel.c:704
 msgid "Add / Remove Panel Items"
 msgstr "Додати/Видалити компоненти панелі"
 
-#: ../src/panel.c:707
+#: ../src/panel.c:712
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Видалити \"%s\" з панелі"
 
-#: ../src/panel.c:719
+#: ../src/panel.c:724
 msgid "Panel Settings"
 msgstr "Налаштування панелі"
 
-#: ../src/panel.c:725
+#: ../src/panel.c:730
 msgid "Create New Panel"
 msgstr "Створити нову панель"
 
-#: ../src/panel.c:736
+#: ../src/panel.c:741
 msgid "Delete This Panel"
 msgstr "Видалити цю панель"
 
-#: ../src/panel.c:747
+#: ../src/panel.c:752
 msgid "About"
 msgstr "Про LXDE-панель"
 
-#: ../src/panel.c:755
+#: ../src/panel.c:760
 msgid "Panel"
 msgstr "Панель"
 
-#: ../src/panel.c:768
+#: ../src/panel.c:773
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "Налаштування \"%s\""
 
-#: ../src/panel.c:1420
+#: ../src/panel.c:1438
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - легка GTK2+ панель для UNIX десктопів\n"
 
-#: ../src/panel.c:1421
+#: ../src/panel.c:1439
 #, c-format
 msgid "Command line options:\n"
 msgstr "Опції командного рядка:\n"
 
-#: ../src/panel.c:1422
+#: ../src/panel.c:1440
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- надрукувати цю допомогу і вийти\n"
 
-#: ../src/panel.c:1423
+#: ../src/panel.c:1441
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- надрукувати версію та вийти\n"
 
-#: ../src/panel.c:1424
+#: ../src/panel.c:1442
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --log <number> -- виставити рівень логів 0-5. 0 - нема, 5 - повний\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1426
+#: ../src/panel.c:1444
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr "--profile name -- використовувати вибраний профіль\n"
 
-#: ../src/panel.c:1428
+#: ../src/panel.c:1446
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr "-h  -- то саме що й --help\n"
 
-#: ../src/panel.c:1429
+#: ../src/panel.c:1447
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- то саме що й --profile\n"
 
-#: ../src/panel.c:1430
+#: ../src/panel.c:1448
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- то саме що й --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1432
+#: ../src/panel.c:1450
 #, c-format
 msgid ""
 "\n"
@@ -468,7 +448,7 @@ msgstr ""
 "Відвідайте http://lxde.org/ для деталей.\n"
 "\n"
 
-#: ../src/gtk-run.c:312
+#: ../src/gtk-run.c:332
 msgid "Enter the command you want to execute:"
 msgstr "Введіть команду, яку Ви бажаєте запустити:"
 
@@ -480,8 +460,7 @@ msgstr "Монітор використання CPU"
 msgid "Display CPU usage"
 msgstr "Показати завантаження CPU"
 
-#: ../src/plugins/deskno/deskno.c:207
-#: ../src/plugins/dclock.c:314
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:330
 msgid "Bold font"
 msgstr "Погрублений фонт"
 
@@ -501,149 +480,148 @@ msgstr "Показати номер робочої області, завдяк�
 msgid "Display Image and Tooltip"
 msgstr "Показати зображення та підказки"
 
-#: ../src/plugins/launchbar.c:833
+#: ../src/plugins/launchbar.c:889
 msgid "Bar with buttons to launch application"
 msgstr "Панель з кнопками для запуску програм"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1712
+#: ../src/plugins/taskbar.c:1695
 msgid "_Raise"
 msgstr "_Розгорнути"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1717
+#: ../src/plugins/taskbar.c:1700
 msgid "R_estore"
 msgstr "В_ідновити"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1722
+#: ../src/plugins/taskbar.c:1705
 msgid "Ma_ximize"
 msgstr "М_аксималізувати"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1727
+#: ../src/plugins/taskbar.c:1710
 msgid "Ico_nify"
 msgstr "_Згорнути в іконку"
 
-#: ../src/plugins/taskbar.c:1746
+#: ../src/plugins/taskbar.c:1729
 #, c-format
 msgid "Workspace _%d"
 msgstr "Робоча область _%d"
 
-#: ../src/plugins/taskbar.c:1751
+#: ../src/plugins/taskbar.c:1734
 #, c-format
 msgid "Workspace %d"
 msgstr "Робоча область %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1765
+#: ../src/plugins/taskbar.c:1748
 msgid "_All workspaces"
 msgstr "_Всі робочі області"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1771
+#: ../src/plugins/taskbar.c:1754
 msgid "_Move to Workspace"
 msgstr "_Перенести до робочої області"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1777
+#: ../src/plugins/taskbar.c:1760
 msgid "_Close Window"
 msgstr "За_крити вікно"
 
-#: ../src/plugins/taskbar.c:1980
+#: ../src/plugins/taskbar.c:1963
 msgid "Show tooltips"
 msgstr "Показати підказки"
 
-#: ../src/plugins/taskbar.c:1981
+#: ../src/plugins/taskbar.c:1964
 msgid "Icons only"
 msgstr "Тільки іконки"
 
-#: ../src/plugins/taskbar.c:1982
+#: ../src/plugins/taskbar.c:1965
 msgid "Flat buttons"
 msgstr "Плоскі кнопки"
 
-#: ../src/plugins/taskbar.c:1983
+#: ../src/plugins/taskbar.c:1966
 msgid "Show windows from all desktops"
 msgstr "Показати вікна з усіх стільниць"
 
-#: ../src/plugins/taskbar.c:1984
+#: ../src/plugins/taskbar.c:1967
 msgid "Use mouse wheel"
 msgstr "Використовувати коліщатко миші"
 
-#: ../src/plugins/taskbar.c:1985
+#: ../src/plugins/taskbar.c:1968
 msgid "Flash when there is any window requiring attention"
 msgstr "Мигати, якщо вікно потребує уваги"
 
-#: ../src/plugins/taskbar.c:1986
+#: ../src/plugins/taskbar.c:1969
 msgid "Combine multiple application windows into a single button"
 msgstr "Зібрати вікна з кількома програмами в одну кнопку"
 
-#: ../src/plugins/taskbar.c:1987
+#: ../src/plugins/taskbar.c:1970
 msgid "Maximum width of task button"
 msgstr "Максимальна ширина кнопки завдань"
 
-#: ../src/plugins/taskbar.c:1988
+#: ../src/plugins/taskbar.c:1971
 msgid "Spacing"
 msgstr "Відступи"
 
-#: ../src/plugins/taskbar.c:2045
+#: ../src/plugins/taskbar.c:2028
 msgid "Task Bar (Window List)"
 msgstr "Панель задач (Список вікон)"
 
-#: ../src/plugins/taskbar.c:2047
-msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
-msgstr "Панель задач показує всі відкриті вікна і дозволяє згортати їх, відтіняти і фокусувати"
+#: ../src/plugins/taskbar.c:2030
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
+msgstr ""
+"Панель задач показує всі відкриті вікна і дозволяє згортати їх, відтіняти і "
+"фокусувати"
 
-#: ../src/plugins/dclock.c:310
+#: ../src/plugins/dclock.c:326
 msgid "Clock Format"
 msgstr "Формат годинника"
 
-#: ../src/plugins/dclock.c:311
+#: ../src/plugins/dclock.c:327
 msgid "Tooltip Format"
 msgstr "Формат підказок"
 
-#: ../src/plugins/dclock.c:312
-msgid ""
-"Format codes: man 3 strftime; \\n"
-" for line break"
-msgstr ""
-"Формат кодів: запустіть man 3 strftime; \\n"
-" для розриву стрічки"
+#: ../src/plugins/dclock.c:328
+msgid "Format codes: man 3 strftime; \\n for line break"
+msgstr "Формат кодів: запустіть man 3 strftime; \\n для розриву стрічки"
 
-#: ../src/plugins/dclock.c:313
+#: ../src/plugins/dclock.c:329
 msgid "Action when clicked (default: display calendar)"
 msgstr "Дія при кліканні (по замовчуванню: показати календар)"
 
-#: ../src/plugins/dclock.c:315
+#: ../src/plugins/dclock.c:331
 msgid "Tooltip only"
 msgstr "Тільки підказки"
 
-#: ../src/plugins/dclock.c:343
+#: ../src/plugins/dclock.c:359
 msgid "Digital Clock"
 msgstr "Цифровий годинник"
 
-#: ../src/plugins/dclock.c:345
+#: ../src/plugins/dclock.c:361
 msgid "Display digital clock and tooltip"
 msgstr "Показувати цифровий годинник і підказки"
 
-#: ../src/plugins/menu.c:373
+#: ../src/plugins/menu.c:372
 msgid "Add to desktop"
 msgstr "Додати до стільниці"
 
-#: ../src/plugins/menu.c:383
+#: ../src/plugins/menu.c:382
 msgid "Properties"
 msgstr "Властивості"
 
-#: ../src/plugins/menu.c:993
-#: ../src/plugins/dirmenu.c:367
+#: ../src/plugins/menu.c:1019 ../src/plugins/dirmenu.c:367
 msgid "Icon"
 msgstr "Іконка"
 
-#: ../src/plugins/menu.c:1010
+#: ../src/plugins/menu.c:1036
 msgid "Menu"
 msgstr "Меню"
 
-#: ../src/plugins/menu.c:1012
+#: ../src/plugins/menu.c:1038
 msgid "Application Menu"
 msgstr "Панель програм"
 
@@ -663,8 +641,7 @@ msgstr "Пейджер стільниці"
 msgid "Simple pager plugin"
 msgstr "Простий плагін пейджера"
 
-#: ../src/plugins/space.c:121
-#: ../src/plugins/batt/batt.c:590
+#: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
 msgid "Size"
 msgstr "Розмір"
 
@@ -684,57 +661,58 @@ msgstr "Системний лоток"
 msgid "System tray"
 msgstr "Системний лоток"
 
-#: ../src/plugins/xkb/xkb-plugin.c:283
+#: ../src/plugins/xkb/xkb-plugin.c:291
 msgid "Configure Keyboard Layout Switcher"
 msgstr "Налаштувати переключатель розкладки клавіатури"
 
-#: ../src/plugins/xkb/xkb-plugin.c:298
+#: ../src/plugins/xkb/xkb-plugin.c:306
 msgid "Show layout as"
 msgstr "Показати розкладку як"
 
-#: ../src/plugins/xkb/xkb-plugin.c:313
+#: ../src/plugins/xkb/xkb-plugin.c:321
 msgid "image"
 msgstr "зображення"
 
-#: ../src/plugins/xkb/xkb-plugin.c:314
+#: ../src/plugins/xkb/xkb-plugin.c:322
 msgid "text"
 msgstr "текст"
 
-#: ../src/plugins/xkb/xkb-plugin.c:321
+#: ../src/plugins/xkb/xkb-plugin.c:329
 msgid "Per application settings"
 msgstr "Налаштування для кожної окремої програми"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/xkb/xkb-plugin.c:336
+#: ../src/plugins/xkb/xkb-plugin.c:344
 msgid "_Remember layout for each application"
 msgstr "_Пам’ятати розкладку для кожної програми"
 
 #. Create a label as the child of the horizontal box.
-#: ../src/plugins/xkb/xkb-plugin.c:346
+#: ../src/plugins/xkb/xkb-plugin.c:354
 msgid "Default layout:"
 msgstr "Розкладка по замовчуванню:"
 
-#: ../src/plugins/xkb/xkb-plugin.c:397
+#: ../src/plugins/xkb/xkb-plugin.c:405
 msgid "Keyboard Layout Switcher"
 msgstr "Переключатель розкладки клавіатури"
 
-#: ../src/plugins/xkb/xkb-plugin.c:399
+#: ../src/plugins/xkb/xkb-plugin.c:407
 msgid "Switch between available keyboard layouts"
 msgstr "Переключення між доступними розкладками клавіатури"
 
-#: ../src/plugins/wincmd.c:204
+#: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr "Клік лівою кнопкою миші мінімалізує всі вікна. Середня кнопка затіняє їх."
+msgstr ""
+"Клік лівою кнопкою миші мінімалізує всі вікна. Середня кнопка затіняє їх."
 
-#: ../src/plugins/wincmd.c:234
+#: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
 msgstr "Поперемінно згортати/затінювати і розгортати"
 
-#: ../src/plugins/wincmd.c:263
+#: ../src/plugins/wincmd.c:266
 msgid "Minimize All Windows"
 msgstr "Мінімалізувати всі вікна"
 
-#: ../src/plugins/wincmd.c:265
+#: ../src/plugins/wincmd.c:268
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
@@ -805,24 +783,24 @@ msgstr "Показати системну температуру"
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:239
-#: ../src/plugins/volumealsa/volumealsa.c:400
+#: ../src/plugins/volumealsa/volumealsa.c:244
+#: ../src/plugins/volumealsa/volumealsa.c:411
 msgid "Volume control"
 msgstr "Регулятор гучності"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:449
+#: ../src/plugins/volumealsa/volumealsa.c:460
 msgid "Volume Control"
 msgstr "Регулятор Гучності"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:358
+#: ../src/plugins/volumealsa/volumealsa.c:369
 msgid "Volume"
 msgstr "Гучність"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/volumealsa/volumealsa.c:377
+#: ../src/plugins/volumealsa/volumealsa.c:388
 msgid "Mute"
 msgstr "Заглушити"
 
@@ -856,8 +834,7 @@ msgstr "Мережний кабель від’єднано"
 msgid "Connection has limited or no connectivity"
 msgstr "Зв’язок обмежений або ж немає з’єднання"
 
-#: ../src/plugins/netstat/netstat.c:307
-#: ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "IP адреса:"
@@ -866,38 +843,32 @@ msgstr "IP адреса:"
 msgid "Remote IP:"
 msgstr "Віддалене IP:"
 
-#: ../src/plugins/netstat/netstat.c:309
-#: ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "Маска мережі:"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "Активність"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "Вислано"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "Отримано"
 
-#: ../src/plugins/netstat/netstat.c:311
-#: ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "байт"
 
-#: ../src/plugins/netstat/netstat.c:312
-#: ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "пакетів"
@@ -911,8 +882,7 @@ msgstr "Безпровідна сітка"
 msgid "Protocol:"
 msgstr "Протокол:"
 
-#: ../src/plugins/netstat/netstat.c:321
-#: ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "Адреса \"заліза\":"
 
@@ -1042,7 +1012,8 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Зв’яжіться з Вашим системним адміністратором для вирішення наступної проблеми:\n"
+"Зв’яжіться з Вашим системним адміністратором для вирішення наступної "
+"проблеми:\n"
 "\n"
 "%s"
 
@@ -1236,8 +1207,12 @@ msgstr "Не можу обробити назву пристрою з '%s'"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
-msgstr "Не можу обробити статистику пристрою '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgid ""
+"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
+msgstr ""
+"Не можу обробити статистику пристрою '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1369,91 +1344,3 @@ msgstr "Індикатор клавіатури"
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Індикатори для клавіш CapsLock, NumLock і ScrollLock"
-
-#~ msgid "Display system temperature, by kesler.daniel@gmail.com"
-#~ msgstr "Моніторинг температури системи, розробка kesler.daniel@gmail.com"
-#~ msgid "Keyboard Led"
-#~ msgstr "Індикатор клавіатури"
-#~ msgid "Left\t"
-#~ msgstr "Зліва\t"
-#~ msgid "Top\t"
-#~ msgstr "Вверху\t"
-#~ msgid "Couldn't find pixmap file: %s"
-#~ msgstr "Не можу знайти pixmap файл: %s"
-#~ msgid "Desktop No / Workspace Name"
-#~ msgstr "Номер стільниці / Назва робочої області"
-#~ msgid ""
-#~ "Allows you to switch the keyboard layout and\n"
-#~ "displays the currently selected layout."
-#~ msgstr ""
-#~ "Дозволяє Вам переключати розкладку клавіатури і\n"
-#~ "показує вибрану розкладку."
-#~ msgid "Other plugins available here"
-#~ msgstr "Інші плагіни доступні тут"
-#~ msgid "Old KDE/GNOME Tray"
-#~ msgstr "Старий лоток KDE/GNOME "
-#~ msgid "Enable Image:"
-#~ msgstr "Дозволити зображення:"
-#~ msgid "Enable Transparency"
-#~ msgstr "Включити прозорість"
-#~ msgid "Tint color:"
-#~ msgstr "Відтінок кольору:"
-#~ msgid " --configure -- launch configuration utility\n"
-#~ msgstr "--configure -- запустити конфігураційну програму\n"
-#~ msgid " -C  -- same as --configure\n"
-#~ msgstr " -C  -- то саме що й  --configure\n"
-#~ msgid "Add Button"
-#~ msgstr "Додати кнопку"
-#~ msgid "Button Properties"
-#~ msgstr "Властивості кнопки"
-#~ msgid "Remove Button"
-#~ msgstr "Видалити кнопку"
-#~ msgid "Buttons"
-#~ msgstr "Кнопки"
-#~ msgid "Accept SkipPager"
-#~ msgstr "Прийняти SkipPager"
-#~ msgid "Show Iconified windows"
-#~ msgstr "Показати мінімалізовані вікна"
-#~ msgid "Show mapped windows"
-#~ msgstr "Показати позначені вікна"
-#~ msgid "Action"
-#~ msgstr "Дія"
-#~ msgid "Provide Menu"
-#~ msgstr "Вставити меню"
-#~ msgid "Kayboard Layout switcher"
-#~ msgstr "Переключатель розкладки клавіатури"
-#~ msgid ""
-#~ "Dynamic\n"
-#~ "Pixels\n"
-#~ "% Percent"
-#~ msgstr ""
-#~ "Динаміка\n"
-#~ "Пікселі\n"
-#~ "% Проценти"
-#~ msgid ""
-#~ "Left\n"
-#~ "Center\n"
-#~ "Right"
-#~ msgstr ""
-#~ "Вліво\n"
-#~ "Центр\n"
-#~ "Вправо"
-#~ msgid ""
-#~ "Left\n"
-#~ "Right\n"
-#~ "Top\n"
-#~ "Bottom"
-#~ msgstr ""
-#~ "Вліво\n"
-#~ "Вправо\n"
-#~ "Вверху\n"
-#~ "Внизу"
-#~ msgid "Where to put the panel?"
-#~ msgstr "Куди помістити цю панель?"
-#~ msgid "Battery: %d%% charged, %s"
-#~ msgstr "Батарея: %d%% заряджено, %s"
-#~ msgid "charging finished"
-#~ msgstr "зарядку завершено"
-#~ msgid "charging"
-#~ msgstr "заряджаю"
-
