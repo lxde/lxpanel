@@ -45,12 +45,21 @@ typedef struct {
     gboolean bold;				/* True if bold font */
     gboolean icon_only;				/* True if icon only (no clock value) */
     guint timer;				/* Timer for periodic update */
-    char * prev_output;				/* Previous value of clock */
+    enum {
+	AWAITING_FIRST_CHANGE,			/* Experimenting to determine interval, waiting for first change */
+	AWAITING_SECOND_CHANGE,			/* Experimenting to determine interval, waiting for second change */
+	ONE_SECOND_INTERVAL,			/* Determined that one second interval is necessary */
+	ONE_MINUTE_INTERVAL			/* Determined that one minute interval is sufficient */
+    } expiration_interval;			
+    int experiment_count;			/* Count of experiments that have been done to determine interval */
+    char * prev_clock_value;			/* Previous value of clock */
+    char * prev_tooltip_value;			/* Previous value of tooltip */
 } DClockPlugin;
 
 static void dclock_popup_map(GtkWidget * widget, DClockPlugin * dc);
 static GtkWidget * dclock_create_calendar(DClockPlugin * dc);
 static gboolean dclock_button_press_event(GtkWidget * widget, GdkEventButton * evt, Plugin * plugin);
+static void dclock_timer_set(DClockPlugin * dc);
 static gboolean dclock_update_display(DClockPlugin * dc);
 static int dclock_constructor(Plugin * p, char ** fp);
 static void dclock_destructor(Plugin * p);
@@ -126,6 +135,28 @@ static gboolean dclock_button_press_event(GtkWidget * widget, GdkEventButton * e
     return TRUE;
 }
 
+/* Set the timer. */
+static void dclock_timer_set(DClockPlugin * dc)
+{
+    /* Get current time to millisecond resolution. */
+    int milliseconds = 1000;
+    struct timeval current_time;
+    if (gettimeofday(&current_time, NULL) >= 0)
+    {
+        /* Compute number of milliseconds until next second boundary. */
+        milliseconds = 1000 - (current_time.tv_usec / 1000);
+
+        /* If the expiration interval is the minute boundary,
+         * add number of milliseconds after that until next minute boundary. */
+        if (dc->expiration_interval == ONE_MINUTE_INTERVAL)
+        {
+            time_t seconds = 60 - (current_time.tv_sec - (current_time.tv_sec / 60) * 60) - 1;
+            milliseconds += seconds * 1000;
+        }
+    }
+    dc->timer = g_timeout_add(milliseconds, (GSourceFunc) dclock_update_display, (gpointer) dc);
+}
+
 /* Periodic timer callback.
  * Also used during initialization and configuration change to do a redraw. */
 static gboolean dclock_update_display(DClockPlugin * dc)
@@ -133,29 +164,28 @@ static gboolean dclock_update_display(DClockPlugin * dc)
     /* Determine the current time. */
     time_t now;
     time(&now);
-    struct tm * detail = localtime(&now);
+    struct tm * current_time = localtime(&now);
 
-    /* Determine the content of the clock label. */
-    char output[64];
-    strftime(output, sizeof(output),
-        ((dc->clock_format != NULL) ? dc->clock_format : DEFAULT_CLOCK_FORMAT), detail);
+    /* Determine the content of the clock label and tooltip. */
+    char clock_value[64];
+    char tooltip_value[64];
+    strftime(clock_value, sizeof(clock_value), dc->clock_format, current_time);
+    strftime(tooltip_value, sizeof(tooltip_value), dc->tooltip_format, current_time);
 
     /* When we write the clock value, it causes the panel to do a full relayout.
-     * Since this function is called once per second, we take the trouble to check if the string actually changed first. */
+     * Since this function may be called too often while the timing experiment is underway,
+     * we take the trouble to check if the string actually changed first. */
     if (( ! dc->icon_only)
-    && ((dc->prev_output == NULL) || (strcmp(dc->prev_output, output) != 0)))
+    && ((dc->prev_clock_value == NULL) || (strcmp(dc->prev_clock_value, clock_value) != 0)))
     {
-        g_free(dc->prev_output);
-        dc->prev_output = g_strdup(output);
-
         /* Convert "\n" escapes in the user's format string to newline characters. */
         char * newlines_converted = NULL;
-        if (strstr(output, "\\n") != NULL)
+        if (strstr(clock_value, "\\n") != NULL)
         {
-            newlines_converted = g_strdup(output);	/* Just to get enough space for the converted result */
+            newlines_converted = g_strdup(clock_value);	/* Just to get enough space for the converted result */
             char * p;
             char * q;
-            for (p = output, q = newlines_converted; *p != '\0'; p += 1)
+            for (p = clock_value, q = newlines_converted; *p != '\0'; p += 1)
             {
                 if ((p[0] == '\\') && (p[1] == 'n'))
                 {
@@ -168,7 +198,7 @@ static gboolean dclock_update_display(DClockPlugin * dc)
             *q = '\0';
         }
 
-        gchar * utf8 = g_locale_to_utf8(((newlines_converted != NULL) ? newlines_converted : output), -1, NULL, NULL, NULL);
+        gchar * utf8 = g_locale_to_utf8(((newlines_converted != NULL) ? newlines_converted : clock_value), -1, NULL, NULL, NULL);
         if (utf8 != NULL)
         {
             panel_draw_label_text(dc->plugin->panel, dc->clock_label, utf8, dc->bold, TRUE);
@@ -178,15 +208,66 @@ static gboolean dclock_update_display(DClockPlugin * dc)
     }
 
     /* Determine the content of the tooltip. */
-    strftime(output, sizeof(output),
-        ((dc->tooltip_format != NULL) ? dc->tooltip_format : DEFAULT_TIP_FORMAT), detail);
-    gchar * utf8 = g_locale_to_utf8(output, -1, NULL, NULL, NULL);
+    gchar * utf8 = g_locale_to_utf8(tooltip_value, -1, NULL, NULL, NULL);
     if (utf8 != NULL)
     {
         gtk_widget_set_tooltip_text(dc->plugin->pwid, utf8);
         g_free(utf8);
     }
-    return TRUE;
+
+    /* Conduct an experiment to see how often the value changes.
+     * Use this to decide whether we update the value every second or every minute.
+     * We need to account for the possibility that the experiment is being run when we cross a minute boundary. */
+    if (dc->expiration_interval < ONE_SECOND_INTERVAL)
+    {
+        if (dc->prev_clock_value == NULL)
+        {
+            /* Initiate the experiment. */
+            dc->prev_clock_value = g_strdup(clock_value);
+            dc->prev_tooltip_value = g_strdup(tooltip_value);
+        }
+        else
+        {
+            if ((strcmp(dc->prev_clock_value, clock_value) == 0)
+            && (strcmp(dc->prev_tooltip_value, tooltip_value) == 0))
+            {
+                dc->experiment_count += 1;
+                if (dc->experiment_count > 3)
+                {
+                    /* No change within 3 seconds.  Assume change no more often than once per minute. */
+                    dc->expiration_interval = 60;
+                    g_free(dc->prev_clock_value);
+                    g_free(dc->prev_tooltip_value);
+                    dc->prev_clock_value = NULL;
+                    dc->prev_tooltip_value = NULL;
+                }
+            }
+            else if (dc->expiration_interval == AWAITING_FIRST_CHANGE)
+            {
+                /* We have a change at the beginning of the experiment, but we do not know when the next change might occur.
+                 * Continue the experiment for 3 more seconds. */
+                dc->expiration_interval = AWAITING_SECOND_CHANGE;
+                dc->experiment_count = 0;
+                g_free(dc->prev_clock_value);
+                g_free(dc->prev_tooltip_value);
+                dc->prev_clock_value = g_strdup(clock_value);
+                dc->prev_tooltip_value = g_strdup(tooltip_value);
+            }
+            else
+            {
+                /* We have a second change.  End the experiment. */
+                dc->expiration_interval = ((dc->experiment_count > 3) ? 60 : 1);
+                g_free(dc->prev_clock_value);
+                g_free(dc->prev_tooltip_value);
+                dc->prev_clock_value = NULL;
+                dc->prev_tooltip_value = NULL;
+            }
+        }
+    }
+
+    /* Reset the timer and return. */
+    dclock_timer_set(dc);
+    return FALSE;
 }
 
 /* Plugin constructor. */
@@ -252,11 +333,12 @@ static int dclock_constructor(Plugin * p, char ** fp)
     /* Connect signals. */
     g_signal_connect(G_OBJECT (p->pwid), "button_press_event", G_CALLBACK(dclock_button_press_event), (gpointer) p);
 
-    /* Initialize the clock display */
+    /* Initialize the clock display. */
+    if (dc->clock_format == NULL)
+        dc->clock_format = g_strdup(DEFAULT_CLOCK_FORMAT);
+    if (dc->tooltip_format == NULL)
+        dc->tooltip_format = g_strdup(DEFAULT_TIP_FORMAT);
     dclock_apply_configuration(p);
-
-    /* Start a timer to refresh the clock display. */
-    dc->timer = g_timeout_add(1000, (GSourceFunc) dclock_update_display, (gpointer) dc);
 
     /* Show the widget and return. */
     gtk_widget_show(p->pwid);
@@ -280,7 +362,8 @@ static void dclock_destructor(Plugin * p)
     g_free(dc->clock_format);
     g_free(dc->tooltip_format);
     g_free(dc->action);
-    g_free(dc->prev_output);
+    g_free(dc->prev_clock_value);
+    g_free(dc->prev_tooltip_value);
     g_free(dc);
 }
 
@@ -302,9 +385,9 @@ static void dclock_apply_configuration(Plugin * p)
         gtk_widget_hide(dc->clock_icon);
     }
 
-    /* Update the display. */
-    g_free(dc->prev_output);	/* Force the update of the clock display */
-    dc->prev_output = NULL;
+    /* Rerun the experiment to determine update interval and update the display. */
+    dc->expiration_interval = AWAITING_FIRST_CHANGE;
+    dc->experiment_count = 0;
     dclock_update_display(dc);
 
     /* Hide the calendar. */
