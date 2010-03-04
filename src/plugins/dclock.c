@@ -240,7 +240,7 @@ static gboolean dclock_update_display(DClockPlugin * dc)
                 if (dc->experiment_count > 3)
                 {
                     /* No change within 3 seconds.  Assume change no more often than once per minute. */
-                    dc->expiration_interval = 60;
+                    dc->expiration_interval = ONE_MINUTE_INTERVAL;
                     g_free(dc->prev_clock_value);
                     g_free(dc->prev_tooltip_value);
                     dc->prev_clock_value = NULL;
@@ -261,7 +261,7 @@ static gboolean dclock_update_display(DClockPlugin * dc)
             else
             {
                 /* We have a second change.  End the experiment. */
-                dc->expiration_interval = ((dc->experiment_count > 3) ? 60 : 1);
+                dc->expiration_interval = ((dc->experiment_count > 3) ? ONE_MINUTE_INTERVAL : ONE_SECONDcd_INTERVAL);
                 g_free(dc->prev_clock_value);
                 g_free(dc->prev_tooltip_value);
                 dc->prev_clock_value = NULL;
