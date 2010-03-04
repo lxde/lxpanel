@@ -138,8 +138,9 @@ static gboolean dclock_button_press_event(GtkWidget * widget, GdkEventButton * e
 /* Set the timer. */
 static void dclock_timer_set(DClockPlugin * dc)
 {
-    /* Get current time to millisecond resolution. */
     int milliseconds = 1000;
+
+    /* Get current time to millisecond resolution. */
     struct timeval current_time;
     if (gettimeofday(&current_time, NULL) >= 0)
     {
@@ -154,6 +155,10 @@ static void dclock_timer_set(DClockPlugin * dc)
             milliseconds += seconds * 1000;
         }
     }
+
+    /* Be defensive, and set the timer. */
+    if (milliseconds <= 0)
+        milliseconds = 1000;
     dc->timer = g_timeout_add(milliseconds, (GSourceFunc) dclock_update_display, (gpointer) dc);
 }
 
@@ -228,7 +233,7 @@ static gboolean dclock_update_display(DClockPlugin * dc)
         }
         else
         {
-            if ((strcmp(dc->prev_clock_value, clock_value) == 0)
+            if (((dc->icon_only) || (strcmp(dc->prev_clock_value, clock_value) == 0))
             && (strcmp(dc->prev_tooltip_value, tooltip_value) == 0))
             {
                 dc->experiment_count += 1;
@@ -386,8 +391,12 @@ static void dclock_apply_configuration(Plugin * p)
     }
 
     /* Rerun the experiment to determine update interval and update the display. */
+    g_free(dc->prev_clock_value);
+    g_free(dc->prev_tooltip_value);
     dc->expiration_interval = AWAITING_FIRST_CHANGE;
     dc->experiment_count = 0;
+    dc->prev_clock_value = NULL;
+    dc->prev_tooltip_value = NULL;
     dclock_update_display(dc);
 
     /* Hide the calendar. */
