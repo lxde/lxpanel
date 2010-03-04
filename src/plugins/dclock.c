@@ -261,7 +261,7 @@ static gboolean dclock_update_display(DClockPlugin * dc)
             else
             {
                 /* We have a second change.  End the experiment. */
-                dc->expiration_interval = ((dc->experiment_count > 3) ? ONE_MINUTE_INTERVAL : ONE_SECONDcd_INTERVAL);
+                dc->expiration_interval = ((dc->experiment_count > 3) ? ONE_MINUTE_INTERVAL : ONE_SECOND_INTERVAL);
                 g_free(dc->prev_clock_value);
                 g_free(dc->prev_tooltip_value);
                 dc->prev_clock_value = NULL;
