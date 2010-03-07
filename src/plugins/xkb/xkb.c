@@ -101,128 +101,109 @@ static void refresh_group_xkb(XkbPlugin * xkb)
 /* Initialize the keyboard description initially or after a NewKeyboard event. */
 static int initialize_keyboard_description(XkbPlugin * xkb)
 {
-    /* Free the strings. */
-    int i;
-    for (i = 0; i < XkbNumKbdGroups; i += 1)
-    {
-        g_free(xkb->group_names[i]);
-        g_free(xkb->symbol_names[i]);
-        xkb->group_names[i] = NULL;
-        xkb->symbol_names[i] = NULL;
-    }
-
-    /* Allocate a keyboard description structure. */
-    int status = False;
-    XkbDescRec * kbd_desc_ptr = XkbAllocKeyboard();
-    if (kbd_desc_ptr == NULL)
-    {
-        ERR("Failed to get keyboard description\n");
-        goto HastaLaVista;
-    }
-
-    /* Fetch information into the keyboard description. */
-    XkbGetControls(GDK_DISPLAY(), XkbAllControlsMask, kbd_desc_ptr);
-    XkbGetNames(GDK_DISPLAY(), XkbSymbolsNameMask, kbd_desc_ptr);
-    XkbGetNames(GDK_DISPLAY(), XkbGroupNamesMask, kbd_desc_ptr);
-
-    if (kbd_desc_ptr->names == NULL)
-    {
-        ERR("Failed to get keyboard description\n");
-        goto HastaLaVista;
-    }
-
-    /* Determine the group count either from the "ctrls" structure
-     * or by enumerating the "groups" structure.  Normally the
-     * "ctrls" structure is valid. */
-    const Atom * group_source = kbd_desc_ptr->names->groups;
-    if (kbd_desc_ptr->ctrls != NULL)
-        xkb->group_count = kbd_desc_ptr->ctrls->num_groups;
+    /* Allocate a keyboard description. */
+    XkbDescRec * xkb_desc = XkbAllocKeyboard();
+    if (xkb_desc == NULL)
+        g_warning("XkbAllocKeyboard failed\n");
     else
     {
-        for (
-          xkb->group_count = 0;
-          ((xkb->group_count < XkbNumKbdGroups) && (group_source[xkb->group_count] != None));
-          xkb->group_count++) ;
-    }
-    if (xkb->group_count == 0)
-        xkb->group_count = 1;
-    if (xkb->group_count > XkbNumKbdGroups)
-        xkb->group_count = XkbNumKbdGroups;
-
-    /* Determine the group names.  Trim off text beginning at a '('. */
-    const Atom * tmp_group_source = kbd_desc_ptr->names->groups;
-    for (i = 0; i < xkb->group_count; i++)
-    {
-        if (tmp_group_source[i] != None)
+        /* Read necessary values into the keyboard description. */
+        XkbGetControls(GDK_DISPLAY(), XkbAllControlsMask, xkb_desc);
+        XkbGetNames(GDK_DISPLAY(), XkbSymbolsNameMask | XkbGroupNamesMask, xkb_desc);
+        if ((xkb_desc->names == NULL) || (xkb_desc->ctrls == NULL) || (xkb_desc->names->groups == NULL))
+            g_warning("XkbGetControls/XkbGetNames failed\n");
+        else
         {
-            char * ptr = XGetAtomName(GDK_DISPLAY(), tmp_group_source[i]);
-            xkb->group_names[i] = ptr;
-            if ((ptr != NULL) && ((ptr = strchr(ptr, '('))) != NULL)
-                *ptr = '\0';
+            /* Get the group name of each keyboard layout.  Infer the group count from the highest available. */
+            Atom * group_source = xkb_desc->names->groups;
+            int i;
+            for (i = 0; i < XkbNumKbdGroups; i += 1)
+            {
+                g_free(xkb->group_names[i]);
+                xkb->group_names[i] = NULL;
+                if (group_source[i] != None)
+                {
+                    xkb->group_count = i + 1;
+                    char * p = XGetAtomName(GDK_DISPLAY(), group_source[i]);
+                    xkb->group_names[i] = g_strdup(p);
+                    XFree(p);
+                }
+            }
+
+            /* Reinitialize the symbol name storage. */
+            for (i = 0; i < XkbNumKbdGroups; i += 1)
+            {
+                g_free(xkb->symbol_names[i]);
+                xkb->symbol_names[i] = NULL;
+            }
+
+            /* Get the symbol name of all keyboard layouts.
+             * This is a plus-sign separated string. */
+            if (xkb_desc->names->symbols != None)
+            {
+                char * symbol_string = XGetAtomName(GDK_DISPLAY(), xkb_desc->names->symbols);
+                if (symbol_string != NULL)
+                {
+                    char * p = symbol_string;
+                    char * q = p;
+                    int symbol_group_number = 0;
+                    for ( ; ((*p != '\0') && (symbol_group_number < XkbNumKbdGroups)); p += 1)
+                    {
+                        if (*p == '+')
+                        {
+                            /* End of a symbol.  Ignore the symbols "pc" and "inet" and "group". */
+                            *p = '\0';
+                            if ((strcmp(q, "pc") != 0) && (strcmp(q, "inet") != 0) && (strcmp(q, "group") != 0))
+                            {
+                                xkb->symbol_names[symbol_group_number] = g_ascii_strup(q, -1);
+                                symbol_group_number += 1;
+                            }
+                            q = p + 1;
+                        }
+                        else if ((*p == ':') && (p[1] >= '1') && (p[1] < ('1' + XkbNumKbdGroups)) && (p[2] == '+'))
+                        {
+                        /* Construction ":n+" at the end of a symbol.  The digit is a one-based index of the symbol.
+                         * If not present, we will default above to "next index". */
+                            *p = '\0';
+                            symbol_group_number = p[1] - '1';
+                            xkb->symbol_names[symbol_group_number] = g_ascii_strup(q, -1);
+                            symbol_group_number += 1;
+                            p += 2;
+                            q = p + 1;
+                        }
+                        else if ((*p >= 'A') && (*p <= 'Z'))
+                            *p |= 'a' - 'A';
+                        else if ((*p < 'a') || (*p > 'z'))
+                            *p = '\0';
+                    }
+		    
+                    /* Crosscheck the group count determined from the "ctrls" structure,
+                     * that determined from the "groups" vector, and that determined from the "symbols" string.
+                     * The "ctrls" structure is considered less reliable because it has been observed to be incorrect. */
+                    if ((xkb->group_count != symbol_group_number)
+                    || (xkb->group_count != xkb_desc->ctrls->num_groups))
+                    {
+                        g_warning("Group count mismatch, ctrls = %d, groups = %d, symbols = %d\n",
+                            xkb_desc->ctrls->num_groups, xkb->group_count, symbol_group_number);
+
+                        /* Maximize the "groups" and "symbols" value. */
+                        if (xkb->group_count < symbol_group_number)
+                            xkb->group_count = symbol_group_number;
+                    }
+
+                    /* Ensure that all elements within the group count we will actually use are initialized. */
+                    for (i = 0; i < xkb->group_count; i += 1)
+                    {
+                        if (xkb->group_names[i] == NULL)
+                            xkb->group_names[i] = g_strdup("Unknown");
+                        if (xkb->symbol_names[i] == NULL)
+                            xkb->symbol_names[i] = g_strdup("None");
+                    }
+                    XFree(symbol_string);
+                }
+            }
         }
-    }
-
-    /* Fetch the symbol names. */
-    Atom sym_name_atom = kbd_desc_ptr->names->symbols;
-    char * sym_name;
-    if ((sym_name_atom == None)
-    || ((sym_name = XGetAtomName(GDK_DISPLAY(), sym_name_atom)) == NULL))
-        goto HastaLaVista;
-
-    /* Parse and store symbol names. */
-    int count = 0;
-    char * ptr;
-    for (ptr = strtok(sym_name, "+"); ptr != NULL; ptr = strtok(NULL, "+"))
-    {
-        char * ptr1 = strchr(ptr, '(');
-        if (ptr1 != NULL) *ptr1 = '\0';
-        ptr1 = strchr(ptr, '_');
-        if ((ptr1 != NULL) && ( ! g_ascii_isupper(ptr1[1]))) *ptr1 = '\0';
-        ptr1 = strchr(ptr, ':');
-        if (ptr1 != NULL) *ptr1 = '\0';
-
-        ptr1 = strrchr(ptr, '/');
-        if (ptr1 != NULL)
-        {
-            /* Filter out cases like pc/pc */
-            if (memcmp(ptr, ptr1 + 1, ptr1 - ptr) == 0) continue;
-            ptr = ptr1 + 1;
-        }
-
-        if (strncmp(ptr, "group", 5) == 0) continue;
-        if (strncmp(ptr, "inet", 4) == 0) continue;
-        /* Filter cases like pc(pc105) (Xorg 7.0 update) */
-        if (strncmp(ptr, "pc", 2) == 0) continue;
-        
-        xkb->symbol_names[count] = g_utf8_strup(ptr, -1);
-        count += 1;
-    }
-
-    /* Special cases. */
-    if ((count == 1) && (xkb->group_names[0] == NULL) && (strcmp(xkb->symbol_names[0], "jp") == 0))
-    {
-        xkb->group_count = 2;
-        xkb->symbol_names[1] = xkb->symbol_names[0];
-        xkb->symbol_names[0] = g_strdup("us");
-        xkb->group_names[0] = g_strdup("US/ASCII");
-        xkb->group_names[1] = g_strdup("Japanese");
-    }
-    else if (count < xkb->group_count)
-    {
-        /* Ensure that the names are fully initialized. */
-        int j = count, k = xkb->group_count;
-        while(--j >= 0) xkb->symbol_names[--k] = xkb->symbol_names[j];
-        while(--k >= 0) xkb->symbol_names[k] = g_strdup("en_US");
-    }
-
-    /* Ensure that the names are fully initialized. */
-    for (i = 0; i < xkb->group_count; i++)
-    {
-        if (xkb->symbol_names[i] == NULL)
-        {
-            ERR("\nGroup Symbol %i is undefined, set to 'U/A' !\n", i+1);
-            xkb->symbol_names[i] = g_strdup("U/A");
-        }
+        XkbFreeKeyboard(xkb_desc, 0, True);
     }
 
     /* Create or recreate hash table.
@@ -231,14 +212,7 @@ static int initialize_keyboard_description(XkbPlugin * xkb)
     if (xkb->group_hash_table != NULL)
         g_hash_table_destroy(xkb->group_hash_table);
     xkb->group_hash_table = g_hash_table_new(g_direct_hash, NULL);
-
-    status = True;
-
-HastaLaVista:
-    if (kbd_desc_ptr != NULL)
-        XkbFreeKeyboard(kbd_desc_ptr, 0, True);
-
-    return status;
+    return TRUE;
 }
 
 /* GDK event filter that receives events from all windows and the Xkb extension. */
@@ -309,12 +283,12 @@ void xkb_mechanism_destructor(XkbPlugin * xkb)
     {
         if (xkb->group_names[i] != NULL)
         {
-            free(xkb->group_names[i]);
+            g_free(xkb->group_names[i]);
             xkb->group_names[i] = NULL;
         }
         if (xkb->symbol_names[i] != NULL)
         {
-            free(xkb->symbol_names[i]);
+            g_free(xkb->symbol_names[i]);
             xkb->symbol_names[i] = NULL;
         }
     }
