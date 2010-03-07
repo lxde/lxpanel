@@ -510,10 +510,11 @@ static void on_add_plugin_response( GtkDialog* dlg,
                 if (pl->class->expand_default) pl->expand = TRUE;
                 plugin_start( pl, NULL );
                 p->plugins = g_list_append(p->plugins, pl);
-                /* FIXME: will show all cause problems? */
+                panel_config_save(p);
+
                 if (pl->pwid)
                 {
-                    gtk_widget_show_all( pl->pwid );
+                    gtk_widget_show(pl->pwid);
 
                     /* update background of the newly added plugin */
                     plugin_widget_set_background( pl->pwid, pl->panel );
@@ -536,10 +537,6 @@ static void on_add_plugin_response( GtkDialog* dlg,
             g_free( type );
         }
     }
-/*
-    gtk_widget_set_sensitive( (GtkWidget*)gtk_window_get_transient_for( (GtkWindow*)dlg ),
-                               TRUE );
-*/
     gtk_widget_destroy( (GtkWidget*)dlg );
 }
 
@@ -642,6 +639,7 @@ static void on_remove_plugin( GtkButton* btn, GtkTreeView* view )
         gtk_list_store_remove( GTK_LIST_STORE(model), &it );
         p->plugins = g_list_remove( p->plugins, pl );
         plugin_delete(pl);
+        panel_config_save(p);
 
         gtk_tree_selection_select_path( tree_sel, tree_path );
         gtk_tree_path_free( tree_path );
@@ -713,6 +711,7 @@ static void on_moveup_plugin(  GtkButton* btn, GtkTreeView* view )
             {
                 gtk_box_reorder_child( GTK_BOX(panel->box), pl->pwid, get_widget_index( panel, pl ) );
             }
+            panel_config_save(panel);
             return;
         }
         prev = it;
@@ -754,6 +753,7 @@ static void on_movedown_plugin(  GtkButton* btn, GtkTreeView* view )
     {
         gtk_box_reorder_child( GTK_BOX(panel->box), pl->pwid, get_widget_index( panel, pl ) );
     }
+    panel_config_save(panel);
 }
 
 static void
@@ -924,7 +924,7 @@ void panel_configure( Panel* p, int sel_page )
     /* transparancy */
     tint_clr = w = (GtkWidget*)gtk_builder_get_object( builder, "tint_clr" );
     gtk_color_button_set_color((GtkColorButton*)w, &p->gtintcolor);
-    gtk_color_button_set_alpha((GtkColorButton*)w, 256*p->alpha);
+    gtk_color_button_set_alpha((GtkColorButton*)w, 256 * p->alpha);
     if ( ! p->transparent )
         gtk_widget_set_sensitive( w, FALSE );
     g_signal_connect( w, "color-set", G_CALLBACK( on_tint_color_set ), p );
