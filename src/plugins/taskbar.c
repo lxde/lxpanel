@@ -127,7 +127,7 @@ static gchar *taskbar_rc = "style 'taskbar-style'\n"
 #define DRAG_ACTIVE_DELAY    1000
 #define TASK_WIDTH_MAX       200
 #define TASK_PADDING         4
-#define ALL_WORKSPACES       (-1)
+#define ALL_WORKSPACES       0xFFFFFFFF		/* 64-bit clean */
 #define ICON_ONLY_EXTRA      6		/* Amount needed to have button lay out symmetrically */
 #define BUTTON_HEIGHT_EXTRA  4          /* Amount needed to have button not clip icon */
 

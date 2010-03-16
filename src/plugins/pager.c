@@ -43,7 +43,7 @@ struct _task;
 struct _desk;
 struct _pager;
 
-#define ALL_DESKTOPS   (-1)
+#define ALL_DESKTOPS   0xFFFFFFFF		/* 64-bit clean */
 #define BORDER_WIDTH   2
 
 /* Structure representing a "task", an open window. */
