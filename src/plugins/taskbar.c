@@ -163,6 +163,7 @@ static gboolean taskbar_button_press_event(GtkWidget * widget, GdkEventButton * 
 static gboolean taskbar_popup_activate_event(GtkWidget * widget, GdkEventButton * event, Task * tk);
 static gboolean taskbar_button_drag_motion_timeout(Task * tk);
 static gboolean taskbar_button_drag_motion(GtkWidget * widget, GdkDragContext * drag_context, gint x, gint y, guint time, Task * tk);
+static void taskbar_button_drag_leave(GtkWidget * widget, GdkDragContext * drag_context, guint time, Task * tk);
 static void taskbar_button_enter(GtkWidget * widget, Task * tk);
 static void taskbar_button_leave(GtkWidget * widget, Task * tk);
 static gboolean taskbar_button_scroll_event(GtkWidget * widget, GdkEventScroll * event, Task * tk);
@@ -276,6 +277,7 @@ static void recompute_group_visibility_for_class(TaskbarPlugin * tb, TaskClass *
         {
             g_source_remove(flashing_task->flash_timeout);
             flashing_task->flash_state = FALSE;
+            flashing_task->flash_timeout = 0;
         }
     }
 }
@@ -294,7 +296,7 @@ static void recompute_group_visibility_on_current_desktop(TaskbarPlugin * tb)
 static void task_draw_label(Task * tk)
 {
     TaskClass * tc = tk->res_class;
-    gboolean bold_style = (((tk->entered_state) && (tk->tb->flat_button)) || tk->flash_state);
+    gboolean bold_style = ((tk->entered_state) && (tk->tb->flat_button));
     if ((tk->tb->grouped_tasks) && (tc != NULL) && (tc->visible_task == tk) && (tc->visible_count > 1))
 	{
         char * label = g_strdup_printf("(%d) %s", tc->visible_count, tc->visible_name);
@@ -931,13 +933,9 @@ static GdkPixbuf * task_update_icon(TaskbarPlugin * tb, Task * tk, Atom source)
 static gboolean flash_window_timeout(Task * tk)
 {
     /* Set state on the button and redraw. */
-    if (tk->tb->flat_button)
-        task_draw_label(tk);
-    else
-    {
+    if ( ! tk->tb->flat_button)
         gtk_widget_set_state(tk->button, tk->flash_state ? GTK_STATE_SELECTED : GTK_STATE_NORMAL);
-        gtk_widget_queue_draw(tk->button);
-    }
+    task_draw_label(tk);
 
     /* Complement the flashing context. */
     tk->flash_state = ! tk->flash_state;
@@ -947,7 +945,11 @@ static gboolean flash_window_timeout(Task * tk)
 /* Set urgency notification. */
 static void task_set_urgency(Task * tk)
 {
-    if (( ! tk->tb->grouped_tasks) || (tk->res_class == NULL))
+    TaskbarPlugin * tb = tk->tb;
+    TaskClass * tc = tk->res_class;
+    if ((tb->grouped_tasks) && (tc != NULL) && (tc->visible_count > 1))
+        recompute_group_visibility_for_class(tk->tb, tk->res_class);
+    else
     {
         /* Set the flashing context and flash the window immediately. */
         tk->flash_state = TRUE;
@@ -957,14 +959,16 @@ static void task_set_urgency(Task * tk)
         if (tk->flash_timeout == 0)
             set_timer_on_task(tk);
     }
-    else
-        recompute_group_visibility_for_class(tk->tb, tk->res_class);
 }
 
 /* Clear urgency notification. */
 static void task_clear_urgency(Task * tk)
 {
-    if (( ! tk->tb->grouped_tasks) || (tk->res_class == NULL))
+    TaskbarPlugin * tb = tk->tb;
+    TaskClass * tc = tk->res_class;
+    if ((tb->grouped_tasks) && (tc != NULL) && (tc->visible_count > 1))
+        recompute_group_visibility_for_class(tk->tb, tk->res_class);
+    else
     {
         /* Remove the timer if one is set. */
         if (tk->flash_timeout != 0)
@@ -978,8 +982,6 @@ static void task_clear_urgency(Task * tk)
         flash_window_timeout(tk);
         tk->flash_state = FALSE;
     }
-    else
-        recompute_group_visibility_for_class(tk->tb, tk->res_class);
 }
 
 /* Do the proper steps to raise a window.
@@ -988,7 +990,7 @@ static void task_clear_urgency(Task * tk)
 static void task_raise_window(Task * tk, guint32 time)
 {
     /* Change desktop if needed. */
-    if ((tk->desktop != -1) && (tk->desktop != tk->tb->current_desktop))
+    if ((tk->desktop != ALL_WORKSPACES) && (tk->desktop != tk->tb->current_desktop))
         Xclimsg(GDK_ROOT_WINDOW(), a_NET_CURRENT_DESKTOP, tk->desktop, 0, 0, 0, 0);
 
     /* Evaluate use_net_active if not yet done. */
@@ -1634,7 +1636,7 @@ static GdkFilterReturn taskbar_event_filter(XEvent * xev, GdkEvent * event, Task
 /* Handler for "activate" event on Raise item of right-click menu for task buttons. */
 static void menu_raise_window(GtkWidget * widget, TaskbarPlugin * tb)
 {
-    if ((tb->menutask->desktop != -1) && (tb->menutask->desktop != tb->current_desktop))
+    if ((tb->menutask->desktop != ALL_WORKSPACES) && (tb->menutask->desktop != tb->current_desktop))
         Xclimsg(GDK_ROOT_WINDOW(), a_NET_CURRENT_DESKTOP, tb->menutask->desktop, 0, 0, 0, 0);
     XMapRaised(GDK_DISPLAY(), tb->menutask->win);
     task_group_menu_destroy(tb);
