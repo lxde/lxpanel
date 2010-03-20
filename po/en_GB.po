@@ -783,25 +783,21 @@ msgstr "Volume control"
 
 #: ../src/plugins/volume/volume.c:312
 #: ../src/plugins/volumealsa/volumealsa.c:460
-#, fuzzy
 msgid "Volume Control"
 msgstr "Volume Control"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
 #: ../src/plugins/volumealsa/volumealsa.c:369
-#, fuzzy
 msgid "Volume"
 msgstr "Volume"
 
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/volumealsa/volumealsa.c:388
-#, fuzzy
 msgid "Mute"
 msgstr "Mute"
 
 #: ../src/plugins/netstat/netstat.c:168
-#, fuzzy
 msgid "<Hidden Access Point>"
 msgstr "<Hidden Access Point>"
 
@@ -812,57 +808,47 @@ msgstr "Wireless Networks not found in range"
 
 #. Repair
 #: ../src/plugins/netstat/netstat.c:235
-#, fuzzy
 msgid "Repair"
 msgstr "Repair"
 
 #. interface down
 #: ../src/plugins/netstat/netstat.c:240
-#, fuzzy
 msgid "Disable"
 msgstr "Disable"
 
 #: ../src/plugins/netstat/netstat.c:299
-#, fuzzy
 msgid "Wireless Connection has no connectivity"
 msgstr "Wireless Connection has no connectivity"
 
 #: ../src/plugins/netstat/netstat.c:301
-#, fuzzy
 msgid "Network cable is plugged out"
 msgstr "Network cable is plugged out"
 
 #: ../src/plugins/netstat/netstat.c:303
-#, fuzzy
 msgid "Connection has limited or no connectivity"
 msgstr "Connection has limited or no connectivity"
 
 #: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
-#, fuzzy
 msgid "IP Address:"
 msgstr "IP Address:"
 
 #: ../src/plugins/netstat/netstat.c:308
-#, fuzzy
 msgid "Remote IP:"
 msgstr "Remote IP:"
 
 #: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
-#, fuzzy
 msgid "Netmask:"
 msgstr "Netmask:"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
-#, fuzzy
 msgid "Activity"
 msgstr "Activity"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
-#, fuzzy
 msgid "Sent"
 msgstr "Sent"
 
@@ -874,24 +860,20 @@ msgstr "Received"
 
 #: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
-#, fuzzy
 msgid "bytes"
 msgstr "bytes"
 
 #: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
-#, fuzzy
 msgid "packets"
 msgstr "packets"
 
 #: ../src/plugins/netstat/netstat.c:315
 #: ../src/plugins/netstatus/netstatus-iface.c:173
-#, fuzzy
 msgid "Wireless"
 msgstr "Wireless"
 
 #: ../src/plugins/netstat/netstat.c:317
-#, fuzzy
 msgid "Protocol:"
 msgstr "Protocol:"
 
@@ -1355,7 +1337,6 @@ msgid "Show NumLock"
 msgstr "Show Num Lock"
 
 #: ../src/plugins/kbled/kbled.c:232
-#, fuzzy
 msgid "Show ScrollLock"
 msgstr "Show Scroll Lock"
 
@@ -1365,6 +1346,5 @@ msgid "Keyboard LED"
 msgstr "Keyboard LED"
 
 #: ../src/plugins/kbled/kbled.c:269
-#, fuzzy
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Indicators for Caps Lock, Num Lock, and Scroll Lock keys"
