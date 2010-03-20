@@ -449,17 +449,14 @@ msgid "Enter the command you want to execute:"
 msgstr "Enter the command you want to execute:"
 
 #: ../src/plugins/cpu/cpu.c:268
-#, fuzzy
 msgid "CPU Usage Monitor"
 msgstr "CPU Usage Monitor"
 
 #: ../src/plugins/cpu/cpu.c:270
-#, fuzzy
 msgid "Display CPU usage"
 msgstr "Display CPU usage"
 
 #: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:422
-#, fuzzy
 msgid "Bold font"
 msgstr "Bold font"
 
@@ -474,86 +471,73 @@ msgid "Desktop Number / Workspace Name"
 msgstr "Desktop Number / Workspace Name"
 
 #: ../src/plugins/deskno/deskno.c:237
-#, fuzzy
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Display workspace number, by cmeury@users.sf.net"
 
 #: ../src/plugins/image.c:177
-#, fuzzy
 msgid "Display Image and Tooltip"
 msgstr "Display Image and Tooltip"
 
 #: ../src/plugins/launchbar.c:889
-#, fuzzy
 msgid "Bar with buttons to launch application"
 msgstr "Bar with buttons to launch application"
 
 #. Add Raise menu item.
 #: ../src/plugins/taskbar.c:1697
-#, fuzzy
 msgid "_Raise"
 msgstr "_Raise"
 
 #. Add Restore menu item.
 #: ../src/plugins/taskbar.c:1702
-#, fuzzy
 msgid "R_estore"
 msgstr "R_estore"
 
 #. Add Maximize menu item.
 #: ../src/plugins/taskbar.c:1707
-#, fuzzy
 msgid "Ma_ximize"
-msgstr "Ma_ximize"
+msgstr "Ma_ximise"
 
 #. Add Iconify menu item.
 #: ../src/plugins/taskbar.c:1712
-#, fuzzy
 msgid "Ico_nify"
 msgstr "Ico_nify"
 
 #: ../src/plugins/taskbar.c:1731
-#, c-format, fuzzy
+#, c-format
 msgid "Workspace _%d"
 msgstr "Workspace _%d"
 
 #: ../src/plugins/taskbar.c:1736
-#, c-format, fuzzy
+#, c-format
 msgid "Workspace %d"
 msgstr "Workspace %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no
 #. matter what desktop is active.
 #: ../src/plugins/taskbar.c:1750
-#, fuzzy
 msgid "_All workspaces"
 msgstr "_All workspaces"
 
 #. Add Move to Workspace menu item as a submenu.
 #: ../src/plugins/taskbar.c:1756
-#, fuzzy
 msgid "_Move to Workspace"
 msgstr "_Move to Workspace"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to
 #. the cursor.
 #: ../src/plugins/taskbar.c:1762
-#, fuzzy
 msgid "_Close Window"
 msgstr "_Close Window"
 
 #: ../src/plugins/taskbar.c:1965
-#, fuzzy
 msgid "Show tooltips"
 msgstr "Show tooltips"
 
 #: ../src/plugins/taskbar.c:1966
-#, fuzzy
 msgid "Icons only"
 msgstr "Icons only"
 
 #: ../src/plugins/taskbar.c:1967
-#, fuzzy
 msgid "Flat buttons"
 msgstr "Flat buttons"
 
@@ -648,103 +632,100 @@ msgid "Icon"
 msgstr "Left click to iconify all windows.  Middle click to shade them."
 
 #: ../src/plugins/menu.c:1036
-#, fuzzy
 msgid "Menu"
 msgstr "Alternately iconify/shade and raise"
 
 #: ../src/plugins/menu.c:1038
-#, fuzzy
 msgid "Application Menu"
-msgstr "Minimize All Windows"
+msgstr "Minimise All Windows"
 
 #: ../src/plugins/separator.c:98
 msgid "Separator"
-msgstr ""
+msgstr "Separator"
 
 #: ../src/plugins/separator.c:100
 msgid "Add a separator to the panel"
-msgstr ""
+msgstr "Add a separator to the panel"
 
 #: ../src/plugins/pager.c:797
 msgid "Desktop Pager"
-msgstr ""
+msgstr "Desktop Pager"
 
 #: ../src/plugins/pager.c:799
 msgid "Simple pager plugin"
-msgstr ""
+msgstr "Simple pager plugin"
 
 #: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
 msgid "Size"
-msgstr ""
+msgstr "Size"
 
 #: ../src/plugins/space.c:139
 msgid "Spacer"
-msgstr ""
+msgstr "Spacer"
 
 #: ../src/plugins/space.c:141
 msgid "Allocate space"
-msgstr ""
+msgstr "Allocate space"
 
 #: ../src/plugins/tray.c:702
 msgid "System Tray"
-msgstr ""
+msgstr "System Tray"
 
 #: ../src/plugins/tray.c:704
 msgid "System tray"
-msgstr ""
+msgstr "System tray"
 
 #: ../src/plugins/xkb/xkb-plugin.c:291
 msgid "Configure Keyboard Layout Switcher"
-msgstr ""
+msgstr "Configure Keyboard Layout Switcher"
 
 #: ../src/plugins/xkb/xkb-plugin.c:306
 msgid "Show layout as"
-msgstr ""
+msgstr "Show layout as"
 
 #: ../src/plugins/xkb/xkb-plugin.c:321
 msgid "image"
-msgstr ""
+msgstr "image"
 
 #: ../src/plugins/xkb/xkb-plugin.c:322
 msgid "text"
-msgstr ""
+msgstr "text"
 
 #: ../src/plugins/xkb/xkb-plugin.c:329
 msgid "Per application settings"
-msgstr ""
+msgstr "Per application settings"
 
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/xkb/xkb-plugin.c:344
 msgid "_Remember layout for each application"
-msgstr ""
+msgstr "_Remember layout for each application"
 
 #. Create a label as the child of the horizontal box.
 #: ../src/plugins/xkb/xkb-plugin.c:354
 msgid "Default layout:"
-msgstr ""
+msgstr "Default layout:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:405
 msgid "Keyboard Layout Switcher"
-msgstr ""
+msgstr "Keyboard Layout Switcher"
 
 #: ../src/plugins/xkb/xkb-plugin.c:407
 msgid "Switch between available keyboard layouts"
-msgstr ""
+msgstr "Switch between available keyboard layouts"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr ""
+msgstr "Left-click to iconify all windows.  Middle-click to shade them."
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
-msgstr ""
+msgstr "Alternately iconify/shade and raise"
 
 #: ../src/plugins/wincmd.c:266
 msgid "Minimize All Windows"
-msgstr ""
+msgstr "Minimise All Windows"
 
 #: ../src/plugins/wincmd.c:268
-#, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
@@ -753,77 +734,62 @@ msgstr ""
 "Supported commands are 1) iconify and 2) shade"
 
 #: ../src/plugins/dirmenu.c:200
-#, fuzzy
 msgid "Open in _Terminal"
 msgstr "Open in _Terminal"
 
 #: ../src/plugins/dirmenu.c:365
-#, fuzzy
 msgid "Directory"
 msgstr "Directory"
 
 #: ../src/plugins/dirmenu.c:366
-#, fuzzy
 msgid "Label"
 msgstr "Label"
 
 #: ../src/plugins/dirmenu.c:397
-#, fuzzy
 msgid "Directory Menu"
 msgstr "Directory Menu"
 
 #: ../src/plugins/dirmenu.c:399
-#, fuzzy
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "Browse directory tree via menu (Author: PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:304
-#, fuzzy
 msgid "Normal"
 msgstr "Normal"
 
 #: ../src/plugins/thermal/thermal.c:305
-#, fuzzy
 msgid "Warning1"
 msgstr "Warning1"
 
 #: ../src/plugins/thermal/thermal.c:306
-#, fuzzy
 msgid "Warning2"
 msgstr "Warning2"
 
 #: ../src/plugins/thermal/thermal.c:307
-#, fuzzy
 msgid "Automatic sensor location"
 msgstr "Automatic sensor location"
 
 #: ../src/plugins/thermal/thermal.c:308
-#, fuzzy
 msgid "Sensor"
 msgstr "Sensor"
 
 #: ../src/plugins/thermal/thermal.c:309
-#, fuzzy
 msgid "Automatic temperature levels"
 msgstr "Automatic temperature levels"
 
 #: ../src/plugins/thermal/thermal.c:310
-#, fuzzy
 msgid "Warning1 Temperature"
 msgstr "Warning1 Temperature"
 
 #: ../src/plugins/thermal/thermal.c:311
-#, fuzzy
 msgid "Warning2 Temperature"
 msgstr "Warning2 Temperature"
 
 #: ../src/plugins/thermal/thermal.c:353
-#, fuzzy
 msgid "Temperature Monitor"
 msgstr "Temperature Monitor"
 
 #: ../src/plugins/thermal/thermal.c:355
-#, fuzzy
 msgid "Display system temperature"
 msgstr "Display system temperature"
 
@@ -832,7 +798,6 @@ msgstr "Display system temperature"
 #: ../src/plugins/volume/volume.c:300
 #: ../src/plugins/volumealsa/volumealsa.c:244
 #: ../src/plugins/volumealsa/volumealsa.c:411
-#, fuzzy
 msgid "Volume control"
 msgstr "Volume control"
 
@@ -951,23 +916,19 @@ msgid "Protocol:"
 msgstr "Protocol:"
 
 #: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
-#, fuzzy
 msgid "HW Address:"
 msgstr "HW Address:"
 
 #: ../src/plugins/netstat/netstat.c:470
-#, fuzzy
 msgid "Manage Networks"
 msgstr "Manage Networks"
 
 #: ../src/plugins/netstat/netstat.c:472
-#, fuzzy
 msgid "Monitor and Manage networks"
 msgstr "Monitor and Manage networks"
 
 #. create dialog
 #: ../src/plugins/netstat/passwd_gui.c:84
-#, fuzzy
 msgid "Setting Encryption Key"
 msgstr "Setting Encryption Key"
 
@@ -981,43 +942,36 @@ msgstr ""
 "You must have the encryption key."
 
 #: ../src/plugins/netstat/passwd_gui.c:99
-#, fuzzy
 msgid "Encryption Key:"
 msgstr "Encryption Key:"
 
 #: ../src/plugins/netstatus/netstatus.c:179
-#, fuzzy
 msgid "Interface to monitor"
 msgstr "Interface to monitor"
 
 #: ../src/plugins/netstatus/netstatus.c:180
-#, fuzzy
 msgid "Config tool"
 msgstr "Config tool"
 
 #: ../src/plugins/netstatus/netstatus.c:197
-#, fuzzy
 msgid "Network Status Monitor"
 msgstr "Network Status Monitor"
 
 #: ../src/plugins/netstatus/netstatus.c:199
-#, fuzzy
 msgid "Monitor network status"
 msgstr "Monitor network status"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:51
 #: ../src/plugins/netstatus/netstatus-dialog.c:312
-#, fuzzy
 msgid "Unknown"
 msgstr "Unknown"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:116
-#, fuzzy
 msgid "Connection Properties"
 msgstr "Connection Properties"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:122
-#, c-format, fuzzy
+#, c-format
 msgid "Connection Properties: %s"
 msgstr "Connection Properties: %s"
 
@@ -1029,7 +983,7 @@ msgstr[0] "%lu packet"
 msgstr[1] "%lu packets"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:396
-#, c-format, fuzzy
+#, c-format
 msgid ""
 "There was an error displaying help:\n"
 "%s"
@@ -1038,22 +992,20 @@ msgstr ""
 "%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
-#, c-format, fuzzy
+#, c-format
 msgid "Failed to launch time configuration tool: %s"
 msgstr "Failed to launch time configuration tool: %s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:379
-#, c-format, fuzzy
+#, c-format
 msgid "Network Connection: %s"
 msgstr "Network Connection: %s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:384
-#, fuzzy
 msgid "Network Connection"
 msgstr "Network Connection"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:811
-#, fuzzy
 msgid "Interface"
 msgstr "Interface"
 
@@ -1063,12 +1015,10 @@ msgid "The current interface the icon is monitoring."
 msgstr "The current interface the icon is monitoring."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:819
-#, fuzzy
 msgid "Orientation"
 msgstr "Orientation"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:820
-#, fuzzy
 msgid "The orientation of the tray."
 msgstr "The orientation of the tray."
 
@@ -1182,102 +1132,83 @@ msgid "Ethernet"
 msgstr "Ethernet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:879
-#, fuzzy
 msgid "AMPR AX.25"
 msgstr "AMPR AX.25"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:888
 #: ../src/plugins/netstatus/netstatus-iface.c:1008
 msgid "16/4 Mbps Token Ring"
-msgstr ""
+msgstr "16/4 Mbps Token Ring"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:891
-#, fuzzy
 msgid "ARCnet"
 msgstr "ARCnet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:897
-#, fuzzy
 msgid "Frame Relay DLCI"
 msgstr "Frame Relay DLCI"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:903
-#, fuzzy
 msgid "Metricom Starmode IP"
 msgstr "Metricom Starmode IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:906
-#, fuzzy
 msgid "Serial Line IP"
 msgstr "Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:909
-#, fuzzy
 msgid "VJ Serial Line IP"
 msgstr "VJ Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:912
-#, fuzzy
 msgid "6-bit Serial Line IP"
 msgstr "6-bit Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:915
-#, fuzzy
 msgid "VJ 6-bit Serial Line IP"
 msgstr "VJ 6-bit Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:921
-#, fuzzy
 msgid "Adaptive Serial Line IP"
 msgstr "Adaptive Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:924
-#, fuzzy
 msgid "AMPR ROSE"
 msgstr "AMPR ROSE"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:927
-#, fuzzy
 msgid "Generic X.25"
 msgstr "Generic X.25"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:930
-#, fuzzy
 msgid "Point-to-Point Protocol"
 msgstr "Point-to-Point Protocol"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:936
-#, fuzzy
 msgid "(Cisco)-HDLC"
 msgstr "(Cisco)-HDLC"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:939
-#, fuzzy
 msgid "LAPB"
 msgstr "LAPB"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:948
-#, fuzzy
 msgid "IPIP Tunnel"
 msgstr "IPIP Tunnel"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:954
-#, fuzzy
 msgid "Frame Relay Access Device"
 msgstr "Frame Relay Access Device"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:960
-#, fuzzy
 msgid "Local Loopback"
 msgstr "Local Loopback"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:966
-#, fuzzy
 msgid "Fiber Distributed Data Interface"
-msgstr "Fiber Distributed Data Interface"
+msgstr "Fibre Distributed Data Interface"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:972
-#, fuzzy
 msgid "IPv6-in-IPv4"
 msgstr "IPv6-in-IPv4"
 
@@ -1379,12 +1310,10 @@ msgid "Sending"
 msgstr "Sending"
 
 #: ../src/plugins/netstatus/netstatus-util.c:161
-#, fuzzy
 msgid "Receiving"
 msgstr "Receiving"
 
 #: ../src/plugins/netstatus/netstatus-util.c:164
-#, fuzzy
 msgid "Sending/Receiving"
 msgstr "Sending/Receiving"
 
