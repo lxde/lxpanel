@@ -549,14 +549,14 @@ static void task_delete(TaskbarPlugin * tb, Task * tk, gboolean unlink)
     if (tb->focused == tk)
         tb->focused = NULL;
 
+    /* If there is an urgency timeout, remove it. */
+    if (tk->flash_timeout != 0)
+        g_source_remove(tk->flash_timeout);
+
     /* Deallocate structures. */
     icon_grid_remove(tb->icon_grid, tk->button);
     task_free_names(tk);
     task_unlink_class(tk);
-
-    /* If there is an urgency timeout, remove it. */
-    if (tk->flash_timeout != 0)
-        g_source_remove(tk->flash_timeout);
 
     /* If requested, unlink the task from the task list.
      * If not requested, the caller will do this. */
