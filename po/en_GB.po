@@ -134,7 +134,6 @@ msgid "Pixels"
 msgstr "Pixels"
 
 #: ../data/ui/panel-pref.glade.h:31
-#, fuzzy
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Reserve space, and not covered by maximized windows"
 
@@ -147,9 +146,8 @@ msgid "Select an image file"
 msgstr "Select an image file"
 
 #: ../data/ui/panel-pref.glade.h:34
-#, fuzzy
 msgid "Size when minimized"
-msgstr "Size when minimized"
+msgstr "Size when minimised"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Solid color (with opacity)"
@@ -339,7 +337,6 @@ msgstr "Confirm"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:673
-#, fuzzy
 msgid "translator-credits"
 msgstr "translator-credits"
 
@@ -352,7 +349,6 @@ msgid "Copyright (C) 2008-2009"
 msgstr "Copyright (C) 2008-2009"
 
 #: ../src/panel.c:681
-#, fuzzy
 msgid "Desktop panel for LXDE project"
 msgstr "Desktop panel for LXDE project"
 
@@ -370,90 +366,85 @@ msgid "Panel Settings"
 msgstr "Panel Settings"
 
 #: ../src/panel.c:730
-#, fuzzy
 msgid "Create New Panel"
 msgstr "Create New Panel"
 
 #: ../src/panel.c:741
-#, fuzzy
 msgid "Delete This Panel"
 msgstr "Delete This Panel"
 
 #: ../src/panel.c:752
-#, fuzzy
 msgid "About"
 msgstr "About"
 
 #: ../src/panel.c:760
-#, fuzzy
 msgid "Panel"
 msgstr "Panel"
 
 #: ../src/panel.c:773
-#, c-format, fuzzy
+#, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" Settings"
 
 #: ../src/panel.c:1438
-#, c-format, fuzzy
+#, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 
 #: ../src/panel.c:1439
-#, c-format, fuzzy
+#, c-format
 msgid "Command line options:\n"
 msgstr "Command line options:\n"
 
 #: ../src/panel.c:1440
-#, c-format, fuzzy
+#, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- print this help and exit\n"
 
 #: ../src/panel.c:1441
-#, c-format, fuzzy
+#, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- print version and exit\n"
 
 #: ../src/panel.c:1442
-#, c-format, fuzzy
+#, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --log <number> -- set log level 0-5. 0 - none, 5 - chatty\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1444
-#, c-format, fuzzy
+#, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- use specified profile\n"
 
 #: ../src/panel.c:1446
-#, c-format, fuzzy
+#, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- same as --help\n"
 
 #: ../src/panel.c:1447
-#, c-format, fuzzy
+#, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- same as --profile\n"
 
 #: ../src/panel.c:1448
-#, c-format, fuzzy
+#, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- same as --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
 #: ../src/panel.c:1450
-#, c-format, fuzzy
+#, c-format
 msgid ""
 "\n"
 "Visit http://lxde.org/ for detail.\n"
 "\n"
 msgstr ""
 "\n"
-"Visit http://lxde.org/ for detail.\n"
+"Visit http://lxde.org/ for details.\n"
 "\n"
 
 #: ../src/gtk-run.c:332
-#, fuzzy
 msgid "Enter the command you want to execute:"
 msgstr "Enter the command you want to execute:"
 
