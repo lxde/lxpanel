@@ -461,12 +461,10 @@ msgid "Bold font"
 msgstr "Bold font"
 
 #: ../src/plugins/deskno/deskno.c:208
-#, fuzzy
 msgid "Display desktop names"
 msgstr "Display desktop names"
 
 #: ../src/plugins/deskno/deskno.c:235
-#, fuzzy
 msgid "Desktop Number / Workspace Name"
 msgstr "Desktop Number / Workspace Name"
 
@@ -542,92 +540,74 @@ msgid "Flat buttons"
 msgstr "Flat buttons"
 
 #: ../src/plugins/taskbar.c:1968
-#, fuzzy
 msgid "Show windows from all desktops"
 msgstr "Add a separator to the panel"
 
 #: ../src/plugins/taskbar.c:1969
-#, fuzzy
 msgid "Use mouse wheel"
 msgstr "Desktop Pager"
 
 #: ../src/plugins/taskbar.c:1970
-#, fuzzy
 msgid "Flash when there is any window requiring attention"
 msgstr "Simple pager plugin"
 
 #: ../src/plugins/taskbar.c:1971
-#, fuzzy
 msgid "Combine multiple application windows into a single button"
 msgstr "Size"
 
 #: ../src/plugins/taskbar.c:1972
-#, fuzzy
 msgid "Maximum width of task button"
 msgstr "Spacer"
 
 #: ../src/plugins/taskbar.c:1973
-#, fuzzy
 msgid "Spacing"
 msgstr "Allocate space"
 
 #: ../src/plugins/taskbar.c:2030
-#, fuzzy
 msgid "Task Bar (Window List)"
 msgstr "System Tray"
 
 #: ../src/plugins/taskbar.c:2032
-#, fuzzy
 msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
 msgstr "System tray"
 
 #: ../src/plugins/dclock.c:418
-#, fuzzy
 msgid "Clock Format"
 msgstr "Configure Keyboard Layout Switcher"
 
 #: ../src/plugins/dclock.c:419
-#, fuzzy
 msgid "Tooltip Format"
 msgstr "Show layout as"
 
 #: ../src/plugins/dclock.c:420
-#, fuzzy
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr "image"
 
 #: ../src/plugins/dclock.c:421
-#, fuzzy
 msgid "Action when clicked (default: display calendar)"
 msgstr "text"
 
 #: ../src/plugins/dclock.c:423
-#, fuzzy
 msgid "Tooltip only"
 msgstr "Per application settings"
 
 #: ../src/plugins/dclock.c:451
-#, fuzzy
 msgid "Digital Clock"
 msgstr "_Remember layout for each application"
 
 #: ../src/plugins/dclock.c:453
-#, fuzzy
 msgid "Display digital clock and tooltip"
 msgstr "Default layout:"
 
 #: ../src/plugins/menu.c:372
-#, fuzzy
 msgid "Add to desktop"
 msgstr "Keyboard Layout Switcher"
 
 #: ../src/plugins/menu.c:382
-#, fuzzy
 msgid "Properties"
 msgstr "Switch between available keyboard layouts"
 
 #: ../src/plugins/menu.c:1019 ../src/plugins/dirmenu.c:367
-#, fuzzy
 msgid "Icon"
 msgstr "Left click to iconify all windows.  Middle click to shade them."
 
@@ -1010,7 +990,6 @@ msgid "Interface"
 msgstr "Interface"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:812
-#, fuzzy
 msgid "The current interface the icon is monitoring."
 msgstr "The current interface the icon is monitoring."
 
@@ -1023,27 +1002,23 @@ msgid "The orientation of the tray."
 msgstr "The orientation of the tray."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:828
-#, fuzzy
 msgid "Tooltips Enabled"
 msgstr "Tooltips Enabled"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:829
-#, fuzzy
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr "Whether or not the icon's tooltips are enabled."
+msgstr "Whether or not the icon’s tooltips are enabled."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:836
-#, fuzzy
 msgid "Show Signal"
 msgstr "Show Signal"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:837
-#, fuzzy
 msgid "Whether or not the signal strength should be displayed."
 msgstr "Whether or not the signal strength should be displayed."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:950
-#, c-format, fuzzy
+#, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
 "\n"
@@ -1054,58 +1029,47 @@ msgstr ""
 "%s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:148
-#, fuzzy
 msgid "Name"
 msgstr "Name"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:149
-#, fuzzy
 msgid "The interface name"
 msgstr "The interface name"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:156
-#, fuzzy
 msgid "State"
 msgstr "State"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:157
-#, fuzzy
 msgid "The interface state"
 msgstr "The interface state"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:165
-#, fuzzy
 msgid "Stats"
 msgstr "Stats"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:166
-#, fuzzy
 msgid "The interface packets/bytes statistics"
 msgstr "The interface packets/bytes statistics"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:174
-#, fuzzy
 msgid "Whether the interface is a wireless interface"
 msgstr "Whether the interface is a wireless interface"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:181
-#, fuzzy
 msgid "Signal"
 msgstr "Signal"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:182
-#, fuzzy
 msgid "Wireless signal strength percentage"
 msgstr "Wireless signal strength percentage"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:191
 #: ../src/plugins/netstatus/netstatus-util.c:167
-#, fuzzy
 msgid "Error"
 msgstr "Error"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:192
-#, fuzzy
 msgid "The current error condition"
 msgstr "The current error condition"
 
@@ -1117,17 +1081,15 @@ msgstr "Unable to open socket: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:496
 #: ../src/plugins/netstatus/netstatus-iface.c:1223
-#, c-format, fuzzy
+#, c-format
 msgid "SIOCGIFFLAGS error: %s"
 msgstr "SIOCGIFFLAGS error: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:870
-#, fuzzy
 msgid "AMPR NET/ROM"
 msgstr "AMPR NET/ROM"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:873
-#, fuzzy
 msgid "Ethernet"
 msgstr "Ethernet"
 
@@ -1213,99 +1175,89 @@ msgid "IPv6-in-IPv4"
 msgstr "IPv6-in-IPv4"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:984
-#, fuzzy
 msgid "HIPPI"
 msgstr "HIPPI"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:987
-#, fuzzy
 msgid "Ash"
 msgstr "Ash"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:990
-#, fuzzy
 msgid "Econet"
 msgstr "Econet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:993
-#, fuzzy
 msgid "IrLAP"
 msgstr "IrLAP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:1155
-#, c-format, fuzzy
+#, c-format
 msgid "SIOCGIFCONF error: %s"
 msgstr "SIOCGIFCONF error: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:1248
-#, c-format, fuzzy
+#, c-format
 msgid "No network devices found"
 msgstr "No network devices found"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:180
-#, c-format, fuzzy
+#, c-format
 msgid "Cannot open /proc/net/dev: %s"
 msgstr "Cannot open /proc/net/dev: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:189
-#, fuzzy
 msgid "Could not parse /proc/net/dev. Unknown format."
 msgstr "Could not parse /proc/net/dev. Unknown format."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:204
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:330
-#, c-format, fuzzy
+#, c-format
 msgid "Could not parse interface name from '%s'"
 msgstr "Could not parse interface name from '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
-#, c-format, fuzzy
+#, c-format
 msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 msgstr "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
-#, fuzzy
 msgid "Could not parse /proc/net/wireless. Unknown format."
 msgstr "Could not parse /proc/net/wireless. Unknown format."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
-#, c-format, fuzzy
+#, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
 msgstr "Could not parse wireless details from '%s'. link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
-#, c-format, fuzzy
+#, c-format
 msgid "Could not connect to interface, '%s'"
 msgstr "Could not connect to interface, '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:420
-#, c-format, fuzzy
+#, c-format
 msgid "Could not send ioctl to interface, '%s'"
 msgstr "Could not send ioctl to interface, '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
-#, c-format, fuzzy
+#, c-format
 msgid "Could not parse command line '%s': %s"
 msgstr "Could not parse command line '%s': %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
-#, fuzzy
 msgid "Could not parse 'netstat' output. Unknown format"
 msgstr "Could not parse 'netstat' output. Unknown format"
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
-#, fuzzy
 msgid "Disconnected"
 msgstr "Disconnected"
 
 #: ../src/plugins/netstatus/netstatus-util.c:155
-#, fuzzy
 msgid "Idle"
 msgstr "Idle"
 
 #: ../src/plugins/netstatus/netstatus-util.c:158
-#, fuzzy
 msgid "Sending"
 msgstr "Sending"
 
