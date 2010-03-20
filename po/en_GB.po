@@ -854,7 +854,6 @@ msgstr "Sent"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
-#, fuzzy
 msgid "Received"
 msgstr "Received"
 
@@ -1057,7 +1056,7 @@ msgstr "The current error condition"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:434
 #: ../src/plugins/netstatus/netstatus-iface.c:1197
-#, c-format, fuzzy
+#, c-format
 msgid "Unable to open socket: %s"
 msgstr "Unable to open socket: %s"
 
@@ -1252,87 +1251,73 @@ msgid "Sending/Receiving"
 msgstr "Sending/Receiving"
 
 #: ../src/plugins/batt/batt.c:131
-#, fuzzy
 msgid "No batteries found"
 msgstr "No batteries found"
 
 #: ../src/plugins/batt/batt.c:179
-#, c-format, fuzzy
+#, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
 msgstr "Battery: %d%% charged, %d:%02d until full"
 
 #: ../src/plugins/batt/batt.c:190
-#, c-format, fuzzy
+#, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr "Battery: %d%% charged, %d:%02d left"
 
 #: ../src/plugins/batt/batt.c:196
-#, c-format, fuzzy
+#, c-format
 msgid "Battery: %d%% charged"
 msgstr "Battery: %d%% charged"
 
 #: ../src/plugins/batt/batt.c:580
-#, fuzzy
 msgid "Hide if there is no battery"
 msgstr "Hide if there is no battery"
 
 #: ../src/plugins/batt/batt.c:582
-#, fuzzy
 msgid "Alarm command"
 msgstr "Alarm command"
 
 #: ../src/plugins/batt/batt.c:583
-#, fuzzy
 msgid "Alarm time (minutes left)"
 msgstr "Alarm time (minutes left)"
 
 #: ../src/plugins/batt/batt.c:584
-#, fuzzy
 msgid "Background color"
 msgstr "Background colour"
 
 #: ../src/plugins/batt/batt.c:585
-#, fuzzy
 msgid "Charging color 1"
 msgstr "Charging colour 1"
 
 #: ../src/plugins/batt/batt.c:586
-#, fuzzy
 msgid "Charging color 2"
 msgstr "Charging colour 2"
 
 #: ../src/plugins/batt/batt.c:587
-#, fuzzy
 msgid "Discharging color 1"
 msgstr "Discharging colour 1"
 
 #: ../src/plugins/batt/batt.c:588
-#, fuzzy
 msgid "Discharging color 2"
 msgstr "Discharging colour 2"
 
 #: ../src/plugins/batt/batt.c:589
-#, fuzzy
 msgid "Border width"
 msgstr "Border width"
 
 #: ../src/plugins/batt/batt.c:619
-#, fuzzy
 msgid "Battery Monitor"
 msgstr "Battery Monitor"
 
 #: ../src/plugins/batt/batt.c:621
-#, fuzzy
 msgid "Display battery status using ACPI"
 msgstr "Display battery status using ACPI"
 
 #: ../src/plugins/kbled/kbled.c:230
-#, fuzzy
 msgid "Show CapsLock"
 msgstr "Show Caps Lock"
 
 #: ../src/plugins/kbled/kbled.c:231
-#, fuzzy
 msgid "Show NumLock"
 msgstr "Show Num Lock"
 
@@ -1341,7 +1326,6 @@ msgid "Show ScrollLock"
 msgstr "Show Scroll Lock"
 
 #: ../src/plugins/kbled/kbled.c:267
-#, fuzzy
 msgid "Keyboard LED"
 msgstr "Keyboard LED"
 
