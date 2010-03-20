@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-20 04:10+0000\n"
-"PO-Revision-Date: 2010-03-19 23:40:22 +0000\n"
+"PO-Revision-Date: 2010-03-20 14:44:02 +0000\n"
 "Last-Translator: Steve Cook <yorvik.ubuno@gmail.com>\n"
 "Language-Team: English UK en_GB\n"
 "MIME-Version: 1.0\n"
@@ -1031,7 +1031,7 @@ msgid "Connection Properties: %s"
 msgstr "Connection Properties: %s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:135
-#, c-format, fuzzy
+#, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
 msgstr[0] "%lu packet"
