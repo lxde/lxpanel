@@ -296,7 +296,7 @@ static void recompute_group_visibility_on_current_desktop(TaskbarPlugin * tb)
 static void task_draw_label(Task * tk)
 {
     TaskClass * tc = tk->res_class;
-    gboolean bold_style = ((tk->entered_state) && (tk->tb->flat_button));
+    gboolean bold_style = (((tk->entered_state) || (tk->flash_state)) && (tk->tb->flat_button));
     if ((tk->tb->grouped_tasks) && (tc != NULL) && (tc->visible_task == tk) && (tc->visible_count > 1))
 	{
         char * label = g_strdup_printf("(%d) %s", tc->visible_count, tc->visible_name);
