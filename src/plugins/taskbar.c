@@ -498,31 +498,34 @@ static void task_set_class(Task * tk)
     {
         /* Convert the class to UTF-8 and enter it in the class table. */
         gchar * res_class = g_locale_to_utf8(ch.res_class, -1, NULL, NULL, NULL);
-        gboolean name_consumed;
-        TaskClass * tc = taskbar_enter_res_class(tk->tb, res_class, &name_consumed);
-        if ( ! name_consumed) g_free(res_class);
-
-        /* If the task changed class, update data structures. */
-        TaskClass * old_tc = tk->res_class;
-        if (old_tc != tc)
+        if (res_class != NULL)
         {
-            /* Unlink from previous class, if any. */
-            task_unlink_class(tk);
+            gboolean name_consumed;
+            TaskClass * tc = taskbar_enter_res_class(tk->tb, res_class, &name_consumed);
+            if ( ! name_consumed) g_free(res_class);
 
-            /* Add to end of per-class task list.  Do this to keep the popup menu in order of creation. */
-            if (tc->res_class_head == NULL)
-                tc->res_class_head = tk;
-            else
+            /* If the task changed class, update data structures. */
+            TaskClass * old_tc = tk->res_class;
+            if (old_tc != tc)
             {
-                Task * tk_pred;
-                for (tk_pred = tc->res_class_head; tk_pred->res_class_flink != NULL; tk_pred = tk_pred->res_class_flink) ;
-                tk_pred->res_class_flink = tk;
-                task_button_redraw(tk, tk->tb);
-            }
-            tk->res_class = tc;
+                /* Unlink from previous class, if any. */
+                task_unlink_class(tk);
 
-            /* Recompute group visibility. */
-            recompute_group_visibility_for_class(tk->tb, tc);
+                /* Add to end of per-class task list.  Do this to keep the popup menu in order of creation. */
+                if (tc->res_class_head == NULL)
+                    tc->res_class_head = tk;
+                else
+                {
+                    Task * tk_pred;
+                    for (tk_pred = tc->res_class_head; tk_pred->res_class_flink != NULL; tk_pred = tk_pred->res_class_flink) ;
+                    tk_pred->res_class_flink = tk;
+                    task_button_redraw(tk, tk->tb);
+                }
+                tk->res_class = tc;
+
+                /* Recompute group visibility. */
+                recompute_group_visibility_for_class(tk->tb, tc);
+            }
         }
         XFree(ch.res_class);
     }
