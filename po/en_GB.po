@@ -1,3 +1,4 @@
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: LxPanel\n"
@@ -10,8 +11,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: English\n"
-"X-Poedit-Country: UNITED KINGDOM\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Country: UNITED KINGDOM\n"
 
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
@@ -62,8 +63,7 @@ msgstr "Alignment:"
 msgid "Appearance"
 msgstr "Appearance"
 
-#: ../data/ui/panel-pref.glade.h:14
-#: ../src/panel.c:1039
+#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1039
 msgid "Bottom"
 msgstr "Bottom"
 
@@ -91,9 +91,7 @@ msgstr "File Manager:"
 msgid "Geometry"
 msgstr "Geometry"
 
-#: ../data/ui/panel-pref.glade.h:21
-#: ../src/panel.c:1029
-#: ../src/panel.c:1037
+#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:1029 ../src/panel.c:1037
 msgid "Height:"
 msgstr "Height:"
 
@@ -101,8 +99,7 @@ msgstr "Height:"
 msgid "Image"
 msgstr "Image"
 
-#: ../data/ui/panel-pref.glade.h:23
-#: ../src/panel.c:1031
+#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:1031
 msgid "Left"
 msgstr "Left"
 
@@ -138,8 +135,7 @@ msgstr "Pixels"
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Reserve space, and not covered by maximised windows"
 
-#: ../data/ui/panel-pref.glade.h:32
-#: ../src/panel.c:1032
+#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:1032
 msgid "Right"
 msgstr "Right"
 
@@ -163,14 +159,11 @@ msgstr "System theme"
 msgid "Terminal Emulator:"
 msgstr "Terminal Emulator:"
 
-#: ../data/ui/panel-pref.glade.h:38
-#: ../src/panel.c:1038
+#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1038
 msgid "Top"
 msgstr "Top"
 
-#: ../data/ui/panel-pref.glade.h:39
-#: ../src/panel.c:1030
-#: ../src/panel.c:1036
+#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:1030 ../src/panel.c:1036
 msgid "Width:"
 msgstr "Width:"
 
@@ -219,8 +212,7 @@ msgstr "<b>Signal Strength</b>"
 msgid "Address:"
 msgstr "Address:"
 
-#: ../data/ui/netstatus.glade.h:10
-#: ../src/plugins/netstat/netstat.c:319
+#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
 #: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
 msgid "Broadcast:"
@@ -281,13 +273,11 @@ msgstr "Type:"
 msgid "_Name:"
 msgstr "_Name:"
 
-#: ../data/ui/launchbar.glade.h:1
-#: ../src/plugins/launchbar.c:887
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:887
 msgid "Application Launch Bar"
 msgstr "Application Launch Bar"
 
-#: ../src/configurator.c:54
-#: ../src/gtk-run.c:319
+#: ../src/configurator.c:54 ../src/gtk-run.c:319
 msgid "Run"
 msgstr "Run"
 
@@ -323,8 +313,7 @@ msgstr "Logout command is not set"
 msgid "Select a directory"
 msgstr "Select a directory"
 
-#: ../src/configurator.c:1196
-#: ../src/configurator.c:1287
+#: ../src/configurator.c:1196 ../src/configurator.c:1287
 msgid "Select a file"
 msgstr "Select a file"
 
@@ -465,8 +454,7 @@ msgstr "CPU Usage Monitor"
 msgid "Display CPU usage"
 msgstr "Display CPU usage"
 
-#: ../src/plugins/deskno/deskno.c:207
-#: ../src/plugins/dclock.c:422
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:422
 msgid "Bold font"
 msgstr "Bold font"
 
@@ -520,7 +508,8 @@ msgstr "Workspace _%d"
 msgid "Workspace %d"
 msgstr "Workspace %d"
 
-#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
+#. Add "move to all workspaces" item.  This causes the window to be visible no
+#. matter what desktop is active.
 #: ../src/plugins/taskbar.c:1753
 msgid "_All workspaces"
 msgstr "_All workspaces"
@@ -530,7 +519,8 @@ msgstr "_All workspaces"
 msgid "_Move to Workspace"
 msgstr "_Move to Workspace"
 
-#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
+#. Add Close menu item.  By popular demand, we place this menu item closest to
+#. the cursor.
 #: ../src/plugins/taskbar.c:1765
 msgid "_Close Window"
 msgstr "_Close Window"
@@ -588,12 +578,8 @@ msgid "Tooltip Format"
 msgstr "Tooltip Format"
 
 #: ../src/plugins/dclock.c:420
-msgid ""
-"Format codes: man 3 strftime; \\n"
-" for line break"
-msgstr ""
-"Format codes: man 3 strftime; \\n"
-" for line break"
+msgid "Format codes: man 3 strftime; \\n for line break"
+msgstr "Format codes: man 3 strftime; \\n for line break"
 
 #: ../src/plugins/dclock.c:421
 msgid "Action when clicked (default: display calendar)"
@@ -619,8 +605,7 @@ msgstr "Add to desktop"
 msgid "Properties"
 msgstr "Properties"
 
-#: ../src/plugins/menu.c:1019
-#: ../src/plugins/dirmenu.c:367
+#: ../src/plugins/menu.c:1019 ../src/plugins/dirmenu.c:367
 msgid "Icon"
 msgstr "Icon"
 
@@ -648,8 +633,7 @@ msgstr "Desktop Pager"
 msgid "Simple pager plugin"
 msgstr "Simple pager plugin"
 
-#: ../src/plugins/space.c:121
-#: ../src/plugins/batt/batt.c:590
+#: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
 msgid "Size"
 msgstr "Size"
 
@@ -841,8 +825,7 @@ msgstr "Network cable is not plugged in"
 msgid "Connection has limited or no connectivity"
 msgstr "Connection has limited or no connectivity"
 
-#: ../src/plugins/netstat/netstat.c:307
-#: ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "IP Address:"
@@ -851,38 +834,32 @@ msgstr "IP Address:"
 msgid "Remote IP:"
 msgstr "Remote IP:"
 
-#: ../src/plugins/netstat/netstat.c:309
-#: ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "Netmask:"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "Activity"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "Sent"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "Received"
 
-#: ../src/plugins/netstat/netstat.c:311
-#: ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "bytes"
 
-#: ../src/plugins/netstat/netstat.c:312
-#: ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "packets"
@@ -896,8 +873,7 @@ msgstr "Wireless"
 msgid "Protocol:"
 msgstr "Protocol:"
 
-#: ../src/plugins/netstat/netstat.c:321
-#: ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "HW Address:"
 
@@ -958,11 +934,11 @@ msgid "Connection Properties: %s"
 msgstr "Connection Properties: %s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:135
-#, c-format
+#, c-format, fuzzy
 msgid "%lu packet"
 msgid_plural "%lu packets"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%lu packet"
+msgstr[1] "%lu packets"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:396
 #, c-format
@@ -1353,4 +1329,3 @@ msgstr "Keyboard LED"
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Indicators for CapsLock, NumLock, and ScrollLock keys"
-
