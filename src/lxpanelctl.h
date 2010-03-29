@@ -16,13 +16,19 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-/* Commands controlling lxpanel */
+#ifndef _LXPANELCTL_H
+#define _LXPANELCTL_H
 
-enum {
+/* Commands controlling lxpanel.
+ * These are the parameter of a _LXPANEL_CMD ClientMessage to the root window.
+ * Endianness alert:  Note that the parameter is in b[0], not l[0]. */
+typedef enum {
     LXPANEL_CMD_NONE,
     LXPANEL_CMD_SYS_MENU,
     LXPANEL_CMD_RUN,
     LXPANEL_CMD_CONFIG,
     LXPANEL_CMD_RESTART,
     LXPANEL_CMD_EXIT
-};
+} PanelControlCommand;
+
+#endif

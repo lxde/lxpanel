@@ -637,12 +637,12 @@ static void on_remove_plugin( GtkButton* btn, GtkTreeView* view )
         if( gtk_tree_path_get_indices(tree_path)[0] >= gtk_tree_model_iter_n_children( model, NULL ) )
             gtk_tree_path_prev( tree_path );
         gtk_list_store_remove( GTK_LIST_STORE(model), &it );
+        gtk_tree_selection_select_path( tree_sel, tree_path );
+        gtk_tree_path_free( tree_path );
+
         p->plugins = g_list_remove( p->plugins, pl );
         plugin_delete(pl);
         panel_config_save(p);
-
-        gtk_tree_selection_select_path( tree_sel, tree_path );
-        gtk_tree_path_free( tree_path );
     }
 }
 

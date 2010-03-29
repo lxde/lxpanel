@@ -89,7 +89,7 @@ int main( int argc, char** argv )
     ev.xclient.message_type = cmd_atom;
     ev.xclient.format = 8;
 
-    ev.xclient.data.l[0] = cmd;
+    ev.xclient.data.b[0] = cmd;
 
     XSendEvent(dpy, root, False,
                SubstructureRedirectMask|SubstructureNotifyMask, &ev);
