@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-02-02 01:32+0100\n"
-"PO-Revision-Date: 2010-02-05 06:21+0200\n"
+"PO-Revision-Date: 2010-02-24 17:37+0200\n"
 "Last-Translator: Kılıç <kilickoken@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -419,7 +419,7 @@ msgstr " --sürüm   -- sürümü yaz ve çık\n"
 #: ../src/panel.c:1424
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --günlük <number> -- günlük düzeyini belirle 0-5. 0 - hiç 5 - geveze\n"
+msgstr " --günlük <number> -- günlük düzeyini belirle 0-5. 0 - hiç 5 - geveze"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1426
@@ -1130,7 +1130,7 @@ msgstr "Uyarlanabilir Dizisel Bağlantı Noktası IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:924
 msgid "AMPR ROSE"
-msgstr "AMPR ROSE"
+msgstr "ÖPT GİSO (AMPR ROSE)"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:927
 msgid "Generic X.25"
@@ -1144,50 +1144,53 @@ msgstr "Noktadan Noktaya Bağlantı"
 msgid "(Cisco)-HDLC"
 msgstr "(Cisco)-YVBD (HDLC)"
 
+# BEYD: Bağ Erişim Yordamı - Dengeli
 #: ../src/plugins/netstatus/netstatus-iface.c:939
 msgid "LAPB"
-msgstr ""
+msgstr "BEYD (LAPB)"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:948
 msgid "IPIP Tunnel"
-msgstr ""
+msgstr "IPIP Tünelleme"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:954
 msgid "Frame Relay Access Device"
-msgstr ""
+msgstr "Dördül Aktarımı Erişim Aygıtı"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:960
 msgid "Local Loopback"
-msgstr ""
+msgstr "Yerel Geri Döngü"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:966
 msgid "Fiber Distributed Data Interface"
-msgstr ""
+msgstr "Lifle Dağıtılan Veri Arayüzü"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:972
 msgid "IPv6-in-IPv4"
 msgstr "IPv4 içinde IPv6"
 
+# YBKA: Yüksek Başarımlı Koşut Arayüz
 #: ../src/plugins/netstatus/netstatus-iface.c:984
 msgid "HIPPI"
-msgstr ""
+msgstr "YBKA (HIPPI)"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:987
 msgid "Ash"
-msgstr ""
+msgstr "Ash"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:990
 msgid "Econet"
-msgstr ""
+msgstr "Ekonet (Econet)"
 
+# KöBEK: Kızılötesi Bağ Erişim Kuralları
 #: ../src/plugins/netstatus/netstatus-iface.c:993
 msgid "IrLAP"
-msgstr ""
+msgstr "KöBEK (IrLAP)"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:1155
 #, c-format
 msgid "SIOCGIFCONF error: %s"
-msgstr ""
+msgstr "SIOCGIFCONF kusuru: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:1248
 #, c-format
@@ -1201,13 +1204,13 @@ msgstr "/proc/net/dev açılamıyor: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:189
 msgid "Could not parse /proc/net/dev. Unknown format."
-msgstr ""
+msgstr "/proc/net/dev çözümlenemiyor. Bilinmeyen biçim."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:204
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:330
 #, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr ""
+msgstr "'%s''den ayarüzü adı çözümlenemedi"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
@@ -1216,15 +1219,17 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
+"'%s''den arayüzü sayımlamaları çözümlenemedi. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr ""
+msgstr "/proc/net/wireless çözümlenemedi. Bilinmeyen biçim."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr ""
+msgstr "'%s''den kablosuz ayrıtıları çözümlenemedi. link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
@@ -1234,16 +1239,16 @@ msgstr "Arayüze bağlanılamadı, '%s'"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:420
 #, c-format
 msgid "Could not send ioctl to interface, '%s'"
-msgstr ""
+msgstr "Arayüze ioctl gönderilemedi. '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr ""
+msgstr "Komut satırı '%s' çözümlenemedi: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr ""
+msgstr "'netstat' çıktısı çözümlenemedi. Bilinmeyen biçim."
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
@@ -1251,7 +1256,7 @@ msgstr "Bağlantı kesildi"
 
 #: ../src/plugins/netstatus/netstatus-util.c:155
 msgid "Idle"
-msgstr ""
+msgstr "Aylak"
 
 #: ../src/plugins/netstatus/netstatus-util.c:158
 msgid "Sending"
@@ -1267,22 +1272,22 @@ msgstr "Gönderiliyor/Alınıyor"
 
 #: ../src/plugins/batt/batt.c:131
 msgid "No batteries found"
-msgstr "Batarya bulunamadı"
+msgstr "Pil bulunamadı"
 
 #: ../src/plugins/batt/batt.c:179
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
-msgstr ""
+msgstr "Pil: %d%% dolu, doluma %d:%02d var"
 
 #: ../src/plugins/batt/batt.c:190
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
-msgstr ""
+msgstr "Pil: %d%% dolu, %d:%02d kaldı"
 
 #: ../src/plugins/batt/batt.c:196
 #, c-format
 msgid "Battery: %d%% charged"
-msgstr ""
+msgstr "Pil: %d%% dolu"
 
 #: ../src/plugins/batt/batt.c:580
 msgid "Hide if there is no battery"
@@ -1290,11 +1295,11 @@ msgstr "Pil yoksa gizle"
 
 #: ../src/plugins/batt/batt.c:582
 msgid "Alarm command"
-msgstr ""
+msgstr "Uyarı komutu"
 
 #: ../src/plugins/batt/batt.c:583
 msgid "Alarm time (minutes left)"
-msgstr ""
+msgstr "Uyarı süresi (dakika kaldı)"
 
 #: ../src/plugins/batt/batt.c:584
 msgid "Background color"
@@ -1322,28 +1327,34 @@ msgstr "Sınır genişliği"
 
 #: ../src/plugins/batt/batt.c:619
 msgid "Battery Monitor"
-msgstr ""
+msgstr "Pil İzleyici"
 
+# GYGA: Gelişmiş Yapılandırma ve Güç Arayüzü
 #: ../src/plugins/batt/batt.c:621
 msgid "Display battery status using ACPI"
-msgstr ""
+msgstr "GYGA (ACPI) kullanarak pil durumunu göster"
 
 #: ../src/plugins/kbled/kbled.c:230
 msgid "Show CapsLock"
-msgstr ""
+msgstr "Büyük İmce Kilidini Göster"
 
 #: ../src/plugins/kbled/kbled.c:231
 msgid "Show NumLock"
-msgstr ""
+msgstr "Sayı Kilidini Göster"
 
 #: ../src/plugins/kbled/kbled.c:232
 msgid "Show ScrollLock"
-msgstr ""
+msgstr "Kaydırma Kilidini Göster"
 
+# Tuşluk: klavye
+# IYİ: ışık yayan ikizuç: LED
 #: ../src/plugins/kbled/kbled.c:267
 msgid "Keyboard LED"
-msgstr ""
+msgstr "Tuşluk IYİ'si"
 
+# BüyükİmceKilidi: CapsLock
+# SayıKilidi: NumLock
+# KaydırmaKilidi: ScrollLock
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr ""
+msgstr "BüyükİmceKilidi, SayıKilidi, ve KaydırmaKilidi tuş göstergeleri"

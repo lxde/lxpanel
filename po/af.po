@@ -7,15 +7,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-02-02 01:32+0100\n"
-"PO-Revision-Date: 2010-01-14 12:05+0200\n"
-"Last-Translator: F Wolff <friedel@translate.org.za>\n"
+"PO-Revision-Date: 2010-03-24 16:21+0200\n"
+"Last-Translator: F <friedel@translate.org.za>\n"
 "Language-Team: translate-discuss-af@lists.sourceforge.net\n"
+"Language: af\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: af\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.0\n"
+"X-Generator: Pootle 2.0.1\n"
 
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
@@ -561,7 +561,7 @@ msgstr "Flits as enige venster aandag benodig"
 
 #: ../src/plugins/taskbar.c:1986
 msgid "Combine multiple application windows into a single button"
-msgstr ""
+msgstr "Kombineer veelvuldige toepassingvensters in 'n enkele knoppie"
 
 #: ../src/plugins/taskbar.c:1987
 msgid "Maximum width of task button"

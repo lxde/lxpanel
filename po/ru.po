@@ -7,21 +7,23 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-02-02 01:32+0100\n"
-"PO-Revision-Date: 2009-12-16 16:00+0300\n"
-"Last-Translator: Alexander Kazancev <kazancas@mandriva.ru>\n"
+"PO-Revision-Date: 2010-02-28 22:05+0200\n"
+"Last-Translator: Alexander <kazancas@gmail.com>\n"
 "Language-Team: Russian <hsh@runtu.org>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Pootle 2.0.1\n"
 "X-Poedit-Language: Russian\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 &&n%100!=11 ? 0 : n%10>=2 &&n%"
-"10<=4 &&(n%100<10 || n%100>=20) ? 1 : 2);\\n\n"
 
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
 msgid "% Percent"
-msgstr "% Проценты"
+msgstr "% Процентов"
 
 #: ../data/ui/panel-pref.glade.h:3
 msgid "<b>Automatic hiding</b>"
@@ -45,7 +47,7 @@ msgstr "<b>Позиция</b>"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "<b>Properties</b>"
-msgstr "<b>Свойства</b>"
+msgstr "<b>Параметры</b>"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "<b>Set Preferred Applications</b>"
@@ -109,7 +111,7 @@ msgstr "Слева"
 
 #: ../data/ui/panel-pref.glade.h:24
 msgid "Logout Command:"
-msgstr "Команда выхода:"
+msgstr "Команда для выхода из системы:"
 
 #: ../data/ui/panel-pref.glade.h:25
 msgid "Make window managers treat the panel as dock"
@@ -121,7 +123,7 @@ msgstr "Отступ:"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Minimize panel when not in use"
-msgstr "Скрывать панель"
+msgstr "Скрыть панель, если не используется"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "Panel Applets"
@@ -137,7 +139,7 @@ msgstr "Пикселей"
 
 #: ../data/ui/panel-pref.glade.h:31
 msgid "Reserve space, and not covered by maximized windows"
-msgstr "Резервировать место и не перекрывать полноэкранными окнами"
+msgstr "Зарезервировать место и не закрывать окнами, развернутыми на весь экран"
 
 #: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:1014
 msgid "Right"
@@ -157,7 +159,7 @@ msgstr "Задать цвет (прозрачность)"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "System theme"
-msgstr "Системная тема"
+msgstr "Из системной темы"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "Terminal Emulator:"
@@ -173,7 +175,7 @@ msgstr "Ширина:"
 
 #: ../data/ui/panel-pref.glade.h:40
 msgid "pixels"
-msgstr "Пикселей"
+msgstr "пикселей"
 
 #: ../data/ui/netstatus.glade.h:2
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
@@ -225,7 +227,7 @@ msgstr "Широковещательный адрес:"
 #: ../data/ui/netstatus.glade.h:11
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
 msgid "Con_figure"
-msgstr "Настроить"
+msgstr "Нас_троить"
 
 #: ../data/ui/netstatus.glade.h:12
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
@@ -275,7 +277,7 @@ msgstr "Тип:"
 #: ../data/ui/netstatus.glade.h:21
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
 msgid "_Name:"
-msgstr "Имя:"
+msgstr "_Имя:"
 
 #: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:831
 msgid "Application Launch Bar"
@@ -295,11 +297,11 @@ msgstr "Выполнить"
 
 #: ../src/configurator.c:56
 msgid "Restart"
-msgstr "Перезапуск"
+msgstr "Перезапустить"
 
 #: ../src/configurator.c:57
 msgid "Logout"
-msgstr "Выход"
+msgstr "Завершить Сеанс"
 
 #: ../src/configurator.c:448
 msgid "Currently loaded plugins"
@@ -327,18 +329,18 @@ msgstr "Выбрать каталог"
 
 #: ../src/configurator.c:1196 ../src/configurator.c:1287
 msgid "Select a file"
-msgstr "Выберите файл"
+msgstr "Выберать файл"
 
 #: ../src/configurator.c:1314
 msgid "_Browse"
-msgstr "Обзор"
+msgstr "_Обзор"
 
 #: ../src/panel.c:634
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
-"Удалить панель?\n"
+"Вы точно хотите удалить панель?\n"
 "<b>Внимание: это необратимая операция.</b>"
 
 #: ../src/panel.c:636
@@ -349,7 +351,7 @@ msgstr "Подтвердить"
 #: ../src/panel.c:668
 msgid "translator-credits"
 msgstr "HsH <hsh@runtu.org>\n"
-       "Alexander Kazancev <kazancas@mandiriva.ru>"
+"Alexander Kazancev <kazancas@mandiriva.ru>"
 
 #: ../src/panel.c:673
 msgid "LXPanel"
@@ -378,11 +380,11 @@ msgstr "Настройки панели"
 
 #: ../src/panel.c:725
 msgid "Create New Panel"
-msgstr "Создать панель"
+msgstr "Создать новую панель"
 
 #: ../src/panel.c:736
 msgid "Delete This Panel"
-msgstr "Удалить панель"
+msgstr "Удалить эту панель"
 
 #: ../src/panel.c:747
 msgid "About"
@@ -495,22 +497,22 @@ msgstr "Панель со значками запуска приложений"
 #. Add Raise menu item.
 #: ../src/plugins/taskbar.c:1712
 msgid "_Raise"
-msgstr "_Выше"
+msgstr "_Развернуть"
 
 #. Add Restore menu item.
 #: ../src/plugins/taskbar.c:1717
 msgid "R_estore"
-msgstr "Восстановить"
+msgstr "В_осстановить"
 
 #. Add Maximize menu item.
 #: ../src/plugins/taskbar.c:1722
 msgid "Ma_ximize"
-msgstr "Развернуть"
+msgstr "_На весь экран"
 
 #. Add Iconify menu item.
 #: ../src/plugins/taskbar.c:1727
 msgid "Ico_nify"
-msgstr "Значком"
+msgstr "_Значком"
 
 #: ../src/plugins/taskbar.c:1746
 #, c-format
@@ -562,8 +564,9 @@ msgid "Flash when there is any window requiring attention"
 msgstr "Мигать, если окно требует внимания"
 
 #: ../src/plugins/taskbar.c:1986
+#: ../src/plugins/taskbar.c:1972
 msgid "Combine multiple application windows into a single button"
-msgstr "Группировать сходные кнопки панели задач"
+msgstr "Сгруппировать несколько окон на одной кнопке"
 
 #: ../src/plugins/taskbar.c:1987
 msgid "Maximum width of task button"
@@ -594,16 +597,16 @@ msgid "Tooltip Format"
 msgstr "Формат подсказок"
 
 #: ../src/plugins/dclock.c:312
-#, fuzzy
 msgid "Format codes: man 3 strftime; \\n for line break"
-msgstr "Формат кода: man 3 strftime: \\n для разрыва строки"
+msgstr ""
+"Формат кода: man 3 strftime; \n"
+" \\n для разрыва строки"
 
 #: ../src/plugins/dclock.c:313
 msgid "Action when clicked (default: display calendar)"
-msgstr "Действие по щелчку (по умолчанию - календарь)"
+msgstr "Действие по щелчку (по умолчанию: отобразить календарь)"
 
 #: ../src/plugins/dclock.c:315
-#, fuzzy
 msgid "Tooltip only"
 msgstr "Только подсказки"
 
@@ -707,11 +710,11 @@ msgstr "Индикатор раскладок клавиатуры"
 
 #: ../src/plugins/xkb/xkb-plugin.c:399
 msgid "Switch between available keyboard layouts"
-msgstr "Переключение доступных раскладок клавиатуры"
+msgstr "Переключение между доступными раскладками клавиатуры"
 
 #: ../src/plugins/wincmd.c:204
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr "Щелчок левой кнопкой - все окна значками, средней - затемнение"
+msgstr "Левая кнопка мыши сворачивает все окна. Средняя скрывает все окна."
 
 #: ../src/plugins/wincmd.c:234
 msgid "Alternately iconify/shade and raise"
@@ -726,8 +729,8 @@ msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
-"Посылает команду на все окна.\n"
-"Доступные команды: 1) сделать значками и 2) затенить"
+"Посылает команды всем окнам.Возможные команды 1) сделать значками и 2) "
+"скрыть"
 
 #: ../src/plugins/dirmenu.c:200
 msgid "Open in _Terminal"
@@ -786,9 +789,8 @@ msgid "Temperature Monitor"
 msgstr "Монитор температуры"
 
 #: ../src/plugins/thermal/thermal.c:355
-#, fuzzy
 msgid "Display system temperature"
-msgstr "Показывает температуру компьютера"
+msgstr "Отображение температуры компьютера"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -890,7 +892,7 @@ msgstr "беспроводное"
 
 #: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
-msgstr "протокол:"
+msgstr "Протокол:"
 
 #: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
@@ -1495,5 +1497,3 @@ msgstr "Индикаторы клавиш CapsLock, NumLock и ScrollLock"
 #, fuzzy
 #~ msgid "Caption"
 #~ msgstr "Заголовок"
-
- 	  	 
