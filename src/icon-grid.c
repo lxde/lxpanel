@@ -306,7 +306,8 @@ void icon_grid_add(IconGrid * ig, GtkWidget * child, gboolean visible)
     }
 
     /* Add the widget to the layout container. */
-    gtk_widget_show(ige->widget);
+    if (visible)
+        gtk_widget_show(ige->widget);
     gtk_fixed_put(GTK_FIXED(ig->widget), ige->widget, 0, 0);
     g_signal_connect(G_OBJECT(child), "size-request", G_CALLBACK(icon_grid_element_size_request), (gpointer) ige);
 
