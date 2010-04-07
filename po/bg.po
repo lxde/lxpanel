@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-02-02 01:32+0100\n"
-"PO-Revision-Date: 2010-03-21 15:33+0200\n"
-"Last-Translator: Радослав Иванов <rec_ku@hotmail.com>\n"
-"Language-Team: "
-"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2010-04-06 20:49+0200\n"
+"Last-Translator: Радослав <rec_ku@hotmail.com>\n"
+"Language-Team: MIME-Version: 1.0\n"
+"Language: bg\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 1.1.0\n"
+"X-Generator: Pootle 2.0.1\n"
 "X-Poedit-Language: Bulgarian\n"
 "X-Poedit-Country: BULGARIA\n"
 
@@ -50,7 +50,7 @@ msgstr "<b>Свойства</b>"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>Задай предпочитаните програми</b>"
+msgstr "<b>Задайте предпочитани програми</b>"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "<b>Size</b>"
@@ -230,7 +230,7 @@ msgstr "Адрес:"
 #: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
 msgid "Broadcast:"
-msgstr "Разпръскване:"
+msgstr "Разпределяне:"
 
 #: ../data/ui/netstatus.glade.h:11
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
@@ -352,7 +352,7 @@ msgid ""
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
 "Наистина ли искате да изтриете този панел?\n"
-"<b>Внимание: Не може бъде възстановено!</b>"
+"<b>Внимание: Не може да бъде възстановено!</b>"
 
 #: ../src/panel.c:636
 msgid "Confirm"
@@ -417,7 +417,7 @@ msgstr "lxpanel %s - lightweight GTK2+ панел за UNIX работен пл�
 #: ../src/panel.c:1421
 #, c-format
 msgid "Command line options:\n"
-msgstr "Опции в команден ред:\n"
+msgstr "Опции на команди:\n"
 
 #: ../src/panel.c:1422
 #, c-format
@@ -478,7 +478,7 @@ msgstr "Мониторинг на процесора"
 
 #: ../src/plugins/cpu/cpu.c:270
 msgid "Display CPU usage"
-msgstr "Покажи натоварването на процесора"
+msgstr "Натоварване на процесора"
 
 #: ../src/plugins/deskno/deskno.c:207
 #: ../src/plugins/dclock.c:314
@@ -572,7 +572,7 @@ msgstr "Изпозвай колелцето на мишката"
 
 #: ../src/plugins/taskbar.c:1985
 msgid "Flash when there is any window requiring attention"
-msgstr "Премигване на прозорец при ново събитие"
+msgstr "Примигване на прозорец при ново събитие"
 
 #: ../src/plugins/taskbar.c:1986
 msgid "Combine multiple application windows into a single button"
@@ -758,7 +758,7 @@ msgstr "Етикет"
 
 #: ../src/plugins/dirmenu.c:397
 msgid "Directory Menu"
-msgstr "Редактирай менюто"
+msgstr "Меню на директориите"
 
 #: ../src/plugins/dirmenu.c:399
 msgid "Browse directory tree via menu (Author: PCMan)"
@@ -1372,14 +1372,19 @@ msgstr "Индикатори за CapsLock, NumLock и ScrollLock клавиши
 
 #~ msgid "Display system temperature, by kesler.daniel@gmail.com"
 #~ msgstr "Екран на системната температура от kesler.daniel@gmail.com"
+
 #~ msgid "Keyboard Led"
 #~ msgstr "Клавиатурен индикатор"
+
 #~ msgid "Desktop No / Workspace Name"
 #~ msgstr "Плот № / Работен плот Име"
+
 #~ msgid "Battery: %d%% charged, %s"
 #~ msgstr "Батерия: %d%% заредена, %s"
+
 #~ msgid "charging finished"
 #~ msgstr "зареждането завърши"
+
 #~ msgid "charging"
 #~ msgstr "зареждане"
 
@@ -1390,4 +1395,3 @@ msgstr "Индикатори за CapsLock, NumLock и ScrollLock клавиши
 #, fuzzy
 #~ msgid "Top\t"
 #~ msgstr "Горе:"
-
