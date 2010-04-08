@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-02-02 01:32+0100\n"
-"PO-Revision-Date: 2010-04-06 20:49+0200\n"
+"PO-Revision-Date: 2010-04-08 14:20+0200\n"
 "Last-Translator: Радослав <rec_ku@hotmail.com>\n"
 "Language-Team: MIME-Version: 1.0\n"
 "Language: bg\n"
@@ -26,7 +26,7 @@ msgstr "% Процент"
 
 #: ../data/ui/panel-pref.glade.h:3
 msgid "<b>Automatic hiding</b>"
-msgstr "<b>Автоматичен скриванe</b>"
+msgstr "<b>Автоматично скриванe</b>"
 
 #: ../data/ui/panel-pref.glade.h:4
 msgid "<b>Background</b>"
@@ -230,7 +230,7 @@ msgstr "Адрес:"
 #: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
 msgid "Broadcast:"
-msgstr "Разпределяне:"
+msgstr "Излъчване:"
 
 #: ../data/ui/netstatus.glade.h:11
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
@@ -373,7 +373,7 @@ msgstr "Copyright © 2008-2009"
 
 #: ../src/panel.c:676
 msgid "Desktop panel for LXDE project"
-msgstr "Панел за LXDE"
+msgstr "LXDE панел"
 
 #: ../src/panel.c:699
 msgid "Add / Remove Panel Items"
