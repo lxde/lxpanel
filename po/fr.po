@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: lxpanel r839\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-02-18 04:05+0000\n"
-"PO-Revision-Date: 2010-03-19 10:36+0200\n"
+"PO-Revision-Date: 2010-04-08 10:16+0200\n"
 "Last-Translator: Cilyan <gaknar@gmail.com>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "Language: fr\n"
@@ -1233,7 +1233,7 @@ msgstr "Impossible d'envoyer une commande ioctl à l'interface, '%s'"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr "Impossible d'analyser la ligne de commande '%s', %s"
+msgstr "Impossible d'analyser la ligne de commande '%s' : %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
