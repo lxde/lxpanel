@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LxPanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-27 04:16+0000\n"
-"PO-Revision-Date: 2010-03-27 20:05:22 \n"
+"POT-Creation-Date: 2010-04-08 04:10+0000\n"
+"PO-Revision-Date: 2010-03-27 20:05:22\n"
 "Last-Translator: Steve Cook (Yorvyk) <yorvik.ubunto@googlemail.com>\n"
 "Language-Team: English UK en_GB <yorvik.ubunto@googlemail.com>\n"
 "MIME-Version: 1.0\n"
@@ -497,7 +497,7 @@ msgstr "Ma_ximise"
 #. Add Iconify menu item.
 #: ../src/plugins/taskbar.c:1715
 msgid "Ico_nify"
-msgstr "Ico_nify"
+msgstr "Mi_nimise"
 
 #: ../src/plugins/taskbar.c:1734
 #, c-format
