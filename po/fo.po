@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-02-02 01:32+0100\n"
-"PO-Revision-Date: 2010-03-23 00:22+0200\n"
+"PO-Revision-Date: 2010-04-08 09:09+0200\n"
 "Last-Translator: Gunleif <gunleif@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fo\n"
@@ -643,12 +643,13 @@ msgid "Add a separator to the panel"
 msgstr "Legg einskiljara á panelið"
 
 #: ../src/plugins/pager.c:797
+#, fuzzy
 msgid "Desktop Pager"
-msgstr ""
+msgstr "Arbeiðsøkisskifti"
 
 #: ../src/plugins/pager.c:799
 msgid "Simple pager plugin"
-msgstr ""
+msgstr "Einfaldur víðkanarmótulur til skiftan av arbeiðsøki"
 
 #: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
 msgid "Size"
@@ -672,7 +673,7 @@ msgstr "Kervisbakki"
 
 #: ../src/plugins/xkb/xkb-plugin.c:283
 msgid "Configure Keyboard Layout Switcher"
-msgstr ""
+msgstr "Samanset skiftara á knappaborðssniði"
 
 #: ../src/plugins/xkb/xkb-plugin.c:298
 msgid "Show layout as"
