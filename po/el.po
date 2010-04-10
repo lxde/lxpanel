@@ -8,13 +8,15 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-02-02 01:32+0100\n"
-"PO-Revision-Date: 2009-12-27 21:46+0100\n"
-"Last-Translator: George Vasilakos <forfolias@linuxteam.cs.teilar.gr>\n"
+"PO-Revision-Date: 2010-04-11 01:30+0200\n"
+"Last-Translator:  <edhunter@sidux.com>\n"
 "Language-Team: Greek\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Pootle 1.1.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.1\n"
 "X-Poedit-Language: Greek\n"
 "X-Poedit-Country: GREECE\n"
 
@@ -61,7 +63,7 @@ msgstr "Για προχωρημένους"
 
 #: ../data/ui/panel-pref.glade.h:12
 msgid "Alignment:"
-msgstr "Στοίχιση"
+msgstr "Στοίχιση:"
 
 #: ../data/ui/panel-pref.glade.h:13
 msgid "Appearance"
@@ -162,7 +164,7 @@ msgstr "Θέμα συστήματος"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "Terminal Emulator:"
-msgstr "Προσωμοιτής τερματικού:"
+msgstr "Προσομοιωτής τερματικού:"
 
 #: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1020
 msgid "Top"
@@ -221,7 +223,7 @@ msgstr "Διεύθυνση:"
 #: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
 msgid "Broadcast:"
-msgstr "Broadcast:"
+msgstr "Εκπομπή:"
 
 #: ../data/ui/netstatus.glade.h:11
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
@@ -231,7 +233,7 @@ msgstr "_Ρύθμιση"
 #: ../data/ui/netstatus.glade.h:12
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
 msgid "Destination:"
-msgstr "Προορισμός"
+msgstr "Προορισμός:"
 
 #: ../data/ui/netstatus.glade.h:13
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
@@ -288,7 +290,7 @@ msgstr "Εφαρμογές"
 
 #: ../data/ui/launchbar.glade.h:3
 msgid "Available Applications"
-msgstr "Διαθέσιμες προσθήκες"
+msgstr "Διαθέσιμες Εφαρμογές"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:299
 msgid "Run"
@@ -340,7 +342,7 @@ msgid ""
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
 "Να διαγραφεί αυτό το πλαίσιο;\n"
-"<b>Προειδοποίηση: Δεν μπορεί να επαναφερθεί</b>"
+"<b>Προειδοποίηση: Δεν μπορεί να επαναφερθεί.</b>"
 
 #: ../src/panel.c:636
 msgid "Confirm"
@@ -351,7 +353,7 @@ msgstr "Επιβεβαίωση"
 msgid "translator-credits"
 msgstr ""
 "Κούτσικος Γιώργος <oege89@hotmail.com>\n"
-"Βασιλάκος Γιώργος  <forfolias@linuxteam.cs.teilar.gr>\n"
+"Βασιλάκος Γιώργος <forfolias@linuxteam.cs.teilar.gr>\n"
 "Ριζόπουλος Γιώργος <georgerizopoulos28@gmail.com>"
 
 #: ../src/panel.c:673
@@ -385,7 +387,7 @@ msgstr "Δημιουργία νέου πλαισίου"
 
 #: ../src/panel.c:736
 msgid "Delete This Panel"
-msgstr "Διαγραφή του πλαισίου "
+msgstr "Διαγραφή του πλαισίου"
 
 #: ../src/panel.c:747
 msgid "About"
@@ -413,7 +415,7 @@ msgstr "Επιλογές γραμμής εντολών:\n"
 #: ../src/panel.c:1422
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr "--help      -- εμφάνιση της βοήθειας και έξοδος\n"
+msgstr " --help      -- εμφάνιση της βοήθειας και έξοδος\n"
 
 #: ../src/panel.c:1423
 #, c-format
@@ -469,7 +471,7 @@ msgstr "Παρακολούθηση χρήσης CPU"
 
 #: ../src/plugins/cpu/cpu.c:270
 msgid "Display CPU usage"
-msgstr "Εμφάνιση χρήσης cpu"
+msgstr "Εμφάνιση χρήσης CPU"
 
 #: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:314
 msgid "Bold font"
@@ -562,7 +564,7 @@ msgstr "Χρήση της ροδέλας ποντικιού"
 
 #: ../src/plugins/taskbar.c:1985
 msgid "Flash when there is any window requiring attention"
-msgstr "Αναβόσβηνε όταν κάποιο παράθυρο που απαιτεί προσοχή"
+msgstr "Αναβόσβηνε όταν κάποιο παράθυρο απαιτεί προσοχή"
 
 #: ../src/plugins/taskbar.c:1986
 msgid "Combine multiple application windows into a single button"
@@ -720,7 +722,7 @@ msgstr ""
 
 #: ../src/plugins/wincmd.c:234
 msgid "Alternately iconify/shade and raise"
-msgstr "Εναλλαγή μεταξύ εικονιδοποίησης/τυλίγματος και ανύψωσης."
+msgstr "Εναλλαγή μεταξύ εικονιδοποίησης/τυλίγματος και ανύψωσης"
 
 #: ../src/plugins/wincmd.c:263
 msgid "Minimize All Windows"
@@ -1255,8 +1257,7 @@ msgstr "Δε μπορεί να προσπελαστεί η εντολή '%s': %s
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr ""
-"Δεν μπορεί να προσπελαστεί το αποτέλεσμα της 'netstat'. Άγνωστο φορμάτ."
+msgstr "Δεν μπορεί να προσπελαστεί το αποτέλεσμα της 'netstat'. Άγνωστο φορμάτ"
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
