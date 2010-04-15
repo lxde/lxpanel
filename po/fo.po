@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-02-02 01:32+0100\n"
-"PO-Revision-Date: 2010-04-08 09:09+0200\n"
+"PO-Revision-Date: 2010-04-15 22:29+0200\n"
 "Last-Translator: Gunleif <gunleif@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fo\n"
@@ -264,8 +264,9 @@ msgstr "Undirnet síla:"
 
 #: ../data/ui/netstatus.glade.h:19
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
+#, fuzzy
 msgid "Support"
-msgstr ""
+msgstr "Stuðul"
 
 #: ../data/ui/netstatus.glade.h:20
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
@@ -817,7 +818,7 @@ msgstr "<Fjalt atgongustað>"
 
 #: ../src/plugins/netstat/netstat.c:201
 msgid "Wireless Networks not found in range"
-msgstr ""
+msgstr "Tráðleys net ikki funnin í nánd"
 
 #. Repair
 #: ../src/plugins/netstat/netstat.c:235
@@ -887,7 +888,7 @@ msgstr "Tráleyst"
 
 #: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
-msgstr ""
+msgstr "Protokol:"
 
 #: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
@@ -895,11 +896,11 @@ msgstr "HW atsetur:"
 
 #: ../src/plugins/netstat/netstat.c:470
 msgid "Manage Networks"
-msgstr ""
+msgstr "Umsit net"
 
 #: ../src/plugins/netstat/netstat.c:472
 msgid "Monitor and Manage networks"
-msgstr ""
+msgstr "Vak yvir og umsit net"
 
 #. create dialog
 #: ../src/plugins/netstat/passwd_gui.c:84
@@ -968,7 +969,7 @@ msgstr ""
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
-msgstr ""
+msgstr "Brek við at koyra samansetingaramboði: %s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:379
 #, c-format
@@ -985,7 +986,7 @@ msgstr "Markamót"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:812
 msgid "The current interface the icon is monitoring."
-msgstr ""
+msgstr "Núverandi markamótið, sum ímyndin vakir yvir"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:819
 msgid "Orientation"
