@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-02-02 01:32+0100\n"
-"PO-Revision-Date: 2010-04-15 22:29+0200\n"
+"PO-Revision-Date: 2010-04-18 00:29+0200\n"
 "Last-Translator: Gunleif <gunleif@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fo\n"
@@ -344,7 +344,7 @@ msgstr ""
 
 #: ../src/panel.c:636
 msgid "Confirm"
-msgstr " Vátta"
+msgstr "Vátta"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:668
