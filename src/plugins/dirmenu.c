@@ -28,6 +28,13 @@
 #include "plugin.h"
 #include "dbg.h"
 
+/* Temporary for sort of directory names. */
+typedef struct _directory_name {
+    struct _directory_name * flink;
+    char * directory_name;
+    char * directory_name_collate_key;
+} DirectoryName;
+
 /* Private context for directory menu plugin. */
 typedef struct {
     Plugin * plugin;			/* Back pointer to plugin */
@@ -162,11 +169,12 @@ static GtkWidget * dirmenu_create_menu(Plugin * p, const char * path, gboolean o
     g_object_set_data_full(G_OBJECT(menu), "path", g_strdup(path), g_free);
 
     /* Scan the specified directory to populate the menu with its subdirectories. */
+    DirectoryName * dir_list = NULL;
     GDir * dir = g_dir_open(path, 0, NULL);
     if (dir != NULL)
     {
         const char * name;
-        while ((name = g_dir_read_name(dir)) != NULL)
+        while ((name = g_dir_read_name(dir)) != NULL)	/* Memory owned by glib */
         {
             /* Omit hidden files. */
             if (name[0] != '.')
@@ -174,24 +182,62 @@ static GtkWidget * dirmenu_create_menu(Plugin * p, const char * path, gboolean o
                 char * full = g_build_filename(path, name, NULL);
                 if (g_file_test(full, G_FILE_TEST_IS_DIR))
                 {
-                    char * disp = g_filename_display_name(name);
-                    GtkWidget * item = gtk_image_menu_item_new_with_label(disp);
-                    g_free(disp);
+                    /* Convert name to UTF-8 and to the collation key. */
+                    char * directory_name = g_filename_display_name(name);
+                    char * directory_name_collate_key = g_utf8_collate_key(directory_name, -1);
 
-                    g_object_set_data_full(G_OBJECT(item), "name", g_strdup(name), g_free);
-                    gtk_image_menu_item_set_image(
-                        GTK_IMAGE_MENU_ITEM(item),
-                        gtk_image_new_from_stock(GTK_STOCK_DIRECTORY, GTK_ICON_SIZE_MENU));
-                    GtkWidget * dummy = gtk_menu_new();
-                    gtk_menu_item_set_submenu(GTK_MENU_ITEM(item), dummy);
-                    gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
-                    g_signal_connect(item, "select", G_CALLBACK(dirmenu_menuitem_select), p);
-                    g_signal_connect(item, "deselect", G_CALLBACK(dirmenu_menuitem_deselect), p);
+                    /* Locate insertion point. */
+                    DirectoryName * dir_pred = NULL;
+                    DirectoryName * dir_cursor;
+                    for (dir_cursor = dir_list; dir_cursor != NULL; dir_pred = dir_cursor, dir_cursor = dir_cursor->flink)
+                    {
+                        if (strcmp(directory_name_collate_key, dir_cursor->directory_name_collate_key) <= 0)
+                            break;
+                    }
+
+                    /* Allocate and initialize sorted directory name entry. */
+                    dir_cursor = g_new0(DirectoryName, 1);
+                    dir_cursor->directory_name = directory_name;
+                    dir_cursor->directory_name_collate_key = directory_name_collate_key;
+                    if (dir_pred == NULL)
+                    {
+                        dir_cursor->flink = dir_list;
+                        dir_list = dir_cursor;
+                    }
+                    else
+                    {
+                        dir_cursor->flink = dir_pred->flink;
+                        dir_pred->flink = dir_cursor;
+                    }
                 }
                 g_free(full);
             }
         }
         g_dir_close(dir);
+    }
+
+    /* The sorted directory name list is complete.  Loop to create the menu. */
+    DirectoryName * dir_cursor;
+    while ((dir_cursor = dir_list) != NULL)
+    {
+        /* Create and initialize menu item. */
+        GtkWidget * item = gtk_image_menu_item_new_with_label(dir_cursor->directory_name);
+        gtk_image_menu_item_set_image(
+            GTK_IMAGE_MENU_ITEM(item),
+            gtk_image_new_from_stock(GTK_STOCK_DIRECTORY, GTK_ICON_SIZE_MENU));
+        GtkWidget * dummy = gtk_menu_new();
+        gtk_menu_item_set_submenu(GTK_MENU_ITEM(item), dummy);
+        gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
+
+        /* Unlink and free sorted directory name element, but reuse the directory name string. */
+        dir_list = dir_cursor->flink;
+        g_object_set_data_full(G_OBJECT(item), "name", dir_cursor->directory_name, g_free);
+        g_free(dir_cursor->directory_name_collate_key);
+        g_free(dir_cursor);
+
+        /* Connect signals. */
+        g_signal_connect(G_OBJECT(item), "select", G_CALLBACK(dirmenu_menuitem_select), p);
+        g_signal_connect(G_OBJECT(item), "deselect", G_CALLBACK(dirmenu_menuitem_deselect), p);
     }
 
     /* Create "Open" and "Open in Terminal" items. */
