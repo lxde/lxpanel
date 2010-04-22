@@ -3,124 +3,125 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-02-02 01:32+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2010-04-22 11:18+0200\n"
+"Last-Translator: Mario <mb@mariobehling.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 2.0.1\n"
 
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
 msgid "% Percent"
-msgstr ""
+msgstr "% Phần trăm"
 
 #: ../data/ui/panel-pref.glade.h:3
 msgid "<b>Automatic hiding</b>"
-msgstr ""
+msgstr "<b>Tự dộng ẩn</b>"
 
 #: ../data/ui/panel-pref.glade.h:4
 msgid "<b>Background</b>"
-msgstr ""
+msgstr "<b>Bối cảnh</b>"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "<b>Font</b>"
-msgstr ""
+msgstr "<b>Phông</b>"
 
 #: ../data/ui/panel-pref.glade.h:6
 msgid "<b>Icon</b>"
-msgstr ""
+msgstr "<b>Biểu tượng</b>"
 
 #: ../data/ui/panel-pref.glade.h:7
 msgid "<b>Position</b>"
-msgstr ""
+msgstr "<b>Vị trí</b>"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "<b>Properties</b>"
-msgstr ""
+msgstr "<b>Chi tiết</b>"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "<b>Set Preferred Applications</b>"
-msgstr ""
+msgstr "<b>Đặt ứng dụng ưu tiên</b>"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "<b>Size</b>"
-msgstr ""
+msgstr "<b>Kích thước</b>"
 
 #: ../data/ui/panel-pref.glade.h:11
 msgid "Advanced"
-msgstr ""
+msgstr "Nâng cao"
 
 #: ../data/ui/panel-pref.glade.h:12
 msgid "Alignment:"
-msgstr ""
+msgstr "Liên kết:"
 
 #: ../data/ui/panel-pref.glade.h:13
 msgid "Appearance"
-msgstr ""
+msgstr "Hiển thị"
 
 #: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1021
 msgid "Bottom"
-msgstr ""
+msgstr "Phần dưới"
 
 #: ../data/ui/panel-pref.glade.h:15
 msgid "Center"
-msgstr ""
+msgstr "Ở giữa"
 
 #: ../data/ui/panel-pref.glade.h:16
 msgid "Custom color"
-msgstr ""
+msgstr "Tùy chỉnh màu sắc"
 
 #: ../data/ui/panel-pref.glade.h:17
 msgid "Dynamic"
-msgstr ""
+msgstr "Năng động"
 
 #: ../data/ui/panel-pref.glade.h:18
 msgid "Edge:"
-msgstr ""
+msgstr "Mép ngoài:"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "File Manager:"
-msgstr ""
+msgstr "Quản lý lập tin "
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "Geometry"
-msgstr ""
+msgstr "Hình học"
 
 #: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:1011 ../src/panel.c:1019
 msgid "Height:"
-msgstr ""
+msgstr "Chiều cao:"
 
 #: ../data/ui/panel-pref.glade.h:22
 msgid "Image"
-msgstr ""
+msgstr "Hình ảnh"
 
 #: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:1013
 msgid "Left"
-msgstr ""
+msgstr "Trái"
 
 #: ../data/ui/panel-pref.glade.h:24
 msgid "Logout Command:"
-msgstr ""
+msgstr "Thoát khỏi dòng lệnh"
 
 #: ../data/ui/panel-pref.glade.h:25
 msgid "Make window managers treat the panel as dock"
-msgstr ""
+msgstr "Thực hiện quản lý cửa sổ của bảng điều khiển như dock"
 
 #: ../data/ui/panel-pref.glade.h:26
 msgid "Margin:"
-msgstr ""
+msgstr "Chứa trên trang:"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Minimize panel when not in use"
-msgstr ""
+msgstr "Thu nhỏ bảng điều khiển khi không sử dụng"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "Panel Applets"
@@ -128,7 +129,7 @@ msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:29
 msgid "Panel Preferences"
-msgstr ""
+msgstr "Tùy chọn bảng điều khiển"
 
 #: ../data/ui/panel-pref.glade.h:30
 msgid "Pixels"
@@ -136,43 +137,43 @@ msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:31
 msgid "Reserve space, and not covered by maximized windows"
-msgstr ""
+msgstr "Để dành không gian, và không bao phủ cửa sổ tố đa"
 
 #: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:1014
 msgid "Right"
-msgstr ""
+msgstr "Phải"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "Select an image file"
-msgstr ""
+msgstr "Chọn một tập tin ảnh"
 
 #: ../data/ui/panel-pref.glade.h:34
 msgid "Size when minimized"
-msgstr ""
+msgstr "Kích thước khi thu nhỏ"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Solid color (with opacity)"
-msgstr ""
+msgstr "Màu sắc mạnh (với độ mờ đục)"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "System theme"
-msgstr ""
+msgstr "Chủ đề hệ thống"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "Terminal Emulator:"
-msgstr ""
+msgstr "Giả lập thiết bị đầu cuối:"
 
 #: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1020
 msgid "Top"
-msgstr ""
+msgstr "Trên cùng"
 
 #: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:1012 ../src/panel.c:1018
 msgid "Width:"
-msgstr ""
+msgstr "Chiều rộng:"
 
 #: ../data/ui/panel-pref.glade.h:40
 msgid "pixels"
-msgstr ""
+msgstr "Điểm ảnh"
 
 #: ../data/ui/netstatus.glade.h:2
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
@@ -183,43 +184,43 @@ msgstr ""
 #: ../data/ui/netstatus.glade.h:3
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
 msgid "<b>Activity</b>"
-msgstr ""
+msgstr "<b>Hoat động</b>"
 
 #: ../data/ui/netstatus.glade.h:4
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
 msgid "<b>Connection</b>"
-msgstr ""
+msgstr "<b>Kết nối</b>"
 
 #: ../data/ui/netstatus.glade.h:5
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
 msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr ""
+msgstr "<b>Internet Protocol (IPv4)</b>"
 
 #: ../data/ui/netstatus.glade.h:6
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
 msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr ""
+msgstr "<b>Internet Protocol (IPv6)</b>"
 
 #: ../data/ui/netstatus.glade.h:7
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
 msgid "<b>Network Device</b>"
-msgstr ""
+msgstr "<b>Thiết bị mạng</b>"
 
 #: ../data/ui/netstatus.glade.h:8
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
 msgid "<b>Signal Strength</b>"
-msgstr ""
+msgstr "<b>Độ mạnh tín hiệu</b>"
 
 #: ../data/ui/netstatus.glade.h:9
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
 msgid "Address:"
-msgstr ""
+msgstr "Địa chỉ:"
 
 #: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
 #: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
 msgid "Broadcast:"
-msgstr ""
+msgstr "Truyền tin:"
 
 #: ../data/ui/netstatus.glade.h:11
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
@@ -229,32 +230,32 @@ msgstr ""
 #: ../data/ui/netstatus.glade.h:12
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
 msgid "Destination:"
-msgstr ""
+msgstr "Điểm đến"
 
 #: ../data/ui/netstatus.glade.h:13
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
 msgid "General"
-msgstr ""
+msgstr "Tổng quát"
 
 #: ../data/ui/netstatus.glade.h:14
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
 msgid "Received:"
-msgstr ""
+msgstr "Đã nhận:"
 
 #: ../data/ui/netstatus.glade.h:15
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
 msgid "Scope:"
-msgstr ""
+msgstr "Lĩnh vực:"
 
 #: ../data/ui/netstatus.glade.h:16
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
 msgid "Sent:"
-msgstr ""
+msgstr "Đã gửi:"
 
 #: ../data/ui/netstatus.glade.h:17
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
 msgid "Status:"
-msgstr ""
+msgstr "Trạng thái:"
 
 #: ../data/ui/netstatus.glade.h:18
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
@@ -264,73 +265,73 @@ msgstr ""
 #: ../data/ui/netstatus.glade.h:19
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
 msgid "Support"
-msgstr ""
+msgstr "Hỗ trợ"
 
 #: ../data/ui/netstatus.glade.h:20
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
 msgid "Type:"
-msgstr ""
+msgstr "loại:"
 
 #: ../data/ui/netstatus.glade.h:21
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
 msgid "_Name:"
-msgstr ""
+msgstr "_Tên:"
 
 #: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:831
 msgid "Application Launch Bar"
-msgstr ""
+msgstr "Khởi động thanh ứng dụng"
 
 #: ../data/ui/launchbar.glade.h:2
 msgid "Applications"
-msgstr ""
+msgstr "Ứng dụng"
 
 #: ../data/ui/launchbar.glade.h:3
 msgid "Available Applications"
-msgstr ""
+msgstr "Ứng dụng có sẵn"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:299
 msgid "Run"
-msgstr ""
+msgstr "Chạy"
 
 #: ../src/configurator.c:56
 msgid "Restart"
-msgstr ""
+msgstr "Khởi động"
 
 #: ../src/configurator.c:57
 msgid "Logout"
-msgstr ""
+msgstr "Đăng xuất"
 
 #: ../src/configurator.c:448
 msgid "Currently loaded plugins"
-msgstr ""
+msgstr "Hiện đang tìm khe kết nối"
 
 #: ../src/configurator.c:457
 msgid "Stretch"
-msgstr ""
+msgstr "Kéo dài ra"
 
 #: ../src/configurator.c:562
 msgid "Add plugin to panel"
-msgstr ""
+msgstr "Thêm kết nối vào bảng điều khiển"
 
 #: ../src/configurator.c:590
 msgid "Available plugins"
-msgstr ""
+msgstr "Các khe kết nối có sẵn"
 
 #: ../src/configurator.c:1143
 msgid "Logout command is not set"
-msgstr ""
+msgstr "Dongf lệnh dăng xuất chưa được thiết lập"
 
 #: ../src/configurator.c:1196
 msgid "Select a directory"
-msgstr ""
+msgstr "chọn một thư mục"
 
 #: ../src/configurator.c:1196 ../src/configurator.c:1287
 msgid "Select a file"
-msgstr ""
+msgstr "Chọn một tập tin "
 
 #: ../src/configurator.c:1314
 msgid "_Browse"
-msgstr ""
+msgstr "_Trình duyệt"
 
 #: ../src/panel.c:634
 msgid ""
