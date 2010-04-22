@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-02-02 01:32+0100\n"
-"PO-Revision-Date: 2010-04-22 11:18+0200\n"
+"PO-Revision-Date: 2010-04-22 12:11+0200\n"
 "Last-Translator: Mario <mb@mariobehling.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: vi\n"
@@ -338,107 +338,109 @@ msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
+"Thật sự muốn xóa bảng điều khiển này?\n"
+"<b>Cảnh báo: Điều này không thể được phục hồi.</b>"
 
 #: ../src/panel.c:636
 msgid "Confirm"
-msgstr ""
+msgstr "Xác nhận"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:668
 msgid "translator-credits"
-msgstr ""
+msgstr "Dịch giả-tín dụng"
 
 #: ../src/panel.c:673
 msgid "LXPanel"
-msgstr ""
+msgstr "LXPanel"
 
 #: ../src/panel.c:675
 msgid "Copyright (C) 2008-2009"
-msgstr ""
+msgstr "Bản quyền (C) 2008-2009"
 
 #: ../src/panel.c:676
 msgid "Desktop panel for LXDE project"
-msgstr ""
+msgstr "Bang điều khiển máy tính để bàn cho dự án LXDE"
 
 #: ../src/panel.c:699
 msgid "Add / Remove Panel Items"
-msgstr ""
+msgstr "Thêm / bớt các mục của bảng điều khiển"
 
 #: ../src/panel.c:707
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr ""
+msgstr "Hủy bỏ\"%s\"từ bảng điều khiển"
 
 #: ../src/panel.c:719
 msgid "Panel Settings"
-msgstr ""
+msgstr "Cài đặt bảng điều khiển"
 
 #: ../src/panel.c:725
 msgid "Create New Panel"
-msgstr ""
+msgstr "Tạo bảng điều khiển mới"
 
 #: ../src/panel.c:736
 msgid "Delete This Panel"
-msgstr ""
+msgstr "Xóa bảng điều khiển này"
 
 #: ../src/panel.c:747
 msgid "About"
-msgstr ""
+msgstr "Tìm hiểu thêm"
 
 #: ../src/panel.c:755
 msgid "Panel"
-msgstr ""
+msgstr "Bảng điều khiển"
 
 #: ../src/panel.c:768
 #, c-format
 msgid "\"%s\" Settings"
-msgstr ""
+msgstr "\"%s\" Cài đặt"
 
 #: ../src/panel.c:1420
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr ""
+msgstr "lxpanel %s - lightweight GTK2+ panel for UNIX desktops"
 
 #: ../src/panel.c:1421
 #, c-format
 msgid "Command line options:\n"
-msgstr ""
+msgstr "Tùy chọn dòng lệnh:\n"
 
 #: ../src/panel.c:1422
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr ""
+msgstr "--Trợ giúp -- in trợ giúp này và thoát\n"
 
 #: ../src/panel.c:1423
 #, c-format
 msgid " --version   -- print version and exit\n"
-msgstr ""
+msgstr "-phiên bản -- in phiên bản và thoát\n"
 
 #: ../src/panel.c:1424
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
+msgstr "--Đăng nhập <số> -- thiết lập mức đăng nhập 0-5. 0 - không 5 - chatty\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1426
 #, c-format
 msgid " --profile name -- use specified profile\n"
-msgstr ""
+msgstr "--tên hồ sơ --sử dụng hồ sơ quy định\n"
 
 #: ../src/panel.c:1428
 #, c-format
 msgid " -h  -- same as --help\n"
-msgstr ""
+msgstr "-h -- giống như --trợ giúp\n"
 
 #: ../src/panel.c:1429
 #, c-format
 msgid " -p  -- same as --profile\n"
-msgstr ""
+msgstr "-p -- giống như --hồ sơ\n"
 
 #: ../src/panel.c:1430
 #, c-format
 msgid " -v  -- same as --version\n"
-msgstr ""
+msgstr "-v --giống như -phiên bản\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
 #: ../src/panel.c:1432
@@ -448,18 +450,21 @@ msgid ""
 "Visit http://lxde.org/ for detail.\n"
 "\n"
 msgstr ""
+"\n"
+"Thăm  http://lxde.org/ for detail.\n"
+"\n"
 
 #: ../src/gtk-run.c:312
 msgid "Enter the command you want to execute:"
-msgstr ""
+msgstr "Nhập dòng lệnh bạn muốn thực thi"
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
-msgstr ""
+msgstr "CPU sử dụng màn hình"
 
 #: ../src/plugins/cpu/cpu.c:270
 msgid "Display CPU usage"
-msgstr ""
+msgstr "Hiển thi CPU sử  dụng"
 
 #: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:314
 msgid "Bold font"
@@ -467,19 +472,19 @@ msgstr ""
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
-msgstr ""
+msgstr "Hiển thị tên máy tính"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
-msgstr ""
+msgstr "Số máy tính /  Tên workspace"
 
 #: ../src/plugins/deskno/deskno.c:237
 msgid "Display workspace number, by cmeury@users.sf.net"
-msgstr ""
+msgstr "Hiển thị số workspace, bởi cmeury@users.sf.net"
 
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
-msgstr ""
+msgstr "hiển thị hình ảnh và công cụ đỉnh"
 
 #: ../src/plugins/launchbar.c:833
 msgid "Bar with buttons to launch application"
