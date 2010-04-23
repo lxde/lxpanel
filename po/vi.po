@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-02-02 01:32+0100\n"
-"PO-Revision-Date: 2010-04-22 12:11+0200\n"
+"PO-Revision-Date: 2010-04-22 13:18+0200\n"
 "Last-Translator: Mario <mb@mariobehling.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: vi\n"
@@ -488,12 +488,12 @@ msgstr "hiển thị hình ảnh và công cụ đỉnh"
 
 #: ../src/plugins/launchbar.c:833
 msgid "Bar with buttons to launch application"
-msgstr ""
+msgstr "Thanh công cụ với nút khởi động ứng dụng"
 
 #. Add Raise menu item.
 #: ../src/plugins/taskbar.c:1712
 msgid "_Raise"
-msgstr ""
+msgstr "_Nâng cao"
 
 #. Add Restore menu item.
 #: ../src/plugins/taskbar.c:1717
@@ -533,121 +533,125 @@ msgstr ""
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../src/plugins/taskbar.c:1777
 msgid "_Close Window"
-msgstr ""
+msgstr "_đóng cửa sổ"
 
 #: ../src/plugins/taskbar.c:1980
 msgid "Show tooltips"
-msgstr ""
+msgstr "Hiện công cụ đỉnh"
 
 #: ../src/plugins/taskbar.c:1981
 msgid "Icons only"
-msgstr ""
+msgstr "chỉ biểu tượng"
 
 #: ../src/plugins/taskbar.c:1982
 msgid "Flat buttons"
-msgstr ""
+msgstr "Các nút dưới "
 
 #: ../src/plugins/taskbar.c:1983
 msgid "Show windows from all desktops"
-msgstr ""
+msgstr "Hiện cửa sổ từ  tất cả  máy"
 
 #: ../src/plugins/taskbar.c:1984
 msgid "Use mouse wheel"
-msgstr ""
+msgstr "Sử dụng bánh lăn chuột"
 
 #: ../src/plugins/taskbar.c:1985
 msgid "Flash when there is any window requiring attention"
-msgstr ""
+msgstr "Báo flash khi có bất kỳ cửa sổ nào yêu cầu chú ý"
 
 #: ../src/plugins/taskbar.c:1986
 msgid "Combine multiple application windows into a single button"
-msgstr ""
+msgstr "Kế hợp nhiều cửa sổ ứng dụng thành nút duy nhất"
 
 #: ../src/plugins/taskbar.c:1987
 msgid "Maximum width of task button"
-msgstr ""
+msgstr "Chiều rộng tối đa của nút tác vụ"
 
 #: ../src/plugins/taskbar.c:1988
 msgid "Spacing"
-msgstr ""
+msgstr "Khoảng cách"
 
 #: ../src/plugins/taskbar.c:2045
 msgid "Task Bar (Window List)"
-msgstr ""
+msgstr "Thanh nhiệm vụ (danh sách cửa sổ)"
 
 #: ../src/plugins/taskbar.c:2047
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
+"Thanh tác vụ hiển thị tất cả các cửa sổ mở và cho phép hiển thị chúng như  "
+"biểu tượng, che hoặc tập trung"
 
 #: ../src/plugins/dclock.c:310
 msgid "Clock Format"
-msgstr ""
+msgstr "Dạng đồng hồ"
 
 #: ../src/plugins/dclock.c:311
 msgid "Tooltip Format"
-msgstr ""
+msgstr "Dạng công cụ đỉnh"
 
 #: ../src/plugins/dclock.c:312
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr ""
+"Dạng mật mã: man 3 strftime; \n"
+" cho dòng break"
 
 #: ../src/plugins/dclock.c:313
 msgid "Action when clicked (default: display calendar)"
-msgstr ""
+msgstr "hoạt động khi bấm (mặc định: hiển thị lịch)"
 
 #: ../src/plugins/dclock.c:315
 msgid "Tooltip only"
-msgstr ""
+msgstr "chỉ có thanh công cụ đỉnh"
 
 #: ../src/plugins/dclock.c:343
 msgid "Digital Clock"
-msgstr ""
+msgstr "Đồng hồ số"
 
 #: ../src/plugins/dclock.c:345
 msgid "Display digital clock and tooltip"
-msgstr ""
+msgstr "Hiển thị đồng hồ số và tahnh công cụ đỉnh"
 
 #: ../src/plugins/menu.c:373
 msgid "Add to desktop"
-msgstr ""
+msgstr "Thêm vào máy"
 
 #: ../src/plugins/menu.c:383
 msgid "Properties"
-msgstr ""
+msgstr "Chi tiết "
 
 #: ../src/plugins/menu.c:993 ../src/plugins/dirmenu.c:367
 msgid "Icon"
-msgstr ""
+msgstr "Biểu tượng"
 
 #: ../src/plugins/menu.c:1010
 msgid "Menu"
-msgstr ""
+msgstr "danh sách"
 
 #: ../src/plugins/menu.c:1012
 msgid "Application Menu"
-msgstr ""
+msgstr "danh sách ứng dụng"
 
 #: ../src/plugins/separator.c:98
 msgid "Separator"
-msgstr ""
+msgstr "Riêng biệt"
 
 #: ../src/plugins/separator.c:100
 msgid "Add a separator to the panel"
-msgstr ""
+msgstr "Thêm một riêng biệt vào bảng điều khiển"
 
 #: ../src/plugins/pager.c:797
 msgid "Desktop Pager"
-msgstr ""
+msgstr "Số trang trên maý"
 
 #: ../src/plugins/pager.c:799
 msgid "Simple pager plugin"
-msgstr ""
+msgstr "Số trang đơn thuần thêm vào"
 
 #: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
 msgid "Size"
-msgstr ""
+msgstr "Kích thước"
 
 #: ../src/plugins/space.c:139
 msgid "Spacer"
@@ -655,131 +659,135 @@ msgstr ""
 
 #: ../src/plugins/space.c:141
 msgid "Allocate space"
-msgstr ""
+msgstr "Phân bổ không gian"
 
 #: ../src/plugins/tray.c:702
 msgid "System Tray"
-msgstr ""
+msgstr "Khay hệ thống"
 
 #: ../src/plugins/tray.c:704
 msgid "System tray"
-msgstr ""
+msgstr "Khay hệ thống"
 
 #: ../src/plugins/xkb/xkb-plugin.c:283
 msgid "Configure Keyboard Layout Switcher"
-msgstr ""
+msgstr "Giao diện cấu hình bật bàn phím"
 
 #: ../src/plugins/xkb/xkb-plugin.c:298
 msgid "Show layout as"
-msgstr ""
+msgstr "Hiển thị bố trí như"
 
 #: ../src/plugins/xkb/xkb-plugin.c:313
 msgid "image"
-msgstr ""
+msgstr "Hình ảnh"
 
 #: ../src/plugins/xkb/xkb-plugin.c:314
 msgid "text"
-msgstr ""
+msgstr "Văn bản"
 
 #: ../src/plugins/xkb/xkb-plugin.c:321
 msgid "Per application settings"
-msgstr ""
+msgstr "cài đặt mỗi ứng dụng"
 
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/xkb/xkb-plugin.c:336
 msgid "_Remember layout for each application"
-msgstr ""
+msgstr "_ghi nhớ bố trí cho mỗi ứng dụng"
 
 #. Create a label as the child of the horizontal box.
 #: ../src/plugins/xkb/xkb-plugin.c:346
 msgid "Default layout:"
-msgstr ""
+msgstr "Bố trí mặc định:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:397
 msgid "Keyboard Layout Switcher"
-msgstr ""
+msgstr "Bố trí bật mở bàn phím"
 
 #: ../src/plugins/xkb/xkb-plugin.c:399
 msgid "Switch between available keyboard layouts"
-msgstr ""
+msgstr "Chuyển đổi bố trí bàn phím có sẵn"
 
 #: ../src/plugins/wincmd.c:204
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
+"Bấm chuột trái để biểu tượng hóa tất cả cửa sổ.. Bấm chuột giữa để che biểu "
+"tượng"
 
 #: ../src/plugins/wincmd.c:234
 msgid "Alternately iconify/shade and raise"
-msgstr ""
+msgstr "Thay phiên biểu tượng hóa/ che và nâng cao"
 
 #: ../src/plugins/wincmd.c:263
 msgid "Minimize All Windows"
-msgstr ""
+msgstr "Thu nhỏ tất cả cửa sổ"
 
 #: ../src/plugins/wincmd.c:265
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
+"Gửi lệnh đến tất cả cửa sổ máy tính.\n"
+"các lệnh được hỗ trợ là 1) biểu tượng hóa và 2) che"
 
 #: ../src/plugins/dirmenu.c:200
 msgid "Open in _Terminal"
-msgstr ""
+msgstr "Mở trong _ Thiết bị đầu cuối"
 
 #: ../src/plugins/dirmenu.c:365
 msgid "Directory"
-msgstr ""
+msgstr "Hội đồng quản trị"
 
 #: ../src/plugins/dirmenu.c:366
 msgid "Label"
-msgstr ""
+msgstr "Nhãn"
 
 #: ../src/plugins/dirmenu.c:397
 msgid "Directory Menu"
-msgstr ""
+msgstr "Danh sách thư mục"
 
 #: ../src/plugins/dirmenu.c:399
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr ""
+msgstr "Duyệt cây thư mục thông qua danh sách (tác giả: PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:304
 msgid "Normal"
-msgstr ""
+msgstr "Bình thường"
 
 #: ../src/plugins/thermal/thermal.c:305
 msgid "Warning1"
-msgstr ""
+msgstr "Cảnh báo1"
 
 #: ../src/plugins/thermal/thermal.c:306
 msgid "Warning2"
-msgstr ""
+msgstr "Cảnh báo 2"
 
 #: ../src/plugins/thermal/thermal.c:307
 msgid "Automatic sensor location"
-msgstr ""
+msgstr "Tự động cảm biến vị trí"
 
 #: ../src/plugins/thermal/thermal.c:308
 msgid "Sensor"
-msgstr ""
+msgstr "Cảm biến"
 
 #: ../src/plugins/thermal/thermal.c:309
 msgid "Automatic temperature levels"
-msgstr ""
+msgstr "Tự động điều chỉnh nhiệt độ"
 
 #: ../src/plugins/thermal/thermal.c:310
 msgid "Warning1 Temperature"
-msgstr ""
+msgstr "Cảnh báo 1 nhiệt độ"
 
 #: ../src/plugins/thermal/thermal.c:311
 msgid "Warning2 Temperature"
-msgstr ""
+msgstr "Cảnh báo2 nhiệt độ"
 
 #: ../src/plugins/thermal/thermal.c:353
 msgid "Temperature Monitor"
-msgstr ""
+msgstr "Nhiệt độ màn hình"
 
 #: ../src/plugins/thermal/thermal.c:355
 msgid "Display system temperature"
-msgstr ""
+msgstr "Hiển thị nhiệt độ hệ thống"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -787,62 +795,62 @@ msgstr ""
 #: ../src/plugins/volumealsa/volumealsa.c:239
 #: ../src/plugins/volumealsa/volumealsa.c:400
 msgid "Volume control"
-msgstr ""
+msgstr "Điều chỉnh âm lượng"
 
 #: ../src/plugins/volume/volume.c:312
 #: ../src/plugins/volumealsa/volumealsa.c:449
 msgid "Volume Control"
-msgstr ""
+msgstr "Điều chỉnh âm lượng"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
 #: ../src/plugins/volumealsa/volumealsa.c:358
 msgid "Volume"
-msgstr ""
+msgstr "Âm lượng"
 
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/volumealsa/volumealsa.c:377
 msgid "Mute"
-msgstr ""
+msgstr "Tắt âm"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
-msgstr ""
+msgstr "<Dấu điểm truy cập>"
 
 #: ../src/plugins/netstat/netstat.c:201
 msgid "Wireless Networks not found in range"
-msgstr ""
+msgstr "Mạng không dây không được tìm thấy "
 
 #. Repair
 #: ../src/plugins/netstat/netstat.c:235
 msgid "Repair"
-msgstr ""
+msgstr "Sửa chữa"
 
 #. interface down
 #: ../src/plugins/netstat/netstat.c:240
 msgid "Disable"
-msgstr ""
+msgstr "Vô hiệu hóa"
 
 #: ../src/plugins/netstat/netstat.c:299
 msgid "Wireless Connection has no connectivity"
-msgstr ""
+msgstr "Kết nối mạng không dây chưa thực hiện được"
 
 #: ../src/plugins/netstat/netstat.c:301
 msgid "Network cable is plugged out"
-msgstr ""
+msgstr "Cáp mạng đã rút ra"
 
 #: ../src/plugins/netstat/netstat.c:303
 msgid "Connection has limited or no connectivity"
-msgstr ""
+msgstr "Kết nối hạn chế hoặc không kết nối"
 
 #: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
-msgstr ""
+msgstr "Địa chỉ IP:"
 
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Remote IP:"
-msgstr ""
+msgstr "IP xa:"
 
 #: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
@@ -852,32 +860,32 @@ msgstr ""
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
-msgstr ""
+msgstr "Hoạt động"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
-msgstr ""
+msgstr "Đã gửi"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
-msgstr ""
+msgstr "Đã nhận"
 
 #: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
-msgstr ""
+msgstr "bytes"
 
 #: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
-msgstr ""
+msgstr "các gói"
 
 #: ../src/plugins/netstat/netstat.c:315
 #: ../src/plugins/netstatus/netstatus-iface.c:173
 msgid "Wireless"
-msgstr ""
+msgstr "Mạng không dây"
 
 #: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
