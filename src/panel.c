@@ -567,6 +567,16 @@ static void panel_popupmenu_add_item( GtkMenuItem* item, Panel* panel )
 static void panel_popupmenu_remove_item( GtkMenuItem* item, Plugin* plugin )
 {
     Panel* panel = plugin->panel;
+
+    /* If the configuration dialog is open, there will certainly be a crash if the
+     * user manipulates the Configured Plugins list, after we remove this entry.
+     * Close the configuration dialog if it is open. */
+    if (panel->pref_dialog != NULL)
+    {
+        gtk_widget_destroy(panel->pref_dialog);
+        panel->pref_dialog = NULL;
+    }
+
     panel->plugins = g_list_remove( panel->plugins, plugin );
     plugin_delete(plugin);
     panel_config_save( plugin->panel );
