@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: LxPanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-08 04:10+0000\n"
+"POT-Creation-Date: 2010-04-27 00:15+0200\n"
 "PO-Revision-Date: 2010-03-27 20:05:22\n"
 "Last-Translator: Steve Cook (Yorvyk) <yorvik.ubunto@googlemail.com>\n"
 "Language-Team: English UK en_GB <yorvik.ubunto@googlemail.com>\n"
@@ -64,7 +64,7 @@ msgstr "Alignment:"
 msgid "Appearance"
 msgstr "Appearance"
 
-#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1039
+#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1049
 msgid "Bottom"
 msgstr "Bottom"
 
@@ -92,7 +92,7 @@ msgstr "File Manager:"
 msgid "Geometry"
 msgstr "Geometry"
 
-#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:1029 ../src/panel.c:1037
+#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:1039 ../src/panel.c:1047
 msgid "Height:"
 msgstr "Height:"
 
@@ -100,7 +100,7 @@ msgstr "Height:"
 msgid "Image"
 msgstr "Image"
 
-#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:1031
+#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:1041
 msgid "Left"
 msgstr "Left"
 
@@ -136,7 +136,7 @@ msgstr "Pixels"
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Reserve space, and not covered by maximised windows"
 
-#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:1032
+#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:1042
 msgid "Right"
 msgstr "Right"
 
@@ -160,11 +160,11 @@ msgstr "System theme"
 msgid "Terminal Emulator:"
 msgstr "Terminal Emulator:"
 
-#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1038
+#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1048
 msgid "Top"
 msgstr "Top"
 
-#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:1030 ../src/panel.c:1036
+#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:1040 ../src/panel.c:1046
 msgid "Width:"
 msgstr "Width:"
 
@@ -322,7 +322,7 @@ msgstr "Select a file"
 msgid "_Browse"
 msgstr "_Browse"
 
-#: ../src/panel.c:639
+#: ../src/panel.c:649
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -330,109 +330,109 @@ msgstr ""
 "Really delete this panel?\n"
 "<b>WARNING: This can not be recovered.</b>"
 
-#: ../src/panel.c:641
+#: ../src/panel.c:651
 msgid "Confirm"
 msgstr "Confirm"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:673
+#: ../src/panel.c:683
 msgid "translator-credits"
 msgstr "translator-credits"
 
-#: ../src/panel.c:678
+#: ../src/panel.c:688
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:680
+#: ../src/panel.c:690
 msgid "Copyright (C) 2008-2009"
 msgstr "Copyright © 2008-2009"
 
-#: ../src/panel.c:681
+#: ../src/panel.c:691
 msgid "Desktop panel for LXDE project"
 msgstr "Desktop panel for LXDE project"
 
-#: ../src/panel.c:704
+#: ../src/panel.c:714
 msgid "Add / Remove Panel Items"
 msgstr "Add / Remove Panel Items"
 
-#: ../src/panel.c:712
+#: ../src/panel.c:722
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Remove \"%s\" From Panel"
 
-#: ../src/panel.c:724
+#: ../src/panel.c:734
 msgid "Panel Settings"
 msgstr "Panel Settings"
 
-#: ../src/panel.c:730
+#: ../src/panel.c:740
 msgid "Create New Panel"
 msgstr "Create New Panel"
 
-#: ../src/panel.c:741
+#: ../src/panel.c:751
 msgid "Delete This Panel"
 msgstr "Delete This Panel"
 
-#: ../src/panel.c:752
+#: ../src/panel.c:762
 msgid "About"
 msgstr "About"
 
-#: ../src/panel.c:760
+#: ../src/panel.c:770
 msgid "Panel"
 msgstr "Panel"
 
-#: ../src/panel.c:773
+#: ../src/panel.c:783
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" Settings"
 
-#: ../src/panel.c:1438
+#: ../src/panel.c:1448
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - lightweight GTK2+ panel for Linux & UNIX desktops\n"
 
-#: ../src/panel.c:1439
+#: ../src/panel.c:1449
 #, c-format
 msgid "Command line options:\n"
 msgstr "Command line options:\n"
 
-#: ../src/panel.c:1440
+#: ../src/panel.c:1450
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- print this help and exit\n"
 
-#: ../src/panel.c:1441
+#: ../src/panel.c:1451
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- print version and exit\n"
 
-#: ../src/panel.c:1442
+#: ../src/panel.c:1452
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1444
+#: ../src/panel.c:1454
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- use specified profile\n"
 
-#: ../src/panel.c:1446
+#: ../src/panel.c:1456
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- same as --help\n"
 
-#: ../src/panel.c:1447
+#: ../src/panel.c:1457
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- same as --profile\n"
 
-#: ../src/panel.c:1448
+#: ../src/panel.c:1458
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- same as --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1450
+#: ../src/panel.c:1460
 #, c-format
 msgid ""
 "\n"
@@ -509,8 +509,7 @@ msgstr "Workspace _%d"
 msgid "Workspace %d"
 msgstr "Workspace %d"
 
-#. Add "move to all workspaces" item.  This causes the window to be visible no
-#. matter what desktop is active.
+#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../src/plugins/taskbar.c:1753
 msgid "_All workspaces"
 msgstr "_All workspaces"
@@ -520,8 +519,7 @@ msgstr "_All workspaces"
 msgid "_Move to Workspace"
 msgstr "_Move to Workspace"
 
-#. Add Close menu item.  By popular demand, we place this menu item closest to
-#. the cursor.
+#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../src/plugins/taskbar.c:1765
 msgid "_Close Window"
 msgstr "_Close Window"
@@ -567,8 +565,12 @@ msgid "Task Bar (Window List)"
 msgstr "Task Bar (Window List)"
 
 #: ../src/plugins/taskbar.c:2035
-msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
-msgstr "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
+msgstr ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
 
 #: ../src/plugins/dclock.c:418
 msgid "Clock Format"
@@ -606,7 +608,7 @@ msgstr "Add to desktop"
 msgid "Properties"
 msgstr "Properties"
 
-#: ../src/plugins/menu.c:1019 ../src/plugins/dirmenu.c:367
+#: ../src/plugins/menu.c:1019 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "Icon"
 
@@ -712,23 +714,23 @@ msgstr ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 
-#: ../src/plugins/dirmenu.c:200
+#: ../src/plugins/dirmenu.c:246
 msgid "Open in _Terminal"
 msgstr "Open in _Terminal"
 
-#: ../src/plugins/dirmenu.c:365
+#: ../src/plugins/dirmenu.c:411
 msgid "Directory"
 msgstr "Directory"
 
-#: ../src/plugins/dirmenu.c:366
+#: ../src/plugins/dirmenu.c:412
 msgid "Label"
 msgstr "Label"
 
-#: ../src/plugins/dirmenu.c:397
+#: ../src/plugins/dirmenu.c:443
 msgid "Directory Menu"
 msgstr "Directory Menu"
 
-#: ../src/plugins/dirmenu.c:399
+#: ../src/plugins/dirmenu.c:445
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "Browse directory tree via menu (Author: PCMan)"
 
@@ -1197,8 +1199,12 @@ msgstr "Could not parse interface name from '%s'"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
-msgstr "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgid ""
+"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
+msgstr ""
+"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."

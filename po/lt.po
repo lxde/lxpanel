@@ -2,12 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-17 04:11+0000\n"
+"POT-Creation-Date: 2010-04-27 00:15+0200\n"
 "PO-Revision-Date: 2010-01-24 17:47+0200\n"
 "Last-Translator: Julius Vitkauskas <zadintuvas@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,7 +15,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lt\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
+"100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.1\n"
 
 #: ../data/ui/panel-pref.glade.h:2
@@ -67,7 +68,7 @@ msgstr "Lygiavimas:"
 msgid "Appearance"
 msgstr "Išvaizda"
 
-#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1039
+#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1049
 msgid "Bottom"
 msgstr "Apačia"
 
@@ -95,7 +96,7 @@ msgstr "Failų tvarkytuvė:"
 msgid "Geometry"
 msgstr "Geometrija"
 
-#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:1029 ../src/panel.c:1037
+#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:1039 ../src/panel.c:1047
 msgid "Height:"
 msgstr "Aukštis:"
 
@@ -103,7 +104,7 @@ msgstr "Aukštis:"
 msgid "Image"
 msgstr "Paveikslėlis"
 
-#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:1031
+#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:1041
 msgid "Left"
 msgstr "Kairė"
 
@@ -139,7 +140,7 @@ msgstr "Pikseliai"
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Rezervuota vieta, neuždengta išdidintų langų"
 
-#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:1032
+#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:1042
 msgid "Right"
 msgstr "Dešinė"
 
@@ -163,11 +164,11 @@ msgstr "Sistemos tema"
 msgid "Terminal Emulator:"
 msgstr "Terminalo emuliatorius:"
 
-#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1038
+#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1048
 msgid "Top"
 msgstr "Viršus"
 
-#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:1030 ../src/panel.c:1036
+#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:1040 ../src/panel.c:1046
 msgid "Width:"
 msgstr "Plotis:"
 
@@ -325,7 +326,7 @@ msgstr "Pasirinkite failą"
 msgid "_Browse"
 msgstr "N_aršyti"
 
-#: ../src/panel.c:639
+#: ../src/panel.c:649
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -333,109 +334,110 @@ msgstr ""
 "Ar tikrai norite ištrinti šį skydelį?\n"
 "<b>Įspėjimas: skydelis negalės būti atkurtas.</b>"
 
-#: ../src/panel.c:641
+#: ../src/panel.c:651
 msgid "Confirm"
 msgstr "Patvirtinti"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:673
+#: ../src/panel.c:683
 msgid "translator-credits"
 msgstr "Julius Vitkauskas <zadintuvas@gmail.com>"
 
-#: ../src/panel.c:678
+#: ../src/panel.c:688
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:680
+#: ../src/panel.c:690
 msgid "Copyright (C) 2008-2009"
 msgstr "Autorinės teisės (C) 2008-2009"
 
-#: ../src/panel.c:681
+#: ../src/panel.c:691
 msgid "Desktop panel for LXDE project"
 msgstr "LXDE projekto darbastalio skydelis"
 
-#: ../src/panel.c:704
+#: ../src/panel.c:714
 msgid "Add / Remove Panel Items"
 msgstr "Pridėti/pašalinti skydelio elementus"
 
-#: ../src/panel.c:712
+#: ../src/panel.c:722
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Pašalinti \"%s\" iš skydelio"
 
-#: ../src/panel.c:724
+#: ../src/panel.c:734
 msgid "Panel Settings"
 msgstr "Skydelio nustatymai"
 
-#: ../src/panel.c:730
+#: ../src/panel.c:740
 msgid "Create New Panel"
 msgstr "Sukurti naują skydelį"
 
-#: ../src/panel.c:741
+#: ../src/panel.c:751
 msgid "Delete This Panel"
 msgstr "Ištrinti šį skydelį"
 
-#: ../src/panel.c:752
+#: ../src/panel.c:762
 msgid "About"
 msgstr "Apie"
 
-#: ../src/panel.c:760
+#: ../src/panel.c:770
 msgid "Panel"
 msgstr "Skydelis"
 
-#: ../src/panel.c:773
+#: ../src/panel.c:783
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" nustatymai"
 
-#: ../src/panel.c:1438
+#: ../src/panel.c:1448
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - lengviasvoris GTK2+ skydelis UNIX darbastaliams\n"
 
-#: ../src/panel.c:1439
+#: ../src/panel.c:1449
 #, c-format
 msgid "Command line options:\n"
 msgstr "Komandinės eilutės parametrai:\n"
 
-#: ../src/panel.c:1440
+#: ../src/panel.c:1450
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- parodyti šią pagalbą ir išeiti\n"
 
-#: ../src/panel.c:1441
+#: ../src/panel.c:1451
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- parodyti versiją ir išeiti\n"
 
-#: ../src/panel.c:1442
+#: ../src/panel.c:1452
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --log <skaičius> -- nustatyti registravimo lygį 0-5. 0 - jokio 5 - chatty\n"
+msgstr ""
+" --log <skaičius> -- nustatyti registravimo lygį 0-5. 0 - jokio 5 - chatty\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1444
+#: ../src/panel.c:1454
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile pavadinimas -- naudoti nurodytą profilį\n"
 
-#: ../src/panel.c:1446
+#: ../src/panel.c:1456
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- tas pats kaip --help\n"
 
-#: ../src/panel.c:1447
+#: ../src/panel.c:1457
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- tas pats kaip --profile\n"
 
-#: ../src/panel.c:1448
+#: ../src/panel.c:1458
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- tas pats kaip --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1450
+#: ../src/panel.c:1460
 #, c-format
 msgid ""
 "\n"
@@ -512,8 +514,7 @@ msgstr "Darbo vieta _%d"
 msgid "Workspace %d"
 msgstr "Darbo vieta %d"
 
-#. Add "move to all workspaces" item.  This causes the window to be visible no
-#. matter what desktop is active.
+#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../src/plugins/taskbar.c:1753
 msgid "_All workspaces"
 msgstr "Visos d_arbo vietos"
@@ -523,8 +524,7 @@ msgstr "Visos d_arbo vietos"
 msgid "_Move to Workspace"
 msgstr "Per_kelti į darbo vietą"
 
-#. Add Close menu item.  By popular demand, we place this menu item closest to
-#. the cursor.
+#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../src/plugins/taskbar.c:1765
 msgid "_Close Window"
 msgstr "_Uždaryti langą"
@@ -570,8 +570,12 @@ msgid "Task Bar (Window List)"
 msgstr "Užduočių juosta (langų sąrašas)"
 
 #: ../src/plugins/taskbar.c:2035
-msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
-msgstr "Užduočių juosta rodo visus atidarytus langus ir leidžia juos sumažinti bei išdidinti"
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
+msgstr ""
+"Užduočių juosta rodo visus atidarytus langus ir leidžia juos sumažinti bei "
+"išdidinti"
 
 #: ../src/plugins/dclock.c:418
 msgid "Clock Format"
@@ -611,7 +615,7 @@ msgstr "Pridėti į darbastalį"
 msgid "Properties"
 msgstr "Savybės"
 
-#: ../src/plugins/menu.c:1019 ../src/plugins/dirmenu.c:367
+#: ../src/plugins/menu.c:1019 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "Piktograma"
 
@@ -699,7 +703,8 @@ msgstr "Leidžia perjungti prieinamus klaviatūros išdėstymus"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr "Kairysis pelės mygtukas sumažina visus langus.  Vidurinysis suskleidžia juos."
+msgstr ""
+"Kairysis pelės mygtukas sumažina visus langus.  Vidurinysis suskleidžia juos."
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
@@ -717,23 +722,23 @@ msgstr ""
 "Nusiunčia komandas visiems darbastalio langams.\n"
 "Palaikomos komandos yra 1) sumažinti ir 2) suskleisti"
 
-#: ../src/plugins/dirmenu.c:200
+#: ../src/plugins/dirmenu.c:246
 msgid "Open in _Terminal"
 msgstr "Atverti _terminale"
 
-#: ../src/plugins/dirmenu.c:365
+#: ../src/plugins/dirmenu.c:411
 msgid "Directory"
 msgstr "Aplankas"
 
-#: ../src/plugins/dirmenu.c:366
+#: ../src/plugins/dirmenu.c:412
 msgid "Label"
 msgstr "Etiketė"
 
-#: ../src/plugins/dirmenu.c:397
+#: ../src/plugins/dirmenu.c:443
 msgid "Directory Menu"
 msgstr "Aplanko meniu"
 
-#: ../src/plugins/dirmenu.c:399
+#: ../src/plugins/dirmenu.c:445
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "Naršyti aplankus per meniu (Autorius: PCMan)"
 
@@ -1203,8 +1208,12 @@ msgstr "Negalima apdoroti sąsajos pavadinimo iš '%s'"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
-msgstr "Negalima apdoroti sąsajos statistikos iš '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgid ""
+"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
+msgstr ""
+"Negalima apdoroti sąsajos statistikos iš '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."

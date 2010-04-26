@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-02 01:32+0100\n"
+"POT-Creation-Date: 2010-04-27 00:15+0200\n"
 "PO-Revision-Date: 2010-01-31 19:51+0600\n"
 "Last-Translator: Sadia Afroz <sadia@ankur.org.bd>\n"
 "Language-Team: Bengali <ankur-bd-l10n@googlegroups.com>\n"
@@ -67,7 +67,7 @@ msgstr "প্রান্তিককরণ:"
 msgid "Appearance"
 msgstr "অবয়ব"
 
-#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1021
+#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1049
 msgid "Bottom"
 msgstr "নিম্ন"
 
@@ -95,7 +95,7 @@ msgstr "ফাইল ব্যবস্থাপক:"
 msgid "Geometry"
 msgstr "জ্যামিতি"
 
-#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:1011 ../src/panel.c:1019
+#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:1039 ../src/panel.c:1047
 msgid "Height:"
 msgstr "উচ্চতা:"
 
@@ -103,7 +103,7 @@ msgstr "উচ্চতা:"
 msgid "Image"
 msgstr "ছবি"
 
-#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:1013
+#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:1041
 msgid "Left"
 msgstr "বাম"
 
@@ -140,7 +140,7 @@ msgstr "পিক্সেল"
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "জায়গা সংরক্ষণ করা হবে এবং সর্বোচ্চ উইন্ডো দিয়ে ঢাকা হবে না"
 
-#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:1014
+#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:1042
 msgid "Right"
 msgstr "ডান"
 
@@ -165,11 +165,11 @@ msgstr "সিস্টেম থীম"
 msgid "Terminal Emulator:"
 msgstr "টার্মিনাল ইম্যুলেটর:"
 
-#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1020
+#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1048
 msgid "Top"
 msgstr "শীর্ষ"
 
-#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:1012 ../src/panel.c:1018
+#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:1040 ../src/panel.c:1046
 msgid "Width:"
 msgstr "প্রস্থ:"
 
@@ -279,19 +279,11 @@ msgstr "ধরন:"
 msgid "_Name:"
 msgstr "নাম: (_N)"
 
-#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:831
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:887
 msgid "Application Launch Bar"
 msgstr "অ্যাপ্লিকেশন চালুকরণ বার"
 
-#: ../data/ui/launchbar.glade.h:2
-msgid "Applications"
-msgstr "অ্যাপ্লিকেশন"
-
-#: ../data/ui/launchbar.glade.h:3
-msgid "Available Applications"
-msgstr "বিদ্যমান অ্যাপ্লিকেশন"
-
-#: ../src/configurator.c:54 ../src/gtk-run.c:299
+#: ../src/configurator.c:54 ../src/gtk-run.c:319
 msgid "Run"
 msgstr "চালু করুন"
 
@@ -311,11 +303,11 @@ msgstr "সম্প্রতি লোড করা প্লাগ-ইন"
 msgid "Stretch"
 msgstr "প্রসারিত"
 
-#: ../src/configurator.c:562
+#: ../src/configurator.c:559
 msgid "Add plugin to panel"
 msgstr "প্যানেলে প্লাগ-ইন যোগ"
 
-#: ../src/configurator.c:590
+#: ../src/configurator.c:587
 msgid "Available plugins"
 msgstr "বিদ্যমান প্লাগ-ইন"
 
@@ -335,7 +327,7 @@ msgstr "একটি ফাইল নির্বাচন করুন"
 msgid "_Browse"
 msgstr "ব্রাউজ (_B)"
 
-#: ../src/panel.c:634
+#: ../src/panel.c:649
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -343,111 +335,111 @@ msgstr ""
 "এই প্যানেলটিকে সত্যিই মুছে ফেলা হবে?\n"
 "<b>সতর্কীকরণ: এটি পুনরুদ্ধার করা যাবে না।</b>"
 
-#: ../src/panel.c:636
+#: ../src/panel.c:651
 msgid "Confirm"
 msgstr "নিশ্চিত"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:668
+#: ../src/panel.c:683
 msgid "translator-credits"
 msgstr ""
 "সঙ্কর্ষণ মুখোপাধ্যায় (sankarshan@randomink.org)\n"
 "সাদিয়া আফরোজ <sadia@ankur.org.bd>"
 
-#: ../src/panel.c:673
+#: ../src/panel.c:688
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:675
+#: ../src/panel.c:690
 msgid "Copyright (C) 2008-2009"
 msgstr "স্বত্ত্বাধিকার (C) ২০০৮-২০০৯"
 
-#: ../src/panel.c:676
+#: ../src/panel.c:691
 msgid "Desktop panel for LXDE project"
 msgstr "LXDE প্রকল্পের জন্য ডেস্কটপ প্যানেল"
 
-#: ../src/panel.c:699
+#: ../src/panel.c:714
 msgid "Add / Remove Panel Items"
 msgstr "প্যানেল আইটেম যোগ / অপসারণ করুন"
 
-#: ../src/panel.c:707
+#: ../src/panel.c:722
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "\"%s\" কে প্যানেল থেকে অপসারণ করুন"
 
-#: ../src/panel.c:719
+#: ../src/panel.c:734
 msgid "Panel Settings"
 msgstr "প্যানেলের সেটিংসমূহ"
 
-#: ../src/panel.c:725
+#: ../src/panel.c:740
 msgid "Create New Panel"
 msgstr "নতুন প্যানেল তৈরী করুন"
 
-#: ../src/panel.c:736
+#: ../src/panel.c:751
 msgid "Delete This Panel"
 msgstr "এই প্যানেলটি মুছে ফেলুন"
 
-#: ../src/panel.c:747
+#: ../src/panel.c:762
 msgid "About"
 msgstr "পরিচিতি"
 
-#: ../src/panel.c:755
+#: ../src/panel.c:770
 msgid "Panel"
 msgstr "প্যানেল"
 
-#: ../src/panel.c:768
+#: ../src/panel.c:783
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" সেটিংসমূহ"
 
-#: ../src/panel.c:1420
+#: ../src/panel.c:1448
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - UNIX ডেস্কটপের জন্য হাল্কা GTK2+ প্যানেল\n"
 
-#: ../src/panel.c:1421
+#: ../src/panel.c:1449
 #, c-format
 msgid "Command line options:\n"
 msgstr "কমান্ড লাইন অপশন:\n"
 
-#: ../src/panel.c:1422
+#: ../src/panel.c:1450
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- এই সহায়তা মুদ্রণ করে প্রস্থান করুন\n"
 
-#: ../src/panel.c:1423
+#: ../src/panel.c:1451
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- সংস্করণ মুদ্রণ করে প্রস্থান করুন\n"
 
-#: ../src/panel.c:1424
+#: ../src/panel.c:1452
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --log <number> -- লগ স্তর নির্ধারণ করুন ০-৫। ০ - কোনটি না ৫ - চ্যাটি\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1426
+#: ../src/panel.c:1454
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- নির্দিষ্ট প্রোফাইল ব্যবহার করুন\n"
 
-#: ../src/panel.c:1428
+#: ../src/panel.c:1456
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- অনুরূপ --help\n"
 
-#: ../src/panel.c:1429
+#: ../src/panel.c:1457
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- অনুরূপ --profile\n"
 
-#: ../src/panel.c:1430
+#: ../src/panel.c:1458
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- অনুরূপ --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1432
+#: ../src/panel.c:1460
 #, c-format
 msgid ""
 "\n"
@@ -458,7 +450,7 @@ msgstr ""
 "বিস্তারিত তথ্যের জন্য http://lxde.org/ দেখুন।\n"
 "\n"
 
-#: ../src/gtk-run.c:312
+#: ../src/gtk-run.c:332
 msgid "Enter the command you want to execute:"
 msgstr "আপনি যে কমান্ডটি কার্যকর করতে চান সেটি লিখুন:"
 
@@ -470,7 +462,7 @@ msgstr "CPU ব্যবহার পর্যবেক্ষণের মাপ
 msgid "Display CPU usage"
 msgstr "CPU ব্যবহার প্রদর্শন"
 
-#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:314
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:422
 msgid "Bold font"
 msgstr "গাঢ় ফন্ট"
 
@@ -490,96 +482,96 @@ msgstr "কর্মপরিসরের সংখ্যা প্রদর্�
 msgid "Display Image and Tooltip"
 msgstr "ছবি ও টুলটিপ প্রদর্শন"
 
-#: ../src/plugins/launchbar.c:833
+#: ../src/plugins/launchbar.c:889
 msgid "Bar with buttons to launch application"
 msgstr "অ্যাপ্লিকেশন চালু করার জন্য বোতামসহ বার"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1712
+#: ../src/plugins/taskbar.c:1700
 msgid "_Raise"
 msgstr "উত্তোলন (_R)"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1717
+#: ../src/plugins/taskbar.c:1705
 msgid "R_estore"
 msgstr "পুনরুদ্ধার (_e)"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1722
+#: ../src/plugins/taskbar.c:1710
 msgid "Ma_ximize"
 msgstr "সর্বোচ্চ মাপ (_x)"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1727
+#: ../src/plugins/taskbar.c:1715
 msgid "Ico_nify"
 msgstr "আইকন যোগ (_n)"
 
-#: ../src/plugins/taskbar.c:1746
+#: ../src/plugins/taskbar.c:1734
 #, fuzzy, c-format
 msgid "Workspace _%d"
 msgstr "কর্মপরিসর %d (_%)"
 
-#: ../src/plugins/taskbar.c:1751
+#: ../src/plugins/taskbar.c:1739
 #, c-format
 msgid "Workspace %d"
 msgstr "কর্মপরিসর %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1765
+#: ../src/plugins/taskbar.c:1753
 msgid "_All workspaces"
 msgstr "সকল কর্মপরিসরে (_A)"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1771
+#: ../src/plugins/taskbar.c:1759
 msgid "_Move to Workspace"
 msgstr "কর্মপরিসরে সরানো (_M)"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1777
+#: ../src/plugins/taskbar.c:1765
 msgid "_Close Window"
 msgstr "উইন্ডো বন্ধ (_C)"
 
-#: ../src/plugins/taskbar.c:1980
+#: ../src/plugins/taskbar.c:1968
 msgid "Show tooltips"
 msgstr "টুলটিপ প্রদর্শন"
 
-#: ../src/plugins/taskbar.c:1981
+#: ../src/plugins/taskbar.c:1969
 msgid "Icons only"
 msgstr "শুধুমাত্র আইকন"
 
-#: ../src/plugins/taskbar.c:1982
+#: ../src/plugins/taskbar.c:1970
 msgid "Flat buttons"
 msgstr "সমতল বোতাম"
 
-#: ../src/plugins/taskbar.c:1983
+#: ../src/plugins/taskbar.c:1971
 msgid "Show windows from all desktops"
 msgstr "সকল ডেস্কটপ থেকে উইন্ডো প্রদর্শন"
 
-#: ../src/plugins/taskbar.c:1984
+#: ../src/plugins/taskbar.c:1972
 msgid "Use mouse wheel"
 msgstr "মাউস হুইল ব্যবহার"
 
-#: ../src/plugins/taskbar.c:1985
+#: ../src/plugins/taskbar.c:1973
 msgid "Flash when there is any window requiring attention"
 msgstr "কোন উইন্ডোর দৃষ্টি আকর্ষণের প্রয়োজন হলে ঝলক প্রয়োগ করা হবে"
 
-#: ../src/plugins/taskbar.c:1986
+#: ../src/plugins/taskbar.c:1974
 msgid "Combine multiple application windows into a single button"
 msgstr "বহুবিধ অ্যাপ্লিকেশন উইন্ডোকে একটি বোতামে সংযুক্ত করা হয়"
 
-#: ../src/plugins/taskbar.c:1987
+#: ../src/plugins/taskbar.c:1975
 msgid "Maximum width of task button"
 msgstr "টাস্ক বোতামের সর্বোচ্চ প্রস্থ"
 
-#: ../src/plugins/taskbar.c:1988
+#: ../src/plugins/taskbar.c:1976
 msgid "Spacing"
 msgstr "ফাঁকাকরণ"
 
-#: ../src/plugins/taskbar.c:2045
+#: ../src/plugins/taskbar.c:2033
 msgid "Task Bar (Window List)"
 msgstr "টাস্ক বার (উইন্ডো তালিকা)"
 
-#: ../src/plugins/taskbar.c:2047
+#: ../src/plugins/taskbar.c:2035
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -587,51 +579,51 @@ msgstr ""
 "টাস্কবার সবগুলো খোলা উইন্ডো দেখায় এবং তাতে আইকন যোগ, ছায়াকরণ বা ফোকাস করার "
 "অনুমোদন প্রদান করে"
 
-#: ../src/plugins/dclock.c:310
+#: ../src/plugins/dclock.c:418
 msgid "Clock Format"
 msgstr "ঘড়ির ফরম্যাট"
 
-#: ../src/plugins/dclock.c:311
+#: ../src/plugins/dclock.c:419
 msgid "Tooltip Format"
 msgstr "টুলটিপের ফরম্যাট"
 
-#: ../src/plugins/dclock.c:312
+#: ../src/plugins/dclock.c:420
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr "Format codes: man 3 strftime; \\n রেখা বিভাজনের জন্য"
 
-#: ../src/plugins/dclock.c:313
+#: ../src/plugins/dclock.c:421
 msgid "Action when clicked (default: display calendar)"
 msgstr "ক্লিক করলে করণীয় (পূর্বনির্ধারিত: ক্যালেন্ডার প্রদর্শন)"
 
-#: ../src/plugins/dclock.c:315
+#: ../src/plugins/dclock.c:423
 msgid "Tooltip only"
 msgstr "শুধুমাত্র টুলটিপ"
 
-#: ../src/plugins/dclock.c:343
+#: ../src/plugins/dclock.c:451
 msgid "Digital Clock"
 msgstr "ডিজিটাল ঘড়ি"
 
-#: ../src/plugins/dclock.c:345
+#: ../src/plugins/dclock.c:453
 msgid "Display digital clock and tooltip"
 msgstr "ডিজিটাল ঘড়ি ও টুলটিপ প্রদর্শন"
 
-#: ../src/plugins/menu.c:373
+#: ../src/plugins/menu.c:372
 msgid "Add to desktop"
 msgstr "ডেস্কটপে যোগ"
 
-#: ../src/plugins/menu.c:383
+#: ../src/plugins/menu.c:382
 msgid "Properties"
 msgstr "বৈশিষ্ট্যাবলী"
 
-#: ../src/plugins/menu.c:993 ../src/plugins/dirmenu.c:367
+#: ../src/plugins/menu.c:1019 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "আইকন"
 
-#: ../src/plugins/menu.c:1010
+#: ../src/plugins/menu.c:1036
 msgid "Menu"
 msgstr "মেনু"
 
-#: ../src/plugins/menu.c:1012
+#: ../src/plugins/menu.c:1038
 msgid "Application Menu"
 msgstr "অ্যাপ্লিকেশন মেনু"
 
@@ -671,59 +663,59 @@ msgstr "সিস্টেম ট্রে"
 msgid "System tray"
 msgstr "সিস্টেম ট্রে"
 
-#: ../src/plugins/xkb/xkb-plugin.c:283
+#: ../src/plugins/xkb/xkb-plugin.c:291
 msgid "Configure Keyboard Layout Switcher"
 msgstr "কীবোর্ডের লেআউট পরিবর্তনকারী কনফিগার"
 
-#: ../src/plugins/xkb/xkb-plugin.c:298
+#: ../src/plugins/xkb/xkb-plugin.c:306
 msgid "Show layout as"
 msgstr "যেভাবে লেআউট প্রদর্শন করা হবে"
 
-#: ../src/plugins/xkb/xkb-plugin.c:313
+#: ../src/plugins/xkb/xkb-plugin.c:321
 msgid "image"
 msgstr "ছবি"
 
-#: ../src/plugins/xkb/xkb-plugin.c:314
+#: ../src/plugins/xkb/xkb-plugin.c:322
 msgid "text"
 msgstr "টেক্সট"
 
-#: ../src/plugins/xkb/xkb-plugin.c:321
+#: ../src/plugins/xkb/xkb-plugin.c:329
 msgid "Per application settings"
 msgstr "প্রতিটি অ্যাপ্লিকেশনের সেটিংসমূহ"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/xkb/xkb-plugin.c:336
+#: ../src/plugins/xkb/xkb-plugin.c:344
 msgid "_Remember layout for each application"
 msgstr "প্রতিটি অ্যাপ্লিকেশনের জন্য লেআউট মনে রাখা হবে (_R)"
 
 #. Create a label as the child of the horizontal box.
-#: ../src/plugins/xkb/xkb-plugin.c:346
+#: ../src/plugins/xkb/xkb-plugin.c:354
 msgid "Default layout:"
 msgstr "পূর্বনির্ধারিত লেআউট:"
 
-#: ../src/plugins/xkb/xkb-plugin.c:397
+#: ../src/plugins/xkb/xkb-plugin.c:405
 msgid "Keyboard Layout Switcher"
 msgstr "কীবোর্ডের লেআউট পরিবর্তনকারী"
 
-#: ../src/plugins/xkb/xkb-plugin.c:399
+#: ../src/plugins/xkb/xkb-plugin.c:407
 msgid "Switch between available keyboard layouts"
 msgstr "বিদ্যমান কীবোর্ড লেআউটের মধ্যে পরিবর্তন করুন"
 
-#: ../src/plugins/wincmd.c:204
+#: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
 "সব উইন্ডোর সাথে আইকন যোগ করার জন্য বামদিকে ক্লিক করুন। ছায়ান্বিত করার জন্য মাঝে "
 "ক্লিক করুন।"
 
-#: ../src/plugins/wincmd.c:234
+#: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
 msgstr "একান্তরভাবে আইকন যোগ/ছায়ান্বিত এবং উত্তোলন করা হবে"
 
-#: ../src/plugins/wincmd.c:263
+#: ../src/plugins/wincmd.c:266
 msgid "Minimize All Windows"
 msgstr "সব উইন্ডোকে ন্যূনতম বিস্তার করা হবে"
 
-#: ../src/plugins/wincmd.c:265
+#: ../src/plugins/wincmd.c:268
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
@@ -731,23 +723,23 @@ msgstr ""
 "সকল ডেস্কটপ উইন্ডোতে কমান্ড পাঠানো হয়।\n"
 "সমর্থিত কমান্ড হলো ১) আইকন যোগ এবং ২) ছায়ান্বিত"
 
-#: ../src/plugins/dirmenu.c:200
+#: ../src/plugins/dirmenu.c:246
 msgid "Open in _Terminal"
 msgstr "টার্মিনালে খুলুন (_T)"
 
-#: ../src/plugins/dirmenu.c:365
+#: ../src/plugins/dirmenu.c:411
 msgid "Directory"
 msgstr "ডিরেক্টরি"
 
-#: ../src/plugins/dirmenu.c:366
+#: ../src/plugins/dirmenu.c:412
 msgid "Label"
 msgstr "লেবেল"
 
-#: ../src/plugins/dirmenu.c:397
+#: ../src/plugins/dirmenu.c:443
 msgid "Directory Menu"
 msgstr "ডিরেক্টরি মেনু"
 
-#: ../src/plugins/dirmenu.c:399
+#: ../src/plugins/dirmenu.c:445
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "মেনুর সাহায্যে ডিরেক্টরি ট্রী ব্রাউজ করুন (নির্মাতা: PCMan)"
 
@@ -794,24 +786,24 @@ msgstr "সিস্টেমের তাপমাত্রা প্রদর�
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:239
-#: ../src/plugins/volumealsa/volumealsa.c:400
+#: ../src/plugins/volumealsa/volumealsa.c:244
+#: ../src/plugins/volumealsa/volumealsa.c:411
 msgid "Volume control"
 msgstr "ভলিউম নিয়ন্ত্রণ"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:449
+#: ../src/plugins/volumealsa/volumealsa.c:460
 msgid "Volume Control"
 msgstr "ভলিউম নিয়ন্ত্রণ"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:358
+#: ../src/plugins/volumealsa/volumealsa.c:369
 msgid "Volume"
 msgstr "ভলিউম"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/volumealsa/volumealsa.c:377
+#: ../src/plugins/volumealsa/volumealsa.c:388
 msgid "Mute"
 msgstr "নিঃশব্দ"
 
@@ -1354,6 +1346,12 @@ msgstr "কীবোর্ড LED"
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "CapsLock, NumLock, ও ScrollLock কী-র জন্য নির্দেশক"
+
+#~ msgid "Applications"
+#~ msgstr "অ্যাপ্লিকেশন"
+
+#~ msgid "Available Applications"
+#~ msgstr "বিদ্যমান অ্যাপ্লিকেশন"
 
 #~ msgid "Display system temperature, by kesler.daniel@gmail.com"
 #~ msgstr "kesler.daniel@gmail.com দ্বারা সিস্টেমের তাপমাত্রা প্রদর্শন"
