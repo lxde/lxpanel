@@ -1178,11 +1178,10 @@ msgstr "Порт на тунела IPIP"
 msgid "Frame Relay Access Device"
 msgstr "Трансформиране на рамката за достъп до устройството"
 
+#, fuzzy
 #: ../src/plugins/netstatus/netstatus-iface.c:960
 msgid "Local Loopback"
-msgstr ""
-"Loopback файл(ове):\n"
-" %s\n"
+msgstr "Loopback файл(ове):"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:966
 msgid "Fiber Distributed Data Interface"
@@ -1218,10 +1217,11 @@ msgstr "SIOCGIFCONF грешка: %s"
 msgid "No network devices found"
 msgstr "Не са намерени вх/изх. устройства."
 
+#, fuzzy
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:180
 #, c-format
 msgid "Cannot open /proc/net/dev: %s"
-msgstr "Не може да се отвори /proc/net/dev: %s\n"
+msgstr "Не може да се отвори /proc/net/dev: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:189
 msgid "Could not parse /proc/net/dev. Unknown format."

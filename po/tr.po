@@ -419,7 +419,7 @@ msgstr " --sürüm   -- sürümü yaz ve çık\n"
 #: ../src/panel.c:1424
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --günlük <number> -- günlük düzeyini belirle 0-5. 0 - hiç 5 - geveze"
+msgstr " --günlük <number> -- günlük düzeyini belirle 0-5. 0 - hiç 5 - geveze\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1426

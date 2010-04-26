@@ -349,7 +349,7 @@ msgstr "Vátta"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:668
 msgid "translator-credits"
-msgstr "Gunleif Joensen, 2010.\n"
+msgstr "Gunleif Joensen, 2010."
 
 #: ../src/panel.c:673
 msgid "LXPanel"
@@ -400,7 +400,7 @@ msgstr "\"%s\" uppsetingar"
 #: ../src/panel.c:1420
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr "lxpanel %s - lættvekts GTK2+ panel til UNIX skriviborð"
+msgstr "lxpanel %s - lættvekts GTK2+ panel til UNIX skriviborð\n"
 
 #: ../src/panel.c:1421
 #, c-format
@@ -431,17 +431,17 @@ msgstr " --profile name -- nýt navngivið umhvarv\n"
 #: ../src/panel.c:1428
 #, c-format
 msgid " -h  -- same as --help\n"
-msgstr " -h  -- sama sum --help"
+msgstr " -h  -- sama sum --help\n"
 
 #: ../src/panel.c:1429
 #, c-format
 msgid " -p  -- same as --profile\n"
-msgstr " -p  -- sama sum --profile"
+msgstr " -p  -- sama sum --profile\n"
 
 #: ../src/panel.c:1430
 #, c-format
 msgid " -v  -- same as --version\n"
-msgstr " -v  -- sama sum --version"
+msgstr " -v  -- sama sum --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
 #: ../src/panel.c:1432

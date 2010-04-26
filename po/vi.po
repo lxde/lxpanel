@@ -399,7 +399,7 @@ msgstr "\"%s\" Cài đặt"
 #: ../src/panel.c:1420
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr "lxpanel %s - lightweight GTK2+ panel for UNIX desktops"
+msgstr "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 
 #: ../src/panel.c:1421
 #, c-format
