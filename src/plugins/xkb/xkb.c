@@ -93,9 +93,11 @@ const char * xkb_get_current_symbol_name_lowercase(XkbPlugin * xkb)
 /* Refresh current group number from Xkb state. */
 static void refresh_group_xkb(XkbPlugin * xkb) 
 {
+    /* Get the current group number.
+     * This shouldn't be necessary, but mask the group number down for safety. */
     XkbStateRec xkb_state;
     XkbGetState(GDK_DISPLAY(), XkbUseCoreKbd, &xkb_state);
-    xkb->current_group_xkb_no = xkb_state.group;
+    xkb->current_group_xkb_no = xkb_state.group & (XkbNumKbdGroups - 1);
 }
 
 /* Initialize the keyboard description initially or after a NewKeyboard event. */
@@ -196,8 +198,8 @@ static int initialize_keyboard_description(XkbPlugin * xkb)
                             xkb->group_count = symbol_group_number;
                     }
 
-                    /* Ensure that all elements within the group count we will actually use are initialized. */
-                    for (i = 0; i < xkb->group_count; i += 1)
+                    /* Ensure that all elements within the name vectors are initialized. */
+                    for (i = 0; i < XkbNumKbdGroups; i += 1)
                     {
                         if (xkb->group_names[i] == NULL)
                             xkb->group_names[i] = g_strdup("Unknown");
@@ -240,8 +242,9 @@ static GdkFilterReturn xkb_event_filter(GdkXEvent * xevent, GdkEvent * event, Xk
         {
             if (xkbev->state.group != xkb->current_group_xkb_no)
             {
-                /* Switch to the new group and redraw the display. */
-                xkb->current_group_xkb_no = xkbev->state.group;
+                /* Switch to the new group and redraw the display.
+                 * This shouldn't be necessary, but mask the group number down for safety. */
+                xkb->current_group_xkb_no = xkbev->state.group & (XkbNumKbdGroups - 1);
                 refresh_group_xkb(xkb);
                 xkb_redraw(xkb);
                 xkb_enter_locale_by_process(xkb);
@@ -284,7 +287,7 @@ void xkb_mechanism_destructor(XkbPlugin * xkb)
 
     /* Free group and symbol name memory. */
     int i;
-    for (i = 0; i < xkb->group_count; i++)
+    for (i = 0; i < XkbNumKbdGroups; i++)
     {
         if (xkb->group_names[i] != NULL)
         {
