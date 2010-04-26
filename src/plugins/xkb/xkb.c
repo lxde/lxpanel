@@ -197,20 +197,21 @@ static int initialize_keyboard_description(XkbPlugin * xkb)
                         if (xkb->group_count < symbol_group_number)
                             xkb->group_count = symbol_group_number;
                     }
-
-                    /* Ensure that all elements within the name vectors are initialized. */
-                    for (i = 0; i < XkbNumKbdGroups; i += 1)
-                    {
-                        if (xkb->group_names[i] == NULL)
-                            xkb->group_names[i] = g_strdup("Unknown");
-                        if (xkb->symbol_names[i] == NULL)
-                            xkb->symbol_names[i] = g_strdup("None");
-                    }
                     XFree(symbol_string);
                 }
             }
         }
         XkbFreeKeyboard(xkb_desc, 0, True);
+    }
+
+    /* Ensure that all elements within the name vectors are initialized. */
+    int i;
+    for (i = 0; i < XkbNumKbdGroups; i += 1)
+    {
+        if (xkb->group_names[i] == NULL)
+            xkb->group_names[i] = g_strdup("Unknown");
+        if (xkb->symbol_names[i] == NULL)
+            xkb->symbol_names[i] = g_strdup("None");
     }
 
     /* Create or recreate hash table.
