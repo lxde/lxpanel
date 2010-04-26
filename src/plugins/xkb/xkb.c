@@ -147,9 +147,10 @@ static int initialize_keyboard_description(XkbPlugin * xkb)
                     char * p = symbol_string;
                     char * q = p;
                     int symbol_group_number = 0;
-                    for ( ; ((*p != '\0') && (symbol_group_number < XkbNumKbdGroups)); p += 1)
+                    for ( ; symbol_group_number < XkbNumKbdGroups; p += 1)
                     {
-                        if (*p == '+')
+                        char c = *p;
+                        if ((c == '\0') || (c == '+'))
                         {
                             /* End of a symbol.  Ignore the symbols "pc" and "inet" and "group". */
                             *p = '\0';
@@ -158,17 +159,21 @@ static int initialize_keyboard_description(XkbPlugin * xkb)
                                 xkb->symbol_names[symbol_group_number] = g_ascii_strup(q, -1);
                                 symbol_group_number += 1;
                             }
+                            if (c == '\0')
+                                break;
                             q = p + 1;
                         }
-                        else if ((*p == ':') && (p[1] >= '1') && (p[1] < ('1' + XkbNumKbdGroups)) && (p[2] == '+'))
+                        else if ((c == ':') && (p[1] >= '1') && (p[1] < ('1' + XkbNumKbdGroups)))
                         {
-                        /* Construction ":n+" at the end of a symbol.  The digit is a one-based index of the symbol.
-                         * If not present, we will default above to "next index". */
+                            /* Construction ":n" at the end of a symbol.  The digit is a one-based index of the symbol.
+                             * If not present, we will default to "next index". */
                             *p = '\0';
                             symbol_group_number = p[1] - '1';
                             xkb->symbol_names[symbol_group_number] = g_ascii_strup(q, -1);
                             symbol_group_number += 1;
                             p += 2;
+                            if (*p == '\0')
+                                break;
                             q = p + 1;
                         }
                         else if ((*p >= 'A') && (*p <= 'Z'))
