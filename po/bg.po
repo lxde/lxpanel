@@ -8,12 +8,12 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-27 00:15+0200\n"
-"PO-Revision-Date: 2010-04-08 14:20+0200\n"
-"Last-Translator: Радослав <rec_ku@hotmail.com>\n"
+"PO-Revision-Date: 2010-05-05 13:36+0200\n"
+"Last-Translator: Радослав <Rec.ku@hotmail.com>\n"
 "Language-Team: MIME-Version: 1.0\n"
+"Language: bg\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.0.1\n"
 "X-Poedit-Language: Bulgarian\n"
@@ -487,12 +487,12 @@ msgstr "Бар за стартиране на програми"
 #. Add Raise menu item.
 #: ../src/plugins/taskbar.c:1700
 msgid "_Raise"
-msgstr "_Издигане"
+msgstr "_Увеличаване"
 
 #. Add Restore menu item.
 #: ../src/plugins/taskbar.c:1705
 msgid "R_estore"
-msgstr "_Възстанови"
+msgstr "_Възстановяване"
 
 #. Add Maximize menu item.
 #: ../src/plugins/taskbar.c:1710
@@ -502,7 +502,7 @@ msgstr "_Максимизиране"
 #. Add Iconify menu item.
 #: ../src/plugins/taskbar.c:1715
 msgid "Ico_nify"
-msgstr "_Намали"
+msgstr "_Намаляване"
 
 #: ../src/plugins/taskbar.c:1734
 #, c-format
@@ -595,7 +595,7 @@ msgstr "Действие при клик (По подразбиране: виж 
 
 #: ../src/plugins/dclock.c:423
 msgid "Tooltip only"
-msgstr "Единтсвено подсказки"
+msgstr "Само подсказки"
 
 #: ../src/plugins/dclock.c:451
 msgid "Digital Clock"
@@ -942,11 +942,11 @@ msgid "Connection Properties: %s"
 msgstr "Свойства на връзката: %s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:135
-#, fuzzy, c-format
+#, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
 msgstr[0] "%lu Пакет"
-msgstr[1] "%lu Пакет"
+msgstr[1] "%lu Пакети"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:396
 #, c-format
@@ -1086,7 +1086,7 @@ msgstr "AMPR AX.25"
 #: ../src/plugins/netstatus/netstatus-iface.c:888
 #: ../src/plugins/netstatus/netstatus-iface.c:1008
 msgid "16/4 Mbps Token Ring"
-msgstr "16/4 МБ в сек. символичен звън"
+msgstr "16/4 МБ в сек. сигнален звън"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:891
 msgid "ARCnet"
@@ -1314,7 +1314,7 @@ msgstr "Цвят при разреждане 2"
 
 #: ../src/plugins/batt/batt.c:589
 msgid "Border width"
-msgstr "Широчина на рамка"
+msgstr "Ширина на рамка"
 
 #: ../src/plugins/batt/batt.c:619
 msgid "Battery Monitor"
@@ -1326,15 +1326,15 @@ msgstr "Показва статуса на батерията ползвайки
 
 #: ../src/plugins/kbled/kbled.c:230
 msgid "Show CapsLock"
-msgstr "Покажи CapsLock"
+msgstr "Показвай CapsLock"
 
 #: ../src/plugins/kbled/kbled.c:231
 msgid "Show NumLock"
-msgstr "Покажи NumLock"
+msgstr "Показвай NumLock"
 
 #: ../src/plugins/kbled/kbled.c:232
 msgid "Show ScrollLock"
-msgstr "Покажи ScrollLock"
+msgstr "Показвай ScrollLock"
 
 #: ../src/plugins/kbled/kbled.c:267
 msgid "Keyboard LED"
