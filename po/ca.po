@@ -2,12 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-27 00:15+0200\n"
+"POT-Creation-Date: 2010-05-05 04:11+0000\n"
 "PO-Revision-Date: 2009-09-13 22:33+0200\n"
 "Last-Translator: Josep Sanchez <papapep@gmail.com>\n"
 "Language-Team: CATALAN <none>\n"
@@ -410,8 +410,7 @@ msgstr " --version   -- imprimir la versió i sortir\n"
 #: ../src/panel.c:1452
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <nombre> -- defineix el nivell de registre 0-5. 0 - cap 5 - xerraire\n"
+msgstr " --log <nombre> -- defineix el nivell de registre 0-5. 0 - cap 5 - xerraire\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1454
@@ -511,7 +510,8 @@ msgstr "Espai de treball _%d"
 msgid "Workspace %d"
 msgstr "Espai de treball %d"
 
-#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
+#. Add "move to all workspaces" item.  This causes the window to be visible no
+#. matter what desktop is active.
 #: ../src/plugins/taskbar.c:1753
 msgid "_All workspaces"
 msgstr "Tots els esp_ais de treball"
@@ -521,7 +521,8 @@ msgstr "Tots els esp_ais de treball"
 msgid "_Move to Workspace"
 msgstr "_Moure a espai de treball"
 
-#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
+#. Add Close menu item.  By popular demand, we place this menu item closest to
+#. the cursor.
 #: ../src/plugins/taskbar.c:1765
 msgid "_Close Window"
 msgstr "Tan_ca la finestra"
@@ -567,12 +568,8 @@ msgid "Task Bar (Window List)"
 msgstr "Barra de tasques (llistat de finestres)"
 
 #: ../src/plugins/taskbar.c:2035
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
-msgstr ""
-"La barra de tasques mostra totes les finestres obertes i permet iconificar-"
-"les, ombrejar-les o tenir-ne el focus"
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr "La barra de tasques mostra totes les finestres obertes i permet iconificar-les, ombrejar-les o tenir-ne el focus"
 
 #: ../src/plugins/dclock.c:418
 msgid "Clock Format"
@@ -698,9 +695,7 @@ msgstr "Commuta entre diferents disposicions de teclat disponibles"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr ""
-"Feu clic amb el botó alternatiu per a iconificat totes les finestres. Amb el "
-"boto del mig per ombrejar-les."
+msgstr "Feu clic amb el botó alternatiu per a iconificat totes les finestres. Amb el boto del mig per ombrejar-les."
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
@@ -1009,8 +1004,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Contacteu el vostre administrador de sistemes per a resoldre el següent "
-"problema:\n"
+"Contacteu el vostre administrador de sistemes per a resoldre el següent problema:\n"
 "\n"
 "%s"
 
@@ -1154,7 +1148,7 @@ msgstr "Loopback local"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:966
 msgid "Fiber Distributed Data Interface"
-msgstr "Interfície de dades de fibra distribuida"
+msgstr "Interfície de fibra de dades distribuïdes"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:972
 msgid "IPv6-in-IPv4"
@@ -1204,12 +1198,8 @@ msgstr "No s'ha pogut analizar el nom de l'interfície de '%s'"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid ""
-"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
-msgstr ""
-"No s'ha pogut analitzar l'estadística de l'interfície de '%s'. prx_idx = %d; "
-"ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgstr "No s'ha pogut analitzar l'estadística de l'interfície de '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1218,8 +1208,7 @@ msgstr "No s'ha pogut analitzar /proc/net/wireless. Format desconegut."
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr ""
-"No s'ha pogut analitzar els detalls inalàmbrics de '%s'. link_idx = %d;"
+msgstr "No s'ha pogut analitzar els detalls inalàmbrics de '%s'. link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
