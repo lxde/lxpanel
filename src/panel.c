@@ -1054,8 +1054,6 @@ void panel_adjust_geometry_terminology(Panel * p)
 /* Draw text into a label, with the user preference color and optionally bold. */
 void panel_draw_label_text(Panel * p, GtkWidget * label, char * text, gboolean bold, gboolean custom_color)
 {
-    char buffer[512];
-
     if (text == NULL)
     {
         /* Null string. */
@@ -1068,7 +1066,7 @@ void panel_draw_label_text(Panel * p, GtkWidget * label, char * text, gboolean b
         int font_desc;
         if (p->icon_size < 20) 
             font_desc = 9;
-        else if (p->icon_size >= 20 && p->icon_size < 26)
+        else if (p->icon_size >= 20 && p->icon_size < 36)
             font_desc = 10;
         else
             font_desc = 12;
@@ -1091,23 +1089,25 @@ void panel_draw_label_text(Panel * p, GtkWidget * label, char * text, gboolean b
         if ((custom_color) && (p->usefontcolor))
         {
             /* Color, optionally bold. */
-            g_snprintf(buffer, sizeof(buffer), "<span font_desc=\"%d\" color=\"#%06x\">%s%s%s</span>",
+            gchar * text = g_strdup_printf("<span font_desc=\"%d\" color=\"#%06x\">%s%s%s</span>",
                 font_desc,
                 gcolor2rgb24(&p->gfontcolor),
                 ((bold) ? "<b>" : ""),
                 valid_markup,
                 ((bold) ? "</b>" : ""));
-            gtk_label_set_markup(GTK_LABEL(label), buffer);
+            gtk_label_set_markup(GTK_LABEL(label), text);
+            g_free(text);
         }
         else
         {
             /* No color, optionally bold. */
-            g_snprintf(buffer, sizeof(buffer), "<span font_desc=\"%d\">%s%s%s</span>",
+            gchar * text = g_strdup_printf("<span font_desc=\"%d\">%s%s%s</span>",
                 font_desc,
                 ((bold) ? "<b>" : ""),
                 valid_markup,
                 ((bold) ? "</b>" : ""));
-            gtk_label_set_markup(GTK_LABEL(label), buffer);
+            gtk_label_set_markup(GTK_LABEL(label), text);
+            g_free(text);
         }
         g_free(escaped_text);
     }
