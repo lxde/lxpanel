@@ -105,7 +105,7 @@ static void xkb_active_window_event(FbEv * ev, gpointer data)
         Window * win = fb_ev_active_window(ev);
         if (*win != None)
         {
-            xkb_active_window_changed(xkb, get_net_wm_pid(*win));
+            xkb_active_window_changed(xkb, *win);
             xkb_redraw(xkb);
         }
     }

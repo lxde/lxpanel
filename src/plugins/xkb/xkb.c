@@ -46,10 +46,7 @@ static void xkb_enter_locale_by_process(XkbPlugin * xkb)
     {
         Window * win = fb_ev_active_window(fbev);
         if (*win != None)
-        {
-            GPid pid = get_net_wm_pid(*fb_ev_active_window(fbev));
-            g_hash_table_insert(xkb->group_hash_table, GINT_TO_POINTER(pid), GINT_TO_POINTER(xkb->current_group_xkb_no));
-        }
+            g_hash_table_insert(xkb->group_hash_table, GINT_TO_POINTER(*win), GINT_TO_POINTER(xkb->current_group_xkb_no));
     }
 }
 
@@ -324,12 +321,12 @@ int xkb_change_group(XkbPlugin * xkb, int increment)
 }
 
 /* React to change of focus by switching to the application's layout or the default layout. */
-void xkb_active_window_changed(XkbPlugin * xkb, gint pid)
+void xkb_active_window_changed(XkbPlugin * xkb, Window window)
 {
     gint new_group_xkb_no = xkb->default_group;
 
     gpointer pKey = 0, pVal = 0;
-    if ((xkb->group_hash_table != NULL) && (g_hash_table_lookup_extended(xkb->group_hash_table, GINT_TO_POINTER(pid), &pKey, &pVal)))
+    if ((xkb->group_hash_table != NULL) && (g_hash_table_lookup_extended(xkb->group_hash_table, GINT_TO_POINTER(window), &pKey, &pVal)))
         new_group_xkb_no = GPOINTER_TO_INT(pVal);
 
     if (new_group_xkb_no < xkb->group_count)
