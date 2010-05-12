@@ -112,7 +112,7 @@ msgstr "Commando voor uitloggen: "
 
 #: ../data/ui/panel-pref.glade.h:25
 msgid "Make window managers treat the panel as dock"
-msgstr "Window managers behandelen paneel als dock"
+msgstr "Laat window managers het paneel behandelen als dock"
 
 #: ../data/ui/panel-pref.glade.h:26
 msgid "Margin:"
