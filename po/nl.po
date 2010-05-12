@@ -2,12 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-27 00:15+0200\n"
+"POT-Creation-Date: 2010-05-12 08:35+0000\n"
 "PO-Revision-Date: 2009-12-22 11:35+0100\n"
 "Last-Translator: Sander De Voogdt <celettu@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
 msgid "% Percent"
-msgstr "% Percent"
+msgstr "% Procent"
 
 #: ../data/ui/panel-pref.glade.h:3
 msgid "<b>Automatic hiding</b>"
@@ -88,7 +88,7 @@ msgstr "Rand:"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "File Manager:"
-msgstr "Bestandsbeheerder"
+msgstr "Bestandsbeheerder:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "Geometry"
@@ -511,7 +511,8 @@ msgstr "Werkblad _%d"
 msgid "Workspace %d"
 msgstr "Werkblad %d"
 
-#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
+#. Add "move to all workspaces" item.  This causes the window to be visible no
+#. matter what desktop is active.
 #: ../src/plugins/taskbar.c:1753
 msgid "_All workspaces"
 msgstr "Alle werkbladen"
@@ -521,7 +522,8 @@ msgstr "Alle werkbladen"
 msgid "_Move to Workspace"
 msgstr "Verplaats naar werkblad"
 
-#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
+#. Add Close menu item.  By popular demand, we place this menu item closest to
+#. the cursor.
 #: ../src/plugins/taskbar.c:1765
 msgid "_Close Window"
 msgstr "Venster sluiten"
@@ -567,12 +569,8 @@ msgid "Task Bar (Window List)"
 msgstr "Taakbalk (Vensterlijst)"
 
 #: ../src/plugins/taskbar.c:2035
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
-msgstr ""
-"De taakbalk toont alle geopende vensters, en laat toe ze te iconifieren, op "
-"te rollen, of focus te krijgen"
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr "De taakbalk toont alle geopende vensters, en laat toe ze te iconifieren, op te rollen, of focus te krijgen"
 
 #: ../src/plugins/dclock.c:418
 msgid "Clock Format"
@@ -700,9 +698,7 @@ msgstr "Wisselen tussen beschikbare toetsenbord layouts"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr ""
-"Linkermuisklik om alle vensters te iconifieren, middelmuisklik op ze op te "
-"rollen"
+msgstr "Linkermuisklik om alle vensters te iconifieren, middelmuisklik op ze op te rollen"
 
 # "Heffen"?
 #: ../src/plugins/wincmd.c:237
@@ -719,8 +715,7 @@ msgid ""
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
 "Zendt een opdracht naar alle desktop vensters.\n"
-"Ondersteunde opdrachten zijn 1) iconifieren aan/uitschakelen en 2) oprollen "
-"aan/uitschakelen"
+"Ondersteunde opdrachten zijn 1) iconifieren aan/uitschakelen en 2) oprollen aan/uitschakelen"
 
 #: ../src/plugins/dirmenu.c:246
 msgid "Open in _Terminal"
@@ -1207,12 +1202,8 @@ msgstr "Kan interface-naam niet ontleden van '%s'"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid ""
-"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
-msgstr ""
-"Kan interface statistieken niet ontleden van '%s'. prx_idx = %d; ptx_idx = %"
-"d; brx_idx = %d; btx_idx = %d;"
+msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgstr "Kan interface statistieken niet ontleden van '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1415,7 +1406,6 @@ msgstr "Indicators voor Capslock, Numlock en ScrollLock toetsen"
 #~ msgid "Show Iconified windows"
 #~ msgstr "Toon ge-iconifieerde applicaties"
 
-# What are "mapped windows"?
 #~ msgid "Show mapped windows"
 #~ msgstr "Toon gemapte applicaties"
 
