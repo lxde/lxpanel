@@ -689,8 +689,11 @@ static void tray_panel_configuration_changed(Plugin * p)
 {
     /* Set orientation into the icon grid. */
     TrayPlugin * tr = (TrayPlugin *) p->priv;
-    GtkOrientation bo = (p->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
-    icon_grid_set_geometry(tr->icon_grid, bo, p->panel->icon_size, p->panel->icon_size, 3, 0, p->panel->height);
+    if (tr->icon_grid != NULL)
+    {
+        GtkOrientation bo = (p->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
+        icon_grid_set_geometry(tr->icon_grid, bo, p->panel->icon_size, p->panel->icon_size, 3, 0, p->panel->height);
+    }
 }
 
 /* Plugin descriptor. */
