@@ -1,3 +1,4 @@
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel_hr\n"
@@ -5,12 +6,11 @@ msgstr ""
 "POT-Creation-Date: 2010-05-19 04:49+0000\n"
 "PO-Revision-Date: 2010-05-19 23:50+0200\n"
 "Last-Translator: Ivica Kolić <ikoli@yahoo.com>\n"
-"Language-Team:  <asjlob AT vip.hr>\n"
+"Language-Team: <asjlob AT vip.hr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
-"100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Poedit-Language: Croatian\n"
 "X-Poedit-Country: CROATIA\n"
 
@@ -516,7 +516,8 @@ msgstr "Radna Povr¹ina %d"
 msgid "Workspace %d"
 msgstr "Radna Povr¹ina %d"
 
-#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
+#. Add "move to all workspaces" item.  This causes the window to be visible no
+#. matter what desktop is active.
 #: ../src/plugins/taskbar.c:1753
 #, fuzzy
 msgid "_All workspaces"
@@ -528,7 +529,8 @@ msgstr "Sve Radne Povr¹ine"
 msgid "_Move to Workspace"
 msgstr "Premjesti na Radnu Povr¹inu"
 
-#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
+#. Add Close menu item.  By popular demand, we place this menu item closest to
+#. the cursor.
 #: ../src/plugins/taskbar.c:1765
 #, fuzzy
 msgid "_Close Window"
@@ -577,12 +579,8 @@ msgid "Task Bar (Window List)"
 msgstr "Tabla Zadataka (Lista Prozora)"
 
 #: ../src/plugins/taskbar.c:2035
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
-msgstr ""
-"Tabla zadataka prikazuje sve otvorene prozore i dopu¹ta njihovu ikonizaciju, "
-"skrivanje ili fokus"
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr "Tabla zadataka prikazuje sve otvorene prozore i dopu¹ta njihovu ikonizaciju, skrivanje ili fokus"
 
 #: ../src/plugins/dclock.c:418
 msgid "Clock Format"
@@ -714,9 +712,7 @@ msgstr "Prebacuj izmeðu dostupnih formata tipkovnice"
 #: ../src/plugins/wincmd.c:209
 #, fuzzy
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr ""
-"Lijevi klik za ikonizaciju svih prozora. Klik na kotaèiæ mi¹a za njihovo "
-"skrivanje"
+msgstr "Lijevi klik za ikonizaciju svih prozora. Klik na kotaèiæ mi¹a za njihovo skrivanje"
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
@@ -1032,8 +1028,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Molimo kontaktirajte va¹eg sistemskog administratora za rje¹avanje sljedeæeg "
-"problema:\n"
+"Molimo kontaktirajte va¹eg sistemskog administratora za rje¹avanje sljedeæeg problema:\n"
 "\n"
 "%s"
 
@@ -1227,12 +1222,8 @@ msgstr "Ne mogu analizirati ime suèelja iz '%s'"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid ""
-"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
-msgstr ""
-"Ne mogu analizirati statistiku suèelja iz '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
+msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgstr "Ne mogu analizirati statistiku suèelja iz '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1366,11 +1357,9 @@ msgstr "LED-ica Tipkovnice"
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Indikatori za CapsLock, NumLock i ScrollLock tipke"
 
-#, fuzzy
 #~ msgid "Applications"
 #~ msgstr "Odaberite Aplikaciju"
 
-#, fuzzy
 #~ msgid "Available Applications"
 #~ msgstr "Dostupni dodaci"
 
@@ -1380,11 +1369,9 @@ msgstr "Indikatori za CapsLock, NumLock i ScrollLock tipke"
 #~ msgid "Keyboard Led"
 #~ msgstr "LED Tipkovnice"
 
-#, fuzzy
 #~ msgid "Left\t"
 #~ msgstr "Lijevo"
 
-#, fuzzy
 #~ msgid "Top\t"
 #~ msgstr "Vrh"
 
