@@ -1,0 +1,16 @@
+Author: Andrew Lee <andrew@linux.org.tw>
+Description: Change default terminal and web browser.
+--- a/data/default/panels/panel.in
++++ b/data/default/panels/panel.in
+@@ -53,10 +53,7 @@
+             id=pcmanfm.desktop
+         }
+         Button {
+-            id=gnome-terminal.desktop
+-        }
+-        Button {
+-            id=firefox.desktop
++            id=lxde-x-www-browser.desktop
+         }
+     }
+ }
