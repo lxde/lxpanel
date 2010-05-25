@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-27 00:15+0200\n"
-"PO-Revision-Date: 2010-01-18 22:53+0200\n"
+"PO-Revision-Date: 2010-05-25 16:53+0200\n"
 "Last-Translator: Martin <brother@bsnet.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.0\n"
+"X-Generator: Pootle 2.0.1\n"
 "X-Poedit-Language: Swedish\n"
 
 #: ../data/ui/panel-pref.glade.h:2
@@ -793,12 +793,12 @@ msgstr "Visa systemtemperatur"
 #: ../src/plugins/volumealsa/volumealsa.c:244
 #: ../src/plugins/volumealsa/volumealsa.c:411
 msgid "Volume control"
-msgstr "Volymkontorll"
+msgstr "Volymkontroll"
 
 #: ../src/plugins/volume/volume.c:312
 #: ../src/plugins/volumealsa/volumealsa.c:460
 msgid "Volume Control"
-msgstr "Volymkontorll"
+msgstr "Volymkontroll"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
@@ -868,7 +868,7 @@ msgstr "Skickat"
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
-msgstr "MOttagit"
+msgstr "Mottagit"
 
 #: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
