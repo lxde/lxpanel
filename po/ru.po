@@ -7,13 +7,13 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-27 00:15+0200\n"
-"PO-Revision-Date: 2009-12-16 16:00+0300\n"
-"Last-Translator: Alexander Kazancev <kazancas@mandriva.ru>\n"
+"PO-Revision-Date: 2010-05-25 18:16+0200\n"
+"Last-Translator: Max <mpui@tut.by>\n"
 "Language-Team: Russian <hsh@runtu.org>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.1\n"
@@ -361,7 +361,7 @@ msgstr "Панель рабочего стола из состава LXDE"
 
 #: ../src/panel.c:714
 msgid "Add / Remove Panel Items"
-msgstr "Добавить/убрать элементы панели "
+msgstr "Добавить/убрать элементы панели"
 
 #: ../src/panel.c:722
 #, c-format
@@ -416,8 +416,7 @@ msgstr " --version   -- показать версию и выйти\n"
 #: ../src/panel.c:1452
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <число>   -- задать уровень логирования 0-5. 0 - не вести логов, 5 - "
+msgstr " --log <число>   -- задать уровень логирования 0-5. 0 - не вести логов, 5 - "
 "подробно\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
@@ -572,7 +571,7 @@ msgstr "Разделитель"
 
 #: ../src/plugins/taskbar.c:2033
 msgid "Task Bar (Window List)"
-msgstr "Панель задач"
+msgstr "Панель задач (Список окон)"
 
 #: ../src/plugins/taskbar.c:2035
 msgid ""
@@ -1000,7 +999,7 @@ msgstr "Подсказки включены"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:829
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr "Независимо от того, включены ли подсказки значков"
+msgstr "Включены ли подсказки значков"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:836
 msgid "Show Signal"
@@ -1008,7 +1007,7 @@ msgstr "Показать сигнал"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:837
 msgid "Whether or not the signal strength should be displayed."
-msgstr "Независимо от того, включен ли показ уровня сигнала"
+msgstr "Включен ли показ уровня сигнала"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:950
 #, c-format
@@ -1023,7 +1022,7 @@ msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:148
 msgid "Name"
-msgstr "Имя:"
+msgstr "Имя"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:149
 msgid "The interface name"
@@ -1031,7 +1030,7 @@ msgstr "Имя интерфейса"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:156
 msgid "State"
-msgstr "Статус:"
+msgstr "Состояние"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:157
 msgid "The interface state"
@@ -1039,7 +1038,7 @@ msgstr "Состояние интерфейса"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:165
 msgid "Stats"
-msgstr "Статусы:"
+msgstr "Статистика"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:166
 msgid "The interface packets/bytes statistics"
