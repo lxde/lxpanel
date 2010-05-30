@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-27 00:15+0200\n"
+"POT-Creation-Date: 2010-05-30 04:49+0000\n"
 "PO-Revision-Date: 2010-02-15 20:16+0100\n"
 "Last-Translator: Yarema aka Knedlyk <yupadmin@gmail.com>\n"
 "Language-Team: UKRAINIAN <translate@linux.org.ua>\n"
@@ -318,7 +318,7 @@ msgstr "Команда вилогування не встановлена"
 
 #: ../src/configurator.c:1196
 msgid "Select a directory"
-msgstr "Вибрати каталог"
+msgstr "Вибрати теку"
 
 #: ../src/configurator.c:1196 ../src/configurator.c:1287
 msgid "Select a file"
@@ -425,17 +425,17 @@ msgstr "--profile name -- використовувати вибраний про
 #: ../src/panel.c:1456
 #, c-format
 msgid " -h  -- same as --help\n"
-msgstr "-h  -- то саме що й --help\n"
+msgstr "-h  -- те саме, що й --help\n"
 
 #: ../src/panel.c:1457
 #, c-format
 msgid " -p  -- same as --profile\n"
-msgstr " -p  -- то саме що й --profile\n"
+msgstr " -p  -- те саме, що й --profile\n"
 
 #: ../src/panel.c:1458
 #, c-format
 msgid " -v  -- same as --version\n"
-msgstr " -v  -- то саме що й --version\n"
+msgstr " -v  -- те саме, що й --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
 #: ../src/panel.c:1460
@@ -552,7 +552,7 @@ msgstr "Використовувати коліщатко миші"
 
 #: ../src/plugins/taskbar.c:1973
 msgid "Flash when there is any window requiring attention"
-msgstr "Мигати, якщо вікно потребує уваги"
+msgstr "Блимати, якщо вікно потребує уваги"
 
 #: ../src/plugins/taskbar.c:1974
 msgid "Combine multiple application windows into a single button"
@@ -654,17 +654,17 @@ msgstr "Пропуск"
 msgid "Allocate space"
 msgstr "Виділити місце"
 
-#: ../src/plugins/tray.c:702
+#: ../src/plugins/tray.c:705
 msgid "System Tray"
 msgstr "Системний лоток"
 
-#: ../src/plugins/tray.c:704
+#: ../src/plugins/tray.c:707
 msgid "System tray"
 msgstr "Системний лоток"
 
 #: ../src/plugins/xkb/xkb-plugin.c:291
 msgid "Configure Keyboard Layout Switcher"
-msgstr "Налаштувати переключатель розкладки клавіатури"
+msgstr "Налаштувати перемикач розкладки клавіатури"
 
 #: ../src/plugins/xkb/xkb-plugin.c:306
 msgid "Show layout as"
@@ -694,11 +694,11 @@ msgstr "Розкладка по замовчуванню:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:405
 msgid "Keyboard Layout Switcher"
-msgstr "Переключатель розкладки клавіатури"
+msgstr "Перемикач розкладки клавіатури"
 
 #: ../src/plugins/xkb/xkb-plugin.c:407
 msgid "Switch between available keyboard layouts"
-msgstr "Переключення між доступними розкладками клавіатури"
+msgstr "Перемикання між доступними розкладками клавіатури"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
@@ -727,7 +727,7 @@ msgstr "Відкрити в _терміналі"
 
 #: ../src/plugins/dirmenu.c:411
 msgid "Directory"
-msgstr "Каталог"
+msgstr "Тека"
 
 #: ../src/plugins/dirmenu.c:412
 msgid "Label"
@@ -735,11 +735,11 @@ msgstr "Мітка"
 
 #: ../src/plugins/dirmenu.c:443
 msgid "Directory Menu"
-msgstr "Меню директорій"
+msgstr "Меню тек"
 
 #: ../src/plugins/dirmenu.c:445
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr "Переглянути дерево директорій через меню (Автор: PCMan)"
+msgstr "Переглянути дерево тек через меню (Автор: PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:304
 msgid "Normal"
