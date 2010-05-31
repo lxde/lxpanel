@@ -506,8 +506,9 @@ msgstr "সর্বোচ্চ মাপ (_x)"
 msgid "Ico_nify"
 msgstr "আইকন যোগ (_n)"
 
+# snigdha
 #: ../src/plugins/taskbar.c:1734
-#, fuzzy, c-format
+#, c-format
 msgid "Workspace _%d"
 msgstr "কর্মপরিসর %d (_%)"
 
