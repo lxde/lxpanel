@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-27 00:15+0200\n"
-"PO-Revision-Date: 2010-05-05 13:36+0200\n"
+"PO-Revision-Date: 2010-05-31 09:48+0200\n"
 "Last-Translator: Радослав <Rec.ku@hotmail.com>\n"
 "Language-Team: MIME-Version: 1.0\n"
 "Language: bg\n"
@@ -402,23 +402,23 @@ msgstr "Опции на команди:\n"
 #: ../src/panel.c:1450
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr " --help     -- изведи помощ и излез\n"
+msgstr " --help     -- извежда помощ и излиза\n"
 
 #: ../src/panel.c:1451
 #, c-format
 msgid " --version   -- print version and exit\n"
-msgstr " --version   -- изпиши версията и излез\n"
+msgstr " --version   -- изписва версията и излиза\n"
 
 #: ../src/panel.c:1452
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --log <номер> -- задай log ниво 0-5. 0 - без 5 - chatty\n"
+msgstr " --log <номер> -- задава log ниво 0-5. 0 - без 5 - подробно\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1454
 #, c-format
 msgid " --profile name -- use specified profile\n"
-msgstr " --profile name -- използвай съществуващ профил\n"
+msgstr " --profile name -- използва съществуващ профил\n"
 
 #: ../src/panel.c:1456
 #, c-format
@@ -517,17 +517,17 @@ msgstr "Работна среда %d"
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../src/plugins/taskbar.c:1753
 msgid "_All workspaces"
-msgstr "_Всички среди"
+msgstr "_Всички работни среди"
 
 #. Add Move to Workspace menu item as a submenu.
 #: ../src/plugins/taskbar.c:1759
 msgid "_Move to Workspace"
-msgstr "_Премести на друга среда"
+msgstr "_Премести на друга работна среда"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../src/plugins/taskbar.c:1765
 msgid "_Close Window"
-msgstr "_Затвори"
+msgstr "_Затваряне"
 
 #: ../src/plugins/taskbar.c:1968
 msgid "Show tooltips"
@@ -805,7 +805,7 @@ msgstr "Заглушаване"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
-msgstr "<скрита точка за достъп>"
+msgstr "<Скрит достъп>"
 
 #: ../src/plugins/netstat/netstat.c:201
 msgid "Wireless Networks not found in range"
@@ -954,7 +954,7 @@ msgid ""
 "There was an error displaying help:\n"
 "%s"
 msgstr ""
-"Имаше грешка при показване на помощта:\n"
+"Възникна грешка при показване на помощта:\n"
 "%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
@@ -1094,7 +1094,7 @@ msgstr "ARCnet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:897
 msgid "Frame Relay DLCI"
-msgstr "Трансформиране на рамката (frame-relay DLCI)"
+msgstr "Трансформиране на рамката (DLCI)"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:903
 msgid "Metricom Starmode IP"
@@ -1102,23 +1102,23 @@ msgstr "Метрически, стартов режим IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:906
 msgid "Serial Line IP"
-msgstr "Сериино IP"
+msgstr "Серийно IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:909
 msgid "VJ Serial Line IP"
-msgstr "VJ Сериино IP"
+msgstr "VJ Серийно IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:912
 msgid "6-bit Serial Line IP"
-msgstr "6-битово Сериино IP"
+msgstr "6-битово Серийно IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:915
 msgid "VJ 6-bit Serial Line IP"
-msgstr "VJ 6-битово Сериино IP"
+msgstr "VJ 6-битово Серийно IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:921
 msgid "Adaptive Serial Line IP"
-msgstr "Адаптивно, Сериино IP"
+msgstr "Адаптивно, Серийно IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:924
 msgid "AMPR ROSE"
@@ -1130,11 +1130,11 @@ msgstr "Общо X.25"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:930
 msgid "Point-to-Point Protocol"
-msgstr "Протокол 'От точка, до точка' (PPPoE)"
+msgstr "Протокол 'От точка до точка' (PPPoE)"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:936
 msgid "(Cisco)-HDLC"
-msgstr "о(Cisco)-HDLC"
+msgstr "(Cisco)-HDLC"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:939
 msgid "LAPB"
@@ -1167,7 +1167,7 @@ msgstr "HIPPI"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:987
 msgid "Ash"
-msgstr "Пепел"
+msgstr "Ash"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:990
 msgid "Econet"
@@ -1268,12 +1268,12 @@ msgstr "Няма открити батерии"
 #: ../src/plugins/batt/batt.c:179
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
-msgstr "Батерия: %d%% заредена, %d:%02d докато се напълни"
+msgstr "Батерия: %d%% заредена, %d:%02d, докато се зареди"
 
 #: ../src/plugins/batt/batt.c:190
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
-msgstr "Батерия: %d%% заредена, %d:%02d остават"
+msgstr "Батерия: %d%% заредена, остават: %d:%02d"
 
 #: ../src/plugins/batt/batt.c:196
 #, c-format
