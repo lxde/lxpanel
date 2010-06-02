@@ -2,22 +2,22 @@
 # Copyright (C) 2009 THE lxpanel'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the lxpanel package.
 #  <alvarommorais@gmail.com>, 2009.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-27 00:15+0200\n"
+"POT-Creation-Date: 2010-06-02 04:50+0000\n"
 "PO-Revision-Date: 2010-02-13 19:17-0000\n"
 "Last-Translator: Sergio Marques <smarquespt@gmail.com>\n"
 "Language-Team: Portuguese PT <alvarommorais@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 1.1.0\n"
-"X-Poedit-Language: Portuguese\n"
 "X-Poedit-Country: PORTUGAL\n"
+"X-Generator: Pootle 1.1.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Language: Portuguese\n"
 
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
@@ -414,8 +414,7 @@ msgstr " --version   -- imprime a versão e sai\n"
 #: ../src/panel.c:1452
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <número> -- define o nível de registo 0-5. 0 - nenhum 5 - detalhado\n"
+msgstr " --log <número> -- define o nível de registo 0-5. 0 - nenhum 5 - detalhado\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1454
@@ -476,7 +475,7 @@ msgstr "Ambiente de Trabalho N.º / Nome da Área de Trabalho "
 
 #: ../src/plugins/deskno/deskno.c:237
 msgid "Display workspace number, by cmeury@users.sf.net"
-msgstr "Mostr número da área de trabalho, por cmeury@users.sf.net"
+msgstr "Mostrar número da área de trabalho, por cmeury@users.sf.net"
 
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
@@ -516,7 +515,8 @@ msgstr "Área de Trabalho _%d"
 msgid "Workspace %d"
 msgstr "Área de Trabalho %d"
 
-#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
+#. Add "move to all workspaces" item.  This causes the window to be visible no
+#. matter what desktop is active.
 #: ../src/plugins/taskbar.c:1753
 msgid "_All workspaces"
 msgstr "_Todas as Áreas de Trabalho"
@@ -526,7 +526,8 @@ msgstr "_Todas as Áreas de Trabalho"
 msgid "_Move to Workspace"
 msgstr "_Mover para Área de Trabalho"
 
-#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
+#. Add Close menu item.  By popular demand, we place this menu item closest to
+#. the cursor.
 #: ../src/plugins/taskbar.c:1765
 msgid "_Close Window"
 msgstr "_Fechar Janela"
@@ -572,12 +573,8 @@ msgid "Task Bar (Window List)"
 msgstr "Barra de Tarefas (Lista de Janelas)"
 
 #: ../src/plugins/taskbar.c:2035
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
-msgstr ""
-"A barra de tarefas mostra todas as janelas abertas e permite minimiza-las, "
-"sombrear ou obter foco"
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr "A barra de tarefas mostra todas as janelas abertas e permite minimiza-las, sombrear ou obter foco"
 
 #: ../src/plugins/dclock.c:418
 msgid "Clock Format"
@@ -655,11 +652,11 @@ msgstr "Separador"
 msgid "Allocate space"
 msgstr "Alocar espaço"
 
-#: ../src/plugins/tray.c:702
+#: ../src/plugins/tray.c:705
 msgid "System Tray"
 msgstr "Área de Notificação"
 
-#: ../src/plugins/tray.c:704
+#: ../src/plugins/tray.c:707
 msgid "System tray"
 msgstr "Área de notificação"
 
@@ -703,9 +700,7 @@ msgstr "Trocar entre disposições de teclado disponíveis"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr ""
-"Botão esquerdo do rato para minimizar todas as janelas. Botão do meio para "
-"sombreá-las."
+msgstr "Botão esquerdo do rato para minimizar todas as janelas. Botão do meio para sombreá-las."
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
@@ -741,7 +736,7 @@ msgstr "Menu de Directório"
 
 #: ../src/plugins/dirmenu.c:445
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr "Procurar na árvore do directório através do menu (Autor: PCMan)"
+msgstr "Procurar na árvore do directório via menu (Autor: PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:304
 msgid "Normal"
@@ -757,7 +752,7 @@ msgstr "Aviso2"
 
 #: ../src/plugins/thermal/thermal.c:307
 msgid "Automatic sensor location"
-msgstr "Localização do sensor automática"
+msgstr "Localização automática do sensor "
 
 #: ../src/plugins/thermal/thermal.c:308
 msgid "Sensor"
@@ -891,7 +886,7 @@ msgstr "Endereço HW:"
 
 #: ../src/plugins/netstat/netstat.c:470
 msgid "Manage Networks"
-msgstr "Gerir Redes"
+msgstr "Gestão de Redes"
 
 #: ../src/plugins/netstat/netstat.c:472
 msgid "Monitor and Manage networks"
@@ -1044,7 +1039,7 @@ msgstr "Pacotes de interface/estatísticas de bytes"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:174
 msgid "Whether the interface is a wireless interface"
-msgstr "Se a interface for uma rede sem fios"
+msgstr "Se a interface é uma rede sem fios"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:181
 msgid "Signal"
@@ -1208,12 +1203,8 @@ msgstr "Não foi possível analisar o nome de interface de  '%s'"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid ""
-"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
-msgstr ""
-"Não foi possível analisar estatísticas de interface de '%s'. prx_idx = %d; "
-"ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgstr "Não foi possível analisar estatísticas de interface de '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1222,9 +1213,7 @@ msgstr "Não foi possível analisar /proc/net/wireless. Formato desconhecido."
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr ""
-"Não foi possível analisar os detalhes de rede sem fios de '%s'. link_idx = %"
-"d;"
+msgstr "Não foi possível analisar os detalhes de rede sem fios de '%s'. link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
