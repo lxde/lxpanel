@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-27 00:15+0200\n"
-"PO-Revision-Date: 2010-06-07 16:18+0200\n"
+"PO-Revision-Date: 2010-06-08 18:11+0200\n"
 "Last-Translator: Gunleif <gunleif@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fo\n"
@@ -340,7 +340,11 @@ msgstr "Vátta"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:683
 msgid "translator-credits"
-msgstr "Gunleif Joensen, 2010"
+msgstr ""
+"Gunleif Joensen\n"
+"\n"
+"Sjónarmið viðvíkjandi týðingini kunnu sendast til:\n"
+"<fo.umseting@gmail.com>"
 
 #: ../src/panel.c:688
 msgid "LXPanel"
