@@ -2,23 +2,22 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-30 04:49+0000\n"
+"POT-Creation-Date: 2010-06-09 05:34+0000\n"
 "PO-Revision-Date: 2010-02-15 20:16+0100\n"
 "Last-Translator: Yarema aka Knedlyk <yupadmin@gmail.com>\n"
 "Language-Team: UKRAINIAN <translate@linux.org.ua>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 1.1.0\n"
-"X-Poedit-Language: Ukrainian\n"
 "X-Poedit-Country: UKRAINE\n"
+"X-Generator: Pootle 1.1.0\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-Language: Ukrainian\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
 #: ../data/ui/panel-pref.glade.h:2
@@ -168,7 +167,7 @@ msgstr "Емулятор терміналу"
 
 #: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1048
 msgid "Top"
-msgstr "Вверху"
+msgstr "Зверху"
 
 #: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:1040 ../src/panel.c:1046
 msgid "Width:"
@@ -228,7 +227,7 @@ msgstr "Адреса трансляції:"
 #: ../data/ui/netstatus.glade.h:11
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
 msgid "Con_figure"
-msgstr "Кон_фігурувати"
+msgstr "На_лаштувати"
 
 #: ../data/ui/netstatus.glade.h:12
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
@@ -314,7 +313,7 @@ msgstr "Доступні плагіни"
 
 #: ../src/configurator.c:1143
 msgid "Logout command is not set"
-msgstr "Команда вилогування не встановлена"
+msgstr "Команда виходу з сесії не встановлена"
 
 #: ../src/configurator.c:1196
 msgid "Select a directory"
@@ -394,7 +393,7 @@ msgstr "Налаштування \"%s\""
 #: ../src/panel.c:1448
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr "lxpanel %s - легка GTK2+ панель для UNIX десктопів\n"
+msgstr "lxpanel %s - легка GTK2+ панель для робочого середовища UNIX\n"
 
 #: ../src/panel.c:1449
 #, c-format
@@ -414,7 +413,7 @@ msgstr " --version   -- надрукувати версію та вийти\n"
 #: ../src/panel.c:1452
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --log <number> -- виставити рівень логів 0-5. 0 - нема, 5 - повний\n"
+msgstr " --log <number> -- виставити рівень журналювання 0-5. 0 - нема, 5 - повний\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1454
@@ -463,7 +462,7 @@ msgstr "Показати завантаження CPU"
 
 #: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:422
 msgid "Bold font"
-msgstr "Погрублений фонт"
+msgstr "Жирний шрифт"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
@@ -515,7 +514,8 @@ msgstr "Робоча область _%d"
 msgid "Workspace %d"
 msgstr "Робоча область %d"
 
-#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
+#. Add "move to all workspaces" item.  This causes the window to be visible no
+#. matter what desktop is active.
 #: ../src/plugins/taskbar.c:1753
 msgid "_All workspaces"
 msgstr "_Всі робочі області"
@@ -525,7 +525,8 @@ msgstr "_Всі робочі області"
 msgid "_Move to Workspace"
 msgstr "_Перенести до робочої області"
 
-#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
+#. Add Close menu item.  By popular demand, we place this menu item closest to
+#. the cursor.
 #: ../src/plugins/taskbar.c:1765
 msgid "_Close Window"
 msgstr "За_крити вікно"
@@ -571,12 +572,8 @@ msgid "Task Bar (Window List)"
 msgstr "Панель задач (Список вікон)"
 
 #: ../src/plugins/taskbar.c:2035
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
-msgstr ""
-"Панель задач показує всі відкриті вікна і дозволяє згортати їх, відтіняти і "
-"фокусувати"
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr "Панель задач показує всі відкриті вікна і дозволяє згортати їх, відтіняти і фокусувати"
 
 #: ../src/plugins/dclock.c:418
 msgid "Clock Format"
@@ -592,7 +589,7 @@ msgstr "Формат кодів: запустіть man 3 strftime; \\n для �
 
 #: ../src/plugins/dclock.c:421
 msgid "Action when clicked (default: display calendar)"
-msgstr "Дія при кліканні (по замовчуванню: показати календар)"
+msgstr "Дія при клацанні (по замовчуванню: показати календар)"
 
 #: ../src/plugins/dclock.c:423
 msgid "Tooltip only"
@@ -702,8 +699,7 @@ msgstr "Перемикання між доступними розкладкам�
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr ""
-"Клік лівою кнопкою миші мінімалізує всі вікна. Середня кнопка затіняє їх."
+msgstr "Клік лівою кнопкою миші мінімалізує всі вікна. Середня кнопка затіняє їх."
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
@@ -718,7 +714,7 @@ msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
-"Вислати команди до всіх вікон десктопу.\n"
+"Вислати команди до всіх вікон робочого столу.\n"
 "Команди що підтримуються: 1) згорнути в іконку 2) згорнути в тінь"
 
 #: ../src/plugins/dirmenu.c:246
@@ -1013,8 +1009,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Зв’яжіться з Вашим системним адміністратором для вирішення наступної "
-"проблеми:\n"
+"Зв’яжіться з Вашим системним адміністратором для вирішення наступної проблеми:\n"
 "\n"
 "%s"
 
@@ -1208,12 +1203,8 @@ msgstr "Не можу обробити назву пристрою з '%s'"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid ""
-"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
-msgstr ""
-"Не можу обробити статистику пристрою '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
+msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgstr "Не можу обробити статистику пристрою '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
