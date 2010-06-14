@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-27 00:15+0200\n"
-"PO-Revision-Date: 2010-05-31 09:48+0200\n"
+"PO-Revision-Date: 2010-06-13 09:25+0200\n"
 "Last-Translator: Радослав <Rec.ku@hotmail.com>\n"
 "Language-Team: MIME-Version: 1.0\n"
 "Language: bg\n"
@@ -154,7 +154,7 @@ msgstr "Размер на минимизиран прозорец"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Solid color (with opacity)"
-msgstr "Монолитен цвят (С плътност)"
+msgstr "Монолитен цвят (с плътност)"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "System theme"
@@ -392,7 +392,7 @@ msgstr "'%s' Настройки"
 #: ../src/panel.c:1448
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr "lxpanel %s - lightweight GTK2+ панел за UNIX работен плот\n"
+msgstr "lxpanel %s - лек GTK2+ панел за UNIX работен плот\n"
 
 #: ../src/panel.c:1449
 #, c-format
@@ -591,7 +591,7 @@ msgstr "Формат кодове: man 3 strftime; \\n за нов ред"
 
 #: ../src/plugins/dclock.c:421
 msgid "Action when clicked (default: display calendar)"
-msgstr "Действие при клик (По подразбиране: виж календар)"
+msgstr "Действие при клик (по подразбиране: показвай календар)"
 
 #: ../src/plugins/dclock.c:423
 msgid "Tooltip only"
@@ -1149,9 +1149,8 @@ msgid "Frame Relay Access Device"
 msgstr "Трансформиране на рамката за достъп до устройството"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:960
-#, fuzzy
 msgid "Local Loopback"
-msgstr "Loopback файл(ове):"
+msgstr "Локални примки"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:966
 msgid "Fiber Distributed Data Interface"
