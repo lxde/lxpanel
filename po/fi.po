@@ -2,12 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-27 00:15+0200\n"
+"POT-Creation-Date: 2010-06-29 05:33+0000\n"
 "PO-Revision-Date: 2009-01-31 12:19+0200\n"
 "Last-Translator: Elias Julkunen <elias.julkunen@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,11 +19,11 @@ msgstr ""
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
 msgid "% Percent"
-msgstr ""
+msgstr "% Prosenttia"
 
 #: ../data/ui/panel-pref.glade.h:3
 msgid "<b>Automatic hiding</b>"
-msgstr ""
+msgstr "<b>Automaattinen piilotus</b>"
 
 #: ../data/ui/panel-pref.glade.h:4
 msgid "<b>Background</b>"
@@ -34,9 +34,8 @@ msgid "<b>Font</b>"
 msgstr "<b>Kirjasin</b>"
 
 #: ../data/ui/panel-pref.glade.h:6
-#, fuzzy
 msgid "<b>Icon</b>"
-msgstr "<b>Kirjasin</b>"
+msgstr "<b>Kuvake</b>"
 
 #: ../data/ui/panel-pref.glade.h:7
 msgid "<b>Position</b>"
@@ -64,25 +63,23 @@ msgstr "Tasaus:"
 
 #: ../data/ui/panel-pref.glade.h:13
 msgid "Appearance"
-msgstr ""
+msgstr "Ulkoasu"
 
 #: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1049
 msgid "Bottom"
 msgstr "Alhaalla"
 
 #: ../data/ui/panel-pref.glade.h:15
-#, fuzzy
 msgid "Center"
-msgstr "Yleinen"
+msgstr "Keskellä"
 
 #: ../data/ui/panel-pref.glade.h:16
-#, fuzzy
 msgid "Custom color"
 msgstr "Oma väri"
 
 #: ../data/ui/panel-pref.glade.h:17
 msgid "Dynamic"
-msgstr ""
+msgstr "Dynaaminen"
 
 #: ../data/ui/panel-pref.glade.h:18
 msgid "Edge:"
@@ -101,9 +98,8 @@ msgid "Height:"
 msgstr "Korkeus:"
 
 #: ../data/ui/panel-pref.glade.h:22
-#, fuzzy
 msgid "Image"
-msgstr "kuvana"
+msgstr "Kuva"
 
 #: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:1041
 msgid "Left"
@@ -123,7 +119,7 @@ msgstr "Reunus:"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Minimize panel when not in use"
-msgstr ""
+msgstr "Pienennä paneeli, kun ei käytössä"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "Panel Applets"
@@ -151,23 +147,21 @@ msgstr "Valitse kuvatiedosto"
 
 #: ../data/ui/panel-pref.glade.h:34
 msgid "Size when minimized"
-msgstr ""
+msgstr "Koko, kun pienennetty"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Solid color (with opacity)"
-msgstr ""
+msgstr "Yhtenäinen väri (läpinäkyvyydellä)"
 
 #: ../data/ui/panel-pref.glade.h:36
-#, fuzzy
 msgid "System theme"
-msgstr "Ei mitään (käytä järjestelmän teemaa)"
+msgstr "Järjestelmän teema"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "Terminal Emulator:"
 msgstr "Pääteohjelma:"
 
 #: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1048
-#, fuzzy
 msgid "Top"
 msgstr "Ylhäällä"
 
@@ -176,7 +170,6 @@ msgid "Width:"
 msgstr "Leveys:"
 
 #: ../data/ui/panel-pref.glade.h:40
-#, fuzzy
 msgid "pixels"
 msgstr "pikseliä"
 
@@ -319,9 +312,8 @@ msgid "Logout command is not set"
 msgstr "Uloskirjautumisen komentoa ei ole asetettu"
 
 #: ../src/configurator.c:1196
-#, fuzzy
 msgid "Select a directory"
-msgstr "Valitse tiedosto"
+msgstr "Valitse hakemisto"
 
 #: ../src/configurator.c:1196 ../src/configurator.c:1287
 msgid "Select a file"
@@ -346,20 +338,19 @@ msgstr "Varmista"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:683
 msgid "translator-credits"
-msgstr ""
+msgstr "Elias Julkunen, 2010"
 
 #: ../src/panel.c:688
-#, fuzzy
 msgid "LXPanel"
-msgstr "Paneeli"
+msgstr "LXPanel"
 
 #: ../src/panel.c:690
 msgid "Copyright (C) 2008-2009"
-msgstr ""
+msgstr "Tekijänoikeudet (C) 2008-2009"
 
 #: ../src/panel.c:691
 msgid "Desktop panel for LXDE project"
-msgstr ""
+msgstr "Työpöytäpaneeli LXDE-projektille"
 
 #: ../src/panel.c:714
 msgid "Add / Remove Panel Items"
@@ -418,9 +409,7 @@ msgstr "--version   -- näyttää versionumeron ja poistuu\n"
 #: ../src/panel.c:1452
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <numero> -- asettaa lokin tasoksi 0-5. 0 = ei mitään, 5 = "
-"lavertelija\n"
+msgstr " --log <numero> -- asettaa lokin tasoksi 0-5. 0 = ei mitään, 5 = lavertelija\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1454
@@ -526,7 +515,8 @@ msgstr "Työtila %d"
 msgid "Workspace %d"
 msgstr "Työtila %d"
 
-#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
+#. Add "move to all workspaces" item.  This causes the window to be visible no
+#. matter what desktop is active.
 #: ../src/plugins/taskbar.c:1753
 #, fuzzy
 msgid "_All workspaces"
@@ -538,7 +528,8 @@ msgstr "Kaikki työtilat"
 msgid "_Move to Workspace"
 msgstr "Siirrä työtilaan"
 
-#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
+#. Add Close menu item.  By popular demand, we place this menu item closest to
+#. the cursor.
 #: ../src/plugins/taskbar.c:1765
 #, fuzzy
 msgid "_Close Window"
@@ -587,12 +578,8 @@ msgid "Task Bar (Window List)"
 msgstr "Tehtäväpalkki (ikkunalista)"
 
 #: ../src/plugins/taskbar.c:2035
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
-msgstr ""
-"Tehtäväpalkki näyttää kaikki avoinna olevat ikkunat ja sallii niiden "
-"pienentämisen, piilottamisen ja aktivoimisen."
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr "Tehtäväpalkki näyttää kaikki avoinna olevat ikkunat ja sallii niiden pienentämisen, piilottamisen ja aktivoimisen."
 
 #: ../src/plugins/dclock.c:418
 msgid "Clock Format"
@@ -674,11 +661,11 @@ msgstr "<väli>"
 msgid "Allocate space"
 msgstr "Varaa tyhjää tilaa"
 
-#: ../src/plugins/tray.c:702
+#: ../src/plugins/tray.c:705
 msgid "System Tray"
 msgstr "Ilmoitusalue"
 
-#: ../src/plugins/tray.c:704
+#: ../src/plugins/tray.c:707
 #, fuzzy
 msgid "System tray"
 msgstr "Ilmoitusalue"
@@ -724,9 +711,7 @@ msgstr "Vaihda käytettävissä olevien näppäimistöasettelujen välillä"
 #: ../src/plugins/wincmd.c:209
 #, fuzzy
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr ""
-"Napsauta hiiren vasemmalla napilla pienentääksesi ikkunat, keskinapilla "
-"piilottaaksesi ne"
+msgstr "Napsauta hiiren vasemmalla napilla pienentääksesi ikkunat, keskinapilla piilottaaksesi ne"
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
@@ -1236,9 +1221,7 @@ msgstr ""
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid ""
-"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
+msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
@@ -1373,19 +1356,15 @@ msgstr "Näppäimistön valot"
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "CapsLock-, NumLock- ja ScrollLock-näppäinten ilmaisin"
 
-#, fuzzy
 #~ msgid "Applications"
 #~ msgstr "Valitse sovellus"
 
-#, fuzzy
 #~ msgid "Available Applications"
 #~ msgstr "Käytettävissä olevat liitännäiset"
 
-#, fuzzy
 #~ msgid "Left\t"
 #~ msgstr "Vasemmalla"
 
-#, fuzzy
 #~ msgid "Top\t"
 #~ msgstr "Ylhäällä"
 
