@@ -375,7 +375,7 @@ msgstr "Poista tämä paneeli"
 
 #: ../src/panel.c:762
 msgid "About"
-msgstr ""
+msgstr "Tietoja"
 
 #: ../src/panel.c:770
 msgid "Panel"
@@ -462,10 +462,9 @@ msgstr "Paksunnettu kirjasin"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
-msgstr ""
+msgstr "Näytä työpöytien nimet"
 
 #: ../src/plugins/deskno/deskno.c:235
-#, fuzzy
 msgid "Desktop Number / Workspace Name"
 msgstr "Työpöydän numero/työtilan nimi"
 
@@ -483,32 +482,28 @@ msgstr "Käynnistyspalkki painikkeiden kanssa"
 
 #. Add Raise menu item.
 #: ../src/plugins/taskbar.c:1700
-#, fuzzy
 msgid "_Raise"
-msgstr "Nosta"
+msgstr "_Nosta"
 
 #. Add Restore menu item.
 #: ../src/plugins/taskbar.c:1705
-#, fuzzy
 msgid "R_estore"
-msgstr "Palauta"
+msgstr "_Palauta"
 
 #. Add Maximize menu item.
 #: ../src/plugins/taskbar.c:1710
-#, fuzzy
 msgid "Ma_ximize"
-msgstr "Suurenna"
+msgstr "_Suurenna"
 
 #. Add Iconify menu item.
 #: ../src/plugins/taskbar.c:1715
-#, fuzzy
 msgid "Ico_nify"
-msgstr "Pienennä"
+msgstr "_Pienennä"
 
 #: ../src/plugins/taskbar.c:1734
-#, fuzzy, c-format
+#, c-format
 msgid "Workspace _%d"
-msgstr "Työtila %d"
+msgstr "Työtila _%d"
 
 #: ../src/plugins/taskbar.c:1739
 #, c-format
@@ -518,22 +513,19 @@ msgstr "Työtila %d"
 #. Add "move to all workspaces" item.  This causes the window to be visible no
 #. matter what desktop is active.
 #: ../src/plugins/taskbar.c:1753
-#, fuzzy
 msgid "_All workspaces"
-msgstr "Kaikki työtilat"
+msgstr "_Kaikki työtilat"
 
 #. Add Move to Workspace menu item as a submenu.
 #: ../src/plugins/taskbar.c:1759
-#, fuzzy
 msgid "_Move to Workspace"
-msgstr "Siirrä työtilaan"
+msgstr "Siirrä _työtilaan"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to
 #. the cursor.
 #: ../src/plugins/taskbar.c:1765
-#, fuzzy
 msgid "_Close Window"
-msgstr "Sulje ikkuna"
+msgstr "_Sulje ikkuna"
 
 #: ../src/plugins/taskbar.c:1968
 msgid "Show tooltips"
@@ -544,7 +536,6 @@ msgid "Icons only"
 msgstr "Vain kuvakkeet"
 
 #: ../src/plugins/taskbar.c:1970
-#, fuzzy
 msgid "Flat buttons"
 msgstr "Latteat painikkeet"
 
@@ -562,10 +553,9 @@ msgstr "Huomauta, kun joku ikkuna vaatii huomiota"
 
 #: ../src/plugins/taskbar.c:1974
 msgid "Combine multiple application windows into a single button"
-msgstr ""
+msgstr "Yhdistä monta sovellusikkunaa yhteen painikkeeseen"
 
 #: ../src/plugins/taskbar.c:1975
-#, fuzzy
 msgid "Maximum width of task button"
 msgstr "Tehtäväpainikkeen enimmäisleveys"
 
@@ -595,21 +585,19 @@ msgstr ""
 
 #: ../src/plugins/dclock.c:421
 msgid "Action when clicked (default: display calendar)"
-msgstr ""
+msgstr "Toiminto, kun napsautetaan (oletus: näytä kalenteri)"
 
 #: ../src/plugins/dclock.c:423
-#, fuzzy
 msgid "Tooltip only"
-msgstr "Työkaluvihjeet sallittu"
+msgstr "Vain työkaluvihje"
 
 #: ../src/plugins/dclock.c:451
 msgid "Digital Clock"
 msgstr "Digitaalikello"
 
 #: ../src/plugins/dclock.c:453
-#, fuzzy
 msgid "Display digital clock and tooltip"
-msgstr "Näyttää digitaalikellon ja työkaluvihjeen"
+msgstr "Näytä digitaalikello ja työkaluvihje"
 
 #: ../src/plugins/menu.c:372
 msgid "Add to desktop"
@@ -628,9 +616,8 @@ msgid "Menu"
 msgstr "Valikko"
 
 #: ../src/plugins/menu.c:1038
-#, fuzzy
 msgid "Application Menu"
-msgstr "Sovelluksien käynnistyspalkki"
+msgstr "Sovellusvalikko"
 
 #: ../src/plugins/separator.c:98
 msgid "Separator"
@@ -653,9 +640,8 @@ msgid "Size"
 msgstr "Koko"
 
 #: ../src/plugins/space.c:139
-#, fuzzy
 msgid "Spacer"
-msgstr "<väli>"
+msgstr "Väli"
 
 #: ../src/plugins/space.c:141
 msgid "Allocate space"
@@ -666,7 +652,6 @@ msgid "System Tray"
 msgstr "Ilmoitusalue"
 
 #: ../src/plugins/tray.c:707
-#, fuzzy
 msgid "System tray"
 msgstr "Ilmoitusalue"
 
@@ -709,9 +694,8 @@ msgid "Switch between available keyboard layouts"
 msgstr "Vaihda käytettävissä olevien näppäimistöasettelujen välillä"
 
 #: ../src/plugins/wincmd.c:209
-#, fuzzy
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr "Napsauta hiiren vasemmalla napilla pienentääksesi ikkunat, keskinapilla piilottaaksesi ne"
+msgstr "Napsauta hiiren vasemmalla napilla pienentääksesi ikkunat, keskinapilla piilottaaksesi ne."
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
@@ -722,27 +706,24 @@ msgid "Minimize All Windows"
 msgstr "Pienennä kaikki ikkuna"
 
 #: ../src/plugins/wincmd.c:268
-#, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
 "Lähettää komentoja kaikille työpöydän ikkunoille.\n"
-"Tuetut komennot ovat 1)pienentäminen 2)piilottaminen"
+"Tuetut komennot ovat 1) pienentäminen 2) piilottaminen"
 
 #: ../src/plugins/dirmenu.c:246
 msgid "Open in _Terminal"
 msgstr "Avaa _päätteessä"
 
 #: ../src/plugins/dirmenu.c:411
-#, fuzzy
 msgid "Directory"
-msgstr "Hakemistovalikko"
+msgstr "Hakemisto"
 
 #: ../src/plugins/dirmenu.c:412
-#, fuzzy
 msgid "Label"
-msgstr "Paneeli"
+msgstr "Nimi"
 
 #: ../src/plugins/dirmenu.c:443
 msgid "Directory Menu"
@@ -777,23 +758,20 @@ msgid "Automatic temperature levels"
 msgstr "Automaattiset lämpötilan tasot"
 
 #: ../src/plugins/thermal/thermal.c:310
-#, fuzzy
 msgid "Warning1 Temperature"
-msgstr "Varoitus1 lämpötila"
+msgstr "Varoitus1 Lämpötila"
 
 #: ../src/plugins/thermal/thermal.c:311
-#, fuzzy
 msgid "Warning2 Temperature"
-msgstr "Varoitus2 lämpötila"
+msgstr "Varoitus2 Lämpötila"
 
 #: ../src/plugins/thermal/thermal.c:353
 msgid "Temperature Monitor"
 msgstr "Lämpötilan näyttäjä"
 
 #: ../src/plugins/thermal/thermal.c:355
-#, fuzzy
 msgid "Display system temperature"
-msgstr "Näyttää järjestelmän lämpötilan. Tekijä: kesler.daniel@gmail.com"
+msgstr "Näyttää järjestelmän lämpötilan"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -936,7 +914,6 @@ msgid "Config tool"
 msgstr "Asetustyökalu"
 
 #: ../src/plugins/netstatus/netstatus.c:197
-#, fuzzy
 msgid "Network Status Monitor"
 msgstr "Verkon tilan valvoja"
 
@@ -1348,7 +1325,6 @@ msgid "Show ScrollLock"
 msgstr "Näytä ScrollLock"
 
 #: ../src/plugins/kbled/kbled.c:267
-#, fuzzy
 msgid "Keyboard LED"
 msgstr "Näppäimistön valot"
 
