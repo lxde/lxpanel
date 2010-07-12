@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-27 00:15+0200\n"
-"PO-Revision-Date: 2010-07-05 11:59+0330\n"
-"Last-Translator: Hamidreza Davoodi <hrdavodi@gmail.com>\n"
+"PO-Revision-Date: 2010-07-11 17:50+0200\n"
+"Last-Translator: Hamidreza <n3gb0y@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fa\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -362,7 +362,7 @@ msgstr "اِل اِکس پنل"
 
 #: ../src/panel.c:690
 msgid "Copyright (C) 2008-2009"
-msgstr "حق نشر2009-2008"
+msgstr "حق نشر)c( 2009-2008"
 
 #: ../src/panel.c:691
 msgid "Desktop panel for LXDE project"
@@ -1155,7 +1155,7 @@ msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:930
 msgid "Point-to-Point Protocol"
-msgstr "پروتکول نقطه به نقطه(PtoP)"
+msgstr "پروتکول نقطه به نقطه"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:936
 msgid "(Cisco)-HDLC"
@@ -1368,6 +1368,6 @@ msgstr "نشانگر برای کلید های Capslock، NumLock ویا ScrollLo
 
 #~ msgid "Applications"
 #~ msgstr "برنامه های کاربردی"
+
 #~ msgid "Available Applications"
 #~ msgstr "برنامه های موجود"
-
