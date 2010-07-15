@@ -22,6 +22,7 @@
 #include <sys/types.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <glib.h>
 #include <glib/gi18n.h>
 
 #include <string.h>
@@ -33,11 +34,11 @@
 #include "dbg.h"
 
 #define PROC_ICON            PACKAGE_DATA_DIR "/lxpanel/images/cpufreq-icon.png"
-#define SYSFS_CPU_DIRECTORY "/sys/devices/system/cpu/"
+#define SYSFS_CPU_DIRECTORY "/sys/devices/system/cpu"
 #define SCALING_GOV         "scaling_governor"
 #define SCALING_AGOV        "scaling_available_governors"
 #define SCALING_AFREQ       "scaling_available_frequencies"
-#define CPUINFO_CUR_FREQ    "cpuinfo_cur_freq"
+#define SCALING_CUR_FREQ    "scaling_cur_freq"
 #define SCALING_SETFREQ     "scaling_setspeed"
 #define SCALING_MAX         "scaling_max_freq"
 #define SCALING_MIN         "scaling_min_freq"
@@ -66,7 +67,7 @@ get_cur_governor(cpufreq *cf){
     FILE *fp;
     char buf[ 100 ], sstmp [ 256 ];
 
-    sprintf(sstmp,"%s%s",cf->cpus->data, SCALING_GOV);
+    sprintf(sstmp,"%s/%s",cf->cpus->data, SCALING_GOV);
     if ((fp = fopen( sstmp, "r")) != NULL) {
         fgets(buf, 100, fp);
         buf[strlen(buf)-1] = '\0';
@@ -85,7 +86,7 @@ get_cur_freq(cpufreq *cf){
     FILE *fp;
     char buf[ 100 ], sstmp [ 256 ];
 
-    sprintf(sstmp,"%s%s",cf->cpus->data, CPUINFO_CUR_FREQ);
+    sprintf(sstmp,"%s/%s",cf->cpus->data, SCALING_CUR_FREQ);
     if ((fp = fopen( sstmp, "r")) != NULL) {
         fgets(buf, 100, fp);
         buf[strlen(buf)-1] = '\0';
@@ -109,7 +110,7 @@ get_governors(cpufreq *cf){
         cf->governors = NULL;
         return;
     }
-    sprintf(sstmp,"%s%s",cf->cpus->data, SCALING_AGOV);
+    sprintf(sstmp,"%s/%s",cf->cpus->data, SCALING_AGOV);
 
     if (!(fp = fopen( sstmp, "r"))) {
         printf("cpufreq: cannot open %s\n",sstmp);
@@ -139,7 +140,7 @@ cpufreq_set_freq(GtkWidget *widget, Param* p){
 
     if(strcmp(p->cf->cur_governor, "userspace")) return;
 
-    sprintf(sstmp,"%s%s",p->cf->cpus->data, SCALING_SETFREQ);
+    sprintf(sstmp,"%s/%s",p->cf->cpus->data, SCALING_SETFREQ);
     if ((fp = fopen( sstmp, "w")) != NULL) {
         fprintf(fp,"%s",p->data);
         fclose(fp);
@@ -152,7 +153,7 @@ frequency_menu(cpufreq *cf){
     Param* param;
     char buf[ 100 ], sstmp [ 256 ], c, bufl = 0;
 
-    sprintf(sstmp,"%s%s",cf->cpus->data, SCALING_AFREQ);
+    sprintf(sstmp,"%s/%s",cf->cpus->data, SCALING_AFREQ);
 
     if (!(fp = fopen( sstmp, "r"))) {
         printf("cpufreq: cannot open %s\n",sstmp);
@@ -187,33 +188,37 @@ frequency_menu(cpufreq *cf){
 }
 
 static void
-get_cpus(cpufreq *cf){
-    GDir *cpuDirectory;
-    GDir *cpufreqDir;
+get_cpus(cpufreq *cf)
+{
+
     const char *cpu;
     char cpu_path[100];
 
-    if (! (cpuDirectory = g_dir_open(SYSFS_CPU_DIRECTORY, 0, NULL)))
+    GDir * cpuDirectory = g_dir_open(SYSFS_CPU_DIRECTORY, 0, NULL);
+    if (cpuDirectory == NULL)
     {
         cf->cpus = NULL;
         printf("cpufreq: no cpu found\n");
         return;
     }
 
-    while ((cpu = g_dir_read_name(cpuDirectory))) {
-        if ((cpu[0] != '.') && (cpu[0] == 'c')) {
-            sprintf(cpu_path,"%s%s/",SYSFS_CPU_DIRECTORY, cpu);
-            sprintf(cpu_path,"%s%s",cpu_path, "cpufreq/");
+    while ((cpu = g_dir_read_name(cpuDirectory)))
+    {
+        /* Look for directories of the form "cpu<n>", where "<n>" is a decimal integer. */
+        if ((strncmp(cpu, "cpu", 3) == 0) && (cpu[3] >= '0') && (cpu[3] <= '9'))
+        {
+            sprintf(cpu_path, "%s/%s/cpufreq", SYSFS_CPU_DIRECTORY, cpu);
 
-            if (! (cpufreqDir = g_dir_open(SYSFS_CPU_DIRECTORY, 0, NULL)))
+            GDir * cpufreqDir = g_dir_open(SYSFS_CPU_DIRECTORY, 0, NULL);
+	        if (cpufreqDir == NULL)
             {
                 cf->cpus = NULL;
                 cf->has_cpufreq = 0;
-                return;
-            }else{
-                cf->has_cpufreq = 1;
-                cf->cpus = g_list_append(cf->cpus, strdup(cpu_path));
+                break;
             }
+
+            cf->has_cpufreq = 1;
+            cf->cpus = g_list_append(cf->cpus, strdup(cpu_path));
         }
     }
     g_dir_close(cpuDirectory);
@@ -224,7 +229,7 @@ cpufreq_set_governor(GtkWidget *widget, Param* p){
     FILE *fp;
     char buf[ 100 ], sstmp [ 256 ];
 
-    sprintf(sstmp,"%s%s",p->cf->cpus->data, SCALING_GOV);
+    sprintf(sstmp, "%s/%s", p->cf->cpus->data, SCALING_GOV);
     if ((fp = fopen( sstmp, "w")) != NULL) {
         fprintf(fp,"%s",p->data);
         fclose(fp);
@@ -245,7 +250,7 @@ cpufreq_menu(cpufreq *cf){
     get_governors(cf);
     group = NULL;
 
-    if((cf->governors == NULL) || (!cf->has_cpufreq)){
+    if((cf->governors == NULL) || (!cf->has_cpufreq) || (cf->cur_governor == NULL)){
         menuitem = GTK_MENU_ITEM(gtk_menu_item_new_with_label("CPUFreq not supported"));
         gtk_menu_append (GTK_MENU_SHELL (menu), menuitem);
         gtk_widget_show (menuitem);
@@ -292,8 +297,9 @@ clicked( GtkWidget *widget, GdkEventButton* evt, Plugin* plugin)
     ENTER2;
     if( evt->button == 1 )
     {
-      gtk_menu_popup( cpufreq_menu((cpufreq*)plugin->priv), NULL, NULL, NULL, NULL, 
-                      evt->button, evt->time );
+// Setting governor can't work without root privilege
+//      gtk_menu_popup( cpufreq_menu((cpufreq*)plugin->priv), NULL, NULL, NULL, NULL, 
+//                      evt->button, evt->time );
       return TRUE;
     }else if ( evt->button == 3 )
     {
@@ -316,7 +322,7 @@ update_tooltip(cpufreq *cf)
 
     ENTER;
 
-    tooltip = g_strdup_printf("Frequency: %d MHz\n  Governor: %s", 
+    tooltip = g_strdup_printf("Frequency: %d MHz\nGovernor: %s", 
                               cf->cur_freq / 1000, cf->cur_governor);
     gtk_tooltips_set_tip(cf->tip, cf->main, tooltip, NULL);
     g_free(tooltip);
