@@ -372,8 +372,8 @@ void plugin_popup_set_position_helper(Plugin * p, GtkWidget * near, GtkWidget * 
     /* Get the origin of the requested-near widget in screen coordinates. */
     gint x, y;
     gdk_window_get_origin(GDK_WINDOW(near->window), &x, &y);
-    x += near->allocation.x;
-    y += near->allocation.y;
+    if (x != near->allocation.x) x += near->allocation.x;	/* Doesn't seem to be working according to spec; the allocation.x sometimes has the window origin in it */
+    if (y != near->allocation.y) y += near->allocation.y;
 
     /* Dispatch on edge to lay out the popup menu with respect to the button.
      * Also set "push-in" to avoid any case where it might flow off screen. */
