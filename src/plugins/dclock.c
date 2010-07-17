@@ -174,8 +174,12 @@ static gboolean dclock_update_display(DClockPlugin * dc)
     /* Determine the content of the clock label and tooltip. */
     char clock_value[64];
     char tooltip_value[64];
-    strftime(clock_value, sizeof(clock_value), dc->clock_format, current_time);
-    strftime(tooltip_value, sizeof(tooltip_value), dc->tooltip_format, current_time);
+    clock_value[0] = '\0';
+    if (dc->clock_format != NULL)
+        strftime(clock_value, sizeof(clock_value), dc->clock_format, current_time);
+    tooltip_value[0] = '\0';
+    if (dc->tooltip_format != NULL)
+        strftime(tooltip_value, sizeof(tooltip_value), dc->tooltip_format, current_time);
 
     /* When we write the clock value, it causes the panel to do a full relayout.
      * Since this function may be called too often while the timing experiment is underway,
