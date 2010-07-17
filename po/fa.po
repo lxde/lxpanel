@@ -415,33 +415,33 @@ msgstr "گزینه‌های خط فرمانی:\n"
 #: ../src/panel.c:1450
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr ""
+msgstr " --help      -- نمایش این رهنما و خروج\n"
 
 #: ../src/panel.c:1451
 #, c-format
 msgid " --version   -- print version and exit\n"
-msgstr ""
+msgstr " --version   -- نمایش نسخه و خروج\n"
 
 #: ../src/panel.c:1452
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
+msgstr " --log <number> -- تعیین سطح لاگ 0-5. 0 - ساکت 5 - مفصل\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1454
 #, c-format
 msgid " --profile name -- use specified profile\n"
-msgstr ""
+msgstr " --profile name -- استفاده از یک پروفایل بخصوص\n"
 
 #: ../src/panel.c:1456
 #, c-format
 msgid " -h  -- same as --help\n"
-msgstr ""
+msgstr " -h  -- مشابه --help\n"
 
 #: ../src/panel.c:1457
 #, c-format
 msgid " -p  -- same as --profile\n"
-msgstr ""
+msgstr " -p  -- مشابه --profile\n"
 
 #: ../src/panel.c:1458
 #, c-format
@@ -487,45 +487,45 @@ msgstr "نمایش تعداد / نام فضای‌کاری"
 
 #: ../src/plugins/deskno/deskno.c:237
 msgid "Display workspace number, by cmeury@users.sf.net"
-msgstr ""
+msgstr " cmeury@users.sf.net نمایش نام فضای کاری, کاری از"
 
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
-msgstr ""
+msgstr "نماش تصویر و tooltip"
 
 #: ../src/plugins/launchbar.c:889
 msgid "Bar with buttons to launch application"
-msgstr ""
+msgstr "نوار به همراه دکمه‌هایی برای راه اندازی برنامه‌ها"
 
 #. Add Raise menu item.
 #: ../src/plugins/taskbar.c:1700
 msgid "_Raise"
-msgstr ""
+msgstr "بالا بردن"
 
 #. Add Restore menu item.
 #: ../src/plugins/taskbar.c:1705
 msgid "R_estore"
-msgstr ""
+msgstr "بازگردانی"
 
 #. Add Maximize menu item.
 #: ../src/plugins/taskbar.c:1710
 msgid "Ma_ximize"
-msgstr ""
+msgstr "بزرگ کردن"
 
 #. Add Iconify menu item.
 #: ../src/plugins/taskbar.c:1715
 msgid "Ico_nify"
-msgstr ""
+msgstr "آیکن کردن"
 
 #: ../src/plugins/taskbar.c:1734
 #, c-format
 msgid "Workspace _%d"
-msgstr ""
+msgstr "فضای کاری _%d"
 
 #: ../src/plugins/taskbar.c:1739
 #, c-format
 msgid "Workspace %d"
-msgstr ""
+msgstr "فضای کاری %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../src/plugins/taskbar.c:1753
@@ -535,20 +535,20 @@ msgstr "ـ‌همه‌ی فضاهای کاری"
 #. Add Move to Workspace menu item as a submenu.
 #: ../src/plugins/taskbar.c:1759
 msgid "_Move to Workspace"
-msgstr ""
+msgstr "انتقال به فضای کاری"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../src/plugins/taskbar.c:1765
 msgid "_Close Window"
-msgstr ""
+msgstr "بستن پنجره"
 
 #: ../src/plugins/taskbar.c:1968
 msgid "Show tooltips"
-msgstr ""
+msgstr "نمایش tooltip"
 
 #: ../src/plugins/taskbar.c:1969
 msgid "Icons only"
-msgstr ""
+msgstr "فقط آیکن"
 
 #: ../src/plugins/taskbar.c:1970
 #, fuzzy
@@ -557,23 +557,23 @@ msgstr "دکمه های صاف"
 
 #: ../src/plugins/taskbar.c:1971
 msgid "Show windows from all desktops"
-msgstr ""
+msgstr "نمایش پنجره های همه دسکتاپها"
 
 #: ../src/plugins/taskbar.c:1972
 msgid "Use mouse wheel"
-msgstr ""
+msgstr "استفاده از چرخ ماوس"
 
 #: ../src/plugins/taskbar.c:1973
 msgid "Flash when there is any window requiring attention"
-msgstr ""
+msgstr "وقتی پنجره‌ای نیاز به توجه دارد چشمک بزن"
 
 #: ../src/plugins/taskbar.c:1974
 msgid "Combine multiple application windows into a single button"
-msgstr ""
+msgstr "چندین پنجره یک برنامه را در یک دکمه ترکیب کن "
 
 #: ../src/plugins/taskbar.c:1975
 msgid "Maximum width of task button"
-msgstr ""
+msgstr "بیشینه پهنای دکمه وظیفه"
 
 #: ../src/plugins/taskbar.c:1976
 msgid "Spacing"
@@ -581,7 +581,7 @@ msgstr "فاصله گذاری"
 
 #: ../src/plugins/taskbar.c:2033
 msgid "Task Bar (Window List)"
-msgstr ""
+msgstr "نوار وظیفه (لیست پنجره‌ها)"
 
 #: ../src/plugins/taskbar.c:2035
 msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
@@ -593,7 +593,7 @@ msgstr "قالب نمایش ساعت"
 
 #: ../src/plugins/dclock.c:419
 msgid "Tooltip Format"
-msgstr ""
+msgstr "قالب tooltip"
 
 #: ../src/plugins/dclock.c:420
 msgid ""
@@ -607,19 +607,19 @@ msgstr ""
 
 #: ../src/plugins/dclock.c:423
 msgid "Tooltip only"
-msgstr ""
+msgstr "فقط tooltip"
 
 #: ../src/plugins/dclock.c:451
 msgid "Digital Clock"
-msgstr "ساعت دیجیتالی"
+msgstr "ساعت دیجیتال"
 
 #: ../src/plugins/dclock.c:453
 msgid "Display digital clock and tooltip"
-msgstr ""
+msgstr "نمایش ساعت دیجیتال و tooltip"
 
 #: ../src/plugins/menu.c:372
 msgid "Add to desktop"
-msgstr "اضافه به محیط کار"
+msgstr "افزودن به محیط کار"
 
 #: ../src/plugins/menu.c:382
 msgid "Properties"
@@ -628,7 +628,7 @@ msgstr "مشخصات"
 #: ../src/plugins/menu.c:1019
 #: ../src/plugins/dirmenu.c:413
 msgid "Icon"
-msgstr ""
+msgstr "آیکن"
 
 #: ../src/plugins/menu.c:1036
 msgid "Menu"
@@ -648,11 +648,11 @@ msgstr "به نوار یک جداکننده اضافه کن"
 
 #: ../src/plugins/pager.c:797
 msgid "Desktop Pager"
-msgstr ""
+msgstr "ورق زننده دسکتاپ"
 
 #: ../src/plugins/pager.c:799
 msgid "Simple pager plugin"
-msgstr ""
+msgstr "پلاگین ورق زننده ساده"
 
 #: ../src/plugins/space.c:121
 #: ../src/plugins/batt/batt.c:590
@@ -669,19 +669,19 @@ msgstr "یافتن فاصله"
 
 #: ../src/plugins/tray.c:702
 msgid "System Tray"
-msgstr ""
+msgstr "محوطه اعلان"
 
 #: ../src/plugins/tray.c:704
 msgid "System tray"
-msgstr ""
+msgstr "محوطه اعلان"
 
 #: ../src/plugins/xkb/xkb-plugin.c:291
 msgid "Configure Keyboard Layout Switcher"
-msgstr ""
+msgstr "تنظیم تعویض کننده چیدمان صفحه کلید"
 
 #: ../src/plugins/xkb/xkb-plugin.c:306
 msgid "Show layout as"
-msgstr ""
+msgstr "نمایش این چیدمان با نام"
 
 #: ../src/plugins/xkb/xkb-plugin.c:321
 msgid "image"
@@ -693,12 +693,12 @@ msgstr "متن"
 
 #: ../src/plugins/xkb/xkb-plugin.c:329
 msgid "Per application settings"
-msgstr ""
+msgstr "تنظیمات جداگانه برای هر برنامه"
 
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/xkb/xkb-plugin.c:344
 msgid "_Remember layout for each application"
-msgstr ""
+msgstr "به یاد داشتن چیدمان برای هر برنامه"
 
 #. Create a label as the child of the horizontal box.
 #: ../src/plugins/xkb/xkb-plugin.c:354
@@ -707,11 +707,11 @@ msgstr "لایه‌ی پیشفرض:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:405
 msgid "Keyboard Layout Switcher"
-msgstr ""
+msgstr "تعویض کننده چیدمان صفحه کلید"
 
 #: ../src/plugins/xkb/xkb-plugin.c:407
 msgid "Switch between available keyboard layouts"
-msgstr ""
+msgstr "سوییچ کردن بهذ چیدمانهای موجود صفحه کلید"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
@@ -719,7 +719,7 @@ msgstr "سطوح خودکار دما"
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
-msgstr ""
+msgstr "یکی در میان آیکن کردن، جمع کردن و بالا بردن"
 
 #: ../src/plugins/wincmd.c:266
 msgid "Minimize All Windows"
@@ -730,6 +730,8 @@ msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
+"ارسال دستور به همه پنجره های دسکتاپ\n"
+"دستورات موجود: ۱) آیکن کردن ۲) جمع کردن"
 
 #: ../src/plugins/dirmenu.c:246
 msgid "Open in _Terminal"
@@ -750,7 +752,7 @@ msgstr "منوی فرهنگ لغت"
 
 #: ../src/plugins/dirmenu.c:445
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr ""
+msgstr "مرور ساختار درختی دایرکتوری از طریق منو (نویسنده: PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:304
 msgid "Normal"
@@ -800,12 +802,12 @@ msgstr "نمایش دمای سیستم"
 #: ../src/plugins/volumealsa/volumealsa.c:244
 #: ../src/plugins/volumealsa/volumealsa.c:411
 msgid "Volume control"
-msgstr ""
+msgstr "تنظیم صدا"
 
 #: ../src/plugins/volume/volume.c:312
 #: ../src/plugins/volumealsa/volumealsa.c:460
 msgid "Volume Control"
-msgstr ""
+msgstr "تنظیم صدا"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
@@ -835,7 +837,7 @@ msgstr "تعمیر کردن"
 #. interface down
 #: ../src/plugins/netstat/netstat.c:240
 msgid "Disable"
-msgstr "ناتوان کردن"
+msgstr "غیرفعال کردن"
 
 #: ../src/plugins/netstat/netstat.c:299
 msgid "Wireless Connection has no connectivity"
@@ -857,7 +859,7 @@ msgstr "آدرس IP :"
 
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Remote IP:"
-msgstr ""
+msgstr "IP دور"
 
 #: ../src/plugins/netstat/netstat.c:309
 #: ../src/plugins/netstat/netstat.c:320
@@ -905,7 +907,7 @@ msgstr "بی سیم"
 #: ../src/plugins/netstat/netstat.c:317
 #, fuzzy
 msgid "Protocol:"
-msgstr "پرتوکل:"
+msgstr "پروتکل:"
 
 #: ../src/plugins/netstat/netstat.c:321
 #: ../src/plugins/netstat/netstat.c:332
@@ -931,7 +933,8 @@ msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
 msgstr ""
-
+"این شبکه بیسیم رمزنگاری شده.\n"
+"شما باید کلید رمزنگاری را داشته باشید."
 #: ../src/plugins/netstat/passwd_gui.c:99
 msgid "Encryption Key:"
 msgstr "کلید رمزنگار:"
@@ -970,20 +973,21 @@ msgstr "مشخصات اتصال: %s"
 #, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%lu بسته"
+msgstr[1] "%lu بسته"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:396
 #, c-format
 msgid ""
 "There was an error displaying help:\n"
 "%s"
-msgstr ""
+msgstr "خطا در نمایش راهنما:\n"
+"%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
-msgstr ""
+msgstr "خطا در راه اندازی ابزار تنظیم زمان"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:379
 #, c-format
@@ -1000,7 +1004,7 @@ msgstr "رابط"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:812
 msgid "The current interface the icon is monitoring."
-msgstr ""
+msgstr "کارت شبکه ای که این آیکن پایش می کند."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:819
 msgid "Orientation"
@@ -1008,15 +1012,15 @@ msgstr "گرایش"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:820
 msgid "The orientation of the tray."
-msgstr ""
+msgstr "جهت منطقه اعلان"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:828
 msgid "Tooltips Enabled"
-msgstr ""
+msgstr "tooltip ها فعالند"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:829
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr ""
+msgstr "آیا tooltip برای آیکن ها فعال است."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:836
 msgid "Show Signal"
@@ -1060,11 +1064,11 @@ msgstr "وضعیت"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:166
 msgid "The interface packets/bytes statistics"
-msgstr ""
+msgstr "آمار بسته/بایت برای این کارت شبکه"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:174
 msgid "Whether the interface is a wireless interface"
-msgstr ""
+msgstr "آیا این کارت شبکه بیسیم است"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:181
 msgid "Signal"
@@ -1072,7 +1076,7 @@ msgstr "سیگنال"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:182
 msgid "Wireless signal strength percentage"
-msgstr ""
+msgstr "درصد قدرت سیگنال بیسیم"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:191
 #: ../src/plugins/netstatus/netstatus-util.c:167
@@ -1093,7 +1097,7 @@ msgstr "نا موفق در باز کردن سوکت: %s"
 #: ../src/plugins/netstatus/netstatus-iface.c:1223
 #, c-format
 msgid "SIOCGIFFLAGS error: %s"
-msgstr ""
+msgstr "SIOCGIFFLAGS خطای: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:870
 msgid "AMPR NET/ROM"
@@ -1127,7 +1131,7 @@ msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:906
 msgid "Serial Line IP"
-msgstr ""
+msgstr "IP خط سریال"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:909
 msgid "VJ Serial Line IP"
@@ -1179,7 +1183,7 @@ msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:966
 msgid "Fiber Distributed Data Interface"
-msgstr ""
+msgstr "رابط دیتای توزیع شده فیبری"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:972
 msgid "IPv6-in-IPv4"
@@ -1209,37 +1213,37 @@ msgstr ""
 #: ../src/plugins/netstatus/netstatus-iface.c:1248
 #, c-format
 msgid "No network devices found"
-msgstr "هیچ دستکا"
+msgstr "هیچ سخت افزار شبکه ای پیدا نشد"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:180
 #, c-format
 msgid "Cannot open /proc/net/dev: %s"
-msgstr ""
+msgstr "نمی توانم باز کنم /proc/net/dev: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:189
 msgid "Could not parse /proc/net/dev. Unknown format."
-msgstr ""
+msgstr "نمی توان قالب /proc/net/dev را شناسایی کنم. قالب ناشناخته است."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:204
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:330
 #, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr ""
+msgstr "نمی توانم اسم کارت شبکه را از '%s' بخوانم."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
 msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
-msgstr ""
+msgstr "نمی توانم امار کارت شبکه را بخوانم از '%s'.  prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr ""
+msgstr " /proc/net/wireless را شناسایی کنم. قالب ناشناخته است"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr ""
+msgstr "نمی توانم جزییات شبکه بیسیم را از '%s' بخوانم link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
@@ -1249,12 +1253,12 @@ msgstr "نمی تواند به رابط متصل شود، «%s»"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:420
 #, c-format
 msgid "Could not send ioctl to interface, '%s'"
-msgstr ""
+msgstr "نمی توانم ioctl را به کارت شبکه بفرستم، '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr ""
+msgstr "نمی توانم خط فرمان '%s': %s را بخوانم"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
@@ -1266,7 +1270,7 @@ msgstr "اتصال قطع"
 
 #: ../src/plugins/netstatus/netstatus-util.c:155
 msgid "Idle"
-msgstr "بی کار"
+msgstr "بیکار"
 
 #: ../src/plugins/netstatus/netstatus-util.c:158
 msgid "Sending"
@@ -1278,7 +1282,7 @@ msgstr "دریافت"
 
 #: ../src/plugins/netstatus/netstatus-util.c:164
 msgid "Sending/Receiving"
-msgstr ""
+msgstr "در حال دریافت/ارسال"
 
 #: ../src/plugins/batt/batt.c:131
 msgid "No batteries found"
@@ -1287,7 +1291,7 @@ msgstr "باتری یافت نشد"
 #: ../src/plugins/batt/batt.c:179
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
-msgstr ""
+msgstr "باتری %d%% شارژ شده، %d:%02d تا پرشدن "
 
 #: ../src/plugins/batt/batt.c:190
 #, c-format
@@ -1297,7 +1301,7 @@ msgstr ""
 #: ../src/plugins/batt/batt.c:196
 #, c-format
 msgid "Battery: %d%% charged"
-msgstr ""
+msgstr "باتری: %d%% شارژ شده"
 
 #: ../src/plugins/batt/batt.c:580
 msgid "Hide if there is no battery"
@@ -1323,15 +1327,15 @@ msgstr "رنگ شارژ ۱"
 
 #: ../src/plugins/batt/batt.c:586
 msgid "Charging color 2"
-msgstr ""
+msgstr "رنگ شارژ ۲"
 
 #: ../src/plugins/batt/batt.c:587
 msgid "Discharging color 1"
-msgstr ""
+msgstr "رنگ دشارژ ۱"
 
 #: ../src/plugins/batt/batt.c:588
 msgid "Discharging color 2"
-msgstr ""
+msgstr "رنگ دشارژ ۲"
 
 #: ../src/plugins/batt/batt.c:589
 msgid "Border width"
