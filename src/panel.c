@@ -173,7 +173,7 @@ void panel_set_wm_strut(Panel *p)
     }
 
     /* Handle autohide case.  EWMH recommends having the strut be the minimized size. */
-    if ( ! p->autohide)
+    if (p->autohide)
         strut_size = p->height_when_hidden;
 
     /* Set up strut value in property format. */
