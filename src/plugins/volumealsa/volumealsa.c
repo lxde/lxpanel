@@ -152,7 +152,8 @@ static gboolean asound_initialize(VolumeALSAPlugin * vol)
     snd_mixer_selem_register(vol->mixer, NULL, NULL);
     snd_mixer_load(vol->mixer);
 
-    /* Find Master element, or Front element, or PCM element, or LineOut element. */
+    /* Find Master element, or Front element, or PCM element, or LineOut element.
+     * If one of these succeeds, master_element is valid. */
     if ( ! asound_find_element(vol, "Master"))
         if ( ! asound_find_element(vol, "Front"))
             if ( ! asound_find_element(vol, "PCM"))
@@ -181,7 +182,7 @@ static gboolean asound_initialize(VolumeALSAPlugin * vol)
 /* Get the presence of the mute control from the sound system. */
 static gboolean asound_has_mute(VolumeALSAPlugin * vol)
 {
-    return snd_mixer_selem_has_playback_switch(vol->master_element);
+    return ((vol->master_element != NULL) ? snd_mixer_selem_has_playback_switch(vol->master_element) : FALSE);
 }
 
 /* Get the condition of the mute control from the sound system. */
@@ -190,7 +191,8 @@ static gboolean asound_is_muted(VolumeALSAPlugin * vol)
     /* The switch is on if sound is not muted, and off if the sound is muted.
      * Initialize so that the sound appears unmuted if the control does not exist. */
     int value = 1;
-    snd_mixer_selem_get_playback_switch(vol->master_element, 0, &value);
+    if (vol->master_element != NULL)
+        snd_mixer_selem_get_playback_switch(vol->master_element, 0, &value);
     return (value == 0);
 }
 
@@ -198,10 +200,13 @@ static gboolean asound_is_muted(VolumeALSAPlugin * vol)
  * This implementation returns the average of the Front Left and Front Right channels. */
 static int asound_get_volume(VolumeALSAPlugin * vol)
 {
-    long aleft;
-    long aright;
-    snd_mixer_selem_get_playback_volume(vol->master_element, SND_MIXER_SCHN_FRONT_LEFT, &aleft);
-    snd_mixer_selem_get_playback_volume(vol->master_element, SND_MIXER_SCHN_FRONT_RIGHT, &aright);
+    long aleft = 0;
+    long aright = 0;
+    if (vol->master_element != NULL)
+    {
+        snd_mixer_selem_get_playback_volume(vol->master_element, SND_MIXER_SCHN_FRONT_LEFT, &aleft);
+        snd_mixer_selem_get_playback_volume(vol->master_element, SND_MIXER_SCHN_FRONT_RIGHT, &aright);
+    }
     return (aleft + aright) >> 1;
 }
 
@@ -209,8 +214,11 @@ static int asound_get_volume(VolumeALSAPlugin * vol)
  * This implementation sets the Front Left and Front Right channels to the specified value. */
 static void asound_set_volume(VolumeALSAPlugin * vol, int volume)
 {
-    snd_mixer_selem_set_playback_volume(vol->master_element, SND_MIXER_SCHN_FRONT_LEFT, volume);
-    snd_mixer_selem_set_playback_volume(vol->master_element, SND_MIXER_SCHN_FRONT_RIGHT, volume);
+    if (vol->master_element != NULL)
+    {
+        snd_mixer_selem_set_playback_volume(vol->master_element, SND_MIXER_SCHN_FRONT_LEFT, volume);
+        snd_mixer_selem_set_playback_volume(vol->master_element, SND_MIXER_SCHN_FRONT_RIGHT, volume);
+    }
 }
 
 /*** Graphics ***/
@@ -324,9 +332,12 @@ static void volumealsa_popup_mute_toggled(GtkWidget * widget, VolumeALSAPlugin *
     gboolean active = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget));
 
     /* Reflect the mute toggle to the sound system. */
-    int chn;
-    for (chn = 0; chn <= SND_MIXER_SCHN_LAST; chn++)
-        snd_mixer_selem_set_playback_switch(vol->master_element, chn, ((active) ? 0 : 1));
+    if (vol->master_element != NULL)
+    {
+        int chn;
+        for (chn = 0; chn <= SND_MIXER_SCHN_LAST; chn++)
+            snd_mixer_selem_set_playback_switch(vol->master_element, chn, ((active) ? 0 : 1));
+    }
 
     /* Redraw the controls. */
     volumealsa_update_display(vol);
