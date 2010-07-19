@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-04-27 00:15+0200\n"
-"PO-Revision-Date: 2010-06-25 13:25+0200\n"
+"PO-Revision-Date: 2010-07-18 23:10+0200\n"
 "Last-Translator: Gunleif <gunleif@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fo\n"
@@ -1243,9 +1243,8 @@ msgid "Could not parse command line '%s': %s"
 msgstr "Kundi ikki tulka stýriboðsregluna '%s': %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
-#, fuzzy
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr "Kundi ikki tulka 'netstat' úttak, Ókent snið"
+msgstr "Kundi ikki tulka 'netstat' úttak. Ókent snið"
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
