@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-27 00:15+0200\n"
+"POT-Creation-Date: 2010-07-20 11:01+0200\n"
 "PO-Revision-Date: 2010-01-06 19:45+0100\n"
 "Last-Translator: Ahmad Farghal <ahmad.farghal@gmail.com>\n"
 "Language-Team: Arabic\n"
@@ -459,7 +459,7 @@ msgstr "مراقب استخدام المعالج"
 msgid "Display CPU usage"
 msgstr "أظهر استخدام المعالج"
 
-#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:422
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:426
 msgid "Bold font"
 msgstr "خط عريض"
 
@@ -576,33 +576,33 @@ msgstr ""
 "يظهر شريط المهام جميع النوافذ المفتوحة، ويسمح لك بتصغيرها أو تظليلها أو "
 "الانتقال إليها "
 
-#: ../src/plugins/dclock.c:418
+#: ../src/plugins/dclock.c:422
 msgid "Clock Format"
 msgstr "هيئة الساعة"
 
-#: ../src/plugins/dclock.c:419
+#: ../src/plugins/dclock.c:423
 msgid "Tooltip Format"
 msgstr "هيئة التلميح"
 
-#: ../src/plugins/dclock.c:420
+#: ../src/plugins/dclock.c:424
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr ""
 "لمعرفة شفرات التنسيق: man 3 strftime؛ اكتب \n"
 " لبدء سطر جديد"
 
-#: ../src/plugins/dclock.c:421
+#: ../src/plugins/dclock.c:425
 msgid "Action when clicked (default: display calendar)"
 msgstr "الإجراء المتبع عند نقر الساعة (الإجراء المبدئي هو عرض تقويم)"
 
-#: ../src/plugins/dclock.c:423
+#: ../src/plugins/dclock.c:427
 msgid "Tooltip only"
 msgstr "تلميح فقط"
 
-#: ../src/plugins/dclock.c:451
+#: ../src/plugins/dclock.c:455
 msgid "Digital Clock"
 msgstr "الساعة الرقمية"
 
-#: ../src/plugins/dclock.c:453
+#: ../src/plugins/dclock.c:457
 msgid "Display digital clock and tooltip"
 msgstr "يظهر ساعة رقمية وتلميحا"
 
@@ -654,11 +654,11 @@ msgstr "مسافة"
 msgid "Allocate space"
 msgstr "يترك مسافة"
 
-#: ../src/plugins/tray.c:702
+#: ../src/plugins/tray.c:705
 msgid "System Tray"
 msgstr "مساحة التبليغ"
 
-#: ../src/plugins/tray.c:704
+#: ../src/plugins/tray.c:707
 msgid "System tray"
 msgstr "مساحة التبليغ"
 
@@ -785,24 +785,24 @@ msgstr "إظهار درجة حرارة النظام"
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:244
-#: ../src/plugins/volumealsa/volumealsa.c:411
+#: ../src/plugins/volumealsa/volumealsa.c:252
+#: ../src/plugins/volumealsa/volumealsa.c:422
 msgid "Volume control"
 msgstr "تحكم في مستوى الصوت"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:460
+#: ../src/plugins/volumealsa/volumealsa.c:471
 msgid "Volume Control"
 msgstr "متحكم مستوى الصوت"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:369
+#: ../src/plugins/volumealsa/volumealsa.c:380
 msgid "Volume"
 msgstr "مستوى الصوت"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/volumealsa/volumealsa.c:388
+#: ../src/plugins/volumealsa/volumealsa.c:399
 msgid "Mute"
 msgstr "كتم"
 

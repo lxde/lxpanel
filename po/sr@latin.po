@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LXPanel 0.3.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-27 00:15+0200\n"
+"POT-Creation-Date: 2010-07-20 11:01+0200\n"
 "PO-Revision-Date: 2009-08-30 17:16+0100\n"
 "Last-Translator: Jay A. Fleming <tito.nehru.naser@gmail.com>\n"
 "Language-Team: \n"
@@ -459,7 +459,7 @@ msgstr "Pokazivač stanja procesora"
 msgid "Display CPU usage"
 msgstr "Prikaži stanje procesa"
 
-#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:422
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:426
 msgid "Bold font"
 msgstr "Zadebljan font"
 
@@ -576,33 +576,33 @@ msgstr ""
 "Traka sa listom prozora prikazuje sve otvorene prozore i\n"
 " omogućuje upravljanje njima"
 
-#: ../src/plugins/dclock.c:418
+#: ../src/plugins/dclock.c:422
 msgid "Clock Format"
 msgstr "Način prikazivanja časovnika"
 
-#: ../src/plugins/dclock.c:419
+#: ../src/plugins/dclock.c:423
 msgid "Tooltip Format"
 msgstr "Način prikazivanja oblačića"
 
-#: ../src/plugins/dclock.c:420
+#: ../src/plugins/dclock.c:424
 #, fuzzy
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr "Format codes: man 3 strftime"
 
-#: ../src/plugins/dclock.c:421
+#: ../src/plugins/dclock.c:425
 msgid "Action when clicked (default: display calendar)"
 msgstr " Na klik mišem pokreni (podrazumevano: prikazuje kalendar)"
 
-#: ../src/plugins/dclock.c:423
+#: ../src/plugins/dclock.c:427
 #, fuzzy
 msgid "Tooltip only"
 msgstr "Oblačići se prikazuju"
 
-#: ../src/plugins/dclock.c:451
+#: ../src/plugins/dclock.c:455
 msgid "Digital Clock"
 msgstr "Časovnik sa brojevima"
 
-#: ../src/plugins/dclock.c:453
+#: ../src/plugins/dclock.c:457
 msgid "Display digital clock and tooltip"
 msgstr "Prikaži časovnik sa brojevima i oblaćić"
 
@@ -654,11 +654,11 @@ msgstr "Držač razmaka"
 msgid "Allocate space"
 msgstr "Obezbedi prostor"
 
-#: ../src/plugins/tray.c:702
+#: ../src/plugins/tray.c:705
 msgid "System Tray"
 msgstr "Obaveštajna zona"
 
-#: ../src/plugins/tray.c:704
+#: ../src/plugins/tray.c:707
 msgid "System tray"
 msgstr "Obaveštajna zona"
 
@@ -702,7 +702,8 @@ msgstr "Menjanje dostupnih rasporeda tastature"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr "Levi klik za umanjivanje svih prozora. Srednji klik za njihovo uvlačenje."
+msgstr ""
+"Levi klik za umanjivanje svih prozora. Srednji klik za njihovo uvlačenje."
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
@@ -788,24 +789,24 @@ msgstr ""
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:244
-#: ../src/plugins/volumealsa/volumealsa.c:411
+#: ../src/plugins/volumealsa/volumealsa.c:252
+#: ../src/plugins/volumealsa/volumealsa.c:422
 msgid "Volume control"
 msgstr "Upravljanje jačinom zvuka"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:460
+#: ../src/plugins/volumealsa/volumealsa.c:471
 msgid "Volume Control"
 msgstr "Upravljanje jačinom zvuka"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:369
+#: ../src/plugins/volumealsa/volumealsa.c:380
 msgid "Volume"
 msgstr "Jačina zvuka"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/volumealsa/volumealsa.c:388
+#: ../src/plugins/volumealsa/volumealsa.c:399
 msgid "Mute"
 msgstr "Utišaj"
 

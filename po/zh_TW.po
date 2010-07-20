@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-27 00:15+0200\n"
+"POT-Creation-Date: 2010-07-20 11:01+0200\n"
 "PO-Revision-Date: 2009-12-13 13:11+0800\n"
 "Last-Translator: Hong Jen Yee (PCMan) <pcman.tw@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -457,7 +457,7 @@ msgstr "CPU 使用量監視器"
 msgid "Display CPU usage"
 msgstr "顯示 CPU 資源使用量"
 
-#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:422
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:426
 msgid "Bold font"
 msgstr "粗體字型"
 
@@ -572,31 +572,31 @@ msgid ""
 "focus"
 msgstr "工作列顯示所有開啟的視窗，並讓能視窗最小化、折疊、或取得焦點"
 
-#: ../src/plugins/dclock.c:418
+#: ../src/plugins/dclock.c:422
 msgid "Clock Format"
 msgstr "時鐘格式"
 
-#: ../src/plugins/dclock.c:419
+#: ../src/plugins/dclock.c:423
 msgid "Tooltip Format"
 msgstr "工具提示格式"
 
-#: ../src/plugins/dclock.c:420
+#: ../src/plugins/dclock.c:424
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr "格式字串說明：man 3 strftime; \\n 可以用來表示換行"
 
-#: ../src/plugins/dclock.c:421
+#: ../src/plugins/dclock.c:425
 msgid "Action when clicked (default: display calendar)"
 msgstr "被滑鼠點擊時要執行的動作 (預設： 顯示月曆)"
 
-#: ../src/plugins/dclock.c:423
+#: ../src/plugins/dclock.c:427
 msgid "Tooltip only"
 msgstr "只顯示工具提示"
 
-#: ../src/plugins/dclock.c:451
+#: ../src/plugins/dclock.c:455
 msgid "Digital Clock"
 msgstr "數位時鐘"
 
-#: ../src/plugins/dclock.c:453
+#: ../src/plugins/dclock.c:457
 msgid "Display digital clock and tooltip"
 msgstr "顯示數位時鐘及其工具提示"
 
@@ -648,11 +648,11 @@ msgstr "空白分隔"
 msgid "Allocate space"
 msgstr "配置空間"
 
-#: ../src/plugins/tray.c:702
+#: ../src/plugins/tray.c:705
 msgid "System Tray"
 msgstr "系統匣 (通知區域)"
 
-#: ../src/plugins/tray.c:704
+#: ../src/plugins/tray.c:707
 msgid "System tray"
 msgstr "系統匣 (通知區域)"
 
@@ -777,24 +777,24 @@ msgstr "顯示系統溫度"
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:244
-#: ../src/plugins/volumealsa/volumealsa.c:411
+#: ../src/plugins/volumealsa/volumealsa.c:252
+#: ../src/plugins/volumealsa/volumealsa.c:422
 msgid "Volume control"
 msgstr "音量控制"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:460
+#: ../src/plugins/volumealsa/volumealsa.c:471
 msgid "Volume Control"
 msgstr "音量控制"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:369
+#: ../src/plugins/volumealsa/volumealsa.c:380
 msgid "Volume"
 msgstr "音量"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/volumealsa/volumealsa.c:388
+#: ../src/plugins/volumealsa/volumealsa.c:399
 msgid "Mute"
 msgstr "靜音"
 

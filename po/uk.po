@@ -2,12 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-06-09 05:34+0000\n"
+"POT-Creation-Date: 2010-07-20 11:01+0200\n"
 "PO-Revision-Date: 2010-02-15 20:16+0100\n"
 "Last-Translator: Yarema aka Knedlyk <yupadmin@gmail.com>\n"
 "Language-Team: UKRAINIAN <translate@linux.org.ua>\n"
@@ -16,7 +16,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Country: UKRAINE\n"
 "X-Generator: Pootle 1.1.0\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Poedit-Language: Ukrainian\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
@@ -413,7 +414,8 @@ msgstr " --version   -- надрукувати версію та вийти\n"
 #: ../src/panel.c:1452
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --log <number> -- виставити рівень журналювання 0-5. 0 - нема, 5 - повний\n"
+msgstr ""
+" --log <number> -- виставити рівень журналювання 0-5. 0 - нема, 5 - повний\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1454
@@ -460,7 +462,7 @@ msgstr "Монітор використання CPU"
 msgid "Display CPU usage"
 msgstr "Показати завантаження CPU"
 
-#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:422
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:426
 msgid "Bold font"
 msgstr "Жирний шрифт"
 
@@ -514,8 +516,7 @@ msgstr "Робоча область _%d"
 msgid "Workspace %d"
 msgstr "Робоча область %d"
 
-#. Add "move to all workspaces" item.  This causes the window to be visible no
-#. matter what desktop is active.
+#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../src/plugins/taskbar.c:1753
 msgid "_All workspaces"
 msgstr "_Всі робочі області"
@@ -525,8 +526,7 @@ msgstr "_Всі робочі області"
 msgid "_Move to Workspace"
 msgstr "_Перенести до робочої області"
 
-#. Add Close menu item.  By popular demand, we place this menu item closest to
-#. the cursor.
+#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../src/plugins/taskbar.c:1765
 msgid "_Close Window"
 msgstr "За_крити вікно"
@@ -572,34 +572,38 @@ msgid "Task Bar (Window List)"
 msgstr "Панель задач (Список вікон)"
 
 #: ../src/plugins/taskbar.c:2035
-msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
-msgstr "Панель задач показує всі відкриті вікна і дозволяє згортати їх, відтіняти і фокусувати"
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
+msgstr ""
+"Панель задач показує всі відкриті вікна і дозволяє згортати їх, відтіняти і "
+"фокусувати"
 
-#: ../src/plugins/dclock.c:418
+#: ../src/plugins/dclock.c:422
 msgid "Clock Format"
 msgstr "Формат годинника"
 
-#: ../src/plugins/dclock.c:419
+#: ../src/plugins/dclock.c:423
 msgid "Tooltip Format"
 msgstr "Формат підказок"
 
-#: ../src/plugins/dclock.c:420
+#: ../src/plugins/dclock.c:424
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr "Формат кодів: запустіть man 3 strftime; \\n для розриву стрічки"
 
-#: ../src/plugins/dclock.c:421
+#: ../src/plugins/dclock.c:425
 msgid "Action when clicked (default: display calendar)"
 msgstr "Дія при клацанні (по замовчуванню: показати календар)"
 
-#: ../src/plugins/dclock.c:423
+#: ../src/plugins/dclock.c:427
 msgid "Tooltip only"
 msgstr "Тільки підказки"
 
-#: ../src/plugins/dclock.c:451
+#: ../src/plugins/dclock.c:455
 msgid "Digital Clock"
 msgstr "Цифровий годинник"
 
-#: ../src/plugins/dclock.c:453
+#: ../src/plugins/dclock.c:457
 msgid "Display digital clock and tooltip"
 msgstr "Показувати цифровий годинник і підказки"
 
@@ -699,7 +703,8 @@ msgstr "Перемикання між доступними розкладкам�
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr "Клік лівою кнопкою миші мінімалізує всі вікна. Середня кнопка затіняє їх."
+msgstr ""
+"Клік лівою кнопкою миші мінімалізує всі вікна. Середня кнопка затіняє їх."
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
@@ -780,24 +785,24 @@ msgstr "Показати системну температуру"
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:244
-#: ../src/plugins/volumealsa/volumealsa.c:411
+#: ../src/plugins/volumealsa/volumealsa.c:252
+#: ../src/plugins/volumealsa/volumealsa.c:422
 msgid "Volume control"
 msgstr "Регулятор гучності"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:460
+#: ../src/plugins/volumealsa/volumealsa.c:471
 msgid "Volume Control"
 msgstr "Регулятор Гучності"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:369
+#: ../src/plugins/volumealsa/volumealsa.c:380
 msgid "Volume"
 msgstr "Гучність"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/volumealsa/volumealsa.c:388
+#: ../src/plugins/volumealsa/volumealsa.c:399
 msgid "Mute"
 msgstr "Заглушити"
 
@@ -1009,7 +1014,8 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Зв’яжіться з Вашим системним адміністратором для вирішення наступної проблеми:\n"
+"Зв’яжіться з Вашим системним адміністратором для вирішення наступної "
+"проблеми:\n"
 "\n"
 "%s"
 
@@ -1203,8 +1209,12 @@ msgstr "Не можу обробити назву пристрою з '%s'"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
-msgstr "Не можу обробити статистику пристрою '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgid ""
+"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
+msgstr ""
+"Не можу обробити статистику пристрою '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LXDE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-27 00:15+0200\n"
+"POT-Creation-Date: 2010-07-20 11:01+0200\n"
 "PO-Revision-Date: 2010-01-24 11:10-0800\n"
 "Last-Translator: alexxed <alexxed@gmail.com>\n"
 "Language-Team: Romanian <LL@li.org>\n"
@@ -456,7 +456,7 @@ msgstr "Monitor pentru utilizarea procesorului"
 msgid "Display CPU usage"
 msgstr "Afișează utilizarea procesorului"
 
-#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:422
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:426
 msgid "Bold font"
 msgstr "Font îngroșat"
 
@@ -573,31 +573,31 @@ msgstr ""
 "Bara de procese arată toate ferestrele deschise și vă permite să le "
 "ascundeți pe ea, să le rulați sau să le aduceți în față"
 
-#: ../src/plugins/dclock.c:418
+#: ../src/plugins/dclock.c:422
 msgid "Clock Format"
 msgstr "Format ceas"
 
-#: ../src/plugins/dclock.c:419
+#: ../src/plugins/dclock.c:423
 msgid "Tooltip Format"
 msgstr "Formatul textelor ajutătoare"
 
-#: ../src/plugins/dclock.c:420
+#: ../src/plugins/dclock.c:424
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr "Coduri de formatare: man 3 strftime; \\n pentru sfârșit de linie"
 
-#: ../src/plugins/dclock.c:421
+#: ../src/plugins/dclock.c:425
 msgid "Action when clicked (default: display calendar)"
 msgstr "Acțiune la clic (implicit: afișare calendar)"
 
-#: ../src/plugins/dclock.c:423
+#: ../src/plugins/dclock.c:427
 msgid "Tooltip only"
 msgstr "Doar textele ajutătoare"
 
-#: ../src/plugins/dclock.c:451
+#: ../src/plugins/dclock.c:455
 msgid "Digital Clock"
 msgstr "Ceas digital"
 
-#: ../src/plugins/dclock.c:453
+#: ../src/plugins/dclock.c:457
 msgid "Display digital clock and tooltip"
 msgstr "Afișează ceasul digital și informațiile suplimentare"
 
@@ -649,11 +649,11 @@ msgstr "Distanțier"
 msgid "Allocate space"
 msgstr "Alocă spațiu"
 
-#: ../src/plugins/tray.c:702
+#: ../src/plugins/tray.c:705
 msgid "System Tray"
 msgstr "Zona de notificare"
 
-#: ../src/plugins/tray.c:704
+#: ../src/plugins/tray.c:707
 msgid "System tray"
 msgstr "Zona de notificare"
 
@@ -780,24 +780,24 @@ msgstr "Afișează temperatura sistemului"
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:244
-#: ../src/plugins/volumealsa/volumealsa.c:411
+#: ../src/plugins/volumealsa/volumealsa.c:252
+#: ../src/plugins/volumealsa/volumealsa.c:422
 msgid "Volume control"
 msgstr "Control volum"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:460
+#: ../src/plugins/volumealsa/volumealsa.c:471
 msgid "Volume Control"
 msgstr "Control volum"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:369
+#: ../src/plugins/volumealsa/volumealsa.c:380
 msgid "Volume"
 msgstr "Volum"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/volumealsa/volumealsa.c:388
+#: ../src/plugins/volumealsa/volumealsa.c:399
 msgid "Mute"
 msgstr "Oprește sonorul"
 

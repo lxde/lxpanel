@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-27 00:15+0200\n"
+"POT-Creation-Date: 2010-07-20 11:01+0200\n"
 "PO-Revision-Date: 2009-07-23 20:11+0200\n"
 "Last-Translator: Muhammad Ali Makki <makki.ma@gmail.com>\n"
 "Language-Team: Urdu <makki.ma@gmail.com>\n"
@@ -466,7 +466,7 @@ msgstr "سی پی یو استعمال معائنہ کار"
 msgid "Display CPU usage"
 msgstr "سی پی یو کا استعمال ظاہر کریں"
 
-#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:422
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:426
 msgid "Bold font"
 msgstr "چوڑا فونٹ"
 
@@ -583,33 +583,33 @@ msgstr ""
 "ٹاسک بار تمام کھلی ہوئی ونڈوز کو دکھاتا ہے اور آپ کو انہیں چھوٹا کرنے، "
 "سمیٹنے، اور فوکس پر لینے کی صلاحیت دیتا ہے"
 
-#: ../src/plugins/dclock.c:418
+#: ../src/plugins/dclock.c:422
 msgid "Clock Format"
 msgstr "گھڑی کا انداز"
 
-#: ../src/plugins/dclock.c:419
+#: ../src/plugins/dclock.c:423
 msgid "Tooltip Format"
 msgstr "ٹول ٹِپ فارمیٹ"
 
-#: ../src/plugins/dclock.c:420
+#: ../src/plugins/dclock.c:424
 #, fuzzy
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr "فارمیٹ کوڈ: man 3 strftime"
 
-#: ../src/plugins/dclock.c:421
+#: ../src/plugins/dclock.c:425
 msgid "Action when clicked (default: display calendar)"
 msgstr "کلک کرنے پر حرکت (طے شدہ: کیلینڈر/تقویم ظاہر کریں)"
 
-#: ../src/plugins/dclock.c:423
+#: ../src/plugins/dclock.c:427
 #, fuzzy
 msgid "Tooltip only"
 msgstr "ٹول ٹِپ فعال کردہ"
 
-#: ../src/plugins/dclock.c:451
+#: ../src/plugins/dclock.c:455
 msgid "Digital Clock"
 msgstr "رقمی گھڑی"
 
-#: ../src/plugins/dclock.c:453
+#: ../src/plugins/dclock.c:457
 msgid "Display digital clock and tooltip"
 msgstr "رقمی گھڑی اور ٹول ٹِپ ظاہر کریں"
 
@@ -661,11 +661,11 @@ msgstr "خلاء"
 msgid "Allocate space"
 msgstr "مختص خلاء"
 
-#: ../src/plugins/tray.c:702
+#: ../src/plugins/tray.c:705
 msgid "System Tray"
 msgstr "نظام ٹرے"
 
-#: ../src/plugins/tray.c:704
+#: ../src/plugins/tray.c:707
 msgid "System tray"
 msgstr "نظام ٹرے"
 
@@ -791,24 +791,24 @@ msgstr "نظام کا ٹمپریچر ظاہر کریں، از kesler.daniel@gmai
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:244
-#: ../src/plugins/volumealsa/volumealsa.c:411
+#: ../src/plugins/volumealsa/volumealsa.c:252
+#: ../src/plugins/volumealsa/volumealsa.c:422
 msgid "Volume control"
 msgstr "آواز فیصد"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:460
+#: ../src/plugins/volumealsa/volumealsa.c:471
 msgid "Volume Control"
 msgstr "آواز کنٹرول"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:369
+#: ../src/plugins/volumealsa/volumealsa.c:380
 msgid "Volume"
 msgstr "آواز"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/volumealsa/volumealsa.c:388
+#: ../src/plugins/volumealsa/volumealsa.c:399
 msgid "Mute"
 msgstr "آواز بند"
 

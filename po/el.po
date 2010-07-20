@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-27 00:15+0200\n"
+"POT-Creation-Date: 2010-07-20 11:01+0200\n"
 "PO-Revision-Date: 2010-04-11 01:30+0200\n"
 "Last-Translator:  <edhunter@sidux.com>\n"
 "Language-Team: Greek\n"
@@ -465,7 +465,7 @@ msgstr "Παρακολούθηση χρήσης CPU"
 msgid "Display CPU usage"
 msgstr "Εμφάνιση χρήσης CPU"
 
-#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:422
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:426
 msgid "Bold font"
 msgstr "Έντονη γραμματοσειρά"
 
@@ -582,33 +582,33 @@ msgstr ""
 "Η μπάρα εργασιών εμφανίζει όλα τα ανοιχτά παράθυρα και σας επιτρέπει να τα "
 "εικονιδιοποιήσετε, συμπτύξετε ή να εστιάσετε πάνω τους"
 
-#: ../src/plugins/dclock.c:418
+#: ../src/plugins/dclock.c:422
 msgid "Clock Format"
 msgstr "Μορφή ρολογιού"
 
-#: ../src/plugins/dclock.c:419
+#: ../src/plugins/dclock.c:423
 msgid "Tooltip Format"
 msgstr "Μορφή υπόδειξης"
 
-#: ../src/plugins/dclock.c:420
+#: ../src/plugins/dclock.c:424
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr ""
 "Μορφή κώδικα: man 3 strftime; \n"
 " για αλλαγή γραμμής"
 
-#: ../src/plugins/dclock.c:421
+#: ../src/plugins/dclock.c:425
 msgid "Action when clicked (default: display calendar)"
 msgstr "Ενέργεια όταν γίνει κλικ (προεπιλογή: εμφάνιση ημερολογίου)"
 
-#: ../src/plugins/dclock.c:423
+#: ../src/plugins/dclock.c:427
 msgid "Tooltip only"
 msgstr "Κείμενο γρήγορης βοήθειας μόνο"
 
-#: ../src/plugins/dclock.c:451
+#: ../src/plugins/dclock.c:455
 msgid "Digital Clock"
 msgstr "Ψηφιακό ρολόι"
 
-#: ../src/plugins/dclock.c:453
+#: ../src/plugins/dclock.c:457
 msgid "Display digital clock and tooltip"
 msgstr "Εμφάνιση ψηφιακού ρολογιού και βοηθητικού κειμένου"
 
@@ -660,11 +660,11 @@ msgstr "Περιθώριο"
 msgid "Allocate space"
 msgstr "Δέσμευση χώρου"
 
-#: ../src/plugins/tray.c:702
+#: ../src/plugins/tray.c:705
 msgid "System Tray"
 msgstr "Πλαίσιο συστήματος"
 
-#: ../src/plugins/tray.c:704
+#: ../src/plugins/tray.c:707
 msgid "System tray"
 msgstr "Πλαίσιο συστήματος"
 
@@ -791,24 +791,24 @@ msgstr "Εμφάνιση θερμοκρασίας συστήματος"
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:244
-#: ../src/plugins/volumealsa/volumealsa.c:411
+#: ../src/plugins/volumealsa/volumealsa.c:252
+#: ../src/plugins/volumealsa/volumealsa.c:422
 msgid "Volume control"
 msgstr "Έλεγχος έντασης"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:460
+#: ../src/plugins/volumealsa/volumealsa.c:471
 msgid "Volume Control"
 msgstr "Έλεγχος έντασης"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:369
+#: ../src/plugins/volumealsa/volumealsa.c:380
 msgid "Volume"
 msgstr "Ένταση ήχου"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/volumealsa/volumealsa.c:388
+#: ../src/plugins/volumealsa/volumealsa.c:399
 msgid "Mute"
 msgstr "Σίγαση"
 

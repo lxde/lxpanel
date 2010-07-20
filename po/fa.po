@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-27 00:15+0200\n"
+"POT-Creation-Date: 2010-07-20 11:01+0200\n"
 "PO-Revision-Date: 2010-07-11 17:50+0200\n"
 "Last-Translator: Hamidreza <n3gb0y@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fa\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
 
@@ -67,8 +67,7 @@ msgstr "هم‌ترازی:"
 msgid "Appearance"
 msgstr "ظاهر"
 
-#: ../data/ui/panel-pref.glade.h:14
-#: ../src/panel.c:1049
+#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1049
 msgid "Bottom"
 msgstr "پایین"
 
@@ -96,9 +95,7 @@ msgstr "مدیر فایل:"
 msgid "Geometry"
 msgstr "هندسی"
 
-#: ../data/ui/panel-pref.glade.h:21
-#: ../src/panel.c:1039
-#: ../src/panel.c:1047
+#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:1039 ../src/panel.c:1047
 msgid "Height:"
 msgstr "بلندی"
 
@@ -106,8 +103,7 @@ msgstr "بلندی"
 msgid "Image"
 msgstr "تصویر"
 
-#: ../data/ui/panel-pref.glade.h:23
-#: ../src/panel.c:1041
+#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:1041
 msgid "Left"
 msgstr "چپ"
 
@@ -144,8 +140,7 @@ msgstr "پکسل‌ها"
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "فضا را ذخیره کن و به هنگام حداکثرسازی پوشش داده نشود"
 
-#: ../data/ui/panel-pref.glade.h:32
-#: ../src/panel.c:1042
+#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:1042
 msgid "Right"
 msgstr "راست"
 
@@ -169,14 +164,11 @@ msgstr "تِم سیستم"
 msgid "Terminal Emulator:"
 msgstr "شبیه‌ساز پایانه"
 
-#: ../data/ui/panel-pref.glade.h:38
-#: ../src/panel.c:1048
+#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1048
 msgid "Top"
 msgstr "بالا"
 
-#: ../data/ui/panel-pref.glade.h:39
-#: ../src/panel.c:1040
-#: ../src/panel.c:1046
+#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:1040 ../src/panel.c:1046
 msgid "Width:"
 msgstr "پهنا:"
 
@@ -225,8 +217,7 @@ msgstr "<b>قدرت سیگنال</b>"
 msgid "Address:"
 msgstr "نشانی:"
 
-#: ../data/ui/netstatus.glade.h:10
-#: ../src/plugins/netstat/netstat.c:319
+#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
 #: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
 msgid "Broadcast:"
@@ -287,13 +278,11 @@ msgstr "نوع:"
 msgid "_Name:"
 msgstr "ـ‌نام:"
 
-#: ../data/ui/launchbar.glade.h:1
-#: ../src/plugins/launchbar.c:887
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:887
 msgid "Application Launch Bar"
 msgstr "نوار اجرای برنامه"
 
-#: ../src/configurator.c:54
-#: ../src/gtk-run.c:319
+#: ../src/configurator.c:54 ../src/gtk-run.c:319
 msgid "Run"
 msgstr "اجرای سریع"
 
@@ -330,8 +319,7 @@ msgstr "دستور خروج هماهنگ نشده است"
 msgid "Select a directory"
 msgstr "یک پوشه انتخاب کنید"
 
-#: ../src/configurator.c:1196
-#: ../src/configurator.c:1287
+#: ../src/configurator.c:1196 ../src/configurator.c:1287
 msgid "Select a file"
 msgstr "یک پرونده انتخاب کنید"
 
@@ -472,8 +460,7 @@ msgstr "نمایشگر استفاده از پردازنده"
 msgid "Display CPU usage"
 msgstr "نمایش استفاده از پردازنده"
 
-#: ../src/plugins/deskno/deskno.c:207
-#: ../src/plugins/dclock.c:422
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:426
 msgid "Bold font"
 msgstr "قلم ضخیم"
 
@@ -584,36 +571,36 @@ msgid "Task Bar (Window List)"
 msgstr "نوار وظیفه (لیست پنجره‌ها)"
 
 #: ../src/plugins/taskbar.c:2035
-msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
 msgstr ""
 
-#: ../src/plugins/dclock.c:418
+#: ../src/plugins/dclock.c:422
 msgid "Clock Format"
 msgstr "قالب نمایش ساعت"
 
-#: ../src/plugins/dclock.c:419
+#: ../src/plugins/dclock.c:423
 msgid "Tooltip Format"
 msgstr "قالب tooltip"
 
-#: ../src/plugins/dclock.c:420
-msgid ""
-"Format codes: man 3 strftime; \\n"
-" for line break"
+#: ../src/plugins/dclock.c:424
+msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr ""
 
-#: ../src/plugins/dclock.c:421
+#: ../src/plugins/dclock.c:425
 msgid "Action when clicked (default: display calendar)"
 msgstr ""
 
-#: ../src/plugins/dclock.c:423
+#: ../src/plugins/dclock.c:427
 msgid "Tooltip only"
 msgstr "فقط tooltip"
 
-#: ../src/plugins/dclock.c:451
+#: ../src/plugins/dclock.c:455
 msgid "Digital Clock"
 msgstr "ساعت دیجیتال"
 
-#: ../src/plugins/dclock.c:453
+#: ../src/plugins/dclock.c:457
 msgid "Display digital clock and tooltip"
 msgstr "نمایش ساعت دیجیتال و tooltip"
 
@@ -625,8 +612,7 @@ msgstr "افزودن به محیط کار"
 msgid "Properties"
 msgstr "مشخصات"
 
-#: ../src/plugins/menu.c:1019
-#: ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1019 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "آیکن"
 
@@ -654,8 +640,7 @@ msgstr "ورق زننده دسکتاپ"
 msgid "Simple pager plugin"
 msgstr "پلاگین ورق زننده ساده"
 
-#: ../src/plugins/space.c:121
-#: ../src/plugins/batt/batt.c:590
+#: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
 msgid "Size"
 msgstr "اندازه"
 
@@ -667,11 +652,11 @@ msgstr "فاصله گذار"
 msgid "Allocate space"
 msgstr "یافتن فاصله"
 
-#: ../src/plugins/tray.c:702
+#: ../src/plugins/tray.c:705
 msgid "System Tray"
 msgstr "محوطه اعلان"
 
-#: ../src/plugins/tray.c:704
+#: ../src/plugins/tray.c:707
 msgid "System tray"
 msgstr "محوطه اعلان"
 
@@ -799,24 +784,24 @@ msgstr "نمایش دمای سیستم"
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:244
-#: ../src/plugins/volumealsa/volumealsa.c:411
+#: ../src/plugins/volumealsa/volumealsa.c:252
+#: ../src/plugins/volumealsa/volumealsa.c:422
 msgid "Volume control"
 msgstr "تنظیم صدا"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:460
+#: ../src/plugins/volumealsa/volumealsa.c:471
 msgid "Volume Control"
 msgstr "تنظیم صدا"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:369
+#: ../src/plugins/volumealsa/volumealsa.c:380
 msgid "Volume"
 msgstr "صدا"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/volumealsa/volumealsa.c:388
+#: ../src/plugins/volumealsa/volumealsa.c:399
 msgid "Mute"
 msgstr "بی صدا"
 
@@ -851,8 +836,7 @@ msgstr "کابل شبکه قطع شده است"
 msgid "Connection has limited or no connectivity"
 msgstr "اتصال محدود شده یا فعالیتی ندارد"
 
-#: ../src/plugins/netstat/netstat.c:307
-#: ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "آدرس IP :"
@@ -861,39 +845,33 @@ msgstr "آدرس IP :"
 msgid "Remote IP:"
 msgstr "IP دور"
 
-#: ../src/plugins/netstat/netstat.c:309
-#: ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "نت ماسک:"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "فعالیت"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "فرستاده شد"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "دریافت شد"
 
-#: ../src/plugins/netstat/netstat.c:311
-#: ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 #, fuzzy
 msgid "bytes"
 msgstr "بایت ها"
 
-#: ../src/plugins/netstat/netstat.c:312
-#: ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "بسته ها"
@@ -909,8 +887,7 @@ msgstr "بی سیم"
 msgid "Protocol:"
 msgstr "پروتکل:"
 
-#: ../src/plugins/netstat/netstat.c:321
-#: ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "آدرس HW:"
 
@@ -935,6 +912,7 @@ msgid ""
 msgstr ""
 "این شبکه بیسیم رمزنگاری شده.\n"
 "شما باید کلید رمزنگاری را داشته باشید."
+
 #: ../src/plugins/netstat/passwd_gui.c:99
 msgid "Encryption Key:"
 msgstr "کلید رمزنگار:"
@@ -981,7 +959,8 @@ msgstr[1] "%lu بسته"
 msgid ""
 "There was an error displaying help:\n"
 "%s"
-msgstr "خطا در نمایش راهنما:\n"
+msgstr ""
+"خطا در نمایش راهنما:\n"
 "%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
@@ -1233,8 +1212,12 @@ msgstr "نمی توانم اسم کارت شبکه را از '%s' بخوانم."
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
-msgstr "نمی توانم امار کارت شبکه را بخوانم از '%s'.  prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgid ""
+"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
+msgstr ""
+"نمی توانم امار کارت شبکه را بخوانم از '%s'.  prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."

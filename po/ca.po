@@ -2,12 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-05 04:11+0000\n"
+"POT-Creation-Date: 2010-07-20 11:01+0200\n"
 "PO-Revision-Date: 2009-09-13 22:33+0200\n"
 "Last-Translator: Josep Sanchez <papapep@gmail.com>\n"
 "Language-Team: CATALAN <none>\n"
@@ -410,7 +410,8 @@ msgstr " --version   -- imprimir la versió i sortir\n"
 #: ../src/panel.c:1452
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --log <nombre> -- defineix el nivell de registre 0-5. 0 - cap 5 - xerraire\n"
+msgstr ""
+" --log <nombre> -- defineix el nivell de registre 0-5. 0 - cap 5 - xerraire\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1454
@@ -456,7 +457,7 @@ msgstr "Monitor d'utilització de la CPU"
 msgid "Display CPU usage"
 msgstr "Mostra la utilització de CPU"
 
-#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:422
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:426
 msgid "Bold font"
 msgstr "Lletra en negreta"
 
@@ -510,8 +511,7 @@ msgstr "Espai de treball _%d"
 msgid "Workspace %d"
 msgstr "Espai de treball %d"
 
-#. Add "move to all workspaces" item.  This causes the window to be visible no
-#. matter what desktop is active.
+#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../src/plugins/taskbar.c:1753
 msgid "_All workspaces"
 msgstr "Tots els esp_ais de treball"
@@ -521,8 +521,7 @@ msgstr "Tots els esp_ais de treball"
 msgid "_Move to Workspace"
 msgstr "_Moure a espai de treball"
 
-#. Add Close menu item.  By popular demand, we place this menu item closest to
-#. the cursor.
+#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../src/plugins/taskbar.c:1765
 msgid "_Close Window"
 msgstr "Tan_ca la finestra"
@@ -568,34 +567,38 @@ msgid "Task Bar (Window List)"
 msgstr "Barra de tasques (llistat de finestres)"
 
 #: ../src/plugins/taskbar.c:2035
-msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
-msgstr "La barra de tasques mostra totes les finestres obertes i permet iconificar-les, ombrejar-les o tenir-ne el focus"
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
+msgstr ""
+"La barra de tasques mostra totes les finestres obertes i permet iconificar-"
+"les, ombrejar-les o tenir-ne el focus"
 
-#: ../src/plugins/dclock.c:418
+#: ../src/plugins/dclock.c:422
 msgid "Clock Format"
 msgstr "Format del rellotge"
 
-#: ../src/plugins/dclock.c:419
+#: ../src/plugins/dclock.c:423
 msgid "Tooltip Format"
 msgstr "Format dels consells"
 
-#: ../src/plugins/dclock.c:420
+#: ../src/plugins/dclock.c:424
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr "Codis de format: man 3 strftime; \\n per trencament de línia"
 
-#: ../src/plugins/dclock.c:421
+#: ../src/plugins/dclock.c:425
 msgid "Action when clicked (default: display calendar)"
 msgstr "Acció en fer clic (predeterminada: mostrar calendari)"
 
-#: ../src/plugins/dclock.c:423
+#: ../src/plugins/dclock.c:427
 msgid "Tooltip only"
 msgstr "S'han habilitat els consells"
 
-#: ../src/plugins/dclock.c:451
+#: ../src/plugins/dclock.c:455
 msgid "Digital Clock"
 msgstr "Rellotge digital"
 
-#: ../src/plugins/dclock.c:453
+#: ../src/plugins/dclock.c:457
 msgid "Display digital clock and tooltip"
 msgstr "Mostra rellotge digital i consells"
 
@@ -647,11 +650,11 @@ msgstr "Espaiador"
 msgid "Allocate space"
 msgstr "Reparteix espai"
 
-#: ../src/plugins/tray.c:702
+#: ../src/plugins/tray.c:705
 msgid "System Tray"
 msgstr "Safata del sistema"
 
-#: ../src/plugins/tray.c:704
+#: ../src/plugins/tray.c:707
 msgid "System tray"
 msgstr "Safata del sistema"
 
@@ -695,7 +698,9 @@ msgstr "Commuta entre diferents disposicions de teclat disponibles"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr "Feu clic amb el botó alternatiu per a iconificat totes les finestres. Amb el boto del mig per ombrejar-les."
+msgstr ""
+"Feu clic amb el botó alternatiu per a iconificat totes les finestres. Amb el "
+"boto del mig per ombrejar-les."
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
@@ -776,24 +781,24 @@ msgstr "Mostra la temperatura del sistema"
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:244
-#: ../src/plugins/volumealsa/volumealsa.c:411
+#: ../src/plugins/volumealsa/volumealsa.c:252
+#: ../src/plugins/volumealsa/volumealsa.c:422
 msgid "Volume control"
 msgstr "Control del volum"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:460
+#: ../src/plugins/volumealsa/volumealsa.c:471
 msgid "Volume Control"
 msgstr "Control del volum"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:369
+#: ../src/plugins/volumealsa/volumealsa.c:380
 msgid "Volume"
 msgstr "Volum"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/volumealsa/volumealsa.c:388
+#: ../src/plugins/volumealsa/volumealsa.c:399
 msgid "Mute"
 msgstr "Emmudeix"
 
@@ -1004,7 +1009,8 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Contacteu el vostre administrador de sistemes per a resoldre el següent problema:\n"
+"Contacteu el vostre administrador de sistemes per a resoldre el següent "
+"problema:\n"
 "\n"
 "%s"
 
@@ -1198,8 +1204,12 @@ msgstr "No s'ha pogut analizar el nom de l'interfície de '%s'"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
-msgstr "No s'ha pogut analitzar l'estadística de l'interfície de '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgid ""
+"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
+msgstr ""
+"No s'ha pogut analitzar l'estadística de l'interfície de '%s'. prx_idx = %d; "
+"ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1208,7 +1218,8 @@ msgstr "No s'ha pogut analitzar /proc/net/wireless. Format desconegut."
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr "No s'ha pogut analitzar els detalls inalàmbrics de '%s'. link_idx = %d;"
+msgstr ""
+"No s'ha pogut analitzar els detalls inalàmbrics de '%s'. link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format

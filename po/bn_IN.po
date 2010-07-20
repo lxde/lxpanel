@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-27 00:15+0200\n"
+"POT-Creation-Date: 2010-07-20 11:01+0200\n"
 "PO-Revision-Date: 2009-12-08 18:15+0100\n"
 "Last-Translator: Sankarshan <sankarshan.mukhopadhyay@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -458,7 +458,7 @@ msgstr "CPU ব্যবহার মাপকাঠি"
 msgid "Display CPU usage"
 msgstr "CPU ব্যবহার প্রদর্শন করুন"
 
-#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:422
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:426
 msgid "Bold font"
 msgstr "গাঢ় ফন্ট"
 
@@ -573,33 +573,33 @@ msgid ""
 "focus"
 msgstr ""
 
-#: ../src/plugins/dclock.c:418
+#: ../src/plugins/dclock.c:422
 msgid "Clock Format"
 msgstr "ঘড়ির বিন্যাস"
 
-#: ../src/plugins/dclock.c:419
+#: ../src/plugins/dclock.c:423
 msgid "Tooltip Format"
 msgstr "টুলটিপের বিন্যাস"
 
-#: ../src/plugins/dclock.c:420
+#: ../src/plugins/dclock.c:424
 #, fuzzy
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr "Format codes: man 3 strftime"
 
-#: ../src/plugins/dclock.c:421
+#: ../src/plugins/dclock.c:425
 msgid "Action when clicked (default: display calendar)"
 msgstr "ক্লিক করলে ক্রিয়া (স্বাভাবিক: ক্যালেন্ডার প্রদর্শন)"
 
-#: ../src/plugins/dclock.c:423
+#: ../src/plugins/dclock.c:427
 #, fuzzy
 msgid "Tooltip only"
 msgstr "টুলটিপ সক্রিয় করা হয়েছে"
 
-#: ../src/plugins/dclock.c:451
+#: ../src/plugins/dclock.c:455
 msgid "Digital Clock"
 msgstr "ডিজিটাল ঘড়ি"
 
-#: ../src/plugins/dclock.c:453
+#: ../src/plugins/dclock.c:457
 msgid "Display digital clock and tooltip"
 msgstr "টুলটিপ ও ডিজিটাল ঘড়ি প্রদর্শন"
 
@@ -651,11 +651,11 @@ msgstr "স্পেসার"
 msgid "Allocate space"
 msgstr "স্পেস যোগ করুন"
 
-#: ../src/plugins/tray.c:702
+#: ../src/plugins/tray.c:705
 msgid "System Tray"
 msgstr "সিস্টেম ট্রে"
 
-#: ../src/plugins/tray.c:704
+#: ../src/plugins/tray.c:707
 msgid "System tray"
 msgstr "সিস্টেম ট্রে"
 
@@ -783,24 +783,24 @@ msgstr "সিস্টেমের তাপমাত্রা প্রদর�
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:244
-#: ../src/plugins/volumealsa/volumealsa.c:411
+#: ../src/plugins/volumealsa/volumealsa.c:252
+#: ../src/plugins/volumealsa/volumealsa.c:422
 msgid "Volume control"
 msgstr "ভলিউম নিয়ন্ত্রণ"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:460
+#: ../src/plugins/volumealsa/volumealsa.c:471
 msgid "Volume Control"
 msgstr "ভলিউম নিয়ন্ত্রণ"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:369
+#: ../src/plugins/volumealsa/volumealsa.c:380
 msgid "Volume"
 msgstr "ভলিউম"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/volumealsa/volumealsa.c:388
+#: ../src/plugins/volumealsa/volumealsa.c:399
 msgid "Mute"
 msgstr "নিঃশব্দ"
 
