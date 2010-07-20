@@ -121,7 +121,7 @@ static void pager_panel_configuration_changed(Plugin * p);
 /* Determine if a task is visible. */
 static gboolean task_is_visible(PagerTask * tk)
 {
-    return ( ! ((tk->nws.hidden) || (tk->nws.skip_pager) || (tk->nwwt.dock)));
+    return ( ! ((tk->nws.hidden) || (tk->nws.skip_pager) || (tk->nwwt.dock) || (tk->nwwt.desktop)));
 }
 
 /* Look up a task in the task list. */
@@ -255,7 +255,7 @@ static void desk_set_dirty_all(PagerPlugin * pg)
 /* Mark the desktop on which a specified window resides for redraw. */
 static void desk_set_dirty_by_win(PagerPlugin * pg, PagerTask * tk)
 {
-    if ( ! (tk->nws.skip_pager || tk->nwwt.desktop) || tk->nwwt.dock /*|| tk->nwwt.splash*/ )
+    if (task_is_visible(tk))
     {
         if (tk->desktop < pg->number_of_desktops)
             desk_set_dirty(pg->desks[tk->desktop]);
