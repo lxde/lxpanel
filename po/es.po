@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel-0.3.5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-20 11:01+0200\n"
+"POT-Creation-Date: 2010-07-22 05:39+0000\n"
 "PO-Revision-Date: 2009-12-19 18:14+0100\n"
 "Last-Translator: Hugo Florentino <sysadmin@cips.cu>\n"
 "Language-Team: Spanish <daniel@tunki.org>\n"
@@ -14,10 +14,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 1.1.0\n"
 "X-Poedit-Bookmarks: 19,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
 "X-Poedit-Country: PERU\n"
 "X-Poedit-Language: Spanish\n"
+"X-Generator: Pootle 1.1.0\n"
 
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
@@ -351,8 +351,8 @@ msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:690
-msgid "Copyright (C) 2008-2009"
-msgstr "Copyright (C) 2008-2009"
+msgid "Copyright (C) 2008-2010"
+msgstr "Copyright (C) 2008-2010"
 
 #: ../src/panel.c:691
 msgid "Desktop panel for LXDE project"
@@ -415,8 +415,7 @@ msgstr " --version   -- mostrar la versión y salir\n"
 #: ../src/panel.c:1452
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <número> -- establecer el nivel del log 0-5. 0 - ninguno 5 - máximo\n"
+msgstr " --log <número> -- establecer el nivel del log 0-5. 0 - ninguno 5 - máximo\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1454
@@ -503,8 +502,9 @@ msgstr "R_estaurar"
 msgid "Ma_ximize"
 msgstr "Ma_ximizar"
 
-# Podría usarse "Iconizar", pero Minimizar es mejor para los que migran desde Windows
 #. Add Iconify menu item.
+# Podría usarse "Iconizar", pero Minimizar es mejor para los que migran desde
+# Windows
 #: ../src/plugins/taskbar.c:1715
 msgid "Ico_nify"
 msgstr "Mi_nimizar"
@@ -519,7 +519,8 @@ msgstr "Área de trabajo _%d"
 msgid "Workspace %d"
 msgstr "Área de trabajo %d"
 
-#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
+#. Add "move to all workspaces" item.  This causes the window to be visible no
+#. matter what desktop is active.
 #: ../src/plugins/taskbar.c:1753
 msgid "_All workspaces"
 msgstr "_Todas la áreas de trabajo"
@@ -529,7 +530,8 @@ msgstr "_Todas la áreas de trabajo"
 msgid "_Move to Workspace"
 msgstr "_Mover a área de trabajo"
 
-#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
+#. Add Close menu item.  By popular demand, we place this menu item closest to
+#. the cursor.
 #: ../src/plugins/taskbar.c:1765
 msgid "_Close Window"
 msgstr "_Cerrar ventana"
@@ -575,12 +577,8 @@ msgid "Task Bar (Window List)"
 msgstr "Barra de tareas (lista de ventanas)"
 
 #: ../src/plugins/taskbar.c:2035
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
-msgstr ""
-"La barra de tareas muestra todas las ventanas abiertas y permite "
-"minimizarlas, replegarlas o enfocarlas"
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr "La barra de tareas muestra todas las ventanas abiertas y permite minimizarlas, replegarlas o enfocarlas"
 
 #: ../src/plugins/dclock.c:422
 msgid "Clock Format"
@@ -708,9 +706,7 @@ msgstr "Selecciona entre las distribuciones de teclados disponibles"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr ""
-"Botón izquierdo para minimizar todas las ventanas.  Botón medio para "
-"replegarlas"
+msgstr "Botón izquierdo para minimizar todas las ventanas.  Botón medio para replegarlas"
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
@@ -1020,8 +1016,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Por favor, contacte al administrador de su sistema para resolver el "
-"siguiente problema:\n"
+"Por favor, contacte al administrador de su sistema para resolver el siguiente problema:\n"
 "\n"
 "%s"
 
@@ -1215,12 +1210,8 @@ msgstr "No se ha podido analizar la interface '%s'"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid ""
-"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
-msgstr ""
-"No se ha podido analizar las estadisticas de interface de '%s'. prx_idx = %"
-"d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgstr "No se ha podido analizar las estadisticas de interface de '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1476,7 +1467,6 @@ msgstr "Indicadores para las teclas BloqMayús, BloqNum, BloqDespl"
 #~ msgid "charging"
 #~ msgstr "recargando"
 
-#, fuzzy
 #~ msgid "Add to desktop panel"
 #~ msgstr "Agregar un plugin al panel"
 
