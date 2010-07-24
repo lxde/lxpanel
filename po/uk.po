@@ -2,24 +2,23 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-20 11:01+0200\n"
+"POT-Creation-Date: 2010-07-24 05:38+0000\n"
 "PO-Revision-Date: 2010-02-15 20:16+0100\n"
 "Last-Translator: Yarema aka Knedlyk <yupadmin@gmail.com>\n"
 "Language-Team: UKRAINIAN <translate@linux.org.ua>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Country: UKRAINE\n"
-"X-Generator: Pootle 1.1.0\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Poedit-Language: Ukrainian\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Country: UKRAINE\n"
+"X-Generator: Pootle 1.1.0\n"
 
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
@@ -350,8 +349,8 @@ msgid "LXPanel"
 msgstr "LX-панель"
 
 #: ../src/panel.c:690
-msgid "Copyright (C) 2008-2009"
-msgstr "Всі права застережено (С) 2008-2009"
+msgid "Copyright (C) 2008-2010"
+msgstr "Всі права застережено (С) 2008-2010"
 
 #: ../src/panel.c:691
 msgid "Desktop panel for LXDE project"
@@ -414,8 +413,7 @@ msgstr " --version   -- надрукувати версію та вийти\n"
 #: ../src/panel.c:1452
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <number> -- виставити рівень журналювання 0-5. 0 - нема, 5 - повний\n"
+msgstr " --log <number> -- виставити рівень журналювання 0-5. 0 - нема, 5 - повний\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1454
@@ -516,7 +514,8 @@ msgstr "Робоча область _%d"
 msgid "Workspace %d"
 msgstr "Робоча область %d"
 
-#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
+#. Add "move to all workspaces" item.  This causes the window to be visible no
+#. matter what desktop is active.
 #: ../src/plugins/taskbar.c:1753
 msgid "_All workspaces"
 msgstr "_Всі робочі області"
@@ -526,7 +525,8 @@ msgstr "_Всі робочі області"
 msgid "_Move to Workspace"
 msgstr "_Перенести до робочої області"
 
-#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
+#. Add Close menu item.  By popular demand, we place this menu item closest to
+#. the cursor.
 #: ../src/plugins/taskbar.c:1765
 msgid "_Close Window"
 msgstr "За_крити вікно"
@@ -572,12 +572,8 @@ msgid "Task Bar (Window List)"
 msgstr "Панель задач (Список вікон)"
 
 #: ../src/plugins/taskbar.c:2035
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
-msgstr ""
-"Панель задач показує всі відкриті вікна і дозволяє згортати їх, відтіняти і "
-"фокусувати"
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr "Панель задач показує всі відкриті вікна і дозволяє згортати їх, відтіняти і фокусувати"
 
 #: ../src/plugins/dclock.c:422
 msgid "Clock Format"
@@ -703,8 +699,7 @@ msgstr "Перемикання між доступними розкладкам�
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr ""
-"Клік лівою кнопкою миші мінімалізує всі вікна. Середня кнопка затіняє їх."
+msgstr "Клік лівою кнопкою миші мінімалізує всі вікна. Середня кнопка затіняє їх."
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
@@ -1014,8 +1009,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Зв’яжіться з Вашим системним адміністратором для вирішення наступної "
-"проблеми:\n"
+"Зв’яжіться з Вашим системним адміністратором для вирішення наступної проблеми:\n"
 "\n"
 "%s"
 
@@ -1209,12 +1203,8 @@ msgstr "Не можу обробити назву пристрою з '%s'"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid ""
-"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
-msgstr ""
-"Не можу обробити статистику пристрою '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
+msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgstr "Не можу обробити статистику пристрою '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
