@@ -2,12 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-20 11:01+0200\n"
+"POT-Creation-Date: 2010-07-29 05:39+0000\n"
 "PO-Revision-Date: 2010-01-03 19:43+0100\n"
 "Last-Translator: ליאל פרידמן <lielft@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -346,8 +346,8 @@ msgid "LXPanel"
 msgstr "תוכנית הפאנלים LXPanel"
 
 #: ../src/panel.c:690
-msgid "Copyright (C) 2008-2009"
-msgstr "כל הזכויות שמורות (C) 2008-2009"
+msgid "Copyright (C) 2008-2010"
+msgstr "כל הזכויות שמורות (C) 2010-2008"
 
 #: ../src/panel.c:691
 msgid "Desktop panel for LXDE project"
@@ -511,7 +511,8 @@ msgstr "סביבת העבודה _%d"
 msgid "Workspace %d"
 msgstr "סביבת העבודה %d"
 
-#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
+#. Add "move to all workspaces" item.  This causes the window to be visible no
+#. matter what desktop is active.
 #: ../src/plugins/taskbar.c:1753
 msgid "_All workspaces"
 msgstr "_כל סביבות העבודה"
@@ -521,7 +522,8 @@ msgstr "_כל סביבות העבודה"
 msgid "_Move to Workspace"
 msgstr "ה_עברה לסביבת עבודה"
 
-#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
+#. Add Close menu item.  By popular demand, we place this menu item closest to
+#. the cursor.
 #: ../src/plugins/taskbar.c:1765
 msgid "_Close Window"
 msgstr "_סגירת החלון"
@@ -567,12 +569,8 @@ msgid "Task Bar (Window List)"
 msgstr "סרגל המשימות (רשימת החלונות)"
 
 #: ../src/plugins/taskbar.c:2035
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
-msgstr ""
-"סרגל המשימות מציג את כל החלונות הפתוחים ומאפשר למזער אותם לכדי סמל, להצל "
-"אותם או לקבל עבורם מיקוד"
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr "סרגל המשימות מציג את כל החלונות הפתוחים ומאפשר למזער אותם לכדי סמל, להצל אותם או לקבל עבורם מיקוד"
 
 #: ../src/plugins/dclock.c:422
 msgid "Clock Format"
@@ -1203,12 +1201,8 @@ msgstr "לא ניתן לנתח את שם המנשק מ־'%s'"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid ""
-"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
-msgstr ""
-"לא ניתן לנתח את סטטיסטיקת המנשק מ־'%s'.‏prx_idx = %d; ptx_idx = %d; brx_idx = "
-"%d; btx_idx = %d;"
+msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgstr "לא ניתן לנתח את סטטיסטיקת המנשק מ־'%s'.‏prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
