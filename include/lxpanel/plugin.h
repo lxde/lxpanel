@@ -81,6 +81,8 @@ typedef struct _Panel {
     guint setstrut : 1;
     guint round_corners : 1;
     guint usefontcolor : 1;
+    guint usefontsize : 1;
+    guint fontsize;
     guint transparent : 1;
     guint background : 1;
     guint spacing;
