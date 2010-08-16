@@ -5,18 +5,20 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-20 11:01+0200\n"
-"PO-Revision-Date: 2010-07-11 17:50+0200\n"
-"Last-Translator: Hamidreza <n3gb0y@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2010-08-16 05:42+0000\n"
+"PO-Revision-Date: 2010-08-16 22:24+0330\n"
+"Last-Translator: Mostafa <info@mostafadaneshvar.com>\n"
+"Language-Team: Persian <trans-fa@lists.fedoraproject.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fa\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.1\n"
+"X-Poedit-Language: Persian\n"
+"X-Poedit-Country: Iran\n"
 
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
@@ -67,7 +69,8 @@ msgstr "هم‌ترازی:"
 msgid "Appearance"
 msgstr "ظاهر"
 
-#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1049
+#: ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:1049
 msgid "Bottom"
 msgstr "پایین"
 
@@ -95,7 +98,9 @@ msgstr "مدیر فایل:"
 msgid "Geometry"
 msgstr "هندسی"
 
-#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:1039 ../src/panel.c:1047
+#: ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:1039
+#: ../src/panel.c:1047
 msgid "Height:"
 msgstr "بلندی"
 
@@ -103,7 +108,8 @@ msgstr "بلندی"
 msgid "Image"
 msgstr "تصویر"
 
-#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:1041
+#: ../data/ui/panel-pref.glade.h:23
+#: ../src/panel.c:1041
 msgid "Left"
 msgstr "چپ"
 
@@ -112,7 +118,6 @@ msgid "Logout Command:"
 msgstr "دستور خروج"
 
 #: ../data/ui/panel-pref.glade.h:25
-#, fuzzy
 msgid "Make window managers treat the panel as dock"
 msgstr "مدیران پنجره در پنل مانند لنگرگاه رفتار کنند"
 
@@ -140,7 +145,8 @@ msgstr "پکسل‌ها"
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "فضا را ذخیره کن و به هنگام حداکثرسازی پوشش داده نشود"
 
-#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:1042
+#: ../data/ui/panel-pref.glade.h:32
+#: ../src/panel.c:1042
 msgid "Right"
 msgstr "راست"
 
@@ -164,11 +170,14 @@ msgstr "تِم سیستم"
 msgid "Terminal Emulator:"
 msgstr "شبیه‌ساز پایانه"
 
-#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1048
+#: ../data/ui/panel-pref.glade.h:38
+#: ../src/panel.c:1048
 msgid "Top"
 msgstr "بالا"
 
-#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:1040 ../src/panel.c:1046
+#: ../data/ui/panel-pref.glade.h:39
+#: ../src/panel.c:1040
+#: ../src/panel.c:1046
 msgid "Width:"
 msgstr "پهنا:"
 
@@ -217,7 +226,8 @@ msgstr "<b>قدرت سیگنال</b>"
 msgid "Address:"
 msgstr "نشانی:"
 
-#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
+#: ../data/ui/netstatus.glade.h:10
+#: ../src/plugins/netstat/netstat.c:319
 #: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
 msgid "Broadcast:"
@@ -278,11 +288,13 @@ msgstr "نوع:"
 msgid "_Name:"
 msgstr "ـ‌نام:"
 
-#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:887
+#: ../data/ui/launchbar.glade.h:1
+#: ../src/plugins/launchbar.c:887
 msgid "Application Launch Bar"
 msgstr "نوار اجرای برنامه"
 
-#: ../src/configurator.c:54 ../src/gtk-run.c:319
+#: ../src/configurator.c:54
+#: ../src/gtk-run.c:319
 msgid "Run"
 msgstr "اجرای سریع"
 
@@ -300,16 +312,15 @@ msgstr "افزونه های بارگذاری شده ی حال حاضر"
 
 #: ../src/configurator.c:457
 msgid "Stretch"
-msgstr ""
+msgstr "کشیدن"
 
 #: ../src/configurator.c:559
 msgid "Add plugin to panel"
-msgstr ""
+msgstr "اضافه کردن افزونه به پنل"
 
 #: ../src/configurator.c:587
-#, fuzzy
 msgid "Available plugins"
-msgstr "پلاگین های دردسترس"
+msgstr "پلاگین های موجود"
 
 #: ../src/configurator.c:1143
 msgid "Logout command is not set"
@@ -319,7 +330,8 @@ msgstr "دستور خروج هماهنگ نشده است"
 msgid "Select a directory"
 msgstr "یک پوشه انتخاب کنید"
 
-#: ../src/configurator.c:1196 ../src/configurator.c:1287
+#: ../src/configurator.c:1196
+#: ../src/configurator.c:1287
 msgid "Select a file"
 msgstr "یک پرونده انتخاب کنید"
 
@@ -349,8 +361,8 @@ msgid "LXPanel"
 msgstr "اِل اِکس پنل"
 
 #: ../src/panel.c:690
-msgid "Copyright (C) 2008-2009"
-msgstr "حق نشر)c( 2009-2008"
+msgid "Copyright (C) 2008-2010"
+msgstr "حق نشر)c( 2010-2008"
 
 #: ../src/panel.c:691
 msgid "Desktop panel for LXDE project"
@@ -460,7 +472,8 @@ msgstr "نمایشگر استفاده از پردازنده"
 msgid "Display CPU usage"
 msgstr "نمایش استفاده از پردازنده"
 
-#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:426
+#: ../src/plugins/deskno/deskno.c:207
+#: ../src/plugins/dclock.c:426
 msgid "Bold font"
 msgstr "قلم ضخیم"
 
@@ -538,7 +551,6 @@ msgid "Icons only"
 msgstr "فقط آیکن"
 
 #: ../src/plugins/taskbar.c:1970
-#, fuzzy
 msgid "Flat buttons"
 msgstr "دکمه های صاف"
 
@@ -571,10 +583,8 @@ msgid "Task Bar (Window List)"
 msgstr "نوار وظیفه (لیست پنجره‌ها)"
 
 #: ../src/plugins/taskbar.c:2035
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
-msgstr ""
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr "نوار وظیفه همه پنجره های باز را نشان می دهد همچنین آنها ایکنی می کند، محو یا متمرکز شود"
 
 #: ../src/plugins/dclock.c:422
 msgid "Clock Format"
@@ -585,12 +595,16 @@ msgid "Tooltip Format"
 msgstr "قالب tooltip"
 
 #: ../src/plugins/dclock.c:424
-msgid "Format codes: man 3 strftime; \\n for line break"
+msgid ""
+"Format codes: man 3 strftime; \\n"
+" for line break"
 msgstr ""
+"فرم کدها:  man 3 strftime; \\n"
+"برای شکستن خط"
 
 #: ../src/plugins/dclock.c:425
 msgid "Action when clicked (default: display calendar)"
-msgstr ""
+msgstr "عملی که وقتی کلیک می شود (پیش فرض: نمایش تقویم)"
 
 #: ../src/plugins/dclock.c:427
 msgid "Tooltip only"
@@ -612,7 +626,8 @@ msgstr "افزودن به محیط کار"
 msgid "Properties"
 msgstr "مشخصات"
 
-#: ../src/plugins/menu.c:1019 ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1019
+#: ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "آیکن"
 
@@ -640,7 +655,8 @@ msgstr "ورق زننده دسکتاپ"
 msgid "Simple pager plugin"
 msgstr "پلاگین ورق زننده ساده"
 
-#: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
+#: ../src/plugins/space.c:121
+#: ../src/plugins/batt/batt.c:590
 msgid "Size"
 msgstr "اندازه"
 
@@ -731,9 +747,8 @@ msgid "Label"
 msgstr "برچسب"
 
 #: ../src/plugins/dirmenu.c:443
-#, fuzzy
 msgid "Directory Menu"
-msgstr "منوی فرهنگ لغت"
+msgstr "منوی شاخه"
 
 #: ../src/plugins/dirmenu.c:445
 msgid "Browse directory tree via menu (Author: PCMan)"
@@ -752,7 +767,6 @@ msgid "Warning2"
 msgstr "اخطار۲"
 
 #: ../src/plugins/thermal/thermal.c:307
-#, fuzzy
 msgid "Automatic sensor location"
 msgstr "حسگر موقعیت یاب خودکار"
 
@@ -773,7 +787,6 @@ msgid "Warning2 Temperature"
 msgstr "هشدار دمای ۲"
 
 #: ../src/plugins/thermal/thermal.c:353
-#, fuzzy
 msgid "Temperature Monitor"
 msgstr "نمایش دما"
 
@@ -806,7 +819,6 @@ msgid "Mute"
 msgstr "بی صدا"
 
 #: ../src/plugins/netstat/netstat.c:168
-#, fuzzy
 msgid "<Hidden Access Point>"
 msgstr "<اکسس پوینت های مخفی>"
 
@@ -836,7 +848,8 @@ msgstr "کابل شبکه قطع شده است"
 msgid "Connection has limited or no connectivity"
 msgstr "اتصال محدود شده یا فعالیتی ندارد"
 
-#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307
+#: ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "آدرس IP :"
@@ -845,33 +858,38 @@ msgstr "آدرس IP :"
 msgid "Remote IP:"
 msgstr "IP دور"
 
-#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309
+#: ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "نت ماسک:"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "فعالیت"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "فرستاده شد"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "دریافت شد"
 
-#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311
+#: ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
-#, fuzzy
 msgid "bytes"
 msgstr "بایت ها"
 
-#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312
+#: ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "بسته ها"
@@ -883,11 +901,11 @@ msgstr "بی سیم"
 
 # قرار داد ؟
 #: ../src/plugins/netstat/netstat.c:317
-#, fuzzy
 msgid "Protocol:"
 msgstr "پروتکل:"
 
-#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321
+#: ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "آدرس HW:"
 
@@ -950,9 +968,7 @@ msgstr "مشخصات اتصال: %s"
 #: ../src/plugins/netstatus/netstatus-dialog.c:135
 #, c-format
 msgid "%lu packet"
-msgid_plural "%lu packets"
-msgstr[0] "%lu بسته"
-msgstr[1] "%lu بسته"
+msgstr "%lu بسته"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:396
 #, c-format
@@ -966,7 +982,7 @@ msgstr ""
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
-msgstr "خطا در راه اندازی ابزار تنظیم زمان"
+msgstr "%s:خطا در راه اندازی ابزار تنظیم زمان"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:379
 #, c-format
@@ -1006,9 +1022,8 @@ msgid "Show Signal"
 msgstr "نمایش سیگنال"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:837
-#, fuzzy
 msgid "Whether or not the signal strength should be displayed."
-msgstr "درهرصورت موقعیت نوع علامت باید نشان داده شود."
+msgstr "درهرصورت موقعیت نوع سیگنال باید نشان داده شود."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:950
 #, c-format
@@ -1080,33 +1095,32 @@ msgstr "SIOCGIFFLAGS خطای: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:870
 msgid "AMPR NET/ROM"
-msgstr ""
+msgstr "ای‌ام‌پی‌ار  NET/ROM"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:873
-#, fuzzy
 msgid "Ethernet"
 msgstr "اترنت"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:879
 msgid "AMPR AX.25"
-msgstr ""
+msgstr "ای‌ام‌پی‌ار AX.25"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:888
 #: ../src/plugins/netstatus/netstatus-iface.c:1008
 msgid "16/4 Mbps Token Ring"
-msgstr ""
+msgstr "۱۶/۴ Mbps حلقه توکن"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:891
 msgid "ARCnet"
-msgstr ""
+msgstr "ای‌ار‌سی‌نت"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:897
 msgid "Frame Relay DLCI"
-msgstr ""
+msgstr "فریم رلی DLCI"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:903
 msgid "Metricom Starmode IP"
-msgstr ""
+msgstr "ای پی استارمد متریکم"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:906
 msgid "Serial Line IP"
@@ -1114,27 +1128,27 @@ msgstr "IP خط سریال"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:909
 msgid "VJ Serial Line IP"
-msgstr ""
+msgstr "ای پی سریال خطی VJ"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:912
 msgid "6-bit Serial Line IP"
-msgstr ""
+msgstr "ای پی خط سریال 6-بیتی"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:915
 msgid "VJ 6-bit Serial Line IP"
-msgstr ""
+msgstr "ای پی خطی سریال 6 بیتی VJ"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:921
 msgid "Adaptive Serial Line IP"
-msgstr ""
+msgstr "ای پی خط سری انطباقی"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:924
 msgid "AMPR ROSE"
-msgstr ""
+msgstr "ای‌ام‌پی‌ار روز"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:927
 msgid "Generic X.25"
-msgstr ""
+msgstr "جنریک  X.25"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:930
 msgid "Point-to-Point Protocol"
@@ -1142,23 +1156,23 @@ msgstr "پروتکول نقطه به نقطه"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:936
 msgid "(Cisco)-HDLC"
-msgstr ""
+msgstr "(سیسکو)-HDLC"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:939
 msgid "LAPB"
-msgstr ""
+msgstr "ال‌ای‌پی‌بی (LAPB)"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:948
 msgid "IPIP Tunnel"
-msgstr ""
+msgstr "تونل IPIP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:954
 msgid "Frame Relay Access Device"
-msgstr ""
+msgstr "وسیله دسترسی فریم رله"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:960
 msgid "Local Loopback"
-msgstr ""
+msgstr "چرخش داخلی"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:966
 msgid "Fiber Distributed Data Interface"
@@ -1170,24 +1184,24 @@ msgstr "IPv6 به IPv4"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:984
 msgid "HIPPI"
-msgstr ""
+msgstr "اچ‌ای‌پی‌پی‌ای HIPPI"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:987
 msgid "Ash"
-msgstr ""
+msgstr "خاکستر"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:990
 msgid "Econet"
-msgstr ""
+msgstr "ا‌کو نت(Econet)"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:993
 msgid "IrLAP"
-msgstr ""
+msgstr "ای‌ار‌ال‌ای‌پی(IrLAP)"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:1155
 #, c-format
 msgid "SIOCGIFCONF error: %s"
-msgstr ""
+msgstr "خطای %s: SIOCGIFCONF"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:1248
 #, c-format
@@ -1212,12 +1226,8 @@ msgstr "نمی توانم اسم کارت شبکه را از '%s' بخوانم."
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid ""
-"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
-msgstr ""
-"نمی توانم امار کارت شبکه را بخوانم از '%s'.  prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
+msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgstr "نمی توانم امار کارت شبکه را بخوانم از '%s'.  prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1245,7 +1255,7 @@ msgstr "نمی توانم خط فرمان '%s': %s را بخوانم"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr ""
+msgstr "نمی تواند خروجی 'netstat' را تحلیل کند. قالب ناشناس"
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
@@ -1279,7 +1289,7 @@ msgstr "باتری %d%% شارژ شده، %d:%02d تا پرشدن "
 #: ../src/plugins/batt/batt.c:190
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
-msgstr ""
+msgstr "باتری: شارج %d%% شد،  %d:%02d  باقی مانده است"
 
 #: ../src/plugins/batt/batt.c:196
 #, c-format
@@ -1295,7 +1305,6 @@ msgid "Alarm command"
 msgstr "دستور هشدار"
 
 #: ../src/plugins/batt/batt.c:583
-#, fuzzy
 msgid "Alarm time (minutes left)"
 msgstr "ساعت هشدار (دقایق باقی مانده)"
 
@@ -1304,7 +1313,6 @@ msgid "Background color"
 msgstr "رنگ زمینه"
 
 #: ../src/plugins/batt/batt.c:585
-#, fuzzy
 msgid "Charging color 1"
 msgstr "رنگ شارژ ۱"
 
@@ -1329,7 +1337,6 @@ msgid "Battery Monitor"
 msgstr "نمایش باتری"
 
 #: ../src/plugins/batt/batt.c:621
-#, fuzzy
 msgid "Display battery status using ACPI"
 msgstr "وضعیت باتری را با ACPI نماش بده"
 
