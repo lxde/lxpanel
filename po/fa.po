@@ -2,12 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-16 05:42+0000\n"
+"POT-Creation-Date: 2010-08-17 05:39+0000\n"
 "PO-Revision-Date: 2010-08-16 22:24+0330\n"
 "Last-Translator: Mostafa <info@mostafadaneshvar.com>\n"
 "Language-Team: Persian <trans-fa@lists.fedoraproject.org>\n"
@@ -16,9 +16,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fa\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.1\n"
 "X-Poedit-Language: Persian\n"
 "X-Poedit-Country: Iran\n"
+"X-Generator: Pootle 2.0.1\n"
 
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
@@ -69,8 +69,7 @@ msgstr "هم‌ترازی:"
 msgid "Appearance"
 msgstr "ظاهر"
 
-#: ../data/ui/panel-pref.glade.h:14
-#: ../src/panel.c:1049
+#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1049
 msgid "Bottom"
 msgstr "پایین"
 
@@ -98,9 +97,7 @@ msgstr "مدیر فایل:"
 msgid "Geometry"
 msgstr "هندسی"
 
-#: ../data/ui/panel-pref.glade.h:21
-#: ../src/panel.c:1039
-#: ../src/panel.c:1047
+#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:1039 ../src/panel.c:1047
 msgid "Height:"
 msgstr "بلندی"
 
@@ -108,8 +105,7 @@ msgstr "بلندی"
 msgid "Image"
 msgstr "تصویر"
 
-#: ../data/ui/panel-pref.glade.h:23
-#: ../src/panel.c:1041
+#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:1041
 msgid "Left"
 msgstr "چپ"
 
@@ -145,8 +141,7 @@ msgstr "پکسل‌ها"
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "فضا را ذخیره کن و به هنگام حداکثرسازی پوشش داده نشود"
 
-#: ../data/ui/panel-pref.glade.h:32
-#: ../src/panel.c:1042
+#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:1042
 msgid "Right"
 msgstr "راست"
 
@@ -170,14 +165,11 @@ msgstr "تِم سیستم"
 msgid "Terminal Emulator:"
 msgstr "شبیه‌ساز پایانه"
 
-#: ../data/ui/panel-pref.glade.h:38
-#: ../src/panel.c:1048
+#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1048
 msgid "Top"
 msgstr "بالا"
 
-#: ../data/ui/panel-pref.glade.h:39
-#: ../src/panel.c:1040
-#: ../src/panel.c:1046
+#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:1040 ../src/panel.c:1046
 msgid "Width:"
 msgstr "پهنا:"
 
@@ -226,8 +218,7 @@ msgstr "<b>قدرت سیگنال</b>"
 msgid "Address:"
 msgstr "نشانی:"
 
-#: ../data/ui/netstatus.glade.h:10
-#: ../src/plugins/netstat/netstat.c:319
+#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
 #: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
 msgid "Broadcast:"
@@ -288,13 +279,11 @@ msgstr "نوع:"
 msgid "_Name:"
 msgstr "ـ‌نام:"
 
-#: ../data/ui/launchbar.glade.h:1
-#: ../src/plugins/launchbar.c:887
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:887
 msgid "Application Launch Bar"
 msgstr "نوار اجرای برنامه"
 
-#: ../src/configurator.c:54
-#: ../src/gtk-run.c:319
+#: ../src/configurator.c:54 ../src/gtk-run.c:319
 msgid "Run"
 msgstr "اجرای سریع"
 
@@ -330,8 +319,7 @@ msgstr "دستور خروج هماهنگ نشده است"
 msgid "Select a directory"
 msgstr "یک پوشه انتخاب کنید"
 
-#: ../src/configurator.c:1196
-#: ../src/configurator.c:1287
+#: ../src/configurator.c:1196 ../src/configurator.c:1287
 msgid "Select a file"
 msgstr "یک پرونده انتخاب کنید"
 
@@ -472,8 +460,7 @@ msgstr "نمایشگر استفاده از پردازنده"
 msgid "Display CPU usage"
 msgstr "نمایش استفاده از پردازنده"
 
-#: ../src/plugins/deskno/deskno.c:207
-#: ../src/plugins/dclock.c:426
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:426
 msgid "Bold font"
 msgstr "قلم ضخیم"
 
@@ -527,7 +514,8 @@ msgstr "فضای کاری _%d"
 msgid "Workspace %d"
 msgstr "فضای کاری %d"
 
-#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
+#. Add "move to all workspaces" item.  This causes the window to be visible no
+#. matter what desktop is active.
 #: ../src/plugins/taskbar.c:1753
 msgid "_All workspaces"
 msgstr "ـ‌همه‌ی فضاهای کاری"
@@ -537,7 +525,8 @@ msgstr "ـ‌همه‌ی فضاهای کاری"
 msgid "_Move to Workspace"
 msgstr "انتقال به فضای کاری"
 
-#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
+#. Add Close menu item.  By popular demand, we place this menu item closest to
+#. the cursor.
 #: ../src/plugins/taskbar.c:1765
 msgid "_Close Window"
 msgstr "بستن پنجره"
@@ -595,12 +584,8 @@ msgid "Tooltip Format"
 msgstr "قالب tooltip"
 
 #: ../src/plugins/dclock.c:424
-msgid ""
-"Format codes: man 3 strftime; \\n"
-" for line break"
-msgstr ""
-"فرم کدها:  man 3 strftime; \\n"
-"برای شکستن خط"
+msgid "Format codes: man 3 strftime; \\n for line break"
+msgstr "فرم کدها:  man 3 strftime; \\nبرای شکستن خط"
 
 #: ../src/plugins/dclock.c:425
 msgid "Action when clicked (default: display calendar)"
@@ -626,8 +611,7 @@ msgstr "افزودن به محیط کار"
 msgid "Properties"
 msgstr "مشخصات"
 
-#: ../src/plugins/menu.c:1019
-#: ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1019 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "آیکن"
 
@@ -655,8 +639,7 @@ msgstr "ورق زننده دسکتاپ"
 msgid "Simple pager plugin"
 msgstr "پلاگین ورق زننده ساده"
 
-#: ../src/plugins/space.c:121
-#: ../src/plugins/batt/batt.c:590
+#: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
 msgid "Size"
 msgstr "اندازه"
 
@@ -848,8 +831,7 @@ msgstr "کابل شبکه قطع شده است"
 msgid "Connection has limited or no connectivity"
 msgstr "اتصال محدود شده یا فعالیتی ندارد"
 
-#: ../src/plugins/netstat/netstat.c:307
-#: ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "آدرس IP :"
@@ -858,38 +840,32 @@ msgstr "آدرس IP :"
 msgid "Remote IP:"
 msgstr "IP دور"
 
-#: ../src/plugins/netstat/netstat.c:309
-#: ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "نت ماسک:"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "فعالیت"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "فرستاده شد"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "دریافت شد"
 
-#: ../src/plugins/netstat/netstat.c:311
-#: ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "بایت ها"
 
-#: ../src/plugins/netstat/netstat.c:312
-#: ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "بسته ها"
@@ -904,8 +880,7 @@ msgstr "بی سیم"
 msgid "Protocol:"
 msgstr "پروتکل:"
 
-#: ../src/plugins/netstat/netstat.c:321
-#: ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "آدرس HW:"
 
@@ -968,7 +943,8 @@ msgstr "مشخصات اتصال: %s"
 #: ../src/plugins/netstatus/netstatus-dialog.c:135
 #, c-format
 msgid "%lu packet"
-msgstr "%lu بسته"
+msgid_plural "%lu packets"
+msgstr[0] "%lu بسته"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:396
 #, c-format
