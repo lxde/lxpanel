@@ -7,10 +7,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: lxpanel 0.5.3\n"
+"Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-20 11:01+0200\n"
-"PO-Revision-Date: 2009-10-24 14:48+0900\n"
+"POT-Creation-Date: 2010-07-31 17:49+0900\n"
+"PO-Revision-Date: 2010-07-31 17:50+0900\n"
 "Last-Translator: Hironao Komatsu <hironao@users.sourceforge.net>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -349,8 +349,8 @@ msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:690
-msgid "Copyright (C) 2008-2009"
-msgstr "Copyright (C) 2008-2009"
+msgid "Copyright (C) 2008-2010"
+msgstr "Copyright (C) 2008-2010"
 
 #: ../src/panel.c:691
 msgid "Desktop panel for LXDE project"
