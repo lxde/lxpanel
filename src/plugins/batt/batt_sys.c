@@ -150,7 +150,7 @@ void battery_update( battery *b ) {
 		    b->state = "available";
 	    }
 	    else if ( strcmp("energy_now", sys_file ) == 0 ) {
-		b->remaining_capacity = get_unit_value((gchar*) file_content) / 1000;
+		b->remaining_energy = get_unit_value((gchar*) file_content) / 1000;
 		if (!b->state)
 		    b->state = "available";
 	    }
@@ -215,7 +215,7 @@ void battery_update( battery *b ) {
     if (b->last_capacity < MIN_CAPACITY)
 	b->percentage = 0;
     else
-	b->percentage = b->remaining_capacity * 100 / b->last_capacity;
+	b->percentage = ((float) b->remaining_energy * 100.0) / (float) b->last_capacity_unit;
 	    
     if (b->percentage > 100)
 	b->percentage = 100;
