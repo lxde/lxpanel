@@ -2,14 +2,15 @@
 # Copyright (C) YEAR THE lxpanel'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the lxpanel package.
 # Andhika Padmawan <andhika.padmawan@gmail.com>, Rahman Yusri Aftian <aftian@yahoo.com>, 2009.
-# 
+# Andika Triwidada <andika@gmail.com>, 2010.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-20 11:01+0200\n"
-"PO-Revision-Date: 2010-03-20 01:59+0200\n"
-"Last-Translator: Rahman Yusri Aftian <aftian@yahoo.com>\n"
+"POT-Creation-Date: 2010-08-25 05:41+0000\n"
+"PO-Revision-Date: 2010-08-26 01:47+0700\n"
+"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
 "Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,11 +26,11 @@ msgstr "% Persen"
 
 #: ../data/ui/panel-pref.glade.h:3
 msgid "<b>Automatic hiding</b>"
-msgstr "<b>Sembunyi Otomatis</b>"
+msgstr "<b>Sembunyi otomatis</b>"
 
 #: ../data/ui/panel-pref.glade.h:4
 msgid "<b>Background</b>"
-msgstr "<b>Latar Belakang</b>"
+msgstr "<b>Latar belakang</b>"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "<b>Font</b>"
@@ -77,7 +78,7 @@ msgstr "Tengah"
 
 #: ../data/ui/panel-pref.glade.h:16
 msgid "Custom color"
-msgstr "Warna Kebiasaan"
+msgstr "Warna gubahan"
 
 #: ../data/ui/panel-pref.glade.h:17
 msgid "Dynamic"
@@ -93,7 +94,7 @@ msgstr "Manajer Berkas:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "Geometry"
-msgstr "Geometry"
+msgstr "Geometri"
 
 #: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:1039 ../src/panel.c:1047
 msgid "Height:"
@@ -101,7 +102,7 @@ msgstr "Tinggi:"
 
 #: ../data/ui/panel-pref.glade.h:22
 msgid "Image"
-msgstr "citra"
+msgstr "Citra"
 
 #: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:1041
 msgid "Left"
@@ -121,7 +122,7 @@ msgstr "Margin:"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Minimize panel when not in use"
-msgstr "Mengecilkan Panel Ketika tidak dapat digunakan"
+msgstr "Mengecilkan panel ketika tidak dapat digunakan"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "Panel Applets"
@@ -133,7 +134,7 @@ msgstr "Pengaturan Panel"
 
 #: ../data/ui/panel-pref.glade.h:30
 msgid "Pixels"
-msgstr "Pixel"
+msgstr "Piksel"
 
 #: ../data/ui/panel-pref.glade.h:31
 msgid "Reserve space, and not covered by maximized windows"
@@ -153,11 +154,11 @@ msgstr "Ukuran ketika diminimalkan"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Solid color (with opacity)"
-msgstr "Warna solid (dengan keburaman)"
+msgstr "Warna rata (dengan keburaman)"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "System theme"
-msgstr "Tema Sistem"
+msgstr "Tema sistem"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "Terminal Emulator:"
@@ -173,7 +174,7 @@ msgstr "Lebar:"
 
 #: ../data/ui/panel-pref.glade.h:40
 msgid "pixels"
-msgstr "Pixel"
+msgstr "Piksel"
 
 #: ../data/ui/netstatus.glade.h:2
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
@@ -279,7 +280,7 @@ msgstr "_Nama:"
 
 #: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:887
 msgid "Application Launch Bar"
-msgstr "Batang Jalankan Aplikasi"
+msgstr "Bilah Luncuran Aplikasi"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:319
 msgid "Run"
@@ -315,7 +316,7 @@ msgstr "Perintah keluar tidak diatur"
 
 #: ../src/configurator.c:1196
 msgid "Select a directory"
-msgstr "Pilih berkas"
+msgstr "Pilih direktori"
 
 #: ../src/configurator.c:1196 ../src/configurator.c:1287
 msgid "Select a file"
@@ -340,19 +341,19 @@ msgstr "Konfirmasi"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:683
 msgid "translator-credits"
-msgstr "Tentang-Penerjemah"
+msgstr "Andika Triwidada <andika@gmail.com>, 2010"
 
 #: ../src/panel.c:688
 msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:690
-msgid "Copyright (C) 2008-2009"
-msgstr "Copyright (C) 2008-2009"
+msgid "Copyright (C) 2008-2010"
+msgstr "Hak Cipta (C) 2008-2010"
 
 #: ../src/panel.c:691
 msgid "Desktop panel for LXDE project"
-msgstr "Panel Desktop  untuk proyek LXDE "
+msgstr "Panel Desktop untuk projek LXDE "
 
 #: ../src/panel.c:714
 msgid "Add / Remove Panel Items"
@@ -448,7 +449,7 @@ msgstr ""
 
 #: ../src/gtk-run.c:332
 msgid "Enter the command you want to execute:"
-msgstr "Masukkan perintah yang ingin anda eksekusi:"
+msgstr "Masukkan perintah yang ingin Anda eksekusi:"
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
@@ -464,7 +465,7 @@ msgstr "Fonta tebal"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
-msgstr "Tampilan nama desktop"
+msgstr "Tampilkan nama desktop"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
@@ -500,19 +501,20 @@ msgstr "Ma_ksimalkan"
 #. Add Iconify menu item.
 #: ../src/plugins/taskbar.c:1715
 msgid "Ico_nify"
-msgstr "Iko_nifikasi"
+msgstr "Iko_nkan"
 
 #: ../src/plugins/taskbar.c:1734
 #, c-format
 msgid "Workspace _%d"
-msgstr "Ruang kerja %d"
+msgstr "Ruang kerja _%d"
 
 #: ../src/plugins/taskbar.c:1739
 #, c-format
 msgid "Workspace %d"
 msgstr "Ruang kerja %d"
 
-#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
+#. Add "move to all workspaces" item.  This causes the window to be visible no
+#. matter what desktop is active.
 #: ../src/plugins/taskbar.c:1753
 msgid "_All workspaces"
 msgstr "Semu_a ruang kerja"
@@ -522,7 +524,8 @@ msgstr "Semu_a ruang kerja"
 msgid "_Move to Workspace"
 msgstr "Pin_dah ke Ruang Kerja"
 
-#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
+#. Add Close menu item.  By popular demand, we place this menu item closest to
+#. the cursor.
 #: ../src/plugins/taskbar.c:1765
 msgid "_Close Window"
 msgstr "Tutup _Jendela"
@@ -537,7 +540,7 @@ msgstr "Hanya ikon"
 
 #: ../src/plugins/taskbar.c:1970
 msgid "Flat buttons"
-msgstr "Tombol Rata"
+msgstr "Tombol rata"
 
 #: ../src/plugins/taskbar.c:1971
 msgid "Show windows from all desktops"
@@ -586,7 +589,7 @@ msgstr "Format Tip Alat"
 #: ../src/plugins/dclock.c:424
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr ""
-"Format codec : man 3 strftime; \n"
+"Format codec: man 3 strftime; \n"
 " untuk baris istirahat"
 
 #: ../src/plugins/dclock.c:425
@@ -659,7 +662,7 @@ msgstr "Baki Sistem"
 
 #: ../src/plugins/tray.c:707
 msgid "System tray"
-msgstr "Sistem Baki"
+msgstr "Baki sistem"
 
 #: ../src/plugins/xkb/xkb-plugin.c:291
 msgid "Configure Keyboard Layout Switcher"
@@ -702,12 +705,11 @@ msgstr "Ubah di antara tata letak papan ketik yang tersedia"
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
-"Klik kiri untuk mengikonifikasi semua jendela. _ _ Klik tengah untuk bayang."
+"Klik kiri untuk mengikonkan semua jendela. Klik tengah untuk berbayang."
 
 #: ../src/plugins/wincmd.c:237
-#, fuzzy
 msgid "Alternately iconify/shade and raise"
-msgstr "Bergantian iconify/keteduhan dan meningkatkan"
+msgstr "Bergantian jadikan ikon/berbayang dan diangkat"
 
 #: ../src/plugins/wincmd.c:266
 msgid "Minimize All Windows"
@@ -811,7 +813,7 @@ msgstr "<Titik Akses Tersembunyi>"
 
 #: ../src/plugins/netstat/netstat.c:201
 msgid "Wireless Networks not found in range"
-msgstr "Jaringan Nirkabel tak ditemukan di jangkauan"
+msgstr "Jaringan nirkabel tak ditemukan di jangkauan"
 
 #. Repair
 #: ../src/plugins/netstat/netstat.c:235
@@ -842,7 +844,7 @@ msgstr "Alamat IP:"
 
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Remote IP:"
-msgstr "IP Jarak Jauh:"
+msgstr "IP Jauh:"
 
 #: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
@@ -948,7 +950,6 @@ msgstr "Properti Koneksi: %s"
 msgid "%lu packet"
 msgid_plural "%lu packets"
 msgstr[0] "%lu paket"
-msgstr[1] "%lu paket"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:396
 #, c-format
@@ -1012,7 +1013,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Silakan hubungi administrator sistem anda untuk memecahkan masalah berikut:\n"
+"Silakan hubungi administrator sistem Anda untuk memecahkan masalah berikut:\n"
 "\n"
 "%s"
 
@@ -1088,7 +1089,7 @@ msgstr "AMPR AX.25"
 #: ../src/plugins/netstatus/netstatus-iface.c:888
 #: ../src/plugins/netstatus/netstatus-iface.c:1008
 msgid "16/4 Mbps Token Ring"
-msgstr "16/4 Mbps Token Ring"
+msgstr "Token Ring 16/4 Mbps"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:891
 msgid "ARCnet"
@@ -1128,7 +1129,7 @@ msgstr "AMPR ROSE"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:927
 msgid "Generic X.25"
-msgstr "Generic X.25"
+msgstr "X.25 Generik"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:930
 msgid "Point-to-Point Protocol"
@@ -1247,7 +1248,7 @@ msgstr "Terputus"
 
 #: ../src/plugins/netstatus/netstatus-util.c:155
 msgid "Idle"
-msgstr "Tak Aktif"
+msgstr "Menganggur"
 
 #: ../src/plugins/netstatus/netstatus-util.c:158
 msgid "Sending"
@@ -1273,7 +1274,7 @@ msgstr "Baterai: %d%% terisi, %d:%02d sampai penuh"
 #: ../src/plugins/batt/batt.c:190
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
-msgstr "Baterai: %d%% terisi, %d:%02d lagi"
+msgstr "Baterai: %d%% terisi, %d:%02d tersisa"
 
 #: ../src/plugins/batt/batt.c:196
 #, c-format
@@ -1290,7 +1291,7 @@ msgstr "Perintah alarm"
 
 #: ../src/plugins/batt/batt.c:583
 msgid "Alarm time (minutes left)"
-msgstr "Waktu alarm (menit lagi)"
+msgstr "Waktu alarm (menit tersisa)"
 
 #: ../src/plugins/batt/batt.c:584
 msgid "Background color"
@@ -1343,127 +1344,3 @@ msgstr "Papan Ketik LED"
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Indikator untuk tombol CapsLock, NumLock, dan ScrollLock"
-
-#~ msgid "Applications"
-#~ msgstr "Aplikasi"
-
-#~ msgid "Available Applications"
-#~ msgstr "Aplikasi tersedia"
-
-#~ msgid "Display system temperature, by kesler.daniel@gmail.com"
-#~ msgstr "Tampilkan temperatur sistem, oleh kesler.daniel@gmail.com"
-
-#~ msgid "Keyboard Led"
-#~ msgstr "Led Papan Ketik"
-
-#~ msgid "Left\t"
-#~ msgstr "Kiri\t"
-
-#~ msgid "Top\t"
-#~ msgstr "Atas\t"
-
-#~ msgid "Couldn't find pixmap file: %s"
-#~ msgstr "Tak dapat menemukan berkas pixmap: %s"
-
-#~ msgid "Desktop No / Workspace Name"
-#~ msgstr "Nama Ruang / Nomor Desktop"
-
-#~ msgid ""
-#~ "Allows you to switch the keyboard layout and\n"
-#~ "displays the currently selected layout."
-#~ msgstr ""
-#~ "Mengizinkan anda untuk mengubah tata letak\n"
-#~ "papan ketik dan menampilkan tata letak terpilih\n"
-#~ "saat ini."
-
-#~ msgid "Other plugins available here"
-#~ msgstr "Plugin lainnya tersedia di sini"
-
-#~ msgid "Old KDE/GNOME Tray"
-#~ msgstr "Baki KDE/GNOME lama"
-
-#~ msgid "Enable Image:"
-#~ msgstr "Aktifkan Citra:"
-
-#~ msgid "Enable Transparency"
-#~ msgstr "Aktifkan Transparansi"
-
-#~ msgid "Tint color:"
-#~ msgstr "Warna cat:"
-
-#~ msgid " --configure -- launch configuration utility\n"
-#~ msgstr " --configure -- jalankan utilitas konfigurasi\n"
-
-#~ msgid " -C  -- same as --configure\n"
-#~ msgstr " -C  -- sama seperti --configure\n"
-
-#~ msgid "Add Button"
-#~ msgstr "Tambah Tombol"
-
-#~ msgid "Button Properties"
-#~ msgstr "Properti Tombol"
-
-#~ msgid "Remove Button"
-#~ msgstr "Hapus Tombol"
-
-#~ msgid "Buttons"
-#~ msgstr "Tombol"
-
-#~ msgid "Accept SkipPager"
-#~ msgstr "Terima SkipPager"
-
-#~ msgid "Show Iconified windows"
-#~ msgstr "Tampilkan jendela terikonifikasi"
-
-#~ msgid "Show mapped windows"
-#~ msgstr "Tampilkan jendela terpetakan"
-
-#~ msgid "Action"
-#~ msgstr "Aksi"
-
-#~ msgid "Provide Menu"
-#~ msgstr "Sediakan Menu "
-
-#~ msgid "Kayboard Layout switcher"
-#~ msgstr "Pengubah Tata Letak Papan Ketik"
-
-#~ msgid ""
-#~ "Dynamic\n"
-#~ "Pixels\n"
-#~ "% Percent"
-#~ msgstr ""
-#~ "Dinamis\n"
-#~ "Pixel\n"
-#~ "% Persen"
-
-#~ msgid ""
-#~ "Left\n"
-#~ "Center\n"
-#~ "Right"
-#~ msgstr ""
-#~ "Kiri\n"
-#~ "Tengah\n"
-#~ "Kanan"
-
-#~ msgid ""
-#~ "Left\n"
-#~ "Right\n"
-#~ "Top\n"
-#~ "Bottom"
-#~ msgstr ""
-#~ "Kiri\n"
-#~ "Kanan\n"
-#~ "Atas\n"
-#~ "Bawah"
-
-#~ msgid "Where to put the panel?"
-#~ msgstr "Dimana ingin menaruh panel?"
-
-#~ msgid "Battery: %d%% charged, %s"
-#~ msgstr "Baterai: %d%% terisi, %s"
-
-#~ msgid "charging finished"
-#~ msgstr "pengisian selesai"
-
-#~ msgid "charging"
-#~ msgstr "mengisi"
