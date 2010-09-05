@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -67,8 +67,7 @@ msgstr "Hizalama:"
 msgid "Appearance"
 msgstr "Görünüm"
 
-#: ../data/ui/panel-pref.glade.h:14
-#: ../src/panel.c:1049
+#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1049
 msgid "Bottom"
 msgstr "Alt"
 
@@ -96,9 +95,7 @@ msgstr "Dosya Yöneticisi:"
 msgid "Geometry"
 msgstr "Geometri"
 
-#: ../data/ui/panel-pref.glade.h:21
-#: ../src/panel.c:1039
-#: ../src/panel.c:1047
+#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:1039 ../src/panel.c:1047
 msgid "Height:"
 msgstr "Yükseklik:"
 
@@ -106,8 +103,7 @@ msgstr "Yükseklik:"
 msgid "Image"
 msgstr "Resim"
 
-#: ../data/ui/panel-pref.glade.h:23
-#: ../src/panel.c:1041
+#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:1041
 msgid "Left"
 msgstr "Sol"
 
@@ -144,8 +140,7 @@ msgstr "Piksel"
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Ayrılmış yer, tam ekran yapılan pencerelerce kaplanmaz."
 
-#: ../data/ui/panel-pref.glade.h:32
-#: ../src/panel.c:1042
+#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:1042
 msgid "Right"
 msgstr "Sağ"
 
@@ -157,7 +152,8 @@ msgstr "Bir resim dosyası seçin"
 msgid "Size when minimized"
 msgstr "Küçültüldüğündeki boyut"
 
-# Donukluklu'nun Türkçesi mat veya "donuk"tur. Donukluklulukluluklu olmamassı için aynı anlamı veren ek tekrarlanmaz. 
+# Donukluklu'nun Türkçesi mat veya "donuk"tur. Donukluklulukluluklu olmamassı
+# için aynı anlamı veren ek tekrarlanmaz.
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Solid color (with opacity)"
 msgstr "Düz renk (mat)"
@@ -170,14 +166,11 @@ msgstr "Sistem teması"
 msgid "Terminal Emulator:"
 msgstr "Uçbirim Öykünücüsü"
 
-#: ../data/ui/panel-pref.glade.h:38
-#: ../src/panel.c:1048
+#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1048
 msgid "Top"
 msgstr "Üst"
 
-#: ../data/ui/panel-pref.glade.h:39
-#: ../src/panel.c:1040
-#: ../src/panel.c:1046
+#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:1040 ../src/panel.c:1046
 msgid "Width:"
 msgstr "Genişlik:"
 
@@ -226,8 +219,7 @@ msgstr "<b>Sinyal Gücü</b>"
 msgid "Address:"
 msgstr "Adres:"
 
-#: ../data/ui/netstatus.glade.h:10
-#: ../src/plugins/netstat/netstat.c:319
+#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
 #: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
 msgid "Broadcast:"
@@ -288,13 +280,11 @@ msgstr "Tür:"
 msgid "_Name:"
 msgstr "_Ad:"
 
-#: ../data/ui/launchbar.glade.h:1
-#: ../src/plugins/launchbar.c:887
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:887
 msgid "Application Launch Bar"
 msgstr "Uygulama Açma Çubuğu"
 
-#: ../src/configurator.c:54
-#: ../src/gtk-run.c:319
+#: ../src/configurator.c:54 ../src/gtk-run.c:319
 msgid "Run"
 msgstr "Çalıştır"
 
@@ -306,7 +296,9 @@ msgstr "Yeniden Başlat"
 msgid "Logout"
 msgstr "Oturumu Kapat"
 
-# Önceki çevirmene: takıntı borç, sorun, obsesyon (en çok bu kullanılır) ya da manita anlamına gelir. Yöresel ağızda ise mücevher.  Ancak "plugin" anlamına gelmez.
+# Önceki çevirmene: takıntı borç, sorun, obsesyon (en çok bu kullanılır) ya da
+# manita anlamına gelir. Yöresel ağızda ise mücevher.  Ancak "plugin" anlamına
+# gelmez.
 #: ../src/configurator.c:448
 msgid "Currently loaded plugins"
 msgstr "Şimdi yüklü olan yan uygulamalar"
@@ -331,8 +323,7 @@ msgstr "Oturumu kapama komutu atanmadı"
 msgid "Select a directory"
 msgstr "Bir dizin seç"
 
-#: ../src/configurator.c:1196
-#: ../src/configurator.c:1287
+#: ../src/configurator.c:1196 ../src/configurator.c:1287
 msgid "Select a file"
 msgstr "Bir dosya seç"
 
@@ -473,8 +464,7 @@ msgstr "İşlemci Kullanım İzleyici"
 msgid "Display CPU usage"
 msgstr "İşlemci kullanımını göster"
 
-#: ../src/plugins/deskno/deskno.c:207
-#: ../src/plugins/dclock.c:426
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:426
 msgid "Bold font"
 msgstr "Koyu yazıtipi"
 
@@ -528,7 +518,8 @@ msgstr "Çalışma Alanı_%d"
 msgid "Workspace %d"
 msgstr "Çalışma Alanı %d"
 
-#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
+#. Add "move to all workspaces" item.  This causes the window to be visible no
+#. matter what desktop is active.
 #: ../src/plugins/taskbar.c:1753
 msgid "_All workspaces"
 msgstr "_Tüm çalışma alanları"
@@ -538,7 +529,8 @@ msgstr "_Tüm çalışma alanları"
 msgid "_Move to Workspace"
 msgstr "Çalışma _Alanına Taşı"
 
-#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
+#. Add Close menu item.  By popular demand, we place this menu item closest to
+#. the cursor.
 #: ../src/plugins/taskbar.c:1765
 msgid "_Close Window"
 msgstr "_Pencereyi Kapat"
@@ -571,7 +563,8 @@ msgstr "İlgi isteyen bir pencere olduğunda yanıp sön"
 msgid "Combine multiple application windows into a single button"
 msgstr "Birçok uygulama penceresini tek simgede birleştir"
 
-# "en çok genişliği" Türkçe değil, kotarma olduğu besbelli. "Genişlik sınırı" veya "azami genişliği" uygundur. 
+# "en çok genişliği" Türkçe değil, kotarma olduğu besbelli. "Genişlik sınırı"
+# veya "azami genişliği" uygundur.
 #: ../src/plugins/taskbar.c:1975
 msgid "Maximum width of task button"
 msgstr "Görev düğmesinin azami genişliği"
@@ -597,9 +590,7 @@ msgid "Tooltip Format"
 msgstr "Görsel İpucu Biçimi"
 
 #: ../src/plugins/dclock.c:424
-msgid ""
-"Format codes: man 3 strftime; \\n"
-" for line break"
+msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr ""
 "Biçim kodları: man 3 strftime; \n"
 " satır sonu için"
@@ -628,8 +619,7 @@ msgstr "Masaüstüne ekle"
 msgid "Properties"
 msgstr "Özellikler"
 
-#: ../src/plugins/menu.c:1019
-#: ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1019 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "Simge"
 
@@ -657,8 +647,7 @@ msgstr "Masaüstü Sayfalayıcı"
 msgid "Simple pager plugin"
 msgstr "Basit sayfalayıcı uygulamacığı"
 
-#: ../src/plugins/space.c:121
-#: ../src/plugins/batt/batt.c:590
+#: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
 msgid "Size"
 msgstr "Boyut"
 
@@ -716,7 +705,9 @@ msgstr "Klavye Düzeni Değiştirici"
 msgid "Switch between available keyboard layouts"
 msgstr "Var olan klavye düzenleri arasında geçiş yap"
 
-# İkinci eylem sadece başlık çubuğunun kalacağı biçimde pencereleri üste sarıyor. Dolayısılyla "gölgelemek" ya da "loşlaştırmak"tansa "sarmak" kelimesi daha uygun kalıyor. 
+# İkinci eylem sadece başlık çubuğunun kalacağı biçimde pencereleri üste
+# sarıyor. Dolayısılyla "gölgelemek" ya da "loşlaştırmak"tansa "sarmak"
+# kelimesi daha uygun kalıyor.
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr "Tüm pencereleri simgeleştirmek için sol tık.  Sarmak için orta tık."
@@ -851,8 +842,7 @@ msgstr "Ağ kablosu çıkarıldı"
 msgid "Connection has limited or no connectivity"
 msgstr "Bağlantı ya sınırlı ya da hiç yok"
 
-#: ../src/plugins/netstat/netstat.c:307
-#: ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "IP Adresi"
@@ -861,38 +851,32 @@ msgstr "IP Adresi"
 msgid "Remote IP:"
 msgstr "Uzak IP:"
 
-#: ../src/plugins/netstat/netstat.c:309
-#: ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "Ağ maskesi:"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "Etkinlik"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "Gönderilen"
 
-#: ../src/plugins/netstat/netstat.c:310
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "Alınan"
 
-#: ../src/plugins/netstat/netstat.c:311
-#: ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "bayt"
 
-#: ../src/plugins/netstat/netstat.c:312
-#: ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "paket"
@@ -906,8 +890,7 @@ msgstr "Kablosuz"
 msgid "Protocol:"
 msgstr "İletişim Kuralları:"
 
-#: ../src/plugins/netstat/netstat.c:321
-#: ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "Donanım Adresi:"
 
@@ -1316,7 +1299,7 @@ msgstr "Alarm süresi (kalan dakika)"
 msgid "Background color"
 msgstr "Arkaplan rengi"
 
-# Türkçe'de "Doluyor rengi" denmez. Ben var pes etmek artık. 
+# Türkçe'de "Doluyor rengi" denmez. Ben var pes etmek artık.
 #: ../src/plugins/batt/batt.c:585
 msgid "Charging color 1"
 msgstr "Dolum rengi 1"
@@ -1363,14 +1346,15 @@ msgid "Keyboard LED"
 msgstr "Klavye LED'leri"
 
 # 1. Capslock!=BüyükİmceKilidi. .
-# 2. Öz-Türkçecilik'ten önce düzgün imla! Türkçe'de "ve"den önce virgül olmaz. 
-# 3. Kilidin kendisinden değil tuş adından söz ettiği için (klavyenizdeki tuşun üzerinde ne yazıyor) Caps Lock vb. kullanılmalıdır. 
+# 2. Öz-Türkçecilik'ten önce düzgün imla! Türkçe'de "ve"den önce virgül olmaz.
+# 3. Kilidin kendisinden değil tuş adından söz ettiği için (klavyenizdeki
+# tuşun üzerinde ne yazıyor) Caps Lock vb. kullanılmalıdır.
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Caps Lock, Num Lock ve Scroll Lock tuşları için göstergeler"
 
 #~ msgid "Applications"
 #~ msgstr "Uygulamalar"
+
 #~ msgid "Available Applications"
 #~ msgstr "Var Olan Uygulamalar"
-
