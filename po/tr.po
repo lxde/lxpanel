@@ -346,7 +346,9 @@ msgstr "Onayla"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:683
 msgid "translator-credits"
-msgstr "Mehmet Gülmen (memetgulmen@gmail.com)Kılıç Köken (kilickoken@gmail.com)"
+msgstr ""
+"Mehmet Gülmen (memetgulmen@gmail.com)\n"
+"Kılıç Köken (kilickoken@gmail.com)"
 
 #: ../src/panel.c:688
 msgid "LXPanel"
