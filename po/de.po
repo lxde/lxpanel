@@ -2,12 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the lxpanel package.
 # Mario Blättermann <mariobl@gnome.org>, 2008-2009.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-20 11:01+0200\n"
+"POT-Creation-Date: 2010-10-18 06:03+0000\n"
 "PO-Revision-Date: 2010-01-23 17:08+0200\n"
 "Last-Translator: Christoph <christoph.wickert@googlemail.com>\n"
 "Language-Team: Deutsch <LL@li.org>\n"
@@ -16,9 +16,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.1\n"
 "X-Poedit-Language: German\n"
 "X-Poedit-Country: GERMANY\n"
+"X-Generator: Pootle 2.0.1\n"
 
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
@@ -351,8 +351,8 @@ msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:690
-msgid "Copyright (C) 2008-2009"
-msgstr "Copyright (C) 2008-2009"
+msgid "Copyright (C) 2008-2010"
+msgstr "Copyright (C) 2008-2010"
 
 #: ../src/panel.c:691
 msgid "Desktop panel for LXDE project"
@@ -415,9 +415,7 @@ msgstr " --version    -- zeigt Versionshinweise an und beendet\n"
 #: ../src/panel.c:1452
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <Zahl> -- setzt den Loglevel auf 0-5. 0 - keine Logs, 5 - "
-"vollständig\n"
+msgstr " --log <Zahl> -- setzt den Loglevel auf 0-5. 0 - keine Logs, 5 - vollständig\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1454
@@ -518,7 +516,8 @@ msgstr "Arbeitsfläche _%d"
 msgid "Workspace %d"
 msgstr "Arbeitsfläche %d"
 
-#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
+#. Add "move to all workspaces" item.  This causes the window to be visible no
+#. matter what desktop is active.
 #: ../src/plugins/taskbar.c:1753
 msgid "_All workspaces"
 msgstr "_Alle Arbeitsflächen"
@@ -528,7 +527,8 @@ msgstr "_Alle Arbeitsflächen"
 msgid "_Move to Workspace"
 msgstr "_Verschieben auf Arbeitsfläche"
 
-#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
+#. Add Close menu item.  By popular demand, we place this menu item closest to
+#. the cursor.
 #: ../src/plugins/taskbar.c:1765
 msgid "_Close Window"
 msgstr "Fenster schließen"
@@ -574,12 +574,8 @@ msgid "Task Bar (Window List)"
 msgstr "Taskbar (Fensterliste)"
 
 #: ../src/plugins/taskbar.c:2035
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
-msgstr ""
-"Die Taskbar zeigt alle geöffneten Fenster und erlaubt die Reduktion auf "
-"Desktop-Symbole, Schattierungen und Fokussierungen"
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr "Die Taskbar zeigt alle geöffneten Fenster und erlaubt die Reduktion auf Desktop-Symbole, Schattierungen und Fokussierungen"
 
 #: ../src/plugins/dclock.c:422
 msgid "Clock Format"
@@ -1016,8 +1012,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Bitte kontaktieren Sie Ihren Systemverwalter zur Lösung des folgenden "
-"Problems:\n"
+"Bitte kontaktieren Sie Ihren Systemverwalter zur Lösung des folgenden Problems:\n"
 "\n"
 "%s"
 
@@ -1211,12 +1206,8 @@ msgstr "Schnittstellen-Namen von »%s« konnte nicht ausgelesen werden"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid ""
-"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
-msgstr ""
-"Schnittstellen-Statistik von »%s« konnte nicht ausgelesen werden. prx_idx = %"
-"d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgstr "Schnittstellen-Statistik von »%s« konnte nicht ausgelesen werden. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1225,9 +1216,7 @@ msgstr "/proc/net/wireless konnte nicht ausgelesen werden. Unbekanntes Format."
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr ""
-"Details für die drahtlose Verbindung von »%s« konnten nicht ausgelesen "
-"werden. link_idx = %d;"
+msgstr "Details für die drahtlose Verbindung von »%s« konnten nicht ausgelesen werden. link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
@@ -1378,9 +1367,7 @@ msgstr "Indikatoren für CapsLock, NumLock und ScrollLock-Tasten"
 #~ msgid ""
 #~ "Allows you to switch the keyboard layout and\n"
 #~ "displays the currently selected layout."
-#~ msgstr ""
-#~ "Erlaubt die Tastaturbelegung zu wechseln und zeigt die aktuell gewählte "
-#~ "Belegung an."
+#~ msgstr "Erlaubt die Tastaturbelegung zu wechseln und zeigt die aktuell gewählte Belegung an."
 
 #~ msgid "Other plugins available here"
 #~ msgstr "Andere Plugins sind hier verfügbar"
@@ -1474,6 +1461,5 @@ msgstr "Indikatoren für CapsLock, NumLock und ScrollLock-Tasten"
 #~ msgid "charging"
 #~ msgstr "laden"
 
-#, fuzzy
 #~ msgid "Add to desktop panel"
 #~ msgstr "Erweiterung zum Panel hinzufügen"
