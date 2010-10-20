@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-07-20 11:01+0200\n"
-"PO-Revision-Date: 2010-10-17 00:25+0200\n"
+"PO-Revision-Date: 2010-10-19 22:38+0200\n"
 "Last-Translator: kizito <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: lg\n"
@@ -25,7 +25,7 @@ msgstr "% Ebitundu ku kikumi"
 
 #: ../data/ui/panel-pref.glade.h:3
 msgid "<b>Automatic hiding</b>"
-msgstr "<b>Lwekisenga</b>"
+msgstr "<b>Enkweka y'olubaawo</b>"
 
 #: ../data/ui/panel-pref.glade.h:4
 msgid "<b>Background</b>"
@@ -49,7 +49,7 @@ msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>Tegeka puloguramu zo ennondemu</b>"
+msgstr "<b>Puloguramu olubaawo ze lweyambisa</b>"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "<b>Size</b>"
@@ -61,7 +61,7 @@ msgstr "Ebyetaagisa bumanyirivu"
 
 #: ../data/ui/panel-pref.glade.h:12
 msgid "Alignment:"
-msgstr "We lugwa:"
+msgstr "Gye lugwa:"
 
 #: ../data/ui/panel-pref.glade.h:13
 msgid "Appearance"
@@ -69,7 +69,7 @@ msgstr "Endabika"
 
 #: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1049
 msgid "Bottom"
-msgstr "Eya wansi"
+msgstr "Wansi"
 
 #: ../data/ui/panel-pref.glade.h:15
 msgid "Center"
@@ -77,7 +77,7 @@ msgstr "Mu makkati"
 
 #: ../data/ui/panel-pref.glade.h:16
 msgid "Custom color"
-msgstr "Lukyuse erangi"
+msgstr "Zirondere langi"
 
 #: ../data/ui/panel-pref.glade.h:17
 msgid "Dynamic"
@@ -85,7 +85,7 @@ msgstr "Bukyuka"
 
 #: ../data/ui/panel-pref.glade.h:18
 msgid "Edge:"
-msgstr "Ku njegoyego:"
+msgstr "Ku njegoyego eya:"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "File Manager:"
@@ -105,7 +105,7 @@ msgstr "Lutimbeko ekifaananyi"
 
 #: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:1041
 msgid "Left"
-msgstr "Ey'oku kkono"
+msgstr "Ku kkono"
 
 #: ../data/ui/panel-pref.glade.h:24
 msgid "Logout Command:"
@@ -117,7 +117,7 @@ msgstr "Amadirisa agufunzidwa gagendenga ku lubaawo"
 
 #: ../data/ui/panel-pref.glade.h:26
 msgid "Margin:"
-msgstr "Gye lugwa lulekeyo akabanga aka:"
+msgstr "Gye lugwa lulekeyo akabanga ka:"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Minimize panel when not in use"
@@ -137,11 +137,11 @@ msgstr "Pikiseli"
 
 #: ../data/ui/panel-pref.glade.h:31
 msgid "Reserve space, and not covered by maximized windows"
-msgstr "Bbanga kkuume eritabikkibwa madirisa amagejjese"
+msgstr "Amadirisa tegakkirizibwa ku lubikka"
 
 #: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:1042
 msgid "Right"
-msgstr "Ey'oku ddyo"
+msgstr "Ku ddyo"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "Select an image file"
@@ -169,7 +169,7 @@ msgstr "Waggulu"
 
 #: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:1040 ../src/panel.c:1046
 msgid "Width:"
-msgstr "Buwanvu bwa lwo:"
+msgstr "Obuwanvu:"
 
 #: ../data/ui/panel-pref.glade.h:40
 msgid "pixels"
@@ -342,74 +342,78 @@ msgstr ""
 
 #: ../src/panel.c:688
 msgid "LXPanel"
-msgstr ""
+msgstr "LXPanel"
 
 #: ../src/panel.c:690
 msgid "Copyright (C) 2008-2009"
-msgstr ""
+msgstr "Copyright (C) 2008-2009"
 
 #: ../src/panel.c:691
 msgid "Desktop panel for LXDE project"
-msgstr ""
+msgstr "Olubaawo olutuula awakolerwa olw'omu LXDE"
 
 #: ../src/panel.c:714
 msgid "Add / Remove Panel Items"
-msgstr ""
+msgstr "Yongerako oba gyako ebisangibwa ku lubaawo"
 
 #: ../src/panel.c:722
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr ""
+msgstr "Gya \"%s\" ku Lubaawo"
 
 #: ../src/panel.c:734
 msgid "Panel Settings"
-msgstr ""
+msgstr "Enteekateeka ya Lubaawo"
 
 #: ../src/panel.c:740
 msgid "Create New Panel"
-msgstr ""
+msgstr "Kolawo olubaawo olulala"
 
 #: ../src/panel.c:751
 msgid "Delete This Panel"
-msgstr ""
+msgstr "Gyawo olubaawo luno"
 
 #: ../src/panel.c:762
 msgid "About"
-msgstr ""
+msgstr "Ebirufaako"
 
 #: ../src/panel.c:770
 msgid "Panel"
-msgstr ""
+msgstr "Lubaawo"
 
 #: ../src/panel.c:783
 #, c-format
 msgid "\"%s\" Settings"
-msgstr ""
+msgstr "Enteekateeka za \"%s\""
 
 #: ../src/panel.c:1448
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr ""
+"lxpanel %s - Lubaawo lwa ku kompyuta ez'oluse lwa UNIX olutanyunyunta "
+"kompyuta olweyambisa GTK2+"
 
 #: ../src/panel.c:1449
 #, c-format
 msgid "Command line options:\n"
-msgstr ""
+msgstr "Obuwayiro bw'osobola okwongera ku kiragiro ekiruntandika okuva mu "
+"kiwandikiro:\n"
 
 #: ../src/panel.c:1450
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr ""
+msgstr " --help      -- kano kakireetera okukoma ku kuwandika obuyambi buno bw'osoma\n"
 
 #: ../src/panel.c:1451
 #, c-format
 msgid " --version   -- print version and exit\n"
-msgstr ""
+msgstr " --version   -- kano kakireetera okukoma ku kulaga oluwandika lwa puloguramu\n"
 
 #: ../src/panel.c:1452
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
+msgstr " --log <number> -- kano kategeka obungi bw'ebifa ku mulimu bye kiwandika. 0 "
+"- tekibaako bye kiwandika ate 5 - kiwandikawandika nnyo\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1454
@@ -420,17 +424,17 @@ msgstr ""
 #: ../src/panel.c:1456
 #, c-format
 msgid " -h  -- same as --help\n"
-msgstr ""
+msgstr " -h  -- kakola ekimu n'aka --help\n"
 
 #: ../src/panel.c:1457
 #, c-format
 msgid " -p  -- same as --profile\n"
-msgstr ""
+msgstr " -p  -- kakola  ekimu n'aka --profile\n"
 
 #: ../src/panel.c:1458
 #, c-format
 msgid " -v  -- same as --version\n"
-msgstr ""
+msgstr " -v  -- kakola ekimu n'aka --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
 #: ../src/panel.c:1460
@@ -440,22 +444,25 @@ msgid ""
 "Visit http://lxde.org/ for detail.\n"
 "\n"
 msgstr ""
+"\n"
+"Okumanya ebisingawo, yalira http://lxde.org/ .\n"
+"\n"
 
 #: ../src/gtk-run.c:332
 msgid "Enter the command you want to execute:"
-msgstr ""
+msgstr "Wandika ekiragiro kye wetaaga:"
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
-msgstr ""
+msgstr "Akalaga okukulusana kw'ekitundu ekibazi"
 
 #: ../src/plugins/cpu/cpu.c:270
 msgid "Display CPU usage"
-msgstr ""
+msgstr "Laga okukulusana kw'ekitundu ekibazi"
 
 #: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:426
 msgid "Bold font"
-msgstr ""
+msgstr "Ennukuta enziggumivu"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
