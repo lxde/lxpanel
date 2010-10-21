@@ -69,13 +69,6 @@ static gchar* parse_info_file(char *filename)
     return NULL;
 }
 
-static int get_unit_value(char *value)
-{
-    int n = -1;
-    sscanf(value, "%d", &n);
-    return n;
-}
-
 void battery_print(battery *b, int show_capacity)
 {
     if ( b->type_battery )
@@ -145,33 +138,33 @@ void battery_update( battery *b ) {
 	if ((file_content = parse_info_file(filename->str)) != NULL) {
 	    
 	    if ( strcmp("charge_now", sys_file ) == 0 ) {
-		b->remaining_capacity = get_unit_value((gchar*) file_content) / 1000;
+		b->remaining_capacity = atoi((gchar*) file_content) / 1000;
 		if (!b->state)
 		    b->state = "available";
 	    }
 	    else if ( strcmp("energy_now", sys_file ) == 0 ) {
-		b->remaining_energy = get_unit_value((gchar*) file_content) / 1000;
+		b->remaining_energy = atoi((gchar*) file_content) / 1000;
 		if (!b->state)
 		    b->state = "available";
 	    }
 	    else if ( strcmp("current_now", sys_file ) == 0 ) {
-		b->present_rate = get_unit_value((gchar*) file_content) / 1000;
+		b->present_rate = atoi((gchar*) file_content) / 1000;
 	    }
 	    else if ( strcmp("charge_full", sys_file ) == 0 ) {
-		b->last_capacity = get_unit_value((gchar*) file_content) / 1000;
+		b->last_capacity = atoi((gchar*) file_content) / 1000;
 		if (!b->state)
 		    b->state = ("available");
 	    }
 	    else if ( strcmp("energy_full", sys_file ) == 0 ) {
-		b->last_capacity_unit = get_unit_value((gchar*) file_content) / 1000;
+		b->last_capacity_unit = atoi((gchar*) file_content) / 1000;
 		if (!b->state)
 		    b->state = ("available");
 	    }
 	    else if ( strcmp("charge_full_design", sys_file ) == 0 ) {
-		b->design_capacity = get_unit_value((gchar*) file_content) / 1000;
+		b->design_capacity = atoi((gchar*) file_content) / 1000;
 	    }
 	    else if ( strcmp("energy_full_design", sys_file ) == 0 ) {
-		b->design_capacity_unit = get_unit_value((gchar*) file_content) / 1000;
+		b->design_capacity_unit = atoi((gchar*) file_content) / 1000;
 	    }
 	    else if ( strcmp("type", sys_file ) == 0 ) {
 		b->type_battery = (strcasecmp(file_content, "battery") == 0 );
@@ -179,7 +172,7 @@ void battery_update( battery *b ) {
 	    else if ( ( strcmp("status", sys_file ) == 0 ) || strcmp("state", sys_file ) == 0 ) 
 		b->state = file_content;
 	    else if ( strcmp("voltage_now", sys_file ) == 0 ) {
-		b->voltage = get_unit_value((gchar*) file_content) / 1000;
+		b->voltage = atoi((gchar*) file_content) / 1000;
 	    }
 
 	    g_string_free( filename, TRUE );
