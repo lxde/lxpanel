@@ -39,6 +39,7 @@ typedef struct battery {
     int remaining_capacity;
     int remaining_energy;
     int present_rate;
+    int power_now;
     int voltage;
     int design_capacity;
     int design_capacity_unit;

@@ -48,6 +48,7 @@ battery* battery_new() {
     b->remaining_energy = -1;
     b->remaining_capacity = -1;
     b->present_rate = -1;
+    b->power_now = -1;
     b->state = NULL;
     b->battery_num = battery_num;
     battery_num++;
@@ -114,6 +115,7 @@ void battery_update( battery *b ) {
     int i = 0;
     const gchar *sys_list[] = {
 	"current_now",
+	"power_now",
 	"charge_now",
 	"energy_now",
 	"voltage_now",
@@ -149,6 +151,9 @@ void battery_update( battery *b ) {
 	    }
 	    else if ( strcmp("current_now", sys_file ) == 0 ) {
 		b->present_rate = atoi((gchar*) file_content) / 1000;
+	    }
+	    else if ( strcmp("power_now", sys_file ) == 0 ) {
+		b->power_now = atoi((gchar*) file_content) / 1000;
 	    }
 	    else if ( strcmp("charge_full", sys_file ) == 0 ) {
 		b->last_capacity = atoi((gchar*) file_content) / 1000;
@@ -200,10 +205,15 @@ void battery_update( battery *b ) {
     if (b->remaining_energy != -1 && b->remaining_capacity == -1) {
 	if (b->voltage != -1) {
 	    b->remaining_capacity = b->remaining_energy * 1000 / b->voltage;
-	    b->present_rate = b->present_rate * 1000 / b->voltage;
+	    if (b->present_rate != -1)
+		b->present_rate = b->present_rate * 1000 / b->voltage;
 	} else {
 	    b->remaining_capacity = b->remaining_energy;
 	}
+    }
+    if (b->power_now != -1 && b->present_rate == -1) {
+	if (b->voltage != -1)
+	    b->present_rate = b->power_now * 1000 / b->voltage;
     }
     if (b->last_capacity < MIN_CAPACITY)
 	b->percentage = 0;
