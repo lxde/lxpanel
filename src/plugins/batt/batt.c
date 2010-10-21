@@ -332,10 +332,6 @@ constructor(Plugin *p, char **fp)
     if ( lx_b->b == NULL )
 	goto error;
     
-    /* initial update */
-    battery_update( lx_b->b );
-
-
     p->pwid = gtk_event_box_new();
     GTK_WIDGET_SET_FLAGS( p->pwid, GTK_NO_WINDOW );
     gtk_container_set_border_width( GTK_CONTAINER(p->pwid), 1 );
