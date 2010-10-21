@@ -45,7 +45,7 @@ typedef struct battery {
     int design_capacity_unit;
     int last_capacity;
     int last_capacity_unit;
-    int hours, minutes, seconds;
+    int seconds;
     int percentage;
     char *state, *poststr;
     char* capacity_unit;

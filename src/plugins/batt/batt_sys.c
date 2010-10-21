@@ -78,37 +78,42 @@ void battery_print(battery *b, int show_capacity)
 	    
 	    printf("%s %d: %s, %d%%", BATTERY_DESC, b->battery_num - 1, b->state, b->percentage);
 	    
-
 	    if (b->seconds > 0) {
-		b->hours = b->seconds / 3600;
-		b->seconds -= 3600 * b->hours;
-		b->minutes = b->seconds / 60;
-		b->seconds -= 60 * b->minutes;
-		printf(", %02d:%02d:%02d%s", b->hours, b->minutes, b->seconds, b->poststr);
+		int hours = b->seconds / 3600;
+		int seconds = b->seconds - 3600 * hours;
+		int minutes = seconds / 60;
+		seconds -= 60 * minutes;
+		printf(", %02d:%02d:%02d%s", hours, minutes, seconds,
+			b->poststr);
 	    } else if (b->poststr != NULL) {
 		printf(", %s", b->poststr);
 	    }
 
-
 	    printf("\n");
 	    
 	    if (show_capacity && b->design_capacity > 0) {
+		int percentage = -1;
+		int last_capacity = -1;
 		if (b->last_capacity <= 100) {
 		    /* some broken systems just give a percentage here */
-		    b->percentage = b->last_capacity;
-		    b->last_capacity = b->percentage * b->design_capacity / 100;
+		    percentage = b->last_capacity;
+		    last_capacity = percentage * b->design_capacity / 100;
 		} else {
-		    b->percentage = b->last_capacity * 100 / b->design_capacity;
+		    percentage = b->last_capacity * 100 / b->design_capacity;
+		    last_capacity = b->last_capacity;
 		}
-		if (b->percentage > 100)
-		    b->percentage = 100;
+		if (percentage > 100)
+		    percentage = 100;
 
-		printf ("%s %d: design capacity %d %s, last full capacity %d %s = %d%%\n",
-			BATTERY_DESC, b->battery_num - 1, b->design_capacity, b->capacity_unit, b->last_capacity, b->capacity_unit, b->percentage);
+		printf ("%s %d: design capacity %d %s, "
+			"last full capacity %d %s = %d%%\n",
+			BATTERY_DESC, b->battery_num - 1, b->design_capacity,
+			b->capacity_unit, last_capacity, b->capacity_unit,
+			percentage);
 	    }
 	}
     }
-}    
+}
 
 
 void battery_update( battery *b ) {
