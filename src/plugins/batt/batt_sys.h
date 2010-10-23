@@ -36,15 +36,15 @@ typedef struct battery {
     int battery_num;
     /* path to battery dir */
     const gchar *path;			
-    int remaining_capacity;
-    int remaining_energy;
-    int present_rate;
+    int charge_now;
+    int energy_now;
+    int current_now;
     int power_now;
-    int voltage;
-    int design_capacity;
-    int design_capacity_unit;
-    int last_capacity;
-    int last_capacity_unit;
+    int voltage_now;
+    int charge_full_design;
+    int energy_full_design;
+    int charge_full;
+    int energy_full;
     int seconds;
     int percentage;
     char *state, *poststr;

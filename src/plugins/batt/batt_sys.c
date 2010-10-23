@@ -40,14 +40,14 @@ battery* battery_new() {
     battery * b = g_new0 ( battery, 1 );
     b->type_battery = TRUE;
     b->capacity_unit = "mAh";
-    b->last_capacity_unit = -1;
-    b->last_capacity = -1;
-    b->voltage = -1;
-    b->design_capacity_unit = -1;
-    b->design_capacity = -1;
-    b->remaining_energy = -1;
-    b->remaining_capacity = -1;
-    b->present_rate = -1;
+    b->energy_full = -1;
+    b->charge_full = -1;
+    b->voltage_now = -1;
+    b->energy_full_design = -1;
+    b->charge_full_design = -1;
+    b->energy_now = -1;
+    b->charge_now = -1;
+    b->current_now = -1;
     b->power_now = -1;
     b->state = NULL;
     b->battery_num = battery_num;
@@ -91,24 +91,24 @@ void battery_print(battery *b, int show_capacity)
 
 	    printf("\n");
 	    
-	    if (show_capacity && b->design_capacity > 0) {
+	    if (show_capacity && b->charge_full_design > 0) {
 		int percentage = -1;
-		int last_capacity = -1;
-		if (b->last_capacity <= 100) {
+		int charge_full = -1;
+		if (b->charge_full <= 100) {
 		    /* some broken systems just give a percentage here */
-		    percentage = b->last_capacity;
-		    last_capacity = percentage * b->design_capacity / 100;
+		    percentage = b->charge_full;
+		    charge_full = percentage * b->charge_full_design / 100;
 		} else {
-		    percentage = b->last_capacity * 100 / b->design_capacity;
-		    last_capacity = b->last_capacity;
+		    percentage = b->charge_full * 100 / b->charge_full_design;
+		    charge_full = b->charge_full;
 		}
 		if (percentage > 100)
 		    percentage = 100;
 
 		printf ("%s %d: design capacity %d %s, "
 			"last full capacity %d %s = %d%%\n",
-			BATTERY_DESC, b->battery_num - 1, b->design_capacity,
-			b->capacity_unit, last_capacity, b->capacity_unit,
+			BATTERY_DESC, b->battery_num - 1, b->charge_full_design,
+			b->capacity_unit, charge_full, b->capacity_unit,
 			percentage);
 	    }
 	}
@@ -145,36 +145,36 @@ void battery_update( battery *b ) {
 	if ((file_content = parse_info_file(filename->str)) != NULL) {
 	    
 	    if ( strcmp("charge_now", sys_file ) == 0 ) {
-		b->remaining_capacity = atoi((gchar*) file_content) / 1000;
+		b->charge_now = atoi((gchar*) file_content) / 1000;
 		if (!b->state)
 		    b->state = "available";
 	    }
 	    else if ( strcmp("energy_now", sys_file ) == 0 ) {
-		b->remaining_energy = atoi((gchar*) file_content) / 1000;
+		b->energy_now = atoi((gchar*) file_content) / 1000;
 		if (!b->state)
 		    b->state = "available";
 	    }
 	    else if ( strcmp("current_now", sys_file ) == 0 ) {
-		b->present_rate = atoi((gchar*) file_content) / 1000;
+		b->current_now = atoi((gchar*) file_content) / 1000;
 	    }
 	    else if ( strcmp("power_now", sys_file ) == 0 ) {
 		b->power_now = atoi((gchar*) file_content) / 1000;
 	    }
 	    else if ( strcmp("charge_full", sys_file ) == 0 ) {
-		b->last_capacity = atoi((gchar*) file_content) / 1000;
+		b->charge_full = atoi((gchar*) file_content) / 1000;
 		if (!b->state)
 		    b->state = ("available");
 	    }
 	    else if ( strcmp("energy_full", sys_file ) == 0 ) {
-		b->last_capacity_unit = atoi((gchar*) file_content) / 1000;
+		b->energy_full = atoi((gchar*) file_content) / 1000;
 		if (!b->state)
 		    b->state = ("available");
 	    }
 	    else if ( strcmp("charge_full_design", sys_file ) == 0 ) {
-		b->design_capacity = atoi((gchar*) file_content) / 1000;
+		b->charge_full_design = atoi((gchar*) file_content) / 1000;
 	    }
 	    else if ( strcmp("energy_full_design", sys_file ) == 0 ) {
-		b->design_capacity_unit = atoi((gchar*) file_content) / 1000;
+		b->energy_full_design = atoi((gchar*) file_content) / 1000;
 	    }
 	    else if ( strcmp("type", sys_file ) == 0 ) {
 		b->type_battery = (strcasecmp(file_content, "battery") == 0 );
@@ -182,7 +182,7 @@ void battery_update( battery *b ) {
 	    else if ( ( strcmp("status", sys_file ) == 0 ) || strcmp("state", sys_file ) == 0 ) 
 		b->state = file_content;
 	    else if ( strcmp("voltage_now", sys_file ) == 0 ) {
-		b->voltage = atoi((gchar*) file_content) / 1000;
+		b->voltage_now = atoi((gchar*) file_content) / 1000;
 	    }
 
 	    g_string_free( filename, TRUE );
@@ -191,59 +191,59 @@ void battery_update( battery *b ) {
     }
     
     /* convert energy values (in mWh) to charge values (in mAh) if needed and possible */
-    if (b->last_capacity_unit != -1 && b->last_capacity == -1) {
-	if (b->voltage != -1) {
-	    b->last_capacity = b->last_capacity_unit * 1000 / b->voltage;
+    if (b->energy_full != -1 && b->charge_full == -1) {
+	if (b->voltage_now != -1) {
+	    b->charge_full = b->energy_full * 1000 / b->voltage_now;
 	} else {
-	    b->last_capacity = b->last_capacity_unit;
+	    b->charge_full = b->energy_full;
 	    b->capacity_unit = "mWh";
 	}
     }
-    if (b->design_capacity_unit != -1 && b->design_capacity == -1) {
-	if (b->voltage != -1) {
-	    b->design_capacity = b->design_capacity_unit * 1000 / b->voltage;
+    if (b->energy_full_design != -1 && b->charge_full_design == -1) {
+	if (b->voltage_now != -1) {
+	    b->charge_full_design = b->energy_full_design * 1000 / b->voltage_now;
 	} else {
-	    b->design_capacity = b->design_capacity_unit;
+	    b->charge_full_design = b->energy_full_design;
 	    b->capacity_unit = "mWh";
 	}
     }
-    if (b->remaining_energy != -1 && b->remaining_capacity == -1) {
-	if (b->voltage != -1) {
-	    b->remaining_capacity = b->remaining_energy * 1000 / b->voltage;
-	    if (b->present_rate != -1)
-		b->present_rate = b->present_rate * 1000 / b->voltage;
+    if (b->energy_now != -1 && b->charge_now == -1) {
+	if (b->voltage_now != -1) {
+	    b->charge_now = b->energy_now * 1000 / b->voltage_now;
+	    if (b->current_now != -1)
+		b->current_now = b->current_now * 1000 / b->voltage_now;
 	} else {
-	    b->remaining_capacity = b->remaining_energy;
+	    b->charge_now = b->energy_now;
 	}
     }
-    if (b->power_now != -1 && b->present_rate == -1) {
-	if (b->voltage != -1)
-	    b->present_rate = b->power_now * 1000 / b->voltage;
+    if (b->power_now != -1 && b->current_now == -1) {
+	if (b->voltage_now != -1)
+	    b->current_now = b->power_now * 1000 / b->voltage_now;
     }
-    if (b->last_capacity < MIN_CAPACITY)
+    if (b->charge_full < MIN_CAPACITY)
 	b->percentage = 0;
     else
-	b->percentage = ((float) b->remaining_energy * 100.0) / (float) b->last_capacity_unit;
+	b->percentage = ((float) b->energy_now * 100.0) / (float) b->energy_full;
 	    
     if (b->percentage > 100)
 	b->percentage = 100;
 
 
 	    
-    if (b->present_rate == -1) {
+    if (b->current_now == -1) {
 	b->poststr = "rate information unavailable";
 	b->seconds = -1;
     } else if (!strcasecmp(b->state, "charging")) {
-	if (b->present_rate > MIN_PRESENT_RATE) {
-	    b->seconds = 3600 * (b->last_capacity - b->remaining_capacity) / b->present_rate;
+	if (b->current_now > MIN_PRESENT_RATE) {
+	    b->seconds = 3600 * (b->charge_full - b->charge_now) / b->current_now;
 	    b->poststr = " until charged";
 	} else {
 	    b->poststr = "charging at zero rate - will never fully charge.";
 	    b->seconds = -1;
 	}
     } else if (!strcasecmp(b->state, "discharging")) {
-	if (b->present_rate > MIN_PRESENT_RATE) {
-	    b->seconds = 3600 * b->remaining_capacity / b->present_rate;
+	if (b->current_now > MIN_PRESENT_RATE) {
+	    b->seconds = 3600 * b->charge_now / b->current_now;
 	    b->poststr = " remaining";
 	} else {
 	    b->poststr = "discharging at zero rate - will never fully discharge.";

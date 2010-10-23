@@ -120,7 +120,7 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
     char tooltip[ 256 ];
     battery *b = lx_b->b;
     /* unit: mW */
-    int rate = lx_b->b->present_rate;
+    int rate = lx_b->b->current_now;
 
     if (! lx_b->pixmap )
         return;
