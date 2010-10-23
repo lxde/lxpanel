@@ -121,6 +121,7 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
     battery *b = lx_b->b;
     /* unit: mW */
     int rate;
+    gboolean isCharging;
 
     if (! lx_b->pixmap )
         return;
@@ -131,11 +132,6 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
 	gtk_widget_set_tooltip_text( lx_b->drawingArea, _("No batteries found") );
 	return;
     }
-    
-
-
-    
-    gboolean isCharging;
     
     /* draw background */
     gdk_draw_rectangle(lx_b->pixmap, lx_b->bg, TRUE, 0, 0, lx_b->width, lx_b->height);
@@ -170,75 +166,75 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
 	}
     }
 
-        /* Make a tooltip string, and display remaining charge time if the battery
-           is charging or remaining life if it's discharging */
-        if (isCharging) {
+    /* Make a tooltip string, and display remaining charge time if the battery
+       is charging or remaining life if it's discharging */
+    if (isCharging) {
+	int hours = lx_b->b->seconds / 3600;
+	int left_seconds = b->seconds - 3600 * hours;
+	int minutes = left_seconds / 60;
+	snprintf(tooltip, 256,
+		_("Battery: %d%% charged, %d:%02d until full"),
+		lx_b->b->percentage,
+		hours,
+		minutes );
+    } else {
+	/* if we have enough rate information for battery */
+	if (lx_b->b->percentage != 100) {
 	    int hours = lx_b->b->seconds / 3600;
 	    int left_seconds = b->seconds - 3600 * hours;
 	    int minutes = left_seconds / 60;
 	    snprintf(tooltip, 256,
-		     _("Battery: %d%% charged, %d:%02d until full"),
-		     lx_b->b->percentage,
-		     hours,
-		     minutes );
-        } else {
-            /* if we have enough rate information for battery */
-            if (lx_b->b->percentage != 100) {
-		int hours = lx_b->b->seconds / 3600;
-		int left_seconds = b->seconds - 3600 * hours;
-		int minutes = left_seconds / 60;
-                snprintf(tooltip, 256,
-                        _("Battery: %d%% charged, %d:%02d left"),
-			 lx_b->b->percentage,
-			 hours,
-			 minutes );
-            } else {
-                snprintf(tooltip, 256,
-                        _("Battery: %d%% charged"),
-			 100 );
-            }
-        }
+		    _("Battery: %d%% charged, %d:%02d left"),
+		    lx_b->b->percentage,
+		    hours,
+		    minutes );
+	} else {
+	    snprintf(tooltip, 256,
+		    _("Battery: %d%% charged"),
+		    100 );
+	}
+    }
 
-        gtk_widget_set_tooltip_text(lx_b->drawingArea, tooltip);
+    gtk_widget_set_tooltip_text(lx_b->drawingArea, tooltip);
 
-        int chargeLevel = lx_b->b->percentage * (lx_b->length - 2 * lx_b->border) / 100;
+    int chargeLevel = lx_b->b->percentage * (lx_b->length - 2 * lx_b->border) / 100;
 
-        /* Choose the right colors for the charge bar */
-        if (isCharging) {
-            gdk_gc_set_foreground(lx_b->gc1, &lx_b->charging1);
-            gdk_gc_set_foreground(lx_b->gc2, &lx_b->charging2);
-        }
-        else {
-            gdk_gc_set_foreground(lx_b->gc1, &lx_b->discharging1);
-            gdk_gc_set_foreground(lx_b->gc2, &lx_b->discharging2);
-        }
+    /* Choose the right colors for the charge bar */
+    if (isCharging) {
+	gdk_gc_set_foreground(lx_b->gc1, &lx_b->charging1);
+	gdk_gc_set_foreground(lx_b->gc2, &lx_b->charging2);
+    }
+    else {
+	gdk_gc_set_foreground(lx_b->gc1, &lx_b->discharging1);
+	gdk_gc_set_foreground(lx_b->gc2, &lx_b->discharging2);
+    }
 
-        gdk_draw_rectangle(lx_b->pixmap, lx_b->bg, TRUE, 0, 0, lx_b->width, lx_b->height);
+    gdk_draw_rectangle(lx_b->pixmap, lx_b->bg, TRUE, 0, 0, lx_b->width, lx_b->height);
 
-        if (lx_b->orientation == ORIENT_HORIZ) {
+    if (lx_b->orientation == ORIENT_HORIZ) {
 
-            /* Draw the battery bar vertically, using color 1 for the left half and
-               color 2 for the right half */
-            gdk_draw_rectangle(lx_b->pixmap, lx_b->gc1, TRUE, lx_b->border,
-                    lx_b->height - lx_b->border - chargeLevel, lx_b->width / 2
-                    - lx_b->border, chargeLevel);
-            gdk_draw_rectangle(lx_b->pixmap, lx_b->gc2, TRUE, lx_b->width / 2,
-                    lx_b->height - lx_b->border - chargeLevel, (lx_b->width + 1) / 2
-                    - lx_b->border, chargeLevel);
+	/* Draw the battery bar vertically, using color 1 for the left half and
+	   color 2 for the right half */
+	gdk_draw_rectangle(lx_b->pixmap, lx_b->gc1, TRUE, lx_b->border,
+		lx_b->height - lx_b->border - chargeLevel, lx_b->width / 2
+		- lx_b->border, chargeLevel);
+	gdk_draw_rectangle(lx_b->pixmap, lx_b->gc2, TRUE, lx_b->width / 2,
+		lx_b->height - lx_b->border - chargeLevel, (lx_b->width + 1) / 2
+		- lx_b->border, chargeLevel);
 
-        }
-        else {
+    }
+    else {
 
-            /* Draw the battery bar horizontally, using color 1 for the top half and
-               color 2 for the bottom half */
-            gdk_draw_rectangle(lx_b->pixmap, lx_b->gc1, TRUE, lx_b->border,
-                    lx_b->border, chargeLevel, lx_b->height / 2 - lx_b->border);
-            gdk_draw_rectangle(lx_b->pixmap, lx_b->gc2, TRUE, lx_b->border, (lx_b->height + 1)
-                    / 2, chargeLevel, lx_b->height / 2 - lx_b->border);
+	/* Draw the battery bar horizontally, using color 1 for the top half and
+	   color 2 for the bottom half */
+	gdk_draw_rectangle(lx_b->pixmap, lx_b->gc1, TRUE, lx_b->border,
+		lx_b->border, chargeLevel, lx_b->height / 2 - lx_b->border);
+	gdk_draw_rectangle(lx_b->pixmap, lx_b->gc2, TRUE, lx_b->border, (lx_b->height + 1)
+		/ 2, chargeLevel, lx_b->height / 2 - lx_b->border);
 
-        }
-	if( repaint )
-	    gtk_widget_queue_draw( lx_b->drawingArea );
+    }
+    if( repaint )
+	gtk_widget_queue_draw( lx_b->drawingArea );
 }
 
 /* This callback is called every 3 seconds */
