@@ -120,7 +120,7 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
     char tooltip[ 256 ];
     battery *b = lx_b->b;
     /* unit: mW */
-    int rate = lx_b->b->current_now;
+    int rate;
 
     if (! lx_b->pixmap )
         return;
@@ -142,6 +142,7 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
 
     /* fixme: only one battery supported */
 
+    rate = lx_b->b->current_now;
     isCharging = battery_is_charging ( b );
     
     /* Consider running the alarm command */
