@@ -174,7 +174,7 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
            is charging or remaining life if it's discharging */
         if (isCharging) {
 	    int hours = lx_b->b->seconds / 3600;
-	    int left_seconds = b->seconds -= 3600 * hours;
+	    int left_seconds = b->seconds - 3600 * hours;
 	    int minutes = left_seconds / 60;
 	    snprintf(tooltip, 256,
 		     _("Battery: %d%% charged, %d:%02d until full"),
@@ -185,7 +185,7 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
             /* if we have enough rate information for battery */
             if (lx_b->b->percentage != 100) {
 		int hours = lx_b->b->seconds / 3600;
-		int left_seconds = b->seconds -= 3600 * hours;
+		int left_seconds = b->seconds - 3600 * hours;
 		int minutes = left_seconds / 60;
                 snprintf(tooltip, 256,
                         _("Battery: %d%% charged, %d:%02d left"),
