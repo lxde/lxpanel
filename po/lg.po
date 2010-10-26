@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-07-20 11:01+0200\n"
-"PO-Revision-Date: 2010-10-26 14:50+0200\n"
+"PO-Revision-Date: 2010-10-26 23:26+0200\n"
 "Last-Translator: kizito <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Luganda <kbirabwa@yahoo.co.uk>\n"
 "Language: lg\n"
@@ -45,7 +45,7 @@ msgstr "<b>Obusangiro bwa lwo</b>"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "<b>Properties</b>"
-msgstr ""
+msgstr "Enneyisa ya lubaawo"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "<b>Set Preferred Applications</b>"
@@ -295,7 +295,7 @@ msgstr "Komya olutuula"
 
 #: ../src/configurator.c:448
 msgid "Currently loaded plugins"
-msgstr "Ebyongerwako ebikola kakano:"
+msgstr "Ebyongerwako ebikola kakano"
 
 #: ../src/configurator.c:457
 msgid "Stretch"
@@ -431,7 +431,7 @@ msgstr " -h  -- kakola ekimu n'aka --help\n"
 #: ../src/panel.c:1457
 #, c-format
 msgid " -p  -- same as --profile\n"
-msgstr " -p  -- kakola  ekimu n'aka --profile\n"
+msgstr " -p  -- kakola ekimu n'aka --profile\n"
 
 #: ../src/panel.c:1458
 #, c-format
@@ -472,7 +472,7 @@ msgstr "Amanya g'awakolerwa galabike"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
-msgstr "Namba  y'awakolerwa /Linnya ly'awakolerwa"
+msgstr "Namba y'awakolerwa /Linnya ly'awakolerwa"
 
 #: ../src/plugins/deskno/deskno.c:237
 msgid "Display workspace number, by cmeury@users.sf.net"
@@ -565,7 +565,7 @@ msgstr "Ekkomo ly'obugazi bw'eppeesa ly'omulimu"
 
 #: ../src/plugins/taskbar.c:1976
 msgid "Spacing"
-msgstr ""
+msgstr "Ebbanga eryawula mapeesa"
 
 #: ../src/plugins/taskbar.c:2033
 msgid "Task Bar (Window List)"
@@ -576,70 +576,74 @@ msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
+"Akabaawo k'emirimu kakulaga amadirisa agaliwo. Osobola okukakozesa "
+"okugafunza, okugazingako n'okugasembeza kungulu"
 
 #: ../src/plugins/dclock.c:422
 msgid "Clock Format"
-msgstr ""
+msgstr "Empandika ya ssaawa"
 
 #: ../src/plugins/dclock.c:423
 msgid "Tooltip Format"
-msgstr ""
+msgstr "Empandika y'amagezi"
 
 #: ../src/plugins/dclock.c:424
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr ""
+"Obubonero obufuga empandika: bunyonyolebwa 'man 3 strftime'; \n"
+" katandisawo olunyiriri olupya"
 
 #: ../src/plugins/dclock.c:425
 msgid "Action when clicked (default: display calendar)"
-msgstr ""
+msgstr "Ekiba wo nga onyize ku ssaawa (Ekya bulijjo: ekulaga kalenda)"
 
 #: ../src/plugins/dclock.c:427
 msgid "Tooltip only"
-msgstr ""
+msgstr "Bigambo bya kuwa magezibyokka"
 
 #: ../src/plugins/dclock.c:455
 msgid "Digital Clock"
-msgstr ""
+msgstr "Ssaawa ya digiti"
 
 #: ../src/plugins/dclock.c:457
 msgid "Display digital clock and tooltip"
-msgstr ""
+msgstr "Ssaawa ya digiti awamu n'ebigambo bya kuwa magezi"
 
 #: ../src/plugins/menu.c:372
 msgid "Add to desktop"
-msgstr ""
+msgstr "Teeka awakolerwa"
 
 #: ../src/plugins/menu.c:382
 msgid "Properties"
-msgstr ""
+msgstr "Enneyisa"
 
 #: ../src/plugins/menu.c:1019 ../src/plugins/dirmenu.c:413
 msgid "Icon"
-msgstr ""
+msgstr "Kafaananyi"
 
 #: ../src/plugins/menu.c:1036
 msgid "Menu"
-msgstr ""
+msgstr "Menyu"
 
 #: ../src/plugins/menu.c:1038
 msgid "Application Menu"
-msgstr ""
+msgstr "Menyu ya kutandika puloguramu"
 
 #: ../src/plugins/separator.c:98
 msgid "Separator"
-msgstr ""
+msgstr "Ak'awuluza"
 
 #: ../src/plugins/separator.c:100
 msgid "Add a separator to the panel"
-msgstr ""
+msgstr "Olubaawo luteekekoak'awuluza"
 
 #: ../src/plugins/pager.c:797
 msgid "Desktop Pager"
-msgstr ""
+msgstr "Akalaga emirundi gy'awakolerwa"
 
 #: ../src/plugins/pager.c:799
 msgid "Simple pager plugin"
-msgstr ""
+msgstr "Ekyongerwako ekyanguya okukyusa w'okolera"
 
 #: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
 msgid "Size"
@@ -647,95 +651,101 @@ msgstr ""
 
 #: ../src/plugins/space.c:139
 msgid "Spacer"
-msgstr ""
+msgstr "Kabanga"
 
 #: ../src/plugins/space.c:141
 msgid "Allocate space"
-msgstr ""
+msgstr "Kaleetawo ekibangirizi ekyereere"
 
 #: ../src/plugins/tray.c:705
 msgid "System Tray"
-msgstr ""
+msgstr "Kakuŋaanyizo"
 
 #: ../src/plugins/tray.c:707
 msgid "System tray"
-msgstr ""
+msgstr "Kakuŋaanyizo"
 
 #: ../src/plugins/xkb/xkb-plugin.c:291
 msgid "Configure Keyboard Layout Switcher"
-msgstr ""
+msgstr "Enteekateeka y'ekikwanaganya entereeza y'amapeesa agawandisibwa"
 
 #: ../src/plugins/xkb/xkb-plugin.c:306
 msgid "Show layout as"
-msgstr ""
+msgstr "Entereeza girage mu"
 
 #: ../src/plugins/xkb/xkb-plugin.c:321
 msgid "image"
-msgstr ""
+msgstr "kifaananyi"
 
 #: ../src/plugins/xkb/xkb-plugin.c:322
 msgid "text"
-msgstr ""
+msgstr "bigambo"
 
 #: ../src/plugins/xkb/xkb-plugin.c:329
 msgid "Per application settings"
-msgstr ""
+msgstr "Enteekateeka ya puloguramu buli kinnakimu"
 
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/xkb/xkb-plugin.c:344
 msgid "_Remember layout for each application"
-msgstr ""
+msgstr "_Entereeza gijukirire buli puloguramu"
 
 #. Create a label as the child of the horizontal box.
 #: ../src/plugins/xkb/xkb-plugin.c:354
 msgid "Default layout:"
-msgstr ""
+msgstr "Entereeza eya bulijjo:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:405
 msgid "Keyboard Layout Switcher"
-msgstr ""
+msgstr "Ekikwanaganya entereeza y'amapeesa agawandisibwa"
 
 #: ../src/plugins/xkb/xkb-plugin.c:407
 msgid "Switch between available keyboard layouts"
 msgstr ""
+"Kwanaganya enkola ya puloguramu n'entereeza y'amapeesa aga kompyuta "
+"agawandisibwa"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
+"Nyiga ppeesa lya kkono okufunza amadirisa.  Nyiga erya wakati okugazingako."
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
 msgstr ""
+"Okuddiŋana kuleetere eddirisa okufunzibwa/ kuzingibwako n'okuzzibwa ku ngulu"
 
 #: ../src/plugins/wincmd.c:266
 msgid "Minimize All Windows"
-msgstr ""
+msgstr "Funza madirisa gonna"
 
 #: ../src/plugins/wincmd.c:268
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
+"Kisindikira madirisa ebiragiro gonna awamu.\n"
+"Ebiragiro bye kisobola biri 1) kugafunza ne 2) kugazingako"
 
 #: ../src/plugins/dirmenu.c:246
 msgid "Open in _Terminal"
-msgstr ""
+msgstr "Tandikira mu _kiwandikiro"
 
 #: ../src/plugins/dirmenu.c:411
 msgid "Directory"
-msgstr ""
+msgstr "Tterekero"
 
 #: ../src/plugins/dirmenu.c:412
 msgid "Label"
-msgstr ""
+msgstr "Bulambe"
 
 #: ../src/plugins/dirmenu.c:443
 msgid "Directory Menu"
-msgstr ""
+msgstr "Menyu y'amaterekero"
 
 #: ../src/plugins/dirmenu.c:445
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr ""
+msgstr "Menyu ekuyamba okunoonyeza mu materekero (Yakolebwa: PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:304
 msgid "Normal"
@@ -743,11 +753,11 @@ msgstr ""
 
 #: ../src/plugins/thermal/thermal.c:305
 msgid "Warning1"
-msgstr ""
+msgstr "Kulabula1"
 
 #: ../src/plugins/thermal/thermal.c:306
 msgid "Warning2"
-msgstr ""
+msgstr "Kulabula2"
 
 #: ../src/plugins/thermal/thermal.c:307
 msgid "Automatic sensor location"
@@ -763,19 +773,19 @@ msgstr ""
 
 #: ../src/plugins/thermal/thermal.c:310
 msgid "Warning1 Temperature"
-msgstr ""
+msgstr "Kulabula1 Bbugumu"
 
 #: ../src/plugins/thermal/thermal.c:311
 msgid "Warning2 Temperature"
-msgstr ""
+msgstr "Kulabula2 Bbugumu"
 
 #: ../src/plugins/thermal/thermal.c:353
 msgid "Temperature Monitor"
-msgstr ""
+msgstr "Ekirabiriza bbugumu"
 
 #: ../src/plugins/thermal/thermal.c:355
 msgid "Display system temperature"
-msgstr ""
+msgstr "Laga ebbugumu eriri mu kompyuta"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -783,23 +793,23 @@ msgstr ""
 #: ../src/plugins/volumealsa/volumealsa.c:252
 #: ../src/plugins/volumealsa/volumealsa.c:422
 msgid "Volume control"
-msgstr ""
+msgstr "Butumbiifu bwa ddoboozi"
 
 #: ../src/plugins/volume/volume.c:312
 #: ../src/plugins/volumealsa/volumealsa.c:471
 msgid "Volume Control"
-msgstr ""
+msgstr "Ekifuga butumbiifu bwa ddoboozi"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
 #: ../src/plugins/volumealsa/volumealsa.c:380
 msgid "Volume"
-msgstr ""
+msgstr "Butumbiifu bwa ddoboozi"
 
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/volumealsa/volumealsa.c:399
 msgid "Mute"
-msgstr ""
+msgstr "Sirisa ddoboozi"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
@@ -807,89 +817,89 @@ msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:201
 msgid "Wireless Networks not found in range"
-msgstr ""
+msgstr "Tezuuseyo kayumgiriza ey'omu bbanga"
 
 #. Repair
 #: ../src/plugins/netstat/netstat.c:235
 msgid "Repair"
-msgstr ""
+msgstr "Ddaabiriza"
 
 #. interface down
 #: ../src/plugins/netstat/netstat.c:240
 msgid "Disable"
-msgstr ""
+msgstr "Ssiba"
 
 #: ../src/plugins/netstat/netstat.c:299
 msgid "Wireless Connection has no connectivity"
-msgstr ""
+msgstr "Kayungirizi ey'omu bbanga tekwata"
 
 #: ../src/plugins/netstat/netstat.c:301
 msgid "Network cable is plugged out"
-msgstr ""
+msgstr "Kebo ya kayungirizi terimu"
 
 #: ../src/plugins/netstat/netstat.c:303
 msgid "Connection has limited or no connectivity"
-msgstr ""
+msgstr "Omukutu munafu oba teguyungidwako"
 
 #: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
-msgstr ""
+msgstr "Endagiriro eya IP:"
 
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Remote IP:"
-msgstr ""
+msgstr "Endagiriro eya IP ey'ebunayira:"
 
 #: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
-msgstr ""
+msgstr "Namba evumbula kompyuta enyunge:"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
-msgstr ""
+msgstr "Okuwanyisigana"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
-msgstr ""
+msgstr "Ebisindikidwa"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
-msgstr ""
+msgstr "Ebifunidwa"
 
 #: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
-msgstr ""
+msgstr "bayiti"
 
 #: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
-msgstr ""
+msgstr "bitole"
 
 #: ../src/plugins/netstat/netstat.c:315
 #: ../src/plugins/netstatus/netstatus-iface.c:173
 msgid "Wireless"
-msgstr ""
+msgstr "Kayungirizi ow'omu bbanga"
 
 #: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
-msgstr ""
+msgstr "Mateeka:"
 
 #: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
-msgstr ""
+msgstr "Endagiriro y'ekyuma - HW:"
 
 #: ../src/plugins/netstat/netstat.c:470
 msgid "Manage Networks"
-msgstr ""
+msgstr "Teekateeka kayungirizi"
 
 #: ../src/plugins/netstat/netstat.c:472
 msgid "Monitor and Manage networks"
-msgstr ""
+msgstr "Labiriza n'okuteekateeka kayungirizi"
 
 #. create dialog
 #: ../src/plugins/netstat/passwd_gui.c:84
@@ -913,36 +923,36 @@ msgstr ""
 
 #: ../src/plugins/netstatus/netstatus.c:180
 msgid "Config tool"
-msgstr ""
+msgstr "Ekiyamba mu kuteekateeka"
 
 #: ../src/plugins/netstatus/netstatus.c:197
 msgid "Network Status Monitor"
-msgstr ""
+msgstr "Ekirabiriza mbeera ya kayungirizi"
 
 #: ../src/plugins/netstatus/netstatus.c:199
 msgid "Monitor network status"
-msgstr ""
+msgstr "Labiriza mbeera ya kayungirizi"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:51
 #: ../src/plugins/netstatus/netstatus-dialog.c:312
 msgid "Unknown"
-msgstr ""
+msgstr "Tekimanyidwa"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:116
 msgid "Connection Properties"
-msgstr ""
+msgstr "Nneyisa y'omukutu"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:122
 #, c-format
 msgid "Connection Properties: %s"
-msgstr ""
+msgstr "Nneyisa ya mukutu: %s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:135
 #, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "kitole %li"
+msgstr[1] "bitole %s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:396
 #, c-format
@@ -950,40 +960,42 @@ msgid ""
 "There was an error displaying help:\n"
 "%s"
 msgstr ""
+"Ogw'okukulaga obuyambi guzzeko kiremya:\n"
+"%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
-msgstr ""
+msgstr "Nemedwa okutandika ekiyamba okuteekateeka ssaawa: %s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:379
 #, c-format
 msgid "Network Connection: %s"
-msgstr ""
+msgstr "Omukutu gwa kayungirizi: %s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:384
 msgid "Network Connection"
-msgstr ""
+msgstr "Mukutu gwa kayungirizi"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:811
 msgid "Interface"
-msgstr ""
+msgstr "Ensisinkano"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:812
 msgid "The current interface the icon is monitoring."
-msgstr ""
+msgstr "Ensisinkano akafaananyi gye kategeeza nti y'elabirizibwa."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:819
 msgid "Orientation"
-msgstr ""
+msgstr "Entereera"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:820
 msgid "The orientation of the tray."
-msgstr ""
+msgstr "Entereera yakakuŋaanyizo."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:828
 msgid "Tooltips Enabled"
-msgstr ""
+msgstr "Sisitemu ejjakukuwanga magezi"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:829
 msgid "Whether or not the icon's tooltips are enabled."
