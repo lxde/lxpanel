@@ -1310,19 +1310,19 @@ msgstr "Langi ey'oku bwaliriro"
 
 #: ../src/plugins/batt/batt.c:585
 msgid "Charging color 1"
-msgstr ""
+msgstr "Langi ya kuzamu manda 1"
 
 #: ../src/plugins/batt/batt.c:586
 msgid "Charging color 2"
-msgstr ""
+msgstr "Langi ya kuzamu manda 2"
 
 #: ../src/plugins/batt/batt.c:587
 msgid "Discharging color 1"
-msgstr ""
+msgstr "Langi ya kunywa manda 1"
 
 #: ../src/plugins/batt/batt.c:588
 msgid "Discharging color 2"
-msgstr ""
+msgstr "Langi ya kunywa manda 2"
 
 #: ../src/plugins/batt/batt.c:589
 msgid "Border width"
@@ -1330,11 +1330,11 @@ msgstr ""
 
 #: ../src/plugins/batt/batt.c:619
 msgid "Battery Monitor"
-msgstr ""
+msgstr "Ekirabiriza manda"
 
 #: ../src/plugins/batt/batt.c:621
 msgid "Display battery status using ACPI"
-msgstr ""
+msgstr "Kozesa ACPI okulaga mbeera y'amanda"
 
 #: ../src/plugins/kbled/kbled.c:230
 msgid "Show CapsLock"
@@ -1350,7 +1350,7 @@ msgstr ""
 
 #: ../src/plugins/kbled/kbled.c:267
 msgid "Keyboard LED"
-msgstr ""
+msgstr "Butaala bw'oku mapeesa ga kompyuta"
 
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
