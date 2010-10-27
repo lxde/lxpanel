@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-07-20 11:01+0200\n"
-"PO-Revision-Date: 2010-10-27 15:02+0200\n"
+"PO-Revision-Date: 2010-10-27 19:32+0200\n"
 "Last-Translator: kizito <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Luganda <kbirabwa@yahoo.co.uk>\n"
 "Language: lg\n"
@@ -125,7 +125,7 @@ msgstr "Olubaawo lwemiime nga tolina ky'olukolerako"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "Panel Applets"
-msgstr "Bukolagumu bwakwo"
+msgstr "Bupuloguramu bwa ku lubaawo"
 
 #: ../data/ui/panel-pref.glade.h:29
 msgid "Panel Preferences"
@@ -647,7 +647,7 @@ msgstr "Ekyongerwako ekyanguya okukyusa w'okolera"
 
 #: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
 msgid "Size"
-msgstr ""
+msgstr "Bunene"
 
 #: ../src/plugins/space.c:139
 msgid "Spacer"
@@ -663,7 +663,7 @@ msgstr "Kakuŋaanyizo"
 
 #: ../src/plugins/tray.c:707
 msgid "System tray"
-msgstr "Kakuŋaanyizo"
+msgstr "Kakuŋaanya obufaananyi bwa puloguramu ezitalabikira awakolerwa"
 
 #: ../src/plugins/xkb/xkb-plugin.c:291
 msgid "Configure Keyboard Layout Switcher"
@@ -919,7 +919,7 @@ msgstr ""
 
 #: ../src/plugins/netstatus/netstatus.c:179
 msgid "Interface to monitor"
-msgstr ""
+msgstr "Ensisinkano erabirizibwa"
 
 #: ../src/plugins/netstatus/netstatus.c:180
 msgid "Config tool"
