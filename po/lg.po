@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-07-20 11:01+0200\n"
-"PO-Revision-Date: 2010-10-27 19:32+0200\n"
+"PO-Revision-Date: 2010-10-28 01:06+0200\n"
 "Last-Translator: kizito <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Luganda <kbirabwa@yahoo.co.uk>\n"
 "Language: lg\n"
@@ -245,7 +245,7 @@ msgstr "Ebifunidwa:"
 #: ../data/ui/netstatus.glade.h:15
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
 msgid "Scope:"
-msgstr ""
+msgstr "Olubu lwa IP olw'oku kayungirizi ento eno:"
 
 #: ../data/ui/netstatus.glade.h:16
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
@@ -270,7 +270,7 @@ msgstr ""
 #: ../data/ui/netstatus.glade.h:20
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
 msgid "Type:"
-msgstr ""
+msgstr "Kika:"
 
 #: ../data/ui/netstatus.glade.h:21
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
@@ -421,7 +421,7 @@ msgstr " --log <number> -- kano kategeka obungi bw'ebifa ku mulimu bye kiwandika
 #: ../src/panel.c:1454
 #, c-format
 msgid " --profile name -- use specified profile\n"
-msgstr ""
+msgstr " --profile linnya -- kano kakireetera okukolera ku nkola 'linnya'"
 
 #: ../src/panel.c:1456
 #, c-format
@@ -749,7 +749,7 @@ msgstr "Menyu ekuyamba okunoonyeza mu materekero (Yakolebwa: PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:304
 msgid "Normal"
-msgstr ""
+msgstr "Lya bulijjo"
 
 #: ../src/plugins/thermal/thermal.c:305
 msgid "Warning1"
@@ -769,7 +769,7 @@ msgstr "Ekirabiriza"
 
 #: ../src/plugins/thermal/thermal.c:309
 msgid "Automatic temperature levels"
-msgstr ""
+msgstr "Kkomo z'ebbugumu ezireetawo okulabula"
 
 #: ../src/plugins/thermal/thermal.c:310
 msgid "Warning1 Temperature"
