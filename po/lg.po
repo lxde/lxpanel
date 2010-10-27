@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-07-20 11:01+0200\n"
-"PO-Revision-Date: 2010-10-26 23:26+0200\n"
+"PO-Revision-Date: 2010-10-27 15:02+0200\n"
 "Last-Translator: kizito <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Luganda <kbirabwa@yahoo.co.uk>\n"
 "Language: lg\n"
@@ -761,11 +761,11 @@ msgstr "Kulabula2"
 
 #: ../src/plugins/thermal/thermal.c:307
 msgid "Automatic sensor location"
-msgstr ""
+msgstr "Obusangiro bw'ekirabiriza"
 
 #: ../src/plugins/thermal/thermal.c:308
 msgid "Sensor"
-msgstr ""
+msgstr "Ekirabiriza"
 
 #: ../src/plugins/thermal/thermal.c:309
 msgid "Automatic temperature levels"
@@ -999,15 +999,17 @@ msgstr "Sisitemu ejjakukuwanga magezi"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:829
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr ""
+msgstr "Salawo oba ku bufaananyi wajjawo ebigambo bya kuwa magezi"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:836
 msgid "Show Signal"
-msgstr ""
+msgstr "Amaanyi g'omukutu"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:837
 msgid "Whether or not the signal strength should be displayed."
 msgstr ""
+"Salawo oba wanabawo ekikulaga amaanyi g'omukutu gwa kayungirizi ow'omu "
+"bbanga."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:950
 #, c-format
@@ -1016,193 +1018,198 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Ekizibu kino kyetaagisa buyinza bwa muteesiteesi wa sisitemu okukigonjoola:\n"
+"\n"
+"%s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:148
 msgid "Name"
-msgstr ""
+msgstr "Linnya"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:149
 msgid "The interface name"
-msgstr ""
+msgstr "Erinnya ly'ensisinkano"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:156
 msgid "State"
-msgstr ""
+msgstr "Embeera"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:157
 msgid "The interface state"
-msgstr ""
+msgstr "Embeera ya mukutu ogw'oku nsisinkano"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:165
 msgid "Stats"
-msgstr ""
+msgstr "Ebibalidwa"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:166
 msgid "The interface packets/bytes statistics"
-msgstr ""
+msgstr "Ebibalidwa ku mpanyisigana y'ebitole/bayiti ku nsisinkano"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:174
 msgid "Whether the interface is a wireless interface"
-msgstr ""
+msgstr "Laga oba nsisinkano ya kayungirizi ow'omu bbanga"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:181
 msgid "Signal"
-msgstr ""
+msgstr "Mukutu"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:182
 msgid "Wireless signal strength percentage"
 msgstr ""
+"Maanyi ga mukutu gwa kayungirizi ow'omu bbanga mu bipimo bya bitundu ku "
+"kikumi"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:191
 #: ../src/plugins/netstatus/netstatus-util.c:167
 msgid "Error"
-msgstr ""
+msgstr "Kiremya"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:192
 msgid "The current error condition"
-msgstr ""
+msgstr "Ekireesewo kiremya"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:434
 #: ../src/plugins/netstatus/netstatus-iface.c:1197
 #, c-format
 msgid "Unable to open socket: %s"
-msgstr ""
+msgstr "Nnemedwa okuggula soketi: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:496
 #: ../src/plugins/netstatus/netstatus-iface.c:1223
 #, c-format
 msgid "SIOCGIFFLAGS error: %s"
-msgstr ""
+msgstr "Waliwo kiremya mu kufuna ebifa ku nsisinkano - SIOCGIFFLAGS : %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:870
 msgid "AMPR NET/ROM"
-msgstr ""
+msgstr "AMPR NET/ROM"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:873
 msgid "Ethernet"
-msgstr ""
+msgstr "Ethernet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:879
 msgid "AMPR AX.25"
-msgstr ""
+msgstr "AMPR AX.25"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:888
 #: ../src/plugins/netstatus/netstatus-iface.c:1008
 msgid "16/4 Mbps Token Ring"
-msgstr ""
+msgstr "Tokeni Ringi ya Mbps 16/4"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:891
 msgid "ARCnet"
-msgstr ""
+msgstr "ARCnet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:897
 msgid "Frame Relay DLCI"
-msgstr ""
+msgstr "DLCI Frame Relay"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:903
 msgid "Metricom Starmode IP"
-msgstr ""
+msgstr "IP eya Metricom Starmode"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:906
 msgid "Serial Line IP"
-msgstr ""
+msgstr "SLIP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:909
 msgid "VJ Serial Line IP"
-msgstr ""
+msgstr "VJ SLIP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:912
 msgid "6-bit Serial Line IP"
-msgstr ""
+msgstr "SLIP eya 6-bit"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:915
 msgid "VJ 6-bit Serial Line IP"
-msgstr ""
+msgstr "VJ SLIP eya 6-bit"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:921
 msgid "Adaptive Serial Line IP"
-msgstr ""
+msgstr "SLIP eya Adaptive"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:924
 msgid "AMPR ROSE"
-msgstr ""
+msgstr "AMPR ROSE"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:927
 msgid "Generic X.25"
-msgstr ""
+msgstr "X.25 Owa bulijjo"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:930
 msgid "Point-to-Point Protocol"
-msgstr ""
+msgstr "PPP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:936
 msgid "(Cisco)-HDLC"
-msgstr ""
+msgstr "(Cisco)-HDLC"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:939
 msgid "LAPB"
-msgstr ""
+msgstr "LAPB"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:948
 msgid "IPIP Tunnel"
-msgstr ""
+msgstr "Kkubo lya IPIP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:954
 msgid "Frame Relay Access Device"
-msgstr ""
+msgstr "FRAD"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:960
 msgid "Local Loopback"
-msgstr ""
+msgstr "Ensisinkano eya munda"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:966
 msgid "Fiber Distributed Data Interface"
-msgstr ""
+msgstr "Ensisinkano ya mikutu egikozesa kitangaala"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:972
 msgid "IPv6-in-IPv4"
-msgstr ""
+msgstr "IPv6-mu-IPv4"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:984
 msgid "HIPPI"
-msgstr ""
+msgstr "HIPPI"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:987
 msgid "Ash"
-msgstr ""
+msgstr "Ash"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:990
 msgid "Econet"
-msgstr ""
+msgstr "Econet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:993
 msgid "IrLAP"
-msgstr ""
+msgstr "IrLAP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:1155
 #, c-format
 msgid "SIOCGIFCONF error: %s"
-msgstr ""
+msgstr "Waliwo kiremya mu kufuna ebifa ku nsisinkano - SIOCGIFCONF: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:1248
 #, c-format
 msgid "No network devices found"
-msgstr ""
+msgstr "Sizuddeyo byuma bikola ku kayungirizi"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:180
 #, c-format
 msgid "Cannot open /proc/net/dev: %s"
-msgstr ""
+msgstr "Nnemedwa kubikkula /proc/net/dev: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:189
 msgid "Could not parse /proc/net/dev. Unknown format."
-msgstr ""
+msgstr "Nnemedwa okukebera /proc/net/dev. Empandika ya mu sigitegeera."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:204
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:330
 #, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr ""
+msgstr "Nnemedwa okuyungulula erinnya ly'ensisinkano okuva mu '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
@@ -1211,89 +1218,95 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
+"Nnemedwa okuyungulula ebibalidwa ku nsisinkano okuva mu '%s'. prx_idx = %d; "
+"ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr ""
+msgstr "Nnemedwa okukebera /proc/net/wireless. Emepandika ya mu sigitegeera."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
 msgstr ""
+"Nnemedwa okuyungulula ebifa ku kayungirizi ow'omu bbanga okuva mu '%s'. "
+"link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
 msgid "Could not connect to interface, '%s'"
-msgstr ""
+msgstr "Tekisobose okuggulawo omukutu ogw'okunsisinkano, '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:420
 #, c-format
 msgid "Could not send ioctl to interface, '%s'"
-msgstr ""
+msgstr "Tekisobose okusindika nsisinkano ekiragiro ekya icotl, '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr ""
+msgstr "Nnemedwa okuyungulula makulu mu kiragiro '%s': %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
 msgstr ""
+"Nnemedwa okuyungulula amakulu mu bivudde mu 'netstat'. Empandika "
+"gy'ekozesezza sigitegeera"
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
-msgstr ""
+msgstr "Omukutu guvuddewo"
 
 #: ../src/plugins/netstatus/netstatus-util.c:155
 msgid "Idle"
-msgstr ""
+msgstr "Tewali biyita"
 
 #: ../src/plugins/netstatus/netstatus-util.c:158
 msgid "Sending"
-msgstr ""
+msgstr "Waliwo ebisindikibwa"
 
 #: ../src/plugins/netstatus/netstatus-util.c:161
 msgid "Receiving"
-msgstr ""
+msgstr "Waliwo ebifunibwa"
 
 #: ../src/plugins/netstatus/netstatus-util.c:164
 msgid "Sending/Receiving"
-msgstr ""
+msgstr "Kusindika/Kufuna"
 
 #: ../src/plugins/batt/batt.c:131
 msgid "No batteries found"
-msgstr ""
+msgstr "Tewali manda"
 
 #: ../src/plugins/batt/batt.c:179
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
-msgstr ""
+msgstr "Amanda: Gatuuse ku %d%%, ebulayo %d:%02d gajjule"
 
 #: ../src/plugins/batt/batt.c:190
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
-msgstr ""
+msgstr "Amanda: Gatuuse ku %d%%; ebulayo %d:%02d gaggwemu"
 
 #: ../src/plugins/batt/batt.c:196
 #, c-format
 msgid "Battery: %d%% charged"
-msgstr ""
+msgstr "Amanda: Gatuuse ku %d%%"
 
 #: ../src/plugins/batt/batt.c:580
 msgid "Hide if there is no battery"
-msgstr ""
+msgstr "Ekirabiriza kikise bwe watabawo manda"
 
 #: ../src/plugins/batt/batt.c:582
 msgid "Alarm command"
-msgstr ""
+msgstr "Ekiragiro ekifuga akajjukiza"
 
 #: ../src/plugins/batt/batt.c:583
 msgid "Alarm time (minutes left)"
-msgstr ""
+msgstr "Obudde obusigadde okufuna akajjukiza (ddakiika)"
 
 #: ../src/plugins/batt/batt.c:584
 msgid "Background color"
-msgstr ""
+msgstr "Langi ey'oku bwaliriro"
 
 #: ../src/plugins/batt/batt.c:585
 msgid "Charging color 1"
