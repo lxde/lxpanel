@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-07-20 11:01+0200\n"
-"PO-Revision-Date: 2010-10-28 01:06+0200\n"
+"PO-Revision-Date: 2010-10-28 14:21+0200\n"
 "Last-Translator: kizito <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Luganda <kbirabwa@yahoo.co.uk>\n"
 "Language: lg\n"
@@ -45,7 +45,7 @@ msgstr "<b>Obusangiro bwa lwo</b>"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "<b>Properties</b>"
-msgstr "Enneyisa ya lubaawo"
+msgstr "<b>Enneyisa ya lubaawo</b>"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "<b>Set Preferred Applications</b>"
@@ -421,7 +421,8 @@ msgstr " --log <number> -- kano kategeka obungi bw'ebifa ku mulimu bye kiwandika
 #: ../src/panel.c:1454
 #, c-format
 msgid " --profile name -- use specified profile\n"
-msgstr " --profile linnya -- kano kakireetera okukolera ku nkola 'linnya'"
+msgstr " --profile linnya -- kano kakireetera okukogoberera ebiwandikwa mu lukalala "
+"'linnya'\n"
 
 #: ../src/panel.c:1456
 #, c-format
@@ -813,11 +814,11 @@ msgstr "Sirisa ddoboozi"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
-msgstr ""
+msgstr "<Mukutu ogukisidwa>"
 
 #: ../src/plugins/netstat/netstat.c:201
 msgid "Wireless Networks not found in range"
-msgstr "Tezuuseyo kayumgiriza ey'omu bbanga"
+msgstr "Tezuuseyo kayungirizi ey'omu bbanga"
 
 #. Repair
 #: ../src/plugins/netstat/netstat.c:235
@@ -904,7 +905,7 @@ msgstr "Labiriza n'okuteekateeka kayungirizi"
 #. create dialog
 #: ../src/plugins/netstat/passwd_gui.c:84
 msgid "Setting Encryption Key"
-msgstr ""
+msgstr "Tegeka akasumuluzo k'ebyama"
 
 #. messages
 #: ../src/plugins/netstat/passwd_gui.c:94
@@ -912,10 +913,12 @@ msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
 msgstr ""
+"Kayungirizi ey'omu bbanga eno ya kyama.\n"
+"Wetaaga akasumuluzo ka yo."
 
 #: ../src/plugins/netstat/passwd_gui.c:99
 msgid "Encryption Key:"
-msgstr ""
+msgstr "Kasumuluzo k'ebyama:"
 
 #: ../src/plugins/netstatus/netstatus.c:179
 msgid "Interface to monitor"
@@ -1338,15 +1341,15 @@ msgstr "Kozesa ACPI okulaga mbeera y'amanda"
 
 #: ../src/plugins/kbled/kbled.c:230
 msgid "Show CapsLock"
-msgstr ""
+msgstr "Wabewo ppeesa lya CapsLock"
 
 #: ../src/plugins/kbled/kbled.c:231
 msgid "Show NumLock"
-msgstr ""
+msgstr "Wabewo ppeesa lya NumLock"
 
 #: ../src/plugins/kbled/kbled.c:232
 msgid "Show ScrollLock"
-msgstr ""
+msgstr "Wabewo ppeesa lya ScrollLock"
 
 #: ../src/plugins/kbled/kbled.c:267
 msgid "Keyboard LED"
