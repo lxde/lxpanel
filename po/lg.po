@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-07-20 11:01+0200\n"
-"PO-Revision-Date: 2010-10-29 21:52+0200\n"
+"PO-Revision-Date: 2010-11-01 15:13+0200\n"
 "Last-Translator: kizito <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Luganda <kbirabwa@yahoo.co.uk>\n"
 "Language: lg\n"
@@ -265,7 +265,7 @@ msgstr "Namba eyawuzamu kayungirizi:"
 #: ../data/ui/netstatus.glade.h:19
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
 msgid "Support"
-msgstr ""
+msgstr "Buyambi"
 
 #: ../data/ui/netstatus.glade.h:20
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
@@ -1329,7 +1329,7 @@ msgstr "Langi ya kunywa manda 2"
 
 #: ../src/plugins/batt/batt.c:589
 msgid "Border width"
-msgstr ""
+msgstr "Buggumivu bw'olukoboze olwetoolola njegoyego"
 
 #: ../src/plugins/batt/batt.c:619
 msgid "Battery Monitor"
