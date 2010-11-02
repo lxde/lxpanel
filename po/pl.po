@@ -1,15 +1,16 @@
-# translation of pl.po to Polish
-# Grzegorz Gibas <amigib@gmail.com>, 2009.
+# Polish translation of lxpanel package
 # Copyright (C) 2006 the lxde team
 # This file is distributed under the same license as the lxpanel package.
+# Grzegorz Gibas <amigib@gmail.com>, 2009.
+# Piotr Sokół <psokol@jabster.pl>, 2010.
 # Artur <mazdac@gmail.com>, 2006, 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: pl\n"
+"Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-01 06:10+0000\n"
-"PO-Revision-Date: 2010-11-01 16:02+0100\n"
+"PO-Revision-Date: 2010-11-02 11:40+0100\n"
 "Last-Translator: Artur <mazdac@gmail.com>\n"
 "Language-Team: Polish\n"
 "MIME-Version: 1.0\n"
@@ -18,9 +19,6 @@ msgstr ""
 "Language: pl\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Poedit-Bookmarks: 19,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
-"X-Poedit-Country: Poland\n"
-"X-Generator: Pootle 2.0.0\n"
 
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
@@ -476,16 +474,16 @@ msgstr "Pogrubiona czcionka"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
-msgstr "Pokaż nazwy pulpitów"
+msgstr "Wyświetlanie nazw obszarów roboczych"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
-msgstr "Numer/nazwa przestrzeni roboczej"
+msgstr "Numer i nazwa obszaru roboczego"
 
 #: ../src/plugins/deskno/deskno.c:237
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr ""
-"Wyświetla nazwę i numer przestrzeni roboczej. Autorstwa cmeury@users.sf.net."
+"Wyświetla nazwę i numer obszaru roboczego. Autorstwa cmeury@users.sf.net."
 
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
@@ -493,7 +491,7 @@ msgstr "Wyświetl obraz i podpowiedź"
 
 #: ../src/plugins/launchbar.c:889
 msgid "Bar with buttons to launch application"
-msgstr "Pasek z przyciskami do uruchamiania programów"
+msgstr "Wyświetla aktywatory programów w postaci przycisków"
 
 #. Add Raise menu item.
 #: ../src/plugins/taskbar.c:1700
@@ -508,12 +506,12 @@ msgstr "_Przywróć"
 #. Add Maximize menu item.
 #: ../src/plugins/taskbar.c:1710
 msgid "Ma_ximize"
-msgstr "Zmaksymalizuj"
+msgstr "Zm_aksymalizuj"
 
 #. Add Iconify menu item.
 #: ../src/plugins/taskbar.c:1715
 msgid "Ico_nify"
-msgstr "Zminimalizuj"
+msgstr "Zm_inimalizuj"
 
 #: ../src/plugins/taskbar.c:1734
 #, c-format
@@ -566,7 +564,7 @@ msgstr "Miganie okien wymagających uwagi użytkownika"
 
 #: ../src/plugins/taskbar.c:1974
 msgid "Combine multiple application windows into a single button"
-msgstr "Wyświetlanie wielu okien programu w jednym przycisku"
+msgstr "Grupowanie wielu okien tego samego programu"
 
 #: ../src/plugins/taskbar.c:1975
 msgid "Maximum width of task button"
@@ -597,7 +595,7 @@ msgstr "Format podpowiedzi:"
 #: ../src/plugins/dclock.c:424
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr ""
-"Opis formatowania wipisuje polecenie „man 3 sfrtime”. Łamanie wierszy "
+"Opis formatowania wypisuje polecenie „man 3 sfrtime”. Łamanie wierszy "
 "znakiem „\\n”."
 
 #: ../src/plugins/dclock.c:425
@@ -615,7 +613,7 @@ msgstr "Zegar cyfrowy"
 
 #: ../src/plugins/dclock.c:457
 msgid "Display digital clock and tooltip"
-msgstr "Wyświetla zegar cyfrowy i sformatowane podpowiedzi."
+msgstr "Wyświetla zegar cyfrowy i sformatowane podpowiedzi"
 
 #: ../src/plugins/menu.c:372
 msgid "Add to desktop"
@@ -627,7 +625,7 @@ msgstr "Właściwości"
 
 #: ../src/plugins/menu.c:1019 ../src/plugins/dirmenu.c:413
 msgid "Icon"
-msgstr "Ikona"
+msgstr "Ikona:"
 
 #: ../src/plugins/menu.c:1036
 msgid "Menu"
@@ -635,7 +633,7 @@ msgstr "Menu programów"
 
 #: ../src/plugins/menu.c:1038
 msgid "Application Menu"
-msgstr "Wyświetla aktywatory programów w menu."
+msgstr "Wyświetla aktywatory programów w zorganizowanym menu"
 
 #: ../src/plugins/separator.c:98
 msgid "Separator"
@@ -643,7 +641,7 @@ msgstr "Separator"
 
 #: ../src/plugins/separator.c:100
 msgid "Add a separator to the panel"
-msgstr "Dodaj separator do panelu"
+msgstr "Oddziela aplety panelu pustą przestrzenią"
 
 #: ../src/plugins/pager.c:797
 msgid "Desktop Pager"
@@ -651,11 +649,11 @@ msgstr "Obszary robocze"
 
 #: ../src/plugins/pager.c:799
 msgid "Simple pager plugin"
-msgstr "Wyświetla zawartość obszarów roboczych."
+msgstr "Wyświetla zawartość obszarów roboczych"
 
 #: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
 msgid "Size"
-msgstr "Rozmiar"
+msgstr "Rozmiar:"
 
 #: ../src/plugins/space.c:139
 msgid "Spacer"
@@ -663,7 +661,7 @@ msgstr "Odstęp"
 
 #: ../src/plugins/space.c:141
 msgid "Allocate space"
-msgstr "Przydziel miejsce"
+msgstr "Oddziela aplety panelu znakiem graficznym"
 
 #: ../src/plugins/tray.c:705
 msgid "System Tray"
@@ -671,32 +669,32 @@ msgstr "Obszar powiadamiania"
 
 #: ../src/plugins/tray.c:707
 msgid "System tray"
-msgstr "Obszar powiadamiania"
+msgstr "Wyświetla ikony powiadamiania programów"
 
 #: ../src/plugins/xkb/xkb-plugin.c:291
 msgid "Configure Keyboard Layout Switcher"
-msgstr "Konfiguruj przełącznik układów klawiatury"
+msgstr "Przełącznik układów klawiatury"
 
 #: ../src/plugins/xkb/xkb-plugin.c:306
 msgid "Show layout as"
-msgstr "Pokaż układ jako"
+msgstr "Wygląd"
 
 #: ../src/plugins/xkb/xkb-plugin.c:321
 msgid "image"
-msgstr "obraz"
+msgstr "Ikona"
 
 #: ../src/plugins/xkb/xkb-plugin.c:322
 msgid "text"
-msgstr "tekst"
+msgstr "Etykieta"
 
 #: ../src/plugins/xkb/xkb-plugin.c:329
 msgid "Per application settings"
-msgstr "Ustawienia poszczególnych aplikacji"
+msgstr "Programy"
 
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/xkb/xkb-plugin.c:344
 msgid "_Remember layout for each application"
-msgstr "Zapamiętaj _układ dla każdego programu"
+msgstr "Pamiętanie _układu dla każdego programu"
 
 #. Create a label as the child of the horizontal box.
 #: ../src/plugins/xkb/xkb-plugin.c:354
@@ -709,13 +707,13 @@ msgstr "Przełącznik układów klawiatury"
 
 #: ../src/plugins/xkb/xkb-plugin.c:407
 msgid "Switch between available keyboard layouts"
-msgstr "Przełącz między dostępnymi układami klwiatury"
+msgstr "Przełącza pomiędzy dostępnymi układami klawiatury"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
-"Kilknij prawym klawiszem myszy aby zminimalizować, środkowym aby zwinąć "
-"wszystkie okna."
+"Minimalizuje wszystkie okna przy użyciu prawego klawisza myszy lub zwija "
+"przy użyciu środkowego klawisza."
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
@@ -723,7 +721,7 @@ msgstr "Kolejno ikonifikuj/ukrywaj i maksymalizuj"
 
 #: ../src/plugins/wincmd.c:266
 msgid "Minimize All Windows"
-msgstr "Minimalizuj wszystkie okna"
+msgstr "Minimalizowanie okien"
 
 #: ../src/plugins/wincmd.c:268
 msgid ""
@@ -739,11 +737,11 @@ msgstr "Otwórz w _terminalu"
 
 #: ../src/plugins/dirmenu.c:411
 msgid "Directory"
-msgstr "Katalog"
+msgstr "Katalog:"
 
 #: ../src/plugins/dirmenu.c:412
 msgid "Label"
-msgstr "Etykieta"
+msgstr "Etykieta:"
 
 #: ../src/plugins/dirmenu.c:443
 msgid "Directory Menu"
@@ -751,7 +749,7 @@ msgstr "Menu katalogu"
 
 #: ../src/plugins/dirmenu.c:445
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr "Przeglądaj drzewo katalogu przez menu (Autor: PCMan)"
+msgstr "Wyświetla zawartość katalogu w menu. Autor: PCMan"
 
 #: ../src/plugins/thermal/thermal.c:304
 msgid "Normal"
@@ -759,11 +757,11 @@ msgstr "Normalny"
 
 #: ../src/plugins/thermal/thermal.c:305
 msgid "Warning1"
-msgstr "Ostrzeżenie1"
+msgstr "Pierwsze ostrzeżenie"
 
 #: ../src/plugins/thermal/thermal.c:306
 msgid "Warning2"
-msgstr "Ostrzeżenie2"
+msgstr "Drugie ostrzeżenie"
 
 #: ../src/plugins/thermal/thermal.c:307
 msgid "Automatic sensor location"
@@ -791,7 +789,7 @@ msgstr "Monitor temperatury"
 
 #: ../src/plugins/thermal/thermal.c:355
 msgid "Display system temperature"
-msgstr "Wyświetlanie temperatury komputera dzięki kesler.daniel@gmail.com"
+msgstr "Wyświetlanie temperatury komputera. Autor: kesler.daniel@gmail.com"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -939,7 +937,7 @@ msgstr "Monitor stanu sieci"
 
 #: ../src/plugins/netstatus/netstatus.c:199
 msgid "Monitor network status"
-msgstr "Status monitora sieci"
+msgstr "Monitoruje stan połączenia sieciowego"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:51
 #: ../src/plugins/netstatus/netstatus-dialog.c:312
@@ -959,7 +957,7 @@ msgstr "Właściwości połączenia: %s"
 #, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
-msgstr[0] "%lu pakietów"
+msgstr[0] "%lu pakiet"
 msgstr[1] "%lu pakiety"
 msgstr[2] "%lu pakietów"
 
@@ -969,7 +967,7 @@ msgid ""
 "There was an error displaying help:\n"
 "%s"
 msgstr ""
-"Błąd podczas wyświetlania pomocy:\n"
+"Wystąpił błąd podczas wyświetlania pomocy:\n"
 "%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
