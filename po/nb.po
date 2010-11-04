@@ -3,24 +3,25 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-07-20 11:01+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2010-11-03 22:43+0200\n"
+"Last-Translator: Sam <wilsonsamm@hotmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
 msgid "% Percent"
-msgstr ""
+msgstr "% prosent"
 
 #: ../data/ui/panel-pref.glade.h:3
 msgid "<b>Automatic hiding</b>"
@@ -28,59 +29,59 @@ msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:4
 msgid "<b>Background</b>"
-msgstr ""
+msgstr "<b>Bakgrunn</b>"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "<b>Font</b>"
-msgstr ""
+msgstr "<b>Skrift</b>"
 
 #: ../data/ui/panel-pref.glade.h:6
 msgid "<b>Icon</b>"
-msgstr ""
+msgstr "<b>Ikon</b>"
 
 #: ../data/ui/panel-pref.glade.h:7
 msgid "<b>Position</b>"
-msgstr ""
+msgstr "<b>Plassering</b>"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "<b>Properties</b>"
-msgstr ""
+msgstr "<b>Egenskaper</b>"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "<b>Set Preferred Applications</b>"
-msgstr ""
+msgstr "<b>Velg foretrukne program</b>"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "<b>Size</b>"
-msgstr ""
+msgstr "<b>Størrelse</b>"
 
 #: ../data/ui/panel-pref.glade.h:11
 msgid "Advanced"
-msgstr ""
+msgstr "Avansert"
 
 #: ../data/ui/panel-pref.glade.h:12
 msgid "Alignment:"
-msgstr ""
+msgstr "Justering:"
 
 #: ../data/ui/panel-pref.glade.h:13
 msgid "Appearance"
-msgstr ""
+msgstr "Utseende"
 
 #: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1049
 msgid "Bottom"
-msgstr ""
+msgstr "Nede"
 
 #: ../data/ui/panel-pref.glade.h:15
 msgid "Center"
-msgstr ""
+msgstr "I midten"
 
 #: ../data/ui/panel-pref.glade.h:16
 msgid "Custom color"
-msgstr ""
+msgstr "Selvvalgt farge"
 
 #: ../data/ui/panel-pref.glade.h:17
 msgid "Dynamic"
-msgstr ""
+msgstr "Dynamisk"
 
 #: ../data/ui/panel-pref.glade.h:18
 msgid "Edge:"
@@ -88,102 +89,107 @@ msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "File Manager:"
-msgstr ""
+msgstr "Filbehandler:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "Geometry"
-msgstr ""
+msgstr "Geometri"
 
 #: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:1039 ../src/panel.c:1047
 msgid "Height:"
-msgstr ""
+msgstr "Høyde:"
 
 #: ../data/ui/panel-pref.glade.h:22
 msgid "Image"
-msgstr ""
+msgstr "Bilde"
 
 #: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:1041
 msgid "Left"
-msgstr ""
+msgstr "Til venstre"
 
 #: ../data/ui/panel-pref.glade.h:24
 msgid "Logout Command:"
-msgstr ""
+msgstr "Utloggingskommando:"
 
+# Var litt usikker på ordet "dokk". Ifølge KDE sine retningslinjer heter det samlevindu på Norsk Bokmål.
 #: ../data/ui/panel-pref.glade.h:25
+#, fuzzy
 msgid "Make window managers treat the panel as dock"
-msgstr ""
+msgstr "Få vindusbehandlere til å håndtere panelet som samlevindu"
 
 #: ../data/ui/panel-pref.glade.h:26
 msgid "Margin:"
-msgstr ""
+msgstr "Marg:"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Minimize panel when not in use"
-msgstr ""
+msgstr "Minimer panelet når det ikke er i bruk"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "Panel Applets"
-msgstr ""
+msgstr "Panelprogram"
 
 #: ../data/ui/panel-pref.glade.h:29
 msgid "Panel Preferences"
-msgstr ""
+msgstr "Paneloppsett"
 
 #: ../data/ui/panel-pref.glade.h:30
 msgid "Pixels"
-msgstr ""
+msgstr "piksler"
 
+# Var litt usikker på hvordan jeg skulle ha oversatt dette her; jeg er sikker på at originalsetningen er grammatisk feil.
 #: ../data/ui/panel-pref.glade.h:31
+#, fuzzy
 msgid "Reserve space, and not covered by maximized windows"
 msgstr ""
+"Reserver plass på skjermen, og ikke la maksimerte vindu dekke denne plassen"
 
 #: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:1042
 msgid "Right"
-msgstr ""
+msgstr "Til høyre"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "Select an image file"
-msgstr ""
+msgstr "Velg ei bildefil"
 
 #: ../data/ui/panel-pref.glade.h:34
 msgid "Size when minimized"
-msgstr ""
+msgstr "Størrelse på minimert panel"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Solid color (with opacity)"
-msgstr ""
+msgstr "Ensfarget (med gjennomsiktighet)"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "System theme"
-msgstr ""
+msgstr "Systemtema"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "Terminal Emulator:"
-msgstr ""
+msgstr "Terminalemulator:"
 
 #: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1048
 msgid "Top"
-msgstr ""
+msgstr "Oppe"
 
 #: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:1040 ../src/panel.c:1046
 msgid "Width:"
-msgstr ""
+msgstr "Bredde:"
 
 #: ../data/ui/panel-pref.glade.h:40
 msgid "pixels"
-msgstr ""
+msgstr "piksler"
 
 #: ../data/ui/netstatus.glade.h:2
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
 #, no-c-format
 msgid "0%"
-msgstr ""
+msgstr "0 %"
 
 #: ../data/ui/netstatus.glade.h:3
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
 msgid "<b>Activity</b>"
-msgstr ""
+msgstr "<b>Aktivitet</b>"
 
 #: ../data/ui/netstatus.glade.h:4
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
@@ -193,68 +199,68 @@ msgstr ""
 #: ../data/ui/netstatus.glade.h:5
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
 msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr ""
+msgstr "<b>Internettprotokoll (IPv4)</b>"
 
 #: ../data/ui/netstatus.glade.h:6
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
 msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr ""
+msgstr "<b>Internettprotokoll (IPv6)</b>"
 
 #: ../data/ui/netstatus.glade.h:7
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
 msgid "<b>Network Device</b>"
-msgstr ""
+msgstr "<b>Nettverksenhet</b>"
 
 #: ../data/ui/netstatus.glade.h:8
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
 msgid "<b>Signal Strength</b>"
-msgstr ""
+msgstr "<b>Signalstyrke</b>"
 
 #: ../data/ui/netstatus.glade.h:9
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
 msgid "Address:"
-msgstr ""
+msgstr "Adresse:"
 
 #: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
 #: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
 msgid "Broadcast:"
-msgstr "Kringkast:"
+msgstr "Kringkasting:"
 
 #: ../data/ui/netstatus.glade.h:11
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
 msgid "Con_figure"
-msgstr ""
+msgstr "Opp_sett"
 
 #: ../data/ui/netstatus.glade.h:12
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
 msgid "Destination:"
-msgstr ""
+msgstr "Mål:"
 
 #: ../data/ui/netstatus.glade.h:13
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
 msgid "General"
-msgstr ""
+msgstr "Generelt"
 
 #: ../data/ui/netstatus.glade.h:14
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
 msgid "Received:"
-msgstr ""
+msgstr "Mottatt:"
 
 #: ../data/ui/netstatus.glade.h:15
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
 msgid "Scope:"
-msgstr ""
+msgstr "Omfang:"
 
 #: ../data/ui/netstatus.glade.h:16
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
 msgid "Sent:"
-msgstr ""
+msgstr "Sendt:"
 
 #: ../data/ui/netstatus.glade.h:17
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
 msgid "Status:"
-msgstr ""
+msgstr "Status:"
 
 #: ../data/ui/netstatus.glade.h:18
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
