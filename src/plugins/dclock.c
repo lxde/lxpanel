@@ -151,7 +151,7 @@ static void dclock_timer_set(DClockPlugin * dc)
          * add number of milliseconds after that until next minute boundary. */
         if (dc->expiration_interval == ONE_MINUTE_INTERVAL)
         {
-            time_t seconds = 60 - (current_time.tv_sec - (current_time.tv_sec / 60) * 60) - 1;
+            time_t seconds = 60 - (current_time.tv_sec - (current_time.tv_sec / 60) * 60);
             milliseconds += seconds * 1000;
         }
     }
