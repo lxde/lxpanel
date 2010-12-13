@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-14 06:17+0000\n"
-"PO-Revision-Date: 2010-11-14 20:47-0300\n"
+"PO-Revision-Date: 2010-12-11 09:52-0300\n"
 "Last-Translator: Sérgio Cipolla <secipolla@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
 "MIME-Version: 1.0\n"
@@ -167,7 +167,7 @@ msgstr "Tema do sistema"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "Terminal Emulator:"
-msgstr "Emulador do terminal:"
+msgstr "Emulador de terminal:"
 
 #: ../data/ui/panel-pref.glade.h:38
 #: ../src/panel.c:1048
