@@ -944,11 +944,12 @@ msgstr "Thông tin kết nối"
 msgid "Connection Properties: %s"
 msgstr "Thông tin kết nối: %s"
 
+# fuzzy
 #: ../src/plugins/netstatus/netstatus-dialog.c:135
 #, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
-msgstr[0] "Ở số ít%lu packetỞ số nhiều%lu packets"
+msgstr[0] "Ở số ít packetỞ số nhiều%lu packets"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:396
 #, c-format

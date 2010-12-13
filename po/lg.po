@@ -950,12 +950,13 @@ msgstr "Nneyisa y'omukutu"
 msgid "Connection Properties: %s"
 msgstr "Nneyisa ya mukutu: %s"
 
+# fuzzy
 #: ../src/plugins/netstatus/netstatus-dialog.c:135
 #, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
-msgstr[0] "kitole %li"
-msgstr[1] "bitole %s"
+msgstr[0] "kitole %lu"
+msgstr[1] "bitole %lu"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:396
 #, c-format

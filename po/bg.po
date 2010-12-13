@@ -1231,10 +1231,12 @@ msgstr "Не може да се осъществи връзка към сърв�
 msgid "Could not send ioctl to interface, '%s'"
 msgstr "Не може да изпрати ioctl до интерфейса, '%s'"
 
+# fuzzy
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
+#msgstr "Грешка при анализ на скрипта. Ред: %1"
 msgid "Could not parse command line '%s': %s"
-msgstr "Грешка при анализ на скрипта. Ред: %1"
+msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"

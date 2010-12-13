@@ -965,11 +965,12 @@ msgstr "Ciri-Ciri Penyambungan"
 msgid "Connection Properties: %s"
 msgstr "Ciri-Ciri Penyambungan: %s"
 
+# fuzzy
 #: ../src/plugins/netstatus/netstatus-dialog.c:135
 #, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
-msgstr[0] "paket-paket"
+msgstr[0] "%lu paket-paket"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:396
 #, c-format
