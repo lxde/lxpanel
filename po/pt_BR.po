@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-14 06:17+0000\n"
-"PO-Revision-Date: 2010-12-11 09:52-0300\n"
+"PO-Revision-Date: 2010-12-16 07:56-0300\n"
 "Last-Translator: Sérgio Cipolla <secipolla@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
 msgid "% Percent"
-msgstr "# porcento"
+msgstr "porcento"
 
 #: ../data/ui/panel-pref.glade.h:3
 msgid "<b>Automatic hiding</b>"
@@ -83,7 +83,7 @@ msgstr "Cor personalizada"
 
 #: ../data/ui/panel-pref.glade.h:17
 msgid "Dynamic"
-msgstr "Dinâmico"
+msgstr "dinâmico"
 
 #: ../data/ui/panel-pref.glade.h:18
 msgid "Edge:"
@@ -118,7 +118,7 @@ msgstr "Comando de saída:"
 
 #: ../data/ui/panel-pref.glade.h:25
 msgid "Make window managers treat the panel as dock"
-msgstr "Fazer gerenciadores de janela tratarem este painel como dock"
+msgstr "Fazer gerenciadores de janela tratarem este painel como doca"
 
 #: ../data/ui/panel-pref.glade.h:26
 msgid "Margin:"
@@ -138,7 +138,7 @@ msgstr "Preferências do Painel"
 
 #: ../data/ui/panel-pref.glade.h:30
 msgid "Pixels"
-msgstr "Pixels"
+msgstr "pixels"
 
 #: ../data/ui/panel-pref.glade.h:31
 msgid "Reserve space, and not covered by maximized windows"
@@ -494,7 +494,7 @@ msgstr "Mostra o número do espaço de trabalho. Por cmeury@users.sf.net"
 
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
-msgstr "Mostra imagem e dica de ferramenta"
+msgstr "Mostra imagem e dica"
 
 #: ../src/plugins/launchbar.c:889
 msgid "Bar with buttons to launch application"
@@ -547,7 +547,7 @@ msgstr "_Fechar janela"
 
 #: ../src/plugins/taskbar.c:1968
 msgid "Show tooltips"
-msgstr "Mostrar dicas de ferramentas"
+msgstr "Mostrar dicas"
 
 #: ../src/plugins/taskbar.c:1969
 msgid "Icons only"
@@ -1015,11 +1015,11 @@ msgstr "A orientação da bandeja do sistema."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:828
 msgid "Tooltips Enabled"
-msgstr "Dicas de ferramentas habilitadas"
+msgstr "Dicas habilitadas"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:829
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr "Se os ícones de dicas de ferramentas estão habilitados ou não."
+msgstr "Se as dicas do ícone estão habilitadas ou não."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:836
 msgid "Show Signal"
