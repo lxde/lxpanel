@@ -47,6 +47,7 @@ Makefile
 intltool-extract.in
 intltool-merge.in
 intltool-update.in
+src/xml-purge
 lxpanel.pc
 data/default/panels/panel
 src/lxpanel
