@@ -65,6 +65,10 @@ if test x"$cast_checks" = "xno"; then
 fi
 AC_SUBST(G_CAST_CHECKS)
 
+#Don't use deprecated GTK and Glib functions 
+DISABLE_DEPRECATED_FLAGS="-DG_DISABLE_DEPRECATED -DG_DISABLE_SINGLE_INCLUDES -DGDK_DISABLE_DEPRECATED -DGDK_PIXBUF_DISABLE_DEPRECATED -DGDK_PIXBUF_DISABLE_SINGLE_INCLUDES -DGTK_DISABLE_DEPRECATED -DGTK_DISABLE_SINGLE_INCLUDES -DGSEAL_ENABLE"
+AC_SUBST(DISABLE_DEPRECATED_FLAGS)
+
 dnl linker tweaking
 # The function of the link flag --as-needed is to prevent unnecesary linking.
 # Example: A -> B -> C
