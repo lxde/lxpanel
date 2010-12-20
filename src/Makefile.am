@@ -4,7 +4,7 @@ SUBDIRS = plugins
 
 bin_PROGRAMS = lxpanel lxpanelctl
 
-INCLUDES = \
+lxpanel_CFLAGS = \
 	-I$(top_srcdir) \
 	-I$(top_srcdir)/include \
 	-I$(top_srcdir)/src/plugins \

@@ -1,4 +1,4 @@
-INCLUDES = \
+netstatus_la_CFLAGS = \
 	-I. \
 	-I$(top_srcdir)/src \
 	-DPACKAGE_DATA_DIR=\""$(datadir)"\" \

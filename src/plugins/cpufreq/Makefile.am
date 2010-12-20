@@ -1,4 +1,4 @@
-INCLUDES = \
+cpufreq_la_CFLAGS = \
 	-I. \
 	-I$(top_srcdir)/src \
 	$(PACKAGE_CFLAGS) \

@@ -1,6 +1,6 @@
 if BUILD_OSS_PLUGINS
 
-INCLUDES = \
+volume_la_CFLAGS = \
 	-I. \
 	-I$(top_srcdir)/src \
 	$(PACKAGE_CFLAGS) \

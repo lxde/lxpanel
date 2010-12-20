@@ -11,7 +11,7 @@ SUBDIRS = $(DYNAMIC_PLUGINS)
 
 noinst_LIBRARIES = libbuiltin_plugins.a
 
-INCLUDES = \
+libbuiltin_plugins_a_CFLAGS = \
 	-I$(top_srcdir) \
 	-I$(top_srcdir)/include \
 	-I$(top_srcdir)/src \

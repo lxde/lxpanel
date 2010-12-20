@@ -1,6 +1,6 @@
 if BUILD_LIBIW_PLUGINS
 
-INCLUDES = \
+netstat_la_CFLAGS = \
     -I. \
     -I$(top_srcdir)/src \
     -DPACKAGE_DATA_DIR=\""$(datadir)"\" \

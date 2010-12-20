@@ -1,6 +1,6 @@
 if BUILD_ALSA_PLUGINS
 
-INCLUDES = \
+volumealsa_la_CFLAGS = \
 	-I. \
 	-I$(top_srcdir)/src \
 	-DPACKAGE_DATA_DIR=\""$(datadir)"\" \
