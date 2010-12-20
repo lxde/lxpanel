@@ -1,8 +1,11 @@
 AC_PREREQ(2.53)
 AC_INIT(lxpanel, 0.5.6, http://lxde.org/)
-AM_INIT_AUTOMAKE
-AC_CONFIG_SRCDIR([src/bg.c])
+AM_INIT_AUTOMAKE([1.11 -Wall -Werror foreign])
 AC_CONFIG_HEADER([config.h])
+
+# Support silent build rules. Disable by either passing --disable-silent-rules
+# to configure or passing V=1 to make
+AM_SILENT_RULES([yes])
 
 # Force to dynamic
 AC_DISABLE_STATIC
@@ -11,9 +14,12 @@ AC_DISABLE_STATIC
 AC_PROG_CC
 AC_PROG_INSTALL
 AC_PROG_LN_S
-AC_PROG_LIBTOOL
 AC_PROG_INTLTOOL(, [no-xml])
 AM_PROG_CC_C_O
+
+#Initialize libtool
+LT_PREREQ([2.2])
+LT_INIT
 
 # Checks for libraries.
 pkg_modules="gtk+-2.0 >= 2.12.0 \
