@@ -61,7 +61,7 @@ struct _NetstatusIconPrivate
   GtkOrientation  orientation;
   int             size;
 
-  GtkTooltips    *tooltips;
+  GtkTooltip    *tooltips;
 
   gulong          state_changed_id;
   gulong          name_changed_id;
@@ -369,9 +369,9 @@ netstatus_icon_name_changed (NetstatusIface *iface __attribute__((unused)),
 			     GParamSpec     *pspec __attribute__((unused)),
 			     NetstatusIcon  *icon)
 {
-  const char *iface_name;
-  const char *tip;
-  char       *freeme = NULL;
+  const gchar *iface_name;
+  const gchar *tip;
+  gchar       *freeme = NULL;
 
   iface_name = netstatus_iface_get_name (icon->priv->iface);
   if (iface_name)
@@ -384,7 +384,11 @@ netstatus_icon_name_changed (NetstatusIface *iface __attribute__((unused)),
       tip = _("Network Connection");
     }
 
+#if GTK_CHECK_VERSION(2,12,0)
+  gtk_widget_set_tooltip_text(GTK_WIDGET (icon), tip);
+#else
   gtk_tooltips_set_tip (icon->priv->tooltips, GTK_WIDGET (icon), tip, NULL);
+#endif
 
   g_free (freeme);
 }
@@ -413,7 +417,7 @@ netstatus_icon_is_wireless_changed (NetstatusIface *iface,
 				    GParamSpec     *pspec __attribute__((unused)),
 				    NetstatusIcon  *icon)
 {
-  if (netstatus_iface_get_is_wireless (iface) && icon->priv->show_signal)
+  if (netstatus_iface_get_is_wireless (iface) && netstatus_icon_get_show_signal(icon))
     gtk_widget_show (icon->priv->signal_image);
   else
     gtk_widget_hide (icon->priv->signal_image);
@@ -606,6 +610,11 @@ netstatus_icon_size_allocate (GtkWidget     *widget,
   GtkAllocation  child_allocation;
   GObjectClass  *klass;
   int            size;
+#if GTK_CHECK_VERSION(2,14,0)
+  GdkWindow     *window = gtk_widget_get_window(widget);
+  guint border_width = gtk_container_get_border_width(GTK_CONTAINER (widget));
+#else
+#endif
 
   if (icon->priv->orientation == GTK_ORIENTATION_HORIZONTAL)
     size = allocation->height;
@@ -621,24 +630,41 @@ netstatus_icon_size_allocate (GtkWidget     *widget,
 
   if (GTK_WIDGET_REALIZED (widget))
     {
+#if GTK_CHECK_VERSION(2,14,0)
+      gdk_window_move_resize (window,
+                              allocation->x + border_width,
+                              allocation->y + border_width,
+                              MAX (allocation->width - border_width * 2, 0),
+			                  MAX (allocation->height - border_width * 2, 0));
+#else
       gdk_window_move_resize (widget->window,
                               allocation->x + GTK_CONTAINER (widget)->border_width,
                               allocation->y + GTK_CONTAINER (widget)->border_width,
                               MAX (allocation->width - GTK_CONTAINER (widget)->border_width * 2, 0),
-			      MAX (allocation->height - GTK_CONTAINER (widget)->border_width * 2, 0));
+			                  MAX (allocation->height - GTK_CONTAINER (widget)->border_width * 2, 0));
+#endif
     }
 
   klass = get_box_class (icon->priv->orientation);
 
   child_allocation.x = 0;
   child_allocation.y = 0;
+#if GTK_CHECK_VERSION(2,14,0)
+  child_allocation.width  = MAX (allocation->width  - border_width * 2, 0);
+  child_allocation.height = MAX (allocation->height - border_width * 2, 0);
+#else
   child_allocation.width  = MAX (allocation->width  - GTK_CONTAINER (widget)->border_width * 2, 0);
   child_allocation.height = MAX (allocation->height - GTK_CONTAINER (widget)->border_width * 2, 0);
+#endif
 
   if (GTK_WIDGET_CLASS (klass)->size_allocate)
     GTK_WIDGET_CLASS (klass)->size_allocate (widget, &child_allocation);
 
+#if GTK_CHECK_VERSION(2,18,0)
+  gtk_widget_get_allocation(widget, allocation);
+#else
   widget->allocation = *allocation;
+#endif
 }
 
 static void
@@ -873,7 +899,7 @@ netstatus_icon_instance_init (NetstatusIcon      *icon,
   gtk_container_add (GTK_CONTAINER (icon), icon->priv->signal_image);
   gtk_widget_hide (icon->priv->signal_image);
 
-  icon->priv->tooltips = gtk_tooltips_new ();
+  icon->priv->tooltips = gtk_tooltip_new ();
   g_object_ref (icon->priv->tooltips);
   gtk_object_sink (GTK_OBJECT (icon->priv->tooltips));
 
@@ -1064,10 +1090,14 @@ netstatus_icon_set_tooltips_enabled (NetstatusIcon *icon,
     {
       icon->priv->tooltips_enabled = enabled;
 
+#if GLIB_CHECK_VERSION(2,12,0)
+/* not needed with GTKTooltip API*/
+#else
       if (enabled)
 	gtk_tooltips_enable (icon->priv->tooltips);
       else
 	gtk_tooltips_disable (icon->priv->tooltips);
+#endif
 
       g_object_notify (G_OBJECT (icon), "tooltips-enabled");
     }

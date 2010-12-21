@@ -161,12 +161,24 @@ static void launchbutton_drag_data_received_event(
     guint time,
     LaunchButton * b)
 {
-    if (sd->length > 0)
+#if GTK_CHECK_VERSION(2,14,0)
+    if (gtk_selection_data_get_length(sd) > 0)
+#else
+    if (sd->lengh > 0)
+#endif
     {
         if (info == TARGET_URILIST)
         {
+#if GTK_CHECK_VERSION(2,14,0)
+            gchar * s = (gchar *) gtk_selection_data_get_data(sd);
+#else
             gchar * s = (gchar *) sd->data;
-            gchar * end = s + sd->length;
+#endif
+#if GTK_CHECK_VERSION(2,14,0)
+            gchar * end = s + gtk_selection_data_get_length(sd);
+#else
+            gchar * end = s + sd->lenght;
+#endif
             gchar * str = g_strdup(b->action);
             while (s < end)
             {
@@ -211,7 +223,11 @@ static void launchbutton_build_bootstrap(Plugin * p)
         /* Create an event box. */
         GtkWidget * event_box = gtk_event_box_new();
         gtk_container_set_border_width(GTK_CONTAINER(event_box), 0);
+#if GLIB_CHECK_VERSION(2,18,0)
+        gtk_widget_set_can_focus            (event_box, FALSE);
+#else
         GTK_WIDGET_UNSET_FLAGS(event_box, GTK_CAN_FOCUS);
+#endif
         lb->bootstrap_button->widget = event_box;
         g_signal_connect(event_box, "button-press-event", G_CALLBACK(launchbutton_press_event), lb->bootstrap_button);
 
@@ -287,7 +303,12 @@ static void launchbutton_build_gui(Plugin * p, LaunchButton * btn)
     /* Create a button with the specified icon. */
     GtkWidget * button = fb_button_new_from_file(btn->image, p->panel->icon_size, p->panel->icon_size, PANEL_ICON_HIGHLIGHT, TRUE);
     btn->widget = button;
-    GTK_WIDGET_UNSET_FLAGS(button, GTK_CAN_FOCUS);
+#if GLIB_CHECK_VERSION(2,18,0)
+     gtk_widget_set_can_focus(button, FALSE);
+#else
+     GTK_WIDGET_UNSET_FLAGS(button, GTK_CAN_FOCUS);
+#endif
+    
     if (btn->tooltip != NULL)
         gtk_widget_set_tooltip_text(button, btn->tooltip);
 
@@ -396,7 +417,11 @@ static int launchbar_constructor(Plugin * p, char ** fp)
 
     /* Allocate top level widget and set into Plugin widget pointer. */
     p->pwid = gtk_event_box_new();
+#if GLIB_CHECK_VERSION(2,18,0)
+    gtk_widget_set_has_window(p->pwid, FALSE);
+#else
     GTK_WIDGET_SET_FLAGS(p->pwid, GTK_NO_WINDOW);
+#endif
     gtk_widget_set_name(p->pwid, "launchbar");
 
     /* Allocate an icon grid manager to manage the container. */

@@ -528,9 +528,17 @@ static void tray_unmanage_selection(TrayPlugin * tr)
     {
         GtkWidget * invisible = tr->invisible;
         GdkDisplay * display = gtk_widget_get_display(invisible);
+#if GTK_CHECK_VERSION(2,14,0)
+        if (gdk_selection_owner_get_for_display(display, tr->selection_atom) == gtk_widget_get_window(invisible))
+#else
         if (gdk_selection_owner_get_for_display(display, tr->selection_atom) == invisible->window)
+#endif
         {
+#if GTK_CHECK_VERSION(2,14,0)
+            guint32 timestamp = gdk_x11_get_server_time(gtk_widget_get_window(invisible));
+#else
             guint32 timestamp = gdk_x11_get_server_time(invisible->window);
+#endif
             gdk_selection_owner_set_for_display(
                 display,
                 NULL,
@@ -591,10 +599,18 @@ static int tray_constructor(Plugin * p, char ** fp)
     gtk_widget_add_events(invisible, GDK_PROPERTY_CHANGE_MASK | GDK_STRUCTURE_MASK);
 
     /* Try to claim the _NET_SYSTEM_TRAY_Sn selection. */
+#if GTK_CHECK_VERSION(2,14,0)
+    guint32 timestamp = gdk_x11_get_server_time(gtk_widget_get_window(invisible));
+#else
     guint32 timestamp = gdk_x11_get_server_time(invisible->window);
+#endif
     if (gdk_selection_owner_set_for_display(
         display,
+#if GTK_CHECK_VERSION(2,14,0)
+        gtk_widget_get_window(invisible),
+#else
         invisible->window,
+#endif
         tr->selection_atom,
         timestamp,
         TRUE))
@@ -607,7 +623,11 @@ static int tray_constructor(Plugin * p, char ** fp)
         xev.format = 32;
         xev.data.l[0] = timestamp;
         xev.data.l[1] = selection_atom;
+#if GTK_CHECK_VERSION(2,14,0)
+        xev.data.l[2] = GDK_WINDOW_XWINDOW(gtk_widget_get_window(invisible));
+#else
         xev.data.l[2] = GDK_WINDOW_XWINDOW(invisible->window);
+#endif
         xev.data.l[3] = 0;    /* manager specific data */
         xev.data.l[4] = 0;    /* manager specific data */
         XSendEvent(GDK_DISPLAY_XDISPLAY(display), RootWindowOfScreen(xscreen), False, StructureNotifyMask, (XEvent *) &xev);
@@ -617,7 +637,11 @@ static int tray_constructor(Plugin * p, char ** fp)
         gulong data = SYSTEM_TRAY_ORIENTATION_HORZ;
         XChangeProperty(
             GDK_DISPLAY_XDISPLAY(display),
+#if GTK_CHECK_VERSION(2,14,0)
+            GDK_WINDOW_XWINDOW(gtk_widget_get_window(invisible)),
+#else
             GDK_WINDOW_XWINDOW(invisible->window),
+#endif
             a_NET_SYSTEM_TRAY_ORIENTATION,
             XA_CARDINAL, 32,
             PropModeReplace,
@@ -628,7 +652,11 @@ static int tray_constructor(Plugin * p, char ** fp)
 
         /* Reference the window since it is never added to a container. */
         tr->invisible = invisible;
+#if GTK_CHECK_VERSION(2,14,0)
+        tr->invisible_window = GDK_WINDOW_XWINDOW(gtk_widget_get_window(invisible));
+#else
         tr->invisible_window = GDK_WINDOW_XWINDOW(invisible->window);
+#endif
         g_object_ref(G_OBJECT(invisible));
     }
     else
@@ -640,7 +668,11 @@ static int tray_constructor(Plugin * p, char ** fp)
         
     /* Allocate top level widget and set into Plugin widget pointer. */
     p->pwid = gtk_event_box_new();
+#if GTK_CHECK_VERSION(2,18,0)
+    gtk_widget_set_has_window(p->pwid,FALSE);
+#else
     GTK_WIDGET_SET_FLAGS(p->pwid, GTK_NO_WINDOW);
+#endif
     gtk_widget_set_name(p->pwid, "tray");
     gtk_container_set_border_width(GTK_CONTAINER(p->pwid), 1);
 

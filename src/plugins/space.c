@@ -78,7 +78,11 @@ static int space_constructor(Plugin * p, char ** fp)
 
     /* Allocate top level widget and set into Plugin widget pointer. */
     p->pwid = gtk_event_box_new();
+#if GTK_CHECK_VERSION(2,18,0)
+    gtk_widget_set_has_window(p->pwid,FALSE);
+#else
     GTK_WIDGET_SET_FLAGS(p->pwid, GTK_NO_WINDOW);
+#endif
     gtk_widget_add_events(p->pwid, GDK_BUTTON_PRESS_MASK);
     gtk_container_set_border_width(GTK_CONTAINER(p->pwid), 0);
 

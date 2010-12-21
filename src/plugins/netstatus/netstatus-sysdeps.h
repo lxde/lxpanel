@@ -25,8 +25,7 @@
 #ifndef __NETSTATUS_SYSDEPS_H__
 #define __NETSTATUS_SYSDEPS_H__
 
-#include <glib/gtypes.h>
-#include <glib/gmacros.h>
+#include <glib.h>
 
 G_BEGIN_DECLS
 

@@ -615,7 +615,11 @@ static GdkPixbuf * _wnck_gdk_pixbuf_get_from_pixmap(Pixmap xpixmap, int width, i
         }
 
         /* Be sure we aren't going to fail due to visual mismatch. */
+#if GLIB_CHECK_VERSION(2,22,0)
+        if ((colormap != NULL) && (gdk_visual_get_depth(gdk_colormap_get_visual(colormap)) != depth))
+#else
         if ((colormap != NULL) && (gdk_colormap_get_visual(colormap)->depth != depth))
+#endif
         {
             g_object_unref(G_OBJECT(colormap));
             colormap = NULL;
@@ -1213,7 +1217,12 @@ static void taskbar_button_size_allocate(GtkWidget * btn, GtkAllocation * alloc,
     {
         /* Get the coordinates of the button. */
         int x, y;
-        gdk_window_get_origin(GTK_BUTTON(btn)->event_window, &x, &y);
+#if GTK_CHECK_VERSION(2,22,0)
+        gdk_window_get_origin(gtk_button_get_event_window(GTK_BUTTON(btn)), &x, &y);
+#else
+        gdk_window_get_origin((GTK_BUTTON(btn)->event_window, &x, &y);
+#endif
+
 
         /* Send a NET_WM_ICON_GEOMETRY property change on the window. */
         guint32 data[4];
@@ -1308,9 +1317,14 @@ static void task_build_gui(TaskbarPlugin * tb, Task * tk)
     gtk_container_set_border_width(GTK_CONTAINER(tk->button), 0);
 
     /* Add the button to the taskbar. */
-    icon_grid_add(tb->icon_grid, tk->button, TRUE); 
+    icon_grid_add(tb->icon_grid, tk->button, TRUE);
+#if GTK_CHECK_VERSION(2,18,0)
+    gtk_widget_set_can_focus(GTK_WIDGET(tk->button),FALSE);
+    gtk_widget_set_can_default(GTK_WIDGET(tk->button),FALSE);
+#else
     GTK_WIDGET_UNSET_FLAGS(tk->button, GTK_CAN_FOCUS);
     GTK_WIDGET_UNSET_FLAGS(tk->button, GTK_CAN_DEFAULT);
+#endif
 
     /* Update styles on the button. */
     task_update_style(tk, tb);
@@ -1797,7 +1811,11 @@ static void taskbar_build_gui(Plugin * p)
     /* Allocate top level widget and set into Plugin widget pointer. */
     p->pwid = gtk_event_box_new();
     gtk_container_set_border_width(GTK_CONTAINER(p->pwid), 0);
+#if GTK_CHECK_VERSION(2,18,0)
+    gtk_widget_set_has_window(GTK_WIDGET(p->pwid),FALSE);
+#else
     GTK_WIDGET_SET_FLAGS(p->pwid, GTK_NO_WINDOW);
+#endif
     gtk_widget_set_name(p->pwid, "taskbar");
 
     /* Make container for task buttons as a child of top level widget. */

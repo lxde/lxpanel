@@ -220,12 +220,14 @@ static void task_update_pixmap(PagerTask * tk, PagerDesk * d)
             {
                 /* Draw the window representation and a border. */
                 GtkWidget * widget = GTK_WIDGET(d->da);
+                GtkStyle * style = gtk_widget_get_style(widget);
+
                 gdk_draw_rectangle(d->pixmap,
-                    (d->pg->focused_task == tk) ? widget->style->bg_gc[GTK_STATE_SELECTED] : widget->style->bg_gc[GTK_STATE_NORMAL],
+                    (d->pg->focused_task == tk) ? style->bg_gc[GTK_STATE_SELECTED] : style->bg_gc[GTK_STATE_NORMAL],
                     TRUE,
                     x + 1, y + 1, w - 1, h - 1);
                 gdk_draw_rectangle(d->pixmap,
-                    (d->pg->focused_task == tk) ? widget->style->fg_gc[GTK_STATE_SELECTED] : widget->style->fg_gc[GTK_STATE_NORMAL],
+                    (d->pg->focused_task == tk) ? style->fg_gc[GTK_STATE_SELECTED] : style->fg_gc[GTK_STATE_NORMAL],
                     FALSE,
                     x, y, w, h);
             }
@@ -268,18 +270,34 @@ static void desk_set_dirty_by_win(PagerPlugin * pg, PagerTask * tk)
 static gboolean desk_configure_event(GtkWidget * widget, GdkEventConfigure * event, PagerDesk * d)
 {
     /* Allocate pixmap and statistics buffer without border pixels. */
+#if GTK_CHECK_VERSION(2,18,0)
+    GtkAllocation *allocation;
+    gtk_widget_get_allocation(widget, allocation);
+    int new_pixmap_width = allocation->width;
+    int new_pixmap_height = allocation->height;
+#else
     int new_pixmap_width = widget->allocation.width;
     int new_pixmap_height = widget->allocation.height;
+#endif
     if ((new_pixmap_width > 0) && (new_pixmap_height > 0))
     {
         /* Allocate a new pixmap of the allocated size. */
         if (d->pixmap != NULL)
             g_object_unref(d->pixmap);
+#if GTK_CHECK_VERSION(2,14,0)
+        d->pixmap = gdk_pixmap_new(gtk_widget_get_window(widget), new_pixmap_width, new_pixmap_height, -1);
+#else
         d->pixmap = gdk_pixmap_new(widget->window, new_pixmap_width, new_pixmap_height, -1);
+#endif
 
         /* Compute the horizontal and vertical scale factors, and mark the desktop for redraw. */
-        d->scale_y = (gfloat) widget->allocation.height / (gfloat) gdk_screen_height();
-        d->scale_x = (gfloat) widget->allocation.width  / (gfloat) gdk_screen_width();
+#if GTK_CHECK_VERSION(2,18,0)
+        d->scale_y = (gfloat) allocation->height / (gfloat) gdk_screen_height();
+        d->scale_x = (gfloat) allocation->width  / (gfloat) gdk_screen_width();
+#else
+        d->scale_y = (gfloat) allocation->height / (gfloat) gdk_screen_height();
+        d->scale_x = (gfloat) allocation->width  / (gfloat) gdk_screen_width();
+#endif
         desk_set_dirty(d);
      }
 
@@ -293,6 +311,8 @@ static gboolean desk_configure_event(GtkWidget * widget, GdkEventConfigure * eve
 /* Handler for expose_event on drawing area. */
 static gboolean desk_expose_event(GtkWidget * widget, GdkEventExpose * event, PagerDesk * d)
 {
+    GtkStyle * style = gtk_widget_get_style(widget);
+
     if (d->pixmap != NULL)
     {
         /* Recompute the pixmap if needed. */
@@ -305,13 +325,21 @@ static gboolean desk_expose_event(GtkWidget * widget, GdkEventExpose * event, Pa
             if (d->pixmap != NULL)
             {
                 GtkWidget * widget = GTK_WIDGET(d->da);
+#if GTK_CHECK_VERSION(2,18,0)
+                GtkAllocation *allocation;
+                gtk_widget_get_allocation(widget, allocation);
+#endif
                 gdk_draw_rectangle(
                     d->pixmap,
                     ((d->desktop_number == d->pg->current_desktop)
-                        ? widget->style->dark_gc[GTK_STATE_SELECTED]
-                        : widget->style->dark_gc[GTK_STATE_NORMAL]),
+                        ? style->dark_gc[GTK_STATE_SELECTED]
+                        : style->dark_gc[GTK_STATE_NORMAL]),
                     TRUE,
+#if GTK_CHECK_VERSION(2,18,0)
+                    0, 0, allocation->width, allocation->height);
+#else
                     0, 0, widget->allocation.width, widget->allocation.height);
+#endif
             }
 
             /* Draw tasks onto the pixmap. */
@@ -321,8 +349,12 @@ static gboolean desk_expose_event(GtkWidget * widget, GdkEventExpose * event, Pa
         }
 
         /* Draw the requested part of the pixmap onto the drawing area. */
+#if GTK_CHECK_VERSION(2,14,0)
+        gdk_draw_drawable(gtk_widget_get_window(widget), 
+#else
         gdk_draw_drawable(widget->window,
-              widget->style->fg_gc[GTK_WIDGET_STATE(widget)],
+#endif
+              style->fg_gc[GTK_WIDGET_STATE(widget)],
               d->pixmap,
               event->area.x, event->area.y,
               event->area.x, event->area.y,
@@ -719,7 +751,11 @@ static int pager_constructor(Plugin * plug, char ** fp)
 
     /* Allocate top level widget and set into Plugin widget pointer. */
     plug->pwid = gtk_event_box_new();
+#if GTK_CHECK_VERSION(2,18,0)
+    gtk_widget_set_has_window(plug->pwid,FALSE);
+#else
     GTK_WIDGET_SET_FLAGS(plug->pwid, GTK_NO_WINDOW);
+#endif
     gtk_container_set_border_width(GTK_CONTAINER(plug->pwid), 0);
 
     /* Create an icon grid manager to manage the drawing areas within the container. */
