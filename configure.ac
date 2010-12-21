@@ -194,6 +194,7 @@ plugin_xkb=
 plugin_kbled=
 plugin_thermal=
 plugin_cpufreq=
+plugin_monitors=
 
 AC_MSG_CHECKING([which plugins should be built dynamically])
 AC_ARG_WITH(plugins,
@@ -201,7 +202,7 @@ AC_ARG_WITH(plugins,
 [                         plugins may be comma separated ]
 [                         'all' builds all plugins (default), 'none' builds none ]
 [                         Possible plugins are: ]
-[                         netstatus, volume, volumealsa, cpu, deskno, batt, kbled, xkb, thermal, cpufreq], plugins="$withval",[plugins="all"])
+[                         netstatus, volume, volumealsa, cpu, deskno, batt, kbled, xkb, thermal, cpufreq, monitors], plugins="$withval",[plugins="all"])
 
 if test x"$plugins" != xall -a x"$plugins" != xnone; then
     if test x"$plugins_loading" = xno; then
@@ -210,7 +211,7 @@ if test x"$plugins" != xall -a x"$plugins" != xnone; then
     fi
 fi
 
-ALL_PLUGINS_LIST="netstatus volume volumealsa cpu deskno batt kbled xkb thermal cpufreq"
+ALL_PLUGINS_LIST="netstatus volume volumealsa cpu deskno batt kbled xkb thermal cpufreq monitors"
 AC_SUBST(ALL_PLUGINS_LIST)
 
 if test x"$plugins" = xall; then
@@ -229,6 +230,7 @@ dnl    done
     plugin_xkb=xkb
     plugin_thermal=thermal
     plugin_cpufreq=cpufreq
+    plugin_monitors=monitors
 
     AC_MSG_RESULT(all)
 else
@@ -267,6 +269,9 @@ else
             cpufreq)
                 plugin_cpufreq=cpufreq
                 ;;
+            monitors)
+                plugin_monitors=monitors
+                ;;
             *)
                 echo "Unknown plugin $plugin."
                 exit 1
@@ -297,7 +302,8 @@ PLUGINS_LIST="\
     $plugin_kbled \
     $plugin_xkb \
     $plugin_thermal \
-    $plugin_cpufreq"
+    $plugin_cpufreq \
+    $plugin_monitors"
 
 AC_SUBST(PLUGINS_LIST)
 
@@ -370,6 +376,7 @@ AC_CONFIG_FILES([
     src/plugins/xkb/Makefile
     src/plugins/thermal/Makefile
     src/plugins/cpufreq/Makefile
+    src/plugins/monitors/Makefile
     po/Makefile.in
     data/Makefile
     data/default/panels/panel
@@ -412,6 +419,9 @@ echo Building dynamic plugins:
     fi
     if test x"$plugin_cpufreq" != x; then
         AC_MSG_RESULT([    cpufreq - CpuFreq frontend])
+    fi
+    if test x"$plugin_monitors" != x; then
+        AC_MSG_RESULT([    monitors - Monitors for CPU & RAM])
     fi
 else
 echo Dynamic loader for plugins....... : disabled.
