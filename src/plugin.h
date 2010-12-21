@@ -105,5 +105,6 @@ extern void plugin_adjust_popup_position(GtkWidget * popup, Plugin * plugin);
 #define STATIC_MENU
 #define STATIC_SPACE
 #define STATIC_ICONS
+#define STATIC_WNCKPAGER
 
 #endif
