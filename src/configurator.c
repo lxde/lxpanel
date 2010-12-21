@@ -503,6 +503,23 @@ static void init_plugin_list( Panel* p, GtkTreeView* view, GtkWidget* label )
         gtk_tree_selection_select_iter( tree_sel, &it );
 }
 
+static void on_add_plugin_row_activated( GtkTreeView *tree_view, 
+                                         GtkTreePath *path, 
+                                         GtkTreeViewColumn *col, 
+                                         gpointer user_data) 
+{
+    GtkWidget *dlg;
+
+    dlg = (GtkWidget *) user_data; 
+
+    (void) tree_view;
+    (void) path;
+    (void) col;
+
+    /* Emitting the "response" signal ourselves. */
+    gtk_dialog_response(GTK_DIALOG(dlg), GTK_RESPONSE_OK);
+}
+
 static void on_add_plugin_response( GtkDialog* dlg,
                                     int response,
                                     GtkTreeView* _view )
@@ -631,8 +648,15 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
     gtk_tree_view_set_model( view, GTK_TREE_MODEL(list) );
     g_object_unref( list );
 
+    /* 
+     * The user can add a plugin either by clicking the "Add" button, or by
+     * double-clicking the plugin.
+     */
     g_signal_connect( dlg, "response",
                       G_CALLBACK(on_add_plugin_response), _view );
+    g_signal_connect( view, "row-activated",
+                      G_CALLBACK(on_add_plugin_row_activated), (gpointer) dlg);
+
     g_object_set_data( G_OBJECT(dlg), "avail-plugins", view );
     g_object_weak_ref( G_OBJECT(dlg), (GWeakNotify) plugin_class_list_free, classes );
 
