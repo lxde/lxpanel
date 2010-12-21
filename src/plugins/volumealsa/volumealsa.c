@@ -30,8 +30,10 @@
 #include "plugin.h"
 #include "dbg.h"
 
-#define ICONS_VOLUME PACKAGE_DATA_DIR "/lxpanel/images/volume.png"
-#define ICONS_MUTE PACKAGE_DATA_DIR "/lxpanel/images/mute.png"
+#define ICONS_VOLUME_HIGH   PACKAGE_DATA_DIR "/lxpanel/images/volume-high.png"
+#define ICONS_VOLUME_MEDIUM PACKAGE_DATA_DIR "/lxpanel/images/volume-medium.png"
+#define ICONS_VOLUME_LOW    PACKAGE_DATA_DIR "/lxpanel/images/volume-low.png"
+#define ICONS_MUTE          PACKAGE_DATA_DIR "/lxpanel/images/mute.png"
 
 typedef struct {
 
@@ -228,10 +230,36 @@ static void volumealsa_update_display(VolumeALSAPlugin * vol)
 {
     /* Mute status. */
     gboolean mute = asound_is_muted(vol);
+    int level = asound_get_volume(vol);
     
-    if ( ! panel_image_set_icon_theme(vol->plugin->panel, vol->tray_icon, ((mute) ? "audio-volume-muted" : "audio-volume-high")))
+    /* Change icon according to mute / volume */
+    const char* icon="audio-volume-muted";
+    const char* icon_fallback=ICONS_MUTE;
+    if (mute)
     {
-         panel_image_set_from_file(vol->plugin->panel, vol->tray_icon, ((mute) ? ICONS_MUTE : ICONS_VOLUME));
+         icon="audio-volume-muted";
+         icon_fallback=ICONS_MUTE;
+    }
+    else if (level >= 75)
+    {
+         icon="audio-volume-high";
+         icon_fallback=ICONS_VOLUME_HIGH;
+    }
+    else if (level >= 50)
+    {
+         icon="audio-volume-medium";
+         icon_fallback=ICONS_VOLUME_MEDIUM;
+    }
+    else if (level > 0)
+    {
+         icon="audio-volume-low";
+         icon_fallback=ICONS_VOLUME_LOW;
+    }
+
+    /* Change icon, fallback to default icon if theme doesn't exsit */
+    if ( ! panel_image_set_icon_theme(vol->plugin->panel, vol->tray_icon, icon))
+    {
+         panel_image_set_from_file(vol->plugin->panel, vol->tray_icon, icon_fallback);
     }
 
     g_signal_handler_block(vol->mute_check, vol->mute_check_handler);
@@ -240,7 +268,6 @@ static void volumealsa_update_display(VolumeALSAPlugin * vol)
     g_signal_handler_unblock(vol->mute_check, vol->mute_check_handler);
 
     /* Volume. */
-    int level = asound_get_volume(vol);
     if (vol->volume_scale != NULL)
     {
         g_signal_handler_block(vol->volume_scale, vol->volume_scale_handler);

@@ -39,7 +39,9 @@ lxpanel_images_DATA = \
 	images/gnome-netstatus-txrx.png \
 	images/gnome-netstatus-tx.png \
 	images/background.png \
-	images/volume.png \
+	images/volume-low.png \
+	images/volume-medium.png \
+	images/volume-high.png \
 	images/mute.png \
 	images/ns-bothrs.png \
 	images/ns-connected.png \
