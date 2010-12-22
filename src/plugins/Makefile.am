@@ -34,7 +34,6 @@ PLUGINS_SOURCES = \
 	$(MENU_SOURCES) \
 	separator.c \
 	pager.c \
-	pager2.c \
 	space.c \
 	tray.c \
 	wincmd.c \

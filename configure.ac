@@ -40,8 +40,7 @@ fi
 pkg_modules="$pkg_modules \
              gio-unix-2.0 \
              gthread-2.0 \
-             libmenu-cache \
-             libwnck-1.0"
+             libmenu-cache"
 #             libstartup-notification-1.0"
 PKG_CHECK_MODULES(PACKAGE, [$pkg_modules])
 AC_SUBST(PACKAGE_CFLAGS)
@@ -50,6 +49,11 @@ AC_SUBST(PACKAGE_LIBS)
 pkg_modules="x11"
 PKG_CHECK_MODULES(X11, [$pkg_modules])
 AC_SUBST(X11_LIBS)
+
+pkg_modules="libwnck-1.0"
+PKG_CHECK_MODULES(WNCK, [$pkg_modules])
+AC_SUBST(WNCK_CFLAGS)
+AC_SUBST(WNCK_LIBS)
 
 pkg_modules="libmenu-cache"
 PKG_CHECK_MODULES(MENU_CACHE, [$pkg_modules],
@@ -196,6 +200,7 @@ plugin_kbled=
 plugin_thermal=
 plugin_cpufreq=
 plugin_monitors=
+plugin_wnckpager=
 
 AC_MSG_CHECKING([which plugins should be built dynamically])
 AC_ARG_WITH(plugins,
@@ -203,7 +208,7 @@ AC_ARG_WITH(plugins,
 [                         plugins may be comma separated ]
 [                         'all' builds all plugins (default), 'none' builds none ]
 [                         Possible plugins are: ]
-[                         netstatus, volume, volumealsa, cpu, deskno, batt, kbled, xkb, thermal, cpufreq, monitors], plugins="$withval",[plugins="all"])
+[                         netstatus, volume, volumealsa, cpu, deskno, batt, kbled, xkb, thermal, cpufreq, monitors, wnckpager], plugins="$withval",[plugins="all"])
 
 if test x"$plugins" != xall -a x"$plugins" != xnone; then
     if test x"$plugins_loading" = xno; then
@@ -212,7 +217,7 @@ if test x"$plugins" != xall -a x"$plugins" != xnone; then
     fi
 fi
 
-ALL_PLUGINS_LIST="netstatus volume volumealsa cpu deskno batt kbled xkb thermal cpufreq monitors"
+ALL_PLUGINS_LIST="netstatus volume volumealsa cpu deskno batt kbled xkb thermal cpufreq monitors wnckpager"
 AC_SUBST(ALL_PLUGINS_LIST)
 
 if test x"$plugins" = xall; then
@@ -232,6 +237,7 @@ dnl    done
     plugin_thermal=thermal
     plugin_cpufreq=cpufreq
     plugin_monitors=monitors
+    plugin_wnckpager=wnckpager
 
     AC_MSG_RESULT(all)
 else
@@ -273,6 +279,9 @@ else
             monitors)
                 plugin_monitors=monitors
                 ;;
+            wnckpager)
+                plugin_wnckpager=wnckpager
+                ;;
             *)
                 echo "Unknown plugin $plugin."
                 exit 1
@@ -304,7 +313,8 @@ PLUGINS_LIST="\
     $plugin_xkb \
     $plugin_thermal \
     $plugin_cpufreq \
-    $plugin_monitors"
+    $plugin_monitors \
+    $plugin_wnckpager"
 
 AC_SUBST(PLUGINS_LIST)
 
@@ -378,6 +388,7 @@ AC_CONFIG_FILES([
     src/plugins/thermal/Makefile
     src/plugins/cpufreq/Makefile
     src/plugins/monitors/Makefile
+    src/plugins/wnckpager/Makefile
     po/Makefile.in
     data/Makefile
     data/default/panels/panel
@@ -423,6 +434,9 @@ echo Building dynamic plugins:
     fi
     if test x"$plugin_monitors" != x; then
         AC_MSG_RESULT([    monitors - Monitors for CPU & RAM])
+    fi
+    if test x"$plugin_wnckpager" != x; then
+        AC_MSG_RESULT([    wnckpager - Pager which support openbox and compiz])
     fi
 else
 echo Dynamic loader for plugins....... : disabled.

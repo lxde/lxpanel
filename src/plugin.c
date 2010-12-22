@@ -98,9 +98,6 @@ static void init_plugin_class_list(void)
     REGISTER_STATIC_PLUGIN_CLASS(menu_plugin_class);
 #endif
 #endif
-#ifdef STATIC_WNCKPAGER
-    REGISTER_PLUGIN_CLASS(wnckpager_plugin_class, 0);
-#endif
 
 #ifdef STATIC_SPACE
     REGISTER_STATIC_PLUGIN_CLASS(space_plugin_class);
