@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-07-20 11:01+0200\n"
-"PO-Revision-Date: 2010-08-24 06:04+0200\n"
+"PO-Revision-Date: 2010-12-23 13:40+0200\n"
 "Last-Translator: sokha <atol@sokha.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: km\n"
@@ -25,15 +25,15 @@ msgstr "% ភាគរយ"
 
 #: ../data/ui/panel-pref.glade.h:3
 msgid "<b>Automatic hiding</b>"
-msgstr "<b>លាក់ដោយស្វ័យប្រវត្តិ</b>"
+msgstr "<b>លាក់​ដោយ​ស្វ័យប្រវត្តិ</b>"
 
 #: ../data/ui/panel-pref.glade.h:4
 msgid "<b>Background</b>"
-msgstr "<b>ផ្ទៃខាងក្រោយ</b>"
+msgstr "<b>ផ្ទៃ​ខាងក្រោយ</b>"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "<b>Font</b>"
-msgstr "<b>ពុម្ពអក្សរ</b>"
+msgstr "<b>ពុម្ព​អក្សរ</b>"
 
 #: ../data/ui/panel-pref.glade.h:6
 msgid "<b>Icon</b>"
@@ -49,7 +49,7 @@ msgstr "<b>លក្ខណៈសម្បត្តិ</b>"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>កំណត់កម្មវិធីដែលចូលចិត្តជាងគេ</b>"
+msgstr "<b>កំណត់​កម្មវិធី​ដែល​ចូលចិត្ត​ជាង​គេ</b>"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "<b>Size</b>"
@@ -57,11 +57,11 @@ msgstr "<b>ទំហំ</b>"
 
 #: ../data/ui/panel-pref.glade.h:11
 msgid "Advanced"
-msgstr "កំរិតខ្ពស់"
+msgstr "កំរិត​ខ្ពស់"
 
 #: ../data/ui/panel-pref.glade.h:12
 msgid "Alignment:"
-msgstr "ការតម្រឹម:"
+msgstr "ការ​តម្រឹម:"
 
 #: ../data/ui/panel-pref.glade.h:13
 msgid "Appearance"
@@ -77,7 +77,7 @@ msgstr "កណ្ដាល"
 
 #: ../data/ui/panel-pref.glade.h:16
 msgid "Custom color"
-msgstr "ពត៌ផ្ទាល់ខ្លួន"
+msgstr "ពត៌​ផ្ទាល់​ខ្លួន"
 
 #: ../data/ui/panel-pref.glade.h:17
 msgid "Dynamic"
@@ -89,7 +89,7 @@ msgstr "គែម:"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "File Manager:"
-msgstr "កម្មវិធីគ្រប់គ្រងឯកសារ:"
+msgstr "កម្មវិធី​គ្រប់គ្រង​ឯកសារ:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "Geometry"
@@ -109,7 +109,7 @@ msgstr "ខាងឆ្វេង"
 
 #: ../data/ui/panel-pref.glade.h:24
 msgid "Logout Command:"
-msgstr "ពាក្យបញ្ជាចេញ:"
+msgstr "ពាក្យ​បញ្ជា​ចេញ:"
 
 #: ../data/ui/panel-pref.glade.h:25
 msgid "Make window managers treat the panel as dock"
@@ -121,15 +121,15 @@ msgstr "រឹម:"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Minimize panel when not in use"
-msgstr "បង្រួមបន្ទះអោយតូចអប្បបរមានៅពេលដែលមិនប្រើ"
+msgstr "បង្រួម​បន្ទះ​អោយ​តូច​អប្បបរមា​នៅ​ពេល​ដែល​មិន​ប្រើ"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "Panel Applets"
-msgstr "បន្ទះអាប់ភ្លេត"
+msgstr "បន្ទះ​អាប់ភ្លេត"
 
 #: ../data/ui/panel-pref.glade.h:29
 msgid "Panel Preferences"
-msgstr "បន្ទះចំណង់ចំណួលចិត្ត"
+msgstr "បន្ទះ​ចំណង់​ចំណួល​ចិត្ត"
 
 #: ../data/ui/panel-pref.glade.h:30
 msgid "Pixels"
@@ -145,11 +145,11 @@ msgstr "ខាងស្ដាំ"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "Select an image file"
-msgstr "ជ្រើសយកឯកសាររូបភាពមួយ"
+msgstr "ជ្រើស​យក​ឯកសារ​រូបភាព​មួយ"
 
 #: ../data/ui/panel-pref.glade.h:34
 msgid "Size when minimized"
-msgstr "ទំហំនៅពេលបង្រួមអោយតូច"
+msgstr "ទំហំ​នៅ​ពេល​បង្រួម​អោយ​តូច"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Solid color (with opacity)"
@@ -157,7 +157,7 @@ msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "System theme"
-msgstr "ស្បែករបស់ប្រព័ន្ធ"
+msgstr "ស្បែក​របស់​ប្រព័ន្ធ"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "Terminal Emulator:"
@@ -189,12 +189,12 @@ msgstr "<b>សកម្មភាព</b>"
 #: ../data/ui/netstatus.glade.h:4
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
 msgid "<b>Connection</b>"
-msgstr "តំណភ្ជាប់"
+msgstr "តំណ​ភ្ជាប់"
 
 #: ../data/ui/netstatus.glade.h:5
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
 msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr "<b>អ៊ីនធឺណិតប្រូតូកូល (IPv4)</b>"
+msgstr "<b>អ៊ីនធឺណិត​ប្រូតូកូល (IPv4)</b>"
 
 #: ../data/ui/netstatus.glade.h:6
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
@@ -204,12 +204,12 @@ msgstr "<b>អ៊ីនធឺណិតប្រូតូកូល (IPv6)</b>"
 #: ../data/ui/netstatus.glade.h:7
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
 msgid "<b>Network Device</b>"
-msgstr "<b>ឧបករណ៍បណ្ដាញ</b>"
+msgstr "<b>ឧបករណ៍​បណ្ដាញ</b>"
 
 #: ../data/ui/netstatus.glade.h:8
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
 msgid "<b>Signal Strength</b>"
-msgstr "<b>កំលាំងសញ្ញា</b>"
+msgstr "<b>កំលាំង​សញ្ញា</b>"
 
 #: ../data/ui/netstatus.glade.h:9
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
@@ -241,7 +241,7 @@ msgstr "ទូទៅ"
 #: ../data/ui/netstatus.glade.h:14
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
 msgid "Received:"
-msgstr "បានទទួល:"
+msgstr "បាន​ទទួល:"
 
 #: ../data/ui/netstatus.glade.h:15
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
@@ -252,7 +252,7 @@ msgstr "វិសាលភាព:"
 #: ../data/ui/netstatus.glade.h:16
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
 msgid "Sent:"
-msgstr "បានផ្ញើ:"
+msgstr "បាន​ផ្ញើ:"
 
 #: ../data/ui/netstatus.glade.h:17
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
@@ -276,13 +276,12 @@ msgstr "ប្រភេទ:"
 
 #: ../data/ui/netstatus.glade.h:21
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
-#, fuzzy
 msgid "_Name:"
-msgstr "ឈ្មោះ:"
+msgstr "_ឈ្មោះ:"
 
 #: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:887
 msgid "Application Launch Bar"
-msgstr "របារដំណើរការកម្មវិធី"
+msgstr "របារ​ដំណើរការ​កម្មវិធី"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:319
 #, fuzzy
@@ -291,7 +290,7 @@ msgstr "រត់"
 
 #: ../src/configurator.c:56
 msgid "Restart"
-msgstr "ចាប់ផ្ដើមឡើងវិញ"
+msgstr "ចាប់ផ្ដើម​ឡើងវិញ"
 
 #: ../src/configurator.c:57
 msgid "Logout"
