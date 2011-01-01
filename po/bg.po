@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-07-20 11:01+0200\n"
-"PO-Revision-Date: 2010-06-13 09:25+0200\n"
+"PO-Revision-Date: 2011-01-01 15:33+0200\n"
 "Last-Translator: Радослав <Rec.ku@hotmail.com>\n"
 "Language-Team: MIME-Version: 1.0\n"
+"Language: bg\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bg\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 "X-Poedit-Language: Bulgarian\n"
 "X-Poedit-Country: BULGARIA\n"
 
@@ -284,7 +284,7 @@ msgstr "Лента за програми"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:319
 msgid "Run"
-msgstr "Стартирай"
+msgstr "Стартирай..."
 
 #: ../src/configurator.c:56
 msgid "Restart"
@@ -1224,23 +1224,23 @@ msgstr ""
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
 msgid "Could not connect to interface, '%s'"
-msgstr "Не може да се осъществи връзка към сървър, '%s'"
+msgstr "Неуспешно осъществена връзка към сървър, '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:420
 #, c-format
 msgid "Could not send ioctl to interface, '%s'"
-msgstr "Не може да изпрати ioctl до интерфейса, '%s'"
+msgstr "Неуспешна ioctl заявка до интерфейса, '%s'"
 
 # fuzzy
+# sgstr "Грешка при анализ на скрипта. Ред: %1"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
-#msgstr "Грешка при анализ на скрипта. Ред: %1"
 msgid "Could not parse command line '%s': %s"
-msgstr ""
+msgstr "Неуспешно анализиране на командата '%s': %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr "Грешка при анализ на изходящ 'netstat'. Непознат формат"
+msgstr "Неуспешен анализ на резултата от 'netstat'. Неизвестен формат"
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
