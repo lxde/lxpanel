@@ -2,23 +2,23 @@
 # Copyright (C) 2006 the lxde team
 # This file is distributed under the same license as the lxpanel package.
 # Grzegorz Gibas <amigib@gmail.com>, 2009.
-# Piotr Sokół <psokol@jabster.pl>, 2010.
 # Artur <mazdac@gmail.com>, 2006, 2010.
+# Piotr Sokół <psokol@jabster.pl>, 2010, 2011.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: lxpanel\n"
+"Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-01 06:10+0000\n"
-"PO-Revision-Date: 2010-11-02 11:40+0100\n"
-"Last-Translator: Artur <mazdac@gmail.com>\n"
-"Language-Team: Polish\n"
+"PO-Revision-Date: 2011-02-09 17:01+0100\n"
+"Last-Translator: Piotr Sokół <psokol@jabster.pl>\n"
+"Language-Team: Polish <>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=((n==1) ? 0 : ((n%10>=2 && n%10<=4 && (n"
+"%100<10 || n%100>=20)) ? 1 : 2));\n"
 
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
@@ -43,7 +43,7 @@ msgstr "<b>Ikony</b>"
 
 #: ../data/ui/panel-pref.glade.h:7
 msgid "<b>Position</b>"
-msgstr "<b>Położenie</b>"
+msgstr "<b>Pozycja</b>"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "<b>Properties</b>"
@@ -87,7 +87,7 @@ msgstr "Dynamicznie"
 
 #: ../data/ui/panel-pref.glade.h:18
 msgid "Edge:"
-msgstr "Krawędź:"
+msgstr "Położenie:"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "File Manager:"
@@ -307,7 +307,7 @@ msgstr "Rozciągnięcie"
 
 #: ../src/configurator.c:559
 msgid "Add plugin to panel"
-msgstr "Dodaj aplet do panelu"
+msgstr "Dodawanie apletu"
 
 #: ../src/configurator.c:587
 msgid "Available plugins"
@@ -335,7 +335,7 @@ msgid ""
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
 "Usunąć panel?\n"
-"<b>Uwaga: tej operacji nie będzie można cofnąć.</b>"
+"<b>Uwaga: tej operacji nie można cofnąć.</b>"
 
 #: ../src/panel.c:651
 msgid "Confirm"
@@ -346,8 +346,8 @@ msgstr "Potwierdzenie"
 msgid "translator-credits"
 msgstr ""
 "Grzegorz Gibas <amigib@gmail.com>, 2009.\n"
-"Artur Kruszewski <mazdac@gmail.com>, 2010.\n"
-"Piotr Sokół <psokol@jabster.pl>, 2010."
+"Artur Kruszewski <mazdac@gmail.com>, 2006, 2010.\n"
+"Piotr Sokół <psokol@jabster.pl>, 2010, 2011."
 
 #: ../src/panel.c:688
 msgid "LXPanel"
@@ -409,40 +409,41 @@ msgstr "Opcje:\n"
 #: ../src/panel.c:1450
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr " --help      Wypisuje informacje na temat pomocy i kończy program.\n"
+msgstr " --help      Wypisuje komunikat pomocy i kończy działanie programu\n"
 
 #: ../src/panel.c:1451
 #, c-format
 msgid " --version   -- print version and exit\n"
-msgstr " --version   Wypisuje informacje na temat wersji i kończy program.\n"
+msgstr ""
+" --version   Wypisuje informacje o wersji i kończy działanie programu\n"
 
 #: ../src/panel.c:1452
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 " --log NUMER Ustawia poziom raportowania, określony przez NUMER w zakresie "
-"0-5, gdzie 0 - brak raportowania, 5 - największa szczegółowość.\n"
+"0-5, gdzie 0 - brak raportowania, 5 - największa szczegółowość\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1454
 #, c-format
 msgid " --profile name -- use specified profile\n"
-msgstr " --profile NAZWA Używa profilu określonego przez NAZWA.\n"
+msgstr " --profile NAZWA Używa profilu określonego przez NAZWA\n"
 
 #: ../src/panel.c:1456
 #, c-format
 msgid " -h  -- same as --help\n"
-msgstr " -h  To samo co --help.\n"
+msgstr " -h  Działa tak samo jak --help\n"
 
 #: ../src/panel.c:1457
 #, c-format
 msgid " -p  -- same as --profile\n"
-msgstr " -p  To samo co --profile.\n"
+msgstr " -p  Działa tak samo jak --profile\n"
 
 #: ../src/panel.c:1458
 #, c-format
 msgid " -v  -- same as --version\n"
-msgstr " -v  To samo co --version.\n"
+msgstr " -v  Działa tak samo jak --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
 #: ../src/panel.c:1460
@@ -453,7 +454,7 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"Proszę odwiedzić stronę http://lxde.org/ aby poznać więcej szczegółów.\n"
+"Proszę odwiedzić witrynę http://lxde.org/ aby poznać więcej szczegółów.\n"
 "\n"
 
 #: ../src/gtk-run.c:332
@@ -462,11 +463,11 @@ msgstr "Proszę wprowadzić polecenie do wykonania:"
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
-msgstr "Monitor użycia CPU"
+msgstr "Monitor obciążenia CPU"
 
 #: ../src/plugins/cpu/cpu.c:270
 msgid "Display CPU usage"
-msgstr "Wyświetla użycie CPU"
+msgstr "Wyświetla przebieg obciążenia CPU"
 
 #: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:426
 msgid "Bold font"
@@ -501,7 +502,7 @@ msgstr "_Rozwiń"
 #. Add Restore menu item.
 #: ../src/plugins/taskbar.c:1705
 msgid "R_estore"
-msgstr "_Przywróć"
+msgstr "_Przywróć zwykły rozmiar"
 
 #. Add Maximize menu item.
 #: ../src/plugins/taskbar.c:1710
@@ -531,12 +532,12 @@ msgstr "_Wszystkie obszary robocze"
 #. Add Move to Workspace menu item as a submenu.
 #: ../src/plugins/taskbar.c:1759
 msgid "_Move to Workspace"
-msgstr "_Przemieść na inny obszar roboczy"
+msgstr "_Przemieść na obszar roboczy"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../src/plugins/taskbar.c:1765
 msgid "_Close Window"
-msgstr "_Zamknij okno"
+msgstr "Za_mknij"
 
 #: ../src/plugins/taskbar.c:1968
 msgid "Show tooltips"
@@ -601,7 +602,8 @@ msgstr ""
 #: ../src/plugins/dclock.c:425
 msgid "Action when clicked (default: display calendar)"
 msgstr ""
-"Polecenie wykonywane po kliknięciu (domyślnie: wyświetlenie kalendarza):"
+"Polecenie wykonywane po kliknięciu\n"
+"(domyślnie wyświetlenie kalendarza):"
 
 #: ../src/plugins/dclock.c:427
 msgid "Tooltip only"
@@ -728,8 +730,8 @@ msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
-"Wysyła komendę do wszystkich okien na pulpicie.\n"
-"Wspierane komendy: 1)minimalizuj wszystko 2) zwiń"
+"Wysyła polecenia do wszystkich okien obszaru roboczego.\n"
+"Obsługiwane polecenia: zminimalizuj wszystkie, zwiń wszystkie."
 
 #: ../src/plugins/dirmenu.c:246
 msgid "Open in _Terminal"
@@ -741,7 +743,7 @@ msgstr "Katalog:"
 
 #: ../src/plugins/dirmenu.c:412
 msgid "Label"
-msgstr "Etykieta:"
+msgstr "Etykiety:"
 
 #: ../src/plugins/dirmenu.c:443
 msgid "Directory Menu"
@@ -777,11 +779,11 @@ msgstr "Automatyczne poziomy temperatur"
 
 #: ../src/plugins/thermal/thermal.c:310
 msgid "Warning1 Temperature"
-msgstr "Temperatura Ostrzeżenia1"
+msgstr "Temperatura ostrzeżenia 1"
 
 #: ../src/plugins/thermal/thermal.c:311
 msgid "Warning2 Temperature"
-msgstr "Temperatura Ostrzeżenia2"
+msgstr "Temperatura ostrzeżenia 2"
 
 #: ../src/plugins/thermal/thermal.c:353
 msgid "Temperature Monitor"
@@ -789,7 +791,8 @@ msgstr "Monitor temperatury"
 
 #: ../src/plugins/thermal/thermal.c:355
 msgid "Display system temperature"
-msgstr "Wyświetlanie temperatury komputera. Autor: kesler.daniel@gmail.com"
+msgstr ""
+"Wyświetla temperaturę podzespołów komputera. Autor: kesler.daniel@gmail.com"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -802,7 +805,7 @@ msgstr "Poziom głośności: "
 #: ../src/plugins/volume/volume.c:312
 #: ../src/plugins/volumealsa/volumealsa.c:471
 msgid "Volume Control"
-msgstr "Kontrola głośności"
+msgstr "Regulacja głośności"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
@@ -899,7 +902,7 @@ msgstr "Adres HW:"
 
 #: ../src/plugins/netstat/netstat.c:470
 msgid "Manage Networks"
-msgstr "Zarządzaj Sieciami"
+msgstr "Zarządzaj sieciami"
 
 #: ../src/plugins/netstat/netstat.c:472
 msgid "Monitor and Manage networks"
@@ -917,7 +920,7 @@ msgid ""
 "You must have the encryption key."
 msgstr ""
 "Komunikacja w tej sieci bezprzewodowej jest zaszyfrowana.\n"
-"Aby połączyć się z nią, musisz posiadać klucz szyfrujący."
+"Aby nawiązać połączenie, należy wprowadzić klucz szyfrujący."
 
 #: ../src/plugins/netstat/passwd_gui.c:99
 msgid "Encryption Key:"
@@ -925,11 +928,11 @@ msgstr "Klucz szyfrujący:"
 
 #: ../src/plugins/netstatus/netstatus.c:179
 msgid "Interface to monitor"
-msgstr "Interfejs do monitorowania"
+msgstr "Monitorowany interfejs:"
 
 #: ../src/plugins/netstatus/netstatus.c:180
 msgid "Config tool"
-msgstr "Narzędzie konfiguracji"
+msgstr "Narzędzie konfiguracji:"
 
 #: ../src/plugins/netstatus/netstatus.c:197
 msgid "Network Status Monitor"
@@ -1002,11 +1005,11 @@ msgstr "Położenie zasobnika."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:828
 msgid "Tooltips Enabled"
-msgstr "Włącz podpowiedzi"
+msgstr "Wyświetlanie podpowiedzi"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:829
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr "Czy ikony podpowiedzi mają być włączone."
+msgstr "Wyświetla podpowiedzi ikon"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:836
 msgid "Show Signal"
@@ -1014,7 +1017,7 @@ msgstr "Pokaż sygnał"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:837
 msgid "Whether or not the signal strength should be displayed."
-msgstr "Czy wyświetlić poziomu sygnału."
+msgstr "Wyświetla moc sygnału"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:950
 #, c-format
@@ -1212,7 +1215,7 @@ msgstr "Nie można przeanalizować /prov/net/dev. Nieznany format."
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:330
 #, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr "Nie można przeanalizować nazwy interfejsu z '%s'"
+msgstr "Nie można przeanalizować nazwy interfejsu z „%s”"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
@@ -1221,38 +1224,38 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"Nie można przeanalizować statystyk interfejsu z '%s'. prx_idx = %d; ptx_idx "
+"Nie można przeanalizować statystyk interfejsu z „%s”. prx_idx = %d; ptx_idx "
 "= %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr "Nie można przeanalizować /prov/net/wireless. Nieznany format."
+msgstr "Nie można przeanalizować pliku /prov/net/wireless. Nieznany format."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
 msgstr ""
-"Nie można przeanalizować szczegółów interfejsu bezprzewodowego z '%s'. "
+"Nie można przeanalizować szczegółów interfejsu bezprzewodowego z „%s”. "
 "link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
 msgid "Could not connect to interface, '%s'"
-msgstr "Nie można podłączyć się do interfejsu, '%s'"
+msgstr "Nie można połączyć z interfejsem, „%s”"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:420
 #, c-format
 msgid "Could not send ioctl to interface, '%s'"
-msgstr "Nie można wysłać ioctl do interfejsu, '%s'"
+msgstr "Nie można wysłać ioctl do interfejsu, „%s”"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr "Nie można przeanalizować wiersza poleceń '%s': %s"
+msgstr "Nie można przeanalizować wiersza poleceń „%s”: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr "Nie można przeanalizować wyjścia 'netstat'. Nieznany format"
+msgstr "Nie można przeanalizować wyjścia „netstat”. Nieznany format"
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
@@ -1303,7 +1306,7 @@ msgstr "Polecenie alarmu"
 
 #: ../src/plugins/batt/batt.c:583
 msgid "Alarm time (minutes left)"
-msgstr "Czas alarmu (pozostałe minuty)"
+msgstr "Czas alarmu (ilość minut do rozładowania)"
 
 #: ../src/plugins/batt/batt.c:584
 msgid "Background color"
