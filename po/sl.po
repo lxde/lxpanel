@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.3.8.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-07-20 11:01+0200\n"
-"PO-Revision-Date: 2011-02-12 17:48+0200\n"
+"PO-Revision-Date: 2011-02-14 15:29+0200\n"
 "Last-Translator: Klemen <klemen.kosir@gmx.com>\n"
 "Language-Team: / <paxmanpwnz@gmail.com>\n"
 "Language: sl\n"
@@ -360,7 +360,7 @@ msgstr "Namizni pult za projekt LXDE"
 
 #: ../src/panel.c:714
 msgid "Add / Remove Panel Items"
-msgstr "Dodaj/odstrani vstavke"
+msgstr "Dodaj / odstrani vstavke"
 
 #: ../src/panel.c:722
 #, c-format
@@ -1244,7 +1244,7 @@ msgstr "Ni mogoče razčleniti ukaza '%s': %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr "Izpisa ukaza 'netstat' ni mogoče razčleniti. Neznana oblika zapisa."
+msgstr "Izpisa ukaza 'netstat' ni mogoče razčleniti. Neznana oblika zapisa"
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
