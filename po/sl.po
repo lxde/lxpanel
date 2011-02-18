@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.3.8.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-07-20 11:01+0200\n"
-"PO-Revision-Date: 2011-02-14 15:29+0200\n"
+"PO-Revision-Date: 2011-02-18 16:39+0200\n"
 "Last-Translator: Klemen <klemen.kosir@gmx.com>\n"
 "Language-Team: / <paxmanpwnz@gmail.com>\n"
 "Language: sl\n"
@@ -343,7 +343,7 @@ msgstr "Potrdi"
 #: ../src/panel.c:683
 msgid "translator-credits"
 msgstr ""
-"Klemen Košir <https://launchpad.net/~klemen913>\n"
+"Klemen Košir <https://launchpad.net/~klemen.kosir>\n"
 "paxman <paxmanpwnz@gmail.com>"
 
 #: ../src/panel.c:688
