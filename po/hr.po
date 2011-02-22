@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: lxpanel_hr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-07-20 11:01+0200\n"
-"PO-Revision-Date: 2011-01-04 12:06+0200\n"
+"PO-Revision-Date: 2011-02-22 23:50+0200\n"
 "Last-Translator: zvacet <ikoli@yahoo.com>\n"
 "Language-Team: <asjlob AT vip.hr>\n"
 "Language: hr\n"
@@ -168,11 +168,11 @@ msgstr "Vrh"
 
 #: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:1040 ../src/panel.c:1046
 msgid "Width:"
-msgstr "Širina"
+msgstr "Širina:"
 
 #: ../data/ui/panel-pref.glade.h:40
 msgid "pixels"
-msgstr "Pikseli"
+msgstr "pikseli"
 
 #: ../data/ui/netstatus.glade.h:2
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
@@ -203,7 +203,7 @@ msgstr "<b>Internet Protokol (IPv6)</b>"
 #: ../data/ui/netstatus.glade.h:7
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
 msgid "<b>Network Device</b>"
-msgstr "Mrežni uređaj"
+msgstr "<b>Mrežni uređaj</b>"
 
 #: ../data/ui/netstatus.glade.h:8
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
@@ -219,7 +219,7 @@ msgstr "Adresa:"
 #: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
 msgid "Broadcast:"
-msgstr "Odašiljanje"
+msgstr "Odašiljanje:"
 
 #: ../data/ui/netstatus.glade.h:11
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
@@ -229,7 +229,7 @@ msgstr "Kon_figuriraj"
 #: ../data/ui/netstatus.glade.h:12
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
 msgid "Destination:"
-msgstr "Odredište"
+msgstr "Odredište:"
 
 #: ../data/ui/netstatus.glade.h:13
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
@@ -349,7 +349,7 @@ msgstr "LXPanel"
 
 #: ../src/panel.c:690
 msgid "Copyright (C) 2008-2009"
-msgstr ""
+msgstr "Copyright (C) 2008-2009"
 
 #: ../src/panel.c:691
 msgid "Desktop panel for LXDE project"
@@ -362,7 +362,7 @@ msgstr "Dodaj / Ukloni Stavke ploče"
 #: ../src/panel.c:722
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr "Ukloni \"%s\" Iz ploče"
+msgstr "Ukloni \"%s\" sa ploče"
 
 #: ../src/panel.c:734
 msgid "Panel Settings"
@@ -402,38 +402,38 @@ msgstr "Opcije naredbenog retka:\n"
 #: ../src/panel.c:1450
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr "--help -- ispiši ovu pomoć i izađi\n"
+msgstr " --help      -- ispiši ovu pomoć i izađi\n"
 
 #: ../src/panel.c:1451
 #, c-format
 msgid " --version   -- print version and exit\n"
-msgstr "--version -- ispisuje verziju i izlazi\n"
+msgstr " --version   -- ispisuje verziju i izlazi\n"
 
 #: ../src/panel.c:1452
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr "--log <number> -- postavlja nivo log-a 0-5. 0 - none 5 - chatty\n"
+msgstr " --log <number> -- postavlja nivo log-a 0-5. 0 - none 5 - chatty\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1454
 #, c-format
 msgid " --profile name -- use specified profile\n"
-msgstr "--profile name -- koristi specificiran profil\n"
+msgstr " --profile name -- koristi specificiran profil\n"
 
 #: ../src/panel.c:1456
 #, c-format
 msgid " -h  -- same as --help\n"
-msgstr "-h -- isto kao --help\n"
+msgstr " -h  -- isto kao --help\n"
 
 #: ../src/panel.c:1457
 #, c-format
 msgid " -p  -- same as --profile\n"
-msgstr "-p -- isto kao --profil\n"
+msgstr " -p  -- isto kao --profil\n"
 
 #: ../src/panel.c:1458
 #, c-format
 msgid " -v  -- same as --version\n"
-msgstr "-v -- isto kao --version\n"
+msgstr " -v  -- isto kao --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
 #: ../src/panel.c:1460
@@ -444,7 +444,7 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"Posjetite http://lxde.org/ za više detalja\n"
+"Posjetite http://lxde.org/ za više detalja.\n"
 "\n"
 
 #: ../src/gtk-run.c:332
@@ -701,7 +701,7 @@ msgstr "Prebacuj između dostupnih rasporeda tipkovnice"
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
-"Lijevi klik za ikonizaciju svih prozora.Srednji klik na kotačić miša za "
+"Lijevi klik za ikonizaciju svih prozora.  Srednji klik na kotačić miša za "
 "njihovo skrivanje."
 
 #: ../src/plugins/wincmd.c:237
@@ -1240,7 +1240,7 @@ msgstr "Ne mogu analizirati naredbeni redak '%s': %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr "Ne mogu analizirati 'netstat' izlaz. Nepoznat format."
+msgstr "Ne mogu analizirati 'netstat' izlaz. Nepoznat format"
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
