@@ -2225,7 +2225,15 @@ static GdkPixbuf * get_wm_icon(Window task_win, guint required_width, guint requ
         return NULL;
     else
     {
-        GdkPixbuf * ret = gdk_pixbuf_scale_simple(pixmap, required_width, required_height, GDK_INTERP_TILES);
+        gulong w = gdk_pixbuf_get_width (pixmap);
+	gulong h = gdk_pixbuf_get_height (pixmap);
+	if ((w > required_width) || (h > required_height))
+	{
+	    w = required_width;
+	    h = required_height;
+	}
+
+        GdkPixbuf * ret = gdk_pixbuf_scale_simple(pixmap, w, h, GDK_INTERP_TILES);
         g_object_unref(pixmap);
         *current_source = possible_source;
         return ret;
