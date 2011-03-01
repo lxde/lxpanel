@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: lxpanel_hr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-07-20 11:01+0200\n"
-"PO-Revision-Date: 2011-02-22 23:50+0200\n"
+"PO-Revision-Date: 2011-03-01 14:47+0200\n"
 "Last-Translator: zvacet <ikoli@yahoo.com>\n"
 "Language-Team: <asjlob AT vip.hr>\n"
 "Language: hr\n"
@@ -534,7 +534,7 @@ msgstr "Prikaži tooltip-e"
 
 #: ../src/plugins/taskbar.c:1969
 msgid "Icons only"
-msgstr "Samo Ikone"
+msgstr "Samo ikone"
 
 #: ../src/plugins/taskbar.c:1970
 msgid "Flat buttons"
@@ -658,7 +658,7 @@ msgstr "Sustavska Traka"
 
 #: ../src/plugins/tray.c:707
 msgid "System tray"
-msgstr "Sustavska Traka"
+msgstr "Sustavska traka"
 
 #: ../src/plugins/xkb/xkb-plugin.c:291
 msgid "Configure Keyboard Layout Switcher"
@@ -846,7 +846,7 @@ msgstr "Udaljeni IP:"
 #: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
-msgstr "Mrežna Maska:"
+msgstr "Mrežna maska:"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
@@ -947,7 +947,7 @@ msgstr "Svojstva Veze: %s"
 msgid "%lu packet"
 msgid_plural "%lu packets"
 msgstr[0] "%lu paket"
-msgstr[1] " %lu paketi"
+msgstr[1] "%lu paketi"
 msgstr[2] "%lu paketa"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:396
@@ -1093,7 +1093,7 @@ msgstr "16/4 Mbps Token Ring"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:891
 msgid "ARCnet"
-msgstr "16/4 Mbps Token Ring"
+msgstr "ARCnet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:897
 msgid "Frame Relay DLCI"
