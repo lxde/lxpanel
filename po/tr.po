@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-09-05 05:44+0000\n"
-"PO-Revision-Date: 2010-09-05 23:04+0200\n"
-"Last-Translator: Mehmet Gülmen <memetgulmen@gmail.com>\n"
+"PO-Revision-Date: 2011-03-11 15:20+0200\n"
+"Last-Translator: martinamca <martinamca@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
@@ -138,7 +138,7 @@ msgstr "Piksel"
 
 #: ../data/ui/panel-pref.glade.h:31
 msgid "Reserve space, and not covered by maximized windows"
-msgstr "Ayrılmış yer, tam ekran yapılan pencerelerce kaplanmaz."
+msgstr "Ayrılmış yer, tam ekran yapılan pencerelerce kaplanmaz"
 
 #: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:1042
 msgid "Right"
@@ -164,7 +164,7 @@ msgstr "Sistem teması"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "Terminal Emulator:"
-msgstr "Uçbirim Öykünücüsü"
+msgstr "Uçbirim Öykünücüsü:"
 
 #: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1048
 msgid "Top"
@@ -263,7 +263,7 @@ msgstr "Durum:"
 #: ../data/ui/netstatus.glade.h:18
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
 msgid "Subnet Mask:"
-msgstr "Alt Ağ Maskesi"
+msgstr "Alt Ağ Maskesi:"
 
 #: ../data/ui/netstatus.glade.h:19
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
@@ -369,7 +369,7 @@ msgstr "Tabla Ögelerini Ekle / Kaldır"
 #: ../src/panel.c:722
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr "\"%s\" Ögesini Tabladan Kaldır"
+msgstr "Tabladan \"%s\" Ögesini Kaldır"
 
 #: ../src/panel.c:734
 msgid "Panel Settings"
@@ -581,7 +581,9 @@ msgstr "Görev Çubuğu (Pencere Listesi)"
 
 #: ../src/plugins/taskbar.c:2035
 msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
-msgstr "Görev çubuğu bütün açık pencereleri gösterir ve onları simgeleştirmenize, loşlaştırmanıza ya da odaklamanıza olanak verir."
+msgstr ""
+"Görev çubuğu bütün açık pencereleri gösterir ve onları simgeleştirmenize, "
+"loşlaştırmanıza ya da odaklamanıza olanak verir"
 
 #: ../src/plugins/dclock.c:422
 msgid "Clock Format"
@@ -675,7 +677,7 @@ msgstr "Klavye Düzeni Değiştiriciyi Yapılandır"
 
 #: ../src/plugins/xkb/xkb-plugin.c:306
 msgid "Show layout as"
-msgstr "Düzeni şu olarak göster:"
+msgstr "Düzeni şu olarak göster"
 
 #: ../src/plugins/xkb/xkb-plugin.c:321
 msgid "image"
@@ -728,7 +730,7 @@ msgid ""
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
 "Bütün masaüstü pencerelerine komut gönderir.\n"
-"Desteklenen komutlar 1) simgeleştir ve 2) sar. "
+"Desteklenen komutlar 1) simgeleştir ve 2) sar"
 
 #: ../src/plugins/dirmenu.c:246
 msgid "Open in _Terminal"
@@ -847,7 +849,7 @@ msgstr "Bağlantı ya sınırlı ya da hiç yok"
 #: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
-msgstr "IP Adresi"
+msgstr "IP Adresi:"
 
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Remote IP:"
@@ -995,7 +997,7 @@ msgstr "Yön ayarı"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:820
 msgid "The orientation of the tray."
-msgstr "Tepsi yönünü ayarlama"
+msgstr "Tepsi yönünü ayarlama."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:828
 msgid "Tooltips Enabled"
@@ -1011,7 +1013,7 @@ msgstr "Sinyali Göster"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:837
 msgid "Whether or not the signal strength should be displayed."
-msgstr "Sinyal gücünün gösterilsin mi"
+msgstr "Sinyal gücünün gösterilsin mi."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:950
 #, c-format
@@ -1244,7 +1246,7 @@ msgstr "Komut satırı '%s' çözümlenemedi: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr "'netstat' çıktısı çözümlenemedi. Bilinmeyen biçim."
+msgstr "'netstat' çıktısı çözümlenemedi. Bilinmeyen biçim"
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
