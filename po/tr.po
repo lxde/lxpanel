@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-09-05 05:44+0000\n"
-"PO-Revision-Date: 2011-03-11 15:20+0200\n"
-"Last-Translator: martinamca <martinamca@gmail.com>\n"
+"PO-Revision-Date: 2011-03-17 20:56+0200\n"
+"Last-Translator: enginmanap <enginmanap@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -1212,13 +1212,15 @@ msgstr "/proc/net/dev çözümlenemiyor. Bilinmeyen biçim."
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:330
 #, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr "'%s''den ayarüz adı çözümlenemedi"
+msgstr "'%s'den ayarüz adı çözümlenemedi"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
 msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
-msgstr "'%s''den arayüzü istatistikleri çözümlenemedi. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgstr ""
+"'%s''den arayüzü istatistikleri çözümlenemedi. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1227,7 +1229,7 @@ msgstr "/proc/net/wireless çözümlenemedi. Bilinmeyen biçim."
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr "'%s''den kablosuz ayrıtıları çözümlenemedi. link_idx = %d;"
+msgstr "'%s'den kablosuz ayrıtıları çözümlenemedi. link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
