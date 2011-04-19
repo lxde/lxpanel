@@ -11,13 +11,15 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-14 06:17+0000\n"
-"PO-Revision-Date: 2011-04-19 14:52-0300\n"
-"Last-Translator: Sérgio Cipolla <secipolla@gmail.com>\n"
+"PO-Revision-Date: 2011-04-19 20:21+0200\n"
+"Last-Translator: Sérgio <ikisham@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
@@ -418,7 +420,7 @@ msgstr "Opções de linha de comando:\n"
 #: ../src/panel.c:1450
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr " --help              -- imprime esta ajuda e sai\n"
+msgstr " --help             -- imprime esta ajuda e sai\n"
 
 #: ../src/panel.c:1451
 #, c-format
