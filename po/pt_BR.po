@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-14 06:17+0000\n"
-"PO-Revision-Date: 2011-04-19 20:21+0200\n"
+"PO-Revision-Date: 2011-04-20 00:22+0200\n"
 "Last-Translator: Sérgio <ikisham@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
 "Language: pt_BR\n"
@@ -359,7 +359,7 @@ msgstr ""
 "Fábio Antunes <fabio.antunes@hotmail.com>, 2008.\n"
 "Henrique P. Machado <zehrique@ubuntu.com>, 2008-2009.\n"
 "Og Maciel <ogmaciel@gnome.org>, 2009.\n"
-"Sérgio B. Cipolla <secipolla@gmail.com>, 2010."
+"Sérgio B. Cipolla <secipolla@gmail.com>, 2010-2011."
 
 #: ../src/panel.c:688
 msgid "LXPanel"
@@ -430,7 +430,7 @@ msgstr " --version          -- imprime a versão e sai\n"
 #: ../src/panel.c:1452
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --log <número>     -- define o nível de log 0-5. 0 - nenhum 5 - detalhado\n"
+msgstr " --log <número>     -- define o nível de log 0-5 (0 - nenhum, 5 - detalhado)\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1454
