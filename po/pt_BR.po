@@ -4,14 +4,14 @@
 # Fábio Antunes <fabio.antunes@hotmail.com>, 2008.
 # Henrique P. Machado <zehrique@ubuntu.com>, 2008-2009.
 # Og Maciel <ogmaciel@gnome.org>, 2009.
-# Sérgio Cipolla <secipolla@gmail.com>, 2010.
+# Sérgio Cipolla <secipolla@gmail.com>, 2010-2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-14 06:17+0000\n"
-"PO-Revision-Date: 2010-12-16 07:56-0300\n"
+"PO-Revision-Date: 2011-04-19 14:52-0300\n"
 "Last-Translator: Sérgio Cipolla <secipolla@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
 "MIME-Version: 1.0\n"
@@ -418,28 +418,28 @@ msgstr "Opções de linha de comando:\n"
 #: ../src/panel.c:1450
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr " --help       -- imprime esta ajuda e sai\n"
+msgstr " --help              -- imprime esta ajuda e sai\n"
 
 #: ../src/panel.c:1451
 #, c-format
 msgid " --version   -- print version and exit\n"
-msgstr " --version    -- imprime a versão e sai\n"
+msgstr " --version          -- imprime a versão e sai\n"
 
 #: ../src/panel.c:1452
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --log <número>  -- define o nível de log 0-5. 0 - nenhum 5 - detalhado\n"
+msgstr " --log <número>     -- define o nível de log 0-5. 0 - nenhum 5 - detalhado\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1454
 #, c-format
 msgid " --profile name -- use specified profile\n"
-msgstr " --profile <nome>  -- usa o perfil especificado\n"
+msgstr " --profile <nome>   -- usa o perfil especificado\n"
 
 #: ../src/panel.c:1456
 #, c-format
 msgid " -h  -- same as --help\n"
-msgstr " -h   -- o mesmo que --help\n"
+msgstr " -h  -- o mesmo que --help\n"
 
 #: ../src/panel.c:1457
 #, c-format
@@ -449,7 +449,7 @@ msgstr " -p  -- o mesmo que --profile\n"
 #: ../src/panel.c:1458
 #, c-format
 msgid " -v  -- same as --version\n"
-msgstr " -v  - o mesmo que --version\n"
+msgstr " -v  -- o mesmo que --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
 #: ../src/panel.c:1460
@@ -587,7 +587,7 @@ msgstr "Barra de tarefas (Lista de janelas)"
 
 #: ../src/plugins/taskbar.c:2035
 msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
-msgstr "A barra de tarefas mostra todas as janelas abertas e permite iconificá-las, enrolar ou obter o foco"
+msgstr "A barra de tarefas mostra todas as janelas abertas e permite iconificá-las, enrolá-las ou obter o foco"
 
 #: ../src/plugins/dclock.c:422
 msgid "Clock Format"
@@ -1366,60 +1366,86 @@ msgstr "Teclas indicadoras para CapsLock, NumLock e ScrollLock"
 
 #~ msgid "Applications"
 #~ msgstr "Aplicativos"
+
 #~ msgid "Available Applications"
 #~ msgstr "Aplicativos disponíveis"
+
 #~ msgid "Display system temperature, by kesler.daniel@gmail.com"
 #~ msgstr "Mostra a temperatura do sistema, por kesler.daniel@gmail.com"
+
 #~ msgid "Keyboard Led"
 #~ msgstr "LED do teclado"
+
 #~ msgid "Left\t"
 #~ msgstr "Esquerda\t"
+
 #~ msgid "Top\t"
 #~ msgstr "Superior\t"
+
 #~ msgid "Couldn't find pixmap file: %s"
 #~ msgstr "Não foi possível encontrar o arquivo de pixmap: %s"
+
 #~ msgid "Old KDE/GNOME Tray"
 #~ msgstr "Antigo notificador KDE/GNOME"
+
 #~ msgid "Desktop No / Workspace Name"
 #~ msgstr "Área de trabalho Nº / Nome do espaço de trabalho"
+
 #~ msgid ""
 #~ "Allows you to switch the keyboard layout and\n"
 #~ "displays the currently selected layout."
 #~ msgstr ""
 #~ "Permite que você alterne o layout do teclado e\n"
 #~ "exiba o layout selecionado atualmente."
+
 #~ msgid "Other plugins available here"
 #~ msgstr "Outros plug-ins disponíveis aqui"
+
 #~ msgid "Enable Image:"
 #~ msgstr "Ativar imagem:"
+
 #~ msgid "Enable Transparency"
 #~ msgstr "Ativar transparência"
+
 #~ msgid "Tint color:"
 #~ msgstr "Tonalidade de cor:"
+
 #~ msgid " --configure -- launch configuration utility\n"
 #~ msgstr " --configure  -- lança o utilitário de configuração\n"
+
 #~ msgid " -C  -- same as --configure\n"
 #~ msgstr " -C  -- o mesmo que --configure\n"
+
 #~ msgid "Add Button"
 #~ msgstr "Botão adicionar"
+
 #~ msgid "Button Properties"
 #~ msgstr "Propriedades do botão"
+
 #~ msgid "Remove Button"
 #~ msgstr "Remover botão"
+
 #~ msgid "Buttons"
 #~ msgstr "Botões"
+
 #~ msgid "Accept SkipPager"
 #~ msgstr "Aceitar SkipPager"
+
 #~ msgid "Show Iconified windows"
 #~ msgstr "Mostrar janelas iconificadas"
+
 #~ msgid "Show mapped windows"
 #~ msgstr "Mostrar janelas mapeadas"
+
 #~ msgid "Action"
 #~ msgstr "Ação"
+
 #~ msgid "Provide Menu"
 #~ msgstr "Menu prover"
+
 #~ msgid "Kayboard Layout switcher"
 #~ msgstr "Alternador de layout de teclado"
+
 #~ msgid ""
 #~ "Dynamic\n"
 #~ "Pixels\n"
@@ -1428,6 +1454,7 @@ msgstr "Teclas indicadoras para CapsLock, NumLock e ScrollLock"
 #~ "Dinâmico\n"
 #~ "Pixeis\n"
 #~ "% Porcento"
+
 #~ msgid ""
 #~ "Left\n"
 #~ "Center\n"
@@ -1436,6 +1463,7 @@ msgstr "Teclas indicadoras para CapsLock, NumLock e ScrollLock"
 #~ "Esquerda\n"
 #~ "Centro\n"
 #~ "Direita"
+
 #~ msgid ""
 #~ "Left\n"
 #~ "Right\n"
@@ -1446,12 +1474,15 @@ msgstr "Teclas indicadoras para CapsLock, NumLock e ScrollLock"
 #~ "Direita\n"
 #~ "Superior\n"
 #~ "Inferior"
+
 #~ msgid "Where to put the panel?"
 #~ msgstr "Onde colocar o painel?"
+
 #~ msgid "Battery: %d%% charged, %s"
 #~ msgstr "Bateria: %d%% carregada, %s"
+
 #~ msgid "charging finished"
 #~ msgstr "Carga finalizada"
+
 #~ msgid "charging"
 #~ msgstr "carregando"
-
