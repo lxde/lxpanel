@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-26 06:56+0000\n"
-"PO-Revision-Date: 2011-03-10 20:19+0200\n"
+"PO-Revision-Date: 2011-04-10 13:23+0200\n"
 "Last-Translator: Jesse <jesse.jaara@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fi\n"
@@ -702,8 +702,9 @@ msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr "Napsauta hiiren vasemmalla napilla pienentääksesi ikkunat, keskinapilla piilottaaksesi ne."
 
 #: ../src/plugins/wincmd.c:237
+#, fuzzy
 msgid "Alternately iconify/shade and raise"
-msgstr ""
+msgstr "Vaihtoehtoisesti pienennä/häivytä ja nosta"
 
 #: ../src/plugins/wincmd.c:266
 msgid "Minimize All Windows"
@@ -1054,8 +1055,9 @@ msgid "Error"
 msgstr "Virhe"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:192
+#, fuzzy
 msgid "The current error condition"
-msgstr ""
+msgstr "Virheen tila"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:434
 #: ../src/plugins/netstatus/netstatus-iface.c:1197
