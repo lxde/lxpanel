@@ -306,13 +306,22 @@ AC_FUNC_STRFTIME
 AC_CHECK_FUNCS([bzero memset mkdir setlocale strchr])
 
 
+# Generate po/LINGUAS on the fly rather than relying on translators
+# to maintain it manually. This also overcome the problem that Transifex
+# cannot add a language to po/LINGUAS if a new po file is submitted.
+rm -f $srcdir/po/LINGUAS
+for po_file in `ls $srcdir/po/*.po | sort`;
+do
+    lang=`echo "$po_file" | sed "s|.*/po/\(.*\)\.po|\1|g"`
+    echo $lang >> $srcdir/po/LINGUAS
+done
+
 GETTEXT_PACKAGE=lxpanel
 #AM_GNU_GETTEXT([external])
 AM_GNU_GETTEXT_VERSION(0.14.1)
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package.])
 
-ALL_LINGUAS="af ar cs da de es et eu fa fi fr gl hu hr id it ja ko lt ml ms nb nl nn pl ps pt pt_BR ru sk sl sv tr uk ur ur_PK vi zh_CN zh_TW"
 AM_GLIB_GNU_GETTEXT
 
 if test x"$enable_man" = x"yes"; then
