@@ -38,6 +38,13 @@
 battery* battery_new() {
     static int battery_num = 1;
     battery * b = g_new0 ( battery, 1 );
+    battery_reset(b);
+    b->battery_num = battery_num;
+    battery_num++;
+    return b;
+}
+
+void battery_reset( battery * b) {
     b->type_battery = TRUE;
     b->capacity_unit = "mAh";
     b->last_capacity_unit = -1;
@@ -49,11 +56,7 @@ battery* battery_new() {
     b->remaining_capacity = -1;
     b->present_rate = -1;
     b->state = NULL;
-    b->battery_num = battery_num;
-    battery_num++;
-    return b;
 }
-
 
 static gchar* parse_info_file(char *filename)
 {
@@ -135,6 +138,8 @@ void battery_update( battery *b ) {
 	NULL
     };
     const gchar *sys_file;
+
+    battery_reset(b);
 
     while ( (sys_file = sys_list[i]) != NULL ) {
     
