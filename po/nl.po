@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-08-07 05:41+0000\n"
-"PO-Revision-Date: 2011-05-19 00:03+0200\n"
+"PO-Revision-Date: 2011-05-28 17:43+0200\n"
 "Last-Translator: Pjotr <pliniusminor@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nl\n"
@@ -89,7 +89,7 @@ msgstr "Rand:"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "File Manager:"
-msgstr "Bestandsbeheerder:"
+msgstr "Bestandbeheerder:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "Geometry"
@@ -109,7 +109,7 @@ msgstr "Links"
 
 #: ../data/ui/panel-pref.glade.h:24
 msgid "Logout Command:"
-msgstr "Opdracht voor afmelden: "
+msgstr "Opdracht voor afmelden:"
 
 #: ../data/ui/panel-pref.glade.h:25
 msgid "Make window managers treat the panel as dock"
@@ -117,7 +117,7 @@ msgstr "Laat vensterbeheerders de werkbalk behandelen als dok"
 
 #: ../data/ui/panel-pref.glade.h:26
 msgid "Margin:"
-msgstr "Marge: "
+msgstr "Marge:"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Minimize panel when not in use"
@@ -161,7 +161,7 @@ msgstr "Systeemthema"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "Terminal Emulator:"
-msgstr "Terminal-emulator:"
+msgstr "Terminalvenster:"
 
 #: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1048
 msgid "Top"
@@ -452,7 +452,7 @@ msgstr "Voer de opdracht in die u wil uitvoeren:"
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
-msgstr "CPU Systeemmonitor"
+msgstr "Monitor voor CPU-gebruik"
 
 #: ../src/plugins/cpu/cpu.c:270
 msgid "Display CPU usage"
@@ -607,7 +607,7 @@ msgstr "Toon digitale klok en gereedschaptip"
 
 #: ../src/plugins/menu.c:372
 msgid "Add to desktop"
-msgstr "Toevoegen aan het bureaublad"
+msgstr "Toevoegen aan bureaublad"
 
 #: ../src/plugins/menu.c:382
 msgid "Properties"
@@ -684,7 +684,7 @@ msgstr "Voorkeuren per toepassing"
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/xkb/xkb-plugin.c:344
 msgid "_Remember layout for each application"
-msgstr "Onthou indeling voor elke toepassing"
+msgstr "_Onthoud indeling voor elke toepassing"
 
 #. Create a label as the child of the horizontal box.
 #: ../src/plugins/xkb/xkb-plugin.c:354
@@ -708,7 +708,7 @@ msgstr ""
 # "Heffen"?
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
-msgstr "Afwisselendpictogrammen van maken/oprollen en uitrollen"
+msgstr "Afwisselend pictogrammen van maken/oprollen en uitrollen"
 
 #: ../src/plugins/wincmd.c:266
 msgid "Minimize All Windows"
@@ -840,7 +840,7 @@ msgstr "Verbinding heeft geen of beperkte verbinding"
 #: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
-msgstr "IP-adres: "
+msgstr "IP-adres:"
 
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Remote IP:"
@@ -895,7 +895,7 @@ msgstr "Beheer Netwerken"
 
 #: ../src/plugins/netstat/netstat.c:472
 msgid "Monitor and Manage networks"
-msgstr "Beheer en controleer netwerken"
+msgstr "Bewaak en Beheer netwerken"
 
 #. create dialog
 #: ../src/plugins/netstat/passwd_gui.c:84
@@ -909,7 +909,7 @@ msgid ""
 "You must have the encryption key."
 msgstr ""
 "Dit draadloos netwerk werd beveiligd.\n"
-"U moet de sleutel hebben."
+"U moet over de sleutel beschikken."
 
 #: ../src/plugins/netstat/passwd_gui.c:99
 msgid "Encryption Key:"
@@ -917,11 +917,11 @@ msgstr "Sleutel:"
 
 #: ../src/plugins/netstatus/netstatus.c:179
 msgid "Interface to monitor"
-msgstr "Netwerkkaart om te controleren"
+msgstr "Netwerkkaart om te bewaken"
 
 #: ../src/plugins/netstatus/netstatus.c:180
 msgid "Config tool"
-msgstr "Instellingengereedschap"
+msgstr "Config-gereedschap"
 
 #: ../src/plugins/netstatus/netstatus.c:197
 msgid "Network Status Monitor"
@@ -929,7 +929,7 @@ msgstr "Netwerk Status Monitor"
 
 #: ../src/plugins/netstatus/netstatus.c:199
 msgid "Monitor network status"
-msgstr "Controleer netwerkstatus"
+msgstr "Bewaak netwerkstatus"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:51
 #: ../src/plugins/netstatus/netstatus-dialog.c:312
@@ -981,15 +981,15 @@ msgstr "Netwerkkaart"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:812
 msgid "The current interface the icon is monitoring."
-msgstr "De huidige netwerkkaart die door het pictogram wordt gecontroleerd."
+msgstr "De huidige netwerkkaart die door het pictogram wordt bewaakt."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:819
 msgid "Orientation"
-msgstr "Orientatie"
+msgstr "Oriëntatie"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:820
 msgid "The orientation of the tray."
-msgstr "De orientatie van het systeemvak."
+msgstr "De oriëntatie van het systeemvak."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:828
 msgid "Tooltips Enabled"
@@ -1236,11 +1236,11 @@ msgstr "Kan ioctl niet verzenden naar netwerkkaart, '%s'"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr "Kan opdrachtregel niet ontleden '%s': %s"
+msgstr "Kan opdrachtregel niet lezen '%s': %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr "Kon 'netstat'-uitvoer niet ontleden. Onbekende opmaak"
+msgstr "Kon 'netstat'-uitvoer niet lezen. Onbekende opmaak"
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
@@ -1343,7 +1343,7 @@ msgstr "Toetsenbord LED"
 
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr "Indicators voor Capslock, Numlock en ScrollLock toetsen"
+msgstr "Indicators voor Capslock-, Numlock- en ScrollLock-toets"
 
 #~ msgid "Applications"
 #~ msgstr "Applicaties"
