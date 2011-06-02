@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-08-07 05:41+0000\n"
-"PO-Revision-Date: 2011-05-28 17:43+0200\n"
+"PO-Revision-Date: 2011-06-02 16:25+0200\n"
 "Last-Translator: Pjotr <pliniusminor@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nl\n"
@@ -145,7 +145,7 @@ msgstr "Rechts"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "Select an image file"
-msgstr "Kies een afbeeldingsbestand"
+msgstr "Kies een afbeeldingbestand"
 
 #: ../data/ui/panel-pref.glade.h:34
 msgid "Size when minimized"
@@ -352,7 +352,7 @@ msgstr "Auteursrecht (C) 2008-2010"
 
 #: ../src/panel.c:691
 msgid "Desktop panel for LXDE project"
-msgstr "Bureaubladwerkbalk voor het LXDE project"
+msgstr "Bureaubladwerkbalk voor het LXDE-project"
 
 #: ../src/panel.c:714
 msgid "Add / Remove Panel Items"
@@ -365,7 +365,7 @@ msgstr "Verwijder \"%s\" van Werkbalk"
 
 #: ../src/panel.c:734
 msgid "Panel Settings"
-msgstr "Werkbalkvoorkeuren"
+msgstr "Werkbalkinstellingen"
 
 #: ../src/panel.c:740
 msgid "Create New Panel"
@@ -555,7 +555,7 @@ msgstr "Knipper wanneer een venster om aandacht vraagt"
 
 #: ../src/plugins/taskbar.c:1974
 msgid "Combine multiple application windows into a single button"
-msgstr "Combineer meerdere toepassingsvensters in een enkele knop"
+msgstr "Combineer meerdere toepassingvensters in een enkele knop"
 
 #: ../src/plugins/taskbar.c:1975
 msgid "Maximum width of task button"
@@ -577,11 +577,11 @@ msgstr ""
 
 #: ../src/plugins/dclock.c:422
 msgid "Clock Format"
-msgstr "Kloktype"
+msgstr "Klok-opmaak"
 
 #: ../src/plugins/dclock.c:423
 msgid "Tooltip Format"
-msgstr "Type Gereedschaptip"
+msgstr "Gereedschaptip-opmaak"
 
 #: ../src/plugins/dclock.c:424
 msgid "Format codes: man 3 strftime; \\n for line break"
@@ -702,8 +702,8 @@ msgstr "Wisselen tussen beschikbare toetsenbord-indelingen"
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
-"Linkermuisklik om van alle vensters pictogrammen te maken, middelmuisklik op "
-"ze op te rollen"
+"Linkermuisklik om van alle vensters pictogrammen te maken.  Middelmuisklik "
+"om ze op te rollen."
 
 # "Heffen"?
 #: ../src/plugins/wincmd.c:237
@@ -719,9 +719,8 @@ msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
-"Zendt een opdracht naar alle bureaubladvensters.\n"
-"Ondersteunde opdrachten zijn 1) pictogrammen maken in-/uitschakelen en 2) "
-"oprollen in-/uitschakelen"
+"Zendt opdrachten naar alle bureaubladvensters.\n"
+"Ondersteunde opdrachten zijn 1) pictogrammen van maken en 2) oprollen"
 
 #: ../src/plugins/dirmenu.c:246
 msgid "Open in _Terminal"
@@ -831,7 +830,7 @@ msgstr "Draadloos Netwerk heeft geen verbinding"
 
 #: ../src/plugins/netstat/netstat.c:301
 msgid "Network cable is plugged out"
-msgstr "Netwerkkabel is niet aangesloten"
+msgstr "Netwerkkabel is eruit getrokken"
 
 #: ../src/plugins/netstat/netstat.c:303
 msgid "Connection has limited or no connectivity"
@@ -958,13 +957,13 @@ msgid ""
 "There was an error displaying help:\n"
 "%s"
 msgstr ""
-"Hulp kan niet weergegeven worden:\n"
+"Er was een fout bij het tonen van Hulp:\n"
 "%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
-msgstr "Kon configuratiegereedschap voor tijd niet starten: %s"
+msgstr "Kon configuratiegereedschap voor Tijd niet starten: %s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:379
 #, c-format
@@ -1198,30 +1197,30 @@ msgstr "Kan /proc/net/dev niet openen: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:189
 msgid "Could not parse /proc/net/dev. Unknown format."
-msgstr "Kon /proc/net/dev niet plaatsen. Onbekende opmaak."
+msgstr "Kon /proc/net/dev niet lezen. Onbekende opmaak."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:204
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:330
 #, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr "Kon netwerkkaart-naam niet ontleden vanuit '%s'"
+msgstr "Kon netwerkkaart-naam niet lezen vanuit '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
 msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"Kan netwerkkaart-statistieken niet ontleden vanuit '%s'. prx_idx = %d; "
-"ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+"Kan netwerkkaart-statistieken niet lezen vanuit '%s'. prx_idx = %d; ptx_idx "
+"= %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr "Kan /proc/net/wireless niet ontleden. Onbekende opmaak."
+msgstr "Kan /proc/net/wireless niet lezen. Onbekende opmaak."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr "Kan draadloze details niet ontleden vanuit '%s'. link_idx = %d;"
+msgstr "Kan draadloze details niet lezen vanuit '%s'. link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
