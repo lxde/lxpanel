@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-08-07 05:41+0000\n"
-"PO-Revision-Date: 2011-06-02 16:25+0200\n"
-"Last-Translator: Pjotr <pliniusminor@gmail.com>\n"
+"PO-Revision-Date: 2011-06-02 23:43+0200\n"
+"Last-Translator: Pjotr <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -121,7 +121,7 @@ msgstr "Marge:"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Minimize panel when not in use"
-msgstr "Minimaliseer werkbalk indien niet in gebruik"
+msgstr "Minimaliseer werkbalk wanneer niet in gebruik"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "Panel Applets"
