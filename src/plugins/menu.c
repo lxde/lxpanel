@@ -131,8 +131,8 @@ menu_pos(GtkMenu *menu, gint *x, gint *y, gboolean *push_in, GtkWidget *widget)
     int ox, oy, w, h;
     Plugin *p;
 #if GTK_CHECK_VERSION(2,18,0)
-    GtkAllocation *allocation;
-    gtk_widget_set_allocation(widget, allocation);
+    GtkAllocation allocation;
+    gtk_widget_set_allocation(widget, &allocation);
 #endif
     ENTER;
     p = g_object_get_data(G_OBJECT(widget), "plugin");
@@ -155,20 +155,20 @@ menu_pos(GtkMenu *menu, gint *x, gint *y, gboolean *push_in, GtkWidget *widget)
         *x = ox;
         if (*x + w > gdk_screen_width())
 #if GTK_CHECK_VERSION(2,18,0)
-            *x = ox + allocation->width - w;
+            *x = ox + allocation.width - w;
 #else
             *x = ox + widget->allocation.width - w;
 #endif
         *y = oy - h;
         if (*y < 0)
 #if GTK_CHECK_VERSION(2,18,0)
-            *y = oy + allocation->height;
+            *y = oy + allocation.height;
 #else
             *y = oy + widget->allocation.height;
 #endif
     } else {
 #if GTK_CHECK_VERSION(2,18,0)
-        *x = ox + allocation->width;
+        *x = ox + allocation.width;
 #else
         *x = ox + widget->allocation.width;
 #endif
@@ -177,14 +177,14 @@ menu_pos(GtkMenu *menu, gint *x, gint *y, gboolean *push_in, GtkWidget *widget)
         *y = oy;
         if (*y + h >  gdk_screen_height())
 #if GTK_CHECK_VERSION(2,18,0)
-            *y = oy + allocation->height - h;
+            *y = oy + allocation.height - h;
 #else
             *y = oy + widget->allocation.height - h;
 #endif
     }
     DBG("widget: x,y=%d,%d  w,h=%d,%d\n", ox, oy,
 #if GTK_CHECK_VERSION(2,18,0)
-          allocation->width, allocation->height );
+          allocation.width, allocation.height );
 #else
           widget->allocation.width, widget->allocation.height );
 #endif
@@ -634,8 +634,8 @@ my_button_pressed(GtkWidget *widget, GdkEventButton *event, Plugin* plugin)
 {
     ENTER;
 #if GTK_CHECK_VERSION(2,18,0)
-    GtkAllocation *allocation;
-    gtk_widget_get_allocation(widget, allocation);
+    GtkAllocation allocation;
+    gtk_widget_get_allocation(widget, &allocation);
 #endif
 
     /* Standard right-click handling. */
@@ -644,8 +644,8 @@ my_button_pressed(GtkWidget *widget, GdkEventButton *event, Plugin* plugin)
 
     if ((event->type == GDK_BUTTON_PRESS)
 #if GTK_CHECK_VERSION(2,18,0)
-          && (event->x >=0 && event->x < allocation->width)
-          && (event->y >=0 && event->y < allocation->height)) {
+          && (event->x >=0 && event->x < allocation.width)
+          && (event->y >=0 && event->y < allocation.height)) {
 #else
           && (event->x >=0 && event->x < widget->allocation.width)
           && (event->y >=0 && event->y < widget->allocation.height)) {
