@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-14 06:17+0000\n"
-"PO-Revision-Date: 2011-05-11 13:28-0300\n"
+"POT-Creation-Date: 2011-06-03 07:16-0300\n"
+"PO-Revision-Date: 2011-06-11 10:36-0300\n"
 "Last-Translator: Sérgio Cipolla <secipolla@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
 "Language: pt_BR\n"
@@ -293,6 +293,14 @@ msgstr "_Nome:"
 #: ../src/plugins/launchbar.c:887
 msgid "Application Launch Bar"
 msgstr "Barra de lançamento de aplicativos"
+
+#: ../data/ui/launchbar.glade.h:2
+msgid "Applications"
+msgstr "Aplicativos"
+
+#: ../data/ui/launchbar.glade.h:3
+msgid "Available Applications"
+msgstr "Aplicativos disponíveis"
 
 #: ../src/configurator.c:54
 #: ../src/gtk-run.c:319
@@ -1365,12 +1373,6 @@ msgstr "Led do teclado"
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Teclas indicadoras para CapsLock, NumLock e ScrollLock"
-
-#~ msgid "Applications"
-#~ msgstr "Aplicativos"
-
-#~ msgid "Available Applications"
-#~ msgstr "Aplicativos disponíveis"
 
 #~ msgid "Display system temperature, by kesler.daniel@gmail.com"
 #~ msgstr "Mostra a temperatura do sistema, por kesler.daniel@gmail.com"
