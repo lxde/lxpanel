@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-08-07 05:41+0000\n"
-"PO-Revision-Date: 2011-06-02 23:43+0200\n"
+"PO-Revision-Date: 2011-06-12 12:51+0200\n"
 "Last-Translator: Pjotr <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nl\n"
@@ -340,7 +340,9 @@ msgstr "Bevestigen"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:683
 msgid "translator-credits"
-msgstr "Sander De Voogdt (celettu@gmail.com), Pjotr"
+msgstr ""
+"Sander De Voogdt\n"
+"Pjotr"
 
 #: ../src/panel.c:688
 msgid "LXPanel"
@@ -406,7 +408,7 @@ msgstr " --help      -- druk deze hulp af en sluit af\n"
 #: ../src/panel.c:1451
 #, c-format
 msgid " --version   -- print version and exit\n"
-msgstr " --version      -- druk versie af en sluit af\n"
+msgstr " --version   -- druk versie af en sluit af\n"
 
 #: ../src/panel.c:1452
 #, c-format
@@ -521,13 +523,13 @@ msgstr "_Alle werkbladen"
 #. Add Move to Workspace menu item as a submenu.
 #: ../src/plugins/taskbar.c:1759
 msgid "_Move to Workspace"
-msgstr "Ver_plaats naar werkblad"
+msgstr "_Verplaats naar Werkblad"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to
 #. the cursor.
 #: ../src/plugins/taskbar.c:1765
 msgid "_Close Window"
-msgstr "Venster sluiten"
+msgstr "Venster _sluiten"
 
 #: ../src/plugins/taskbar.c:1968
 msgid "Show tooltips"
@@ -1215,7 +1217,7 @@ msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr "Kan /proc/net/wireless niet lezen. Onbekende opmaak."
+msgstr "Kon /proc/net/wireless niet lezen. Onbekende opmaak."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
