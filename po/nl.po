@@ -1,22 +1,22 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Dutch translation of the lxpanel package.
+# Copyright (C) the author of the lxpanel package.
+# This file is distributed under the same license as the 
+# lxpanel package.
+# Pjotr, 2011.
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-07 05:41+0000\n"
-"PO-Revision-Date: 2011-06-12 12:51+0200\n"
-"Last-Translator: Pjotr <>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: nl\n"
+"POT-Creation-Date: 2011-05-27 04:04+0000\n"
+"PO-Revision-Date: 2011-06-13 11:34+0200\n"
+"Last-Translator: Pjotr\n"
+"Language-Team: Dutch\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
 
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
@@ -49,7 +49,7 @@ msgstr "<b>Eigenschappen</b>"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>Stel Voorkeurstoepassingen in</b>"
+msgstr "<b>Stel Voorkeurtoepassingen in</b>"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "<b>Size</b>"
@@ -121,7 +121,7 @@ msgstr "Marge:"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Minimize panel when not in use"
-msgstr "Minimaliseer werkbalk wanneer niet in gebruik"
+msgstr "Minimaliseer werkbalk indien niet in gebruik"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "Panel Applets"
@@ -145,7 +145,7 @@ msgstr "Rechts"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "Select an image file"
-msgstr "Kies een afbeeldingbestand"
+msgstr "Kies een afbeeldingsbestand"
 
 #: ../data/ui/panel-pref.glade.h:34
 msgid "Size when minimized"
@@ -340,8 +340,7 @@ msgstr "Bevestigen"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:683
 msgid "translator-credits"
-msgstr ""
-"Sander De Voogdt\n"
+msgstr "Sander De Voogdt\n"
 "Pjotr"
 
 #: ../src/panel.c:688
@@ -354,7 +353,7 @@ msgstr "Auteursrecht (C) 2008-2010"
 
 #: ../src/panel.c:691
 msgid "Desktop panel for LXDE project"
-msgstr "Bureaubladwerkbalk voor het LXDE-project"
+msgstr "Bureaubladwerkbalk voor het LXDE project"
 
 #: ../src/panel.c:714
 msgid "Add / Remove Panel Items"
@@ -367,7 +366,7 @@ msgstr "Verwijder \"%s\" van Werkbalk"
 
 #: ../src/panel.c:734
 msgid "Panel Settings"
-msgstr "Werkbalkinstellingen"
+msgstr "Werkbalkvoorkeuren"
 
 #: ../src/panel.c:740
 msgid "Create New Panel"
@@ -408,7 +407,7 @@ msgstr " --help      -- druk deze hulp af en sluit af\n"
 #: ../src/panel.c:1451
 #, c-format
 msgid " --version   -- print version and exit\n"
-msgstr " --version   -- druk versie af en sluit af\n"
+msgstr " --version      -- druk versie af en sluit af\n"
 
 #: ../src/panel.c:1452
 #, c-format
@@ -523,13 +522,13 @@ msgstr "_Alle werkbladen"
 #. Add Move to Workspace menu item as a submenu.
 #: ../src/plugins/taskbar.c:1759
 msgid "_Move to Workspace"
-msgstr "_Verplaats naar Werkblad"
+msgstr "Ver_plaats naar werkblad"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to
 #. the cursor.
 #: ../src/plugins/taskbar.c:1765
 msgid "_Close Window"
-msgstr "Venster _sluiten"
+msgstr "Venster sluiten"
 
 #: ../src/plugins/taskbar.c:1968
 msgid "Show tooltips"
@@ -557,7 +556,7 @@ msgstr "Knipper wanneer een venster om aandacht vraagt"
 
 #: ../src/plugins/taskbar.c:1974
 msgid "Combine multiple application windows into a single button"
-msgstr "Combineer meerdere toepassingvensters in een enkele knop"
+msgstr "Combineer meerdere toepassingsvensters in een enkele knop"
 
 #: ../src/plugins/taskbar.c:1975
 msgid "Maximum width of task button"
@@ -579,11 +578,11 @@ msgstr ""
 
 #: ../src/plugins/dclock.c:422
 msgid "Clock Format"
-msgstr "Klok-opmaak"
+msgstr "Kloktype"
 
 #: ../src/plugins/dclock.c:423
 msgid "Tooltip Format"
-msgstr "Gereedschaptip-opmaak"
+msgstr "Type Gereedschaptip"
 
 #: ../src/plugins/dclock.c:424
 msgid "Format codes: man 3 strftime; \\n for line break"
@@ -704,8 +703,8 @@ msgstr "Wisselen tussen beschikbare toetsenbord-indelingen"
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
-"Linkermuisklik om van alle vensters pictogrammen te maken.  Middelmuisklik "
-"om ze op te rollen."
+"Linkermuisklik om van alle vensters pictogrammen te maken, middelmuisklik op "
+"ze op te rollen"
 
 # "Heffen"?
 #: ../src/plugins/wincmd.c:237
@@ -721,8 +720,9 @@ msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
-"Zendt opdrachten naar alle bureaubladvensters.\n"
-"Ondersteunde opdrachten zijn 1) pictogrammen van maken en 2) oprollen"
+"Zendt een opdracht naar alle bureaubladvensters.\n"
+"Ondersteunde opdrachten zijn 1) pictogrammen maken in-/uitschakelen en 2) "
+"oprollen in-/uitschakelen"
 
 #: ../src/plugins/dirmenu.c:246
 msgid "Open in _Terminal"
@@ -832,7 +832,7 @@ msgstr "Draadloos Netwerk heeft geen verbinding"
 
 #: ../src/plugins/netstat/netstat.c:301
 msgid "Network cable is plugged out"
-msgstr "Netwerkkabel is eruit getrokken"
+msgstr "Netwerkkabel is niet aangesloten"
 
 #: ../src/plugins/netstat/netstat.c:303
 msgid "Connection has limited or no connectivity"
@@ -959,13 +959,13 @@ msgid ""
 "There was an error displaying help:\n"
 "%s"
 msgstr ""
-"Er was een fout bij het tonen van Hulp:\n"
+"Hulp kan niet weergegeven worden:\n"
 "%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
-msgstr "Kon configuratiegereedschap voor Tijd niet starten: %s"
+msgstr "Kon configuratiegereedschap voor tijd niet starten: %s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:379
 #, c-format
@@ -1212,12 +1212,12 @@ msgstr "Kon netwerkkaart-naam niet lezen vanuit '%s'"
 #, c-format
 msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"Kan netwerkkaart-statistieken niet lezen vanuit '%s'. prx_idx = %d; ptx_idx "
-"= %d; brx_idx = %d; btx_idx = %d;"
+"Kan netwerkkaart-statistieken niet lezen vanuit '%s'. prx_idx = %d; "
+"ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr "Kon /proc/net/wireless niet lezen. Onbekende opmaak."
+msgstr "Kan /proc/net/wireless niet lezen. Onbekende opmaak."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
@@ -1340,23 +1340,23 @@ msgstr "Toon ScrollLock"
 
 #: ../src/plugins/kbled/kbled.c:267
 msgid "Keyboard LED"
-msgstr "Toetsenbord LED"
+msgstr "Toetsenbord-LED"
 
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Indicators voor Capslock-, Numlock- en ScrollLock-toets"
 
 #~ msgid "Applications"
-#~ msgstr "Applicaties"
+#~ msgstr "Toepassingen"
 
 #~ msgid "Available Applications"
-#~ msgstr "Beschikbare applicaties"
+#~ msgstr "Beschikbare toepassingen"
 
 #~ msgid "Display system temperature, by kesler.daniel@gmail.com"
 #~ msgstr "Toon systeemtemperatuur, door kesler.daniel@gmail.com"
 
 #~ msgid "Keyboard Led"
-#~ msgstr "Toetsenbord Led"
+#~ msgstr "Toetsenbord-LED"
 
 #~ msgid "Left\t"
 #~ msgstr "Links\t"
@@ -1365,23 +1365,23 @@ msgstr "Indicators voor Capslock-, Numlock- en ScrollLock-toets"
 #~ msgstr "Boven\t"
 
 #~ msgid "Couldn't find pixmap file: %s"
-#~ msgstr "Kon pixmap bestand niet vinden: %s"
+#~ msgstr "Kon pixmapbestand niet vinden: %s"
 
 #~ msgid "Desktop No / Workspace Name"
-#~ msgstr "Desktop Nr. / Naam werkblad"
+#~ msgstr "Bureaublad nr. / Naam werkblad"
 
 #~ msgid ""
 #~ "Allows you to switch the keyboard layout and\n"
 #~ "displays the currently selected layout."
 #~ msgstr ""
-#~ "Plugin om van toetsenbord layout te wisselen\n"
-#~ "en de huidige layout weer te geven."
+#~ "Stelt u in staat om de toetsenbordindeling te wisselen\n"
+#~ "en de huidige indeling weer te geven."
 
 #~ msgid "Other plugins available here"
 #~ msgstr "Andere plugins zijn hier beschikbaar"
 
 #~ msgid "Old KDE/GNOME Tray"
-#~ msgstr "Oude KDE/GNOME Systeemvak"
+#~ msgstr "Oude KDE/GNOME-systeemvak"
 
 #~ msgid "Enable Image:"
 #~ msgstr "Gebruik afbeelding:"
@@ -1393,7 +1393,7 @@ msgstr "Indicators voor Capslock-, Numlock- en ScrollLock-toets"
 #~ msgstr "Tintkleur:"
 
 #~ msgid " --configure -- launch configuration utility\n"
-#~ msgstr " --configure -- start het configuratievenster\n"
+#~ msgstr " --configure -- start het configuratiegereedschap\n"
 
 #~ msgid " -C  -- same as --configure\n"
 #~ msgstr " -C  -- zelfde als --configure\n"
@@ -1402,7 +1402,7 @@ msgstr "Indicators voor Capslock-, Numlock- en ScrollLock-toets"
 #~ msgstr "Knop toevoegen"
 
 #~ msgid "Button Properties"
-#~ msgstr "Knop voorkeuren"
+#~ msgstr "Knopvoorkeuren"
 
 #~ msgid "Remove Button"
 #~ msgstr "Knop verwijderen"
@@ -1414,19 +1414,19 @@ msgstr "Indicators voor Capslock-, Numlock- en ScrollLock-toets"
 #~ msgstr "SkipPager accepteren"
 
 #~ msgid "Show Iconified windows"
-#~ msgstr "Toon ge-iconifieerde applicaties"
+#~ msgstr "Toon vensters als pictogrammen"
 
 #~ msgid "Show mapped windows"
-#~ msgstr "Toon gemapte applicaties"
+#~ msgstr "Toon in kaart gebrachte vensters"
 
 #~ msgid "Action"
 #~ msgstr "Actie"
 
 #~ msgid "Provide Menu"
-#~ msgstr "Menu tonen"
+#~ msgstr "Menu verschaffen"
 
 #~ msgid "Kayboard Layout switcher"
-#~ msgstr "Toetsenbord Layout switcher"
+#~ msgstr "Toetsenbordindeling-wisselaar"
 
 #~ msgid ""
 #~ "Dynamic\n"
@@ -1435,7 +1435,7 @@ msgstr "Indicators voor Capslock-, Numlock- en ScrollLock-toets"
 #~ msgstr ""
 #~ "Dynamisch\n"
 #~ "Pixels\n"
-#~ "% Percent"
+#~ "% Procent"
 
 #~ msgid ""
 #~ "Left\n"
@@ -1443,7 +1443,7 @@ msgstr "Indicators voor Capslock-, Numlock- en ScrollLock-toets"
 #~ "Right"
 #~ msgstr ""
 #~ "Links\n"
-#~ "Centraal\n"
+#~ "Midden\n"
 #~ "Rechts"
 
 #~ msgid ""
@@ -1458,13 +1458,13 @@ msgstr "Indicators voor Capslock-, Numlock- en ScrollLock-toets"
 #~ "Onder"
 
 #~ msgid "Where to put the panel?"
-#~ msgstr "Plaatsing van het paneel?"
+#~ msgstr "Plaatsing van de werkbalk?"
 
 #~ msgid "Battery: %d%% charged, %s"
-#~ msgstr "Batterij: %d%% opgeladen, %s"
+#~ msgstr "Accu: %d%% opgeladen, %s"
 
 #~ msgid "charging finished"
-#~ msgstr "Batterij opgeladen"
+#~ msgstr "opladen voltooid"
 
 #~ msgid "charging"
 #~ msgstr "Aan het opladen"
