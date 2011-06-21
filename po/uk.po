@@ -8,17 +8,19 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-07-24 05:38+0000\n"
-"PO-Revision-Date: 2010-02-15 20:16+0100\n"
-"Last-Translator: Yarema aka Knedlyk <yupadmin@gmail.com>\n"
+"PO-Revision-Date: 2011-05-23 07:48+0200\n"
+"Last-Translator: Y P <yupadmin@gmail.com>\n"
 "Language-Team: UKRAINIAN <translate@linux.org.ua>\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Pootle 2.0.5\n"
 "X-Poedit-Language: Ukrainian\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Country: UKRAINE\n"
-"X-Generator: Pootle 1.1.0\n"
 
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
@@ -163,7 +165,7 @@ msgstr "Системна тема"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "Terminal Emulator:"
-msgstr "Емулятор терміналу"
+msgstr "Емулятор терміналу:"
 
 #: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1048
 msgid "Top"
@@ -466,11 +468,11 @@ msgstr "Жирний шрифт"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
-msgstr "Показати назви стільниць"
+msgstr "Показати назви робочих столів"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
-msgstr "Номер стільниці / Назва робочої області"
+msgstr "Номер робочого столу / Назва робочої області"
 
 #: ../src/plugins/deskno/deskno.c:237
 msgid "Display workspace number, by cmeury@users.sf.net"
@@ -545,7 +547,7 @@ msgstr "Плоскі кнопки"
 
 #: ../src/plugins/taskbar.c:1971
 msgid "Show windows from all desktops"
-msgstr "Показати вікна з усіх стільниць"
+msgstr "Показати вікна з усіх робочих столів"
 
 #: ../src/plugins/taskbar.c:1972
 msgid "Use mouse wheel"
@@ -605,7 +607,7 @@ msgstr "Показувати цифровий годинник і підказк
 
 #: ../src/plugins/menu.c:372
 msgid "Add to desktop"
-msgstr "Додати до стільниці"
+msgstr "Додати до робочого столу"
 
 #: ../src/plugins/menu.c:382
 msgid "Properties"
@@ -633,7 +635,7 @@ msgstr "Додати розділювач до панелі"
 
 #: ../src/plugins/pager.c:797
 msgid "Desktop Pager"
-msgstr "Пейджер стільниці"
+msgstr "Пейджер робочого столу"
 
 #: ../src/plugins/pager.c:799
 msgid "Simple pager plugin"
@@ -976,7 +978,7 @@ msgstr "Інтерфейс"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:812
 msgid "The current interface the icon is monitoring."
-msgstr "Іконка моніторингу поточного інтерфейсу"
+msgstr "Іконка моніторингу поточного інтерфейсу."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:819
 msgid "Orientation"
@@ -984,7 +986,7 @@ msgstr "Орієнтація"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:820
 msgid "The orientation of the tray."
-msgstr "Орієнтація лотка"
+msgstr "Орієнтація лотка."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:828
 msgid "Tooltips Enabled"
@@ -992,7 +994,7 @@ msgstr "Підказки запущено"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:829
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr "Чи включені або виключені підказки"
+msgstr "Чи включені або виключені підказки."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:836
 msgid "Show Signal"
