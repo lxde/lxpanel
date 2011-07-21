@@ -1,7 +1,4 @@
 [encoding: UTF-8]
-data/ui/panel-pref.glade
-data/ui/netstatus.glade
-data/ui/launchbar.glade
 src/bg.c
 src/configurator.c
 src/dbg.c
@@ -10,6 +7,9 @@ src/gtkbar.c
 src/panel.c
 src/plugin.c
 src/gtk-run.c
+data/ui/launchbar.ui
+data/ui/netstatus.ui
+data/ui/panel-pref.ui
 
 # Putting translation of plugins in main catalog is not a good idea...
 src/plugins/cpu/cpu.c

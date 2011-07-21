@@ -9,277 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-31 17:49+0900\n"
+"POT-Creation-Date: 2011-07-22 00:16+0200\n"
 "PO-Revision-Date: 2010-07-31 17:50+0900\n"
 "Last-Translator: Hironao Komatsu <hironao@users.sourceforge.net>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-#: ../data/ui/panel-pref.glade.h:2
-#, no-c-format
-msgid "% Percent"
-msgstr "% パーセント"
-
-#: ../data/ui/panel-pref.glade.h:3
-msgid "<b>Automatic hiding</b>"
-msgstr "<b>自動的に隠す</b>"
-
-#: ../data/ui/panel-pref.glade.h:4
-msgid "<b>Background</b>"
-msgstr "<b>背景</b>"
-
-#: ../data/ui/panel-pref.glade.h:5
-msgid "<b>Font</b>"
-msgstr "<b>フォント</b>"
-
-#: ../data/ui/panel-pref.glade.h:6
-msgid "<b>Icon</b>"
-msgstr "<b>アイコン</b>"
-
-#: ../data/ui/panel-pref.glade.h:7
-msgid "<b>Position</b>"
-msgstr "<b>位置</b>"
-
-#: ../data/ui/panel-pref.glade.h:8
-msgid "<b>Properties</b>"
-msgstr "<b>プロパティ</b>"
-
-#: ../data/ui/panel-pref.glade.h:9
-msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>優先するアプリケーションの設定</b>"
-
-#: ../data/ui/panel-pref.glade.h:10
-msgid "<b>Size</b>"
-msgstr "<b>サイズ</b>"
-
-#: ../data/ui/panel-pref.glade.h:11
-msgid "Advanced"
-msgstr "高度な設定"
-
-#: ../data/ui/panel-pref.glade.h:12
-msgid "Alignment:"
-msgstr "配置:"
-
-#: ../data/ui/panel-pref.glade.h:13
-msgid "Appearance"
-msgstr "外観"
-
-#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1049
-msgid "Bottom"
-msgstr "下"
-
-#: ../data/ui/panel-pref.glade.h:15
-msgid "Center"
-msgstr "中央"
-
-#: ../data/ui/panel-pref.glade.h:16
-msgid "Custom color"
-msgstr "独自の色"
-
-#: ../data/ui/panel-pref.glade.h:17
-msgid "Dynamic"
-msgstr "動的に"
-
-#: ../data/ui/panel-pref.glade.h:18
-msgid "Edge:"
-msgstr "端:"
-
-#: ../data/ui/panel-pref.glade.h:19
-msgid "File Manager:"
-msgstr "ファイルマネージャ"
-
-#: ../data/ui/panel-pref.glade.h:20
-msgid "Geometry"
-msgstr "ジオメトリ"
-
-#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:1039 ../src/panel.c:1047
-msgid "Height:"
-msgstr "高さ:"
-
-#: ../data/ui/panel-pref.glade.h:22
-msgid "Image"
-msgstr "画像"
-
-#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:1041
-msgid "Left"
-msgstr "左"
-
-#: ../data/ui/panel-pref.glade.h:24
-msgid "Logout Command:"
-msgstr "ログアウトのコマンド:"
-
-#: ../data/ui/panel-pref.glade.h:25
-msgid "Make window managers treat the panel as dock"
-msgstr "ウィンドウマネージャがパネルを dock として扱うようにする"
-
-#: ../data/ui/panel-pref.glade.h:26
-msgid "Margin:"
-msgstr "余白:"
-
-#: ../data/ui/panel-pref.glade.h:27
-msgid "Minimize panel when not in use"
-msgstr "使わないときはパネルを最小化する"
-
-#: ../data/ui/panel-pref.glade.h:28
-msgid "Panel Applets"
-msgstr "パネルアプレット"
-
-#: ../data/ui/panel-pref.glade.h:29
-msgid "Panel Preferences"
-msgstr "パネルの設定"
-
-#: ../data/ui/panel-pref.glade.h:30
-msgid "Pixels"
-msgstr "ピクセル"
-
-#: ../data/ui/panel-pref.glade.h:31
-msgid "Reserve space, and not covered by maximized windows"
-msgstr "場所を確保し、最大化したウィンドウに隠れないようにする"
-
-#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:1042
-msgid "Right"
-msgstr "右"
-
-#: ../data/ui/panel-pref.glade.h:33
-msgid "Select an image file"
-msgstr "画像ファイルの選択"
-
-#: ../data/ui/panel-pref.glade.h:34
-msgid "Size when minimized"
-msgstr "最小化時のサイズ"
-
-#: ../data/ui/panel-pref.glade.h:35
-msgid "Solid color (with opacity)"
-msgstr "無地の色 (透明度つき)"
-
-#: ../data/ui/panel-pref.glade.h:36
-msgid "System theme"
-msgstr "システムのテーマ"
-
-#: ../data/ui/panel-pref.glade.h:37
-msgid "Terminal Emulator:"
-msgstr "端末エミュレータ:"
-
-#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1048
-msgid "Top"
-msgstr "上"
-
-#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:1040 ../src/panel.c:1046
-msgid "Width:"
-msgstr "幅:"
-
-#: ../data/ui/panel-pref.glade.h:40
-msgid "pixels"
-msgstr "ピクセル"
-
-#: ../data/ui/netstatus.glade.h:2
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
-#, no-c-format
-msgid "0%"
-msgstr "0%"
-
-#: ../data/ui/netstatus.glade.h:3
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
-msgid "<b>Activity</b>"
-msgstr "<b>稼働状況</b>"
-
-#: ../data/ui/netstatus.glade.h:4
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
-msgid "<b>Connection</b>"
-msgstr "<b>接続</b>"
-
-#: ../data/ui/netstatus.glade.h:5
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
-msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr "<b>インターネット・プロトコル (IPv4)</b>"
-
-#: ../data/ui/netstatus.glade.h:6
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
-msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr "<b>インターネット・プロトコル (IPv6)</b>"
-
-#: ../data/ui/netstatus.glade.h:7
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
-msgid "<b>Network Device</b>"
-msgstr "<b>ネットワーク・デバイス</b>"
-
-#: ../data/ui/netstatus.glade.h:8
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
-msgid "<b>Signal Strength</b>"
-msgstr "<b>信号の強さ</b>"
-
-#: ../data/ui/netstatus.glade.h:9
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
-msgid "Address:"
-msgstr "アドレス:"
-
-#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
-#: ../src/plugins/netstat/netstat.c:330
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-msgid "Broadcast:"
-msgstr "ブロードキャスト:"
-
-#: ../data/ui/netstatus.glade.h:11
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
-msgid "Con_figure"
-msgstr "設定(_F)"
-
-#: ../data/ui/netstatus.glade.h:12
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
-msgid "Destination:"
-msgstr "接続先:"
-
-#: ../data/ui/netstatus.glade.h:13
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
-msgid "General"
-msgstr "一般"
-
-#: ../data/ui/netstatus.glade.h:14
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
-msgid "Received:"
-msgstr "受信:"
-
-#: ../data/ui/netstatus.glade.h:15
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
-msgid "Scope:"
-msgstr "スコープ:"
-
-#: ../data/ui/netstatus.glade.h:16
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
-msgid "Sent:"
-msgstr "送信:"
-
-#: ../data/ui/netstatus.glade.h:17
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
-msgid "Status:"
-msgstr "状態:"
-
-#: ../data/ui/netstatus.glade.h:18
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
-msgid "Subnet Mask:"
-msgstr "サブネットマスク:"
-
-#: ../data/ui/netstatus.glade.h:19
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
-msgid "Support"
-msgstr "サポート"
-
-#: ../data/ui/netstatus.glade.h:20
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
-msgid "Type:"
-msgstr "形式:"
-
-#: ../data/ui/netstatus.glade.h:21
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
-msgid "_Name:"
-msgstr "名前(_N):"
-
-#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:887
-msgid "Application Launch Bar"
-msgstr "アプリケーション・ランチャー"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:319
 msgid "Run"
@@ -390,6 +128,30 @@ msgstr "パネル"
 msgid "\"%s\" Settings"
 msgstr "\"%s\" の設定"
 
+#: ../src/panel.c:1039 ../src/panel.c:1047
+msgid "Height:"
+msgstr "高さ:"
+
+#: ../src/panel.c:1040 ../src/panel.c:1046
+msgid "Width:"
+msgstr "幅:"
+
+#: ../src/panel.c:1041
+msgid "Left"
+msgstr "左"
+
+#: ../src/panel.c:1042
+msgid "Right"
+msgstr "右"
+
+#: ../src/panel.c:1048
+msgid "Top"
+msgstr "上"
+
+#: ../src/panel.c:1049
+msgid "Bottom"
+msgstr "下"
+
 #: ../src/panel.c:1448
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
@@ -481,96 +243,100 @@ msgstr "ワークスペースの番号を表示する。cmeury@users.sf.net 氏�
 msgid "Display Image and Tooltip"
 msgstr "画像とツールチップを表示します"
 
-#: ../src/plugins/launchbar.c:889
+#: ../src/plugins/launchbar.c:912
+msgid "Application Launch Bar"
+msgstr "アプリケーション・ランチャー"
+
+#: ../src/plugins/launchbar.c:914
 msgid "Bar with buttons to launch application"
 msgstr "アプリケーションを呼び出すボタンのついたバー"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1700
+#: ../src/plugins/taskbar.c:1714
 msgid "_Raise"
 msgstr "最前面に(_R)"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1705
+#: ../src/plugins/taskbar.c:1719
 msgid "R_estore"
 msgstr "元に戻す(_E)"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1710
+#: ../src/plugins/taskbar.c:1724
 msgid "Ma_ximize"
 msgstr "最大化(_X)"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1715
+#: ../src/plugins/taskbar.c:1729
 msgid "Ico_nify"
 msgstr "最小化(_N)"
 
-#: ../src/plugins/taskbar.c:1734
+#: ../src/plugins/taskbar.c:1748
 #, c-format
 msgid "Workspace _%d"
 msgstr "ワークスペース _%d"
 
-#: ../src/plugins/taskbar.c:1739
+#: ../src/plugins/taskbar.c:1753
 #, c-format
 msgid "Workspace %d"
 msgstr "ワークスペース %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1753
+#: ../src/plugins/taskbar.c:1767
 msgid "_All workspaces"
 msgstr "すべてのワークスペース(_A)"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1759
+#: ../src/plugins/taskbar.c:1773
 msgid "_Move to Workspace"
 msgstr "ワークスペースへ移動(_M)"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1765
+#: ../src/plugins/taskbar.c:1779
 msgid "_Close Window"
 msgstr "ウィンドウを閉じる(_C)"
 
-#: ../src/plugins/taskbar.c:1968
+#: ../src/plugins/taskbar.c:1986
 msgid "Show tooltips"
 msgstr "ツールチップを表示する"
 
-#: ../src/plugins/taskbar.c:1969
+#: ../src/plugins/taskbar.c:1987
 msgid "Icons only"
 msgstr "アイコンのみ"
 
-#: ../src/plugins/taskbar.c:1970
+#: ../src/plugins/taskbar.c:1988
 msgid "Flat buttons"
 msgstr "平らなボタン"
 
-#: ../src/plugins/taskbar.c:1971
+#: ../src/plugins/taskbar.c:1989
 msgid "Show windows from all desktops"
 msgstr "すべてのデスクトップのウィンドウを表示する"
 
-#: ../src/plugins/taskbar.c:1972
+#: ../src/plugins/taskbar.c:1990
 msgid "Use mouse wheel"
 msgstr "マウスホイールを使う"
 
-#: ../src/plugins/taskbar.c:1973
+#: ../src/plugins/taskbar.c:1991
 msgid "Flash when there is any window requiring attention"
 msgstr "注意を引く必要のあるウィンドウは強調させる"
 
-#: ../src/plugins/taskbar.c:1974
+#: ../src/plugins/taskbar.c:1992
 msgid "Combine multiple application windows into a single button"
 msgstr "複数のアプリケーションのウィンドウを一つのボタンに連結する"
 
-#: ../src/plugins/taskbar.c:1975
+#: ../src/plugins/taskbar.c:1993
 msgid "Maximum width of task button"
 msgstr "タスクボタンの最大幅"
 
-#: ../src/plugins/taskbar.c:1976
+#: ../src/plugins/taskbar.c:1994
 msgid "Spacing"
 msgstr "間隔"
 
-#: ../src/plugins/taskbar.c:2033
+#: ../src/plugins/taskbar.c:2051
 msgid "Task Bar (Window List)"
 msgstr "タスクバー (ウィンドウのリスト)"
 
-#: ../src/plugins/taskbar.c:2035
+#: ../src/plugins/taskbar.c:2053
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -606,59 +372,59 @@ msgstr "デジタル時計"
 msgid "Display digital clock and tooltip"
 msgstr "デジタル時計とツールチップを表示します"
 
-#: ../src/plugins/menu.c:372
+#: ../src/plugins/menu.c:423
 msgid "Add to desktop"
 msgstr "デスクトップに追加"
 
-#: ../src/plugins/menu.c:382
+#: ../src/plugins/menu.c:433
 msgid "Properties"
 msgstr "プロパティ"
 
-#: ../src/plugins/menu.c:1019 ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1079 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "アイコン"
 
-#: ../src/plugins/menu.c:1036
+#: ../src/plugins/menu.c:1096
 msgid "Menu"
 msgstr "メニュー"
 
-#: ../src/plugins/menu.c:1038
+#: ../src/plugins/menu.c:1098
 msgid "Application Menu"
 msgstr "アプリケーション・メニュー"
 
-#: ../src/plugins/separator.c:98
+#: ../src/plugins/separator.c:102
 msgid "Separator"
 msgstr "セパレータ"
 
-#: ../src/plugins/separator.c:100
+#: ../src/plugins/separator.c:104
 msgid "Add a separator to the panel"
 msgstr "パネルにセパレータを追加します"
 
-#: ../src/plugins/pager.c:797
+#: ../src/plugins/pager.c:833
 msgid "Desktop Pager"
 msgstr "デスクトップページャ"
 
-#: ../src/plugins/pager.c:799
+#: ../src/plugins/pager.c:835
 msgid "Simple pager plugin"
 msgstr "シンプルなページャのプラグインです"
 
-#: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
+#: ../src/plugins/space.c:125 ../src/plugins/batt/batt.c:590
 msgid "Size"
 msgstr "大きさ"
 
-#: ../src/plugins/space.c:139
+#: ../src/plugins/space.c:143
 msgid "Spacer"
 msgstr "空白"
 
-#: ../src/plugins/space.c:141
+#: ../src/plugins/space.c:145
 msgid "Allocate space"
 msgstr "空白を割り当てます"
 
-#: ../src/plugins/tray.c:705
+#: ../src/plugins/tray.c:737
 msgid "System Tray"
 msgstr "システムトレイ"
 
-#: ../src/plugins/tray.c:707
+#: ../src/plugins/tray.c:739
 msgid "System tray"
 msgstr "システムトレイ"
 
@@ -882,6 +648,11 @@ msgstr "無線"
 msgid "Protocol:"
 msgstr "プロトコル:"
 
+#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
+msgid "Broadcast:"
+msgstr "ブロードキャスト:"
+
 #: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "HW アドレス:"
@@ -971,39 +742,39 @@ msgstr "ネットワーク接続: %s"
 msgid "Network Connection"
 msgstr "ネットワーク接続"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:811
+#: ../src/plugins/netstatus/netstatus-icon.c:837
 msgid "Interface"
 msgstr "インタフェース"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:812
+#: ../src/plugins/netstatus/netstatus-icon.c:838
 msgid "The current interface the icon is monitoring."
 msgstr "このアイコンがモニタしている現在のインタフェースです。"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:819
+#: ../src/plugins/netstatus/netstatus-icon.c:845
 msgid "Orientation"
 msgstr "方向"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:820
+#: ../src/plugins/netstatus/netstatus-icon.c:846
 msgid "The orientation of the tray."
 msgstr "トレイの向く方向です。"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:828
+#: ../src/plugins/netstatus/netstatus-icon.c:854
 msgid "Tooltips Enabled"
 msgstr "ツールチップが有効か"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:829
+#: ../src/plugins/netstatus/netstatus-icon.c:855
 msgid "Whether or not the icon's tooltips are enabled."
 msgstr "アイコンのツールチップが有効かどうかです。"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:836
+#: ../src/plugins/netstatus/netstatus-icon.c:862
 msgid "Show Signal"
 msgstr "信号を表示するか"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:837
+#: ../src/plugins/netstatus/netstatus-icon.c:863
 msgid "Whether or not the signal strength should be displayed."
 msgstr "信号の強さを表示するかどうかです"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:950
+#: ../src/plugins/netstatus/netstatus-icon.c:976
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -1259,6 +1030,83 @@ msgstr "受信"
 msgid "Sending/Receiving"
 msgstr "送信/受信"
 
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
+#, no-c-format
+msgid "0%"
+msgstr "0%"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
+msgid "<b>Activity</b>"
+msgstr "<b>稼働状況</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
+msgid "<b>Connection</b>"
+msgstr "<b>接続</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr "<b>インターネット・プロトコル (IPv4)</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>インターネット・プロトコル (IPv6)</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
+msgid "<b>Network Device</b>"
+msgstr "<b>ネットワーク・デバイス</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
+msgid "<b>Signal Strength</b>"
+msgstr "<b>信号の強さ</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
+msgid "Address:"
+msgstr "アドレス:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
+msgid "Con_figure"
+msgstr "設定(_F)"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
+msgid "Destination:"
+msgstr "接続先:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
+msgid "General"
+msgstr "一般"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
+msgid "Received:"
+msgstr "受信:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
+msgid "Scope:"
+msgstr "スコープ:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
+msgid "Sent:"
+msgstr "送信:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
+msgid "Status:"
+msgstr "状態:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
+msgid "Subnet Mask:"
+msgstr "サブネットマスク:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
+msgid "Support"
+msgstr "サポート"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
+msgid "Type:"
+msgstr "形式:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
+msgid "_Name:"
+msgstr "名前(_N):"
+
 #: ../src/plugins/batt/batt.c:131
 msgid "No batteries found"
 msgstr "バッテリが見つかりません"
@@ -1341,6 +1189,105 @@ msgstr "キーボード LED"
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "CapsLock と NumLock、ScrollLock キーの状態を表示します"
+
+#~ msgid "% Percent"
+#~ msgstr "% パーセント"
+
+#~ msgid "<b>Automatic hiding</b>"
+#~ msgstr "<b>自動的に隠す</b>"
+
+#~ msgid "<b>Background</b>"
+#~ msgstr "<b>背景</b>"
+
+#~ msgid "<b>Font</b>"
+#~ msgstr "<b>フォント</b>"
+
+#~ msgid "<b>Icon</b>"
+#~ msgstr "<b>アイコン</b>"
+
+#~ msgid "<b>Position</b>"
+#~ msgstr "<b>位置</b>"
+
+#~ msgid "<b>Properties</b>"
+#~ msgstr "<b>プロパティ</b>"
+
+#~ msgid "<b>Set Preferred Applications</b>"
+#~ msgstr "<b>優先するアプリケーションの設定</b>"
+
+#~ msgid "<b>Size</b>"
+#~ msgstr "<b>サイズ</b>"
+
+#~ msgid "Advanced"
+#~ msgstr "高度な設定"
+
+#~ msgid "Alignment:"
+#~ msgstr "配置:"
+
+#~ msgid "Appearance"
+#~ msgstr "外観"
+
+#~ msgid "Center"
+#~ msgstr "中央"
+
+#~ msgid "Custom color"
+#~ msgstr "独自の色"
+
+#~ msgid "Dynamic"
+#~ msgstr "動的に"
+
+#~ msgid "Edge:"
+#~ msgstr "端:"
+
+#~ msgid "File Manager:"
+#~ msgstr "ファイルマネージャ"
+
+#~ msgid "Geometry"
+#~ msgstr "ジオメトリ"
+
+#~ msgid "Image"
+#~ msgstr "画像"
+
+#~ msgid "Logout Command:"
+#~ msgstr "ログアウトのコマンド:"
+
+#~ msgid "Make window managers treat the panel as dock"
+#~ msgstr "ウィンドウマネージャがパネルを dock として扱うようにする"
+
+#~ msgid "Margin:"
+#~ msgstr "余白:"
+
+#~ msgid "Minimize panel when not in use"
+#~ msgstr "使わないときはパネルを最小化する"
+
+#~ msgid "Panel Applets"
+#~ msgstr "パネルアプレット"
+
+#~ msgid "Panel Preferences"
+#~ msgstr "パネルの設定"
+
+#~ msgid "Pixels"
+#~ msgstr "ピクセル"
+
+#~ msgid "Reserve space, and not covered by maximized windows"
+#~ msgstr "場所を確保し、最大化したウィンドウに隠れないようにする"
+
+#~ msgid "Select an image file"
+#~ msgstr "画像ファイルの選択"
+
+#~ msgid "Size when minimized"
+#~ msgstr "最小化時のサイズ"
+
+#~ msgid "Solid color (with opacity)"
+#~ msgstr "無地の色 (透明度つき)"
+
+#~ msgid "System theme"
+#~ msgstr "システムのテーマ"
+
+#~ msgid "Terminal Emulator:"
+#~ msgstr "端末エミュレータ:"
+
+#~ msgid "pixels"
+#~ msgstr "ピクセル"
 
 #~ msgid "Applications"
 #~ msgstr "アプリケーション"

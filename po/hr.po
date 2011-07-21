@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel_hr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-20 11:01+0200\n"
+"POT-Creation-Date: 2011-07-22 00:16+0200\n"
 "PO-Revision-Date: 2011-06-12 01:00+0200\n"
 "Last-Translator: zvacet <ikoli@yahoo.com>\n"
 "Language-Team: <asjlob AT vip.hr>\n"
@@ -11,274 +11,11 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.5\n"
 "X-Poedit-Language: Croatian\n"
 "X-Poedit-Country: CROATIA\n"
-
-#: ../data/ui/panel-pref.glade.h:2
-#, no-c-format
-msgid "% Percent"
-msgstr "% Postotak"
-
-#: ../data/ui/panel-pref.glade.h:3
-msgid "<b>Automatic hiding</b>"
-msgstr "<b>Automatsko skrivanje</b>"
-
-#: ../data/ui/panel-pref.glade.h:4
-msgid "<b>Background</b>"
-msgstr "<b>Pozadina</b>"
-
-#: ../data/ui/panel-pref.glade.h:5
-msgid "<b>Font</b>"
-msgstr "<b>Font</b>"
-
-#: ../data/ui/panel-pref.glade.h:6
-msgid "<b>Icon</b>"
-msgstr "<b>Ikona</b>"
-
-#: ../data/ui/panel-pref.glade.h:7
-msgid "<b>Position</b>"
-msgstr "<b>Pozicija</b>"
-
-#: ../data/ui/panel-pref.glade.h:8
-msgid "<b>Properties</b>"
-msgstr "<b>Svojstva</b>"
-
-#: ../data/ui/panel-pref.glade.h:9
-msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>Postavi Preferirane Aplikacije</b>"
-
-#: ../data/ui/panel-pref.glade.h:10
-msgid "<b>Size</b>"
-msgstr "<b>Veličina</b>"
-
-#: ../data/ui/panel-pref.glade.h:11
-msgid "Advanced"
-msgstr "Napredno"
-
-#: ../data/ui/panel-pref.glade.h:12
-msgid "Alignment:"
-msgstr "Poravnanje:"
-
-#: ../data/ui/panel-pref.glade.h:13
-msgid "Appearance"
-msgstr "Izgled"
-
-#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1049
-msgid "Bottom"
-msgstr "Dno"
-
-#: ../data/ui/panel-pref.glade.h:15
-msgid "Center"
-msgstr "Centar"
-
-#: ../data/ui/panel-pref.glade.h:16
-msgid "Custom color"
-msgstr "Prilagođena boja"
-
-#: ../data/ui/panel-pref.glade.h:17
-msgid "Dynamic"
-msgstr "Dinamično"
-
-#: ../data/ui/panel-pref.glade.h:18
-msgid "Edge:"
-msgstr "Rub:"
-
-#: ../data/ui/panel-pref.glade.h:19
-msgid "File Manager:"
-msgstr "Upravitelj Datoteka:"
-
-#: ../data/ui/panel-pref.glade.h:20
-msgid "Geometry"
-msgstr "Geometrija"
-
-#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:1039 ../src/panel.c:1047
-msgid "Height:"
-msgstr "Visina:"
-
-#: ../data/ui/panel-pref.glade.h:22
-msgid "Image"
-msgstr "Slika"
-
-#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:1041
-msgid "Left"
-msgstr "Lijevo"
-
-#: ../data/ui/panel-pref.glade.h:24
-msgid "Logout Command:"
-msgstr "Naredba odjave:"
-
-#: ../data/ui/panel-pref.glade.h:25
-msgid "Make window managers treat the panel as dock"
-msgstr "Neka upravitelji prozora tretiraju panel kao dock"
-
-#: ../data/ui/panel-pref.glade.h:26
-msgid "Margin:"
-msgstr "Margina:"
-
-#: ../data/ui/panel-pref.glade.h:27
-msgid "Minimize panel when not in use"
-msgstr "Minimiziraj panel kad nije u uporabi"
-
-#: ../data/ui/panel-pref.glade.h:28
-msgid "Panel Applets"
-msgstr "Apleti Panela"
-
-#: ../data/ui/panel-pref.glade.h:29
-msgid "Panel Preferences"
-msgstr "Svojstva Panela"
-
-#: ../data/ui/panel-pref.glade.h:30
-msgid "Pixels"
-msgstr "Pikseli"
-
-#: ../data/ui/panel-pref.glade.h:31
-msgid "Reserve space, and not covered by maximized windows"
-msgstr "Rezerviraj prostor nepokriven od strane maksimiziranih prozora"
-
-#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:1042
-msgid "Right"
-msgstr "Desno"
-
-#: ../data/ui/panel-pref.glade.h:33
-msgid "Select an image file"
-msgstr "Odaberi slikovnu datoteku"
-
-#: ../data/ui/panel-pref.glade.h:34
-msgid "Size when minimized"
-msgstr "Veličina kada je minimiziran"
-
-#: ../data/ui/panel-pref.glade.h:35
-msgid "Solid color (with opacity)"
-msgstr "Puna boja (sa neprozirnošću)"
-
-#: ../data/ui/panel-pref.glade.h:36
-msgid "System theme"
-msgstr "Tema sustava"
-
-#: ../data/ui/panel-pref.glade.h:37
-msgid "Terminal Emulator:"
-msgstr "Emulator Terminala:"
-
-#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1048
-msgid "Top"
-msgstr "Vrh"
-
-#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:1040 ../src/panel.c:1046
-msgid "Width:"
-msgstr "Širina:"
-
-#: ../data/ui/panel-pref.glade.h:40
-msgid "pixels"
-msgstr "pikseli"
-
-#: ../data/ui/netstatus.glade.h:2
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
-#, no-c-format
-msgid "0%"
-msgstr "0%"
-
-#: ../data/ui/netstatus.glade.h:3
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
-msgid "<b>Activity</b>"
-msgstr "<b>Aktivnost</b>"
-
-#: ../data/ui/netstatus.glade.h:4
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
-msgid "<b>Connection</b>"
-msgstr "<b>Veza</b>"
-
-#: ../data/ui/netstatus.glade.h:5
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
-msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr "<b>Internet Protokol (IPv4)</b>"
-
-#: ../data/ui/netstatus.glade.h:6
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
-msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr "<b>Internet Protokol (IPv6)</b>"
-
-#: ../data/ui/netstatus.glade.h:7
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
-msgid "<b>Network Device</b>"
-msgstr "<b>Mrežni uređaj</b>"
-
-#: ../data/ui/netstatus.glade.h:8
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
-msgid "<b>Signal Strength</b>"
-msgstr "<b>Snaga Signala</b>"
-
-#: ../data/ui/netstatus.glade.h:9
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
-msgid "Address:"
-msgstr "Adresa:"
-
-#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
-#: ../src/plugins/netstat/netstat.c:330
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-msgid "Broadcast:"
-msgstr "Odašiljanje:"
-
-#: ../data/ui/netstatus.glade.h:11
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
-msgid "Con_figure"
-msgstr "Kon_figuriraj"
-
-#: ../data/ui/netstatus.glade.h:12
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
-msgid "Destination:"
-msgstr "Odredište:"
-
-#: ../data/ui/netstatus.glade.h:13
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
-msgid "General"
-msgstr "Osnovno"
-
-#: ../data/ui/netstatus.glade.h:14
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
-msgid "Received:"
-msgstr "Primljeno:"
-
-#: ../data/ui/netstatus.glade.h:15
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
-msgid "Scope:"
-msgstr "Doseg:"
-
-#: ../data/ui/netstatus.glade.h:16
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
-msgid "Sent:"
-msgstr "Poslano:"
-
-#: ../data/ui/netstatus.glade.h:17
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
-msgid "Status:"
-msgstr "Status:"
-
-#: ../data/ui/netstatus.glade.h:18
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
-msgid "Subnet Mask:"
-msgstr "Maska Podmreže:"
-
-#: ../data/ui/netstatus.glade.h:19
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
-msgid "Support"
-msgstr "Podrška"
-
-#: ../data/ui/netstatus.glade.h:20
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
-msgid "Type:"
-msgstr "Tip:"
-
-#: ../data/ui/netstatus.glade.h:21
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
-msgid "_Name:"
-msgstr "_Ime:"
-
-#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:887
-msgid "Application Launch Bar"
-msgstr "Tabla za pokretanje aplikacija"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:319
 msgid "Run"
@@ -348,7 +85,8 @@ msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:690
-msgid "Copyright (C) 2008-2009"
+#, fuzzy
+msgid "Copyright (C) 2008-2010"
 msgstr "Copyright (C) 2008-2009"
 
 #: ../src/panel.c:691
@@ -388,6 +126,30 @@ msgstr "Ploča"
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" Postavke"
+
+#: ../src/panel.c:1039 ../src/panel.c:1047
+msgid "Height:"
+msgstr "Visina:"
+
+#: ../src/panel.c:1040 ../src/panel.c:1046
+msgid "Width:"
+msgstr "Širina:"
+
+#: ../src/panel.c:1041
+msgid "Left"
+msgstr "Lijevo"
+
+#: ../src/panel.c:1042
+msgid "Right"
+msgstr "Desno"
+
+#: ../src/panel.c:1048
+msgid "Top"
+msgstr "Vrh"
+
+#: ../src/panel.c:1049
+msgid "Bottom"
+msgstr "Dno"
 
 #: ../src/panel.c:1448
 #, c-format
@@ -479,96 +241,100 @@ msgstr "Prikaži broj radne površine, od cmeury@users.sf.net"
 msgid "Display Image and Tooltip"
 msgstr "Prikaži Sliku i Tooltip"
 
-#: ../src/plugins/launchbar.c:889
+#: ../src/plugins/launchbar.c:912
+msgid "Application Launch Bar"
+msgstr "Tabla za pokretanje aplikacija"
+
+#: ../src/plugins/launchbar.c:914
 msgid "Bar with buttons to launch application"
 msgstr "Tabla sa dugmadima za pokretanje aplikacija"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1700
+#: ../src/plugins/taskbar.c:1714
 msgid "_Raise"
 msgstr "_Povećaj"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1705
+#: ../src/plugins/taskbar.c:1719
 msgid "R_estore"
 msgstr "O_bnovi"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1710
+#: ../src/plugins/taskbar.c:1724
 msgid "Ma_ximize"
 msgstr "Ma_ksimiziraj"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1715
+#: ../src/plugins/taskbar.c:1729
 msgid "Ico_nify"
 msgstr "Minimiziraj"
 
-#: ../src/plugins/taskbar.c:1734
+#: ../src/plugins/taskbar.c:1748
 #, c-format
 msgid "Workspace _%d"
 msgstr "Radni prostor _%d"
 
-#: ../src/plugins/taskbar.c:1739
+#: ../src/plugins/taskbar.c:1753
 #, c-format
 msgid "Workspace %d"
 msgstr "Radni prostor %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1753
+#: ../src/plugins/taskbar.c:1767
 msgid "_All workspaces"
 msgstr "_Svi radni prostori"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1759
+#: ../src/plugins/taskbar.c:1773
 msgid "_Move to Workspace"
 msgstr "_Premjesti na radni prostor"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1765
+#: ../src/plugins/taskbar.c:1779
 msgid "_Close Window"
 msgstr "_Zatvori prozor"
 
-#: ../src/plugins/taskbar.c:1968
+#: ../src/plugins/taskbar.c:1986
 msgid "Show tooltips"
 msgstr "Prikaži tooltip-e"
 
-#: ../src/plugins/taskbar.c:1969
+#: ../src/plugins/taskbar.c:1987
 msgid "Icons only"
 msgstr "Samo ikone"
 
-#: ../src/plugins/taskbar.c:1970
+#: ../src/plugins/taskbar.c:1988
 msgid "Flat buttons"
 msgstr "Ravna dugmad"
 
-#: ../src/plugins/taskbar.c:1971
+#: ../src/plugins/taskbar.c:1989
 msgid "Show windows from all desktops"
 msgstr "Prikaži prozore sa svih radnih površina"
 
-#: ../src/plugins/taskbar.c:1972
+#: ../src/plugins/taskbar.c:1990
 msgid "Use mouse wheel"
 msgstr "Koristi kotačić miša"
 
-#: ../src/plugins/taskbar.c:1973
+#: ../src/plugins/taskbar.c:1991
 msgid "Flash when there is any window requiring attention"
 msgstr "Bljesni kada prozor zahtjeva pozornost"
 
-#: ../src/plugins/taskbar.c:1974
+#: ../src/plugins/taskbar.c:1992
 msgid "Combine multiple application windows into a single button"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1975
+#: ../src/plugins/taskbar.c:1993
 msgid "Maximum width of task button"
 msgstr "Maksimalna širina komandnih dugmadi"
 
-#: ../src/plugins/taskbar.c:1976
+#: ../src/plugins/taskbar.c:1994
 msgid "Spacing"
 msgstr "Razmak"
 
-#: ../src/plugins/taskbar.c:2033
+#: ../src/plugins/taskbar.c:2051
 msgid "Task Bar (Window List)"
 msgstr "Traka zadataka (Lista prozora)"
 
-#: ../src/plugins/taskbar.c:2035
+#: ../src/plugins/taskbar.c:2053
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -604,59 +370,59 @@ msgstr "Digitalni sat"
 msgid "Display digital clock and tooltip"
 msgstr "Prikaži digitalni sat i tooltip"
 
-#: ../src/plugins/menu.c:372
+#: ../src/plugins/menu.c:423
 msgid "Add to desktop"
 msgstr "Dodaj na radnu površinu"
 
-#: ../src/plugins/menu.c:382
+#: ../src/plugins/menu.c:433
 msgid "Properties"
 msgstr "Svojstva"
 
-#: ../src/plugins/menu.c:1019 ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1079 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "Ikona"
 
-#: ../src/plugins/menu.c:1036
+#: ../src/plugins/menu.c:1096
 msgid "Menu"
 msgstr "Izbornik"
 
-#: ../src/plugins/menu.c:1038
+#: ../src/plugins/menu.c:1098
 msgid "Application Menu"
 msgstr "Izbornik aplikacija"
 
-#: ../src/plugins/separator.c:98
+#: ../src/plugins/separator.c:102
 msgid "Separator"
 msgstr "Razdjelnik"
 
-#: ../src/plugins/separator.c:100
+#: ../src/plugins/separator.c:104
 msgid "Add a separator to the panel"
 msgstr "Dodaj razdjelnik na panel"
 
-#: ../src/plugins/pager.c:797
+#: ../src/plugins/pager.c:833
 msgid "Desktop Pager"
 msgstr "Brojač radnih površina"
 
-#: ../src/plugins/pager.c:799
+#: ../src/plugins/pager.c:835
 msgid "Simple pager plugin"
 msgstr "Jednostavan priključak brojaču"
 
-#: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
+#: ../src/plugins/space.c:125 ../src/plugins/batt/batt.c:590
 msgid "Size"
 msgstr "Veličina"
 
-#: ../src/plugins/space.c:139
+#: ../src/plugins/space.c:143
 msgid "Spacer"
 msgstr "Razmak"
 
-#: ../src/plugins/space.c:141
+#: ../src/plugins/space.c:145
 msgid "Allocate space"
 msgstr "Rezerviranje razmaka"
 
-#: ../src/plugins/tray.c:705
+#: ../src/plugins/tray.c:737
 msgid "System Tray"
 msgstr "Sustavska Traka"
 
-#: ../src/plugins/tray.c:707
+#: ../src/plugins/tray.c:739
 msgid "System tray"
 msgstr "Sustavska traka"
 
@@ -882,6 +648,11 @@ msgstr "Bežično"
 msgid "Protocol:"
 msgstr "Protokol:"
 
+#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
+msgid "Broadcast:"
+msgstr "Odašiljanje:"
+
 #: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "HW Adresa:"
@@ -973,39 +744,39 @@ msgstr "Mrežna povezanost: %s"
 msgid "Network Connection"
 msgstr "Mrežna Povezanost"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:811
+#: ../src/plugins/netstatus/netstatus-icon.c:837
 msgid "Interface"
 msgstr "Sučelje"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:812
+#: ../src/plugins/netstatus/netstatus-icon.c:838
 msgid "The current interface the icon is monitoring."
 msgstr "Trenutno sučelje je nadzirano preko ikone."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:819
+#: ../src/plugins/netstatus/netstatus-icon.c:845
 msgid "Orientation"
 msgstr "Orijentacija"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:820
+#: ../src/plugins/netstatus/netstatus-icon.c:846
 msgid "The orientation of the tray."
 msgstr "Orijentacija trake."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:828
+#: ../src/plugins/netstatus/netstatus-icon.c:854
 msgid "Tooltips Enabled"
 msgstr "Tooltip-i omogućeni"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:829
+#: ../src/plugins/netstatus/netstatus-icon.c:855
 msgid "Whether or not the icon's tooltips are enabled."
 msgstr "Opisi ikona su uvijek omogućeni."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:836
+#: ../src/plugins/netstatus/netstatus-icon.c:862
 msgid "Show Signal"
 msgstr "Prikaži signal"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:837
+#: ../src/plugins/netstatus/netstatus-icon.c:863
 msgid "Whether or not the signal strength should be displayed."
 msgstr "Snaga signala je uvijek prikazana."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:950
+#: ../src/plugins/netstatus/netstatus-icon.c:976
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -1262,6 +1033,83 @@ msgstr "Primanje"
 msgid "Sending/Receiving"
 msgstr "Slanje/Primanje"
 
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
+#, no-c-format
+msgid "0%"
+msgstr "0%"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
+msgid "<b>Activity</b>"
+msgstr "<b>Aktivnost</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
+msgid "<b>Connection</b>"
+msgstr "<b>Veza</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr "<b>Internet Protokol (IPv4)</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>Internet Protokol (IPv6)</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
+msgid "<b>Network Device</b>"
+msgstr "<b>Mrežni uređaj</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
+msgid "<b>Signal Strength</b>"
+msgstr "<b>Snaga Signala</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
+msgid "Address:"
+msgstr "Adresa:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
+msgid "Con_figure"
+msgstr "Kon_figuriraj"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
+msgid "Destination:"
+msgstr "Odredište:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
+msgid "General"
+msgstr "Osnovno"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
+msgid "Received:"
+msgstr "Primljeno:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
+msgid "Scope:"
+msgstr "Doseg:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
+msgid "Sent:"
+msgstr "Poslano:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
+msgid "Status:"
+msgstr "Status:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
+msgid "Subnet Mask:"
+msgstr "Maska Podmreže:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
+msgid "Support"
+msgstr "Podrška"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
+msgid "Type:"
+msgstr "Tip:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
+msgid "_Name:"
+msgstr "_Ime:"
+
 #: ../src/plugins/batt/batt.c:131
 msgid "No batteries found"
 msgstr "Nisu pronaðene baterije"
@@ -1344,6 +1192,105 @@ msgstr "LED tipkovnice"
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Indikatori za CapsLock, NumLock i ScrollLock tipke"
+
+#~ msgid "% Percent"
+#~ msgstr "% Postotak"
+
+#~ msgid "<b>Automatic hiding</b>"
+#~ msgstr "<b>Automatsko skrivanje</b>"
+
+#~ msgid "<b>Background</b>"
+#~ msgstr "<b>Pozadina</b>"
+
+#~ msgid "<b>Font</b>"
+#~ msgstr "<b>Font</b>"
+
+#~ msgid "<b>Icon</b>"
+#~ msgstr "<b>Ikona</b>"
+
+#~ msgid "<b>Position</b>"
+#~ msgstr "<b>Pozicija</b>"
+
+#~ msgid "<b>Properties</b>"
+#~ msgstr "<b>Svojstva</b>"
+
+#~ msgid "<b>Set Preferred Applications</b>"
+#~ msgstr "<b>Postavi Preferirane Aplikacije</b>"
+
+#~ msgid "<b>Size</b>"
+#~ msgstr "<b>Veličina</b>"
+
+#~ msgid "Advanced"
+#~ msgstr "Napredno"
+
+#~ msgid "Alignment:"
+#~ msgstr "Poravnanje:"
+
+#~ msgid "Appearance"
+#~ msgstr "Izgled"
+
+#~ msgid "Center"
+#~ msgstr "Centar"
+
+#~ msgid "Custom color"
+#~ msgstr "Prilagođena boja"
+
+#~ msgid "Dynamic"
+#~ msgstr "Dinamično"
+
+#~ msgid "Edge:"
+#~ msgstr "Rub:"
+
+#~ msgid "File Manager:"
+#~ msgstr "Upravitelj Datoteka:"
+
+#~ msgid "Geometry"
+#~ msgstr "Geometrija"
+
+#~ msgid "Image"
+#~ msgstr "Slika"
+
+#~ msgid "Logout Command:"
+#~ msgstr "Naredba odjave:"
+
+#~ msgid "Make window managers treat the panel as dock"
+#~ msgstr "Neka upravitelji prozora tretiraju panel kao dock"
+
+#~ msgid "Margin:"
+#~ msgstr "Margina:"
+
+#~ msgid "Minimize panel when not in use"
+#~ msgstr "Minimiziraj panel kad nije u uporabi"
+
+#~ msgid "Panel Applets"
+#~ msgstr "Apleti Panela"
+
+#~ msgid "Panel Preferences"
+#~ msgstr "Svojstva Panela"
+
+#~ msgid "Pixels"
+#~ msgstr "Pikseli"
+
+#~ msgid "Reserve space, and not covered by maximized windows"
+#~ msgstr "Rezerviraj prostor nepokriven od strane maksimiziranih prozora"
+
+#~ msgid "Select an image file"
+#~ msgstr "Odaberi slikovnu datoteku"
+
+#~ msgid "Size when minimized"
+#~ msgstr "Veličina kada je minimiziran"
+
+#~ msgid "Solid color (with opacity)"
+#~ msgstr "Puna boja (sa neprozirnošću)"
+
+#~ msgid "System theme"
+#~ msgstr "Tema sustava"
+
+#~ msgid "Terminal Emulator:"
+#~ msgstr "Emulator Terminala:"
+
+#~ msgid "pixels"
+#~ msgstr "pikseli"
 
 #~ msgid "Applications"
 #~ msgstr "Odaberite Aplikaciju"

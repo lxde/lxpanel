@@ -9,281 +9,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-01 06:10+0000\n"
+"POT-Creation-Date: 2011-07-22 00:16+0200\n"
 "PO-Revision-Date: 2011-02-09 17:01+0100\n"
 "Last-Translator: Piotr Sokół <psokol@jabster.pl>\n"
 "Language-Team: Polish <>\n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pl\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : ((n%10>=2 && n%10<=4 && (n"
 "%100<10 || n%100>=20)) ? 1 : 2));\n"
-
-#: ../data/ui/panel-pref.glade.h:2
-#, no-c-format
-msgid "% Percent"
-msgstr "Procent"
-
-#: ../data/ui/panel-pref.glade.h:3
-msgid "<b>Automatic hiding</b>"
-msgstr "<b>Automatyczne ukrywanie</b>"
-
-#: ../data/ui/panel-pref.glade.h:4
-msgid "<b>Background</b>"
-msgstr "<b>Tło</b>"
-
-#: ../data/ui/panel-pref.glade.h:5
-msgid "<b>Font</b>"
-msgstr "<b>Czcionka</b>"
-
-#: ../data/ui/panel-pref.glade.h:6
-msgid "<b>Icon</b>"
-msgstr "<b>Ikony</b>"
-
-#: ../data/ui/panel-pref.glade.h:7
-msgid "<b>Position</b>"
-msgstr "<b>Pozycja</b>"
-
-#: ../data/ui/panel-pref.glade.h:8
-msgid "<b>Properties</b>"
-msgstr "<b>Właściwości</b>"
-
-#: ../data/ui/panel-pref.glade.h:9
-msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>Preferowane programy</b>"
-
-#: ../data/ui/panel-pref.glade.h:10
-msgid "<b>Size</b>"
-msgstr "<b>Rozmiar</b>"
-
-#: ../data/ui/panel-pref.glade.h:11
-msgid "Advanced"
-msgstr "Zaawansowane"
-
-#: ../data/ui/panel-pref.glade.h:12
-msgid "Alignment:"
-msgstr "Wyrównanie:"
-
-#: ../data/ui/panel-pref.glade.h:13
-msgid "Appearance"
-msgstr "Wygląd"
-
-#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1049
-msgid "Bottom"
-msgstr "Dół"
-
-#: ../data/ui/panel-pref.glade.h:15
-msgid "Center"
-msgstr "Środek"
-
-#: ../data/ui/panel-pref.glade.h:16
-msgid "Custom color"
-msgstr "Własny kolor"
-
-#: ../data/ui/panel-pref.glade.h:17
-msgid "Dynamic"
-msgstr "Dynamicznie"
-
-#: ../data/ui/panel-pref.glade.h:18
-msgid "Edge:"
-msgstr "Położenie:"
-
-#: ../data/ui/panel-pref.glade.h:19
-msgid "File Manager:"
-msgstr "Menedżer plików:"
-
-#: ../data/ui/panel-pref.glade.h:20
-msgid "Geometry"
-msgstr "Geometria"
-
-# msgid "% of edge"
-# msgstr "% krawędźi"
-#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:1039 ../src/panel.c:1047
-msgid "Height:"
-msgstr "Wysokość:"
-
-#: ../data/ui/panel-pref.glade.h:22
-msgid "Image"
-msgstr "Obraz"
-
-#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:1041
-msgid "Left"
-msgstr "Lewo"
-
-#: ../data/ui/panel-pref.glade.h:24
-msgid "Logout Command:"
-msgstr "Polecenie wylogowania:"
-
-#: ../data/ui/panel-pref.glade.h:25
-msgid "Make window managers treat the panel as dock"
-msgstr "Traktowanie panelu jako dok"
-
-#: ../data/ui/panel-pref.glade.h:26
-msgid "Margin:"
-msgstr "Margines:"
-
-#: ../data/ui/panel-pref.glade.h:27
-msgid "Minimize panel when not in use"
-msgstr "Właczenie"
-
-#: ../data/ui/panel-pref.glade.h:28
-msgid "Panel Applets"
-msgstr "Aplety"
-
-#: ../data/ui/panel-pref.glade.h:29
-msgid "Panel Preferences"
-msgstr "Preferencje panelu"
-
-#: ../data/ui/panel-pref.glade.h:30
-msgid "Pixels"
-msgstr "Pikseli"
-
-#: ../data/ui/panel-pref.glade.h:31
-msgid "Reserve space, and not covered by maximized windows"
-msgstr "Rezerwowanie obszaru pulpitu dla panelu"
-
-#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:1042
-msgid "Right"
-msgstr "Prawo"
-
-#: ../data/ui/panel-pref.glade.h:33
-msgid "Select an image file"
-msgstr "Wybierz obrazek"
-
-#: ../data/ui/panel-pref.glade.h:34
-msgid "Size when minimized"
-msgstr "Rozmiar ukrytego panelu:"
-
-#: ../data/ui/panel-pref.glade.h:35
-msgid "Solid color (with opacity)"
-msgstr "Jednolity kolor"
-
-#: ../data/ui/panel-pref.glade.h:36
-msgid "System theme"
-msgstr "Motyw systemowy"
-
-#: ../data/ui/panel-pref.glade.h:37
-msgid "Terminal Emulator:"
-msgstr "Emulator terminala:"
-
-#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1048
-msgid "Top"
-msgstr "Góra"
-
-#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:1040 ../src/panel.c:1046
-msgid "Width:"
-msgstr "Szerokość:"
-
-#: ../data/ui/panel-pref.glade.h:40
-msgid "pixels"
-msgstr "pikseli"
-
-#: ../data/ui/netstatus.glade.h:2
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
-#, no-c-format
-msgid "0%"
-msgstr "0%"
-
-#: ../data/ui/netstatus.glade.h:3
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
-msgid "<b>Activity</b>"
-msgstr "<b>Aktywność</b>"
-
-#: ../data/ui/netstatus.glade.h:4
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
-msgid "<b>Connection</b>"
-msgstr "<b>Połączenie</b>"
-
-#: ../data/ui/netstatus.glade.h:5
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
-msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr "<b>Protokół internetowy (IPv4)</b>"
-
-#: ../data/ui/netstatus.glade.h:6
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
-msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr "<b>Protokół internetowy (IPv6)</b>"
-
-#: ../data/ui/netstatus.glade.h:7
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
-msgid "<b>Network Device</b>"
-msgstr "<b>Urządzenie sieciowe</b>"
-
-#: ../data/ui/netstatus.glade.h:8
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
-msgid "<b>Signal Strength</b>"
-msgstr "<b>Siła sygnału</b>"
-
-#: ../data/ui/netstatus.glade.h:9
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
-msgid "Address:"
-msgstr "Adres:"
-
-#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
-#: ../src/plugins/netstat/netstat.c:330
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-msgid "Broadcast:"
-msgstr "Adres rozgłoszeniowy:"
-
-#: ../data/ui/netstatus.glade.h:11
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
-msgid "Con_figure"
-msgstr "Kon_figuruj"
-
-#: ../data/ui/netstatus.glade.h:12
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
-msgid "Destination:"
-msgstr "Przeznaczenie:"
-
-#: ../data/ui/netstatus.glade.h:13
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
-msgid "General"
-msgstr "Ogólne"
-
-#: ../data/ui/netstatus.glade.h:14
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
-msgid "Received:"
-msgstr "Odebrano:"
-
-#: ../data/ui/netstatus.glade.h:15
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
-msgid "Scope:"
-msgstr "Zakres:"
-
-#: ../data/ui/netstatus.glade.h:16
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
-msgid "Sent:"
-msgstr "Wysłano:"
-
-#: ../data/ui/netstatus.glade.h:17
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
-msgid "Status:"
-msgstr "Stan:"
-
-#: ../data/ui/netstatus.glade.h:18
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
-msgid "Subnet Mask:"
-msgstr "Maska podsieci:"
-
-#: ../data/ui/netstatus.glade.h:19
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
-msgid "Support"
-msgstr "Obsługa"
-
-#: ../data/ui/netstatus.glade.h:20
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
-msgid "Type:"
-msgstr "Typ:"
-
-#: ../data/ui/netstatus.glade.h:21
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
-msgid "_Name:"
-msgstr "_Nazwa:"
-
-#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:887
-msgid "Application Launch Bar"
-msgstr "Aktywatory"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:319
 msgid "Run"
@@ -396,6 +131,32 @@ msgstr "Panel"
 msgid "\"%s\" Settings"
 msgstr "Preferencje apletu „%s”..."
 
+# msgid "% of edge"
+# msgstr "% krawędźi"
+#: ../src/panel.c:1039 ../src/panel.c:1047
+msgid "Height:"
+msgstr "Wysokość:"
+
+#: ../src/panel.c:1040 ../src/panel.c:1046
+msgid "Width:"
+msgstr "Szerokość:"
+
+#: ../src/panel.c:1041
+msgid "Left"
+msgstr "Lewo"
+
+#: ../src/panel.c:1042
+msgid "Right"
+msgstr "Prawo"
+
+#: ../src/panel.c:1048
+msgid "Top"
+msgstr "Góra"
+
+#: ../src/panel.c:1049
+msgid "Bottom"
+msgstr "Dół"
+
 #: ../src/panel.c:1448
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
@@ -490,96 +251,100 @@ msgstr ""
 msgid "Display Image and Tooltip"
 msgstr "Wyświetl obraz i podpowiedź"
 
-#: ../src/plugins/launchbar.c:889
+#: ../src/plugins/launchbar.c:912
+msgid "Application Launch Bar"
+msgstr "Aktywatory"
+
+#: ../src/plugins/launchbar.c:914
 msgid "Bar with buttons to launch application"
 msgstr "Wyświetla aktywatory programów w postaci przycisków"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1700
+#: ../src/plugins/taskbar.c:1714
 msgid "_Raise"
 msgstr "_Rozwiń"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1705
+#: ../src/plugins/taskbar.c:1719
 msgid "R_estore"
 msgstr "_Przywróć zwykły rozmiar"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1710
+#: ../src/plugins/taskbar.c:1724
 msgid "Ma_ximize"
 msgstr "Zm_aksymalizuj"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1715
+#: ../src/plugins/taskbar.c:1729
 msgid "Ico_nify"
 msgstr "Zm_inimalizuj"
 
-#: ../src/plugins/taskbar.c:1734
+#: ../src/plugins/taskbar.c:1748
 #, c-format
 msgid "Workspace _%d"
 msgstr "Obszar roboczy _%d"
 
-#: ../src/plugins/taskbar.c:1739
+#: ../src/plugins/taskbar.c:1753
 #, c-format
 msgid "Workspace %d"
 msgstr "Obszar roboczy %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1753
+#: ../src/plugins/taskbar.c:1767
 msgid "_All workspaces"
 msgstr "_Wszystkie obszary robocze"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1759
+#: ../src/plugins/taskbar.c:1773
 msgid "_Move to Workspace"
 msgstr "_Przemieść na obszar roboczy"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1765
+#: ../src/plugins/taskbar.c:1779
 msgid "_Close Window"
 msgstr "Za_mknij"
 
-#: ../src/plugins/taskbar.c:1968
+#: ../src/plugins/taskbar.c:1986
 msgid "Show tooltips"
 msgstr "Wyświetlanie podpowiedzi"
 
-#: ../src/plugins/taskbar.c:1969
+#: ../src/plugins/taskbar.c:1987
 msgid "Icons only"
 msgstr "Tylko ikony"
 
-#: ../src/plugins/taskbar.c:1970
+#: ../src/plugins/taskbar.c:1988
 msgid "Flat buttons"
 msgstr "Płaskie przyciski"
 
-#: ../src/plugins/taskbar.c:1971
+#: ../src/plugins/taskbar.c:1989
 msgid "Show windows from all desktops"
 msgstr "Wyświetlane okien wszystkich obszarów roboczych"
 
-#: ../src/plugins/taskbar.c:1972
+#: ../src/plugins/taskbar.c:1990
 msgid "Use mouse wheel"
 msgstr "Manipulowanie oknami za pomocą rolki myszy"
 
-#: ../src/plugins/taskbar.c:1973
+#: ../src/plugins/taskbar.c:1991
 msgid "Flash when there is any window requiring attention"
 msgstr "Miganie okien wymagających uwagi użytkownika"
 
-#: ../src/plugins/taskbar.c:1974
+#: ../src/plugins/taskbar.c:1992
 msgid "Combine multiple application windows into a single button"
 msgstr "Grupowanie wielu okien tego samego programu"
 
-#: ../src/plugins/taskbar.c:1975
+#: ../src/plugins/taskbar.c:1993
 msgid "Maximum width of task button"
 msgstr "Maksymalna szerokość przycisku zadań:"
 
-#: ../src/plugins/taskbar.c:1976
+#: ../src/plugins/taskbar.c:1994
 msgid "Spacing"
 msgstr "Odstępy:"
 
-#: ../src/plugins/taskbar.c:2033
+#: ../src/plugins/taskbar.c:2051
 msgid "Task Bar (Window List)"
 msgstr "Przyciski okien"
 
-#: ../src/plugins/taskbar.c:2035
+#: ../src/plugins/taskbar.c:2053
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -617,59 +382,59 @@ msgstr "Zegar cyfrowy"
 msgid "Display digital clock and tooltip"
 msgstr "Wyświetla zegar cyfrowy i sformatowane podpowiedzi"
 
-#: ../src/plugins/menu.c:372
+#: ../src/plugins/menu.c:423
 msgid "Add to desktop"
 msgstr "Dodaj do pulpitu"
 
-#: ../src/plugins/menu.c:382
+#: ../src/plugins/menu.c:433
 msgid "Properties"
 msgstr "Właściwości"
 
-#: ../src/plugins/menu.c:1019 ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1079 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "Ikona:"
 
-#: ../src/plugins/menu.c:1036
+#: ../src/plugins/menu.c:1096
 msgid "Menu"
 msgstr "Menu programów"
 
-#: ../src/plugins/menu.c:1038
+#: ../src/plugins/menu.c:1098
 msgid "Application Menu"
 msgstr "Wyświetla aktywatory programów w zorganizowanym menu"
 
-#: ../src/plugins/separator.c:98
+#: ../src/plugins/separator.c:102
 msgid "Separator"
 msgstr "Separator"
 
-#: ../src/plugins/separator.c:100
+#: ../src/plugins/separator.c:104
 msgid "Add a separator to the panel"
 msgstr "Oddziela aplety panelu pustą przestrzenią"
 
-#: ../src/plugins/pager.c:797
+#: ../src/plugins/pager.c:833
 msgid "Desktop Pager"
 msgstr "Obszary robocze"
 
-#: ../src/plugins/pager.c:799
+#: ../src/plugins/pager.c:835
 msgid "Simple pager plugin"
 msgstr "Wyświetla zawartość obszarów roboczych"
 
-#: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
+#: ../src/plugins/space.c:125 ../src/plugins/batt/batt.c:590
 msgid "Size"
 msgstr "Rozmiar:"
 
-#: ../src/plugins/space.c:139
+#: ../src/plugins/space.c:143
 msgid "Spacer"
 msgstr "Odstęp"
 
-#: ../src/plugins/space.c:141
+#: ../src/plugins/space.c:145
 msgid "Allocate space"
 msgstr "Oddziela aplety panelu znakiem graficznym"
 
-#: ../src/plugins/tray.c:705
+#: ../src/plugins/tray.c:737
 msgid "System Tray"
 msgstr "Obszar powiadamiania"
 
-#: ../src/plugins/tray.c:707
+#: ../src/plugins/tray.c:739
 msgid "System tray"
 msgstr "Wyświetla ikony powiadamiania programów"
 
@@ -896,6 +661,11 @@ msgstr "Bezprzewodowy"
 msgid "Protocol:"
 msgstr "Protokół:"
 
+#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
+msgid "Broadcast:"
+msgstr "Adres rozgłoszeniowy:"
+
 #: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "Adres HW:"
@@ -987,39 +757,39 @@ msgstr "Połączenie sieciowe: %s"
 msgid "Network Connection"
 msgstr "Połączenie sieciowe"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:811
+#: ../src/plugins/netstatus/netstatus-icon.c:837
 msgid "Interface"
 msgstr "Interfejs"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:812
+#: ../src/plugins/netstatus/netstatus-icon.c:838
 msgid "The current interface the icon is monitoring."
 msgstr "Interfejs aktualnie monitorowany przez ikonę."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:819
+#: ../src/plugins/netstatus/netstatus-icon.c:845
 msgid "Orientation"
 msgstr "Położenie"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:820
+#: ../src/plugins/netstatus/netstatus-icon.c:846
 msgid "The orientation of the tray."
 msgstr "Położenie zasobnika."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:828
+#: ../src/plugins/netstatus/netstatus-icon.c:854
 msgid "Tooltips Enabled"
 msgstr "Wyświetlanie podpowiedzi"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:829
+#: ../src/plugins/netstatus/netstatus-icon.c:855
 msgid "Whether or not the icon's tooltips are enabled."
 msgstr "Wyświetla podpowiedzi ikon"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:836
+#: ../src/plugins/netstatus/netstatus-icon.c:862
 msgid "Show Signal"
 msgstr "Pokaż sygnał"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:837
+#: ../src/plugins/netstatus/netstatus-icon.c:863
 msgid "Whether or not the signal strength should be displayed."
 msgstr "Wyświetla moc sygnału"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:950
+#: ../src/plugins/netstatus/netstatus-icon.c:976
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -1277,6 +1047,83 @@ msgstr "Odbieranie"
 msgid "Sending/Receiving"
 msgstr "Wysyłanie/odbieranie"
 
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
+#, no-c-format
+msgid "0%"
+msgstr "0%"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
+msgid "<b>Activity</b>"
+msgstr "<b>Aktywność</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
+msgid "<b>Connection</b>"
+msgstr "<b>Połączenie</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr "<b>Protokół internetowy (IPv4)</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>Protokół internetowy (IPv6)</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
+msgid "<b>Network Device</b>"
+msgstr "<b>Urządzenie sieciowe</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
+msgid "<b>Signal Strength</b>"
+msgstr "<b>Siła sygnału</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
+msgid "Address:"
+msgstr "Adres:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
+msgid "Con_figure"
+msgstr "Kon_figuruj"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
+msgid "Destination:"
+msgstr "Przeznaczenie:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
+msgid "General"
+msgstr "Ogólne"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
+msgid "Received:"
+msgstr "Odebrano:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
+msgid "Scope:"
+msgstr "Zakres:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
+msgid "Sent:"
+msgstr "Wysłano:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
+msgid "Status:"
+msgstr "Stan:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
+msgid "Subnet Mask:"
+msgstr "Maska podsieci:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
+msgid "Support"
+msgstr "Obsługa"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
+msgid "Type:"
+msgstr "Typ:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
+msgid "_Name:"
+msgstr "_Nazwa:"
+
 #: ../src/plugins/batt/batt.c:131
 msgid "No batteries found"
 msgstr "Nie znaleziono akumulatora"
@@ -1359,6 +1206,105 @@ msgstr "Diody klawiatury"
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Wyświetla wskaźniki stanu klawiszy CapsLock, NumLock i ScrollLock."
+
+#~ msgid "% Percent"
+#~ msgstr "Procent"
+
+#~ msgid "<b>Automatic hiding</b>"
+#~ msgstr "<b>Automatyczne ukrywanie</b>"
+
+#~ msgid "<b>Background</b>"
+#~ msgstr "<b>Tło</b>"
+
+#~ msgid "<b>Font</b>"
+#~ msgstr "<b>Czcionka</b>"
+
+#~ msgid "<b>Icon</b>"
+#~ msgstr "<b>Ikony</b>"
+
+#~ msgid "<b>Position</b>"
+#~ msgstr "<b>Pozycja</b>"
+
+#~ msgid "<b>Properties</b>"
+#~ msgstr "<b>Właściwości</b>"
+
+#~ msgid "<b>Set Preferred Applications</b>"
+#~ msgstr "<b>Preferowane programy</b>"
+
+#~ msgid "<b>Size</b>"
+#~ msgstr "<b>Rozmiar</b>"
+
+#~ msgid "Advanced"
+#~ msgstr "Zaawansowane"
+
+#~ msgid "Alignment:"
+#~ msgstr "Wyrównanie:"
+
+#~ msgid "Appearance"
+#~ msgstr "Wygląd"
+
+#~ msgid "Center"
+#~ msgstr "Środek"
+
+#~ msgid "Custom color"
+#~ msgstr "Własny kolor"
+
+#~ msgid "Dynamic"
+#~ msgstr "Dynamicznie"
+
+#~ msgid "Edge:"
+#~ msgstr "Położenie:"
+
+#~ msgid "File Manager:"
+#~ msgstr "Menedżer plików:"
+
+#~ msgid "Geometry"
+#~ msgstr "Geometria"
+
+#~ msgid "Image"
+#~ msgstr "Obraz"
+
+#~ msgid "Logout Command:"
+#~ msgstr "Polecenie wylogowania:"
+
+#~ msgid "Make window managers treat the panel as dock"
+#~ msgstr "Traktowanie panelu jako dok"
+
+#~ msgid "Margin:"
+#~ msgstr "Margines:"
+
+#~ msgid "Minimize panel when not in use"
+#~ msgstr "Właczenie"
+
+#~ msgid "Panel Applets"
+#~ msgstr "Aplety"
+
+#~ msgid "Panel Preferences"
+#~ msgstr "Preferencje panelu"
+
+#~ msgid "Pixels"
+#~ msgstr "Pikseli"
+
+#~ msgid "Reserve space, and not covered by maximized windows"
+#~ msgstr "Rezerwowanie obszaru pulpitu dla panelu"
+
+#~ msgid "Select an image file"
+#~ msgstr "Wybierz obrazek"
+
+#~ msgid "Size when minimized"
+#~ msgstr "Rozmiar ukrytego panelu:"
+
+#~ msgid "Solid color (with opacity)"
+#~ msgstr "Jednolity kolor"
+
+#~ msgid "System theme"
+#~ msgstr "Motyw systemowy"
+
+#~ msgid "Terminal Emulator:"
+#~ msgstr "Emulator terminala:"
+
+#~ msgid "pixels"
+#~ msgstr "pikseli"
 
 #~ msgid "Applications"
 #~ msgstr "Programy"

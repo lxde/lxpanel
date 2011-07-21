@@ -7,279 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-20 11:01+0200\n"
+"POT-Creation-Date: 2011-07-22 00:16+0200\n"
 "PO-Revision-Date: 2010-01-06 19:45+0100\n"
 "Last-Translator: Ahmad Farghal <ahmad.farghal@gmail.com>\n"
 "Language-Team: Arabic\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 "X-Generator: Pootle 1.1.0\n"
-
-#: ../data/ui/panel-pref.glade.h:2
-#, no-c-format
-msgid "% Percent"
-msgstr "% في المائة"
-
-#: ../data/ui/panel-pref.glade.h:3
-msgid "<b>Automatic hiding</b>"
-msgstr "<b>الإخفاء التلقائي</b>"
-
-#: ../data/ui/panel-pref.glade.h:4
-msgid "<b>Background</b>"
-msgstr "<b>الخلفية</b>"
-
-#: ../data/ui/panel-pref.glade.h:5
-msgid "<b>Font</b>"
-msgstr "<b>الخط</b>"
-
-#: ../data/ui/panel-pref.glade.h:6
-msgid "<b>Icon</b>"
-msgstr "<b>الأيقونات</b>"
-
-#: ../data/ui/panel-pref.glade.h:7
-msgid "<b>Position</b>"
-msgstr "<b>الموقع</b>"
-
-#: ../data/ui/panel-pref.glade.h:8
-msgid "<b>Properties</b>"
-msgstr "<b>خصائص</b>"
-
-#: ../data/ui/panel-pref.glade.h:9
-msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>عيّن التطبيقات المفضلة</b>"
-
-#: ../data/ui/panel-pref.glade.h:10
-msgid "<b>Size</b>"
-msgstr "<b>الحجم</b>"
-
-#: ../data/ui/panel-pref.glade.h:11
-msgid "Advanced"
-msgstr "خيارات متقدمة"
-
-#: ../data/ui/panel-pref.glade.h:12
-msgid "Alignment:"
-msgstr "المحاذاة"
-
-#: ../data/ui/panel-pref.glade.h:13
-msgid "Appearance"
-msgstr "المظهر"
-
-#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1049
-msgid "Bottom"
-msgstr "الأسفل"
-
-#: ../data/ui/panel-pref.glade.h:15
-msgid "Center"
-msgstr "المنتصف"
-
-#: ../data/ui/panel-pref.glade.h:16
-msgid "Custom color"
-msgstr "لون مخصص"
-
-#: ../data/ui/panel-pref.glade.h:17
-msgid "Dynamic"
-msgstr "متغير"
-
-#: ../data/ui/panel-pref.glade.h:18
-msgid "Edge:"
-msgstr "الطرف:"
-
-#: ../data/ui/panel-pref.glade.h:19
-msgid "File Manager:"
-msgstr "مدير الملفات:"
-
-#: ../data/ui/panel-pref.glade.h:20
-msgid "Geometry"
-msgstr "الموقع والحجم"
-
-#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:1039 ../src/panel.c:1047
-msgid "Height:"
-msgstr "الطول:"
-
-#: ../data/ui/panel-pref.glade.h:22
-msgid "Image"
-msgstr "صورة"
-
-#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:1041
-msgid "Left"
-msgstr "اليسار"
-
-#: ../data/ui/panel-pref.glade.h:24
-msgid "Logout Command:"
-msgstr "أمر الخروج:"
-
-#: ../data/ui/panel-pref.glade.h:25
-msgid "Make window managers treat the panel as dock"
-msgstr "اؤمر مديري النوافذ أن يعاملوا الشريط على أنه رصيف"
-
-#: ../data/ui/panel-pref.glade.h:26
-msgid "Margin:"
-msgstr "الهامش"
-
-#: ../data/ui/panel-pref.glade.h:27
-msgid "Minimize panel when not in use"
-msgstr "قلص الشريط عندما يكون غير مستخدم"
-
-#: ../data/ui/panel-pref.glade.h:28
-msgid "Panel Applets"
-msgstr "عناصر الشريط"
-
-#: ../data/ui/panel-pref.glade.h:29
-msgid "Panel Preferences"
-msgstr "تفضيلات الشريط"
-
-#: ../data/ui/panel-pref.glade.h:30
-msgid "Pixels"
-msgstr "بالبكسل"
-
-#: ../data/ui/panel-pref.glade.h:31
-msgid "Reserve space, and not covered by maximized windows"
-msgstr "احفظ مساحة لا تغطيها النوافذ المكبرة"
-
-#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:1042
-msgid "Right"
-msgstr "اليمين"
-
-#: ../data/ui/panel-pref.glade.h:33
-msgid "Select an image file"
-msgstr "انتق ملف صورة"
-
-#: ../data/ui/panel-pref.glade.h:34
-msgid "Size when minimized"
-msgstr "حجم الشريط عند تقليصه"
-
-#: ../data/ui/panel-pref.glade.h:35
-msgid "Solid color (with opacity)"
-msgstr "لون (بشفافية)"
-
-#: ../data/ui/panel-pref.glade.h:36
-msgid "System theme"
-msgstr "سمة النظام"
-
-#: ../data/ui/panel-pref.glade.h:37
-msgid "Terminal Emulator:"
-msgstr "محاكي الطرفية:"
-
-#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1048
-msgid "Top"
-msgstr "الأعلى"
-
-#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:1040 ../src/panel.c:1046
-msgid "Width:"
-msgstr "العرض:"
-
-#: ../data/ui/panel-pref.glade.h:40
-msgid "pixels"
-msgstr "بكسل"
-
-#: ../data/ui/netstatus.glade.h:2
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
-#, no-c-format
-msgid "0%"
-msgstr "0%"
-
-#: ../data/ui/netstatus.glade.h:3
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
-msgid "<b>Activity</b>"
-msgstr "<b>النشاط</b>"
-
-#: ../data/ui/netstatus.glade.h:4
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
-msgid "<b>Connection</b>"
-msgstr "<b>الاتصال</b>"
-
-#: ../data/ui/netstatus.glade.h:5
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
-msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr "<b>بروتوكول إنترنت (IPv4)</b>"
-
-#: ../data/ui/netstatus.glade.h:6
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
-msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr "<b>بروتوكول إنترنت (IPv6)</b>"
-
-#: ../data/ui/netstatus.glade.h:7
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
-msgid "<b>Network Device</b>"
-msgstr "<b>جهاز الشبكة</b>"
-
-#: ../data/ui/netstatus.glade.h:8
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
-msgid "<b>Signal Strength</b>"
-msgstr "<b>قوة الإشارة</b>"
-
-#: ../data/ui/netstatus.glade.h:9
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
-msgid "Address:"
-msgstr "العنوان:"
-
-#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
-#: ../src/plugins/netstat/netstat.c:330
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-msgid "Broadcast:"
-msgstr "بث:"
-
-#: ../data/ui/netstatus.glade.h:11
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
-msgid "Con_figure"
-msgstr "ا_ضبط"
-
-#: ../data/ui/netstatus.glade.h:12
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
-msgid "Destination:"
-msgstr "الوجهة:"
-
-#: ../data/ui/netstatus.glade.h:13
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
-msgid "General"
-msgstr "عام"
-
-#: ../data/ui/netstatus.glade.h:14
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
-msgid "Received:"
-msgstr "تم استقبال:"
-
-#: ../data/ui/netstatus.glade.h:15
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
-msgid "Scope:"
-msgstr "النطاق:"
-
-#: ../data/ui/netstatus.glade.h:16
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
-msgid "Sent:"
-msgstr "تم إرسال:"
-
-#: ../data/ui/netstatus.glade.h:17
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
-msgid "Status:"
-msgstr "الحالة:"
-
-#: ../data/ui/netstatus.glade.h:18
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
-msgid "Subnet Mask:"
-msgstr "قناع الشبكة الفرعية:"
-
-#: ../data/ui/netstatus.glade.h:19
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
-msgid "Support"
-msgstr "دعم"
-
-#: ../data/ui/netstatus.glade.h:20
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
-msgid "Type:"
-msgstr "النوع:"
-
-#: ../data/ui/netstatus.glade.h:21
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
-msgid "_Name:"
-msgstr "_الاسم:"
-
-#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:887
-msgid "Application Launch Bar"
-msgstr "شريط اختصار التطبيقات"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:319
 msgid "Run"
@@ -347,7 +85,8 @@ msgid "LXPanel"
 msgstr "شريط لكسدي"
 
 #: ../src/panel.c:690
-msgid "Copyright (C) 2008-2009"
+#, fuzzy
+msgid "Copyright (C) 2008-2010"
 msgstr "حقوق النشر محفوظة (C) 2008-2009"
 
 #: ../src/panel.c:691
@@ -387,6 +126,30 @@ msgstr "الشريط"
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "إعدادات \"%s\""
+
+#: ../src/panel.c:1039 ../src/panel.c:1047
+msgid "Height:"
+msgstr "الطول:"
+
+#: ../src/panel.c:1040 ../src/panel.c:1046
+msgid "Width:"
+msgstr "العرض:"
+
+#: ../src/panel.c:1041
+msgid "Left"
+msgstr "اليسار"
+
+#: ../src/panel.c:1042
+msgid "Right"
+msgstr "اليمين"
+
+#: ../src/panel.c:1048
+msgid "Top"
+msgstr "الأعلى"
+
+#: ../src/panel.c:1049
+msgid "Bottom"
+msgstr "الأسفل"
 
 #: ../src/panel.c:1448
 #, c-format
@@ -479,96 +242,100 @@ msgstr "إظهار رقم مساحة العمل، كتبه cmeury@users.sf.net"
 msgid "Display Image and Tooltip"
 msgstr "أظهر صورة وتلميحا"
 
-#: ../src/plugins/launchbar.c:889
+#: ../src/plugins/launchbar.c:912
+msgid "Application Launch Bar"
+msgstr "شريط اختصار التطبيقات"
+
+#: ../src/plugins/launchbar.c:914
 msgid "Bar with buttons to launch application"
 msgstr "شريط يحتوي على أزرار لفتح تطبيقات"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1700
+#: ../src/plugins/taskbar.c:1714
 msgid "_Raise"
 msgstr "ا_رفع"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1705
+#: ../src/plugins/taskbar.c:1719
 msgid "R_estore"
 msgstr "_استعِدْ"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1710
+#: ../src/plugins/taskbar.c:1724
 msgid "Ma_ximize"
 msgstr "_كبّر"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1715
+#: ../src/plugins/taskbar.c:1729
 msgid "Ico_nify"
 msgstr "_صغّر"
 
-#: ../src/plugins/taskbar.c:1734
+#: ../src/plugins/taskbar.c:1748
 #, c-format
 msgid "Workspace _%d"
 msgstr "مساحة العمل _%d"
 
-#: ../src/plugins/taskbar.c:1739
+#: ../src/plugins/taskbar.c:1753
 #, c-format
 msgid "Workspace %d"
 msgstr "مساحة العمل %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1753
+#: ../src/plugins/taskbar.c:1767
 msgid "_All workspaces"
 msgstr "_جميع مساحات العمل"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1759
+#: ../src/plugins/taskbar.c:1773
 msgid "_Move to Workspace"
 msgstr "_انقل إلى مساحة العمل"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1765
+#: ../src/plugins/taskbar.c:1779
 msgid "_Close Window"
 msgstr "_أغلق النافذة"
 
-#: ../src/plugins/taskbar.c:1968
+#: ../src/plugins/taskbar.c:1986
 msgid "Show tooltips"
 msgstr "أظهر تلميحات"
 
-#: ../src/plugins/taskbar.c:1969
+#: ../src/plugins/taskbar.c:1987
 msgid "Icons only"
 msgstr "أيقونات فقط"
 
-#: ../src/plugins/taskbar.c:1970
+#: ../src/plugins/taskbar.c:1988
 msgid "Flat buttons"
 msgstr "أزرار مسطحة"
 
-#: ../src/plugins/taskbar.c:1971
+#: ../src/plugins/taskbar.c:1989
 msgid "Show windows from all desktops"
 msgstr "أظهر نوافذ جميع أسطح المكتب"
 
-#: ../src/plugins/taskbar.c:1972
+#: ../src/plugins/taskbar.c:1990
 msgid "Use mouse wheel"
 msgstr "استخدم عجلة الفأرة"
 
-#: ../src/plugins/taskbar.c:1973
+#: ../src/plugins/taskbar.c:1991
 msgid "Flash when there is any window requiring attention"
 msgstr "أبرز زر النافذة التي تتطلب اهتماما"
 
-#: ../src/plugins/taskbar.c:1974
+#: ../src/plugins/taskbar.c:1992
 msgid "Combine multiple application windows into a single button"
 msgstr "اجمع نوافذ التطبيق الواحد مع بعضها في زر واحد"
 
-#: ../src/plugins/taskbar.c:1975
+#: ../src/plugins/taskbar.c:1993
 msgid "Maximum width of task button"
 msgstr "أقصى عرض لزر المهمة"
 
-#: ../src/plugins/taskbar.c:1976
+#: ../src/plugins/taskbar.c:1994
 msgid "Spacing"
 msgstr "مسافة"
 
-#: ../src/plugins/taskbar.c:2033
+#: ../src/plugins/taskbar.c:2051
 msgid "Task Bar (Window List)"
 msgstr "شريط المهام (قائمة النوافذ)"
 
-#: ../src/plugins/taskbar.c:2035
+#: ../src/plugins/taskbar.c:2053
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -606,59 +373,59 @@ msgstr "الساعة الرقمية"
 msgid "Display digital clock and tooltip"
 msgstr "يظهر ساعة رقمية وتلميحا"
 
-#: ../src/plugins/menu.c:372
+#: ../src/plugins/menu.c:423
 msgid "Add to desktop"
 msgstr "أضف إلى سطح مكتب"
 
-#: ../src/plugins/menu.c:382
+#: ../src/plugins/menu.c:433
 msgid "Properties"
 msgstr "خصائص"
 
-#: ../src/plugins/menu.c:1019 ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1079 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "أيقونة"
 
-#: ../src/plugins/menu.c:1036
+#: ../src/plugins/menu.c:1096
 msgid "Menu"
 msgstr "القائمة"
 
-#: ../src/plugins/menu.c:1038
+#: ../src/plugins/menu.c:1098
 msgid "Application Menu"
 msgstr "قائمة التطبيقات"
 
-#: ../src/plugins/separator.c:98
+#: ../src/plugins/separator.c:102
 msgid "Separator"
 msgstr "فاصل"
 
-#: ../src/plugins/separator.c:100
+#: ../src/plugins/separator.c:104
 msgid "Add a separator to the panel"
 msgstr "أضف فاصلا للشريط"
 
-#: ../src/plugins/pager.c:797
+#: ../src/plugins/pager.c:833
 msgid "Desktop Pager"
 msgstr "مبدّل مساحات العمل"
 
-#: ../src/plugins/pager.c:799
+#: ../src/plugins/pager.c:835
 msgid "Simple pager plugin"
 msgstr "ملحق بسيط لتبديل مساحات العمل"
 
-#: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
+#: ../src/plugins/space.c:125 ../src/plugins/batt/batt.c:590
 msgid "Size"
 msgstr "الحجم"
 
-#: ../src/plugins/space.c:139
+#: ../src/plugins/space.c:143
 msgid "Spacer"
 msgstr "مسافة"
 
-#: ../src/plugins/space.c:141
+#: ../src/plugins/space.c:145
 msgid "Allocate space"
 msgstr "يترك مسافة"
 
-#: ../src/plugins/tray.c:705
+#: ../src/plugins/tray.c:737
 msgid "System Tray"
 msgstr "مساحة التبليغ"
 
-#: ../src/plugins/tray.c:707
+#: ../src/plugins/tray.c:739
 msgid "System tray"
 msgstr "مساحة التبليغ"
 
@@ -884,6 +651,11 @@ msgstr "لاسلكي"
 msgid "Protocol:"
 msgstr "البروتوكول"
 
+#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
+msgid "Broadcast:"
+msgstr "بث:"
+
 #: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "عنوان العتاد:"
@@ -978,39 +750,39 @@ msgstr "اتصال شبكي: %s"
 msgid "Network Connection"
 msgstr "اتصال شبكي"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:811
+#: ../src/plugins/netstatus/netstatus-icon.c:837
 msgid "Interface"
 msgstr "الواجهة"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:812
+#: ../src/plugins/netstatus/netstatus-icon.c:838
 msgid "The current interface the icon is monitoring."
 msgstr "الواجهة الحالية التي تراقبها الأيقونة"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:819
+#: ../src/plugins/netstatus/netstatus-icon.c:845
 msgid "Orientation"
 msgstr "التوجيه"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:820
+#: ../src/plugins/netstatus/netstatus-icon.c:846
 msgid "The orientation of the tray."
 msgstr "توجيه مساحة التبليغ."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:828
+#: ../src/plugins/netstatus/netstatus-icon.c:854
 msgid "Tooltips Enabled"
 msgstr "التلميحات مُمَكّنة"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:829
+#: ../src/plugins/netstatus/netstatus-icon.c:855
 msgid "Whether or not the icon's tooltips are enabled."
 msgstr "تمكين أو تعطيل التلميحات."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:836
+#: ../src/plugins/netstatus/netstatus-icon.c:862
 msgid "Show Signal"
 msgstr "أظهر الإشارة"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:837
+#: ../src/plugins/netstatus/netstatus-icon.c:863
 msgid "Whether or not the signal strength should be displayed."
 msgstr "إظهار أو إخفاء قوة الإشارة"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:950
+#: ../src/plugins/netstatus/netstatus-icon.c:976
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -1266,6 +1038,83 @@ msgstr "يستقبل"
 msgid "Sending/Receiving"
 msgstr "يرسل/يستقبل"
 
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
+#, no-c-format
+msgid "0%"
+msgstr "0%"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
+msgid "<b>Activity</b>"
+msgstr "<b>النشاط</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
+msgid "<b>Connection</b>"
+msgstr "<b>الاتصال</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr "<b>بروتوكول إنترنت (IPv4)</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>بروتوكول إنترنت (IPv6)</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
+msgid "<b>Network Device</b>"
+msgstr "<b>جهاز الشبكة</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
+msgid "<b>Signal Strength</b>"
+msgstr "<b>قوة الإشارة</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
+msgid "Address:"
+msgstr "العنوان:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
+msgid "Con_figure"
+msgstr "ا_ضبط"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
+msgid "Destination:"
+msgstr "الوجهة:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
+msgid "General"
+msgstr "عام"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
+msgid "Received:"
+msgstr "تم استقبال:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
+msgid "Scope:"
+msgstr "النطاق:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
+msgid "Sent:"
+msgstr "تم إرسال:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
+msgid "Status:"
+msgstr "الحالة:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
+msgid "Subnet Mask:"
+msgstr "قناع الشبكة الفرعية:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
+msgid "Support"
+msgstr "دعم"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
+msgid "Type:"
+msgstr "النوع:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
+msgid "_Name:"
+msgstr "_الاسم:"
+
 #: ../src/plugins/batt/batt.c:131
 msgid "No batteries found"
 msgstr "لا توجد أي بطاريات"
@@ -1348,6 +1197,105 @@ msgstr "أضواء لوحة المفاتيح"
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "مبين أضواء مفاتيح CapsLock و NumLock و ScrollLock."
+
+#~ msgid "% Percent"
+#~ msgstr "% في المائة"
+
+#~ msgid "<b>Automatic hiding</b>"
+#~ msgstr "<b>الإخفاء التلقائي</b>"
+
+#~ msgid "<b>Background</b>"
+#~ msgstr "<b>الخلفية</b>"
+
+#~ msgid "<b>Font</b>"
+#~ msgstr "<b>الخط</b>"
+
+#~ msgid "<b>Icon</b>"
+#~ msgstr "<b>الأيقونات</b>"
+
+#~ msgid "<b>Position</b>"
+#~ msgstr "<b>الموقع</b>"
+
+#~ msgid "<b>Properties</b>"
+#~ msgstr "<b>خصائص</b>"
+
+#~ msgid "<b>Set Preferred Applications</b>"
+#~ msgstr "<b>عيّن التطبيقات المفضلة</b>"
+
+#~ msgid "<b>Size</b>"
+#~ msgstr "<b>الحجم</b>"
+
+#~ msgid "Advanced"
+#~ msgstr "خيارات متقدمة"
+
+#~ msgid "Alignment:"
+#~ msgstr "المحاذاة"
+
+#~ msgid "Appearance"
+#~ msgstr "المظهر"
+
+#~ msgid "Center"
+#~ msgstr "المنتصف"
+
+#~ msgid "Custom color"
+#~ msgstr "لون مخصص"
+
+#~ msgid "Dynamic"
+#~ msgstr "متغير"
+
+#~ msgid "Edge:"
+#~ msgstr "الطرف:"
+
+#~ msgid "File Manager:"
+#~ msgstr "مدير الملفات:"
+
+#~ msgid "Geometry"
+#~ msgstr "الموقع والحجم"
+
+#~ msgid "Image"
+#~ msgstr "صورة"
+
+#~ msgid "Logout Command:"
+#~ msgstr "أمر الخروج:"
+
+#~ msgid "Make window managers treat the panel as dock"
+#~ msgstr "اؤمر مديري النوافذ أن يعاملوا الشريط على أنه رصيف"
+
+#~ msgid "Margin:"
+#~ msgstr "الهامش"
+
+#~ msgid "Minimize panel when not in use"
+#~ msgstr "قلص الشريط عندما يكون غير مستخدم"
+
+#~ msgid "Panel Applets"
+#~ msgstr "عناصر الشريط"
+
+#~ msgid "Panel Preferences"
+#~ msgstr "تفضيلات الشريط"
+
+#~ msgid "Pixels"
+#~ msgstr "بالبكسل"
+
+#~ msgid "Reserve space, and not covered by maximized windows"
+#~ msgstr "احفظ مساحة لا تغطيها النوافذ المكبرة"
+
+#~ msgid "Select an image file"
+#~ msgstr "انتق ملف صورة"
+
+#~ msgid "Size when minimized"
+#~ msgstr "حجم الشريط عند تقليصه"
+
+#~ msgid "Solid color (with opacity)"
+#~ msgstr "لون (بشفافية)"
+
+#~ msgid "System theme"
+#~ msgstr "سمة النظام"
+
+#~ msgid "Terminal Emulator:"
+#~ msgstr "محاكي الطرفية:"
+
+#~ msgid "pixels"
+#~ msgstr "بكسل"
 
 #~ msgid "Applications"
 #~ msgstr "التطبيقات"

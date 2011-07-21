@@ -7,285 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-20 11:01+0200\n"
+"POT-Creation-Date: 2011-07-22 00:16+0200\n"
 "PO-Revision-Date: 2009-06-07 18:34+0200\n"
 "Last-Translator: Payne Samad Loh <sploh77@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 1.1.0\n"
-
-#: ../data/ui/panel-pref.glade.h:2
-#, no-c-format
-msgid "% Percent"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:3
-msgid "<b>Automatic hiding</b>"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:4
-msgid "<b>Background</b>"
-msgstr "<b>Latarbelakang</b>"
-
-#: ../data/ui/panel-pref.glade.h:5
-msgid "<b>Font</b>"
-msgstr "<b>Fon</b>"
-
-#: ../data/ui/panel-pref.glade.h:6
-#, fuzzy
-msgid "<b>Icon</b>"
-msgstr "<b>Fon</b>"
-
-#: ../data/ui/panel-pref.glade.h:7
-msgid "<b>Position</b>"
-msgstr "<b>Kedudukan</b>"
-
-#: ../data/ui/panel-pref.glade.h:8
-msgid "<b>Properties</b>"
-msgstr "<b>Ciri-ciri</b>"
-
-#: ../data/ui/panel-pref.glade.h:9
-msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>Tetapkan Aplikasi Kegemaran</b>"
-
-#: ../data/ui/panel-pref.glade.h:10
-msgid "<b>Size</b>"
-msgstr "<b>Saiz</b>"
-
-#: ../data/ui/panel-pref.glade.h:11
-msgid "Advanced"
-msgstr "Majuan"
-
-#: ../data/ui/panel-pref.glade.h:12
-msgid "Alignment:"
-msgstr "Penjajaran:"
-
-#: ../data/ui/panel-pref.glade.h:13
-msgid "Appearance"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1049
-msgid "Bottom"
-msgstr "Bawah"
-
-#: ../data/ui/panel-pref.glade.h:15
-#, fuzzy
-msgid "Center"
-msgstr "Am"
-
-#: ../data/ui/panel-pref.glade.h:16
-#, fuzzy
-msgid "Custom color"
-msgstr "Warna Resam"
-
-#: ../data/ui/panel-pref.glade.h:17
-msgid "Dynamic"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:18
-msgid "Edge:"
-msgstr "Tepi:"
-
-#: ../data/ui/panel-pref.glade.h:19
-msgid "File Manager:"
-msgstr "Pengurus Fail:"
-
-#: ../data/ui/panel-pref.glade.h:20
-msgid "Geometry"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:1039 ../src/panel.c:1047
-msgid "Height:"
-msgstr "Ketinggian:"
-
-#: ../data/ui/panel-pref.glade.h:22
-#, fuzzy
-msgid "Image"
-msgstr "imej"
-
-#: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:1041
-msgid "Left"
-msgstr "Kiri"
-
-#: ../data/ui/panel-pref.glade.h:24
-msgid "Logout Command:"
-msgstr "Arahan Log keluar:"
-
-#: ../data/ui/panel-pref.glade.h:25
-msgid "Make window managers treat the panel as dock"
-msgstr "Jadikan pengurus tingkap menganggap panel sebagai dok"
-
-#: ../data/ui/panel-pref.glade.h:26
-msgid "Margin:"
-msgstr "Jidar:"
-
-#: ../data/ui/panel-pref.glade.h:27
-msgid "Minimize panel when not in use"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:28
-msgid "Panel Applets"
-msgstr "Applikasi Panel"
-
-#: ../data/ui/panel-pref.glade.h:29
-msgid "Panel Preferences"
-msgstr "Panel Kegemaran"
-
-#: ../data/ui/panel-pref.glade.h:30
-msgid "Pixels"
-msgstr "Piksel-piksel"
-
-#: ../data/ui/panel-pref.glade.h:31
-msgid "Reserve space, and not covered by maximized windows"
-msgstr "Ruang rizab, dan tak dialaskan oleh tingkap yang dimaksimumkan"
-
-#: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:1042
-msgid "Right"
-msgstr "Kanan"
-
-#: ../data/ui/panel-pref.glade.h:33
-msgid "Select an image file"
-msgstr "Pilih satu fail imej"
-
-#: ../data/ui/panel-pref.glade.h:34
-msgid "Size when minimized"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:35
-msgid "Solid color (with opacity)"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:36
-#, fuzzy
-msgid "System theme"
-msgstr "Tiada (Tema sistem digunakan)"
-
-#: ../data/ui/panel-pref.glade.h:37
-msgid "Terminal Emulator:"
-msgstr "Emulator Terminal:"
-
-#: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1048
-#, fuzzy
-msgid "Top"
-msgstr "Atas"
-
-#: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:1040 ../src/panel.c:1046
-msgid "Width:"
-msgstr "Kelebaran:"
-
-#: ../data/ui/panel-pref.glade.h:40
-#, fuzzy
-msgid "pixels"
-msgstr "Piksel-piksel"
-
-#: ../data/ui/netstatus.glade.h:2
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
-#, no-c-format
-msgid "0%"
-msgstr "0%"
-
-#: ../data/ui/netstatus.glade.h:3
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
-msgid "<b>Activity</b>"
-msgstr "<b>Aktiviti<b/>"
-
-#: ../data/ui/netstatus.glade.h:4
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
-msgid "<b>Connection</b>"
-msgstr "<b>Sambungan</b>"
-
-#: ../data/ui/netstatus.glade.h:5
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
-msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr "<b>Protokol Internet (IPv4)</b>"
-
-#: ../data/ui/netstatus.glade.h:6
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
-msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr "<b>Protokol Internet (IPv6)</b>"
-
-#: ../data/ui/netstatus.glade.h:7
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
-msgid "<b>Network Device</b>"
-msgstr "<b>Peranti Rangkaian</b>"
-
-#: ../data/ui/netstatus.glade.h:8
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
-msgid "<b>Signal Strength</b>"
-msgstr "<b>Kekuatan Isyarat</b>"
-
-#: ../data/ui/netstatus.glade.h:9
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
-msgid "Address:"
-msgstr "Alamat:"
-
-#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
-#: ../src/plugins/netstat/netstat.c:330
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-msgid "Broadcast:"
-msgstr "Siaran:"
-
-#: ../data/ui/netstatus.glade.h:11
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
-msgid "Con_figure"
-msgstr "Con_figure"
-
-#: ../data/ui/netstatus.glade.h:12
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
-msgid "Destination:"
-msgstr "Destinasi:"
-
-#: ../data/ui/netstatus.glade.h:13
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
-msgid "General"
-msgstr "Am"
-
-#: ../data/ui/netstatus.glade.h:14
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
-msgid "Received:"
-msgstr "Diterima:"
-
-#: ../data/ui/netstatus.glade.h:15
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
-msgid "Scope:"
-msgstr "Skop:"
-
-#: ../data/ui/netstatus.glade.h:16
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
-msgid "Sent:"
-msgstr "Dihantar:"
-
-#: ../data/ui/netstatus.glade.h:17
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
-msgid "Status:"
-msgstr "Status:"
-
-#: ../data/ui/netstatus.glade.h:18
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
-msgid "Subnet Mask:"
-msgstr "Subrangkaian Topeng:"
-
-#: ../data/ui/netstatus.glade.h:19
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
-msgid "Support"
-msgstr "Sokongan"
-
-#: ../data/ui/netstatus.glade.h:20
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
-msgid "Type:"
-msgstr "Jenis:"
-
-#: ../data/ui/netstatus.glade.h:21
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
-msgid "_Name:"
-msgstr "_Nama:"
-
-#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:887
-msgid "Application Launch Bar"
-msgstr "Bar Pelancaran Aplikasi"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:319
 msgid "Run"
@@ -357,7 +88,8 @@ msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:690
-msgid "Copyright (C) 2008-2009"
+#, fuzzy
+msgid "Copyright (C) 2008-2010"
 msgstr "Hakcipta Terpelihara (C) 2008-2009"
 
 #: ../src/panel.c:691
@@ -397,6 +129,31 @@ msgstr "Panel"
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" Tetapan-Tetapan"
+
+#: ../src/panel.c:1039 ../src/panel.c:1047
+msgid "Height:"
+msgstr "Ketinggian:"
+
+#: ../src/panel.c:1040 ../src/panel.c:1046
+msgid "Width:"
+msgstr "Kelebaran:"
+
+#: ../src/panel.c:1041
+msgid "Left"
+msgstr "Kiri"
+
+#: ../src/panel.c:1042
+msgid "Right"
+msgstr "Kanan"
+
+#: ../src/panel.c:1048
+#, fuzzy
+msgid "Top"
+msgstr "Atas"
+
+#: ../src/panel.c:1049
+msgid "Bottom"
+msgstr "Bawah"
 
 #: ../src/panel.c:1448
 #, c-format
@@ -489,99 +246,103 @@ msgstr "Paparkan nombor ruang kerja, oleh cmeury@users.sf.net"
 msgid "Display Image and Tooltip"
 msgstr "Paparkan Imej dan Tip Peralatan"
 
-#: ../src/plugins/launchbar.c:889
+#: ../src/plugins/launchbar.c:912
+msgid "Application Launch Bar"
+msgstr "Bar Pelancaran Aplikasi"
+
+#: ../src/plugins/launchbar.c:914
 msgid "Bar with buttons to launch application"
 msgstr "Bar dengan butang untuk melancarkan aplikasi"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1700
+#: ../src/plugins/taskbar.c:1714
 msgid "_Raise"
 msgstr "_Menaikkan"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1705
+#: ../src/plugins/taskbar.c:1719
 msgid "R_estore"
 msgstr "Mem_ulihkan"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1710
+#: ../src/plugins/taskbar.c:1724
 msgid "Ma_ximize"
 msgstr "M_emaksimumkan"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1715
+#: ../src/plugins/taskbar.c:1729
 msgid "Ico_nify"
 msgstr "Ico_nify"
 
-#: ../src/plugins/taskbar.c:1734
+#: ../src/plugins/taskbar.c:1748
 #, fuzzy, c-format
 msgid "Workspace _%d"
 msgstr "Ruangkerja %d"
 
-#: ../src/plugins/taskbar.c:1739
+#: ../src/plugins/taskbar.c:1753
 #, c-format
 msgid "Workspace %d"
 msgstr "Ruangkerja %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1753
+#: ../src/plugins/taskbar.c:1767
 #, fuzzy
 msgid "_All workspaces"
 msgstr "Semua ruangkerja"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1759
+#: ../src/plugins/taskbar.c:1773
 msgid "_Move to Workspace"
 msgstr "_Pindah ke Ruangkerja"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1765
+#: ../src/plugins/taskbar.c:1779
 msgid "_Close Window"
 msgstr "_Tutup Tingkap"
 
-#: ../src/plugins/taskbar.c:1968
+#: ../src/plugins/taskbar.c:1986
 msgid "Show tooltips"
 msgstr "Tunjuk tip-tip peralatan"
 
-#: ../src/plugins/taskbar.c:1969
+#: ../src/plugins/taskbar.c:1987
 msgid "Icons only"
 msgstr "Ikon-ikon sahaja"
 
-#: ../src/plugins/taskbar.c:1970
+#: ../src/plugins/taskbar.c:1988
 #, fuzzy
 msgid "Flat buttons"
 msgstr "Butang-butang Rata"
 
-#: ../src/plugins/taskbar.c:1971
+#: ../src/plugins/taskbar.c:1989
 msgid "Show windows from all desktops"
 msgstr "Menunjukkan tetingkap dari semua desktop"
 
-#: ../src/plugins/taskbar.c:1972
+#: ../src/plugins/taskbar.c:1990
 msgid "Use mouse wheel"
 msgstr "Gunakan roda tetikus"
 
-#: ../src/plugins/taskbar.c:1973
+#: ../src/plugins/taskbar.c:1991
 msgid "Flash when there is any window requiring attention"
 msgstr "Kilat apabila terdapat mana-mana tingkap yang memerlukan perhatian "
 
-#: ../src/plugins/taskbar.c:1974
+#: ../src/plugins/taskbar.c:1992
 msgid "Combine multiple application windows into a single button"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1975
+#: ../src/plugins/taskbar.c:1993
 #, fuzzy
 msgid "Maximum width of task button"
 msgstr "Max kelebaran butang tugas "
 
-#: ../src/plugins/taskbar.c:1976
+#: ../src/plugins/taskbar.c:1994
 msgid "Spacing"
 msgstr "Jarak"
 
-#: ../src/plugins/taskbar.c:2033
+#: ../src/plugins/taskbar.c:2051
 msgid "Task Bar (Window List)"
 msgstr "Bar Tugas (Senarai Tingkap)"
 
-#: ../src/plugins/taskbar.c:2035
+#: ../src/plugins/taskbar.c:2053
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -620,61 +381,61 @@ msgstr "Jam Digital"
 msgid "Display digital clock and tooltip"
 msgstr "Paparkan Jam Digital dan Tip Peralatan"
 
-#: ../src/plugins/menu.c:372
+#: ../src/plugins/menu.c:423
 msgid "Add to desktop"
 msgstr "Tambahkan ke desktop"
 
-#: ../src/plugins/menu.c:382
+#: ../src/plugins/menu.c:433
 msgid "Properties"
 msgstr "Ciri-ciri"
 
-#: ../src/plugins/menu.c:1019 ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1079 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "Icon"
 
-#: ../src/plugins/menu.c:1036
+#: ../src/plugins/menu.c:1096
 msgid "Menu"
 msgstr "Menu"
 
-#: ../src/plugins/menu.c:1038
+#: ../src/plugins/menu.c:1098
 #, fuzzy
 msgid "Application Menu"
 msgstr "Bar Pelancaran Aplikasi"
 
-#: ../src/plugins/separator.c:98
+#: ../src/plugins/separator.c:102
 msgid "Separator"
 msgstr "Pemisah"
 
-#: ../src/plugins/separator.c:100
+#: ../src/plugins/separator.c:104
 msgid "Add a separator to the panel"
 msgstr "Tambah satu pemisah ke panel"
 
-#: ../src/plugins/pager.c:797
+#: ../src/plugins/pager.c:833
 msgid "Desktop Pager"
 msgstr "Keloi Desktop"
 
-#: ../src/plugins/pager.c:799
+#: ../src/plugins/pager.c:835
 msgid "Simple pager plugin"
 msgstr "Plugin keloi mudah"
 
-#: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
+#: ../src/plugins/space.c:125 ../src/plugins/batt/batt.c:590
 msgid "Size"
 msgstr "Saiz"
 
-#: ../src/plugins/space.c:139
+#: ../src/plugins/space.c:143
 #, fuzzy
 msgid "Spacer"
 msgstr "<Ruang>"
 
-#: ../src/plugins/space.c:141
+#: ../src/plugins/space.c:145
 msgid "Allocate space"
 msgstr "Memperuntukkan ruang"
 
-#: ../src/plugins/tray.c:705
+#: ../src/plugins/tray.c:737
 msgid "System Tray"
 msgstr "System Tray"
 
-#: ../src/plugins/tray.c:707
+#: ../src/plugins/tray.c:739
 #, fuzzy
 msgid "System tray"
 msgstr "System Tray"
@@ -905,6 +666,11 @@ msgstr "Tanpa wayar"
 msgid "Protocol:"
 msgstr "Protokol:"
 
+#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
+msgid "Broadcast:"
+msgstr "Siaran:"
+
 #: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "Alamat HW:"
@@ -995,40 +761,40 @@ msgstr "Penyambungan Rangkaian: %s"
 msgid "Network Connection"
 msgstr "Penyambungan Rangkaian"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:811
+#: ../src/plugins/netstatus/netstatus-icon.c:837
 msgid "Interface"
 msgstr "Antaramuka"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:812
+#: ../src/plugins/netstatus/netstatus-icon.c:838
 msgid "The current interface the icon is monitoring."
 msgstr "Antaramuka kini yang icon sedang mantau."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:819
+#: ../src/plugins/netstatus/netstatus-icon.c:845
 msgid "Orientation"
 msgstr "Orientasi"
 
 # tray for dulang?
-#: ../src/plugins/netstatus/netstatus-icon.c:820
+#: ../src/plugins/netstatus/netstatus-icon.c:846
 msgid "The orientation of the tray."
 msgstr "Orientasi dulang."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:828
+#: ../src/plugins/netstatus/netstatus-icon.c:854
 msgid "Tooltips Enabled"
 msgstr "Membolehkan Tip Peranti"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:829
+#: ../src/plugins/netstatus/netstatus-icon.c:855
 msgid "Whether or not the icon's tooltips are enabled."
 msgstr "Sama ada atau tidak ikon-ikon tip peranti telah dibolehkan"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:836
+#: ../src/plugins/netstatus/netstatus-icon.c:862
 msgid "Show Signal"
 msgstr "Paparkan Isyarat"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:837
+#: ../src/plugins/netstatus/netstatus-icon.c:863
 msgid "Whether or not the signal strength should be displayed."
 msgstr "Sama ada atau tidak, kekuatan isyarat patut dipaparkan."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:950
+#: ../src/plugins/netstatus/netstatus-icon.c:976
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -1234,8 +1000,8 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"Tidak dapat hurai statistik-statistik antaramuka daripada '%s\". prx_idx = %"
-"d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+"Tidak dapat hurai statistik-statistik antaramuka daripada '%s\". prx_idx = "
+"%d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1284,6 +1050,83 @@ msgstr "Penerimaan"
 #: ../src/plugins/netstatus/netstatus-util.c:164
 msgid "Sending/Receiving"
 msgstr "Penghantaran/Penerimaan"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
+#, no-c-format
+msgid "0%"
+msgstr "0%"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
+msgid "<b>Activity</b>"
+msgstr "<b>Aktiviti<b/>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
+msgid "<b>Connection</b>"
+msgstr "<b>Sambungan</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr "<b>Protokol Internet (IPv4)</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>Protokol Internet (IPv6)</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
+msgid "<b>Network Device</b>"
+msgstr "<b>Peranti Rangkaian</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
+msgid "<b>Signal Strength</b>"
+msgstr "<b>Kekuatan Isyarat</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
+msgid "Address:"
+msgstr "Alamat:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
+msgid "Con_figure"
+msgstr "Con_figure"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
+msgid "Destination:"
+msgstr "Destinasi:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
+msgid "General"
+msgstr "Am"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
+msgid "Received:"
+msgstr "Diterima:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
+msgid "Scope:"
+msgstr "Skop:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
+msgid "Sent:"
+msgstr "Dihantar:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
+msgid "Status:"
+msgstr "Status:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
+msgid "Subnet Mask:"
+msgstr "Subrangkaian Topeng:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
+msgid "Support"
+msgstr "Sokongan"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
+msgid "Type:"
+msgstr "Jenis:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
+msgid "_Name:"
+msgstr "_Nama:"
 
 #: ../src/plugins/batt/batt.c:131
 msgid "No batteries found"
@@ -1368,6 +1211,87 @@ msgstr "LED Papan Kekunci"
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Indikasi untuk kunci-kunci CapsLock, NumLock dan ScrollLock "
+
+#~ msgid "<b>Background</b>"
+#~ msgstr "<b>Latarbelakang</b>"
+
+#~ msgid "<b>Font</b>"
+#~ msgstr "<b>Fon</b>"
+
+#, fuzzy
+#~ msgid "<b>Icon</b>"
+#~ msgstr "<b>Fon</b>"
+
+#~ msgid "<b>Position</b>"
+#~ msgstr "<b>Kedudukan</b>"
+
+#~ msgid "<b>Properties</b>"
+#~ msgstr "<b>Ciri-ciri</b>"
+
+#~ msgid "<b>Set Preferred Applications</b>"
+#~ msgstr "<b>Tetapkan Aplikasi Kegemaran</b>"
+
+#~ msgid "<b>Size</b>"
+#~ msgstr "<b>Saiz</b>"
+
+#~ msgid "Advanced"
+#~ msgstr "Majuan"
+
+#~ msgid "Alignment:"
+#~ msgstr "Penjajaran:"
+
+#, fuzzy
+#~ msgid "Center"
+#~ msgstr "Am"
+
+#, fuzzy
+#~ msgid "Custom color"
+#~ msgstr "Warna Resam"
+
+#~ msgid "Edge:"
+#~ msgstr "Tepi:"
+
+#~ msgid "File Manager:"
+#~ msgstr "Pengurus Fail:"
+
+#, fuzzy
+#~ msgid "Image"
+#~ msgstr "imej"
+
+#~ msgid "Logout Command:"
+#~ msgstr "Arahan Log keluar:"
+
+#~ msgid "Make window managers treat the panel as dock"
+#~ msgstr "Jadikan pengurus tingkap menganggap panel sebagai dok"
+
+#~ msgid "Margin:"
+#~ msgstr "Jidar:"
+
+#~ msgid "Panel Applets"
+#~ msgstr "Applikasi Panel"
+
+#~ msgid "Panel Preferences"
+#~ msgstr "Panel Kegemaran"
+
+#~ msgid "Pixels"
+#~ msgstr "Piksel-piksel"
+
+#~ msgid "Reserve space, and not covered by maximized windows"
+#~ msgstr "Ruang rizab, dan tak dialaskan oleh tingkap yang dimaksimumkan"
+
+#~ msgid "Select an image file"
+#~ msgstr "Pilih satu fail imej"
+
+#, fuzzy
+#~ msgid "System theme"
+#~ msgstr "Tiada (Tema sistem digunakan)"
+
+#~ msgid "Terminal Emulator:"
+#~ msgstr "Emulator Terminal:"
+
+#, fuzzy
+#~ msgid "pixels"
+#~ msgstr "Piksel-piksel"
 
 #, fuzzy
 #~ msgid "Applications"
