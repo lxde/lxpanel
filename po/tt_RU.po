@@ -8,172 +8,172 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-07-20 11:01+0200\n"
-"PO-Revision-Date: 2011-07-12 17:58+0200\n"
-"Last-Translator: PraveenIlla <mail2ipn@gmail.com>\n"
+"PO-Revision-Date: 2011-07-21 20:19+0200\n"
+"Last-Translator: Ainur <ainur.shakirov.tt@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: te\n"
+"Language: tt_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
 msgid "% Percent"
-msgstr "% శాతం"
+msgstr "% процент"
 
 #: ../data/ui/panel-pref.glade.h:3
 msgid "<b>Automatic hiding</b>"
-msgstr "<b>స్వయంచాలక దాగుట</b>"
+msgstr "<b>Автоматик качыру</b>"
 
 #: ../data/ui/panel-pref.glade.h:4
 msgid "<b>Background</b>"
-msgstr "<b>నేపథ్యం</b>"
+msgstr "<b>Җирлек</b>"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "<b>Font</b>"
-msgstr "<b>ఫాంటు</b>"
+msgstr "<b>Хәреф</b>"
 
 #: ../data/ui/panel-pref.glade.h:6
 msgid "<b>Icon</b>"
-msgstr "<b>ప్రతీక</b>"
+msgstr "<b>Билгечекләр</b>"
 
 #: ../data/ui/panel-pref.glade.h:7
 msgid "<b>Position</b>"
-msgstr "<b>స్థానము</b>"
+msgstr "<b>Тоткан урын</b>"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "<b>Properties</b>"
-msgstr "<b>గుణములు</b>"
+msgstr "<b>Көйләүләр</b>"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>ప్రాధాన్య అనువర్తనాలను అమర్చు</b>"
+msgstr "<b>Яратылган кушымталарны сайлау</b>"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "<b>Size</b>"
-msgstr "<b>పరిమాణం</b>"
+msgstr "<b>Зурлык</b>"
 
 #: ../data/ui/panel-pref.glade.h:11
 msgid "Advanced"
-msgstr "ఉన్నత"
+msgstr "Өстәмә"
 
 #: ../data/ui/panel-pref.glade.h:12
 msgid "Alignment:"
-msgstr "అనుగుణం:"
+msgstr "Тигезләү:"
 
 #: ../data/ui/panel-pref.glade.h:13
 msgid "Appearance"
-msgstr "కనిపించువిధము"
+msgstr "Тышкы кыяфәт"
 
 #: ../data/ui/panel-pref.glade.h:14 ../src/panel.c:1049
 msgid "Bottom"
-msgstr "అడుగు"
+msgstr "Аста"
 
 #: ../data/ui/panel-pref.glade.h:15
 msgid "Center"
-msgstr "మధ్య"
+msgstr "Урта буенча"
 
 #: ../data/ui/panel-pref.glade.h:16
 msgid "Custom color"
-msgstr "అనురూపిత రంగు"
+msgstr "Сайланган төс"
 
 #: ../data/ui/panel-pref.glade.h:17
 msgid "Dynamic"
-msgstr "గతి"
+msgstr "Динамик"
 
 #: ../data/ui/panel-pref.glade.h:18
 msgid "Edge:"
-msgstr "కొన:"
+msgstr "Урнашу:"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "File Manager:"
-msgstr "ఫైల్ నిర్వాహకం:"
+msgstr "Файл-менеджер"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "Geometry"
-msgstr "జ్యామితి"
+msgstr "Урнаштыру"
 
 #: ../data/ui/panel-pref.glade.h:21 ../src/panel.c:1039 ../src/panel.c:1047
 msgid "Height:"
-msgstr "ఎత్తు:"
+msgstr "Биеклек:"
 
 #: ../data/ui/panel-pref.glade.h:22
 msgid "Image"
-msgstr "బొమ్మ"
+msgstr "Рәсем"
 
 #: ../data/ui/panel-pref.glade.h:23 ../src/panel.c:1041
 msgid "Left"
-msgstr "ఎడమ"
+msgstr "Сул якта"
 
 #: ../data/ui/panel-pref.glade.h:24
 msgid "Logout Command:"
-msgstr "లాగౌట్ ఆదేశం:"
+msgstr "Системадан чыгу командасы:"
 
 #: ../data/ui/panel-pref.glade.h:25
 msgid "Make window managers treat the panel as dock"
-msgstr "ప్యానల్‌ను డాక్ వలె వ్యవహరించేటట్లు విండో నిర్వాహకాలను చేయి"
+msgstr "Панельләрне беркетеп кую"
 
 #: ../data/ui/panel-pref.glade.h:26
 msgid "Margin:"
-msgstr "అంచు:"
+msgstr "Аралык:"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Minimize panel when not in use"
-msgstr "వాడుకలో లేనపుడు ప్యానల్‌ను కనిష్ఠీకరించు"
+msgstr "Панель белән кулланылмаганда качырырга"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "Panel Applets"
-msgstr "ప్యానల్ ఏప్లెట్స్"
+msgstr "Панель кушымталары"
 
 #: ../data/ui/panel-pref.glade.h:29
 msgid "Panel Preferences"
-msgstr "ప్యానల్ ప్రాధాన్యతలు"
+msgstr "Панель көйләүләре"
 
 #: ../data/ui/panel-pref.glade.h:30
 msgid "Pixels"
-msgstr "పిక్సెళ్ళు"
+msgstr "Пиксел"
 
 #: ../data/ui/panel-pref.glade.h:31
 msgid "Reserve space, and not covered by maximized windows"
-msgstr "పెద్దదిగాచేసిన విండోచే కప్పివుంచబడని విధముగా ఖాళీను కేటాయించు"
+msgstr "Урын калдыру һәм бөтен экранга ачылган тәрәзәләр белән ябмаска"
 
 #: ../data/ui/panel-pref.glade.h:32 ../src/panel.c:1042
 msgid "Right"
-msgstr "కుడి"
+msgstr "Уң якта"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "Select an image file"
-msgstr "ఒక బొమ్మ ఫైలును ఎంచుకొను"
+msgstr "Рәсем файлын сайлагыз"
 
 #: ../data/ui/panel-pref.glade.h:34
 msgid "Size when minimized"
-msgstr "కనిష్ఠీకరించినపుడు పరిమాణం"
+msgstr "Качырылган панель зурлыгы"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Solid color (with opacity)"
-msgstr "బలమైన రంగు (ఆపారదర్శకతతో)"
+msgstr "Төс (үтә күренмәлек) сайлаү"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "System theme"
-msgstr "వ్యవస్థ థీము"
+msgstr "Система тышы"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "Terminal Emulator:"
-msgstr "టెర్మినల్ ఎమ్యులేటర్:"
+msgstr "Терминал эмуляторы:"
 
 #: ../data/ui/panel-pref.glade.h:38 ../src/panel.c:1048
 msgid "Top"
-msgstr "ఉత్తమ"
+msgstr "Өстә"
 
 #: ../data/ui/panel-pref.glade.h:39 ../src/panel.c:1040 ../src/panel.c:1046
 msgid "Width:"
-msgstr "వెడల్పు:"
+msgstr "Калынлык:"
 
 #: ../data/ui/panel-pref.glade.h:40
 msgid "pixels"
-msgstr "పిక్సెళ్ళు"
+msgstr "пиксел"
 
 #: ../data/ui/netstatus.glade.h:2
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
@@ -184,255 +184,255 @@ msgstr "0%"
 #: ../data/ui/netstatus.glade.h:3
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
 msgid "<b>Activity</b>"
-msgstr "<b>క్రియాశీలత</b>"
+msgstr "<b>Активлык</b>"
 
 #: ../data/ui/netstatus.glade.h:4
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
 msgid "<b>Connection</b>"
-msgstr "<b>అనుసంధానం</b>"
+msgstr "<b>Тоташма</b>"
 
 #: ../data/ui/netstatus.glade.h:5
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
 msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr "<b>అంతర్జాల ప్రోటోకాల్ (IPv4)</b>"
+msgstr "<b>IPv4 Интернет Беркетмәсе</b>"
 
 #: ../data/ui/netstatus.glade.h:6
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
 msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr "<b>అంతర్జాల ప్రోటోకాల్ (IPv6)</b>"
+msgstr "<b>IPv6 Интернет Беркетмәсе</b>"
 
 #: ../data/ui/netstatus.glade.h:7
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
 msgid "<b>Network Device</b>"
-msgstr "<b>నెట్‌వర్క్ పరికరం</b>"
+msgstr "<b>Челтәр җайланмасы</b>"
 
 #: ../data/ui/netstatus.glade.h:8
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
 msgid "<b>Signal Strength</b>"
-msgstr "<b>సిగ్నల్ బలము</b>"
+msgstr "<b>Сигнал күәте</b>"
 
 #: ../data/ui/netstatus.glade.h:9
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
 msgid "Address:"
-msgstr "చిరునామా:"
+msgstr "Адрес:"
 
 #: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
 #: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
 msgid "Broadcast:"
-msgstr "ప్రసారం:"
+msgstr "Киң тапшыручы адрес:"
 
 #: ../data/ui/netstatus.glade.h:11
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
 msgid "Con_figure"
-msgstr "స్వరూపించు (_f)"
+msgstr "Көй_ләү"
 
 #: ../data/ui/netstatus.glade.h:12
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
 msgid "Destination:"
-msgstr "గమ్యస్థానం:"
+msgstr "Кая:"
 
 #: ../data/ui/netstatus.glade.h:13
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
 msgid "General"
-msgstr "సాధారణ"
+msgstr "Гомуми"
 
 #: ../data/ui/netstatus.glade.h:14
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
 msgid "Received:"
-msgstr "పొందినది:"
+msgstr "Кабул ителде:"
 
 #: ../data/ui/netstatus.glade.h:15
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
 msgid "Scope:"
-msgstr "లక్ష్యం:"
+msgstr "График:"
 
 #: ../data/ui/netstatus.glade.h:16
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
 msgid "Sent:"
-msgstr "పంపినది:"
+msgstr "Тапшырылды:"
 
 #: ../data/ui/netstatus.glade.h:17
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
 msgid "Status:"
-msgstr "స్థితి:"
+msgstr "Торыш:"
 
 #: ../data/ui/netstatus.glade.h:18
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
 msgid "Subnet Mask:"
-msgstr "సబ్‌నెట్ మాస్క్:"
+msgstr "Аскы челтәр маскасы:"
 
 #: ../data/ui/netstatus.glade.h:19
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
 msgid "Support"
-msgstr "మద్ధతు"
+msgstr "Таяныч"
 
 #: ../data/ui/netstatus.glade.h:20
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
 msgid "Type:"
-msgstr "రకం:"
+msgstr "Төр:"
 
 #: ../data/ui/netstatus.glade.h:21
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
 msgid "_Name:"
-msgstr "పేరు(_N):"
+msgstr "_Исем:"
 
 #: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:887
 msgid "Application Launch Bar"
-msgstr "అనువర్తన ప్రారంభ పట్టీ"
+msgstr "Кушымта җибәрү панеле"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:319
 msgid "Run"
-msgstr "నడుపు"
+msgstr "Башкару"
 
 #: ../src/configurator.c:56
 msgid "Restart"
-msgstr "పునఃప్రారంభించు"
+msgstr "Яңадан җибәрү"
 
 #: ../src/configurator.c:57
 msgid "Logout"
-msgstr "లాగౌట్"
+msgstr "Сеансны бетерү"
 
 #: ../src/configurator.c:448
 msgid "Currently loaded plugins"
-msgstr "ప్రస్తుతం లోడయిన ప్లగిన్‌లు"
+msgstr "Йөкләнгән өстәлмәләр"
 
 #: ../src/configurator.c:457
 msgid "Stretch"
-msgstr "లాగు"
+msgstr "Сузырга"
 
 #: ../src/configurator.c:559
 msgid "Add plugin to panel"
-msgstr "ప్లగిన్‌ను ప్యానల్‌కు జతచేయి"
+msgstr "Панельгә өстәлмә кушу"
 
 #: ../src/configurator.c:587
 msgid "Available plugins"
-msgstr "అందుబాటలో ఉన్న ప్లగిన్‌లు"
+msgstr "Булган өстәлмәләр"
 
 #: ../src/configurator.c:1143
 msgid "Logout command is not set"
-msgstr "లాగౌట్ ఆదేశం అమర్చలేదు"
+msgstr "Системадан чыгу командасы күрсәтелмәгән"
 
 #: ../src/configurator.c:1196
 msgid "Select a directory"
-msgstr "ఒక చిరునామాని ఎంచుకొను"
+msgstr "Каталогны сайлау"
 
 #: ../src/configurator.c:1196 ../src/configurator.c:1287
 msgid "Select a file"
-msgstr "ఒక ఫైలును ఎంచుకొను"
+msgstr "Файлны сайлау"
 
 #: ../src/configurator.c:1314
 msgid "_Browse"
-msgstr "అన్వేషించు (_B)"
+msgstr "_Карау"
 
 #: ../src/panel.c:649
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
-"ఈ ప్యానల్‌ను నిజంగానే తీసివేయాలా?\n"
-"<b>హెచ్చరిక: దీనిని తిరిగి పొందటం వీలుకాదు.</b>"
+"Бу панельне чыннан да бетерергәме?\n"
+"<b>Кисәтү: Моны кире кайтарып булмый.</b>"
 
 #: ../src/panel.c:651
 msgid "Confirm"
-msgstr "నిర్ధారించు"
+msgstr "Раслау"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:683
 msgid "translator-credits"
-msgstr "Praveen Illa <mail2ipn@gmail.com>, 2011."
+msgstr "Ainur Shakirov <ainur.shakiorv.tt@gmail.com>"
 
 #: ../src/panel.c:688
 msgid "LXPanel"
-msgstr "LXప్యానల్"
+msgstr "LXPanel"
 
 #: ../src/panel.c:690
 msgid "Copyright (C) 2008-2009"
-msgstr "నకలుహక్కు (C) 2008-2009"
+msgstr "Copyright (C) 2008-2009"
 
 #: ../src/panel.c:691
 msgid "Desktop panel for LXDE project"
-msgstr "LXDE ప్రోజెక్టు కొరకు డెస్క్‍టాప్ ప్యానల్"
+msgstr "LXDE өчен эш өстәле панеле"
 
 #: ../src/panel.c:714
 msgid "Add / Remove Panel Items"
-msgstr "ప్యానల్ అంశాలను జతచేయ/తొలగించు"
+msgstr "Панель өлешләрен өстәү/бетерү"
 
 #: ../src/panel.c:722
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr "ప్యానల్ నుండి  \"%s\" అంశమును తొలగించు"
+msgstr "Панельдән «%s»'не бетерү"
 
 #: ../src/panel.c:734
 msgid "Panel Settings"
-msgstr "ప్యానల్ అమరికలు"
+msgstr "Панель көйләүләре"
 
 #: ../src/panel.c:740
 msgid "Create New Panel"
-msgstr "కొత్త ప్యానల్‌ను సృష్టించు"
+msgstr "Яңа панель кушу"
 
 #: ../src/panel.c:751
 msgid "Delete This Panel"
-msgstr "ఈ ప్యానల్‌ను తీసివేయి"
+msgstr "Бу панельне бетерү"
 
 #: ../src/panel.c:762
 msgid "About"
-msgstr "గురించి"
+msgstr "Өлеш турында"
 
 #: ../src/panel.c:770
 msgid "Panel"
-msgstr "ప్యానల్"
+msgstr "Панель"
 
 #: ../src/panel.c:783
 #, c-format
 msgid "\"%s\" Settings"
-msgstr "\"%s\" అమరికలు"
+msgstr "«%s» көйләве"
 
 #: ../src/panel.c:1448
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr "lxప్యానల్ %s - యునిక్స్ డెస్క్‍టాప్‌ల కోసం తేలికపాటి GTK2+ ప్యానల్\n"
+msgstr "lxpanel %s - UNIX эш өстәле өчен җиңел GTK2+ панеле\n"
 
 #: ../src/panel.c:1449
 #, c-format
 msgid "Command line options:\n"
-msgstr "కమాండు లైను ఐచ్చికాలు:\n"
+msgstr "Команда юлы ачкычлары:\n"
 
 #: ../src/panel.c:1450
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr " --సహాయం      -- ఈ సహాయాన్ని ముద్రించు మరియు నిష్క్రమించు\n"
+msgstr " --help      -- бу белешмәне бастырып чыгу\n"
 
 #: ../src/panel.c:1451
 #, c-format
 msgid " --version   -- print version and exit\n"
-msgstr " --వెర్షన్   -- వెర్షన్ ముద్రించు మరియు నిష్క్రమించు\n"
+msgstr " --version   -- юрама санын бастырып чыгу\n"
 
 #: ../src/panel.c:1452
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --చిట్టా <సంఖ్య> -- చిట్టా స్థాయి అమర్చు 0-5. 0 - ఏదీకాదు 5 - chatty\n"
+msgstr "--log <сан> -- лог дәрәҗәсен кую, 0-5. 0 - юк 5 - тулысынча\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1454
 #, c-format
 msgid " --profile name -- use specified profile\n"
-msgstr " --ప్రొఫైల్ పేరు -- నిర్దిష్ట ప్రొఫైల్‌ను వాడు\n"
+msgstr " --profile name -- күрсәтелгән профильне куллану\n"
 
 #: ../src/panel.c:1456
 #, c-format
 msgid " -h  -- same as --help\n"
-msgstr " -h  -- same as --సహాయం\n"
+msgstr " -h  -- --help шикелле\n"
 
 #: ../src/panel.c:1457
 #, c-format
 msgid " -p  -- same as --profile\n"
-msgstr " -p  -- same as --ప్రొఫైల్\n"
+msgstr " -p  -- --profile шикелле\n"
 
 #: ../src/panel.c:1458
 #, c-format
 msgid " -v  -- same as --version\n"
-msgstr " -v  -- same as --వెర్షన్\n"
+msgstr " -v  -- --version шикелле\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
 #: ../src/panel.c:1460
@@ -443,341 +443,343 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"వివరాలకు http://lxde.org/ సందర్శించండి.\n"
+"Тулы мәгълумат өчен http://lxde.org/ сайтына мөрәҗәгать итегез.\n"
 "\n"
 
 #: ../src/gtk-run.c:332
 msgid "Enter the command you want to execute:"
-msgstr "మీరు ఎక్జిక్యూట్ చేయాలనుకుంటున్న ఆదేశాన్ని ప్రవేశపెట్టండి:"
+msgstr "Үтәү өчен команданы кертегез:"
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
-msgstr "CPU వినిమయ పర్యవేక్షకం"
+msgstr "Процессорның йөкләү мониторы"
 
 #: ../src/plugins/cpu/cpu.c:270
 msgid "Display CPU usage"
-msgstr "CPU వాడుకను చూపించు"
+msgstr "Процессорның йөкләвен күрсәтә"
 
 #: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:426
 msgid "Bold font"
-msgstr "లావుపాటి ఫాంటు"
+msgstr "Калын хәреф"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
-msgstr "డెస్క్‍టాప్ పేరులను చూపించు"
+msgstr "Эш өстәл исемнәрен чагылдырырга"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
-msgstr "డెస్క్‍టాప్ సంఖ్య / కార్యక్షేత్రం పేరు"
+msgstr "Эш өстәле саны һәм исеме"
 
 #: ../src/plugins/deskno/deskno.c:237
 msgid "Display workspace number, by cmeury@users.sf.net"
-msgstr "కార్యక్షేత్రం సంఖ్యను చూపించు, by cmeury@users.sf.net"
+msgstr "Эш өстәле номерын күрсәтә"
 
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
-msgstr "బొమ్మను మరియు సాధనచిట్కాను చూపించు"
+msgstr "Рәсем һәм ярдәмчекне күрсәтергә"
 
 #: ../src/plugins/launchbar.c:889
 msgid "Bar with buttons to launch application"
-msgstr "అనువర్తనాలను ప్రారంభించుటకు బటన్లతో ఉన్న పట్టీ"
+msgstr "Кушымталарны җибәрүче билгечекләр панеле"
 
 #. Add Raise menu item.
 #: ../src/plugins/taskbar.c:1700
 msgid "_Raise"
-msgstr "పెంచు (_R)"
+msgstr "_Күтәрү"
 
 #. Add Restore menu item.
 #: ../src/plugins/taskbar.c:1705
 msgid "R_estore"
-msgstr "తిరిగివుంచు (_e)"
+msgstr "Т_ергезү"
 
 #. Add Maximize menu item.
 #: ../src/plugins/taskbar.c:1710
 msgid "Ma_ximize"
-msgstr "పెద్దదిగాచేయి (_x)"
+msgstr "_Бөтен экранга"
 
 #. Add Iconify menu item.
 #: ../src/plugins/taskbar.c:1715
 msgid "Ico_nify"
-msgstr "చిన్నదిగాచేయి (_n)"
+msgstr "Билгечек шикелле"
 
 #: ../src/plugins/taskbar.c:1734
 #, c-format
 msgid "Workspace _%d"
-msgstr "కార్యక్షేత్రం _%d"
+msgstr "_%d эш урыны"
 
 #: ../src/plugins/taskbar.c:1739
 #, c-format
 msgid "Workspace %d"
-msgstr "కార్యక్షేత్రం %d"
+msgstr "%d эш урыны"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../src/plugins/taskbar.c:1753
 msgid "_All workspaces"
-msgstr "అన్ని కార్యక్షేత్రాలు (_A)"
+msgstr "_Барлык эш өстәлләре"
 
 #. Add Move to Workspace menu item as a submenu.
 #: ../src/plugins/taskbar.c:1759
 msgid "_Move to Workspace"
-msgstr "కార్యక్షేత్రమునకు తరలించు (_M)"
+msgstr "_Эш өстәленә күчерү"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../src/plugins/taskbar.c:1765
 msgid "_Close Window"
-msgstr "విండోను మూసివేయి (_C)"
+msgstr "_Тәрәзәне ябу"
 
 #: ../src/plugins/taskbar.c:1968
 msgid "Show tooltips"
-msgstr "సాధనచిట్కాలను చూపించు"
+msgstr "Ярдәмчекләрне күрсәтү"
 
 #: ../src/plugins/taskbar.c:1969
 msgid "Icons only"
-msgstr "ప్రతీకలు మాత్రమే"
+msgstr "Билгечекләр генә"
 
 #: ../src/plugins/taskbar.c:1970
 msgid "Flat buttons"
-msgstr "సమతల బటన్లు"
+msgstr "Яссы төймәләр"
 
 #: ../src/plugins/taskbar.c:1971
 msgid "Show windows from all desktops"
-msgstr "అన్ని డెస్క్‍టాపుల నుండి విండోలను చూపించు"
+msgstr "Барлык эш өстәлләрдәге тәрәзәләрне күрсәтергә"
 
 #: ../src/plugins/taskbar.c:1972
 msgid "Use mouse wheel"
-msgstr "మౌస్ చక్రాన్ని వాడు"
+msgstr "Тышканчык тәгәрмәчен куллану"
 
 #: ../src/plugins/taskbar.c:1973
 msgid "Flash when there is any window requiring attention"
-msgstr "ఏదైనా విండో పై ప్రత్యేకదృష్టిపెట్టవలసివస్తే దానిని మిటకరించు"
+msgstr "Тәрәзә ихтибарны таләп итсә, ачып йомырга"
 
 #: ../src/plugins/taskbar.c:1974
 msgid "Combine multiple application windows into a single button"
-msgstr "బహుళ అనువర్తనాల విండోలను ఒకే బటన్‌గా చేర్చు"
+msgstr "Берничә тәрәзәне бер төймәгә төркемләү"
 
 #: ../src/plugins/taskbar.c:1975
 msgid "Maximum width of task button"
-msgstr "కార్య బటన్ యొక్క అధిక వెడల్పు"
+msgstr "Тәрәзә төймәсенең иң зур киңлеге"
 
 #: ../src/plugins/taskbar.c:1976
 msgid "Spacing"
-msgstr "అంతరం"
+msgstr "Аергыч"
 
 #: ../src/plugins/taskbar.c:2033
 msgid "Task Bar (Window List)"
-msgstr "కార్య పట్టీ (విండో జాబితా)"
+msgstr "Мәсьәлә панеле (Тәрәзә исемлеге)"
 
 #: ../src/plugins/taskbar.c:2035
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
-"తెరవబడిన అన్ని విండోలను చూపించుటకు మరియు వాటిని కనిష్ఠీకరించుటకు కార్యపట్టీ "
-"అనుమతిస్తుంది, వాటి ఛాయని లేదా వాటిపై కేంద్రీకరిస్తుంది"
+"Мәсьәлә панеле бөтен ачылган тәрәзәләрне күрсәтә, аларны күгәләтергә яки "
+"фокусын алырга мөмкинлек бирә"
 
 #: ../src/plugins/dclock.c:422
 msgid "Clock Format"
-msgstr "గడియారపు తీరు"
+msgstr "Сәгать төре"
 
 #: ../src/plugins/dclock.c:423
 msgid "Tooltip Format"
-msgstr "సాధనచిట్కా తీరు"
+msgstr "Ярдәмчек төре"
 
 #: ../src/plugins/dclock.c:424
 msgid "Format codes: man 3 strftime; \\n for line break"
-msgstr "ఫార్మేటు కోడులు: man 3 strftime; \\n for line break"
+msgstr ""
+"Код форматы: man 3 strftime; \n"
+" юлларны өзү өчен"
 
 #: ../src/plugins/dclock.c:425
 msgid "Action when clicked (default: display calendar)"
-msgstr "నొక్కినపుడు చర్య (అప్రమేయం: క్యాలెండరు ప్రదర్శించు)"
+msgstr "Басканда эш (үрнәкчә: календарьне күрсәтү)"
 
 #: ../src/plugins/dclock.c:427
 msgid "Tooltip only"
-msgstr "సాధనచిట్కా మాత్రమే"
+msgstr "Ярдәмчекләр генә"
 
 #: ../src/plugins/dclock.c:455
 msgid "Digital Clock"
-msgstr "డిజిటల్ గడియారం"
+msgstr "Санлы сәгать"
 
 #: ../src/plugins/dclock.c:457
 msgid "Display digital clock and tooltip"
-msgstr "డిజిటల్ గడియారం మరియు సాధనచిట్కాను చూపించు"
+msgstr "Санлы сәгать һәм ярдәмчекне күрсәтә "
 
 #: ../src/plugins/menu.c:372
 msgid "Add to desktop"
-msgstr "డెస్క్‍టాపుకి జతచేయి"
+msgstr "Эш өстәленә өстәү"
 
 #: ../src/plugins/menu.c:382
 msgid "Properties"
-msgstr "గుణములు"
+msgstr "Сыйфатлар"
 
 #: ../src/plugins/menu.c:1019 ../src/plugins/dirmenu.c:413
 msgid "Icon"
-msgstr "ప్రతీక"
+msgstr "Билгечек"
 
 #: ../src/plugins/menu.c:1036
 msgid "Menu"
-msgstr "మెను"
+msgstr "Меню"
 
 #: ../src/plugins/menu.c:1038
 msgid "Application Menu"
-msgstr "అనువర్తన మెను"
+msgstr "Кушымта менюсы"
 
 #: ../src/plugins/separator.c:98
 msgid "Separator"
-msgstr "వేరుచేయునది"
+msgstr "Аергыч"
 
 #: ../src/plugins/separator.c:100
 msgid "Add a separator to the panel"
-msgstr "ప్యానల్‌కు ఒక వేరుచేసేదానిని జతచేయి"
+msgstr "Панельгә аергыч өстүргә"
 
 #: ../src/plugins/pager.c:797
 msgid "Desktop Pager"
-msgstr "డెస్క్‍టాప్ పేజర్"
+msgstr "Эш өстәле күчерүчесе"
 
 #: ../src/plugins/pager.c:799
 msgid "Simple pager plugin"
-msgstr "సులభ పేజర్ ప్లగిన్"
+msgstr "Эш өстәле күчерүчесе өстәлмәсе"
 
 #: ../src/plugins/space.c:121 ../src/plugins/batt/batt.c:590
 msgid "Size"
-msgstr "పరిమాణం"
+msgstr "Зурлык"
 
 #: ../src/plugins/space.c:139
 msgid "Spacer"
-msgstr "స్పేసర్"
+msgstr "Аралык"
 
 #: ../src/plugins/space.c:141
 msgid "Allocate space"
-msgstr "ఖాళీ కేటాయించు"
+msgstr "Киңлек бирү"
 
 #: ../src/plugins/tray.c:705
 msgid "System Tray"
-msgstr "వ్యవస్థ పళ్ళెం"
+msgstr "Система тартмасы"
 
 #: ../src/plugins/tray.c:707
 msgid "System tray"
-msgstr "వ్యవస్థ పళ్ళెం"
+msgstr "Система тартмасы"
 
 #: ../src/plugins/xkb/xkb-plugin.c:291
 msgid "Configure Keyboard Layout Switcher"
-msgstr "కీబోర్డు నమూనా మార్పరిని స్వరూపించు"
+msgstr "Төймә тактасының тамга тәртибе күчерүчесен көйләү"
 
 #: ../src/plugins/xkb/xkb-plugin.c:306
 msgid "Show layout as"
-msgstr "నమూనాలని ఇలా చూపించు"
+msgstr "Тамга тәртибен күрсәтү"
 
 #: ../src/plugins/xkb/xkb-plugin.c:321
 msgid "image"
-msgstr "బొమ్మ"
+msgstr "рәсем"
 
 #: ../src/plugins/xkb/xkb-plugin.c:322
 msgid "text"
-msgstr "పాఠ్యం"
+msgstr "текст"
 
 #: ../src/plugins/xkb/xkb-plugin.c:329
 msgid "Per application settings"
-msgstr "అనువర్తనము అమరికలు"
+msgstr "Кушымта көйләүләре"
 
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/xkb/xkb-plugin.c:344
 msgid "_Remember layout for each application"
-msgstr "ప్రతీ అనువర్తనము యొక్క ఆకృతిని గుర్తుంచకొను (_R)"
+msgstr "Һәрбер кушымта өчен тамга тәртибен истә калдырырга"
 
 #. Create a label as the child of the horizontal box.
 #: ../src/plugins/xkb/xkb-plugin.c:354
 msgid "Default layout:"
-msgstr "అప్రమేయ నమూనా:"
+msgstr "Үрнәк тамга тәртибе:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:405
 msgid "Keyboard Layout Switcher"
-msgstr "కీబోర్డు నమూనా మార్పరి"
+msgstr "Төймә тактасының тамга тәртибен күчерүчесе"
 
 #: ../src/plugins/xkb/xkb-plugin.c:407
 msgid "Switch between available keyboard layouts"
-msgstr "అందుబాటులోవున్న కీబోర్డు నమూనాలా మధ్య మారు"
+msgstr "Төймә тактасының булган тамга тәртипләрен күчерү"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
-"అన్ని విండోలను చిన్నగాచేయుటకు లెఫ్ట్ క్లిక్ చేయండి.  వాటిని షేడ్ చేయాలంటే "
-"మధ్య క్లిక్ చేయండి."
+"Тычканчыкның сул як төймәсе бөтен тәрәзәләрне төреп куя.  Урта төймә аларны "
+"качырачак."
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
-msgstr "ప్రత్యామ్నాయంగా ఐకానిఫై/షేడ్ మరియు పెంచు"
+msgstr "Тәрәзәне билгечеккә төреп куюның/качыруның икенче юлы"
 
 #: ../src/plugins/wincmd.c:266
 msgid "Minimize All Windows"
-msgstr "అన్ని విండోలను కనిష్ఠీకరించు"
+msgstr "Бөтен тәрәзәләрне төреп кую"
 
 #: ../src/plugins/wincmd.c:268
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
-"అన్ని డెస్క్‍టాప్ విండోలకు ఆదేశాలను పంపుతుంది.\n"
-"మద్ధతినిచ్చు కమాండులు 1)ఐకానిఫై 2)షేడ్"
+"Барлык эш өстәлләре тәрәзәләренә командалар тапшыру.\n"
+"Эшләүче командалар: 1) билгечеккә төрү һәм 2) качыру"
 
 #: ../src/plugins/dirmenu.c:246
 msgid "Open in _Terminal"
-msgstr "టెర్మినల్‌లో తెరువు (_T)"
+msgstr "Терминалда ачу"
 
 #: ../src/plugins/dirmenu.c:411
 msgid "Directory"
-msgstr "డైరెక్టరీ"
+msgstr "Тамыр"
 
 #: ../src/plugins/dirmenu.c:412
 msgid "Label"
-msgstr "గుర్తు"
+msgstr "Билге"
 
 #: ../src/plugins/dirmenu.c:443
 msgid "Directory Menu"
-msgstr "డైరెక్టరీ మెను"
+msgstr "Каталоглар төзелеше"
 
 #: ../src/plugins/dirmenu.c:445
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr "డైరెక్టరీని చెట్టును మెనూ ద్వారా అన్వేషించు (మూలకర్త: పిసిమ్యాన్)"
+msgstr "Каталогларны агач рәвешендә карау"
 
 #: ../src/plugins/thermal/thermal.c:304
 msgid "Normal"
-msgstr "సాధారణ"
+msgstr "Гадәти"
 
 #: ../src/plugins/thermal/thermal.c:305
 msgid "Warning1"
-msgstr "హెచ్చరిక1"
+msgstr "Чик 1"
 
 #: ../src/plugins/thermal/thermal.c:306
 msgid "Warning2"
-msgstr "హెచ్చరిక2"
+msgstr "Чик 2"
 
 #: ../src/plugins/thermal/thermal.c:307
 msgid "Automatic sensor location"
-msgstr "స్వయంచాలక గ్రాహక స్థానము"
+msgstr "Автоматик рәвештә сенсорларны билгеләү"
 
 #: ../src/plugins/thermal/thermal.c:308
 msgid "Sensor"
-msgstr "గ్రాహకం"
+msgstr "Сенсор"
 
 #: ../src/plugins/thermal/thermal.c:309
 msgid "Automatic temperature levels"
-msgstr "స్వయంచాలక ఉష్ణోగ్రత స్థాయి"
+msgstr "Автоматик температура дәрәҗәсе"
 
 #: ../src/plugins/thermal/thermal.c:310
 msgid "Warning1 Temperature"
-msgstr "హెచ్చరిక1 ఉష్ణోగ్రత"
+msgstr "Температура чиге 1"
 
 #: ../src/plugins/thermal/thermal.c:311
 msgid "Warning2 Temperature"
-msgstr "హెచ్చరిక2 ఉష్ణోగ్రత"
+msgstr "Температура чиге 2"
 
 #: ../src/plugins/thermal/thermal.c:353
 msgid "Temperature Monitor"
-msgstr "ఉష్ణోగ్రత పర్యవేక్షకం"
+msgstr "Температура мониторы"
 
 #: ../src/plugins/thermal/thermal.c:355
 msgid "Display system temperature"
-msgstr "వ్యవస్థ ఉష్ణోగ్రతను చూపించు"
+msgstr "Компьютер температурасын чагылдыру"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -785,118 +787,118 @@ msgstr "వ్యవస్థ ఉష్ణోగ్రతను చూపిం�
 #: ../src/plugins/volumealsa/volumealsa.c:252
 #: ../src/plugins/volumealsa/volumealsa.c:422
 msgid "Volume control"
-msgstr "ధ్వని నియంత్రణ"
+msgstr "Тавыш катылыгы"
 
 #: ../src/plugins/volume/volume.c:312
 #: ../src/plugins/volumealsa/volumealsa.c:471
 msgid "Volume Control"
-msgstr "ధ్వని నియంత్రణ"
+msgstr "Тавыш катылыгы"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
 #: ../src/plugins/volumealsa/volumealsa.c:380
 msgid "Volume"
-msgstr "ధ్వనిస్థాయి"
+msgstr "Тавыш катылыгы"
 
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/volumealsa/volumealsa.c:399
 msgid "Mute"
-msgstr "నిశబ్ధం"
+msgstr "Сүнд."
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
-msgstr "<హిడెన్ యాక్సెస్ పాయింట్>"
+msgstr "<Качырылган керү ноктасы>"
 
 #: ../src/plugins/netstat/netstat.c:201
 msgid "Wireless Networks not found in range"
-msgstr "ఈ పరిధిలో వైరులేని నెట్‌వర్కులు కనపడలేదు"
+msgstr "Чыбыксыз челтәрләр табылмады"
 
 #. Repair
 #: ../src/plugins/netstat/netstat.c:235
 msgid "Repair"
-msgstr "బాగుచేయి"
+msgstr "Төзәтү"
 
 #. interface down
 #: ../src/plugins/netstat/netstat.c:240
 msgid "Disable"
-msgstr "అచేతనంచేయి"
+msgstr "Сүндерү"
 
 #: ../src/plugins/netstat/netstat.c:299
 msgid "Wireless Connection has no connectivity"
-msgstr "వైరులేని నెట్‌వర్క్ అనుసంధానత కలిగిలేదు"
+msgstr "Чыбыксыз тоташмага ялганмаган"
 
 #: ../src/plugins/netstat/netstat.c:301
 msgid "Network cable is plugged out"
-msgstr "నెట్‌వర్క్ వైరు తొలగించబడినది"
+msgstr "Челтәр чыбыгы тоташмаган"
 
 #: ../src/plugins/netstat/netstat.c:303
 msgid "Connection has limited or no connectivity"
-msgstr "అనుసంధానం పరిమితం లేక అనుసంధానత కలిగిలేదు"
+msgstr "Тоташма чикләнгән яки ялганмаган"
 
 #: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
-msgstr "ఐపీ చిరునామా:"
+msgstr "IP адресы:"
 
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Remote IP:"
-msgstr "దూరస్థ ఐపి:"
+msgstr "Ерактагы IP:"
 
 #: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
-msgstr "నెట్‌మాస్క్:"
+msgstr "Челтәр битлеге:"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
-msgstr "క్రియాశీలత"
+msgstr "Активлык"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
-msgstr "పంపినది"
+msgstr "Тапшырылды"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
-msgstr "పొందినది"
+msgstr "Кабул ителде"
 
 #: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
-msgstr "బైట్లు"
+msgstr "байт"
 
 #: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
-msgstr "ప్యాకెట్స్"
+msgstr "төргәк"
 
 #: ../src/plugins/netstat/netstat.c:315
 #: ../src/plugins/netstatus/netstatus-iface.c:173
 msgid "Wireless"
-msgstr "వైరులేని"
+msgstr "Чыбыксыз"
 
 #: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
-msgstr "ప్రోటోకాల్:"
+msgstr "Беркетмә:"
 
 #: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
-msgstr "HW చిరునామా:"
+msgstr "HW адресы:"
 
 #: ../src/plugins/netstat/netstat.c:470
 msgid "Manage Networks"
-msgstr "నెట్‌వర్కులను నిర్వహించు"
+msgstr "Челтәрләр белән идарә итү"
 
 #: ../src/plugins/netstat/netstat.c:472
 msgid "Monitor and Manage networks"
-msgstr "నెట్‌వర్కులను పర్యవేక్షించు మరియు నిర్వహించు"
+msgstr "Челтәр белән идарә итү һәм монитор"
 
 #. create dialog
 #: ../src/plugins/netstat/passwd_gui.c:84
 msgid "Setting Encryption Key"
-msgstr "ఎన్‌క్రిప్షన్ కీ అమరుస్తోంది"
+msgstr "Шифр ачкычын кертү"
 
 #. messages
 #: ../src/plugins/netstat/passwd_gui.c:94
@@ -904,49 +906,48 @@ msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
 msgstr ""
-"ఈ వైరులేని నెట్వర్క్ ఎన్‌క్రిప్ట్ చేయబడింది.\n"
-"మీరు తప్పనిసరిగా ఎన్‌క్రిప్షన్ కీను కలిగివుండాలి."
+"Бу чыбыксыз челтәр шифрланган.\n"
+"Сезгә шифр ачкычы кирәк."
 
 #: ../src/plugins/netstat/passwd_gui.c:99
 msgid "Encryption Key:"
-msgstr "ఎన్‌క్రిప్షన్ కీ:"
+msgstr "Шифр ачкычы:"
 
 #: ../src/plugins/netstatus/netstatus.c:179
 msgid "Interface to monitor"
-msgstr "అంతరవర్తి నుంచి పర్యవేక్షకం వరకు"
+msgstr "Монитор өчен интерфейс"
 
 #: ../src/plugins/netstatus/netstatus.c:180
 msgid "Config tool"
-msgstr "స్వరూపణ సాధనం"
+msgstr "Көйләү коралы"
 
 #: ../src/plugins/netstatus/netstatus.c:197
 msgid "Network Status Monitor"
-msgstr "నెట్‌వర్క్ స్థితి పర్యవేక్షకం"
+msgstr "Челтәр хәле мониторы"
 
 #: ../src/plugins/netstatus/netstatus.c:199
 msgid "Monitor network status"
-msgstr "నెట్‌వర్క్ స్థితిని పర్యవేక్షించు"
+msgstr "Челтәр хәлен күзәтү"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:51
 #: ../src/plugins/netstatus/netstatus-dialog.c:312
 msgid "Unknown"
-msgstr "తెలియదు"
+msgstr "Билгесез"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:116
 msgid "Connection Properties"
-msgstr "అనుసంధాన లక్షణాలు"
+msgstr "Тоташу көйләүләре"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:122
 #, c-format
 msgid "Connection Properties: %s"
-msgstr "అనుసంధాన లక్షణాలు: %s"
+msgstr "Тоташу көйләүләре: %s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:135
 #, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
-msgstr[0] "%lu ప్యాకెట్"
-msgstr[1] "%lu ప్యాకెట్లు"
+msgstr[0] "%lu төргәк"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:396
 #, c-format
@@ -954,54 +955,54 @@ msgid ""
 "There was an error displaying help:\n"
 "%s"
 msgstr ""
-"సహాయాన్ని చూపించుటలో దోషము ఏర్పడినది:\n"
+"Белешмә бастыру хатасы:\n"
 "%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
-msgstr "సమయ స్వరూపణ సాధనాన్ని ప్రారంభించుటలో విఫలమైంది: %s"
+msgstr "Сәгатҗ көйләү коралын җибәреп булмады: %s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:379
 #, c-format
 msgid "Network Connection: %s"
-msgstr "నెట్‌వర్క్ అనుసంధానం: %s"
+msgstr "Тоташу: %s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:384
 msgid "Network Connection"
-msgstr "నెట్‌వర్క్ అనుసంధానం"
+msgstr "Тоташу"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:811
 msgid "Interface"
-msgstr "అంతరవర్తి"
+msgstr "Интерфейс"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:812
 msgid "The current interface the icon is monitoring."
-msgstr "ప్రస్తుత అంతరవర్తి ప్రతీక పర్యవేక్షిస్తున్నది."
+msgstr "Актив тоташу билгечеге"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:819
 msgid "Orientation"
-msgstr "ధోరణి"
+msgstr "Урнашу"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:820
 msgid "The orientation of the tray."
-msgstr "పళ్ళెం యొక్క ధోరణి"
+msgstr "Тартмада урнашу"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:828
 msgid "Tooltips Enabled"
-msgstr "సాధనచిట్కాలు చేతనమైనవి"
+msgstr "Ярдәмчекләр кабызылган"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:829
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr "అయినా లేక కాకున్నా ప్రతీక యొక్క సాధనచిట్కాలను చేతనపరుచు."
+msgstr "Билгечек ярдәмчекләре кабызылганмы, юкмы"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:836
 msgid "Show Signal"
-msgstr "సిగ్నల్ చూపించు"
+msgstr "Сигналны чагылдыру"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:837
 msgid "Whether or not the signal strength should be displayed."
-msgstr "అయినా లేక కాకున్నా సిగ్నల్ బలం చూపించు."
+msgstr "Сигнал күәтен чагылдыру кабызылганмы, юкмы"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:950
 #, c-format
@@ -1010,67 +1011,66 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"కిందపేర్కొన్న సమస్యలను పరిష్కరించుటకు దయచేసి మీ వ్యవస్థ నిర్వాహకుడిని "
-"సంప్రదించండి:\n"
+"Комачаулыкны чишү өчен система администраторына мөрәҗәгать итегез:\n"
 "\n"
 "%s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:148
 msgid "Name"
-msgstr "పేరు"
+msgstr "Исем"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:149
 msgid "The interface name"
-msgstr "అంతరవర్తి పేరు"
+msgstr "Интерфейс исеме"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:156
 msgid "State"
-msgstr "స్థితి"
+msgstr "Хәл"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:157
 msgid "The interface state"
-msgstr "అంతరవర్తి స్థితి"
+msgstr "Интерфейс хәле"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:165
 msgid "Stats"
-msgstr "గణాంకాలు"
+msgstr "Статистика"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:166
 msgid "The interface packets/bytes statistics"
-msgstr "అంతరవర్తి ప్యాకెట్ల/బైట్ల గణాంకాలు"
+msgstr "Интерфейсның төргәкләр/байтлар статистикасы"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:174
 msgid "Whether the interface is a wireless interface"
-msgstr "అంతరవర్తి ఒక వైరులేని అంతరవర్తి అయివుండవచ్చు"
+msgstr "Әгәр интерфейс чыбыксыз"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:181
 msgid "Signal"
-msgstr "సిగ్నల్"
+msgstr "Сигналны чагылдыру"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:182
 msgid "Wireless signal strength percentage"
-msgstr "వైరులేని సిగ్నల్ శక్తి శాతం"
+msgstr "Чыбыксыз сигналның күәте (проц.)"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:191
 #: ../src/plugins/netstatus/netstatus-util.c:167
 msgid "Error"
-msgstr "దోషం"
+msgstr "Хата"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:192
 msgid "The current error condition"
-msgstr "ప్రస్తుత దోష పరిస్థితి"
+msgstr "Хатаның хәзерге хәле"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:434
 #: ../src/plugins/netstatus/netstatus-iface.c:1197
 #, c-format
 msgid "Unable to open socket: %s"
-msgstr "సాకెట్ తెరుచుట వీలుకావడంలేదు: %s"
+msgstr "Сокетны ачып булмады: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:496
 #: ../src/plugins/netstatus/netstatus-iface.c:1223
 #, c-format
 msgid "SIOCGIFFLAGS error: %s"
-msgstr "SIOCGIFFLAGS దోషం: %s"
+msgstr "SIOCGIFFLAGS хатасы: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:870
 msgid "AMPR NET/ROM"
@@ -1078,7 +1078,7 @@ msgstr "AMPR NET/ROM"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:873
 msgid "Ethernet"
-msgstr "ఎథర్నెట్"
+msgstr "Ethernet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:879
 msgid "AMPR AX.25"
@@ -1087,7 +1087,7 @@ msgstr "AMPR AX.25"
 #: ../src/plugins/netstatus/netstatus-iface.c:888
 #: ../src/plugins/netstatus/netstatus-iface.c:1008
 msgid "16/4 Mbps Token Ring"
-msgstr "16/4 Mbps టోకెన్ రింగ్"
+msgstr "16/4 Mbps Token Ring"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:891
 msgid "ARCnet"
@@ -1099,27 +1099,27 @@ msgstr "Frame Relay DLCI"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:903
 msgid "Metricom Starmode IP"
-msgstr "మెట్రికామ్ స్టార్‌మోడ్ IP"
+msgstr "Metricom Starmode IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:906
 msgid "Serial Line IP"
-msgstr "సీరియల్ లైన్ IP"
+msgstr "Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:909
 msgid "VJ Serial Line IP"
-msgstr "VJ సీరియల్ లైన్ IP"
+msgstr "VJ Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:912
 msgid "6-bit Serial Line IP"
-msgstr "6-బిట్ సీరియల్ లైన్ IP"
+msgstr "6-bit Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:915
 msgid "VJ 6-bit Serial Line IP"
-msgstr "VJ 6-బిట్ సీరియల్ లైన్ IP"
+msgstr "VJ 6-bit Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:921
 msgid "Adaptive Serial Line IP"
-msgstr "అడాప్టివ్ సీరియల్ లైన్ IP"
+msgstr "Adaptive Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:924
 msgid "AMPR ROSE"
@@ -1131,7 +1131,7 @@ msgstr "Generic X.25"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:930
 msgid "Point-to-Point Protocol"
-msgstr "పాయింట్ టు పాయింట్ ప్రోటోకాల్"
+msgstr "Point-to-Point Protocol"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:936
 msgid "(Cisco)-HDLC"
@@ -1143,19 +1143,19 @@ msgstr "LAPB"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:948
 msgid "IPIP Tunnel"
-msgstr "IPIP సొరంగం"
+msgstr "IPIP Tunnel"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:954
 msgid "Frame Relay Access Device"
-msgstr "ఫ్రేమ్ ప్రసార సౌలభ్య పరికరం"
+msgstr "Frame Relay Access Device"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:960
 msgid "Local Loopback"
-msgstr "స్థానిక లూప్‌బ్యాక్"
+msgstr "Local Loopback"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:966
 msgid "Fiber Distributed Data Interface"
-msgstr "ఫైబర్ పంపిణీ డేటా అంతరవర్తి"
+msgstr "Fiber Distributed Data Interface"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:972
 msgid "IPv6-in-IPv4"
@@ -1180,27 +1180,27 @@ msgstr "IrLAP"
 #: ../src/plugins/netstatus/netstatus-iface.c:1155
 #, c-format
 msgid "SIOCGIFCONF error: %s"
-msgstr "SIOCGIFCONF దోషం: %s"
+msgstr "SIOCGIFCONF хатасы: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:1248
 #, c-format
 msgid "No network devices found"
-msgstr "ఎటువంటి నెట్‌వర్క్ పరికరాలు కనుగొనబడలేదు"
+msgstr "Челтәр җайланмалары табылмады"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:180
 #, c-format
 msgid "Cannot open /proc/net/dev: %s"
-msgstr "/proc/net/dev తెరుచుట వీలుకాదు: %s"
+msgstr "/proc/net/dev'ны ачып булмады: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:189
 msgid "Could not parse /proc/net/dev. Unknown format."
-msgstr "/proc/net/dev లక్షణాన్వయాలు చెప్పుటవీలుకాదు. ఫార్మేటు తెలియనిది."
+msgstr "/proc/net/dev'ны эшкәртеп булмады. Билгесез формат."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:204
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:330
 #, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr "'%s' నుండి అంతరవర్తి పేరు తెలియచేయుట సాధ్యంకాదు"
+msgstr "«%s»'нан интерфейс исемен эшкәртеп булмады"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
@@ -1209,134 +1209,136 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
+"«%s»'нан интерфейс статистикасын эшкәртеп булмады. prx_idx = %d; ptx_idx = %"
+"d; brx_idx = %d; btx_idx = %d; "
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr "/proc/net/wireless లక్షణాన్వయాలు చెప్పుటవీలుకాదు. ఫార్మేటు తెలియనిది."
+msgstr "/proc/net/wireless'ны эшкәртеп булмый. Билгесез формат."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr "'%s'. నుండి వైరులేని వివరాలు చెప్పుట సాధ్యంకాదు link_idx = %d;"
+msgstr "«%s»'тан чыбыксыз тоташу кисәкләрен эшкәртеп булмады. link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
 msgid "Could not connect to interface, '%s'"
-msgstr "అంతరవర్తికి అనుసంధానమగుట వీలుకాదు, '%s'"
+msgstr "Интерфейска тоташып булмый, «%s»"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:420
 #, c-format
 msgid "Could not send ioctl to interface, '%s'"
-msgstr ""
+msgstr "ioctl'ны интерфейска тапшырып булмый, «%s»"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr ""
+msgstr "«%s» команда юлын эшкәртеп булмады: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr "'netstat' అవుట్‌పుట్‌ని చెప్పుట వీలుకాదు. ఫార్మేటు తెలియనిది"
+msgstr "«netstat» чыгышын эшкәртеп булмый. Билгесез формат"
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
-msgstr "అననుసంధానించబడింది"
+msgstr "Өзелде"
 
 #: ../src/plugins/netstatus/netstatus-util.c:155
 msgid "Idle"
-msgstr "వాడుకలేదు"
+msgstr "Көтеп тору"
 
 #: ../src/plugins/netstatus/netstatus-util.c:158
 msgid "Sending"
-msgstr "పంపుతున్నది"
+msgstr "Тапшырылды"
 
 #: ../src/plugins/netstatus/netstatus-util.c:161
 msgid "Receiving"
-msgstr "పొందుతున్నది"
+msgstr "Кабул ителде"
 
 #: ../src/plugins/netstatus/netstatus-util.c:164
 msgid "Sending/Receiving"
-msgstr "పంపుతున్నది/పొందుతున్నది"
+msgstr "Тапшыру/Кабул итү"
 
 #: ../src/plugins/batt/batt.c:131
 msgid "No batteries found"
-msgstr "ఎటువంటి బ్యాటరీలు కనుగొనబడలేదు"
+msgstr "Батарея табылмады"
 
 #: ../src/plugins/batt/batt.c:179
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
-msgstr "బ్యాటరీ: %d%% చార్జ్ అయినది, %d:%02d ఇంకా పూర్తగుటకు"
+msgstr "Battery: %d%% корылган, тулуга кадәр %d:%02d"
 
 #: ../src/plugins/batt/batt.c:190
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
-msgstr "బ్యాటరీ: %d%% చార్జ్ అయినది, %d:%02d మిగిలివున్నది"
+msgstr "Батарея: %d%% корылган, %d:%02d калды"
 
 #: ../src/plugins/batt/batt.c:196
 #, c-format
 msgid "Battery: %d%% charged"
-msgstr "బ్యాటరీ: %d%% చార్జ్ అయినది"
+msgstr "Батарея: %d%% корылган"
 
 #: ../src/plugins/batt/batt.c:580
 msgid "Hide if there is no battery"
-msgstr "ఒకవేళ అక్కడ ఎటువంటి బ్యాటరీలు లేనట్టయితే కనపడకుండాదాయి"
+msgstr "Батарея булмаса качырырга"
 
 #: ../src/plugins/batt/batt.c:582
 msgid "Alarm command"
-msgstr "అలారం ఆదేశం"
+msgstr "Уяткыч командасы"
 
 #: ../src/plugins/batt/batt.c:583
 msgid "Alarm time (minutes left)"
-msgstr "అలారం సమయం (మిగిలిన నిముషాలు)"
+msgstr "Уяткыч вакыты (минут калды)"
 
 #: ../src/plugins/batt/batt.c:584
 msgid "Background color"
-msgstr "నేపథ్యం రంగు"
+msgstr "Җирлекнең төсе"
 
 #: ../src/plugins/batt/batt.c:585
 msgid "Charging color 1"
-msgstr "చార్జింగ్ రంగు 1"
+msgstr "Кору төсе 1"
 
 #: ../src/plugins/batt/batt.c:586
 msgid "Charging color 2"
-msgstr "చార్జింగ్ రంగు 2"
+msgstr "Кору төсе 2"
 
 #: ../src/plugins/batt/batt.c:587
 msgid "Discharging color 1"
-msgstr "డిస్చార్జింగ్ రంగు 1"
+msgstr "Бушандыру төсе 1"
 
 #: ../src/plugins/batt/batt.c:588
 msgid "Discharging color 2"
-msgstr "డిస్చార్జింగ్ రంగు 2"
+msgstr "Бушандыру төсе 2"
 
 #: ../src/plugins/batt/batt.c:589
 msgid "Border width"
-msgstr "సరిహద్దు వెడల్పు"
+msgstr "Чик киңлеге"
 
 #: ../src/plugins/batt/batt.c:619
 msgid "Battery Monitor"
-msgstr "బ్యాటరీ పర్యవేక్షకం"
+msgstr "Батарея мониторы"
 
 #: ../src/plugins/batt/batt.c:621
 msgid "Display battery status using ACPI"
-msgstr "ACPI వాడి బ్యాటరీ స్థితిని చూపించు"
+msgstr "ACPI аша батарея торышын чагылдыру"
 
 #: ../src/plugins/kbled/kbled.c:230
 msgid "Show CapsLock"
-msgstr "CapsLock చూపించు"
+msgstr "CapsLock'ны чагылдыру"
 
 #: ../src/plugins/kbled/kbled.c:231
 msgid "Show NumLock"
-msgstr "NumLock చూపించు"
+msgstr "NumLock'ны чагылдыру"
 
 #: ../src/plugins/kbled/kbled.c:232
 msgid "Show ScrollLock"
-msgstr "ScrollLock చూపించు"
+msgstr "ScrollLock'ны чагылдыру"
 
 #: ../src/plugins/kbled/kbled.c:267
 msgid "Keyboard LED"
-msgstr "కీబోర్డు LED"
+msgstr "Төймә тактасы индикаторы"
 
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr "CapsLock, NumLock, మరియు ScrollLock keys కోసం సూచకాలు"
+msgstr "CapsLock, NumLock һәм ScrollLock индикаторлары"
