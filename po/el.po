@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-07-21 05:29+0000\n"
-"PO-Revision-Date: 2010-04-11 01:30+0200\n"
-"Last-Translator: <edhunter@sidux.com>\n"
+"PO-Revision-Date: 2011-07-21 06:49+0200\n"
+"Last-Translator: George <forfolias@gmail.com>\n"
 "Language-Team: Greek\n"
+"Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.5\n"
 "X-Poedit-Language: Greek\n"
 "X-Poedit-Country: GREECE\n"
-"X-Generator: Pootle 2.0.1\n"
 
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
@@ -342,10 +342,7 @@ msgstr "Επιβεβαίωση"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:683
 msgid "translator-credits"
-msgstr ""
-"Κούτσικος Γιώργος <oege89@hotmail.com>\n"
-"Βασιλάκος Γιώργος <forfolias@linuxteam.cs.teilar.gr>\n"
-"Ριζόπουλος Γιώργος <georgerizopoulos28@gmail.com>"
+msgstr "Βασιλάκος Γιώργος <forfolias@linuxteam.cs.teilar.gr>\n"
 
 #: ../src/panel.c:688
 msgid "LXPanel"
@@ -572,7 +569,7 @@ msgstr "Διάστημα"
 
 #: ../src/plugins/taskbar.c:2033
 msgid "Task Bar (Window List)"
-msgstr "Μπάρα εργασιών"
+msgstr "Μπάρα εργασιών (λίστα παραθύρων)"
 
 #: ../src/plugins/taskbar.c:2035
 msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
@@ -704,7 +701,9 @@ msgstr "Εναλλαγή μεταξύ των διαθέσιμων διατάξε
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr "Αριστερό κλικ για εικονιδιοποίηση όλων των παραθύρων. Μεσαίο κλικ για τύλιγμά τους."
+msgstr ""
+"Αριστερό κλικ για εικονιδιοποίηση όλων των παραθύρων.  Μεσαίο κλικ για "
+"τύλιγμά τους."
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
