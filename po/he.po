@@ -84,9 +84,8 @@ msgid "LXPanel"
 msgstr "תוכנית הפאנלים LXPanel"
 
 #: ../src/panel.c:691
-#, fuzzy
 msgid "Copyright (C) 2008-2011"
-msgstr "כל הזכויות שמורות (C) 2010-2008"
+msgstr "כל הזכויות שמורות (C) 2010-2011"
 
 #: ../src/panel.c:692
 msgid "Desktop panel for LXDE project"

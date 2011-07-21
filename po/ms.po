@@ -88,9 +88,8 @@ msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:691
-#, fuzzy
 msgid "Copyright (C) 2008-2011"
-msgstr "Hakcipta Terpelihara (C) 2008-2009"
+msgstr "Hakcipta Terpelihara (C) 2008-2011"
 
 #: ../src/panel.c:692
 msgid "Desktop panel for LXDE project"
