@@ -342,7 +342,7 @@ msgstr "Επιβεβαίωση"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:683
 msgid "translator-credits"
-msgstr "Βασιλάκος Γιώργος <forfolias@linuxteam.cs.teilar.gr>\n"
+msgstr "Βασιλάκος Γιώργος <forfolias@linuxteam.cs.teilar.gr>"
 
 #: ../src/panel.c:688
 msgid "LXPanel"
