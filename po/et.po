@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-22 00:16+0200\n"
+"POT-Creation-Date: 2011-07-22 00:24+0200\n"
 "PO-Revision-Date: 2009-08-23 18:45+0300\n"
 "Last-Translator: Mattias Põldaru <mahfiaz gmail com>\n"
 "Language-Team: Gnome Estonian translation team <gnome-et@linux.ee>\n"
@@ -75,130 +75,130 @@ msgid "Confirm"
 msgstr "Kinnita"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:683
+#: ../src/panel.c:684
 msgid "translator-credits"
 msgstr "Mattias Põldaru"
 
-#: ../src/panel.c:688
+#: ../src/panel.c:689
 msgid "LXPanel"
 msgstr "LXPaneel"
 
-#: ../src/panel.c:690
+#: ../src/panel.c:691
 #, fuzzy
-msgid "Copyright (C) 2008-2010"
+msgid "Copyright (C) 2008-2011"
 msgstr "Autoriõigus (C) 2008-2009"
 
-#: ../src/panel.c:691
+#: ../src/panel.c:692
 msgid "Desktop panel for LXDE project"
 msgstr "LXDE projekti töölauapaneel"
 
-#: ../src/panel.c:714
+#: ../src/panel.c:715
 msgid "Add / Remove Panel Items"
 msgstr "Lisa/eemalda paneelikirjeid"
 
-#: ../src/panel.c:722
+#: ../src/panel.c:723
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Eemalda \"%s\" paneelilt"
 
-#: ../src/panel.c:734
+#: ../src/panel.c:735
 msgid "Panel Settings"
 msgstr "Paneeli sätted"
 
-#: ../src/panel.c:740
+#: ../src/panel.c:741
 msgid "Create New Panel"
 msgstr "Lisa uus paneel"
 
-#: ../src/panel.c:751
+#: ../src/panel.c:752
 msgid "Delete This Panel"
 msgstr "Kustuta see paneel"
 
-#: ../src/panel.c:762
+#: ../src/panel.c:763
 msgid "About"
 msgstr "Programmist lähemalt"
 
-#: ../src/panel.c:770
+#: ../src/panel.c:771
 msgid "Panel"
 msgstr "Paneel"
 
-#: ../src/panel.c:783
+#: ../src/panel.c:784
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" sätted"
 
-#: ../src/panel.c:1039 ../src/panel.c:1047
+#: ../src/panel.c:1040 ../src/panel.c:1048
 msgid "Height:"
 msgstr "Kõrgus:"
 
-#: ../src/panel.c:1040 ../src/panel.c:1046
+#: ../src/panel.c:1041 ../src/panel.c:1047
 msgid "Width:"
 msgstr "Laius:"
 
-#: ../src/panel.c:1041
+#: ../src/panel.c:1042
 msgid "Left"
 msgstr "Vasakul"
 
-#: ../src/panel.c:1042
+#: ../src/panel.c:1043
 msgid "Right"
 msgstr "Paremal"
 
-#: ../src/panel.c:1048
+#: ../src/panel.c:1049
 msgid "Top"
 msgstr "Üleval"
 
-#: ../src/panel.c:1049
+#: ../src/panel.c:1050
 msgid "Bottom"
 msgstr "All"
 
-#: ../src/panel.c:1448
+#: ../src/panel.c:1449
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - kerge GTK2+ paneel UNIX töölaudadele\n"
 
-#: ../src/panel.c:1449
+#: ../src/panel.c:1450
 #, c-format
 msgid "Command line options:\n"
 msgstr "Käsurea valikud:\n"
 
-#: ../src/panel.c:1450
+#: ../src/panel.c:1451
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr "--help      -- näitab seda abi ja väljub\n"
 
-#: ../src/panel.c:1451
+#: ../src/panel.c:1452
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr "--version   -- näitab versiooninumbri ja väljub\n"
 
-#: ../src/panel.c:1452
+#: ../src/panel.c:1453
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 " --log <number> -- määrab logimise tasemeks 0-5. 0 = puudub, 5 = jutukas\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1454
+#: ../src/panel.c:1455
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr "--profile <nimi> -- kasutatakse määratud profiili\n"
 
-#: ../src/panel.c:1456
+#: ../src/panel.c:1457
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr "-h  -- sama kui --help\n"
 
-#: ../src/panel.c:1457
+#: ../src/panel.c:1458
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr "-p  -- sama kui --profile\n"
 
-#: ../src/panel.c:1458
+#: ../src/panel.c:1459
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr "-v  -- sama nagu --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1460
+#: ../src/panel.c:1461
 #, c-format
 msgid ""
 "\n"

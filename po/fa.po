@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-22 00:16+0200\n"
+"POT-Creation-Date: 2011-07-22 00:24+0200\n"
 "PO-Revision-Date: 2010-08-16 22:24+0330\n"
 "Last-Translator: Mostafa <info@mostafadaneshvar.com>\n"
 "Language-Team: Persian <trans-fa@lists.fedoraproject.org>\n"
@@ -77,128 +77,129 @@ msgid "Confirm"
 msgstr "تایید"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:683
+#: ../src/panel.c:684
 msgid "translator-credits"
 msgstr "مترجم‌ها"
 
-#: ../src/panel.c:688
+#: ../src/panel.c:689
 msgid "LXPanel"
 msgstr "اِل اِکس پنل"
 
-#: ../src/panel.c:690
-msgid "Copyright (C) 2008-2010"
+#: ../src/panel.c:691
+#, fuzzy
+msgid "Copyright (C) 2008-2011"
 msgstr "حق نشر)c( 2010-2008"
 
-#: ../src/panel.c:691
+#: ../src/panel.c:692
 msgid "Desktop panel for LXDE project"
 msgstr "پنل میزکار برای پروژه ال اکس دی ای"
 
-#: ../src/panel.c:714
+#: ../src/panel.c:715
 msgid "Add / Remove Panel Items"
 msgstr "افزودن/حذف موارد پنل"
 
-#: ../src/panel.c:722
+#: ../src/panel.c:723
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "حذف \"%s\" از پنل"
 
-#: ../src/panel.c:734
+#: ../src/panel.c:735
 msgid "Panel Settings"
 msgstr "تنظیمات پنل"
 
-#: ../src/panel.c:740
+#: ../src/panel.c:741
 msgid "Create New Panel"
 msgstr "ایجاد یک پنل جدید"
 
-#: ../src/panel.c:751
+#: ../src/panel.c:752
 msgid "Delete This Panel"
 msgstr "حذف این پنل"
 
-#: ../src/panel.c:762
+#: ../src/panel.c:763
 msgid "About"
 msgstr "درباره"
 
-#: ../src/panel.c:770
+#: ../src/panel.c:771
 msgid "Panel"
 msgstr "پنل"
 
-#: ../src/panel.c:783
+#: ../src/panel.c:784
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" تنظیمات"
 
-#: ../src/panel.c:1039 ../src/panel.c:1047
+#: ../src/panel.c:1040 ../src/panel.c:1048
 msgid "Height:"
 msgstr "بلندی"
 
-#: ../src/panel.c:1040 ../src/panel.c:1046
+#: ../src/panel.c:1041 ../src/panel.c:1047
 msgid "Width:"
 msgstr "پهنا:"
 
-#: ../src/panel.c:1041
+#: ../src/panel.c:1042
 msgid "Left"
 msgstr "چپ"
 
-#: ../src/panel.c:1042
+#: ../src/panel.c:1043
 msgid "Right"
 msgstr "راست"
 
-#: ../src/panel.c:1048
+#: ../src/panel.c:1049
 msgid "Top"
 msgstr "بالا"
 
-#: ../src/panel.c:1049
+#: ../src/panel.c:1050
 msgid "Bottom"
 msgstr "پایین"
 
-#: ../src/panel.c:1448
+#: ../src/panel.c:1449
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "ال اکس پنل %s - سبک GTK2+ پنل برای میزکارهای یونیکسی\n"
 
-#: ../src/panel.c:1449
+#: ../src/panel.c:1450
 #, c-format
 msgid "Command line options:\n"
 msgstr "گزینه‌های خط فرمانی:\n"
 
-#: ../src/panel.c:1450
+#: ../src/panel.c:1451
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- نمایش این رهنما و خروج\n"
 
-#: ../src/panel.c:1451
+#: ../src/panel.c:1452
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- نمایش نسخه و خروج\n"
 
-#: ../src/panel.c:1452
+#: ../src/panel.c:1453
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --log <number> -- تعیین سطح لاگ 0-5. 0 - ساکت 5 - مفصل\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1454
+#: ../src/panel.c:1455
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- استفاده از یک پروفایل بخصوص\n"
 
-#: ../src/panel.c:1456
+#: ../src/panel.c:1457
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- مشابه --help\n"
 
-#: ../src/panel.c:1457
+#: ../src/panel.c:1458
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- مشابه --profile\n"
 
-#: ../src/panel.c:1458
+#: ../src/panel.c:1459
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- مشابه --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1460
+#: ../src/panel.c:1461
 #, c-format
 msgid ""
 "\n"

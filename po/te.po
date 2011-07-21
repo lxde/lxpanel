@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-22 00:16+0200\n"
+"POT-Creation-Date: 2011-07-22 00:24+0200\n"
 "PO-Revision-Date: 2011-07-12 17:58+0200\n"
 "Last-Translator: PraveenIlla <mail2ipn@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -75,129 +75,129 @@ msgid "Confirm"
 msgstr "నిర్ధారించు"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:683
+#: ../src/panel.c:684
 msgid "translator-credits"
 msgstr "Praveen Illa <mail2ipn@gmail.com>, 2011."
 
-#: ../src/panel.c:688
+#: ../src/panel.c:689
 msgid "LXPanel"
 msgstr "LXప్యానల్"
 
-#: ../src/panel.c:690
+#: ../src/panel.c:691
 #, fuzzy
-msgid "Copyright (C) 2008-2010"
+msgid "Copyright (C) 2008-2011"
 msgstr "నకలుహక్కు (C) 2008-2009"
 
-#: ../src/panel.c:691
+#: ../src/panel.c:692
 msgid "Desktop panel for LXDE project"
 msgstr "LXDE ప్రోజెక్టు కొరకు డెస్క్‍టాప్ ప్యానల్"
 
-#: ../src/panel.c:714
+#: ../src/panel.c:715
 msgid "Add / Remove Panel Items"
 msgstr "ప్యానల్ అంశాలను జతచేయ/తొలగించు"
 
-#: ../src/panel.c:722
+#: ../src/panel.c:723
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "ప్యానల్ నుండి  \"%s\" అంశమును తొలగించు"
 
-#: ../src/panel.c:734
+#: ../src/panel.c:735
 msgid "Panel Settings"
 msgstr "ప్యానల్ అమరికలు"
 
-#: ../src/panel.c:740
+#: ../src/panel.c:741
 msgid "Create New Panel"
 msgstr "కొత్త ప్యానల్‌ను సృష్టించు"
 
-#: ../src/panel.c:751
+#: ../src/panel.c:752
 msgid "Delete This Panel"
 msgstr "ఈ ప్యానల్‌ను తీసివేయి"
 
-#: ../src/panel.c:762
+#: ../src/panel.c:763
 msgid "About"
 msgstr "గురించి"
 
-#: ../src/panel.c:770
+#: ../src/panel.c:771
 msgid "Panel"
 msgstr "ప్యానల్"
 
-#: ../src/panel.c:783
+#: ../src/panel.c:784
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" అమరికలు"
 
-#: ../src/panel.c:1039 ../src/panel.c:1047
+#: ../src/panel.c:1040 ../src/panel.c:1048
 msgid "Height:"
 msgstr "ఎత్తు:"
 
-#: ../src/panel.c:1040 ../src/panel.c:1046
+#: ../src/panel.c:1041 ../src/panel.c:1047
 msgid "Width:"
 msgstr "వెడల్పు:"
 
-#: ../src/panel.c:1041
+#: ../src/panel.c:1042
 msgid "Left"
 msgstr "ఎడమ"
 
-#: ../src/panel.c:1042
+#: ../src/panel.c:1043
 msgid "Right"
 msgstr "కుడి"
 
-#: ../src/panel.c:1048
+#: ../src/panel.c:1049
 msgid "Top"
 msgstr "ఉత్తమ"
 
-#: ../src/panel.c:1049
+#: ../src/panel.c:1050
 msgid "Bottom"
 msgstr "అడుగు"
 
-#: ../src/panel.c:1448
+#: ../src/panel.c:1449
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxప్యానల్ %s - యునిక్స్ డెస్క్‍టాప్‌ల కోసం తేలికపాటి GTK2+ ప్యానల్\n"
 
-#: ../src/panel.c:1449
+#: ../src/panel.c:1450
 #, c-format
 msgid "Command line options:\n"
 msgstr "కమాండు లైను ఐచ్చికాలు:\n"
 
-#: ../src/panel.c:1450
+#: ../src/panel.c:1451
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --సహాయం      -- ఈ సహాయాన్ని ముద్రించు మరియు నిష్క్రమించు\n"
 
-#: ../src/panel.c:1451
+#: ../src/panel.c:1452
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --వెర్షన్   -- వెర్షన్ ముద్రించు మరియు నిష్క్రమించు\n"
 
-#: ../src/panel.c:1452
+#: ../src/panel.c:1453
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --చిట్టా <సంఖ్య> -- చిట్టా స్థాయి అమర్చు 0-5. 0 - ఏదీకాదు 5 - chatty\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1454
+#: ../src/panel.c:1455
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --ప్రొఫైల్ పేరు -- నిర్దిష్ట ప్రొఫైల్‌ను వాడు\n"
 
-#: ../src/panel.c:1456
+#: ../src/panel.c:1457
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- same as --సహాయం\n"
 
-#: ../src/panel.c:1457
+#: ../src/panel.c:1458
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- same as --ప్రొఫైల్\n"
 
-#: ../src/panel.c:1458
+#: ../src/panel.c:1459
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- same as --వెర్షన్\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1460
+#: ../src/panel.c:1461
 #, c-format
 msgid ""
 "\n"

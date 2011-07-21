@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LXPanel 0.3.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-22 00:16+0200\n"
+"POT-Creation-Date: 2011-07-22 00:24+0200\n"
 "PO-Revision-Date: 2009-08-30 17:16+0100\n"
 "Last-Translator: Jay A. Fleming <tito.nehru.naser@gmail.com>\n"
 "Language-Team: \n"
@@ -76,129 +76,130 @@ msgid "Confirm"
 msgstr "Потврда"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:683
+#: ../src/panel.c:684
 msgid "translator-credits"
 msgstr "Serbian (sr) — Jay A. Fleming <tito.nehru.naser@gmail.com>"
 
-#: ../src/panel.c:688
+#: ../src/panel.c:689
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:690
-msgid "Copyright (C) 2008-2010"
+#: ../src/panel.c:691
+#, fuzzy
+msgid "Copyright (C) 2008-2011"
 msgstr "2008-2010. Сва права задржана."
 
-#: ../src/panel.c:691
+#: ../src/panel.c:692
 msgid "Desktop panel for LXDE project"
 msgstr "Панел радне површине за LXDE радно окружење"
 
-#: ../src/panel.c:714
+#: ../src/panel.c:715
 msgid "Add / Remove Panel Items"
 msgstr "Додајте/Обришите ставке у панелу"
 
-#: ../src/panel.c:722
+#: ../src/panel.c:723
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Уклони \"%s\" са панела"
 
-#: ../src/panel.c:734
+#: ../src/panel.c:735
 msgid "Panel Settings"
 msgstr "Подешавања панела"
 
-#: ../src/panel.c:740
+#: ../src/panel.c:741
 msgid "Create New Panel"
 msgstr "Направи нови панел"
 
-#: ../src/panel.c:751
+#: ../src/panel.c:752
 msgid "Delete This Panel"
 msgstr "Обриши овај панел"
 
-#: ../src/panel.c:762
+#: ../src/panel.c:763
 msgid "About"
 msgstr "О програму"
 
-#: ../src/panel.c:770
+#: ../src/panel.c:771
 msgid "Panel"
 msgstr "Панел"
 
-#: ../src/panel.c:783
+#: ../src/panel.c:784
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" Подешавања"
 
-#: ../src/panel.c:1039 ../src/panel.c:1047
+#: ../src/panel.c:1040 ../src/panel.c:1048
 msgid "Height:"
 msgstr "Висина:"
 
-#: ../src/panel.c:1040 ../src/panel.c:1046
+#: ../src/panel.c:1041 ../src/panel.c:1047
 msgid "Width:"
 msgstr "Ширина:"
 
-#: ../src/panel.c:1041
+#: ../src/panel.c:1042
 msgid "Left"
 msgstr "Лево"
 
-#: ../src/panel.c:1042
+#: ../src/panel.c:1043
 msgid "Right"
 msgstr "Десно"
 
-#: ../src/panel.c:1048
+#: ../src/panel.c:1049
 msgid "Top"
 msgstr "Горе"
 
-#: ../src/panel.c:1049
+#: ../src/panel.c:1050
 msgid "Bottom"
 msgstr "Доле"
 
-#: ../src/panel.c:1448
+#: ../src/panel.c:1449
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - олакшани GTK2+ панел за јуникс радне површине\n"
 
-#: ../src/panel.c:1449
+#: ../src/panel.c:1450
 #, c-format
 msgid "Command line options:\n"
 msgstr "Опције командне линије:\n"
 
-#: ../src/panel.c:1450
+#: ../src/panel.c:1451
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- штампа ову помоћ и излази\n"
 
-#: ../src/panel.c:1451
+#: ../src/panel.c:1452
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- приказује информације о програму и излази\n"
 
-#: ../src/panel.c:1452
+#: ../src/panel.c:1453
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 " --log <number> -- постави ниво дневника од 0-5. 0 - ништа 5 - разговорљив\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1454
+#: ../src/panel.c:1455
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- користи одређени профил\n"
 
-#: ../src/panel.c:1456
+#: ../src/panel.c:1457
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- исто као --help\n"
 
-#: ../src/panel.c:1457
+#: ../src/panel.c:1458
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- исто као --profile\n"
 
-#: ../src/panel.c:1458
+#: ../src/panel.c:1459
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- исти као --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1460
+#: ../src/panel.c:1461
 #, c-format
 msgid ""
 "\n"

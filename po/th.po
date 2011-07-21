@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-22 00:16+0200\n"
+"POT-Creation-Date: 2011-07-22 00:24+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,128 +73,128 @@ msgid "Confirm"
 msgstr ""
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:683
+#: ../src/panel.c:684
 msgid "translator-credits"
 msgstr ""
 
-#: ../src/panel.c:688
+#: ../src/panel.c:689
 msgid "LXPanel"
 msgstr ""
 
-#: ../src/panel.c:690
-msgid "Copyright (C) 2008-2010"
+#: ../src/panel.c:691
+msgid "Copyright (C) 2008-2011"
 msgstr ""
 
-#: ../src/panel.c:691
+#: ../src/panel.c:692
 msgid "Desktop panel for LXDE project"
 msgstr ""
 
-#: ../src/panel.c:714
+#: ../src/panel.c:715
 msgid "Add / Remove Panel Items"
 msgstr ""
 
-#: ../src/panel.c:722
+#: ../src/panel.c:723
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr ""
 
-#: ../src/panel.c:734
+#: ../src/panel.c:735
 msgid "Panel Settings"
 msgstr ""
 
-#: ../src/panel.c:740
+#: ../src/panel.c:741
 msgid "Create New Panel"
 msgstr ""
 
-#: ../src/panel.c:751
+#: ../src/panel.c:752
 msgid "Delete This Panel"
 msgstr ""
 
-#: ../src/panel.c:762
+#: ../src/panel.c:763
 msgid "About"
 msgstr ""
 
-#: ../src/panel.c:770
+#: ../src/panel.c:771
 msgid "Panel"
 msgstr ""
 
-#: ../src/panel.c:783
+#: ../src/panel.c:784
 #, c-format
 msgid "\"%s\" Settings"
 msgstr ""
 
-#: ../src/panel.c:1039 ../src/panel.c:1047
+#: ../src/panel.c:1040 ../src/panel.c:1048
 msgid "Height:"
 msgstr ""
 
-#: ../src/panel.c:1040 ../src/panel.c:1046
+#: ../src/panel.c:1041 ../src/panel.c:1047
 msgid "Width:"
 msgstr ""
 
-#: ../src/panel.c:1041
+#: ../src/panel.c:1042
 msgid "Left"
 msgstr ""
 
-#: ../src/panel.c:1042
+#: ../src/panel.c:1043
 msgid "Right"
 msgstr ""
 
-#: ../src/panel.c:1048
+#: ../src/panel.c:1049
 msgid "Top"
 msgstr ""
 
-#: ../src/panel.c:1049
+#: ../src/panel.c:1050
 msgid "Bottom"
-msgstr ""
-
-#: ../src/panel.c:1448
-#, c-format
-msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr ""
 
 #: ../src/panel.c:1449
 #, c-format
-msgid "Command line options:\n"
+msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr ""
 
 #: ../src/panel.c:1450
 #, c-format
-msgid " --help      -- print this help and exit\n"
+msgid "Command line options:\n"
 msgstr ""
 
 #: ../src/panel.c:1451
 #, c-format
-msgid " --version   -- print version and exit\n"
+msgid " --help      -- print this help and exit\n"
 msgstr ""
 
 #: ../src/panel.c:1452
+#, c-format
+msgid " --version   -- print version and exit\n"
+msgstr ""
+
+#: ../src/panel.c:1453
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1454
+#: ../src/panel.c:1455
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr ""
 
-#: ../src/panel.c:1456
+#: ../src/panel.c:1457
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr ""
 
-#: ../src/panel.c:1457
+#: ../src/panel.c:1458
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr ""
 
-#: ../src/panel.c:1458
+#: ../src/panel.c:1459
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr ""
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1460
+#: ../src/panel.c:1461
 #, c-format
 msgid ""
 "\n"

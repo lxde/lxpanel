@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.3.8.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-22 00:16+0200\n"
+"POT-Creation-Date: 2011-07-22 00:24+0200\n"
 "PO-Revision-Date: 2010-10-19 08:48+0200\n"
 "Last-Translator: Yinghua_Wang <wantinghard@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -75,131 +75,131 @@ msgid "Confirm"
 msgstr "确认"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:683
+#: ../src/panel.c:684
 msgid "translator-credits"
 msgstr ""
 "Yinghua_Wang <wantinghard@gmail.com>\n"
 "ideal <05281253@bjtu.edu.cn>"
 
-#: ../src/panel.c:688
+#: ../src/panel.c:689
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:690
+#: ../src/panel.c:691
 #, fuzzy
-msgid "Copyright (C) 2008-2010"
+msgid "Copyright (C) 2008-2011"
 msgstr "版权 (C) 2008-2009"
 
-#: ../src/panel.c:691
+#: ../src/panel.c:692
 msgid "Desktop panel for LXDE project"
 msgstr "LXDE 项目的桌面面板"
 
-#: ../src/panel.c:714
+#: ../src/panel.c:715
 msgid "Add / Remove Panel Items"
 msgstr "添加/删除面板项"
 
-#: ../src/panel.c:722
+#: ../src/panel.c:723
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "从面板中删除“%s”"
 
-#: ../src/panel.c:734
+#: ../src/panel.c:735
 msgid "Panel Settings"
 msgstr "面板设置"
 
-#: ../src/panel.c:740
+#: ../src/panel.c:741
 msgid "Create New Panel"
 msgstr "创建新面板"
 
-#: ../src/panel.c:751
+#: ../src/panel.c:752
 msgid "Delete This Panel"
 msgstr "删除此面板"
 
-#: ../src/panel.c:762
+#: ../src/panel.c:763
 msgid "About"
 msgstr "关于"
 
-#: ../src/panel.c:770
+#: ../src/panel.c:771
 msgid "Panel"
 msgstr "面板"
 
-#: ../src/panel.c:783
+#: ../src/panel.c:784
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "“%s”设置"
 
-#: ../src/panel.c:1039 ../src/panel.c:1047
+#: ../src/panel.c:1040 ../src/panel.c:1048
 msgid "Height:"
 msgstr "高度："
 
-#: ../src/panel.c:1040 ../src/panel.c:1046
+#: ../src/panel.c:1041 ../src/panel.c:1047
 msgid "Width:"
 msgstr "宽度："
 
-#: ../src/panel.c:1041
+#: ../src/panel.c:1042
 msgid "Left"
 msgstr "左"
 
-#: ../src/panel.c:1042
+#: ../src/panel.c:1043
 msgid "Right"
 msgstr "右"
 
-#: ../src/panel.c:1048
+#: ../src/panel.c:1049
 msgid "Top"
 msgstr "上"
 
-#: ../src/panel.c:1049
+#: ../src/panel.c:1050
 msgid "Bottom"
 msgstr "下"
 
-#: ../src/panel.c:1448
+#: ../src/panel.c:1449
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - UNIX 桌面的轻量级 GTK2+ 面板\n"
 
-#: ../src/panel.c:1449
+#: ../src/panel.c:1450
 #, c-format
 msgid "Command line options:\n"
 msgstr "命令行选项：\n"
 
-#: ../src/panel.c:1450
+#: ../src/panel.c:1451
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- 显示此帮助并退出\n"
 
-#: ../src/panel.c:1451
+#: ../src/panel.c:1452
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- 显示版本信息并退出\n"
 
-#: ../src/panel.c:1452
+#: ../src/panel.c:1453
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --log <数值>   -- 设置日志级别 (0-5)。0 - 无, 5 - 全部\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1454
+#: ../src/panel.c:1455
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile 名称 -- 使用指定的配置文件\n"
 
-#: ../src/panel.c:1456
+#: ../src/panel.c:1457
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- 和 --help 作用相同\n"
 
-#: ../src/panel.c:1457
+#: ../src/panel.c:1458
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- 和 --profile 作用相同\n"
 
-#: ../src/panel.c:1458
+#: ../src/panel.c:1459
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- 和 --version 作用相同\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1460
+#: ../src/panel.c:1461
 #, c-format
 msgid ""
 "\n"
