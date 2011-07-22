@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-22 00:24+0200\n"
-"PO-Revision-Date: 2011-07-21 20:19+0200\n"
+"PO-Revision-Date: 2011-07-22 07:30+0200\n"
 "Last-Translator: Ainur <ainur.shakirov.tt@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tt_RU\n"
@@ -172,7 +172,7 @@ msgstr " --version   -- юрама санын бастырып чыгу\n"
 #: ../src/panel.c:1453
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr "--log <сан> -- лог дәрәҗәсен кую, 0-5. 0 - юк 5 - тулысынча\n"
+msgstr " --log <сан> -- лог дәрәҗәсен кую, 0-5. 0 - юк 5 - тулысынча\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1455
@@ -350,9 +350,7 @@ msgstr "Ярдәмчек төре"
 
 #: ../src/plugins/dclock.c:424
 msgid "Format codes: man 3 strftime; \\n for line break"
-msgstr ""
-"Код форматы: man 3 strftime; \n"
-" юлларны өзү өчен"
+msgstr "Код форматы: man 3 strftime; \\ n юлларны өзү өчен"
 
 #: ../src/plugins/dclock.c:425
 msgid "Action when clicked (default: display calendar)"
@@ -368,7 +366,7 @@ msgstr "Санлы сәгать"
 
 #: ../src/plugins/dclock.c:457
 msgid "Display digital clock and tooltip"
-msgstr "Санлы сәгать һәм ярдәмчекне күрсәтә "
+msgstr "Санлы сәгать һәм ярдәмчекне күрсәтә"
 
 #: ../src/plugins/menu.c:423
 msgid "Add to desktop"
@@ -748,7 +746,7 @@ msgstr "Интерфейс"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:838
 msgid "The current interface the icon is monitoring."
-msgstr "Актив тоташу билгечеге"
+msgstr "Актив тоташу билгечеге."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:845
 msgid "Orientation"
@@ -756,7 +754,7 @@ msgstr "Урнашу"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:846
 msgid "The orientation of the tray."
-msgstr "Тартмада урнашу"
+msgstr "Тартмада урнашу."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:854
 msgid "Tooltips Enabled"
@@ -764,7 +762,7 @@ msgstr "Ярдәмчекләр кабызылган"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:855
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr "Билгечек ярдәмчекләре кабызылганмы, юкмы"
+msgstr "Билгечек ярдәмчекләре кабызылганмы, юкмы."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:862
 msgid "Show Signal"
@@ -772,7 +770,7 @@ msgstr "Сигналны чагылдыру"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:863
 msgid "Whether or not the signal strength should be displayed."
-msgstr "Сигнал күәтен чагылдыру кабызылганмы, юкмы"
+msgstr "Сигнал күәтен чагылдыру кабызылганмы, юкмы."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:976
 #, c-format
@@ -979,8 +977,8 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"«%s»'нан интерфейс статистикасын эшкәртеп булмады. prx_idx = %d; ptx_idx = "
-"%d; brx_idx = %d; btx_idx = %d; "
+"«%s»'нан интерфейс статистикасын эшкәртеп булмады. prx_idx = %d; ptx_idx = %"
+"d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
