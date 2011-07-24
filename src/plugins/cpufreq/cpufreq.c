@@ -157,7 +157,7 @@ frequency_menu(cpufreq *cf){
 
     if (!(fp = fopen( sstmp, "r"))) {
         printf("cpufreq: cannot open %s\n",sstmp);
-        return;
+        return 0;
     }
 
     GtkMenu* menu = GTK_MENU(gtk_menu_new());
