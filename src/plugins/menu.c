@@ -142,10 +142,10 @@ menu_pos(GtkMenu *menu, gint *x, gint *y, gboolean *push_in, GtkWidget *widget)
     gdk_window_get_origin(widget->window, &ox, &oy);
 #endif
 #if GTK_CHECK_VERSION(2,20,0)
-    GtkRequisition *requisition;
-    gtk_widget_get_requisition(GTK_WIDGET(menu),requisition);
-    w = requisition->width;
-    h = requisition->height;
+    GtkRequisition requisition;
+    gtk_widget_get_requisition(GTK_WIDGET(menu), &requisition);
+    w = requisition.width;
+    h = requisition.height;
 
 #else
     w = GTK_WIDGET(menu)->requisition.width;
