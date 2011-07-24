@@ -26,6 +26,7 @@
 
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
+#include <gtk/gtktooltips.h>
 
 #include "netstatus-util.h"
 #include "netstatus-enums.h"
@@ -899,7 +900,7 @@ netstatus_icon_instance_init (NetstatusIcon      *icon,
   gtk_container_add (GTK_CONTAINER (icon), icon->priv->signal_image);
   gtk_widget_hide (icon->priv->signal_image);
 
-  icon->priv->tooltips = gtk_tooltip_new ();
+  icon->priv->tooltips = gtk_tooltips_new ();
   g_object_ref (icon->priv->tooltips);
   gtk_object_sink (GTK_OBJECT (icon->priv->tooltips));
 
