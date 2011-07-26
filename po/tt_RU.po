@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-22 00:24+0200\n"
-"PO-Revision-Date: 2011-07-22 07:30+0200\n"
+"PO-Revision-Date: 2011-07-26 12:39+0200\n"
 "Last-Translator: Ainur <ainur.shakirov.tt@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tt_RU\n"
@@ -106,7 +106,7 @@ msgstr "Панель көйләүләре"
 
 #: ../src/panel.c:741
 msgid "Create New Panel"
-msgstr "Яңа панель кушу"
+msgstr "Яңа панель төзү"
 
 #: ../src/panel.c:752
 msgid "Delete This Panel"
@@ -255,7 +255,7 @@ msgstr "_Күтәрү"
 #. Add Restore menu item.
 #: ../src/plugins/taskbar.c:1719
 msgid "R_estore"
-msgstr "Т_ергезү"
+msgstr "Т_оргызу"
 
 #. Add Maximize menu item.
 #: ../src/plugins/taskbar.c:1724
@@ -280,12 +280,12 @@ msgstr "%d эш урыны"
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../src/plugins/taskbar.c:1767
 msgid "_All workspaces"
-msgstr "_Барлык эш өстәлләре"
+msgstr "_Барлык эш урыннары"
 
 #. Add Move to Workspace menu item as a submenu.
 #: ../src/plugins/taskbar.c:1773
 msgid "_Move to Workspace"
-msgstr "_Эш өстәленә күчерү"
+msgstr "_Эш урынына күчерү"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../src/plugins/taskbar.c:1779
@@ -394,7 +394,7 @@ msgstr "Аергыч"
 
 #: ../src/plugins/separator.c:104
 msgid "Add a separator to the panel"
-msgstr "Панельгә аергыч өстүргә"
+msgstr "Панельгә аергыч өстәргә"
 
 #: ../src/plugins/pager.c:833
 msgid "Desktop Pager"
@@ -498,7 +498,7 @@ msgstr "Билге"
 
 #: ../src/plugins/dirmenu.c:443
 msgid "Directory Menu"
-msgstr "Каталоглар төзелеше"
+msgstr "Каталог менюсы"
 
 #: ../src/plugins/dirmenu.c:445
 msgid "Browse directory tree via menu (Author: PCMan)"
@@ -817,7 +817,7 @@ msgstr "Сигналны чагылдыру"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:182
 msgid "Wireless signal strength percentage"
-msgstr "Чыбыксыз сигналның күәте (проц.)"
+msgstr "Чыбыксыз сигналның күәте (%)"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:191
 #: ../src/plugins/netstatus/netstatus-util.c:167
@@ -1091,11 +1091,11 @@ msgstr "Торыш:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
 msgid "Subnet Mask:"
-msgstr "Аскы челтәр маскасы:"
+msgstr "Аскы челтәр битлеге:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
 msgid "Support"
-msgstr "Таяныч"
+msgstr "Булышлык"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
 msgid "Type:"
@@ -1112,7 +1112,7 @@ msgstr "Батарея табылмады"
 #: ../src/plugins/batt/batt.c:179
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
-msgstr "Battery: %d%% корылган, тулуга кадәр %d:%02d"
+msgstr "Батарея: %d%% корылган, тулуга кадәр %d:%02d"
 
 #: ../src/plugins/batt/batt.c:190
 #, c-format
