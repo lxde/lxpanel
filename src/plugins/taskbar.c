@@ -615,7 +615,7 @@ static GdkPixbuf * _wnck_gdk_pixbuf_get_from_pixmap(Pixmap xpixmap, int width, i
         }
 
         /* Be sure we aren't going to fail due to visual mismatch. */
-#if GLIB_CHECK_VERSION(2,22,0)
+#if GTK_CHECK_VERSION(2,22,0)
         if ((colormap != NULL) && (gdk_visual_get_depth(gdk_colormap_get_visual(colormap)) != depth))
 #else
         if ((colormap != NULL) && (gdk_colormap_get_visual(colormap)->depth != depth))
@@ -1220,7 +1220,7 @@ static void taskbar_button_size_allocate(GtkWidget * btn, GtkAllocation * alloc,
 #if GTK_CHECK_VERSION(2,22,0)
         gdk_window_get_origin(gtk_button_get_event_window(GTK_BUTTON(btn)), &x, &y);
 #else
-        gdk_window_get_origin((GTK_BUTTON(btn)->event_window, &x, &y);
+        gdk_window_get_origin(GTK_BUTTON(btn)->event_window, &x, &y);
 #endif
 
 
