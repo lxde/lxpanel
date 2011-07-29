@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LXDE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-22 00:24+0200\n"
+"POT-Creation-Date: 2011-07-29 14:22+0200\n"
 "PO-Revision-Date: 2010-01-24 11:10-0800\n"
 "Last-Translator: alexxed <alexxed@gmail.com>\n"
 "Language-Team: Romanian <LL@li.org>\n"
@@ -732,49 +732,49 @@ msgstr ""
 msgid "Failed to launch time configuration tool: %s"
 msgstr "Lansarea uneltei pentru setarea ceasului a eșuat: %s"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:379
+#: ../src/plugins/netstatus/netstatus-icon.c:380
 #, c-format
 msgid "Network Connection: %s"
 msgstr "Conexiune la rețea: %s"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:384
+#: ../src/plugins/netstatus/netstatus-icon.c:385
 msgid "Network Connection"
 msgstr "Conexiune la rețea"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:837
+#: ../src/plugins/netstatus/netstatus-icon.c:838
 msgid "Interface"
 msgstr "Interfață"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:838
+#: ../src/plugins/netstatus/netstatus-icon.c:839
 msgid "The current interface the icon is monitoring."
 msgstr "Interfața monitorizată acum de iconiță."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:845
+#: ../src/plugins/netstatus/netstatus-icon.c:846
 msgid "Orientation"
 msgstr "Orientare"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:846
+#: ../src/plugins/netstatus/netstatus-icon.c:847
 msgid "The orientation of the tray."
 msgstr "Orientarea zonei de notificare."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:854
+#: ../src/plugins/netstatus/netstatus-icon.c:855
 msgid "Tooltips Enabled"
 msgstr "Texte ajutătoare activate"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:855
+#: ../src/plugins/netstatus/netstatus-icon.c:856
 msgid "Whether or not the icon's tooltips are enabled."
 msgstr ""
 "Dacă la trecerea cu mausul peste iconițe sunt afișate texte ajutătoare."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:862
+#: ../src/plugins/netstatus/netstatus-icon.c:863
 msgid "Show Signal"
 msgstr "Arată semnalul"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:863
+#: ../src/plugins/netstatus/netstatus-icon.c:864
 msgid "Whether or not the signal strength should be displayed."
 msgstr "Dacă să fie afișată sau nu puterea semnalului."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:976
+#: ../src/plugins/netstatus/netstatus-icon.c:977
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-22 00:24+0200\n"
+"POT-Creation-Date: 2011-07-29 14:22+0200\n"
 "PO-Revision-Date: 2010-04-27 12:01+0200\n"
 "Last-Translator: Mario <mb@mariobehling.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -735,48 +735,48 @@ msgstr ""
 msgid "Failed to launch time configuration tool: %s"
 msgstr "Khởi động công cụ cấu hình thời gian thất bại: %s"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:379
+#: ../src/plugins/netstatus/netstatus-icon.c:380
 #, c-format
 msgid "Network Connection: %s"
 msgstr "Kết nối mạng: %s"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:384
+#: ../src/plugins/netstatus/netstatus-icon.c:385
 msgid "Network Connection"
 msgstr "Kết nối mạng"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:837
+#: ../src/plugins/netstatus/netstatus-icon.c:838
 msgid "Interface"
 msgstr "Giao diện"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:838
+#: ../src/plugins/netstatus/netstatus-icon.c:839
 msgid "The current interface the icon is monitoring."
 msgstr "Giao diện hiện hành biểu tượng đang được giám sát"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:845
+#: ../src/plugins/netstatus/netstatus-icon.c:846
 msgid "Orientation"
 msgstr "Định hướng"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:846
+#: ../src/plugins/netstatus/netstatus-icon.c:847
 msgid "The orientation of the tray."
 msgstr "Định hướng của khay."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:854
+#: ../src/plugins/netstatus/netstatus-icon.c:855
 msgid "Tooltips Enabled"
 msgstr "Bật công cụ đỉnh"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:855
+#: ../src/plugins/netstatus/netstatus-icon.c:856
 msgid "Whether or not the icon's tooltips are enabled."
 msgstr "Có hoặc không kích hoạt biểu tượng công cụ đỉnh."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:862
+#: ../src/plugins/netstatus/netstatus-icon.c:863
 msgid "Show Signal"
 msgstr "Hiển thị tín hiệu"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:863
+#: ../src/plugins/netstatus/netstatus-icon.c:864
 msgid "Whether or not the signal strength should be displayed."
 msgstr "Có hoặc không hiển thị cường độ tín hiệu."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:976
+#: ../src/plugins/netstatus/netstatus-icon.c:977
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"

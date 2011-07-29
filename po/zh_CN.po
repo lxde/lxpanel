@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.3.8.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-22 00:24+0200\n"
+"POT-Creation-Date: 2011-07-29 14:22+0200\n"
 "PO-Revision-Date: 2010-10-19 08:48+0200\n"
 "Last-Translator: Yinghua_Wang <wantinghard@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -729,48 +729,48 @@ msgstr ""
 msgid "Failed to launch time configuration tool: %s"
 msgstr "调用时间配置工具失败：%s"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:379
+#: ../src/plugins/netstatus/netstatus-icon.c:380
 #, c-format
 msgid "Network Connection: %s"
 msgstr "网络连接：%s"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:384
+#: ../src/plugins/netstatus/netstatus-icon.c:385
 msgid "Network Connection"
 msgstr "网络连接"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:837
+#: ../src/plugins/netstatus/netstatus-icon.c:838
 msgid "Interface"
 msgstr "接口"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:838
+#: ../src/plugins/netstatus/netstatus-icon.c:839
 msgid "The current interface the icon is monitoring."
 msgstr "目前正在监控的接口"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:845
+#: ../src/plugins/netstatus/netstatus-icon.c:846
 msgid "Orientation"
 msgstr "方向"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:846
+#: ../src/plugins/netstatus/netstatus-icon.c:847
 msgid "The orientation of the tray."
 msgstr "系统列的方向。"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:854
+#: ../src/plugins/netstatus/netstatus-icon.c:855
 msgid "Tooltips Enabled"
 msgstr "显示工具提示"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:855
+#: ../src/plugins/netstatus/netstatus-icon.c:856
 msgid "Whether or not the icon's tooltips are enabled."
 msgstr "是否使用图标的工具提示。"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:862
+#: ../src/plugins/netstatus/netstatus-icon.c:863
 msgid "Show Signal"
 msgstr "显示信号"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:863
+#: ../src/plugins/netstatus/netstatus-icon.c:864
 msgid "Whether or not the signal strength should be displayed."
 msgstr "是否显示信号强度"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:976
+#: ../src/plugins/netstatus/netstatus-icon.c:977
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"

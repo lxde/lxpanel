@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-22 00:24+0200\n"
+"POT-Creation-Date: 2011-07-29 14:22+0200\n"
 "PO-Revision-Date: 2010-01-31 19:51+0600\n"
 "Last-Translator: Sadia Afroz <sadia@ankur.org.bd>\n"
 "Language-Team: Bengali <ankur-bd-l10n@googlegroups.com>\n"
@@ -738,48 +738,48 @@ msgstr ""
 msgid "Failed to launch time configuration tool: %s"
 msgstr "সময় কনফিগারেশন টুল চালু করতে ব্যর্থ: %s"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:379
+#: ../src/plugins/netstatus/netstatus-icon.c:380
 #, c-format
 msgid "Network Connection: %s"
 msgstr "নেটওয়ার্ক সংযোগ: %s"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:384
+#: ../src/plugins/netstatus/netstatus-icon.c:385
 msgid "Network Connection"
 msgstr "নেটওয়ার্ক সংযোগ"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:837
+#: ../src/plugins/netstatus/netstatus-icon.c:838
 msgid "Interface"
 msgstr "ইন্টারফেস"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:838
+#: ../src/plugins/netstatus/netstatus-icon.c:839
 msgid "The current interface the icon is monitoring."
 msgstr "আইকন বর্তমানে যে ইন্টারফেসটি পর্যবেক্ষণ করছে।"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:845
+#: ../src/plugins/netstatus/netstatus-icon.c:846
 msgid "Orientation"
 msgstr "স্থিতিবিন্যাস"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:846
+#: ../src/plugins/netstatus/netstatus-icon.c:847
 msgid "The orientation of the tray."
 msgstr "ট্রে-র স্থিতিবিন্যাস।"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:854
+#: ../src/plugins/netstatus/netstatus-icon.c:855
 msgid "Tooltips Enabled"
 msgstr "টুলটিপ সক্রিয় করা হয়েছে"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:855
+#: ../src/plugins/netstatus/netstatus-icon.c:856
 msgid "Whether or not the icon's tooltips are enabled."
 msgstr "আইকনের টুলটিপ সক্রিয় করা হয়েছে কিনা।"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:862
+#: ../src/plugins/netstatus/netstatus-icon.c:863
 msgid "Show Signal"
 msgstr "সিগন্যাল প্রদর্শন"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:863
+#: ../src/plugins/netstatus/netstatus-icon.c:864
 msgid "Whether or not the signal strength should be displayed."
 msgstr "সিগন্যালের শক্তি প্রদর্শন করা হবে কিনা।"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:976
+#: ../src/plugins/netstatus/netstatus-icon.c:977
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
