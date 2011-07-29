@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.3.99\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-27 14:46+0200\n"
+"POT-Creation-Date: 2011-07-22 00:24+0200\n"
 "PO-Revision-Date: 2009-12-29 18:40+0100\n"
 "Last-Translator: Alessandro Pellizzari <alex@amiran.it>\n"
 "Language-Team: \n"
@@ -736,48 +736,48 @@ msgstr ""
 msgid "Failed to launch time configuration tool: %s"
 msgstr "Impossibile avviare strumento configurazione orario: %s"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:380
+#: ../src/plugins/netstatus/netstatus-icon.c:379
 #, c-format
 msgid "Network Connection: %s"
 msgstr "Connessione rete: %s"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:385
+#: ../src/plugins/netstatus/netstatus-icon.c:384
 msgid "Network Connection"
 msgstr "Connessione rete"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:838
+#: ../src/plugins/netstatus/netstatus-icon.c:837
 msgid "Interface"
 msgstr "Interfaccia"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:839
+#: ../src/plugins/netstatus/netstatus-icon.c:838
 msgid "The current interface the icon is monitoring."
 msgstr "L'interfaccia che l'icona sta monitorando attualmente"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:846
+#: ../src/plugins/netstatus/netstatus-icon.c:845
 msgid "Orientation"
 msgstr "Orientamento"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:847
+#: ../src/plugins/netstatus/netstatus-icon.c:846
 msgid "The orientation of the tray."
 msgstr "L'orientamento della barra di sistema"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:855
+#: ../src/plugins/netstatus/netstatus-icon.c:854
 msgid "Tooltips Enabled"
 msgstr "Aiuti tooltips attivi"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:856
+#: ../src/plugins/netstatus/netstatus-icon.c:855
 msgid "Whether or not the icon's tooltips are enabled."
 msgstr "Aiuti tooltips attivi si/no"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:863
+#: ../src/plugins/netstatus/netstatus-icon.c:862
 msgid "Show Signal"
 msgstr "Mostra segnale"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:864
+#: ../src/plugins/netstatus/netstatus-icon.c:863
 msgid "Whether or not the signal strength should be displayed."
 msgstr "Mostra intensità segnale si/no"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:977
+#: ../src/plugins/netstatus/netstatus-icon.c:976
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"

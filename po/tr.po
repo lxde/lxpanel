@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-27 14:46+0200\n"
+"POT-Creation-Date: 2011-07-22 00:24+0200\n"
 "PO-Revision-Date: 2011-03-17 20:56+0200\n"
 "Last-Translator: enginmanap <enginmanap@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -742,48 +742,48 @@ msgstr ""
 msgid "Failed to launch time configuration tool: %s"
 msgstr "Saat yapılandırma aracı açılamadı: %s"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:380
+#: ../src/plugins/netstatus/netstatus-icon.c:379
 #, c-format
 msgid "Network Connection: %s"
 msgstr "Ağ Bağlantısı: %s"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:385
+#: ../src/plugins/netstatus/netstatus-icon.c:384
 msgid "Network Connection"
 msgstr "Ağ Bağlantısı"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:838
+#: ../src/plugins/netstatus/netstatus-icon.c:837
 msgid "Interface"
 msgstr "Arayüz"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:839
+#: ../src/plugins/netstatus/netstatus-icon.c:838
 msgid "The current interface the icon is monitoring."
 msgstr "Simgenin izlediği mevcut arayüz."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:846
+#: ../src/plugins/netstatus/netstatus-icon.c:845
 msgid "Orientation"
 msgstr "Yön ayarı"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:847
+#: ../src/plugins/netstatus/netstatus-icon.c:846
 msgid "The orientation of the tray."
 msgstr "Tepsi yönünü ayarlama."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:855
+#: ../src/plugins/netstatus/netstatus-icon.c:854
 msgid "Tooltips Enabled"
 msgstr "Görsel İpuçları Etkinleştirildi"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:856
+#: ../src/plugins/netstatus/netstatus-icon.c:855
 msgid "Whether or not the icon's tooltips are enabled."
 msgstr "Simge ipuçlarının etkinleştirilip etkinleştirilmediği."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:863
+#: ../src/plugins/netstatus/netstatus-icon.c:862
 msgid "Show Signal"
 msgstr "Sinyali Göster"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:864
+#: ../src/plugins/netstatus/netstatus-icon.c:863
 msgid "Whether or not the signal strength should be displayed."
 msgstr "Sinyal gücünün gösterilsin mi."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:977
+#: ../src/plugins/netstatus/netstatus-icon.c:976
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"

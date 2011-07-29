@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-27 14:46+0200\n"
+"POT-Creation-Date: 2011-07-22 00:24+0200\n"
 "PO-Revision-Date: 2011-07-26 12:39+0200\n"
 "Last-Translator: Ainur <ainur.shakirov.tt@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -731,48 +731,48 @@ msgstr ""
 msgid "Failed to launch time configuration tool: %s"
 msgstr "Сәгатҗ көйләү коралын җибәреп булмады: %s"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:380
+#: ../src/plugins/netstatus/netstatus-icon.c:379
 #, c-format
 msgid "Network Connection: %s"
 msgstr "Тоташу: %s"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:385
+#: ../src/plugins/netstatus/netstatus-icon.c:384
 msgid "Network Connection"
 msgstr "Тоташу"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:838
+#: ../src/plugins/netstatus/netstatus-icon.c:837
 msgid "Interface"
 msgstr "Интерфейс"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:839
+#: ../src/plugins/netstatus/netstatus-icon.c:838
 msgid "The current interface the icon is monitoring."
 msgstr "Актив тоташу билгечеге."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:846
+#: ../src/plugins/netstatus/netstatus-icon.c:845
 msgid "Orientation"
 msgstr "Урнашу"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:847
+#: ../src/plugins/netstatus/netstatus-icon.c:846
 msgid "The orientation of the tray."
 msgstr "Тартмада урнашу."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:855
+#: ../src/plugins/netstatus/netstatus-icon.c:854
 msgid "Tooltips Enabled"
 msgstr "Ярдәмчекләр кабызылган"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:856
+#: ../src/plugins/netstatus/netstatus-icon.c:855
 msgid "Whether or not the icon's tooltips are enabled."
 msgstr "Билгечек ярдәмчекләре кабызылганмы, юкмы."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:863
+#: ../src/plugins/netstatus/netstatus-icon.c:862
 msgid "Show Signal"
 msgstr "Сигналны чагылдыру"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:864
+#: ../src/plugins/netstatus/netstatus-icon.c:863
 msgid "Whether or not the signal strength should be displayed."
 msgstr "Сигнал күәтен чагылдыру кабызылганмы, юкмы."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:977
+#: ../src/plugins/netstatus/netstatus-icon.c:976
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -977,8 +977,8 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"«%s»'нан интерфейс статистикасын эшкәртеп булмады. prx_idx = %d; ptx_idx = "
-"%d; brx_idx = %d; btx_idx = %d;"
+"«%s»'нан интерфейс статистикасын эшкәртеп булмады. prx_idx = %d; ptx_idx = %"
+"d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."

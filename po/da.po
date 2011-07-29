@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-27 14:46+0200\n"
+"POT-Creation-Date: 2011-07-22 00:24+0200\n"
 "PO-Revision-Date: 2010-09-02 21:06+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -736,48 +736,48 @@ msgstr ""
 msgid "Failed to launch time configuration tool: %s"
 msgstr "Fejl under åbning af konfigurationsværktøj til uret: %s"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:380
+#: ../src/plugins/netstatus/netstatus-icon.c:379
 #, c-format
 msgid "Network Connection: %s"
 msgstr "Netværksforbindelse: %s"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:385
+#: ../src/plugins/netstatus/netstatus-icon.c:384
 msgid "Network Connection"
 msgstr "Netværksforbindelse"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:838
+#: ../src/plugins/netstatus/netstatus-icon.c:837
 msgid "Interface"
 msgstr "Grænseflade"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:839
+#: ../src/plugins/netstatus/netstatus-icon.c:838
 msgid "The current interface the icon is monitoring."
 msgstr "Den aktuelle grænseflade, der overvåges af ikonet."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:846
+#: ../src/plugins/netstatus/netstatus-icon.c:845
 msgid "Orientation"
 msgstr "Orientering"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:847
+#: ../src/plugins/netstatus/netstatus-icon.c:846
 msgid "The orientation of the tray."
 msgstr "Systembakkens orientering."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:855
+#: ../src/plugins/netstatus/netstatus-icon.c:854
 msgid "Tooltips Enabled"
 msgstr "Værktøjstips aktiveret"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:856
+#: ../src/plugins/netstatus/netstatus-icon.c:855
 msgid "Whether or not the icon's tooltips are enabled."
 msgstr "Hvorvidt ikonets værktøjstip er aktiveret."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:863
+#: ../src/plugins/netstatus/netstatus-icon.c:862
 msgid "Show Signal"
 msgstr "Vis signal"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:864
+#: ../src/plugins/netstatus/netstatus-icon.c:863
 msgid "Whether or not the signal strength should be displayed."
 msgstr "Hvorvidt signalstyrken skal vises."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:977
+#: ../src/plugins/netstatus/netstatus-icon.c:976
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
