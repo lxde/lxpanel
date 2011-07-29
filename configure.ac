@@ -22,7 +22,22 @@ LT_PREREQ([2.2])
 LT_INIT
 
 # Checks for libraries.
-pkg_modules="gtk+-2.0 >= 2.12.0 \
+AC_ARG_ENABLE(gtk3,
+AC_HELP_STRING([--enable-gtk3],[enable to use gtk-3.0 instead of gtk-2.0]),
+[case "${enableval}" in
+  yes)  enable_gtk3=yes ;;
+  no)   enable_gtk3=no ;;
+  *) AC_MSG_ERROR([bad value "${enableval}" for --enable-gtk3, use "yes" (default) or "no".]) ;;
+esac],[])
+
+if test "x$enable_gtk3" = "xyes" ; then
+  CFLAGS="$CFLAGS -DENABLE_GTK3"
+  pkg_modules="$pkg_modules gtk+-3.0"
+else
+  pkg_modules="$pkg_modules gtk+-2.0 >= 2.12.0"
+fi
+
+pkg_modules="$pkg_modules \
              gio-unix-2.0 \
              gthread-2.0"
 #             libstartup-notification-1.0"
