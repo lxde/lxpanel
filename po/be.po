@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-29 14:22+0200\n"
-"PO-Revision-Date: 2010-08-26 20:37+0200\n"
-"Last-Translator: Анік <xabzan9tka@gmail.com>\n"
+"PO-Revision-Date: 2011-07-31 23:53+0200\n"
+"Last-Translator: Мікалай <crom-a@tut.by>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:319
@@ -41,7 +41,7 @@ msgstr "Расцягнуць"
 
 #: ../src/configurator.c:559
 msgid "Add plugin to panel"
-msgstr "Дадаць плагін да панэлі"
+msgstr "Дадаць плагін на панэль"
 
 #: ../src/configurator.c:587
 msgid "Available plugins"
@@ -57,7 +57,7 @@ msgstr "Абраць каталог"
 
 #: ../src/configurator.c:1196 ../src/configurator.c:1287
 msgid "Select a file"
-msgstr "Абярыце файл"
+msgstr "Выберыце файл"
 
 #: ../src/configurator.c:1314
 msgid "_Browse"
@@ -69,16 +69,18 @@ msgid ""
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
 "Вы сапраўды жадаеце выдаліць панэль?\n"
-"<b>Увага: Нельга будзе вернуцца назад.</b>"
+"<b>Увага: Нельга будзе вярнуцца назад.</b>"
 
 #: ../src/panel.c:651
 msgid "Confirm"
-msgstr "Падцвярдзіць"
+msgstr "Пацвердзіць"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:684
 msgid "translator-credits"
-msgstr "Анік Кіна <son_of_the_photographer@tut.by>"
+msgstr ""
+"Анік Кіна <son_of_the_photographer@tut.by>\n"
+"Мікалай Удодаў <crom-a@tut.by>, 2011."
 
 #: ../src/panel.c:689
 msgid "LXPanel"
@@ -86,7 +88,7 @@ msgstr "LXPanel"
 
 #: ../src/panel.c:691
 msgid "Copyright (C) 2008-2011"
-msgstr "Copyright (C) 2008-2011"
+msgstr "Аўтарскае права (C) 2008-2011"
 
 #: ../src/panel.c:692
 msgid "Desktop panel for LXDE project"
@@ -94,7 +96,7 @@ msgstr "Панэль працоўнага стала для праекта LXDE"
 
 #: ../src/panel.c:715
 msgid "Add / Remove Panel Items"
-msgstr "Дадаць/Выдаліць кампаненты панэлі"
+msgstr "Дадаць/Прыбраць кампаненты панэлі"
 
 #: ../src/panel.c:723
 #, c-format
@@ -103,7 +105,7 @@ msgstr "Выдаліць\"%s\" з панэлі"
 
 #: ../src/panel.c:735
 msgid "Panel Settings"
-msgstr "Налады панэлі"
+msgstr "Настаўленні панэлі"
 
 #: ../src/panel.c:741
 msgid "Create New Panel"
@@ -124,7 +126,7 @@ msgstr "Панэль"
 #: ../src/panel.c:784
 #, c-format
 msgid "\"%s\" Settings"
-msgstr "Наладзіць \"%s\""
+msgstr "Настаўленні \"%s\""
 
 #: ../src/panel.c:1040 ../src/panel.c:1048
 msgid "Height:"
@@ -140,7 +142,7 @@ msgstr "Злева"
 
 #: ../src/panel.c:1043
 msgid "Right"
-msgstr "Зправа"
+msgstr "Справа"
 
 #: ../src/panel.c:1049
 msgid "Top"
@@ -153,7 +155,7 @@ msgstr "Знізу"
 #: ../src/panel.c:1449
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr "LXPanel %s - лёгкаважная GTK2+ панэль працоўнага стала UNIX\n"
+msgstr "LXPanel %s - лёгкая GTK2+ панэль працоўнага стала UNIX\n"
 
 #: ../src/panel.c:1450
 #, c-format
@@ -163,7 +165,7 @@ msgstr "Параметры загаднага радка:\n"
 #: ../src/panel.c:1451
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr " --help      --паказаць дапамогу і выйсці\n"
+msgstr " --help      --паказаць даведку і выйсці\n"
 
 #: ../src/panel.c:1452
 #, c-format
@@ -173,7 +175,7 @@ msgstr " --version   -- паказаць версію і выйсці\n"
 #: ../src/panel.c:1453
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --log <лік> -- задаць глыбіню часопіса 0-5. 0 - няма 5 - поўны\n"
+msgstr " --log <лік> -- задаць узровень журнала 0-5. 0 - няма 5 - поўны\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1455
@@ -210,7 +212,7 @@ msgstr ""
 
 #: ../src/gtk-run.c:332
 msgid "Enter the command you want to execute:"
-msgstr "Увязіце загад, які трэба запусціць:"
+msgstr "Увядзіце загад, які трэба выканаць:"
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
@@ -222,19 +224,19 @@ msgstr "Паказваць выкарыстанне працэсара"
 
 #: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:426
 msgid "Bold font"
-msgstr "Тлусты шрыўт"
+msgstr "Цёмны шрыфт"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
-msgstr "Паказваць назвы працоўных сталоў"
+msgstr "Паказваць назвы працоўных прастораў"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
-msgstr "Нумар і імя працоўнага месца"
+msgstr "Нумар і назва працоўнай прасторы"
 
 #: ../src/plugins/deskno/deskno.c:237
 msgid "Display workspace number, by cmeury@users.sf.net"
-msgstr "Паказваць нумар працоўнага месца"
+msgstr "Паказваць нумар працоўнай прасторы"
 
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
@@ -256,12 +258,12 @@ msgstr "_Разгарнуць"
 #. Add Restore menu item.
 #: ../src/plugins/taskbar.c:1719
 msgid "R_estore"
-msgstr "А_днавіць"
+msgstr "_Узнавіць"
 
 #. Add Maximize menu item.
 #: ../src/plugins/taskbar.c:1724
 msgid "Ma_ximize"
-msgstr "_На ўвесь экран"
+msgstr "_Максімізаваць"
 
 #. Add Iconify menu item.
 #: ../src/plugins/taskbar.c:1729
@@ -271,12 +273,12 @@ msgstr "_Згарнуць у значок"
 #: ../src/plugins/taskbar.c:1748
 #, c-format
 msgid "Workspace _%d"
-msgstr "Працоўнае месца _%d"
+msgstr "Працоўная прастора _%d"
 
 #: ../src/plugins/taskbar.c:1753
 #, c-format
 msgid "Workspace %d"
-msgstr "Працоўнае месца %d"
+msgstr "Працоўная прастора %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../src/plugins/taskbar.c:1767
@@ -291,7 +293,7 @@ msgstr "_Перамясціць на працоўнае месца"
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../src/plugins/taskbar.c:1779
 msgid "_Close Window"
-msgstr "_Зачыніць вакно"
+msgstr "_Закрыць акно"
 
 #: ../src/plugins/taskbar.c:1986
 msgid "Show tooltips"
@@ -311,7 +313,7 @@ msgstr "Паказваць вокны з усіх працоўных стало�
 
 #: ../src/plugins/taskbar.c:1990
 msgid "Use mouse wheel"
-msgstr "Выкарыстоўваць кола мышы"
+msgstr "Выкарыстоўваць колца мышы"
 
 #: ../src/plugins/taskbar.c:1991
 msgid "Flash when there is any window requiring attention"
@@ -331,14 +333,14 @@ msgstr "Прамежак"
 
 #: ../src/plugins/taskbar.c:2051
 msgid "Task Bar (Window List)"
-msgstr "Панэль задач (Спіс вокан)"
+msgstr "Панэль задач (Спіс вокнаў)"
 
 #: ../src/plugins/taskbar.c:2053
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
-"Панэль задач паказвае ўсе адчыненыя вокны, дазваляе згортваць ці разгортваць "
+"Панэль задач паказвае ўсе адкрытыя вокны, дазваляе згортваць ці разгортваць "
 "іх, або мяняць фокус"
 
 #: ../src/plugins/dclock.c:422
@@ -357,7 +359,7 @@ msgstr ""
 
 #: ../src/plugins/dclock.c:425
 msgid "Action when clicked (default: display calendar)"
-msgstr "Дзеянне па пстрычцы (па змаўчанні: паказвае календар)"
+msgstr "Дзеянне па пстрычцы (тыпова: паказаць календар)"
 
 #: ../src/plugins/dclock.c:427
 msgid "Tooltip only"
@@ -393,15 +395,15 @@ msgstr "Галоўнае меню"
 
 #: ../src/plugins/separator.c:102
 msgid "Separator"
-msgstr "Раздзяліцель"
+msgstr "Раздзельнік"
 
 #: ../src/plugins/separator.c:104
 msgid "Add a separator to the panel"
-msgstr "Дадаць раздзяліцель дапанэлі"
+msgstr "Дадаць раздзельнік на панэль"
 
 #: ../src/plugins/pager.c:833
 msgid "Desktop Pager"
-msgstr "Перакючальнік працоўных сталоў"
+msgstr "Пераключальнік працоўных сталоў"
 
 #: ../src/plugins/pager.c:835
 msgid "Simple pager plugin"
@@ -413,7 +415,7 @@ msgstr "Памер"
 
 #: ../src/plugins/space.c:143
 msgid "Spacer"
-msgstr "Месца"
+msgstr "Прагал"
 
 #: ../src/plugins/space.c:145
 msgid "Allocate space"
@@ -429,7 +431,7 @@ msgstr "Сістэмны трэй"
 
 #: ../src/plugins/xkb/xkb-plugin.c:291
 msgid "Configure Keyboard Layout Switcher"
-msgstr "Наладка індыкатара раскладак клавіятуры"
+msgstr "Канфігурацыя індыкатара раскладак клавіятуры"
 
 #: ../src/plugins/xkb/xkb-plugin.c:306
 msgid "Show layout as"
@@ -445,7 +447,7 @@ msgstr "тэкст"
 
 #: ../src/plugins/xkb/xkb-plugin.c:329
 msgid "Per application settings"
-msgstr "Налады для праграм"
+msgstr "Настаўленні праграм"
 
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/xkb/xkb-plugin.c:344
@@ -455,93 +457,97 @@ msgstr "_Памятаць раскладку для кожнай праграм�
 #. Create a label as the child of the horizontal box.
 #: ../src/plugins/xkb/xkb-plugin.c:354
 msgid "Default layout:"
-msgstr "Раскладка па змаўчанні:"
+msgstr "Прадвызначаная раскладка:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:405
 msgid "Keyboard Layout Switcher"
-msgstr "Індыкатар раскладак клавіятуры"
+msgstr "Пераключальнік раскладак клавіятуры"
 
 #: ../src/plugins/xkb/xkb-plugin.c:407
 msgid "Switch between available keyboard layouts"
-msgstr "Пераключэнне паміж існымі раскладкамі клавіятуры"
+msgstr "Пераключэнне паміж даступнымі раскладкамі клавіятуры"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
+"Левая кнопка мышы - згарнуць усе вокны ў значок.  Сярэдняя кнопка - скруціць "
+"іх."
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
-msgstr ""
+msgstr "Цыклічная згортка/скручванне і ўзнаўленне"
 
 #: ../src/plugins/wincmd.c:266
 msgid "Minimize All Windows"
-msgstr ""
+msgstr "Мінімізаваць усе вокны"
 
 #: ../src/plugins/wincmd.c:268
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
+"Даслаць загад на ўсе вокны на працоўнай прасторы.\n"
+"Падтрыманыя загады: 1) згарнуць у значок і 2) скруціць"
 
 #: ../src/plugins/dirmenu.c:246
 msgid "Open in _Terminal"
-msgstr ""
+msgstr "Адкрыць у тэрмінал_е"
 
 #: ../src/plugins/dirmenu.c:411
 msgid "Directory"
-msgstr ""
+msgstr "Каталог"
 
 #: ../src/plugins/dirmenu.c:412
 msgid "Label"
-msgstr ""
+msgstr "Метка"
 
 #: ../src/plugins/dirmenu.c:443
 msgid "Directory Menu"
-msgstr ""
+msgstr "Меню каталога"
 
 #: ../src/plugins/dirmenu.c:445
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr ""
+msgstr "Праглядаць дрэва каталогаў праз меню"
 
 #: ../src/plugins/thermal/thermal.c:304
 msgid "Normal"
-msgstr ""
+msgstr "Звычайны"
 
 #: ../src/plugins/thermal/thermal.c:305
 msgid "Warning1"
-msgstr ""
+msgstr "Папярэджанне 1"
 
 #: ../src/plugins/thermal/thermal.c:306
 msgid "Warning2"
-msgstr ""
+msgstr "Папярэджанне 2"
 
 #: ../src/plugins/thermal/thermal.c:307
 msgid "Automatic sensor location"
-msgstr ""
+msgstr "Аўтаматычнае вызначэнне сенсара"
 
 #: ../src/plugins/thermal/thermal.c:308
 msgid "Sensor"
-msgstr ""
+msgstr "Сенсар"
 
 #: ../src/plugins/thermal/thermal.c:309
 msgid "Automatic temperature levels"
-msgstr ""
+msgstr "Аўтаматычныя ўзроўні тэмпературы"
 
 #: ../src/plugins/thermal/thermal.c:310
 msgid "Warning1 Temperature"
-msgstr ""
+msgstr "Папярэджанне1 Тэмпература"
 
 #: ../src/plugins/thermal/thermal.c:311
 msgid "Warning2 Temperature"
-msgstr ""
+msgstr "Папярэджанне2 Тэмпература"
 
 #: ../src/plugins/thermal/thermal.c:353
 msgid "Temperature Monitor"
-msgstr ""
+msgstr "Манітор тэмпературы"
 
 #: ../src/plugins/thermal/thermal.c:355
 msgid "Display system temperature"
-msgstr ""
+msgstr "Паказваць тэмпературу сістэмы"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -549,101 +555,101 @@ msgstr ""
 #: ../src/plugins/volumealsa/volumealsa.c:252
 #: ../src/plugins/volumealsa/volumealsa.c:422
 msgid "Volume control"
-msgstr ""
+msgstr "Узровень гучнасці"
 
 #: ../src/plugins/volume/volume.c:312
 #: ../src/plugins/volumealsa/volumealsa.c:471
 msgid "Volume Control"
-msgstr ""
+msgstr "Узровень гучнасці"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
 #: ../src/plugins/volumealsa/volumealsa.c:380
 msgid "Volume"
-msgstr ""
+msgstr "Гучнасць"
 
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/volumealsa/volumealsa.c:399
 msgid "Mute"
-msgstr ""
+msgstr "Выключыць"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
-msgstr ""
+msgstr "<Схаваны пункт доступу>"
 
 #: ../src/plugins/netstat/netstat.c:201
 msgid "Wireless Networks not found in range"
-msgstr ""
+msgstr "Бесправодныя сеткі не знойдзены ў дыяпазоне"
 
 #. Repair
 #: ../src/plugins/netstat/netstat.c:235
 msgid "Repair"
-msgstr ""
+msgstr "Рамантаваць"
 
 #. interface down
 #: ../src/plugins/netstat/netstat.c:240
 msgid "Disable"
-msgstr ""
+msgstr "Выключыць"
 
 #: ../src/plugins/netstat/netstat.c:299
 msgid "Wireless Connection has no connectivity"
-msgstr ""
+msgstr "Бесправодныя далучэнні немагчымыя"
 
 #: ../src/plugins/netstat/netstat.c:301
 msgid "Network cable is plugged out"
-msgstr ""
+msgstr "Сеткавы кабель не падключаны"
 
 #: ../src/plugins/netstat/netstat.c:303
 msgid "Connection has limited or no connectivity"
-msgstr ""
+msgstr "Абмежаванае альбо адсутнае далучэнне"
 
 #: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
-msgstr ""
+msgstr "Адрас IP:"
 
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Remote IP:"
-msgstr ""
+msgstr "Аддалены IP:"
 
 #: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
-msgstr ""
+msgstr "Маска падсеткі:"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
-msgstr ""
+msgstr "Актыўнасць"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
-msgstr ""
+msgstr "Даслана"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
-msgstr ""
+msgstr "Прынята"
 
 #: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
-msgstr ""
+msgstr "байтаў"
 
 #: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
-msgstr ""
+msgstr "пакетаў"
 
 #: ../src/plugins/netstat/netstat.c:315
 #: ../src/plugins/netstatus/netstatus-iface.c:173
 msgid "Wireless"
-msgstr ""
+msgstr "Безправадны"
 
 #: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
-msgstr ""
+msgstr "Пратакол:"
 
 #: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
@@ -652,20 +658,20 @@ msgstr "Адрас трансляцыі:"
 
 #: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
-msgstr ""
+msgstr "Апаратны адрас:"
 
 #: ../src/plugins/netstat/netstat.c:470
 msgid "Manage Networks"
-msgstr ""
+msgstr "Кіраванне сеткамі"
 
 #: ../src/plugins/netstat/netstat.c:472
 msgid "Monitor and Manage networks"
-msgstr ""
+msgstr "Назіраць і кіраваць сеткамі"
 
 #. create dialog
 #: ../src/plugins/netstat/passwd_gui.c:84
 msgid "Setting Encryption Key"
-msgstr ""
+msgstr "Устанаўленне ключа шыфравання"
 
 #. messages
 #: ../src/plugins/netstat/passwd_gui.c:94
@@ -673,47 +679,50 @@ msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
 msgstr ""
+"Гэта безправодная сетка зашыфраваная.\n"
+"Вы павінны мець ключ шыфравання."
 
 #: ../src/plugins/netstat/passwd_gui.c:99
 msgid "Encryption Key:"
-msgstr ""
+msgstr "Ключ шыфравання:"
 
 #: ../src/plugins/netstatus/netstatus.c:179
 msgid "Interface to monitor"
-msgstr ""
+msgstr "Інтэрфейс манітора"
 
 #: ../src/plugins/netstatus/netstatus.c:180
 msgid "Config tool"
-msgstr ""
+msgstr "Сродак канфігурацыі"
 
 #: ../src/plugins/netstatus/netstatus.c:197
 msgid "Network Status Monitor"
-msgstr ""
+msgstr "Манітор статусу сеткі"
 
 #: ../src/plugins/netstatus/netstatus.c:199
 msgid "Monitor network status"
-msgstr ""
+msgstr "Назіранне за статусам сеткі"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:51
 #: ../src/plugins/netstatus/netstatus-dialog.c:312
 msgid "Unknown"
-msgstr ""
+msgstr "Невядома"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:116
 msgid "Connection Properties"
-msgstr ""
+msgstr "Уласцівасці далучэння"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:122
 #, c-format
 msgid "Connection Properties: %s"
-msgstr ""
+msgstr "Уласцівасці далучэння: %s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:135
 #, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%lu пакет"
+msgstr[1] "%lu пакеты"
+msgstr[2] "%lu пакетаў"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:396
 #, c-format
@@ -721,52 +730,54 @@ msgid ""
 "There was an error displaying help:\n"
 "%s"
 msgstr ""
+"Здарылася памылка падчас адлюстравання даведкі:\n"
+"%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
-msgstr ""
+msgstr "Немагчыма запусціць сродак настаўлення часу: %s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:380
 #, c-format
 msgid "Network Connection: %s"
-msgstr ""
+msgstr "Сеткавае далучэнне: %s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:385
 msgid "Network Connection"
-msgstr ""
+msgstr "Сеткавае далучэнне"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:838
 msgid "Interface"
-msgstr ""
+msgstr "Інтэрфейс"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:839
 msgid "The current interface the icon is monitoring."
-msgstr ""
+msgstr "Бягучы інтэрфейс манітараваны праз значок."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:846
 msgid "Orientation"
-msgstr ""
+msgstr "Арыентацыя"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:847
 msgid "The orientation of the tray."
-msgstr ""
+msgstr "Арыентацыя латка."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:855
 msgid "Tooltips Enabled"
-msgstr ""
+msgstr "Падказкі ўключаны"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:856
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr ""
+msgstr "Уключаны ці не падказкі значкоў"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:863
 msgid "Show Signal"
-msgstr ""
+msgstr "Паказаць сігнал"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:864
 msgid "Whether or not the signal strength should be displayed."
-msgstr ""
+msgstr "Паказваць ці не узровень сігнала"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:977
 #, c-format
@@ -775,193 +786,197 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Калі ласка, звярніцеся да сістэмнага адміністратара, каб вырашыць наступную "
+"праблему:\n"
+"\n"
+"%s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:148
 msgid "Name"
-msgstr ""
+msgstr "Назва"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:149
 msgid "The interface name"
-msgstr ""
+msgstr "Назва інтэрфейсу"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:156
 msgid "State"
-msgstr ""
+msgstr "Стан"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:157
 msgid "The interface state"
-msgstr ""
+msgstr "Стан інтэрфейсу"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:165
 msgid "Stats"
-msgstr ""
+msgstr "Статыстыка"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:166
 msgid "The interface packets/bytes statistics"
-msgstr ""
+msgstr "Статыстыка пакетаў/байтаў інтэрфейсу"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:174
 msgid "Whether the interface is a wireless interface"
-msgstr ""
+msgstr "Адзначае, безправодны інтэрфейс ці не"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:181
 msgid "Signal"
-msgstr ""
+msgstr "Сігнал"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:182
 msgid "Wireless signal strength percentage"
-msgstr ""
+msgstr "Працэнт магутнасці безправоднага сігнала"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:191
 #: ../src/plugins/netstatus/netstatus-util.c:167
 msgid "Error"
-msgstr ""
+msgstr "Памылка"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:192
 msgid "The current error condition"
-msgstr ""
+msgstr "Актуальныя ўмовы памылкі"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:434
 #: ../src/plugins/netstatus/netstatus-iface.c:1197
 #, c-format
 msgid "Unable to open socket: %s"
-msgstr ""
+msgstr "Немагчыма адкрыць сокет: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:496
 #: ../src/plugins/netstatus/netstatus-iface.c:1223
 #, c-format
 msgid "SIOCGIFFLAGS error: %s"
-msgstr ""
+msgstr "Памылка SIOCGIFFLAGS: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:870
 msgid "AMPR NET/ROM"
-msgstr ""
+msgstr "AMPR NET/ROM"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:873
 msgid "Ethernet"
-msgstr ""
+msgstr "Ethernet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:879
 msgid "AMPR AX.25"
-msgstr ""
+msgstr "AMPR AX.25"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:888
 #: ../src/plugins/netstatus/netstatus-iface.c:1008
 msgid "16/4 Mbps Token Ring"
-msgstr ""
+msgstr "16/4 Mbps Token Ring"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:891
 msgid "ARCnet"
-msgstr ""
+msgstr "ARCnet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:897
 msgid "Frame Relay DLCI"
-msgstr ""
+msgstr "Frame Relay DLCI"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:903
 msgid "Metricom Starmode IP"
-msgstr ""
+msgstr "Metricom Starmode IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:906
 msgid "Serial Line IP"
-msgstr ""
+msgstr "IP па паслядоўнай лініі"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:909
 msgid "VJ Serial Line IP"
-msgstr ""
+msgstr "VJ Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:912
 msgid "6-bit Serial Line IP"
-msgstr ""
+msgstr "6-bit Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:915
 msgid "VJ 6-bit Serial Line IP"
-msgstr ""
+msgstr "VJ 6-bit Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:921
 msgid "Adaptive Serial Line IP"
-msgstr ""
+msgstr "Адаптыўны IP па паслядоўнай лініі"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:924
 msgid "AMPR ROSE"
-msgstr ""
+msgstr "AMPR ROSE"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:927
 msgid "Generic X.25"
-msgstr ""
+msgstr "Звычайны X.25"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:930
 msgid "Point-to-Point Protocol"
-msgstr ""
+msgstr "Пратакол кропка-кропка"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:936
 msgid "(Cisco)-HDLC"
-msgstr ""
+msgstr "(Cisco)-HDLC"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:939
 msgid "LAPB"
-msgstr ""
+msgstr "LAPB"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:948
 msgid "IPIP Tunnel"
-msgstr ""
+msgstr "Тунэль IPIP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:954
 msgid "Frame Relay Access Device"
-msgstr ""
+msgstr "Прылада доступу Frame Relay"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:960
 msgid "Local Loopback"
-msgstr ""
+msgstr "Лакальны інтэрфейс"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:966
 msgid "Fiber Distributed Data Interface"
-msgstr ""
+msgstr "Святлаводавы разсяроджаны інтэрфейс звестак"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:972
 msgid "IPv6-in-IPv4"
-msgstr ""
+msgstr "IPv6-in-IPv4"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:984
 msgid "HIPPI"
-msgstr ""
+msgstr "HIPPI"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:987
 msgid "Ash"
-msgstr ""
+msgstr "Ash"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:990
 msgid "Econet"
-msgstr ""
+msgstr "Econet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:993
 msgid "IrLAP"
-msgstr ""
+msgstr "IrLAP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:1155
 #, c-format
 msgid "SIOCGIFCONF error: %s"
-msgstr ""
+msgstr "Памылка SIOCGIFCONF: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:1248
 #, c-format
 msgid "No network devices found"
-msgstr ""
+msgstr "Сеткавыя прылады не знойдзены"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:180
 #, c-format
 msgid "Cannot open /proc/net/dev: %s"
-msgstr ""
+msgstr "Нельга адкрыць /proc/net/dev: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:189
 msgid "Could not parse /proc/net/dev. Unknown format."
-msgstr ""
+msgstr "Немагчыма разабраць /proc/net/dev. Невядомы фармат."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:204
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:330
 #, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr ""
+msgstr "Немагчыма разабраць назву інтэрфейсу з '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
@@ -970,54 +985,58 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
+"Немагчыма разабраць статыстыку інтэрфейсу з '%s'. prx_idx = %d; ptx_idx = %"
+"d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr ""
+msgstr "Немагчыма разабраць /proc/net/wireless. Невядомы фармат."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
 msgstr ""
+"Немагчыма прааналізаваць звесткі безправоднага інтэрфейсу з '%s'. link_idx = "
+"%d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
 msgid "Could not connect to interface, '%s'"
-msgstr ""
+msgstr "Нельга злучыцца з інтэрфейсам, '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:420
 #, c-format
 msgid "Could not send ioctl to interface, '%s'"
-msgstr ""
+msgstr "Немагчыма даслаць ioctl на інтэрфейс, '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr ""
+msgstr "Немагчыма разабраць загадны радок '%s': %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr ""
+msgstr "Немагчыма разабраць вывад 'netstat'. Невядомы фармат"
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
-msgstr ""
+msgstr "Адлучана"
 
 #: ../src/plugins/netstatus/netstatus-util.c:155
 msgid "Idle"
-msgstr ""
+msgstr "Бяздзейны"
 
 #: ../src/plugins/netstatus/netstatus-util.c:158
 msgid "Sending"
-msgstr ""
+msgstr "Высыланне"
 
 #: ../src/plugins/netstatus/netstatus-util.c:161
 msgid "Receiving"
-msgstr ""
+msgstr "Атрыманне"
 
 #: ../src/plugins/netstatus/netstatus-util.c:164
 msgid "Sending/Receiving"
-msgstr ""
+msgstr "Высыланне/атрыманне"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
 #, no-c-format
@@ -1054,11 +1073,11 @@ msgstr "Адрас:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
 msgid "Con_figure"
-msgstr "Нал_адзіць"
+msgstr "Наст_авіць"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
 msgid "Destination:"
-msgstr "Куды:"
+msgstr "Прызначэнне:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
 msgid "General"
@@ -1074,7 +1093,7 @@ msgstr "Дыяпазон:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
 msgid "Sent:"
-msgstr "Перададзена:"
+msgstr "Выслана:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
 msgid "Status:"
@@ -1082,7 +1101,7 @@ msgstr "Статус:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
 msgid "Subnet Mask:"
-msgstr "Падсеткавая маска:"
+msgstr "Маска падсеткі:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
 msgid "Support"
@@ -1094,90 +1113,90 @@ msgstr "Тып:"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
 msgid "_Name:"
-msgstr "_Імя"
+msgstr "_Назва"
 
 #: ../src/plugins/batt/batt.c:131
 msgid "No batteries found"
-msgstr ""
+msgstr "Акумулятар не знойдзены"
 
 #: ../src/plugins/batt/batt.c:179
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
-msgstr ""
+msgstr "Акумулятар: %d%% зарад, %d:%02d да поўнага"
 
 #: ../src/plugins/batt/batt.c:190
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
-msgstr ""
+msgstr "Акумулятар: %d%% зарад, %d:%02d засталося"
 
 #: ../src/plugins/batt/batt.c:196
 #, c-format
 msgid "Battery: %d%% charged"
-msgstr ""
+msgstr "Акумулятар: %d%% зарад"
 
 #: ../src/plugins/batt/batt.c:580
 msgid "Hide if there is no battery"
-msgstr ""
+msgstr "Хаваць, калі няма акумулятара"
 
 #: ../src/plugins/batt/batt.c:582
 msgid "Alarm command"
-msgstr ""
+msgstr "Загад трывогі"
 
 #: ../src/plugins/batt/batt.c:583
 msgid "Alarm time (minutes left)"
-msgstr ""
+msgstr "Час трывогі (хвілін засталося)"
 
 #: ../src/plugins/batt/batt.c:584
 msgid "Background color"
-msgstr ""
+msgstr "Колер фону"
 
 #: ../src/plugins/batt/batt.c:585
 msgid "Charging color 1"
-msgstr ""
+msgstr "Колер зараду 1"
 
 #: ../src/plugins/batt/batt.c:586
 msgid "Charging color 2"
-msgstr ""
+msgstr "Колер зараду 2"
 
 #: ../src/plugins/batt/batt.c:587
 msgid "Discharging color 1"
-msgstr ""
+msgstr "Колер разраду 1"
 
 #: ../src/plugins/batt/batt.c:588
 msgid "Discharging color 2"
-msgstr ""
+msgstr "Колер разраду 2"
 
 #: ../src/plugins/batt/batt.c:589
 msgid "Border width"
-msgstr ""
+msgstr "Шырыня абрамлення"
 
 #: ../src/plugins/batt/batt.c:619
 msgid "Battery Monitor"
-msgstr ""
+msgstr "Манітор акумулятара"
 
 #: ../src/plugins/batt/batt.c:621
 msgid "Display battery status using ACPI"
-msgstr ""
+msgstr "Паказваць статус акумулятара праз ACPI"
 
 #: ../src/plugins/kbled/kbled.c:230
 msgid "Show CapsLock"
-msgstr ""
+msgstr "Паказваць CapsLock"
 
 #: ../src/plugins/kbled/kbled.c:231
 msgid "Show NumLock"
-msgstr ""
+msgstr "Паказваць NumLock"
 
 #: ../src/plugins/kbled/kbled.c:232
 msgid "Show ScrollLock"
-msgstr ""
+msgstr "Паказваць ScrollLock"
 
 #: ../src/plugins/kbled/kbled.c:267
 msgid "Keyboard LED"
-msgstr ""
+msgstr "Індыкатары клавіятуры"
 
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr ""
+msgstr "Індыкатары клавіш CapsLock, NumLock, і ScrollLock"
 
 #~ msgid "% Percent"
 #~ msgstr "% Працэнтаў"
