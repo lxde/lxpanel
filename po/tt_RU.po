@@ -1,22 +1,21 @@
-# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Ainur Shakirov <ainur.shakirov.tt@gmail.com>, 2011.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-29 14:22+0200\n"
-"PO-Revision-Date: 2011-07-26 12:39+0200\n"
-"Last-Translator: Ainur <ainur.shakirov.tt@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2011-08-18 01:01+0400\n"
+"Last-Translator: Ainur Shakirov <ainur.shakirov.tt@gmail.com>\n"
+"Language-Team: Tatar <>\n"
 "Language: tt_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Lokalize 1.2\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:319
 msgid "Run"
@@ -28,7 +27,7 @@ msgstr "Яңадан җибәрү"
 
 #: ../src/configurator.c:57
 msgid "Logout"
-msgstr "Сеансны бетерү"
+msgstr "Системадан чыгу"
 
 #: ../src/configurator.c:448
 msgid "Currently loaded plugins"
@@ -36,7 +35,7 @@ msgstr "Йөкләнгән өстәлмәләр"
 
 #: ../src/configurator.c:457
 msgid "Stretch"
-msgstr "Сузырга"
+msgstr "Сузу"
 
 #: ../src/configurator.c:559
 msgid "Add plugin to panel"
@@ -68,7 +67,7 @@ msgid ""
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
 "Бу панельне чыннан да бетерергәме?\n"
-"<b>Кисәтү: Моны кире кайтарып булмый.</b>"
+"<b>Кисәтү: Моны кире торгызып булмаячак.</b>"
 
 #: ../src/panel.c:651
 msgid "Confirm"
@@ -106,7 +105,7 @@ msgstr "Панель көйләүләре"
 
 #: ../src/panel.c:741
 msgid "Create New Panel"
-msgstr "Яңа панель төзү"
+msgstr "Яңа панель өстәү"
 
 #: ../src/panel.c:752
 msgid "Delete This Panel"
@@ -162,17 +161,17 @@ msgstr "Команда юлы ачкычлары:\n"
 #: ../src/panel.c:1451
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr " --help      -- бу белешмәне бастырып чыгу\n"
+msgstr " --help      -- бу белешмәне бастыру һәм чыгу\n"
 
 #: ../src/panel.c:1452
 #, c-format
 msgid " --version   -- print version and exit\n"
-msgstr " --version   -- юрама санын бастырып чыгу\n"
+msgstr " --version   -- юрама санын бастыру һәм чыгу\n"
 
 #: ../src/panel.c:1453
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --log <сан> -- лог дәрәҗәсен кую, 0-5. 0 - юк 5 - тулысынча\n"
+msgstr " --log <сан> -- лог дәрәҗәсен кую, 0-5. 0 - юк, 5 - тулысынча\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1455
@@ -213,11 +212,11 @@ msgstr "Үтәү өчен команданы кертегез:"
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
-msgstr "Процессорның йөкләү мониторы"
+msgstr "Процессорның йөкләве мониторы"
 
 #: ../src/plugins/cpu/cpu.c:270
 msgid "Display CPU usage"
-msgstr "Процессорның йөкләвен күрсәтә"
+msgstr "Процессор йөкләвен күрсәтә"
 
 #: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:426
 msgid "Bold font"
@@ -225,7 +224,7 @@ msgstr "Калын хәреф"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
-msgstr "Эш өстәл исемнәрен чагылдырырга"
+msgstr "Эш өстәле исемнәрен чагылдырырга"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
@@ -237,7 +236,7 @@ msgstr "Эш өстәле номерын күрсәтә"
 
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
-msgstr "Рәсем һәм ярдәмчекне күрсәтергә"
+msgstr "Рәсем һәм ярдәмчекне күрсәтү"
 
 #: ../src/plugins/launchbar.c:912
 msgid "Application Launch Bar"
@@ -280,7 +279,7 @@ msgstr "%d эш урыны"
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../src/plugins/taskbar.c:1767
 msgid "_All workspaces"
-msgstr "_Барлык эш урыннары"
+msgstr "_Булган эш урыннары"
 
 #. Add Move to Workspace menu item as a submenu.
 #: ../src/plugins/taskbar.c:1773
@@ -306,7 +305,7 @@ msgstr "Яссы төймәләр"
 
 #: ../src/plugins/taskbar.c:1989
 msgid "Show windows from all desktops"
-msgstr "Барлык эш өстәлләрдәге тәрәзәләрне күрсәтергә"
+msgstr "Барлык эш өстәлләрдәге тәрәзәләрне күрсәтү"
 
 #: ../src/plugins/taskbar.c:1990
 msgid "Use mouse wheel"
@@ -386,7 +385,7 @@ msgstr "Меню"
 
 #: ../src/plugins/menu.c:1098
 msgid "Application Menu"
-msgstr "Кушымта менюсы"
+msgstr "Кушымта исемлеге"
 
 #: ../src/plugins/separator.c:102
 msgid "Separator"
@@ -394,15 +393,15 @@ msgstr "Аергыч"
 
 #: ../src/plugins/separator.c:104
 msgid "Add a separator to the panel"
-msgstr "Панельгә аергыч өстәргә"
+msgstr "Панельгә аергыч өстәү"
 
 #: ../src/plugins/pager.c:833
 msgid "Desktop Pager"
-msgstr "Эш өстәле күчерүчесе"
+msgstr "Эш өстәлләрен күчерүчесе"
 
 #: ../src/plugins/pager.c:835
 msgid "Simple pager plugin"
-msgstr "Эш өстәле күчерүчесе өстәлмәсе"
+msgstr "Эш өстәлләрне күчерүчесе өстәлмәсе"
 
 #: ../src/plugins/space.c:125 ../src/plugins/batt/batt.c:590
 msgid "Size"
@@ -414,7 +413,7 @@ msgstr "Аралык"
 
 #: ../src/plugins/space.c:145
 msgid "Allocate space"
-msgstr "Киңлек бирү"
+msgstr "Киңлек өстәү"
 
 #: ../src/plugins/tray.c:737
 msgid "System Tray"
@@ -447,12 +446,12 @@ msgstr "Кушымта көйләүләре"
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/xkb/xkb-plugin.c:344
 msgid "_Remember layout for each application"
-msgstr "Һәрбер кушымта өчен тамга тәртибен истә калдырырга"
+msgstr "Һәрбер кушымта өчен тамга тәртибен истә калдыру"
 
 #. Create a label as the child of the horizontal box.
 #: ../src/plugins/xkb/xkb-plugin.c:354
 msgid "Default layout:"
-msgstr "Үрнәк тамга тәртибе:"
+msgstr "Үрнәк булган тамга тәртибе:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:405
 msgid "Keyboard Layout Switcher"
@@ -470,7 +469,7 @@ msgstr ""
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
-msgstr "Тәрәзәне билгечеккә төреп куюның/качыруның икенче юлы"
+msgstr "Тәрәзәне билгечеккә төреп куюның/качыруның икенче төре"
 
 #: ../src/plugins/wincmd.c:266
 msgid "Minimize All Windows"
@@ -482,7 +481,7 @@ msgid ""
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
 "Барлык эш өстәлләре тәрәзәләренә командалар тапшыру.\n"
-"Эшләүче командалар: 1) билгечеккә төрү һәм 2) качыру"
+"Булган командалар: 1) билгечеккә төрү һәм 2) качыру"
 
 #: ../src/plugins/dirmenu.c:246
 msgid "Open in _Terminal"
@@ -490,15 +489,15 @@ msgstr "Терминалда ачу"
 
 #: ../src/plugins/dirmenu.c:411
 msgid "Directory"
-msgstr "Тамыр"
+msgstr "Каталог"
 
 #: ../src/plugins/dirmenu.c:412
 msgid "Label"
-msgstr "Билге"
+msgstr "Исем"
 
 #: ../src/plugins/dirmenu.c:443
 msgid "Directory Menu"
-msgstr "Каталог менюсы"
+msgstr "Каталог исемлеге"
 
 #: ../src/plugins/dirmenu.c:445
 msgid "Browse directory tree via menu (Author: PCMan)"
@@ -526,7 +525,7 @@ msgstr "Сенсор"
 
 #: ../src/plugins/thermal/thermal.c:309
 msgid "Automatic temperature levels"
-msgstr "Автоматик температура дәрәҗәсе"
+msgstr "Температураның автоматик дәрәҗәләре"
 
 #: ../src/plugins/thermal/thermal.c:310
 msgid "Warning1 Temperature"
@@ -542,7 +541,7 @@ msgstr "Температура мониторы"
 
 #: ../src/plugins/thermal/thermal.c:355
 msgid "Display system temperature"
-msgstr "Компьютер температурасын чагылдыру"
+msgstr "Җайланмаларның температурасын чагылдыру"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -584,11 +583,11 @@ msgstr "Төзәтү"
 #. interface down
 #: ../src/plugins/netstat/netstat.c:240
 msgid "Disable"
-msgstr "Сүндерү"
+msgstr "Өзү"
 
 #: ../src/plugins/netstat/netstat.c:299
 msgid "Wireless Connection has no connectivity"
-msgstr "Чыбыксыз тоташмага ялганмаган"
+msgstr "Чыбыксыз челтәргә тоташмаган"
 
 #: ../src/plugins/netstat/netstat.c:301
 msgid "Network cable is plugged out"
@@ -596,7 +595,7 @@ msgstr "Челтәр чыбыгы тоташмаган"
 
 #: ../src/plugins/netstat/netstat.c:303
 msgid "Connection has limited or no connectivity"
-msgstr "Тоташма чикләнгән яки ялганмаган"
+msgstr "Тоташу чикләнгән/юк"
 
 #: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
@@ -615,7 +614,7 @@ msgstr "Челтәр битлеге:"
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
-msgstr "Активлык"
+msgstr "Эшчәнлек"
 
 #: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
@@ -723,13 +722,13 @@ msgid ""
 "There was an error displaying help:\n"
 "%s"
 msgstr ""
-"Белешмә бастыру хатасы:\n"
+"Белешмә чагылдыру хатасы:\n"
 "%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
-msgstr "Сәгатҗ көйләү коралын җибәреп булмады: %s"
+msgstr "Сәгать көйләү коралын җибәреп булмады: %s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:380
 #, c-format
@@ -1010,7 +1009,7 @@ msgstr "«netstat» чыгышын эшкәртеп булмый. Билгесе
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
-msgstr "Өзелде"
+msgstr "Өзек"
 
 #: ../src/plugins/netstatus/netstatus-util.c:155
 msgid "Idle"
@@ -1035,11 +1034,11 @@ msgstr "0%"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
 msgid "<b>Activity</b>"
-msgstr "<b>Активлык</b>"
+msgstr "<b>Эшчәнлек</b>"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
 msgid "<b>Connection</b>"
-msgstr "<b>Тоташма</b>"
+msgstr "<b>Тоташу</b>"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
 msgid "<b>Internet Protocol (IPv4)</b>"
