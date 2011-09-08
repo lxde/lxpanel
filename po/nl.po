@@ -1,4 +1,4 @@
-# Dutch translation for the lxpanel package.
+# Dutch translation of the lxpanel package.
 # Copyright (C) the author of the lxpanel package.
 # This file is distributed under the same license as the 
 # lxpanel package.
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-29 14:22+0200\n"
-"PO-Revision-Date: 2011-06-13 11:34+0200\n"
+"PO-Revision-Date: 2011-09-08 11:34+0200\n"
 "Last-Translator: Pjotr\n"
 "Language-Team: Dutch\n"
 "Language: nl (Dutch)\n"
@@ -100,7 +100,7 @@ msgstr "Werkbalkelementen verwijderen/toevoegen"
 #: ../src/panel.c:723
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr "Verwijder \"%s\" van Werkbalk"
+msgstr "Verwijder \"%s\" van werkbalk"
 
 #: ../src/panel.c:735
 msgid "Panel Settings"
@@ -108,7 +108,7 @@ msgstr "Werkbalkvoorkeuren"
 
 #: ../src/panel.c:741
 msgid "Create New Panel"
-msgstr "Maak nieuwe werkbalk aan"
+msgstr "Maak nieuwe werkbalk"
 
 #: ../src/panel.c:752
 msgid "Delete This Panel"
@@ -239,11 +239,11 @@ msgstr "Toon werkbladnummer, door cmeury@users.sf.net"
 
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
-msgstr "Toon Afbeelding en Gereedschaptip"
+msgstr "Toon afbeelding en gereedschaptip"
 
 #: ../src/plugins/launchbar.c:912
 msgid "Application Launch Bar"
-msgstr "Balk voor Starten van Toepassingen"
+msgstr "Balk voor starten van toepassingen"
 
 #: ../src/plugins/launchbar.c:914
 msgid "Bar with buttons to launch application"
@@ -348,7 +348,7 @@ msgstr "Klok-opmaak"
 
 #: ../src/plugins/dclock.c:423
 msgid "Tooltip Format"
-msgstr "Type Gereedschaptip"
+msgstr "Type gereedschaptip"
 
 #: ../src/plugins/dclock.c:424
 msgid "Format codes: man 3 strftime; \\n for line break"
@@ -366,7 +366,7 @@ msgstr "Alleen gereedschaptip"
 
 #: ../src/plugins/dclock.c:455
 msgid "Digital Clock"
-msgstr "Digitale Klok"
+msgstr "Digitale klok"
 
 #: ../src/plugins/dclock.c:457
 msgid "Display digital clock and tooltip"
@@ -460,7 +460,7 @@ msgstr "Standaard-indeling:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:405
 msgid "Keyboard Layout Switcher"
-msgstr "Wisselaar voor Toetsenbord-indelingen"
+msgstr "Wisselaar voor toetsenbord-indelingen"
 
 #: ../src/plugins/xkb/xkb-plugin.c:407
 msgid "Switch between available keyboard layouts"
@@ -487,12 +487,12 @@ msgid ""
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
 "Zendt een opdracht naar alle bureaubladvensters.\n"
-"Ondersteunde opdrachten zijn 1) pictogrammen maken in-/uitschakelen en 2) "
-"oprollen in-/uitschakelen"
+"Ondersteunde opdrachten zijn 1) pictogrammen maken in-/uitschakelen "
+"en 2) oprollen in-/uitschakelen"
 
 #: ../src/plugins/dirmenu.c:246
 msgid "Open in _Terminal"
-msgstr "In _Terminal openen"
+msgstr "In _terminal openen"
 
 #: ../src/plugins/dirmenu.c:411
 msgid "Directory"
@@ -594,7 +594,7 @@ msgstr "Uitschakelen"
 
 #: ../src/plugins/netstat/netstat.c:299
 msgid "Wireless Connection has no connectivity"
-msgstr "Draadloos Netwerk heeft geen verbinding"
+msgstr "Draadloos netwerk heeft geen verbinding"
 
 #: ../src/plugins/netstat/netstat.c:301
 msgid "Network cable is plugged out"
@@ -663,11 +663,11 @@ msgstr "HW-adres:"
 
 #: ../src/plugins/netstat/netstat.c:470
 msgid "Manage Networks"
-msgstr "Beheer Netwerken"
+msgstr "Beheer netwerken"
 
 #: ../src/plugins/netstat/netstat.c:472
 msgid "Monitor and Manage networks"
-msgstr "Bewaak en Beheer netwerken"
+msgstr "Bewaak en beheer netwerken"
 
 #. create dialog
 #: ../src/plugins/netstat/passwd_gui.c:84
@@ -715,7 +715,7 @@ msgstr "Verbindingeigenschappen"
 #: ../src/plugins/netstatus/netstatus-dialog.c:122
 #, c-format
 msgid "Connection Properties: %s"
-msgstr "Verbindingeigenschappen: %s"
+msgstr "Verbindingseigenschappen: %s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:135
 #, c-format
@@ -773,7 +773,7 @@ msgstr "Of de gereedschaptips van het pictogram al dan niet zijn ingeschakeld."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:863
 msgid "Show Signal"
-msgstr "Toon Signaal"
+msgstr "Toon signaal"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:864
 msgid "Whether or not the signal strength should be displayed."
@@ -1026,15 +1026,15 @@ msgstr "Niet bezig"
 
 #: ../src/plugins/netstatus/netstatus-util.c:158
 msgid "Sending"
-msgstr "Aan het Verzenden"
+msgstr "Aan het verzenden"
 
 #: ../src/plugins/netstatus/netstatus-util.c:161
 msgid "Receiving"
-msgstr "Aan het Ontvangen"
+msgstr "Aan het ontvangen"
 
 #: ../src/plugins/netstatus/netstatus-util.c:164
 msgid "Sending/Receiving"
-msgstr "Aan het Verzenden/Ontvangen"
+msgstr "Aan het verzenden/ontvangen"
 
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
 #, no-c-format
@@ -1170,7 +1170,7 @@ msgstr "Randbreedte"
 
 #: ../src/plugins/batt/batt.c:619
 msgid "Battery Monitor"
-msgstr "Accu Monitor"
+msgstr "Accu-monitor"
 
 #: ../src/plugins/batt/batt.c:621
 msgid "Display battery status using ACPI"
@@ -1218,7 +1218,7 @@ msgstr "Indicators voor Capslock-, Numlock- en ScrollLock-toets"
 #~ msgstr "<b>Eigenschappen</b>"
 
 #~ msgid "<b>Set Preferred Applications</b>"
-#~ msgstr "<b>Stel Voorkeurtoepassingen in</b>"
+#~ msgstr "<b>Stel voorkeurtoepassingen in</b>"
 
 #~ msgid "<b>Size</b>"
 #~ msgstr "<b>Grootte</b>"
