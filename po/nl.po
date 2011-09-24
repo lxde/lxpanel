@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-29 14:22+0200\n"
-"PO-Revision-Date: 2011-09-24 13:36+0200\n"
+"PO-Revision-Date: 2011-09-24 13:52+0200\n"
 "Last-Translator: Pjotr <>\n"
 "Language-Team: Dutch\n"
 "Language: nl\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:319
 msgid "Run"
-msgstr "Opdracht uitvoeren"
+msgstr "Opdracht uitvoeren..."
 
 #: ../src/configurator.c:56
 msgid "Restart"
