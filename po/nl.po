@@ -694,7 +694,7 @@ msgstr "Netwerkkaart om te bewaken"
 
 #: ../src/plugins/netstatus/netstatus.c:180
 msgid "Config tool"
-msgstr "Config-gereedschap"
+msgstr "Configuratiegereedschap"
 
 #: ../src/plugins/netstatus/netstatus.c:197
 msgid "Network Status Monitor"
@@ -711,7 +711,7 @@ msgstr "Onbekend"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:116
 msgid "Connection Properties"
-msgstr "Verbindingeigenschappen"
+msgstr "Verbindingseigenschappen"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:122
 #, c-format
