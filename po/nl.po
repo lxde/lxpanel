@@ -9,22 +9,23 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-29 14:22+0200\n"
-"PO-Revision-Date: 2011-09-08 11:34+0200\n"
-"Last-Translator: Pjotr\n"
+"PO-Revision-Date: 2011-09-24 13:36+0200\n"
+"Last-Translator: Pjotr <>\n"
 "Language-Team: Dutch\n"
-"Language: nl (Dutch)\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:319
 msgid "Run"
-msgstr "Draai"
+msgstr "Opdracht uitvoeren"
 
 #: ../src/configurator.c:56
 msgid "Restart"
-msgstr "Herstart"
+msgstr "Herstarten"
 
 #: ../src/configurator.c:57
 msgid "Logout"
