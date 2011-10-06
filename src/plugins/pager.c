@@ -271,10 +271,10 @@ static gboolean desk_configure_event(GtkWidget * widget, GdkEventConfigure * eve
 {
     /* Allocate pixmap and statistics buffer without border pixels. */
 #if GTK_CHECK_VERSION(2,18,0)
-    GtkAllocation allocation;
-    gtk_widget_get_allocation(widget, &allocation);
-    int new_pixmap_width = allocation.width;
-    int new_pixmap_height = allocation.height;
+    GtkAllocation *allocation = g_new0 (GtkAllocation, 1);
+    gtk_widget_get_allocation(GTK_WIDGET(widget), allocation);
+    int new_pixmap_width = allocation->width;
+    int new_pixmap_height = allocation->height;
 #else
     int new_pixmap_width = widget->allocation.width;
     int new_pixmap_height = widget->allocation.height;
@@ -292,8 +292,8 @@ static gboolean desk_configure_event(GtkWidget * widget, GdkEventConfigure * eve
 
         /* Compute the horizontal and vertical scale factors, and mark the desktop for redraw. */
 #if GTK_CHECK_VERSION(2,18,0)
-        d->scale_y = (gfloat) allocation.height / (gfloat) gdk_screen_height();
-        d->scale_x = (gfloat) allocation.width  / (gfloat) gdk_screen_width();
+        d->scale_y = (gfloat) allocation->height / (gfloat) gdk_screen_height();
+        d->scale_x = (gfloat) allocation->width  / (gfloat) gdk_screen_width();
 #else
         d->scale_y = (gfloat) allocation->height / (gfloat) gdk_screen_height();
         d->scale_x = (gfloat) allocation->width  / (gfloat) gdk_screen_width();
@@ -305,6 +305,9 @@ static gboolean desk_configure_event(GtkWidget * widget, GdkEventConfigure * eve
     gtk_widget_set_size_request(widget,
         (d->pg->plugin->panel->icon_size - BORDER_WIDTH * 2) * d->pg->aspect_ratio,
         d->pg->plugin->panel->icon_size - BORDER_WIDTH * 2);
+#if GTK_CHECK_VERSION(2,18,0)
+    g_free (allocation);
+#endif
     return FALSE;
 }
 
@@ -326,8 +329,8 @@ static gboolean desk_expose_event(GtkWidget * widget, GdkEventExpose * event, Pa
             {
                 GtkWidget * widget = GTK_WIDGET(d->da);
 #if GTK_CHECK_VERSION(2,18,0)
-                GtkAllocation allocation;
-                gtk_widget_get_allocation(widget, &allocation);
+                GtkAllocation *allocation = g_new0 (GtkAllocation, 1);
+                gtk_widget_get_allocation(GTK_WIDGET(widget), allocation);
 #endif
                 gdk_draw_rectangle(
                     d->pixmap,
@@ -336,7 +339,8 @@ static gboolean desk_expose_event(GtkWidget * widget, GdkEventExpose * event, Pa
                         : style->dark_gc[GTK_STATE_NORMAL]),
                     TRUE,
 #if GTK_CHECK_VERSION(2,18,0)
-                    0, 0, allocation.width, allocation.height);
+                    0, 0, allocation->width, allocation->height);
+                    g_free (allocation);
 #else
                     0, 0, widget->allocation.width, widget->allocation.height);
 #endif
