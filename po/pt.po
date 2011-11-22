@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-29 14:22+0200\n"
-"PO-Revision-Date: 2011-05-14 02:21+0200\n"
+"PO-Revision-Date: 2011-11-22 14:52+0200\n"
 "Last-Translator: Sérgio <smarquespt@gmail.com>\n"
 "Language-Team: Portuguese PT\n"
 "Language: pt\n"
@@ -360,7 +360,7 @@ msgstr "Códigos de formato: man 3 strftime; \\n para quebra de linha"
 
 #: ../src/plugins/dclock.c:425
 msgid "Action when clicked (default: display calendar)"
-msgstr "Ação ao clicar (omissão: exibir calendário)"
+msgstr "Ação ao clicar (padrão: exibir calendário)"
 
 #: ../src/plugins/dclock.c:427
 msgid "Tooltip only"
@@ -432,11 +432,11 @@ msgstr "Área de notificação"
 
 #: ../src/plugins/xkb/xkb-plugin.c:291
 msgid "Configure Keyboard Layout Switcher"
-msgstr "Configurar alternador de disposição do teclado"
+msgstr "Configurar alternador de esquema do teclado"
 
 #: ../src/plugins/xkb/xkb-plugin.c:306
 msgid "Show layout as"
-msgstr "Mostrar disposição como"
+msgstr "Mostrar esquema como"
 
 #: ../src/plugins/xkb/xkb-plugin.c:321
 msgid "image"
@@ -453,20 +453,20 @@ msgstr "Por definições de aplicação"
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/xkb/xkb-plugin.c:344
 msgid "_Remember layout for each application"
-msgstr "_Lembrar disposição para cada aplicação"
+msgstr "_Lembrar esquema para cada aplicação"
 
 #. Create a label as the child of the horizontal box.
 #: ../src/plugins/xkb/xkb-plugin.c:354
 msgid "Default layout:"
-msgstr "Disposição por omissão:"
+msgstr "Esquema padrão:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:405
 msgid "Keyboard Layout Switcher"
-msgstr "Alternador de disposição do teclado"
+msgstr "Alternador de esquema do teclado"
 
 #: ../src/plugins/xkb/xkb-plugin.c:407
 msgid "Switch between available keyboard layouts"
-msgstr "Trocar entre disposições de teclado disponíveis"
+msgstr "Trocar entre esquemas de teclado disponíveis"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
