@@ -52,3 +52,4 @@ lxpanel.pc
 data/default/panels/panel
 src/lxpanel
 src/lxpanelctl
+data/ui/*.ui
