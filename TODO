@@ -7,3 +7,5 @@
 * Rename Logout to Exit in the menu. People get confused.
 
 * Printer applet should appear when the queue is not empty.
+
+* What is the relation to lxpanel-plugins?
