@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-29 14:22+0200\n"
-"PO-Revision-Date: 2011-11-22 23:15+0200\n"
+"PO-Revision-Date: 2011-12-02 14:50+0200\n"
 "Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Proxecto Trasno <proxecto@trasno.net>\n"
 "Language: gl\n"
@@ -32,7 +32,7 @@ msgstr "Saír"
 
 #: ../src/configurator.c:448
 msgid "Currently loaded plugins"
-msgstr "Complementos activos"
+msgstr "Complementos cargados actualmente"
 
 #: ../src/configurator.c:457
 msgid "Stretch"
@@ -1133,7 +1133,7 @@ msgstr "Batería: %d%% de carga"
 
 #: ../src/plugins/batt/batt.c:580
 msgid "Hide if there is no battery"
-msgstr "Ocultar se non hai baterías"
+msgstr "Agochar se non hai baterías"
 
 #: ../src/plugins/batt/batt.c:582
 msgid "Alarm command"
