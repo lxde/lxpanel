@@ -760,7 +760,7 @@ get_net_wm_window_type(Window win, NetWMWindowType *nwwt)
 
 
     ENTER;
-    bzero(nwwt, sizeof(nwwt));
+    bzero(nwwt, sizeof(*nwwt));
     if (!(state = get_xaproperty(win, a_NET_WM_WINDOW_TYPE, XA_ATOM, &num3)))
         RET();
 
