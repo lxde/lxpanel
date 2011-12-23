@@ -32,12 +32,17 @@
 
 #include "dbg.h"
 
-#define THERMAL_DIRECTORY "/proc/acpi/thermal_zone/" /* must be slash-terminated */
-#define THERMAL_TEMPF  "temperature"
-#define THERMAL_TRIP  "trip_points"
-#define TRIP_CRITICAL "critical (S5):"
+#define PROC_THERMAL_DIRECTORY "/proc/acpi/thermal_zone/" /* must be slash-terminated */
+#define PROC_THERMAL_TEMPF  "temperature"
+#define PROC_THERMAL_TRIP  "trip_points"
+#define PROC_TRIP_CRITICAL "critical (S5):"
 
-typedef struct {
+#define SYSFS_THERMAL_DIRECTORY "/sys/class/thermal/thermal_zone0/" /* must be slash-terminated */
+#define SYSFS_THERMAL_TEMPF  "temp"
+#define SYSFS_THERMAL_TRIP  "trip_point_0_temp"
+
+
+typedef struct thermal {
     Plugin * plugin;
     GtkWidget *main;
     GtkWidget *namew;
@@ -54,17 +59,20 @@ typedef struct {
     GdkColor cl_normal,
              cl_warning1,
              cl_warning2;
+    gint (*get_temperature)(struct thermal *th);
+    gint (*get_critical)(struct thermal *th);
 } thermal;
 
+
 static gint
-get_critical(thermal *th){
+proc_get_critical(thermal *th){
     FILE *state;
     char buf[ 256 ], sstmp [ 100 ];
     char* pstr;
 
     if(th->sensor == NULL) return -1;
 
-    sprintf(sstmp,"%s%s",th->sensor,THERMAL_TRIP);
+    sprintf(sstmp,"%s%s",th->sensor,PROC_THERMAL_TRIP);
 
     if (!(state = fopen( sstmp, "r"))) {
         //printf("cannot open %s\n",sstmp);
@@ -72,10 +80,10 @@ get_critical(thermal *th){
     }
 
     while( fgets(buf, 256, state) &&
-            ! ( pstr = strstr(buf, TRIP_CRITICAL) ) );
+            ! ( pstr = strstr(buf, PROC_TRIP_CRITICAL) ) );
     if( pstr )
     {
-        pstr += strlen(TRIP_CRITICAL);
+        pstr += strlen(PROC_TRIP_CRITICAL);
         while( *pstr && *pstr == ' ' )
             ++pstr;
 
@@ -90,14 +98,14 @@ get_critical(thermal *th){
 }
 
 static gint
-get_temperature(thermal *th){
+proc_get_temperature(thermal *th){
     FILE *state;
     char buf[ 256 ], sstmp [ 100 ];
     char* pstr;
 
     if(th->sensor == NULL) return -1;
 
-    sprintf(sstmp,"%s%s",th->sensor,THERMAL_TEMPF);
+    sprintf(sstmp,"%s%s",th->sensor,PROC_THERMAL_TEMPF);
 
     if (!(state = fopen( sstmp, "r"))) {
         //printf("cannot open %s\n",sstmp);
@@ -122,11 +130,79 @@ get_temperature(thermal *th){
 }
 
 static gint
+sysfs_get_critical(thermal *th){
+    FILE *state;
+    char buf[ 256 ], sstmp [ 100 ];
+    char* pstr;
+
+    if(th->sensor == NULL) return -1;
+
+    sprintf(sstmp,"%s%s",th->sensor,SYSFS_THERMAL_TRIP);
+
+    if (!(state = fopen( sstmp, "r"))) {
+        //printf("cannot open %s\n",sstmp);
+        return -1;
+    }
+
+    while( fgets(buf, 256, state) &&
+            ! ( pstr = buf ) );
+    if( pstr )
+    {
+        printf("Critical: [%s]\n",pstr);
+        fclose(state);
+        return atoi(pstr)/1000;
+    }
+
+    fclose(state);
+    return -1;
+}
+
+static gint
+sysfs_get_temperature(thermal *th){
+    FILE *state;
+    char buf[ 256 ], sstmp [ 100 ];
+    char* pstr;
+
+    if(th->sensor == NULL) return -1;
+
+    sprintf(sstmp,"%s%s",th->sensor,SYSFS_THERMAL_TEMPF);
+
+    if (!(state = fopen( sstmp, "r"))) {
+        //printf("cannot open %s\n",sstmp);
+        return -1;
+    }
+
+    while (fgets(buf, 256, state) &&
+	   ! ( pstr = buf ) );
+    if( pstr )
+    {
+        fclose(state);
+        return atoi(pstr)/1000;
+    }
+
+    fclose(state);
+    return -1;
+}
+
+
+static void
+set_get_functions(thermal *th)
+{
+    if (strncmp(th->sensor, "/sys/", 5) == 0){
+        th->get_temperature = sysfs_get_temperature;
+        th->get_critical = sysfs_get_critical;
+    } else {
+        th->get_temperature = proc_get_temperature;
+        th->get_critical = proc_get_critical;
+    }
+}
+
+static gint
 update_display(thermal *th)
 {
     char buffer [60];
     int n;
-    int temp = get_temperature(th);
+    int temp = th->get_temperature(th);
     GdkColor color;
 
     if(temp >= th->warning2)
@@ -155,7 +231,7 @@ check_sensors( thermal* th )
     const char *sensor_name;
     char sensor_path[100];
 
-    if (! (sensorsDirectory = g_dir_open(THERMAL_DIRECTORY, 0, NULL)))
+    if (! (sensorsDirectory = g_dir_open(PROC_THERMAL_DIRECTORY, 0, NULL)))
     {
         th->sensor = NULL;
         return;
@@ -164,7 +240,7 @@ check_sensors( thermal* th )
     /* Scan the thermal_zone directory for available sensors */
     while ((sensor_name = g_dir_read_name(sensorsDirectory))) {
         if (sensor_name[0] != '.') {
-            sprintf(sensor_path,"%s%s/",THERMAL_DIRECTORY, sensor_name);
+            sprintf(sensor_path,"%s%s/",PROC_THERMAL_DIRECTORY, sensor_name);
             if(th->sensor) { 
                 g_free(th->sensor);
                 th->sensor = NULL; 
@@ -254,7 +330,9 @@ thermal_constructor(Plugin *p, char** fp)
     if(th->sensor == NULL) th->auto_sensor = TRUE;
     if(th->auto_sensor) check_sensors(th);
 
-    th->critical = get_critical(th);
+    set_get_functions(th);
+
+    th->critical = th->get_critical(th);
 
     if(!th->custom_levels){
         th->warning1 = th->critical - 10;
