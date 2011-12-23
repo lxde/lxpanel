@@ -142,7 +142,7 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
     isCharging = battery_is_charging ( b );
     
     /* Consider running the alarm command */
-    if (! isCharging && rate && 
+    if ( !isCharging && rate > 0 &&
 	( ( battery_get_remaining( b ) / 60 ) < lx_b->alarmTime ) )
     {
 	/* Shrug this should be done using glibs process functions */
