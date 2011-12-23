@@ -714,16 +714,18 @@ pager_destructor(Plugin *p)
 
 
 PluginClass wnckpager_plugin_class = {
-    fname: NULL,
-    count: 0,
+
+    PLUGINCLASS_VERSIONING,
 
     type : "wnckpager",
     name : N_("WNCKPager"),
     version: "1.0",
     description : N_("WNCKpager plugin"),
+
     /* FIXME: orientation should be handled!! */
     constructor : pager_wnck_constructor,
     destructor  : pager_destructor,
     config : NULL,
-    save : NULL
+    save : NULL,
+    panel_configuration_changed : NULL
 };
