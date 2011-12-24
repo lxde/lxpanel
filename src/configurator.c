@@ -1313,7 +1313,7 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
         GtkWidget* label = gtk_label_new( name );
         GtkWidget* entry = NULL;
         gpointer val = va_arg( args, gpointer );
-        GType type = va_arg( args, GType );
+        enum _PluginConfType type = va_arg( args, enum _PluginConfType );
         switch( type )
         {
             case CONF_TYPE_STR:

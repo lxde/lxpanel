@@ -28,7 +28,7 @@
 #include "panel.h"
 #include "plugin.h"
 
-enum {
+enum _PluginConfType {
     CONF_TYPE_STR,
     CONF_TYPE_INT,
     CONF_TYPE_BOOL,
