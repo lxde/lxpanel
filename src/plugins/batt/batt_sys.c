@@ -172,6 +172,8 @@ void battery_update(battery *b)
 	if (b->charge_now != -1 || b->energy_now != -1
 		|| b->charge_full != -1 || b->energy_full != -1)
 	    b->state = "available";
+	else
+	    b->state = "unavailable";
     }
 
 
@@ -276,6 +278,8 @@ battery *battery_get() {
 
 gboolean battery_is_charging( battery *b )
 {
+    if (!b->state)
+	return TRUE; // Same as "Unkown"
     return ( strcasecmp( b->state, "Unknown" ) == 0 ||
 	     strcasecmp( b->state, "Full" ) == 0
 	     || strcasecmp( b->state, "Charging" ) == 0 );
