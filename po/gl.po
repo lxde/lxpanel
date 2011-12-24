@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-07-29 14:22+0200\n"
-"PO-Revision-Date: 2011-12-02 14:50+0200\n"
+"PO-Revision-Date: 2011-12-24 13:59+0200\n"
 "Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Proxecto Trasno <proxecto@trasno.net>\n"
 "Language: gl\n"
@@ -164,12 +164,12 @@ msgstr "Opcións da liña de ordes:\n"
 #: ../src/panel.c:1451
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr " --help      -- mostrar esta axuda e saír\n"
+msgstr " --help      -- amosar esta axuda e saír\n"
 
 #: ../src/panel.c:1452
 #, c-format
 msgid " --version   -- print version and exit\n"
-msgstr " --version   -- mostrar a versión e saír\n"
+msgstr " --version   -- amosar a versión e saír\n"
 
 #: ../src/panel.c:1453
 #, c-format
@@ -220,7 +220,7 @@ msgstr "Monitor do uso do procesador"
 
 #: ../src/plugins/cpu/cpu.c:270
 msgid "Display CPU usage"
-msgstr "Mostrar o uso do procesador"
+msgstr "Amosar o uso do procesador"
 
 #: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:426
 msgid "Bold font"
@@ -228,7 +228,7 @@ msgstr "Negriña"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
-msgstr "Mostrar os nomes dos escritorios"
+msgstr "Amosar os nomes dos escritorios"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
@@ -236,11 +236,11 @@ msgstr "Número de escritorio / área de traballo"
 
 #: ../src/plugins/deskno/deskno.c:237
 msgid "Display workspace number, by cmeury@users.sf.net"
-msgstr "Mostra o número da área de traballo, por cmeury@users.sf.net"
+msgstr "Amosa o número da área de traballo, por cmeury@users.sf.net"
 
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
-msgstr "Mostrar a imaxe e a mensaxe emerxente"
+msgstr "Amosar a imaxe e a mensaxe emerxente"
 
 #: ../src/plugins/launchbar.c:912
 msgid "Application Launch Bar"
@@ -297,7 +297,7 @@ msgstr "_Pechar a xanela"
 
 #: ../src/plugins/taskbar.c:1986
 msgid "Show tooltips"
-msgstr "Mostrar as mensaxes emerxentes"
+msgstr "Amosar as mensaxes emerxentes"
 
 #: ../src/plugins/taskbar.c:1987
 msgid "Icons only"
@@ -309,7 +309,7 @@ msgstr "Botóns simples"
 
 #: ../src/plugins/taskbar.c:1989
 msgid "Show windows from all desktops"
-msgstr "Mostrar as xanelas de todas as áreas de traballo"
+msgstr "Amosar as xanelas de todas as áreas de traballo"
 
 #: ../src/plugins/taskbar.c:1990
 msgid "Use mouse wheel"
@@ -340,7 +340,7 @@ msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
-"A barra de tarefas mostra todas as xanelas abertas e permite minimizalas, "
+"A barra de tarefas amosa todas as xanelas abertas e permite minimizalas, "
 "repregalas ou enfocalas"
 
 #: ../src/plugins/dclock.c:422
@@ -359,7 +359,7 @@ msgstr ""
 
 #: ../src/plugins/dclock.c:425
 msgid "Action when clicked (default: display calendar)"
-msgstr "Acción ao premer (predeterminado: mostrar o calendario)"
+msgstr "Acción ao premer (predeterminado: amosar o calendario)"
 
 #: ../src/plugins/dclock.c:427
 msgid "Tooltip only"
@@ -371,7 +371,7 @@ msgstr "Reloxo dixital"
 
 #: ../src/plugins/dclock.c:457
 msgid "Display digital clock and tooltip"
-msgstr "Mostrar o reloxo dixital e a mensaxe emerxente"
+msgstr "Amosar o reloxo dixital e a mensaxe emerxente"
 
 #: ../src/plugins/menu.c:423
 msgid "Add to desktop"
@@ -435,7 +435,7 @@ msgstr "Configurar o selector de distribución do teclado"
 
 #: ../src/plugins/xkb/xkb-plugin.c:306
 msgid "Show layout as"
-msgstr "Mostrar distribución como"
+msgstr "Amosar a distribución como"
 
 #: ../src/plugins/xkb/xkb-plugin.c:321
 msgid "image"
@@ -547,7 +547,7 @@ msgstr "Monitor de temperatura"
 
 #: ../src/plugins/thermal/thermal.c:355
 msgid "Display system temperature"
-msgstr "Mostra a temperatura do sistema"
+msgstr "Amosar a temperatura do sistema"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -729,7 +729,7 @@ msgid ""
 "There was an error displaying help:\n"
 "%s"
 msgstr ""
-"Produciuse un erro ao mostrar a axuda:\n"
+"Produciuse un erro ao amosar a axuda:\n"
 "%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
@@ -772,11 +772,11 @@ msgstr "Indica se as mensaxes emerxentes foron activadas ou non."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:863
 msgid "Show Signal"
-msgstr "Mostrar o sinal"
+msgstr "Amosar o sinal"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:864
 msgid "Whether or not the signal strength should be displayed."
-msgstr "Indica se a potencia do sinal debe ser mostrado."
+msgstr "Indica se debe ser amosada a potencia do sinal."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:977
 #, c-format
@@ -1173,19 +1173,19 @@ msgstr "Monitor da batería"
 
 #: ../src/plugins/batt/batt.c:621
 msgid "Display battery status using ACPI"
-msgstr "Mostrar o estado da batería por medio de ACPI"
+msgstr "Amosar o estado da batería por medio de ACPI"
 
 #: ../src/plugins/kbled/kbled.c:230
 msgid "Show CapsLock"
-msgstr "Mostrar BloqMaiús"
+msgstr "Amosar BloqMaiús"
 
 #: ../src/plugins/kbled/kbled.c:231
 msgid "Show NumLock"
-msgstr "Mostrar BloqNum"
+msgstr "Amosar BloqNum"
 
 #: ../src/plugins/kbled/kbled.c:232
 msgid "Show ScrollLock"
-msgstr "Mostrar BloqDespl"
+msgstr "Amosar BloqDespl"
 
 #: ../src/plugins/kbled/kbled.c:267
 msgid "Keyboard LED"
