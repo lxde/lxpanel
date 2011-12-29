@@ -37,7 +37,8 @@
 #define PROC_THERMAL_TRIP  "trip_points"
 #define PROC_TRIP_CRITICAL "critical (S5):"
 
-#define SYSFS_THERMAL_DIRECTORY "/sys/class/thermal/thermal_zone0/" /* must be slash-terminated */
+#define SYSFS_THERMAL_DIRECTORY "/sys/class/thermal/" /* must be slash-terminated */
+#define SYSFS_THERMAL_SUBDIR_PREFIX "thermal_zone"
 #define SYSFS_THERMAL_TEMPF  "temp"
 #define SYSFS_THERMAL_TRIP  "trip_point_0_temp"
 
@@ -224,34 +225,60 @@ update_display(thermal *th)
     RET(TRUE);
 }
 
+
+/* get_sensor():
+ *      - Get the sensor directory, and store it in '*sensor'.
+ *      - It is searched for in 'directory'.
+ *      - Only the subdirectories starting with 'subdir_prefix' are accepted as sensors.
+ *      - 'subdir_prefix' may be NULL, in which case any subdir is considered a sensor. */
 static void
-check_sensors( thermal* th )
+get_sensor(char** sensor, char const* directory, char const* subdir_prefix)
 {
     GDir *sensorsDirectory;
     const char *sensor_name;
     char sensor_path[100];
 
-    if (! (sensorsDirectory = g_dir_open(PROC_THERMAL_DIRECTORY, 0, NULL)))
+    if (! (sensorsDirectory = g_dir_open(directory, 0, NULL)))
     {
-        th->sensor = NULL;
+        *sensor = NULL;
         return;
     }
 
     /* Scan the thermal_zone directory for available sensors */
     while ((sensor_name = g_dir_read_name(sensorsDirectory))) {
         if (sensor_name[0] != '.') {
-            sprintf(sensor_path,"%s%s/",PROC_THERMAL_DIRECTORY, sensor_name);
-            if(th->sensor) { 
-                g_free(th->sensor);
-                th->sensor = NULL; 
+            if (subdir_prefix) {
+                if (strncmp(sensor_name, subdir_prefix, strlen(subdir_prefix)) != 0)
+                    continue;
             }
-            th->sensor = strdup(sensor_path);
-            //printf("sensor: %s\n", b->sensor);
+            sprintf(sensor_path,"%s%s/", directory, sensor_name);
+            if(*sensor) {
+                g_free(*sensor);
+                *sensor = NULL;
+            }
+            *sensor = strdup(sensor_path);
             break;
         }
     }
     g_dir_close(sensorsDirectory);
 }
+
+static void
+check_sensors( thermal *th )
+{
+    if(th->sensor) {
+        g_free(th->sensor);
+        th->sensor = NULL;
+    }
+
+    get_sensor(&th->sensor, PROC_THERMAL_DIRECTORY, NULL);
+
+    if (!th->sensor)
+        get_sensor(&th->sensor, SYSFS_THERMAL_DIRECTORY, SYSFS_THERMAL_SUBDIR_PREFIX);
+
+    //printf("thermal sensor: %s\n", th->sensor);
+}
+
 
 static int
 thermal_constructor(Plugin *p, char** fp)
