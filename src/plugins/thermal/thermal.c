@@ -189,7 +189,7 @@ sysfs_get_temperature(thermal *th){
 static void
 set_get_functions(thermal *th)
 {
-    if (strncmp(th->sensor, "/sys/", 5) == 0){
+    if (th->sensor && strncmp(th->sensor, "/sys/", 5) == 0){
         th->get_temperature = sysfs_get_temperature;
         th->get_critical = sysfs_get_critical;
     } else {
