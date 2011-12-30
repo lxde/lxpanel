@@ -51,7 +51,7 @@ typedef struct thermal {
     int critical;
     int warning1;
     int warning2;
-    int custom_levels, auto_sensor;
+    int not_custom_levels, auto_sensor;
     char *sensor,
          *str_cl_normal,
          *str_cl_warning1,
@@ -323,7 +323,7 @@ thermal_constructor(Plugin *p, char** fp)
                 }else if (!g_ascii_strcasecmp(s.t[0], "AutomaticSensor")){
                     th->auto_sensor= atoi(s.t[1]);
                 }else if (!g_ascii_strcasecmp(s.t[0], "CustomLevels")){
-                    th->custom_levels= atoi(s.t[1]);
+                    th->not_custom_levels= atoi(s.t[1]);
                 }else if (!g_ascii_strcasecmp(s.t[0], "Sensor")){
                     th->sensor= g_strdup(s.t[1]);
                 }else if (!g_ascii_strcasecmp(s.t[0], "Warning1Temp")){
@@ -361,7 +361,7 @@ thermal_constructor(Plugin *p, char** fp)
 
     th->critical = th->get_critical(th);
 
-    if(!th->custom_levels){
+    if(th->not_custom_levels){
         th->warning1 = th->critical - 10;
         th->warning2 = th->critical - 5;
     }
@@ -390,7 +390,11 @@ static void applyConfig(Plugin* p)
 
     if(th->auto_sensor) check_sensors(th);
 
-    if(th->custom_levels){
+    set_get_functions(th);
+
+    th->critical = th->get_critical(th);
+
+    if(th->not_custom_levels){
         th->warning1 = th->critical - 10;
         th->warning2 = th->critical - 5;
     }
@@ -411,7 +415,7 @@ static void config(Plugin *p, GtkWindow* parent) {
             _("Warning2"), &th->str_cl_warning2, CONF_TYPE_STR,
             _("Automatic sensor location"), &th->auto_sensor, CONF_TYPE_BOOL,
             _("Sensor"), &th->sensor, CONF_TYPE_STR,
-            _("Automatic temperature levels"), &th->custom_levels, CONF_TYPE_BOOL,
+            _("Automatic temperature levels"), &th->not_custom_levels, CONF_TYPE_BOOL,
             _("Warning1 Temperature"), &th->warning1, CONF_TYPE_INT,
             _("Warning2 Temperature"), &th->warning2, CONF_TYPE_INT,
             NULL);
@@ -443,7 +447,7 @@ static void save_config( Plugin* p, FILE* fp )
     lxpanel_put_str( fp, "NormalColor", th->str_cl_normal );
     lxpanel_put_str( fp, "Warning1Color", th->str_cl_warning1 );
     lxpanel_put_str( fp, "Warning2Color", th->str_cl_warning2 );
-    lxpanel_put_int( fp, "CustomLevels", th->custom_levels );
+    lxpanel_put_int( fp, "CustomLevels", th->not_custom_levels );
     lxpanel_put_int( fp, "Warning1Temp", th->warning1 );
     lxpanel_put_int( fp, "Warning2Temp", th->warning2 );
     lxpanel_put_int( fp, "AutomaticSensor", th->auto_sensor );
