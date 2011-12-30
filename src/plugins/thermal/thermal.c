@@ -280,6 +280,30 @@ check_sensors( thermal *th )
 }
 
 
+static void applyConfig(Plugin* p)
+{
+    thermal *th = p->priv;
+    ENTER;
+
+    if (th->str_cl_normal) gdk_color_parse(th->str_cl_normal, &th->cl_normal);
+    if (th->str_cl_warning1) gdk_color_parse(th->str_cl_warning1, &th->cl_warning1);
+    if (th->str_cl_warning2) gdk_color_parse(th->str_cl_warning2, &th->cl_warning2);
+
+    if(th->sensor == NULL) th->auto_sensor = TRUE;
+    if(th->auto_sensor) check_sensors(th);
+
+    set_get_functions(th);
+
+    th->critical = th->get_critical(th);
+
+    if(th->not_custom_levels){
+        th->warning1 = th->critical - 10;
+        th->warning2 = th->critical - 5;
+    }
+
+    RET();
+}
+
 static int
 thermal_constructor(Plugin *p, char** fp)
 {
@@ -339,7 +363,6 @@ thermal_constructor(Plugin *p, char** fp)
                 goto error;
             }
         }
-
     }
 
     if(!th->str_cl_normal)
@@ -349,22 +372,7 @@ thermal_constructor(Plugin *p, char** fp)
     if(!th->str_cl_warning2)
         th->str_cl_warning2 = g_strdup("#ff0000");
 
-    gdk_color_parse(th->str_cl_normal,   &(th->cl_normal));
-    gdk_color_parse(th->str_cl_warning1, &(th->cl_warning1));
-    gdk_color_parse(th->str_cl_warning2, &(th->cl_warning2));
-
-
-    if(th->sensor == NULL) th->auto_sensor = TRUE;
-    if(th->auto_sensor) check_sensors(th);
-
-    set_get_functions(th);
-
-    th->critical = th->get_critical(th);
-
-    if(th->not_custom_levels){
-        th->warning1 = th->critical - 10;
-        th->warning2 = th->critical - 5;
-    }
+    applyConfig(p);
 
     gtk_widget_show(th->namew);
 
@@ -375,31 +383,6 @@ thermal_constructor(Plugin *p, char** fp)
 
 error:
     RET(FALSE);
-}
-
-static void applyConfig(Plugin* p)
-{
-
-    thermal *th = (thermal *)p->priv;
-
-    ENTER;
-
-    if (th->str_cl_normal) gdk_color_parse(th->str_cl_normal, &th->cl_normal);
-    if (th->str_cl_warning1) gdk_color_parse(th->str_cl_warning1, &th->cl_warning1);
-    if (th->str_cl_warning2) gdk_color_parse(th->str_cl_warning2, &th->cl_warning2);
-
-    if(th->auto_sensor) check_sensors(th);
-
-    set_get_functions(th);
-
-    th->critical = th->get_critical(th);
-
-    if(th->not_custom_levels){
-        th->warning1 = th->critical - 10;
-        th->warning2 = th->critical - 5;
-    }
-
-    RET();
 }
 
 static void config(Plugin *p, GtkWindow* parent) {
