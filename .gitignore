@@ -53,3 +53,10 @@ data/default/panels/panel
 src/lxpanel
 src/lxpanelctl
 data/ui/*.ui
+.pc/
+build-stamp
+debian/files
+debian/lxpanel.debhelper.log
+debian/lxpanel.substvars
+debian/lxpanel/*
+debian/stamp-patched
