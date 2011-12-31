@@ -482,6 +482,79 @@ static void volumealsa_destructor(Plugin * p)
     g_free(vol);
 }
 
+/* Callback when the configuration dialog is to be shown. */
+
+static void volumealsa_configure(Plugin * p, GtkWindow * parent)
+{
+
+    GdkScreen *screen = gdk_screen_get_default();
+    GError *error = NULL;
+    const gchar *command_line = NULL;
+
+    if (g_find_program_in_path("pulseaudio"))
+    {
+     /* Assume that when pulseaudio is installed, it's launching every time */
+        if (g_find_program_in_path("gnome-sound-applet"))
+        {
+            command_line = "gnome-sound-applet";
+        }
+        else
+        {
+            if (g_find_program_in_path("pavucontrol"))
+            {
+                command_line = "pavucontrol";
+            }
+        }
+    }
+
+    /* Fallback to alsamixer when PA is not running, or when no PA utility is find */
+    if (command_line == NULL)
+    {
+        if (g_find_program_in_path("gnome-alsamixer"))
+        {
+            command_line = "gnome-alsamixer";
+        }
+        else
+        {
+            if (g_find_program_in_path("alsamixer"))
+            {
+                if (g_find_program_in_path("xterm"))
+                {
+                    command_line = "xterm -e alsamixer";
+                }
+            }
+        }
+    }
+
+    if (command_line)
+    {
+        gdk_spawn_command_line_on_screen(screen,
+                                         command_line,
+                                         &error);
+    }
+    else
+    {
+
+        GtkWidget* msg;
+
+        msg = gtk_message_dialog_new( NULL,
+                                      0,
+                                      GTK_MESSAGE_ERROR,
+                                      GTK_BUTTONS_OK,
+                                      (_("Error, you need to install a application to configure the sound (pavucontol, alsamixer ...)")) );
+        gtk_dialog_run( GTK_DIALOG(msg) );
+        gtk_widget_destroy( msg );
+
+    }
+
+    if (error)
+    {
+        g_print("%s\n", error->message);
+        g_free (error);
+    }
+
+}
+
 /* Callback when panel configuration changes. */
 static void volumealsa_panel_configuration_changed(Plugin * p)
 {
@@ -501,7 +574,7 @@ PluginClass volumealsa_plugin_class = {
 
     constructor : volumealsa_constructor,
     destructor  : volumealsa_destructor,
-    config : NULL,
+    config :volumealsa_configure,
     save : NULL,
     panel_configuration_changed : volumealsa_panel_configuration_changed
 
