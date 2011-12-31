@@ -46,6 +46,34 @@ PKG_CHECK_MODULES(PACKAGE, [$pkg_modules])
 AC_SUBST(PACKAGE_CFLAGS)
 AC_SUBST(PACKAGE_LIBS)
 
+###########################
+# Indicator Info
+###########################
+AC_ARG_ENABLE([indicator_support],
+    AS_HELP_STRING([--enable-indicator-support],
+               [enable plugin loading (default: disable)]),
+               indicator_support=$enableval, indicator_support="no")
+AM_CONDITIONAL(ENABLE_INDICATOR_SUPPORT, test x"$indicator_support" = x"yes")
+
+if test "$indicator_support" != "no"; then
+	INDICATOR_REQUIRED_VERSION=0.3.0
+	INDICATOR_PKG_NAME=indicator-0.4
+
+	PKG_CHECK_MODULES(APPLET, $INDICATOR_PKG_NAME >= $INDICATOR_REQUIRED_VERSION)
+	AC_SUBST(APPLET_CFLAGS)
+
+	if test "x$with_localinstall" = "xyes"; then
+		INDICATORDIR="${libdir}/indicators/2/"
+		INDICATORICONSDIR="${datadir}/indicator-applet/icons/"
+	else
+		INDICATORDIR=`$PKG_CONFIG --variable=indicatordir $INDICATOR_PKG_NAME`
+		INDICATORICONSDIR=`$PKG_CONFIG --variable=iconsdir $INDICATOR_PKG_NAME`
+fi
+	AC_SUBST(INDICATORDIR)
+	AC_SUBST(INDICATORICONSDIR)
+fi
+
+
 pkg_modules="x11"
 PKG_CHECK_MODULES(X11, [$pkg_modules])
 AC_SUBST(X11_LIBS)
@@ -201,6 +229,7 @@ plugin_thermal=
 plugin_cpufreq=
 plugin_monitors=
 plugin_wnckpager=
+plugin_indicator=
 
 AC_MSG_CHECKING([which plugins should be built dynamically])
 AC_ARG_WITH(plugins,
@@ -238,6 +267,7 @@ dnl    done
     plugin_cpufreq=cpufreq
     plugin_monitors=monitors
     plugin_wnckpager=wnckpager
+    plugin_indicator=indicator
 
     AC_MSG_RESULT(all)
 else
@@ -282,6 +312,9 @@ else
             wnckpager)
                 plugin_wnckpager=wnckpager
                 ;;
+            indicator)
+                plugin_indicator=indicator
+                ;;
             *)
                 echo "Unknown plugin $plugin."
                 exit 1
@@ -302,6 +335,12 @@ else
     dnl force OSS plugin to <null>
     plugin_volume=
 fi
+
+dnl Exclude indicator support when there is no support.
+if test x"$indicator_support" = "xno"; then
+    plugin_indicator=
+fi
+
 PLUGINS_LIST="\
     $plugin_netstatus \
     $plugin_volume \
@@ -314,7 +353,8 @@ PLUGINS_LIST="\
     $plugin_thermal \
     $plugin_cpufreq \
     $plugin_monitors \
-    $plugin_wnckpager"
+    $plugin_wnckpager\
+    $plugin_indicator"
 
 AC_SUBST(PLUGINS_LIST)
 
@@ -389,6 +429,7 @@ AC_CONFIG_FILES([
     src/plugins/cpufreq/Makefile
     src/plugins/monitors/Makefile
     src/plugins/wnckpager/Makefile
+    src/plugins/indicator/Makefile
     po/Makefile.in
     data/Makefile
     data/default/panels/panel
@@ -437,6 +478,9 @@ echo Building dynamic plugins:
     fi
     if test x"$plugin_wnckpager" != x; then
         AC_MSG_RESULT([    wnckpager - Pager which support openbox and compiz])
+    fi
+    if test x"$plugin_indicator" != x; then
+        AC_MSG_RESULT([    indicator - Indicator support])
     fi
 else
 echo Dynamic loader for plugins....... : disabled.
