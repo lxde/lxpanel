@@ -42,6 +42,9 @@
 #define SYSFS_THERMAL_TEMPF  "temp"
 #define SYSFS_THERMAL_TRIP  "trip_point_0_temp"
 
+#define MAX_NUM_SENSORS 10
+#define MAX_AUTOMATIC_CRITICAL_TEMP 150 /* in degrees Celsius */
+
 
 typedef struct thermal {
     Plugin * plugin;
@@ -60,20 +63,22 @@ typedef struct thermal {
     GdkColor cl_normal,
              cl_warning1,
              cl_warning2;
-    gint (*get_temperature)(struct thermal *th);
-    gint (*get_critical)(struct thermal *th);
+    int numsensors;
+    char *sensor_array[MAX_NUM_SENSORS];
+    gint (*get_temperature[MAX_NUM_SENSORS])(char const* sensor_path);
+    gint (*get_critical[MAX_NUM_SENSORS])(char const* sensor_path);
 } thermal;
 
 
 static gint
-proc_get_critical(thermal *th){
+proc_get_critical(char const* sensor_path){
     FILE *state;
     char buf[ 256 ], sstmp [ 100 ];
     char* pstr;
 
-    if(th->sensor == NULL) return -1;
+    if(sensor_path == NULL) return -1;
 
-    sprintf(sstmp,"%s%s",th->sensor,PROC_THERMAL_TRIP);
+    sprintf(sstmp,"%s%s",sensor_path,PROC_THERMAL_TRIP);
 
     if (!(state = fopen( sstmp, "r"))) {
         //printf("cannot open %s\n",sstmp);
@@ -89,7 +94,6 @@ proc_get_critical(thermal *th){
             ++pstr;
 
         pstr[strlen(pstr)-3] = '\0';
-        //printf("Critical: [%s]\n",pstr);
         fclose(state);
         return atoi(pstr);
     }
@@ -99,14 +103,14 @@ proc_get_critical(thermal *th){
 }
 
 static gint
-proc_get_temperature(thermal *th){
+proc_get_temperature(char const* sensor_path){
     FILE *state;
     char buf[ 256 ], sstmp [ 100 ];
     char* pstr;
 
-    if(th->sensor == NULL) return -1;
+    if(sensor_path == NULL) return -1;
 
-    sprintf(sstmp,"%s%s",th->sensor,PROC_THERMAL_TEMPF);
+    sprintf(sstmp,"%s%s",sensor_path,PROC_THERMAL_TEMPF);
 
     if (!(state = fopen( sstmp, "r"))) {
         //printf("cannot open %s\n",sstmp);
@@ -131,14 +135,14 @@ proc_get_temperature(thermal *th){
 }
 
 static gint
-sysfs_get_critical(thermal *th){
+sysfs_get_critical(char const* sensor_path){
     FILE *state;
     char buf[ 256 ], sstmp [ 100 ];
     char* pstr;
 
-    if(th->sensor == NULL) return -1;
+    if(sensor_path == NULL) return -1;
 
-    sprintf(sstmp,"%s%s",th->sensor,SYSFS_THERMAL_TRIP);
+    sprintf(sstmp,"%s%s",sensor_path,SYSFS_THERMAL_TRIP);
 
     if (!(state = fopen( sstmp, "r"))) {
         //printf("cannot open %s\n",sstmp);
@@ -158,14 +162,14 @@ sysfs_get_critical(thermal *th){
 }
 
 static gint
-sysfs_get_temperature(thermal *th){
+sysfs_get_temperature(char const* sensor_path){
     FILE *state;
     char buf[ 256 ], sstmp [ 100 ];
     char* pstr;
 
-    if(th->sensor == NULL) return -1;
+    if(sensor_path == NULL) return -1;
 
-    sprintf(sstmp,"%s%s",th->sensor,SYSFS_THERMAL_TEMPF);
+    sprintf(sstmp,"%s%s",sensor_path,SYSFS_THERMAL_TEMPF);
 
     if (!(state = fopen( sstmp, "r"))) {
         //printf("cannot open %s\n",sstmp);
@@ -184,24 +188,67 @@ sysfs_get_temperature(thermal *th){
     return -1;
 }
 
-
-static void
-set_get_functions(thermal *th)
+static gboolean
+is_sysfs(char const* path)
 {
-    if (th->sensor && strncmp(th->sensor, "/sys/", 5) == 0){
-        th->get_temperature = sysfs_get_temperature;
-        th->get_critical = sysfs_get_critical;
-    } else {
-        th->get_temperature = proc_get_temperature;
-        th->get_critical = proc_get_critical;
+    return path && strncmp(path, "/sys/", 5) == 0;
+}
+
+/* get_temp_function():
+ *      - This function is called 'get_temp_function'.
+ *      - It takes 'path' as argument.
+ *      - It returns a pointer to a function.
+ *      - The returned function takes a pointer to a char const as arg.
+ *      - The returned function returns a gint. */
+static gint (*get_temp_function(char const* path))(char const* sensor_path)
+{
+    if (is_sysfs(path))
+        return sysfs_get_temperature;
+    else
+        return proc_get_temperature;
+}
+
+static gint (*get_crit_function(char const* path))(char const* sensor_path)
+{
+    if (is_sysfs(path))
+        return sysfs_get_critical;
+    else
+        return proc_get_critical;
+}
+
+static gint get_temperature(thermal *th)
+{
+    gint max = -273;
+    gint cur, i;
+
+    for(i = 0; i < th->numsensors; i++){
+        cur = th->get_temperature[i](th->sensor_array[i]);
+        if (cur > max)
+            max = cur;
     }
+
+    return max;
+}
+
+static gint get_critical(thermal *th)
+{
+    gint min = MAX_AUTOMATIC_CRITICAL_TEMP;
+    gint cur, i;
+
+    for(i = 0; i < th->numsensors; i++){
+        cur = th->get_critical[i](th->sensor_array[i]);
+        if (cur < min)
+            min = cur;
+    }
+
+    return min;
 }
 
 static gint
 update_display(thermal *th)
 {
     char buffer [60];
-    int temp = th->get_temperature(th);
+    int temp = get_temperature(th);
     GdkColor color;
 
     if(temp >= th->warning2)
@@ -224,13 +271,23 @@ update_display(thermal *th)
 }
 
 
-static void
+static int
 add_sensor(thermal* th, char const* sensor_path)
 {
-    if (th->sensor)
-        g_free(th->sensor);
+    if (th->numsensors + 1 > MAX_NUM_SENSORS){
+        ERR("thermal: Too many sensors (max %d), ignoring '%s'\n",
+                MAX_NUM_SENSORS, sensor_path);
+        return -1;
+    }
 
-    th->sensor = g_strdup(sensor_path);
+    th->sensor_array[th->numsensors] = g_strdup(sensor_path);
+    th->get_critical[th->numsensors] = get_crit_function(sensor_path);
+    th->get_temperature[th->numsensors] = get_temp_function(sensor_path);
+    th->numsensors++;
+
+    DBG("added sensor %s\n", sensor_path);
+
+    return 0;
 }
 
 /* find_sensors():
@@ -258,23 +315,27 @@ find_sensors(thermal* th, char const* directory, char const* subdir_prefix)
         }
         sprintf(sensor_path,"%s%s/", directory, sensor_name);
         add_sensor(th, sensor_path);
-        break;
     }
     g_dir_close(sensorsDirectory);
 }
 
 static void
+remove_all_sensors(thermal *th)
+{
+    int i;
+
+    for (i = 0; i < th->numsensors; i++)
+        g_free(th->sensor_array[i]);
+
+    th->numsensors = 0;
+}
+
+static void
 check_sensors( thermal *th )
 {
-    if(th->sensor) {
-        g_free(th->sensor);
-        th->sensor = NULL;
-    }
-
     find_sensors(th, PROC_THERMAL_DIRECTORY, NULL);
-
-    if (!th->sensor)
-        find_sensors(th, SYSFS_THERMAL_DIRECTORY, SYSFS_THERMAL_SUBDIR_PREFIX);
+    find_sensors(th, SYSFS_THERMAL_DIRECTORY, SYSFS_THERMAL_SUBDIR_PREFIX);
+    LOG(LOG_INFO, "Found %d sensors\n", th->numsensors);
 }
 
 
@@ -287,12 +348,12 @@ static void applyConfig(Plugin* p)
     if (th->str_cl_warning1) gdk_color_parse(th->str_cl_warning1, &th->cl_warning1);
     if (th->str_cl_warning2) gdk_color_parse(th->str_cl_warning2, &th->cl_warning2);
 
+    remove_all_sensors(th);
     if(th->sensor == NULL) th->auto_sensor = TRUE;
     if(th->auto_sensor) check_sensors(th);
+    else add_sensor(th, th->sensor);
 
-    set_get_functions(th);
-
-    th->critical = th->get_critical(th);
+    th->critical = get_critical(th);
 
     if(th->not_custom_levels){
         th->warning1 = th->critical - 10;
@@ -417,6 +478,7 @@ thermal_destructor(Plugin *p)
 
   ENTER;
   th = (thermal *) p->priv;
+  remove_all_sensors(th);
   g_free(th->sensor);
   g_free(th->str_cl_normal);
   g_free(th->str_cl_warning1);
@@ -455,3 +517,6 @@ PluginClass thermal_plugin_class = {
     save : save_config,
     panel_configuration_changed : NULL
 };
+
+
+/* vim: set sw=4 sts=4 et : */
