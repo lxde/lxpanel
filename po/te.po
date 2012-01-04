@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-29 14:22+0200\n"
+"POT-Creation-Date: 2012-01-04 15:41+0100\n"
 "PO-Revision-Date: 2011-07-12 17:58+0200\n"
 "Last-Translator: PraveenIlla <mail2ipn@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,39 +30,39 @@ msgstr "పునఃప్రారంభించు"
 msgid "Logout"
 msgstr "లాగౌట్"
 
-#: ../src/configurator.c:448
+#: ../src/configurator.c:468
 msgid "Currently loaded plugins"
 msgstr "ప్రస్తుతం లోడయిన ప్లగిన్‌లు"
 
-#: ../src/configurator.c:457
+#: ../src/configurator.c:477
 msgid "Stretch"
 msgstr "లాగు"
 
-#: ../src/configurator.c:559
+#: ../src/configurator.c:596
 msgid "Add plugin to panel"
 msgstr "ప్లగిన్‌ను ప్యానల్‌కు జతచేయి"
 
-#: ../src/configurator.c:587
+#: ../src/configurator.c:624
 msgid "Available plugins"
 msgstr "అందుబాటలో ఉన్న ప్లగిన్‌లు"
 
-#: ../src/configurator.c:1143
+#: ../src/configurator.c:1202
 msgid "Logout command is not set"
 msgstr "లాగౌట్ ఆదేశం అమర్చలేదు"
 
-#: ../src/configurator.c:1196
+#: ../src/configurator.c:1255
 msgid "Select a directory"
 msgstr "ఒక చిరునామాని ఎంచుకొను"
 
-#: ../src/configurator.c:1196 ../src/configurator.c:1287
+#: ../src/configurator.c:1255 ../src/configurator.c:1346
 msgid "Select a file"
 msgstr "ఒక ఫైలును ఎంచుకొను"
 
-#: ../src/configurator.c:1314
+#: ../src/configurator.c:1373
 msgid "_Browse"
 msgstr "అన్వేషించు (_B)"
 
-#: ../src/panel.c:649
+#: ../src/panel.c:651
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -70,133 +70,133 @@ msgstr ""
 "ఈ ప్యానల్‌ను నిజంగానే తీసివేయాలా?\n"
 "<b>హెచ్చరిక: దీనిని తిరిగి పొందటం వీలుకాదు.</b>"
 
-#: ../src/panel.c:651
+#: ../src/panel.c:653
 msgid "Confirm"
 msgstr "నిర్ధారించు"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:684
+#: ../src/panel.c:686
 msgid "translator-credits"
 msgstr "Praveen Illa <mail2ipn@gmail.com>, 2011."
 
-#: ../src/panel.c:689
+#: ../src/panel.c:691
 msgid "LXPanel"
 msgstr "LXప్యానల్"
 
-#: ../src/panel.c:691
+#: ../src/panel.c:693
 msgid "Copyright (C) 2008-2011"
 msgstr "నకలుహక్కు (C) 2008-2011"
 
-#: ../src/panel.c:692
+#: ../src/panel.c:694
 msgid "Desktop panel for LXDE project"
 msgstr "LXDE ప్రోజెక్టు కొరకు డెస్క్‍టాప్ ప్యానల్"
 
-#: ../src/panel.c:715
+#: ../src/panel.c:717
 msgid "Add / Remove Panel Items"
 msgstr "ప్యానల్ అంశాలను జతచేయ/తొలగించు"
 
-#: ../src/panel.c:723
+#: ../src/panel.c:725
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "ప్యానల్ నుండి  \"%s\" అంశమును తొలగించు"
 
-#: ../src/panel.c:735
+#: ../src/panel.c:737
 msgid "Panel Settings"
 msgstr "ప్యానల్ అమరికలు"
 
-#: ../src/panel.c:741
+#: ../src/panel.c:743
 msgid "Create New Panel"
 msgstr "కొత్త ప్యానల్‌ను సృష్టించు"
 
-#: ../src/panel.c:752
+#: ../src/panel.c:754
 msgid "Delete This Panel"
 msgstr "ఈ ప్యానల్‌ను తీసివేయి"
 
-#: ../src/panel.c:763
+#: ../src/panel.c:765
 msgid "About"
 msgstr "గురించి"
 
-#: ../src/panel.c:771
+#: ../src/panel.c:773
 msgid "Panel"
 msgstr "ప్యానల్"
 
-#: ../src/panel.c:784
+#: ../src/panel.c:786
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" అమరికలు"
 
-#: ../src/panel.c:1040 ../src/panel.c:1048
+#: ../src/panel.c:1042 ../src/panel.c:1050 ../data/ui/panel-pref.glade.h:21
 msgid "Height:"
 msgstr "ఎత్తు:"
 
-#: ../src/panel.c:1041 ../src/panel.c:1047
+#: ../src/panel.c:1043 ../src/panel.c:1049 ../data/ui/panel-pref.glade.h:40
 msgid "Width:"
 msgstr "వెడల్పు:"
 
-#: ../src/panel.c:1042
+#: ../src/panel.c:1044 ../data/ui/panel-pref.glade.h:23
 msgid "Left"
 msgstr "ఎడమ"
 
-#: ../src/panel.c:1043
+#: ../src/panel.c:1045 ../data/ui/panel-pref.glade.h:32
 msgid "Right"
 msgstr "కుడి"
 
-#: ../src/panel.c:1049
+#: ../src/panel.c:1051 ../data/ui/panel-pref.glade.h:39
 msgid "Top"
 msgstr "ఉత్తమ"
 
-#: ../src/panel.c:1050
+#: ../src/panel.c:1052 ../data/ui/panel-pref.glade.h:14
 msgid "Bottom"
 msgstr "అడుగు"
 
-#: ../src/panel.c:1449
+#: ../src/panel.c:1460
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxప్యానల్ %s - యునిక్స్ డెస్క్‍టాప్‌ల కోసం తేలికపాటి GTK2+ ప్యానల్\n"
 
-#: ../src/panel.c:1450
+#: ../src/panel.c:1461
 #, c-format
 msgid "Command line options:\n"
 msgstr "కమాండు లైను ఐచ్చికాలు:\n"
 
-#: ../src/panel.c:1451
+#: ../src/panel.c:1462
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --సహాయం      -- ఈ సహాయాన్ని ముద్రించు మరియు నిష్క్రమించు\n"
 
-#: ../src/panel.c:1452
+#: ../src/panel.c:1463
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --వెర్షన్   -- వెర్షన్ ముద్రించు మరియు నిష్క్రమించు\n"
 
-#: ../src/panel.c:1453
+#: ../src/panel.c:1464
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --చిట్టా <సంఖ్య> -- చిట్టా స్థాయి అమర్చు 0-5. 0 - ఏదీకాదు 5 - chatty\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1455
+#: ../src/panel.c:1466
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --ప్రొఫైల్ పేరు -- నిర్దిష్ట ప్రొఫైల్‌ను వాడు\n"
 
-#: ../src/panel.c:1457
+#: ../src/panel.c:1468
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- same as --సహాయం\n"
 
-#: ../src/panel.c:1458
+#: ../src/panel.c:1469
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- same as --ప్రొఫైల్\n"
 
-#: ../src/panel.c:1459
+#: ../src/panel.c:1470
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- same as --వెర్షన్\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1461
+#: ../src/panel.c:1472
 #, c-format
 msgid ""
 "\n"
@@ -211,15 +211,259 @@ msgstr ""
 msgid "Enter the command you want to execute:"
 msgstr "మీరు ఎక్జిక్యూట్ చేయాలనుకుంటున్న ఆదేశాన్ని ప్రవేశపెట్టండి:"
 
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:912
+msgid "Application Launch Bar"
+msgstr "అనువర్తన ప్రారంభ పట్టీ"
+
+#: ../data/ui/netstatus.glade.h:2
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
+#, no-c-format
+msgid "0%"
+msgstr "0%"
+
+#: ../data/ui/netstatus.glade.h:3
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
+msgid "<b>Activity</b>"
+msgstr "<b>క్రియాశీలత</b>"
+
+#: ../data/ui/netstatus.glade.h:4
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
+msgid "<b>Connection</b>"
+msgstr "<b>అనుసంధానం</b>"
+
+#: ../data/ui/netstatus.glade.h:5
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr "<b>అంతర్జాల ప్రోటోకాల్ (IPv4)</b>"
+
+#: ../data/ui/netstatus.glade.h:6
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>అంతర్జాల ప్రోటోకాల్ (IPv6)</b>"
+
+#: ../data/ui/netstatus.glade.h:7
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
+msgid "<b>Network Device</b>"
+msgstr "<b>నెట్‌వర్క్ పరికరం</b>"
+
+#: ../data/ui/netstatus.glade.h:8
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
+msgid "<b>Signal Strength</b>"
+msgstr "<b>సిగ్నల్ బలము</b>"
+
+#: ../data/ui/netstatus.glade.h:9
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
+msgid "Address:"
+msgstr "చిరునామా:"
+
+#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
+#: ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
+msgid "Broadcast:"
+msgstr "ప్రసారం:"
+
+#: ../data/ui/netstatus.glade.h:11
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
+msgid "Con_figure"
+msgstr "స్వరూపించు (_f)"
+
+#: ../data/ui/netstatus.glade.h:12
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
+msgid "Destination:"
+msgstr "గమ్యస్థానం:"
+
+#: ../data/ui/netstatus.glade.h:13
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
+msgid "General"
+msgstr "సాధారణ"
+
+#: ../data/ui/netstatus.glade.h:14
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
+msgid "Received:"
+msgstr "పొందినది:"
+
+#: ../data/ui/netstatus.glade.h:15
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
+msgid "Scope:"
+msgstr "లక్ష్యం:"
+
+#: ../data/ui/netstatus.glade.h:16
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
+msgid "Sent:"
+msgstr "పంపినది:"
+
+#: ../data/ui/netstatus.glade.h:17
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
+msgid "Status:"
+msgstr "స్థితి:"
+
+#: ../data/ui/netstatus.glade.h:18
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
+msgid "Subnet Mask:"
+msgstr "సబ్‌నెట్ మాస్క్:"
+
+#: ../data/ui/netstatus.glade.h:19
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
+msgid "Support"
+msgstr "మద్ధతు"
+
+#: ../data/ui/netstatus.glade.h:20
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
+msgid "Type:"
+msgstr "రకం:"
+
+#: ../data/ui/netstatus.glade.h:21
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
+msgid "_Name:"
+msgstr "పేరు(_N):"
+
+#: ../data/ui/panel-pref.glade.h:2
+#, no-c-format
+msgid "% Percent"
+msgstr "% శాతం"
+
+#: ../data/ui/panel-pref.glade.h:3
+msgid "<b>Automatic hiding</b>"
+msgstr "<b>స్వయంచాలక దాగుట</b>"
+
+#: ../data/ui/panel-pref.glade.h:4
+msgid "<b>Background</b>"
+msgstr "<b>నేపథ్యం</b>"
+
+#: ../data/ui/panel-pref.glade.h:5
+msgid "<b>Font</b>"
+msgstr "<b>ఫాంటు</b>"
+
+#: ../data/ui/panel-pref.glade.h:6
+msgid "<b>Icon</b>"
+msgstr "<b>ప్రతీక</b>"
+
+#: ../data/ui/panel-pref.glade.h:7
+msgid "<b>Position</b>"
+msgstr "<b>స్థానము</b>"
+
+#: ../data/ui/panel-pref.glade.h:8
+msgid "<b>Properties</b>"
+msgstr "<b>గుణములు</b>"
+
+#: ../data/ui/panel-pref.glade.h:9
+msgid "<b>Set Preferred Applications</b>"
+msgstr "<b>ప్రాధాన్య అనువర్తనాలను అమర్చు</b>"
+
+#: ../data/ui/panel-pref.glade.h:10
+msgid "<b>Size</b>"
+msgstr "<b>పరిమాణం</b>"
+
+#: ../data/ui/panel-pref.glade.h:11
+msgid "Advanced"
+msgstr "ఉన్నత"
+
+#: ../data/ui/panel-pref.glade.h:12
+msgid "Alignment:"
+msgstr "అనుగుణం:"
+
+#: ../data/ui/panel-pref.glade.h:13
+msgid "Appearance"
+msgstr "కనిపించువిధము"
+
+#: ../data/ui/panel-pref.glade.h:15
+msgid "Center"
+msgstr "మధ్య"
+
+#: ../data/ui/panel-pref.glade.h:16
+msgid "Custom color"
+msgstr "అనురూపిత రంగు"
+
+#: ../data/ui/panel-pref.glade.h:17
+msgid "Dynamic"
+msgstr "గతి"
+
+#: ../data/ui/panel-pref.glade.h:18
+msgid "Edge:"
+msgstr "కొన:"
+
+#: ../data/ui/panel-pref.glade.h:19
+msgid "File Manager:"
+msgstr "ఫైల్ నిర్వాహకం:"
+
+#: ../data/ui/panel-pref.glade.h:20
+msgid "Geometry"
+msgstr "జ్యామితి"
+
+#: ../data/ui/panel-pref.glade.h:22
+msgid "Image"
+msgstr "బొమ్మ"
+
+#: ../data/ui/panel-pref.glade.h:24
+msgid "Logout Command:"
+msgstr "లాగౌట్ ఆదేశం:"
+
+#: ../data/ui/panel-pref.glade.h:25
+msgid "Make window managers treat the panel as dock"
+msgstr "ప్యానల్‌ను డాక్ వలె వ్యవహరించేటట్లు విండో నిర్వాహకాలను చేయి"
+
+#: ../data/ui/panel-pref.glade.h:26
+msgid "Margin:"
+msgstr "అంచు:"
+
+#: ../data/ui/panel-pref.glade.h:27
+msgid "Minimize panel when not in use"
+msgstr "వాడుకలో లేనపుడు ప్యానల్‌ను కనిష్ఠీకరించు"
+
+#: ../data/ui/panel-pref.glade.h:28
+msgid "Panel Applets"
+msgstr "ప్యానల్ ఏప్లెట్స్"
+
+#: ../data/ui/panel-pref.glade.h:29
+msgid "Panel Preferences"
+msgstr "ప్యానల్ ప్రాధాన్యతలు"
+
+#: ../data/ui/panel-pref.glade.h:30
+msgid "Pixels"
+msgstr "పిక్సెళ్ళు"
+
+#: ../data/ui/panel-pref.glade.h:31
+msgid "Reserve space, and not covered by maximized windows"
+msgstr "పెద్దదిగాచేసిన విండోచే కప్పివుంచబడని విధముగా ఖాళీను కేటాయించు"
+
+#: ../data/ui/panel-pref.glade.h:33
+msgid "Select an image file"
+msgstr "ఒక బొమ్మ ఫైలును ఎంచుకొను"
+
+#: ../data/ui/panel-pref.glade.h:34 ../src/plugins/space.c:125
+#: ../src/plugins/batt/batt.c:583
+msgid "Size"
+msgstr "పరిమాణం"
+
+#: ../data/ui/panel-pref.glade.h:35
+msgid "Size when minimized"
+msgstr "కనిష్ఠీకరించినపుడు పరిమాణం"
+
+#: ../data/ui/panel-pref.glade.h:36
+msgid "Solid color (with opacity)"
+msgstr "బలమైన రంగు (ఆపారదర్శకతతో)"
+
+#: ../data/ui/panel-pref.glade.h:37
+msgid "System theme"
+msgstr "వ్యవస్థ థీము"
+
+#: ../data/ui/panel-pref.glade.h:38
+msgid "Terminal Emulator:"
+msgstr "టెర్మినల్ ఎమ్యులేటర్:"
+
+#: ../data/ui/panel-pref.glade.h:41
+msgid "pixels"
+msgstr "పిక్సెళ్ళు"
+
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
 msgstr "CPU వినిమయ పర్యవేక్షకం"
 
-#: ../src/plugins/cpu/cpu.c:270
+#: ../src/plugins/cpu/cpu.c:270 ../src/plugins/monitors/monitors.c:653
 msgid "Display CPU usage"
 msgstr "CPU వాడుకను చూపించు"
 
-#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:426
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:438
 msgid "Bold font"
 msgstr "లావుపాటి ఫాంటు"
 
@@ -238,10 +482,6 @@ msgstr "కార్యక్షేత్రం సంఖ్యను చూప�
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
 msgstr "బొమ్మను మరియు సాధనచిట్కాను చూపించు"
-
-#: ../src/plugins/launchbar.c:912
-msgid "Application Launch Bar"
-msgstr "అనువర్తన ప్రారంభ పట్టీ"
 
 #: ../src/plugins/launchbar.c:914
 msgid "Bar with buttons to launch application"
@@ -328,11 +568,11 @@ msgstr "కార్య బటన్ యొక్క అధిక వెడల�
 msgid "Spacing"
 msgstr "అంతరం"
 
-#: ../src/plugins/taskbar.c:2051
+#: ../src/plugins/taskbar.c:2047
 msgid "Task Bar (Window List)"
 msgstr "కార్య పట్టీ (విండో జాబితా)"
 
-#: ../src/plugins/taskbar.c:2053
+#: ../src/plugins/taskbar.c:2049
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -340,51 +580,56 @@ msgstr ""
 "తెరవబడిన అన్ని విండోలను చూపించుటకు మరియు వాటిని కనిష్ఠీకరించుటకు కార్యపట్టీ అనుమతిస్తుంది, వాటి ఛాయని "
 "లేదా వాటిపై కేంద్రీకరిస్తుంది"
 
-#: ../src/plugins/dclock.c:422
+#: ../src/plugins/dclock.c:434
 msgid "Clock Format"
 msgstr "గడియారపు తీరు"
 
-#: ../src/plugins/dclock.c:423
+#: ../src/plugins/dclock.c:435
 msgid "Tooltip Format"
 msgstr "సాధనచిట్కా తీరు"
 
-#: ../src/plugins/dclock.c:424
+#: ../src/plugins/dclock.c:436
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr "ఫార్మేటు కోడులు: man 3 strftime; \\n for line break"
 
-#: ../src/plugins/dclock.c:425
+#: ../src/plugins/dclock.c:437
 msgid "Action when clicked (default: display calendar)"
 msgstr "నొక్కినపుడు చర్య (అప్రమేయం: క్యాలెండరు ప్రదర్శించు)"
 
-#: ../src/plugins/dclock.c:427
+#: ../src/plugins/dclock.c:439
 msgid "Tooltip only"
 msgstr "సాధనచిట్కా మాత్రమే"
 
-#: ../src/plugins/dclock.c:455
+#: ../src/plugins/dclock.c:440
+#, fuzzy
+msgid "Center text"
+msgstr "మధ్య"
+
+#: ../src/plugins/dclock.c:469
 msgid "Digital Clock"
 msgstr "డిజిటల్ గడియారం"
 
-#: ../src/plugins/dclock.c:457
+#: ../src/plugins/dclock.c:471
 msgid "Display digital clock and tooltip"
 msgstr "డిజిటల్ గడియారం మరియు సాధనచిట్కాను చూపించు"
 
-#: ../src/plugins/menu.c:423
+#: ../src/plugins/menu.c:426
 msgid "Add to desktop"
 msgstr "డెస్క్‍టాపుకి జతచేయి"
 
-#: ../src/plugins/menu.c:433
+#: ../src/plugins/menu.c:436
 msgid "Properties"
 msgstr "గుణములు"
 
-#: ../src/plugins/menu.c:1079 ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1085 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "ప్రతీక"
 
-#: ../src/plugins/menu.c:1096
+#: ../src/plugins/menu.c:1102
 msgid "Menu"
 msgstr "మెను"
 
-#: ../src/plugins/menu.c:1098
+#: ../src/plugins/menu.c:1104
 msgid "Application Menu"
 msgstr "అనువర్తన మెను"
 
@@ -396,17 +641,13 @@ msgstr "వేరుచేయునది"
 msgid "Add a separator to the panel"
 msgstr "ప్యానల్‌కు ఒక వేరుచేసేదానిని జతచేయి"
 
-#: ../src/plugins/pager.c:833
+#: ../src/plugins/pager.c:837
 msgid "Desktop Pager"
 msgstr "డెస్క్‍టాప్ పేజర్"
 
-#: ../src/plugins/pager.c:835
+#: ../src/plugins/pager.c:839
 msgid "Simple pager plugin"
 msgstr "సులభ పేజర్ ప్లగిన్"
-
-#: ../src/plugins/space.c:125 ../src/plugins/batt/batt.c:590
-msgid "Size"
-msgstr "పరిమాణం"
 
 #: ../src/plugins/space.c:143
 msgid "Spacer"
@@ -502,69 +743,75 @@ msgstr "డైరెక్టరీ మెను"
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "డైరెక్టరీని చెట్టును మెనూ ద్వారా అన్వేషించు (మూలకర్త: పిసిమ్యాన్)"
 
-#: ../src/plugins/thermal/thermal.c:304
+#: ../src/plugins/thermal/thermal.c:396
 msgid "Normal"
 msgstr "సాధారణ"
 
-#: ../src/plugins/thermal/thermal.c:305
+#: ../src/plugins/thermal/thermal.c:397
 msgid "Warning1"
 msgstr "హెచ్చరిక1"
 
-#: ../src/plugins/thermal/thermal.c:306
+#: ../src/plugins/thermal/thermal.c:398
 msgid "Warning2"
 msgstr "హెచ్చరిక2"
 
-#: ../src/plugins/thermal/thermal.c:307
+#: ../src/plugins/thermal/thermal.c:399
 msgid "Automatic sensor location"
 msgstr "స్వయంచాలక గ్రాహక స్థానము"
 
-#: ../src/plugins/thermal/thermal.c:308
+#: ../src/plugins/thermal/thermal.c:400
 msgid "Sensor"
 msgstr "గ్రాహకం"
 
-#: ../src/plugins/thermal/thermal.c:309
+#: ../src/plugins/thermal/thermal.c:401
 msgid "Automatic temperature levels"
 msgstr "స్వయంచాలక ఉష్ణోగ్రత స్థాయి"
 
-#: ../src/plugins/thermal/thermal.c:310
+#: ../src/plugins/thermal/thermal.c:402
 msgid "Warning1 Temperature"
 msgstr "హెచ్చరిక1 ఉష్ణోగ్రత"
 
-#: ../src/plugins/thermal/thermal.c:311
+#: ../src/plugins/thermal/thermal.c:403
 msgid "Warning2 Temperature"
 msgstr "హెచ్చరిక2 ఉష్ణోగ్రత"
 
-#: ../src/plugins/thermal/thermal.c:353
+#: ../src/plugins/thermal/thermal.c:445
 msgid "Temperature Monitor"
 msgstr "ఉష్ణోగ్రత పర్యవేక్షకం"
 
-#: ../src/plugins/thermal/thermal.c:355
+#: ../src/plugins/thermal/thermal.c:447
 msgid "Display system temperature"
 msgstr "వ్యవస్థ ఉష్ణోగ్రతను చూపించు"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:252
-#: ../src/plugins/volumealsa/volumealsa.c:422
+#: ../src/plugins/volumealsa/volumealsa.c:279
+#: ../src/plugins/volumealsa/volumealsa.c:449
 msgid "Volume control"
 msgstr "ధ్వని నియంత్రణ"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:471
+#: ../src/plugins/volumealsa/volumealsa.c:571
 msgid "Volume Control"
 msgstr "ధ్వని నియంత్రణ"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:380
+#: ../src/plugins/volumealsa/volumealsa.c:407
 msgid "Volume"
 msgstr "ధ్వనిస్థాయి"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/volumealsa/volumealsa.c:399
+#: ../src/plugins/volumealsa/volumealsa.c:426
 msgid "Mute"
 msgstr "నిశబ్ధం"
+
+#: ../src/plugins/volumealsa/volumealsa.c:544
+msgid ""
+"Error, you need to install a application to configure the sound (pavucontol, "
+"alsamixer ...)"
+msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
@@ -643,11 +890,6 @@ msgstr "వైరులేని"
 #: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
 msgstr "ప్రోటోకాల్:"
-
-#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-msgid "Broadcast:"
-msgstr "ప్రసారం:"
 
 #: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
@@ -1025,143 +1267,66 @@ msgstr "పొందుతున్నది"
 msgid "Sending/Receiving"
 msgstr "పంపుతున్నది/పొందుతున్నది"
 
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
-#, no-c-format
-msgid "0%"
-msgstr "0%"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
-msgid "<b>Activity</b>"
-msgstr "<b>క్రియాశీలత</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
-msgid "<b>Connection</b>"
-msgstr "<b>అనుసంధానం</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
-msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr "<b>అంతర్జాల ప్రోటోకాల్ (IPv4)</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
-msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr "<b>అంతర్జాల ప్రోటోకాల్ (IPv6)</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
-msgid "<b>Network Device</b>"
-msgstr "<b>నెట్‌వర్క్ పరికరం</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
-msgid "<b>Signal Strength</b>"
-msgstr "<b>సిగ్నల్ బలము</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
-msgid "Address:"
-msgstr "చిరునామా:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
-msgid "Con_figure"
-msgstr "స్వరూపించు (_f)"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
-msgid "Destination:"
-msgstr "గమ్యస్థానం:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
-msgid "General"
-msgstr "సాధారణ"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
-msgid "Received:"
-msgstr "పొందినది:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
-msgid "Scope:"
-msgstr "లక్ష్యం:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
-msgid "Sent:"
-msgstr "పంపినది:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
-msgid "Status:"
-msgstr "స్థితి:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
-msgid "Subnet Mask:"
-msgstr "సబ్‌నెట్ మాస్క్:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
-msgid "Support"
-msgstr "మద్ధతు"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
-msgid "Type:"
-msgstr "రకం:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
-msgid "_Name:"
-msgstr "పేరు(_N):"
-
-#: ../src/plugins/batt/batt.c:131
+#: ../src/plugins/batt/batt.c:132
 msgid "No batteries found"
 msgstr "ఎటువంటి బ్యాటరీలు కనుగొనబడలేదు"
 
-#: ../src/plugins/batt/batt.c:179
+#: ../src/plugins/batt/batt.c:176
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
 msgstr "బ్యాటరీ: %d%% చార్జ్ అయినది, %d:%02d ఇంకా పూర్తగుటకు"
 
-#: ../src/plugins/batt/batt.c:190
+#: ../src/plugins/batt/batt.c:187
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr "బ్యాటరీ: %d%% చార్జ్ అయినది, %d:%02d మిగిలివున్నది"
 
-#: ../src/plugins/batt/batt.c:196
+#: ../src/plugins/batt/batt.c:193
 #, c-format
 msgid "Battery: %d%% charged"
 msgstr "బ్యాటరీ: %d%% చార్జ్ అయినది"
 
-#: ../src/plugins/batt/batt.c:580
+#: ../src/plugins/batt/batt.c:573
 msgid "Hide if there is no battery"
 msgstr "ఒకవేళ అక్కడ ఎటువంటి బ్యాటరీలు లేనట్టయితే కనపడకుండాదాయి"
 
-#: ../src/plugins/batt/batt.c:582
+#: ../src/plugins/batt/batt.c:575
 msgid "Alarm command"
 msgstr "అలారం ఆదేశం"
 
-#: ../src/plugins/batt/batt.c:583
+#: ../src/plugins/batt/batt.c:576
 msgid "Alarm time (minutes left)"
 msgstr "అలారం సమయం (మిగిలిన నిముషాలు)"
 
-#: ../src/plugins/batt/batt.c:584
+#: ../src/plugins/batt/batt.c:577
 msgid "Background color"
 msgstr "నేపథ్యం రంగు"
 
-#: ../src/plugins/batt/batt.c:585
+#: ../src/plugins/batt/batt.c:578
 msgid "Charging color 1"
 msgstr "చార్జింగ్ రంగు 1"
 
-#: ../src/plugins/batt/batt.c:586
+#: ../src/plugins/batt/batt.c:579
 msgid "Charging color 2"
 msgstr "చార్జింగ్ రంగు 2"
 
-#: ../src/plugins/batt/batt.c:587
+#: ../src/plugins/batt/batt.c:580
 msgid "Discharging color 1"
 msgstr "డిస్చార్జింగ్ రంగు 1"
 
-#: ../src/plugins/batt/batt.c:588
+#: ../src/plugins/batt/batt.c:581
 msgid "Discharging color 2"
 msgstr "డిస్చార్జింగ్ రంగు 2"
 
-#: ../src/plugins/batt/batt.c:589
+#: ../src/plugins/batt/batt.c:582
 msgid "Border width"
 msgstr "సరిహద్దు వెడల్పు"
 
-#: ../src/plugins/batt/batt.c:619
+#: ../src/plugins/batt/batt.c:612
 msgid "Battery Monitor"
 msgstr "బ్యాటరీ పర్యవేక్షకం"
 
-#: ../src/plugins/batt/batt.c:621
+#: ../src/plugins/batt/batt.c:614
 msgid "Display battery status using ACPI"
 msgstr "ACPI వాడి బ్యాటరీ స్థితిని చూపించు"
 
@@ -1185,101 +1350,73 @@ msgstr "కీబోర్డు LED"
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "CapsLock, NumLock, మరియు ScrollLock keys కోసం సూచకాలు"
 
-#~ msgid "% Percent"
-#~ msgstr "% శాతం"
+#. A label to allow for click through
+#: ../src/plugins/indicator/indicator.c:561
+msgid "No Indicators"
+msgstr ""
 
-#~ msgid "<b>Automatic hiding</b>"
-#~ msgstr "<b>స్వయంచాలక దాగుట</b>"
+#: ../src/plugins/indicator/indicator.c:751
+msgid "Indicator Applications"
+msgstr ""
 
-#~ msgid "<b>Background</b>"
-#~ msgstr "<b>నేపథ్యం</b>"
+#: ../src/plugins/indicator/indicator.c:752
+msgid "Clock Indicator"
+msgstr ""
 
-#~ msgid "<b>Font</b>"
-#~ msgstr "<b>ఫాంటు</b>"
+#: ../src/plugins/indicator/indicator.c:753
+msgid "Messaging Menu"
+msgstr ""
 
-#~ msgid "<b>Icon</b>"
-#~ msgstr "<b>ప్రతీక</b>"
+#: ../src/plugins/indicator/indicator.c:754
+#, fuzzy
+msgid "Network Menu"
+msgstr "డైరెక్టరీ మెను"
 
-#~ msgid "<b>Position</b>"
-#~ msgstr "<b>స్థానము</b>"
+#: ../src/plugins/indicator/indicator.c:755
+msgid "Session Menu"
+msgstr ""
 
-#~ msgid "<b>Properties</b>"
-#~ msgstr "<b>గుణములు</b>"
+#: ../src/plugins/indicator/indicator.c:756
+msgid "Sound Menu"
+msgstr ""
 
-#~ msgid "<b>Set Preferred Applications</b>"
-#~ msgstr "<b>ప్రాధాన్య అనువర్తనాలను అమర్చు</b>"
+#: ../src/plugins/indicator/indicator.c:780
+msgid "Indicator applets"
+msgstr ""
 
-#~ msgid "<b>Size</b>"
-#~ msgstr "<b>పరిమాణం</b>"
+#: ../src/plugins/indicator/indicator.c:782
+#, fuzzy
+msgid "Add indicator applets to the panel"
+msgstr "ప్యానల్‌కు ఒక వేరుచేసేదానిని జతచేయి"
 
-#~ msgid "Advanced"
-#~ msgstr "ఉన్నత"
+#: ../src/plugins/monitors/monitors.c:654
+#, fuzzy
+msgid "CPU color"
+msgstr "అనురూపిత రంగు"
 
-#~ msgid "Alignment:"
-#~ msgstr "అనుగుణం:"
+#: ../src/plugins/monitors/monitors.c:655
+#, fuzzy
+msgid "Display RAM usage"
+msgstr "CPU వాడుకను చూపించు"
 
-#~ msgid "Appearance"
-#~ msgstr "కనిపించువిధము"
+#: ../src/plugins/monitors/monitors.c:656
+msgid "RAM color"
+msgstr ""
 
-#~ msgid "Center"
-#~ msgstr "మధ్య"
+#: ../src/plugins/monitors/monitors.c:753
+#, fuzzy
+msgid "Resource monitors"
+msgstr "అంతరవర్తి నుంచి పర్యవేక్షకం వరకు"
 
-#~ msgid "Custom color"
-#~ msgstr "అనురూపిత రంగు"
+#: ../src/plugins/monitors/monitors.c:755
+msgid "Display monitors (CPU, RAM)"
+msgstr ""
 
-#~ msgid "Dynamic"
-#~ msgstr "గతి"
+#: ../src/plugins/wnckpager/wnckpager.c:721
+msgid "WNCKPager"
+msgstr ""
 
-#~ msgid "Edge:"
-#~ msgstr "కొన:"
-
-#~ msgid "File Manager:"
-#~ msgstr "ఫైల్ నిర్వాహకం:"
-
-#~ msgid "Geometry"
-#~ msgstr "జ్యామితి"
-
-#~ msgid "Image"
-#~ msgstr "బొమ్మ"
-
-#~ msgid "Logout Command:"
-#~ msgstr "లాగౌట్ ఆదేశం:"
-
-#~ msgid "Make window managers treat the panel as dock"
-#~ msgstr "ప్యానల్‌ను డాక్ వలె వ్యవహరించేటట్లు విండో నిర్వాహకాలను చేయి"
-
-#~ msgid "Margin:"
-#~ msgstr "అంచు:"
-
-#~ msgid "Minimize panel when not in use"
-#~ msgstr "వాడుకలో లేనపుడు ప్యానల్‌ను కనిష్ఠీకరించు"
-
-#~ msgid "Panel Applets"
-#~ msgstr "ప్యానల్ ఏప్లెట్స్"
-
-#~ msgid "Panel Preferences"
-#~ msgstr "ప్యానల్ ప్రాధాన్యతలు"
-
-#~ msgid "Pixels"
-#~ msgstr "పిక్సెళ్ళు"
-
-#~ msgid "Reserve space, and not covered by maximized windows"
-#~ msgstr "పెద్దదిగాచేసిన విండోచే కప్పివుంచబడని విధముగా ఖాళీను కేటాయించు"
-
-#~ msgid "Select an image file"
-#~ msgstr "ఒక బొమ్మ ఫైలును ఎంచుకొను"
-
-#~ msgid "Size when minimized"
-#~ msgstr "కనిష్ఠీకరించినపుడు పరిమాణం"
-
-#~ msgid "Solid color (with opacity)"
-#~ msgstr "బలమైన రంగు (ఆపారదర్శకతతో)"
-
-#~ msgid "System theme"
-#~ msgstr "వ్యవస్థ థీము"
-
-#~ msgid "Terminal Emulator:"
-#~ msgstr "టెర్మినల్ ఎమ్యులేటర్:"
-
-#~ msgid "pixels"
-#~ msgstr "పిక్సెళ్ళు"
+#: ../src/plugins/wnckpager/wnckpager.c:723
+#, fuzzy
+msgid "WNCKpager plugin"
+msgstr "సులభ పేజర్ ప్లగిన్"

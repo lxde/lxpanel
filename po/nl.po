@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-29 14:22+0200\n"
+"POT-Creation-Date: 2012-01-04 15:41+0100\n"
 "PO-Revision-Date: 2011-09-24 13:52+0200\n"
 "Last-Translator: Pjotr <>\n"
 "Language-Team: Dutch\n"
@@ -31,39 +31,39 @@ msgstr "Herstarten"
 msgid "Logout"
 msgstr "Afmelden"
 
-#: ../src/configurator.c:448
+#: ../src/configurator.c:468
 msgid "Currently loaded plugins"
 msgstr "Thans geladen plugins"
 
-#: ../src/configurator.c:457
+#: ../src/configurator.c:477
 msgid "Stretch"
 msgstr "Rekken"
 
-#: ../src/configurator.c:559
+#: ../src/configurator.c:596
 msgid "Add plugin to panel"
 msgstr "Plugin toevoegen aan werkbalk"
 
-#: ../src/configurator.c:587
+#: ../src/configurator.c:624
 msgid "Available plugins"
 msgstr "Beschikbare plugins"
 
-#: ../src/configurator.c:1143
+#: ../src/configurator.c:1202
 msgid "Logout command is not set"
 msgstr "Afmeldopdracht is niet ingesteld"
 
-#: ../src/configurator.c:1196
+#: ../src/configurator.c:1255
 msgid "Select a directory"
 msgstr "Kies een map"
 
-#: ../src/configurator.c:1196 ../src/configurator.c:1287
+#: ../src/configurator.c:1255 ../src/configurator.c:1346
 msgid "Select a file"
 msgstr "Kies een bestand"
 
-#: ../src/configurator.c:1314
+#: ../src/configurator.c:1373
 msgid "_Browse"
 msgstr "_Blader"
 
-#: ../src/panel.c:649
+#: ../src/panel.c:651
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -71,135 +71,135 @@ msgstr ""
 "Deze werkbalk echt verwijderen?\n"
 "<b>Waarschuwing: Deze actie kan niet ongedaan worden gemaakt.</b>"
 
-#: ../src/panel.c:651
+#: ../src/panel.c:653
 msgid "Confirm"
 msgstr "Bevestigen"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:684
+#: ../src/panel.c:686
 msgid "translator-credits"
 msgstr ""
 "Sander De Voogdt\n"
 "Pjotr"
 
-#: ../src/panel.c:689
+#: ../src/panel.c:691
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:691
+#: ../src/panel.c:693
 msgid "Copyright (C) 2008-2011"
 msgstr "Auteursrecht (C) 2008-2011"
 
-#: ../src/panel.c:692
+#: ../src/panel.c:694
 msgid "Desktop panel for LXDE project"
 msgstr "Bureaubladwerkbalk voor het LXDE project"
 
-#: ../src/panel.c:715
+#: ../src/panel.c:717
 msgid "Add / Remove Panel Items"
 msgstr "Werkbalkelementen verwijderen/toevoegen"
 
-#: ../src/panel.c:723
+#: ../src/panel.c:725
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Verwijder \"%s\" van werkbalk"
 
-#: ../src/panel.c:735
+#: ../src/panel.c:737
 msgid "Panel Settings"
 msgstr "Werkbalkvoorkeuren"
 
-#: ../src/panel.c:741
+#: ../src/panel.c:743
 msgid "Create New Panel"
 msgstr "Maak nieuwe werkbalk"
 
-#: ../src/panel.c:752
+#: ../src/panel.c:754
 msgid "Delete This Panel"
 msgstr "Deze werkbalk verwijderen"
 
-#: ../src/panel.c:763
+#: ../src/panel.c:765
 msgid "About"
 msgstr "Over"
 
-#: ../src/panel.c:771
+#: ../src/panel.c:773
 msgid "Panel"
 msgstr "Werkbalk"
 
-#: ../src/panel.c:784
+#: ../src/panel.c:786
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" Instellingen"
 
-#: ../src/panel.c:1040 ../src/panel.c:1048
+#: ../src/panel.c:1042 ../src/panel.c:1050 ../data/ui/panel-pref.glade.h:21
 msgid "Height:"
 msgstr "Hoogte:"
 
-#: ../src/panel.c:1041 ../src/panel.c:1047
+#: ../src/panel.c:1043 ../src/panel.c:1049 ../data/ui/panel-pref.glade.h:40
 msgid "Width:"
 msgstr "Breedte:"
 
-#: ../src/panel.c:1042
+#: ../src/panel.c:1044 ../data/ui/panel-pref.glade.h:23
 msgid "Left"
 msgstr "Links"
 
-#: ../src/panel.c:1043
+#: ../src/panel.c:1045 ../data/ui/panel-pref.glade.h:32
 msgid "Right"
 msgstr "Rechts"
 
-#: ../src/panel.c:1049
+#: ../src/panel.c:1051 ../data/ui/panel-pref.glade.h:39
 msgid "Top"
 msgstr "Bovenaan"
 
-#: ../src/panel.c:1050
+#: ../src/panel.c:1052 ../data/ui/panel-pref.glade.h:14
 msgid "Bottom"
 msgstr "Onderaan"
 
-#: ../src/panel.c:1449
+#: ../src/panel.c:1460
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - lichtgewicht GTK2+ werkbalk voor UNIX-werkbladen\n"
 
-#: ../src/panel.c:1450
+#: ../src/panel.c:1461
 #, c-format
 msgid "Command line options:\n"
 msgstr "Opdrachtregel-opties:\n"
 
-#: ../src/panel.c:1451
+#: ../src/panel.c:1462
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- druk deze hulp af en sluit af\n"
 
-#: ../src/panel.c:1452
+#: ../src/panel.c:1463
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version      -- druk versie af en sluit af\n"
 
-#: ../src/panel.c:1453
+#: ../src/panel.c:1464
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --log <number> -- stel logniveau 0-5. 0 - geen 5 - kletserig\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1455
+#: ../src/panel.c:1466
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- gebruik opgegeven profiel\n"
 
-#: ../src/panel.c:1457
+#: ../src/panel.c:1468
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- zelfde als --help\n"
 
-#: ../src/panel.c:1458
+#: ../src/panel.c:1469
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- zelfde als --profile\n"
 
-#: ../src/panel.c:1459
+#: ../src/panel.c:1470
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- zelfde als --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1461
+#: ../src/panel.c:1472
 #, c-format
 msgid ""
 "\n"
@@ -214,15 +214,259 @@ msgstr ""
 msgid "Enter the command you want to execute:"
 msgstr "Voer de opdracht in die u wil uitvoeren:"
 
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:912
+msgid "Application Launch Bar"
+msgstr "Balk voor starten van toepassingen"
+
+#: ../data/ui/netstatus.glade.h:2
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
+#, no-c-format
+msgid "0%"
+msgstr "0%"
+
+#: ../data/ui/netstatus.glade.h:3
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
+msgid "<b>Activity</b>"
+msgstr "<b>Activiteit</b>"
+
+#: ../data/ui/netstatus.glade.h:4
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
+msgid "<b>Connection</b>"
+msgstr "<b>Verbinding</b>"
+
+#: ../data/ui/netstatus.glade.h:5
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr "<b>Internetprotocol (IPv4)</b>"
+
+#: ../data/ui/netstatus.glade.h:6
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>Internetprotocol (IPv6)</b>"
+
+#: ../data/ui/netstatus.glade.h:7
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
+msgid "<b>Network Device</b>"
+msgstr "<b>Netwerkapparaat</b>"
+
+#: ../data/ui/netstatus.glade.h:8
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
+msgid "<b>Signal Strength</b>"
+msgstr "<b>Signaalsterkte</b>"
+
+#: ../data/ui/netstatus.glade.h:9
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
+msgid "Address:"
+msgstr "Adres:"
+
+#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
+#: ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
+msgid "Broadcast:"
+msgstr "Uitzenden:"
+
+#: ../data/ui/netstatus.glade.h:11
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
+msgid "Con_figure"
+msgstr "In_stellen"
+
+#: ../data/ui/netstatus.glade.h:12
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
+msgid "Destination:"
+msgstr "Bestemming:"
+
+#: ../data/ui/netstatus.glade.h:13
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
+msgid "General"
+msgstr "Algemeen"
+
+#: ../data/ui/netstatus.glade.h:14
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
+msgid "Received:"
+msgstr "Ontvangen:"
+
+#: ../data/ui/netstatus.glade.h:15
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
+msgid "Scope:"
+msgstr "Bereik:"
+
+#: ../data/ui/netstatus.glade.h:16
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
+msgid "Sent:"
+msgstr "Verzonden:"
+
+#: ../data/ui/netstatus.glade.h:17
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
+msgid "Status:"
+msgstr "Status:"
+
+#: ../data/ui/netstatus.glade.h:18
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
+msgid "Subnet Mask:"
+msgstr "Subnet-masker:"
+
+#: ../data/ui/netstatus.glade.h:19
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
+msgid "Support"
+msgstr "Ondersteuning"
+
+#: ../data/ui/netstatus.glade.h:20
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
+msgid "Type:"
+msgstr "Type:"
+
+#: ../data/ui/netstatus.glade.h:21
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
+msgid "_Name:"
+msgstr "_Naam:"
+
+#: ../data/ui/panel-pref.glade.h:2
+#, no-c-format
+msgid "% Percent"
+msgstr "% Procent"
+
+#: ../data/ui/panel-pref.glade.h:3
+msgid "<b>Automatic hiding</b>"
+msgstr "<b>Automatisch verbergen</b>"
+
+#: ../data/ui/panel-pref.glade.h:4
+msgid "<b>Background</b>"
+msgstr "<b>Achtergrond</b>"
+
+#: ../data/ui/panel-pref.glade.h:5
+msgid "<b>Font</b>"
+msgstr "<b>Lettertype</b>"
+
+#: ../data/ui/panel-pref.glade.h:6
+msgid "<b>Icon</b>"
+msgstr "<b>Pictogram</b>"
+
+#: ../data/ui/panel-pref.glade.h:7
+msgid "<b>Position</b>"
+msgstr "<b>Positie</b>"
+
+#: ../data/ui/panel-pref.glade.h:8
+msgid "<b>Properties</b>"
+msgstr "<b>Eigenschappen</b>"
+
+#: ../data/ui/panel-pref.glade.h:9
+msgid "<b>Set Preferred Applications</b>"
+msgstr "<b>Stel voorkeurtoepassingen in</b>"
+
+#: ../data/ui/panel-pref.glade.h:10
+msgid "<b>Size</b>"
+msgstr "<b>Grootte</b>"
+
+#: ../data/ui/panel-pref.glade.h:11
+msgid "Advanced"
+msgstr "Geavanceerd"
+
+#: ../data/ui/panel-pref.glade.h:12
+msgid "Alignment:"
+msgstr "Uitlijning:"
+
+#: ../data/ui/panel-pref.glade.h:13
+msgid "Appearance"
+msgstr "Uiterlijk"
+
+#: ../data/ui/panel-pref.glade.h:15
+msgid "Center"
+msgstr "Midden"
+
+#: ../data/ui/panel-pref.glade.h:16
+msgid "Custom color"
+msgstr "Aangepaste kleur"
+
+#: ../data/ui/panel-pref.glade.h:17
+msgid "Dynamic"
+msgstr "Dynamisch"
+
+#: ../data/ui/panel-pref.glade.h:18
+msgid "Edge:"
+msgstr "Rand:"
+
+#: ../data/ui/panel-pref.glade.h:19
+msgid "File Manager:"
+msgstr "Bestandbeheerder:"
+
+#: ../data/ui/panel-pref.glade.h:20
+msgid "Geometry"
+msgstr "Geometrie"
+
+#: ../data/ui/panel-pref.glade.h:22
+msgid "Image"
+msgstr "Afbeelding"
+
+#: ../data/ui/panel-pref.glade.h:24
+msgid "Logout Command:"
+msgstr "Afmeldopdracht:"
+
+#: ../data/ui/panel-pref.glade.h:25
+msgid "Make window managers treat the panel as dock"
+msgstr "Laat vensterbeheerders de werkbalk behandelen als dok"
+
+#: ../data/ui/panel-pref.glade.h:26
+msgid "Margin:"
+msgstr "Marge:"
+
+#: ../data/ui/panel-pref.glade.h:27
+msgid "Minimize panel when not in use"
+msgstr "Minimaliseer werkbalk indien niet in gebruik"
+
+#: ../data/ui/panel-pref.glade.h:28
+msgid "Panel Applets"
+msgstr "Werkbalk-programmaatjes"
+
+#: ../data/ui/panel-pref.glade.h:29
+msgid "Panel Preferences"
+msgstr "Werkbalkvoorkeuren"
+
+#: ../data/ui/panel-pref.glade.h:30
+msgid "Pixels"
+msgstr "Pixels"
+
+#: ../data/ui/panel-pref.glade.h:31
+msgid "Reserve space, and not covered by maximized windows"
+msgstr "Reserveruimte, en niet bedekt door gemaximaliseerde vensters"
+
+#: ../data/ui/panel-pref.glade.h:33
+msgid "Select an image file"
+msgstr "Kies een afbeeldingbestand"
+
+#: ../data/ui/panel-pref.glade.h:34 ../src/plugins/space.c:125
+#: ../src/plugins/batt/batt.c:583
+msgid "Size"
+msgstr "Grootte"
+
+#: ../data/ui/panel-pref.glade.h:35
+msgid "Size when minimized"
+msgstr "Grootte indien geminimaliseerd"
+
+#: ../data/ui/panel-pref.glade.h:36
+msgid "Solid color (with opacity)"
+msgstr "Effen kleur (met ondoorzichtigheid)"
+
+#: ../data/ui/panel-pref.glade.h:37
+msgid "System theme"
+msgstr "Systeemthema"
+
+#: ../data/ui/panel-pref.glade.h:38
+msgid "Terminal Emulator:"
+msgstr "Terminalvenster:"
+
+#: ../data/ui/panel-pref.glade.h:41
+msgid "pixels"
+msgstr "pixels"
+
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
 msgstr "Monitor voor CPU-gebruik"
 
-#: ../src/plugins/cpu/cpu.c:270
+#: ../src/plugins/cpu/cpu.c:270 ../src/plugins/monitors/monitors.c:653
 msgid "Display CPU usage"
 msgstr "Toon CPU-gebruik"
 
-#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:426
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:438
 msgid "Bold font"
 msgstr "Vet lettertype"
 
@@ -241,10 +485,6 @@ msgstr "Toon werkbladnummer, door cmeury@users.sf.net"
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
 msgstr "Toon afbeelding en gereedschaptip"
-
-#: ../src/plugins/launchbar.c:912
-msgid "Application Launch Bar"
-msgstr "Balk voor starten van toepassingen"
 
 #: ../src/plugins/launchbar.c:914
 msgid "Bar with buttons to launch application"
@@ -331,11 +571,11 @@ msgstr "Maximale breedte van een toepassingknop"
 msgid "Spacing"
 msgstr "Uitlijning"
 
-#: ../src/plugins/taskbar.c:2051
+#: ../src/plugins/taskbar.c:2047
 msgid "Task Bar (Window List)"
 msgstr "Taakbalk (Vensterlijst)"
 
-#: ../src/plugins/taskbar.c:2053
+#: ../src/plugins/taskbar.c:2049
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -343,53 +583,58 @@ msgstr ""
 "De taakbalk toont alle geopende vensters, en laat toe er pictogrammen van te "
 "maken, op te rollen, of focus te verkrijgen"
 
-#: ../src/plugins/dclock.c:422
+#: ../src/plugins/dclock.c:434
 msgid "Clock Format"
 msgstr "Klok-opmaak"
 
-#: ../src/plugins/dclock.c:423
+#: ../src/plugins/dclock.c:435
 msgid "Tooltip Format"
 msgstr "Type gereedschaptip"
 
-#: ../src/plugins/dclock.c:424
+#: ../src/plugins/dclock.c:436
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr ""
 "Opmaakcodes: man 3 strftime; \n"
 " voor regelafbreuk"
 
-#: ../src/plugins/dclock.c:425
+#: ../src/plugins/dclock.c:437
 msgid "Action when clicked (default: display calendar)"
 msgstr "Actie wanneer aangeklikt (standaard: toon kalender)"
 
-#: ../src/plugins/dclock.c:427
+#: ../src/plugins/dclock.c:439
 msgid "Tooltip only"
 msgstr "Alleen gereedschaptip"
 
-#: ../src/plugins/dclock.c:455
+#: ../src/plugins/dclock.c:440
+#, fuzzy
+msgid "Center text"
+msgstr "Midden"
+
+#: ../src/plugins/dclock.c:469
 msgid "Digital Clock"
 msgstr "Digitale klok"
 
-#: ../src/plugins/dclock.c:457
+#: ../src/plugins/dclock.c:471
 msgid "Display digital clock and tooltip"
 msgstr "Toon digitale klok en gereedschaptip"
 
-#: ../src/plugins/menu.c:423
+#: ../src/plugins/menu.c:426
 msgid "Add to desktop"
 msgstr "Toevoegen aan bureaublad"
 
-#: ../src/plugins/menu.c:433
+#: ../src/plugins/menu.c:436
 msgid "Properties"
 msgstr "Eigenschappen"
 
-#: ../src/plugins/menu.c:1079 ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1085 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "Pictogram"
 
-#: ../src/plugins/menu.c:1096
+#: ../src/plugins/menu.c:1102
 msgid "Menu"
 msgstr "Menu"
 
-#: ../src/plugins/menu.c:1098
+#: ../src/plugins/menu.c:1104
 msgid "Application Menu"
 msgstr "Toepassingenmenu"
 
@@ -401,17 +646,13 @@ msgstr "Scheidingslijn"
 msgid "Add a separator to the panel"
 msgstr "Scheidingslijn toevoegen aan de werkbalk"
 
-#: ../src/plugins/pager.c:833
+#: ../src/plugins/pager.c:837
 msgid "Desktop Pager"
 msgstr "Werkbladvolger"
 
-#: ../src/plugins/pager.c:835
+#: ../src/plugins/pager.c:839
 msgid "Simple pager plugin"
 msgstr "Eenvoudige volger-plugin"
-
-#: ../src/plugins/space.c:125 ../src/plugins/batt/batt.c:590
-msgid "Size"
-msgstr "Grootte"
 
 #: ../src/plugins/space.c:143
 msgid "Spacer"
@@ -488,8 +729,8 @@ msgid ""
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
 "Zendt een opdracht naar alle bureaubladvensters.\n"
-"Ondersteunde opdrachten zijn 1) pictogrammen maken in-/uitschakelen "
-"en 2) oprollen in-/uitschakelen"
+"Ondersteunde opdrachten zijn 1) pictogrammen maken in-/uitschakelen en 2) "
+"oprollen in-/uitschakelen"
 
 #: ../src/plugins/dirmenu.c:246
 msgid "Open in _Terminal"
@@ -511,69 +752,75 @@ msgstr "Mapmenu"
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "Boomstructuur doorbladeren via menu (Auteur: PCMan)"
 
-#: ../src/plugins/thermal/thermal.c:304
+#: ../src/plugins/thermal/thermal.c:396
 msgid "Normal"
 msgstr "Normaal"
 
-#: ../src/plugins/thermal/thermal.c:305
+#: ../src/plugins/thermal/thermal.c:397
 msgid "Warning1"
 msgstr "Waarschuwing1"
 
-#: ../src/plugins/thermal/thermal.c:306
+#: ../src/plugins/thermal/thermal.c:398
 msgid "Warning2"
 msgstr "Waarschuwing2"
 
-#: ../src/plugins/thermal/thermal.c:307
+#: ../src/plugins/thermal/thermal.c:399
 msgid "Automatic sensor location"
 msgstr "Automatische sensorlocatie"
 
-#: ../src/plugins/thermal/thermal.c:308
+#: ../src/plugins/thermal/thermal.c:400
 msgid "Sensor"
 msgstr "Sensor"
 
-#: ../src/plugins/thermal/thermal.c:309
+#: ../src/plugins/thermal/thermal.c:401
 msgid "Automatic temperature levels"
 msgstr "Automatische temperatuurniveaus"
 
-#: ../src/plugins/thermal/thermal.c:310
+#: ../src/plugins/thermal/thermal.c:402
 msgid "Warning1 Temperature"
 msgstr "Waarschuwing1 Temperatuur"
 
-#: ../src/plugins/thermal/thermal.c:311
+#: ../src/plugins/thermal/thermal.c:403
 msgid "Warning2 Temperature"
 msgstr "Waarschuwing2 Temperatuur"
 
-#: ../src/plugins/thermal/thermal.c:353
+#: ../src/plugins/thermal/thermal.c:445
 msgid "Temperature Monitor"
 msgstr "Temperatuurmonitor"
 
-#: ../src/plugins/thermal/thermal.c:355
+#: ../src/plugins/thermal/thermal.c:447
 msgid "Display system temperature"
 msgstr "Toon systeemtemperatuur"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:252
-#: ../src/plugins/volumealsa/volumealsa.c:422
+#: ../src/plugins/volumealsa/volumealsa.c:279
+#: ../src/plugins/volumealsa/volumealsa.c:449
 msgid "Volume control"
 msgstr "Volumebeheersing"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:471
+#: ../src/plugins/volumealsa/volumealsa.c:571
 msgid "Volume Control"
 msgstr "Volumebeheersing"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:380
+#: ../src/plugins/volumealsa/volumealsa.c:407
 msgid "Volume"
 msgstr "Volume"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/volumealsa/volumealsa.c:399
+#: ../src/plugins/volumealsa/volumealsa.c:426
 msgid "Mute"
 msgstr "Dempen"
+
+#: ../src/plugins/volumealsa/volumealsa.c:544
+msgid ""
+"Error, you need to install a application to configure the sound (pavucontol, "
+"alsamixer ...)"
+msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
@@ -652,11 +899,6 @@ msgstr "Draadloos"
 #: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
 msgstr "Protocol:"
-
-#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-msgid "Broadcast:"
-msgstr "Uitzenden:"
 
 #: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
@@ -1037,143 +1279,66 @@ msgstr "Aan het ontvangen"
 msgid "Sending/Receiving"
 msgstr "Aan het verzenden/ontvangen"
 
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
-#, no-c-format
-msgid "0%"
-msgstr "0%"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
-msgid "<b>Activity</b>"
-msgstr "<b>Activiteit</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
-msgid "<b>Connection</b>"
-msgstr "<b>Verbinding</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
-msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr "<b>Internetprotocol (IPv4)</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
-msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr "<b>Internetprotocol (IPv6)</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
-msgid "<b>Network Device</b>"
-msgstr "<b>Netwerkapparaat</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
-msgid "<b>Signal Strength</b>"
-msgstr "<b>Signaalsterkte</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
-msgid "Address:"
-msgstr "Adres:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
-msgid "Con_figure"
-msgstr "In_stellen"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
-msgid "Destination:"
-msgstr "Bestemming:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
-msgid "General"
-msgstr "Algemeen"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
-msgid "Received:"
-msgstr "Ontvangen:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
-msgid "Scope:"
-msgstr "Bereik:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
-msgid "Sent:"
-msgstr "Verzonden:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
-msgid "Status:"
-msgstr "Status:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
-msgid "Subnet Mask:"
-msgstr "Subnet-masker:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
-msgid "Support"
-msgstr "Ondersteuning"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
-msgid "Type:"
-msgstr "Type:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
-msgid "_Name:"
-msgstr "_Naam:"
-
-#: ../src/plugins/batt/batt.c:131
+#: ../src/plugins/batt/batt.c:132
 msgid "No batteries found"
 msgstr "Geen accu's gevonden"
 
-#: ../src/plugins/batt/batt.c:179
+#: ../src/plugins/batt/batt.c:176
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
 msgstr "Accu: %d%% opgeladen, %d:%02d tot volledig opgeladen"
 
-#: ../src/plugins/batt/batt.c:190
+#: ../src/plugins/batt/batt.c:187
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr "Accu: %d%% opgeladen, %d:%02d overblijvend"
 
-#: ../src/plugins/batt/batt.c:196
+#: ../src/plugins/batt/batt.c:193
 #, c-format
 msgid "Battery: %d%% charged"
 msgstr "Accu: %d%% opgeladen"
 
-#: ../src/plugins/batt/batt.c:580
+#: ../src/plugins/batt/batt.c:573
 msgid "Hide if there is no battery"
 msgstr "Verbergen indien geen accu aanwezig"
 
-#: ../src/plugins/batt/batt.c:582
+#: ../src/plugins/batt/batt.c:575
 msgid "Alarm command"
 msgstr "Alarmopdracht"
 
-#: ../src/plugins/batt/batt.c:583
+#: ../src/plugins/batt/batt.c:576
 msgid "Alarm time (minutes left)"
 msgstr "Alarmtijd (overblijvende minuten)"
 
-#: ../src/plugins/batt/batt.c:584
+#: ../src/plugins/batt/batt.c:577
 msgid "Background color"
 msgstr "Achtergrondkleur"
 
-#: ../src/plugins/batt/batt.c:585
+#: ../src/plugins/batt/batt.c:578
 msgid "Charging color 1"
 msgstr "Oplaadkleur 1"
 
-#: ../src/plugins/batt/batt.c:586
+#: ../src/plugins/batt/batt.c:579
 msgid "Charging color 2"
 msgstr "Oplaadkleur 2"
 
-#: ../src/plugins/batt/batt.c:587
+#: ../src/plugins/batt/batt.c:580
 msgid "Discharging color 1"
 msgstr "Ontlaadkleur 1"
 
-#: ../src/plugins/batt/batt.c:588
+#: ../src/plugins/batt/batt.c:581
 msgid "Discharging color 2"
 msgstr "Ontlaadkleur 2"
 
-#: ../src/plugins/batt/batt.c:589
+#: ../src/plugins/batt/batt.c:582
 msgid "Border width"
 msgstr "Randbreedte"
 
-#: ../src/plugins/batt/batt.c:619
+#: ../src/plugins/batt/batt.c:612
 msgid "Battery Monitor"
 msgstr "Accu-monitor"
 
-#: ../src/plugins/batt/batt.c:621
+#: ../src/plugins/batt/batt.c:614
 msgid "Display battery status using ACPI"
 msgstr "Toont status van de accu met behulp van ACPI"
 
@@ -1197,107 +1362,79 @@ msgstr "Toetsenbord-LED"
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Indicators voor Capslock-, Numlock- en ScrollLock-toets"
 
-#~ msgid "% Percent"
-#~ msgstr "% Procent"
+#. A label to allow for click through
+#: ../src/plugins/indicator/indicator.c:561
+msgid "No Indicators"
+msgstr ""
 
-#~ msgid "<b>Automatic hiding</b>"
-#~ msgstr "<b>Automatisch verbergen</b>"
+#: ../src/plugins/indicator/indicator.c:751
+#, fuzzy
+msgid "Indicator Applications"
+msgstr "Toepassingen"
 
-#~ msgid "<b>Background</b>"
-#~ msgstr "<b>Achtergrond</b>"
+#: ../src/plugins/indicator/indicator.c:752
+msgid "Clock Indicator"
+msgstr ""
 
-#~ msgid "<b>Font</b>"
-#~ msgstr "<b>Lettertype</b>"
+#: ../src/plugins/indicator/indicator.c:753
+msgid "Messaging Menu"
+msgstr ""
 
-#~ msgid "<b>Icon</b>"
-#~ msgstr "<b>Pictogram</b>"
+#: ../src/plugins/indicator/indicator.c:754
+#, fuzzy
+msgid "Network Menu"
+msgstr "Mapmenu"
 
-#~ msgid "<b>Position</b>"
-#~ msgstr "<b>Positie</b>"
+#: ../src/plugins/indicator/indicator.c:755
+msgid "Session Menu"
+msgstr ""
 
-#~ msgid "<b>Properties</b>"
-#~ msgstr "<b>Eigenschappen</b>"
+#: ../src/plugins/indicator/indicator.c:756
+#, fuzzy
+msgid "Sound Menu"
+msgstr "Menu verschaffen"
 
-#~ msgid "<b>Set Preferred Applications</b>"
-#~ msgstr "<b>Stel voorkeurtoepassingen in</b>"
+#: ../src/plugins/indicator/indicator.c:780
+msgid "Indicator applets"
+msgstr ""
 
-#~ msgid "<b>Size</b>"
-#~ msgstr "<b>Grootte</b>"
+#: ../src/plugins/indicator/indicator.c:782
+#, fuzzy
+msgid "Add indicator applets to the panel"
+msgstr "Scheidingslijn toevoegen aan de werkbalk"
 
-#~ msgid "Advanced"
-#~ msgstr "Geavanceerd"
+#: ../src/plugins/monitors/monitors.c:654
+#, fuzzy
+msgid "CPU color"
+msgstr "Aangepaste kleur"
 
-#~ msgid "Alignment:"
-#~ msgstr "Uitlijning:"
+#: ../src/plugins/monitors/monitors.c:655
+#, fuzzy
+msgid "Display RAM usage"
+msgstr "Toon CPU-gebruik"
 
-#~ msgid "Appearance"
-#~ msgstr "Uiterlijk"
+#: ../src/plugins/monitors/monitors.c:656
+#, fuzzy
+msgid "RAM color"
+msgstr "Tintkleur:"
 
-#~ msgid "Center"
-#~ msgstr "Midden"
+#: ../src/plugins/monitors/monitors.c:753
+#, fuzzy
+msgid "Resource monitors"
+msgstr "Netwerkkaart om te bewaken"
 
-#~ msgid "Custom color"
-#~ msgstr "Aangepaste kleur"
+#: ../src/plugins/monitors/monitors.c:755
+msgid "Display monitors (CPU, RAM)"
+msgstr ""
 
-#~ msgid "Dynamic"
-#~ msgstr "Dynamisch"
+#: ../src/plugins/wnckpager/wnckpager.c:721
+msgid "WNCKPager"
+msgstr ""
 
-#~ msgid "Edge:"
-#~ msgstr "Rand:"
-
-#~ msgid "File Manager:"
-#~ msgstr "Bestandbeheerder:"
-
-#~ msgid "Geometry"
-#~ msgstr "Geometrie"
-
-#~ msgid "Image"
-#~ msgstr "Afbeelding"
-
-#~ msgid "Logout Command:"
-#~ msgstr "Afmeldopdracht:"
-
-#~ msgid "Make window managers treat the panel as dock"
-#~ msgstr "Laat vensterbeheerders de werkbalk behandelen als dok"
-
-#~ msgid "Margin:"
-#~ msgstr "Marge:"
-
-#~ msgid "Minimize panel when not in use"
-#~ msgstr "Minimaliseer werkbalk indien niet in gebruik"
-
-#~ msgid "Panel Applets"
-#~ msgstr "Werkbalk-programmaatjes"
-
-#~ msgid "Panel Preferences"
-#~ msgstr "Werkbalkvoorkeuren"
-
-#~ msgid "Pixels"
-#~ msgstr "Pixels"
-
-#~ msgid "Reserve space, and not covered by maximized windows"
-#~ msgstr "Reserveruimte, en niet bedekt door gemaximaliseerde vensters"
-
-#~ msgid "Select an image file"
-#~ msgstr "Kies een afbeeldingbestand"
-
-#~ msgid "Size when minimized"
-#~ msgstr "Grootte indien geminimaliseerd"
-
-#~ msgid "Solid color (with opacity)"
-#~ msgstr "Effen kleur (met ondoorzichtigheid)"
-
-#~ msgid "System theme"
-#~ msgstr "Systeemthema"
-
-#~ msgid "Terminal Emulator:"
-#~ msgstr "Terminalvenster:"
-
-#~ msgid "pixels"
-#~ msgstr "pixels"
-
-#~ msgid "Applications"
-#~ msgstr "Toepassingen"
+#: ../src/plugins/wnckpager/wnckpager.c:723
+#, fuzzy
+msgid "WNCKpager plugin"
+msgstr "Eenvoudige volger-plugin"
 
 #~ msgid "Available Applications"
 #~ msgstr "Beschikbare toepassingen"
@@ -1339,9 +1476,6 @@ msgstr "Indicators voor Capslock-, Numlock- en ScrollLock-toets"
 #~ msgid "Enable Transparency"
 #~ msgstr "Gebruik transparantie"
 
-#~ msgid "Tint color:"
-#~ msgstr "Tintkleur:"
-
 #~ msgid " --configure -- launch configuration utility\n"
 #~ msgstr " --configure -- start het configuratiegereedschap\n"
 
@@ -1371,9 +1505,6 @@ msgstr "Indicators voor Capslock-, Numlock- en ScrollLock-toets"
 
 #~ msgid "Action"
 #~ msgstr "Actie"
-
-#~ msgid "Provide Menu"
-#~ msgstr "Menu verschaffen"
 
 #~ msgid "Kayboard Layout switcher"
 #~ msgstr "Toetsenbordindeling-wisselaar"

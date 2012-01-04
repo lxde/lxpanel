@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-29 14:22+0200\n"
+"POT-Creation-Date: 2012-01-04 15:41+0100\n"
 "PO-Revision-Date: 2011-04-10 13:23+0200\n"
 "Last-Translator: Jesse <jesse.jaara@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,39 +30,39 @@ msgstr "Käynnistä uudelleen"
 msgid "Logout"
 msgstr "Kirjaudu ulos"
 
-#: ../src/configurator.c:448
+#: ../src/configurator.c:468
 msgid "Currently loaded plugins"
 msgstr "Käytössä olevat liitännäiset"
 
-#: ../src/configurator.c:457
+#: ../src/configurator.c:477
 msgid "Stretch"
 msgstr "Venytä"
 
-#: ../src/configurator.c:559
+#: ../src/configurator.c:596
 msgid "Add plugin to panel"
 msgstr "Lisää liitännäinen paneeliin"
 
-#: ../src/configurator.c:587
+#: ../src/configurator.c:624
 msgid "Available plugins"
 msgstr "Käytettävissä olevat liitännäiset"
 
-#: ../src/configurator.c:1143
+#: ../src/configurator.c:1202
 msgid "Logout command is not set"
 msgstr "Uloskirjautumisen komentoa ei ole asetettu"
 
-#: ../src/configurator.c:1196
+#: ../src/configurator.c:1255
 msgid "Select a directory"
 msgstr "Valitse hakemisto"
 
-#: ../src/configurator.c:1196 ../src/configurator.c:1287
+#: ../src/configurator.c:1255 ../src/configurator.c:1346
 msgid "Select a file"
 msgstr "Valitse tiedosto"
 
-#: ../src/configurator.c:1314
+#: ../src/configurator.c:1373
 msgid "_Browse"
 msgstr "_Selaa"
 
-#: ../src/panel.c:649
+#: ../src/panel.c:651
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -70,106 +70,106 @@ msgstr ""
 "Haluatko varmasti poistaa tämän paneelin?\n"
 "<b>Varoitus: tätä toimintoa ei voi perua.</b>"
 
-#: ../src/panel.c:651
+#: ../src/panel.c:653
 msgid "Confirm"
 msgstr "Varmista"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:684
+#: ../src/panel.c:686
 msgid "translator-credits"
 msgstr "Elias Julkunen, 2010"
 
-#: ../src/panel.c:689
+#: ../src/panel.c:691
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:691
+#: ../src/panel.c:693
 msgid "Copyright (C) 2008-2011"
 msgstr "Tekijänoikeudet (C) 2008-2011"
 
-#: ../src/panel.c:692
+#: ../src/panel.c:694
 msgid "Desktop panel for LXDE project"
 msgstr "Työpöytäpaneeli LXDE-projektille"
 
-#: ../src/panel.c:715
+#: ../src/panel.c:717
 msgid "Add / Remove Panel Items"
 msgstr "Lisää/poista paneelin sovelmia"
 
-#: ../src/panel.c:723
+#: ../src/panel.c:725
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Poista \"%s\" paneelista"
 
-#: ../src/panel.c:735
+#: ../src/panel.c:737
 msgid "Panel Settings"
 msgstr "Paneelin asetukset"
 
-#: ../src/panel.c:741
+#: ../src/panel.c:743
 msgid "Create New Panel"
 msgstr "Luo uusi paneeli"
 
-#: ../src/panel.c:752
+#: ../src/panel.c:754
 msgid "Delete This Panel"
 msgstr "Poista tämä paneeli"
 
-#: ../src/panel.c:763
+#: ../src/panel.c:765
 msgid "About"
 msgstr "Tietoja"
 
-#: ../src/panel.c:771
+#: ../src/panel.c:773
 msgid "Panel"
 msgstr "Paneeli"
 
-#: ../src/panel.c:784
+#: ../src/panel.c:786
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "Sovelman \"%s\" asetukset"
 
-#: ../src/panel.c:1040 ../src/panel.c:1048
+#: ../src/panel.c:1042 ../src/panel.c:1050 ../data/ui/panel-pref.glade.h:21
 msgid "Height:"
 msgstr "Korkeus:"
 
-#: ../src/panel.c:1041 ../src/panel.c:1047
+#: ../src/panel.c:1043 ../src/panel.c:1049 ../data/ui/panel-pref.glade.h:40
 msgid "Width:"
 msgstr "Leveys:"
 
-#: ../src/panel.c:1042
+#: ../src/panel.c:1044 ../data/ui/panel-pref.glade.h:23
 msgid "Left"
 msgstr "Vasemmalla"
 
-#: ../src/panel.c:1043
+#: ../src/panel.c:1045 ../data/ui/panel-pref.glade.h:32
 msgid "Right"
 msgstr "Oikealla"
 
-#: ../src/panel.c:1049
+#: ../src/panel.c:1051 ../data/ui/panel-pref.glade.h:39
 msgid "Top"
 msgstr "Ylhäällä"
 
-#: ../src/panel.c:1050
+#: ../src/panel.c:1052 ../data/ui/panel-pref.glade.h:14
 msgid "Bottom"
 msgstr "Alhaalla"
 
-#: ../src/panel.c:1449
+#: ../src/panel.c:1460
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - kevyt GTK2+-paneeli UNIX-työpöydille\n"
 
-#: ../src/panel.c:1450
+#: ../src/panel.c:1461
 #, c-format
 msgid "Command line options:\n"
 msgstr "Komentorivivalinnat:\n"
 
-#: ../src/panel.c:1451
+#: ../src/panel.c:1462
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr "--help      -- näyttää tämän ohjeen ja poistuu\n"
 
-#: ../src/panel.c:1452
+#: ../src/panel.c:1463
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr "--version   -- näyttää versionumeron ja poistuu\n"
 
-#: ../src/panel.c:1453
+#: ../src/panel.c:1464
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
@@ -177,28 +177,28 @@ msgstr ""
 "lavertelija\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1455
+#: ../src/panel.c:1466
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr "--profile <nimi> -- käyttää tiettyä profiilia\n"
 
-#: ../src/panel.c:1457
+#: ../src/panel.c:1468
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr "-h  -- sama kuin --help\n"
 
-#: ../src/panel.c:1458
+#: ../src/panel.c:1469
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr "-p  -- sama kuin --profile\n"
 
-#: ../src/panel.c:1459
+#: ../src/panel.c:1470
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr "-v  -- sama kuin --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1461
+#: ../src/panel.c:1472
 #, c-format
 msgid ""
 "\n"
@@ -213,15 +213,259 @@ msgstr ""
 msgid "Enter the command you want to execute:"
 msgstr "Syötä suoritettava komento:"
 
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:912
+msgid "Application Launch Bar"
+msgstr "Sovelluksien käynnistyspalkki"
+
+#: ../data/ui/netstatus.glade.h:2
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
+#, no-c-format
+msgid "0%"
+msgstr "0%"
+
+#: ../data/ui/netstatus.glade.h:3
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
+msgid "<b>Activity</b>"
+msgstr "<b>Aktiivisuus</b>"
+
+#: ../data/ui/netstatus.glade.h:4
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
+msgid "<b>Connection</b>"
+msgstr "<b>Yhteys</b>"
+
+#: ../data/ui/netstatus.glade.h:5
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr "<b>Internetin yhteyskäytäntö (IPv4)</b>"
+
+#: ../data/ui/netstatus.glade.h:6
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>Internetin yhteyskäytäntö (IPv6)</b>"
+
+#: ../data/ui/netstatus.glade.h:7
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
+msgid "<b>Network Device</b>"
+msgstr "<b>Verkkolaite</b>"
+
+#: ../data/ui/netstatus.glade.h:8
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
+msgid "<b>Signal Strength</b>"
+msgstr "<b>Signaalin vahvuus</b>"
+
+#: ../data/ui/netstatus.glade.h:9
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
+msgid "Address:"
+msgstr "Osoite:"
+
+#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
+#: ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
+msgid "Broadcast:"
+msgstr "Lähetys:"
+
+#: ../data/ui/netstatus.glade.h:11
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
+msgid "Con_figure"
+msgstr "_Tee asetukset"
+
+#: ../data/ui/netstatus.glade.h:12
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
+msgid "Destination:"
+msgstr "Kohde:"
+
+#: ../data/ui/netstatus.glade.h:13
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
+msgid "General"
+msgstr "Yleinen"
+
+#: ../data/ui/netstatus.glade.h:14
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
+msgid "Received:"
+msgstr "Vastaanotettu:"
+
+#: ../data/ui/netstatus.glade.h:15
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
+msgid "Scope:"
+msgstr "Alue:"
+
+#: ../data/ui/netstatus.glade.h:16
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
+msgid "Sent:"
+msgstr "Lähetetty:"
+
+#: ../data/ui/netstatus.glade.h:17
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
+msgid "Status:"
+msgstr "Tila:"
+
+#: ../data/ui/netstatus.glade.h:18
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
+msgid "Subnet Mask:"
+msgstr "Aliverkon peite:"
+
+#: ../data/ui/netstatus.glade.h:19
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
+msgid "Support"
+msgstr "Tuki"
+
+#: ../data/ui/netstatus.glade.h:20
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
+msgid "Type:"
+msgstr "Tyyppi:"
+
+#: ../data/ui/netstatus.glade.h:21
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
+msgid "_Name:"
+msgstr "_Nimi:"
+
+#: ../data/ui/panel-pref.glade.h:2
+#, no-c-format
+msgid "% Percent"
+msgstr "% Prosenttia"
+
+#: ../data/ui/panel-pref.glade.h:3
+msgid "<b>Automatic hiding</b>"
+msgstr "<b>Automaattinen piilotus</b>"
+
+#: ../data/ui/panel-pref.glade.h:4
+msgid "<b>Background</b>"
+msgstr "<b>Taustakuva</b>"
+
+#: ../data/ui/panel-pref.glade.h:5
+msgid "<b>Font</b>"
+msgstr "<b>Kirjasin</b>"
+
+#: ../data/ui/panel-pref.glade.h:6
+msgid "<b>Icon</b>"
+msgstr "<b>Kuvake</b>"
+
+#: ../data/ui/panel-pref.glade.h:7
+msgid "<b>Position</b>"
+msgstr "<b>Sijainti</b>"
+
+#: ../data/ui/panel-pref.glade.h:8
+msgid "<b>Properties</b>"
+msgstr "<b>Asetukset</b>"
+
+#: ../data/ui/panel-pref.glade.h:9
+msgid "<b>Set Preferred Applications</b>"
+msgstr "<b>Aseta oletussovellukset</b>"
+
+#: ../data/ui/panel-pref.glade.h:10
+msgid "<b>Size</b>"
+msgstr "<b>Koko</b>"
+
+#: ../data/ui/panel-pref.glade.h:11
+msgid "Advanced"
+msgstr "Lisäasetukset"
+
+#: ../data/ui/panel-pref.glade.h:12
+msgid "Alignment:"
+msgstr "Tasaus:"
+
+#: ../data/ui/panel-pref.glade.h:13
+msgid "Appearance"
+msgstr "Ulkoasu"
+
+#: ../data/ui/panel-pref.glade.h:15
+msgid "Center"
+msgstr "Keskellä"
+
+#: ../data/ui/panel-pref.glade.h:16
+msgid "Custom color"
+msgstr "Oma väri"
+
+#: ../data/ui/panel-pref.glade.h:17
+msgid "Dynamic"
+msgstr "Dynaaminen"
+
+#: ../data/ui/panel-pref.glade.h:18
+msgid "Edge:"
+msgstr "Reuna:"
+
+#: ../data/ui/panel-pref.glade.h:19
+msgid "File Manager:"
+msgstr "Tiedostonhallinta:"
+
+#: ../data/ui/panel-pref.glade.h:20
+msgid "Geometry"
+msgstr "Geometria"
+
+#: ../data/ui/panel-pref.glade.h:22
+msgid "Image"
+msgstr "Kuva"
+
+#: ../data/ui/panel-pref.glade.h:24
+msgid "Logout Command:"
+msgstr "Uloskirjautumisen komento:"
+
+#: ../data/ui/panel-pref.glade.h:25
+msgid "Make window managers treat the panel as dock"
+msgstr "Uskottele ikkunakäsittelijälle paneelin olevan telakka"
+
+#: ../data/ui/panel-pref.glade.h:26
+msgid "Margin:"
+msgstr "Reunus:"
+
+#: ../data/ui/panel-pref.glade.h:27
+msgid "Minimize panel when not in use"
+msgstr "Pienennä paneeli, kun ei käytössä"
+
+#: ../data/ui/panel-pref.glade.h:28
+msgid "Panel Applets"
+msgstr "Paneelin sovelmat"
+
+#: ../data/ui/panel-pref.glade.h:29
+msgid "Panel Preferences"
+msgstr "Paneelin asetukset"
+
+#: ../data/ui/panel-pref.glade.h:30
+msgid "Pixels"
+msgstr "pikseliä"
+
+#: ../data/ui/panel-pref.glade.h:31
+msgid "Reserve space, and not covered by maximized windows"
+msgstr "Varaa tilaa, etteivät suurennetut ikkunat mene paneelin alle"
+
+#: ../data/ui/panel-pref.glade.h:33
+msgid "Select an image file"
+msgstr "Valitse kuvatiedosto"
+
+#: ../data/ui/panel-pref.glade.h:34 ../src/plugins/space.c:125
+#: ../src/plugins/batt/batt.c:583
+msgid "Size"
+msgstr "Koko"
+
+#: ../data/ui/panel-pref.glade.h:35
+msgid "Size when minimized"
+msgstr "Koko, kun pienennetty"
+
+#: ../data/ui/panel-pref.glade.h:36
+msgid "Solid color (with opacity)"
+msgstr "Yhtenäinen väri (läpinäkyvyydellä)"
+
+#: ../data/ui/panel-pref.glade.h:37
+msgid "System theme"
+msgstr "Järjestelmän teema"
+
+#: ../data/ui/panel-pref.glade.h:38
+msgid "Terminal Emulator:"
+msgstr "Pääteohjelma:"
+
+#: ../data/ui/panel-pref.glade.h:41
+msgid "pixels"
+msgstr "pikseliä"
+
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
 msgstr "CPU:n käytön valvoja"
 
-#: ../src/plugins/cpu/cpu.c:270
+#: ../src/plugins/cpu/cpu.c:270 ../src/plugins/monitors/monitors.c:653
 msgid "Display CPU usage"
 msgstr "Näyttää CPU:n käyttöasteen"
 
-#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:426
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:438
 msgid "Bold font"
 msgstr "Paksunnettu kirjasin"
 
@@ -240,10 +484,6 @@ msgstr "Näyttää työtilan numeron, tehnyt cmeury@users.sf.net"
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
 msgstr "Näytä kuva ja työkaluvihje"
-
-#: ../src/plugins/launchbar.c:912
-msgid "Application Launch Bar"
-msgstr "Sovelluksien käynnistyspalkki"
 
 #: ../src/plugins/launchbar.c:914
 msgid "Bar with buttons to launch application"
@@ -330,11 +570,11 @@ msgstr "Tehtäväpainikkeen enimmäisleveys"
 msgid "Spacing"
 msgstr "Väli"
 
-#: ../src/plugins/taskbar.c:2051
+#: ../src/plugins/taskbar.c:2047
 msgid "Task Bar (Window List)"
 msgstr "Tehtäväpalkki (ikkunalista)"
 
-#: ../src/plugins/taskbar.c:2053
+#: ../src/plugins/taskbar.c:2049
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -342,53 +582,58 @@ msgstr ""
 "Tehtäväpalkki näyttää kaikki avoinna olevat ikkunat ja sallii niiden "
 "pienentämisen, piilottamisen ja aktivoimisen."
 
-#: ../src/plugins/dclock.c:422
+#: ../src/plugins/dclock.c:434
 msgid "Clock Format"
 msgstr "Kellon muoto"
 
-#: ../src/plugins/dclock.c:423
+#: ../src/plugins/dclock.c:435
 msgid "Tooltip Format"
 msgstr "Työkaluvihjeen muoto"
 
-#: ../src/plugins/dclock.c:424
+#: ../src/plugins/dclock.c:436
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr ""
 "Muotoilu koodit: man 3 strftime; \n"
 " aloittaa uuden rivin"
 
-#: ../src/plugins/dclock.c:425
+#: ../src/plugins/dclock.c:437
 msgid "Action when clicked (default: display calendar)"
 msgstr "Toiminto, kun napsautetaan (oletus: näytä kalenteri)"
 
-#: ../src/plugins/dclock.c:427
+#: ../src/plugins/dclock.c:439
 msgid "Tooltip only"
 msgstr "Vain työkaluvihje"
 
-#: ../src/plugins/dclock.c:455
+#: ../src/plugins/dclock.c:440
+#, fuzzy
+msgid "Center text"
+msgstr "Keskellä"
+
+#: ../src/plugins/dclock.c:469
 msgid "Digital Clock"
 msgstr "Digitaalikello"
 
-#: ../src/plugins/dclock.c:457
+#: ../src/plugins/dclock.c:471
 msgid "Display digital clock and tooltip"
 msgstr "Näytä digitaalikello ja työkaluvihje"
 
-#: ../src/plugins/menu.c:423
+#: ../src/plugins/menu.c:426
 msgid "Add to desktop"
 msgstr "Lisää työpöydälle"
 
-#: ../src/plugins/menu.c:433
+#: ../src/plugins/menu.c:436
 msgid "Properties"
 msgstr "Asetukset"
 
-#: ../src/plugins/menu.c:1079 ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1085 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "Kuvake"
 
-#: ../src/plugins/menu.c:1096
+#: ../src/plugins/menu.c:1102
 msgid "Menu"
 msgstr "Valikko"
 
-#: ../src/plugins/menu.c:1098
+#: ../src/plugins/menu.c:1104
 msgid "Application Menu"
 msgstr "Sovellusvalikko"
 
@@ -400,17 +645,13 @@ msgstr "Väli"
 msgid "Add a separator to the panel"
 msgstr "Lisää väli paneeliin"
 
-#: ../src/plugins/pager.c:833
+#: ../src/plugins/pager.c:837
 msgid "Desktop Pager"
 msgstr "Työtilan vaihtaja"
 
-#: ../src/plugins/pager.c:835
+#: ../src/plugins/pager.c:839
 msgid "Simple pager plugin"
 msgstr "Yksinkertainen työtilan vaihtaja"
-
-#: ../src/plugins/space.c:125 ../src/plugins/batt/batt.c:590
-msgid "Size"
-msgstr "Koko"
 
 #: ../src/plugins/space.c:143
 msgid "Spacer"
@@ -509,69 +750,75 @@ msgstr "Hakemistovalikko"
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "Selaa hakemistopuuta valikon kautta (tekijä: PCMan)"
 
-#: ../src/plugins/thermal/thermal.c:304
+#: ../src/plugins/thermal/thermal.c:396
 msgid "Normal"
 msgstr "Normaali"
 
-#: ../src/plugins/thermal/thermal.c:305
+#: ../src/plugins/thermal/thermal.c:397
 msgid "Warning1"
 msgstr "Varoitus1"
 
-#: ../src/plugins/thermal/thermal.c:306
+#: ../src/plugins/thermal/thermal.c:398
 msgid "Warning2"
 msgstr "Varoitus2"
 
-#: ../src/plugins/thermal/thermal.c:307
+#: ../src/plugins/thermal/thermal.c:399
 msgid "Automatic sensor location"
 msgstr "Automaattinen sensorin sijainti"
 
-#: ../src/plugins/thermal/thermal.c:308
+#: ../src/plugins/thermal/thermal.c:400
 msgid "Sensor"
 msgstr "Sensori"
 
-#: ../src/plugins/thermal/thermal.c:309
+#: ../src/plugins/thermal/thermal.c:401
 msgid "Automatic temperature levels"
 msgstr "Automaattiset lämpötilan tasot"
 
-#: ../src/plugins/thermal/thermal.c:310
+#: ../src/plugins/thermal/thermal.c:402
 msgid "Warning1 Temperature"
 msgstr "Varoitus1 Lämpötila"
 
-#: ../src/plugins/thermal/thermal.c:311
+#: ../src/plugins/thermal/thermal.c:403
 msgid "Warning2 Temperature"
 msgstr "Varoitus2 Lämpötila"
 
-#: ../src/plugins/thermal/thermal.c:353
+#: ../src/plugins/thermal/thermal.c:445
 msgid "Temperature Monitor"
 msgstr "Lämpötilan näyttäjä"
 
-#: ../src/plugins/thermal/thermal.c:355
+#: ../src/plugins/thermal/thermal.c:447
 msgid "Display system temperature"
 msgstr "Näyttää järjestelmän lämpötilan"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:252
-#: ../src/plugins/volumealsa/volumealsa.c:422
+#: ../src/plugins/volumealsa/volumealsa.c:279
+#: ../src/plugins/volumealsa/volumealsa.c:449
 msgid "Volume control"
 msgstr "Äänenhallinta"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:471
+#: ../src/plugins/volumealsa/volumealsa.c:571
 msgid "Volume Control"
 msgstr "Äänenhallinta"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:380
+#: ../src/plugins/volumealsa/volumealsa.c:407
 msgid "Volume"
 msgstr "Voimakkuus"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/volumealsa/volumealsa.c:399
+#: ../src/plugins/volumealsa/volumealsa.c:426
 msgid "Mute"
 msgstr "Hiljennä"
+
+#: ../src/plugins/volumealsa/volumealsa.c:544
+msgid ""
+"Error, you need to install a application to configure the sound (pavucontol, "
+"alsamixer ...)"
+msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
@@ -650,11 +897,6 @@ msgstr "Langaton"
 #: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
 msgstr "Yhteyskäytäntö"
-
-#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-msgid "Broadcast:"
-msgstr "Lähetys:"
 
 #: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
@@ -1034,143 +1276,66 @@ msgstr "Vastaanotetaan"
 msgid "Sending/Receiving"
 msgstr "Lähetetään/Vastaanotetaan"
 
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
-#, no-c-format
-msgid "0%"
-msgstr "0%"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
-msgid "<b>Activity</b>"
-msgstr "<b>Aktiivisuus</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
-msgid "<b>Connection</b>"
-msgstr "<b>Yhteys</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
-msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr "<b>Internetin yhteyskäytäntö (IPv4)</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
-msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr "<b>Internetin yhteyskäytäntö (IPv6)</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
-msgid "<b>Network Device</b>"
-msgstr "<b>Verkkolaite</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
-msgid "<b>Signal Strength</b>"
-msgstr "<b>Signaalin vahvuus</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
-msgid "Address:"
-msgstr "Osoite:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
-msgid "Con_figure"
-msgstr "_Tee asetukset"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
-msgid "Destination:"
-msgstr "Kohde:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
-msgid "General"
-msgstr "Yleinen"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
-msgid "Received:"
-msgstr "Vastaanotettu:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
-msgid "Scope:"
-msgstr "Alue:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
-msgid "Sent:"
-msgstr "Lähetetty:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
-msgid "Status:"
-msgstr "Tila:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
-msgid "Subnet Mask:"
-msgstr "Aliverkon peite:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
-msgid "Support"
-msgstr "Tuki"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
-msgid "Type:"
-msgstr "Tyyppi:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
-msgid "_Name:"
-msgstr "_Nimi:"
-
-#: ../src/plugins/batt/batt.c:131
+#: ../src/plugins/batt/batt.c:132
 msgid "No batteries found"
 msgstr "Akkua ei löytynyt"
 
-#: ../src/plugins/batt/batt.c:179
+#: ../src/plugins/batt/batt.c:176
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
 msgstr "Akku: %d%% ladattu, %d:%02d kunnes täynnä"
 
-#: ../src/plugins/batt/batt.c:190
+#: ../src/plugins/batt/batt.c:187
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr "Akku: %d%% ladattu, %d:%02d jäljellä"
 
-#: ../src/plugins/batt/batt.c:196
+#: ../src/plugins/batt/batt.c:193
 #, c-format
 msgid "Battery: %d%% charged"
 msgstr "Akku: %d%% ladattu"
 
-#: ../src/plugins/batt/batt.c:580
+#: ../src/plugins/batt/batt.c:573
 msgid "Hide if there is no battery"
 msgstr "Piilota, jos akkua ei ole"
 
-#: ../src/plugins/batt/batt.c:582
+#: ../src/plugins/batt/batt.c:575
 msgid "Alarm command"
 msgstr "Hälytyskomento"
 
-#: ../src/plugins/batt/batt.c:583
+#: ../src/plugins/batt/batt.c:576
 msgid "Alarm time (minutes left)"
 msgstr "Hälytysaika (minuuttia jäljellä)"
 
-#: ../src/plugins/batt/batt.c:584
+#: ../src/plugins/batt/batt.c:577
 msgid "Background color"
 msgstr "Taustaväri"
 
-#: ../src/plugins/batt/batt.c:585
+#: ../src/plugins/batt/batt.c:578
 msgid "Charging color 1"
 msgstr "Latausväri 1"
 
-#: ../src/plugins/batt/batt.c:586
+#: ../src/plugins/batt/batt.c:579
 msgid "Charging color 2"
 msgstr "Latausväri 2"
 
-#: ../src/plugins/batt/batt.c:587
+#: ../src/plugins/batt/batt.c:580
 msgid "Discharging color 1"
 msgstr "Purkautumisen väri 1"
 
-#: ../src/plugins/batt/batt.c:588
+#: ../src/plugins/batt/batt.c:581
 msgid "Discharging color 2"
 msgstr "Purkautumisen väri 2"
 
-#: ../src/plugins/batt/batt.c:589
+#: ../src/plugins/batt/batt.c:582
 msgid "Border width"
 msgstr "Reunuksen leveys"
 
-#: ../src/plugins/batt/batt.c:619
+#: ../src/plugins/batt/batt.c:612
 msgid "Battery Monitor"
 msgstr "Akun valvoja"
 
-#: ../src/plugins/batt/batt.c:621
+#: ../src/plugins/batt/batt.c:614
 msgid "Display battery status using ACPI"
 msgstr "Näyttää akun tila käyttäen ACPI:a."
 
@@ -1194,107 +1359,79 @@ msgstr "Näppäimistön valot"
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "CapsLock-, NumLock- ja ScrollLock-näppäinten ilmaisin"
 
-#~ msgid "% Percent"
-#~ msgstr "% Prosenttia"
+#. A label to allow for click through
+#: ../src/plugins/indicator/indicator.c:561
+msgid "No Indicators"
+msgstr ""
 
-#~ msgid "<b>Automatic hiding</b>"
-#~ msgstr "<b>Automaattinen piilotus</b>"
+#: ../src/plugins/indicator/indicator.c:751
+#, fuzzy
+msgid "Indicator Applications"
+msgstr "Valitse sovellus"
 
-#~ msgid "<b>Background</b>"
-#~ msgstr "<b>Taustakuva</b>"
+#: ../src/plugins/indicator/indicator.c:752
+msgid "Clock Indicator"
+msgstr ""
 
-#~ msgid "<b>Font</b>"
-#~ msgstr "<b>Kirjasin</b>"
+#: ../src/plugins/indicator/indicator.c:753
+msgid "Messaging Menu"
+msgstr ""
 
-#~ msgid "<b>Icon</b>"
-#~ msgstr "<b>Kuvake</b>"
+#: ../src/plugins/indicator/indicator.c:754
+#, fuzzy
+msgid "Network Menu"
+msgstr "Hakemistovalikko"
 
-#~ msgid "<b>Position</b>"
-#~ msgstr "<b>Sijainti</b>"
+#: ../src/plugins/indicator/indicator.c:755
+msgid "Session Menu"
+msgstr ""
 
-#~ msgid "<b>Properties</b>"
-#~ msgstr "<b>Asetukset</b>"
+#: ../src/plugins/indicator/indicator.c:756
+#, fuzzy
+msgid "Sound Menu"
+msgstr "Toimittaa valikon"
 
-#~ msgid "<b>Set Preferred Applications</b>"
-#~ msgstr "<b>Aseta oletussovellukset</b>"
+#: ../src/plugins/indicator/indicator.c:780
+msgid "Indicator applets"
+msgstr ""
 
-#~ msgid "<b>Size</b>"
-#~ msgstr "<b>Koko</b>"
+#: ../src/plugins/indicator/indicator.c:782
+#, fuzzy
+msgid "Add indicator applets to the panel"
+msgstr "Lisää väli paneeliin"
 
-#~ msgid "Advanced"
-#~ msgstr "Lisäasetukset"
+#: ../src/plugins/monitors/monitors.c:654
+#, fuzzy
+msgid "CPU color"
+msgstr "Oma väri"
 
-#~ msgid "Alignment:"
-#~ msgstr "Tasaus:"
+#: ../src/plugins/monitors/monitors.c:655
+#, fuzzy
+msgid "Display RAM usage"
+msgstr "Näyttää CPU:n käyttöasteen"
 
-#~ msgid "Appearance"
-#~ msgstr "Ulkoasu"
+#: ../src/plugins/monitors/monitors.c:656
+#, fuzzy
+msgid "RAM color"
+msgstr "Läpinäkyvyyden väri:"
 
-#~ msgid "Center"
-#~ msgstr "Keskellä"
+#: ../src/plugins/monitors/monitors.c:753
+#, fuzzy
+msgid "Resource monitors"
+msgstr "Valvottava laite"
 
-#~ msgid "Custom color"
-#~ msgstr "Oma väri"
+#: ../src/plugins/monitors/monitors.c:755
+msgid "Display monitors (CPU, RAM)"
+msgstr ""
 
-#~ msgid "Dynamic"
-#~ msgstr "Dynaaminen"
+#: ../src/plugins/wnckpager/wnckpager.c:721
+msgid "WNCKPager"
+msgstr ""
 
-#~ msgid "Edge:"
-#~ msgstr "Reuna:"
-
-#~ msgid "File Manager:"
-#~ msgstr "Tiedostonhallinta:"
-
-#~ msgid "Geometry"
-#~ msgstr "Geometria"
-
-#~ msgid "Image"
-#~ msgstr "Kuva"
-
-#~ msgid "Logout Command:"
-#~ msgstr "Uloskirjautumisen komento:"
-
-#~ msgid "Make window managers treat the panel as dock"
-#~ msgstr "Uskottele ikkunakäsittelijälle paneelin olevan telakka"
-
-#~ msgid "Margin:"
-#~ msgstr "Reunus:"
-
-#~ msgid "Minimize panel when not in use"
-#~ msgstr "Pienennä paneeli, kun ei käytössä"
-
-#~ msgid "Panel Applets"
-#~ msgstr "Paneelin sovelmat"
-
-#~ msgid "Panel Preferences"
-#~ msgstr "Paneelin asetukset"
-
-#~ msgid "Pixels"
-#~ msgstr "pikseliä"
-
-#~ msgid "Reserve space, and not covered by maximized windows"
-#~ msgstr "Varaa tilaa, etteivät suurennetut ikkunat mene paneelin alle"
-
-#~ msgid "Select an image file"
-#~ msgstr "Valitse kuvatiedosto"
-
-#~ msgid "Size when minimized"
-#~ msgstr "Koko, kun pienennetty"
-
-#~ msgid "Solid color (with opacity)"
-#~ msgstr "Yhtenäinen väri (läpinäkyvyydellä)"
-
-#~ msgid "System theme"
-#~ msgstr "Järjestelmän teema"
-
-#~ msgid "Terminal Emulator:"
-#~ msgstr "Pääteohjelma:"
-
-#~ msgid "pixels"
-#~ msgstr "pikseliä"
-
-#~ msgid "Applications"
-#~ msgstr "Valitse sovellus"
+#: ../src/plugins/wnckpager/wnckpager.c:723
+#, fuzzy
+msgid "WNCKpager plugin"
+msgstr "Yksinkertainen työtilan vaihtaja"
 
 #~ msgid "Available Applications"
 #~ msgstr "Käytettävissä olevat liitännäiset"
@@ -1327,9 +1464,6 @@ msgstr "CapsLock-, NumLock- ja ScrollLock-näppäinten ilmaisin"
 #~ msgid "Enable Transparency"
 #~ msgstr "Käytä läpinäkyvyyttä"
 
-#~ msgid "Tint color:"
-#~ msgstr "Läpinäkyvyyden väri:"
-
 #~ msgid " --configure -- launch configuration utility\n"
 #~ msgstr "--configure -- käynnistää asetustyökalun\n"
 
@@ -1359,9 +1493,6 @@ msgstr "CapsLock-, NumLock- ja ScrollLock-näppäinten ilmaisin"
 
 #~ msgid "Action"
 #~ msgstr "Toiminto"
-
-#~ msgid "Provide Menu"
-#~ msgstr "Toimittaa valikon"
 
 #~ msgid "Kayboard Layout switcher"
 #~ msgstr "Näppäimistöasettelun vaihtaja"

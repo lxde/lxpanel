@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-29 14:22+0200\n"
+"POT-Creation-Date: 2012-01-04 15:41+0100\n"
 "PO-Revision-Date: 2009-09-13 22:33+0200\n"
 "Last-Translator: Josep Sanchez <papapep@gmail.com>\n"
 "Language-Team: CATALAN <none>\n"
@@ -30,39 +30,39 @@ msgstr "Reinicia"
 msgid "Logout"
 msgstr "Surt"
 
-#: ../src/configurator.c:448
+#: ../src/configurator.c:468
 msgid "Currently loaded plugins"
 msgstr "Connectors actualment carregats"
 
-#: ../src/configurator.c:457
+#: ../src/configurator.c:477
 msgid "Stretch"
 msgstr "Amplia"
 
-#: ../src/configurator.c:559
+#: ../src/configurator.c:596
 msgid "Add plugin to panel"
 msgstr "Afegeix el connector al quadre"
 
-#: ../src/configurator.c:587
+#: ../src/configurator.c:624
 msgid "Available plugins"
 msgstr "Connectors disponibles"
 
-#: ../src/configurator.c:1143
+#: ../src/configurator.c:1202
 msgid "Logout command is not set"
 msgstr "No s'ha definit l'ordre de sortida"
 
-#: ../src/configurator.c:1196
+#: ../src/configurator.c:1255
 msgid "Select a directory"
 msgstr "Trieu un directori"
 
-#: ../src/configurator.c:1196 ../src/configurator.c:1287
+#: ../src/configurator.c:1255 ../src/configurator.c:1346
 msgid "Select a file"
 msgstr "Treieu un fitxer"
 
-#: ../src/configurator.c:1314
+#: ../src/configurator.c:1373
 msgid "_Browse"
 msgstr "_Navega"
 
-#: ../src/panel.c:649
+#: ../src/panel.c:651
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -70,134 +70,134 @@ msgstr ""
 "<Realment voleu esborrar aquest quadre?\n"
 "<b>Atenció: aquesta acció no es podrà desfer.</b>"
 
-#: ../src/panel.c:651
+#: ../src/panel.c:653
 msgid "Confirm"
 msgstr "Confirma"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:684
+#: ../src/panel.c:686
 msgid "translator-credits"
 msgstr "crèdits del traductor"
 
-#: ../src/panel.c:689
+#: ../src/panel.c:691
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:691
+#: ../src/panel.c:693
 msgid "Copyright (C) 2008-2011"
 msgstr "Copyright (C) 2008-2011"
 
-#: ../src/panel.c:692
+#: ../src/panel.c:694
 msgid "Desktop panel for LXDE project"
 msgstr "Quadre d'escriptori del projecte LXDE"
 
-#: ../src/panel.c:715
+#: ../src/panel.c:717
 msgid "Add / Remove Panel Items"
 msgstr "Afegeix / Elimina elements del quadre"
 
-#: ../src/panel.c:723
+#: ../src/panel.c:725
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Elimina \"%s\" del quadre"
 
-#: ../src/panel.c:735
+#: ../src/panel.c:737
 msgid "Panel Settings"
 msgstr "Preferències del quadre"
 
-#: ../src/panel.c:741
+#: ../src/panel.c:743
 msgid "Create New Panel"
 msgstr "Crea un nou quadre"
 
-#: ../src/panel.c:752
+#: ../src/panel.c:754
 msgid "Delete This Panel"
 msgstr "Elimina aquest quadre"
 
-#: ../src/panel.c:763
+#: ../src/panel.c:765
 msgid "About"
 msgstr "Quant a"
 
-#: ../src/panel.c:771
+#: ../src/panel.c:773
 msgid "Panel"
 msgstr "Quadre"
 
-#: ../src/panel.c:784
+#: ../src/panel.c:786
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" Preferències"
 
-#: ../src/panel.c:1040 ../src/panel.c:1048
+#: ../src/panel.c:1042 ../src/panel.c:1050 ../data/ui/panel-pref.glade.h:21
 msgid "Height:"
 msgstr "Alçada:"
 
-#: ../src/panel.c:1041 ../src/panel.c:1047
+#: ../src/panel.c:1043 ../src/panel.c:1049 ../data/ui/panel-pref.glade.h:40
 msgid "Width:"
 msgstr "Amplada"
 
-#: ../src/panel.c:1042
+#: ../src/panel.c:1044 ../data/ui/panel-pref.glade.h:23
 msgid "Left"
 msgstr "Esquerra"
 
-#: ../src/panel.c:1043
+#: ../src/panel.c:1045 ../data/ui/panel-pref.glade.h:32
 msgid "Right"
 msgstr "Dreta"
 
-#: ../src/panel.c:1049
+#: ../src/panel.c:1051 ../data/ui/panel-pref.glade.h:39
 msgid "Top"
 msgstr "Superior"
 
-#: ../src/panel.c:1050
+#: ../src/panel.c:1052 ../data/ui/panel-pref.glade.h:14
 msgid "Bottom"
 msgstr "Inferior"
 
-#: ../src/panel.c:1449
+#: ../src/panel.c:1460
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - Quadre lleuger en GTK2+ per a escriptoris UNIX\n"
 
-#: ../src/panel.c:1450
+#: ../src/panel.c:1461
 #, c-format
 msgid "Command line options:\n"
 msgstr "Opcions de l'intèrpret d'ordres:\n"
 
-#: ../src/panel.c:1451
+#: ../src/panel.c:1462
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- imprimir aquesta ajuda i sortir\n"
 
-#: ../src/panel.c:1452
+#: ../src/panel.c:1463
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- imprimir la versió i sortir\n"
 
-#: ../src/panel.c:1453
+#: ../src/panel.c:1464
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 " --log <nombre> -- defineix el nivell de registre 0-5. 0 - cap 5 - xerraire\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1455
+#: ../src/panel.c:1466
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr "  --profile nom -- empra el perfil especificat\n"
 
-#: ../src/panel.c:1457
+#: ../src/panel.c:1468
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- el mateix que amb --help\n"
 
-#: ../src/panel.c:1458
+#: ../src/panel.c:1469
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- el mateix que amb --profile\n"
 
-#: ../src/panel.c:1459
+#: ../src/panel.c:1470
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- el mateix que amb --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1461
+#: ../src/panel.c:1472
 #, c-format
 msgid ""
 "\n"
@@ -211,15 +211,259 @@ msgstr ""
 msgid "Enter the command you want to execute:"
 msgstr "Entreu la ordre que voleu executar:"
 
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:912
+msgid "Application Launch Bar"
+msgstr "Barra de llençament d'aplicacions"
+
+#: ../data/ui/netstatus.glade.h:2
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
+#, no-c-format
+msgid "0%"
+msgstr "0%"
+
+#: ../data/ui/netstatus.glade.h:3
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
+msgid "<b>Activity</b>"
+msgstr "<b>Activitat</b>"
+
+#: ../data/ui/netstatus.glade.h:4
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
+msgid "<b>Connection</b>"
+msgstr "<b>Connexió</b>"
+
+#: ../data/ui/netstatus.glade.h:5
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr "<b>Protocol d'inernet (IPv4)</b>"
+
+#: ../data/ui/netstatus.glade.h:6
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>Protocol d'inernet (IPv6)</b>"
+
+#: ../data/ui/netstatus.glade.h:7
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
+msgid "<b>Network Device</b>"
+msgstr "<b>Dispositiu de xarxa</b>"
+
+#: ../data/ui/netstatus.glade.h:8
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
+msgid "<b>Signal Strength</b>"
+msgstr "<b>Intensitat del senyal</b>"
+
+#: ../data/ui/netstatus.glade.h:9
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
+msgid "Address:"
+msgstr "Adreça:"
+
+#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
+#: ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
+msgid "Broadcast:"
+msgstr "Difusió:"
+
+#: ../data/ui/netstatus.glade.h:11
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
+msgid "Con_figure"
+msgstr "Con_figura"
+
+#: ../data/ui/netstatus.glade.h:12
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
+msgid "Destination:"
+msgstr "Destí:"
+
+#: ../data/ui/netstatus.glade.h:13
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
+msgid "General"
+msgstr "General"
+
+#: ../data/ui/netstatus.glade.h:14
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
+msgid "Received:"
+msgstr "Rebut:"
+
+#: ../data/ui/netstatus.glade.h:15
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
+msgid "Scope:"
+msgstr "Abast:"
+
+#: ../data/ui/netstatus.glade.h:16
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
+msgid "Sent:"
+msgstr "Enviat:"
+
+#: ../data/ui/netstatus.glade.h:17
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
+msgid "Status:"
+msgstr "Estat:"
+
+#: ../data/ui/netstatus.glade.h:18
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
+msgid "Subnet Mask:"
+msgstr "Màscara de subxarxa:"
+
+#: ../data/ui/netstatus.glade.h:19
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
+msgid "Support"
+msgstr "Suport"
+
+#: ../data/ui/netstatus.glade.h:20
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
+msgid "Type:"
+msgstr "Tipus:"
+
+#: ../data/ui/netstatus.glade.h:21
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
+msgid "_Name:"
+msgstr "_Nom:"
+
+#: ../data/ui/panel-pref.glade.h:2
+#, no-c-format
+msgid "% Percent"
+msgstr "% Percentatge"
+
+#: ../data/ui/panel-pref.glade.h:3
+msgid "<b>Automatic hiding</b>"
+msgstr "<b>Ocultació automàtica</b>"
+
+#: ../data/ui/panel-pref.glade.h:4
+msgid "<b>Background</b>"
+msgstr "<b>Fons</b>"
+
+#: ../data/ui/panel-pref.glade.h:5
+msgid "<b>Font</b>"
+msgstr "<b>Tipus de lletra</b>"
+
+#: ../data/ui/panel-pref.glade.h:6
+msgid "<b>Icon</b>"
+msgstr "<b>Icona</b>"
+
+#: ../data/ui/panel-pref.glade.h:7
+msgid "<b>Position</b>"
+msgstr "<b>Posició</b>"
+
+#: ../data/ui/panel-pref.glade.h:8
+msgid "<b>Properties</b>"
+msgstr "<b>Propietats</b>"
+
+#: ../data/ui/panel-pref.glade.h:9
+msgid "<b>Set Preferred Applications</b>"
+msgstr "<b>Definir les aplicacions preferides</b>"
+
+#: ../data/ui/panel-pref.glade.h:10
+msgid "<b>Size</b>"
+msgstr "<b>Mida</b>"
+
+#: ../data/ui/panel-pref.glade.h:11
+msgid "Advanced"
+msgstr "Avançat"
+
+#: ../data/ui/panel-pref.glade.h:12
+msgid "Alignment:"
+msgstr "Alineació:"
+
+#: ../data/ui/panel-pref.glade.h:13
+msgid "Appearance"
+msgstr "Aspecte"
+
+#: ../data/ui/panel-pref.glade.h:15
+msgid "Center"
+msgstr "Centre"
+
+#: ../data/ui/panel-pref.glade.h:16
+msgid "Custom color"
+msgstr "Color personalitzat"
+
+#: ../data/ui/panel-pref.glade.h:17
+msgid "Dynamic"
+msgstr "Dinàmic"
+
+#: ../data/ui/panel-pref.glade.h:18
+msgid "Edge:"
+msgstr "Vora:"
+
+#: ../data/ui/panel-pref.glade.h:19
+msgid "File Manager:"
+msgstr "Gestor de fitxers:"
+
+#: ../data/ui/panel-pref.glade.h:20
+msgid "Geometry"
+msgstr "Geometria"
+
+#: ../data/ui/panel-pref.glade.h:22
+msgid "Image"
+msgstr "Imatge"
+
+#: ../data/ui/panel-pref.glade.h:24
+msgid "Logout Command:"
+msgstr "Ordre de sortida:"
+
+#: ../data/ui/panel-pref.glade.h:25
+msgid "Make window managers treat the panel as dock"
+msgstr "Fer que els gestors de finestres tractin el quadre com a acoblat"
+
+#: ../data/ui/panel-pref.glade.h:26
+msgid "Margin:"
+msgstr "Marge:"
+
+#: ../data/ui/panel-pref.glade.h:27
+msgid "Minimize panel when not in use"
+msgstr "Minimitza el quadre quan no s'usi"
+
+#: ../data/ui/panel-pref.glade.h:28
+msgid "Panel Applets"
+msgstr "Miniaplicacions del quadre"
+
+#: ../data/ui/panel-pref.glade.h:29
+msgid "Panel Preferences"
+msgstr "Preferències del quadre"
+
+#: ../data/ui/panel-pref.glade.h:30
+msgid "Pixels"
+msgstr "Píxels"
+
+#: ../data/ui/panel-pref.glade.h:31
+msgid "Reserve space, and not covered by maximized windows"
+msgstr "Reserva espai, i sense ser tapat per finestres maximitzades"
+
+#: ../data/ui/panel-pref.glade.h:33
+msgid "Select an image file"
+msgstr "Seleccioneu un fitxer d'imatge"
+
+#: ../data/ui/panel-pref.glade.h:34 ../src/plugins/space.c:125
+#: ../src/plugins/batt/batt.c:583
+msgid "Size"
+msgstr "Mida"
+
+#: ../data/ui/panel-pref.glade.h:35
+msgid "Size when minimized"
+msgstr "Mida en minimitzar"
+
+#: ../data/ui/panel-pref.glade.h:36
+msgid "Solid color (with opacity)"
+msgstr "Color sòlid (opac)"
+
+#: ../data/ui/panel-pref.glade.h:37
+msgid "System theme"
+msgstr "Tema del sistema"
+
+#: ../data/ui/panel-pref.glade.h:38
+msgid "Terminal Emulator:"
+msgstr "Emulador de terminal"
+
+#: ../data/ui/panel-pref.glade.h:41
+msgid "pixels"
+msgstr "píxels"
+
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
 msgstr "Monitor d'utilització de la CPU"
 
-#: ../src/plugins/cpu/cpu.c:270
+#: ../src/plugins/cpu/cpu.c:270 ../src/plugins/monitors/monitors.c:653
 msgid "Display CPU usage"
 msgstr "Mostra la utilització de CPU"
 
-#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:426
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:438
 msgid "Bold font"
 msgstr "Lletra en negreta"
 
@@ -238,10 +482,6 @@ msgstr "Mostra el nombre d'espai de treball, per cmeury@users.sf.net"
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
 msgstr "Mostra imatge i funció"
-
-#: ../src/plugins/launchbar.c:912
-msgid "Application Launch Bar"
-msgstr "Barra de llençament d'aplicacions"
 
 #: ../src/plugins/launchbar.c:914
 msgid "Bar with buttons to launch application"
@@ -328,11 +568,11 @@ msgstr "Amplada màxima del botó de tasques"
 msgid "Spacing"
 msgstr "Espaiat"
 
-#: ../src/plugins/taskbar.c:2051
+#: ../src/plugins/taskbar.c:2047
 msgid "Task Bar (Window List)"
 msgstr "Barra de tasques (llistat de finestres)"
 
-#: ../src/plugins/taskbar.c:2053
+#: ../src/plugins/taskbar.c:2049
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -340,51 +580,56 @@ msgstr ""
 "La barra de tasques mostra totes les finestres obertes i permet iconificar-"
 "les, ombrejar-les o tenir-ne el focus"
 
-#: ../src/plugins/dclock.c:422
+#: ../src/plugins/dclock.c:434
 msgid "Clock Format"
 msgstr "Format del rellotge"
 
-#: ../src/plugins/dclock.c:423
+#: ../src/plugins/dclock.c:435
 msgid "Tooltip Format"
 msgstr "Format dels consells"
 
-#: ../src/plugins/dclock.c:424
+#: ../src/plugins/dclock.c:436
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr "Codis de format: man 3 strftime; \\n per trencament de línia"
 
-#: ../src/plugins/dclock.c:425
+#: ../src/plugins/dclock.c:437
 msgid "Action when clicked (default: display calendar)"
 msgstr "Acció en fer clic (predeterminada: mostrar calendari)"
 
-#: ../src/plugins/dclock.c:427
+#: ../src/plugins/dclock.c:439
 msgid "Tooltip only"
 msgstr "S'han habilitat els consells"
 
-#: ../src/plugins/dclock.c:455
+#: ../src/plugins/dclock.c:440
+#, fuzzy
+msgid "Center text"
+msgstr "Centre"
+
+#: ../src/plugins/dclock.c:469
 msgid "Digital Clock"
 msgstr "Rellotge digital"
 
-#: ../src/plugins/dclock.c:457
+#: ../src/plugins/dclock.c:471
 msgid "Display digital clock and tooltip"
 msgstr "Mostra rellotge digital i consells"
 
-#: ../src/plugins/menu.c:423
+#: ../src/plugins/menu.c:426
 msgid "Add to desktop"
 msgstr "Afegeix a l'escriptori"
 
-#: ../src/plugins/menu.c:433
+#: ../src/plugins/menu.c:436
 msgid "Properties"
 msgstr "Propietats"
 
-#: ../src/plugins/menu.c:1079 ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1085 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "Icones"
 
-#: ../src/plugins/menu.c:1096
+#: ../src/plugins/menu.c:1102
 msgid "Menu"
 msgstr "Menú"
 
-#: ../src/plugins/menu.c:1098
+#: ../src/plugins/menu.c:1104
 msgid "Application Menu"
 msgstr "Menú d'aplicacions"
 
@@ -396,17 +641,13 @@ msgstr "Separador"
 msgid "Add a separator to the panel"
 msgstr "Afegeix un separador al quadre"
 
-#: ../src/plugins/pager.c:833
+#: ../src/plugins/pager.c:837
 msgid "Desktop Pager"
 msgstr "Paginador d'escriptoris"
 
-#: ../src/plugins/pager.c:835
+#: ../src/plugins/pager.c:839
 msgid "Simple pager plugin"
 msgstr "Connector de paginador simple"
-
-#: ../src/plugins/space.c:125 ../src/plugins/batt/batt.c:590
-msgid "Size"
-msgstr "Mida"
 
 #: ../src/plugins/space.c:143
 msgid "Spacer"
@@ -504,69 +745,75 @@ msgstr "Menú del directori"
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "Navegar per l'arbre de directoris amb el menú (Autor: PCMan)"
 
-#: ../src/plugins/thermal/thermal.c:304
+#: ../src/plugins/thermal/thermal.c:396
 msgid "Normal"
 msgstr "Normal"
 
-#: ../src/plugins/thermal/thermal.c:305
+#: ../src/plugins/thermal/thermal.c:397
 msgid "Warning1"
 msgstr "Avís 1"
 
-#: ../src/plugins/thermal/thermal.c:306
+#: ../src/plugins/thermal/thermal.c:398
 msgid "Warning2"
 msgstr "Avís 2"
 
-#: ../src/plugins/thermal/thermal.c:307
+#: ../src/plugins/thermal/thermal.c:399
 msgid "Automatic sensor location"
 msgstr "Ubicació del sensor automàtic"
 
-#: ../src/plugins/thermal/thermal.c:308
+#: ../src/plugins/thermal/thermal.c:400
 msgid "Sensor"
 msgstr "Sensor"
 
-#: ../src/plugins/thermal/thermal.c:309
+#: ../src/plugins/thermal/thermal.c:401
 msgid "Automatic temperature levels"
 msgstr "Nivells automàtics de temperatura"
 
-#: ../src/plugins/thermal/thermal.c:310
+#: ../src/plugins/thermal/thermal.c:402
 msgid "Warning1 Temperature"
 msgstr "Temperatura de l'avís 1"
 
-#: ../src/plugins/thermal/thermal.c:311
+#: ../src/plugins/thermal/thermal.c:403
 msgid "Warning2 Temperature"
 msgstr "Temperatura de l'avís 2"
 
-#: ../src/plugins/thermal/thermal.c:353
+#: ../src/plugins/thermal/thermal.c:445
 msgid "Temperature Monitor"
 msgstr "Monitor de temperatura"
 
-#: ../src/plugins/thermal/thermal.c:355
+#: ../src/plugins/thermal/thermal.c:447
 msgid "Display system temperature"
 msgstr "Mostra la temperatura del sistema"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:252
-#: ../src/plugins/volumealsa/volumealsa.c:422
+#: ../src/plugins/volumealsa/volumealsa.c:279
+#: ../src/plugins/volumealsa/volumealsa.c:449
 msgid "Volume control"
 msgstr "Control del volum"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:471
+#: ../src/plugins/volumealsa/volumealsa.c:571
 msgid "Volume Control"
 msgstr "Control del volum"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:380
+#: ../src/plugins/volumealsa/volumealsa.c:407
 msgid "Volume"
 msgstr "Volum"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/volumealsa/volumealsa.c:399
+#: ../src/plugins/volumealsa/volumealsa.c:426
 msgid "Mute"
 msgstr "Emmudeix"
+
+#: ../src/plugins/volumealsa/volumealsa.c:544
+msgid ""
+"Error, you need to install a application to configure the sound (pavucontol, "
+"alsamixer ...)"
+msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
@@ -645,11 +892,6 @@ msgstr "Inalàmbric"
 #: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
 msgstr "Protocol:"
-
-#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-msgid "Broadcast:"
-msgstr "Difusió:"
 
 #: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
@@ -1031,143 +1273,66 @@ msgstr "Rebent"
 msgid "Sending/Receiving"
 msgstr "Enviant/Rebent"
 
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
-#, no-c-format
-msgid "0%"
-msgstr "0%"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
-msgid "<b>Activity</b>"
-msgstr "<b>Activitat</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
-msgid "<b>Connection</b>"
-msgstr "<b>Connexió</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
-msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr "<b>Protocol d'inernet (IPv4)</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
-msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr "<b>Protocol d'inernet (IPv6)</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
-msgid "<b>Network Device</b>"
-msgstr "<b>Dispositiu de xarxa</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
-msgid "<b>Signal Strength</b>"
-msgstr "<b>Intensitat del senyal</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
-msgid "Address:"
-msgstr "Adreça:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
-msgid "Con_figure"
-msgstr "Con_figura"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
-msgid "Destination:"
-msgstr "Destí:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
-msgid "General"
-msgstr "General"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
-msgid "Received:"
-msgstr "Rebut:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
-msgid "Scope:"
-msgstr "Abast:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
-msgid "Sent:"
-msgstr "Enviat:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
-msgid "Status:"
-msgstr "Estat:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
-msgid "Subnet Mask:"
-msgstr "Màscara de subxarxa:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
-msgid "Support"
-msgstr "Suport"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
-msgid "Type:"
-msgstr "Tipus:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
-msgid "_Name:"
-msgstr "_Nom:"
-
-#: ../src/plugins/batt/batt.c:131
+#: ../src/plugins/batt/batt.c:132
 msgid "No batteries found"
 msgstr "No s'ha trobat bateria"
 
-#: ../src/plugins/batt/batt.c:179
+#: ../src/plugins/batt/batt.c:176
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
 msgstr "Bateria: carregada al %d%%, %d:%02d fins càrrega total"
 
-#: ../src/plugins/batt/batt.c:190
+#: ../src/plugins/batt/batt.c:187
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr "Bateria: carregada al %d%%, falta %d:%02d"
 
-#: ../src/plugins/batt/batt.c:196
+#: ../src/plugins/batt/batt.c:193
 #, c-format
 msgid "Battery: %d%% charged"
 msgstr "Batteria: carregada al %d%%"
 
-#: ../src/plugins/batt/batt.c:580
+#: ../src/plugins/batt/batt.c:573
 msgid "Hide if there is no battery"
 msgstr "Amaga si no hi ha bateria"
 
-#: ../src/plugins/batt/batt.c:582
+#: ../src/plugins/batt/batt.c:575
 msgid "Alarm command"
 msgstr "Ordre d'alarma"
 
-#: ../src/plugins/batt/batt.c:583
+#: ../src/plugins/batt/batt.c:576
 msgid "Alarm time (minutes left)"
 msgstr "Temps d'alarma (minuts restants)"
 
-#: ../src/plugins/batt/batt.c:584
+#: ../src/plugins/batt/batt.c:577
 msgid "Background color"
 msgstr "Color de fons"
 
-#: ../src/plugins/batt/batt.c:585
+#: ../src/plugins/batt/batt.c:578
 msgid "Charging color 1"
 msgstr "Color de càrrega 1"
 
-#: ../src/plugins/batt/batt.c:586
+#: ../src/plugins/batt/batt.c:579
 msgid "Charging color 2"
 msgstr "Color de càrrega 2"
 
-#: ../src/plugins/batt/batt.c:587
+#: ../src/plugins/batt/batt.c:580
 msgid "Discharging color 1"
 msgstr "Color de descàrrega 1"
 
-#: ../src/plugins/batt/batt.c:588
+#: ../src/plugins/batt/batt.c:581
 msgid "Discharging color 2"
 msgstr "Color de descàrrega 2"
 
-#: ../src/plugins/batt/batt.c:589
+#: ../src/plugins/batt/batt.c:582
 msgid "Border width"
 msgstr "Amplada de la vora"
 
-#: ../src/plugins/batt/batt.c:619
+#: ../src/plugins/batt/batt.c:612
 msgid "Battery Monitor"
 msgstr "Monitor de bateria"
 
-#: ../src/plugins/batt/batt.c:621
+#: ../src/plugins/batt/batt.c:614
 msgid "Display battery status using ACPI"
 msgstr "Mostra l'estat de la bateria emprant l'ACPI"
 
@@ -1191,107 +1356,77 @@ msgstr "LED del teclat"
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Indicadors de les tecles de fixació de majúscules, NumLock i BlocDespl"
 
-#~ msgid "% Percent"
-#~ msgstr "% Percentatge"
+#. A label to allow for click through
+#: ../src/plugins/indicator/indicator.c:561
+msgid "No Indicators"
+msgstr ""
 
-#~ msgid "<b>Automatic hiding</b>"
-#~ msgstr "<b>Ocultació automàtica</b>"
+#: ../src/plugins/indicator/indicator.c:751
+#, fuzzy
+msgid "Indicator Applications"
+msgstr "Aplicacions"
 
-#~ msgid "<b>Background</b>"
-#~ msgstr "<b>Fons</b>"
+#: ../src/plugins/indicator/indicator.c:752
+msgid "Clock Indicator"
+msgstr ""
 
-#~ msgid "<b>Font</b>"
-#~ msgstr "<b>Tipus de lletra</b>"
+#: ../src/plugins/indicator/indicator.c:753
+msgid "Messaging Menu"
+msgstr ""
 
-#~ msgid "<b>Icon</b>"
-#~ msgstr "<b>Icona</b>"
+#: ../src/plugins/indicator/indicator.c:754
+#, fuzzy
+msgid "Network Menu"
+msgstr "Menú del directori"
 
-#~ msgid "<b>Position</b>"
-#~ msgstr "<b>Posició</b>"
+#: ../src/plugins/indicator/indicator.c:755
+msgid "Session Menu"
+msgstr ""
 
-#~ msgid "<b>Properties</b>"
-#~ msgstr "<b>Propietats</b>"
+#: ../src/plugins/indicator/indicator.c:756
+msgid "Sound Menu"
+msgstr ""
 
-#~ msgid "<b>Set Preferred Applications</b>"
-#~ msgstr "<b>Definir les aplicacions preferides</b>"
+#: ../src/plugins/indicator/indicator.c:780
+msgid "Indicator applets"
+msgstr ""
 
-#~ msgid "<b>Size</b>"
-#~ msgstr "<b>Mida</b>"
+#: ../src/plugins/indicator/indicator.c:782
+#, fuzzy
+msgid "Add indicator applets to the panel"
+msgstr "Afegeix un separador al quadre"
 
-#~ msgid "Advanced"
-#~ msgstr "Avançat"
+#: ../src/plugins/monitors/monitors.c:654
+#, fuzzy
+msgid "CPU color"
+msgstr "Color personalitzat"
 
-#~ msgid "Alignment:"
-#~ msgstr "Alineació:"
+#: ../src/plugins/monitors/monitors.c:655
+#, fuzzy
+msgid "Display RAM usage"
+msgstr "Mostra la utilització de CPU"
 
-#~ msgid "Appearance"
-#~ msgstr "Aspecte"
+#: ../src/plugins/monitors/monitors.c:656
+msgid "RAM color"
+msgstr ""
 
-#~ msgid "Center"
-#~ msgstr "Centre"
+#: ../src/plugins/monitors/monitors.c:753
+#, fuzzy
+msgid "Resource monitors"
+msgstr "Interfície a monitoritzar"
 
-#~ msgid "Custom color"
-#~ msgstr "Color personalitzat"
+#: ../src/plugins/monitors/monitors.c:755
+msgid "Display monitors (CPU, RAM)"
+msgstr ""
 
-#~ msgid "Dynamic"
-#~ msgstr "Dinàmic"
+#: ../src/plugins/wnckpager/wnckpager.c:721
+msgid "WNCKPager"
+msgstr ""
 
-#~ msgid "Edge:"
-#~ msgstr "Vora:"
-
-#~ msgid "File Manager:"
-#~ msgstr "Gestor de fitxers:"
-
-#~ msgid "Geometry"
-#~ msgstr "Geometria"
-
-#~ msgid "Image"
-#~ msgstr "Imatge"
-
-#~ msgid "Logout Command:"
-#~ msgstr "Ordre de sortida:"
-
-#~ msgid "Make window managers treat the panel as dock"
-#~ msgstr "Fer que els gestors de finestres tractin el quadre com a acoblat"
-
-#~ msgid "Margin:"
-#~ msgstr "Marge:"
-
-#~ msgid "Minimize panel when not in use"
-#~ msgstr "Minimitza el quadre quan no s'usi"
-
-#~ msgid "Panel Applets"
-#~ msgstr "Miniaplicacions del quadre"
-
-#~ msgid "Panel Preferences"
-#~ msgstr "Preferències del quadre"
-
-#~ msgid "Pixels"
-#~ msgstr "Píxels"
-
-#~ msgid "Reserve space, and not covered by maximized windows"
-#~ msgstr "Reserva espai, i sense ser tapat per finestres maximitzades"
-
-#~ msgid "Select an image file"
-#~ msgstr "Seleccioneu un fitxer d'imatge"
-
-#~ msgid "Size when minimized"
-#~ msgstr "Mida en minimitzar"
-
-#~ msgid "Solid color (with opacity)"
-#~ msgstr "Color sòlid (opac)"
-
-#~ msgid "System theme"
-#~ msgstr "Tema del sistema"
-
-#~ msgid "Terminal Emulator:"
-#~ msgstr "Emulador de terminal"
-
-#~ msgid "pixels"
-#~ msgstr "píxels"
-
-#~ msgid "Applications"
-#~ msgstr "Aplicacions"
+#: ../src/plugins/wnckpager/wnckpager.c:723
+#, fuzzy
+msgid "WNCKpager plugin"
+msgstr "Connector de paginador simple"
 
 #~ msgid "Available Applications"
 #~ msgstr "Aplicacions disponibles"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-29 14:22+0200\n"
+"POT-Creation-Date: 2012-01-04 15:41+0100\n"
 "PO-Revision-Date: 2009-12-08 18:15+0100\n"
 "Last-Translator: Sankarshan <sankarshan.mukhopadhyay@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,39 +30,39 @@ msgstr "পুনরায় চালু করুন"
 msgid "Logout"
 msgstr "লগ-আউট"
 
-#: ../src/configurator.c:448
+#: ../src/configurator.c:468
 msgid "Currently loaded plugins"
 msgstr "সম্প্রতি লোড করা প্লাগ-ইন"
 
-#: ../src/configurator.c:457
+#: ../src/configurator.c:477
 msgid "Stretch"
 msgstr "বিস্তৃত করুন"
 
-#: ../src/configurator.c:559
+#: ../src/configurator.c:596
 msgid "Add plugin to panel"
 msgstr "প্লাগ-ইনকে প্যানেলে যোগ করুন"
 
-#: ../src/configurator.c:587
+#: ../src/configurator.c:624
 msgid "Available plugins"
 msgstr "উপস্থিত প্লাগ-ইন"
 
-#: ../src/configurator.c:1143
+#: ../src/configurator.c:1202
 msgid "Logout command is not set"
 msgstr "লগ-আউট কম্যান্ড নির্দিষ্ট করা হয়নি"
 
-#: ../src/configurator.c:1196
+#: ../src/configurator.c:1255
 msgid "Select a directory"
 msgstr "একটি ডিরেক্টরি বেছে নিন"
 
-#: ../src/configurator.c:1196 ../src/configurator.c:1287
+#: ../src/configurator.c:1255 ../src/configurator.c:1346
 msgid "Select a file"
 msgstr "একটি ফাইল বেছে নিন"
 
-#: ../src/configurator.c:1314
+#: ../src/configurator.c:1373
 msgid "_Browse"
 msgstr "ব্রাউজ(_B)"
 
-#: ../src/panel.c:649
+#: ../src/panel.c:651
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -70,134 +70,134 @@ msgstr ""
 "এই প্যানেলটিকে মুছে ফেলা হবে কি?\n"
 "<b>সতর্কবার্তা: এটি পুনরুদ্ধার করা যাবে না।</b>"
 
-#: ../src/panel.c:651
+#: ../src/panel.c:653
 msgid "Confirm"
 msgstr "নিশ্চায়ণ"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:684
+#: ../src/panel.c:686
 msgid "translator-credits"
 msgstr "সঙ্কর্ষণ মুখোপাধ্যায় (sankarshan@randomink.org)"
 
-#: ../src/panel.c:689
+#: ../src/panel.c:691
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:691
+#: ../src/panel.c:693
 #, fuzzy
 msgid "Copyright (C) 2008-2011"
 msgstr "সত্ত্বাধিকার (C) ২০০৮-২০০৯"
 
-#: ../src/panel.c:692
+#: ../src/panel.c:694
 msgid "Desktop panel for LXDE project"
 msgstr "LXDE প্রজেক্টের জন্য ডেস্কটপ প্যানেল"
 
-#: ../src/panel.c:715
+#: ../src/panel.c:717
 msgid "Add / Remove Panel Items"
 msgstr "প্যানেল বস্তু যোগ করুন বা সরিয়ে ফেলুন"
 
-#: ../src/panel.c:723
+#: ../src/panel.c:725
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "\"%s\" কে প্যানেল থেকে সরিয়ে ফেলুন"
 
-#: ../src/panel.c:735
+#: ../src/panel.c:737
 msgid "Panel Settings"
 msgstr "প্যানেলের বিবিধ বৈশিষ্ট্য"
 
-#: ../src/panel.c:741
+#: ../src/panel.c:743
 msgid "Create New Panel"
 msgstr "নতুন প্যানেল তৈরী করুন"
 
-#: ../src/panel.c:752
+#: ../src/panel.c:754
 msgid "Delete This Panel"
 msgstr "এই প্যানেলটি মুছে ফেলুন"
 
-#: ../src/panel.c:763
+#: ../src/panel.c:765
 msgid "About"
 msgstr "পরিচিতি"
 
-#: ../src/panel.c:771
+#: ../src/panel.c:773
 msgid "Panel"
 msgstr "প্যানেল"
 
-#: ../src/panel.c:784
+#: ../src/panel.c:786
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" বিবিধ বৈশিষ্ট্য"
 
-#: ../src/panel.c:1040 ../src/panel.c:1048
+#: ../src/panel.c:1042 ../src/panel.c:1050 ../data/ui/panel-pref.glade.h:21
 msgid "Height:"
 msgstr "উচ্চতা:"
 
-#: ../src/panel.c:1041 ../src/panel.c:1047
+#: ../src/panel.c:1043 ../src/panel.c:1049 ../data/ui/panel-pref.glade.h:40
 msgid "Width:"
 msgstr "ব্যাস:"
 
-#: ../src/panel.c:1042
+#: ../src/panel.c:1044 ../data/ui/panel-pref.glade.h:23
 msgid "Left"
 msgstr "বামদিক"
 
-#: ../src/panel.c:1043
+#: ../src/panel.c:1045 ../data/ui/panel-pref.glade.h:32
 msgid "Right"
 msgstr "ডানদিক"
 
-#: ../src/panel.c:1049
+#: ../src/panel.c:1051 ../data/ui/panel-pref.glade.h:39
 msgid "Top"
 msgstr "উপরের"
 
-#: ../src/panel.c:1050
+#: ../src/panel.c:1052 ../data/ui/panel-pref.glade.h:14
 msgid "Bottom"
 msgstr "নীচের"
 
-#: ../src/panel.c:1449
+#: ../src/panel.c:1460
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - UNIX ডেস্কটপের জন্য একটি হাল্কা GTK2+ প্যানেল\n"
 
-#: ../src/panel.c:1450
+#: ../src/panel.c:1461
 #, c-format
 msgid "Command line options:\n"
 msgstr "কম্যান্ড লাইনে বিকল্প:\n"
 
-#: ../src/panel.c:1451
+#: ../src/panel.c:1462
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- এই সহায়িকা প্রদর্শন করে প্রস্থান করুন\n"
 
-#: ../src/panel.c:1452
+#: ../src/panel.c:1463
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- সংস্করণ প্রদর্শন করে প্রস্থান করুন\n"
 
-#: ../src/panel.c:1453
+#: ../src/panel.c:1464
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1455
+#: ../src/panel.c:1466
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- নির্দিষ্ট প্রোফাইল ব্যবহার করুন\n"
 
-#: ../src/panel.c:1457
+#: ../src/panel.c:1468
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- যেমন --help\n"
 
-#: ../src/panel.c:1458
+#: ../src/panel.c:1469
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- যেমন --profile\n"
 
-#: ../src/panel.c:1459
+#: ../src/panel.c:1470
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- যেমন --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1461
+#: ../src/panel.c:1472
 #, c-format
 msgid ""
 "\n"
@@ -212,15 +212,260 @@ msgstr ""
 msgid "Enter the command you want to execute:"
 msgstr "যে কম্যান্ডটি চালাতে ইচ্ছুক সেটি লিখুন:"
 
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:912
+msgid "Application Launch Bar"
+msgstr "অ্যাপ্লিকেশন লঞ্চ বার"
+
+#: ../data/ui/netstatus.glade.h:2
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
+#, no-c-format
+msgid "0%"
+msgstr "০%"
+
+#: ../data/ui/netstatus.glade.h:3
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
+msgid "<b>Activity</b>"
+msgstr "<b>কর্ম</b>"
+
+#: ../data/ui/netstatus.glade.h:4
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
+msgid "<b>Connection</b>"
+msgstr "<b>সংযোগ</b>"
+
+#: ../data/ui/netstatus.glade.h:5
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr "<b>ইন্টার্নেট প্রোটোকল (IPv4)</b>"
+
+#: ../data/ui/netstatus.glade.h:6
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>ইন্টার্নেট প্রোটোকল (IPv6)</b>"
+
+#: ../data/ui/netstatus.glade.h:7
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
+msgid "<b>Network Device</b>"
+msgstr "<b>নেটওয়ার্ক ডিভাইস</b>"
+
+#: ../data/ui/netstatus.glade.h:8
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
+msgid "<b>Signal Strength</b>"
+msgstr "<b>সিগনাল ক্ষমতা</b>"
+
+#: ../data/ui/netstatus.glade.h:9
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
+msgid "Address:"
+msgstr "ঠিকানা:"
+
+#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
+#: ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
+msgid "Broadcast:"
+msgstr "ব্রডকাস্ট:"
+
+#: ../data/ui/netstatus.glade.h:11
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
+msgid "Con_figure"
+msgstr "কনফিগার করুন(_f)"
+
+#: ../data/ui/netstatus.glade.h:12
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
+msgid "Destination:"
+msgstr "গন্তব্যস্থল:"
+
+#: ../data/ui/netstatus.glade.h:13
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
+msgid "General"
+msgstr "সাধারণ"
+
+#: ../data/ui/netstatus.glade.h:14
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
+msgid "Received:"
+msgstr "প্রাপ্ত হয়েছে:"
+
+#: ../data/ui/netstatus.glade.h:15
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
+msgid "Scope:"
+msgstr "পরিধি:"
+
+#: ../data/ui/netstatus.glade.h:16
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
+msgid "Sent:"
+msgstr "প্ররিত হয়েছে:"
+
+#: ../data/ui/netstatus.glade.h:17
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
+msgid "Status:"
+msgstr "অবস্থা:"
+
+#: ../data/ui/netstatus.glade.h:18
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
+msgid "Subnet Mask:"
+msgstr "সাবনেট মাস্ক:"
+
+#: ../data/ui/netstatus.glade.h:19
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
+msgid "Support"
+msgstr "সমর্থন"
+
+#: ../data/ui/netstatus.glade.h:20
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
+msgid "Type:"
+msgstr "প্রকার:"
+
+#: ../data/ui/netstatus.glade.h:21
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
+msgid "_Name:"
+msgstr "নাম(_N):"
+
+#: ../data/ui/panel-pref.glade.h:2
+#, no-c-format
+msgid "% Percent"
+msgstr "% প্রতিশত"
+
+#: ../data/ui/panel-pref.glade.h:3
+msgid "<b>Automatic hiding</b>"
+msgstr "<b>সয়ংক্রীয়ভাবে লুকিয়ে রাখা</b>"
+
+#: ../data/ui/panel-pref.glade.h:4
+msgid "<b>Background</b>"
+msgstr "<b>প্রেক্ষাপট</b>"
+
+#: ../data/ui/panel-pref.glade.h:5
+msgid "<b>Font</b>"
+msgstr "<b>ফন্ট</b>"
+
+#: ../data/ui/panel-pref.glade.h:6
+msgid "<b>Icon</b>"
+msgstr "<b>আইকন</b>"
+
+#: ../data/ui/panel-pref.glade.h:7
+msgid "<b>Position</b>"
+msgstr "<b>স্থান</b>"
+
+#: ../data/ui/panel-pref.glade.h:8
+msgid "<b>Properties</b>"
+msgstr "<b>বৈশিষ্ট্য</b>"
+
+#: ../data/ui/panel-pref.glade.h:9
+msgid "<b>Set Preferred Applications</b>"
+msgstr "<b>পছন্দসই অ্যাপ্লিকেশন নির্দিষ্ট করুন</b>"
+
+#: ../data/ui/panel-pref.glade.h:10
+msgid "<b>Size</b>"
+msgstr "<b>আকার</b>"
+
+#: ../data/ui/panel-pref.glade.h:11
+msgid "Advanced"
+msgstr "উন্নত"
+
+#: ../data/ui/panel-pref.glade.h:12
+msgid "Alignment:"
+msgstr "সামঞ্জস্য"
+
+#: ../data/ui/panel-pref.glade.h:13
+msgid "Appearance"
+msgstr "রূপ"
+
+#: ../data/ui/panel-pref.glade.h:15
+msgid "Center"
+msgstr "মাঝের"
+
+#: ../data/ui/panel-pref.glade.h:16
+msgid "Custom color"
+msgstr "নিজেস্ব রং"
+
+#: ../data/ui/panel-pref.glade.h:17
+msgid "Dynamic"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:18
+msgid "Edge:"
+msgstr "ধার:"
+
+#: ../data/ui/panel-pref.glade.h:19
+msgid "File Manager:"
+msgstr " ফাইল ম্যানেজার:"
+
+#: ../data/ui/panel-pref.glade.h:20
+msgid "Geometry"
+msgstr "জ্যামিতি বিন্যাস"
+
+#: ../data/ui/panel-pref.glade.h:22
+msgid "Image"
+msgstr "প্রতিচ্ছবি"
+
+#: ../data/ui/panel-pref.glade.h:24
+msgid "Logout Command:"
+msgstr "লগ-আউট কম্যান্ড:"
+
+#: ../data/ui/panel-pref.glade.h:25
+msgid "Make window managers treat the panel as dock"
+msgstr "         "
+
+#: ../data/ui/panel-pref.glade.h:26
+msgid "Margin:"
+msgstr "মার্জিন:"
+
+#: ../data/ui/panel-pref.glade.h:27
+msgid "Minimize panel when not in use"
+msgstr "ব্যবহারে না থাকলে প্যানেলটি সংকোচন করুন"
+
+#: ../data/ui/panel-pref.glade.h:28
+msgid "Panel Applets"
+msgstr "প্যানেল অ্যাপ্লেটসমূহ"
+
+#: ../data/ui/panel-pref.glade.h:29
+msgid "Panel Preferences"
+msgstr "প্যানেলের বৈশিষ্ট্য"
+
+#: ../data/ui/panel-pref.glade.h:30
+msgid "Pixels"
+msgstr "পিক্সেলগুচ্ছ"
+
+#: ../data/ui/panel-pref.glade.h:31
+msgid "Reserve space, and not covered by maximized windows"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:33
+msgid "Select an image file"
+msgstr "একটি প্রতিচ্ছবি বেছে নিন"
+
+#: ../data/ui/panel-pref.glade.h:34 ../src/plugins/space.c:125
+#: ../src/plugins/batt/batt.c:583
+msgid "Size"
+msgstr "আকার"
+
+#: ../data/ui/panel-pref.glade.h:35
+msgid "Size when minimized"
+msgstr "সংকুচিত অবস্থায় আকার"
+
+#: ../data/ui/panel-pref.glade.h:36
+msgid "Solid color (with opacity)"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:37
+msgid "System theme"
+msgstr "সিস্টেম থিম"
+
+# টার্মিনাল প্রতিরূপী করা হলেও বোধহয় মন্দ হত না।
+#: ../data/ui/panel-pref.glade.h:38
+msgid "Terminal Emulator:"
+msgstr "টার্মিনাল এমুলটার:"
+
+#: ../data/ui/panel-pref.glade.h:41
+msgid "pixels"
+msgstr "পিক্সেলগুচ্ছ"
+
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
 msgstr "CPU ব্যবহার মাপকাঠি"
 
-#: ../src/plugins/cpu/cpu.c:270
+#: ../src/plugins/cpu/cpu.c:270 ../src/plugins/monitors/monitors.c:653
 msgid "Display CPU usage"
 msgstr "CPU ব্যবহার প্রদর্শন করুন"
 
-#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:426
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:438
 msgid "Bold font"
 msgstr "গাঢ় ফন্ট"
 
@@ -239,10 +484,6 @@ msgstr "ওয়ার্কস্পেসের নম্বর প্রদর�
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
 msgstr "প্রতিচ্ছবি ও টুলটীকা প্রদর্শন করুন"
-
-#: ../src/plugins/launchbar.c:912
-msgid "Application Launch Bar"
-msgstr "অ্যাপ্লিকেশন লঞ্চ বার"
 
 #: ../src/plugins/launchbar.c:914
 msgid "Bar with buttons to launch application"
@@ -329,63 +570,68 @@ msgstr "টাস্ক বটনের সর্বোচ্চ প্রস্
 msgid "Spacing"
 msgstr "স্পেস স্থাপন"
 
-#: ../src/plugins/taskbar.c:2051
+#: ../src/plugins/taskbar.c:2047
 msgid "Task Bar (Window List)"
 msgstr "টাস্ক বার (উইন্ডো তালিকা)"
 
-#: ../src/plugins/taskbar.c:2053
+#: ../src/plugins/taskbar.c:2049
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
 
-#: ../src/plugins/dclock.c:422
+#: ../src/plugins/dclock.c:434
 msgid "Clock Format"
 msgstr "ঘড়ির বিন্যাস"
 
-#: ../src/plugins/dclock.c:423
+#: ../src/plugins/dclock.c:435
 msgid "Tooltip Format"
 msgstr "টুলটিপের বিন্যাস"
 
-#: ../src/plugins/dclock.c:424
+#: ../src/plugins/dclock.c:436
 #, fuzzy
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr "Format codes: man 3 strftime"
 
-#: ../src/plugins/dclock.c:425
+#: ../src/plugins/dclock.c:437
 msgid "Action when clicked (default: display calendar)"
 msgstr "ক্লিক করলে ক্রিয়া (স্বাভাবিক: ক্যালেন্ডার প্রদর্শন)"
 
-#: ../src/plugins/dclock.c:427
+#: ../src/plugins/dclock.c:439
 #, fuzzy
 msgid "Tooltip only"
 msgstr "টুলটিপ সক্রিয় করা হয়েছে"
 
-#: ../src/plugins/dclock.c:455
+#: ../src/plugins/dclock.c:440
+#, fuzzy
+msgid "Center text"
+msgstr "মাঝের"
+
+#: ../src/plugins/dclock.c:469
 msgid "Digital Clock"
 msgstr "ডিজিটাল ঘড়ি"
 
-#: ../src/plugins/dclock.c:457
+#: ../src/plugins/dclock.c:471
 msgid "Display digital clock and tooltip"
 msgstr "টুলটিপ ও ডিজিটাল ঘড়ি প্রদর্শন"
 
-#: ../src/plugins/menu.c:423
+#: ../src/plugins/menu.c:426
 msgid "Add to desktop"
 msgstr "ডেস্কটপে যোগ করুন"
 
-#: ../src/plugins/menu.c:433
+#: ../src/plugins/menu.c:436
 msgid "Properties"
 msgstr "বৈশিষ্ট্য"
 
-#: ../src/plugins/menu.c:1079 ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1085 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "আইকন"
 
-#: ../src/plugins/menu.c:1096
+#: ../src/plugins/menu.c:1102
 msgid "Menu"
 msgstr "মেনু"
 
-#: ../src/plugins/menu.c:1098
+#: ../src/plugins/menu.c:1104
 msgid "Application Menu"
 msgstr "অ্যাপ্লিকেশন মেনু"
 
@@ -397,17 +643,13 @@ msgstr "বিভাজক"
 msgid "Add a separator to the panel"
 msgstr "প্যানেলে বিভাজক যোগ করুন"
 
-#: ../src/plugins/pager.c:833
+#: ../src/plugins/pager.c:837
 msgid "Desktop Pager"
 msgstr "ডেস্কটপ পেজার"
 
-#: ../src/plugins/pager.c:835
+#: ../src/plugins/pager.c:839
 msgid "Simple pager plugin"
 msgstr "সহজ পেজার প্লাগ-ইন"
-
-#: ../src/plugins/space.c:125 ../src/plugins/batt/batt.c:590
-msgid "Size"
-msgstr "আকার"
 
 #: ../src/plugins/space.c:143
 msgid "Spacer"
@@ -505,43 +747,43 @@ msgstr "ডিরেক্টরি মেনু"
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "মেনুর সাহায্যে ডিরেক্টরি ট্রী ব্রাউজ করুন (নির্মাতা: PCMan)"
 
-#: ../src/plugins/thermal/thermal.c:304
+#: ../src/plugins/thermal/thermal.c:396
 msgid "Normal"
 msgstr "স্বাভাবিক"
 
-#: ../src/plugins/thermal/thermal.c:305
+#: ../src/plugins/thermal/thermal.c:397
 msgid "Warning1"
 msgstr "সতর্কবার্তা১"
 
-#: ../src/plugins/thermal/thermal.c:306
+#: ../src/plugins/thermal/thermal.c:398
 msgid "Warning2"
 msgstr "সতর্কবার্তা২"
 
-#: ../src/plugins/thermal/thermal.c:307
+#: ../src/plugins/thermal/thermal.c:399
 msgid "Automatic sensor location"
 msgstr "সয়ংক্রীয় সেন্সর অবস্থান"
 
-#: ../src/plugins/thermal/thermal.c:308
+#: ../src/plugins/thermal/thermal.c:400
 msgid "Sensor"
 msgstr "সেন্সর"
 
-#: ../src/plugins/thermal/thermal.c:309
+#: ../src/plugins/thermal/thermal.c:401
 msgid "Automatic temperature levels"
 msgstr "সয়ংক্রীয় তাপ মাত্রা"
 
-#: ../src/plugins/thermal/thermal.c:310
+#: ../src/plugins/thermal/thermal.c:402
 msgid "Warning1 Temperature"
 msgstr "সতর্কবার্তা১ তাপমাত্রা"
 
-#: ../src/plugins/thermal/thermal.c:311
+#: ../src/plugins/thermal/thermal.c:403
 msgid "Warning2 Temperature"
 msgstr "সতর্কবার্তা২ তাপমাত্রা"
 
-#: ../src/plugins/thermal/thermal.c:353
+#: ../src/plugins/thermal/thermal.c:445
 msgid "Temperature Monitor"
 msgstr "তাপমাত্রা নিরীক্ষণ ব্যবস্থা"
 
-#: ../src/plugins/thermal/thermal.c:355
+#: ../src/plugins/thermal/thermal.c:447
 #, fuzzy
 msgid "Display system temperature"
 msgstr "সিস্টেমের তাপমাত্রা প্রদর্শন করুন, kesler.daniel@gmail.com এর দ্বারা"
@@ -549,26 +791,32 @@ msgstr "সিস্টেমের তাপমাত্রা প্রদর�
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:252
-#: ../src/plugins/volumealsa/volumealsa.c:422
+#: ../src/plugins/volumealsa/volumealsa.c:279
+#: ../src/plugins/volumealsa/volumealsa.c:449
 msgid "Volume control"
 msgstr "ভলিউম নিয়ন্ত্রণ"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:471
+#: ../src/plugins/volumealsa/volumealsa.c:571
 msgid "Volume Control"
 msgstr "ভলিউম নিয়ন্ত্রণ"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:380
+#: ../src/plugins/volumealsa/volumealsa.c:407
 msgid "Volume"
 msgstr "ভলিউম"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/volumealsa/volumealsa.c:399
+#: ../src/plugins/volumealsa/volumealsa.c:426
 msgid "Mute"
 msgstr "নিঃশব্দ"
+
+#: ../src/plugins/volumealsa/volumealsa.c:544
+msgid ""
+"Error, you need to install a application to configure the sound (pavucontol, "
+"alsamixer ...)"
+msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
@@ -647,11 +895,6 @@ msgstr "বেতার"
 #: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
 msgstr "প্রোটোকল:"
-
-#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-msgid "Broadcast:"
-msgstr "ব্রডকাস্ট:"
 
 #: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
@@ -1031,143 +1274,66 @@ msgstr "গ্রহণ করা হচ্ছে"
 msgid "Sending/Receiving"
 msgstr "প্রেরণ করা হচ্ছে/গ্রহণ করা হচ্ছে"
 
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
-#, no-c-format
-msgid "0%"
-msgstr "০%"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
-msgid "<b>Activity</b>"
-msgstr "<b>কর্ম</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
-msgid "<b>Connection</b>"
-msgstr "<b>সংযোগ</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
-msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr "<b>ইন্টার্নেট প্রোটোকল (IPv4)</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
-msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr "<b>ইন্টার্নেট প্রোটোকল (IPv6)</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
-msgid "<b>Network Device</b>"
-msgstr "<b>নেটওয়ার্ক ডিভাইস</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
-msgid "<b>Signal Strength</b>"
-msgstr "<b>সিগনাল ক্ষমতা</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
-msgid "Address:"
-msgstr "ঠিকানা:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
-msgid "Con_figure"
-msgstr "কনফিগার করুন(_f)"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
-msgid "Destination:"
-msgstr "গন্তব্যস্থল:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
-msgid "General"
-msgstr "সাধারণ"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
-msgid "Received:"
-msgstr "প্রাপ্ত হয়েছে:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
-msgid "Scope:"
-msgstr "পরিধি:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
-msgid "Sent:"
-msgstr "প্ররিত হয়েছে:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
-msgid "Status:"
-msgstr "অবস্থা:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
-msgid "Subnet Mask:"
-msgstr "সাবনেট মাস্ক:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
-msgid "Support"
-msgstr "সমর্থন"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
-msgid "Type:"
-msgstr "প্রকার:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
-msgid "_Name:"
-msgstr "নাম(_N):"
-
-#: ../src/plugins/batt/batt.c:131
+#: ../src/plugins/batt/batt.c:132
 msgid "No batteries found"
 msgstr "কোন ব্যাটারি পাওয়া যায়নি"
 
-#: ../src/plugins/batt/batt.c:179
+#: ../src/plugins/batt/batt.c:176
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
 msgstr "ব্যাটারি: %d%% চার্জ হয়েছে, %d:%02d পুরো চার্জ হতে"
 
-#: ../src/plugins/batt/batt.c:190
+#: ../src/plugins/batt/batt.c:187
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr "ব্যাটারি: %d%% চার্জ হয়েছে, %d:%02d বাকি"
 
-#: ../src/plugins/batt/batt.c:196
+#: ../src/plugins/batt/batt.c:193
 #, c-format
 msgid "Battery: %d%% charged"
 msgstr "ব্যাটারি: %d%% চার্জ করা হয়েছে"
 
-#: ../src/plugins/batt/batt.c:580
+#: ../src/plugins/batt/batt.c:573
 msgid "Hide if there is no battery"
 msgstr "ব্যাটারি অনুপস্থিত হলে লুকিয়ে রাখুন"
 
-#: ../src/plugins/batt/batt.c:582
+#: ../src/plugins/batt/batt.c:575
 msgid "Alarm command"
 msgstr "অ্যালার্ম কম্যান্ড"
 
-#: ../src/plugins/batt/batt.c:583
+#: ../src/plugins/batt/batt.c:576
 msgid "Alarm time (minutes left)"
 msgstr "অ্যালার্মের সময় (বাকি মিনিট)"
 
-#: ../src/plugins/batt/batt.c:584
+#: ../src/plugins/batt/batt.c:577
 msgid "Background color"
 msgstr "পটভূমির রং"
 
-#: ../src/plugins/batt/batt.c:585
+#: ../src/plugins/batt/batt.c:578
 msgid "Charging color 1"
 msgstr "চার্জিং রং ১"
 
-#: ../src/plugins/batt/batt.c:586
+#: ../src/plugins/batt/batt.c:579
 msgid "Charging color 2"
 msgstr "চার্জিং রং ২"
 
-#: ../src/plugins/batt/batt.c:587
+#: ../src/plugins/batt/batt.c:580
 msgid "Discharging color 1"
 msgstr "ডিসচার্জিং রং ১"
 
-#: ../src/plugins/batt/batt.c:588
+#: ../src/plugins/batt/batt.c:581
 msgid "Discharging color 2"
 msgstr "ডিসচার্জিং রং ২"
 
-#: ../src/plugins/batt/batt.c:589
+#: ../src/plugins/batt/batt.c:582
 msgid "Border width"
 msgstr "প্রান্তরেখার প্রস্থ"
 
-#: ../src/plugins/batt/batt.c:619
+#: ../src/plugins/batt/batt.c:612
 msgid "Battery Monitor"
 msgstr "ব্যাটারি নিরীক্ষণ"
 
-#: ../src/plugins/batt/batt.c:621
+#: ../src/plugins/batt/batt.c:614
 msgid "Display battery status using ACPI"
 msgstr "ACPI ব্যবহার করে ব্যাটারিরি অবস্থা প্রদর্শন করুন"
 
@@ -1191,99 +1357,77 @@ msgstr "কী-বোর্ডের LED"
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "CapsLock, NumLock, ও ScrollLock কী এর জন্য নির্দেশক"
 
-#~ msgid "% Percent"
-#~ msgstr "% প্রতিশত"
+#. A label to allow for click through
+#: ../src/plugins/indicator/indicator.c:561
+msgid "No Indicators"
+msgstr ""
 
-#~ msgid "<b>Automatic hiding</b>"
-#~ msgstr "<b>সয়ংক্রীয়ভাবে লুকিয়ে রাখা</b>"
+#: ../src/plugins/indicator/indicator.c:751
+#, fuzzy
+msgid "Indicator Applications"
+msgstr "অ্যাপ্লিকেশন সমূহ"
 
-#~ msgid "<b>Background</b>"
-#~ msgstr "<b>প্রেক্ষাপট</b>"
+#: ../src/plugins/indicator/indicator.c:752
+msgid "Clock Indicator"
+msgstr ""
 
-#~ msgid "<b>Font</b>"
-#~ msgstr "<b>ফন্ট</b>"
+#: ../src/plugins/indicator/indicator.c:753
+msgid "Messaging Menu"
+msgstr ""
 
-#~ msgid "<b>Icon</b>"
-#~ msgstr "<b>আইকন</b>"
+#: ../src/plugins/indicator/indicator.c:754
+#, fuzzy
+msgid "Network Menu"
+msgstr "ডিরেক্টরি মেনু"
 
-#~ msgid "<b>Position</b>"
-#~ msgstr "<b>স্থান</b>"
+#: ../src/plugins/indicator/indicator.c:755
+msgid "Session Menu"
+msgstr ""
 
-#~ msgid "<b>Properties</b>"
-#~ msgstr "<b>বৈশিষ্ট্য</b>"
+#: ../src/plugins/indicator/indicator.c:756
+msgid "Sound Menu"
+msgstr ""
 
-#~ msgid "<b>Set Preferred Applications</b>"
-#~ msgstr "<b>পছন্দসই অ্যাপ্লিকেশন নির্দিষ্ট করুন</b>"
+#: ../src/plugins/indicator/indicator.c:780
+msgid "Indicator applets"
+msgstr ""
 
-#~ msgid "<b>Size</b>"
-#~ msgstr "<b>আকার</b>"
+#: ../src/plugins/indicator/indicator.c:782
+#, fuzzy
+msgid "Add indicator applets to the panel"
+msgstr "প্যানেলে বিভাজক যোগ করুন"
 
-#~ msgid "Advanced"
-#~ msgstr "উন্নত"
+#: ../src/plugins/monitors/monitors.c:654
+#, fuzzy
+msgid "CPU color"
+msgstr "নিজেস্ব রং"
 
-#~ msgid "Alignment:"
-#~ msgstr "সামঞ্জস্য"
+#: ../src/plugins/monitors/monitors.c:655
+#, fuzzy
+msgid "Display RAM usage"
+msgstr "CPU ব্যবহার প্রদর্শন করুন"
 
-#~ msgid "Appearance"
-#~ msgstr "রূপ"
+#: ../src/plugins/monitors/monitors.c:656
+msgid "RAM color"
+msgstr ""
 
-#~ msgid "Center"
-#~ msgstr "মাঝের"
+#: ../src/plugins/monitors/monitors.c:753
+#, fuzzy
+msgid "Resource monitors"
+msgstr "পরিদর্শন করার জন্য ইন্টারফেস"
 
-#~ msgid "Custom color"
-#~ msgstr "নিজেস্ব রং"
+#: ../src/plugins/monitors/monitors.c:755
+msgid "Display monitors (CPU, RAM)"
+msgstr ""
 
-#~ msgid "Edge:"
-#~ msgstr "ধার:"
+#: ../src/plugins/wnckpager/wnckpager.c:721
+msgid "WNCKPager"
+msgstr ""
 
-#~ msgid "File Manager:"
-#~ msgstr " ফাইল ম্যানেজার:"
-
-#~ msgid "Geometry"
-#~ msgstr "জ্যামিতি বিন্যাস"
-
-#~ msgid "Image"
-#~ msgstr "প্রতিচ্ছবি"
-
-#~ msgid "Logout Command:"
-#~ msgstr "লগ-আউট কম্যান্ড:"
-
-#~ msgid "Make window managers treat the panel as dock"
-#~ msgstr "         "
-
-#~ msgid "Margin:"
-#~ msgstr "মার্জিন:"
-
-#~ msgid "Minimize panel when not in use"
-#~ msgstr "ব্যবহারে না থাকলে প্যানেলটি সংকোচন করুন"
-
-#~ msgid "Panel Applets"
-#~ msgstr "প্যানেল অ্যাপ্লেটসমূহ"
-
-#~ msgid "Panel Preferences"
-#~ msgstr "প্যানেলের বৈশিষ্ট্য"
-
-#~ msgid "Pixels"
-#~ msgstr "পিক্সেলগুচ্ছ"
-
-#~ msgid "Select an image file"
-#~ msgstr "একটি প্রতিচ্ছবি বেছে নিন"
-
-#~ msgid "Size when minimized"
-#~ msgstr "সংকুচিত অবস্থায় আকার"
-
-#~ msgid "System theme"
-#~ msgstr "সিস্টেম থিম"
-
-# টার্মিনাল প্রতিরূপী করা হলেও বোধহয় মন্দ হত না।
-#~ msgid "Terminal Emulator:"
-#~ msgstr "টার্মিনাল এমুলটার:"
-
-#~ msgid "pixels"
-#~ msgstr "পিক্সেলগুচ্ছ"
-
-#~ msgid "Applications"
-#~ msgstr "অ্যাপ্লিকেশন সমূহ"
+#: ../src/plugins/wnckpager/wnckpager.c:723
+#, fuzzy
+msgid "WNCKpager plugin"
+msgstr "সহজ পেজার প্লাগ-ইন"
 
 #~ msgid "Available Applications"
 #~ msgstr "উপস্থিত অ্যাপ্লিকেশন"

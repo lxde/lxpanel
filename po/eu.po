@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-29 14:22+0200\n"
+"POT-Creation-Date: 2012-01-04 15:41+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Alain Mendizabal <alainmendi@gmail.com>\n"
 "Language-Team: Basque <alainmendi@gmail.com>\n"
@@ -30,40 +30,40 @@ msgstr "Berrabiarazi"
 msgid "Logout"
 msgstr "Amaitu saioa"
 
-#: ../src/configurator.c:448
+#: ../src/configurator.c:468
 msgid "Currently loaded plugins"
 msgstr "Kargatutako plugin-ak"
 
-#: ../src/configurator.c:457
+#: ../src/configurator.c:477
 msgid "Stretch"
 msgstr "Luzatu"
 
-#: ../src/configurator.c:559
+#: ../src/configurator.c:596
 msgid "Add plugin to panel"
 msgstr "Gehitu plugin-a panelari"
 
-#: ../src/configurator.c:587
+#: ../src/configurator.c:624
 msgid "Available plugins"
 msgstr "Eskuragarri dauden pluginak"
 
-#: ../src/configurator.c:1143
+#: ../src/configurator.c:1202
 msgid "Logout command is not set"
 msgstr "Saioa amaitzeko komandoa ez dago ezarririk"
 
-#: ../src/configurator.c:1196
+#: ../src/configurator.c:1255
 #, fuzzy
 msgid "Select a directory"
 msgstr "Hautatu fitxategia"
 
-#: ../src/configurator.c:1196 ../src/configurator.c:1287
+#: ../src/configurator.c:1255 ../src/configurator.c:1346
 msgid "Select a file"
 msgstr "Hautatu fitxategia"
 
-#: ../src/configurator.c:1314
+#: ../src/configurator.c:1373
 msgid "_Browse"
 msgstr "_Arakatu"
 
-#: ../src/panel.c:649
+#: ../src/panel.c:651
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -71,108 +71,108 @@ msgstr ""
 "Panel hau ezabatu?\n"
 "<b>Kontuz: panela ezingo da berreskuratu.</b>"
 
-#: ../src/panel.c:651
+#: ../src/panel.c:653
 msgid "Confirm"
 msgstr "Berretsi"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:684
+#: ../src/panel.c:686
 msgid "translator-credits"
 msgstr ""
 
-#: ../src/panel.c:689
+#: ../src/panel.c:691
 #, fuzzy
 msgid "LXPanel"
 msgstr "Panela"
 
-#: ../src/panel.c:691
+#: ../src/panel.c:693
 msgid "Copyright (C) 2008-2011"
 msgstr ""
 
-#: ../src/panel.c:692
+#: ../src/panel.c:694
 msgid "Desktop panel for LXDE project"
 msgstr ""
 
-#: ../src/panel.c:715
+#: ../src/panel.c:717
 msgid "Add / Remove Panel Items"
 msgstr "Gehitu / Ezabatu paneleko elementuak"
 
-#: ../src/panel.c:723
+#: ../src/panel.c:725
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Ezabatu \"%s\" paneletik"
 
-#: ../src/panel.c:735
+#: ../src/panel.c:737
 msgid "Panel Settings"
 msgstr "Panelaren hobespenak"
 
-#: ../src/panel.c:741
+#: ../src/panel.c:743
 msgid "Create New Panel"
 msgstr "Sortu panel berria"
 
-#: ../src/panel.c:752
+#: ../src/panel.c:754
 msgid "Delete This Panel"
 msgstr "Ezabatu panel hau"
 
-#: ../src/panel.c:763
+#: ../src/panel.c:765
 msgid "About"
 msgstr ""
 
-#: ../src/panel.c:771
+#: ../src/panel.c:773
 msgid "Panel"
 msgstr "Panela"
 
-#: ../src/panel.c:784
+#: ../src/panel.c:786
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" hobespenak"
 
-#: ../src/panel.c:1040 ../src/panel.c:1048
+#: ../src/panel.c:1042 ../src/panel.c:1050 ../data/ui/panel-pref.glade.h:21
 msgid "Height:"
 msgstr "Altuera:"
 
-#: ../src/panel.c:1041 ../src/panel.c:1047
+#: ../src/panel.c:1043 ../src/panel.c:1049 ../data/ui/panel-pref.glade.h:40
 msgid "Width:"
 msgstr "Zabalera:"
 
-#: ../src/panel.c:1042
+#: ../src/panel.c:1044 ../data/ui/panel-pref.glade.h:23
 msgid "Left"
 msgstr "Ezkerrean"
 
-#: ../src/panel.c:1043
+#: ../src/panel.c:1045 ../data/ui/panel-pref.glade.h:32
 msgid "Right"
 msgstr "Eskuinean"
 
-#: ../src/panel.c:1049
+#: ../src/panel.c:1051 ../data/ui/panel-pref.glade.h:39
 #, fuzzy
 msgid "Top"
 msgstr "Goian"
 
-#: ../src/panel.c:1050
+#: ../src/panel.c:1052 ../data/ui/panel-pref.glade.h:14
 msgid "Bottom"
 msgstr "Behean"
 
-#: ../src/panel.c:1449
+#: ../src/panel.c:1460
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr ""
 
-#: ../src/panel.c:1450
+#: ../src/panel.c:1461
 #, c-format
 msgid "Command line options:\n"
 msgstr "Komando-lerroko aukerak:\n"
 
-#: ../src/panel.c:1451
+#: ../src/panel.c:1462
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help       -- erakutsi laguntza hau eta irten\n"
 
-#: ../src/panel.c:1452
+#: ../src/panel.c:1463
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version    -- erakutsi bertsioa eta irten\n"
 
-#: ../src/panel.c:1453
+#: ../src/panel.c:1464
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
@@ -180,28 +180,28 @@ msgstr ""
 "berritsua\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1455
+#: ../src/panel.c:1466
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile izena  -- erabili adierazitako profila\n"
 
-#: ../src/panel.c:1457
+#: ../src/panel.c:1468
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  --help-en berdina\n"
 
-#: ../src/panel.c:1458
+#: ../src/panel.c:1469
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  --profile-ren berdina\n"
 
-#: ../src/panel.c:1459
+#: ../src/panel.c:1470
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  --version-en berdina\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1461
+#: ../src/panel.c:1472
 #, c-format
 msgid ""
 "\n"
@@ -216,15 +216,266 @@ msgstr ""
 msgid "Enter the command you want to execute:"
 msgstr "Idatzi exekutatu nahi duzun komandoa:"
 
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:912
+msgid "Application Launch Bar"
+msgstr "Aplikazioen abiarazle barra"
+
+#: ../data/ui/netstatus.glade.h:2
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
+#, no-c-format
+msgid "0%"
+msgstr "0%"
+
+#: ../data/ui/netstatus.glade.h:3
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
+msgid "<b>Activity</b>"
+msgstr "<b>Jarduera</b>"
+
+#: ../data/ui/netstatus.glade.h:4
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
+msgid "<b>Connection</b>"
+msgstr "<b>Konexioa</b>"
+
+#: ../data/ui/netstatus.glade.h:5
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr "<b>Internet protokoloa (IPv4)</b>"
+
+#: ../data/ui/netstatus.glade.h:6
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>Internet protokoloa (IPv6)</b>"
+
+#: ../data/ui/netstatus.glade.h:7
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
+msgid "<b>Network Device</b>"
+msgstr "<b>Sareko gailua</b>"
+
+#: ../data/ui/netstatus.glade.h:8
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
+msgid "<b>Signal Strength</b>"
+msgstr "<b>Seinalearen potentzia</b>"
+
+#: ../data/ui/netstatus.glade.h:9
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
+msgid "Address:"
+msgstr "Helbidea:"
+
+#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
+#: ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
+msgid "Broadcast:"
+msgstr "Igorpena:"
+
+#: ../data/ui/netstatus.glade.h:11
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
+msgid "Con_figure"
+msgstr "_Konfiguratu"
+
+#: ../data/ui/netstatus.glade.h:12
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
+msgid "Destination:"
+msgstr "Helburua:"
+
+#: ../data/ui/netstatus.glade.h:13
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
+msgid "General"
+msgstr "Orokorra"
+
+#: ../data/ui/netstatus.glade.h:14
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
+msgid "Received:"
+msgstr "Jasota:"
+
+#: ../data/ui/netstatus.glade.h:15
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
+msgid "Scope:"
+msgstr "Esparrua:"
+
+#: ../data/ui/netstatus.glade.h:16
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
+msgid "Sent:"
+msgstr "Bidalia:"
+
+#: ../data/ui/netstatus.glade.h:17
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
+msgid "Status:"
+msgstr "Egoera:"
+
+#: ../data/ui/netstatus.glade.h:18
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
+msgid "Subnet Mask:"
+msgstr "Azpisare-maskara:"
+
+#: ../data/ui/netstatus.glade.h:19
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
+msgid "Support"
+msgstr "Euskarria"
+
+#: ../data/ui/netstatus.glade.h:20
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
+msgid "Type:"
+msgstr "Mota:"
+
+#: ../data/ui/netstatus.glade.h:21
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
+msgid "_Name:"
+msgstr "_Izena:"
+
+#: ../data/ui/panel-pref.glade.h:2
+#, no-c-format
+msgid "% Percent"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:3
+msgid "<b>Automatic hiding</b>"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:4
+msgid "<b>Background</b>"
+msgstr "<b>Atzeko planoa</b>"
+
+#: ../data/ui/panel-pref.glade.h:5
+msgid "<b>Font</b>"
+msgstr "<b>Letra-tipoa</b>"
+
+#: ../data/ui/panel-pref.glade.h:6
+#, fuzzy
+msgid "<b>Icon</b>"
+msgstr "<b>Letra-tipoa</b>"
+
+#: ../data/ui/panel-pref.glade.h:7
+msgid "<b>Position</b>"
+msgstr "<b>Posizioa</b>"
+
+#: ../data/ui/panel-pref.glade.h:8
+msgid "<b>Properties</b>"
+msgstr "<b>Propietateak</b>"
+
+#: ../data/ui/panel-pref.glade.h:9
+msgid "<b>Set Preferred Applications</b>"
+msgstr "<b>Ezarri hobetsitako aplikazioak</b>"
+
+#: ../data/ui/panel-pref.glade.h:10
+msgid "<b>Size</b>"
+msgstr "<b>Tamaina</b>"
+
+#: ../data/ui/panel-pref.glade.h:11
+msgid "Advanced"
+msgstr "Aurreratua"
+
+#: ../data/ui/panel-pref.glade.h:12
+msgid "Alignment:"
+msgstr "Lerrokatzea:"
+
+#: ../data/ui/panel-pref.glade.h:13
+msgid "Appearance"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:15
+#, fuzzy
+msgid "Center"
+msgstr "Orokorra"
+
+#: ../data/ui/panel-pref.glade.h:16
+#, fuzzy
+msgid "Custom color"
+msgstr "Kolore pertsonalizatua"
+
+#: ../data/ui/panel-pref.glade.h:17
+msgid "Dynamic"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:18
+msgid "Edge:"
+msgstr "Ertza:"
+
+#: ../data/ui/panel-pref.glade.h:19
+msgid "File Manager:"
+msgstr "Fitxategi kudeatzailea:"
+
+#: ../data/ui/panel-pref.glade.h:20
+msgid "Geometry"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:22
+#, fuzzy
+msgid "Image"
+msgstr "irudia"
+
+#: ../data/ui/panel-pref.glade.h:24
+msgid "Logout Command:"
+msgstr "Saioa amaierako komandoa:"
+
+#: ../data/ui/panel-pref.glade.h:25
+msgid "Make window managers treat the panel as dock"
+msgstr ""
+"Leiho kudeatzaileak panela atrakagarria bezala tratatzea ahalbideratzen du"
+
+#: ../data/ui/panel-pref.glade.h:26
+msgid "Margin:"
+msgstr "Marjina:"
+
+#: ../data/ui/panel-pref.glade.h:27
+msgid "Minimize panel when not in use"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:28
+msgid "Panel Applets"
+msgstr "Paneleko applet-ak"
+
+#: ../data/ui/panel-pref.glade.h:29
+msgid "Panel Preferences"
+msgstr "Panelaren hobespenak"
+
+#: ../data/ui/panel-pref.glade.h:30
+msgid "Pixels"
+msgstr "Pixelak"
+
+#: ../data/ui/panel-pref.glade.h:31
+msgid "Reserve space, and not covered by maximized windows"
+msgstr "Erreserbatu tokia eta ez estali maximizatutako leihoekin"
+
+#: ../data/ui/panel-pref.glade.h:33
+msgid "Select an image file"
+msgstr "Hautatu irudi-fitxategia"
+
+#: ../data/ui/panel-pref.glade.h:34 ../src/plugins/space.c:125
+#: ../src/plugins/batt/batt.c:583
+msgid "Size"
+msgstr "Tamaina"
+
+#: ../data/ui/panel-pref.glade.h:35
+msgid "Size when minimized"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:36
+msgid "Solid color (with opacity)"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:37
+#, fuzzy
+msgid "System theme"
+msgstr "Bat ere ez (erabili sistemaren gaia)"
+
+#: ../data/ui/panel-pref.glade.h:38
+msgid "Terminal Emulator:"
+msgstr "Terminal emulatzailea:"
+
+#: ../data/ui/panel-pref.glade.h:41
+#, fuzzy
+msgid "pixels"
+msgstr "Pixelak"
+
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
 msgstr "CPU erabileraren monitorea"
 
-#: ../src/plugins/cpu/cpu.c:270
+#: ../src/plugins/cpu/cpu.c:270 ../src/plugins/monitors/monitors.c:653
 msgid "Display CPU usage"
 msgstr "Bistaratu CPU erabilera"
 
-#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:426
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:438
 msgid "Bold font"
 msgstr "Letra-tipo lodia"
 
@@ -244,10 +495,6 @@ msgstr "Bistaratu laneko arearen zenbakia (cmeury@users.sf.net)"
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
 msgstr "Bistaratu irudia eta argibidea"
-
-#: ../src/plugins/launchbar.c:912
-msgid "Application Launch Bar"
-msgstr "Aplikazioen abiarazle barra"
 
 #: ../src/plugins/launchbar.c:914
 msgid "Bar with buttons to launch application"
@@ -343,11 +590,11 @@ msgstr "Zeregin botoiaren zabalera maximoa"
 msgid "Spacing"
 msgstr "Tartea"
 
-#: ../src/plugins/taskbar.c:2051
+#: ../src/plugins/taskbar.c:2047
 msgid "Task Bar (Window List)"
 msgstr "Zereginen barra (Leihoen zerrenda)"
 
-#: ../src/plugins/taskbar.c:2053
+#: ../src/plugins/taskbar.c:2049
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -355,53 +602,58 @@ msgstr ""
 "Zereginen barrak irekitako leiho guztiak erakusten ditu eta ikonotzen, "
 "biltzen edo fokua ezartzen uzten du"
 
-#: ../src/plugins/dclock.c:422
+#: ../src/plugins/dclock.c:434
 msgid "Clock Format"
 msgstr "Erlojuaren formatua"
 
-#: ../src/plugins/dclock.c:423
+#: ../src/plugins/dclock.c:435
 msgid "Tooltip Format"
 msgstr "Argibideen formatua"
 
-#: ../src/plugins/dclock.c:424
+#: ../src/plugins/dclock.c:436
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr ""
 
-#: ../src/plugins/dclock.c:425
+#: ../src/plugins/dclock.c:437
 msgid "Action when clicked (default: display calendar)"
 msgstr ""
 
-#: ../src/plugins/dclock.c:427
+#: ../src/plugins/dclock.c:439
 #, fuzzy
 msgid "Tooltip only"
 msgstr "Argibideak gaituta"
 
-#: ../src/plugins/dclock.c:455
+#: ../src/plugins/dclock.c:440
+#, fuzzy
+msgid "Center text"
+msgstr "Orokorra"
+
+#: ../src/plugins/dclock.c:469
 msgid "Digital Clock"
 msgstr "Erloju digitala"
 
-#: ../src/plugins/dclock.c:457
+#: ../src/plugins/dclock.c:471
 #, fuzzy
 msgid "Display digital clock and tooltip"
 msgstr "Bistaratu erloju digitala eta argibidea"
 
-#: ../src/plugins/menu.c:423
+#: ../src/plugins/menu.c:426
 msgid "Add to desktop"
 msgstr "Gehitu idazmahaira"
 
-#: ../src/plugins/menu.c:433
+#: ../src/plugins/menu.c:436
 msgid "Properties"
 msgstr "Propietateak"
 
-#: ../src/plugins/menu.c:1079 ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1085 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "Ikonoa"
 
-#: ../src/plugins/menu.c:1096
+#: ../src/plugins/menu.c:1102
 msgid "Menu"
 msgstr "Menua"
 
-#: ../src/plugins/menu.c:1098
+#: ../src/plugins/menu.c:1104
 #, fuzzy
 msgid "Application Menu"
 msgstr "Aplikazioen abiarazle barra"
@@ -414,17 +666,13 @@ msgstr "Bereizlea"
 msgid "Add a separator to the panel"
 msgstr "Gehitu bereizlea panelari"
 
-#: ../src/plugins/pager.c:833
+#: ../src/plugins/pager.c:837
 msgid "Desktop Pager"
 msgstr "Idazmahai orrialdekatzailea"
 
-#: ../src/plugins/pager.c:835
+#: ../src/plugins/pager.c:839
 msgid "Simple pager plugin"
 msgstr "Orrialdekatzaile plugin sinplea"
-
-#: ../src/plugins/space.c:125 ../src/plugins/batt/batt.c:590
-msgid "Size"
-msgstr "Tamaina"
 
 #: ../src/plugins/space.c:143
 #, fuzzy
@@ -528,45 +776,45 @@ msgstr "Karpeta-menua"
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "Arakatu karpeta-zuhaitza menuaren bidez (Autorea: PCMan)"
 
-#: ../src/plugins/thermal/thermal.c:304
+#: ../src/plugins/thermal/thermal.c:396
 msgid "Normal"
 msgstr "Normala"
 
-#: ../src/plugins/thermal/thermal.c:305
+#: ../src/plugins/thermal/thermal.c:397
 msgid "Warning1"
 msgstr "Abisua1"
 
-#: ../src/plugins/thermal/thermal.c:306
+#: ../src/plugins/thermal/thermal.c:398
 msgid "Warning2"
 msgstr "Abisua2"
 
-#: ../src/plugins/thermal/thermal.c:307
+#: ../src/plugins/thermal/thermal.c:399
 msgid "Automatic sensor location"
 msgstr "Sentsorearen kokapen automatikoa"
 
-#: ../src/plugins/thermal/thermal.c:308
+#: ../src/plugins/thermal/thermal.c:400
 msgid "Sensor"
 msgstr "Sentsorea"
 
-#: ../src/plugins/thermal/thermal.c:309
+#: ../src/plugins/thermal/thermal.c:401
 msgid "Automatic temperature levels"
 msgstr "Tenperaturaren maila automatikoak"
 
-#: ../src/plugins/thermal/thermal.c:310
+#: ../src/plugins/thermal/thermal.c:402
 #, fuzzy
 msgid "Warning1 Temperature"
 msgstr "Abisua1 tenperatura"
 
-#: ../src/plugins/thermal/thermal.c:311
+#: ../src/plugins/thermal/thermal.c:403
 #, fuzzy
 msgid "Warning2 Temperature"
 msgstr "Abisua2 tenperatura"
 
-#: ../src/plugins/thermal/thermal.c:353
+#: ../src/plugins/thermal/thermal.c:445
 msgid "Temperature Monitor"
 msgstr "Tenperaturaren monitorea"
 
-#: ../src/plugins/thermal/thermal.c:355
+#: ../src/plugins/thermal/thermal.c:447
 #, fuzzy
 msgid "Display system temperature"
 msgstr "Bistaratu sistemaren tenperatura (kesler.daniel@gmail.com)"
@@ -574,26 +822,32 @@ msgstr "Bistaratu sistemaren tenperatura (kesler.daniel@gmail.com)"
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:252
-#: ../src/plugins/volumealsa/volumealsa.c:422
+#: ../src/plugins/volumealsa/volumealsa.c:279
+#: ../src/plugins/volumealsa/volumealsa.c:449
 msgid "Volume control"
 msgstr "Bolumenaren kontrola"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:471
+#: ../src/plugins/volumealsa/volumealsa.c:571
 msgid "Volume Control"
 msgstr "Bolumenaren kontrola"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:380
+#: ../src/plugins/volumealsa/volumealsa.c:407
 msgid "Volume"
 msgstr "Bolumena"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/volumealsa/volumealsa.c:399
+#: ../src/plugins/volumealsa/volumealsa.c:426
 msgid "Mute"
 msgstr "Mututu"
+
+#: ../src/plugins/volumealsa/volumealsa.c:544
+msgid ""
+"Error, you need to install a application to configure the sound (pavucontol, "
+"alsamixer ...)"
+msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
@@ -672,11 +926,6 @@ msgstr "Haririk gabea"
 #: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
 msgstr "Protokoloa:"
-
-#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-msgid "Broadcast:"
-msgstr "Igorpena:"
 
 #: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
@@ -1059,143 +1308,66 @@ msgstr "Jasotzen"
 msgid "Sending/Receiving"
 msgstr "Bidaltzen/Jasotzen"
 
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
-#, no-c-format
-msgid "0%"
-msgstr "0%"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
-msgid "<b>Activity</b>"
-msgstr "<b>Jarduera</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
-msgid "<b>Connection</b>"
-msgstr "<b>Konexioa</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
-msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr "<b>Internet protokoloa (IPv4)</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
-msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr "<b>Internet protokoloa (IPv6)</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
-msgid "<b>Network Device</b>"
-msgstr "<b>Sareko gailua</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
-msgid "<b>Signal Strength</b>"
-msgstr "<b>Seinalearen potentzia</b>"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
-msgid "Address:"
-msgstr "Helbidea:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
-msgid "Con_figure"
-msgstr "_Konfiguratu"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
-msgid "Destination:"
-msgstr "Helburua:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
-msgid "General"
-msgstr "Orokorra"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
-msgid "Received:"
-msgstr "Jasota:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
-msgid "Scope:"
-msgstr "Esparrua:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
-msgid "Sent:"
-msgstr "Bidalia:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
-msgid "Status:"
-msgstr "Egoera:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
-msgid "Subnet Mask:"
-msgstr "Azpisare-maskara:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
-msgid "Support"
-msgstr "Euskarria"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
-msgid "Type:"
-msgstr "Mota:"
-
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
-msgid "_Name:"
-msgstr "_Izena:"
-
-#: ../src/plugins/batt/batt.c:131
+#: ../src/plugins/batt/batt.c:132
 msgid "No batteries found"
 msgstr "Ez da bateriarik aurkitu"
 
-#: ../src/plugins/batt/batt.c:179
+#: ../src/plugins/batt/batt.c:176
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
 msgstr "Bateria: %d%% kargatuta, %d:%02d falta"
 
-#: ../src/plugins/batt/batt.c:190
+#: ../src/plugins/batt/batt.c:187
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr "Bateria: %d%% kargatuta, %d:%02d falta"
 
-#: ../src/plugins/batt/batt.c:196
+#: ../src/plugins/batt/batt.c:193
 #, c-format
 msgid "Battery: %d%% charged"
 msgstr "Bateria: %d%% kargatuta"
 
-#: ../src/plugins/batt/batt.c:580
+#: ../src/plugins/batt/batt.c:573
 msgid "Hide if there is no battery"
 msgstr "Ezkutatu bateriarik ez badago"
 
-#: ../src/plugins/batt/batt.c:582
+#: ../src/plugins/batt/batt.c:575
 msgid "Alarm command"
 msgstr "Alarmaren komandoa"
 
-#: ../src/plugins/batt/batt.c:583
+#: ../src/plugins/batt/batt.c:576
 msgid "Alarm time (minutes left)"
 msgstr "Alarmaren denbora (falta diren minutuak)"
 
-#: ../src/plugins/batt/batt.c:584
+#: ../src/plugins/batt/batt.c:577
 msgid "Background color"
 msgstr "Atzeko planoaren kolorea"
 
-#: ../src/plugins/batt/batt.c:585
+#: ../src/plugins/batt/batt.c:578
 msgid "Charging color 1"
 msgstr "Kargatzen dagoenerako kolorea 1"
 
-#: ../src/plugins/batt/batt.c:586
+#: ../src/plugins/batt/batt.c:579
 msgid "Charging color 2"
 msgstr "Kargatzen dagoenerako kolorea 2"
 
-#: ../src/plugins/batt/batt.c:587
+#: ../src/plugins/batt/batt.c:580
 msgid "Discharging color 1"
 msgstr "Deskargatzen dagoenerako kolorea 1"
 
-#: ../src/plugins/batt/batt.c:588
+#: ../src/plugins/batt/batt.c:581
 msgid "Discharging color 2"
 msgstr "Deskargatzen dagoenerako kolorea 2"
 
-#: ../src/plugins/batt/batt.c:589
+#: ../src/plugins/batt/batt.c:582
 msgid "Border width"
 msgstr "Ertzaren zabalera"
 
-#: ../src/plugins/batt/batt.c:619
+#: ../src/plugins/batt/batt.c:612
 msgid "Battery Monitor"
 msgstr "Bateriaren monitorea"
 
-#: ../src/plugins/batt/batt.c:621
+#: ../src/plugins/batt/batt.c:614
 msgid "Display battery status using ACPI"
 msgstr "Bistaratu bateriaren egoera ACPI erabiliz"
 
@@ -1220,91 +1392,79 @@ msgstr "Teklatuaren Led-a"
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "CapsLock, NumLock eta ScrollLock teklen adierazleak"
 
-#~ msgid "<b>Background</b>"
-#~ msgstr "<b>Atzeko planoa</b>"
+#. A label to allow for click through
+#: ../src/plugins/indicator/indicator.c:561
+msgid "No Indicators"
+msgstr ""
 
-#~ msgid "<b>Font</b>"
-#~ msgstr "<b>Letra-tipoa</b>"
-
+#: ../src/plugins/indicator/indicator.c:751
 #, fuzzy
-#~ msgid "<b>Icon</b>"
-#~ msgstr "<b>Letra-tipoa</b>"
+msgid "Indicator Applications"
+msgstr "Hautatu aplikazioa"
 
-#~ msgid "<b>Position</b>"
-#~ msgstr "<b>Posizioa</b>"
+#: ../src/plugins/indicator/indicator.c:752
+msgid "Clock Indicator"
+msgstr ""
 
-#~ msgid "<b>Properties</b>"
-#~ msgstr "<b>Propietateak</b>"
+#: ../src/plugins/indicator/indicator.c:753
+msgid "Messaging Menu"
+msgstr ""
 
-#~ msgid "<b>Set Preferred Applications</b>"
-#~ msgstr "<b>Ezarri hobetsitako aplikazioak</b>"
-
-#~ msgid "<b>Size</b>"
-#~ msgstr "<b>Tamaina</b>"
-
-#~ msgid "Advanced"
-#~ msgstr "Aurreratua"
-
-#~ msgid "Alignment:"
-#~ msgstr "Lerrokatzea:"
-
+#: ../src/plugins/indicator/indicator.c:754
 #, fuzzy
-#~ msgid "Center"
-#~ msgstr "Orokorra"
+msgid "Network Menu"
+msgstr "Karpeta-menua"
 
+#: ../src/plugins/indicator/indicator.c:755
+msgid "Session Menu"
+msgstr ""
+
+#: ../src/plugins/indicator/indicator.c:756
 #, fuzzy
-#~ msgid "Custom color"
-#~ msgstr "Kolore pertsonalizatua"
+msgid "Sound Menu"
+msgstr "Erakutsi menua"
 
-#~ msgid "Edge:"
-#~ msgstr "Ertza:"
+#: ../src/plugins/indicator/indicator.c:780
+msgid "Indicator applets"
+msgstr ""
 
-#~ msgid "File Manager:"
-#~ msgstr "Fitxategi kudeatzailea:"
-
+#: ../src/plugins/indicator/indicator.c:782
 #, fuzzy
-#~ msgid "Image"
-#~ msgstr "irudia"
+msgid "Add indicator applets to the panel"
+msgstr "Gehitu bereizlea panelari"
 
-#~ msgid "Logout Command:"
-#~ msgstr "Saioa amaierako komandoa:"
-
-#~ msgid "Make window managers treat the panel as dock"
-#~ msgstr ""
-#~ "Leiho kudeatzaileak panela atrakagarria bezala tratatzea ahalbideratzen du"
-
-#~ msgid "Margin:"
-#~ msgstr "Marjina:"
-
-#~ msgid "Panel Applets"
-#~ msgstr "Paneleko applet-ak"
-
-#~ msgid "Panel Preferences"
-#~ msgstr "Panelaren hobespenak"
-
-#~ msgid "Pixels"
-#~ msgstr "Pixelak"
-
-#~ msgid "Reserve space, and not covered by maximized windows"
-#~ msgstr "Erreserbatu tokia eta ez estali maximizatutako leihoekin"
-
-#~ msgid "Select an image file"
-#~ msgstr "Hautatu irudi-fitxategia"
-
+#: ../src/plugins/monitors/monitors.c:654
 #, fuzzy
-#~ msgid "System theme"
-#~ msgstr "Bat ere ez (erabili sistemaren gaia)"
+msgid "CPU color"
+msgstr "Kolore pertsonalizatua"
 
-#~ msgid "Terminal Emulator:"
-#~ msgstr "Terminal emulatzailea:"
-
+#: ../src/plugins/monitors/monitors.c:655
 #, fuzzy
-#~ msgid "pixels"
-#~ msgstr "Pixelak"
+msgid "Display RAM usage"
+msgstr "Bistaratu CPU erabilera"
 
+#: ../src/plugins/monitors/monitors.c:656
 #, fuzzy
-#~ msgid "Applications"
-#~ msgstr "Hautatu aplikazioa"
+msgid "RAM color"
+msgstr "Tintaren kolorea:"
+
+#: ../src/plugins/monitors/monitors.c:753
+#, fuzzy
+msgid "Resource monitors"
+msgstr "Monitorearen interfazea"
+
+#: ../src/plugins/monitors/monitors.c:755
+msgid "Display monitors (CPU, RAM)"
+msgstr ""
+
+#: ../src/plugins/wnckpager/wnckpager.c:721
+msgid "WNCKPager"
+msgstr ""
+
+#: ../src/plugins/wnckpager/wnckpager.c:723
+#, fuzzy
+msgid "WNCKpager plugin"
+msgstr "Orrialdekatzaile plugin sinplea"
 
 #, fuzzy
 #~ msgid "Available Applications"
@@ -1343,9 +1503,6 @@ msgstr "CapsLock, NumLock eta ScrollLock teklen adierazleak"
 #~ msgid "Enable Transparency"
 #~ msgstr "Gaitu gardentasuna"
 
-#~ msgid "Tint color:"
-#~ msgstr "Tintaren kolorea:"
-
 #~ msgid " --configure -- launch configuration utility\n"
 #~ msgstr " --configure -- abiarazi konfigurazio utilitatea\n"
 
@@ -1375,9 +1532,6 @@ msgstr "CapsLock, NumLock eta ScrollLock teklen adierazleak"
 
 #~ msgid "Action"
 #~ msgstr "Akzioa"
-
-#~ msgid "Provide Menu"
-#~ msgstr "Erakutsi menua"
 
 #~ msgid "Kayboard Layout switcher"
 #~ msgstr "Teklatuaren diseinuaren aldatzailea"
