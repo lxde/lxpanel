@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2011-12-24 13:59+0200\n"
+"PO-Revision-Date: 2012-01-04 20:34+0200\n"
 "Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Proxecto Trasno <proxecto@trasno.net>\n"
 "Language: gl\n"
@@ -607,9 +607,8 @@ msgid "Tooltip only"
 msgstr "Só mensaxe emerxente"
 
 #: ../src/plugins/dclock.c:440
-#, fuzzy
 msgid "Center text"
-msgstr "Centro"
+msgstr "Centrar o texto"
 
 #: ../src/plugins/dclock.c:469
 msgid "Digital Clock"
@@ -653,7 +652,7 @@ msgstr "Escritorios virtuais"
 
 #: ../src/plugins/pager.c:839
 msgid "Simple pager plugin"
-msgstr "Complemento simple para escritorios virtuais"
+msgstr "Complemento sinxelo para escritorios virtuais"
 
 #: ../src/plugins/space.c:143
 msgid "Spacer"
@@ -820,10 +819,12 @@ msgid ""
 "Error, you need to install a application to configure the sound (pavucontol, "
 "alsamixer ...)"
 msgstr ""
+"Error, é necesario instalar un aplicativo para configurar o son (pavucontol, "
+"alsamixer ...)"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
-msgstr "<Punto de acceso oculto>"
+msgstr "<Punto de acceso agochado>"
 
 #: ../src/plugins/netstat/netstat.c:201
 msgid "Wireless Networks not found in range"
@@ -995,7 +996,7 @@ msgstr "Interface"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:839
 msgid "The current interface the icon is monitoring."
-msgstr "A interface actual que a icona monitoriza."
+msgstr "A interface actual que monitoriza a icona."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:846
 msgid "Orientation"
@@ -1028,8 +1029,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Por favor, contacte co administrador do seu sistema para resolver o seguinte "
-"problema:\n"
+"Contacte co administrador do seu sistema para resolver o seguinte problema:\n"
 "\n"
 "%s"
 
@@ -1137,7 +1137,7 @@ msgstr "VJ 6-bit Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:921
 msgid "Adaptive Serial Line IP"
-msgstr "Interface to monitor"
+msgstr "Adaptive Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:924
 msgid "AMPR ROSE"
@@ -1364,74 +1364,67 @@ msgstr "Indicadores para as teclas BloqMaiús, BloqNum, BloqDespl"
 #. A label to allow for click through
 #: ../src/plugins/indicator/indicator.c:561
 msgid "No Indicators"
-msgstr ""
+msgstr "Sen indicadores"
 
 #: ../src/plugins/indicator/indicator.c:751
-#, fuzzy
 msgid "Indicator Applications"
-msgstr "Aplicacións"
+msgstr "Indicador de aplicativos"
 
 #: ../src/plugins/indicator/indicator.c:752
 msgid "Clock Indicator"
-msgstr ""
+msgstr "Indicador do reloxo"
 
 #: ../src/plugins/indicator/indicator.c:753
 msgid "Messaging Menu"
-msgstr ""
+msgstr "Menú de mensaxaría"
 
 #: ../src/plugins/indicator/indicator.c:754
-#, fuzzy
 msgid "Network Menu"
-msgstr "Menú de directorios"
+msgstr "Menú de rede"
 
 #: ../src/plugins/indicator/indicator.c:755
 msgid "Session Menu"
-msgstr ""
+msgstr "Menú de sesión"
 
 #: ../src/plugins/indicator/indicator.c:756
 msgid "Sound Menu"
-msgstr ""
+msgstr "Menú de son"
 
 #: ../src/plugins/indicator/indicator.c:780
 msgid "Indicator applets"
-msgstr ""
+msgstr "Indicador de miniaplicativos"
 
 #: ../src/plugins/indicator/indicator.c:782
-#, fuzzy
 msgid "Add indicator applets to the panel"
-msgstr "Engadir un separador ao panel"
+msgstr "Engadir un indicador de miniaplicativos ao panel"
 
 #: ../src/plugins/monitors/monitors.c:654
-#, fuzzy
 msgid "CPU color"
-msgstr "Cor personalizada"
+msgstr "Cor da CPU"
 
 #: ../src/plugins/monitors/monitors.c:655
-#, fuzzy
 msgid "Display RAM usage"
-msgstr "Amosar o uso do procesador"
+msgstr "Amosar o uso da RAM"
 
 #: ../src/plugins/monitors/monitors.c:656
 msgid "RAM color"
-msgstr ""
+msgstr "Cor da RAM"
 
 #: ../src/plugins/monitors/monitors.c:753
-#, fuzzy
 msgid "Resource monitors"
-msgstr "Dispositivo a supervisar"
+msgstr "Monitores de recursos"
 
 #: ../src/plugins/monitors/monitors.c:755
 msgid "Display monitors (CPU, RAM)"
-msgstr ""
+msgstr "Amosar os monitores (CPU, RAM)"
 
 #: ../src/plugins/wnckpager/wnckpager.c:721
 msgid "WNCKPager"
-msgstr ""
+msgstr "WNCKPager"
 
 #: ../src/plugins/wnckpager/wnckpager.c:723
-#, fuzzy
 msgid "WNCKpager plugin"
-msgstr "Complemento simple para escritorios virtuais"
+msgstr "Complemento WNCKpager"
 
 #~ msgid "Available Applications"
 #~ msgstr "Aplicacións dispoñíbeis"
