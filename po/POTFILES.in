@@ -7,9 +7,9 @@ src/gtkbar.c
 src/panel.c
 src/plugin.c
 src/gtk-run.c
-data/ui/launchbar.ui
-data/ui/netstatus.ui
-data/ui/panel-pref.ui
+data/ui/launchbar.glade
+data/ui/netstatus.glade
+data/ui/panel-pref.glade
 
 # Putting translation of plugins in main catalog is not a good idea...
 src/plugins/cpu/cpu.c
@@ -47,3 +47,9 @@ src/plugins/netstatus/gnome-netstatus.glade
 src/plugins/batt/batt.c
 
 src/plugins/kbled/kbled.c
+
+src/plugins/indicator/indicator.c
+
+src/plugins/monitors/monitors.c
+
+src/plugins/wnckpager/wnckpager.c
