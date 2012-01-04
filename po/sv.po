@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2011-07-22 00:19+0200\n"
+"PO-Revision-Date: 2012-01-04 18:28+0200\n"
 "Last-Translator: Martin <brother@bsnet.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -69,7 +69,7 @@ msgid ""
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
 "Ska panelen verkligen raderas?\n"
-"<b>Varning: Detta kan inte ångras.</b"
+"<b>Varning: Detta kan inte ångras.</b>"
 
 #: ../src/panel.c:653
 msgid "Confirm"
@@ -79,7 +79,7 @@ msgstr "Acceptera"
 #: ../src/panel.c:686
 msgid "translator-credits"
 msgstr ""
-"Martin Bagge 2009 <brother@bsnet.se>\n"
+"Martin Bagge 2009-2012 <brother@bsnet.se>\n"
 "\n"
 "Synpunkter på översättningen kan sändas till tp-sv@listor.tp-sv.se"
 
@@ -89,7 +89,7 @@ msgstr "LXPanel"
 
 #: ../src/panel.c:693
 msgid "Copyright (C) 2008-2011"
-msgstr "Copyright © 2008-2011"
+msgstr "Copyright © 2008-2012"
 
 #: ../src/panel.c:694
 msgid "Desktop panel for LXDE project"
@@ -131,7 +131,7 @@ msgstr "Inställningar för \"%s\""
 
 #: ../src/panel.c:1042 ../src/panel.c:1050 ../data/ui/panel-pref.glade.h:21
 msgid "Height:"
-msgstr "Höjd"
+msgstr "Höjd:"
 
 #: ../src/panel.c:1043 ../src/panel.c:1049 ../data/ui/panel-pref.glade.h:40
 msgid "Width:"
@@ -608,7 +608,6 @@ msgid "Tooltip only"
 msgstr "Endast verktygstips"
 
 #: ../src/plugins/dclock.c:440
-#, fuzzy
 msgid "Center text"
 msgstr "Centrerad"
 
@@ -822,6 +821,8 @@ msgid ""
 "Error, you need to install a application to configure the sound (pavucontol, "
 "alsamixer ...)"
 msgstr ""
+"Fel, du behöver installera ett program för att kontrollera ljudet "
+"(alsamixer, pavucontrol etc.)"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
@@ -860,7 +861,7 @@ msgstr "IP-adress:"
 
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Remote IP:"
-msgstr "Fjärr-IP"
+msgstr "Fjärr-IP:"
 
 #: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
@@ -933,7 +934,7 @@ msgstr "Krypteringsnyckel:"
 
 #: ../src/plugins/netstatus/netstatus.c:179
 msgid "Interface to monitor"
-msgstr "Gränssnitt at övervaka"
+msgstr "Gränssnitt att övervaka"
 
 #: ../src/plugins/netstatus/netstatus.c:180
 msgid "Config tool"
@@ -1021,7 +1022,7 @@ msgstr "Visa signal"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:864
 msgid "Whether or not the signal strength should be displayed."
-msgstr "Anger om signalstyrka ska visas eller ej"
+msgstr "Anger om signalstyrka ska visas eller ej."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:977
 #, c-format
@@ -1360,81 +1361,72 @@ msgstr "Tangentbordslampor"
 
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr "Indikatorer för tangenterna CapsLock, NumLock och ScrollLock "
+msgstr "Indikatorer för tangenterna CapsLock, NumLock och ScrollLock"
 
 #. A label to allow for click through
 #: ../src/plugins/indicator/indicator.c:561
 msgid "No Indicators"
-msgstr ""
+msgstr "Inga indikatorer"
 
 #: ../src/plugins/indicator/indicator.c:751
-#, fuzzy
 msgid "Indicator Applications"
-msgstr "Applikationer"
+msgstr "Indikator för applikationer"
 
 #: ../src/plugins/indicator/indicator.c:752
 msgid "Clock Indicator"
-msgstr ""
+msgstr "Klockindikator"
 
 #: ../src/plugins/indicator/indicator.c:753
 msgid "Messaging Menu"
-msgstr ""
+msgstr "Meddelandemeny"
 
 #: ../src/plugins/indicator/indicator.c:754
-#, fuzzy
 msgid "Network Menu"
-msgstr "Katalogmeny"
+msgstr "Nätverksmeny"
 
 #: ../src/plugins/indicator/indicator.c:755
 msgid "Session Menu"
-msgstr ""
+msgstr "Sessionsmeny"
 
 #: ../src/plugins/indicator/indicator.c:756
-#, fuzzy
 msgid "Sound Menu"
-msgstr "Tillhandahåll meny"
+msgstr "Ljudmeny"
 
 #: ../src/plugins/indicator/indicator.c:780
 msgid "Indicator applets"
-msgstr ""
+msgstr "Indikatorapplet"
 
 #: ../src/plugins/indicator/indicator.c:782
-#, fuzzy
 msgid "Add indicator applets to the panel"
-msgstr "Lägg till separator till panelen"
+msgstr "Lägg till indikatorapplets till panelen"
 
 #: ../src/plugins/monitors/monitors.c:654
-#, fuzzy
 msgid "CPU color"
-msgstr "Alternativ färg"
+msgstr "CPU-färg"
 
 #: ../src/plugins/monitors/monitors.c:655
-#, fuzzy
 msgid "Display RAM usage"
-msgstr "Visa CPU-användning"
+msgstr "Visa RAM-användning"
 
 #: ../src/plugins/monitors/monitors.c:656
-#, fuzzy
 msgid "RAM color"
-msgstr "Färg för toning:"
+msgstr "RAM-färg"
 
 #: ../src/plugins/monitors/monitors.c:753
-#, fuzzy
 msgid "Resource monitors"
-msgstr "Gränssnitt at övervaka"
+msgstr "Resursövervakare"
 
 #: ../src/plugins/monitors/monitors.c:755
 msgid "Display monitors (CPU, RAM)"
-msgstr ""
+msgstr "Visa övervakare (CPU, RAM)"
 
 #: ../src/plugins/wnckpager/wnckpager.c:721
 msgid "WNCKPager"
-msgstr ""
+msgstr "WNCKPager"
 
 #: ../src/plugins/wnckpager/wnckpager.c:723
-#, fuzzy
 msgid "WNCKpager plugin"
-msgstr "Enkel skrivbordshanterare"
+msgstr "WNCKPager-instick"
 
 #~ msgid "Available Applications"
 #~ msgstr "Tillgängliga applikationer"
