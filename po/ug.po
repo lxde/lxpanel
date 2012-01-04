@@ -1,0 +1,1176 @@
+# Uyghur translation for lxpanel.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Gheyret Kenji <gheyret@gmail.com>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lxpanel\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-07-29 14:22+0200\n"
+"PO-Revision-Date: 2011-12-16 10:12+0200\n"
+"Last-Translator: Gheyret <gheyret@gmail.com>\n"
+"Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
+"Language: ug\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 2.0.5\n"
+
+#: ../src/configurator.c:54 ../src/gtk-run.c:319
+msgid "Run"
+msgstr "ئىجرا قىل"
+
+#: ../src/configurator.c:56
+msgid "Restart"
+msgstr "قايتا قوزغات"
+
+#: ../src/configurator.c:57
+msgid "Logout"
+msgstr "تىزىمدىن چىقىش"
+
+#: ../src/configurator.c:448
+msgid "Currently loaded plugins"
+msgstr "نۆۋەتتە ئوقۇلغان قىستۇرمىلار"
+
+#: ../src/configurator.c:457
+msgid "Stretch"
+msgstr "سوز"
+
+#: ../src/configurator.c:559
+msgid "Add plugin to panel"
+msgstr "قىستۇرمىنى كۆزنەكچىگە قوشۇش"
+
+#: ../src/configurator.c:587
+msgid "Available plugins"
+msgstr "ئىشلەتكىلى بولىدىغان قىستۇرمىلار"
+
+#: ../src/configurator.c:1143
+msgid "Logout command is not set"
+msgstr "چىقىش بۇيرۇقى بەلگىلەنمىگەن"
+
+#: ../src/configurator.c:1196
+msgid "Select a directory"
+msgstr "مۇندەرىجە تاللايدۇ"
+
+#: ../src/configurator.c:1196 ../src/configurator.c:1287
+msgid "Select a file"
+msgstr "بىر ھۆججەت تاللاڭ"
+
+#: ../src/configurator.c:1314
+msgid "_Browse"
+msgstr "كۆز يۈگۈرت(_B)"
+
+#: ../src/panel.c:649
+msgid ""
+"Really delete this panel?\n"
+"<b>Warning: This can not be recovered.</b>"
+msgstr "كۆزنەكچىنى راستلا ئۆچۈرەمسىز؟\n"
+"<b>ئاگاھلاندۇرۇش: بۇ ئەسلىگە كەلتۈرگىلى بولمايدۇ.</b>"
+
+#: ../src/panel.c:651
+msgid "Confirm"
+msgstr "جەزملە"
+
+#. TRANSLATORS: Replace this string with your names, one name per line.
+#: ../src/panel.c:684
+msgid "translator-credits"
+msgstr "Gheyret Kenji <gheyret@gmail.com>"
+
+#: ../src/panel.c:689
+msgid "LXPanel"
+msgstr "LXPanel"
+
+#: ../src/panel.c:691
+msgid "Copyright (C) 2008-2011"
+msgstr "نەشر ھوقۇقى (C) 2008-2011"
+
+#: ../src/panel.c:692
+msgid "Desktop panel for LXDE project"
+msgstr "LXDE قۇرۇلۇشىدىكى ئۈستەلئۈستى كۆزنەكچىسى"
+
+#: ../src/panel.c:715
+msgid "Add / Remove Panel Items"
+msgstr "كۆزنەكچە قوشۇش/چىقىرىۋېتىش"
+
+#: ../src/panel.c:723
+#, c-format
+msgid "Remove \"%s\" From Panel"
+msgstr "«%s» نى كۆزنەكچىدىن چىقىرىۋېتىش"
+
+#: ../src/panel.c:735
+msgid "Panel Settings"
+msgstr "تاختاي تەڭشىكى"
+
+#: ../src/panel.c:741
+msgid "Create New Panel"
+msgstr "يېڭى كۆزنەكچە قۇرۇش"
+
+#: ../src/panel.c:752
+msgid "Delete This Panel"
+msgstr "بۇ كۆزنەكچىنى ئۆچۈرۈش"
+
+#: ../src/panel.c:763
+msgid "About"
+msgstr "ھەققىدە"
+
+#: ../src/panel.c:771
+msgid "Panel"
+msgstr "كۆزنەكچە"
+
+#: ../src/panel.c:784
+#, c-format
+msgid "\"%s\" Settings"
+msgstr "«%s» تەڭشىكى"
+
+#: ../src/panel.c:1040 ../src/panel.c:1048
+msgid "Height:"
+msgstr "ئېگىزلىك:"
+
+#: ../src/panel.c:1041 ../src/panel.c:1047
+msgid "Width:"
+msgstr "كەڭلىك:"
+
+#: ../src/panel.c:1042
+msgid "Left"
+msgstr "سول"
+
+#: ../src/panel.c:1043
+msgid "Right"
+msgstr "ئوڭ"
+
+#: ../src/panel.c:1049
+msgid "Top"
+msgstr "ئۈستى"
+
+#: ../src/panel.c:1050
+msgid "Bottom"
+msgstr "ئاستى"
+
+#: ../src/panel.c:1449
+#, c-format
+msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
+msgstr "lxpanel %s - بولسا يۇنىكىس(UNIX) ئۈستەلئۈستىلىرى ئۈچۈن يېنىك بولغان  GTK2+ كۆزنەكچىسىدۇر\n"
+
+#: ../src/panel.c:1450
+#, c-format
+msgid "Command line options:\n"
+msgstr "بۇيرۇق قۇرى تاللانمىلىرى:\n"
+
+#: ../src/panel.c:1451
+#, c-format
+msgid " --help      -- print this help and exit\n"
+msgstr " --help      -- مۇشۇ ياردەمنى كۆرسىتىپ ئاخىرلىشىدۇ\n"
+
+#: ../src/panel.c:1452
+#, c-format
+msgid " --version   -- print version and exit\n"
+msgstr " --version   -- نەشر ئۇچۇرىنى بېسىپ چىقىرىپ ئاخىرلىشىدۇ\n"
+
+#: ../src/panel.c:1453
+#, c-format
+msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
+msgstr " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
+
+#. g_print(_(" --configure -- launch configuration utility\n"));
+#: ../src/panel.c:1455
+#, c-format
+msgid " --profile name -- use specified profile\n"
+msgstr " --profile name -- use specified profile\n"
+
+#: ../src/panel.c:1457
+#, c-format
+msgid " -h  -- same as --help\n"
+msgstr " -h  -- بۇ --help بىلەن ئوخشاش\n"
+
+#: ../src/panel.c:1458
+#, c-format
+msgid " -p  -- same as --profile\n"
+msgstr " -p  -- بۇ --profile بىلەن ئوخشاش\n"
+
+#: ../src/panel.c:1459
+#, c-format
+msgid " -v  -- same as --version\n"
+msgstr " -v  -- بۇ --version بىلەن ئوخشاش\n"
+
+#. g_print(_(" -C  -- same as --configure\n"));
+#: ../src/panel.c:1461
+#, c-format
+msgid ""
+"\n"
+"Visit http://lxde.org/ for detail.\n"
+"\n"
+msgstr "\n"
+"تەپسىلاتى ئۈچۈن http://lxde.org/ نى زىيارەت قىلىڭ\n"
+"\n"
+
+#: ../src/gtk-run.c:332
+msgid "Enter the command you want to execute:"
+msgstr "ئىجرا قىلماقچى بولغان بۇيرۇقنى بۇ يەرگە كىرگۈزۈڭ:"
+
+#: ../src/plugins/cpu/cpu.c:268
+msgid "CPU Usage Monitor"
+msgstr "CPU نىڭ ئىشلىتىلىشىنى كۆزەتكۈچ"
+
+#: ../src/plugins/cpu/cpu.c:270
+msgid "Display CPU usage"
+msgstr "CPU نىڭ ئىشلىتىلىشىنى كۆرسىتىش"
+
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:426
+msgid "Bold font"
+msgstr "توم خەت نۇسخىسى"
+
+#: ../src/plugins/deskno/deskno.c:208
+msgid "Display desktop names"
+msgstr "ئۈستەلئۈستى ئاتىنى كۆرسىتىش"
+
+#: ../src/plugins/deskno/deskno.c:235
+msgid "Desktop Number / Workspace Name"
+msgstr "ئۈستەلئۈستى نومۇرى / خىزمەت بوشلۇقى ئاتى"
+
+#: ../src/plugins/deskno/deskno.c:237
+msgid "Display workspace number, by cmeury@users.sf.net"
+msgstr "خىزمەت بوشلۇقى نومۇرنى كۆرسىتىش، ئاپتور cmeury@users.sf.net"
+
+#: ../src/plugins/image.c:177
+msgid "Display Image and Tooltip"
+msgstr "سۈرەت ۋە كۆرسەتمىنى كۆرسىتىش"
+
+#: ../src/plugins/launchbar.c:912
+msgid "Application Launch Bar"
+msgstr "پروگرامما ئىجرا بالدىقى"
+
+#: ../src/plugins/launchbar.c:914
+msgid "Bar with buttons to launch application"
+msgstr "پروگرامما ئىجرا قىلىدىغان توپچىلار بار بالداق"
+
+#. Add Raise menu item.
+#: ../src/plugins/taskbar.c:1714
+msgid "_Raise"
+msgstr "كۆتۈر(_R)"
+
+#. Add Restore menu item.
+#: ../src/plugins/taskbar.c:1719
+msgid "R_estore"
+msgstr "ئەسلىگە كەلتۈر(_S)"
+
+#. Add Maximize menu item.
+#: ../src/plugins/taskbar.c:1724
+msgid "Ma_ximize"
+msgstr "چوڭايت(_X)"
+
+#. Add Iconify menu item.
+#: ../src/plugins/taskbar.c:1729
+msgid "Ico_nify"
+msgstr "سىنبەلگىلەشتۈر(_N)"
+
+#: ../src/plugins/taskbar.c:1748
+#, c-format
+msgid "Workspace _%d"
+msgstr "خىزمەت بوشلۇقى _%d"
+
+#: ../src/plugins/taskbar.c:1753
+#, c-format
+msgid "Workspace %d"
+msgstr "خىزمەت بوشلۇقى %d"
+
+#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
+#: ../src/plugins/taskbar.c:1767
+msgid "_All workspaces"
+msgstr "بارلىق خىزمەت بوشلۇقى(_A)"
+
+#. Add Move to Workspace menu item as a submenu.
+#: ../src/plugins/taskbar.c:1773
+msgid "_Move to Workspace"
+msgstr "خىزمەت بوشلۇقىغا يۆتكە(_M)"
+
+#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
+#: ../src/plugins/taskbar.c:1779
+msgid "_Close Window"
+msgstr "كۆزنەك ياپ(_C)"
+
+#: ../src/plugins/taskbar.c:1986
+msgid "Show tooltips"
+msgstr "ئەسكەرتمىلەرنى كۆرسەت"
+
+#: ../src/plugins/taskbar.c:1987
+msgid "Icons only"
+msgstr "سىنبەلگىلەرلا"
+
+#: ../src/plugins/taskbar.c:1988
+msgid "Flat buttons"
+msgstr "تەكشى توپچىلار"
+
+#: ../src/plugins/taskbar.c:1989
+msgid "Show windows from all desktops"
+msgstr "بارلىق ئۈستەلئۈستىلىرىدىكى كۆزنەكلەرنى كۆرسىتىش"
+
+#: ../src/plugins/taskbar.c:1990
+msgid "Use mouse wheel"
+msgstr "چاشقىنەك غالتىكىنى ئىشلىتىش"
+
+#: ../src/plugins/taskbar.c:1991
+msgid "Flash when there is any window requiring attention"
+msgstr "دىققەتنى تارتماقچى بولغاندا بىرەر كۆزنەكنى چاقنىتىش"
+
+#: ../src/plugins/taskbar.c:1992
+msgid "Combine multiple application windows into a single button"
+msgstr ""
+
+#: ../src/plugins/taskbar.c:1993
+msgid "Maximum width of task button"
+msgstr "ۋەزىپە توپچىسىنىڭ ئەڭ چوڭ كەڭلىكى"
+
+#: ../src/plugins/taskbar.c:1994
+msgid "Spacing"
+msgstr "ئارىلىق"
+
+#: ../src/plugins/taskbar.c:2051
+msgid "Task Bar (Window List)"
+msgstr "ۋەزىپە بالدىقى (كۆزنەك تىزىمى)"
+
+#: ../src/plugins/taskbar.c:2053
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
+msgstr ""
+
+#: ../src/plugins/dclock.c:422
+msgid "Clock Format"
+msgstr "سائەت فورماتى"
+
+#: ../src/plugins/dclock.c:423
+msgid "Tooltip Format"
+msgstr "كۆرسەتمە پىچىمى"
+
+#: ../src/plugins/dclock.c:424
+msgid "Format codes: man 3 strftime; \\n for line break"
+msgstr ""
+
+#: ../src/plugins/dclock.c:425
+msgid "Action when clicked (default: display calendar)"
+msgstr "چېكىلگەن چاغدىكى مەشغۇلات(كۆڭۈلدىكى: يىلنامە كۆرسىتىدۇ)"
+
+#: ../src/plugins/dclock.c:427
+msgid "Tooltip only"
+msgstr "كۆرسەتمىلا"
+
+#: ../src/plugins/dclock.c:455
+msgid "Digital Clock"
+msgstr "رەقەملىك سائەت"
+
+#: ../src/plugins/dclock.c:457
+msgid "Display digital clock and tooltip"
+msgstr "رەقەملىك سائەت ۋە كۆرسەتمىنى كۆرسىتىش"
+
+#: ../src/plugins/menu.c:423
+msgid "Add to desktop"
+msgstr "ئۈستەلئۈستىگە قوشۇش"
+
+#: ../src/plugins/menu.c:433
+msgid "Properties"
+msgstr "خاسلىق"
+
+#: ../src/plugins/menu.c:1079 ../src/plugins/dirmenu.c:413
+msgid "Icon"
+msgstr "سىنبەلگە"
+
+#: ../src/plugins/menu.c:1096
+msgid "Menu"
+msgstr "تىزىملىك"
+
+#: ../src/plugins/menu.c:1098
+msgid "Application Menu"
+msgstr "پروگرامما تىزىملىكى"
+
+#: ../src/plugins/separator.c:102
+msgid "Separator"
+msgstr "ئايرىغۇچ"
+
+#: ../src/plugins/separator.c:104
+msgid "Add a separator to the panel"
+msgstr "كۆزنەكچىگە ئايرىغۇچ قوشىدۇ"
+
+#: ../src/plugins/pager.c:833
+msgid "Desktop Pager"
+msgstr "ئۈستەلئۈستى چاقىرغۇسى"
+
+#: ../src/plugins/pager.c:835
+msgid "Simple pager plugin"
+msgstr "ئاددىي چاقىرغۇ قىستۇرمىسى"
+
+#: ../src/plugins/space.c:125 ../src/plugins/batt/batt.c:590
+msgid "Size"
+msgstr "چوڭلۇقى"
+
+#: ../src/plugins/space.c:143
+msgid "Spacer"
+msgstr "بوشلۇق"
+
+#: ../src/plugins/space.c:145
+msgid "Allocate space"
+msgstr "بوشلۇق تەقسىملەش"
+
+#: ../src/plugins/tray.c:737
+msgid "System Tray"
+msgstr "سىستېما قوندىقى"
+
+#: ../src/plugins/tray.c:739
+msgid "System tray"
+msgstr "سىستېما قوندىقى"
+
+#: ../src/plugins/xkb/xkb-plugin.c:291
+msgid "Configure Keyboard Layout Switcher"
+msgstr "ھەرپتاختا جايلاشتۇرۇلۇشىنى ئالماشتۇرغۇچ"
+
+#: ../src/plugins/xkb/xkb-plugin.c:306
+msgid "Show layout as"
+msgstr "جايلاشتۇرۇشنى تۆۋەندىكىدەك كۆرسەت"
+
+#: ../src/plugins/xkb/xkb-plugin.c:321
+msgid "image"
+msgstr "سۈرەت"
+
+#: ../src/plugins/xkb/xkb-plugin.c:322
+msgid "text"
+msgstr "تېكىست"
+
+#: ../src/plugins/xkb/xkb-plugin.c:329
+msgid "Per application settings"
+msgstr "پروگراممىلارنىڭ تەڭشىكى"
+
+#. Create a check button as the child of the vertical box.
+#: ../src/plugins/xkb/xkb-plugin.c:344
+msgid "_Remember layout for each application"
+msgstr "ھەر بىر پروگراممىنىڭ جايلاشتۇرۇلۇشىنى ئەستە تۇت(_R)"
+
+#. Create a label as the child of the horizontal box.
+#: ../src/plugins/xkb/xkb-plugin.c:354
+msgid "Default layout:"
+msgstr "كۆڭۈلدىكى جايلاشتۇرۇش:"
+
+#: ../src/plugins/xkb/xkb-plugin.c:405
+msgid "Keyboard Layout Switcher"
+msgstr "ھەرپتاختا جايلاشتۇرۇلۇشىنى ئالماشتۇرغۇچ"
+
+#: ../src/plugins/xkb/xkb-plugin.c:407
+msgid "Switch between available keyboard layouts"
+msgstr "بار ھەرپتاختا جايلاشتۇرۇشلىرىنى ئالماشتۇرۇش"
+
+#: ../src/plugins/wincmd.c:209
+msgid "Left click to iconify all windows.  Middle click to shade them."
+msgstr ""
+
+#: ../src/plugins/wincmd.c:237
+msgid "Alternately iconify/shade and raise"
+msgstr ""
+
+#: ../src/plugins/wincmd.c:266
+msgid "Minimize All Windows"
+msgstr "بارلىق كۆزنەكلەرنى ئەڭ كىچىك قىلىش"
+
+#: ../src/plugins/wincmd.c:268
+msgid ""
+"Sends commands to all desktop windows.\n"
+"Supported commands are 1) iconify and 2) shade"
+msgstr ""
+
+#: ../src/plugins/dirmenu.c:246
+msgid "Open in _Terminal"
+msgstr "تېرمىنالدا ئاچ(_T)"
+
+#: ../src/plugins/dirmenu.c:411
+msgid "Directory"
+msgstr "مۇندەرىجە"
+
+#: ../src/plugins/dirmenu.c:412
+msgid "Label"
+msgstr "ئەن"
+
+#: ../src/plugins/dirmenu.c:443
+msgid "Directory Menu"
+msgstr "مۇندەرىجە تىزىملىكى"
+
+#: ../src/plugins/dirmenu.c:445
+msgid "Browse directory tree via menu (Author: PCMan)"
+msgstr ""
+
+#: ../src/plugins/thermal/thermal.c:304
+msgid "Normal"
+msgstr "نورمال"
+
+#: ../src/plugins/thermal/thermal.c:305
+msgid "Warning1"
+msgstr "ئاگاھلاندۇرۇش1"
+
+#: ../src/plugins/thermal/thermal.c:306
+msgid "Warning2"
+msgstr "ئاگاھلاندۇرۇش2"
+
+#: ../src/plugins/thermal/thermal.c:307
+msgid "Automatic sensor location"
+msgstr "ئاپتوماتىك سەزگۈچنىڭ ئورنى"
+
+#: ../src/plugins/thermal/thermal.c:308
+msgid "Sensor"
+msgstr "سەزگۈچ"
+
+#: ../src/plugins/thermal/thermal.c:309
+msgid "Automatic temperature levels"
+msgstr ""
+
+#: ../src/plugins/thermal/thermal.c:310
+msgid "Warning1 Temperature"
+msgstr "ئاگاھلاندۇرۇش1 تېمپېراتۇرا"
+
+#: ../src/plugins/thermal/thermal.c:311
+msgid "Warning2 Temperature"
+msgstr "ئاگاھلاندۇرۇش2 تېمپېراتۇرا"
+
+#: ../src/plugins/thermal/thermal.c:353
+msgid "Temperature Monitor"
+msgstr "تېمپېراتۇرا كۆزەتكۈچ"
+
+#: ../src/plugins/thermal/thermal.c:355
+msgid "Display system temperature"
+msgstr "سىستېما تېمپېراتۇرىسىنى كۆرسىتىش"
+
+#. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
+#. Display current level in tooltip.
+#: ../src/plugins/volume/volume.c:300
+#: ../src/plugins/volumealsa/volumealsa.c:252
+#: ../src/plugins/volumealsa/volumealsa.c:422
+msgid "Volume control"
+msgstr "ئاۋاز مىقدارىنى تىزگىنلەش"
+
+#: ../src/plugins/volume/volume.c:312
+#: ../src/plugins/volumealsa/volumealsa.c:471
+msgid "Volume Control"
+msgstr "ئاۋاز تىزگىنى"
+
+#. Create a frame as the child of the viewport.
+#: ../src/plugins/volume/volume-impl.c:109
+#: ../src/plugins/volumealsa/volumealsa.c:380
+msgid "Volume"
+msgstr "ئاۋاز مىقدارى"
+
+#. Create a check button as the child of the vertical box.
+#: ../src/plugins/volumealsa/volumealsa.c:399
+msgid "Mute"
+msgstr "ئۈنسىز"
+
+#: ../src/plugins/netstat/netstat.c:168
+msgid "<Hidden Access Point>"
+msgstr "<يوشۇرۇن زىيارەت نۇقتىسى>"
+
+#: ../src/plugins/netstat/netstat.c:201
+msgid "Wireless Networks not found in range"
+msgstr "دائىرىدىن سىمسىز تور تېپىلمىدى"
+
+#. Repair
+#: ../src/plugins/netstat/netstat.c:235
+msgid "Repair"
+msgstr "تۈزەت"
+
+#. interface down
+#: ../src/plugins/netstat/netstat.c:240
+msgid "Disable"
+msgstr "ئىناۋەتسىز"
+
+#: ../src/plugins/netstat/netstat.c:299
+msgid "Wireless Connection has no connectivity"
+msgstr ""
+
+#: ../src/plugins/netstat/netstat.c:301
+msgid "Network cable is plugged out"
+msgstr "تور سىمىنى چېتىلدى"
+
+#: ../src/plugins/netstat/netstat.c:303
+msgid "Connection has limited or no connectivity"
+msgstr ""
+
+#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:329
+msgid "IP Address:"
+msgstr "IP ئادرېسى:"
+
+#: ../src/plugins/netstat/netstat.c:308
+msgid "Remote IP:"
+msgstr "يىراقتىكى IP:"
+
+#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:331
+msgid "Netmask:"
+msgstr "تور ماسكىسى:"
+
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:333
+msgid "Activity"
+msgstr "پائالىيەت"
+
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:333
+msgid "Sent"
+msgstr "يوللانغىنى"
+
+#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:333
+msgid "Received"
+msgstr "تاپشۇرۇۋالغىنى"
+
+#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:334
+msgid "bytes"
+msgstr "بايت"
+
+#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:335
+msgid "packets"
+msgstr "بوغچىمىلار"
+
+#: ../src/plugins/netstat/netstat.c:315
+#: ../src/plugins/netstatus/netstatus-iface.c:173
+msgid "Wireless"
+msgstr "سىمسىز"
+
+#: ../src/plugins/netstat/netstat.c:317
+msgid "Protocol:"
+msgstr "كېلىشىم:"
+
+#: ../src/plugins/netstat/netstat.c:319 ../src/plugins/netstat/netstat.c:330
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
+msgid "Broadcast:"
+msgstr "ئاڭلىتىش:"
+
+#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
+msgid "HW Address:"
+msgstr "HW ئادرېسى:"
+
+#: ../src/plugins/netstat/netstat.c:470
+msgid "Manage Networks"
+msgstr "تورلارنى باشقۇرۇش"
+
+#: ../src/plugins/netstat/netstat.c:472
+msgid "Monitor and Manage networks"
+msgstr ""
+
+#. create dialog
+#: ../src/plugins/netstat/passwd_gui.c:84
+msgid "Setting Encryption Key"
+msgstr "شىفىرلاش ئاچقۇچىنى بەلگىلەش"
+
+#. messages
+#: ../src/plugins/netstat/passwd_gui.c:94
+msgid ""
+"This wireless network was encrypted.\n"
+"You must have the encryption key."
+msgstr "مەزكۇر سىمسىز تور شىفىرلانغان.\n"
+"سىزدە چوقۇم شىفىرلاش ئاچقۇچى بولۇشى كېرەك."
+
+#: ../src/plugins/netstat/passwd_gui.c:99
+msgid "Encryption Key:"
+msgstr "شىفىرلاش ئاچقۇچى:"
+
+#: ../src/plugins/netstatus/netstatus.c:179
+msgid "Interface to monitor"
+msgstr ""
+
+#: ../src/plugins/netstatus/netstatus.c:180
+msgid "Config tool"
+msgstr "سەپلەش قورالى"
+
+#: ../src/plugins/netstatus/netstatus.c:197
+msgid "Network Status Monitor"
+msgstr "تور ھالىتىنى كۆزەتكۈچ"
+
+#: ../src/plugins/netstatus/netstatus.c:199
+msgid "Monitor network status"
+msgstr "تور ھالىتىنى كۆزىتىش"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:51
+#: ../src/plugins/netstatus/netstatus-dialog.c:312
+msgid "Unknown"
+msgstr "نامەلۇم"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:116
+msgid "Connection Properties"
+msgstr "باغلىنىش خاسلىقى"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:122
+#, c-format
+msgid "Connection Properties: %s"
+msgstr "باغلىنىش خاسلىقى: %s"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:135
+#, c-format
+msgid "%lu packet"
+msgid_plural "%lu packets"
+msgstr[0] "%lu بوغچا"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:396
+#, c-format
+msgid ""
+"There was an error displaying help:\n"
+"%s"
+msgstr "ياردەمنى كۆرسىتىشتە خاتالىق كۆرۈلدى: \n"
+"%s"
+
+#: ../src/plugins/netstatus/netstatus-dialog.c:580
+#, c-format
+msgid "Failed to launch time configuration tool: %s"
+msgstr "ۋاقىت سەپلىمە قورالىنى يۆتكەپ ئىشلىتەلمىدى: %s"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:380
+#, c-format
+msgid "Network Connection: %s"
+msgstr "تور باغلىنىشى: %s"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:385
+msgid "Network Connection"
+msgstr "تور باغلىنىشى"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:838
+msgid "Interface"
+msgstr "ئارايۈز"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:839
+msgid "The current interface the icon is monitoring."
+msgstr "نۆۋەتتە كۆزىتىلىۋاتقان ئېغىزنىڭ سىنبەلگىسى."
+
+#: ../src/plugins/netstatus/netstatus-icon.c:846
+msgid "Orientation"
+msgstr "يۆنىلىش"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:847
+msgid "The orientation of the tray."
+msgstr "قوندۇرمىنىڭ يۆنىلىشى."
+
+#: ../src/plugins/netstatus/netstatus-icon.c:855
+msgid "Tooltips Enabled"
+msgstr "كۆرسەتمە قوزغىتىلدى"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:856
+msgid "Whether or not the icon's tooltips are enabled."
+msgstr "سىنبەلگىنىڭ كۆرسەتمىلىرىنى قوزغىتامدۇق يوق."
+
+#: ../src/plugins/netstatus/netstatus-icon.c:863
+msgid "Show Signal"
+msgstr "سىگنال كۆرسەت"
+
+#: ../src/plugins/netstatus/netstatus-icon.c:864
+msgid "Whether or not the signal strength should be displayed."
+msgstr "سىگنال كۈچلۈكلۈكىنى كۆرسىتەمدۇ يوق."
+
+#: ../src/plugins/netstatus/netstatus-icon.c:977
+#, c-format
+msgid ""
+"Please contact your system administrator to resolve the following problem:\n"
+"\n"
+"%s"
+msgstr "سىستېما باشقۇرغۇچىڭىز بىلەن ئالاقىلىشىپ تۆۋەندىكى مەسىلىنى ھەل قىلىڭ:\n"
+"\n"
+"%s"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:148
+msgid "Name"
+msgstr "ئاتى"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:149
+msgid "The interface name"
+msgstr "ئېغىز ئاتى"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:156
+msgid "State"
+msgstr "ھالەت"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:157
+msgid "The interface state"
+msgstr "ئېغىز ھالىتى"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:165
+msgid "Stats"
+msgstr "ستاتىستىكىلار"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:166
+msgid "The interface packets/bytes statistics"
+msgstr "ئېغىز بوغچا/بايت ستاتىستىكىسى"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:174
+msgid "Whether the interface is a wireless interface"
+msgstr "ئېغىز سىمسىز تور كارتىسىمۇ ياق"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:181
+msgid "Signal"
+msgstr "سىگنال"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:182
+msgid "Wireless signal strength percentage"
+msgstr "سىمسىز سىگنال كۈچلۈكلۈك پىرسەنتى"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:191
+#: ../src/plugins/netstatus/netstatus-util.c:167
+msgid "Error"
+msgstr "خاتالىق"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:192
+msgid "The current error condition"
+msgstr "نۆۋەتتىكى خاتالىق شەرتى"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:434
+#: ../src/plugins/netstatus/netstatus-iface.c:1197
+#, c-format
+msgid "Unable to open socket: %s"
+msgstr "ئوقۇرنى ئاچالمىدى: %s"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:496
+#: ../src/plugins/netstatus/netstatus-iface.c:1223
+#, c-format
+msgid "SIOCGIFFLAGS error: %s"
+msgstr "SIOCGIFFLAGS خاتالىق: %s"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:870
+msgid "AMPR NET/ROM"
+msgstr "AMPR NET/ROM"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:873
+msgid "Ethernet"
+msgstr "ئېفىر تورى"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:879
+msgid "AMPR AX.25"
+msgstr "AMPR AX.25"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:888
+#: ../src/plugins/netstatus/netstatus-iface.c:1008
+msgid "16/4 Mbps Token Ring"
+msgstr "16/4 Mbps ھالقىسىمان تور"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:891
+msgid "ARCnet"
+msgstr "ARCnet"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:897
+msgid "Frame Relay DLCI"
+msgstr "كاندۇك داۋاملاشتۇرغۇچ DLCI"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:903
+msgid "Metricom Starmode IP"
+msgstr "Metricom Starmode IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:906
+msgid "Serial Line IP"
+msgstr "ئارقىمۇ ئارقا لىنىيە IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:909
+msgid "VJ Serial Line IP"
+msgstr "VJ ئارقىمۇ ئارقا لىنىيە IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:912
+msgid "6-bit Serial Line IP"
+msgstr "6-bit ئارقىمۇ ئارقا لىنىيە IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:915
+msgid "VJ 6-bit Serial Line IP"
+msgstr "VJ 6-bit ئارقىمۇ ئارقا لىنىيە IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:921
+msgid "Adaptive Serial Line IP"
+msgstr "ماسلىشىشچان ئارقىمۇ ئارقا لىنىيە IP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:924
+msgid "AMPR ROSE"
+msgstr "AMPR ROSE"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:927
+msgid "Generic X.25"
+msgstr "ئادەتتىكى X.25"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:930
+msgid "Point-to-Point Protocol"
+msgstr "نۇقتىدىن نۇقتا كېلىشىمى"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:936
+msgid "(Cisco)-HDLC"
+msgstr "(Cisco)-HDLC"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:939
+msgid "LAPB"
+msgstr "LAPB"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:948
+msgid "IPIP Tunnel"
+msgstr "IPIP تونېلى"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:954
+msgid "Frame Relay Access Device"
+msgstr "كاندۇك داۋاملاشتۇرىدىغان زىيارەت ئۈسكۈنىسى"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:960
+msgid "Local Loopback"
+msgstr "يەرلىك دەۋرىي ھالقا"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:966
+msgid "Fiber Distributed Data Interface"
+msgstr "ئوپتىك تالا تەقسىملىمە سانلىق-مەلۇمات ئېغىزى"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:972
+msgid "IPv6-in-IPv4"
+msgstr "IPv6-in-IPv4"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:984
+msgid "HIPPI"
+msgstr "HIPPI"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:987
+msgid "Ash"
+msgstr "Ash"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:990
+msgid "Econet"
+msgstr "Econet"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:993
+msgid "IrLAP"
+msgstr "IrLAP"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:1155
+#, c-format
+msgid "SIOCGIFCONF error: %s"
+msgstr "SIOCGIFCONF خاتالىق: %s"
+
+#: ../src/plugins/netstatus/netstatus-iface.c:1248
+#, c-format
+msgid "No network devices found"
+msgstr "تور ئۈسكۈنىسى تېپىلمىدى"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:180
+#, c-format
+msgid "Cannot open /proc/net/dev: %s"
+msgstr "/proc/net/dev ئاچالمىدى: %s"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:189
+msgid "Could not parse /proc/net/dev. Unknown format."
+msgstr "/proc/net/dev يېشەلمىدى. فورماتى نامەلۇم."
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:204
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:330
+#, c-format
+msgid "Could not parse interface name from '%s'"
+msgstr "'%s' دىن ئېغىزنى تەھلىل قىلالمىدى"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:217
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:645
+#, c-format
+msgid ""
+"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
+msgstr "'%s' دىن ئېغىزنى تەھلىل قىلالمىدى. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:314
+msgid "Could not parse /proc/net/wireless. Unknown format."
+msgstr "/proc/net/wireless تەھلىل قىلالمىدى.  فورمات نامەلۇم."
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:341
+#, c-format
+msgid "Could not parse wireless details from '%s'. link_idx = %d;"
+msgstr "'%s' دىن سىمسىز تەپسىلاتىنى تەھلىل قىلالمىدى. link_idx = %d;"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:414
+#, c-format
+msgid "Could not connect to interface, '%s'"
+msgstr "'%s' ئېغىزغا باغلىنالمىدى"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:420
+#, c-format
+msgid "Could not send ioctl to interface, '%s'"
+msgstr "ioctl نى  '%s' ئېغىزغا يوللىيالمىدى"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:598
+#, c-format
+msgid "Could not parse command line '%s': %s"
+msgstr "بۇيرۇق قۇرىنى تەھلىل قىلالمىدى '%s': %s"
+
+#: ../src/plugins/netstatus/netstatus-sysdeps.c:635
+msgid "Could not parse 'netstat' output. Unknown format"
+msgstr "'netstat' چىقىرىشنى تەھلىل قىلالمىدى. نامەلۇم فورمات"
+
+#: ../src/plugins/netstatus/netstatus-util.c:152
+msgid "Disconnected"
+msgstr "ئۈزۈلدى"
+
+#: ../src/plugins/netstatus/netstatus-util.c:155
+msgid "Idle"
+msgstr "بوش"
+
+#: ../src/plugins/netstatus/netstatus-util.c:158
+msgid "Sending"
+msgstr "يوللاۋاتىدۇ"
+
+#: ../src/plugins/netstatus/netstatus-util.c:161
+msgid "Receiving"
+msgstr "Receiving"
+
+#: ../src/plugins/netstatus/netstatus-util.c:164
+msgid "Sending/Receiving"
+msgstr "يوللاۋاتىدۇ/قوبۇللاۋاتىدۇ"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
+#, no-c-format
+msgid "0%"
+msgstr "0%"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
+msgid "<b>Activity</b>"
+msgstr "<b>پائالىيەت</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
+msgid "<b>Connection</b>"
+msgstr "<b>باغلىنىش</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr "<b>ئىنتېرنېت كېلىشىمى(IPv4)</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>ئىنتېرنېت كېلىشىمى(IPv6)</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
+msgid "<b>Network Device</b>"
+msgstr "<b>تور ئۈسكۈنىسى</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
+msgid "<b>Signal Strength</b>"
+msgstr "<b>سىگنالنىڭ كۈچلۈكلۈكى</b>"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
+msgid "Address:"
+msgstr "ئادرېس:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
+msgid "Con_figure"
+msgstr "سەپلىمە(_F)"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
+msgid "Destination:"
+msgstr "نىشان:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
+msgid "General"
+msgstr "ئادەتتىكى"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
+msgid "Received:"
+msgstr "تاپشۇرۇۋالغىنى:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
+msgid "Scope:"
+msgstr "دائىرە:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
+msgid "Sent:"
+msgstr "يوللانغىنى:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
+msgid "Status:"
+msgstr "ھالەت:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
+msgid "Subnet Mask:"
+msgstr "تارماق تور ماسكىسى:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
+msgid "Support"
+msgstr "قوللاش"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
+msgid "Type:"
+msgstr "تىپى:"
+
+#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
+msgid "_Name:"
+msgstr "ئاتى(_N):"
+
+#: ../src/plugins/batt/batt.c:131
+msgid "No batteries found"
+msgstr "توكدان بايقالمىدى"
+
+#: ../src/plugins/batt/batt.c:179
+#, c-format
+msgid "Battery: %d%% charged, %d:%02d until full"
+msgstr "توكدان: %d%% توكلاندى، تولغۇچە %d:%02d بار"
+
+#: ../src/plugins/batt/batt.c:190
+#, c-format
+msgid "Battery: %d%% charged, %d:%02d left"
+msgstr "توكدان: %d%% توكلاندى، %d:%02d قالدى"
+
+#: ../src/plugins/batt/batt.c:196
+#, c-format
+msgid "Battery: %d%% charged"
+msgstr "توكدان: %d%% توكلاندى"
+
+#: ../src/plugins/batt/batt.c:580
+msgid "Hide if there is no battery"
+msgstr "توكدان يوق بولسا يوشۇر"
+
+#: ../src/plugins/batt/batt.c:582
+msgid "Alarm command"
+msgstr "قوڭغۇراق بۇيرۇقى"
+
+#: ../src/plugins/batt/batt.c:583
+msgid "Alarm time (minutes left)"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:584
+msgid "Background color"
+msgstr "تەگلىك رەڭگى"
+
+#: ../src/plugins/batt/batt.c:585
+msgid "Charging color 1"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:586
+msgid "Charging color 2"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:587
+msgid "Discharging color 1"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:588
+msgid "Discharging color 2"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:589
+msgid "Border width"
+msgstr "گىرۋەك كەڭلىكى"
+
+#: ../src/plugins/batt/batt.c:619
+msgid "Battery Monitor"
+msgstr "توكدان كۆزەتكۈچ"
+
+#: ../src/plugins/batt/batt.c:621
+msgid "Display battery status using ACPI"
+msgstr "توكدان ھالىتىنى ACPI نى ئىشلىتىپ كۆرسىتىش"
+
+#: ../src/plugins/kbled/kbled.c:230
+msgid "Show CapsLock"
+msgstr "CapsLock نى كۆرسىتىش"
+
+#: ../src/plugins/kbled/kbled.c:231
+msgid "Show NumLock"
+msgstr "NumLock نى كۆرسىتىش"
+
+#: ../src/plugins/kbled/kbled.c:232
+msgid "Show ScrollLock"
+msgstr "ScrollLock نى كۆرسىتىش"
+
+#: ../src/plugins/kbled/kbled.c:267
+msgid "Keyboard LED"
+msgstr ""
+
+#: ../src/plugins/kbled/kbled.c:269
+msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
+msgstr ""
