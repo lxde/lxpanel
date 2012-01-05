@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2012-01-05 14:42+0200\n"
+"PO-Revision-Date: 2012-01-05 14:48+0200\n"
 "Last-Translator: Sérgio <smarquespt@gmail.com>\n"
 "Language-Team: Portuguese PT\n"
 "Language: pt\n"
@@ -467,7 +467,7 @@ msgstr "Monitor de utilização do CPU"
 
 #: ../src/plugins/cpu/cpu.c:270 ../src/plugins/monitors/monitors.c:653
 msgid "Display CPU usage"
-msgstr "Mostrar utilização do CPU"
+msgstr "Exibir utilização do CPU"
 
 #: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:438
 msgid "Bold font"
@@ -475,7 +475,7 @@ msgstr "Letra em negrito"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
-msgstr "Mostrar nomes do ambiente de trabalho"
+msgstr "Exibir nomes do ambiente de trabalho"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
@@ -483,11 +483,11 @@ msgstr "Ambiente de trabalho n.º/ Nome da área de trabalho"
 
 #: ../src/plugins/deskno/deskno.c:237
 msgid "Display workspace number, by cmeury@users.sf.net"
-msgstr "Mostrar número da área de trabalho, por cmeury@users.sf.net"
+msgstr "Exibir número da área de trabalho, por cmeury@users.sf.net"
 
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
-msgstr "Mostar imagem e dicas"
+msgstr "Exibir imagem e dicas"
 
 #: ../src/plugins/launchbar.c:914
 msgid "Bar with buttons to launch application"
@@ -973,7 +973,7 @@ msgid ""
 "There was an error displaying help:\n"
 "%s"
 msgstr ""
-"Ocorreu um erro ao mostrar a ajuda:\n"
+"Ocorreu um erro ao exibir a ajuda:\n"
 "%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
@@ -1341,7 +1341,7 @@ msgstr "Monitor de bateria"
 
 #: ../src/plugins/batt/batt.c:614
 msgid "Display battery status using ACPI"
-msgstr "Mostrar estado da bateria usando ACPI"
+msgstr "Exibir estado da bateria via ACPI"
 
 #: ../src/plugins/kbled/kbled.c:230
 msgid "Show CapsLock"
