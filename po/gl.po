@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2012-01-04 20:35+0200\n"
+"PO-Revision-Date: 2012-01-05 18:16+0200\n"
 "Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Proxecto Trasno <proxecto@trasno.net>\n"
 "Language: gl\n"
@@ -996,7 +996,7 @@ msgstr "Interface"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:839
 msgid "The current interface the icon is monitoring."
-msgstr "A interface actual que monitoriza a icona."
+msgstr "A interface que está a ser monitorizada pola icona."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:846
 msgid "Orientation"
