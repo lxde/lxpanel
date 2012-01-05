@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.3.8.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2010-10-19 08:48+0200\n"
-"Last-Translator: Yinghua_Wang <wantinghard@gmail.com>\n"
+"PO-Revision-Date: 2012-01-05 12:16+0200\n"
+"Last-Translator: Wylmer <wantinghard@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -601,9 +601,8 @@ msgid "Tooltip only"
 msgstr "只有工具提示"
 
 #: ../src/plugins/dclock.c:440
-#, fuzzy
 msgid "Center text"
-msgstr "居中"
+msgstr "居中文本"
 
 #: ../src/plugins/dclock.c:469
 msgid "Digital Clock"
@@ -811,7 +810,7 @@ msgstr "静音"
 msgid ""
 "Error, you need to install a application to configure the sound (pavucontol, "
 "alsamixer ...)"
-msgstr ""
+msgstr "错误，您需要安装配置声音的应用程序(如 pavucontol、alsamixer...)"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
@@ -1354,74 +1353,67 @@ msgstr "显示 CapsLock、NumLock、及 ScrollLock 键的状态"
 #. A label to allow for click through
 #: ../src/plugins/indicator/indicator.c:561
 msgid "No Indicators"
-msgstr ""
+msgstr "无指示器"
 
 #: ../src/plugins/indicator/indicator.c:751
-#, fuzzy
 msgid "Indicator Applications"
-msgstr "应用程序"
+msgstr "指示器应用程序"
 
 #: ../src/plugins/indicator/indicator.c:752
 msgid "Clock Indicator"
-msgstr ""
+msgstr "时钟指示器"
 
 #: ../src/plugins/indicator/indicator.c:753
 msgid "Messaging Menu"
-msgstr ""
+msgstr "消息菜单"
 
 #: ../src/plugins/indicator/indicator.c:754
-#, fuzzy
 msgid "Network Menu"
-msgstr "目录菜单"
+msgstr "网络菜单"
 
 #: ../src/plugins/indicator/indicator.c:755
 msgid "Session Menu"
-msgstr ""
+msgstr "会话菜单"
 
 #: ../src/plugins/indicator/indicator.c:756
 msgid "Sound Menu"
-msgstr ""
+msgstr "声音菜单"
 
 #: ../src/plugins/indicator/indicator.c:780
 msgid "Indicator applets"
-msgstr ""
+msgstr "指示器小程序"
 
 #: ../src/plugins/indicator/indicator.c:782
-#, fuzzy
 msgid "Add indicator applets to the panel"
-msgstr "在面板上增加分隔线"
+msgstr "将指示器小程序添加到面板"
 
 #: ../src/plugins/monitors/monitors.c:654
-#, fuzzy
 msgid "CPU color"
-msgstr "自定义色彩"
+msgstr "CPU 颜色"
 
 #: ../src/plugins/monitors/monitors.c:655
-#, fuzzy
 msgid "Display RAM usage"
-msgstr "显示 CPU 使用情况"
+msgstr "显示内存使用情况"
 
 #: ../src/plugins/monitors/monitors.c:656
 msgid "RAM color"
-msgstr ""
+msgstr "内存颜色"
 
 #: ../src/plugins/monitors/monitors.c:753
-#, fuzzy
 msgid "Resource monitors"
-msgstr "要监控的接口"
+msgstr "资源监视器"
 
 #: ../src/plugins/monitors/monitors.c:755
 msgid "Display monitors (CPU, RAM)"
-msgstr ""
+msgstr "显示监视器(CPU，内存)"
 
 #: ../src/plugins/wnckpager/wnckpager.c:721
 msgid "WNCKPager"
-msgstr ""
+msgstr "WNCKPager"
 
 #: ../src/plugins/wnckpager/wnckpager.c:723
-#, fuzzy
 msgid "WNCKpager plugin"
-msgstr "简易的桌面切换插件"
+msgstr "WNCKpager 工作区插件"
 
 #~ msgid "Available Applications"
 #~ msgstr "可用的应用程序"
