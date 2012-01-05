@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2010-04-27 12:01+0200\n"
-"Last-Translator: Mario <mb@mariobehling.de>\n"
+"PO-Revision-Date: 2012-01-05 11:59+0200\n"
+"Last-Translator: Duy Hung <nguyentieuhau@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:319
 msgid "Run"
@@ -24,7 +24,7 @@ msgstr "Chạy"
 
 #: ../src/configurator.c:56
 msgid "Restart"
-msgstr "Khởi động"
+msgstr "Khởi động lại"
 
 #: ../src/configurator.c:57
 msgid "Logout"
@@ -32,27 +32,27 @@ msgstr "Đăng xuất"
 
 #: ../src/configurator.c:468
 msgid "Currently loaded plugins"
-msgstr "Hiện đang tìm khe kết nối"
+msgstr "Những plugin đã được nạp"
 
 #: ../src/configurator.c:477
 msgid "Stretch"
-msgstr "Kéo dài ra"
+msgstr "Căng dài ra"
 
 #: ../src/configurator.c:596
 msgid "Add plugin to panel"
-msgstr "Thêm kết nối vào bảng điều khiển"
+msgstr "Thêm plugin vào bảng điều khiển"
 
 #: ../src/configurator.c:624
 msgid "Available plugins"
-msgstr "Các khe kết nối có sẵn"
+msgstr "Các plugin có sẵn"
 
 #: ../src/configurator.c:1202
 msgid "Logout command is not set"
-msgstr "Dongf lệnh dăng xuất chưa được thiết lập"
+msgstr "Lệnh dăng xuất chưa được thiết lập"
 
 #: ../src/configurator.c:1255
 msgid "Select a directory"
-msgstr "chọn một thư mục"
+msgstr "Chọn một thư mục"
 
 #: ../src/configurator.c:1255 ../src/configurator.c:1346
 msgid "Select a file"
@@ -77,7 +77,7 @@ msgstr "Xác nhận"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:686
 msgid "translator-credits"
-msgstr "Dịch giả-tín dụng"
+msgstr "Người dịch"
 
 #: ../src/panel.c:691
 msgid "LXPanel"
@@ -89,7 +89,7 @@ msgstr "Bản quyền (C) 2008-2011"
 
 #: ../src/panel.c:694
 msgid "Desktop panel for LXDE project"
-msgstr "Bang điều khiển máy tính để bàn cho dự án LXDE"
+msgstr "Bảng điều khiển màn hình nền cho dự án LXDE"
 
 #: ../src/panel.c:717
 msgid "Add / Remove Panel Items"
@@ -147,12 +147,12 @@ msgstr "Trên cùng"
 
 #: ../src/panel.c:1052 ../data/ui/panel-pref.glade.h:14
 msgid "Bottom"
-msgstr "Phần dưới"
+msgstr "Dưới cùng"
 
 #: ../src/panel.c:1460
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
+msgstr "lxpanel %s - bảng điều khiển GTK2+ gọn nhẹ cho màn hình nền UNIX\n"
 
 #: ../src/panel.c:1461
 #, c-format
@@ -162,39 +162,38 @@ msgstr "Tùy chọn dòng lệnh:\n"
 #: ../src/panel.c:1462
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr "--Trợ giúp -- in trợ giúp này và thoát\n"
+msgstr " --help      -- xem trợ giúp và thoát\n"
 
 #: ../src/panel.c:1463
 #, c-format
 msgid " --version   -- print version and exit\n"
-msgstr "-phiên bản -- in phiên bản và thoát\n"
+msgstr " --version   -- xem phiên bản vào thoát\n"
 
 #: ../src/panel.c:1464
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-"--Đăng nhập <số> -- thiết lập mức đăng nhập 0-5. 0 - không 5 - chatty\n"
+msgstr " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1466
 #, c-format
 msgid " --profile name -- use specified profile\n"
-msgstr "--tên hồ sơ --sử dụng hồ sơ quy định\n"
+msgstr " --profile name -- sử dụng hồ sơ người dùng xác định\n"
 
 #: ../src/panel.c:1468
 #, c-format
 msgid " -h  -- same as --help\n"
-msgstr "-h -- giống như --trợ giúp\n"
+msgstr " -h  -- tương tự như --help\n"
 
 #: ../src/panel.c:1469
 #, c-format
 msgid " -p  -- same as --profile\n"
-msgstr "-p -- giống như --hồ sơ\n"
+msgstr " -p  -- tương tự như --profile\n"
 
 #: ../src/panel.c:1470
 #, c-format
 msgid " -v  -- same as --version\n"
-msgstr "-v --giống như -phiên bản\n"
+msgstr " -v  -- tương tự như --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
 #: ../src/panel.c:1472
@@ -205,16 +204,16 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"Thăm  http://lxde.org/ for detail.\n"
+"Ghé thăm http://lxde.org/ để biết thêm.\n"
 "\n"
 
 #: ../src/gtk-run.c:332
 msgid "Enter the command you want to execute:"
-msgstr "Nhập dòng lệnh bạn muốn thực thi"
+msgstr "Nhập dòng lệnh bạn muốn thực thi:"
 
 #: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:912
 msgid "Application Launch Bar"
-msgstr "Khởi động thanh ứng dụng"
+msgstr "Thanh khởi động ứng dụng"
 
 #: ../data/ui/netstatus.glade.h:2
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
@@ -225,7 +224,7 @@ msgstr "0%"
 #: ../data/ui/netstatus.glade.h:3
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
 msgid "<b>Activity</b>"
-msgstr "<b>Hoat động</b>"
+msgstr "<b>Hoạt động</b>"
 
 #: ../data/ui/netstatus.glade.h:4
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
@@ -266,12 +265,12 @@ msgstr "Truyền tin:"
 #: ../data/ui/netstatus.glade.h:11
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
 msgid "Con_figure"
-msgstr "Cấu hình"
+msgstr "Cấu _hình"
 
 #: ../data/ui/netstatus.glade.h:12
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
 msgid "Destination:"
-msgstr "Điểm đến"
+msgstr "Điểm đến:"
 
 #: ../data/ui/netstatus.glade.h:13
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
@@ -286,7 +285,7 @@ msgstr "Đã nhận:"
 #: ../data/ui/netstatus.glade.h:15
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
 msgid "Scope:"
-msgstr "Lĩnh vực:"
+msgstr "Phạm vi:"
 
 #: ../data/ui/netstatus.glade.h:16
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
@@ -311,7 +310,7 @@ msgstr "Hỗ trợ"
 #: ../data/ui/netstatus.glade.h:20
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
 msgid "Type:"
-msgstr "loại:"
+msgstr "Loại:"
 
 #: ../data/ui/netstatus.glade.h:21
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
@@ -321,7 +320,7 @@ msgstr "_Tên:"
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
 msgid "% Percent"
-msgstr "% Phần trăm"
+msgstr "% phần trăm"
 
 #: ../data/ui/panel-pref.glade.h:3
 msgid "<b>Automatic hiding</b>"
@@ -345,11 +344,11 @@ msgstr "<b>Vị trí</b>"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "<b>Properties</b>"
-msgstr "<b>Chi tiết</b>"
+msgstr "<b>Thuộc tính</b>"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>Đặt ứng dụng ưu tiên</b>"
+msgstr "<b>Thiết lập ứng dụng ưa thích</b>"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "<b>Size</b>"
@@ -361,11 +360,11 @@ msgstr "Nâng cao"
 
 #: ../data/ui/panel-pref.glade.h:12
 msgid "Alignment:"
-msgstr "Liên kết:"
+msgstr "Canh chỉnh:"
 
 #: ../data/ui/panel-pref.glade.h:13
 msgid "Appearance"
-msgstr "Hiển thị"
+msgstr "Diện mạo"
 
 #: ../data/ui/panel-pref.glade.h:15
 msgid "Center"
@@ -385,11 +384,11 @@ msgstr "Mép ngoài:"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "File Manager:"
-msgstr "Quản lý lập tin "
+msgstr "Bộ quản lý lập tin:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "Geometry"
-msgstr "Hình học"
+msgstr "Hình dạng"
 
 #: ../data/ui/panel-pref.glade.h:22
 msgid "Image"
@@ -397,15 +396,15 @@ msgstr "Hình ảnh"
 
 #: ../data/ui/panel-pref.glade.h:24
 msgid "Logout Command:"
-msgstr "Thoát khỏi dòng lệnh"
+msgstr "Lệnh đăng xuất:"
 
 #: ../data/ui/panel-pref.glade.h:25
 msgid "Make window managers treat the panel as dock"
-msgstr "Thực hiện quản lý cửa sổ của bảng điều khiển như dock"
+msgstr "Cho bộ quản lý cửa sổ xem bảng điều khiển như nơi gắn kết"
 
 #: ../data/ui/panel-pref.glade.h:26
 msgid "Margin:"
-msgstr "Chứa trên trang:"
+msgstr "Lề:"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Minimize panel when not in use"
@@ -413,7 +412,7 @@ msgstr "Thu nhỏ bảng điều khiển khi không sử dụng"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "Panel Applets"
-msgstr "Bảng điều khiển ứng dụng"
+msgstr "Applet bảng điều khiển"
 
 #: ../data/ui/panel-pref.glade.h:29
 msgid "Panel Preferences"
@@ -421,11 +420,13 @@ msgstr "Tùy chọn bảng điều khiển"
 
 #: ../data/ui/panel-pref.glade.h:30
 msgid "Pixels"
-msgstr "Độ phân giải"
+msgstr "Pixels"
 
 #: ../data/ui/panel-pref.glade.h:31
 msgid "Reserve space, and not covered by maximized windows"
-msgstr "Để dành không gian, và không bao phủ cửa sổ tố đa"
+msgstr ""
+"Để dành không gian, và không bao phủ bởi những cửa sổ được phóng đầy màn "
+"hình"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "Select an image file"
@@ -442,112 +443,112 @@ msgstr "Kích thước khi thu nhỏ"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "Solid color (with opacity)"
-msgstr "Màu sắc mạnh (với độ mờ đục)"
+msgstr "Màu rắn (với độ mờ đục)"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "System theme"
-msgstr "Chủ đề hệ thống"
+msgstr "Giao diện hệ thống"
 
 #: ../data/ui/panel-pref.glade.h:38
 msgid "Terminal Emulator:"
-msgstr "Giả lập thiết bị đầu cuối:"
+msgstr "Bộ giả lập thiết bị đầu cuối:"
 
 #: ../data/ui/panel-pref.glade.h:41
 msgid "pixels"
-msgstr "Điểm ảnh"
+msgstr "pixels"
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
-msgstr "CPU sử dụng màn hình"
+msgstr "Bộ giám sát sử dụng CPU"
 
 #: ../src/plugins/cpu/cpu.c:270 ../src/plugins/monitors/monitors.c:653
 msgid "Display CPU usage"
-msgstr "Hiển thi CPU sử  dụng"
+msgstr "Hiển thị sử dụng CPU"
 
 #: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:438
 msgid "Bold font"
-msgstr "Phông rõ nét"
+msgstr "Phông đậm"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
-msgstr "Hiển thị tên máy tính"
+msgstr "Hiển thị tên màn hình nền"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
-msgstr "Số máy tính /  Tên workspace"
+msgstr "Số màn hình nền / Tên không gian làm việc"
 
 #: ../src/plugins/deskno/deskno.c:237
 msgid "Display workspace number, by cmeury@users.sf.net"
-msgstr "Hiển thị số workspace, bởi cmeury@users.sf.net"
+msgstr "Hiển thị số không gian làm việc, bởi cmeury@users.sf.net"
 
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
-msgstr "hiển thị hình ảnh và công cụ đỉnh"
+msgstr "Hiển thị hình ảnh và chú giải"
 
 #: ../src/plugins/launchbar.c:914
 msgid "Bar with buttons to launch application"
-msgstr "Thanh công cụ với nút khởi động ứng dụng"
+msgstr "Thanh công cụ với nút để khởi động ứng dụng"
 
 #. Add Raise menu item.
 #: ../src/plugins/taskbar.c:1714
 msgid "_Raise"
-msgstr "_Raise"
+msgstr "_Hiện lên"
 
 #. Add Restore menu item.
 #: ../src/plugins/taskbar.c:1719
 msgid "R_estore"
-msgstr "R_estore"
+msgstr "_Phục hồi"
 
 #. Add Maximize menu item.
 #: ../src/plugins/taskbar.c:1724
 msgid "Ma_ximize"
-msgstr "Ma_ximize"
+msgstr "Phóng _cực đại"
 
 #. Add Iconify menu item.
 #: ../src/plugins/taskbar.c:1729
 msgid "Ico_nify"
-msgstr "Ico_nify"
+msgstr "_Thu nhỏ"
 
 #: ../src/plugins/taskbar.c:1748
 #, c-format
 msgid "Workspace _%d"
-msgstr "Workspace _%d"
+msgstr "Không gian làm việc _%d"
 
 #: ../src/plugins/taskbar.c:1753
 #, c-format
 msgid "Workspace %d"
-msgstr "Workspace %d"
+msgstr "Không gian làm việc %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../src/plugins/taskbar.c:1767
 msgid "_All workspaces"
-msgstr "_Tất cả workspaces"
+msgstr "Tất cả _không gian làm việc"
 
 #. Add Move to Workspace menu item as a submenu.
 #: ../src/plugins/taskbar.c:1773
 msgid "_Move to Workspace"
-msgstr "_Di chuyển đến Workspace"
+msgstr "_Di chuyển đến không gian làm việc"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../src/plugins/taskbar.c:1779
 msgid "_Close Window"
-msgstr "_đóng cửa sổ"
+msgstr "Đóng cửa _sổ"
 
 #: ../src/plugins/taskbar.c:1986
 msgid "Show tooltips"
-msgstr "Hiện công cụ đỉnh"
+msgstr "Hiển thị chú giải"
 
 #: ../src/plugins/taskbar.c:1987
 msgid "Icons only"
-msgstr "chỉ biểu tượng"
+msgstr "Chỉ biểu tượng"
 
 #: ../src/plugins/taskbar.c:1988
 msgid "Flat buttons"
-msgstr "Các nút dưới "
+msgstr "Nút phẳng"
 
 #: ../src/plugins/taskbar.c:1989
 msgid "Show windows from all desktops"
-msgstr "Hiện cửa sổ từ  tất cả  máy"
+msgstr "Hiện tất cả cửa sổ từ tất cả màn hình nền"
 
 #: ../src/plugins/taskbar.c:1990
 msgid "Use mouse wheel"
@@ -555,11 +556,11 @@ msgstr "Sử dụng bánh lăn chuột"
 
 #: ../src/plugins/taskbar.c:1991
 msgid "Flash when there is any window requiring attention"
-msgstr "Báo flash khi có bất kỳ cửa sổ nào yêu cầu chú ý"
+msgstr "Nhấp nháy khi có bất kỳ cửa sổ nào yêu cầu sự chú ý"
 
 #: ../src/plugins/taskbar.c:1992
 msgid "Combine multiple application windows into a single button"
-msgstr "Kế hợp nhiều cửa sổ ứng dụng thành nút duy nhất"
+msgstr "Kết hợp nhiều cửa sổ ứng dụng vào một nút duy nhất"
 
 #: ../src/plugins/taskbar.c:1993
 msgid "Maximum width of task button"
@@ -571,42 +572,41 @@ msgstr "Khoảng cách"
 
 #: ../src/plugins/taskbar.c:2047
 msgid "Task Bar (Window List)"
-msgstr "Thanh nhiệm vụ (danh sách cửa sổ)"
+msgstr "Thanh tác vụ (danh sách cửa sổ)"
 
 #: ../src/plugins/taskbar.c:2049
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
-"Thanh tác vụ hiển thị tất cả các cửa sổ mở và cho phép hiển thị chúng như  "
-"biểu tượng, che hoặc tập trung"
+"Thanh tác vụ hiển thị tất cả các cửa sổ được mở và cho phép hiển thị chúng "
+"như biểu tượng, đổ bóng hoặc được tập trung"
 
 #: ../src/plugins/dclock.c:434
 msgid "Clock Format"
-msgstr "Dạng đồng hồ"
+msgstr "Định dạng đồng hồ"
 
 #: ../src/plugins/dclock.c:435
 msgid "Tooltip Format"
-msgstr "Dạng công cụ đỉnh"
+msgstr "Định dạng chú giải"
 
 #: ../src/plugins/dclock.c:436
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr ""
-"Dạng mật mã: man 3 strftime; \n"
-" cho dòng break"
+"Định dạng mã: man 3 strftime; \n"
+" for line break"
 
 #: ../src/plugins/dclock.c:437
 msgid "Action when clicked (default: display calendar)"
-msgstr "hoạt động khi bấm (mặc định: hiển thị lịch)"
+msgstr "Hoạt động khi được click (mặc định: hiển thị lịch)"
 
 #: ../src/plugins/dclock.c:439
 msgid "Tooltip only"
-msgstr "chỉ có thanh công cụ đỉnh"
+msgstr "Chỉ chú giải"
 
 #: ../src/plugins/dclock.c:440
-#, fuzzy
 msgid "Center text"
-msgstr "Ở giữa"
+msgstr "Canh giữa văn bản"
 
 #: ../src/plugins/dclock.c:469
 msgid "Digital Clock"
@@ -614,15 +614,15 @@ msgstr "Đồng hồ số"
 
 #: ../src/plugins/dclock.c:471
 msgid "Display digital clock and tooltip"
-msgstr "Hiển thị đồng hồ số và tahnh công cụ đỉnh"
+msgstr "Hiển thị đồng hồ và chú giải"
 
 #: ../src/plugins/menu.c:426
 msgid "Add to desktop"
-msgstr "Thêm vào máy"
+msgstr "Thêm vào màn hình nền"
 
 #: ../src/plugins/menu.c:436
 msgid "Properties"
-msgstr "Chi tiết "
+msgstr "Thuộc tính"
 
 #: ../src/plugins/menu.c:1085 ../src/plugins/dirmenu.c:413
 msgid "Icon"
@@ -630,31 +630,31 @@ msgstr "Biểu tượng"
 
 #: ../src/plugins/menu.c:1102
 msgid "Menu"
-msgstr "danh sách"
+msgstr "Trình đơn"
 
 #: ../src/plugins/menu.c:1104
 msgid "Application Menu"
-msgstr "danh sách ứng dụng"
+msgstr "Trình đơn ứng dụng"
 
 #: ../src/plugins/separator.c:102
 msgid "Separator"
-msgstr "Riêng biệt"
+msgstr "Bộ ngăn cách"
 
 #: ../src/plugins/separator.c:104
 msgid "Add a separator to the panel"
-msgstr "Thêm một riêng biệt vào bảng điều khiển"
+msgstr "Thêm một bộ ngăn cách vào bảng điều khiển"
 
 #: ../src/plugins/pager.c:837
 msgid "Desktop Pager"
-msgstr "Số trang trên maý"
+msgstr "Bộ phân trang màn hình nền"
 
 #: ../src/plugins/pager.c:839
 msgid "Simple pager plugin"
-msgstr "Số trang đơn thuần thêm vào"
+msgstr "Plugin phân trang đơn giản"
 
 #: ../src/plugins/space.c:143
 msgid "Spacer"
-msgstr "Phiếm đệm"
+msgstr "Bộ dãn cách"
 
 #: ../src/plugins/space.c:145
 msgid "Allocate space"
@@ -670,51 +670,50 @@ msgstr "Khay hệ thống"
 
 #: ../src/plugins/xkb/xkb-plugin.c:291
 msgid "Configure Keyboard Layout Switcher"
-msgstr "Giao diện cấu hình bật bàn phím"
+msgstr "Cấu hình bộ chuyển đổi sơ đồ bàn phím"
 
 #: ../src/plugins/xkb/xkb-plugin.c:306
 msgid "Show layout as"
-msgstr "Hiển thị bố trí như"
+msgstr "Hiển thị sơ đồ như"
 
 #: ../src/plugins/xkb/xkb-plugin.c:321
 msgid "image"
-msgstr "Hình ảnh"
+msgstr "hình ảnh"
 
 #: ../src/plugins/xkb/xkb-plugin.c:322
 msgid "text"
-msgstr "Văn bản"
+msgstr "văn bản"
 
 #: ../src/plugins/xkb/xkb-plugin.c:329
 msgid "Per application settings"
-msgstr "cài đặt mỗi ứng dụng"
+msgstr "Thiết lập mỗi ứng dụng"
 
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/xkb/xkb-plugin.c:344
 msgid "_Remember layout for each application"
-msgstr "_ghi nhớ bố trí cho mỗi ứng dụng"
+msgstr "_Ghi nhớ sơ đồ cho mỗi ứng dụng"
 
 #. Create a label as the child of the horizontal box.
 #: ../src/plugins/xkb/xkb-plugin.c:354
 msgid "Default layout:"
-msgstr "Bố trí mặc định:"
+msgstr "Sơ đồ mặc định:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:405
 msgid "Keyboard Layout Switcher"
-msgstr "Bố trí bật mở bàn phím"
+msgstr "Bộ chuyển đổi sơ đồ bàn phím"
 
 #: ../src/plugins/xkb/xkb-plugin.c:407
 msgid "Switch between available keyboard layouts"
-msgstr "Chuyển đổi bố trí bàn phím có sẵn"
+msgstr "Chuyển đổi giữa những sơ đồ bàn phím sẵn có"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
-"Bấm chuột trái để biểu tượng hóa tất cả cửa sổ.. Bấm chuột giữa để che biểu "
-"tượng"
+"Click chuột trái để ẩn tất cả cửa sổ.  Click chuột giữa để làm mờ chúng."
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
-msgstr "Thay phiên biểu tượng hóa/ che và nâng cao"
+msgstr "Lần lượt ẩn/đổ bóng và hiện lên"
 
 #: ../src/plugins/wincmd.c:266
 msgid "Minimize All Windows"
@@ -725,16 +724,16 @@ msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
-"Gửi lệnh đến tất cả cửa sổ máy tính.\n"
-"các lệnh được hỗ trợ là 1) biểu tượng hóa và 2) che"
+"Gửi lệnh đến tất cả cửa sổ màn hình nền.\n"
+"Các lệnh được hỗ trợ là 1) Thu nhỏ và 2) Làm mờ"
 
 #: ../src/plugins/dirmenu.c:246
 msgid "Open in _Terminal"
-msgstr "Mở trong _ Thiết bị đầu cuối"
+msgstr "Mở trong _thiết bị đầu cuối"
 
 #: ../src/plugins/dirmenu.c:411
 msgid "Directory"
-msgstr "Hội đồng quản trị"
+msgstr "Thư mục"
 
 #: ../src/plugins/dirmenu.c:412
 msgid "Label"
@@ -742,11 +741,11 @@ msgstr "Nhãn"
 
 #: ../src/plugins/dirmenu.c:443
 msgid "Directory Menu"
-msgstr "Danh sách thư mục"
+msgstr "Trình đơn thư mục"
 
 #: ../src/plugins/dirmenu.c:445
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr "Duyệt cây thư mục thông qua danh sách (tác giả: PCMan)"
+msgstr "Duyệt cây thư mục thông qua trình đơn (Tác giả: PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:396
 msgid "Normal"
@@ -754,7 +753,7 @@ msgstr "Bình thường"
 
 #: ../src/plugins/thermal/thermal.c:397
 msgid "Warning1"
-msgstr "Cảnh báo1"
+msgstr "Cảnh báo 1"
 
 #: ../src/plugins/thermal/thermal.c:398
 msgid "Warning2"
@@ -770,19 +769,19 @@ msgstr "Cảm biến"
 
 #: ../src/plugins/thermal/thermal.c:401
 msgid "Automatic temperature levels"
-msgstr "Tự động điều chỉnh nhiệt độ"
+msgstr "Tự động điều chỉnh mức độ nhiệt độ"
 
 #: ../src/plugins/thermal/thermal.c:402
 msgid "Warning1 Temperature"
-msgstr "Cảnh báo 1 nhiệt độ"
+msgstr "Cảnh báo 1 Nhiệt độ"
 
 #: ../src/plugins/thermal/thermal.c:403
 msgid "Warning2 Temperature"
-msgstr "Cảnh báo2 nhiệt độ"
+msgstr "Cảnh báo 2 Nhiệt độ"
 
 #: ../src/plugins/thermal/thermal.c:445
 msgid "Temperature Monitor"
-msgstr "Nhiệt độ màn hình"
+msgstr "Bộ giám sát nhiệt độ"
 
 #: ../src/plugins/thermal/thermal.c:447
 msgid "Display system temperature"
@@ -817,14 +816,16 @@ msgid ""
 "Error, you need to install a application to configure the sound (pavucontol, "
 "alsamixer ...)"
 msgstr ""
+"Lỗi, bạn cần cài đặt một ứng dụng để cấu hình âm thanh (pavucontol, "
+"alsamixer ...)"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
-msgstr "<Dấu điểm truy cập>"
+msgstr "<Điểm truy cập bị ẩn>"
 
 #: ../src/plugins/netstat/netstat.c:201
 msgid "Wireless Networks not found in range"
-msgstr "Mạng không dây không được tìm thấy "
+msgstr "Mạng không dây không được tìm thấy trong phạm vi"
 
 #. Repair
 #: ../src/plugins/netstat/netstat.c:235
@@ -838,15 +839,15 @@ msgstr "Vô hiệu hóa"
 
 #: ../src/plugins/netstat/netstat.c:299
 msgid "Wireless Connection has no connectivity"
-msgstr "Kết nối mạng không dây chưa thực hiện được"
+msgstr "Kết nối mạng không dây không có kết nối"
 
 #: ../src/plugins/netstat/netstat.c:301
 msgid "Network cable is plugged out"
-msgstr "Cáp mạng đã rút ra"
+msgstr "Cáp mạng đã được rút ra"
 
 #: ../src/plugins/netstat/netstat.c:303
 msgid "Connection has limited or no connectivity"
-msgstr "Kết nối hạn chế hoặc không kết nối"
+msgstr "Kết nối hạn chế hoặc không có kết nối"
 
 #: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
@@ -855,7 +856,7 @@ msgstr "Địa chỉ IP:"
 
 #: ../src/plugins/netstat/netstat.c:308
 msgid "Remote IP:"
-msgstr "IP xa:"
+msgstr "IP ở xa:"
 
 #: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
@@ -894,11 +895,11 @@ msgstr "Mạng không dây"
 
 #: ../src/plugins/netstat/netstat.c:317
 msgid "Protocol:"
-msgstr "Nghị định thư:"
+msgstr "Giao thức:"
 
 #: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
-msgstr "Địa chỉ HW"
+msgstr "Địa chỉ HW:"
 
 #: ../src/plugins/netstat/netstat.c:470
 msgid "Manage Networks"
@@ -911,7 +912,7 @@ msgstr "Giám sát và quản lý mạng"
 #. create dialog
 #: ../src/plugins/netstat/passwd_gui.c:84
 msgid "Setting Encryption Key"
-msgstr "Cài đặt khóa mật mã"
+msgstr "Cài đặt khóa mã hóa"
 
 #. messages
 #: ../src/plugins/netstat/passwd_gui.c:94
@@ -920,27 +921,27 @@ msgid ""
 "You must have the encryption key."
 msgstr ""
 "Mạng không dây đã bị mã hóa.\n"
-"Bạn phải có khóa mã."
+"Bạn phải có khóa mã hóa."
 
 #: ../src/plugins/netstat/passwd_gui.c:99
 msgid "Encryption Key:"
-msgstr "Mã khóa:"
+msgstr "Khóa mã hóa:"
 
 #: ../src/plugins/netstatus/netstatus.c:179
 msgid "Interface to monitor"
-msgstr "Giao diện theo dõi"
+msgstr "Giao diện để giám sát"
 
 #: ../src/plugins/netstatus/netstatus.c:180
 msgid "Config tool"
-msgstr "Công cụ định hình"
+msgstr "Công cụ cấu hình"
 
 #: ../src/plugins/netstatus/netstatus.c:197
 msgid "Network Status Monitor"
-msgstr "Theo dõi trạng thái mạng"
+msgstr "Bộ theo dõi trạng thái mạng"
 
 #: ../src/plugins/netstatus/netstatus.c:199
 msgid "Monitor network status"
-msgstr "Màn hình trạng thái mạng"
+msgstr "Theo dõi trạng thái mạng"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:51
 #: ../src/plugins/netstatus/netstatus-dialog.c:312
@@ -949,19 +950,19 @@ msgstr "Không rõ"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:116
 msgid "Connection Properties"
-msgstr "Thông tin kết nối"
+msgstr "Thuộc tính kết nối"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:122
 #, c-format
 msgid "Connection Properties: %s"
-msgstr "Thông tin kết nối: %s"
+msgstr "Thuộc tính kết nối: %s"
 
 # fuzzy
 #: ../src/plugins/netstatus/netstatus-dialog.c:135
 #, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
-msgstr[0] "Ở số ít packetỞ số nhiều%lu packets"
+msgstr[0] "%lu packet"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:396
 #, c-format
@@ -969,13 +970,13 @@ msgid ""
 "There was an error displaying help:\n"
 "%s"
 msgstr ""
-"Có một lỗi hiển thị trợ giúp:\n"
+"Có lỗi khi hiển thị trợ giúp:\n"
 "%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
-msgstr "Khởi động công cụ cấu hình thời gian thất bại: %s"
+msgstr "Không thể gọi công cụ cấu hình thời gian: %s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:380
 #, c-format
@@ -1359,74 +1360,67 @@ msgstr "Các chỉ số cho các phím CapsLock, NumLock, và ScrollLock"
 #. A label to allow for click through
 #: ../src/plugins/indicator/indicator.c:561
 msgid "No Indicators"
-msgstr ""
+msgstr "Không tìm thấy dụng cụ chỉ thị"
 
 #: ../src/plugins/indicator/indicator.c:751
-#, fuzzy
 msgid "Indicator Applications"
-msgstr "Ứng dụng"
+msgstr "Ứng dụng chỉ thị"
 
 #: ../src/plugins/indicator/indicator.c:752
 msgid "Clock Indicator"
-msgstr ""
+msgstr "Đồng hồ chỉ thị"
 
 #: ../src/plugins/indicator/indicator.c:753
 msgid "Messaging Menu"
-msgstr ""
+msgstr "Trình đơn tin nhắn"
 
 #: ../src/plugins/indicator/indicator.c:754
-#, fuzzy
 msgid "Network Menu"
-msgstr "Danh sách thư mục"
+msgstr "Trình đơn mạng"
 
 #: ../src/plugins/indicator/indicator.c:755
 msgid "Session Menu"
-msgstr ""
+msgstr "Trình đơn phiên làm việc"
 
 #: ../src/plugins/indicator/indicator.c:756
 msgid "Sound Menu"
-msgstr ""
+msgstr "Trình đơn âm thanh"
 
 #: ../src/plugins/indicator/indicator.c:780
 msgid "Indicator applets"
-msgstr ""
+msgstr "Applet chỉ thị"
 
 #: ../src/plugins/indicator/indicator.c:782
-#, fuzzy
 msgid "Add indicator applets to the panel"
-msgstr "Thêm một riêng biệt vào bảng điều khiển"
+msgstr "Thêm applet chỉ thị vào bảng điều khiển"
 
 #: ../src/plugins/monitors/monitors.c:654
-#, fuzzy
 msgid "CPU color"
-msgstr "Tùy chỉnh màu sắc"
+msgstr "Màu CPU"
 
 #: ../src/plugins/monitors/monitors.c:655
-#, fuzzy
 msgid "Display RAM usage"
-msgstr "Hiển thi CPU sử  dụng"
+msgstr "Hiển thị sử dụng CPU"
 
 #: ../src/plugins/monitors/monitors.c:656
 msgid "RAM color"
-msgstr ""
+msgstr "Màu RAM"
 
 #: ../src/plugins/monitors/monitors.c:753
-#, fuzzy
 msgid "Resource monitors"
-msgstr "Giao diện theo dõi"
+msgstr "Bộ giám sát tài nguyên"
 
 #: ../src/plugins/monitors/monitors.c:755
 msgid "Display monitors (CPU, RAM)"
-msgstr ""
+msgstr "Hiển thị những bộ giám sát (CPU, RAM)"
 
 #: ../src/plugins/wnckpager/wnckpager.c:721
 msgid "WNCKPager"
-msgstr ""
+msgstr "WNCKPager"
 
 #: ../src/plugins/wnckpager/wnckpager.c:723
-#, fuzzy
 msgid "WNCKpager plugin"
-msgstr "Số trang đơn thuần thêm vào"
+msgstr "WNCKpager plugin"
 
 #~ msgid "Available Applications"
 #~ msgstr "Ứng dụng có sẵn"
