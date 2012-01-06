@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2011-10-21 02:50+0200\n"
+"PO-Revision-Date: 2012-01-04 19:31+0200\n"
 "Last-Translator: Anari <anari.jalakas@gmail.com>\n"
 "Language-Team: Gnome Estonian translation team <gnome-et@linux.ee>\n"
 "Language: et\n"
@@ -78,7 +78,9 @@ msgstr "Kinnita"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:686
 msgid "translator-credits"
-msgstr "Mattias Põldaru"
+msgstr ""
+"Mattias Põldaru \n"
+"Anari Jalakas"
 
 #: ../src/panel.c:691
 msgid "LXPanel"
@@ -163,12 +165,12 @@ msgstr "Käsurea valikud:\n"
 #: ../src/panel.c:1462
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr "--help      -- näitab seda abi ja väljub\n"
+msgstr " --help      -- näitab seda abi ja väljub\n"
 
 #: ../src/panel.c:1463
 #, c-format
 msgid " --version   -- print version and exit\n"
-msgstr "--version   -- näitab versiooninumbri ja väljub\n"
+msgstr " --version   -- näitab versiooninumbri ja väljub\n"
 
 #: ../src/panel.c:1464
 #, c-format
@@ -180,22 +182,22 @@ msgstr ""
 #: ../src/panel.c:1466
 #, c-format
 msgid " --profile name -- use specified profile\n"
-msgstr "--profile <nimi> -- kasutatakse määratud profiili\n"
+msgstr " --profile <nimi> -- kasutatakse määratud profiili\n"
 
 #: ../src/panel.c:1468
 #, c-format
 msgid " -h  -- same as --help\n"
-msgstr "-h  -- sama kui --help\n"
+msgstr " -h  -- sama kui --help\n"
 
 #: ../src/panel.c:1469
 #, c-format
 msgid " -p  -- same as --profile\n"
-msgstr "-p  -- sama kui --profile\n"
+msgstr " -p  -- sama kui --profile\n"
 
 #: ../src/panel.c:1470
 #, c-format
 msgid " -v  -- same as --version\n"
-msgstr "-v  -- sama nagu --version\n"
+msgstr " -v  -- sama nagu --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
 #: ../src/panel.c:1472
@@ -206,7 +208,7 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"Üksikasjad leiad lehelt http://lxde.org/ .\n"
+"Üksikasjad leiad lehelt http://lxde.org/.\n"
 "\n"
 
 #: ../src/gtk-run.c:332
@@ -579,8 +581,8 @@ msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
-"Tegumiribal kuvatakse kõiki avatud aknaid,\n"
-"neid saab minimeerida, varjata või fokuseerida"
+"Tegumiribal kuvatakse kõiki avatud aknaid, neid saab minimeerida, varjata "
+"või fokuseerida"
 
 #: ../src/plugins/dclock.c:434
 msgid "Clock Format"
@@ -605,9 +607,8 @@ msgid "Tooltip only"
 msgstr "Ainult kohtvihjed"
 
 #: ../src/plugins/dclock.c:440
-#, fuzzy
 msgid "Center text"
-msgstr "Keskel"
+msgstr "Keskel tekst"
 
 #: ../src/plugins/dclock.c:469
 msgid "Digital Clock"
@@ -726,7 +727,7 @@ msgid ""
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
 "Saadab käsu töölaua kõigile akendele.\n"
-"Võimalik on 1) minimeerimine ja 2) varjamine."
+"Võimalik on 1) minimeerimine ja 2) varjamine"
 
 #: ../src/plugins/dirmenu.c:246
 msgid "Open in _Terminal"
@@ -817,6 +818,8 @@ msgid ""
 "Error, you need to install a application to configure the sound (pavucontol, "
 "alsamixer ...)"
 msgstr ""
+"Viga, heli seadistamiseks tuleb paigaldada rakendus (pavucontol, alsamixer "
+"...)"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
@@ -1165,7 +1168,7 @@ msgstr "Frame Relay Access Device"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:960
 msgid "Local Loopback"
-msgstr "Local Loopback"
+msgstr "Lokaalne Loopback"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:966
 msgid "Fiber Distributed Data Interface"
@@ -1361,76 +1364,67 @@ msgstr "CapsLock-, NumLock- ja ScrollLock-klahvi olek"
 #. A label to allow for click through
 #: ../src/plugins/indicator/indicator.c:561
 msgid "No Indicators"
-msgstr ""
+msgstr "Ilma näidikuteta"
 
 #: ../src/plugins/indicator/indicator.c:751
-#, fuzzy
 msgid "Indicator Applications"
-msgstr "Rakendused"
+msgstr "Näidikute rakendused"
 
 #: ../src/plugins/indicator/indicator.c:752
 msgid "Clock Indicator"
-msgstr ""
+msgstr "Kella näidik"
 
 #: ../src/plugins/indicator/indicator.c:753
 msgid "Messaging Menu"
-msgstr ""
+msgstr "Sõnumite menüü"
 
 #: ../src/plugins/indicator/indicator.c:754
-#, fuzzy
 msgid "Network Menu"
-msgstr "Kataloogimenüü"
+msgstr "Kataloogi menüü"
 
 #: ../src/plugins/indicator/indicator.c:755
 msgid "Session Menu"
-msgstr ""
+msgstr "Sessiooni menüü"
 
 #: ../src/plugins/indicator/indicator.c:756
-#, fuzzy
 msgid "Sound Menu"
-msgstr "Menüü"
+msgstr "Heli menüü"
 
 #: ../src/plugins/indicator/indicator.c:780
 msgid "Indicator applets"
-msgstr ""
+msgstr "Indikaatorite rakendid"
 
 #: ../src/plugins/indicator/indicator.c:782
-#, fuzzy
 msgid "Add indicator applets to the panel"
-msgstr "Lisa eraldaja paneelile"
+msgstr "Lisa indikaatorite rakendid paneelile"
 
 #: ../src/plugins/monitors/monitors.c:654
-#, fuzzy
 msgid "CPU color"
-msgstr "Muu värvus"
+msgstr "CPU värv"
 
 #: ../src/plugins/monitors/monitors.c:655
-#, fuzzy
 msgid "Display RAM usage"
-msgstr "Protsessori kasutuse kuva"
+msgstr "Näita RAM kasutust"
 
 #: ../src/plugins/monitors/monitors.c:656
-#, fuzzy
 msgid "RAM color"
-msgstr "Toonimine:"
+msgstr "RAM värv"
 
 #: ../src/plugins/monitors/monitors.c:753
-#, fuzzy
 msgid "Resource monitors"
-msgstr "Monitooritav liides"
+msgstr "Ressursside kuvad"
 
 #: ../src/plugins/monitors/monitors.c:755
 msgid "Display monitors (CPU, RAM)"
-msgstr ""
+msgstr "Näita kuvasid (CPU, RAM)"
 
 #: ../src/plugins/wnckpager/wnckpager.c:721
 msgid "WNCKPager"
-msgstr ""
+msgstr "WNCKPager"
 
 #: ../src/plugins/wnckpager/wnckpager.c:723
-#, fuzzy
 msgid "WNCKpager plugin"
-msgstr "Töölaudade vahetaja plugin"
+msgstr "WNCKPageri plugin"
 
 #~ msgid "Available Applications"
 #~ msgstr "Saadaolevad rakendused"
