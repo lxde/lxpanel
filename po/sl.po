@@ -8,14 +8,16 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2012-01-07 21:31+0100\n"
-"Last-Translator: Klemen Košir <klemen.kosir@gmx.com>\n"
+"PO-Revision-Date: 2012-01-07 23:50+0200\n"
+"Last-Translator: Klemen <klemen.kosir@gmx.com>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || "
+"n%100==4 ? 3 : 0);;\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: ../src/configurator.c:54
 #: ../src/gtk-run.c:319
@@ -1385,29 +1387,24 @@ msgid "Indicator Applications"
 msgstr "Kazalniki"
 
 #: ../src/plugins/indicator/indicator.c:752
-#, fuzzy
 msgid "Clock Indicator"
 msgstr "Kazalnik ure"
 
 #: ../src/plugins/indicator/indicator.c:753
-#, fuzzy
 msgid "Messaging Menu"
-msgstr "Sporočilni meni"
+msgstr "Meni sporočanja"
 
 #: ../src/plugins/indicator/indicator.c:754
-#, fuzzy
 msgid "Network Menu"
 msgstr "Meni omrežja"
 
 #: ../src/plugins/indicator/indicator.c:755
-#, fuzzy
 msgid "Session Menu"
 msgstr "Meni seje"
 
 #: ../src/plugins/indicator/indicator.c:756
-#, fuzzy
 msgid "Sound Menu"
-msgstr "Zvočni meni"
+msgstr "Meni zvoka"
 
 #: ../src/plugins/indicator/indicator.c:780
 msgid "Indicator applets"
@@ -1443,5 +1440,4 @@ msgstr "WnckPager"
 
 #: ../src/plugins/wnckpager/wnckpager.c:723
 msgid "WNCKpager plugin"
-msgstr "Vstavek za WnckPager"
-
+msgstr "Izbirnik namizja WnckPager"
