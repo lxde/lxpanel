@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2012-01-12 14:29+0200\n"
+"PO-Revision-Date: 2012-01-19 00:26+0200\n"
 "Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Proxecto Trasno <proxecto@trasno.net>\n"
 "Language: gl\n"
@@ -384,7 +384,7 @@ msgstr "Dinámico"
 
 #: ../data/ui/panel-pref.glade.h:18
 msgid "Edge:"
-msgstr "Borde:"
+msgstr "Bordo:"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "File Manager:"
