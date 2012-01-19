@@ -594,7 +594,7 @@ msgstr "Фармат падказак"
 
 #: ../src/plugins/dclock.c:436
 msgid "Format codes: man 3 strftime; \\n for line break"
-msgstr "Фармат кода: man 3 strftime; каб разарваць радок \n"
+msgstr "Фармат кода: man 3 strftime; каб разарваць радок \\n"
 
 #: ../src/plugins/dclock.c:437
 msgid "Action when clicked (default: display calendar)"
