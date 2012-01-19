@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2011-07-31 23:53+0200\n"
+"PO-Revision-Date: 2012-01-19 20:30+0200\n"
 "Last-Translator: Мікалай <crom-a@tut.by>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:319
@@ -69,11 +69,11 @@ msgid ""
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
 "Вы сапраўды жадаеце выдаліць панэль?\n"
-"<b>Увага: Нельга будзе вярнуцца назад.</b>"
+"<b>Увага: Дзянне нельга будзе адкаціць.</b>"
 
 #: ../src/panel.c:653
 msgid "Confirm"
-msgstr "Пацвердзіць"
+msgstr "Пацверджанне"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:686
@@ -207,7 +207,7 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"Падрабязныя звесткі на http://lxde.org/ \n"
+"Падрабязныя звесткі на http://lxde.org/\n"
 "\n"
 
 #: ../src/gtk-run.c:332
@@ -318,7 +318,7 @@ msgstr "Тып:"
 #: ../data/ui/netstatus.glade.h:21
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
 msgid "_Name:"
-msgstr "_Назва"
+msgstr "_Назва:"
 
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
@@ -387,7 +387,7 @@ msgstr "Край:"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "File Manager:"
-msgstr "Файлавы мэнэджар"
+msgstr "Файлавы менеджар:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "Geometry"
@@ -395,15 +395,15 @@ msgstr "Размяшчэнне"
 
 #: ../data/ui/panel-pref.glade.h:22
 msgid "Image"
-msgstr "Малюнак"
+msgstr "Выява"
 
 #: ../data/ui/panel-pref.glade.h:24
 msgid "Logout Command:"
-msgstr "Загад для выхаду з сістэмы"
+msgstr "Загад выхаду з сістэмы:"
 
 #: ../data/ui/panel-pref.glade.h:25
 msgid "Make window managers treat the panel as dock"
-msgstr "Дазволіць мэнаджэру вокан лячыць панель док-панэлью"
+msgstr "Дазволіць менеджару акон лічыць панэль док-панэллю"
 
 #: ../data/ui/panel-pref.glade.h:26
 msgid "Margin:"
@@ -419,7 +419,7 @@ msgstr "Аплеты панэлі"
 
 #: ../data/ui/panel-pref.glade.h:29
 msgid "Panel Preferences"
-msgstr "Налады панэлі"
+msgstr "Настаўленні панэлі"
 
 #: ../data/ui/panel-pref.glade.h:30
 msgid "Pixels"
@@ -461,7 +461,7 @@ msgstr "кропак"
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
-msgstr "Манітор выкарыстання працэсара"
+msgstr "Манітор выкарыстання ЦП"
 
 #: ../src/plugins/cpu/cpu.c:270 ../src/plugins/monitors/monitors.c:653
 msgid "Display CPU usage"
@@ -477,7 +477,7 @@ msgstr "Паказваць назвы працоўных прастораў"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
-msgstr "Нумар і назва працоўнай прасторы"
+msgstr "Нумар / назва працоўнай прасторы"
 
 #: ../src/plugins/deskno/deskno.c:237
 msgid "Display workspace number, by cmeury@users.sf.net"
@@ -594,9 +594,7 @@ msgstr "Фармат падказак"
 
 #: ../src/plugins/dclock.c:436
 msgid "Format codes: man 3 strftime; \\n for line break"
-msgstr ""
-"Фармат кода: man 3 strftime; \n"
-" каб разарваць радок"
+msgstr "Фармат кода: man 3 strftime; каб разарваць радок \n"
 
 #: ../src/plugins/dclock.c:437
 msgid "Action when clicked (default: display calendar)"
@@ -607,9 +605,8 @@ msgid "Tooltip only"
 msgstr "Толькі падказкі"
 
 #: ../src/plugins/dclock.c:440
-#, fuzzy
 msgid "Center text"
-msgstr "Па цэнтры"
+msgstr "Тэкст па цэнтры"
 
 #: ../src/plugins/dclock.c:469
 msgid "Digital Clock"
@@ -621,7 +618,7 @@ msgstr "Паказваць лічбавы гадзіннік і падказкі
 
 #: ../src/plugins/menu.c:426
 msgid "Add to desktop"
-msgstr "Дадаць на Працоўны стол"
+msgstr "Дадаць на Працоўную прастору"
 
 #: ../src/plugins/menu.c:436
 msgid "Properties"
@@ -637,7 +634,7 @@ msgstr "Меню"
 
 #: ../src/plugins/menu.c:1104
 msgid "Application Menu"
-msgstr "Галоўнае меню"
+msgstr "Меню праграм"
 
 #: ../src/plugins/separator.c:102
 msgid "Separator"
@@ -649,7 +646,7 @@ msgstr "Дадаць раздзельнік на панэль"
 
 #: ../src/plugins/pager.c:837
 msgid "Desktop Pager"
-msgstr "Пераключальнік працоўных сталоў"
+msgstr "Пераключальнік працоўных прастараў"
 
 #: ../src/plugins/pager.c:839
 msgid "Simple pager plugin"
@@ -820,6 +817,8 @@ msgid ""
 "Error, you need to install a application to configure the sound (pavucontol, "
 "alsamixer ...)"
 msgstr ""
+"Памылка, трэба ўстанавіць праграму для настаўлення гуку (pavucontol, "
+"alsamixer ...)"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
@@ -931,19 +930,19 @@ msgstr "Ключ шыфравання:"
 
 #: ../src/plugins/netstatus/netstatus.c:179
 msgid "Interface to monitor"
-msgstr "Інтэрфейс манітора"
+msgstr "Назіраны інтэрфейс"
 
 #: ../src/plugins/netstatus/netstatus.c:180
 msgid "Config tool"
-msgstr "Сродак канфігурацыі"
+msgstr "Сродак канфігуравання"
 
 #: ../src/plugins/netstatus/netstatus.c:197
 msgid "Network Status Monitor"
-msgstr "Манітор статусу сеткі"
+msgstr "Манітор стану сеткі"
 
 #: ../src/plugins/netstatus/netstatus.c:199
 msgid "Monitor network status"
-msgstr "Назіранне за статусам сеткі"
+msgstr "Назіранне за станам сеткі"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:51
 #: ../src/plugins/netstatus/netstatus-dialog.c:312
@@ -1012,7 +1011,7 @@ msgstr "Падказкі ўключаны"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:856
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr "Уключаны ці не падказкі значкоў"
+msgstr "Уключаны ці не падказкі значкоў."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:863
 msgid "Show Signal"
@@ -1020,7 +1019,7 @@ msgstr "Паказаць сігнал"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:864
 msgid "Whether or not the signal strength should be displayed."
-msgstr "Паказваць ці не узровень сігнала"
+msgstr "Паказваць ці не узровень сігнала."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:977
 #, c-format
@@ -1367,70 +1366,64 @@ msgstr "Індыкатары клавіш CapsLock, NumLock, і ScrollLock"
 #. A label to allow for click through
 #: ../src/plugins/indicator/indicator.c:561
 msgid "No Indicators"
-msgstr ""
+msgstr "Без індыкатара"
 
 #: ../src/plugins/indicator/indicator.c:751
 msgid "Indicator Applications"
-msgstr ""
+msgstr "Праграма індыкатара"
 
 #: ../src/plugins/indicator/indicator.c:752
 msgid "Clock Indicator"
-msgstr ""
+msgstr "Індыкатар гадзінніка"
 
 #: ../src/plugins/indicator/indicator.c:753
 msgid "Messaging Menu"
-msgstr ""
+msgstr "Меню паведамленняў"
 
 #: ../src/plugins/indicator/indicator.c:754
-#, fuzzy
 msgid "Network Menu"
-msgstr "Меню каталога"
+msgstr "Сеткавае меню"
 
 #: ../src/plugins/indicator/indicator.c:755
 msgid "Session Menu"
-msgstr ""
+msgstr "Меню сеансаў"
 
 #: ../src/plugins/indicator/indicator.c:756
 msgid "Sound Menu"
-msgstr ""
+msgstr "Гукавае меню"
 
 #: ../src/plugins/indicator/indicator.c:780
 msgid "Indicator applets"
-msgstr ""
+msgstr "Аплеты індыкатара"
 
 #: ../src/plugins/indicator/indicator.c:782
-#, fuzzy
 msgid "Add indicator applets to the panel"
-msgstr "Дадаць раздзельнік на панэль"
+msgstr "Дадаць аплеты індыкатара на панэль"
 
 #: ../src/plugins/monitors/monitors.c:654
-#, fuzzy
 msgid "CPU color"
-msgstr "Свой колер"
+msgstr "Колер ЦП"
 
 #: ../src/plugins/monitors/monitors.c:655
-#, fuzzy
 msgid "Display RAM usage"
-msgstr "Паказваць выкарыстанне працэсара"
+msgstr "Паказваць выкарыстанне памяці"
 
 #: ../src/plugins/monitors/monitors.c:656
 msgid "RAM color"
-msgstr ""
+msgstr "Колер памяці"
 
 #: ../src/plugins/monitors/monitors.c:753
-#, fuzzy
 msgid "Resource monitors"
-msgstr "Інтэрфейс манітора"
+msgstr "Маніторы рэсурсаў"
 
 #: ../src/plugins/monitors/monitors.c:755
 msgid "Display monitors (CPU, RAM)"
-msgstr ""
+msgstr "Паказваць маніторы (ЦП, памяць)"
 
 #: ../src/plugins/wnckpager/wnckpager.c:721
 msgid "WNCKPager"
-msgstr ""
+msgstr "WNCKПэйджар"
 
 #: ../src/plugins/wnckpager/wnckpager.c:723
-#, fuzzy
 msgid "WNCKpager plugin"
-msgstr "Просты плагін пераключальніка"
+msgstr "Плагін WNCKПэйджара"
