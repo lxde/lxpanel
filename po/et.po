@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2012-01-04 19:31+0200\n"
+"PO-Revision-Date: 2012-01-22 18:44+0200\n"
 "Last-Translator: Anari <anari.jalakas@gmail.com>\n"
 "Language-Team: Gnome Estonian translation team <gnome-et@linux.ee>\n"
 "Language: et\n"
@@ -79,7 +79,7 @@ msgstr "Kinnita"
 #: ../src/panel.c:686
 msgid "translator-credits"
 msgstr ""
-"Mattias Põldaru \n"
+"Mattias Põldaru\n"
 "Anari Jalakas"
 
 #: ../src/panel.c:691
