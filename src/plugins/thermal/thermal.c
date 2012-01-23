@@ -89,7 +89,7 @@ proc_get_critical(thermal *th){
             ++pstr;
 
         pstr[strlen(pstr)-3] = '\0';
-        printf("Critical: [%s]\n",pstr);
+        //printf("Critical: [%s]\n",pstr);
         fclose(state);
         return atoi(pstr);
     }
@@ -149,7 +149,6 @@ sysfs_get_critical(thermal *th){
             ! ( pstr = buf ) );
     if( pstr )
     {
-        printf("Critical: [%s]\n",pstr);
         fclose(state);
         return atoi(pstr)/1000;
     }
@@ -202,7 +201,6 @@ static gint
 update_display(thermal *th)
 {
     char buffer [60];
-    int n;
     int temp = th->get_temperature(th);
     GdkColor color;
 
@@ -218,7 +216,7 @@ update_display(thermal *th)
         panel_draw_label_text(th->plugin->panel, th->namew, "NA", TRUE, TRUE);
     else
     {
-        n = sprintf(buffer, "<span color=\"#%06x\"><b>%02d</b></span>", gcolor2rgb24(&color), temp);
+        sprintf(buffer, "<span color=\"#%06x\"><b>%02d</b></span>", gcolor2rgb24(&color), temp);
         gtk_label_set_markup (GTK_LABEL(th->namew), buffer) ;
     }
 
