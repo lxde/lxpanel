@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2012-01-22 07:32+0200\n"
+"PO-Revision-Date: 2012-01-23 17:09+0200\n"
 "Last-Translator: Duy Hung <nguyentieuhau@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: vi\n"
@@ -973,6 +973,7 @@ msgid ""
 msgstr ""
 "Có lỗi khi hiển thị trợ giúp:\n"
 "%s"
+
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
@@ -1199,7 +1200,7 @@ msgstr "Lỗi SIOCGIFCONF: %s"
 #: ../src/plugins/netstatus/netstatus-iface.c:1248
 #, c-format
 msgid "No network devices found"
-msgstr "Không tìm thấy tiết bị mạng"
+msgstr "Không tìm thấy thiết bị mạng"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:180
 #, c-format
@@ -1223,8 +1224,8 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"Không thể phân tích số liệu thống kê giao diện từ'%s'. prx_idx = %d; ptx_idx "
-"= %d; brx_idx = %d; btx_idx = %d;"
+"Không thể phân tích số liệu thống kê giao diện từ '%s'. prx_idx = %d; "
+"ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1252,7 +1253,7 @@ msgstr "Không thể phân tích dòng lệnh '%s': %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr "Không thể phân tích 'netstat' đầu ra.Không đúng định dạng"
+msgstr "Không thể phân tích đầu ra 'netstat'. Không đúng định dạng"
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
@@ -1299,11 +1300,11 @@ msgstr "Ẩn nếu không có pin"
 
 #: ../src/plugins/batt/batt.c:575
 msgid "Alarm command"
-msgstr "Lệnh báo động"
+msgstr "Lệnh cảnh báo"
 
 #: ../src/plugins/batt/batt.c:576
 msgid "Alarm time (minutes left)"
-msgstr "Báo thời gian (phút còn lại)"
+msgstr "Thời gianh cảnh báo (số phút còn lại)"
 
 #: ../src/plugins/batt/batt.c:577
 msgid "Background color"
@@ -1339,7 +1340,7 @@ msgstr "Hiển thị trạng thái pin sử dụng ACPI"
 
 #: ../src/plugins/kbled/kbled.c:230
 msgid "Show CapsLock"
-msgstr "Hiển thị  CapsLock"
+msgstr "Hiển thị CapsLock"
 
 #: ../src/plugins/kbled/kbled.c:231
 msgid "Show NumLock"
