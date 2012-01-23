@@ -272,9 +272,13 @@ static void
 cpu_tooltip_update (Monitor *m)
 {
     gchar tooltip_text[20];
-    g_snprintf(tooltip_text, 20, "CPU usage : %.2f%%", 
-                m->stats[m->ring_cursor - 1] * 100);
-    gtk_widget_set_tooltip_text(m->da, tooltip_text);
+    if (m && m->stats) {
+        gint ring_pos = (m->ring_cursor == 0)
+            ? m->pixmap_width - 1 : m->ring_cursor - 1;
+        g_snprintf(tooltip_text, 20, "CPU usage : %.2f%%",
+                m->stats[ring_pos] * 100);
+        gtk_widget_set_tooltip_text(m->da, tooltip_text);
+    }
 }
 
 /******************************************************************************
@@ -329,9 +333,13 @@ static void
 mem_tooltip_update (Monitor *m)
 {
     gchar tooltip_text[20];
-    g_snprintf(tooltip_text, 20, "RAM usage : %.2f%%", 
-                m->stats[m->ring_cursor - 1] * 100);
-    gtk_widget_set_tooltip_text(m->da, tooltip_text);
+    if (m && m->stats) {
+        gint ring_pos = (m->ring_cursor == 0)
+            ? m->pixmap_width - 1 : m->ring_cursor - 1;
+        g_snprintf(tooltip_text, 20, "RAM usage : %.2f%%",
+                m->stats[ring_pos] * 100);
+        gtk_widget_set_tooltip_text(m->da, tooltip_text);
+    }
 }
 /******************************************************************************
  *                             End of RAM Monitor                             *
@@ -506,7 +514,6 @@ monitors_update(gpointer data)
 {
     MonitorsPlugin *mp;
     int i;
-    gchar tooltip_text[20];
     
     mp = (MonitorsPlugin *) data;
     if (!mp)
