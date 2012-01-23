@@ -296,6 +296,8 @@ mem_update(Monitor * m)
     FILE *meminfo;
     int mem_total = 0;
     int mem_free  = 0;
+    int mem_buffers = 0;
+    int mem_cached = 0;
 
     if (m->stats && m->pixmap)
     {
@@ -311,11 +313,23 @@ mem_update(Monitor * m)
             fclose (meminfo);
             RET(FALSE);
         }
+        if (fscanf(meminfo, "Buffers: %d kB\n", &mem_buffers) != 1) {
+            fclose (meminfo);
+            RET(FALSE);
+        }
+        if (fscanf(meminfo, "Cached: %d kB\n", &mem_cached) != 1) {
+            fclose (meminfo);
+            RET(FALSE);
+        }
 
         fclose(meminfo);
 
-        /* Adding stats to the buffer */
-        m->stats[m->ring_cursor] = (mem_total - mem_free)/(float)mem_total;
+        /* Adding stats to the buffer:
+	 * It is debatable if 'mem_buffers' counts as free or not. I'll go with
+	 * no, because it may need to be flushed. mem_free definitely counts as
+	 * 'free' because it is immediately released should any application
+	 * need it. */
+        m->stats[m->ring_cursor] = (mem_total - mem_free - mem_cached)/(float)mem_total;
         m->ring_cursor++;
 
         if (m->ring_cursor >= m->pixmap_width)
