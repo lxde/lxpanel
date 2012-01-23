@@ -152,7 +152,7 @@ msgstr "Nede"
 #: ../src/panel.c:1460
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr "lxpanel %s - lett GTK2+-panel for UNIX-skrivebord"
+msgstr "lxpanel %s - lett GTK2+-panel for UNIX-skrivebord\n"
 
 #: ../src/panel.c:1461
 #, c-format
