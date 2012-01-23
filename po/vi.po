@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2012-01-05 11:59+0200\n"
+"PO-Revision-Date: 2012-01-22 07:32+0200\n"
 "Last-Translator: Duy Hung <nguyentieuhau@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: vi\n"
@@ -969,9 +969,7 @@ msgstr[0] "%lu packet"
 msgid ""
 "There was an error displaying help:\n"
 "%s"
-msgstr ""
-"Có lỗi khi hiển thị trợ giúp:\n"
-"%s"
+msgstr "Có lỗi khi hiển thị trợ giúp:\n"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
 #, c-format
@@ -993,7 +991,7 @@ msgstr "Giao diện"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:839
 msgid "The current interface the icon is monitoring."
-msgstr "Giao diện hiện hành biểu tượng đang được giám sát"
+msgstr "Biểu tượng của giao diện đang được giám sát."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:846
 msgid "Orientation"
@@ -1005,11 +1003,11 @@ msgstr "Định hướng của khay."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:855
 msgid "Tooltips Enabled"
-msgstr "Bật công cụ đỉnh"
+msgstr "Bật chú giải"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:856
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr "Có hoặc không kích hoạt biểu tượng công cụ đỉnh."
+msgstr "Dù có hay không chú giải của biểu tượng vẫn được kích hoạt."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:863
 msgid "Show Signal"
@@ -1017,7 +1015,7 @@ msgstr "Hiển thị tín hiệu"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:864
 msgid "Whether or not the signal strength should be displayed."
-msgstr "Có hoặc không hiển thị cường độ tín hiệu."
+msgstr "Dù có hay không cường độ tín hiệu vẫn được hiển thị."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:977
 #, c-format
@@ -1051,7 +1049,7 @@ msgstr "Thống kê"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:166
 msgid "The interface packets/bytes statistics"
-msgstr "Giao diện các gói dữ iệu/các số liệu thống kê bytes"
+msgstr "Thống kê số byte/gói tin giao diện"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:174
 msgid "Whether the interface is a wireless interface"
@@ -1078,7 +1076,7 @@ msgstr "Tình trạng lỗi hiện tại"
 #: ../src/plugins/netstatus/netstatus-iface.c:1197
 #, c-format
 msgid "Unable to open socket: %s"
-msgstr "Không thể mở ổ cắm: %s"
+msgstr "Không thể mở socket: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:496
 #: ../src/plugins/netstatus/netstatus-iface.c:1223
@@ -1101,7 +1099,7 @@ msgstr "AMPR AX.25"
 #: ../src/plugins/netstatus/netstatus-iface.c:888
 #: ../src/plugins/netstatus/netstatus-iface.c:1008
 msgid "16/4 Mbps Token Ring"
-msgstr "Báo hiệu riêng 16/4 Mbps"
+msgstr "16/4 Mbps Token Ring"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:891
 msgid "ARCnet"
@@ -1109,7 +1107,7 @@ msgstr "ARCnet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:897
 msgid "Frame Relay DLCI"
-msgstr "Tạm ngưng sắp đặt DLCI"
+msgstr "Frame Relay DLCI"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:903
 msgid "Metricom Starmode IP"
@@ -1117,7 +1115,7 @@ msgstr "Metricom Starmode IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:906
 msgid "Serial Line IP"
-msgstr "Loạt số sêri IP"
+msgstr "Serial Line IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:909
 msgid "VJ Serial Line IP"
@@ -1141,7 +1139,7 @@ msgstr "AMPR ROSE"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:927
 msgid "Generic X.25"
-msgstr "Loại X.25"
+msgstr "Generic X.25"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:930
 msgid "Point-to-Point Protocol"
@@ -1161,15 +1159,15 @@ msgstr "IPIP Tunnel"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:954
 msgid "Frame Relay Access Device"
-msgstr "Tạm ngưng kết cấu truy cập thiết bị"
+msgstr "Frame Relay Access Device"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:960
 msgid "Local Loopback"
-msgstr "trở lại khu vực"
+msgstr "Local Loopback"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:966
 msgid "Fiber Distributed Data Interface"
-msgstr "Phân phối tính chất  giao diện dữ liệu"
+msgstr "Fiber Distributed Data Interface"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:972
 msgid "IPv6-in-IPv4"
