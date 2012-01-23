@@ -964,13 +964,15 @@ msgid "%lu packet"
 msgid_plural "%lu packets"
 msgstr[0] "%lu packet"
 
+# fuzzy
 #: ../src/plugins/netstatus/netstatus-dialog.c:396
 #, c-format
 msgid ""
 "There was an error displaying help:\n"
 "%s"
-msgstr "Có lỗi khi hiển thị trợ giúp:\n"
-
+msgstr ""
+"Có lỗi khi hiển thị trợ giúp:\n"
+"%s"
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
