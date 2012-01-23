@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.3.8.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2012-01-05 12:16+0200\n"
+"PO-Revision-Date: 2012-01-05 12:30+0200\n"
 "Last-Translator: Wylmer <wantinghard@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: zh_CN\n"
@@ -32,11 +32,11 @@ msgstr "注销"
 
 #: ../src/configurator.c:468
 msgid "Currently loaded plugins"
-msgstr "目前装入的插件"
+msgstr "当前加载的插件"
 
 #: ../src/configurator.c:477
 msgid "Stretch"
-msgstr "延展"
+msgstr "拉伸"
 
 #: ../src/configurator.c:596
 msgid "Add plugin to panel"
@@ -206,12 +206,12 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"详细信息请参观 http://lxde.org/\n"
+"请访问 http://lxde.org/ 了解详细信息\n"
 "\n"
 
 #: ../src/gtk-run.c:332
 msgid "Enter the command you want to execute:"
-msgstr "输入你要想执行的命令："
+msgstr "输入您要想执行的命令："
 
 #: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:912
 msgid "Application Launch Bar"

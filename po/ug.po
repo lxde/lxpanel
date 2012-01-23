@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2011-12-16 10:12+0200\n"
+"PO-Revision-Date: 2012-01-11 14:35+0200\n"
 "Last-Translator: Gheyret <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: ug\n"
@@ -322,57 +322,51 @@ msgstr "ئاتى(_N):"
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
 msgid "% Percent"
-msgstr ""
+msgstr "% پىرسەنت"
 
 #: ../data/ui/panel-pref.glade.h:3
 msgid "<b>Automatic hiding</b>"
-msgstr ""
+msgstr "<b>ئاپتوماتىك يوشۇرۇش</b>"
 
 #: ../data/ui/panel-pref.glade.h:4
-#, fuzzy
 msgid "<b>Background</b>"
-msgstr "تەگلىك رەڭگى"
+msgstr "<b>تەگلىك رەڭگى</b>"
 
 #: ../data/ui/panel-pref.glade.h:5
-#, fuzzy
 msgid "<b>Font</b>"
-msgstr "<b>باغلىنىش</b>"
+msgstr "<b>خەت نۇسخىسى</b>"
 
 #: ../data/ui/panel-pref.glade.h:6
-#, fuzzy
 msgid "<b>Icon</b>"
-msgstr "<b>باغلىنىش</b>"
+msgstr "<b>سىنبەلگە</b>"
 
 #: ../data/ui/panel-pref.glade.h:7
-#, fuzzy
 msgid "<b>Position</b>"
-msgstr "<b>باغلىنىش</b>"
+msgstr "<b>ئورۇن</b>"
 
 #: ../data/ui/panel-pref.glade.h:8
-#, fuzzy
 msgid "<b>Properties</b>"
-msgstr "خاسلىق"
+msgstr "<b>خاسلىق</b>"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "<b>Set Preferred Applications</b>"
-msgstr ""
+msgstr "<b>ئامراق پروگراممىلارنى بەلگىلەش</b>"
 
 #: ../data/ui/panel-pref.glade.h:10
-#, fuzzy
 msgid "<b>Size</b>"
-msgstr "<b>پائالىيەت</b>"
+msgstr "<b>چوڭلۇق</b>"
 
 #: ../data/ui/panel-pref.glade.h:11
 msgid "Advanced"
-msgstr ""
+msgstr "ئالىي"
 
 #: ../data/ui/panel-pref.glade.h:12
 msgid "Alignment:"
-msgstr ""
+msgstr "ئورۇنلاشتۇرۇش"
 
 #: ../data/ui/panel-pref.glade.h:13
 msgid "Appearance"
-msgstr ""
+msgstr "كۆرۈنۈش"
 
 #: ../data/ui/panel-pref.glade.h:15
 msgid "Center"

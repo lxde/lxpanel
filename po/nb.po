@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2010-11-03 22:43+0200\n"
+"PO-Revision-Date: 2012-01-11 23:42+0200\n"
 "Last-Translator: Sam <wilsonsamm@hotmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb\n"
@@ -20,57 +20,59 @@ msgstr ""
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:319
 msgid "Run"
-msgstr ""
+msgstr "Kjør"
 
 #: ../src/configurator.c:56
 msgid "Restart"
-msgstr ""
+msgstr "Start på nytt"
 
 #: ../src/configurator.c:57
 msgid "Logout"
-msgstr ""
+msgstr "Logg ut"
 
 #: ../src/configurator.c:468
 msgid "Currently loaded plugins"
-msgstr ""
+msgstr "Lastede programtillegg"
 
 #: ../src/configurator.c:477
 msgid "Stretch"
-msgstr ""
+msgstr "Strekk"
 
 #: ../src/configurator.c:596
 msgid "Add plugin to panel"
-msgstr ""
+msgstr "Legg tillegget til panelet"
 
 #: ../src/configurator.c:624
 msgid "Available plugins"
-msgstr ""
+msgstr "Tilgjengelige tillegg"
 
 #: ../src/configurator.c:1202
 msgid "Logout command is not set"
-msgstr ""
+msgstr "Utloggingskommando er ikke valgt"
 
 #: ../src/configurator.c:1255
 msgid "Select a directory"
-msgstr ""
+msgstr "Velg mappe"
 
 #: ../src/configurator.c:1255 ../src/configurator.c:1346
 msgid "Select a file"
-msgstr ""
+msgstr "Velg fil"
 
 #: ../src/configurator.c:1373
 msgid "_Browse"
-msgstr ""
+msgstr "_Bla gjennom"
 
 #: ../src/panel.c:651
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
+"Er du sikker på at du vil slette dette panelet?\n"
+"<b>Advarsel: denne handlingen kan ikke angres.</b>"
 
 #: ../src/panel.c:653
 msgid "Confirm"
-msgstr ""
+msgstr "Bekreft"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:686
@@ -79,49 +81,49 @@ msgstr ""
 
 #: ../src/panel.c:691
 msgid "LXPanel"
-msgstr ""
+msgstr "LXPanel"
 
 #: ../src/panel.c:693
 msgid "Copyright (C) 2008-2011"
-msgstr ""
+msgstr "Copyright © 2008–2011"
 
 #: ../src/panel.c:694
 msgid "Desktop panel for LXDE project"
-msgstr ""
+msgstr "Skrivebordspanel for LXDE-prosjektet"
 
 #: ../src/panel.c:717
 msgid "Add / Remove Panel Items"
-msgstr ""
+msgstr "Legg til/fjern panelobjekter"
 
 #: ../src/panel.c:725
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr ""
+msgstr "Fjern «%s» fra panelet"
 
 #: ../src/panel.c:737
 msgid "Panel Settings"
-msgstr ""
+msgstr "Panelinnstillinger"
 
 #: ../src/panel.c:743
 msgid "Create New Panel"
-msgstr ""
+msgstr "Opprett nytt panel"
 
 #: ../src/panel.c:754
 msgid "Delete This Panel"
-msgstr ""
+msgstr "Fjern dette panelet"
 
 #: ../src/panel.c:765
 msgid "About"
-msgstr ""
+msgstr "Om"
 
 #: ../src/panel.c:773
 msgid "Panel"
-msgstr ""
+msgstr "Panel"
 
 #: ../src/panel.c:786
 #, c-format
 msgid "\"%s\" Settings"
-msgstr ""
+msgstr "«%s»-oppsett"
 
 #: ../src/panel.c:1042 ../src/panel.c:1050 ../data/ui/panel-pref.glade.h:21
 msgid "Height:"
@@ -150,12 +152,12 @@ msgstr "Nede"
 #: ../src/panel.c:1460
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr ""
+msgstr "lxpanel %s - lett GTK2+-panel for UNIX-skrivebord"
 
 #: ../src/panel.c:1461
 #, c-format
 msgid "Command line options:\n"
-msgstr ""
+msgstr "Kommandolinjevalg:\n"
 
 #: ../src/panel.c:1462
 #, c-format
@@ -201,14 +203,17 @@ msgid ""
 "Visit http://lxde.org/ for detail.\n"
 "\n"
 msgstr ""
+"\n"
+"Se http://lxde.org/ for mer informasjon.\n"
+"\n"
 
 #: ../src/gtk-run.c:332
 msgid "Enter the command you want to execute:"
-msgstr ""
+msgstr "Skriv inn kommandoen du vil kjøre:"
 
 #: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:912
 msgid "Application Launch Bar"
-msgstr ""
+msgstr "Programstartlinje"
 
 #: ../data/ui/netstatus.glade.h:2
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
@@ -300,17 +305,17 @@ msgstr ""
 #: ../data/ui/netstatus.glade.h:19
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
 msgid "Support"
-msgstr ""
+msgstr "Støtte"
 
 #: ../data/ui/netstatus.glade.h:20
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
 msgid "Type:"
-msgstr ""
+msgstr "Type:"
 
 #: ../data/ui/netstatus.glade.h:21
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
 msgid "_Name:"
-msgstr ""
+msgstr "_Navn:"
 
 #: ../data/ui/panel-pref.glade.h:2
 #, no-c-format
@@ -319,7 +324,7 @@ msgstr "% prosent"
 
 #: ../data/ui/panel-pref.glade.h:3
 msgid "<b>Automatic hiding</b>"
-msgstr ""
+msgstr "<b>Skjul automatisk</b>"
 
 #: ../data/ui/panel-pref.glade.h:4
 msgid "<b>Background</b>"
@@ -465,11 +470,11 @@ msgstr "Vis CPU-bruk"
 
 #: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:438
 msgid "Bold font"
-msgstr ""
+msgstr "Halvfet skrift"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
-msgstr ""
+msgstr "Vis skrivebordsnavn"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
@@ -554,7 +559,7 @@ msgstr ""
 
 #: ../src/plugins/taskbar.c:1991
 msgid "Flash when there is any window requiring attention"
-msgstr ""
+msgstr "Blink når et vindu spør om oppmerksomhet"
 
 #: ../src/plugins/taskbar.c:1992
 msgid "Combine multiple application windows into a single button"
