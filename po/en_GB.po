@@ -4,14 +4,15 @@ msgstr ""
 "Project-Id-Version: LxPanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2010-03-27 20:05:22\n"
-"Last-Translator: Steve Cook (Yorvyk) <yorvik.ubunto@googlemail.com>\n"
+"PO-Revision-Date: 2012-01-24 22:52+0200\n"
+"Last-Translator: Steve <yorvik.ubunto@gmail.com>\n"
 "Language-Team: English UK en_GB <yorvik.ubunto@googlemail.com>\n"
-"Language: \n"
+"Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.5\n"
 "X-Poedit-Language: English\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Country: UNITED KINGDOM\n"
@@ -83,7 +84,7 @@ msgstr "LXPanel"
 
 #: ../src/panel.c:693
 msgid "Copyright (C) 2008-2011"
-msgstr "Copyright © 2008-2011"
+msgstr "Copyright © 2008-2012"
 
 #: ../src/panel.c:694
 msgid "Desktop panel for LXDE project"
@@ -599,9 +600,8 @@ msgid "Tooltip only"
 msgstr "Tooltip only"
 
 #: ../src/plugins/dclock.c:440
-#, fuzzy
 msgid "Center text"
-msgstr "Centre"
+msgstr "Centre text"
 
 #: ../src/plugins/dclock.c:469
 msgid "Digital Clock"
@@ -810,6 +810,8 @@ msgid ""
 "Error, you need to install a application to configure the sound (pavucontol, "
 "alsamixer ...)"
 msgstr ""
+"Error, you need to install a application to configure the sound (pavucontol, "
+"alsamixer, ...)"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
@@ -912,7 +914,7 @@ msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
 msgstr ""
-"This wireless network was encrypted.\n"
+"This wireless network is encrypted.\n"
 "You must have the encryption key."
 
 #: ../src/plugins/netstat/passwd_gui.c:99
@@ -1353,70 +1355,64 @@ msgstr "Indicators for CapsLock, NumLock, and ScrollLock keys"
 #. A label to allow for click through
 #: ../src/plugins/indicator/indicator.c:561
 msgid "No Indicators"
-msgstr ""
+msgstr "No Indicators"
 
 #: ../src/plugins/indicator/indicator.c:751
 msgid "Indicator Applications"
-msgstr ""
+msgstr "Indicator Applications"
 
 #: ../src/plugins/indicator/indicator.c:752
 msgid "Clock Indicator"
-msgstr ""
+msgstr "Clock Indicator"
 
 #: ../src/plugins/indicator/indicator.c:753
 msgid "Messaging Menu"
-msgstr ""
+msgstr "Messaging Menu"
 
 #: ../src/plugins/indicator/indicator.c:754
-#, fuzzy
 msgid "Network Menu"
-msgstr "Directory Menu"
+msgstr "Network Menu"
 
 #: ../src/plugins/indicator/indicator.c:755
 msgid "Session Menu"
-msgstr ""
+msgstr "Session Menu"
 
 #: ../src/plugins/indicator/indicator.c:756
 msgid "Sound Menu"
-msgstr ""
+msgstr "Sound Menu"
 
 #: ../src/plugins/indicator/indicator.c:780
 msgid "Indicator applets"
-msgstr ""
+msgstr "Indicator applets"
 
 #: ../src/plugins/indicator/indicator.c:782
-#, fuzzy
 msgid "Add indicator applets to the panel"
-msgstr "Add a separator to the panel"
+msgstr "Add indicator applets to the panel"
 
 #: ../src/plugins/monitors/monitors.c:654
-#, fuzzy
 msgid "CPU color"
-msgstr "Custom colour"
+msgstr "CPU colour"
 
 #: ../src/plugins/monitors/monitors.c:655
-#, fuzzy
 msgid "Display RAM usage"
-msgstr "Display CPU usage"
+msgstr "Display RAM usage"
 
 #: ../src/plugins/monitors/monitors.c:656
 msgid "RAM color"
-msgstr ""
+msgstr "RAM colour"
 
 #: ../src/plugins/monitors/monitors.c:753
-#, fuzzy
 msgid "Resource monitors"
-msgstr "Interface to monitor"
+msgstr "Resource monitors"
 
 #: ../src/plugins/monitors/monitors.c:755
 msgid "Display monitors (CPU, RAM)"
-msgstr ""
+msgstr "Display monitors (CPU, RAM)"
 
 #: ../src/plugins/wnckpager/wnckpager.c:721
 msgid "WNCKPager"
-msgstr ""
+msgstr "WNCKPager"
 
 #: ../src/plugins/wnckpager/wnckpager.c:723
-#, fuzzy
 msgid "WNCKpager plugin"
-msgstr "Simple pager plugin"
+msgstr "WNCKpager plugin"
