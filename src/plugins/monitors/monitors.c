@@ -65,6 +65,7 @@
  *     border of BORDER_SIZE pixels around it.
  */
 
+#include <stdlib.h>
 #include <glib/gi18n.h>
 
 #include "plugin.h"
@@ -100,7 +101,7 @@ struct Monitor {
     gint         pixmap_height;     /* Does not include border size           */
     stats_set    *stats;            /* Circular buffer of values              */
     gint         ring_cursor;       /* Cursor for ring/circular buffer        */
-    gchar        *color;            /* Color of the graph                     */
+    gchar const  *color;            /* Color of the graph                     */
     gboolean     (*update) (struct Monitor *); /* Update function             */
     void         (*update_tooltip) (struct Monitor *);
 };
@@ -203,7 +204,7 @@ monitor_free(Monitor *m)
 static void
 monitor_set_foreground_color(Plugin *p, Monitor *m, const gchar *color)
 {
-    m->color = (gchar *) color;
+    m->color = color;
     gdk_color_parse(color, &m->foreground_color);
     gdk_colormap_alloc_color(gdk_drawable_get_colormap(p->panel->topgwin->window),
                             &m->foreground_color, FALSE, TRUE);
