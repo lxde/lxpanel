@@ -18,6 +18,7 @@
  */
 
 #include <gtk/gtk.h>
+#include <gdk/gdkx.h>
 #include <glib/gi18n.h>
 #include <string.h>
 #include <unistd.h>
@@ -306,54 +307,97 @@ static void on_entry_changed( GtkEntry* entry, GtkImage* img )
     }
 }
 
+static void activate_window(GtkWindow* toplevel_window)
+{
+	/* Calling gtk_window_present() cannot support
+	 * source indication. Use our own implementation.
+	 * Without this, the window activated might be
+	 * put in background by WM to avoid stealing
+	 * of focus.
+	 * See EWMH spec, source indication part:
+	 * http://standards.freedesktop.org/wm-spec/wm-spec-latest.html#sourceindication
+	 */
+	GtkWidget* widget = GTK_WIDGET(toplevel_window);
+	GdkScreen* screen = gtk_widget_get_screen(widget);
+	if (gdk_x11_screen_supports_net_wm_hint (screen,
+					   gdk_atom_intern_static_string ("_NET_ACTIVE_WINDOW")))
+    {
+		GdkWindow* window = widget->window;
+		GdkDisplay* display = gtk_widget_get_display(widget);
+		GdkWindow* root = gdk_screen_get_root_window(screen);
+
+		/* show the window first */
+		gtk_widget_show(widget);
+
+		/* then, activate it */
+		XClientMessageEvent xclient;
+		memset(&xclient, 0, sizeof (xclient));
+		xclient.type = ClientMessage;
+		xclient.window = GDK_WINDOW_XID(window);
+		xclient.message_type = gdk_x11_get_xatom_by_name_for_display(display,
+									"_NET_ACTIVE_WINDOW");
+		xclient.format = 32;
+		xclient.data.l[0] = 2; /* source indication: 2 represents direct user actions. */
+		xclient.data.l[1] = gtk_get_current_event_time();
+		xclient.data.l[2] = None; /* currently active window */
+		xclient.data.l[3] = 0;
+		xclient.data.l[4] = 0;
+
+		XSendEvent(GDK_DISPLAY_XDISPLAY(display), GDK_WINDOW_XID(root), False,
+				  SubstructureRedirectMask|SubstructureNotifyMask,
+				  (XEvent *)&xclient);
+    } /* if _NET_ACTIVE_WINDOW command is not supported */
+	else
+		gtk_window_present(toplevel_window);
+}
+
 void gtk_run()
 {
     GtkWidget *entry, *hbox, *img;
 
-    if( win )
+    if(!win)
     {
-        gtk_window_present(GTK_WINDOW(win));
-        return;
-    }
+		win = gtk_dialog_new_with_buttons( _("Run"),
+										   NULL,
+										   GTK_DIALOG_NO_SEPARATOR,
+										   GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+										   GTK_STOCK_OK, GTK_RESPONSE_OK,
+										   NULL );
+		gtk_dialog_set_alternative_button_order((GtkDialog*)win, 
+								GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
+		gtk_dialog_set_default_response( (GtkDialog*)win, GTK_RESPONSE_OK );
+		entry = gtk_entry_new();
 
-    win = gtk_dialog_new_with_buttons( _("Run"),
-                                       NULL,
-                                       GTK_DIALOG_NO_SEPARATOR,
-                                       GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-                                       GTK_STOCK_OK, GTK_RESPONSE_OK,
-                                       NULL );
-    gtk_dialog_set_alternative_button_order((GtkDialog*)win, 
-                            GTK_RESPONSE_OK, GTK_RESPONSE_CANCEL, -1);
-    gtk_dialog_set_default_response( (GtkDialog*)win, GTK_RESPONSE_OK );
-    entry = gtk_entry_new();
+		gtk_entry_set_activates_default( (GtkEntry*)entry, TRUE );
+		gtk_box_pack_start( (GtkBox*)((GtkDialog*)win)->vbox,
+							 gtk_label_new(_("Enter the command you want to execute:")),
+							 FALSE, FALSE, 8 );
+		hbox = gtk_hbox_new( FALSE, 2 );
+		img = gtk_image_new_from_stock( GTK_STOCK_EXECUTE, GTK_ICON_SIZE_DIALOG );
+		gtk_box_pack_start( (GtkBox*)hbox, img,
+							 FALSE, FALSE, 4 );
+		gtk_box_pack_start( (GtkBox*)hbox, entry, TRUE, TRUE, 4 );
+		gtk_box_pack_start( (GtkBox*)((GtkDialog*)win)->vbox,
+							 hbox, FALSE, FALSE, 8 );
+		g_signal_connect( win, "response", G_CALLBACK(on_response), entry );
+		gtk_window_set_position( (GtkWindow*)win, GTK_WIN_POS_CENTER );
+		gtk_window_set_default_size( (GtkWindow*)win, 360, -1 );
+		gtk_widget_show_all( win );
 
-    gtk_entry_set_activates_default( (GtkEntry*)entry, TRUE );
-    gtk_box_pack_start( (GtkBox*)((GtkDialog*)win)->vbox,
-                         gtk_label_new(_("Enter the command you want to execute:")),
-                         FALSE, FALSE, 8 );
-    hbox = gtk_hbox_new( FALSE, 2 );
-    img = gtk_image_new_from_stock( GTK_STOCK_EXECUTE, GTK_ICON_SIZE_DIALOG );
-    gtk_box_pack_start( (GtkBox*)hbox, img,
-                         FALSE, FALSE, 4 );
-    gtk_box_pack_start( (GtkBox*)hbox, entry, TRUE, TRUE, 4 );
-    gtk_box_pack_start( (GtkBox*)((GtkDialog*)win)->vbox,
-                         hbox, FALSE, FALSE, 8 );
-    g_signal_connect( win, "response", G_CALLBACK(on_response), entry );
-    gtk_window_set_position( (GtkWindow*)win, GTK_WIN_POS_CENTER );
-    gtk_window_set_default_size( (GtkWindow*)win, 360, -1 );
-    gtk_widget_show_all( win );
+		setup_auto_complete( (GtkEntry*)entry );
+		gtk_widget_show(win);
 
-    setup_auto_complete( (GtkEntry*)entry );
-    gtk_widget_show( win );
+		g_signal_connect(entry ,"changed", G_CALLBACK(on_entry_changed), img);
 
-    g_signal_connect(entry ,"changed", G_CALLBACK(on_entry_changed), img);
+		/* get all apps */
+		menu_cache = menu_cache_lookup(g_getenv("XDG_MENU_PREFIX") ? "applications.menu" : "lxde-applications.menu" );
+		if( menu_cache )
+		{
+			app_list = (GSList*)menu_cache_list_all_apps(menu_cache);
+			reload_notify_id = menu_cache_add_reload_notify(menu_cache, reload_apps, NULL);
+		}
+	}
 
-    /* get all apps */
-    menu_cache = menu_cache_lookup(g_getenv("XDG_MENU_PREFIX") ? "applications.menu" : "lxde-applications.menu" );
-    if( menu_cache )
-    {
-        app_list = (GSList*)menu_cache_list_all_apps(menu_cache);
-        reload_notify_id = menu_cache_add_reload_notify(menu_cache, reload_apps, NULL);
-    }
+	activate_window(GTK_WINDOW(win));
 }
 
