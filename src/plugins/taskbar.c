@@ -438,6 +438,7 @@ static void task_unlink_class(Task * tk)
             if (tk_cursor == tk)
                 tk_pred->res_class_flink = tk->res_class_flink;
         }
+        tk->res_class_flink = NULL;
 
         /* Recompute group visibility. */
         recompute_group_visibility_for_class(tk->tb, tc);
