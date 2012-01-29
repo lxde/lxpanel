@@ -82,7 +82,7 @@ proc_get_critical(char const* sensor_path){
     sprintf(sstmp,"%s%s",sensor_path,PROC_THERMAL_TRIP);
 
     if (!(state = fopen( sstmp, "r"))) {
-        //printf("cannot open %s\n",sstmp);
+        ERR("thermal: cannot open %s\n", sstmp);
         return -1;
     }
 
@@ -114,7 +114,7 @@ proc_get_temperature(char const* sensor_path){
     sprintf(sstmp,"%s%s",sensor_path,PROC_THERMAL_TEMPF);
 
     if (!(state = fopen( sstmp, "r"))) {
-        //printf("cannot open %s\n",sstmp);
+        ERR("thermal: cannot open %s\n", sstmp);
         return -1;
     }
 
@@ -146,7 +146,7 @@ sysfs_get_critical(char const* sensor_path){
     sprintf(sstmp,"%s%s",sensor_path,SYSFS_THERMAL_TRIP);
 
     if (!(state = fopen( sstmp, "r"))) {
-        //printf("cannot open %s\n",sstmp);
+        ERR("thermal: cannot open %s\n", sstmp);
         return -1;
     }
 
@@ -173,7 +173,7 @@ sysfs_get_temperature(char const* sensor_path){
     sprintf(sstmp,"%s%s",sensor_path,SYSFS_THERMAL_TEMPF);
 
     if (!(state = fopen( sstmp, "r"))) {
-        //printf("cannot open %s\n",sstmp);
+        ERR("thermal: cannot open %s\n", sstmp);
         return -1;
     }
 
@@ -297,7 +297,7 @@ add_sensor(thermal* th, char const* sensor_path)
     th->get_temperature[th->numsensors] = get_temp_function(sensor_path);
     th->numsensors++;
 
-    DBG("added sensor %s\n", sensor_path);
+    LOG(LOG_ALL, "thermal: Added sensor %s\n", sensor_path);
 
     return 0;
 }
@@ -336,6 +336,8 @@ remove_all_sensors(thermal *th)
 {
     int i;
 
+    LOG(LOG_ALL, "thermal: Removing all sensors (%d)\n", th->numsensors);
+
     for (i = 0; i < th->numsensors; i++)
         g_free(th->sensor_array[i]);
 
@@ -347,7 +349,7 @@ check_sensors( thermal *th )
 {
     find_sensors(th, PROC_THERMAL_DIRECTORY, NULL);
     find_sensors(th, SYSFS_THERMAL_DIRECTORY, SYSFS_THERMAL_SUBDIR_PREFIX);
-    LOG(LOG_INFO, "Found %d sensors\n", th->numsensors);
+    LOG(LOG_INFO, "thermal: Found %d sensors\n", th->numsensors);
 }
 
 
