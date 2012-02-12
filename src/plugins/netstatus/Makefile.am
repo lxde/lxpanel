@@ -26,9 +26,6 @@ netstatus_la_SOURCES = \
 	netstatus-util.c \
 	netstatus-util.h
 
-glade_DATA= \
-	gnome-netstatus.glade
-
 netstatus_la_LIBADD = \
 	$(PACKAGE_LIBS)
 
