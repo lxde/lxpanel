@@ -1,5 +1,3 @@
-if BUILD_LIBIW_PLUGINS
-
 netstat_la_CFLAGS = \
     -I. \
     -I$(top_srcdir)/src \
@@ -26,7 +24,9 @@ netstat_la_SOURCES = \
         passwd_gui.c \
         passwd_gui.h
 
-netstat_la_LIBADD = -liw $(PACKAGE_LIBS)
+netstat_la_LIBADD = \
+        -liw \
+        $(PACKAGE_LIBS)
 
 netstat_la_LDFLAGS = \
     -module \
@@ -34,5 +34,3 @@ netstat_la_LDFLAGS = \
 
 install-exec-hook:
 	rm -f "$(moduledir)\*.la" *.a
-
-endif

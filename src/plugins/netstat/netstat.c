@@ -473,7 +473,7 @@ PluginClass netstat_plugin_class = {
 
     constructor : netstat_constructor,
     destructor  : netstat_destructor,
-    orientation : orientation_changed,
+//    orientation : orientation_changed,
     config : NULL,
     save : NULL
 };

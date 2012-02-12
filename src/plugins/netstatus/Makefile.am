@@ -11,20 +11,23 @@ module_LTLIBRARIES = netstatus.la
 moduledir = $(libdir)/lxpanel/plugins
 
 netstatus_la_SOURCES = \
-	netstatus-dialog.h \
-	netstatus-fallback-pixbuf.h \
-	netstatus-sysdeps.c \
-	netstatus-icon.c \
-	netstatus-sysdeps.h \
-	netstatus-icon.h \
-	netstatus-util.c \
 	netstatus.c \
-	netstatus-enums.c \
-	netstatus-iface.c \
-	netstatus-util.h \
 	netstatus-dialog.c \
+	netstatus-dialog.h \
+	netstatus-enums.c \
 	netstatus-enums.h \
-	netstatus-iface.h
+	netstatus-fallback-pixbuf.h \
+	netstatus-icon.c \
+	netstatus-icon.h \
+	netstatus-iface.c \
+	netstatus-iface.h \
+	netstatus-sysdeps.c \
+	netstatus-sysdeps.h \
+	netstatus-util.c \
+	netstatus-util.h
+
+glade_DATA= \
+	gnome-netstatus.glade
 
 netstatus_la_LIBADD = \
 	$(PACKAGE_LIBS)

@@ -28,16 +28,17 @@ MENU_SOURCES = \
 endif
 
 PLUGINS_SOURCES = \
-	launchbar.c \
-	taskbar.c \
 	dclock.c \
-	$(MENU_SOURCES) \
-	separator.c \
+	dirmenu.c \
+	image.c \
+	launchbar.c \
 	pager.c \
+	separator.c \
 	space.c \
+	taskbar.c \
 	tray.c \
 	wincmd.c \
-	dirmenu.c
+	$(MENU_SOURCES)
 
 libbuiltin_plugins_a_SOURCES = \
 	$(PLUGINS_SOURCES)

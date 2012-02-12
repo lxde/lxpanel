@@ -6,6 +6,15 @@ default_config_panel_DATA = \
 	default/panels/panel
 default_config_paneldir = $(datadir)/lxpanel/profile/default/panels
 
+two_panels_config_DATA = \
+	two_panels/config
+two_panels_configdir = $(datadir)/lxpanel/profile/two_panels
+
+two_panels_config_panel_DATA = \
+	two_panels/panels/bottom \
+	two_panels/panels/top
+two_panels_config_paneldir = $(datadir)/lxpanel/profile/two_panels/panels
+
 uidir=$(datadir)/lxpanel/ui
 ui_in_files= \
 	ui/panel-pref.glade \
@@ -68,5 +77,6 @@ EXTRA_DIST = \
 	$(lxpanel_DATA) \
 	$(lxpanel_images_DATA) \
 	$(ui_DATA) \
-	$(default_config_DATA)
-
+	$(ui_in_files) \
+	$(default_config_DATA) \
+	$(two_panels_config_DATA)

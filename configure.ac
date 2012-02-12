@@ -218,6 +218,7 @@ fi
 
 dnl Here are plugin listing.
 plugin_netstatus=
+plugin_netstat=
 plugin_volume=
 plugin_volumealsa=
 plugin_cpu=
@@ -237,7 +238,7 @@ AC_ARG_WITH(plugins,
 [                         plugins may be comma separated ]
 [                         'all' builds all plugins (default), 'none' builds none ]
 [                         Possible plugins are: ]
-[                         netstatus, volume, volumealsa, cpu, deskno, batt, kbled, xkb, thermal, cpufreq, monitors, wnckpager], plugins="$withval",[plugins="all"])
+[                         netstatus, netstat, volume, volumealsa, cpu, deskno, batt, kbled, xkb, thermal, cpufreq, monitors, wnckpager], plugins="$withval",[plugins="all"])
 
 if test x"$plugins" != xall -a x"$plugins" != xnone; then
     if test x"$plugins_loading" = xno; then
@@ -246,7 +247,7 @@ if test x"$plugins" != xall -a x"$plugins" != xnone; then
     fi
 fi
 
-ALL_PLUGINS_LIST="netstatus volume volumealsa cpu deskno batt kbled xkb thermal cpufreq monitors wnckpager"
+ALL_PLUGINS_LIST="netstatus netstat volume volumealsa cpu deskno batt kbled xkb thermal cpufreq monitors wnckpager indicator"
 AC_SUBST(ALL_PLUGINS_LIST)
 
 if test x"$plugins" = xall; then
@@ -256,6 +257,7 @@ dnl        export plugin_$name="$name"
 dnl    done
 
     plugin_netstatus=netstatus
+    plugin_netstat=netstat
     plugin_volume=volume
     plugin_volumealsa=volumealsa
     plugin_cpu=cpu
@@ -278,6 +280,9 @@ else
         case "$plugin" in
             netstatus)
                 plugin_netstatus=netstatus
+                ;;
+            netstat)
+                plugin_netstat=netstat
                 ;;
             volume)
                 plugin_volume=volume
@@ -343,6 +348,7 @@ fi
 
 PLUGINS_LIST="\
     $plugin_netstatus \
+    $plugin_netstat \
     $plugin_volume \
     $plugin_volumealsa \
     $plugin_cpu \
@@ -418,6 +424,7 @@ AC_CONFIG_FILES([
     src/Makefile
     src/plugins/Makefile
     src/plugins/netstatus/Makefile
+    src/plugins/netstat/Makefile
     src/plugins/volume/Makefile
     src/plugins/volumealsa/Makefile
     src/plugins/cpu/Makefile
@@ -433,6 +440,8 @@ AC_CONFIG_FILES([
     po/Makefile.in
     data/Makefile
     data/default/panels/panel
+    data/two_panels/panels/top
+    data/two_panels/panels/bottom
     man/Makefile
 ])
 AC_OUTPUT
@@ -445,6 +454,9 @@ if test x$plugins_loading = xyes; then
 echo Building dynamic plugins:
     if test x"$plugin_netstatus" != x; then
         AC_MSG_RESULT([    netstatus - Monitor networking status])
+    fi
+    if test x"$plugin_netstat" != x; then
+        AC_MSG_RESULT([    netstat - Monitor networking status])
     fi
     if test x"$plugin_volume" != x; then
         AC_MSG_RESULT([    volume - Display and adjust volume of sound card for OSS])

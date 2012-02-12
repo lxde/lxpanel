@@ -18,7 +18,7 @@ Global {
     usefontsize=0
     fontsize=10    
     background=0
-    backgroundfile=/usr/share/lxpanel/images/background.png
+    backgroundfile=/usr/local/share/lxpanel/images/background.png
 }
 
 Plugin {
@@ -31,7 +31,7 @@ Plugin {
 Plugin {
     type = menu
     Config {
-        image = /usr/share/lxpanel/images/my-computer.svg
+        image = /usr/local/share/lxpanel/images/my-computer.svg
         system {
         }
         separator {
