@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2011-04-10 13:23+0200\n"
-"Last-Translator: Jesse <jesse.jaara@gmail.com>\n"
+"PO-Revision-Date: 2012-02-16 18:49+0200\n"
+"Last-Translator: GoaHead <b7701050@nwldx.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
@@ -605,9 +605,8 @@ msgid "Tooltip only"
 msgstr "Vain työkaluvihje"
 
 #: ../src/plugins/dclock.c:440
-#, fuzzy
 msgid "Center text"
-msgstr "Keskellä"
+msgstr "Keskitä teksti"
 
 #: ../src/plugins/dclock.c:469
 msgid "Digital Clock"
@@ -819,6 +818,8 @@ msgid ""
 "Error, you need to install a application to configure the sound (pavucontol, "
 "alsamixer ...)"
 msgstr ""
+"Tapahtui virhe, sinun pitää asentaa joku ääniasetusten muokkausohjelma "
+"(pavucontrol, alsamixer ...)"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
@@ -1227,6 +1228,8 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
+"Käyttöliittymän tilastoja ei voitu jäsentää lähteestä '%s'. prx_idx = %d; "
+"ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1236,6 +1239,8 @@ msgstr "Tiedostoa /proc/net/wireless ei voitu jäsentää. Tuntematon muotoilu."
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
 msgstr ""
+"Langattoman verkkoyhteyden tietoja ei voitu jäsentää lähteestä '%s'. "
+"link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
@@ -1393,32 +1398,27 @@ msgstr "Toimittaa valikon"
 
 #: ../src/plugins/indicator/indicator.c:780
 msgid "Indicator applets"
-msgstr ""
+msgstr "Osoitinsovelmat"
 
 #: ../src/plugins/indicator/indicator.c:782
-#, fuzzy
 msgid "Add indicator applets to the panel"
-msgstr "Lisää väli paneeliin"
+msgstr "Lisää osoitinsovelmia paneeliin"
 
 #: ../src/plugins/monitors/monitors.c:654
-#, fuzzy
 msgid "CPU color"
-msgstr "Oma väri"
+msgstr "Prosessorin väri"
 
 #: ../src/plugins/monitors/monitors.c:655
-#, fuzzy
 msgid "Display RAM usage"
-msgstr "Näyttää CPU:n käyttöasteen"
+msgstr "Näytä muistin käyttöaste"
 
 #: ../src/plugins/monitors/monitors.c:656
-#, fuzzy
 msgid "RAM color"
-msgstr "Läpinäkyvyyden väri:"
+msgstr "Muistin väri"
 
 #: ../src/plugins/monitors/monitors.c:753
-#, fuzzy
 msgid "Resource monitors"
-msgstr "Valvottava laite"
+msgstr "Resurssienhallinta"
 
 #: ../src/plugins/monitors/monitors.c:755
 msgid "Display monitors (CPU, RAM)"
