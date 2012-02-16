@@ -24,6 +24,7 @@
 #include <netinet/in.h>
 #include <net/if.h>
 #include <net/if_arp.h>
+#include <arpa/inet.h>
 #include <linux/sockios.h>
 #include <linux/types.h>
 #include <linux/ethtool.h>
@@ -32,6 +33,7 @@
 #include "netstat.h"
 #include "statusicon.h"
 #include "devproc.h"
+#include "dbg.h"
 
 /* network device list */
 static void netproc_netdevlist_add(NETDEVLIST_PTR *netdev_list,
@@ -135,7 +137,7 @@ static char *netproc_parse_ifname(const char *buffer)
 	return ptr;
 }
 
-static void netproc_parse_stats_header(const char *buffer,
+static void netproc_parse_stats_header(char *buffer,
                                        int *prx_idx,
                                        int *ptx_idx,
                                        int *brx_idx,
@@ -164,13 +166,13 @@ static void netproc_parse_stats_header(const char *buffer,
 	}
 }
 
-static gboolean netproc_parse_status(const char *buffer,
-                                     int *prx_idx,
-                                     int *ptx_idx,
+static gboolean netproc_parse_status(char *buffer,
+                                     int prx_idx,
+                                     int ptx_idx,
                                      gulong *in_packets,
                                      gulong *out_packets,
-                                     int *brx_idx,
-                                     int *btx_idx,
+                                     int brx_idx,
+                                     int btx_idx,
                                      gulong *in_bytes,
                                      gulong *out_bytes)
 {
@@ -216,14 +218,17 @@ int netproc_scandevice(int sockfd, int iwsockfd, FILE *fp, NETDEVLIST_PTR *netde
 	struct ifreq ifr;
 	struct ethtool_test edata;
 	iwstats iws;
-	struct iwreq iwr;
 	char *status;
 	char *name;
 	struct iw_range iwrange;
 	int has_iwrange;
 
-	fgets (buffer, sizeof(buffer), fp);
-	fgets (buffer, sizeof(buffer), fp);
+	status = fgets (buffer, sizeof(buffer), fp);
+	if (!status)
+		ERR("netstat: netproc_scnadevice(): Error reading first line from stream!\n");
+	status = fgets (buffer, sizeof(buffer), fp);
+	if (!status)
+		ERR("netstat: netproc_scnadevice(): Error reading second line from stream!\n");
 	netproc_parse_stats_header(buffer, &prx_idx, &ptx_idx, &brx_idx, &btx_idx);
 
 	while (fgets(buffer, sizeof(buffer), fp)) {
@@ -412,7 +417,7 @@ int netproc_scandevice(int sockfd, int iwsockfd, FILE *fp, NETDEVLIST_PTR *netde
 
 								/* Signal Quality */
 								iw_get_stats(iwsockfd, devptr->info.ifname, &iws, &iwrange, has_iwrange);
-								devptr->info.quality = (int)rint((log (iws.qual.qual) / log (92)) * 100.0);
+								devptr->info.quality = rint((log (iws.qual.qual) / log (92)) * 100.0);
 							}
 						}
 

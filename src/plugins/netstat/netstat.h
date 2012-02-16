@@ -39,7 +39,7 @@ typedef struct {
 	gboolean wireless;
 	char *protocol;
 	char *essid;
-	int *quality;
+	int quality;
 	struct pgui *pg;
 
 	int status;

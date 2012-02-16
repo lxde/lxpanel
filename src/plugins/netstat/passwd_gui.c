@@ -20,6 +20,7 @@
 #endif
 
 #include <string.h>
+#include <stdlib.h>
 #include <glib.h>
 #include <glib/gi18n.h>
 #include "netstat.h"
@@ -55,8 +56,9 @@ void passwd_gui_set_style(struct pgui *pg, GtkStyle *style)
     gtk_widget_set_style(pg->dlg, style);
 }
 
-void passwd_gui_free(struct passwd_resp *pr)
+static void passwd_gui_free(gpointer ptr, GObject *dummy)
 {
+    struct passwd_resp *pr = ptr;
     g_free(pr->aps->ifname);
     g_free(pr->aps->apinfo->essid);
     g_free(pr->aps->apinfo->apaddr);
@@ -87,12 +89,12 @@ struct pgui *passwd_gui_new(ap_setting *aps)
                                        GTK_STOCK_OK, GTK_RESPONSE_OK,
                                        GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
                                        NULL );
-    gtk_dialog_set_default_response(GTK_WINDOW(pwdgui->dlg), GTK_RESPONSE_OK);
+    gtk_dialog_set_default_response(GTK_DIALOG(pwdgui->dlg), GTK_RESPONSE_OK);
     gtk_window_set_position(GTK_WINDOW(pwdgui->dlg), GTK_WIN_POS_CENTER);
 
     /* messages */
     msg = gtk_label_new(_("This wireless network was encrypted.\nYou must have the encryption key."));
-    gtk_box_pack_start(((GtkDialog*)(pwdgui->dlg))->vbox, msg, FALSE, FALSE, 8);
+    gtk_box_pack_start(GTK_BOX(((GtkDialog*)(pwdgui->dlg))->vbox), msg, FALSE, FALSE, 8);
 
     /* entry Box */
     inputbox = gtk_hbox_new(FALSE, 0);
@@ -102,15 +104,15 @@ struct pgui *passwd_gui_new(ap_setting *aps)
     gtk_entry_set_visibility(GTK_ENTRY(pwdgui->pentry), FALSE);
     gtk_entry_set_activates_default(GTK_ENTRY(pwdgui->pentry), TRUE);
     gtk_box_pack_start(GTK_BOX(inputbox), pwdgui->pentry, FALSE, FALSE, 4);
-    gtk_box_pack_start(((GtkDialog*)(pwdgui->dlg))->vbox, inputbox, FALSE, FALSE, 8);
+    gtk_box_pack_start(GTK_BOX(((GtkDialog*)(pwdgui->dlg))->vbox), inputbox, FALSE, FALSE, 8);
 
     /* passwd_resp structure */
     pr->aps = aps;
-    pr->entry = pwdgui->pentry;
+    pr->entry = GTK_ENTRY(pwdgui->pentry);
 
     /* g_signal */
     g_signal_connect(pwdgui->dlg, "response", G_CALLBACK(passwd_gui_on_response), pr);
-    g_object_weak_ref(pwdgui->dlg, passwd_gui_free, pr);
+    g_object_weak_ref(G_OBJECT(pwdgui->dlg), passwd_gui_free, pr);
 
     gtk_widget_show_all(pwdgui->dlg);
 

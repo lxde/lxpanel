@@ -37,7 +37,9 @@ typedef struct {
 	struct ap_info_node *next;
 } APLIST;
 
-void wireless_aplist_free(APLIST *aplist);
+void wireless_aplist_free(void *aplist, GObject *dummy);
 APLIST *wireless_scanning(int iwsockfd, const char *ifname);
+
+gboolean wireless_refresh(int iwsockfd, const char *ifname);
 
 #endif

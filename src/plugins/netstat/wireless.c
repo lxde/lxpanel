@@ -41,7 +41,7 @@ static const char * iw_ie_key_mgmt_name[] = {
 };
 */
 
-void wireless_aplist_free(APLIST *aplist)
+void wireless_aplist_free(void *aplist, GObject *dummy)
 {
 	APLIST *ptr;
 	APLIST *delptr;
@@ -199,7 +199,7 @@ wireless_parse_scanning_event(struct iw_event *event, ap_info *oldinfo)
 	if (event->cmd==SIOCGIWAP) {
 		char buf[128];
 		info = g_new0(ap_info, 1);
-		info->apaddr = g_strdup(iw_saether_ntop(&event->u.ap_addr, buf));
+		info->apaddr = g_strdup(iw_sawap_ntop(&event->u.ap_addr, buf));
 		info->en_method = NS_WIRELESS_AUTH_OFF;
 		info->haskey = FALSE;
 		info->key_mgmt = NS_IW_IE_KEY_MGMT_NONE;

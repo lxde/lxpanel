@@ -141,13 +141,13 @@ char *lxnm_wireless_command_make(const char *ifname, const char *essid,
     } else if (strlen(essid)==0) {
         cmd_essid = g_strdup("NULL");
     } else {
-        cmd_essid = essid;
+        cmd_essid = g_strdup(essid);
     }
 
     if (strlen(key)==0) {
         cmd_key = g_strdup("OFF");
     } else {
-        cmd_key = key;
+        cmd_key = g_strdup(key);
     }
 
     return g_strdup_printf("%s %s %s %s %d %d %d %d", ifname, asc2hex(cmd_essid),

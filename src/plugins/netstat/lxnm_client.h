@@ -19,5 +19,9 @@ char *asc2hex(char *src);
 GIOChannel *lxnm_socket(void);
 void lxnm_close(GIOChannel *gio);
 void lxnm_send_command(GIOChannel *gio, int command, const char* cmdargs);
+char *lxnm_wireless_command_make(const char *ifname, const char *essid,
+        const char *apaddr, const char *key,
+        int protocol, int key_mgmt,
+        int group, int pairwise);
 
 #endif
