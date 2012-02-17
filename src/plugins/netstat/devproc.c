@@ -221,7 +221,7 @@ int netproc_scandevice(int sockfd, int iwsockfd, FILE *fp, NETDEVLIST_PTR *netde
 	char *status;
 	char *name;
 	struct iw_range iwrange;
-	int has_iwrange;
+	int has_iwrange = 0;
 
 	status = fgets (buffer, sizeof(buffer), fp);
 	if (!status)

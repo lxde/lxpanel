@@ -239,10 +239,9 @@ wireless_parse_scanning_event(struct iw_event *event, ap_info *oldinfo)
 		{
 			int offset = 0;
 			int ielen = event->u.data.length;
-			unsigned char *iebuf;
+			unsigned char *iebuf = event->u.data.pointer;
 
 			while(offset <= (ielen - 2)) {
-				iebuf = (event->u.data.pointer + offset);
 				/* check IE type */
 				switch(iebuf[offset]) {
 					case 0xdd: /* WPA or else */
