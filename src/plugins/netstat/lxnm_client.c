@@ -34,13 +34,13 @@
 #include "netstat.h"
 #include "lxnm_client.h"
 
-char*
-asc2hex(char *src)
+static char*
+asc2hex(char const *src)
 {
     char *buf, *tmp;
     char c[3];
 
-    buf = malloc(sizeof(char)+strlen(src)*2);
+    buf = g_malloc(sizeof(char)+strlen(src)*2);
     tmp = buf;
 
     for (;*src!='\0';src++) {
@@ -126,6 +126,7 @@ lxnm_send_command(GIOChannel *gio, int command, const char* cmdargs)
     msg = g_strdup_printf("%d %s\n", command, cmdargs);
     g_io_channel_write_chars(gio, msg, -1, &len, NULL);
     g_io_channel_flush(gio, NULL);
+    g_free(msg);
 }
 
 char *lxnm_wireless_command_make(const char *ifname, const char *essid,
@@ -135,23 +136,25 @@ char *lxnm_wireless_command_make(const char *ifname, const char *essid,
 {
     char *cmd_essid;
     char *cmd_key;
+    char *cmd;
 
-    if (essid==NULL) {
-        cmd_essid = g_strdup("NULL");
-    } else if (strlen(essid)==0) {
+    if (essid==NULL || strlen(essid)==0) {
         cmd_essid = g_strdup("NULL");
     } else {
-        cmd_essid = g_strdup(essid);
+	cmd_essid = asc2hex(essid);
     }
 
-    if (strlen(key)==0) {
+    if (key==NULL || strlen(key)==0) {
         cmd_key = g_strdup("OFF");
     } else {
-        cmd_key = g_strdup(key);
+	cmd_key = asc2hex(key);
     }
 
-    return g_strdup_printf("%s %s %s %s %d %d %d %d", ifname, asc2hex(cmd_essid),
-                                                   apaddr, asc2hex(cmd_key),
-                                                   protocol, key_mgmt,
-                                                   group, pairwise);
+    cmd = g_strdup_printf("%s %s %s %s %d %d %d %d", ifname, cmd_essid, apaddr,
+            cmd_key, protocol, key_mgmt, group, pairwise);
+
+    g_free(cmd_essid);
+    g_free(cmd_key);
+
+    return cmd;
 }

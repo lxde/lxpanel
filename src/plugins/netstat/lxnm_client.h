@@ -15,7 +15,6 @@
 #define LXNM_WIRELESS_REPAIR           6
 #define LXNM_WIRELESS_CONNECT          7
 
-char *asc2hex(char *src);
 GIOChannel *lxnm_socket(void);
 void lxnm_close(GIOChannel *gio);
 void lxnm_send_command(GIOChannel *gio, int command, const char* cmdargs);
