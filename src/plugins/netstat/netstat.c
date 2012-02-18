@@ -53,11 +53,17 @@ static void ethernet_repair(GtkWidget *widget, netdev_info *ni)
 {
     if (ni->ns->fixcmd) {
         pthread_t actionThread;
+        pthread_attr_t attr;
         char *fixcmd;
 
         fixcmd = g_strdup_printf(ni->ns->fixcmd, ni->netdev_list->info.ifname);
 
-        pthread_create(&actionThread, NULL, actionProcess, fixcmd);
+        /* Note: Better would be to join the thread, and thus get a status
+         * message. But detaching is currently simpler to implement. */
+        pthread_attr_init(&attr);
+        pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
+        pthread_create(&actionThread, &attr, actionProcess, fixcmd);
+        pthread_attr_destroy(&attr);
     } else {
         lxnm_send_command(ni->ns->fnetd->lxnmchannel, LXNM_ETHERNET_REPAIR, ni->netdev_list->info.ifname);
     }
