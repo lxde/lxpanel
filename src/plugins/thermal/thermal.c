@@ -50,7 +50,7 @@ typedef struct thermal {
     Plugin * plugin;
     GtkWidget *main;
     GtkWidget *namew;
-    GtkTooltips *tip;
+    GString *tip;
     int critical;
     int warning1;
     int warning2;
@@ -67,6 +67,7 @@ typedef struct thermal {
     char *sensor_array[MAX_NUM_SENSORS];
     gint (*get_temperature[MAX_NUM_SENSORS])(char const* sensor_path);
     gint (*get_critical[MAX_NUM_SENSORS])(char const* sensor_path);
+    gint temperature[MAX_NUM_SENSORS];
 } thermal;
 
 
@@ -225,6 +226,7 @@ static gint get_temperature(thermal *th)
         cur = th->get_temperature[i](th->sensor_array[i]);
         if (cur > max)
             max = cur;
+        th->temperature[i] = cur;
     }
 
     return max;
@@ -248,8 +250,10 @@ static gint
 update_display(thermal *th)
 {
     char buffer [60];
+    int i;
     int temp = get_temperature(th);
     GdkColor color;
+    gchar *separator;
 
     if(temp >= th->warning2)
         color = th->cl_warning2;
@@ -266,6 +270,14 @@ update_display(thermal *th)
         sprintf(buffer, "<span color=\"#%06x\"><b>%02d</b></span>", gcolor2rgb24(&color), temp);
         gtk_label_set_markup (GTK_LABEL(th->namew), buffer) ;
     }
+
+    g_string_truncate(th->tip, 0);
+    separator = "";
+    for (i = 0; i < th->numsensors; i++){
+        g_string_append_printf(th->tip, "%s%s:\t%2d°C", separator, th->sensor_array[i], th->temperature[i]);
+        separator = "\n";
+    }
+    gtk_widget_set_tooltip_text(th->namew, th->tip->str);
 
     RET(TRUE);
 }
@@ -381,7 +393,7 @@ thermal_constructor(Plugin *p, char** fp)
     gtk_container_add(GTK_CONTAINER(p->pwid), th->namew);
 
     th->main = p->pwid;
-    th->tip  = gtk_tooltips_new();
+    th->tip = g_string_new(NULL);
 
     /* By default, use automatic, that is, "not custom" temperature levels. If
      * we were using custom levels, they would be 0°C at startup, so we would
@@ -479,6 +491,7 @@ thermal_destructor(Plugin *p)
   ENTER;
   th = (thermal *) p->priv;
   remove_all_sensors(th);
+  g_string_free(th->tip, TRUE);
   g_free(th->sensor);
   g_free(th->str_cl_normal);
   g_free(th->str_cl_warning1);
