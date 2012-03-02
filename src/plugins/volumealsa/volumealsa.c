@@ -234,32 +234,40 @@ static void volumealsa_update_display(VolumeALSAPlugin * vol)
     
     /* Change icon according to mute / volume */
     const char* icon="audio-volume-muted";
+    const char* icon_panel="audio-volume-muted-panel";
     const char* icon_fallback=ICONS_MUTE;
     if (mute)
     {
+         icon_panel = "audio-volume-muted-panel";
          icon="audio-volume-muted";
          icon_fallback=ICONS_MUTE;
     }
     else if (level >= 75)
     {
+         icon_panel = "audio-volume-high-panel";
          icon="audio-volume-high";
          icon_fallback=ICONS_VOLUME_HIGH;
     }
     else if (level >= 50)
     {
+         icon_panel = "audio-volume-medium-panel";
          icon="audio-volume-medium";
          icon_fallback=ICONS_VOLUME_MEDIUM;
     }
     else if (level > 0)
     {
+         icon_panel = "audio-volume-low-panel";
          icon="audio-volume-low";
          icon_fallback=ICONS_VOLUME_LOW;
     }
 
     /* Change icon, fallback to default icon if theme doesn't exsit */
-    if ( ! panel_image_set_icon_theme(vol->plugin->panel, vol->tray_icon, icon))
+    if ( ! panel_image_set_icon_theme(vol->plugin->panel, vol->tray_icon, icon_panel))
     {
-         panel_image_set_from_file(vol->plugin->panel, vol->tray_icon, icon_fallback);
+        if ( ! panel_image_set_icon_theme(vol->plugin->panel, vol->tray_icon, icon))
+        {
+            panel_image_set_from_file(vol->plugin->panel, vol->tray_icon, icon_fallback);
+        }
     }
 
     g_signal_handler_block(vol->mute_check, vol->mute_check_handler);
