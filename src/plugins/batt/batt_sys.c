@@ -216,7 +216,7 @@ void battery_update(battery *b)
     if (b->charge_full < MIN_CAPACITY)
 	b->percentage = 0;
     else {
-	int promille = (b->energy_now * 1000) / b->energy_full;
+	int promille = (b->charge_now * 1000) / b->charge_full;
 	b->percentage = (promille + 5) / 10; /* round properly */
     }
     if (b->percentage > 100)
