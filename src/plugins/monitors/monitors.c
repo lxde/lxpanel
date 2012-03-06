@@ -101,7 +101,7 @@ struct Monitor {
     gint         pixmap_height;     /* Does not include border size           */
     stats_set    *stats;            /* Circular buffer of values              */
     gint         ring_cursor;       /* Cursor for ring/circular buffer        */
-    gchar const  *color;            /* Color of the graph                     */
+    gchar        *color;            /* Color of the graph                     */
     gboolean     (*update) (struct Monitor *); /* Update function             */
     void         (*update_tooltip) (struct Monitor *);
 };
@@ -190,6 +190,7 @@ monitor_free(Monitor *m)
     if (!m)
         return;
 
+    g_free(m->color);
     if (m->graphics_context)
         g_object_unref(m->graphics_context);
     if (m->pixmap)
@@ -204,7 +205,8 @@ monitor_free(Monitor *m)
 static void
 monitor_set_foreground_color(Plugin *p, Monitor *m, const gchar *color)
 {
-    m->color = color;
+    g_free(m->color);
+    m->color = g_strndup(color, COLOR_SIZE - 1);
     gdk_color_parse(color, &m->foreground_color);
     gdk_colormap_alloc_color(gdk_drawable_get_colormap(p->panel->topgwin->window),
                             &m->foreground_color, FALSE, TRUE);
@@ -686,11 +688,8 @@ static void
 monitors_apply_config (Plugin *p)
 {
     ENTER;
-
     MonitorsPlugin *mp;
-    
     mp = (MonitorsPlugin *) p->priv;
-
 
     int i;
     int current_n_monitors = 0;
