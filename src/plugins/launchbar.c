@@ -651,23 +651,23 @@ static void launchbar_configure_response(GtkDialog * dlg, int response, Plugin *
 static void launchbar_configure_update_icons(GtkTreeStore* tree, GtkTreeIter* parent_it)
 {
     GtkTreeIter it;
-    if(gtk_tree_model_iter_children(tree, &it, parent_it))
+    if(gtk_tree_model_iter_children(GTK_TREE_MODEL(tree), &it, parent_it))
     {
         do
         {
             char* name;
             GdkPixbuf* pix;
-            gtk_tree_model_get(tree, &it, COL_ICON, &pix, -1);
+            gtk_tree_model_get(GTK_TREE_MODEL(tree), &it, COL_ICON, &pix, -1);
             if(!pix)
             {
-                gtk_tree_model_get(tree, &it, COL_ICON_NAME, &name, -1);
-                pix = lxpanel_load_icon(name, PANEL_ICON_SIZE, PANEL_ICON_SIZE, TRUE);
-                gtk_tree_store_set(tree, &it, COL_ICON, pix, -1);
-                g_free(name);
+              gtk_tree_model_get(GTK_TREE_MODEL(tree), &it, COL_ICON_NAME, &name, -1);
+              pix = lxpanel_load_icon(name, PANEL_ICON_SIZE, PANEL_ICON_SIZE, TRUE);
+              gtk_tree_store_set(tree, &it, COL_ICON, pix, -1);
+              g_free(name);
             }
             if(pix)
                 g_object_unref(pix);
-        }while(gtk_tree_model_iter_next(tree, &it));
+        }while(gtk_tree_model_iter_next(GTK_TREE_MODEL(tree), &it));
     }
 }
 
@@ -779,13 +779,13 @@ static void launchbar_configure_initialize_list(Plugin * p, GtkWidget * dlg, Gtk
         if (menu_cache != NULL)
         {
             MenuCacheDir * dir = menu_cache_get_root_dir(menu_cache);
-            gpointer id = menu_cache_add_reload_notify(menu_cache, on_menu_cache_reload, tree);
+            gpointer id = menu_cache_add_reload_notify(menu_cache, (GFunc)on_menu_cache_reload, tree);
             gpointer *param = g_slice_alloc(sizeof(gpointer) * 2);
             if(dir)
                 launchbar_configure_add_menu_recursive(tree, NULL, dir);
             param[0] = menu_cache;
             param[1] = id;
-            g_object_weak_ref(tree, (GWeakNotify)destroy_menu_cache, param);
+            g_object_weak_ref(G_OBJECT(tree), (GWeakNotify)destroy_menu_cache, param);
         }
         g_object_set_data(G_OBJECT(dlg), "menu_view", view);
     }

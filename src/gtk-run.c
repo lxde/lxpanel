@@ -394,7 +394,7 @@ void gtk_run()
 		if( menu_cache )
 		{
 			app_list = (GSList*)menu_cache_list_all_apps(menu_cache);
-			reload_notify_id = menu_cache_add_reload_notify(menu_cache, reload_apps, NULL);
+			reload_notify_id = menu_cache_add_reload_notify(menu_cache, (GFunc)reload_apps, NULL);
 		}
 	}
 

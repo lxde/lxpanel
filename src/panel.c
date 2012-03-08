@@ -908,7 +908,7 @@ void panel_establish_autohide(Panel *p)
 }
 
 /* Set an image from a file with scaling to the panel icon size. */
-void panel_image_set_from_file(Panel * p, GtkWidget * image, char * file)
+void panel_image_set_from_file(Panel * p, GtkWidget * image, const char * file)
 {
     GdkPixbuf * pixbuf = gdk_pixbuf_new_from_file_at_scale(file, p->icon_size, p->icon_size, TRUE, NULL);
     if (pixbuf != NULL)

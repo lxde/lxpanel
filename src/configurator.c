@@ -1374,8 +1374,14 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
                     gtk_box_pack_start( GTK_BOX(hbox), browse, TRUE, TRUE, 2 );
                     g_object_set_data(G_OBJECT(dlg), "file-val", val);
                     g_object_set_data(G_OBJECT(browse), "dlg", dlg);
-                    g_object_set_data(G_OBJECT(browse), "chooser-action",
-                        (gpointer) ((type == CONF_TYPE_DIRECTORY_ENTRY) ? GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER : GTK_FILE_CHOOSER_ACTION_OPEN));
+                    
+                    GtkFileChooserAction action = GTK_FILE_CHOOSER_ACTION_OPEN;
+                    if (type == CONF_TYPE_DIRECTORY_ENTRY)
+                    {
+                      action = GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER;
+                    }
+
+                    g_object_set_data(G_OBJECT(browse), "chooser-action", &action);
                     g_signal_connect( browse, "clicked", G_CALLBACK(on_browse_btn_clicked), entry );
                 }
             }

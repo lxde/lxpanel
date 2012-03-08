@@ -581,7 +581,7 @@ static void sys_menu_insert_items( menup* m, GtkMenu* menu, int position )
         /* add a place holder */
         GtkWidget* mi = gtk_menu_item_new();
         g_object_set_qdata( G_OBJECT(mi), SYS_MENU_ITEM_ID, GINT_TO_POINTER(1) );
-        gtk_menu_shell_insert(menu, mi, position);
+        gtk_menu_shell_insert(GTK_MENU_SHELL(menu), mi, position);
     }
 
     change_handler = g_signal_connect_swapped( gtk_icon_theme_get_default(), "changed", G_CALLBACK(unload_old_icons), menu );

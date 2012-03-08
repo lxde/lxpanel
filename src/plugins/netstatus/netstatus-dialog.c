@@ -631,8 +631,8 @@ netstatus_dialog_setup_connection (NetstatusDialogData *data)
   data->name   = (GtkWidget*)gtk_builder_get_object(data->builder, "name_combo");
   data->name_entry = gtk_bin_get_child((GtkBin*)data->name);
   model = gtk_list_store_new(1, G_TYPE_STRING);
-  gtk_combo_box_set_model(GTK_COMBO_BOX(data->name), model);
-  gtk_combo_box_entry_set_text_column(GTK_COMBO_BOX(data->name), 0);
+  gtk_combo_box_set_model(GTK_COMBO_BOX(data->name), GTK_TREE_MODEL(model));
+  gtk_combo_box_entry_set_text_column(GTK_COMBO_BOX_ENTRY(data->name), 0);
   g_object_unref(model);
 
   data->status = (GtkWidget*)gtk_builder_get_object(data->builder, "status_label");
@@ -716,7 +716,7 @@ netstatus_dialog_iface_list_monitor (NetstatusDialogData *data)
 
   if (data->n_ifaces != n_ifaces)
     {
-      model = (GtkListStore*)gtk_combo_box_get_model(data->name);
+      model = (GtkListStore*)gtk_combo_box_get_model(GTK_COMBO_BOX(data->name));
       gtk_list_store_clear(model);
       g_signal_handlers_block_by_func (data->name_entry,
 				       G_CALLBACK (netstatus_dialog_set_iface_name), data);
@@ -752,7 +752,7 @@ netstatus_dialog_new (NetstatusIface *iface)
 
   data->builder = gtk_builder_new();
   gtk_builder_add_from_file(data->builder, PACKAGE_UI_DIR "/netstatus.ui", NULL);
-  data->dialog = gtk_builder_get_object(data->builder, "network_status_dialog");
+  data->dialog = (GtkWidget*)gtk_builder_get_object(data->builder, "network_status_dialog");
 
   g_object_set_data (G_OBJECT (data->dialog), "netstatus-dialog-data", data);
 
