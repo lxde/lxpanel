@@ -32,7 +32,7 @@ typedef struct {
 	gboolean haskey;
 } ap_info;
 
-typedef struct {
+typedef struct ap_info_node {
 	ap_info             *info;
 	struct ap_info_node *next;
 } APLIST;
