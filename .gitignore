@@ -60,3 +60,5 @@ debian/lxpanel.debhelper.log
 debian/lxpanel.substvars
 debian/lxpanel/*
 debian/stamp-patched
+data/two_panels/panels/bottom
+data/two_panels/panels/top
