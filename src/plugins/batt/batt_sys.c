@@ -153,6 +153,15 @@ void battery_update(battery *b)
 
     b->current_now = get_gint_from_infofile(b, "current_now");
     b->power_now   = get_gint_from_infofile(b, "power_now");
+    /* FIXME: Some battery drivers report -1000 when the discharge rate is
+     * unavailable. Others use negative values when discharging. Best we can do
+     * is to treat -1 as an error, and take the absolute value otherwise.
+     * Ideally the kernel would not export the sysfs file when the value is not
+     * available. */
+    if (b->current_now < -1)
+	    b->current_now = - b->current_now;
+    if (b->power_now < -1)
+	    b->power_now = - b->power_now;
 
     b->charge_full = get_gint_from_infofile(b, "charge_full");
     b->energy_full = get_gint_from_infofile(b, "energy_full");
