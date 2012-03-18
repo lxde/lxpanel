@@ -17,6 +17,7 @@
  */
 
 #include <string.h>
+#include <stdlib.h>
 #include <glib.h>
 #include <glib/gi18n.h>
 #include "netstat.h"
@@ -68,7 +69,7 @@ void statusicon_destroy(struct statusicon *icon)
 
 void set_statusicon_image_from_file(struct statusicon *widget, const char *filename)
 {
-    gtk_image_set_from_file(widget->icon, filename);
+    gtk_image_set_from_file(GTK_IMAGE(widget->icon), filename);
 }
 
 void set_statusicon_tooltips(struct statusicon *widget, const char *tooltips)

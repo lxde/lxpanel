@@ -42,10 +42,10 @@
 /* 1 second */
 #define NETSTAT_IFACE_POLL_DELAY 3000
 
-static int actionProcess(void *arg)
+static void* actionProcess(void *arg)
 {
     ENTER;
-    RET(system((char *)arg));
+    RET(GINT_TO_POINTER(system((char *)arg)));
 }
 
 /* menu handlers */
@@ -53,11 +53,17 @@ static void ethernet_repair(GtkWidget *widget, netdev_info *ni)
 {
     if (ni->ns->fixcmd) {
         pthread_t actionThread;
+        pthread_attr_t attr;
         char *fixcmd;
 
         fixcmd = g_strdup_printf(ni->ns->fixcmd, ni->netdev_list->info.ifname);
 
-        pthread_create(&actionThread, NULL, actionProcess, fixcmd);
+        /* Note: Better would be to join the thread, and thus get a status
+         * message. But detaching is currently simpler to implement. */
+        pthread_attr_init(&attr);
+        pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
+        pthread_create(&actionThread, &attr, actionProcess, fixcmd);
+        pthread_attr_destroy(&attr);
     } else {
         lxnm_send_command(ni->ns->fnetd->lxnmchannel, LXNM_ETHERNET_REPAIR, ni->netdev_list->info.ifname);
     }
@@ -112,6 +118,12 @@ static void wireless_connect(GtkWidget *widget, ap_setting *aps)
     }
 }
 
+static void
+g_free_weaknotify(void *ptr, GObject *dummy)
+{
+    g_free(ptr);
+}
+
 static GtkWidget *
 wireless_menu(netdev_info *ni)
 {
@@ -131,13 +143,13 @@ wireless_menu(netdev_info *ni)
 
     /* create menu */
     menu = gtk_menu_new();
-	g_signal_connect(menu, "selection-done", gtk_widget_destroy, NULL);
+    g_signal_connect(menu, "selection-done", G_CALLBACK(gtk_widget_destroy), NULL);
 
     /* Scanning AP */
     aplist = wireless_scanning(ni->ns->fnetd->iwsockfd, ni->netdev_list->info.ifname);
     if (aplist!=NULL) {
         /* release AP list after menu */
-        g_object_weak_ref(menu, wireless_aplist_free, aplist);
+        g_object_weak_ref(G_OBJECT(menu), wireless_aplist_free, aplist);
         ptr = aplist;
         do {
             /* skip hidden AP with Encryption */
@@ -169,7 +181,7 @@ wireless_menu(netdev_info *ni)
             else
                 essid_label = gtk_label_new(aps->apinfo->essid);
 
-            gtk_label_set_justify(essid_label, GTK_JUSTIFY_LEFT);
+            gtk_label_set_justify(GTK_LABEL(essid_label), GTK_JUSTIFY_LEFT);
             gtk_misc_set_padding(GTK_MISC(essid_label), 2, 0);
             gtk_box_pack_start(GTK_BOX(item_box), essid_label, TRUE, FALSE, 0);
 
@@ -182,24 +194,24 @@ wireless_menu(netdev_info *ni)
 
             signal_quality = gtk_progress_bar_new();
             gtk_widget_set_size_request(signal_quality, 100, -1);
-            gtk_progress_bar_set_orientation(signal_quality, GTK_PROGRESS_LEFT_TO_RIGHT);
-            gtk_progress_bar_set_fraction(signal_quality, quality_per);
+            gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(signal_quality), GTK_PROGRESS_LEFT_TO_RIGHT);
+            gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(signal_quality), quality_per);
             gtk_box_pack_start(GTK_BOX(item_box), signal_quality, FALSE, FALSE, 0);
 
             /* add this item to menu */
             gtk_container_add(GTK_CONTAINER(menu_item), item_box);
             gtk_menu_append(GTK_MENU(menu), menu_item);
             g_signal_connect(G_OBJECT(menu_item), "activate", G_CALLBACK(wireless_connect), aps);
-            g_object_weak_ref(menu_item, g_free, aps);
+            g_object_weak_ref(G_OBJECT(menu_item), g_free_weaknotify, aps);
 
-			/* handle next AP */
+            /* handle next AP */
             ptr = ptr->next;
         } while(ptr!=NULL);
     } else {
         /* we do not found any wireless networks */
         menu_item = gtk_menu_item_new();
         wireless_label = gtk_label_new(_("Wireless Networks not found in range"));
-        gtk_label_set_justify(wireless_label, GTK_JUSTIFY_LEFT);
+        gtk_label_set_justify(GTK_LABEL(wireless_label), GTK_JUSTIFY_LEFT);
         gtk_widget_set_sensitive(GTK_WIDGET(wireless_label), FALSE);
         gtk_container_add(GTK_CONTAINER(menu_item), wireless_label);
         gtk_menu_append(GTK_MENU(menu), menu_item);
@@ -221,7 +233,7 @@ static gint menupopup(GtkWidget *widget, GdkEvent *event, netdev_info *ni)
         if (event_button->button == 1) {
             /* wireless device */
             if (ni->netdev_list->info.wireless) {
-                gtk_menu_popup(wireless_menu(ni), NULL, NULL, NULL, NULL, event_button->button, event_button->time);
+                gtk_menu_popup(GTK_MENU(wireless_menu(ni)), NULL, NULL, NULL, NULL, event_button->button, event_button->time);
             }
             return TRUE;
         } else if (event_button->button == 3) {
@@ -243,7 +255,7 @@ static gint menupopup(GtkWidget *widget, GdkEvent *event, netdev_info *ni)
 
             gtk_widget_show_all(menu);
 
-            gtk_menu_popup(menu, NULL, NULL, NULL, NULL, event_button->button, event_button->time);
+            gtk_menu_popup(GTK_MENU(menu), NULL, NULL, NULL, NULL, event_button->button, event_button->time);
             return TRUE;
         }
     }
@@ -275,6 +287,8 @@ static char *select_icon(gboolean plug, gboolean connected, int stat)
         case NETDEV_STAT_RECVDATA:
             return ICONS_RECVDATA;
             break;
+        default:
+            return NULL;
     }
 }
 
@@ -343,7 +357,7 @@ static void refresh_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
 
                 ptr->info.status_icon = create_statusicon(ns->mainw, select_icon(ptr->info.plug, ptr->info.connected, ptr->info.status), tooltip);
                 g_signal_connect(ptr->info.status_icon->main, "button_press_event", G_CALLBACK(menupopup), ni);
-                g_object_weak_ref(ptr->info.status_icon->main, g_free, ni);
+                g_object_weak_ref(G_OBJECT(ptr->info.status_icon->main), g_free_weaknotify, ni);
             } else {
                 set_statusicon_tooltips(ptr->info.status_icon, tooltip);
                 set_statusicon_image_from_file(ptr->info.status_icon, select_icon(ptr->info.plug, ptr->info.connected, ptr->info.status));
@@ -473,7 +487,9 @@ PluginClass netstat_plugin_class = {
 
     constructor : netstat_constructor,
     destructor  : netstat_destructor,
-//    orientation : orientation_changed,
+    panel_configuration_changed : orientation_changed,
     config : NULL,
     save : NULL
 };
+
+/* vim: set sw=4 sts=4 et : */

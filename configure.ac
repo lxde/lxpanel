@@ -364,6 +364,12 @@ PLUGINS_LIST="\
 
 AC_SUBST(PLUGINS_LIST)
 
+# Plugin-specific dependencies
+# nestat
+if test x"$plugin_netstat" != "x";then
+AC_CHECK_HEADER([iwlib.h],,
+ AC_MSG_ERROR([netstat plugin requires wireless-tools-devel]))
+fi
 
 # Checks for header files.
 AC_PATH_X
