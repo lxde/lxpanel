@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2012-01-04 22:43+0200\n"
+"PO-Revision-Date: 2012-03-19 22:44+0200\n"
 "Last-Translator: Y P <yupadmin@gmail.com>\n"
 "Language-Team: UKRAINIAN <translate@linux.org.ua>\n"
 "Language: uk\n"
@@ -36,7 +36,7 @@ msgstr "Вийти"
 
 #: ../src/configurator.c:468
 msgid "Currently loaded plugins"
-msgstr "Запущені плагіни"
+msgstr "Завантажені плагіни"
 
 #: ../src/configurator.c:477
 msgid "Stretch"
