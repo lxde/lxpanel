@@ -322,6 +322,11 @@ thermal_constructor(Plugin *p, char** fp)
     th->main = p->pwid;
     th->tip  = gtk_tooltips_new();
 
+    /* By default, use automatic, that is, "not custom" temperature levels. If
+     * we were using custom levels, they would be 0°C at startup, so we would
+     * display in warning colors by default. */
+    th->not_custom_levels = TRUE;
+
     g_signal_connect (G_OBJECT (p->pwid), "button_press_event",
           G_CALLBACK (plugin_button_press_event), (gpointer) p);
 
