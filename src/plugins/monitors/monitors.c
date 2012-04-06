@@ -78,7 +78,7 @@
 #define PLUGIN_NAME      "MonitorsPlugin"
 #define BORDER_SIZE      2                  /* Pixels               */
 #define DEFAULT_WIDTH    40                 /* Pixels               */
-#define UPDATE_PERIOD    2000               /* Milliseconds         */
+#define UPDATE_PERIOD    2                  /* Seconds              */
 #define COLOR_SIZE       8                  /* In chars : #xxxxxx\0 */
 
 #ifndef ENTER
@@ -542,7 +542,7 @@ static char *colors[N_MONITORS] = {
 };
 
 /* 
- * This function is called every UPDATE_PERIOD milliseconds. It updates all
+ * This function is called every UPDATE_PERIOD seconds. It updates all
  * monitors.
  */
 static gboolean
@@ -652,8 +652,8 @@ monitors_constructor(Plugin *p, char **fp)
     }
    
     /* Adding a timer : monitors will be updated every UPDATE_PERIOD
-     * milliseconds */
-    mp->timer = g_timeout_add(UPDATE_PERIOD, (GSourceFunc) monitors_update, 
+     * seconds */
+    mp->timer = g_timeout_add_seconds(UPDATE_PERIOD, (GSourceFunc) monitors_update,
                               (gpointer) mp);
     RET(TRUE);
 }
@@ -766,8 +766,6 @@ start:
         goto start;
     }
 
-
-    
     RET();
 }
 

@@ -90,7 +90,7 @@ PluginClass test_plugin_class = {
     count: 0,
 
     type : "test",
-    name : "Digital Clock",
+    name : "Test Plugin",
     version: "1.0",
     description : "Dispaly Digital clock and Tooltip",
 

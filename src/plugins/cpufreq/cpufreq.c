@@ -390,7 +390,7 @@ cpufreq_constructor(Plugin *p, char** fp)
 
     }*/
     update_tooltip(cf);
-    cf->timer = g_timeout_add(2000, (GSourceFunc)update_tooltip, (gpointer)cf);
+    cf->timer = g_timeout_add_seconds(2, (GSourceFunc)update_tooltip, (gpointer)cf);
 
     gtk_widget_show(cf->namew);
 
