@@ -78,7 +78,7 @@
 #define PLUGIN_NAME      "MonitorsPlugin"
 #define BORDER_SIZE      2                  /* Pixels               */
 #define DEFAULT_WIDTH    40                 /* Pixels               */
-#define UPDATE_PERIOD    2                  /* Seconds              */
+#define UPDATE_PERIOD    1                  /* Seconds              */
 #define COLOR_SIZE       8                  /* In chars : #xxxxxx\0 */
 
 #ifndef ENTER

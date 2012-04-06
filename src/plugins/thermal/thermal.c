@@ -455,7 +455,7 @@ thermal_constructor(Plugin *p, char** fp)
     gtk_widget_show(th->namew);
 
     update_display(th);
-    th->timer = g_timeout_add_seconds(1, (GSourceFunc) update_display, (gpointer)th);
+    th->timer = g_timeout_add_seconds(3, (GSourceFunc) update_display, (gpointer)th);
 
     RET(TRUE);
 

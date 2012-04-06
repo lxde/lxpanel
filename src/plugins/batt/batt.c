@@ -459,7 +459,7 @@ constructor(Plugin *p, char **fp)
 
    
     /* Start the update loop */
-    lx_b->timer = g_timeout_add_seconds( 3, (GSourceFunc) update_timout, (gpointer) lx_b);
+    lx_b->timer = g_timeout_add_seconds( 9, (GSourceFunc) update_timout, (gpointer) lx_b);
 
     RET(TRUE);
 
