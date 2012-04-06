@@ -504,12 +504,12 @@ redraw_pixmap (Monitor *m)
 
     for (i = 0; i < m->pixmap_width; i++)
     {
-        /* Draw one bar of the graph */
-        gdk_draw_line(m->pixmap,
-            m->graphics_context,
-            i, m->pixmap_height,
-        i,(1-m->stats[(m->ring_cursor +i)%m->pixmap_width])*m->pixmap_height);
+        unsigned int drawing_cursor = (m->ring_cursor + i) % m->pixmap_width;
 
+        /* Draw one bar of the graph */
+        gdk_draw_line(m->pixmap, m->graphics_context,
+                i, m->pixmap_height,
+                i, (1.0 - m->stats[drawing_cursor]) * m->pixmap_height);
     }
 
     /* Redraw pixmap */
