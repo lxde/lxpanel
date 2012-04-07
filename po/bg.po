@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2011-01-01 15:33+0200\n"
-"Last-Translator: Радослав <Rec.ku@hotmail.com>\n"
+"PO-Revision-Date: 2012-04-07 10:32+0200\n"
+"Last-Translator: Радослав <reckku@gmail.com>\n"
 "Language-Team: MIME-Version: 1.0\n"
 "Language: bg\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -25,7 +25,7 @@ msgstr "Стартирай..."
 
 #: ../src/configurator.c:56
 msgid "Restart"
-msgstr "Рестартиране"
+msgstr "Рестартирай"
 
 #: ../src/configurator.c:57
 msgid "Logout"
@@ -94,7 +94,7 @@ msgstr "LXDE панел"
 
 #: ../src/panel.c:717
 msgid "Add / Remove Panel Items"
-msgstr "Добави / Премахни панелни елементи"
+msgstr "Добави/Премахни панелни елементи"
 
 #: ../src/panel.c:725
 #, c-format
@@ -153,7 +153,7 @@ msgstr "Долу"
 #: ../src/panel.c:1460
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr "lxpanel %s - лек GTK2+ панел за UNIX работен плот\n"
+msgstr "lxpanel %s - GTK2+ панел за UNIX работен плот\n"
 
 #: ../src/panel.c:1461
 #, c-format
@@ -173,7 +173,7 @@ msgstr " --version   -- изписва версията и излиза\n"
 #: ../src/panel.c:1464
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --log <номер> -- задава log ниво 0-5. 0 - без 5 - подробно\n"
+msgstr " --log <номер> -- задава ниво на отчет 0-5. (0 - без, 5 - подробно)\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1466
@@ -215,7 +215,7 @@ msgstr "Въведете командата, която искате да изп
 
 #: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:912
 msgid "Application Launch Bar"
-msgstr "Лента за програми"
+msgstr "Панел с програми"
 
 #: ../data/ui/netstatus.glade.h:2
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
@@ -603,7 +603,6 @@ msgid "Tooltip only"
 msgstr "Само подсказки"
 
 #: ../src/plugins/dclock.c:440
-#, fuzzy
 msgid "Center text"
 msgstr "Центрирано"
 
@@ -814,6 +813,8 @@ msgid ""
 "Error, you need to install a application to configure the sound (pavucontol, "
 "alsamixer ...)"
 msgstr ""
+"Грешка, трябва да инсталирате програма за регулиране на звука (pavucontrol, "
+"alsamixer...)"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
@@ -1360,74 +1361,67 @@ msgstr "Индикатори за CapsLock, NumLock и ScrollLock клавиши
 #. A label to allow for click through
 #: ../src/plugins/indicator/indicator.c:561
 msgid "No Indicators"
-msgstr ""
+msgstr "Няма индикатори"
 
 #: ../src/plugins/indicator/indicator.c:751
-#, fuzzy
 msgid "Indicator Applications"
-msgstr "Програми"
+msgstr "Индикатор за програми"
 
 #: ../src/plugins/indicator/indicator.c:752
 msgid "Clock Indicator"
-msgstr ""
+msgstr "Индикатор за часовник"
 
 #: ../src/plugins/indicator/indicator.c:753
 msgid "Messaging Menu"
-msgstr ""
+msgstr "Меню за съобщения"
 
 #: ../src/plugins/indicator/indicator.c:754
-#, fuzzy
 msgid "Network Menu"
-msgstr "Меню на директориите"
+msgstr "Меню на интернет директориите"
 
 #: ../src/plugins/indicator/indicator.c:755
 msgid "Session Menu"
-msgstr ""
+msgstr "Меню за сесия"
 
 #: ../src/plugins/indicator/indicator.c:756
 msgid "Sound Menu"
-msgstr ""
+msgstr "Меню за звука"
 
 #: ../src/plugins/indicator/indicator.c:780
 msgid "Indicator applets"
-msgstr ""
+msgstr "Индикатори"
 
 #: ../src/plugins/indicator/indicator.c:782
-#, fuzzy
 msgid "Add indicator applets to the panel"
-msgstr "Добави разделител в панела"
+msgstr "Добави индикатори"
 
 #: ../src/plugins/monitors/monitors.c:654
-#, fuzzy
 msgid "CPU color"
-msgstr "Потребителски цвят"
+msgstr "Цвят за процесора"
 
 #: ../src/plugins/monitors/monitors.c:655
-#, fuzzy
 msgid "Display RAM usage"
-msgstr "Натоварване на процесора"
+msgstr "Потребление на оперативна памет"
 
 #: ../src/plugins/monitors/monitors.c:656
 msgid "RAM color"
-msgstr ""
+msgstr "Цвят за оперативната памет"
 
 #: ../src/plugins/monitors/monitors.c:753
-#, fuzzy
 msgid "Resource monitors"
-msgstr "Наблюдавай върху монитора"
+msgstr "Използване на ресурсите"
 
 #: ../src/plugins/monitors/monitors.c:755
 msgid "Display monitors (CPU, RAM)"
-msgstr ""
+msgstr "Показване на използването на ресурсите (процесор, оперативна памет)"
 
 #: ../src/plugins/wnckpager/wnckpager.c:721
 msgid "WNCKPager"
-msgstr ""
+msgstr "WNCKPager"
 
 #: ../src/plugins/wnckpager/wnckpager.c:723
-#, fuzzy
 msgid "WNCKpager plugin"
-msgstr "Добавка прост преглед"
+msgstr "Добавка WNCKPager"
 
 #~ msgid "Available Applications"
 #~ msgstr "Налични програми"
