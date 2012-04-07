@@ -713,7 +713,6 @@ msgstr ""
 "piilottaaksesi ne."
 
 #: ../src/plugins/wincmd.c:237
-#, fuzzy
 msgid "Alternately iconify/shade and raise"
 msgstr "Vaihtoehtoisesti pienennä/häivytä ja nosta"
 
@@ -1074,7 +1073,6 @@ msgid "Error"
 msgstr "Virhe"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:192
-#, fuzzy
 msgid "The current error condition"
 msgstr "Virheen tila"
 

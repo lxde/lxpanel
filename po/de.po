@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2010-01-23 17:08+0200\n"
+"PO-Revision-Date: 2012-03-05 01:24+0200\n"
 "Last-Translator: Christoph <christoph.wickert@googlemail.com>\n"
 "Language-Team: Deutsch <LL@li.org>\n"
 "Language: de\n"
@@ -16,9 +16,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.5\n"
 "X-Poedit-Language: German\n"
 "X-Poedit-Country: GERMANY\n"
-"X-Generator: Pootle 2.0.1\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:319
 msgid "Run"
@@ -609,9 +609,8 @@ msgid "Tooltip only"
 msgstr "Nur Minihilfen"
 
 #: ../src/plugins/dclock.c:440
-#, fuzzy
 msgid "Center text"
-msgstr "Mitte"
+msgstr "Text zentrieren"
 
 #: ../src/plugins/dclock.c:469
 msgid "Digital Clock"
@@ -816,10 +815,13 @@ msgid "Mute"
 msgstr "Stumm"
 
 #: ../src/plugins/volumealsa/volumealsa.c:544
+#, fuzzy
 msgid ""
 "Error, you need to install a application to configure the sound (pavucontol, "
 "alsamixer ...)"
 msgstr ""
+"Fehler: Sie müssen eine Anwendung wie pavucontrol oder alsamixer "
+"installieren, um die Lautstärke anzupassen"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
@@ -1366,7 +1368,7 @@ msgstr "Indikatoren für CapsLock, NumLock und ScrollLock-Tasten"
 #. A label to allow for click through
 #: ../src/plugins/indicator/indicator.c:561
 msgid "No Indicators"
-msgstr ""
+msgstr "Keine Indikatoren"
 
 #: ../src/plugins/indicator/indicator.c:751
 #, fuzzy
@@ -1382,13 +1384,12 @@ msgid "Messaging Menu"
 msgstr ""
 
 #: ../src/plugins/indicator/indicator.c:754
-#, fuzzy
 msgid "Network Menu"
-msgstr "Ordnermenü"
+msgstr "Netzwerkmenü"
 
 #: ../src/plugins/indicator/indicator.c:755
 msgid "Session Menu"
-msgstr ""
+msgstr "Sitzungsmenü"
 
 #: ../src/plugins/indicator/indicator.c:756
 #, fuzzy
@@ -1407,17 +1408,17 @@ msgstr "Trenner zum Panel hinzufügen"
 #: ../src/plugins/monitors/monitors.c:654
 #, fuzzy
 msgid "CPU color"
-msgstr "Benutzerdefinierte Farbe"
+msgstr "Farbe für CPU"
 
 #: ../src/plugins/monitors/monitors.c:655
 #, fuzzy
 msgid "Display RAM usage"
-msgstr "Prozessorlast anzeigen"
+msgstr "Speichernutzung anzeigen"
 
 #: ../src/plugins/monitors/monitors.c:656
 #, fuzzy
 msgid "RAM color"
-msgstr "Farbe:"
+msgstr "Farbe für Speicher"
 
 #: ../src/plugins/monitors/monitors.c:753
 #, fuzzy

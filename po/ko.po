@@ -1,1538 +1,233 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Korean translation for lxtask package
+# Copyright (C) 2009-2012 Frer software foundation Inc.
+# This file is distributed under the same license as the lxtask package.
+# Seong-ho Cho <darkcircle.0426@gmail.com>, 2012.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: lxpanel 0.1.1\n"
+"Project-Id-Version: lxtask\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2011-09-11 11:45+0200\n"
-"Last-Translator: Sanghyeon <sanxiyn@gmail.com>\n"
-"Language-Team: GNOME Korean Team <gnome-kr-hackers@lists.kldp.net>\n"
+"POT-Creation-Date: 2012-01-05 10:33+0100\n"
+"PO-Revision-Date: 2012-04-05 20:41+0900\n"
+"Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.5\n"
 
-#: ../src/configurator.c:54 ../src/gtk-run.c:319
-msgid "Run"
-msgstr "실행"
+#: ../lxtask.desktop.in.h:1
+msgid "Manage running processes"
+msgstr "실행중인 프로세스를 관리합니다"
 
-#: ../src/configurator.c:56
-msgid "Restart"
-msgstr "다시 시작"
+#: ../lxtask.desktop.in.h:2
+msgid "Process manager"
+msgstr "프로세스 관리자"
 
-#: ../src/configurator.c:57
-msgid "Logout"
-msgstr ""
+#: ../lxtask.desktop.in.h:3
+#: ../src/interface.c:55
+msgid "Task Manager"
+msgstr "작업 관리자"
 
-#: ../src/configurator.c:468
-msgid "Currently loaded plugins"
-msgstr "지금 쓰는 플러그인"
-
-#: ../src/configurator.c:477
-msgid "Stretch"
-msgstr ""
-
-#: ../src/configurator.c:596
-msgid "Add plugin to panel"
-msgstr ""
-
-#: ../src/configurator.c:624
-msgid "Available plugins"
-msgstr ""
-
-#: ../src/configurator.c:1202
-msgid "Logout command is not set"
-msgstr ""
-
-#: ../src/configurator.c:1255
-msgid "Select a directory"
-msgstr ""
-
-#: ../src/configurator.c:1255 ../src/configurator.c:1346
-msgid "Select a file"
-msgstr ""
-
-#: ../src/configurator.c:1373
-msgid "_Browse"
-msgstr ""
-
-#: ../src/panel.c:651
+#: ../src/xfce-taskmanager-linux.c:271
+#, c-format
 msgid ""
-"Really delete this panel?\n"
-"<b>Warning: This can not be recovered.</b>"
+"Couldn't send signal %d to the task with ID %d\n"
+"\n"
+"%s"
 msgstr ""
+"%d 시그널을 ID %d 작업에 보낼 수 없습니다\n"
+"\n"
+"%s"
 
-#: ../src/panel.c:653
-msgid "Confirm"
+#: ../src/xfce-taskmanager-linux.c:285
+#, c-format
+msgid "Couldn't set priority %d to the task with ID %d"
+msgstr "%d 우선순위를 ID 작업 %d에 설정할 수 없습니다"
+
+#: ../src/callbacks.c:58
+msgid "Really kill the task?"
+msgstr "정말로 작업을 죽이시겠습니까?"
+
+#: ../src/callbacks.c:62
+msgid "Really terminate the task?"
+msgstr "정말로 작업을 중단하시겠습니까?"
+
+#: ../src/functions.c:148
+#, c-format
+msgid "Memory: %d MB of %d MB used"
+msgstr "메모리: %d MB를 %d MB중 사용함"
+
+#: ../src/functions.c:156
+#, c-format
+msgid "CPU usage: %0.0f %%"
+msgstr "CPU 사용량: %0.0f %%"
+
+#: ../src/interface.c:69
+msgid "_File"
+msgstr "파일(_F)"
+
+#: ../src/interface.c:77
+msgid "_View"
+msgstr "보기(_V)"
+
+#: ../src/interface.c:83
+msgid "_Help"
+msgstr "도움말(_H)"
+
+#: ../src/interface.c:110
+msgid "cpu usage"
+msgstr "CPU 사용량"
+
+#: ../src/interface.c:121
+msgid "memory usage"
+msgstr "메모리 사용량"
+
+#: ../src/interface.c:149
+msgid "more details"
+msgstr "자세히"
+
+#: ../src/interface.c:175
+msgid "Command"
+msgstr "명령"
+
+#: ../src/interface.c:181
+msgid "User"
+msgstr "사용자"
+
+#: ../src/interface.c:190
+msgid "CPU%"
+msgstr "CPU%"
+
+#: ../src/interface.c:196
+msgid "RSS"
+msgstr " RSS"
+
+#: ../src/interface.c:202
+msgid "VM-Size"
+msgstr "VM-크기"
+
+#: ../src/interface.c:208
+msgid "PID"
+msgstr "PID"
+
+#: ../src/interface.c:214
+msgid "State"
+msgstr "상태"
+
+#: ../src/interface.c:220
+msgid "Prio"
+msgstr "우선순위"
+
+#: ../src/interface.c:226
+msgid "PPID"
+msgstr "PPID"
+
+#: ../src/interface.c:242
+msgid "Stop"
+msgstr "멈춤"
+
+#: ../src/interface.c:247
+msgid "Continue"
+msgstr "진행"
+
+#: ../src/interface.c:252
+msgid "Term"
+msgstr "중단"
+
+#: ../src/interface.c:257
+msgid "Kill"
+msgstr "죽이기"
+
+#: ../src/interface.c:262
+msgid "Priority"
+msgstr "우선순위"
+
+#: ../src/interface.c:275
+msgid "  -10"
+msgstr "  -10"
+
+#: ../src/interface.c:280
+msgid "  -5"
+msgstr "  -5"
+
+#: ../src/interface.c:285
+msgid "    0"
+msgstr "    0"
+
+#: ../src/interface.c:290
+msgid "   5"
+msgstr "   5"
+
+#: ../src/interface.c:295
+msgid "   10"
+msgstr "   10"
+
+#: ../src/interface.c:321
+msgid "Show user tasks"
+msgstr "사용자 작업 표시"
+
+#: ../src/interface.c:326
+msgid "Show root tasks"
+msgstr "루트 작업 표시"
+
+#: ../src/interface.c:331
+msgid "Show other tasks"
+msgstr "다른 작업 표시"
+
+#: ../src/interface.c:336
+msgid "Show full cmdline"
+msgstr "전체 명령줄 표시"
+
+#: ../src/interface.c:341
+msgid "Show memory used by cache as free"
+msgstr "캐시로 사용하고 남은 메모리 용량 표시"
+
+#: ../src/interface.c:373
+msgid ""
+"LXTask is derived from Xfce4 Task Manager by:\n"
+"  * Johannes Zellner <webmaster@nebulon.de>"
 msgstr ""
+"LXTask는 Xfce4 작업 관리자로부터\n"
+"Johannes Zellner <webmaster@nebulon.de>가 계승했습니다."
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:686
+#: ../src/interface.c:378
 msgid "translator-credits"
-msgstr ""
+msgstr "Seong-ho Cho <darkcircle.0426@gmail.com>"
 
-#: ../src/panel.c:691
-msgid "LXPanel"
-msgstr ""
+#: ../src/interface.c:387
+#: ../src/interface.c:389
+msgid "LXTask"
+msgstr "LXTask"
 
-#: ../src/panel.c:693
-msgid "Copyright (C) 2008-2011"
-msgstr ""
+#. gtk_about_dialog_set_logo( (GtkAboutDialog*)about_dlg, gdk_pixbuf_new_from_file(  PACKAGE_DATA_DIR"/pixmaps/lxtask.png", NULL ) );
+#: ../src/interface.c:392
+msgid "Copyright (C) 2008 LXDE team"
+msgstr "Copyright (C) 2008 LXDE team"
 
-#: ../src/panel.c:694
-msgid "Desktop panel for LXDE project"
-msgstr ""
+#: ../src/interface.c:393
+msgid "Lightweight task manager for LXDE project"
+msgstr "LXDE 프로젝트의 가벼운 작업 관리자"
 
-#: ../src/panel.c:717
-msgid "Add / Remove Panel Items"
-msgstr ""
+#: ../src/interface.c:621
+msgid "Preferences"
+msgstr "기본 설정"
 
-#: ../src/panel.c:725
-#, c-format
-msgid "Remove \"%s\" From Panel"
-msgstr ""
-
-#: ../src/panel.c:737
-#, fuzzy
-msgid "Panel Settings"
-msgstr "설정"
-
-#: ../src/panel.c:743
-msgid "Create New Panel"
-msgstr ""
-
-#: ../src/panel.c:754
-msgid "Delete This Panel"
-msgstr ""
-
-#: ../src/panel.c:765
-msgid "About"
-msgstr ""
-
-#: ../src/panel.c:773
-msgid "Panel"
-msgstr ""
-
-#: ../src/panel.c:786
-#, fuzzy, c-format
-msgid "\"%s\" Settings"
-msgstr "설정"
-
-#: ../src/panel.c:1042 ../src/panel.c:1050 ../data/ui/panel-pref.glade.h:21
-msgid "Height:"
-msgstr "높이:"
-
-#: ../src/panel.c:1043 ../src/panel.c:1049 ../data/ui/panel-pref.glade.h:40
-msgid "Width:"
-msgstr "너비:"
-
-#: ../src/panel.c:1044 ../data/ui/panel-pref.glade.h:23
-msgid "Left"
-msgstr "왼쪽"
-
-#: ../src/panel.c:1045 ../data/ui/panel-pref.glade.h:32
-msgid "Right"
-msgstr "오른쪽"
-
-#: ../src/panel.c:1051 ../data/ui/panel-pref.glade.h:39
-msgid "Top"
-msgstr "위"
-
-#: ../src/panel.c:1052 ../data/ui/panel-pref.glade.h:14
-msgid "Bottom"
-msgstr "아래"
-
-#: ../src/panel.c:1460
-#, c-format
-msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr "lxpanel %s - GTK2+를 쓴 유닉스 환경의 가벼운 패널\n"
-
-#: ../src/panel.c:1461
-#, c-format
-msgid "Command line options:\n"
-msgstr "명령줄 옵션:\n"
-
-#: ../src/panel.c:1462
-#, c-format
-msgid " --help      -- print this help and exit\n"
-msgstr " --help      -- 도움말이 나오고 끝납니다\n"
-
-#: ../src/panel.c:1463
-#, c-format
-msgid " --version   -- print version and exit\n"
-msgstr " --version   -- 버전이 나오고 끝납니다\n"
-
-#: ../src/panel.c:1464
-#, c-format
-msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <숫자>   -- 기록 수준을 0부터 5까지 정합니다. 0은 조용하고 5는 수다쟁"
-"이\n"
-
-#. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1466
-#, c-format
-msgid " --profile name -- use specified profile\n"
-msgstr " --profile 이름 -- 지정한 프로파일을 씁니다\n"
-
-#: ../src/panel.c:1468
-#, c-format
-msgid " -h  -- same as --help\n"
-msgstr " -h  -- --help와 같습니다\n"
-
-#: ../src/panel.c:1469
-#, c-format
-msgid " -p  -- same as --profile\n"
-msgstr " -p  -- --profile과 같습니다\n"
-
-#: ../src/panel.c:1470
-#, c-format
-msgid " -v  -- same as --version\n"
-msgstr " -v  -- --version과 같습니다\n"
-
-#. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1472
-#, fuzzy, c-format
-msgid ""
-"\n"
-"Visit http://lxde.org/ for detail.\n"
-"\n"
-msgstr ""
-"\n"
-"자세한 문서는 http://lxpanel.sourceforge.net/ 에 들러주세요,\n"
-"\n"
-
-#: ../src/gtk-run.c:332
-msgid "Enter the command you want to execute:"
-msgstr "실행할 명령을 입력하세요:"
-
-#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:912
-msgid "Application Launch Bar"
-msgstr "실행 막대"
-
-#: ../data/ui/netstatus.glade.h:2
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
-#, no-c-format
-msgid "0%"
-msgstr ""
-
-#: ../data/ui/netstatus.glade.h:3
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
-msgid "<b>Activity</b>"
-msgstr ""
-
-#: ../data/ui/netstatus.glade.h:4
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
-msgid "<b>Connection</b>"
-msgstr ""
-
-#: ../data/ui/netstatus.glade.h:5
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
-msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr ""
-
-#: ../data/ui/netstatus.glade.h:6
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
-msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr ""
-
-#: ../data/ui/netstatus.glade.h:7
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
-msgid "<b>Network Device</b>"
-msgstr ""
-
-#: ../data/ui/netstatus.glade.h:8
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
-msgid "<b>Signal Strength</b>"
-msgstr ""
-
-#: ../data/ui/netstatus.glade.h:9
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
-msgid "Address:"
-msgstr ""
-
-#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
-#: ../src/plugins/netstat/netstat.c:330
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-msgid "Broadcast:"
-msgstr ""
-
-#: ../data/ui/netstatus.glade.h:11
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
-msgid "Con_figure"
-msgstr ""
-
-#: ../data/ui/netstatus.glade.h:12
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
-msgid "Destination:"
-msgstr ""
-
-#: ../data/ui/netstatus.glade.h:13
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
+#: ../src/interface.c:625
 msgid "General"
 msgstr "일반"
 
-#: ../data/ui/netstatus.glade.h:14
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
-msgid "Received:"
-msgstr ""
-
-#: ../data/ui/netstatus.glade.h:15
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
-msgid "Scope:"
-msgstr ""
-
-#: ../data/ui/netstatus.glade.h:16
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
-msgid "Sent:"
-msgstr ""
-
-#: ../data/ui/netstatus.glade.h:17
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
-msgid "Status:"
-msgstr ""
-
-#: ../data/ui/netstatus.glade.h:18
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
-msgid "Subnet Mask:"
-msgstr ""
-
-#: ../data/ui/netstatus.glade.h:19
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
-msgid "Support"
-msgstr ""
-
-#: ../data/ui/netstatus.glade.h:20
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
-msgid "Type:"
-msgstr ""
-
-#: ../data/ui/netstatus.glade.h:21
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
-msgid "_Name:"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:2
-#, no-c-format
-msgid "% Percent"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:3
-msgid "<b>Automatic hiding</b>"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:4
-#, fuzzy
-msgid "<b>Background</b>"
-msgstr "<b>자리</b>"
-
-#: ../data/ui/panel-pref.glade.h:5
-#, fuzzy
-msgid "<b>Font</b>"
-msgstr "<b>자리</b>"
-
-#: ../data/ui/panel-pref.glade.h:6
-#, fuzzy
-msgid "<b>Icon</b>"
-msgstr "<b>자리</b>"
-
-#: ../data/ui/panel-pref.glade.h:7
-msgid "<b>Position</b>"
-msgstr "<b>자리</b>"
-
-#: ../data/ui/panel-pref.glade.h:8
-msgid "<b>Properties</b>"
-msgstr "<b>속성</b>"
-
-#: ../data/ui/panel-pref.glade.h:9
-msgid "<b>Set Preferred Applications</b>"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:10
-msgid "<b>Size</b>"
-msgstr "<b>크기</b>"
-
-#: ../data/ui/panel-pref.glade.h:11
-msgid "Advanced"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:12
-msgid "Alignment:"
-msgstr "배치:"
-
-#: ../data/ui/panel-pref.glade.h:13
-msgid "Appearance"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:15
-msgid "Center"
-msgstr "가운데"
-
-#: ../data/ui/panel-pref.glade.h:16
-#, fuzzy
-msgid "Custom color"
-msgstr "색조:"
-
-#: ../data/ui/panel-pref.glade.h:17
-#, fuzzy
-msgid "Dynamic"
-msgstr "가변폭"
-
-#: ../data/ui/panel-pref.glade.h:18
-msgid "Edge:"
-msgstr "자리:"
-
-#: ../data/ui/panel-pref.glade.h:19
-msgid "File Manager:"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:20
-msgid "Geometry"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:22
-msgid "Image"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:24
-msgid "Logout Command:"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:25
-msgid "Make window managers treat the panel as dock"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:26
-msgid "Margin:"
-msgstr "띄우기:"
-
-#: ../data/ui/panel-pref.glade.h:27
-msgid "Minimize panel when not in use"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:28
-#, fuzzy
-msgid "Panel Applets"
-msgstr "설정"
-
-#: ../data/ui/panel-pref.glade.h:29
-#, fuzzy
-msgid "Panel Preferences"
-msgstr "속성"
-
-#: ../data/ui/panel-pref.glade.h:30
-#, fuzzy
-msgid "Pixels"
-msgstr "픽셀"
-
-#: ../data/ui/panel-pref.glade.h:31
-msgid "Reserve space, and not covered by maximized windows"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:33
-msgid "Select an image file"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:34 ../src/plugins/space.c:125
-#: ../src/plugins/batt/batt.c:583
-msgid "Size"
-msgstr "크기"
-
-#: ../data/ui/panel-pref.glade.h:35
-msgid "Size when minimized"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:36
-msgid "Solid color (with opacity)"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:37
-#, fuzzy
-msgid "System theme"
-msgstr "시스템 트레이"
-
-#: ../data/ui/panel-pref.glade.h:38
-msgid "Terminal Emulator:"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:41
-msgid "pixels"
-msgstr "픽셀"
-
-#: ../src/plugins/cpu/cpu.c:268
-msgid "CPU Usage Monitor"
-msgstr "CPU 사용 감시"
-
-#: ../src/plugins/cpu/cpu.c:270 ../src/plugins/monitors/monitors.c:653
-msgid "Display CPU usage"
-msgstr "CPU 사용량을 표시합니다"
-
-#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:438
-msgid "Bold font"
-msgstr ""
-
-#: ../src/plugins/deskno/deskno.c:208
-msgid "Display desktop names"
-msgstr ""
-
-#: ../src/plugins/deskno/deskno.c:235
-#, fuzzy
-msgid "Desktop Number / Workspace Name"
-msgstr "데스크탑 번호 / 작업공간 이름"
-
-#: ../src/plugins/deskno/deskno.c:237
-msgid "Display workspace number, by cmeury@users.sf.net"
-msgstr "작업공간 번호를 표시합니다. cmeury@users.sf.net 제작"
-
-#: ../src/plugins/image.c:177
-#, fuzzy
-msgid "Display Image and Tooltip"
-msgstr "그림과 툴팁을 보여줍니다"
-
-#: ../src/plugins/launchbar.c:914
-msgid "Bar with buttons to launch application"
-msgstr "응용 프로그램을 실행하는 버튼들입니다"
-
-#. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1714
-#, fuzzy
-msgid "_Raise"
-msgstr "앞으로"
-
-#. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1719
-#, fuzzy
-msgid "R_estore"
-msgstr "복구"
-
-#. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1724
-#, fuzzy
-msgid "Ma_ximize"
-msgstr "최대화"
-
-#. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1729
-#, fuzzy
-msgid "Ico_nify"
-msgstr "최소화"
-
-#: ../src/plugins/taskbar.c:1748
-#, c-format
-msgid "Workspace _%d"
-msgstr ""
-
-#: ../src/plugins/taskbar.c:1753
-#, c-format
-msgid "Workspace %d"
-msgstr ""
-
-#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1767
-msgid "_All workspaces"
-msgstr ""
-
-#. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1773
-msgid "_Move to Workspace"
-msgstr ""
-
-#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1779
-#, fuzzy
-msgid "_Close Window"
-msgstr "닫기"
-
-#: ../src/plugins/taskbar.c:1986
-msgid "Show tooltips"
-msgstr "툴팁 보기"
-
-#: ../src/plugins/taskbar.c:1987
-msgid "Icons only"
-msgstr "아이콘만"
-
-#: ../src/plugins/taskbar.c:1988
-msgid "Flat buttons"
-msgstr ""
-
-#: ../src/plugins/taskbar.c:1989
-msgid "Show windows from all desktops"
-msgstr "모든 작업공간의 창 보이기"
-
-#: ../src/plugins/taskbar.c:1990
-msgid "Use mouse wheel"
-msgstr "휠로 창 전환 가능"
-
-#: ../src/plugins/taskbar.c:1991
-msgid "Flash when there is any window requiring attention"
-msgstr "주목할 창이 있으면 깜빡이기"
-
-#: ../src/plugins/taskbar.c:1992
-msgid "Combine multiple application windows into a single button"
-msgstr ""
-
-#: ../src/plugins/taskbar.c:1993
-#, fuzzy
-msgid "Maximum width of task button"
-msgstr "작업 버튼의 최대 너비"
-
-#: ../src/plugins/taskbar.c:1994
-msgid "Spacing"
-msgstr "사이 띄우기"
-
-#: ../src/plugins/taskbar.c:2047
-msgid "Task Bar (Window List)"
-msgstr "창 목록"
-
-#: ../src/plugins/taskbar.c:2049
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
-msgstr ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
-
-#: ../src/plugins/dclock.c:434
-msgid "Clock Format"
-msgstr "시계 형식"
-
-#: ../src/plugins/dclock.c:435
-msgid "Tooltip Format"
-msgstr "툴팁 형식"
-
-#: ../src/plugins/dclock.c:436
-msgid "Format codes: man 3 strftime; \\n for line break"
-msgstr ""
-
-#: ../src/plugins/dclock.c:437
-msgid "Action when clicked (default: display calendar)"
-msgstr ""
-
-#: ../src/plugins/dclock.c:439
-#, fuzzy
-msgid "Tooltip only"
-msgstr "툴팁 형식"
-
-#: ../src/plugins/dclock.c:440
-#, fuzzy
-msgid "Center text"
-msgstr "가운데"
-
-#: ../src/plugins/dclock.c:469
-msgid "Digital Clock"
-msgstr "숫자 시계"
-
-#: ../src/plugins/dclock.c:471
-#, fuzzy
-msgid "Display digital clock and tooltip"
-msgstr "숫자 시계와 툴팁을 보여줍니다"
-
-#: ../src/plugins/menu.c:426
-msgid "Add to desktop"
-msgstr ""
-
-#: ../src/plugins/menu.c:436
-#, fuzzy
-msgid "Properties"
-msgstr "<b>속성</b>"
-
-#: ../src/plugins/menu.c:1085 ../src/plugins/dirmenu.c:413
-#, fuzzy
-msgid "Icon"
-msgstr "아이콘"
-
-#: ../src/plugins/menu.c:1102
-msgid "Menu"
-msgstr "메뉴"
-
-#: ../src/plugins/menu.c:1104
-#, fuzzy
-msgid "Application Menu"
-msgstr "실행 막대"
-
-#: ../src/plugins/separator.c:102
-msgid "Separator"
-msgstr ""
-
-#: ../src/plugins/separator.c:104
-msgid "Add a separator to the panel"
-msgstr ""
-
-#: ../src/plugins/pager.c:837
-msgid "Desktop Pager"
-msgstr "pager"
-
-#: ../src/plugins/pager.c:839
-msgid "Simple pager plugin"
-msgstr "간단한 pager 플러그인"
-
-#: ../src/plugins/space.c:143
-#, fuzzy
-msgid "Spacer"
-msgstr "사이 띄우기"
-
-#: ../src/plugins/space.c:145
-msgid "Allocate space"
-msgstr ""
-
-#: ../src/plugins/tray.c:737
-msgid "System Tray"
-msgstr "시스템 트레이"
-
-#: ../src/plugins/tray.c:739
-#, fuzzy
-msgid "System tray"
-msgstr "시스템 트레이"
-
-#: ../src/plugins/xkb/xkb-plugin.c:291
-msgid "Configure Keyboard Layout Switcher"
-msgstr ""
-
-#: ../src/plugins/xkb/xkb-plugin.c:306
-msgid "Show layout as"
-msgstr ""
-
-#: ../src/plugins/xkb/xkb-plugin.c:321
-msgid "image"
-msgstr ""
-
-#: ../src/plugins/xkb/xkb-plugin.c:322
-msgid "text"
-msgstr ""
-
-#: ../src/plugins/xkb/xkb-plugin.c:329
-msgid "Per application settings"
-msgstr ""
-
-#. Create a check button as the child of the vertical box.
-#: ../src/plugins/xkb/xkb-plugin.c:344
-msgid "_Remember layout for each application"
-msgstr ""
-
-#. Create a label as the child of the horizontal box.
-#: ../src/plugins/xkb/xkb-plugin.c:354
-msgid "Default layout:"
-msgstr ""
-
-#: ../src/plugins/xkb/xkb-plugin.c:405
-msgid "Keyboard Layout Switcher"
-msgstr ""
-
-#: ../src/plugins/xkb/xkb-plugin.c:407
-msgid "Switch between available keyboard layouts"
-msgstr ""
-
-#: ../src/plugins/wincmd.c:209
-#, fuzzy
-msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr ""
-"왼쪽 클릭으로 모든 창을 최소화하고, 가운데 클릭으로 모든 창을 말아올립니다"
-
-#: ../src/plugins/wincmd.c:237
-msgid "Alternately iconify/shade and raise"
-msgstr ""
-
-#: ../src/plugins/wincmd.c:266
-msgid "Minimize All Windows"
-msgstr "모든 창 최소화"
-
-#: ../src/plugins/wincmd.c:268
-msgid ""
-"Sends commands to all desktop windows.\n"
-"Supported commands are 1) iconify and 2) shade"
-msgstr ""
-
-#: ../src/plugins/dirmenu.c:246
-msgid "Open in _Terminal"
-msgstr ""
-
-#: ../src/plugins/dirmenu.c:411
-msgid "Directory"
-msgstr ""
-
-#: ../src/plugins/dirmenu.c:412
-msgid "Label"
-msgstr ""
-
-#: ../src/plugins/dirmenu.c:443
-msgid "Directory Menu"
-msgstr ""
-
-#: ../src/plugins/dirmenu.c:445
-msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr ""
-
-#: ../src/plugins/thermal/thermal.c:396
-msgid "Normal"
-msgstr ""
-
-#: ../src/plugins/thermal/thermal.c:397
-msgid "Warning1"
-msgstr ""
-
-#: ../src/plugins/thermal/thermal.c:398
-msgid "Warning2"
-msgstr ""
-
-#: ../src/plugins/thermal/thermal.c:399
-msgid "Automatic sensor location"
-msgstr ""
-
-#: ../src/plugins/thermal/thermal.c:400
-#, fuzzy
-msgid "Sensor"
-msgstr "복구"
-
-#: ../src/plugins/thermal/thermal.c:401
-msgid "Automatic temperature levels"
-msgstr ""
-
-#: ../src/plugins/thermal/thermal.c:402
-msgid "Warning1 Temperature"
-msgstr ""
-
-#: ../src/plugins/thermal/thermal.c:403
-msgid "Warning2 Temperature"
-msgstr ""
-
-#: ../src/plugins/thermal/thermal.c:445
-#, fuzzy
-msgid "Temperature Monitor"
-msgstr "네트 상태 감시기"
-
-#: ../src/plugins/thermal/thermal.c:447
-msgid "Display system temperature"
-msgstr ""
-
-#. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
-#. Display current level in tooltip.
-#: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:279
-#: ../src/plugins/volumealsa/volumealsa.c:449
-msgid "Volume control"
-msgstr "소리 크기 조절"
-
-#: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:571
-msgid "Volume Control"
-msgstr "소리 크기 조절"
-
-#. Create a frame as the child of the viewport.
-#: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:407
-msgid "Volume"
-msgstr "소리 크기"
-
-#. Create a check button as the child of the vertical box.
-#: ../src/plugins/volumealsa/volumealsa.c:426
-msgid "Mute"
-msgstr ""
-
-#: ../src/plugins/volumealsa/volumealsa.c:544
-msgid ""
-"Error, you need to install a application to configure the sound (pavucontol, "
-"alsamixer ...)"
-msgstr ""
-
-#: ../src/plugins/netstat/netstat.c:168
-msgid "<Hidden Access Point>"
-msgstr ""
-
-#: ../src/plugins/netstat/netstat.c:201
-msgid "Wireless Networks not found in range"
-msgstr ""
-
-#. Repair
-#: ../src/plugins/netstat/netstat.c:235
-#, fuzzy
-msgid "Repair"
-msgstr "다시 시작"
-
-#. interface down
-#: ../src/plugins/netstat/netstat.c:240
-msgid "Disable"
-msgstr ""
-
-#: ../src/plugins/netstat/netstat.c:299
-msgid "Wireless Connection has no connectivity"
-msgstr ""
-
-#: ../src/plugins/netstat/netstat.c:301
-msgid "Network cable is plugged out"
-msgstr ""
-
-#: ../src/plugins/netstat/netstat.c:303
-msgid "Connection has limited or no connectivity"
-msgstr ""
-
-#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
-#: ../src/plugins/netstat/netstat.c:329
-msgid "IP Address:"
-msgstr ""
-
-#: ../src/plugins/netstat/netstat.c:308
-msgid "Remote IP:"
-msgstr ""
-
-#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
-#: ../src/plugins/netstat/netstat.c:331
-msgid "Netmask:"
-msgstr ""
-
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
-#: ../src/plugins/netstat/netstat.c:333
-msgid "Activity"
-msgstr ""
-
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
-#: ../src/plugins/netstat/netstat.c:333
-#, fuzzy
-msgid "Sent"
-msgstr "가운데"
-
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
-#: ../src/plugins/netstat/netstat.c:333
-msgid "Received"
-msgstr ""
-
-#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
-#: ../src/plugins/netstat/netstat.c:334
-msgid "bytes"
-msgstr ""
-
-#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
-#: ../src/plugins/netstat/netstat.c:335
-msgid "packets"
-msgstr ""
-
-#: ../src/plugins/netstat/netstat.c:315
-#: ../src/plugins/netstatus/netstatus-iface.c:173
-msgid "Wireless"
-msgstr ""
-
-#: ../src/plugins/netstat/netstat.c:317
-msgid "Protocol:"
-msgstr ""
-
-#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
-msgid "HW Address:"
-msgstr ""
-
-#: ../src/plugins/netstat/netstat.c:470
-#, fuzzy
-msgid "Manage Networks"
-msgstr "네트워크"
-
-#: ../src/plugins/netstat/netstat.c:472
-#, fuzzy
-msgid "Monitor and Manage networks"
-msgstr "네트워크 상태를 봅니다"
-
-#. create dialog
-#: ../src/plugins/netstat/passwd_gui.c:84
-msgid "Setting Encryption Key"
-msgstr ""
-
-#. messages
-#: ../src/plugins/netstat/passwd_gui.c:94
-msgid ""
-"This wireless network was encrypted.\n"
-"You must have the encryption key."
-msgstr ""
-
-#: ../src/plugins/netstat/passwd_gui.c:99
-msgid "Encryption Key:"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus.c:179
-msgid "Interface to monitor"
-msgstr "감시할 장치"
-
-#: ../src/plugins/netstatus/netstatus.c:180
-msgid "Config tool"
-msgstr "설정 도구"
-
-#: ../src/plugins/netstatus/netstatus.c:197
-#, fuzzy
-msgid "Network Status Monitor"
-msgstr "네트 상태 감시기"
-
-#: ../src/plugins/netstatus/netstatus.c:199
-msgid "Monitor network status"
-msgstr "네트워크 상태를 봅니다"
-
-#: ../src/plugins/netstatus/netstatus-dialog.c:51
-#: ../src/plugins/netstatus/netstatus-dialog.c:312
-msgid "Unknown"
-msgstr "모름"
-
-#: ../src/plugins/netstatus/netstatus-dialog.c:116
-msgid "Connection Properties"
-msgstr "연결 상태"
-
-#: ../src/plugins/netstatus/netstatus-dialog.c:122
-#, c-format
-msgid "Connection Properties: %s"
-msgstr "연결 상태: %s"
-
-#: ../src/plugins/netstatus/netstatus-dialog.c:135
-#, c-format
-msgid "%lu packet"
-msgid_plural "%lu packets"
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../src/plugins/netstatus/netstatus-dialog.c:396
-#, c-format
-msgid ""
-"There was an error displaying help:\n"
-"%s"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-dialog.c:580
-#, c-format
-msgid "Failed to launch time configuration tool: %s"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-icon.c:380
-#, c-format
-msgid "Network Connection: %s"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-icon.c:385
-msgid "Network Connection"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-icon.c:838
-msgid "Interface"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-icon.c:839
-msgid "The current interface the icon is monitoring."
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-icon.c:846
-msgid "Orientation"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-icon.c:847
-msgid "The orientation of the tray."
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-icon.c:855
-msgid "Tooltips Enabled"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-icon.c:856
-msgid "Whether or not the icon's tooltips are enabled."
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-icon.c:863
-msgid "Show Signal"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-icon.c:864
-msgid "Whether or not the signal strength should be displayed."
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-icon.c:977
-#, c-format
-msgid ""
-"Please contact your system administrator to resolve the following problem:\n"
-"\n"
-"%s"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:148
-#, fuzzy
-msgid "Name"
-msgstr "놀이"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:149
-msgid "The interface name"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:156
-msgid "State"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:157
-msgid "The interface state"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:165
-#, fuzzy
-msgid "Stats"
-msgstr "설정"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:166
-msgid "The interface packets/bytes statistics"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:174
-msgid "Whether the interface is a wireless interface"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:181
-msgid "Signal"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:182
-msgid "Wireless signal strength percentage"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:191
-#: ../src/plugins/netstatus/netstatus-util.c:167
+#: ../src/interface.c:626
+msgid "Refresh rate (seconds):"
+msgstr "새로 고침 주기 (초):"
+
+#: ../src/utils.c:43
 msgid "Error"
-msgstr ""
+msgstr "오류"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:192
-msgid "The current error condition"
-msgstr ""
+#: ../src/utils.c:56
+msgid "Confirm"
+msgstr "확인"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:434
-#: ../src/plugins/netstatus/netstatus-iface.c:1197
-#, c-format
-msgid "Unable to open socket: %s"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:496
-#: ../src/plugins/netstatus/netstatus-iface.c:1223
-#, c-format
-msgid "SIOCGIFFLAGS error: %s"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:870
-msgid "AMPR NET/ROM"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:873
-#, fuzzy
-msgid "Ethernet"
-msgstr "기타"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:879
-msgid "AMPR AX.25"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:888
-#: ../src/plugins/netstatus/netstatus-iface.c:1008
-msgid "16/4 Mbps Token Ring"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:891
-msgid "ARCnet"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:897
-msgid "Frame Relay DLCI"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:903
-msgid "Metricom Starmode IP"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:906
-msgid "Serial Line IP"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:909
-msgid "VJ Serial Line IP"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:912
-msgid "6-bit Serial Line IP"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:915
-msgid "VJ 6-bit Serial Line IP"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:921
-msgid "Adaptive Serial Line IP"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:924
-msgid "AMPR ROSE"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:927
-msgid "Generic X.25"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:930
-msgid "Point-to-Point Protocol"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:936
-msgid "(Cisco)-HDLC"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:939
-msgid "LAPB"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:948
-msgid "IPIP Tunnel"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:954
-msgid "Frame Relay Access Device"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:960
-msgid "Local Loopback"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:966
-msgid "Fiber Distributed Data Interface"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:972
-msgid "IPv6-in-IPv4"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:984
-msgid "HIPPI"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:987
-msgid "Ash"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:990
-#, fuzzy
-msgid "Econet"
-msgstr "아이콘"
-
-#: ../src/plugins/netstatus/netstatus-iface.c:993
-msgid "IrLAP"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:1155
-#, c-format
-msgid "SIOCGIFCONF error: %s"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-iface.c:1248
-#, c-format
-msgid "No network devices found"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:180
-#, c-format
-msgid "Cannot open /proc/net/dev: %s"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:189
-msgid "Could not parse /proc/net/dev. Unknown format."
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:204
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:330
-#, c-format
-msgid "Could not parse interface name from '%s'"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:217
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:645
-#, c-format
-msgid ""
-"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:314
-msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:341
-#, c-format
-msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:414
-#, c-format
-msgid "Could not connect to interface, '%s'"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:420
-#, c-format
-msgid "Could not send ioctl to interface, '%s'"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:598
-#, c-format
-msgid "Could not parse command line '%s': %s"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:635
-msgid "Could not parse 'netstat' output. Unknown format"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-util.c:152
-msgid "Disconnected"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-util.c:155
-msgid "Idle"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-util.c:158
-#, fuzzy
-msgid "Sending"
-msgstr "설정"
-
-#: ../src/plugins/netstatus/netstatus-util.c:161
-msgid "Receiving"
-msgstr ""
-
-#: ../src/plugins/netstatus/netstatus-util.c:164
-msgid "Sending/Receiving"
-msgstr ""
-
-#: ../src/plugins/batt/batt.c:132
-msgid "No batteries found"
-msgstr ""
-
-#: ../src/plugins/batt/batt.c:176
-#, c-format
-msgid "Battery: %d%% charged, %d:%02d until full"
-msgstr ""
-
-#: ../src/plugins/batt/batt.c:187
-#, c-format
-msgid "Battery: %d%% charged, %d:%02d left"
-msgstr ""
-
-#: ../src/plugins/batt/batt.c:193
-#, c-format
-msgid "Battery: %d%% charged"
-msgstr ""
-
-#: ../src/plugins/batt/batt.c:573
-msgid "Hide if there is no battery"
-msgstr ""
-
-#: ../src/plugins/batt/batt.c:575
-msgid "Alarm command"
-msgstr ""
-
-#: ../src/plugins/batt/batt.c:576
-msgid "Alarm time (minutes left)"
-msgstr ""
-
-#: ../src/plugins/batt/batt.c:577
-msgid "Background color"
-msgstr ""
-
-#: ../src/plugins/batt/batt.c:578
-msgid "Charging color 1"
-msgstr ""
-
-#: ../src/plugins/batt/batt.c:579
-msgid "Charging color 2"
-msgstr ""
-
-#: ../src/plugins/batt/batt.c:580
-msgid "Discharging color 1"
-msgstr ""
-
-#: ../src/plugins/batt/batt.c:581
-msgid "Discharging color 2"
-msgstr ""
-
-#: ../src/plugins/batt/batt.c:582
-msgid "Border width"
-msgstr ""
-
-#: ../src/plugins/batt/batt.c:612
-#, fuzzy
-msgid "Battery Monitor"
-msgstr "CPU 사용 감시"
-
-#: ../src/plugins/batt/batt.c:614
-msgid "Display battery status using ACPI"
-msgstr ""
-
-#: ../src/plugins/kbled/kbled.c:230
-msgid "Show CapsLock"
-msgstr ""
-
-#: ../src/plugins/kbled/kbled.c:231
-msgid "Show NumLock"
-msgstr ""
-
-#: ../src/plugins/kbled/kbled.c:232
-msgid "Show ScrollLock"
-msgstr ""
-
-#: ../src/plugins/kbled/kbled.c:267
-msgid "Keyboard LED"
-msgstr ""
-
-#: ../src/plugins/kbled/kbled.c:269
-msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr ""
-
-#. A label to allow for click through
-#: ../src/plugins/indicator/indicator.c:561
-msgid "No Indicators"
-msgstr ""
-
-#: ../src/plugins/indicator/indicator.c:751
-#, fuzzy
-msgid "Indicator Applications"
-msgstr "명령"
-
-#: ../src/plugins/indicator/indicator.c:752
-msgid "Clock Indicator"
-msgstr ""
-
-#: ../src/plugins/indicator/indicator.c:753
-msgid "Messaging Menu"
-msgstr ""
-
-#: ../src/plugins/indicator/indicator.c:754
-msgid "Network Menu"
-msgstr ""
-
-#: ../src/plugins/indicator/indicator.c:755
-msgid "Session Menu"
-msgstr ""
-
-#: ../src/plugins/indicator/indicator.c:756
-msgid "Sound Menu"
-msgstr ""
-
-#: ../src/plugins/indicator/indicator.c:780
-msgid "Indicator applets"
-msgstr ""
-
-#: ../src/plugins/indicator/indicator.c:782
-msgid "Add indicator applets to the panel"
-msgstr ""
-
-#: ../src/plugins/monitors/monitors.c:654
-#, fuzzy
-msgid "CPU color"
-msgstr "색조:"
-
-#: ../src/plugins/monitors/monitors.c:655
-#, fuzzy
-msgid "Display RAM usage"
-msgstr "CPU 사용량을 표시합니다"
-
-#: ../src/plugins/monitors/monitors.c:656
-msgid "RAM color"
-msgstr ""
-
-#: ../src/plugins/monitors/monitors.c:753
-#, fuzzy
-msgid "Resource monitors"
-msgstr "감시할 장치"
-
-#: ../src/plugins/monitors/monitors.c:755
-msgid "Display monitors (CPU, RAM)"
-msgstr ""
-
-#: ../src/plugins/wnckpager/wnckpager.c:721
-msgid "WNCKPager"
-msgstr ""
-
-#: ../src/plugins/wnckpager/wnckpager.c:723
-#, fuzzy
-msgid "WNCKpager plugin"
-msgstr "간단한 pager 플러그인"
-
-#, fuzzy
-#~ msgid "Left\t"
-#~ msgstr "왼쪽"
-
-#, fuzzy
-#~ msgid "Top\t"
-#~ msgstr "위쪽"
-
-#~ msgid "Desktop No / Workspace Name"
-#~ msgstr "데스크탑 번호 / 작업공간 이름"
-
-#~ msgid "Old KDE/GNOME Tray"
-#~ msgstr "KDE/GNOME 트레이"
-
-#~ msgid "Enable Transparency"
-#~ msgstr "투명하게"
-
-#~ msgid " --configure -- launch configuration utility\n"
-#~ msgstr " --configure -- 설정창을 띄웁니다\n"
-
-#~ msgid " -C  -- same as --configure\n"
-#~ msgstr " -C  -- --configure와 같습니다\n"
-
-#, fuzzy
-#~ msgid "Button Properties"
-#~ msgstr "연결 상태"
-
-#, fuzzy
-#~ msgid "Remove Button"
-#~ msgstr "빼기(_R)"
-
-#~ msgid "Show Iconified windows"
-#~ msgstr "최소화한 창 보이기"
-
-#, fuzzy
-#~ msgid "charging"
-#~ msgstr "띄우기:"
-
-#~ msgid "Education"
-#~ msgstr "교육"
-
-#~ msgid "Development"
-#~ msgstr "개발"
-
-#~ msgid "Audio & Video"
-#~ msgstr "멀티미디어"
-
-#~ msgid "Graphics"
-#~ msgstr "그림"
-
-#~ msgid "System Tools"
-#~ msgstr "시스템 도구"
-
-#~ msgid "Office"
-#~ msgstr "사무"
-
-#~ msgid "Accessories"
-#~ msgstr "기타"
-
-#~ msgid "% of edge"
-#~ msgstr "비율"
-
-#~ msgid "Plugins"
-#~ msgstr "플러그인"
-
-#~ msgid "lxpanel configurator"
-#~ msgstr "가벼운 패널 설정"
-
-#~ msgid "<b>Transparency</b>"
-#~ msgstr "<b>투명</b>"
-
-#~ msgid "Change window icons"
-#~ msgstr "창 아이콘을 바꿉니다"
-
-#~ msgid "Set Dock Type"
-#~ msgstr "Dock 형식 설정"
-
-#~ msgid "Set Strut"
-#~ msgstr "Strut 설정"
-
-#~ msgid "Configuration page of this plugin is not available"
-#~ msgstr "이 플러그인은 설정이 없습니다."
-
-#~ msgid "_Add"
-#~ msgstr "더하기(_A)"

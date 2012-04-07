@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Gheyret Kenji <gheyret@gmail.com>, 2011.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2012-01-11 14:35+0200\n"
+"PO-Revision-Date: 2012-02-07 10:10+0200\n"
 "Last-Translator: Gheyret <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: ug\n"
@@ -20,11 +20,11 @@ msgstr ""
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:319
 msgid "Run"
-msgstr "ئىجرا قىل"
+msgstr "ئىجرا قىلىش"
 
 #: ../src/configurator.c:56
 msgid "Restart"
-msgstr "قايتا قوزغات"
+msgstr "قايتا قوزغىتىش"
 
 #: ../src/configurator.c:57
 msgid "Logout"
@@ -36,7 +36,7 @@ msgstr "نۆۋەتتە ئوقۇلغان قىستۇرمىلار"
 
 #: ../src/configurator.c:477
 msgid "Stretch"
-msgstr "سوز"
+msgstr "سوزۇش"
 
 #: ../src/configurator.c:596
 msgid "Add plugin to panel"
@@ -52,7 +52,7 @@ msgstr "چىقىش بۇيرۇقى بەلگىلەنمىگەن"
 
 #: ../src/configurator.c:1255
 msgid "Select a directory"
-msgstr "مۇندەرىجە تاللايدۇ"
+msgstr "مۇندەرىجە تاللاڭ"
 
 #: ../src/configurator.c:1255 ../src/configurator.c:1346
 msgid "Select a file"
@@ -66,8 +66,7 @@ msgstr "كۆز يۈگۈرت(_B)"
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
-msgstr ""
-"كۆزنەكچىنى راستلا ئۆچۈرەمسىز؟\n"
+msgstr "كۆزنەكچىنى راستلا ئۆچۈرەمسىز؟\n"
 "<b>ئاگاھلاندۇرۇش: بۇ ئەسلىگە كەلتۈرگىلى بولمايدۇ.</b>"
 
 #: ../src/panel.c:653
@@ -152,9 +151,7 @@ msgstr "ئاستى"
 #: ../src/panel.c:1460
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr ""
-"lxpanel %s - بولسا يۇنىكىس(UNIX) ئۈستەلئۈستىلىرى ئۈچۈن يېنىك بولغان  GTK2+ "
-"كۆزنەكچىسىدۇر\n"
+msgstr "lxpanel %s - بولسا يۇنىكىس(UNIX) ئۈستەلئۈستىلىرى ئۈچۈن يېنىك بولغان  GTK2+ كۆزنەكچىسىدۇر\n"
 
 #: ../src/panel.c:1461
 #, c-format
@@ -204,8 +201,7 @@ msgid ""
 "\n"
 "Visit http://lxde.org/ for detail.\n"
 "\n"
-msgstr ""
-"\n"
+msgstr "\n"
 "تەپسىلاتى ئۈچۈن http://lxde.org/ نى زىيارەت قىلىڭ\n"
 "\n"
 
@@ -262,7 +258,7 @@ msgstr "ئادرېس:"
 #: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
 msgid "Broadcast:"
-msgstr "ئاڭلىتىش:"
+msgstr "تارقىتىش:"
 
 #: ../data/ui/netstatus.glade.h:11
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
@@ -362,7 +358,7 @@ msgstr "ئالىي"
 
 #: ../data/ui/panel-pref.glade.h:12
 msgid "Alignment:"
-msgstr "ئورۇنلاشتۇرۇش"
+msgstr "ئورۇنلاشتۇرۇش:"
 
 #: ../data/ui/panel-pref.glade.h:13
 msgid "Appearance"
@@ -370,71 +366,69 @@ msgstr "كۆرۈنۈش"
 
 #: ../data/ui/panel-pref.glade.h:15
 msgid "Center"
-msgstr ""
+msgstr "مەركىزى"
 
 #: ../data/ui/panel-pref.glade.h:16
 msgid "Custom color"
-msgstr ""
+msgstr "ئىختىيارى رەڭ"
 
 #: ../data/ui/panel-pref.glade.h:17
 msgid "Dynamic"
-msgstr ""
+msgstr "ھەرىكەتچان"
 
 #: ../data/ui/panel-pref.glade.h:18
 msgid "Edge:"
-msgstr ""
+msgstr "گىرۋەك:"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "File Manager:"
-msgstr ""
+msgstr "ھۆججەت باشقۇرغۇ:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "Geometry"
-msgstr ""
+msgstr "گېئومېتىرىيە"
 
 #: ../data/ui/panel-pref.glade.h:22
-#, fuzzy
 msgid "Image"
 msgstr "سۈرەت"
 
 #: ../data/ui/panel-pref.glade.h:24
-#, fuzzy
 msgid "Logout Command:"
-msgstr "چىقىش بۇيرۇقى بەلگىلەنمىگەن"
+msgstr "چىقىش بۇيرۇقى:"
 
 #: ../data/ui/panel-pref.glade.h:25
 msgid "Make window managers treat the panel as dock"
-msgstr ""
+msgstr "كۆزنەك باشقۇرغۇ كۆزنەكچىنى dock سۈپىتىدە بىر تەرەپ قىلسۇن"
 
 #: ../data/ui/panel-pref.glade.h:26
 msgid "Margin:"
-msgstr ""
+msgstr "گىرۋەك بوشلۇقى"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Minimize panel when not in use"
-msgstr ""
+msgstr "ئىشلىتىلمىگەندە كۆزنەكچىنى كىچىكلەتسۇن"
 
 #: ../data/ui/panel-pref.glade.h:28
-#, fuzzy
 msgid "Panel Applets"
-msgstr "تاختاي تەڭشىكى"
+msgstr "كۆزنەكچە قوللانچاقلىرى"
 
 #: ../data/ui/panel-pref.glade.h:29
 msgid "Panel Preferences"
-msgstr ""
+msgstr "كۆزنەكچە خاسلىقى"
 
 #: ../data/ui/panel-pref.glade.h:30
 msgid "Pixels"
-msgstr ""
+msgstr "پىكسېل"
 
 #: ../data/ui/panel-pref.glade.h:31
 msgid "Reserve space, and not covered by maximized windows"
 msgstr ""
+"ئورۇن ئېلىپ قويۇش ئارقىلىق، ئەڭ چوڭ قىلىنغان كۆزنەكتە توسۇلۇپ قالمايدىغان "
+"قىلىش"
 
 #: ../data/ui/panel-pref.glade.h:33
-#, fuzzy
 msgid "Select an image file"
-msgstr "بىر ھۆججەت تاللاڭ"
+msgstr "سۈرەت ھۆججىتىنى تاللاڭ"
 
 #: ../data/ui/panel-pref.glade.h:34 ../src/plugins/space.c:125
 #: ../src/plugins/batt/batt.c:583
@@ -443,24 +437,23 @@ msgstr "چوڭلۇقى"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Size when minimized"
-msgstr ""
+msgstr "كىچىكلىتىلگەندىكى چوڭلۇقى"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "Solid color (with opacity)"
-msgstr ""
+msgstr "پۈتەي رەڭ (سۈزۈكلۈكى بار)"
 
 #: ../data/ui/panel-pref.glade.h:37
-#, fuzzy
 msgid "System theme"
-msgstr "سىستېما قوندىقى"
+msgstr "سىستېما ئۆرنىكى"
 
 #: ../data/ui/panel-pref.glade.h:38
 msgid "Terminal Emulator:"
-msgstr ""
+msgstr "تېرمىنال تەقلىدلىگۈچى:"
 
 #: ../data/ui/panel-pref.glade.h:41
 msgid "pixels"
-msgstr ""
+msgstr "پىكسېللار"
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
@@ -480,11 +473,11 @@ msgstr "ئۈستەلئۈستى ئاتىنى كۆرسىتىش"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
-msgstr "ئۈستەلئۈستى نومۇرى / خىزمەت بوشلۇقى ئاتى"
+msgstr "ئۈستەلئۈستى نومۇرى / خىزمەت رايونى ئاتى"
 
 #: ../src/plugins/deskno/deskno.c:237
 msgid "Display workspace number, by cmeury@users.sf.net"
-msgstr "خىزمەت بوشلۇقى نومۇرنى كۆرسىتىش، ئاپتور cmeury@users.sf.net"
+msgstr "خىزمەت رايونى نومۇرنى كۆرسىتىش، ئاپتور cmeury@users.sf.net"
 
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
@@ -517,22 +510,22 @@ msgstr "سىنبەلگىلەشتۈر(_N)"
 #: ../src/plugins/taskbar.c:1748
 #, c-format
 msgid "Workspace _%d"
-msgstr "خىزمەت بوشلۇقى _%d"
+msgstr "خىزمەت رايونى _%d"
 
 #: ../src/plugins/taskbar.c:1753
 #, c-format
 msgid "Workspace %d"
-msgstr "خىزمەت بوشلۇقى %d"
+msgstr "خىزمەت رايونى %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../src/plugins/taskbar.c:1767
 msgid "_All workspaces"
-msgstr "بارلىق خىزمەت بوشلۇقى(_A)"
+msgstr "بارلىق خىزمەت رايونى(_A)"
 
 #. Add Move to Workspace menu item as a submenu.
 #: ../src/plugins/taskbar.c:1773
 msgid "_Move to Workspace"
-msgstr "خىزمەت بوشلۇقىغا يۆتكە(_M)"
+msgstr "خىزمەت رايونىغا يۆتكە(_M)"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../src/plugins/taskbar.c:1779
@@ -541,7 +534,7 @@ msgstr "كۆزنەك ياپ(_C)"
 
 #: ../src/plugins/taskbar.c:1986
 msgid "Show tooltips"
-msgstr "ئەسكەرتمىلەرنى كۆرسەت"
+msgstr "ئەسكەرتمىلەرنى كۆرسىتىش"
 
 #: ../src/plugins/taskbar.c:1987
 msgid "Icons only"
@@ -557,7 +550,7 @@ msgstr "بارلىق ئۈستەلئۈستىلىرىدىكى كۆزنەكلەرن
 
 #: ../src/plugins/taskbar.c:1990
 msgid "Use mouse wheel"
-msgstr "چاشقىنەك غالتىكىنى ئىشلىتىش"
+msgstr "چاشقىنەك غاكتىكىنى ئىشلىتىش"
 
 #: ../src/plugins/taskbar.c:1991
 msgid "Flash when there is any window requiring attention"
@@ -565,7 +558,7 @@ msgstr "دىققەتنى تارتماقچى بولغاندا بىرەر كۆزن
 
 #: ../src/plugins/taskbar.c:1992
 msgid "Combine multiple application windows into a single button"
-msgstr ""
+msgstr "بىر قانچە پروگرامما كۆزنىكىنى بىر توپچىغا بىرلەشتۈرۈش"
 
 #: ../src/plugins/taskbar.c:1993
 msgid "Maximum width of task button"
@@ -584,6 +577,8 @@ msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
+"ۋەزىپە بالدىقى بارلىق كۆزنەكنى كۆرسىتەلەيدىغان، سىنبەلگىلەشتۈرەلەيدىغان، "
+"تۈرەلەيدىغان، فوكۇسىنى يۆتكىيەلەيدىغان بولسۇن"
 
 #: ../src/plugins/dclock.c:434
 msgid "Clock Format"
@@ -596,10 +591,12 @@ msgstr "كۆرسەتمە پىچىمى"
 #: ../src/plugins/dclock.c:436
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr ""
+"پىچىم كودلىرى: man 3 strftime; \n"
+" قۇر ئۆزگەرتىدۇ"
 
 #: ../src/plugins/dclock.c:437
 msgid "Action when clicked (default: display calendar)"
-msgstr "چېكىلگەن چاغدىكى مەشغۇلات(كۆڭۈلدىكى: يىلنامە كۆرسىتىدۇ)"
+msgstr "چېكىلگەندىكى مەشغۇلات(كۆڭۈلدىكىسى: يىلنامىنى كۆرسىتىش)"
 
 #: ../src/plugins/dclock.c:439
 msgid "Tooltip only"
@@ -607,7 +604,7 @@ msgstr "كۆرسەتمىلا"
 
 #: ../src/plugins/dclock.c:440
 msgid "Center text"
-msgstr ""
+msgstr "تېكىستنى ئوتتۇرىغا"
 
 #: ../src/plugins/dclock.c:469
 msgid "Digital Clock"
@@ -671,11 +668,11 @@ msgstr "سىستېما قوندىقى"
 
 #: ../src/plugins/xkb/xkb-plugin.c:291
 msgid "Configure Keyboard Layout Switcher"
-msgstr "ھەرپتاختا جايلاشتۇرۇلۇشىنى ئالماشتۇرغۇچ"
+msgstr "ھەرپتاختا جايلاشتۇرۇلۇشىنى ئالماشتۇرغۇ"
 
 #: ../src/plugins/xkb/xkb-plugin.c:306
 msgid "Show layout as"
-msgstr "جايلاشتۇرۇشنى تۆۋەندىكىدەك كۆرسەت"
+msgstr "جايلاشتۇرۇشنى كۆرسىتىش"
 
 #: ../src/plugins/xkb/xkb-plugin.c:321
 msgid "image"
@@ -687,7 +684,7 @@ msgstr "تېكىست"
 
 #: ../src/plugins/xkb/xkb-plugin.c:329
 msgid "Per application settings"
-msgstr "پروگراممىلارنىڭ تەڭشىكى"
+msgstr "ھەر بىر پروگرامما تەڭشىكى"
 
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/xkb/xkb-plugin.c:344
@@ -701,7 +698,7 @@ msgstr "كۆڭۈلدىكى جايلاشتۇرۇش:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:405
 msgid "Keyboard Layout Switcher"
-msgstr "ھەرپتاختا جايلاشتۇرۇلۇشىنى ئالماشتۇرغۇچ"
+msgstr "ھەرپتاختا جايلاشتۇرۇشىنى ئالماشتۇرغۇ"
 
 #: ../src/plugins/xkb/xkb-plugin.c:407
 msgid "Switch between available keyboard layouts"
@@ -710,10 +707,11 @@ msgstr "بار ھەرپتاختا جايلاشتۇرۇشلىرىنى ئالما�
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
+"سول چېكىشتە بارلىق كۆزنەكلەرنى سىنبەلگىلەشتۈرۈپ، ئوتتۇرا چېكىشتە تۈرىدۇ."
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
-msgstr ""
+msgstr "سىنبەلگىلەشتۈرۈش/تۇرۇش ۋە ئالدىغا چىقىرىشنى ئالماشتۇرۇش"
 
 #: ../src/plugins/wincmd.c:266
 msgid "Minimize All Windows"
@@ -723,7 +721,8 @@ msgstr "بارلىق كۆزنەكلەرنى ئەڭ كىچىك قىلىش"
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
-msgstr ""
+msgstr "ئۈستەلئۈستى كۆزنەكلىرىگە بۇيرۇق يوللايدۇ.\n"
+"ئىشلەتكىلى بولىدىغان بۇيرۇقلار: 1-سىنبەلگىلەشتۈرۈش 2-يۆگەش"
 
 #: ../src/plugins/dirmenu.c:246
 msgid "Open in _Terminal"
@@ -743,7 +742,7 @@ msgstr "مۇندەرىجە تىزىملىكى"
 
 #: ../src/plugins/dirmenu.c:445
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr ""
+msgstr "مۇندەرىجىنىڭ دەرەخسىمان كۆرۈنۈشىنى تىزىملىك ئارقىلىق كۆرۈش(ئاپتور: PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:396
 msgid "Normal"
@@ -767,7 +766,7 @@ msgstr "سەزگۈچ"
 
 #: ../src/plugins/thermal/thermal.c:401
 msgid "Automatic temperature levels"
-msgstr ""
+msgstr "ئاپتوماتىك تېمپېراتۇرا دەرىجىلىرى"
 
 #: ../src/plugins/thermal/thermal.c:402
 msgid "Warning1 Temperature"
@@ -813,7 +812,7 @@ msgstr "ئۈنسىز"
 msgid ""
 "Error, you need to install a application to configure the sound (pavucontol, "
 "alsamixer ...)"
-msgstr ""
+msgstr "خاتالىق كۆرۈلدى، ئاۋازنى سەپلەش ئۈچۈن بىرەر پروگرامما ئورنىتىشىڭىز زۆرۈر (pavucontol، alsamixer … دېگەندەكلەرنى )"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
@@ -835,7 +834,7 @@ msgstr "ئىناۋەتسىز"
 
 #: ../src/plugins/netstat/netstat.c:299
 msgid "Wireless Connection has no connectivity"
-msgstr ""
+msgstr "سىمسىز تورغا باغلىنالمىدى"
 
 #: ../src/plugins/netstat/netstat.c:301
 msgid "Network cable is plugged out"
@@ -843,7 +842,7 @@ msgstr "تور سىمىنى چېتىلدى"
 
 #: ../src/plugins/netstat/netstat.c:303
 msgid "Connection has limited or no connectivity"
-msgstr ""
+msgstr "باغلىنىشقا چەك قويۇلغان ياكى باغلىنالمىدى"
 
 #: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
@@ -903,7 +902,7 @@ msgstr "تورلارنى باشقۇرۇش"
 
 #: ../src/plugins/netstat/netstat.c:472
 msgid "Monitor and Manage networks"
-msgstr ""
+msgstr "تورلارنى كۆزىتىش ۋە باشقۇرۇش"
 
 #. create dialog
 #: ../src/plugins/netstat/passwd_gui.c:84
@@ -915,8 +914,7 @@ msgstr "شىفىرلاش ئاچقۇچىنى بەلگىلەش"
 msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
-msgstr ""
-"مەزكۇر سىمسىز تور شىفىرلانغان.\n"
+msgstr "مەزكۇر سىمسىز تور شىفىرلانغان.\n"
 "سىزدە چوقۇم شىفىرلاش ئاچقۇچى بولۇشى كېرەك."
 
 #: ../src/plugins/netstat/passwd_gui.c:99
@@ -925,7 +923,7 @@ msgstr "شىفىرلاش ئاچقۇچى:"
 
 #: ../src/plugins/netstatus/netstatus.c:179
 msgid "Interface to monitor"
-msgstr ""
+msgstr "كۆرسەتكۈچ ئارايۈزى"
 
 #: ../src/plugins/netstatus/netstatus.c:180
 msgid "Config tool"
@@ -964,8 +962,7 @@ msgstr[0] "%lu بوغچا"
 msgid ""
 "There was an error displaying help:\n"
 "%s"
-msgstr ""
-"ياردەمنى كۆرسىتىشتە خاتالىق كۆرۈلدى: \n"
+msgstr "ياردەمنى كۆرسىتىشتە خاتالىق كۆرۈلدى: \n"
 "%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
@@ -1020,8 +1017,7 @@ msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
 "\n"
 "%s"
-msgstr ""
-"سىستېما باشقۇرغۇچىڭىز بىلەن ئالاقىلىشىپ تۆۋەندىكى مەسىلىنى ھەل قىلىڭ:\n"
+msgstr "سىستېما باشقۇرغۇچىڭىز بىلەن ئالاقىلىشىپ تۆۋەندىكى مەسىلىنى ھەل قىلىڭ:\n"
 "\n"
 "%s"
 
@@ -1153,7 +1149,7 @@ msgstr "LAPB"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:948
 msgid "IPIP Tunnel"
-msgstr "IPIP تونېلى"
+msgstr "IPIP تونېل"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:954
 msgid "Frame Relay Access Device"
@@ -1218,9 +1214,7 @@ msgstr "'%s' دىن ئېغىزنى تەھلىل قىلالمىدى"
 msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
-msgstr ""
-"'%s' دىن ئېغىزنى تەھلىل قىلالمىدى. prx_idx = %d; ptx_idx = %d; brx_idx = %d; "
-"btx_idx = %d;"
+msgstr "'%s' دىن ئېغىزنى تەھلىل قىلالمىدى. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1299,7 +1293,7 @@ msgstr "قوڭغۇراق بۇيرۇقى"
 
 #: ../src/plugins/batt/batt.c:576
 msgid "Alarm time (minutes left)"
-msgstr ""
+msgstr "قوڭغۇراق ۋاقتى (قالغان مىنۇت)"
 
 #: ../src/plugins/batt/batt.c:577
 msgid "Background color"
@@ -1307,19 +1301,19 @@ msgstr "تەگلىك رەڭگى"
 
 #: ../src/plugins/batt/batt.c:578
 msgid "Charging color 1"
-msgstr ""
+msgstr "توكلاش رەڭگى 1"
 
 #: ../src/plugins/batt/batt.c:579
 msgid "Charging color 2"
-msgstr ""
+msgstr "توكلاش رەڭگى 2"
 
 #: ../src/plugins/batt/batt.c:580
 msgid "Discharging color 1"
-msgstr ""
+msgstr "توكسىزلاش رەڭگى 1"
 
 #: ../src/plugins/batt/batt.c:581
 msgid "Discharging color 2"
-msgstr ""
+msgstr "توكسىزلاش رەڭگى 2"
 
 #: ../src/plugins/batt/batt.c:582
 msgid "Border width"
@@ -1347,78 +1341,73 @@ msgstr "ScrollLock نى كۆرسىتىش"
 
 #: ../src/plugins/kbled/kbled.c:267
 msgid "Keyboard LED"
-msgstr ""
+msgstr "ھەرپتاختا كۆرسەتكۈچ چىرىغى(LED)"
 
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr ""
+msgstr "CapsLock، NumLock ۋە ScrollLock كۇنۇپكىلىرىنىڭ كۆرسەتكۈچ چىرىغى"
 
 #. A label to allow for click through
 #: ../src/plugins/indicator/indicator.c:561
 msgid "No Indicators"
-msgstr ""
+msgstr "كۆرسىتىدىغان نەرسە يوق"
 
 #: ../src/plugins/indicator/indicator.c:751
 msgid "Indicator Applications"
-msgstr ""
+msgstr "كۆرسەتكۈچ پروگراممىلىرى"
 
 #: ../src/plugins/indicator/indicator.c:752
 msgid "Clock Indicator"
-msgstr ""
+msgstr "سائەت كۆرسەتكۈچ"
 
 #: ../src/plugins/indicator/indicator.c:753
 msgid "Messaging Menu"
-msgstr ""
+msgstr "ئۇچۇر تىزىملىكى"
 
 #: ../src/plugins/indicator/indicator.c:754
-#, fuzzy
 msgid "Network Menu"
-msgstr "مۇندەرىجە تىزىملىكى"
+msgstr "تور تىزىملىكى"
 
 #: ../src/plugins/indicator/indicator.c:755
 msgid "Session Menu"
-msgstr ""
+msgstr "ئەڭگىمە تىزىملىكى"
 
 #: ../src/plugins/indicator/indicator.c:756
 msgid "Sound Menu"
-msgstr ""
+msgstr "ئاۋاز تىزىملىكى"
 
 #: ../src/plugins/indicator/indicator.c:780
 msgid "Indicator applets"
-msgstr ""
+msgstr "كۆرسەتكۈچ قوللانچىقى"
 
 #: ../src/plugins/indicator/indicator.c:782
-#, fuzzy
 msgid "Add indicator applets to the panel"
-msgstr "كۆزنەكچىگە ئايرىغۇچ قوشىدۇ"
+msgstr "كۆرسەتكۈچ قوللانچىقىنى كۆزنەكچىگە قوشۇش"
 
 #: ../src/plugins/monitors/monitors.c:654
 msgid "CPU color"
-msgstr ""
+msgstr "CPU رەڭگى"
 
 #: ../src/plugins/monitors/monitors.c:655
-#, fuzzy
 msgid "Display RAM usage"
-msgstr "CPU نىڭ ئىشلىتىلىشىنى كۆرسىتىش"
+msgstr "RAM نىڭ ئىشلىتىلىش ئەھۋالىنى كۆرسىتىش"
 
 #: ../src/plugins/monitors/monitors.c:656
 msgid "RAM color"
-msgstr ""
+msgstr "RAM رەڭگى"
 
 #: ../src/plugins/monitors/monitors.c:753
-#, fuzzy
 msgid "Resource monitors"
-msgstr "تېمپېراتۇرا كۆزەتكۈچ"
+msgstr "مەنبە كۆزەتكۈچلىرى"
 
 #: ../src/plugins/monitors/monitors.c:755
 msgid "Display monitors (CPU, RAM)"
-msgstr ""
+msgstr "كۆزەتكۈلەرنى كۆرسىتىش(CPU، RAM)"
 
 #: ../src/plugins/wnckpager/wnckpager.c:721
 msgid "WNCKPager"
-msgstr ""
+msgstr "WNCKPager"
 
 #: ../src/plugins/wnckpager/wnckpager.c:723
-#, fuzzy
 msgid "WNCKpager plugin"
-msgstr "ئاددىي چاقىرغۇ قىستۇرمىسى"
+msgstr "WNCKpager قىستۇرمىسى"
