@@ -596,7 +596,6 @@ reload_system_menu( menup* m, GtkMenu* menu )
     GtkMenuItem* item;
     GtkWidget* sub_menu;
     gint idx;
-    gboolean found = FALSE;
 
     children = gtk_container_get_children( GTK_CONTAINER(menu) );
     for( child = children, idx = 0; child; child = child->next, ++idx )
@@ -613,7 +612,6 @@ reload_system_menu( menup* m, GtkMenu* menu )
             sys_menu_insert_items( m, menu, idx );
             if( ! child )
                 break;
-            found = TRUE;
         }
         else if( ( sub_menu = gtk_menu_item_get_submenu( item ) ) )
         {
