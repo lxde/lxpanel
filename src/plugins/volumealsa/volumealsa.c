@@ -549,7 +549,7 @@ static void volumealsa_configure(Plugin * p, GtkWindow * parent)
                                       0,
                                       GTK_MESSAGE_ERROR,
                                       GTK_BUTTONS_OK,
-                                      (_("Error, you need to install a application to configure the sound (pavucontol, alsamixer ...)")) );
+                                      (_("Error, you need to install an application to configure the sound (pavucontol, alsamixer ...)")) );
         gtk_dialog_run( GTK_DIALOG(msg) );
         gtk_widget_destroy( msg );
 
