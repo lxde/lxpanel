@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2011-07-12 17:58+0200\n"
+"PO-Revision-Date: 2012-04-11 03:54+0200\n"
 "Last-Translator: PraveenIlla <mail2ipn@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -601,9 +601,8 @@ msgid "Tooltip only"
 msgstr "సాధనచిట్కా మాత్రమే"
 
 #: ../src/plugins/dclock.c:440
-#, fuzzy
 msgid "Center text"
-msgstr "మధ్య"
+msgstr "మధ్య పాఠ్యం"
 
 #: ../src/plugins/dclock.c:469
 msgid "Digital Clock"
@@ -812,6 +811,8 @@ msgid ""
 "Error, you need to install a application to configure the sound (pavucontol, "
 "alsamixer ...)"
 msgstr ""
+"దోషం, శబ్దాన్ని స్వరూపించుటకు మీరు ఒక అనువర్తనాన్ని స్థాపించాలి (pavucontol, "
+"alsamixer ...)"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
@@ -1218,6 +1219,8 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
+"'%s నుండి అంతరవర్తి గణాంకాలను పార్స్ చేయుట వీలుకావడంలేదు'. prx_idx = %d; "
+"ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1236,12 +1239,12 @@ msgstr "అంతరవర్తికి అనుసంధానమగుట �
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:420
 #, c-format
 msgid "Could not send ioctl to interface, '%s'"
-msgstr ""
+msgstr "ioctiని అంతరవర్తికి పంపలేకపోయింది. '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr ""
+msgstr "'%s' ఆదేశ వ్యాక్యాన్ని పార్స్ చేయలేకపోయింది: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
@@ -1353,70 +1356,64 @@ msgstr "CapsLock, NumLock, మరియు ScrollLock keys కోసం సూ�
 #. A label to allow for click through
 #: ../src/plugins/indicator/indicator.c:561
 msgid "No Indicators"
-msgstr ""
+msgstr "ఏ సూచికలు లేవు"
 
 #: ../src/plugins/indicator/indicator.c:751
 msgid "Indicator Applications"
-msgstr ""
+msgstr "సూచించు అనువర్తనాలు"
 
 #: ../src/plugins/indicator/indicator.c:752
 msgid "Clock Indicator"
-msgstr ""
+msgstr "గడియారపు సూచిక"
 
 #: ../src/plugins/indicator/indicator.c:753
 msgid "Messaging Menu"
-msgstr ""
+msgstr "సంప్రదింపుల మెను"
 
 #: ../src/plugins/indicator/indicator.c:754
-#, fuzzy
 msgid "Network Menu"
-msgstr "డైరెక్టరీ మెను"
+msgstr "నెట్‌వర్క్ మెను"
 
 #: ../src/plugins/indicator/indicator.c:755
 msgid "Session Menu"
-msgstr ""
+msgstr "చర్యాకాల మెనూ"
 
 #: ../src/plugins/indicator/indicator.c:756
 msgid "Sound Menu"
-msgstr ""
+msgstr "శబ్ద మెనూ"
 
 #: ../src/plugins/indicator/indicator.c:780
 msgid "Indicator applets"
-msgstr ""
+msgstr "సూచిక ఆప్లెట్లు"
 
 #: ../src/plugins/indicator/indicator.c:782
-#, fuzzy
 msgid "Add indicator applets to the panel"
-msgstr "ప్యానల్‌కు ఒక వేరుచేసేదానిని జతచేయి"
+msgstr "ప్యానల్‌కు సూచిక ఆప్లెట్లను జతచేయి"
 
 #: ../src/plugins/monitors/monitors.c:654
-#, fuzzy
 msgid "CPU color"
-msgstr "అనురూపిత రంగు"
+msgstr "సిపియు రంగు"
 
 #: ../src/plugins/monitors/monitors.c:655
-#, fuzzy
 msgid "Display RAM usage"
-msgstr "CPU వాడుకను చూపించు"
+msgstr "RAM వాడుకను చూపించు"
 
 #: ../src/plugins/monitors/monitors.c:656
 msgid "RAM color"
-msgstr ""
+msgstr "RAM రంగు"
 
 #: ../src/plugins/monitors/monitors.c:753
-#, fuzzy
 msgid "Resource monitors"
-msgstr "అంతరవర్తి నుంచి పర్యవేక్షకం వరకు"
+msgstr "వనరుల పర్యవేక్షకాలు"
 
 #: ../src/plugins/monitors/monitors.c:755
 msgid "Display monitors (CPU, RAM)"
-msgstr ""
+msgstr "పర్యవేక్షకాలను ప్రదర్శించు (సిపియు, RAM)"
 
 #: ../src/plugins/wnckpager/wnckpager.c:721
 msgid "WNCKPager"
-msgstr ""
+msgstr "WNCKPager"
 
 #: ../src/plugins/wnckpager/wnckpager.c:723
-#, fuzzy
 msgid "WNCKpager plugin"
-msgstr "సులభ పేజర్ ప్లగిన్"
+msgstr "WNCKపేజర్ ప్లగిన్"
