@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2012-04-14 07:46+0200\n"
+"PO-Revision-Date: 2012-04-14 10:53+0200\n"
 "Last-Translator: Walter <wwycheuk@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: zh_TW\n"
@@ -1351,7 +1351,7 @@ msgstr "顯示 CapsLock、NumLock、及 ScrollLock 鍵的狀態"
 #. A label to allow for click through
 #: ../src/plugins/indicator/indicator.c:561
 msgid "No Indicators"
-msgstr ""
+msgstr "無顯示"
 
 #: ../src/plugins/indicator/indicator.c:751
 msgid "Indicator Applications"
@@ -1407,11 +1407,11 @@ msgstr "顯示監控 (CPU、記憶體)"
 
 #: ../src/plugins/wnckpager/wnckpager.c:721
 msgid "WNCKPager"
-msgstr ""
+msgstr "WNCKPager 工作區顯示程式"
 
 #: ../src/plugins/wnckpager/wnckpager.c:723
 msgid "WNCKpager plugin"
-msgstr "WNCKPager 外掛"
+msgstr "WNCKPager 工作區顯示外掛程式"
 
 #~ msgid "Available Applications"
 #~ msgstr "可用的應用程式"
