@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2012-04-14 07:11+0200\n"
+"PO-Revision-Date: 2012-04-14 07:46+0200\n"
 "Last-Translator: Walter <wwycheuk@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: zh_TW\n"
@@ -599,9 +599,8 @@ msgid "Tooltip only"
 msgstr "只顯示工具提示"
 
 #: ../src/plugins/dclock.c:440
-#, fuzzy
 msgid "Center text"
-msgstr "置中"
+msgstr "文字置中"
 
 #: ../src/plugins/dclock.c:469
 msgid "Digital Clock"
@@ -809,7 +808,7 @@ msgstr "靜音"
 msgid ""
 "Error, you need to install a application to configure the sound (pavucontol, "
 "alsamixer ...)"
-msgstr ""
+msgstr "發生錯誤，要安裝適當應用程式才能設定音訊 (pavucontol、alsamixer 等等)"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
@@ -1355,17 +1354,16 @@ msgid "No Indicators"
 msgstr ""
 
 #: ../src/plugins/indicator/indicator.c:751
-#, fuzzy
 msgid "Indicator Applications"
-msgstr "應用程式"
+msgstr "顯示應用程式"
 
 #: ../src/plugins/indicator/indicator.c:752
 msgid "Clock Indicator"
-msgstr ""
+msgstr "顯示時鐘"
 
 #: ../src/plugins/indicator/indicator.c:753
 msgid "Messaging Menu"
-msgstr ""
+msgstr "即時通訊選單"
 
 #: ../src/plugins/indicator/indicator.c:754
 msgid "Network Menu"
@@ -1373,7 +1371,7 @@ msgstr "網路選單"
 
 #: ../src/plugins/indicator/indicator.c:755
 msgid "Session Menu"
-msgstr ""
+msgstr "工作階段選單"
 
 #: ../src/plugins/indicator/indicator.c:756
 msgid "Sound Menu"
@@ -1381,11 +1379,11 @@ msgstr "聲音選單"
 
 #: ../src/plugins/indicator/indicator.c:780
 msgid "Indicator applets"
-msgstr ""
+msgstr "顯示小程式"
 
 #: ../src/plugins/indicator/indicator.c:782
 msgid "Add indicator applets to the panel"
-msgstr "在面板增加 indicator 小程式"
+msgstr "在面板增加顯示小程式"
 
 #: ../src/plugins/monitors/monitors.c:654
 msgid "CPU color"
