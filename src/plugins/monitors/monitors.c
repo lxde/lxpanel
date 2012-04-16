@@ -100,6 +100,7 @@ struct Monitor {
     gint         pixmap_width;      /* Width and size of the buffer           */
     gint         pixmap_height;     /* Does not include border size           */
     stats_set    *stats;            /* Circular buffer of values              */
+    stats_set    total;             /* Maximum possible value, as in mem_total*/
     gint         ring_cursor;       /* Cursor for ring/circular buffer        */
     gchar        *color;            /* Color of the graph                     */
     gboolean     (*update) (struct Monitor *); /* Update function             */
@@ -280,7 +281,7 @@ cpu_tooltip_update (Monitor *m)
     if (m && m->stats) {
         gint ring_pos = (m->ring_cursor == 0)
             ? m->pixmap_width - 1 : m->ring_cursor - 1;
-        g_snprintf(tooltip_text, 20, "CPU usage : %.2f%%",
+        g_snprintf(tooltip_text, 20, "CPU usage: %.2f%%",
                 m->stats[ring_pos] * 100);
         gtk_widget_set_tooltip_text(m->da, tooltip_text);
     }
@@ -329,6 +330,8 @@ mem_update(Monitor * m)
 
         fclose(meminfo);
 
+        m->total = mem_total;
+
         /* Adding stats to the buffer:
          * It is debatable if 'mem_buffers' counts as free or not. I'll go with
          * 'free', because it can be flushed fairly quickly, and generally
@@ -356,11 +359,12 @@ mem_update(Monitor * m)
 static void
 mem_tooltip_update (Monitor *m)
 {
-    gchar tooltip_text[20];
+    gchar tooltip_text[128];
     if (m && m->stats) {
         gint ring_pos = (m->ring_cursor == 0)
             ? m->pixmap_width - 1 : m->ring_cursor - 1;
-        g_snprintf(tooltip_text, 20, "RAM usage : %.2f%%",
+        g_snprintf(tooltip_text, 128, "RAM usage: %.1fMB (%.2f%%)",
+                m->stats[ring_pos] * m->total / 1024,
                 m->stats[ring_pos] * 100);
         gtk_widget_set_tooltip_text(m->da, tooltip_text);
     }
