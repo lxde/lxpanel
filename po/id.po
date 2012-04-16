@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2010-08-26 01:47+0700\n"
-"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
+"PO-Revision-Date: 2012-04-09 20:59+0200\n"
+"Last-Translator: andika <andika@gmail.com>\n"
 "Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:319
 msgid "Run"
@@ -604,9 +604,8 @@ msgid "Tooltip only"
 msgstr "Hanya tooltip"
 
 #: ../src/plugins/dclock.c:440
-#, fuzzy
 msgid "Center text"
-msgstr "Tengah"
+msgstr "Ketengahkan teks"
 
 #: ../src/plugins/dclock.c:469
 msgid "Digital Clock"
@@ -816,6 +815,8 @@ msgid ""
 "Error, you need to install a application to configure the sound (pavucontol, "
 "alsamixer ...)"
 msgstr ""
+"Galat, Anda perlu memasang aplikasi untuk menata suara (pavucontrol, "
+"alsamixer, ...)"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
@@ -823,7 +824,7 @@ msgstr "<Titik Akses Tersembunyi>"
 
 #: ../src/plugins/netstat/netstat.c:201
 msgid "Wireless Networks not found in range"
-msgstr "Jaringan nirkabel tak ditemukan di jangkauan"
+msgstr "Jaringan Nirkabel tak ditemukan di jangkauan"
 
 #. Repair
 #: ../src/plugins/netstat/netstat.c:235
@@ -1358,70 +1359,64 @@ msgstr "Indikator untuk tombol CapsLock, NumLock, dan ScrollLock"
 #. A label to allow for click through
 #: ../src/plugins/indicator/indicator.c:561
 msgid "No Indicators"
-msgstr ""
+msgstr "Tanpa Indikator"
 
 #: ../src/plugins/indicator/indicator.c:751
 msgid "Indicator Applications"
-msgstr ""
+msgstr "Aplikasi Indikator"
 
 #: ../src/plugins/indicator/indicator.c:752
 msgid "Clock Indicator"
-msgstr ""
+msgstr "Indikator Jam"
 
 #: ../src/plugins/indicator/indicator.c:753
 msgid "Messaging Menu"
-msgstr ""
+msgstr "Menu Perpesanan"
 
 #: ../src/plugins/indicator/indicator.c:754
-#, fuzzy
 msgid "Network Menu"
-msgstr "Menu Direktori"
+msgstr "Menu Jaringan"
 
 #: ../src/plugins/indicator/indicator.c:755
 msgid "Session Menu"
-msgstr ""
+msgstr "Menu Sesi"
 
 #: ../src/plugins/indicator/indicator.c:756
 msgid "Sound Menu"
-msgstr ""
+msgstr "Menu Suara"
 
 #: ../src/plugins/indicator/indicator.c:780
 msgid "Indicator applets"
-msgstr ""
+msgstr "Aplet indikator"
 
 #: ../src/plugins/indicator/indicator.c:782
-#, fuzzy
 msgid "Add indicator applets to the panel"
-msgstr "Tambah pemisah ke panel"
+msgstr "Tambahkan aplet indikator ke panel"
 
 #: ../src/plugins/monitors/monitors.c:654
-#, fuzzy
 msgid "CPU color"
-msgstr "Warna gubahan"
+msgstr "Warna CPU"
 
 #: ../src/plugins/monitors/monitors.c:655
-#, fuzzy
 msgid "Display RAM usage"
-msgstr "Tampilkan penggunaan CPU"
+msgstr "Tampilkan penggunaan RAM"
 
 #: ../src/plugins/monitors/monitors.c:656
 msgid "RAM color"
-msgstr ""
+msgstr "Warna RAM"
 
 #: ../src/plugins/monitors/monitors.c:753
-#, fuzzy
 msgid "Resource monitors"
-msgstr "Antarmuka untuk dimonitor"
+msgstr "Pemantau sumber daya"
 
 #: ../src/plugins/monitors/monitors.c:755
 msgid "Display monitors (CPU, RAM)"
-msgstr ""
+msgstr "Tampilkan pemantau (CPU, RAM)"
 
 #: ../src/plugins/wnckpager/wnckpager.c:721
 msgid "WNCKPager"
-msgstr ""
+msgstr "WNCKPager"
 
 #: ../src/plugins/wnckpager/wnckpager.c:723
-#, fuzzy
 msgid "WNCKpager plugin"
-msgstr "Plugin pemisah sederhana"
+msgstr "Plugin WNCKPager"
