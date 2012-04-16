@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2012-04-14 10:53+0200\n"
+"PO-Revision-Date: 2012-04-16 05:44+0200\n"
 "Last-Translator: Walter <wwycheuk@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: zh_TW\n"
@@ -52,11 +52,11 @@ msgstr "登出指令尚未設定"
 
 #: ../src/configurator.c:1255
 msgid "Select a directory"
-msgstr "選擇一個目錄"
+msgstr "選擇目錄"
 
 #: ../src/configurator.c:1255 ../src/configurator.c:1346
 msgid "Select a file"
-msgstr "選擇一個檔案"
+msgstr "選擇檔案"
 
 #: ../src/configurator.c:1373
 msgid "_Browse"
@@ -157,7 +157,7 @@ msgstr "lxpanel %s - UNIX 桌面的輕量級 GTK2+ 工作列\n"
 #: ../src/panel.c:1461
 #, c-format
 msgid "Command line options:\n"
-msgstr "命令列選項：\n"
+msgstr "指令列選項：\n"
 
 #: ../src/panel.c:1462
 #, c-format
@@ -209,7 +209,7 @@ msgstr ""
 
 #: ../src/gtk-run.c:332
 msgid "Enter the command you want to execute:"
-msgstr "輸入你要想執行的指令："
+msgstr "輸入要想執行的指令："
 
 #: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:912
 msgid "Application Launch Bar"
