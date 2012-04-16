@@ -330,12 +330,17 @@ mem_update(Monitor * m)
         fclose(meminfo);
 
         /* Adding stats to the buffer:
-	 * It is debatable if 'mem_buffers' counts as free or not. I'll go with
-	 * no, because it may need to be flushed. mem_free definitely counts as
-	 * 'free' because it is immediately released should any application
-	 * need it. */
-        m->stats[m->ring_cursor] = (mem_total - mem_free - mem_cached)/(float)mem_total;
-        m->ring_cursor++;
+         * It is debatable if 'mem_buffers' counts as free or not. I'll go with
+         * 'free', because it can be flushed fairly quickly, and generally
+         * isn't necessary to keep in memory.
+         * It is hard to draw the line, which caches should be counted as free,
+         * and which not. Pagecaches, dentry, and inode caches are quickly
+         * filled up again for almost any use case. Hence I would not count
+         * them as 'free'.
+         * 'mem_cached' definitely counts as 'free' because it is immediately
+         * released should any application need it. */
+        m->stats[m->ring_cursor] = (mem_total - mem_buffers - mem_free -
+                mem_cached) / (float)mem_total; m->ring_cursor++;
 
         if (m->ring_cursor >= m->pixmap_width)
             m->ring_cursor = 0; 
