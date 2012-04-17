@@ -1381,7 +1381,7 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
                       action = GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER;
                     }
 
-                    g_object_set_data(G_OBJECT(browse), "chooser-action", &action);
+                    g_object_set_data(G_OBJECT(browse), "chooser-action", GINT_TO_POINTER(action));
                     g_signal_connect( browse, "clicked", G_CALLBACK(on_browse_btn_clicked), entry );
                 }
             }
