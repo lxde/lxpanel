@@ -1,22 +1,27 @@
+# Romanian translation for LXPanel
+# Copyright (C) 2012 THE LXPanel'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the LXPanel package.
+# Mișu Moldovan <dumol@l10n.ro>, 2012.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: LXDE\n"
+"Project-Id-Version: LXPanel 0.5.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2010-01-24 11:10-0800\n"
-"Last-Translator: alexxed <alexxed@gmail.com>\n"
-"Language-Team: Romanian <LL@li.org>\n"
+"POT-Creation-Date: 2012-03-24 18:38+0200\n"
+"PO-Revision-Date: 2012-04-18 15:42+0300\n"
+"Last-Translator: Mișu Moldovan <dumol@l10n.ro>\n"
+"Language-Team: Romanian <diacritice@googlegroups.com>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms:  nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
-"20)) ? 1 : 2;\n"
-"X-Generator: Narro 0.9.4 on http://tradu.softwareliber.ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2);;\n"
+"X-Generator: Virtaal 0.7.0\n"
 
-#: ../src/configurator.c:54 ../src/gtk-run.c:319
+#: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
-msgstr "Rulează"
+msgstr "Pornește"
 
 #: ../src/configurator.c:56
 msgid "Restart"
@@ -24,27 +29,27 @@ msgstr "Repornește"
 
 #: ../src/configurator.c:57
 msgid "Logout"
-msgstr "Deconectare"
+msgstr "Ieșire"
 
 #: ../src/configurator.c:468
 msgid "Currently loaded plugins"
-msgstr "Extensii încărcate acum"
+msgstr "Module încărcate curent"
 
 #: ../src/configurator.c:477
 msgid "Stretch"
-msgstr "Întinde "
+msgstr "Întins"
 
 #: ../src/configurator.c:596
 msgid "Add plugin to panel"
-msgstr "Adaugă extensia la panou"
+msgstr "Adaugă modulul în panou"
 
 #: ../src/configurator.c:624
 msgid "Available plugins"
-msgstr "Extensii disponibile"
+msgstr "Module disponibile"
 
 #: ../src/configurator.c:1202
 msgid "Logout command is not set"
-msgstr "Comanda de deconectare nu este setată"
+msgstr "Comanda de ieșire nu este precizată"
 
 #: ../src/configurator.c:1255
 msgid "Select a directory"
@@ -56,14 +61,14 @@ msgstr "Selectați un fișier"
 
 #: ../src/configurator.c:1373
 msgid "_Browse"
-msgstr "_Răsfoiește"
+msgstr "Na_vigare"
 
 #: ../src/panel.c:651
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
-"Chiar doriți sa ștergeți acest panou?\n"
+"Sigur doriți să ștergeți acest panou?\n"
 "<b>Atenție: Nu va putea fi recuperat.</b>"
 
 #: ../src/panel.c:653
@@ -73,7 +78,9 @@ msgstr "Confirmare"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:686
 msgid "translator-credits"
-msgstr "Comunitatea de traducători de pe tradu.softwareliber.ro"
+msgstr ""
+"Comunitatea tradu.softwareliber.ro\n"
+"Mișu Moldovan <dumol@l10n.ro>"
 
 #: ../src/panel.c:691
 msgid "LXPanel"
@@ -81,32 +88,32 @@ msgstr "LXPanel"
 
 #: ../src/panel.c:693
 msgid "Copyright (C) 2008-2011"
-msgstr "Drepturi de autor pe 2008-2011"
+msgstr "Drepturi de autor (C) 2008-2011"
 
 #: ../src/panel.c:694
 msgid "Desktop panel for LXDE project"
-msgstr "Panou pentru spațiul de lucru pentru LXDE"
+msgstr "Panou pentru desktopul LXDE"
 
 #: ../src/panel.c:717
 msgid "Add / Remove Panel Items"
-msgstr "Adaugă sau elimină elemente din panou"
+msgstr "Editați elementele panoului"
 
 #: ../src/panel.c:725
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr "Elimină „%s” de pe panou"
+msgstr "Eliminați „%s” din panou"
 
 #: ../src/panel.c:737
 msgid "Panel Settings"
-msgstr "Setările panoului"
+msgstr "Opțiuni pentru panou"
 
 #: ../src/panel.c:743
 msgid "Create New Panel"
-msgstr "Creează un panou nou"
+msgstr "Creați un nou panou"
 
 #: ../src/panel.c:754
 msgid "Delete This Panel"
-msgstr "Șterge acest panou"
+msgstr "Ștergeți acest panou"
 
 #: ../src/panel.c:765
 msgid "About"
@@ -119,80 +126,77 @@ msgstr "Panou"
 #: ../src/panel.c:786
 #, c-format
 msgid "\"%s\" Settings"
-msgstr "Setări pentru „%s”"
+msgstr "Opțiuni pentru „%s”"
 
-#: ../src/panel.c:1042 ../src/panel.c:1050 ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:1042 ../src/panel.c:1050 ../data/ui/panel-pref.glade.h:16
 msgid "Height:"
 msgstr "Înălțime:"
 
-#: ../src/panel.c:1043 ../src/panel.c:1049 ../data/ui/panel-pref.glade.h:40
+#: ../src/panel.c:1043 ../src/panel.c:1049 ../data/ui/panel-pref.glade.h:15
 msgid "Width:"
 msgstr "Lățime:"
 
-#: ../src/panel.c:1044 ../data/ui/panel-pref.glade.h:23
+#: ../src/panel.c:1044 ../data/ui/panel-pref.glade.h:11
 msgid "Left"
 msgstr "Stânga"
 
-#: ../src/panel.c:1045 ../data/ui/panel-pref.glade.h:32
+#: ../src/panel.c:1045 ../data/ui/panel-pref.glade.h:12
 msgid "Right"
 msgstr "Dreapta"
 
-#: ../src/panel.c:1051 ../data/ui/panel-pref.glade.h:39
+#: ../src/panel.c:1051 ../data/ui/panel-pref.glade.h:10
 msgid "Top"
 msgstr "Sus"
 
-#: ../src/panel.c:1052 ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:1052 ../data/ui/panel-pref.glade.h:9
 msgid "Bottom"
 msgstr "Jos"
 
 #: ../src/panel.c:1460
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr ""
-"lxpanel %s - panou simplu, scris în GTK2+ pentru spații de lucru UNIX\n"
+msgstr "lxpanel %s - un mic panou GTK2+ pentru desktopuri UNIX\n"
 
 #: ../src/panel.c:1461
 #, c-format
 msgid "Command line options:\n"
-msgstr "Opțiuni din linia de comandă:\n"
+msgstr "Opțiuni în linia de comandă:\n"
 
 #: ../src/panel.c:1462
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr " --help -- afișează acest ajutor\n"
+msgstr " --help      -- arată aceste informații și ieși\n"
 
 #: ../src/panel.c:1463
 #, c-format
 msgid " --version   -- print version and exit\n"
-msgstr " --version -- afișează versiunea\n"
+msgstr " --version   -- arată versiunea și ieși\n"
 
 #: ../src/panel.c:1464
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <număr> -- stabilește nivelul de jurnalizare de la 0 la 5, unde 0 e "
-"nimic iar 5 e tot\n"
+msgstr " --log <număr>  -- verbozitatea de la 0 la 5, unde 0 e nimic iar 5 e tot\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1466
 #, c-format
 msgid " --profile name -- use specified profile\n"
-msgstr " --profile nume -- folosește profilul specificat\n"
+msgstr " --profile nume -- utilizează profilul specificat\n"
 
 #: ../src/panel.c:1468
 #, c-format
 msgid " -h  -- same as --help\n"
-msgstr " -h -- la fel ca --help\n"
+msgstr " -h  -- identic cu --help\n"
 
 #: ../src/panel.c:1469
 #, c-format
 msgid " -p  -- same as --profile\n"
-msgstr " -p -- la fel ca --profile\n"
+msgstr " -p  -- identic cu --profile\n"
 
 #: ../src/panel.c:1470
 #, c-format
 msgid " -v  -- same as --version\n"
-msgstr " -v -- la fel ca --version\n"
+msgstr " -v  -- identic cu --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
 #: ../src/panel.c:1472
@@ -206,261 +210,241 @@ msgstr ""
 "Vizitați http://lxde.org/ pentru detalii.\n"
 "\n"
 
-#: ../src/gtk-run.c:332
+#: ../src/gtk-run.c:373
 msgid "Enter the command you want to execute:"
-msgstr "Introduceți comanda care doriți să o executați:"
+msgstr "Introduceți comanda ce doriți să o executați:"
 
 #: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:912
 msgid "Application Launch Bar"
-msgstr "Bară de lansare pentru aplicații"
+msgstr "Lansator de programe"
+
+#: ../data/ui/netstatus.glade.h:1
+msgid "<b>Connection</b>"
+msgstr "<b>Conexiune</b>"
 
 #: ../data/ui/netstatus.glade.h:2
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
+msgid "Status:"
+msgstr "Stare:"
+
+#: ../data/ui/netstatus.glade.h:3
+msgid "_Name:"
+msgstr "_Nume:"
+
+#: ../data/ui/netstatus.glade.h:4
+msgid "<b>Activity</b>"
+msgstr "<b>Activitate</b>"
+
+#: ../data/ui/netstatus.glade.h:5
+msgid "Received:"
+msgstr "Primite:"
+
+#: ../data/ui/netstatus.glade.h:6
+msgid "Sent:"
+msgstr "Trimise:"
+
+#: ../data/ui/netstatus.glade.h:7
+msgid "<b>Signal Strength</b>"
+msgstr "<b>Puterea semnalului</b>"
+
+#: ../data/ui/netstatus.glade.h:9
 #, no-c-format
 msgid "0%"
 msgstr "0%"
 
-#: ../data/ui/netstatus.glade.h:3
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
-msgid "<b>Activity</b>"
-msgstr "<b>Activitate</b>"
+#: ../data/ui/netstatus.glade.h:10
+msgid "General"
+msgstr "Generale"
 
-#: ../data/ui/netstatus.glade.h:4
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
-msgid "<b>Connection</b>"
-msgstr "<b>Conexiune</b>"
-
-#: ../data/ui/netstatus.glade.h:5
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
+#: ../data/ui/netstatus.glade.h:11
 msgid "<b>Internet Protocol (IPv4)</b>"
 msgstr "<b>Protocolul Internet (IPv4)</b>"
 
-#: ../data/ui/netstatus.glade.h:6
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
-msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr "<b>Protocolul Internet (IPv6)</b>"
-
-#: ../data/ui/netstatus.glade.h:7
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
-msgid "<b>Network Device</b>"
-msgstr "<b>Dispozitiv de rețea</b>"
-
-#: ../data/ui/netstatus.glade.h:8
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
-msgid "<b>Signal Strength</b>"
-msgstr "<b>Putere semnal</b>"
-
-#: ../data/ui/netstatus.glade.h:9
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
+#: ../data/ui/netstatus.glade.h:12
 msgid "Address:"
 msgstr "Adresă:"
 
-#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
-#: ../src/plugins/netstat/netstat.c:330
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-msgid "Broadcast:"
-msgstr "Emitere:"
-
-#: ../data/ui/netstatus.glade.h:11
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
-msgid "Con_figure"
-msgstr "Con_figurare"
-
-#: ../data/ui/netstatus.glade.h:12
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
+#: ../data/ui/netstatus.glade.h:13
 msgid "Destination:"
 msgstr "Destinație:"
 
-#: ../data/ui/netstatus.glade.h:13
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
-msgid "General"
-msgstr "General"
-
-#: ../data/ui/netstatus.glade.h:14
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
-msgid "Received:"
-msgstr "Primit:"
+#: ../data/ui/netstatus.glade.h:14 ../src/plugins/netstat/netstat.c:333
+#: ../src/plugins/netstat/netstat.c:344
+msgid "Broadcast:"
+msgstr "Anunțare:"
 
 #: ../data/ui/netstatus.glade.h:15
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
-msgid "Scope:"
-msgstr "Domeniu:"
+msgid "Subnet Mask:"
+msgstr "Mască de rețea:"
 
 #: ../data/ui/netstatus.glade.h:16
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
-msgid "Sent:"
-msgstr "Trimis:"
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>Protocolul Internet (IPv6)</b>"
 
 #: ../data/ui/netstatus.glade.h:17
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
-msgid "Status:"
-msgstr "Stare:"
+msgid "Scope:"
+msgstr "Interval:"
 
 #: ../data/ui/netstatus.glade.h:18
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
-msgid "Subnet Mask:"
-msgstr "Mască de subrețea:"
+msgid "<b>Network Device</b>"
+msgstr "<b>Dispozitiv de rețea</b>"
 
 #: ../data/ui/netstatus.glade.h:19
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
-msgid "Support"
-msgstr "Suport"
-
-#: ../data/ui/netstatus.glade.h:20
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
 msgid "Type:"
 msgstr "Tip:"
 
+#: ../data/ui/netstatus.glade.h:20
+msgid "Support"
+msgstr "Suport"
+
 #: ../data/ui/netstatus.glade.h:21
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
-msgid "_Name:"
-msgstr "_Nume:"
+msgid "Con_figure"
+msgstr "Con_figurare"
+
+#: ../data/ui/panel-pref.glade.h:1
+msgid "Dynamic"
+msgstr "Dinamică"
 
 #: ../data/ui/panel-pref.glade.h:2
-#, no-c-format
-msgid "% Percent"
-msgstr "% (în procente)"
-
-#: ../data/ui/panel-pref.glade.h:3
-msgid "<b>Automatic hiding</b>"
-msgstr "<b>Ascundere automată</b>"
+msgid "Pixels"
+msgstr "Pixeli"
 
 #: ../data/ui/panel-pref.glade.h:4
-msgid "<b>Background</b>"
-msgstr "<b>Fundal</b>"
+#, no-c-format
+msgid "% Percent"
+msgstr "Procente"
 
 #: ../data/ui/panel-pref.glade.h:5
-msgid "<b>Font</b>"
-msgstr "<b>Font</b>"
+msgid "Panel Preferences"
+msgstr "Preferințe pentru panou"
 
 #: ../data/ui/panel-pref.glade.h:6
-msgid "<b>Icon</b>"
-msgstr "<b>Iconiță</b>"
-
-#: ../data/ui/panel-pref.glade.h:7
-msgid "<b>Position</b>"
-msgstr "<b>Poziție</b>"
-
-#: ../data/ui/panel-pref.glade.h:8
-msgid "<b>Properties</b>"
-msgstr "<b>Proprietăți</b>"
-
-#: ../data/ui/panel-pref.glade.h:9
-msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>Alegere aplicații preferate</b>"
-
-#: ../data/ui/panel-pref.glade.h:10
-msgid "<b>Size</b>"
-msgstr "<b>Mărime</b>"
-
-#: ../data/ui/panel-pref.glade.h:11
-msgid "Advanced"
-msgstr "Avansat"
-
-#: ../data/ui/panel-pref.glade.h:12
-msgid "Alignment:"
-msgstr "Aliniere:"
-
-#: ../data/ui/panel-pref.glade.h:13
-msgid "Appearance"
-msgstr "Aspect"
-
-#: ../data/ui/panel-pref.glade.h:15
-msgid "Center"
-msgstr "Centru"
-
-#: ../data/ui/panel-pref.glade.h:16
-msgid "Custom color"
-msgstr "Culoare personalizată"
-
-#: ../data/ui/panel-pref.glade.h:17
-msgid "Dynamic"
-msgstr "dinamic"
-
-#: ../data/ui/panel-pref.glade.h:18
 msgid "Edge:"
 msgstr "Margine:"
 
+#: ../data/ui/panel-pref.glade.h:7
+msgid "Alignment:"
+msgstr "Aliniere:"
+
+#: ../data/ui/panel-pref.glade.h:8
+msgid "Margin:"
+msgstr "Margine:"
+
+#: ../data/ui/panel-pref.glade.h:13
+msgid "Center"
+msgstr "Centru"
+
+#: ../data/ui/panel-pref.glade.h:14
+msgid "<b>Position</b>"
+msgstr "<b>Poziție</b>"
+
+#: ../data/ui/panel-pref.glade.h:17
+msgid "<b>Icon</b>"
+msgstr "<b>Iconițe</b>"
+
+#: ../data/ui/panel-pref.glade.h:18
+msgid "pixels"
+msgstr "pixeli"
+
 #: ../data/ui/panel-pref.glade.h:19
-msgid "File Manager:"
-msgstr "Administrator de fișiere:"
+msgid "<b>Size</b>"
+msgstr "<b>Mărime</b>"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "Geometry"
 msgstr "Geometrie"
 
+#: ../data/ui/panel-pref.glade.h:21
+msgid "System theme"
+msgstr "Tema de sistem"
+
 #: ../data/ui/panel-pref.glade.h:22
+msgid "Solid color (with opacity)"
+msgstr "Culoare solidă (cu opacitate)"
+
+#: ../data/ui/panel-pref.glade.h:23
 msgid "Image"
 msgstr "Imagine"
 
 #: ../data/ui/panel-pref.glade.h:24
-msgid "Logout Command:"
-msgstr "Comandă de deconectare:"
+msgid "Select an image file"
+msgstr "Selectați un fișier de tip imagine"
 
 #: ../data/ui/panel-pref.glade.h:25
-msgid "Make window managers treat the panel as dock"
-msgstr "Gestionarii de ferestre tratează panoul ca un doc"
+msgid "<b>Background</b>"
+msgstr "<b>Fundal</b>"
 
 #: ../data/ui/panel-pref.glade.h:26
-msgid "Margin:"
-msgstr "Margine:"
+msgid "Custom color"
+msgstr "Culoare personalizată"
 
-#: ../data/ui/panel-pref.glade.h:27
-msgid "Minimize panel when not in use"
-msgstr "Minimizează panoul când nu este folosit"
-
-#: ../data/ui/panel-pref.glade.h:28
-msgid "Panel Applets"
-msgstr "Aplicații de panou"
-
-#: ../data/ui/panel-pref.glade.h:29
-msgid "Panel Preferences"
-msgstr "Preferințe pentru panou"
-
-#: ../data/ui/panel-pref.glade.h:30
-msgid "Pixels"
-msgstr "pixeli"
-
-#: ../data/ui/panel-pref.glade.h:31
-msgid "Reserve space, and not covered by maximized windows"
-msgstr "Are spațiu rezervat și nu este acoperit de ferestrele maximizate"
-
-#: ../data/ui/panel-pref.glade.h:33
-msgid "Select an image file"
-msgstr "Selectați un fișier imagine"
-
-#: ../data/ui/panel-pref.glade.h:34 ../src/plugins/space.c:125
+#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/space.c:125
 #: ../src/plugins/batt/batt.c:583
 msgid "Size"
 msgstr "Mărime"
 
-#: ../data/ui/panel-pref.glade.h:35
-msgid "Size when minimized"
-msgstr "Dimensiunea la minimizare"
+#: ../data/ui/panel-pref.glade.h:28
+msgid "<b>Font</b>"
+msgstr "<b>Font</b>"
 
-#: ../data/ui/panel-pref.glade.h:36
-msgid "Solid color (with opacity)"
-msgstr "Culoare solidă (cu opacitate)"
+#: ../data/ui/panel-pref.glade.h:29
+msgid "Appearance"
+msgstr "Aspect"
 
-#: ../data/ui/panel-pref.glade.h:37
-msgid "System theme"
-msgstr "Tema sistemului"
+#: ../data/ui/panel-pref.glade.h:30
+msgid "Panel Applets"
+msgstr "Module de panou"
 
-#: ../data/ui/panel-pref.glade.h:38
+#: ../data/ui/panel-pref.glade.h:31
+msgid "Logout Command:"
+msgstr "Comandă de executat la ieșire:"
+
+#: ../data/ui/panel-pref.glade.h:32
 msgid "Terminal Emulator:"
 msgstr "Emulator de terminal:"
 
+#: ../data/ui/panel-pref.glade.h:33
+msgid "File Manager:"
+msgstr "Manager de fișiere:"
+
+#: ../data/ui/panel-pref.glade.h:34
+msgid "<b>Set Preferred Applications</b>"
+msgstr "<b>Alegeți programele preferate</b>"
+
+#: ../data/ui/panel-pref.glade.h:35
+msgid "Make window managers treat the panel as dock"
+msgstr "Prezintă panoul ca un doc managerului de ferestre"
+
+#: ../data/ui/panel-pref.glade.h:36
+msgid "Reserve space, and not covered by maximized windows"
+msgstr "Rezervă un spațiu ce nu va fi acoperit de ferestrele maximizate"
+
+#: ../data/ui/panel-pref.glade.h:37
+msgid "<b>Properties</b>"
+msgstr "<b>Proprietăți</b>"
+
+#: ../data/ui/panel-pref.glade.h:38
+msgid "Minimize panel when not in use"
+msgstr "Minimizează panoul când nu e utilizat"
+
+#: ../data/ui/panel-pref.glade.h:39
+msgid "Size when minimized"
+msgstr "Mărimea panoului minimizat"
+
+#: ../data/ui/panel-pref.glade.h:40
+msgid "<b>Automatic hiding</b>"
+msgstr "<b>Ascundere automată</b>"
+
 #: ../data/ui/panel-pref.glade.h:41
-msgid "pixels"
-msgstr "pixeli"
+msgid "Advanced"
+msgstr "Avansate"
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
-msgstr "Monitor pentru utilizarea procesorului"
+msgstr "Monitorizare CPU"
 
-#: ../src/plugins/cpu/cpu.c:270 ../src/plugins/monitors/monitors.c:653
+#: ../src/plugins/cpu/cpu.c:270 ../src/plugins/monitors/monitors.c:677
 msgid "Display CPU usage"
-msgstr "Afișează utilizarea procesorului"
+msgstr "Arată utilizarea procesorului"
 
 #: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:438
 msgid "Bold font"
@@ -468,124 +452,124 @@ msgstr "Font îngroșat"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
-msgstr "Afișează numele spațiilor de lucru"
+msgstr "Arată numele spațiilor de lucru"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
-msgstr "Numărul ecranului sau numele spațiului de lucru"
+msgstr "Numărul sau numele spațiului de lucru"
 
 #: ../src/plugins/deskno/deskno.c:237
 msgid "Display workspace number, by cmeury@users.sf.net"
-msgstr "Afișează numărul spațiului de lucru, scris de cmeury@users.sf.net"
+msgstr "Numerotare pentru spațiile de lucru, scris de cmeury@users.sf.net"
 
 #: ../src/plugins/image.c:177
 msgid "Display Image and Tooltip"
-msgstr "Afișează imaginea și textul ajutător"
+msgstr "Afișează imaginea și un indiciu"
 
 #: ../src/plugins/launchbar.c:914
 msgid "Bar with buttons to launch application"
-msgstr "Bară cu butoane pentru lansarea aplicațiilor"
+msgstr "Butoane pentru lansarea programelor"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1714
+#: ../src/plugins/taskbar.c:1715
 msgid "_Raise"
 msgstr "A_rată"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1719
+#: ../src/plugins/taskbar.c:1720
 msgid "R_estore"
 msgstr "R_estaurează"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1724
+#: ../src/plugins/taskbar.c:1725
 msgid "Ma_ximize"
 msgstr "Ma_ximizează"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1729
+#: ../src/plugins/taskbar.c:1730
 msgid "Ico_nify"
 msgstr "Ascu_nde"
 
-#: ../src/plugins/taskbar.c:1748
+#: ../src/plugins/taskbar.c:1749
 #, c-format
 msgid "Workspace _%d"
 msgstr "Spațiul _%d"
 
-#: ../src/plugins/taskbar.c:1753
+#: ../src/plugins/taskbar.c:1754
 #, c-format
 msgid "Workspace %d"
-msgstr "Spațiul de lucru nr. %d"
+msgstr "Spațiul de lucru %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1767
+#: ../src/plugins/taskbar.c:1768
 msgid "_All workspaces"
-msgstr "To_ate spațiile de lucru"
+msgstr "_Toate spațiile de lucru"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1773
+#: ../src/plugins/taskbar.c:1774
 msgid "_Move to Workspace"
-msgstr "_Mută pe"
+msgstr "_Mută în..."
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1779
+#: ../src/plugins/taskbar.c:1780
 msgid "_Close Window"
 msgstr "În_chide fereastra"
 
-#: ../src/plugins/taskbar.c:1986
-msgid "Show tooltips"
-msgstr "Arată textele ajutătoare"
-
 #: ../src/plugins/taskbar.c:1987
+msgid "Show tooltips"
+msgstr "Arată indicii"
+
+#: ../src/plugins/taskbar.c:1988
 msgid "Icons only"
 msgstr "Doar iconițe"
 
-#: ../src/plugins/taskbar.c:1988
+#: ../src/plugins/taskbar.c:1989
 msgid "Flat buttons"
 msgstr "Butoane plate"
 
-#: ../src/plugins/taskbar.c:1989
-msgid "Show windows from all desktops"
-msgstr "Arată ferestrele de pe toate ecranele"
-
 #: ../src/plugins/taskbar.c:1990
-msgid "Use mouse wheel"
-msgstr "Folosește rotița mausului"
+msgid "Show windows from all desktops"
+msgstr "Arată ferestrele din toate spațiile de lucru"
 
 #: ../src/plugins/taskbar.c:1991
-msgid "Flash when there is any window requiring attention"
-msgstr "Clipește când vreo fereastră cere atenție"
+msgid "Use mouse wheel"
+msgstr "Activează rotița mausului"
 
 #: ../src/plugins/taskbar.c:1992
-msgid "Combine multiple application windows into a single button"
-msgstr "Combină ferestrele multiple ale unei aplicații într-un singur buton"
+msgid "Flash when there is any window requiring attention"
+msgstr "Evidențiază ferestrele ce necesită atenție"
 
 #: ../src/plugins/taskbar.c:1993
-msgid "Maximum width of task button"
-msgstr "Lățimea maximă a unui buton de aplicație"
+msgid "Combine multiple application windows into a single button"
+msgstr "Combină ferestrele multiple ale unui program într-un singur buton"
 
 #: ../src/plugins/taskbar.c:1994
+msgid "Maximum width of task button"
+msgstr "Lățimea maximă a unui buton"
+
+#: ../src/plugins/taskbar.c:1995
 msgid "Spacing"
 msgstr "Spațiere"
 
-#: ../src/plugins/taskbar.c:2047
+#: ../src/plugins/taskbar.c:2048
 msgid "Task Bar (Window List)"
-msgstr "Bara de procese (listă de ferestre)"
+msgstr "Bară cu programe (listă de ferestre)"
 
-#: ../src/plugins/taskbar.c:2049
+#: ../src/plugins/taskbar.c:2050
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
-"Bara de procese arată toate ferestrele deschise și vă permite să le "
-"ascundeți pe ea, să le rulați sau să le aduceți în față"
+"Bara cu programe arată toate ferestrele deschise și vă permite să le "
+"minimizați, să le strângeți sau să le aduceți în față"
 
 #: ../src/plugins/dclock.c:434
 msgid "Clock Format"
-msgstr "Format ceas"
+msgstr "Format pentru ceas"
 
 #: ../src/plugins/dclock.c:435
 msgid "Tooltip Format"
-msgstr "Formatul textelor ajutătoare"
+msgstr "Format pentru indicii"
 
 #: ../src/plugins/dclock.c:436
 msgid "Format codes: man 3 strftime; \\n for line break"
@@ -593,16 +577,15 @@ msgstr "Coduri de formatare: man 3 strftime; \\n pentru sfârșit de linie"
 
 #: ../src/plugins/dclock.c:437
 msgid "Action when clicked (default: display calendar)"
-msgstr "Acțiune la clic (implicit: afișare calendar)"
+msgstr "Acțiune la clic (implicit se afișează calendarul)"
 
 #: ../src/plugins/dclock.c:439
 msgid "Tooltip only"
-msgstr "Doar textele ajutătoare"
+msgstr "Doar indiciile"
 
 #: ../src/plugins/dclock.c:440
-#, fuzzy
 msgid "Center text"
-msgstr "Centru"
+msgstr "Text centrat"
 
 #: ../src/plugins/dclock.c:469
 msgid "Digital Clock"
@@ -610,11 +593,11 @@ msgstr "Ceas digital"
 
 #: ../src/plugins/dclock.c:471
 msgid "Display digital clock and tooltip"
-msgstr "Afișează ceasul digital și informațiile suplimentare"
+msgstr "Afișează ceasul digital și indiciile"
 
 #: ../src/plugins/menu.c:426
 msgid "Add to desktop"
-msgstr "Adaugă pe spațiul de lucru"
+msgstr "Adaugă pe desktop"
 
 #: ../src/plugins/menu.c:436
 msgid "Properties"
@@ -630,7 +613,7 @@ msgstr "Meniu"
 
 #: ../src/plugins/menu.c:1104
 msgid "Application Menu"
-msgstr "Meniu cu aplicații"
+msgstr "Meniu cu programe"
 
 #: ../src/plugins/separator.c:102
 msgid "Separator"
@@ -638,15 +621,15 @@ msgstr "Separator"
 
 #: ../src/plugins/separator.c:104
 msgid "Add a separator to the panel"
-msgstr "Adaugă un separator la panou"
+msgstr "Adăugați un separator în panou"
 
 #: ../src/plugins/pager.c:837
 msgid "Desktop Pager"
-msgstr "Selector de ecrane"
+msgstr "Comutator de spații de lucru"
 
 #: ../src/plugins/pager.c:839
 msgid "Simple pager plugin"
-msgstr "Extensie simplă de selectat ecrane"
+msgstr "Un modul de comutare a spațiului de lucru curent"
 
 #: ../src/plugins/space.c:143
 msgid "Spacer"
@@ -654,23 +637,23 @@ msgstr "Distanțier"
 
 #: ../src/plugins/space.c:145
 msgid "Allocate space"
-msgstr "Alocă spațiu"
+msgstr "Alocare de spațiu"
 
 #: ../src/plugins/tray.c:737
 msgid "System Tray"
-msgstr "Zona de notificare"
+msgstr "Zonă de notificare"
 
 #: ../src/plugins/tray.c:739
 msgid "System tray"
-msgstr "Zona de notificare"
+msgstr "Zonă de notificare"
 
 #: ../src/plugins/xkb/xkb-plugin.c:291
 msgid "Configure Keyboard Layout Switcher"
-msgstr "Configurează comutatorul de mapări de taste"
+msgstr "Configurați comutatorul de tastaturi"
 
 #: ../src/plugins/xkb/xkb-plugin.c:306
 msgid "Show layout as"
-msgstr "Arată maparea ca"
+msgstr "Arată tastatura ca"
 
 #: ../src/plugins/xkb/xkb-plugin.c:321
 msgid "image"
@@ -682,35 +665,35 @@ msgstr "text"
 
 #: ../src/plugins/xkb/xkb-plugin.c:329
 msgid "Per application settings"
-msgstr "Setări per aplicație"
+msgstr "Opțiuni per program"
 
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/xkb/xkb-plugin.c:344
 msgid "_Remember layout for each application"
-msgstr "Memo_rează maparea pentru fiecare aplicație"
+msgstr "Memo_rează tastatura pentru fiecare program"
 
 #. Create a label as the child of the horizontal box.
 #: ../src/plugins/xkb/xkb-plugin.c:354
 msgid "Default layout:"
-msgstr "Mapare implicită:"
+msgstr "Tastatură implicită:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:405
 msgid "Keyboard Layout Switcher"
-msgstr "Comutator de mapări de taste"
+msgstr "Comutator de tastaturi"
 
 #: ../src/plugins/xkb/xkb-plugin.c:407
 msgid "Switch between available keyboard layouts"
-msgstr "Comută între mapările de taste disponibile"
+msgstr "Comută între aranjamentele de tastatură disponibile"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
-"Clic stânga pentru a ascunde toate ferestrele. Clic mijlociu pentru a afișa "
-"doar titlul lor."
+"Clic stânga pentru a minimiza toate ferestrele. Clic pe butonul din mijloc "
+"pentru a afișa doar titlul lor."
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
-msgstr "Ascunde sau rulează și arată alternant"
+msgstr "Alternativ minimizează/strânge și ridică deasupra"
 
 #: ../src/plugins/wincmd.c:266
 msgid "Minimize All Windows"
@@ -722,7 +705,7 @@ msgid ""
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
 "Trimite comenzi către toate ferestrele.\n"
-"Comenzi suportate: ascundere și rulare (afișare doar titlu)"
+"Comenzi suportate: 1) minimizare și 2) strângere"
 
 #: ../src/plugins/dirmenu.c:246
 msgid "Open in _Terminal"
@@ -742,189 +725,191 @@ msgstr "Meniu de directoare"
 
 #: ../src/plugins/dirmenu.c:445
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr "Răsfoiește arborescent un director printr-un meniu (Autor: PCMan)"
+msgstr "Navigare a arborelui de directoare printr-un meniu (Autor: PCMan)"
 
-#: ../src/plugins/thermal/thermal.c:396
+#: ../src/plugins/thermal/thermal.c:394
 msgid "Normal"
 msgstr "Normal"
 
-#: ../src/plugins/thermal/thermal.c:397
+#: ../src/plugins/thermal/thermal.c:395
 msgid "Warning1"
 msgstr "Avertisment1"
 
-#: ../src/plugins/thermal/thermal.c:398
+#: ../src/plugins/thermal/thermal.c:396
 msgid "Warning2"
 msgstr "Avertisment2"
 
-#: ../src/plugins/thermal/thermal.c:399
+#: ../src/plugins/thermal/thermal.c:397
 msgid "Automatic sensor location"
 msgstr "Localizare automată a senzorului"
 
-#: ../src/plugins/thermal/thermal.c:400
+#: ../src/plugins/thermal/thermal.c:398
 msgid "Sensor"
 msgstr "Senzor"
 
-#: ../src/plugins/thermal/thermal.c:401
+#: ../src/plugins/thermal/thermal.c:399
 msgid "Automatic temperature levels"
 msgstr "Niveluri automate de temperatură"
 
-#: ../src/plugins/thermal/thermal.c:402
+#: ../src/plugins/thermal/thermal.c:400
 msgid "Warning1 Temperature"
 msgstr "Temperatură de avertizare 1"
 
-#: ../src/plugins/thermal/thermal.c:403
+#: ../src/plugins/thermal/thermal.c:401
 msgid "Warning2 Temperature"
 msgstr "Temperatură de avertizare 2"
 
-#: ../src/plugins/thermal/thermal.c:445
+#: ../src/plugins/thermal/thermal.c:443
 msgid "Temperature Monitor"
 msgstr "Monitor de temperatură"
 
-#: ../src/plugins/thermal/thermal.c:447
+#: ../src/plugins/thermal/thermal.c:445
 msgid "Display system temperature"
 msgstr "Afișează temperatura sistemului"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:279
-#: ../src/plugins/volumealsa/volumealsa.c:449
+#: ../src/plugins/volumealsa/volumealsa.c:287
+#: ../src/plugins/volumealsa/volumealsa.c:457
 msgid "Volume control"
 msgstr "Control volum"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:571
+#: ../src/plugins/volumealsa/volumealsa.c:579
 msgid "Volume Control"
 msgstr "Control volum"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:407
+#: ../src/plugins/volumealsa/volumealsa.c:415
 msgid "Volume"
 msgstr "Volum"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/volumealsa/volumealsa.c:426
+#: ../src/plugins/volumealsa/volumealsa.c:434
 msgid "Mute"
-msgstr "Oprește sonorul"
+msgstr "Fără sonor"
 
-#: ../src/plugins/volumealsa/volumealsa.c:544
+#: ../src/plugins/volumealsa/volumealsa.c:552
 msgid ""
 "Error, you need to install a application to configure the sound (pavucontol, "
 "alsamixer ...)"
 msgstr ""
+"Eroare! Trebuie să instalați un program pentru configurarea sunetului "
+"(pavucontrol, alsamixer etc.)"
 
-#: ../src/plugins/netstat/netstat.c:168
+#: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
 msgstr "<Punct de acces ascuns>"
 
-#: ../src/plugins/netstat/netstat.c:201
+#: ../src/plugins/netstat/netstat.c:213
 msgid "Wireless Networks not found in range"
 msgstr "Nu s-a găsit nicio rețea fără fir în zonă"
 
 #. Repair
-#: ../src/plugins/netstat/netstat.c:235
+#: ../src/plugins/netstat/netstat.c:247
 msgid "Repair"
 msgstr "Repară"
 
 #. interface down
-#: ../src/plugins/netstat/netstat.c:240
+#: ../src/plugins/netstat/netstat.c:252
 msgid "Disable"
-msgstr "Deactivează"
+msgstr "Dezactivează"
 
-#: ../src/plugins/netstat/netstat.c:299
+#: ../src/plugins/netstat/netstat.c:313
 msgid "Wireless Connection has no connectivity"
 msgstr "Conexiunea fără fir nu are conectivitate"
 
-#: ../src/plugins/netstat/netstat.c:301
+#: ../src/plugins/netstat/netstat.c:315
 msgid "Network cable is plugged out"
 msgstr "Cablul de rețea este scos"
 
-#: ../src/plugins/netstat/netstat.c:303
+#: ../src/plugins/netstat/netstat.c:317
 msgid "Connection has limited or no connectivity"
-msgstr "Conexiune limitată sau inexistentă"
+msgstr "Conectivitate limitată sau inexistentă"
 
-#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
-#: ../src/plugins/netstat/netstat.c:329
+#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:343
 msgid "IP Address:"
-msgstr "Adresă IP"
+msgstr "Adresă IP:"
 
-#: ../src/plugins/netstat/netstat.c:308
+#: ../src/plugins/netstat/netstat.c:322
 msgid "Remote IP:"
 msgstr "IP extern:"
 
-#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
-#: ../src/plugins/netstat/netstat.c:331
+#: ../src/plugins/netstat/netstat.c:323 ../src/plugins/netstat/netstat.c:334
+#: ../src/plugins/netstat/netstat.c:345
 msgid "Netmask:"
 msgstr "Mască de rețea:"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
-#: ../src/plugins/netstat/netstat.c:333
+#: ../src/plugins/netstat/netstat.c:324 ../src/plugins/netstat/netstat.c:336
+#: ../src/plugins/netstat/netstat.c:347
 msgid "Activity"
 msgstr "Activitate"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
-#: ../src/plugins/netstat/netstat.c:333
+#: ../src/plugins/netstat/netstat.c:324 ../src/plugins/netstat/netstat.c:336
+#: ../src/plugins/netstat/netstat.c:347
 msgid "Sent"
 msgstr "Trimis"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
-#: ../src/plugins/netstat/netstat.c:333
+#: ../src/plugins/netstat/netstat.c:324 ../src/plugins/netstat/netstat.c:336
+#: ../src/plugins/netstat/netstat.c:347
 msgid "Received"
 msgstr "Primit"
 
-#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
-#: ../src/plugins/netstat/netstat.c:334
+#: ../src/plugins/netstat/netstat.c:325 ../src/plugins/netstat/netstat.c:337
+#: ../src/plugins/netstat/netstat.c:348
 msgid "bytes"
-msgstr "octeți"
+msgstr "bytes"
 
-#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
-#: ../src/plugins/netstat/netstat.c:335
+#: ../src/plugins/netstat/netstat.c:326 ../src/plugins/netstat/netstat.c:338
+#: ../src/plugins/netstat/netstat.c:349
 msgid "packets"
 msgstr "pachete"
 
-#: ../src/plugins/netstat/netstat.c:315
+#: ../src/plugins/netstat/netstat.c:329
 #: ../src/plugins/netstatus/netstatus-iface.c:173
 msgid "Wireless"
 msgstr "Fără fir"
 
-#: ../src/plugins/netstat/netstat.c:317
+#: ../src/plugins/netstat/netstat.c:331
 msgid "Protocol:"
 msgstr "Protocol:"
 
-#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:335 ../src/plugins/netstat/netstat.c:346
 msgid "HW Address:"
 msgstr "Adresă HW:"
 
-#: ../src/plugins/netstat/netstat.c:470
+#: ../src/plugins/netstat/netstat.c:484
 msgid "Manage Networks"
-msgstr "Gestionare rețele"
+msgstr "Configurați rețelele"
 
-#: ../src/plugins/netstat/netstat.c:472
+#: ../src/plugins/netstat/netstat.c:486
 msgid "Monitor and Manage networks"
-msgstr "Monitorizați și gestionați rețelele"
+msgstr "Monitorizați și configurați rețelele"
 
 #. create dialog
-#: ../src/plugins/netstat/passwd_gui.c:84
+#: ../src/plugins/netstat/passwd_gui.c:86
 msgid "Setting Encryption Key"
-msgstr "Setare cheie de criptare"
+msgstr "Definire a cheii de criptare"
 
 #. messages
-#: ../src/plugins/netstat/passwd_gui.c:94
+#: ../src/plugins/netstat/passwd_gui.c:96
 msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
 msgstr ""
 "Rețeaua fără fir este criptată.\n"
-"Trebuie să aveți o cheie de criptare."
+"Trebuie să cunoașteți cheia de criptare."
 
-#: ../src/plugins/netstat/passwd_gui.c:99
+#: ../src/plugins/netstat/passwd_gui.c:101
 msgid "Encryption Key:"
 msgstr "Cheie de criptare:"
 
 #: ../src/plugins/netstatus/netstatus.c:179
 msgid "Interface to monitor"
-msgstr "Interfața de monitorizat"
+msgstr "Interfață de monitorizat"
 
 #: ../src/plugins/netstatus/netstatus.c:180
 msgid "Config tool"
@@ -932,7 +917,7 @@ msgstr "Unealtă de configurare"
 
 #: ../src/plugins/netstatus/netstatus.c:197
 msgid "Network Status Monitor"
-msgstr "Monitor de stare a rețelei"
+msgstr "Monitorizare de rețea"
 
 #: ../src/plugins/netstatus/netstatus.c:199
 msgid "Monitor network status"
@@ -950,7 +935,7 @@ msgstr "Proprietățile conexiunii"
 #: ../src/plugins/netstatus/netstatus-dialog.c:122
 #, c-format
 msgid "Connection Properties: %s"
-msgstr "Proprietățile conexiunii %s"
+msgstr "Proprietățile conexiunii: %s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:135
 #, c-format
@@ -972,7 +957,7 @@ msgstr ""
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
-msgstr "Lansarea uneltei pentru setarea ceasului a eșuat: %s"
+msgstr "Lansarea uneltei pentru configurarea ceasului sistemului a eșuat: %s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:380
 #, c-format
@@ -983,48 +968,46 @@ msgstr "Conexiune la rețea: %s"
 msgid "Network Connection"
 msgstr "Conexiune la rețea"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:838
+#: ../src/plugins/netstatus/netstatus-icon.c:842
 msgid "Interface"
 msgstr "Interfață"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:839
+#: ../src/plugins/netstatus/netstatus-icon.c:843
 msgid "The current interface the icon is monitoring."
-msgstr "Interfața monitorizată acum de iconiță."
+msgstr "Interfața monitorizată curent de iconiță."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:846
+#: ../src/plugins/netstatus/netstatus-icon.c:850
 msgid "Orientation"
 msgstr "Orientare"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:847
+#: ../src/plugins/netstatus/netstatus-icon.c:851
 msgid "The orientation of the tray."
 msgstr "Orientarea zonei de notificare."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:855
+#: ../src/plugins/netstatus/netstatus-icon.c:859
 msgid "Tooltips Enabled"
-msgstr "Texte ajutătoare activate"
+msgstr "Indicii activate"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:856
+#: ../src/plugins/netstatus/netstatus-icon.c:860
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr ""
-"Dacă la trecerea cu mausul peste iconițe sunt afișate texte ajutătoare."
+msgstr "Specifică dacă se arată indicii pentru iconițe."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:863
+#: ../src/plugins/netstatus/netstatus-icon.c:867
 msgid "Show Signal"
 msgstr "Arată semnalul"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:864
+#: ../src/plugins/netstatus/netstatus-icon.c:868
 msgid "Whether or not the signal strength should be displayed."
-msgstr "Dacă să fie afișată sau nu puterea semnalului."
+msgstr "Specifică dacă să fie afișată puterea semnalului."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:977
+#: ../src/plugins/netstatus/netstatus-icon.c:985
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
 "\n"
 "%s"
 msgstr ""
-"Vă rugăm sa contactați administratorul de sistem pentru a rezolva problema "
-"următoare:\n"
+"Contactați administratorul de sistem pentru a rezolva următoarea problemă:\n"
 "\n"
 "%s"
 
@@ -1050,11 +1033,11 @@ msgstr "Statistici"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:166
 msgid "The interface packets/bytes statistics"
-msgstr "Statistici ale interfeței (pachete/octeți)"
+msgstr "Statistici ale interfeței (pachete/bytes)"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:174
 msgid "Whether the interface is a wireless interface"
-msgstr "Arată dacă interfața este una fără fir"
+msgstr "Specifică dacă interfața este una fără fir"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:181
 msgid "Signal"
@@ -1077,7 +1060,7 @@ msgstr "Starea actuală de eroare"
 #: ../src/plugins/netstatus/netstatus-iface.c:1197
 #, c-format
 msgid "Unable to open socket: %s"
-msgstr "Imposibil de deschis un soclu: %s"
+msgstr "Nu s-a putut deschide un socket: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:496
 #: ../src/plugins/netstatus/netstatus-iface.c:1223
@@ -1108,7 +1091,7 @@ msgstr "ARCnet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:897
 msgid "Frame Relay DLCI"
-msgstr "Identificator de conexiune prin relee de cadre"
+msgstr "Frame Relay DLCI"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:903
 msgid "Metricom Starmode IP"
@@ -1164,7 +1147,7 @@ msgstr "Dispozitiv de acces prin relee de cadre"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:960
 msgid "Local Loopback"
-msgstr "Buclă locală de rețea"
+msgstr "Loopback local"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:966
 msgid "Fiber Distributed Data Interface"
@@ -1207,13 +1190,13 @@ msgstr "Nu se poate deschide /proc/net/dev: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:189
 msgid "Could not parse /proc/net/dev. Unknown format."
-msgstr "Nu s-a putut analiza /proc/net/dev. Format necunoscut."
+msgstr "Nu s-a putut prelucra /proc/net/dev. Format necunoscut."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:204
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:330
 #, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr "Nu s-a putut analiza numele interfeței din „%s”"
+msgstr "Nu s-a putut prelucra numele interfeței din „%s”"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
@@ -1222,23 +1205,24 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"Nu s-au putut analiza statisticile interfaței din „%s”. prx_idx = %d; "
+"Nu s-au putut prelucra statisticile interfaței din „%s”. prx_idx = %d; "
 "ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr "Nu s-a putut analiza /proc/net/wireless. Format necunoscut."
+msgstr "Nu s-a putut prelucra /proc/net/wireless. Format necunoscut."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
 msgstr ""
-"Nu s-au putut analiza detaliile conexiunii fără fir din „%s”. link_idx = %d;"
+"Nu s-au putut prelucra detaliile conexiunii fără fir din „%s”. link_idx = %"
+"d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
 msgid "Could not connect to interface, '%s'"
-msgstr "Nu se poate conecta la interfață, „%s”"
+msgstr "Conectarea la interfață a eșuat, „%s”"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:420
 #, c-format
@@ -1248,19 +1232,19 @@ msgstr "Nu s-a putut trimite ioctl la interfață, „%s”"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr "Nu s-a putut evalua linia de comandă „%s”: %s"
+msgstr "Nu s-a putut prelucra linia de comandă „%s”: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr "Nu s-a putut interpreta rezultatul „netstat”. Format necunoscut"
+msgstr "Nu s-a putut prelucra rezultatul „netstat”. Format necunoscut"
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
-msgstr "Deconectat"
+msgstr "Deconectată"
 
 #: ../src/plugins/netstatus/netstatus-util.c:155
 msgid "Idle"
-msgstr "Inactiv"
+msgstr "Inactivă"
 
 #: ../src/plugins/netstatus/netstatus-util.c:158
 msgid "Sending"
@@ -1276,26 +1260,26 @@ msgstr "Trimitere/Primire"
 
 #: ../src/plugins/batt/batt.c:132
 msgid "No batteries found"
-msgstr "Niciun acumulator găsit"
+msgstr "Nu s-a identificat nicio baterie"
 
 #: ../src/plugins/batt/batt.c:176
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
-msgstr "Acumulator: %d%% încărcat, mai %d:%02d"
+msgstr "Baterie: %d%% încărcată, mai durează %d:%02d"
 
 #: ../src/plugins/batt/batt.c:187
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
-msgstr "Acumulator: %d%% încărcat, mai %d:%02d"
+msgstr "Baterie: %d%% încărcată, mai ține %d:%02d"
 
 #: ../src/plugins/batt/batt.c:193
 #, c-format
 msgid "Battery: %d%% charged"
-msgstr "Acumulator: %d%% încărcat"
+msgstr "Baterie: %d%% încărcată"
 
 #: ../src/plugins/batt/batt.c:573
 msgid "Hide if there is no battery"
-msgstr "Ascunde dacă nu există un acumulator"
+msgstr "Ascunde dacă nu există o baterie"
 
 #: ../src/plugins/batt/batt.c:575
 msgid "Alarm command"
@@ -1307,7 +1291,7 @@ msgstr "Ora alarmei (minute rămase)"
 
 #: ../src/plugins/batt/batt.c:577
 msgid "Background color"
-msgstr "Culoare fundal"
+msgstr "Culoare de fundal"
 
 #: ../src/plugins/batt/batt.c:578
 msgid "Charging color 1"
@@ -1327,15 +1311,15 @@ msgstr "Culoare de descărcare 2"
 
 #: ../src/plugins/batt/batt.c:582
 msgid "Border width"
-msgstr "Lățimea bordurii"
+msgstr "Lățimea chenarului"
 
 #: ../src/plugins/batt/batt.c:612
 msgid "Battery Monitor"
-msgstr "Monitor de acumulator"
+msgstr "Monitor de baterie"
 
 #: ../src/plugins/batt/batt.c:614
 msgid "Display battery status using ACPI"
-msgstr "Afișează starea acumulatorului folosind ACPI"
+msgstr "Afișează starea bateriei folosind ACPI"
 
 #: ../src/plugins/kbled/kbled.c:230
 msgid "Show CapsLock"
@@ -1351,83 +1335,73 @@ msgstr "Arată ScrollLock"
 
 #: ../src/plugins/kbled/kbled.c:267
 msgid "Keyboard LED"
-msgstr "LED tastatură"
+msgstr "LED-uri tastatură"
 
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Indicatori pentru tastele CapsLock, NumLock și ScrollLock"
 
 #. A label to allow for click through
-#: ../src/plugins/indicator/indicator.c:561
+#: ../src/plugins/indicator/indicator.c:698
 msgid "No Indicators"
-msgstr ""
+msgstr "Fără indicatori"
 
-#: ../src/plugins/indicator/indicator.c:751
-#, fuzzy
+#: ../src/plugins/indicator/indicator.c:897
 msgid "Indicator Applications"
-msgstr "Aplicații"
+msgstr "Programe cu indicatori"
 
-#: ../src/plugins/indicator/indicator.c:752
+#: ../src/plugins/indicator/indicator.c:898
 msgid "Clock Indicator"
-msgstr ""
+msgstr "Indicator de ceas"
 
-#: ../src/plugins/indicator/indicator.c:753
+#: ../src/plugins/indicator/indicator.c:899
 msgid "Messaging Menu"
-msgstr ""
+msgstr "Meniu de mesaje"
 
-#: ../src/plugins/indicator/indicator.c:754
-#, fuzzy
+#: ../src/plugins/indicator/indicator.c:900
 msgid "Network Menu"
-msgstr "Meniu de directoare"
+msgstr "Meniu de rețele"
 
-#: ../src/plugins/indicator/indicator.c:755
+#: ../src/plugins/indicator/indicator.c:901
 msgid "Session Menu"
-msgstr ""
+msgstr "Meniu de sesiuni"
 
-#: ../src/plugins/indicator/indicator.c:756
+#: ../src/plugins/indicator/indicator.c:902
 msgid "Sound Menu"
-msgstr ""
+msgstr "Meniu de sunete"
 
-#: ../src/plugins/indicator/indicator.c:780
+#: ../src/plugins/indicator/indicator.c:928
 msgid "Indicator applets"
-msgstr ""
+msgstr "Module de tip indicator"
 
-#: ../src/plugins/indicator/indicator.c:782
-#, fuzzy
+#: ../src/plugins/indicator/indicator.c:930
 msgid "Add indicator applets to the panel"
-msgstr "Adaugă un separator la panou"
+msgstr "Adăugați module de tip indicator în panou"
 
-#: ../src/plugins/monitors/monitors.c:654
-#, fuzzy
+#: ../src/plugins/monitors/monitors.c:678
 msgid "CPU color"
-msgstr "Culoare personalizată"
+msgstr "Culoare CPU"
 
-#: ../src/plugins/monitors/monitors.c:655
-#, fuzzy
+#: ../src/plugins/monitors/monitors.c:679
 msgid "Display RAM usage"
-msgstr "Afișează utilizarea procesorului"
+msgstr "Arată utilizarea memoriei"
 
-#: ../src/plugins/monitors/monitors.c:656
+#: ../src/plugins/monitors/monitors.c:680
 msgid "RAM color"
-msgstr ""
+msgstr "Culoarea memoriei"
 
-#: ../src/plugins/monitors/monitors.c:753
-#, fuzzy
+#: ../src/plugins/monitors/monitors.c:774
 msgid "Resource monitors"
-msgstr "Interfața de monitorizat"
+msgstr "Monitorizare de resurse"
 
-#: ../src/plugins/monitors/monitors.c:755
+#: ../src/plugins/monitors/monitors.c:776
 msgid "Display monitors (CPU, RAM)"
-msgstr ""
+msgstr "Afișează monitoare (CPU, RAM)"
 
 #: ../src/plugins/wnckpager/wnckpager.c:721
 msgid "WNCKPager"
-msgstr ""
+msgstr "WNCKPager"
 
 #: ../src/plugins/wnckpager/wnckpager.c:723
-#, fuzzy
 msgid "WNCKpager plugin"
-msgstr "Extensie simplă de selectat ecrane"
-
-#~ msgid "Available Applications"
-#~ msgstr "Aplicațiile disponibile"
+msgstr "Modul WNCKPager"
