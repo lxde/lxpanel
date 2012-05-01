@@ -110,6 +110,7 @@ static Panel* panel_allocate(void)
     p->fontsize = 10;
     p->spacing = 0;
     p->icon_size = PANEL_ICON_SIZE;
+    p->icon_theme = gtk_icon_theme_get_default();
     return p;
 }
 
@@ -695,7 +696,7 @@ static void panel_popupmenu_about( GtkMenuItem* item, Panel* panel )
     panel_apply_icon(GTK_WINDOW(about));
     gtk_about_dialog_set_version(GTK_ABOUT_DIALOG(about), VERSION);
     gtk_about_dialog_set_name(GTK_ABOUT_DIALOG(about), _("LXPanel"));
-    gtk_about_dialog_set_logo(GTK_ABOUT_DIALOG(about), gdk_pixbuf_new_from_file(PACKAGE_DATA_DIR "/lxpanel/images/my-computer.png", NULL));
+    gtk_about_dialog_set_logo(GTK_ABOUT_DIALOG(about), gtk_icon_theme_load_icon(panel->icon_theme, "my-computer", 48, 0, NULL));
     gtk_about_dialog_set_copyright(GTK_ABOUT_DIALOG(about), _("Copyright (C) 2008-2011"));
     gtk_about_dialog_set_comments(GTK_ABOUT_DIALOG(about), _( "Desktop panel for LXDE project"));
     gtk_about_dialog_set_license(GTK_ABOUT_DIALOG(about), "This program is free software; you can redistribute it and/or\nmodify it under the terms of the GNU General Public License\nas published by the Free Software Foundation; either version 2\nof the License, or (at your option) any later version.\n\nThis program is distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\nGNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License\nalong with this program; if not, write to the Free Software\nFoundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.");
@@ -708,7 +709,8 @@ static void panel_popupmenu_about( GtkMenuItem* item, Panel* panel )
 
 void panel_apply_icon( GtkWindow *w )
 {
-    gtk_window_set_icon_from_file(w, PACKAGE_DATA_DIR "/lxpanel/images/my-computer.png", NULL);
+	GdkPixbuf* window_icon = gtk_icon_theme_load_icon(panel->icon_theme, "my-computer", 24, 0, NULL
+    gtk_window_set_icon(w, window_icon);
 }
 
 GtkMenu* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean use_sub_menu )
@@ -1664,9 +1666,11 @@ int main(int argc, char *argv[], char *env[])
         exit(1);
     }
 
+	/*get default icon theme*/
+	GtkIconTheme* icon_theme = gtk_icon_theme_get_default();
+	 
     /* Add our own icons to the search path of icon theme */
-    gtk_icon_theme_append_search_path( gtk_icon_theme_get_default(),
-                                       PACKAGE_DATA_DIR "/lxpanel/images" );
+    gtk_icon_theme_append_search_path( icon_theme, PACKAGE_DATA_DIR "/lxpanel/images" );
 
     fbev = fb_ev_new();
     win_grp = gtk_window_group_new();

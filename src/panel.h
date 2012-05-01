@@ -56,6 +56,7 @@ typedef struct _Panel {
     Window topxwin;			/* Main panel's X window   */
     GdkDisplay * display;		/* Main panel's GdkDisplay */
     GtkStyle * defstyle;
+    GtkIconTheme* icon_theme; /*Default icon theme*/
 
     GtkWidget * box;			/* Top level widget */
 
