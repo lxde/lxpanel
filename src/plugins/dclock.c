@@ -387,7 +387,9 @@ static void dclock_apply_configuration(Plugin * p)
     /* Set up the icon or the label as the displayable widget. */
     if (dc->icon_only)
     {
-        panel_image_set_from_file(p->panel, dc->clock_icon, PACKAGE_DATA_DIR "/lxpanel/images/clock.png");
+		if(panel_image_set_icon_theme(p->panel, dc->clock_icon, "clock") != FALSE) {
+			panel_image_set_from_file(p->panel, dc->clock_icon, PACKAGE_DATA_DIR "/lxpanel/images/clock.png");
+		}
         gtk_widget_show(dc->clock_icon);
         gtk_widget_hide(dc->clock_label);
     }

@@ -35,6 +35,18 @@
 #include "plugin.h"
 #include "icon-grid.h"
 
+static const char * on_icons_theme[] = {
+    "capslock-on",
+    "numlock-on",
+    "scrllock-on"
+};
+
+static const char * off_icons_theme[] = {
+    "capslock-off",
+    "numlock-off",
+    "scrllock-off"
+};
+
 static const char * on_icons[] = {
     "capslock-on.png",
     "numlock-on.png",
@@ -72,12 +84,15 @@ static void kbled_panel_configuration_changed(Plugin * p);
 /* Update image to correspond to current state. */
 static void kbled_update_image(KeyboardLEDPlugin * kl, int i, unsigned int state)
 {
-    char * file = g_build_filename(
-        PACKAGE_DATA_DIR "/lxpanel/images",
-        ((state) ? on_icons[i] : off_icons[i]),
-        NULL);
-    panel_image_set_from_file(kl->plugin->panel, kl->indicator_image[i], file);
-    g_free(file);
+	if(panel_image_set_icon_theme(kl->plugin->panel, kl->indicator_image[i], (state ? on_icons_theme[i] : off_icons_theme[i])) != TRUE) {
+		char * file = g_build_filename(
+			PACKAGE_DATA_DIR "/lxpanel/images",
+			((state) ? on_icons[i] : off_icons[i]),
+			NULL);
+		panel_image_set_from_file(kl->plugin->panel, kl->indicator_image[i], file);
+		g_free(file);
+		
+	}
 }
 
 /* Redraw after Xkb event or initialization. */

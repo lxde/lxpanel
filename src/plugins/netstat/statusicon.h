@@ -11,7 +11,7 @@ struct statusicon {
 };
 
 struct statusicon *create_statusicon(GtkWidget *box, const char *filename,
-		const char *tooltips);
+		const char *tooltips, const char* icon_name);
 void statusicon_destroy(struct statusicon *icon);
 void set_statusicon_image_from_file(struct statusicon *widget, const char *filename);
 void set_statusicon_tooltips(struct statusicon *widget, const char *tooltips);

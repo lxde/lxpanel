@@ -24,7 +24,7 @@
 #include "statusicon.h"
 
 struct statusicon *create_statusicon(GtkWidget *box, const char *filename,
-        const char *tooltips)
+        const char *tooltips, const char* icon_name)
 {
     struct statusicon *newicon;
     newicon = malloc(sizeof(struct statusicon));
@@ -38,7 +38,21 @@ struct statusicon *create_statusicon(GtkWidget *box, const char *filename,
     gtk_box_pack_start(GTK_BOX(box), newicon->main, TRUE, TRUE, 0);
 
     /* icon */
-    newicon->icon = gtk_image_new_from_file(filename);
+    
+    /*icon theme*/
+    GtkIconTheme* icon_theme = gtk_icon_theme_get_default();
+    
+    /*if we've got a theme*/
+    if(gtk_icon_theme_has_icon(icon_theme, icon_name)) {
+		GdkPixbuf* temp_pixbuf = gtk_icon_theme_load_icon(icon_theme, icon_name, 24, 0, NULL);
+		newicon->icon = gtk_image_new_from_pixbuf(temp_pixbuf);
+	}
+    
+    /* oh well...*/
+    /*else {
+		printf("Failed!\n");
+		newicon->icon = gtk_image_new_from_file(filename);
+	}*/
     gtk_container_add(GTK_CONTAINER(newicon->main), newicon->icon);
     gtk_widget_show_all(newicon->main);
 

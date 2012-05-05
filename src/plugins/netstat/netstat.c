@@ -292,6 +292,35 @@ static char *select_icon(gboolean plug, gboolean connected, int stat)
     }
 }
 
+static char *select_icon_theme(gboolean plug, gboolean connected, int stat)
+{
+    if (!plug)
+        return ICONS_DISCONNECT_THEME;
+
+    switch(stat) {
+        case NETDEV_STAT_NORMAL:
+            return ICONS_CONNECTED_THEME;
+            break;
+        case NETDEV_STAT_PROBLEM:
+            return ICONS_PROBLEM_THEME;
+            break;
+        case NETDEV_STAT_RENEW:
+            return ICONS_RENEW_THEME;
+            break;
+        case NETDEV_STAT_BOTHRS:
+            return ICONS_BOTHRS_THEME;
+            break;
+        case NETDEV_STAT_SENDDATA:
+            return ICONS_SENDDATA_THEME;
+            break;
+        case NETDEV_STAT_RECVDATA:
+            return ICONS_RECVDATA_THEME;
+            break;
+        default:
+            return NULL;
+    }
+}
+
 static void refresh_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
 {
     NETDEVLIST_PTR ptr;
@@ -355,7 +384,7 @@ static void refresh_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
                 ni->ns = ns;
                 ni->netdev_list = ptr;
 
-                ptr->info.status_icon = create_statusicon(ns->mainw, select_icon(ptr->info.plug, ptr->info.connected, ptr->info.status), tooltip);
+                ptr->info.status_icon = create_statusicon(ns->mainw, select_icon(ptr->info.plug, ptr->info.connected, ptr->info.status), tooltip, select_icon_theme(ptr->info.plug, ptr->info.connected, ptr->info.status));
                 g_signal_connect(ptr->info.status_icon->main, "button_press_event", G_CALLBACK(menupopup), ni);
                 g_object_weak_ref(G_OBJECT(ptr->info.status_icon->main), g_free_weaknotify, ni);
             } else {

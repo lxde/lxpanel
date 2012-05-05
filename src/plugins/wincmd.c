@@ -40,6 +40,7 @@ typedef struct {
     WindowCommand button_2_command;		/* Command for mouse button 2 */
     gboolean toggle_preference;			/* User preference: toggle iconify/shade and map */
     gboolean toggle_state;			/* State of toggle */
+    GtkImage* icon;
 } WinCmdPlugin;
 
 static pair wincmd_pair [] = {
@@ -254,7 +255,9 @@ static void wincmd_save_configuration(Plugin * p, FILE * fp)
 static void wincmd_panel_configuration_changed(Plugin * p)
 {
     WinCmdPlugin * wc = (WinCmdPlugin *) p->priv;
-    fb_button_set_from_file(p->pwid, wc->image, p->panel->icon_size, p->panel->icon_size, TRUE);
+    if(panel_image_set_icon_theme(p->panel, wc->icon, "wincmd") != FALSE) {
+		fb_button_set_from_file(p->pwid, wc->image, p->panel->icon_size, p->panel->icon_size, TRUE);
+	}
 }
 
 /* Plugin descriptor. */

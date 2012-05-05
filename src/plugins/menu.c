@@ -994,7 +994,7 @@ menu_constructor(Plugin *p, char **fp)
             "image=gnome-logout\n"
             "command=logout\n"
         "}\n"
-        "image=" DEFAULT_MENU_ICON "\n"
+        //"image=" DEFAULT_MENU_ICON "\n"
         "}\n";
     char *config_default = default_config;
     int iw, ih;
@@ -1069,8 +1069,9 @@ static void save_config( Plugin* p, FILE* fp )
 static void apply_config(Plugin* p)
 {
     menup* m = (menup*)p->priv;
-    if( m->fname )
-        fb_button_set_from_file( m->img, m->fname, -1, p->panel->icon_size, TRUE );
+	if( m->fname ) {
+		fb_button_set_from_file( m->img, m->fname, -1, p->panel->icon_size, TRUE );
+	}
 }
 
 static void menu_config( Plugin *p, GtkWindow* parent )
