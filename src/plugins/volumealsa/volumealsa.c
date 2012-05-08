@@ -122,11 +122,12 @@ static gboolean asound_reset_mixer_evt_idle(VolumeALSAPlugin * vol)
 static gboolean asound_mixer_event(GIOChannel * channel, GIOCondition cond, gpointer vol_gpointer)
 {
     VolumeALSAPlugin * vol = (VolumeALSAPlugin *) vol_gpointer;
+    int res = 0;
 
     if (vol->mixer_evt_idle == 0)
     {
         vol->mixer_evt_idle = g_idle_add_full(G_PRIORITY_DEFAULT, (GSourceFunc) asound_reset_mixer_evt_idle, vol, NULL);
-        snd_mixer_handle_events(vol->mixer);
+        res = snd_mixer_handle_events(vol->mixer);
     }
 
     if (cond & G_IO_IN)
@@ -135,9 +136,15 @@ static gboolean asound_mixer_event(GIOChannel * channel, GIOCondition cond, gpoi
         volumealsa_update_display(vol);
     }
 
-    if (cond & G_IO_HUP)
+    if ((cond & G_IO_HUP) || (res < 0))
     {
         /* This means there're some problems with alsa. */
+	ERR("volumealsa: ALSA (or pulseaudio) had a problem: \n"
+                "volumealsa: snd_mixer_handle_events() = %d,"
+                " cond 0x%x (IN: 0x%x, HUP: 0x%x).\n", res, cond,
+                G_IO_IN, G_IO_HUP);
+        gtk_widget_set_tooltip_text(vol->plugin->pwid, "ALSA (or pulseaudio) had a problem."
+                " Please check the lxpanel logs.");
         return FALSE;
     }
 
@@ -587,3 +594,5 @@ PluginClass volumealsa_plugin_class = {
     panel_configuration_changed : volumealsa_panel_configuration_changed
 
 };
+
+/* vim: set sw=4 et sts=4 : */
