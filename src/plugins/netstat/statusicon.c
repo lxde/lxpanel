@@ -49,10 +49,9 @@ struct statusicon *create_statusicon(GtkWidget *box, const char *filename,
 	}
     
     /* oh well...*/
-    /*else {
-		printf("Failed!\n");
+    else {
 		newicon->icon = gtk_image_new_from_file(filename);
-	}*/
+	}
     gtk_container_add(GTK_CONTAINER(newicon->main), newicon->icon);
     gtk_widget_show_all(newicon->main);
 

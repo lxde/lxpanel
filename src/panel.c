@@ -696,7 +696,7 @@ static void panel_popupmenu_about( GtkMenuItem* item, Panel* panel )
     panel_apply_icon(GTK_WINDOW(about));
     gtk_about_dialog_set_version(GTK_ABOUT_DIALOG(about), VERSION);
     gtk_about_dialog_set_name(GTK_ABOUT_DIALOG(about), _("LXPanel"));
-    if(gtk_icon_theme_has_icon(panel->icon_theme, "my-computer")) gtk_about_dialog_set_logo(GTK_ABOUT_DIALOG(about), gtk_icon_theme_load_icon(panel->icon_theme, "my-computer", 48, 0, NULL));
+    if(gtk_icon_theme_has_icon(panel->icon_theme, "video-display")) gtk_about_dialog_set_logo(GTK_ABOUT_DIALOG(about), gtk_icon_theme_load_icon(panel->icon_theme, "video-display", 48, 0, NULL));
     else gtk_about_dialog_set_logo(GTK_ABOUT_DIALOG(about), gdk_pixbuf_new_from_file(PACKAGE_DATA_DIR "/lxpanel/images/my-computer.png", NULL));
     gtk_about_dialog_set_copyright(GTK_ABOUT_DIALOG(about), _("Copyright (C) 2008-2011"));
     gtk_about_dialog_set_comments(GTK_ABOUT_DIALOG(about), _( "Desktop panel for LXDE project"));
@@ -712,8 +712,8 @@ void panel_apply_icon( GtkWindow *w )
 {
 	GdkPixbuf* window_icon;
 	
-	if(gtk_icon_theme_has_icon(gtk_icon_theme_get_default(), "my-computer")) {
-		window_icon = gtk_icon_theme_load_icon(gtk_icon_theme_get_default(), "my-computer", 24, 0, NULL);
+	if(gtk_icon_theme_has_icon(gtk_icon_theme_get_default(), "video-display")) {
+		window_icon = gtk_icon_theme_load_icon(gtk_icon_theme_get_default(), "video-display", 24, 0, NULL);
 	}
 	else {
 		window_icon = gdk_pixbuf_new_from_file(PACKAGE_DATA_DIR "/lxpanel/images/my-computer.png", NULL);
