@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2012-01-19 00:26+0200\n"
+"PO-Revision-Date: 2012-05-11 13:21+0200\n"
 "Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Proxecto Trasno <proxecto@trasno.net>\n"
 "Language: gl\n"
@@ -595,7 +595,7 @@ msgstr "Formato da mensaxe emerxente"
 #: ../src/plugins/dclock.c:436
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr ""
-"Códigos de formato: man 3 strftime; \\\n"
+"Códigos de formato: man 3 strftime; \n"
 " para salto de liña"
 
 #: ../src/plugins/dclock.c:437
