@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: lxpanel_hr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2012-01-06 01:18+0200\n"
+"PO-Revision-Date: 2012-05-12 01:08+0200\n"
 "Last-Translator: zvacet <ikoli@yahoo.com>\n"
 "Language-Team: <asjlob AT vip.hr>\n"
 "Language: hr\n"
@@ -814,6 +814,8 @@ msgid ""
 "Error, you need to install a application to configure the sound (pavucontol, "
 "alsamixer ...)"
 msgstr ""
+"Greška,morate instalirati program za konfiguraciju zvuka (pavucontol, "
+"alsamixer ...)"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
@@ -1359,7 +1361,7 @@ msgstr "Indikatori za CapsLock, NumLock i ScrollLock tipke"
 #. A label to allow for click through
 #: ../src/plugins/indicator/indicator.c:561
 msgid "No Indicators"
-msgstr ""
+msgstr "Nema indikatora"
 
 #: ../src/plugins/indicator/indicator.c:751
 msgid "Indicator Applications"
@@ -1379,7 +1381,7 @@ msgstr "Izbornik mreže"
 
 #: ../src/plugins/indicator/indicator.c:755
 msgid "Session Menu"
-msgstr ""
+msgstr "Izbornik sesije"
 
 #: ../src/plugins/indicator/indicator.c:756
 msgid "Sound Menu"
