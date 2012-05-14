@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: lxpanel-0.3.5.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2012-05-09 23:10+0200\n"
-"Last-Translator: Hugo <sysadmin@cips.cu>\n"
+"PO-Revision-Date: 2012-05-13 23:37-0500\n"
+"Last-Translator: Hugo Florentino <sysadmin@cips.cu>\n"
 "Language-Team: Spanish <daniel@tunki.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,8 @@ msgstr ""
 "X-Poedit-Country: PERU\n"
 "X-Poedit-Language: Spanish\n"
 
-#: ../src/configurator.c:54 ../src/gtk-run.c:319
+#: ../src/configurator.c:54
+#: ../src/gtk-run.c:319
 msgid "Run"
 msgstr "Ejecutar"
 
@@ -56,7 +57,8 @@ msgstr "El comando para salir no ha sido configurado"
 msgid "Select a directory"
 msgstr "Seleccionar un directorio"
 
-#: ../src/configurator.c:1255 ../src/configurator.c:1346
+#: ../src/configurator.c:1255
+#: ../src/configurator.c:1346
 msgid "Select a file"
 msgstr "Seleccionar un archivo"
 
@@ -82,7 +84,7 @@ msgid "translator-credits"
 msgstr ""
 "Daniel Pacheco <daniel@tunki.org>, 2008\n"
 "Guillermo Iguarán <johnnyprez@gmail.com>, 2009\n"
-"Hugo Florentino <sysadmin@cips.cu>, 2009"
+"Hugo Florentino <sysadmin@cips.cu>, 2009-2012"
 
 #: ../src/panel.c:691
 msgid "LXPanel"
@@ -130,27 +132,35 @@ msgstr "Panel"
 msgid "\"%s\" Settings"
 msgstr "Configuración \"%s\""
 
-#: ../src/panel.c:1042 ../src/panel.c:1050 ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:1042
+#: ../src/panel.c:1050
+#: ../data/ui/panel-pref.glade.h:21
 msgid "Height:"
 msgstr "Altura:"
 
-#: ../src/panel.c:1043 ../src/panel.c:1049 ../data/ui/panel-pref.glade.h:40
+#: ../src/panel.c:1043
+#: ../src/panel.c:1049
+#: ../data/ui/panel-pref.glade.h:40
 msgid "Width:"
 msgstr "Ancho:"
 
-#: ../src/panel.c:1044 ../data/ui/panel-pref.glade.h:23
+#: ../src/panel.c:1044
+#: ../data/ui/panel-pref.glade.h:23
 msgid "Left"
 msgstr "Izquierda"
 
-#: ../src/panel.c:1045 ../data/ui/panel-pref.glade.h:32
+#: ../src/panel.c:1045
+#: ../data/ui/panel-pref.glade.h:32
 msgid "Right"
 msgstr "Derecha"
 
-#: ../src/panel.c:1051 ../data/ui/panel-pref.glade.h:39
+#: ../src/panel.c:1051
+#: ../data/ui/panel-pref.glade.h:39
 msgid "Top"
 msgstr "Arriba"
 
-#: ../src/panel.c:1052 ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:1052
+#: ../data/ui/panel-pref.glade.h:14
 msgid "Bottom"
 msgstr "Abajo"
 
@@ -177,8 +187,7 @@ msgstr " --version   -- mostrar la versión y salir\n"
 #: ../src/panel.c:1464
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <número> -- establecer el nivel del log 0-5. 0 - ninguno 5 - máximo\n"
+msgstr " --log <número> -- establecer el nivel del log 0-5. 0 - ninguno 5 - máximo\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1466
@@ -217,7 +226,8 @@ msgstr ""
 msgid "Enter the command you want to execute:"
 msgstr "Ingrese comando a ejecutar:"
 
-#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:912
+#: ../data/ui/launchbar.glade.h:1
+#: ../src/plugins/launchbar.c:912
 msgid "Application Launch Bar"
 msgstr "Barra de aplicaciones"
 
@@ -262,7 +272,8 @@ msgstr "<b>Potencia de la señal</b>"
 msgid "Address:"
 msgstr "Dirección:"
 
-#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
+#: ../data/ui/netstatus.glade.h:10
+#: ../src/plugins/netstat/netstat.c:319
 #: ../src/plugins/netstat/netstat.c:330
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
 msgid "Broadcast:"
@@ -436,7 +447,8 @@ msgstr "Reservar el espacio, no cubrir con ventanas maximizadas"
 msgid "Select an image file"
 msgstr "Seleccionar una imagen"
 
-#: ../data/ui/panel-pref.glade.h:34 ../src/plugins/space.c:125
+#: ../data/ui/panel-pref.glade.h:34
+#: ../src/plugins/space.c:125
 #: ../src/plugins/batt/batt.c:583
 msgid "Size"
 msgstr "Tamaño"
@@ -465,11 +477,13 @@ msgstr "pixeles"
 msgid "CPU Usage Monitor"
 msgstr "Monitor del procesador"
 
-#: ../src/plugins/cpu/cpu.c:270 ../src/plugins/monitors/monitors.c:653
+#: ../src/plugins/cpu/cpu.c:270
+#: ../src/plugins/monitors/monitors.c:653
 msgid "Display CPU usage"
 msgstr "Mostrar uso del procesador"
 
-#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:438
+#: ../src/plugins/deskno/deskno.c:207
+#: ../src/plugins/dclock.c:438
 msgid "Bold font"
 msgstr "Negrita"
 
@@ -582,12 +596,8 @@ msgid "Task Bar (Window List)"
 msgstr "Barra de tareas (lista de ventanas)"
 
 #: ../src/plugins/taskbar.c:2049
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
-msgstr ""
-"La barra de tareas muestra todas las ventanas abiertas y permite "
-"minimizarlas, replegarlas o enfocarlas"
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr "La barra de tareas muestra todas las ventanas abiertas y permite minimizarlas, replegarlas o enfocarlas"
 
 #: ../src/plugins/dclock.c:434
 msgid "Clock Format"
@@ -598,9 +608,11 @@ msgid "Tooltip Format"
 msgstr "Formato del consejo"
 
 #: ../src/plugins/dclock.c:436
-msgid "Format codes: man 3 strftime; \\n for line break"
+msgid ""
+"Format codes: man 3 strftime; \\n"
+" for line break"
 msgstr ""
-"Códigos de formato: man 3 strftime; \\\n"
+"Códigos de formato: man 3 strftime; \\n"
 " para salto de línea"
 
 #: ../src/plugins/dclock.c:437
@@ -631,7 +643,8 @@ msgstr "Agregar al escritorio"
 msgid "Properties"
 msgstr "Propiedades"
 
-#: ../src/plugins/menu.c:1085 ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1085
+#: ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "Icono"
 
@@ -715,9 +728,7 @@ msgstr "Selecciona entre las distribuciones de teclados disponibles"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr ""
-"Botón izquierdo para minimizar todas las ventanas.  Botón medio para "
-"replegarlas"
+msgstr "Botón izquierdo para minimizar todas las ventanas.  Botón medio para replegarlas"
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
@@ -820,12 +831,8 @@ msgid "Mute"
 msgstr "Silenciar"
 
 #: ../src/plugins/volumealsa/volumealsa.c:544
-msgid ""
-"Error, you need to install a application to configure the sound (pavucontol, "
-"alsamixer ...)"
-msgstr ""
-"Error, necesita instalar una aplicación para configurar el sonido "
-"(pavucontol, alsamixer ...)"
+msgid "Error, you need to install a application to configure the sound (pavucontol, alsamixer ...)"
+msgstr "Error, necesita instalar una aplicación para configurar el sonido (pavucontol, alsamixer ...)"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
@@ -858,7 +865,8 @@ msgstr "El cable de red está desconectado"
 msgid "Connection has limited or no connectivity"
 msgstr "Conexión limitada o inexistente"
 
-#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
+#: ../src/plugins/netstat/netstat.c:307
+#: ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
 msgid "IP Address:"
 msgstr "Dirección IP:"
@@ -867,32 +875,38 @@ msgstr "Dirección IP:"
 msgid "Remote IP:"
 msgstr "IP remota:"
 
-#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
+#: ../src/plugins/netstat/netstat.c:309
+#: ../src/plugins/netstat/netstat.c:320
 #: ../src/plugins/netstat/netstat.c:331
 msgid "Netmask:"
 msgstr "Máscara de red:"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Activity"
 msgstr "Actividad"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Sent"
 msgstr "Enviado"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:310
+#: ../src/plugins/netstat/netstat.c:322
 #: ../src/plugins/netstat/netstat.c:333
 msgid "Received"
 msgstr "Recibido"
 
-#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
+#: ../src/plugins/netstat/netstat.c:311
+#: ../src/plugins/netstat/netstat.c:323
 #: ../src/plugins/netstat/netstat.c:334
 msgid "bytes"
 msgstr "bytes"
 
-#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
+#: ../src/plugins/netstat/netstat.c:312
+#: ../src/plugins/netstat/netstat.c:324
 #: ../src/plugins/netstat/netstat.c:335
 msgid "packets"
 msgstr "paquetes"
@@ -906,7 +920,8 @@ msgstr "Inalámbrica"
 msgid "Protocol:"
 msgstr "Protocolo:"
 
-#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:321
+#: ../src/plugins/netstat/netstat.c:332
 msgid "HW Address:"
 msgstr "Dirección física:"
 
@@ -1035,8 +1050,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Por favor, contacte al administrador de su sistema para resolver el "
-"siguiente problema:\n"
+"Por favor, contacte al administrador de su sistema para resolver el siguiente problema:\n"
 "\n"
 "%s"
 
@@ -1230,12 +1244,8 @@ msgstr "No se ha podido analizar la interface '%s'"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid ""
-"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
-msgstr ""
-"No se ha podido analizar las estadisticas de interface de '%s'. prx_idx = "
-"%d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgstr "No se ha podido analizar las estadisticas de interface de '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1435,77 +1445,54 @@ msgstr "Complemento WNCKpager"
 
 #~ msgid "Available Applications"
 #~ msgstr "Aplicaciones disponibles"
-
 #~ msgid "Display system temperature, by kesler.daniel@gmail.com"
 #~ msgstr "Muestra la temperatura del sistema, por kesler.daniel@gmail.com"
-
 #~ msgid "Keyboard Led"
 #~ msgstr "Luz de Teclado"
-
 #~ msgid "Left\t"
 #~ msgstr "Izquierda\t"
-
 #~ msgid "Top\t"
 #~ msgstr "Arriba\t"
-
 #~ msgid "Couldn't find pixmap file: %s"
 #~ msgstr "Imposible encontrar la imagen: %s"
-
 #~ msgid "Desktop No / Workspace Name"
 #~ msgstr "Escritorio n° / Nombre del área de trabajo"
-
 #~ msgid ""
 #~ "Allows you to switch the keyboard layout and\n"
 #~ "displays the currently selected layout."
 #~ msgstr ""
 #~ "Permite seleccionar la distribución del teclado y\n"
 #~ "muestra la distribucción seleccionada actualmente."
-
 #~ msgid "Other plugins available here"
 #~ msgstr "Otros complementos disponibles aquí"
-
 #~ msgid "Old KDE/GNOME Tray"
 #~ msgstr "Antigua zona de notificación KDE/GNOME"
-
 #~ msgid "Enable Image:"
 #~ msgstr "Usar imagen:"
-
 #~ msgid "Enable Transparency"
 #~ msgstr "Usar transparencia"
-
 #~ msgid " --configure -- launch configuration utility\n"
 #~ msgstr " --configure -- iniciar la utilidad de configuración\n"
-
 #~ msgid " -C  -- same as --configure\n"
 #~ msgstr " -C  -- equivalente a --configure\n"
-
 #~ msgid "Add Button"
 #~ msgstr "Agregar botón"
-
 #~ msgid "Button Properties"
 #~ msgstr "Propiedades del botón"
-
 #~ msgid "Remove Button"
 #~ msgstr "Eliminar botón"
-
 #~ msgid "Buttons"
 #~ msgstr "Botones"
-
 #~ msgid "Accept SkipPager"
 #~ msgstr "Aceptar SkipPager"
-
 #~ msgid "Show Iconified windows"
 #~ msgstr "Mostrar ventanas minimizadas"
-
 #~ msgid "Show mapped windows"
 #~ msgstr "Mostrar ventanas mapeadas"
-
 #~ msgid "Action"
 #~ msgstr "Acción"
-
 #~ msgid "Kayboard Layout switcher"
 #~ msgstr "Selector de distribución del teclado"
-
 #~ msgid ""
 #~ "Dynamic\n"
 #~ "Pixels\n"
@@ -1514,7 +1501,6 @@ msgstr "Complemento WNCKpager"
 #~ "Dinámico\n"
 #~ "Pixeles\n"
 #~ "% Porcentaje"
-
 #~ msgid ""
 #~ "Left\n"
 #~ "Center\n"
@@ -1523,7 +1509,6 @@ msgstr "Complemento WNCKpager"
 #~ "Izquierda\n"
 #~ "Centro\n"
 #~ "Derecha"
-
 #~ msgid ""
 #~ "Left\n"
 #~ "Right\n"
@@ -1534,45 +1519,32 @@ msgstr "Complemento WNCKpager"
 #~ "Dereacha\n"
 #~ "Arriba\n"
 #~ "Abajo"
-
 #~ msgid "Where to put the panel?"
 #~ msgstr "¿Dónde poner el panel?"
-
 #~ msgid "Battery: %d%% charged, %s"
 #~ msgstr "Batería: %d%% recargada, %s"
-
 #~ msgid "charging finished"
 #~ msgstr "recarga terminada"
-
 #~ msgid "charging"
 #~ msgstr "recargando"
-
 #~ msgid "Add to desktop panel"
 #~ msgstr "Agregar un plugin al panel"
-
 #~ msgid "Game"
 #~ msgstr "Juegos"
-
 #~ msgid "Education"
 #~ msgstr "Educación"
-
 #~ msgid "Development"
 #~ msgstr "Programación"
-
 #~ msgid "Audio & Video"
 #~ msgstr "Audio & video"
-
 #~ msgid "Graphics"
 #~ msgstr "Gráficos"
-
 #~ msgid "System Tools"
 #~ msgstr "Herramientas del sistema"
-
 #~ msgid "Office"
 #~ msgstr "Oficina"
-
 #~ msgid "Accessories"
 #~ msgstr "Accesorios"
-
 #~ msgid "Boradcast:"
 #~ msgstr "Dirección de publicación:"
+
