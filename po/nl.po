@@ -61,7 +61,7 @@ msgstr "Kies een bestand"
 
 #: ../src/configurator.c:1373
 msgid "_Browse"
-msgstr "_Blader"
+msgstr "_Bladeren"
 
 #: ../src/panel.c:651
 msgid ""
@@ -92,7 +92,7 @@ msgstr "Auteursrecht (C) 2008-2011"
 
 #: ../src/panel.c:694
 msgid "Desktop panel for LXDE project"
-msgstr "Bureaubladwerkbalk voor het LXDE project"
+msgstr "Bureaubladwerkbalk voor het LXDE-project"
 
 #: ../src/panel.c:717
 msgid "Add / Remove Panel Items"
@@ -101,7 +101,7 @@ msgstr "Werkbalkelementen verwijderen/toevoegen"
 #: ../src/panel.c:725
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr "Verwijder \"%s\" van werkbalk"
+msgstr "Verwijder '%s' uit werkbalk"
 
 #: ../src/panel.c:737
 msgid "Panel Settings"
@@ -126,7 +126,7 @@ msgstr "Werkbalk"
 #: ../src/panel.c:786
 #, c-format
 msgid "\"%s\" Settings"
-msgstr "\"%s\" Instellingen"
+msgstr "'%s' instellingen"
 
 #: ../src/panel.c:1042 ../src/panel.c:1050 ../data/ui/panel-pref.glade.h:21
 msgid "Height:"
@@ -155,7 +155,7 @@ msgstr "Onderaan"
 #: ../src/panel.c:1460
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr "lxpanel %s - lichtgewicht GTK2+ werkbalk voor UNIX-werkbladen\n"
+msgstr "lxpanel %s - lichtgewicht GTK2+ werkbalk voor UNIX-werkomgevingen\n"
 
 #: ../src/panel.c:1461
 #, c-format
@@ -303,7 +303,7 @@ msgstr "Status:"
 #: ../data/ui/netstatus.glade.h:18
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
 msgid "Subnet Mask:"
-msgstr "Subnet-masker:"
+msgstr "Subnetmasker:"
 
 #: ../data/ui/netstatus.glade.h:19
 #: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
@@ -415,7 +415,7 @@ msgstr "Minimaliseer werkbalk indien niet in gebruik"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "Panel Applets"
-msgstr "Werkbalk-programmaatjes"
+msgstr "Werkbalkprogrammaatjes"
 
 #: ../data/ui/panel-pref.glade.h:29
 msgid "Panel Preferences"
@@ -573,7 +573,7 @@ msgstr "Uitlijning"
 
 #: ../src/plugins/taskbar.c:2047
 msgid "Task Bar (Window List)"
-msgstr "Taakbalk (Vensterlijst)"
+msgstr "Taakbalk (vensterlijst)"
 
 #: ../src/plugins/taskbar.c:2049
 msgid ""
@@ -671,7 +671,7 @@ msgstr "Systeemvak"
 
 #: ../src/plugins/xkb/xkb-plugin.c:291
 msgid "Configure Keyboard Layout Switcher"
-msgstr "Wisselaar voor Toetsenbordindelingen instellen"
+msgstr "Wisselaar voor toetsenbordindelingen instellen"
 
 #: ../src/plugins/xkb/xkb-plugin.c:306
 msgid "Show layout as"
@@ -701,22 +701,22 @@ msgstr "Standaard-indeling:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:405
 msgid "Keyboard Layout Switcher"
-msgstr "Wisselaar voor toetsenbord-indelingen"
+msgstr "Wisselaar voor toetsenbordindelingen"
 
 #: ../src/plugins/xkb/xkb-plugin.c:407
 msgid "Switch between available keyboard layouts"
-msgstr "Wisselen tussen beschikbare toetsenbord-indelingen"
+msgstr "Wisselen tussen beschikbare toetsenbordindelingen"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
-"Linkermuisklik om van alle vensters pictogrammen te maken, middelmuisklik op "
-"ze op te rollen"
+"Linkermuisklik om van alle vensters pictogrammen te maken. Middelmuisklik op "
+"ze op te rollen."
 
 # "Heffen"?
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
-msgstr "Afwisselend pictogrammen van maken/oprollen en uitrollen"
+msgstr "Afwisselend pictogrammen van maken / oprollen en verheffen"
 
 #: ../src/plugins/wincmd.c:266
 msgid "Minimize All Windows"
@@ -728,8 +728,8 @@ msgid ""
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
 "Zendt een opdracht naar alle bureaubladvensters.\n"
-"Ondersteunde opdrachten zijn 1) pictogrammen maken in-/uitschakelen en 2) "
-"oprollen in-/uitschakelen"
+"Ondersteunde opdrachten zijn 1) pictogrammen van maken "
+"en 2) oprollen"
 
 #: ../src/plugins/dirmenu.c:246
 msgid "Open in _Terminal"
@@ -749,7 +749,7 @@ msgstr "Mapmenu"
 
 #: ../src/plugins/dirmenu.c:445
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr "Boomstructuur doorbladeren via menu (Auteur: PCMan)"
+msgstr "Boomstructuur doorbladeren via menu (auteur: PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:396
 msgid "Normal"
@@ -825,7 +825,7 @@ msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
-msgstr "<Verborgen Toegangspunt>"
+msgstr "<Verborgen toegangspunt>"
 
 #: ../src/plugins/netstat/netstat.c:201
 msgid "Wireless Networks not found in range"
@@ -941,11 +941,11 @@ msgstr "Configuratiegereedschap"
 
 #: ../src/plugins/netstatus/netstatus.c:197
 msgid "Network Status Monitor"
-msgstr "Netwerk Status Monitor"
+msgstr "Bewaker van netwerkstatus"
 
 #: ../src/plugins/netstatus/netstatus.c:199
 msgid "Monitor network status"
-msgstr "Bewaak netwerkstatus"
+msgstr "Netwerkstatus bewaken"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:51
 #: ../src/plugins/netstatus/netstatus-dialog.c:312
@@ -974,7 +974,7 @@ msgid ""
 "There was an error displaying help:\n"
 "%s"
 msgstr ""
-"Hulp kan niet weergegeven worden:\n"
+"Hulp kon niet weergegeven worden:\n"
 "%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
@@ -1017,11 +1017,11 @@ msgstr "Of de gereedschaptips van het pictogram al dan niet zijn ingeschakeld."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:863
 msgid "Show Signal"
-msgstr "Toon signaal"
+msgstr "Signaal tonen"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:864
 msgid "Whether or not the signal strength should be displayed."
-msgstr "Of de signaalsterkte al dan niet moet worden vertoond."
+msgstr "Of de signaalsterkte al dan niet moet worden getoond."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:977
 #, c-format
@@ -1175,7 +1175,7 @@ msgstr "Lokale Loopback"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:966
 msgid "Fiber Distributed Data Interface"
-msgstr "Fiber Distributed Data Interface"
+msgstr "Apparaat voor glasvezel-gedistribueerde gegevens"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:972
 msgid "IPv6-in-IPv4"
