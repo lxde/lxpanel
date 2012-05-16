@@ -605,9 +605,8 @@ msgid "Tooltip only"
 msgstr "Tik patarimas"
 
 #: ../src/plugins/dclock.c:440
-#, fuzzy
 msgid "Center text"
-msgstr "Centras"
+msgstr "Tekstas centre"
 
 #: ../src/plugins/dclock.c:469
 msgid "Digital Clock"
@@ -817,6 +816,8 @@ msgid ""
 "Error, you need to install a application to configure the sound (pavucontol, "
 "alsamixer ...)"
 msgstr ""
+"Klaida, turite įdiegti programą kuri valdys garsą (pavucontrol, "
+"alsamixer...)"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
@@ -1361,74 +1362,67 @@ msgstr "Indikatoriai CapsLock, NumLock ir ScrollLock klavišams"
 #. A label to allow for click through
 #: ../src/plugins/indicator/indicator.c:561
 msgid "No Indicators"
-msgstr ""
+msgstr "Nėra indikatorių"
 
 #: ../src/plugins/indicator/indicator.c:751
-#, fuzzy
 msgid "Indicator Applications"
-msgstr "Programos"
+msgstr "Indikatoriaus programėlės"
 
 #: ../src/plugins/indicator/indicator.c:752
 msgid "Clock Indicator"
-msgstr ""
+msgstr "Laikrodžio indikatorius"
 
 #: ../src/plugins/indicator/indicator.c:753
 msgid "Messaging Menu"
-msgstr ""
+msgstr "Pranešimų meniu"
 
 #: ../src/plugins/indicator/indicator.c:754
-#, fuzzy
 msgid "Network Menu"
-msgstr "Aplanko meniu"
+msgstr "Tinklo meniu"
 
 #: ../src/plugins/indicator/indicator.c:755
 msgid "Session Menu"
-msgstr ""
+msgstr "Seanso meniu"
 
 #: ../src/plugins/indicator/indicator.c:756
 msgid "Sound Menu"
-msgstr ""
+msgstr "Garso meniu"
 
 #: ../src/plugins/indicator/indicator.c:780
 msgid "Indicator applets"
-msgstr ""
+msgstr "Indikatoriaus programėlės"
 
 #: ../src/plugins/indicator/indicator.c:782
-#, fuzzy
 msgid "Add indicator applets to the panel"
-msgstr "Įdėti skirtuką į skydelį"
+msgstr "Pridėti indikatoriaus programėlę į skydelį"
 
 #: ../src/plugins/monitors/monitors.c:654
-#, fuzzy
 msgid "CPU color"
-msgstr "Pasirinktinė spalva"
+msgstr "CPU spalva"
 
 #: ../src/plugins/monitors/monitors.c:655
-#, fuzzy
 msgid "Display RAM usage"
-msgstr "Rodo CPU apkrovimą"
+msgstr "Rodo CPU naudojimą"
 
 #: ../src/plugins/monitors/monitors.c:656
 msgid "RAM color"
-msgstr ""
+msgstr "RAM spalva"
 
 #: ../src/plugins/monitors/monitors.c:753
-#, fuzzy
 msgid "Resource monitors"
-msgstr "Stebėti sąsają"
+msgstr "Resursų stebyklės"
 
 #: ../src/plugins/monitors/monitors.c:755
 msgid "Display monitors (CPU, RAM)"
-msgstr ""
+msgstr "Rodyti stebykles (CPU, RAM)"
 
 #: ../src/plugins/wnckpager/wnckpager.c:721
 msgid "WNCKPager"
-msgstr ""
+msgstr "WNCKPager"
 
 #: ../src/plugins/wnckpager/wnckpager.c:723
-#, fuzzy
 msgid "WNCKpager plugin"
-msgstr "Paprastas puslapiuotojas"
+msgstr "WNCKpager įskiepis"
 
 #~ msgid "Available Applications"
 #~ msgstr "Prieinamos programos"
