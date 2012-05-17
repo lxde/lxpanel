@@ -281,7 +281,7 @@ cpu_tooltip_update (Monitor *m)
     if (m && m->stats) {
         gint ring_pos = (m->ring_cursor == 0)
             ? m->pixmap_width - 1 : m->ring_cursor - 1;
-        g_snprintf(tooltip_text, 20, "CPU usage: %.2f%%",
+        g_snprintf(tooltip_text, 20, _("CPU usage: %.2f%%"),
                 m->stats[ring_pos] * 100);
         gtk_widget_set_tooltip_text(m->da, tooltip_text);
     }
@@ -363,7 +363,7 @@ mem_tooltip_update (Monitor *m)
     if (m && m->stats) {
         gint ring_pos = (m->ring_cursor == 0)
             ? m->pixmap_width - 1 : m->ring_cursor - 1;
-        g_snprintf(tooltip_text, 128, "RAM usage: %.1fMB (%.2f%%)",
+        g_snprintf(tooltip_text, 128, _("RAM usage: %.1fMB (%.2f%%)"),
                 m->stats[ring_pos] * m->total / 1024,
                 m->stats[ring_pos] * 100);
         gtk_widget_set_tooltip_text(m->da, tooltip_text);
