@@ -30,6 +30,9 @@ modify existing projects to serve our needs. :-)
 
 * src/plugins/menu.c contains few pieces of code from menu.c of gnome-panel.
 
+* src/plugins/menu.c and src/misc.c contain code from SuxPanel [3], written
+  by Leandro Pereira.
+
 * gtk-builder-convert is a fixed version of the original program included in
   gtk+ package. It's originally developed by gtk+ developers, but it contains
   some bugs. So a fixed version is included here.
@@ -38,3 +41,4 @@ Window commands plugin icon from http://www.oxygen-icons.org/ (licensed under LG
 
 [1] fbpanel, http://fbpanel.sourceforge.net/
 [2] fspanel, http://freshmeat.net/projects/fspanel/
+[3] suxpanel, http://suxpanel.berlios.de/
