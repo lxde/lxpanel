@@ -45,10 +45,9 @@ struct cpu_stat {
 
 /* Private context for CPU plugin. */
 typedef struct {
-    GdkGC * graphics_context;			/* Graphics context for drawing area */
     GdkColor foreground_color;			/* Foreground color for drawing area */
     GtkWidget * da;				/* Drawing area */
-    GdkPixmap * pixmap;				/* Pixmap to be drawn on drawing area */
+    cairo_surface_t * pixmap;				/* Pixmap to be drawn on drawing area */
 
     guint timer;				/* Timer for periodic update */
     CPUSample * stats_cpu;			/* Ring buffer of CPU utilization values */
@@ -68,25 +67,33 @@ static void cpu_destructor(Plugin * p);
 /* Redraw after timer callback or resize. */
 static void redraw_pixmap(CPUPlugin * c)
 {
+    cairo_t * cr = cairo_create(c->pixmap);
+    cairo_set_line_width (cr, 1.0);
     /* Erase pixmap. */
-    gdk_draw_rectangle(c->pixmap, c->da->style->black_gc, TRUE, 0, 0, c->pixmap_width, c->pixmap_height);
+    cairo_rectangle(cr, 0, 0, c->pixmap_width, c->pixmap_height);
+    gdk_cairo_set_source_color(cr, &c->da->style->black);
+    cairo_fill(cr);
 
     /* Recompute pixmap. */
     unsigned int i;
     unsigned int drawing_cursor = c->ring_cursor;
+    gdk_cairo_set_source_color(cr, &c->foreground_color);
     for (i = 0; i < c->pixmap_width; i++)
     {
         /* Draw one bar of the CPU usage graph. */
         if (c->stats_cpu[drawing_cursor] != 0.0)
-            gdk_draw_line(c->pixmap, c->graphics_context,
-                i, c->pixmap_height,
-                i, c->pixmap_height - c->stats_cpu[drawing_cursor] * c->pixmap_height);
+        {
+            cairo_move_to(cr, i, c->pixmap_height);
+            cairo_line_to(cr, i, c->pixmap_height - c->stats_cpu[drawing_cursor] * c->pixmap_height);
+            cairo_stroke(cr);
+        }
 
         /* Increment and wrap drawing cursor. */
         drawing_cursor += 1;
 	if (drawing_cursor >= c->pixmap_width)
             drawing_cursor = 0;
     }
+    cairo_destroy(cr);
 
     /* Redraw pixmap. */
     gtk_widget_queue_draw(c->da);
@@ -182,8 +189,8 @@ static gboolean configure_event(GtkWidget * widget, GdkEventConfigure * event, C
         c->pixmap_width = new_pixmap_width;
         c->pixmap_height = new_pixmap_height;
         if (c->pixmap)
-            g_object_unref(c->pixmap);
-        c->pixmap = gdk_pixmap_new(widget->window, c->pixmap_width, c->pixmap_height, -1);
+            cairo_surface_destroy(c->pixmap);
+        c->pixmap = cairo_image_surface_create(CAIRO_FORMAT_RGB24, c->pixmap_width, c->pixmap_height);
 
         /* Redraw pixmap at the new size. */
         redraw_pixmap(c);
@@ -198,12 +205,14 @@ static gboolean expose_event(GtkWidget * widget, GdkEventExpose * event, CPUPlug
      * Translate it in both x and y by the border size. */
     if (c->pixmap != NULL)
     {
-        gdk_draw_drawable (widget->window,
-              c->da->style->black_gc,
-              c->pixmap,
-              event->area.x, event->area.y,
-              event->area.x + BORDER_SIZE, event->area.y + BORDER_SIZE,
-              event->area.width, event->area.height);
+        cairo_t * cr = gdk_cairo_create(widget->window);
+        gdk_cairo_region(cr, event->region);
+        cairo_clip(cr);
+        gdk_cairo_set_source_color(cr, &c->da->style->black);
+        cairo_set_source_surface(cr, c->pixmap,
+              BORDER_SIZE, BORDER_SIZE);
+        cairo_paint(cr);
+        cairo_destroy(cr);
     }
     return FALSE;
 }
@@ -228,10 +237,7 @@ static int cpu_constructor(Plugin * p, char ** fp)
 
     /* Clone a graphics context and set "green" as its foreground color.
      * We will use this to draw the graph. */
-    c->graphics_context = gdk_gc_new(p->panel->topgwin->window);
     gdk_color_parse("green",  &c->foreground_color);
-    gdk_colormap_alloc_color(gdk_drawable_get_colormap(p->panel->topgwin->window), &c->foreground_color, FALSE, TRUE);
-    gdk_gc_set_foreground(c->graphics_context, &c->foreground_color);
 
     /* Connect signals. */
     g_signal_connect(G_OBJECT(c->da), "configure_event", G_CALLBACK(configure_event), (gpointer) c);
@@ -253,8 +259,7 @@ static void cpu_destructor(Plugin * p)
     g_source_remove(c->timer);
 
     /* Deallocate memory. */
-    g_object_unref(c->graphics_context);
-    g_object_unref(c->pixmap);
+    cairo_surface_destroy(c->pixmap);
     g_free(c->stats_cpu);
     g_free(c);
 }

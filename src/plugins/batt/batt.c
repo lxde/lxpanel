@@ -65,10 +65,7 @@ typedef struct {
         charging2,
         discharging1,
         discharging2;
-    GdkGC *bg,
-        *gc1,
-        *gc2;
-    GdkPixmap *pixmap;
+    cairo_surface_t *pixmap;
     GtkWidget *drawingArea;
     int orientation;
     unsigned int alarmTime,
@@ -117,6 +114,7 @@ static void * alarmProcess(void *arg) {
 /* FIXME:
    Don't repaint if percentage of remaining charge and remaining time aren't changed. */
 void update_display(lx_battery *lx_b, gboolean repaint) {
+    cairo_t *cr;
     char tooltip[ 256 ];
     battery *b = lx_b->b;
     /* unit: mW */
@@ -126,6 +124,9 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
     if (! lx_b->pixmap )
         return;
 
+    cr = cairo_create(lx_b->pixmap);
+    cairo_set_line_width (cr, 1.0);
+
     /* no battery is found */
     if( b == NULL ) 
     {
@@ -134,7 +135,9 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
     }
     
     /* draw background */
-    gdk_draw_rectangle(lx_b->pixmap, lx_b->bg, TRUE, 0, 0, lx_b->width, lx_b->height);
+    gdk_cairo_set_source_color(cr, &lx_b->background);
+    cairo_rectangle(cr, 0, 0, lx_b->width, lx_b->height);
+    cairo_fill(cr);
 
     /* fixme: only one battery supported */
 
@@ -199,38 +202,38 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
 
     int chargeLevel = lx_b->b->percentage * (lx_b->length - 2 * lx_b->border) / 100;
 
-    /* Choose the right colors for the charge bar */
-    if (isCharging) {
-	gdk_gc_set_foreground(lx_b->gc1, &lx_b->charging1);
-	gdk_gc_set_foreground(lx_b->gc2, &lx_b->charging2);
-    }
-    else {
-	gdk_gc_set_foreground(lx_b->gc1, &lx_b->discharging1);
-	gdk_gc_set_foreground(lx_b->gc2, &lx_b->discharging2);
-    }
-
-    gdk_draw_rectangle(lx_b->pixmap, lx_b->bg, TRUE, 0, 0, lx_b->width, lx_b->height);
-
     if (lx_b->orientation == ORIENT_HORIZ) {
 
 	/* Draw the battery bar vertically, using color 1 for the left half and
 	   color 2 for the right half */
-	gdk_draw_rectangle(lx_b->pixmap, lx_b->gc1, TRUE, lx_b->border,
-		lx_b->height - lx_b->border - chargeLevel, lx_b->width / 2
-		- lx_b->border, chargeLevel);
-	gdk_draw_rectangle(lx_b->pixmap, lx_b->gc2, TRUE, lx_b->width / 2,
-		lx_b->height - lx_b->border - chargeLevel, (lx_b->width + 1) / 2
-		- lx_b->border, chargeLevel);
+        gdk_cairo_set_source_color(cr,
+                isCharging ? &lx_b->charging1 : &lx_b->discharging1);
+        cairo_rectangle(cr, lx_b->border,
+                lx_b->height - lx_b->border - chargeLevel, lx_b->width / 2
+                - lx_b->border, chargeLevel);
+        cairo_fill(cr);
+        gdk_cairo_set_source_color(cr,
+                isCharging ? &lx_b->charging2 : &lx_b->discharging2);
+        cairo_rectangle(cr, lx_b->width / 2,
+                lx_b->height - lx_b->border - chargeLevel, (lx_b->width + 1) / 2
+                - lx_b->border, chargeLevel);
+        cairo_fill(cr);
 
     }
     else {
 
 	/* Draw the battery bar horizontally, using color 1 for the top half and
 	   color 2 for the bottom half */
-	gdk_draw_rectangle(lx_b->pixmap, lx_b->gc1, TRUE, lx_b->border,
-		lx_b->border, chargeLevel, lx_b->height / 2 - lx_b->border);
-	gdk_draw_rectangle(lx_b->pixmap, lx_b->gc2, TRUE, lx_b->border, (lx_b->height + 1)
-		/ 2, chargeLevel, lx_b->height / 2 - lx_b->border);
+        gdk_cairo_set_source_color(cr,
+                isCharging ? &lx_b->charging1 : &lx_b->discharging1);
+        cairo_rectangle(cr, lx_b->border,
+                lx_b->border, chargeLevel, lx_b->height / 2 - lx_b->border);
+        cairo_fill(cr);
+        gdk_cairo_set_source_color(cr,
+                isCharging ? &lx_b->charging2 : &lx_b->discharging2);
+        cairo_rectangle(cr, lx_b->border, (lx_b->height + 1)
+                / 2, chargeLevel, lx_b->height / 2 - lx_b->border);
+        cairo_fill(cr);
 
     }
     if( repaint )
@@ -276,7 +279,7 @@ static gint configureEvent(GtkWidget *widget, GdkEventConfigure *event,
     ENTER;
 
     if (lx_b->pixmap)
-        g_object_unref(lx_b->pixmap);
+        cairo_surface_destroy(lx_b->pixmap);
 
     /* Update the plugin's dimensions */
     lx_b->width = widget->allocation.width;
@@ -290,8 +293,8 @@ static gint configureEvent(GtkWidget *widget, GdkEventConfigure *event,
         lx_b->thickness = lx_b->height;
     }
 
-    lx_b->pixmap = gdk_pixmap_new (widget->window, widget->allocation.width,
-          widget->allocation.height, -1);
+    lx_b->pixmap = cairo_image_surface_create (CAIRO_FORMAT_RGB24, widget->allocation.width,
+          widget->allocation.height);
 
     /* Perform an update so the bar will look right in its new orientation */
     update_display(lx_b, FALSE);
@@ -303,11 +306,15 @@ static gint configureEvent(GtkWidget *widget, GdkEventConfigure *event,
 
 static gint exposeEvent(GtkWidget *widget, GdkEventExpose *event, lx_battery *lx_b) {
 
+    cairo_t *cr = gdk_cairo_create(widget->window);
+    gdk_cairo_region(cr, event->region);
+    cairo_clip(cr);
     ENTER;
 
-    gdk_draw_drawable (widget->window, lx_b->drawingArea->style->black_gc,
-            lx_b->pixmap, event->area.x, event->area.y, event->area.x,
-            event->area.y, event->area.width, event->area.height);
+    gdk_cairo_set_source_color(cr, &lx_b->drawingArea->style->black);
+    cairo_set_source_surface(cr, lx_b->pixmap, 0, 0);
+    cairo_paint(cr);
+    cairo_destroy(cr);
 
     RET(FALSE);
 
@@ -349,10 +356,6 @@ constructor(Plugin *p, char **fp)
     gtk_widget_set_size_request(lx_b->drawingArea, lx_b->width, lx_b->height);
 
     gtk_widget_show(lx_b->drawingArea);
-
-    lx_b->bg = gdk_gc_new(p->panel->topgwin->window);
-    lx_b->gc1 = gdk_gc_new(p->panel->topgwin->window);
-    lx_b->gc2 = gdk_gc_new(p->panel->topgwin->window);
 
     g_signal_connect (G_OBJECT (lx_b->drawingArea), "button_press_event",
             G_CALLBACK(buttonPressEvent), (gpointer) p);
@@ -445,17 +448,6 @@ constructor(Plugin *p, char **fp)
     gdk_color_parse(lx_b->chargingColor2, &lx_b->charging2);
     gdk_color_parse(lx_b->dischargingColor1, &lx_b->discharging1);
     gdk_color_parse(lx_b->dischargingColor2, &lx_b->discharging2);
-    gdk_colormap_alloc_color(gdk_drawable_get_colormap(
-            p->panel->topgwin->window), &lx_b->background, FALSE, TRUE);
-    gdk_colormap_alloc_color(gdk_drawable_get_colormap(
-            p->panel->topgwin->window), &lx_b->charging1, FALSE, TRUE);
-    gdk_colormap_alloc_color(gdk_drawable_get_colormap(
-            p->panel->topgwin->window), &lx_b->charging2, FALSE, TRUE);
-    gdk_colormap_alloc_color(gdk_drawable_get_colormap(
-            p->panel->topgwin->window), &lx_b->discharging1, FALSE, TRUE);
-    gdk_colormap_alloc_color(gdk_drawable_get_colormap(
-            p->panel->topgwin->window), &lx_b->discharging2, FALSE, TRUE);
-    gdk_gc_set_foreground(lx_b->bg, &lx_b->background);
 
    
     /* Start the update loop */
@@ -476,12 +468,8 @@ destructor(Plugin *p)
     lx_battery *b = (lx_battery *) p->priv;
 
     if (b->pixmap)
-        g_object_unref(b->pixmap);
+        cairo_surface_destroy(b->pixmap);
 
-    if (b->gc1)
-        g_object_unref(b->gc1);
-    if (b->gc2)
-        g_object_unref(b->gc2);
     g_free(b->alarmCommand);
     g_free(b->backgroundColor);
     g_free(b->chargingColor1);
@@ -526,25 +514,13 @@ static void applyConfig(Plugin* p)
 
     /* Update colors */
     if (b->backgroundColor &&
-            gdk_color_parse(b->backgroundColor, &b->background)) {
-        gdk_colormap_alloc_color(gdk_drawable_get_colormap(
-                p->panel->topgwin->window), &b->background, FALSE, TRUE);
-        gdk_gc_set_foreground(b->bg, &b->background);
-    }
-    if (b->chargingColor1 && gdk_color_parse(b->chargingColor1, &b->charging1))
-        gdk_colormap_alloc_color(gdk_drawable_get_colormap(
-                p->panel->topgwin->window), &b->charging1, FALSE, TRUE);
-    if (b->chargingColor2 && gdk_color_parse(b->chargingColor2, &b->charging2))
-        gdk_colormap_alloc_color(gdk_drawable_get_colormap(
-                p->panel->topgwin->window), &b->charging2, FALSE, TRUE);
+            gdk_color_parse(b->backgroundColor, &b->background));
+    if (b->chargingColor1 && gdk_color_parse(b->chargingColor1, &b->charging1));
+    if (b->chargingColor2 && gdk_color_parse(b->chargingColor2, &b->charging2));
     if (b->dischargingColor1 &&
-            gdk_color_parse(b->dischargingColor1, &b->discharging1))
-        gdk_colormap_alloc_color(gdk_drawable_get_colormap(
-                p->panel->topgwin->window), &b->discharging1, FALSE, TRUE);
+            gdk_color_parse(b->dischargingColor1, &b->discharging1));
     if (b->dischargingColor2 &&
-            gdk_color_parse(b->dischargingColor2, &b->discharging2))
-        gdk_colormap_alloc_color(gdk_drawable_get_colormap(
-                p->panel->topgwin->window), &b->discharging2, FALSE, TRUE);
+            gdk_color_parse(b->dischargingColor2, &b->discharging2));
 
     /* Make sure the border value is acceptable */
     b->border = MIN(MAX(0, b->requestedBorder),

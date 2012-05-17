@@ -29,9 +29,6 @@
 
 
 typedef struct {
-    GdkPixmap *pix;
-    GdkBitmap *mask;
-    GtkTooltips *tips;
     GtkWidget *mainw;
     char* config_data;
 } image;
@@ -43,12 +40,7 @@ image_destructor(Plugin *p)
 
     ENTER;
     gtk_widget_destroy(img->mainw);
-    if (img->mask)
-        g_object_unref(img->mask);
-    if (img->pix)
-        g_object_unref(img->pix);
     g_free( img->config_data );
-    g_object_unref( img->tips );
     g_free(img);
     RET();
 }
@@ -69,13 +61,6 @@ image_constructor(Plugin *p, char **fp)
     ENTER;
     img = g_new0(image, 1);
     g_return_val_if_fail(img != NULL, 0);
-    img->tips = gtk_tooltips_new();
-#if GLIB_CHECK_VERSION( 2, 10, 0 )
-    g_object_ref_sink( img->tips );
-#else
-    g_object_ref( img->tips );
-    gtk_object_sink( img->tips );
-#endif
     p->priv = img;
     tooltip = fname = 0;
     if( fp ) {
@@ -128,10 +113,9 @@ image_constructor(Plugin *p, char **fp)
               ratio * ((float) gdk_pixbuf_get_width(gp)),
               ratio * ((float) gdk_pixbuf_get_height(gp)),
               GDK_INTERP_HYPER);
-        gdk_pixbuf_render_pixmap_and_mask(gps, &img->pix, &img->mask, 127);
+        wid = gtk_image_new_from_pixbuf(gps);
         g_object_unref(gp);
         g_object_unref(gps);
-        wid = gtk_image_new_from_pixmap(img->pix, img->mask);
 
     }
     gtk_widget_show(wid);
@@ -140,7 +124,7 @@ image_constructor(Plugin *p, char **fp)
     g_free(fname);
 
     if (tooltip) {
-        gtk_tooltips_set_tip(GTK_TOOLTIPS (img->tips), img->mainw, tooltip, NULL);
+        gtk_widget_set_tooltip_text(img->mainw, tooltip);
         g_free(tooltip);
     }
     RET(1);

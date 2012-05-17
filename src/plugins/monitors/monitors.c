@@ -93,10 +93,9 @@
 typedef float stats_set;
 
 struct Monitor {
-    GdkGC        *graphics_context; /* Graphics context for drawing area      */
     GdkColor     foreground_color;  /* Foreground color for drawing area      */
     GtkWidget    *da;               /* Drawing area                           */
-    GdkPixmap    *pixmap;           /* Pixmap to be drawn on drawing area     */
+    cairo_surface_t    *pixmap;           /* Pixmap to be drawn on drawing area     */
     gint         pixmap_width;      /* Width and size of the buffer           */
     gint         pixmap_height;     /* Does not include border size           */
     stats_set    *stats;            /* Circular buffer of values              */
@@ -173,7 +172,6 @@ monitor_init(Plugin *p, Monitor *m, gchar *color)
     gtk_widget_set_size_request(m->da, DEFAULT_WIDTH, PANEL_HEIGHT_DEFAULT);
     gtk_widget_add_events(m->da, GDK_BUTTON_PRESS_MASK);
 
-    m->graphics_context = gdk_gc_new(p->panel->topgwin->window);
     monitor_set_foreground_color(p, m, color);
 
     /* Signals */
@@ -194,10 +192,8 @@ monitor_free(Monitor *m)
         return;
 
     g_free(m->color);
-    if (m->graphics_context)
-        g_object_unref(m->graphics_context);
     if (m->pixmap)
-        g_object_unref(m->pixmap);
+        cairo_surface_destroy(m->pixmap);
     if (m->stats)
         g_free(m->stats);
     g_free(m);
@@ -211,9 +207,6 @@ monitor_set_foreground_color(Plugin *p, Monitor *m, const gchar *color)
     g_free(m->color);
     m->color = g_strndup(color, COLOR_SIZE - 1);
     gdk_color_parse(color, &m->foreground_color);
-    gdk_colormap_alloc_color(gdk_drawable_get_colormap(p->panel->topgwin->window),
-                            &m->foreground_color, FALSE, TRUE);
-    gdk_gc_set_foreground(m->graphics_context, &m->foreground_color);
 }
 /******************************************************************************
  *                          End of monitor functions                          *
@@ -454,11 +447,10 @@ configure_event(GtkWidget* widget, GdkEventConfigure* dummy, gpointer data)
         m->pixmap_width = new_pixmap_width;
         m->pixmap_height = new_pixmap_height;
         if (m->pixmap)
-            g_object_unref(m->pixmap);
-        m->pixmap = gdk_pixmap_new(widget->window,
+            cairo_surface_destroy(m->pixmap);
+        m->pixmap = cairo_image_surface_create(CAIRO_FORMAT_RGB24,
                                    m->pixmap_width,
-                                   m->pixmap_height,
-                                   -1);
+                                   m->pixmap_height);
         redraw_pixmap(m);
     }
     
@@ -472,12 +464,13 @@ expose_event(GtkWidget * widget, GdkEventExpose * event, Monitor *m)
      * Translate it in both x and y by the border size. */
     if (m->pixmap != NULL)
     {
-        gdk_draw_drawable (widget->window,
-              m->da->style->black_gc,
-              m->pixmap,
-              event->area.x, event->area.y,
-              event->area.x + BORDER_SIZE, event->area.y + BORDER_SIZE,
-              event->area.width, event->area.height);
+        cairo_t *cr = gdk_cairo_create(widget->window);
+        gdk_cairo_region(cr, event->region);
+        cairo_clip(cr);
+        gdk_cairo_set_source_color(cr, &m->da->style->black);
+        cairo_set_source_surface(cr, m->pixmap, BORDER_SIZE, BORDER_SIZE);
+        cairo_paint(cr);
+        cairo_destroy(cr);
     }
     
     return FALSE;
@@ -508,21 +501,26 @@ static void
 redraw_pixmap (Monitor *m)
 {
     int i;
+    cairo_t *cr = cairo_create(m->pixmap);
+    cairo_set_line_width (cr, 1.0);
 
     /* Erase pixmap */
-    gdk_draw_rectangle(m->pixmap, m->da->style->black_gc, TRUE,
-                    0, 0, m->pixmap_width, m->pixmap_height);
+    gdk_cairo_set_source_color(cr, &m->da->style->black);
+    cairo_rectangle(cr, 0, 0, m->pixmap_width, m->pixmap_height);
+    cairo_fill(cr);
+    gdk_cairo_set_source_color(cr, &m->foreground_color);
 
     for (i = 0; i < m->pixmap_width; i++)
     {
         unsigned int drawing_cursor = (m->ring_cursor + i) % m->pixmap_width;
 
         /* Draw one bar of the graph */
-        gdk_draw_line(m->pixmap, m->graphics_context,
-                i, m->pixmap_height,
-                i, (1.0 - m->stats[drawing_cursor]) * m->pixmap_height);
+        cairo_move_to(cr, i, m->pixmap_height);
+        cairo_line_to(cr, i, (1.0 - m->stats[drawing_cursor]) * m->pixmap_height);
+        cairo_stroke(cr);
     }
 
+    cairo_destroy(cr);
     /* Redraw pixmap */
     gtk_widget_queue_draw(m->da);
 }
