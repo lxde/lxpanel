@@ -1069,14 +1069,8 @@ get_button_spacing(GtkRequisition *req, GtkContainer *parent, gchar *name)
 guint32 gcolor2rgb24(GdkColor *color)
 {
     guint32 i;
-    guint16 r, g, b;
 
     ENTER;
-
-    r = color->red * 0xFF / 0xFFFF;
-    g = color->green * 0xFF / 0xFFFF;
-    b = color->blue * 0xFF / 0xFFFF;
-    DBG("%x %x %x ==> %x %x %x\n", color->red, color->green, color->blue, r, g, b);
 
     i = (color->red * 0xFF / 0xFFFF) & 0xFF;
     i <<= 8;
@@ -1370,9 +1364,9 @@ GdkPixbuf * lxpanel_load_icon(const char * name, int width, int height, gboolean
             GtkIconTheme * theme = gtk_icon_theme_get_default();
             char * suffix = strrchr(name, '.');
             if ((suffix != NULL)
-            && ((g_strcasecmp(&suffix[1], "png") == 0)
-              || (g_strcasecmp(&suffix[1], "svg") == 0)
-              || (g_strcasecmp(&suffix[1], "xpm") == 0)))
+            && ((g_ascii_strcasecmp(&suffix[1], "png") == 0)
+              || (g_ascii_strcasecmp(&suffix[1], "svg") == 0)
+              || (g_ascii_strcasecmp(&suffix[1], "xpm") == 0)))
             {
                 /* The file extension indicates it could be in the system pixmap directories. */
                 icon = load_icon_file(name, width, height);

@@ -129,8 +129,8 @@ image_constructor(Plugin *p, char **fp)
               ratio * ((float) gdk_pixbuf_get_height(gp)),
               GDK_INTERP_HYPER);
         gdk_pixbuf_render_pixmap_and_mask(gps, &img->pix, &img->mask, 127);
-        gdk_pixbuf_unref(gp);
-        gdk_pixbuf_unref(gps);
+        g_object_unref(gp);
+        g_object_unref(gps);
         wid = gtk_image_new_from_pixmap(img->pix, img->mask);
 
     }

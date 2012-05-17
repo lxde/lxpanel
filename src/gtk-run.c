@@ -190,7 +190,7 @@ static gboolean on_thread_finished(ThreadData* data)
 
 static gpointer thread_func(ThreadData* data)
 {
-    GSList *list = NULL, *l;
+    GSList *list = NULL;
     gchar **dirname;
     gchar **dirnames = g_strsplit( g_getenv("PATH"), ":", 0 );
 

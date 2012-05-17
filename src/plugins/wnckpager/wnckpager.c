@@ -601,11 +601,10 @@ pager_event_filter( XEvent *xev, GdkEvent *event, pager *pg)
 static void
 pager_rebuild_all(FbEv *ev, pager *pg)
 {
-    int desknum, curdesk, dif, i;
+    int desknum, dif, i;
 
     ENTER;
     desknum = pg->desknum;
-    curdesk = pg->curdesk;
 
     pg->desknum = get_net_number_of_desktops();
     if (pg->desknum < 1)
