@@ -52,12 +52,18 @@ typedef struct {
     snd_mixer_selem_id_t * sid;			/* The element ID */
     snd_mixer_elem_t * master_element;		/* The Master element */
     guint mixer_evt_idle;			/* Timer to handle restarting poll */
+
+    /* unloading and error handling */
+    GIOChannel **channels;                      /* Channels that we listen to */
+    guint num_channels;                         /* Number of channels */
 } VolumeALSAPlugin;
 
 static gboolean asound_find_element(VolumeALSAPlugin * vol, const char * ename);
 static gboolean asound_reset_mixer_evt_idle(VolumeALSAPlugin * vol);
 static gboolean asound_mixer_event(GIOChannel * channel, GIOCondition cond, gpointer vol_gpointer);
+static gboolean asound_restart(gpointer vol_gpointer);
 static gboolean asound_initialize(VolumeALSAPlugin * vol);
+static void asound_deinitialize(VolumeALSAPlugin * vol);
 static gboolean asound_has_mute(VolumeALSAPlugin * vol);
 static gboolean asound_is_muted(VolumeALSAPlugin * vol);
 static int asound_get_volume(VolumeALSAPlugin * vol);
@@ -145,10 +151,29 @@ static gboolean asound_mixer_event(GIOChannel * channel, GIOCondition cond, gpoi
                 G_IO_IN, G_IO_HUP);
         gtk_widget_set_tooltip_text(vol->plugin->pwid, "ALSA (or pulseaudio) had a problem."
                 " Please check the lxpanel logs.");
+
+        g_timeout_add_seconds(1, asound_restart, vol);
+
         return FALSE;
     }
 
     return TRUE;
+}
+
+static gboolean asound_restart(gpointer vol_gpointer)
+{
+    VolumeALSAPlugin * vol = vol_gpointer;
+
+    asound_deinitialize(vol);
+
+    if (!asound_initialize(vol)) {
+        ERR("volumealsa: Re-initialization failed.\n");
+        return TRUE; // try again in a second
+    }
+
+    ERR("volumealsa: Restarted ALSA interface...\n");
+
+    return FALSE;
 }
 
 /* Initialize the ALSA interface. */
@@ -176,16 +201,36 @@ static gboolean asound_initialize(VolumeALSAPlugin * vol)
     int n_fds = snd_mixer_poll_descriptors_count(vol->mixer);
     struct pollfd * fds = g_new0(struct pollfd, n_fds);
 
+    vol->channels = g_new0(GIOChannel *, n_fds);
+    vol->num_channels = n_fds;
+
     snd_mixer_poll_descriptors(vol->mixer, fds, n_fds);
     int i;
     for (i = 0; i < n_fds; ++i)
     {
         GIOChannel* channel = g_io_channel_unix_new(fds[i].fd);
         g_io_add_watch(channel, G_IO_IN | G_IO_HUP, asound_mixer_event, vol);
-        g_io_channel_unref(channel);
+        vol->channels[i] = channel;
     }
     g_free(fds);
     return TRUE;
+}
+
+static void asound_deinitialize(VolumeALSAPlugin * vol)
+{
+    int i;
+
+    if (vol->mixer_evt_idle != 0)
+        g_source_remove(vol->mixer_evt_idle);
+
+    for (i = 0; i < vol->num_channels; i++) {
+        g_io_channel_shutdown(vol->channels[i], FALSE, NULL);
+        g_io_channel_unref(vol->channels[i]);
+    }
+    g_free(vol->channels);
+
+    vol->channels = NULL;
+    vol->num_channels = 0;
 }
 
 /* Get the presence of the mute control from the sound system. */
@@ -485,9 +530,7 @@ static void volumealsa_destructor(Plugin * p)
 {
     VolumeALSAPlugin * vol = (VolumeALSAPlugin *) p->priv;
 
-    /* Remove the periodic timer. */
-    if (vol->mixer_evt_idle != 0)
-        g_source_remove(vol->mixer_evt_idle);
+    asound_deinitialize(vol);
 
     /* If the dialog box is open, dismiss it. */
     if (vol->popup_window != NULL)
