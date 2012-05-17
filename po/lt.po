@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2012-05-16 09:08+0200\n"
-"Last-Translator: Algimantas <gymka@mail.ru>\n"
+"PO-Revision-Date: 2012-05-17 09:15+0200\n"
+"Last-Translator: Algimantas <margevicius.algimantas@mail.ru>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
@@ -21,11 +21,11 @@ msgstr ""
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:319
 msgid "Run"
-msgstr "Vykdyti komandą"
+msgstr "Vykdyti"
 
 #: ../src/configurator.c:56
 msgid "Restart"
-msgstr "Perkrauti"
+msgstr "Paleisti iš naujo"
 
 #: ../src/configurator.c:57
 msgid "Logout"
@@ -78,7 +78,9 @@ msgstr "Patvirtinti"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:686
 msgid "translator-credits"
-msgstr "Julius Vitkauskas <zadintuvas@gmail.com>"
+msgstr ""
+"Julius Vitkauskas <zadintuvas@gmail.com>\n"
+"Algimantas Margevičius <margevicius.algimantas@gmail.com>"
 
 #: ../src/panel.c:691
 msgid "LXPanel"
@@ -99,7 +101,7 @@ msgstr "Pridėti/pašalinti skydelio elementus"
 #: ../src/panel.c:725
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr "Pašalinti \"%s\" iš skydelio"
+msgstr "Pašalinti „%s“ iš skydelio"
 
 #: ../src/panel.c:737
 msgid "Panel Settings"
@@ -124,7 +126,7 @@ msgstr "Skydelis"
 #: ../src/panel.c:786
 #, c-format
 msgid "\"%s\" Settings"
-msgstr "\"%s\" nustatymai"
+msgstr "„%s“ nustatymai"
 
 #: ../src/panel.c:1042 ../src/panel.c:1050 ../data/ui/panel-pref.glade.h:21
 msgid "Height:"
@@ -153,7 +155,7 @@ msgstr "Apačia"
 #: ../src/panel.c:1460
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr "lxpanel %s - lengviasvoris GTK2+ skydelis UNIX darbastaliams\n"
+msgstr "lxpanel %s - lengvas GTK2+ skydelis UNIX darbastaliams\n"
 
 #: ../src/panel.c:1461
 #, c-format
@@ -386,7 +388,7 @@ msgstr "Kampas:"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "File Manager:"
-msgstr "Failų tvarkytuvė:"
+msgstr "Failų tvarkyklė:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "Geometry"
@@ -402,7 +404,7 @@ msgstr "Atsijungimo komanda:"
 
 #: ../data/ui/panel-pref.glade.h:25
 msgid "Make window managers treat the panel as dock"
-msgstr "Padaryti, kad langų tvarkytuvai matytų skydelį kaip doką"
+msgstr "Padaryti, kad langų tvarkyklės matytų skydelį kaip doką"
 
 #: ../data/ui/panel-pref.glade.h:26
 msgid "Margin:"
@@ -773,11 +775,11 @@ msgstr "Automatiniai temperatūros lygiai"
 
 #: ../src/plugins/thermal/thermal.c:402
 msgid "Warning1 Temperature"
-msgstr "\"Perspėjimas 1\" temperatūra"
+msgstr "„Perspėjimas 1“ temperatūra"
 
 #: ../src/plugins/thermal/thermal.c:403
 msgid "Warning2 Temperature"
-msgstr "\"Perspėjimas 2\" temperatūra"
+msgstr "„Perspėjimas 2“ temperatūra"
 
 #: ../src/plugins/thermal/thermal.c:445
 msgid "Temperature Monitor"
@@ -839,7 +841,7 @@ msgstr "Išjungti"
 
 #: ../src/plugins/netstat/netstat.c:299
 msgid "Wireless Connection has no connectivity"
-msgstr "Bevielis ryšys neturi jokio junglumo"
+msgstr "Bevielis ryšys neturi jokio jungiamumo"
 
 #: ../src/plugins/netstat/netstat.c:301
 msgid "Network cable is plugged out"
@@ -847,7 +849,7 @@ msgstr "Tinklo kabelis atjungtas"
 
 #: ../src/plugins/netstat/netstat.c:303
 msgid "Connection has limited or no connectivity"
-msgstr "Ryšys ribotas arba nėra junglumo"
+msgstr "Ryšys ribotas arba nėra jungiamumo"
 
 #: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
 #: ../src/plugins/netstat/netstat.c:329
@@ -971,7 +973,7 @@ msgid ""
 "There was an error displaying help:\n"
 "%s"
 msgstr ""
-"Įvyko klaida norint parodyti pagalbą:\n"
+"Bandant parodyti pagalbą įvyko klaida:\n"
 "%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
@@ -1201,7 +1203,7 @@ msgstr "SIOCGIFCONF klaida: %s"
 #: ../src/plugins/netstatus/netstatus-iface.c:1248
 #, c-format
 msgid "No network devices found"
-msgstr "Tinklo įrenginiai nerasti"
+msgstr "Tinklo įrenginių nerasta"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:180
 #, c-format
@@ -1216,7 +1218,7 @@ msgstr "Negalima apdoroti /proc/net/dev: nežnomas formatas."
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:330
 #, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr "Negalima apdoroti sąsajos pavadinimo iš '%s'"
+msgstr "Negalima apdoroti sąsajos pavadinimo iš „%s“"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
@@ -1225,7 +1227,7 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"Negalima apdoroti sąsajos statistikos iš '%s'. prx_idx = %d; ptx_idx = %d; "
+"Negalima apdoroti sąsajos statistikos iš „%s“. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
@@ -1235,26 +1237,26 @@ msgstr "Negalima apdoroti /proc/net/wireless: nežnomas formatas."
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr "Negalima apdoroti bevielio tinklo informacijos iš '%s'. link_idx = %d;"
+msgstr "Negalima apdoroti bevielio tinklo informacijos iš „%s“. link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
 msgid "Could not connect to interface, '%s'"
-msgstr "Negalima prisijungti prie sąsajos, '%s'"
+msgstr "Negalima prisijungti prie sąsajos, „%s“"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:420
 #, c-format
 msgid "Could not send ioctl to interface, '%s'"
-msgstr "Negalima nusiųsti ioctl į sąsają, '%s'"
+msgstr "Negalima nusiųsti ioctl į sąsają, „%s“"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr "Negalima apdoroti komandinės eilutės '%s': %s"
+msgstr "Negalima apdoroti komandinės eilutės „%s“: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr "Negalima apdoroti 'netstat' išvesties: nežinomas formatas"
+msgstr "Negalima apdoroti „netstat“ išvesties: nežinomas formatas"
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
