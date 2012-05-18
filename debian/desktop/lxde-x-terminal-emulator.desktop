@@ -1,12 +1,14 @@
 [Desktop Entry]
-Encoding=UTF-8
 Version=1.0
 Name=Terminal emulator
+Name[pt_BR]=Emulador de terminal
 Name[zh_CN]=终端
 Name[zh_TW]=終端機
 Comment=Terminal Emulator
+Comment[pt_BR]=Emulador de terminal
 Comment[zh_TW]=終端機程式
 GenericName=Terminal Emulator
+GenericName[pt_BR]=Emulador de terminal
 GenericName[zh_TW]=終端機程式
 Exec=/usr/bin/x-terminal-emulator
 Icon=terminal
@@ -15,5 +17,3 @@ Type=Application
 Categories=System;TerminalEmulator;Utility;
 StartupNotify=true
 NoDisplay=true
-
-# vi:set encoding=UTF-8:

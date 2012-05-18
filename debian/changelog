@@ -1,3 +1,233 @@
+lxpanel (0.5.9-3) unstable; urgency=low
+
+  * Remove extra tab in host_art_os variable assignment in rules files.
+  * Updating handling of plugins in rules for non-linux platforms
+    (Closes: #670324).
+  * Renumbering run-in-background.patch.
+
+ -- Daniel Baumann <daniel@debian.org>  Thu, 26 Apr 2012 08:18:50 +0200
+
+lxpanel (0.5.9-2) unstable; urgency=low
+
+  * Omitting netstat plugin on non-linux, requires wireless-tools
+    (Closes: #669724).
+
+ -- Daniel Baumann <daniel@debian.org>  Tue, 24 Apr 2012 20:59:52 +0200
+
+lxpanel (0.5.9-1) unstable; urgency=low
+
+  * Merging upstream version 0.5.9.
+  * Adding upstreams todo file as documentation.
+  * Rediffing potfiles.patch.
+  * Rediffing run-in-background.patch.
+  * Adding build-depends to libwnck-dev.
+  * Removing potfiles.patch, fixing the testsuite is to be addressed
+    upstream later on.
+
+ -- Daniel Baumann <daniel@debian.org>  Fri, 20 Apr 2012 17:01:48 +0200
+
+lxpanel (0.5.8-3) unstable; urgency=low
+
+  * Updating maintainer field.
+  * Adding myself to uploaders.
+  * Updating vcs fields.
+  * Updating package to debhelper version 9.
+  * Updating package to standards version 3.9.3.
+  * Rewriting copyright file machine-readable format version 1.0.
+  * Correcting suggests.
+  * Making build-depends unversioned where already fulfiled as of
+    squeeze.
+  * Updating homepage field.
+  * Prefixing debhelper files with package name.
+  * Moving desktop files to desktop subdirectory within packaging.
+  * Moving manpage files to manpages subdirectory within packaging.
+  * Rediffing default-config.patch with common diff options.
+  * Rediffing desktop-number.patch with common diff options.
+  * Rediffing potfiles.patch with common diff options.
+  * Rediffing run-in-background.patch with common diff options.
+  * Decrufting rules file.
+  * Switching to xz compression for both the source and the binary
+    packages.
+  * Rewriting package descriptions.
+  * Trimming readme debian.
+  * Trimming lintian overrides.
+  * Adding back changelog entries for version 0.5.8-1.1 which got
+    dropped in the 0.5.8-2 upload.
+  * Adding back changes from Sébastien Villemot
+    <sebastien.villemot@ens.fr> in 0.5.8-1.1 to use dh-autoreconf
+    (#658001).
+  * Disabling hardening buildflags for the moment.
+  * Updating package for multiarch.
+
+ -- Daniel Baumann <daniel@debian.org>  Fri, 20 Apr 2012 15:42:00 +0200
+
+lxpanel (0.5.8-2) unstable; urgency=low
+
+  [ Sergey Slipchenko ]
+  * Remove lintian-overrides from install
+  * Removed unused patch
+  * Changed icon to browser
+  * Drop debian/source/options
+  * Drop missing_glades.patch (Closes: #658001)
+  * Refresh default-config.patch
+  * Add potfiles-in.patch
+  * Remove override_dh_auto_test from rules
+  * Add run-in-background.patch (Closes: #656672)
+  * Move development files to lxpanel-dev (Closes: #581959)
+  * Change icon name to web-browser
+
+ -- Andrew Lee (李健秋) <ajqlee@debian.org>  Sat, 03 Mar 2012 18:08:09 +0800
+
+lxpanel (0.5.8-1.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Use dh-autoreconf to run autoreconf and intltoolize before
+    configure. (Closes: #658001)
+
+ -- Sébastien Villemot <sebastien.villemot@ens.fr>  Sat, 18 Feb 2012 17:19:17 +0100
+
+lxpanel (0.5.8-1) unstable; urgency=low
+
+  * Merging upstream version 0.5.8:
+    - fix typo to make code build with old gtk
+    - fixed compiler warning
+    - fixed error in tooltipS function call
+    - Fix usage of GtkRequisition
+  * Drop 10_fix_menu.patch: included in upstream.
+
+ -- Andrew Lee (李健秋) <ajqlee@debian.org>  Sat, 30 Jul 2011 20:35:23 +0800
+
+lxpanel (0.5.7-1) unstable; urgency=low
+
+  * Use debhelper 8
+  * Sorting build-depends.
+  * Wapping build-depends.
+  * Bumped Standard-Version to 3.9.2.
+  * Updating Vcs-Browser and Vcs-Git tags.
+  * Sorting depends.
+  * Removing useless whitespaces at EOL and EOF.
+  * Removing debian/dirs: let upstream makefile do the work.
+  * Removing empty NEWS in debian/docs.
+  * Removing debian/README.source: source format 3.0 (quilt) explains.
+  * Enable dh_auto_test in debian/rules.
+  * Compacting watch file.
+  * Added debian/source/options file.
+  * Merging upstream version 0.5.7:
+    (Cloese: #586352, #631263, #609909, #598824, #588532, #608419)
+    - Fix usage of GtkAllocation
+    - Generate the po/LINGUAS on build time
+    - Apply patch from Debian to fix battery plugin display
+    - Some fixes for GTK3 building
+    - Add flags for GTK3 migration
+    - Add missing X11 to the linker
+    - Use only .ui files instead of glade files
+    - Fix brown bag off-by-one in timer setting exposed by once-per-minute
+      update (Bug3124474)
+    - Battery percentage incorrectly always evaluates as
+      100 percent (Bug3006059)
+    - Fix build issue with symbol "alarm" showing up on F14 (Bug3033293)
+  * FIx escription synopsis starts with article.
+  * Drop batt_status.patch: included in upstream.
+  * Removing useless override_dh_auto_clean in rules file.
+  * Disabling override_dh_auto_test in rules file: check failed in po/.
+  * Use linux-any instead of hardcoded list in control file. (Closes: #634319)
+  * Add [pt_BR] keys in lxde-x-terminal-emulator.desktop
+    and lxde-x-www-browser.desktop. (Closes: 607076)
+    Thanks Sérgio Cipolla <secipolla@gmail.com>.
+  * Add [zh_TW] keys lxde-x-www-browser.desktop.
+  * Added lxpanel.hints.5 from
+    Mats Erik Andersson <mats.andersson@gisladisker.se>. (Closes: #601871)
+  * Apply configure_desktop_number.patch: configuration for
+    desktop number for the pager plugin. (Closes: #608421)
+    Thanks Artur Rona <ari-tczew@tlen.pl>.
+  * Drop redefine-alarm-variable.patch: included in upstream.
+  * Refresh configure_desktop_number.patch.
+  * Refresh missing_glades.patch.
+  * Apply 10_fix_menu.patch: Fix crash on menu plugin. From Julien Lavergne.
+
+ -- Andrew Lee (李健秋) <ajqlee@debian.org>  Fri, 29 Jul 2011 18:22:30 +0800
+
+lxpanel (0.5.6-1) unstable; urgency=low
+
+  * New upstream release (Closes:#555575, #577599, #581980)
+    - Reduced unnecessary flickers during resizing icon grid
+    - Fixed uninitialized variable that causes initial panel color
+      selector to be wrong
+    - Fixed unlikely memory leak in taskbar icon fetch
+    - Change alpha default to fully opaque
+    - Fixed failure to install CPU Frequency plugin icon
+    - Fixed failure to react to keyboard map changes initiated outside
+      the plugin
+    - Honor Terminal=true in menu and launchbar
+    - Implemented lxpanelctl config command
+    - Improved clock poll interval for format strings that do not change
+      every second
+    - Fixed conditions where on-disk configuration was not in sync with
+      actual configuration
+    - Replaced show_all with show on toplevel to avoid situation where
+      plugin loses control of children's visibility
+    - Fixed 64-bit clean regressions
+    - Fixed some issues with urgency notification
+    - Fixed race condition in task deletion, urgency timer could fire after
+      structure deleted
+    - Fixed race condition in UI draw, cell renderer could be called after
+      plugin structure deleted
+    - Fixed endianness clean issue in lxpanelctl
+    - Fixed segfault if g_locale_to_utf8 fails
+    - Fixed handling of "visible" flag in icon_grid_add
+    - Fixed crash following deleting a plugin from the right-click popup
+      with the configuration dialog open
+    - Fixed misoperation when symbol string does not have "+inet(evdev)"
+    - Forced group number value into valid range after Xkb query
+    - Ensure that group and symbol names are initialized on all flow paths
+    - Fixed buffer overflow in panel_draw_label_text
+    - Fixed crash when reconfiguring after tray selection failed
+    - Workaround for popup positioning
+    - Fixed CPUFreq plugin
+    - Changed behavior of strut in Autohide case
+  * Drop patches that included in upstream:
+    - g_locale_to_utf8.patch
+    - kbled.patch libtool-fix.patch
+    - panel_draw_label_text.patch
+    - sort_dirmenu.patch
+  * Applied redefine-alarm-variable.patch (Closes:#583986) from
+    Julien Lavergne <gilir@ubuntu.com>
+  * Bumped Standard-version to 3.9.1
+
+ -- Andrew Lee (李健秋) <ajqlee@debian.org>  Wed, 28 Jul 2010 16:12:08 -0400
+
+lxpanel (0.5.5-4) unstable; urgency=high
+
+  * Added some backport patches to close bugs on BTS and fix a potential
+    buffer overflow problem.
+    - sort_dirmenu.patch - sort directory menu (Closes:#493256)
+    - batt_status.patch - battery status display (Closes:#580509)
+    - kbled.patch - keyboard LDE status (Closes:#563186)
+    - panel_draw_label_text.patch - potential buffer overflow
+  * Use DH7
+  * Apply libtool-fix.patch fix FTBFS with binutils-gold. (Close:#555575)
+  * Set urgency=high for buffer overflow fix
+
+ -- Andrew Lee (李健秋) <ajqlee@debian.org>  Tue, 25 May 2010 23:24:29 +0800
+
+lxpanel (0.5.5-3) unstable; urgency=high
+
+  * Applied patch to solve a FTBFS problem. (Closes:#580475)
+    Thanks Milan Vancura <milan@ucw.cz>
+
+ -- Andrew Lee (李健秋) <ajqlee@debian.org>  Sat, 22 May 2010 17:30:51 +0800
+
+lxpanel (0.5.5-2) unstable; urgency=low
+
+  * debian/control:
+    - Build-depends on libiw-dev for linux only. (Closes:#565636)
+    - Build-depends on new libmenu-cache
+  * Applied backport g_locale_to_utf8.patch from upstream to
+    preven crashes. (Closes:#572944)
+  * Switch to dpkg-source 3.0 (quilt) format
+
+ -- Andrew Lee (李健秋) <ajqlee@debian.org>  Sat, 27 Mar 2010 12:04:30 +0700
+
 lxpanel (0.5.5-1) unstable; urgency=low
 
   * New upstream release
@@ -5,7 +235,7 @@ lxpanel (0.5.5-1) unstable; urgency=low
     - Configuration dialog of launchbar applet become much faster. (quite
       prominent)
     - Translations update
-    - Several minor bug fixes 
+    - Several minor bug fixes
     - Fixed crash problem with libmenu-cache >= 0.3.1
   * Updated upstream url to http://lxde.org
   * Bumped Standard-version to 3.8.4
@@ -16,10 +246,10 @@ lxpanel (0.5.4.1-1) unstable; urgency=low
 
   * New upstream release (Closes: #493253, #534222, #548333, #560843)
     - Fixed crash problem on creating new panel
-    - Fixed segfault when battery is not exist 
-    - Use _NET_SHOWING_DESKTOP to toggle the desktop efficiently in wincmd 
+    - Fixed segfault when battery is not exist
+    - Use _NET_SHOWING_DESKTOP to toggle the desktop efficiently in wincmd
       applet when available
-    - Better checks for EWMH compliant window managers 
+    - Better checks for EWMH compliant window managers
     - Fixed cpufreq plugin, thermal plugin (Closes: #535568)
     - Support recognizing current DE with $XDG_CURRENT_DESKTOP
     - Fixed string format warning in src/misc.c
@@ -50,11 +280,11 @@ lxpanel (0.5.2-1) experimental; urgency=low
   * New upstream release
     - Fixed "Run" dialog hangs problem.
     - Restored the old behavior of taskbar in earlier versions
-    - Hided signal strength display in the icon of the netstatus applet 
+    - Hided signal strength display in the icon of the netstatus applet
       if the monitored iface is not wireless.
-    - Improved application launcher, Available apps are now categorized 
+    - Improved application launcher, Available apps are now categorized
       as they are in applications menu.
-    - The class name of the desktop panels are now changed to 
+    - The class name of the desktop panels are now changed to
       "PanelToplevel". This is compatible with gnome and can be used by
       theme authors to distinguish the panel widgets from others.
     - Reduced program size.
@@ -77,13 +307,13 @@ lxpanel (0.5.0-1) experimental; urgency=low
     - Switch desktop on taskbar button Click and Raise (Bug2028953)
     - Keyboard equivalents on taskbar popup submenu (FR2781949)
     - Repaired bad function signature on focus-out callback
-    - Rewrited WM_STRUT setting so it doesn't update the property 
+    - Rewrited WM_STRUT setting so it doesn't update the property
       unless it changed
     - Fixed the panel transparency colorbox
     - Fixed CPU plugin loses context on a relayout (Patch 2800828, song6song)
     - Added autohide
     - Rewrote battery backend code (based on Linux acpi 1.4)
-    - Added scroll wheel on main icon to adjust volume and middle-click 
+    - Added scroll wheel on main icon to adjust volume and middle-click
       on main icon to adjust mute
     - Use Docbook-XML instead of SGML
     - Added --enable-man for manpage regeneration
@@ -117,29 +347,29 @@ lxpanel (0.4.1+svn20090524-2) unstable; urgency=low
 
 lxpanel (0.4.1+svn20090524-1) unstable; urgency=low
 
-  * New upstream release (Closes: #516603, #511001, #493242, #486284, 
+  * New upstream release (Closes: #516603, #511001, #493242, #486284,
     #515633, #484606, #495924, #517858)
-    - A whole new application menu generated according to 
-      freedesktop.org menu spec. (faster and more standard-compliant. 
+    - A whole new application menu generated according to
+      freedesktop.org menu spec. (faster and more standard-compliant.
       has tooltips for menu items)
     - Enhanced "Run" dialog.
-    - Auto resize of application launcher buttons when panel size gets 
+    - Auto resize of application launcher buttons when panel size gets
       changed.
-    - The problematic netstat plugin is now turned off by default. It 
+    - The problematic netstat plugin is now turned off by default. It
       will be moved to a separate project later.
-    - Building dynamic panel plugins outside the source tree of lxpanel 
+    - Building dynamic panel plugins outside the source tree of lxpanel
       is now possible.
     - Fix icon display problems under 64-bit systems.
-    - Fixes to work with minimization animation provided by window 
+    - Fixes to work with minimization animation provided by window
       manager.
     - Fix RTL problems of the task list.
     - Launch console applications in terminal properly
     - Add new temperature monitor plugin by Daniel Kesler
-    - Size of icons now can automatically be automatically adjusted 
+    - Size of icons now can automatically be automatically adjusted
       according to the height of the panel.
   * debian/control:
     - Build-depends on libmenu-cache0
-    - lxpanel-netstat-plugin become a dummy package to help transition 
+    - lxpanel-netstat-plugin become a dummy package to help transition
       to wicd or network-manage package.
     - Update descriptions. Thanks Phil Miller <phildebian@mailinator.com>
       (Closes: #513009)
@@ -178,7 +408,7 @@ lxpanel (0.3.7-1) unstable; urgency=low
       modified.
   * Bumped Standards-Version to 3.8.0.0
     - Supporting the standardized environment variable `DEB_BUILD_OPTIONS'
-  * Package split for lxpanel-netstat-plugin 
+  * Package split for lxpanel-netstat-plugin
 
  -- Andrew Lee <andrew@linux.org.tw>  Mon, 09 Jun 2008 16:05:48 +0800
 
@@ -209,10 +439,10 @@ lxpanel (0.3.6-1) unstable; urgency=low
     netstat plugin: improve and fix some bugs for Wireless AP Scanning
     netstat plugin: fixed a lot of crashes.
     netstat plugin: hidden AP with encryption will not display
-    netstat plugin: improving IE information handler to support WPA/WPA2 
+    netstat plugin: improving IE information handler to support WPA/WPA2
   * Added lintian-overrides
-  * Suggests: lxnm 
-  * Minor fix in debian/copyright 
+  * Suggests: lxnm
+  * Minor fix in debian/copyright
 
  -- Andrew Lee <andrew@linux.org.tw>  Thu, 29 May 2008 15:52:52 +0800
 

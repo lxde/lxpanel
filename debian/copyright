@@ -1,68 +1,90 @@
-This package was debianized by Andrew Lee <andrew@linux.org.tw> on
-Thu, 21 Feb 2008 21:21:11 +0800.
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: LXPanel
+Upstream-Contact: lxde-list@lists.sourceforge.net
+Source: http://sourceforge.net/projects/lxde/files/
 
-It was downloaded from http://sourceforge.net/projects/lxde/
+Files: *
+Copyright: Hong Jen Yee (PCMan)  <pcman.tw@gmail.com>
+           Jim Huang  <jserv.tw@gmail.com>
+           Greg McNew <gmcnew@gmail.com> (battery plugin)
+           Fred Chien <cfsghost@gmail.com>
+           Daniel Kesler <kesler.daniel@gmail.com>
+           Juergen Hoetzel <juergen@archlinux.org>
+           Marty Jack <martyj19@comcast.net>
+License: GPL-2+
 
-Upstream Authors and Copyright Holders: 
+Files: src/{gtkbgbox,gtkbar}.*:
+Copyright: 1995-1997 Peter Mattis
+           1995-1997 Spencer Kimball
+           1995-1997 Josh MacDonald
+License: LGPL-2+
 
-    Hong Jen Yee (PCMan)  <pcman.tw@gmail.com>
-    Jim Huang  <jserv.tw@gmail.com>
-    Greg McNew <gmcnew@gmail.com> (battery plugin)
-    Fred Chien <cfsghost@gmail.com>
-    Daniel Kesler <kesler.daniel@gmail.com>
-    Juergen Hoetzel <juergen@archlinux.org>
-    Marty Jack <martyj19@comcast.net>
+Files: src/systray/eggtraymanager.*:
+Copyright: 2002 Anders Carlsson <andersca@gnu.org>
+           2003-2006 Vincent Untz
+License: LGPL-2+
 
+Files: src/plugins/ptk-app-menu.c
+Copyright: 2006 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
+License: LGPL-2
 
-Files src/{gtkbgbox,gtkbar}.*:
+Files: data/images/window-manager.png
+Copyright: n/a
+Comment: Window commands plugin icon from http://www.oxygen-icons.org/
+License: LGPL-2
 
-    Copyright (C) 1995-1997 Peter Mattis, Spencer Kimball and Josh MacDonald
+Files: debian/*
+Copyright: 2008-2012 Andrew Lee (李健秋) <ajqlee@debian.org>
+License: GPL-2+
 
-    Licensed under the GNU Library General Public License (LGPL),
-    either version 2, or (at your option) any later version.
+License: GPL-2+
+ This program is free software; you can redistribute it and/or
+ modify it under the terms of the GNU General Public License
+ as published by the Free Software Foundation; either version 2
+ of the License, or (at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ .
+ The complete text of the GNU General Public License
+ can be found in /usr/share/common-licenses/GPL-2 file.
 
-Files src/systray/eggtraymanager.*:
+License: LGPL-2
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License.
+ .
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ Lesser General Public License for more details.
+ .
+ You should have received a copy of the GNU Lesser General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>.
+ .
+ The complete text of the GNU Lesser General Public License
+ can be found in /usr/share/common-licenses/LGPL-2 file.
 
-    Copyright (C) 2002 Anders Carlsson <andersca@gnu.org>
-    Copyright (C) 2003-2006 Vincent Untz
-
-    Licensed under the GNU Library General Public License (LGPL),
-    either version 2, or (at your option) any later version.
-
-
-File src/plugins/ptk-app-menu.c
-
-    Copyright (C) 2006 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
-
-    Licensed under the GNU Library General Public License (LGPL)
-    Version 2.
-
-Image data/images/window-manager.png
-
-    Window commands plugin icon from http://www.oxygen-icons.org/
-    Licensed under the GNU Library General Public License (LGPL)
-
-
-On Debian GNU/Linux systems, the complete text of the GNU Library
-General Public License can be found in `/usr/share/common-licenses/LGPL'.
-
-License:
-
-    This software is free software; you can redistribute it and/or
-    modify it under the terms of the GNU General Public License(with
-    a special exception described below). as published by the Free
-    Software Foundation; either version 2 of the License, or (at your
-    option) any later version.
-
-    This library is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-    General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this library; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 
-    02110-1301, USA.
-
-The Debian packaging is (C) 2008, Andrew Lee <andrew@linux.org.tw> and
-is licensed under the GPL, see `/usr/share/common-licenses/GPL'.
+License: LGPL-2+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+ .
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ Lesser General Public License for more details.
+ .
+ You should have received a copy of the GNU Lesser General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>.
+ .
+ The complete text of the GNU Lesser General Public License
+ can be found in /usr/share/common-licenses/LGPL-2 file.

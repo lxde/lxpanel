@@ -1,144 +1,33 @@
 #!/usr/bin/make -f
-# -*- makefile -*-
-# Sample debian/rules that uses debhelper.
-# This file was originally written by Joey Hess and Craig Small.
-# As a special exception, when this file is copied by dh-make into a
-# dh-make output file, you may use that output file without restriction.
-# This special exception was added by Craig Small in version 0.37 of dh-make.
 
-# Uncomment this to turn on verbose mode.
-#export DH_VERBOSE=1
+DEB_HOST_ARCH_OS ?= $(shell dpkg-architecture -qDEB_HOST_ARCH_OS)
 
-include /usr/share/quilt/quilt.make
+# lxpanel does not build (yet) with hardening
+export DEB_BUILD_MAINT_OPTIONS = hardening=-all
 
-# These are used for cross-compiling and for saving the configure script
-# from having to guess our platform (since we know it already)
-DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
-DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
+%:
+	dh ${@} --with autoreconf
 
-CFLAGS = -Wall -g
-INSTALL = install
-INSTALL_FILE    = $(INSTALL) -p    -o root -g root  -m  644
-INSTALL_PROGRAM = $(INSTALL) -p    -o root -g root  -m  755
-INSTALL_SCRIPT  = $(INSTALL) -p    -o root -g root  -m  755
-INSTALL_DIR     = $(INSTALL) -p -d -o root -g root  -m  755
+autoreconf:
+	autoreconf --install --force
+	intltoolize --copy --force --automake
 
-ifneq (,$(filter noopt,$(DEB_BUILD_OPTIONS)))
-    CFLAGS += -O0
+override_dh_autoreconf:
+	dh_autoreconf debian/rules -- autoreconf
+
+override_dh_auto_configure:
+ifeq ($(DEB_HOST_ARCH_OS),linux)
+	dh_auto_configure -- --enable-man --with-plugins=all
 else
-    CFLAGS += -O2
-endif
-ifeq (,$(filter nostrip,$(DEB_BUILD_OPTIONS)))
-    INSTALL_PROGRAM += -s
-endif
-ifneq (,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
-    NUMJOBS = $(patsubst parallel=%,%,$(filter parallel=%,$(DEB_BUILD_OPTIONS)))
-    MAKEFLAGS += -j$(NUMJOBS)
+	# omit netstat plugin on non-linux, requires wireless-tools
+	dh_auto_configure -- --enable-man --with-plugins=netstatus,volume,volumealsa,cpu,deskno,batt,kbled,xkb,thermal,cpufreq,monitors,wnckpager
 endif
 
-config.status: configure $(QUILT_STAMPFN)
-	dh_testdir
-	# Add here commands to configure the package.
-ifneq "$(wildcard /usr/share/misc/config.sub)" ""
-	cp -f /usr/share/misc/config.sub config.sub
-endif
-ifneq "$(wildcard /usr/share/misc/config.guess)" ""
-	cp -f /usr/share/misc/config.guess config.guess
-endif
-	./configure \
-	--host=$(DEB_HOST_GNU_TYPE) \
-	--build=$(DEB_BUILD_GNU_TYPE) \
-	--prefix=/usr \
-	--enable-man \
-	--mandir=\$${prefix}/share/man \
-	--infodir=\$${prefix}/share/info \
-	--sysconfdir=/etc \
-	CFLAGS="$(CFLAGS)" LDFLAGS="-Wl,--as-needed"
+override_dh_auto_test:
+	# disabled: test fails in po directory
 
+override_dh_builddeb:
+	dh_builddeb -- -Zxz -z9
 
-build: build-stamp
-
-build-stamp:  config.status
-	dh_testdir
-
-	# Add here commands to compile the package.
-	$(MAKE)
-	#docbook-to-man debian/lxpanel.sgml > lxpanel.1
-
-	touch $@
-
-clean: unpatch
-	dh_testdir
-	dh_testroot
-	rm -f build-stamp 
-
-	# Add here commands to clean up after the build process.
-	[ ! -f Makefile ] || $(MAKE) distclean
-	rm -f config.sub config.guess
-	rm -f intltool-extract \
-	      intltool-update \
-	      intltool-merge \
-	      man/lxpanel.1  \
-	      man/lxpanelctl.1 
-
-	dh_clean 
-
-install: build
-	dh_testdir
-	dh_testroot
-	dh_clean -k 
-	dh_installdirs
-
-	# Add here commands to install the package into debian/lxpanel.
-	$(MAKE) DESTDIR=$(CURDIR)/debian/lxpanel install
-
-	# Install .desktop files
-	install -d $(CURDIR)/debian/lxpanel/usr/share/applications
-	install -m644 $(CURDIR)/debian/lxde-x-www-browser.desktop \
-			$(CURDIR)/debian/lxpanel/usr/share/applications
-	install -m644 $(CURDIR)/debian/lxde-x-terminal-emulator.desktop \
-			$(CURDIR)/debian/lxpanel/usr/share/applications
-
-	# Install lintian-overrides
-	install -d $(CURDIR)/debian/lxpanel/usr/share/lintian/overrides
-	install -m644 $(CURDIR)/debian/lxpanel.lintian-overrides \
-			$(CURDIR)/debian/lxpanel/usr/share/lintian/overrides
-
-# Build architecture-independent files here.
-binary-indep: build install
-# We have nothing to do by default.
-
-# Build architecture-dependent files here.
-binary-arch: build install
-	dh_testdir
-	dh_testroot
-	dh_installchangelogs
-	dh_installdocs
-	dh_installexamples
-	dh_movefiles --sourcedir=debian/lxpanel
-#	dh_install
-#	dh_installmenu
-#	dh_installdebconf	
-#	dh_installlogrotate
-#	dh_installemacsen
-#	dh_installpam
-#	dh_installmime
-#	dh_python
-#	dh_installinit
-#	dh_installcron
-#	dh_installinfo
-	dh_installman
-	dh_link
-	dh_strip
-	dh_compress
-	dh_fixperms
-#	dh_perl
-#	dh_makeshlibs
-	dh_installdeb
-	dh_shlibdeps
-	dh_gencontrol
-	dh_md5sums
-	dh_builddeb
-
-binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install 
+override_dh_install:
+	dh_install --fail-missing

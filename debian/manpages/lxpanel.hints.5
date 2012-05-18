@@ -1,0 +1,279 @@
+.\" Information collected from source code
+.TH lxpanel.hints 5 "October 2010" "M E Andersson" ""
+
+.SH Name
+lxpanel.hints \- Configuration hints for lxpanel plugins
+
+.SH Description
+.PP
+This text collects some background information for configuration
+of plugins available for \fBlxpanel\fR(1).
+.PP
+The templates below use keywords \fIboolean\fR, \fIinteger\fR,
+and \fIstring\fR to denote the expected type of value for each
+instance.  A few exceptions below are using explicit values in
+order to clearify the common usage.
+.
+The plugins are introduced by name in a semi-random fashion.
+In practice a mixture of different stanzas \fIPlugin\fR are
+written in the order that they are to produce in the actual
+panel on the desktop.
+.
+.SH Available plugins
+.
+.P
+.B menu
+.IP
+Plugin {
+    type = menu
+    Config {
+        name = \fIstring\fR
+        image = \fIstring\fR
+
+        system {
+        }
+
+        separator {
+        }
+
+        item {
+            command = \fIstring\fR
+            image = \fIstring\fR
+        }
+    }
+.br
+}
+
+.P
+.B dirmenu
+.IP
+Plugin {
+    type = dirmenu
+    Config {
+        name = \fIstring\fR
+        image = \fIstring\fR
+        path = \fIstring\fR
+    }
+.br
+}
+
+.P
+.B taskbar
+.IP
+Plugin {
+    type = taskbar
+
+    expand = \fIinteger\fR
+    Config {
+        tooltips = \fIboolean\fR
+        IconsOnly = \fIboolean\fR
+        ShowAllDeska = \fIboolean\fR
+        UseMouseWheel = \fIboolean\fR
+        UseUrgencyHint = \fIboolean\fR
+        FlatButton = \fIboolean\fR
+        GroupedTasks = \fIboolean\fR
+        MaxTaskWidth = \fIinteger\fR
+        spacing = \fIinteger\fR
+    }
+.br
+}
+
+.P
+.B launchbar
+.IP
+Plugin {
+    type = launchbar
+    Button {
+        id = \fIstring\fR
+        image = \fIstring\fR
+        tooltip = \fIstring\fR
+        action = \fIstring\fR
+        terminal = \fIboolean\fR
+    }
+    Button {
+        id = lxde-logout.desktop
+    }
+.br
+}
+
+.P
+.B wincmd
+.IP
+Plugin {
+    type = wincmd
+    Config {
+        image = \fIstring\fR
+        Button1 = \fIstring\fR
+        Button2 = \fIstring\fR
+        Toggle = \fIstring\fR
+    }
+.br
+}
+
+.P
+.B space
+.IP
+Plugin {
+    type = space
+    Config {
+        Size = \fIinteger\fR
+    }
+.br
+}
+
+.P
+.B pager
+.IP
+Plugin {
+    type = pager
+.br
+}
+
+.P
+.B batt
+.IP
+Plugin {
+    type = batt
+    Config {
+        HideIfNoBattery = bool
+        AlarmCommand = \fIstring\fR
+        AlarmTime = \fIinteger\fR
+        BorderWidth = \fIinteger\fR
+        Size = \fIinteger\fR
+        BackgroundColor = \fIstring\fR
+        ChargingColor1 = \fIstring\fR
+        ChargingColor2 = \fIstring\fR
+        DischargingColor1 = \fIstring\fR
+        DischargingColor2 = \fIstring\fR
+    }
+.br
+}
+
+.P
+.B kbled
+.IP
+Plugin {
+    type = kbled
+    Config {
+        ShowCapsLock = \fIinteger\fR
+        ShowNumLock = \fIinteger\fR
+        ShowScrollLock = \fIinteger\fR
+    }
+.br
+}
+
+.P
+.B dclock
+.IP
+Plugin {
+    type = dclock
+    Config {
+        ClockFmt = \fIstring\fR
+        TooltipFmt = \fIstring\fR
+        Action = \fIstring\fR
+        BoldFont = \fIinteger\fR
+        IconOnly = \fIinteger\fR
+    }
+.br
+}
+
+.P
+.B cpu
+.IP
+Plugin {
+    type = cpu
+.br
+}
+
+.P
+.B cpufreq
+.IP
+Plugin {
+    type = cpufreq
+    Config {
+        Frequency = \fIinteger\fR
+        Governor = \fIstring\fR
+        Remember = \fIboolean\fR
+    }
+.br
+}
+
+.P
+.B thermal
+.IP
+Plugin {
+    type = thermal
+    Config {
+        NormalColor = \fIstring\fR
+        Warning1Color = \fIstring\fR
+        Warning2Color = \fIstring\fR
+        Sensor = \fIstring\fR
+        CustomLevels = \fIinteger\fR
+        Warning1Temp = \fIinteger\fR
+        Warning2Temp = \fIinteger\fR
+        AutomaticSensor = \fIinteger\fR
+    }
+.br
+}
+
+.P
+.B deskno
+.IP
+Plugin {
+    type = deskno
+    Config {
+        BoldFont = \fIinteger\fR
+        WMLabels = \fIinteger\fR
+    }
+.br
+}
+
+.P
+.B netstatus
+.IP
+Plugin {
+    type = netstatus
+    Config {
+        iface = \fIstring\fR
+        configtool = \fIstring\fR
+    }
+.br
+}
+
+.P
+.B xkb
+.IP
+Plugin {
+    type = xkb
+    Config {
+        DisplayType = \fIinteger\fR
+        PerAppLayout = \fIinteger\fR
+        DefaultGroup = \fIinteger\fR
+    }
+.br
+}
+.
+.SH "Configuration files"
+.
+.TP
+\fI~/.config/lxpanel/"profile-name"/panels/panel\fR
+User specific panel specification. The name of the panel
+is passed to \fBlxpanel\fR using the switch '--profile'.
+.
+.TP
+\fI/usr/share/lxpanel/profile/"profile-name"/panels/panel\fR
+.
+.TP
+\fI/usr/share/lxpanel/profile/default/panels/panel\fR
+.
+.SH See also
+\fBlxpanel\fR(1), \fBlxpanelctl\fR(1)
+.SH Bugs
+There ought to be some.  Do point them out!
+The Debian package maintainer will take necessary
+steps and actions.
+
+.SH Author
+This text was compiled for Debian GNU/Linux by Mats Erik Andersson.
+It may be used also by others, but the text underlies the same
+licensing as \fBlxpanel\fR itself does.

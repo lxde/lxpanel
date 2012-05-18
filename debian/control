@@ -1,19 +1,29 @@
 Source: lxpanel
 Section: x11
 Priority: optional
-Maintainer: Andrew Lee (李健秋) <ajqlee@debian.org>
-Build-Depends: debhelper (>= 5), autotools-dev, intltool, intltool-debian, libgtk2.0-dev (>=2.6), libglib2.0-dev (>=2.10), libxmu-dev, libxpm-dev, libiw-dev, libasound2-dev, libmenu-cache-dev (>=0.2.6), docbook-xml, docbook-xsl, xsltproc, dpatch, python
-Standards-Version: 3.8.4
-Homepage: http://lxde.org
+Maintainer: Debian LXDE Maintainers <lxde-debian@lists.lxde.org>
+Uploaders:
+ Andrew Lee (李健秋) <ajqlee@debian.org>, Daniel Baumann <daniel@debian.org>
+Build-Depends:
+ debhelper (>= 9), dh-autoreconf, autotools-dev, autopoint, docbook-xml,
+ docbook-xsl, intltool, intltool-debian, libasound2-dev, libglib2.0-dev,
+ libgtk2.0-dev, libiw-dev [linux-any], libmenu-cache1-dev, libwnck-dev,
+ libxpm-dev, python, xsltproc
+Standards-Version: 3.9.3
+Homepage: http://www.lxde.org/
+Vcs-Browser: http://git.lxde.org/gitweb/?p=debian/lxpanel.git
+Vcs-Git: git://git.lxde.org/git/debian/lxpanel.git
 
 Package: lxpanel
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, lxmenu-data
-Recommends: manpages-dev
-Suggests: lxsession-lite (>=0.3.5) | lxsession (>=0.3.2) | menu, www-browser
-Description: a lightweight desktop panel for X
- LXPanel is a lightweight GTK+2 desktop panel derived from fbpanel. Its
- features include:
+Depends: ${misc:Depends}, ${shlibs:Depends}, lxmenu-data
+Suggests: lxsession | menu, iceweasel | www-browser
+Description: LXDE panel
+ LXPanel is a GUI application for the Lightweight X11 Desktop Environment
+ (LXDE).
+ .
+ It is derived from fbpanel and includes the following features:
+ .
   * User-friendly application menu automatically generated from .desktop
     files on the system
   * Launcher bar (small icons clicked to launch apps)
@@ -29,3 +39,14 @@ Description: a lightweight desktop panel for X
     For example, "lxpanelctl run" will show the Run dialog in lxpanel,
     and "lxpanelctl menu" will show the application menu. This is
     useful in combination with window manager key bindings.
+
+Package: lxpanel-dev
+Architecture: any
+Depends: ${misc:Depends}, lxpanel (= ${binary:Version}), libglib2.0-dev,
+ libmenu-cache1-dev, pkg-config
+Recommends: manpages-dev
+Description: LXDE panel (development)
+ LXPanel is a GUI application for the Lightweight X11 Desktop Environment
+ (LXDE).
+ .
+ This package contains the development files.
