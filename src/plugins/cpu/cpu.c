@@ -83,8 +83,8 @@ static void redraw_pixmap(CPUPlugin * c)
         /* Draw one bar of the CPU usage graph. */
         if (c->stats_cpu[drawing_cursor] != 0.0)
         {
-            cairo_move_to(cr, i, c->pixmap_height);
-            cairo_line_to(cr, i, c->pixmap_height - c->stats_cpu[drawing_cursor] * c->pixmap_height);
+            cairo_move_to(cr, i + 0.5, c->pixmap_height);
+            cairo_line_to(cr, i + 0.5, c->pixmap_height - c->stats_cpu[drawing_cursor] * c->pixmap_height);
             cairo_stroke(cr);
         }
 

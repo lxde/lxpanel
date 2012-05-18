@@ -506,17 +506,16 @@ redraw_pixmap (Monitor *m)
 
     /* Erase pixmap */
     gdk_cairo_set_source_color(cr, &m->da->style->black);
-    cairo_rectangle(cr, 0, 0, m->pixmap_width, m->pixmap_height);
-    cairo_fill(cr);
-    gdk_cairo_set_source_color(cr, &m->foreground_color);
+    cairo_paint(cr);
 
+    gdk_cairo_set_source_color(cr, &m->foreground_color);
     for (i = 0; i < m->pixmap_width; i++)
     {
         unsigned int drawing_cursor = (m->ring_cursor + i) % m->pixmap_width;
 
         /* Draw one bar of the graph */
-        cairo_move_to(cr, i, m->pixmap_height);
-        cairo_line_to(cr, i, (1.0 - m->stats[drawing_cursor]) * m->pixmap_height);
+        cairo_move_to(cr, i + 0.5, m->pixmap_height);
+        cairo_line_to(cr, i + 0.5, (1.0 - m->stats[drawing_cursor]) * m->pixmap_height);
         cairo_stroke(cr);
     }
 

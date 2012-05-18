@@ -212,10 +212,10 @@ static void task_update_pixmap(PagerTask * tk, PagerDesk * d)
         if ((tk->desktop == ALL_DESKTOPS) || (tk->desktop == d->desktop_number))
         {
             /* Scale the representation of the window to the drawing area. */
-            int x = (gfloat) tk->x * d->scale_x;
-            int y = (gfloat) tk->y * d->scale_y;
-            int w = (gfloat) tk->w * d->scale_x;
-            int h = ((tk->nws.shaded) ? 3 : (gfloat) tk->h * d->scale_y);
+            gfloat x = (gfloat) tk->x * d->scale_x;
+            gfloat y = (gfloat) tk->y * d->scale_y;
+            gfloat w = (gfloat) tk->w * d->scale_x;
+            gfloat h = ((tk->nws.shaded) ? 3 : (gfloat) tk->h * d->scale_y);
             if ((w >= 3) && (h >= 3))
             {
                 /* Draw the window representation and a border. */
@@ -225,16 +225,19 @@ static void task_update_pixmap(PagerTask * tk, PagerDesk * d)
 
                 cairo_t * cr = cairo_create(d->pixmap);
                 cairo_set_line_width (cr, 1.0);
+		cairo_set_antialias(cr, CAIRO_ANTIALIAS_NONE);
+                cairo_rectangle(cr, x + 0.5, y + 0.5, w - 0.5, h - 0.5);
+
                 color =
                     (d->pg->focused_task == tk) ? &style->bg[GTK_STATE_SELECTED] : &style->bg[GTK_STATE_NORMAL];
                 cairo_set_source_rgb(cr, (double)color->red/65535, (double)color->green/65535, (double)color->blue/65535);
-                cairo_rectangle(cr, x + 1, y + 1, w - 1, h - 1);
-                cairo_fill(cr);
+                cairo_fill_preserve(cr);
+
                 color =
                     (d->pg->focused_task == tk) ? &style->fg[GTK_STATE_SELECTED] : &style->fg[GTK_STATE_NORMAL];
                 cairo_set_source_rgb(cr, (double)color->red/65535, (double)color->green/65535, (double)color->blue/65535);
-                cairo_rectangle(cr, x, y, w, h);
                 cairo_stroke(cr);
+
                 cairo_destroy(cr);
             }
         }
