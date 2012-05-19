@@ -393,6 +393,7 @@ void gtk_run()
 		menu_cache = menu_cache_lookup(g_getenv("XDG_MENU_PREFIX") ? "applications.menu" : "lxde-applications.menu" );
 		if( menu_cache )
 		{
+			menu_cache_reload(menu_cache);
 			app_list = (GSList*)menu_cache_list_all_apps(menu_cache);
 			reload_notify_id = menu_cache_add_reload_notify(menu_cache, (GFunc)reload_apps, NULL);
 		}
