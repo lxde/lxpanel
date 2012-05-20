@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-20 15:58+0200\n"
-"PO-Revision-Date: 2012-01-07 23:50+0200\n"
+"PO-Revision-Date: 2012-05-20 20:22+0200\n"
 "Last-Translator: Klemen <klemen.kosir@gmx.com>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);;\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || "
+"n%100==4 ? 3 : 0);;\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
@@ -792,7 +792,6 @@ msgid "Mute"
 msgstr "Utišaj"
 
 #: ../src/plugins/volumealsa/volumealsa.c:602
-#, fuzzy
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
@@ -1386,12 +1385,12 @@ msgstr "Doda kazalnike na pult"
 #: ../src/plugins/monitors/monitors.c:284
 #, c-format
 msgid "CPU usage: %.2f%%"
-msgstr ""
+msgstr "Uporaba CPE: %.2f% %"
 
 #: ../src/plugins/monitors/monitors.c:367
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
-msgstr ""
+msgstr "Poraba pomnilnika: %.1f MB (%.2f% %)"
 
 #: ../src/plugins/monitors/monitors.c:712
 msgid "CPU color"
@@ -1406,9 +1405,8 @@ msgid "RAM color"
 msgstr "Barva pomnilnika"
 
 #: ../src/plugins/monitors/monitors.c:715
-#, fuzzy
 msgid "Action when clicked (default: lxtask)"
-msgstr "Dejanje ob kliku (privzeto pokaže koledar)"
+msgstr "Dejanje ob kliku (privzeto: lxtask)"
 
 #: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"
