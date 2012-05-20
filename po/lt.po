@@ -2,21 +2,22 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Algimantas Margevičius <margevicius.algimantas@gmail.com>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-20 15:58+0200\n"
-"PO-Revision-Date: 2012-05-17 09:15+0200\n"
-"Last-Translator: Algimantas <margevicius.algimantas@mail.ru>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2012-05-20 18:52+0300\n"
+"Last-Translator: Algimantas Margevičius <margevicius.algimantas@gmail.com>\n"
+"Language-Team: Lietuvių <>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2);\n"
+"%100<10 || n%100>=20) ? 1 : 2)\n"
 "X-Generator: Pootle 2.0.5\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
@@ -574,9 +575,7 @@ msgstr "Patarimų formatas"
 
 #: ../src/plugins/dclock.c:436
 msgid "Format codes: man 3 strftime; \\n for line break"
-msgstr ""
-"Formatų kodai: man 3 strftime; \\n"
-" naujai eilutei"
+msgstr "Formatų kodai: man 3 strftime; \\n naujai eilutei"
 
 #: ../src/plugins/dclock.c:437
 msgid "Action when clicked (default: display calendar)"
@@ -794,12 +793,12 @@ msgid "Mute"
 msgstr "Nutildyti"
 
 #: ../src/plugins/volumealsa/volumealsa.c:602
-#, fuzzy
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
 msgstr ""
-"Klaida, turite įdiegti programą kuri valdys garsą (pavucontrol, alsamixer...)"
+"Klaida, norint konfigūruoti garsą turite įdiegti tam skirtą programą "
+"(pavucontrol, alsamixer...)"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
@@ -1076,7 +1075,7 @@ msgstr "AMPR NET/ROM"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:873
 msgid "Ethernet"
-msgstr "Ethernet"
+msgstr "Laidinis"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:879
 msgid "AMPR AX.25"
@@ -1129,7 +1128,7 @@ msgstr "Generic X.25"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:930
 msgid "Point-to-Point Protocol"
-msgstr "Point-to-Point Protocol"
+msgstr "Point-to-Point protokolas"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:936
 msgid "(Cisco)-HDLC"
@@ -1381,12 +1380,12 @@ msgstr "Pridėti indikatoriaus programėlę į skydelį"
 #: ../src/plugins/monitors/monitors.c:284
 #, c-format
 msgid "CPU usage: %.2f%%"
-msgstr ""
+msgstr "CPU apkrova: %.2f%%"
 
 #: ../src/plugins/monitors/monitors.c:367
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
-msgstr ""
+msgstr "RAM apkrova: %.1fMB (%.2f%%)"
 
 #: ../src/plugins/monitors/monitors.c:712
 msgid "CPU color"
@@ -1401,9 +1400,8 @@ msgid "RAM color"
 msgstr "RAM spalva"
 
 #: ../src/plugins/monitors/monitors.c:715
-#, fuzzy
 msgid "Action when clicked (default: lxtask)"
-msgstr "Veiksmas paspaudus (numatyta: rodyti kalendorių)"
+msgstr "Veiksmas paspaudus (numatytasis: lxtask)"
 
 #: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"
