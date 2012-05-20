@@ -2,12 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Gheyret Kenji <gheyret@gmail.com>, 2011.
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-04 15:41+0100\n"
+"POT-Creation-Date: 2012-05-20 15:58+0200\n"
 "PO-Revision-Date: 2012-02-07 10:10+0200\n"
 "Last-Translator: Gheyret <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.0.5\n"
 
-#: ../src/configurator.c:54 ../src/gtk-run.c:319
+#: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
 msgstr "ئىجرا قىلىش"
 
@@ -62,150 +62,154 @@ msgstr "بىر ھۆججەت تاللاڭ"
 msgid "_Browse"
 msgstr "كۆز يۈگۈرت(_B)"
 
-#: ../src/panel.c:651
+#: ../src/panel.c:657
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
-msgstr "كۆزنەكچىنى راستلا ئۆچۈرەمسىز؟\n"
+msgstr ""
+"كۆزنەكچىنى راستلا ئۆچۈرەمسىز؟\n"
 "<b>ئاگاھلاندۇرۇش: بۇ ئەسلىگە كەلتۈرگىلى بولمايدۇ.</b>"
 
-#: ../src/panel.c:653
+#: ../src/panel.c:659
 msgid "Confirm"
 msgstr "جەزملە"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:686
+#: ../src/panel.c:692
 msgid "translator-credits"
 msgstr "Gheyret Kenji <gheyret@gmail.com>"
 
-#: ../src/panel.c:691
+#: ../src/panel.c:697
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:693
+#: ../src/panel.c:699
 msgid "Copyright (C) 2008-2011"
 msgstr "نەشر ھوقۇقى (C) 2008-2011"
 
-#: ../src/panel.c:694
+#: ../src/panel.c:700
 msgid "Desktop panel for LXDE project"
 msgstr "LXDE قۇرۇلۇشىدىكى ئۈستەلئۈستى كۆزنەكچىسى"
 
-#: ../src/panel.c:717
+#: ../src/panel.c:723
 msgid "Add / Remove Panel Items"
 msgstr "كۆزنەكچە قوشۇش/چىقىرىۋېتىش"
 
-#: ../src/panel.c:725
+#: ../src/panel.c:731
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "«%s» نى كۆزنەكچىدىن چىقىرىۋېتىش"
 
-#: ../src/panel.c:737
+#: ../src/panel.c:743
 msgid "Panel Settings"
 msgstr "تاختاي تەڭشىكى"
 
-#: ../src/panel.c:743
+#: ../src/panel.c:749
 msgid "Create New Panel"
 msgstr "يېڭى كۆزنەكچە قۇرۇش"
 
-#: ../src/panel.c:754
+#: ../src/panel.c:760
 msgid "Delete This Panel"
 msgstr "بۇ كۆزنەكچىنى ئۆچۈرۈش"
 
-#: ../src/panel.c:765
+#: ../src/panel.c:771
 msgid "About"
 msgstr "ھەققىدە"
 
-#: ../src/panel.c:773
+#: ../src/panel.c:779
 msgid "Panel"
 msgstr "كۆزنەكچە"
 
-#: ../src/panel.c:786
+#: ../src/panel.c:792
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "«%s» تەڭشىكى"
 
-#: ../src/panel.c:1042 ../src/panel.c:1050 ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:1048 ../src/panel.c:1056 ../data/ui/panel-pref.glade.h:16
 msgid "Height:"
 msgstr "ئېگىزلىك:"
 
-#: ../src/panel.c:1043 ../src/panel.c:1049 ../data/ui/panel-pref.glade.h:40
+#: ../src/panel.c:1049 ../src/panel.c:1055 ../data/ui/panel-pref.glade.h:15
 msgid "Width:"
 msgstr "كەڭلىك:"
 
-#: ../src/panel.c:1044 ../data/ui/panel-pref.glade.h:23
+#: ../src/panel.c:1050 ../data/ui/panel-pref.glade.h:11
 msgid "Left"
 msgstr "سول"
 
-#: ../src/panel.c:1045 ../data/ui/panel-pref.glade.h:32
+#: ../src/panel.c:1051 ../data/ui/panel-pref.glade.h:12
 msgid "Right"
 msgstr "ئوڭ"
 
-#: ../src/panel.c:1051 ../data/ui/panel-pref.glade.h:39
+#: ../src/panel.c:1057 ../data/ui/panel-pref.glade.h:10
 msgid "Top"
 msgstr "ئۈستى"
 
-#: ../src/panel.c:1052 ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:1058 ../data/ui/panel-pref.glade.h:9
 msgid "Bottom"
 msgstr "ئاستى"
 
-#: ../src/panel.c:1460
+#: ../src/panel.c:1466
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr "lxpanel %s - بولسا يۇنىكىس(UNIX) ئۈستەلئۈستىلىرى ئۈچۈن يېنىك بولغان  GTK2+ كۆزنەكچىسىدۇر\n"
+msgstr ""
+"lxpanel %s - بولسا يۇنىكىس(UNIX) ئۈستەلئۈستىلىرى ئۈچۈن يېنىك بولغان  GTK2+ "
+"كۆزنەكچىسىدۇر\n"
 
-#: ../src/panel.c:1461
+#: ../src/panel.c:1467
 #, c-format
 msgid "Command line options:\n"
 msgstr "بۇيرۇق قۇرى تاللانمىلىرى:\n"
 
-#: ../src/panel.c:1462
+#: ../src/panel.c:1468
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- مۇشۇ ياردەمنى كۆرسىتىپ ئاخىرلىشىدۇ\n"
 
-#: ../src/panel.c:1463
+#: ../src/panel.c:1469
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- نەشر ئۇچۇرىنى بېسىپ چىقىرىپ ئاخىرلىشىدۇ\n"
 
-#: ../src/panel.c:1464
+#: ../src/panel.c:1470
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1466
+#: ../src/panel.c:1472
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- use specified profile\n"
 
-#: ../src/panel.c:1468
+#: ../src/panel.c:1474
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- بۇ --help بىلەن ئوخشاش\n"
 
-#: ../src/panel.c:1469
+#: ../src/panel.c:1475
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- بۇ --profile بىلەن ئوخشاش\n"
 
-#: ../src/panel.c:1470
+#: ../src/panel.c:1476
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- بۇ --version بىلەن ئوخشاش\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1472
+#: ../src/panel.c:1478
 #, c-format
 msgid ""
 "\n"
 "Visit http://lxde.org/ for detail.\n"
 "\n"
-msgstr "\n"
+msgstr ""
+"\n"
 "تەپسىلاتى ئۈچۈن http://lxde.org/ نى زىيارەت قىلىڭ\n"
 "\n"
 
-#: ../src/gtk-run.c:332
+#: ../src/gtk-run.c:373
 msgid "Enter the command you want to execute:"
 msgstr "ئىجرا قىلماقچى بولغان بۇيرۇقنى بۇ يەرگە كىرگۈزۈڭ:"
 
@@ -213,253 +217,233 @@ msgstr "ئىجرا قىلماقچى بولغان بۇيرۇقنى بۇ يەرگ�
 msgid "Application Launch Bar"
 msgstr "پروگرامما ئىجرا بالدىقى"
 
-#: ../data/ui/netstatus.glade.h:2
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
-#, no-c-format
-msgid "0%"
-msgstr "0%"
-
-#: ../data/ui/netstatus.glade.h:3
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
-msgid "<b>Activity</b>"
-msgstr "<b>پائالىيەت</b>"
-
-#: ../data/ui/netstatus.glade.h:4
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
+#: ../data/ui/netstatus.glade.h:1
 msgid "<b>Connection</b>"
 msgstr "<b>باغلىنىش</b>"
 
+#: ../data/ui/netstatus.glade.h:2
+msgid "Status:"
+msgstr "ھالەت:"
+
+#: ../data/ui/netstatus.glade.h:3
+msgid "_Name:"
+msgstr "ئاتى(_N):"
+
+#: ../data/ui/netstatus.glade.h:4
+msgid "<b>Activity</b>"
+msgstr "<b>پائالىيەت</b>"
+
 #: ../data/ui/netstatus.glade.h:5
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
-msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr "<b>ئىنتېرنېت كېلىشىمى(IPv4)</b>"
+msgid "Received:"
+msgstr "تاپشۇرۇۋالغىنى:"
 
 #: ../data/ui/netstatus.glade.h:6
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
-msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr "<b>ئىنتېرنېت كېلىشىمى(IPv6)</b>"
+msgid "Sent:"
+msgstr "يوللانغىنى:"
 
 #: ../data/ui/netstatus.glade.h:7
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
-msgid "<b>Network Device</b>"
-msgstr "<b>تور ئۈسكۈنىسى</b>"
-
-#: ../data/ui/netstatus.glade.h:8
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
 msgid "<b>Signal Strength</b>"
 msgstr "<b>سىگنالنىڭ كۈچلۈكلۈكى</b>"
 
 #: ../data/ui/netstatus.glade.h:9
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
-msgid "Address:"
-msgstr "ئادرېس:"
+#, no-c-format
+msgid "0%"
+msgstr "0%"
 
-#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
-#: ../src/plugins/netstat/netstat.c:330
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-msgid "Broadcast:"
-msgstr "تارقىتىش:"
-
-#: ../data/ui/netstatus.glade.h:11
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
-msgid "Con_figure"
-msgstr "سەپلىمە(_F)"
-
-#: ../data/ui/netstatus.glade.h:12
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
-msgid "Destination:"
-msgstr "نىشان:"
-
-#: ../data/ui/netstatus.glade.h:13
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
+#: ../data/ui/netstatus.glade.h:10
 msgid "General"
 msgstr "ئادەتتىكى"
 
-#: ../data/ui/netstatus.glade.h:14
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
-msgid "Received:"
-msgstr "تاپشۇرۇۋالغىنى:"
+#: ../data/ui/netstatus.glade.h:11
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr "<b>ئىنتېرنېت كېلىشىمى(IPv4)</b>"
+
+#: ../data/ui/netstatus.glade.h:12
+msgid "Address:"
+msgstr "ئادرېس:"
+
+#: ../data/ui/netstatus.glade.h:13
+msgid "Destination:"
+msgstr "نىشان:"
+
+#: ../data/ui/netstatus.glade.h:14 ../src/plugins/netstat/netstat.c:333
+#: ../src/plugins/netstat/netstat.c:344
+msgid "Broadcast:"
+msgstr "تارقىتىش:"
 
 #: ../data/ui/netstatus.glade.h:15
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
-msgid "Scope:"
-msgstr "دائىرە:"
-
-#: ../data/ui/netstatus.glade.h:16
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
-msgid "Sent:"
-msgstr "يوللانغىنى:"
-
-#: ../data/ui/netstatus.glade.h:17
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
-msgid "Status:"
-msgstr "ھالەت:"
-
-#: ../data/ui/netstatus.glade.h:18
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
 msgid "Subnet Mask:"
 msgstr "تارماق تور ماسكىسى:"
 
-#: ../data/ui/netstatus.glade.h:19
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
-msgid "Support"
-msgstr "قوللاش"
+#: ../data/ui/netstatus.glade.h:16
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>ئىنتېرنېت كېلىشىمى(IPv6)</b>"
 
-#: ../data/ui/netstatus.glade.h:20
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
+#: ../data/ui/netstatus.glade.h:17
+msgid "Scope:"
+msgstr "دائىرە:"
+
+#: ../data/ui/netstatus.glade.h:18
+msgid "<b>Network Device</b>"
+msgstr "<b>تور ئۈسكۈنىسى</b>"
+
+#: ../data/ui/netstatus.glade.h:19
 msgid "Type:"
 msgstr "تىپى:"
 
+#: ../data/ui/netstatus.glade.h:20
+msgid "Support"
+msgstr "قوللاش"
+
 #: ../data/ui/netstatus.glade.h:21
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
-msgid "_Name:"
-msgstr "ئاتى(_N):"
+msgid "Con_figure"
+msgstr "سەپلىمە(_F)"
+
+#: ../data/ui/panel-pref.glade.h:1
+msgid "Dynamic"
+msgstr "ھەرىكەتچان"
 
 #: ../data/ui/panel-pref.glade.h:2
+msgid "Pixels"
+msgstr "پىكسېل"
+
+#: ../data/ui/panel-pref.glade.h:4
 #, no-c-format
 msgid "% Percent"
 msgstr "% پىرسەنت"
 
-#: ../data/ui/panel-pref.glade.h:3
-msgid "<b>Automatic hiding</b>"
-msgstr "<b>ئاپتوماتىك يوشۇرۇش</b>"
-
-#: ../data/ui/panel-pref.glade.h:4
-msgid "<b>Background</b>"
-msgstr "<b>تەگلىك رەڭگى</b>"
-
 #: ../data/ui/panel-pref.glade.h:5
-msgid "<b>Font</b>"
-msgstr "<b>خەت نۇسخىسى</b>"
+msgid "Panel Preferences"
+msgstr "كۆزنەكچە خاسلىقى"
 
 #: ../data/ui/panel-pref.glade.h:6
-msgid "<b>Icon</b>"
-msgstr "<b>سىنبەلگە</b>"
-
-#: ../data/ui/panel-pref.glade.h:7
-msgid "<b>Position</b>"
-msgstr "<b>ئورۇن</b>"
-
-#: ../data/ui/panel-pref.glade.h:8
-msgid "<b>Properties</b>"
-msgstr "<b>خاسلىق</b>"
-
-#: ../data/ui/panel-pref.glade.h:9
-msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>ئامراق پروگراممىلارنى بەلگىلەش</b>"
-
-#: ../data/ui/panel-pref.glade.h:10
-msgid "<b>Size</b>"
-msgstr "<b>چوڭلۇق</b>"
-
-#: ../data/ui/panel-pref.glade.h:11
-msgid "Advanced"
-msgstr "ئالىي"
-
-#: ../data/ui/panel-pref.glade.h:12
-msgid "Alignment:"
-msgstr "ئورۇنلاشتۇرۇش:"
-
-#: ../data/ui/panel-pref.glade.h:13
-msgid "Appearance"
-msgstr "كۆرۈنۈش"
-
-#: ../data/ui/panel-pref.glade.h:15
-msgid "Center"
-msgstr "مەركىزى"
-
-#: ../data/ui/panel-pref.glade.h:16
-msgid "Custom color"
-msgstr "ئىختىيارى رەڭ"
-
-#: ../data/ui/panel-pref.glade.h:17
-msgid "Dynamic"
-msgstr "ھەرىكەتچان"
-
-#: ../data/ui/panel-pref.glade.h:18
 msgid "Edge:"
 msgstr "گىرۋەك:"
 
+#: ../data/ui/panel-pref.glade.h:7
+msgid "Alignment:"
+msgstr "ئورۇنلاشتۇرۇش:"
+
+#: ../data/ui/panel-pref.glade.h:8
+msgid "Margin:"
+msgstr "گىرۋەك بوشلۇقى"
+
+#: ../data/ui/panel-pref.glade.h:13
+msgid "Center"
+msgstr "مەركىزى"
+
+#: ../data/ui/panel-pref.glade.h:14
+msgid "<b>Position</b>"
+msgstr "<b>ئورۇن</b>"
+
+#: ../data/ui/panel-pref.glade.h:17
+msgid "<b>Icon</b>"
+msgstr "<b>سىنبەلگە</b>"
+
+#: ../data/ui/panel-pref.glade.h:18
+msgid "pixels"
+msgstr "پىكسېللار"
+
 #: ../data/ui/panel-pref.glade.h:19
-msgid "File Manager:"
-msgstr "ھۆججەت باشقۇرغۇ:"
+msgid "<b>Size</b>"
+msgstr "<b>چوڭلۇق</b>"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "Geometry"
 msgstr "گېئومېتىرىيە"
 
+#: ../data/ui/panel-pref.glade.h:21
+msgid "System theme"
+msgstr "سىستېما ئۆرنىكى"
+
 #: ../data/ui/panel-pref.glade.h:22
+msgid "Solid color (with opacity)"
+msgstr "پۈتەي رەڭ (سۈزۈكلۈكى بار)"
+
+#: ../data/ui/panel-pref.glade.h:23
 msgid "Image"
 msgstr "سۈرەت"
 
 #: ../data/ui/panel-pref.glade.h:24
-msgid "Logout Command:"
-msgstr "چىقىش بۇيرۇقى:"
+msgid "Select an image file"
+msgstr "سۈرەت ھۆججىتىنى تاللاڭ"
 
 #: ../data/ui/panel-pref.glade.h:25
-msgid "Make window managers treat the panel as dock"
-msgstr "كۆزنەك باشقۇرغۇ كۆزنەكچىنى dock سۈپىتىدە بىر تەرەپ قىلسۇن"
+msgid "<b>Background</b>"
+msgstr "<b>تەگلىك رەڭگى</b>"
 
 #: ../data/ui/panel-pref.glade.h:26
-msgid "Margin:"
-msgstr "گىرۋەك بوشلۇقى"
+msgid "Custom color"
+msgstr "ئىختىيارى رەڭ"
 
-#: ../data/ui/panel-pref.glade.h:27
-msgid "Minimize panel when not in use"
-msgstr "ئىشلىتىلمىگەندە كۆزنەكچىنى كىچىكلەتسۇن"
+#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/space.c:125
+#: ../src/plugins/batt/batt.c:583
+msgid "Size"
+msgstr "چوڭلۇقى"
 
 #: ../data/ui/panel-pref.glade.h:28
+msgid "<b>Font</b>"
+msgstr "<b>خەت نۇسخىسى</b>"
+
+#: ../data/ui/panel-pref.glade.h:29
+msgid "Appearance"
+msgstr "كۆرۈنۈش"
+
+#: ../data/ui/panel-pref.glade.h:30
 msgid "Panel Applets"
 msgstr "كۆزنەكچە قوللانچاقلىرى"
 
-#: ../data/ui/panel-pref.glade.h:29
-msgid "Panel Preferences"
-msgstr "كۆزنەكچە خاسلىقى"
-
-#: ../data/ui/panel-pref.glade.h:30
-msgid "Pixels"
-msgstr "پىكسېل"
-
 #: ../data/ui/panel-pref.glade.h:31
+msgid "Logout Command:"
+msgstr "چىقىش بۇيرۇقى:"
+
+#: ../data/ui/panel-pref.glade.h:32
+msgid "Terminal Emulator:"
+msgstr "تېرمىنال تەقلىدلىگۈچى:"
+
+#: ../data/ui/panel-pref.glade.h:33
+msgid "File Manager:"
+msgstr "ھۆججەت باشقۇرغۇ:"
+
+#: ../data/ui/panel-pref.glade.h:34
+msgid "<b>Set Preferred Applications</b>"
+msgstr "<b>ئامراق پروگراممىلارنى بەلگىلەش</b>"
+
+#: ../data/ui/panel-pref.glade.h:35
+msgid "Make window managers treat the panel as dock"
+msgstr "كۆزنەك باشقۇرغۇ كۆزنەكچىنى dock سۈپىتىدە بىر تەرەپ قىلسۇن"
+
+#: ../data/ui/panel-pref.glade.h:36
 msgid "Reserve space, and not covered by maximized windows"
 msgstr ""
 "ئورۇن ئېلىپ قويۇش ئارقىلىق، ئەڭ چوڭ قىلىنغان كۆزنەكتە توسۇلۇپ قالمايدىغان "
 "قىلىش"
 
-#: ../data/ui/panel-pref.glade.h:33
-msgid "Select an image file"
-msgstr "سۈرەت ھۆججىتىنى تاللاڭ"
+#: ../data/ui/panel-pref.glade.h:37
+msgid "<b>Properties</b>"
+msgstr "<b>خاسلىق</b>"
 
-#: ../data/ui/panel-pref.glade.h:34 ../src/plugins/space.c:125
-#: ../src/plugins/batt/batt.c:583
-msgid "Size"
-msgstr "چوڭلۇقى"
+#: ../data/ui/panel-pref.glade.h:38
+msgid "Minimize panel when not in use"
+msgstr "ئىشلىتىلمىگەندە كۆزنەكچىنى كىچىكلەتسۇن"
 
-#: ../data/ui/panel-pref.glade.h:35
+#: ../data/ui/panel-pref.glade.h:39
 msgid "Size when minimized"
 msgstr "كىچىكلىتىلگەندىكى چوڭلۇقى"
 
-#: ../data/ui/panel-pref.glade.h:36
-msgid "Solid color (with opacity)"
-msgstr "پۈتەي رەڭ (سۈزۈكلۈكى بار)"
-
-#: ../data/ui/panel-pref.glade.h:37
-msgid "System theme"
-msgstr "سىستېما ئۆرنىكى"
-
-#: ../data/ui/panel-pref.glade.h:38
-msgid "Terminal Emulator:"
-msgstr "تېرمىنال تەقلىدلىگۈچى:"
+#: ../data/ui/panel-pref.glade.h:40
+msgid "<b>Automatic hiding</b>"
+msgstr "<b>ئاپتوماتىك يوشۇرۇش</b>"
 
 #: ../data/ui/panel-pref.glade.h:41
-msgid "pixels"
-msgstr "پىكسېللار"
+msgid "Advanced"
+msgstr "ئالىي"
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
 msgstr "CPU نىڭ ئىشلىتىلىشىنى كۆزەتكۈچ"
 
-#: ../src/plugins/cpu/cpu.c:270 ../src/plugins/monitors/monitors.c:653
+#: ../src/plugins/cpu/cpu.c:270 ../src/plugins/monitors/monitors.c:711
 msgid "Display CPU usage"
 msgstr "CPU نىڭ ئىشلىتىلىشىنى كۆرسىتىش"
 
@@ -591,7 +575,7 @@ msgstr "كۆرسەتمە پىچىمى"
 #: ../src/plugins/dclock.c:436
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr ""
-"پىچىم كودلىرى: man 3 strftime; \n"
+"پىچىم كودلىرى: man 3 strftime; \\n"
 " قۇر ئۆزگەرتىدۇ"
 
 #: ../src/plugins/dclock.c:437
@@ -622,15 +606,15 @@ msgstr "ئۈستەلئۈستىگە قوشۇش"
 msgid "Properties"
 msgstr "خاسلىق"
 
-#: ../src/plugins/menu.c:1085 ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1083 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "سىنبەلگە"
 
-#: ../src/plugins/menu.c:1102
+#: ../src/plugins/menu.c:1100
 msgid "Menu"
 msgstr "تىزىملىك"
 
-#: ../src/plugins/menu.c:1104
+#: ../src/plugins/menu.c:1102
 msgid "Application Menu"
 msgstr "پروگرامما تىزىملىكى"
 
@@ -721,7 +705,8 @@ msgstr "بارلىق كۆزنەكلەرنى ئەڭ كىچىك قىلىش"
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
-msgstr "ئۈستەلئۈستى كۆزنەكلىرىگە بۇيرۇق يوللايدۇ.\n"
+msgstr ""
+"ئۈستەلئۈستى كۆزنەكلىرىگە بۇيرۇق يوللايدۇ.\n"
 "ئىشلەتكىلى بولىدىغان بۇيرۇقلار: 1-سىنبەلگىلەشتۈرۈش 2-يۆگەش"
 
 #: ../src/plugins/dirmenu.c:246
@@ -742,182 +727,187 @@ msgstr "مۇندەرىجە تىزىملىكى"
 
 #: ../src/plugins/dirmenu.c:445
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr "مۇندەرىجىنىڭ دەرەخسىمان كۆرۈنۈشىنى تىزىملىك ئارقىلىق كۆرۈش(ئاپتور: PCMan)"
+msgstr ""
+"مۇندەرىجىنىڭ دەرەخسىمان كۆرۈنۈشىنى تىزىملىك ئارقىلىق كۆرۈش(ئاپتور: PCMan)"
 
-#: ../src/plugins/thermal/thermal.c:396
+#: ../src/plugins/thermal/thermal.c:474
 msgid "Normal"
 msgstr "نورمال"
 
-#: ../src/plugins/thermal/thermal.c:397
+#: ../src/plugins/thermal/thermal.c:475
 msgid "Warning1"
 msgstr "ئاگاھلاندۇرۇش1"
 
-#: ../src/plugins/thermal/thermal.c:398
+#: ../src/plugins/thermal/thermal.c:476
 msgid "Warning2"
 msgstr "ئاگاھلاندۇرۇش2"
 
-#: ../src/plugins/thermal/thermal.c:399
+#: ../src/plugins/thermal/thermal.c:477
 msgid "Automatic sensor location"
 msgstr "ئاپتوماتىك سەزگۈچنىڭ ئورنى"
 
-#: ../src/plugins/thermal/thermal.c:400
+#: ../src/plugins/thermal/thermal.c:478
 msgid "Sensor"
 msgstr "سەزگۈچ"
 
-#: ../src/plugins/thermal/thermal.c:401
+#: ../src/plugins/thermal/thermal.c:479
 msgid "Automatic temperature levels"
 msgstr "ئاپتوماتىك تېمپېراتۇرا دەرىجىلىرى"
 
-#: ../src/plugins/thermal/thermal.c:402
+#: ../src/plugins/thermal/thermal.c:480
 msgid "Warning1 Temperature"
 msgstr "ئاگاھلاندۇرۇش1 تېمپېراتۇرا"
 
-#: ../src/plugins/thermal/thermal.c:403
+#: ../src/plugins/thermal/thermal.c:481
 msgid "Warning2 Temperature"
 msgstr "ئاگاھلاندۇرۇش2 تېمپېراتۇرا"
 
-#: ../src/plugins/thermal/thermal.c:445
+#: ../src/plugins/thermal/thermal.c:525
 msgid "Temperature Monitor"
 msgstr "تېمپېراتۇرا كۆزەتكۈچ"
 
-#: ../src/plugins/thermal/thermal.c:447
+#: ../src/plugins/thermal/thermal.c:527
 msgid "Display system temperature"
 msgstr "سىستېما تېمپېراتۇرىسىنى كۆرسىتىش"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:279
-#: ../src/plugins/volumealsa/volumealsa.c:449
+#: ../src/plugins/volumealsa/volumealsa.c:339
+#: ../src/plugins/volumealsa/volumealsa.c:509
 msgid "Volume control"
 msgstr "ئاۋاز مىقدارىنى تىزگىنلەش"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:571
+#: ../src/plugins/volumealsa/volumealsa.c:629
 msgid "Volume Control"
 msgstr "ئاۋاز تىزگىنى"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:407
+#: ../src/plugins/volumealsa/volumealsa.c:467
 msgid "Volume"
 msgstr "ئاۋاز مىقدارى"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/volumealsa/volumealsa.c:426
+#: ../src/plugins/volumealsa/volumealsa.c:486
 msgid "Mute"
 msgstr "ئۈنسىز"
 
-#: ../src/plugins/volumealsa/volumealsa.c:544
+#: ../src/plugins/volumealsa/volumealsa.c:602
+#, fuzzy
 msgid ""
-"Error, you need to install a application to configure the sound (pavucontol, "
-"alsamixer ...)"
-msgstr "خاتالىق كۆرۈلدى، ئاۋازنى سەپلەش ئۈچۈن بىرەر پروگرامما ئورنىتىشىڭىز زۆرۈر (pavucontol، alsamixer … دېگەندەكلەرنى )"
+"Error, you need to install an application to configure the sound "
+"(pavucontol, alsamixer ...)"
+msgstr ""
+"خاتالىق كۆرۈلدى، ئاۋازنى سەپلەش ئۈچۈن بىرەر پروگرامما ئورنىتىشىڭىز زۆرۈر "
+"(pavucontol، alsamixer … دېگەندەكلەرنى )"
 
-#: ../src/plugins/netstat/netstat.c:168
+#: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
 msgstr "<يوشۇرۇن زىيارەت نۇقتىسى>"
 
-#: ../src/plugins/netstat/netstat.c:201
+#: ../src/plugins/netstat/netstat.c:213
 msgid "Wireless Networks not found in range"
 msgstr "دائىرىدىن سىمسىز تور تېپىلمىدى"
 
 #. Repair
-#: ../src/plugins/netstat/netstat.c:235
+#: ../src/plugins/netstat/netstat.c:247
 msgid "Repair"
 msgstr "تۈزەت"
 
 #. interface down
-#: ../src/plugins/netstat/netstat.c:240
+#: ../src/plugins/netstat/netstat.c:252
 msgid "Disable"
 msgstr "ئىناۋەتسىز"
 
-#: ../src/plugins/netstat/netstat.c:299
+#: ../src/plugins/netstat/netstat.c:313
 msgid "Wireless Connection has no connectivity"
 msgstr "سىمسىز تورغا باغلىنالمىدى"
 
-#: ../src/plugins/netstat/netstat.c:301
+#: ../src/plugins/netstat/netstat.c:315
 msgid "Network cable is plugged out"
 msgstr "تور سىمىنى چېتىلدى"
 
-#: ../src/plugins/netstat/netstat.c:303
+#: ../src/plugins/netstat/netstat.c:317
 msgid "Connection has limited or no connectivity"
 msgstr "باغلىنىشقا چەك قويۇلغان ياكى باغلىنالمىدى"
 
-#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
-#: ../src/plugins/netstat/netstat.c:329
+#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:343
 msgid "IP Address:"
 msgstr "IP ئادرېسى:"
 
-#: ../src/plugins/netstat/netstat.c:308
+#: ../src/plugins/netstat/netstat.c:322
 msgid "Remote IP:"
 msgstr "يىراقتىكى IP:"
 
-#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
-#: ../src/plugins/netstat/netstat.c:331
+#: ../src/plugins/netstat/netstat.c:323 ../src/plugins/netstat/netstat.c:334
+#: ../src/plugins/netstat/netstat.c:345
 msgid "Netmask:"
 msgstr "تور ماسكىسى:"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
-#: ../src/plugins/netstat/netstat.c:333
+#: ../src/plugins/netstat/netstat.c:324 ../src/plugins/netstat/netstat.c:336
+#: ../src/plugins/netstat/netstat.c:347
 msgid "Activity"
 msgstr "پائالىيەت"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
-#: ../src/plugins/netstat/netstat.c:333
+#: ../src/plugins/netstat/netstat.c:324 ../src/plugins/netstat/netstat.c:336
+#: ../src/plugins/netstat/netstat.c:347
 msgid "Sent"
 msgstr "يوللانغىنى"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
-#: ../src/plugins/netstat/netstat.c:333
+#: ../src/plugins/netstat/netstat.c:324 ../src/plugins/netstat/netstat.c:336
+#: ../src/plugins/netstat/netstat.c:347
 msgid "Received"
 msgstr "تاپشۇرۇۋالغىنى"
 
-#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
-#: ../src/plugins/netstat/netstat.c:334
+#: ../src/plugins/netstat/netstat.c:325 ../src/plugins/netstat/netstat.c:337
+#: ../src/plugins/netstat/netstat.c:348
 msgid "bytes"
 msgstr "بايت"
 
-#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
-#: ../src/plugins/netstat/netstat.c:335
+#: ../src/plugins/netstat/netstat.c:326 ../src/plugins/netstat/netstat.c:338
+#: ../src/plugins/netstat/netstat.c:349
 msgid "packets"
 msgstr "بوغچىمىلار"
 
-#: ../src/plugins/netstat/netstat.c:315
+#: ../src/plugins/netstat/netstat.c:329
 #: ../src/plugins/netstatus/netstatus-iface.c:173
 msgid "Wireless"
 msgstr "سىمسىز"
 
-#: ../src/plugins/netstat/netstat.c:317
+#: ../src/plugins/netstat/netstat.c:331
 msgid "Protocol:"
 msgstr "كېلىشىم:"
 
-#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:335 ../src/plugins/netstat/netstat.c:346
 msgid "HW Address:"
 msgstr "HW ئادرېسى:"
 
-#: ../src/plugins/netstat/netstat.c:470
+#: ../src/plugins/netstat/netstat.c:484
 msgid "Manage Networks"
 msgstr "تورلارنى باشقۇرۇش"
 
-#: ../src/plugins/netstat/netstat.c:472
+#: ../src/plugins/netstat/netstat.c:486
 msgid "Monitor and Manage networks"
 msgstr "تورلارنى كۆزىتىش ۋە باشقۇرۇش"
 
 #. create dialog
-#: ../src/plugins/netstat/passwd_gui.c:84
+#: ../src/plugins/netstat/passwd_gui.c:86
 msgid "Setting Encryption Key"
 msgstr "شىفىرلاش ئاچقۇچىنى بەلگىلەش"
 
 #. messages
-#: ../src/plugins/netstat/passwd_gui.c:94
+#: ../src/plugins/netstat/passwd_gui.c:96
 msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
-msgstr "مەزكۇر سىمسىز تور شىفىرلانغان.\n"
+msgstr ""
+"مەزكۇر سىمسىز تور شىفىرلانغان.\n"
 "سىزدە چوقۇم شىفىرلاش ئاچقۇچى بولۇشى كېرەك."
 
-#: ../src/plugins/netstat/passwd_gui.c:99
+#: ../src/plugins/netstat/passwd_gui.c:101
 msgid "Encryption Key:"
 msgstr "شىفىرلاش ئاچقۇچى:"
 
@@ -962,7 +952,8 @@ msgstr[0] "%lu بوغچا"
 msgid ""
 "There was an error displaying help:\n"
 "%s"
-msgstr "ياردەمنى كۆرسىتىشتە خاتالىق كۆرۈلدى: \n"
+msgstr ""
+"ياردەمنى كۆرسىتىشتە خاتالىق كۆرۈلدى: \n"
 "%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
@@ -979,45 +970,46 @@ msgstr "تور باغلىنىشى: %s"
 msgid "Network Connection"
 msgstr "تور باغلىنىشى"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:838
+#: ../src/plugins/netstatus/netstatus-icon.c:842
 msgid "Interface"
 msgstr "ئارايۈز"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:839
+#: ../src/plugins/netstatus/netstatus-icon.c:843
 msgid "The current interface the icon is monitoring."
 msgstr "نۆۋەتتە كۆزىتىلىۋاتقان ئېغىزنىڭ سىنبەلگىسى."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:846
+#: ../src/plugins/netstatus/netstatus-icon.c:850
 msgid "Orientation"
 msgstr "يۆنىلىش"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:847
+#: ../src/plugins/netstatus/netstatus-icon.c:851
 msgid "The orientation of the tray."
 msgstr "قوندۇرمىنىڭ يۆنىلىشى."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:855
+#: ../src/plugins/netstatus/netstatus-icon.c:859
 msgid "Tooltips Enabled"
 msgstr "كۆرسەتمە قوزغىتىلدى"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:856
+#: ../src/plugins/netstatus/netstatus-icon.c:860
 msgid "Whether or not the icon's tooltips are enabled."
 msgstr "سىنبەلگىنىڭ كۆرسەتمىلىرىنى قوزغىتامدۇق يوق."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:863
+#: ../src/plugins/netstatus/netstatus-icon.c:867
 msgid "Show Signal"
 msgstr "سىگنال كۆرسەت"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:864
+#: ../src/plugins/netstatus/netstatus-icon.c:868
 msgid "Whether or not the signal strength should be displayed."
 msgstr "سىگنال كۈچلۈكلۈكىنى كۆرسىتەمدۇ يوق."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:977
+#: ../src/plugins/netstatus/netstatus-icon.c:985
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
 "\n"
 "%s"
-msgstr "سىستېما باشقۇرغۇچىڭىز بىلەن ئالاقىلىشىپ تۆۋەندىكى مەسىلىنى ھەل قىلىڭ:\n"
+msgstr ""
+"سىستېما باشقۇرغۇچىڭىز بىلەن ئالاقىلىشىپ تۆۋەندىكى مەسىلىنى ھەل قىلىڭ:\n"
 "\n"
 "%s"
 
@@ -1214,7 +1206,9 @@ msgstr "'%s' دىن ئېغىزنى تەھلىل قىلالمىدى"
 msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
-msgstr "'%s' دىن ئېغىزنى تەھلىل قىلالمىدى. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgstr ""
+"'%s' دىن ئېغىزنى تەھلىل قىلالمىدى. prx_idx = %d; ptx_idx = %d; brx_idx = %d; "
+"btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1348,66 +1342,81 @@ msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "CapsLock، NumLock ۋە ScrollLock كۇنۇپكىلىرىنىڭ كۆرسەتكۈچ چىرىغى"
 
 #. A label to allow for click through
-#: ../src/plugins/indicator/indicator.c:561
+#: ../src/plugins/indicator/indicator.c:698
 msgid "No Indicators"
 msgstr "كۆرسىتىدىغان نەرسە يوق"
 
-#: ../src/plugins/indicator/indicator.c:751
+#: ../src/plugins/indicator/indicator.c:897
 msgid "Indicator Applications"
 msgstr "كۆرسەتكۈچ پروگراممىلىرى"
 
-#: ../src/plugins/indicator/indicator.c:752
+#: ../src/plugins/indicator/indicator.c:898
 msgid "Clock Indicator"
 msgstr "سائەت كۆرسەتكۈچ"
 
-#: ../src/plugins/indicator/indicator.c:753
+#: ../src/plugins/indicator/indicator.c:899
 msgid "Messaging Menu"
 msgstr "ئۇچۇر تىزىملىكى"
 
-#: ../src/plugins/indicator/indicator.c:754
+#: ../src/plugins/indicator/indicator.c:900
 msgid "Network Menu"
 msgstr "تور تىزىملىكى"
 
-#: ../src/plugins/indicator/indicator.c:755
+#: ../src/plugins/indicator/indicator.c:901
 msgid "Session Menu"
 msgstr "ئەڭگىمە تىزىملىكى"
 
-#: ../src/plugins/indicator/indicator.c:756
+#: ../src/plugins/indicator/indicator.c:902
 msgid "Sound Menu"
 msgstr "ئاۋاز تىزىملىكى"
 
-#: ../src/plugins/indicator/indicator.c:780
+#: ../src/plugins/indicator/indicator.c:928
 msgid "Indicator applets"
 msgstr "كۆرسەتكۈچ قوللانچىقى"
 
-#: ../src/plugins/indicator/indicator.c:782
+#: ../src/plugins/indicator/indicator.c:930
 msgid "Add indicator applets to the panel"
 msgstr "كۆرسەتكۈچ قوللانچىقىنى كۆزنەكچىگە قوشۇش"
 
-#: ../src/plugins/monitors/monitors.c:654
+#: ../src/plugins/monitors/monitors.c:284
+#, c-format
+msgid "CPU usage: %.2f%%"
+msgstr ""
+
+#: ../src/plugins/monitors/monitors.c:367
+#, c-format
+msgid "RAM usage: %.1fMB (%.2f%%)"
+msgstr ""
+
+#: ../src/plugins/monitors/monitors.c:712
 msgid "CPU color"
 msgstr "CPU رەڭگى"
 
-#: ../src/plugins/monitors/monitors.c:655
+#: ../src/plugins/monitors/monitors.c:713
 msgid "Display RAM usage"
 msgstr "RAM نىڭ ئىشلىتىلىش ئەھۋالىنى كۆرسىتىش"
 
-#: ../src/plugins/monitors/monitors.c:656
+#: ../src/plugins/monitors/monitors.c:714
 msgid "RAM color"
 msgstr "RAM رەڭگى"
 
-#: ../src/plugins/monitors/monitors.c:753
+#: ../src/plugins/monitors/monitors.c:715
+#, fuzzy
+msgid "Action when clicked (default: lxtask)"
+msgstr "چېكىلگەندىكى مەشغۇلات(كۆڭۈلدىكىسى: يىلنامىنى كۆرسىتىش)"
+
+#: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"
 msgstr "مەنبە كۆزەتكۈچلىرى"
 
-#: ../src/plugins/monitors/monitors.c:755
+#: ../src/plugins/monitors/monitors.c:810
 msgid "Display monitors (CPU, RAM)"
 msgstr "كۆزەتكۈلەرنى كۆرسىتىش(CPU، RAM)"
 
-#: ../src/plugins/wnckpager/wnckpager.c:721
+#: ../src/plugins/wnckpager/wnckpager.c:720
 msgid "WNCKPager"
 msgstr "WNCKPager"
 
-#: ../src/plugins/wnckpager/wnckpager.c:723
+#: ../src/plugins/wnckpager/wnckpager.c:722
 msgid "WNCKpager plugin"
 msgstr "WNCKpager قىستۇرمىسى"

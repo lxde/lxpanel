@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-04 15:41+0100\n"
+"POT-Creation-Date: 2012-05-20 15:58+0200\n"
 "PO-Revision-Date: 2009-07-23 20:11+0200\n"
 "Last-Translator: Muhammad Ali Makki <makki.ma@gmail.com>\n"
 "Language-Team: Urdu <makki.ma@gmail.com>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Poedit-Country: PAKISTAN\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: ../src/configurator.c:54 ../src/gtk-run.c:319
+#: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
 msgstr "چلائیں"
 
@@ -65,7 +65,7 @@ msgstr "فائل منتخب کریں"
 msgid "_Browse"
 msgstr "_انتخاب"
 
-#: ../src/panel.c:651
+#: ../src/panel.c:657
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -73,12 +73,12 @@ msgstr ""
 "کیا آپ واقعی اس پینل کو حذف کرنا چاہتے ہیں؟\n"
 "<b>انتباہ: اس عمل کی کوئی واپسی نہیں.</b>"
 
-#: ../src/panel.c:653
+#: ../src/panel.c:659
 msgid "Confirm"
 msgstr "تصدیق"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:686
+#: ../src/panel.c:692
 msgid "translator-credits"
 msgstr ""
 "محمد علی مکی\n"
@@ -88,124 +88,124 @@ msgstr ""
 "مکی کا بلاگ\n"
 "http://makki.urducoder.com"
 
-#: ../src/panel.c:691
+#: ../src/panel.c:697
 msgid "LXPanel"
 msgstr "ایل ایکس پینل"
 
-#: ../src/panel.c:693
+#: ../src/panel.c:699
 msgid "Copyright (C) 2008-2011"
 msgstr "کاپی رائٹ (C) 2008-2011"
 
-#: ../src/panel.c:694
+#: ../src/panel.c:700
 msgid "Desktop panel for LXDE project"
 msgstr "ڈیسک ٹاپ پینل برائے ایل ایکس ڈی ای پراجیکٹ"
 
-#: ../src/panel.c:717
+#: ../src/panel.c:723
 msgid "Add / Remove Panel Items"
 msgstr "پینل کے عناصر شامل / حذف کریں"
 
-#: ../src/panel.c:725
+#: ../src/panel.c:731
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "پینل سے \"%s\" کو حذف کریں"
 
-#: ../src/panel.c:737
+#: ../src/panel.c:743
 msgid "Panel Settings"
 msgstr "پینل ترتیبات"
 
-#: ../src/panel.c:743
+#: ../src/panel.c:749
 msgid "Create New Panel"
 msgstr "نیا پینل بنائیں"
 
-#: ../src/panel.c:754
+#: ../src/panel.c:760
 msgid "Delete This Panel"
 msgstr "یہ پینل حذف کریں"
 
-#: ../src/panel.c:765
+#: ../src/panel.c:771
 msgid "About"
 msgstr "بابت"
 
-#: ../src/panel.c:773
+#: ../src/panel.c:779
 msgid "Panel"
 msgstr "پینل"
 
-#: ../src/panel.c:786
+#: ../src/panel.c:792
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" ترتیبات"
 
-#: ../src/panel.c:1042 ../src/panel.c:1050 ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:1048 ../src/panel.c:1056 ../data/ui/panel-pref.glade.h:16
 msgid "Height:"
 msgstr "اونچائی:"
 
-#: ../src/panel.c:1043 ../src/panel.c:1049 ../data/ui/panel-pref.glade.h:40
+#: ../src/panel.c:1049 ../src/panel.c:1055 ../data/ui/panel-pref.glade.h:15
 msgid "Width:"
 msgstr "چوڑائی:"
 
-#: ../src/panel.c:1044 ../data/ui/panel-pref.glade.h:23
+#: ../src/panel.c:1050 ../data/ui/panel-pref.glade.h:11
 msgid "Left"
 msgstr "بائیں"
 
-#: ../src/panel.c:1045 ../data/ui/panel-pref.glade.h:32
+#: ../src/panel.c:1051 ../data/ui/panel-pref.glade.h:12
 msgid "Right"
 msgstr "دائیں"
 
-#: ../src/panel.c:1051 ../data/ui/panel-pref.glade.h:39
+#: ../src/panel.c:1057 ../data/ui/panel-pref.glade.h:10
 msgid "Top"
 msgstr "اوپر"
 
-#: ../src/panel.c:1052 ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:1058 ../data/ui/panel-pref.glade.h:9
 msgid "Bottom"
 msgstr "نیچے"
 
-#: ../src/panel.c:1460
+#: ../src/panel.c:1466
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "ایل ایکس پینل %s - ہلکا پھلکا GTK2+ پینل برائے یونکس ڈیسک ٹاپ\n"
 
-#: ../src/panel.c:1461
+#: ../src/panel.c:1467
 #, c-format
 msgid "Command line options:\n"
 msgstr "کمانڈ لائن اختیارات:\n"
 
-#: ../src/panel.c:1462
+#: ../src/panel.c:1468
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- اس ہدایت کو طبع کر کے برخاست کریں\n"
 
-#: ../src/panel.c:1463
+#: ../src/panel.c:1469
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- ورژن کی طباعت کر کے برخاست کریں\n"
 
-#: ../src/panel.c:1464
+#: ../src/panel.c:1470
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --لاگ <نمبر> -- لاگ سطح متعین کریں 0-5. 0 - کچھ نہیں 5 - چیٹی\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1466
+#: ../src/panel.c:1472
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --پروفائل کا نام -- معینہ پروفائل استعمال کریں\n"
 
-#: ../src/panel.c:1468
+#: ../src/panel.c:1474
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- بالکل جیسے --help\n"
 
-#: ../src/panel.c:1469
+#: ../src/panel.c:1475
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- بالکل جیسے --profile\n"
 
-#: ../src/panel.c:1470
+#: ../src/panel.c:1476
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- بالکل جیسے --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1472
+#: ../src/panel.c:1478
 #, c-format
 msgid ""
 "\n"
@@ -216,7 +216,7 @@ msgstr ""
 "مزید تفصیلات کے لیے  http://lxde.org/ کی زیارت کریں.\n"
 "\n"
 
-#: ../src/gtk-run.c:332
+#: ../src/gtk-run.c:373
 msgid "Enter the command you want to execute:"
 msgstr "چلانے کے لیے کمانڈ لکھیں:"
 
@@ -224,251 +224,231 @@ msgstr "چلانے کے لیے کمانڈ لکھیں:"
 msgid "Application Launch Bar"
 msgstr "اطلاقیہ چلانے کی پٹی"
 
-#: ../data/ui/netstatus.glade.h:2
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
-#, no-c-format
-msgid "0%"
-msgstr "0%"
-
-#: ../data/ui/netstatus.glade.h:3
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
-msgid "<b>Activity</b>"
-msgstr "<b>سرگرمی</b>"
-
-#: ../data/ui/netstatus.glade.h:4
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
+#: ../data/ui/netstatus.glade.h:1
 msgid "<b>Connection</b>"
 msgstr "<b>کنکشن</b>"
 
+#: ../data/ui/netstatus.glade.h:2
+msgid "Status:"
+msgstr "حالت:"
+
+#: ../data/ui/netstatus.glade.h:3
+msgid "_Name:"
+msgstr "_نام:"
+
+#: ../data/ui/netstatus.glade.h:4
+msgid "<b>Activity</b>"
+msgstr "<b>سرگرمی</b>"
+
 #: ../data/ui/netstatus.glade.h:5
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
-msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr "<b>انٹرنیٹ پروٹوکول (IPv4)</b>"
+msgid "Received:"
+msgstr "وصول کردہ:"
 
 #: ../data/ui/netstatus.glade.h:6
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
-msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr "<b>انٹرنیٹ پروٹوکول (IPv6)</b>"
+msgid "Sent:"
+msgstr "ارسال کردہ:"
 
 #: ../data/ui/netstatus.glade.h:7
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
-msgid "<b>Network Device</b>"
-msgstr "<b>نیٹ ورک ڈیوائس</b>"
-
-#: ../data/ui/netstatus.glade.h:8
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
 msgid "<b>Signal Strength</b>"
 msgstr "<b>سگنل کی قوت</b>"
 
 #: ../data/ui/netstatus.glade.h:9
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
-msgid "Address:"
-msgstr "پتہ:"
+#, no-c-format
+msgid "0%"
+msgstr "0%"
 
-#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
-#: ../src/plugins/netstat/netstat.c:330
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-msgid "Broadcast:"
-msgstr "نشریہ:"
-
-#: ../data/ui/netstatus.glade.h:11
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
-msgid "Con_figure"
-msgstr "_وضع کریں"
-
-#: ../data/ui/netstatus.glade.h:12
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
-msgid "Destination:"
-msgstr "سمت:"
-
-#: ../data/ui/netstatus.glade.h:13
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
+#: ../data/ui/netstatus.glade.h:10
 msgid "General"
 msgstr "عام"
 
-#: ../data/ui/netstatus.glade.h:14
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
-msgid "Received:"
-msgstr "وصول کردہ:"
+#: ../data/ui/netstatus.glade.h:11
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr "<b>انٹرنیٹ پروٹوکول (IPv4)</b>"
+
+#: ../data/ui/netstatus.glade.h:12
+msgid "Address:"
+msgstr "پتہ:"
+
+#: ../data/ui/netstatus.glade.h:13
+msgid "Destination:"
+msgstr "سمت:"
+
+#: ../data/ui/netstatus.glade.h:14 ../src/plugins/netstat/netstat.c:333
+#: ../src/plugins/netstat/netstat.c:344
+msgid "Broadcast:"
+msgstr "نشریہ:"
 
 #: ../data/ui/netstatus.glade.h:15
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
-msgid "Scope:"
-msgstr "احاطہ کار:"
-
-#: ../data/ui/netstatus.glade.h:16
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
-msgid "Sent:"
-msgstr "ارسال کردہ:"
-
-#: ../data/ui/netstatus.glade.h:17
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
-msgid "Status:"
-msgstr "حالت:"
-
-#: ../data/ui/netstatus.glade.h:18
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
 msgid "Subnet Mask:"
 msgstr "سب نیٹ ماسک:"
 
-#: ../data/ui/netstatus.glade.h:19
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
-msgid "Support"
-msgstr "معاونت"
+#: ../data/ui/netstatus.glade.h:16
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>انٹرنیٹ پروٹوکول (IPv6)</b>"
 
-#: ../data/ui/netstatus.glade.h:20
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
+#: ../data/ui/netstatus.glade.h:17
+msgid "Scope:"
+msgstr "احاطہ کار:"
+
+#: ../data/ui/netstatus.glade.h:18
+msgid "<b>Network Device</b>"
+msgstr "<b>نیٹ ورک ڈیوائس</b>"
+
+#: ../data/ui/netstatus.glade.h:19
 msgid "Type:"
 msgstr "نوعیت:"
 
+#: ../data/ui/netstatus.glade.h:20
+msgid "Support"
+msgstr "معاونت"
+
 #: ../data/ui/netstatus.glade.h:21
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
-msgid "_Name:"
-msgstr "_نام:"
+msgid "Con_figure"
+msgstr "_وضع کریں"
+
+#: ../data/ui/panel-pref.glade.h:1
+msgid "Dynamic"
+msgstr "محرک"
 
 #: ../data/ui/panel-pref.glade.h:2
+msgid "Pixels"
+msgstr "پکسل"
+
+#: ../data/ui/panel-pref.glade.h:4
 #, no-c-format
 msgid "% Percent"
 msgstr "% فیصد"
 
-#: ../data/ui/panel-pref.glade.h:3
-msgid "<b>Automatic hiding</b>"
-msgstr "<b>خودکارپوشیدگی</b>"
-
-#: ../data/ui/panel-pref.glade.h:4
-msgid "<b>Background</b>"
-msgstr "<b>پس منظر</b>"
-
 #: ../data/ui/panel-pref.glade.h:5
-msgid "<b>Font</b>"
-msgstr "<b>فونٹ</b>"
+msgid "Panel Preferences"
+msgstr "پینل ترجیحات"
 
 #: ../data/ui/panel-pref.glade.h:6
-msgid "<b>Icon</b>"
-msgstr "<b>آئکن</b>"
-
-#: ../data/ui/panel-pref.glade.h:7
-msgid "<b>Position</b>"
-msgstr "<b>مقام</b>"
-
-#: ../data/ui/panel-pref.glade.h:8
-msgid "<b>Properties</b>"
-msgstr "<b>خصوصیات</b>"
-
-#: ../data/ui/panel-pref.glade.h:9
-msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>ترجیحی اطلاقیے مرتب کریں</b>"
-
-#: ../data/ui/panel-pref.glade.h:10
-msgid "<b>Size</b>"
-msgstr "<b>حجم</b>"
-
-#: ../data/ui/panel-pref.glade.h:11
-msgid "Advanced"
-msgstr "اعلی"
-
-#: ../data/ui/panel-pref.glade.h:12
-msgid "Alignment:"
-msgstr "ہمواری:"
-
-#: ../data/ui/panel-pref.glade.h:13
-msgid "Appearance"
-msgstr "مظہر"
-
-#: ../data/ui/panel-pref.glade.h:15
-msgid "Center"
-msgstr "درمیان"
-
-#: ../data/ui/panel-pref.glade.h:16
-msgid "Custom color"
-msgstr "صوابدیدی رنگ"
-
-#: ../data/ui/panel-pref.glade.h:17
-msgid "Dynamic"
-msgstr "محرک"
-
-#: ../data/ui/panel-pref.glade.h:18
 msgid "Edge:"
 msgstr "کنارہ:"
 
+#: ../data/ui/panel-pref.glade.h:7
+msgid "Alignment:"
+msgstr "ہمواری:"
+
+#: ../data/ui/panel-pref.glade.h:8
+msgid "Margin:"
+msgstr "حاشیہ:"
+
+#: ../data/ui/panel-pref.glade.h:13
+msgid "Center"
+msgstr "درمیان"
+
+#: ../data/ui/panel-pref.glade.h:14
+msgid "<b>Position</b>"
+msgstr "<b>مقام</b>"
+
+#: ../data/ui/panel-pref.glade.h:17
+msgid "<b>Icon</b>"
+msgstr "<b>آئکن</b>"
+
+#: ../data/ui/panel-pref.glade.h:18
+msgid "pixels"
+msgstr "پکسلز"
+
 #: ../data/ui/panel-pref.glade.h:19
-msgid "File Manager:"
-msgstr "فائل منیجر:"
+msgid "<b>Size</b>"
+msgstr "<b>حجم</b>"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "Geometry"
 msgstr "جیومیٹری"
 
+#: ../data/ui/panel-pref.glade.h:21
+msgid "System theme"
+msgstr "نظام کی تھیم"
+
 #: ../data/ui/panel-pref.glade.h:22
+msgid "Solid color (with opacity)"
+msgstr "ٹھوس رنگ (بمع دھندلاپن)"
+
+#: ../data/ui/panel-pref.glade.h:23
 msgid "Image"
 msgstr "تصویر"
 
 #: ../data/ui/panel-pref.glade.h:24
-msgid "Logout Command:"
-msgstr "لاگ آؤٹ کمانڈ:"
-
-#: ../data/ui/panel-pref.glade.h:25
-msgid "Make window managers treat the panel as dock"
-msgstr "ونڈو منیجر پینل کے ساتھ ڈوک کا سلوک کرے"
-
-#: ../data/ui/panel-pref.glade.h:26
-msgid "Margin:"
-msgstr "حاشیہ:"
-
-#: ../data/ui/panel-pref.glade.h:27
-msgid "Minimize panel when not in use"
-msgstr "جب استعمال میں نہ ہو پینل نیچے کریں"
-
-#: ../data/ui/panel-pref.glade.h:28
-msgid "Panel Applets"
-msgstr "پینل ایپلیٹ"
-
-#: ../data/ui/panel-pref.glade.h:29
-msgid "Panel Preferences"
-msgstr "پینل ترجیحات"
-
-#: ../data/ui/panel-pref.glade.h:30
-msgid "Pixels"
-msgstr "پکسل"
-
-#: ../data/ui/panel-pref.glade.h:31
-msgid "Reserve space, and not covered by maximized windows"
-msgstr "محفوظ شدہ خلاء، جو بڑی کی ہوئی ونڈوز کی طرف سے احاطہ شدہ نہیں ہے"
-
-#: ../data/ui/panel-pref.glade.h:33
 msgid "Select an image file"
 msgstr "تصویر فائل منتخب کریں"
 
-#: ../data/ui/panel-pref.glade.h:34 ../src/plugins/space.c:125
+#: ../data/ui/panel-pref.glade.h:25
+msgid "<b>Background</b>"
+msgstr "<b>پس منظر</b>"
+
+#: ../data/ui/panel-pref.glade.h:26
+msgid "Custom color"
+msgstr "صوابدیدی رنگ"
+
+#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/space.c:125
 #: ../src/plugins/batt/batt.c:583
 msgid "Size"
 msgstr "حجم"
 
-#: ../data/ui/panel-pref.glade.h:35
-msgid "Size when minimized"
-msgstr "نیچے کرنے کے دروان حجم"
+#: ../data/ui/panel-pref.glade.h:28
+msgid "<b>Font</b>"
+msgstr "<b>فونٹ</b>"
 
-#: ../data/ui/panel-pref.glade.h:36
-msgid "Solid color (with opacity)"
-msgstr "ٹھوس رنگ (بمع دھندلاپن)"
+#: ../data/ui/panel-pref.glade.h:29
+msgid "Appearance"
+msgstr "مظہر"
 
-#: ../data/ui/panel-pref.glade.h:37
-msgid "System theme"
-msgstr "نظام کی تھیم"
+#: ../data/ui/panel-pref.glade.h:30
+msgid "Panel Applets"
+msgstr "پینل ایپلیٹ"
 
-#: ../data/ui/panel-pref.glade.h:38
+#: ../data/ui/panel-pref.glade.h:31
+msgid "Logout Command:"
+msgstr "لاگ آؤٹ کمانڈ:"
+
+#: ../data/ui/panel-pref.glade.h:32
 msgid "Terminal Emulator:"
 msgstr "ٹرمنل ایمولیٹر:"
 
+#: ../data/ui/panel-pref.glade.h:33
+msgid "File Manager:"
+msgstr "فائل منیجر:"
+
+#: ../data/ui/panel-pref.glade.h:34
+msgid "<b>Set Preferred Applications</b>"
+msgstr "<b>ترجیحی اطلاقیے مرتب کریں</b>"
+
+#: ../data/ui/panel-pref.glade.h:35
+msgid "Make window managers treat the panel as dock"
+msgstr "ونڈو منیجر پینل کے ساتھ ڈوک کا سلوک کرے"
+
+#: ../data/ui/panel-pref.glade.h:36
+msgid "Reserve space, and not covered by maximized windows"
+msgstr "محفوظ شدہ خلاء، جو بڑی کی ہوئی ونڈوز کی طرف سے احاطہ شدہ نہیں ہے"
+
+#: ../data/ui/panel-pref.glade.h:37
+msgid "<b>Properties</b>"
+msgstr "<b>خصوصیات</b>"
+
+#: ../data/ui/panel-pref.glade.h:38
+msgid "Minimize panel when not in use"
+msgstr "جب استعمال میں نہ ہو پینل نیچے کریں"
+
+#: ../data/ui/panel-pref.glade.h:39
+msgid "Size when minimized"
+msgstr "نیچے کرنے کے دروان حجم"
+
+#: ../data/ui/panel-pref.glade.h:40
+msgid "<b>Automatic hiding</b>"
+msgstr "<b>خودکارپوشیدگی</b>"
+
 #: ../data/ui/panel-pref.glade.h:41
-msgid "pixels"
-msgstr "پکسلز"
+msgid "Advanced"
+msgstr "اعلی"
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
 msgstr "سی پی یو استعمال معائنہ کار"
 
-#: ../src/plugins/cpu/cpu.c:270 ../src/plugins/monitors/monitors.c:653
+#: ../src/plugins/cpu/cpu.c:270 ../src/plugins/monitors/monitors.c:711
 msgid "Display CPU usage"
 msgstr "سی پی یو کا استعمال ظاہر کریں"
 
@@ -632,15 +612,15 @@ msgstr "ڈیسک ٹاپ میں شامل کریں"
 msgid "Properties"
 msgstr "خصوصیات"
 
-#: ../src/plugins/menu.c:1085 ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1083 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "آئکن"
 
-#: ../src/plugins/menu.c:1102
+#: ../src/plugins/menu.c:1100
 msgid "Menu"
 msgstr "فہرست"
 
-#: ../src/plugins/menu.c:1104
+#: ../src/plugins/menu.c:1102
 msgid "Application Menu"
 msgstr "اطلاقیہ مینیو"
 
@@ -754,43 +734,43 @@ msgstr "ڈائریکٹری فہرست"
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "ڈائریکٹری شجرہ بذریعہ مینیو دیکھیں (مصنف: پی سی مین)"
 
-#: ../src/plugins/thermal/thermal.c:396
+#: ../src/plugins/thermal/thermal.c:474
 msgid "Normal"
 msgstr "سادہ"
 
-#: ../src/plugins/thermal/thermal.c:397
+#: ../src/plugins/thermal/thermal.c:475
 msgid "Warning1"
 msgstr "انتباہ1"
 
-#: ../src/plugins/thermal/thermal.c:398
+#: ../src/plugins/thermal/thermal.c:476
 msgid "Warning2"
 msgstr "انتباہ2"
 
-#: ../src/plugins/thermal/thermal.c:399
+#: ../src/plugins/thermal/thermal.c:477
 msgid "Automatic sensor location"
 msgstr "خودکار حساس کا مقام"
 
-#: ../src/plugins/thermal/thermal.c:400
+#: ../src/plugins/thermal/thermal.c:478
 msgid "Sensor"
 msgstr "حساس"
 
-#: ../src/plugins/thermal/thermal.c:401
+#: ../src/plugins/thermal/thermal.c:479
 msgid "Automatic temperature levels"
 msgstr "خودکار ٹمپریچر درجہ"
 
-#: ../src/plugins/thermal/thermal.c:402
+#: ../src/plugins/thermal/thermal.c:480
 msgid "Warning1 Temperature"
 msgstr "انتباہ1 ٹمپریچر"
 
-#: ../src/plugins/thermal/thermal.c:403
+#: ../src/plugins/thermal/thermal.c:481
 msgid "Warning2 Temperature"
 msgstr "انتباہ2 ٹمپریچر"
 
-#: ../src/plugins/thermal/thermal.c:445
+#: ../src/plugins/thermal/thermal.c:525
 msgid "Temperature Monitor"
 msgstr "ٹمپریچر معائنہ کار"
 
-#: ../src/plugins/thermal/thermal.c:447
+#: ../src/plugins/thermal/thermal.c:527
 #, fuzzy
 msgid "Display system temperature"
 msgstr "نظام کا ٹمپریچر ظاہر کریں، از kesler.daniel@gmail.com"
@@ -798,130 +778,130 @@ msgstr "نظام کا ٹمپریچر ظاہر کریں، از kesler.daniel@gmai
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:279
-#: ../src/plugins/volumealsa/volumealsa.c:449
+#: ../src/plugins/volumealsa/volumealsa.c:339
+#: ../src/plugins/volumealsa/volumealsa.c:509
 msgid "Volume control"
 msgstr "آواز فیصد"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:571
+#: ../src/plugins/volumealsa/volumealsa.c:629
 msgid "Volume Control"
 msgstr "آواز کنٹرول"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:407
+#: ../src/plugins/volumealsa/volumealsa.c:467
 msgid "Volume"
 msgstr "آواز"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/volumealsa/volumealsa.c:426
+#: ../src/plugins/volumealsa/volumealsa.c:486
 msgid "Mute"
 msgstr "آواز بند"
 
-#: ../src/plugins/volumealsa/volumealsa.c:544
+#: ../src/plugins/volumealsa/volumealsa.c:602
 msgid ""
-"Error, you need to install a application to configure the sound (pavucontol, "
-"alsamixer ...)"
+"Error, you need to install an application to configure the sound "
+"(pavucontol, alsamixer ...)"
 msgstr ""
 
-#: ../src/plugins/netstat/netstat.c:168
+#: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
 msgstr "<پوشیدہ نقطہ رسائی>"
 
-#: ../src/plugins/netstat/netstat.c:201
+#: ../src/plugins/netstat/netstat.c:213
 msgid "Wireless Networks not found in range"
 msgstr "حد کے اندر کوئی وائرلیس نیٹ ورک نہیں پایا گیا"
 
 #. Repair
-#: ../src/plugins/netstat/netstat.c:235
+#: ../src/plugins/netstat/netstat.c:247
 msgid "Repair"
 msgstr "اصلاح کریں"
 
 #. interface down
-#: ../src/plugins/netstat/netstat.c:240
+#: ../src/plugins/netstat/netstat.c:252
 msgid "Disable"
 msgstr "معطل کریں"
 
-#: ../src/plugins/netstat/netstat.c:299
+#: ../src/plugins/netstat/netstat.c:313
 msgid "Wireless Connection has no connectivity"
 msgstr "وائرلیس اتصال میں کوئی اتصال نہیں"
 
-#: ../src/plugins/netstat/netstat.c:301
+#: ../src/plugins/netstat/netstat.c:315
 msgid "Network cable is plugged out"
 msgstr "نیٹ ورک کیبل نکال دی گئی"
 
-#: ../src/plugins/netstat/netstat.c:303
+#: ../src/plugins/netstat/netstat.c:317
 msgid "Connection has limited or no connectivity"
 msgstr "اتصال محدود کردیا گیا یا کوئی اتصال ہی نہیں ہے"
 
-#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
-#: ../src/plugins/netstat/netstat.c:329
+#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:343
 msgid "IP Address:"
 msgstr "آئی پی پتہ:"
 
-#: ../src/plugins/netstat/netstat.c:308
+#: ../src/plugins/netstat/netstat.c:322
 msgid "Remote IP:"
 msgstr "بعید آئی پی:"
 
-#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
-#: ../src/plugins/netstat/netstat.c:331
+#: ../src/plugins/netstat/netstat.c:323 ../src/plugins/netstat/netstat.c:334
+#: ../src/plugins/netstat/netstat.c:345
 msgid "Netmask:"
 msgstr "نیٹ ماسک:"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
-#: ../src/plugins/netstat/netstat.c:333
+#: ../src/plugins/netstat/netstat.c:324 ../src/plugins/netstat/netstat.c:336
+#: ../src/plugins/netstat/netstat.c:347
 msgid "Activity"
 msgstr "سرگرمی"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
-#: ../src/plugins/netstat/netstat.c:333
+#: ../src/plugins/netstat/netstat.c:324 ../src/plugins/netstat/netstat.c:336
+#: ../src/plugins/netstat/netstat.c:347
 msgid "Sent"
 msgstr "ارسال کردہ"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
-#: ../src/plugins/netstat/netstat.c:333
+#: ../src/plugins/netstat/netstat.c:324 ../src/plugins/netstat/netstat.c:336
+#: ../src/plugins/netstat/netstat.c:347
 msgid "Received"
 msgstr "وصول کردہ"
 
-#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
-#: ../src/plugins/netstat/netstat.c:334
+#: ../src/plugins/netstat/netstat.c:325 ../src/plugins/netstat/netstat.c:337
+#: ../src/plugins/netstat/netstat.c:348
 msgid "bytes"
 msgstr "بائٹس"
 
-#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
-#: ../src/plugins/netstat/netstat.c:335
+#: ../src/plugins/netstat/netstat.c:326 ../src/plugins/netstat/netstat.c:338
+#: ../src/plugins/netstat/netstat.c:349
 msgid "packets"
 msgstr "پیکٹس"
 
-#: ../src/plugins/netstat/netstat.c:315
+#: ../src/plugins/netstat/netstat.c:329
 #: ../src/plugins/netstatus/netstatus-iface.c:173
 msgid "Wireless"
 msgstr "وائیرلیس"
 
-#: ../src/plugins/netstat/netstat.c:317
+#: ../src/plugins/netstat/netstat.c:331
 msgid "Protocol:"
 msgstr "پروٹوکول:"
 
-#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:335 ../src/plugins/netstat/netstat.c:346
 msgid "HW Address:"
 msgstr "HW پتہ:"
 
-#: ../src/plugins/netstat/netstat.c:470
+#: ../src/plugins/netstat/netstat.c:484
 msgid "Manage Networks"
 msgstr "نیٹ ورکس کی ادارت کریں"
 
-#: ../src/plugins/netstat/netstat.c:472
+#: ../src/plugins/netstat/netstat.c:486
 msgid "Monitor and Manage networks"
 msgstr "نیت ورکس کی ادارت اور معائنہ کریں"
 
 #. create dialog
-#: ../src/plugins/netstat/passwd_gui.c:84
+#: ../src/plugins/netstat/passwd_gui.c:86
 msgid "Setting Encryption Key"
 msgstr "ترتیبات انکرپشن کلید"
 
 #. messages
-#: ../src/plugins/netstat/passwd_gui.c:94
+#: ../src/plugins/netstat/passwd_gui.c:96
 msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
@@ -929,7 +909,7 @@ msgstr ""
 "وائرلیس نیٹ ورک انکرپٹڈ ہے.\n"
 "آپ کے پاس انکرپشن کلید ہونی چاہیے."
 
-#: ../src/plugins/netstat/passwd_gui.c:99
+#: ../src/plugins/netstat/passwd_gui.c:101
 msgid "Encryption Key:"
 msgstr "انکرپشن کلید:"
 
@@ -993,39 +973,39 @@ msgstr "نیٹ ورک اتصال: %s"
 msgid "Network Connection"
 msgstr "نیٹ ورک اتصال"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:838
+#: ../src/plugins/netstatus/netstatus-icon.c:842
 msgid "Interface"
 msgstr "مواجہ"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:839
+#: ../src/plugins/netstatus/netstatus-icon.c:843
 msgid "The current interface the icon is monitoring."
 msgstr "حالیہ مواجہ جسے آئکن مانیٹر کر رہی ہے."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:846
+#: ../src/plugins/netstatus/netstatus-icon.c:850
 msgid "Orientation"
 msgstr "جہتیابی"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:847
+#: ../src/plugins/netstatus/netstatus-icon.c:851
 msgid "The orientation of the tray."
 msgstr "ٹرے کی جہتیابی."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:855
+#: ../src/plugins/netstatus/netstatus-icon.c:859
 msgid "Tooltips Enabled"
 msgstr "ٹول ٹِپ فعال کردہ"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:856
+#: ../src/plugins/netstatus/netstatus-icon.c:860
 msgid "Whether or not the icon's tooltips are enabled."
 msgstr "چاہے آئکن کی ٹول ٹِپ فعال کردہ ہو یا نہیں."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:863
+#: ../src/plugins/netstatus/netstatus-icon.c:867
 msgid "Show Signal"
 msgstr "سگنل دکھائیں"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:864
+#: ../src/plugins/netstatus/netstatus-icon.c:868
 msgid "Whether or not the signal strength should be displayed."
 msgstr "چاہے سگنل کی قوت ظاہر ہونی چاہیے یا نہیں."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:977
+#: ../src/plugins/netstatus/netstatus-icon.c:985
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -1366,75 +1346,90 @@ msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "نشان کار برائے کیپس لاک، نم لاک، اور سکرول لاک کلید"
 
 #. A label to allow for click through
-#: ../src/plugins/indicator/indicator.c:561
+#: ../src/plugins/indicator/indicator.c:698
 msgid "No Indicators"
 msgstr ""
 
-#: ../src/plugins/indicator/indicator.c:751
+#: ../src/plugins/indicator/indicator.c:897
 #, fuzzy
 msgid "Indicator Applications"
 msgstr "اطلاقیہ"
 
-#: ../src/plugins/indicator/indicator.c:752
+#: ../src/plugins/indicator/indicator.c:898
 msgid "Clock Indicator"
 msgstr ""
 
-#: ../src/plugins/indicator/indicator.c:753
+#: ../src/plugins/indicator/indicator.c:899
 msgid "Messaging Menu"
 msgstr ""
 
-#: ../src/plugins/indicator/indicator.c:754
+#: ../src/plugins/indicator/indicator.c:900
 #, fuzzy
 msgid "Network Menu"
 msgstr "ڈائریکٹری فہرست"
 
-#: ../src/plugins/indicator/indicator.c:755
+#: ../src/plugins/indicator/indicator.c:901
 msgid "Session Menu"
 msgstr ""
 
-#: ../src/plugins/indicator/indicator.c:756
+#: ../src/plugins/indicator/indicator.c:902
 #, fuzzy
 msgid "Sound Menu"
 msgstr "مہیا مینیو"
 
-#: ../src/plugins/indicator/indicator.c:780
+#: ../src/plugins/indicator/indicator.c:928
 msgid "Indicator applets"
 msgstr ""
 
-#: ../src/plugins/indicator/indicator.c:782
+#: ../src/plugins/indicator/indicator.c:930
 #, fuzzy
 msgid "Add indicator applets to the panel"
 msgstr "پینل میں جداگار شامل کریں"
 
-#: ../src/plugins/monitors/monitors.c:654
+#: ../src/plugins/monitors/monitors.c:284
+#, c-format
+msgid "CPU usage: %.2f%%"
+msgstr ""
+
+#: ../src/plugins/monitors/monitors.c:367
+#, c-format
+msgid "RAM usage: %.1fMB (%.2f%%)"
+msgstr ""
+
+#: ../src/plugins/monitors/monitors.c:712
 #, fuzzy
 msgid "CPU color"
 msgstr "صوابدیدی رنگ"
 
-#: ../src/plugins/monitors/monitors.c:655
+#: ../src/plugins/monitors/monitors.c:713
 #, fuzzy
 msgid "Display RAM usage"
 msgstr "سی پی یو کا استعمال ظاہر کریں"
 
-#: ../src/plugins/monitors/monitors.c:656
+#: ../src/plugins/monitors/monitors.c:714
 #, fuzzy
 msgid "RAM color"
 msgstr "ہلکا رنگ:"
 
-#: ../src/plugins/monitors/monitors.c:753
+#: ../src/plugins/monitors/monitors.c:715
+#, fuzzy
+msgid "Action when clicked (default: lxtask)"
+msgstr "کلک کرنے پر حرکت (طے شدہ: کیلینڈر/تقویم ظاہر کریں)"
+
+#: ../src/plugins/monitors/monitors.c:808
 #, fuzzy
 msgid "Resource monitors"
 msgstr "مواجہ برائے مانیٹر"
 
-#: ../src/plugins/monitors/monitors.c:755
+#: ../src/plugins/monitors/monitors.c:810
 msgid "Display monitors (CPU, RAM)"
 msgstr ""
 
-#: ../src/plugins/wnckpager/wnckpager.c:721
+#: ../src/plugins/wnckpager/wnckpager.c:720
 msgid "WNCKPager"
 msgstr ""
 
-#: ../src/plugins/wnckpager/wnckpager.c:723
+#: ../src/plugins/wnckpager/wnckpager.c:722
 #, fuzzy
 msgid "WNCKpager plugin"
 msgstr "سادہ پیجر پلگ ان"

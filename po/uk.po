@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-04 15:41+0100\n"
+"POT-Creation-Date: 2012-05-20 15:58+0200\n"
 "PO-Revision-Date: 2012-03-19 22:44+0200\n"
 "Last-Translator: Y P <yupadmin@gmail.com>\n"
 "Language-Team: UKRAINIAN <translate@linux.org.ua>\n"
@@ -15,14 +15,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.5\n"
 "X-Poedit-Language: Ukrainian\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Country: UKRAINE\n"
 
-#: ../src/configurator.c:54 ../src/gtk-run.c:319
+#: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
 msgstr "Запустити"
 
@@ -66,7 +66,7 @@ msgstr "Вибрати файл"
 msgid "_Browse"
 msgstr "_Переглянути"
 
-#: ../src/panel.c:651
+#: ../src/panel.c:657
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -74,134 +74,134 @@ msgstr ""
 "Дійсно видалити цю панель?\n"
 "<b>Увага: Повернення назад неможливе.</b>"
 
-#: ../src/panel.c:653
+#: ../src/panel.c:659
 msgid "Confirm"
 msgstr "Підтвердити"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:686
+#: ../src/panel.c:692
 msgid "translator-credits"
 msgstr "Yarema aka Knedlyk <yupadmin@gmail.com>"
 
-#: ../src/panel.c:691
+#: ../src/panel.c:697
 msgid "LXPanel"
 msgstr "LX-панель"
 
-#: ../src/panel.c:693
+#: ../src/panel.c:699
 msgid "Copyright (C) 2008-2011"
 msgstr "Всі права застережено (С) 2008-2011"
 
-#: ../src/panel.c:694
+#: ../src/panel.c:700
 msgid "Desktop panel for LXDE project"
 msgstr "Панель робочого столу для проекту LXDE"
 
-#: ../src/panel.c:717
+#: ../src/panel.c:723
 msgid "Add / Remove Panel Items"
 msgstr "Додати/Видалити компоненти панелі"
 
-#: ../src/panel.c:725
+#: ../src/panel.c:731
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Видалити \"%s\" з панелі"
 
-#: ../src/panel.c:737
+#: ../src/panel.c:743
 msgid "Panel Settings"
 msgstr "Налаштування панелі"
 
-#: ../src/panel.c:743
+#: ../src/panel.c:749
 msgid "Create New Panel"
 msgstr "Створити нову панель"
 
-#: ../src/panel.c:754
+#: ../src/panel.c:760
 msgid "Delete This Panel"
 msgstr "Видалити цю панель"
 
-#: ../src/panel.c:765
+#: ../src/panel.c:771
 msgid "About"
 msgstr "Про LXDE-панель"
 
-#: ../src/panel.c:773
+#: ../src/panel.c:779
 msgid "Panel"
 msgstr "Панель"
 
-#: ../src/panel.c:786
+#: ../src/panel.c:792
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "Налаштування \"%s\""
 
-#: ../src/panel.c:1042 ../src/panel.c:1050 ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:1048 ../src/panel.c:1056 ../data/ui/panel-pref.glade.h:16
 msgid "Height:"
 msgstr "Висота:"
 
-#: ../src/panel.c:1043 ../src/panel.c:1049 ../data/ui/panel-pref.glade.h:40
+#: ../src/panel.c:1049 ../src/panel.c:1055 ../data/ui/panel-pref.glade.h:15
 msgid "Width:"
 msgstr "Ширина:"
 
-#: ../src/panel.c:1044 ../data/ui/panel-pref.glade.h:23
+#: ../src/panel.c:1050 ../data/ui/panel-pref.glade.h:11
 msgid "Left"
 msgstr "Зліва"
 
-#: ../src/panel.c:1045 ../data/ui/panel-pref.glade.h:32
+#: ../src/panel.c:1051 ../data/ui/panel-pref.glade.h:12
 msgid "Right"
 msgstr "Справа"
 
-#: ../src/panel.c:1051 ../data/ui/panel-pref.glade.h:39
+#: ../src/panel.c:1057 ../data/ui/panel-pref.glade.h:10
 msgid "Top"
 msgstr "Зверху"
 
-#: ../src/panel.c:1052 ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:1058 ../data/ui/panel-pref.glade.h:9
 msgid "Bottom"
 msgstr "Внизу"
 
-#: ../src/panel.c:1460
+#: ../src/panel.c:1466
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - легка GTK2+ панель для робочого середовища UNIX\n"
 
-#: ../src/panel.c:1461
+#: ../src/panel.c:1467
 #, c-format
 msgid "Command line options:\n"
 msgstr "Опції командного рядка:\n"
 
-#: ../src/panel.c:1462
+#: ../src/panel.c:1468
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- надрукувати цю допомогу і вийти\n"
 
-#: ../src/panel.c:1463
+#: ../src/panel.c:1469
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- надрукувати версію та вийти\n"
 
-#: ../src/panel.c:1464
+#: ../src/panel.c:1470
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 " --log <number> -- виставити рівень журналювання 0-5. 0 - нема, 5 - повний\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1466
+#: ../src/panel.c:1472
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr "--profile name -- використовувати вибраний профіль\n"
 
-#: ../src/panel.c:1468
+#: ../src/panel.c:1474
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr "-h  -- те саме, що й --help\n"
 
-#: ../src/panel.c:1469
+#: ../src/panel.c:1475
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- те саме, що й --profile\n"
 
-#: ../src/panel.c:1470
+#: ../src/panel.c:1476
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- те саме, що й --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1472
+#: ../src/panel.c:1478
 #, c-format
 msgid ""
 "\n"
@@ -212,7 +212,7 @@ msgstr ""
 "Відвідайте http://lxde.org/ для деталей.\n"
 "\n"
 
-#: ../src/gtk-run.c:332
+#: ../src/gtk-run.c:373
 msgid "Enter the command you want to execute:"
 msgstr "Введіть команду, яку Ви бажаєте запустити:"
 
@@ -220,251 +220,231 @@ msgstr "Введіть команду, яку Ви бажаєте запусти
 msgid "Application Launch Bar"
 msgstr "Панель запуску програм"
 
-#: ../data/ui/netstatus.glade.h:2
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:2
-#, no-c-format
-msgid "0%"
-msgstr "0%"
-
-#: ../data/ui/netstatus.glade.h:3
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:3
-msgid "<b>Activity</b>"
-msgstr "<b>Активність</b>"
-
-#: ../data/ui/netstatus.glade.h:4
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:4
+#: ../data/ui/netstatus.glade.h:1
 msgid "<b>Connection</b>"
 msgstr "<b>З’єднання</b>"
 
+#: ../data/ui/netstatus.glade.h:2
+msgid "Status:"
+msgstr "Статус:"
+
+#: ../data/ui/netstatus.glade.h:3
+msgid "_Name:"
+msgstr "_Назва:"
+
+#: ../data/ui/netstatus.glade.h:4
+msgid "<b>Activity</b>"
+msgstr "<b>Активність</b>"
+
 #: ../data/ui/netstatus.glade.h:5
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:5
-msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr "<b>Протокол інтернету (IPv4)</b>"
+msgid "Received:"
+msgstr "Отримано:"
 
 #: ../data/ui/netstatus.glade.h:6
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:6
-msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr "<b>Протокол інтернету (IPv6)</b>"
+msgid "Sent:"
+msgstr "Вислано:"
 
 #: ../data/ui/netstatus.glade.h:7
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:7
-msgid "<b>Network Device</b>"
-msgstr "<b>Пристрій мережі</b>"
-
-#: ../data/ui/netstatus.glade.h:8
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:8
 msgid "<b>Signal Strength</b>"
 msgstr "<b>Сила сигналу</b>"
 
 #: ../data/ui/netstatus.glade.h:9
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:9
-msgid "Address:"
-msgstr "Адреса:"
+#, no-c-format
+msgid "0%"
+msgstr "0%"
 
-#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:319
-#: ../src/plugins/netstat/netstat.c:330
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:10
-msgid "Broadcast:"
-msgstr "Адреса трансляції:"
-
-#: ../data/ui/netstatus.glade.h:11
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:11
-msgid "Con_figure"
-msgstr "На_лаштувати"
-
-#: ../data/ui/netstatus.glade.h:12
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:12
-msgid "Destination:"
-msgstr "Призначення:"
-
-#: ../data/ui/netstatus.glade.h:13
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:13
+#: ../data/ui/netstatus.glade.h:10
 msgid "General"
 msgstr "Загальне"
 
-#: ../data/ui/netstatus.glade.h:14
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:14
-msgid "Received:"
-msgstr "Отримано:"
+#: ../data/ui/netstatus.glade.h:11
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr "<b>Протокол інтернету (IPv4)</b>"
+
+#: ../data/ui/netstatus.glade.h:12
+msgid "Address:"
+msgstr "Адреса:"
+
+#: ../data/ui/netstatus.glade.h:13
+msgid "Destination:"
+msgstr "Призначення:"
+
+#: ../data/ui/netstatus.glade.h:14 ../src/plugins/netstat/netstat.c:333
+#: ../src/plugins/netstat/netstat.c:344
+msgid "Broadcast:"
+msgstr "Адреса трансляції:"
 
 #: ../data/ui/netstatus.glade.h:15
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:15
-msgid "Scope:"
-msgstr "Діапазон:"
-
-#: ../data/ui/netstatus.glade.h:16
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:16
-msgid "Sent:"
-msgstr "Вислано:"
-
-#: ../data/ui/netstatus.glade.h:17
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:17
-msgid "Status:"
-msgstr "Статус:"
-
-#: ../data/ui/netstatus.glade.h:18
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:18
 msgid "Subnet Mask:"
 msgstr "Маска підмережі:"
 
-#: ../data/ui/netstatus.glade.h:19
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:19
-msgid "Support"
-msgstr "Підтримка"
+#: ../data/ui/netstatus.glade.h:16
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>Протокол інтернету (IPv6)</b>"
 
-#: ../data/ui/netstatus.glade.h:20
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:20
+#: ../data/ui/netstatus.glade.h:17
+msgid "Scope:"
+msgstr "Діапазон:"
+
+#: ../data/ui/netstatus.glade.h:18
+msgid "<b>Network Device</b>"
+msgstr "<b>Пристрій мережі</b>"
+
+#: ../data/ui/netstatus.glade.h:19
 msgid "Type:"
 msgstr "Тип:"
 
+#: ../data/ui/netstatus.glade.h:20
+msgid "Support"
+msgstr "Підтримка"
+
 #: ../data/ui/netstatus.glade.h:21
-#: ../src/plugins/netstatus/gnome-netstatus.glade.h:21
-msgid "_Name:"
-msgstr "_Назва:"
+msgid "Con_figure"
+msgstr "На_лаштувати"
+
+#: ../data/ui/panel-pref.glade.h:1
+msgid "Dynamic"
+msgstr "Динамічно"
 
 #: ../data/ui/panel-pref.glade.h:2
+msgid "Pixels"
+msgstr "Пікселі"
+
+#: ../data/ui/panel-pref.glade.h:4
 #, no-c-format
 msgid "% Percent"
 msgstr "% Процентів"
 
-#: ../data/ui/panel-pref.glade.h:3
-msgid "<b>Automatic hiding</b>"
-msgstr "<b>Автоматичне приховування</b>"
-
-#: ../data/ui/panel-pref.glade.h:4
-msgid "<b>Background</b>"
-msgstr "<b>Тло</b>"
-
 #: ../data/ui/panel-pref.glade.h:5
-msgid "<b>Font</b>"
-msgstr "<b>Фонт</b>"
+msgid "Panel Preferences"
+msgstr "Установки панелі"
 
 #: ../data/ui/panel-pref.glade.h:6
-msgid "<b>Icon</b>"
-msgstr "<b>Іконка</b>"
-
-#: ../data/ui/panel-pref.glade.h:7
-msgid "<b>Position</b>"
-msgstr "<b>Позиція</b>"
-
-#: ../data/ui/panel-pref.glade.h:8
-msgid "<b>Properties</b>"
-msgstr "<b>Властивості</b>"
-
-#: ../data/ui/panel-pref.glade.h:9
-msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>Налаштувати улюблені програми</b>"
-
-#: ../data/ui/panel-pref.glade.h:10
-msgid "<b>Size</b>"
-msgstr "<b>Розмір</b>"
-
-#: ../data/ui/panel-pref.glade.h:11
-msgid "Advanced"
-msgstr "Додатково"
-
-#: ../data/ui/panel-pref.glade.h:12
-msgid "Alignment:"
-msgstr "Вирівнювання:"
-
-#: ../data/ui/panel-pref.glade.h:13
-msgid "Appearance"
-msgstr "Вигляд"
-
-#: ../data/ui/panel-pref.glade.h:15
-msgid "Center"
-msgstr "Центр"
-
-#: ../data/ui/panel-pref.glade.h:16
-msgid "Custom color"
-msgstr "Спеціальний колір"
-
-#: ../data/ui/panel-pref.glade.h:17
-msgid "Dynamic"
-msgstr "Динамічно"
-
-#: ../data/ui/panel-pref.glade.h:18
 msgid "Edge:"
 msgstr "Край:"
 
+#: ../data/ui/panel-pref.glade.h:7
+msgid "Alignment:"
+msgstr "Вирівнювання:"
+
+#: ../data/ui/panel-pref.glade.h:8
+msgid "Margin:"
+msgstr "Границя:"
+
+#: ../data/ui/panel-pref.glade.h:13
+msgid "Center"
+msgstr "Центр"
+
+#: ../data/ui/panel-pref.glade.h:14
+msgid "<b>Position</b>"
+msgstr "<b>Позиція</b>"
+
+#: ../data/ui/panel-pref.glade.h:17
+msgid "<b>Icon</b>"
+msgstr "<b>Іконка</b>"
+
+#: ../data/ui/panel-pref.glade.h:18
+msgid "pixels"
+msgstr "пікселі"
+
 #: ../data/ui/panel-pref.glade.h:19
-msgid "File Manager:"
-msgstr "Менеджер файлів:"
+msgid "<b>Size</b>"
+msgstr "<b>Розмір</b>"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "Geometry"
 msgstr "Геометрія"
 
+#: ../data/ui/panel-pref.glade.h:21
+msgid "System theme"
+msgstr "Системна тема"
+
 #: ../data/ui/panel-pref.glade.h:22
+msgid "Solid color (with opacity)"
+msgstr "Колір підкладки (з прозорістю)"
+
+#: ../data/ui/panel-pref.glade.h:23
 msgid "Image"
 msgstr "Зображення"
 
 #: ../data/ui/panel-pref.glade.h:24
-msgid "Logout Command:"
-msgstr "Команда виходу:"
-
-#: ../data/ui/panel-pref.glade.h:25
-msgid "Make window managers treat the panel as dock"
-msgstr "Дозволити віконному менеджеру трактувати панель як док-панель"
-
-#: ../data/ui/panel-pref.glade.h:26
-msgid "Margin:"
-msgstr "Границя:"
-
-#: ../data/ui/panel-pref.glade.h:27
-msgid "Minimize panel when not in use"
-msgstr "Згорнути панель при невикористанні"
-
-#: ../data/ui/panel-pref.glade.h:28
-msgid "Panel Applets"
-msgstr "Аплети панелі"
-
-#: ../data/ui/panel-pref.glade.h:29
-msgid "Panel Preferences"
-msgstr "Установки панелі"
-
-#: ../data/ui/panel-pref.glade.h:30
-msgid "Pixels"
-msgstr "Пікселі"
-
-#: ../data/ui/panel-pref.glade.h:31
-msgid "Reserve space, and not covered by maximized windows"
-msgstr "Зарезервувати місце, яке не покривається максимізованим вікном"
-
-#: ../data/ui/panel-pref.glade.h:33
 msgid "Select an image file"
 msgstr "Вибрати файл зображення"
 
-#: ../data/ui/panel-pref.glade.h:34 ../src/plugins/space.c:125
+#: ../data/ui/panel-pref.glade.h:25
+msgid "<b>Background</b>"
+msgstr "<b>Тло</b>"
+
+#: ../data/ui/panel-pref.glade.h:26
+msgid "Custom color"
+msgstr "Спеціальний колір"
+
+#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/space.c:125
 #: ../src/plugins/batt/batt.c:583
 msgid "Size"
 msgstr "Розмір"
 
-#: ../data/ui/panel-pref.glade.h:35
-msgid "Size when minimized"
-msgstr "Розмір при мінімізації"
+#: ../data/ui/panel-pref.glade.h:28
+msgid "<b>Font</b>"
+msgstr "<b>Фонт</b>"
 
-#: ../data/ui/panel-pref.glade.h:36
-msgid "Solid color (with opacity)"
-msgstr "Колір підкладки (з прозорістю)"
+#: ../data/ui/panel-pref.glade.h:29
+msgid "Appearance"
+msgstr "Вигляд"
 
-#: ../data/ui/panel-pref.glade.h:37
-msgid "System theme"
-msgstr "Системна тема"
+#: ../data/ui/panel-pref.glade.h:30
+msgid "Panel Applets"
+msgstr "Аплети панелі"
 
-#: ../data/ui/panel-pref.glade.h:38
+#: ../data/ui/panel-pref.glade.h:31
+msgid "Logout Command:"
+msgstr "Команда виходу:"
+
+#: ../data/ui/panel-pref.glade.h:32
 msgid "Terminal Emulator:"
 msgstr "Емулятор терміналу:"
 
+#: ../data/ui/panel-pref.glade.h:33
+msgid "File Manager:"
+msgstr "Менеджер файлів:"
+
+#: ../data/ui/panel-pref.glade.h:34
+msgid "<b>Set Preferred Applications</b>"
+msgstr "<b>Налаштувати улюблені програми</b>"
+
+#: ../data/ui/panel-pref.glade.h:35
+msgid "Make window managers treat the panel as dock"
+msgstr "Дозволити віконному менеджеру трактувати панель як док-панель"
+
+#: ../data/ui/panel-pref.glade.h:36
+msgid "Reserve space, and not covered by maximized windows"
+msgstr "Зарезервувати місце, яке не покривається максимізованим вікном"
+
+#: ../data/ui/panel-pref.glade.h:37
+msgid "<b>Properties</b>"
+msgstr "<b>Властивості</b>"
+
+#: ../data/ui/panel-pref.glade.h:38
+msgid "Minimize panel when not in use"
+msgstr "Згорнути панель при невикористанні"
+
+#: ../data/ui/panel-pref.glade.h:39
+msgid "Size when minimized"
+msgstr "Розмір при мінімізації"
+
+#: ../data/ui/panel-pref.glade.h:40
+msgid "<b>Automatic hiding</b>"
+msgstr "<b>Автоматичне приховування</b>"
+
 #: ../data/ui/panel-pref.glade.h:41
-msgid "pixels"
-msgstr "пікселі"
+msgid "Advanced"
+msgstr "Додатково"
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
 msgstr "Монітор використання CPU"
 
-#: ../src/plugins/cpu/cpu.c:270 ../src/plugins/monitors/monitors.c:653
+#: ../src/plugins/cpu/cpu.c:270 ../src/plugins/monitors/monitors.c:711
 msgid "Display CPU usage"
 msgstr "Показати завантаження CPU"
 
@@ -625,15 +605,15 @@ msgstr "Додати до робочого столу"
 msgid "Properties"
 msgstr "Властивості"
 
-#: ../src/plugins/menu.c:1085 ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1083 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "Іконка"
 
-#: ../src/plugins/menu.c:1102
+#: ../src/plugins/menu.c:1100
 msgid "Menu"
 msgstr "Меню"
 
-#: ../src/plugins/menu.c:1104
+#: ../src/plugins/menu.c:1102
 msgid "Application Menu"
 msgstr "Панель програм"
 
@@ -748,175 +728,176 @@ msgstr "Меню тек"
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "Переглянути дерево тек через меню (Автор: PCMan)"
 
-#: ../src/plugins/thermal/thermal.c:396
+#: ../src/plugins/thermal/thermal.c:474
 msgid "Normal"
 msgstr "Нормально"
 
-#: ../src/plugins/thermal/thermal.c:397
+#: ../src/plugins/thermal/thermal.c:475
 msgid "Warning1"
 msgstr "Попередження1"
 
-#: ../src/plugins/thermal/thermal.c:398
+#: ../src/plugins/thermal/thermal.c:476
 msgid "Warning2"
 msgstr "Попередження2"
 
-#: ../src/plugins/thermal/thermal.c:399
+#: ../src/plugins/thermal/thermal.c:477
 msgid "Automatic sensor location"
 msgstr "Автоматичний пошук сенсорів"
 
-#: ../src/plugins/thermal/thermal.c:400
+#: ../src/plugins/thermal/thermal.c:478
 msgid "Sensor"
 msgstr "Сенсор"
 
-#: ../src/plugins/thermal/thermal.c:401
+#: ../src/plugins/thermal/thermal.c:479
 msgid "Automatic temperature levels"
 msgstr "Автоматичні рівні температури"
 
-#: ../src/plugins/thermal/thermal.c:402
+#: ../src/plugins/thermal/thermal.c:480
 msgid "Warning1 Temperature"
 msgstr "Попередження1 Температура"
 
-#: ../src/plugins/thermal/thermal.c:403
+#: ../src/plugins/thermal/thermal.c:481
 msgid "Warning2 Temperature"
 msgstr "Попередження2 Температура"
 
-#: ../src/plugins/thermal/thermal.c:445
+#: ../src/plugins/thermal/thermal.c:525
 msgid "Temperature Monitor"
 msgstr "Монітор температури"
 
-#: ../src/plugins/thermal/thermal.c:447
+#: ../src/plugins/thermal/thermal.c:527
 msgid "Display system temperature"
 msgstr "Показати системну температуру"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:279
-#: ../src/plugins/volumealsa/volumealsa.c:449
+#: ../src/plugins/volumealsa/volumealsa.c:339
+#: ../src/plugins/volumealsa/volumealsa.c:509
 msgid "Volume control"
 msgstr "Регулятор гучності"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:571
+#: ../src/plugins/volumealsa/volumealsa.c:629
 msgid "Volume Control"
 msgstr "Регулятор Гучності"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:407
+#: ../src/plugins/volumealsa/volumealsa.c:467
 msgid "Volume"
 msgstr "Гучність"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/volumealsa/volumealsa.c:426
+#: ../src/plugins/volumealsa/volumealsa.c:486
 msgid "Mute"
 msgstr "Заглушити"
 
-#: ../src/plugins/volumealsa/volumealsa.c:544
+#: ../src/plugins/volumealsa/volumealsa.c:602
+#, fuzzy
 msgid ""
-"Error, you need to install a application to configure the sound (pavucontol, "
-"alsamixer ...)"
+"Error, you need to install an application to configure the sound "
+"(pavucontol, alsamixer ...)"
 msgstr ""
 "Помилка, Вам потрібно встановити програму для налаштування звуку "
 "(pavucontol, alsamixer ...)"
 
-#: ../src/plugins/netstat/netstat.c:168
+#: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
 msgstr "<Прихована точка доступу>"
 
-#: ../src/plugins/netstat/netstat.c:201
+#: ../src/plugins/netstat/netstat.c:213
 msgid "Wireless Networks not found in range"
 msgstr "Не знайдено безпровідних мереж"
 
 #. Repair
-#: ../src/plugins/netstat/netstat.c:235
+#: ../src/plugins/netstat/netstat.c:247
 msgid "Repair"
 msgstr "Спробувати ще"
 
 #. interface down
-#: ../src/plugins/netstat/netstat.c:240
+#: ../src/plugins/netstat/netstat.c:252
 msgid "Disable"
 msgstr "Виключити"
 
-#: ../src/plugins/netstat/netstat.c:299
+#: ../src/plugins/netstat/netstat.c:313
 msgid "Wireless Connection has no connectivity"
 msgstr "Безпровідна мережа недоступна"
 
-#: ../src/plugins/netstat/netstat.c:301
+#: ../src/plugins/netstat/netstat.c:315
 msgid "Network cable is plugged out"
 msgstr "Мережний кабель від’єднано"
 
-#: ../src/plugins/netstat/netstat.c:303
+#: ../src/plugins/netstat/netstat.c:317
 msgid "Connection has limited or no connectivity"
 msgstr "Зв’язок обмежений або ж немає з’єднання"
 
-#: ../src/plugins/netstat/netstat.c:307 ../src/plugins/netstat/netstat.c:318
-#: ../src/plugins/netstat/netstat.c:329
+#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:343
 msgid "IP Address:"
 msgstr "IP адреса:"
 
-#: ../src/plugins/netstat/netstat.c:308
+#: ../src/plugins/netstat/netstat.c:322
 msgid "Remote IP:"
 msgstr "Віддалене IP:"
 
-#: ../src/plugins/netstat/netstat.c:309 ../src/plugins/netstat/netstat.c:320
-#: ../src/plugins/netstat/netstat.c:331
+#: ../src/plugins/netstat/netstat.c:323 ../src/plugins/netstat/netstat.c:334
+#: ../src/plugins/netstat/netstat.c:345
 msgid "Netmask:"
 msgstr "Маска мережі:"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
-#: ../src/plugins/netstat/netstat.c:333
+#: ../src/plugins/netstat/netstat.c:324 ../src/plugins/netstat/netstat.c:336
+#: ../src/plugins/netstat/netstat.c:347
 msgid "Activity"
 msgstr "Активність"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
-#: ../src/plugins/netstat/netstat.c:333
+#: ../src/plugins/netstat/netstat.c:324 ../src/plugins/netstat/netstat.c:336
+#: ../src/plugins/netstat/netstat.c:347
 msgid "Sent"
 msgstr "Вислано"
 
-#: ../src/plugins/netstat/netstat.c:310 ../src/plugins/netstat/netstat.c:322
-#: ../src/plugins/netstat/netstat.c:333
+#: ../src/plugins/netstat/netstat.c:324 ../src/plugins/netstat/netstat.c:336
+#: ../src/plugins/netstat/netstat.c:347
 msgid "Received"
 msgstr "Отримано"
 
-#: ../src/plugins/netstat/netstat.c:311 ../src/plugins/netstat/netstat.c:323
-#: ../src/plugins/netstat/netstat.c:334
+#: ../src/plugins/netstat/netstat.c:325 ../src/plugins/netstat/netstat.c:337
+#: ../src/plugins/netstat/netstat.c:348
 msgid "bytes"
 msgstr "байт"
 
-#: ../src/plugins/netstat/netstat.c:312 ../src/plugins/netstat/netstat.c:324
-#: ../src/plugins/netstat/netstat.c:335
+#: ../src/plugins/netstat/netstat.c:326 ../src/plugins/netstat/netstat.c:338
+#: ../src/plugins/netstat/netstat.c:349
 msgid "packets"
 msgstr "пакетів"
 
-#: ../src/plugins/netstat/netstat.c:315
+#: ../src/plugins/netstat/netstat.c:329
 #: ../src/plugins/netstatus/netstatus-iface.c:173
 msgid "Wireless"
 msgstr "Безпровідна сітка"
 
-#: ../src/plugins/netstat/netstat.c:317
+#: ../src/plugins/netstat/netstat.c:331
 msgid "Protocol:"
 msgstr "Протокол:"
 
-#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
+#: ../src/plugins/netstat/netstat.c:335 ../src/plugins/netstat/netstat.c:346
 msgid "HW Address:"
 msgstr "Адреса \"заліза\":"
 
-#: ../src/plugins/netstat/netstat.c:470
+#: ../src/plugins/netstat/netstat.c:484
 msgid "Manage Networks"
 msgstr "Налаштування мереж"
 
-#: ../src/plugins/netstat/netstat.c:472
+#: ../src/plugins/netstat/netstat.c:486
 msgid "Monitor and Manage networks"
 msgstr "Моніторинг і налаштування мереж"
 
 #. create dialog
-#: ../src/plugins/netstat/passwd_gui.c:84
+#: ../src/plugins/netstat/passwd_gui.c:86
 msgid "Setting Encryption Key"
 msgstr "Ввести ключ шифрування"
 
 #. messages
-#: ../src/plugins/netstat/passwd_gui.c:94
+#: ../src/plugins/netstat/passwd_gui.c:96
 msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
@@ -924,7 +905,7 @@ msgstr ""
 "Ця безпровідна сітка захищена.\n"
 "Ви повинні мати ключ шифрування."
 
-#: ../src/plugins/netstat/passwd_gui.c:99
+#: ../src/plugins/netstat/passwd_gui.c:101
 msgid "Encryption Key:"
 msgstr "Ключ шифрування:"
 
@@ -989,39 +970,39 @@ msgstr "Мережне з’єднання: %s"
 msgid "Network Connection"
 msgstr "Мережне з’єднання"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:838
+#: ../src/plugins/netstatus/netstatus-icon.c:842
 msgid "Interface"
 msgstr "Інтерфейс"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:839
+#: ../src/plugins/netstatus/netstatus-icon.c:843
 msgid "The current interface the icon is monitoring."
 msgstr "Іконка моніторингу поточного інтерфейсу."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:846
+#: ../src/plugins/netstatus/netstatus-icon.c:850
 msgid "Orientation"
 msgstr "Орієнтація"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:847
+#: ../src/plugins/netstatus/netstatus-icon.c:851
 msgid "The orientation of the tray."
 msgstr "Орієнтація лотка."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:855
+#: ../src/plugins/netstatus/netstatus-icon.c:859
 msgid "Tooltips Enabled"
 msgstr "Підказки запущено"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:856
+#: ../src/plugins/netstatus/netstatus-icon.c:860
 msgid "Whether or not the icon's tooltips are enabled."
 msgstr "Чи включені або виключені підказки."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:863
+#: ../src/plugins/netstatus/netstatus-icon.c:867
 msgid "Show Signal"
 msgstr "Показати сигнал"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:864
+#: ../src/plugins/netstatus/netstatus-icon.c:868
 msgid "Whether or not the signal strength should be displayed."
 msgstr "Чи потрібно показувати рівень сигналу."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:977
+#: ../src/plugins/netstatus/netstatus-icon.c:985
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -1362,66 +1343,81 @@ msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Індикатори для клавіш CapsLock, NumLock і ScrollLock"
 
 #. A label to allow for click through
-#: ../src/plugins/indicator/indicator.c:561
+#: ../src/plugins/indicator/indicator.c:698
 msgid "No Indicators"
 msgstr "Немає індикаторів"
 
-#: ../src/plugins/indicator/indicator.c:751
+#: ../src/plugins/indicator/indicator.c:897
 msgid "Indicator Applications"
 msgstr "Індикатор програм"
 
-#: ../src/plugins/indicator/indicator.c:752
+#: ../src/plugins/indicator/indicator.c:898
 msgid "Clock Indicator"
 msgstr "Індикатор годинника"
 
-#: ../src/plugins/indicator/indicator.c:753
+#: ../src/plugins/indicator/indicator.c:899
 msgid "Messaging Menu"
 msgstr "Меню повідомлень"
 
-#: ../src/plugins/indicator/indicator.c:754
+#: ../src/plugins/indicator/indicator.c:900
 msgid "Network Menu"
 msgstr "Меню мережі"
 
-#: ../src/plugins/indicator/indicator.c:755
+#: ../src/plugins/indicator/indicator.c:901
 msgid "Session Menu"
 msgstr "Меню сесії"
 
-#: ../src/plugins/indicator/indicator.c:756
+#: ../src/plugins/indicator/indicator.c:902
 msgid "Sound Menu"
 msgstr "Меню звуку"
 
-#: ../src/plugins/indicator/indicator.c:780
+#: ../src/plugins/indicator/indicator.c:928
 msgid "Indicator applets"
 msgstr "Індикатор аплетів"
 
-#: ../src/plugins/indicator/indicator.c:782
+#: ../src/plugins/indicator/indicator.c:930
 msgid "Add indicator applets to the panel"
 msgstr "Додати індикатор аплетів до панелі"
 
-#: ../src/plugins/monitors/monitors.c:654
+#: ../src/plugins/monitors/monitors.c:284
+#, c-format
+msgid "CPU usage: %.2f%%"
+msgstr ""
+
+#: ../src/plugins/monitors/monitors.c:367
+#, c-format
+msgid "RAM usage: %.1fMB (%.2f%%)"
+msgstr ""
+
+#: ../src/plugins/monitors/monitors.c:712
 msgid "CPU color"
 msgstr "Колір CPU"
 
-#: ../src/plugins/monitors/monitors.c:655
+#: ../src/plugins/monitors/monitors.c:713
 msgid "Display RAM usage"
 msgstr "Показати використання RAM"
 
-#: ../src/plugins/monitors/monitors.c:656
+#: ../src/plugins/monitors/monitors.c:714
 msgid "RAM color"
 msgstr "Колір RAM"
 
-#: ../src/plugins/monitors/monitors.c:753
+#: ../src/plugins/monitors/monitors.c:715
+#, fuzzy
+msgid "Action when clicked (default: lxtask)"
+msgstr "Дія при клацанні (по замовчуванню: показати календар)"
+
+#: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"
 msgstr "Монітори ресурсів"
 
-#: ../src/plugins/monitors/monitors.c:755
+#: ../src/plugins/monitors/monitors.c:810
 msgid "Display monitors (CPU, RAM)"
 msgstr "Показати монітори (CPU, RAM)"
 
-#: ../src/plugins/wnckpager/wnckpager.c:721
+#: ../src/plugins/wnckpager/wnckpager.c:720
 msgid "WNCKPager"
 msgstr "WNCKПейджер"
 
-#: ../src/plugins/wnckpager/wnckpager.c:723
+#: ../src/plugins/wnckpager/wnckpager.c:722
 msgid "WNCKpager plugin"
 msgstr "Плагін WNCKпейджера"

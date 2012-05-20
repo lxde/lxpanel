@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LXPanel 0.5.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-24 18:38+0200\n"
+"POT-Creation-Date: 2012-05-20 15:58+0200\n"
 "PO-Revision-Date: 2012-04-19 14:29+0200\n"
 "Last-Translator: Mișu <dumol@l10n.ro>\n"
 "Language-Team: Romanian <diacritice@googlegroups.com>\n"
@@ -63,7 +63,7 @@ msgstr "Selectați un fișier"
 msgid "_Browse"
 msgstr "Na_vigare"
 
-#: ../src/panel.c:651
+#: ../src/panel.c:657
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -71,135 +71,136 @@ msgstr ""
 "Sigur doriți să ștergeți acest panou?\n"
 "<b>Atenție: Nu va putea fi recuperat.</b>"
 
-#: ../src/panel.c:653
+#: ../src/panel.c:659
 msgid "Confirm"
 msgstr "Confirmare"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:686
+#: ../src/panel.c:692
 msgid "translator-credits"
 msgstr ""
 "Comunitatea tradu.softwareliber.ro\n"
 "Mișu Moldovan <dumol@l10n.ro>"
 
-#: ../src/panel.c:691
+#: ../src/panel.c:697
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:693
+#: ../src/panel.c:699
 msgid "Copyright (C) 2008-2011"
 msgstr "Drepturi de autor (C) 2008-2011"
 
-#: ../src/panel.c:694
+#: ../src/panel.c:700
 msgid "Desktop panel for LXDE project"
 msgstr "Panou pentru desktopul LXDE"
 
-#: ../src/panel.c:717
+#: ../src/panel.c:723
 msgid "Add / Remove Panel Items"
 msgstr "Editați elementele panoului"
 
-#: ../src/panel.c:725
+#: ../src/panel.c:731
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Eliminați „%s” din panou"
 
-#: ../src/panel.c:737
+#: ../src/panel.c:743
 msgid "Panel Settings"
 msgstr "Opțiuni pentru panou"
 
-#: ../src/panel.c:743
+#: ../src/panel.c:749
 msgid "Create New Panel"
 msgstr "Creați un nou panou"
 
-#: ../src/panel.c:754
+#: ../src/panel.c:760
 msgid "Delete This Panel"
 msgstr "Ștergeți acest panou"
 
-#: ../src/panel.c:765
+#: ../src/panel.c:771
 msgid "About"
 msgstr "Despre"
 
-#: ../src/panel.c:773
+#: ../src/panel.c:779
 msgid "Panel"
 msgstr "Panou"
 
-#: ../src/panel.c:786
+#: ../src/panel.c:792
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "Opțiuni pentru „%s”"
 
-#: ../src/panel.c:1042 ../src/panel.c:1050 ../data/ui/panel-pref.glade.h:16
+#: ../src/panel.c:1048 ../src/panel.c:1056 ../data/ui/panel-pref.glade.h:16
 msgid "Height:"
 msgstr "Înălțime:"
 
-#: ../src/panel.c:1043 ../src/panel.c:1049 ../data/ui/panel-pref.glade.h:15
+#: ../src/panel.c:1049 ../src/panel.c:1055 ../data/ui/panel-pref.glade.h:15
 msgid "Width:"
 msgstr "Lățime:"
 
-#: ../src/panel.c:1044 ../data/ui/panel-pref.glade.h:11
+#: ../src/panel.c:1050 ../data/ui/panel-pref.glade.h:11
 msgid "Left"
 msgstr "Stânga"
 
-#: ../src/panel.c:1045 ../data/ui/panel-pref.glade.h:12
+#: ../src/panel.c:1051 ../data/ui/panel-pref.glade.h:12
 msgid "Right"
 msgstr "Dreapta"
 
-#: ../src/panel.c:1051 ../data/ui/panel-pref.glade.h:10
+#: ../src/panel.c:1057 ../data/ui/panel-pref.glade.h:10
 msgid "Top"
 msgstr "Sus"
 
-#: ../src/panel.c:1052 ../data/ui/panel-pref.glade.h:9
+#: ../src/panel.c:1058 ../data/ui/panel-pref.glade.h:9
 msgid "Bottom"
 msgstr "Jos"
 
-#: ../src/panel.c:1460
+#: ../src/panel.c:1466
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - un mic panou GTK2+ pentru desktopuri UNIX\n"
 
-#: ../src/panel.c:1461
+#: ../src/panel.c:1467
 #, c-format
 msgid "Command line options:\n"
 msgstr "Opțiuni în linia de comandă:\n"
 
-#: ../src/panel.c:1462
+#: ../src/panel.c:1468
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- arată aceste informații și ieși\n"
 
-#: ../src/panel.c:1463
+#: ../src/panel.c:1469
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- arată versiunea și ieși\n"
 
-#: ../src/panel.c:1464
+#: ../src/panel.c:1470
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --log <număr>  -- verbozitatea de la 0 la 5, unde 0 e nimic iar 5 e tot\n"
+msgstr ""
+" --log <număr>  -- verbozitatea de la 0 la 5, unde 0 e nimic iar 5 e tot\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1466
+#: ../src/panel.c:1472
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile nume -- utilizează profilul specificat\n"
 
-#: ../src/panel.c:1468
+#: ../src/panel.c:1474
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- identic cu --help\n"
 
-#: ../src/panel.c:1469
+#: ../src/panel.c:1475
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- identic cu --profile\n"
 
-#: ../src/panel.c:1470
+#: ../src/panel.c:1476
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- identic cu --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1472
+#: ../src/panel.c:1478
 #, c-format
 msgid ""
 "\n"
@@ -442,7 +443,7 @@ msgstr "Avansate"
 msgid "CPU Usage Monitor"
 msgstr "Monitorizare CPU"
 
-#: ../src/plugins/cpu/cpu.c:270 ../src/plugins/monitors/monitors.c:677
+#: ../src/plugins/cpu/cpu.c:270 ../src/plugins/monitors/monitors.c:711
 msgid "Display CPU usage"
 msgstr "Arată utilizarea procesorului"
 
@@ -471,91 +472,91 @@ msgid "Bar with buttons to launch application"
 msgstr "Butoane pentru lansarea programelor"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1715
+#: ../src/plugins/taskbar.c:1714
 msgid "_Raise"
 msgstr "A_rată"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1720
+#: ../src/plugins/taskbar.c:1719
 msgid "R_estore"
 msgstr "R_estaurează"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1725
+#: ../src/plugins/taskbar.c:1724
 msgid "Ma_ximize"
 msgstr "Ma_ximizează"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1730
+#: ../src/plugins/taskbar.c:1729
 msgid "Ico_nify"
 msgstr "Ascu_nde"
 
-#: ../src/plugins/taskbar.c:1749
+#: ../src/plugins/taskbar.c:1748
 #, c-format
 msgid "Workspace _%d"
 msgstr "Spațiul _%d"
 
-#: ../src/plugins/taskbar.c:1754
+#: ../src/plugins/taskbar.c:1753
 #, c-format
 msgid "Workspace %d"
 msgstr "Spațiul de lucru %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1768
+#: ../src/plugins/taskbar.c:1767
 msgid "_All workspaces"
 msgstr "_Toate spațiile de lucru"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1774
+#: ../src/plugins/taskbar.c:1773
 msgid "_Move to Workspace"
 msgstr "_Mută în..."
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1780
+#: ../src/plugins/taskbar.c:1779
 msgid "_Close Window"
 msgstr "În_chide fereastra"
 
-#: ../src/plugins/taskbar.c:1987
+#: ../src/plugins/taskbar.c:1986
 msgid "Show tooltips"
 msgstr "Arată indicii"
 
-#: ../src/plugins/taskbar.c:1988
+#: ../src/plugins/taskbar.c:1987
 msgid "Icons only"
 msgstr "Doar iconițe"
 
-#: ../src/plugins/taskbar.c:1989
+#: ../src/plugins/taskbar.c:1988
 msgid "Flat buttons"
 msgstr "Butoane plate"
 
-#: ../src/plugins/taskbar.c:1990
+#: ../src/plugins/taskbar.c:1989
 msgid "Show windows from all desktops"
 msgstr "Arată ferestrele din toate spațiile de lucru"
 
-#: ../src/plugins/taskbar.c:1991
+#: ../src/plugins/taskbar.c:1990
 msgid "Use mouse wheel"
 msgstr "Activează rotița mausului"
 
-#: ../src/plugins/taskbar.c:1992
+#: ../src/plugins/taskbar.c:1991
 msgid "Flash when there is any window requiring attention"
 msgstr "Evidențiază ferestrele ce necesită atenție"
 
-#: ../src/plugins/taskbar.c:1993
+#: ../src/plugins/taskbar.c:1992
 msgid "Combine multiple application windows into a single button"
 msgstr "Combină ferestrele multiple ale unui program într-un singur buton"
 
-#: ../src/plugins/taskbar.c:1994
+#: ../src/plugins/taskbar.c:1993
 msgid "Maximum width of task button"
 msgstr "Lățimea maximă a unui buton"
 
-#: ../src/plugins/taskbar.c:1995
+#: ../src/plugins/taskbar.c:1994
 msgid "Spacing"
 msgstr "Spațiere"
 
-#: ../src/plugins/taskbar.c:2048
+#: ../src/plugins/taskbar.c:2047
 msgid "Task Bar (Window List)"
 msgstr "Bară cu programe (listă de ferestre)"
 
-#: ../src/plugins/taskbar.c:2050
+#: ../src/plugins/taskbar.c:2049
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -603,15 +604,15 @@ msgstr "Adaugă pe desktop"
 msgid "Properties"
 msgstr "Proprietăți"
 
-#: ../src/plugins/menu.c:1085 ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1083 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "Iconiță"
 
-#: ../src/plugins/menu.c:1102
+#: ../src/plugins/menu.c:1100
 msgid "Menu"
 msgstr "Meniu"
 
-#: ../src/plugins/menu.c:1104
+#: ../src/plugins/menu.c:1102
 msgid "Application Menu"
 msgstr "Meniu cu programe"
 
@@ -727,74 +728,75 @@ msgstr "Meniu de directoare"
 msgid "Browse directory tree via menu (Author: PCMan)"
 msgstr "Navigare a arborelui de directoare printr-un meniu (Autor: PCMan)"
 
-#: ../src/plugins/thermal/thermal.c:394
+#: ../src/plugins/thermal/thermal.c:474
 msgid "Normal"
 msgstr "Normal"
 
-#: ../src/plugins/thermal/thermal.c:395
+#: ../src/plugins/thermal/thermal.c:475
 msgid "Warning1"
 msgstr "Avertisment1"
 
-#: ../src/plugins/thermal/thermal.c:396
+#: ../src/plugins/thermal/thermal.c:476
 msgid "Warning2"
 msgstr "Avertisment2"
 
-#: ../src/plugins/thermal/thermal.c:397
+#: ../src/plugins/thermal/thermal.c:477
 msgid "Automatic sensor location"
 msgstr "Localizare automată a senzorului"
 
-#: ../src/plugins/thermal/thermal.c:398
+#: ../src/plugins/thermal/thermal.c:478
 msgid "Sensor"
 msgstr "Senzor"
 
-#: ../src/plugins/thermal/thermal.c:399
+#: ../src/plugins/thermal/thermal.c:479
 msgid "Automatic temperature levels"
 msgstr "Niveluri automate de temperatură"
 
-#: ../src/plugins/thermal/thermal.c:400
+#: ../src/plugins/thermal/thermal.c:480
 msgid "Warning1 Temperature"
 msgstr "Temperatură de avertizare 1"
 
-#: ../src/plugins/thermal/thermal.c:401
+#: ../src/plugins/thermal/thermal.c:481
 msgid "Warning2 Temperature"
 msgstr "Temperatură de avertizare 2"
 
-#: ../src/plugins/thermal/thermal.c:443
+#: ../src/plugins/thermal/thermal.c:525
 msgid "Temperature Monitor"
 msgstr "Monitor de temperatură"
 
-#: ../src/plugins/thermal/thermal.c:445
+#: ../src/plugins/thermal/thermal.c:527
 msgid "Display system temperature"
 msgstr "Afișează temperatura sistemului"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:287
-#: ../src/plugins/volumealsa/volumealsa.c:457
+#: ../src/plugins/volumealsa/volumealsa.c:339
+#: ../src/plugins/volumealsa/volumealsa.c:509
 msgid "Volume control"
 msgstr "Control volum"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:579
+#: ../src/plugins/volumealsa/volumealsa.c:629
 msgid "Volume Control"
 msgstr "Control volum"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:415
+#: ../src/plugins/volumealsa/volumealsa.c:467
 msgid "Volume"
 msgstr "Volum"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/volumealsa/volumealsa.c:434
+#: ../src/plugins/volumealsa/volumealsa.c:486
 msgid "Mute"
 msgstr "Fără sonor"
 
-#: ../src/plugins/volumealsa/volumealsa.c:552
+#: ../src/plugins/volumealsa/volumealsa.c:602
+#, fuzzy
 msgid ""
-"Error, you need to install a application to configure the sound (pavucontol, "
-"alsamixer ...)"
+"Error, you need to install an application to configure the sound "
+"(pavucontol, alsamixer ...)"
 msgstr ""
 "Eroare! Trebuie să instalați un program pentru configurarea sunetului "
 "(pavucontrol, alsamixer etc.)"
@@ -1216,8 +1218,7 @@ msgstr "Nu s-a putut prelucra /proc/net/wireless. Format necunoscut."
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
 msgstr ""
-"Nu s-au putut prelucra detaliile conexiunii fără fir din „%s”. link_idx = %"
-"d;"
+"Nu s-au putut prelucra detaliile conexiunii fără fir din „%s”. link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
@@ -1378,30 +1379,45 @@ msgstr "Module de tip indicator"
 msgid "Add indicator applets to the panel"
 msgstr "Adăugați module de tip indicator în panou"
 
-#: ../src/plugins/monitors/monitors.c:678
+#: ../src/plugins/monitors/monitors.c:284
+#, c-format
+msgid "CPU usage: %.2f%%"
+msgstr ""
+
+#: ../src/plugins/monitors/monitors.c:367
+#, c-format
+msgid "RAM usage: %.1fMB (%.2f%%)"
+msgstr ""
+
+#: ../src/plugins/monitors/monitors.c:712
 msgid "CPU color"
 msgstr "Culoare CPU"
 
-#: ../src/plugins/monitors/monitors.c:679
+#: ../src/plugins/monitors/monitors.c:713
 msgid "Display RAM usage"
 msgstr "Arată utilizarea memoriei"
 
-#: ../src/plugins/monitors/monitors.c:680
+#: ../src/plugins/monitors/monitors.c:714
 msgid "RAM color"
 msgstr "Culoarea memoriei"
 
-#: ../src/plugins/monitors/monitors.c:774
+#: ../src/plugins/monitors/monitors.c:715
+#, fuzzy
+msgid "Action when clicked (default: lxtask)"
+msgstr "Acțiune la clic (implicit se afișează calendarul)"
+
+#: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"
 msgstr "Monitorizare de resurse"
 
-#: ../src/plugins/monitors/monitors.c:776
+#: ../src/plugins/monitors/monitors.c:810
 msgid "Display monitors (CPU, RAM)"
 msgstr "Afișează monitoare (CPU, RAM)"
 
-#: ../src/plugins/wnckpager/wnckpager.c:721
+#: ../src/plugins/wnckpager/wnckpager.c:720
 msgid "WNCKPager"
 msgstr "WNCKPager"
 
-#: ../src/plugins/wnckpager/wnckpager.c:723
+#: ../src/plugins/wnckpager/wnckpager.c:722
 msgid "WNCKpager plugin"
 msgstr "Modul WNCKPager"
