@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-04 15:41+0100\n"
-"PO-Revision-Date: 2012-03-05 01:24+0200\n"
+"PO-Revision-Date: 2012-04-17 22:11+0200\n"
 "Last-Translator: Christoph <christoph.wickert@googlemail.com>\n"
 "Language-Team: Deutsch <LL@li.org>\n"
 "Language: de\n"
@@ -815,13 +815,12 @@ msgid "Mute"
 msgstr "Stumm"
 
 #: ../src/plugins/volumealsa/volumealsa.c:544
-#, fuzzy
 msgid ""
 "Error, you need to install a application to configure the sound (pavucontol, "
 "alsamixer ...)"
 msgstr ""
-"Fehler: Sie müssen eine Anwendung wie pavucontrol oder alsamixer "
-"installieren, um die Lautstärke anzupassen"
+"Fehler: Sie müssen eine Anwendung zum Einstellen der Lautstärke installieren "
+"(z. B. pavucontrol oder alsamixer)"
 
 #: ../src/plugins/netstat/netstat.c:168
 msgid "<Hidden Access Point>"
@@ -1406,17 +1405,14 @@ msgid "Add indicator applets to the panel"
 msgstr "Trenner zum Panel hinzufügen"
 
 #: ../src/plugins/monitors/monitors.c:654
-#, fuzzy
 msgid "CPU color"
 msgstr "Farbe für CPU"
 
 #: ../src/plugins/monitors/monitors.c:655
-#, fuzzy
 msgid "Display RAM usage"
 msgstr "Speichernutzung anzeigen"
 
 #: ../src/plugins/monitors/monitors.c:656
-#, fuzzy
 msgid "RAM color"
 msgstr "Farbe für Speicher"
 
