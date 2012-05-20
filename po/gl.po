@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-20 15:58+0200\n"
-"PO-Revision-Date: 2012-05-11 13:21+0200\n"
+"PO-Revision-Date: 2012-05-20 16:33+0200\n"
 "Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Proxecto Trasno <proxecto@trasno.net>\n"
 "Language: gl\n"
@@ -794,12 +794,11 @@ msgid "Mute"
 msgstr "Silenciar"
 
 #: ../src/plugins/volumealsa/volumealsa.c:602
-#, fuzzy
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
 msgstr ""
-"Error, é necesario instalar un aplicativo para configurar o son (pavucontol, "
+"Erro, é necesario instalar un aplicativo para configurar o son (pavucontol, "
 "alsamixer ...)"
 
 #: ../src/plugins/netstat/netstat.c:180
@@ -1381,12 +1380,12 @@ msgstr "Engadir un indicador de miniaplicativos ao panel"
 #: ../src/plugins/monitors/monitors.c:284
 #, c-format
 msgid "CPU usage: %.2f%%"
-msgstr ""
+msgstr "Uso da CPU: %.2f%%"
 
 #: ../src/plugins/monitors/monitors.c:367
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
-msgstr ""
+msgstr "Uso da RAM: %.1fMB (%.2f%%)"
 
 #: ../src/plugins/monitors/monitors.c:712
 msgid "CPU color"
@@ -1401,9 +1400,8 @@ msgid "RAM color"
 msgstr "Cor da RAM"
 
 #: ../src/plugins/monitors/monitors.c:715
-#, fuzzy
 msgid "Action when clicked (default: lxtask)"
-msgstr "Acción ao premer (predeterminado: amosar o calendario)"
+msgstr "Acción ao premer (predeterminado: lxtask)"
 
 #: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"
