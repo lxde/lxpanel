@@ -1009,7 +1009,7 @@ void panel_configure( Panel* p, int sel_page )
         w = (GtkWidget*)gtk_builder_get_object( builder, "img_file" );
         g_object_set_data(G_OBJECT(img), "img_file", w);
         gtk_file_chooser_set_filename(GTK_FILE_CHOOSER(w),
-            ((p->background_file != NULL) ? p->background_file : gtk_icon_info_get_filename(gtk_icon_theme_lookup_icon(p->icon_theme, "background", 0, 0))));
+            ((p->background_file != NULL) ? p->background_file : gtk_icon_info_get_filename(gtk_icon_theme_lookup_icon(p->icon_theme, "lxpanel-backkground", 0, 0))));
 
         if (!p->background)
             gtk_widget_set_sensitive( w, FALSE);

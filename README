@@ -26,3 +26,22 @@ About Netstat and Netstatus plugins:
 2. netstat is a new plugin written by LxDE developers as the lightweight
    replacement of netstatus plugin.  It aims to be more usable and resource
    efficient.  At the current stage, netstat runs only on Linux.
+
+About theming & lxpanel:
+
+1. In future, hardcoding should not be used for icon lookup. Instead, use Gtk's built-in functions to handle icon lookup. If necessary, provide a fallback (hardcoded) icon.
+
+2. Current icon names that can be themed specifically for lxpanel include:
+	*"lxpanel-background"
+	*"clock"
+	*"capslock-on"
+	*"capslock-off"
+	*"numlock-on"
+	*"numlock-off"
+	*"scrllock-on"
+	*"scrllock-off"
+	*"wincmd"
+	*"ns-lock"
+	*possibly more, as yet unfound.
+
+There are also a substantial amount of others, but they use the icon naming specification.
