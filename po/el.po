@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-20 15:58+0200\n"
-"PO-Revision-Date: 2012-04-08 18:32+0200\n"
+"PO-Revision-Date: 2012-05-20 21:44+0200\n"
 "Last-Translator: George <forfolias@gmail.com>\n"
 "Language-Team: Greek\n"
 "Language: el\n"
@@ -795,7 +795,6 @@ msgid "Mute"
 msgstr "Σίγαση"
 
 #: ../src/plugins/volumealsa/volumealsa.c:602
-#, fuzzy
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
@@ -1385,12 +1384,12 @@ msgstr "Προσθήκη ενδείξεων μικροεφαρμογών στο 
 #: ../src/plugins/monitors/monitors.c:284
 #, c-format
 msgid "CPU usage: %.2f%%"
-msgstr ""
+msgstr "Χρήση CPU: %.2f%%"
 
 #: ../src/plugins/monitors/monitors.c:367
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
-msgstr ""
+msgstr "Χρήση RAM: %.1fMB (%.2f%%)"
 
 #: ../src/plugins/monitors/monitors.c:712
 msgid "CPU color"
@@ -1405,9 +1404,9 @@ msgid "RAM color"
 msgstr "Χρώμα RAM"
 
 #: ../src/plugins/monitors/monitors.c:715
-#, fuzzy
 msgid "Action when clicked (default: lxtask)"
-msgstr "Ενέργεια όταν γίνει κλικ (προεπιλογή: εμφάνιση ημερολογίου)"
+msgstr ""
+"Ενέργεια όταν γίνει κλικ (προεπιλογή: εμφάνιση του διαχειριστή διεργασιών)"
 
 #: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"
