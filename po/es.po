@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: lxpanel-0.3.5.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-20 15:58+0200\n"
-"PO-Revision-Date: 2012-05-13 23:37-0500\n"
-"Last-Translator: Hugo Florentino <sysadmin@cips.cu>\n"
+"PO-Revision-Date: 2012-05-21 07:01+0200\n"
+"Last-Translator: Hugo <sysadmin@cips.cu>\n"
 "Language-Team: Spanish <daniel@tunki.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -798,7 +798,6 @@ msgid "Mute"
 msgstr "Silenciar"
 
 #: ../src/plugins/volumealsa/volumealsa.c:602
-#, fuzzy
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
@@ -1387,12 +1386,12 @@ msgstr "Añadir applets de indicadores al panel"
 #: ../src/plugins/monitors/monitors.c:284
 #, c-format
 msgid "CPU usage: %.2f%%"
-msgstr ""
+msgstr "Uso de CPU: %.2f%%"
 
 #: ../src/plugins/monitors/monitors.c:367
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
-msgstr ""
+msgstr "Uso de RAM: %.1fMB (%.2f%%)"
 
 #: ../src/plugins/monitors/monitors.c:712
 msgid "CPU color"
@@ -1407,9 +1406,8 @@ msgid "RAM color"
 msgstr "Color para la RAM:"
 
 #: ../src/plugins/monitors/monitors.c:715
-#, fuzzy
 msgid "Action when clicked (default: lxtask)"
-msgstr "Acción al hacer clic (predeterminado: mostrar el calendario)"
+msgstr "Acción al hacer clic (predeterminado: lxtask)"
 
 #: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"
