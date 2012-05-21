@@ -40,6 +40,7 @@ fi
 pkg_modules="$pkg_modules \
              gio-unix-2.0 \
              gthread-2.0 \
+             gmodule-2.0 \
              libmenu-cache"
 #             libstartup-notification-1.0"
 PKG_CHECK_MODULES(PACKAGE, [$pkg_modules])
