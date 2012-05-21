@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-20 15:58+0200\n"
-"PO-Revision-Date: 2012-03-19 22:44+0200\n"
+"PO-Revision-Date: 2012-05-21 17:42+0200\n"
 "Last-Translator: Y P <yupadmin@gmail.com>\n"
 "Language-Team: UKRAINIAN <translate@linux.org.ua>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.5\n"
 "X-Poedit-Language: Ukrainian\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -793,7 +793,6 @@ msgid "Mute"
 msgstr "Заглушити"
 
 #: ../src/plugins/volumealsa/volumealsa.c:602
-#, fuzzy
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
@@ -1382,12 +1381,12 @@ msgstr "Додати індикатор аплетів до панелі"
 #: ../src/plugins/monitors/monitors.c:284
 #, c-format
 msgid "CPU usage: %.2f%%"
-msgstr ""
+msgstr "Використання CPU: %.2f%%"
 
 #: ../src/plugins/monitors/monitors.c:367
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
-msgstr ""
+msgstr "Використання RAM: %.1fМБ (%.2f%%)"
 
 #: ../src/plugins/monitors/monitors.c:712
 msgid "CPU color"
@@ -1402,9 +1401,8 @@ msgid "RAM color"
 msgstr "Колір RAM"
 
 #: ../src/plugins/monitors/monitors.c:715
-#, fuzzy
 msgid "Action when clicked (default: lxtask)"
-msgstr "Дія при клацанні (по замовчуванню: показати календар)"
+msgstr "Дія при клацанні (типово: lxtask)"
 
 #: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"
