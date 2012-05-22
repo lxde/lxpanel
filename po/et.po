@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-20 15:58+0200\n"
-"PO-Revision-Date: 2012-01-22 18:44+0200\n"
+"PO-Revision-Date: 2012-05-22 16:13+0200\n"
 "Last-Translator: Anari <anari.jalakas@gmail.com>\n"
 "Language-Team: Gnome Estonian translation team <gnome-et@linux.ee>\n"
 "Language: et\n"
@@ -126,7 +126,7 @@ msgstr "Paneel"
 #: ../src/panel.c:792
 #, c-format
 msgid "\"%s\" Settings"
-msgstr "\"%s\" sätted"
+msgstr "\"%s\" seaded"
 
 #: ../src/panel.c:1048 ../src/panel.c:1056 ../data/ui/panel-pref.glade.h:16
 msgid "Height:"
@@ -208,7 +208,7 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"Üksikasjad leiad lehelt http://lxde.org/.\n"
+"Üksikasjad leiad lehelt: http://lxde.org/.\n"
 "\n"
 
 #: ../src/gtk-run.c:373
@@ -299,7 +299,7 @@ msgstr "Tugi"
 
 #: ../data/ui/netstatus.glade.h:21
 msgid "Con_figure"
-msgstr "_Sätted"
+msgstr "_Seadistamine"
 
 #: ../data/ui/panel-pref.glade.h:1
 msgid "Dynamic"
@@ -307,12 +307,12 @@ msgstr "Dünaamiline"
 
 #: ../data/ui/panel-pref.glade.h:2
 msgid "Pixels"
-msgstr "pikslit"
+msgstr "Pikslit"
 
 #: ../data/ui/panel-pref.glade.h:4
 #, no-c-format
 msgid "% Percent"
-msgstr "% protsenti"
+msgstr "% Protsenti"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "Panel Preferences"
@@ -441,11 +441,11 @@ msgstr "Laiendatud"
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
-msgstr "Protsessori kasutuse monitor"
+msgstr "Protsessorikasutuse monitor"
 
 #: ../src/plugins/cpu/cpu.c:270 ../src/plugins/monitors/monitors.c:711
 msgid "Display CPU usage"
-msgstr "Protsessori kasutuse kuva"
+msgstr "Protsessorikasutuse kuva"
 
 #: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:438
 msgid "Bold font"
@@ -479,7 +479,7 @@ msgstr "_Tõsta"
 #. Add Restore menu item.
 #: ../src/plugins/taskbar.c:1719
 msgid "R_estore"
-msgstr "_Taasta"
+msgstr "_Taastamine"
 
 #. Add Maximize menu item.
 #: ../src/plugins/taskbar.c:1724
@@ -794,13 +794,12 @@ msgid "Mute"
 msgstr "Hääletu"
 
 #: ../src/plugins/volumealsa/volumealsa.c:602
-#, fuzzy
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
 msgstr ""
-"Viga, heli seadistamiseks tuleb paigaldada rakendus (pavucontol, "
-"alsamixer ...)"
+"Viga, heli seadistamiseks on vaja paigaldada heli juhtimise programm "
+"(pavucontol, alsamixer ...)"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
@@ -1031,7 +1030,7 @@ msgstr "Liidese olek"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:165
 msgid "Stats"
-msgstr "Stat."
+msgstr "Statistika"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:166
 msgid "The interface packets/bytes statistics"
@@ -1382,12 +1381,12 @@ msgstr "Lisa indikaatorite rakendid paneelile"
 #: ../src/plugins/monitors/monitors.c:284
 #, c-format
 msgid "CPU usage: %.2f%%"
-msgstr ""
+msgstr "Protsessorikasutus: %.2f%%"
 
 #: ../src/plugins/monitors/monitors.c:367
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
-msgstr ""
+msgstr "Mälukasutus: %.1fMB (%.2f%%)"
 
 #: ../src/plugins/monitors/monitors.c:712
 msgid "CPU color"
@@ -1402,9 +1401,8 @@ msgid "RAM color"
 msgstr "RAM värv"
 
 #: ../src/plugins/monitors/monitors.c:715
-#, fuzzy
 msgid "Action when clicked (default: lxtask)"
-msgstr "Klõpsamise tegevus (vaikimisi: kuvatakse kalender)"
+msgstr "Tegevus klõpsamisel (vaikimisi: lxtask)"
 
 #: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"
