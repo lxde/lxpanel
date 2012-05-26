@@ -239,8 +239,11 @@ AC_ARG_WITH(plugins,
 [  --with-plugins=<list>  compile dynamic plugins in <list> ]
 [                         plugins may be comma separated ]
 [                         'all' builds all plugins (default), 'none' builds none ]
+[                         plugins prefixed with '-' are not built]
 [                         Possible plugins are: ]
-[                         netstatus, netstat, volume, volumealsa, cpu, deskno, batt, kbled, xkb, thermal, cpufreq, monitors, wnckpager], plugins="$withval",[plugins="all"])
+[                         netstatus, netstat, volume, volumealsa, cpu, deskno, batt,]
+[                         kbled, xkb, thermal, cpufreq, monitors, wnckpager]
+, plugins="$withval",[plugins="all"])
 
 if test x"$plugins" != xall -a x"$plugins" != xnone; then
     if test x"$plugins_loading" = xno; then
@@ -252,84 +255,41 @@ fi
 ALL_PLUGINS_LIST="netstatus netstat volume volumealsa cpu deskno batt kbled xkb thermal cpufreq monitors wnckpager indicator"
 AC_SUBST(ALL_PLUGINS_LIST)
 
-if test x"$plugins" = xall; then
-dnl    for name in $ALL_PLUGINS
-dnl    do
-dnl        export plugin_$name="$name"
-dnl    done
+AC_DEFUN([check_plugin_name],[
+    plugin_found=false
+    for name in $ALL_PLUGINS_LIST; do
+        if test x[$1] = x[$name]; then
+            plugin_found=true
+        fi
+    done
+    if test x[$plugin_found] = false; then
+        echo [Unknown plugin $1.]
+        exit 1
+    fi
+])
 
-    plugin_netstatus=netstatus
-    plugin_netstat=netstat
-    plugin_volume=volume
-    plugin_volumealsa=volumealsa
-    plugin_cpu=cpu
-    plugin_deskno=deskno
-    plugin_batt=batt
-    plugin_kbled=kbled
-    plugin_xkb=xkb
-    plugin_thermal=thermal
-    plugin_cpufreq=cpufreq
-    plugin_monitors=monitors
-    plugin_wnckpager=wnckpager
-    plugin_indicator=indicator
-
-    AC_MSG_RESULT(all)
-else
-    if test "$plugins" != "none"; then
-        plugins=`echo $plugins | sed 's/,/ /g'`
-        for plugin in $plugins
-        do
+if test "$plugins" != "none"; then
+    plugins=`echo $plugins | sed 's/,/ /g'`
+    for plugin in $plugins
+    do
         case "$plugin" in
-            netstatus)
-                plugin_netstatus=netstatus
+            all)
+                for name in $ALL_PLUGINS_LIST
+                do
+                    export plugin_$name="$name"
+                done
                 ;;
-            netstat)
-                plugin_netstat=netstat
-                ;;
-            volume)
-                plugin_volume=volume
-                ;;
-            volumealsa)
-                plugin_volumealsa=volumealsa
-                ;;
-            cpu)
-                plugin_cpu=cpu
-                ;;
-            deskno)
-                plugin_deskno=deskno
-                ;;
-            batt)
-                plugin_batt=batt
-                ;;
-            kbled)
-                plugin_kbled=kbled
-                ;;
-            xkb)
-                plugin_xkb=xkb
-                ;;
-            thermal)
-                plugin_thermal=thermal
-                ;;
-            cpufreq)
-                plugin_cpufreq=cpufreq
-                ;;
-            monitors)
-                plugin_monitors=monitors
-                ;;
-            wnckpager)
-                plugin_wnckpager=wnckpager
-                ;;
-            indicator)
-                plugin_indicator=indicator
+            -*)
+                check_plugin_name([${plugin#-}])
+                export plugin_${plugin#-}=
                 ;;
             *)
-                echo "Unknown plugin $plugin."
-                exit 1
+                check_plugin_name([$plugin])
+                export plugin_$plugin=$plugin
                 ;;
         esac
-        done
-        AC_MSG_RESULT($plugins)
-    fi
+    done
+    AC_MSG_RESULT($plugins)
 fi
 
 dnl FIXME: OSS/ALSA checking
