@@ -66,6 +66,10 @@ extern GSList* all_panels;
 extern gchar *cprofile;
 extern int config;
 
+/* GtkColotButton expects a number between 0 and 65535, but p->alpha has range
+ * 0 to 255, and (2^(2n) - 1) / (2^n - 1) = 2^n + 1 = 257, with n = 8. */
+static guint16 const alpha_scale_factor = 257;
+
 void panel_global_config_save( Panel* p, FILE *fp);
 void panel_plugin_config_save( Panel* p, FILE *fp);
 
@@ -320,7 +324,7 @@ on_tint_color_set( GtkColorButton* clr,  Panel* p )
 {
     gtk_color_button_get_color( clr, &p->gtintcolor );
     p->tintcolor = gcolor2rgb24(&p->gtintcolor);
-    p->alpha = gtk_color_button_get_alpha( clr ) / 256;
+    p->alpha = gtk_color_button_get_alpha( clr ) / alpha_scale_factor;
     panel_update_background( p );
 }
 
@@ -968,7 +972,7 @@ void panel_configure( Panel* p, int sel_page )
     /* transparancy */
     tint_clr = w = (GtkWidget*)gtk_builder_get_object( builder, "tint_clr" );
     gtk_color_button_set_color((GtkColorButton*)w, &p->gtintcolor);
-    gtk_color_button_set_alpha((GtkColorButton*)w, 256 * p->alpha);
+    gtk_color_button_set_alpha((GtkColorButton*)w, alpha_scale_factor * p->alpha);
     if ( ! p->transparent )
         gtk_widget_set_sensitive( w, FALSE );
     g_signal_connect( w, "color-set", G_CALLBACK( on_tint_color_set ), p );

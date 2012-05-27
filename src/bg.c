@@ -210,33 +210,16 @@ fb_bg_get_xroot_pix_for_win(FbBg *bg, GtkWidget *widget)
 }
 
 void
-fb_bg_composite(GdkDrawable *base, GdkGC *gc, guint32 tintcolor, gint alpha)
+fb_bg_composite(GdkDrawable *base, GdkColor *tintcolor, gint alpha)
 {
-    GdkPixbuf *ret, *ret2;
-    int w, h;
-    static GdkColormap *cmap = NULL;
+    cairo_t *cr;
 
     ENTER;
-    gdk_drawable_get_size (base, &w, &h);
-    if (!cmap) {
-        cmap = gdk_colormap_get_system ();
-    }
-    DBG("here\n");
-    ret = gdk_pixbuf_get_from_drawable (NULL, base, cmap, 0, 0, 0, 0, w, h);
-    if (!ret)
-        RET();
-    DBG("here w=%d h=%d\n", w, h);
-    ret2 = gdk_pixbuf_composite_color_simple(ret, w, h,
-          GDK_INTERP_HYPER, 255-alpha, MIN(w, h), tintcolor, tintcolor);
-    DBG("here\n");
-    if (!ret2) {
-        g_object_unref(ret);
-        RET();
-    }
-    //gdk_pixbuf_render_to_drawable (ret2, base, gc, 0, 0, 0, 0, w, h, GDK_RGB_DITHER_NONE, 0, 0);
-    gdk_draw_pixbuf (base, gc, ret2, 0, 0, 0, 0, w, h, GDK_RGB_DITHER_NONE, 0, 0);
-    g_object_unref(ret);
-    g_object_unref(ret2);
+    cr = gdk_cairo_create(base);
+    gdk_cairo_set_source_color(cr, tintcolor);
+    cairo_paint_with_alpha(cr, (double) alpha/255);
+    cairo_destroy(cr);
+    fb_bg_changed(fb_bg_get_for_display());
     RET();
 }
 
@@ -282,6 +265,7 @@ fb_bg_get_pix_from_file(GtkWidget *widget, const char *filename)
 {
     ENTER;
     GdkPixbuf *pixbuf;
+    cairo_t *cr;
     GdkPixmap *pixmap;
 
     pixbuf = gdk_pixbuf_new_from_file(filename, NULL);
@@ -289,12 +273,10 @@ fb_bg_get_pix_from_file(GtkWidget *widget, const char *filename)
         RET(widget->style->bg_pixmap[0]);
     }
     pixmap = gdk_pixmap_new(widget->window, gdk_pixbuf_get_width(pixbuf), gdk_pixbuf_get_height(pixbuf), -1);
-    gdk_pixbuf_render_to_drawable(pixbuf,pixmap,
-            widget->style->fg_gc[GTK_STATE_NORMAL],
-            0,0,0,0,
-            gdk_pixbuf_get_width(pixbuf),
-            gdk_pixbuf_get_height(pixbuf),
-            GDK_RGB_DITHER_NORMAL,0,0);
+    cr = gdk_cairo_create(pixmap);
+    gdk_cairo_set_source_pixbuf(cr, pixbuf, 0, 0);
+    cairo_paint(cr);
+    cairo_destroy(cr);
 
     g_object_unref( pixbuf );
     RET(pixmap);

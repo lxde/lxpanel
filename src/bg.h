@@ -56,7 +56,7 @@ typedef struct _FbBg      FbBg;
 
 GType fb_bg_get_type       (void);
 #define fb_bg_new() (FbBg *)g_object_new(FB_TYPE_BG, NULL)
-void fb_bg_composite(GdkDrawable *base, GdkGC *gc, guint32 tintcolor, gint alpha);
+void fb_bg_composite(GdkDrawable *base, GdkColor *tintcolor, gint alpha);
 GdkPixmap *fb_bg_get_xroot_pix_for_win(FbBg *bg, GtkWidget *widget);
 void fb_bg_notify_changed_bg(FbBg *bg);
 FbBg *fb_bg_get_for_display(void);

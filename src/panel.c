@@ -421,7 +421,7 @@ void panel_determine_background_pixmap(Panel * p, GtkWidget * widget, GdkWindow 
         }
         pixmap = fb_bg_get_xroot_pix_for_win(p->bg, widget);
         if ((pixmap != NULL) && (pixmap != GDK_NO_BG) && (p->alpha != 0))
-            fb_bg_composite(pixmap, widget->style->black_gc, p->tintcolor, p->alpha);
+            fb_bg_composite(pixmap, &p->gtintcolor, p->alpha);
     }
 
     if (pixmap != NULL)
