@@ -994,7 +994,7 @@ menu_constructor(Plugin *p, char **fp)
             "image=gnome-logout\n"
             "command=logout\n"
         "}\n"
-        //"image=" DEFAULT_MENU_ICON "\n"
+        "image=" DEFAULT_MENU_ICON "\n"
         "}\n";
     char *config_default = default_config;
     int iw, ih;

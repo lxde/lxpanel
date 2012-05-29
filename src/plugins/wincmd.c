@@ -202,6 +202,10 @@ static int wincmd_constructor(Plugin * p, char ** fp)
     /* Default the image if unspecified. */
     if (wc->image == NULL)
         wc->image = g_strdup("window-manager");
+    
+    if(panel_image_set_icon_theme(p->panel, wc->icon, "wincmd") != TRUE) {
+		fb_button_set_from_file(p->pwid, wc->image, p->panel->icon_size, p->panel->icon_size, TRUE);
+	}
 
     /* Allocate top level widget and set into Plugin widget pointer. */
     p->pwid = fb_button_new_from_file(wc->image, p->panel->icon_size, p->panel->icon_size, PANEL_ICON_HIGHLIGHT, TRUE);
@@ -255,7 +259,7 @@ static void wincmd_save_configuration(Plugin * p, FILE * fp)
 static void wincmd_panel_configuration_changed(Plugin * p)
 {
     WinCmdPlugin * wc = (WinCmdPlugin *) p->priv;
-    if(panel_image_set_icon_theme(p->panel, wc->icon, "wincmd") != FALSE) {
+    if(panel_image_set_icon_theme(p->panel, wc->icon, "wincmd") != TRUE) {
 		fb_button_set_from_file(p->pwid, wc->image, p->panel->icon_size, p->panel->icon_size, TRUE);
 	}
 }
