@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-20 15:58+0200\n"
-"PO-Revision-Date: 2012-04-07 10:32+0200\n"
+"PO-Revision-Date: 2012-05-31 17:38+0200\n"
 "Last-Translator: Радослав <reckku@gmail.com>\n"
 "Language-Team: MIME-Version: 1.0\n"
 "Language: bg\n"
@@ -789,7 +789,6 @@ msgid "Mute"
 msgstr "Заглушаване"
 
 #: ../src/plugins/volumealsa/volumealsa.c:602
-#, fuzzy
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
@@ -1379,29 +1378,28 @@ msgstr "Добави индикатори"
 #: ../src/plugins/monitors/monitors.c:284
 #, c-format
 msgid "CPU usage: %.2f%%"
-msgstr ""
+msgstr "Товар на Централния процесор: %.2f%%"
 
 #: ../src/plugins/monitors/monitors.c:367
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
-msgstr ""
+msgstr "Използване на Оперативна памет: %.1fMB (%.2f%%)"
 
 #: ../src/plugins/monitors/monitors.c:712
 msgid "CPU color"
-msgstr "Цвят за процесора"
+msgstr "Цвят за скалата на Процесора"
 
 #: ../src/plugins/monitors/monitors.c:713
 msgid "Display RAM usage"
-msgstr "Потребление на оперативна памет"
+msgstr "Извеждане на използваната Оперативна памет"
 
 #: ../src/plugins/monitors/monitors.c:714
 msgid "RAM color"
-msgstr "Цвят за оперативната памет"
+msgstr "Цвят за скалата на Оперативната памет"
 
 #: ../src/plugins/monitors/monitors.c:715
-#, fuzzy
 msgid "Action when clicked (default: lxtask)"
-msgstr "Действие при клик (по подразбиране: показвай календар)"
+msgstr "Действие при клик (по подразбиране: Мениджър на задачи)"
 
 #: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"
