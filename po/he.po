@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-20 15:58+0200\n"
+"POT-Creation-Date: 2012-06-10 16:52+0200\n"
 "PO-Revision-Date: 2012-05-21 07:19+0200\n"
 "Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -572,9 +572,7 @@ msgstr "מבנה התיאורים המוקפצים"
 
 #: ../src/plugins/dclock.c:436
 msgid "Format codes: man 3 strftime; \\n for line break"
-msgstr ""
-"קודים למבנים אפשריים: man 3 strftime; \\n"
-" for line break"
+msgstr "קודים למבנים אפשריים: man 3 strftime; \\n for line break"
 
 #: ../src/plugins/dclock.c:437
 msgid "Action when clicked (default: display calendar)"
@@ -795,8 +793,7 @@ msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
 msgstr ""
-"שגיאה, עליך להתקין יישום כדי לשנות את הגדרות השמע (pavucontol, alsamixer "
-"...‎)"
+"שגיאה, עליך להתקין יישום כדי לשנות את הגדרות השמע (pavucontol, alsamixer ...‎)"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"

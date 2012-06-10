@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-20 15:58+0200\n"
+"POT-Creation-Date: 2012-06-10 16:52+0200\n"
 "PO-Revision-Date: 2010-07-18 23:10+0200\n"
 "Last-Translator: Gunleif <gunleif@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -575,9 +575,7 @@ msgstr "Snið á amboðsráð"
 
 #: ../src/plugins/dclock.c:436
 msgid "Format codes: man 3 strftime; \\n for line break"
-msgstr ""
-"Sniðkotur: man 3 strftime; \\n"
-" til linjuskift"
+msgstr "Sniðkotur: man 3 strftime; \\n til linjuskift"
 
 #: ../src/plugins/dclock.c:437
 msgid "Action when clicked (default: display calendar)"

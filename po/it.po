@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.3.99\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-20 15:58+0200\n"
+"POT-Creation-Date: 2012-06-10 16:52+0200\n"
 "PO-Revision-Date: 2009-12-29 18:40+0100\n"
 "Last-Translator: Alessandro Pellizzari <alex@amiran.it>\n"
 "Language-Team: \n"
@@ -574,9 +574,7 @@ msgstr "Formato aiuto tooltip"
 
 #: ../src/plugins/dclock.c:436
 msgid "Format codes: man 3 strftime; \\n for line break"
-msgstr ""
-"Codici formato: man 3 strftime; \\n"
-" per ritorno a capo"
+msgstr "Codici formato: man 3 strftime; \\n per ritorno a capo"
 
 #: ../src/plugins/dclock.c:437
 msgid "Action when clicked (default: display calendar)"

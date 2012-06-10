@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel-0.3.5.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-20 15:58+0200\n"
+"POT-Creation-Date: 2012-06-10 16:52+0200\n"
 "PO-Revision-Date: 2009-12-19 18:14+0100\n"
 "Last-Translator: Hugo Florentino <sysadmin@cips.cu>\n"
 "Language-Team: Spanish <daniel@tunki.org>\n"
@@ -578,9 +578,7 @@ msgstr "Formato del consejo"
 
 #: ../src/plugins/dclock.c:436
 msgid "Format codes: man 3 strftime; \\n for line break"
-msgstr ""
-"Códigos de formato: man 3 strftime; \\n"
-" para salto de línea"
+msgstr "Códigos de formato: man 3 strftime; \\n para salto de línea"
 
 #: ../src/plugins/dclock.c:437
 msgid "Action when clicked (default: display calendar)"

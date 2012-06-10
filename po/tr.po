@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-20 15:58+0200\n"
+"POT-Creation-Date: 2012-06-10 16:52+0200\n"
 "PO-Revision-Date: 2012-05-06 14:23+0200\n"
 "Last-Translator: alpertekinalp <alper.tekinalp@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -581,9 +581,7 @@ msgstr "Görsel İpucu Biçimi"
 
 #: ../src/plugins/dclock.c:436
 msgid "Format codes: man 3 strftime; \\n for line break"
-msgstr ""
-"Biçim kodları: man 3 strftime; \\n"
-" satır sonu için"
+msgstr "Biçim kodları: man 3 strftime; \\n satır sonu için"
 
 #: ../src/plugins/dclock.c:437
 msgid "Action when clicked (default: display calendar)"
