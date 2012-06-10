@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-20 15:58+0200\n"
-"PO-Revision-Date: 2012-02-07 10:10+0200\n"
+"PO-Revision-Date: 2012-05-29 09:49+0200\n"
 "Last-Translator: Gheyret <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: ug\n"
@@ -795,7 +795,6 @@ msgid "Mute"
 msgstr "ئۈنسىز"
 
 #: ../src/plugins/volumealsa/volumealsa.c:602
-#, fuzzy
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
@@ -1381,12 +1380,12 @@ msgstr "كۆرسەتكۈچ قوللانچىقىنى كۆزنەكچىگە قوش�
 #: ../src/plugins/monitors/monitors.c:284
 #, c-format
 msgid "CPU usage: %.2f%%"
-msgstr ""
+msgstr "ئىشلىتىلگەن CPU: %.2f%%"
 
 #: ../src/plugins/monitors/monitors.c:367
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
-msgstr ""
+msgstr "ئىشلىتىلگەن RAM: %.1fMB (%.2f%%)"
 
 #: ../src/plugins/monitors/monitors.c:712
 msgid "CPU color"
@@ -1401,9 +1400,8 @@ msgid "RAM color"
 msgstr "RAM رەڭگى"
 
 #: ../src/plugins/monitors/monitors.c:715
-#, fuzzy
 msgid "Action when clicked (default: lxtask)"
-msgstr "چېكىلگەندىكى مەشغۇلات(كۆڭۈلدىكىسى: يىلنامىنى كۆرسىتىش)"
+msgstr "چېكىلگەندىكى مەشغۇلات(كۆڭۈلدىكىسى:  lxtask)"
 
 #: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"

@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-20 15:58+0200\n"
-"PO-Revision-Date: 2012-01-06 01:59+0200\n"
-"Last-Translator: Henrique P. <zehrique@gmail.com>\n"
+"PO-Revision-Date: 2012-05-20 22:41+0200\n"
+"Last-Translator: Adriano <adrianoh2@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -798,13 +798,12 @@ msgid "Mute"
 msgstr "Mudo"
 
 #: ../src/plugins/volumealsa/volumealsa.c:602
-#, fuzzy
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
 msgstr ""
-"Erro! Você precisa instalar um aplicativo para configurar o som. (Ex.: "
-"pavucontrol, alsamixer)"
+"Erro, você precisa instalar um aplicativo para configurar o som "
+"(pavucontrol, alsamixer ...)"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
@@ -1386,12 +1385,12 @@ msgstr "Adicionar Indicador de miniaplicativos ao painel"
 #: ../src/plugins/monitors/monitors.c:284
 #, c-format
 msgid "CPU usage: %.2f%%"
-msgstr ""
+msgstr "Uso da CPU: %.2f%%"
 
 #: ../src/plugins/monitors/monitors.c:367
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
-msgstr ""
+msgstr "Uso da RAM: %.1fMB (%.2f%%)"
 
 #: ../src/plugins/monitors/monitors.c:712
 msgid "CPU color"
@@ -1406,9 +1405,8 @@ msgid "RAM color"
 msgstr "Cor da RAM"
 
 #: ../src/plugins/monitors/monitors.c:715
-#, fuzzy
 msgid "Action when clicked (default: lxtask)"
-msgstr "Ação quando clicado (padrão: exibir o calendário)"
+msgstr "Ação quando clicado (padrão: lxtask)"
 
 #: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"

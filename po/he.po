@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-20 15:58+0200\n"
-"PO-Revision-Date: 2012-02-27 10:36+0200\n"
+"PO-Revision-Date: 2012-05-21 07:19+0200\n"
 "Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: he\n"
@@ -791,12 +791,12 @@ msgid "Mute"
 msgstr "השתקה"
 
 #: ../src/plugins/volumealsa/volumealsa.c:602
-#, fuzzy
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
 msgstr ""
-"שגיאה, עליך להתקין יישום כדי לשנות את הגדרות השמע (pavucontol, alsamixer ...‎)"
+"שגיאה, עליך להתקין יישום כדי לשנות את הגדרות השמע (pavucontol, alsamixer "
+"...‎)"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
@@ -1377,12 +1377,12 @@ msgstr "הוספת יישומוני חיווי לפאנל"
 #: ../src/plugins/monitors/monitors.c:284
 #, c-format
 msgid "CPU usage: %.2f%%"
-msgstr ""
+msgstr "ניצול המעבד: %.2f%%"
 
 #: ../src/plugins/monitors/monitors.c:367
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
-msgstr ""
+msgstr "שימוש בזיכרון: %.1f מ״ב (%.2f%%)"
 
 #: ../src/plugins/monitors/monitors.c:712
 msgid "CPU color"
@@ -1397,9 +1397,8 @@ msgid "RAM color"
 msgstr "צבע הזיכרון"
 
 #: ../src/plugins/monitors/monitors.c:715
-#, fuzzy
 msgid "Action when clicked (default: lxtask)"
-msgstr "פעולה בעת הלחיצה (בררת המחדל: הצגת לוח השנה)"
+msgstr "פעולה בעת הלחיצה (בררת המחדל: lxtask)"
 
 #: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"
