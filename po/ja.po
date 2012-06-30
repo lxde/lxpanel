@@ -791,13 +791,10 @@ msgid "Mute"
 msgstr "ミュート"
 
 #: ../src/plugins/volumealsa/volumealsa.c:602
-#, fuzzy
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
-msgstr ""
-"エラー、音量設定のためのアプリケーションが別途必要になります。(pavucontrol, "
-"alsamixer ...)"
+msgstr "エラー、音量設定のためのアプリケーションが別途必要になります。(pavucontrol, alsamixer ...)"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
@@ -1377,12 +1374,12 @@ msgstr "パネルに表示アプレットを追加します"
 #: ../src/plugins/monitors/monitors.c:284
 #, c-format
 msgid "CPU usage: %.2f%%"
-msgstr ""
+msgstr "CPU 使用量: %.2f%%"
 
 #: ../src/plugins/monitors/monitors.c:367
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
-msgstr ""
+msgstr "RAM 使用量: %.1fMB (%.2f%%)"
 
 #: ../src/plugins/monitors/monitors.c:712
 msgid "CPU color"
@@ -1397,9 +1394,8 @@ msgid "RAM color"
 msgstr "RAMの色"
 
 #: ../src/plugins/monitors/monitors.c:715
-#, fuzzy
 msgid "Action when clicked (default: lxtask)"
-msgstr "クリック時のアクション (デフォルト: カレンダの表示)"
+msgstr "クリック時のアクション (デフォルト: lxtask)"
 
 #: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"
