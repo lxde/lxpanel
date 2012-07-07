@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-10 16:52+0200\n"
-"PO-Revision-Date: 2012-07-07 22:27+0200\n"
+"PO-Revision-Date: 2012-07-07 22:35+0200\n"
 "Last-Translator: kizito <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Luganda <kbirabwa@yahoo.co.uk>\n"
 "Language: lg\n"
@@ -216,7 +216,7 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"Okumanya ebisingawo, yalira http://lxde.org/ .\n"
+"Okumanya ebisingawo, kyalira http://lxde.org/ .\n"
 "\n"
 
 #: ../src/gtk-run.c:373
@@ -1003,7 +1003,7 @@ msgstr "Sisitemu ejjakukuwanga magezi"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:860
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr "Salawo oba ku bufaananyi wajjawo ebigambo bya kuwa magezi"
+msgstr "Salawo oba ku bufaananyi wajjawo ebigambo bya kuwa magezi."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:867
 msgid "Show Signal"
