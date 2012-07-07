@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-10 16:52+0200\n"
-"PO-Revision-Date: 2012-01-09 14:57+0200\n"
+"PO-Revision-Date: 2012-07-07 22:27+0200\n"
 "Last-Translator: kizito <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Luganda <kbirabwa@yahoo.co.uk>\n"
 "Language: lg\n"
@@ -805,13 +805,12 @@ msgid "Mute"
 msgstr "Sirisa ddoboozi"
 
 #: ../src/plugins/volumealsa/volumealsa.c:602
-#, fuzzy
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
 msgstr ""
 "Wazewo kiremya. Wetaaga kufuna puloguramu eteekateeka eby'ebiwulirizibwa ku "
-"sisitemu yo (nga pavucontrol, alsamixer ...)"
+"sisitemu yo (okugeza nga pavucontrol, alsamixer ...)"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
@@ -1359,20 +1358,20 @@ msgstr "Butaala bw'oku mapeesa ga kompyuta"
 
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr "Ebiraga mapeesa aga CapsLock, NumLock ne ScrollLock"
+msgstr "Ebiraga nti mapeesa aga CapsLock, NumLock oba ScrollLock gakola"
 
 #. A label to allow for click through
 #: ../src/plugins/indicator/indicator.c:698
 msgid "No Indicators"
-msgstr ""
+msgstr "Tewali biraga"
 
 #: ../src/plugins/indicator/indicator.c:897
 msgid "Indicator Applications"
-msgstr ""
+msgstr "Puloguramu ezikola ogw'okulaga"
 
 #: ../src/plugins/indicator/indicator.c:898
 msgid "Clock Indicator"
-msgstr ""
+msgstr "Puloguramu eraga ebya ssaawa"
 
 #: ../src/plugins/indicator/indicator.c:899
 msgid "Messaging Menu"
@@ -1392,21 +1391,21 @@ msgstr "Menyu efuga ebikola ku biwulirizibwa"
 
 #: ../src/plugins/indicator/indicator.c:928
 msgid "Indicator applets"
-msgstr ""
+msgstr "Bupuloguramu obulaga"
 
 #: ../src/plugins/indicator/indicator.c:930
 msgid "Add indicator applets to the panel"
-msgstr ""
+msgstr "Olubaawo lw'ongereko bupuloguramu obulaga"
 
 #: ../src/plugins/monitors/monitors.c:284
 #, c-format
 msgid "CPU usage: %.2f%%"
-msgstr ""
+msgstr "Okukuluusana kw'kitundu ekibazi: %.2f%%"
 
 #: ../src/plugins/monitors/monitors.c:367
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
-msgstr ""
+msgstr "Ekifo puloguramu kye zimalawo mu RAM: MB%.1f (%.2f%%)"
 
 #: ../src/plugins/monitors/monitors.c:712
 msgid "CPU color"
@@ -1421,13 +1420,12 @@ msgid "RAM color"
 msgstr "Langi ya RAM"
 
 #: ../src/plugins/monitors/monitors.c:715
-#, fuzzy
 msgid "Action when clicked (default: lxtask)"
-msgstr "Ekiba wo nga onyize ku ssaawa (Ekya bulijjo: ekulaga kalenda)"
+msgstr "Ekiba wo nga onyize kuno (Ekya bulijjo: lxtask)"
 
 #: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"
-msgstr ""
+msgstr "Ebirabiriza enkozesa y'obusobozi bwa kompyuta"
 
 #: ../src/plugins/monitors/monitors.c:810
 msgid "Display monitors (CPU, RAM)"
@@ -1435,8 +1433,8 @@ msgstr "Laga ebirabiriza (ekitundu ekibazi ne RAM)"
 
 #: ../src/plugins/wnckpager/wnckpager.c:720
 msgid "WNCKPager"
-msgstr ""
+msgstr "WNCKPager"
 
 #: ../src/plugins/wnckpager/wnckpager.c:722
 msgid "WNCKpager plugin"
-msgstr ""
+msgstr "Ekyongerwako kya WNCKpager"
