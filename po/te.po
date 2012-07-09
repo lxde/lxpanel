@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-10 16:52+0200\n"
-"PO-Revision-Date: 2012-04-11 03:54+0200\n"
+"PO-Revision-Date: 2012-07-09 18:48+0200\n"
 "Last-Translator: PraveenIlla <mail2ipn@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -787,12 +787,12 @@ msgid "Mute"
 msgstr "నిశబ్ధం"
 
 #: ../src/plugins/volumealsa/volumealsa.c:602
-#, fuzzy
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
 msgstr ""
-"దోషం, శబ్దాన్ని స్వరూపించుటకు మీరు ఒక అనువర్తనాన్ని స్థాపించాలి (pavucontol, alsamixer ...)"
+"దోషం, శబ్దాన్ని స్వరూపించుటకు మీరు ఒక అనువర్తనాన్ని స్థాపించాలి (pavucontol, "
+"alsamixer ...)"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
@@ -1373,12 +1373,12 @@ msgstr "ప్యానల్‌కు సూచిక ఆప్లెట్ల�
 #: ../src/plugins/monitors/monitors.c:284
 #, c-format
 msgid "CPU usage: %.2f%%"
-msgstr ""
+msgstr "సిపియు వినియోగం: %.2f%%"
 
 #: ../src/plugins/monitors/monitors.c:367
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
-msgstr ""
+msgstr "ర్యామ్ వినియోగం: %.1fMB (%.2f%%)"
 
 #: ../src/plugins/monitors/monitors.c:712
 msgid "CPU color"
@@ -1393,9 +1393,8 @@ msgid "RAM color"
 msgstr "RAM రంగు"
 
 #: ../src/plugins/monitors/monitors.c:715
-#, fuzzy
 msgid "Action when clicked (default: lxtask)"
-msgstr "నొక్కినపుడు చర్య (అప్రమేయం: క్యాలెండరు ప్రదర్శించు)"
+msgstr "నొక్కినపుడు చర్య (అప్రమేయం: lxtask)"
 
 #: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"
