@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-10 16:52+0200\n"
-"PO-Revision-Date: 2012-01-23 17:09+0200\n"
+"PO-Revision-Date: 2012-07-09 05:07+0200\n"
 "Last-Translator: Duy Hung <nguyentieuhau@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: vi\n"
@@ -789,7 +789,6 @@ msgid "Mute"
 msgstr "Tắt âm"
 
 #: ../src/plugins/volumealsa/volumealsa.c:602
-#, fuzzy
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
@@ -1376,12 +1375,12 @@ msgstr "Thêm applet chỉ thị vào bảng điều khiển"
 #: ../src/plugins/monitors/monitors.c:284
 #, c-format
 msgid "CPU usage: %.2f%%"
-msgstr ""
+msgstr "Sử dụng CPU: %.2f%%"
 
 #: ../src/plugins/monitors/monitors.c:367
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
-msgstr ""
+msgstr "Sử dụng RAM: %.1fMB (%.2f%%)"
 
 #: ../src/plugins/monitors/monitors.c:712
 msgid "CPU color"
@@ -1396,9 +1395,8 @@ msgid "RAM color"
 msgstr "Màu RAM"
 
 #: ../src/plugins/monitors/monitors.c:715
-#, fuzzy
 msgid "Action when clicked (default: lxtask)"
-msgstr "Hoạt động khi được click (mặc định: hiển thị lịch)"
+msgstr "Hoạt động khi được click (mặc định: lxtask)"
 
 #: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"
