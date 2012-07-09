@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-10 16:52+0200\n"
-"PO-Revision-Date: 2012-04-17 22:11+0200\n"
-"Last-Translator: Christoph <christoph.wickert@googlemail.com>\n"
+"PO-Revision-Date: 2012-07-09 19:33+0200\n"
+"Last-Translator: Daniel <d@winzen4.de>\n"
 "Language-Team: Deutsch <LL@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -793,13 +793,12 @@ msgid "Mute"
 msgstr "Stumm"
 
 #: ../src/plugins/volumealsa/volumealsa.c:602
-#, fuzzy
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
 msgstr ""
-"Fehler: Sie müssen eine Anwendung zum Einstellen der Lautstärke installieren "
-"(z. B. pavucontrol oder alsamixer)"
+"Fehler, Sie müssen eine Anwendung zum Einstellen der Lautstärke installieren "
+"(z. B. pavucontrol, alsamixer ...)"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
@@ -1349,17 +1348,16 @@ msgid "No Indicators"
 msgstr "Keine Indikatoren"
 
 #: ../src/plugins/indicator/indicator.c:897
-#, fuzzy
 msgid "Indicator Applications"
-msgstr "Anwendungen"
+msgstr "Indikator Anwendungen"
 
 #: ../src/plugins/indicator/indicator.c:898
 msgid "Clock Indicator"
-msgstr ""
+msgstr "Uhr Indikator"
 
 #: ../src/plugins/indicator/indicator.c:899
 msgid "Messaging Menu"
-msgstr ""
+msgstr "Nachrichtenmenü"
 
 #: ../src/plugins/indicator/indicator.c:900
 msgid "Network Menu"
@@ -1370,28 +1368,26 @@ msgid "Session Menu"
 msgstr "Sitzungsmenü"
 
 #: ../src/plugins/indicator/indicator.c:902
-#, fuzzy
 msgid "Sound Menu"
-msgstr "Menü anzeigen"
+msgstr "Audiomenü"
 
 #: ../src/plugins/indicator/indicator.c:928
 msgid "Indicator applets"
-msgstr ""
+msgstr "Indikator Anwendungen"
 
 #: ../src/plugins/indicator/indicator.c:930
-#, fuzzy
 msgid "Add indicator applets to the panel"
-msgstr "Trenner zum Panel hinzufügen"
+msgstr "Indikator Anwendungen zum Panel hinzufügen"
 
 #: ../src/plugins/monitors/monitors.c:284
 #, c-format
 msgid "CPU usage: %.2f%%"
-msgstr ""
+msgstr "CPU Auslastung: %.2f%%"
 
 #: ../src/plugins/monitors/monitors.c:367
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
-msgstr ""
+msgstr "Speichernutzung: %.1fMB (%.2f%%)"
 
 #: ../src/plugins/monitors/monitors.c:712
 msgid "CPU color"
@@ -1406,14 +1402,12 @@ msgid "RAM color"
 msgstr "Farbe für Speicher"
 
 #: ../src/plugins/monitors/monitors.c:715
-#, fuzzy
 msgid "Action when clicked (default: lxtask)"
-msgstr "Aktion bei Klick (Vorgabe: Kalender anzeigen)"
+msgstr "Aktion bei Klick (Vorgabe: lxtask)"
 
 #: ../src/plugins/monitors/monitors.c:808
-#, fuzzy
 msgid "Resource monitors"
-msgstr "Schnittstelle zum Überwachen"
+msgstr "Ressourcen-Überwachungen"
 
 #: ../src/plugins/monitors/monitors.c:810
 msgid "Display monitors (CPU, RAM)"
