@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-10 16:52+0200\n"
-"PO-Revision-Date: 2012-04-16 05:44+0200\n"
+"PO-Revision-Date: 2012-07-09 11:28+0200\n"
 "Last-Translator: Walter <wwycheuk@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: zh_TW\n"
@@ -1369,12 +1369,12 @@ msgstr "在面板增加顯示小程式"
 #: ../src/plugins/monitors/monitors.c:284
 #, c-format
 msgid "CPU usage: %.2f%%"
-msgstr ""
+msgstr "CPU 用量：%.2f%%"
 
 #: ../src/plugins/monitors/monitors.c:367
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
-msgstr ""
+msgstr "記憶體用量：%.1fMB (%.2f%%)"
 
 #: ../src/plugins/monitors/monitors.c:712
 msgid "CPU color"
@@ -1389,9 +1389,8 @@ msgid "RAM color"
 msgstr "記憶體色彩"
 
 #: ../src/plugins/monitors/monitors.c:715
-#, fuzzy
 msgid "Action when clicked (default: lxtask)"
-msgstr "被滑鼠點擊時要執行的動作 (預設： 顯示月曆)"
+msgstr "滑鼠點擊時要執行的動作 (預設：顯示工作管理員)"
 
 #: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"
