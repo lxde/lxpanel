@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-10 16:52+0200\n"
-"PO-Revision-Date: 2012-06-06 16:48+0200\n"
-"Last-Translator: Juhani <juhaninumminen0@gmail.com>\n"
+"PO-Revision-Date: 2012-07-10 19:15+0200\n"
+"Last-Translator: Janne <devel@kateva.fi>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
@@ -791,7 +791,6 @@ msgid "Mute"
 msgstr "Hiljennä"
 
 #: ../src/plugins/volumealsa/volumealsa.c:602
-#, fuzzy
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
@@ -1162,7 +1161,7 @@ msgstr "HIPPI"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:987
 msgid "Ash"
-msgstr ""
+msgstr "Ash"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:990
 msgid "Econet"
@@ -1232,7 +1231,7 @@ msgstr "Liitännälle '%s' ei voitu lähettää ioctl-signaalia"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr ""
+msgstr "Virhe suorittaessa komentoa '%s': %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
@@ -1344,7 +1343,7 @@ msgstr "CapsLock-, NumLock- ja ScrollLock-näppäinten ilmaisin"
 #. A label to allow for click through
 #: ../src/plugins/indicator/indicator.c:698
 msgid "No Indicators"
-msgstr ""
+msgstr "Ei ilmaisimia"
 
 #: ../src/plugins/indicator/indicator.c:897
 #, fuzzy
@@ -1353,25 +1352,23 @@ msgstr "Valitse sovellus"
 
 #: ../src/plugins/indicator/indicator.c:898
 msgid "Clock Indicator"
-msgstr ""
+msgstr "Kelloilmaisin"
 
 #: ../src/plugins/indicator/indicator.c:899
 msgid "Messaging Menu"
-msgstr ""
+msgstr "Viestintävalikko"
 
 #: ../src/plugins/indicator/indicator.c:900
-#, fuzzy
 msgid "Network Menu"
-msgstr "Hakemistovalikko"
+msgstr "Verkkovalikko"
 
 #: ../src/plugins/indicator/indicator.c:901
 msgid "Session Menu"
-msgstr ""
+msgstr "Istuntovalikko"
 
 #: ../src/plugins/indicator/indicator.c:902
-#, fuzzy
 msgid "Sound Menu"
-msgstr "Toimittaa valikon"
+msgstr "Äänivalikko"
 
 #: ../src/plugins/indicator/indicator.c:928
 msgid "Indicator applets"
@@ -1384,12 +1381,12 @@ msgstr "Lisää osoitinsovelmia paneeliin"
 #: ../src/plugins/monitors/monitors.c:284
 #, c-format
 msgid "CPU usage: %.2f%%"
-msgstr ""
+msgstr "Prosessorin kuorma: %.2f%%"
 
 #: ../src/plugins/monitors/monitors.c:367
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
-msgstr ""
+msgstr "Keskusmuistin käyttö: %.1fMB (%.2f%%)"
 
 #: ../src/plugins/monitors/monitors.c:712
 msgid "CPU color"
@@ -1404,9 +1401,8 @@ msgid "RAM color"
 msgstr "Muistin väri"
 
 #: ../src/plugins/monitors/monitors.c:715
-#, fuzzy
 msgid "Action when clicked (default: lxtask)"
-msgstr "Toiminto, kun napsautetaan (oletus: näytä kalenteri)"
+msgstr "Toiminto, kun napsautetaan (oletus: lxtask)"
 
 #: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"
