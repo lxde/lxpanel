@@ -8,14 +8,15 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-10 16:52+0200\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Alain Mendizabal <alainmendi@gmail.com>\n"
+"PO-Revision-Date: 2012-07-12 01:00+0200\n"
+"Last-Translator: Asier_Iturralde_Sarasola <asier.iturralde@gmail.com>\n"
 "Language-Team: Basque <alainmendi@gmail.com>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.5\n"
 "X-Poedit-Language: Basque\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
@@ -32,7 +33,7 @@ msgstr "Amaitu saioa"
 
 #: ../src/configurator.c:468
 msgid "Currently loaded plugins"
-msgstr "Kargatutako plugin-ak"
+msgstr "Unean kargatutako pluginak"
 
 #: ../src/configurator.c:477
 msgid "Stretch"
@@ -40,7 +41,7 @@ msgstr "Luzatu"
 
 #: ../src/configurator.c:596
 msgid "Add plugin to panel"
-msgstr "Gehitu plugin-a panelari"
+msgstr "Gehitu plugina panelari"
 
 #: ../src/configurator.c:624
 msgid "Available plugins"
@@ -51,13 +52,12 @@ msgid "Logout command is not set"
 msgstr "Saioa amaitzeko komandoa ez dago ezarririk"
 
 #: ../src/configurator.c:1255
-#, fuzzy
 msgid "Select a directory"
-msgstr "Hautatu fitxategia"
+msgstr "Hautatu direktorio bat"
 
 #: ../src/configurator.c:1255 ../src/configurator.c:1346
 msgid "Select a file"
-msgstr "Hautatu fitxategia"
+msgstr "Hautatu fitxategi bat"
 
 #: ../src/configurator.c:1373
 msgid "_Browse"
@@ -78,20 +78,19 @@ msgstr "Berretsi"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:692
 msgid "translator-credits"
-msgstr ""
+msgstr "Asier Iturralde Sarasola <asier.iturralde@gmail.com>"
 
 #: ../src/panel.c:697
-#, fuzzy
 msgid "LXPanel"
-msgstr "Panela"
+msgstr "LXPanel"
 
 #: ../src/panel.c:699
 msgid "Copyright (C) 2008-2011"
-msgstr ""
+msgstr "Copyright-a (C) 2008-2011"
 
 #: ../src/panel.c:700
 msgid "Desktop panel for LXDE project"
-msgstr ""
+msgstr "LXDE proiektuaren mahaigain-panela"
 
 #: ../src/panel.c:723
 msgid "Add / Remove Panel Items"
@@ -104,7 +103,7 @@ msgstr "Ezabatu \"%s\" paneletik"
 
 #: ../src/panel.c:743
 msgid "Panel Settings"
-msgstr "Panelaren hobespenak"
+msgstr "Panelaren ezarpenak"
 
 #: ../src/panel.c:749
 msgid "Create New Panel"
@@ -116,7 +115,7 @@ msgstr "Ezabatu panel hau"
 
 #: ../src/panel.c:771
 msgid "About"
-msgstr ""
+msgstr "Honi buruz"
 
 #: ../src/panel.c:779
 msgid "Panel"
@@ -125,7 +124,7 @@ msgstr "Panela"
 #: ../src/panel.c:792
 #, c-format
 msgid "\"%s\" Settings"
-msgstr "\"%s\" hobespenak"
+msgstr "\"%s\" ezarpenak"
 
 #: ../src/panel.c:1048 ../src/panel.c:1056 ../data/ui/panel-pref.glade.h:16
 msgid "Height:"
@@ -144,7 +143,6 @@ msgid "Right"
 msgstr "Eskuinean"
 
 #: ../src/panel.c:1057 ../data/ui/panel-pref.glade.h:10
-#, fuzzy
 msgid "Top"
 msgstr "Goian"
 
@@ -155,7 +153,7 @@ msgstr "Behean"
 #: ../src/panel.c:1466
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr ""
+msgstr "lxpanel %s - UNIX mahaigainentzako GTK2+ panel arina\n"
 
 #: ../src/panel.c:1467
 #, c-format
@@ -218,7 +216,7 @@ msgstr "Idatzi exekutatu nahi duzun komandoa:"
 
 #: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:912
 msgid "Application Launch Bar"
-msgstr "Aplikazioen abiarazle barra"
+msgstr "Aplikazioen abiarazle-barra"
 
 #: ../data/ui/netstatus.glade.h:1
 msgid "<b>Connection</b>"
@@ -246,7 +244,7 @@ msgstr "Bidalia:"
 
 #: ../data/ui/netstatus.glade.h:7
 msgid "<b>Signal Strength</b>"
-msgstr "<b>Seinalearen potentzia</b>"
+msgstr "<b>Seinalearen indarra</b>"
 
 #: ../data/ui/netstatus.glade.h:9
 #, no-c-format
@@ -272,7 +270,7 @@ msgstr "Helburua:"
 #: ../data/ui/netstatus.glade.h:14 ../src/plugins/netstat/netstat.c:333
 #: ../src/plugins/netstat/netstat.c:344
 msgid "Broadcast:"
-msgstr "Igorpena:"
+msgstr "Difusioa:"
 
 #: ../data/ui/netstatus.glade.h:15
 msgid "Subnet Mask:"
@@ -304,7 +302,7 @@ msgstr "_Konfiguratu"
 
 #: ../data/ui/panel-pref.glade.h:1
 msgid "Dynamic"
-msgstr ""
+msgstr "Dinamikoa"
 
 #: ../data/ui/panel-pref.glade.h:2
 msgid "Pixels"
@@ -332,23 +330,20 @@ msgid "Margin:"
 msgstr "Marjina:"
 
 #: ../data/ui/panel-pref.glade.h:13
-#, fuzzy
 msgid "Center"
-msgstr "Orokorra"
+msgstr "Zentratu"
 
 #: ../data/ui/panel-pref.glade.h:14
 msgid "<b>Position</b>"
 msgstr "<b>Posizioa</b>"
 
 #: ../data/ui/panel-pref.glade.h:17
-#, fuzzy
 msgid "<b>Icon</b>"
-msgstr "<b>Letra-tipoa</b>"
+msgstr "<b>Ikonoa</b>"
 
 #: ../data/ui/panel-pref.glade.h:18
-#, fuzzy
 msgid "pixels"
-msgstr "Pixelak"
+msgstr "pixelak"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "<b>Size</b>"
@@ -356,32 +351,29 @@ msgstr "<b>Tamaina</b>"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "Geometry"
-msgstr ""
+msgstr "Geometria"
 
 #: ../data/ui/panel-pref.glade.h:21
-#, fuzzy
 msgid "System theme"
-msgstr "Bat ere ez (erabili sistemaren gaia)"
+msgstr "Sistemaren gaia"
 
 #: ../data/ui/panel-pref.glade.h:22
 msgid "Solid color (with opacity)"
-msgstr ""
+msgstr "Kolore solidoa (opakotasunarekin)"
 
 #: ../data/ui/panel-pref.glade.h:23
-#, fuzzy
 msgid "Image"
-msgstr "irudia"
+msgstr "Irudia"
 
 #: ../data/ui/panel-pref.glade.h:24
 msgid "Select an image file"
-msgstr "Hautatu irudi-fitxategia"
+msgstr "Hautatu irudi-fitxategi bat"
 
 #: ../data/ui/panel-pref.glade.h:25
 msgid "<b>Background</b>"
 msgstr "<b>Atzeko planoa</b>"
 
 #: ../data/ui/panel-pref.glade.h:26
-#, fuzzy
 msgid "Custom color"
 msgstr "Kolore pertsonalizatua"
 
@@ -396,11 +388,11 @@ msgstr "<b>Letra-tipoa</b>"
 
 #: ../data/ui/panel-pref.glade.h:29
 msgid "Appearance"
-msgstr ""
+msgstr "Itxura"
 
 #: ../data/ui/panel-pref.glade.h:30
 msgid "Panel Applets"
-msgstr "Paneleko applet-ak"
+msgstr "Paneleko appletak"
 
 #: ../data/ui/panel-pref.glade.h:31
 msgid "Logout Command:"
@@ -408,11 +400,11 @@ msgstr "Saioa amaierako komandoa:"
 
 #: ../data/ui/panel-pref.glade.h:32
 msgid "Terminal Emulator:"
-msgstr "Terminal emulatzailea:"
+msgstr "Terminal-emuladorea:"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "File Manager:"
-msgstr "Fitxategi kudeatzailea:"
+msgstr "Fitxategi-kudeatzailea:"
 
 #: ../data/ui/panel-pref.glade.h:34
 msgid "<b>Set Preferred Applications</b>"
@@ -420,8 +412,7 @@ msgstr "<b>Ezarri hobetsitako aplikazioak</b>"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Make window managers treat the panel as dock"
-msgstr ""
-"Leiho kudeatzaileak panela atrakagarria bezala tratatzea ahalbideratzen du"
+msgstr "Leiho-kudeatzaileek panela atrakagarri bezala tratatzea ahalbidetzen du"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "Reserve space, and not covered by maximized windows"
@@ -433,15 +424,15 @@ msgstr "<b>Propietateak</b>"
 
 #: ../data/ui/panel-pref.glade.h:38
 msgid "Minimize panel when not in use"
-msgstr ""
+msgstr "Minimizatu panela erabiltzen ez denean"
 
 #: ../data/ui/panel-pref.glade.h:39
 msgid "Size when minimized"
-msgstr ""
+msgstr "Tamaina minimizatutakoan"
 
 #: ../data/ui/panel-pref.glade.h:40
 msgid "<b>Automatic hiding</b>"
-msgstr ""
+msgstr "<b>Automatikoki gordetzea</b>"
 
 #: ../data/ui/panel-pref.glade.h:41
 msgid "Advanced"
@@ -449,11 +440,11 @@ msgstr "Aurreratua"
 
 #: ../src/plugins/cpu/cpu.c:268
 msgid "CPU Usage Monitor"
-msgstr "CPU erabileraren monitorea"
+msgstr "PUZaren erabileraren monitorea"
 
 #: ../src/plugins/cpu/cpu.c:270 ../src/plugins/monitors/monitors.c:711
 msgid "Display CPU usage"
-msgstr "Bistaratu CPU erabilera"
+msgstr "Bistaratu PUZaren erabilera"
 
 #: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:438
 msgid "Bold font"
@@ -461,12 +452,11 @@ msgstr "Letra-tipo lodia"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
-msgstr ""
+msgstr "Bistaratu mahaigainen izenak"
 
 #: ../src/plugins/deskno/deskno.c:235
-#, fuzzy
 msgid "Desktop Number / Workspace Name"
-msgstr "Idazmahaiaren zenb / Laneko arearen zenb"
+msgstr "Mahaigainaren zbkia / Laneko arearen zbkia"
 
 #: ../src/plugins/deskno/deskno.c:237
 msgid "Display workspace number, by cmeury@users.sf.net"
@@ -482,32 +472,28 @@ msgstr "Aplikazioak abiarazteko botoiak dituen barra"
 
 #. Add Raise menu item.
 #: ../src/plugins/taskbar.c:1714
-#, fuzzy
 msgid "_Raise"
-msgstr "Goratu"
+msgstr "_Igo"
 
 #. Add Restore menu item.
 #: ../src/plugins/taskbar.c:1719
-#, fuzzy
 msgid "R_estore"
-msgstr "Leheneratu"
+msgstr "_Leheneratu"
 
 #. Add Maximize menu item.
 #: ../src/plugins/taskbar.c:1724
-#, fuzzy
 msgid "Ma_ximize"
-msgstr "Maximizatu"
+msgstr "_Maximizatu"
 
 #. Add Iconify menu item.
 #: ../src/plugins/taskbar.c:1729
-#, fuzzy
 msgid "Ico_nify"
-msgstr "Ikonotu"
+msgstr "I_konotu"
 
 #: ../src/plugins/taskbar.c:1748
-#, fuzzy, c-format
+#, c-format
 msgid "Workspace _%d"
-msgstr "%d laneko area"
+msgstr "_%d laneko area"
 
 #: ../src/plugins/taskbar.c:1753
 #, c-format
@@ -516,21 +502,18 @@ msgstr "%d laneko area"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../src/plugins/taskbar.c:1767
-#, fuzzy
 msgid "_All workspaces"
-msgstr "Laneko area guztiak"
+msgstr "_Laneko area guztiak"
 
 #. Add Move to Workspace menu item as a submenu.
 #: ../src/plugins/taskbar.c:1773
-#, fuzzy
 msgid "_Move to Workspace"
-msgstr "Joan laneko areara"
+msgstr "_Joan laneko areara"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../src/plugins/taskbar.c:1779
-#, fuzzy
 msgid "_Close Window"
-msgstr "Itxi leihoa"
+msgstr "_Itxi leihoa"
 
 #: ../src/plugins/taskbar.c:1986
 msgid "Show tooltips"
@@ -541,13 +524,12 @@ msgid "Icons only"
 msgstr "Ikonoak soilik"
 
 #: ../src/plugins/taskbar.c:1988
-#, fuzzy
 msgid "Flat buttons"
 msgstr "Botoi lauak"
 
 #: ../src/plugins/taskbar.c:1989
 msgid "Show windows from all desktops"
-msgstr "Erakutsi laneko area guztietako leihoak"
+msgstr "Erakutsi mahaigain guztietako leihoak"
 
 #: ../src/plugins/taskbar.c:1990
 msgid "Use mouse wheel"
@@ -559,12 +541,11 @@ msgstr "Keinukatu leihoren batek adi egoteko eskatzen duenean"
 
 #: ../src/plugins/taskbar.c:1992
 msgid "Combine multiple application windows into a single button"
-msgstr ""
+msgstr "Konbinatu hainbat aplikazio-leiho botoi bakar batean"
 
 #: ../src/plugins/taskbar.c:1993
-#, fuzzy
 msgid "Maximum width of task button"
-msgstr "Zeregin botoiaren zabalera maximoa"
+msgstr "Ataza botoiaren zabalera maximoa"
 
 #: ../src/plugins/taskbar.c:1994
 msgid "Spacing"
@@ -572,15 +553,15 @@ msgstr "Tartea"
 
 #: ../src/plugins/taskbar.c:2047
 msgid "Task Bar (Window List)"
-msgstr "Zereginen barra (Leihoen zerrenda)"
+msgstr "Ataza-barra (Leihoen zerrenda)"
 
 #: ../src/plugins/taskbar.c:2049
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
-"Zereginen barrak irekitako leiho guztiak erakusten ditu eta ikonotzen, "
-"biltzen edo fokua ezartzen uzten du"
+"Ataza-barrak irekitako leiho guztiak erakusten ditu eta ikonotzea, lausotzea "
+"edo fokua ezartzea ahalbidetzen du"
 
 #: ../src/plugins/dclock.c:434
 msgid "Clock Format"
@@ -593,33 +574,32 @@ msgstr "Argibideen formatua"
 #: ../src/plugins/dclock.c:436
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr ""
+"Formatu kodeak: man 3 strftime; \n"
+" lerro jauzirako"
 
 #: ../src/plugins/dclock.c:437
 msgid "Action when clicked (default: display calendar)"
-msgstr ""
+msgstr "Ekintza klikatzean (lehenetsia: bistaratu egutegia)"
 
 #: ../src/plugins/dclock.c:439
-#, fuzzy
 msgid "Tooltip only"
-msgstr "Argibideak gaituta"
+msgstr "Argibidea soilik"
 
 #: ../src/plugins/dclock.c:440
-#, fuzzy
 msgid "Center text"
-msgstr "Orokorra"
+msgstr "Zentratu testua"
 
 #: ../src/plugins/dclock.c:469
 msgid "Digital Clock"
 msgstr "Erloju digitala"
 
 #: ../src/plugins/dclock.c:471
-#, fuzzy
 msgid "Display digital clock and tooltip"
 msgstr "Bistaratu erloju digitala eta argibidea"
 
 #: ../src/plugins/menu.c:426
 msgid "Add to desktop"
-msgstr "Gehitu idazmahaira"
+msgstr "Gehitu mahaigainera"
 
 #: ../src/plugins/menu.c:436
 msgid "Properties"
@@ -634,9 +614,8 @@ msgid "Menu"
 msgstr "Menua"
 
 #: ../src/plugins/menu.c:1102
-#, fuzzy
 msgid "Application Menu"
-msgstr "Aplikazioen abiarazle barra"
+msgstr "Aplikazioen menua"
 
 #: ../src/plugins/separator.c:102
 msgid "Separator"
@@ -644,7 +623,7 @@ msgstr "Bereizlea"
 
 #: ../src/plugins/separator.c:104
 msgid "Add a separator to the panel"
-msgstr "Gehitu bereizlea panelari"
+msgstr "Gehitu bereizle bat panelari"
 
 #: ../src/plugins/pager.c:837
 msgid "Desktop Pager"
@@ -655,20 +634,18 @@ msgid "Simple pager plugin"
 msgstr "Orrialdekatzaile plugin sinplea"
 
 #: ../src/plugins/space.c:143
-#, fuzzy
 msgid "Spacer"
-msgstr "<Tartea>"
+msgstr "Bereizgailua"
 
 #: ../src/plugins/space.c:145
 msgid "Allocate space"
-msgstr "Esleitu tokia"
+msgstr "Esleitu lekua"
 
 #: ../src/plugins/tray.c:737
 msgid "System Tray"
 msgstr "Sistemaren erretilua"
 
 #: ../src/plugins/tray.c:739
-#, fuzzy
 msgid "System tray"
 msgstr "Sistemaren erretilua"
 
@@ -690,17 +667,17 @@ msgstr "testua"
 
 #: ../src/plugins/xkb/xkb-plugin.c:329
 msgid "Per application settings"
-msgstr "Aplikazio bakoitzerako hobespenak"
+msgstr "Aplikazio bakoitzerako ezarpenak"
 
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/xkb/xkb-plugin.c:344
 msgid "_Remember layout for each application"
-msgstr "_Gogoratu aplikazio bakoitzaren itxura"
+msgstr "_Gogoratu aplikazio bakoitzaren diseinua"
 
 #. Create a label as the child of the horizontal box.
 #: ../src/plugins/xkb/xkb-plugin.c:354
 msgid "Default layout:"
-msgstr "Itxura lehenetsia:"
+msgstr "Diseinu lehenetsia:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:405
 msgid "Keyboard Layout Switcher"
@@ -711,10 +688,10 @@ msgid "Switch between available keyboard layouts"
 msgstr "Aldatu eskuragarri dauden teklatuaren diseinuen artean"
 
 #: ../src/plugins/wincmd.c:209
-#, fuzzy
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
-"Klikatu ezkerreko botoiarekin leiho guztiak ikonotzeko. Erdikoarekin biltzeko"
+"Klikatu ezkerreko botoiarekin leiho guztiak ikonotzeko.  Klikatu "
+"erdikoarekin lausotzeko."
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
@@ -725,36 +702,32 @@ msgid "Minimize All Windows"
 msgstr "Minimizatu leiho guztiak"
 
 #: ../src/plugins/wincmd.c:268
-#, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
-"Bidali komandoak idazmahaiko leiho guztietara\n"
-"Erabili daitezken komandoak dira 1) txandakatu ikonotzea eta 2) txandakatu "
-"biltzea"
+"Bidali komandoak mahaigaineko leiho guztietara\n"
+"Erabili daitezken komandoak 1) ikonotu eta 2) lausotu dira"
 
 #: ../src/plugins/dirmenu.c:246
 msgid "Open in _Terminal"
 msgstr "Ireki _terminalean"
 
 #: ../src/plugins/dirmenu.c:411
-#, fuzzy
 msgid "Directory"
-msgstr "Karpeta-menua"
+msgstr "Direktorioa"
 
 #: ../src/plugins/dirmenu.c:412
-#, fuzzy
 msgid "Label"
-msgstr "Panela"
+msgstr "Etiketa"
 
 #: ../src/plugins/dirmenu.c:443
 msgid "Directory Menu"
-msgstr "Karpeta-menua"
+msgstr "Direktorio-menua"
 
 #: ../src/plugins/dirmenu.c:445
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr "Arakatu karpeta-zuhaitza menuaren bidez (Autorea: PCMan)"
+msgstr "Arakatu direktorio-zuhaitza menuaren bidez (Egilea: PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:474
 msgid "Normal"
@@ -781,12 +754,10 @@ msgid "Automatic temperature levels"
 msgstr "Tenperaturaren maila automatikoak"
 
 #: ../src/plugins/thermal/thermal.c:480
-#, fuzzy
 msgid "Warning1 Temperature"
 msgstr "Abisua1 tenperatura"
 
 #: ../src/plugins/thermal/thermal.c:481
-#, fuzzy
 msgid "Warning2 Temperature"
 msgstr "Abisua2 tenperatura"
 
@@ -795,9 +766,8 @@ msgid "Temperature Monitor"
 msgstr "Tenperaturaren monitorea"
 
 #: ../src/plugins/thermal/thermal.c:527
-#, fuzzy
 msgid "Display system temperature"
-msgstr "Bistaratu sistemaren tenperatura (kesler.daniel@gmail.com)"
+msgstr "Bistaratu sistemaren tenperatura"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -828,10 +798,12 @@ msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
 msgstr ""
+"Errorea, aplikazio bat instalatu behar duzu soinua konfiguratzeko "
+"(pavucontrol, alsamixer, ...)"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
-msgstr "<Ezkutatutako sarrera puntua>"
+msgstr "<Ezkutuko sarbide puntua>"
 
 #: ../src/plugins/netstat/netstat.c:213
 msgid "Wireless Networks not found in range"
