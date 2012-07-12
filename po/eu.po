@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-10 16:52+0200\n"
-"PO-Revision-Date: 2012-07-12 01:00+0200\n"
+"PO-Revision-Date: 2012-07-12 13:27+0200\n"
 "Last-Translator: Asier_Iturralde_Sarasola <asier.iturralde@gmail.com>\n"
 "Language-Team: Basque <alainmendi@gmail.com>\n"
 "Language: eu\n"
@@ -311,7 +311,7 @@ msgstr "Pixelak"
 #: ../data/ui/panel-pref.glade.h:4
 #, no-c-format
 msgid "% Percent"
-msgstr ""
+msgstr "% Ehunekoa"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "Panel Preferences"
@@ -695,7 +695,7 @@ msgstr ""
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
-msgstr ""
+msgstr "Txandakatu ikonotu/lausotu eta igo"
 
 #: ../src/plugins/wincmd.c:266
 msgid "Minimize All Windows"
@@ -838,7 +838,7 @@ msgstr "IP helbidea:"
 
 #: ../src/plugins/netstat/netstat.c:322
 msgid "Remote IP:"
-msgstr "Hurruneko IP-a:"
+msgstr "Urruneko IP-a:"
 
 #: ../src/plugins/netstat/netstat.c:323 ../src/plugins/netstat/netstat.c:334
 #: ../src/plugins/netstat/netstat.c:345
@@ -848,7 +848,7 @@ msgstr "Sareko maskara:"
 #: ../src/plugins/netstat/netstat.c:324 ../src/plugins/netstat/netstat.c:336
 #: ../src/plugins/netstat/netstat.c:347
 msgid "Activity"
-msgstr "Jarduera"
+msgstr "Aktibitatea"
 
 #: ../src/plugins/netstat/netstat.c:324 ../src/plugins/netstat/netstat.c:336
 #: ../src/plugins/netstat/netstat.c:347
@@ -902,7 +902,7 @@ msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
 msgstr ""
-"Haririk gabeko sarea enkriptaturik zegoen\n"
+"Haririk gabeko sarea enkriptaturik zegoen.\n"
 "Enkriptazio-gakoa behar duzu."
 
 #: ../src/plugins/netstat/passwd_gui.c:101
@@ -911,14 +911,13 @@ msgstr "Enkriptazio-gakoa:"
 
 #: ../src/plugins/netstatus/netstatus.c:179
 msgid "Interface to monitor"
-msgstr "Monitorearen interfazea"
+msgstr "Monitoreatu beharreko interfazea"
 
 #: ../src/plugins/netstatus/netstatus.c:180
 msgid "Config tool"
 msgstr "Konfigurazio-tresna"
 
 #: ../src/plugins/netstatus/netstatus.c:197
-#, fuzzy
 msgid "Network Status Monitor"
 msgstr "Sarearen egoeraren monitorea"
 
@@ -944,8 +943,8 @@ msgstr "Konexioaren propietateak: %s"
 #, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Pakete %lu"
+msgstr[1] "%lu pakete"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:396
 #, c-format
@@ -953,13 +952,13 @@ msgid ""
 "There was an error displaying help:\n"
 "%s"
 msgstr ""
-"Laguntza bistaratzerakoan errorea egon da\n"
+"Laguntza bistaratzerakoan errorea egon da:\n"
 "%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
-msgstr "Ordua konfiguratzeko tresna abiaraztean hutsa: %s"
+msgstr "Huts egin du ordua konfiguratzeko tresna abiaraztean: %s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:380
 #, c-format
@@ -976,7 +975,7 @@ msgstr "Interfazea"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:843
 msgid "The current interface the icon is monitoring."
-msgstr "Uneko interfazea monitoreatzen ari da."
+msgstr "Ikonoak unean monitoreatzen duen interfazea."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:850
 msgid "Orientation"
@@ -992,7 +991,7 @@ msgstr "Argibideak gaituta"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:860
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr "Ikonoaren argibideak gaitu behar diren."
+msgstr "Ikonoaren argibideak gaituta dauden ala ez."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:867
 msgid "Show Signal"
@@ -1000,7 +999,7 @@ msgstr "Erakutsi seinalea"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:868
 msgid "Whether or not the signal strength should be displayed."
-msgstr "Seinalearen potentzia bistaratu behar den."
+msgstr "Seinalearen potentzia bistaratu behar den ala ez."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:985
 #, c-format
@@ -1036,11 +1035,11 @@ msgstr "Estatistikak"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:166
 msgid "The interface packets/bytes statistics"
-msgstr "Interfazearen paketeak/byteak estatistikak"
+msgstr "Interfazearen pakete/byte estatistikak"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:174
 msgid "Whether the interface is a wireless interface"
-msgstr "Interfazea haririk gabekoa den"
+msgstr "Interfazea haririk gabekoa den ala ez"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:181
 msgid "Signal"
@@ -1146,7 +1145,7 @@ msgstr "IPIP tunela"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:954
 msgid "Frame Relay Access Device"
-msgstr "Frame Relay Access Device"
+msgstr "Frame Relay Sarbidetze Gailua"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:960
 msgid "Local Loopback"
@@ -1336,9 +1335,8 @@ msgid "Show ScrollLock"
 msgstr "Erakutsi ScrollLock"
 
 #: ../src/plugins/kbled/kbled.c:267
-#, fuzzy
 msgid "Keyboard LED"
-msgstr "Teklatuaren Led-a"
+msgstr "Teklatuaren LEDa"
 
 #: ../src/plugins/kbled/kbled.c:269
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
@@ -1347,90 +1345,81 @@ msgstr "CapsLock, NumLock eta ScrollLock teklen adierazleak"
 #. A label to allow for click through
 #: ../src/plugins/indicator/indicator.c:698
 msgid "No Indicators"
-msgstr ""
+msgstr "Adierazlerik ez"
 
 #: ../src/plugins/indicator/indicator.c:897
-#, fuzzy
 msgid "Indicator Applications"
-msgstr "Hautatu aplikazioa"
+msgstr "Adierazle-aplikazioak"
 
 #: ../src/plugins/indicator/indicator.c:898
 msgid "Clock Indicator"
-msgstr ""
+msgstr "Erloju adierazlea"
 
 #: ../src/plugins/indicator/indicator.c:899
 msgid "Messaging Menu"
-msgstr ""
+msgstr "Mezularitza menua"
 
 #: ../src/plugins/indicator/indicator.c:900
-#, fuzzy
 msgid "Network Menu"
-msgstr "Karpeta-menua"
+msgstr "Sarearen menua"
 
 #: ../src/plugins/indicator/indicator.c:901
 msgid "Session Menu"
-msgstr ""
+msgstr "Saioaren menua"
 
 #: ../src/plugins/indicator/indicator.c:902
-#, fuzzy
 msgid "Sound Menu"
-msgstr "Erakutsi menua"
+msgstr "Soinuaren menua"
 
 #: ../src/plugins/indicator/indicator.c:928
 msgid "Indicator applets"
-msgstr ""
+msgstr "Adierazle-appletak"
 
 #: ../src/plugins/indicator/indicator.c:930
-#, fuzzy
 msgid "Add indicator applets to the panel"
-msgstr "Gehitu bereizlea panelari"
+msgstr "Gehitu adierazle-appletak panelari"
 
 #: ../src/plugins/monitors/monitors.c:284
 #, c-format
 msgid "CPU usage: %.2f%%"
-msgstr ""
+msgstr "PUZaren erabilera: %%%.2f"
 
 #: ../src/plugins/monitors/monitors.c:367
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
-msgstr ""
+msgstr "RAMaren erabilera: %.1fMB (%%%.2f)"
 
 #: ../src/plugins/monitors/monitors.c:712
-#, fuzzy
 msgid "CPU color"
-msgstr "Kolore pertsonalizatua"
+msgstr "PUZaren kolorea"
 
 #: ../src/plugins/monitors/monitors.c:713
-#, fuzzy
 msgid "Display RAM usage"
-msgstr "Bistaratu CPU erabilera"
+msgstr "Bistaratu RAMaren erabilera"
 
 #: ../src/plugins/monitors/monitors.c:714
-#, fuzzy
 msgid "RAM color"
-msgstr "Tintaren kolorea:"
+msgstr "RAMaren kolorea"
 
 #: ../src/plugins/monitors/monitors.c:715
 msgid "Action when clicked (default: lxtask)"
-msgstr ""
+msgstr "Ekintza klikatzean (lehenetsia: lxtask)"
 
 #: ../src/plugins/monitors/monitors.c:808
-#, fuzzy
 msgid "Resource monitors"
-msgstr "Monitorearen interfazea"
+msgstr "Baliabide monitoreak"
 
 #: ../src/plugins/monitors/monitors.c:810
 msgid "Display monitors (CPU, RAM)"
-msgstr ""
+msgstr "Bistaratu monitoreak (PUZ, RAM)"
 
 #: ../src/plugins/wnckpager/wnckpager.c:720
 msgid "WNCKPager"
-msgstr ""
+msgstr "WNCKPager"
 
 #: ../src/plugins/wnckpager/wnckpager.c:722
-#, fuzzy
 msgid "WNCKpager plugin"
-msgstr "Orrialdekatzaile plugin sinplea"
+msgstr "WNCKpager plugina"
 
 #, fuzzy
 #~ msgid "Available Applications"
