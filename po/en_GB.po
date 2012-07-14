@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: LxPanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-10 16:52+0200\n"
-"PO-Revision-Date: 2012-04-08 12:30+0200\n"
+"PO-Revision-Date: 2012-07-14 11:27+0200\n"
 "Last-Translator: Steve <yorvik.ubunto@gmail.com>\n"
 "Language-Team: English UK en_GB <yorvik.ubunto@googlemail.com>\n"
 "Language: en_GB\n"
@@ -786,13 +786,12 @@ msgid "Mute"
 msgstr "Mute"
 
 #: ../src/plugins/volumealsa/volumealsa.c:602
-#, fuzzy
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
 msgstr ""
 "Error, you need to install an application to configure the sound "
-"(pavucontrol, alsamixer, ...)"
+"(pavucontol, alsamixer ...)"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
@@ -1373,12 +1372,12 @@ msgstr "Add indicator applets to the panel"
 #: ../src/plugins/monitors/monitors.c:284
 #, c-format
 msgid "CPU usage: %.2f%%"
-msgstr ""
+msgstr "CPU usage: %.2f%%"
 
 #: ../src/plugins/monitors/monitors.c:367
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
-msgstr ""
+msgstr "RAM usage: %.1fMB (%.2f%%)"
 
 #: ../src/plugins/monitors/monitors.c:712
 msgid "CPU color"
@@ -1393,9 +1392,8 @@ msgid "RAM color"
 msgstr "RAM colour"
 
 #: ../src/plugins/monitors/monitors.c:715
-#, fuzzy
 msgid "Action when clicked (default: lxtask)"
-msgstr "Action when clicked (default: display calendar)"
+msgstr "Action when clicked (default: lxtask)"
 
 #: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"
