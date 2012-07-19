@@ -1,6 +1,6 @@
 AC_PREREQ(2.53)
 AC_INIT(lxpanel, 0.5.10, http://lxde.org/)
-AM_INIT_AUTOMAKE([1.11 -Wall -Werror foreign])
+AM_INIT_AUTOMAKE([-Wall foreign])
 AC_CONFIG_HEADER([config.h])
 
 # Support silent build rules. Disable by either passing --disable-silent-rules
@@ -16,6 +16,7 @@ AC_PROG_INSTALL
 AC_PROG_LN_S
 AC_PROG_INTLTOOL(, [no-xml])
 AM_PROG_CC_C_O
+AM_PROG_AR
 
 #Initialize libtool
 LT_PREREQ([2.2])
