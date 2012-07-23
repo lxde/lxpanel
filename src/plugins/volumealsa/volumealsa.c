@@ -220,17 +220,21 @@ static void asound_deinitialize(VolumeALSAPlugin * vol)
 {
     int i;
 
-    if (vol->mixer_evt_idle != 0)
+    if (vol->mixer_evt_idle != 0) {
         g_source_remove(vol->mixer_evt_idle);
+        vol->mixer_evt_idle = 0;
+    }
 
     for (i = 0; i < vol->num_channels; i++) {
         g_io_channel_shutdown(vol->channels[i], FALSE, NULL);
         g_io_channel_unref(vol->channels[i]);
     }
     g_free(vol->channels);
-
     vol->channels = NULL;
     vol->num_channels = 0;
+
+    snd_mixer_close(vol->mixer);
+    vol->master_element = NULL;
 }
 
 /* Get the presence of the mute control from the sound system. */
