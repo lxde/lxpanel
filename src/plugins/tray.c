@@ -120,9 +120,28 @@ static TrayClient * client_lookup(TrayPlugin * tr, Window window)
     return NULL;
 }
 
+static void client_print(TrayPlugin * tr, char c, TrayClient * tc, XClientMessageEvent * xevent)
+{
+    int const log_at_level = LOG_ALL;
+    if (log_at_level <= log_level) {
+        char *name = get_utf8_property(tc->window, a_NET_WM_NAME);
+        int pid = get_net_wm_pid(tc->window);
+        XClientMessageEvent xcm = {0};
+        if (!xevent)
+            xevent = &xcm;
+        LOG(log_at_level, "tray: %c%p, winid 0x%lx: %s (PID %d), plug %p, serial no %lu, send_event %c, format %d\n",
+                c, tc, tc->window, name, pid,
+                gtk_socket_get_plug_window(GTK_SOCKET(tc->socket)),
+                xevent->serial, xevent->send_event ? 'y' : 'n', xevent->format);
+        g_free(name);
+    }
+}
+
 /* Delete a client. */
 static void client_delete(TrayPlugin * tr, TrayClient * tc, gboolean unlink)
 {
+    client_print(tr, '-', tc, NULL);
+
     if (unlink)
     {
         if (tr->client_list == tc)
@@ -455,6 +474,7 @@ static void trayclient_request_dock(TrayPlugin * tr, XClientMessageEvent * xeven
 
     /* Connect the socket to the plug.  This can only be done after the socket is realized. */
     gtk_socket_add_id(GTK_SOCKET(tc->socket), tc->window);
+    client_print(tr, '+', tc, xevent);
 }
 
 /* GDK event filter. */
@@ -748,3 +768,5 @@ PluginClass tray_plugin_class = {
     panel_configuration_changed : tray_panel_configuration_changed
 
 };
+
+/* vim: set sw=4 sts=4 et : */
