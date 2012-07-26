@@ -241,6 +241,15 @@ static void set_width_type( GtkWidget *item, Panel* p )
     update_panel_geometry(p);
 }
 
+static void set_log_level( GtkWidget *cbox, Panel* p)
+{
+    configured_log_level = gtk_combo_box_get_active(GTK_COMBO_BOX(cbox));
+    if (!log_level_set_on_commandline)
+        log_level = configured_log_level;
+    ERR("panel-pref: log level configured to %d, log_level is now %d\n",
+            configured_log_level, log_level);
+}
+
 static void transparency_toggle( GtkWidget *b, Panel* p)
 {
     GtkWidget* tr = (GtkWidget*)g_object_get_data(G_OBJECT(b), "tint_clr");
@@ -1085,6 +1094,11 @@ void panel_configure( Panel* p, int sel_page )
                         &logout_cmd);
     }
 
+    w = (GtkWidget*)gtk_builder_get_object( builder, "log_level" );
+    update_opt_menu(w, configured_log_level);
+    g_signal_connect(w, "changed", G_CALLBACK(set_log_level), p);
+
+
     panel_adjust_geometry_terminology(p);
     gtk_widget_show(GTK_WIDGET(p->pref_dialog));
     w = (GtkWidget*)gtk_builder_get_object( builder, "notebook" );
@@ -1119,6 +1133,7 @@ panel_global_config_save( Panel* p, FILE *fp)
     lxpanel_put_bool(fp, "background", p->background );
     lxpanel_put_str(fp, "backgroundfile", p->background_file);
     lxpanel_put_int(fp, "iconsize", p->icon_size);
+    lxpanel_put_int(fp, "loglevel", configured_log_level);
     lxpanel_put_line(fp, "}\n");
 }
 

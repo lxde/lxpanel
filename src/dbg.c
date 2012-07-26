@@ -19,6 +19,8 @@
 #include "dbg.h"
 
 int log_level = LOG_WARN;
+bool log_level_set_on_commandline = false;
+int configured_log_level = LOG_WARN;
 
 
 

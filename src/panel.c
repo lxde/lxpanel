@@ -1252,6 +1252,10 @@ panel_parse_global(Panel *p, char **fp)
                     p->background_file = g_strdup( s.t[1] );
                 } else if (!g_ascii_strcasecmp(s.t[0], "IconSize")) {
                     p->icon_size = atoi(s.t[1]);
+                } else if (!g_ascii_strcasecmp(s.t[0], "LogLevel")) {
+                    configured_log_level = atoi(s.t[1]);
+                    if (!log_level_set_on_commandline)
+                        log_level = configured_log_level;
                 } else {
                     ERR( "lxpanel: %s - unknown var in Global section\n", s.t[0]);
                 }
@@ -1634,6 +1638,7 @@ int main(int argc, char *argv[], char *env[])
                 exit(1);
             } else {
                 log_level = atoi(argv[i]);
+                log_level_set_on_commandline = true;
             }
         } else if (!strcmp(argv[i], "--configure") || !strcmp(argv[i], "-C")) {
             config = 1;
