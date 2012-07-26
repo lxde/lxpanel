@@ -67,7 +67,7 @@ typedef struct _task {
 typedef struct _desk {
     struct _pager * pg;				/* Back pointer to plugin context */
     GtkWidget * da;				/* Drawing area */
-    cairo_surface_t * pixmap;				/* Pixmap to be drawn on drawing area */
+    cairo_surface_t * pixmap;			/* Pixmap to be drawn on drawing area */
     int desktop_number;				/* Desktop number */
     gboolean dirty;				/* True if needs to be recomputed */
     gfloat scale_x;				/* Horizontal scale factor */
@@ -238,6 +238,7 @@ static void task_update_pixmap(PagerTask * tk, PagerDesk * d)
                 cairo_set_source_rgb(cr, (double)color->red/65535, (double)color->green/65535, (double)color->blue/65535);
                 cairo_stroke(cr);
 
+		check_cairo_status(cr);
                 cairo_destroy(cr);
             }
         }
@@ -297,7 +298,9 @@ static gboolean desk_configure_event(GtkWidget * widget, GdkEventConfigure * eve
         cairo_t *cr = cairo_create(d->pixmap);
         cairo_set_operator(cr, CAIRO_OPERATOR_CLEAR);
         cairo_paint(cr);
+	check_cairo_status(cr);
         cairo_destroy(cr);
+	check_cairo_surface_status(&d->pixmap);
 
         /* Compute the horizontal and vertical scale factors, and mark the desktop for redraw. */
 #if GTK_CHECK_VERSION(2,18,0)
@@ -346,6 +349,7 @@ static gboolean desk_expose_event(GtkWidget * widget, GdkEventExpose * event, Pa
                         ? &style->dark[GTK_STATE_SELECTED]
                         : &style->dark[GTK_STATE_NORMAL]));
                 cairo_paint(cr0);
+		check_cairo_status(cr0);
                 cairo_destroy(cr0);
             }
 
@@ -362,6 +366,7 @@ static gboolean desk_expose_event(GtkWidget * widget, GdkEventExpose * event, Pa
              &style->fg[GTK_WIDGET_STATE(widget)]);
         cairo_set_source_surface(cr, d->pixmap, 0, 0);
         cairo_paint(cr);
+	check_cairo_status(cr);
         cairo_destroy(cr);
     }
     return FALSE;

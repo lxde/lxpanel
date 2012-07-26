@@ -19,3 +19,26 @@
 #include "dbg.h"
 
 int log_level = LOG_WARN;
+
+
+
+void _check_cairo_status(cairo_t* cr, char const* file, char const* func, int line)
+{
+    cairo_status_t status = cairo_status(cr);
+    if (status != CAIRO_STATUS_SUCCESS)
+        ERR("%s:%s:%-5d: cairo had error %d: %s\n", file, func, line, status,
+                cairo_status_to_string(status));
+}
+
+void _check_cairo_surface_status(cairo_surface_t** surf, char const* file, char const* func, int line)
+{
+    cairo_status_t status = cairo_surface_status(*surf);
+    if (status != CAIRO_STATUS_SUCCESS) {
+        ERR("%s:%s:%-5d: cairo had error %d: %s\n", file, func, line, status,
+                cairo_status_to_string(status));
+        cairo_surface_destroy(*surf);
+        *surf = NULL;
+    }
+}
+
+/* vim: set sw=4 et sts=4 : */

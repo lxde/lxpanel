@@ -238,6 +238,9 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
     }
     if( repaint )
 	gtk_widget_queue_draw( lx_b->drawingArea );
+
+    check_cairo_status(cr);
+    cairo_destroy(cr);
 }
 
 /* This callback is called every 3 seconds */
@@ -295,6 +298,7 @@ static gint configureEvent(GtkWidget *widget, GdkEventConfigure *event,
 
     lx_b->pixmap = cairo_image_surface_create (CAIRO_FORMAT_RGB24, widget->allocation.width,
           widget->allocation.height);
+    check_cairo_surface_status(&lx_b->pixmap);
 
     /* Perform an update so the bar will look right in its new orientation */
     update_display(lx_b, FALSE);
@@ -306,18 +310,19 @@ static gint configureEvent(GtkWidget *widget, GdkEventConfigure *event,
 
 static gint exposeEvent(GtkWidget *widget, GdkEventExpose *event, lx_battery *lx_b) {
 
+    ENTER;
     cairo_t *cr = gdk_cairo_create(widget->window);
     gdk_cairo_region(cr, event->region);
     cairo_clip(cr);
-    ENTER;
 
     gdk_cairo_set_source_color(cr, &lx_b->drawingArea->style->black);
     cairo_set_source_surface(cr, lx_b->pixmap, 0, 0);
     cairo_paint(cr);
+
+    check_cairo_status(cr);
     cairo_destroy(cr);
 
     RET(FALSE);
-
 }
 
 

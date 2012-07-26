@@ -218,6 +218,7 @@ fb_bg_composite(GdkDrawable *base, GdkColor *tintcolor, gint alpha)
     cr = gdk_cairo_create(base);
     gdk_cairo_set_source_color(cr, tintcolor);
     cairo_paint_with_alpha(cr, (double) alpha/255);
+    check_cairo_status(cr);
     cairo_destroy(cr);
     fb_bg_changed(fb_bg_get_for_display());
     RET();
@@ -276,6 +277,7 @@ fb_bg_get_pix_from_file(GtkWidget *widget, const char *filename)
     cr = gdk_cairo_create(pixmap);
     gdk_cairo_set_source_pixbuf(cr, pixbuf, 0, 0);
     cairo_paint(cr);
+    check_cairo_status(cr);
     cairo_destroy(cr);
 
     g_object_unref( pixbuf );

@@ -95,7 +95,7 @@ typedef float stats_set;
 struct Monitor {
     GdkColor     foreground_color;  /* Foreground color for drawing area      */
     GtkWidget    *da;               /* Drawing area                           */
-    cairo_surface_t    *pixmap;           /* Pixmap to be drawn on drawing area     */
+    cairo_surface_t    *pixmap;     /* Pixmap to be drawn on drawing area     */
     gint         pixmap_width;      /* Width and size of the buffer           */
     gint         pixmap_height;     /* Does not include border size           */
     stats_set    *stats;            /* Circular buffer of values              */
@@ -451,6 +451,7 @@ configure_event(GtkWidget* widget, GdkEventConfigure* dummy, gpointer data)
         m->pixmap = cairo_image_surface_create(CAIRO_FORMAT_RGB24,
                                    m->pixmap_width,
                                    m->pixmap_height);
+        check_cairo_surface_status(&m->pixmap);
         redraw_pixmap(m);
     }
     
@@ -470,6 +471,7 @@ expose_event(GtkWidget * widget, GdkEventExpose * event, Monitor *m)
         gdk_cairo_set_source_color(cr, &m->da->style->black);
         cairo_set_source_surface(cr, m->pixmap, BORDER_SIZE, BORDER_SIZE);
         cairo_paint(cr);
+        check_cairo_status(cr);
         cairo_destroy(cr);
     }
     
@@ -519,6 +521,7 @@ redraw_pixmap (Monitor *m)
         cairo_stroke(cr);
     }
 
+    check_cairo_status(cr);
     cairo_destroy(cr);
     /* Redraw pixmap */
     gtk_widget_queue_draw(m->da);

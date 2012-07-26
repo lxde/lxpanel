@@ -93,6 +93,8 @@ static void redraw_pixmap(CPUPlugin * c)
 	if (drawing_cursor >= c->pixmap_width)
             drawing_cursor = 0;
     }
+
+    check_cairo_status(cr);
     cairo_destroy(cr);
 
     /* Redraw pixmap. */
@@ -191,6 +193,7 @@ static gboolean configure_event(GtkWidget * widget, GdkEventConfigure * event, C
         if (c->pixmap)
             cairo_surface_destroy(c->pixmap);
         c->pixmap = cairo_image_surface_create(CAIRO_FORMAT_RGB24, c->pixmap_width, c->pixmap_height);
+	check_cairo_surface_status(&c->pixmap);
 
         /* Redraw pixmap at the new size. */
         redraw_pixmap(c);
@@ -212,6 +215,7 @@ static gboolean expose_event(GtkWidget * widget, GdkEventExpose * event, CPUPlug
         cairo_set_source_surface(cr, c->pixmap,
               BORDER_SIZE, BORDER_SIZE);
         cairo_paint(cr);
+	check_cairo_status(cr);
         cairo_destroy(cr);
     }
     return FALSE;
