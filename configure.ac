@@ -35,7 +35,7 @@ if test "x$enable_gtk3" = "xyes" ; then
   CFLAGS="$CFLAGS -DENABLE_GTK3"
   pkg_modules="$pkg_modules gtk+-3.0"
 else
-  pkg_modules="$pkg_modules gtk+-2.0 >= 2.12.0"
+  pkg_modules="$pkg_modules gtk+-2.0 >= 2.16.0"
 fi
 
 pkg_modules="$pkg_modules \
