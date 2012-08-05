@@ -75,7 +75,7 @@ static void update_icon (Plugin* p)
 	GtkIconTheme* theme;
 	GtkIconInfo* info;
 	
-	theme = gtk_icon_theme_get_default();
+	theme = p->panel->icon_theme;
 	
 	if (curr_volume <= 0) {
 		info = gtk_icon_theme_lookup_icon( theme, "stock_volume-mute", p->panel->icon_size, 0 );

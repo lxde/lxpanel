@@ -812,7 +812,7 @@ static int indicator_constructor(Plugin * p, char ** fp)
     GTK_WIDGET_SET_FLAGS (indicator->menubar, GTK_WIDGET_FLAGS(indicator->menubar) | GTK_CAN_FOCUS);
 
     /* Init some theme/icon stuff */
-    gtk_icon_theme_append_search_path(gtk_icon_theme_get_default(),
+    gtk_icon_theme_append_search_path(p->panel->icon_theme,
                                     INDICATOR_ICONS_DIR);
     g_debug("Icons directory: %s", INDICATOR_ICONS_DIR);
 

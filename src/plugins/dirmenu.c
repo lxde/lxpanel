@@ -160,7 +160,7 @@ static GtkWidget * dirmenu_create_menu(Plugin * p, const char * path, gboolean o
         int h;
         gtk_icon_size_lookup_for_settings(gtk_widget_get_settings(menu), GTK_ICON_SIZE_MENU, &w, &h);
         dm->folder_icon = gtk_icon_theme_load_icon(
-            gtk_icon_theme_get_default(),
+            p->panel->icon_theme,
             "gnome-fs-directory", MAX(w, h), 0, NULL);
         if (dm->folder_icon == NULL)
             dm->folder_icon = gtk_widget_render_icon(menu, GTK_STOCK_DIRECTORY, GTK_ICON_SIZE_MENU, NULL);
