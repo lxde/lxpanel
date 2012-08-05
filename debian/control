@@ -50,3 +50,14 @@ Description: LXDE panel (development)
  (LXDE).
  .
  This package contains the development files.
+
+Package: lxpanel-dbg
+Section: debug
+Priority: extra
+Architecture: any
+Depends: ${misc:Depends}, lxpanel (= ${binary:Version})
+Description: LXDE panel (debug)
+ LXPanel is a GUI application for the Lightweight X11 Desktop Environment
+ (LXDE).
+ .
+ This package contains the debugging symbols.

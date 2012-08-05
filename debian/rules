@@ -31,3 +31,6 @@ override_dh_builddeb:
 
 override_dh_install:
 	dh_install --fail-missing
+
+override_dh_strip:
+	dh_strip --dbg-package=lxpanel-dbg
