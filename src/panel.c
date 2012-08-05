@@ -1694,6 +1694,9 @@ int main(int argc, char *argv[], char *env[])
         exit(1);
     }
 
+    /* Add our own icons to the search path of icon theme */
+    gtk_icon_theme_append_search_path( gtk_icon_theme_get_default(), PACKAGE_DATA_DIR "/lxpanel/images" );
+
     fbev = fb_ev_new();
     win_grp = gtk_window_group_new();
 
