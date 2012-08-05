@@ -734,7 +734,8 @@ void panel_apply_icon( GtkWindow *w )
 	else if(gtk_icon_theme_has_icon(gtk_icon_theme_get_default(), "start-here"))
     {
 		window_icon = gtk_icon_theme_load_icon(gtk_icon_theme_get_default(), "start-here", 24, 0, NULL);
-	} 
+	}
+    else
     {
 		window_icon = gdk_pixbuf_new_from_file(PACKAGE_DATA_DIR "/lxpanel/images/my-computer.png", NULL);
 	}
