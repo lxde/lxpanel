@@ -1,0 +1,8 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="900" height="600" version="1.1">
+  <rect fill="#fff" height="600" width="900"/>
+  <rect fill="#ce1126" height="200" width="900"/>
+  <path id="s" fill="#009e60" d="M 630,235 L 644.593,279.919 691.819,279.914 L 653.613,307.672 668.206,352.586 L 630,324.828 591.794,352.586 L 606.388,307.672 568.181,279.914 L 615.407,279.914 z"/>
+  <use xlink:href="#s" transform="translate(-360,0)"/>
+  <rect fill="#000" y="400" height="200" width="900"/>
+</svg>

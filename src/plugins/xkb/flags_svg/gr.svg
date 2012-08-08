@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 27 18" width="810" height="540">
+<desc>Flag of Greece</desc>
+	<path fill="#101f8a" d="M0,0 h4 l1,1 l1,-1 h21 v2 l-1,1 l1,1 v2 l-1,1 l1,1 v2 l-1,1 l1,1 v2 l-1,1 l1,1 v2 h-27 v-2 l1,-1 l-1,-1  v-2 l1,-1 l-1,-1  v-4 l1,-1 l-1,-1 z"/>
+	<path d="M4,0 h2 v4 h4 v2 h-4 v4 h21 v2 h-27 v-2 h4 v-4 h-4 v-2 h4 z M10,2 h17 v2 h-17 z M10,6 h17 v2 h-17 z M0,10 h17 v2 h-17 z M0,14 h27 v2 h-27 z" fill="white"/>
+</svg>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg>
+<svg width="1155" height="660" viewBox="-770 -440 1540 880" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+   <defs>
+      <path id="Allahu_Akbar" fill="white" d="M 0,0 h 1 v -2 h 3 v 2 h 5 v -3 h -3 v 1 h 2 v 1 h -3 v -2 H 0 z M 2,0 h 1 v -1 h -1 z M 0,-4 h 13 v -1 H 0 z M 13,0 h -3 v -3 h 4 v -2 h 1 v 4 h 1 v -4 h 1 v 4 h 1 v -4 h 1 v 5 h -5 v -2 h -3 v 1 h 2 z" transform="translate(-9.5)"/>
+      <path id="lines" fill="white" d="M 0,0 h 9 v -2 H 0 z M 10,0 h 9 v -2 H 10 z" transform="translate(-9.5)"/>
+   </defs>
+   <rect fill="white" x="-770" y="-440" width="1540" height="880"/>
+   <rect fill="#239f40" x="-770" y="-440" width="1540" height="294"/>
+   <g fill="#da0000">
+      <rect x="-770" y="146" width="1540" height="294"/>
+      <g transform="translate(0,-128)">
+         <path d="M 0,22 l -16,13 l 3,208 l 13,15 l 13,-15 l 3,-208 z"/>
+         <path d="M 32,0 a 22,22 0 0,1 -32,6 a 22,22 0 0,1 -32,-6 a 19,19 0 0,0 32,18 a 19,19 0 0,0 32,-18"/>
+         <path d="M  40,29 a 130,130 0 0,1 -120,206 a 120.5,120.5 0 0,0  120,-206"/>
+         <path d="M -40,29 a 130,130 0 0,0  120,206 a 120.5,120.5 0 0,1 -120,-206"/>
+         <path d="M  55,25 a 130,130 0 0,1  22,190 a 103,103 0 0,0 -22,-190"/>
+         <path d="M -55,25 a 130,130 0 0,0 -22,190 a 103,103 0 0,1  22,-190"/>
+      </g>
+   </g>
+   <g id="Allahu_Akbar_11" transform="translate(0,-160) scale(7)">
+      <use xlink:href="#Allahu_Akbar" transform="translate(-100)"/>
+      <use xlink:href="#Allahu_Akbar" transform="translate(-80)"/>
+      <use xlink:href="#Allahu_Akbar" transform="translate(-60)"/>
+      <use xlink:href="#Allahu_Akbar" transform="translate(-40)"/>
+      <use xlink:href="#Allahu_Akbar" transform="translate(-20)"/>
+      <use xlink:href="#Allahu_Akbar"/>
+      <use xlink:href="#Allahu_Akbar" transform="translate(20)"/>
+      <use xlink:href="#Allahu_Akbar" transform="translate(40)"/>
+      <use xlink:href="#Allahu_Akbar" transform="translate(60)"/>
+      <use xlink:href="#Allahu_Akbar" transform="translate(80)"/>
+      <use xlink:href="#Allahu_Akbar" transform="translate(100)"/>
+   </g>
+   <g id="lines_11" transform="translate(0,-139) scale(7)">
+      <use xlink:href="#lines" transform="translate(-100)"/>
+      <use xlink:href="#lines" transform="translate(-80)"/>
+      <use xlink:href="#lines" transform="translate(-60)"/>
+      <use xlink:href="#lines" transform="translate(-40)"/>
+      <use xlink:href="#lines" transform="translate(-20)"/>
+      <use xlink:href="#lines"/>
+      <use xlink:href="#lines" transform="translate(20)"/>
+      <use xlink:href="#lines" transform="translate(40)"/>
+      <use xlink:href="#lines" transform="translate(60)"/>
+      <use xlink:href="#lines" transform="translate(80)"/>
+      <use xlink:href="#lines" transform="translate(100)"/>
+   </g>
+   <use xlink:href="#Allahu_Akbar_11" transform="translate(0,355)"/>
+   <use xlink:href="#lines_11" transform="translate(0,292)"/>
+</svg>

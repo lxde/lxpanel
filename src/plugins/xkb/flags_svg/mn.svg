@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg>
+<svg width="900" height="450" viewBox="0 0 240 120" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" zoomAndPan="magnify">
+   <rect id="red" width="240" height="120" fill="#dc171c"/>
+   <rect id="blue" x="80" width="80" height="120" fill="#47aecf"/>
+   <g fill="#fbea0f">
+      <circle id="crescent" cx="40" cy="41" r="11"/>
+      <circle id="crescent_overlay" cx="40" cy="36" r="12" fill="#dc171c"/>
+      <path id="flame" d="M 35,23 a 5,5 0 0,0 10,0 C 45,21 43.75,20.75 43.75,20 S 44.5,18.25 43,17 C 43.75,18.25 42.5,18.5 42.5,19.75 S 43,21 43,22 a 1,1 0 0,1 -2,0 C 41,21 42,20 42,18.5 S 41.75,16.5 41,15.25 S 39,13 40,12 C 38.5,12.5 39.25,14.5 39.25,15.75 S 38.25,17.75 38.25,19.25 S 39,21 39,22 a 1,1 0 0,1 -2,0 C 37,21 37.5,21 37.5,19.75 S 36.25,18.25 37,17 C 35.5,18.25 36.25,19.25 36.25,20 S 35,21 35,23"/>
+      <circle id="moon" cx="40" cy="38" r="8"/>
+      <circle id="yinyang" cx="40" cy="78" r="10"/>
+      <path id="cornered_stuff" d="M 18,54 h 10 v 48 h -10 z M 52,54 h 10 v 48 h -10 z M 30,54 l 10,6 l 10,-6 z M 30,62 v 4 h 20 v -4 z M 30,90 v 4 h 20 v -4 z M 30,96 l 10,6 l 10,-6 z"/>
+   </g>
+   <circle id="yinyang_top" cx="40" cy="72.7" r="2" fill="#dc171c"/>
+   <circle id="yinyang_bottom" cx="40" cy="83.3" r="2" fill="#dc171c"/>
+   <path id="yinyang_center" d="M 40,67.5 a 5.25,5.25 0 0,1 0,10.5 a 5.25,5.25 0 0,0 0,10.5" stroke="#dc171c" fill="none"/>
+</svg>

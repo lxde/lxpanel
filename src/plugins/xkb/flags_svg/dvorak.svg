@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Notepad -->
+<!-- (PD) December 17, 2005 - _Zach Harden_  -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.0"
+   width="500"
+   height="300"
+   id="Bulgaria Flag"
+   sodipodi:version="0.32"
+   inkscape:version="0.45.1"
+   sodipodi:docname="dv.svg"
+   sodipodi:docbase="/home/sasoiliev/tmp/flags/cc-svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <metadata
+     id="metadata2364">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs2362" />
+  <sodipodi:namedview
+     inkscape:window-height="876"
+     inkscape:window-width="1133"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     guidetolerance="10.0"
+     gridtolerance="10.0"
+     objecttolerance="10.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base"
+     inkscape:zoom="1"
+     inkscape:cx="276.09766"
+     inkscape:cy="162.96484"
+     inkscape:window-x="107"
+     inkscape:window-y="0"
+     inkscape:current-layer="Bulgaria Flag" />
+  <rect
+     style="fill:#000000;fill-opacity:1"
+     id="rect5299"
+     width="499.99808"
+     height="299.99622"
+     x="2.3966684e-06"
+     y="-7.988894e-07" />
+  <text
+     xml:space="preserve"
+     style="font-size:47.65921783px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+     x="88.823387"
+     y="219.48563"
+     id="text6272"><tspan
+       sodipodi:role="line"
+       id="tspan6274"
+       x="88.823387"
+       y="219.48563"
+       style="font-size:190.63687134px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;font-family:Bitstream Vera Sans">DV</tspan></text>
+</svg>

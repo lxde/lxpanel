@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg:svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.0"
+   x="0.0000000"
+   y="0.0000000"
+   width="600.00000"
+   height="300.00000"
+   id="svg15971"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="ng.svg">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview7"
+     showgrid="false"
+     inkscape:zoom="0.49"
+     inkscape:cx="300"
+     inkscape:cy="150"
+     inkscape:window-x="80"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg15971" />
+  <svg:defs
+     id="defs15973" />
+  <svg:metadata
+     id="metadata15974">
+    <RDF
+       id="RDF15975">
+      <Work
+         about=""
+         id="Work15976">
+        <format
+           id="format15977">image/svg+xml</format>
+        <type
+           id="type15979"
+           resource="http://purl.org/dc/dcmitype/StillImage" />
+      </Work>
+    </RDF>
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </svg:metadata>
+  <svg:rect
+     width="600"
+     height="300"
+     x="0"
+     y="0.0004609375"
+     style="fill:#008751;fill-opacity:1;fill-rule:evenodd;stroke:none"
+     id="rect15980" />
+  <svg:rect
+     width="200"
+     height="300"
+     x="200"
+     y="0.0004609375"
+     style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none"
+     id="rect16602" />
+</svg:svg>

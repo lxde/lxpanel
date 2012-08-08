@@ -1,0 +1,7 @@
+
+lubuntu 12.04 (package xkb-data 2.5)
+
+1) "man -P cat xkeyboard-config > xkeyboardconfig.man"
+2) created the groups MODELS, LAYOUTS and TOGGLEOPTIONS compatible with glib key value file parser
+3) run xkbcfgfromman.py which generates xkeyboardconfig.cfg
+4) split in 3 files: models.cfg, layouts.cfg, toggle.cfg

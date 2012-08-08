@@ -18,6 +18,8 @@
 
 /* Originally derived from xfce4-xkb-plugin, Copyright 2004 Alexander Iliev,
  * which credits Michael Glickman. */
+ 
+/* Modified by Giuseppe Penone <giuspen@gmail.com> starting from 2012-07 and lxpanel 0.5.10 */
 
 #include "xkb.h"
 
@@ -34,21 +36,10 @@
 /* The X Keyboard Extension: Library Specification
  * http://www.xfree86.org/current/XKBlib.pdf */
 
-static void xkb_enter_locale_by_process(XkbPlugin * xkb);
-static void refresh_group_xkb(XkbPlugin * xkb);
-static int initialize_keyboard_description(XkbPlugin * xkb);
-static GdkFilterReturn xkb_event_filter(GdkXEvent * xevent, GdkEvent * event, XkbPlugin * xkb);
+static void             refresh_group_xkb(XkbPlugin * xkb);
+static int              initialize_keyboard_description(XkbPlugin * xkb);
+static GdkFilterReturn  xkb_event_filter(GdkXEvent * xevent, GdkEvent * event, XkbPlugin * xkb);
 
-/* Insert a process and its layout into the hash table. */
-static void xkb_enter_locale_by_process(XkbPlugin * xkb)
-{
-    if ((xkb->group_hash_table != NULL) && (fb_ev_active_window(fbev) != None))
-    {
-        Window * win = fb_ev_active_window(fbev);
-        if (*win != None)
-            g_hash_table_insert(xkb->group_hash_table, GINT_TO_POINTER(*win), GINT_TO_POINTER(xkb->current_group_xkb_no));
-    }
-}
 
 /* Return the current group Xkb ID. */
 int xkb_get_current_group_xkb_no(XkbPlugin * xkb)
@@ -180,15 +171,14 @@ static int initialize_keyboard_description(XkbPlugin * xkb)
                         else if ((*p < 'a') || (*p > 'z'))
                             *p = '\0';
                     }
-		    
+                    
                     /* Crosscheck the group count determined from the "ctrls" structure,
                      * that determined from the "groups" vector, and that determined from the "symbols" string.
                      * The "ctrls" structure is considered less reliable because it has been observed to be incorrect. */
                     if ((xkb->group_count != symbol_group_number)
                     || (xkb->group_count != xkb_desc->ctrls->num_groups))
                     {
-                        g_warning("Group count mismatch, ctrls = %d, groups = %d, symbols = %d\n",
-                            xkb_desc->ctrls->num_groups, xkb->group_count, symbol_group_number);
+                        //g_warning("Group count mismatch, ctrls = %d, groups = %d, symbols = %d\n", xkb_desc->ctrls->num_groups, xkb->group_count, symbol_group_number);
 
                         /* Maximize the "groups" and "symbols" value. */
                         if (xkb->group_count < symbol_group_number)
@@ -210,13 +200,6 @@ static int initialize_keyboard_description(XkbPlugin * xkb)
         if (xkb->symbol_names[i] == NULL)
             xkb->symbol_names[i] = g_strdup("None");
     }
-
-    /* Create or recreate hash table.
-     * The layout that was associated to the windows may or may not be at the same group number,
-     * and worse, may no longer exist, which there is no meaningful way to deal with. */
-    if (xkb->group_hash_table != NULL)
-        g_hash_table_destroy(xkb->group_hash_table);
-    xkb->group_hash_table = g_hash_table_new(g_direct_hash, NULL);
     return TRUE;
 }
 
@@ -234,7 +217,6 @@ static GdkFilterReturn xkb_event_filter(GdkXEvent * xevent, GdkEvent * event, Xk
             initialize_keyboard_description(xkb);
             refresh_group_xkb(xkb);
             xkb_redraw(xkb);
-            xkb_enter_locale_by_process(xkb);
         }
         else if (xkbev->any.xkb_type == XkbStateNotify)
         {
@@ -245,7 +227,6 @@ static GdkFilterReturn xkb_event_filter(GdkXEvent * xevent, GdkEvent * event, Xk
                 xkb->current_group_xkb_no = xkbev->state.group & (XkbNumKbdGroups - 1);
                 refresh_group_xkb(xkb);
                 xkb_redraw(xkb);
-                xkb_enter_locale_by_process(xkb);
             }
         }
     }
@@ -298,10 +279,6 @@ void xkb_mechanism_destructor(XkbPlugin * xkb)
             xkb->symbol_names[i] = NULL;
         }
     }
-
-    /* Destroy the hash table. */
-    g_hash_table_destroy(xkb->group_hash_table);
-    xkb->group_hash_table = NULL;
 }
 
 /* Set the layout to the next layout. */
@@ -316,24 +293,8 @@ int xkb_change_group(XkbPlugin * xkb, int increment)
     XkbLockGroup(GDK_DISPLAY(), XkbUseCoreKbd, next_group);
     refresh_group_xkb(xkb);
     xkb_redraw(xkb);
-    xkb_enter_locale_by_process(xkb);
     return 1;
 }
 
-/* React to change of focus by switching to the application's layout or the default layout. */
-void xkb_active_window_changed(XkbPlugin * xkb, Window window)
-{
-    gint new_group_xkb_no = xkb->default_group;
-
-    gpointer pKey = 0, pVal = 0;
-    if ((xkb->group_hash_table != NULL) && (g_hash_table_lookup_extended(xkb->group_hash_table, GINT_TO_POINTER(window), &pKey, &pVal)))
-        new_group_xkb_no = GPOINTER_TO_INT(pVal);
-
-    if (new_group_xkb_no < xkb->group_count)
-    {
-        XkbLockGroup(GDK_DISPLAY(), XkbUseCoreKbd, new_group_xkb_no);
-        refresh_group_xkb(xkb);
-    }
-}
 
 

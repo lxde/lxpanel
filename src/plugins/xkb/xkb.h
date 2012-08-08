@@ -14,6 +14,8 @@
 
 /* Modified by Hong Jen Yee (PCMan) <pcman.tw@gmail.com> on 2008-04-06 for lxpanel */
 
+/* Modified by Giuseppe Penone <giuspen@gmail.com> starting from 2012-07 and lxpanel 0.5.10 */
+
 #ifndef _XKB_PLUGIN_H_
 #define _XKB_PLUGIN_H_
 
@@ -30,34 +32,48 @@
 #include "dbg.h"
 
 typedef enum {
-    IMAGE = 0,
-    TEXT = 1
+    DISP_TYPE_IMAGE=0,
+    DISP_TYPE_TEXT=1,
+    DISP_TYPE_IMAGE_CUST=2
 } DisplayType;
 
 typedef struct {
 
     /* Plugin interface. */
-    Plugin * plugin;				/* Back pointer to Plugin */
-    GtkWidget * btn;				/* Top level button */
-    GtkWidget * label;				/* Label containing country name */
-    GtkWidget * image;				/* Image containing country flag */
-    DisplayType display_type;			/* Display layout as image or text */
-    gboolean enable_perapp;			/* Enable per application (window) layout) */
-    gint default_group;				/* Default group for "locale per process" */
-    guint source_id;				/* Source ID for channel listening to XKB events */
-    GtkWidget * config_dlg;			/* Configuration dialog */
-    GtkWidget * per_app_default_layout_menu;	/* Combo box of all available layouts */
+    Plugin       *p_plugin;                    /* Back pointer to Plugin */
+    GtkWidget    *p_label;                     /* Label containing country name */
+    GtkWidget    *p_image;                     /* Image containing country flag */
+    DisplayType   display_type;                /* Display layout as image or text */
+    guint         source_id;                   /* Source ID for channel listening to XKB events */
+    GtkWidget    *p_dialog_config;             /* Configuration dialog */
+    GtkListStore *p_liststore_layout;
+    GtkWidget    *p_treeview_layout;
+    GtkTreeSelection  *p_treeselection_layout;
+    GtkWidget    *p_button_kbd_model;
+    GtkWidget    *p_button_change_layout;
+    GtkWidget    *p_button_rm_layout;
 
     /* Mechanism. */
-    int base_event_code;			/* Result of initializing Xkb extension */
-    int base_error_code;
-    int current_group_xkb_no;			/* Current layout */
-    int group_count;				/* Count of groups as returned by Xkb */
-    char * group_names[XkbNumKbdGroups];	/* Group names as returned by Xkb */
-    char * symbol_names[XkbNumKbdGroups];	/* Symbol names as returned by Xkb */
-    GHashTable * group_hash_table;		/* Hash table to correlate application with layout */
+    int       base_event_code;                /* Result of initializing Xkb extension */
+    int       base_error_code;
+    int       current_group_xkb_no;           /* Current layout */
+    int       group_count;                    /* Count of groups as returned by Xkb */
+    char     *group_names[XkbNumKbdGroups];   /* Group names as returned by Xkb */
+    char     *symbol_names[XkbNumKbdGroups];  /* Symbol names as returned by Xkb */
+    gchar    *kbd_model;
+    gchar    *kbd_layouts;
+    gchar    *kbd_variants;
+    gchar    *kbd_change_option;
+    guchar    flag_size;
+    GString  *p_gstring_layouts_partial;
+    GString  *p_gstring_variants_partial;
+    int       num_layouts;
+    gboolean  cust_dir_exists;
 
 } XkbPlugin;
+
+#define MAX_MARKUP_LEN  64
+#define MAX_ROW_LEN  64
 
 extern void xkb_redraw(XkbPlugin * xkb);
 
@@ -70,7 +86,7 @@ extern const char * xkb_get_current_symbol_name_lowercase(XkbPlugin * xkb);
 extern void xkb_mechanism_constructor(XkbPlugin * xkb);
 extern void xkb_mechanism_destructor(XkbPlugin * xkb);
 extern int xkb_change_group(XkbPlugin * xkb, int increment);
-extern void xkb_active_window_changed(XkbPlugin * xkb, Window window);
 
 #endif
+
 

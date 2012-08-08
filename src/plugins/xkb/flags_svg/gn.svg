@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg:svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.0"
+   x="0.0000000"
+   y="0.0000000"
+   width="450.00000"
+   height="300.00000"
+   id="svg5304"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="Flag_of_Guinea.svg">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="886"
+     inkscape:window-height="601"
+     id="namedview9"
+     showgrid="false"
+     inkscape:zoom="0.65333333"
+     inkscape:cx="225"
+     inkscape:cy="150"
+     inkscape:window-x="203"
+     inkscape:window-y="67"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg5304" />
+  <svg:defs
+     id="defs5306" />
+  <svg:metadata
+     id="metadata5307">
+    <RDF
+       id="RDF5308">
+      <Work
+         about=""
+         id="Work5309">
+        <format
+           id="format5310">image/svg+xml</format>
+        <type
+           id="type5312"
+           resource="http://purl.org/dc/dcmitype/StillImage" />
+      </Work>
+    </RDF>
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </svg:metadata>
+  <svg:g
+     transform="matrix(1.2,0,0,1.2,-148.46938,-511.30399)"
+     id="g2837">
+    <svg:rect
+       width="375"
+       height="250"
+       x="125"
+       y="427.36218"
+       style="fill:#ce1126;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       id="rect5313" />
+    <svg:rect
+       width="250"
+       height="250"
+       x="250"
+       y="427.36218"
+       style="fill:#fcd116;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       id="rect5936" />
+    <svg:rect
+       width="125"
+       height="250"
+       x="375"
+       y="427.36218"
+       style="fill:#009460;fill-opacity:1;fill-rule:evenodd;stroke:none"
+       id="rect6558" />
+  </svg:g>
+</svg:svg>

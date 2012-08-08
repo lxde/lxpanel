@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg width="150" height="100" preserveAspectRatio="xMidYMid meet" zoomAndPan="magnify" version="1.0" contentScriptType="text/ecmascript" contentStyleType="text/css" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><title content="structured text">TANZANIA</title><rect width="100%" height="100%" fill="#1EB53A"/>
+        
+        
+        
+        
+    <g>
+        <polygon points="                 0, 100                 150, 0                 150, 100             " fill="#00A3DD"/>
+        
+        <line x1="0" y1="100" x2="150" y2="0" stroke="#FCD116" stroke-width="59.375"/>
+        <line x1="0" y1="100" x2="150" y2="0" stroke="black" stroke-width="40.625"/>
+    </g></svg>
