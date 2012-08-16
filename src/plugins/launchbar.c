@@ -93,6 +93,7 @@ typedef struct {
     GSList * buttons;			/* Launchbar buttons */
     GtkWidget * config_dlg;		/* Configuration dialog */
     LaunchButton * bootstrap_button;	/* Bootstrapping button for empty launchbar */
+    GtkWidget     *p_button_add, *p_button_remove;
 } LaunchbarPlugin;
 
 void panel_config_save(Panel * panel);  /* defined in configurator.c */
@@ -131,6 +132,32 @@ static void launchbutton_free(LaunchButton * btn)
     g_free(btn->action);
     g_free(btn->tooltip);
     g_free(btn);
+}
+
+static gboolean on_defined_view_button_press_event(GtkWidget *p_widget, GdkEventButton *p_event, gpointer p_data)
+{
+    if(p_event->button == 1)
+    {
+        if(p_event->type == GDK_2BUTTON_PRESS)
+        {
+            LaunchbarPlugin *lb = (LaunchbarPlugin *)p_data;
+            gtk_button_clicked(GTK_BUTTON(lb->p_button_remove));
+        }
+    }
+    return FALSE;
+}
+
+static gboolean on_menu_view_button_press_event(GtkWidget *p_widget, GdkEventButton *p_event, gpointer p_data)
+{
+    if(p_event->button == 1)
+    {
+        if(p_event->type == GDK_2BUTTON_PRESS)
+        {
+            LaunchbarPlugin *lb = (LaunchbarPlugin *)p_data;
+            gtk_button_clicked(GTK_BUTTON(lb->p_button_add));
+        }
+    }
+    return FALSE;
 }
 
 /* Handler for "button-press-event" event from launchbar button. */
@@ -831,17 +858,20 @@ static void launchbar_configure(Plugin * p, GtkWindow * parent)
         /* Connect signals. */
         g_signal_connect(dlg, "response", G_CALLBACK(launchbar_configure_response), p);
 
-        btn = (GtkWidget*)gtk_builder_get_object(builder, "add");
-        g_signal_connect(btn, "clicked", G_CALLBACK(launchbar_configure_add_button), p);
+        lb->p_button_add = (GtkWidget*)gtk_builder_get_object(builder, "add");
+        g_signal_connect(lb->p_button_add, "clicked", G_CALLBACK(launchbar_configure_add_button), p);
 
-        btn = (GtkWidget*)gtk_builder_get_object(builder, "remove");
-        g_signal_connect(btn, "clicked", G_CALLBACK(launchbar_configure_remove_button), p);
+        lb->p_button_remove = (GtkWidget*)gtk_builder_get_object(builder, "remove");
+        g_signal_connect(lb->p_button_remove, "clicked", G_CALLBACK(launchbar_configure_remove_button), p);
 
         btn = (GtkWidget*)gtk_builder_get_object(builder, "up");
         g_signal_connect(btn, "clicked", G_CALLBACK(launchbar_configure_move_up_button), p);
 
         btn = (GtkWidget*)gtk_builder_get_object(builder, "down");
         g_signal_connect(btn, "clicked", G_CALLBACK(launchbar_configure_move_down_button), p);
+
+        g_signal_connect(defined_view, "button-press-event", G_CALLBACK(on_defined_view_button_press_event), lb);
+        g_signal_connect(menu_view, "button-press-event", G_CALLBACK(on_menu_view_button_press_event), lb);
 
         gtk_window_present(GTK_WINDOW(dlg));
         lb->config_dlg = dlg;
