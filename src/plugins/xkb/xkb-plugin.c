@@ -76,12 +76,13 @@ static void  xkb_update_layouts_n_variants(XkbPlugin *p_xkb);
 static void  xkb_add_layout(XkbPlugin *p_xkb, gchar *layout, gchar*variant);
 static int   xkb_get_flag_size(XkbPlugin *p_xkb);
 
+static void      on_xkb_fbev_active_window_event(FbEv *ev, gpointer p_data);
 static gboolean  on_xkb_button_scroll_event(GtkWidget * widget, GdkEventScroll * event, gpointer p_data);
 static gboolean  on_xkb_button_press_event(GtkWidget * widget,  GdkEventButton * event, gpointer p_data);
 static void      on_radiobutton_disp_type_image_toggled(GtkToggleButton *p_radiobutton, gpointer p_data);
 static void      on_radiobutton_disp_type_image_cust_toggled(GtkToggleButton *p_radiobutton, gpointer p_data);
 static void      on_radiobutton_disp_type_text_toggled(GtkToggleButton *p_radiobutton, gpointer p_data);
-static void      on_hscale_flag_size_value_changed(GtkRange *p_range, gpointer p_data);
+static void      on_xkb_checkbutton_per_app_toggled(GtkToggleButton *tb, gpointer p_data);
 static void      on_dialog_config_response(GtkDialog *p_dialog, gint response, gpointer p_data);
 
 static unsigned char  user_active = FALSE;
@@ -96,9 +97,10 @@ static int xkb_get_flag_size(XkbPlugin *p_xkb)
         case 2: return size*0.6;
         case 3: return size*0.7;
         case 4: return size*0.8;
+        case 5: return size*0.9;
         default: break;
     }
-    return size*0.9;
+    return size;
 }
 
 /* Redraw the graphics. */
@@ -157,12 +159,29 @@ void xkb_redraw(XkbPlugin *p_xkb)
         if (group_name != NULL)
         {
             GString *p_gstring_markup = g_string_new("");
-            g_string_printf(p_gstring_markup, "<span font='%u' weight='heavy'>%s</span>", size/2, group_name);
+            g_string_printf(p_gstring_markup,
+                            "<span font='%u' weight='heavy' color=\"#%06x\">%s</span>",
+                            size/2, gcolor2rgb24(&p_xkb->p_plugin->panel->gfontcolor), group_name);
             gtk_label_set_markup(GTK_LABEL(p_xkb->p_label), p_gstring_markup->str);
             g_string_free(p_gstring_markup, TRUE/*free also gstring->str*/);
             gtk_widget_hide(p_xkb->p_image);
             gtk_widget_show(p_xkb->p_label);
             gtk_widget_set_tooltip_text(p_xkb->p_plugin->pwid, xkb_get_current_group_name(p_xkb));
+        }
+    }
+}
+
+/* Handler for "active_window" event on root window listener. */
+static void on_xkb_fbev_active_window_event(FbEv * ev, gpointer p_data) 
+{
+    XkbPlugin * xkb = (XkbPlugin *)p_data;
+    if (xkb->enable_perwin)
+    {
+        Window * win = fb_ev_active_window(ev);
+        if (*win != None)
+        {
+            xkb_active_window_changed(xkb, *win);
+            xkb_redraw(xkb);
         }
     }
 }
@@ -202,6 +221,7 @@ static int xkb_constructor(Plugin * p_plugin, char ** fp)
 
     /* Initialize to defaults. */
     p_xkb->display_type = DISP_TYPE_IMAGE;
+    p_xkb->enable_perwin = FALSE;
     p_xkb->kbd_model = NULL;
     p_xkb->kbd_layouts = NULL;
     p_xkb->kbd_variants = NULL;
@@ -226,6 +246,10 @@ static int xkb_constructor(Plugin * p_plugin, char ** fp)
                 if(g_ascii_strcasecmp(s.t[0], "DisplayType") == 0)
                 {
                     p_xkb->display_type = atoi(s.t[1]);
+                }
+                else if(g_ascii_strcasecmp(s.t[0], "PerWinLayout") == 0)
+                {
+                    p_xkb->enable_perwin = str2num(bool_pair, s.t[1], 0);
                 }
                 else if(g_ascii_strcasecmp(s.t[0], "Model") == 0)
                 {
@@ -257,71 +281,6 @@ static int xkb_constructor(Plugin * p_plugin, char ** fp)
             }
         }
     }
-    
-    if( (p_xkb->kbd_model == NULL) || (p_xkb->kbd_layouts == NULL) ||
-        (p_xkb->kbd_variants == NULL) || (p_xkb->kbd_change_option == NULL) )
-    {
-        if(p_xkb->kbd_model != NULL) g_free(p_xkb->kbd_model);
-        if(p_xkb->kbd_layouts != NULL) g_free(p_xkb->kbd_layouts);
-        if(p_xkb->kbd_variants != NULL) g_free(p_xkb->kbd_variants);
-        if(p_xkb->kbd_change_option != NULL) g_free(p_xkb->kbd_change_option);
-        
-        FILE *fp;
-        char  buf[MAX_ROW_LEN];
-        fp = popen("setxkbmap -query", "r");
-        if(fp != NULL)
-        {
-            GRegex *p_regex_model = g_regex_new("(?<=model:).*", 0, 0, NULL);
-            GRegex *p_regex_layouts = g_regex_new("(?<=layout:).*", 0, 0, NULL);
-            GRegex *p_regex_variants = g_regex_new("(?<=variant:).*", 0, 0, NULL);
-            GMatchInfo *p_match_info;
-            while(fgets(buf, MAX_ROW_LEN, fp) != NULL)
-            {
-                // model
-                g_regex_match(p_regex_model, buf, 0, &p_match_info);
-                if(g_match_info_matches(p_match_info))
-                {
-                    p_xkb->kbd_model = g_strchug(g_match_info_fetch(p_match_info, 0));
-                    g_match_info_free(p_match_info);
-                    continue;
-                }
-                g_match_info_free(p_match_info);
-                
-                // layouts
-                g_regex_match(p_regex_layouts, buf, 0, &p_match_info);
-                if(g_match_info_matches(p_match_info))
-                {
-                    p_xkb->kbd_layouts = g_strchug(g_match_info_fetch(p_match_info, 0));
-                    g_match_info_free(p_match_info);
-                    continue;
-                }
-                g_match_info_free(p_match_info);
-                
-                // variants
-                g_regex_match(p_regex_variants, buf, 0, &p_match_info);
-                if(g_match_info_matches(p_match_info))
-                {
-                    p_xkb->kbd_variants = g_strchug(g_match_info_fetch(p_match_info, 0));
-                    g_match_info_free(p_match_info);
-                    continue;
-                }
-                g_match_info_free(p_match_info);
-            }
-            
-            g_regex_unref(p_regex_model);
-            g_regex_unref(p_regex_layouts);
-            g_regex_unref(p_regex_variants);
-            
-            /* close */
-            pclose(fp);
-        }
-        if(p_xkb->kbd_model == NULL) p_xkb->kbd_model = g_strdup("pc105");
-        if(p_xkb->kbd_layouts == NULL) p_xkb->kbd_layouts = g_strdup("us");
-        if(p_xkb->kbd_variants == NULL) p_xkb->kbd_variants = g_strdup(",");
-        if(p_xkb->kbd_change_option == NULL) p_xkb->kbd_change_option = g_strdup("shift_caps_toggle");
-    }
-    else
-        xkb_setxkbmap(p_xkb);
 
     /* Allocate top level widget and set into Plugin widget pointer. */
     p_plugin->pwid = gtk_event_box_new();
@@ -341,12 +300,36 @@ static int xkb_constructor(Plugin * p_plugin, char ** fp)
     p_xkb->p_image = gtk_image_new();
     gtk_container_add(GTK_CONTAINER(hbox), p_xkb->p_image);
 
+    /* Chech for first run */
+    if( (p_xkb->kbd_model == NULL) || (p_xkb->kbd_layouts == NULL) ||
+        (p_xkb->kbd_variants == NULL) || (p_xkb->kbd_change_option == NULL) )
+    {
+        /* This is a first run, read the current layout */
+        xkb_mechanism_constructor(p_xkb);
+        
+        if(p_xkb->kbd_model != NULL) g_free(p_xkb->kbd_model);
+        if(p_xkb->kbd_layouts != NULL) g_free(p_xkb->kbd_layouts);
+        if(p_xkb->kbd_variants != NULL) g_free(p_xkb->kbd_variants);
+        if(p_xkb->kbd_change_option != NULL) g_free(p_xkb->kbd_change_option);
+        
+        p_xkb->kbd_model = g_strdup("pc105");
+        gchar *symbol_name_lowercase = (char *)xkb_get_current_symbol_name_lowercase(p_xkb);
+        p_xkb->kbd_layouts = g_strdup(symbol_name_lowercase);
+        g_free(symbol_name_lowercase);
+        p_xkb->kbd_variants = g_strdup(",");
+        p_xkb->kbd_change_option = g_strdup("shift_caps_toggle");
+        
+        xkb_mechanism_destructor(p_xkb);
+    }
+    
     /* Initialize the XKB interface. */
+    xkb_setxkbmap(p_xkb);
     xkb_mechanism_constructor(p_xkb);
 
     /* Connect signals. */
     g_signal_connect(p_plugin->pwid, "button-press-event", G_CALLBACK(on_xkb_button_press_event), p_xkb);
     g_signal_connect(p_plugin->pwid, "scroll-event", G_CALLBACK(on_xkb_button_scroll_event), p_xkb);
+    g_signal_connect(G_OBJECT(fbev), "active_window", G_CALLBACK(on_xkb_fbev_active_window_event), p_xkb);
 
     /* Show the widget and return. */
     xkb_redraw(p_xkb);
@@ -358,6 +341,9 @@ static int xkb_constructor(Plugin * p_plugin, char ** fp)
 static void xkb_destructor(Plugin * p_plugin)
 {
     XkbPlugin *p_xkb = (XkbPlugin *)p_plugin->priv;
+
+    /* Disconnect root window event handler. */
+    g_signal_handlers_disconnect_by_func(G_OBJECT(fbev), on_xkb_fbev_active_window_event, p_xkb);
 
     /* Disconnect from the XKB mechanism. */
     g_source_remove(p_xkb->source_id);
@@ -373,6 +359,25 @@ static void xkb_destructor(Plugin * p_plugin)
     g_free(p_xkb->kbd_variants);
     g_free(p_xkb->kbd_change_option);
     g_free(p_xkb);
+}
+
+/* Handler for "toggled" event on per-application check box of configuration dialog. */
+static void on_xkb_checkbutton_per_app_toggled(GtkToggleButton *tb, gpointer p_data) 
+{
+    if(user_active == TRUE)
+    {
+        /* Fetch the new value and redraw. */
+        XkbPlugin * xkb = (XkbPlugin *)p_data;
+        xkb->enable_perwin = gtk_toggle_button_get_active(tb);
+        if(!xkb->enable_perwin)
+        {
+            /* at deactivation clear the hash table */
+            if(xkb->p_hash_table_group != NULL)
+                g_hash_table_destroy(xkb->p_hash_table_group);
+            xkb->p_hash_table_group = g_hash_table_new(g_direct_hash, NULL);
+        }
+        xkb_redraw(xkb);
+    }
 }
 
 static void on_radiobutton_flag_size_1_toggled(GtkToggleButton *p_radiobutton, gpointer p_data)
@@ -421,6 +426,16 @@ static void on_radiobutton_flag_size_5_toggled(GtkToggleButton *p_radiobutton, g
     {
         XkbPlugin * p_xkb = (XkbPlugin *)p_data;
         p_xkb->flag_size = 5;
+        xkb_redraw(p_xkb);
+    }
+}
+
+static void on_radiobutton_flag_size_6_toggled(GtkToggleButton *p_radiobutton, gpointer p_data)
+{
+    if( (user_active == TRUE) && gtk_toggle_button_get_active(p_radiobutton) )
+    {
+        XkbPlugin * p_xkb = (XkbPlugin *)p_data;
+        p_xkb->flag_size = 6;
         xkb_redraw(p_xkb);
     }
 }
@@ -475,9 +490,19 @@ static void on_dialog_config_response(GtkDialog *p_dialog, gint response, gpoint
     p_xkb->p_dialog_config = NULL;
 }
 
-static void on_hscale_flag_size_value_changed(GtkRange *p_range, gpointer p_data)
+static gboolean  on_treeviews_lists_button_press_event(GtkWidget *p_widget,
+                                                       GdkEventButton *p_event,
+                                                       gpointer p_data)
 {
-    
+    if(p_event->button == 1)
+    {
+        if(p_event->type == GDK_2BUTTON_PRESS)
+        {
+            GtkButton *p_button_ok = (GtkButton *)p_data;
+            gtk_button_clicked(p_button_ok);
+        }
+    }
+    return FALSE;
 }
 
 static void on_button_kbd_model_clicked(GtkButton *p_button, gpointer *p_data)
@@ -541,22 +566,9 @@ static void on_button_kbd_model_clicked(GtkButton *p_button, gpointer *p_data)
     g_free(xkbcfg_filepath);
     
     // callback for double click
-    gboolean  on_treeview_kbd_model_button_press_event(GtkWidget *p_widget,
-                                                       GdkEventButton *p_event,
-                                                       gpointer p_data)
-    {
-        if(p_event->button == 1)
-        {
-            if(p_event->type == GDK_2BUTTON_PRESS)
-            {
-                GtkButton *p_button_ok = (GtkButton *)gtk_dialog_get_widget_for_response(GTK_DIALOG(p_dialog), GTK_RESPONSE_OK);
-                gtk_button_clicked(p_button_ok);
-            }
-        }
-        return FALSE;
-    }
     g_signal_connect(p_treeview_kbd_model, "button-press-event",
-                     G_CALLBACK(on_treeview_kbd_model_button_press_event), NULL);
+                     G_CALLBACK(on_treeviews_lists_button_press_event),
+                     gtk_dialog_get_widget_for_response(GTK_DIALOG(p_dialog), GTK_RESPONSE_OK));
     gtk_widget_set_size_request(p_dialog, 600, 500);
     gtk_widget_show_all(GTK_WIDGET(p_scrolledwindow_kbd_model));
     gint  response = gtk_dialog_run(GTK_DIALOG(p_dialog));
@@ -643,22 +655,9 @@ static void on_button_kbd_change_layout_clicked(GtkButton *p_button, gpointer *p
     g_free(xkbcfg_filepath);
     
     // callback for double click
-    gboolean  on_treeview_kbd_change_button_press_event(GtkWidget *p_widget,
-                                                        GdkEventButton *p_event,
-                                                        gpointer p_data)
-    {
-        if(p_event->button == 1)
-        {
-            if(p_event->type == GDK_2BUTTON_PRESS)
-            {
-                GtkButton *p_button_ok = (GtkButton *)gtk_dialog_get_widget_for_response(GTK_DIALOG(p_dialog), GTK_RESPONSE_OK);
-                gtk_button_clicked(p_button_ok);
-            }
-        }
-        return FALSE;
-    }
     g_signal_connect(p_treeview_kbd_change, "button-press-event",
-                     G_CALLBACK(on_treeview_kbd_change_button_press_event), NULL);
+                     G_CALLBACK(on_treeviews_lists_button_press_event),
+                     gtk_dialog_get_widget_for_response(GTK_DIALOG(p_dialog), GTK_RESPONSE_OK));
     gtk_widget_set_size_request(p_dialog, 600, 500);
     gtk_widget_show_all(GTK_WIDGET(p_scrolledwindow_kbd_change));
     gint  response = gtk_dialog_run(GTK_DIALOG(p_dialog));
@@ -765,19 +764,24 @@ static void on_button_add_layout_clicked(GtkButton *p_button, gpointer *p_data)
     gtk_tree_view_set_enable_tree_lines(GTK_TREE_VIEW(p_treeview_add_layout), TRUE);
     gtk_container_add(GTK_CONTAINER(p_scrolledwindow_add_layout), p_treeview_add_layout);
     GtkCellRenderer *p_renderer;
-    GtkTreeViewColumn *p_column;
+    GtkTreeViewColumn *p_column, *p_column_desc;
     // icon
     p_renderer = gtk_cell_renderer_pixbuf_new();
-    p_column = gtk_tree_view_column_new_with_attributes(_("Flag"), p_renderer, "pixbuf", COLUMN_ICON, NULL);
+    p_column = gtk_tree_view_column_new_with_attributes(_("Flag"), p_renderer, "pixbuf", COLUMN_ADD_ICON, NULL);
+    gtk_tree_view_column_set_sort_column_id(p_column, COLUMN_ADD_DESC);
     gtk_tree_view_append_column(GTK_TREE_VIEW(p_treeview_add_layout), p_column);
     // layout
     p_renderer = gtk_cell_renderer_text_new();
-    p_column = gtk_tree_view_column_new_with_attributes(_("Layout"), p_renderer, "text", COLUMN_LAYOUT, NULL);
+    p_column = gtk_tree_view_column_new_with_attributes(_("Layout"), p_renderer, "text", COLUMN_ADD_LAYOUT, NULL);
+    gtk_tree_view_column_set_sort_column_id(p_column, COLUMN_ADD_LAYOUT);
     gtk_tree_view_append_column(GTK_TREE_VIEW(p_treeview_add_layout), p_column);
     // desc
     p_renderer = gtk_cell_renderer_text_new();
-    p_column = gtk_tree_view_column_new_with_attributes(_("Description"), p_renderer, "text", COLUMN_VARIANT, NULL);
-    gtk_tree_view_append_column(GTK_TREE_VIEW(p_treeview_add_layout), p_column);
+    p_column_desc = gtk_tree_view_column_new_with_attributes(_("Description"), p_renderer, "text", COLUMN_ADD_DESC, NULL);
+    gtk_tree_view_column_set_sort_column_id(p_column_desc, COLUMN_ADD_DESC);
+    gtk_tree_view_append_column(GTK_TREE_VIEW(p_treeview_add_layout), p_column_desc);
+    // search column
+    gtk_tree_view_set_search_column(GTK_TREE_VIEW(p_treeview_add_layout), COLUMN_ADD_DESC);
     
     // populate model
     GKeyFile *p_keyfile = g_key_file_new();
@@ -845,22 +849,12 @@ static void on_button_add_layout_clicked(GtkButton *p_button, gpointer *p_data)
     g_free(xkbcfg_filepath);
     
     // callback for double click
-    gboolean  on_treeview_add_layout_button_press_event(GtkWidget *p_widget,
-                                                        GdkEventButton *p_event,
-                                                        gpointer p_data)
-    {
-        if(p_event->button == 1)
-        {
-            if(p_event->type == GDK_2BUTTON_PRESS)
-            {
-                GtkButton *p_button_ok = (GtkButton *)gtk_dialog_get_widget_for_response(GTK_DIALOG(p_dialog), GTK_RESPONSE_OK);
-                gtk_button_clicked(p_button_ok);
-            }
-        }
-        return FALSE;
-    }
     g_signal_connect(p_treeview_add_layout, "button-press-event",
-                     G_CALLBACK(on_treeview_add_layout_button_press_event), NULL);
+                     G_CALLBACK(on_treeviews_lists_button_press_event),
+                     gtk_dialog_get_widget_for_response(GTK_DIALOG(p_dialog), GTK_RESPONSE_OK));
+    // sort for description
+    gtk_tree_view_column_clicked(p_column_desc);
+    
     gtk_widget_set_size_request(p_dialog, 600, 500);
     gtk_widget_show_all(GTK_WIDGET(p_scrolledwindow_add_layout));
     gint  response = gtk_dialog_run(GTK_DIALOG(p_dialog));
@@ -923,8 +917,14 @@ static void xkb_setxkbmap(XkbPlugin *p_xkb)
     g_string_printf(p_gstring_syscmd,
                     "setxkbmap -model %s -layout %s -variant %s -option grp:%s",
                     p_xkb->kbd_model, p_xkb->kbd_layouts, p_xkb->kbd_variants, p_xkb->kbd_change_option);
-    if(system("setxkbmap -option")) {}; // reset options
-    if(system(p_gstring_syscmd->str)) {}; // set new map
+    if(system("setxkbmap -option")) // reset options
+    {
+        ERR("xkb: system(setxkbmap -option)\n");
+    }
+    if(system(p_gstring_syscmd->str)) // set new map
+    {
+        ERR("xkb: system(%s)\n", p_gstring_syscmd->str);
+    }
     //g_printf("\n%s\n", p_gstring_syscmd->str);
     g_string_free(p_gstring_syscmd, TRUE/*free also gstring->str*/);
 }
@@ -949,8 +949,8 @@ static gboolean layouts_tree_model_foreach(GtkTreeModel *p_model,
     g_string_append(p_xkb->p_gstring_layouts_partial, layout_val);
     g_string_append(p_xkb->p_gstring_variants_partial, variant_val);
     
-    //printf("\npartial layouts = '%s'\n", p_xkb->p_gstring_layouts_partial->str);
-    //printf("partial variants = '%s'\n", p_xkb->p_gstring_variants_partial->str);
+    //g_printf("\npartial layouts = '%s'\n", p_xkb->p_gstring_layouts_partial->str);
+    //g_printf("partial variants = '%s'\n", p_xkb->p_gstring_variants_partial->str);
     
     g_free(layout_val);
     g_free(variant_val);
@@ -1166,6 +1166,27 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
     gtk_container_add(GTK_CONTAINER(p_alignment_change_layout), p_xkb->p_button_change_layout);
 
 
+    // 'PER WINDOW SETTINGS' frame
+    GtkWidget * p_frame_perapp_layout = gtk_frame_new(NULL);
+    GtkWidget * p_label_perapp_layout = gtk_label_new(NULL);
+    snprintf(markup_str, MAX_MARKUP_LEN, "<b>%s</b>", _("Per Window Settings"));
+    gtk_label_set_markup(GTK_LABEL(p_label_perapp_layout), markup_str);
+    gtk_misc_set_padding(GTK_MISC(p_label_perapp_layout), 1, 0);
+    gtk_frame_set_label_widget(GTK_FRAME(p_frame_perapp_layout), p_label_perapp_layout);
+    gtk_frame_set_shadow_type(GTK_FRAME(p_frame_perapp_layout), GTK_SHADOW_NONE);
+    gtk_box_pack_start(GTK_BOX(p_vbox_main), p_frame_perapp_layout, TRUE, TRUE, 2);
+    gtk_container_set_border_width(GTK_CONTAINER(p_frame_perapp_layout), 3);
+
+    // frame alignment
+    GtkWidget * p_alignment_perapp_layout = gtk_alignment_new(0.5, 0.5, 1, 1);
+    gtk_container_add(GTK_CONTAINER(p_frame_perapp_layout), p_alignment_perapp_layout);
+    gtk_alignment_set_padding(GTK_ALIGNMENT(p_alignment_perapp_layout), 4, 4, 10, 10);
+    GtkWidget *p_checkbutton_per_app = gtk_check_button_new_with_mnemonic(_("_Remember layout for each window"));
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_checkbutton_per_app), p_xkb->enable_perwin);
+    g_signal_connect(p_checkbutton_per_app, "toggled", G_CALLBACK(on_xkb_checkbutton_per_app_toggled), p_xkb);
+    gtk_container_add(GTK_CONTAINER(p_alignment_perapp_layout), p_checkbutton_per_app);
+
+
     // 'SHOW LAYOUT AS' frame
     GtkWidget * p_frame_display_type = gtk_frame_new(NULL);
     GtkWidget * p_label_show_layout_as = gtk_label_new(NULL);
@@ -1229,7 +1250,7 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
     GtkWidget * p_label_disp_type_text = gtk_label_new(NULL);
     snprintf(markup_str, MAX_MARKUP_LEN, "<span font='%d' font_weight='heavy'>%s</span>", 16, xkb_get_current_symbol_name(p_xkb));
     gtk_label_set_markup(GTK_LABEL(p_label_disp_type_text), markup_str);
-    GtkWidget * p_radiobutton_disp_type_image = gtk_radio_button_new_with_label(NULL, (const gchar *)_("Flag Image"));
+    GtkWidget * p_radiobutton_disp_type_image = gtk_radio_button_new_with_label(NULL, (const gchar *)_("Image"));
     GtkWidget * p_radiobutton_disp_type_image_cust = gtk_radio_button_new_with_label_from_widget(GTK_RADIO_BUTTON(p_radiobutton_disp_type_image), (const gchar *)_("Custom Image"));
     GtkWidget * p_radiobutton_disp_type_text = gtk_radio_button_new_with_label_from_widget(GTK_RADIO_BUTTON(p_radiobutton_disp_type_image), (const gchar *)_("Text"));
     
@@ -1277,21 +1298,25 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
     GtkWidget *p_radiobutton_flag_size_3 = gtk_radio_button_new_with_label_from_widget(GTK_RADIO_BUTTON(p_radiobutton_flag_size_1), "3");
     GtkWidget *p_radiobutton_flag_size_4 = gtk_radio_button_new_with_label_from_widget(GTK_RADIO_BUTTON(p_radiobutton_flag_size_1), "4");
     GtkWidget *p_radiobutton_flag_size_5 = gtk_radio_button_new_with_label_from_widget(GTK_RADIO_BUTTON(p_radiobutton_flag_size_1), "5");
+    GtkWidget *p_radiobutton_flag_size_6 = gtk_radio_button_new_with_label_from_widget(GTK_RADIO_BUTTON(p_radiobutton_flag_size_1), "6");
     g_signal_connect(p_radiobutton_flag_size_1, "toggled", G_CALLBACK(on_radiobutton_flag_size_1_toggled), p_xkb);
     g_signal_connect(p_radiobutton_flag_size_2, "toggled", G_CALLBACK(on_radiobutton_flag_size_2_toggled), p_xkb);
     g_signal_connect(p_radiobutton_flag_size_3, "toggled", G_CALLBACK(on_radiobutton_flag_size_3_toggled), p_xkb);
     g_signal_connect(p_radiobutton_flag_size_4, "toggled", G_CALLBACK(on_radiobutton_flag_size_4_toggled), p_xkb);
     g_signal_connect(p_radiobutton_flag_size_5, "toggled", G_CALLBACK(on_radiobutton_flag_size_5_toggled), p_xkb);
+    g_signal_connect(p_radiobutton_flag_size_6, "toggled", G_CALLBACK(on_radiobutton_flag_size_6_toggled), p_xkb);
     gtk_box_pack_start(GTK_BOX(p_hbox_flag_size), p_radiobutton_flag_size_1, TRUE, TRUE, 2);
     gtk_box_pack_start(GTK_BOX(p_hbox_flag_size), p_radiobutton_flag_size_2, TRUE, TRUE, 2);
     gtk_box_pack_start(GTK_BOX(p_hbox_flag_size), p_radiobutton_flag_size_3, TRUE, TRUE, 2);
     gtk_box_pack_start(GTK_BOX(p_hbox_flag_size), p_radiobutton_flag_size_4, TRUE, TRUE, 2);
     gtk_box_pack_start(GTK_BOX(p_hbox_flag_size), p_radiobutton_flag_size_5, TRUE, TRUE, 2);
+    gtk_box_pack_start(GTK_BOX(p_hbox_flag_size), p_radiobutton_flag_size_6, TRUE, TRUE, 2);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_radiobutton_flag_size_1), p_xkb->flag_size == 1);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_radiobutton_flag_size_2), p_xkb->flag_size == 2);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_radiobutton_flag_size_3), p_xkb->flag_size == 3);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_radiobutton_flag_size_4), p_xkb->flag_size == 4);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_radiobutton_flag_size_5), p_xkb->flag_size == 5);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_radiobutton_flag_size_6), p_xkb->flag_size == 6);
 
     /* Connect signals. */
     g_signal_connect(p_xkb->p_dialog_config, "response", G_CALLBACK(on_dialog_config_response), p_xkb);
@@ -1309,6 +1334,7 @@ static void xkb_save_configuration(Plugin * p, FILE * fp)
 {
     XkbPlugin * p_xkb = (XkbPlugin *)p->priv;
     lxpanel_put_int(fp, "DisplayType", p_xkb->display_type);
+    lxpanel_put_int(fp, "PerWinLayout", p_xkb->enable_perwin);
     lxpanel_put_str(fp, "Model", p_xkb->kbd_model);
     lxpanel_put_str(fp, "LayoutsList", p_xkb->kbd_layouts);
     lxpanel_put_str(fp, "VariantsList", p_xkb->kbd_variants);
@@ -1341,4 +1367,3 @@ PluginClass xkb_plugin_class = {
     panel_configuration_changed : xkb_panel_configuration_changed
 
 };
-

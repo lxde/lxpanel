@@ -44,6 +44,7 @@ typedef struct {
     GtkWidget    *p_label;                     /* Label containing country name */
     GtkWidget    *p_image;                     /* Image containing country flag */
     DisplayType   display_type;                /* Display layout as image or text */
+    gboolean      enable_perwin;               /* Enable per window layout */
     guint         source_id;                   /* Source ID for channel listening to XKB events */
     GtkWidget    *p_dialog_config;             /* Configuration dialog */
     GtkListStore *p_liststore_layout;
@@ -60,6 +61,7 @@ typedef struct {
     int       group_count;                    /* Count of groups as returned by Xkb */
     char     *group_names[XkbNumKbdGroups];   /* Group names as returned by Xkb */
     char     *symbol_names[XkbNumKbdGroups];  /* Symbol names as returned by Xkb */
+    GHashTable *p_hash_table_group;             /* Hash table to correlate window with layout */
     gchar    *kbd_model;
     gchar    *kbd_layouts;
     gchar    *kbd_variants;
@@ -88,5 +90,4 @@ extern void xkb_mechanism_destructor(XkbPlugin * xkb);
 extern int xkb_change_group(XkbPlugin * xkb, int increment);
 
 #endif
-
 
