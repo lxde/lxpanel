@@ -10,14 +10,15 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-10 16:52+0200\n"
-"PO-Revision-Date: 2010-07-26 11:37+0200\n"
-"Last-Translator: Laszlo Dvornik <dvornik@gnome.hu>\n"
+"PO-Revision-Date: 2012-08-23 14:24+0200\n"
+"Last-Translator: Bendegúz <gyonkibendeguz@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -601,7 +602,7 @@ msgstr "Digitális óra és eszköztippek"
 
 #: ../src/plugins/menu.c:426
 msgid "Add to desktop"
-msgstr "Asztal hozzáadása"
+msgstr "Hozzáadás az Asztalhoz"
 
 #: ../src/plugins/menu.c:436
 msgid "Properties"
@@ -1294,19 +1295,19 @@ msgstr "Háttérszín"
 
 #: ../src/plugins/batt/batt.c:578
 msgid "Charging color 1"
-msgstr "Töltés színe 1"
+msgstr "Töltési szín 1"
 
 #: ../src/plugins/batt/batt.c:579
 msgid "Charging color 2"
-msgstr "Töltés színe 2"
+msgstr "Töltési szín 2"
 
 #: ../src/plugins/batt/batt.c:580
 msgid "Discharging color 1"
-msgstr "Kisülés színe 1"
+msgstr "Kisülési szín 1"
 
 #: ../src/plugins/batt/batt.c:581
 msgid "Discharging color 2"
-msgstr "Kisülés színe 2"
+msgstr "Kisülési szín 2"
 
 #: ../src/plugins/batt/batt.c:582
 msgid "Border width"
@@ -1368,7 +1369,7 @@ msgstr ""
 
 #: ../src/plugins/indicator/indicator.c:902
 msgid "Sound Menu"
-msgstr ""
+msgstr "Hang menü"
 
 #: ../src/plugins/indicator/indicator.c:928
 msgid "Indicator applets"
@@ -1382,26 +1383,24 @@ msgstr "Elválasztó hozzáadása a panelhez"
 #: ../src/plugins/monitors/monitors.c:284
 #, c-format
 msgid "CPU usage: %.2f%%"
-msgstr ""
+msgstr "CPU használat: %.2f%%"
 
 #: ../src/plugins/monitors/monitors.c:367
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
-msgstr ""
+msgstr "RAM használat: %.1fMB (%.2f%%)"
 
 #: ../src/plugins/monitors/monitors.c:712
-#, fuzzy
 msgid "CPU color"
-msgstr "Egyéni szín"
+msgstr "CPU szín"
 
 #: ../src/plugins/monitors/monitors.c:713
-#, fuzzy
 msgid "Display RAM usage"
-msgstr "CPU-használat mutatása"
+msgstr "RAM használat mutatása"
 
 #: ../src/plugins/monitors/monitors.c:714
 msgid "RAM color"
-msgstr ""
+msgstr "RAM szín"
 
 #: ../src/plugins/monitors/monitors.c:715
 #, fuzzy
@@ -1409,19 +1408,17 @@ msgid "Action when clicked (default: lxtask)"
 msgstr "Kattintásra elvégzendő művelet (alapesetben: naptár mutatása)"
 
 #: ../src/plugins/monitors/monitors.c:808
-#, fuzzy
 msgid "Resource monitors"
-msgstr "Figyelendő csatoló"
+msgstr "Erőforrás monitorozók"
 
 #: ../src/plugins/monitors/monitors.c:810
 msgid "Display monitors (CPU, RAM)"
-msgstr ""
+msgstr "Erőforrás monitorozók mutatása"
 
 #: ../src/plugins/wnckpager/wnckpager.c:720
 msgid "WNCKPager"
-msgstr ""
+msgstr "WNCKPager"
 
 #: ../src/plugins/wnckpager/wnckpager.c:722
-#, fuzzy
 msgid "WNCKpager plugin"
-msgstr "Egyszerű munkaterület-váltó"
+msgstr "WNCKpager beépülő"
