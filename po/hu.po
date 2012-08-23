@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-10 16:52+0200\n"
-"PO-Revision-Date: 2012-08-23 14:24+0200\n"
+"PO-Revision-Date: 2012-08-23 16:10+0200\n"
 "Last-Translator: Bendegúz <gyonkibendeguz@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -588,9 +588,8 @@ msgid "Tooltip only"
 msgstr "Csak eszköztippek"
 
 #: ../src/plugins/dclock.c:440
-#, fuzzy
 msgid "Center text"
-msgstr "Középre"
+msgstr "Középre igazítás"
 
 #: ../src/plugins/dclock.c:469
 msgid "Digital Clock"
@@ -799,6 +798,8 @@ msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
 msgstr ""
+"Hiba, a hang konfigurálásához telepítened kell egy alkalmazást (pavucontol, "
+"alsamixer...)"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
@@ -1403,7 +1404,6 @@ msgid "RAM color"
 msgstr "RAM szín"
 
 #: ../src/plugins/monitors/monitors.c:715
-#, fuzzy
 msgid "Action when clicked (default: lxtask)"
 msgstr "Kattintásra elvégzendő művelet (alapesetben: naptár mutatása)"
 
@@ -1421,4 +1421,4 @@ msgstr "WNCKPager"
 
 #: ../src/plugins/wnckpager/wnckpager.c:722
 msgid "WNCKpager plugin"
-msgstr "WNCKpager beépülő"
+msgstr "WNCKPager beépülő"
