@@ -664,7 +664,7 @@ PluginClass volumealsa_plugin_class = {
     type : "volumealsa",
     name : N_("Volume Control"),
     version: "1.0",
-    description : "Display and control volume for ALSA",
+    description : N_("Display and control volume for ALSA"),
 
     constructor : volumealsa_constructor,
     destructor  : volumealsa_destructor,
