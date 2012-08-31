@@ -533,10 +533,12 @@ static void on_button_kbd_model_clicked(GtkButton *p_button, gpointer *p_data)
     // model
     p_renderer = gtk_cell_renderer_text_new();
     p_column = gtk_tree_view_column_new_with_attributes(_("Model"), p_renderer, "text", COLUMN_CHANGE_NAME, NULL);
+    gtk_tree_view_column_set_sort_column_id(p_column, COLUMN_CHANGE_NAME);
     gtk_tree_view_append_column(GTK_TREE_VIEW(p_treeview_kbd_model), p_column);
     // desc
     p_renderer = gtk_cell_renderer_text_new();
     p_column = gtk_tree_view_column_new_with_attributes(_("Description"), p_renderer, "text", COLUMN_CHANGE_DESC, NULL);
+    gtk_tree_view_column_set_sort_column_id(p_column, COLUMN_CHANGE_DESC);
     gtk_tree_view_append_column(GTK_TREE_VIEW(p_treeview_kbd_model), p_column);
     
     // populate model
@@ -568,7 +570,10 @@ static void on_button_kbd_model_clicked(GtkButton *p_button, gpointer *p_data)
     g_signal_connect(p_treeview_kbd_model, "button-press-event",
                      G_CALLBACK(on_treeviews_lists_button_press_event),
                      gtk_dialog_get_widget_for_response(GTK_DIALOG(p_dialog), GTK_RESPONSE_OK));
-    gtk_widget_set_size_request(p_dialog, 600, 500);
+    // sort for description
+    gtk_tree_view_column_clicked(p_column);
+    
+    gtk_widget_set_size_request(p_dialog, 700, 500);
     gtk_widget_show_all(GTK_WIDGET(p_scrolledwindow_kbd_model));
     gint  response = gtk_dialog_run(GTK_DIALOG(p_dialog));
     if(response == GTK_RESPONSE_OK)
@@ -657,7 +662,7 @@ static void on_button_kbd_change_layout_clicked(GtkButton *p_button, gpointer *p
     g_signal_connect(p_treeview_kbd_change, "button-press-event",
                      G_CALLBACK(on_treeviews_lists_button_press_event),
                      gtk_dialog_get_widget_for_response(GTK_DIALOG(p_dialog), GTK_RESPONSE_OK));
-    gtk_widget_set_size_request(p_dialog, 600, 500);
+    gtk_widget_set_size_request(p_dialog, 700, 500);
     gtk_widget_show_all(GTK_WIDGET(p_scrolledwindow_kbd_change));
     gint  response = gtk_dialog_run(GTK_DIALOG(p_dialog));
     if(response == GTK_RESPONSE_OK)
@@ -854,7 +859,7 @@ static void on_button_add_layout_clicked(GtkButton *p_button, gpointer *p_data)
     // sort for description
     gtk_tree_view_column_clicked(p_column_desc);
     
-    gtk_widget_set_size_request(p_dialog, 600, 500);
+    gtk_widget_set_size_request(p_dialog, 700, 500);
     gtk_widget_show_all(GTK_WIDGET(p_scrolledwindow_add_layout));
     gint  response = gtk_dialog_run(GTK_DIALOG(p_dialog));
     if(response == GTK_RESPONSE_OK)
