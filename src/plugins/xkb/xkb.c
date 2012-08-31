@@ -36,18 +36,26 @@
 /* The X Keyboard Extension: Library Specification
  * http://www.xfree86.org/current/XKBlib.pdf */
 
+typedef enum
+{
+    NEW_KBD_STATE_NOTIFY_IGNORE_NO,
+    NEW_KBD_STATE_NOTIFY_IGNORE_YES_SET,
+    NEW_KBD_STATE_NOTIFY_IGNORE_YES_ALL,
+    
+} t_new_kbd_notify_ignore;
+
 static void             xkb_enter_locale_by_process(XkbPlugin * xkb);
 static void             refresh_group_xkb(XkbPlugin * xkb);
 static int              initialize_keyboard_description(XkbPlugin * xkb);
 static GdkFilterReturn  xkb_event_filter(GdkXEvent * xevent, GdkEvent * event, XkbPlugin * xkb);
 
-static gboolean  xkb_new_kbd_notify_ignore = FALSE;
+static t_new_kbd_notify_ignore  xkb_new_kbd_notify_ignore = NEW_KBD_STATE_NOTIFY_IGNORE_NO;
 
 
 static gboolean xkb_new_kbd_notify_ignore_slot(gpointer p_data)
 {
-    xkb_new_kbd_notify_ignore = FALSE;
-    g_print("xkb_new_kbd_notify_ignore_slot\n");
+    xkb_new_kbd_notify_ignore = NEW_KBD_STATE_NOTIFY_IGNORE_NO;
+    //g_print("xkb_new_kbd_notify_ignore_slot\n");
     return FALSE; // remove source
 }
 
@@ -241,15 +249,19 @@ static GdkFilterReturn xkb_event_filter(GdkXEvent * xevent, GdkEvent * event, Xk
         XkbEvent * xkbev = (XkbEvent *) ev;
         if (xkbev->any.xkb_type == XkbNewKeyboardNotify)
         {
-            g_print("XkbNewKeyboardNotify\n");
+            if(xkb_new_kbd_notify_ignore == NEW_KBD_STATE_NOTIFY_IGNORE_YES_SET)
+                xkb_new_kbd_notify_ignore = NEW_KBD_STATE_NOTIFY_IGNORE_YES_ALL;
+            else if(xkb_new_kbd_notify_ignore == NEW_KBD_STATE_NOTIFY_IGNORE_YES_ALL)
+                return GDK_FILTER_CONTINUE;
+            //g_print("XkbNewKeyboardNotify\n");
             initialize_keyboard_description(xkb);
             refresh_group_xkb(xkb);
             xkb_redraw(xkb);
             xkb_enter_locale_by_process(xkb);
-            if(xkb_new_kbd_notify_ignore == FALSE)
+            if(xkb_new_kbd_notify_ignore == NEW_KBD_STATE_NOTIFY_IGNORE_NO)
             {
-                g_print("xkb_new_kbd_notify_ignore == FALSE\n");
-                xkb_new_kbd_notify_ignore = TRUE;
+                //g_print("xkb_new_kbd_notify_ignore == NEW_KBD_STATE_NOTIFY_IGNORE_NO\n");
+                xkb_new_kbd_notify_ignore = NEW_KBD_STATE_NOTIFY_IGNORE_YES_SET;
                 (void)g_timeout_add(1000/*msec*/, xkb_new_kbd_notify_ignore_slot, NULL);
                 xkb_setxkbmap(xkb);
             }
