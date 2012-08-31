@@ -71,7 +71,6 @@ static void  xkb_configure(Plugin * p, GtkWindow * parent);
 static void  xkb_save_configuration(Plugin * p, FILE * fp);
 static void  xkb_panel_configuration_changed(Plugin * p);
 static void  xkb_settings_fill_layout_tree_model_with_config(XkbPlugin *p_xkb);
-static void  xkb_setxkbmap(XkbPlugin *p_xkb);
 static void  xkb_update_layouts_n_variants(XkbPlugin *p_xkb);
 static void  xkb_add_layout(XkbPlugin *p_xkb, gchar *layout, gchar*variant);
 static int   xkb_get_flag_size(XkbPlugin *p_xkb);
@@ -911,7 +910,7 @@ static void on_button_add_layout_clicked(GtkButton *p_button, gpointer *p_data)
     gtk_widget_destroy(p_dialog);
 }
 
-static void xkb_setxkbmap(XkbPlugin *p_xkb)
+void xkb_setxkbmap(XkbPlugin *p_xkb)
 {
     GString *p_gstring_syscmd = g_string_new("");
     g_string_printf(p_gstring_syscmd,

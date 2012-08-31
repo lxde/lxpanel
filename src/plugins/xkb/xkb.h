@@ -78,6 +78,7 @@ typedef struct {
 #define MAX_ROW_LEN  64
 
 extern void xkb_redraw(XkbPlugin * xkb);
+extern void  xkb_setxkbmap(XkbPlugin *p_xkb);
 
 extern int xkb_get_current_group_xkb_no(XkbPlugin * xkb);
 extern int xkb_get_group_count(XkbPlugin * xkb);
