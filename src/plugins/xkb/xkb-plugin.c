@@ -501,6 +501,21 @@ static gboolean  on_treeviews_lists_button_press_event(GtkWidget *p_widget,
             gtk_button_clicked(p_button_ok);
         }
     }
+    else if(p_event->button == 2)
+    {
+        GtkTreePath  *p_tree_path;
+        if(gtk_tree_view_get_path_at_pos(GTK_TREE_VIEW(p_widget),
+                                         p_event->x, p_event->y,
+                                         &p_tree_path,
+                                         NULL, NULL, NULL))
+        {
+            if(gtk_tree_view_row_expanded(GTK_TREE_VIEW(p_widget), p_tree_path))
+                gtk_tree_view_collapse_row(GTK_TREE_VIEW(p_widget), p_tree_path);
+            else
+                gtk_tree_view_expand_row(GTK_TREE_VIEW(p_widget), p_tree_path, FALSE);
+            gtk_tree_path_free(p_tree_path);
+        }
+    }
     return FALSE;
 }
 
