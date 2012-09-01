@@ -287,6 +287,25 @@ static void launchbutton_build_bootstrap(Plugin * p)
         icon_grid_set_visible(lb->icon_grid, lb->bootstrap_button->widget, TRUE);
 }
 
+static gboolean load_app_key_file(gchar *filepath, GKeyFile *p_gkeyfile)
+{
+    gboolean loaded;
+    if (g_path_is_absolute(filepath))
+    {
+        loaded = g_key_file_load_from_file(p_gkeyfile, filepath, G_KEY_FILE_NONE, NULL );
+    }
+    else
+    {
+        /* Load from the freedesktop.org specified data directories. */
+        gchar * full_id = g_strconcat("applications/", filepath, NULL);
+        loaded = g_key_file_load_from_data_dirs(
+            p_gkeyfile, full_id, &filepath, G_KEY_FILE_NONE, NULL);
+        g_free(full_id);
+    }
+    return loaded;
+}
+
+
 /* Build the graphic elements for a launchbar button.  The desktop_id field is already established. */
 static void launchbutton_build_gui(Plugin * p, LaunchButton * btn)
 {
@@ -296,24 +315,9 @@ static void launchbutton_build_gui(Plugin * p, LaunchButton * btn)
     {
         /* There is a valid desktop file name.  Try to open it. */
         GKeyFile * desktop = g_key_file_new();
-        
-	gchar * desktop_file = NULL;
-        gboolean loaded;	
-	if (g_path_is_absolute(btn->desktop_id))
-        {
-            desktop_file = g_strdup(btn->desktop_id);
-            loaded = g_key_file_load_from_file(desktop, desktop_file, G_KEY_FILE_NONE, NULL );
-	}
-	else 
-	{
-            /* Load from the freedesktop.org specified data directories. */
-            gchar * full_id = g_strconcat("applications/", btn->desktop_id, NULL);
-            loaded = g_key_file_load_from_data_dirs(
-                desktop, full_id, &desktop_file, G_KEY_FILE_NONE, NULL);
-            g_free(full_id);
-        }
+        gboolean loaded = load_app_key_file(btn->desktop_id, desktop);
 
-	if (loaded)
+        if (loaded)
         {
             /* Desktop file located.  Get Icon, Name, Exec, and Terminal parameters. */
             gchar * icon = g_key_file_get_string(desktop, desktop_ent, "Icon", NULL);
@@ -324,7 +328,7 @@ static void launchbutton_build_gui(Plugin * p, LaunchButton * btn)
             if ( ! btn->customize_action )
             {
                 gchar * exec = g_key_file_get_string(desktop, desktop_ent, "Exec", NULL);
-                btn->action = translate_exec_to_cmd(exec, icon, title, desktop_file);
+                btn->action = translate_exec_to_cmd(exec, icon, title, btn->desktop_id);
                 g_free(exec);
             }
 
@@ -338,7 +342,6 @@ static void launchbutton_build_gui(Plugin * p, LaunchButton * btn)
                 g_free(title);
         }
 
-        g_free(desktop_file);
         g_key_file_free(desktop);
     }
 
@@ -741,6 +744,9 @@ static void launchbar_configure_add_menu_recursive(GtkTreeStore * tree, GtkTreeI
                 btn->desktop_id = menu_cache_item_get_file_path(item);
                 btn->image = g_strdup(menu_cache_item_get_icon(item));
                 btn->tooltip = g_strdup(menu_cache_item_get_name(item));
+
+                
+                //btn->action = 
 
                 /* Add the row to the view. */
                 GtkTreeIter it;
