@@ -55,7 +55,6 @@ static t_new_kbd_notify_ignore  xkb_new_kbd_notify_ignore = NEW_KBD_STATE_NOTIFY
 static gboolean xkb_new_kbd_notify_ignore_slot(gpointer p_data)
 {
     xkb_new_kbd_notify_ignore = NEW_KBD_STATE_NOTIFY_IGNORE_NO;
-    //g_print("xkb_new_kbd_notify_ignore_slot\n");
     return FALSE; // remove source
 }
 
@@ -249,21 +248,21 @@ static GdkFilterReturn xkb_event_filter(GdkXEvent * xevent, GdkEvent * event, Xk
         XkbEvent * xkbev = (XkbEvent *) ev;
         if (xkbev->any.xkb_type == XkbNewKeyboardNotify)
         {
-            if(xkb_new_kbd_notify_ignore == NEW_KBD_STATE_NOTIFY_IGNORE_YES_SET)
-                xkb_new_kbd_notify_ignore = NEW_KBD_STATE_NOTIFY_IGNORE_YES_ALL;
-            else if(xkb_new_kbd_notify_ignore == NEW_KBD_STATE_NOTIFY_IGNORE_YES_ALL)
-                return GDK_FILTER_CONTINUE;
-            //g_print("XkbNewKeyboardNotify\n");
-            initialize_keyboard_description(xkb);
-            refresh_group_xkb(xkb);
-            xkb_redraw(xkb);
-            xkb_enter_locale_by_process(xkb);
             if(xkb_new_kbd_notify_ignore == NEW_KBD_STATE_NOTIFY_IGNORE_NO)
             {
                 //g_print("xkb_new_kbd_notify_ignore == NEW_KBD_STATE_NOTIFY_IGNORE_NO\n");
                 xkb_new_kbd_notify_ignore = NEW_KBD_STATE_NOTIFY_IGNORE_YES_SET;
                 (void)g_timeout_add(1000/*msec*/, xkb_new_kbd_notify_ignore_slot, NULL);
                 xkb_setxkbmap(xkb);
+            }
+            else if(xkb_new_kbd_notify_ignore == NEW_KBD_STATE_NOTIFY_IGNORE_YES_SET)
+            {
+                //g_print("xkb_new_kbd_notify_ignore == NEW_KBD_STATE_NOTIFY_IGNORE_YES_SET\n");
+                xkb_new_kbd_notify_ignore = NEW_KBD_STATE_NOTIFY_IGNORE_YES_ALL;
+                initialize_keyboard_description(xkb);
+                refresh_group_xkb(xkb);
+                xkb_redraw(xkb);
+                xkb_enter_locale_by_process(xkb);
             }
         }
         else if (xkbev->any.xkb_type == XkbStateNotify)
