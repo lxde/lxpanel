@@ -15,6 +15,7 @@
     </columns>
   </object>
   <object class="GtkDialog" id="dlg">
+    <property name="width_request">600</property>
     <property name="can_focus">False</property>
     <property name="border_width">10</property>
     <property name="title" translatable="yes">Application Launch Bar</property>
@@ -62,6 +63,7 @@
             <property name="spacing">12</property>
             <child>
               <object class="GtkScrolledWindow" id="scroll1">
+                <property name="width_request">230</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="hscrollbar_policy">automatic</property>
@@ -83,7 +85,7 @@
                 </child>
               </object>
               <packing>
-                <property name="expand">True</property>
+                <property name="expand">False</property>
                 <property name="fill">True</property>
                 <property name="position">0</property>
               </packing>
@@ -161,25 +163,49 @@
               </packing>
             </child>
             <child>
-              <object class="GtkScrolledWindow" id="scroll2">
+              <object class="GtkVBox" id="vbox2">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="hscrollbar_policy">automatic</property>
-                <property name="vscrollbar_policy">automatic</property>
-                <property name="shadow_type">etched-in</property>
+                <property name="can_focus">False</property>
                 <child>
-                  <object class="GtkTreeView" id="menu_view">
+                  <object class="GtkScrolledWindow" id="scroll2">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="model">menu_store</property>
-                    <property name="search_column">1</property>
+                    <property name="hscrollbar_policy">automatic</property>
+                    <property name="vscrollbar_policy">automatic</property>
+                    <property name="shadow_type">etched-in</property>
                     <child>
-                      <object class="GtkTreeViewColumn" id="menu_col">
-                        <property name="title">Available Applications</property>
-                        <property name="expand">True</property>
+                      <object class="GtkTreeView" id="menu_view">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="model">menu_store</property>
+                        <property name="headers_clickable">False</property>
+                        <property name="search_column">1</property>
+                        <child>
+                          <object class="GtkTreeViewColumn" id="menu_col">
+                            <property name="title">Available Applications</property>
+                            <property name="expand">True</property>
+                          </object>
+                        </child>
                       </object>
                     </child>
                   </object>
+                  <packing>
+                    <property name="expand">True</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label_menu_app_exec">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="xalign">0</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
                 </child>
               </object>
               <packing>
