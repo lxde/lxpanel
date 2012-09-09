@@ -10,15 +10,16 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-10 16:52+0200\n"
-"PO-Revision-Date: 2011-02-09 17:01+0100\n"
-"Last-Translator: Piotr Sokół <psokol@jabster.pl>\n"
+"PO-Revision-Date: 2012-09-09 15:31+0200\n"
+"Last-Translator: Piotr <psokol@jabster.pl>\n"
 "Language-Team: Polish <>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=((n==1) ? 0 : ((n%10>=2 && n%10<=4 && (n"
-"%100<10 || n%100>=20)) ? 1 : 2));\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -595,9 +596,8 @@ msgid "Tooltip only"
 msgstr "Tylko podpowiedzi"
 
 #: ../src/plugins/dclock.c:440
-#, fuzzy
 msgid "Center text"
-msgstr "Środek"
+msgstr "Wyśrodkowanie tekstu"
 
 #: ../src/plugins/dclock.c:469
 msgid "Digital Clock"
@@ -809,6 +809,8 @@ msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
 msgstr ""
+"Błąd. Aby skonfigurować dźwięk, należy zainstalować odpowiedni program "
+"(pavucontrol, alsamixer...)."
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
@@ -1355,7 +1357,7 @@ msgstr "Wyświetla wskaźniki stanu klawiszy CapsLock, NumLock i ScrollLock."
 #. A label to allow for click through
 #: ../src/plugins/indicator/indicator.c:698
 msgid "No Indicators"
-msgstr ""
+msgstr "Brak wskaźników"
 
 #: ../src/plugins/indicator/indicator.c:897
 #, fuzzy
@@ -1368,7 +1370,7 @@ msgstr ""
 
 #: ../src/plugins/indicator/indicator.c:899
 msgid "Messaging Menu"
-msgstr ""
+msgstr "Menu wiadomości"
 
 #: ../src/plugins/indicator/indicator.c:900
 #, fuzzy
@@ -1377,12 +1379,11 @@ msgstr "Menu katalogu"
 
 #: ../src/plugins/indicator/indicator.c:901
 msgid "Session Menu"
-msgstr ""
+msgstr "Menu sesji"
 
 #: ../src/plugins/indicator/indicator.c:902
-#, fuzzy
 msgid "Sound Menu"
-msgstr "Użyj menu"
+msgstr "Menu dźwięku"
 
 #: ../src/plugins/indicator/indicator.c:928
 msgid "Indicator applets"
@@ -1396,12 +1397,12 @@ msgstr "Oddziela aplety panelu pustą przestrzenią"
 #: ../src/plugins/monitors/monitors.c:284
 #, c-format
 msgid "CPU usage: %.2f%%"
-msgstr ""
+msgstr "Obciążenie CPU: %.2f%%"
 
 #: ../src/plugins/monitors/monitors.c:367
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
-msgstr ""
+msgstr "Użycie pamięci: %.1fMB (%.2f%%)"
 
 #: ../src/plugins/monitors/monitors.c:712
 #, fuzzy
@@ -1409,9 +1410,8 @@ msgid "CPU color"
 msgstr "Własny kolor"
 
 #: ../src/plugins/monitors/monitors.c:713
-#, fuzzy
 msgid "Display RAM usage"
-msgstr "Wyświetla przebieg obciążenia CPU"
+msgstr "Wyświetlanie użycia pamięci"
 
 #: ../src/plugins/monitors/monitors.c:714
 #, fuzzy
@@ -1426,9 +1426,8 @@ msgstr ""
 "(domyślnie wyświetlenie kalendarza):"
 
 #: ../src/plugins/monitors/monitors.c:808
-#, fuzzy
 msgid "Resource monitors"
-msgstr "Monitorowany interfejs:"
+msgstr "Monitor zasobów"
 
 #: ../src/plugins/monitors/monitors.c:810
 msgid "Display monitors (CPU, RAM)"
@@ -1436,10 +1435,9 @@ msgstr ""
 
 #: ../src/plugins/wnckpager/wnckpager.c:720
 msgid "WNCKPager"
-msgstr ""
+msgstr "WNCKPager"
 
 #: ../src/plugins/wnckpager/wnckpager.c:722
-#, fuzzy
 msgid "WNCKpager plugin"
 msgstr "Wyświetla zawartość obszarów roboczych"
 
