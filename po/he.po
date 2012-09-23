@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-10 16:52+0200\n"
-"PO-Revision-Date: 2012-05-21 07:19+0200\n"
+"PO-Revision-Date: 2012-07-04 10:34+0200\n"
 "Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: he\n"
@@ -399,7 +399,7 @@ msgstr "פקודת ניתוק:"
 
 #: ../data/ui/panel-pref.glade.h:32
 msgid "Terminal Emulator:"
-msgstr "תוכנית להדמיית המסוף:"
+msgstr "תכנית להדמיית המסוף:"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "File Manager:"

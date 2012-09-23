@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-10 16:52+0200\n"
-"PO-Revision-Date: 2012-05-06 14:23+0200\n"
-"Last-Translator: alpertekinalp <alper.tekinalp@gmail.com>\n"
+"PO-Revision-Date: 2012-07-08 22:40+0200\n"
+"Last-Translator: Necdet <necdetyucel@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -801,7 +801,6 @@ msgid "Mute"
 msgstr "Sessiz"
 
 #: ../src/plugins/volumealsa/volumealsa.c:602
-#, fuzzy
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
@@ -1394,12 +1393,12 @@ msgstr "Panele gösterge uygulamacıkları ekle"
 #: ../src/plugins/monitors/monitors.c:284
 #, c-format
 msgid "CPU usage: %.2f%%"
-msgstr ""
+msgstr "CPU kullanımı: %.2f%%"
 
 #: ../src/plugins/monitors/monitors.c:367
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
-msgstr ""
+msgstr "RAM kullanımı: %.1fMB (%.2f%%)"
 
 #: ../src/plugins/monitors/monitors.c:712
 msgid "CPU color"
@@ -1414,9 +1413,8 @@ msgid "RAM color"
 msgstr "RAM rengi"
 
 #: ../src/plugins/monitors/monitors.c:715
-#, fuzzy
 msgid "Action when clicked (default: lxtask)"
-msgstr "Tıklanca gerçekleştirilecek eylem (öntanımlı: takvimi göster)"
+msgstr "Tıklanca gerçekleştirilecek eylem (varsayılan: lxtask)"
 
 #: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"

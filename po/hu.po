@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-10 16:52+0200\n"
-"PO-Revision-Date: 2012-08-23 16:32+0200\n"
+"PO-Revision-Date: 2012-09-06 16:24+0200\n"
 "Last-Translator: Bendegúz <gyonkibendeguz@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -1357,7 +1357,7 @@ msgstr ""
 
 #: ../src/plugins/indicator/indicator.c:899
 msgid "Messaging Menu"
-msgstr ""
+msgstr "Üzenet menü"
 
 #: ../src/plugins/indicator/indicator.c:900
 msgid "Network Menu"

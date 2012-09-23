@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-10 16:52+0200\n"
-"PO-Revision-Date: 2012-07-09 11:28+0200\n"
+"PO-Revision-Date: 2012-07-09 14:18+0200\n"
 "Last-Translator: Walter <wwycheuk@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: zh_TW\n"
@@ -785,11 +785,10 @@ msgid "Mute"
 msgstr "靜音"
 
 #: ../src/plugins/volumealsa/volumealsa.c:602
-#, fuzzy
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
-msgstr "發生錯誤，要安裝適當應用程式才能設定音訊 (pavucontol、alsamixer 等等)"
+msgstr "出錯，要安裝適當應用程式才能設定聲音 (pavucontol、alsamixer 等等)"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
