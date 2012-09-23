@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-10 16:52+0200\n"
+"POT-Creation-Date: 2012-09-23 15:11+0200\n"
 "PO-Revision-Date: 2009-12-08 18:15+0100\n"
 "Last-Translator: Sankarshan <sankarshan.mukhopadhyay@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,39 +30,39 @@ msgstr "পুনরায় চালু করুন"
 msgid "Logout"
 msgstr "লগ-আউট"
 
-#: ../src/configurator.c:468
+#: ../src/configurator.c:481
 msgid "Currently loaded plugins"
 msgstr "সম্প্রতি লোড করা প্লাগ-ইন"
 
-#: ../src/configurator.c:477
+#: ../src/configurator.c:490
 msgid "Stretch"
 msgstr "বিস্তৃত করুন"
 
-#: ../src/configurator.c:596
+#: ../src/configurator.c:609
 msgid "Add plugin to panel"
 msgstr "প্লাগ-ইনকে প্যানেলে যোগ করুন"
 
-#: ../src/configurator.c:624
+#: ../src/configurator.c:637
 msgid "Available plugins"
 msgstr "উপস্থিত প্লাগ-ইন"
 
-#: ../src/configurator.c:1202
+#: ../src/configurator.c:1221
 msgid "Logout command is not set"
 msgstr "লগ-আউট কম্যান্ড নির্দিষ্ট করা হয়নি"
 
-#: ../src/configurator.c:1255
+#: ../src/configurator.c:1274
 msgid "Select a directory"
 msgstr "একটি ডিরেক্টরি বেছে নিন"
 
-#: ../src/configurator.c:1255 ../src/configurator.c:1346
+#: ../src/configurator.c:1274 ../src/configurator.c:1365
 msgid "Select a file"
 msgstr "একটি ফাইল বেছে নিন"
 
-#: ../src/configurator.c:1373
+#: ../src/configurator.c:1392
 msgid "_Browse"
 msgstr "ব্রাউজ(_B)"
 
-#: ../src/panel.c:657
+#: ../src/panel.c:658
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -70,134 +70,134 @@ msgstr ""
 "এই প্যানেলটিকে মুছে ফেলা হবে কি?\n"
 "<b>সতর্কবার্তা: এটি পুনরুদ্ধার করা যাবে না।</b>"
 
-#: ../src/panel.c:659
+#: ../src/panel.c:660
 msgid "Confirm"
 msgstr "নিশ্চায়ণ"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:692
+#: ../src/panel.c:693
 msgid "translator-credits"
 msgstr "সঙ্কর্ষণ মুখোপাধ্যায় (sankarshan@randomink.org)"
 
-#: ../src/panel.c:697
+#: ../src/panel.c:698
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:699
+#: ../src/panel.c:716
 #, fuzzy
 msgid "Copyright (C) 2008-2011"
 msgstr "সত্ত্বাধিকার (C) ২০০৮-২০০৯"
 
-#: ../src/panel.c:700
+#: ../src/panel.c:717
 msgid "Desktop panel for LXDE project"
 msgstr "LXDE প্রজেক্টের জন্য ডেস্কটপ প্যানেল"
 
-#: ../src/panel.c:723
+#: ../src/panel.c:754
 msgid "Add / Remove Panel Items"
 msgstr "প্যানেল বস্তু যোগ করুন বা সরিয়ে ফেলুন"
 
-#: ../src/panel.c:731
+#: ../src/panel.c:762
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "\"%s\" কে প্যানেল থেকে সরিয়ে ফেলুন"
 
-#: ../src/panel.c:743
+#: ../src/panel.c:774
 msgid "Panel Settings"
 msgstr "প্যানেলের বিবিধ বৈশিষ্ট্য"
 
-#: ../src/panel.c:749
+#: ../src/panel.c:780
 msgid "Create New Panel"
 msgstr "নতুন প্যানেল তৈরী করুন"
 
-#: ../src/panel.c:760
+#: ../src/panel.c:791
 msgid "Delete This Panel"
 msgstr "এই প্যানেলটি মুছে ফেলুন"
 
-#: ../src/panel.c:771
+#: ../src/panel.c:802
 msgid "About"
 msgstr "পরিচিতি"
 
-#: ../src/panel.c:779
+#: ../src/panel.c:810
 msgid "Panel"
 msgstr "প্যানেল"
 
-#: ../src/panel.c:792
+#: ../src/panel.c:823
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" বিবিধ বৈশিষ্ট্য"
 
-#: ../src/panel.c:1048 ../src/panel.c:1056 ../data/ui/panel-pref.glade.h:16
+#: ../src/panel.c:1079 ../src/panel.c:1087 ../data/ui/panel-pref.glade.h:21
 msgid "Height:"
 msgstr "উচ্চতা:"
 
-#: ../src/panel.c:1049 ../src/panel.c:1055 ../data/ui/panel-pref.glade.h:15
+#: ../src/panel.c:1080 ../src/panel.c:1086 ../data/ui/panel-pref.glade.h:20
 msgid "Width:"
 msgstr "ব্যাস:"
 
-#: ../src/panel.c:1050 ../data/ui/panel-pref.glade.h:11
+#: ../src/panel.c:1081 ../data/ui/panel-pref.glade.h:13
 msgid "Left"
 msgstr "বামদিক"
 
-#: ../src/panel.c:1051 ../data/ui/panel-pref.glade.h:12
+#: ../src/panel.c:1082 ../data/ui/panel-pref.glade.h:14
 msgid "Right"
 msgstr "ডানদিক"
 
-#: ../src/panel.c:1057 ../data/ui/panel-pref.glade.h:10
+#: ../src/panel.c:1088 ../data/ui/panel-pref.glade.h:12
 msgid "Top"
 msgstr "উপরের"
 
-#: ../src/panel.c:1058 ../data/ui/panel-pref.glade.h:9
+#: ../src/panel.c:1089 ../data/ui/panel-pref.glade.h:11
 msgid "Bottom"
 msgstr "নীচের"
 
-#: ../src/panel.c:1466
+#: ../src/panel.c:1501
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - UNIX ডেস্কটপের জন্য একটি হাল্কা GTK2+ প্যানেল\n"
 
-#: ../src/panel.c:1467
+#: ../src/panel.c:1502
 #, c-format
 msgid "Command line options:\n"
 msgstr "কম্যান্ড লাইনে বিকল্প:\n"
 
-#: ../src/panel.c:1468
+#: ../src/panel.c:1503
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- এই সহায়িকা প্রদর্শন করে প্রস্থান করুন\n"
 
-#: ../src/panel.c:1469
+#: ../src/panel.c:1504
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- সংস্করণ প্রদর্শন করে প্রস্থান করুন\n"
 
-#: ../src/panel.c:1470
+#: ../src/panel.c:1505
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1472
+#: ../src/panel.c:1507
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- নির্দিষ্ট প্রোফাইল ব্যবহার করুন\n"
 
-#: ../src/panel.c:1474
+#: ../src/panel.c:1509
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- যেমন --help\n"
 
-#: ../src/panel.c:1475
+#: ../src/panel.c:1510
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- যেমন --profile\n"
 
-#: ../src/panel.c:1476
+#: ../src/panel.c:1511
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- যেমন --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1478
+#: ../src/panel.c:1513
 #, c-format
 msgid ""
 "\n"
@@ -265,8 +265,8 @@ msgstr "ঠিকানা:"
 msgid "Destination:"
 msgstr "গন্তব্যস্থল:"
 
-#: ../data/ui/netstatus.glade.h:14 ../src/plugins/netstat/netstat.c:333
-#: ../src/plugins/netstat/netstat.c:344
+#: ../data/ui/netstatus.glade.h:14 ../src/plugins/netstat/netstat.c:362
+#: ../src/plugins/netstat/netstat.c:373
 msgid "Broadcast:"
 msgstr "ব্রডকাস্ট:"
 
@@ -312,140 +312,171 @@ msgid "% Percent"
 msgstr "% প্রতিশত"
 
 #: ../data/ui/panel-pref.glade.h:5
+msgid "None"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:6
+#, fuzzy
+msgid "Err"
+msgstr "ত্রুটি"
+
+#: ../data/ui/panel-pref.glade.h:7
+#, fuzzy
+msgid "Warn"
+msgstr "সতর্কবার্তা১"
+
+#: ../data/ui/panel-pref.glade.h:8
+msgid "Info"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:9
+msgid "All"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:10
 msgid "Panel Preferences"
 msgstr "প্যানেলের বৈশিষ্ট্য"
 
-#: ../data/ui/panel-pref.glade.h:6
+#: ../data/ui/panel-pref.glade.h:15
 msgid "Edge:"
 msgstr "ধার:"
 
-#: ../data/ui/panel-pref.glade.h:7
-msgid "Alignment:"
-msgstr "সামঞ্জস্য"
-
-#: ../data/ui/panel-pref.glade.h:8
-msgid "Margin:"
-msgstr "মার্জিন:"
-
-#: ../data/ui/panel-pref.glade.h:13
+#: ../data/ui/panel-pref.glade.h:16
 msgid "Center"
 msgstr "মাঝের"
 
-#: ../data/ui/panel-pref.glade.h:14
+#: ../data/ui/panel-pref.glade.h:17
+msgid "Alignment:"
+msgstr "সামঞ্জস্য"
+
+#: ../data/ui/panel-pref.glade.h:18
+msgid "Margin:"
+msgstr "মার্জিন:"
+
+#: ../data/ui/panel-pref.glade.h:19
 msgid "<b>Position</b>"
 msgstr "<b>স্থান</b>"
 
-#: ../data/ui/panel-pref.glade.h:17
-msgid "<b>Icon</b>"
-msgstr "<b>আইকন</b>"
-
-#: ../data/ui/panel-pref.glade.h:18
-msgid "pixels"
-msgstr "পিক্সেলগুচ্ছ"
-
-#: ../data/ui/panel-pref.glade.h:19
-msgid "<b>Size</b>"
-msgstr "<b>আকার</b>"
-
-#: ../data/ui/panel-pref.glade.h:20
-msgid "Geometry"
-msgstr "জ্যামিতি বিন্যাস"
-
-#: ../data/ui/panel-pref.glade.h:21
-msgid "System theme"
-msgstr "সিস্টেম থিম"
-
 #: ../data/ui/panel-pref.glade.h:22
-msgid "Solid color (with opacity)"
+msgid "Icon size:"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:23
+msgid "<b>Size</b>"
+msgstr "<b>আকার</b>"
+
+#: ../data/ui/panel-pref.glade.h:24
+msgid "Geometry"
+msgstr "জ্যামিতি বিন্যাস"
+
+#: ../data/ui/panel-pref.glade.h:25
+msgid "System theme"
+msgstr "সিস্টেম থিম"
+
+#: ../data/ui/panel-pref.glade.h:26
+msgid "Solid color (with opacity)"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/xkb/xkb-plugin.c:1253
 msgid "Image"
 msgstr "প্রতিচ্ছবি"
 
-#: ../data/ui/panel-pref.glade.h:24
+#: ../data/ui/panel-pref.glade.h:28
 msgid "Select an image file"
 msgstr "একটি প্রতিচ্ছবি বেছে নিন"
 
-#: ../data/ui/panel-pref.glade.h:25
+#: ../data/ui/panel-pref.glade.h:29
 msgid "<b>Background</b>"
 msgstr "<b>প্রেক্ষাপট</b>"
 
-#: ../data/ui/panel-pref.glade.h:26
+#: ../data/ui/panel-pref.glade.h:30
 msgid "Custom color"
 msgstr "নিজেস্ব রং"
 
-#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/space.c:125
-#: ../src/plugins/batt/batt.c:583
+#: ../data/ui/panel-pref.glade.h:31 ../src/plugins/space.c:125
+#: ../src/plugins/batt/batt.c:564
 msgid "Size"
 msgstr "আকার"
 
-#: ../data/ui/panel-pref.glade.h:28
+#: ../data/ui/panel-pref.glade.h:32
 msgid "<b>Font</b>"
 msgstr "<b>ফন্ট</b>"
 
-#: ../data/ui/panel-pref.glade.h:29
+#: ../data/ui/panel-pref.glade.h:33
 msgid "Appearance"
 msgstr "রূপ"
 
-#: ../data/ui/panel-pref.glade.h:30
+#: ../data/ui/panel-pref.glade.h:34
 msgid "Panel Applets"
 msgstr "প্যানেল অ্যাপ্লেটসমূহ"
 
-#: ../data/ui/panel-pref.glade.h:31
+#: ../data/ui/panel-pref.glade.h:35
 msgid "Logout Command:"
 msgstr "লগ-আউট কম্যান্ড:"
 
 # টার্মিনাল প্রতিরূপী করা হলেও বোধহয় মন্দ হত না।
-#: ../data/ui/panel-pref.glade.h:32
+#: ../data/ui/panel-pref.glade.h:36
 msgid "Terminal Emulator:"
 msgstr "টার্মিনাল এমুলটার:"
 
-#: ../data/ui/panel-pref.glade.h:33
+#: ../data/ui/panel-pref.glade.h:37
 msgid "File Manager:"
 msgstr " ফাইল ম্যানেজার:"
 
-#: ../data/ui/panel-pref.glade.h:34
+#: ../data/ui/panel-pref.glade.h:38
 msgid "<b>Set Preferred Applications</b>"
 msgstr "<b>পছন্দসই অ্যাপ্লিকেশন নির্দিষ্ট করুন</b>"
 
-#: ../data/ui/panel-pref.glade.h:35
+#: ../data/ui/panel-pref.glade.h:39
 msgid "Make window managers treat the panel as dock"
 msgstr "         "
 
-#: ../data/ui/panel-pref.glade.h:36
+#: ../data/ui/panel-pref.glade.h:40
 msgid "Reserve space, and not covered by maximized windows"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:37
+#: ../data/ui/panel-pref.glade.h:41
 msgid "<b>Properties</b>"
 msgstr "<b>বৈশিষ্ট্য</b>"
 
-#: ../data/ui/panel-pref.glade.h:38
+#: ../data/ui/panel-pref.glade.h:42
 msgid "Minimize panel when not in use"
 msgstr "ব্যবহারে না থাকলে প্যানেলটি সংকোচন করুন"
 
-#: ../data/ui/panel-pref.glade.h:39
+#: ../data/ui/panel-pref.glade.h:43
 msgid "Size when minimized"
 msgstr "সংকুচিত অবস্থায় আকার"
 
-#: ../data/ui/panel-pref.glade.h:40
+#: ../data/ui/panel-pref.glade.h:44
+msgid "pixels"
+msgstr "পিক্সেলগুচ্ছ"
+
+#: ../data/ui/panel-pref.glade.h:45
 msgid "<b>Automatic hiding</b>"
 msgstr "<b>সয়ংক্রীয়ভাবে লুকিয়ে রাখা</b>"
 
-#: ../data/ui/panel-pref.glade.h:41
+#: ../data/ui/panel-pref.glade.h:46
+msgid "Log level"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:47
+#, fuzzy
+msgid "<b>Log level</b>"
+msgstr "<b>নেটওয়ার্ক ডিভাইস</b>"
+
+#: ../data/ui/panel-pref.glade.h:48
 msgid "Advanced"
 msgstr "উন্নত"
 
-#: ../src/plugins/cpu/cpu.c:268
+#: ../src/plugins/cpu/cpu.c:277
 msgid "CPU Usage Monitor"
 msgstr "CPU ব্যবহার মাপকাঠি"
 
-#: ../src/plugins/cpu/cpu.c:270 ../src/plugins/monitors/monitors.c:711
+#: ../src/plugins/cpu/cpu.c:279 ../src/plugins/monitors/monitors.c:711
 msgid "Display CPU usage"
 msgstr "CPU ব্যবহার প্রদর্শন করুন"
 
-#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:438
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:440
 msgid "Bold font"
 msgstr "গাঢ় ফন্ট"
 
@@ -461,7 +492,7 @@ msgstr "ডেস্কটপের নম্বর / ওয়ার্কস্�
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "ওয়ার্কস্পেসের নম্বর প্রদর্শন করুন, cmeury@users.sf.net দ্বারা"
 
-#: ../src/plugins/image.c:177
+#: ../src/plugins/image.c:161
 msgid "Display Image and Tooltip"
 msgstr "প্রতিচ্ছবি ও টুলটীকা প্রদর্শন করুন"
 
@@ -560,38 +591,38 @@ msgid ""
 "focus"
 msgstr ""
 
-#: ../src/plugins/dclock.c:434
+#: ../src/plugins/dclock.c:436
 msgid "Clock Format"
 msgstr "ঘড়ির বিন্যাস"
 
-#: ../src/plugins/dclock.c:435
+#: ../src/plugins/dclock.c:437
 msgid "Tooltip Format"
 msgstr "টুলটিপের বিন্যাস"
 
-#: ../src/plugins/dclock.c:436
+#: ../src/plugins/dclock.c:438
 #, fuzzy
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr "Format codes: man 3 strftime"
 
-#: ../src/plugins/dclock.c:437
+#: ../src/plugins/dclock.c:439
 msgid "Action when clicked (default: display calendar)"
 msgstr "ক্লিক করলে ক্রিয়া (স্বাভাবিক: ক্যালেন্ডার প্রদর্শন)"
 
-#: ../src/plugins/dclock.c:439
+#: ../src/plugins/dclock.c:441
 #, fuzzy
 msgid "Tooltip only"
 msgstr "টুলটিপ সক্রিয় করা হয়েছে"
 
-#: ../src/plugins/dclock.c:440
+#: ../src/plugins/dclock.c:442
 #, fuzzy
 msgid "Center text"
 msgstr "মাঝের"
 
-#: ../src/plugins/dclock.c:469
+#: ../src/plugins/dclock.c:471
 msgid "Digital Clock"
 msgstr "ডিজিটাল ঘড়ি"
 
-#: ../src/plugins/dclock.c:471
+#: ../src/plugins/dclock.c:473
 msgid "Display digital clock and tooltip"
 msgstr "টুলটিপ ও ডিজিটাল ঘড়ি প্রদর্শন"
 
@@ -603,15 +634,15 @@ msgstr "ডেস্কটপে যোগ করুন"
 msgid "Properties"
 msgstr "বৈশিষ্ট্য"
 
-#: ../src/plugins/menu.c:1083 ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1084 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "আইকন"
 
-#: ../src/plugins/menu.c:1100
+#: ../src/plugins/menu.c:1101
 msgid "Menu"
 msgstr "মেনু"
 
-#: ../src/plugins/menu.c:1102
+#: ../src/plugins/menu.c:1103
 msgid "Application Menu"
 msgstr "অ্যাপ্লিকেশন মেনু"
 
@@ -623,11 +654,11 @@ msgstr "বিভাজক"
 msgid "Add a separator to the panel"
 msgstr "প্যানেলে বিভাজক যোগ করুন"
 
-#: ../src/plugins/pager.c:837
+#: ../src/plugins/pager.c:842
 msgid "Desktop Pager"
 msgstr "ডেস্কটপ পেজার"
 
-#: ../src/plugins/pager.c:839
+#: ../src/plugins/pager.c:844
 msgid "Simple pager plugin"
 msgstr "সহজ পেজার প্লাগ-ইন"
 
@@ -639,50 +670,107 @@ msgstr "স্পেসার"
 msgid "Allocate space"
 msgstr "স্পেস যোগ করুন"
 
-#: ../src/plugins/tray.c:737
+#: ../src/plugins/tray.c:757
 msgid "System Tray"
 msgstr "সিস্টেম ট্রে"
 
-#: ../src/plugins/tray.c:739
+#: ../src/plugins/tray.c:759
 msgid "System tray"
 msgstr "সিস্টেম ট্রে"
 
-#: ../src/plugins/xkb/xkb-plugin.c:291
-msgid "Configure Keyboard Layout Switcher"
-msgstr "কি-বোর্ড বিন্যাস অদল-বদলকারী কনফিগার করুন"
+#. dialog
+#: ../src/plugins/xkb/xkb-plugin.c:513
+#, fuzzy
+msgid "Select Keyboard Model"
+msgstr "কী-বোর্ডের এল ই ডি"
 
-#: ../src/plugins/xkb/xkb-plugin.c:306
-msgid "Show layout as"
-msgstr "এইভাবে বিন্যাস প্রদর্শন করুন"
+#: ../src/plugins/xkb/xkb-plugin.c:536
+msgid "Model"
+msgstr ""
 
-#: ../src/plugins/xkb/xkb-plugin.c:321
-msgid "image"
-msgstr "ছবি"
+#: ../src/plugins/xkb/xkb-plugin.c:540 ../src/plugins/xkb/xkb-plugin.c:629
+#: ../src/plugins/xkb/xkb-plugin.c:780
+#, fuzzy
+msgid "Description"
+msgstr "গন্তব্যস্থল:"
 
-#: ../src/plugins/xkb/xkb-plugin.c:322
-msgid "text"
-msgstr "টেক্সট"
+#. dialog
+#: ../src/plugins/xkb/xkb-plugin.c:602
+#, fuzzy
+msgid "Select Layout Change Type"
+msgstr "একটি প্রতিচ্ছবি বেছে নিন"
 
-#: ../src/plugins/xkb/xkb-plugin.c:329
-msgid "Per application settings"
-msgstr "প্রতি অ্যাপ্লিকেশনের বৈশিষ্ট্য"
+#: ../src/plugins/xkb/xkb-plugin.c:625
+msgid "Change Type"
+msgstr ""
 
-#. Create a check button as the child of the vertical box.
-#: ../src/plugins/xkb/xkb-plugin.c:344
-msgid "_Remember layout for each application"
-msgstr "প্রতি অ্যাপ্লিকেশনের বিন্যাস মনের রাখুন(_R)"
-
-#. Create a label as the child of the horizontal box.
-#: ../src/plugins/xkb/xkb-plugin.c:354
-msgid "Default layout:"
-msgstr "ডিফল্ট বিন্যাস:"
-
-#: ../src/plugins/xkb/xkb-plugin.c:405
-msgid "Keyboard Layout Switcher"
+#. dialog
+#: ../src/plugins/xkb/xkb-plugin.c:747
+#, fuzzy
+msgid "Add Keyboard Layout"
 msgstr "কি-বোর্ড বিন্যাস অদল-বদলকারী"
 
-#: ../src/plugins/xkb/xkb-plugin.c:407
-msgid "Switch between available keyboard layouts"
+#: ../src/plugins/xkb/xkb-plugin.c:770 ../src/plugins/xkb/xkb-plugin.c:1136
+msgid "Flag"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:775 ../src/plugins/xkb/xkb-plugin.c:1140
+msgid "Layout"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1053 ../src/plugins/xkb/xkb-plugin.c:1359
+#, fuzzy
+msgid "Keyboard Layout Handler"
+msgstr "কি-বোর্ড বিন্যাস অদল-বদলকারী"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1070
+#, fuzzy
+msgid "Keyboard Model"
+msgstr "কী-বোর্ডের এল ই ডি"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1090
+#, fuzzy
+msgid "Keyboard Layouts"
+msgstr "কি-বোর্ড বিন্যাস অদল-বদলকারী"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1144
+msgid "Variant"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1152
+msgid "Change Layout Option"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1172
+#, fuzzy
+msgid "Per Window Settings"
+msgstr "প্যানেলের বিবিধ বৈশিষ্ট্য"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1184
+#, fuzzy
+msgid "_Remember layout for each window"
+msgstr "প্রতি অ্যাপ্লিকেশনের বিন্যাস মনের রাখুন(_R)"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1193
+#, fuzzy
+msgid "Show Layout as"
+msgstr "এইভাবে বিন্যাস প্রদর্শন করুন"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1254
+msgid "Custom Image"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1255
+msgid "Text"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1281
+msgid "Panel Icon Size"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1361
+#, fuzzy
+msgid "Handle keyboard layouts"
 msgstr "উপস্থিত কি-বোর্ড বিন্যাসের মধ্যে অদল-বদল করুন"
 
 #: ../src/plugins/wincmd.c:209
@@ -771,28 +859,28 @@ msgstr "সিস্টেমের তাপমাত্রা প্রদর�
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:339
-#: ../src/plugins/volumealsa/volumealsa.c:509
+#: ../src/plugins/volumealsa/volumealsa.c:362
+#: ../src/plugins/volumealsa/volumealsa.c:544
 msgid "Volume control"
 msgstr "ভলিউম নিয়ন্ত্রণ"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:629
+#: ../src/plugins/volumealsa/volumealsa.c:665
 msgid "Volume Control"
 msgstr "ভলিউম নিয়ন্ত্রণ"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:467
+#: ../src/plugins/volumealsa/volumealsa.c:502
 msgid "Volume"
 msgstr "ভলিউম"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/volumealsa/volumealsa.c:486
+#: ../src/plugins/volumealsa/volumealsa.c:521
 msgid "Mute"
 msgstr "নিঃশব্দ"
 
-#: ../src/plugins/volumealsa/volumealsa.c:602
+#: ../src/plugins/volumealsa/volumealsa.c:638
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
@@ -816,75 +904,75 @@ msgstr "সারিয়ে নিন"
 msgid "Disable"
 msgstr "নিষ্ক্রিয়"
 
-#: ../src/plugins/netstat/netstat.c:313
+#: ../src/plugins/netstat/netstat.c:342
 msgid "Wireless Connection has no connectivity"
 msgstr "বেতার সংযোগের কোন যোগাযোগ ব্যবস্থা নেই"
 
-#: ../src/plugins/netstat/netstat.c:315
+#: ../src/plugins/netstat/netstat.c:344
 msgid "Network cable is plugged out"
 msgstr "নেটওয়ার্কের যোগাযোগ খোলা রয়েছে"
 
-#: ../src/plugins/netstat/netstat.c:317
+#: ../src/plugins/netstat/netstat.c:346
 msgid "Connection has limited or no connectivity"
 msgstr "সংযোগ হয় সীমিত বা কোন যোগাযোগ ব্যবস্থা নেই"
 
-#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
-#: ../src/plugins/netstat/netstat.c:343
+#: ../src/plugins/netstat/netstat.c:350 ../src/plugins/netstat/netstat.c:361
+#: ../src/plugins/netstat/netstat.c:372
 msgid "IP Address:"
 msgstr "IP অ্যাড্রেস:"
 
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:351
 msgid "Remote IP:"
 msgstr "দূরবর্তী IP:"
 
-#: ../src/plugins/netstat/netstat.c:323 ../src/plugins/netstat/netstat.c:334
-#: ../src/plugins/netstat/netstat.c:345
+#: ../src/plugins/netstat/netstat.c:352 ../src/plugins/netstat/netstat.c:363
+#: ../src/plugins/netstat/netstat.c:374
 msgid "Netmask:"
 msgstr "নেটমাস্ক:"
 
-#: ../src/plugins/netstat/netstat.c:324 ../src/plugins/netstat/netstat.c:336
-#: ../src/plugins/netstat/netstat.c:347
+#: ../src/plugins/netstat/netstat.c:353 ../src/plugins/netstat/netstat.c:365
+#: ../src/plugins/netstat/netstat.c:376
 msgid "Activity"
 msgstr "কর্ম"
 
-#: ../src/plugins/netstat/netstat.c:324 ../src/plugins/netstat/netstat.c:336
-#: ../src/plugins/netstat/netstat.c:347
+#: ../src/plugins/netstat/netstat.c:353 ../src/plugins/netstat/netstat.c:365
+#: ../src/plugins/netstat/netstat.c:376
 msgid "Sent"
 msgstr "পাঠানো হয়েছে"
 
-#: ../src/plugins/netstat/netstat.c:324 ../src/plugins/netstat/netstat.c:336
-#: ../src/plugins/netstat/netstat.c:347
+#: ../src/plugins/netstat/netstat.c:353 ../src/plugins/netstat/netstat.c:365
+#: ../src/plugins/netstat/netstat.c:376
 msgid "Received"
 msgstr "গ্রহণ করা হয়েছে"
 
-#: ../src/plugins/netstat/netstat.c:325 ../src/plugins/netstat/netstat.c:337
-#: ../src/plugins/netstat/netstat.c:348
+#: ../src/plugins/netstat/netstat.c:354 ../src/plugins/netstat/netstat.c:366
+#: ../src/plugins/netstat/netstat.c:377
 msgid "bytes"
 msgstr "বাইট"
 
-#: ../src/plugins/netstat/netstat.c:326 ../src/plugins/netstat/netstat.c:338
-#: ../src/plugins/netstat/netstat.c:349
+#: ../src/plugins/netstat/netstat.c:355 ../src/plugins/netstat/netstat.c:367
+#: ../src/plugins/netstat/netstat.c:378
 msgid "packets"
 msgstr "প্যাকেট"
 
-#: ../src/plugins/netstat/netstat.c:329
+#: ../src/plugins/netstat/netstat.c:358
 #: ../src/plugins/netstatus/netstatus-iface.c:173
 msgid "Wireless"
 msgstr "বেতার"
 
-#: ../src/plugins/netstat/netstat.c:331
+#: ../src/plugins/netstat/netstat.c:360
 msgid "Protocol:"
 msgstr "প্রোটোকল:"
 
-#: ../src/plugins/netstat/netstat.c:335 ../src/plugins/netstat/netstat.c:346
+#: ../src/plugins/netstat/netstat.c:364 ../src/plugins/netstat/netstat.c:375
 msgid "HW Address:"
 msgstr "HW অ্যাড্রেস:"
 
-#: ../src/plugins/netstat/netstat.c:484
+#: ../src/plugins/netstat/netstat.c:513
 msgid "Manage Networks"
 msgstr "নেটওয়ার্ক পরিচালনা করুন"
 
-#: ../src/plugins/netstat/netstat.c:486
+#: ../src/plugins/netstat/netstat.c:515
 msgid "Monitor and Manage networks"
 msgstr "নেটওয়ার্ক পরিদর্শন ও পরিচালনা করুন"
 
@@ -1254,86 +1342,86 @@ msgstr "গ্রহণ করা হচ্ছে"
 msgid "Sending/Receiving"
 msgstr "প্রেরণ করা হচ্ছে/গ্রহণ করা হচ্ছে"
 
-#: ../src/plugins/batt/batt.c:132
+#: ../src/plugins/batt/batt.c:133
 msgid "No batteries found"
 msgstr "কোন ব্যাটারি পাওয়া যায়নি"
 
-#: ../src/plugins/batt/batt.c:176
+#: ../src/plugins/batt/batt.c:179
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
 msgstr "ব্যাটারি: %d%% চার্জ হয়েছে, %d:%02d পুরো চার্জ হতে"
 
-#: ../src/plugins/batt/batt.c:187
+#: ../src/plugins/batt/batt.c:190
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr "ব্যাটারি: %d%% চার্জ হয়েছে, %d:%02d বাকি"
 
-#: ../src/plugins/batt/batt.c:193
+#: ../src/plugins/batt/batt.c:196
 #, c-format
 msgid "Battery: %d%% charged"
 msgstr "ব্যাটারি: %d%% চার্জ করা হয়েছে"
 
-#: ../src/plugins/batt/batt.c:573
+#: ../src/plugins/batt/batt.c:554
 msgid "Hide if there is no battery"
 msgstr "ব্যাটারি অনুপস্থিত হলে লুকিয়ে রাখুন"
 
-#: ../src/plugins/batt/batt.c:575
+#: ../src/plugins/batt/batt.c:556
 msgid "Alarm command"
 msgstr "অ্যালার্ম কম্যান্ড"
 
-#: ../src/plugins/batt/batt.c:576
+#: ../src/plugins/batt/batt.c:557
 msgid "Alarm time (minutes left)"
 msgstr "অ্যালার্মের সময় (বাকি মিনিট)"
 
-#: ../src/plugins/batt/batt.c:577
+#: ../src/plugins/batt/batt.c:558
 msgid "Background color"
 msgstr "পটভূমির রং"
 
-#: ../src/plugins/batt/batt.c:578
+#: ../src/plugins/batt/batt.c:559
 msgid "Charging color 1"
 msgstr "চার্জিং রং ১"
 
-#: ../src/plugins/batt/batt.c:579
+#: ../src/plugins/batt/batt.c:560
 msgid "Charging color 2"
 msgstr "চার্জিং রং ২"
 
-#: ../src/plugins/batt/batt.c:580
+#: ../src/plugins/batt/batt.c:561
 msgid "Discharging color 1"
 msgstr "ডিসচার্জিং রং ১"
 
-#: ../src/plugins/batt/batt.c:581
+#: ../src/plugins/batt/batt.c:562
 msgid "Discharging color 2"
 msgstr "ডিসচার্জিং রং ২"
 
-#: ../src/plugins/batt/batt.c:582
+#: ../src/plugins/batt/batt.c:563
 msgid "Border width"
 msgstr "প্রান্তরেখার প্রস্থ"
 
-#: ../src/plugins/batt/batt.c:612
+#: ../src/plugins/batt/batt.c:593
 msgid "Battery Monitor"
 msgstr "ব্যাটারি নিরীক্ষণ"
 
-#: ../src/plugins/batt/batt.c:614
+#: ../src/plugins/batt/batt.c:595
 msgid "Display battery status using ACPI"
 msgstr "ACPI ব্যবহার করে ব্যাটারিরি অবস্থা প্রদর্শন করুন"
 
-#: ../src/plugins/kbled/kbled.c:230
+#: ../src/plugins/kbled/kbled.c:258
 msgid "Show CapsLock"
 msgstr "CapsLock প্রদর্শন করা হবে"
 
-#: ../src/plugins/kbled/kbled.c:231
+#: ../src/plugins/kbled/kbled.c:259
 msgid "Show NumLock"
 msgstr "NumLock প্রদর্শন করা হবে"
 
-#: ../src/plugins/kbled/kbled.c:232
+#: ../src/plugins/kbled/kbled.c:260
 msgid "Show ScrollLock"
 msgstr "ScrollLock প্রদর্শন করা হবে"
 
-#: ../src/plugins/kbled/kbled.c:267
+#: ../src/plugins/kbled/kbled.c:295
 msgid "Keyboard LED"
 msgstr "কী-বোর্ডের LED"
 
-#: ../src/plugins/kbled/kbled.c:269
+#: ../src/plugins/kbled/kbled.c:297
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "CapsLock, NumLock, ও ScrollLock কী এর জন্য নির্দেশক"
 
@@ -1377,12 +1465,12 @@ msgstr ""
 msgid "Add indicator applets to the panel"
 msgstr "প্যানেলে বিভাজক যোগ করুন"
 
-#: ../src/plugins/monitors/monitors.c:284
+#: ../src/plugins/monitors/monitors.c:277
 #, c-format
 msgid "CPU usage: %.2f%%"
 msgstr ""
 
-#: ../src/plugins/monitors/monitors.c:367
+#: ../src/plugins/monitors/monitors.c:360
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
 msgstr ""
@@ -1424,14 +1512,29 @@ msgstr ""
 msgid "WNCKpager plugin"
 msgstr "সহজ পেজার প্লাগ-ইন"
 
+#~ msgid "<b>Icon</b>"
+#~ msgstr "<b>আইকন</b>"
+
+#~ msgid "Configure Keyboard Layout Switcher"
+#~ msgstr "কি-বোর্ড বিন্যাস অদল-বদলকারী কনফিগার করুন"
+
+#~ msgid "image"
+#~ msgstr "ছবি"
+
+#~ msgid "text"
+#~ msgstr "টেক্সট"
+
+#~ msgid "Per application settings"
+#~ msgstr "প্রতি অ্যাপ্লিকেশনের বৈশিষ্ট্য"
+
+#~ msgid "Default layout:"
+#~ msgstr "ডিফল্ট বিন্যাস:"
+
 #~ msgid "Available Applications"
 #~ msgstr "উপস্থিত অ্যাপ্লিকেশন"
 
 #~ msgid "Display system temperature, by kesler.daniel@gmail.com"
 #~ msgstr "kesler.daniel@gmail.com দ্বারা সিস্টেমের তাপমাত্রা প্রদর্শন"
-
-#~ msgid "Keyboard Led"
-#~ msgstr "কী-বোর্ডের এল ই ডি"
 
 #~ msgid "Desktop No / Workspace Name"
 #~ msgstr "ডেস্কটপের নম্বর / ওয়ার্কস্পেশের নাম"

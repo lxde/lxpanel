@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-10 16:52+0200\n"
+"POT-Creation-Date: 2012-09-23 15:11+0200\n"
 "PO-Revision-Date: 2010-03-24 16:21+0200\n"
 "Last-Translator: F <friedel@translate.org.za>\n"
 "Language-Team: translate-discuss-af@lists.sourceforge.net\n"
@@ -29,39 +29,39 @@ msgstr "Herbegin"
 msgid "Logout"
 msgstr "Meld af"
 
-#: ../src/configurator.c:468
+#: ../src/configurator.c:481
 msgid "Currently loaded plugins"
 msgstr "Tans gelaaide inproppe"
 
-#: ../src/configurator.c:477
+#: ../src/configurator.c:490
 msgid "Stretch"
 msgstr "Rek"
 
-#: ../src/configurator.c:596
+#: ../src/configurator.c:609
 msgid "Add plugin to panel"
 msgstr "Voeg inprop by paneel"
 
-#: ../src/configurator.c:624
+#: ../src/configurator.c:637
 msgid "Available plugins"
 msgstr "Beskikbare inproppe"
 
-#: ../src/configurator.c:1202
+#: ../src/configurator.c:1221
 msgid "Logout command is not set"
 msgstr "Opdrag vir afmelding is nie gestel nie"
 
-#: ../src/configurator.c:1255
+#: ../src/configurator.c:1274
 msgid "Select a directory"
 msgstr "Kies 'n gids"
 
-#: ../src/configurator.c:1255 ../src/configurator.c:1346
+#: ../src/configurator.c:1274 ../src/configurator.c:1365
 msgid "Select a file"
 msgstr "Kies 'n lêer"
 
-#: ../src/configurator.c:1373
+#: ../src/configurator.c:1392
 msgid "_Browse"
 msgstr "_Blaai"
 
-#: ../src/panel.c:657
+#: ../src/panel.c:658
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -69,134 +69,134 @@ msgstr ""
 "Moet dié paneel definitief verwyder word?\n"
 "<b>Waarskuwing: Hierdie kan nie ongedaan gemaak word nie.</b>"
 
-#: ../src/panel.c:659
+#: ../src/panel.c:660
 msgid "Confirm"
 msgstr "Bevestig"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:692
+#: ../src/panel.c:693
 msgid "translator-credits"
 msgstr "Friedel Wolff"
 
-#: ../src/panel.c:697
+#: ../src/panel.c:698
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:699
+#: ../src/panel.c:716
 msgid "Copyright (C) 2008-2011"
 msgstr "Kopiereg (C) 2008-2011"
 
-#: ../src/panel.c:700
+#: ../src/panel.c:717
 msgid "Desktop panel for LXDE project"
 msgstr "Werkskermpaneel vir die LXDE-projek"
 
-#: ../src/panel.c:723
+#: ../src/panel.c:754
 msgid "Add / Remove Panel Items"
 msgstr "Voeg by / skrap paneelitems"
 
-#: ../src/panel.c:731
+#: ../src/panel.c:762
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Verwyder \"%s\" vanuit die paneel"
 
-#: ../src/panel.c:743
+#: ../src/panel.c:774
 msgid "Panel Settings"
 msgstr "Paneelinstellings"
 
-#: ../src/panel.c:749
+#: ../src/panel.c:780
 msgid "Create New Panel"
 msgstr "Skep nuwe paneel"
 
-#: ../src/panel.c:760
+#: ../src/panel.c:791
 msgid "Delete This Panel"
 msgstr "Verwyder hierdie paneel"
 
-#: ../src/panel.c:771
+#: ../src/panel.c:802
 msgid "About"
 msgstr "Aangaande"
 
-#: ../src/panel.c:779
+#: ../src/panel.c:810
 msgid "Panel"
 msgstr "Paneel"
 
-#: ../src/panel.c:792
+#: ../src/panel.c:823
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\"-instellings"
 
-#: ../src/panel.c:1048 ../src/panel.c:1056 ../data/ui/panel-pref.glade.h:16
+#: ../src/panel.c:1079 ../src/panel.c:1087 ../data/ui/panel-pref.glade.h:21
 msgid "Height:"
 msgstr "Hoogte:"
 
-#: ../src/panel.c:1049 ../src/panel.c:1055 ../data/ui/panel-pref.glade.h:15
+#: ../src/panel.c:1080 ../src/panel.c:1086 ../data/ui/panel-pref.glade.h:20
 msgid "Width:"
 msgstr "Wydte:"
 
-#: ../src/panel.c:1050 ../data/ui/panel-pref.glade.h:11
+#: ../src/panel.c:1081 ../data/ui/panel-pref.glade.h:13
 msgid "Left"
 msgstr "Links"
 
-#: ../src/panel.c:1051 ../data/ui/panel-pref.glade.h:12
+#: ../src/panel.c:1082 ../data/ui/panel-pref.glade.h:14
 msgid "Right"
 msgstr "Regs"
 
-#: ../src/panel.c:1057 ../data/ui/panel-pref.glade.h:10
+#: ../src/panel.c:1088 ../data/ui/panel-pref.glade.h:12
 msgid "Top"
 msgstr "Bo"
 
-#: ../src/panel.c:1058 ../data/ui/panel-pref.glade.h:9
+#: ../src/panel.c:1089 ../data/ui/panel-pref.glade.h:11
 msgid "Bottom"
 msgstr "Onder"
 
-#: ../src/panel.c:1466
+#: ../src/panel.c:1501
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - liggewig GTK2+paneel vir UNIX-werkskerms\n"
 
-#: ../src/panel.c:1467
+#: ../src/panel.c:1502
 #, c-format
 msgid "Command line options:\n"
 msgstr "Opdraglynparameters:\n"
 
-#: ../src/panel.c:1468
+#: ../src/panel.c:1503
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- druk hierdie hulp en sluit af\n"
 
-#: ../src/panel.c:1469
+#: ../src/panel.c:1504
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- druk weergawe en sluit af\n"
 
-#: ../src/panel.c:1470
+#: ../src/panel.c:1505
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 " --log <number> -- stel vlak van boodskappe 0-5. 0 - geen 5 - babbelbek\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1472
+#: ../src/panel.c:1507
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile naam -- gebruik die gegewe profiel\n"
 
-#: ../src/panel.c:1474
+#: ../src/panel.c:1509
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- selfde as--help\n"
 
-#: ../src/panel.c:1475
+#: ../src/panel.c:1510
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- selfde as --profile\n"
 
-#: ../src/panel.c:1476
+#: ../src/panel.c:1511
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- selfde as --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1478
+#: ../src/panel.c:1513
 #, c-format
 msgid ""
 "\n"
@@ -264,8 +264,8 @@ msgstr "Adres:"
 msgid "Destination:"
 msgstr "Bestemming:"
 
-#: ../data/ui/netstatus.glade.h:14 ../src/plugins/netstat/netstat.c:333
-#: ../src/plugins/netstat/netstat.c:344
+#: ../data/ui/netstatus.glade.h:14 ../src/plugins/netstat/netstat.c:362
+#: ../src/plugins/netstat/netstat.c:373
 msgid "Broadcast:"
 msgstr "Uitsaaiadres:"
 
@@ -311,139 +311,169 @@ msgid "% Percent"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:5
+msgid "None"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:6
+#, fuzzy
+msgid "Err"
+msgstr "Fout"
+
+#: ../data/ui/panel-pref.glade.h:7
+msgid "Warn"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:8
+msgid "Info"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:9
+msgid "All"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:10
 msgid "Panel Preferences"
 msgstr "Voorkeure vir paneel"
 
-#: ../data/ui/panel-pref.glade.h:6
+#: ../data/ui/panel-pref.glade.h:15
 msgid "Edge:"
 msgstr "Rand:"
 
-#: ../data/ui/panel-pref.glade.h:7
-msgid "Alignment:"
-msgstr "Belyning:"
-
-#: ../data/ui/panel-pref.glade.h:8
-msgid "Margin:"
-msgstr "Kantlyn:"
-
-#: ../data/ui/panel-pref.glade.h:13
+#: ../data/ui/panel-pref.glade.h:16
 msgid "Center"
 msgstr "Middel"
 
-#: ../data/ui/panel-pref.glade.h:14
+#: ../data/ui/panel-pref.glade.h:17
+msgid "Alignment:"
+msgstr "Belyning:"
+
+#: ../data/ui/panel-pref.glade.h:18
+msgid "Margin:"
+msgstr "Kantlyn:"
+
+#: ../data/ui/panel-pref.glade.h:19
 msgid "<b>Position</b>"
 msgstr "<b>Ligging</b>"
 
-#: ../data/ui/panel-pref.glade.h:17
-msgid "<b>Icon</b>"
-msgstr "<b>Ikoon</b>"
-
-#: ../data/ui/panel-pref.glade.h:18
-msgid "pixels"
-msgstr "beeldpunte"
-
-#: ../data/ui/panel-pref.glade.h:19
-msgid "<b>Size</b>"
-msgstr "<b>Grootte</b>"
-
-#: ../data/ui/panel-pref.glade.h:20
-msgid "Geometry"
-msgstr "Afmetings"
-
-#: ../data/ui/panel-pref.glade.h:21
-msgid "System theme"
-msgstr "Stelseltema"
-
 #: ../data/ui/panel-pref.glade.h:22
-msgid "Solid color (with opacity)"
+msgid "Icon size:"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:23
+msgid "<b>Size</b>"
+msgstr "<b>Grootte</b>"
+
+#: ../data/ui/panel-pref.glade.h:24
+msgid "Geometry"
+msgstr "Afmetings"
+
+#: ../data/ui/panel-pref.glade.h:25
+msgid "System theme"
+msgstr "Stelseltema"
+
+#: ../data/ui/panel-pref.glade.h:26
+msgid "Solid color (with opacity)"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/xkb/xkb-plugin.c:1253
 msgid "Image"
 msgstr "Beeld"
 
-#: ../data/ui/panel-pref.glade.h:24
+#: ../data/ui/panel-pref.glade.h:28
 msgid "Select an image file"
 msgstr "Kies 'n beeldlêer"
 
-#: ../data/ui/panel-pref.glade.h:25
+#: ../data/ui/panel-pref.glade.h:29
 msgid "<b>Background</b>"
 msgstr "<b>Agtergrond</b>"
 
-#: ../data/ui/panel-pref.glade.h:26
+#: ../data/ui/panel-pref.glade.h:30
 msgid "Custom color"
 msgstr "Eie kleur"
 
-#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/space.c:125
-#: ../src/plugins/batt/batt.c:583
+#: ../data/ui/panel-pref.glade.h:31 ../src/plugins/space.c:125
+#: ../src/plugins/batt/batt.c:564
 msgid "Size"
 msgstr "Grootte"
 
-#: ../data/ui/panel-pref.glade.h:28
+#: ../data/ui/panel-pref.glade.h:32
 msgid "<b>Font</b>"
 msgstr "<b>Font</b>"
 
-#: ../data/ui/panel-pref.glade.h:29
+#: ../data/ui/panel-pref.glade.h:33
 msgid "Appearance"
 msgstr "Voorkoms"
 
-#: ../data/ui/panel-pref.glade.h:30
+#: ../data/ui/panel-pref.glade.h:34
 msgid "Panel Applets"
 msgstr "Miniprogramme vir paneel"
 
-#: ../data/ui/panel-pref.glade.h:31
+#: ../data/ui/panel-pref.glade.h:35
 msgid "Logout Command:"
 msgstr "Opdrag vir afmelding:"
 
-#: ../data/ui/panel-pref.glade.h:32
+#: ../data/ui/panel-pref.glade.h:36
 msgid "Terminal Emulator:"
 msgstr "Terminaal-emuleerder:"
 
-#: ../data/ui/panel-pref.glade.h:33
+#: ../data/ui/panel-pref.glade.h:37
 msgid "File Manager:"
 msgstr "Lêerbestuurder:"
 
-#: ../data/ui/panel-pref.glade.h:34
+#: ../data/ui/panel-pref.glade.h:38
 msgid "<b>Set Preferred Applications</b>"
 msgstr "<b>Stel voorkeurtoepassing</b>"
 
-#: ../data/ui/panel-pref.glade.h:35
+#: ../data/ui/panel-pref.glade.h:39
 msgid "Make window managers treat the panel as dock"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:36
+#: ../data/ui/panel-pref.glade.h:40
 msgid "Reserve space, and not covered by maximized windows"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:37
+#: ../data/ui/panel-pref.glade.h:41
 msgid "<b>Properties</b>"
 msgstr "<b>Eienskappe</b>"
 
-#: ../data/ui/panel-pref.glade.h:38
+#: ../data/ui/panel-pref.glade.h:42
 msgid "Minimize panel when not in use"
 msgstr "Minimeer die paneel wanneer dit nie gebruik word nie"
 
-#: ../data/ui/panel-pref.glade.h:39
+#: ../data/ui/panel-pref.glade.h:43
 msgid "Size when minimized"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:40
+#: ../data/ui/panel-pref.glade.h:44
+msgid "pixels"
+msgstr "beeldpunte"
+
+#: ../data/ui/panel-pref.glade.h:45
 msgid "<b>Automatic hiding</b>"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:41
+#: ../data/ui/panel-pref.glade.h:46
+msgid "Log level"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:47
+#, fuzzy
+msgid "<b>Log level</b>"
+msgstr "<b>Netwerktoestel</b>"
+
+#: ../data/ui/panel-pref.glade.h:48
 msgid "Advanced"
 msgstr "Gevorderd"
 
-#: ../src/plugins/cpu/cpu.c:268
+#: ../src/plugins/cpu/cpu.c:277
 msgid "CPU Usage Monitor"
 msgstr "Monitor vir verwerkergebruik"
 
-#: ../src/plugins/cpu/cpu.c:270 ../src/plugins/monitors/monitors.c:711
+#: ../src/plugins/cpu/cpu.c:279 ../src/plugins/monitors/monitors.c:711
 msgid "Display CPU usage"
 msgstr "Vertoon verwerkergebruik"
 
-#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:438
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:440
 msgid "Bold font"
 msgstr "Vetdruk"
 
@@ -459,7 +489,7 @@ msgstr "Werkskerm-nr. / Werkruimtenaam"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Vertoon werkruimtenommer, deur cmeury@users.sf.net"
 
-#: ../src/plugins/image.c:177
+#: ../src/plugins/image.c:161
 msgid "Display Image and Tooltip"
 msgstr "Vertoon beeld en nutswenk"
 
@@ -560,37 +590,37 @@ msgstr ""
 "Taakbalk wys alle oop vensters en help om hulle te ikonifiseer, verskadu of "
 "te fokus"
 
-#: ../src/plugins/dclock.c:434
+#: ../src/plugins/dclock.c:436
 msgid "Clock Format"
 msgstr "Horlosieformaat"
 
-#: ../src/plugins/dclock.c:435
+#: ../src/plugins/dclock.c:437
 msgid "Tooltip Format"
 msgstr "Nutswenkformaat"
 
-#: ../src/plugins/dclock.c:436
+#: ../src/plugins/dclock.c:438
 #, fuzzy
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr "Formaatkodes: man 3 strftime; \\n vir 'n nuwe lyn"
 
-#: ../src/plugins/dclock.c:437
+#: ../src/plugins/dclock.c:439
 msgid "Action when clicked (default: display calendar)"
 msgstr "Reaksie op klik (verstek: wys kalender)"
 
-#: ../src/plugins/dclock.c:439
+#: ../src/plugins/dclock.c:441
 msgid "Tooltip only"
 msgstr "Slegs nutswenk"
 
-#: ../src/plugins/dclock.c:440
+#: ../src/plugins/dclock.c:442
 #, fuzzy
 msgid "Center text"
 msgstr "Middel"
 
-#: ../src/plugins/dclock.c:469
+#: ../src/plugins/dclock.c:471
 msgid "Digital Clock"
 msgstr "Digitale horlosie"
 
-#: ../src/plugins/dclock.c:471
+#: ../src/plugins/dclock.c:473
 msgid "Display digital clock and tooltip"
 msgstr "Vertoon digitale horlosie en nutswenk"
 
@@ -602,15 +632,15 @@ msgstr "Voeg by werkskerm"
 msgid "Properties"
 msgstr "Eienskappe"
 
-#: ../src/plugins/menu.c:1083 ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1084 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "Ikoon"
 
-#: ../src/plugins/menu.c:1100
+#: ../src/plugins/menu.c:1101
 msgid "Menu"
 msgstr "Kieslys"
 
-#: ../src/plugins/menu.c:1102
+#: ../src/plugins/menu.c:1103
 msgid "Application Menu"
 msgstr "Toeapassingskieslys"
 
@@ -622,11 +652,11 @@ msgstr "Skeier"
 msgid "Add a separator to the panel"
 msgstr "Voeg 'n skeier by die paneel"
 
-#: ../src/plugins/pager.c:837
+#: ../src/plugins/pager.c:842
 msgid "Desktop Pager"
 msgstr ""
 
-#: ../src/plugins/pager.c:839
+#: ../src/plugins/pager.c:844
 msgid "Simple pager plugin"
 msgstr ""
 
@@ -638,50 +668,107 @@ msgstr "Spasiëring"
 msgid "Allocate space"
 msgstr "Ken plek toe"
 
-#: ../src/plugins/tray.c:737
+#: ../src/plugins/tray.c:757
 msgid "System Tray"
 msgstr "Stelsellaai"
 
-#: ../src/plugins/tray.c:739
+#: ../src/plugins/tray.c:759
 msgid "System tray"
 msgstr "Stelsellaai"
 
-#: ../src/plugins/xkb/xkb-plugin.c:291
-msgid "Configure Keyboard Layout Switcher"
-msgstr "Stel wisselaar vir sleutelborduitleg op"
+#. dialog
+#: ../src/plugins/xkb/xkb-plugin.c:513
+#, fuzzy
+msgid "Select Keyboard Model"
+msgstr "Sleutelbord-LED"
 
-#: ../src/plugins/xkb/xkb-plugin.c:306
-msgid "Show layout as"
-msgstr "Wys uitleg as"
+#: ../src/plugins/xkb/xkb-plugin.c:536
+msgid "Model"
+msgstr ""
 
-#: ../src/plugins/xkb/xkb-plugin.c:321
-msgid "image"
-msgstr "beeld"
+#: ../src/plugins/xkb/xkb-plugin.c:540 ../src/plugins/xkb/xkb-plugin.c:629
+#: ../src/plugins/xkb/xkb-plugin.c:780
+#, fuzzy
+msgid "Description"
+msgstr "Bestemming:"
 
-#: ../src/plugins/xkb/xkb-plugin.c:322
-msgid "text"
-msgstr "teks"
+#. dialog
+#: ../src/plugins/xkb/xkb-plugin.c:602
+#, fuzzy
+msgid "Select Layout Change Type"
+msgstr "Kies 'n beeldlêer"
 
-#: ../src/plugins/xkb/xkb-plugin.c:329
-msgid "Per application settings"
-msgstr "Instellings per toepassing"
+#: ../src/plugins/xkb/xkb-plugin.c:625
+msgid "Change Type"
+msgstr ""
 
-#. Create a check button as the child of the vertical box.
-#: ../src/plugins/xkb/xkb-plugin.c:344
-msgid "_Remember layout for each application"
-msgstr "_Onthou uitleg vir elke toepassing"
-
-#. Create a label as the child of the horizontal box.
-#: ../src/plugins/xkb/xkb-plugin.c:354
-msgid "Default layout:"
-msgstr "Verstekuitleg:"
-
-#: ../src/plugins/xkb/xkb-plugin.c:405
-msgid "Keyboard Layout Switcher"
+#. dialog
+#: ../src/plugins/xkb/xkb-plugin.c:747
+#, fuzzy
+msgid "Add Keyboard Layout"
 msgstr "Wisselaar vir sleutelborduitleg"
 
-#: ../src/plugins/xkb/xkb-plugin.c:407
-msgid "Switch between available keyboard layouts"
+#: ../src/plugins/xkb/xkb-plugin.c:770 ../src/plugins/xkb/xkb-plugin.c:1136
+msgid "Flag"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:775 ../src/plugins/xkb/xkb-plugin.c:1140
+msgid "Layout"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1053 ../src/plugins/xkb/xkb-plugin.c:1359
+#, fuzzy
+msgid "Keyboard Layout Handler"
+msgstr "Wisselaar vir sleutelborduitleg"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1070
+#, fuzzy
+msgid "Keyboard Model"
+msgstr "Sleutelbord-LED"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1090
+#, fuzzy
+msgid "Keyboard Layouts"
+msgstr "Wisselaar vir sleutelborduitleg"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1144
+msgid "Variant"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1152
+msgid "Change Layout Option"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1172
+#, fuzzy
+msgid "Per Window Settings"
+msgstr "Paneelinstellings"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1184
+#, fuzzy
+msgid "_Remember layout for each window"
+msgstr "_Onthou uitleg vir elke toepassing"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1193
+#, fuzzy
+msgid "Show Layout as"
+msgstr "Wys uitleg as"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1254
+msgid "Custom Image"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1255
+msgid "Text"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1281
+msgid "Panel Icon Size"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1361
+#, fuzzy
+msgid "Handle keyboard layouts"
 msgstr "Wissel tussen beskikbare sleutelborduitlegte"
 
 #: ../src/plugins/wincmd.c:209
@@ -767,28 +854,28 @@ msgstr "Vertoon stelseltemperatuur"
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:339
-#: ../src/plugins/volumealsa/volumealsa.c:509
+#: ../src/plugins/volumealsa/volumealsa.c:362
+#: ../src/plugins/volumealsa/volumealsa.c:544
 msgid "Volume control"
 msgstr "Volumebeheer"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:629
+#: ../src/plugins/volumealsa/volumealsa.c:665
 msgid "Volume Control"
 msgstr "Volumebeheer"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:467
+#: ../src/plugins/volumealsa/volumealsa.c:502
 msgid "Volume"
 msgstr "Volume"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/volumealsa/volumealsa.c:486
+#: ../src/plugins/volumealsa/volumealsa.c:521
 msgid "Mute"
 msgstr "Doof uit"
 
-#: ../src/plugins/volumealsa/volumealsa.c:602
+#: ../src/plugins/volumealsa/volumealsa.c:638
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
@@ -812,75 +899,75 @@ msgstr "Herstel"
 msgid "Disable"
 msgstr "Deaktiveer"
 
-#: ../src/plugins/netstat/netstat.c:313
+#: ../src/plugins/netstat/netstat.c:342
 msgid "Wireless Connection has no connectivity"
 msgstr "Draadlose verbinding kan nie koppel nie"
 
-#: ../src/plugins/netstat/netstat.c:315
+#: ../src/plugins/netstat/netstat.c:344
 msgid "Network cable is plugged out"
 msgstr "Netwerkkabel is uitgeprop"
 
-#: ../src/plugins/netstat/netstat.c:317
+#: ../src/plugins/netstat/netstat.c:346
 msgid "Connection has limited or no connectivity"
 msgstr "Verbinding koppel sleg of glad nie"
 
-#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
-#: ../src/plugins/netstat/netstat.c:343
+#: ../src/plugins/netstat/netstat.c:350 ../src/plugins/netstat/netstat.c:361
+#: ../src/plugins/netstat/netstat.c:372
 msgid "IP Address:"
 msgstr "IP-adres:"
 
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:351
 msgid "Remote IP:"
 msgstr "Afgeleë IP:"
 
-#: ../src/plugins/netstat/netstat.c:323 ../src/plugins/netstat/netstat.c:334
-#: ../src/plugins/netstat/netstat.c:345
+#: ../src/plugins/netstat/netstat.c:352 ../src/plugins/netstat/netstat.c:363
+#: ../src/plugins/netstat/netstat.c:374
 msgid "Netmask:"
 msgstr "Netmasker:"
 
-#: ../src/plugins/netstat/netstat.c:324 ../src/plugins/netstat/netstat.c:336
-#: ../src/plugins/netstat/netstat.c:347
+#: ../src/plugins/netstat/netstat.c:353 ../src/plugins/netstat/netstat.c:365
+#: ../src/plugins/netstat/netstat.c:376
 msgid "Activity"
 msgstr "Aktiwiteit"
 
-#: ../src/plugins/netstat/netstat.c:324 ../src/plugins/netstat/netstat.c:336
-#: ../src/plugins/netstat/netstat.c:347
+#: ../src/plugins/netstat/netstat.c:353 ../src/plugins/netstat/netstat.c:365
+#: ../src/plugins/netstat/netstat.c:376
 msgid "Sent"
 msgstr "Gestuur"
 
-#: ../src/plugins/netstat/netstat.c:324 ../src/plugins/netstat/netstat.c:336
-#: ../src/plugins/netstat/netstat.c:347
+#: ../src/plugins/netstat/netstat.c:353 ../src/plugins/netstat/netstat.c:365
+#: ../src/plugins/netstat/netstat.c:376
 msgid "Received"
 msgstr "Ontvang"
 
-#: ../src/plugins/netstat/netstat.c:325 ../src/plugins/netstat/netstat.c:337
-#: ../src/plugins/netstat/netstat.c:348
+#: ../src/plugins/netstat/netstat.c:354 ../src/plugins/netstat/netstat.c:366
+#: ../src/plugins/netstat/netstat.c:377
 msgid "bytes"
 msgstr "grepe"
 
-#: ../src/plugins/netstat/netstat.c:326 ../src/plugins/netstat/netstat.c:338
-#: ../src/plugins/netstat/netstat.c:349
+#: ../src/plugins/netstat/netstat.c:355 ../src/plugins/netstat/netstat.c:367
+#: ../src/plugins/netstat/netstat.c:378
 msgid "packets"
 msgstr "pakkies"
 
-#: ../src/plugins/netstat/netstat.c:329
+#: ../src/plugins/netstat/netstat.c:358
 #: ../src/plugins/netstatus/netstatus-iface.c:173
 msgid "Wireless"
 msgstr "Draadloos"
 
-#: ../src/plugins/netstat/netstat.c:331
+#: ../src/plugins/netstat/netstat.c:360
 msgid "Protocol:"
 msgstr "Protokol:"
 
-#: ../src/plugins/netstat/netstat.c:335 ../src/plugins/netstat/netstat.c:346
+#: ../src/plugins/netstat/netstat.c:364 ../src/plugins/netstat/netstat.c:375
 msgid "HW Address:"
 msgstr "Hardeware-adres:"
 
-#: ../src/plugins/netstat/netstat.c:484
+#: ../src/plugins/netstat/netstat.c:513
 msgid "Manage Networks"
 msgstr "Bestuur netwerke"
 
-#: ../src/plugins/netstat/netstat.c:486
+#: ../src/plugins/netstat/netstat.c:515
 msgid "Monitor and Manage networks"
 msgstr "Monitor en bestuur netwerke"
 
@@ -1250,86 +1337,86 @@ msgstr "Ontvang tans"
 msgid "Sending/Receiving"
 msgstr "Stuur/ontvang tans"
 
-#: ../src/plugins/batt/batt.c:132
+#: ../src/plugins/batt/batt.c:133
 msgid "No batteries found"
 msgstr "Geen batterye gevind nie"
 
-#: ../src/plugins/batt/batt.c:176
+#: ../src/plugins/batt/batt.c:179
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
 msgstr "Battery: %d%% gelaai, %d:%02d tot vol"
 
-#: ../src/plugins/batt/batt.c:187
+#: ../src/plugins/batt/batt.c:190
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr "Battery: %d%% gelaai, %d:%02d oor"
 
-#: ../src/plugins/batt/batt.c:193
+#: ../src/plugins/batt/batt.c:196
 #, c-format
 msgid "Battery: %d%% charged"
 msgstr "Battery: %d%% gelaai"
 
-#: ../src/plugins/batt/batt.c:573
+#: ../src/plugins/batt/batt.c:554
 msgid "Hide if there is no battery"
 msgstr "Steek weg as daar geen battery is nie"
 
-#: ../src/plugins/batt/batt.c:575
+#: ../src/plugins/batt/batt.c:556
 msgid "Alarm command"
 msgstr "Alarmopdrag"
 
-#: ../src/plugins/batt/batt.c:576
+#: ../src/plugins/batt/batt.c:557
 msgid "Alarm time (minutes left)"
 msgstr "Alarmtyd (minute oor)"
 
-#: ../src/plugins/batt/batt.c:577
+#: ../src/plugins/batt/batt.c:558
 msgid "Background color"
 msgstr "Agtergrondkleur"
 
-#: ../src/plugins/batt/batt.c:578
+#: ../src/plugins/batt/batt.c:559
 msgid "Charging color 1"
 msgstr "Kleur 1 vir laai"
 
-#: ../src/plugins/batt/batt.c:579
+#: ../src/plugins/batt/batt.c:560
 msgid "Charging color 2"
 msgstr "Kleur 2 vir laai"
 
-#: ../src/plugins/batt/batt.c:580
+#: ../src/plugins/batt/batt.c:561
 msgid "Discharging color 1"
 msgstr "Kleur 1 vir ontlaai"
 
-#: ../src/plugins/batt/batt.c:581
+#: ../src/plugins/batt/batt.c:562
 msgid "Discharging color 2"
 msgstr "Kleur 2 vir ontlaai"
 
-#: ../src/plugins/batt/batt.c:582
+#: ../src/plugins/batt/batt.c:563
 msgid "Border width"
 msgstr "Randwydte"
 
-#: ../src/plugins/batt/batt.c:612
+#: ../src/plugins/batt/batt.c:593
 msgid "Battery Monitor"
 msgstr "Batterymonitor"
 
-#: ../src/plugins/batt/batt.c:614
+#: ../src/plugins/batt/batt.c:595
 msgid "Display battery status using ACPI"
 msgstr "Vertoon batterystatus d.m.v. ACPI"
 
-#: ../src/plugins/kbled/kbled.c:230
+#: ../src/plugins/kbled/kbled.c:258
 msgid "Show CapsLock"
 msgstr "Wys CapsLock"
 
-#: ../src/plugins/kbled/kbled.c:231
+#: ../src/plugins/kbled/kbled.c:259
 msgid "Show NumLock"
 msgstr "Wys NumLock"
 
-#: ../src/plugins/kbled/kbled.c:232
+#: ../src/plugins/kbled/kbled.c:260
 msgid "Show ScrollLock"
 msgstr "Wys ScrollLock"
 
-#: ../src/plugins/kbled/kbled.c:267
+#: ../src/plugins/kbled/kbled.c:295
 msgid "Keyboard LED"
 msgstr "Sleutelbord-LED"
 
-#: ../src/plugins/kbled/kbled.c:269
+#: ../src/plugins/kbled/kbled.c:297
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Aanwyser vir die sleutels CapsLock, NumLock en ScrollLock"
 
@@ -1374,12 +1461,12 @@ msgstr ""
 msgid "Add indicator applets to the panel"
 msgstr "Voeg 'n skeier by die paneel"
 
-#: ../src/plugins/monitors/monitors.c:284
+#: ../src/plugins/monitors/monitors.c:277
 #, c-format
 msgid "CPU usage: %.2f%%"
 msgstr ""
 
-#: ../src/plugins/monitors/monitors.c:367
+#: ../src/plugins/monitors/monitors.c:360
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
 msgstr ""
@@ -1421,14 +1508,29 @@ msgstr ""
 msgid "WNCKpager plugin"
 msgstr ""
 
+#~ msgid "<b>Icon</b>"
+#~ msgstr "<b>Ikoon</b>"
+
+#~ msgid "Configure Keyboard Layout Switcher"
+#~ msgstr "Stel wisselaar vir sleutelborduitleg op"
+
+#~ msgid "image"
+#~ msgstr "beeld"
+
+#~ msgid "text"
+#~ msgstr "teks"
+
+#~ msgid "Per application settings"
+#~ msgstr "Instellings per toepassing"
+
+#~ msgid "Default layout:"
+#~ msgstr "Verstekuitleg:"
+
 #~ msgid "Available Applications"
 #~ msgstr "Beskikbare toepassings"
 
 #~ msgid "Display system temperature, by kesler.daniel@gmail.com"
 #~ msgstr "Vertoon stelseltemperatuur, deur kesler.daniel@gmail.com"
-
-#~ msgid "Keyboard Led"
-#~ msgstr "Sleutelbord-LED"
 
 #, fuzzy
 #~ msgid "Left\t"

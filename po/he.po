@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-10 16:52+0200\n"
+"POT-Creation-Date: 2012-09-23 15:11+0200\n"
 "PO-Revision-Date: 2012-07-04 10:34+0200\n"
 "Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,39 +30,39 @@ msgstr "הפעלה מחדש"
 msgid "Logout"
 msgstr "ניתוק"
 
-#: ../src/configurator.c:468
+#: ../src/configurator.c:481
 msgid "Currently loaded plugins"
 msgstr "התוספים הטעונים כעת"
 
-#: ../src/configurator.c:477
+#: ../src/configurator.c:490
 msgid "Stretch"
 msgstr "מתיחה"
 
-#: ../src/configurator.c:596
+#: ../src/configurator.c:609
 msgid "Add plugin to panel"
 msgstr "הוספת תוסף לפאנל"
 
-#: ../src/configurator.c:624
+#: ../src/configurator.c:637
 msgid "Available plugins"
 msgstr "תוספים זמינים"
 
-#: ../src/configurator.c:1202
+#: ../src/configurator.c:1221
 msgid "Logout command is not set"
 msgstr "פקודת הניתוק אינה מוגדרת"
 
-#: ../src/configurator.c:1255
+#: ../src/configurator.c:1274
 msgid "Select a directory"
 msgstr "בחירת תיקייה"
 
-#: ../src/configurator.c:1255 ../src/configurator.c:1346
+#: ../src/configurator.c:1274 ../src/configurator.c:1365
 msgid "Select a file"
 msgstr "בחירת קובץ"
 
-#: ../src/configurator.c:1373
+#: ../src/configurator.c:1392
 msgid "_Browse"
 msgstr "_עיון"
 
-#: ../src/panel.c:657
+#: ../src/panel.c:658
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -70,135 +70,135 @@ msgstr ""
 "האם באמת למחוק פאנל זה?\n"
 "<b>אזהרה: לא ניתן יהיה לשחזרו.</b>"
 
-#: ../src/panel.c:659
+#: ../src/panel.c:660
 msgid "Confirm"
 msgstr "אישור"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:692
+#: ../src/panel.c:693
 msgid "translator-credits"
 msgstr ""
 "ירון שהרבני <sh.yaron@gmail.com>\n"
 "ליאל פרידמן <lielft@gmail.com>"
 
-#: ../src/panel.c:697
+#: ../src/panel.c:698
 msgid "LXPanel"
 msgstr "תכנית הפאנלים LXPanel"
 
-#: ../src/panel.c:699
+#: ../src/panel.c:716
 msgid "Copyright (C) 2008-2011"
 msgstr "כל הזכויות שמורות (C)‏ 2010-‎2011"
 
-#: ../src/panel.c:700
+#: ../src/panel.c:717
 msgid "Desktop panel for LXDE project"
 msgstr "פאנל לשולחן העבודה עבור מיזם LXDE"
 
-#: ../src/panel.c:723
+#: ../src/panel.c:754
 msgid "Add / Remove Panel Items"
 msgstr "הוספה / הסרה של פריטי פאנל"
 
-#: ../src/panel.c:731
+#: ../src/panel.c:762
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "הסרת „%s“ מהפאנל"
 
-#: ../src/panel.c:743
+#: ../src/panel.c:774
 msgid "Panel Settings"
 msgstr "הגדרות הפאנל"
 
-#: ../src/panel.c:749
+#: ../src/panel.c:780
 msgid "Create New Panel"
 msgstr "יצירת פאנל חדש"
 
-#: ../src/panel.c:760
+#: ../src/panel.c:791
 msgid "Delete This Panel"
 msgstr "מחיקת פאנל זה"
 
-#: ../src/panel.c:771
+#: ../src/panel.c:802
 msgid "About"
 msgstr "על אודות"
 
-#: ../src/panel.c:779
+#: ../src/panel.c:810
 msgid "Panel"
 msgstr "פאנל"
 
-#: ../src/panel.c:792
+#: ../src/panel.c:823
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "הגדרות „%s“"
 
-#: ../src/panel.c:1048 ../src/panel.c:1056 ../data/ui/panel-pref.glade.h:16
+#: ../src/panel.c:1079 ../src/panel.c:1087 ../data/ui/panel-pref.glade.h:21
 msgid "Height:"
 msgstr "אורך:"
 
-#: ../src/panel.c:1049 ../src/panel.c:1055 ../data/ui/panel-pref.glade.h:15
+#: ../src/panel.c:1080 ../src/panel.c:1086 ../data/ui/panel-pref.glade.h:20
 msgid "Width:"
 msgstr "רוחב:"
 
-#: ../src/panel.c:1050 ../data/ui/panel-pref.glade.h:11
+#: ../src/panel.c:1081 ../data/ui/panel-pref.glade.h:13
 msgid "Left"
 msgstr "שמאל"
 
-#: ../src/panel.c:1051 ../data/ui/panel-pref.glade.h:12
+#: ../src/panel.c:1082 ../data/ui/panel-pref.glade.h:14
 msgid "Right"
 msgstr "ימין"
 
-#: ../src/panel.c:1057 ../data/ui/panel-pref.glade.h:10
+#: ../src/panel.c:1088 ../data/ui/panel-pref.glade.h:12
 msgid "Top"
 msgstr "עליון"
 
-#: ../src/panel.c:1058 ../data/ui/panel-pref.glade.h:9
+#: ../src/panel.c:1089 ../data/ui/panel-pref.glade.h:11
 msgid "Bottom"
 msgstr "תחתון"
 
-#: ../src/panel.c:1466
+#: ../src/panel.c:1501
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - פאנל קל משקל מבוסס GTK2+‎ עבור שולחנות עבודה מסוג יוניקס\n"
 
-#: ../src/panel.c:1467
+#: ../src/panel.c:1502
 #, c-format
 msgid "Command line options:\n"
 msgstr "Command line options:\n"
 
-#: ../src/panel.c:1468
+#: ../src/panel.c:1503
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- print this help and exit\n"
 
-#: ../src/panel.c:1469
+#: ../src/panel.c:1504
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- print version and exit\n"
 
-#: ../src/panel.c:1470
+#: ../src/panel.c:1505
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1472
+#: ../src/panel.c:1507
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- use specified profile\n"
 
-#: ../src/panel.c:1474
+#: ../src/panel.c:1509
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- same as --help\n"
 
-#: ../src/panel.c:1475
+#: ../src/panel.c:1510
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- same as --profile\n"
 
-#: ../src/panel.c:1476
+#: ../src/panel.c:1511
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- same as --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1478
+#: ../src/panel.c:1513
 #, c-format
 msgid ""
 "\n"
@@ -266,8 +266,8 @@ msgstr "כתובת:"
 msgid "Destination:"
 msgstr "יעד:"
 
-#: ../data/ui/netstatus.glade.h:14 ../src/plugins/netstat/netstat.c:333
-#: ../src/plugins/netstat/netstat.c:344
+#: ../data/ui/netstatus.glade.h:14 ../src/plugins/netstat/netstat.c:362
+#: ../src/plugins/netstat/netstat.c:373
 msgid "Broadcast:"
 msgstr "שידור:"
 
@@ -313,139 +313,170 @@ msgid "% Percent"
 msgstr "% אחוזים"
 
 #: ../data/ui/panel-pref.glade.h:5
+msgid "None"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:6
+#, fuzzy
+msgid "Err"
+msgstr "שגיאה"
+
+#: ../data/ui/panel-pref.glade.h:7
+#, fuzzy
+msgid "Warn"
+msgstr "אזהרה1"
+
+#: ../data/ui/panel-pref.glade.h:8
+msgid "Info"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:9
+msgid "All"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:10
 msgid "Panel Preferences"
 msgstr "העדפות הפאנל"
 
-#: ../data/ui/panel-pref.glade.h:6
+#: ../data/ui/panel-pref.glade.h:15
 msgid "Edge:"
 msgstr "פינה:"
 
-#: ../data/ui/panel-pref.glade.h:7
-msgid "Alignment:"
-msgstr "יישור:"
-
-#: ../data/ui/panel-pref.glade.h:8
-msgid "Margin:"
-msgstr "מסגרת:"
-
-#: ../data/ui/panel-pref.glade.h:13
+#: ../data/ui/panel-pref.glade.h:16
 msgid "Center"
 msgstr "מרכז"
 
-#: ../data/ui/panel-pref.glade.h:14
+#: ../data/ui/panel-pref.glade.h:17
+msgid "Alignment:"
+msgstr "יישור:"
+
+#: ../data/ui/panel-pref.glade.h:18
+msgid "Margin:"
+msgstr "מסגרת:"
+
+#: ../data/ui/panel-pref.glade.h:19
 msgid "<b>Position</b>"
 msgstr "<b>מיקום</b>"
 
-#: ../data/ui/panel-pref.glade.h:17
-msgid "<b>Icon</b>"
-msgstr "<b>סמל</b>"
+#: ../data/ui/panel-pref.glade.h:22
+msgid "Icon size:"
+msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:18
-msgid "pixels"
-msgstr "פיקסלים"
-
-#: ../data/ui/panel-pref.glade.h:19
+#: ../data/ui/panel-pref.glade.h:23
 msgid "<b>Size</b>"
 msgstr "<b>גודל</b>"
 
-#: ../data/ui/panel-pref.glade.h:20
+#: ../data/ui/panel-pref.glade.h:24
 msgid "Geometry"
 msgstr "מימדים"
 
-#: ../data/ui/panel-pref.glade.h:21
+#: ../data/ui/panel-pref.glade.h:25
 msgid "System theme"
 msgstr "ערכת הנושא של המערכת"
 
-#: ../data/ui/panel-pref.glade.h:22
+#: ../data/ui/panel-pref.glade.h:26
 msgid "Solid color (with opacity)"
 msgstr "צבע אחיד (עם אטימות)"
 
-#: ../data/ui/panel-pref.glade.h:23
+#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/xkb/xkb-plugin.c:1253
 msgid "Image"
 msgstr "תמונה"
 
-#: ../data/ui/panel-pref.glade.h:24
+#: ../data/ui/panel-pref.glade.h:28
 msgid "Select an image file"
 msgstr "בחירת קובץ תמונה"
 
-#: ../data/ui/panel-pref.glade.h:25
+#: ../data/ui/panel-pref.glade.h:29
 msgid "<b>Background</b>"
 msgstr "<b>רקע</b>"
 
-#: ../data/ui/panel-pref.glade.h:26
+#: ../data/ui/panel-pref.glade.h:30
 msgid "Custom color"
 msgstr "צבע מותאם אישית"
 
-#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/space.c:125
-#: ../src/plugins/batt/batt.c:583
+#: ../data/ui/panel-pref.glade.h:31 ../src/plugins/space.c:125
+#: ../src/plugins/batt/batt.c:564
 msgid "Size"
 msgstr "גודל"
 
-#: ../data/ui/panel-pref.glade.h:28
+#: ../data/ui/panel-pref.glade.h:32
 msgid "<b>Font</b>"
 msgstr "<b>גופן</b>"
 
-#: ../data/ui/panel-pref.glade.h:29
+#: ../data/ui/panel-pref.glade.h:33
 msgid "Appearance"
 msgstr "מראה"
 
-#: ../data/ui/panel-pref.glade.h:30
+#: ../data/ui/panel-pref.glade.h:34
 msgid "Panel Applets"
 msgstr "יישומוני הפאנל"
 
-#: ../data/ui/panel-pref.glade.h:31
+#: ../data/ui/panel-pref.glade.h:35
 msgid "Logout Command:"
 msgstr "פקודת ניתוק:"
 
-#: ../data/ui/panel-pref.glade.h:32
+#: ../data/ui/panel-pref.glade.h:36
 msgid "Terminal Emulator:"
 msgstr "תכנית להדמיית המסוף:"
 
-#: ../data/ui/panel-pref.glade.h:33
+#: ../data/ui/panel-pref.glade.h:37
 msgid "File Manager:"
 msgstr "מנהל קבצים:"
 
-#: ../data/ui/panel-pref.glade.h:34
+#: ../data/ui/panel-pref.glade.h:38
 msgid "<b>Set Preferred Applications</b>"
 msgstr "<b>בחירת יישומים מועדפים</b>"
 
-#: ../data/ui/panel-pref.glade.h:35
+#: ../data/ui/panel-pref.glade.h:39
 msgid "Make window managers treat the panel as dock"
 msgstr "מנהלי החלונות יתנהגו אל הפאנל כאל פריט מעוגן"
 
-#: ../data/ui/panel-pref.glade.h:36
+#: ../data/ui/panel-pref.glade.h:40
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "שטח שמור, כזה שלא יכוסה על ידי חלונות שהוגדלו לכל התצוגה"
 
-#: ../data/ui/panel-pref.glade.h:37
+#: ../data/ui/panel-pref.glade.h:41
 msgid "<b>Properties</b>"
 msgstr "<b>מאפיינים</b>"
 
-#: ../data/ui/panel-pref.glade.h:38
+#: ../data/ui/panel-pref.glade.h:42
 msgid "Minimize panel when not in use"
 msgstr "מזעור הפאנל כשאינו בשימוש"
 
-#: ../data/ui/panel-pref.glade.h:39
+#: ../data/ui/panel-pref.glade.h:43
 msgid "Size when minimized"
 msgstr "גודל כשממוזער"
 
-#: ../data/ui/panel-pref.glade.h:40
+#: ../data/ui/panel-pref.glade.h:44
+msgid "pixels"
+msgstr "פיקסלים"
+
+#: ../data/ui/panel-pref.glade.h:45
 msgid "<b>Automatic hiding</b>"
 msgstr "<b>הסתרה אוטומטית</b>"
 
-#: ../data/ui/panel-pref.glade.h:41
+#: ../data/ui/panel-pref.glade.h:46
+msgid "Log level"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:47
+#, fuzzy
+msgid "<b>Log level</b>"
+msgstr "<b>התקן רשת</b>"
+
+#: ../data/ui/panel-pref.glade.h:48
 msgid "Advanced"
 msgstr "מתקדם"
 
-#: ../src/plugins/cpu/cpu.c:268
+#: ../src/plugins/cpu/cpu.c:277
 msgid "CPU Usage Monitor"
 msgstr "צג ניצול המעבד"
 
-#: ../src/plugins/cpu/cpu.c:270 ../src/plugins/monitors/monitors.c:711
+#: ../src/plugins/cpu/cpu.c:279 ../src/plugins/monitors/monitors.c:711
 msgid "Display CPU usage"
 msgstr "הצגת ניצול המעבד"
 
-#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:438
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:440
 msgid "Bold font"
 msgstr "גופן מודגש"
 
@@ -461,7 +492,7 @@ msgstr "מספר שולחן העבודה / שם סביבת העבודה"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "הצגת מספר סביבת העבודה, נוצר על ידי cmeury@users.sf.net"
 
-#: ../src/plugins/image.c:177
+#: ../src/plugins/image.c:161
 msgid "Display Image and Tooltip"
 msgstr "הצגת תמונה ותיאור מוקפץ"
 
@@ -562,35 +593,35 @@ msgstr ""
 "סרגל המשימות מציג את כל החלונות הפתוחים ומאפשר למזער אותם לכדי סמל, להצל "
 "אותם או לקבל עבורם מיקוד"
 
-#: ../src/plugins/dclock.c:434
+#: ../src/plugins/dclock.c:436
 msgid "Clock Format"
 msgstr "מבנה השעון"
 
-#: ../src/plugins/dclock.c:435
+#: ../src/plugins/dclock.c:437
 msgid "Tooltip Format"
 msgstr "מבנה התיאורים המוקפצים"
 
-#: ../src/plugins/dclock.c:436
+#: ../src/plugins/dclock.c:438
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr "קודים למבנים אפשריים: man 3 strftime; \\n for line break"
 
-#: ../src/plugins/dclock.c:437
+#: ../src/plugins/dclock.c:439
 msgid "Action when clicked (default: display calendar)"
 msgstr "פעולה בעת הלחיצה (בררת המחדל: הצגת לוח השנה)"
 
-#: ../src/plugins/dclock.c:439
+#: ../src/plugins/dclock.c:441
 msgid "Tooltip only"
 msgstr "תאורים מוקפצים בלבד"
 
-#: ../src/plugins/dclock.c:440
+#: ../src/plugins/dclock.c:442
 msgid "Center text"
 msgstr "מירכוז הטקסט"
 
-#: ../src/plugins/dclock.c:469
+#: ../src/plugins/dclock.c:471
 msgid "Digital Clock"
 msgstr "שעון דיגיטלי"
 
-#: ../src/plugins/dclock.c:471
+#: ../src/plugins/dclock.c:473
 msgid "Display digital clock and tooltip"
 msgstr "הצגת שעון דיגיטלי ותאור מוקפץ"
 
@@ -602,15 +633,15 @@ msgstr "הוספה לשולחן העבודה"
 msgid "Properties"
 msgstr "מאפיינים"
 
-#: ../src/plugins/menu.c:1083 ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1084 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "סמל"
 
-#: ../src/plugins/menu.c:1100
+#: ../src/plugins/menu.c:1101
 msgid "Menu"
 msgstr "תפריט"
 
-#: ../src/plugins/menu.c:1102
+#: ../src/plugins/menu.c:1103
 msgid "Application Menu"
 msgstr "תפריט היישומים"
 
@@ -622,11 +653,11 @@ msgstr "מפריד"
 msgid "Add a separator to the panel"
 msgstr "הוספת מפריד לפאנל"
 
-#: ../src/plugins/pager.c:837
+#: ../src/plugins/pager.c:842
 msgid "Desktop Pager"
 msgstr "דפדפן שולחן העבודה"
 
-#: ../src/plugins/pager.c:839
+#: ../src/plugins/pager.c:844
 msgid "Simple pager plugin"
 msgstr "תוסף דפדפן פשוט"
 
@@ -638,50 +669,107 @@ msgstr "מרווח"
 msgid "Allocate space"
 msgstr "הקצאת מקום"
 
-#: ../src/plugins/tray.c:737
+#: ../src/plugins/tray.c:757
 msgid "System Tray"
 msgstr "אזור הדיווחים"
 
-#: ../src/plugins/tray.c:739
+#: ../src/plugins/tray.c:759
 msgid "System tray"
 msgstr "אזור הדיווחים"
 
-#: ../src/plugins/xkb/xkb-plugin.c:291
-msgid "Configure Keyboard Layout Switcher"
-msgstr "הגדרת מחליף פריסות המקלדת"
+#. dialog
+#: ../src/plugins/xkb/xkb-plugin.c:513
+#, fuzzy
+msgid "Select Keyboard Model"
+msgstr "נורית במקלדת"
 
-#: ../src/plugins/xkb/xkb-plugin.c:306
-msgid "Show layout as"
-msgstr "הצגת הפריסה בתור"
+#: ../src/plugins/xkb/xkb-plugin.c:536
+msgid "Model"
+msgstr ""
 
-#: ../src/plugins/xkb/xkb-plugin.c:321
-msgid "image"
-msgstr "תמונה"
+#: ../src/plugins/xkb/xkb-plugin.c:540 ../src/plugins/xkb/xkb-plugin.c:629
+#: ../src/plugins/xkb/xkb-plugin.c:780
+#, fuzzy
+msgid "Description"
+msgstr "יעד:"
 
-#: ../src/plugins/xkb/xkb-plugin.c:322
-msgid "text"
-msgstr "טקסט"
+#. dialog
+#: ../src/plugins/xkb/xkb-plugin.c:602
+#, fuzzy
+msgid "Select Layout Change Type"
+msgstr "בחירת קובץ תמונה"
 
-#: ../src/plugins/xkb/xkb-plugin.c:329
-msgid "Per application settings"
-msgstr "הגדרות יחודיות לכל יישום"
+#: ../src/plugins/xkb/xkb-plugin.c:625
+msgid "Change Type"
+msgstr ""
 
-#. Create a check button as the child of the vertical box.
-#: ../src/plugins/xkb/xkb-plugin.c:344
-msgid "_Remember layout for each application"
-msgstr "_שמירת הפריסה עבור כל יישום בנפרד"
-
-#. Create a label as the child of the horizontal box.
-#: ../src/plugins/xkb/xkb-plugin.c:354
-msgid "Default layout:"
-msgstr "פריסת בררת המחדל:"
-
-#: ../src/plugins/xkb/xkb-plugin.c:405
-msgid "Keyboard Layout Switcher"
+#. dialog
+#: ../src/plugins/xkb/xkb-plugin.c:747
+#, fuzzy
+msgid "Add Keyboard Layout"
 msgstr "מחליף פריסות המקלדת"
 
-#: ../src/plugins/xkb/xkb-plugin.c:407
-msgid "Switch between available keyboard layouts"
+#: ../src/plugins/xkb/xkb-plugin.c:770 ../src/plugins/xkb/xkb-plugin.c:1136
+msgid "Flag"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:775 ../src/plugins/xkb/xkb-plugin.c:1140
+msgid "Layout"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1053 ../src/plugins/xkb/xkb-plugin.c:1359
+#, fuzzy
+msgid "Keyboard Layout Handler"
+msgstr "מחליף פריסות המקלדת"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1070
+#, fuzzy
+msgid "Keyboard Model"
+msgstr "נורית במקלדת"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1090
+#, fuzzy
+msgid "Keyboard Layouts"
+msgstr "מחליף פריסות המקלדת"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1144
+msgid "Variant"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1152
+msgid "Change Layout Option"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1172
+#, fuzzy
+msgid "Per Window Settings"
+msgstr "הגדרות הפאנל"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1184
+#, fuzzy
+msgid "_Remember layout for each window"
+msgstr "_שמירת הפריסה עבור כל יישום בנפרד"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1193
+#, fuzzy
+msgid "Show Layout as"
+msgstr "הצגת הפריסה בתור"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1254
+msgid "Custom Image"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1255
+msgid "Text"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1281
+msgid "Panel Icon Size"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1361
+#, fuzzy
+msgid "Handle keyboard layouts"
 msgstr "החלפה בין פריסות המקלדת הזמינות"
 
 #: ../src/plugins/wincmd.c:209
@@ -767,28 +855,28 @@ msgstr "הצגת טמפרטורת המערכת"
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
 #: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:339
-#: ../src/plugins/volumealsa/volumealsa.c:509
+#: ../src/plugins/volumealsa/volumealsa.c:362
+#: ../src/plugins/volumealsa/volumealsa.c:544
 msgid "Volume control"
 msgstr "בקרת עוצמת השמע"
 
 #: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:629
+#: ../src/plugins/volumealsa/volumealsa.c:665
 msgid "Volume Control"
 msgstr "בקרת עוצמת השמע"
 
 #. Create a frame as the child of the viewport.
 #: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:467
+#: ../src/plugins/volumealsa/volumealsa.c:502
 msgid "Volume"
 msgstr "עוצמת השמע"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/volumealsa/volumealsa.c:486
+#: ../src/plugins/volumealsa/volumealsa.c:521
 msgid "Mute"
 msgstr "השתקה"
 
-#: ../src/plugins/volumealsa/volumealsa.c:602
+#: ../src/plugins/volumealsa/volumealsa.c:638
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
@@ -813,75 +901,75 @@ msgstr "תיקון"
 msgid "Disable"
 msgstr "ביטול"
 
-#: ../src/plugins/netstat/netstat.c:313
+#: ../src/plugins/netstat/netstat.c:342
 msgid "Wireless Connection has no connectivity"
 msgstr "החיבור האלחוטי אינו מקושר"
 
-#: ../src/plugins/netstat/netstat.c:315
+#: ../src/plugins/netstat/netstat.c:344
 msgid "Network cable is plugged out"
 msgstr "כבל הרשת מנותק"
 
-#: ../src/plugins/netstat/netstat.c:317
+#: ../src/plugins/netstat/netstat.c:346
 msgid "Connection has limited or no connectivity"
 msgstr "הקישוריות מוגבלת או חסרה"
 
-#: ../src/plugins/netstat/netstat.c:321 ../src/plugins/netstat/netstat.c:332
-#: ../src/plugins/netstat/netstat.c:343
+#: ../src/plugins/netstat/netstat.c:350 ../src/plugins/netstat/netstat.c:361
+#: ../src/plugins/netstat/netstat.c:372
 msgid "IP Address:"
 msgstr "כתובת ה־IP:"
 
-#: ../src/plugins/netstat/netstat.c:322
+#: ../src/plugins/netstat/netstat.c:351
 msgid "Remote IP:"
 msgstr "IP מרוחק:"
 
-#: ../src/plugins/netstat/netstat.c:323 ../src/plugins/netstat/netstat.c:334
-#: ../src/plugins/netstat/netstat.c:345
+#: ../src/plugins/netstat/netstat.c:352 ../src/plugins/netstat/netstat.c:363
+#: ../src/plugins/netstat/netstat.c:374
 msgid "Netmask:"
 msgstr "מסכת רשת:"
 
-#: ../src/plugins/netstat/netstat.c:324 ../src/plugins/netstat/netstat.c:336
-#: ../src/plugins/netstat/netstat.c:347
+#: ../src/plugins/netstat/netstat.c:353 ../src/plugins/netstat/netstat.c:365
+#: ../src/plugins/netstat/netstat.c:376
 msgid "Activity"
 msgstr "פעילות"
 
-#: ../src/plugins/netstat/netstat.c:324 ../src/plugins/netstat/netstat.c:336
-#: ../src/plugins/netstat/netstat.c:347
+#: ../src/plugins/netstat/netstat.c:353 ../src/plugins/netstat/netstat.c:365
+#: ../src/plugins/netstat/netstat.c:376
 msgid "Sent"
 msgstr "נשלחו"
 
-#: ../src/plugins/netstat/netstat.c:324 ../src/plugins/netstat/netstat.c:336
-#: ../src/plugins/netstat/netstat.c:347
+#: ../src/plugins/netstat/netstat.c:353 ../src/plugins/netstat/netstat.c:365
+#: ../src/plugins/netstat/netstat.c:376
 msgid "Received"
 msgstr "התקבלו"
 
-#: ../src/plugins/netstat/netstat.c:325 ../src/plugins/netstat/netstat.c:337
-#: ../src/plugins/netstat/netstat.c:348
+#: ../src/plugins/netstat/netstat.c:354 ../src/plugins/netstat/netstat.c:366
+#: ../src/plugins/netstat/netstat.c:377
 msgid "bytes"
 msgstr "בתים"
 
-#: ../src/plugins/netstat/netstat.c:326 ../src/plugins/netstat/netstat.c:338
-#: ../src/plugins/netstat/netstat.c:349
+#: ../src/plugins/netstat/netstat.c:355 ../src/plugins/netstat/netstat.c:367
+#: ../src/plugins/netstat/netstat.c:378
 msgid "packets"
 msgstr "מנות נתונים"
 
-#: ../src/plugins/netstat/netstat.c:329
+#: ../src/plugins/netstat/netstat.c:358
 #: ../src/plugins/netstatus/netstatus-iface.c:173
 msgid "Wireless"
 msgstr "אלחוטי"
 
-#: ../src/plugins/netstat/netstat.c:331
+#: ../src/plugins/netstat/netstat.c:360
 msgid "Protocol:"
 msgstr "פרוטוקול:"
 
-#: ../src/plugins/netstat/netstat.c:335 ../src/plugins/netstat/netstat.c:346
+#: ../src/plugins/netstat/netstat.c:364 ../src/plugins/netstat/netstat.c:375
 msgid "HW Address:"
 msgstr "כתובת החומרה:"
 
-#: ../src/plugins/netstat/netstat.c:484
+#: ../src/plugins/netstat/netstat.c:513
 msgid "Manage Networks"
 msgstr "ניהול רשתות"
 
-#: ../src/plugins/netstat/netstat.c:486
+#: ../src/plugins/netstat/netstat.c:515
 msgid "Monitor and Manage networks"
 msgstr "מעקב וניהול רשתות"
 
@@ -1251,86 +1339,86 @@ msgstr "מקבל"
 msgid "Sending/Receiving"
 msgstr "שולח/מקבל"
 
-#: ../src/plugins/batt/batt.c:132
+#: ../src/plugins/batt/batt.c:133
 msgid "No batteries found"
 msgstr "לא נמצאו סוללות"
 
-#: ../src/plugins/batt/batt.c:176
+#: ../src/plugins/batt/batt.c:179
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
 msgstr "סוללה: נטענו %d%%,‏ נותרו %d:%02d עד שתתמלא"
 
-#: ../src/plugins/batt/batt.c:187
+#: ../src/plugins/batt/batt.c:190
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr "סוללה: נטענו %d%%,‏ נותרו %d:%02d"
 
-#: ../src/plugins/batt/batt.c:193
+#: ../src/plugins/batt/batt.c:196
 #, c-format
 msgid "Battery: %d%% charged"
 msgstr "סוללה: נטענו %d%%"
 
-#: ../src/plugins/batt/batt.c:573
+#: ../src/plugins/batt/batt.c:554
 msgid "Hide if there is no battery"
 msgstr "להסתיר אם אין כלל סוללה"
 
-#: ../src/plugins/batt/batt.c:575
+#: ../src/plugins/batt/batt.c:556
 msgid "Alarm command"
 msgstr "פקודת ההתרעה"
 
-#: ../src/plugins/batt/batt.c:576
+#: ../src/plugins/batt/batt.c:557
 msgid "Alarm time (minutes left)"
 msgstr "זמן ההתרעה (דקות שנותרו)"
 
-#: ../src/plugins/batt/batt.c:577
+#: ../src/plugins/batt/batt.c:558
 msgid "Background color"
 msgstr "צבע הרקע"
 
-#: ../src/plugins/batt/batt.c:578
+#: ../src/plugins/batt/batt.c:559
 msgid "Charging color 1"
 msgstr "צבע טעינה 1"
 
-#: ../src/plugins/batt/batt.c:579
+#: ../src/plugins/batt/batt.c:560
 msgid "Charging color 2"
 msgstr "צבע טעינה 2"
 
-#: ../src/plugins/batt/batt.c:580
+#: ../src/plugins/batt/batt.c:561
 msgid "Discharging color 1"
 msgstr "צבע פריקה 1"
 
-#: ../src/plugins/batt/batt.c:581
+#: ../src/plugins/batt/batt.c:562
 msgid "Discharging color 2"
 msgstr "צבע פריקה 2"
 
-#: ../src/plugins/batt/batt.c:582
+#: ../src/plugins/batt/batt.c:563
 msgid "Border width"
 msgstr "עובי המסגרת"
 
-#: ../src/plugins/batt/batt.c:612
+#: ../src/plugins/batt/batt.c:593
 msgid "Battery Monitor"
 msgstr "צג הסוללה"
 
-#: ../src/plugins/batt/batt.c:614
+#: ../src/plugins/batt/batt.c:595
 msgid "Display battery status using ACPI"
 msgstr "הצגת מצב הסוללה באמצעות ACPI"
 
-#: ../src/plugins/kbled/kbled.c:230
+#: ../src/plugins/kbled/kbled.c:258
 msgid "Show CapsLock"
 msgstr "הצגת ה־CapsLock"
 
-#: ../src/plugins/kbled/kbled.c:231
+#: ../src/plugins/kbled/kbled.c:259
 msgid "Show NumLock"
 msgstr "הצגת ה־NumLock"
 
-#: ../src/plugins/kbled/kbled.c:232
+#: ../src/plugins/kbled/kbled.c:260
 msgid "Show ScrollLock"
 msgstr "הצגת ה־ScrollLock"
 
-#: ../src/plugins/kbled/kbled.c:267
+#: ../src/plugins/kbled/kbled.c:295
 msgid "Keyboard LED"
 msgstr "נורית במקלדת"
 
-#: ../src/plugins/kbled/kbled.c:269
+#: ../src/plugins/kbled/kbled.c:297
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "נוריות החיווי של מקשי ה־CapsLock, NumLock, וה־ScrollLock"
 
@@ -1371,12 +1459,12 @@ msgstr "יישומוני חיווי"
 msgid "Add indicator applets to the panel"
 msgstr "הוספת יישומוני חיווי לפאנל"
 
-#: ../src/plugins/monitors/monitors.c:284
+#: ../src/plugins/monitors/monitors.c:277
 #, c-format
 msgid "CPU usage: %.2f%%"
 msgstr "ניצול המעבד: %.2f%%"
 
-#: ../src/plugins/monitors/monitors.c:367
+#: ../src/plugins/monitors/monitors.c:360
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
 msgstr "שימוש בזיכרון: %.1f מ״ב (%.2f%%)"
@@ -1413,14 +1501,29 @@ msgstr "WNCKPager"
 msgid "WNCKpager plugin"
 msgstr "תוסף WNCKpager"
 
+#~ msgid "<b>Icon</b>"
+#~ msgstr "<b>סמל</b>"
+
+#~ msgid "Configure Keyboard Layout Switcher"
+#~ msgstr "הגדרת מחליף פריסות המקלדת"
+
+#~ msgid "image"
+#~ msgstr "תמונה"
+
+#~ msgid "text"
+#~ msgstr "טקסט"
+
+#~ msgid "Per application settings"
+#~ msgstr "הגדרות יחודיות לכל יישום"
+
+#~ msgid "Default layout:"
+#~ msgstr "פריסת בררת המחדל:"
+
 #~ msgid "Available Applications"
 #~ msgstr "יישומים זמינים"
 
 #~ msgid "Display system temperature, by kesler.daniel@gmail.com"
 #~ msgstr "הצגת טמפרטורת המערכת, נוצר על ידי kesler.daniel@gmail.com"
-
-#~ msgid "Keyboard Led"
-#~ msgstr "נורית במקלדת"
 
 #~ msgid "Desktop No / Workspace Name"
 #~ msgstr "מספר שולחן העבודה / שם סביבת העבודה"
