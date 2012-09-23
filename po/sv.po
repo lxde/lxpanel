@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:11+0200\n"
-"PO-Revision-Date: 2012-06-07 22:07+0200\n"
+"PO-Revision-Date: 2012-09-23 15:19+0200\n"
 "Last-Translator: Martin <brother@bsnet.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -316,25 +316,23 @@ msgstr "% Procent"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "None"
-msgstr ""
+msgstr "Inga"
 
 #: ../data/ui/panel-pref.glade.h:6
-#, fuzzy
 msgid "Err"
 msgstr "Fel"
 
 #: ../data/ui/panel-pref.glade.h:7
-#, fuzzy
 msgid "Warn"
-msgstr "Varning1"
+msgstr "Varna"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "All"
-msgstr ""
+msgstr "Alla"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "Panel Preferences"
@@ -362,7 +360,7 @@ msgstr "<b>Position</b>"
 
 #: ../data/ui/panel-pref.glade.h:22
 msgid "Icon size:"
-msgstr ""
+msgstr "Ikonstorlek:"
 
 #: ../data/ui/panel-pref.glade.h:23
 msgid "<b>Size</b>"
@@ -460,12 +458,11 @@ msgstr "<b>Dölj automatiskt</b>"
 
 #: ../data/ui/panel-pref.glade.h:46
 msgid "Log level"
-msgstr ""
+msgstr "Nivå för loggning"
 
 #: ../data/ui/panel-pref.glade.h:47
-#, fuzzy
 msgid "<b>Log level</b>"
-msgstr "<b>Nätverksenhet</b>"
+msgstr "<b>Loggnivå</b>"
 
 #: ../data/ui/panel-pref.glade.h:48
 msgid "Advanced"
@@ -682,98 +679,87 @@ msgstr "Systembricka"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:513
-#, fuzzy
 msgid "Select Keyboard Model"
-msgstr "Ljusindikator på tangentbord"
+msgstr "Ange tangentbordsmodell"
 
 #: ../src/plugins/xkb/xkb-plugin.c:536
 msgid "Model"
-msgstr ""
+msgstr "Modell"
 
 #: ../src/plugins/xkb/xkb-plugin.c:540 ../src/plugins/xkb/xkb-plugin.c:629
 #: ../src/plugins/xkb/xkb-plugin.c:780
-#, fuzzy
 msgid "Description"
-msgstr "Mottagare:"
+msgstr "Beskrivning"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:602
-#, fuzzy
 msgid "Select Layout Change Type"
-msgstr "Välj en bildfil"
+msgstr "Ange typ av tangentupplägsbyte"
 
 #: ../src/plugins/xkb/xkb-plugin.c:625
 msgid "Change Type"
-msgstr ""
+msgstr "Typ av byte"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:747
-#, fuzzy
 msgid "Add Keyboard Layout"
-msgstr "Hanterare för tangentbordsuppsättning"
+msgstr "Lägg till tangentbordsupplägg"
 
 #: ../src/plugins/xkb/xkb-plugin.c:770 ../src/plugins/xkb/xkb-plugin.c:1136
 msgid "Flag"
-msgstr ""
+msgstr "Flagga"
 
 #: ../src/plugins/xkb/xkb-plugin.c:775 ../src/plugins/xkb/xkb-plugin.c:1140
 msgid "Layout"
-msgstr ""
+msgstr "Upplägg"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1053 ../src/plugins/xkb/xkb-plugin.c:1359
-#, fuzzy
 msgid "Keyboard Layout Handler"
-msgstr "Hanterare för tangentbordsuppsättning"
+msgstr "Hanterare för tangentbordsupplägg"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1070
-#, fuzzy
 msgid "Keyboard Model"
-msgstr "Ljusindikator på tangentbord"
+msgstr "Tangentbordsmodell"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1090
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "Hanterare för tangentbordsuppsättning"
+msgstr "Tangentbordsupplägg"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1144
 msgid "Variant"
-msgstr ""
+msgstr "Variant"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1152
 msgid "Change Layout Option"
-msgstr ""
+msgstr "Alternativ för att byta upplägg"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1172
-#, fuzzy
 msgid "Per Window Settings"
-msgstr "Panelinställningar"
+msgstr "Inställningar per fönster"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1184
-#, fuzzy
 msgid "_Remember layout for each window"
-msgstr "_Kom ihåg tangentbordsuppsättning för varje program"
+msgstr "_Kom ihåg tangentbordsuppsättning för varje fönster"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1193
-#, fuzzy
 msgid "Show Layout as"
-msgstr "Visa uppsättning som"
+msgstr "Visa upplägg som"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1254
 msgid "Custom Image"
-msgstr ""
+msgstr "Anpassad bild"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1255
 msgid "Text"
-msgstr ""
+msgstr "Text"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1281
 msgid "Panel Icon Size"
-msgstr ""
+msgstr "Ikonstorlek i panel"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1361
-#, fuzzy
 msgid "Handle keyboard layouts"
-msgstr "Byta mellan tillgängliga tangentbordsuppsättningar"
+msgstr "Hantera tangentbordsupplägg"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
@@ -1353,7 +1339,7 @@ msgstr "Inget batteri hittat"
 #: ../src/plugins/batt/batt.c:179
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
-msgstr "Batteri; %d%% laddat, %d%02d tills det är fullt."
+msgstr "Batteri: %d%% laddat, %d:%02d tills det är fullt"
 
 #: ../src/plugins/batt/batt.c:190
 #, c-format
