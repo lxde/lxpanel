@@ -646,6 +646,8 @@ static void launchbar_configure_remove_button(GtkButton * widget, Plugin * p)
         icon_grid_remove(lb->icon_grid, btn->widget);
         lb->buttons = g_slist_remove(lb->buttons, btn);
         launchbutton_free(btn);
+        
+        gtk_widget_set_visible(lb->p_label_def_app_exec, FALSE);
 
         /* Put the bootstrap button back if the list becomes empty. */
         if (lb->buttons == NULL)
