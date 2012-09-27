@@ -45,6 +45,7 @@ typedef struct {
     GtkWidget    *p_image;                     /* Image containing country flag */
     DisplayType   display_type;                /* Display layout as image or text */
     gboolean      enable_perwin;               /* Enable per window layout */
+    gboolean      do_not_reset_opt;            /* Do not reset options in setxkbmap */
     guint         source_id;                   /* Source ID for channel listening to XKB events */
     GtkWidget    *p_dialog_config;             /* Configuration dialog */
     GtkListStore *p_liststore_layout;

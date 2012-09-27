@@ -82,6 +82,7 @@ static void      on_radiobutton_disp_type_image_toggled(GtkToggleButton *p_radio
 static void      on_radiobutton_disp_type_image_cust_toggled(GtkToggleButton *p_radiobutton, gpointer p_data);
 static void      on_radiobutton_disp_type_text_toggled(GtkToggleButton *p_radiobutton, gpointer p_data);
 static void      on_xkb_checkbutton_per_app_toggled(GtkToggleButton *tb, gpointer p_data);
+static void      on_xkb_checkbutton_no_reset_opt_toggled(GtkToggleButton *tb, gpointer p_data);
 static void      on_dialog_config_response(GtkDialog *p_dialog, gint response, gpointer p_data);
 
 static unsigned char  user_active = FALSE;
@@ -221,6 +222,7 @@ static int xkb_constructor(Plugin * p_plugin, char ** fp)
     /* Initialize to defaults. */
     p_xkb->display_type = DISP_TYPE_IMAGE;
     p_xkb->enable_perwin = FALSE;
+    p_xkb->do_not_reset_opt = FALSE;
     p_xkb->kbd_model = NULL;
     p_xkb->kbd_layouts = NULL;
     p_xkb->kbd_variants = NULL;
@@ -249,6 +251,10 @@ static int xkb_constructor(Plugin * p_plugin, char ** fp)
                 else if(g_ascii_strcasecmp(s.t[0], "PerWinLayout") == 0)
                 {
                     p_xkb->enable_perwin = str2num(bool_pair, s.t[1], 0);
+                }
+                else if(g_ascii_strcasecmp(s.t[0], "NoResetOpt") == 0)
+                {
+                    p_xkb->do_not_reset_opt = str2num(bool_pair, s.t[1], 0);
                 }
                 else if(g_ascii_strcasecmp(s.t[0], "Model") == 0)
                 {
@@ -375,6 +381,18 @@ static void on_xkb_checkbutton_per_app_toggled(GtkToggleButton *tb, gpointer p_d
                 g_hash_table_destroy(xkb->p_hash_table_group);
             xkb->p_hash_table_group = g_hash_table_new(g_direct_hash, NULL);
         }
+        xkb_redraw(xkb);
+    }
+}
+
+/* Handler for "toggled" event on no reset options check box of configuration dialog. */
+static void on_xkb_checkbutton_no_reset_opt_toggled(GtkToggleButton *tb, gpointer p_data) 
+{
+    if(user_active == TRUE)
+    {
+        /* Fetch the new value and redraw. */
+        XkbPlugin * xkb = (XkbPlugin *)p_data;
+        xkb->do_not_reset_opt = gtk_toggle_button_get_active(tb);
         xkb_redraw(xkb);
     }
 }
@@ -936,9 +954,12 @@ void xkb_setxkbmap(XkbPlugin *p_xkb)
     g_string_printf(p_gstring_syscmd,
                     "setxkbmap -model %s -layout %s -variant %s -option grp:%s",
                     p_xkb->kbd_model, p_xkb->kbd_layouts, p_xkb->kbd_variants, p_xkb->kbd_change_option);
-    if(system("setxkbmap -option")) // reset options
+    if(!p_xkb->do_not_reset_opt)
     {
-        ERR("xkb: system(setxkbmap -option)\n");
+        if(system("setxkbmap -option")) // reset options
+        {
+            ERR("xkb: system(setxkbmap -option)\n");
+        }
     }
     if(system(p_gstring_syscmd->str)) // set new map
     {
@@ -1209,8 +1230,8 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
     GtkWidget * p_entry_advanced_opt = gtk_entry_new();
     gtk_box_pack_start(GTK_BOX(p_vbox_advanced_opt), p_entry_advanced_opt, FALSE, TRUE, 0);
     GtkWidget *p_checkbutton_no_reset_opt = gtk_check_button_new_with_mnemonic(_("Do _not reset existing options"));
-    //gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_checkbutton_per_app), p_xkb->enable_perwin);
-    //g_signal_connect(p_checkbutton_per_app, "toggled", G_CALLBACK(on_xkb_checkbutton_per_app_toggled), p_xkb);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_checkbutton_no_reset_opt), p_xkb->do_not_reset_opt);
+    g_signal_connect(p_checkbutton_no_reset_opt, "toggled", G_CALLBACK(on_xkb_checkbutton_no_reset_opt_toggled), p_xkb);
     gtk_box_pack_start(GTK_BOX(p_vbox_advanced_opt), p_checkbutton_no_reset_opt, FALSE, TRUE, 0);
 
 
@@ -1382,6 +1403,7 @@ static void xkb_save_configuration(Plugin * p, FILE * fp)
     XkbPlugin * p_xkb = (XkbPlugin *)p->priv;
     lxpanel_put_int(fp, "DisplayType", p_xkb->display_type);
     lxpanel_put_int(fp, "PerWinLayout", p_xkb->enable_perwin);
+    lxpanel_put_int(fp, "NoResetOpt", p_xkb->do_not_reset_opt);
     lxpanel_put_str(fp, "Model", p_xkb->kbd_model);
     lxpanel_put_str(fp, "LayoutsList", p_xkb->kbd_layouts);
     lxpanel_put_str(fp, "VariantsList", p_xkb->kbd_variants);
