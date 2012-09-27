@@ -1204,10 +1204,14 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
     GtkWidget * p_alignment_advanced_opt = gtk_alignment_new(0.5, 0.5, 1, 1);
     gtk_container_add(GTK_CONTAINER(p_frame_advanced_opt), p_alignment_advanced_opt);
     gtk_alignment_set_padding(GTK_ALIGNMENT(p_alignment_advanced_opt), 4, 4, 10, 10);
-    //GtkWidget *p_checkbutton_per_app = gtk_check_button_new_with_mnemonic(_("_Remember layout for each window"));
+    GtkWidget * p_vbox_advanced_opt = gtk_vbox_new(FALSE, 0);
+    gtk_container_add(GTK_CONTAINER(p_alignment_advanced_opt), p_vbox_advanced_opt);
+    GtkWidget * p_entry_advanced_opt = gtk_entry_new();
+    gtk_box_pack_start(GTK_BOX(p_vbox_advanced_opt), p_entry_advanced_opt, FALSE, TRUE, 0);
+    GtkWidget *p_checkbutton_no_reset_opt = gtk_check_button_new_with_mnemonic(_("Do _not reset existing options"));
     //gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_checkbutton_per_app), p_xkb->enable_perwin);
     //g_signal_connect(p_checkbutton_per_app, "toggled", G_CALLBACK(on_xkb_checkbutton_per_app_toggled), p_xkb);
-    //gtk_container_add(GTK_CONTAINER(p_alignment_advanced_opt), p_checkbutton_per_app);
+    gtk_box_pack_start(GTK_BOX(p_vbox_advanced_opt), p_checkbutton_no_reset_opt, FALSE, TRUE, 0);
 
 
     // 'PER WINDOW SETTINGS' frame
