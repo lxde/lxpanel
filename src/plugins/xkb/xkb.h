@@ -67,6 +67,7 @@ typedef struct {
     gchar    *kbd_layouts;
     gchar    *kbd_variants;
     gchar    *kbd_change_option;
+    gchar    *kbd_advanced_options;
     guchar    flag_size;
     GString  *p_gstring_layouts_partial;
     GString  *p_gstring_variants_partial;

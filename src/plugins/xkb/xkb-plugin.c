@@ -227,6 +227,7 @@ static int xkb_constructor(Plugin * p_plugin, char ** fp)
     p_xkb->kbd_layouts = NULL;
     p_xkb->kbd_variants = NULL;
     p_xkb->kbd_change_option = NULL;
+    p_xkb->kbd_advanced_options = NULL;
     p_xkb->flag_size = 3;
     p_xkb->cust_dir_exists = g_file_test(FLAGSCUSTDIR,  G_FILE_TEST_IS_DIR);
 
@@ -271,6 +272,10 @@ static int xkb_constructor(Plugin * p_plugin, char ** fp)
                 else if(g_ascii_strcasecmp(s.t[0], "ToggleOpt") == 0)
                 {
                     p_xkb->kbd_change_option = g_strdup(s.t[1]);
+                }
+                else if(g_ascii_strcasecmp(s.t[0], "AdvancedOpt") == 0)
+                {
+                    p_xkb->kbd_advanced_options = g_strdup(s.t[1]);
                 }
                 else if(g_ascii_strcasecmp(s.t[0], "FlagSize") == 0)
                 {
@@ -363,6 +368,7 @@ static void xkb_destructor(Plugin * p_plugin)
     g_free(p_xkb->kbd_layouts);
     g_free(p_xkb->kbd_variants);
     g_free(p_xkb->kbd_change_option);
+    g_free(p_xkb->kbd_advanced_options);
     g_free(p_xkb);
 }
 
@@ -1228,6 +1234,7 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
     GtkWidget * p_vbox_advanced_opt = gtk_vbox_new(FALSE, 0);
     gtk_container_add(GTK_CONTAINER(p_alignment_advanced_opt), p_vbox_advanced_opt);
     GtkWidget * p_entry_advanced_opt = gtk_entry_new();
+    gtk_entry_set_icon_from_stock(GTK_ENTRY(p_entry_advanced_opt), GTK_ENTRY_ICON_SECONDARY, "gtk-save");
     gtk_box_pack_start(GTK_BOX(p_vbox_advanced_opt), p_entry_advanced_opt, FALSE, TRUE, 0);
     GtkWidget *p_checkbutton_no_reset_opt = gtk_check_button_new_with_mnemonic(_("Do _not reset existing options"));
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_checkbutton_no_reset_opt), p_xkb->do_not_reset_opt);
@@ -1408,6 +1415,7 @@ static void xkb_save_configuration(Plugin * p, FILE * fp)
     lxpanel_put_str(fp, "LayoutsList", p_xkb->kbd_layouts);
     lxpanel_put_str(fp, "VariantsList", p_xkb->kbd_variants);
     lxpanel_put_str(fp, "ToggleOpt", p_xkb->kbd_change_option);
+    lxpanel_put_str(fp, "AdvancedOpt", p_xkb->kbd_advanced_options);
     lxpanel_put_int(fp, "FlagSize", p_xkb->flag_size);
 }
 
