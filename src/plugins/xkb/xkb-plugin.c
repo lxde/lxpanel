@@ -1079,8 +1079,12 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
     panel_apply_icon(GTK_WINDOW(dlg));
 
     // main vbox of the config dialog
-    GtkWidget * p_vbox_main = gtk_vbox_new(FALSE, 0);
-    gtk_container_add(GTK_CONTAINER(GTK_DIALOG(dlg)->vbox), p_vbox_main);
+    GtkWidget * p_hbox_main = gtk_hbox_new(TRUE, 0);
+    GtkWidget * p_vbox_left = gtk_vbox_new(FALSE, 0);
+    GtkWidget * p_vbox_right = gtk_vbox_new(FALSE, 0);
+    gtk_container_add(GTK_CONTAINER(GTK_DIALOG(dlg)->vbox), p_hbox_main);
+    gtk_box_pack_start(GTK_BOX(p_hbox_main), p_vbox_left, FALSE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(p_hbox_main), p_vbox_right, FALSE, TRUE, 0);
 
 
     // 'KEYBOARD MODEL' frame
@@ -1091,7 +1095,7 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
     gtk_misc_set_padding(GTK_MISC(p_label_kbd_model), 1, 0);
     gtk_frame_set_label_widget(GTK_FRAME(p_frame_kbd_model), p_label_kbd_model);
     gtk_frame_set_shadow_type(GTK_FRAME(p_frame_kbd_model), GTK_SHADOW_NONE);
-    gtk_box_pack_start(GTK_BOX(p_vbox_main), p_frame_kbd_model, TRUE, TRUE, 2);
+    gtk_box_pack_start(GTK_BOX(p_vbox_left), p_frame_kbd_model, TRUE, TRUE, 2);
     gtk_container_set_border_width(GTK_CONTAINER(p_frame_kbd_model), 3);
 
     // frame alignment
@@ -1111,9 +1115,9 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
     gtk_misc_set_padding(GTK_MISC(p_label_kbd_layouts), 1, 0);
     gtk_frame_set_label_widget(GTK_FRAME(p_frame_kbd_layouts), p_label_kbd_layouts);
     gtk_frame_set_shadow_type(GTK_FRAME(p_frame_kbd_layouts), GTK_SHADOW_NONE);
-    gtk_box_pack_start(GTK_BOX(p_vbox_main), p_frame_kbd_layouts, TRUE, TRUE, 2);
+    gtk_box_pack_start(GTK_BOX(p_vbox_left), p_frame_kbd_layouts, TRUE, TRUE, 2);
     gtk_container_set_border_width(GTK_CONTAINER(p_frame_kbd_layouts), 3);
-    gtk_widget_set_size_request(GTK_WIDGET(p_frame_kbd_layouts), -1, 180);
+    gtk_widget_set_size_request(GTK_WIDGET(p_frame_kbd_layouts), 300, 180);
 
     // frame alignment
     GtkWidget * p_alignment_kbd_layouts = gtk_alignment_new(0.5, 0.5, 1, 1);
@@ -1173,7 +1177,7 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
     gtk_misc_set_padding(GTK_MISC(p_label_change_layout), 1, 0);
     gtk_frame_set_label_widget(GTK_FRAME(p_frame_change_layout), p_label_change_layout);
     gtk_frame_set_shadow_type(GTK_FRAME(p_frame_change_layout), GTK_SHADOW_NONE);
-    gtk_box_pack_start(GTK_BOX(p_vbox_main), p_frame_change_layout, TRUE, TRUE, 2);
+    gtk_box_pack_start(GTK_BOX(p_vbox_left), p_frame_change_layout, TRUE, TRUE, 2);
     gtk_container_set_border_width(GTK_CONTAINER(p_frame_change_layout), 3);
 
     // frame alignment
@@ -1193,7 +1197,7 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
     gtk_misc_set_padding(GTK_MISC(p_label_perapp_layout), 1, 0);
     gtk_frame_set_label_widget(GTK_FRAME(p_frame_perapp_layout), p_label_perapp_layout);
     gtk_frame_set_shadow_type(GTK_FRAME(p_frame_perapp_layout), GTK_SHADOW_NONE);
-    gtk_box_pack_start(GTK_BOX(p_vbox_main), p_frame_perapp_layout, TRUE, TRUE, 2);
+    gtk_box_pack_start(GTK_BOX(p_vbox_right), p_frame_perapp_layout, TRUE, TRUE, 2);
     gtk_container_set_border_width(GTK_CONTAINER(p_frame_perapp_layout), 3);
 
     // frame alignment
@@ -1214,7 +1218,7 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
     gtk_misc_set_padding(GTK_MISC(p_label_show_layout_as), 1, 0);
     gtk_frame_set_label_widget(GTK_FRAME(p_frame_display_type), p_label_show_layout_as);
     gtk_frame_set_shadow_type(GTK_FRAME(p_frame_display_type), GTK_SHADOW_NONE);
-    gtk_box_pack_start(GTK_BOX(p_vbox_main), p_frame_display_type, TRUE, TRUE, 2);
+    gtk_box_pack_start(GTK_BOX(p_vbox_right), p_frame_display_type, TRUE, TRUE, 2);
     gtk_container_set_border_width(GTK_CONTAINER(p_frame_display_type), 3);
 
     // frame alignment
@@ -1302,7 +1306,7 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
     gtk_misc_set_padding(GTK_MISC(p_label_flag_size), 1, 0);
     gtk_frame_set_label_widget(GTK_FRAME(p_frame_flag_size), p_label_flag_size);
     gtk_frame_set_shadow_type(GTK_FRAME(p_frame_flag_size), GTK_SHADOW_NONE);
-    gtk_box_pack_start(GTK_BOX(p_vbox_main), p_frame_flag_size, TRUE, TRUE, 2);
+    gtk_box_pack_start(GTK_BOX(p_vbox_right), p_frame_flag_size, TRUE, TRUE, 2);
     gtk_container_set_border_width(GTK_CONTAINER(p_frame_flag_size), 3);
 
     // frame alignment
@@ -1341,7 +1345,6 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
     g_signal_connect(p_xkb->p_dialog_config, "response", G_CALLBACK(on_dialog_config_response), p_xkb);
 
     /* Display the dialog. */
-    gtk_widget_set_size_request(p_xkb->p_dialog_config, 350, -1);
     gtk_widget_show_all(p_xkb->p_dialog_config);
     gtk_window_present(GTK_WINDOW(p_xkb->p_dialog_config));
     
