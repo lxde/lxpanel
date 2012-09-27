@@ -84,6 +84,10 @@ static void      on_radiobutton_disp_type_text_toggled(GtkToggleButton *p_radiob
 static void      on_xkb_checkbutton_per_app_toggled(GtkToggleButton *tb, gpointer p_data);
 static void      on_xkb_checkbutton_no_reset_opt_toggled(GtkToggleButton *tb, gpointer p_data);
 static void      on_dialog_config_response(GtkDialog *p_dialog, gint response, gpointer p_data);
+static void      on_xkb_entry_advanced_opt_icon_press(GtkEntry             *p_entry,
+                                                      GtkEntryIconPosition  icon_pos,
+                                                      GdkEvent             *p_event,
+                                                      gpointer              p_data);
 
 static unsigned char  user_active = FALSE;
 static const gchar    flag_filepath_generator[] = "%s/%s.png";
@@ -209,6 +213,16 @@ static gboolean on_xkb_button_press_event(GtkWidget * widget,  GdkEventButton * 
     /* Change to next group. */
     xkb_change_group(xkb, 1);
     return TRUE;
+}
+
+static void on_xkb_entry_advanced_opt_icon_press(GtkEntry             *p_entry,
+                                                 GtkEntryIconPosition  icon_pos,
+                                                 GdkEvent             *p_event,
+                                                 gpointer              p_data)
+{
+    XkbPlugin *p_xkb = (XkbPlugin *)p_data;
+    g_free(p_xkb->kbd_advanced_options);
+    p_xkb->kbd_advanced_options = g_strdup(gtk_entry_get_text(p_entry));
 }
 
 /* Plugin constructor. */
@@ -1234,7 +1248,9 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
     GtkWidget * p_vbox_advanced_opt = gtk_vbox_new(FALSE, 0);
     gtk_container_add(GTK_CONTAINER(p_alignment_advanced_opt), p_vbox_advanced_opt);
     GtkWidget * p_entry_advanced_opt = gtk_entry_new();
+    gtk_entry_set_text(GTK_ENTRY(p_entry_advanced_opt), p_xkb->kbd_advanced_options);
     gtk_entry_set_icon_from_stock(GTK_ENTRY(p_entry_advanced_opt), GTK_ENTRY_ICON_SECONDARY, "gtk-save");
+    g_signal_connect(p_entry_advanced_opt, "icon-press", G_CALLBACK(on_xkb_entry_advanced_opt_icon_press), p_xkb);
     gtk_box_pack_start(GTK_BOX(p_vbox_advanced_opt), p_entry_advanced_opt, FALSE, TRUE, 0);
     GtkWidget *p_checkbutton_no_reset_opt = gtk_check_button_new_with_mnemonic(_("Do _not reset existing options"));
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_checkbutton_no_reset_opt), p_xkb->do_not_reset_opt);
