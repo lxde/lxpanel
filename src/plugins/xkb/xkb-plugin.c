@@ -1189,6 +1189,27 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
     gtk_container_add(GTK_CONTAINER(p_alignment_change_layout), p_xkb->p_button_change_layout);
 
 
+    // 'ADVANCED setxkbmap OPTIONS' frame
+    GtkWidget * p_frame_advanced_opt = gtk_frame_new(NULL);
+    GtkWidget * p_label_advanced_opt = gtk_label_new(NULL);
+    snprintf(markup_str, MAX_MARKUP_LEN, "<b>%s</b>", _("Advanced setxkbmap Options"));
+    gtk_label_set_markup(GTK_LABEL(p_label_advanced_opt), markup_str);
+    gtk_misc_set_padding(GTK_MISC(p_label_advanced_opt), 1, 0);
+    gtk_frame_set_label_widget(GTK_FRAME(p_frame_advanced_opt), p_label_advanced_opt);
+    gtk_frame_set_shadow_type(GTK_FRAME(p_frame_advanced_opt), GTK_SHADOW_NONE);
+    gtk_box_pack_start(GTK_BOX(p_vbox_right), p_frame_advanced_opt, TRUE, TRUE, 2);
+    gtk_container_set_border_width(GTK_CONTAINER(p_frame_advanced_opt), 3);
+
+    // frame alignment
+    GtkWidget * p_alignment_advanced_opt = gtk_alignment_new(0.5, 0.5, 1, 1);
+    gtk_container_add(GTK_CONTAINER(p_frame_advanced_opt), p_alignment_advanced_opt);
+    gtk_alignment_set_padding(GTK_ALIGNMENT(p_alignment_advanced_opt), 4, 4, 10, 10);
+    //GtkWidget *p_checkbutton_per_app = gtk_check_button_new_with_mnemonic(_("_Remember layout for each window"));
+    //gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_checkbutton_per_app), p_xkb->enable_perwin);
+    //g_signal_connect(p_checkbutton_per_app, "toggled", G_CALLBACK(on_xkb_checkbutton_per_app_toggled), p_xkb);
+    //gtk_container_add(GTK_CONTAINER(p_alignment_advanced_opt), p_checkbutton_per_app);
+
+
     // 'PER WINDOW SETTINGS' frame
     GtkWidget * p_frame_perapp_layout = gtk_frame_new(NULL);
     GtkWidget * p_label_perapp_layout = gtk_label_new(NULL);
