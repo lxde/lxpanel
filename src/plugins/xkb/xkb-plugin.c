@@ -223,6 +223,7 @@ static void on_xkb_entry_advanced_opt_icon_press(GtkEntry             *p_entry,
     XkbPlugin *p_xkb = (XkbPlugin *)p_data;
     g_free(p_xkb->kbd_advanced_options);
     p_xkb->kbd_advanced_options = g_strdup(gtk_entry_get_text(p_entry));
+    xkb_setxkbmap(p_xkb);
 }
 
 /* Plugin constructor. */
@@ -973,7 +974,13 @@ void xkb_setxkbmap(XkbPlugin *p_xkb)
     GString *p_gstring_syscmd = g_string_new("");
     g_string_printf(p_gstring_syscmd,
                     "setxkbmap -model %s -layout %s -variant %s -option grp:%s",
-                    p_xkb->kbd_model, p_xkb->kbd_layouts, p_xkb->kbd_variants, p_xkb->kbd_change_option);
+                    p_xkb->kbd_model, p_xkb->kbd_layouts, p_xkb->kbd_variants,
+                    p_xkb->kbd_change_option);
+    if( (p_xkb->kbd_advanced_options != NULL) && strlen(p_xkb->kbd_advanced_options) )
+    {
+        g_string_append(p_gstring_syscmd, " ");
+        g_string_append(p_gstring_syscmd, p_xkb->kbd_advanced_options);
+    }
     if(!p_xkb->do_not_reset_opt)
     {
         if(system("setxkbmap -option")) // reset options
