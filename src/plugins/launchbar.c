@@ -16,6 +16,8 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
+/* Modified by Giuseppe Penone <giuspen@gmail.com> starting from 2012-08 and lxpanel 0.5.10 */
+
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
