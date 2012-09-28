@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:11+0200\n"
-"PO-Revision-Date: 2012-08-15 08:34+0200\n"
-"Last-Translator: Lutz <lthuns@opensuse.org>\n"
+"PO-Revision-Date: 2012-09-28 21:04+0200\n"
+"Last-Translator: Daniel <d@winzen4.de>\n"
 "Language-Team: Deutsch <LL@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -319,25 +319,23 @@ msgstr "% Prozent"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "None"
-msgstr ""
+msgstr "Keine"
 
 #: ../data/ui/panel-pref.glade.h:6
-#, fuzzy
 msgid "Err"
-msgstr "Fehler"
+msgstr "Err"
 
 #: ../data/ui/panel-pref.glade.h:7
-#, fuzzy
 msgid "Warn"
-msgstr "Warnung1"
+msgstr "Warn"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "All"
-msgstr ""
+msgstr "Alle"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "Panel Preferences"
@@ -365,7 +363,7 @@ msgstr "<b>Position</b>"
 
 #: ../data/ui/panel-pref.glade.h:22
 msgid "Icon size:"
-msgstr ""
+msgstr "Symbolgröße:"
 
 #: ../data/ui/panel-pref.glade.h:23
 msgid "<b>Size</b>"
@@ -684,19 +682,17 @@ msgstr "Benachrichtigungsfeld"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:513
-#, fuzzy
 msgid "Select Keyboard Model"
-msgstr "Tastatur-LED"
+msgstr "Tastaturmodell auswählen"
 
 #: ../src/plugins/xkb/xkb-plugin.c:536
 msgid "Model"
-msgstr ""
+msgstr "Modell"
 
 #: ../src/plugins/xkb/xkb-plugin.c:540 ../src/plugins/xkb/xkb-plugin.c:629
 #: ../src/plugins/xkb/xkb-plugin.c:780
-#, fuzzy
 msgid "Description"
-msgstr "Ziel:"
+msgstr "Beschreibung"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:602
@@ -710,9 +706,8 @@ msgstr ""
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:747
-#, fuzzy
 msgid "Add Keyboard Layout"
-msgstr "Tastaturbelegungsschalter"
+msgstr "Tastaturbelegung hinzufügen"
 
 #: ../src/plugins/xkb/xkb-plugin.c:770 ../src/plugins/xkb/xkb-plugin.c:1136
 msgid "Flag"
@@ -720,7 +715,7 @@ msgstr ""
 
 #: ../src/plugins/xkb/xkb-plugin.c:775 ../src/plugins/xkb/xkb-plugin.c:1140
 msgid "Layout"
-msgstr ""
+msgstr "Belegung"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1053 ../src/plugins/xkb/xkb-plugin.c:1359
 #, fuzzy
@@ -728,14 +723,12 @@ msgid "Keyboard Layout Handler"
 msgstr "Tastaturbelegungsschalter"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1070
-#, fuzzy
 msgid "Keyboard Model"
-msgstr "Tastatur-LED"
+msgstr "Tastaturmodell"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1090
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "Tastaturbelegungsschalter"
+msgstr "Tastaturbelegungen"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1144
 msgid "Variant"
@@ -756,7 +749,6 @@ msgid "_Remember layout for each window"
 msgstr "Belegung für jede Anwendung _beibehalten"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1193
-#, fuzzy
 msgid "Show Layout as"
 msgstr "Belegung anzeigen als"
 
@@ -766,7 +758,7 @@ msgstr ""
 
 #: ../src/plugins/xkb/xkb-plugin.c:1255
 msgid "Text"
-msgstr ""
+msgstr "Text"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1281
 msgid "Panel Icon Size"
@@ -1505,12 +1497,11 @@ msgstr "Ressourcenüberwachung anzeigen (CPU, RAM)"
 
 #: ../src/plugins/wnckpager/wnckpager.c:720
 msgid "WNCKPager"
-msgstr ""
+msgstr "WNCKPager"
 
 #: ../src/plugins/wnckpager/wnckpager.c:722
-#, fuzzy
 msgid "WNCKpager plugin"
-msgstr "Einfache Pager-Erweiterung"
+msgstr "WNCKpager Erweiterung"
 
 #~ msgid "<b>Icon</b>"
 #~ msgstr "<b>Symbol</b>"
