@@ -4,15 +4,15 @@ msgstr ""
 "Project-Id-Version: lxpanel_hr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:11+0200\n"
-"PO-Revision-Date: 2012-06-05 03:20+0200\n"
+"PO-Revision-Date: 2012-10-01 01:33+0200\n"
 "Last-Translator: zvacet <ikoli@yahoo.com>\n"
 "Language-Team: <asjlob AT vip.hr>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.0.5\n"
 "X-Poedit-Language: Croatian\n"
 "X-Poedit-Country: CROATIA\n"
@@ -316,14 +316,12 @@ msgid "None"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:6
-#, fuzzy
 msgid "Err"
 msgstr "Greška"
 
 #: ../data/ui/panel-pref.glade.h:7
-#, fuzzy
 msgid "Warn"
-msgstr "Upozorenje1"
+msgstr "Upozorenje"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "Info"
@@ -459,9 +457,8 @@ msgid "Log level"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:47
-#, fuzzy
 msgid "<b>Log level</b>"
-msgstr "<b>Mrežni uređaj</b>"
+msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:48
 msgid "Advanced"
@@ -678,9 +675,8 @@ msgstr "Sustavska traka"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:513
-#, fuzzy
 msgid "Select Keyboard Model"
-msgstr "LED Tipkovnice"
+msgstr "Odaberi model tipkovnice"
 
 #: ../src/plugins/xkb/xkb-plugin.c:536
 msgid "Model"
@@ -688,15 +684,13 @@ msgstr ""
 
 #: ../src/plugins/xkb/xkb-plugin.c:540 ../src/plugins/xkb/xkb-plugin.c:629
 #: ../src/plugins/xkb/xkb-plugin.c:780
-#, fuzzy
 msgid "Description"
-msgstr "Odredište:"
+msgstr "Opis"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:602
-#, fuzzy
 msgid "Select Layout Change Type"
-msgstr "Odaberi slikovnu datoteku"
+msgstr ""
 
 #: ../src/plugins/xkb/xkb-plugin.c:625
 msgid "Change Type"
@@ -704,9 +698,8 @@ msgstr ""
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:747
-#, fuzzy
 msgid "Add Keyboard Layout"
-msgstr "Mijenjač rasporeda tipkovnice"
+msgstr "Dodaj raspored tipkovnice"
 
 #: ../src/plugins/xkb/xkb-plugin.c:770 ../src/plugins/xkb/xkb-plugin.c:1136
 msgid "Flag"
@@ -717,19 +710,16 @@ msgid "Layout"
 msgstr ""
 
 #: ../src/plugins/xkb/xkb-plugin.c:1053 ../src/plugins/xkb/xkb-plugin.c:1359
-#, fuzzy
 msgid "Keyboard Layout Handler"
-msgstr "Mijenjač rasporeda tipkovnice"
+msgstr ""
 
 #: ../src/plugins/xkb/xkb-plugin.c:1070
-#, fuzzy
 msgid "Keyboard Model"
-msgstr "LED Tipkovnice"
+msgstr "Model tipkovnice"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1090
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "Mijenjač rasporeda tipkovnice"
+msgstr "Rasporedi tipkovnice"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1144
 msgid "Variant"
@@ -740,36 +730,32 @@ msgid "Change Layout Option"
 msgstr ""
 
 #: ../src/plugins/xkb/xkb-plugin.c:1172
-#, fuzzy
 msgid "Per Window Settings"
-msgstr "Svojstva ploče"
+msgstr ""
 
 #: ../src/plugins/xkb/xkb-plugin.c:1184
-#, fuzzy
 msgid "_Remember layout for each window"
-msgstr "_Zapamti format za svaku aplikaciju"
+msgstr "_Zapamti raspored za svaki prozor"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1193
-#, fuzzy
 msgid "Show Layout as"
 msgstr "Prikaži raspored kao"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1254
 msgid "Custom Image"
-msgstr ""
+msgstr "Prilagođena slika"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1255
 msgid "Text"
-msgstr ""
+msgstr "Tekst"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1281
 msgid "Panel Icon Size"
 msgstr ""
 
 #: ../src/plugins/xkb/xkb-plugin.c:1361
-#, fuzzy
 msgid "Handle keyboard layouts"
-msgstr "Prebacuj između dostupnih rasporeda tipkovnice"
+msgstr ""
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
@@ -882,7 +868,7 @@ msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
 msgstr ""
-"Greška,morate instalirati program za konfiguraciju zvuka(pavucontol, "
+"Greška, morate instalirati program za konfiguraciju zvuka(pavucontol, "
 "alsamixer ...)"
 
 #: ../src/plugins/netstat/netstat.c:180
