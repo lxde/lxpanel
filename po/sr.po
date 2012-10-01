@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: LXPanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:11+0200\n"
-"PO-Revision-Date: 2012-09-23 21:55+0200\n"
+"PO-Revision-Date: 2012-10-01 16:48+0200\n"
 "Last-Translator: Jay A. <tito.nehru.naser@gmail.com>\n"
 "Language-Team: \n"
 "Language: sr\n"
@@ -62,7 +62,7 @@ msgstr "Изаберите датотеку"
 
 #: ../src/configurator.c:1392
 msgid "_Browse"
-msgstr "Разгледај"
+msgstr "_Разгледај"
 
 #: ../src/panel.c:658
 msgid ""
@@ -298,11 +298,11 @@ msgstr "Подршка"
 
 #: ../data/ui/netstatus.glade.h:21
 msgid "Con_figure"
-msgstr "Подеси"
+msgstr "П_одеси"
 
 #: ../data/ui/panel-pref.glade.h:1
 msgid "Dynamic"
-msgstr "Покретљиво"
+msgstr "Растегљиво"
 
 #: ../data/ui/panel-pref.glade.h:2
 msgid "Pixels"
@@ -318,12 +318,10 @@ msgid "None"
 msgstr "Ниједан"
 
 #: ../data/ui/panel-pref.glade.h:6
-#, fuzzy
 msgid "Err"
 msgstr "Грешка"
 
 #: ../data/ui/panel-pref.glade.h:7
-#, fuzzy
 msgid "Warn"
 msgstr "Упозорење"
 
@@ -349,7 +347,7 @@ msgstr "Средина"
 
 #: ../data/ui/panel-pref.glade.h:17
 msgid "Alignment:"
-msgstr "Поравнавање:"
+msgstr "Поравнање:"
 
 #: ../data/ui/panel-pref.glade.h:18
 msgid "Margin:"
@@ -377,7 +375,7 @@ msgstr "Системска тема"
 
 #: ../data/ui/panel-pref.glade.h:26
 msgid "Solid color (with opacity)"
-msgstr "Основна боја (без провидности)"
+msgstr "Основна боја (са провидношћу)"
 
 #: ../data/ui/panel-pref.glade.h:27 ../src/plugins/xkb/xkb-plugin.c:1253
 msgid "Image"
@@ -402,7 +400,7 @@ msgstr "Величина"
 
 #: ../data/ui/panel-pref.glade.h:32
 msgid "<b>Font</b>"
-msgstr "<b>Фонт</b>"
+msgstr "<b>Словни лик</b>"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "Appearance"
@@ -422,19 +420,19 @@ msgstr "Емулатор терминала:"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "File Manager:"
-msgstr "Управљач датотекама:"
+msgstr "Управник датотека:"
 
 #: ../data/ui/panel-pref.glade.h:38
 msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>Постављање приоритетних програма</b>"
+msgstr "<b>Постави подразумеване програме</b>"
 
 #: ../data/ui/panel-pref.glade.h:39
 msgid "Make window managers treat the panel as dock"
-msgstr "Подеси да управљачи прозорима виде панел као обавештајну зону (dock)"
+msgstr "Представи овај панел управницима прозора као обавештајну зону („dock“)"
 
 #: ../data/ui/panel-pref.glade.h:40
 msgid "Reserve space, and not covered by maximized windows"
-msgstr "Обезбеди простор за панел  и када су прозори увећани"
+msgstr "Осигурај простор за панел, чак и ако су прозори увећани"
 
 #: ../data/ui/panel-pref.glade.h:41
 msgid "<b>Properties</b>"
@@ -442,11 +440,11 @@ msgstr "<b>Особине</b>"
 
 #: ../data/ui/panel-pref.glade.h:42
 msgid "Minimize panel when not in use"
-msgstr "Умањи панел када се не користи"
+msgstr "Сакриј панел када се не користи"
 
 #: ../data/ui/panel-pref.glade.h:43
 msgid "Size when minimized"
-msgstr "Величина када је умањен"
+msgstr "Величина скривеног панела"
 
 #: ../data/ui/panel-pref.glade.h:44
 msgid "pixels"
@@ -454,7 +452,7 @@ msgstr "пиксела"
 
 #: ../data/ui/panel-pref.glade.h:45
 msgid "<b>Automatic hiding</b>"
-msgstr "<b>Аутоматско сакривање</b>"
+msgstr "<b>Самосакривање панела</b>"
 
 #: ../data/ui/panel-pref.glade.h:46
 msgid "Log level"
@@ -478,7 +476,7 @@ msgstr "Прикажи стање процеса"
 
 #: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:440
 msgid "Bold font"
-msgstr "Задебљан фонт"
+msgstr "Задебљан словни лик"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
@@ -486,11 +484,11 @@ msgstr "Прикажи имена радних површи"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
-msgstr "Број / Име радне површине"
+msgstr "Број / Име радне површи"
 
 #: ../src/plugins/deskno/deskno.c:237
 msgid "Display workspace number, by cmeury@users.sf.net"
-msgstr "Прикажи број радне површине, by cmeury@users.sf.net"
+msgstr "Прикажи број радне површи, од „cmeury@users.sf.net“"
 
 #: ../src/plugins/image.c:161
 msgid "Display Image and Tooltip"
@@ -498,7 +496,7 @@ msgstr "Прикажи слику и обавештење"
 
 #: ../src/plugins/launchbar.c:914
 msgid "Bar with buttons to launch application"
-msgstr "Лансер са дугмадима за покретање програма"
+msgstr "Трака са дугмадима за покретање програма"
 
 #. Add Raise menu item.
 #: ../src/plugins/taskbar.c:1714
@@ -528,17 +526,17 @@ msgstr "Површ _%d"
 #: ../src/plugins/taskbar.c:1753
 #, c-format
 msgid "Workspace %d"
-msgstr "Радна површина %d"
+msgstr "Радна површ %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../src/plugins/taskbar.c:1767
 msgid "_All workspaces"
-msgstr "Све радне површине"
+msgstr "Све радне површи"
 
 #. Add Move to Workspace menu item as a submenu.
 #: ../src/plugins/taskbar.c:1773
 msgid "_Move to Workspace"
-msgstr "Премести на радну површину"
+msgstr "Премести на радну површ"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../src/plugins/taskbar.c:1779
@@ -559,7 +557,7 @@ msgstr "Равна дугмад"
 
 #: ../src/plugins/taskbar.c:1989
 msgid "Show windows from all desktops"
-msgstr "Прикажи прозоре са свих радних површина"
+msgstr "Прикажи прозоре са свих радних површи"
 
 #: ../src/plugins/taskbar.c:1990
 msgid "Use mouse wheel"
