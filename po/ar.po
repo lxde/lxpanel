@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:11+0200\n"
-"PO-Revision-Date: 2010-01-06 19:45+0100\n"
-"Last-Translator: Ahmad Farghal <ahmad.farghal@gmail.com>\n"
+"PO-Revision-Date: 2012-10-04 20:24+0200\n"
+"Last-Translator: mohsen <linuxer9@gmail.com>\n"
 "Language-Team: Arabic\n"
-"Language: \n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Pootle 1.1.0\n"
+"X-Generator: Pootle 2.0.5\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -314,25 +314,23 @@ msgstr "% في المائة"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "None"
-msgstr ""
+msgstr "بلا"
 
 #: ../data/ui/panel-pref.glade.h:6
-#, fuzzy
 msgid "Err"
 msgstr "خطأ"
 
 #: ../data/ui/panel-pref.glade.h:7
-#, fuzzy
 msgid "Warn"
 msgstr "تحذير1"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "Info"
-msgstr ""
+msgstr "معلومات"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "All"
-msgstr ""
+msgstr "جميع"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "Panel Preferences"
@@ -360,7 +358,7 @@ msgstr "<b>الموقع</b>"
 
 #: ../data/ui/panel-pref.glade.h:22
 msgid "Icon size:"
-msgstr ""
+msgstr "حجم الأيقونة"
 
 #: ../data/ui/panel-pref.glade.h:23
 msgid "<b>Size</b>"
@@ -457,10 +455,9 @@ msgstr "<b>الإخفاء التلقائي</b>"
 
 #: ../data/ui/panel-pref.glade.h:46
 msgid "Log level"
-msgstr ""
+msgstr "مستوى التقرير"
 
 #: ../data/ui/panel-pref.glade.h:47
-#, fuzzy
 msgid "<b>Log level</b>"
 msgstr "<b>جهاز الشبكة</b>"
 
@@ -679,81 +676,72 @@ msgstr "مساحة التبليغ"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:513
-#, fuzzy
 msgid "Select Keyboard Model"
-msgstr "أضواء لوحة المفاتيح"
+msgstr "تحديد نوع لوحة المفاتيح"
 
 #: ../src/plugins/xkb/xkb-plugin.c:536
 msgid "Model"
-msgstr ""
+msgstr "النوع"
 
 #: ../src/plugins/xkb/xkb-plugin.c:540 ../src/plugins/xkb/xkb-plugin.c:629
 #: ../src/plugins/xkb/xkb-plugin.c:780
-#, fuzzy
 msgid "Description"
-msgstr "الوجهة:"
+msgstr "الوصف:"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:602
-#, fuzzy
 msgid "Select Layout Change Type"
-msgstr "انتق ملف صورة"
+msgstr "تحديد نمط تغيير التخطيط"
 
 #: ../src/plugins/xkb/xkb-plugin.c:625
 msgid "Change Type"
-msgstr ""
+msgstr "تغيير النمط"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:747
-#, fuzzy
 msgid "Add Keyboard Layout"
-msgstr "مبدّل تخطيط لوحة المفاتيح"
+msgstr "إضافة تخطيط لوحة المفاتيح"
 
 #: ../src/plugins/xkb/xkb-plugin.c:770 ../src/plugins/xkb/xkb-plugin.c:1136
 msgid "Flag"
-msgstr ""
+msgstr "علم"
 
 #: ../src/plugins/xkb/xkb-plugin.c:775 ../src/plugins/xkb/xkb-plugin.c:1140
 msgid "Layout"
-msgstr ""
+msgstr "تخطيط"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1053 ../src/plugins/xkb/xkb-plugin.c:1359
-#, fuzzy
 msgid "Keyboard Layout Handler"
 msgstr "مبدّل تخطيط لوحة المفاتيح"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1070
-#, fuzzy
 msgid "Keyboard Model"
-msgstr "أضواء لوحة المفاتيح"
+msgstr "نوع لوحة المفاتيح"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1090
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "مبدّل تخطيط لوحة المفاتيح"
+msgstr "تخطيط لوحة المفاتيح"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1144
 msgid "Variant"
 msgstr ""
 
 #: ../src/plugins/xkb/xkb-plugin.c:1152
+#, fuzzy
 msgid "Change Layout Option"
-msgstr ""
+msgstr "تغيير إعداد التخطيط"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1172
-#, fuzzy
 msgid "Per Window Settings"
-msgstr "إعدادات الشريط"
+msgstr "بواسطة إعدادات النافذة"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1184
-#, fuzzy
 msgid "_Remember layout for each window"
-msgstr "_تذكر تخطيط كل تطبيق"
+msgstr "_تذكر التخطيط لكل نافذة"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1193
-#, fuzzy
 msgid "Show Layout as"
-msgstr "أظهر التخطيط على هيئة"
+msgstr "أظهر التخطيط كـ"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1254
 msgid "Custom Image"
