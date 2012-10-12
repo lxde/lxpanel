@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:11+0200\n"
-"PO-Revision-Date: 2012-07-09 05:07+0200\n"
+"PO-Revision-Date: 2012-10-12 05:19+0200\n"
 "Last-Translator: Duy Hung <nguyentieuhau@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: vi\n"
@@ -312,25 +312,23 @@ msgstr "% phần trăm"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "None"
-msgstr ""
+msgstr "Không"
 
 #: ../data/ui/panel-pref.glade.h:6
-#, fuzzy
 msgid "Err"
 msgstr "Lỗi"
 
 #: ../data/ui/panel-pref.glade.h:7
-#, fuzzy
 msgid "Warn"
-msgstr "Cảnh báo 1"
+msgstr "Cảnh báo"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "Info"
-msgstr ""
+msgstr "Thông tin"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "All"
-msgstr ""
+msgstr "Tất cả"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "Panel Preferences"
@@ -358,7 +356,7 @@ msgstr "<b>Vị trí</b>"
 
 #: ../data/ui/panel-pref.glade.h:22
 msgid "Icon size:"
-msgstr ""
+msgstr "Kích thước biểu tượng:"
 
 #: ../data/ui/panel-pref.glade.h:23
 msgid "<b>Size</b>"
@@ -456,12 +454,11 @@ msgstr "<b>Tự dộng ẩn</b>"
 
 #: ../data/ui/panel-pref.glade.h:46
 msgid "Log level"
-msgstr ""
+msgstr "Cấp độ ghi chép"
 
 #: ../data/ui/panel-pref.glade.h:47
-#, fuzzy
 msgid "<b>Log level</b>"
-msgstr "<b>Thiết bị mạng</b>"
+msgstr "<b>Cấp độ ghi chép</b>"
 
 #: ../data/ui/panel-pref.glade.h:48
 msgid "Advanced"
@@ -679,96 +676,86 @@ msgstr "Khay hệ thống"
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:513
 msgid "Select Keyboard Model"
-msgstr ""
+msgstr "Chọn kiểu bàn phím"
 
 #: ../src/plugins/xkb/xkb-plugin.c:536
 msgid "Model"
-msgstr ""
+msgstr "Kiểu"
 
 #: ../src/plugins/xkb/xkb-plugin.c:540 ../src/plugins/xkb/xkb-plugin.c:629
 #: ../src/plugins/xkb/xkb-plugin.c:780
-#, fuzzy
 msgid "Description"
-msgstr "Điểm đến:"
+msgstr "Miêu tả:"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:602
-#, fuzzy
 msgid "Select Layout Change Type"
-msgstr "Chọn một tập tin ảnh"
+msgstr "Chọn sơ đồ"
 
 #: ../src/plugins/xkb/xkb-plugin.c:625
 msgid "Change Type"
-msgstr ""
+msgstr "Đổi kiểu"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:747
-#, fuzzy
 msgid "Add Keyboard Layout"
-msgstr "Bộ chuyển đổi sơ đồ bàn phím"
+msgstr "Thêm sơ đồ bàn phím"
 
 #: ../src/plugins/xkb/xkb-plugin.c:770 ../src/plugins/xkb/xkb-plugin.c:1136
 msgid "Flag"
-msgstr ""
+msgstr "Cờ"
 
 #: ../src/plugins/xkb/xkb-plugin.c:775 ../src/plugins/xkb/xkb-plugin.c:1140
 msgid "Layout"
-msgstr ""
+msgstr "Sơ đồ"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1053 ../src/plugins/xkb/xkb-plugin.c:1359
-#, fuzzy
 msgid "Keyboard Layout Handler"
-msgstr "Bộ chuyển đổi sơ đồ bàn phím"
+msgstr "Bộ quản lý sơ đồ bàn phím"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1070
-#, fuzzy
 msgid "Keyboard Model"
-msgstr "LED bàn phím"
+msgstr "Kiểu bàn phím"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1090
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "Bộ chuyển đổi sơ đồ bàn phím"
+msgstr "Sơ đồ bàn phím"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1144
 msgid "Variant"
-msgstr ""
+msgstr "Biến thể"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1152
 msgid "Change Layout Option"
-msgstr ""
+msgstr "Thay đổi tùy chọn sơ đồ"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1172
-#, fuzzy
 msgid "Per Window Settings"
-msgstr "Cài đặt bảng điều khiển"
+msgstr "Cho mỗi thiết lập cửa sổ"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1184
-#, fuzzy
 msgid "_Remember layout for each window"
-msgstr "_Ghi nhớ sơ đồ cho mỗi ứng dụng"
+msgstr "_Ghi nhớ sơ đồ cho mỗi cửa sổ"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1193
-#, fuzzy
 msgid "Show Layout as"
 msgstr "Hiển thị sơ đồ như"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1254
 msgid "Custom Image"
-msgstr ""
+msgstr "Ảnh tùy chọn"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1255
 msgid "Text"
-msgstr ""
+msgstr "Văn bản"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1281
 msgid "Panel Icon Size"
-msgstr ""
+msgstr "Kích thước biểu tượng bảng điều khiển"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1361
-#, fuzzy
 msgid "Handle keyboard layouts"
-msgstr "Chuyển đổi giữa những sơ đồ bàn phím sẵn có"
+msgstr "Quản lý sơ đồ bàn phím"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
