@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:11+0200\n"
-"PO-Revision-Date: 2012-05-20 16:33+0200\n"
+"PO-Revision-Date: 2012-10-15 15:55+0200\n"
 "Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Proxecto Trasno <proxecto@trasno.net>\n"
 "Language: gl\n"
@@ -316,25 +316,23 @@ msgstr "% Porcento"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "None"
-msgstr ""
+msgstr "Ningún"
 
 #: ../data/ui/panel-pref.glade.h:6
-#, fuzzy
 msgid "Err"
 msgstr "Erro"
 
 #: ../data/ui/panel-pref.glade.h:7
-#, fuzzy
 msgid "Warn"
-msgstr "Advertencia1"
+msgstr "Aviso"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "All"
-msgstr ""
+msgstr "Todo"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "Panel Preferences"
@@ -362,7 +360,7 @@ msgstr "<b>Posición</b>"
 
 #: ../data/ui/panel-pref.glade.h:22
 msgid "Icon size:"
-msgstr ""
+msgstr "Tamaño da icona:"
 
 #: ../data/ui/panel-pref.glade.h:23
 msgid "<b>Size</b>"
@@ -459,12 +457,11 @@ msgstr "<b>Agochar automaticamente</b>"
 
 #: ../data/ui/panel-pref.glade.h:46
 msgid "Log level"
-msgstr ""
+msgstr "Nivel do rexistro"
 
 #: ../data/ui/panel-pref.glade.h:47
-#, fuzzy
 msgid "<b>Log level</b>"
-msgstr "<b>Dispositivo de rede</b>"
+msgstr "<b>Nivel do rexistro</b>"
 
 #: ../data/ui/panel-pref.glade.h:48
 msgid "Advanced"
@@ -681,103 +678,93 @@ msgstr "Área de notificación"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:513
-#, fuzzy
 msgid "Select Keyboard Model"
-msgstr "Luz de Teclado"
+msgstr "Seleccione o modelo do teclado"
 
 #: ../src/plugins/xkb/xkb-plugin.c:536
 msgid "Model"
-msgstr ""
+msgstr "Modelo"
 
 #: ../src/plugins/xkb/xkb-plugin.c:540 ../src/plugins/xkb/xkb-plugin.c:629
 #: ../src/plugins/xkb/xkb-plugin.c:780
-#, fuzzy
 msgid "Description"
-msgstr "Destino:"
+msgstr "Descrición"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:602
-#, fuzzy
 msgid "Select Layout Change Type"
-msgstr "Seleccionar unha imaxe"
+msgstr "Escolla unha disposición para cambiar"
 
 #: ../src/plugins/xkb/xkb-plugin.c:625
 msgid "Change Type"
-msgstr ""
+msgstr "Cambiar o tipo"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:747
-#, fuzzy
 msgid "Add Keyboard Layout"
-msgstr "Selector de distribución do teclado"
+msgstr "Engadir unha disposición de do teclado"
 
 #: ../src/plugins/xkb/xkb-plugin.c:770 ../src/plugins/xkb/xkb-plugin.c:1136
 msgid "Flag"
-msgstr ""
+msgstr "Bandeira"
 
 #: ../src/plugins/xkb/xkb-plugin.c:775 ../src/plugins/xkb/xkb-plugin.c:1140
 msgid "Layout"
-msgstr ""
+msgstr "Disposición"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1053 ../src/plugins/xkb/xkb-plugin.c:1359
-#, fuzzy
 msgid "Keyboard Layout Handler"
-msgstr "Selector de distribución do teclado"
+msgstr "Xestor de disposición do teclado"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1070
-#, fuzzy
 msgid "Keyboard Model"
-msgstr "Luz de Teclado"
+msgstr "Modelo do teclado"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1090
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "Selector de distribución do teclado"
+msgstr "Disposicións de teclado"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1144
 msgid "Variant"
-msgstr ""
+msgstr "Variante"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1152
 msgid "Change Layout Option"
-msgstr ""
+msgstr "Cambiar as opcións da disposición"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1172
-#, fuzzy
 msgid "Per Window Settings"
-msgstr "Configuración do panel"
+msgstr "Axustes por xanela"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1184
-#, fuzzy
 msgid "_Remember layout for each window"
-msgstr "_Lembrar a distribución para cada aplicativo"
+msgstr "_Lembrar a disposición para cada xanela"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1193
-#, fuzzy
 msgid "Show Layout as"
-msgstr "Amosar a distribución como"
+msgstr "Amosar a disposición como"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1254
 msgid "Custom Image"
-msgstr ""
+msgstr "Imaxe personalizada"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1255
 msgid "Text"
-msgstr ""
+msgstr "Texto"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1281
 msgid "Panel Icon Size"
-msgstr ""
+msgstr "Tamaño das iconas do panel"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1361
-#, fuzzy
 msgid "Handle keyboard layouts"
-msgstr "Selecciona entre as distribucións de teclados dispoñíbeis"
+msgstr "Xestionar as disposicións de teclado"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
-"Botón esquerdo para minimizar todas as xanelas.  Botón medio para repregalas."
+"Botón esquerdo para minimizar todas as xanelas.  Botón medio para "
+"repregalas."
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
