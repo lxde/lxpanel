@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:11+0200\n"
-"PO-Revision-Date: 2012-07-12 13:27+0200\n"
-"Last-Translator: Asier_Iturralde_Sarasola <asier.iturralde@gmail.com>\n"
+"PO-Revision-Date: 2012-10-27 21:42+0200\n"
+"Last-Translator: Asier <asier.iturralde@gmail.com>\n"
 "Language-Team: Basque <alainmendi@gmail.com>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
@@ -315,25 +315,23 @@ msgstr "% Ehunekoa"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "None"
-msgstr ""
+msgstr "Bat ere ez"
 
 #: ../data/ui/panel-pref.glade.h:6
-#, fuzzy
 msgid "Err"
 msgstr "Errorea"
 
 #: ../data/ui/panel-pref.glade.h:7
-#, fuzzy
 msgid "Warn"
-msgstr "Abisua1"
+msgstr "Abisua"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "Info"
-msgstr ""
+msgstr "Informazioa"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "All"
-msgstr ""
+msgstr "Guztia"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "Panel Preferences"
@@ -361,7 +359,7 @@ msgstr "<b>Posizioa</b>"
 
 #: ../data/ui/panel-pref.glade.h:22
 msgid "Icon size:"
-msgstr ""
+msgstr "Ikono-tamaina:"
 
 #: ../data/ui/panel-pref.glade.h:23
 msgid "<b>Size</b>"
@@ -684,17 +682,16 @@ msgstr "Sistemaren erretilua"
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:513
 msgid "Select Keyboard Model"
-msgstr ""
+msgstr "Hautatu teklatuaren modeloa"
 
 #: ../src/plugins/xkb/xkb-plugin.c:536
 msgid "Model"
-msgstr ""
+msgstr "Modeloa"
 
 #: ../src/plugins/xkb/xkb-plugin.c:540 ../src/plugins/xkb/xkb-plugin.c:629
 #: ../src/plugins/xkb/xkb-plugin.c:780
-#, fuzzy
 msgid "Description"
-msgstr "Helburua:"
+msgstr "Deskribapena"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:602
@@ -704,76 +701,68 @@ msgstr "Hautatu irudi-fitxategi bat"
 
 #: ../src/plugins/xkb/xkb-plugin.c:625
 msgid "Change Type"
-msgstr ""
+msgstr "Aldatu mota"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:747
-#, fuzzy
 msgid "Add Keyboard Layout"
-msgstr "Teklatuaren diseinuaren aldatzailea"
+msgstr "Gehitu teklatuaren diseinua"
 
 #: ../src/plugins/xkb/xkb-plugin.c:770 ../src/plugins/xkb/xkb-plugin.c:1136
 msgid "Flag"
-msgstr ""
+msgstr "Bandera"
 
 #: ../src/plugins/xkb/xkb-plugin.c:775 ../src/plugins/xkb/xkb-plugin.c:1140
 msgid "Layout"
-msgstr ""
+msgstr "Diseinua"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1053 ../src/plugins/xkb/xkb-plugin.c:1359
-#, fuzzy
 msgid "Keyboard Layout Handler"
-msgstr "Teklatuaren diseinuaren aldatzailea"
+msgstr "Teklatuaren diseinuaren maneiatzailea"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1070
-#, fuzzy
 msgid "Keyboard Model"
-msgstr "Teklatuaren LEDa"
+msgstr "Teklatuaren modeloa"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1090
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "Teklatuaren diseinuaren aldatzailea"
+msgstr "Teklatuaren diseinuak"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1144
 msgid "Variant"
-msgstr ""
+msgstr "Aldaera"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1152
 msgid "Change Layout Option"
-msgstr ""
+msgstr "Aldatu diseinuaren aukera"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1172
-#, fuzzy
 msgid "Per Window Settings"
-msgstr "Panelaren ezarpenak"
+msgstr "Leiho bakoitzaren ezarpenak"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1184
-#, fuzzy
 msgid "_Remember layout for each window"
-msgstr "_Gogoratu aplikazio bakoitzaren diseinua"
+msgstr "_Gogoratu leiho bakoitzaren diseinua"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1193
-#, fuzzy
 msgid "Show Layout as"
-msgstr "Erakutsi itxura honela:"
+msgstr "Erakutsi diseinua honela:"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1254
 msgid "Custom Image"
-msgstr ""
+msgstr "Irudi pertsonalizatua"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1255
 msgid "Text"
-msgstr ""
+msgstr "Testua"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1281
 msgid "Panel Icon Size"
-msgstr ""
+msgstr "Paneleko ikono-tamaina"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1361
-#, fuzzy
 msgid "Handle keyboard layouts"
-msgstr "Aldatu eskuragarri dauden teklatuaren diseinuen artean"
+msgstr "Maneiatu teklatuaren diseinuak"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
