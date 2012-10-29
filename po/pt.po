@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:11+0200\n"
-"PO-Revision-Date: 2012-10-07 02:49+0200\n"
+"PO-Revision-Date: 2012-10-29 12:14+0200\n"
 "Last-Translator: Sérgio <smarquespt@gmail.com>\n"
 "Language-Team: Portuguese PT\n"
 "Language: pt\n"
@@ -75,7 +75,7 @@ msgstr ""
 
 #: ../src/panel.c:660
 msgid "Confirm"
-msgstr "Confirmar"
+msgstr "Confirmação"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:693
