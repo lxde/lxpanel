@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: lxpanel_hr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:11+0200\n"
-"PO-Revision-Date: 2012-10-01 01:33+0200\n"
+"PO-Revision-Date: 2012-10-13 03:32+0200\n"
 "Last-Translator: zvacet <ikoli@yahoo.com>\n"
 "Language-Team: <asjlob AT vip.hr>\n"
 "Language: hr\n"
@@ -313,7 +313,7 @@ msgstr "% Postotak"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "None"
-msgstr ""
+msgstr "Nijedan"
 
 #: ../data/ui/panel-pref.glade.h:6
 msgid "Err"
@@ -325,11 +325,11 @@ msgstr "Upozorenje"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "Info"
-msgstr ""
+msgstr "Informacije"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "All"
-msgstr ""
+msgstr "Sve"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "Panel Preferences"
@@ -357,7 +357,7 @@ msgstr "<b>Pozicija</b>"
 
 #: ../data/ui/panel-pref.glade.h:22
 msgid "Icon size:"
-msgstr ""
+msgstr "Veličina ikone:"
 
 #: ../data/ui/panel-pref.glade.h:23
 msgid "<b>Size</b>"
@@ -680,7 +680,7 @@ msgstr "Odaberi model tipkovnice"
 
 #: ../src/plugins/xkb/xkb-plugin.c:536
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 #: ../src/plugins/xkb/xkb-plugin.c:540 ../src/plugins/xkb/xkb-plugin.c:629
 #: ../src/plugins/xkb/xkb-plugin.c:780
@@ -694,7 +694,7 @@ msgstr ""
 
 #: ../src/plugins/xkb/xkb-plugin.c:625
 msgid "Change Type"
-msgstr ""
+msgstr "Promjeni vrstu"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:747
@@ -703,11 +703,11 @@ msgstr "Dodaj raspored tipkovnice"
 
 #: ../src/plugins/xkb/xkb-plugin.c:770 ../src/plugins/xkb/xkb-plugin.c:1136
 msgid "Flag"
-msgstr ""
+msgstr "Zastava"
 
 #: ../src/plugins/xkb/xkb-plugin.c:775 ../src/plugins/xkb/xkb-plugin.c:1140
 msgid "Layout"
-msgstr ""
+msgstr "Raspored"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1053 ../src/plugins/xkb/xkb-plugin.c:1359
 msgid "Keyboard Layout Handler"
@@ -723,11 +723,11 @@ msgstr "Rasporedi tipkovnice"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1144
 msgid "Variant"
-msgstr ""
+msgstr "Varijanta"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1152
 msgid "Change Layout Option"
-msgstr ""
+msgstr "Promjeni opcije rasporeda"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1172
 msgid "Per Window Settings"
