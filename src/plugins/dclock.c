@@ -347,9 +347,9 @@ static int dclock_constructor(Plugin * p, char ** fp)
 
     /* Initialize the clock display. */
     if (dc->clock_format == NULL)
-        dc->clock_format = g_strdup(DEFAULT_CLOCK_FORMAT);
+        dc->clock_format = g_strdup(_(DEFAULT_CLOCK_FORMAT));
     if (dc->tooltip_format == NULL)
-        dc->tooltip_format = g_strdup(DEFAULT_TIP_FORMAT);
+        dc->tooltip_format = g_strdup(_(DEFAULT_TIP_FORMAT));
     dclock_apply_configuration(p);
 
     /* Show the widget and return. */
