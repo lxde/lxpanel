@@ -439,6 +439,8 @@ static void on_xkb_checkbutton_keep_system_layouts_toggled(GtkToggleButton *tb, 
         gtk_widget_set_sensitive(p_xkb->p_frame_change_layout, !p_xkb->keep_system_layouts);
         gtk_widget_set_sensitive(p_xkb->p_entry_advanced_opt, !p_xkb->keep_system_layouts);
         gtk_widget_set_sensitive(p_xkb->p_checkbutton_no_reset_opt, !p_xkb->keep_system_layouts);
+        
+        if(!p_xkb->keep_system_layouts) xkb_update_layouts_n_variants(p_xkb);
     }
 }
 
