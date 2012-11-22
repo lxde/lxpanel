@@ -46,6 +46,7 @@ typedef struct {
     DisplayType   display_type;                /* Display layout as image or text */
     gboolean      enable_perwin;               /* Enable per window layout */
     gboolean      do_not_reset_opt;            /* Do not reset options in setxkbmap */
+    gboolean      keep_system_layouts;         /* Keey system layouts, skip setxkbmap */
     guint         source_id;                   /* Source ID for channel listening to XKB events */
     GtkWidget    *p_dialog_config;             /* Configuration dialog */
     GtkListStore *p_liststore_layout;

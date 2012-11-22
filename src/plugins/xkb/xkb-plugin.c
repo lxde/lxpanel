@@ -83,6 +83,7 @@ static void      on_radiobutton_disp_type_image_cust_toggled(GtkToggleButton *p_
 static void      on_radiobutton_disp_type_text_toggled(GtkToggleButton *p_radiobutton, gpointer p_data);
 static void      on_xkb_checkbutton_per_app_toggled(GtkToggleButton *tb, gpointer p_data);
 static void      on_xkb_checkbutton_no_reset_opt_toggled(GtkToggleButton *tb, gpointer p_data);
+static void      on_xkb_checkbutton_keep_system_layouts_toggled(GtkToggleButton *tb, gpointer p_data);
 static void      on_dialog_config_response(GtkDialog *p_dialog, gint response, gpointer p_data);
 static void      on_xkb_entry_advanced_opt_icon_press(GtkEntry             *p_entry,
                                                       GtkEntryIconPosition  icon_pos,
@@ -238,6 +239,7 @@ static int xkb_constructor(Plugin * p_plugin, char ** fp)
     p_xkb->display_type = DISP_TYPE_IMAGE;
     p_xkb->enable_perwin = FALSE;
     p_xkb->do_not_reset_opt = FALSE;
+    p_xkb->keep_system_layouts = FALSE;
     p_xkb->kbd_model = NULL;
     p_xkb->kbd_layouts = NULL;
     p_xkb->kbd_variants = NULL;
@@ -271,6 +273,10 @@ static int xkb_constructor(Plugin * p_plugin, char ** fp)
                 else if(g_ascii_strcasecmp(s.t[0], "NoResetOpt") == 0)
                 {
                     p_xkb->do_not_reset_opt = str2num(bool_pair, s.t[1], 0);
+                }
+                else if(g_ascii_strcasecmp(s.t[0], "KeepSysLayouts") == 0)
+                {
+                    p_xkb->keep_system_layouts = str2num(bool_pair, s.t[1], 0);
                 }
                 else if(g_ascii_strcasecmp(s.t[0], "Model") == 0)
                 {
@@ -407,13 +413,25 @@ static void on_xkb_checkbutton_per_app_toggled(GtkToggleButton *tb, gpointer p_d
 }
 
 /* Handler for "toggled" event on no reset options check box of configuration dialog. */
-static void on_xkb_checkbutton_no_reset_opt_toggled(GtkToggleButton *tb, gpointer p_data) 
+static void on_xkb_checkbutton_no_reset_opt_toggled(GtkToggleButton *tb, gpointer p_data)
 {
     if(user_active == TRUE)
     {
         /* Fetch the new value and redraw. */
         XkbPlugin * xkb = (XkbPlugin *)p_data;
         xkb->do_not_reset_opt = gtk_toggle_button_get_active(tb);
+        xkb_redraw(xkb);
+    }
+}
+
+/* Handler for "toggled" event on keep system layouts check box of configuration dialog. */
+static void on_xkb_checkbutton_keep_system_layouts_toggled(GtkToggleButton *tb, gpointer p_data)
+{
+    if(user_active == TRUE)
+    {
+        /* Fetch the new value and redraw. */
+        XkbPlugin * xkb = (XkbPlugin *)p_data;
+        xkb->keep_system_layouts = gtk_toggle_button_get_active(tb);
         xkb_redraw(xkb);
     }
 }
@@ -971,6 +989,8 @@ static void on_button_add_layout_clicked(GtkButton *p_button, gpointer *p_data)
 
 void xkb_setxkbmap(XkbPlugin *p_xkb)
 {
+    if(p_xkb->keep_system_layouts) return;
+    
     GString *p_gstring_syscmd = g_string_new("");
     g_string_printf(p_gstring_syscmd,
                     "setxkbmap -model %s -layout %s -variant %s -option grp:%s",
@@ -1137,6 +1157,7 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
 
     // 'KEYBOARD MODEL' frame
     GtkWidget * p_frame_kbd_model = gtk_frame_new(NULL);
+    gtk_widget_set_sensitive(p_frame_kbd_model, !p_xkb->keep_system_layouts);
     GtkWidget * p_label_kbd_model = gtk_label_new(NULL);
     snprintf(markup_str, MAX_MARKUP_LEN, "<b>%s</b>", _("Keyboard Model"));
     gtk_label_set_markup(GTK_LABEL(p_label_kbd_model), markup_str);
@@ -1157,6 +1178,7 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
 
     // 'KEYBOARD LAYOUTS' frame
     GtkWidget * p_frame_kbd_layouts = gtk_frame_new(NULL);
+    gtk_widget_set_sensitive(p_frame_kbd_layouts, !p_xkb->keep_system_layouts);
     GtkWidget * p_label_kbd_layouts = gtk_label_new(NULL);
     snprintf(markup_str, MAX_MARKUP_LEN, "<b>%s</b>", _("Keyboard Layouts"));
     gtk_label_set_markup(GTK_LABEL(p_label_kbd_layouts), markup_str);
@@ -1219,6 +1241,7 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
 
     // 'CHANGE LAYOUT OPTION' frame
     GtkWidget * p_frame_change_layout = gtk_frame_new(NULL);
+    gtk_widget_set_sensitive(p_frame_change_layout, !p_xkb->keep_system_layouts);
     GtkWidget * p_label_change_layout = gtk_label_new(NULL);
     snprintf(markup_str, MAX_MARKUP_LEN, "<b>%s</b>", _("Change Layout Option"));
     gtk_label_set_markup(GTK_LABEL(p_label_change_layout), markup_str);
@@ -1255,14 +1278,20 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
     GtkWidget * p_vbox_advanced_opt = gtk_vbox_new(FALSE, 0);
     gtk_container_add(GTK_CONTAINER(p_alignment_advanced_opt), p_vbox_advanced_opt);
     GtkWidget * p_entry_advanced_opt = gtk_entry_new();
+    gtk_widget_set_sensitive(p_entry_advanced_opt, !p_xkb->keep_system_layouts);
     gtk_entry_set_text(GTK_ENTRY(p_entry_advanced_opt), p_xkb->kbd_advanced_options);
     gtk_entry_set_icon_from_stock(GTK_ENTRY(p_entry_advanced_opt), GTK_ENTRY_ICON_SECONDARY, "gtk-save");
     g_signal_connect(p_entry_advanced_opt, "icon-press", G_CALLBACK(on_xkb_entry_advanced_opt_icon_press), p_xkb);
     gtk_box_pack_start(GTK_BOX(p_vbox_advanced_opt), p_entry_advanced_opt, FALSE, TRUE, 0);
     GtkWidget *p_checkbutton_no_reset_opt = gtk_check_button_new_with_mnemonic(_("Do _not reset existing options"));
+    gtk_widget_set_sensitive(p_checkbutton_no_reset_opt, !p_xkb->keep_system_layouts);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_checkbutton_no_reset_opt), p_xkb->do_not_reset_opt);
     g_signal_connect(p_checkbutton_no_reset_opt, "toggled", G_CALLBACK(on_xkb_checkbutton_no_reset_opt_toggled), p_xkb);
     gtk_box_pack_start(GTK_BOX(p_vbox_advanced_opt), p_checkbutton_no_reset_opt, FALSE, TRUE, 0);
+    GtkWidget *p_checkbutton_keep_system_layouts = gtk_check_button_new_with_mnemonic(_("Keep _system layouts"));
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_checkbutton_keep_system_layouts), p_xkb->keep_system_layouts);
+    g_signal_connect(p_checkbutton_keep_system_layouts, "toggled", G_CALLBACK(on_xkb_checkbutton_keep_system_layouts_toggled), p_xkb);
+    gtk_box_pack_start(GTK_BOX(p_vbox_advanced_opt), p_checkbutton_keep_system_layouts, FALSE, TRUE, 0);
 
 
     // 'PER WINDOW SETTINGS' frame
@@ -1434,6 +1463,7 @@ static void xkb_save_configuration(Plugin * p, FILE * fp)
     lxpanel_put_int(fp, "DisplayType", p_xkb->display_type);
     lxpanel_put_int(fp, "PerWinLayout", p_xkb->enable_perwin);
     lxpanel_put_int(fp, "NoResetOpt", p_xkb->do_not_reset_opt);
+    lxpanel_put_int(fp, "KeepSysLayouts", p_xkb->keep_system_layouts);
     lxpanel_put_str(fp, "Model", p_xkb->kbd_model);
     lxpanel_put_str(fp, "LayoutsList", p_xkb->kbd_layouts);
     lxpanel_put_str(fp, "VariantsList", p_xkb->kbd_variants);
