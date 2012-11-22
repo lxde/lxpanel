@@ -55,6 +55,8 @@ typedef struct {
     GtkWidget    *p_button_kbd_model;
     GtkWidget    *p_button_change_layout;
     GtkWidget    *p_button_rm_layout;
+    GtkWidget    *p_frame_kbd_model, *p_frame_kbd_layouts, *p_frame_change_layout;
+    GtkWidget    *p_entry_advanced_opt, *p_checkbutton_no_reset_opt;
 
     /* Mechanism. */
     int       base_event_code;                /* Result of initializing Xkb extension */

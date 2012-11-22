@@ -239,7 +239,7 @@ static int xkb_constructor(Plugin * p_plugin, char ** fp)
     p_xkb->display_type = DISP_TYPE_IMAGE;
     p_xkb->enable_perwin = FALSE;
     p_xkb->do_not_reset_opt = FALSE;
-    p_xkb->keep_system_layouts = FALSE;
+    p_xkb->keep_system_layouts = TRUE;
     p_xkb->kbd_model = NULL;
     p_xkb->kbd_layouts = NULL;
     p_xkb->kbd_variants = NULL;
@@ -319,7 +319,7 @@ static int xkb_constructor(Plugin * p_plugin, char ** fp)
 
     /* Create a horizontal box as the child of the button. */
     GtkWidget * hbox = gtk_hbox_new(FALSE, 0);
-    gtk_container_set_border_width(GTK_CONTAINER(hbox), 1);
+    gtk_container_set_border_width(GTK_CONTAINER(hbox), 3);
     gtk_container_add(GTK_CONTAINER(p_xkb->p_plugin->pwid), hbox);
     gtk_widget_show(hbox);
 
@@ -430,9 +430,15 @@ static void on_xkb_checkbutton_keep_system_layouts_toggled(GtkToggleButton *tb, 
     if(user_active == TRUE)
     {
         /* Fetch the new value and redraw. */
-        XkbPlugin * xkb = (XkbPlugin *)p_data;
-        xkb->keep_system_layouts = gtk_toggle_button_get_active(tb);
-        xkb_redraw(xkb);
+        XkbPlugin * p_xkb = (XkbPlugin *)p_data;
+        p_xkb->keep_system_layouts = gtk_toggle_button_get_active(tb);
+        xkb_redraw(p_xkb);
+        
+        gtk_widget_set_sensitive(p_xkb->p_frame_kbd_model, !p_xkb->keep_system_layouts);
+        gtk_widget_set_sensitive(p_xkb->p_frame_kbd_layouts, !p_xkb->keep_system_layouts);
+        gtk_widget_set_sensitive(p_xkb->p_frame_change_layout, !p_xkb->keep_system_layouts);
+        gtk_widget_set_sensitive(p_xkb->p_entry_advanced_opt, !p_xkb->keep_system_layouts);
+        gtk_widget_set_sensitive(p_xkb->p_checkbutton_no_reset_opt, !p_xkb->keep_system_layouts);
     }
 }
 
@@ -1156,20 +1162,20 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
 
 
     // 'KEYBOARD MODEL' frame
-    GtkWidget * p_frame_kbd_model = gtk_frame_new(NULL);
-    gtk_widget_set_sensitive(p_frame_kbd_model, !p_xkb->keep_system_layouts);
+    p_xkb->p_frame_kbd_model = gtk_frame_new(NULL);
+    gtk_widget_set_sensitive(p_xkb->p_frame_kbd_model, !p_xkb->keep_system_layouts);
     GtkWidget * p_label_kbd_model = gtk_label_new(NULL);
     snprintf(markup_str, MAX_MARKUP_LEN, "<b>%s</b>", _("Keyboard Model"));
     gtk_label_set_markup(GTK_LABEL(p_label_kbd_model), markup_str);
     gtk_misc_set_padding(GTK_MISC(p_label_kbd_model), 1, 0);
-    gtk_frame_set_label_widget(GTK_FRAME(p_frame_kbd_model), p_label_kbd_model);
-    gtk_frame_set_shadow_type(GTK_FRAME(p_frame_kbd_model), GTK_SHADOW_NONE);
-    gtk_box_pack_start(GTK_BOX(p_vbox_left), p_frame_kbd_model, TRUE, TRUE, 2);
-    gtk_container_set_border_width(GTK_CONTAINER(p_frame_kbd_model), 3);
+    gtk_frame_set_label_widget(GTK_FRAME(p_xkb->p_frame_kbd_model), p_label_kbd_model);
+    gtk_frame_set_shadow_type(GTK_FRAME(p_xkb->p_frame_kbd_model), GTK_SHADOW_NONE);
+    gtk_box_pack_start(GTK_BOX(p_vbox_left), p_xkb->p_frame_kbd_model, TRUE, TRUE, 2);
+    gtk_container_set_border_width(GTK_CONTAINER(p_xkb->p_frame_kbd_model), 3);
 
     // frame alignment
     GtkWidget * p_alignment_kbd_model = gtk_alignment_new(0.5, 0.5, 1, 1);
-    gtk_container_add(GTK_CONTAINER(p_frame_kbd_model), p_alignment_kbd_model);
+    gtk_container_add(GTK_CONTAINER(p_xkb->p_frame_kbd_model), p_alignment_kbd_model);
     gtk_alignment_set_padding(GTK_ALIGNMENT(p_alignment_kbd_model), 4, 4, 10, 10);
     p_xkb->p_button_kbd_model = gtk_button_new_with_label(p_xkb->kbd_model);
     g_signal_connect(p_xkb->p_button_kbd_model, "clicked", G_CALLBACK(on_button_kbd_model_clicked), p_xkb);
@@ -1177,21 +1183,21 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
 
 
     // 'KEYBOARD LAYOUTS' frame
-    GtkWidget * p_frame_kbd_layouts = gtk_frame_new(NULL);
-    gtk_widget_set_sensitive(p_frame_kbd_layouts, !p_xkb->keep_system_layouts);
+    p_xkb->p_frame_kbd_layouts = gtk_frame_new(NULL);
+    gtk_widget_set_sensitive(p_xkb->p_frame_kbd_layouts, !p_xkb->keep_system_layouts);
     GtkWidget * p_label_kbd_layouts = gtk_label_new(NULL);
     snprintf(markup_str, MAX_MARKUP_LEN, "<b>%s</b>", _("Keyboard Layouts"));
     gtk_label_set_markup(GTK_LABEL(p_label_kbd_layouts), markup_str);
     gtk_misc_set_padding(GTK_MISC(p_label_kbd_layouts), 1, 0);
-    gtk_frame_set_label_widget(GTK_FRAME(p_frame_kbd_layouts), p_label_kbd_layouts);
-    gtk_frame_set_shadow_type(GTK_FRAME(p_frame_kbd_layouts), GTK_SHADOW_NONE);
-    gtk_box_pack_start(GTK_BOX(p_vbox_left), p_frame_kbd_layouts, TRUE, TRUE, 2);
-    gtk_container_set_border_width(GTK_CONTAINER(p_frame_kbd_layouts), 3);
-    gtk_widget_set_size_request(GTK_WIDGET(p_frame_kbd_layouts), 300, 180);
+    gtk_frame_set_label_widget(GTK_FRAME(p_xkb->p_frame_kbd_layouts), p_label_kbd_layouts);
+    gtk_frame_set_shadow_type(GTK_FRAME(p_xkb->p_frame_kbd_layouts), GTK_SHADOW_NONE);
+    gtk_box_pack_start(GTK_BOX(p_vbox_left), p_xkb->p_frame_kbd_layouts, TRUE, TRUE, 2);
+    gtk_container_set_border_width(GTK_CONTAINER(p_xkb->p_frame_kbd_layouts), 3);
+    gtk_widget_set_size_request(GTK_WIDGET(p_xkb->p_frame_kbd_layouts), 300, 180);
 
     // frame alignment
     GtkWidget * p_alignment_kbd_layouts = gtk_alignment_new(0.5, 0.5, 1, 1);
-    gtk_container_add(GTK_CONTAINER(p_frame_kbd_layouts), p_alignment_kbd_layouts);
+    gtk_container_add(GTK_CONTAINER(p_xkb->p_frame_kbd_layouts), p_alignment_kbd_layouts);
     gtk_alignment_set_padding(GTK_ALIGNMENT(p_alignment_kbd_layouts), 4, 4, 10, 10);
     GtkWidget * p_hbox_kbd_layouts = gtk_hbox_new(FALSE, 0);
     gtk_container_add(GTK_CONTAINER(p_alignment_kbd_layouts), p_hbox_kbd_layouts);
@@ -1240,20 +1246,20 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
 
 
     // 'CHANGE LAYOUT OPTION' frame
-    GtkWidget * p_frame_change_layout = gtk_frame_new(NULL);
-    gtk_widget_set_sensitive(p_frame_change_layout, !p_xkb->keep_system_layouts);
+    p_xkb->p_frame_change_layout = gtk_frame_new(NULL);
+    gtk_widget_set_sensitive(p_xkb->p_frame_change_layout, !p_xkb->keep_system_layouts);
     GtkWidget * p_label_change_layout = gtk_label_new(NULL);
     snprintf(markup_str, MAX_MARKUP_LEN, "<b>%s</b>", _("Change Layout Option"));
     gtk_label_set_markup(GTK_LABEL(p_label_change_layout), markup_str);
     gtk_misc_set_padding(GTK_MISC(p_label_change_layout), 1, 0);
-    gtk_frame_set_label_widget(GTK_FRAME(p_frame_change_layout), p_label_change_layout);
-    gtk_frame_set_shadow_type(GTK_FRAME(p_frame_change_layout), GTK_SHADOW_NONE);
-    gtk_box_pack_start(GTK_BOX(p_vbox_left), p_frame_change_layout, TRUE, TRUE, 2);
-    gtk_container_set_border_width(GTK_CONTAINER(p_frame_change_layout), 3);
+    gtk_frame_set_label_widget(GTK_FRAME(p_xkb->p_frame_change_layout), p_label_change_layout);
+    gtk_frame_set_shadow_type(GTK_FRAME(p_xkb->p_frame_change_layout), GTK_SHADOW_NONE);
+    gtk_box_pack_start(GTK_BOX(p_vbox_left), p_xkb->p_frame_change_layout, TRUE, TRUE, 2);
+    gtk_container_set_border_width(GTK_CONTAINER(p_xkb->p_frame_change_layout), 3);
 
     // frame alignment
     GtkWidget * p_alignment_change_layout = gtk_alignment_new(0.5, 0.5, 1, 1);
-    gtk_container_add(GTK_CONTAINER(p_frame_change_layout), p_alignment_change_layout);
+    gtk_container_add(GTK_CONTAINER(p_xkb->p_frame_change_layout), p_alignment_change_layout);
     gtk_alignment_set_padding(GTK_ALIGNMENT(p_alignment_change_layout), 4, 4, 10, 10);
     p_xkb->p_button_change_layout = gtk_button_new_with_label(p_xkb->kbd_change_option);
     g_signal_connect(p_xkb->p_button_change_layout, "clicked", G_CALLBACK(on_button_kbd_change_layout_clicked), p_xkb);
@@ -1277,17 +1283,17 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
     gtk_alignment_set_padding(GTK_ALIGNMENT(p_alignment_advanced_opt), 4, 4, 10, 10);
     GtkWidget * p_vbox_advanced_opt = gtk_vbox_new(FALSE, 0);
     gtk_container_add(GTK_CONTAINER(p_alignment_advanced_opt), p_vbox_advanced_opt);
-    GtkWidget * p_entry_advanced_opt = gtk_entry_new();
-    gtk_widget_set_sensitive(p_entry_advanced_opt, !p_xkb->keep_system_layouts);
-    gtk_entry_set_text(GTK_ENTRY(p_entry_advanced_opt), p_xkb->kbd_advanced_options);
-    gtk_entry_set_icon_from_stock(GTK_ENTRY(p_entry_advanced_opt), GTK_ENTRY_ICON_SECONDARY, "gtk-save");
-    g_signal_connect(p_entry_advanced_opt, "icon-press", G_CALLBACK(on_xkb_entry_advanced_opt_icon_press), p_xkb);
-    gtk_box_pack_start(GTK_BOX(p_vbox_advanced_opt), p_entry_advanced_opt, FALSE, TRUE, 0);
-    GtkWidget *p_checkbutton_no_reset_opt = gtk_check_button_new_with_mnemonic(_("Do _not reset existing options"));
-    gtk_widget_set_sensitive(p_checkbutton_no_reset_opt, !p_xkb->keep_system_layouts);
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_checkbutton_no_reset_opt), p_xkb->do_not_reset_opt);
-    g_signal_connect(p_checkbutton_no_reset_opt, "toggled", G_CALLBACK(on_xkb_checkbutton_no_reset_opt_toggled), p_xkb);
-    gtk_box_pack_start(GTK_BOX(p_vbox_advanced_opt), p_checkbutton_no_reset_opt, FALSE, TRUE, 0);
+    p_xkb->p_entry_advanced_opt = gtk_entry_new();
+    gtk_widget_set_sensitive(p_xkb->p_entry_advanced_opt, !p_xkb->keep_system_layouts);
+    gtk_entry_set_text(GTK_ENTRY(p_xkb->p_entry_advanced_opt), p_xkb->kbd_advanced_options);
+    gtk_entry_set_icon_from_stock(GTK_ENTRY(p_xkb->p_entry_advanced_opt), GTK_ENTRY_ICON_SECONDARY, "gtk-save");
+    g_signal_connect(p_xkb->p_entry_advanced_opt, "icon-press", G_CALLBACK(on_xkb_entry_advanced_opt_icon_press), p_xkb);
+    gtk_box_pack_start(GTK_BOX(p_vbox_advanced_opt), p_xkb->p_entry_advanced_opt, FALSE, TRUE, 0);
+    p_xkb->p_checkbutton_no_reset_opt = gtk_check_button_new_with_mnemonic(_("Do _not reset existing options"));
+    gtk_widget_set_sensitive(p_xkb->p_checkbutton_no_reset_opt, !p_xkb->keep_system_layouts);
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_xkb->p_checkbutton_no_reset_opt), p_xkb->do_not_reset_opt);
+    g_signal_connect(p_xkb->p_checkbutton_no_reset_opt, "toggled", G_CALLBACK(on_xkb_checkbutton_no_reset_opt_toggled), p_xkb);
+    gtk_box_pack_start(GTK_BOX(p_vbox_advanced_opt), p_xkb->p_checkbutton_no_reset_opt, FALSE, TRUE, 0);
     GtkWidget *p_checkbutton_keep_system_layouts = gtk_check_button_new_with_mnemonic(_("Keep _system layouts"));
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_checkbutton_keep_system_layouts), p_xkb->keep_system_layouts);
     g_signal_connect(p_checkbutton_keep_system_layouts, "toggled", G_CALLBACK(on_xkb_checkbutton_keep_system_layouts_toggled), p_xkb);
