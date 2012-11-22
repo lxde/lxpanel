@@ -166,7 +166,7 @@ void xkb_redraw(XkbPlugin *p_xkb)
             GString *p_gstring_markup = g_string_new("");
             g_string_printf(p_gstring_markup,
                             "<span font='%u' weight='heavy' color=\"#%06x\">%s</span>",
-                            size/2, gcolor2rgb24(&p_xkb->p_plugin->panel->gfontcolor), group_name);
+                            size*4/5, gcolor2rgb24(&p_xkb->p_plugin->panel->gfontcolor), group_name);
             gtk_label_set_markup(GTK_LABEL(p_xkb->p_label), p_gstring_markup->str);
             g_string_free(p_gstring_markup, TRUE/*free also gstring->str*/);
             gtk_widget_hide(p_xkb->p_image);
