@@ -447,7 +447,15 @@ static void on_xkb_checkbutton_keep_system_layouts_toggled(GtkToggleButton *tb, 
         }
         else
         {
-            
+            GtkWidget *dialog;
+            dialog = gtk_message_dialog_new(GTK_WINDOW(p_xkb->p_dialog_config),
+                                            GTK_DIALOG_DESTROY_WITH_PARENT,
+                                            GTK_MESSAGE_WARNING,
+                                            GTK_BUTTONS_OK,
+                                            _("A reboot is required for this option to take effect"));
+            gtk_window_set_title(GTK_WINDOW(dialog), "Warning");
+            gtk_dialog_run(GTK_DIALOG(dialog));
+            gtk_widget_destroy(dialog);
         }
     }
 }
