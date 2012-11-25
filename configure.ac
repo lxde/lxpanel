@@ -2,6 +2,7 @@ AC_PREREQ(2.53)
 AC_INIT(lxpanel, 0.5.12, http://lxde.org/)
 AM_INIT_AUTOMAKE([-Wall foreign])
 AC_CONFIG_HEADER([config.h])
+AC_CONFIG_MACRO_DIR([m4])
 
 # Support silent build rules. Disable by either passing --disable-silent-rules
 # to configure or passing V=1 to make
@@ -16,7 +17,7 @@ AC_PROG_INSTALL
 AC_PROG_LN_S
 AC_PROG_INTLTOOL(, [no-xml])
 AM_PROG_CC_C_O
-AM_PROG_AR
+m4_ifdef([AM_PROG_AR], [AM_PROG_AR])
 
 #Initialize libtool
 LT_PREREQ([2.2])
@@ -364,7 +365,7 @@ do
 done
 
 GETTEXT_PACKAGE=lxpanel
-#AM_GNU_GETTEXT([external])
+AM_GNU_GETTEXT([external])
 AM_GNU_GETTEXT_VERSION(0.14.1)
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package.])
