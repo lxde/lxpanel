@@ -452,7 +452,7 @@ static void on_xkb_checkbutton_keep_system_layouts_toggled(GtkToggleButton *tb, 
                                             GTK_DIALOG_DESTROY_WITH_PARENT,
                                             GTK_MESSAGE_WARNING,
                                             GTK_BUTTONS_OK,
-                                            _("A reboot is required for this option to take effect"));
+                                            _("New session is required for this option to take effect"));
             gtk_window_set_title(GTK_WINDOW(dialog), "Warning");
             gtk_dialog_run(GTK_DIALOG(dialog));
             gtk_widget_destroy(dialog);
