@@ -55,9 +55,9 @@ struct _GtkWeatherClass
 };
 
 GType       gtk_weather_get_type(void) G_GNUC_CONST;
-GtkWidget * gtk_weather_new(void);
+GtkWidget * gtk_weather_new(gboolean);
 void        gtk_weather_run_preferences_dialog(GtkWidget * widget);
-void        gtk_weather_run_popup_menu(GtkWidget * widget, gboolean standalone);
+void        gtk_weather_run_popup_menu(GtkWidget * widget);
 void        gtk_weather_run_conditions_dialog(GtkWidget * widget);
 gchar *     gtk_weather_get_tooltip_text(GtkWidget * widget);
 

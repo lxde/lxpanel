@@ -99,6 +99,9 @@ struct _ForecastThreadData
 
 struct _GtkWeatherPrivate
 {
+  /* Whether or not this widget is being used by itself */
+  gboolean standalone;
+
   /* Main Widget Box layout */
   GtkWidget * hbox;
   GtkWidget * image;
@@ -223,12 +226,22 @@ gtk_weather_get_type(void)
 /**
  * Returns a new instance of this widget.
  *
+ * @param standalone Whether or not this widget is being created from an 
+ *                   application/plugin (FALSE) or if this widget IS the
+ *                   application (TRUE). 
+ *
  * @return A new instance of this widget type.
  */
 GtkWidget *
-gtk_weather_new()
+gtk_weather_new(gboolean standalone)
 {
-  return GTK_WIDGET(g_object_new(gtk_weather_get_type(), NULL));
+  GObject * object = g_object_new(gtk_weather_get_type(), NULL);
+
+  GtkWeatherPrivate * priv = GTK_WEATHER_GET_PRIVATE(GTK_WEATHER(object));
+
+  priv->standalone = standalone;
+
+  return GTK_WIDGET(object);
 }
 
 /**
@@ -456,14 +469,22 @@ gtk_weather_render(GtkWeather * weather)
       /*LocationInfo * location = (LocationInfo *)priv->location;*/
       ForecastInfo * forecast = (ForecastInfo *)priv->forecast;
 
-      GtkRequisition req;
+      gint height = GTK_WIDGET(weather)->allocation.height;
 
-      gtk_widget_size_request(GTK_WIDGET(weather), &req);
+      /* Initially, the height is 1, after that, it's all good */
+      if (height == 1)
+        {
+          GtkRequisition req;
+
+          gtk_widget_size_request(GTK_WIDGET(weather), &req);
+
+          height = req.height;
+        }
 
       /* set this image to the one in the forecast at correct scale */
       GdkPixbuf * forecast_pixbuf = gdk_pixbuf_scale_simple(forecast->pImage_,
-                                                            req.height,
-                                                            req.height,
+                                                            height,
+                                                            height-1, /* border... */
                                                             GDK_INTERP_BILINEAR);
 
       gtk_image_set_from_pixbuf(GTK_IMAGE(priv->image), forecast_pixbuf);
@@ -681,10 +702,21 @@ gtk_weather_button_pressed(GtkWidget * widget, GdkEventButton * event)
   LXW_LOG(LXW_DEBUG, "GtkWeather::button_pressed(): Button: %d, type: %d", 
           event->button, event->type);
 
+  GtkWeatherPrivate * priv = GTK_WEATHER_GET_PRIVATE(GTK_WEATHER(widget));
+
   /* If right-clicked, show popup */
   if (event->button == 3 && (event->type == GDK_BUTTON_PRESS))
     {
-      gtk_weather_run_popup_menu(widget, TRUE);
+      if (priv->standalone)
+        {
+          gtk_weather_run_popup_menu(widget);
+
+          return TRUE;
+        }
+      else
+        {
+          return FALSE;
+        }
     }
   else if (event->button == 1 && (event->type == GDK_BUTTON_PRESS))
     {
@@ -789,7 +821,7 @@ gtk_weather_change_location(GtkWidget * widget, GdkEventButton * event)
 
   gtk_widget_show_all(dialog);
 
-  gint response = GTK_RESPONSE_REJECT;
+  gint response = GTK_RESPONSE_NONE;
 
   do 
     {
@@ -972,17 +1004,26 @@ gtk_weather_run_error_dialog(GtkWindow * parent, gchar * error_msg)
 {
   LXW_LOG(LXW_DEBUG, "GtkWeather::run_error_dialog(%s)", error_msg);
 
-  GtkWidget * error_dialog = gtk_message_dialog_new(parent,
-                                                    GTK_DIALOG_MODAL,
-                                                    GTK_MESSAGE_ERROR,
-                                                    GTK_BUTTONS_OK,
-                                                    error_msg);
+  static gboolean shown = FALSE;
 
-  gtk_weather_set_window_icon(GTK_WINDOW(error_dialog), "gtk-dialog-error");
+  if (!shown)
+    {
+      GtkWidget * error_dialog = gtk_message_dialog_new(parent,
+                                                        GTK_DIALOG_MODAL,
+                                                        GTK_MESSAGE_ERROR,
+                                                        GTK_BUTTONS_OK,
+                                                        error_msg);
+      
+      gtk_weather_set_window_icon(GTK_WINDOW(error_dialog), "gtk-dialog-error");
+      
+      shown = TRUE;
 
-  gtk_dialog_run(GTK_DIALOG(error_dialog));
+      gtk_dialog_run(GTK_DIALOG(error_dialog));
 
-  gtk_widget_destroy(error_dialog);
+      gtk_widget_destroy(error_dialog);
+
+      shown = FALSE;
+    }
 }
 
 /**
@@ -1052,17 +1093,15 @@ gtk_weather_create_popup_menu(GtkWeather * weather)
  * Shows the popup menu used for configuration.
  *
  * @param widget Pointer to the current instance of the weather widget.
- * @param standalone Whether or not this menu is being ran from an 
- *                   application (FALSE) or directly from this widget (TRUE).
  */
 void
-gtk_weather_run_popup_menu(GtkWidget * widget, gboolean standalone)
+gtk_weather_run_popup_menu(GtkWidget * widget)
 {
-  LXW_LOG(LXW_DEBUG, "GtkWeather::popup_menu(%d)", standalone);
-
   GtkWeatherPrivate * priv = GTK_WEATHER_GET_PRIVATE(GTK_WEATHER(widget));
 
-  if (!standalone)
+  LXW_LOG(LXW_DEBUG, "GtkWeather::popup_menu(%d)", priv->standalone);
+
+  if (priv->standalone)
     {
       gtk_widget_show(GTK_WIDGET(priv->menu_data.quit_item));
     }
@@ -1098,12 +1137,19 @@ gtk_weather_run_preferences_dialog(GtkWidget * widget)
 {
   GtkWeather * weather = GTK_WEATHER(widget);
 
+  static gboolean shown = FALSE;
+
   /* @NOTE: watch for parent window when dealing with the plugin */
   LXW_LOG(LXW_DEBUG, "GtkWeather::create_preferences_dialog()");
 
   GtkWeatherPrivate * priv = GTK_WEATHER_GET_PRIVATE(weather);
 
-  priv->preferences_data.dialog = gtk_dialog_new_with_buttons(_("LXWeather Preferences"),
+  if (shown)
+    {
+      return;
+    }
+
+  priv->preferences_data.dialog = gtk_dialog_new_with_buttons(_("Weather Preferences"),
                                                               NULL,
                                                               GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
                                                               GTK_STOCK_OK, GTK_RESPONSE_ACCEPT,
@@ -1156,9 +1202,9 @@ gtk_weather_run_preferences_dialog(GtkWidget * widget)
 
   GtkWidget * button_hbox = gtk_hbox_new(TRUE, 10);
 
-  priv->preferences_data.c_button = gtk_radio_button_new_with_mnemonic(NULL, _("_Metric (°C)"));
+  priv->preferences_data.c_button = gtk_radio_button_new_with_mnemonic(NULL, _("_Metric (\302\260C)"));
 
-  priv->preferences_data.f_button = gtk_radio_button_new_with_mnemonic_from_widget(GTK_RADIO_BUTTON(priv->preferences_data.c_button), _("_English (°F)"));
+  priv->preferences_data.f_button = gtk_radio_button_new_with_mnemonic_from_widget(GTK_RADIO_BUTTON(priv->preferences_data.c_button), _("_English (\302\260F)"));
 
   gtk_box_pack_end(GTK_BOX(button_hbox), priv->preferences_data.c_button, FALSE, FALSE, 1);
   gtk_box_pack_end(GTK_BOX(button_hbox), priv->preferences_data.f_button, FALSE, FALSE, 1);
@@ -1279,6 +1325,8 @@ gtk_weather_run_preferences_dialog(GtkWidget * widget)
   /* Dialog is shown inside */
   gtk_weather_update_preferences_dialog(weather);
 
+  shown = TRUE;
+
   gint response = gtk_dialog_run(GTK_DIALOG(priv->preferences_data.dialog));
 
   switch(response)
@@ -1333,6 +1381,7 @@ gtk_weather_run_preferences_dialog(GtkWidget * widget)
 
   priv->preferences_data.dialog = NULL;
   
+  shown = FALSE;
 }
 
 /**
@@ -1442,7 +1491,9 @@ gtk_weather_run_conditions_dialog(GtkWidget * widget)
 {
   GtkWeather * weather = GTK_WEATHER(widget);
 
-  LXW_LOG(LXW_DEBUG, "GtkWeather::run_conditions_preferences_dialog()");
+  static gboolean shown = FALSE;
+
+  LXW_LOG(LXW_DEBUG, "GtkWeather::run_conditions_dialog()");
 
   GtkWeatherPrivate * priv = GTK_WEATHER_GET_PRIVATE(weather);
 
@@ -1461,6 +1512,11 @@ gtk_weather_run_conditions_dialog(GtkWidget * widget)
     }
   else
     {
+      if (shown)
+        {
+          return;
+        }
+
       /* Both are available */
       LocationInfo * location = (LocationInfo *)priv->location;
       ForecastInfo * forecast = (ForecastInfo *)priv->forecast;
@@ -1471,6 +1527,7 @@ gtk_weather_run_conditions_dialog(GtkWidget * widget)
       GtkWidget * dialog = gtk_dialog_new_with_buttons(dialog_title,
                                                        NULL,
                                                        GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
+                                                       GTK_STOCK_REFRESH, GTK_RESPONSE_APPLY,
                                                        GTK_STOCK_OK, GTK_RESPONSE_ACCEPT,
                                                        NULL);
 
@@ -1755,6 +1812,8 @@ gtk_weather_run_conditions_dialog(GtkWidget * widget)
 
       gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_ACCEPT);
 
+      shown = TRUE;
+
       gtk_widget_show_all(dialog);
 
       /* Get dimensions to create proper icon... */
@@ -1773,7 +1832,18 @@ gtk_weather_run_conditions_dialog(GtkWidget * widget)
 
       g_object_unref(icon_buf);
 
-      gtk_dialog_run(GTK_DIALOG(dialog));
+      gint response = GTK_RESPONSE_NONE;
+
+      do
+        {
+          response = gtk_dialog_run(GTK_DIALOG(dialog));
+
+          if (response == GTK_RESPONSE_APPLY)
+            {
+              gtk_weather_get_forecast(widget);
+            }
+
+        }  while (response != GTK_RESPONSE_ACCEPT);
 
       if (GTK_IS_WIDGET(dialog))
         {
@@ -1781,6 +1851,8 @@ gtk_weather_run_conditions_dialog(GtkWidget * widget)
         }
 
       dialog = NULL;
+
+      shown = FALSE;
     }
   
 }

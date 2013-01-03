@@ -30,6 +30,9 @@
 #include <gtk/gtk.h>
 #include <stdlib.h>
 
+/* External button-press handler from plugin.c */
+extern gboolean plugin_button_press_event(GtkWidget *widget, GdkEventButton *event, Plugin *plugin);
+
 /* Need to maintain count for bookkeeping */
 static gint g_iCount = 0;
 
@@ -68,18 +71,20 @@ weather_constructor(Plugin * pPlugin, char ** pFP)
 
   LXW_LOG(LXW_DEBUG, "weather_constructor()");
   
-  GtkWidget * pWidg = gtk_weather_new();
+  GtkWidget * pWidg = gtk_weather_new(FALSE);
 
   pPriv->pWeather_ = pWidg;
 
   GtkWidget * pEventBox = gtk_event_box_new();
 
-  /* need to pass those through... */
-  gtk_widget_add_events(pEventBox, 
-                        GDK_BUTTON_PRESS_MASK | GDK_ENTER_NOTIFY_MASK | GDK_LEAVE_NOTIFY_MASK);
+  /* Connect signals. */
+  g_signal_connect(pEventBox, 
+                   "button-press-event", 
+                   G_CALLBACK(plugin_button_press_event),
+                   pPlugin);
 
   gtk_container_add(GTK_CONTAINER(pEventBox), pWidg);
- 
+
   pPlugin->priv = pPriv;
   pPlugin->pwid = pEventBox;
 

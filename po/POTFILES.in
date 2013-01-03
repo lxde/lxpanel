@@ -52,3 +52,6 @@ src/plugins/indicator/indicator.c
 src/plugins/monitors/monitors.c
 
 src/plugins/wnckpager/wnckpager.c
+
+src/plugins/weather/weatherwidget.c
+src/plugins/weather/weather.c

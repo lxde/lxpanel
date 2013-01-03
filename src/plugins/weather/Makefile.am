@@ -8,6 +8,7 @@ weather_la_SOURCES= \
  yahooutil.c        \
  location.c         \
  forecast.c         \
+ weatherwidget.c    \
  weather.c
 
 weather_la_CFLAGS= \

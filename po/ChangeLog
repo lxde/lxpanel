@@ -1,3 +1,8 @@
+2013-01-03 Piotr Sipika <Piotr.Sipika@gmail.com>
+
+	* lxpanel.pot: Added weather plugin-specific messages; updated copyright.
+	* pl.po: Added weather plugin-specific message translations; updated copyright.
+
 2009-07-18 Og Maciel <ogmaciel@gnome.org>
 
 	* pt_BR.po: Updated Brazilian Portuguese translation by
