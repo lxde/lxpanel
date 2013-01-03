@@ -340,6 +340,8 @@ gtk_weather_init(GtkWeather * weather)
   /* Popup menu */
   gtk_weather_create_popup_menu(weather);
 
+  priv->forecast_data.timerid = 0;
+
   /* Adjust size of label and icon inside */
   gtk_weather_render(weather);
 }
@@ -2253,6 +2255,8 @@ gtk_weather_get_forecast(GtkWidget * widget)
       if (priv->forecast_data.timerid > 0)
         {
           g_source_remove(priv->forecast_data.timerid);
+
+          priv->forecast_data.timerid = 0;
         }
     }
 

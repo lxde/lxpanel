@@ -46,10 +46,6 @@ void
 initializeLogUtil(const char * pczPath)
 {
 #ifndef DEBUG
-  /* make sure the console is clean */
-  fclose(stdout);
-  fclose(stderr);
-
   return;
 #endif
 
@@ -64,10 +60,6 @@ initializeLogUtil(const char * pczPath)
         {
           /* syslog */
           openlog("LXWeather", LOG_NDELAY | LOG_PID, LOG_USER);
-
-          /* make sure the console is clean */
-          fclose(stdout);
-          fclose(stderr);
         }
       else if (strncmp(pczPath, "std", 3) == 0)
         {
@@ -91,9 +83,6 @@ initializeLogUtil(const char * pczPath)
               return;
             }
 
-          /* make sure the console is clean */
-          fclose(stdout);
-          fclose(stderr);
         }
 
     }
