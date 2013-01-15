@@ -1817,3 +1817,31 @@ msgstr ""
 #: ../src/plugins/weather/weatherwidget.c:2099
 msgid "Isolated Thundershowers"
 msgstr ""
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Clouds Early/Clearing Late"
+msgstr ""
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "AM Snow Showers"
+msgstr ""
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "AM Showers"
+msgstr ""
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Snow Showers Late"
+msgstr ""
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Showers Late"
+msgstr ""
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Wintry Mix"
+msgstr ""
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Fog Late"
+msgstr ""

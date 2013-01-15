@@ -1812,7 +1812,7 @@ msgstr "Zimno"
 
 #: ../src/plugins/weather/weatherwidget.c:2099
 msgid "Cloudy"
-msgstr "Pochmurnie"
+msgstr "Pochmurno"
 
 #: ../src/plugins/weather/weatherwidget.c:2099
 msgid "Mostly Cloudy"
@@ -1873,6 +1873,34 @@ msgstr "Opady Śniegu"
 #: ../src/plugins/weather/weatherwidget.c:2099
 msgid "Isolated Thundershowers"
 msgstr "Lokalne Opady deszczu z grzmotami"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Clouds Early/Clearing Late"
+msgstr "Pochmurno z Późniejszymi Przejaśnieniami"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "AM Snow Showers"
+msgstr "Poranne Opady Śniegu"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "AM Showers"
+msgstr "Poranne Opady"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Snow Showers Late"
+msgstr "Opady Śniegu Wieczorem"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Showers Late"
+msgstr "Opady Wieczorem"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Wintry Mix"
+msgstr "Marznący Deszcz ze Śniegiem"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Fog Late"
+msgstr "Mgła Wieczorem"
 
 #~ msgid "<b>Icon</b>"
 #~ msgstr "<b>Ikony</b>"
