@@ -1831,6 +1831,14 @@ msgid "AM Showers"
 msgstr ""
 
 #: ../src/plugins/weather/weatherwidget.c:2099
+msgid "PM Snow Showers"
+msgstr ""
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "PM Showers"
+msgstr ""
+
+#: ../src/plugins/weather/weatherwidget.c:2099
 msgid "Snow Showers Late"
 msgstr ""
 
@@ -1839,9 +1847,33 @@ msgid "Showers Late"
 msgstr ""
 
 #: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Snow Showers Early"
+msgstr ""
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Showers Early"
+msgstr ""
+
+#: ../src/plugins/weather/weatherwidget.c:2099
 msgid "Wintry Mix"
 msgstr ""
 
 #: ../src/plugins/weather/weatherwidget.c:2099
 msgid "Fog Late"
+msgstr ""
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Fog Early"
+msgstr ""
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "AM Fog"
+msgstr ""
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "PM Fog"
+msgstr ""
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Mist"
 msgstr ""

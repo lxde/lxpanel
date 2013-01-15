@@ -1535,7 +1535,7 @@ gtk_weather_run_conditions_dialog(GtkWidget * widget)
                                                        GTK_STOCK_OK, GTK_RESPONSE_ACCEPT,
                                                        NULL);
 
-      GtkWidget * everything_hbox = gtk_hbox_new(TRUE, 5);
+      GtkWidget * everything_hbox = gtk_hbox_new(FALSE, 5);
 
       /* This vbox gets filled-in when the table is populated */
       GtkWidget * icon_vbox = gtk_vbox_new(FALSE, 1);
@@ -1793,7 +1793,7 @@ gtk_weather_run_conditions_dialog(GtkWidget * widget)
       gtk_box_pack_start(GTK_BOX(icon_vbox), icon_image, FALSE, FALSE, 1);
       gtk_box_pack_start(GTK_BOX(icon_vbox), conditions_label, FALSE, FALSE, 1);
 
-      gtk_box_pack_start(GTK_BOX(everything_hbox), icon_vbox, TRUE, TRUE, 5);
+      gtk_box_pack_start(GTK_BOX(everything_hbox), icon_vbox, TRUE, TRUE, 35);
       gtk_box_pack_start(GTK_BOX(everything_hbox), forecast_table, FALSE, FALSE, 5);
 
       /* Free everything */

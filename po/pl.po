@@ -1887,6 +1887,22 @@ msgid "AM Showers"
 msgstr "Poranne Opady"
 
 #: ../src/plugins/weather/weatherwidget.c:2099
+msgid "PM Snow Showers"
+msgstr "Popołudniowe Opady Śniegu"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "PM Showers"
+msgstr "Popołudniowe Opady"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Snow Showers Early"
+msgstr "Wczesne Opady Śniegu"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Showers Early"
+msgstr "Wczesne Opady"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
 msgid "Snow Showers Late"
 msgstr "Opady Śniegu Wieczorem"
 
@@ -1901,6 +1917,22 @@ msgstr "Marznący Deszcz ze Śniegiem"
 #: ../src/plugins/weather/weatherwidget.c:2099
 msgid "Fog Late"
 msgstr "Mgła Wieczorem"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Fog Early"
+msgstr "Poranna Mgła"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "AM Fog"
+msgstr "Poranna Mgła"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "PM Fog"
+msgstr "Popołudniowa Mgła"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Mist"
+msgstr "Mżawka"
 
 #~ msgid "<b>Icon</b>"
 #~ msgstr "<b>Ikony</b>"
