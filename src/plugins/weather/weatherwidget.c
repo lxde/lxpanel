@@ -471,25 +471,29 @@ gtk_weather_render(GtkWeather * weather)
       /*LocationInfo * location = (LocationInfo *)priv->location;*/
       ForecastInfo * forecast = (ForecastInfo *)priv->forecast;
 
-      gint height = GTK_WIDGET(weather)->allocation.height;
+      GtkRequisition req;
 
-      /* Initially, the height is 1, after that, it's all good */
-      if (height == 1)
-        {
-          GtkRequisition req;
+      gtk_widget_size_request(GTK_WIDGET(priv->hbox), &req);
 
-          gtk_widget_size_request(GTK_WIDGET(weather), &req);
+      /* req will hold valid data for painted widget, so disregard if we're
+       * running in a single app 
+       */
+      if (req.height)
+        {          
+          /* set this image to the one in the forecast at correct scale */
+          GdkPixbuf * forecast_pixbuf = gdk_pixbuf_scale_simple(forecast->pImage_,
+                                                                req.height,
+                                                                req.height,
+                                                                GDK_INTERP_BILINEAR);
+          
+          gtk_image_set_from_pixbuf(GTK_IMAGE(priv->image), forecast_pixbuf);
 
-          height = req.height;
+          if (G_IS_OBJECT(forecast_pixbuf))
+            {
+              g_object_unref(forecast_pixbuf);
+            }
+
         }
-
-      /* set this image to the one in the forecast at correct scale */
-      GdkPixbuf * forecast_pixbuf = gdk_pixbuf_scale_simple(forecast->pImage_,
-                                                            height,
-                                                            height-1, /* border... */
-                                                            GDK_INTERP_BILINEAR);
-
-      gtk_image_set_from_pixbuf(GTK_IMAGE(priv->image), forecast_pixbuf);
 
       /* update the label with proper temperature */
       gchar * temperature = g_strdup_printf("%d \302\260%s", 
@@ -501,8 +505,6 @@ gtk_weather_render(GtkWeather * weather)
       //gtk_widget_show_all(priv->hbox);
 
       g_free(temperature);
-
-      g_object_unref(forecast_pixbuf);
     }
   else
     {

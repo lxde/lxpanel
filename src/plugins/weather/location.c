@@ -145,6 +145,18 @@ copyLocation(gpointer * pDestination, gpointer pSource)
 
   if (pDestination && (LocationInfo *)*pDestination)
     {
+      /* Check if the two are the same, first */
+      LocationInfo * pDstLocation = (LocationInfo *) *pDestination;
+      LocationInfo * pSrcLocation = (LocationInfo *)pSource;
+
+      if (!strncmp(pDstLocation->pcWOEID_, pSrcLocation->pcWOEID_, strlen(pSrcLocation->pcWOEID_)))
+        {
+          /* they're the same, no need to copy, just assign alias */
+          setLocationAlias(*pDestination, pSrcLocation->pcAlias_);
+          
+          return;
+        }
+
       freeLocation(*pDestination);
 
       *pDestination = NULL;
