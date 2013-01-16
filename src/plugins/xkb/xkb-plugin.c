@@ -163,12 +163,8 @@ void xkb_redraw(XkbPlugin *p_xkb)
         char *group_name = (char *)xkb_get_current_symbol_name(p_xkb);
         if (group_name != NULL)
         {
-            GString *p_gstring_markup = g_string_new("");
-            g_string_printf(p_gstring_markup,
-                            "<span font='%u' weight='heavy' color=\"#%06x\">%s</span>",
-                            size*4/5, gcolor2rgb24(&p_xkb->p_plugin->panel->gfontcolor), group_name);
-            gtk_label_set_markup(GTK_LABEL(p_xkb->p_label), p_gstring_markup->str);
-            g_string_free(p_gstring_markup, TRUE/*free also gstring->str*/);
+            panel_draw_label_text(p_xkb->p_plugin->panel, p_xkb->p_label, group_name,
+                    TRUE, size*4/(5*10.0), TRUE);
             gtk_widget_hide(p_xkb->p_image);
             gtk_widget_show(p_xkb->p_label);
             gtk_widget_set_tooltip_text(p_xkb->p_plugin->pwid, xkb_get_current_group_name(p_xkb));

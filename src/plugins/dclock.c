@@ -211,7 +211,7 @@ static gboolean dclock_update_display(DClockPlugin * dc)
         gchar * utf8 = g_locale_to_utf8(((newlines_converted != NULL) ? newlines_converted : clock_value), -1, NULL, NULL, NULL);
         if (utf8 != NULL)
         {
-            panel_draw_label_text(dc->plugin->panel, dc->clock_label, utf8, dc->bold, TRUE);
+            panel_draw_label_text(dc->plugin->panel, dc->clock_label, utf8, dc->bold, 1, TRUE);
             g_free(utf8);
         }
         g_free(newlines_converted);

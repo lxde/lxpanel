@@ -300,7 +300,7 @@ static void task_draw_label(Task * tk)
 	{
         char * label = g_strdup_printf("(%d) %s", tc->visible_count, tc->visible_name);
         gtk_widget_set_tooltip_text(tk->button, label);
-        panel_draw_label_text(tk->tb->plug->panel, tk->label, label, bold_style, tk->tb->flat_button);
+        panel_draw_label_text(tk->tb->plug->panel, tk->label, label, bold_style, 1, tk->tb->flat_button);
         g_free(label);
 	}
     else
@@ -308,7 +308,7 @@ static void task_draw_label(Task * tk)
         char * name = tk->iconified ? tk->name_iconified : tk->name;
         if (tk->tb->tooltips)
             gtk_widget_set_tooltip_text(tk->button, name);
-        panel_draw_label_text(tk->tb->plug->panel, tk->label, name, bold_style, tk->tb->flat_button);
+        panel_draw_label_text(tk->tb->plug->panel, tk->label, name, bold_style, 1, tk->tb->flat_button);
     }
 }
 
