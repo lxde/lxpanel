@@ -68,6 +68,7 @@ getURL(const gchar * pczURL, gint * piRetCode, gint * piDataSize)
   gint iCurrSize = 0;
 
   gpointer pInBuffer = NULL;
+  gpointer pInBufferRef = NULL;
 
   gchar cReadBuffer[iBufReadSize];
   bzero(cReadBuffer, iBufReadSize);
@@ -104,12 +105,17 @@ getURL(const gchar * pczURL, gint * piRetCode, gint * piDataSize)
       // set return code
       *piRetCode = xmlNanoHTTPReturnCode(pHTTPContext);
 
+      /* Maintain pointer to old location, free on failure */
+      pInBufferRef = pInBuffer;
+
       pInBuffer = g_try_realloc(pInBuffer, iCurrSize + iReadSize);
 
       if (!pInBuffer || *piRetCode != HTTP_STATUS_OK)
         {
           // failure
           cleanup(pHTTPContext, pContentType);
+
+          g_free(pInBufferRef);
 
           return pInBuffer; // it's NULL
         }
@@ -133,13 +139,16 @@ getURL(const gchar * pczURL, gint * piRetCode, gint * piDataSize)
     }
   else
     {
+      /* Maintain pointer to old location, free on failure */
+      pInBufferRef = pInBuffer;
+
       // need to add '\0' at the end
       pInBuffer = g_try_realloc(pInBuffer, iCurrSize + 1);
 
       if (!pInBuffer)
         {
           // failure
-          g_free(pInBuffer);
+          g_free(pInBufferRef);
 
           pInBuffer = NULL;
         }

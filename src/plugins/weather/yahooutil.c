@@ -441,10 +441,10 @@ processItemNode(gpointer * pEntry, xmlNodePtr pNode)
               char * pcSavePtr = NULL;
 
               // initial call to find the first '"'
-              char * pcImageURL = strtok_r(pcContent, "\"", &pcSavePtr);
+              strtok_r(pcContent, "\"", &pcSavePtr);
 
               // second call to find the second '"'
-              pcImageURL = strtok_r(NULL, "\"", &pcSavePtr);
+              char * pcImageURL = strtok_r(NULL, "\"", &pcSavePtr);
 
               // found the image
               if (pcImageURL && strstr(pcImageURL, "yimg.com"))
@@ -545,7 +545,7 @@ processChannelNode(xmlNodePtr pNode, ForecastInfo * pEntry)
                       pCurr = pCurr->next;
                     } while (pCurr && !xmlStrEqual(pCurr->name, CONSTXMLCHAR_P("item")));
 
-                  xmlNodePtr pChild = pCurr->xmlChildrenNode;
+                  xmlNodePtr pChild = (pCurr)?pCurr->xmlChildrenNode:NULL;
                   
                   for (; pChild != NULL; pChild = pChild->next)
                     {
@@ -822,7 +822,7 @@ parseResponse(gpointer pResponse, GList ** pList, gpointer * pForecast)
                 {
                   gpointer pEntry = processResultNode(pNode);
                   
-                  if (pEntry)
+                  if (pEntry && pList)
                     {
                       *pList = g_list_prepend(*pList, pEntry);
                     }
@@ -833,38 +833,45 @@ parseResponse(gpointer pResponse, GList ** pList, gpointer * pForecast)
                   
                   gboolean bNewed = FALSE;
 
-                  if (pForecast && *pForecast)
+                  /* Check if forecast is allocated, if not, 
+                   * allocate and populate 
+                   */
+                  if (pForecast)
                     {
-                      pEntry = (ForecastInfo *)*pForecast;
-                    }
-                  else
-                    {
-                      pEntry = (ForecastInfo *)g_try_new0(ForecastInfo, 1);
-
-                      bNewed = TRUE;
-                    }
-                  
-                  if (!pEntry)
-                    {
-                      iRetVal = -1;
-                    }
-                  else
-                    {
-                      *pForecast = processChannelNode(pNode, pEntry);
-
-                      if (!*pForecast)
+                      if (*pForecast)
                         {
-                          /* Failed, forecast is freed by caller */
+                          pEntry = (ForecastInfo *)*pForecast;
+                        }
+                      else
+                        {
+                          pEntry = (ForecastInfo *)g_try_new0(ForecastInfo, 1);
 
-                          /* Unless it was just newed... */
-                          if (bNewed)
-                            {
-                              g_free(pEntry);
-                            }
-                          
+                          bNewed = TRUE;
+                        }
+                  
+                      if (!pEntry)
+                        {
                           iRetVal = -1;
                         }
-                    }
+                      else
+                        {
+                          *pForecast = processChannelNode(pNode, pEntry);
+                          
+                          if (!*pForecast)
+                            {
+                              /* Failed, forecast is freed by caller */
+                              
+                              /* Unless it was just newed... */
+                              if (bNewed)
+                                {
+                                  g_free(pEntry);
+                                }
+                          
+                              iRetVal = -1;
+                            }
+                        }
+
+                    }// end else if pForecast
 
                 }// end else if 'channel'
 

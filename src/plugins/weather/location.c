@@ -138,15 +138,16 @@ setLocationAlias(gpointer pEntry, gpointer pData)
 void
 copyLocation(gpointer * pDestination, gpointer pSource)
 {
-  if (!pSource)
+  if (!pSource || !pDestination)
     {
       return;
     }
 
-  if (pDestination && (LocationInfo *)*pDestination)
+  if ((LocationInfo *)*pDestination)
     {
       /* Check if the two are the same, first */
       LocationInfo * pDstLocation = (LocationInfo *) *pDestination;
+
       LocationInfo * pSrcLocation = (LocationInfo *)pSource;
 
       if (!strncmp(pDstLocation->pcWOEID_, pSrcLocation->pcWOEID_, strlen(pSrcLocation->pcWOEID_)))

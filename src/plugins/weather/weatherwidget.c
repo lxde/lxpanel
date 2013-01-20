@@ -403,8 +403,12 @@ gtk_weather_destroy(GObject * object)
 static void
 gtk_weather_size_allocate(GtkWidget * widget, GtkAllocation * allocation)
 {
-  g_return_if_fail(widget != NULL || allocation != NULL);
-  g_return_if_fail(IS_GTK_WEATHER(widget));
+  /*  g_return_if_fail(widget != NULL || allocation != NULL);
+      g_return_if_fail(IS_GTK_WEATHER(widget));*/
+  if (!widget || !allocation || !IS_GTK_WEATHER(widget))
+    {
+      return;
+    }
 
   GtkWeatherPrivate * priv = GTK_WEATHER_GET_PRIVATE(GTK_WEATHER(widget));
 
@@ -1501,20 +1505,10 @@ gtk_weather_run_conditions_dialog(GtkWidget * widget)
 
   GtkWeatherPrivate * priv = GTK_WEATHER_GET_PRIVATE(weather);
 
-  if (!priv->location && !priv->forecast)
-    {
-      gtk_weather_run_error_dialog(NULL, _("Location not set."));
-    }
-  else if (!priv->forecast)
-    {
-      gchar * error_msg = g_strdup_printf(_("Forecast for %s unavailable."),
-                                          ((LocationInfo *)priv->location)->pcAlias_);
+  LocationInfo * location = (LocationInfo *)priv->location;
+  ForecastInfo * forecast = (ForecastInfo *)priv->forecast;
 
-      gtk_weather_run_error_dialog(NULL, error_msg);
-
-      g_free(error_msg);
-    }
-  else
+  if (location && forecast)
     {
       if (shown)
         {
@@ -1522,11 +1516,8 @@ gtk_weather_run_conditions_dialog(GtkWidget * widget)
         }
 
       /* Both are available */
-      LocationInfo * location = (LocationInfo *)priv->location;
-      ForecastInfo * forecast = (ForecastInfo *)priv->forecast;
-
       gchar * dialog_title = g_strdup_printf(_("Current Conditions for %s"), 
-                                             location->pcAlias_);
+                                             (location)?location->pcAlias_:"");
 
       GtkWidget * dialog = gtk_dialog_new_with_buttons(dialog_title,
                                                        NULL,
@@ -1858,6 +1849,19 @@ gtk_weather_run_conditions_dialog(GtkWidget * widget)
 
       shown = FALSE;
     }
+  else if (!forecast && location)
+    {
+      gchar * error_msg = g_strdup_printf(_("Forecast for %s unavailable."),
+                                          location->pcAlias_);
+
+      gtk_weather_run_error_dialog(NULL, error_msg);
+
+      g_free(error_msg);
+    }
+  else
+    {
+      gtk_weather_run_error_dialog(NULL, _("Location not set."));
+    }
   
 }
 
@@ -1950,8 +1954,7 @@ gtk_weather_update_location_progress_bar(gpointer data)
   LocationThreadData * location_data = (LocationThreadData *)data;
 
   LXW_LOG(LXW_DEBUG, "GtkWeather::update_location_progress_bar(): %d percent complete.", 
-          location_data->progress_bar,
-          (int)(gtk_progress_bar_get_fraction(location_data->progress_bar) * 100));
+          (location_data)?(int)(gtk_progress_bar_get_fraction(location_data->progress_bar) * 100):-1);
 
   if (!location_data)
     {
@@ -2302,7 +2305,7 @@ gtk_weather_get_forecast_timerfunc(gpointer data)
 
   LXW_LOG(LXW_DEBUG, "GtkWeather::get_forecast_timerfunc(%d %d)", 
           (priv->location)?((LocationInfo*)priv->location)->bEnabled_:0,
-          ((LocationInfo*)priv->location)->uiInterval_ * 60);
+          (priv->location)?((LocationInfo*)priv->location)->uiInterval_ * 60:0);
 
   if (!priv->location)
     {
