@@ -1099,65 +1099,63 @@ void panel_draw_label_text(Panel * p, GtkWidget * label, char * text, gboolean b
     {
         /* Null string. */
         gtk_label_set_text(GTK_LABEL(label), NULL);
+        return;
     }
 
+    /* Compute an appropriate size so the font will scale with the panel's icon size. */
+    int font_desc;
+    if (p->usefontsize)
+        font_desc = p->fontsize;
     else
     {
-        /* Compute an appropriate size so the font will scale with the panel's icon size. */
-        int font_desc;
-        if (p->usefontsize)
-        	font_desc = p->fontsize;
-        else 
-        {
-        	if (p->icon_size < 20) 
-        		font_desc = 9;
-        	else if (p->icon_size >= 20 && p->icon_size < 36)
-        		font_desc = 10;
-        	else
-        		font_desc = 12;
-        }
-        font_desc *= custom_size_factor;
+        if (p->icon_size < 20)
+            font_desc = 9;
+        else if (p->icon_size >= 20 && p->icon_size < 36)
+            font_desc = 10;
+        else
+            font_desc = 12;
+    }
+    font_desc *= custom_size_factor;
 
-        /* Check the string for characters that need to be escaped.
-         * If any are found, create the properly escaped string and use it instead. */
-        char * valid_markup = text;
-        char * escaped_text = NULL;
-        char * q;
-        for (q = text; *q != '\0'; q += 1)
+    /* Check the string for characters that need to be escaped.
+     * If any are found, create the properly escaped string and use it instead. */
+    char * valid_markup = text;
+    char * escaped_text = NULL;
+    char * q;
+    for (q = text; *q != '\0'; q += 1)
+    {
+        if ((*q == '<') || (*q == '>') || (*q == '&'))
         {
-            if ((*q == '<') || (*q == '>') || (*q == '&'))
-            {
-                escaped_text = g_markup_escape_text(text, -1);
-                valid_markup = escaped_text;
-                break;
-            }
+            escaped_text = g_markup_escape_text(text, -1);
+            valid_markup = escaped_text;
+            break;
         }
+    }
 
-        if ((custom_color) && (p->usefontcolor))
-        {
-            /* Color, optionally bold. */
-            gchar * text = g_strdup_printf("<span font_desc=\"%d\" color=\"#%06x\">%s%s%s</span>",
+    gchar * formatted_text;
+    if ((custom_color) && (p->usefontcolor))
+    {
+        /* Color, optionally bold. */
+        formatted_text = g_strdup_printf("<span font_desc=\"%d\" color=\"#%06x\">%s%s%s</span>",
                 font_desc,
                 gcolor2rgb24(&p->gfontcolor),
                 ((bold) ? "<b>" : ""),
                 valid_markup,
                 ((bold) ? "</b>" : ""));
-            gtk_label_set_markup(GTK_LABEL(label), text);
-            g_free(text);
-        }
-        else
-        {
-            /* No color, optionally bold. */
-            gchar * text = g_strdup_printf("<span font_desc=\"%d\">%s%s%s</span>",
+    }
+    else
+    {
+        /* No color, optionally bold. */
+        formatted_text = g_strdup_printf("<span font_desc=\"%d\">%s%s%s</span>",
                 font_desc,
                 ((bold) ? "<b>" : ""),
                 valid_markup,
                 ((bold) ? "</b>" : ""));
-            gtk_label_set_markup(GTK_LABEL(label), text);
-            g_free(text);
-        }
-        g_free(escaped_text);
     }
+
+    gtk_label_set_markup(GTK_LABEL(label), formatted_text);
+    g_free(formatted_text);
+    g_free(escaped_text);
 }
 
 void panel_set_panel_configuration_changed(Panel *p)
