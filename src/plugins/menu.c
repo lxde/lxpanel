@@ -803,8 +803,9 @@ read_separator(Plugin *p, char **fp)
     RET(gtk_separator_menu_item_new());
 }
 
-static void on_reload_menu( MenuCache* cache, menup* m )
+static void on_reload_menu(MenuCache* cache, gpointer menu_pointer)
 {
+    menup *m = menu_pointer;
     /* g_debug("reload system menu!!"); */
     reload_system_menu( m, GTK_MENU(m->menu) );
 }
@@ -825,7 +826,7 @@ read_system_menu(GtkMenu* menu, Plugin *p, char** fp)
             return;
         }
         m->visibility_flags = flags;
-        m->reload_notify = menu_cache_add_reload_notify(m->menu_cache, (GFunc) on_reload_menu, m);
+        m->reload_notify = menu_cache_add_reload_notify(m->menu_cache, on_reload_menu, m);
     }
 
     s.len = 256;

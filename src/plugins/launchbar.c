@@ -849,7 +849,7 @@ static void destroy_menu_cache(gpointer* param, GObject* tree)
     g_slice_free1(sizeof(gpointer) * 2, param);
 }
 
-static void on_menu_cache_reload(MenuCache* menu_cache, GtkTreeStore* tree)
+static void on_menu_cache_reload(MenuCache* menu_cache, gpointer tree)
 {
     MenuCacheDir * dir = menu_cache_get_root_dir(menu_cache);
     gtk_tree_store_clear(tree);
@@ -890,7 +890,7 @@ static void launchbar_configure_initialize_list(Plugin * p, GtkWidget * dlg, Gtk
         if (menu_cache != NULL)
         {
             MenuCacheDir * dir = menu_cache_get_root_dir(menu_cache);
-            gpointer id = menu_cache_add_reload_notify(menu_cache, (GFunc)on_menu_cache_reload, tree);
+            gpointer id = menu_cache_add_reload_notify(menu_cache, on_menu_cache_reload, tree);
             gpointer *param = g_slice_alloc(sizeof(gpointer) * 2);
             if(dir)
                 launchbar_configure_add_menu_recursive(tree, NULL, dir);

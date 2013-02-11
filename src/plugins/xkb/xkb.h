@@ -94,6 +94,7 @@ extern const char * xkb_get_current_symbol_name_lowercase(XkbPlugin * xkb);
 extern void xkb_mechanism_constructor(XkbPlugin * xkb);
 extern void xkb_mechanism_destructor(XkbPlugin * xkb);
 extern int xkb_change_group(XkbPlugin * xkb, int increment);
+extern void xkb_active_window_changed(XkbPlugin * xkb, Window window);
 
 #endif
 
