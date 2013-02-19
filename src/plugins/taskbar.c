@@ -296,20 +296,25 @@ static void task_draw_label(Task * tk)
 {
     TaskClass * tc = tk->res_class;
     gboolean bold_style = (((tk->entered_state) || (tk->flash_state)) && (tk->tb->flat_button));
-    if ((tk->tb->grouped_tasks) && (tc != NULL) && (tc->visible_task == tk) && (tc->visible_count > 1))
-	{
-        char * label = g_strdup_printf("(%d) %s", tc->visible_count, tc->visible_name);
-        gtk_widget_set_tooltip_text(tk->button, label);
-        panel_draw_label_text(tk->tb->plug->panel, tk->label, label, bold_style, 1, tk->tb->flat_button);
-        g_free(label);
-	}
+    char *label;
+
+    if ((tk->tb->grouped_tasks) && (tc != NULL) && (tc->visible_task == tk)
+            && (tc->visible_count > 1))
+    {
+        label = g_strdup_printf("(%d) %s", tc->visible_count, tc->visible_name);
+    }
     else
     {
-        char * name = tk->iconified ? tk->name_iconified : tk->name;
-        if (tk->tb->tooltips)
-            gtk_widget_set_tooltip_text(tk->button, name);
-        panel_draw_label_text(tk->tb->plug->panel, tk->label, name, bold_style, 1, tk->tb->flat_button);
+        label = g_strdup(tk->iconified ? tk->name_iconified : tk->name);
     }
+
+    if (tk->tb->tooltips)
+        gtk_widget_set_tooltip_text(tk->button, label);
+
+    panel_draw_label_text(tk->tb->plug->panel, tk->label, label, bold_style, 1,
+            tk->tb->flat_button);
+
+    g_free(label);
 }
 
 /* Determine if a task is visible. */
@@ -2061,3 +2066,5 @@ PluginClass taskbar_plugin_class = {
     panel_configuration_changed : taskbar_panel_configuration_changed
 
 };
+
+/* vim: set sw=4 et sts=4 : */
