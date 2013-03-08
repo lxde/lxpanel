@@ -467,14 +467,14 @@ PluginClass dclock_plugin_class = {
 
     PLUGINCLASS_VERSIONING,
 
-    type : "dclock",
-    name : N_("Digital Clock"),
-    version: "1.0",
-    description : N_("Display digital clock and tooltip"),
+    .type = "dclock",
+    .name = N_("Digital Clock"),
+    .version = "1.0",
+    .description = N_("Display digital clock and tooltip"),
 
-    constructor : dclock_constructor,
-    destructor  : dclock_destructor,
-    config : dclock_configure,
-    save : dclock_save_configuration,
-    panel_configuration_changed : dclock_panel_configuration_changed
+    .constructor = dclock_constructor,
+    .destructor  = dclock_destructor,
+    .config = dclock_configure,
+    .save = dclock_save_configuration,
+    .panel_configuration_changed = dclock_panel_configuration_changed
 };

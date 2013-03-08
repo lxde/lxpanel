@@ -589,14 +589,14 @@ PluginClass batt_plugin_class = {
     
     PLUGINCLASS_VERSIONING,
 
-    type        : "batt",
-    name        : N_("Battery Monitor"),
-    version     : "2.0",
-    description : N_("Display battery status using ACPI"),
+    .type        = "batt",
+    .name        = N_("Battery Monitor"),
+    .version     = "2.0",
+    .description = N_("Display battery status using ACPI"),
 
-    constructor : constructor,
-    destructor  : destructor,
-    config      : config,
-    save        : save,
-    panel_configuration_changed : orientation
+    .constructor = constructor,
+    .destructor  = destructor,
+    .config      = config,
+    .save        = save,
+    .panel_configuration_changed = orientation
 };

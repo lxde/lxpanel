@@ -291,14 +291,14 @@ PluginClass kbled_plugin_class = {
 
     PLUGINCLASS_VERSIONING,
 
-    type : "kbled",
-    name : N_("Keyboard LED"),
-    version: "1.0",
-    description : N_("Indicators for CapsLock, NumLock, and ScrollLock keys"),
+    .type = "kbled",
+    .name = N_("Keyboard LED"),
+    .version = "1.0",
+    .description = N_("Indicators for CapsLock, NumLock, and ScrollLock keys"),
 
-    constructor : kbled_constructor,
-    destructor  : kbled_destructor,
-    config : kbled_configure,
-    save : kbled_save_configuration,
-    panel_configuration_changed : kbled_panel_configuration_changed
+    .constructor = kbled_constructor,
+    .destructor  = kbled_destructor,
+    .config = kbled_configure,
+    .save = kbled_save_configuration,
+    .panel_configuration_changed = kbled_panel_configuration_changed
 };

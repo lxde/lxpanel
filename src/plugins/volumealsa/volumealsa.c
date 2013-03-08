@@ -661,16 +661,16 @@ PluginClass volumealsa_plugin_class = {
 
     PLUGINCLASS_VERSIONING,
 
-    type : "volumealsa",
-    name : N_("Volume Control"),
-    version: "1.0",
-    description : "Display and control volume for ALSA",
+    .type = "volumealsa",
+    .name = N_("Volume Control"),
+    .version = "1.0",
+    .description = "Display and control volume for ALSA",
 
-    constructor : volumealsa_constructor,
-    destructor  : volumealsa_destructor,
-    config :volumealsa_configure,
-    save : NULL,
-    panel_configuration_changed : volumealsa_panel_configuration_changed
+    .constructor = volumealsa_constructor,
+    .destructor  = volumealsa_destructor,
+    .config  =volumealsa_configure,
+    .save = NULL,
+    .panel_configuration_changed = volumealsa_panel_configuration_changed
 
 };
 

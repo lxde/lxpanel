@@ -838,14 +838,14 @@ PluginClass pager_plugin_class = {
 
     PLUGINCLASS_VERSIONING,
 
-    type : "pager",
-    name : N_("Desktop Pager"),
-    version: "1.0",
-    description : N_("Simple pager plugin"),
+    .type = "pager",
+    .name = N_("Desktop Pager"),
+    .version = "1.0",
+    .description = N_("Simple pager plugin"),
 
-    constructor : pager_constructor,
-    destructor  : pager_destructor,
-    config : NULL,
-    save : NULL,
-    panel_configuration_changed : pager_panel_configuration_changed
+    .constructor = pager_constructor,
+    .destructor  = pager_destructor,
+    .config = NULL,
+    .save = NULL,
+    .panel_configuration_changed = pager_panel_configuration_changed
 };

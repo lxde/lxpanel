@@ -1029,14 +1029,14 @@ PluginClass launchbar_plugin_class = {
 
     PLUGINCLASS_VERSIONING,
 
-    type : "launchbar",
-    name : N_("Application Launch Bar"),
-    version: "2.0",
-    description : N_("Bar with buttons to launch application"),
+    .type = "launchbar",
+    .name = N_("Application Launch Bar"),
+    .version = "2.0",
+    .description = N_("Bar with buttons to launch application"),
 
-    constructor : launchbar_constructor,
-    destructor  : launchbar_destructor,
-    config : launchbar_configure,
-    save : launchbar_save_configuration,
-    panel_configuration_changed : launchbar_panel_configuration_changed
+    .constructor = launchbar_constructor,
+    .destructor  = launchbar_destructor,
+    .config = launchbar_configure,
+    .save = launchbar_save_configuration,
+    .panel_configuration_changed = launchbar_panel_configuration_changed
 };

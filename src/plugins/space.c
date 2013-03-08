@@ -139,16 +139,16 @@ PluginClass space_plugin_class = {
 
     PLUGINCLASS_VERSIONING,
 
-    type : "space",
-    name : N_("Spacer"),
-    version: "1.0",
-    description : N_("Allocate space"),
+    .type = "space",
+    .name = N_("Spacer"),
+    .version = "1.0",
+    .description = N_("Allocate space"),
 
     /* Stretch is available but not default for this plugin. */
-    expand_available : TRUE,
+    .expand_available = TRUE,
 
-    constructor : space_constructor,
-    destructor  : space_destructor,
-    config : space_configure,
-    save : space_save_configuration
+    .constructor = space_constructor,
+    .destructor  = space_destructor,
+    .config = space_configure,
+    .save = space_save_configuration
 };

@@ -439,15 +439,15 @@ PluginClass dirmenu_plugin_class = {
 
     PLUGINCLASS_VERSIONING,
 
-    type : "dirmenu",
-    name : N_("Directory Menu"),
-    version: "1.0",
-    description : N_("Browse directory tree via menu (Author: PCMan)"),
+    .type = "dirmenu",
+    .name = N_("Directory Menu"),
+    .version = "1.0",
+    .description = N_("Browse directory tree via menu (Author = PCMan)"),
 
-    constructor : dirmenu_constructor,
-    destructor  : dirmenu_destructor,
-    config : dirmenu_configure,
-    save : dirmenu_save_configuration,
-    panel_configuration_changed : dirmenu_panel_configuration_changed
+    .constructor = dirmenu_constructor,
+    .destructor  = dirmenu_destructor,
+    .config = dirmenu_configure,
+    .save = dirmenu_save_configuration,
+    .panel_configuration_changed = dirmenu_panel_configuration_changed
 
 };

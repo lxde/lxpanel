@@ -1505,15 +1505,15 @@ PluginClass xkb_plugin_class = {
 
     PLUGINCLASS_VERSIONING,
 
-    type : "xkb",
-    name : N_("Keyboard Layout Handler"),
-    version: "2.0",
-    description : N_("Handle keyboard layouts"),
+    .type = "xkb",
+    .name = N_("Keyboard Layout Handler"),
+    .version = "2.0",
+    .description = N_("Handle keyboard layouts"),
 
-    constructor : xkb_constructor,
-    destructor  : xkb_destructor,
-    config : xkb_configure,
-    save : xkb_save_configuration,
-    panel_configuration_changed : xkb_panel_configuration_changed
+    .constructor = xkb_constructor,
+    .destructor  = xkb_destructor,
+    .config = xkb_configure,
+    .save = xkb_save_configuration,
+    .panel_configuration_changed = xkb_panel_configuration_changed
 
 };

@@ -804,15 +804,15 @@ monitors_save(Plugin *p, FILE *fp)
 
 PluginClass monitors_plugin_class = {
     PLUGINCLASS_VERSIONING,
-    type : "monitors",
-    name : N_("Resource monitors"),
-    version: "0.1", 
-    description: N_("Display monitors (CPU, RAM)"),
-    constructor: monitors_constructor,
-    destructor : monitors_destructor,
-    config: monitors_config,
-    save: monitors_save,
-    panel_configuration_changed: NULL
+    .type = "monitors",
+    .name = N_("Resource monitors"),
+    .version = "0.1", 
+    .description = N_("Display monitors (CPU, RAM)"),
+    .constructor = monitors_constructor,
+    .destructor = monitors_destructor,
+    .config = monitors_config,
+    .save = monitors_save,
+    .panel_configuration_changed = NULL
 };
 
 /* vim: set sw=4 sts=4 et : */

@@ -2089,20 +2089,20 @@ PluginClass taskbar_plugin_class = {
 
     PLUGINCLASS_VERSIONING,
 
-    type : "taskbar",
-    name : N_("Task Bar (Window List)"),
-    version: "1.0",
-    description : N_("Taskbar shows all opened windows and allow to iconify them, shade or get focus"),
+    .type = "taskbar",
+    .name = N_("Task Bar (Window List)"),
+    .version = "1.0",
+    .description = N_("Taskbar shows all opened windows and allow to iconify them, shade or get focus"),
 
     /* Stretch is available and default for this plugin. */
-    expand_available : TRUE,
-    expand_default : TRUE,
+    .expand_available = TRUE,
+    .expand_default = TRUE,
 
-    constructor : taskbar_constructor,
-    destructor  : taskbar_destructor,
-    config : taskbar_configure,
-    save : taskbar_save_configuration,
-    panel_configuration_changed : taskbar_panel_configuration_changed
+    .constructor = taskbar_constructor,
+    .destructor  = taskbar_destructor,
+    .config = taskbar_configure,
+    .save = taskbar_save_configuration,
+    .panel_configuration_changed = taskbar_panel_configuration_changed
 
 };
 

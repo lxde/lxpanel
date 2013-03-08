@@ -1098,15 +1098,15 @@ PluginClass menu_plugin_class = {
 
     PLUGINCLASS_VERSIONING,
 
-    type : "menu",
-    name : N_("Menu"),
-    version: "2.0",
-    description : N_("Application Menu"),
+    .type = "menu",
+    .name = N_("Menu"),
+    .version = "2.0",
+    .description = N_("Application Menu"),
 
-    constructor : menu_constructor,
-    destructor  : menu_destructor,
-    config : menu_config,
-    save : save_config,
-    panel_configuration_changed : menu_panel_configuration_changed
+    .constructor = menu_constructor,
+    .destructor  = menu_destructor,
+    .config = menu_config,
+    .save = save_config,
+    .panel_configuration_changed = menu_panel_configuration_changed
 };
 

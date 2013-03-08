@@ -760,19 +760,19 @@ PluginClass tray_plugin_class = {
 
     PLUGINCLASS_VERSIONING,
 
-    type : "tray",
-    name : N_("System Tray"),
-    version: "1.0",
-    description : N_("System tray"),
+    .type = "tray",
+    .name = N_("System Tray"),
+    .version = "1.0",
+    .description = N_("System tray"),
 
     /* Set a flag to identify the system tray.  It is special in that only one per system can exist. */
-    one_per_system : TRUE,
+    .one_per_system = TRUE,
 
-    constructor : tray_constructor,
-    destructor  : tray_destructor,
-    config : NULL,
-    save : NULL,
-    panel_configuration_changed : tray_panel_configuration_changed
+    .constructor = tray_constructor,
+    .destructor  = tray_destructor,
+    .config = NULL,
+    .save = NULL,
+    .panel_configuration_changed = tray_panel_configuration_changed
 
 };
 

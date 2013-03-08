@@ -98,14 +98,14 @@ PluginClass separator_plugin_class = {
 
     PLUGINCLASS_VERSIONING,
 
-    type : "separator",
-    name : N_("Separator"),
-    version: "1.0",
-    description : N_("Add a separator to the panel"),
+    .type = "separator",
+    .name = N_("Separator"),
+    .version = "1.0",
+    .description = N_("Add a separator to the panel"),
 
-    constructor : separator_constructor,
-    destructor  : separator_destructor,
-    config : NULL,
-    save : NULL,
-    panel_configuration_changed : separator_panel_configuration_changed
+    .constructor = separator_constructor,
+    .destructor  = separator_destructor,
+    .config = NULL,
+    .save = NULL,
+    .panel_configuration_changed = separator_panel_configuration_changed
 };

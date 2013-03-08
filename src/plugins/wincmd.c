@@ -262,15 +262,15 @@ PluginClass wincmd_plugin_class = {
 
     PLUGINCLASS_VERSIONING,
 
-    type : "wincmd",
-    name : N_("Minimize All Windows"),
-    version: "1.0",
-    description : N_("Sends commands to all desktop windows.\nSupported commands are 1) iconify and 2) shade"),
+    .type = "wincmd",
+    .name = N_("Minimize All Windows"),
+    .version = "1.0",
+    .description = N_("Sends commands to all desktop windows.\nSupported commands are 1) iconify and 2) shade"),
 
-    constructor : wincmd_constructor,
-    destructor  : wincmd_destructor,
-    config : wincmd_configure,
-    save : wincmd_save_configuration,
-    panel_configuration_changed : wincmd_panel_configuration_changed
+    .constructor = wincmd_constructor,
+    .destructor  = wincmd_destructor,
+    .config = wincmd_configure,
+    .save = wincmd_save_configuration,
+    .panel_configuration_changed = wincmd_panel_configuration_changed
 
 };
