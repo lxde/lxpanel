@@ -281,19 +281,19 @@ PluginClass weather_plugin_class =
     PLUGINCLASS_VERSIONING,
 
     // general info
-    type : "weather",
-    name : N_("Weather Plugin"),
-    version : "0.0.1",
-    description : N_("Show weather conditions for a location."),
+    .type = "weather",
+    .name = N_("Weather Plugin"),
+    .version = "0.0.1",
+    .description = N_("Show weather conditions for a location."),
 
     // system settings
-    one_per_system : 0,
-    expand_available : 0,
+    .one_per_system = 0,
+    .expand_available = 0,
 
     // API functions
-    constructor : weather_constructor,
-    destructor : weather_destructor,
-    config : weather_configure,
-    save : weather_save_configuration,
-    panel_configuration_changed : weather_configuration_changed
+    .constructor = weather_constructor,
+    .destructor = weather_destructor,
+    .config = weather_configure,
+    .save = weather_save_configuration,
+    .panel_configuration_changed = weather_configuration_changed
   };
