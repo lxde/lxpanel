@@ -1291,7 +1291,7 @@ static void on_browse_btn_clicked(GtkButton* btn, GtkEntry* entry)
     gtk_widget_destroy(fc);
 }
 
-inline void generic_config_dlg_save(gpointer panel_gpointer,GObject *where_the_object_was)
+static void generic_config_dlg_save(gpointer panel_gpointer,GObject *where_the_object_was)
 {
     Panel *panel = (Panel *)(panel_gpointer);
     panel_config_save(panel);
