@@ -474,7 +474,14 @@ static void trayclient_request_dock(TrayPlugin * tr, XClientMessageEvent * xeven
 
     /* Connect the socket to the plug.  This can only be done after the socket is realized. */
     gtk_socket_add_id(GTK_SOCKET(tc->socket), tc->window);
-    client_print(tr, '+', tc, xevent);
+
+    //fprintf(stderr, "Notice: checking plug %ud\n", tc->window );
+    /* Checks if the plug has been created inside of the socket. */
+    if (gtk_socket_get_plug_window ( GTK_SOCKET(tc->socket) ) == NULL) {
+        //fprintf(stderr, "Notice: removing plug %ud\n", tc->window );
+        icon_grid_remove(tr->icon_grid, tc->socket);
+        return;
+    }
 }
 
 /* GDK event filter. */
