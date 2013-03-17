@@ -1572,7 +1572,7 @@ gboolean spawn_command_async(GtkWindow *parent_window, gchar const* workdir,
     return !err;
 }
 
-gboolean lxpanel_launch_app(const char* exec, GList* files, gboolean in_terminal)
+gboolean lxpanel_launch_app(const char* exec, GList* files, gboolean in_terminal, char const* in_workdir)
 {
     GError *error = NULL;
     char* cmd;
@@ -1594,7 +1594,7 @@ gboolean lxpanel_launch_app(const char* exec, GList* files, gboolean in_terminal
         cmd = term_cmd;
     }
 
-    spawn_command_async(NULL, NULL, cmd);
+    spawn_command_async(NULL, in_workdir, cmd);
 
     g_free(cmd);
 

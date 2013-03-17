@@ -194,7 +194,8 @@ menu_pos(GtkMenu *menu, gint *x, gint *y, gboolean *push_in, GtkWidget *widget)
 static void on_menu_item( GtkMenuItem* mi, MenuCacheItem* item )
 {
     lxpanel_launch_app( menu_cache_app_get_exec(MENU_CACHE_APP(item)),
-            NULL, menu_cache_app_get_use_terminal(MENU_CACHE_APP(item)));
+            NULL, menu_cache_app_get_use_terminal(MENU_CACHE_APP(item)),
+	    menu_cache_app_get_working_dir(MENU_CACHE_APP(item)));
 }
 
 /* load icon when mapping the menu item to speed up */
