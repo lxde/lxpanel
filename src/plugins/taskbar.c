@@ -197,6 +197,7 @@ static void taskbar_panel_configuration_changed(Plugin * p);
 static void set_timer_on_task(Task * tk)
 {
     gint interval;
+    g_return_if_fail(tk->flash_timeout == 0);
     g_object_get(gtk_widget_get_settings(tk->button), "gtk-cursor-blink-time", &interval, NULL);
     tk->flash_timeout = g_timeout_add(interval, (GSourceFunc) flash_window_timeout, tk);
 }
