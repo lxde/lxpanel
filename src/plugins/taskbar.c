@@ -192,6 +192,7 @@ static void taskbar_apply_configuration(Plugin * p);
 static void taskbar_configure(Plugin * p, GtkWindow * parent);
 static void taskbar_save_configuration(Plugin * p, FILE * fp);
 static void taskbar_panel_configuration_changed(Plugin * p);
+static void taskbar_close_all_windows(GtkWidget * widget, Task * tk);
 
 /* Set an urgency timer on a task. */
 static void set_timer_on_task(Task * tk)
@@ -1057,6 +1058,18 @@ static void taskbar_popup_set_position(GtkWidget * menu, gint * px, gint * py, g
     *push_in = TRUE;
 }
 
+/* Handler for "activate" event from "close all windows" menu*/
+static void taskbar_close_all_windows (GtkWidget * widget, Task * tk )
+{
+    Task * tk_cursor;
+    for (tk_cursor = tk->res_class->res_class_head; tk_cursor != NULL;
+            tk_cursor = tk_cursor->res_class_flink)
+    {
+        Xclimsgwm(tk_cursor->win, a_WM_PROTOCOLS, a_WM_DELETE_WINDOW);
+    }
+    task_group_menu_destroy(tk->tb);
+}
+
 /* Remove the grouped-task popup menu from the screen. */
 static void task_group_menu_destroy(TaskbarPlugin * tb)
 {
@@ -1075,28 +1088,50 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
     TaskClass * tc = tk->res_class;
     if ((tb->grouped_tasks) && (tc != NULL) && (tc->visible_count > 1) && (GTK_IS_BUTTON(widget)))
     {
-        /* If this is a grouped-task representative, meaning that there is a class with at least two windows,
-         * bring up a popup menu listing all the class members. */
-        GtkWidget * menu = gtk_menu_new();
-        Task * tk_cursor;
-        for (tk_cursor = tc->res_class_head; tk_cursor != NULL; tk_cursor = tk_cursor->res_class_flink)
+        /* This is grouped-task representative, meaning that there is a class
+         * with at least two windows. */
+        GtkWidget * menu = NULL;
+        if( event->button == 1 ) /* Left click */
         {
-            if (task_is_visible_on_current_desktop(tb, tk_cursor))
+            menu = gtk_menu_new();
+            /* Bring up a popup menu listing all the class members. */
+            Task * tk_cursor;
+            for (tk_cursor = tc->res_class_head; tk_cursor != NULL;
+                    tk_cursor = tk_cursor->res_class_flink)
             {
-                /* The menu item has the name, or the iconified name, and the icon of the application window. */
-                GtkWidget * mi = gtk_image_menu_item_new_with_label(((tk_cursor->iconified) ? tk_cursor->name_iconified : tk_cursor->name));
-                GtkWidget * im = gtk_image_new_from_pixbuf(gtk_image_get_pixbuf(GTK_IMAGE(tk_cursor->image)));
-                gtk_image_menu_item_set_image(GTK_IMAGE_MENU_ITEM(mi), im);
-                g_signal_connect(mi, "button_press_event", G_CALLBACK(taskbar_popup_activate_event), (gpointer) tk_cursor);
-	        gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
+                if (task_is_visible_on_current_desktop(tb, tk_cursor))
+                {
+                    /* The menu item has the name, or the iconified name, and
+                     * the icon of the application window. */
+                    GtkWidget * mi = gtk_image_menu_item_new_with_label(((tk_cursor->iconified) ?
+                                tk_cursor->name_iconified : tk_cursor->name));
+                    GtkWidget * im = gtk_image_new_from_pixbuf(gtk_image_get_pixbuf(
+                                GTK_IMAGE(tk_cursor->image)));
+                    gtk_image_menu_item_set_image(GTK_IMAGE_MENU_ITEM(mi), im);
+                    g_signal_connect(mi, "button_press_event",
+                            G_CALLBACK(taskbar_popup_activate_event), (gpointer) tk_cursor);
+                    gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
+                }
             }
+        }
+        else if(event->button == 3) /* Right click */
+        {
+            menu = gtk_menu_new();
+            GtkWidget * mi = gtk_menu_item_new_with_mnemonic (_("_Close all windows"));
+            gtk_menu_shell_append ( GTK_MENU_SHELL(menu), mi);
+            g_signal_connect( mi, "activate", G_CALLBACK(taskbar_close_all_windows), tk);
         }
 
         /* Show the menu.  Set context so we can find the menu later to dismiss it.
-         * Use a position-calculation callback to get the menu nicely positioned with respect to the button. */
-        gtk_widget_show_all(menu);
-        tb->group_menu = menu;
-        gtk_menu_popup(GTK_MENU(menu), NULL, NULL, (GtkMenuPositionFunc) taskbar_popup_set_position, (gpointer) tk, event->button, event->time);
+         * Use a position-calculation callback to get the menu nicely
+         * positioned with respect to the button. */
+        if (menu) {
+            gtk_widget_show_all(menu);
+            tb->group_menu = menu;
+            gtk_menu_popup(GTK_MENU(menu), NULL, NULL,
+                    (GtkMenuPositionFunc) taskbar_popup_set_position, (gpointer) tk,
+                    event->button, event->time);
+        }
     }
     else
     {
