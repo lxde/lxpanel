@@ -1065,7 +1065,10 @@ static void taskbar_close_all_windows (GtkWidget * widget, Task * tk )
     for (tk_cursor = tk->res_class->res_class_head; tk_cursor != NULL;
             tk_cursor = tk_cursor->res_class_flink)
     {
-        Xclimsgwm(tk_cursor->win, a_WM_PROTOCOLS, a_WM_DELETE_WINDOW);
+        if (task_is_visible_on_current_desktop(tk->tb, tk_cursor))
+        {
+            Xclimsgwm(tk_cursor->win, a_WM_PROTOCOLS, a_WM_DELETE_WINDOW);
+        }
     }
     task_group_menu_destroy(tk->tb);
 }
