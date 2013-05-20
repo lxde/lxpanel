@@ -29,7 +29,7 @@
 #include "ev.h"
 
 enum { ALLIGN_NONE, ALLIGN_LEFT, ALLIGN_CENTER, ALLIGN_RIGHT  };
-enum { EDGE_NONE, EDGE_LEFT, EDGE_RIGHT, EDGE_TOP, EDGE_BOTTOM };
+enum { EDGE_NONE=0, EDGE_LEFT, EDGE_RIGHT, EDGE_TOP, EDGE_BOTTOM };
 enum { WIDTH_NONE, WIDTH_REQUEST, WIDTH_PIXEL, WIDTH_PERCENT };
 enum { HEIGHT_NONE, HEIGHT_PIXEL, HEIGHT_REQUEST };
 enum {
@@ -77,6 +77,7 @@ typedef struct _Panel {
     int orientation;
     int widthtype, width;
     int heighttype, height;
+    gint monitor;
     gulong strut_size;			/* Values for WM_STRUT_PARTIAL */
     gulong strut_lower;
     gulong strut_upper;

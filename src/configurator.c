@@ -117,13 +117,13 @@ static gboolean edge_selector(Panel* p, int edge)
 }
 
 /* If there is a panel on this edge and it is not the panel being configured, set the edge unavailable. */
-gboolean panel_edge_available(Panel* p, int edge)
+gboolean panel_edge_available(Panel* p, int edge, gint monitor)
 {
     GSList* l;
     for (l = all_panels; l != NULL; l = l->next)
         {
         Panel* pl = (Panel*) l->data;
-        if ((pl != p) && (pl->edge == edge))
+        if ((pl != p) && (pl->edge == edge) && (pl->monitor == monitor))
             return FALSE;
         }
     return TRUE;
@@ -158,6 +158,13 @@ static void edge_right_toggle(GtkToggleButton *widget, Panel *p)
 {
     if (gtk_toggle_button_get_active(widget))
         set_edge(p, EDGE_RIGHT);
+}
+
+static void set_monitor(GtkAdjustment *widget, Panel *p)
+{
+    p->monitor = gtk_adjustment_get_value(widget);
+    update_panel_geometry(p);
+    panel_set_panel_configuration_changed(p);
 }
 
 static void set_alignment(Panel* p, int align)
@@ -850,6 +857,8 @@ void panel_configure( Panel* p, int sel_page )
 {
     GtkBuilder* builder;
     GtkWidget *w, *w2, *tint_clr;
+    GdkScreen *screen;
+    gint monitors;
 
     if( p->pref_dialog )
     {
@@ -874,20 +883,27 @@ void panel_configure( Panel* p, int sel_page )
     /* position */
     w = (GtkWidget*)gtk_builder_get_object( builder, "edge_bottom" );
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(w), edge_selector(p, EDGE_BOTTOM));
-    gtk_widget_set_sensitive(w, panel_edge_available(p, EDGE_BOTTOM));
     g_signal_connect(w, "toggled", G_CALLBACK(edge_bottom_toggle), p);
     w = (GtkWidget*)gtk_builder_get_object( builder, "edge_top" );
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(w), edge_selector(p, EDGE_TOP));
-    gtk_widget_set_sensitive(w, panel_edge_available(p, EDGE_TOP));
     g_signal_connect(w, "toggled", G_CALLBACK(edge_top_toggle), p);
     w = (GtkWidget*)gtk_builder_get_object( builder, "edge_left" );
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(w), edge_selector(p, EDGE_LEFT));
-    gtk_widget_set_sensitive(w, panel_edge_available(p, EDGE_LEFT));
     g_signal_connect(w, "toggled", G_CALLBACK(edge_left_toggle), p);
     w = (GtkWidget*)gtk_builder_get_object( builder, "edge_right" );
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(w), edge_selector(p, EDGE_RIGHT));
-    gtk_widget_set_sensitive(w, panel_edge_available(p, EDGE_RIGHT));
     g_signal_connect(w, "toggled", G_CALLBACK(edge_right_toggle), p);
+
+    /* monitor */
+    monitors = 1;
+    screen = gdk_screen_get_default();
+    if(screen) monitors = gdk_screen_get_n_monitors(screen);
+    g_assert(monitors >= 1);
+    w = (GtkWidget*)gtk_builder_get_object( builder, "monitor" );
+    gtk_spin_button_set_value(GTK_SPIN_BUTTON(w), p->monitor + 1);
+    gtk_spin_button_set_range(GTK_SPIN_BUTTON(w), 1, monitors);
+    gtk_widget_set_sensitive(w, monitors > 1);
+    g_signal_connect(w, "value-changed", G_CALLBACK(set_monitor), p);
 
     /* alignment */
     p->alignment_left_label = w = (GtkWidget*)gtk_builder_get_object( builder, "alignment_left" );
@@ -1114,6 +1130,7 @@ panel_global_config_save( Panel* p, FILE *fp)
                 "# Use preference dialog in lxpanel to adjust config when you can.\n\n");
     lxpanel_put_line(fp, "Global {");
     lxpanel_put_str(fp, "edge", num2str(edge_pair, p->edge, "none"));
+    lxpanel_put_int(fp, "monitor", p->monitor);
     lxpanel_put_str(fp, "allign", num2str(allign_pair, p->allign, "none"));
     lxpanel_put_int(fp, "margin", p->margin);
     lxpanel_put_str(fp, "widthtype", num2str(width_pair, p->widthtype, "none"));

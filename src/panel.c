@@ -94,6 +94,7 @@ static Panel* panel_allocate(void)
     p->width = 100;
     p->heighttype = HEIGHT_PIXEL;
     p->height = PANEL_HEIGHT_DEFAULT;
+    p->monitor = 0;
     p->setdocktype = 1;
     p->setstrut = 1;
     p->round_corners = 0;
@@ -129,6 +130,8 @@ static void panel_normalize_configuration(Panel* p)
         else if (p->height > PANEL_HEIGHT_MAX)
             p->height = PANEL_HEIGHT_MAX;
     }
+    if (p->monitor < 0)
+        p->monitor = 0;
     if (p->background)
         p->transparent = 0;
 }
@@ -227,7 +230,7 @@ gboolean show_system_menu( gpointer system_menu );
 
 /* defined in configurator.c */
 void panel_configure(Panel* p, int sel_page );
-gboolean panel_edge_available(Panel* p, int edge);
+gboolean panel_edge_available(Panel* p, int edge, gint monitor);
 
 /* built-in commands, defined in configurator.c */
 void restart(void);
@@ -593,7 +596,7 @@ static void panel_popupmenu_remove_item( GtkMenuItem* item, Plugin* plugin )
 
 /* FIXME: Potentially we can support multiple panels at the same edge,
  * but currently this cannot be done due to some positioning problems. */
-static char* gen_panel_name( int edge )
+static char* gen_panel_name( int edge, gint monitor )
 {
     const char* edge_str = num2str( edge_pair, edge, "" );
     char* name = NULL;
@@ -602,10 +605,13 @@ static char* gen_panel_name( int edge )
     for( i = 0; i < G_MAXINT; ++i )
     {
         char* f;
-        if( G_LIKELY( i > 0 ) )
+        if(monitor != 0)
+            name = g_strdup_printf( "%s-m%d-%d", edge_str, monitor, i );
+        else if( G_LIKELY( i > 0 ) )
             name =  g_strdup_printf( "%s%d", edge_str, i );
         else
             name = g_strdup( edge_str );
+
         f = g_build_filename( dir, name, NULL );
         if( ! g_file_test( f, G_FILE_TEST_EXISTS ) )
         {
@@ -619,24 +625,40 @@ static char* gen_panel_name( int edge )
     return name;
 }
 
-static void try_allocate_edge(Panel* p, int edge)
-{
-    if ((p->edge == EDGE_NONE) && (panel_edge_available(p, edge)))
-        p->edge = edge;
-}
-
 /* FIXME: Potentially we can support multiple panels at the same edge,
  * but currently this cannot be done due to some positioning problems. */
 static void panel_popupmenu_create_panel( GtkMenuItem* item, Panel* panel )
 {
+    gint m, e, monitors;
+    GdkScreen *screen;
+    GtkWidget *err;
     Panel* new_panel = panel_allocate();
 
     /* Allocate the edge. */
-    try_allocate_edge(new_panel, EDGE_BOTTOM);
-    try_allocate_edge(new_panel, EDGE_TOP);
-    try_allocate_edge(new_panel, EDGE_LEFT);
-    try_allocate_edge(new_panel, EDGE_RIGHT);
-    new_panel->name = gen_panel_name(new_panel->edge);
+    screen = gdk_screen_get_default();
+    g_assert(screen);
+    monitors = gdk_screen_get_n_monitors(screen);
+    for(m=0; m<monitors; ++m)
+    {
+        /* try each of the four edges */
+        for(e=1; e<5; ++e)
+        {
+            if(panel_edge_available(new_panel,e,m)) {
+                new_panel->edge = e;
+                new_panel->monitor = m;
+                goto found_edge;
+            }
+        }
+    }
+
+    ERR("Error adding panel: There is no room for another panel. All the edges are taken.\n");
+    err = gtk_message_dialog_new(NULL,0,GTK_MESSAGE_ERROR,GTK_BUTTONS_OK,_("There is no room for another panel. All the edges are taken."));
+    gtk_dialog_run(GTK_DIALOG(err));
+    gtk_widget_destroy(err);
+    return;
+
+found_edge:
+    new_panel->name = gen_panel_name(new_panel->edge,new_panel->monitor);
 
     panel_configure(new_panel, 0);
     panel_normalize_configuration(new_panel);
@@ -781,11 +803,6 @@ GtkMenu* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean use_sub_
     gtk_image_menu_item_set_image( (GtkImageMenuItem*)menu_item, img );
     gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
     g_signal_connect( menu_item, "activate", G_CALLBACK(panel_popupmenu_create_panel), panel );
-    /* FIXME: Potentially we can support multiple panels at the same edge,
-     * but currently this cannot be done due to some positioning problems. */
-    /* currently, disable the option when there are already four panels */
-    if( g_slist_length( all_panels ) >= 4 )
-        gtk_widget_set_sensitive( menu_item, FALSE );
 
     img = gtk_image_new_from_stock( GTK_STOCK_DELETE, GTK_ICON_SIZE_MENU );
     menu_item = gtk_image_menu_item_new_with_label(_("Delete This Panel"));
@@ -1233,6 +1250,8 @@ panel_parse_global(Panel *p, char **fp)
                     p->edge = str2num(edge_pair, s.t[1], EDGE_NONE);
                 } else if (!g_ascii_strcasecmp(s.t[0], "allign")) {
                     p->allign = str2num(allign_pair, s.t[1], ALLIGN_NONE);
+                } else if (!g_ascii_strcasecmp(s.t[0], "monitor")) {
+                    p->monitor = atoi(s.t[1]);
                 } else if (!g_ascii_strcasecmp(s.t[0], "margin")) {
                     p->margin = atoi(s.t[1]);
                 } else if (!g_ascii_strcasecmp(s.t[0], "widthtype")) {

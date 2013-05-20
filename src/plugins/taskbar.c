@@ -75,6 +75,7 @@ typedef struct _task {
     Atom image_source;				/* Atom that is the source of taskbar icon */
     GtkWidget * label;				/* Label for task, child of button */
     int desktop;				/* Desktop that contains task, needed to switch to it on Raise */
+    gint monitor;                               /* Monitor that the window is on or closest to */
     guint flash_timeout;			/* Timer for urgency notification */
     unsigned int focused : 1;			/* True if window has focus */
     unsigned int iconified : 1;			/* True if window is iconified, from WM_STATE */
@@ -107,6 +108,7 @@ typedef struct _taskbar {
     gboolean use_urgency_hint;			/* User preference: windows with urgency will flash */
     gboolean flat_button;			/* User preference: taskbar buttons have visible background */
     gboolean grouped_tasks;			/* User preference: windows from same task are grouped onto a single button */
+    gboolean same_monitor_only;                 /* User preference: only show windows that are in the same monitor as the taskbar */
     int task_width_max;				/* Maximum width of a taskbar button in horizontal orientation */
     int spacing;				/* Spacing between taskbar buttons */
     gboolean use_net_active;			/* NET_WM_ACTIVE_WINDOW is supported by the window manager */
@@ -324,6 +326,10 @@ static gboolean task_is_visible(TaskbarPlugin * tb, Task * tk)
 {
     /* Not visible due to grouping. */
     if ((tb->grouped_tasks) && (tk->res_class != NULL) && (tk->res_class->visible_task != tk))
+        return FALSE;
+
+    /* Not on same monitor */
+    if (tb->same_monitor_only && tb->plug->panel->monitor != tk->monitor)
         return FALSE;
 
     /* Desktop placement. */
@@ -1380,6 +1386,22 @@ static void task_build_gui(TaskbarPlugin * tb, Task * tk)
         task_set_urgency(tk);
 }
 
+/* Determine which monitor a given window is associated with */
+static gint get_window_monitor(Window win)
+{
+    GdkDisplay *display;
+    GdkWindow *gwin;
+    gint m;
+
+    display = gdk_display_get_default();
+    g_assert(display);
+    gwin = gdk_x11_window_foreign_new_for_display(display,win);
+    g_assert(gwin);
+    m = gdk_screen_get_monitor_at_window(gdk_window_get_screen(gwin),gwin);
+    gdk_window_unref(gwin);
+    return m;
+}
+
 /*****************************************************
  * handlers for NET actions                          *
  *****************************************************/
@@ -1435,6 +1457,8 @@ static void taskbar_net_client_list(GtkWidget * widget, TaskbarPlugin * tb)
                     tk->image_source = None;
                     tk->iconified = (get_wm_state(tk->win) == IconicState);
                     tk->desktop = get_net_wm_desktop(tk->win);
+                    if (tb->same_monitor_only)
+                        tk->monitor = get_window_monitor(tk->win);
                     if (tb->use_urgency_hint)
                         tk->urgency = task_has_urgency(tk);
                     task_build_gui(tb, tk);
@@ -1687,12 +1711,41 @@ static void taskbar_property_notify_event(TaskbarPlugin *tb, XEvent *ev)
     }
 }
 
+/* Handle ConfigureNotify events */
+static void taskbar_configure_notify_event(TaskbarPlugin * tb, XConfigureEvent * ev)
+{
+    /* If the same_monitor_only option is set and the window is on a different
+       monitor than before, redraw the taskbar */
+    Task *task;
+    gint m;
+    if(tb->same_monitor_only && ev->window != GDK_ROOT_WINDOW())
+    {
+        task = task_lookup(tb, ev->window);
+        if(task)
+        {
+            /* Deleted windows seem to get ConfigureNotify events too. */
+            XErrorHandler previous_error_handler = XSetErrorHandler(panel_handle_x_error_swallow_BadWindow_BadDrawable);
+
+            m = get_window_monitor(task->win);
+            if(m != task->monitor)
+            {
+                task->monitor = m;
+                taskbar_redraw(tb);
+            }
+
+            XSetErrorHandler(previous_error_handler);
+        }
+    }
+}
+
 /* GDK event filter. */
 static GdkFilterReturn taskbar_event_filter(XEvent * xev, GdkEvent * event, TaskbarPlugin * tb)
 {
-    /* Look for PropertyNotify events and update state. */
     if (xev->type == PropertyNotify)
         taskbar_property_notify_event(tb, xev);
+    else if (xev->type == ConfigureNotify)
+        taskbar_configure_notify_event(tb, &xev->xconfigure);
+
     return GDK_FILTER_CONTINUE;
 }
 
@@ -1936,6 +1989,8 @@ static int taskbar_constructor(Plugin * p, char ** fp)
                     ;
                 else if (g_ascii_strcasecmp(s.t[0], "ShowAllDesks") == 0)
                     tb->show_all_desks = str2num(bool_pair, s.t[1], 0);
+                else if (g_ascii_strcasecmp(s.t[0], "SameMonitorOnly") == 0)
+                    tb->same_monitor_only = str2num(bool_pair, s.t[1], 0);
                 else if (g_ascii_strcasecmp(s.t[0], "MaxTaskWidth") == 0)
                     tb->task_width_max = atoi(s.t[1]);
                 else if (g_ascii_strcasecmp(s.t[0], "spacing") == 0)
@@ -2006,15 +2061,22 @@ static void taskbar_destructor(Plugin * p)
 /* Callback from configuration dialog mechanism to apply the configuration. */
 static void taskbar_apply_configuration(Plugin * p)
 {
+    Task * tk;
     TaskbarPlugin * tb = (TaskbarPlugin *) p->priv;
 
     /* Update style on taskbar. */
     taskbar_update_style(tb);
 
     /* Update styles on each button. */
-    Task * tk;
     for (tk = tb->task_list; tk != NULL; tk = tk->task_flink)
+    {
+        /* If same_monitor_only wasn't set before, the monitor information
+           wasn't tracked, so update it now. */
+        if (tb->same_monitor_only)
+            tk->monitor = get_window_monitor(tk->win);
+
         task_update_style(tk, tb);
+    }
 
     /* Refetch the client list and redraw. */
     recompute_group_visibility_on_current_desktop(tb);
@@ -2033,6 +2095,7 @@ static void taskbar_configure(Plugin * p, GtkWindow * parent)
         _("Icons only"), &tb->icons_only, CONF_TYPE_BOOL,
         _("Flat buttons"), &tb->flat_button, CONF_TYPE_BOOL,
         _("Show windows from all desktops"), &tb->show_all_desks, CONF_TYPE_BOOL,
+        _("Only show windows on the same monitor as the task bar"), &tb->same_monitor_only, CONF_TYPE_BOOL,
         _("Use mouse wheel"), &tb->use_mouse_wheel, CONF_TYPE_BOOL,
         _("Flash when there is any window requiring attention"), &tb->use_urgency_hint, CONF_TYPE_BOOL,
         _("Combine multiple application windows into a single button"), &tb->grouped_tasks, CONF_TYPE_BOOL,
@@ -2049,6 +2112,7 @@ static void taskbar_save_configuration(Plugin * p, FILE * fp)
     lxpanel_put_bool(fp, "tooltips", tb->tooltips);
     lxpanel_put_bool(fp, "IconsOnly", tb->icons_only);
     lxpanel_put_bool(fp, "ShowAllDesks", tb->show_all_desks);
+    lxpanel_put_bool(fp, "SameMonitorOnly", tb->same_monitor_only);
     lxpanel_put_bool(fp, "UseMouseWheel", tb->use_mouse_wheel);
     lxpanel_put_bool(fp, "UseUrgencyHint", tb->use_urgency_hint);
     lxpanel_put_bool(fp, "FlatButton", tb->flat_button);
