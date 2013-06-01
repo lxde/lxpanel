@@ -110,12 +110,48 @@ static void * alarmProcess(void *arg) {
     return NULL;
 }
 
+/* Make a tooltip string, and display remaining charge time if the battery
+   is charging or remaining life if it's discharging */
+static gchar* make_tooltip(lx_battery* lx_b, gboolean isCharging)
+{
+    gchar * tooltip;
+
+    if (isCharging) {
+	int hours = lx_b->b->seconds / 3600;
+	int left_seconds = lx_b->b->seconds - 3600 * hours;
+	int minutes = left_seconds / 60;
+	tooltip = g_strdup_printf(
+		_("Battery: %d%% charged, %d:%02d until full"),
+		lx_b->b->percentage,
+		hours,
+		minutes );
+    } else {
+	/* if we have enough rate information for battery */
+	if (lx_b->b->percentage != 100) {
+	    int hours = lx_b->b->seconds / 3600;
+	    int left_seconds = lx_b->b->seconds - 3600 * hours;
+	    int minutes = left_seconds / 60;
+	    tooltip = g_strdup_printf(
+		    _("Battery: %d%% charged, %d:%02d left"),
+		    lx_b->b->percentage,
+		    hours,
+		    minutes );
+	} else {
+	    tooltip = g_strdup_printf(
+		    _("Battery: %d%% charged"),
+		    100 );
+	}
+    }
+
+    return tooltip;
+}
+
 
 /* FIXME:
    Don't repaint if percentage of remaining charge and remaining time aren't changed. */
 void update_display(lx_battery *lx_b, gboolean repaint) {
     cairo_t *cr;
-    char tooltip[ 256 ];
+    gchar *tooltip;
     battery *b = lx_b->b;
     /* unit: mW */
     int rate;
@@ -169,36 +205,9 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
 	}
     }
 
-    /* Make a tooltip string, and display remaining charge time if the battery
-       is charging or remaining life if it's discharging */
-    if (isCharging) {
-	int hours = lx_b->b->seconds / 3600;
-	int left_seconds = b->seconds - 3600 * hours;
-	int minutes = left_seconds / 60;
-	snprintf(tooltip, 256,
-		_("Battery: %d%% charged, %d:%02d until full"),
-		lx_b->b->percentage,
-		hours,
-		minutes );
-    } else {
-	/* if we have enough rate information for battery */
-	if (lx_b->b->percentage != 100) {
-	    int hours = lx_b->b->seconds / 3600;
-	    int left_seconds = b->seconds - 3600 * hours;
-	    int minutes = left_seconds / 60;
-	    snprintf(tooltip, 256,
-		    _("Battery: %d%% charged, %d:%02d left"),
-		    lx_b->b->percentage,
-		    hours,
-		    minutes );
-	} else {
-	    snprintf(tooltip, 256,
-		    _("Battery: %d%% charged"),
-		    100 );
-	}
-    }
-
+    tooltip = make_tooltip(lx_b, isCharging);
     gtk_widget_set_tooltip_text(lx_b->drawingArea, tooltip);
+    g_free(tooltip);
 
     int chargeLevel = lx_b->b->percentage * (lx_b->length - 2 * lx_b->border) / 100;
 
@@ -600,3 +609,6 @@ PluginClass batt_plugin_class = {
     .save        = save,
     .panel_configuration_changed = orientation
 };
+
+
+/* vim: set sw=4 sts=4 : */
