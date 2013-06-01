@@ -42,6 +42,7 @@
 #include <semaphore.h> /* used by update() and alarmProcess() for alarms */
 #include <stdlib.h>
 #include <string.h>
+#include <stdarg.h>
 
 #include "dbg.h"
 #include "batt_sys.h"
@@ -110,11 +111,31 @@ static void * alarmProcess(void *arg) {
     return NULL;
 }
 
+
+static void append(gchar **tooltip, gchar *fmt, ...)
+{
+    gchar *old = *tooltip;
+    gchar *new;
+    va_list va;
+
+    va_start(va, fmt);
+    new = g_strdup_vprintf(fmt, va);
+    va_end(va);
+
+    *tooltip = g_strconcat(old, new, NULL);
+
+    g_free(old);
+    g_free(new);
+}
+
+
 /* Make a tooltip string, and display remaining charge time if the battery
    is charging or remaining life if it's discharging */
 static gchar* make_tooltip(lx_battery* lx_b, gboolean isCharging)
 {
     gchar * tooltip;
+    gchar * indent = "  ";
+    battery *b = lx_b->b;
 
     if (isCharging) {
 	int hours = lx_b->b->seconds / 3600;
@@ -142,6 +163,27 @@ static gchar* make_tooltip(lx_battery* lx_b, gboolean isCharging)
 		    100 );
 	}
     }
+
+    if (b->energy_full_design != -1)
+	append(&tooltip, _("\n%sEnergy full design:\t\t%5d mWh"), indent, b->energy_full_design);
+    if (b->energy_full != -1)
+	append(&tooltip, _("\n%sEnergy full:\t\t\t%5d mWh"), indent, b->energy_full);
+    if (b->energy_now != -1)
+	append(&tooltip, _("\n%sEnergy now:\t\t\t%5d mWh"), indent, b->energy_now);
+    if (b->power_now != -1)
+	append(&tooltip, _("\n%sPower now:\t\t\t%5d mW"), indent, b->power_now);
+
+    if (b->charge_full_design != -1)
+	append(&tooltip, _("\n%sCharge full design:\t%5d mAh"), indent, b->charge_full_design);
+    if (b->charge_full != -1)
+	append(&tooltip, _("\n%sCharge full:\t\t\t%5d mAh"), indent, b->charge_full);
+    if (b->charge_now != -1)
+	append(&tooltip, _("\n%sCharge now:\t\t\t%5d mAh"), indent, b->charge_now);
+    if (b->current_now != -1)
+	append(&tooltip, _("\n%sCurrent now:\t\t\t%5d mA"), indent, b->current_now);
+
+    if (b->voltage_now != -1)
+	append(&tooltip, _("\n%sCurrent Voltage:\t\t%.3lf V"), indent, b->voltage_now / 1000.0);
 
     return tooltip;
 }
