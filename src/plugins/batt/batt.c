@@ -87,6 +87,7 @@ typedef struct {
     sem_t alarmProcessLock;
     battery* b;
     gboolean has_ac_adapter;
+    gboolean show_extended_information;
 } lx_battery;
 
 
@@ -164,6 +165,10 @@ static gchar* make_tooltip(lx_battery* lx_b, gboolean isCharging)
 	}
     }
 
+    if (!lx_b->show_extended_information) {
+	return tooltip;
+    }
+
     if (b->energy_full_design != -1)
 	append(&tooltip, _("\n%sEnergy full design:\t\t%5d mWh"), indent, b->energy_full_design);
     if (b->energy_full != -1)
@@ -188,12 +193,18 @@ static gchar* make_tooltip(lx_battery* lx_b, gboolean isCharging)
     return tooltip;
 }
 
+static void set_tooltip_text(lx_battery* lx_b)
+{
+    gboolean isCharging = battery_is_charging(lx_b->b);
+    gchar *tooltip = make_tooltip(lx_b, isCharging);
+    gtk_widget_set_tooltip_text(lx_b->drawingArea, tooltip);
+    g_free(tooltip);
+}
 
 /* FIXME:
    Don't repaint if percentage of remaining charge and remaining time aren't changed. */
 void update_display(lx_battery *lx_b, gboolean repaint) {
     cairo_t *cr;
-    gchar *tooltip;
     battery *b = lx_b->b;
     /* unit: mW */
     int rate;
@@ -247,9 +258,7 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
 	}
     }
 
-    tooltip = make_tooltip(lx_b, isCharging);
-    gtk_widget_set_tooltip_text(lx_b->drawingArea, tooltip);
-    g_free(tooltip);
+    set_tooltip_text(lx_b);
 
     int chargeLevel = lx_b->b->percentage * (lx_b->length - 2 * lx_b->border) / 100;
 
@@ -432,6 +441,8 @@ constructor(Plugin *p, char **fp)
     line s;
     s.len = 256;
 
+    lx_b->show_extended_information = false;
+
     if (fp) {
 
         /* Apply options */
@@ -468,6 +479,8 @@ constructor(Plugin *p, char **fp)
                     gtk_widget_set_size_request(lx_b->drawingArea, lx_b->width,
                             lx_b->height);
                 }
+		else if (!g_ascii_strcasecmp(s.t[0], "ShowExtendedInformation"))
+                    lx_b->show_extended_information = atoi(s.t[1]);
                 else {
                     ERR( "batt: unknown var %s\n", s.t[0]);
                     continue;
@@ -589,6 +602,9 @@ static void applyConfig(Plugin* p)
         b->height = b->thickness;
     gtk_widget_set_size_request(b->drawingArea, b->width, b->height);
 
+    /* update tooltip */
+    set_tooltip_text(b);
+
     RET();
 }
 
@@ -613,6 +629,7 @@ static void config(Plugin *p, GtkWindow* parent) {
             _("Discharging color 2"), &b->dischargingColor2, CONF_TYPE_STR,
             _("Border width"), &b->requestedBorder, CONF_TYPE_INT,
             _("Size"), &b->thickness, CONF_TYPE_INT,
+            _("Show Extended Information"), &b->show_extended_information, CONF_TYPE_BOOL,
             NULL);
     gtk_window_present(GTK_WINDOW(dialog));
 
@@ -633,6 +650,7 @@ static void save(Plugin* p, FILE* fp) {
     lxpanel_put_str(fp, "DischargingColor1", lx_b->dischargingColor1);
     lxpanel_put_str(fp, "DischargingColor2", lx_b->dischargingColor2);
     lxpanel_put_int(fp, "Size", lx_b->thickness);
+    lxpanel_put_bool(fp, "ShowExtendedInformation", lx_b->show_extended_information);
 }
 
 
