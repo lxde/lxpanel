@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:11+0200\n"
-"PO-Revision-Date: 2012-09-23 15:19+0200\n"
+"PO-Revision-Date: 2013-07-04 21:18+0000\n"
 "Last-Translator: Martin <brother@bsnet.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -16,8 +16,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
-"X-Poedit-Language: Swedish\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1372972724.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -89,7 +89,7 @@ msgstr "LXPanel"
 
 #: ../src/panel.c:716
 msgid "Copyright (C) 2008-2011"
-msgstr "Copyright © 2008-2012"
+msgstr "Copyright © 2008-2013"
 
 #: ../src/panel.c:717
 msgid "Desktop panel for LXDE project"
