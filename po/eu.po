@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:11+0200\n"
-"PO-Revision-Date: 2012-10-27 21:42+0200\n"
-"Last-Translator: Asier <asier.iturralde@gmail.com>\n"
+"PO-Revision-Date: 2013-07-08 20:28+0000\n"
+"Last-Translator: Asier_Iturralde_Sarasola <asier.iturralde@gmail.com>\n"
 "Language-Team: Basque <alainmendi@gmail.com>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
-"X-Poedit-Language: Basque\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1373315307.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -457,12 +457,11 @@ msgstr "<b>Automatikoki gordetzea</b>"
 
 #: ../data/ui/panel-pref.glade.h:46
 msgid "Log level"
-msgstr ""
+msgstr "Log maila"
 
 #: ../data/ui/panel-pref.glade.h:47
-#, fuzzy
 msgid "<b>Log level</b>"
-msgstr "<b>Sareko gailua</b>"
+msgstr "<b>Log maila</b>"
 
 #: ../data/ui/panel-pref.glade.h:48
 msgid "Advanced"
@@ -695,9 +694,8 @@ msgstr "Deskribapena"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:602
-#, fuzzy
 msgid "Select Layout Change Type"
-msgstr "Hautatu irudi-fitxategi bat"
+msgstr "Hautatu diseinu aldaketa mota"
 
 #: ../src/plugins/xkb/xkb-plugin.c:625
 msgid "Change Type"
