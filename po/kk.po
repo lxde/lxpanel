@@ -8,17 +8,16 @@ msgstr ""
 "Project-Id-Version: master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:11+0200\n"
-"PO-Revision-Date: 2012-09-06 17:41+0200\n"
-"Last-Translator: sotrud_nik2 <baurthefirst@gmail.com>\n"
+"PO-Revision-Date: 2013-07-12 15:55+0000\n"
+"Last-Translator: sotrud_nik <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
 "Language: kk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.5\n"
-"X-Poedit-Language: Kazakh\n"
-"X-Poedit-Country: KAZAKHSTAN\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1373644559.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -314,25 +313,23 @@ msgstr "% пайыз"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "None"
-msgstr ""
+msgstr "Жоқ"
 
 #: ../data/ui/panel-pref.glade.h:6
-#, fuzzy
 msgid "Err"
 msgstr "Қате"
 
 #: ../data/ui/panel-pref.glade.h:7
-#, fuzzy
 msgid "Warn"
-msgstr "Warning1"
+msgstr "Ескерту"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "Info"
-msgstr ""
+msgstr "Ақпарат"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "All"
-msgstr ""
+msgstr "Барлығы"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "Panel Preferences"
@@ -360,7 +357,7 @@ msgstr "<b>Орны</b>"
 
 #: ../data/ui/panel-pref.glade.h:22
 msgid "Icon size:"
-msgstr ""
+msgstr "Таңбаша өлшемі:"
 
 #: ../data/ui/panel-pref.glade.h:23
 msgid "<b>Size</b>"
@@ -457,12 +454,11 @@ msgstr "<b>Автожасыру</b>"
 
 #: ../data/ui/panel-pref.glade.h:46
 msgid "Log level"
-msgstr ""
+msgstr "Журналдау деңгейі"
 
 #: ../data/ui/panel-pref.glade.h:47
-#, fuzzy
 msgid "<b>Log level</b>"
-msgstr "<b>Желілік құрылғы</b>"
+msgstr "<b>Журналдау деңгейі</b>"
 
 #: ../data/ui/panel-pref.glade.h:48
 msgid "Advanced"
@@ -680,96 +676,86 @@ msgstr "Жүйелік трей"
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:513
 msgid "Select Keyboard Model"
-msgstr ""
+msgstr "Пернетақта моделін таңдаңыз"
 
 #: ../src/plugins/xkb/xkb-plugin.c:536
 msgid "Model"
-msgstr ""
+msgstr "Модель"
 
 #: ../src/plugins/xkb/xkb-plugin.c:540 ../src/plugins/xkb/xkb-plugin.c:629
 #: ../src/plugins/xkb/xkb-plugin.c:780
-#, fuzzy
 msgid "Description"
-msgstr "Мақсаты:"
+msgstr "Сипаттамасы"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:602
-#, fuzzy
 msgid "Select Layout Change Type"
-msgstr "Сурет файлын таңдаңыз"
+msgstr "Пернетақта жаймасын ауыстыру түрін таңдаңыз"
 
 #: ../src/plugins/xkb/xkb-plugin.c:625
 msgid "Change Type"
-msgstr ""
+msgstr "Ауыстыру түрі"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:747
-#, fuzzy
 msgid "Add Keyboard Layout"
-msgstr "Пернетақта жаймаларын ауыстырушысы"
+msgstr "Пернетақта жаймасын қосу"
 
 #: ../src/plugins/xkb/xkb-plugin.c:770 ../src/plugins/xkb/xkb-plugin.c:1136
 msgid "Flag"
-msgstr ""
+msgstr "Жалау"
 
 #: ../src/plugins/xkb/xkb-plugin.c:775 ../src/plugins/xkb/xkb-plugin.c:1140
 msgid "Layout"
-msgstr ""
+msgstr "Жайма"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1053 ../src/plugins/xkb/xkb-plugin.c:1359
-#, fuzzy
 msgid "Keyboard Layout Handler"
-msgstr "Пернетақта жаймаларын ауыстырушысы"
+msgstr "Пернетақта жаймасын талдаушысы"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1070
-#, fuzzy
 msgid "Keyboard Model"
-msgstr "Пернетақта шамдары"
+msgstr "Пернетақта моделі"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1090
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "Пернетақта жаймаларын ауыстырушысы"
+msgstr "Пернетақта жаймалары"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1144
 msgid "Variant"
-msgstr ""
+msgstr "Нұсқасы"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1152
 msgid "Change Layout Option"
-msgstr ""
+msgstr "Жайма опцияларын ауыстыру"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1172
-#, fuzzy
 msgid "Per Window Settings"
-msgstr "Панель баптаулары"
+msgstr "Әр терезе үшін баптау"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1184
-#, fuzzy
 msgid "_Remember layout for each window"
-msgstr "Жеке қ_олданба үшін жайманы есте сақтау"
+msgstr "Әр т_ерезе үшін жайманы есте сақтау"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1193
-#, fuzzy
 msgid "Show Layout as"
 msgstr "Жайманы қалайша көрсету"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1254
 msgid "Custom Image"
-msgstr ""
+msgstr "Суретті көрсету"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1255
 msgid "Text"
-msgstr ""
+msgstr "Мәтін"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1281
 msgid "Panel Icon Size"
-msgstr ""
+msgstr "Таңбашалар панелінің өлшемі"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1361
-#, fuzzy
 msgid "Handle keyboard layouts"
-msgstr "Қолжетерлік пернетақта жаймалары арасында ауысу"
+msgstr "Пернетақта жаймасын талдау"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
