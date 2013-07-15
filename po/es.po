@@ -7,18 +7,17 @@ msgstr ""
 "Project-Id-Version: lxpanel-0.3.5.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:11+0200\n"
-"PO-Revision-Date: 2012-05-21 07:01+0200\n"
-"Last-Translator: Hugo <sysadmin@cips.cu>\n"
+"PO-Revision-Date: 2013-07-15 11:53+0000\n"
+"Last-Translator: Adolfo <fitoschido@ubuntu.com>\n"
 "Language-Team: Spanish <daniel@tunki.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.5.0\n"
 "X-Poedit-Bookmarks: 19,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
-"X-Poedit-Country: PERU\n"
-"X-Poedit-Language: Spanish\n"
+"X-POOTLE-MTIME: 1373889200.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -34,7 +33,7 @@ msgstr "Salir"
 
 #: ../src/configurator.c:481
 msgid "Currently loaded plugins"
-msgstr "Plugins activos"
+msgstr "Complementos activos"
 
 #: ../src/configurator.c:490
 msgid "Stretch"
@@ -42,23 +41,23 @@ msgstr "Ajustar"
 
 #: ../src/configurator.c:609
 msgid "Add plugin to panel"
-msgstr "Agregar un plugin al panel"
+msgstr "Agregar un complemento al panel"
 
 #: ../src/configurator.c:637
 msgid "Available plugins"
-msgstr "Plugins disponibles"
+msgstr "Complementos disponibles"
 
 #: ../src/configurator.c:1221
 msgid "Logout command is not set"
-msgstr "El comando para salir no ha sido configurado"
+msgstr "No se ha definido la orden de cierre de sesión"
 
 #: ../src/configurator.c:1274
 msgid "Select a directory"
-msgstr "Seleccionar un directorio"
+msgstr "Seleccione un directorio"
 
 #: ../src/configurator.c:1274 ../src/configurator.c:1365
 msgid "Select a file"
-msgstr "Seleccionar un archivo"
+msgstr "Seleccione un archivo"
 
 #: ../src/configurator.c:1392
 msgid "_Browse"
@@ -69,8 +68,8 @@ msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
-"¿Quitar realmente este panel?\n"
-"<b>Advertencia: Esto no podrá deshacerse.</b>"
+"¿Realmente quiere eliminar este panel?\n"
+"<b>Aviso: esto no se puede deshacer.</b>"
 
 #: ../src/panel.c:660
 msgid "Confirm"
@@ -82,7 +81,8 @@ msgid "translator-credits"
 msgstr ""
 "Daniel Pacheco <daniel@tunki.org>, 2008\n"
 "Guillermo Iguarán <johnnyprez@gmail.com>, 2009\n"
-"Hugo Florentino <sysadmin@cips.cu>, 2009-2012"
+"Hugo Florentino <hugo@acdam.cu>, 2009-2012\n"
+"Adolfo Jayme Barrientos <fitoschido@ubuntu.com>, 2013"
 
 #: ../src/panel.c:698
 msgid "LXPanel"
@@ -90,7 +90,7 @@ msgstr "LXPanel"
 
 #: ../src/panel.c:716
 msgid "Copyright (C) 2008-2011"
-msgstr "Copyright (C) 2008-2011"
+msgstr "Copyright © 2008–2011"
 
 #: ../src/panel.c:717
 msgid "Desktop panel for LXDE project"
@@ -98,12 +98,12 @@ msgstr "Panel de escritorio para el proyecto LXDE"
 
 #: ../src/panel.c:754
 msgid "Add / Remove Panel Items"
-msgstr "Agregar / Quitar elementos del panel"
+msgstr "Añadir/quitar elementos del panel"
 
 #: ../src/panel.c:762
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr "Quitar \"%s\" del panel"
+msgstr "Eliminar «%s» del panel"
 
 #: ../src/panel.c:774
 msgid "Panel Settings"
@@ -111,7 +111,7 @@ msgstr "Configuración del panel"
 
 #: ../src/panel.c:780
 msgid "Create New Panel"
-msgstr "Crear un nuevo panel"
+msgstr "Crear un panel nuevo"
 
 #: ../src/panel.c:791
 msgid "Delete This Panel"
@@ -119,7 +119,7 @@ msgstr "Eliminar este panel"
 
 #: ../src/panel.c:802
 msgid "About"
-msgstr "Acerca de ..."
+msgstr "Acerca de"
 
 #: ../src/panel.c:810
 msgid "Panel"
@@ -128,7 +128,7 @@ msgstr "Panel"
 #: ../src/panel.c:823
 #, c-format
 msgid "\"%s\" Settings"
-msgstr "Configuración \"%s\""
+msgstr "Configuración de «%s»"
 
 #: ../src/panel.c:1079 ../src/panel.c:1087 ../data/ui/panel-pref.glade.h:21
 msgid "Height:"
@@ -136,7 +136,7 @@ msgstr "Altura:"
 
 #: ../src/panel.c:1080 ../src/panel.c:1086 ../data/ui/panel-pref.glade.h:20
 msgid "Width:"
-msgstr "Ancho:"
+msgstr "Anchura:"
 
 #: ../src/panel.c:1081 ../data/ui/panel-pref.glade.h:13
 msgid "Left"
@@ -157,12 +157,12 @@ msgstr "Abajo"
 #: ../src/panel.c:1501
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr "lxpanel %s - panel ligero GTK2+ para escritorios UNIX\n"
+msgstr "lxpanel %s – panel ligero en GTK2+ para escritorios UNIX\n"
 
 #: ../src/panel.c:1502
 #, c-format
 msgid "Command line options:\n"
-msgstr "Opciones de la línea de comandos:\n"
+msgstr "Opciones de la línea de órdenes:\n"
 
 #: ../src/panel.c:1503
 #, c-format
@@ -177,8 +177,7 @@ msgstr " --version   -- mostrar la versión y salir\n"
 #: ../src/panel.c:1505
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <número> -- establecer el nivel del log 0-5. 0 - ninguno 5 - máximo\n"
+msgstr " --log <número> -- definir el nivel de registro 0-5. 0 - nada, 5 - mucho\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1507
@@ -215,7 +214,7 @@ msgstr ""
 
 #: ../src/gtk-run.c:373
 msgid "Enter the command you want to execute:"
-msgstr "Ingrese comando a ejecutar:"
+msgstr "Escriba la orden que quiere ejecutar:"
 
 #: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:912
 msgid "Application Launch Bar"
@@ -247,7 +246,7 @@ msgstr "Enviado:"
 
 #: ../data/ui/netstatus.glade.h:7
 msgid "<b>Signal Strength</b>"
-msgstr "<b>Potencia de la señal</b>"
+msgstr "<b>Intensidad de la señal</b>"
 
 #: ../data/ui/netstatus.glade.h:9
 #, no-c-format
@@ -293,7 +292,7 @@ msgstr "<b>Dispositivo de red</b>"
 
 #: ../data/ui/netstatus.glade.h:19
 msgid "Type:"
-msgstr "Tipo"
+msgstr "Tipo:"
 
 #: ../data/ui/netstatus.glade.h:20
 msgid "Support"
@@ -309,34 +308,32 @@ msgstr "Dinámico"
 
 #: ../data/ui/panel-pref.glade.h:2
 msgid "Pixels"
-msgstr "Pixeles"
+msgstr "Píxeles"
 
 #: ../data/ui/panel-pref.glade.h:4
 #, no-c-format
 msgid "% Percent"
-msgstr "% Porciento"
+msgstr "% porcentaje"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "None"
-msgstr ""
+msgstr "Ninguno"
 
 #: ../data/ui/panel-pref.glade.h:6
-#, fuzzy
 msgid "Err"
-msgstr "Error"
+msgstr "Err"
 
 #: ../data/ui/panel-pref.glade.h:7
-#, fuzzy
 msgid "Warn"
-msgstr "Advertencia1"
+msgstr "Aviso"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "All"
-msgstr ""
+msgstr "Todo"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "Panel Preferences"
@@ -364,7 +361,7 @@ msgstr "<b>Posición</b>"
 
 #: ../data/ui/panel-pref.glade.h:22
 msgid "Icon size:"
-msgstr ""
+msgstr "Tamaño de los iconos:"
 
 #: ../data/ui/panel-pref.glade.h:23
 msgid "<b>Size</b>"
@@ -405,7 +402,7 @@ msgstr "Tamaño"
 
 #: ../data/ui/panel-pref.glade.h:32
 msgid "<b>Font</b>"
-msgstr "<b>Fuente</b>"
+msgstr "<b>Tipo de letra</b>"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "Appearance"
@@ -413,11 +410,11 @@ msgstr "Apariencia"
 
 #: ../data/ui/panel-pref.glade.h:34
 msgid "Panel Applets"
-msgstr "Applets del panel"
+msgstr "Miniaplicaciones del panel"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Logout Command:"
-msgstr "Comando para salir:"
+msgstr "Orden de cierre de sesión:"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "Terminal Emulator:"
@@ -429,11 +426,11 @@ msgstr "Gestor de archivos:"
 
 #: ../data/ui/panel-pref.glade.h:38
 msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>Configurar aplicaciones preferidas</b>"
+msgstr "<b>Definir las aplicaciones preferidas</b>"
 
 #: ../data/ui/panel-pref.glade.h:39
 msgid "Make window managers treat the panel as dock"
-msgstr "Hacer que los gestores de ventanas traten el panel como acoplable"
+msgstr "Hacer que los gestores de ventanas traten el panel como un «dock»"
 
 #: ../data/ui/panel-pref.glade.h:40
 msgid "Reserve space, and not covered by maximized windows"
@@ -453,7 +450,7 @@ msgstr "Tamaño al minimizar"
 
 #: ../data/ui/panel-pref.glade.h:44
 msgid "pixels"
-msgstr "pixeles"
+msgstr "píxeles"
 
 #: ../data/ui/panel-pref.glade.h:45
 msgid "<b>Automatic hiding</b>"
@@ -461,12 +458,11 @@ msgstr "<b>Ocultar automáticamente</b>"
 
 #: ../data/ui/panel-pref.glade.h:46
 msgid "Log level"
-msgstr ""
+msgstr "Nivel de registro"
 
 #: ../data/ui/panel-pref.glade.h:47
-#, fuzzy
 msgid "<b>Log level</b>"
-msgstr "<b>Dispositivo de red</b>"
+msgstr "<b>Nivel de registro</b>"
 
 #: ../data/ui/panel-pref.glade.h:48
 msgid "Advanced"
@@ -474,7 +470,7 @@ msgstr "Avanzado"
 
 #: ../src/plugins/cpu/cpu.c:277
 msgid "CPU Usage Monitor"
-msgstr "Monitor del procesador"
+msgstr "Monitor de uso de la CPU"
 
 #: ../src/plugins/cpu/cpu.c:279 ../src/plugins/monitors/monitors.c:711
 msgid "Display CPU usage"
@@ -490,7 +486,7 @@ msgstr "Mostrar nombres de escritorios"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
-msgstr "Número de escritorio / Nombre del área de trabajo"
+msgstr "N.º de escritorio/Nombre del área de trabajo"
 
 #: ../src/plugins/deskno/deskno.c:237
 msgid "Display workspace number, by cmeury@users.sf.net"
@@ -503,7 +499,7 @@ msgstr "Mostrar imagen y consejo"
 
 #: ../src/plugins/launchbar.c:914
 msgid "Bar with buttons to launch application"
-msgstr "Barra de acceso a aplicaciones"
+msgstr "Barra con botones para abrir aplicaciones"
 
 #. Add Raise menu item.
 #: ../src/plugins/taskbar.c:1714
@@ -545,7 +541,7 @@ msgstr "_Todas la áreas de trabajo"
 #. Add Move to Workspace menu item as a submenu.
 #: ../src/plugins/taskbar.c:1773
 msgid "_Move to Workspace"
-msgstr "_Mover a área de trabajo"
+msgstr "_Mover al área de trabajo"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../src/plugins/taskbar.c:1779
@@ -558,7 +554,7 @@ msgstr "Mostrar consejos"
 
 #: ../src/plugins/taskbar.c:1987
 msgid "Icons only"
-msgstr "Sólo iconos"
+msgstr "Solo los iconos"
 
 #: ../src/plugins/taskbar.c:1988
 msgid "Flat buttons"
@@ -622,7 +618,7 @@ msgstr "Sólo sugerencias"
 
 #: ../src/plugins/dclock.c:442
 msgid "Center text"
-msgstr "Centrar texto"
+msgstr "Centrar el texto"
 
 #: ../src/plugins/dclock.c:471
 msgid "Digital Clock"
@@ -634,7 +630,7 @@ msgstr "Mostrar reloj digital y consejo"
 
 #: ../src/plugins/menu.c:426
 msgid "Add to desktop"
-msgstr "Agregar al escritorio"
+msgstr "Añadir al escritorio"
 
 #: ../src/plugins/menu.c:436
 msgid "Properties"
@@ -686,35 +682,31 @@ msgstr "Zona de notificación"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:513
-#, fuzzy
 msgid "Select Keyboard Model"
-msgstr "Luz de Teclado"
+msgstr "Seleccione el modelo del teclado"
 
 #: ../src/plugins/xkb/xkb-plugin.c:536
 msgid "Model"
-msgstr ""
+msgstr "Modelo"
 
 #: ../src/plugins/xkb/xkb-plugin.c:540 ../src/plugins/xkb/xkb-plugin.c:629
 #: ../src/plugins/xkb/xkb-plugin.c:780
-#, fuzzy
 msgid "Description"
-msgstr "Destino:"
+msgstr "Descripción"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:602
-#, fuzzy
 msgid "Select Layout Change Type"
-msgstr "Seleccionar una imagen"
+msgstr "Seleccione el tipo de cambio de distribución"
 
 #: ../src/plugins/xkb/xkb-plugin.c:625
 msgid "Change Type"
-msgstr ""
+msgstr "Cambiar el tipo"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:747
-#, fuzzy
 msgid "Add Keyboard Layout"
-msgstr "Selector de distribución del teclado"
+msgstr "Añadir distribución del teclado"
 
 #: ../src/plugins/xkb/xkb-plugin.c:770 ../src/plugins/xkb/xkb-plugin.c:1136
 msgid "Flag"
@@ -722,68 +714,61 @@ msgstr ""
 
 #: ../src/plugins/xkb/xkb-plugin.c:775 ../src/plugins/xkb/xkb-plugin.c:1140
 msgid "Layout"
-msgstr ""
+msgstr "Distribución"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1053 ../src/plugins/xkb/xkb-plugin.c:1359
-#, fuzzy
 msgid "Keyboard Layout Handler"
-msgstr "Selector de distribución del teclado"
+msgstr "Agente de distribución de teclado"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1070
-#, fuzzy
 msgid "Keyboard Model"
-msgstr "Luz de Teclado"
+msgstr "Modelo del teclado"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1090
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "Selector de distribución del teclado"
+msgstr "Distribuciones del teclado"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1144
 msgid "Variant"
-msgstr ""
+msgstr "Variante"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1152
 msgid "Change Layout Option"
-msgstr ""
+msgstr "Cambiar opción de distribución"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1172
-#, fuzzy
 msgid "Per Window Settings"
-msgstr "Configuración del panel"
+msgstr "Configuración diferente para cada ventana"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1184
-#, fuzzy
 msgid "_Remember layout for each window"
-msgstr "_Recordar distribución para cada aplicación"
+msgstr "_Recordar la distribución para cada ventana"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1193
-#, fuzzy
 msgid "Show Layout as"
-msgstr "Mostrar distribución como"
+msgstr "Mostrar la distribución como"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1254
 msgid "Custom Image"
-msgstr ""
+msgstr "Imagen personalizada"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1255
 msgid "Text"
-msgstr ""
+msgstr "Texto"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1281
 msgid "Panel Icon Size"
-msgstr ""
+msgstr "Tamaño de iconos del panel"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1361
-#, fuzzy
 msgid "Handle keyboard layouts"
-msgstr "Selecciona entre las distribuciones de teclados disponibles"
+msgstr "Manejar las distribuciones de teclado"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
-"Botón izquierdo para minimizar todas las ventanas.  Botón medio para "
-"replegarlas"
+"Pulse para iconificar todas las ventanas. Pulse con el botón central para "
+"replegarlas."
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
@@ -798,8 +783,8 @@ msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
-"Envía comandos a todas las ventanas del escritorio.\n"
-"Los comandos admitidos son: 1) minimizar y 2) replegar"
+"Envía órdenes a todas las ventanas del escritorio.\n"
+"Las órdenes admitidas son «iconify» y «shade»"
 
 #: ../src/plugins/dirmenu.c:246
 msgid "Open in _Terminal"
@@ -827,11 +812,11 @@ msgstr "Normal"
 
 #: ../src/plugins/thermal/thermal.c:475
 msgid "Warning1"
-msgstr "Advertencia1"
+msgstr "Aviso1"
 
 #: ../src/plugins/thermal/thermal.c:476
 msgid "Warning2"
-msgstr "Advertencia2"
+msgstr "Aviso2"
 
 #: ../src/plugins/thermal/thermal.c:477
 msgid "Automatic sensor location"
@@ -855,7 +840,7 @@ msgstr "Advertencia2 de Temperatura"
 
 #: ../src/plugins/thermal/thermal.c:525
 msgid "Temperature Monitor"
-msgstr "Monitor de Temperatura"
+msgstr "Monitor de temperatura"
 
 #: ../src/plugins/thermal/thermal.c:527
 msgid "Display system temperature"
@@ -946,12 +931,12 @@ msgstr "Actividad"
 #: ../src/plugins/netstat/netstat.c:353 ../src/plugins/netstat/netstat.c:365
 #: ../src/plugins/netstat/netstat.c:376
 msgid "Sent"
-msgstr "Enviado"
+msgstr "Enviados"
 
 #: ../src/plugins/netstat/netstat.c:353 ../src/plugins/netstat/netstat.c:365
 #: ../src/plugins/netstat/netstat.c:376
 msgid "Received"
-msgstr "Recibido"
+msgstr "Recibidos"
 
 #: ../src/plugins/netstat/netstat.c:354 ../src/plugins/netstat/netstat.c:366
 #: ../src/plugins/netstat/netstat.c:377
@@ -1000,11 +985,11 @@ msgstr ""
 
 #: ../src/plugins/netstat/passwd_gui.c:101
 msgid "Encryption Key:"
-msgstr "Clave de encriptación:"
+msgstr "Clave de cifrado:"
 
 #: ../src/plugins/netstatus/netstatus.c:179
 msgid "Interface to monitor"
-msgstr "Dispositivo a supervisar"
+msgstr "Interfaz a supervisar"
 
 #: ../src/plugins/netstatus/netstatus.c:180
 msgid "Config tool"
@@ -1036,8 +1021,8 @@ msgstr "Propiedades de la conexión: %s"
 #, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
-msgstr[0] "%lu packet"
-msgstr[1] "%lu packets"
+msgstr[0] "%lu paquete"
+msgstr[1] "%lu paquetes"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:396
 #, c-format
@@ -1092,7 +1077,7 @@ msgstr "Mostrar señal"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:868
 msgid "Whether or not the signal strength should be displayed."
-msgstr "Indica si la potencia de la señal debe ser mostrada."
+msgstr "Si se mostrará o no la intensidad de la señal."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:985
 #, c-format
@@ -1101,8 +1086,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Por favor, contacte al administrador de su sistema para resolver el "
-"siguiente problema:\n"
+"Contacte al administrador del sistema para resolver el problema siguiente:\n"
 "\n"
 "%s"
 
@@ -1222,7 +1206,7 @@ msgstr "X.25 Genérico"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:930
 msgid "Point-to-Point Protocol"
-msgstr "Protocolo Punto-a-Punto"
+msgstr "Protocolo punto a punto"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:936
 msgid "(Cisco)-HDLC"
@@ -1329,7 +1313,7 @@ msgstr "No se ha podido analizar linea de comando '%s': %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr "No se ha podido analizar la salida de 'netstat'. Formato desconocido"
+msgstr "No se pudo analizar la salida de «netstat». El formato es desconocido"
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
@@ -1428,7 +1412,7 @@ msgstr "Mostrar BloqDespl"
 
 #: ../src/plugins/kbled/kbled.c:295
 msgid "Keyboard LED"
-msgstr "Indicadores del teclado"
+msgstr "LED del teclado"
 
 #: ../src/plugins/kbled/kbled.c:297
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
@@ -1483,7 +1467,7 @@ msgstr "Uso de RAM: %.1fMB (%.2f%%)"
 
 #: ../src/plugins/monitors/monitors.c:712
 msgid "CPU color"
-msgstr "Color para el microprocesador"
+msgstr "Color de la CPU"
 
 #: ../src/plugins/monitors/monitors.c:713
 msgid "Display RAM usage"
@@ -1491,7 +1475,7 @@ msgstr "Mostrar uso de la RAM"
 
 #: ../src/plugins/monitors/monitors.c:714
 msgid "RAM color"
-msgstr "Color para la RAM:"
+msgstr "Color de la RAM"
 
 #: ../src/plugins/monitors/monitors.c:715
 msgid "Action when clicked (default: lxtask)"
