@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.3.99\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:11+0200\n"
-"PO-Revision-Date: 2013-07-15 11:53+0000\n"
+"PO-Revision-Date: 2013-07-15 11:58+0000\n"
 "Last-Translator: Daniele <daniele@forsi.it>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1373889209.0\n"
+"X-POOTLE-MTIME: 1373889483.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -750,7 +750,7 @@ msgstr "_Ricorda la disposizione per ogni finestra"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1193
 msgid "Show Layout as"
-msgstr "Mostrare la disposizione come:"
+msgstr "Mostrare la disposizione come"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1254
 msgid "Custom Image"
@@ -1319,7 +1319,7 @@ msgstr "Impossibile analizzare l'output di \"netstat\". Formato sconosciuto."
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
-msgstr "Disconnessa"
+msgstr "Impossibile analizzare l'output di \"netstat\". Formato sconosciuto"
 
 #: ../src/plugins/netstatus/netstatus-util.c:155
 msgid "Idle"
