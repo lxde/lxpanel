@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:11+0200\n"
-"PO-Revision-Date: 2012-07-07 22:35+0200\n"
+"PO-Revision-Date: 2013-07-17 12:03+0000\n"
 "Last-Translator: kizito <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Luganda <kbirabwa@yahoo.co.uk>\n"
 "Language: lg\n"
@@ -16,7 +16,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1374062585.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -327,14 +328,12 @@ msgid "None"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:6
-#, fuzzy
 msgid "Err"
 msgstr "Kiremya"
 
 #: ../data/ui/panel-pref.glade.h:7
-#, fuzzy
 msgid "Warn"
-msgstr "Kulabula1"
+msgstr "Labulanga"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "Info"
@@ -470,9 +469,9 @@ msgid "Log level"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:47
-#, fuzzy
 msgid "<b>Log level</b>"
-msgstr "<b>Kyuma kya ku kayungirizi</b>"
+msgstr ""
+"<b>Kkomo ly'okunyonyola okunaabanga mu likooda ez'emirimu gya puloguramu</b>"
 
 #: ../data/ui/panel-pref.glade.h:48
 msgid "Advanced"
@@ -700,9 +699,8 @@ msgstr ""
 
 #: ../src/plugins/xkb/xkb-plugin.c:540 ../src/plugins/xkb/xkb-plugin.c:629
 #: ../src/plugins/xkb/xkb-plugin.c:780
-#, fuzzy
 msgid "Description"
-msgstr "Ekigendererwa:"
+msgstr "Okunnyonyola"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:602
@@ -716,9 +714,8 @@ msgstr ""
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:747
-#, fuzzy
 msgid "Add Keyboard Layout"
-msgstr "Ekikwanaganya entereeza y'amapeesa agawandisibwa"
+msgstr "Yongerawo entereeza y'amapeesa agawandisibwa"
 
 #: ../src/plugins/xkb/xkb-plugin.c:770 ../src/plugins/xkb/xkb-plugin.c:1136
 msgid "Flag"
@@ -729,7 +726,6 @@ msgid "Layout"
 msgstr ""
 
 #: ../src/plugins/xkb/xkb-plugin.c:1053 ../src/plugins/xkb/xkb-plugin.c:1359
-#, fuzzy
 msgid "Keyboard Layout Handler"
 msgstr "Ekikwanaganya entereeza y'amapeesa agawandisibwa"
 
@@ -739,9 +735,8 @@ msgid "Keyboard Model"
 msgstr "Butaala bw'oku mapeesa ga kompyuta"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1090
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "Ekikwanaganya entereeza y'amapeesa agawandisibwa"
+msgstr "Ntereeza z'amapeesa agawandisibwa"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1144
 msgid "Variant"
