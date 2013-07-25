@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxpanel-0.3.5.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:11+0200\n"
-"PO-Revision-Date: 2013-07-15 11:53+0000\n"
+"PO-Revision-Date: 2013-07-25 10:42+0000\n"
 "Last-Translator: Adolfo <fitoschido@ubuntu.com>\n"
 "Language-Team: Spanish <daniel@tunki.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.5.0\n"
 "X-Poedit-Bookmarks: 19,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
-"X-POOTLE-MTIME: 1373889200.0\n"
+"X-POOTLE-MTIME: 1374748979.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -41,7 +41,7 @@ msgstr "Ajustar"
 
 #: ../src/configurator.c:609
 msgid "Add plugin to panel"
-msgstr "Agregar un complemento al panel"
+msgstr "Añadir un complemento al panel"
 
 #: ../src/configurator.c:637
 msgid "Available plugins"
@@ -238,11 +238,11 @@ msgstr "<b>Actividad</b>"
 
 #: ../data/ui/netstatus.glade.h:5
 msgid "Received:"
-msgstr "Recibido:"
+msgstr "Recibidos:"
 
 #: ../data/ui/netstatus.glade.h:6
 msgid "Sent:"
-msgstr "Enviado:"
+msgstr "Enviados:"
 
 #: ../data/ui/netstatus.glade.h:7
 msgid "<b>Signal Strength</b>"
@@ -674,11 +674,11 @@ msgstr "Asignar espacio"
 
 #: ../src/plugins/tray.c:757
 msgid "System Tray"
-msgstr "Zona de notificación"
+msgstr "Área de notificación"
 
 #: ../src/plugins/tray.c:759
 msgid "System tray"
-msgstr "Zona de notificación"
+msgstr "Área de notificación"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:513
@@ -710,7 +710,7 @@ msgstr "Añadir distribución del teclado"
 
 #: ../src/plugins/xkb/xkb-plugin.c:770 ../src/plugins/xkb/xkb-plugin.c:1136
 msgid "Flag"
-msgstr ""
+msgstr "Bandera"
 
 #: ../src/plugins/xkb/xkb-plugin.c:775 ../src/plugins/xkb/xkb-plugin.c:1140
 msgid "Layout"
@@ -804,7 +804,7 @@ msgstr "Menú de carpetas"
 
 #: ../src/plugins/dirmenu.c:445
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr "Examinar árbol de carpetas por medio del menú (Author: PCMan)"
+msgstr "Examinar el árbol de carpetas mediante el menú (autor: PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:474
 msgid "Normal"
@@ -832,11 +832,11 @@ msgstr "Niveles automáticos de temperatura"
 
 #: ../src/plugins/thermal/thermal.c:480
 msgid "Warning1 Temperature"
-msgstr "Advertencia1 de Temperatura"
+msgstr "Temperatura del aviso 1"
 
 #: ../src/plugins/thermal/thermal.c:481
 msgid "Warning2 Temperature"
-msgstr "Advertencia2 de Temperatura"
+msgstr "Temperatura del aviso 2"
 
 #: ../src/plugins/thermal/thermal.c:525
 msgid "Temperature Monitor"
@@ -885,7 +885,7 @@ msgstr "<Punto de acceso oculto>"
 # cambiado de voz pasiva a activa
 #: ../src/plugins/netstat/netstat.c:213
 msgid "Wireless Networks not found in range"
-msgstr "No se encontraron redes inalámbricas en el rango"
+msgstr "No se encontraron redes inalámbricas cercanas"
 
 #. Repair
 #: ../src/plugins/netstat/netstat.c:247
@@ -963,16 +963,16 @@ msgstr "Dirección física:"
 
 #: ../src/plugins/netstat/netstat.c:513
 msgid "Manage Networks"
-msgstr "Administrar redes"
+msgstr "Gestionar las redes"
 
 #: ../src/plugins/netstat/netstat.c:515
 msgid "Monitor and Manage networks"
-msgstr "Monitorear y administrar estado de las redes"
+msgstr "Monitorear y gestionar las redes"
 
 #. create dialog
 #: ../src/plugins/netstat/passwd_gui.c:86
 msgid "Setting Encryption Key"
-msgstr "Configuración de clave encriptada"
+msgstr "Configuración de la clave de cifrado"
 
 #. messages
 #: ../src/plugins/netstat/passwd_gui.c:96
@@ -980,8 +980,8 @@ msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
 msgstr ""
-"Ésta es una red inalámbrica encriptada.\n"
-"Usted debe tener la clave de encriptación."
+"Esta red inalámbrica está cifrada.\n"
+"Necesita la clave de cifrado."
 
 #: ../src/plugins/netstat/passwd_gui.c:101
 msgid "Encryption Key:"
@@ -1036,7 +1036,7 @@ msgstr ""
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
-msgstr "No es posible iniciar la herramienta de configuración de hora: %s"
+msgstr "No se pudo iniciar la herramienta de configuración de hora: %s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:380
 #, c-format
@@ -1053,7 +1053,7 @@ msgstr "Interfaz"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:843
 msgid "The current interface the icon is monitoring."
-msgstr "La interfaz actual que el icono monitorea."
+msgstr "La interfaz actual que el icono está supervisando."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:850
 msgid "Orientation"
@@ -1061,7 +1061,7 @@ msgstr "Orientación"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:851
 msgid "The orientation of the tray."
-msgstr "Orientación de la zona de notificación."
+msgstr "La orientación del área de notificación."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:859
 msgid "Tooltips Enabled"
@@ -1222,15 +1222,15 @@ msgstr "Tunel IPIP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:954
 msgid "Frame Relay Access Device"
-msgstr "Dispositivo de Acceso Frame Relay"
+msgstr "Dispositivo de acceso Frame Relay"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:960
 msgid "Local Loopback"
-msgstr "Loopback Local"
+msgstr "Bucle local"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:966
 msgid "Fiber Distributed Data Interface"
-msgstr "Fiber Distributed Data Interface"
+msgstr "Interfaz de datos distribuidos por fibra"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:972
 msgid "IPv6-in-IPv4"
@@ -1255,12 +1255,12 @@ msgstr "IrLAP"
 #: ../src/plugins/netstatus/netstatus-iface.c:1155
 #, c-format
 msgid "SIOCGIFCONF error: %s"
-msgstr "Error SIOCGIFCONF: %s"
+msgstr "Error de SIOCGIFCONF: %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:1248
 #, c-format
 msgid "No network devices found"
-msgstr "No se encontró dispositivo de red"
+msgstr "No se encontró ningún dispositivo de red"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:180
 #, c-format
@@ -1269,13 +1269,13 @@ msgstr "No se puede abrir /proc/net/dev: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:189
 msgid "Could not parse /proc/net/dev. Unknown format."
-msgstr "No se ha podido analizar /proc/net/dev. Formato desconocido."
+msgstr "No se pudo analizar /proc/net/dev. El formato es desconocido."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:204
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:330
 #, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr "No se ha podido analizar la interface '%s'"
+msgstr "No se pudo analizar el nombre de interfaz de «%s»"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
@@ -1284,32 +1284,32 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"No se ha podido analizar las estadisticas de interface de '%s'. prx_idx = "
-"%d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+"No se pudieron analizar las estadisticas de interfaz de «%s». prx_idx = %d; "
+"ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr "No se ha podido analizar /proc/net/wireless. Formato desconocido."
+msgstr "No se pudo analizar /proc/net/wireless. El formato es desconocido."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr "No se han podido analizar los detalles de '%s'. link_idx = %d;"
+msgstr "No se pudieron analizar los detalles de «%s». link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
 msgid "Could not connect to interface, '%s'"
-msgstr "No se ha podido conectar a la interface, '%s'"
+msgstr "No se pudo establecer la conexión con la interfaz, «%s»"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:420
 #, c-format
 msgid "Could not send ioctl to interface, '%s'"
-msgstr "No se ha podido enviar ioctl a la interface, '%s'"
+msgstr "No se pudo enviar ioctl a la interfaz, «%s»"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr "No se ha podido analizar linea de comando '%s': %s"
+msgstr "No se pudo analizar la línea de órdenes «%s»: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
@@ -1342,12 +1342,12 @@ msgstr "No se encontraron baterías"
 #: ../src/plugins/batt/batt.c:179
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
-msgstr "Batería: %d%% recargada, %d:%02d para completar"
+msgstr "Batería: %d%% de carga, %d:%02d para completar"
 
 #: ../src/plugins/batt/batt.c:190
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
-msgstr "Batería: %d%% de carga, %d:%02d restante"
+msgstr "Batería: %d%% de carga, queda %d:%02d"
 
 #: ../src/plugins/batt/batt.c:196
 #, c-format
@@ -1360,7 +1360,7 @@ msgstr "Ocultar si no hay baterías"
 
 #: ../src/plugins/batt/batt.c:556
 msgid "Alarm command"
-msgstr "Comando de alarma"
+msgstr "Orden de alarma"
 
 #: ../src/plugins/batt/batt.c:557
 msgid "Alarm time (minutes left)"
@@ -1372,23 +1372,23 @@ msgstr "Color de fondo"
 
 #: ../src/plugins/batt/batt.c:559
 msgid "Charging color 1"
-msgstr "Color de recarga n°1"
+msgstr "Color de carga n.º 1"
 
 #: ../src/plugins/batt/batt.c:560
 msgid "Charging color 2"
-msgstr "Color de recarga n°2"
+msgstr "Color de carga n.º 2"
 
 #: ../src/plugins/batt/batt.c:561
 msgid "Discharging color 1"
-msgstr "Color de descarga n°1"
+msgstr "Color de descarga n.º 1"
 
 #: ../src/plugins/batt/batt.c:562
 msgid "Discharging color 2"
-msgstr "Color de descarga n°2"
+msgstr "Color de descarga n.º 2"
 
 #: ../src/plugins/batt/batt.c:563
 msgid "Border width"
-msgstr "Ancho del borde"
+msgstr "Anchura del borde"
 
 #: ../src/plugins/batt/batt.c:593
 msgid "Battery Monitor"
@@ -1425,11 +1425,11 @@ msgstr "Sin indicadores"
 
 #: ../src/plugins/indicator/indicator.c:897
 msgid "Indicator Applications"
-msgstr "Aplicaciones de indicadores"
+msgstr "Indicador de aplicaciones"
 
 #: ../src/plugins/indicator/indicator.c:898
 msgid "Clock Indicator"
-msgstr "Indicador de reloj"
+msgstr "Indicador del reloj"
 
 #: ../src/plugins/indicator/indicator.c:899
 msgid "Messaging Menu"
@@ -1449,11 +1449,11 @@ msgstr "Menú de sonido"
 
 #: ../src/plugins/indicator/indicator.c:928
 msgid "Indicator applets"
-msgstr "Applets de indicadores"
+msgstr "Indicador de miniaplicaciones"
 
 #: ../src/plugins/indicator/indicator.c:930
 msgid "Add indicator applets to the panel"
-msgstr "Añadir applets de indicadores al panel"
+msgstr "Añadir miniaplicaciones indicadoras al panel"
 
 #: ../src/plugins/monitors/monitors.c:277
 #, c-format
@@ -1479,7 +1479,7 @@ msgstr "Color de la RAM"
 
 #: ../src/plugins/monitors/monitors.c:715
 msgid "Action when clicked (default: lxtask)"
-msgstr "Acción al hacer clic (predeterminado: lxtask)"
+msgstr "Acción al pulsar (predeterminada: lxtask)"
 
 #: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"
