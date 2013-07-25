@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:11+0200\n"
-"PO-Revision-Date: 2012-10-13 22:53+0200\n"
+"PO-Revision-Date: 2013-07-25 11:05+0000\n"
 "Last-Translator: Daniel <d@winzen4.de>\n"
 "Language-Team: Deutsch <LL@li.org>\n"
 "Language: de\n"
@@ -16,9 +16,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
-"X-Poedit-Language: German\n"
-"X-Poedit-Country: GERMANY\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1374750349.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -695,9 +694,8 @@ msgstr "Beschreibung"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:602
-#, fuzzy
 msgid "Select Layout Change Type"
-msgstr "Bilddatei auswählen"
+msgstr "Layout-Änderungstyp auswählen"
 
 #: ../src/plugins/xkb/xkb-plugin.c:625
 msgid "Change Type"
@@ -710,16 +708,15 @@ msgstr "Tastaturbelegung hinzufügen"
 
 #: ../src/plugins/xkb/xkb-plugin.c:770 ../src/plugins/xkb/xkb-plugin.c:1136
 msgid "Flag"
-msgstr ""
+msgstr "Flagge"
 
 #: ../src/plugins/xkb/xkb-plugin.c:775 ../src/plugins/xkb/xkb-plugin.c:1140
 msgid "Layout"
 msgstr "Belegung"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1053 ../src/plugins/xkb/xkb-plugin.c:1359
-#, fuzzy
 msgid "Keyboard Layout Handler"
-msgstr "Tastaturbelegungsschalter"
+msgstr "Tastaturbelegungshandhaber"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1070
 msgid "Keyboard Model"
@@ -738,9 +735,8 @@ msgid "Change Layout Option"
 msgstr "Belegung ändern Option"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1172
-#, fuzzy
 msgid "Per Window Settings"
-msgstr "Panel-Einstellungen"
+msgstr "Fenster-Einstellungen"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1184
 msgid "_Remember layout for each window"
@@ -763,9 +759,8 @@ msgid "Panel Icon Size"
 msgstr "Panel-Symbolgröße"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1361
-#, fuzzy
 msgid "Handle keyboard layouts"
-msgstr "Zwischen verfügbaren Tastaturbelegungen wechseln"
+msgstr "Tastaturbelegungen handhaben"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
