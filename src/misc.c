@@ -1193,6 +1193,8 @@ char* translate_exec_to_cmd( const char* exec, const char* icon,
                              const char* title, const char* fpath )
 {
     GString* cmd = g_string_sized_new( 256 );
+    if (!exec)
+	    return NULL;
     for( ; *exec; ++exec )
     {
         if( G_UNLIKELY(*exec == '%') )
@@ -1203,7 +1205,10 @@ char* translate_exec_to_cmd( const char* exec, const char* icon,
             switch( *exec )
             {
                 case 'c':
-                    g_string_append( cmd, title );
+                    if( title )
+                    {
+                        g_string_append( cmd, title );
+                    }
                     break;
                 case 'i':
                     if( icon )
@@ -1213,12 +1218,13 @@ char* translate_exec_to_cmd( const char* exec, const char* icon,
                     }
                     break;
                 case 'k':
-                {
-                    char* uri = g_filename_to_uri( fpath, NULL, NULL );
-                    g_string_append( cmd, uri );
-                    g_free( uri );
+                    if( fpath )
+                    {
+                        char* uri = g_filename_to_uri( fpath, NULL, NULL );
+                        g_string_append( cmd, uri );
+                        g_free( uri );
+                    }
                     break;
-                }
                 case '%':
                     g_string_append_c( cmd, '%' );
                     break;

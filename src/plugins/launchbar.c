@@ -263,6 +263,12 @@ static void launchbutton_drag_data_received_event(
     guint time,
     LaunchButton * b)
 {
+    if (!b->action)
+    {
+        LOG_WARN("launchbar: Button '%s' has no action (%s)\n",
+                b->desktop_id, b->action);
+        return;
+    }
 #if GTK_CHECK_VERSION(2,14,0)
     if (gtk_selection_data_get_length(sd) > 0)
 #else
