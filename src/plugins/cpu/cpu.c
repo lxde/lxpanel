@@ -36,7 +36,7 @@
 
 #include "dbg.h"
 
-typedef unsigned long CPUTick;			/* Value from /proc/stat */
+typedef unsigned long long CPUTick;		/* Value from /proc/stat */
 typedef float CPUSample;			/* Saved CPU utilization value as 0.0..1.0 */
 
 struct cpu_stat {
@@ -111,7 +111,7 @@ static gboolean cpu_update(CPUPlugin * c)
         FILE * stat = fopen("/proc/stat", "r");
         if (stat == NULL)
             return TRUE;
-        int fscanf_result = fscanf(stat, "cpu %lu %lu %lu %lu", &cpu.u, &cpu.n, &cpu.s, &cpu.i);
+        int fscanf_result = fscanf(stat, "cpu %llu %llu %llu %llu", &cpu.u, &cpu.n, &cpu.s, &cpu.i);
         fclose(stat);
 
         /* Ensure that fscanf succeeded. */
