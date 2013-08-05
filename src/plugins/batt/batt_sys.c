@@ -189,7 +189,7 @@ void battery_update(battery *b)
     /* convert energy values (in mWh) to charge values (in mAh) if needed and possible */
 
     if (b->energy_full != -1 && b->charge_full == -1) {
-	if (b->voltage_now != -1) {
+	if (b->voltage_now != -1 && b->voltage_now != 0) {
 	    b->charge_full = b->energy_full * 1000 / b->voltage_now;
 	} else {
 	    b->charge_full = b->energy_full;
@@ -198,7 +198,7 @@ void battery_update(battery *b)
     }
 
     if (b->energy_full_design != -1 && b->charge_full_design == -1) {
-	if (b->voltage_now != -1) {
+	if (b->voltage_now != -1 && b->voltage_now != 0) {
 	    b->charge_full_design = b->energy_full_design * 1000 / b->voltage_now;
 	} else {
 	    b->charge_full_design = b->energy_full_design;
@@ -207,7 +207,7 @@ void battery_update(battery *b)
     }
 
     if (b->energy_now != -1 && b->charge_now == -1) {
-	if (b->voltage_now != -1) {
+	if (b->voltage_now != -1 && b->voltage_now != 0) {
 	    b->charge_now = b->energy_now * 1000 / b->voltage_now;
 	    if (b->current_now != -1)
 		b->current_now = b->current_now * 1000 / b->voltage_now;
