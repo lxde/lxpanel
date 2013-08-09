@@ -1,24 +1,24 @@
 # Slovenian translation of lxpanel.
-# Copyright (C) 2011 - 2012 Free Software Foundation, Inc.
+# Copyright (C) 2011 - 2013 Free Software Foundation, Inc.
 # This file is distributed under the same license as the lxpanel package.
-# Klemen Košir <klemen.kosir@gmx.com>, 2011 - 2012.
+# Klemen Košir <klemen913@gmail.com>, 2011 - 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:11+0200\n"
-"PO-Revision-Date: 2013-07-19 16:14+0000\n"
+"PO-Revision-Date: 2013-08-09 09:35+0000\n"
 "Last-Translator: Klemen <klemen913@gmail.com>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || "
+"n%100==4 ? 3 : 0);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1374250492.0\n"
+"X-POOTLE-MTIME: 1376040926.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -79,7 +79,7 @@ msgstr "Potrditev"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:693
 msgid "translator-credits"
-msgstr "Klemen Košir <klemen.kosir@gmx.com>"
+msgstr "Klemen Košir <klemen913@gmail.com>"
 
 #: ../src/panel.c:698
 msgid "LXPanel"
@@ -603,8 +603,8 @@ msgstr "Oblika orodnega namiga"
 #: ../src/plugins/dclock.c:438
 msgid "Format codes: man 3 strftime; \\n for line break"
 msgstr ""
-"Za več oblik zapisa izvedite ukaz: man 3 strftime.\\nZa prelom vrstice lahko "
-"uporabite »\\n«."
+"Za več oblik zapisa uporabite ukaz »man 3 strftime.«\n"
+"Za prelom vrstice lahko uporabite »\\n«."
 
 #: ../src/plugins/dclock.c:439
 msgid "Action when clicked (default: display calendar)"
@@ -1498,21 +1498,3 @@ msgstr "WnckPager"
 #: ../src/plugins/wnckpager/wnckpager.c:722
 msgid "WNCKpager plugin"
 msgstr "Izbirnik namizja WnckPager"
-
-#~ msgid "<b>Icon</b>"
-#~ msgstr "<b>Ikone</b>"
-
-#~ msgid "Configure Keyboard Layout Switcher"
-#~ msgstr "Nastavitve"
-
-#~ msgid "image"
-#~ msgstr "Slika"
-
-#~ msgid "text"
-#~ msgstr "Besedilo"
-
-#~ msgid "Per application settings"
-#~ msgstr "Nastavitve"
-
-#~ msgid "Default layout:"
-#~ msgstr "Privzeta razporeditev:"
