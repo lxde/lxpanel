@@ -10,15 +10,16 @@ msgstr ""
 "Project-Id-Version: lxpanel r839\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:11+0200\n"
-"PO-Revision-Date: 2012-06-12 01:14+0200\n"
-"Last-Translator: Cilyan <gaknar@gmail.com>\n"
+"PO-Revision-Date: 2013-08-09 09:09+0000\n"
+"Last-Translator: Julien <Julius22@laposte.net>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1376039342.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -60,6 +61,7 @@ msgstr "Sélectionner un répertoire"
 msgid "Select a file"
 msgstr "Sélectionner un fichier"
 
+# Vérifier la lettre pour le raccourci clavier
 #: ../src/configurator.c:1392
 msgid "_Browse"
 msgstr "_Parcourir"
@@ -70,7 +72,7 @@ msgid ""
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
 "Voulez-vous vraiment supprimer ce panneau ?\n"
-"<b>Avertissement : cette opération ne peut être annulée.</b>"
+"<b>Avertissement : cette opération ne peut pas être annulée.</b>"
 
 #: ../src/panel.c:660
 msgid "Confirm"
@@ -174,15 +176,14 @@ msgstr " --version   -- afficher la version et quitter\n"
 #: ../src/panel.c:1505
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <nombre> -- définir la quantité d'informations de déboguage 0-5. 0 - "
+msgstr " --log <nombre> -- définir la quantité d'informations de débogage 0-5. 0 - "
 "aucun 5 - maximum\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1507
 #, c-format
 msgid " --profile name -- use specified profile\n"
-msgstr " --profile nom -- utiliser le profile indiqué\n"
+msgstr " --profile nom -- utiliser le profil indiqué\n"
 
 #: ../src/panel.c:1509
 #, c-format
@@ -316,7 +317,7 @@ msgstr "% Pourcent"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "None"
-msgstr ""
+msgstr "Aucun(e)"
 
 #: ../data/ui/panel-pref.glade.h:6
 #, fuzzy
@@ -331,7 +332,7 @@ msgstr "Couleur d'avertissement, niveau 1"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "Info"
-msgstr ""
+msgstr "Info."
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "All"
@@ -363,7 +364,7 @@ msgstr "<b>Position</b>"
 
 #: ../data/ui/panel-pref.glade.h:22
 msgid "Icon size:"
-msgstr ""
+msgstr "Taille d'icône :"
 
 #: ../data/ui/panel-pref.glade.h:23
 msgid "<b>Size</b>"
@@ -433,7 +434,8 @@ msgstr "<b>Choisir les applications préférées</b>"
 #: ../data/ui/panel-pref.glade.h:39
 msgid "Make window managers treat the panel as dock"
 msgstr ""
-"Le gestionnaire de fenêtre doit considérer le tableau de bord comme un dock"
+"Les gestionnaires de fenêtres doivent considérer le tableau de bord comme un "
+"dock"
 
 #: ../data/ui/panel-pref.glade.h:40
 msgid "Reserve space, and not covered by maximized windows"
@@ -463,12 +465,11 @@ msgstr "<b>Cacher automatiquement</b>"
 
 #: ../data/ui/panel-pref.glade.h:46
 msgid "Log level"
-msgstr ""
+msgstr "Niveau de journalisation"
 
 #: ../data/ui/panel-pref.glade.h:47
-#, fuzzy
 msgid "<b>Log level</b>"
-msgstr "<b>Périphérique réseau</b>"
+msgstr "<b>Niveau de journalisation</b>"
 
 #: ../data/ui/panel-pref.glade.h:48
 msgid "Advanced"
@@ -488,7 +489,7 @@ msgstr "Police grasse"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
-msgstr "Afficher le nom des bureaux"
+msgstr "Affiche les noms des bureaux"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
@@ -573,7 +574,7 @@ msgstr "Utiliser la molette de la souris"
 
 #: ../src/plugins/taskbar.c:1991
 msgid "Flash when there is any window requiring attention"
-msgstr "Clignoter lorsque une fenêtre requiert de l'attention"
+msgstr "Clignoter lorsqu'une fenêtre a besoin d'attention"
 
 #: ../src/plugins/taskbar.c:1992
 msgid "Combine multiple application windows into a single button"
@@ -589,7 +590,7 @@ msgstr "Espacement"
 
 #: ../src/plugins/taskbar.c:2047
 msgid "Task Bar (Window List)"
-msgstr "Barre des tâches (Liste des fenêtres)"
+msgstr "Barre des tâches (liste des fenêtres)"
 
 #: ../src/plugins/taskbar.c:2049
 msgid ""
@@ -685,19 +686,17 @@ msgstr "Zone de notification"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:513
-#, fuzzy
 msgid "Select Keyboard Model"
-msgstr "Témoins du clavier"
+msgstr "Sélectionner un modèle de clavier"
 
 #: ../src/plugins/xkb/xkb-plugin.c:536
 msgid "Model"
-msgstr ""
+msgstr "Modèle"
 
 #: ../src/plugins/xkb/xkb-plugin.c:540 ../src/plugins/xkb/xkb-plugin.c:629
 #: ../src/plugins/xkb/xkb-plugin.c:780
-#, fuzzy
 msgid "Description"
-msgstr "Destination :"
+msgstr "Description"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:602
@@ -711,17 +710,16 @@ msgstr ""
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:747
-#, fuzzy
 msgid "Add Keyboard Layout"
-msgstr "Sélecteur de disposition du clavier"
+msgstr "Ajouter une disposition de clavier"
 
 #: ../src/plugins/xkb/xkb-plugin.c:770 ../src/plugins/xkb/xkb-plugin.c:1136
 msgid "Flag"
-msgstr ""
+msgstr "Drapeau"
 
 #: ../src/plugins/xkb/xkb-plugin.c:775 ../src/plugins/xkb/xkb-plugin.c:1140
 msgid "Layout"
-msgstr ""
+msgstr "Disposition"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1053 ../src/plugins/xkb/xkb-plugin.c:1359
 #, fuzzy
@@ -729,54 +727,48 @@ msgid "Keyboard Layout Handler"
 msgstr "Sélecteur de disposition du clavier"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1070
-#, fuzzy
 msgid "Keyboard Model"
-msgstr "Témoins du clavier"
+msgstr "Modèle de clavier"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1090
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "Sélecteur de disposition du clavier"
+msgstr "Dispositions de clavier"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1144
 msgid "Variant"
-msgstr ""
+msgstr "Variante"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1152
 msgid "Change Layout Option"
-msgstr ""
+msgstr "Changer d'option de disposition"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1172
-#, fuzzy
 msgid "Per Window Settings"
-msgstr "Paramètres du tableau de bord"
+msgstr "Paramètres par fenêtre"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1184
-#, fuzzy
 msgid "_Remember layout for each window"
-msgstr "Se _souvenir de la disposition pour chaque application"
+msgstr "Se souveni_r de la disposition pour chaque fenêtre"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1193
-#, fuzzy
 msgid "Show Layout as"
-msgstr "Afficher la disposition"
+msgstr "Afficher la disposition comme"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1254
 msgid "Custom Image"
-msgstr ""
+msgstr "Image personnalisée"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1255
 msgid "Text"
-msgstr ""
+msgstr "Texte"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1281
 msgid "Panel Icon Size"
-msgstr ""
+msgstr "Taille d'icône de tableau de bord"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1361
-#, fuzzy
 msgid "Handle keyboard layouts"
-msgstr "Basculer entre les dispositions du clavier disponibles"
+msgstr "Gérer les dispositions de clavier"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
@@ -809,16 +801,17 @@ msgid "Directory"
 msgstr "Menu des répertoires"
 
 #: ../src/plugins/dirmenu.c:412
+#, fuzzy
 msgid "Label"
 msgstr "Tableau de bord"
 
 #: ../src/plugins/dirmenu.c:443
 msgid "Directory Menu"
-msgstr "Menu des répertoires"
+msgstr "Menu des dossiers"
 
 #: ../src/plugins/dirmenu.c:445
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr "Parcourir l'arborescence via un menu (Auteur: PCMan)"
+msgstr "Parcourir l'arborescence via un menu (auteur : PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:474
 msgid "Normal"
@@ -834,6 +827,7 @@ msgid "Warning2"
 msgstr "Couleur d'avertissement, niveau 2"
 
 #: ../src/plugins/thermal/thermal.c:477
+#, fuzzy
 msgid "Automatic sensor location"
 msgstr "Sélection automatique du capteur"
 
@@ -847,10 +841,12 @@ msgstr "Niveaux de température automatiques"
 
 # Truly more explained than english version
 #: ../src/plugins/thermal/thermal.c:480
+#, fuzzy
 msgid "Warning1 Temperature"
 msgstr "Seuil d'avertissement, niveau 1"
 
 #: ../src/plugins/thermal/thermal.c:481
+#, fuzzy
 msgid "Warning2 Temperature"
 msgstr "Seuil d'avertissement, niveau 2"
 
@@ -892,7 +888,7 @@ msgid ""
 "(pavucontol, alsamixer ...)"
 msgstr ""
 "Erreur, vous devez installer une application pour configurer le son "
-"(pavucontrol, alsamixer, ...)"
+"(pavucontrol, alsamixer...)"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
@@ -1071,6 +1067,7 @@ msgstr "Interface"
 # chose comme ça. Et pour le français : L'interface actuelle représentée par
 # l'icône. => Très bonne idée :D
 #: ../src/plugins/netstatus/netstatus-icon.c:843
+#, fuzzy
 msgid "The current interface the icon is monitoring."
 msgstr "L'interface actuelle représentée par l'icône."
 
@@ -1144,7 +1141,7 @@ msgstr "Signal"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:182
 msgid "Wireless signal strength percentage"
-msgstr "Puissance du signal sans fil en pourcentage"
+msgstr "Pourcentage de puissance du signal sans fil"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:191
 #: ../src/plugins/netstatus/netstatus-util.c:167
@@ -1153,7 +1150,7 @@ msgstr "Erreur"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:192
 msgid "The current error condition"
-msgstr "Le contexte actuelle de l'erreur"
+msgstr "Le contexte actuel de l'erreur"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:434
 #: ../src/plugins/netstatus/netstatus-iface.c:1197
@@ -1182,7 +1179,7 @@ msgstr "AMPR AX.25"
 #: ../src/plugins/netstatus/netstatus-iface.c:888
 #: ../src/plugins/netstatus/netstatus-iface.c:1008
 msgid "16/4 Mbps Token Ring"
-msgstr "16/4 Mo/s Token Ring"
+msgstr "Anneau à jeton de 16/4 Mo/s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:891
 msgid "ARCnet"
@@ -1190,7 +1187,7 @@ msgstr "ARCnet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:897
 msgid "Frame Relay DLCI"
-msgstr "Frame-Relay DLCI"
+msgstr "DLCI du relais de trames"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:903
 msgid "Metricom Starmode IP"
@@ -1222,15 +1219,15 @@ msgstr "AMPR ROSE"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:927
 msgid "Generic X.25"
-msgstr "Generic X.25"
+msgstr "X.25 générique"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:930
 msgid "Point-to-Point Protocol"
-msgstr "Point-to-Point Protocol"
+msgstr "Protocole point à point"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:936
 msgid "(Cisco)-HDLC"
-msgstr "(Cisco)-HDLC"
+msgstr "HDLC (Cisco)"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:939
 msgid "LAPB"
@@ -1242,7 +1239,7 @@ msgstr "Tunnel IPIP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:954
 msgid "Frame Relay Access Device"
-msgstr "Frame Relay Access Device"
+msgstr "Périphérique d'accès de relais de trames"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:960
 msgid "Local Loopback"
@@ -1285,7 +1282,7 @@ msgstr "Aucune interface réseau trouvée"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:180
 #, c-format
 msgid "Cannot open /proc/net/dev: %s"
-msgstr "Impossible d'ouvrir /proc/net/dev: %s"
+msgstr "Impossible d'ouvrir /proc/net/dev : %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:189
 msgid "Could not parse /proc/net/dev. Unknown format."
@@ -1295,7 +1292,7 @@ msgstr "Impossible d'analyser /proc/net/dev. Format inconnu."
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:330
 #, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr "Impossible de récupérer le nom de l'interface à partir de '%s'."
+msgstr "Impossible de récupérer le nom de l'interface à partir de « %s »."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
@@ -1304,8 +1301,8 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"Impossible de récupérer les statistiques de l'interface à partir de '%s'. "
-"prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+"Impossible de récupérer les statistiques de l'interface à partir de « %s ». "
+"prx_idx = %d ; ptx_idx = %d ; brx_idx = %d ; btx_idx = %d ;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1315,27 +1312,27 @@ msgstr "Impossible d'analyser /proc/net/wireless. Format inconnu."
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
 msgstr ""
-"Impossible de récupérer les détails de l'interface sans fil à partir de "
-"'%s'. link_idx = %d;"
+"Impossible de récupérer les détails de l'interface sans fil à partir de « %s "
+"». link_idx = %d ;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
 msgid "Could not connect to interface, '%s'"
-msgstr "Impossible de se connecter à l'interface, '%s'"
+msgstr "Impossible de se connecter à l'interface, « %s »"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:420
 #, c-format
 msgid "Could not send ioctl to interface, '%s'"
-msgstr "Impossible d'envoyer une commande ioctl à l'interface, '%s'"
+msgstr "Impossible d'envoyer une commande ioctl à l'interface, « %s »"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr "Impossible d'analyser la ligne de commande '%s' : %s"
+msgstr "Impossible d'analyser la ligne de commande « %s » : %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr "Impossible d'analyser la sortie de 'netstat'. Format inconnu"
+msgstr "Impossible d'analyser la sortie de « netstat ». Format inconnu"
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
@@ -1355,7 +1352,7 @@ msgstr "Réception"
 
 #: ../src/plugins/netstatus/netstatus-util.c:164
 msgid "Sending/Receiving"
-msgstr "Envoi/Réception"
+msgstr "Envoi/réception"
 
 #: ../src/plugins/batt/batt.c:133
 msgid "No batteries found"
@@ -1364,17 +1361,17 @@ msgstr "Aucune batterie trouvée"
 #: ../src/plugins/batt/batt.c:179
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
-msgstr "Batterie : %d %% chargée, %d:%02d jusqu'à charge complète"
+msgstr "Batterie : chargée à %d %%, %d:%02d jusqu'à charge complète"
 
 #: ../src/plugins/batt/batt.c:190
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
-msgstr "Batterie : %d %% chargée, %d:%02d restant"
+msgstr "Batterie : chargée à %d %%, %d:%02d restant"
 
 #: ../src/plugins/batt/batt.c:196
 #, c-format
 msgid "Battery: %d%% charged"
-msgstr "Batterie : %d %% chargée"
+msgstr "Batterie : chargée à %d %%"
 
 #: ../src/plugins/batt/batt.c:554
 msgid "Hide if there is no battery"
@@ -1392,18 +1389,22 @@ msgstr "Déclenchement de l'alarme (minutes restantes)"
 msgid "Background color"
 msgstr "Couleur de fond"
 
+# Il manque une espace entre l'« abbréviation » de numéro et le chiffre suivant
 #: ../src/plugins/batt/batt.c:559
 msgid "Charging color 1"
 msgstr "Couleur de chargement n°1"
 
+# Il manque une espace entre l'« abbréviation » de numéro et le chiffre suivant
 #: ../src/plugins/batt/batt.c:560
 msgid "Charging color 2"
 msgstr "Couleur de chargement n°2"
 
+# Il manque une espace entre l'« abbréviation » de numéro et le chiffre suivant
 #: ../src/plugins/batt/batt.c:561
 msgid "Discharging color 1"
 msgstr "Couleur de déchargement n°1"
 
+# Il manque une espace entre l'« abbréviation » de numéro et le chiffre suivant
 #: ../src/plugins/batt/batt.c:562
 msgid "Discharging color 2"
 msgstr "Couleur de déchargement n°2"
@@ -1422,15 +1423,15 @@ msgstr "Afficher l'état de charge des batteries en utilisant ACPI"
 
 #: ../src/plugins/kbled/kbled.c:258
 msgid "Show CapsLock"
-msgstr "Affichage verrouillage des majuscules"
+msgstr "Afficher le verrouillage des majuscules"
 
 #: ../src/plugins/kbled/kbled.c:259
 msgid "Show NumLock"
-msgstr "Afficher verrouillage de pavé numérique"
+msgstr "Afficher le verrouillage du pavé numérique"
 
 #: ../src/plugins/kbled/kbled.c:260
 msgid "Show ScrollLock"
-msgstr "Afficher arrêt du défilement"
+msgstr "Afficher l'arrêt du défilement"
 
 #: ../src/plugins/kbled/kbled.c:295
 msgid "Keyboard LED"
@@ -1438,7 +1439,7 @@ msgstr "Diodes du clavier"
 
 #: ../src/plugins/kbled/kbled.c:297
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr "Indicateurs pour les touches Ver. Maj., Verr. Num. et Arrêt défil."
+msgstr "Indicateurs pour les touches Verr. maj., Verr. num. et Arrêt défil."
 
 #. A label to allow for click through
 #: ../src/plugins/indicator/indicator.c:698
@@ -1446,6 +1447,7 @@ msgid "No Indicators"
 msgstr "Aucun indicateur"
 
 #: ../src/plugins/indicator/indicator.c:897
+#, fuzzy
 msgid "Indicator Applications"
 msgstr "Indicateurs"
 
@@ -1480,12 +1482,12 @@ msgstr "Ajouter des indicateurs au tableau de bord"
 #: ../src/plugins/monitors/monitors.c:277
 #, c-format
 msgid "CPU usage: %.2f%%"
-msgstr "Utilisation processeur : %.2f%%"
+msgstr "Utilisation du processeur : %.2f %%"
 
 #: ../src/plugins/monitors/monitors.c:360
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
-msgstr "Utilisation mémoire vive : %.1fMB (%.2f%%)"
+msgstr "Utilisation de la mémoire vive : %.1f Mo (%.2f %%)"
 
 #: ../src/plugins/monitors/monitors.c:712
 msgid "CPU color"
@@ -1493,11 +1495,11 @@ msgstr "Couleur pour le processeur"
 
 #: ../src/plugins/monitors/monitors.c:713
 msgid "Display RAM usage"
-msgstr "Affiche le taux d'utilisation de la mémoire"
+msgstr "Affiche l'utilisation de la mémoire vive"
 
 #: ../src/plugins/monitors/monitors.c:714
 msgid "RAM color"
-msgstr "Couleur pour la mémoire"
+msgstr "Couleur pour la mémoire vive"
 
 #: ../src/plugins/monitors/monitors.c:715
 msgid "Action when clicked (default: lxtask)"
@@ -1505,11 +1507,11 @@ msgstr "Action lors d'un clic (par défaut : lxtask)"
 
 #: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"
-msgstr "Moniteurs de ressource"
+msgstr "Moniteurs de ressources"
 
 #: ../src/plugins/monitors/monitors.c:810
 msgid "Display monitors (CPU, RAM)"
-msgstr "Afficher les moniteurs (CPU, RAM)"
+msgstr "Afficher les moniteurs (processeur et mémoire vive)"
 
 #: ../src/plugins/wnckpager/wnckpager.c:720
 msgid "WNCKPager"
