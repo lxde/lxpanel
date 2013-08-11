@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: lxpanel r839\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-23 15:11+0200\n"
-"PO-Revision-Date: 2013-08-09 09:09+0000\n"
+"PO-Revision-Date: 2013-08-11 11:05+0000\n"
 "Last-Translator: Julien <Julius22@laposte.net>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "Language: fr\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1376039342.0\n"
+"X-POOTLE-MTIME: 1376219138.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -597,8 +597,8 @@ msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
-"Affiche la liste des fenêtres ouvertes et permet de les minimiser, les "
-"enrouler ou leur donner le focus"
+"Affiche la liste des fenêtres ouvertes et permet de les minimiser, de les "
+"enrouler ou de leur donner le focus"
 
 #: ../src/plugins/dclock.c:436
 msgid "Clock Format"
@@ -610,7 +610,7 @@ msgstr "Format des infobulles"
 
 #: ../src/plugins/dclock.c:438
 msgid "Format codes: man 3 strftime; \\n for line break"
-msgstr "Codes de format : man 3 strftime; \\n pour fin de ligne"
+msgstr "Codes de format : man 3 strftime ; \\n pour fin de ligne"
 
 #: ../src/plugins/dclock.c:439
 msgid "Action when clicked (default: display calendar)"
@@ -658,23 +658,23 @@ msgstr "Séparateur"
 
 #: ../src/plugins/separator.c:104
 msgid "Add a separator to the panel"
-msgstr "Ajouter un séparateur sur le tableau de bord"
+msgstr "Ajoute un séparateur au tableau de bord"
 
 #: ../src/plugins/pager.c:842
 msgid "Desktop Pager"
-msgstr "Bureaux virtuels"
+msgstr "Gestionnaire de bureaux virtuels"
 
 #: ../src/plugins/pager.c:844
 msgid "Simple pager plugin"
-msgstr "Plugin de pager simple"
+msgstr "Greffon de gestionnaire de bureaux virtuels simple"
 
 #: ../src/plugins/space.c:143
 msgid "Spacer"
-msgstr "<Espace>"
+msgstr "Espace"
 
 #: ../src/plugins/space.c:145
 msgid "Allocate space"
-msgstr "Allouer de l'espace"
+msgstr "Alloue de l'espace"
 
 #: ../src/plugins/tray.c:757
 msgid "System Tray"
@@ -798,20 +798,19 @@ msgstr "Ouvrir avec un _terminal"
 
 #: ../src/plugins/dirmenu.c:411
 msgid "Directory"
-msgstr "Menu des répertoires"
+msgstr "Dossier"
 
 #: ../src/plugins/dirmenu.c:412
-#, fuzzy
 msgid "Label"
-msgstr "Tableau de bord"
+msgstr "Libellé"
 
 #: ../src/plugins/dirmenu.c:443
 msgid "Directory Menu"
-msgstr "Menu des dossiers"
+msgstr "Menu du dossier"
 
 #: ../src/plugins/dirmenu.c:445
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr "Parcourir l'arborescence via un menu (auteur : PCMan)"
+msgstr "Parcourt l'arborescence d'un dossier via un menu (auteur : PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:474
 msgid "Normal"
@@ -827,9 +826,8 @@ msgid "Warning2"
 msgstr "Couleur d'avertissement, niveau 2"
 
 #: ../src/plugins/thermal/thermal.c:477
-#, fuzzy
 msgid "Automatic sensor location"
-msgstr "Sélection automatique du capteur"
+msgstr "Choix automatique de l'emplacement du capteur"
 
 #: ../src/plugins/thermal/thermal.c:478
 msgid "Sensor"
@@ -841,18 +839,16 @@ msgstr "Niveaux de température automatiques"
 
 # Truly more explained than english version
 #: ../src/plugins/thermal/thermal.c:480
-#, fuzzy
 msgid "Warning1 Temperature"
 msgstr "Seuil d'avertissement, niveau 1"
 
 #: ../src/plugins/thermal/thermal.c:481
-#, fuzzy
 msgid "Warning2 Temperature"
 msgstr "Seuil d'avertissement, niveau 2"
 
 #: ../src/plugins/thermal/thermal.c:525
 msgid "Temperature Monitor"
-msgstr "Moniteur de la température"
+msgstr "Moniteur de température"
 
 #: ../src/plugins/thermal/thermal.c:527
 msgid "Display system temperature"
@@ -978,7 +974,7 @@ msgstr "Gestion des réseaux"
 
 #: ../src/plugins/netstat/netstat.c:515
 msgid "Monitor and Manage networks"
-msgstr "Surveiller et gérer les réseaux"
+msgstr "Surveille et gère des réseaux"
 
 #. create dialog
 #: ../src/plugins/netstat/passwd_gui.c:86
@@ -1352,7 +1348,7 @@ msgstr "Réception"
 
 #: ../src/plugins/netstatus/netstatus-util.c:164
 msgid "Sending/Receiving"
-msgstr "Envoi/réception"
+msgstr "Envoi/Réception"
 
 #: ../src/plugins/batt/batt.c:133
 msgid "No batteries found"
@@ -1392,22 +1388,22 @@ msgstr "Couleur de fond"
 # Il manque une espace entre l'« abbréviation » de numéro et le chiffre suivant
 #: ../src/plugins/batt/batt.c:559
 msgid "Charging color 1"
-msgstr "Couleur de chargement n°1"
+msgstr "Première couleur de chargement"
 
 # Il manque une espace entre l'« abbréviation » de numéro et le chiffre suivant
 #: ../src/plugins/batt/batt.c:560
 msgid "Charging color 2"
-msgstr "Couleur de chargement n°2"
+msgstr "Seconde couleur de chargement"
 
 # Il manque une espace entre l'« abbréviation » de numéro et le chiffre suivant
 #: ../src/plugins/batt/batt.c:561
 msgid "Discharging color 1"
-msgstr "Couleur de déchargement n°1"
+msgstr "Première couleur de déchargement"
 
 # Il manque une espace entre l'« abbréviation » de numéro et le chiffre suivant
 #: ../src/plugins/batt/batt.c:562
 msgid "Discharging color 2"
-msgstr "Couleur de déchargement n°2"
+msgstr "Seconde couleur de déchargement"
 
 #: ../src/plugins/batt/batt.c:563
 msgid "Border width"
@@ -1419,7 +1415,7 @@ msgstr "Moniteur des batteries"
 
 #: ../src/plugins/batt/batt.c:595
 msgid "Display battery status using ACPI"
-msgstr "Afficher l'état de charge des batteries en utilisant ACPI"
+msgstr "Affiche l'état de charge des batteries en utilisant ACPI"
 
 #: ../src/plugins/kbled/kbled.c:258
 msgid "Show CapsLock"
@@ -1477,7 +1473,7 @@ msgstr "Indicateurs"
 
 #: ../src/plugins/indicator/indicator.c:930
 msgid "Add indicator applets to the panel"
-msgstr "Ajouter des indicateurs au tableau de bord"
+msgstr "Ajoute des indicateurs au tableau de bord"
 
 #: ../src/plugins/monitors/monitors.c:277
 #, c-format
@@ -1495,7 +1491,7 @@ msgstr "Couleur pour le processeur"
 
 #: ../src/plugins/monitors/monitors.c:713
 msgid "Display RAM usage"
-msgstr "Affiche l'utilisation de la mémoire vive"
+msgstr "Afficher l'utilisation de la mémoire vive"
 
 #: ../src/plugins/monitors/monitors.c:714
 msgid "RAM color"
@@ -1511,15 +1507,15 @@ msgstr "Moniteurs de ressources"
 
 #: ../src/plugins/monitors/monitors.c:810
 msgid "Display monitors (CPU, RAM)"
-msgstr "Afficher les moniteurs (processeur et mémoire vive)"
+msgstr "Affiche les moniteurs (processeur et mémoire vive)"
 
 #: ../src/plugins/wnckpager/wnckpager.c:720
 msgid "WNCKPager"
-msgstr "Pager WNCK"
+msgstr "Gestionnaire de bureaux virtuels WNCK"
 
 #: ../src/plugins/wnckpager/wnckpager.c:722
 msgid "WNCKpager plugin"
-msgstr "Plugin de pager WNCK"
+msgstr "Greffon du gestionnaire de bureaux virtuels WNCK"
 
 #~ msgid "<b>Icon</b>"
 #~ msgstr "<b>Icône</b>"
