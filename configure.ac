@@ -446,7 +446,7 @@ echo Building dynamic plugins:
         AC_MSG_RESULT([    kbled - Indicator for CapsLock, NumLock, and ScrLock])
     fi
     if test x"$plugin_xkb" != x; then
-        AC_MSG_RESULT([    xkb - Keyboard layout switcher])
+        AC_MSG_RESULT([    xkb - Keyboard layout handler])
     fi
     if test x"$plugin_thermal" != x; then
         AC_MSG_RESULT([    thermal - Temperature monitor])
