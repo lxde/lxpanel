@@ -51,14 +51,14 @@ enum
 
 enum
 {
-    COLUMN_MODEL_NAME,
+    COLUMN_MODEL_ID,
     COLUMN_MODEL_DESC,
     NUM_MODEL_COLUMNS
 };
 
 enum
 {
-    COLUMN_CHANGE_NAME,
+    COLUMN_CHANGE_ID,
     COLUMN_CHANGE_DESC,
     NUM_CHANGE_COLUMNS
 };
@@ -622,16 +622,17 @@ static void on_button_kbd_model_clicked(GtkButton *p_button, gpointer *p_data)
     gtk_container_add(GTK_CONTAINER(p_scrolledwindow_kbd_model), p_treeview_kbd_model);
     GtkCellRenderer *p_renderer;
     GtkTreeViewColumn *p_column;
-    // model
+    // model desc
     p_renderer = gtk_cell_renderer_text_new();
-    p_column = gtk_tree_view_column_new_with_attributes(_("Model"), p_renderer, "text", COLUMN_CHANGE_NAME, NULL);
-    gtk_tree_view_column_set_sort_column_id(p_column, COLUMN_CHANGE_NAME);
+    p_column = gtk_tree_view_column_new_with_attributes(_("Description"), p_renderer, "text", COLUMN_MODEL_DESC, NULL);
+    gtk_tree_view_column_set_sort_column_id(p_column, COLUMN_MODEL_DESC);
     gtk_tree_view_append_column(GTK_TREE_VIEW(p_treeview_kbd_model), p_column);
-    // desc
+    // model id
     p_renderer = gtk_cell_renderer_text_new();
-    p_column = gtk_tree_view_column_new_with_attributes(_("Description"), p_renderer, "text", COLUMN_CHANGE_DESC, NULL);
-    gtk_tree_view_column_set_sort_column_id(p_column, COLUMN_CHANGE_DESC);
+    p_column = gtk_tree_view_column_new_with_attributes(_("Id"), p_renderer, "text", COLUMN_MODEL_ID, NULL);
+    gtk_tree_view_column_set_sort_column_id(p_column, COLUMN_MODEL_ID);
     gtk_tree_view_append_column(GTK_TREE_VIEW(p_treeview_kbd_model), p_column);
+    
     
     // populate model
     GKeyFile *p_keyfile = g_key_file_new();
@@ -647,7 +648,7 @@ static void on_button_kbd_model_clicked(GtkButton *p_button, gpointer *p_data)
             p_model_desc = g_key_file_get_string(p_keyfile, "MODELS", keys_models[model_idx], NULL);
             gtk_list_store_append(p_liststore_kbd_model, &tree_iter);
             gtk_list_store_set(p_liststore_kbd_model, &tree_iter,
-                                COLUMN_MODEL_NAME, keys_models[model_idx],
+                                COLUMN_MODEL_ID, keys_models[model_idx],
                                 COLUMN_MODEL_DESC, p_model_desc,
                                 -1);
             g_free(p_model_desc);
@@ -678,7 +679,7 @@ static void on_button_kbd_model_clicked(GtkButton *p_button, gpointer *p_data)
         {
             gchar *kbd_model_new;
             gtk_tree_model_get(GTK_TREE_MODEL(p_liststore_kbd_model),
-                               &tree_iter_sel, COLUMN_MODEL_NAME, &kbd_model_new, -1);
+                               &tree_iter_sel, COLUMN_MODEL_ID, &kbd_model_new, -1);
             g_free(p_xkb->kbd_model);
             p_xkb->kbd_model = g_strdup(kbd_model_new);
             gtk_button_set_label(GTK_BUTTON(p_xkb->p_button_kbd_model), p_xkb->kbd_model);
@@ -719,10 +720,12 @@ static void on_button_kbd_change_layout_clicked(GtkButton *p_button, gpointer *p
     // change desc
     p_renderer = gtk_cell_renderer_text_new();
     p_column = gtk_tree_view_column_new_with_attributes(_("Description"), p_renderer, "text", COLUMN_CHANGE_DESC, NULL);
+    gtk_tree_view_column_set_sort_column_id(p_column, COLUMN_CHANGE_DESC);
     gtk_tree_view_append_column(GTK_TREE_VIEW(p_treeview_kbd_change), p_column);
-    // change name
+    // change id
     p_renderer = gtk_cell_renderer_text_new();
-    p_column = gtk_tree_view_column_new_with_attributes(_("Id"), p_renderer, "text", COLUMN_CHANGE_NAME, NULL);
+    p_column = gtk_tree_view_column_new_with_attributes(_("Id"), p_renderer, "text", COLUMN_CHANGE_ID, NULL);
+    gtk_tree_view_column_set_sort_column_id(p_column, COLUMN_CHANGE_ID);
     gtk_tree_view_append_column(GTK_TREE_VIEW(p_treeview_kbd_change), p_column);
     
     // populate model
@@ -739,7 +742,7 @@ static void on_button_kbd_change_layout_clicked(GtkButton *p_button, gpointer *p
             p_change_desc = g_key_file_get_string(p_keyfile, "TOGGLE", keys_changes[change_idx], NULL);
             gtk_list_store_append(p_liststore_kbd_change, &tree_iter);
             gtk_list_store_set(p_liststore_kbd_change, &tree_iter,
-                                COLUMN_CHANGE_NAME, keys_changes[change_idx],
+                                COLUMN_CHANGE_ID, keys_changes[change_idx],
                                 COLUMN_CHANGE_DESC, p_change_desc,
                                 -1);
             g_free(p_change_desc);
@@ -767,7 +770,7 @@ static void on_button_kbd_change_layout_clicked(GtkButton *p_button, gpointer *p
         {
             gchar *kbd_change_new;
             gtk_tree_model_get(GTK_TREE_MODEL(p_liststore_kbd_change),
-                               &tree_iter_sel, COLUMN_CHANGE_NAME, &kbd_change_new, -1);
+                               &tree_iter_sel, COLUMN_CHANGE_ID, &kbd_change_new, -1);
             g_free(p_xkb->kbd_change_option);
             p_xkb->kbd_change_option = g_strdup(kbd_change_new);
             gtk_button_set_label(GTK_BUTTON(p_xkb->p_button_change_layout), p_xkb->kbd_change_option);
