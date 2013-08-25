@@ -790,6 +790,8 @@ static void on_button_kbd_change_layout_clicked(GtkButton *p_button, gpointer *p
     gchar *xkbcfg_filepath = g_strdup_printf("%s/toggle.cfg", XKBCONFDIR);
     if(g_key_file_load_from_file(p_keyfile, xkbcfg_filepath, 0, NULL))
     {
+        char **change_opts = g_strsplit_set(p_xkb->kbd_change_option, ",", 0);
+        int    num_change_opts;
         gchar **keys_changes = g_key_file_get_keys(p_keyfile, "TOGGLE", NULL, NULL);
         guint   change_idx = 0;
         GtkTreeIter  tree_iter;
@@ -798,16 +800,28 @@ static void on_button_kbd_change_layout_clicked(GtkButton *p_button, gpointer *p
         {
             p_change_desc = g_key_file_get_string(p_keyfile, "TOGGLE", keys_changes[change_idx], NULL);
             gtk_list_store_append(p_liststore_kbd_change, &tree_iter);
+            gboolean  included = FALSE;
+            num_change_opts = 0;
+            while(change_opts[num_change_opts] != NULL)
+            {
+                if(strcmp(change_opts[num_change_opts]+4, keys_changes[change_idx]) == 0)
+                {
+                    included = TRUE;
+                    break;
+                }
+                num_change_opts++;
+            }
             gtk_list_store_set(p_liststore_kbd_change, &tree_iter,
                                 COLUMN_CHANGE_ID, keys_changes[change_idx],
                                 COLUMN_CHANGE_DESC, p_change_desc,
-                                COLUMN_CHANGE_INCL, FALSE,
+                                COLUMN_CHANGE_INCL, included,
                                 -1);
             g_free(p_change_desc);
             change_idx++;
         }
         g_strfreev(keys_changes);
         g_key_file_free(p_keyfile);
+        g_strfreev(change_opts);
     }
     g_free(xkbcfg_filepath);
     
