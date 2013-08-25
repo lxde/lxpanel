@@ -1227,16 +1227,10 @@ void logout(void)
     if( ! l_logout_cmd && getenv("_LXSESSION_PID") )
         l_logout_cmd = "lxsession-logout";
 
-    if( l_logout_cmd ) {
-        GError* err = NULL;
-        if( ! g_spawn_command_line_async( l_logout_cmd, &err ) ) {
-            show_error( NULL, err->message );
-            g_error_free( err );
-        }
-    }
-    else {
+    if( l_logout_cmd )
+        spawn_command_async(NULL, NULL, l_logout_cmd);
+    else
         show_error( NULL, _("Logout command is not set") );
-    }
 }
 
 static void notify_apply_config( GtkWidget* widget )
@@ -1515,3 +1509,6 @@ lxpanel_get_terminal()
 {
     return terminal_cmd ? terminal_cmd : "lxterminal -e %s";
 }
+
+
+/* vim: set sw=4 et sts=4 : */

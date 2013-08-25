@@ -256,11 +256,8 @@ static void on_response( GtkDialog* dlg, gint response, gpointer user_data )
     GtkEntry* entry = (GtkEntry*)user_data;
     if( G_LIKELY(response == GTK_RESPONSE_OK) )
     {
-        GError* err = NULL;
-        if( !g_spawn_command_line_async( gtk_entry_get_text(entry), &err ) )
+        if (!spawn_command_async(GTK_WINDOW(dlg), NULL, gtk_entry_get_text(entry)))
         {
-            show_error( (GtkWindow*)dlg, err->message );
-            g_error_free( err );
             g_signal_stop_emission_by_name( dlg, "response" );
             return;
         }
@@ -402,3 +399,5 @@ void gtk_run()
 	activate_window(GTK_WINDOW(win));
 }
 
+
+/* vim: set sw=4 et sts=4 ts=4 : */

@@ -489,9 +489,9 @@ static gboolean monitors_button_press_event(GtkWidget* widget, GdkEventButton* e
         return TRUE;
 
     if (mp->action != NULL)
-        g_spawn_command_line_async(mp->action, NULL);
+        spawn_command_async(NULL, NULL, mp->action);
     else
-        g_spawn_command_line_async("lxtask", NULL);
+        spawn_command_async(NULL, NULL, "lxtask");
 
     return TRUE;
 }

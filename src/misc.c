@@ -1548,6 +1548,30 @@ _finish:
     return g_string_free( cmd, FALSE );
 }
 
+gboolean spawn_command_async(GtkWindow *parent_window, gchar const* workdir,
+        gchar const* cmd)
+{
+    GError* err = NULL;
+    gchar** argv = NULL;
+
+    LOG(LOG_INFO, "lxpanel: spawning \"%s\"...\n", cmd);
+
+    g_shell_parse_argv(cmd, NULL, &argv, &err);
+    if (!err)
+        g_spawn_async(workdir, argv, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, &err);
+
+    if (err)
+    {
+        ERR("%s\n", err->message);
+        show_error(parent_window, err->message);
+        g_error_free(err);
+    }
+
+    g_strfreev(argv);
+
+    return !err;
+}
+
 gboolean lxpanel_launch_app(const char* exec, GList* files, gboolean in_terminal)
 {
     GError *error = NULL;
@@ -1569,12 +1593,12 @@ gboolean lxpanel_launch_app(const char* exec, GList* files, gboolean in_terminal
             g_free(cmd);
         cmd = term_cmd;
     }
-    LOG(LOG_INFO, "lxpanel: spawning \"%s\"...\n", cmd);
-    if (! g_spawn_command_line_async(cmd, &error) ) {
-        ERR("can't spawn %s\nError is %s\n", cmd, error->message);
-        g_error_free (error);
-    }
+
+    spawn_command_async(NULL, NULL, cmd);
+
     g_free(cmd);
 
     return (error == NULL);
 }
+
+/* vim: set sw=4 et sts=4 : */

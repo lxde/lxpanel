@@ -304,7 +304,7 @@ static void launchbutton_drag_data_received_event(
                 s = e+1;
             }
 
-            g_spawn_command_line_async(str, NULL);
+            spawn_command_async(NULL, NULL, str);
             g_free(str);
         }
     }

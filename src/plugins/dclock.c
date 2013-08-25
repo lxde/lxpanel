@@ -117,7 +117,7 @@ static gboolean dclock_button_press_event(GtkWidget * widget, GdkEventButton * e
 
     /* If an action is set, execute it. */
     if (dc->action != NULL)
-        g_spawn_command_line_async(dc->action, NULL);
+        spawn_command_async(NULL, NULL, dc->action);
 
     /* If no action is set, toggle the presentation of the calendar. */
     else

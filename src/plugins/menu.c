@@ -104,14 +104,9 @@ menu_destructor(Plugin *p)
 static void
 spawn_app(GtkWidget *widget, gpointer data)
 {
-    GError *error = NULL;
-
     ENTER;
     if (data) {
-        if (! g_spawn_command_line_async(data, &error) ) {
-            ERR("can't spawn %s\nError is %s\n", (char *)data, error->message);
-            g_error_free (error);
-        }
+        spawn_command_async(NULL, NULL, data);
     }
     RET();
 }
@@ -336,9 +331,16 @@ static void on_menu_item_properties(GtkMenuItem* item, MenuCacheApp* app)
         "-o",
         NULL,
         NULL};
+    GError* err = NULL;
     argv[2] = ifile;
     argv[4] = ofile;
-    g_spawn_async( NULL, argv, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, NULL );
+    g_spawn_async( NULL, argv, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, &err );
+    if (err)
+    {
+        ERR("%s\n", err->message);
+        show_error(NULL, err->message);
+        g_error_free(err);
+    }
     g_free( ifile );
     g_free( ofile );
 }
@@ -1110,3 +1112,4 @@ PluginClass menu_plugin_class = {
     .panel_configuration_changed = menu_panel_configuration_changed
 };
 
+/* vim: set sw=4 et sts=4 : */
