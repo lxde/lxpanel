@@ -735,7 +735,6 @@ static gboolean  change_opt_tree_model_foreach(GtkTreeModel *p_model,
         {
             g_string_append_c(p_xkb->p_gstring_change_opt_partial, ',');
         }
-        g_string_append(p_xkb->p_gstring_change_opt_partial, "grp:");
         g_string_append(p_xkb->p_gstring_change_opt_partial, change_opt_id);
         
         //g_printf("\npartial change opt = '%s'\n", p_xkb->p_gstring_change_opt_partial->str);
@@ -810,7 +809,7 @@ static void on_button_kbd_change_layout_clicked(GtkButton *p_button, gpointer *p
             num_change_opts = 0;
             while(change_opts[num_change_opts] != NULL)
             {
-                if(strcmp(change_opts[num_change_opts]+4, keys_changes[change_idx]) == 0)
+                if(strcmp(change_opts[num_change_opts], keys_changes[change_idx]) == 0)
                 {
                     included = TRUE;
                     break;
