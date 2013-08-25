@@ -61,6 +61,7 @@ enum
     COLUMN_CHANGE_ID,
     COLUMN_CHANGE_DESC,
     COLUMN_CHANGE_INCL,
+    COLUMN_CHANGE_WEIGHT,
     NUM_CHANGE_COLUMNS
 };
 
@@ -585,6 +586,7 @@ static void  on_cell_renderer_layout_change_incl_toggled(GtkCellRendererToggle *
     
     /* set new value */
     gtk_list_store_set(GTK_LIST_STORE(p_model), &tree_iter, COLUMN_CHANGE_INCL, included, -1);
+    gtk_list_store_set(GTK_LIST_STORE(p_model), &tree_iter, COLUMN_CHANGE_WEIGHT, included ? PANGO_WEIGHT_ULTRAHEAVY : PANGO_WEIGHT_NORMAL, -1);
     
     /* clean up */
     gtk_tree_path_free(p_tree_path);
@@ -762,7 +764,7 @@ static void on_button_kbd_change_layout_clicked(GtkButton *p_button, gpointer *p
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(p_dialog)->vbox), p_scrolledwindow_kbd_change, TRUE, TRUE, 2);
     
     // liststore
-    GtkListStore *p_liststore_kbd_change = gtk_list_store_new(NUM_CHANGE_COLUMNS, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_BOOLEAN);
+    GtkListStore *p_liststore_kbd_change = gtk_list_store_new(NUM_CHANGE_COLUMNS, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_BOOLEAN, G_TYPE_INT);
     GtkWidget *p_treeview_kbd_change = gtk_tree_view_new_with_model(GTK_TREE_MODEL(p_liststore_kbd_change));
     g_object_unref(G_OBJECT(p_liststore_kbd_change));
     gtk_tree_view_set_rules_hint(GTK_TREE_VIEW(p_treeview_kbd_change), TRUE);
@@ -776,12 +778,16 @@ static void on_button_kbd_change_layout_clicked(GtkButton *p_button, gpointer *p
     gtk_tree_view_append_column(GTK_TREE_VIEW(p_treeview_kbd_change), p_column);
     // change desc
     p_renderer = gtk_cell_renderer_text_new();
-    p_column = gtk_tree_view_column_new_with_attributes(_("Description"), p_renderer, "text", COLUMN_CHANGE_DESC, NULL);
+    p_column = gtk_tree_view_column_new_with_attributes(_("Description"), p_renderer, "text", COLUMN_CHANGE_DESC,
+                                                                                      "weight", COLUMN_CHANGE_WEIGHT,
+                                                                                      NULL);
     gtk_tree_view_column_set_sort_column_id(p_column, COLUMN_CHANGE_DESC);
     gtk_tree_view_append_column(GTK_TREE_VIEW(p_treeview_kbd_change), p_column);
     // change id
     p_renderer = gtk_cell_renderer_text_new();
-    p_column = gtk_tree_view_column_new_with_attributes(_("Id"), p_renderer, "text", COLUMN_CHANGE_ID, NULL);
+    p_column = gtk_tree_view_column_new_with_attributes(_("Id"), p_renderer, "text", COLUMN_CHANGE_ID,
+                                                                             "weight", COLUMN_CHANGE_WEIGHT,
+                                                                             NULL);
     gtk_tree_view_column_set_sort_column_id(p_column, COLUMN_CHANGE_ID);
     gtk_tree_view_append_column(GTK_TREE_VIEW(p_treeview_kbd_change), p_column);
     
@@ -815,6 +821,7 @@ static void on_button_kbd_change_layout_clicked(GtkButton *p_button, gpointer *p
                                 COLUMN_CHANGE_ID, keys_changes[change_idx],
                                 COLUMN_CHANGE_DESC, p_change_desc,
                                 COLUMN_CHANGE_INCL, included,
+                                COLUMN_CHANGE_WEIGHT, included ? PANGO_WEIGHT_ULTRAHEAVY : PANGO_WEIGHT_NORMAL,
                                 -1);
             g_free(p_change_desc);
             change_idx++;
