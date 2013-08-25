@@ -74,6 +74,7 @@ typedef struct {
     guchar    flag_size;
     GString  *p_gstring_layouts_partial;
     GString  *p_gstring_variants_partial;
+    GString  *p_gstring_change_opt_partial;
     int       num_layouts;
     gboolean  cust_dir_exists;
 

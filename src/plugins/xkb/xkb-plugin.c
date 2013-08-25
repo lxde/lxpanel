@@ -715,6 +715,33 @@ static void on_button_kbd_model_clicked(GtkButton *p_button, gpointer *p_data)
     gtk_widget_destroy(p_dialog);
 }
 
+static gboolean  change_opt_tree_model_foreach(GtkTreeModel *p_model,
+                                               GtkTreePath *p_path,
+                                               GtkTreeIter *p_iter,
+                                               gpointer p_data)
+{
+    XkbPlugin *p_xkb = (XkbPlugin *)p_data;
+    
+    gboolean  included;
+    
+    gtk_tree_model_get(p_model, p_iter, COLUMN_CHANGE_INCL, &included,  -1);
+    if(included)
+    {
+        gchar  *change_opt_id;
+        gtk_tree_model_get(p_model, p_iter, COLUMN_CHANGE_ID, &change_opt_id,  -1);
+        if(strlen(p_xkb->p_gstring_change_opt_partial->str))
+        {
+            g_string_append_c(p_xkb->p_gstring_change_opt_partial, ',');
+        }
+        g_string_append(p_xkb->p_gstring_change_opt_partial, change_opt_id);
+        
+        //g_printf("\npartial change opt = '%s'\n", p_xkb->p_gstring_change_opt_partial->str);
+        
+        g_free(change_opt_id);
+    }
+    return FALSE;
+}
+
 static void on_button_kbd_change_layout_clicked(GtkButton *p_button, gpointer *p_data)
 {
     XkbPlugin *p_xkb = (XkbPlugin *)p_data;
@@ -792,22 +819,21 @@ static void on_button_kbd_change_layout_clicked(GtkButton *p_button, gpointer *p
     gint  response = gtk_dialog_run(GTK_DIALOG(p_dialog));
     if(response == GTK_RESPONSE_OK)
     {
-        GtkTreeIter  tree_iter_sel;
-        GtkTreeSelection *p_treeselection_kbd_change = gtk_tree_view_get_selection(GTK_TREE_VIEW(p_treeview_kbd_change));
-        if(gtk_tree_selection_get_selected(p_treeselection_kbd_change,
-                                           (GtkTreeModel **)(&p_liststore_kbd_change),
-                                           &tree_iter_sel))
+        p_xkb->p_gstring_change_opt_partial = g_string_new("");
+        gtk_tree_model_foreach(GTK_TREE_MODEL(p_liststore_kbd_change),
+                               change_opt_tree_model_foreach,
+                               p_xkb);
+        if(!strlen(p_xkb->p_gstring_change_opt_partial->str))
         {
-            gchar *kbd_change_new;
-            gtk_tree_model_get(GTK_TREE_MODEL(p_liststore_kbd_change),
-                               &tree_iter_sel, COLUMN_CHANGE_ID, &kbd_change_new, -1);
-            g_free(p_xkb->kbd_change_option);
-            p_xkb->kbd_change_option = g_strdup(kbd_change_new);
-            gtk_button_set_label(GTK_BUTTON(p_xkb->p_button_change_layout), p_xkb->kbd_change_option);
-            g_free(kbd_change_new);
-            xkb_setxkbmap(p_xkb);
-            xkb_redraw(p_xkb);
+            g_string_append_c(p_xkb->p_gstring_change_opt_partial, ',');
         }
+        g_free(p_xkb->kbd_change_option);
+        p_xkb->kbd_change_option = g_strdup(p_xkb->p_gstring_change_opt_partial->str);
+        g_string_free(p_xkb->p_gstring_change_opt_partial, TRUE/*free also gstring->str*/);
+        
+        gtk_button_set_label(GTK_BUTTON(p_xkb->p_button_change_layout), p_xkb->kbd_change_option);
+        xkb_setxkbmap(p_xkb);
+        xkb_redraw(p_xkb);
     }
     gtk_widget_destroy(p_dialog);
 }
@@ -1069,10 +1095,10 @@ void xkb_setxkbmap(XkbPlugin *p_xkb)
     g_string_free(p_gstring_syscmd, TRUE/*free also gstring->str*/);
 }
 
-static gboolean layouts_tree_model_foreach(GtkTreeModel *p_model,
-                                           GtkTreePath *p_path,
-                                           GtkTreeIter *p_iter,
-                                           gpointer p_data)
+static gboolean  layouts_tree_model_foreach(GtkTreeModel *p_model,
+                                            GtkTreePath *p_path,
+                                            GtkTreeIter *p_iter,
+                                            gpointer p_data)
 {
     XkbPlugin *p_xkb = (XkbPlugin *)p_data;
     gchar *layout_val;
