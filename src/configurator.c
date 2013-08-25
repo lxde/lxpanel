@@ -227,20 +227,20 @@ static void set_width_type( GtkWidget *item, Panel* p )
     gtk_widget_set_sensitive( spin, t );
     if (widthtype == WIDTH_PERCENT)
     {
-        gtk_spin_button_set_range( (GtkSpinButton*)spin, 0, 100 );
-        gtk_spin_button_set_value( (GtkSpinButton*)spin, 100 );
+        gtk_spin_button_set_range( GTK_SPIN_BUTTON(spin), 0, 100 );
+        gtk_spin_button_set_value( GTK_SPIN_BUTTON(spin), 100 );
     }
     else if (widthtype == WIDTH_PIXEL)
     {
         if ((p->edge == EDGE_TOP) || (p->edge == EDGE_BOTTOM))
         {
-            gtk_spin_button_set_range( (GtkSpinButton*)spin, 0, gdk_screen_width() );
-            gtk_spin_button_set_value( (GtkSpinButton*)spin, gdk_screen_width() );
+            gtk_spin_button_set_range( GTK_SPIN_BUTTON(spin), 0, gdk_screen_width() );
+            gtk_spin_button_set_value( GTK_SPIN_BUTTON(spin), gdk_screen_width() );
         }
         else
         {
-            gtk_spin_button_set_range( (GtkSpinButton*)spin, 0, gdk_screen_height() );
-            gtk_spin_button_set_value( (GtkSpinButton*)spin, gdk_screen_height() );
+            gtk_spin_button_set_range( GTK_SPIN_BUTTON(spin), 0, gdk_screen_height() );
+            gtk_spin_button_set_value( GTK_SPIN_BUTTON(spin), gdk_screen_height() );
         }
     } else
         return;
@@ -450,7 +450,7 @@ on_plugin_expand_toggled(GtkCellRendererToggle* render, char* path, GtkTreeView*
             /* Only honor "stretch" if allowed by the plugin. */
             expand = ! expand;
             pl->expand = expand;
-            gtk_list_store_set( (GtkListStore*)model, &it, COL_EXPAND, expand, -1 );
+            gtk_list_store_set( GTK_LIST_STORE(model), &it, COL_EXPAND, expand, -1 );
 
             /* Query the old packing of the plugin widget.
              * Apply the new packing with only "expand" modified. */
@@ -578,8 +578,8 @@ static void on_add_plugin_response( GtkDialog* dlg,
                 }
 
                 model = gtk_tree_view_get_model( _view );
-                gtk_list_store_append( (GtkListStore*)model, &it );
-                gtk_list_store_set( (GtkListStore*)model, &it,
+                gtk_list_store_append( GTK_LIST_STORE(model), &it );
+                gtk_list_store_set( GTK_LIST_STORE(model), &it,
                                     COL_NAME, _(pl->class->name),
                                     COL_EXPAND, pl->expand,
                                     COL_DATA, pl, -1 );
@@ -594,7 +594,7 @@ static void on_add_plugin_response( GtkDialog* dlg,
             g_free( type );
         }
     }
-    gtk_widget_destroy( (GtkWidget*)dlg );
+    gtk_widget_destroy( GTK_WIDGET(dlg) );
 }
 
 static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
@@ -612,7 +612,7 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
 
     classes = plugin_get_available_classes();
 
-    parent_win = gtk_widget_get_toplevel( (GtkWidget*)_view );
+    parent_win = gtk_widget_get_toplevel( GTK_WIDGET(_view) );
     dlg = gtk_dialog_new_with_buttons( _("Add plugin to panel"),
                                        GTK_WINDOW(parent_win), 0,
                                        GTK_STOCK_CANCEL,
@@ -627,15 +627,15 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
 
     /* gtk_widget_set_sensitive( parent_win, FALSE ); */
     scroll = gtk_scrolled_window_new( NULL, NULL );
-    gtk_scrolled_window_set_shadow_type( (GtkScrolledWindow*)scroll,
+    gtk_scrolled_window_set_shadow_type( GTK_SCROLLED_WINDOW(scroll),
                                           GTK_SHADOW_IN );
-    gtk_scrolled_window_set_policy((GtkScrolledWindow*)scroll,
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scroll),
                                    GTK_POLICY_AUTOMATIC,
                                    GTK_POLICY_AUTOMATIC );
-    gtk_box_pack_start( (GtkBox*)GTK_DIALOG(dlg)->vbox, scroll,
+    gtk_box_pack_start( GTK_BOX(GTK_DIALOG(dlg)->vbox), scroll,
                          TRUE, TRUE, 4 );
-    view = (GtkTreeView*)gtk_tree_view_new();
-    gtk_container_add( (GtkContainer*)scroll, GTK_WIDGET(view) );
+    view = GTK_TREE_VIEW(gtk_tree_view_new());
+    gtk_container_add( GTK_CONTAINER(scroll), GTK_WIDGET(view) );
     tree_sel = gtk_tree_view_get_selection( view );
     gtk_tree_selection_set_mode( tree_sel, GTK_SELECTION_BROWSE );
 
@@ -680,7 +680,7 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
     g_object_set_data( G_OBJECT(dlg), "avail-plugins", view );
     g_object_weak_ref( G_OBJECT(dlg), (GWeakNotify) plugin_class_list_free, classes );
 
-    gtk_window_set_default_size( (GtkWindow*)dlg, 320, 400 );
+    gtk_window_set_default_size( GTK_WINDOW(dlg), 320, 400 );
     gtk_widget_show_all( dlg );
 }
 
@@ -722,7 +722,7 @@ void modify_plugin( GtkTreeView* view )
 
     gtk_tree_model_get( model, &it, COL_DATA, &pl, -1 );
     if( pl->class->config )
-        pl->class->config( pl, (GtkWindow*)gtk_widget_get_toplevel(GTK_WIDGET(view)) );
+        pl->class->config( pl, GTK_WINDOW(gtk_widget_get_toplevel(GTK_WIDGET(view))) );
 }
 
 static int get_widget_index(    Panel* p, Plugin* pl )
@@ -875,9 +875,9 @@ void panel_configure( Panel* p, int sel_page )
     }
 
     p->pref_dialog = (GtkWidget*)gtk_builder_get_object( builder, "panel_pref" );
-    g_signal_connect(p->pref_dialog, "response", (GCallback) response_event, p);
+    g_signal_connect(p->pref_dialog, "response", G_CALLBACK(response_event), p);
     g_object_add_weak_pointer( G_OBJECT(p->pref_dialog), (gpointer) &p->pref_dialog );
-    gtk_window_set_position( (GtkWindow*)p->pref_dialog, GTK_WIN_POS_CENTER );
+    gtk_window_set_position( GTK_WINDOW(p->pref_dialog), GTK_WIN_POS_CENTER );
     panel_apply_icon(GTK_WINDOW(p->pref_dialog));
 
     /* position */
@@ -918,7 +918,7 @@ void panel_configure( Panel* p, int sel_page )
 
     /* margin */
     p->margin_control = w = (GtkWidget*)gtk_builder_get_object( builder, "margin" );
-    gtk_spin_button_set_value( (GtkSpinButton*)w, p->margin );
+    gtk_spin_button_set_value(GTK_SPIN_BUTTON(w), p->margin);
     gtk_widget_set_sensitive(p->margin_control, (p->allign != ALLIGN_CENTER));
     g_signal_connect( w, "value-changed",
                       G_CALLBACK(set_margin), p);
@@ -932,8 +932,8 @@ void panel_configure( Panel* p, int sel_page )
         upper = 100;
     else if( p->widthtype == WIDTH_PIXEL)
         upper = (((p->edge == EDGE_TOP) || (p->edge == EDGE_BOTTOM)) ? gdk_screen_width() : gdk_screen_height());
-    gtk_spin_button_set_range( (GtkSpinButton*)w, 0, upper );
-    gtk_spin_button_set_value( (GtkSpinButton*)w, p->width );
+    gtk_spin_button_set_range( GTK_SPIN_BUTTON(w), 0, upper );
+    gtk_spin_button_set_value( GTK_SPIN_BUTTON(w), p->width );
     g_signal_connect( w, "value-changed", G_CALLBACK(set_width), p );
 
     w = (GtkWidget*)gtk_builder_get_object( builder, "width_unit" );
@@ -944,16 +944,16 @@ void panel_configure( Panel* p, int sel_page )
 
     p->height_label = (GtkWidget*)gtk_builder_get_object( builder, "height_label");
     p->height_control = w = (GtkWidget*)gtk_builder_get_object( builder, "height" );
-    gtk_spin_button_set_range( (GtkSpinButton*)w, PANEL_HEIGHT_MIN, PANEL_HEIGHT_MAX );
-    gtk_spin_button_set_value( (GtkSpinButton*)w, p->height );
+    gtk_spin_button_set_range( GTK_SPIN_BUTTON(w), PANEL_HEIGHT_MIN, PANEL_HEIGHT_MAX );
+    gtk_spin_button_set_value( GTK_SPIN_BUTTON(w), p->height );
     g_signal_connect( w, "value-changed", G_CALLBACK(set_height), p );
 
     w = (GtkWidget*)gtk_builder_get_object( builder, "height_unit" );
     update_opt_menu( w, HEIGHT_PIXEL - 1);
 
     w = (GtkWidget*)gtk_builder_get_object( builder, "icon_size" );
-    gtk_spin_button_set_range( (GtkSpinButton*)w, PANEL_HEIGHT_MIN, PANEL_HEIGHT_MAX );
-    gtk_spin_button_set_value( (GtkSpinButton*)w, p->icon_size );
+    gtk_spin_button_set_range( GTK_SPIN_BUTTON(w), PANEL_HEIGHT_MIN, PANEL_HEIGHT_MAX );
+    gtk_spin_button_set_value( GTK_SPIN_BUTTON(w), p->icon_size );
     g_signal_connect( w, "value_changed", G_CALLBACK(set_icon_size), p );
 
     /* properties */
@@ -996,8 +996,8 @@ void panel_configure( Panel* p, int sel_page )
 
     /* transparancy */
     tint_clr = w = (GtkWidget*)gtk_builder_get_object( builder, "tint_clr" );
-    gtk_color_button_set_color((GtkColorButton*)w, &p->gtintcolor);
-    gtk_color_button_set_alpha((GtkColorButton*)w, alpha_scale_factor * p->alpha);
+    gtk_color_button_set_color(GTK_COLOR_BUTTON(w), &p->gtintcolor);
+    gtk_color_button_set_alpha(GTK_COLOR_BUTTON(w), alpha_scale_factor * p->alpha);
     if ( ! p->transparent )
         gtk_widget_set_sensitive( w, FALSE );
     g_signal_connect( w, "color-set", G_CALLBACK( on_tint_color_set ), p );
@@ -1012,11 +1012,11 @@ void panel_configure( Panel* p, int sel_page )
         g_object_set_data(G_OBJECT(trans), "tint_clr", tint_clr);
 
         if (p->background)
-            gtk_toggle_button_set_active( (GtkToggleButton*)img, TRUE);
+            gtk_toggle_button_set_active( GTK_TOGGLE_BUTTON(img), TRUE);
         else if (p->transparent)
-            gtk_toggle_button_set_active( (GtkToggleButton*)trans, TRUE);
+            gtk_toggle_button_set_active( GTK_TOGGLE_BUTTON(trans), TRUE);
         else
-            gtk_toggle_button_set_active( (GtkToggleButton*)none, TRUE);
+            gtk_toggle_button_set_active( GTK_TOGGLE_BUTTON(none), TRUE);
 
         g_signal_connect(none, "toggled", G_CALLBACK(background_disable_toggle), p);
         g_signal_connect(trans, "toggled", G_CALLBACK(transparency_toggle), p);
@@ -1035,11 +1035,11 @@ void panel_configure( Panel* p, int sel_page )
 
     /* font color */
     w = (GtkWidget*)gtk_builder_get_object( builder, "font_clr" );
-    gtk_color_button_set_color( (GtkColorButton*)w, &p->gfontcolor );
+    gtk_color_button_set_color( GTK_COLOR_BUTTON(w), &p->gfontcolor );
     g_signal_connect( w, "color-set", G_CALLBACK( on_font_color_set ), p );
 
     w2 = (GtkWidget*)gtk_builder_get_object( builder, "use_font_clr" );
-    gtk_toggle_button_set_active( (GtkToggleButton*)w2, p->usefontcolor );
+    gtk_toggle_button_set_active( GTK_TOGGLE_BUTTON(w2), p->usefontcolor );
     g_object_set_data( G_OBJECT(w2), "clr", w );
     g_signal_connect(w2, "toggled", G_CALLBACK(on_use_font_color_toggled), p);
     if( ! p->usefontcolor )
@@ -1047,12 +1047,12 @@ void panel_configure( Panel* p, int sel_page )
 
     /* font size */
     w = (GtkWidget*)gtk_builder_get_object( builder, "font_size" );
-    gtk_spin_button_set_value( (GtkSpinButton*)w, p->fontsize );
+    gtk_spin_button_set_value( GTK_SPIN_BUTTON(w), p->fontsize );
     g_signal_connect( w, "value-changed",
                       G_CALLBACK(on_font_size_set), p);
 
     w2 = (GtkWidget*)gtk_builder_get_object( builder, "use_font_size" );
-    gtk_toggle_button_set_active( (GtkToggleButton*)w2, p->usefontsize );
+    gtk_toggle_button_set_active( GTK_TOGGLE_BUTTON(w2), p->usefontsize );
     g_object_set_data( G_OBJECT(w2), "clr", w );
     g_signal_connect(w2, "toggled", G_CALLBACK(on_use_font_size_toggled), p);
     if( ! p->usefontsize )
@@ -1078,19 +1078,19 @@ void panel_configure( Panel* p, int sel_page )
         g_signal_connect( w, "clicked", G_CALLBACK(on_movedown_plugin), plugin_list );
 
         w = (GtkWidget*)gtk_builder_get_object( builder, "plugin_desc" );
-        init_plugin_list( p, (GtkTreeView*)plugin_list, w );
+        init_plugin_list( p, GTK_TREE_VIEW(plugin_list), w );
     }
     /* advanced, applications */
     w = (GtkWidget*)gtk_builder_get_object( builder, "file_manager" );
     if (file_manager_cmd)
-        gtk_entry_set_text( (GtkEntry*)w, file_manager_cmd );
+        gtk_entry_set_text( GTK_ENTRY(w), file_manager_cmd );
     g_signal_connect( w, "focus-out-event",
                       G_CALLBACK(on_entry_focus_out),
                       &file_manager_cmd);
 
     w = (GtkWidget*)gtk_builder_get_object( builder, "term" );
     if (terminal_cmd)
-        gtk_entry_set_text( (GtkEntry*)w, terminal_cmd );
+        gtk_entry_set_text( GTK_ENTRY(w), terminal_cmd );
     g_signal_connect( w, "focus-out-event",
                       G_CALLBACK(on_entry_focus_out),
                       &terminal_cmd);
@@ -1104,7 +1104,7 @@ void panel_configure( Panel* p, int sel_page )
     }
     else {
         if(logout_cmd)
-            gtk_entry_set_text( (GtkEntry*)w, logout_cmd );
+            gtk_entry_set_text( GTK_ENTRY(w), logout_cmd );
         g_signal_connect( w, "focus-out-event",
                         G_CALLBACK(on_entry_focus_out),
                         &logout_cmd);
@@ -1118,7 +1118,7 @@ void panel_configure( Panel* p, int sel_page )
     panel_adjust_geometry_terminology(p);
     gtk_widget_show(GTK_WIDGET(p->pref_dialog));
     w = (GtkWidget*)gtk_builder_get_object( builder, "notebook" );
-    gtk_notebook_set_current_page( (GtkNotebook*)w, sel_page );
+    gtk_notebook_set_current_page( GTK_NOTEBOOK(w), sel_page );
 
     g_object_unref(builder);
 }
@@ -1249,7 +1249,7 @@ static gboolean on_entry_focus_out( GtkWidget* edit, GdkEventFocus *evt, gpointe
     char** val = (char**)user_data;
     const char *new_val;
     g_free( *val );
-    new_val = gtk_entry_get_text((GtkEntry*)edit);
+    new_val = gtk_entry_get_text(GTK_ENTRY(edit));
     *val = (new_val && *new_val) ? g_strdup( new_val ) : NULL;
     notify_apply_config( edit );
     return FALSE;
