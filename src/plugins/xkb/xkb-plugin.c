@@ -60,6 +60,7 @@ enum
 {
     COLUMN_CHANGE_ID,
     COLUMN_CHANGE_DESC,
+    COLUMN_CHANGE_INCL,
     NUM_CHANGE_COLUMNS
 };
 
@@ -566,6 +567,29 @@ static void on_dialog_config_response(GtkDialog *p_dialog, gint response, gpoint
     p_xkb->p_dialog_config = NULL;
 }
 
+static void  on_cell_renderer_layout_change_incl_toggled(GtkCellRendererToggle *cell,
+                                                        gchar                 *path_str,
+                                                        gpointer               data)
+{
+    GtkTreeModel *p_model = (GtkTreeModel *)data;
+    GtkTreeIter  tree_iter;
+    GtkTreePath *p_tree_path = gtk_tree_path_new_from_string(path_str);
+    gboolean     included;
+    
+    /* get toggled iter */
+    gtk_tree_model_get_iter(p_model, &tree_iter, p_tree_path);
+    gtk_tree_model_get(p_model, &tree_iter, COLUMN_CHANGE_INCL, &included, -1);
+    
+    /* do something with the value */
+    included = !included;
+    
+    /* set new value */
+    gtk_list_store_set(GTK_LIST_STORE(p_model), &tree_iter, COLUMN_CHANGE_INCL, included, -1);
+    
+    /* clean up */
+    gtk_tree_path_free(p_tree_path);
+}
+
 static gboolean  on_treeviews_lists_button_press_event(GtkWidget *p_widget,
                                                        GdkEventButton *p_event,
                                                        gpointer p_data)
@@ -710,13 +734,18 @@ static void on_button_kbd_change_layout_clicked(GtkButton *p_button, gpointer *p
     gtk_box_pack_start(GTK_BOX(GTK_DIALOG(p_dialog)->vbox), p_scrolledwindow_kbd_change, TRUE, TRUE, 2);
     
     // liststore
-    GtkListStore *p_liststore_kbd_change = gtk_list_store_new(NUM_CHANGE_COLUMNS, G_TYPE_STRING, G_TYPE_STRING);
+    GtkListStore *p_liststore_kbd_change = gtk_list_store_new(NUM_CHANGE_COLUMNS, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_BOOLEAN);
     GtkWidget *p_treeview_kbd_change = gtk_tree_view_new_with_model(GTK_TREE_MODEL(p_liststore_kbd_change));
     g_object_unref(G_OBJECT(p_liststore_kbd_change));
     gtk_tree_view_set_rules_hint(GTK_TREE_VIEW(p_treeview_kbd_change), TRUE);
     gtk_container_add(GTK_CONTAINER(p_scrolledwindow_kbd_change), p_treeview_kbd_change);
     GtkCellRenderer *p_renderer;
     GtkTreeViewColumn *p_column;
+    // change included
+    p_renderer = gtk_cell_renderer_toggle_new();
+    g_signal_connect(p_renderer, "toggled", G_CALLBACK(on_cell_renderer_layout_change_incl_toggled), p_liststore_kbd_change);
+    p_column = gtk_tree_view_column_new_with_attributes("", p_renderer, "active", COLUMN_CHANGE_INCL, NULL);
+    gtk_tree_view_append_column(GTK_TREE_VIEW(p_treeview_kbd_change), p_column);
     // change desc
     p_renderer = gtk_cell_renderer_text_new();
     p_column = gtk_tree_view_column_new_with_attributes(_("Description"), p_renderer, "text", COLUMN_CHANGE_DESC, NULL);
@@ -744,6 +773,7 @@ static void on_button_kbd_change_layout_clicked(GtkButton *p_button, gpointer *p
             gtk_list_store_set(p_liststore_kbd_change, &tree_iter,
                                 COLUMN_CHANGE_ID, keys_changes[change_idx],
                                 COLUMN_CHANGE_DESC, p_change_desc,
+                                COLUMN_CHANGE_INCL, FALSE,
                                 -1);
             g_free(p_change_desc);
             change_idx++;
@@ -754,9 +784,9 @@ static void on_button_kbd_change_layout_clicked(GtkButton *p_button, gpointer *p
     g_free(xkbcfg_filepath);
     
     // callback for double click
-    g_signal_connect(p_treeview_kbd_change, "button-press-event",
-                     G_CALLBACK(on_treeviews_lists_button_press_event),
-                     gtk_dialog_get_widget_for_response(GTK_DIALOG(p_dialog), GTK_RESPONSE_OK));
+    //g_signal_connect(p_treeview_kbd_change, "button-press-event",
+                     //G_CALLBACK(on_treeviews_lists_button_press_event),
+                     //gtk_dialog_get_widget_for_response(GTK_DIALOG(p_dialog), GTK_RESPONSE_OK));
     gtk_widget_set_size_request(p_dialog, 700, 500);
     gtk_widget_show_all(GTK_WIDGET(p_scrolledwindow_kbd_change));
     gint  response = gtk_dialog_run(GTK_DIALOG(p_dialog));
