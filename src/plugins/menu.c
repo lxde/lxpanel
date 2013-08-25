@@ -458,7 +458,7 @@ static GtkWidget* create_item( MenuCacheItem* item )
     else
     {
         GtkWidget* img;
-        mi = gtk_image_menu_item_new_with_label( menu_cache_item_get_name(item) );
+        mi = gtk_image_menu_item_new_with_mnemonic( menu_cache_item_get_name(item) );
         img = gtk_image_new();
         gtk_image_menu_item_set_image( GTK_IMAGE_MENU_ITEM(mi), img );
         if( menu_cache_item_get_type(item) == MENU_CACHE_TYPE_APP )
