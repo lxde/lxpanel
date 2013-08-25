@@ -716,13 +716,13 @@ static void on_button_kbd_change_layout_clicked(GtkButton *p_button, gpointer *p
     gtk_container_add(GTK_CONTAINER(p_scrolledwindow_kbd_change), p_treeview_kbd_change);
     GtkCellRenderer *p_renderer;
     GtkTreeViewColumn *p_column;
-    // model
-    p_renderer = gtk_cell_renderer_text_new();
-    p_column = gtk_tree_view_column_new_with_attributes(_("Change Type"), p_renderer, "text", COLUMN_CHANGE_NAME, NULL);
-    gtk_tree_view_append_column(GTK_TREE_VIEW(p_treeview_kbd_change), p_column);
-    // desc
+    // change desc
     p_renderer = gtk_cell_renderer_text_new();
     p_column = gtk_tree_view_column_new_with_attributes(_("Description"), p_renderer, "text", COLUMN_CHANGE_DESC, NULL);
+    gtk_tree_view_append_column(GTK_TREE_VIEW(p_treeview_kbd_change), p_column);
+    // change name
+    p_renderer = gtk_cell_renderer_text_new();
+    p_column = gtk_tree_view_column_new_with_attributes(_("Id"), p_renderer, "text", COLUMN_CHANGE_NAME, NULL);
     gtk_tree_view_append_column(GTK_TREE_VIEW(p_treeview_kbd_change), p_column);
     
     // populate model
