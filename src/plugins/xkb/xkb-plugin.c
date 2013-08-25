@@ -345,7 +345,7 @@ static int xkb_constructor(Plugin * p_plugin, char ** fp)
         p_xkb->kbd_layouts = g_strdup(symbol_name_lowercase);
         g_free(symbol_name_lowercase);
         p_xkb->kbd_variants = g_strdup(",");
-        p_xkb->kbd_change_option = g_strdup("shift_caps_toggle");
+        p_xkb->kbd_change_option = g_strdup("grp:shift_caps_toggle");
         
         xkb_mechanism_destructor(p_xkb);
     }
@@ -733,6 +733,7 @@ static gboolean  change_opt_tree_model_foreach(GtkTreeModel *p_model,
         {
             g_string_append_c(p_xkb->p_gstring_change_opt_partial, ',');
         }
+        g_string_append(p_xkb->p_gstring_change_opt_partial, "grp:");
         g_string_append(p_xkb->p_gstring_change_opt_partial, change_opt_id);
         
         //g_printf("\npartial change opt = '%s'\n", p_xkb->p_gstring_change_opt_partial->str);
@@ -1072,7 +1073,7 @@ void xkb_setxkbmap(XkbPlugin *p_xkb)
     
     GString *p_gstring_syscmd = g_string_new("");
     g_string_printf(p_gstring_syscmd,
-                    "setxkbmap -model %s -layout %s -variant %s -option grp:%s",
+                    "setxkbmap -model %s -layout %s -variant %s -option %s",
                     p_xkb->kbd_model, p_xkb->kbd_layouts, p_xkb->kbd_variants,
                     p_xkb->kbd_change_option);
     if( (p_xkb->kbd_advanced_options != NULL) && strlen(p_xkb->kbd_advanced_options) )
