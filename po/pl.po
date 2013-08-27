@@ -10,15 +10,16 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-27 10:10+0200\n"
-"PO-Revision-Date: 2012-09-09 15:31+0200\n"
-"Last-Translator: Piotr <psokol@jabster.pl>\n"
+"PO-Revision-Date: 2013-08-27 10:14+0000\n"
+"Last-Translator: Piotr <strebski@o2.pl>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1377598474.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -165,7 +166,7 @@ msgstr "lxpanel %s - lekki panel GTK2+ dla środowisk graficznych UNIX\n"
 #: ../src/panel.c:1502
 #, c-format
 msgid "Command line options:\n"
-msgstr "Opcje:\n"
+msgstr "Opcje wiersza poleceń:\n"
 
 #: ../src/panel.c:1503
 #, c-format
@@ -323,25 +324,23 @@ msgstr "Procent"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "None"
-msgstr ""
+msgstr "Żaden"
 
 #: ../data/ui/panel-pref.glade.h:6
-#, fuzzy
 msgid "Err"
 msgstr "Błąd"
 
 #: ../data/ui/panel-pref.glade.h:7
-#, fuzzy
 msgid "Warn"
-msgstr "Pierwsze ostrzeżenie"
+msgstr "Ostrzeżenie"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "Info"
-msgstr ""
+msgstr "Informacje"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "All"
-msgstr ""
+msgstr "Wszystko"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "Panel Preferences"
@@ -369,7 +368,7 @@ msgstr "<b>Pozycja</b>"
 
 #: ../data/ui/panel-pref.glade.h:22
 msgid "Icon size:"
-msgstr ""
+msgstr "Rozmiar ikony:"
 
 #: ../data/ui/panel-pref.glade.h:23
 msgid "<b>Size</b>"
@@ -466,12 +465,11 @@ msgstr "<b>Automatyczne ukrywanie</b>"
 
 #: ../data/ui/panel-pref.glade.h:46
 msgid "Log level"
-msgstr ""
+msgstr "Poziom dziennika"
 
 #: ../data/ui/panel-pref.glade.h:47
-#, fuzzy
 msgid "<b>Log level</b>"
-msgstr "<b>Urządzenie sieciowe</b>"
+msgstr "<b>Poziom dziennika</b>"
 
 #: ../data/ui/panel-pref.glade.h:48
 msgid "Advanced"
@@ -610,11 +608,9 @@ msgid "Tooltip Format"
 msgstr "Format podpowiedzi:"
 
 #: ../src/plugins/dclock.c:438
-#, fuzzy, c-format
+#, c-format
 msgid "Format codes: man 3 strftime; \\%n for line break"
-msgstr ""
-"Opis formatowania wypisuje polecenie „man 3 sfrtime”. Łamanie wierszy "
-"znakiem „\\n”."
+msgstr "Opis formatowania: man 3 sfrtime. Łamanie wierszy: \\n"
 
 #: ../src/plugins/dclock.c:439
 msgid "Action when clicked (default: display calendar)"
@@ -692,114 +688,103 @@ msgstr "Wyświetla ikony powiadamiania programów"
 
 #: ../src/plugins/xkb/xkb-plugin.c:451
 msgid "New session is required for this option to take effect"
-msgstr ""
+msgstr "Konieczne jest uruchomienie nowej sesji, aby ta opcja odniosła skutek"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:604
-#, fuzzy
 msgid "Select Keyboard Model"
-msgstr "Lampki klawiatury"
+msgstr "Wybór modelu klawiatury"
 
 #: ../src/plugins/xkb/xkb-plugin.c:627
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 #: ../src/plugins/xkb/xkb-plugin.c:632 ../src/plugins/xkb/xkb-plugin.c:725
 #: ../src/plugins/xkb/xkb-plugin.c:876
-#, fuzzy
 msgid "Description"
-msgstr "Przeznaczenie:"
+msgstr "Opis"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:698
-#, fuzzy
 msgid "Select Layout Change Type"
-msgstr "Wybierz obrazek"
+msgstr "Wybierz rodzaj zmiany układu"
 
 #: ../src/plugins/xkb/xkb-plugin.c:721
 msgid "Change Type"
-msgstr ""
+msgstr "Rodzaj zmiany"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:843
-#, fuzzy
 msgid "Add Keyboard Layout"
-msgstr "Przełącznik układów klawiatury"
+msgstr "Dodaj układ klawiatury"
 
 #: ../src/plugins/xkb/xkb-plugin.c:866 ../src/plugins/xkb/xkb-plugin.c:1249
 msgid "Flag"
-msgstr ""
+msgstr "Flaga"
 
 #: ../src/plugins/xkb/xkb-plugin.c:871 ../src/plugins/xkb/xkb-plugin.c:1253
 msgid "Layout"
-msgstr ""
+msgstr "Układ"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1160 ../src/plugins/xkb/xkb-plugin.c:1509
-#, fuzzy
 msgid "Keyboard Layout Handler"
-msgstr "Przełącznik układów klawiatury"
+msgstr "Program obsługi układów klawiatury"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1182
-#, fuzzy
 msgid "Keyboard Model"
-msgstr "Lampki klawiatury"
+msgstr "Model klawiatury"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1203
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "Przełącznik układów klawiatury"
+msgstr "Układy klawiatury"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1257
 msgid "Variant"
-msgstr ""
+msgstr "Wariant"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1266
 msgid "Change Layout Option"
-msgstr ""
+msgstr "Opcje zmiany układu"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1286
 msgid "Advanced setxkbmap Options"
-msgstr ""
+msgstr "Zaawansowane opcje setxkbmap"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1306
 msgid "Do _not reset existing options"
-msgstr ""
+msgstr "_Nie resetuj istniejących opcji"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1311
 msgid "Keep _system layouts"
-msgstr ""
+msgstr "Zachowaj układy _systemowe"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1320
-#, fuzzy
 msgid "Per Window Settings"
-msgstr "Preferencje panelu..."
+msgstr "Według ustawień okien"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1332
-#, fuzzy
 msgid "_Remember layout for each window"
-msgstr "Pamiętanie _układu dla każdego programu"
+msgstr "Pamiętanie _układu dla każdego okna"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1341
-#, fuzzy
 msgid "Show Layout as"
-msgstr "Wygląd"
+msgstr "Pokazuj układ jako"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1402
 msgid "Custom Image"
-msgstr ""
+msgstr "Własny obraz"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1403
 msgid "Text"
-msgstr ""
+msgstr "Tekst"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1429
 msgid "Panel Icon Size"
-msgstr ""
+msgstr "Rozmiar ikon panelu"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1511
-#, fuzzy
 msgid "Handle keyboard layouts"
-msgstr "Przełącza pomiędzy dostępnymi układami klawiatury"
+msgstr "Obsługa układów klawiatury"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
@@ -918,7 +903,7 @@ msgstr ""
 
 #: ../src/plugins/volumealsa/volumealsa.c:667
 msgid "Display and control volume for ALSA"
-msgstr ""
+msgstr "Wyświetl i kontroluj głośność dla ALSA"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
@@ -1468,22 +1453,20 @@ msgid "No Indicators"
 msgstr "Brak wskaźników"
 
 #: ../src/plugins/indicator/indicator.c:897
-#, fuzzy
 msgid "Indicator Applications"
-msgstr "Programy"
+msgstr "Wskaźnik programów"
 
 #: ../src/plugins/indicator/indicator.c:898
 msgid "Clock Indicator"
-msgstr ""
+msgstr "Wskaźnik zegara"
 
 #: ../src/plugins/indicator/indicator.c:899
 msgid "Messaging Menu"
 msgstr "Menu wiadomości"
 
 #: ../src/plugins/indicator/indicator.c:900
-#, fuzzy
 msgid "Network Menu"
-msgstr "Menu katalogu"
+msgstr "Menu sieci"
 
 #: ../src/plugins/indicator/indicator.c:901
 msgid "Session Menu"
@@ -1495,12 +1478,11 @@ msgstr "Menu dźwięku"
 
 #: ../src/plugins/indicator/indicator.c:928
 msgid "Indicator applets"
-msgstr ""
+msgstr "Aplety wskaźników"
 
 #: ../src/plugins/indicator/indicator.c:930
-#, fuzzy
 msgid "Add indicator applets to the panel"
-msgstr "Oddziela aplety panelu pustą przestrzenią"
+msgstr "Dodaj aplet wskaźnika do panelu"
 
 #: ../src/plugins/monitors/monitors.c:277
 #, c-format
@@ -1513,25 +1495,20 @@ msgid "RAM usage: %.1fMB (%.2f%%)"
 msgstr "Użycie pamięci: %.1fMB (%.2f%%)"
 
 #: ../src/plugins/monitors/monitors.c:712
-#, fuzzy
 msgid "CPU color"
-msgstr "Własny kolor"
+msgstr "Kolor procesorów"
 
 #: ../src/plugins/monitors/monitors.c:713
 msgid "Display RAM usage"
 msgstr "Wyświetlanie użycia pamięci"
 
 #: ../src/plugins/monitors/monitors.c:714
-#, fuzzy
 msgid "RAM color"
-msgstr "Kolor przesłony:"
+msgstr "Kolor pamięci operacyjnej"
 
 #: ../src/plugins/monitors/monitors.c:715
-#, fuzzy
 msgid "Action when clicked (default: lxtask)"
-msgstr ""
-"Polecenie wykonywane po kliknięciu\n"
-"(domyślnie wyświetlenie kalendarza):"
+msgstr "Działanie wykonywane po kliknięciu (domyślnie: lxtask)"
 
 #: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"
@@ -1539,7 +1516,7 @@ msgstr "Monitor zasobów"
 
 #: ../src/plugins/monitors/monitors.c:810
 msgid "Display monitors (CPU, RAM)"
-msgstr ""
+msgstr "Wyświetl monitory (procesor, pamięć)"
 
 #: ../src/plugins/wnckpager/wnckpager.c:720
 msgid "WNCKPager"
