@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-27 10:10+0200\n"
-"PO-Revision-Date: 2012-07-10 19:15+0200\n"
-"Last-Translator: Janne <devel@kateva.fi>\n"
+"PO-Revision-Date: 2013-08-27 13:30+0000\n"
+"Last-Translator: Juhani <juhaninumminen0@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1377610231.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -77,7 +78,7 @@ msgstr "Varmista"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:693
 msgid "translator-credits"
-msgstr "Elias Julkunen, 2010"
+msgstr "Elias Julkunen, 2010Juhani Numminen, 2013"
 
 #: ../src/panel.c:698
 msgid "LXPanel"
@@ -93,12 +94,12 @@ msgstr "Työpöytäpaneeli LXDE-projektille"
 
 #: ../src/panel.c:754
 msgid "Add / Remove Panel Items"
-msgstr "Lisää/poista paneelin sovelmia"
+msgstr "Lisää ja poista paneelin sovelmia"
 
 #: ../src/panel.c:762
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr "Poista \"%s\" paneelista"
+msgstr "Poista ”%s” paneelista"
 
 #: ../src/panel.c:774
 msgid "Panel Settings"
@@ -123,7 +124,7 @@ msgstr "Paneeli"
 #: ../src/panel.c:823
 #, c-format
 msgid "\"%s\" Settings"
-msgstr "Sovelman \"%s\" asetukset"
+msgstr "Sovelman ”%s” asetukset"
 
 #: ../src/panel.c:1079 ../src/panel.c:1087 ../data/ui/panel-pref.glade.h:21
 msgid "Height:"
@@ -162,12 +163,12 @@ msgstr "Komentorivivalinnat:\n"
 #: ../src/panel.c:1503
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr "--help      -- näyttää tämän ohjeen ja poistuu\n"
+msgstr " --help      -- näyttää tämän ohjeen ja poistuu\n"
 
 #: ../src/panel.c:1504
 #, c-format
 msgid " --version   -- print version and exit\n"
-msgstr "--version   -- näyttää versionumeron ja poistuu\n"
+msgstr " --version   -- näyttää versionumeron ja poistuu\n"
 
 #: ../src/panel.c:1505
 #, c-format
@@ -185,17 +186,17 @@ msgstr "--profile <nimi> -- käyttää tiettyä profiilia\n"
 #: ../src/panel.c:1509
 #, c-format
 msgid " -h  -- same as --help\n"
-msgstr "-h  -- sama kuin --help\n"
+msgstr " -h  -- sama kuin --help\n"
 
 #: ../src/panel.c:1510
 #, c-format
 msgid " -p  -- same as --profile\n"
-msgstr "-p  -- sama kuin --profile\n"
+msgstr " -p  -- sama kuin --profile\n"
 
 #: ../src/panel.c:1511
 #, c-format
 msgid " -v  -- same as --version\n"
-msgstr "-v  -- sama kuin --version\n"
+msgstr " -v  -- sama kuin --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
 #: ../src/panel.c:1513
@@ -310,29 +311,27 @@ msgstr "pikseliä"
 #: ../data/ui/panel-pref.glade.h:4
 #, no-c-format
 msgid "% Percent"
-msgstr "% Prosenttia"
+msgstr "% prosenttia"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "None"
-msgstr ""
+msgstr "Ei mitään"
 
 #: ../data/ui/panel-pref.glade.h:6
-#, fuzzy
 msgid "Err"
 msgstr "Virhe"
 
 #: ../data/ui/panel-pref.glade.h:7
-#, fuzzy
 msgid "Warn"
-msgstr "Varoitus1"
+msgstr "Varoitus"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "Info"
-msgstr ""
+msgstr "Tietoja"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "All"
-msgstr ""
+msgstr "Kaikki"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "Panel Preferences"
@@ -360,7 +359,7 @@ msgstr "<b>Sijainti</b>"
 
 #: ../data/ui/panel-pref.glade.h:22
 msgid "Icon size:"
-msgstr ""
+msgstr "Kuvakkeiden koko:"
 
 #: ../data/ui/panel-pref.glade.h:23
 msgid "<b>Size</b>"
@@ -429,7 +428,7 @@ msgstr "<b>Aseta oletussovellukset</b>"
 
 #: ../data/ui/panel-pref.glade.h:39
 msgid "Make window managers treat the panel as dock"
-msgstr "Uskottele ikkunakäsittelijälle paneelin olevan telakka"
+msgstr "Kerro ikkunakäsittelijälle paneelin olevan telakka"
 
 #: ../data/ui/panel-pref.glade.h:40
 msgid "Reserve space, and not covered by maximized windows"
@@ -457,12 +456,11 @@ msgstr "<b>Automaattinen piilotus</b>"
 
 #: ../data/ui/panel-pref.glade.h:46
 msgid "Log level"
-msgstr ""
+msgstr "Kirjauksen taso"
 
 #: ../data/ui/panel-pref.glade.h:47
-#, fuzzy
 msgid "<b>Log level</b>"
-msgstr "<b>Verkkolaite</b>"
+msgstr "<b>Kirjauksen taso</b>"
 
 #: ../data/ui/panel-pref.glade.h:48
 msgid "Advanced"
@@ -478,7 +476,7 @@ msgstr "Näyttää CPU:n käyttöasteen"
 
 #: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:440
 msgid "Bold font"
-msgstr "Paksunnettu kirjasin"
+msgstr "Lihavoitu kirjasin"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
@@ -567,7 +565,7 @@ msgstr "Käytä hiiren rullaa"
 
 #: ../src/plugins/taskbar.c:1999
 msgid "Flash when there is any window requiring attention"
-msgstr "Huomauta, kun joku ikkuna vaatii huomiota"
+msgstr "Huomauta, kun jokin ikkuna vaatii huomiota"
 
 #: ../src/plugins/taskbar.c:2000
 msgid "Combine multiple application windows into a single button"
@@ -602,9 +600,9 @@ msgid "Tooltip Format"
 msgstr "Työkaluvihjeen muoto"
 
 #: ../src/plugins/dclock.c:438
-#, fuzzy, c-format
+#, c-format
 msgid "Format codes: man 3 strftime; \\%n for line break"
-msgstr "Muotoilu koodit: man 3 strftime; \\n aloittaa uuden rivin"
+msgstr "Muotoilukoodit: man 3 strftime, \\%n aloittaa uuden rivin"
 
 #: ../src/plugins/dclock.c:439
 msgid "Action when clicked (default: display calendar)"
@@ -680,73 +678,67 @@ msgstr "Ilmoitusalue"
 
 #: ../src/plugins/xkb/xkb-plugin.c:451
 msgid "New session is required for this option to take effect"
-msgstr ""
+msgstr "Asetus tulee voimaan seuraavassa istunnossa"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:604
 msgid "Select Keyboard Model"
-msgstr ""
+msgstr "Valitse näppäimistön malli"
 
 #: ../src/plugins/xkb/xkb-plugin.c:627
 msgid "Model"
-msgstr ""
+msgstr "Malli"
 
 #: ../src/plugins/xkb/xkb-plugin.c:632 ../src/plugins/xkb/xkb-plugin.c:725
 #: ../src/plugins/xkb/xkb-plugin.c:876
-#, fuzzy
 msgid "Description"
-msgstr "Kohde:"
+msgstr "Kuvaus"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:698
-#, fuzzy
 msgid "Select Layout Change Type"
-msgstr "Valitse kuvatiedosto"
+msgstr "Valitse asettelun muutoksen tyyppi"
 
 #: ../src/plugins/xkb/xkb-plugin.c:721
 msgid "Change Type"
-msgstr ""
+msgstr "Vaihda tyyppiä"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:843
-#, fuzzy
 msgid "Add Keyboard Layout"
-msgstr "Näppäimistöasettelun vaihtaja"
+msgstr "Lisää näppäimistöasettelu"
 
 #: ../src/plugins/xkb/xkb-plugin.c:866 ../src/plugins/xkb/xkb-plugin.c:1249
 msgid "Flag"
-msgstr ""
+msgstr "Lippu"
 
 #: ../src/plugins/xkb/xkb-plugin.c:871 ../src/plugins/xkb/xkb-plugin.c:1253
 msgid "Layout"
-msgstr ""
+msgstr "Asettelu"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1160 ../src/plugins/xkb/xkb-plugin.c:1509
-#, fuzzy
 msgid "Keyboard Layout Handler"
 msgstr "Näppäimistöasettelun vaihtaja"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1182
-#, fuzzy
 msgid "Keyboard Model"
-msgstr "Näppäimistön valot"
+msgstr "Näppäimistön malli"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1203
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "Näppäimistöasettelun vaihtaja"
+msgstr "Näppäimistöasettelut"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1257
 msgid "Variant"
-msgstr ""
+msgstr "Muunnos"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1266
 msgid "Change Layout Option"
-msgstr ""
+msgstr "Vaihda asetteluvalintaa"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1286
 msgid "Advanced setxkbmap Options"
-msgstr ""
+msgstr "Edistyneet setxkbmapin valinnat"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1306
 msgid "Do _not reset existing options"
@@ -762,31 +754,28 @@ msgid "Per Window Settings"
 msgstr "Paneelin asetukset"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1332
-#, fuzzy
 msgid "_Remember layout for each window"
-msgstr "_Muista asettelu jokaiselle sovellukselle"
+msgstr "_Muista asettelu jokaiselle ikkunalle"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1341
-#, fuzzy
 msgid "Show Layout as"
 msgstr "Näytä asettelu"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1402
 msgid "Custom Image"
-msgstr ""
+msgstr "Oma kuva"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1403
 msgid "Text"
-msgstr ""
+msgstr "Teksti"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1429
 msgid "Panel Icon Size"
-msgstr ""
+msgstr "Paneelin kuvakekoko"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1511
-#, fuzzy
 msgid "Handle keyboard layouts"
-msgstr "Vaihda käytettävissä olevien näppäimistöasettelujen välillä"
+msgstr "Hallitse näppäimistöasetteluja"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
@@ -904,7 +893,7 @@ msgstr ""
 
 #: ../src/plugins/volumealsa/volumealsa.c:667
 msgid "Display and control volume for ALSA"
-msgstr ""
+msgstr "Näytä ja muuta ALSA-äänenvoimakkuutta"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
@@ -1189,7 +1178,7 @@ msgstr "AMPR AX.25"
 #: ../src/plugins/netstatus/netstatus-iface.c:888
 #: ../src/plugins/netstatus/netstatus-iface.c:1008
 msgid "16/4 Mbps Token Ring"
-msgstr "16/4 Mbps 'Token Ring' verkko"
+msgstr "16/4 Mbps ”Token Ring” -verkko"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:891
 msgid "ARCnet"
@@ -1303,7 +1292,7 @@ msgstr ""
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:330
 #, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr "Verkkolaitteen nimeä ei voitu jäsentää lähteestä '%s'"
+msgstr "Verkkolaitteen nimeä ei voitu jäsentää lähteestä ”%s”"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
@@ -1312,7 +1301,7 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"Käyttöliittymän tilastoja ei voitu jäsentää lähteestä '%s'. prx_idx = %d; "
+"Käyttöliittymän tilastoja ei voitu jäsentää lähteestä ”%s”. prx_idx = %d; "
 "ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
@@ -1323,27 +1312,27 @@ msgstr "Tiedostoa /proc/net/wireless ei voitu jäsentää. Tuntematon muotoilu."
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
 msgstr ""
-"Langattoman verkkoyhteyden tietoja ei voitu jäsentää lähteestä '%s'. "
+"Langattoman verkkoyhteyden tietoja ei voitu jäsentää lähteestä ”%s”. "
 "link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
 msgid "Could not connect to interface, '%s'"
-msgstr "Liitäntään '%s' ei voitu yhdistää"
+msgstr "Liitäntään ”%s” ei voitu yhdistää"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:420
 #, c-format
 msgid "Could not send ioctl to interface, '%s'"
-msgstr "Liitännälle '%s' ei voitu lähettää ioctl-signaalia"
+msgstr "Liitännälle ”%s” ei voitu lähettää ioctl-signaalia"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr "Virhe suorittaessa komentoa '%s': %s"
+msgstr "Komentoriviä ”%s” ei voitu jäsentää: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr "'netstat':in tulostetta ei voitu jäsentää. Tuntematon muotoilu."
+msgstr "”netstat”:in tulostetta ei voitu jäsentää. Tuntematon muotoilu."
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
@@ -1525,9 +1514,8 @@ msgid "WNCKPager"
 msgstr ""
 
 #: ../src/plugins/wnckpager/wnckpager.c:722
-#, fuzzy
 msgid "WNCKpager plugin"
-msgstr "Yksinkertainen työtilan vaihtaja"
+msgstr "WNCKpager-lisäosa"
 
 #~ msgid "<b>Icon</b>"
 #~ msgstr "<b>Kuvake</b>"
