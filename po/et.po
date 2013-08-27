@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-27 10:10+0200\n"
-"PO-Revision-Date: 2012-09-24 21:35+0200\n"
+"PO-Revision-Date: 2013-08-27 11:44+0000\n"
 "Last-Translator: Anari <anari.jalakas@gmail.com>\n"
 "Language-Team: Gnome Estonian translation team <gnome-et@linux.ee>\n"
 "Language: et\n"
@@ -17,7 +17,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1377603845.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -601,9 +602,9 @@ msgid "Tooltip Format"
 msgstr "Kohtspikri vorming"
 
 #: ../src/plugins/dclock.c:438
-#, fuzzy, c-format
+#, c-format
 msgid "Format codes: man 3 strftime; \\%n for line break"
-msgstr "Vormingu koodid: man 3 strftime; \\n reavahe loomiseks"
+msgstr "Vormingu koodid: man 3 strftime; \\%n reavahe loomiseks"
 
 #: ../src/plugins/dclock.c:439
 msgid "Action when clicked (default: display calendar)"
@@ -679,7 +680,7 @@ msgstr "Süsteemisalv"
 
 #: ../src/plugins/xkb/xkb-plugin.c:451
 msgid "New session is required for this option to take effect"
-msgstr ""
+msgstr "Selle valiku toimimiseks on vajalik uus seanss"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:604
@@ -739,15 +740,15 @@ msgstr "Muuda paigutuse valikut"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1286
 msgid "Advanced setxkbmap Options"
-msgstr ""
+msgstr "Täpsemad valikud: setxkbmap"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1306
 msgid "Do _not reset existing options"
-msgstr ""
+msgstr "_Praeguseid seadeid ei kaotata"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1311
 msgid "Keep _system layouts"
-msgstr ""
+msgstr "Süsteemi paigutused _säilitatakse"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1320
 msgid "Per Window Settings"
@@ -892,7 +893,7 @@ msgstr ""
 
 #: ../src/plugins/volumealsa/volumealsa.c:667
 msgid "Display and control volume for ALSA"
-msgstr ""
+msgstr "Näita ja muuda ALSA helitugevust"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
