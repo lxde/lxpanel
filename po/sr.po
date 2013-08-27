@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LXPanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-23 15:11+0200\n"
+"POT-Creation-Date: 2013-08-27 10:10+0200\n"
 "PO-Revision-Date: 2013-07-25 22:22+0100\n"
 "Last-Translator: Jay A.Fleming <tito.nehru.naser@gmail.com>\n"
 "Language-Team: \n"
@@ -16,10 +16,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ../src/configurator.c:54
-#: ../src/gtk-run.c:360
+#: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
 msgstr "Покрени"
 
@@ -55,8 +55,7 @@ msgstr "Наредба за одјављивање није постављена
 msgid "Select a directory"
 msgstr "Изаберите директоријум"
 
-#: ../src/configurator.c:1274
-#: ../src/configurator.c:1365
+#: ../src/configurator.c:1274 ../src/configurator.c:1365
 msgid "Select a file"
 msgstr "Изаберите датотеку"
 
@@ -127,35 +126,27 @@ msgstr "Панел"
 msgid "\"%s\" Settings"
 msgstr "„%s“ Подешавања"
 
-#: ../src/panel.c:1079
-#: ../src/panel.c:1087
-#: ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:1079 ../src/panel.c:1087 ../data/ui/panel-pref.glade.h:21
 msgid "Height:"
 msgstr "Висина:"
 
-#: ../src/panel.c:1080
-#: ../src/panel.c:1086
-#: ../data/ui/panel-pref.glade.h:20
+#: ../src/panel.c:1080 ../src/panel.c:1086 ../data/ui/panel-pref.glade.h:20
 msgid "Width:"
 msgstr "Ширина:"
 
-#: ../src/panel.c:1081
-#: ../data/ui/panel-pref.glade.h:13
+#: ../src/panel.c:1081 ../data/ui/panel-pref.glade.h:13
 msgid "Left"
 msgstr "Лево"
 
-#: ../src/panel.c:1082
-#: ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:1082 ../data/ui/panel-pref.glade.h:14
 msgid "Right"
 msgstr "Десно"
 
-#: ../src/panel.c:1088
-#: ../data/ui/panel-pref.glade.h:12
+#: ../src/panel.c:1088 ../data/ui/panel-pref.glade.h:12
 msgid "Top"
 msgstr "Горе"
 
-#: ../src/panel.c:1089
-#: ../data/ui/panel-pref.glade.h:11
+#: ../src/panel.c:1089 ../data/ui/panel-pref.glade.h:11
 msgid "Bottom"
 msgstr "Доле"
 
@@ -182,7 +173,8 @@ msgstr " --version   -- приказује информације о издањ�
 #: ../src/panel.c:1505
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --log <number> -- постави ниво дневника од 0-5. 0 - ништа 5 - разговорљив\n"
+msgstr ""
+" --log <number> -- постави ниво дневника од 0-5. 0 - ништа 5 - разговорљив\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1507
@@ -221,8 +213,7 @@ msgstr ""
 msgid "Enter the command you want to execute:"
 msgstr "Унесите наредбу коју желите да покренете:"
 
-#: ../data/ui/launchbar.glade.h:1
-#: ../src/plugins/launchbar.c:912
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:1039
 msgid "Application Launch Bar"
 msgstr "Трака за покретање програма"
 
@@ -275,8 +266,7 @@ msgstr "Адреса:"
 msgid "Destination:"
 msgstr "Одредиште:"
 
-#: ../data/ui/netstatus.glade.h:14
-#: ../src/plugins/netstat/netstat.c:362
+#: ../data/ui/netstatus.glade.h:14 ../src/plugins/netstat/netstat.c:362
 #: ../src/plugins/netstat/netstat.c:373
 msgid "Broadcast:"
 msgstr "Општа адреса:"
@@ -386,8 +376,7 @@ msgstr "Системска тема"
 msgid "Solid color (with opacity)"
 msgstr "Основна боја (са провидношћу)"
 
-#: ../data/ui/panel-pref.glade.h:27
-#: ../src/plugins/xkb/xkb-plugin.c:1253
+#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/xkb/xkb-plugin.c:1401
 msgid "Image"
 msgstr "Слика"
 
@@ -403,8 +392,7 @@ msgstr "<b>Позадина</b>"
 msgid "Custom color"
 msgstr "Боја по избору"
 
-#: ../data/ui/panel-pref.glade.h:31
-#: ../src/plugins/space.c:125
+#: ../data/ui/panel-pref.glade.h:31 ../src/plugins/space.c:125
 #: ../src/plugins/batt/batt.c:564
 msgid "Size"
 msgstr "Величина"
@@ -481,13 +469,11 @@ msgstr "Напредно"
 msgid "CPU Usage Monitor"
 msgstr "Показивач стања процесора"
 
-#: ../src/plugins/cpu/cpu.c:279
-#: ../src/plugins/monitors/monitors.c:711
+#: ../src/plugins/cpu/cpu.c:279 ../src/plugins/monitors/monitors.c:711
 msgid "Display CPU usage"
 msgstr "Прикажи стање процеса"
 
-#: ../src/plugins/deskno/deskno.c:207
-#: ../src/plugins/dclock.c:440
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:440
 msgid "Bold font"
 msgstr "Задебљан словни лик"
 
@@ -507,97 +493,99 @@ msgstr "Прикажи број радне површи, од „cmeury@users.sf
 msgid "Display Image and Tooltip"
 msgstr "Прикажи слику и обавештење"
 
-#: ../src/plugins/launchbar.c:914
+#: ../src/plugins/launchbar.c:1041
 msgid "Bar with buttons to launch application"
 msgstr "Трака са дугмадима за покретање програма"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1714
+#: ../src/plugins/taskbar.c:1722
 msgid "_Raise"
 msgstr "_Издигни"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1719
+#: ../src/plugins/taskbar.c:1727
 msgid "R_estore"
 msgstr "_Врати"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1724
+#: ../src/plugins/taskbar.c:1732
 msgid "Ma_ximize"
 msgstr "_Увећај"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1729
+#: ../src/plugins/taskbar.c:1737
 msgid "Ico_nify"
 msgstr "У_мањи"
 
-#: ../src/plugins/taskbar.c:1748
+#: ../src/plugins/taskbar.c:1756
 #, c-format
 msgid "Workspace _%d"
 msgstr "Површ _%d"
 
-#: ../src/plugins/taskbar.c:1753
+#: ../src/plugins/taskbar.c:1761
 #, c-format
 msgid "Workspace %d"
 msgstr "Радна површ %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1767
+#: ../src/plugins/taskbar.c:1775
 msgid "_All workspaces"
 msgstr "Све радне површи"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1773
+#: ../src/plugins/taskbar.c:1781
 msgid "_Move to Workspace"
 msgstr "Пре_мести на радну површ"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1779
+#: ../src/plugins/taskbar.c:1787
 msgid "_Close Window"
 msgstr "_Затвори прозор"
 
-#: ../src/plugins/taskbar.c:1986
+#: ../src/plugins/taskbar.c:1994
 msgid "Show tooltips"
 msgstr "Прикажи обавештења"
 
-#: ../src/plugins/taskbar.c:1987
+#: ../src/plugins/taskbar.c:1995
 msgid "Icons only"
 msgstr "Само иконе"
 
-#: ../src/plugins/taskbar.c:1988
+#: ../src/plugins/taskbar.c:1996
 msgid "Flat buttons"
 msgstr "Равна дугмад"
 
-#: ../src/plugins/taskbar.c:1989
+#: ../src/plugins/taskbar.c:1997
 msgid "Show windows from all desktops"
 msgstr "Прикажи прозоре са свих радних површи"
 
-#: ../src/plugins/taskbar.c:1990
+#: ../src/plugins/taskbar.c:1998
 msgid "Use mouse wheel"
 msgstr "Користи точкић миша"
 
-#: ../src/plugins/taskbar.c:1991
+#: ../src/plugins/taskbar.c:1999
 msgid "Flash when there is any window requiring attention"
 msgstr "Трепћи када неки програм захтева пажњу"
 
-#: ../src/plugins/taskbar.c:1992
+#: ../src/plugins/taskbar.c:2000
 msgid "Combine multiple application windows into a single button"
 msgstr "Приказуј више прозора програма кроз једно дугме"
 
-#: ../src/plugins/taskbar.c:1993
+#: ../src/plugins/taskbar.c:2001
 msgid "Maximum width of task button"
 msgstr "Највећа ширина радног дугмета"
 
-#: ../src/plugins/taskbar.c:1994
+#: ../src/plugins/taskbar.c:2002
 msgid "Spacing"
 msgstr "Размак"
 
-#: ../src/plugins/taskbar.c:2047
+#: ../src/plugins/taskbar.c:2055
 msgid "Task Bar (Window List)"
 msgstr "Трака са листом прозора"
 
-#: ../src/plugins/taskbar.c:2049
-msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+#: ../src/plugins/taskbar.c:2057
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
 msgstr ""
 "Трака са листом прозора приказује све отворене прозоре и\n"
 " омогућује управљање њима"
@@ -611,12 +599,11 @@ msgid "Tooltip Format"
 msgstr "Начин приказивања облачића"
 
 #: ../src/plugins/dclock.c:438
-msgid ""
-"Format codes: man 3 strftime; \\n"
-" for line break"
+#, fuzzy, c-format
+msgid "Format codes: man 3 strftime; \\%n for line break"
 msgstr ""
-"За начин приказа погледати: man 3 strftime;  Користите \\n"
-" за нову линију (ред)"
+"За начин приказа погледати: man 3 strftime;  Користите \\n за нову линију "
+"(ред)"
 
 #: ../src/plugins/dclock.c:439
 msgid "Action when clicked (default: display calendar)"
@@ -646,16 +633,15 @@ msgstr "Додај на радну површину"
 msgid "Properties"
 msgstr "Особине"
 
-#: ../src/plugins/menu.c:1084
-#: ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1085 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "Икона"
 
-#: ../src/plugins/menu.c:1101
+#: ../src/plugins/menu.c:1102
 msgid "Menu"
 msgstr "Мени"
 
-#: ../src/plugins/menu.c:1103
+#: ../src/plugins/menu.c:1104
 msgid "Application Menu"
 msgstr "Мени са програмима"
 
@@ -683,99 +669,111 @@ msgstr "Држач размака"
 msgid "Allocate space"
 msgstr "Обезбеди простор"
 
-#: ../src/plugins/tray.c:757
+#: ../src/plugins/tray.c:764
 msgid "System Tray"
 msgstr "Обавештајна зона"
 
-#: ../src/plugins/tray.c:759
+#: ../src/plugins/tray.c:766
 msgid "System tray"
 msgstr "Обавештајна зона"
 
+#: ../src/plugins/xkb/xkb-plugin.c:451
+msgid "New session is required for this option to take effect"
+msgstr ""
+
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:513
+#: ../src/plugins/xkb/xkb-plugin.c:604
 msgid "Select Keyboard Model"
 msgstr "Изаберите модел тастатуре"
 
-#: ../src/plugins/xkb/xkb-plugin.c:536
+#: ../src/plugins/xkb/xkb-plugin.c:627
 msgid "Model"
 msgstr "Модел"
 
-#: ../src/plugins/xkb/xkb-plugin.c:540
-#: ../src/plugins/xkb/xkb-plugin.c:629
-#: ../src/plugins/xkb/xkb-plugin.c:780
+#: ../src/plugins/xkb/xkb-plugin.c:632 ../src/plugins/xkb/xkb-plugin.c:725
+#: ../src/plugins/xkb/xkb-plugin.c:876
 msgid "Description"
 msgstr "Опис"
 
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:602
+#: ../src/plugins/xkb/xkb-plugin.c:698
 msgid "Select Layout Change Type"
 msgstr "Изаберите начин промене распореда тастатуре"
 
-#: ../src/plugins/xkb/xkb-plugin.c:625
+#: ../src/plugins/xkb/xkb-plugin.c:721
 msgid "Change Type"
 msgstr "Начин промене"
 
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:747
+#: ../src/plugins/xkb/xkb-plugin.c:843
 msgid "Add Keyboard Layout"
 msgstr "Додај распоред тастатуре"
 
-#: ../src/plugins/xkb/xkb-plugin.c:770
-#: ../src/plugins/xkb/xkb-plugin.c:1136
+#: ../src/plugins/xkb/xkb-plugin.c:866 ../src/plugins/xkb/xkb-plugin.c:1249
 msgid "Flag"
 msgstr "Ознака"
 
-#: ../src/plugins/xkb/xkb-plugin.c:775
-#: ../src/plugins/xkb/xkb-plugin.c:1140
+#: ../src/plugins/xkb/xkb-plugin.c:871 ../src/plugins/xkb/xkb-plugin.c:1253
 msgid "Layout"
 msgstr "Распоред тастатуре"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1053
-#: ../src/plugins/xkb/xkb-plugin.c:1359
+#: ../src/plugins/xkb/xkb-plugin.c:1160 ../src/plugins/xkb/xkb-plugin.c:1509
 msgid "Keyboard Layout Handler"
 msgstr "Управљач распоредa тастатуре"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1070
+#: ../src/plugins/xkb/xkb-plugin.c:1182
 msgid "Keyboard Model"
 msgstr "Модел тастатуре"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1090
+#: ../src/plugins/xkb/xkb-plugin.c:1203
 msgid "Keyboard Layouts"
 msgstr "Распореди тастатуре"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1144
+#: ../src/plugins/xkb/xkb-plugin.c:1257
 msgid "Variant"
 msgstr "Облик"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1152
+#: ../src/plugins/xkb/xkb-plugin.c:1266
 msgid "Change Layout Option"
 msgstr "Поставка промене распореда тастатуре"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1172
+#: ../src/plugins/xkb/xkb-plugin.c:1286
+msgid "Advanced setxkbmap Options"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1306
+msgid "Do _not reset existing options"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1311
+msgid "Keep _system layouts"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1320
 msgid "Per Window Settings"
 msgstr "Подешавања по прозору"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1184
+#: ../src/plugins/xkb/xkb-plugin.c:1332
 msgid "_Remember layout for each window"
 msgstr "Запамти _распоред тастатуре за сваки прозор"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1193
+#: ../src/plugins/xkb/xkb-plugin.c:1341
 msgid "Show Layout as"
 msgstr " Прикажи распоред тастатуре као"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1254
+#: ../src/plugins/xkb/xkb-plugin.c:1402
 msgid "Custom Image"
 msgstr "Произвољна слика"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1255
+#: ../src/plugins/xkb/xkb-plugin.c:1403
 msgid "Text"
 msgstr "Словно"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1281
+#: ../src/plugins/xkb/xkb-plugin.c:1429
 msgid "Panel Icon Size"
 msgstr "Величина икона у панелу"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1361
+#: ../src/plugins/xkb/xkb-plugin.c:1511
 msgid "Handle keyboard layouts"
 msgstr "Управљање распоредима тастатуре"
 
@@ -886,8 +884,16 @@ msgid "Mute"
 msgstr "Утишај"
 
 #: ../src/plugins/volumealsa/volumealsa.c:638
-msgid "Error, you need to install an application to configure the sound (pavucontol, alsamixer ...)"
-msgstr "Грешка! Најпре инсталирајте неки програм за подешавање звука (pavucontol, alsamixer ...)"
+msgid ""
+"Error, you need to install an application to configure the sound "
+"(pavucontol, alsamixer ...)"
+msgstr ""
+"Грешка! Најпре инсталирајте неки програм за подешавање звука (pavucontol, "
+"alsamixer ...)"
+
+#: ../src/plugins/volumealsa/volumealsa.c:667
+msgid "Display and control volume for ALSA"
+msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
@@ -919,8 +925,7 @@ msgstr "Одспојен је мрежни кабал"
 msgid "Connection has limited or no connectivity"
 msgstr "Веза је или ограничена или није успостављена"
 
-#: ../src/plugins/netstat/netstat.c:350
-#: ../src/plugins/netstat/netstat.c:361
+#: ../src/plugins/netstat/netstat.c:350 ../src/plugins/netstat/netstat.c:361
 #: ../src/plugins/netstat/netstat.c:372
 msgid "IP Address:"
 msgstr "ИП адреса:"
@@ -929,38 +934,32 @@ msgstr "ИП адреса:"
 msgid "Remote IP:"
 msgstr "Удаљена ИП:"
 
-#: ../src/plugins/netstat/netstat.c:352
-#: ../src/plugins/netstat/netstat.c:363
+#: ../src/plugins/netstat/netstat.c:352 ../src/plugins/netstat/netstat.c:363
 #: ../src/plugins/netstat/netstat.c:374
 msgid "Netmask:"
 msgstr "Мрежна маска:"
 
-#: ../src/plugins/netstat/netstat.c:353
-#: ../src/plugins/netstat/netstat.c:365
+#: ../src/plugins/netstat/netstat.c:353 ../src/plugins/netstat/netstat.c:365
 #: ../src/plugins/netstat/netstat.c:376
 msgid "Activity"
 msgstr "Активност"
 
-#: ../src/plugins/netstat/netstat.c:353
-#: ../src/plugins/netstat/netstat.c:365
+#: ../src/plugins/netstat/netstat.c:353 ../src/plugins/netstat/netstat.c:365
 #: ../src/plugins/netstat/netstat.c:376
 msgid "Sent"
 msgstr "Послато"
 
-#: ../src/plugins/netstat/netstat.c:353
-#: ../src/plugins/netstat/netstat.c:365
+#: ../src/plugins/netstat/netstat.c:353 ../src/plugins/netstat/netstat.c:365
 #: ../src/plugins/netstat/netstat.c:376
 msgid "Received"
 msgstr "Примљено"
 
-#: ../src/plugins/netstat/netstat.c:354
-#: ../src/plugins/netstat/netstat.c:366
+#: ../src/plugins/netstat/netstat.c:354 ../src/plugins/netstat/netstat.c:366
 #: ../src/plugins/netstat/netstat.c:377
 msgid "bytes"
 msgstr "бајта"
 
-#: ../src/plugins/netstat/netstat.c:355
-#: ../src/plugins/netstat/netstat.c:367
+#: ../src/plugins/netstat/netstat.c:355 ../src/plugins/netstat/netstat.c:367
 #: ../src/plugins/netstat/netstat.c:378
 msgid "packets"
 msgstr "пакета"
@@ -974,8 +973,7 @@ msgstr "Бежично"
 msgid "Protocol:"
 msgstr "Протокол:"
 
-#: ../src/plugins/netstat/netstat.c:364
-#: ../src/plugins/netstat/netstat.c:375
+#: ../src/plugins/netstat/netstat.c:364 ../src/plugins/netstat/netstat.c:375
 msgid "HW Address:"
 msgstr "Хардверска адреса"
 
@@ -1299,12 +1297,17 @@ msgstr "Не могу да прочитам име интерфејса из „
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
-msgstr "Не могу да прочитам статистику за интерфејс из „%s“. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgid ""
+"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
+msgstr ""
+"Не могу да прочитам статистику за интерфејс из „%s“. prx_idx = %d; ptx_idx = "
+"%d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr "Не могу да протумачим „/proc/net/wireless“. Није ми познат формат датотеке."
+msgstr ""
+"Не могу да протумачим „/proc/net/wireless“. Није ми познат формат датотеке."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
@@ -1511,4 +1514,3 @@ msgstr "WNCKPager"
 #: ../src/plugins/wnckpager/wnckpager.c:722
 msgid "WNCKpager plugin"
 msgstr "„WNCKpager“ додатак"
-

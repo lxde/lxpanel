@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LXPanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-23 15:11+0200\n"
+"POT-Creation-Date: 2013-08-27 10:10+0200\n"
 "PO-Revision-Date: 2013-07-25 22:24+0100\n"
 "Last-Translator: Jay A.Fleming <tito.nehru.naser@gmail.com>\n"
 "Language-Team: \n"
@@ -16,10 +16,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ../src/configurator.c:54
-#: ../src/gtk-run.c:360
+#: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
 msgstr "Pokreni"
 
@@ -55,8 +55,7 @@ msgstr "Naredba za odjavljivanje nije postavljena"
 msgid "Select a directory"
 msgstr "Izaberite direktorijum"
 
-#: ../src/configurator.c:1274
-#: ../src/configurator.c:1365
+#: ../src/configurator.c:1274 ../src/configurator.c:1365
 msgid "Select a file"
 msgstr "Izaberite datoteku"
 
@@ -127,35 +126,27 @@ msgstr "Panel"
 msgid "\"%s\" Settings"
 msgstr "„%s“ Podešavanja"
 
-#: ../src/panel.c:1079
-#: ../src/panel.c:1087
-#: ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:1079 ../src/panel.c:1087 ../data/ui/panel-pref.glade.h:21
 msgid "Height:"
 msgstr "Visina:"
 
-#: ../src/panel.c:1080
-#: ../src/panel.c:1086
-#: ../data/ui/panel-pref.glade.h:20
+#: ../src/panel.c:1080 ../src/panel.c:1086 ../data/ui/panel-pref.glade.h:20
 msgid "Width:"
 msgstr "Širina:"
 
-#: ../src/panel.c:1081
-#: ../data/ui/panel-pref.glade.h:13
+#: ../src/panel.c:1081 ../data/ui/panel-pref.glade.h:13
 msgid "Left"
 msgstr "Levo"
 
-#: ../src/panel.c:1082
-#: ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:1082 ../data/ui/panel-pref.glade.h:14
 msgid "Right"
 msgstr "Desno"
 
-#: ../src/panel.c:1088
-#: ../data/ui/panel-pref.glade.h:12
+#: ../src/panel.c:1088 ../data/ui/panel-pref.glade.h:12
 msgid "Top"
 msgstr "Gore"
 
-#: ../src/panel.c:1089
-#: ../data/ui/panel-pref.glade.h:11
+#: ../src/panel.c:1089 ../data/ui/panel-pref.glade.h:11
 msgid "Bottom"
 msgstr "Dole"
 
@@ -182,7 +173,8 @@ msgstr " --version   -- prikazuje informacije o izdanju i izlazi\n"
 #: ../src/panel.c:1505
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --log <number> -- postavi nivo dnevnika od 0-5. 0 - ništa 5 - razgovorljiv\n"
+msgstr ""
+" --log <number> -- postavi nivo dnevnika od 0-5. 0 - ništa 5 - razgovorljiv\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1507
@@ -221,8 +213,7 @@ msgstr ""
 msgid "Enter the command you want to execute:"
 msgstr "Unesite naredbu koju želite da pokrenete:"
 
-#: ../data/ui/launchbar.glade.h:1
-#: ../src/plugins/launchbar.c:912
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:1039
 msgid "Application Launch Bar"
 msgstr "Traka za pokretanje programa"
 
@@ -275,8 +266,7 @@ msgstr "Adresa:"
 msgid "Destination:"
 msgstr "Odredište:"
 
-#: ../data/ui/netstatus.glade.h:14
-#: ../src/plugins/netstat/netstat.c:362
+#: ../data/ui/netstatus.glade.h:14 ../src/plugins/netstat/netstat.c:362
 #: ../src/plugins/netstat/netstat.c:373
 msgid "Broadcast:"
 msgstr "Opšta adresa:"
@@ -386,8 +376,7 @@ msgstr "Sistemska tema"
 msgid "Solid color (with opacity)"
 msgstr "Osnovna boja (sa providnošću)"
 
-#: ../data/ui/panel-pref.glade.h:27
-#: ../src/plugins/xkb/xkb-plugin.c:1253
+#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/xkb/xkb-plugin.c:1401
 msgid "Image"
 msgstr "Slika"
 
@@ -403,8 +392,7 @@ msgstr "<b>Pozadina</b>"
 msgid "Custom color"
 msgstr "Boja po izboru"
 
-#: ../data/ui/panel-pref.glade.h:31
-#: ../src/plugins/space.c:125
+#: ../data/ui/panel-pref.glade.h:31 ../src/plugins/space.c:125
 #: ../src/plugins/batt/batt.c:564
 msgid "Size"
 msgstr "Veličina"
@@ -481,13 +469,11 @@ msgstr "Napredno"
 msgid "CPU Usage Monitor"
 msgstr "Pokazivač stanja procesora"
 
-#: ../src/plugins/cpu/cpu.c:279
-#: ../src/plugins/monitors/monitors.c:711
+#: ../src/plugins/cpu/cpu.c:279 ../src/plugins/monitors/monitors.c:711
 msgid "Display CPU usage"
 msgstr "Prikaži stanje procesa"
 
-#: ../src/plugins/deskno/deskno.c:207
-#: ../src/plugins/dclock.c:440
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:440
 msgid "Bold font"
 msgstr "Zadebljan slovni lik"
 
@@ -507,97 +493,99 @@ msgstr "Prikaži broj radne površi, od „cmeury@users.sf.net“"
 msgid "Display Image and Tooltip"
 msgstr "Prikaži sliku i obaveštenje"
 
-#: ../src/plugins/launchbar.c:914
+#: ../src/plugins/launchbar.c:1041
 msgid "Bar with buttons to launch application"
 msgstr "Traka sa dugmadima za pokretanje programa"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1714
+#: ../src/plugins/taskbar.c:1722
 msgid "_Raise"
 msgstr "_Izdigni"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1719
+#: ../src/plugins/taskbar.c:1727
 msgid "R_estore"
 msgstr "_Vrati"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1724
+#: ../src/plugins/taskbar.c:1732
 msgid "Ma_ximize"
 msgstr "_Uvećaj"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1729
+#: ../src/plugins/taskbar.c:1737
 msgid "Ico_nify"
 msgstr "U_manji"
 
-#: ../src/plugins/taskbar.c:1748
+#: ../src/plugins/taskbar.c:1756
 #, c-format
 msgid "Workspace _%d"
 msgstr "Površ _%d"
 
-#: ../src/plugins/taskbar.c:1753
+#: ../src/plugins/taskbar.c:1761
 #, c-format
 msgid "Workspace %d"
 msgstr "Radna površ %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1767
+#: ../src/plugins/taskbar.c:1775
 msgid "_All workspaces"
 msgstr "Sve radne površi"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1773
+#: ../src/plugins/taskbar.c:1781
 msgid "_Move to Workspace"
 msgstr "Pre_mesti na radnu površ"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1779
+#: ../src/plugins/taskbar.c:1787
 msgid "_Close Window"
 msgstr "_Zatvori prozor"
 
-#: ../src/plugins/taskbar.c:1986
+#: ../src/plugins/taskbar.c:1994
 msgid "Show tooltips"
 msgstr "Prikaži obaveštenja"
 
-#: ../src/plugins/taskbar.c:1987
+#: ../src/plugins/taskbar.c:1995
 msgid "Icons only"
 msgstr "Samo ikone"
 
-#: ../src/plugins/taskbar.c:1988
+#: ../src/plugins/taskbar.c:1996
 msgid "Flat buttons"
 msgstr "Ravna dugmad"
 
-#: ../src/plugins/taskbar.c:1989
+#: ../src/plugins/taskbar.c:1997
 msgid "Show windows from all desktops"
 msgstr "Prikaži prozore sa svih radnih površi"
 
-#: ../src/plugins/taskbar.c:1990
+#: ../src/plugins/taskbar.c:1998
 msgid "Use mouse wheel"
 msgstr "Koristi točkić miša"
 
-#: ../src/plugins/taskbar.c:1991
+#: ../src/plugins/taskbar.c:1999
 msgid "Flash when there is any window requiring attention"
 msgstr "Trepći kada neki program zahteva pažnju"
 
-#: ../src/plugins/taskbar.c:1992
+#: ../src/plugins/taskbar.c:2000
 msgid "Combine multiple application windows into a single button"
 msgstr "Prikazuj više prozora programa kroz jedno dugme"
 
-#: ../src/plugins/taskbar.c:1993
+#: ../src/plugins/taskbar.c:2001
 msgid "Maximum width of task button"
 msgstr "Najveća širina radnog dugmeta"
 
-#: ../src/plugins/taskbar.c:1994
+#: ../src/plugins/taskbar.c:2002
 msgid "Spacing"
 msgstr "Razmak"
 
-#: ../src/plugins/taskbar.c:2047
+#: ../src/plugins/taskbar.c:2055
 msgid "Task Bar (Window List)"
 msgstr "Traka sa listom prozora"
 
-#: ../src/plugins/taskbar.c:2049
-msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+#: ../src/plugins/taskbar.c:2057
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
 msgstr ""
 "Traka sa listom prozora prikazuje sve otvorene prozore i\n"
 " omogućuje upravljanje njima"
@@ -611,12 +599,11 @@ msgid "Tooltip Format"
 msgstr "Način prikazivanja oblačića"
 
 #: ../src/plugins/dclock.c:438
-msgid ""
-"Format codes: man 3 strftime; \\n"
-" for line break"
+#, fuzzy, c-format
+msgid "Format codes: man 3 strftime; \\%n for line break"
 msgstr ""
-"Za način prikaza pogledati: man 3 strftime;  Koristite \\n"
-" za novu liniju (red)"
+"Za način prikaza pogledati: man 3 strftime;  Koristite \\n za novu liniju "
+"(red)"
 
 #: ../src/plugins/dclock.c:439
 msgid "Action when clicked (default: display calendar)"
@@ -646,16 +633,15 @@ msgstr "Dodaj na radnu površinu"
 msgid "Properties"
 msgstr "Osobine"
 
-#: ../src/plugins/menu.c:1084
-#: ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1085 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "Ikona"
 
-#: ../src/plugins/menu.c:1101
+#: ../src/plugins/menu.c:1102
 msgid "Menu"
 msgstr "Meni"
 
-#: ../src/plugins/menu.c:1103
+#: ../src/plugins/menu.c:1104
 msgid "Application Menu"
 msgstr "Meni sa programima"
 
@@ -683,105 +669,118 @@ msgstr "Držač razmaka"
 msgid "Allocate space"
 msgstr "Obezbedi prostor"
 
-#: ../src/plugins/tray.c:757
+#: ../src/plugins/tray.c:764
 msgid "System Tray"
 msgstr "Obaveštajna zona"
 
-#: ../src/plugins/tray.c:759
+#: ../src/plugins/tray.c:766
 msgid "System tray"
 msgstr "Obaveštajna zona"
 
+#: ../src/plugins/xkb/xkb-plugin.c:451
+msgid "New session is required for this option to take effect"
+msgstr ""
+
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:513
+#: ../src/plugins/xkb/xkb-plugin.c:604
 msgid "Select Keyboard Model"
 msgstr "Izaberite model tastature"
 
-#: ../src/plugins/xkb/xkb-plugin.c:536
+#: ../src/plugins/xkb/xkb-plugin.c:627
 msgid "Model"
 msgstr "Model"
 
-#: ../src/plugins/xkb/xkb-plugin.c:540
-#: ../src/plugins/xkb/xkb-plugin.c:629
-#: ../src/plugins/xkb/xkb-plugin.c:780
+#: ../src/plugins/xkb/xkb-plugin.c:632 ../src/plugins/xkb/xkb-plugin.c:725
+#: ../src/plugins/xkb/xkb-plugin.c:876
 msgid "Description"
 msgstr "Opis"
 
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:602
+#: ../src/plugins/xkb/xkb-plugin.c:698
 msgid "Select Layout Change Type"
 msgstr "Izaberite način promene rasporeda tastature"
 
-#: ../src/plugins/xkb/xkb-plugin.c:625
+#: ../src/plugins/xkb/xkb-plugin.c:721
 msgid "Change Type"
 msgstr "Način promene"
 
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:747
+#: ../src/plugins/xkb/xkb-plugin.c:843
 msgid "Add Keyboard Layout"
 msgstr "Dodaj raspored tastature"
 
-#: ../src/plugins/xkb/xkb-plugin.c:770
-#: ../src/plugins/xkb/xkb-plugin.c:1136
+#: ../src/plugins/xkb/xkb-plugin.c:866 ../src/plugins/xkb/xkb-plugin.c:1249
 msgid "Flag"
 msgstr "Oznaka"
 
-#: ../src/plugins/xkb/xkb-plugin.c:775
-#: ../src/plugins/xkb/xkb-plugin.c:1140
+#: ../src/plugins/xkb/xkb-plugin.c:871 ../src/plugins/xkb/xkb-plugin.c:1253
 msgid "Layout"
 msgstr "Raspored tastature"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1053
-#: ../src/plugins/xkb/xkb-plugin.c:1359
+#: ../src/plugins/xkb/xkb-plugin.c:1160 ../src/plugins/xkb/xkb-plugin.c:1509
 msgid "Keyboard Layout Handler"
 msgstr "Upravljač rasporeda tastature"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1070
+#: ../src/plugins/xkb/xkb-plugin.c:1182
 msgid "Keyboard Model"
 msgstr "Model tastature"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1090
+#: ../src/plugins/xkb/xkb-plugin.c:1203
 msgid "Keyboard Layouts"
 msgstr "Rasporedi tastature"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1144
+#: ../src/plugins/xkb/xkb-plugin.c:1257
 msgid "Variant"
 msgstr "Oblik"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1152
+#: ../src/plugins/xkb/xkb-plugin.c:1266
 msgid "Change Layout Option"
 msgstr "Postavka promene rasporeda tastature"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1172
+#: ../src/plugins/xkb/xkb-plugin.c:1286
+msgid "Advanced setxkbmap Options"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1306
+msgid "Do _not reset existing options"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1311
+msgid "Keep _system layouts"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1320
 msgid "Per Window Settings"
 msgstr "Podešavanja po prozoru"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1184
+#: ../src/plugins/xkb/xkb-plugin.c:1332
 msgid "_Remember layout for each window"
 msgstr "Zapamti _raspored tastature za svaki prozor"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1193
+#: ../src/plugins/xkb/xkb-plugin.c:1341
 msgid "Show Layout as"
 msgstr " Prikaži raspored tastature kao"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1254
+#: ../src/plugins/xkb/xkb-plugin.c:1402
 msgid "Custom Image"
 msgstr "Proizvoljna slika"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1255
+#: ../src/plugins/xkb/xkb-plugin.c:1403
 msgid "Text"
 msgstr "Slovno"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1281
+#: ../src/plugins/xkb/xkb-plugin.c:1429
 msgid "Panel Icon Size"
 msgstr "Veličina ikona u panelu"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1361
+#: ../src/plugins/xkb/xkb-plugin.c:1511
 msgid "Handle keyboard layouts"
 msgstr "Upravljanje rasporedima tastature"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr "Levi klik za umanjivanje svih prozora. Srednji klik za njihovo uvlačenje."
+msgstr ""
+"Levi klik za umanjivanje svih prozora. Srednji klik za njihovo uvlačenje."
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
@@ -886,8 +885,16 @@ msgid "Mute"
 msgstr "Utišaj"
 
 #: ../src/plugins/volumealsa/volumealsa.c:638
-msgid "Error, you need to install an application to configure the sound (pavucontol, alsamixer ...)"
-msgstr "Greška! Najpre instalirajte neki program za podešavanje zvuka (pavucontol, alsamixer ...)"
+msgid ""
+"Error, you need to install an application to configure the sound "
+"(pavucontol, alsamixer ...)"
+msgstr ""
+"Greška! Najpre instalirajte neki program za podešavanje zvuka (pavucontol, "
+"alsamixer ...)"
+
+#: ../src/plugins/volumealsa/volumealsa.c:667
+msgid "Display and control volume for ALSA"
+msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
@@ -919,8 +926,7 @@ msgstr "Odspojen je mrežni kabal"
 msgid "Connection has limited or no connectivity"
 msgstr "Veza je ili ograničena ili nije uspostavljena"
 
-#: ../src/plugins/netstat/netstat.c:350
-#: ../src/plugins/netstat/netstat.c:361
+#: ../src/plugins/netstat/netstat.c:350 ../src/plugins/netstat/netstat.c:361
 #: ../src/plugins/netstat/netstat.c:372
 msgid "IP Address:"
 msgstr "IP adresa:"
@@ -929,38 +935,32 @@ msgstr "IP adresa:"
 msgid "Remote IP:"
 msgstr "Udaljena IP:"
 
-#: ../src/plugins/netstat/netstat.c:352
-#: ../src/plugins/netstat/netstat.c:363
+#: ../src/plugins/netstat/netstat.c:352 ../src/plugins/netstat/netstat.c:363
 #: ../src/plugins/netstat/netstat.c:374
 msgid "Netmask:"
 msgstr "Mrežna maska:"
 
-#: ../src/plugins/netstat/netstat.c:353
-#: ../src/plugins/netstat/netstat.c:365
+#: ../src/plugins/netstat/netstat.c:353 ../src/plugins/netstat/netstat.c:365
 #: ../src/plugins/netstat/netstat.c:376
 msgid "Activity"
 msgstr "Aktivnost"
 
-#: ../src/plugins/netstat/netstat.c:353
-#: ../src/plugins/netstat/netstat.c:365
+#: ../src/plugins/netstat/netstat.c:353 ../src/plugins/netstat/netstat.c:365
 #: ../src/plugins/netstat/netstat.c:376
 msgid "Sent"
 msgstr "Poslato"
 
-#: ../src/plugins/netstat/netstat.c:353
-#: ../src/plugins/netstat/netstat.c:365
+#: ../src/plugins/netstat/netstat.c:353 ../src/plugins/netstat/netstat.c:365
 #: ../src/plugins/netstat/netstat.c:376
 msgid "Received"
 msgstr "Primljeno"
 
-#: ../src/plugins/netstat/netstat.c:354
-#: ../src/plugins/netstat/netstat.c:366
+#: ../src/plugins/netstat/netstat.c:354 ../src/plugins/netstat/netstat.c:366
 #: ../src/plugins/netstat/netstat.c:377
 msgid "bytes"
 msgstr "bajta"
 
-#: ../src/plugins/netstat/netstat.c:355
-#: ../src/plugins/netstat/netstat.c:367
+#: ../src/plugins/netstat/netstat.c:355 ../src/plugins/netstat/netstat.c:367
 #: ../src/plugins/netstat/netstat.c:378
 msgid "packets"
 msgstr "paketa"
@@ -974,8 +974,7 @@ msgstr "Bežično"
 msgid "Protocol:"
 msgstr "Protokol:"
 
-#: ../src/plugins/netstat/netstat.c:364
-#: ../src/plugins/netstat/netstat.c:375
+#: ../src/plugins/netstat/netstat.c:364 ../src/plugins/netstat/netstat.c:375
 msgid "HW Address:"
 msgstr "Hardverska adresa"
 
@@ -1299,12 +1298,17 @@ msgstr "Ne mogu da pročitam ime interfejsa iz „%s“"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
-msgstr "Ne mogu da pročitam statistiku za interfejs iz „%s“. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgid ""
+"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
+msgstr ""
+"Ne mogu da pročitam statistiku za interfejs iz „%s“. prx_idx = %d; ptx_idx = "
+"%d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr "Ne mogu da protumačim „/proc/net/wireless“. Nije mi poznat format datoteke."
+msgstr ""
+"Ne mogu da protumačim „/proc/net/wireless“. Nije mi poznat format datoteke."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
@@ -1511,4 +1515,3 @@ msgstr "WNCKPager"
 #: ../src/plugins/wnckpager/wnckpager.c:722
 msgid "WNCKpager plugin"
 msgstr "„WNCKpager“ dodatak"
-

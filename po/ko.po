@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxtask\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-23 15:11+0200\n"
+"POT-Creation-Date: 2013-08-27 10:10+0200\n"
 "PO-Revision-Date: 2012-10-16 17:35+0900\n"
 "Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
 "Language-Team: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
@@ -17,8 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../src/configurator.c:54
-#: ../src/gtk-run.c:360
+#: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
 msgstr "실행"
 
@@ -54,8 +53,7 @@ msgstr "로그아웃 명령을 지정하지 않았습니다"
 msgid "Select a directory"
 msgstr "디렉터리를 선택하십시오"
 
-#: ../src/configurator.c:1274
-#: ../src/configurator.c:1365
+#: ../src/configurator.c:1274 ../src/configurator.c:1365
 msgid "Select a file"
 msgstr "파일을 선택하십시오"
 
@@ -126,35 +124,27 @@ msgstr "패널"
 msgid "\"%s\" Settings"
 msgstr "\"%s\" 설정"
 
-#: ../src/panel.c:1079
-#: ../src/panel.c:1087
-#: ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:1079 ../src/panel.c:1087 ../data/ui/panel-pref.glade.h:21
 msgid "Height:"
 msgstr "높이:"
 
-#: ../src/panel.c:1080
-#: ../src/panel.c:1086
-#: ../data/ui/panel-pref.glade.h:20
+#: ../src/panel.c:1080 ../src/panel.c:1086 ../data/ui/panel-pref.glade.h:20
 msgid "Width:"
 msgstr "너비:"
 
-#: ../src/panel.c:1081
-#: ../data/ui/panel-pref.glade.h:13
+#: ../src/panel.c:1081 ../data/ui/panel-pref.glade.h:13
 msgid "Left"
 msgstr "왼쪽"
 
-#: ../src/panel.c:1082
-#: ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:1082 ../data/ui/panel-pref.glade.h:14
 msgid "Right"
 msgstr "오른쪽"
 
-#: ../src/panel.c:1088
-#: ../data/ui/panel-pref.glade.h:12
+#: ../src/panel.c:1088 ../data/ui/panel-pref.glade.h:12
 msgid "Top"
 msgstr "위"
 
-#: ../src/panel.c:1089
-#: ../data/ui/panel-pref.glade.h:11
+#: ../src/panel.c:1089 ../data/ui/panel-pref.glade.h:11
 msgid "Bottom"
 msgstr "아래"
 
@@ -181,7 +171,8 @@ msgstr " --version   -- 버전을 출력하고 나갑니다\n"
 #: ../src/panel.c:1505
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --log <번호> -- 0부터 5까지의 로그 레벨을 설정합니다. 0 - 없음 5 - 자세히\n"
+msgstr ""
+" --log <번호> -- 0부터 5까지의 로그 레벨을 설정합니다. 0 - 없음 5 - 자세히\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1507
@@ -220,8 +211,7 @@ msgstr ""
 msgid "Enter the command you want to execute:"
 msgstr "실행할 명령을 입력하십시오:"
 
-#: ../data/ui/launchbar.glade.h:1
-#: ../src/plugins/launchbar.c:912
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:1039
 msgid "Application Launch Bar"
 msgstr "프로그램 실행 표시줄"
 
@@ -274,8 +264,7 @@ msgstr "주소:"
 msgid "Destination:"
 msgstr "목적:"
 
-#: ../data/ui/netstatus.glade.h:14
-#: ../src/plugins/netstat/netstat.c:362
+#: ../data/ui/netstatus.glade.h:14 ../src/plugins/netstat/netstat.c:362
 #: ../src/plugins/netstat/netstat.c:373
 msgid "Broadcast:"
 msgstr "브로드캐스트:"
@@ -385,8 +374,7 @@ msgstr "시스템 테마"
 msgid "Solid color (with opacity)"
 msgstr "단색(투명도 포함)"
 
-#: ../data/ui/panel-pref.glade.h:27
-#: ../src/plugins/xkb/xkb-plugin.c:1253
+#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/xkb/xkb-plugin.c:1401
 msgid "Image"
 msgstr "그림"
 
@@ -402,8 +390,7 @@ msgstr "<b>배경</b>"
 msgid "Custom color"
 msgstr "사용자 지정 색"
 
-#: ../data/ui/panel-pref.glade.h:31
-#: ../src/plugins/space.c:125
+#: ../data/ui/panel-pref.glade.h:31 ../src/plugins/space.c:125
 #: ../src/plugins/batt/batt.c:564
 msgid "Size"
 msgstr "크기"
@@ -480,13 +467,11 @@ msgstr "고급"
 msgid "CPU Usage Monitor"
 msgstr "CPU 사용 감시기"
 
-#: ../src/plugins/cpu/cpu.c:279
-#: ../src/plugins/monitors/monitors.c:711
+#: ../src/plugins/cpu/cpu.c:279 ../src/plugins/monitors/monitors.c:711
 msgid "Display CPU usage"
 msgstr "CPU 사용량 표시"
 
-#: ../src/plugins/deskno/deskno.c:207
-#: ../src/plugins/dclock.c:440
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:440
 msgid "Bold font"
 msgstr "굵은 글꼴"
 
@@ -506,98 +491,102 @@ msgstr "작업공간 번호 표시기, cmeury@users.sf.net"
 msgid "Display Image and Tooltip"
 msgstr "이미지, 풍선도움말 표시"
 
-#: ../src/plugins/launchbar.c:914
+#: ../src/plugins/launchbar.c:1041
 msgid "Bar with buttons to launch application"
 msgstr "프로그램을 실행할 단추 표시줄"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1714
+#: ../src/plugins/taskbar.c:1722
 msgid "_Raise"
 msgstr "펼치기(_R)"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1719
+#: ../src/plugins/taskbar.c:1727
 msgid "R_estore"
 msgstr "복귀(_E)"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1724
+#: ../src/plugins/taskbar.c:1732
 msgid "Ma_ximize"
 msgstr "최대화(_X)"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1729
+#: ../src/plugins/taskbar.c:1737
 msgid "Ico_nify"
 msgstr "아이콘 표시(_N)"
 
-#: ../src/plugins/taskbar.c:1748
+#: ../src/plugins/taskbar.c:1756
 #, c-format
 msgid "Workspace _%d"
 msgstr "작업공간(_%d)"
 
-#: ../src/plugins/taskbar.c:1753
+#: ../src/plugins/taskbar.c:1761
 #, c-format
 msgid "Workspace %d"
 msgstr "작업공간 %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1767
+#: ../src/plugins/taskbar.c:1775
 msgid "_All workspaces"
 msgstr "모든 작업공간(_A)"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1773
+#: ../src/plugins/taskbar.c:1781
 msgid "_Move to Workspace"
 msgstr "작업공간으로 이동(_M)"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1779
+#: ../src/plugins/taskbar.c:1787
 msgid "_Close Window"
 msgstr "창 닫기(_C)"
 
-#: ../src/plugins/taskbar.c:1986
+#: ../src/plugins/taskbar.c:1994
 msgid "Show tooltips"
 msgstr "풍선 도움말 보이기"
 
-#: ../src/plugins/taskbar.c:1987
+#: ../src/plugins/taskbar.c:1995
 msgid "Icons only"
 msgstr "아이콘만 표시"
 
-#: ../src/plugins/taskbar.c:1988
+#: ../src/plugins/taskbar.c:1996
 msgid "Flat buttons"
 msgstr "평평한 단추"
 
-#: ../src/plugins/taskbar.c:1989
+#: ../src/plugins/taskbar.c:1997
 msgid "Show windows from all desktops"
 msgstr "모든 데스크톱에 창 표시"
 
-#: ../src/plugins/taskbar.c:1990
+#: ../src/plugins/taskbar.c:1998
 msgid "Use mouse wheel"
 msgstr "마우스 휠 사용"
 
-#: ../src/plugins/taskbar.c:1991
+#: ../src/plugins/taskbar.c:1999
 msgid "Flash when there is any window requiring attention"
 msgstr "주목을 필요로 하는 창 깜빡임"
 
-#: ../src/plugins/taskbar.c:1992
+#: ../src/plugins/taskbar.c:2000
 msgid "Combine multiple application windows into a single button"
 msgstr "여러 프로그램 창을 하나의 단추로 합침"
 
-#: ../src/plugins/taskbar.c:1993
+#: ../src/plugins/taskbar.c:2001
 msgid "Maximum width of task button"
 msgstr "작업 단추의 최대 폭"
 
-#: ../src/plugins/taskbar.c:1994
+#: ../src/plugins/taskbar.c:2002
 msgid "Spacing"
 msgstr "여백"
 
-#: ../src/plugins/taskbar.c:2047
+#: ../src/plugins/taskbar.c:2055
 msgid "Task Bar (Window List)"
 msgstr "작업 표시줄(창 목록)"
 
-#: ../src/plugins/taskbar.c:2049
-msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
-msgstr "작업 표시줄은 모든 열려있는 창을 보여주며 아이콘 표시, 말아올리기, 창 선택을 하도록 해줍니다"
+#: ../src/plugins/taskbar.c:2057
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
+msgstr ""
+"작업 표시줄은 모든 열려있는 창을 보여주며 아이콘 표시, 말아올리기, 창 선택을 "
+"하도록 해줍니다"
 
 #: ../src/plugins/dclock.c:436
 msgid "Clock Format"
@@ -608,12 +597,9 @@ msgid "Tooltip Format"
 msgstr "풍선도움말 형식"
 
 #: ../src/plugins/dclock.c:438
-msgid ""
-"Format codes: man 3 strftime; \\n"
-" for line break"
-msgstr ""
-"형식 코드: man 3 strftime; \\n"
-" 줄바꿈 문자"
+#, fuzzy, c-format
+msgid "Format codes: man 3 strftime; \\%n for line break"
+msgstr "형식 코드: man 3 strftime; \\n 줄바꿈 문자"
 
 #: ../src/plugins/dclock.c:439
 msgid "Action when clicked (default: display calendar)"
@@ -643,16 +629,15 @@ msgstr "데스크톱에 추가"
 msgid "Properties"
 msgstr "속성"
 
-#: ../src/plugins/menu.c:1084
-#: ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1085 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "아이콘"
 
-#: ../src/plugins/menu.c:1101
+#: ../src/plugins/menu.c:1102
 msgid "Menu"
 msgstr "메뉴"
 
-#: ../src/plugins/menu.c:1103
+#: ../src/plugins/menu.c:1104
 msgid "Application Menu"
 msgstr "프로그램 메뉴"
 
@@ -680,105 +665,119 @@ msgstr "공백"
 msgid "Allocate space"
 msgstr "공간할당"
 
-#: ../src/plugins/tray.c:757
+#: ../src/plugins/tray.c:764
 msgid "System Tray"
 msgstr "시스템 표시줄"
 
-#: ../src/plugins/tray.c:759
+#: ../src/plugins/tray.c:766
 msgid "System tray"
 msgstr "시스템 표시줄"
 
+#: ../src/plugins/xkb/xkb-plugin.c:451
+msgid "New session is required for this option to take effect"
+msgstr ""
+
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:513
+#: ../src/plugins/xkb/xkb-plugin.c:604
 msgid "Select Keyboard Model"
 msgstr "키보드 모델을 선택하십시오"
 
-#: ../src/plugins/xkb/xkb-plugin.c:536
+#: ../src/plugins/xkb/xkb-plugin.c:627
 msgid "Model"
 msgstr "모델"
 
-#: ../src/plugins/xkb/xkb-plugin.c:540
-#: ../src/plugins/xkb/xkb-plugin.c:629
-#: ../src/plugins/xkb/xkb-plugin.c:780
+#: ../src/plugins/xkb/xkb-plugin.c:632 ../src/plugins/xkb/xkb-plugin.c:725
+#: ../src/plugins/xkb/xkb-plugin.c:876
 msgid "Description"
 msgstr "설명"
 
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:602
+#: ../src/plugins/xkb/xkb-plugin.c:698
 msgid "Select Layout Change Type"
 msgstr "배치 바꾸기 형식을 선택하십시오"
 
-#: ../src/plugins/xkb/xkb-plugin.c:625
+#: ../src/plugins/xkb/xkb-plugin.c:721
 msgid "Change Type"
 msgstr "형식 바꾸기"
 
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:747
+#: ../src/plugins/xkb/xkb-plugin.c:843
 msgid "Add Keyboard Layout"
 msgstr "키보드 배치 추가"
 
-#: ../src/plugins/xkb/xkb-plugin.c:770
-#: ../src/plugins/xkb/xkb-plugin.c:1136
+#: ../src/plugins/xkb/xkb-plugin.c:866 ../src/plugins/xkb/xkb-plugin.c:1249
 msgid "Flag"
 msgstr "플래그"
 
-#: ../src/plugins/xkb/xkb-plugin.c:775
-#: ../src/plugins/xkb/xkb-plugin.c:1140
+#: ../src/plugins/xkb/xkb-plugin.c:871 ../src/plugins/xkb/xkb-plugin.c:1253
 msgid "Layout"
 msgstr "배치"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1053
-#: ../src/plugins/xkb/xkb-plugin.c:1359
+#: ../src/plugins/xkb/xkb-plugin.c:1160 ../src/plugins/xkb/xkb-plugin.c:1509
 msgid "Keyboard Layout Handler"
 msgstr "키보드 배치 취급 프로그램"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1070
+#: ../src/plugins/xkb/xkb-plugin.c:1182
 msgid "Keyboard Model"
 msgstr "키보드 모델"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1090
+#: ../src/plugins/xkb/xkb-plugin.c:1203
 msgid "Keyboard Layouts"
 msgstr "키보드 배치"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1144
+#: ../src/plugins/xkb/xkb-plugin.c:1257
 msgid "Variant"
 msgstr "변형"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1152
+#: ../src/plugins/xkb/xkb-plugin.c:1266
 msgid "Change Layout Option"
 msgstr "배치 옵션 바꾸기"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1172
+#: ../src/plugins/xkb/xkb-plugin.c:1286
+msgid "Advanced setxkbmap Options"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1306
+msgid "Do _not reset existing options"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1311
+msgid "Keep _system layouts"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1320
 msgid "Per Window Settings"
 msgstr "창 별 설정"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1184
+#: ../src/plugins/xkb/xkb-plugin.c:1332
 msgid "_Remember layout for each window"
 msgstr "제각각의 창에 대한 배치 기억(_R)"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1193
+#: ../src/plugins/xkb/xkb-plugin.c:1341
 msgid "Show Layout as"
 msgstr "다음처럼 배치 보여주기"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1254
+#: ../src/plugins/xkb/xkb-plugin.c:1402
 msgid "Custom Image"
 msgstr "사용자 정의 그림"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1255
+#: ../src/plugins/xkb/xkb-plugin.c:1403
 msgid "Text"
 msgstr "텍스트"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1281
+#: ../src/plugins/xkb/xkb-plugin.c:1429
 msgid "Panel Icon Size"
 msgstr "패널 아이콘 크기"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1361
+#: ../src/plugins/xkb/xkb-plugin.c:1511
 msgid "Handle keyboard layouts"
 msgstr "사용할 수 있는 키보드 배치를 다룹니다"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr "모든 창을 아이콘 표시하려면 왼쪽 단추를 누릅니다. 이들을 가리려면 가운데 단추를 누릅니다."
+msgstr ""
+"모든 창을 아이콘 표시하려면 왼쪽 단추를 누릅니다. 이들을 가리려면 가운데 단추"
+"를 누릅니다."
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
@@ -881,8 +880,16 @@ msgid "Mute"
 msgstr "음소거"
 
 #: ../src/plugins/volumealsa/volumealsa.c:638
-msgid "Error, you need to install an application to configure the sound (pavucontol, alsamixer ...)"
-msgstr "오류가 있습니다. 소리를 설정할 프로그램을 설치가 필요합니다(pavucontrol, alsamixer ...)"
+msgid ""
+"Error, you need to install an application to configure the sound "
+"(pavucontol, alsamixer ...)"
+msgstr ""
+"오류가 있습니다. 소리를 설정할 프로그램을 설치가 필요합니다(pavucontrol, "
+"alsamixer ...)"
+
+#: ../src/plugins/volumealsa/volumealsa.c:667
+msgid "Display and control volume for ALSA"
+msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
@@ -914,8 +921,7 @@ msgstr "네트워크 케이블이 뽑혔습니다"
 msgid "Connection has limited or no connectivity"
 msgstr "연결이 제한되었거나 수립할 수 없습니다"
 
-#: ../src/plugins/netstat/netstat.c:350
-#: ../src/plugins/netstat/netstat.c:361
+#: ../src/plugins/netstat/netstat.c:350 ../src/plugins/netstat/netstat.c:361
 #: ../src/plugins/netstat/netstat.c:372
 msgid "IP Address:"
 msgstr "IP 주소:"
@@ -924,38 +930,32 @@ msgstr "IP 주소:"
 msgid "Remote IP:"
 msgstr "원격 IP:"
 
-#: ../src/plugins/netstat/netstat.c:352
-#: ../src/plugins/netstat/netstat.c:363
+#: ../src/plugins/netstat/netstat.c:352 ../src/plugins/netstat/netstat.c:363
 #: ../src/plugins/netstat/netstat.c:374
 msgid "Netmask:"
 msgstr "넷마스크:"
 
-#: ../src/plugins/netstat/netstat.c:353
-#: ../src/plugins/netstat/netstat.c:365
+#: ../src/plugins/netstat/netstat.c:353 ../src/plugins/netstat/netstat.c:365
 #: ../src/plugins/netstat/netstat.c:376
 msgid "Activity"
 msgstr "동작"
 
-#: ../src/plugins/netstat/netstat.c:353
-#: ../src/plugins/netstat/netstat.c:365
+#: ../src/plugins/netstat/netstat.c:353 ../src/plugins/netstat/netstat.c:365
 #: ../src/plugins/netstat/netstat.c:376
 msgid "Sent"
 msgstr "보냄"
 
-#: ../src/plugins/netstat/netstat.c:353
-#: ../src/plugins/netstat/netstat.c:365
+#: ../src/plugins/netstat/netstat.c:353 ../src/plugins/netstat/netstat.c:365
 #: ../src/plugins/netstat/netstat.c:376
 msgid "Received"
 msgstr "받음"
 
-#: ../src/plugins/netstat/netstat.c:354
-#: ../src/plugins/netstat/netstat.c:366
+#: ../src/plugins/netstat/netstat.c:354 ../src/plugins/netstat/netstat.c:366
 #: ../src/plugins/netstat/netstat.c:377
 msgid "bytes"
 msgstr "바이트"
 
-#: ../src/plugins/netstat/netstat.c:355
-#: ../src/plugins/netstat/netstat.c:367
+#: ../src/plugins/netstat/netstat.c:355 ../src/plugins/netstat/netstat.c:367
 #: ../src/plugins/netstat/netstat.c:378
 msgid "packets"
 msgstr "패킷"
@@ -969,8 +969,7 @@ msgstr "무선"
 msgid "Protocol:"
 msgstr "프로토콜:"
 
-#: ../src/plugins/netstat/netstat.c:364
-#: ../src/plugins/netstat/netstat.c:375
+#: ../src/plugins/netstat/netstat.c:364 ../src/plugins/netstat/netstat.c:375
 msgid "HW Address:"
 msgstr "하드웨어 주소:"
 
@@ -1292,8 +1291,12 @@ msgstr "'%s'(으)로부터 인터페이스 이름을 해석할 수 없습니다"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
-msgstr "'%s'(으)로부터 인터페이스 통계를 해석할 수 없습니다. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgid ""
+"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
+msgstr ""
+"'%s'(으)로부터 인터페이스 통계를 해석할 수 없습니다. prx_idx = %d; ptx_idx = "
+"%d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."

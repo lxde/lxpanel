@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-23 15:11+0200\n"
+"POT-Creation-Date: 2013-08-27 10:10+0200\n"
 "PO-Revision-Date: 2013-06-07 05:33+0200\n"
 "Last-Translator: Mohamed Mohsen <linuxer9@gmail.com>\n"
 "Language-Team: Arabic\n"
@@ -15,11 +15,11 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 "X-Generator: Pootle 2.0.5\n"
 
-#: ../src/configurator.c:54
-#: ../src/gtk-run.c:360
+#: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
 msgstr "شغّل"
 
@@ -55,8 +55,7 @@ msgstr "لم يتم تعيين أمر للخروج"
 msgid "Select a directory"
 msgstr "انتق دليلاً"
 
-#: ../src/configurator.c:1274
-#: ../src/configurator.c:1365
+#: ../src/configurator.c:1274 ../src/configurator.c:1365
 msgid "Select a file"
 msgstr "انتق ملفا"
 
@@ -127,35 +126,27 @@ msgstr "الشريط"
 msgid "\"%s\" Settings"
 msgstr "إعدادات \"%s\""
 
-#: ../src/panel.c:1079
-#: ../src/panel.c:1087
-#: ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:1079 ../src/panel.c:1087 ../data/ui/panel-pref.glade.h:21
 msgid "Height:"
 msgstr "الطول:"
 
-#: ../src/panel.c:1080
-#: ../src/panel.c:1086
-#: ../data/ui/panel-pref.glade.h:20
+#: ../src/panel.c:1080 ../src/panel.c:1086 ../data/ui/panel-pref.glade.h:20
 msgid "Width:"
 msgstr "العرض:"
 
-#: ../src/panel.c:1081
-#: ../data/ui/panel-pref.glade.h:13
+#: ../src/panel.c:1081 ../data/ui/panel-pref.glade.h:13
 msgid "Left"
 msgstr "اليسار"
 
-#: ../src/panel.c:1082
-#: ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:1082 ../data/ui/panel-pref.glade.h:14
 msgid "Right"
 msgstr "اليمين"
 
-#: ../src/panel.c:1088
-#: ../data/ui/panel-pref.glade.h:12
+#: ../src/panel.c:1088 ../data/ui/panel-pref.glade.h:12
 msgid "Top"
 msgstr "الأعلى"
 
-#: ../src/panel.c:1089
-#: ../data/ui/panel-pref.glade.h:11
+#: ../src/panel.c:1089 ../data/ui/panel-pref.glade.h:11
 msgid "Bottom"
 msgstr "الأسفل"
 
@@ -182,7 +173,8 @@ msgstr " --version   --إظهار رقم الإصدار والخروج\n"
 #: ../src/panel.c:1505
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr " --log <رقم> -- يعين مستوى التسجيل من 0 إلى 5. 0 - لا تسجيل 5 - ثرثار\n"
+msgstr ""
+" --log <رقم> -- يعين مستوى التسجيل من 0 إلى 5. 0 - لا تسجيل 5 - ثرثار\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1507
@@ -221,8 +213,7 @@ msgstr ""
 msgid "Enter the command you want to execute:"
 msgstr "أدخل الأمر الذي تريد تنفيذه:"
 
-#: ../data/ui/launchbar.glade.h:1
-#: ../src/plugins/launchbar.c:912
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:1039
 msgid "Application Launch Bar"
 msgstr "شريط اختصار التطبيقات"
 
@@ -275,8 +266,7 @@ msgstr "العنوان:"
 msgid "Destination:"
 msgstr "الوجهة:"
 
-#: ../data/ui/netstatus.glade.h:14
-#: ../src/plugins/netstat/netstat.c:362
+#: ../data/ui/netstatus.glade.h:14 ../src/plugins/netstat/netstat.c:362
 #: ../src/plugins/netstat/netstat.c:373
 msgid "Broadcast:"
 msgstr "بث:"
@@ -386,8 +376,7 @@ msgstr "سمة النظام"
 msgid "Solid color (with opacity)"
 msgstr "لون (بشفافية)"
 
-#: ../data/ui/panel-pref.glade.h:27
-#: ../src/plugins/xkb/xkb-plugin.c:1253
+#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/xkb/xkb-plugin.c:1401
 msgid "Image"
 msgstr "صورة"
 
@@ -403,8 +392,7 @@ msgstr "<b>الخلفية</b>"
 msgid "Custom color"
 msgstr "لون مخصص"
 
-#: ../data/ui/panel-pref.glade.h:31
-#: ../src/plugins/space.c:125
+#: ../data/ui/panel-pref.glade.h:31 ../src/plugins/space.c:125
 #: ../src/plugins/batt/batt.c:564
 msgid "Size"
 msgstr "الحجم"
@@ -481,13 +469,11 @@ msgstr "خيارات متقدمة"
 msgid "CPU Usage Monitor"
 msgstr "مراقب استخدام المعالج"
 
-#: ../src/plugins/cpu/cpu.c:279
-#: ../src/plugins/monitors/monitors.c:711
+#: ../src/plugins/cpu/cpu.c:279 ../src/plugins/monitors/monitors.c:711
 msgid "Display CPU usage"
 msgstr "أظهر استخدام المعالج"
 
-#: ../src/plugins/deskno/deskno.c:207
-#: ../src/plugins/dclock.c:440
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:440
 msgid "Bold font"
 msgstr "خط عريض"
 
@@ -507,98 +493,102 @@ msgstr "إظهار رقم مساحة العمل، كتبه cmeury@users.sf.net"
 msgid "Display Image and Tooltip"
 msgstr "أظهر صورة وتلميحا"
 
-#: ../src/plugins/launchbar.c:914
+#: ../src/plugins/launchbar.c:1041
 msgid "Bar with buttons to launch application"
 msgstr "شريط يحتوي على أزرار لفتح تطبيقات"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1714
+#: ../src/plugins/taskbar.c:1722
 msgid "_Raise"
 msgstr "ا_رفع"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1719
+#: ../src/plugins/taskbar.c:1727
 msgid "R_estore"
 msgstr "_استعِدْ"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1724
+#: ../src/plugins/taskbar.c:1732
 msgid "Ma_ximize"
 msgstr "_كبّر"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1729
+#: ../src/plugins/taskbar.c:1737
 msgid "Ico_nify"
 msgstr "_صغّر"
 
-#: ../src/plugins/taskbar.c:1748
+#: ../src/plugins/taskbar.c:1756
 #, c-format
 msgid "Workspace _%d"
 msgstr "مساحة العمل _%d"
 
-#: ../src/plugins/taskbar.c:1753
+#: ../src/plugins/taskbar.c:1761
 #, c-format
 msgid "Workspace %d"
 msgstr "مساحة العمل %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1767
+#: ../src/plugins/taskbar.c:1775
 msgid "_All workspaces"
 msgstr "_جميع مساحات العمل"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1773
+#: ../src/plugins/taskbar.c:1781
 msgid "_Move to Workspace"
 msgstr "_انقل إلى مساحة العمل"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1779
+#: ../src/plugins/taskbar.c:1787
 msgid "_Close Window"
 msgstr "_أغلق النافذة"
 
-#: ../src/plugins/taskbar.c:1986
+#: ../src/plugins/taskbar.c:1994
 msgid "Show tooltips"
 msgstr "أظهر تلميحات"
 
-#: ../src/plugins/taskbar.c:1987
+#: ../src/plugins/taskbar.c:1995
 msgid "Icons only"
 msgstr "أيقونات فقط"
 
-#: ../src/plugins/taskbar.c:1988
+#: ../src/plugins/taskbar.c:1996
 msgid "Flat buttons"
 msgstr "أزرار مسطحة"
 
-#: ../src/plugins/taskbar.c:1989
+#: ../src/plugins/taskbar.c:1997
 msgid "Show windows from all desktops"
 msgstr "أظهر نوافذ جميع أسطح المكتب"
 
-#: ../src/plugins/taskbar.c:1990
+#: ../src/plugins/taskbar.c:1998
 msgid "Use mouse wheel"
 msgstr "استخدم عجلة الفأرة"
 
-#: ../src/plugins/taskbar.c:1991
+#: ../src/plugins/taskbar.c:1999
 msgid "Flash when there is any window requiring attention"
 msgstr "أبرز زر النافذة التي تتطلب اهتماما"
 
-#: ../src/plugins/taskbar.c:1992
+#: ../src/plugins/taskbar.c:2000
 msgid "Combine multiple application windows into a single button"
 msgstr "اجمع نوافذ التطبيق الواحد مع بعضها في زر واحد"
 
-#: ../src/plugins/taskbar.c:1993
+#: ../src/plugins/taskbar.c:2001
 msgid "Maximum width of task button"
 msgstr "أقصى عرض لزر المهمة"
 
-#: ../src/plugins/taskbar.c:1994
+#: ../src/plugins/taskbar.c:2002
 msgid "Spacing"
 msgstr "مسافة"
 
-#: ../src/plugins/taskbar.c:2047
+#: ../src/plugins/taskbar.c:2055
 msgid "Task Bar (Window List)"
 msgstr "شريط المهام (قائمة النوافذ)"
 
-#: ../src/plugins/taskbar.c:2049
-msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
-msgstr "يظهر شريط المهام جميع النوافذ المفتوحة، ويسمح لك بتصغيرها أو تظليلها أو الانتقال إليها "
+#: ../src/plugins/taskbar.c:2057
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
+msgstr ""
+"يظهر شريط المهام جميع النوافذ المفتوحة، ويسمح لك بتصغيرها أو تظليلها أو "
+"الانتقال إليها "
 
 #: ../src/plugins/dclock.c:436
 msgid "Clock Format"
@@ -609,12 +599,9 @@ msgid "Tooltip Format"
 msgstr "هيئة التلميح"
 
 #: ../src/plugins/dclock.c:438
-msgid ""
-"Format codes: man 3 strftime; \\n"
-" for line break"
-msgstr ""
-"لمعرفة شفرات التنسيق: man 3 strftime؛ اكتب \\n"
-" لبدء سطر جديد"
+#, fuzzy, c-format
+msgid "Format codes: man 3 strftime; \\%n for line break"
+msgstr "لمعرفة شفرات التنسيق: man 3 strftime؛ اكتب \\n لبدء سطر جديد"
 
 #: ../src/plugins/dclock.c:439
 msgid "Action when clicked (default: display calendar)"
@@ -644,16 +631,15 @@ msgstr "أضف إلى سطح مكتب"
 msgid "Properties"
 msgstr "خصائص"
 
-#: ../src/plugins/menu.c:1084
-#: ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1085 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "أيقونة"
 
-#: ../src/plugins/menu.c:1101
+#: ../src/plugins/menu.c:1102
 msgid "Menu"
 msgstr "القائمة"
 
-#: ../src/plugins/menu.c:1103
+#: ../src/plugins/menu.c:1104
 msgid "Application Menu"
 msgstr "قائمة التطبيقات"
 
@@ -681,105 +667,119 @@ msgstr "مسافة"
 msgid "Allocate space"
 msgstr "يترك مسافة"
 
-#: ../src/plugins/tray.c:757
+#: ../src/plugins/tray.c:764
 msgid "System Tray"
 msgstr "مساحة التبليغ"
 
-#: ../src/plugins/tray.c:759
+#: ../src/plugins/tray.c:766
 msgid "System tray"
 msgstr "مساحة التبليغ"
 
+#: ../src/plugins/xkb/xkb-plugin.c:451
+msgid "New session is required for this option to take effect"
+msgstr ""
+
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:513
+#: ../src/plugins/xkb/xkb-plugin.c:604
 msgid "Select Keyboard Model"
 msgstr "تحديد نوع لوحة المفاتيح"
 
-#: ../src/plugins/xkb/xkb-plugin.c:536
+#: ../src/plugins/xkb/xkb-plugin.c:627
 msgid "Model"
 msgstr "النوع"
 
-#: ../src/plugins/xkb/xkb-plugin.c:540
-#: ../src/plugins/xkb/xkb-plugin.c:629
-#: ../src/plugins/xkb/xkb-plugin.c:780
+#: ../src/plugins/xkb/xkb-plugin.c:632 ../src/plugins/xkb/xkb-plugin.c:725
+#: ../src/plugins/xkb/xkb-plugin.c:876
 msgid "Description"
 msgstr "الوصف:"
 
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:602
+#: ../src/plugins/xkb/xkb-plugin.c:698
 msgid "Select Layout Change Type"
 msgstr "تحديد نمط تغيير التخطيط"
 
-#: ../src/plugins/xkb/xkb-plugin.c:625
+#: ../src/plugins/xkb/xkb-plugin.c:721
 msgid "Change Type"
 msgstr "تغيير النمط"
 
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:747
+#: ../src/plugins/xkb/xkb-plugin.c:843
 msgid "Add Keyboard Layout"
 msgstr "إضافة تخطيط لوحة المفاتيح"
 
-#: ../src/plugins/xkb/xkb-plugin.c:770
-#: ../src/plugins/xkb/xkb-plugin.c:1136
+#: ../src/plugins/xkb/xkb-plugin.c:866 ../src/plugins/xkb/xkb-plugin.c:1249
 msgid "Flag"
 msgstr "علم"
 
-#: ../src/plugins/xkb/xkb-plugin.c:775
-#: ../src/plugins/xkb/xkb-plugin.c:1140
+#: ../src/plugins/xkb/xkb-plugin.c:871 ../src/plugins/xkb/xkb-plugin.c:1253
 msgid "Layout"
 msgstr "تخطيط"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1053
-#: ../src/plugins/xkb/xkb-plugin.c:1359
+#: ../src/plugins/xkb/xkb-plugin.c:1160 ../src/plugins/xkb/xkb-plugin.c:1509
 msgid "Keyboard Layout Handler"
 msgstr "مبدّل تخطيط لوحة المفاتيح"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1070
+#: ../src/plugins/xkb/xkb-plugin.c:1182
 msgid "Keyboard Model"
 msgstr "نوع لوحة المفاتيح"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1090
+#: ../src/plugins/xkb/xkb-plugin.c:1203
 msgid "Keyboard Layouts"
 msgstr "تخطيط لوحة المفاتيح"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1144
+#: ../src/plugins/xkb/xkb-plugin.c:1257
 msgid "Variant"
 msgstr "الصنف"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1152
+#: ../src/plugins/xkb/xkb-plugin.c:1266
 msgid "Change Layout Option"
 msgstr "خيار تغيير التخطيط"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1172
+#: ../src/plugins/xkb/xkb-plugin.c:1286
+msgid "Advanced setxkbmap Options"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1306
+msgid "Do _not reset existing options"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1311
+msgid "Keep _system layouts"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1320
 msgid "Per Window Settings"
 msgstr "بواسطة إعدادات النافذة"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1184
+#: ../src/plugins/xkb/xkb-plugin.c:1332
 msgid "_Remember layout for each window"
 msgstr "_تذكر التخطيط لكل نافذة"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1193
+#: ../src/plugins/xkb/xkb-plugin.c:1341
 msgid "Show Layout as"
 msgstr "أظهر التخطيط كـ"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1254
+#: ../src/plugins/xkb/xkb-plugin.c:1402
 msgid "Custom Image"
 msgstr "صورة مختلفة"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1255
+#: ../src/plugins/xkb/xkb-plugin.c:1403
 msgid "Text"
 msgstr "نص"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1281
+#: ../src/plugins/xkb/xkb-plugin.c:1429
 msgid "Panel Icon Size"
 msgstr "حجم أيقونة الشريط"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1361
+#: ../src/plugins/xkb/xkb-plugin.c:1511
 msgid "Handle keyboard layouts"
 msgstr "بدّل بين تخطيطات لوحة المفاتيح"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr "انقر بزر الفأرة الأيسر لتصغير جميع النوافذ. انقر بزر الفأرة الأوسط لتظليل جميع النوافذ."
+msgstr ""
+"انقر بزر الفأرة الأيسر لتصغير جميع النوافذ. انقر بزر الفأرة الأوسط لتظليل "
+"جميع النوافذ."
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
@@ -882,8 +882,14 @@ msgid "Mute"
 msgstr "كتم"
 
 #: ../src/plugins/volumealsa/volumealsa.c:638
-msgid "Error, you need to install an application to configure the sound (pavucontol, alsamixer ...)"
+msgid ""
+"Error, you need to install an application to configure the sound "
+"(pavucontol, alsamixer ...)"
 msgstr "خطأ, يجب عليك تثبيت تطبيق لضبط الصوت (pavucontol, alsamixer ...)"
+
+#: ../src/plugins/volumealsa/volumealsa.c:667
+msgid "Display and control volume for ALSA"
+msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
@@ -915,8 +921,7 @@ msgstr "كيبل الشبكة منزوع"
 msgid "Connection has limited or no connectivity"
 msgstr "الاتصال محدود أو معدوم الربط"
 
-#: ../src/plugins/netstat/netstat.c:350
-#: ../src/plugins/netstat/netstat.c:361
+#: ../src/plugins/netstat/netstat.c:350 ../src/plugins/netstat/netstat.c:361
 #: ../src/plugins/netstat/netstat.c:372
 msgid "IP Address:"
 msgstr "عنوان IP:"
@@ -925,38 +930,32 @@ msgstr "عنوان IP:"
 msgid "Remote IP:"
 msgstr "IP البعيد:"
 
-#: ../src/plugins/netstat/netstat.c:352
-#: ../src/plugins/netstat/netstat.c:363
+#: ../src/plugins/netstat/netstat.c:352 ../src/plugins/netstat/netstat.c:363
 #: ../src/plugins/netstat/netstat.c:374
 msgid "Netmask:"
 msgstr "قناع الشبكة:"
 
-#: ../src/plugins/netstat/netstat.c:353
-#: ../src/plugins/netstat/netstat.c:365
+#: ../src/plugins/netstat/netstat.c:353 ../src/plugins/netstat/netstat.c:365
 #: ../src/plugins/netstat/netstat.c:376
 msgid "Activity"
 msgstr "النشاط"
 
-#: ../src/plugins/netstat/netstat.c:353
-#: ../src/plugins/netstat/netstat.c:365
+#: ../src/plugins/netstat/netstat.c:353 ../src/plugins/netstat/netstat.c:365
 #: ../src/plugins/netstat/netstat.c:376
 msgid "Sent"
 msgstr "تم إرسال"
 
-#: ../src/plugins/netstat/netstat.c:353
-#: ../src/plugins/netstat/netstat.c:365
+#: ../src/plugins/netstat/netstat.c:353 ../src/plugins/netstat/netstat.c:365
 #: ../src/plugins/netstat/netstat.c:376
 msgid "Received"
 msgstr "تم استقبال"
 
-#: ../src/plugins/netstat/netstat.c:354
-#: ../src/plugins/netstat/netstat.c:366
+#: ../src/plugins/netstat/netstat.c:354 ../src/plugins/netstat/netstat.c:366
 #: ../src/plugins/netstat/netstat.c:377
 msgid "bytes"
 msgstr "بايت"
 
-#: ../src/plugins/netstat/netstat.c:355
-#: ../src/plugins/netstat/netstat.c:367
+#: ../src/plugins/netstat/netstat.c:355 ../src/plugins/netstat/netstat.c:367
 #: ../src/plugins/netstat/netstat.c:378
 msgid "packets"
 msgstr "حِزَم"
@@ -970,8 +969,7 @@ msgstr "لاسلكي"
 msgid "Protocol:"
 msgstr "البروتوكول"
 
-#: ../src/plugins/netstat/netstat.c:364
-#: ../src/plugins/netstat/netstat.c:375
+#: ../src/plugins/netstat/netstat.c:364 ../src/plugins/netstat/netstat.c:375
 msgid "HW Address:"
 msgstr "عنوان العتاد:"
 
@@ -1298,8 +1296,12 @@ msgstr "غير قادر على تحليل اسم الواجهة من '%s'"
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
 #, c-format
-msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
-msgstr "غير قادر على تحليل إحصائيات الواجهة من '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgid ""
+"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
+msgstr ""
+"غير قادر على تحليل إحصائيات الواجهة من '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
