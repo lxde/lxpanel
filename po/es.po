@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxpanel-0.3.5.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-27 10:10+0200\n"
-"PO-Revision-Date: 2013-07-25 10:42+0000\n"
+"PO-Revision-Date: 2013-08-27 23:58+0000\n"
 "Last-Translator: Adolfo <fitoschido@ubuntu.com>\n"
 "Language-Team: Spanish <daniel@tunki.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.5.0\n"
 "X-Poedit-Bookmarks: 19,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
-"X-POOTLE-MTIME: 1374748979.0\n"
+"X-POOTLE-MTIME: 1377647897.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -475,7 +475,7 @@ msgstr "Monitor de uso de la CPU"
 
 #: ../src/plugins/cpu/cpu.c:279 ../src/plugins/monitors/monitors.c:711
 msgid "Display CPU usage"
-msgstr "Mostrar uso del procesador"
+msgstr "Mostrar el uso de la CPU"
 
 #: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:440
 msgid "Bold font"
@@ -487,7 +487,7 @@ msgstr "Mostrar nombres de escritorios"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
-msgstr "N.º de escritorio/Nombre del área de trabajo"
+msgstr "N.º de escritorio/nombre del área de trabajo"
 
 #: ../src/plugins/deskno/deskno.c:237
 msgid "Display workspace number, by cmeury@users.sf.net"
@@ -606,9 +606,9 @@ msgid "Tooltip Format"
 msgstr "Formato del consejo"
 
 #: ../src/plugins/dclock.c:438
-#, fuzzy, c-format
+#, c-format
 msgid "Format codes: man 3 strftime; \\%n for line break"
-msgstr "Códigos de formato: man 3 strftime; \\n para salto de línea"
+msgstr "Códigos de formato: man 3 strftime; \\%n para un salto de línea"
 
 #: ../src/plugins/dclock.c:439
 msgid "Action when clicked (default: display calendar)"
@@ -656,7 +656,7 @@ msgstr "Separador"
 
 #: ../src/plugins/separator.c:104
 msgid "Add a separator to the panel"
-msgstr "Agregar separador al panel"
+msgstr "Añadir un separador al panel"
 
 #: ../src/plugins/pager.c:842
 msgid "Desktop Pager"
@@ -684,7 +684,7 @@ msgstr "Área de notificación"
 
 #: ../src/plugins/xkb/xkb-plugin.c:451
 msgid "New session is required for this option to take effect"
-msgstr ""
+msgstr "Necesita iniciar una sesión nueva para que esta opción surta efecto"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:604
@@ -744,15 +744,15 @@ msgstr "Cambiar opción de distribución"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1286
 msgid "Advanced setxkbmap Options"
-msgstr ""
+msgstr "Configuración avanzada de setxkbmap"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1306
 msgid "Do _not reset existing options"
-msgstr ""
+msgstr "_No restablecer las opciones existentes"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1311
 msgid "Keep _system layouts"
-msgstr ""
+msgstr "Mantener las distribuciones del _sistema"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1320
 msgid "Per Window Settings"
@@ -893,12 +893,12 @@ msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
 msgstr ""
-"Error, necesita instalar una aplicación para configurar el sonido "
-"(pavucontol, alsamixer ...)"
+"Necesita instalar una aplicación para configurar el sonido (pavucontol, "
+"alsamixer…)"
 
 #: ../src/plugins/volumealsa/volumealsa.c:667
 msgid "Display and control volume for ALSA"
-msgstr ""
+msgstr "Visor y control de volumen para ALSA"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
@@ -1509,7 +1509,7 @@ msgstr "Monitores de recursos"
 
 #: ../src/plugins/monitors/monitors.c:810
 msgid "Display monitors (CPU, RAM)"
-msgstr "Mostrar monitores (microprocesador, RAM)"
+msgstr "Mostrar los monitores (CPU, RAM)"
 
 #: ../src/plugins/wnckpager/wnckpager.c:720
 msgid "WNCKPager"
