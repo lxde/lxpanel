@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.3.8.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-27 10:10+0200\n"
-"PO-Revision-Date: 2012-10-14 12:36+0200\n"
+"PO-Revision-Date: 2013-08-27 10:31+0000\n"
 "Last-Translator: Wylmer <wantinghard@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: zh_CN\n"
@@ -16,7 +16,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1377599491.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -597,9 +598,9 @@ msgid "Tooltip Format"
 msgstr "工具提示格式"
 
 #: ../src/plugins/dclock.c:438
-#, fuzzy, c-format
+#, c-format
 msgid "Format codes: man 3 strftime; \\%n for line break"
-msgstr "格式代码：man 3 strftime；\\n 代表换行"
+msgstr "格式代码：man 3 strftime；\\%n 代表换行"
 
 #: ../src/plugins/dclock.c:439
 msgid "Action when clicked (default: display calendar)"
@@ -675,7 +676,7 @@ msgstr "系统托盘"
 
 #: ../src/plugins/xkb/xkb-plugin.c:451
 msgid "New session is required for this option to take effect"
-msgstr ""
+msgstr "此选项在新会话中才会生效"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:604
@@ -735,15 +736,15 @@ msgstr "更改布局选项"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1286
 msgid "Advanced setxkbmap Options"
-msgstr ""
+msgstr "高级 setxkbmap 选项"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1306
 msgid "Do _not reset existing options"
-msgstr ""
+msgstr "不重置已有的选项(_N)"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1311
 msgid "Keep _system layouts"
-msgstr ""
+msgstr "保持系统布局(_S)"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1320
 msgid "Per Window Settings"
@@ -885,7 +886,7 @@ msgstr "错误，您需要安装配置声音的应用程序(如 pavucontol、als
 
 #: ../src/plugins/volumealsa/volumealsa.c:667
 msgid "Display and control volume for ALSA"
-msgstr ""
+msgstr "显示和控制 ALSA 音量"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
