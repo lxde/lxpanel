@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: lxpanel r839\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-27 10:10+0200\n"
-"PO-Revision-Date: 2013-08-11 11:05+0000\n"
+"PO-Revision-Date: 2013-08-27 09:48+0000\n"
 "Last-Translator: Julien <Julius22@laposte.net>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "Language: fr\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1376219138.0\n"
+"X-POOTLE-MTIME: 1377596909.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -610,9 +610,9 @@ msgid "Tooltip Format"
 msgstr "Format des infobulles"
 
 #: ../src/plugins/dclock.c:438
-#, fuzzy, c-format
+#, c-format
 msgid "Format codes: man 3 strftime; \\%n for line break"
-msgstr "Codes de format : man 3 strftime ; \\n pour fin de ligne"
+msgstr "Codes de format : man 3 strftime ; \\%n pour fin de ligne"
 
 #: ../src/plugins/dclock.c:439
 msgid "Action when clicked (default: display calendar)"
@@ -688,7 +688,7 @@ msgstr "Zone de notification"
 
 #: ../src/plugins/xkb/xkb-plugin.c:451
 msgid "New session is required for this option to take effect"
-msgstr ""
+msgstr "Il faut redémarrer la session pour que cette option prenne effet"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:604
@@ -706,13 +706,12 @@ msgstr "Description"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:698
-#, fuzzy
 msgid "Select Layout Change Type"
-msgstr "Sélectionner un fichier image"
+msgstr "Sélectionner le type de changement de disposition"
 
 #: ../src/plugins/xkb/xkb-plugin.c:721
 msgid "Change Type"
-msgstr ""
+msgstr "Changer de type"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:843
@@ -728,9 +727,8 @@ msgid "Layout"
 msgstr "Disposition"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1160 ../src/plugins/xkb/xkb-plugin.c:1509
-#, fuzzy
 msgid "Keyboard Layout Handler"
-msgstr "Sélecteur de disposition du clavier"
+msgstr "Gestionnaire de dispositions de clavier"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1182
 msgid "Keyboard Model"
@@ -750,15 +748,15 @@ msgstr "Changer d'option de disposition"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1286
 msgid "Advanced setxkbmap Options"
-msgstr ""
+msgstr "Options avancées de setxkbmap"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1306
 msgid "Do _not reset existing options"
-msgstr ""
+msgstr "_Ne pas remettre les options à zéro"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1311
 msgid "Keep _system layouts"
-msgstr ""
+msgstr "Garder les dispositions du _système"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1320
 msgid "Per Window Settings"
@@ -906,7 +904,7 @@ msgstr ""
 
 #: ../src/plugins/volumealsa/volumealsa.c:667
 msgid "Display and control volume for ALSA"
-msgstr ""
+msgstr "Afficher et contrôler le volume pour ALSA"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
