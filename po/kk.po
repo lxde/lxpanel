@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-27 10:10+0200\n"
-"PO-Revision-Date: 2013-07-12 15:55+0000\n"
+"PO-Revision-Date: 2013-08-27 09:02+0000\n"
 "Last-Translator: sotrud_nik <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
 "Language: kk\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1373644559.0\n"
+"X-POOTLE-MTIME: 1377594139.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -598,9 +598,9 @@ msgid "Tooltip Format"
 msgstr "Хабарлама пішімі"
 
 #: ../src/plugins/dclock.c:438
-#, fuzzy, c-format
+#, c-format
 msgid "Format codes: man 3 strftime; \\%n for line break"
-msgstr "Пішім кодтары: man 3 strftime; \\n жолды тасымалдау үшін"
+msgstr "Пішім кодтары: man 3 strftime; \\%n жолды тасымалдау үшін"
 
 #: ../src/plugins/dclock.c:439
 msgid "Action when clicked (default: display calendar)"
@@ -676,7 +676,7 @@ msgstr "Жүйелік трей"
 
 #: ../src/plugins/xkb/xkb-plugin.c:451
 msgid "New session is required for this option to take effect"
-msgstr ""
+msgstr "Бұл өзгеріс іске асу үшін, сессияны қайта бастау керек"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:604
@@ -736,15 +736,15 @@ msgstr "Жайма опцияларын ауыстыру"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1286
 msgid "Advanced setxkbmap Options"
-msgstr ""
+msgstr "setxkbmap кеңейтілген баптаулары"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1306
 msgid "Do _not reset existing options"
-msgstr ""
+msgstr "Бар болып тұрған баптауларды таста_мау"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1311
 msgid "Keep _system layouts"
-msgstr ""
+msgstr "Жү_елік жаймаларды сақтап қалу"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1320
 msgid "Per Window Settings"
@@ -890,7 +890,7 @@ msgstr ""
 
 #: ../src/plugins/volumealsa/volumealsa.c:667
 msgid "Display and control volume for ALSA"
-msgstr ""
+msgstr "ALSA үшін дыбыс деңгейін көрсету және басқару"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
