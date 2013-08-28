@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-27 10:10+0200\n"
-"PO-Revision-Date: 2013-07-25 18:27+0000\n"
+"PO-Revision-Date: 2013-08-28 11:46+0000\n"
 "Last-Translator: kizito <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Luganda <kbirabwa@yahoo.co.uk>\n"
 "Language: lg\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1374776825.0\n"
+"X-POOTLE-MTIME: 1377690379.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -610,11 +610,11 @@ msgid "Tooltip Format"
 msgstr "Empandika y'amagezi"
 
 #: ../src/plugins/dclock.c:438
-#, fuzzy, c-format
+#, c-format
 msgid "Format codes: man 3 strftime; \\%n for line break"
 msgstr ""
-"Obubonero obufuga empandika: bunyonyolebwa 'man 3 strftime'; \\n katandisawo "
-"olunyiriri olupya"
+"Obubonero obufuga empandika: bunyonyolebwa mu man 3 strftime; \\%n "
+"katandisawo olunyiriri olupya"
 
 #: ../src/plugins/dclock.c:439
 msgid "Action when clicked (default: display calendar)"
@@ -690,7 +690,7 @@ msgstr "Kakuŋaanya obufaananyi bwa puloguramu ezitalabikira awakolerwa"
 
 #: ../src/plugins/xkb/xkb-plugin.c:451
 msgid "New session is required for this option to take effect"
-msgstr ""
+msgstr "Enteekateeka eno ejakutandika okukolera mu lutuula oluddako"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:604
@@ -750,15 +750,15 @@ msgstr "Kyusa mu ntereeza"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1286
 msgid "Advanced setxkbmap Options"
-msgstr ""
+msgstr "Enteekateeka eza setxkbmap ez'etaagisa bumanyirivu"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1306
 msgid "Do _not reset existing options"
-msgstr ""
+msgstr "Enteekateeka _ezisangidwawo zirekewo"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1311
 msgid "Keep _system layouts"
-msgstr ""
+msgstr "Entereeza eza _sisitemu zirekewo"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1320
 msgid "Per Window Settings"
@@ -906,7 +906,7 @@ msgstr ""
 
 #: ../src/plugins/volumealsa/volumealsa.c:667
 msgid "Display and control volume for ALSA"
-msgstr ""
+msgstr "Ekiteekateeka ddoboozi lya ALSA"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
