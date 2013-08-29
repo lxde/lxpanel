@@ -10,7 +10,7 @@ msgstr ""
 "POT-Creation-Date: 2013-08-27 10:10+0200\n"
 "PO-Revision-Date: 2012-09-30 08:53+0200\n"
 "Last-Translator: Радослав <reckku@gmail.com>\n"
-"MIME-Version: 1.0\n
+"MIME-Version: 1.0\n"
 "Language: bg\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
