@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-27 10:10+0200\n"
-"PO-Revision-Date: 2013-08-27 18:12+0200\n"
+"PO-Revision-Date: 2013-08-29 08:38+0200\n"
 "Last-Translator: Algimantas Margevičius <margevicius.algimantas@gmail.com>\n"
 "Language-Team: Lietuvių <>\n"
 "Language: lt\n"
@@ -70,7 +70,7 @@ msgid ""
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
 "Ar tikrai norite ištrinti šį skydelį?\n"
-"<b>Įspėjimas: skydelis negalės būti atkurtas.</b>"
+"<b>Įspėjimas: skydelio atkurti neįmanoma.</b>"
 
 #: ../src/panel.c:660
 msgid "Confirm"
@@ -317,15 +317,15 @@ msgstr "% procentų"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "None"
-msgstr "Joks"
+msgstr "Nieko"
 
 #: ../data/ui/panel-pref.glade.h:6
 msgid "Err"
-msgstr "Kld "
+msgstr "Klaidos"
 
 #: ../data/ui/panel-pref.glade.h:7
 msgid "Warn"
-msgstr "Persp"
+msgstr "Perspėjimai"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "Info"
@@ -333,7 +333,7 @@ msgstr "Info"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "All"
-msgstr "Visi"
+msgstr "Viskas"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "Panel Preferences"
@@ -430,11 +430,11 @@ msgstr "<b>Nustatyti pageidaujamas programas</b>"
 
 #: ../data/ui/panel-pref.glade.h:39
 msgid "Make window managers treat the panel as dock"
-msgstr "Padaryti, kad langų tvarkyklės matytų skydelį kaip doką"
+msgstr "Langų tvarkyklės skydelį matys kaip doką"
 
 #: ../data/ui/panel-pref.glade.h:40
 msgid "Reserve space, and not covered by maximized windows"
-msgstr "Rezervuota vieta, neuždengta išdidintų langų"
+msgstr "Rezervuota vieta neuždengiama išdidintų langų"
 
 #: ../data/ui/panel-pref.glade.h:41
 msgid "<b>Properties</b>"
