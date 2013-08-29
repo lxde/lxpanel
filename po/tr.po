@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-27 10:10+0200\n"
-"PO-Revision-Date: 2012-10-09 02:24+0200\n"
-"Last-Translator: Necdet <necdetyucel@gmail.com>\n"
+"PO-Revision-Date: 2013-08-29 08:27+0000\n"
+"Last-Translator: vgezer <volkangezer@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1377764821.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -608,9 +609,9 @@ msgid "Tooltip Format"
 msgstr "Görsel İpucu Biçimi"
 
 #: ../src/plugins/dclock.c:438
-#, fuzzy, c-format
+#, c-format
 msgid "Format codes: man 3 strftime; \\%n for line break"
-msgstr "Biçim kodları: man 3 strftime; \\n satır sonu için"
+msgstr "Biçim kodları: man 3 strftime; \\%n satır sonu için"
 
 #: ../src/plugins/dclock.c:439
 msgid "Action when clicked (default: display calendar)"
@@ -686,7 +687,7 @@ msgstr "Sistem tepsisi"
 
 #: ../src/plugins/xkb/xkb-plugin.c:451
 msgid "New session is required for this option to take effect"
-msgstr ""
+msgstr "Bu seçeneğin etkili olması için yeni oturum gereklidir"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:604
@@ -746,15 +747,15 @@ msgstr "Yerleşim Seçeneğini Değiştir"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1286
 msgid "Advanced setxkbmap Options"
-msgstr ""
+msgstr "Gelişmiş setxkbmap Seçenekleri"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1306
 msgid "Do _not reset existing options"
-msgstr ""
+msgstr "Mevcut seçenekleri sıfırla_ma"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1311
 msgid "Keep _system layouts"
-msgstr ""
+msgstr "_Sistem yerleşimini koru"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1320
 msgid "Per Window Settings"
@@ -901,7 +902,7 @@ msgstr ""
 
 #: ../src/plugins/volumealsa/volumealsa.c:667
 msgid "Display and control volume for ALSA"
-msgstr ""
+msgstr "ALSA için ses seviyesini görüntüle ve kontrol et"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
