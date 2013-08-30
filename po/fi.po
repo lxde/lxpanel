@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-27 10:10+0200\n"
-"PO-Revision-Date: 2013-08-27 13:30+0000\n"
+"PO-Revision-Date: 2013-08-30 14:04+0000\n"
 "Last-Translator: Juhani <juhaninumminen0@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fi\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1377610231.0\n"
+"X-POOTLE-MTIME: 1377871453.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -73,12 +73,14 @@ msgstr ""
 
 #: ../src/panel.c:660
 msgid "Confirm"
-msgstr "Varmista"
+msgstr "Vahvista"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:693
 msgid "translator-credits"
-msgstr "Elias Julkunen, 2010Juhani Numminen, 2013"
+msgstr ""
+"Elias Julkunen, 2010\n"
+"Juhani Numminen, 2013"
 
 #: ../src/panel.c:698
 msgid "LXPanel"
@@ -181,7 +183,7 @@ msgstr ""
 #: ../src/panel.c:1507
 #, c-format
 msgid " --profile name -- use specified profile\n"
-msgstr "--profile <nimi> -- käyttää tiettyä profiilia\n"
+msgstr " --profile <nimi> -- käyttää tiettyä profiilia\n"
 
 #: ../src/panel.c:1509
 #, c-format
@@ -742,16 +744,15 @@ msgstr "Edistyneet setxkbmapin valinnat"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1306
 msgid "Do _not reset existing options"
-msgstr ""
+msgstr "Ä_lä tyhjennä edellisiä asetuksia"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1311
 msgid "Keep _system layouts"
-msgstr ""
+msgstr "Pidä _järjestelmäasettelut"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1320
-#, fuzzy
 msgid "Per Window Settings"
-msgstr "Paneelin asetukset"
+msgstr "Ikkunakohtaiset asetukset"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1332
 msgid "_Remember layout for each window"
@@ -1194,23 +1195,23 @@ msgstr "Metricom Starmode IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:906
 msgid "Serial Line IP"
-msgstr ""
+msgstr "Sarjalinja-IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:909
 msgid "VJ Serial Line IP"
-msgstr ""
+msgstr "VJ-sarjalinja-IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:912
 msgid "6-bit Serial Line IP"
-msgstr ""
+msgstr "6-bittinen sarjalinja-IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:915
 msgid "VJ 6-bit Serial Line IP"
-msgstr ""
+msgstr "6-bittinen VJ-sarjalinja-IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:921
 msgid "Adaptive Serial Line IP"
-msgstr ""
+msgstr "Mukautuva sarjalinja-IP"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:924
 msgid "AMPR ROSE"
@@ -1238,7 +1239,7 @@ msgstr "IPIP-tunneli"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:954
 msgid "Frame Relay Access Device"
-msgstr ""
+msgstr "Frame Relay -liityntälaite"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:960
 msgid "Local Loopback"
@@ -1246,7 +1247,7 @@ msgstr "Paikallinen silmukka"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:966
 msgid "Fiber Distributed Data Interface"
-msgstr ""
+msgstr "Fiber Distributed Data Interface"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:972
 msgid "IPv6-in-IPv4"
@@ -1443,9 +1444,8 @@ msgid "No Indicators"
 msgstr "Ei ilmaisimia"
 
 #: ../src/plugins/indicator/indicator.c:897
-#, fuzzy
 msgid "Indicator Applications"
-msgstr "Valitse sovellus"
+msgstr "Ilmaisinsovellukset"
 
 #: ../src/plugins/indicator/indicator.c:898
 msgid "Clock Indicator"
@@ -1507,11 +1507,11 @@ msgstr "Resurssienhallinta"
 
 #: ../src/plugins/monitors/monitors.c:810
 msgid "Display monitors (CPU, RAM)"
-msgstr ""
+msgstr "Näyttää mittareita (suoritin, muisti)"
 
 #: ../src/plugins/wnckpager/wnckpager.c:720
 msgid "WNCKPager"
-msgstr ""
+msgstr "WNCK-sivuttaja"
 
 #: ../src/plugins/wnckpager/wnckpager.c:722
 msgid "WNCKpager plugin"
