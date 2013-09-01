@@ -231,7 +231,7 @@ static void launchbar_configure_initialize_list(Plugin * p, GtkWidget * dlg, Gtk
 static void launchbar_configure(Plugin * p, GtkWindow * parent);
 static void launchbar_save_configuration(Plugin * p, FILE * fp);
 static void launchbar_panel_configuration_changed(Plugin * p);
-static void launchbar_update_after_taskbar_class_added(LaunchbarPlugin * lb, const gchar * res_class);
+static void launchbar_update_after_taskbar_class_added(LaunchbarPlugin * lb, const gchar * res_class, Window win);
 static void launchbar_update_after_taskbar_class_removed(LaunchbarPlugin * lb, const gchar * res_class);
 
 static void set_timer_on_task(Task * tk);
@@ -420,9 +420,9 @@ static void launchbutton_build_bootstrap(Plugin * p)
         icon_grid_set_visible(lb->icon_grid, lb->bootstrap_button->widget, TRUE);
 }
 
-static void launchbar_update_after_taskbar_class_added(LaunchbarPlugin * lb, const gchar * res_class)
+static void launchbar_update_after_taskbar_class_added(LaunchbarPlugin * lb, const gchar * res_class, Window win)
 {
-    g_print("\nres_class '%s' added\n", res_class != NULL ? res_class : "NULL");
+    g_print("\nres_class '%s' pid=%u\n", res_class != NULL ? res_class : "NULL", get_net_wm_pid(win));
 }
 
 static void launchbar_update_after_taskbar_class_removed(LaunchbarPlugin * lb, const gchar * res_class)
@@ -1829,7 +1829,7 @@ static void task_set_class(Task * tk)
                 recompute_group_visibility_for_class(tk->tb, tc);
                 
                 /* Action in Launchbar after class added */
-                launchbar_update_after_taskbar_class_added(tk->tb->plug->priv, tc->res_class);
+                launchbar_update_after_taskbar_class_added(tk->tb->plug->priv, tc->res_class, tk->win);
             }
         }
         XFree(ch.res_class);
