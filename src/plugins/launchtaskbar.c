@@ -476,7 +476,7 @@ static void launchbar_update_after_taskbar_class_added(LaunchbarPlugin * lb, Tas
         else p_char++;
     }
     snprintf(tk->exec_bin, 128, "%s", p_char);
-    g_print("\nTask Bar exec_bin=%s (pid=%u) in LB: %c\n",
+    g_print("\nTB exec_bin=%s (pid=%u) in LB: %c\n",
         tk->exec_bin, pid, launchbar_exec_bin_exists(lb, tk->exec_bin) ? 'Y':'N');
 }
 
@@ -539,7 +539,7 @@ static void launchbutton_build_gui(Plugin * p, LaunchButton * btn)
                 *p_char = '\0';
             }
             btn->exec_bin = strdup(exec_bin);
-            g_print("\nLauncher exec_bin='%s'\n", btn->exec_bin);
+            g_print("\nLB exec_bin='%s'\n", btn->exec_bin);
 
             btn->use_terminal = g_key_file_get_boolean(desktop, DESKTOP_ENTRY, "Terminal", NULL);
 
@@ -2442,7 +2442,7 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
                 GtkWidget * mi = gtk_image_menu_item_new_with_label(((tk_cursor->iconified) ? tk_cursor->name_iconified : tk_cursor->name));
                 GtkWidget * im = gtk_image_new_from_pixbuf(gtk_image_get_pixbuf(GTK_IMAGE(tk_cursor->image)));
                 gtk_image_menu_item_set_image(GTK_IMAGE_MENU_ITEM(mi), im);
-                g_signal_connect(mi, "button_press_event", G_CALLBACK(taskbar_popup_activate_event), (gpointer) tk_cursor);
+                g_signal_connect(mi, "button-press-event", G_CALLBACK(taskbar_popup_activate_event), (gpointer) tk_cursor);
             gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
             }
         }
@@ -2483,6 +2483,10 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
         else if (event->button == 3)
         {
             /* Right button.  Bring up the window state popup menu. */
+            LaunchbarPlugin *lb = (LaunchbarPlugin *)tk->tb->plug->priv;
+            g_print("\nTB right-click exec_bin=%s in LB: %c\n",
+                tk->exec_bin, launchbar_exec_bin_exists(lb, tk->exec_bin) ? 'Y':'N');
+            
             tk->tb->menutask = tk;
             gtk_menu_popup(
                 GTK_MENU(tb->menu),
@@ -2648,7 +2652,7 @@ static void task_build_gui(TaskbarPlugin * tb, Task * tk)
     gtk_drag_dest_set(tk->button, 0, NULL, 0, 0);
 
     /* Connect signals to the button. */
-    g_signal_connect(tk->button, "button_press_event", G_CALLBACK(taskbar_button_press_event), (gpointer) tk);
+    g_signal_connect(tk->button, "button-press-event", G_CALLBACK(taskbar_button_press_event), (gpointer) tk);
     g_signal_connect(G_OBJECT(tk->button), "drag-motion", G_CALLBACK(taskbar_button_drag_motion), (gpointer) tk);
     g_signal_connect(G_OBJECT(tk->button), "drag-leave", G_CALLBACK(taskbar_button_drag_leave), (gpointer) tk);
     g_signal_connect_after(G_OBJECT (tk->button), "enter", G_CALLBACK(taskbar_button_enter), (gpointer) tk);
