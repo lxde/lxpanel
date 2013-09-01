@@ -231,7 +231,7 @@ static void launchbar_configure_initialize_list(Plugin * p, GtkWidget * dlg, Gtk
 static void launchbar_configure(Plugin * p, GtkWindow * parent);
 static void launchbar_save_configuration(Plugin * p, FILE * fp);
 static void launchbar_panel_configuration_changed(Plugin * p);
-static void launchbar_update_after_taskbar_class_added(LaunchbarPlugin * lb, const gchar * res_class, Window win);
+static void launchbar_update_after_taskbar_class_added(LaunchbarPlugin * lb, Window win);
 static void launchbar_update_after_taskbar_class_removed(LaunchbarPlugin * lb, const gchar * res_class);
 
 static void set_timer_on_task(Task * tk);
@@ -292,28 +292,28 @@ static void taskbar_window_manager_changed(GdkScreen * screen, TaskbarPlugin * t
 static void taskbar_build_gui(Plugin * p);
 static void taskbar_apply_configuration(Plugin * p);
 
-static const gchar *f_get_exec_cmd_from_pid(GPid pid, gchar *buffer_32)
+static const gchar *f_get_exec_cmd_from_pid(GPid pid, gchar *buffer_128)
 {
     FILE *pipe;
     gchar  command[64];
-    snprintf(command, 64, "ps -e | grep %u | awk '{ print $NF }'", pid);
+    snprintf(command, 64, "ps -ef | grep %u | awk '{ print $NF }'", pid);
     pipe = popen(command, "r");
     if(pipe == NULL)
     {
         g_print("ERR popen '%s'\n", command);
-        buffer_32[0] = '\0';
+        buffer_128[0] = '\0';
         return "";
     }
-    if(fgets(buffer_32, 32, pipe) == NULL)
+    if(fgets(buffer_128, 128, pipe) == NULL)
     {
         g_print("ERR fgets '%s'\n", command);
         pclose(pipe);
-        buffer_32[0] = '\0';
+        buffer_128[0] = '\0';
         return "";
     }
-    buffer_32[strlen(buffer_32)-1] = '\0';
+    buffer_128[strlen(buffer_128)-1] = '\0';
     pclose(pipe);
-    return (const char *)buffer_32;
+    return (const char *)buffer_128;
 }
 
 /* Deallocate a LaunchButton. */
@@ -438,17 +438,17 @@ static void launchbutton_build_bootstrap(Plugin * p)
         gtk_container_add(GTK_CONTAINER(event_box), lb->bootstrap_button->image_widget);
 
         /* Add the bootstrap button to the icon grid.  By policy it is empty at this point. */
-        icon_grid_add(lb->icon_grid, event_box, TRUE); 
+        icon_grid_add(lb->icon_grid, event_box, TRUE);
     }
     else
         icon_grid_set_visible(lb->icon_grid, lb->bootstrap_button->widget, TRUE);
 }
 
-static void launchbar_update_after_taskbar_class_added(LaunchbarPlugin * lb, const gchar * res_class, Window win)
+static void launchbar_update_after_taskbar_class_added(LaunchbarPlugin * lb, Window win)
 {
     GPid   pid = get_net_wm_pid(win);
-    gchar  exec_name[32];
-    g_print("\nres_class '%s' pid=%u, exec=%s\n", res_class != NULL ? res_class : "NULL", pid, f_get_exec_cmd_from_pid(pid, exec_name));
+    gchar  exec_bin[128];
+    g_print("\nLoaded Task Bar exec_bin='%s' (pid=%u)\n", f_get_exec_cmd_from_pid(pid, exec_bin), pid);
 }
 
 static void launchbar_update_after_taskbar_class_removed(LaunchbarPlugin * lb, const gchar * res_class)
@@ -500,16 +500,16 @@ static void launchbutton_build_gui(Plugin * p, LaunchButton * btn)
                 btn->action = translate_exec_to_cmd(exec, icon, title, btn->desktop_id);
                 g_free(exec);
             }
-            GString *p_gstring_exec_bin = g_string_new("");
-            gchar   *p_char = exec;
-            //while(p_char && (*p_char != ' ') && (*p_char != '\0'))
-            //{
-            //    g_string_append_c(p_gstring_exec_bin, *p_char);
-            //}
-            g_print("\nexec='%s' action='%s'\n", exec, btn->action);
-            //g_print("exec bin '%s'\n", p_gstring_exec_bin->str);
-            g_string_free(p_gstring_exec_bin, TRUE/*free also gstring->str*/);
+
+            gchar  exec_bin[128];
+            snprintf(exec_bin, 128, "%s", exec);
             g_free(exec);
+            gchar *p_char = exec_bin;
+            if( (p_char = strchr(exec_bin, ' ')) != NULL )
+            {
+                *p_char = '\0';
+            }
+            g_print("\nLoaded Launcher exec_bin='%s'\n", exec_bin);
 
             btn->use_terminal = g_key_file_get_boolean(desktop, DESKTOP_ENTRY, "Terminal", NULL);
 
@@ -1855,7 +1855,7 @@ static void task_set_class(Task * tk)
                 recompute_group_visibility_for_class(tk->tb, tc);
                 
                 /* Action in Launchbar after class added */
-                launchbar_update_after_taskbar_class_added(tk->tb->plug->priv, tc->res_class, tk->win);
+                launchbar_update_after_taskbar_class_added(tk->tb->plug->priv, tk->win);
             }
         }
         XFree(ch.res_class);
