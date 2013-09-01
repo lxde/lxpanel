@@ -69,6 +69,10 @@ static void init_plugin_class_list(void)
     REGISTER_STATIC_PLUGIN_CLASS(launchbar_plugin_class);
 #endif
 
+#ifdef STATIC_LAUNCHTASKBAR
+    REGISTER_STATIC_PLUGIN_CLASS(launchtaskbar_plugin_class);
+#endif
+
 #ifdef STATIC_DCLOCK
     REGISTER_STATIC_PLUGIN_CLASS(dclock_plugin_class);
 #endif

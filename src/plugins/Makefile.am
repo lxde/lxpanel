@@ -32,6 +32,7 @@ PLUGINS_SOURCES = \
 	dirmenu.c \
 	image.c \
 	launchbar.c \
+	launchtaskbar.c \
 	pager.c \
 	separator.c \
 	space.c \

@@ -96,6 +96,7 @@ extern void plugin_adjust_popup_position(GtkWidget * popup, Plugin * plugin);
 /* FIXME: optional definitions */
 #define STATIC_SEPARATOR
 #define STATIC_LAUNCHBAR
+#define STATIC_LAUNCHTASKBAR
 #define STATIC_DCLOCK
 #define STATIC_WINCMD
 #define STATIC_DIRMENU
