@@ -294,28 +294,18 @@ static void taskbar_window_manager_changed(GdkScreen * screen, TaskbarPlugin * t
 static void taskbar_build_gui(Plugin * p);
 static void taskbar_apply_configuration(Plugin * p);
 
-static const gchar *f_get_exec_cmd_from_pid(GPid pid, gchar *buffer_128)
+static void f_get_exec_cmd_from_pid(GPid pid, gchar *buffer_128)
 {
+    buffer_128[0] = '\0';
     FILE *pipe;
     gchar  command[64];
-    snprintf(command, 64, "ps -ef | grep %u | awk '{ print $NF }'", pid);
+    snprintf(command, 64, "cat /proc/%u/cmdline", pid);
     pipe = popen(command, "r");
     if(pipe == NULL)
-    {
         g_print("ERR popen '%s'\n", command);
-        buffer_128[0] = '\0';
-        return "";
-    }
-    if(fgets(buffer_128, 128, pipe) == NULL)
-    {
+    else if(fgets(buffer_128, 128, pipe) == NULL)
         g_print("ERR fgets '%s'\n", command);
-        pclose(pipe);
-        buffer_128[0] = '\0';
-        return "";
-    }
-    buffer_128[strlen(buffer_128)-1] = '\0';
-    pclose(pipe);
-    return (const char *)buffer_128;
+    if(pipe != NULL) pclose(pipe);
 }
 
 /* Deallocate a LaunchButton. */
@@ -447,6 +437,24 @@ static void launchbutton_build_bootstrap(Plugin * p)
         icon_grid_set_visible(lb->icon_grid, lb->bootstrap_button->widget, TRUE);
 }
 
+static gboolean launchbar_exec_bin_exists(LaunchbarPlugin *lb, gchar *exec_bin)
+{
+    if(!exec_bin) return FALSE;
+    
+    gboolean ret_val = FALSE;
+    GSList* l;
+    for(l = lb->buttons; l != NULL; l = l->next)
+    {
+        LaunchButton *btn = (LaunchButton *)l->data;
+        if(strcmp(btn->exec_bin, exec_bin) == 0)
+        {
+            ret_val = TRUE;
+            break;
+        }
+    }
+    return ret_val;
+}
+
 static void launchbar_update_after_taskbar_class_added(LaunchbarPlugin * lb, Task *tk)
 {
     GPid   pid = get_net_wm_pid(tk->win);
@@ -455,8 +463,9 @@ static void launchbar_update_after_taskbar_class_added(LaunchbarPlugin * lb, Tas
     gchar *p_char = strrchr(exec_bin_full, '/');
     if(p_char == NULL) p_char = exec_bin_full;
     else p_char++;
-    snprintf(tk->exec_bin, 128, p_char);
-    g_print("\nTask Bar exec_bin='%s' (pid=%u)\n", tk->exec_bin, pid);
+    snprintf(tk->exec_bin, 128, "%s", p_char);
+    g_print("\nTask Bar exec_bin=%s(%s) (pid=%u) in LB: %c\n",
+        tk->exec_bin, exec_bin_full, pid, launchbar_exec_bin_exists(lb, tk->exec_bin) ? 'Y':'N');
 }
 
 static void launchbar_update_after_taskbar_class_removed(LaunchbarPlugin * lb, const gchar * res_class)
@@ -510,7 +519,7 @@ static void launchbutton_build_gui(Plugin * p, LaunchButton * btn)
             }
 
             gchar  exec_bin[128];
-            snprintf(exec_bin, 128, exec);
+            snprintf(exec_bin, 128, "%s", exec);
             g_free(exec);
             gchar *p_char = exec_bin;
             if( (p_char = strchr(exec_bin, ' ')) != NULL )
