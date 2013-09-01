@@ -103,6 +103,7 @@ typedef struct _task {
     Window win;                             /* X window ID */
     char * name;                            /* Taskbar label when normal, from WM_NAME or NET_WM_NAME */
     char * name_iconified;                  /* Taskbar label when iconified */
+    char exec_bin[128];                     /* Exec bin associated to Window */
     Atom name_source;                       /* Atom that is the source of taskbar label */
     TaskClass * p_taskclass;                /* Class, from WM_CLASS */
     struct _task * p_task_flink_same_class; /* Forward link to task in same class */
@@ -181,10 +182,11 @@ static gchar *launchbar_rc = "style 'launchtaskbar-style'\n"
 typedef struct {
     Plugin * plugin;            /* Back pointer to plugin */
     GtkWidget * widget;         /* Pointer to button */
-    GtkWidget * image_widget;       /* Pointer to image */
+    GtkWidget * image_widget;   /* Pointer to image */
     gchar * desktop_id;         /* Name of application (desktop file name less the .desktop) */
-    gchar * image;          /* Image icon (from Icon entry) */
-    gchar * action;         /* Action (from Exec entry) */
+    gchar * image;              /* Image icon (from Icon entry) */
+    gchar * action;             /* Action (from Exec entry) */
+    gchar * exec_bin;           /* Exec bin associated to desktop file */
     gchar * tooltip;            /* Tooltip (from Name entry) */
     guchar use_terminal : 1;        /* True if Terminal=true or from configuration file */
     guchar customize_image : 1;     /* True if image icon from configuration file */
@@ -231,7 +233,7 @@ static void launchbar_configure_initialize_list(Plugin * p, GtkWidget * dlg, Gtk
 static void launchbar_configure(Plugin * p, GtkWindow * parent);
 static void launchbar_save_configuration(Plugin * p, FILE * fp);
 static void launchbar_panel_configuration_changed(Plugin * p);
-static void launchbar_update_after_taskbar_class_added(LaunchbarPlugin * lb, Window win);
+static void launchbar_update_after_taskbar_class_added(LaunchbarPlugin * lb, Task *tk);
 static void launchbar_update_after_taskbar_class_removed(LaunchbarPlugin * lb, const gchar * res_class);
 
 static void set_timer_on_task(Task * tk);
@@ -322,6 +324,7 @@ static void launchbutton_free(LaunchButton * btn)
     g_free(btn->desktop_id);
     g_free(btn->image);
     g_free(btn->action);
+    g_free(btn->exec_bin);
     g_free(btn->tooltip);
     g_free(btn);
 }
@@ -444,11 +447,16 @@ static void launchbutton_build_bootstrap(Plugin * p)
         icon_grid_set_visible(lb->icon_grid, lb->bootstrap_button->widget, TRUE);
 }
 
-static void launchbar_update_after_taskbar_class_added(LaunchbarPlugin * lb, Window win)
+static void launchbar_update_after_taskbar_class_added(LaunchbarPlugin * lb, Task *tk)
 {
-    GPid   pid = get_net_wm_pid(win);
-    gchar  exec_bin[128];
-    g_print("\nLoaded Task Bar exec_bin='%s' (pid=%u)\n", f_get_exec_cmd_from_pid(pid, exec_bin), pid);
+    GPid   pid = get_net_wm_pid(tk->win);
+    gchar  exec_bin_full[128];
+    f_get_exec_cmd_from_pid(pid, exec_bin_full);
+    gchar *p_char = strrchr(exec_bin_full, '/');
+    if(p_char == NULL) p_char = exec_bin_full;
+    else p_char++;
+    snprintf(tk->exec_bin, 128, p_char);
+    g_print("\nTask Bar exec_bin='%s' (pid=%u)\n", tk->exec_bin, pid);
 }
 
 static void launchbar_update_after_taskbar_class_removed(LaunchbarPlugin * lb, const gchar * res_class)
@@ -502,14 +510,15 @@ static void launchbutton_build_gui(Plugin * p, LaunchButton * btn)
             }
 
             gchar  exec_bin[128];
-            snprintf(exec_bin, 128, "%s", exec);
+            snprintf(exec_bin, 128, exec);
             g_free(exec);
             gchar *p_char = exec_bin;
             if( (p_char = strchr(exec_bin, ' ')) != NULL )
             {
                 *p_char = '\0';
             }
-            g_print("\nLoaded Launcher exec_bin='%s'\n", exec_bin);
+            btn->exec_bin = strdup(exec_bin);
+            g_print("\nLauncher exec_bin='%s'\n", btn->exec_bin);
 
             btn->use_terminal = g_key_file_get_boolean(desktop, DESKTOP_ENTRY, "Terminal", NULL);
 
@@ -1855,7 +1864,7 @@ static void task_set_class(Task * tk)
                 recompute_group_visibility_for_class(tk->tb, tc);
                 
                 /* Action in Launchbar after class added */
-                launchbar_update_after_taskbar_class_added(tk->tb->plug->priv, tk->win);
+                launchbar_update_after_taskbar_class_added(tk->tb->plug->priv, tk);
             }
         }
         XFree(ch.res_class);
