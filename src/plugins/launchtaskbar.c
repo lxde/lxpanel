@@ -294,17 +294,22 @@ static void taskbar_window_manager_changed(GdkScreen * screen, TaskbarPlugin * t
 static void taskbar_build_gui(Plugin * p);
 static void taskbar_apply_configuration(Plugin * p);
 
-static void f_get_exec_cmd_from_pid(GPid pid, gchar *buffer_128)
+static void f_get_exec_cmd_from_pid(GPid pid, gchar *buffer_128, const gchar *proc_file)
 {
     buffer_128[0] = '\0';
     FILE *pipe;
     gchar  command[64];
-    snprintf(command, 64, "cat /proc/%u/cmdline", pid);
+    snprintf(command, 64, "cat /proc/%u/%s", pid, proc_file);
     pipe = popen(command, "r");
     if(pipe == NULL)
         g_print("ERR popen '%s'\n", command);
     else if(fgets(buffer_128, 128, pipe) == NULL)
         g_print("ERR fgets '%s'\n", command);
+    else
+    {
+        gchar *p_char = strchr(buffer_128, '\n');
+        if(p_char != NULL) *p_char = '\0';
+    }
     if(pipe != NULL) pclose(pipe);
 }
 
@@ -459,13 +464,20 @@ static void launchbar_update_after_taskbar_class_added(LaunchbarPlugin * lb, Tas
 {
     GPid   pid = get_net_wm_pid(tk->win);
     gchar  exec_bin_full[128];
-    f_get_exec_cmd_from_pid(pid, exec_bin_full);
+    f_get_exec_cmd_from_pid(pid, exec_bin_full, "cmdline");
     gchar *p_char = strrchr(exec_bin_full, '/');
     if(p_char == NULL) p_char = exec_bin_full;
     else p_char++;
+    if(strcmp(p_char, "python") == 0)
+    {
+        f_get_exec_cmd_from_pid(pid, exec_bin_full, "comm");
+        p_char = strrchr(exec_bin_full, '/');
+        if(p_char == NULL) p_char = exec_bin_full;
+        else p_char++;
+    }
     snprintf(tk->exec_bin, 128, "%s", p_char);
-    g_print("\nTask Bar exec_bin=%s(%s) (pid=%u) in LB: %c\n",
-        tk->exec_bin, exec_bin_full, pid, launchbar_exec_bin_exists(lb, tk->exec_bin) ? 'Y':'N');
+    g_print("\nTask Bar exec_bin=%s (pid=%u) in LB: %c\n",
+        tk->exec_bin, pid, launchbar_exec_bin_exists(lb, tk->exec_bin) ? 'Y':'N');
 }
 
 static void launchbar_update_after_taskbar_class_removed(LaunchbarPlugin * lb, const gchar * res_class)
