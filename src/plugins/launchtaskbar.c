@@ -292,6 +292,30 @@ static void taskbar_window_manager_changed(GdkScreen * screen, TaskbarPlugin * t
 static void taskbar_build_gui(Plugin * p);
 static void taskbar_apply_configuration(Plugin * p);
 
+static const gchar *f_get_exec_cmd_from_pid(GPid pid, gchar *buffer_32)
+{
+    FILE *pipe;
+    gchar  command[64];
+    snprintf(command, 64, "ps -e | grep %u | awk '{ print $NF }'", pid);
+    pipe = popen(command, "r");
+    if(pipe == NULL)
+    {
+        g_print("ERR popen '%s'\n", command);
+        buffer_32[0] = '\0';
+        return "";
+    }
+    if(fgets(buffer_32, 32, pipe) == NULL)
+    {
+        g_print("ERR fgets '%s'\n", command);
+        pclose(pipe);
+        buffer_32[0] = '\0';
+        return "";
+    }
+    buffer_32[strlen(buffer_32)-1] = '\0';
+    pclose(pipe);
+    return (const char *)buffer_32;
+}
+
 /* Deallocate a LaunchButton. */
 static void launchbutton_free(LaunchButton * btn)
 {
@@ -422,7 +446,9 @@ static void launchbutton_build_bootstrap(Plugin * p)
 
 static void launchbar_update_after_taskbar_class_added(LaunchbarPlugin * lb, const gchar * res_class, Window win)
 {
-    g_print("\nres_class '%s' pid=%u\n", res_class != NULL ? res_class : "NULL", get_net_wm_pid(win));
+    GPid   pid = get_net_wm_pid(win);
+    gchar  exec_name[32];
+    g_print("\nres_class '%s' pid=%u, exec=%s\n", res_class != NULL ? res_class : "NULL", pid, f_get_exec_cmd_from_pid(pid, exec_name));
 }
 
 static void launchbar_update_after_taskbar_class_removed(LaunchbarPlugin * lb, const gchar * res_class)
