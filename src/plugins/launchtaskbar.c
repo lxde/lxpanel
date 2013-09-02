@@ -229,17 +229,17 @@ static void launchbutton_drag_data_received_event(
 static void launchbutton_build_bootstrap(Plugin * p);
 static void launchbutton_build_gui(Plugin * p, LaunchButton * btn);
 static int launchbutton_constructor(Plugin * p, char ** fp);
-static int launchbar_constructor(Plugin * p, char ** fp);
-static void launchbar_destructor(Plugin * p);
+static int launchtaskbar_constructor(Plugin * p, char ** fp);
+static void launchtaskbar_destructor(Plugin * p);
 static void launchbar_configure_add_button(GtkButton * widget, Plugin * p);
 static void launchbar_configure_remove_button(GtkButton * widget, Plugin * p);
 static void launchbar_configure_move_up_button(GtkButton * widget, Plugin * p);
 static void launchbar_configure_move_down_button(GtkButton * widget, Plugin * p);
 static void launchbar_configure_response(GtkDialog * dlg, int response, Plugin * p);
 static void launchbar_configure_initialize_list(Plugin * p, GtkWidget * dlg, GtkTreeView * view, gboolean from_menu);
-static void launchbar_configure(Plugin * p, GtkWindow * parent);
-static void launchbar_save_configuration(Plugin * p, FILE * fp);
-static void launchbar_panel_configuration_changed(Plugin * p);
+static void launchtaskbar_configure(Plugin * p, GtkWindow * parent);
+static void launchtaskbar_save_configuration(Plugin * p, FILE * fp);
+static void launchtaskbar_panel_configuration_changed(Plugin * p);
 static void launchbar_update_after_taskbar_class_added(LaunchTaskBarPlugin * ltbp, Task *tk);
 static void launchbar_update_after_taskbar_class_removed(LaunchTaskBarPlugin * ltbp, const gchar * res_class);
 
@@ -341,7 +341,7 @@ static gboolean launchbutton_press_event(GtkWidget * widget, GdkEventButton * ev
     if (event->button == 1)    /* left button */
     {
         if (b->desktop_id == NULL)  /* The bootstrap button */
-            launchbar_configure(b->plugin, NULL);
+            launchtaskbar_configure(b->plugin, NULL);
         else if (b->action != NULL)
             lxpanel_launch_app(b->action, NULL, b->use_terminal);
     }
@@ -659,7 +659,7 @@ static int launchbutton_constructor(Plugin * p, char ** fp)
 }
 
 /* Plugin constructor. */
-static int launchbar_constructor(Plugin * p, char ** fp)
+static int launchtaskbar_constructor(Plugin * p, char ** fp)
 {
     gtk_rc_parse_string(launchbar_rc);
     gtk_rc_parse_string(taskbar_rc);
@@ -693,15 +693,10 @@ static int launchbar_constructor(Plugin * p, char ** fp)
     gtk_container_set_border_width(GTK_CONTAINER(ltbp->p_evbox_taskbar), 0);
 #if GLIB_CHECK_VERSION(2,18,0)
     gtk_widget_set_has_window(p->pwid, FALSE);
-    gtk_widget_set_has_window(ltbp->p_evbox_launchbar, FALSE);
-    gtk_widget_set_has_window(ltbp->p_evbox_taskbar, FALSE);
 #else
     GTK_WIDGET_SET_FLAGS(p->pwid, GTK_NO_WINDOW);
-    GTK_WIDGET_SET_FLAGS(ltbp->p_evbox_launchbar, GTK_NO_WINDOW);
-    GTK_WIDGET_SET_FLAGS(ltbp->p_evbox_taskbar, GTK_NO_WINDOW);
 #endif
-    gtk_widget_set_name(ltbp->p_evbox_launchbar, "launchbar");
-    gtk_widget_set_name(ltbp->p_evbox_taskbar, "taskbar");
+    gtk_widget_set_name(p->pwid, "launchtaskbar");
 
     /* Allocate an icon grid manager to manage the container. */
     GtkOrientation bo = (p->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
@@ -810,7 +805,7 @@ static int launchbar_constructor(Plugin * p, char ** fp)
 }
 
 /* Plugin destructor. */
-static void launchbar_destructor(Plugin * p)
+static void launchtaskbar_destructor(Plugin * p)
 {
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p->priv;
 
@@ -1363,7 +1358,7 @@ static gboolean on_menu_view_button_press_event(GtkWidget *p_widget, GdkEventBut
 }
 
 /* Callback when the configuration dialog is to be shown. */
-static void launchbar_configure(Plugin * p, GtkWindow * parent)
+static void launchtaskbar_configure(Plugin * p, GtkWindow * parent)
 {
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p->priv;
 
@@ -1469,7 +1464,7 @@ static void launchbar_configure(Plugin * p, GtkWindow * parent)
 }
 
 /* Callback when the configuration is to be saved. */
-static void launchbar_save_configuration(Plugin * p, FILE * fp)
+static void launchtaskbar_save_configuration(Plugin * p, FILE * fp)
 {
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p->priv;
     
@@ -1503,7 +1498,7 @@ static void launchbar_save_configuration(Plugin * p, FILE * fp)
 }
 
 /* Callback when panel configuration changes. */
-static void launchbar_panel_configuration_changed(Plugin * p)
+static void launchtaskbar_panel_configuration_changed(Plugin * p)
 {
     /* Set orientation into the icon grid. */
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p->priv;
@@ -3203,9 +3198,9 @@ PluginClass launchtaskbar_plugin_class = {
     expand_available : TRUE,
     expand_default : TRUE,
 
-    constructor : launchbar_constructor,
-    destructor  : launchbar_destructor,
-    config : launchbar_configure,
-    save : launchbar_save_configuration,
-    panel_configuration_changed : launchbar_panel_configuration_changed
+    constructor : launchtaskbar_constructor,
+    destructor  : launchtaskbar_destructor,
+    config : launchtaskbar_configure,
+    save : launchtaskbar_save_configuration,
+    panel_configuration_changed : launchtaskbar_panel_configuration_changed
 };
