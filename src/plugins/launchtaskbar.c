@@ -686,7 +686,7 @@ static int launchtaskbar_constructor(Plugin * p, char ** fp)
     ltbp->p_evbox_launchbar = gtk_event_box_new();
     ltbp->p_evbox_taskbar = gtk_event_box_new();
     gtk_box_pack_start(GTK_BOX(p->pwid), ltbp->p_evbox_launchbar, FALSE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(p->pwid), ltbp->p_evbox_taskbar, FALSE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(p->pwid), ltbp->p_evbox_taskbar, TRUE, TRUE, 0);
     
     gtk_container_set_border_width(GTK_CONTAINER(p->pwid), 0);
     gtk_container_set_border_width(GTK_CONTAINER(ltbp->p_evbox_launchbar), 0);
@@ -696,7 +696,6 @@ static int launchtaskbar_constructor(Plugin * p, char ** fp)
 #else
     GTK_WIDGET_SET_FLAGS(p->pwid, GTK_NO_WINDOW);
 #endif
-    gtk_widget_set_name(p->pwid, "launchtaskbar");
 
     /* Allocate an icon grid manager to manage the container. */
     GtkOrientation bo = (p->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
