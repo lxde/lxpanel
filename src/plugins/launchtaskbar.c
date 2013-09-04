@@ -2500,11 +2500,13 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
             {
                 gtk_widget_set_visible(ltbp->tbp.p_menuitem_lock_tbp, FALSE);
                 gtk_widget_set_visible(ltbp->tbp.p_menuitem_unlock_tbp, TRUE);
+                gtk_widget_set_visible(ltbp->tbp.p_menuitem_new_instance, TRUE);
             }
             else
             {
                 gtk_widget_set_visible(ltbp->tbp.p_menuitem_lock_tbp, TRUE);
                 gtk_widget_set_visible(ltbp->tbp.p_menuitem_unlock_tbp, FALSE);
+                gtk_widget_set_visible(ltbp->tbp.p_menuitem_new_instance, FALSE);
             }
             tk->tb->menutask = tk;
             gtk_menu_popup(
@@ -3099,7 +3101,10 @@ static void  on_menuitem_unlock_tbp_clicked(GtkWidget * widget, TaskbarPlugin * 
 
 static void  on_menuitem_new_instance_clicked(GtkWidget * widget, TaskbarPlugin * tb)
 {
-    
+    LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)tb->plug->priv;
+    LaunchButton *btn = launchbar_exec_bin_exists(&ltbp->lbp, tb->menutask->exec_bin);
+    if( (btn != NULL) && (btn->action != NULL) )
+        lxpanel_launch_app(btn->action, NULL, btn->use_terminal);
 }
 
 /* Make right-click menu for task buttons.
@@ -3189,9 +3194,9 @@ static void taskbar_make_menu(TaskbarPlugin * tb)
         gtk_menu_shell_prepend(GTK_MENU_SHELL(menu), gtk_separator_menu_item_new());
         gtk_menu_shell_prepend(GTK_MENU_SHELL(menu), tb->p_menuitem_lock_tbp);
         gtk_menu_shell_prepend(GTK_MENU_SHELL(menu), tb->p_menuitem_unlock_tbp);
+        gtk_menu_shell_prepend(GTK_MENU_SHELL(menu), tb->p_menuitem_new_instance);
         
         gtk_menu_shell_prepend(GTK_MENU_SHELL(menu), gtk_separator_menu_item_new());
-        gtk_menu_shell_prepend(GTK_MENU_SHELL(menu), tb->p_menuitem_new_instance);
         gtk_menu_shell_prepend(GTK_MENU_SHELL(menu), mi);
     }
     else
@@ -3199,9 +3204,9 @@ static void taskbar_make_menu(TaskbarPlugin * tb)
         gtk_menu_shell_append(GTK_MENU_SHELL(menu), gtk_separator_menu_item_new());
         gtk_menu_shell_append(GTK_MENU_SHELL(menu), tb->p_menuitem_lock_tbp);
         gtk_menu_shell_append(GTK_MENU_SHELL(menu), tb->p_menuitem_unlock_tbp);
+        gtk_menu_shell_append(GTK_MENU_SHELL(menu), tb->p_menuitem_new_instance);
         
         gtk_menu_shell_append(GTK_MENU_SHELL(menu), gtk_separator_menu_item_new());
-        gtk_menu_shell_append(GTK_MENU_SHELL(menu), tb->p_menuitem_new_instance);
         gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
     }
     g_signal_connect(G_OBJECT(mi), "activate", (GCallback)menu_close_window, tb);
