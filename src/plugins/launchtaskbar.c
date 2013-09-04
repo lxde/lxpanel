@@ -17,8 +17,8 @@
  */
 
 /*
- * Modified by Giuseppe Penone <giuspen@gmail.com> starting from 2012-08 and lxpanel 0.5.10,
- * including taskbar.c plugin and adding interoperability between launchtaskbar and taskbar.
+ * Started by Giuseppe Penone <giuspen@gmail.com> merging launchbar and taskbar
+ * and adding interoperability between them.
 */
 
 #ifdef HAVE_CONFIG_H
@@ -148,6 +148,9 @@ typedef struct _taskbar {
     int spacing;                   /* Spacing between taskbar buttons */
     gboolean use_net_active;       /* NET_WM_ACTIVE_WINDOW is supported by the window manager */
     gboolean net_active_checked;   /* True if use_net_active is valid */
+    GtkWidget       *p_menuitem_lock_tbp;
+    GtkWidget       *p_menuitem_unlock_tbp;
+    GtkWidget       *p_menuitem_new_instance;
 } TaskbarPlugin;
 
 static gchar *taskbar_rc = "style 'taskbar-style'\n"
@@ -296,6 +299,9 @@ static void menu_maximize_window(GtkWidget * widget, TaskbarPlugin * tb);
 static void menu_iconify_window(GtkWidget * widget, TaskbarPlugin * tb);
 static void menu_move_to_workspace(GtkWidget * widget, TaskbarPlugin * tb);
 static void menu_close_window(GtkWidget * widget, TaskbarPlugin * tb);
+static void on_menuitem_lock_tbp_clicked(GtkWidget * widget, TaskbarPlugin * tb);
+static void on_menuitem_unlock_tbp_clicked(GtkWidget * widget, TaskbarPlugin * tb);
+static void on_menuitem_new_instance_clicked(GtkWidget * widget, TaskbarPlugin * tb);
 static void taskbar_make_menu(TaskbarPlugin * tb);
 static void taskbar_window_manager_changed(GdkScreen * screen, TaskbarPlugin * tb);
 static void taskbar_build_gui(Plugin * p);
@@ -449,18 +455,18 @@ static void launchbutton_build_bootstrap(Plugin * p)
         icon_grid_set_visible(ltbp->lbp.icon_grid, ltbp->lbp.bootstrap_button->widget, TRUE);
 }
 
-static gboolean launchbar_exec_bin_exists(LaunchbarPlugin *lb, gchar *exec_bin)
+static LaunchButton *launchbar_exec_bin_exists(LaunchbarPlugin *lb, gchar *exec_bin)
 {
-    if(!exec_bin) return FALSE;
+    if(!exec_bin) return NULL;
     
-    gboolean ret_val = FALSE;
+    LaunchButton *ret_val = NULL;
     GSList* l;
     for(l = lb->buttons; l != NULL; l = l->next)
     {
         LaunchButton *btn = (LaunchButton *)l->data;
         if(strcmp(btn->exec_bin, exec_bin) == 0)
         {
-            ret_val = TRUE;
+            ret_val = btn;
             break;
         }
     }
@@ -484,7 +490,7 @@ static void launchbar_update_after_taskbar_class_added(LaunchTaskBarPlugin *ltbp
     }
     snprintf(tk->exec_bin, 128, "%s", p_char);
     g_print("\nTB exec_bin=%s (pid=%u) in LB: %c\n",
-        tk->exec_bin, pid, launchbar_exec_bin_exists(&ltbp->lbp, tk->exec_bin) ? 'Y':'N');
+        tk->exec_bin, pid, launchbar_exec_bin_exists(&ltbp->lbp, tk->exec_bin) != NULL ? 'Y':'N');
 }
 
 static void launchbar_update_after_taskbar_class_removed(LaunchTaskBarPlugin *ltbp, const gchar * res_class)
@@ -892,6 +898,16 @@ static void launchbar_configure_add_button(GtkButton * widget, Plugin * p)
     }
 }
 
+static void  launchbar_remove_button(LaunchTaskBarPlugin *ltbp, LaunchButton *btn)
+{
+    icon_grid_remove(ltbp->lbp.icon_grid, btn->widget);
+    ltbp->lbp.buttons = g_slist_remove(ltbp->lbp.buttons, btn);
+    launchbutton_free(btn);
+    /* Put the bootstrap button back if the list becomes empty. */
+    if(ltbp->lbp.buttons == NULL)
+        launchbutton_build_bootstrap(ltbp->lbp.plug);
+}
+
 /* Handler for "clicked" action on launchtaskbar configuration dialog "Remove" button. */
 static void launchbar_configure_remove_button(GtkButton * widget, Plugin * p)
 {
@@ -908,15 +924,9 @@ static void launchbar_configure_remove_button(GtkButton * widget, Plugin * p)
         /* We have found a selected button.
          * Remove it from the icon grid, the data structure, and the view. */
         gtk_list_store_remove(GTK_LIST_STORE(list), &it);
-        icon_grid_remove(ltbp->lbp.icon_grid, btn->widget);
-        ltbp->lbp.buttons = g_slist_remove(ltbp->lbp.buttons, btn);
-        launchbutton_free(btn);
-        
         gtk_widget_set_visible(ltbp->lbp.p_label_def_app_exec, FALSE);
 
-        /* Put the bootstrap button back if the list becomes empty. */
-        if (ltbp->lbp.buttons == NULL)
-            launchbutton_build_bootstrap(p);
+        launchbar_remove_button(ltbp, btn);
     }
 }
 
@@ -1153,7 +1163,7 @@ static void launchbar_configure_initialize_list(Plugin * p, GtkWidget * dlg, Gtk
         if (menu_cache != NULL)
         {
             MenuCacheDir * dir = menu_cache_get_root_dir(menu_cache);
-            gpointer id = menu_cache_add_reload_notify(menu_cache, on_menu_cache_reload, tree);
+            gpointer id = menu_cache_add_reload_notify(menu_cache, (GFunc)on_menu_cache_reload, tree);
             gpointer *param = g_slice_alloc(sizeof(gpointer) * 2);
             if(dir)
                 launchbar_configure_add_menu_recursive(tree, NULL, dir);
@@ -2483,9 +2493,19 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
         {
             /* Right button.  Bring up the window state popup menu. */
             LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)tk->tb->plug->priv;
+            LaunchButton *btn = launchbar_exec_bin_exists(&ltbp->lbp, tk->exec_bin);
             g_print("\nTB right-click exec_bin=%s in LB: %c\n",
-                tk->exec_bin, launchbar_exec_bin_exists(&ltbp->lbp, tk->exec_bin) ? 'Y':'N');
-            
+                tk->exec_bin, btn != NULL ? 'Y':'N');
+            if(btn != NULL)
+            {
+                gtk_widget_set_visible(ltbp->tbp.p_menuitem_lock_tbp, FALSE);
+                gtk_widget_set_visible(ltbp->tbp.p_menuitem_unlock_tbp, TRUE);
+            }
+            else
+            {
+                gtk_widget_set_visible(ltbp->tbp.p_menuitem_lock_tbp, TRUE);
+                gtk_widget_set_visible(ltbp->tbp.p_menuitem_unlock_tbp, FALSE);
+            }
             tk->tb->menutask = tk;
             gtk_menu_popup(
                 GTK_MENU(tb->menu),
@@ -3065,6 +3085,23 @@ static void menu_close_window(GtkWidget * widget, TaskbarPlugin * tb)
     task_group_menu_destroy(tb);
 }
 
+static void  on_menuitem_lock_tbp_clicked(GtkWidget * widget, TaskbarPlugin * tb)
+{
+    
+}
+
+static void  on_menuitem_unlock_tbp_clicked(GtkWidget * widget, TaskbarPlugin * tb)
+{
+    LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)tb->plug->priv;
+    LaunchButton *btn = launchbar_exec_bin_exists(&ltbp->lbp, tb->menutask->exec_bin);
+    if(btn != NULL) launchbar_remove_button(ltbp, btn);
+}
+
+static void  on_menuitem_new_instance_clicked(GtkWidget * widget, TaskbarPlugin * tb)
+{
+    
+}
+
 /* Make right-click menu for task buttons.
  * This depends on number of desktops and edge. */
 static void taskbar_make_menu(TaskbarPlugin * tb)
@@ -3143,17 +3180,34 @@ static void taskbar_make_menu(TaskbarPlugin * tb)
 
     /* Add Close menu item.  By popular demand, we place this menu item closest to the cursor. */
     mi = gtk_menu_item_new_with_mnemonic (_("_Close Window"));
+    tb->p_menuitem_lock_tbp = gtk_menu_item_new_with_mnemonic(_("_Lock to Launcher"));
+    tb->p_menuitem_unlock_tbp = gtk_menu_item_new_with_mnemonic(_("_Unlock from Launcher"));
+    tb->p_menuitem_new_instance = gtk_menu_item_new_with_mnemonic(_("_New Instance"));
+    
     if (tb->plug->panel->edge != EDGE_BOTTOM)
     {
         gtk_menu_shell_prepend(GTK_MENU_SHELL(menu), gtk_separator_menu_item_new());
+        gtk_menu_shell_prepend(GTK_MENU_SHELL(menu), tb->p_menuitem_lock_tbp);
+        gtk_menu_shell_prepend(GTK_MENU_SHELL(menu), tb->p_menuitem_unlock_tbp);
+        
+        gtk_menu_shell_prepend(GTK_MENU_SHELL(menu), gtk_separator_menu_item_new());
+        gtk_menu_shell_prepend(GTK_MENU_SHELL(menu), tb->p_menuitem_new_instance);
         gtk_menu_shell_prepend(GTK_MENU_SHELL(menu), mi);
     }
     else
     {
         gtk_menu_shell_append(GTK_MENU_SHELL(menu), gtk_separator_menu_item_new());
+        gtk_menu_shell_append(GTK_MENU_SHELL(menu), tb->p_menuitem_lock_tbp);
+        gtk_menu_shell_append(GTK_MENU_SHELL(menu), tb->p_menuitem_unlock_tbp);
+        
+        gtk_menu_shell_append(GTK_MENU_SHELL(menu), gtk_separator_menu_item_new());
+        gtk_menu_shell_append(GTK_MENU_SHELL(menu), tb->p_menuitem_new_instance);
         gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
     }
     g_signal_connect(G_OBJECT(mi), "activate", (GCallback)menu_close_window, tb);
+    g_signal_connect(G_OBJECT(tb->p_menuitem_lock_tbp), "activate", (GCallback)on_menuitem_lock_tbp_clicked, tb);
+    g_signal_connect(G_OBJECT(tb->p_menuitem_unlock_tbp), "activate", (GCallback)on_menuitem_unlock_tbp_clicked, tb);
+    g_signal_connect(G_OBJECT(tb->p_menuitem_new_instance), "activate", (GCallback)on_menuitem_new_instance_clicked, tb);
 
     gtk_widget_show_all(menu);
     tb->menu = menu;
