@@ -516,6 +516,22 @@ static gboolean load_app_key_file(gchar *filepath, GKeyFile *p_gkeyfile)
     return loaded;
 }
 
+static char *f_get_clean_exec_bin(const gchar *exec_in, gchar *buffer_128)
+{
+    snprintf(buffer_128, 128, "%s", exec_in);
+    
+    gchar *p_char = buffer_128;
+    if( (p_char = strchr(buffer_128, ' ')) != NULL )
+    {
+        *p_char = '\0';
+    }
+    p_char = strrchr(buffer_128, '/');
+    if(p_char == NULL) p_char = buffer_128;
+    else p_char++;
+    
+    return p_char;
+}
+
 /* Build the graphic elements for a launchtaskbar button.  The desktop_id field is already established. */
 static void launchbutton_build_gui(Plugin * p, LaunchButton * btn)
 {
@@ -543,15 +559,10 @@ static void launchbutton_build_gui(Plugin * p, LaunchButton * btn)
                 g_free(exec);
             }
 
-            gchar  exec_bin[128];
-            snprintf(exec_bin, 128, "%s", exec);
+            gchar  buffer_128[128];
+            gchar *p_char = f_get_clean_exec_bin(exec, buffer_128);
+            btn->exec_bin = strdup(p_char);
             g_free(exec);
-            gchar *p_char = exec_bin;
-            if( (p_char = strchr(exec_bin, ' ')) != NULL )
-            {
-                *p_char = '\0';
-            }
-            btn->exec_bin = strdup(exec_bin);
             g_print("\nLB exec_bin='%s'\n", btn->exec_bin);
 
             btn->use_terminal = g_key_file_get_boolean(desktop, DESKTOP_ENTRY, "Terminal", NULL);
@@ -862,6 +873,15 @@ static void launchtaskbar_destructor(Plugin * p)
     g_free(ltbp);
 }
 
+static LaunchButton *launchbar_add_button(LaunchTaskBarPlugin *ltbp, gchar *desktop_id)
+{
+    LaunchButton *defined_button = g_new0(LaunchButton, 1);
+    defined_button->plugin = ltbp->lbp.plug;
+    defined_button->desktop_id = g_strdup(desktop_id);
+    launchbutton_build_gui(ltbp->lbp.plug, defined_button);
+    return defined_button;
+}
+
 /* Handler for "clicked" action on launchtaskbar configuration dialog "Add" button. */
 static void launchbar_configure_add_button(GtkButton * widget, Plugin * p)
 {
@@ -880,10 +900,8 @@ static void launchbar_configure_add_button(GtkButton * widget, Plugin * p)
 
         /* We have located a selected button.
          * Add a launch button to the launchtaskbar and refresh the view in the configuration dialog. */
-        LaunchButton * defined_button = g_new0(LaunchButton, 1);
-        defined_button->plugin = p;
-        defined_button->desktop_id = g_strdup(btn->desktop_id);
-        launchbutton_build_gui(p, defined_button);
+        LaunchButton *defined_button = launchbar_add_button(ltbp, btn->desktop_id);
+
         GtkListStore * list = GTK_LIST_STORE(gtk_tree_view_get_model(defined_view));
         GtkTreeIter it;
         GdkPixbuf* pix;
@@ -3087,9 +3105,66 @@ static void menu_close_window(GtkWidget * widget, TaskbarPlugin * tb)
     task_group_menu_destroy(tb);
 }
 
+
+
+
+static void  launchbar_try_add_launchbutton_recursive(MenuCacheDir * menu_dir, LaunchTaskBarPlugin *ltbp, gchar *exec_bin_tb)
+{
+    /* Iterate over all menu items in this directory. */
+    GSList * l;
+    for(l = menu_cache_dir_get_children(menu_dir); l != NULL; l = l->next)
+    {
+        /* Get the next menu item. */
+        MenuCacheItem * item = MENU_CACHE_ITEM(l->data);
+        switch(menu_cache_item_get_type(item))
+        {
+            case MENU_CACHE_TYPE_NONE:
+            case MENU_CACHE_TYPE_SEP:
+                break;
+
+            case MENU_CACHE_TYPE_APP:
+            {
+                /* If an application, build a LaunchButton data structure so we can identify
+                 * the button in the handler.  In this application, the desktop_id is the
+                 * fully qualified desktop file path.  The image and tooltip are what is displayed in the view. */
+                
+                gchar *desktop_id = menu_cache_item_get_file_path(item);
+
+                GKeyFile *desktop = g_key_file_new();
+                gboolean  loaded = load_app_key_file(desktop_id, desktop);
+                gchar *exec = loaded ? g_key_file_get_string(desktop, DESKTOP_ENTRY, "Exec", NULL) : NULL;
+                
+                gchar  buffer_128[128];
+                if(strcmp(f_get_clean_exec_bin(exec, buffer_128), exec_bin_tb) == 0)
+                {
+                    launchbar_add_button(ltbp, desktop_id);
+                }
+                g_free(exec);
+                g_free(desktop_id);
+                
+                break;
+            }
+            case MENU_CACHE_TYPE_DIR:
+            {
+                /* If a directory, recursively add its menu items. */
+                launchbar_try_add_launchbutton_recursive(MENU_CACHE_DIR(item), ltbp, exec_bin_tb);
+                break;
+            }
+        }
+    }
+}
+
 static void  on_menuitem_lock_tbp_clicked(GtkWidget * widget, TaskbarPlugin * tb)
 {
-    
+    LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)tb->plug->priv;
+    guint32    flags;
+    MenuCache *menu_cache = panel_menu_cache_new(&flags);
+    if(menu_cache != NULL)
+    {
+        MenuCacheDir * dir = menu_cache_get_root_dir(menu_cache);
+        if(dir)
+            launchbar_try_add_launchbutton_recursive(dir, ltbp, tb->menutask->exec_bin);
+    }
 }
 
 static void  on_menuitem_unlock_tbp_clicked(GtkWidget * widget, TaskbarPlugin * tb)
