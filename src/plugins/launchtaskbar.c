@@ -566,7 +566,6 @@ static void launchbar_update_after_taskbar_class_added(LaunchTaskBarPlugin *ltbp
     }
     snprintf(tk->exec_bin, 128, "%s", p_char);
     LaunchButton *btn = launchbar_exec_bin_exists(&ltbp->lbp, tk->exec_bin);
-    //if(btn != NULL) gtk_widget_set_visible(GTK_WIDGET(btn), FALSE);
     g_print("\nTB '%s' OPEN (pid=%u), in LB: %c\n",
         tk->exec_bin, pid, btn != NULL ? 'Y':'N');
 }
@@ -574,7 +573,6 @@ static void launchbar_update_after_taskbar_class_added(LaunchTaskBarPlugin *ltbp
 static void launchbar_update_after_taskbar_class_removed(LaunchTaskBarPlugin *ltbp, Task *tk)
 {
     LaunchButton *btn = launchbar_exec_bin_exists(&ltbp->lbp, tk->exec_bin);
-    //if(btn != NULL) gtk_widget_set_visible(GTK_WIDGET(btn), TRUE);
     g_print("\nTB '%s' CLOSE, in LB: %c\n", tk->exec_bin, btn != NULL ? 'Y':'N');
 }
 
