@@ -213,8 +213,10 @@ typedef struct
     TaskbarPlugin    tbp;
     GtkWidget       *p_evbox_launchbar;
     GtkWidget       *p_evbox_taskbar;
+    gchar           *exec_bin_mb;
     gboolean         add_mb_to_lb;
     gboolean         execute_mb;
+    gboolean         found_mb;
     
 } LaunchTaskBarPlugin;
 
@@ -331,11 +333,11 @@ static void f_get_exec_cmd_from_pid(GPid pid, gchar *buffer_128, const gchar *pr
     if(pipe != NULL) pclose(pipe);
 }
 
-static char *f_get_clean_exec_bin(const gchar *exec_in, gchar *buffer_128)
+static gchar *f_get_clean_exec_bin(const gchar *exec_in, gchar *buffer_128)
 {
     snprintf(buffer_128, 128, "%s", exec_in);
     
-    gchar *p_char = buffer_128;
+    gchar *p_char;
     if( (p_char = strchr(buffer_128, ' ')) != NULL )
     {
         *p_char = '\0';
@@ -347,12 +349,9 @@ static char *f_get_clean_exec_bin(const gchar *exec_in, gchar *buffer_128)
     return p_char;
 }
 
-static gboolean  f_find_menu_launchbutton_recursive(MenuCacheDir *menu_dir,
-                                                    LaunchTaskBarPlugin *ltbp,
-                                                    gchar *exec_bin_tb)
+static void  f_find_menu_launchbutton_recursive(MenuCacheDir *menu_dir, LaunchTaskBarPlugin *ltbp)
 {
     /* Iterate over all menu items in this directory. */
-    gboolean  ret_val = FALSE;
     GSList * l;
     for(l = menu_cache_dir_get_children(menu_dir); l != NULL; l = l->next)
     {
@@ -376,12 +375,18 @@ static gboolean  f_find_menu_launchbutton_recursive(MenuCacheDir *menu_dir,
                 gchar *exec = loaded ? g_key_file_get_string(desktop, DESKTOP_ENTRY, "Exec", NULL) : NULL;
                 gboolean  in_terminal = g_key_file_get_boolean(desktop, DESKTOP_ENTRY, "Terminal", NULL);
                 
-                gchar     buffer_128[128];
-                if(strcmp(f_get_clean_exec_bin(exec, buffer_128), exec_bin_tb) == 0)
+                gchar  buffer_128[128];
+                gchar *p_char = f_get_clean_exec_bin(exec, buffer_128);
+                if(strcmp(p_char, ltbp->exec_bin_mb) == 0)
                 {
                     if(ltbp->add_mb_to_lb) launchbar_add_button(ltbp, desktop_id);
                     if(ltbp->execute_mb) lxpanel_launch_app(exec, NULL, in_terminal);
-                    ret_val = TRUE;
+                    g_print("FOUND %s in MB\n", p_char);
+                    ltbp->found_mb = TRUE;
+                }
+                else
+                {
+                    g_print("---'%s' != '%s' in MB\n", p_char, ltbp->exec_bin_mb);
                 }
                 g_free(exec);
                 g_free(desktop_id);
@@ -389,15 +394,12 @@ static gboolean  f_find_menu_launchbutton_recursive(MenuCacheDir *menu_dir,
             }
             case MENU_CACHE_TYPE_DIR:
             {
-                ret_val = f_find_menu_launchbutton_recursive(MENU_CACHE_DIR(item),
-                                                             ltbp,
-                                                             exec_bin_tb);
+                f_find_menu_launchbutton_recursive(MENU_CACHE_DIR(item), ltbp);
                 break;
             }
         }
-        if(ret_val) break;
+        if(ltbp->found_mb) break;
     }
-    return ret_val;
 }
 
 /* Deallocate a LaunchButton. */
@@ -2568,6 +2570,7 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
         else if (event->button == 3)
         {
             /* Right button.  Bring up the window state popup menu. */
+            tk->tb->menutask = tk;
             LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)tk->tb->plug->priv;
             LaunchButton *btn = launchbar_exec_bin_exists(&ltbp->lbp, tk->exec_bin);
             g_print("\nTB right-click exec_bin=%s in LB: %c\n",
@@ -2580,7 +2583,7 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
             }
             else
             {
-                gboolean  found_it = FALSE;
+                ltbp->found_mb = FALSE;
                 guint32  flags;
                 MenuCache *menu_cache = panel_menu_cache_new(&flags);
                 if(menu_cache != NULL)
@@ -2590,15 +2593,14 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
                     {
                         ltbp->add_mb_to_lb = FALSE;
                         ltbp->execute_mb = FALSE;
-                        found_it = f_find_menu_launchbutton_recursive(dir, ltbp,
-                                                                      tb->menutask->exec_bin);
+                        ltbp->exec_bin_mb = tb->menutask->exec_bin;
+                        f_find_menu_launchbutton_recursive(dir, ltbp);
                     }
                 }
-                gtk_widget_set_visible(ltbp->tbp.p_menuitem_lock_tbp, found_it);
+                gtk_widget_set_visible(ltbp->tbp.p_menuitem_lock_tbp, ltbp->found_mb);
                 gtk_widget_set_visible(ltbp->tbp.p_menuitem_unlock_tbp, FALSE);
-                gtk_widget_set_visible(ltbp->tbp.p_menuitem_new_instance, found_it);
+                gtk_widget_set_visible(ltbp->tbp.p_menuitem_new_instance, ltbp->found_mb);
             }
-            tk->tb->menutask = tk;
             gtk_menu_popup(
                 GTK_MENU(tb->menu),
                 NULL, NULL,
@@ -3189,8 +3191,9 @@ static void  on_menuitem_lock_tbp_clicked(GtkWidget * widget, TaskbarPlugin * tb
         {
             ltbp->add_mb_to_lb = TRUE;
             ltbp->execute_mb = FALSE;
-            f_find_menu_launchbutton_recursive(dir, ltbp,
-                                               tb->menutask->exec_bin);
+            ltbp->found_mb = FALSE;
+            ltbp->exec_bin_mb = tb->menutask->exec_bin;
+            f_find_menu_launchbutton_recursive(dir, ltbp);
         }
     }
 }
@@ -3221,8 +3224,9 @@ static void  on_menuitem_new_instance_clicked(GtkWidget * widget, TaskbarPlugin 
             {
                 ltbp->add_mb_to_lb = FALSE;
                 ltbp->execute_mb = TRUE;
-                f_find_menu_launchbutton_recursive(dir, ltbp,
-                                                   tb->menutask->exec_bin);
+                ltbp->found_mb = FALSE;
+                ltbp->exec_bin_mb = tb->menutask->exec_bin;
+                f_find_menu_launchbutton_recursive(dir, ltbp);
             }
         }
     }
