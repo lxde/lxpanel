@@ -250,7 +250,7 @@ static void launchtaskbar_configure(Plugin * p, GtkWindow * parent);
 static void launchtaskbar_save_configuration(Plugin * p, FILE * fp);
 static void launchtaskbar_panel_configuration_changed(Plugin * p);
 static void launchbar_update_after_taskbar_class_added(LaunchTaskBarPlugin * ltbp, Task *tk);
-static void launchbar_update_after_taskbar_class_removed(LaunchTaskBarPlugin * ltbp, const gchar * res_class);
+static void launchbar_update_after_taskbar_class_removed(LaunchTaskBarPlugin * ltbp, Task *tk);
 
 static void set_timer_on_task(Task * tk);
 static gboolean task_is_visible_on_current_desktop(TaskbarPlugin * tb, Task * tk);
@@ -381,7 +381,7 @@ static void  f_find_menu_launchbutton_recursive(MenuCacheDir *menu_dir, LaunchTa
                 {
                     if(ltbp->add_mb_to_lb) launchbar_add_button(ltbp, desktop_id);
                     if(ltbp->execute_mb) lxpanel_launch_app(exec, NULL, in_terminal);
-                    g_print("FOUND %s in MB\n", p_char);
+                    g_print("FOUND '%s' in MB\n", p_char);
                     ltbp->found_mb = TRUE;
                 }
                 else
@@ -565,13 +565,17 @@ static void launchbar_update_after_taskbar_class_added(LaunchTaskBarPlugin *ltbp
         else p_char++;
     }
     snprintf(tk->exec_bin, 128, "%s", p_char);
-    g_print("\nTB exec_bin=%s (pid=%u) in LB: %c\n",
-        tk->exec_bin, pid, launchbar_exec_bin_exists(&ltbp->lbp, tk->exec_bin) != NULL ? 'Y':'N');
+    LaunchButton *btn = launchbar_exec_bin_exists(&ltbp->lbp, tk->exec_bin);
+    //if(btn != NULL) gtk_widget_set_visible(GTK_WIDGET(btn), FALSE);
+    g_print("\nTB '%s' OPEN (pid=%u), in LB: %c\n",
+        tk->exec_bin, pid, btn != NULL ? 'Y':'N');
 }
 
-static void launchbar_update_after_taskbar_class_removed(LaunchTaskBarPlugin *ltbp, const gchar * res_class)
+static void launchbar_update_after_taskbar_class_removed(LaunchTaskBarPlugin *ltbp, Task *tk)
 {
-    g_print("\nres_class '%s' removed\n", res_class != NULL ? res_class : "NULL");
+    LaunchButton *btn = launchbar_exec_bin_exists(&ltbp->lbp, tk->exec_bin);
+    //if(btn != NULL) gtk_widget_set_visible(GTK_WIDGET(btn), TRUE);
+    g_print("\nTB '%s' CLOSE, in LB: %c\n", tk->exec_bin, btn != NULL ? 'Y':'N');
 }
 
 static gboolean load_app_key_file(gchar *filepath, GKeyFile *p_gkeyfile)
@@ -623,7 +627,7 @@ static void launchbutton_build_gui(Plugin * p, LaunchButton * btn)
             gchar *p_char = f_get_clean_exec_bin(exec, buffer_128);
             btn->exec_bin = strdup(p_char);
             g_free(exec);
-            g_print("\nLB exec_bin='%s'\n", btn->exec_bin);
+            g_print("\nLB '%s' FOUND\n", btn->exec_bin);
 
             btn->use_terminal = g_key_file_get_boolean(desktop, DESKTOP_ENTRY, "Terminal", NULL);
 
@@ -1860,7 +1864,7 @@ static void task_unlink_class(Task * tk)
     if (tc != NULL)
     {
         /* Action in Launchbar after class removed */
-        launchbar_update_after_taskbar_class_removed(tk->tb->plug->priv, tc->res_class);
+        launchbar_update_after_taskbar_class_removed(tk->tb->plug->priv, tk);
         
         /* Remove from per-class task list. */
         if (tc->p_task_head == tk)
@@ -2573,7 +2577,7 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
             tk->tb->menutask = tk;
             LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)tk->tb->plug->priv;
             LaunchButton *btn = launchbar_exec_bin_exists(&ltbp->lbp, tk->exec_bin);
-            g_print("\nTB right-click exec_bin=%s in LB: %c\n",
+            g_print("\nTB '%s' right-click, in LB: %c\n",
                 tk->exec_bin, btn != NULL ? 'Y':'N');
             if(btn != NULL)
             {
