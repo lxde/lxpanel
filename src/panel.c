@@ -1709,7 +1709,8 @@ restart:
 	/* NOTE: StructureNotifyMask is required by XRandR
 	 * See init_randr_support() in gdkscreen-x11.c of gtk+ for detail.
 	 */
-    XSelectInput (GDK_DISPLAY(), GDK_ROOT_WINDOW(), StructureNotifyMask|SubstructureNotifyMask|PropertyChangeMask);
+    gdk_window_set_events(gdk_get_default_root_window(), GDK_STRUCTURE_MASK |
+            GDK_SUBSTRUCTURE_MASK | GDK_PROPERTY_CHANGE_MASK);
     gdk_window_add_filter(gdk_get_default_root_window (), (GdkFilterFunc)panel_event_filter, NULL);
 
     if( G_UNLIKELY( ! start_all_panels() ) )
