@@ -217,6 +217,7 @@ typedef struct
     gboolean         add_mb_to_lb;
     gboolean         execute_mb;
     gboolean         found_mb;
+    GKeyFile        *p_key_file_special_cases;
     
 } LaunchTaskBarPlugin;
 
@@ -370,11 +371,16 @@ static void  f_find_menu_launchbutton_recursive(MenuCacheDir *menu_dir, LaunchTa
                  * fully qualified desktop file path.  The image and tooltip are what is displayed in the view. */
                 gchar *desktop_id = menu_cache_item_get_file_path(item);
 
-                GKeyFile *desktop = g_key_file_new();
-                gboolean  loaded = load_app_key_file(desktop_id, desktop);
-                gchar *exec = loaded ? g_key_file_get_string(desktop, DESKTOP_ENTRY, "Exec", NULL) : NULL;
-                gboolean  in_terminal = g_key_file_get_boolean(desktop, DESKTOP_ENTRY, "Terminal", NULL);
-                
+                GKeyFile *p_key_desktop = g_key_file_new();
+                gboolean  loaded = load_app_key_file(desktop_id, p_key_desktop);
+                gchar *exec = NULL;
+                gboolean  in_terminal = TRUE;
+                if(loaded)
+                {
+                    exec = g_key_file_get_string(p_key_desktop, DESKTOP_ENTRY, "Exec", NULL);
+                    in_terminal = g_key_file_get_boolean(p_key_desktop, DESKTOP_ENTRY, "Terminal", NULL);
+                    g_key_file_free(p_key_desktop);
+                }
                 gchar  buffer_128[128];
                 gchar *p_char = f_get_clean_exec_bin(exec, buffer_128);
                 if(strcmp(p_char, ltbp->exec_bin_mb) == 0)
@@ -565,6 +571,17 @@ static void launchbar_update_after_taskbar_class_added(LaunchTaskBarPlugin *ltbp
         else p_char++;
     }
     snprintf(tk->exec_bin, 128, "%s", p_char);
+
+    if(ltbp->p_key_file_special_cases != NULL)
+    {
+        gchar *converted_tb_exec_bin = g_key_file_get_string(ltbp->p_key_file_special_cases, "special_cases", tk->exec_bin, NULL);
+        if(converted_tb_exec_bin != NULL)
+        {
+            snprintf(tk->exec_bin, 128, "%s", converted_tb_exec_bin);
+            g_free(converted_tb_exec_bin);
+        }
+    }
+
     LaunchButton *btn = launchbar_exec_bin_exists(&ltbp->lbp, tk->exec_bin);
     g_print("\nTB '%s' OPEN (pid=%u), in LB: %c\n",
         tk->exec_bin, pid, btn != NULL ? 'Y':'N');
@@ -576,12 +593,12 @@ static void launchbar_update_after_taskbar_class_removed(LaunchTaskBarPlugin *lt
     g_print("\nTB '%s' CLOSE, in LB: %c\n", tk->exec_bin, btn != NULL ? 'Y':'N');
 }
 
-static gboolean load_app_key_file(gchar *filepath, GKeyFile *p_gkeyfile)
+static gboolean  load_app_key_file(gchar *filepath, GKeyFile *p_gkeyfile)
 {
-    gboolean loaded;
-    if (g_path_is_absolute(filepath))
+    gboolean  loaded;
+    if(g_path_is_absolute(filepath))
     {
-        loaded = g_key_file_load_from_file(p_gkeyfile, filepath, G_KEY_FILE_NONE, NULL );
+        loaded = g_key_file_load_from_file(p_gkeyfile, filepath, G_KEY_FILE_NONE, NULL);
     }
     else
     {
@@ -599,24 +616,23 @@ static void launchbutton_build_gui(Plugin * p, LaunchButton * btn)
 {
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p->priv;
 
-    if (btn->desktop_id != NULL)
+    if(btn->desktop_id != NULL)
     {
         /* There is a valid desktop file name.  Try to open it. */
-        GKeyFile * desktop = g_key_file_new();
-        gboolean loaded = load_app_key_file(btn->desktop_id, desktop);
-
-        if (loaded)
+        GKeyFile *p_key_desktop = g_key_file_new();
+        gboolean  loaded = load_app_key_file(btn->desktop_id, p_key_desktop);
+        if(loaded)
         {
             /* Desktop file located.  Get Icon, Name, Exec, and Terminal parameters. */
-            gchar * icon = g_key_file_get_string(desktop, DESKTOP_ENTRY, "Icon", NULL);
-            gchar * title = g_key_file_get_locale_string(desktop, DESKTOP_ENTRY, "Name", NULL, NULL);
+            gchar * icon = g_key_file_get_string(p_key_desktop, DESKTOP_ENTRY, "Icon", NULL);
+            gchar * title = g_key_file_get_locale_string(p_key_desktop, DESKTOP_ENTRY, "Name", NULL, NULL);
             if ((btn->image == NULL) && (icon != NULL))
                 btn->image = icon;
 
-            gchar * exec = g_key_file_get_string(desktop, DESKTOP_ENTRY, "Exec", NULL);
+            gchar * exec = g_key_file_get_string(p_key_desktop, DESKTOP_ENTRY, "Exec", NULL);
             if( ! btn->customize_action )
             {
-                gchar * exec = g_key_file_get_string(desktop, DESKTOP_ENTRY, "Exec", NULL);
+                gchar * exec = g_key_file_get_string(p_key_desktop, DESKTOP_ENTRY, "Exec", NULL);
                 btn->action = translate_exec_to_cmd(exec, icon, title, btn->desktop_id);
                 g_free(exec);
             }
@@ -627,7 +643,7 @@ static void launchbutton_build_gui(Plugin * p, LaunchButton * btn)
             g_free(exec);
             g_print("\nLB '%s' FOUND\n", btn->exec_bin);
 
-            btn->use_terminal = g_key_file_get_boolean(desktop, DESKTOP_ENTRY, "Terminal", NULL);
+            btn->use_terminal = g_key_file_get_boolean(p_key_desktop, DESKTOP_ENTRY, "Terminal", NULL);
 
             if ( ! btn->customize_tooltip)
                 btn->tooltip = title;
@@ -636,8 +652,7 @@ static void launchbutton_build_gui(Plugin * p, LaunchButton * btn)
             if (btn->tooltip != title)
                 g_free(title);
         }
-
-        g_key_file_free(desktop);
+        g_key_file_free(p_key_desktop);
     }
 
     /* Create a button with the specified icon. */
@@ -759,6 +774,26 @@ static int launchtaskbar_constructor(Plugin * p, char ** fp)
     ltbp->tbp.use_mouse_wheel   = TRUE;
     ltbp->tbp.use_urgency_hint  = TRUE;
     ltbp->tbp.grouped_tasks     = FALSE;
+
+    /* Special cases key file */
+    ltbp->p_key_file_special_cases = g_key_file_new();
+    gchar *special_cases_filepath = g_build_filename(g_get_user_config_dir(),
+                                                     "lxpanel", "launchtaskbar.cfg", NULL);
+    if(g_file_test(special_cases_filepath, G_FILE_TEST_EXISTS))
+    {
+        gboolean  loaded = load_app_key_file(special_cases_filepath,
+                                             ltbp->p_key_file_special_cases);
+        if(!loaded) ltbp->p_key_file_special_cases = NULL;
+    }
+    else
+    {
+        g_key_file_set_value(ltbp->p_key_file_special_cases, "special_cases",
+            "synaptic", "synaptic-pkexec");
+        gchar *key_file_data = g_key_file_to_data(ltbp->p_key_file_special_cases, NULL, NULL);
+        g_file_set_contents(special_cases_filepath, key_file_data, -1, NULL);
+        g_free(key_file_data);
+    }
+    g_free(special_cases_filepath);
 
     /* Allocate top level widget and set into Plugin widget pointer. */
     p->pwid = p->panel->orientation == ORIENT_HORIZ ? gtk_hbox_new(FALSE, 5):gtk_vbox_new(FALSE, 5);
@@ -932,6 +967,7 @@ static void launchtaskbar_destructor(Plugin * p)
 
 
     /* Deallocate all memory. */
+    if(ltbp->p_key_file_special_cases != NULL) g_key_file_free(ltbp->p_key_file_special_cases);
     g_free(ltbp);
 }
 
@@ -1160,9 +1196,10 @@ static void launchbar_configure_add_menu_recursive(GtkTreeStore * tree, GtkTreeI
                 btn->image = g_strdup(menu_cache_item_get_icon(item));
                 btn->tooltip = g_strdup(menu_cache_item_get_name(item));
 
-                GKeyFile * desktop = g_key_file_new();
-                gboolean loaded = load_app_key_file(btn->desktop_id, desktop);
-                btn->action = loaded ? g_key_file_get_string(desktop, DESKTOP_ENTRY, "Exec", NULL) : NULL;
+                GKeyFile *p_key_desktop = g_key_file_new();
+                gboolean loaded = load_app_key_file(btn->desktop_id, p_key_desktop);
+                btn->action = loaded ? g_key_file_get_string(p_key_desktop, DESKTOP_ENTRY, "Exec", NULL) : NULL;
+                g_key_file_free(p_key_desktop);
 
                 /* Add the row to the view. */
                 GtkTreeIter it;
@@ -2575,8 +2612,7 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
             tk->tb->menutask = tk;
             LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)tk->tb->plug->priv;
             LaunchButton *btn = launchbar_exec_bin_exists(&ltbp->lbp, tk->exec_bin);
-            g_print("\nTB '%s' right-click, in LB: %c\n",
-                tk->exec_bin, btn != NULL ? 'Y':'N');
+            g_print("\nTB '%s' right-click, in LB: %c\n", tk->exec_bin, btn != NULL ? 'Y':'N');
             if(btn != NULL)
             {
                 gtk_widget_set_visible(ltbp->tbp.p_menuitem_lock_tbp, FALSE);
