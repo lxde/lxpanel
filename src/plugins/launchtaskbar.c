@@ -3312,8 +3312,8 @@ static void taskbar_make_menu(TaskbarPlugin * tb)
 
     /* Add Close menu item.  By popular demand, we place this menu item closest to the cursor. */
     mi = gtk_menu_item_new_with_mnemonic (_("_Close Window"));
-    tb->p_menuitem_lock_tbp = gtk_menu_item_new_with_mnemonic(_("_Lock to Launcher"));
-    tb->p_menuitem_unlock_tbp = gtk_menu_item_new_with_mnemonic(_("_Unlock from Launcher"));
+    tb->p_menuitem_lock_tbp = gtk_menu_item_new_with_mnemonic(_("A_dd to Launcher"));
+    tb->p_menuitem_unlock_tbp = gtk_menu_item_new_with_mnemonic(_("Rem_ove from Launcher"));
     tb->p_menuitem_new_instance = gtk_menu_item_new_with_mnemonic(_("_New Instance"));
     
     if (tb->plug->panel->edge != EDGE_BOTTOM)
