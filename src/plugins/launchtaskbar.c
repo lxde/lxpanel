@@ -789,6 +789,8 @@ static int launchtaskbar_constructor(Plugin * p, char ** fp)
     {
         g_key_file_set_value(ltbp->p_key_file_special_cases, "special_cases",
             "synaptic", "synaptic-pkexec");
+        g_key_file_set_value(ltbp->p_key_file_special_cases, "special_cases",
+            "soffice.bin", "libreoffice");
         gchar *key_file_data = g_key_file_to_data(ltbp->p_key_file_special_cases, NULL, NULL);
         g_file_set_contents(special_cases_filepath, key_file_data, -1, NULL);
         g_free(key_file_data);
