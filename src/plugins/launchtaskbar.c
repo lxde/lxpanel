@@ -3234,6 +3234,7 @@ static void  on_menuitem_lock_tbp_clicked(GtkWidget * widget, TaskbarPlugin * tb
             ltbp->found_mb = FALSE;
             ltbp->exec_bin_mb = tb->menutask->exec_bin;
             f_find_menu_launchbutton_recursive(dir, ltbp);
+            panel_config_save(tb->plug->panel);
         }
     }
 }
@@ -3242,7 +3243,11 @@ static void  on_menuitem_unlock_tbp_clicked(GtkWidget * widget, TaskbarPlugin * 
 {
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)tb->plug->priv;
     LaunchButton *btn = launchbar_exec_bin_exists(&ltbp->lbp, tb->menutask->exec_bin);
-    if(btn != NULL) launchbar_remove_button(ltbp, btn);
+    if(btn != NULL)
+    {
+        launchbar_remove_button(ltbp, btn);
+        panel_config_save(tb->plug->panel);
+    }
 }
 
 static void  on_menuitem_new_instance_clicked(GtkWidget * widget, TaskbarPlugin * tb)
