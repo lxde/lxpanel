@@ -1,3 +1,4 @@
 #!/bin/sh
 
-lxpanelctl restart
+#lxpanelctl restart
+echo "*** PANEL RESTART REQUIRED ***"
