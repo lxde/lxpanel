@@ -752,6 +752,11 @@ static int launchbutton_constructor(Plugin * p, char ** fp)
     return 1;
 }
 
+static void launchtaskbar_constructor_add_default_special_case(LaunchTaskBarPlugin *ltbp, const gchar *tk_exec, const gchar *mb_exec)
+{
+    g_key_file_set_value(ltbp->p_key_file_special_cases, "special_cases", tk_exec, mb_exec);
+}
+
 /* Plugin constructor. */
 static int launchtaskbar_constructor(Plugin * p, char ** fp)
 {
@@ -787,10 +792,9 @@ static int launchtaskbar_constructor(Plugin * p, char ** fp)
     }
     else
     {
-        g_key_file_set_value(ltbp->p_key_file_special_cases, "special_cases",
-            "synaptic", "synaptic-pkexec");
-        g_key_file_set_value(ltbp->p_key_file_special_cases, "special_cases",
-            "soffice.bin", "libreoffice");
+        launchtaskbar_constructor_add_default_special_case(ltbp, "synaptic", "synaptic-pkexec");
+        launchtaskbar_constructor_add_default_special_case(ltbp, "soffice.bin", "libreoffice");
+        launchtaskbar_constructor_add_default_special_case(ltbp, "x-terminal-emulator", "lxterminal");
         gchar *key_file_data = g_key_file_to_data(ltbp->p_key_file_special_cases, NULL, NULL);
         g_file_set_contents(special_cases_filepath, key_file_data, -1, NULL);
         g_free(key_file_data);
