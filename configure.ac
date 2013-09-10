@@ -1,5 +1,5 @@
 AC_PREREQ(2.53)
-AC_INIT(lxpanel, 0.6.0, http://lxde.org/)
+AC_INIT(lxpanel, 0.6.1, http://lxde.org/)
 AM_INIT_AUTOMAKE([-Wall foreign])
 AC_CONFIG_HEADER([config.h])
 AC_CONFIG_MACRO_DIR([m4])
