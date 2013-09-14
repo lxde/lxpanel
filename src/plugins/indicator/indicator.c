@@ -924,14 +924,14 @@ PluginClass indicator_plugin_class = {
 
     PLUGINCLASS_VERSIONING,
 
-    type : "indicator",
-    name : N_("Indicator applets"),
-    version: "1.0",
-    description : N_("Add indicator applets to the panel"),
+    .type = "indicator",
+    .name = N_("Indicator applets"),
+    .version = "1.0",
+    .description = N_("Add indicator applets to the panel"),
 
-    constructor : indicator_constructor,
-    destructor  : indicator_destructor,
-    config : indicator_configure,
-    save : indicator_save_configuration,
-    panel_configuration_changed : indicator_panel_configuration_changed
+    .constructor = indicator_constructor,
+    .destructor  = indicator_destructor,
+    .config = indicator_configure,
+    .save = indicator_save_configuration,
+    .panel_configuration_changed = indicator_panel_configuration_changed
 };

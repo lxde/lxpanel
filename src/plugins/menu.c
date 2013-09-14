@@ -104,14 +104,9 @@ menu_destructor(Plugin *p)
 static void
 spawn_app(GtkWidget *widget, gpointer data)
 {
-    GError *error = NULL;
-
     ENTER;
     if (data) {
-        if (! g_spawn_command_line_async(data, &error) ) {
-            ERR("can't spawn %s\nError is %s\n", (char *)data, error->message);
-            g_error_free (error);
-        }
+        spawn_command_async(NULL, NULL, data);
     }
     RET();
 }
@@ -199,7 +194,8 @@ menu_pos(GtkMenu *menu, gint *x, gint *y, gboolean *push_in, GtkWidget *widget)
 static void on_menu_item( GtkMenuItem* mi, MenuCacheItem* item )
 {
     lxpanel_launch_app( menu_cache_app_get_exec(MENU_CACHE_APP(item)),
-            NULL, menu_cache_app_get_use_terminal(MENU_CACHE_APP(item)));
+            NULL, menu_cache_app_get_use_terminal(MENU_CACHE_APP(item)),
+	    menu_cache_app_get_working_dir(MENU_CACHE_APP(item)));
 }
 
 /* load icon when mapping the menu item to speed up */
@@ -336,9 +332,16 @@ static void on_menu_item_properties(GtkMenuItem* item, MenuCacheApp* app)
         "-o",
         NULL,
         NULL};
+    GError* err = NULL;
     argv[2] = ifile;
     argv[4] = ofile;
-    g_spawn_async( NULL, argv, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, NULL );
+    g_spawn_async( NULL, argv, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, &err );
+    if (err)
+    {
+        ERR("%s\n", err->message);
+        show_error(NULL, err->message);
+        g_error_free(err);
+    }
     g_free( ifile );
     g_free( ofile );
 }
@@ -456,7 +459,7 @@ static GtkWidget* create_item( MenuCacheItem* item )
     else
     {
         GtkWidget* img;
-        mi = gtk_image_menu_item_new_with_label( menu_cache_item_get_name(item) );
+        mi = gtk_image_menu_item_new_with_mnemonic( menu_cache_item_get_name(item) );
         img = gtk_image_new();
         gtk_image_menu_item_set_image( GTK_IMAGE_MENU_ITEM(mi), img );
         if( menu_cache_item_get_type(item) == MENU_CACHE_TYPE_APP )
@@ -1098,15 +1101,16 @@ PluginClass menu_plugin_class = {
 
     PLUGINCLASS_VERSIONING,
 
-    type : "menu",
-    name : N_("Menu"),
-    version: "2.0",
-    description : N_("Application Menu"),
+    .type = "menu",
+    .name = N_("Menu"),
+    .version = "2.0",
+    .description = N_("Application Menu"),
 
-    constructor : menu_constructor,
-    destructor  : menu_destructor,
-    config : menu_config,
-    save : save_config,
-    panel_configuration_changed : menu_panel_configuration_changed
+    .constructor = menu_constructor,
+    .destructor  = menu_destructor,
+    .config = menu_config,
+    .save = save_config,
+    .panel_configuration_changed = menu_panel_configuration_changed
 };
 
+/* vim: set sw=4 et sts=4 : */

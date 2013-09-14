@@ -439,14 +439,14 @@ static void save_config( Plugin* p, FILE* fp )
 PluginClass cpufreq_plugin_class = {
     PLUGINCLASS_VERSIONING,
 
-    type : "cpufreq",
-    name : N_("CPUFreq frontend"),
-    version: "0.1",
-    description : N_("Display CPU frequency and allow to change governors and frequency"),
+    .type = "cpufreq",
+    .name = N_("CPUFreq frontend"),
+    .version = "0.1",
+    .description = N_("Display CPU frequency and allow to change governors and frequency"),
 
-    constructor : cpufreq_constructor,
-    destructor  : cpufreq_destructor,
-    config : config,
-    save : NULL,
-    panel_configuration_changed : NULL
+    .constructor = cpufreq_constructor,
+    .destructor  = cpufreq_destructor,
+    .config = config,
+    .save = NULL,
+    .panel_configuration_changed = NULL
 };

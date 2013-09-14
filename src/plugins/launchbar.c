@@ -83,10 +83,12 @@ typedef struct {
     gchar * image;			/* Image icon (from Icon entry) */
     gchar * action;			/* Action (from Exec entry) */
     gchar * tooltip;			/* Tooltip (from Name entry) */
+    gchar * path;                       /* Working directory requested in .desktop file */
     guchar use_terminal : 1;		/* True if Terminal=true or from configuration file */
     guchar customize_image : 1;		/* True if image icon from configuration file */
     guchar customize_action : 1;	/* True if action from configuration file */
     guchar customize_tooltip : 1;	/* True if tooltip from configuration file */
+    guchar customize_path : 1;	        /* True if path from configuration file */
 } LaunchButton;
 
 /* Private context for launchbar plugin. */
@@ -133,6 +135,7 @@ static void launchbutton_free(LaunchButton * btn)
     g_free(btn->image);
     g_free(btn->action);
     g_free(btn->tooltip);
+    g_free(btn->path);
     g_free(btn);
 }
 
@@ -247,7 +250,7 @@ static gboolean launchbutton_press_event(GtkWidget * widget, GdkEventButton * ev
         if (b->desktop_id == NULL)	/* The bootstrap button */
             launchbar_configure(b->plugin, NULL);
         else if (b->action != NULL)
-            lxpanel_launch_app(b->action, NULL, b->use_terminal);
+            lxpanel_launch_app(b->action, NULL, b->use_terminal, b->path);
     }
     return TRUE;
 }
@@ -310,7 +313,7 @@ static void launchbutton_drag_data_received_event(
                 s = e+1;
             }
 
-            g_spawn_command_line_async(str, NULL);
+            spawn_command_async(NULL, NULL, str);
             g_free(str);
         }
     }
@@ -481,6 +484,11 @@ static int launchbutton_constructor(Plugin * p, char ** fp)
                 {
                     btn->customize_tooltip = TRUE;
                     btn->tooltip = g_strdup(s.t[1]);
+                }
+                else if (g_ascii_strcasecmp(s.t[0], "path") == 0)
+                {
+                    btn->customize_path = TRUE;
+                    btn->path = g_strdup(s.t[1]);
                 }
                 else if (g_ascii_strcasecmp(s.t[0], "action") == 0)
                 {
@@ -812,6 +820,7 @@ static void launchbar_configure_add_menu_recursive(GtkTreeStore * tree, GtkTreeI
                 btn->desktop_id = menu_cache_item_get_file_path(item);
                 btn->image = g_strdup(menu_cache_item_get_icon(item));
                 btn->tooltip = g_strdup(menu_cache_item_get_name(item));
+                btn->path = g_strdup(menu_cache_app_get_working_dir(MENU_CACHE_APP(item)));
 
                 GKeyFile * desktop = g_key_file_new();
                 gboolean loaded = load_app_key_file(btn->desktop_id, desktop);
@@ -1000,6 +1009,8 @@ static void launchbar_save_configuration(Plugin * p, FILE * fp)
             lxpanel_put_str(fp, "image", btn->image);
         if(btn->customize_tooltip)
             lxpanel_put_str(fp, "tooltip", btn->tooltip);
+        if(btn->customize_path)
+            lxpanel_put_str(fp, "path", btn->path);
         if (btn->customize_action)
             lxpanel_put_str(fp, "action", btn->action);
         if (btn->use_terminal)
@@ -1035,14 +1046,14 @@ PluginClass launchbar_plugin_class = {
 
     PLUGINCLASS_VERSIONING,
 
-    type : "launchbar",
-    name : N_("Application Launch Bar"),
-    version: "2.0",
-    description : N_("Bar with buttons to launch application"),
+    .type = "launchbar",
+    .name = N_("Application Launch Bar"),
+    .version = "2.0",
+    .description = N_("Bar with buttons to launch application"),
 
-    constructor : launchbar_constructor,
-    destructor  : launchbar_destructor,
-    config : launchbar_configure,
-    save : launchbar_save_configuration,
-    panel_configuration_changed : launchbar_panel_configuration_changed
+    .constructor = launchbar_constructor,
+    .destructor  = launchbar_destructor,
+    .config = launchbar_configure,
+    .save = launchbar_save_configuration,
+    .panel_configuration_changed = launchbar_panel_configuration_changed
 };

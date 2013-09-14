@@ -308,13 +308,13 @@ PluginClass volume_plugin_class = {
 
     PLUGINCLASS_VERSIONING,
 
-    type : "volume",
-    name : N_("Volume Control"),
-    version: "1.0",
-    description : "Display and control volume",
+    .type = "volume",
+    .name = N_("Volume Control"),
+    .version = "1.0",
+    .description = "Display and control volume",
 
-    constructor : volume_constructor,
-    destructor  : volume_destructor,
-    config : NULL,
-    save : NULL
+    .constructor = volume_constructor,
+    .destructor  = volume_destructor,
+    .config = NULL,
+    .save = NULL
 };
