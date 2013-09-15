@@ -521,16 +521,16 @@ PluginClass thermal_plugin_class = {
 
     PLUGINCLASS_VERSIONING,
 
-    type : "thermal",
-    name : N_("Temperature Monitor"),
-    version: "0.6",
-    description : N_("Display system temperature"),
+    .type = "thermal",
+    .name = N_("Temperature Monitor"),
+    .version = "0.6",
+    .description = N_("Display system temperature"),
 
-    constructor : thermal_constructor,
-    destructor  : thermal_destructor,
-    config : config,
-    save : save_config,
-    panel_configuration_changed : NULL
+    .constructor = thermal_constructor,
+    .destructor  = thermal_destructor,
+    .config = config,
+    .save = save_config,
+    .panel_configuration_changed = NULL
 };
 
 

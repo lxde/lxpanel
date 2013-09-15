@@ -273,13 +273,13 @@ PluginClass cpu_plugin_class = {
 
     PLUGINCLASS_VERSIONING,
 
-    type : "cpu",
-    name : N_("CPU Usage Monitor"),
-    version: "1.0",
-    description : N_("Display CPU usage"),
+    .type = "cpu",
+    .name = N_("CPU Usage Monitor"),
+    .version = "1.0",
+    .description = N_("Display CPU usage"),
 
-    constructor : cpu_constructor,
-    destructor  : cpu_destructor,
-    config : NULL,
-    save : NULL
+    .constructor = cpu_constructor,
+    .destructor  = cpu_destructor,
+    .config = NULL,
+    .save = NULL
 };

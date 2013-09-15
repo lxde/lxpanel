@@ -70,21 +70,14 @@ static void dirmenu_open_in_file_manager(Plugin * p, const char * path)
     const char * fm = lxpanel_get_file_manager();
     char * cmd = ((strstr(fm, "%s") != NULL) ? g_strdup_printf(fm, quote) : g_strdup_printf("%s %s", fm, quote));
     g_free(quote);
-    g_spawn_command_line_async(cmd, NULL);
+    spawn_command_async(NULL, NULL, cmd);
     g_free(cmd);
 }
 
 /* Open a specified path in a terminal. */
 static void dirmenu_open_in_terminal(Plugin * p, const char * path)
 {
-    const char * term = lxpanel_get_terminal();
-    char * argv[2];
-    char * sp = strchr(term, ' ');
-    argv[0] = ((sp != NULL) ? g_strndup(term, sp - term) : (char *) term);
-    argv[1] = NULL;
-    g_spawn_async(path, argv, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, NULL);
-    if (argv[0] != term)
-        g_free(argv[0]);
+    spawn_command_async(NULL, path, lxpanel_get_terminal());
 }
 
 /* Handler for activate event on popup Open menu item. */
@@ -439,15 +432,15 @@ PluginClass dirmenu_plugin_class = {
 
     PLUGINCLASS_VERSIONING,
 
-    type : "dirmenu",
-    name : N_("Directory Menu"),
-    version: "1.0",
-    description : N_("Browse directory tree via menu (Author: PCMan)"),
+    .type = "dirmenu",
+    .name = N_("Directory Menu"),
+    .version = "1.0",
+    .description = N_("Browse directory tree via menu (Author = PCMan)"),
 
-    constructor : dirmenu_constructor,
-    destructor  : dirmenu_destructor,
-    config : dirmenu_configure,
-    save : dirmenu_save_configuration,
-    panel_configuration_changed : dirmenu_panel_configuration_changed
+    .constructor = dirmenu_constructor,
+    .destructor  = dirmenu_destructor,
+    .config = dirmenu_configure,
+    .save = dirmenu_save_configuration,
+    .panel_configuration_changed = dirmenu_panel_configuration_changed
 
 };

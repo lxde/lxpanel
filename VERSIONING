@@ -1,0 +1,32 @@
+This is a rough guide to versioning. It is unclear how strictly it will be
+followed.
+
+LXPanel shall be versioned according to the semantic versioning scheme, version
+2.0.0, available at http://semver.org/. A version is a MAJOR.MINOR.PATCH tuple.
+
+The exception is that the major number shall remain at 0, although lxpanel is
+already more or less mature.
+
+The lxpanel API consists of:
+
+    - The configuration files:
+        * ~/.config/lxpanel/<profile>/config (e.g. data/default/config)
+        * ~/.config/lxpanel/<profile>/panels/* (e.g. data/default/panels/panel)
+
+    - The ui files:
+        * data/ui/panel-pref.ui
+        * data/ui/launchbar.ui
+        * data/ui/netstatus.ui
+
+    - The plugin API:
+        * include/lxpanel/plugin.h (Must be the same as src/plugin.h)
+
+    - The command line arguments to lxpanel and lxpanelctl.
+
+    - The interface used by lxpanelctl.
+
+    - Libraries used.
+
+    - The lxpanel user interface, including:
+        * Look (colors, shapes, arrangements)
+	* Behavior

@@ -152,16 +152,16 @@ static void save_config( Plugin* p, FILE* fp )
 }
 
 PluginClass image_plugin_class = {
-    fname: NULL,
-    count: 0,
+    .fname = NULL,
+    .count = 0,
 
-    type : "image",
-    name : "image",
-    version: "1.0",
-    description : N_("Display Image and Tooltip"),
+    .type = "image",
+    .name = "image",
+    .version = "1.0",
+    .description = N_("Display Image and Tooltip"),
 
-    constructor : image_constructor,
-    destructor  : image_destructor,
-    config : NULL,
-    save : save_config
+    .constructor = image_constructor,
+    .destructor  = image_destructor,
+    .config = NULL,
+    .save = save_config
 };

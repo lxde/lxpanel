@@ -854,37 +854,40 @@ calculate_width(int scrw, int wtype, int allign, int margin,
 void
 calculate_position(Panel *np)
 {
-    int sswidth, ssheight, minx, miny;
+    GdkScreen *screen;
+    GdkRectangle marea;
 
     ENTER;
     /* FIXME: Why this doesn't work? */
+    /* if you are still going to use this, be sure to update it to take into
+       account multiple monitors */
     if (0)  {
 //        if (np->curdesk < np->wa_len/4) {
-        minx = np->workarea[np->curdesk*4 + 0];
-        miny = np->workarea[np->curdesk*4 + 1];
-        sswidth  = np->workarea[np->curdesk*4 + 2];
-        ssheight = np->workarea[np->curdesk*4 + 3];
+        marea.x = np->workarea[np->curdesk*4 + 0];
+        marea.y = np->workarea[np->curdesk*4 + 1];
+        marea.width  = np->workarea[np->curdesk*4 + 2];
+        marea.height = np->workarea[np->curdesk*4 + 3];
     } else {
-        minx = miny = 0;
-        sswidth  = gdk_screen_get_width( gtk_widget_get_screen(np->topgwin) );
-        ssheight = gdk_screen_get_height( gtk_widget_get_screen(np->topgwin) );
+        screen = gtk_widget_get_screen(np->topgwin);
+        g_assert(np->monitor >= 0 && np->monitor < gdk_screen_get_n_monitors(screen));
+        gdk_screen_get_monitor_geometry(screen,np->monitor,&marea);
     }
 
     if (np->edge == EDGE_TOP || np->edge == EDGE_BOTTOM) {
         np->aw = np->width;
-        np->ax = minx;
-        calculate_width(sswidth, np->widthtype, np->allign, np->margin,
+        np->ax = marea.x;
+        calculate_width(marea.width, np->widthtype, np->allign, np->margin,
               &np->aw, &np->ax);
         np->ah = ((( ! np->autohide) || (np->visible)) ? np->height : np->height_when_hidden);
-        np->ay = miny + ((np->edge == EDGE_TOP) ? 0 : (ssheight - np->ah));
+        np->ay = marea.y + ((np->edge == EDGE_TOP) ? 0 : (marea.height - np->ah));
 
     } else {
         np->ah = np->width;
-        np->ay = miny;
-        calculate_width(ssheight, np->widthtype, np->allign, np->margin,
+        np->ay = marea.y;
+        calculate_width(marea.height, np->widthtype, np->allign, np->margin,
               &np->ah, &np->ay);
         np->aw = ((( ! np->autohide) || (np->visible)) ? np->height : np->height_when_hidden);
-        np->ax = minx + ((np->edge == EDGE_LEFT) ? 0 : (sswidth - np->aw));
+        np->ax = marea.x + ((np->edge == EDGE_LEFT) ? 0 : (marea.width - np->aw));
     }
     //g_debug("%s - x=%d y=%d w=%d h=%d\n", __FUNCTION__, np->ax, np->ay, np->aw, np->ah);
     RET();
@@ -1551,7 +1554,31 @@ _finish:
     return g_string_free( cmd, FALSE );
 }
 
-gboolean lxpanel_launch_app(const char* exec, GList* files, gboolean in_terminal)
+gboolean spawn_command_async(GtkWindow *parent_window, gchar const* workdir,
+        gchar const* cmd)
+{
+    GError* err = NULL;
+    gchar** argv = NULL;
+
+    LOG(LOG_INFO, "lxpanel: spawning \"%s\"...\n", cmd);
+
+    g_shell_parse_argv(cmd, NULL, &argv, &err);
+    if (!err)
+        g_spawn_async(workdir, argv, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, &err);
+
+    if (err)
+    {
+        ERR("%s\n", err->message);
+        show_error(parent_window, err->message);
+        g_error_free(err);
+    }
+
+    g_strfreev(argv);
+
+    return !err;
+}
+
+gboolean lxpanel_launch_app(const char* exec, GList* files, gboolean in_terminal, char const* in_workdir)
 {
     GError *error = NULL;
     char* cmd;
@@ -1572,12 +1599,12 @@ gboolean lxpanel_launch_app(const char* exec, GList* files, gboolean in_terminal
             g_free(cmd);
         cmd = term_cmd;
     }
-    LOG(LOG_INFO, "lxpanel: spawning \"%s\"...\n", cmd);
-    if (! g_spawn_command_line_async(cmd, &error) ) {
-        ERR("can't spawn %s\nError is %s\n", cmd, error->message);
-        g_error_free (error);
-    }
+
+    spawn_command_async(NULL, in_workdir, cmd);
+
     g_free(cmd);
 
     return (error == NULL);
 }
+
+/* vim: set sw=4 et sts=4 : */

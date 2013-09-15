@@ -231,15 +231,15 @@ PluginClass deskno_plugin_class = {
 
     PLUGINCLASS_VERSIONING,
 
-    type : "deskno",
-    name : N_("Desktop Number / Workspace Name"),
-    version: "0.6",
-    description : N_("Display workspace number, by cmeury@users.sf.net"),
+    .type = "deskno",
+    .name = N_("Desktop Number / Workspace Name"),
+    .version = "0.6",
+    .description = N_("Display workspace number, by cmeury@users.sf.net"),
 
-    constructor : deskno_constructor,
-    destructor  : deskno_destructor,
-    config : deskno_configure,
-    save : deskno_save_configuration,
-    panel_configuration_changed : deskno_panel_configuration_changed
+    .constructor = deskno_constructor,
+    .destructor  = deskno_destructor,
+    .config = deskno_configure,
+    .save = deskno_save_configuration,
+    .panel_configuration_changed = deskno_panel_configuration_changed
 
 };

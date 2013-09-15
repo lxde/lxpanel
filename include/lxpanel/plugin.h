@@ -129,8 +129,8 @@ struct _Plugin;
  * Plugins must invoke PLUGINCLASS_VERSIONING when they instantiate PluginClass. */
 #define PLUGINCLASS_VERSION 1
 #define PLUGINCLASS_VERSIONING \
-    structure_size : sizeof(PluginClass), \
-    structure_version : PLUGINCLASS_VERSION
+    .structure_size = sizeof(PluginClass), \
+    .structure_version = PLUGINCLASS_VERSION
 
 /* Representative of an available plugin. */
 typedef struct {

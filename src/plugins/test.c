@@ -86,14 +86,14 @@ test_destructor(Plugin *p)
 }
 
 PluginClass test_plugin_class = {
-    fname: NULL,
-    count: 0,
+    .fname = NULL,
+    .count = 0,
 
-    type : "test",
-    name : "Test Plugin",
-    version: "1.0",
-    description : "Dispaly Digital clock and Tooltip",
+    .type = "test",
+    .name = "Test Plugin",
+    .version = "1.0",
+    .description = "Dispaly Digital clock and Tooltip",
 
-    constructor : test_constructor,
-    destructor  : test_destructor,
+    .constructor = test_constructor,
+    .destructor  = test_destructor,
 };

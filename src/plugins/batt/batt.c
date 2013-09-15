@@ -42,6 +42,7 @@
 #include <semaphore.h> /* used by update() and alarmProcess() for alarms */
 #include <stdlib.h>
 #include <string.h>
+#include <stdarg.h>
 
 #include "dbg.h"
 #include "batt_sys.h"
@@ -86,6 +87,7 @@ typedef struct {
     sem_t alarmProcessLock;
     battery* b;
     gboolean has_ac_adapter;
+    gboolean show_extended_information;
 } lx_battery;
 
 
@@ -111,11 +113,98 @@ static void * alarmProcess(void *arg) {
 }
 
 
+static void append(gchar **tooltip, gchar *fmt, ...)
+{
+    gchar *old = *tooltip;
+    gchar *new;
+    va_list va;
+
+    va_start(va, fmt);
+    new = g_strdup_vprintf(fmt, va);
+    va_end(va);
+
+    *tooltip = g_strconcat(old, new, NULL);
+
+    g_free(old);
+    g_free(new);
+}
+
+
+/* Make a tooltip string, and display remaining charge time if the battery
+   is charging or remaining life if it's discharging */
+static gchar* make_tooltip(lx_battery* lx_b, gboolean isCharging)
+{
+    gchar * tooltip;
+    gchar * indent = "  ";
+    battery *b = lx_b->b;
+
+    if (isCharging) {
+	int hours = lx_b->b->seconds / 3600;
+	int left_seconds = lx_b->b->seconds - 3600 * hours;
+	int minutes = left_seconds / 60;
+	tooltip = g_strdup_printf(
+		_("Battery: %d%% charged, %d:%02d until full"),
+		lx_b->b->percentage,
+		hours,
+		minutes );
+    } else {
+	/* if we have enough rate information for battery */
+	if (lx_b->b->percentage != 100) {
+	    int hours = lx_b->b->seconds / 3600;
+	    int left_seconds = lx_b->b->seconds - 3600 * hours;
+	    int minutes = left_seconds / 60;
+	    tooltip = g_strdup_printf(
+		    _("Battery: %d%% charged, %d:%02d left"),
+		    lx_b->b->percentage,
+		    hours,
+		    minutes );
+	} else {
+	    tooltip = g_strdup_printf(
+		    _("Battery: %d%% charged"),
+		    100 );
+	}
+    }
+
+    if (!lx_b->show_extended_information) {
+	return tooltip;
+    }
+
+    if (b->energy_full_design != -1)
+	append(&tooltip, _("\n%sEnergy full design:\t\t%5d mWh"), indent, b->energy_full_design);
+    if (b->energy_full != -1)
+	append(&tooltip, _("\n%sEnergy full:\t\t\t%5d mWh"), indent, b->energy_full);
+    if (b->energy_now != -1)
+	append(&tooltip, _("\n%sEnergy now:\t\t\t%5d mWh"), indent, b->energy_now);
+    if (b->power_now != -1)
+	append(&tooltip, _("\n%sPower now:\t\t\t%5d mW"), indent, b->power_now);
+
+    if (b->charge_full_design != -1)
+	append(&tooltip, _("\n%sCharge full design:\t%5d mAh"), indent, b->charge_full_design);
+    if (b->charge_full != -1)
+	append(&tooltip, _("\n%sCharge full:\t\t\t%5d mAh"), indent, b->charge_full);
+    if (b->charge_now != -1)
+	append(&tooltip, _("\n%sCharge now:\t\t\t%5d mAh"), indent, b->charge_now);
+    if (b->current_now != -1)
+	append(&tooltip, _("\n%sCurrent now:\t\t\t%5d mA"), indent, b->current_now);
+
+    if (b->voltage_now != -1)
+	append(&tooltip, _("\n%sCurrent Voltage:\t\t%.3lf V"), indent, b->voltage_now / 1000.0);
+
+    return tooltip;
+}
+
+static void set_tooltip_text(lx_battery* lx_b)
+{
+    gboolean isCharging = battery_is_charging(lx_b->b);
+    gchar *tooltip = make_tooltip(lx_b, isCharging);
+    gtk_widget_set_tooltip_text(lx_b->drawingArea, tooltip);
+    g_free(tooltip);
+}
+
 /* FIXME:
    Don't repaint if percentage of remaining charge and remaining time aren't changed. */
 void update_display(lx_battery *lx_b, gboolean repaint) {
     cairo_t *cr;
-    char tooltip[ 256 ];
     battery *b = lx_b->b;
     /* unit: mW */
     int rate;
@@ -169,36 +258,7 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
 	}
     }
 
-    /* Make a tooltip string, and display remaining charge time if the battery
-       is charging or remaining life if it's discharging */
-    if (isCharging) {
-	int hours = lx_b->b->seconds / 3600;
-	int left_seconds = b->seconds - 3600 * hours;
-	int minutes = left_seconds / 60;
-	snprintf(tooltip, 256,
-		_("Battery: %d%% charged, %d:%02d until full"),
-		lx_b->b->percentage,
-		hours,
-		minutes );
-    } else {
-	/* if we have enough rate information for battery */
-	if (lx_b->b->percentage != 100) {
-	    int hours = lx_b->b->seconds / 3600;
-	    int left_seconds = b->seconds - 3600 * hours;
-	    int minutes = left_seconds / 60;
-	    snprintf(tooltip, 256,
-		    _("Battery: %d%% charged, %d:%02d left"),
-		    lx_b->b->percentage,
-		    hours,
-		    minutes );
-	} else {
-	    snprintf(tooltip, 256,
-		    _("Battery: %d%% charged"),
-		    100 );
-	}
-    }
-
-    gtk_widget_set_tooltip_text(lx_b->drawingArea, tooltip);
+    set_tooltip_text(lx_b);
 
     int chargeLevel = lx_b->b->percentage * (lx_b->length - 2 * lx_b->border) / 100;
 
@@ -381,6 +441,8 @@ constructor(Plugin *p, char **fp)
     line s;
     s.len = 256;
 
+    lx_b->show_extended_information = false;
+
     if (fp) {
 
         /* Apply options */
@@ -417,6 +479,8 @@ constructor(Plugin *p, char **fp)
                     gtk_widget_set_size_request(lx_b->drawingArea, lx_b->width,
                             lx_b->height);
                 }
+		else if (!g_ascii_strcasecmp(s.t[0], "ShowExtendedInformation"))
+                    lx_b->show_extended_information = atoi(s.t[1]);
                 else {
                     ERR( "batt: unknown var %s\n", s.t[0]);
                     continue;
@@ -538,6 +602,9 @@ static void applyConfig(Plugin* p)
         b->height = b->thickness;
     gtk_widget_set_size_request(b->drawingArea, b->width, b->height);
 
+    /* update tooltip */
+    set_tooltip_text(b);
+
     RET();
 }
 
@@ -562,6 +629,7 @@ static void config(Plugin *p, GtkWindow* parent) {
             _("Discharging color 2"), &b->dischargingColor2, CONF_TYPE_STR,
             _("Border width"), &b->requestedBorder, CONF_TYPE_INT,
             _("Size"), &b->thickness, CONF_TYPE_INT,
+            _("Show Extended Information"), &b->show_extended_information, CONF_TYPE_BOOL,
             NULL);
     gtk_window_present(GTK_WINDOW(dialog));
 
@@ -582,6 +650,7 @@ static void save(Plugin* p, FILE* fp) {
     lxpanel_put_str(fp, "DischargingColor1", lx_b->dischargingColor1);
     lxpanel_put_str(fp, "DischargingColor2", lx_b->dischargingColor2);
     lxpanel_put_int(fp, "Size", lx_b->thickness);
+    lxpanel_put_bool(fp, "ShowExtendedInformation", lx_b->show_extended_information);
 }
 
 
@@ -589,14 +658,17 @@ PluginClass batt_plugin_class = {
     
     PLUGINCLASS_VERSIONING,
 
-    type        : "batt",
-    name        : N_("Battery Monitor"),
-    version     : "2.0",
-    description : N_("Display battery status using ACPI"),
+    .type        = "batt",
+    .name        = N_("Battery Monitor"),
+    .version     = "2.0",
+    .description = N_("Display battery status using ACPI"),
 
-    constructor : constructor,
-    destructor  : destructor,
-    config      : config,
-    save        : save,
-    panel_configuration_changed : orientation
+    .constructor = constructor,
+    .destructor  = destructor,
+    .config      = config,
+    .save        = save,
+    .panel_configuration_changed = orientation
 };
+
+
+/* vim: set sw=4 sts=4 : */

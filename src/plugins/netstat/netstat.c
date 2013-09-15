@@ -509,16 +509,16 @@ PluginClass netstat_plugin_class = {
     
     PLUGINCLASS_VERSIONING,
 
-    type : "netstat",
-    name : N_("Manage Networks"),
-    version: "1.0",
-    description : N_("Monitor and Manage networks"),
+    .type = "netstat",
+    .name = N_("Manage Networks"),
+    .version = "1.0",
+    .description = N_("Monitor and Manage networks"),
 
-    constructor : netstat_constructor,
-    destructor  : netstat_destructor,
-    panel_configuration_changed : orientation_changed,
-    config : NULL,
-    save : NULL
+    .constructor = netstat_constructor,
+    .destructor  = netstat_destructor,
+    .panel_configuration_changed = orientation_changed,
+    .config = NULL,
+    .save = NULL
 };
 
 /* vim: set sw=4 sts=4 et : */
