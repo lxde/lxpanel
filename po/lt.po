@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-23 15:11+0200\n"
-"PO-Revision-Date: 2012-09-23 09:52+0300\n"
+"POT-Creation-Date: 2013-08-27 10:10+0200\n"
+"PO-Revision-Date: 2013-08-29 08:38+0200\n"
 "Last-Translator: Algimantas Margevičius <margevicius.algimantas@gmail.com>\n"
 "Language-Team: Lietuvių <>\n"
 "Language: lt\n"
@@ -17,8 +17,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2)\n"
-"X-Generator: Gtranslator 2.91.5\n"
+"%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 1.5.7\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -70,7 +70,7 @@ msgid ""
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
 "Ar tikrai norite ištrinti šį skydelį?\n"
-"<b>Įspėjimas: skydelis negalės būti atkurtas.</b>"
+"<b>Įspėjimas: skydelio atkurti neįmanoma.</b>"
 
 #: ../src/panel.c:660
 msgid "Confirm"
@@ -216,7 +216,7 @@ msgstr ""
 msgid "Enter the command you want to execute:"
 msgstr "Įveskite komandą, kurią norite įvykdyti:"
 
-#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:912
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:1039
 msgid "Application Launch Bar"
 msgstr "Programų paleidimo juosta"
 
@@ -317,15 +317,15 @@ msgstr "% procentų"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "None"
-msgstr "Joks"
+msgstr "Nieko"
 
 #: ../data/ui/panel-pref.glade.h:6
 msgid "Err"
-msgstr "Kld "
+msgstr "Klaidos"
 
 #: ../data/ui/panel-pref.glade.h:7
 msgid "Warn"
-msgstr "Persp"
+msgstr "Perspėjimai"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "Info"
@@ -333,7 +333,7 @@ msgstr "Info"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "All"
-msgstr "Visi"
+msgstr "Viskas"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "Panel Preferences"
@@ -379,7 +379,7 @@ msgstr "Sistemos tema"
 msgid "Solid color (with opacity)"
 msgstr "Spalva (su permatomumu)"
 
-#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/xkb/xkb-plugin.c:1253
+#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/xkb/xkb-plugin.c:1401
 msgid "Image"
 msgstr "Paveikslėlis"
 
@@ -430,11 +430,11 @@ msgstr "<b>Nustatyti pageidaujamas programas</b>"
 
 #: ../data/ui/panel-pref.glade.h:39
 msgid "Make window managers treat the panel as dock"
-msgstr "Padaryti, kad langų tvarkyklės matytų skydelį kaip doką"
+msgstr "Langų tvarkyklės skydelį matys kaip doką"
 
 #: ../data/ui/panel-pref.glade.h:40
 msgid "Reserve space, and not covered by maximized windows"
-msgstr "Rezervuota vieta, neuždengta išdidintų langų"
+msgstr "Rezervuota vieta neuždengiama išdidintų langų"
 
 #: ../data/ui/panel-pref.glade.h:41
 msgid "<b>Properties</b>"
@@ -496,96 +496,96 @@ msgstr "Rodo darbastalio numerį. Parašė cmeury@users.sf.net"
 msgid "Display Image and Tooltip"
 msgstr "Rodyti paveikslėlį ir patarimus"
 
-#: ../src/plugins/launchbar.c:914
+#: ../src/plugins/launchbar.c:1041
 msgid "Bar with buttons to launch application"
 msgstr "Juosta su mygtukais, skirtais paleisti programoms"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1714
+#: ../src/plugins/taskbar.c:1722
 msgid "_Raise"
 msgstr "Pa_rodyti"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1719
+#: ../src/plugins/taskbar.c:1727
 msgid "R_estore"
 msgstr "At_statyti"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1724
+#: ../src/plugins/taskbar.c:1732
 msgid "Ma_ximize"
 msgstr "Iš_didinti"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1729
+#: ../src/plugins/taskbar.c:1737
 msgid "Ico_nify"
 msgstr "Su_mažinti"
 
-#: ../src/plugins/taskbar.c:1748
+#: ../src/plugins/taskbar.c:1756
 #, c-format
 msgid "Workspace _%d"
 msgstr "Darbo vieta _%d"
 
-#: ../src/plugins/taskbar.c:1753
+#: ../src/plugins/taskbar.c:1761
 #, c-format
 msgid "Workspace %d"
 msgstr "Darbo vieta %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1767
+#: ../src/plugins/taskbar.c:1775
 msgid "_All workspaces"
 msgstr "Visos d_arbo vietos"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1773
+#: ../src/plugins/taskbar.c:1781
 msgid "_Move to Workspace"
 msgstr "Per_kelti į darbo vietą"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1779
+#: ../src/plugins/taskbar.c:1787
 msgid "_Close Window"
 msgstr "_Uždaryti langą"
 
-#: ../src/plugins/taskbar.c:1986
+#: ../src/plugins/taskbar.c:1994
 msgid "Show tooltips"
 msgstr "Rodyti patarimus"
 
-#: ../src/plugins/taskbar.c:1987
+#: ../src/plugins/taskbar.c:1995
 msgid "Icons only"
 msgstr "Tik piktogramos"
 
-#: ../src/plugins/taskbar.c:1988
+#: ../src/plugins/taskbar.c:1996
 msgid "Flat buttons"
 msgstr "Plokšti mygtukai"
 
-#: ../src/plugins/taskbar.c:1989
+#: ../src/plugins/taskbar.c:1997
 msgid "Show windows from all desktops"
 msgstr "Rodyti langus iš visų darbastalių"
 
-#: ../src/plugins/taskbar.c:1990
+#: ../src/plugins/taskbar.c:1998
 msgid "Use mouse wheel"
 msgstr "Naudoti pelės ratuką"
 
-#: ../src/plugins/taskbar.c:1991
+#: ../src/plugins/taskbar.c:1999
 msgid "Flash when there is any window requiring attention"
 msgstr "Sumirksėti, kai langas reikalauja dėmesio"
 
-#: ../src/plugins/taskbar.c:1992
+#: ../src/plugins/taskbar.c:2000
 msgid "Combine multiple application windows into a single button"
 msgstr "Sujungti tos pačios programos langus į vieną mygtuką"
 
-#: ../src/plugins/taskbar.c:1993
+#: ../src/plugins/taskbar.c:2001
 msgid "Maximum width of task button"
 msgstr "Maksimalus paleistos programos mygtuko plotis"
 
-#: ../src/plugins/taskbar.c:1994
+#: ../src/plugins/taskbar.c:2002
 msgid "Spacing"
 msgstr "Tarpai"
 
-#: ../src/plugins/taskbar.c:2047
+#: ../src/plugins/taskbar.c:2055
 msgid "Task Bar (Window List)"
 msgstr "Užduočių juosta (langų sąrašas)"
 
-#: ../src/plugins/taskbar.c:2049
+#: ../src/plugins/taskbar.c:2057
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -602,8 +602,9 @@ msgid "Tooltip Format"
 msgstr "Patarimų formatas"
 
 #: ../src/plugins/dclock.c:438
-msgid "Format codes: man 3 strftime; \\n for line break"
-msgstr "Formatų kodai: man 3 strftime; \\n naujai eilutei"
+#, c-format
+msgid "Format codes: man 3 strftime; \\%n for line break"
+msgstr "Formatų kodai: man 3 strftime; \\%n naujai eilutei"
 
 #: ../src/plugins/dclock.c:439
 msgid "Action when clicked (default: display calendar)"
@@ -633,15 +634,15 @@ msgstr "Pridėti į darbastalį"
 msgid "Properties"
 msgstr "Savybės"
 
-#: ../src/plugins/menu.c:1084 ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1085 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "Piktograma"
 
-#: ../src/plugins/menu.c:1101
+#: ../src/plugins/menu.c:1102
 msgid "Menu"
 msgstr "Meniu"
 
-#: ../src/plugins/menu.c:1103
+#: ../src/plugins/menu.c:1104
 msgid "Application Menu"
 msgstr "Programos meniu"
 
@@ -669,95 +670,111 @@ msgstr "Tarpiklis"
 msgid "Allocate space"
 msgstr "Atlaisvina vietą"
 
-#: ../src/plugins/tray.c:757
+#: ../src/plugins/tray.c:764
 msgid "System Tray"
 msgstr "Sistemos dėklas"
 
-#: ../src/plugins/tray.c:759
+#: ../src/plugins/tray.c:766
 msgid "System tray"
 msgstr "Sistemos dėklas"
 
+#: ../src/plugins/xkb/xkb-plugin.c:451
+msgid "New session is required for this option to take effect"
+msgstr "Šiai parinkčiai įsigalioti reikia naujos sesijos"
+
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:513
+#: ../src/plugins/xkb/xkb-plugin.c:604
 msgid "Select Keyboard Model"
 msgstr "Pasirinkite klaviatūros modelį"
 
-#: ../src/plugins/xkb/xkb-plugin.c:536
+#: ../src/plugins/xkb/xkb-plugin.c:627
 msgid "Model"
 msgstr "Моdelis"
 
-#: ../src/plugins/xkb/xkb-plugin.c:540 ../src/plugins/xkb/xkb-plugin.c:629
-#: ../src/plugins/xkb/xkb-plugin.c:780
+#: ../src/plugins/xkb/xkb-plugin.c:632 ../src/plugins/xkb/xkb-plugin.c:725
+#: ../src/plugins/xkb/xkb-plugin.c:876
 msgid "Description"
 msgstr "Aprašymas"
 
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:602
+#: ../src/plugins/xkb/xkb-plugin.c:698
 msgid "Select Layout Change Type"
 msgstr "Pasirinkite išdėstymo keitimo tipą"
 
-#: ../src/plugins/xkb/xkb-plugin.c:625
+#: ../src/plugins/xkb/xkb-plugin.c:721
 msgid "Change Type"
 msgstr "Keisti tipą"
 
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:747
+#: ../src/plugins/xkb/xkb-plugin.c:843
 msgid "Add Keyboard Layout"
 msgstr "Pridėti klaviatūros išdėstymą"
 
-#: ../src/plugins/xkb/xkb-plugin.c:770 ../src/plugins/xkb/xkb-plugin.c:1136
+#: ../src/plugins/xkb/xkb-plugin.c:866 ../src/plugins/xkb/xkb-plugin.c:1249
 msgid "Flag"
 msgstr "Žymė"
 
-#: ../src/plugins/xkb/xkb-plugin.c:775 ../src/plugins/xkb/xkb-plugin.c:1140
+#: ../src/plugins/xkb/xkb-plugin.c:871 ../src/plugins/xkb/xkb-plugin.c:1253
 msgid "Layout"
 msgstr "Išdėstymas"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1053 ../src/plugins/xkb/xkb-plugin.c:1359
+#: ../src/plugins/xkb/xkb-plugin.c:1160 ../src/plugins/xkb/xkb-plugin.c:1509
 msgid "Keyboard Layout Handler"
 msgstr "Klaviatūros išdėstymų perjungimo priemonė"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1070
+#: ../src/plugins/xkb/xkb-plugin.c:1182
 msgid "Keyboard Model"
 msgstr "Klaviatūros modelis"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1090
+#: ../src/plugins/xkb/xkb-plugin.c:1203
 msgid "Keyboard Layouts"
 msgstr "Klaviatūros išdėstymai"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1144
+#: ../src/plugins/xkb/xkb-plugin.c:1257
 msgid "Variant"
 msgstr "Variantas"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1152
+#: ../src/plugins/xkb/xkb-plugin.c:1266
 msgid "Change Layout Option"
 msgstr "Keisti išdėstymo parinktis"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1172
+#: ../src/plugins/xkb/xkb-plugin.c:1286
+msgid "Advanced setxkbmap Options"
+msgstr "Papildomos setxkbmap parinktys"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1306
+msgid "Do _not reset existing options"
+msgstr "_Neatstatyti esamų parinkčių"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1311
+msgid "Keep _system layouts"
+msgstr "_Palikti sistemos išdėstymus"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1320
 msgid "Per Window Settings"
 msgstr "Nustatymai konkrečiam langui"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1184
+#: ../src/plugins/xkb/xkb-plugin.c:1332
 msgid "_Remember layout for each window"
 msgstr "_Atsiminti išdėstymą kiekvienam langui"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1193
+#: ../src/plugins/xkb/xkb-plugin.c:1341
 msgid "Show Layout as"
 msgstr "Rodyti išdėstymą kaip"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1254
+#: ../src/plugins/xkb/xkb-plugin.c:1402
 msgid "Custom Image"
 msgstr "Pasirinktinis paveikslėlis"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1255
+#: ../src/plugins/xkb/xkb-plugin.c:1403
 msgid "Text"
 msgstr "Tekstas"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1281
+#: ../src/plugins/xkb/xkb-plugin.c:1429
 msgid "Panel Icon Size"
 msgstr "Skydelio piktogramos dydis"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1361
+#: ../src/plugins/xkb/xkb-plugin.c:1511
 msgid "Handle keyboard layouts"
 msgstr "Tvarkyti klaviatūros išdėstymus"
 
@@ -873,6 +890,10 @@ msgid ""
 msgstr ""
 "Klaida, norint konfigūruoti garsą turite įdiegti tam skirtą programą "
 "(pavucontrol, alsamixer...)"
+
+#: ../src/plugins/volumealsa/volumealsa.c:667
+msgid "Display and control volume for ALSA"
+msgstr "Rodymas ir ALSA garso valdymas"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"

@@ -9,17 +9,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-23 15:11+0200\n"
-"PO-Revision-Date: 2012-09-09 15:31+0200\n"
-"Last-Translator: Piotr <psokol@jabster.pl>\n"
-"Language-Team: Polish <>\n"
+"POT-Creation-Date: 2013-08-27 10:10+0200\n"
+"PO-Revision-Date: 2013-09-04 12:29+0000\n"
+"Last-Translator: Piotr <strebski@o2.pl>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1378297767.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -83,7 +83,8 @@ msgid "translator-credits"
 msgstr ""
 "Grzegorz Gibas <amigib@gmail.com>, 2009.\n"
 "Artur Kruszewski <mazdac@gmail.com>, 2006, 2010.\n"
-"Piotr Sokół <psokol@jabster.pl>, 2010, 2011."
+"Piotr Sokół <psokol@jabster.pl>, 2010, 2011.\n"
+"Piotr Strębski <strebski@o2.pl>, 2013."
 
 #: ../src/panel.c:698
 msgid "LXPanel"
@@ -166,7 +167,7 @@ msgstr "lxpanel %s - lekki panel GTK2+ dla środowisk graficznych UNIX\n"
 #: ../src/panel.c:1502
 #, c-format
 msgid "Command line options:\n"
-msgstr "Opcje:\n"
+msgstr "Opcje wiersza poleceń:\n"
 
 #: ../src/panel.c:1503
 #, c-format
@@ -223,7 +224,7 @@ msgstr ""
 msgid "Enter the command you want to execute:"
 msgstr "Proszę wprowadzić polecenie do wykonania:"
 
-#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:912
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:1039
 msgid "Application Launch Bar"
 msgstr "Aktywatory"
 
@@ -324,25 +325,23 @@ msgstr "Procent"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "None"
-msgstr ""
+msgstr "Brak"
 
 #: ../data/ui/panel-pref.glade.h:6
-#, fuzzy
 msgid "Err"
-msgstr "Błąd"
+msgstr "Błędy"
 
 #: ../data/ui/panel-pref.glade.h:7
-#, fuzzy
 msgid "Warn"
-msgstr "Pierwsze ostrzeżenie"
+msgstr "Ostrzeżenia"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "Info"
-msgstr ""
+msgstr "Informacje"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "All"
-msgstr ""
+msgstr "Wszystko"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "Panel Preferences"
@@ -370,7 +369,7 @@ msgstr "<b>Pozycja</b>"
 
 #: ../data/ui/panel-pref.glade.h:22
 msgid "Icon size:"
-msgstr ""
+msgstr "Rozmiar ikon:"
 
 #: ../data/ui/panel-pref.glade.h:23
 msgid "<b>Size</b>"
@@ -388,7 +387,7 @@ msgstr "Motyw systemowy"
 msgid "Solid color (with opacity)"
 msgstr "Jednolity kolor"
 
-#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/xkb/xkb-plugin.c:1253
+#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/xkb/xkb-plugin.c:1401
 msgid "Image"
 msgstr "Obraz"
 
@@ -439,7 +438,7 @@ msgstr "<b>Preferowane programy</b>"
 
 #: ../data/ui/panel-pref.glade.h:39
 msgid "Make window managers treat the panel as dock"
-msgstr "Traktowanie panelu jako dok"
+msgstr "Traktowanie panelu przez menedżery okien jako doku"
 
 #: ../data/ui/panel-pref.glade.h:40
 msgid "Reserve space, and not covered by maximized windows"
@@ -451,7 +450,7 @@ msgstr "<b>Właściwości</b>"
 
 #: ../data/ui/panel-pref.glade.h:42
 msgid "Minimize panel when not in use"
-msgstr "Właczenie"
+msgstr "Minimalizuj panel, gdy nie jest w użyciu"
 
 #: ../data/ui/panel-pref.glade.h:43
 msgid "Size when minimized"
@@ -467,12 +466,11 @@ msgstr "<b>Automatyczne ukrywanie</b>"
 
 #: ../data/ui/panel-pref.glade.h:46
 msgid "Log level"
-msgstr ""
+msgstr "Poziom dziennika"
 
 #: ../data/ui/panel-pref.glade.h:47
-#, fuzzy
 msgid "<b>Log level</b>"
-msgstr "<b>Urządzenie sieciowe</b>"
+msgstr "<b>Poziom dziennika</b>"
 
 #: ../data/ui/panel-pref.glade.h:48
 msgid "Advanced"
@@ -507,96 +505,96 @@ msgstr ""
 msgid "Display Image and Tooltip"
 msgstr "Wyświetl obraz i podpowiedź"
 
-#: ../src/plugins/launchbar.c:914
+#: ../src/plugins/launchbar.c:1041
 msgid "Bar with buttons to launch application"
 msgstr "Wyświetla aktywatory programów w postaci przycisków"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1714
+#: ../src/plugins/taskbar.c:1722
 msgid "_Raise"
 msgstr "_Rozwiń"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1719
+#: ../src/plugins/taskbar.c:1727
 msgid "R_estore"
 msgstr "_Przywróć zwykły rozmiar"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1724
+#: ../src/plugins/taskbar.c:1732
 msgid "Ma_ximize"
 msgstr "Zm_aksymalizuj"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1729
+#: ../src/plugins/taskbar.c:1737
 msgid "Ico_nify"
 msgstr "Zm_inimalizuj"
 
-#: ../src/plugins/taskbar.c:1748
+#: ../src/plugins/taskbar.c:1756
 #, c-format
 msgid "Workspace _%d"
 msgstr "Obszar roboczy _%d"
 
-#: ../src/plugins/taskbar.c:1753
+#: ../src/plugins/taskbar.c:1761
 #, c-format
 msgid "Workspace %d"
 msgstr "Obszar roboczy %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1767
+#: ../src/plugins/taskbar.c:1775
 msgid "_All workspaces"
 msgstr "_Wszystkie obszary robocze"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1773
+#: ../src/plugins/taskbar.c:1781
 msgid "_Move to Workspace"
 msgstr "_Przemieść na obszar roboczy"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1779
+#: ../src/plugins/taskbar.c:1787
 msgid "_Close Window"
 msgstr "Za_mknij"
 
-#: ../src/plugins/taskbar.c:1986
+#: ../src/plugins/taskbar.c:1994
 msgid "Show tooltips"
 msgstr "Wyświetlanie podpowiedzi"
 
-#: ../src/plugins/taskbar.c:1987
+#: ../src/plugins/taskbar.c:1995
 msgid "Icons only"
 msgstr "Tylko ikony"
 
-#: ../src/plugins/taskbar.c:1988
+#: ../src/plugins/taskbar.c:1996
 msgid "Flat buttons"
 msgstr "Płaskie przyciski"
 
-#: ../src/plugins/taskbar.c:1989
+#: ../src/plugins/taskbar.c:1997
 msgid "Show windows from all desktops"
 msgstr "Wyświetlane okien wszystkich obszarów roboczych"
 
-#: ../src/plugins/taskbar.c:1990
+#: ../src/plugins/taskbar.c:1998
 msgid "Use mouse wheel"
 msgstr "Manipulowanie oknami za pomocą rolki myszy"
 
-#: ../src/plugins/taskbar.c:1991
+#: ../src/plugins/taskbar.c:1999
 msgid "Flash when there is any window requiring attention"
 msgstr "Miganie okien wymagających uwagi użytkownika"
 
-#: ../src/plugins/taskbar.c:1992
+#: ../src/plugins/taskbar.c:2000
 msgid "Combine multiple application windows into a single button"
 msgstr "Grupowanie wielu okien tego samego programu"
 
-#: ../src/plugins/taskbar.c:1993
+#: ../src/plugins/taskbar.c:2001
 msgid "Maximum width of task button"
 msgstr "Maksymalna szerokość przycisku zadań:"
 
-#: ../src/plugins/taskbar.c:1994
+#: ../src/plugins/taskbar.c:2002
 msgid "Spacing"
 msgstr "Odstępy:"
 
-#: ../src/plugins/taskbar.c:2047
+#: ../src/plugins/taskbar.c:2055
 msgid "Task Bar (Window List)"
 msgstr "Przyciski okien"
 
-#: ../src/plugins/taskbar.c:2049
+#: ../src/plugins/taskbar.c:2057
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -611,10 +609,9 @@ msgid "Tooltip Format"
 msgstr "Format podpowiedzi:"
 
 #: ../src/plugins/dclock.c:438
-msgid "Format codes: man 3 strftime; \\n for line break"
-msgstr ""
-"Opis formatowania wypisuje polecenie „man 3 sfrtime”. Łamanie wierszy "
-"znakiem „\\n”."
+#, c-format
+msgid "Format codes: man 3 strftime; \\%n for line break"
+msgstr "Opis formatowania: man 3 sfrtime. Łamanie wierszy: \\n"
 
 #: ../src/plugins/dclock.c:439
 msgid "Action when clicked (default: display calendar)"
@@ -646,15 +643,15 @@ msgstr "Dodaj do pulpitu"
 msgid "Properties"
 msgstr "Właściwości"
 
-#: ../src/plugins/menu.c:1084 ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1085 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "Ikona:"
 
-#: ../src/plugins/menu.c:1101
+#: ../src/plugins/menu.c:1102
 msgid "Menu"
 msgstr "Menu programów"
 
-#: ../src/plugins/menu.c:1103
+#: ../src/plugins/menu.c:1104
 msgid "Application Menu"
 msgstr "Wyświetla aktywatory programów w zorganizowanym menu"
 
@@ -682,108 +679,113 @@ msgstr "Odstęp"
 msgid "Allocate space"
 msgstr "Oddziela aplety panelu znakiem graficznym"
 
-#: ../src/plugins/tray.c:757
+#: ../src/plugins/tray.c:764
 msgid "System Tray"
 msgstr "Obszar powiadamiania"
 
-#: ../src/plugins/tray.c:759
+#: ../src/plugins/tray.c:766
 msgid "System tray"
 msgstr "Wyświetla ikony powiadamiania programów"
 
+#: ../src/plugins/xkb/xkb-plugin.c:451
+msgid "New session is required for this option to take effect"
+msgstr "Konieczne jest uruchomienie nowej sesji, aby ta opcja odniosła skutek"
+
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:513
-#, fuzzy
+#: ../src/plugins/xkb/xkb-plugin.c:604
 msgid "Select Keyboard Model"
-msgstr "Lampki klawiatury"
+msgstr "Wybór modelu klawiatury"
 
-#: ../src/plugins/xkb/xkb-plugin.c:536
+#: ../src/plugins/xkb/xkb-plugin.c:627
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
-#: ../src/plugins/xkb/xkb-plugin.c:540 ../src/plugins/xkb/xkb-plugin.c:629
-#: ../src/plugins/xkb/xkb-plugin.c:780
-#, fuzzy
+#: ../src/plugins/xkb/xkb-plugin.c:632 ../src/plugins/xkb/xkb-plugin.c:725
+#: ../src/plugins/xkb/xkb-plugin.c:876
 msgid "Description"
-msgstr "Przeznaczenie:"
+msgstr "Opis"
 
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:602
-#, fuzzy
+#: ../src/plugins/xkb/xkb-plugin.c:698
 msgid "Select Layout Change Type"
-msgstr "Wybierz obrazek"
+msgstr "Wybierz rodzaj zmiany układu"
 
-#: ../src/plugins/xkb/xkb-plugin.c:625
+#: ../src/plugins/xkb/xkb-plugin.c:721
 msgid "Change Type"
-msgstr ""
+msgstr "Rodzaj zmiany"
 
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:747
-#, fuzzy
+#: ../src/plugins/xkb/xkb-plugin.c:843
 msgid "Add Keyboard Layout"
-msgstr "Przełącznik układów klawiatury"
+msgstr "Dodaj układ klawiatury"
 
-#: ../src/plugins/xkb/xkb-plugin.c:770 ../src/plugins/xkb/xkb-plugin.c:1136
+#: ../src/plugins/xkb/xkb-plugin.c:866 ../src/plugins/xkb/xkb-plugin.c:1249
 msgid "Flag"
-msgstr ""
+msgstr "Flaga"
 
-#: ../src/plugins/xkb/xkb-plugin.c:775 ../src/plugins/xkb/xkb-plugin.c:1140
+#: ../src/plugins/xkb/xkb-plugin.c:871 ../src/plugins/xkb/xkb-plugin.c:1253
 msgid "Layout"
-msgstr ""
+msgstr "Układ"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1053 ../src/plugins/xkb/xkb-plugin.c:1359
-#, fuzzy
+#: ../src/plugins/xkb/xkb-plugin.c:1160 ../src/plugins/xkb/xkb-plugin.c:1509
 msgid "Keyboard Layout Handler"
-msgstr "Przełącznik układów klawiatury"
+msgstr "Program obsługi układów klawiatury"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1070
-#, fuzzy
+#: ../src/plugins/xkb/xkb-plugin.c:1182
 msgid "Keyboard Model"
-msgstr "Lampki klawiatury"
+msgstr "Model klawiatury"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1090
-#, fuzzy
+#: ../src/plugins/xkb/xkb-plugin.c:1203
 msgid "Keyboard Layouts"
-msgstr "Przełącznik układów klawiatury"
+msgstr "Układy klawiatury"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1144
+#: ../src/plugins/xkb/xkb-plugin.c:1257
 msgid "Variant"
-msgstr ""
+msgstr "Wariant"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1152
+#: ../src/plugins/xkb/xkb-plugin.c:1266
 msgid "Change Layout Option"
-msgstr ""
+msgstr "Opcje zmiany układu"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1172
-#, fuzzy
+#: ../src/plugins/xkb/xkb-plugin.c:1286
+msgid "Advanced setxkbmap Options"
+msgstr "Zaawansowane opcje setxkbmap"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1306
+msgid "Do _not reset existing options"
+msgstr "_Nie resetuj istniejących opcji"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1311
+msgid "Keep _system layouts"
+msgstr "Zachowaj układy _systemowe"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1320
 msgid "Per Window Settings"
-msgstr "Preferencje panelu..."
+msgstr "Według ustawień okien"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1184
-#, fuzzy
+#: ../src/plugins/xkb/xkb-plugin.c:1332
 msgid "_Remember layout for each window"
-msgstr "Pamiętanie _układu dla każdego programu"
+msgstr "Pamiętanie _układu dla każdego okna"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1193
-#, fuzzy
+#: ../src/plugins/xkb/xkb-plugin.c:1341
 msgid "Show Layout as"
-msgstr "Wygląd"
+msgstr "Pokazuj układ jako"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1254
+#: ../src/plugins/xkb/xkb-plugin.c:1402
 msgid "Custom Image"
-msgstr ""
+msgstr "Własny obraz"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1255
+#: ../src/plugins/xkb/xkb-plugin.c:1403
 msgid "Text"
-msgstr ""
+msgstr "Tekst"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1281
+#: ../src/plugins/xkb/xkb-plugin.c:1429
 msgid "Panel Icon Size"
-msgstr ""
+msgstr "Rozmiar ikon panelu"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1361
-#, fuzzy
+#: ../src/plugins/xkb/xkb-plugin.c:1511
 msgid "Handle keyboard layouts"
-msgstr "Przełącza pomiędzy dostępnymi układami klawiatury"
+msgstr "Obsługa układów klawiatury"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
@@ -899,6 +901,10 @@ msgid ""
 msgstr ""
 "Błąd. Aby skonfigurować dźwięk, należy zainstalować odpowiedni program "
 "(pavucontrol, alsamixer...)."
+
+#: ../src/plugins/volumealsa/volumealsa.c:667
+msgid "Display and control volume for ALSA"
+msgstr "Wyświetl i kontroluj głośność dla ALSA"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
@@ -1091,7 +1097,7 @@ msgstr "Wyświetlanie podpowiedzi"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:860
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr "Wyświetla podpowiedzi ikon"
+msgstr "Określa czy podpowiedzi ikony są włączone."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:867
 msgid "Show Signal"
@@ -1448,22 +1454,20 @@ msgid "No Indicators"
 msgstr "Brak wskaźników"
 
 #: ../src/plugins/indicator/indicator.c:897
-#, fuzzy
 msgid "Indicator Applications"
-msgstr "Programy"
+msgstr "Wskaźnik programów"
 
 #: ../src/plugins/indicator/indicator.c:898
 msgid "Clock Indicator"
-msgstr ""
+msgstr "Wskaźnik zegara"
 
 #: ../src/plugins/indicator/indicator.c:899
 msgid "Messaging Menu"
 msgstr "Menu wiadomości"
 
 #: ../src/plugins/indicator/indicator.c:900
-#, fuzzy
 msgid "Network Menu"
-msgstr "Menu katalogu"
+msgstr "Menu sieci"
 
 #: ../src/plugins/indicator/indicator.c:901
 msgid "Session Menu"
@@ -1475,12 +1479,11 @@ msgstr "Menu dźwięku"
 
 #: ../src/plugins/indicator/indicator.c:928
 msgid "Indicator applets"
-msgstr ""
+msgstr "Aplety wskaźników"
 
 #: ../src/plugins/indicator/indicator.c:930
-#, fuzzy
 msgid "Add indicator applets to the panel"
-msgstr "Oddziela aplety panelu pustą przestrzenią"
+msgstr "Dodaj aplet wskaźnika do panelu"
 
 #: ../src/plugins/monitors/monitors.c:277
 #, c-format
@@ -1493,25 +1496,20 @@ msgid "RAM usage: %.1fMB (%.2f%%)"
 msgstr "Użycie pamięci: %.1fMB (%.2f%%)"
 
 #: ../src/plugins/monitors/monitors.c:712
-#, fuzzy
 msgid "CPU color"
-msgstr "Własny kolor"
+msgstr "Kolor procesorów"
 
 #: ../src/plugins/monitors/monitors.c:713
 msgid "Display RAM usage"
 msgstr "Wyświetlanie użycia pamięci"
 
 #: ../src/plugins/monitors/monitors.c:714
-#, fuzzy
 msgid "RAM color"
-msgstr "Kolor przesłony:"
+msgstr "Kolor pamięci operacyjnej"
 
 #: ../src/plugins/monitors/monitors.c:715
-#, fuzzy
 msgid "Action when clicked (default: lxtask)"
-msgstr ""
-"Polecenie wykonywane po kliknięciu\n"
-"(domyślnie wyświetlenie kalendarza):"
+msgstr "Działanie wykonywane po kliknięciu (domyślnie: lxtask)"
 
 #: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"
@@ -1519,7 +1517,7 @@ msgstr "Monitor zasobów"
 
 #: ../src/plugins/monitors/monitors.c:810
 msgid "Display monitors (CPU, RAM)"
-msgstr ""
+msgstr "Wyświetl monitory (procesor, pamięć)"
 
 #: ../src/plugins/wnckpager/wnckpager.c:720
 msgid "WNCKPager"

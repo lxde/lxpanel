@@ -8,17 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.3.99\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-23 15:11+0200\n"
-"PO-Revision-Date: 2013-07-15 11:58+0000\n"
+"POT-Creation-Date: 2013-08-27 10:10+0200\n"
+"PO-Revision-Date: 2013-08-27 11:07+0000\n"
 "Last-Translator: Daniele <daniele@forsi.it>\n"
-"Language-Team: Italian\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1373889483.0\n"
+"X-POOTLE-MTIME: 1377601630.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -176,15 +175,14 @@ msgstr " --version      -- mostra la versione e termina\n"
 #: ../src/panel.c:1505
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <numero> -- definisce il livello di log 0-5. 0 - nessuno, 5 - "
+msgstr " --log NUMERO   -- definisce il livello di log 0-5. 0 - nessuno, 5 - "
 "completo\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1507
 #, c-format
 msgid " --profile name -- use specified profile\n"
-msgstr " --profile nome -- usa il profilo specificato\n"
+msgstr " --profile NOME -- usa il profilo specificato\n"
 
 #: ../src/panel.c:1509
 #, c-format
@@ -217,7 +215,7 @@ msgstr ""
 msgid "Enter the command you want to execute:"
 msgstr "Digitare il comando da eseguire:"
 
-#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:912
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:1039
 msgid "Application Launch Bar"
 msgstr "Barra avvio applicazioni"
 
@@ -316,7 +314,7 @@ msgstr "Pixel"
 #: ../data/ui/panel-pref.glade.h:4
 #, no-c-format
 msgid "% Percent"
-msgstr "% percento"
+msgstr "% Percento"
 
 # è un'opzione per "Livello registro:"
 #: ../data/ui/panel-pref.glade.h:5
@@ -386,13 +384,13 @@ msgstr "Tema di sistema"
 msgid "Solid color (with opacity)"
 msgstr "Tinta unita (con opacità)"
 
-#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/xkb/xkb-plugin.c:1253
+#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/xkb/xkb-plugin.c:1401
 msgid "Image"
 msgstr "Immagine"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "Select an image file"
-msgstr "Seleziona una immagine"
+msgstr "Seleziona un file immagine"
 
 #: ../data/ui/panel-pref.glade.h:29
 msgid "<b>Background</b>"
@@ -437,7 +435,7 @@ msgstr "<b>Seleziona applicazioni preferite</b>"
 
 #: ../data/ui/panel-pref.glade.h:39
 msgid "Make window managers treat the panel as dock"
-msgstr "I window manager tratteranno il pannello come dock"
+msgstr "I window manager trattano il pannello come dock"
 
 #: ../data/ui/panel-pref.glade.h:40
 msgid "Reserve space, and not covered by maximized windows"
@@ -477,7 +475,7 @@ msgstr "Avanzate"
 
 #: ../src/plugins/cpu/cpu.c:277
 msgid "CPU Usage Monitor"
-msgstr "Monitoraggio CPU"
+msgstr "Monitor uso CPU"
 
 #: ../src/plugins/cpu/cpu.c:279 ../src/plugins/monitors/monitors.c:711
 msgid "Display CPU usage"
@@ -501,98 +499,98 @@ msgstr "Mostra il numero dell'area di lavoro, di cmeury@users.sf.net"
 
 #: ../src/plugins/image.c:161
 msgid "Display Image and Tooltip"
-msgstr "Mostra immagine e suggerimenti"
+msgstr "Mostra immagine e suggerimento"
 
-#: ../src/plugins/launchbar.c:914
+#: ../src/plugins/launchbar.c:1041
 msgid "Bar with buttons to launch application"
 msgstr "Barra con pulsanti per avviare applicazioni"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1714
+#: ../src/plugins/taskbar.c:1722
 msgid "_Raise"
 msgstr "_Rivela"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1719
+#: ../src/plugins/taskbar.c:1727
 msgid "R_estore"
 msgstr "R_ipristina"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1724
+#: ../src/plugins/taskbar.c:1732
 msgid "Ma_ximize"
 msgstr "Massimi_zza"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1729
+#: ../src/plugins/taskbar.c:1737
 msgid "Ico_nify"
 msgstr "Ico_nifica"
 
-#: ../src/plugins/taskbar.c:1748
+#: ../src/plugins/taskbar.c:1756
 #, c-format
 msgid "Workspace _%d"
 msgstr "Area di lavoro _%d"
 
-#: ../src/plugins/taskbar.c:1753
+#: ../src/plugins/taskbar.c:1761
 #, c-format
 msgid "Workspace %d"
 msgstr "Area di lavoro %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1767
+#: ../src/plugins/taskbar.c:1775
 msgid "_All workspaces"
 msgstr "_Tutte le aree di lavoro"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1773
+#: ../src/plugins/taskbar.c:1781
 msgid "_Move to Workspace"
 msgstr "_Muovi ad area di lavoro"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1779
+#: ../src/plugins/taskbar.c:1787
 msgid "_Close Window"
 msgstr "_Chiudi finestra"
 
-#: ../src/plugins/taskbar.c:1986
+#: ../src/plugins/taskbar.c:1994
 msgid "Show tooltips"
-msgstr "Mostra aiuti"
+msgstr "Mostra suggerimenti"
 
-#: ../src/plugins/taskbar.c:1987
+#: ../src/plugins/taskbar.c:1995
 msgid "Icons only"
 msgstr "Solo icone"
 
-#: ../src/plugins/taskbar.c:1988
+#: ../src/plugins/taskbar.c:1996
 msgid "Flat buttons"
 msgstr "Pulsanti piatti"
 
-#: ../src/plugins/taskbar.c:1989
+#: ../src/plugins/taskbar.c:1997
 msgid "Show windows from all desktops"
-msgstr "Mostra finestre su tutte le scrivanie"
+msgstr "Mostra finestre da tutte le scrivanie"
 
-#: ../src/plugins/taskbar.c:1990
+#: ../src/plugins/taskbar.c:1998
 msgid "Use mouse wheel"
 msgstr "Usa rotellina del mouse"
 
-#: ../src/plugins/taskbar.c:1991
+#: ../src/plugins/taskbar.c:1999
 msgid "Flash when there is any window requiring attention"
 msgstr "Lampeggia quando una finestra richiede attenzione"
 
-#: ../src/plugins/taskbar.c:1992
+#: ../src/plugins/taskbar.c:2000
 msgid "Combine multiple application windows into a single button"
 msgstr "Combina finestre multiple applicazione in un singolo pulsante"
 
-#: ../src/plugins/taskbar.c:1993
+#: ../src/plugins/taskbar.c:2001
 msgid "Maximum width of task button"
 msgstr "Larghezza massima di un pulsante applicazione"
 
-#: ../src/plugins/taskbar.c:1994
+#: ../src/plugins/taskbar.c:2002
 msgid "Spacing"
 msgstr "Spaziatura"
 
-#: ../src/plugins/taskbar.c:2047
+#: ../src/plugins/taskbar.c:2055
 msgid "Task Bar (Window List)"
-msgstr "Barra delle applicazioni (Lista finestre)"
+msgstr "Barra delle applicazioni (Elenco finestre)"
 
-#: ../src/plugins/taskbar.c:2049
+#: ../src/plugins/taskbar.c:2057
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -609,8 +607,9 @@ msgid "Tooltip Format"
 msgstr "Formato suggerimenti"
 
 #: ../src/plugins/dclock.c:438
-msgid "Format codes: man 3 strftime; \\n for line break"
-msgstr "Codici formato: man 3 strftime; \\n per ritorno a capo"
+#, c-format
+msgid "Format codes: man 3 strftime; \\%n for line break"
+msgstr "Codici formato: man 3 strftime; \\%n per ritorno a capo"
 
 #: ../src/plugins/dclock.c:439
 msgid "Action when clicked (default: display calendar)"
@@ -630,7 +629,7 @@ msgstr "Orologio digitale"
 
 #: ../src/plugins/dclock.c:473
 msgid "Display digital clock and tooltip"
-msgstr "Mostra orologio digitale e suggerimenti"
+msgstr "Mostra orologio digitale e suggerimento"
 
 #: ../src/plugins/menu.c:426
 msgid "Add to desktop"
@@ -640,15 +639,15 @@ msgstr "Aggiungere alla scrivania"
 msgid "Properties"
 msgstr "Proprietà"
 
-#: ../src/plugins/menu.c:1084 ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1085 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "Icona"
 
-#: ../src/plugins/menu.c:1101
+#: ../src/plugins/menu.c:1102
 msgid "Menu"
 msgstr "Menu"
 
-#: ../src/plugins/menu.c:1103
+#: ../src/plugins/menu.c:1104
 msgid "Application Menu"
 msgstr "Menu applicazioni"
 
@@ -676,95 +675,111 @@ msgstr "Spaziatore"
 msgid "Allocate space"
 msgstr "Alloca spazio"
 
-#: ../src/plugins/tray.c:757
+#: ../src/plugins/tray.c:764
 msgid "System Tray"
 msgstr "Pannello di sistema"
 
-#: ../src/plugins/tray.c:759
+#: ../src/plugins/tray.c:766
 msgid "System tray"
 msgstr "Pannello di sistema"
 
+#: ../src/plugins/xkb/xkb-plugin.c:451
+msgid "New session is required for this option to take effect"
+msgstr "È richiesta una nuova sessione perché questa opzione abbia effetto"
+
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:513
+#: ../src/plugins/xkb/xkb-plugin.c:604
 msgid "Select Keyboard Model"
 msgstr "Scegli modello di tastiera"
 
-#: ../src/plugins/xkb/xkb-plugin.c:536
+#: ../src/plugins/xkb/xkb-plugin.c:627
 msgid "Model"
 msgstr "Modello"
 
-#: ../src/plugins/xkb/xkb-plugin.c:540 ../src/plugins/xkb/xkb-plugin.c:629
-#: ../src/plugins/xkb/xkb-plugin.c:780
+#: ../src/plugins/xkb/xkb-plugin.c:632 ../src/plugins/xkb/xkb-plugin.c:725
+#: ../src/plugins/xkb/xkb-plugin.c:876
 msgid "Description"
 msgstr "Descrizione"
 
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:602
+#: ../src/plugins/xkb/xkb-plugin.c:698
 msgid "Select Layout Change Type"
-msgstr "Seleziona una immagine"
+msgstr "Seleziona tipo cambiamento disposizione"
 
-#: ../src/plugins/xkb/xkb-plugin.c:625
+#: ../src/plugins/xkb/xkb-plugin.c:721
 msgid "Change Type"
 msgstr "Cambia tipo"
 
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:747
+#: ../src/plugins/xkb/xkb-plugin.c:843
 msgid "Add Keyboard Layout"
 msgstr "Aggiungi disposizione tastiera"
 
-#: ../src/plugins/xkb/xkb-plugin.c:770 ../src/plugins/xkb/xkb-plugin.c:1136
+#: ../src/plugins/xkb/xkb-plugin.c:866 ../src/plugins/xkb/xkb-plugin.c:1249
 msgid "Flag"
 msgstr "Bandiera"
 
-#: ../src/plugins/xkb/xkb-plugin.c:775 ../src/plugins/xkb/xkb-plugin.c:1140
+#: ../src/plugins/xkb/xkb-plugin.c:871 ../src/plugins/xkb/xkb-plugin.c:1253
 msgid "Layout"
 msgstr "Disposizione"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1053 ../src/plugins/xkb/xkb-plugin.c:1359
+#: ../src/plugins/xkb/xkb-plugin.c:1160 ../src/plugins/xkb/xkb-plugin.c:1509
 msgid "Keyboard Layout Handler"
 msgstr "Gestore disposizione tastiera"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1070
+#: ../src/plugins/xkb/xkb-plugin.c:1182
 msgid "Keyboard Model"
 msgstr "Modello tastiera"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1090
+#: ../src/plugins/xkb/xkb-plugin.c:1203
 msgid "Keyboard Layouts"
 msgstr "Disposizioni della tastiera"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1144
+#: ../src/plugins/xkb/xkb-plugin.c:1257
 msgid "Variant"
 msgstr "Variante"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1152
+#: ../src/plugins/xkb/xkb-plugin.c:1266
 msgid "Change Layout Option"
-msgstr "Modifica opzioni della disposizione"
+msgstr "Modifica opzione della disposizione"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1172
+#: ../src/plugins/xkb/xkb-plugin.c:1286
+msgid "Advanced setxkbmap Options"
+msgstr "Opzioni avanzate per setxkbmap"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1306
+msgid "Do _not reset existing options"
+msgstr "_Non reimpostare le opzioni esistenti"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1311
+msgid "Keep _system layouts"
+msgstr "Mantenere le di_sposizioni di sistema"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1320
 msgid "Per Window Settings"
 msgstr "Impostazioni finestra"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1184
+#: ../src/plugins/xkb/xkb-plugin.c:1332
 msgid "_Remember layout for each window"
-msgstr "_Ricorda la disposizione per ogni finestra"
+msgstr "_Ricordare la disposizione per ogni finestra"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1193
+#: ../src/plugins/xkb/xkb-plugin.c:1341
 msgid "Show Layout as"
 msgstr "Mostrare la disposizione come"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1254
+#: ../src/plugins/xkb/xkb-plugin.c:1402
 msgid "Custom Image"
 msgstr "Immagine personalizzata"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1255
+#: ../src/plugins/xkb/xkb-plugin.c:1403
 msgid "Text"
 msgstr "Testo"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1281
+#: ../src/plugins/xkb/xkb-plugin.c:1429
 msgid "Panel Icon Size"
 msgstr "Dimensioni icona pannello"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1361
+#: ../src/plugins/xkb/xkb-plugin.c:1511
 msgid "Handle keyboard layouts"
 msgstr "Gestisce le disposizioni della tastiera"
 
@@ -774,7 +789,7 @@ msgstr "Clic sinistro per iconificare. Clic centrale per arrotolare."
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
-msgstr "Iconifica/Riduci e Rivela alternativamente"
+msgstr "Iconificare/arrotolare e rivelare alternativamente"
 
 #: ../src/plugins/wincmd.c:266
 msgid "Minimize All Windows"
@@ -790,7 +805,7 @@ msgstr ""
 
 #: ../src/plugins/dirmenu.c:246
 msgid "Open in _Terminal"
-msgstr "Apri nel _terminale"
+msgstr "Aprire nel _terminale"
 
 #: ../src/plugins/dirmenu.c:411
 msgid "Directory"
@@ -834,11 +849,11 @@ msgstr "Livelli di temperatura automatici"
 
 #: ../src/plugins/thermal/thermal.c:480
 msgid "Warning1 Temperature"
-msgstr "Temperatura Avvertimento1"
+msgstr "Temperatura avvertimento1"
 
 #: ../src/plugins/thermal/thermal.c:481
 msgid "Warning2 Temperature"
-msgstr "Temperatura Avvertimento2"
+msgstr "Temperatura avvertimento2"
 
 #: ../src/plugins/thermal/thermal.c:525
 msgid "Temperature Monitor"
@@ -880,13 +895,17 @@ msgstr ""
 "Errore: è necessario installare un'applicazione per configurare il suono "
 "(pavucontol, alsamixer, ...)"
 
+#: ../src/plugins/volumealsa/volumealsa.c:667
+msgid "Display and control volume for ALSA"
+msgstr "Mostra e controlla il volume per ALSA"
+
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
 msgstr "<Punto di accesso nascosto>"
 
 #: ../src/plugins/netstat/netstat.c:213
 msgid "Wireless Networks not found in range"
-msgstr "Nessuna rete wireless localizzata nell'area"
+msgstr "Nessuna rete wireless trovata nell'area"
 
 #. Repair
 #: ../src/plugins/netstat/netstat.c:247
@@ -898,9 +917,10 @@ msgstr "Ripara"
 msgid "Disable"
 msgstr "Disattiva"
 
+# simile a "Connetività limitata o assente"
 #: ../src/plugins/netstat/netstat.c:342
 msgid "Wireless Connection has no connectivity"
-msgstr "La rete wireless non ha connettività"
+msgstr "Connettività wireless assente"
 
 #: ../src/plugins/netstat/netstat.c:344
 msgid "Network cable is plugged out"
@@ -932,12 +952,12 @@ msgstr "Attività"
 #: ../src/plugins/netstat/netstat.c:353 ../src/plugins/netstat/netstat.c:365
 #: ../src/plugins/netstat/netstat.c:376
 msgid "Sent"
-msgstr "Inviato"
+msgstr "Inviati"
 
 #: ../src/plugins/netstat/netstat.c:353 ../src/plugins/netstat/netstat.c:365
 #: ../src/plugins/netstat/netstat.c:376
 msgid "Received"
-msgstr "Ricevuto"
+msgstr "Ricevuti"
 
 #: ../src/plugins/netstat/netstat.c:354 ../src/plugins/netstat/netstat.c:366
 #: ../src/plugins/netstat/netstat.c:377
@@ -1037,7 +1057,7 @@ msgstr ""
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
 #, c-format
 msgid "Failed to launch time configuration tool: %s"
-msgstr "Impossibile avviare strumento configurazione orario: %s"
+msgstr "Lancio dello strumento di configurazione della data non riuscito: %s"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:380
 #, c-format
@@ -1087,8 +1107,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Per favore contattare con l'amministratore del sistema per risolvere il "
-"seguente problema:\n"
+"Contattare l'amministratore del sistema per risolvere il seguente problema:\n"
 "\n"
 "%s"
 
@@ -1277,7 +1296,7 @@ msgstr "Impossibile analizzare /proc/net/dev. Formato sconosciuto."
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:330
 #, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr "Impossibile determinare nome interfaccia da \"%s\""
+msgstr "Impossibile analizzare il nome dell'interfaccia da '%s'"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:217
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:645
@@ -1286,8 +1305,8 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"Impossibile analizzare statistiche di interfaccia da \"%s\". prx_idx = %d; "
-"ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+"Impossibile analizzare le statistiche dell'interfaccia da \"%s\". prx_idx = %"
+"d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1296,7 +1315,7 @@ msgstr "Impossibile analizzare /proc/net/wireless. Formato sconosciuto."
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:341
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr "Impossibile analizzare dettagli wireless da \"%s\". link_idx = %d;"
+msgstr "Impossibile analizzare i dettagli wireless da \"%s\". link_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:414
 #, c-format
@@ -1311,7 +1330,7 @@ msgstr "Impossibile inviare ioctl all'interfaccia, \"%s\""
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:598
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr "Impossibile interpretare la riga di comando \"%s\": %s"
+msgstr "Impossibile analizzare la riga di comando \"%s\": %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:635
 msgid "Could not parse 'netstat' output. Unknown format"
@@ -1319,7 +1338,7 @@ msgstr "Impossibile analizzare l'output di \"netstat\". Formato sconosciuto."
 
 #: ../src/plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
-msgstr "Impossibile analizzare l'output di \"netstat\". Formato sconosciuto"
+msgstr "Disconnesso"
 
 #: ../src/plugins/netstatus/netstatus-util.c:155
 msgid "Idle"
@@ -1344,17 +1363,17 @@ msgstr "Nessuna batteria rilevata"
 #: ../src/plugins/batt/batt.c:179
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
-msgstr "Batteria: %d%% caricata, %d:%02d alla carica completa"
+msgstr "Batteria: %d%% carica, %d:%02d alla carica completa"
 
 #: ../src/plugins/batt/batt.c:190
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
-msgstr "Batteria: %d%% caricata, %d:%02d rimanenti"
+msgstr "Batteria: %d%% carica, %d:%02d rimanenti"
 
 #: ../src/plugins/batt/batt.c:196
 #, c-format
 msgid "Battery: %d%% charged"
-msgstr "Batteria: %d%% caricata"
+msgstr "Batteria: %d%% carica"
 
 #: ../src/plugins/batt/batt.c:554
 msgid "Hide if there is no battery"
@@ -1485,7 +1504,7 @@ msgstr "Azione al clic (predefinita: lxtask)"
 
 #: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"
-msgstr "Monitoraggio risorse"
+msgstr "Monitor risorse"
 
 #: ../src/plugins/monitors/monitors.c:810
 msgid "Display monitors (CPU, RAM)"

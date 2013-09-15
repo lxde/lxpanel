@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-23 15:11+0200\n"
+"POT-Creation-Date: 2013-08-27 10:10+0200\n"
 "PO-Revision-Date: 2010-08-08 11:30+0100\n"
 "Last-Translator: Ivan Masár <helix84@centrum.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -213,7 +213,7 @@ msgstr ""
 msgid "Enter the command you want to execute:"
 msgstr "Zadajte príkaz, ktorý chcete vykonať:"
 
-#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:912
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:1039
 msgid "Application Launch Bar"
 msgstr "Spúšťací panel"
 
@@ -378,7 +378,7 @@ msgstr "Vzhľad systému"
 msgid "Solid color (with opacity)"
 msgstr "Súvislá farba (s krytím)"
 
-#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/xkb/xkb-plugin.c:1253
+#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/xkb/xkb-plugin.c:1401
 msgid "Image"
 msgstr "Obrázok"
 
@@ -496,96 +496,96 @@ msgstr "Zobrazenie čísla plochy, cmeury@users.sf.net"
 msgid "Display Image and Tooltip"
 msgstr "Zobraziť obrázok a bublinový tip"
 
-#: ../src/plugins/launchbar.c:914
+#: ../src/plugins/launchbar.c:1041
 msgid "Bar with buttons to launch application"
 msgstr "Panel s tlačidlami pre spúšťanie aplikácií"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1714
+#: ../src/plugins/taskbar.c:1722
 msgid "_Raise"
 msgstr "_Zdvihnúť"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1719
+#: ../src/plugins/taskbar.c:1727
 msgid "R_estore"
 msgstr "_Obnoviť"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1724
+#: ../src/plugins/taskbar.c:1732
 msgid "Ma_ximize"
 msgstr "Ma_ximalizovať"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1729
+#: ../src/plugins/taskbar.c:1737
 msgid "Ico_nify"
 msgstr "Iko_nifikovať"
 
-#: ../src/plugins/taskbar.c:1748
+#: ../src/plugins/taskbar.c:1756
 #, c-format
 msgid "Workspace _%d"
 msgstr "Pracovná plocha _%d"
 
-#: ../src/plugins/taskbar.c:1753
+#: ../src/plugins/taskbar.c:1761
 #, c-format
 msgid "Workspace %d"
 msgstr "Pracovná plocha %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1767
+#: ../src/plugins/taskbar.c:1775
 msgid "_All workspaces"
 msgstr "Všetky pr_acovné plochy"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1773
+#: ../src/plugins/taskbar.c:1781
 msgid "_Move to Workspace"
 msgstr "_Presunúť na plochu"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1779
+#: ../src/plugins/taskbar.c:1787
 msgid "_Close Window"
 msgstr "_Zatvoriť okno"
 
-#: ../src/plugins/taskbar.c:1986
+#: ../src/plugins/taskbar.c:1994
 msgid "Show tooltips"
 msgstr "Zobraziť bublinové tipy"
 
-#: ../src/plugins/taskbar.c:1987
+#: ../src/plugins/taskbar.c:1995
 msgid "Icons only"
 msgstr "Iba ikony"
 
-#: ../src/plugins/taskbar.c:1988
+#: ../src/plugins/taskbar.c:1996
 msgid "Flat buttons"
 msgstr "Ploché tlačidlá"
 
-#: ../src/plugins/taskbar.c:1989
+#: ../src/plugins/taskbar.c:1997
 msgid "Show windows from all desktops"
 msgstr "Zobraziť okná zo všetkých plôch"
 
-#: ../src/plugins/taskbar.c:1990
+#: ../src/plugins/taskbar.c:1998
 msgid "Use mouse wheel"
 msgstr "Používať koliesko myši"
 
-#: ../src/plugins/taskbar.c:1991
+#: ../src/plugins/taskbar.c:1999
 msgid "Flash when there is any window requiring attention"
 msgstr "Blikať, keď niektoré okno vyžaduje pozornosť"
 
-#: ../src/plugins/taskbar.c:1992
+#: ../src/plugins/taskbar.c:2000
 msgid "Combine multiple application windows into a single button"
 msgstr "Zoskupovať okná viacerých aplikácií do jedného tlačidla"
 
-#: ../src/plugins/taskbar.c:1993
+#: ../src/plugins/taskbar.c:2001
 msgid "Maximum width of task button"
 msgstr "Maximálna šírka tlačidla úlohy"
 
-#: ../src/plugins/taskbar.c:1994
+#: ../src/plugins/taskbar.c:2002
 msgid "Spacing"
 msgstr "Rozostupy"
 
-#: ../src/plugins/taskbar.c:2047
+#: ../src/plugins/taskbar.c:2055
 msgid "Task Bar (Window List)"
 msgstr "Panel úloh (Zoznam okien)"
 
-#: ../src/plugins/taskbar.c:2049
+#: ../src/plugins/taskbar.c:2057
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -602,7 +602,8 @@ msgid "Tooltip Format"
 msgstr "Formát bublinových tipov"
 
 #: ../src/plugins/dclock.c:438
-msgid "Format codes: man 3 strftime; \\n for line break"
+#, fuzzy, c-format
+msgid "Format codes: man 3 strftime; \\%n for line break"
 msgstr "Formátovacie kódy: man 3 strftime; \\n znamená nový riadok"
 
 #: ../src/plugins/dclock.c:439
@@ -634,15 +635,15 @@ msgstr "Pridať na plochu"
 msgid "Properties"
 msgstr "Vlastnosti"
 
-#: ../src/plugins/menu.c:1084 ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1085 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "Ikona"
 
-#: ../src/plugins/menu.c:1101
+#: ../src/plugins/menu.c:1102
 msgid "Menu"
 msgstr "Ponuka"
 
-#: ../src/plugins/menu.c:1103
+#: ../src/plugins/menu.c:1104
 msgid "Application Menu"
 msgstr "Aplikačné menu"
 
@@ -670,106 +671,122 @@ msgstr "Rozostup"
 msgid "Allocate space"
 msgstr "Vyhradiť miesto"
 
-#: ../src/plugins/tray.c:757
+#: ../src/plugins/tray.c:764
 msgid "System Tray"
 msgstr "Oznamovacia oblasť"
 
-#: ../src/plugins/tray.c:759
+#: ../src/plugins/tray.c:766
 msgid "System tray"
 msgstr "Oznamovacia oblasť"
 
+#: ../src/plugins/xkb/xkb-plugin.c:451
+msgid "New session is required for this option to take effect"
+msgstr ""
+
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:513
+#: ../src/plugins/xkb/xkb-plugin.c:604
 #, fuzzy
 msgid "Select Keyboard Model"
 msgstr "LED klávesnice"
 
-#: ../src/plugins/xkb/xkb-plugin.c:536
+#: ../src/plugins/xkb/xkb-plugin.c:627
 msgid "Model"
 msgstr ""
 
-#: ../src/plugins/xkb/xkb-plugin.c:540 ../src/plugins/xkb/xkb-plugin.c:629
-#: ../src/plugins/xkb/xkb-plugin.c:780
+#: ../src/plugins/xkb/xkb-plugin.c:632 ../src/plugins/xkb/xkb-plugin.c:725
+#: ../src/plugins/xkb/xkb-plugin.c:876
 #, fuzzy
 msgid "Description"
 msgstr "Cieľ:"
 
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:602
+#: ../src/plugins/xkb/xkb-plugin.c:698
 #, fuzzy
 msgid "Select Layout Change Type"
 msgstr "Vyberte súbor obrázka"
 
-#: ../src/plugins/xkb/xkb-plugin.c:625
+#: ../src/plugins/xkb/xkb-plugin.c:721
 msgid "Change Type"
 msgstr ""
 
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:747
+#: ../src/plugins/xkb/xkb-plugin.c:843
 #, fuzzy
 msgid "Add Keyboard Layout"
 msgstr "Prepínanie rozloženia klávesnice"
 
-#: ../src/plugins/xkb/xkb-plugin.c:770 ../src/plugins/xkb/xkb-plugin.c:1136
+#: ../src/plugins/xkb/xkb-plugin.c:866 ../src/plugins/xkb/xkb-plugin.c:1249
 msgid "Flag"
 msgstr ""
 
-#: ../src/plugins/xkb/xkb-plugin.c:775 ../src/plugins/xkb/xkb-plugin.c:1140
+#: ../src/plugins/xkb/xkb-plugin.c:871 ../src/plugins/xkb/xkb-plugin.c:1253
 msgid "Layout"
 msgstr ""
 
-#: ../src/plugins/xkb/xkb-plugin.c:1053 ../src/plugins/xkb/xkb-plugin.c:1359
+#: ../src/plugins/xkb/xkb-plugin.c:1160 ../src/plugins/xkb/xkb-plugin.c:1509
 #, fuzzy
 msgid "Keyboard Layout Handler"
 msgstr "Prepínanie rozloženia klávesnice"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1070
+#: ../src/plugins/xkb/xkb-plugin.c:1182
 #, fuzzy
 msgid "Keyboard Model"
 msgstr "LED klávesnice"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1090
+#: ../src/plugins/xkb/xkb-plugin.c:1203
 #, fuzzy
 msgid "Keyboard Layouts"
 msgstr "Prepínanie rozloženia klávesnice"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1144
+#: ../src/plugins/xkb/xkb-plugin.c:1257
 msgid "Variant"
 msgstr ""
 
-#: ../src/plugins/xkb/xkb-plugin.c:1152
+#: ../src/plugins/xkb/xkb-plugin.c:1266
 #, fuzzy
 msgid "Change Layout Option"
 msgstr "Zmeniť ikony okna"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1172
+#: ../src/plugins/xkb/xkb-plugin.c:1286
+msgid "Advanced setxkbmap Options"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1306
+msgid "Do _not reset existing options"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1311
+msgid "Keep _system layouts"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1320
 #, fuzzy
 msgid "Per Window Settings"
 msgstr "Nastavenia panela"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1184
+#: ../src/plugins/xkb/xkb-plugin.c:1332
 #, fuzzy
 msgid "_Remember layout for each window"
 msgstr "_Pamätať si rozloženie pre každú aplikáciu samostatne"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1193
+#: ../src/plugins/xkb/xkb-plugin.c:1341
 #, fuzzy
 msgid "Show Layout as"
 msgstr "Zobraziť rozloženie ako"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1254
+#: ../src/plugins/xkb/xkb-plugin.c:1402
 msgid "Custom Image"
 msgstr ""
 
-#: ../src/plugins/xkb/xkb-plugin.c:1255
+#: ../src/plugins/xkb/xkb-plugin.c:1403
 msgid "Text"
 msgstr ""
 
-#: ../src/plugins/xkb/xkb-plugin.c:1281
+#: ../src/plugins/xkb/xkb-plugin.c:1429
 msgid "Panel Icon Size"
 msgstr ""
 
-#: ../src/plugins/xkb/xkb-plugin.c:1361
+#: ../src/plugins/xkb/xkb-plugin.c:1511
 #, fuzzy
 msgid "Handle keyboard layouts"
 msgstr "Prepínať medzi dostupnými rozloženiami klávesnice"
@@ -884,6 +901,10 @@ msgstr "Stlmiť"
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
+msgstr ""
+
+#: ../src/plugins/volumealsa/volumealsa.c:667
+msgid "Display and control volume for ALSA"
 msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:180

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.3.8.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-23 15:11+0200\n"
-"PO-Revision-Date: 2012-10-14 12:36+0200\n"
+"POT-Creation-Date: 2013-08-27 10:10+0200\n"
+"PO-Revision-Date: 2013-08-27 10:31+0000\n"
 "Last-Translator: Wylmer <wantinghard@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: zh_CN\n"
@@ -16,7 +16,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1377599491.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -213,7 +214,7 @@ msgstr ""
 msgid "Enter the command you want to execute:"
 msgstr "输入您要想执行的命令："
 
-#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:912
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:1039
 msgid "Application Launch Bar"
 msgstr "快速启动栏"
 
@@ -376,7 +377,7 @@ msgstr "统主题"
 msgid "Solid color (with opacity)"
 msgstr "颜色填充(带透明度)"
 
-#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/xkb/xkb-plugin.c:1253
+#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/xkb/xkb-plugin.c:1401
 msgid "Image"
 msgstr "图标"
 
@@ -493,96 +494,96 @@ msgstr "显示工作区编号，由 cmeury@users.sf.net 撰写"
 msgid "Display Image and Tooltip"
 msgstr "显示图标及工具提示"
 
-#: ../src/plugins/launchbar.c:914
+#: ../src/plugins/launchbar.c:1041
 msgid "Bar with buttons to launch application"
 msgstr "用以快速启动应用程序的工具栏"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1714
+#: ../src/plugins/taskbar.c:1722
 msgid "_Raise"
 msgstr "提升(_R)"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1719
+#: ../src/plugins/taskbar.c:1727
 msgid "R_estore"
 msgstr "还原(_E)"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1724
+#: ../src/plugins/taskbar.c:1732
 msgid "Ma_ximize"
 msgstr "最大化(_X)"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1729
+#: ../src/plugins/taskbar.c:1737
 msgid "Ico_nify"
 msgstr "最小化(_N)"
 
-#: ../src/plugins/taskbar.c:1748
+#: ../src/plugins/taskbar.c:1756
 #, c-format
 msgid "Workspace _%d"
 msgstr "工作区 _%d"
 
-#: ../src/plugins/taskbar.c:1753
+#: ../src/plugins/taskbar.c:1761
 #, c-format
 msgid "Workspace %d"
 msgstr "工作区 %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1767
+#: ../src/plugins/taskbar.c:1775
 msgid "_All workspaces"
 msgstr "全部工作区(_A)"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1773
+#: ../src/plugins/taskbar.c:1781
 msgid "_Move to Workspace"
 msgstr "移动到工作区(_M)"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1779
+#: ../src/plugins/taskbar.c:1787
 msgid "_Close Window"
 msgstr "关闭窗口(_C)"
 
-#: ../src/plugins/taskbar.c:1986
+#: ../src/plugins/taskbar.c:1994
 msgid "Show tooltips"
 msgstr "显示工具提示"
 
-#: ../src/plugins/taskbar.c:1987
+#: ../src/plugins/taskbar.c:1995
 msgid "Icons only"
 msgstr "只显示图标"
 
-#: ../src/plugins/taskbar.c:1988
+#: ../src/plugins/taskbar.c:1996
 msgid "Flat buttons"
 msgstr "平面按钮"
 
-#: ../src/plugins/taskbar.c:1989
+#: ../src/plugins/taskbar.c:1997
 msgid "Show windows from all desktops"
 msgstr "显示来自全部桌面的窗口"
 
-#: ../src/plugins/taskbar.c:1990
+#: ../src/plugins/taskbar.c:1998
 msgid "Use mouse wheel"
 msgstr "使用鼠标滚轮"
 
-#: ../src/plugins/taskbar.c:1991
+#: ../src/plugins/taskbar.c:1999
 msgid "Flash when there is any window requiring attention"
 msgstr "当有窗口要求用户注意时，闪烁面板"
 
-#: ../src/plugins/taskbar.c:1992
+#: ../src/plugins/taskbar.c:2000
 msgid "Combine multiple application windows into a single button"
 msgstr "将应用程序的多个窗口组合到单个按钮中"
 
-#: ../src/plugins/taskbar.c:1993
+#: ../src/plugins/taskbar.c:2001
 msgid "Maximum width of task button"
 msgstr "任务按钮的最大宽度"
 
-#: ../src/plugins/taskbar.c:1994
+#: ../src/plugins/taskbar.c:2002
 msgid "Spacing"
 msgstr "间距"
 
-#: ../src/plugins/taskbar.c:2047
+#: ../src/plugins/taskbar.c:2055
 msgid "Task Bar (Window List)"
 msgstr "任务面板 (窗口清单)"
 
-#: ../src/plugins/taskbar.c:2049
+#: ../src/plugins/taskbar.c:2057
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -597,8 +598,9 @@ msgid "Tooltip Format"
 msgstr "工具提示格式"
 
 #: ../src/plugins/dclock.c:438
-msgid "Format codes: man 3 strftime; \\n for line break"
-msgstr "格式代码：man 3 strftime；\\n 代表换行"
+#, c-format
+msgid "Format codes: man 3 strftime; \\%n for line break"
+msgstr "格式代码：man 3 strftime；\\%n 代表换行"
 
 #: ../src/plugins/dclock.c:439
 msgid "Action when clicked (default: display calendar)"
@@ -628,15 +630,15 @@ msgstr "添加到菜单"
 msgid "Properties"
 msgstr "属性"
 
-#: ../src/plugins/menu.c:1084 ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1085 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "图标"
 
-#: ../src/plugins/menu.c:1101
+#: ../src/plugins/menu.c:1102
 msgid "Menu"
 msgstr "菜单"
 
-#: ../src/plugins/menu.c:1103
+#: ../src/plugins/menu.c:1104
 msgid "Application Menu"
 msgstr "应用程序菜单"
 
@@ -664,95 +666,111 @@ msgstr "间距"
 msgid "Allocate space"
 msgstr "分配空间"
 
-#: ../src/plugins/tray.c:757
+#: ../src/plugins/tray.c:764
 msgid "System Tray"
 msgstr "系统托盘"
 
-#: ../src/plugins/tray.c:759
+#: ../src/plugins/tray.c:766
 msgid "System tray"
 msgstr "系统托盘"
 
+#: ../src/plugins/xkb/xkb-plugin.c:451
+msgid "New session is required for this option to take effect"
+msgstr "此选项在新会话中才会生效"
+
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:513
+#: ../src/plugins/xkb/xkb-plugin.c:604
 msgid "Select Keyboard Model"
 msgstr "选择键盘型号"
 
-#: ../src/plugins/xkb/xkb-plugin.c:536
+#: ../src/plugins/xkb/xkb-plugin.c:627
 msgid "Model"
 msgstr "型号"
 
-#: ../src/plugins/xkb/xkb-plugin.c:540 ../src/plugins/xkb/xkb-plugin.c:629
-#: ../src/plugins/xkb/xkb-plugin.c:780
+#: ../src/plugins/xkb/xkb-plugin.c:632 ../src/plugins/xkb/xkb-plugin.c:725
+#: ../src/plugins/xkb/xkb-plugin.c:876
 msgid "Description"
 msgstr "描述"
 
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:602
+#: ../src/plugins/xkb/xkb-plugin.c:698
 msgid "Select Layout Change Type"
 msgstr "选择布局更改类型"
 
-#: ../src/plugins/xkb/xkb-plugin.c:625
+#: ../src/plugins/xkb/xkb-plugin.c:721
 msgid "Change Type"
 msgstr "更改类型"
 
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:747
+#: ../src/plugins/xkb/xkb-plugin.c:843
 msgid "Add Keyboard Layout"
 msgstr "添加键盘布局"
 
-#: ../src/plugins/xkb/xkb-plugin.c:770 ../src/plugins/xkb/xkb-plugin.c:1136
+#: ../src/plugins/xkb/xkb-plugin.c:866 ../src/plugins/xkb/xkb-plugin.c:1249
 msgid "Flag"
 msgstr "标志"
 
-#: ../src/plugins/xkb/xkb-plugin.c:775 ../src/plugins/xkb/xkb-plugin.c:1140
+#: ../src/plugins/xkb/xkb-plugin.c:871 ../src/plugins/xkb/xkb-plugin.c:1253
 msgid "Layout"
 msgstr "布局"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1053 ../src/plugins/xkb/xkb-plugin.c:1359
+#: ../src/plugins/xkb/xkb-plugin.c:1160 ../src/plugins/xkb/xkb-plugin.c:1509
 msgid "Keyboard Layout Handler"
 msgstr "键盘布局调控器"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1070
+#: ../src/plugins/xkb/xkb-plugin.c:1182
 msgid "Keyboard Model"
 msgstr "键盘型号"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1090
+#: ../src/plugins/xkb/xkb-plugin.c:1203
 msgid "Keyboard Layouts"
 msgstr "键盘布局"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1144
+#: ../src/plugins/xkb/xkb-plugin.c:1257
 msgid "Variant"
 msgstr "变体"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1152
+#: ../src/plugins/xkb/xkb-plugin.c:1266
 msgid "Change Layout Option"
 msgstr "更改布局选项"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1172
+#: ../src/plugins/xkb/xkb-plugin.c:1286
+msgid "Advanced setxkbmap Options"
+msgstr "高级 setxkbmap 选项"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1306
+msgid "Do _not reset existing options"
+msgstr "不重置已有的选项(_N)"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1311
+msgid "Keep _system layouts"
+msgstr "保持系统布局(_S)"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1320
 msgid "Per Window Settings"
 msgstr "按窗口设置"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1184
+#: ../src/plugins/xkb/xkb-plugin.c:1332
 msgid "_Remember layout for each window"
 msgstr "记住各窗口的布局(_R)"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1193
+#: ../src/plugins/xkb/xkb-plugin.c:1341
 msgid "Show Layout as"
 msgstr "将布局显示为"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1254
+#: ../src/plugins/xkb/xkb-plugin.c:1402
 msgid "Custom Image"
 msgstr "自定义图像"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1255
+#: ../src/plugins/xkb/xkb-plugin.c:1403
 msgid "Text"
 msgstr "文本"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1281
+#: ../src/plugins/xkb/xkb-plugin.c:1429
 msgid "Panel Icon Size"
 msgstr "面板图标大小"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1361
+#: ../src/plugins/xkb/xkb-plugin.c:1511
 msgid "Handle keyboard layouts"
 msgstr "调控键盘布局"
 
@@ -865,6 +883,10 @@ msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
 msgstr "错误，您需要安装配置声音的应用程序(如 pavucontol、alsamixer...)"
+
+#: ../src/plugins/volumealsa/volumealsa.c:667
+msgid "Display and control volume for ALSA"
+msgstr "显示和控制 ALSA 音量"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"

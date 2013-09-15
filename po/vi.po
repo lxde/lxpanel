@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-23 15:11+0200\n"
+"POT-Creation-Date: 2013-08-27 10:10+0200\n"
 "PO-Revision-Date: 2012-10-12 06:22+0200\n"
 "Last-Translator: Duy Hung <nguyentieuhau@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -211,7 +211,7 @@ msgstr ""
 msgid "Enter the command you want to execute:"
 msgstr "Nhập dòng lệnh bạn muốn thực thi:"
 
-#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:912
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:1039
 msgid "Application Launch Bar"
 msgstr "Thanh khởi động ứng dụng"
 
@@ -374,7 +374,7 @@ msgstr "Giao diện hệ thống"
 msgid "Solid color (with opacity)"
 msgstr "Màu rắn (với độ mờ đục)"
 
-#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/xkb/xkb-plugin.c:1253
+#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/xkb/xkb-plugin.c:1401
 msgid "Image"
 msgstr "Hình ảnh"
 
@@ -492,96 +492,96 @@ msgstr "Hiển thị số không gian làm việc, bởi cmeury@users.sf.net"
 msgid "Display Image and Tooltip"
 msgstr "Hiển thị hình ảnh và chú giải"
 
-#: ../src/plugins/launchbar.c:914
+#: ../src/plugins/launchbar.c:1041
 msgid "Bar with buttons to launch application"
 msgstr "Thanh công cụ với nút để khởi động ứng dụng"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1714
+#: ../src/plugins/taskbar.c:1722
 msgid "_Raise"
 msgstr "_Hiện lên"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1719
+#: ../src/plugins/taskbar.c:1727
 msgid "R_estore"
 msgstr "_Phục hồi"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1724
+#: ../src/plugins/taskbar.c:1732
 msgid "Ma_ximize"
 msgstr "Phóng _cực đại"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1729
+#: ../src/plugins/taskbar.c:1737
 msgid "Ico_nify"
 msgstr "_Thu nhỏ"
 
-#: ../src/plugins/taskbar.c:1748
+#: ../src/plugins/taskbar.c:1756
 #, c-format
 msgid "Workspace _%d"
 msgstr "Không gian làm việc _%d"
 
-#: ../src/plugins/taskbar.c:1753
+#: ../src/plugins/taskbar.c:1761
 #, c-format
 msgid "Workspace %d"
 msgstr "Không gian làm việc %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1767
+#: ../src/plugins/taskbar.c:1775
 msgid "_All workspaces"
 msgstr "Tất cả _không gian làm việc"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1773
+#: ../src/plugins/taskbar.c:1781
 msgid "_Move to Workspace"
 msgstr "_Di chuyển đến không gian làm việc"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1779
+#: ../src/plugins/taskbar.c:1787
 msgid "_Close Window"
 msgstr "Đóng cửa _sổ"
 
-#: ../src/plugins/taskbar.c:1986
+#: ../src/plugins/taskbar.c:1994
 msgid "Show tooltips"
 msgstr "Hiển thị chú giải"
 
-#: ../src/plugins/taskbar.c:1987
+#: ../src/plugins/taskbar.c:1995
 msgid "Icons only"
 msgstr "Chỉ biểu tượng"
 
-#: ../src/plugins/taskbar.c:1988
+#: ../src/plugins/taskbar.c:1996
 msgid "Flat buttons"
 msgstr "Nút phẳng"
 
-#: ../src/plugins/taskbar.c:1989
+#: ../src/plugins/taskbar.c:1997
 msgid "Show windows from all desktops"
 msgstr "Hiện tất cả cửa sổ từ tất cả màn hình nền"
 
-#: ../src/plugins/taskbar.c:1990
+#: ../src/plugins/taskbar.c:1998
 msgid "Use mouse wheel"
 msgstr "Sử dụng bánh lăn chuột"
 
-#: ../src/plugins/taskbar.c:1991
+#: ../src/plugins/taskbar.c:1999
 msgid "Flash when there is any window requiring attention"
 msgstr "Nhấp nháy khi có bất kỳ cửa sổ nào yêu cầu sự chú ý"
 
-#: ../src/plugins/taskbar.c:1992
+#: ../src/plugins/taskbar.c:2000
 msgid "Combine multiple application windows into a single button"
 msgstr "Kết hợp nhiều cửa sổ ứng dụng vào một nút duy nhất"
 
-#: ../src/plugins/taskbar.c:1993
+#: ../src/plugins/taskbar.c:2001
 msgid "Maximum width of task button"
 msgstr "Chiều rộng tối đa của nút tác vụ"
 
-#: ../src/plugins/taskbar.c:1994
+#: ../src/plugins/taskbar.c:2002
 msgid "Spacing"
 msgstr "Khoảng cách"
 
-#: ../src/plugins/taskbar.c:2047
+#: ../src/plugins/taskbar.c:2055
 msgid "Task Bar (Window List)"
 msgstr "Thanh tác vụ (danh sách cửa sổ)"
 
-#: ../src/plugins/taskbar.c:2049
+#: ../src/plugins/taskbar.c:2057
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -598,7 +598,8 @@ msgid "Tooltip Format"
 msgstr "Định dạng chú giải"
 
 #: ../src/plugins/dclock.c:438
-msgid "Format codes: man 3 strftime; \\n for line break"
+#, fuzzy, c-format
+msgid "Format codes: man 3 strftime; \\%n for line break"
 msgstr "Định dạng mã: man 3 strftime; \\n for line break"
 
 #: ../src/plugins/dclock.c:439
@@ -629,15 +630,15 @@ msgstr "Thêm vào màn hình nền"
 msgid "Properties"
 msgstr "Thuộc tính"
 
-#: ../src/plugins/menu.c:1084 ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1085 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "Biểu tượng"
 
-#: ../src/plugins/menu.c:1101
+#: ../src/plugins/menu.c:1102
 msgid "Menu"
 msgstr "Trình đơn"
 
-#: ../src/plugins/menu.c:1103
+#: ../src/plugins/menu.c:1104
 msgid "Application Menu"
 msgstr "Trình đơn ứng dụng"
 
@@ -665,95 +666,111 @@ msgstr "Bộ dãn cách"
 msgid "Allocate space"
 msgstr "Phân bổ không gian"
 
-#: ../src/plugins/tray.c:757
+#: ../src/plugins/tray.c:764
 msgid "System Tray"
 msgstr "Khay hệ thống"
 
-#: ../src/plugins/tray.c:759
+#: ../src/plugins/tray.c:766
 msgid "System tray"
 msgstr "Khay hệ thống"
 
+#: ../src/plugins/xkb/xkb-plugin.c:451
+msgid "New session is required for this option to take effect"
+msgstr ""
+
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:513
+#: ../src/plugins/xkb/xkb-plugin.c:604
 msgid "Select Keyboard Model"
 msgstr "Chọn kiểu bàn phím"
 
-#: ../src/plugins/xkb/xkb-plugin.c:536
+#: ../src/plugins/xkb/xkb-plugin.c:627
 msgid "Model"
 msgstr "Kiểu"
 
-#: ../src/plugins/xkb/xkb-plugin.c:540 ../src/plugins/xkb/xkb-plugin.c:629
-#: ../src/plugins/xkb/xkb-plugin.c:780
+#: ../src/plugins/xkb/xkb-plugin.c:632 ../src/plugins/xkb/xkb-plugin.c:725
+#: ../src/plugins/xkb/xkb-plugin.c:876
 msgid "Description"
 msgstr "Miêu tả:"
 
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:602
+#: ../src/plugins/xkb/xkb-plugin.c:698
 msgid "Select Layout Change Type"
 msgstr "Chọn sơ đồ"
 
-#: ../src/plugins/xkb/xkb-plugin.c:625
+#: ../src/plugins/xkb/xkb-plugin.c:721
 msgid "Change Type"
 msgstr "Đổi kiểu"
 
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:747
+#: ../src/plugins/xkb/xkb-plugin.c:843
 msgid "Add Keyboard Layout"
 msgstr "Thêm sơ đồ bàn phím"
 
-#: ../src/plugins/xkb/xkb-plugin.c:770 ../src/plugins/xkb/xkb-plugin.c:1136
+#: ../src/plugins/xkb/xkb-plugin.c:866 ../src/plugins/xkb/xkb-plugin.c:1249
 msgid "Flag"
 msgstr "Cờ"
 
-#: ../src/plugins/xkb/xkb-plugin.c:775 ../src/plugins/xkb/xkb-plugin.c:1140
+#: ../src/plugins/xkb/xkb-plugin.c:871 ../src/plugins/xkb/xkb-plugin.c:1253
 msgid "Layout"
 msgstr "Sơ đồ"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1053 ../src/plugins/xkb/xkb-plugin.c:1359
+#: ../src/plugins/xkb/xkb-plugin.c:1160 ../src/plugins/xkb/xkb-plugin.c:1509
 msgid "Keyboard Layout Handler"
 msgstr "Bộ quản lý sơ đồ bàn phím"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1070
+#: ../src/plugins/xkb/xkb-plugin.c:1182
 msgid "Keyboard Model"
 msgstr "Kiểu bàn phím"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1090
+#: ../src/plugins/xkb/xkb-plugin.c:1203
 msgid "Keyboard Layouts"
 msgstr "Sơ đồ bàn phím"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1144
+#: ../src/plugins/xkb/xkb-plugin.c:1257
 msgid "Variant"
 msgstr "Biến thể"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1152
+#: ../src/plugins/xkb/xkb-plugin.c:1266
 msgid "Change Layout Option"
 msgstr "Thay đổi tùy chọn sơ đồ"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1172
+#: ../src/plugins/xkb/xkb-plugin.c:1286
+msgid "Advanced setxkbmap Options"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1306
+msgid "Do _not reset existing options"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1311
+msgid "Keep _system layouts"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1320
 msgid "Per Window Settings"
 msgstr "Cho mỗi thiết lập cửa sổ"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1184
+#: ../src/plugins/xkb/xkb-plugin.c:1332
 msgid "_Remember layout for each window"
 msgstr "_Ghi nhớ sơ đồ cho mỗi cửa sổ"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1193
+#: ../src/plugins/xkb/xkb-plugin.c:1341
 msgid "Show Layout as"
 msgstr "Hiển thị sơ đồ như"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1254
+#: ../src/plugins/xkb/xkb-plugin.c:1402
 msgid "Custom Image"
 msgstr "Ảnh tùy chọn"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1255
+#: ../src/plugins/xkb/xkb-plugin.c:1403
 msgid "Text"
 msgstr "Văn bản"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1281
+#: ../src/plugins/xkb/xkb-plugin.c:1429
 msgid "Panel Icon Size"
 msgstr "Kích thước biểu tượng bảng điều khiển"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1361
+#: ../src/plugins/xkb/xkb-plugin.c:1511
 msgid "Handle keyboard layouts"
 msgstr "Quản lý sơ đồ bàn phím"
 
@@ -869,6 +886,10 @@ msgid ""
 msgstr ""
 "Lỗi, bạn cần cài đặt một ứng dụng để cấu hình âm thanh (pavucontol, "
 "alsamixer ...)"
+
+#: ../src/plugins/volumealsa/volumealsa.c:667
+msgid "Display and control volume for ALSA"
+msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"

@@ -8,18 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-23 15:11+0200\n"
-"PO-Revision-Date: 2012-10-29 12:14+0200\n"
+"POT-Creation-Date: 2013-08-27 10:10+0200\n"
+"PO-Revision-Date: 2013-08-28 23:09+0000\n"
 "Last-Translator: Sérgio <smarquespt@gmail.com>\n"
-"Language-Team: Portuguese PT\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
-"X-Poedit-Language: Portuguese\n"
-"X-Poedit-Country: PORTUGAL\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1377731359.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -70,7 +68,7 @@ msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
-"Pretende realmente eliminar este painel?\n"
+"Pretende mesmo eliminar este painel?\n"
 "<b>Atenção: o painel não poderá ser recuperado.</b>"
 
 #: ../src/panel.c:660
@@ -90,7 +88,7 @@ msgstr "LXPanel"
 
 #: ../src/panel.c:716
 msgid "Copyright (C) 2008-2011"
-msgstr "Direitos de autor (C) 2008-2011"
+msgstr "Direitos de autor (C) 2008-2013"
 
 #: ../src/panel.c:717
 msgid "Desktop panel for LXDE project"
@@ -157,12 +155,12 @@ msgstr "Inferior"
 #: ../src/panel.c:1501
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr "Lxpanel %s - painel em GTK2+ para ambientes de trabalho UNIX\n"
+msgstr "Lxpanel %s - painel em GTK2+ para ambientes UNIX\n"
 
 #: ../src/panel.c:1502
 #, c-format
 msgid "Command line options:\n"
-msgstr "Opções da linha de comandos:\n"
+msgstr "Opções de linha de comandos:\n"
 
 #: ../src/panel.c:1503
 #, c-format
@@ -177,14 +175,14 @@ msgstr " --version   -- imprime a versão e sai\n"
 #: ../src/panel.c:1505
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <número> -- define o nível de registo 0-5. 0 - nenhum 5 - detalhado\n"
+msgstr " --log <número> -- define o nível de registo 0-5. (0 - nenhum, 5 - "
+"detalhado)\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1507
 #, c-format
 msgid " --profile name -- use specified profile\n"
-msgstr " --profile name -- utilizar o perfil escolhido\n"
+msgstr " --profile name -- utiliza o perfil escolhido\n"
 
 #: ../src/panel.c:1509
 #, c-format
@@ -215,9 +213,9 @@ msgstr ""
 
 #: ../src/gtk-run.c:373
 msgid "Enter the command you want to execute:"
-msgstr "Introduza o comando que quer executar:"
+msgstr "Introduza o comando a executar:"
 
-#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:912
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:1039
 msgid "Application Launch Bar"
 msgstr "Barra de aplicações"
 
@@ -277,7 +275,7 @@ msgstr "Difusão:"
 
 #: ../data/ui/netstatus.glade.h:15
 msgid "Subnet Mask:"
-msgstr "Máscara de subrede:"
+msgstr "Máscara de sub-rede:"
 
 #: ../data/ui/netstatus.glade.h:16
 msgid "<b>Internet Protocol (IPv6)</b>"
@@ -380,7 +378,7 @@ msgstr "Tema do sistema"
 msgid "Solid color (with opacity)"
 msgstr "Cor sólida (sem opacidade)"
 
-#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/xkb/xkb-plugin.c:1253
+#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/xkb/xkb-plugin.c:1401
 msgid "Image"
 msgstr "Imagem"
 
@@ -431,11 +429,11 @@ msgstr "<b>Definir aplicações preferidas</b>"
 
 #: ../data/ui/panel-pref.glade.h:39
 msgid "Make window managers treat the panel as dock"
-msgstr "O gestor de janelas deve tratar o painel como \"dock\""
+msgstr "O gestor de janelas deve tratar o painel como doca"
 
 #: ../data/ui/panel-pref.glade.h:40
 msgid "Reserve space, and not covered by maximized windows"
-msgstr "Reservar espaço e não cobrir por janelas maximizadas"
+msgstr "Manter espaço e não cobrir por janelas maximizadas"
 
 #: ../data/ui/panel-pref.glade.h:41
 msgid "<b>Properties</b>"
@@ -475,7 +473,7 @@ msgstr "Monitor de utilização do CPU"
 
 #: ../src/plugins/cpu/cpu.c:279 ../src/plugins/monitors/monitors.c:711
 msgid "Display CPU usage"
-msgstr "Exibir a utilização do CPU"
+msgstr "Mostra a utilização do CPU"
 
 #: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:440
 msgid "Bold font"
@@ -483,7 +481,7 @@ msgstr "Letra em negrito"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
-msgstr "Exibir nomes do ambiente de trabalho"
+msgstr "Mostra os nomes dos ambientes de trabalho"
 
 #: ../src/plugins/deskno/deskno.c:235
 msgid "Desktop Number / Workspace Name"
@@ -491,102 +489,102 @@ msgstr "Ambiente de trabalho n.º/ Nome da área de trabalho"
 
 #: ../src/plugins/deskno/deskno.c:237
 msgid "Display workspace number, by cmeury@users.sf.net"
-msgstr "Exibir número da área de trabalho, por cmeury@users.sf.net"
+msgstr "Mostra o número da área de trabalho. Por cmeury@users.sf.net"
 
 #: ../src/plugins/image.c:161
 msgid "Display Image and Tooltip"
-msgstr "Exibir imagem e dicas"
+msgstr "Mostra a imagem e as ajudas"
 
-#: ../src/plugins/launchbar.c:914
+#: ../src/plugins/launchbar.c:1041
 msgid "Bar with buttons to launch application"
 msgstr "Barra com botões para iniciar aplicações"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1714
+#: ../src/plugins/taskbar.c:1722
 msgid "_Raise"
-msgstr "_Aumentar"
+msgstr "_Mostrar"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1719
+#: ../src/plugins/taskbar.c:1727
 msgid "R_estore"
 msgstr "R_estaurar"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1724
+#: ../src/plugins/taskbar.c:1732
 msgid "Ma_ximize"
 msgstr "Ma_ximizar"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1729
+#: ../src/plugins/taskbar.c:1737
 msgid "Ico_nify"
 msgstr "Mi_nimizar"
 
-#: ../src/plugins/taskbar.c:1748
+#: ../src/plugins/taskbar.c:1756
 #, c-format
 msgid "Workspace _%d"
 msgstr "Área de trabalho _%d"
 
-#: ../src/plugins/taskbar.c:1753
+#: ../src/plugins/taskbar.c:1761
 #, c-format
 msgid "Workspace %d"
 msgstr "Área de trabalho %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1767
+#: ../src/plugins/taskbar.c:1775
 msgid "_All workspaces"
 msgstr "_Todas as áreas de trabalho"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1773
+#: ../src/plugins/taskbar.c:1781
 msgid "_Move to Workspace"
 msgstr "_Mover para área de trabalho"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1779
+#: ../src/plugins/taskbar.c:1787
 msgid "_Close Window"
 msgstr "_Fechar janela"
 
-#: ../src/plugins/taskbar.c:1986
+#: ../src/plugins/taskbar.c:1994
 msgid "Show tooltips"
-msgstr "Mostrar dicas"
+msgstr "Mostrar ajudas"
 
-#: ../src/plugins/taskbar.c:1987
+#: ../src/plugins/taskbar.c:1995
 msgid "Icons only"
 msgstr "Só ícones"
 
-#: ../src/plugins/taskbar.c:1988
+#: ../src/plugins/taskbar.c:1996
 msgid "Flat buttons"
 msgstr "Botões planos"
 
-#: ../src/plugins/taskbar.c:1989
+#: ../src/plugins/taskbar.c:1997
 msgid "Show windows from all desktops"
 msgstr "Mostrar janelas de todos os ambientes virtuais"
 
-#: ../src/plugins/taskbar.c:1990
+#: ../src/plugins/taskbar.c:1998
 msgid "Use mouse wheel"
-msgstr "Utilizar a roda do rato"
+msgstr "Utilizar roda do rato"
 
-#: ../src/plugins/taskbar.c:1991
+#: ../src/plugins/taskbar.c:1999
 msgid "Flash when there is any window requiring attention"
 msgstr "Piscar se existir uma janela a requisitar atenção"
 
-#: ../src/plugins/taskbar.c:1992
+#: ../src/plugins/taskbar.c:2000
 msgid "Combine multiple application windows into a single button"
-msgstr "Combinar as várias janelas de aplicações num único botão"
+msgstr "Combinar as várias janelas de uma aplicação num único botão"
 
-#: ../src/plugins/taskbar.c:1993
+#: ../src/plugins/taskbar.c:2001
 msgid "Maximum width of task button"
-msgstr "Largura máxima do botão de tarefa"
+msgstr "Largura máxima do botão de tarefas"
 
-#: ../src/plugins/taskbar.c:1994
+#: ../src/plugins/taskbar.c:2002
 msgid "Spacing"
 msgstr "Espaçamento"
 
-#: ../src/plugins/taskbar.c:2047
+#: ../src/plugins/taskbar.c:2055
 msgid "Task Bar (Window List)"
 msgstr "Barra de tarefas (lista de janelas)"
 
-#: ../src/plugins/taskbar.c:2049
+#: ../src/plugins/taskbar.c:2057
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -600,11 +598,12 @@ msgstr "Formato do relógio"
 
 #: ../src/plugins/dclock.c:437
 msgid "Tooltip Format"
-msgstr "Formato das dicas"
+msgstr "Formato das ajudas"
 
 #: ../src/plugins/dclock.c:438
-msgid "Format codes: man 3 strftime; \\n for line break"
-msgstr "Códigos de formato: man 3 strftime; \\n para quebra de linha"
+#, c-format
+msgid "Format codes: man 3 strftime; \\%n for line break"
+msgstr "Formatos: man 3 strftime; \\%n para quebra de linha"
 
 #: ../src/plugins/dclock.c:439
 msgid "Action when clicked (default: display calendar)"
@@ -624,7 +623,7 @@ msgstr "Relógio digital"
 
 #: ../src/plugins/dclock.c:473
 msgid "Display digital clock and tooltip"
-msgstr "Exibir relógio digital e dicas"
+msgstr "Mostra o relógio digital e as ajudas"
 
 #: ../src/plugins/menu.c:426
 msgid "Add to desktop"
@@ -634,15 +633,15 @@ msgstr "Adicionar ao ambiente de trabalho"
 msgid "Properties"
 msgstr "Propriedades"
 
-#: ../src/plugins/menu.c:1084 ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1085 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "Ícone"
 
-#: ../src/plugins/menu.c:1101
+#: ../src/plugins/menu.c:1102
 msgid "Menu"
 msgstr "Menu"
 
-#: ../src/plugins/menu.c:1103
+#: ../src/plugins/menu.c:1104
 msgid "Application Menu"
 msgstr "Menu de aplicações"
 
@@ -670,103 +669,117 @@ msgstr "Separador"
 msgid "Allocate space"
 msgstr "Alocar espaço"
 
-#: ../src/plugins/tray.c:757
+#: ../src/plugins/tray.c:764
 msgid "System Tray"
 msgstr "Área de notificação"
 
-#: ../src/plugins/tray.c:759
+#: ../src/plugins/tray.c:766
 msgid "System tray"
 msgstr "Área de notificação"
 
+#: ../src/plugins/xkb/xkb-plugin.c:451
+msgid "New session is required for this option to take effect"
+msgstr "Tem que reiniciar a sessão para aplicar esta opção"
+
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:513
+#: ../src/plugins/xkb/xkb-plugin.c:604
 msgid "Select Keyboard Model"
 msgstr "Escolha o modelo do teclado"
 
-#: ../src/plugins/xkb/xkb-plugin.c:536
+#: ../src/plugins/xkb/xkb-plugin.c:627
 msgid "Model"
 msgstr "Modelo"
 
-#: ../src/plugins/xkb/xkb-plugin.c:540 ../src/plugins/xkb/xkb-plugin.c:629
-#: ../src/plugins/xkb/xkb-plugin.c:780
+#: ../src/plugins/xkb/xkb-plugin.c:632 ../src/plugins/xkb/xkb-plugin.c:725
+#: ../src/plugins/xkb/xkb-plugin.c:876
 msgid "Description"
 msgstr "Descrição"
 
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:602
+#: ../src/plugins/xkb/xkb-plugin.c:698
 msgid "Select Layout Change Type"
 msgstr "Escolha para alterar o esquema"
 
-#: ../src/plugins/xkb/xkb-plugin.c:625
+#: ../src/plugins/xkb/xkb-plugin.c:721
 msgid "Change Type"
 msgstr "Alterar tipo"
 
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:747
+#: ../src/plugins/xkb/xkb-plugin.c:843
 msgid "Add Keyboard Layout"
 msgstr "Adicionar esquema de teclado"
 
-#: ../src/plugins/xkb/xkb-plugin.c:770 ../src/plugins/xkb/xkb-plugin.c:1136
+#: ../src/plugins/xkb/xkb-plugin.c:866 ../src/plugins/xkb/xkb-plugin.c:1249
 msgid "Flag"
 msgstr "Bandeira"
 
-#: ../src/plugins/xkb/xkb-plugin.c:775 ../src/plugins/xkb/xkb-plugin.c:1140
+#: ../src/plugins/xkb/xkb-plugin.c:871 ../src/plugins/xkb/xkb-plugin.c:1253
 msgid "Layout"
 msgstr "Esquema"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1053 ../src/plugins/xkb/xkb-plugin.c:1359
+#: ../src/plugins/xkb/xkb-plugin.c:1160 ../src/plugins/xkb/xkb-plugin.c:1509
 msgid "Keyboard Layout Handler"
-msgstr "Gestor do esquema do teclado"
+msgstr "Gestor de esquemas de teclado"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1070
+#: ../src/plugins/xkb/xkb-plugin.c:1182
 msgid "Keyboard Model"
 msgstr "Modelo do teclado"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1090
+#: ../src/plugins/xkb/xkb-plugin.c:1203
 msgid "Keyboard Layouts"
 msgstr "Esquemas de teclado"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1144
+#: ../src/plugins/xkb/xkb-plugin.c:1257
 msgid "Variant"
 msgstr "Variante"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1152
+#: ../src/plugins/xkb/xkb-plugin.c:1266
 msgid "Change Layout Option"
 msgstr "Mudar opções de esquema"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1172
+#: ../src/plugins/xkb/xkb-plugin.c:1286
+msgid "Advanced setxkbmap Options"
+msgstr "Opções avançadas setxkbmap"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1306
+msgid "Do _not reset existing options"
+msgstr "_Não reiniciar opções existentes"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1311
+msgid "Keep _system layouts"
+msgstr "Manter esquemas do _sistema"
+
+#: ../src/plugins/xkb/xkb-plugin.c:1320
 msgid "Per Window Settings"
 msgstr "Definições por janela"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1184
+#: ../src/plugins/xkb/xkb-plugin.c:1332
 msgid "_Remember layout for each window"
 msgstr "Lembra_r definições para cada janela"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1193
+#: ../src/plugins/xkb/xkb-plugin.c:1341
 msgid "Show Layout as"
 msgstr "Mostrar esquema como"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1254
+#: ../src/plugins/xkb/xkb-plugin.c:1402
 msgid "Custom Image"
 msgstr "Imagem personalizada"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1255
+#: ../src/plugins/xkb/xkb-plugin.c:1403
 msgid "Text"
 msgstr "Texto"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1281
+#: ../src/plugins/xkb/xkb-plugin.c:1429
 msgid "Panel Icon Size"
 msgstr "Tamanho dos ícones no painel"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1361
+#: ../src/plugins/xkb/xkb-plugin.c:1511
 msgid "Handle keyboard layouts"
 msgstr "Gerir esquemas de teclado"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr ""
-"Botão esquerdo do rato para minimizar todas as janelas. Botão do meio para "
-"enrolar."
+msgstr "Botão esquerdo minimizar todas as janelas. Botão central para enrolar."
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
@@ -826,15 +839,15 @@ msgstr "Sensor"
 
 #: ../src/plugins/thermal/thermal.c:479
 msgid "Automatic temperature levels"
-msgstr "Níveis de temperatura automáticos"
+msgstr "Níveis automáticos de temperatura"
 
 #: ../src/plugins/thermal/thermal.c:480
 msgid "Warning1 Temperature"
-msgstr "Aviso1 Temperatura"
+msgstr "Aviso1 de temperatura"
 
 #: ../src/plugins/thermal/thermal.c:481
 msgid "Warning2 Temperature"
-msgstr "Aviso2 Temperatura"
+msgstr "Aviso2 de temperatura"
 
 #: ../src/plugins/thermal/thermal.c:525
 msgid "Temperature Monitor"
@@ -842,7 +855,7 @@ msgstr "Monitor de temperatura"
 
 #: ../src/plugins/thermal/thermal.c:527
 msgid "Display system temperature"
-msgstr "Exibir temperatura do sistema"
+msgstr "Mostra a temperatura do sistema"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -866,7 +879,7 @@ msgstr "Volume"
 #. Create a check button as the child of the vertical box.
 #: ../src/plugins/volumealsa/volumealsa.c:521
 msgid "Mute"
-msgstr "Sem áudio"
+msgstr "Sem som"
 
 #: ../src/plugins/volumealsa/volumealsa.c:638
 msgid ""
@@ -875,6 +888,10 @@ msgid ""
 msgstr ""
 "Ocorreu um erro. Tem que instalar uma aplicação para configurar o som "
 "(pavucontol, alsamixer...)"
+
+#: ../src/plugins/volumealsa/volumealsa.c:667
+msgid "Display and control volume for ALSA"
+msgstr "Exibição e controlo de volume ALSA"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
@@ -913,7 +930,7 @@ msgstr "Endereço IP:"
 
 #: ../src/plugins/netstat/netstat.c:351
 msgid "Remote IP:"
-msgstr "IP Remoto:"
+msgstr "IP remoto:"
 
 #: ../src/plugins/netstat/netstat.c:352 ../src/plugins/netstat/netstat.c:363
 #: ../src/plugins/netstat/netstat.c:374
@@ -998,7 +1015,7 @@ msgstr "Monitor de estado da rede"
 
 #: ../src/plugins/netstatus/netstatus.c:199
 msgid "Monitor network status"
-msgstr "Monitorizar estado da rede"
+msgstr "Monitoriza o estado da rede"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:51
 #: ../src/plugins/netstatus/netstatus-dialog.c:312
@@ -1027,7 +1044,7 @@ msgid ""
 "There was an error displaying help:\n"
 "%s"
 msgstr ""
-"Ocorreu um erro ao exibir a ajuda:\n"
+"Ocorreu um erro ao mostrar a ajuda:\n"
 "%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
@@ -1062,11 +1079,11 @@ msgstr "A orientação da área de notificação."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:859
 msgid "Tooltips Enabled"
-msgstr "Dicas ativadas"
+msgstr "Ajudas ativadas"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:860
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr "Se as dicas dos ícones estão ou não ativas."
+msgstr "Se as ajudas dos ícones estão ou não ativas."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:867
 msgid "Show Signal"
@@ -1083,7 +1100,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Contacte o administrador do sistema para resolver o seguinte problema:\n"
+"Contacte o administrador de sistemas para resolver o seguinte problema:\n"
 "\n"
 "%s"
 
@@ -1142,7 +1159,7 @@ msgstr "Não foi possível abrir o \"socket:\" %s"
 #: ../src/plugins/netstatus/netstatus-iface.c:1223
 #, c-format
 msgid "SIOCGIFFLAGS error: %s"
-msgstr "Erro \"SIOCGIFFLAGS\" : %s"
+msgstr "Erro SIOCGIFFLAGS : %s"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:870
 msgid "AMPR NET/ROM"
@@ -1159,7 +1176,7 @@ msgstr "AMPR AX.25"
 #: ../src/plugins/netstatus/netstatus-iface.c:888
 #: ../src/plugins/netstatus/netstatus-iface.c:1008
 msgid "16/4 Mbps Token Ring"
-msgstr "16/4 Mbps \"Token Ring\""
+msgstr "16/4 Mbps Token Ring"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:891
 msgid "ARCnet"
@@ -1223,7 +1240,7 @@ msgstr "Dispositivo de acesso Frame Relay"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:960
 msgid "Local Loopback"
-msgstr "Loopback local"
+msgstr "Interface local"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:966
 msgid "Fiber Distributed Data Interface"
@@ -1324,15 +1341,15 @@ msgstr "Inativa"
 
 #: ../src/plugins/netstatus/netstatus-util.c:158
 msgid "Sending"
-msgstr "A enviar"
+msgstr "Envio"
 
 #: ../src/plugins/netstatus/netstatus-util.c:161
 msgid "Receiving"
-msgstr "A receber"
+msgstr "Receção"
 
 #: ../src/plugins/netstatus/netstatus-util.c:164
 msgid "Sending/Receiving"
-msgstr "Enviar/receber"
+msgstr "Envio/receção"
 
 #: ../src/plugins/batt/batt.c:133
 msgid "No batteries found"
@@ -1359,11 +1376,11 @@ msgstr "Ocultar se não existir bateria"
 
 #: ../src/plugins/batt/batt.c:556
 msgid "Alarm command"
-msgstr "Comando do alarme"
+msgstr "Comando de alarme"
 
 #: ../src/plugins/batt/batt.c:557
 msgid "Alarm time (minutes left)"
-msgstr "Tempo do alarme (minutos restantes)"
+msgstr "Tempo de alarme (minutos restantes)"
 
 #: ../src/plugins/batt/batt.c:558
 msgid "Background color"
@@ -1395,7 +1412,7 @@ msgstr "Monitor de bateria"
 
 #: ../src/plugins/batt/batt.c:595
 msgid "Display battery status using ACPI"
-msgstr "Exibir estado da bateria via ACPI"
+msgstr "Mostra o estado da bateria via ACPI"
 
 #: ../src/plugins/kbled/kbled.c:258
 msgid "Show CapsLock"
@@ -1415,7 +1432,7 @@ msgstr "Luz do teclado"
 
 #: ../src/plugins/kbled/kbled.c:297
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr "Indicadores para as teclas CapsLock, Numlock e ScrollLock"
+msgstr "Indicador para as teclas CapsLock, Numlock e ScrollLock"
 
 #. A label to allow for click through
 #: ../src/plugins/indicator/indicator.c:698
@@ -1440,7 +1457,7 @@ msgstr "Menu de rede"
 
 #: ../src/plugins/indicator/indicator.c:901
 msgid "Session Menu"
-msgstr "Menu da sessão"
+msgstr "Menu de sessão"
 
 #: ../src/plugins/indicator/indicator.c:902
 msgid "Sound Menu"
@@ -1470,7 +1487,7 @@ msgstr "Cor do CPU"
 
 #: ../src/plugins/monitors/monitors.c:713
 msgid "Display RAM usage"
-msgstr "Exibir RAM utilizada"
+msgstr "Mostra a RAM utilizada"
 
 #: ../src/plugins/monitors/monitors.c:714
 msgid "RAM color"
@@ -1478,7 +1495,7 @@ msgstr "Cor de RAM"
 
 #: ../src/plugins/monitors/monitors.c:715
 msgid "Action when clicked (default: lxtask)"
-msgstr "Ação ao clicar (pré-definido: lxtask)"
+msgstr "Ação ao clicar (pré-definida: lxtask)"
 
 #: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"
@@ -1486,7 +1503,7 @@ msgstr "Monitorização de recursos"
 
 #: ../src/plugins/monitors/monitors.c:810
 msgid "Display monitors (CPU, RAM)"
-msgstr "Exibir monitores (CPU, RAM)"
+msgstr "Mostra os monitores (CPU, RAM)"
 
 #: ../src/plugins/wnckpager/wnckpager.c:720
 msgid "WNCKPager"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-23 15:11+0200\n"
+"POT-Creation-Date: 2013-08-27 10:10+0200\n"
 "PO-Revision-Date: 2012-05-29 09:49+0200\n"
 "Last-Translator: Gheyret <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -66,7 +66,8 @@ msgstr "كۆز يۈگۈرت(_B)"
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
-msgstr "كۆزنەكچىنى راستلا ئۆچۈرەمسىز؟\n"
+msgstr ""
+"كۆزنەكچىنى راستلا ئۆچۈرەمسىز؟\n"
 "<b>ئاگاھلاندۇرۇش: بۇ ئەسلىگە كەلتۈرگىلى بولمايدۇ.</b>"
 
 #: ../src/panel.c:660
@@ -151,7 +152,9 @@ msgstr "ئاستى"
 #: ../src/panel.c:1501
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr "lxpanel %s - بولسا يۇنىكىس(UNIX) ئۈستەلئۈستىلىرى ئۈچۈن يېنىك بولغان  GTK2+ كۆزنەكچىسىدۇر\n"
+msgstr ""
+"lxpanel %s - بولسا يۇنىكىس(UNIX) ئۈستەلئۈستىلىرى ئۈچۈن يېنىك بولغان  GTK2+ "
+"كۆزنەكچىسىدۇر\n"
 
 #: ../src/panel.c:1502
 #, c-format
@@ -201,7 +204,8 @@ msgid ""
 "\n"
 "Visit http://lxde.org/ for detail.\n"
 "\n"
-msgstr "\n"
+msgstr ""
+"\n"
 "تەپسىلاتى ئۈچۈن http://lxde.org/ نى زىيارەت قىلىڭ\n"
 "\n"
 
@@ -209,7 +213,7 @@ msgstr "\n"
 msgid "Enter the command you want to execute:"
 msgstr "ئىجرا قىلماقچى بولغان بۇيرۇقنى بۇ يەرگە كىرگۈزۈڭ:"
 
-#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:912
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:1039
 msgid "Application Launch Bar"
 msgstr "پروگرامما ئىجرا بالدىقى"
 
@@ -372,7 +376,7 @@ msgstr "سىستېما ئۆرنىكى"
 msgid "Solid color (with opacity)"
 msgstr "پۈتەي رەڭ (سۈزۈكلۈكى بار)"
 
-#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/xkb/xkb-plugin.c:1253
+#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/xkb/xkb-plugin.c:1401
 msgid "Image"
 msgstr "سۈرەت"
 
@@ -427,7 +431,9 @@ msgstr "كۆزنەك باشقۇرغۇ كۆزنەكچىنى dock سۈپىتىدە
 
 #: ../data/ui/panel-pref.glade.h:40
 msgid "Reserve space, and not covered by maximized windows"
-msgstr "ئورۇن ئېلىپ قويۇش ئارقىلىق، ئەڭ چوڭ قىلىنغان كۆزنەكتە توسۇلۇپ قالمايدىغان قىلىش"
+msgstr ""
+"ئورۇن ئېلىپ قويۇش ئارقىلىق، ئەڭ چوڭ قىلىنغان كۆزنەكتە توسۇلۇپ قالمايدىغان "
+"قىلىش"
 
 #: ../data/ui/panel-pref.glade.h:41
 msgid "<b>Properties</b>"
@@ -489,100 +495,102 @@ msgstr "خىزمەت رايونى نومۇرنى كۆرسىتىش، ئاپتور
 msgid "Display Image and Tooltip"
 msgstr "سۈرەت ۋە كۆرسەتمىنى كۆرسىتىش"
 
-#: ../src/plugins/launchbar.c:914
+#: ../src/plugins/launchbar.c:1041
 msgid "Bar with buttons to launch application"
 msgstr "پروگرامما ئىجرا قىلىدىغان توپچىلار بار بالداق"
 
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1714
+#: ../src/plugins/taskbar.c:1722
 msgid "_Raise"
 msgstr "كۆتۈر(_R)"
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1719
+#: ../src/plugins/taskbar.c:1727
 msgid "R_estore"
 msgstr "ئەسلىگە كەلتۈر(_S)"
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1724
+#: ../src/plugins/taskbar.c:1732
 msgid "Ma_ximize"
 msgstr "ئەڭ چوڭ قىل(_X)"
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1729
+#: ../src/plugins/taskbar.c:1737
 msgid "Ico_nify"
 msgstr "سىنبەلگىلەشتۈر(_N)"
 
-#: ../src/plugins/taskbar.c:1748
+#: ../src/plugins/taskbar.c:1756
 #, c-format
 msgid "Workspace _%d"
 msgstr "خىزمەت رايونى _%d"
 
-#: ../src/plugins/taskbar.c:1753
+#: ../src/plugins/taskbar.c:1761
 #, c-format
 msgid "Workspace %d"
 msgstr "خىزمەت رايونى %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1767
+#: ../src/plugins/taskbar.c:1775
 msgid "_All workspaces"
 msgstr "بارلىق خىزمەت رايونى(_A)"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1773
+#: ../src/plugins/taskbar.c:1781
 msgid "_Move to Workspace"
 msgstr "خىزمەت رايونىغا يۆتكە(_M)"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1779
+#: ../src/plugins/taskbar.c:1787
 msgid "_Close Window"
 msgstr "كۆزنەكنى ياپ(_C)"
 
-#: ../src/plugins/taskbar.c:1986
+#: ../src/plugins/taskbar.c:1994
 msgid "Show tooltips"
 msgstr "ئەسكەرتمىلەرنى كۆرسىتىش"
 
-#: ../src/plugins/taskbar.c:1987
+#: ../src/plugins/taskbar.c:1995
 msgid "Icons only"
 msgstr "سىنبەلگىلەرلا"
 
-#: ../src/plugins/taskbar.c:1988
+#: ../src/plugins/taskbar.c:1996
 msgid "Flat buttons"
 msgstr "تەكشى توپچىلار"
 
-#: ../src/plugins/taskbar.c:1989
+#: ../src/plugins/taskbar.c:1997
 msgid "Show windows from all desktops"
 msgstr "بارلىق ئۈستەلئۈستىلىرىدىكى كۆزنەكلەرنى كۆرسىتىش"
 
-#: ../src/plugins/taskbar.c:1990
+#: ../src/plugins/taskbar.c:1998
 msgid "Use mouse wheel"
 msgstr "چاشقىنەك غاكتىكىنى ئىشلىتىش"
 
-#: ../src/plugins/taskbar.c:1991
+#: ../src/plugins/taskbar.c:1999
 msgid "Flash when there is any window requiring attention"
 msgstr "دىققەتنى تارتماقچى بولغاندا بىرەر كۆزنەكنى چاقنىتىش"
 
-#: ../src/plugins/taskbar.c:1992
+#: ../src/plugins/taskbar.c:2000
 msgid "Combine multiple application windows into a single button"
 msgstr "بىر قانچە پروگرامما كۆزنىكىنى بىر توپچىغا بىرلەشتۈرۈش"
 
-#: ../src/plugins/taskbar.c:1993
+#: ../src/plugins/taskbar.c:2001
 msgid "Maximum width of task button"
 msgstr "ۋەزىپە توپچىسىنىڭ ئەڭ چوڭ كەڭلىكى"
 
-#: ../src/plugins/taskbar.c:1994
+#: ../src/plugins/taskbar.c:2002
 msgid "Spacing"
 msgstr "بوشلۇق"
 
-#: ../src/plugins/taskbar.c:2047
+#: ../src/plugins/taskbar.c:2055
 msgid "Task Bar (Window List)"
 msgstr "ۋەزىپە بالدىقى (كۆزنەك تىزىمى)"
 
-#: ../src/plugins/taskbar.c:2049
+#: ../src/plugins/taskbar.c:2057
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
-msgstr "ۋەزىپە بالدىقى بارلىق كۆزنەكنى كۆرسىتەلەيدىغان، سىنبەلگىلەشتۈرەلەيدىغان، تۈرەلەيدىغان، فوكۇسىنى يۆتكىيەلەيدىغان بولسۇن"
+msgstr ""
+"ۋەزىپە بالدىقى بارلىق كۆزنەكنى كۆرسىتەلەيدىغان، سىنبەلگىلەشتۈرەلەيدىغان، "
+"تۈرەلەيدىغان، فوكۇسىنى يۆتكىيەلەيدىغان بولسۇن"
 
 #: ../src/plugins/dclock.c:436
 msgid "Clock Format"
@@ -593,7 +601,8 @@ msgid "Tooltip Format"
 msgstr "كۆرسەتمە پىچىمى"
 
 #: ../src/plugins/dclock.c:438
-msgid "Format codes: man 3 strftime; \\n for line break"
+#, fuzzy, c-format
+msgid "Format codes: man 3 strftime; \\%n for line break"
 msgstr "پىچىم كودلىرى: man 3 strftime; \\n قۇر ئۆزگەرتىدۇ"
 
 #: ../src/plugins/dclock.c:439
@@ -624,15 +633,15 @@ msgstr "ئۈستەلئۈستىگە قوشۇش"
 msgid "Properties"
 msgstr "خاسلىق"
 
-#: ../src/plugins/menu.c:1084 ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1085 ../src/plugins/dirmenu.c:413
 msgid "Icon"
 msgstr "سىنبەلگە"
 
-#: ../src/plugins/menu.c:1101
+#: ../src/plugins/menu.c:1102
 msgid "Menu"
 msgstr "تىزىملىك"
 
-#: ../src/plugins/menu.c:1103
+#: ../src/plugins/menu.c:1104
 msgid "Application Menu"
 msgstr "پروگرامما تىزىملىكى"
 
@@ -660,101 +669,118 @@ msgstr "بوشلۇق"
 msgid "Allocate space"
 msgstr "بوشلۇق تەقسىملەش"
 
-#: ../src/plugins/tray.c:757
+#: ../src/plugins/tray.c:764
 msgid "System Tray"
 msgstr "سىستېما قوندىقى"
 
-#: ../src/plugins/tray.c:759
+#: ../src/plugins/tray.c:766
 msgid "System tray"
 msgstr "سىستېما قوندىقى"
 
+#: ../src/plugins/xkb/xkb-plugin.c:451
+msgid "New session is required for this option to take effect"
+msgstr ""
+
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:513
+#: ../src/plugins/xkb/xkb-plugin.c:604
 msgid "Select Keyboard Model"
 msgstr "ھەرپتاختا مودېلىنى تاللاش"
 
-#: ../src/plugins/xkb/xkb-plugin.c:536
+#: ../src/plugins/xkb/xkb-plugin.c:627
 msgid "Model"
 msgstr "مودېلى"
 
-#: ../src/plugins/xkb/xkb-plugin.c:540 ../src/plugins/xkb/xkb-plugin.c:629
-#: ../src/plugins/xkb/xkb-plugin.c:780
+#: ../src/plugins/xkb/xkb-plugin.c:632 ../src/plugins/xkb/xkb-plugin.c:725
+#: ../src/plugins/xkb/xkb-plugin.c:876
 msgid "Description"
 msgstr "چۈشەندۈرۈلۈشى"
 
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:602
+#: ../src/plugins/xkb/xkb-plugin.c:698
 msgid "Select Layout Change Type"
 msgstr "ئورۇنلاشتۇرۈش ئۆزگىرىش ھالىتىنى تاللاش"
 
-#: ../src/plugins/xkb/xkb-plugin.c:625
+#: ../src/plugins/xkb/xkb-plugin.c:721
 msgid "Change Type"
 msgstr "ئۆزگىرىش ھالىتى"
 
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:747
+#: ../src/plugins/xkb/xkb-plugin.c:843
 msgid "Add Keyboard Layout"
 msgstr "ھەرپتاختا ئورۇنلاشتۇرۇشىنى قوشۇش"
 
-#: ../src/plugins/xkb/xkb-plugin.c:770 ../src/plugins/xkb/xkb-plugin.c:1136
+#: ../src/plugins/xkb/xkb-plugin.c:866 ../src/plugins/xkb/xkb-plugin.c:1249
 msgid "Flag"
 msgstr "بەلگە"
 
-#: ../src/plugins/xkb/xkb-plugin.c:775 ../src/plugins/xkb/xkb-plugin.c:1140
+#: ../src/plugins/xkb/xkb-plugin.c:871 ../src/plugins/xkb/xkb-plugin.c:1253
 msgid "Layout"
 msgstr "ئورۇنلاشتۇرۇلۇشى"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1053 ../src/plugins/xkb/xkb-plugin.c:1359
+#: ../src/plugins/xkb/xkb-plugin.c:1160 ../src/plugins/xkb/xkb-plugin.c:1509
 msgid "Keyboard Layout Handler"
 msgstr "ھەرپتاختا ئورۇنلاشتۇرۇشىنى باشقۇرغۇ"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1070
+#: ../src/plugins/xkb/xkb-plugin.c:1182
 msgid "Keyboard Model"
 msgstr "ھەرپتاختا مودېلى"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1090
+#: ../src/plugins/xkb/xkb-plugin.c:1203
 msgid "Keyboard Layouts"
 msgstr "ھەرپتاختا ئورۇنلاشتۇرۇلۇشى"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1144
+#: ../src/plugins/xkb/xkb-plugin.c:1257
 msgid "Variant"
 msgstr "ۋارىيانتى"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1152
+#: ../src/plugins/xkb/xkb-plugin.c:1266
 msgid "Change Layout Option"
 msgstr "ئورۇنلاشتۇرۇش تاللانمىسىنى ئۆزگەرتىش"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1172
+#: ../src/plugins/xkb/xkb-plugin.c:1286
+msgid "Advanced setxkbmap Options"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1306
+msgid "Do _not reset existing options"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1311
+msgid "Keep _system layouts"
+msgstr ""
+
+#: ../src/plugins/xkb/xkb-plugin.c:1320
 msgid "Per Window Settings"
 msgstr "ھەر بىر كۆزنەكتىكى تەڭشىكى"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1184
+#: ../src/plugins/xkb/xkb-plugin.c:1332
 msgid "_Remember layout for each window"
 msgstr "ھەر بىر كۆزنەكنىڭ جايلاشتۇرۇلۇشىنى ئەستە تۇت(_R)"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1193
+#: ../src/plugins/xkb/xkb-plugin.c:1341
 msgid "Show Layout as"
 msgstr "ئورۇنلاشتۇرۈشنى كۆرسىتىش"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1254
+#: ../src/plugins/xkb/xkb-plugin.c:1402
 msgid "Custom Image"
 msgstr "ئىختىيارى سۈرەت"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1255
+#: ../src/plugins/xkb/xkb-plugin.c:1403
 msgid "Text"
 msgstr "تېكىست"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1281
+#: ../src/plugins/xkb/xkb-plugin.c:1429
 msgid "Panel Icon Size"
 msgstr "كۆزنەكچە سىنبەلگە چوڭلۇقى"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1361
+#: ../src/plugins/xkb/xkb-plugin.c:1511
 msgid "Handle keyboard layouts"
 msgstr "ھەرپتاختا جايلاشتۇرۇلۇشىنى باشقۇرۇش"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr "سول چېكىشتە بارلىق كۆزنەكلەرنى سىنبەلگىلەشتۈرۈپ، ئوتتۇرا چېكىشتە تۈرىدۇ."
+msgstr ""
+"سول چېكىشتە بارلىق كۆزنەكلەرنى سىنبەلگىلەشتۈرۈپ، ئوتتۇرا چېكىشتە تۈرىدۇ."
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
@@ -768,7 +794,8 @@ msgstr "بارلىق كۆزنەكلەرنى ئەڭ كىچىك قىلىش"
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
-msgstr "ئۈستەلئۈستى كۆزنەكلىرىگە بۇيرۇق يوللايدۇ.\n"
+msgstr ""
+"ئۈستەلئۈستى كۆزنەكلىرىگە بۇيرۇق يوللايدۇ.\n"
 "ئىشلەتكىلى بولىدىغان بۇيرۇقلار: 1-سىنبەلگىلەشتۈرۈش 2-يۆگەش"
 
 #: ../src/plugins/dirmenu.c:246
@@ -789,7 +816,8 @@ msgstr "مۇندەرىجە تىزىملىكى"
 
 #: ../src/plugins/dirmenu.c:445
 msgid "Browse directory tree via menu (Author: PCMan)"
-msgstr "مۇندەرىجىنىڭ دەرەخسىمان كۆرۈنۈشىنى تىزىملىك ئارقىلىق كۆرۈش(ئاپتور: PCMan)"
+msgstr ""
+"مۇندەرىجىنىڭ دەرەخسىمان كۆرۈنۈشىنى تىزىملىك ئارقىلىق كۆرۈش(ئاپتور: PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:474
 msgid "Normal"
@@ -859,7 +887,13 @@ msgstr "ئۈنسىز"
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
-msgstr "خاتالىق كۆرۈلدى، ئاۋازنى سەپلەش ئۈچۈن بىرەر پروگرامما ئورنىتىشىڭىز زۆرۈر (pavucontol، alsamixer … دېگەندەكلەرنى )"
+msgstr ""
+"خاتالىق كۆرۈلدى، ئاۋازنى سەپلەش ئۈچۈن بىرەر پروگرامما ئورنىتىشىڭىز زۆرۈر "
+"(pavucontol، alsamixer … دېگەندەكلەرنى )"
+
+#: ../src/plugins/volumealsa/volumealsa.c:667
+msgid "Display and control volume for ALSA"
+msgstr ""
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
@@ -961,7 +995,8 @@ msgstr "شىفىرلاش ئاچقۇچىنى بەلگىلەش"
 msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
-msgstr "مەزكۇر سىمسىز تور شىفىرلانغان.\n"
+msgstr ""
+"مەزكۇر سىمسىز تور شىفىرلانغان.\n"
 "سىزدە چوقۇم شىفىرلاش ئاچقۇچى بولۇشى كېرەك."
 
 #: ../src/plugins/netstat/passwd_gui.c:101
@@ -1009,7 +1044,8 @@ msgstr[0] "%lu بوغچا"
 msgid ""
 "There was an error displaying help:\n"
 "%s"
-msgstr "ياردەمنى كۆرسىتىشتە خاتالىق كۆرۈلدى: \n"
+msgstr ""
+"ياردەمنى كۆرسىتىشتە خاتالىق كۆرۈلدى: \n"
 "%s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:580
@@ -1064,7 +1100,8 @@ msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
 "\n"
 "%s"
-msgstr "سىستېما باشقۇرغۇچىڭىز بىلەن ئالاقىلىشىپ تۆۋەندىكى مەسىلىنى ھەل قىلىڭ:\n"
+msgstr ""
+"سىستېما باشقۇرغۇچىڭىز بىلەن ئالاقىلىشىپ تۆۋەندىكى مەسىلىنى ھەل قىلىڭ:\n"
 "\n"
 "%s"
 
@@ -1261,7 +1298,9 @@ msgstr "'%s' دىن ئېغىزنى تەھلىل قىلالمىدى"
 msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
-msgstr "'%s' دىن ئېغىزنى تەھلىل قىلالمىدى. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgstr ""
+"'%s' دىن ئېغىزنى تەھلىل قىلالمىدى. prx_idx = %d; ptx_idx = %d; brx_idx = %d; "
+"btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
