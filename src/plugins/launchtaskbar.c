@@ -155,23 +155,14 @@ typedef struct _taskbar {
     GtkWidget       *p_menuitem_new_instance;
 } TaskbarPlugin;
 
-static gchar *taskbar_rc = "style 'taskbar-style'\n"
+static gchar *launchtaskbar_rc = "style 'launchtaskbar-style'\n"
         "{\n"
         "GtkWidget::focus-line-width=0\n"
-        "GtkWidget::focus-padding=0\n" /* FIXME: seem to fix #2821771, not sure if this is ok. */
+        "GtkWidget::focus-padding=0\n"
         "GtkButton::default-border={0,0,0,0}\n"
         "GtkWidget::focus-padding=0\n"
         "GtkButton::default-outside-border={0,0,0,0}\n"
-        "GtkButton::inner-border={0,0,0,0}\n" /* added in gtk+ 2.10 */
-        "}\n"
-        "widget '*.taskbar.*' style 'taskbar-style'";
-
-static gchar *launchbar_rc = "style 'launchtaskbar-style'\n"
-        "{\n"
-        "GtkWidget::focus-line-width = 0\n"
-        "GtkWidget::focus-padding = 0\n"
-        "GtkButton::default-border = { 0, 0, 0, 0 }\n"
-        "GtkButton::default-outside-border = { 0, 0, 0, 0 }\n"
+        "GtkButton::inner-border={0,0,0,0}\n"
         "}\n"
         "widget '*launchtaskbar*' style 'launchtaskbar-style'";
 
@@ -770,8 +761,7 @@ static void launchtaskbar_constructor_add_default_special_case(LaunchTaskBarPlug
 /* Plugin constructor. */
 static int launchtaskbar_constructor(Plugin * p, char ** fp)
 {
-    gtk_rc_parse_string(launchbar_rc);
-    gtk_rc_parse_string(taskbar_rc);
+    gtk_rc_parse_string(launchtaskbar_rc);
 
     /* Allocate plugin context and set into Plugin private data pointer. */
     LaunchTaskBarPlugin *ltbp = g_new0(LaunchTaskBarPlugin, 1);
