@@ -208,6 +208,8 @@ typedef struct
     GtkWidget       *p_evbox_launchbar;
     GtkWidget       *p_evbox_taskbar;
     GtkWidget       *config_dlg;        /* Configuration dialog */
+    GtkWidget       *p_notebook_page_launch;
+    GtkWidget       *p_notebook_page_task;
     gchar           *exec_bin_mb;
     gboolean         add_mb_to_lb;
     gboolean         execute_mb;
@@ -700,50 +702,53 @@ static int launchbutton_constructor(Plugin * p, char ** fp)
     /* Read parameters from the configuration file. */
     line s;
     s.len = 256;
-    if (fp != NULL)
+    if(fp != NULL)
     {
-        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END)
+        while(lxpanel_get_line(fp, &s) != LINE_BLOCK_END)
         {
-            if (s.type == LINE_NONE)
+            if(s.type == LINE_NONE)
             {
-                ERR( "launchtaskbar: illegal token %s\n", s.str);
+                g_print("launchtaskbar: illegal token %s\n", s.str);
                 launchbutton_free(btn);
                 return 0;
             }
-            if (s.type == LINE_VAR)
+            if(s.type == LINE_VAR)
             {
                 if (g_ascii_strcasecmp(s.t[0], "id") == 0)
+                {
                     btn->desktop_id = g_strdup(s.t[1]);
+                    g_print("%s\n", btn->desktop_id);
+                }
                 else if (g_ascii_strcasecmp(s.t[0], "image") == 0)
                 {
                     btn->customize_image = TRUE;
                     btn->image = expand_tilda(g_strdup(s.t[1]));
                 }
-                else if (g_ascii_strcasecmp(s.t[0], "tooltip") == 0)
+                else if(g_ascii_strcasecmp(s.t[0], "tooltip") == 0)
                 {
                     btn->customize_tooltip = TRUE;
                     btn->tooltip = g_strdup(s.t[1]);
                 }
-                else if (g_ascii_strcasecmp(s.t[0], "path") == 0)
+                else if(g_ascii_strcasecmp(s.t[0], "path") == 0)
                 {
                     btn->customize_path = TRUE;
                     btn->path = g_strdup(s.t[1]);
                 }
-                else if (g_ascii_strcasecmp(s.t[0], "action") == 0)
+                else if(g_ascii_strcasecmp(s.t[0], "action") == 0)
                 {
                     btn->customize_action = TRUE;
                     btn->action = g_strdup(s.t[1]);
                 }
-                else if (g_ascii_strcasecmp(s.t[0], "terminal") == 0)
+                else if(g_ascii_strcasecmp(s.t[0], "terminal") == 0)
                 {
                     btn->use_terminal = str2num(bool_pair, s.t[1], 0);
                 }
                 else
-                    ERR( "launchtaskbar: unknown var %s\n", s.t[0]);
+                    g_print("launchtaskbar: unknown var %s\n", s.t[0]);
             }
             else
             {
-                ERR( "launchtaskbar: illegal in this context %s\n", s.str);
+                g_print("launchtaskbar: illegal in this context %s\n", s.str);
                 launchbutton_free(btn);
                 return 0;
             }
@@ -775,32 +780,33 @@ static int launchtaskbar_constructor_launch(LaunchTaskBarPlugin *ltbp, Plugin * 
         {
             if(s.type == LINE_NONE)
             {
-                ERR( "launchtaskbar: illegal token %s\n", s.str);
+                g_print("launchtaskbar: illegal token %s\n", s.str);
                 return FALSE;
             }
             if(s.type == LINE_BLOCK_START)
             {
-                if(g_ascii_strcasecmp(s.t[0], "button") == 0)
+                if(g_ascii_strcasecmp(s.t[0], "Button") == 0)
                 {
                     if(!launchbutton_constructor(p, fp))
                     {
-                        ERR( "launchtaskbar: can't init button\n");
+                        g_print("launchtaskbar: can't init button\n");
                         return FALSE;
                     }
                 }
                 else
                 {
-                    ERR("launchtaskbar: unknown var %s\n", s.t[0]);
+                    g_print("launchtaskbar: unknown var %s\n", s.t[0]);
                     return FALSE;
                 }
             }
             else if(s.type == LINE_VAR)
             {
                 // only task stuff
+                g_print("@@@'%s'\n", s.t[0]);
             }
             else
             {
-                ERR("launchtaskbar: illegal in this context %s\n", s.str);
+                g_print("launchtaskbar: illegal in this context %s\n", s.str);
                 return FALSE;
             }
         }
@@ -823,7 +829,7 @@ static int launchtaskbar_constructor_task(LaunchTaskBarPlugin *ltbp, Plugin * p,
         {
             if(s.type == LINE_NONE)
             {
-                ERR( "launchtaskbar: illegal token %s\n", s.str);
+                g_print("launchtaskbar: illegal token %s\n", s.str);
                 return FALSE;
             }
             if(s.type == LINE_BLOCK_START)
@@ -872,12 +878,10 @@ static int launchtaskbar_constructor_task(LaunchTaskBarPlugin *ltbp, Plugin * p,
                 {
                     ltbp->tbp.grouped_tasks = str2num(bool_pair, s.t[1], 1);
                 }
-                else
-                    ERR("taskbar: unknown var %s\n", s.t[0]);
             }
             else
             {
-                ERR("launchtaskbar: illegal in this context %s\n", s.str);
+                g_print("launchtaskbar: illegal in this context %s\n", s.str);
                 return FALSE;
             }
         }
@@ -978,6 +982,26 @@ static int launchtaskbar_constructor(Plugin * p, char ** fp)
 #else
     GTK_WIDGET_SET_FLAGS(p->pwid, GTK_NO_WINDOW);
 #endif
+
+    if(fp != NULL)
+    {
+        line s;
+        s.len = 256;
+        while(lxpanel_get_line(fp, &s) != LINE_BLOCK_END)
+        {
+            if(s.type == LINE_VAR)
+            {
+                if(g_ascii_strcasecmp(s.t[0], "LaunchBarON") == 0)
+                {
+                    ltbp->lb_on = str2num(bool_pair, s.t[1], 0);
+                }
+                else if(g_ascii_strcasecmp(s.t[0], "TaskBarON") == 0)
+                {
+                    ltbp->tb_on = str2num(bool_pair, s.t[1], 0);
+                }
+            }
+        }
+    }
 
     if(ltbp->lb_on && !launchtaskbar_constructor_launch(ltbp, p, fp))
         return FALSE;
@@ -1393,6 +1417,36 @@ static void launchbar_configure_initialize_list(Plugin * p, GtkWidget * dlg, Gtk
     }
 }
 
+static void  on_radiobutton_launch_toggled(GtkToggleButton *p_togglebutton, gpointer p_data)
+{
+    if(!gtk_toggle_button_get_active(p_togglebutton)) return;
+    LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p_data;
+    ltbp->lb_on = TRUE;
+    ltbp->tb_on = FALSE;
+    gtk_widget_set_visible(ltbp->p_notebook_page_launch, TRUE);
+    gtk_widget_set_visible(ltbp->p_notebook_page_task, FALSE);
+}
+
+static void  on_radiobutton_task_toggled(GtkToggleButton *p_togglebutton, gpointer p_data)
+{
+    if(!gtk_toggle_button_get_active(p_togglebutton)) return;
+    LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p_data;
+    ltbp->lb_on = FALSE;
+    ltbp->tb_on = TRUE;
+    gtk_widget_set_visible(ltbp->p_notebook_page_launch, FALSE);
+    gtk_widget_set_visible(ltbp->p_notebook_page_task, TRUE);
+}
+
+static void  on_radiobutton_launchtask_toggled(GtkToggleButton *p_togglebutton, gpointer p_data)
+{
+    if(!gtk_toggle_button_get_active(p_togglebutton)) return;
+    LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p_data;
+    ltbp->lb_on = TRUE;
+    ltbp->tb_on = TRUE;
+    gtk_widget_set_visible(ltbp->p_notebook_page_launch, TRUE);
+    gtk_widget_set_visible(ltbp->p_notebook_page_task, TRUE);
+}
+
 static void on_checkbutton_show_tooltips_toggled(GtkToggleButton *p_togglebutton, gpointer p_data)
 {
     TaskbarPlugin *tb = (TaskbarPlugin *)p_data;
@@ -1615,6 +1669,26 @@ static void launchtaskbar_configure(Plugin * p, GtkWindow * parent)
         GtkWidget *p_checkbutton_show_all_desks, *p_checkbutton_same_monitor_only;
         GtkWidget *p_checkbutton_mouse_wheel, *p_checkbutton_urgency_hint;
         GtkWidget *p_checkbutton_grouped_tasks, *p_spinbutton_max_width, *p_spinbutton_spacing;
+        GtkWidget *p_notebook, *p_radiobutton_launch, *p_radiobutton_task, *p_radiobutton_launchtask;
+        
+        p_notebook = (GtkWidget *)gtk_builder_get_object(builder, "notebook");
+        ltbp->p_notebook_page_launch = gtk_notebook_get_nth_page(GTK_NOTEBOOK(p_notebook), 0);
+        ltbp->p_notebook_page_task = gtk_notebook_get_nth_page(GTK_NOTEBOOK(p_notebook), 1);
+        gtk_widget_set_visible(ltbp->p_notebook_page_launch, ltbp->lb_on);
+        gtk_widget_set_visible(ltbp->p_notebook_page_task, ltbp->tb_on);
+        
+        p_radiobutton_launch = (GtkWidget *)gtk_builder_get_object(builder, "radiobutton_launch");
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_radiobutton_launch), !ltbp->tb_on);
+        p_radiobutton_task = (GtkWidget *)gtk_builder_get_object(builder, "radiobutton_task");
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_radiobutton_task), !ltbp->lb_on);
+        p_radiobutton_launchtask = (GtkWidget *)gtk_builder_get_object(builder, "radiobutton_launchtask");
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_radiobutton_launchtask), ltbp->lb_on && ltbp->tb_on);
+        g_signal_connect(GTK_TOGGLE_BUTTON(p_radiobutton_launch), "toggled",
+                         G_CALLBACK(on_radiobutton_launch_toggled), ltbp);
+        g_signal_connect(GTK_TOGGLE_BUTTON(p_radiobutton_task), "toggled",
+                         G_CALLBACK(on_radiobutton_task_toggled), ltbp);
+        g_signal_connect(GTK_TOGGLE_BUTTON(p_radiobutton_launchtask), "toggled",
+                         G_CALLBACK(on_radiobutton_launchtask_toggled), ltbp);
         
         p_checkbutton_show_tooltips = (GtkWidget *)gtk_builder_get_object(builder, "checkbutton_show_tooltips");
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_checkbutton_show_tooltips), ltbp->tbp.tooltips);
@@ -1689,36 +1763,45 @@ static void launchtaskbar_save_configuration(Plugin * p, FILE * fp)
 {
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p->priv;
     
-    GSList * l;
-    for (l = ltbp->lbp.buttons; l != NULL; l = l->next)
+    if(ltbp->lb_on)
     {
-        LaunchButton * btn = (LaunchButton *) l->data;
-        lxpanel_put_line(fp, "Button {");
-        if (btn->desktop_id != NULL)
-            lxpanel_put_str(fp, "id", btn->desktop_id);
-        if (btn->customize_image)
-            lxpanel_put_str(fp, "image", btn->image);
-        if(btn->customize_tooltip)
-            lxpanel_put_str(fp, "tooltip", btn->tooltip);
-        if(btn->customize_path)
-            lxpanel_put_str(fp, "path", btn->path);
-        if (btn->customize_action)
-            lxpanel_put_str(fp, "action", btn->action);
-        if (btn->use_terminal)
-            lxpanel_put_bool(fp, "terminal", TRUE);
-        lxpanel_put_line(fp, "}");
+        GSList * l;
+        for (l = ltbp->lbp.buttons; l != NULL; l = l->next)
+        {
+            LaunchButton * btn = (LaunchButton *) l->data;
+            lxpanel_put_line(fp, "Button {");
+            if (btn->desktop_id != NULL)
+                lxpanel_put_str(fp, "id", btn->desktop_id);
+            if (btn->customize_image)
+                lxpanel_put_str(fp, "image", btn->image);
+            if(btn->customize_tooltip)
+                lxpanel_put_str(fp, "tooltip", btn->tooltip);
+            if(btn->customize_path)
+                lxpanel_put_str(fp, "path", btn->path);
+            if (btn->customize_action)
+                lxpanel_put_str(fp, "action", btn->action);
+            if (btn->use_terminal)
+                lxpanel_put_bool(fp, "terminal", TRUE);
+            lxpanel_put_line(fp, "}");
+        }
     }
     
-    lxpanel_put_bool(fp, "tooltips", ltbp->tbp.tooltips);
-    lxpanel_put_bool(fp, "IconsOnly", ltbp->tbp.icons_only);
-    lxpanel_put_bool(fp, "ShowAllDesks", ltbp->tbp.show_all_desks);
-    lxpanel_put_bool(fp, "SameMonitorOnly", ltbp->tbp.same_monitor_only);
-    lxpanel_put_bool(fp, "UseMouseWheel", ltbp->tbp.use_mouse_wheel);
-    lxpanel_put_bool(fp, "UseUrgencyHint", ltbp->tbp.use_urgency_hint);
-    lxpanel_put_bool(fp, "FlatButton", ltbp->tbp.flat_button);
-    lxpanel_put_int(fp, "MaxTaskWidth", ltbp->tbp.task_width_max);
-    lxpanel_put_int(fp, "spacing", ltbp->tbp.spacing);
-    lxpanel_put_bool(fp, "GroupedTasks", ltbp->tbp.grouped_tasks);
+    if(ltbp->tb_on)
+    {
+        lxpanel_put_bool(fp, "tooltips", ltbp->tbp.tooltips);
+        lxpanel_put_bool(fp, "IconsOnly", ltbp->tbp.icons_only);
+        lxpanel_put_bool(fp, "ShowAllDesks", ltbp->tbp.show_all_desks);
+        lxpanel_put_bool(fp, "SameMonitorOnly", ltbp->tbp.same_monitor_only);
+        lxpanel_put_bool(fp, "UseMouseWheel", ltbp->tbp.use_mouse_wheel);
+        lxpanel_put_bool(fp, "UseUrgencyHint", ltbp->tbp.use_urgency_hint);
+        lxpanel_put_bool(fp, "FlatButton", ltbp->tbp.flat_button);
+        lxpanel_put_int(fp, "MaxTaskWidth", ltbp->tbp.task_width_max);
+        lxpanel_put_int(fp, "spacing", ltbp->tbp.spacing);
+        lxpanel_put_bool(fp, "GroupedTasks", ltbp->tbp.grouped_tasks);
+    }
+    
+    lxpanel_put_bool(fp, "LaunchBarON", ltbp->lb_on);
+    lxpanel_put_bool(fp, "TaskBarON", ltbp->tb_on);
 }
 
 /* Callback when panel configuration changes. */
