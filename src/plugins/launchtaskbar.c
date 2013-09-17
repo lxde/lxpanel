@@ -197,7 +197,6 @@ typedef struct {
     Plugin        *plug;             /* Back pointer to Plugin */
     IconGrid      *icon_grid;        /* Icon grid managing the container */
     GSList        *buttons;          /* Launchbar buttons */
-    GtkWidget     *config_dlg;       /* Configuration dialog */
     LaunchButton  *bootstrap_button; /* Bootstrapping button for empty launchtaskbar */
     GtkWidget     *p_button_add, *p_button_remove, *p_label_menu_app_exec, *p_label_def_app_exec;
 } LaunchbarPlugin;
@@ -208,6 +207,7 @@ typedef struct
     TaskbarPlugin    tbp;
     GtkWidget       *p_evbox_launchbar;
     GtkWidget       *p_evbox_taskbar;
+    GtkWidget       *config_dlg;        /* Configuration dialog */
     gchar           *exec_bin_mb;
     gboolean         add_mb_to_lb;
     gboolean         execute_mb;
@@ -925,12 +925,19 @@ static int launchtaskbar_constructor(Plugin * p, char ** fp)
     return TRUE;
 }
 
-/* Plugin destructor. */
-static void launchtaskbar_destructor(Plugin * p)
+static void launchtaskbar_destructor_launch(LaunchTaskBarPlugin *ltbp)
 {
-    LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p->priv;
+    /* Free the launchbar. */
+    g_slist_foreach(ltbp->lbp.buttons, (GFunc) launchbutton_free, NULL);
+    icon_grid_free(ltbp->lbp.icon_grid);
 
-    // TASKBAR
+    /* Free the bootstrap button if it exists. */
+    if (ltbp->lbp.bootstrap_button != NULL)
+        g_free(ltbp->lbp.bootstrap_button);
+}
+
+static void launchtaskbar_destructor_task(LaunchTaskBarPlugin *ltbp)
+{
     /* Remove GDK event filter. */
     gdk_window_remove_filter(NULL, (GdkFilterFunc) taskbar_event_filter, &ltbp->tbp);
 
@@ -958,21 +965,23 @@ static void launchtaskbar_destructor(Plugin * p)
 
     /* Deallocate other memory. */
     gtk_widget_destroy(ltbp->tbp.menu);
+}
 
+/* Plugin destructor. */
+static void launchtaskbar_destructor(Plugin * p)
+{
+    LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p->priv;
+
+    // TASKBAR
+    launchtaskbar_destructor_task(ltbp);
 
     // LAUNCHBAR
-    /* Free the launchtaskbar. */
-    g_slist_foreach(ltbp->lbp.buttons, (GFunc) launchbutton_free, NULL);
-    icon_grid_free(ltbp->lbp.icon_grid);
+    launchtaskbar_destructor_launch(ltbp);
 
-    /* Free the bootstrap button if it exists. */
-    if (ltbp->lbp.bootstrap_button != NULL)
-        g_free(ltbp->lbp.bootstrap_button);
-
+    // LAUNCHTASKBAR
     /* Ensure that the configuration dialog is dismissed. */
-    if (ltbp->lbp.config_dlg != NULL)
-        gtk_widget_destroy(ltbp->lbp.config_dlg);
-
+    if (ltbp->config_dlg != NULL)
+        gtk_widget_destroy(ltbp->config_dlg);
 
     /* Deallocate all memory. */
     if(ltbp->p_key_file_special_cases != NULL) g_key_file_free(ltbp->p_key_file_special_cases);
@@ -993,8 +1002,8 @@ static void launchbar_configure_add_button(GtkButton * widget, Plugin * p)
 {
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p->priv;
     
-    GtkTreeView * menu_view = GTK_TREE_VIEW(g_object_get_data(G_OBJECT(ltbp->lbp.config_dlg), "menu_view"));
-    GtkTreeView * defined_view = GTK_TREE_VIEW(g_object_get_data(G_OBJECT(ltbp->lbp.config_dlg), "defined_view"));
+    GtkTreeView * menu_view = GTK_TREE_VIEW(g_object_get_data(G_OBJECT(ltbp->config_dlg), "menu_view"));
+    GtkTreeView * defined_view = GTK_TREE_VIEW(g_object_get_data(G_OBJECT(ltbp->config_dlg), "defined_view"));
     GtkTreeModel * list;
     GtkTreeIter it;
     if (gtk_tree_selection_get_selected(gtk_tree_view_get_selection(menu_view), &list, &it))
@@ -1037,7 +1046,7 @@ static void launchbar_configure_remove_button(GtkButton * widget, Plugin * p)
 {
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p->priv;
     
-    GtkTreeView * defined_view = GTK_TREE_VIEW(g_object_get_data(G_OBJECT(ltbp->lbp.config_dlg), "defined_view"));
+    GtkTreeView * defined_view = GTK_TREE_VIEW(g_object_get_data(G_OBJECT(ltbp->config_dlg), "defined_view"));
     GtkTreeModel * list;
     GtkTreeIter it;
     if (gtk_tree_selection_get_selected(gtk_tree_view_get_selection(defined_view), &list, &it))
@@ -1059,7 +1068,7 @@ static void launchbar_configure_move_up_button(GtkButton * widget, Plugin * p)
 {
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p->priv;
 
-    GtkTreeView * defined_view = GTK_TREE_VIEW(g_object_get_data(G_OBJECT(ltbp->lbp.config_dlg), "defined_view"));
+    GtkTreeView * defined_view = GTK_TREE_VIEW(g_object_get_data(G_OBJECT(ltbp->config_dlg), "defined_view"));
     GtkTreeModel * list;
     GtkTreeIter it;
     if (gtk_tree_selection_get_selected(gtk_tree_view_get_selection(defined_view), &list, &it))
@@ -1091,7 +1100,7 @@ static void launchbar_configure_move_down_button(GtkButton * widget, Plugin * p)
 {
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p->priv;
 
-    GtkTreeView * defined_view = GTK_TREE_VIEW(g_object_get_data(G_OBJECT(ltbp->lbp.config_dlg), "defined_view"));
+    GtkTreeView * defined_view = GTK_TREE_VIEW(g_object_get_data(G_OBJECT(ltbp->config_dlg), "defined_view"));
     GtkTreeModel * list;
     GtkTreeIter it;
     if (gtk_tree_selection_get_selected(gtk_tree_view_get_selection(defined_view), &list, &it))
@@ -1143,12 +1152,12 @@ static void launchbar_configure_response(GtkDialog * dlg, int response, Plugin *
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p->priv;
 
     /* Deallocate LaunchButtons that were loaded from the menu. */
-    GtkTreeView * menu_view = GTK_TREE_VIEW(g_object_get_data(G_OBJECT(ltbp->lbp.config_dlg), "menu_view"));
+    GtkTreeView * menu_view = GTK_TREE_VIEW(g_object_get_data(G_OBJECT(ltbp->config_dlg), "menu_view"));
     GtkTreeModel * model = gtk_tree_view_get_model(menu_view);
     launchbar_configure_free_btns_in_model(model, NULL);
 
     /* Deallocate the configuration dialog. */
-    ltbp->lbp.config_dlg = NULL;
+    ltbp->config_dlg = NULL;
     gtk_widget_destroy(GTK_WIDGET(dlg));
 }
 
@@ -1505,7 +1514,7 @@ static void launchtaskbar_configure(Plugin * p, GtkWindow * parent)
 {
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p->priv;
 
-    if (ltbp->lbp.config_dlg == NULL)
+    if (ltbp->config_dlg == NULL)
     {
         GtkWidget *dlg, *btn, *defined_view, *menu_view;
         GtkBuilder *builder = gtk_builder_new();
@@ -1595,7 +1604,7 @@ static void launchtaskbar_configure(Plugin * p, GtkWindow * parent)
                          G_CALLBACK(on_spinbutton_spacing_value_changed), &ltbp->tbp);
 
         gtk_window_present(GTK_WINDOW(dlg));
-        ltbp->lbp.config_dlg = dlg;
+        ltbp->config_dlg = dlg;
 
         /* Establish a callback when the dialog completes. */
         g_object_weak_ref(G_OBJECT(dlg), (GWeakNotify) panel_config_save, p->panel);
