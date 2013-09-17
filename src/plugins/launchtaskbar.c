@@ -765,128 +765,18 @@ static void launchtaskbar_constructor_add_default_special_case(LaunchTaskBarPlug
     g_key_file_set_value(ltbp->p_key_file_special_cases, "special_cases", tk_exec, mb_exec);
 }
 
-static int launchtaskbar_constructor_launch(LaunchTaskBarPlugin *ltbp, Plugin * p, char ** fp)
+static void launchtaskbar_constructor_launch(LaunchTaskBarPlugin *ltbp, Plugin * p, char ** fp)
 {
-    /* Allocate an icon grid manager to manage the container. */
-    GtkOrientation bo = (p->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
-    ltbp->lbp.icon_grid = icon_grid_new(p->panel, ltbp->p_evbox_launchbar, bo, p->panel->icon_size, p->panel->icon_size, 3, 0, p->panel->height);
-    
-    /* Read parameters from the configuration file. */
-    if(fp != NULL)
+    if(ltbp->lbp.icon_grid == NULL)
     {
-        line s;
-        s.len = 256;
-        while(lxpanel_get_line(fp, &s) != LINE_BLOCK_END)
-        {
-            if(s.type == LINE_NONE)
-            {
-                g_print("launchtaskbar: illegal token %s\n", s.str);
-                return FALSE;
-            }
-            if(s.type == LINE_BLOCK_START)
-            {
-                if(g_ascii_strcasecmp(s.t[0], "Button") == 0)
-                {
-                    if(!launchbutton_constructor(p, fp))
-                    {
-                        g_print("launchtaskbar: can't init button\n");
-                        return FALSE;
-                    }
-                }
-                else
-                {
-                    g_print("launchtaskbar: unknown var %s\n", s.t[0]);
-                    return FALSE;
-                }
-            }
-            else if(s.type == LINE_VAR)
-            {
-                // only task stuff
-                g_print("@@@'%s'\n", s.t[0]);
-            }
-            else
-            {
-                g_print("launchtaskbar: illegal in this context %s\n", s.str);
-                return FALSE;
-            }
-        }
+        /* Allocate an icon grid manager to manage the container. */
+        GtkOrientation bo = (p->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
+        ltbp->lbp.icon_grid = icon_grid_new(p->panel, ltbp->p_evbox_launchbar, bo, p->panel->icon_size, p->panel->icon_size, 3, 0, p->panel->height);
     }
-    
-    if (ltbp->lbp.buttons == NULL)
-        launchbutton_build_bootstrap(p);
-    
-    return TRUE;
 }
 
-static int launchtaskbar_constructor_task(LaunchTaskBarPlugin *ltbp, Plugin * p, char ** fp)
+static void launchtaskbar_constructor_task(LaunchTaskBarPlugin *ltbp, Plugin * p, char ** fp)
 {
-    /* Read parameters from the configuration file. */
-    if(fp != NULL)
-    {
-        line s;
-        s.len = 256;
-        while(lxpanel_get_line(fp, &s) != LINE_BLOCK_END)
-        {
-            if(s.type == LINE_NONE)
-            {
-                g_print("launchtaskbar: illegal token %s\n", s.str);
-                return FALSE;
-            }
-            if(s.type == LINE_BLOCK_START)
-            {
-                // only launch stuff
-            }
-            else if(s.type == LINE_VAR)
-            {
-                if(g_ascii_strcasecmp(s.t[0], "tooltips") == 0)
-                {
-                    ltbp->tbp.tooltips = str2num(bool_pair, s.t[1], 1);
-                }
-                else if(g_ascii_strcasecmp(s.t[0], "IconsOnly") == 0)
-                {
-                    ltbp->tbp.icons_only = str2num(bool_pair, s.t[1], 0);
-                }
-                else if(g_ascii_strcasecmp(s.t[0], "ShowAllDesks") == 0)
-                {
-                    ltbp->tbp.show_all_desks = str2num(bool_pair, s.t[1], 0);
-                }
-                else if(g_ascii_strcasecmp(s.t[0], "SameMonitorOnly") == 0)
-                {
-                    ltbp->tbp.same_monitor_only = str2num(bool_pair, s.t[1], 0);
-                }
-                else if(g_ascii_strcasecmp(s.t[0], "MaxTaskWidth") == 0)
-                {
-                    ltbp->tbp.task_width_max = atoi(s.t[1]);
-                }
-                else if(g_ascii_strcasecmp(s.t[0], "spacing") == 0)
-                {
-                    ltbp->tbp.spacing = atoi(s.t[1]);
-                }
-                else if(g_ascii_strcasecmp(s.t[0], "UseMouseWheel") == 0)
-                {
-                    ltbp->tbp.use_mouse_wheel = str2num(bool_pair, s.t[1], 1);
-                }
-                else if(g_ascii_strcasecmp(s.t[0], "UseUrgencyHint") == 0)
-                {
-                    ltbp->tbp.use_urgency_hint = str2num(bool_pair, s.t[1], 1);
-                }
-                else if(g_ascii_strcasecmp(s.t[0], "FlatButton") == 0)
-                {
-                    ltbp->tbp.flat_button = str2num(bool_pair, s.t[1], 1);
-                }
-                else if(g_ascii_strcasecmp(s.t[0], "GroupedTasks") == 0)
-                {
-                    ltbp->tbp.grouped_tasks = str2num(bool_pair, s.t[1], 1);
-                }
-            }
-            else
-            {
-                g_print("launchtaskbar: illegal in this context %s\n", s.str);
-                return FALSE;
-            }
-        }
-    }
-
     /* Make container for task buttons as a child of top level widget. */
     GtkOrientation bo = (p->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
     ltbp->tbp.icon_grid = icon_grid_new(p->panel, ltbp->p_evbox_taskbar, bo, ltbp->tbp.task_width_max, ltbp->tbp.icon_size, ltbp->tbp.spacing, 0, p->panel->height);
@@ -918,8 +808,6 @@ static int launchtaskbar_constructor_task(LaunchTaskBarPlugin *ltbp, Plugin * p,
     /* Fetch the client list and redraw the taskbar.  Then determine what window has focus. */
     taskbar_net_client_list(NULL, &ltbp->tbp);
     taskbar_net_active_window(NULL, &ltbp->tbp);
-
-    return TRUE;
 }
 
 /* Plugin constructor. */
@@ -931,6 +819,8 @@ static int launchtaskbar_constructor(Plugin * p, char ** fp)
     LaunchTaskBarPlugin *ltbp = g_new0(LaunchTaskBarPlugin, 1);
     ltbp->lbp.plug = p;
     ltbp->tbp.plug = p;
+    ltbp->lbp.icon_grid = NULL;
+    ltbp->tbp.icon_grid = NULL;
     p->priv = ltbp;
 
     /* Initialize to defaults. */
@@ -989,6 +879,11 @@ static int launchtaskbar_constructor(Plugin * p, char ** fp)
         s.len = 256;
         while(lxpanel_get_line(fp, &s) != LINE_BLOCK_END)
         {
+            if(s.type == LINE_NONE)
+            {
+                g_print("launchtaskbar: illegal token %s\n", s.str);
+                return FALSE;
+            }
             if(s.type == LINE_VAR)
             {
                 if(g_ascii_strcasecmp(s.t[0], "LaunchBarON") == 0)
@@ -999,15 +894,78 @@ static int launchtaskbar_constructor(Plugin * p, char ** fp)
                 {
                     ltbp->tb_on = str2num(bool_pair, s.t[1], 0);
                 }
+                else if(g_ascii_strcasecmp(s.t[0], "tooltips") == 0)
+                {
+                    ltbp->tbp.tooltips = str2num(bool_pair, s.t[1], 1);
+                }
+                else if(g_ascii_strcasecmp(s.t[0], "IconsOnly") == 0)
+                {
+                    ltbp->tbp.icons_only = str2num(bool_pair, s.t[1], 0);
+                }
+                else if(g_ascii_strcasecmp(s.t[0], "ShowAllDesks") == 0)
+                {
+                    ltbp->tbp.show_all_desks = str2num(bool_pair, s.t[1], 0);
+                }
+                else if(g_ascii_strcasecmp(s.t[0], "SameMonitorOnly") == 0)
+                {
+                    ltbp->tbp.same_monitor_only = str2num(bool_pair, s.t[1], 0);
+                }
+                else if(g_ascii_strcasecmp(s.t[0], "MaxTaskWidth") == 0)
+                {
+                    ltbp->tbp.task_width_max = atoi(s.t[1]);
+                }
+                else if(g_ascii_strcasecmp(s.t[0], "spacing") == 0)
+                {
+                    ltbp->tbp.spacing = atoi(s.t[1]);
+                }
+                else if(g_ascii_strcasecmp(s.t[0], "UseMouseWheel") == 0)
+                {
+                    ltbp->tbp.use_mouse_wheel = str2num(bool_pair, s.t[1], 1);
+                }
+                else if(g_ascii_strcasecmp(s.t[0], "UseUrgencyHint") == 0)
+                {
+                    ltbp->tbp.use_urgency_hint = str2num(bool_pair, s.t[1], 1);
+                }
+                else if(g_ascii_strcasecmp(s.t[0], "FlatButton") == 0)
+                {
+                    ltbp->tbp.flat_button = str2num(bool_pair, s.t[1], 1);
+                }
+                else if(g_ascii_strcasecmp(s.t[0], "GroupedTasks") == 0)
+                {
+                    ltbp->tbp.grouped_tasks = str2num(bool_pair, s.t[1], 1);
+                }
+            }
+            else if(s.type == LINE_BLOCK_START)
+            {
+                if(ltbp->lb_on)
+                {
+                    if(g_ascii_strcasecmp(s.t[0], "Button") == 0)
+                    {
+                        launchtaskbar_constructor_launch(ltbp, p, fp);
+                        if(!launchbutton_constructor(p, fp))
+                        {
+                            g_print("launchtaskbar: can't init button\n");
+                            return FALSE;
+                        }
+                    }
+                    else
+                    {
+                        g_print("launchtaskbar: unknown var %s\n", s.t[0]);
+                        return FALSE;
+                    }
+                }
             }
         }
     }
 
-    if(ltbp->lb_on && !launchtaskbar_constructor_launch(ltbp, p, fp))
-        return FALSE;
+    if(ltbp->lb_on)
+    {
+        launchtaskbar_constructor_launch(ltbp, p, fp);
+        if(ltbp->lbp.buttons == NULL)
+            launchbutton_build_bootstrap(p);
+    }
 
-    if(ltbp->tb_on && !launchtaskbar_constructor_task(ltbp, p, fp))
-        return FALSE;
+    if(ltbp->tb_on) launchtaskbar_constructor_task(ltbp, p, fp);
 
     return TRUE;
 }
@@ -1763,6 +1721,9 @@ static void launchtaskbar_save_configuration(Plugin * p, FILE * fp)
 {
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p->priv;
     
+    lxpanel_put_bool(fp, "LaunchBarON", ltbp->lb_on);
+    lxpanel_put_bool(fp, "TaskBarON", ltbp->tb_on);
+    
     if(ltbp->lb_on)
     {
         GSList * l;
@@ -1799,9 +1760,6 @@ static void launchtaskbar_save_configuration(Plugin * p, FILE * fp)
         lxpanel_put_int(fp, "spacing", ltbp->tbp.spacing);
         lxpanel_put_bool(fp, "GroupedTasks", ltbp->tbp.grouped_tasks);
     }
-    
-    lxpanel_put_bool(fp, "LaunchBarON", ltbp->lb_on);
-    lxpanel_put_bool(fp, "TaskBarON", ltbp->tb_on);
 }
 
 /* Callback when panel configuration changes. */
