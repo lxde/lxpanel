@@ -55,7 +55,7 @@
                     <property name="homogeneous">True</property>
                     <child>
                       <object class="GtkRadioButton" id="radiobutton_launch">
-                        <property name="label" translatable="yes">Application Launch Bar</property>
+                        <property name="label" translatable="yes">Only Application Launch Bar</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
@@ -72,7 +72,7 @@
                     </child>
                     <child>
                       <object class="GtkRadioButton" id="radiobutton_task">
-                        <property name="label" translatable="yes">Task Bar (Window List)</property>
+                        <property name="label" translatable="yes">Only Task Bar (Window List)</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>

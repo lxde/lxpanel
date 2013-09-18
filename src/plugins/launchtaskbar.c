@@ -216,7 +216,9 @@ typedef struct
     gboolean         found_mb;
     GKeyFile        *p_key_file_special_cases;
     gboolean         lb_on;
+    gboolean         lb_built;
     gboolean         tb_on;
+    gboolean         tb_built;
     
 } LaunchTaskBarPlugin;
 
@@ -773,57 +775,75 @@ static void launchtaskbar_constructor_add_default_special_case(LaunchTaskBarPlug
 
 static void launchtaskbar_constructor_launch(LaunchTaskBarPlugin *ltbp, gboolean build_bootstrap)
 {
-    Plugin * p = ltbp->lbp.plug;
-    
-    if(ltbp->lbp.icon_grid == NULL)
+    if(!ltbp->lb_built)
     {
-        /* Allocate an icon grid manager to manage the container. */
-        GtkOrientation bo = (p->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
-        ltbp->lbp.icon_grid = icon_grid_new(p->panel, ltbp->p_evbox_launchbar, bo, p->panel->icon_size, p->panel->icon_size, 3, 0, p->panel->height);
+        ltbp->lb_built = TRUE;
+        
+        Plugin * p = ltbp->lbp.plug;
+        
+        if(ltbp->lbp.icon_grid == NULL)
+        {
+            /* Allocate an icon grid manager to manage the container. */
+            GtkOrientation bo = (p->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
+            ltbp->lbp.icon_grid = icon_grid_new(p->panel, ltbp->p_evbox_launchbar, bo, p->panel->icon_size, p->panel->icon_size, 3, 0, p->panel->height);
+        }
+        
+        if(build_bootstrap)
+        {
+            if(ltbp->lbp.buttons == NULL)
+                launchbutton_build_bootstrap(p);
+        }
     }
-    
-    if(build_bootstrap)
+    else
     {
-        if(ltbp->lbp.buttons == NULL)
-            launchbutton_build_bootstrap(p);
+        gtk_widget_set_visible(ltbp->p_evbox_launchbar, TRUE);
     }
 }
 
 static void launchtaskbar_constructor_task(LaunchTaskBarPlugin *ltbp)
 {
-    Plugin * p = ltbp->tbp.plug;
-    
-    /* Make container for task buttons as a child of top level widget. */
-    GtkOrientation bo = (p->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
-    ltbp->tbp.icon_grid = icon_grid_new(p->panel, ltbp->p_evbox_taskbar, bo, ltbp->tbp.task_width_max, ltbp->tbp.icon_size, ltbp->tbp.spacing, 0, p->panel->height);
-    icon_grid_set_constrain_width(ltbp->tbp.icon_grid, TRUE);
-    taskbar_update_style(&ltbp->tbp);
+    if(!ltbp->tb_built)
+    {
+        ltbp->tb_built = TRUE;
+        
+        Plugin * p = ltbp->tbp.plug;
+        
+        /* Make container for task buttons as a child of top level widget. */
+        GtkOrientation bo = (p->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
+        ltbp->tbp.icon_grid = icon_grid_new(p->panel, ltbp->p_evbox_taskbar, bo, ltbp->tbp.task_width_max, ltbp->tbp.icon_size, ltbp->tbp.spacing, 0, p->panel->height);
+        icon_grid_set_constrain_width(ltbp->tbp.icon_grid, TRUE);
+        taskbar_update_style(&ltbp->tbp);
 
-    /* Add GDK event filter. */
-    gdk_window_add_filter(NULL, (GdkFilterFunc) taskbar_event_filter, &ltbp->tbp);
+        /* Add GDK event filter. */
+        gdk_window_add_filter(NULL, (GdkFilterFunc) taskbar_event_filter, &ltbp->tbp);
 
-    /* Connect signal to receive mouse events on the unused portion of the taskbar. */
-    g_signal_connect(ltbp->p_evbox_taskbar, "button-press-event", G_CALLBACK(plugin_button_press_event), p);
+        /* Connect signal to receive mouse events on the unused portion of the taskbar. */
+        g_signal_connect(ltbp->p_evbox_taskbar, "button-press-event", G_CALLBACK(plugin_button_press_event), p);
 
-    /* Connect signals to receive root window events and initialize root window properties. */
-    ltbp->tbp.number_of_desktops = get_net_number_of_desktops();
-    ltbp->tbp.current_desktop = get_net_current_desktop();
-    g_signal_connect(G_OBJECT(fbev), "current_desktop", G_CALLBACK(taskbar_net_current_desktop), (gpointer) &ltbp->tbp);
-    g_signal_connect(G_OBJECT(fbev), "active_window", G_CALLBACK(taskbar_net_active_window), (gpointer) &ltbp->tbp);
-    g_signal_connect(G_OBJECT(fbev), "number_of_desktops", G_CALLBACK(taskbar_net_number_of_desktops), (gpointer) &ltbp->tbp);
-    g_signal_connect(G_OBJECT(fbev), "client_list", G_CALLBACK(taskbar_net_client_list), (gpointer) &ltbp->tbp);
+        /* Connect signals to receive root window events and initialize root window properties. */
+        ltbp->tbp.number_of_desktops = get_net_number_of_desktops();
+        ltbp->tbp.current_desktop = get_net_current_desktop();
+        g_signal_connect(G_OBJECT(fbev), "current_desktop", G_CALLBACK(taskbar_net_current_desktop), (gpointer) &ltbp->tbp);
+        g_signal_connect(G_OBJECT(fbev), "active_window", G_CALLBACK(taskbar_net_active_window), (gpointer) &ltbp->tbp);
+        g_signal_connect(G_OBJECT(fbev), "number_of_desktops", G_CALLBACK(taskbar_net_number_of_desktops), (gpointer) &ltbp->tbp);
+        g_signal_connect(G_OBJECT(fbev), "client_list", G_CALLBACK(taskbar_net_client_list), (gpointer) &ltbp->tbp);
 
-    /* Make right-click menu for task buttons.
-     * It is retained for the life of the taskbar and will be shown as needed.
-     * Number of desktops and edge is needed for this operation. */
-    taskbar_make_menu(&ltbp->tbp);
+        /* Make right-click menu for task buttons.
+         * It is retained for the life of the taskbar and will be shown as needed.
+         * Number of desktops and edge is needed for this operation. */
+        taskbar_make_menu(&ltbp->tbp);
 
-    /* Connect a signal to be notified when the window manager changes.  This causes re-evaluation of the "use_net_active" status. */
-    g_signal_connect(gtk_widget_get_screen(ltbp->p_evbox_taskbar), "window-manager-changed", G_CALLBACK(taskbar_window_manager_changed), &ltbp->tbp);
+        /* Connect a signal to be notified when the window manager changes.  This causes re-evaluation of the "use_net_active" status. */
+        g_signal_connect(gtk_widget_get_screen(ltbp->p_evbox_taskbar), "window-manager-changed", G_CALLBACK(taskbar_window_manager_changed), &ltbp->tbp);
 
-    /* Fetch the client list and redraw the taskbar.  Then determine what window has focus. */
-    taskbar_net_client_list(NULL, &ltbp->tbp);
-    taskbar_net_active_window(NULL, &ltbp->tbp);
+        /* Fetch the client list and redraw the taskbar.  Then determine what window has focus. */
+        taskbar_net_client_list(NULL, &ltbp->tbp);
+        taskbar_net_active_window(NULL, &ltbp->tbp);
+    }
+    else
+    {
+        gtk_widget_set_visible(ltbp->p_evbox_taskbar, TRUE);
+    }
 }
 
 /* Plugin constructor. */
@@ -882,7 +902,9 @@ static int launchtaskbar_constructor(Plugin * p, char ** fp)
     gtk_container_set_border_width(GTK_CONTAINER(ltbp->p_evbox_launchbar), 0);
     gtk_container_set_border_width(GTK_CONTAINER(ltbp->p_evbox_taskbar), 0);
     ltbp->lb_on = TRUE;
+    ltbp->lb_built = FALSE;
     ltbp->tb_on = TRUE;
+    ltbp->tb_built = FALSE;
 #if GLIB_CHECK_VERSION(2,18,0)
     gtk_widget_set_has_window(p->pwid, FALSE);
 #else
@@ -1033,10 +1055,10 @@ static void launchtaskbar_destructor(Plugin * p)
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p->priv;
 
     // TASKBAR
-    launchtaskbar_destructor_task(ltbp);
+    if(ltbp->tb_built) launchtaskbar_destructor_task(ltbp);
 
     // LAUNCHBAR
-    launchtaskbar_destructor_launch(ltbp);
+    if(ltbp->lb_built) launchtaskbar_destructor_launch(ltbp);
 
     // LAUNCHTASKBAR
     /* Ensure that the configuration dialog is dismissed. */
@@ -1402,7 +1424,7 @@ static void  on_radiobutton_launch_toggled(GtkToggleButton *p_togglebutton, gpoi
     if(ltbp->tb_on)
     {
         ltbp->tb_on = FALSE;
-        launchtaskbar_destructor_task(ltbp);
+        gtk_widget_set_visible(ltbp->p_evbox_taskbar, FALSE);
     }
     gtk_widget_set_visible(ltbp->p_notebook_page_launch, TRUE);
     gtk_widget_set_visible(ltbp->p_notebook_page_task, FALSE);
@@ -1415,7 +1437,7 @@ static void  on_radiobutton_task_toggled(GtkToggleButton *p_togglebutton, gpoint
     if(ltbp->lb_on)
     {
         ltbp->lb_on = FALSE;
-        launchtaskbar_destructor_launch(ltbp);
+        gtk_widget_set_visible(ltbp->p_evbox_launchbar, FALSE);
     }
     if(!ltbp->tb_on)
     {
