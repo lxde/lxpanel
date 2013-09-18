@@ -1412,10 +1412,22 @@ static void launchbar_configure_initialize_list(Plugin * p, GtkWidget * dlg, Gtk
     }
 }
 
+static void  plugin_set_expand_status(LaunchTaskBarPlugin *ltbp, gboolean expand_new)
+{
+    Plugin *pl = ltbp->lbp.plug;
+    pl->expand = expand_new;
+    gboolean     old_expand, fill;
+    guint        padding;
+    GtkPackType  pack_type;
+    gtk_box_query_child_packing(GTK_BOX(pl->panel->box), pl->pwid, &old_expand, &fill, &padding, &pack_type);
+    gtk_box_set_child_packing(GTK_BOX(pl->panel->box), pl->pwid, pl->expand, fill, padding, pack_type);
+}
+
 static void  on_radiobutton_launch_toggled(GtkToggleButton *p_togglebutton, gpointer p_data)
 {
     if(!gtk_toggle_button_get_active(p_togglebutton)) return;
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p_data;
+    
     if(!ltbp->lb_on)
     {
         ltbp->lb_on = TRUE;
@@ -1428,12 +1440,15 @@ static void  on_radiobutton_launch_toggled(GtkToggleButton *p_togglebutton, gpoi
     }
     gtk_widget_set_visible(ltbp->p_notebook_page_launch, TRUE);
     gtk_widget_set_visible(ltbp->p_notebook_page_task, FALSE);
+    
+    plugin_set_expand_status(ltbp, FALSE);
 }
 
 static void  on_radiobutton_task_toggled(GtkToggleButton *p_togglebutton, gpointer p_data)
 {
     if(!gtk_toggle_button_get_active(p_togglebutton)) return;
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p_data;
+    
     if(ltbp->lb_on)
     {
         ltbp->lb_on = FALSE;
@@ -1446,12 +1461,15 @@ static void  on_radiobutton_task_toggled(GtkToggleButton *p_togglebutton, gpoint
     }
     gtk_widget_set_visible(ltbp->p_notebook_page_launch, FALSE);
     gtk_widget_set_visible(ltbp->p_notebook_page_task, TRUE);
+    
+    plugin_set_expand_status(ltbp, TRUE);
 }
 
 static void  on_radiobutton_launchtask_toggled(GtkToggleButton *p_togglebutton, gpointer p_data)
 {
     if(!gtk_toggle_button_get_active(p_togglebutton)) return;
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p_data;
+    
     if(!ltbp->lb_on)
     {
         ltbp->lb_on = TRUE;
@@ -1464,6 +1482,8 @@ static void  on_radiobutton_launchtask_toggled(GtkToggleButton *p_togglebutton, 
     }
     gtk_widget_set_visible(ltbp->p_notebook_page_launch, TRUE);
     gtk_widget_set_visible(ltbp->p_notebook_page_task, TRUE);
+    
+    plugin_set_expand_status(ltbp, TRUE);
 }
 
 static void on_checkbutton_show_tooltips_toggled(GtkToggleButton *p_togglebutton, gpointer p_data)
