@@ -505,7 +505,7 @@ static void launchbutton_build_bootstrap(Plugin * p)
 {
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p->priv;
 
-    if (ltbp->lbp.bootstrap_button == NULL)
+    if(ltbp->lbp.bootstrap_button == NULL)
     {
         /* Build a button that has the stock "Add" icon.
          * The "desktop-id" being NULL is the marker that this is the bootstrap button. */
@@ -582,15 +582,21 @@ static void launchbar_update_after_taskbar_class_added(LaunchTaskBarPlugin *ltbp
         }
     }
 
-    LaunchButton *btn = launchbar_exec_bin_exists(&ltbp->lbp, tk->exec_bin);
-    g_print("\nTB '%s' OPEN (pid=%u), in LB: %c\n",
-        tk->exec_bin, pid, btn != NULL ? 'Y':'N');
+    if(ltbp->lb_on)
+    {
+        LaunchButton *btn = launchbar_exec_bin_exists(&ltbp->lbp, tk->exec_bin);
+        g_print("\nTB '%s' OPEN (pid=%u), in LB: %c\n",
+            tk->exec_bin, pid, btn != NULL ? 'Y':'N');
+    }
 }
 
 static void launchbar_update_after_taskbar_class_removed(LaunchTaskBarPlugin *ltbp, Task *tk)
 {
-    LaunchButton *btn = launchbar_exec_bin_exists(&ltbp->lbp, tk->exec_bin);
-    g_print("\nTB '%s' CLOSE, in LB: %c\n", tk->exec_bin, btn != NULL ? 'Y':'N');
+    if(ltbp->lb_on)
+    {
+        LaunchButton *btn = launchbar_exec_bin_exists(&ltbp->lbp, tk->exec_bin);
+        g_print("\nTB '%s' CLOSE, in LB: %c\n", tk->exec_bin, btn != NULL ? 'Y':'N');
+    }
 }
 
 static gboolean  load_app_key_file(gchar *filepath, GKeyFile *p_gkeyfile)
@@ -714,12 +720,12 @@ static int launchbutton_constructor(Plugin * p, char ** fp)
             }
             if(s.type == LINE_VAR)
             {
-                if (g_ascii_strcasecmp(s.t[0], "id") == 0)
+                if(g_ascii_strcasecmp(s.t[0], "id") == 0)
                 {
                     btn->desktop_id = g_strdup(s.t[1]);
-                    g_print("%s\n", btn->desktop_id);
+                    //g_print("%s\n", btn->desktop_id);
                 }
-                else if (g_ascii_strcasecmp(s.t[0], "image") == 0)
+                else if(g_ascii_strcasecmp(s.t[0], "image") == 0)
                 {
                     btn->customize_image = TRUE;
                     btn->image = expand_tilda(g_strdup(s.t[1]));
@@ -765,18 +771,28 @@ static void launchtaskbar_constructor_add_default_special_case(LaunchTaskBarPlug
     g_key_file_set_value(ltbp->p_key_file_special_cases, "special_cases", tk_exec, mb_exec);
 }
 
-static void launchtaskbar_constructor_launch(LaunchTaskBarPlugin *ltbp, Plugin * p, char ** fp)
+static void launchtaskbar_constructor_launch(LaunchTaskBarPlugin *ltbp, gboolean build_bootstrap)
 {
+    Plugin * p = ltbp->lbp.plug;
+    
     if(ltbp->lbp.icon_grid == NULL)
     {
         /* Allocate an icon grid manager to manage the container. */
         GtkOrientation bo = (p->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
         ltbp->lbp.icon_grid = icon_grid_new(p->panel, ltbp->p_evbox_launchbar, bo, p->panel->icon_size, p->panel->icon_size, 3, 0, p->panel->height);
     }
+    
+    if(build_bootstrap)
+    {
+        if(ltbp->lbp.buttons == NULL)
+            launchbutton_build_bootstrap(p);
+    }
 }
 
-static void launchtaskbar_constructor_task(LaunchTaskBarPlugin *ltbp, Plugin * p, char ** fp)
+static void launchtaskbar_constructor_task(LaunchTaskBarPlugin *ltbp)
 {
+    Plugin * p = ltbp->tbp.plug;
+    
     /* Make container for task buttons as a child of top level widget. */
     GtkOrientation bo = (p->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
     ltbp->tbp.icon_grid = icon_grid_new(p->panel, ltbp->p_evbox_taskbar, bo, ltbp->tbp.task_width_max, ltbp->tbp.icon_size, ltbp->tbp.spacing, 0, p->panel->height);
@@ -941,7 +957,7 @@ static int launchtaskbar_constructor(Plugin * p, char ** fp)
                 {
                     if(g_ascii_strcasecmp(s.t[0], "Button") == 0)
                     {
-                        launchtaskbar_constructor_launch(ltbp, p, fp);
+                        launchtaskbar_constructor_launch(ltbp, FALSE/*build_bootstrap*/);
                         if(!launchbutton_constructor(p, fp))
                         {
                             g_print("launchtaskbar: can't init button\n");
@@ -958,14 +974,8 @@ static int launchtaskbar_constructor(Plugin * p, char ** fp)
         }
     }
 
-    if(ltbp->lb_on)
-    {
-        launchtaskbar_constructor_launch(ltbp, p, fp);
-        if(ltbp->lbp.buttons == NULL)
-            launchbutton_build_bootstrap(p);
-    }
-
-    if(ltbp->tb_on) launchtaskbar_constructor_task(ltbp, p, fp);
+    if(ltbp->lb_on) launchtaskbar_constructor_launch(ltbp, TRUE/*build_bootstrap*/);
+    if(ltbp->tb_on) launchtaskbar_constructor_task(ltbp);
 
     return TRUE;
 }
@@ -975,10 +985,14 @@ static void launchtaskbar_destructor_launch(LaunchTaskBarPlugin *ltbp)
     /* Free the launchbar. */
     g_slist_foreach(ltbp->lbp.buttons, (GFunc) launchbutton_free, NULL);
     icon_grid_free(ltbp->lbp.icon_grid);
+    ltbp->lbp.icon_grid = NULL;
 
     /* Free the bootstrap button if it exists. */
-    if (ltbp->lbp.bootstrap_button != NULL)
+    if(ltbp->lbp.bootstrap_button != NULL)
+    {
         g_free(ltbp->lbp.bootstrap_button);
+        ltbp->lbp.bootstrap_button = NULL;
+    }
 }
 
 static void launchtaskbar_destructor_task(LaunchTaskBarPlugin *ltbp)
@@ -996,11 +1010,11 @@ static void launchtaskbar_destructor_task(LaunchTaskBarPlugin *ltbp)
     g_signal_handlers_disconnect_by_func(gtk_widget_get_screen(ltbp->p_evbox_taskbar), taskbar_window_manager_changed, &ltbp->tbp);
 
     /* Deallocate task list. */
-    while (ltbp->tbp.p_task_list != NULL)
+    while(ltbp->tbp.p_task_list != NULL)
         task_delete(&ltbp->tbp, ltbp->tbp.p_task_list, TRUE);
 
     /* Deallocate class list. */
-    while (ltbp->tbp.p_taskclass_list != NULL)
+    while(ltbp->tbp.p_taskclass_list != NULL)
     {
         TaskClass * tc = ltbp->tbp.p_taskclass_list;
         ltbp->tbp.p_taskclass_list = tc->p_taskclass_flink;
@@ -1010,6 +1024,7 @@ static void launchtaskbar_destructor_task(LaunchTaskBarPlugin *ltbp)
 
     /* Deallocate other memory. */
     gtk_widget_destroy(ltbp->tbp.menu);
+    icon_grid_free(ltbp->tbp.icon_grid);
 }
 
 /* Plugin destructor. */
@@ -1379,8 +1394,16 @@ static void  on_radiobutton_launch_toggled(GtkToggleButton *p_togglebutton, gpoi
 {
     if(!gtk_toggle_button_get_active(p_togglebutton)) return;
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p_data;
-    ltbp->lb_on = TRUE;
-    ltbp->tb_on = FALSE;
+    if(!ltbp->lb_on)
+    {
+        ltbp->lb_on = TRUE;
+        launchtaskbar_constructor_launch(ltbp, TRUE/*build_bootstrap*/);
+    }
+    if(ltbp->tb_on)
+    {
+        ltbp->tb_on = FALSE;
+        launchtaskbar_destructor_task(ltbp);
+    }
     gtk_widget_set_visible(ltbp->p_notebook_page_launch, TRUE);
     gtk_widget_set_visible(ltbp->p_notebook_page_task, FALSE);
 }
@@ -1389,8 +1412,16 @@ static void  on_radiobutton_task_toggled(GtkToggleButton *p_togglebutton, gpoint
 {
     if(!gtk_toggle_button_get_active(p_togglebutton)) return;
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p_data;
-    ltbp->lb_on = FALSE;
-    ltbp->tb_on = TRUE;
+    if(ltbp->lb_on)
+    {
+        ltbp->lb_on = FALSE;
+        launchtaskbar_destructor_launch(ltbp);
+    }
+    if(!ltbp->tb_on)
+    {
+        ltbp->tb_on = TRUE;
+        launchtaskbar_constructor_task(ltbp);
+    }
     gtk_widget_set_visible(ltbp->p_notebook_page_launch, FALSE);
     gtk_widget_set_visible(ltbp->p_notebook_page_task, TRUE);
 }
@@ -1399,8 +1430,16 @@ static void  on_radiobutton_launchtask_toggled(GtkToggleButton *p_togglebutton, 
 {
     if(!gtk_toggle_button_get_active(p_togglebutton)) return;
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p_data;
-    ltbp->lb_on = TRUE;
-    ltbp->tb_on = TRUE;
+    if(!ltbp->lb_on)
+    {
+        ltbp->lb_on = TRUE;
+        launchtaskbar_constructor_launch(ltbp, TRUE/*build_bootstrap*/);
+    }
+    if(!ltbp->tb_on)
+    {
+        ltbp->tb_on = TRUE;
+        launchtaskbar_constructor_task(ltbp);
+    }
     gtk_widget_set_visible(ltbp->p_notebook_page_launch, TRUE);
     gtk_widget_set_visible(ltbp->p_notebook_page_task, TRUE);
 }
@@ -2786,38 +2825,47 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
                 a_NET_WM_STATE_SHADED,
                 0, 0, 0);
         }
-        else if (event->button == 3)
+        else if(event->button == 3)
         {
             /* Right button.  Bring up the window state popup menu. */
             tk->tb->menutask = tk;
             LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)tk->tb->plug->priv;
-            LaunchButton *btn = launchbar_exec_bin_exists(&ltbp->lbp, tk->exec_bin);
-            //g_print("\nTB '%s' right-click, in LB: %c\n", tk->exec_bin, btn != NULL ? 'Y':'N');
-            if(btn != NULL)
+            if(ltbp->lb_on)
             {
-                gtk_widget_set_visible(ltbp->tbp.p_menuitem_lock_tbp, FALSE);
-                gtk_widget_set_visible(ltbp->tbp.p_menuitem_unlock_tbp, TRUE);
-                gtk_widget_set_visible(ltbp->tbp.p_menuitem_new_instance, TRUE);
+                LaunchButton *btn = launchbar_exec_bin_exists(&ltbp->lbp, tk->exec_bin);
+                //g_print("\nTB '%s' right-click, in LB: %c\n", tk->exec_bin, btn != NULL ? 'Y':'N');
+                if(btn != NULL)
+                {
+                    gtk_widget_set_visible(ltbp->tbp.p_menuitem_lock_tbp, FALSE);
+                    gtk_widget_set_visible(ltbp->tbp.p_menuitem_unlock_tbp, TRUE);
+                    gtk_widget_set_visible(ltbp->tbp.p_menuitem_new_instance, TRUE);
+                }
+                else
+                {
+                    ltbp->found_mb = FALSE;
+                    guint32  flags;
+                    MenuCache *menu_cache = panel_menu_cache_new(&flags);
+                    if(menu_cache != NULL)
+                    {
+                        MenuCacheDir *dir = menu_cache_get_root_dir(menu_cache);
+                        if(dir)
+                        {
+                            ltbp->add_mb_to_lb = FALSE;
+                            ltbp->execute_mb = FALSE;
+                            ltbp->exec_bin_mb = tb->menutask->exec_bin;
+                            f_find_menu_launchbutton_recursive(dir, ltbp);
+                        }
+                    }
+                    gtk_widget_set_visible(ltbp->tbp.p_menuitem_lock_tbp, ltbp->found_mb);
+                    gtk_widget_set_visible(ltbp->tbp.p_menuitem_unlock_tbp, FALSE);
+                    gtk_widget_set_visible(ltbp->tbp.p_menuitem_new_instance, ltbp->found_mb);
+                }
             }
             else
             {
-                ltbp->found_mb = FALSE;
-                guint32  flags;
-                MenuCache *menu_cache = panel_menu_cache_new(&flags);
-                if(menu_cache != NULL)
-                {
-                    MenuCacheDir *dir = menu_cache_get_root_dir(menu_cache);
-                    if(dir)
-                    {
-                        ltbp->add_mb_to_lb = FALSE;
-                        ltbp->execute_mb = FALSE;
-                        ltbp->exec_bin_mb = tb->menutask->exec_bin;
-                        f_find_menu_launchbutton_recursive(dir, ltbp);
-                    }
-                }
-                gtk_widget_set_visible(ltbp->tbp.p_menuitem_lock_tbp, ltbp->found_mb);
+                gtk_widget_set_visible(ltbp->tbp.p_menuitem_lock_tbp, FALSE);
                 gtk_widget_set_visible(ltbp->tbp.p_menuitem_unlock_tbp, FALSE);
-                gtk_widget_set_visible(ltbp->tbp.p_menuitem_new_instance, ltbp->found_mb);
+                gtk_widget_set_visible(ltbp->tbp.p_menuitem_new_instance, FALSE);
             }
             gtk_menu_popup(
                 GTK_MENU(tb->menu),

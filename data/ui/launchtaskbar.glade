@@ -29,8 +29,8 @@
     <property name="border_width">10</property>
     <property name="title" translatable="yes">Application Launch and Task Bar</property>
     <property name="window_position">center</property>
-    <property name="default_width">640</property>
-    <property name="default_height">400</property>
+    <property name="default_width">700</property>
+    <property name="default_height">500</property>
     <property name="type_hint">dialog</property>
     <child internal-child="vbox">
       <object class="GtkVBox" id="dialog-vbox">
