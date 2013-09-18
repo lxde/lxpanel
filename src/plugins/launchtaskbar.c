@@ -3125,6 +3125,9 @@ static gint get_window_monitor(Window win)
 /* Handler for "client-list" event from root window listener. */
 static void taskbar_net_client_list(GtkWidget * widget, TaskbarPlugin * tb)
 {
+    LaunchTaskBarPlugin *ltbp = tb->plug->priv;
+    if(!ltbp->tb_on) return;
+    
     /* Get the NET_CLIENT_LIST property. */
     int client_count;
     Window * client_list = get_xaproperty(GDK_ROOT_WINDOW(), a_NET_CLIENT_LIST, XA_WINDOW, &client_count);
@@ -3226,6 +3229,9 @@ static void taskbar_net_client_list(GtkWidget * widget, TaskbarPlugin * tb)
 /* Handler for "current-desktop" event from root window listener. */
 static void taskbar_net_current_desktop(GtkWidget * widget, TaskbarPlugin * tb)
 {
+    LaunchTaskBarPlugin *ltbp = tb->plug->priv;
+    if(!ltbp->tb_on) return;
+    
     /* Store the local copy of current desktops.  Redisplay the taskbar. */
     tb->current_desktop = get_net_current_desktop();
     recompute_group_visibility_on_current_desktop(tb);
@@ -3235,6 +3241,9 @@ static void taskbar_net_current_desktop(GtkWidget * widget, TaskbarPlugin * tb)
 /* Handler for "number-of-desktops" event from root window listener. */
 static void taskbar_net_number_of_desktops(GtkWidget * widget, TaskbarPlugin * tb)
 {
+    LaunchTaskBarPlugin *ltbp = tb->plug->priv;
+    if(!ltbp->tb_on) return;
+    
     /* Store the local copy of number of desktops.  Recompute the popup menu and redisplay the taskbar. */
     tb->number_of_desktops = get_net_number_of_desktops();
     taskbar_make_menu(tb);
@@ -3244,6 +3253,9 @@ static void taskbar_net_number_of_desktops(GtkWidget * widget, TaskbarPlugin * t
 /* Handler for "active-window" event from root window listener. */
 static void taskbar_net_active_window(GtkWidget * widget, TaskbarPlugin * tb)
 {
+    LaunchTaskBarPlugin *ltbp = tb->plug->priv;
+    if(!ltbp->tb_on) return;
+    
     gboolean drop_old = FALSE;
     gboolean make_new = FALSE;
     Task * ctk = tb->focused;
@@ -3457,6 +3469,9 @@ static void taskbar_configure_notify_event(TaskbarPlugin * tb, XConfigureEvent *
 /* GDK event filter. */
 static GdkFilterReturn taskbar_event_filter(XEvent * xev, GdkEvent * event, TaskbarPlugin * tb)
 {
+    LaunchTaskBarPlugin *ltbp = tb->plug->priv;
+    if(!ltbp->tb_on) return GDK_FILTER_CONTINUE;
+    
     if (xev->type == PropertyNotify)
         taskbar_property_notify_event(tb, xev);
     else if (xev->type == ConfigureNotify)
