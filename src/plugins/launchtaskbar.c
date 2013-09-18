@@ -324,9 +324,9 @@ static void f_get_exec_cmd_from_pid(GPid pid, gchar *buffer_128, const gchar *pr
     snprintf(command, 64, "cat /proc/%u/%s", pid, proc_file);
     pipe = popen(command, "r");
     if(pipe == NULL)
-        g_print("ERR popen '%s'\n", command);
+        ERR("ltbp: popen '%s'\n", command);
     else if(fgets(buffer_128, 128, pipe) == NULL)
-        g_print("ERR fgets '%s'\n", command);
+        ERR("ltbp: fgets '%s'\n", command);
     else
     {
         gchar *p_char = strchr(buffer_128, '\n');
@@ -716,7 +716,7 @@ static int launchbutton_constructor(Plugin * p, char ** fp)
         {
             if(s.type == LINE_NONE)
             {
-                g_print("launchtaskbar: illegal token %s\n", s.str);
+                ERR("ltbp: illegal token %s\n", s.str);
                 launchbutton_free(btn);
                 return 0;
             }
@@ -752,11 +752,11 @@ static int launchbutton_constructor(Plugin * p, char ** fp)
                     btn->use_terminal = str2num(bool_pair, s.t[1], 0);
                 }
                 else
-                    g_print("launchtaskbar: unknown var %s\n", s.t[0]);
+                    ERR("ltbp: unknown var %s\n", s.t[0]);
             }
             else
             {
-                g_print("launchtaskbar: illegal in this context %s\n", s.str);
+                ERR("ltbp: illegal in this context %s\n", s.str);
                 launchbutton_free(btn);
                 return 0;
             }
@@ -919,7 +919,7 @@ static int launchtaskbar_constructor(Plugin * p, char ** fp)
         {
             if(s.type == LINE_NONE)
             {
-                g_print("launchtaskbar: illegal token %s\n", s.str);
+                ERR("ltbp: illegal token %s\n", s.str);
                 return FALSE;
             }
             if(s.type == LINE_VAR)
@@ -982,13 +982,13 @@ static int launchtaskbar_constructor(Plugin * p, char ** fp)
                         launchtaskbar_constructor_launch(ltbp, FALSE/*build_bootstrap*/);
                         if(!launchbutton_constructor(p, fp))
                         {
-                            g_print("launchtaskbar: can't init button\n");
+                            ERR("ltbp: can't init button\n");
                             return FALSE;
                         }
                     }
                     else
                     {
-                        g_print("launchtaskbar: unknown var %s\n", s.t[0]);
+                        ERR("ltbp: unknown var %s\n", s.t[0]);
                         return FALSE;
                     }
                 }
