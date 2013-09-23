@@ -8,16 +8,15 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-27 10:10+0200\n"
-"PO-Revision-Date: 2012-09-30 08:53+0200\n"
-"Last-Translator: Радослав <reckku@gmail.com>\n"
-"MIME-Version: 1.0\n"
+"PO-Revision-Date: 2013-09-23 20:46+0000\n"
+"Last-Translator: Recku <reckku@gmail.com>\n"
 "Language: bg\n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
-"X-Poedit-Language: Bulgarian\n"
-"X-Poedit-Country: BULGARIA\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1379969204.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -599,9 +598,9 @@ msgid "Tooltip Format"
 msgstr "Формат на подсказките"
 
 #: ../src/plugins/dclock.c:438
-#, fuzzy, c-format
+#, c-format
 msgid "Format codes: man 3 strftime; \\%n for line break"
-msgstr "Формат кодове: man 3 strftime; \\n за нов ред"
+msgstr "Формат на кодовете: man 3 strftime; \\%n за нов ред"
 
 #: ../src/plugins/dclock.c:439
 msgid "Action when clicked (default: display calendar)"
@@ -677,7 +676,7 @@ msgstr "Системна табла"
 
 #: ../src/plugins/xkb/xkb-plugin.c:451
 msgid "New session is required for this option to take effect"
-msgstr ""
+msgstr "Нужна е нова сесия за да влезе в сила тази опция"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:604
@@ -737,15 +736,15 @@ msgstr "Промяна на опциите на подредбата"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1286
 msgid "Advanced setxkbmap Options"
-msgstr ""
+msgstr "Допълнителни опции за setxkbmap"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1306
 msgid "Do _not reset existing options"
-msgstr ""
+msgstr "Не _нулирайте съществуващите опции"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1311
 msgid "Keep _system layouts"
-msgstr ""
+msgstr "Запазване на _системните подредби"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1320
 msgid "Per Window Settings"
@@ -891,7 +890,7 @@ msgstr ""
 
 #: ../src/plugins/volumealsa/volumealsa.c:667
 msgid "Display and control volume for ALSA"
-msgstr ""
+msgstr "Наблюдаване и контролиране на силата на звука за ALSA"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
