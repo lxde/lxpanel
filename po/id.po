@@ -3,13 +3,12 @@
 # This file is distributed under the same license as the lxpanel package.
 # Andhika Padmawan <andhika.padmawan@gmail.com>, Rahman Yusri Aftian <aftian@yahoo.com>, 2009.
 # Andika Triwidada <andika@gmail.com>, 2010.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-27 10:10+0200\n"
-"PO-Revision-Date: 2012-10-01 02:33+0200\n"
+"PO-Revision-Date: 2013-08-27 09:42+0000\n"
 "Last-Translator: Andika <andika@gmail.com>\n"
 "Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
 "Language: id\n"
@@ -17,11 +16,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1377596569.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
-msgstr "Jalan"
+msgstr "Jalankan"
 
 #: ../src/configurator.c:56
 msgid "Restart"
@@ -29,15 +29,15 @@ msgstr "Start Ulang"
 
 #: ../src/configurator.c:57
 msgid "Logout"
-msgstr "Keluar"
+msgstr "Log keluar"
 
 #: ../src/configurator.c:481
 msgid "Currently loaded plugins"
-msgstr "Plugin dimuat saat ini"
+msgstr "Plugin yang kini dimuat"
 
 #: ../src/configurator.c:490
 msgid "Stretch"
-msgstr "Regang"
+msgstr "Regangkan"
 
 #: ../src/configurator.c:609
 msgid "Add plugin to panel"
@@ -61,7 +61,7 @@ msgstr "Pilih berkas"
 
 #: ../src/configurator.c:1392
 msgid "_Browse"
-msgstr "_Ramban"
+msgstr "Ram_ban"
 
 #: ../src/panel.c:658
 msgid ""
@@ -78,7 +78,7 @@ msgstr "Konfirmasi"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:693
 msgid "translator-credits"
-msgstr "Andika Triwidada <andika@gmail.com>, 2010"
+msgstr "Andika Triwidada <andika@gmail.com>, 2010, 2013"
 
 #: ../src/panel.c:698
 msgid "LXPanel"
@@ -90,7 +90,7 @@ msgstr "Hak Cipta (C) 2008-2011"
 
 #: ../src/panel.c:717
 msgid "Desktop panel for LXDE project"
-msgstr "Panel Desktop untuk projek LXDE "
+msgstr "Panel desktop untuk projek LXDE"
 
 #: ../src/panel.c:754
 msgid "Add / Remove Panel Items"
@@ -284,7 +284,7 @@ msgstr "Lingkup:"
 
 #: ../data/ui/netstatus.glade.h:18
 msgid "<b>Network Device</b>"
-msgstr "<b>Divais Jaringan</b>"
+msgstr "<b>Perangkat Jaringan</b>"
 
 #: ../data/ui/netstatus.glade.h:19
 msgid "Type:"
@@ -292,7 +292,7 @@ msgstr "Tipe:"
 
 #: ../data/ui/netstatus.glade.h:20
 msgid "Support"
-msgstr "Sokongan"
+msgstr "Dukungan"
 
 #: ../data/ui/netstatus.glade.h:21
 msgid "Con_figure"
@@ -333,7 +333,7 @@ msgstr "Semua"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "Panel Preferences"
-msgstr "Pengaturan Panel"
+msgstr "Preferensi Panel"
 
 #: ../data/ui/panel-pref.glade.h:15
 msgid "Edge:"
@@ -373,7 +373,7 @@ msgstr "Tema sistem"
 
 #: ../data/ui/panel-pref.glade.h:26
 msgid "Solid color (with opacity)"
-msgstr "Warna rata (dengan keburaman)"
+msgstr "Warna rata (dengan kelegapan)"
 
 #: ../data/ui/panel-pref.glade.h:27 ../src/plugins/xkb/xkb-plugin.c:1401
 msgid "Image"
@@ -438,7 +438,7 @@ msgstr "<b>Properti</b>"
 
 #: ../data/ui/panel-pref.glade.h:42
 msgid "Minimize panel when not in use"
-msgstr "Mengecilkan panel ketika tidak dapat digunakan"
+msgstr "Meminimalkan panel ketika tidak dapat digunakan"
 
 #: ../data/ui/panel-pref.glade.h:43
 msgid "Size when minimized"
@@ -446,7 +446,7 @@ msgstr "Ukuran ketika diminimalkan"
 
 #: ../data/ui/panel-pref.glade.h:44
 msgid "pixels"
-msgstr "Piksel"
+msgstr "piksel"
 
 #: ../data/ui/panel-pref.glade.h:45
 msgid "<b>Automatic hiding</b>"
@@ -462,7 +462,7 @@ msgstr "<b>Level log</b>"
 
 #: ../data/ui/panel-pref.glade.h:48
 msgid "Advanced"
-msgstr "Mahir"
+msgstr "Tingkat Lanjut"
 
 #: ../src/plugins/cpu/cpu.c:277
 msgid "CPU Usage Monitor"
@@ -598,9 +598,9 @@ msgid "Tooltip Format"
 msgstr "Format Tip Alat"
 
 #: ../src/plugins/dclock.c:438
-#, fuzzy, c-format
+#, c-format
 msgid "Format codes: man 3 strftime; \\%n for line break"
-msgstr "Format codec: man 3 strftime; \\n untuk baris istirahat"
+msgstr "Kode format: man 3 strftime; \\%n untuk memutus baris"
 
 #: ../src/plugins/dclock.c:439
 msgid "Action when clicked (default: display calendar)"
@@ -676,7 +676,7 @@ msgstr "Baki sistem"
 
 #: ../src/plugins/xkb/xkb-plugin.c:451
 msgid "New session is required for this option to take effect"
-msgstr ""
+msgstr "Sesi baru diperlukan agar opsi ini berdampak"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:604
@@ -694,99 +694,89 @@ msgstr "Keterangan"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:698
-#, fuzzy
 msgid "Select Layout Change Type"
-msgstr "Pilih berkas citra"
+msgstr "Pilih Jenis Ubahan Tata Letak"
 
 #: ../src/plugins/xkb/xkb-plugin.c:721
 msgid "Change Type"
-msgstr ""
+msgstr "Ubah tipe"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:843
-#, fuzzy
 msgid "Add Keyboard Layout"
-msgstr "Pengubah Tata Letak Papan Ketik"
+msgstr "Tambah Tata Letak Papan Ketik"
 
 #: ../src/plugins/xkb/xkb-plugin.c:866 ../src/plugins/xkb/xkb-plugin.c:1249
 msgid "Flag"
-msgstr ""
+msgstr "Bendera"
 
 #: ../src/plugins/xkb/xkb-plugin.c:871 ../src/plugins/xkb/xkb-plugin.c:1253
 msgid "Layout"
-msgstr ""
+msgstr "Tata letak"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1160 ../src/plugins/xkb/xkb-plugin.c:1509
-#, fuzzy
 msgid "Keyboard Layout Handler"
-msgstr "Pengubah Tata Letak Papan Ketik"
+msgstr "Pengendali Tata Letak Papan Ketik"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1182
-#, fuzzy
 msgid "Keyboard Model"
-msgstr "Papan Ketik LED"
+msgstr "Model Papan Ketik"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1203
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "Pengubah Tata Letak Papan Ketik"
+msgstr "Tata Letak Papan Ketik"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1257
 msgid "Variant"
-msgstr ""
+msgstr "Varian"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1266
 msgid "Change Layout Option"
-msgstr ""
+msgstr "Ubah Opsi Tata Letak"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1286
 msgid "Advanced setxkbmap Options"
-msgstr ""
+msgstr "Opsi setxkbmap Tingkat Lanjut"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1306
 msgid "Do _not reset existing options"
-msgstr ""
+msgstr "Janga_n reset opsi yang ada"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1311
 msgid "Keep _system layouts"
-msgstr ""
+msgstr "Pertahankan tata letak _sistem"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1320
-#, fuzzy
 msgid "Per Window Settings"
-msgstr "Pengaturan Panel"
+msgstr "Pengaturan Tiap Jendela"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1332
-#, fuzzy
 msgid "_Remember layout for each window"
-msgstr "_Ingat tata letak untuk tiap aplikasi"
+msgstr "Pengaturan Tiap Jendela"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1341
-#, fuzzy
 msgid "Show Layout as"
 msgstr "Tampilkan tata letak sebagai"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1402
 msgid "Custom Image"
-msgstr ""
+msgstr "Gambar Suai"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1403
 msgid "Text"
-msgstr ""
+msgstr "Teks"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1429
 msgid "Panel Icon Size"
-msgstr ""
+msgstr "Ukuran Panel Ikon"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1511
-#, fuzzy
 msgid "Handle keyboard layouts"
-msgstr "Ubah di antara tata letak papan ketik yang tersedia"
+msgstr "Kelola tata letak papan ketik"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr ""
-"Klik kiri untuk mengikonkan semua jendela. Klik tengah untuk berbayang."
+msgstr "Klik kiri untuk mengikonkan semua jendela. Klik tengah untuk berbayang."
 
 #: ../src/plugins/wincmd.c:237
 msgid "Alternately iconify/shade and raise"
@@ -898,7 +888,7 @@ msgstr ""
 
 #: ../src/plugins/volumealsa/volumealsa.c:667
 msgid "Display and control volume for ALSA"
-msgstr ""
+msgstr "Tampilan dan kendali volume bagi ALSA"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
@@ -1304,8 +1294,8 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"Tak dapat mengurai statistik antarmuka dari '%s'. prx_idx = %d; ptx_idx = "
-"%d; brx_idx = %d; btx_idx = %d;"
+"Tak dapat mengurai statistik antarmuka dari '%s'. prx_idx = %d; ptx_idx = %"
+"d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
