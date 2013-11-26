@@ -4,20 +4,21 @@
 # This file is distributed under the same license as the lxpanel package.
 # Hironao Komatsu <hironao@users.sourceforge.net>, 2008-2009.
 # IWAI, Masaharu <iwai@alib.jp>, 2009.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-27 10:10+0200\n"
-"PO-Revision-Date: 2010-07-31 17:50+0900\n"
-"Last-Translator: Hironao Komatsu <hironao@users.sourceforge.net>\n"
+"PO-Revision-Date: 2013-11-26 05:10+0000\n"
+"Last-Translator: Hironao <hirkmt@gmail.com>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1385442654.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -175,8 +176,7 @@ msgstr " --version   -- バージョンを表示して終了\n"
 #: ../src/panel.c:1505
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <number> -- ログをとるレベルを 0(なし) 〜 5(詳細) の範囲で設定\n"
+msgstr " --log <number> -- ログをとるレベルを 0(なし) 〜 5(詳細) の範囲で設定\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1507
@@ -588,9 +588,7 @@ msgstr "タスクバー (ウィンドウのリスト)"
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
-msgstr ""
-"タスクバーは開いているすべてのウィンドウを表示し、最小化やシェード化、フォー"
-"カスの移動を可能にします"
+msgstr "タスクバーは開いているすべてのウィンドウを表示し、最小化やシェード化、フォーカスの移動を可能にします"
 
 #: ../src/plugins/dclock.c:436
 msgid "Clock Format"
@@ -601,9 +599,9 @@ msgid "Tooltip Format"
 msgstr "ツールチップのフォーマット"
 
 #: ../src/plugins/dclock.c:438
-#, fuzzy, c-format
+#, c-format, c-format
 msgid "Format codes: man 3 strftime; \\%n for line break"
-msgstr "フォーマットについては: man 3 strftime; \\n で改行"
+msgstr "フォーマットについては: man 3 strftime; \\%n で改行"
 
 #: ../src/plugins/dclock.c:439
 msgid "Action when clicked (default: display calendar)"
@@ -679,7 +677,7 @@ msgstr "システムトレイ"
 
 #: ../src/plugins/xkb/xkb-plugin.c:451
 msgid "New session is required for this option to take effect"
-msgstr ""
+msgstr "このオプションは、次回のセッションから有効になります"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:604
@@ -739,15 +737,15 @@ msgstr "配列の改変オプション"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1286
 msgid "Advanced setxkbmap Options"
-msgstr ""
+msgstr "setxkbmap の高度なオプション"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1306
 msgid "Do _not reset existing options"
-msgstr ""
+msgstr "既にあるオプションはリセットしない (_N)"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1311
 msgid "Keep _system layouts"
-msgstr ""
+msgstr "システムの配列を維持する (_S)"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1320
 msgid "Per Window Settings"
@@ -885,13 +883,11 @@ msgstr "ミュート"
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
-msgstr ""
-"エラー、音量設定のためのアプリケーションが別途必要になります。(pavucontrol, "
-"alsamixer ...)"
+msgstr "エラー、音量設定のためのアプリケーションが別途必要になります。(pavucontrol, alsamixer ...)"
 
 #: ../src/plugins/volumealsa/volumealsa.c:667
 msgid "Display and control volume for ALSA"
-msgstr ""
+msgstr "ALSA の音量の表示と操作"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
@@ -1297,8 +1293,8 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"'%s' からインタフェース統計をパースできません。prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
+"'%s' からインタフェース統計をパースできません。prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx "
+"= %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."
