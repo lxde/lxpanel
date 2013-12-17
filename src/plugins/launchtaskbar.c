@@ -238,7 +238,7 @@ static void launchbutton_drag_data_received_event(
     guint time,
     LaunchButton * b);
 static void launchbutton_build_bootstrap(Plugin * p);
-static void launchbutton_build_gui(Plugin * p, LaunchButton * btn);
+static gboolean launchbutton_build_gui(Plugin * p, LaunchButton * btn);
 static int launchbutton_constructor(Plugin * p, char ** fp);
 static int launchtaskbar_constructor(Plugin * p, char ** fp);
 static void launchtaskbar_destructor(Plugin * p);
@@ -620,7 +620,7 @@ static gboolean  load_app_key_file(gchar *filepath, GKeyFile *p_gkeyfile)
 }
 
 /* Build the graphic elements for a launchtaskbar button.  The desktop_id field is already established. */
-static void launchbutton_build_gui(Plugin * p, LaunchButton * btn)
+static gboolean launchbutton_build_gui(Plugin * p, LaunchButton * btn)
 {
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p->priv;
 
@@ -661,6 +661,7 @@ static void launchbutton_build_gui(Plugin * p, LaunchButton * btn)
                 g_free(title);
         }
         g_key_file_free(p_key_desktop);
+        if(!loaded) return FALSE;
     }
 
     /* Create a button with the specified icon. */
@@ -698,6 +699,8 @@ static void launchbutton_build_gui(Plugin * p, LaunchButton * btn)
     /* Show the widget and return. */
     gtk_widget_show(button);
     plugin_widget_set_background(button, p->panel);
+    
+    return TRUE;
 }
 
 /* Read the configuration file entry for a launchtaskbar button and create it. */
@@ -764,7 +767,10 @@ static int launchbutton_constructor(Plugin * p, char ** fp)
     }
 
     /* Build the structures and return. */
-    launchbutton_build_gui(p, btn);
+    if(!launchbutton_build_gui(p, btn))
+    {
+        launchbutton_free(btn);
+    }
     return 1;
 }
 
@@ -1075,7 +1081,11 @@ static LaunchButton *launchbar_add_button(LaunchTaskBarPlugin *ltbp, gchar *desk
     LaunchButton *defined_button = g_new0(LaunchButton, 1);
     defined_button->plugin = ltbp->lbp.plug;
     defined_button->desktop_id = g_strdup(desktop_id);
-    launchbutton_build_gui(ltbp->lbp.plug, defined_button);
+    if(!launchbutton_build_gui(ltbp->lbp.plug, defined_button))
+    {
+        launchbutton_free(defined_button);
+        defined_button = NULL;
+    }
     return defined_button;
 }
 
@@ -1098,6 +1108,7 @@ static void launchbar_configure_add_button(GtkButton * widget, Plugin * p)
         /* We have located a selected button.
          * Add a launch button to the launchtaskbar and refresh the view in the configuration dialog. */
         LaunchButton *defined_button = launchbar_add_button(ltbp, btn->desktop_id);
+        if(defined_button == NULL) return;
 
         GtkListStore * list = GTK_LIST_STORE(gtk_tree_view_get_model(defined_view));
         GtkTreeIter it;
