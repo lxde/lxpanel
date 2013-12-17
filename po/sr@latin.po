@@ -1,4 +1,4 @@
-# Serbian translation for LXPanel package
+# Serbian Latin translation of LXPanel package
 # Copyright (C) The LXDE Project
 # This file is distributed under the same license as the LXPanel package.
 # Jay A. Fleming <tito.nehru.naser@gmail.com>, 2009.
@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LXPanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-27 10:10+0200\n"
-"PO-Revision-Date: 2013-09-05 19:07+0100\n"
-"Last-Translator: Jay A.Fleming <tito.nehru.naser@gmail.com>\n"
+"PO-Revision-Date: 2013-11-24 05:49+0100\n"
+"Last-Translator: Jay Alexander Fleming <tito.nehru.naser@gmail.com>\n"
 "Language-Team: \n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
@@ -79,7 +79,7 @@ msgstr "Potvrda"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:693
 msgid "translator-credits"
-msgstr "Srpski (sr) — Jay A. Fleming <tito.nehru.naser@gmail.com>"
+msgstr "Srpski (sr@latin) — Jay A. Fleming <tito.nehru.naser@gmail.com>"
 
 #: ../src/panel.c:698
 msgid "LXPanel"
@@ -87,7 +87,7 @@ msgstr "LIks-Panel"
 
 #: ../src/panel.c:716
 msgid "Copyright (C) 2008-2011"
-msgstr "2008-2011. Neka su prava zadržana."
+msgstr "Autorska prava (C) 2008-2011."
 
 #: ../src/panel.c:717
 msgid "Desktop panel for LXDE project"
@@ -112,7 +112,7 @@ msgstr "Stvori novi panel"
 
 #: ../src/panel.c:791
 msgid "Delete This Panel"
-msgstr "Uklonii ovaj panel"
+msgstr "Ukloni ovaj panel"
 
 #: ../src/panel.c:802
 msgid "About"
@@ -142,22 +142,22 @@ msgstr "Širina:"
 #: ../src/panel.c:1081
 #: ../data/ui/panel-pref.glade.h:13
 msgid "Left"
-msgstr "Levo"
+msgstr "levo"
 
 #: ../src/panel.c:1082
 #: ../data/ui/panel-pref.glade.h:14
 msgid "Right"
-msgstr "Desno"
+msgstr "desno"
 
 #: ../src/panel.c:1088
 #: ../data/ui/panel-pref.glade.h:12
 msgid "Top"
-msgstr "Gore"
+msgstr "gore"
 
 #: ../src/panel.c:1089
 #: ../data/ui/panel-pref.glade.h:11
 msgid "Bottom"
-msgstr "Dole"
+msgstr "dole"
 
 #: ../src/panel.c:1501
 #, c-format
@@ -167,7 +167,7 @@ msgstr "lxpanel %s - olakšani GTK2+ panel za juniks radne površi\n"
 #: ../src/panel.c:1502
 #, c-format
 msgid "Command line options:\n"
-msgstr "Opcije komandne linije:\n"
+msgstr "Opcije linije naredbe:\n"
 
 #: ../src/panel.c:1503
 #, c-format
@@ -214,12 +214,12 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"Posetite http://lxde.org/ za detalje.\n"
+"Više detalja o programu možete da pronađete na adresi http://lxde.org.\n"
 "\n"
 
 #: ../src/gtk-run.c:373
 msgid "Enter the command you want to execute:"
-msgstr "Unesite naredbu koju želite da pokrenete:"
+msgstr "Unesite naredbu koju želite da izvršite:"
 
 #: ../data/ui/launchbar.glade.h:1
 #: ../src/plugins/launchbar.c:1039
@@ -348,19 +348,19 @@ msgstr "Podešavanja panela"
 
 #: ../data/ui/panel-pref.glade.h:15
 msgid "Edge:"
-msgstr "Ivica:"
+msgstr "Uz ivicu:"
 
 #: ../data/ui/panel-pref.glade.h:16
 msgid "Center"
-msgstr "Sredina"
+msgstr "na sredinu"
 
 #: ../data/ui/panel-pref.glade.h:17
 msgid "Alignment:"
-msgstr "Poravnanje:"
+msgstr "Ravnanje:"
 
 #: ../data/ui/panel-pref.glade.h:18
 msgid "Margin:"
-msgstr "Ivica:"
+msgstr "Margina:"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "<b>Position</b>"
@@ -814,7 +814,7 @@ msgstr ""
 
 #: ../src/plugins/dirmenu.c:246
 msgid "Open in _Terminal"
-msgstr "Otvori u _Terminalu"
+msgstr "Otvori u _terminalu"
 
 #: ../src/plugins/dirmenu.c:411
 msgid "Directory"

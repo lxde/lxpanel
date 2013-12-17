@@ -4,18 +4,17 @@ msgstr ""
 "Project-Id-Version: lxpanel_hr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-27 10:10+0200\n"
-"PO-Revision-Date: 2012-10-13 03:32+0200\n"
-"Last-Translator: zvacet <ikoli@yahoo.com>\n"
+"PO-Revision-Date: 2013-11-25 08:30+0000\n"
+"Last-Translator: Ivica <ikoli@yahoo.com>\n"
 "Language-Team: <asjlob AT vip.hr>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.0.5\n"
-"X-Poedit-Language: Croatian\n"
-"X-Poedit-Country: CROATIA\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1385368202.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -612,7 +611,7 @@ msgstr "Samo tooltip"
 
 #: ../src/plugins/dclock.c:442
 msgid "Center text"
-msgstr ""
+msgstr "Centriraj tekst"
 
 #: ../src/plugins/dclock.c:471
 msgid "Digital Clock"
@@ -716,7 +715,7 @@ msgstr "Raspored"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1160 ../src/plugins/xkb/xkb-plugin.c:1509
 msgid "Keyboard Layout Handler"
-msgstr ""
+msgstr "Rukovanje rasporedom tipkovnice"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1182
 msgid "Keyboard Model"
@@ -744,11 +743,11 @@ msgstr ""
 
 #: ../src/plugins/xkb/xkb-plugin.c:1311
 msgid "Keep _system layouts"
-msgstr ""
+msgstr "Zadrži _rasporede sustava"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1320
 msgid "Per Window Settings"
-msgstr ""
+msgstr "Postavke za svaki prozor"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1332
 msgid "_Remember layout for each window"
@@ -768,11 +767,11 @@ msgstr "Tekst"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1429
 msgid "Panel Icon Size"
-msgstr ""
+msgstr "Veličina ikone ploče"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1511
 msgid "Handle keyboard layouts"
-msgstr ""
+msgstr "Rukovanje rasporedima tikovnica"
 
 #: ../src/plugins/wincmd.c:209
 msgid "Left click to iconify all windows.  Middle click to shade them."
@@ -890,7 +889,7 @@ msgstr ""
 
 #: ../src/plugins/volumealsa/volumealsa.c:667
 msgid "Display and control volume for ALSA"
-msgstr ""
+msgstr "Prikaži i kontroliraj glasnoću za ALSA"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"

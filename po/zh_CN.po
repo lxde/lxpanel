@@ -2,7 +2,6 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # ideal <05281253@bjtu.edu.cn>, 2008.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.3.8.1\n"
@@ -1291,9 +1290,7 @@ msgstr "无法从“%s”中解析接口名称"
 msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
-msgstr ""
-"无法从“%s”中解析接口统计。prx_idx = %d；ptx_idx = %d；brx_idx = %d；btx_idx "
-"= %d；"
+msgstr "无法从“%s”中解析接口统计。prx_idx = %d；ptx_idx = %d；brx_idx = %d；btx_idx = %d；"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."

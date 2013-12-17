@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: lxpanel r839\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-27 10:10+0200\n"
-"PO-Revision-Date: 2013-08-27 09:48+0000\n"
+"PO-Revision-Date: 2013-08-27 09:54+0000\n"
 "Last-Translator: Julien <Julius22@laposte.net>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "Language: fr\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1377596909.0\n"
+"X-POOTLE-MTIME: 1377597255.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -321,9 +321,8 @@ msgid "None"
 msgstr "Aucun(e)"
 
 #: ../data/ui/panel-pref.glade.h:6
-#, fuzzy
 msgid "Err"
-msgstr "Erreur"
+msgstr "Err."
 
 # Truly more explained than english version
 #: ../data/ui/panel-pref.glade.h:7

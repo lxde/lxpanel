@@ -1,4 +1,4 @@
-# Serbian translation for LXPanel package
+# Serbian translation of LXPanel package
 # Copyright (C) The LXDE Project
 # This file is distributed under the same license as the LXPanel package.
 # Jay A. Fleming <tito.nehru.naser@gmail.com>, 2009.
@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: LXPanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-27 10:10+0200\n"
-"PO-Revision-Date: 2013-09-05 19:01+0100\n"
-"Last-Translator: Jay A.Fleming <tito.nehru.naser@gmail.com>\n"
+"PO-Revision-Date: 2013-11-24 05:44+0100\n"
+"Last-Translator: Jay Alexander Fleming <tito.nehru.naser@gmail.com>\n"
 "Language-Team: \n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
@@ -87,7 +87,7 @@ msgstr "ЛИкс-Панел"
 
 #: ../src/panel.c:716
 msgid "Copyright (C) 2008-2011"
-msgstr "2008-2011. Нека су права задржана."
+msgstr "Ауторска права (C) 2008-2011."
 
 #: ../src/panel.c:717
 msgid "Desktop panel for LXDE project"
@@ -112,7 +112,7 @@ msgstr "Створи нови панел"
 
 #: ../src/panel.c:791
 msgid "Delete This Panel"
-msgstr "Уклонии овај панел"
+msgstr "Уклони овај панел"
 
 #: ../src/panel.c:802
 msgid "About"
@@ -142,22 +142,22 @@ msgstr "Ширина:"
 #: ../src/panel.c:1081
 #: ../data/ui/panel-pref.glade.h:13
 msgid "Left"
-msgstr "Лево"
+msgstr "лево"
 
 #: ../src/panel.c:1082
 #: ../data/ui/panel-pref.glade.h:14
 msgid "Right"
-msgstr "Десно"
+msgstr "десно"
 
 #: ../src/panel.c:1088
 #: ../data/ui/panel-pref.glade.h:12
 msgid "Top"
-msgstr "Горе"
+msgstr "горе"
 
 #: ../src/panel.c:1089
 #: ../data/ui/panel-pref.glade.h:11
 msgid "Bottom"
-msgstr "Доле"
+msgstr "доле"
 
 #: ../src/panel.c:1501
 #, c-format
@@ -167,7 +167,7 @@ msgstr "lxpanel %s - олакшани ГТК2+ панел за јуникс ра
 #: ../src/panel.c:1502
 #, c-format
 msgid "Command line options:\n"
-msgstr "Опције командне линије:\n"
+msgstr "Опције линије наредбе:\n"
 
 #: ../src/panel.c:1503
 #, c-format
@@ -214,12 +214,12 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"Посетите http://lxde.org/ за детаље.\n"
+"Више детаља о програму можете да пронађете на адреси http://lxde.org.\n"
 "\n"
 
 #: ../src/gtk-run.c:373
 msgid "Enter the command you want to execute:"
-msgstr "Унесите наредбу коју желите да покренете:"
+msgstr "Унесите наредбу коју желите да извршите:"
 
 #: ../data/ui/launchbar.glade.h:1
 #: ../src/plugins/launchbar.c:1039
@@ -348,19 +348,19 @@ msgstr "Подешавања панела"
 
 #: ../data/ui/panel-pref.glade.h:15
 msgid "Edge:"
-msgstr "Ивица:"
+msgstr "Уз ивицу:"
 
 #: ../data/ui/panel-pref.glade.h:16
 msgid "Center"
-msgstr "Средина"
+msgstr "на средину"
 
 #: ../data/ui/panel-pref.glade.h:17
 msgid "Alignment:"
-msgstr "Поравнање:"
+msgstr "Равнање:"
 
 #: ../data/ui/panel-pref.glade.h:18
 msgid "Margin:"
-msgstr "Ивица:"
+msgstr "Маргина:"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "<b>Position</b>"
@@ -814,7 +814,7 @@ msgstr ""
 
 #: ../src/plugins/dirmenu.c:246
 msgid "Open in _Terminal"
-msgstr "Отвори у _Терминалу"
+msgstr "Отвори у _терминалу"
 
 #: ../src/plugins/dirmenu.c:411
 msgid "Directory"
