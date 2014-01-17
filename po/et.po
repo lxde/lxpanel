@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-27 10:10+0200\n"
-"PO-Revision-Date: 2013-12-20 10:27+0000\n"
+"PO-Revision-Date: 2014-01-17 08:52+0000\n"
 "Last-Translator: mahfiaz <mahfiaz@gmail.com>\n"
 "Language-Team: Gnome Estonian translation team <gnome-et@linux.ee>\n"
 "Language: et\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1387535254.0\n"
+"X-POOTLE-MTIME: 1389948778.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -105,7 +105,7 @@ msgstr "Eemalda \"%s\" paneelilt"
 
 #: ../src/panel.c:774
 msgid "Panel Settings"
-msgstr "Paneeli sätted"
+msgstr "Paneeli seaded"
 
 #: ../src/panel.c:780
 msgid "Create New Panel"
@@ -306,12 +306,12 @@ msgstr "Dünaamiline"
 
 #: ../data/ui/panel-pref.glade.h:2
 msgid "Pixels"
-msgstr "Pikslit"
+msgstr "pikslit"
 
 #: ../data/ui/panel-pref.glade.h:4
 #, no-c-format
 msgid "% Percent"
-msgstr "% Protsenti"
+msgstr "% protsenti"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "None"
@@ -351,7 +351,7 @@ msgstr "Joondus:"
 
 #: ../data/ui/panel-pref.glade.h:18
 msgid "Margin:"
-msgstr "Ääris:"
+msgstr "Veeris:"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "<b>Position</b>"
@@ -367,7 +367,7 @@ msgstr "<b>Suurus</b>"
 
 #: ../data/ui/panel-pref.glade.h:24
 msgid "Geometry"
-msgstr "Geomeetriline"
+msgstr "Geomeetria"
 
 #: ../data/ui/panel-pref.glade.h:25
 msgid "System theme"
@@ -610,7 +610,7 @@ msgstr "Klõpsamise tegevus (vaikimisi: kuvatakse kalender)"
 
 #: ../src/plugins/dclock.c:441
 msgid "Tooltip only"
-msgstr "Ainult kohtvihjed"
+msgstr "Ainult kohtspikker"
 
 #: ../src/plugins/dclock.c:442
 msgid "Center text"
@@ -1024,12 +1024,12 @@ msgstr "Tundmatu"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:116
 msgid "Connection Properties"
-msgstr "Ühenduse sätted"
+msgstr "Ühenduse omadused"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:122
 #, c-format
 msgid "Connection Properties: %s"
-msgstr "Ühenduse sätted: %s"
+msgstr "Ühenduse omadused: %s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:135
 #, c-format
@@ -1079,7 +1079,7 @@ msgstr "Salve suund."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:859
 msgid "Tooltips Enabled"
-msgstr "Kohtvihjed lubatud"
+msgstr "Kohtspikrid lubatud"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:860
 msgid "Whether or not the icon's tooltips are enabled."
@@ -1498,7 +1498,7 @@ msgstr "Tegevus klõpsamisel (vaikimisi: lxtask)"
 
 #: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"
-msgstr "Ressursside kuvad"
+msgstr "Ressursside kuva"
 
 #: ../src/plugins/monitors/monitors.c:810
 msgid "Display monitors (CPU, RAM)"
