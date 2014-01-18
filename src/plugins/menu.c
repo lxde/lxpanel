@@ -198,8 +198,16 @@ menu_pos(GtkMenu *menu, gint *x, gint *y, gboolean *push_in, GtkWidget *widget)
 
 static void on_menu_item( GtkMenuItem* mi, MenuCacheItem* item )
 {
-    lxpanel_launch_app( menu_cache_app_get_exec(MENU_CACHE_APP(item)),
-            NULL, menu_cache_app_get_use_terminal(MENU_CACHE_APP(item)));
+    char * exec;
+    /* handle %c, %i field codes */
+    exec = translate_exec_to_cmd(
+            menu_cache_app_get_exec(MENU_CACHE_APP(item)),
+            menu_cache_item_get_icon(item),
+            menu_cache_item_get_name(item),
+            NULL );
+    lxpanel_launch_app(exec, NULL,
+            menu_cache_app_get_use_terminal(MENU_CACHE_APP(item)));
+    g_free(exec);
 }
 
 /* load icon when mapping the menu item to speed up */
