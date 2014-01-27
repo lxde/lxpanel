@@ -138,6 +138,9 @@ static gchar* make_tooltip(lx_battery* lx_b, gboolean isCharging)
     gchar * indent = "  ";
     battery *b = lx_b->b;
 
+    if (b == NULL)
+	return NULL;
+
     if (isCharging) {
 	int hours = lx_b->b->seconds / 3600;
 	int left_seconds = lx_b->b->seconds - 3600 * hours;
@@ -195,6 +198,8 @@ static gchar* make_tooltip(lx_battery* lx_b, gboolean isCharging)
 
 static void set_tooltip_text(lx_battery* lx_b)
 {
+    if (lx_b->b == NULL)
+	return;
     gboolean isCharging = battery_is_charging(lx_b->b);
     gchar *tooltip = make_tooltip(lx_b, isCharging);
     gtk_widget_set_tooltip_text(lx_b->drawingArea, tooltip);
@@ -310,7 +315,8 @@ static int update_timout(lx_battery *lx_b) {
     lx_b->info_elapsed_time++;
 
     /* check the  batteries every 3 seconds */
-    battery_update( lx_b->b );
+    if (lx_b->b != NULL)
+	battery_update( lx_b->b );
 
     update_display( lx_b, TRUE );
 
@@ -396,10 +402,6 @@ constructor(Plugin *p, char **fp)
 
     /* get available battery */
     lx_b->b = battery_get ();
-    
-    /* no battery available */
-    if ( lx_b->b == NULL )
-	goto error;
     
     p->pwid = gtk_event_box_new();
     GTK_WIDGET_SET_FLAGS( p->pwid, GTK_NO_WINDOW );
@@ -535,6 +537,9 @@ destructor(Plugin *p)
     ENTER;
 
     lx_battery *b = (lx_battery *) p->priv;
+
+    if (b->b != NULL)
+	battery_free(b->b);
 
     if (b->pixmap)
         cairo_surface_destroy(b->pixmap);

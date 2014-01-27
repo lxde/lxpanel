@@ -35,7 +35,7 @@
 typedef struct battery {
     int battery_num;
     /* path to battery dir */
-    const gchar *path;			
+    gchar *path;
     /* sysfs file contents */
     int charge_now;
     int energy_now;
