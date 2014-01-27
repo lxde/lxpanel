@@ -1361,8 +1361,25 @@ GdkPixbuf * lxpanel_load_icon(const char * name, int width, int height, gboolean
     {
         if (g_path_is_absolute(name))
         {
-            /* Absolute path. */
-            icon = gdk_pixbuf_new_from_file_at_scale(name, width, height, TRUE, NULL);
+            /* Absolute path.
+             * To prevent the ugly icon, try to search icon from icon theme first,
+             * instead of loading icon from pixmaps dir */
+            GtkIconTheme * theme = gtk_icon_theme_get_default();
+            char *sub_suffix = strrchr(name, '.');
+            char *sub_deli = strrchr(name, '/');
+            int sub_len = sub_suffix - sub_deli - 1;
+            if (sub_len > 0) {
+                char *icon_name = g_strndup(&sub_deli[1], sub_len);
+                //LOG(LOG_ALL, "lxpanel: icon_name:%s\n", icon_name);
+                icon = load_icon_from_theme(theme, icon_name, width, height);
+                g_free(icon_name);
+            }
+
+            if (icon == NULL) {
+                /* Still not found... */
+                //LOG(LOG_ALL, "lxpanel: icon from theme not found\n");
+                icon = gdk_pixbuf_new_from_file_at_scale(name, width, height, TRUE, NULL);
+            }
         }
         else
         {
@@ -1374,21 +1391,27 @@ GdkPixbuf * lxpanel_load_icon(const char * name, int width, int height, gboolean
               || (g_ascii_strcasecmp(&suffix[1], "svg") == 0)
               || (g_ascii_strcasecmp(&suffix[1], "xpm") == 0)))
             {
-                /* The file extension indicates it could be in the system pixmap directories. */
-                icon = load_icon_file(name, width, height);
+                /* The file extension indicates it could be in the system pixmap directories.
+                 * But in order to keep the icons in line with the icon theme, it's better to check
+                 * the icon in the current icon theme. Remove the suffix first. */
+                char * icon_name = g_strndup(name, suffix - name);
+                //LOG(LOG_ALL, "lxpanel: icon_name.suffix:%s.%s\n", icon_name, suffix);
+                icon = load_icon_from_theme(theme, icon_name, width, height);
+                g_free(icon_name);
+
+                /* Check the icon can be found in icon theme */
                 if (icon == NULL)
                 {
-                    /* Not found.
-                     * Let's remove the suffix, and see if this name can match an icon in the current icon theme. */
-                    char * icon_name = g_strndup(name, suffix - name);
-                    icon = load_icon_from_theme(theme, icon_name, width, height);
-                    g_free(icon_name);
+                    /* Not found in icon theme, try to load from file directly */
+                    //LOG(LOG_ALL, "lxpanel: icon from theme not found\n");
+                    icon = load_icon_file(name, width, height);
                 }
             }
             else
             {
-                 /* No file extension.  It could be an icon name in the icon theme. */
-                 icon = load_icon_from_theme(theme, name, width, height);
+                /* No file extension.  It could be an icon name in the icon theme. */
+                //LOG(LOG_ALL, "lxpanel: icon has name:%s\n", name);
+                icon = load_icon_from_theme(theme, name, width, height);
             }
         }
     }
@@ -1396,6 +1419,7 @@ GdkPixbuf * lxpanel_load_icon(const char * name, int width, int height, gboolean
     /* Fall back to generic icons. */
     if ((icon == NULL) && (use_fallback))
     {
+        LOG(LOG_ALL, "lxpanel: using fallback icon for '%s'\n", name);
         GtkIconTheme * theme = gtk_icon_theme_get_default();
         icon = load_icon_from_theme(theme, "application-x-executable", width, height);
         if (icon == NULL)
