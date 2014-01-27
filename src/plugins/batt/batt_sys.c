@@ -285,6 +285,12 @@ battery *battery_get() {
     return b;
 }
 
+void battery_free(battery* bat)
+{
+    g_free(bat->path);
+    g_free(bat);
+}
+
 gboolean battery_is_charging( battery *b )
 {
     if (!b->state)
@@ -300,3 +306,4 @@ gint battery_get_remaining( battery *b )
 }
 
 
+/* vim: set sw=4 et sts=4 : */

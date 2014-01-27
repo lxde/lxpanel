@@ -250,7 +250,8 @@ static int update_timout(lx_battery *lx_b) {
     lx_b->info_elapsed_time++;
 
     /* check the  batteries every 3 seconds */
-    battery_update( lx_b->b );
+    if (lx_b->b != NULL)
+	battery_update( lx_b->b );
 
     update_display( lx_b, TRUE );
 
@@ -336,10 +337,6 @@ constructor(Plugin *p, char **fp)
 
     /* get available battery */
     lx_b->b = battery_get ();
-    
-    /* no battery available */
-    if ( lx_b->b == NULL )
-	goto error;
     
     p->pwid = gtk_event_box_new();
     GTK_WIDGET_SET_FLAGS( p->pwid, GTK_NO_WINDOW );
@@ -471,6 +468,9 @@ destructor(Plugin *p)
     ENTER;
 
     lx_battery *b = (lx_battery *) p->priv;
+
+    if (b->b != NULL)
+	battery_free(b->b);
 
     if (b->pixmap)
         cairo_surface_destroy(b->pixmap);
