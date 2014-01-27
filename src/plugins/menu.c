@@ -218,7 +218,10 @@ static void on_menu_item_map(GtkWidget* mi, MenuCacheItem* item)
             int w, h;
             /* FIXME: this is inefficient */
             gtk_icon_size_lookup(GTK_ICON_SIZE_MENU, &w, &h);
+            //LOG(LOG_ALL, "menu: size lookup -- w:%d, h:%d\n", w, h);
             item = g_object_get_qdata(G_OBJECT(mi), SYS_MENU_ITEM_ID);
+            /* There may be some stupid icon name... */
+            //LOG(LOG_ALL, "menu: item name:%s\n", menu_cache_item_get_name(item));
             icon = lxpanel_load_icon(menu_cache_item_get_icon(item), w, h, TRUE);
             if (icon)
             {
