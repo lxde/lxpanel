@@ -30,6 +30,7 @@
 #include <locale.h>
 #include <string.h>
 #include <gdk/gdkx.h>
+#include <libfm/fm-gtk.h>
 
 #include "plugin.h"
 #include "panel.h"
@@ -1658,6 +1659,7 @@ int main(int argc, char *argv[], char *env[])
 	gdk_threads_enter();
 
     gtk_init(&argc, &argv);
+    fm_gtk_init(NULL);
 
 #ifdef ENABLE_NLS
     bindtextdomain ( GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR );
@@ -1756,6 +1758,7 @@ restart:
         goto restart;
 
     gdk_threads_leave();
+    fm_gtk_finalize();
 
     g_object_unref(win_grp);
     g_object_unref(fbev);

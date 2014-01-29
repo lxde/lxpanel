@@ -34,9 +34,9 @@ esac],[])
 
 if test "x$enable_gtk3" = "xyes" ; then
   CFLAGS="$CFLAGS -DENABLE_GTK3"
-  pkg_modules="$pkg_modules gtk+-3.0"
+  pkg_modules="$pkg_modules gtk+-3.0 libfm-gtk3 >= 1.2.0"
 else
-  pkg_modules="$pkg_modules gtk+-2.0 >= 2.16.0"
+  pkg_modules="$pkg_modules gtk+-2.0 >= 2.16.0 libfm-gtk >= 1.2.0"
 fi
 
 pkg_modules="$pkg_modules \
@@ -44,7 +44,6 @@ pkg_modules="$pkg_modules \
              gthread-2.0 \
              gmodule-2.0 \
              libmenu-cache"
-#             libstartup-notification-1.0"
 PKG_CHECK_MODULES(PACKAGE, [$pkg_modules])
 AC_SUBST(PACKAGE_CFLAGS)
 AC_SUBST(PACKAGE_LIBS)
