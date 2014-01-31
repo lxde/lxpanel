@@ -138,6 +138,9 @@ static gchar* make_tooltip(lx_battery* lx_b, gboolean isCharging)
     gchar * indent = "  ";
     battery *b = lx_b->b;
 
+    if (b == NULL)
+	return NULL;
+
     if (isCharging) {
 	int hours = lx_b->b->seconds / 3600;
 	int left_seconds = lx_b->b->seconds - 3600 * hours;
@@ -195,6 +198,8 @@ static gchar* make_tooltip(lx_battery* lx_b, gboolean isCharging)
 
 static void set_tooltip_text(lx_battery* lx_b)
 {
+    if (lx_b->b == NULL)
+	return;
     gboolean isCharging = battery_is_charging(lx_b->b);
     gchar *tooltip = make_tooltip(lx_b, isCharging);
     gtk_widget_set_tooltip_text(lx_b->drawingArea, tooltip);
@@ -216,18 +221,18 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
     cr = cairo_create(lx_b->pixmap);
     cairo_set_line_width (cr, 1.0);
 
-    /* no battery is found */
-    if( b == NULL ) 
-    {
-	gtk_widget_set_tooltip_text( lx_b->drawingArea, _("No batteries found") );
-	return;
-    }
-    
     /* draw background */
     gdk_cairo_set_source_color(cr, &lx_b->background);
     cairo_rectangle(cr, 0, 0, lx_b->width, lx_b->height);
     cairo_fill(cr);
 
+    /* no battery is found */
+    if( b == NULL ) 
+    {
+	gtk_widget_set_tooltip_text( lx_b->drawingArea, _("No batteries found") );
+	goto update_done;
+    }
+    
     /* fixme: only one battery supported */
 
     rate = lx_b->b->current_now;
@@ -296,6 +301,8 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
         cairo_fill(cr);
 
     }
+
+update_done:
     if( repaint )
 	gtk_widget_queue_draw( lx_b->drawingArea );
 
@@ -305,12 +312,19 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
 
 /* This callback is called every 3 seconds */
 static int update_timout(lx_battery *lx_b) {
+    battery *bat;
     GDK_THREADS_ENTER();
     lx_b->state_elapsed_time++;
     lx_b->info_elapsed_time++;
 
-    /* check the  batteries every 3 seconds */
-    battery_update( lx_b->b );
+    bat = battery_update( lx_b->b );
+    if (bat == NULL)
+    {
+	battery_free(lx_b->b);
+
+	/* maybe in the mean time a battery has been inserted. */
+	lx_b->b = battery_get();
+    }
 
     update_display( lx_b, TRUE );
 
@@ -396,10 +410,6 @@ constructor(Plugin *p, char **fp)
 
     /* get available battery */
     lx_b->b = battery_get ();
-    
-    /* no battery available */
-    if ( lx_b->b == NULL )
-	goto error;
     
     p->pwid = gtk_event_box_new();
     GTK_WIDGET_SET_FLAGS( p->pwid, GTK_NO_WINDOW );
@@ -535,6 +545,9 @@ destructor(Plugin *p)
     ENTER;
 
     lx_battery *b = (lx_battery *) p->priv;
+
+    if (b->b != NULL)
+	battery_free(b->b);
 
     if (b->pixmap)
         cairo_surface_destroy(b->pixmap);

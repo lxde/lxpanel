@@ -143,9 +143,33 @@ void battery_print(battery *b, int show_capacity)
 }
 
 
-void battery_update(battery *b)
+static gboolean battery_inserted(gchar* path)
+{
+    if (path == NULL)
+        return FALSE;
+
+    GString *dirname = g_string_new(ACPI_PATH_SYS_POWER_SUPPY);
+    GDir *dir;
+
+    g_string_append_printf (dirname, "/%s/", path);
+    dir = g_dir_open(dirname->str, 0, NULL);
+    if (dir)
+        g_dir_close(dir);
+    g_string_free(dirname, TRUE);
+
+    return dir ? TRUE : FALSE;
+}
+
+
+battery* battery_update(battery *b)
 {
     gchar *gctmp;
+
+    if (b == NULL)
+        return NULL;
+
+    if (!battery_inserted(b->path))
+        return NULL;
 
     /* read from sysfs */
     b->charge_now = get_gint_from_infofile(b, "charge_now");
@@ -255,6 +279,8 @@ void battery_update(battery *b)
 	b->poststr = NULL;
 	b->seconds = -1;
     }
+
+    return b;
 }
 
 
@@ -285,6 +311,14 @@ battery *battery_get() {
     return b;
 }
 
+void battery_free(battery* bat)
+{
+    if (bat) {
+        g_free(bat->path);
+        g_free(bat);
+    }
+}
+
 gboolean battery_is_charging( battery *b )
 {
     if (!b->state)
@@ -300,3 +334,4 @@ gint battery_get_remaining( battery *b )
 }
 
 
+/* vim: set sw=4 et sts=4 : */

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-27 10:10+0200\n"
-"PO-Revision-Date: 2013-11-06 21:35+0000\n"
+"PO-Revision-Date: 2014-01-12 02:30+0000\n"
 "Last-Translator: vgezer <volkangezer@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1383773741.0\n"
+"X-POOTLE-MTIME: 1389493826.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -404,7 +404,7 @@ msgstr "Boyut"
 
 #: ../data/ui/panel-pref.glade.h:32
 msgid "<b>Font</b>"
-msgstr "<b>Yazıtipi</b>"
+msgstr "<b>Yazı Tipi</b>"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "Appearance"
@@ -481,7 +481,7 @@ msgstr "CPU kullanımını göster"
 
 #: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:440
 msgid "Bold font"
-msgstr "Koyu yazıtipi"
+msgstr "Kalın yazı tipi"
 
 #: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
@@ -613,7 +613,7 @@ msgstr "Biçim kodları: man 3 strftime; \\%n satır sonu için"
 
 #: ../src/plugins/dclock.c:439
 msgid "Action when clicked (default: display calendar)"
-msgstr "Tıklanca gerçekleştirilecek eylem (öntanımlı: takvimi göster)"
+msgstr "Tıklandığında gerçekleştirilecek eylem (öntanımlı: takvimi göster)"
 
 #: ../src/plugins/dclock.c:441
 msgid "Tooltip only"
@@ -761,7 +761,7 @@ msgstr "Pencere Ayarları Başına"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1332
 msgid "_Remember layout for each window"
-msgstr "_Herbir pencere için yerleşimi anımsa"
+msgstr "_Her bir pencere için yerleşimi anımsa"
 
 #: ../src/plugins/xkb/xkb-plugin.c:1341
 msgid "Show Layout as"
@@ -1508,7 +1508,7 @@ msgstr "RAM rengi"
 
 #: ../src/plugins/monitors/monitors.c:715
 msgid "Action when clicked (default: lxtask)"
-msgstr "Tıklanca gerçekleştirilecek eylem (varsayılan: lxtask)"
+msgstr "Tıklanıldığında gerçekleştirilecek eylem (öntanımlı: lxtask)"
 
 #: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"

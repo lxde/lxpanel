@@ -2,13 +2,12 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-27 10:10+0200\n"
-"PO-Revision-Date: 2013-10-16 05:59+0000\n"
+"PO-Revision-Date: 2014-01-31 06:42+0000\n"
 "Last-Translator: wwycheuk <wwycheuk@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: zh_TW\n"
@@ -17,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1381903183.0\n"
+"X-POOTLE-MTIME: 1391150537.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -78,7 +77,12 @@ msgstr "確認"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:693
 msgid "translator-credits"
-msgstr "洪任諭 (PCMan) <pcman.tw@gmail.com>"
+msgstr ""
+"洪任諭 (PCMan) <pcman.tw@gmail.com>\n"
+"Walter Cheuk <wwycheuk@gmail.com>, 2012-2014.\n"
+"\n"
+"如對翻譯有意見，請到\n"
+"http://groups.google.com.tw/group/chinese-l10n?hl=zh-TW討論"
 
 #: ../src/panel.c:698
 msgid "LXPanel"
@@ -304,7 +308,7 @@ msgstr "動態"
 
 #: ../data/ui/panel-pref.glade.h:2
 msgid "Pixels"
-msgstr "像素 (pixels)"
+msgstr "像素"
 
 #: ../data/ui/panel-pref.glade.h:4
 #, no-c-format
@@ -377,7 +381,7 @@ msgstr "單一色彩（含透明度）"
 
 #: ../data/ui/panel-pref.glade.h:27 ../src/plugins/xkb/xkb-plugin.c:1401
 msgid "Image"
-msgstr "影像"
+msgstr "圖片"
 
 #: ../data/ui/panel-pref.glade.h:28
 msgid "Select an image file"
@@ -446,7 +450,7 @@ msgstr "最小化時的大小"
 
 #: ../data/ui/panel-pref.glade.h:44
 msgid "pixels"
-msgstr "像素 (pixels)"
+msgstr "像素"
 
 #: ../data/ui/panel-pref.glade.h:45
 msgid "<b>Automatic hiding</b>"
@@ -490,7 +494,7 @@ msgstr "顯示工作區編號，由 cmeury@users.sf.net 撰寫"
 
 #: ../src/plugins/image.c:161
 msgid "Display Image and Tooltip"
-msgstr "顯示圖示及工具提示"
+msgstr "顯示圖片及工具提示"
 
 #: ../src/plugins/launchbar.c:1041
 msgid "Bar with buttons to launch application"
@@ -596,9 +600,9 @@ msgid "Tooltip Format"
 msgstr "工具提示格式"
 
 #: ../src/plugins/dclock.c:438
-#, fuzzy, c-format
+#, c-format
 msgid "Format codes: man 3 strftime; \\%n for line break"
-msgstr "格式字串說明：man 3 strftime; \\n 可以用來表示換行"
+msgstr "格式字串說明：man 3 strftime; \\%n 用來表示換行"
 
 #: ../src/plugins/dclock.c:439
 msgid "Action when clicked (default: display calendar)"
@@ -1290,8 +1294,7 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"無法從 '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d; 解析介面"
-"卡統計資料"
+"無法從 '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d; 解析介面卡統計資料"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:314
 msgid "Could not parse /proc/net/wireless. Unknown format."

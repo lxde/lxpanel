@@ -3,14 +3,13 @@
 # Copyright (C) 2008 LXDE Desktop
 # This file is distributed under the same license as the lxpanel package.
 # Mattias Põldaru <mahfiaz gmail com>, 2008.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-27 10:10+0200\n"
-"PO-Revision-Date: 2013-08-27 11:44+0000\n"
-"Last-Translator: Anari <anari.jalakas@gmail.com>\n"
+"PO-Revision-Date: 2014-01-17 08:52+0000\n"
+"Last-Translator: mahfiaz <mahfiaz@gmail.com>\n"
 "Language-Team: Gnome Estonian translation team <gnome-et@linux.ee>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1377603845.0\n"
+"X-POOTLE-MTIME: 1389948778.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -70,7 +69,7 @@ msgid ""
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
 "Kas see paneel tõesti kustutada?\n"
-"<b>Hoiatus: Seda pole võimalik taastada.</b>"
+"<b>Hoiatus: seda pole võimalik taastada.</b>"
 
 #: ../src/panel.c:660
 msgid "Confirm"
@@ -106,7 +105,7 @@ msgstr "Eemalda \"%s\" paneelilt"
 
 #: ../src/panel.c:774
 msgid "Panel Settings"
-msgstr "Paneeli sätted"
+msgstr "Paneeli seaded"
 
 #: ../src/panel.c:780
 msgid "Create New Panel"
@@ -176,8 +175,7 @@ msgstr " --version   -- näitab versiooninumbri ja väljub\n"
 #: ../src/panel.c:1505
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <number> -- määrab logimise tasemeks 0-5. 0 = puudub, 5 = jutukas\n"
+msgstr " --log <number> -- määrab logimise tasemeks 0-5. 0 = puudub, 5 = jutukas\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1507
@@ -308,12 +306,12 @@ msgstr "Dünaamiline"
 
 #: ../data/ui/panel-pref.glade.h:2
 msgid "Pixels"
-msgstr "Pikslit"
+msgstr "pikslit"
 
 #: ../data/ui/panel-pref.glade.h:4
 #, no-c-format
 msgid "% Percent"
-msgstr "% Protsenti"
+msgstr "% protsenti"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "None"
@@ -353,7 +351,7 @@ msgstr "Joondus:"
 
 #: ../data/ui/panel-pref.glade.h:18
 msgid "Margin:"
-msgstr "Ääris:"
+msgstr "Veeris:"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "<b>Position</b>"
@@ -369,7 +367,7 @@ msgstr "<b>Suurus</b>"
 
 #: ../data/ui/panel-pref.glade.h:24
 msgid "Geometry"
-msgstr "Geomeetriline"
+msgstr "Geomeetria"
 
 #: ../data/ui/panel-pref.glade.h:25
 msgid "System theme"
@@ -508,7 +506,7 @@ msgstr "_Tõsta"
 #. Add Restore menu item.
 #: ../src/plugins/taskbar.c:1727
 msgid "R_estore"
-msgstr "_Taastamine"
+msgstr "_Taasta"
 
 #. Add Maximize menu item.
 #: ../src/plugins/taskbar.c:1732
@@ -571,7 +569,7 @@ msgstr "Vilgutatakse, kui aken nõuab tähelepanu"
 
 #: ../src/plugins/taskbar.c:2000
 msgid "Combine multiple application windows into a single button"
-msgstr "Mitme rakenduse akna kombineerimine ühe nupu alla"
+msgstr "Mitme aknaga rakenduse kombineerimine ühe nupu alla"
 
 #: ../src/plugins/taskbar.c:2001
 msgid "Maximum width of task button"
@@ -612,7 +610,7 @@ msgstr "Klõpsamise tegevus (vaikimisi: kuvatakse kalender)"
 
 #: ../src/plugins/dclock.c:441
 msgid "Tooltip only"
-msgstr "Ainult kohtvihjed"
+msgstr "Ainult kohtspikker"
 
 #: ../src/plugins/dclock.c:442
 msgid "Center text"
@@ -685,7 +683,7 @@ msgstr "Selle valiku toimimiseks on vajalik uus seanss"
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:604
 msgid "Select Keyboard Model"
-msgstr "Vali klaviatuur mudel"
+msgstr "Vali klaviatuuri mudel"
 
 #: ../src/plugins/xkb/xkb-plugin.c:627
 msgid "Model"
@@ -888,7 +886,7 @@ msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
 msgstr ""
-"Viga, heli seadistamiseks on vaja paigaldada heli juhtimise programm "
+"Viga, heli seadistamiseks tuleb paigaldada heli juhtimise programm "
 "(pavucontol, alsamixer ...)"
 
 #: ../src/plugins/volumealsa/volumealsa.c:667
@@ -1013,7 +1011,7 @@ msgstr "Seadistamise tööriist"
 
 #: ../src/plugins/netstatus/netstatus.c:197
 msgid "Network Status Monitor"
-msgstr "Võrgu olekumonitor"
+msgstr "Võrgu oleku monitor"
 
 #: ../src/plugins/netstatus/netstatus.c:199
 msgid "Monitor network status"
@@ -1026,12 +1024,12 @@ msgstr "Tundmatu"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:116
 msgid "Connection Properties"
-msgstr "Ühenduse sätted"
+msgstr "Ühenduse omadused"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:122
 #, c-format
 msgid "Connection Properties: %s"
-msgstr "Ühenduse sätted: %s"
+msgstr "Ühenduse omadused: %s"
 
 #: ../src/plugins/netstatus/netstatus-dialog.c:135
 #, c-format
@@ -1081,7 +1079,7 @@ msgstr "Salve suund."
 
 #: ../src/plugins/netstatus/netstatus-icon.c:859
 msgid "Tooltips Enabled"
-msgstr "Kohtvihjed lubatud"
+msgstr "Kohtspikrid lubatud"
 
 #: ../src/plugins/netstatus/netstatus-icon.c:860
 msgid "Whether or not the icon's tooltips are enabled."
@@ -1169,7 +1167,7 @@ msgstr "AMPR NET/ROM"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:873
 msgid "Ethernet"
-msgstr "Etherne"
+msgstr "Ethernet"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:879
 msgid "AMPR AX.25"
@@ -1242,7 +1240,7 @@ msgstr "Frame Relay Access Device"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:960
 msgid "Local Loopback"
-msgstr "Lokaalne Loopback"
+msgstr "Kohalik loopback"
 
 #: ../src/plugins/netstatus/netstatus-iface.c:966
 msgid "Fiber Distributed Data Interface"
@@ -1350,7 +1348,7 @@ msgstr "Vastuvõtmine"
 
 #: ../src/plugins/netstatus/netstatus-util.c:164
 msgid "Sending/Receiving"
-msgstr "Saatmine/Vastuvõtt"
+msgstr "Saatmine/vastuvõtt"
 
 #: ../src/plugins/batt/batt.c:133
 msgid "No batteries found"
@@ -1500,7 +1498,7 @@ msgstr "Tegevus klõpsamisel (vaikimisi: lxtask)"
 
 #: ../src/plugins/monitors/monitors.c:808
 msgid "Resource monitors"
-msgstr "Ressursside kuvad"
+msgstr "Ressursside kuva"
 
 #: ../src/plugins/monitors/monitors.c:810
 msgid "Display monitors (CPU, RAM)"
