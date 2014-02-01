@@ -23,7 +23,7 @@ MENU_SOURCES = gtk-run.c
 endif
 
 lxpanel_SOURCES = \
-	misc.c misc.h \
+	misc.c \
 	bg.c bg.h  \
 	configurator.c \
 	dbg.c dbg.h \
@@ -31,15 +31,21 @@ lxpanel_SOURCES = \
 	gtkbar.h gtkbar.c \
 	icon-grid.h icon-grid.c \
 	menu-policy.h menu-policy.c \
-	panel.c panel.h \
-	plugin.c plugin.h \
-	conf.c conf.h \
+	panel.c \
+	plugin.c \
+	private.h \
+	conf.c \
 	$(MENU_SOURCES)
+
+lxpanel_includedir = $(includedir)/lxpanel
+lxpanel_include_HEADERS = \
+	plugin.h \
+	panel.h \
+	misc.h \
+	conf.h
 
 if BUILD_PLUGIN_LOADER
 DYNAMIC_FLAGS = -export-dynamic
-lxpanel_includedir = $(includedir)/lxpanel
-lxpanel_include_HEADERS = $(top_srcdir)/include/lxpanel/plugin.h
 endif
 lxpanel_LDFLAGS = $(DYNAMIC_FLAGS)
 

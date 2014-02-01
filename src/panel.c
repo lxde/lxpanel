@@ -32,8 +32,7 @@
 #include <gdk/gdkx.h>
 #include <libfm/fm-gtk.h>
 
-#include "plugin.h"
-#include "panel.h"
+#include "private.h"
 #include "misc.h"
 #include "bg.h"
 

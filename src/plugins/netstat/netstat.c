@@ -36,7 +36,7 @@
 #include "wireless.h"
 #include "panel.h"
 #include "misc.h"
-#include "plugin.h"
+#include "private.h"
 #include "dbg.h"
 
 /* 1 second */

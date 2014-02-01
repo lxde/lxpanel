@@ -30,7 +30,7 @@
 #include <libfm/fm.h>
 
 #include "misc.h"
-#include "panel.h"
+#include "private.h"
 
 #include "dbg.h"
 

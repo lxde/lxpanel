@@ -21,8 +21,7 @@
 #include "config.h"
 #endif
 
-#include "plugin.h"
-#include "panel.h"
+#include "private.h"
 #include "misc.h"
 #include "bg.h"
 #include <stdlib.h>

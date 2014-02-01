@@ -48,7 +48,7 @@
 #include "batt_sys.h"
 #include "misc.h" /* used for the line struct */
 #include "panel.h" /* used to determine panel orientation */
-#include "plugin.h"
+#include "private.h"
 
 /* The last MAX_SAMPLES samples are averaged when charge rates are evaluated.
    This helps prevent spikes in the "time left" values the user sees. */

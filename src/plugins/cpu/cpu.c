@@ -28,7 +28,7 @@
 #include <stdlib.h>
 #include <glib/gi18n.h>
 
-#include "plugin.h"
+#include "private.h"
 #include "panel.h"
 #include "misc.h"
 

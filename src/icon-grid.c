@@ -21,8 +21,7 @@
 #include <string.h>
 
 #include "icon-grid.h"
-#include "panel.h"
-#include "plugin.h"
+#include "private.h"
 
 static gboolean icon_grid_placement(IconGrid * ig);
 static void icon_grid_geometry(IconGrid * ig, gboolean layout);

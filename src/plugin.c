@@ -20,7 +20,7 @@
 #include "config.h"
 #endif
 
-#include "plugin.h"
+#include "private.h"
 
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <gdk-pixbuf-xlib/gdk-pixbuf-xlib.h>

@@ -21,141 +21,6 @@
 
 #include <X11/Xlib.h>
 #include <gtk/gtk.h>
-#include <gdk/gdk.h>
-
-#include "config.h"
-
-#include "bg.h"
-#include "ev.h"
-
-enum { ALLIGN_NONE, ALLIGN_LEFT, ALLIGN_CENTER, ALLIGN_RIGHT  };
-enum { EDGE_NONE=0, EDGE_LEFT, EDGE_RIGHT, EDGE_TOP, EDGE_BOTTOM };
-enum { WIDTH_NONE, WIDTH_REQUEST, WIDTH_PIXEL, WIDTH_PERCENT };
-enum { HEIGHT_NONE, HEIGHT_PIXEL, HEIGHT_REQUEST };
-enum {
-    ORIENT_NONE = -1,
-    ORIENT_VERT = GTK_ORIENTATION_VERTICAL,
-    ORIENT_HORIZ = GTK_ORIENTATION_HORIZONTAL
-};
-enum { POS_NONE, POS_START, POS_END };
-
-#define PANEL_ICON_SIZE               24	/* Default size of panel icons */
-#define PANEL_HEIGHT_DEFAULT          26	/* Default height of horizontal panel */
-#define PANEL_WIDTH_DEFAULT           150	/* Default "height" of vertical panel */
-#define PANEL_HEIGHT_MAX              200	/* Maximum height of panel */
-#define PANEL_HEIGHT_MIN              16	/* Minimum height of panel */
-#define PANEL_ICON_HIGHLIGHT          0x202020	/* Constant to pass to icon loader */
-
-/* to check if we are in LXDE */
-extern gboolean is_in_lxde;
-
-/* Context of a panel on a given edge. */
-typedef struct _Panel {
-    char* name;
-    GtkWidget * topgwin;		/* Main panel window */
-    Window topxwin;			/* Main panel's X window   */
-    GdkDisplay * display;		/* Main panel's GdkDisplay */
-    GtkStyle * defstyle;
-    GtkIconTheme* icon_theme; /*Default icon theme*/
-
-    GtkWidget * box;			/* Top level widget */
-
-    GtkRequisition requisition;
-    GtkWidget *(*my_box_new) (gboolean, gint);
-    GtkWidget *(*my_separator_new) ();
-
-    FbBg *bg;
-    int alpha;
-    guint32 tintcolor;
-    guint32 fontcolor;
-    GdkColor gtintcolor;
-    GdkColor gfontcolor;
-
-    int ax, ay, aw, ah;  /* prefferd allocation of a panel */
-    int cx, cy, cw, ch;  /* current allocation (as reported by configure event) allocation */
-    int allign, edge, margin;
-    int orientation;
-    int widthtype, width;
-    int heighttype, height;
-    gint monitor;
-    gulong strut_size;			/* Values for WM_STRUT_PARTIAL */
-    gulong strut_lower;
-    gulong strut_upper;
-    int strut_edge;
-
-    guint config_changed : 1;
-    guint self_destroy : 1;
-    guint setdocktype : 1;
-    guint setstrut : 1;
-    guint round_corners : 1;
-    guint usefontcolor : 1;
-    guint usefontsize : 1;
-    guint fontsize;    
-    guint transparent : 1;
-    guint background : 1;
-    guint spacing;
-
-    guint autohide : 1;
-    guint visible : 1;
-    int height_when_hidden;
-    guint hide_timeout;
-    int icon_size;			/* Icon size */
-
-    int desknum;
-    int curdesk;
-    guint32 *workarea;
-    int wa_len;
-
-    char* background_file;
-
-    GList * plugins;			/* List of all plugins */
-    GSList * system_menus;		/* List of plugins having menus */
-
-    GtkWidget* plugin_pref_dialog;	/* Plugin preference dialog */
-    GtkWidget* pref_dialog;		/* preference dialog */
-    GtkWidget* margin_control;		/* Margin control in preference dialog */
-    GtkWidget* height_label;		/* Label of height control */
-    GtkWidget* width_label;		/* Label of width control */
-    GtkWidget* alignment_left_label;	/* Label of alignment: left control */
-    GtkWidget* alignment_right_label;	/* Label of alignment: right control */
-    GtkWidget* height_control;		/* Height control in preference dialog */
-    GtkWidget* width_control;		/* Width control in preference dialog */
-} Panel;
-
-/* Decoded value of WM_STATE property. */
-typedef struct {
-    unsigned int modal : 1;
-    unsigned int sticky : 1;
-    unsigned int maximized_vert : 1;
-    unsigned int maximized_horz : 1;
-    unsigned int shaded : 1;
-    unsigned int skip_taskbar : 1;
-    unsigned int skip_pager : 1;
-    unsigned int hidden : 1;
-    unsigned int fullscreen : 1;
-    unsigned int above : 1;
-    unsigned int below : 1;
-} NetWMState;
-
-/* Decoded value of _NET_WM_WINDOW_TYPE property. */
-typedef struct {
-    unsigned int desktop : 1;
-    unsigned int dock : 1;
-    unsigned int toolbar : 1;
-    unsigned int menu : 1;
-    unsigned int utility : 1;
-    unsigned int splash : 1;
-    unsigned int dialog : 1;
-    unsigned int normal : 1;
-} NetWMWindowType;
-
-typedef struct {
-    char *name;
-    char *disp_name;
-    void (*cmd)(void);
-} Command;
-
-extern Command commands[];
 
 extern gchar *cprofile;
 
@@ -218,9 +83,7 @@ extern int verbose;
 /* if current window manager is EWMH conforming. */
 extern gboolean is_ewmh_supported;
 
-extern FbEv *fbev;
-
-#define FBPANEL_WIN(win)  gdk_window_lookup(win)
+typedef struct _Panel Panel;
 
 extern void panel_apply_icon(GtkWindow *w);
 extern void panel_destroy(Panel *p);
@@ -240,5 +103,13 @@ extern int panel_handle_x_error(Display * d, XErrorEvent * ev);
 extern int panel_handle_x_error_swallow_BadWindow_BadDrawable(Display * d, XErrorEvent * ev);
 
 extern const char* lxpanel_get_file_manager();
+
+/* Accessors APIs for Panel* */
+extern gboolean panel_is_horisontal(Panel *panel);
+extern gint panel_get_icon_size(Panel *panel);
+extern gint panel_get_height(Panel *panel);
+extern GtkWindow *panel_get_toplevel_window(Panel *panel);
+extern GtkStyle *panel_get_defstyle(Panel *panel);
+extern GtkIconTheme *panel_get_icon_theme(Panel *panel);
 
 #endif

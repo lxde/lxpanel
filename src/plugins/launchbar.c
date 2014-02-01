@@ -38,7 +38,7 @@
 
 #include "panel.h"
 #include "misc.h"
-#include "plugin.h"
+#include "private.h"
 #include "icon-grid.h"
 #include "menu-policy.h"
 

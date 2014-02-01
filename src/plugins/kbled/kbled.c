@@ -32,7 +32,7 @@
 #include "dbg.h"
 #include "panel.h"
 #include "misc.h"
-#include "plugin.h"
+#include "private.h"
 #include "icon-grid.h"
 
 static const char * on_icons_theme[] = {

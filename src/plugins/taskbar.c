@@ -31,7 +31,7 @@
 
 #include "panel.h"
 #include "misc.h"
-#include "plugin.h"
+#include "private.h"
 #include "icon.xpm"
 #include "gtkbar.h"
 #include "icon-grid.h"

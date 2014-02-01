@@ -20,7 +20,7 @@
 #include <glib.h>
 
 #include "menu-policy.h"
-#include "panel.h"
+#include "private.h"
 
 guint32 visibility_flags = 0;
 
