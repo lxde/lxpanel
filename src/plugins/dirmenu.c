@@ -77,7 +77,7 @@ static void dirmenu_open_in_file_manager(Plugin * p, const char * path)
 /* Open a specified path in a terminal. */
 static void dirmenu_open_in_terminal(Plugin * p, const char * path)
 {
-    spawn_command_async(NULL, path, lxpanel_get_terminal());
+    fm_terminal_launch(path, NULL);
 }
 
 /* Handler for activate event on popup Open menu item. */

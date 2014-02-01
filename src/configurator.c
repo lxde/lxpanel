@@ -31,6 +31,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <glib/gi18n.h>
+#include <libfm/fm.h>
 
 #include "dbg.h"
 
@@ -59,7 +60,6 @@ Command commands[] = {
 };
 
 static char* file_manager_cmd = NULL;
-static char* terminal_cmd = NULL;
 static char* logout_cmd = NULL;
 
 extern GSList* all_panels;
@@ -77,6 +77,7 @@ static void update_opt_menu(GtkWidget *w, int ind);
 static void update_toggle_button(GtkWidget *w, gboolean n);
 static void modify_plugin( GtkTreeView* view );
 static gboolean on_entry_focus_out( GtkWidget* edit, GdkEventFocus *evt, gpointer user_data );
+static gboolean on_entry_focus_out2( GtkWidget* edit, GdkEventFocus *evt, gpointer user_data );
 
 static void
 response_event(GtkDialog *widget, gint arg1, Panel* panel )
@@ -1089,11 +1090,11 @@ void panel_configure( Panel* p, int sel_page )
                       &file_manager_cmd);
 
     w = (GtkWidget*)gtk_builder_get_object( builder, "term" );
-    if (terminal_cmd)
-        gtk_entry_set_text( GTK_ENTRY(w), terminal_cmd );
+    if (fm_config->terminal)
+        gtk_entry_set_text( GTK_ENTRY(w), fm_config->terminal );
     g_signal_connect( w, "focus-out-event",
-                      G_CALLBACK(on_entry_focus_out),
-                      &terminal_cmd);
+                      G_CALLBACK(on_entry_focus_out2),
+                      &fm_config->terminal);
 
     /* If we are under LXSession, setting logout command is not necessary. */
     w = (GtkWidget*)gtk_builder_get_object( builder, "logout" );
@@ -1252,6 +1253,20 @@ static gboolean on_entry_focus_out( GtkWidget* edit, GdkEventFocus *evt, gpointe
     new_val = gtk_entry_get_text(GTK_ENTRY(edit));
     *val = (new_val && *new_val) ? g_strdup( new_val ) : NULL;
     notify_apply_config( edit );
+    return FALSE;
+}
+
+/* the same but affects fm_config instead of panel config */
+static gboolean on_entry_focus_out2( GtkWidget* edit, GdkEventFocus *evt, gpointer user_data )
+{
+    char** val = (char**)user_data;
+    const char *new_val;
+    new_val = gtk_entry_get_text(GTK_ENTRY(edit));
+    if (g_strcmp0(*val, new_val) == 0) /* not changed */
+        return FALSE;
+    g_free( *val );
+    *val = (new_val && *new_val) ? g_strdup( new_val ) : NULL;
+    fm_config_save(fm_config, NULL);
     return FALSE;
 }
 
@@ -1468,7 +1483,6 @@ void load_global_config()
     if( loaded )
     {
         file_manager_cmd = g_key_file_get_string( kf, command_group, "FileManager", NULL );
-        terminal_cmd = g_key_file_get_string( kf, command_group, "Terminal", NULL );
         logout_cmd = g_key_file_get_string( kf, command_group, "Logout", NULL );
     }
     g_key_file_free( kf );
@@ -1483,8 +1497,6 @@ static void save_global_config()
         fprintf( f, "[%s]\n", command_group );
         if( file_manager_cmd )
             fprintf( f, "FileManager=%s\n", file_manager_cmd );
-        if( terminal_cmd )
-            fprintf( f, "Terminal=%s\n", terminal_cmd );
         if( logout_cmd )
             fprintf( f, "Logout=%s\n", logout_cmd );
         fclose( f );
@@ -1494,7 +1506,6 @@ static void save_global_config()
 void free_global_config()
 {
     g_free( file_manager_cmd );
-    g_free( terminal_cmd );
     g_free( logout_cmd );
 }
 
@@ -1503,12 +1514,5 @@ lxpanel_get_file_manager()
 {
     return file_manager_cmd ? file_manager_cmd : "pcmanfm %s";
 }
-
-extern const char*
-lxpanel_get_terminal()
-{
-    return terminal_cmd ? terminal_cmd : "lxterminal -e %s";
-}
-
 
 /* vim: set sw=4 et sts=4 : */

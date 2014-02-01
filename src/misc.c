@@ -27,6 +27,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdarg.h>
+#include <libfm/fm.h>
 
 #include "misc.h"
 #include "panel.h"
@@ -1602,6 +1603,7 @@ gboolean spawn_command_async(GtkWindow *parent_window, gchar const* workdir,
     return !err;
 }
 
+/* FIXME: this should be replaced with fm_launch_file_simple() */
 gboolean lxpanel_launch_app(const char* exec, GList* files, gboolean in_terminal, char const* in_workdir)
 {
     GError *error = NULL;
@@ -1613,7 +1615,7 @@ gboolean lxpanel_launch_app(const char* exec, GList* files, gboolean in_terminal
     {
 	char * escaped_cmd = g_shell_quote(cmd);
         char* term_cmd;
-        const char* term = lxpanel_get_terminal();
+        const char* term = fm_config->terminal ? fm_config->terminal : "lxterminal";
         if( strstr(term, "%s") )
             term_cmd = g_strdup_printf(term, escaped_cmd);
         else
