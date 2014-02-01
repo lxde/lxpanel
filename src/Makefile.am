@@ -33,6 +33,7 @@ lxpanel_SOURCES = \
 	menu-policy.h menu-policy.c \
 	panel.c panel.h \
 	plugin.c plugin.h \
+	conf.c conf.h \
 	$(MENU_SOURCES)
 
 if BUILD_PLUGIN_LOADER
