@@ -22,12 +22,16 @@
 
 #include "conf.h"
 
+#include <string.h>
+#include <stdlib.h>
+
 struct _config_setting_t
 {
     config_setting_t *next;
     config_setting_t *parent;
     PanelConfType type;
     PanelConfSaveHook hook;
+    gpointer hook_data;
     char *name;
     union {
         gint num; /* for integer or boolean */
@@ -115,6 +119,7 @@ PanelConf *config_new(void)
 {
     PanelConf *c = g_slice_new(PanelConf);
     c->root = _config_setting_t_new(NULL, -1, NULL, PANEL_CONF_TYPE_GROUP);
+    return c;
 }
 
 void config_destroy(PanelConf * config)
@@ -167,23 +172,26 @@ _skip_all:
                 *c++ = '\0';
             else
             {
-                g_warning("invalid scalar definition");
+                g_warning("config: invalid scalar definition");
                 goto _skip_all;
             }
-            while (*c && *c != ' ' && *c != '\t' && *c != '\n')
+            while (*c == ' ' || *c == '\t')
                 c++; /* skip spaces after '=' */
-            if (name == NULL || *c == '\0' || *c != '\n') /* invalid statement */
+            if (name == NULL || *c == '\0' || *c == '\n') /* invalid statement */
                 break;
             size = strtol(c, &end, 10);
-            while (*end && *end != ' ' && *end != '\t' && *end != '\n')
+            while (*end == ' ' || *end == '\t')
                 c++; /* skip trailing spaces */
             if (*end == '\0' || *end == '\n')
             {
                 s = config_setting_add(parent, name, PANEL_CONF_TYPE_INT);
                 if (s)
+                {
                     s->num = (int)size;
+                    /* g_debug("config loader: got new int %s: %d", name, s->num); */
+                }
                 else
-                    g_warning("duplicate setting '%s' conflicts, ignored", name);
+                    g_warning("config: duplicate setting '%s' conflicts, ignored", name);
             }
             else
             {
@@ -194,9 +202,10 @@ _skip_all:
                 {
                     g_free(s->str);
                     s->str = g_strndup(c, end - c);
+                    /* g_debug("config loader: got new string %s: %s", name, s->str); */
                 }
                 else
-                    g_warning("duplicate setting '%s' conflicts, ignored", name);
+                    g_warning("config: duplicate setting '%s' conflicts, ignored", name);
             }
             c = end;
             break;
@@ -213,10 +222,10 @@ _skip_all:
             if (s)
             {
                 parent = s;
-                g_debug("group '%s' added", name);
+                /* g_debug("config loader: group '%s' added", name); */
             }
             else
-                g_warning("invalid group '%s' in config file ignored", name);
+                g_warning("config: invalid group '%s' in config file ignored", name);
             name = NULL;
             break;
         case '}':
@@ -258,12 +267,12 @@ static void _config_write_setting(const config_setting_t *setting, GString *buf,
         {
             g_string_append(out, buf->str);
             g_string_append(out, setting->name);
-            g_string_append(out, "{\n");
+            g_string_append(out, " {\n");
         }
         else
             fprintf(f, "%s%s {\n", buf->str, setting->name);
         if (!out && setting->hook) /* plugin does not support settings */
-            setting->hook(setting, f);
+            setting->hook(setting, f, setting->hook_data);
         else
         {
             g_string_append(buf, SETTING_INDENT);
@@ -305,7 +314,8 @@ gboolean config_write_file(PanelConf * config, const char * filename)
     GString *str;
     if (f == NULL)
         return FALSE;
-    str = g_string_sized_new(128);
+    str = g_string_new("# lxpanel <profile> config file. Manually editing is not recommended.\n"
+                       "# Use preference dialog in lxpanel to adjust config when you can.\n\n");
     _config_write_setting(config->root, str, NULL, f);
     /* FIXME: handle errors */
     fclose(f);
@@ -330,25 +340,40 @@ config_setting_t * config_root_setting(const PanelConf * config)
     return config->root;
 }
 
-config_setting_t * config_setting_get_member(const config_setting_t * setting, const char * name)
+static inline config_setting_t * _config_setting_get_member(const config_setting_t * setting, const char * name)
 {
     config_setting_t *s;
-    g_return_val_if_fail(name && setting, FALSE);
-    g_return_val_if_fail(setting->type == PANEL_CONF_TYPE_GROUP, FALSE);
     for (s = setting->first; s; s = s->next)
-        if (strcmp(s->name, s) == 0)
+        if (g_strcmp0(s->name, name) == 0)
             break;
     return s;
+}
+
+config_setting_t * config_setting_get_member(const config_setting_t * setting, const char * name)
+{
+    g_return_val_if_fail(name && setting, NULL);
+    g_return_val_if_fail(setting->type == PANEL_CONF_TYPE_GROUP, NULL);
+    return _config_setting_get_member(setting, name);
 }
 
 config_setting_t * config_setting_get_elem(const config_setting_t * setting, unsigned int index)
 {
     config_setting_t *s;
-    g_return_val_if_fail(setting, FALSE);
-    g_return_val_if_fail(setting->type == PANEL_CONF_TYPE_LIST || setting->type == PANEL_CONF_TYPE_GROUP, FALSE);
+    g_return_val_if_fail(setting, NULL);
+    g_return_val_if_fail(setting->type == PANEL_CONF_TYPE_LIST || setting->type == PANEL_CONF_TYPE_GROUP, NULL);
     for (s = setting->first; s && index > 0; s = s->next)
         index--;
     return s;
+}
+
+const char * config_setting_get_name(const config_setting_t * setting)
+{
+    return setting->name;
+}
+
+config_setting_t * config_setting_get_parent(const config_setting_t * setting)
+{
+    return setting->parent;
 }
 
 int config_setting_get_int(const config_setting_t * setting)
@@ -361,7 +386,7 @@ int config_setting_get_int(const config_setting_t * setting)
 const char * config_setting_get_string(const config_setting_t * setting)
 {
     if (!setting || setting->type != PANEL_CONF_TYPE_STRING)
-        return 0;
+        return NULL;
     return setting->str;
 }
 
@@ -380,18 +405,10 @@ config_setting_t * config_setting_add(config_setting_t * parent, const char * na
     else if (name == NULL || name[0] == '\0')
         /* other types should be not anonymous */
         return NULL;
-    else if ((s = config_setting_get_member(parent, name)))
+    if (parent->type == PANEL_CONF_TYPE_GROUP &&
+        (s = _config_setting_get_member(parent, name)))
         return (s->type == type) ? s : NULL;
     return _config_setting_t_new(parent, -1, name, type);
-}
-
-config_setting_t * config_setting_insert_elem(config_setting_t * parent, int index, PanelConfType type)
-{
-    if (parent == NULL || parent->type != PANEL_CONF_TYPE_LIST)
-        return NULL;
-    if (type != PANEL_CONF_TYPE_GROUP) /* we support only list of groups now */
-        return NULL;
-    return _config_setting_t_new(parent, index, NULL, type);
 }
 
 gboolean config_setting_move_member(config_setting_t * setting, config_setting_t * parent, const char * name)
@@ -401,7 +418,7 @@ gboolean config_setting_move_member(config_setting_t * setting, config_setting_t
     g_return_val_if_fail(setting && setting->parent, FALSE);
     if (parent == NULL || name == NULL || parent->type != PANEL_CONF_TYPE_GROUP)
         return FALSE;
-    s = config_setting_get_member(parent, name);
+    s = _config_setting_get_member(parent, name);
     if (s) /* we cannot rename/move to this name, it exists already */
         return (s == setting);
     if (setting->parent == parent) /* it's just renaming thing */
@@ -526,12 +543,22 @@ gboolean config_setting_remove_elem(config_setting_t * parent, unsigned int inde
     return TRUE;
 }
 
+gboolean config_setting_destroy(config_setting_t * setting)
+{
+    if (setting == NULL || setting->parent == NULL)
+        return FALSE;
+    _config_setting_t_remove(setting);
+    return TRUE;
+}
+
 PanelConfType config_setting_type(const config_setting_t * setting)
 {
     return setting->type;
 }
 
-void config_setting_set_save_hook(config_setting_t * setting, PanelConfSaveHook hook)
+void config_setting_set_save_hook(config_setting_t * setting, PanelConfSaveHook hook,
+                                  gpointer user_data)
 {
     setting->hook = hook;
+    setting->hook_data = user_data;
 }

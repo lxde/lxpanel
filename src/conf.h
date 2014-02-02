@@ -43,7 +43,7 @@ typedef enum
     PANEL_CONF_TYPE_LIST
 } PanelConfType;
 
-typedef void (*PanelConfSaveHook)(const config_setting_t * setting, FILE * f);
+typedef void (*PanelConfSaveHook)(const config_setting_t * setting, FILE * f, gpointer user_data);
 
 PanelConf *config_new(void);
 void config_destroy(PanelConf * config);
@@ -54,12 +54,13 @@ char * config_setting_to_string(const config_setting_t * setting);
 config_setting_t * config_root_setting(const PanelConf * config);
 config_setting_t * config_setting_get_member(const config_setting_t * setting, const char * name);
 config_setting_t * config_setting_get_elem(const config_setting_t * setting, unsigned int index);
+const char * config_setting_get_name(const config_setting_t * setting);
+config_setting_t * config_setting_get_parent(const config_setting_t * setting);
 
 int config_setting_get_int(const config_setting_t * setting);
 const char * config_setting_get_string(const config_setting_t * setting);
 
 config_setting_t * config_setting_add(config_setting_t * parent, const char * name, PanelConfType type);
-config_setting_t * config_setting_insert_elem(config_setting_t * parent, int index, PanelConfType type);
 
 gboolean config_setting_move_member(config_setting_t * setting, config_setting_t * parent, const char * name);
 gboolean config_setting_move_elem(config_setting_t * setting, config_setting_t * parent, int index);
@@ -68,6 +69,7 @@ gboolean config_setting_set_int(config_setting_t * setting, int value);
 gboolean config_setting_set_string(config_setting_t * setting, const char * value);
 gboolean config_setting_remove(config_setting_t * parent, const char * name);
 gboolean config_setting_remove_elem(config_setting_t * parent, unsigned int index);
+gboolean config_setting_destroy(config_setting_t * setting);
 
 PanelConfType config_setting_type(const config_setting_t * setting);
 #define config_setting_is_group(_s) config_setting_type(_s) == PANEL_CONF_TYPE_GROUP
@@ -76,7 +78,7 @@ PanelConfType config_setting_type(const config_setting_t * setting);
         (config_setting_type(_s) == PANEL_CONF_TYPE_INT || \
          config_setting_type(_s) == PANEL_CONF_TYPE_STRING)
 
-void config_setting_set_save_hook(config_setting_t * setting, PanelConfSaveHook hook);
+void config_setting_set_save_hook(config_setting_t * setting, PanelConfSaveHook hook, gpointer user_data);
 
 G_END_DECLS
 

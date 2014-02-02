@@ -52,7 +52,7 @@ GSList* all_panels = NULL;  /* a single-linked list storing all panels */
 
 gboolean is_restarting = FALSE;
 
-static int panel_start( Panel *p, char **fp );
+static int panel_start(Panel *p);
 static void panel_start_gui(Panel *p);
 void panel_config_save(Panel* panel);   /* defined in configurator.c */
 
@@ -112,6 +112,7 @@ static Panel* panel_allocate(void)
     p->spacing = 0;
     p->icon_size = PANEL_ICON_SIZE;
     p->icon_theme = gtk_icon_theme_get_default();
+    p->config = config_new();
     return p;
 }
 
@@ -442,20 +443,18 @@ void panel_determine_background_pixmap(Panel * p, GtkWidget * widget, GdkWindow 
  * This function should only be called after the panel has been realized. */
 void panel_update_background(Panel * p)
 {
+    GList *plugins, *l;
+
     /* Redraw the top level widget. */
     panel_determine_background_pixmap(p, p->topgwin, p->topgwin->window);
     gdk_window_clear(p->topgwin->window);
     gtk_widget_queue_draw(p->topgwin);
 
     /* Loop over all plugins redrawing each plugin. */
-    GList * l;
-    for (l = p->plugins; l != NULL; l = l->next)
-    {
-        Plugin * pl = (Plugin *) l->data;
-        if (pl->pwid != NULL)
-            plugin_widget_set_background(pl->pwid, p);
-    }
-
+    plugins = gtk_container_get_children(GTK_CONTAINER(p->box));
+    for (l = plugins; l != NULL; l = l->next)
+        plugin_widget_set_background(l->data, p);
+    g_list_free(plugins);
 }
 
 static gboolean delay_update_background( Panel* p )
@@ -555,19 +554,22 @@ static gboolean panel_button_press_event_with_panel(GtkWidget *widget, GdkEventB
 {
     if (event->button == 3)	 /* right button */
     {
-        GtkMenu* popup = (GtkMenu*) lxpanel_get_panel_menu(panel, NULL, FALSE);
+        GtkMenu* popup = (GtkMenu*) lxpanel_get_plugin_menu(panel, NULL, FALSE);
         gtk_menu_popup(popup, NULL, NULL, NULL, NULL, event->button, event->time);
         return TRUE;
     }    
     return FALSE;
 }
 
-static void panel_popupmenu_config_plugin( GtkMenuItem* item, Plugin* plugin )
+static void panel_popupmenu_config_plugin( GtkMenuItem* item, GtkWidget* plugin )
 {
-    plugin->class->config( plugin, GTK_WINDOW(plugin->panel->topgwin) );
+    LXPanelPluginInit *init = PLUGIN_CLASS(plugin);
+    Panel *panel = PLUGIN_PANEL(plugin);
+
+    init->config(panel, plugin, GTK_WINDOW(panel->topgwin));
 
     /* FIXME: this should be more elegant */
-    plugin->panel->config_changed = TRUE;
+    panel->config_changed = TRUE;
 }
 
 static void panel_popupmenu_add_item( GtkMenuItem* item, Panel* panel )
@@ -576,9 +578,9 @@ static void panel_popupmenu_add_item( GtkMenuItem* item, Panel* panel )
     panel_configure( panel, 2 );
 }
 
-static void panel_popupmenu_remove_item( GtkMenuItem* item, Plugin* plugin )
+static void panel_popupmenu_remove_item( GtkMenuItem* item, GtkWidget* plugin )
 {
-    Panel* panel = plugin->panel;
+    Panel* panel = PLUGIN_PANEL(plugin);
 
     /* If the configuration dialog is open, there will certainly be a crash if the
      * user manipulates the Configured Plugins list, after we remove this entry.
@@ -588,10 +590,12 @@ static void panel_popupmenu_remove_item( GtkMenuItem* item, Plugin* plugin )
         gtk_widget_destroy(panel->pref_dialog);
         panel->pref_dialog = NULL;
     }
+    config_setting_destroy(g_object_get_qdata(G_OBJECT(plugin), lxpanel_plugin_qconf));
+    /* reset conf pointer because the widget still may be referenced by configurator */
+    g_object_set_qdata(G_OBJECT(plugin), lxpanel_plugin_qconf, NULL);
 
-    panel->plugins = g_list_remove( panel->plugins, plugin );
-    panel_config_save( plugin->panel );
-    plugin_delete(plugin);
+    panel_config_save(panel);
+    gtk_widget_destroy(plugin);
 }
 
 /* FIXME: Potentially we can support multiple panels at the same edge,
@@ -651,6 +655,7 @@ static void panel_popupmenu_create_panel( GtkMenuItem* item, Panel* panel )
         }
     }
 
+    panel_destroy(new_panel);
     ERR("Error adding panel: There is no room for another panel. All the edges are taken.\n");
     err = gtk_message_dialog_new(NULL,0,GTK_MESSAGE_ERROR,GTK_BUTTONS_OK,_("There is no room for another panel. All the edges are taken."));
     gtk_dialog_run(GTK_DIALOG(err));
@@ -660,6 +665,10 @@ static void panel_popupmenu_create_panel( GtkMenuItem* item, Panel* panel )
 found_edge:
     new_panel->name = gen_panel_name(new_panel->edge,new_panel->monitor);
 
+    /* create new config with first group "Global" */
+    config_setting_add(config_setting_add(config_root_setting(new_panel->config),
+                                          "", PANEL_CONF_TYPE_LIST),
+                       "Global", PANEL_CONF_TYPE_GROUP);
     panel_configure(new_panel, 0);
     panel_normalize_configuration(new_panel);
     panel_start_gui(new_panel);
@@ -764,11 +773,11 @@ void panel_apply_icon( GtkWindow *w )
     gtk_window_set_icon(w, window_icon);
 }
 
-GtkMenu* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean use_sub_menu )
+GtkMenu* lxpanel_get_plugin_menu( Panel* panel, GtkWidget* plugin, gboolean use_sub_menu )
 {
     GtkWidget  *menu_item, *img;
     GtkMenu *ret,*menu;
-    
+    LXPanelPluginInit *init = PLUGIN_CLASS(plugin);
     char* tmp;
     ret = menu = GTK_MENU(gtk_menu_new());
 
@@ -781,7 +790,7 @@ GtkMenu* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean use_sub_
     if( plugin )
     {
         img = gtk_image_new_from_stock( GTK_STOCK_REMOVE, GTK_ICON_SIZE_MENU );
-        tmp = g_strdup_printf( _("Remove \"%s\" From Panel"), _(plugin->class->name) );
+        tmp = g_strdup_printf( _("Remove \"%s\" From Panel"), _(init->name) );
         menu_item = gtk_image_menu_item_new_with_label( tmp );
         g_free( tmp );
         gtk_image_menu_item_set_image( (GtkImageMenuItem*)menu_item, img );
@@ -837,12 +846,12 @@ GtkMenu* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean use_sub_
         gtk_menu_shell_prepend(GTK_MENU_SHELL(ret), menu_item);
 
         img = gtk_image_new_from_stock( GTK_STOCK_PREFERENCES, GTK_ICON_SIZE_MENU );
-        tmp = g_strdup_printf( _("\"%s\" Settings"), _(plugin->class->name) );
+        tmp = g_strdup_printf( _("\"%s\" Settings"), _(init->name) );
         menu_item = gtk_image_menu_item_new_with_label( tmp );
         g_free( tmp );
         gtk_image_menu_item_set_image( (GtkImageMenuItem*)menu_item, img );
         gtk_menu_shell_prepend(GTK_MENU_SHELL(ret), menu_item);
-        if( plugin->class->config )
+        if( init->config )
             g_signal_connect( menu_item, "activate", G_CALLBACK(panel_popupmenu_config_plugin), plugin );
         else
             gtk_widget_set_sensitive( menu_item, FALSE );
@@ -852,6 +861,12 @@ GtkMenu* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean use_sub_
 
     g_signal_connect( ret, "selection-done", G_CALLBACK(gtk_widget_destroy), NULL );
     return ret;
+}
+
+/* for old plugins compatibility */
+GtkMenu* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean use_sub_menu )
+{
+    return lxpanel_get_plugin_menu(panel, plugin->pwid, use_sub_menu);
 }
 
 /****************************************************
@@ -1177,7 +1192,7 @@ void panel_draw_label_text(Panel * p, GtkWidget * label, char * text, gboolean b
 
 void panel_set_panel_configuration_changed(Panel *p)
 {
-    GList* l;
+    GList *plugins, *l;
 
     int previous_orientation = p->orientation;
     p->orientation = (p->edge == EDGE_TOP || p->edge == EDGE_BOTTOM)
@@ -1228,94 +1243,94 @@ void panel_set_panel_configuration_changed(Panel *p)
        This is used when the orientation of the panel is changed
        from the config dialog, and plugins should be re-layout.
     */
-    for( l = p->plugins; l; l = l->next ) {
-        Plugin* pl = (Plugin*)l->data;
-        if( pl->class->panel_configuration_changed ) {
-            pl->class->panel_configuration_changed( pl );
-        }
+    plugins = p->box ? gtk_container_get_children(GTK_CONTAINER(p->box)) : NULL;
+    for( l = plugins; l; l = l->next ) {
+        GtkWidget *w = (GtkWidget*)l->data;
+        LXPanelPluginInit *init = PLUGIN_CLASS(w);
+        if (init->reconfigure)
+            init->reconfigure(p, w);
     }
+    g_list_free(plugins);
 }
 
 static int
-panel_parse_global(Panel *p, char **fp)
+panel_parse_global(Panel *p, config_setting_t *cfg)
 {
-    line s;
-    s.len = 256;
+    config_setting_t *s;
 
-    if( G_LIKELY( fp ) )
+    /* check Global config */
+    if (!cfg || strcmp(config_setting_get_name(cfg), "Global") != 0)
     {
-        while (lxpanel_get_line(fp, &s) != LINE_NONE) {
-            if (s.type == LINE_VAR) {
-                if (!g_ascii_strcasecmp(s.t[0], "edge")) {
-                    p->edge = str2num(edge_pair, s.t[1], EDGE_NONE);
-                } else if (!g_ascii_strcasecmp(s.t[0], "allign")) {
-                    p->allign = str2num(allign_pair, s.t[1], ALLIGN_NONE);
-                } else if (!g_ascii_strcasecmp(s.t[0], "monitor")) {
-                    p->monitor = atoi(s.t[1]);
-                } else if (!g_ascii_strcasecmp(s.t[0], "margin")) {
-                    p->margin = atoi(s.t[1]);
-                } else if (!g_ascii_strcasecmp(s.t[0], "widthtype")) {
-                    p->widthtype = str2num(width_pair, s.t[1], WIDTH_NONE);
-                } else if (!g_ascii_strcasecmp(s.t[0], "width")) {
-                    p->width = atoi(s.t[1]);
-                } else if (!g_ascii_strcasecmp(s.t[0], "heighttype")) {
-                    p->heighttype = str2num(height_pair, s.t[1], HEIGHT_NONE);
-                } else if (!g_ascii_strcasecmp(s.t[0], "height")) {
-                    p->height = atoi(s.t[1]);
-                } else if (!g_ascii_strcasecmp(s.t[0], "spacing")) {
-                    p->spacing = atoi(s.t[1]);
-                } else if (!g_ascii_strcasecmp(s.t[0], "SetDockType")) {
-                    p->setdocktype = str2num(bool_pair, s.t[1], 0);
-                } else if (!g_ascii_strcasecmp(s.t[0], "SetPartialStrut")) {
-                    p->setstrut = str2num(bool_pair, s.t[1], 0);
-                } else if (!g_ascii_strcasecmp(s.t[0], "RoundCorners")) {
-                    p->round_corners = str2num(bool_pair, s.t[1], 0);
-                } else if (!g_ascii_strcasecmp(s.t[0], "Transparent")) {
-                    p->transparent = str2num(bool_pair, s.t[1], 0);
-                } else if (!g_ascii_strcasecmp(s.t[0], "Alpha")) {
-                    p->alpha = atoi(s.t[1]);
-                    if (p->alpha > 255)
-                        p->alpha = 255;
-                } else if (!g_ascii_strcasecmp(s.t[0], "AutoHide")) {
-                    p->autohide = str2num(bool_pair, s.t[1], 0);
-                } else if (!g_ascii_strcasecmp(s.t[0], "HeightWhenHidden")) {
-                    p->height_when_hidden = atoi(s.t[1]);
-                } else if (!g_ascii_strcasecmp(s.t[0], "TintColor")) {
-                    if (!gdk_color_parse (s.t[1], &p->gtintcolor))
-                        gdk_color_parse ("white", &p->gtintcolor);
-                    p->tintcolor = gcolor2rgb24(&p->gtintcolor);
-                    DBG("tintcolor=%x\n", p->tintcolor);
-                } else if (!g_ascii_strcasecmp(s.t[0], "useFontColor")) {
-                    p->usefontcolor = str2num(bool_pair, s.t[1], 0);
-                } else if (!g_ascii_strcasecmp(s.t[0], "FontColor")) {
-                    if (!gdk_color_parse (s.t[1], &p->gfontcolor))
-                        gdk_color_parse ("black", &p->gfontcolor);
-                    p->fontcolor = gcolor2rgb24(&p->gfontcolor);
-                    DBG("fontcolor=%x\n", p->fontcolor);
-                } else if (!g_ascii_strcasecmp(s.t[0], "useFontSize")) {
-                    p->usefontsize = str2num(bool_pair, s.t[1], 0);
-                } else if (!g_ascii_strcasecmp(s.t[0], "FontSize")) {
-                    p->fontsize = atoi(s.t[1]);                    
-                } else if (!g_ascii_strcasecmp(s.t[0], "Background")) {
-                    p->background = str2num(bool_pair, s.t[1], 0);
-                } else if( !g_ascii_strcasecmp(s.t[0], "BackgroundFile") ) {
-                    p->background_file = g_strdup( s.t[1] );
-                } else if (!g_ascii_strcasecmp(s.t[0], "IconSize")) {
-                    p->icon_size = atoi(s.t[1]);
-                } else if (!g_ascii_strcasecmp(s.t[0], "LogLevel")) {
-                    configured_log_level = atoi(s.t[1]);
-                    if (!log_level_set_on_commandline)
-                        log_level = configured_log_level;
-                } else {
-                    ERR( "lxpanel: %s - unknown var in Global section\n", s.t[0]);
-                }
-            } else if (s.type == LINE_BLOCK_END) {
-                break;
-            } else {
-                ERR( "lxpanel: illegal in this context %s\n", s.str);
-                RET(0);
-            }
-        }
+        ERR( "lxpanel: Global section not found\n");
+        RET(0);
+    }
+    if ((s = config_setting_get_member(cfg, "edge")) && config_setting_type(s) == PANEL_CONF_TYPE_STRING)
+        p->edge = str2num(edge_pair, config_setting_get_string(s), EDGE_NONE);
+    if ((s = config_setting_get_member(cfg, "allign")) && config_setting_type(s) == PANEL_CONF_TYPE_STRING)
+        p->allign = str2num(allign_pair, config_setting_get_string(s), ALLIGN_NONE);
+    if ((s = config_setting_get_member(cfg, "monitor")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
+        p->monitor = config_setting_get_int(s);
+    if ((s = config_setting_get_member(cfg, "margin")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
+        p->margin = config_setting_get_int(s);
+    if ((s = config_setting_get_member(cfg, "widthtype")) && config_setting_type(s) == PANEL_CONF_TYPE_STRING)
+        p->widthtype = str2num(width_pair, config_setting_get_string(s), WIDTH_NONE);
+    if ((s = config_setting_get_member(cfg, "width")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
+        p->width = config_setting_get_int(s);
+    if ((s = config_setting_get_member(cfg, "heighttype")) && config_setting_type(s) == PANEL_CONF_TYPE_STRING)
+        p->heighttype = str2num(height_pair, config_setting_get_string(s), HEIGHT_NONE);
+    if ((s = config_setting_get_member(cfg, "height")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
+        p->height = config_setting_get_int(s);
+    if ((s = config_setting_get_member(cfg, "spacing")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
+        p->spacing = config_setting_get_int(s);
+    if ((s = config_setting_get_member(cfg, "setdocktype")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
+        p->setdocktype = config_setting_get_int(s) != 0;
+    if ((s = config_setting_get_member(cfg, "setpartialstrut")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
+        p->setstrut = config_setting_get_int(s) != 0;
+    if ((s = config_setting_get_member(cfg, "RoundCorners")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
+        p->round_corners = config_setting_get_int(s) != 0;
+    if ((s = config_setting_get_member(cfg, "transparent")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
+        p->transparent = config_setting_get_int(s) != 0;
+    if ((s = config_setting_get_member(cfg, "alpha")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
+    {
+        p->alpha = config_setting_get_int(s);
+        if (p->alpha > 255)
+            p->alpha = 255;
+    }
+    if ((s = config_setting_get_member(cfg, "autohide")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
+        p->autohide = config_setting_get_int(s) != 0;
+    if ((s = config_setting_get_member(cfg, "heightwhenhidden")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
+        p->height_when_hidden = config_setting_get_int(s);
+    if ((s = config_setting_get_member(cfg, "tintcolor")) && config_setting_type(s) == PANEL_CONF_TYPE_STRING)
+    {
+        if (!gdk_color_parse (config_setting_get_string(s), &p->gtintcolor))
+            gdk_color_parse ("white", &p->gtintcolor);
+        p->tintcolor = gcolor2rgb24(&p->gtintcolor);
+            DBG("tintcolor=%x\n", p->tintcolor);
+    }
+    if ((s = config_setting_get_member(cfg, "usefontcolor")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
+        p->usefontcolor = config_setting_get_int(s) != 0;
+    if ((s = config_setting_get_member(cfg, "fontcolor")) && config_setting_type(s) == PANEL_CONF_TYPE_STRING)
+    {
+        if (!gdk_color_parse (config_setting_get_string(s), &p->gfontcolor))
+            gdk_color_parse ("black", &p->gfontcolor);
+        p->fontcolor = gcolor2rgb24(&p->gfontcolor);
+            DBG("fontcolor=%x\n", p->fontcolor);
+    }
+    if ((s = config_setting_get_member(cfg, "usefontsize")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
+        p->usefontsize = config_setting_get_int(s) != 0;
+    if ((s = config_setting_get_member(cfg, "fontsize")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
+        p->fontsize = config_setting_get_int(s);
+    if ((s = config_setting_get_member(cfg, "background")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
+        p->background = config_setting_get_int(s) != 0;
+    if ((s = config_setting_get_member(cfg, "backgroundfile")) && config_setting_type(s) == PANEL_CONF_TYPE_STRING)
+        p->background_file = g_strdup(config_setting_get_string(s));
+    if ((s = config_setting_get_member(cfg, "iconsize")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
+        p->icon_size = config_setting_get_int(s);
+    if ((s = config_setting_get_member(cfg, "loglevel")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
+    {
+        configured_log_level = config_setting_get_int(s);
+        if (!log_level_set_on_commandline)
+            log_level = configured_log_level;
     }
 
     panel_normalize_configuration(p);
@@ -1324,121 +1339,50 @@ panel_parse_global(Panel *p, char **fp)
 }
 
 static int
-panel_parse_plugin(Panel *p, char **fp)
+panel_parse_plugin(Panel *p, config_setting_t *cfg)
 {
-    line s;
-    Plugin *plug = NULL;
-    gchar *type = NULL;
-    int expand , padding, border;
-    char* pconfig = NULL;
+    config_setting_t *s;
+    const char *type;
 
     ENTER;
-    s.len = 256;
-    border = expand = padding = 0;
-    while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
-        if (s.type == LINE_NONE) {
-            ERR( "lxpanel: bad line %s\n", s.str);
-            goto error;
-        }
-        if (s.type == LINE_VAR) {
-            if (!g_ascii_strcasecmp(s.t[0], "type")) {
-                type = g_strdup(s.t[1]);
-                DBG("plug %s\n", type);
-            } else if (!g_ascii_strcasecmp(s.t[0], "expand"))
-                expand = str2num(bool_pair,  s.t[1], 0);
-            else if (!g_ascii_strcasecmp(s.t[0], "padding"))
-                padding = atoi(s.t[1]);
-            else if (!g_ascii_strcasecmp(s.t[0], "border"))
-                border = atoi(s.t[1]);
-            else {
-                ERR( "lxpanel: unknown var %s\n", s.t[0]);
-            }
-        } else if (s.type == LINE_BLOCK_START) {
-            if (!g_ascii_strcasecmp(s.t[0], "Config")) {
-                pconfig = *fp;
-                int pno = 1;
-                while (pno) {
-                    get_line_as_is(fp, &s);
-                    if (s.type == LINE_NONE) {
-                        ERR( "lxpanel: unexpected eof\n");
-                        goto error;
-                    } else if (s.type == LINE_BLOCK_START) {
-                        pno++;
-                    } else if (s.type == LINE_BLOCK_END) {
-                        pno--;
-                    }
-                }
-            } else {
-                ERR( "lxpanel: unknown block %s\n", s.t[0]);
-                goto error;
-            }
-        } else {
-            ERR( "lxpanel: illegal in this context %s\n", s.str);
-            goto error;
-        }
-    }
+    s = config_setting_get_member(cfg, "type");
+    type = s ? config_setting_get_string(s) : NULL;
+    DBG("plug %s\n", type);
 
-    if (!type || !(plug = plugin_load(type))) {
+    if (!type || lxpanel_add_plugin(p, type, cfg, -1) == NULL) {
         ERR( "lxpanel: can't load %s plugin\n", type);
         goto error;
     }
-
-    plug->panel = p;
-    if (plug->class->expand_available) plug->expand = expand;
-    plug->padding = padding;
-    plug->border = border;
-    DBG("starting\n");
-    if (!plugin_start(plug, pconfig ? &pconfig : NULL)) {
-        ERR( "lxpanel: can't start plugin %s\n", type);
-        goto error;
-    }
-    DBG("plug %s\n", type);
-    p->plugins = g_list_append(p->plugins, plug);
-
-    g_free( type );
     RET(1);
 
- error:
-    if (plug != NULL)
-        plugin_unload(plug);
-    g_free(type);
+error:
     RET(0);
 }
 
-int panel_start( Panel *p, char **fp )
+int panel_start( Panel *p )
 {
-    line s;
+    config_setting_t *list, *s;
+    int i;
 
     /* parse global section */
     ENTER;
-    s.len = 256;
 
-    if ((lxpanel_get_line(fp, &s) != LINE_BLOCK_START) || g_ascii_strcasecmp(s.t[0], "Global")) {
-        ERR( "lxpanel: config file must start from Global section\n");
-        RET(0);
-    }
-    if (!panel_parse_global(p, fp))
+    list = config_setting_get_member(config_root_setting(p->config), "");
+    if (!list || !panel_parse_global(p, config_setting_get_elem(list, 0)))
         RET(0);
 
     panel_start_gui(p);
 
-    while (lxpanel_get_line(fp, &s) != LINE_NONE) {
-        if ((s.type  != LINE_BLOCK_START) || g_ascii_strcasecmp(s.t[0], "Plugin")) {
-            ERR( "lxpanel: expecting Plugin section\n");
-            RET(0);
-        }
-        panel_parse_plugin(p, fp);
-    }
+    for (i = 1; (s = config_setting_get_elem(list, i)) != NULL; )
+        if (strcmp(config_setting_get_name(s), "Plugin") == 0 &&
+            panel_parse_plugin(p, s)) /* success on plugin start */
+            i++;
+        else /* remove invalid data from config */
+            config_setting_remove_elem(list, i);
 
     /* update backgrond of panel and all plugins */
     panel_update_background( p );
     return 1;
-}
-
-static void
-delete_plugin(gpointer data, gpointer udata)
-{
-    plugin_delete((Plugin *)data);
 }
 
 void panel_destroy(Panel *p)
@@ -1461,20 +1405,18 @@ void panel_destroy(Panel *p)
 
     if( p->config_changed )
         panel_config_save( p );
-
-    g_list_foreach(p->plugins, delete_plugin, NULL);
-    g_list_free(p->plugins);
-    p->plugins = NULL;
+    config_destroy(p->config);
 
     if( p->system_menus ){
         do{
         } while ( g_source_remove_by_user_data( p->system_menus ) );
     }
 
-    gtk_window_group_remove_window( win_grp, GTK_WINDOW(  p->topgwin ) );
-
     if( p->topgwin )
+    {
+        gtk_window_group_remove_window( win_grp, GTK_WINDOW(  p->topgwin ) );
         gtk_widget_destroy(p->topgwin);
+    }
     g_free(p->workarea);
     g_free( p->background_file );
     g_slist_free( p->system_menus );
@@ -1489,26 +1431,18 @@ void panel_destroy(Panel *p)
 
 Panel* panel_new( const char* config_file, const char* config_name )
 {
-    char *fp, *pfp; /* point to current position of profile data in memory */
     Panel* panel = NULL;
 
-    if( G_LIKELY(config_file) )
+    if (G_LIKELY(config_file))
     {
-        g_file_get_contents( config_file, &fp, NULL, NULL );
-        if( fp )
+        panel = panel_allocate();
+        g_debug("starting panel from file %s",config_file);
+        if (!config_read_file(panel->config, config_file) ||
+            !panel_start(panel))
         {
-            panel = panel_allocate();
-            panel->orientation = ORIENT_NONE;
-            panel->name = g_strdup( config_name );
-            pfp = fp;
-
-            if (! panel_start( panel, &pfp )) {
-                ERR( "lxpanel: can't start panel\n");
-                panel_destroy( panel );
-                panel = NULL;
-            }
-
-            g_free( fp );
+            ERR( "lxpanel: can't start panel\n");
+            panel_destroy( panel );
+            panel = NULL;
         }
     }
     return panel;
@@ -1658,7 +1592,6 @@ int main(int argc, char *argv[], char *env[])
 	gdk_threads_enter();
 
     gtk_init(&argc, &argv);
-    fm_gtk_init(NULL);
 
 #ifdef ENABLE_NLS
     bindtextdomain ( GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR );
@@ -1724,6 +1657,12 @@ int main(int argc, char *argv[], char *env[])
 restart:
     is_restarting = FALSE;
 
+    /* init LibFM */
+    fm_gtk_init(NULL);
+
+    /* prepare modules data */
+    _prepare_modules();
+
     load_global_config();
 
 	/* NOTE: StructureNotifyMask is required by XRandR
@@ -1753,11 +1692,13 @@ restart:
 
     free_global_config();
 
+    _unload_modules();
+    fm_gtk_finalize();
+
     if( is_restarting )
         goto restart;
 
     gdk_threads_leave();
-    fm_gtk_finalize();
 
     g_object_unref(win_grp);
     g_object_unref(fbev);

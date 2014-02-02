@@ -19,7 +19,8 @@
 #ifndef PRIVATE_H
 #define PRIVATE_H
 
-//#include "plugin.h"
+#include "plugin.h"
+#include "conf.h"
 
 #include <gmodule.h>
 
@@ -114,8 +115,8 @@ struct _Panel {
 
     char* background_file;
 
-    GList * plugins;			/* List of all plugins */
     GSList * system_menus;		/* List of plugins having menus */
+    PanelConf * config;                 /* Panel configuration data */
 
     GtkWidget* plugin_pref_dialog;	/* Plugin preference dialog */
     GtkWidget* pref_dialog;		/* preference dialog */
@@ -175,8 +176,8 @@ extern pair height_pair[];
 extern pair bool_pair[];
 extern pair pos_pair[];
 
-int str2num(pair *p, gchar *str, int defval);
-gchar *num2str(pair *p, int num, gchar *defval);
+int str2num(pair *p, const gchar *str, int defval);
+const gchar *num2str(pair *p, int num, const gchar *defval);
 
 extern int lxpanel_get_line(char **fp, line *s);
 extern int lxpanel_put_line(FILE* fp, const char* format, ...);
@@ -260,21 +261,12 @@ struct _Plugin {
 };
 
 /* Plugins management - deprecated style, for backward compatibility */
-extern Plugin * plugin_load(char * type);		/* Create an instance of a plugin, loading it if necessary */
-extern int plugin_start(Plugin * this, char ** fp);	/* Configure and start a plugin by calling its constructor */
-extern void plugin_unload(Plugin * pl);			/* Delete an instance of a plugin if initialization fails */
-extern void plugin_delete(Plugin * pl);			/* Delete an instance of a plugin */
-extern GList * plugin_get_available_classes(void);	/* Get a list of all plugin classes; free with plugin_class_list_free */
-extern void plugin_class_list_free(GList * list);	/* Free the list allocated by plugin_get_available_classes */
 extern gboolean plugin_button_press_event(GtkWidget *widget, GdkEventButton *event, Plugin *plugin);
                                                         /* Handler for "button_press_event" signal with Plugin as parameter */
 extern void plugin_adjust_popup_position(GtkWidget * popup, Plugin * plugin);
 							/* Helper to move popup windows away from the panel */
 extern void plugin_popup_set_position_helper(Plugin * p, GtkWidget * near, GtkWidget * popup, GtkRequisition * popup_req, gint * px, gint * py);
 							/* Helper for position-calculation callback for popup menus */
-
-extern void plugin_widget_set_background(GtkWidget * w, Panel * p);
-							/* Recursively set the background of all widgets on a panel background configuration change */
 
 /* FIXME: optional definitions */
 #define STATIC_SEPARATOR
@@ -290,12 +282,18 @@ extern void plugin_widget_set_background(GtkWidget * w, Panel * p);
 #define STATIC_ICONS
 
 /* Plugins management - new style */
-gboolean lxpanel_add_plugin(Panel *p, const char *name, gint at);
-GList *lxpanel_get_all_types(void); /* transfer none */
+void _prepare_modules(void);
+void _unload_modules(void);
+
+GtkWidget *lxpanel_add_plugin(Panel *p, const char *name, config_setting_t *cfg, gint at);
+GHashTable *lxpanel_get_all_types(void); /* transfer none */
 
 GQuark lxpanel_plugin_qinit; /* access to LXPanelPluginInit data */
-#define PLUGIN_CLASS(_i) (g_object_get_qdata(G_OBJECT(_i),lxpanel_plugin_qinit))
+#define PLUGIN_CLASS(_i) ((LXPanelPluginInit*)g_object_get_qdata(G_OBJECT(_i),lxpanel_plugin_qinit))
 
 GQuark lxpanel_plugin_qconf; /* access to congig_setting_t data */
+
+GQuark lxpanel_plugin_qpanel; /* access to Panel */
+#define PLUGIN_PANEL(_i) ((Panel*)g_object_get_qdata(G_OBJECT(_i),lxpanel_plugin_qpanel))
 
 #endif

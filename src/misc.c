@@ -205,7 +205,7 @@ pair pos_pair[] = {
 
 
 int
-str2num(pair *p, gchar *str, int defval)
+str2num(pair *p, const gchar *str, int defval)
 {
     ENTER;
     for (;p && p->str; p++) {
@@ -215,8 +215,8 @@ str2num(pair *p, gchar *str, int defval)
     RET(defval);
 }
 
-gchar *
-num2str(pair *p, int num, gchar *defval)
+const gchar *
+num2str(pair *p, int num, const gchar *defval)
 {
     ENTER;
     for (;p && p->str; p++) {
@@ -534,8 +534,8 @@ char **
 get_utf8_property_list(Window win, Atom atom, int *count)
 {
     Atom type;
-    int format, i;
-    gulong nitems;
+    int format;
+    gulong nitems, i;
     gulong bytes_after;
     gchar *s, **retval = NULL;
     int result;
@@ -556,7 +556,7 @@ get_utf8_property_list(Window win, Atom atom, int *count)
                 (*count)++;
         }
         retval = g_new0 (char*, *count + 2);
-        for (i = 0, s = val; i < *count; i++, s = s +  strlen (s) + 1) {
+        for (i = 0, s = val; (int)i < *count; i++, s = s +  strlen (s) + 1) {
             retval[i] = g_strdup(s);
         }
         if (val[nitems-1]) {
