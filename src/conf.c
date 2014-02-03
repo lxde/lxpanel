@@ -21,6 +21,7 @@
 #endif
 
 #include "conf.h"
+#include "private.h"
 
 #include <string.h>
 #include <stdlib.h>
@@ -263,18 +264,23 @@ static void _config_write_setting(const config_setting_t *setting, GString *buf,
         g_string_append_printf(buf, "%s=%s\n", setting->name, setting->str);
         break;
     case PANEL_CONF_TYPE_GROUP:
-        if (out)
+        if (!out && setting->hook) /* plugin does not support settings */
         {
-            g_string_append(out, buf->str);
-            g_string_append(out, setting->name);
-            g_string_append(out, " {\n");
+            lxpanel_put_line(f, "%s%s {", buf->str, setting->name);
+            setting->hook(setting, f, setting->hook_data);
+            lxpanel_put_line(f, "%s}", buf->str);
+            /* old settings ways are kinda weird... */
         }
         else
-            fprintf(f, "%s%s {\n", buf->str, setting->name);
-        if (!out && setting->hook) /* plugin does not support settings */
-            setting->hook(setting, f, setting->hook_data);
-        else
         {
+            if (out)
+            {
+                g_string_append(out, buf->str);
+                g_string_append(out, setting->name);
+                g_string_append(out, " {\n");
+            }
+            else
+                fprintf(f, "%s%s {\n", buf->str, setting->name);
             g_string_append(buf, SETTING_INDENT);
             for (s = setting->first; s; s = s->next)
                 _config_write_setting(s, buf, out, f);
@@ -295,10 +301,8 @@ static void _config_write_setting(const config_setting_t *setting, GString *buf,
                       setting->name);
             return;
         }
-        g_string_append(buf, SETTING_INDENT);
         for (s = setting->first; s; s = s->next)
             _config_write_setting(s, buf, out, f);
-        g_string_truncate(buf, indent);
         return;
     }
     if (out)
@@ -314,9 +318,10 @@ gboolean config_write_file(PanelConf * config, const char * filename)
     GString *str;
     if (f == NULL)
         return FALSE;
-    str = g_string_new("# lxpanel <profile> config file. Manually editing is not recommended.\n"
-                       "# Use preference dialog in lxpanel to adjust config when you can.\n\n");
-    _config_write_setting(config->root, str, NULL, f);
+    fputs("# lxpanel <profile> config file. Manually editing is not recommended.\n"
+          "# Use preference dialog in lxpanel to adjust config when you can.\n\n", f);
+    str = g_string_sized_new(128);
+    _config_write_setting(config_setting_get_member(config->root, ""), str, NULL, f);
     /* FIXME: handle errors */
     fclose(f);
     g_string_free(str, TRUE);
