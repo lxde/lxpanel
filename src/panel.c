@@ -1436,6 +1436,7 @@ Panel* panel_new( const char* config_file, const char* config_name )
     if (G_LIKELY(config_file))
     {
         panel = panel_allocate();
+        panel->name = g_strdup(config_name);
         g_debug("starting panel from file %s",config_file);
         if (!config_read_file(panel->config, config_file) ||
             !panel_start(panel))
