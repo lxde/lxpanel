@@ -1705,3 +1705,43 @@ restart:
 
     return 0;
 }
+
+extern gboolean panel_is_horisontal(Panel *panel)
+{
+    return (panel->orientation == ORIENT_HORIZ);
+}
+
+extern gint panel_get_icon_size(Panel *panel)
+{
+    return panel->icon_size;
+}
+
+extern gint panel_get_height(Panel *panel)
+{
+    return panel->height;
+}
+
+extern GtkWindow *panel_get_toplevel_window(Panel *panel)
+{
+    return panel->topgwin;
+}
+
+extern GtkStyle *panel_get_defstyle(Panel *panel)
+{
+    return panel->defstyle;
+}
+
+extern GtkIconTheme *panel_get_icon_theme(Panel *panel)
+{
+    return panel->icon_theme;
+}
+
+extern GtkWidget *panel_box_new(Panel *panel, gboolean homogeneous, gint spacing)
+{
+    return panel->my_box_new(homogeneous, spacing);
+}
+
+extern GtkWidget *panel_separator_new(Panel *panel)
+{
+    return panel->my_separator_new();
+}

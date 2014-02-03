@@ -111,5 +111,7 @@ extern gint panel_get_height(Panel *panel);
 extern GtkWindow *panel_get_toplevel_window(Panel *panel);
 extern GtkStyle *panel_get_defstyle(Panel *panel);
 extern GtkIconTheme *panel_get_icon_theme(Panel *panel);
+extern GtkWidget *panel_box_new(Panel *panel, gboolean homogeneous, gint spacing);
+extern GtkWidget *panel_separator_new(Panel *panel);
 
 #endif
