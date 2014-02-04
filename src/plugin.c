@@ -142,7 +142,7 @@ static void init_plugin_class_list(void)
 #endif
 
 #ifdef STATIC_SPACE
-    REGISTER_STATIC_PLUGIN_CLASS(space_plugin_class);
+    REGISTER_STATIC_MODULE(space);
 #endif
 }
 
