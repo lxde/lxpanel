@@ -60,6 +60,11 @@ config_setting_t * config_setting_get_parent(const config_setting_t * setting);
 int config_setting_get_int(const config_setting_t * setting);
 const char * config_setting_get_string(const config_setting_t * setting);
 
+gboolean config_setting_lookup_int(const config_setting_t * setting,
+                                   const char * name, int * value);
+gboolean config_setting_lookup_string(const config_setting_t * setting,
+                                      const char * name, const char ** value);
+
 config_setting_t * config_setting_add(config_setting_t * parent, const char * name, PanelConfType type);
 
 gboolean config_setting_move_member(config_setting_t * setting, config_setting_t * parent, const char * name);

@@ -395,6 +395,34 @@ const char * config_setting_get_string(const config_setting_t * setting)
     return setting->str;
 }
 
+gboolean config_setting_lookup_int(const config_setting_t * setting,
+                                   const char * name, int * value)
+{
+    config_setting_t *sub;
+
+    g_return_val_if_fail(name && setting && value, FALSE);
+    g_return_val_if_fail(setting->type == PANEL_CONF_TYPE_GROUP, FALSE);
+    sub = _config_setting_get_member(setting, name);
+    if (!sub || sub->type != PANEL_CONF_TYPE_INT)
+        return FALSE;
+    *value = setting->num;
+    return TRUE;
+}
+
+gboolean config_setting_lookup_string(const config_setting_t * setting,
+                                      const char * name, const char ** value)
+{
+    config_setting_t *sub;
+
+    g_return_val_if_fail(name && setting && value, FALSE);
+    g_return_val_if_fail(setting->type == PANEL_CONF_TYPE_GROUP, FALSE);
+    sub = _config_setting_get_member(setting, name);
+    if (!sub || sub->type != PANEL_CONF_TYPE_STRING)
+        return FALSE;
+    *value = setting->str;
+    return TRUE;
+}
+
 /* returns either new or existing setting struct, NULL on error */
 config_setting_t * config_setting_add(config_setting_t * parent, const char * name, PanelConfType type)
 {

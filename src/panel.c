@@ -1256,7 +1256,8 @@ void panel_set_panel_configuration_changed(Panel *p)
 static int
 panel_parse_global(Panel *p, config_setting_t *cfg)
 {
-    config_setting_t *s;
+    const char *str;
+    gint i;
 
     /* check Global config */
     if (!cfg || strcmp(config_setting_get_name(cfg), "Global") != 0)
@@ -1264,71 +1265,63 @@ panel_parse_global(Panel *p, config_setting_t *cfg)
         ERR( "lxpanel: Global section not found\n");
         RET(0);
     }
-    if ((s = config_setting_get_member(cfg, "edge")) && config_setting_type(s) == PANEL_CONF_TYPE_STRING)
-        p->edge = str2num(edge_pair, config_setting_get_string(s), EDGE_NONE);
-    if ((s = config_setting_get_member(cfg, "allign")) && config_setting_type(s) == PANEL_CONF_TYPE_STRING)
-        p->allign = str2num(allign_pair, config_setting_get_string(s), ALLIGN_NONE);
-    if ((s = config_setting_get_member(cfg, "monitor")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
-        p->monitor = config_setting_get_int(s);
-    if ((s = config_setting_get_member(cfg, "margin")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
-        p->margin = config_setting_get_int(s);
-    if ((s = config_setting_get_member(cfg, "widthtype")) && config_setting_type(s) == PANEL_CONF_TYPE_STRING)
-        p->widthtype = str2num(width_pair, config_setting_get_string(s), WIDTH_NONE);
-    if ((s = config_setting_get_member(cfg, "width")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
-        p->width = config_setting_get_int(s);
-    if ((s = config_setting_get_member(cfg, "heighttype")) && config_setting_type(s) == PANEL_CONF_TYPE_STRING)
-        p->heighttype = str2num(height_pair, config_setting_get_string(s), HEIGHT_NONE);
-    if ((s = config_setting_get_member(cfg, "height")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
-        p->height = config_setting_get_int(s);
-    if ((s = config_setting_get_member(cfg, "spacing")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
-        p->spacing = config_setting_get_int(s);
-    if ((s = config_setting_get_member(cfg, "setdocktype")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
-        p->setdocktype = config_setting_get_int(s) != 0;
-    if ((s = config_setting_get_member(cfg, "setpartialstrut")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
-        p->setstrut = config_setting_get_int(s) != 0;
-    if ((s = config_setting_get_member(cfg, "RoundCorners")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
-        p->round_corners = config_setting_get_int(s) != 0;
-    if ((s = config_setting_get_member(cfg, "transparent")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
-        p->transparent = config_setting_get_int(s) != 0;
-    if ((s = config_setting_get_member(cfg, "alpha")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
+    if (config_setting_lookup_string(cfg, "edge", &str))
+        p->edge = str2num(edge_pair, str, EDGE_NONE);
+    if (config_setting_lookup_string(cfg, "allign", &str))
+        p->allign = str2num(allign_pair, str, ALLIGN_NONE);
+    config_setting_lookup_int(cfg, "monitor", &p->monitor);
+    config_setting_lookup_int(cfg, "margin", &p->margin);
+    if (config_setting_lookup_string(cfg, "widthtype", &str))
+        p->widthtype = str2num(width_pair, str, WIDTH_NONE);
+    config_setting_lookup_int(cfg, "width", &p->width);
+    if (config_setting_lookup_string(cfg, "heighttype", &str))
+        p->heighttype = str2num(height_pair, str, HEIGHT_NONE);
+    config_setting_lookup_int(cfg, "height", &p->height);
+    if (config_setting_lookup_int(cfg, "spacing", &i) && i > 0)
+        p->spacing = i;
+    if (config_setting_lookup_int(cfg, "setdocktype", &i))
+        p->setdocktype = i != 0;
+    if (config_setting_lookup_int(cfg, "setpartialstrut", &i))
+        p->setstrut = i != 0;
+    if (config_setting_lookup_int(cfg, "RoundCorners", &i))
+        p->round_corners = i != 0;
+    if (config_setting_lookup_int(cfg, "transparent", &i))
+        p->transparent = i != 0;
+    if (config_setting_lookup_int(cfg, "alpha", &p->alpha))
     {
-        p->alpha = config_setting_get_int(s);
         if (p->alpha > 255)
             p->alpha = 255;
     }
-    if ((s = config_setting_get_member(cfg, "autohide")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
-        p->autohide = config_setting_get_int(s) != 0;
-    if ((s = config_setting_get_member(cfg, "heightwhenhidden")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
-        p->height_when_hidden = config_setting_get_int(s);
-    if ((s = config_setting_get_member(cfg, "tintcolor")) && config_setting_type(s) == PANEL_CONF_TYPE_STRING)
+    if (config_setting_lookup_int(cfg, "autohide", &i))
+        p->autohide = i != 0;
+    config_setting_lookup_int(cfg, "heightwhenhidden", &p->height_when_hidden);
+    if (config_setting_lookup_string(cfg, "tintcolor", &str))
     {
-        if (!gdk_color_parse (config_setting_get_string(s), &p->gtintcolor))
+        if (!gdk_color_parse (str, &p->gtintcolor))
             gdk_color_parse ("white", &p->gtintcolor);
         p->tintcolor = gcolor2rgb24(&p->gtintcolor);
             DBG("tintcolor=%x\n", p->tintcolor);
     }
-    if ((s = config_setting_get_member(cfg, "usefontcolor")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
-        p->usefontcolor = config_setting_get_int(s) != 0;
-    if ((s = config_setting_get_member(cfg, "fontcolor")) && config_setting_type(s) == PANEL_CONF_TYPE_STRING)
+    if (config_setting_lookup_int(cfg, "usefontcolor", &i))
+        p->usefontcolor = i != 0;
+    if (config_setting_lookup_string(cfg, "fontcolor", &str))
     {
-        if (!gdk_color_parse (config_setting_get_string(s), &p->gfontcolor))
+        if (!gdk_color_parse (str, &p->gfontcolor))
             gdk_color_parse ("black", &p->gfontcolor);
         p->fontcolor = gcolor2rgb24(&p->gfontcolor);
             DBG("fontcolor=%x\n", p->fontcolor);
     }
-    if ((s = config_setting_get_member(cfg, "usefontsize")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
-        p->usefontsize = config_setting_get_int(s) != 0;
-    if ((s = config_setting_get_member(cfg, "fontsize")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
-        p->fontsize = config_setting_get_int(s);
-    if ((s = config_setting_get_member(cfg, "background")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
-        p->background = config_setting_get_int(s) != 0;
-    if ((s = config_setting_get_member(cfg, "backgroundfile")) && config_setting_type(s) == PANEL_CONF_TYPE_STRING)
-        p->background_file = g_strdup(config_setting_get_string(s));
-    if ((s = config_setting_get_member(cfg, "iconsize")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
-        p->icon_size = config_setting_get_int(s);
-    if ((s = config_setting_get_member(cfg, "loglevel")) && config_setting_type(s) == PANEL_CONF_TYPE_INT)
+    if (config_setting_lookup_int(cfg, "usefontsize", &i))
+        p->usefontsize = i != 0;
+    if (config_setting_lookup_int(cfg, "fontsize", &i) && i > 0)
+        p->fontsize = i;
+    if (config_setting_lookup_int(cfg, "background", &i))
+        p->background = i != 0;
+    if (config_setting_lookup_string(cfg, "backgroundfile", &str))
+        p->background_file = g_strdup(str);
+    config_setting_lookup_int(cfg, "iconsize", &p->icon_size);
+    if (config_setting_lookup_int(cfg, "loglevel", &configured_log_level))
     {
-        configured_log_level = config_setting_get_int(s);
         if (!log_level_set_on_commandline)
             log_level = configured_log_level;
     }
@@ -1341,12 +1334,10 @@ panel_parse_global(Panel *p, config_setting_t *cfg)
 static int
 panel_parse_plugin(Panel *p, config_setting_t *cfg)
 {
-    config_setting_t *s;
-    const char *type;
+    const char *type = NULL;
 
     ENTER;
-    s = config_setting_get_member(cfg, "type");
-    type = s ? config_setting_get_string(s) : NULL;
+    config_setting_lookup_string(cfg, "type", &type);
     DBG("plug %s\n", type);
 
     if (!type || lxpanel_add_plugin(p, type, cfg, -1) == NULL) {
