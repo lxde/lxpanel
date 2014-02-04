@@ -1233,7 +1233,7 @@ static void notify_apply_config( GtkWidget* widget )
     dlg = gtk_widget_get_toplevel( widget );
     apply_func = g_object_get_data( G_OBJECT(dlg), "apply_func" );
     if( apply_func )
-        (*apply_func)( g_object_get_data(G_OBJECT(dlg), "plugin") );
+        (*apply_func)( g_object_get_data(G_OBJECT(dlg), "apply_func_data") );
 }
 
 static gboolean on_entry_focus_out( GtkWidget* edit, GdkEventFocus *evt, gpointer user_data )
@@ -1308,42 +1308,45 @@ static void on_browse_btn_clicked(GtkButton* btn, GtkEntry* entry)
     gtk_widget_destroy(fc);
 }
 
-static void generic_config_dlg_save(gpointer panel_gpointer,GObject *where_the_object_was)
+/* if the plugin was destroyed then destroy the dialog opened for it */
+static void on_plugin_destroy(GtkWidget *plugin, GtkDialog *dlg)
 {
-    Panel *panel = (Panel *)(panel_gpointer);
-    panel_config_save(panel);
+    gtk_dialog_response(dlg, GTK_RESPONSE_CLOSE);
 }
 
 /* Handler for "response" signal from standard configuration dialog. */
-static void generic_config_dlg_response(GtkWidget * widget, int response, Plugin * plugin)
+static void generic_config_dlg_response(GtkWidget * dlg, int response, Panel * panel)
 {
-    plugin->panel->plugin_pref_dialog = NULL;
-    gtk_widget_destroy(widget);
+    gpointer plugin = g_object_get_data(G_OBJECT(dlg), "plugin");
+    if (plugin)
+        g_signal_handlers_disconnect_by_func(plugin, on_plugin_destroy, dlg);
+    g_object_set_data(G_OBJECT(dlg), "plugin", NULL);
+    panel->plugin_pref_dialog = NULL;
+    gtk_widget_destroy(dlg);
+    panel_config_save(panel);
 }
 
 /* Parameters: const char* name, gpointer ret_value, GType type, ....NULL */
-GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
-                                      GSourceFunc apply_func, Plugin * plugin,
-                                      const char* name, ... )
+static GtkWidget *_lxpanel_generic_config_dlg(const char *title, Panel *p,
+                                              GSourceFunc apply_func,
+                                              gpointer plugin, GtkWidget *widget,
+                                              const char *name, va_list args)
 {
-    va_list args;
-    Panel* p = plugin->panel;
     GtkWidget* dlg = gtk_dialog_new_with_buttons( title, NULL, 0,
                                                   GTK_STOCK_CLOSE,
                                                   GTK_RESPONSE_CLOSE,
                                                   NULL );
     panel_apply_icon(GTK_WINDOW(dlg));
 
-    g_signal_connect( dlg, "response", G_CALLBACK(generic_config_dlg_response), plugin);
-    g_object_weak_ref(G_OBJECT(dlg), generic_config_dlg_save, p);
+    g_signal_connect( dlg, "response", G_CALLBACK(generic_config_dlg_response), p);
+    g_signal_connect(widget, "destroy", G_CALLBACK(on_plugin_destroy), dlg);
+    g_object_set_data(G_OBJECT(dlg), "plugin", widget);
     if( apply_func )
         g_object_set_data( G_OBJECT(dlg), "apply_func", apply_func );
-    if( plugin )
-        g_object_set_data( G_OBJECT(dlg), "plugin", plugin );
+    g_object_set_data( G_OBJECT(dlg), "apply_func_data", plugin );
 
     gtk_box_set_spacing( GTK_BOX(GTK_DIALOG(dlg)->vbox), 4 );
 
-    va_start( args, name );
     while( name )
     {
         GtkWidget* label = gtk_label_new( name );
@@ -1424,17 +1427,48 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
         }
         name = va_arg( args, const char* );
     }
-    va_end( args );
 
     gtk_container_set_border_width( GTK_CONTAINER(dlg), 8 );
 
     /* If there is already a plugin configuration dialog open, close it.
      * Then record this one in case the panel or plugin is deleted. */
     if (p->plugin_pref_dialog != NULL)
-        gtk_widget_destroy(p->plugin_pref_dialog);
+        gtk_dialog_response(GTK_DIALOG(p->plugin_pref_dialog), GTK_RESPONSE_CLOSE);
     p->plugin_pref_dialog = dlg;
 
     gtk_widget_show_all( dlg );
+    return dlg;
+}
+
+/* new plugins API -- apply_func() gets GtkWidget* */
+GtkWidget *lxpanel_generic_config_dlg(const char *title, Panel *panel,
+                                      GSourceFunc apply_func, GtkWidget *plugin,
+                                      const char *name, ...)
+{
+    GtkWidget *dlg;
+    va_list args;
+
+    if (plugin == NULL)
+        return NULL;
+    va_start(args, name);
+    dlg = _lxpanel_generic_config_dlg(title, panel, apply_func, plugin, plugin, name, args);
+    va_end(args);
+    return dlg;
+}
+
+/* for old plugins compatibility -- apply_func() gets Plugin* */
+GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
+                                      GSourceFunc apply_func, Plugin * plugin,
+                                      const char* name, ... )
+{
+    GtkWidget *dlg;
+    va_list args;
+
+    if (plugin == NULL)
+        return NULL;
+    va_start(args, name);
+    dlg = _lxpanel_generic_config_dlg(title, plugin->panel, apply_func, plugin, plugin->pwid, name, args);
+    va_end(args);
     return dlg;
 }
 

@@ -1392,10 +1392,8 @@ void panel_destroy(Panel *p)
     if (p->pref_dialog != NULL)
         gtk_widget_destroy(p->pref_dialog);
     if (p->plugin_pref_dialog != NULL)
-    {
-        gtk_widget_destroy(p->plugin_pref_dialog);
-        p->plugin_pref_dialog = NULL;
-    }
+        /* just close the dialog, it will do all required cleanup */
+        gtk_dialog_response(GTK_DIALOG(p->plugin_pref_dialog), GTK_RESPONSE_CLOSE);
 
     if (p->bg != NULL)
     {
@@ -1724,7 +1722,7 @@ extern gint panel_get_height(Panel *panel)
 
 extern GtkWindow *panel_get_toplevel_window(Panel *panel)
 {
-    return panel->topgwin;
+    return GTK_WINDOW(panel->topgwin);
 }
 
 extern GtkStyle *panel_get_defstyle(Panel *panel)

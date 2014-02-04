@@ -91,7 +91,11 @@ GtkWidget * fb_button_new_from_file_with_label(
 */
 GtkWidget* recreate_box( GtkBox* oldbox, GtkOrientation orientation );
 
-char* get_config_file( const char* profile, const char* file_name, gboolean is_global );
+/* Parameters: const char* name, gpointer ret_value, GType type, ....NULL */
+extern GtkWidget *lxpanel_generic_config_dlg(const char *title, Panel *panel,
+                                             GSourceFunc apply_func,
+                                             GtkWidget *plugin,
+                                             const char *name, ...);
 
 extern GdkPixbuf* lxpanel_load_icon( const char* name, int width, int height, gboolean use_fallback );
 

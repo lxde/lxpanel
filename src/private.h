@@ -209,6 +209,8 @@ extern GtkMenu* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean u
 
 gboolean lxpanel_launch_app(const char* exec, GList* files, gboolean in_terminal, char const* in_workdir);
 
+char* get_config_file( const char* profile, const char* file_name, gboolean is_global );
+
 
 /* Extracted from plugin.h */
 struct _Plugin;
