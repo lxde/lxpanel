@@ -405,7 +405,7 @@ gboolean config_setting_lookup_int(const config_setting_t * setting,
     sub = _config_setting_get_member(setting, name);
     if (!sub || sub->type != PANEL_CONF_TYPE_INT)
         return FALSE;
-    *value = setting->num;
+    *value = sub->num;
     return TRUE;
 }
 
@@ -419,7 +419,7 @@ gboolean config_setting_lookup_string(const config_setting_t * setting,
     sub = _config_setting_get_member(setting, name);
     if (!sub || sub->type != PANEL_CONF_TYPE_STRING)
         return FALSE;
-    *value = setting->str;
+    *value = sub->str;
     return TRUE;
 }
 
