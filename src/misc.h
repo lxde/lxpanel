@@ -91,7 +91,17 @@ GtkWidget * fb_button_new_from_file_with_label(
 */
 GtkWidget* recreate_box( GtkBox* oldbox, GtkOrientation orientation );
 
-/* Parameters: const char* name, gpointer ret_value, GType type, ....NULL */
+typedef enum {
+    CONF_TYPE_STR,
+    CONF_TYPE_INT,
+    CONF_TYPE_BOOL,
+    CONF_TYPE_FILE,
+    CONF_TYPE_FILE_ENTRY,
+    CONF_TYPE_DIRECTORY_ENTRY,
+    CONF_TYPE_TRIM
+} PluginConfType;
+
+/* Parameters: const char* name, gpointer ret_value, PluginConfType type, ....NULL */
 extern GtkWidget *lxpanel_generic_config_dlg(const char *title, Panel *panel,
                                              GSourceFunc apply_func,
                                              GtkWidget *plugin,

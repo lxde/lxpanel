@@ -145,16 +145,6 @@ extern FbEv *fbev;
 /* Extracted from misc.h */
 typedef struct _Plugin Plugin;
 
-enum _PluginConfType {
-    CONF_TYPE_STR,
-    CONF_TYPE_INT,
-    CONF_TYPE_BOOL,
-    CONF_TYPE_FILE,
-    CONF_TYPE_FILE_ENTRY,
-    CONF_TYPE_DIRECTORY_ENTRY,
-    CONF_TYPE_TRIM
-};
-
 enum { LINE_NONE, LINE_BLOCK_START, LINE_BLOCK_END, LINE_VAR };
 
 typedef struct {

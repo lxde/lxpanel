@@ -1352,7 +1352,7 @@ static GtkWidget *_lxpanel_generic_config_dlg(const char *title, Panel *p,
         GtkWidget* label = gtk_label_new( name );
         GtkWidget* entry = NULL;
         gpointer val = va_arg( args, gpointer );
-        enum _PluginConfType type = va_arg( args, enum _PluginConfType );
+        PluginConfType type = va_arg( args, PluginConfType );
         switch( type )
         {
             case CONF_TYPE_STR:
