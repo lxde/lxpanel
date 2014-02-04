@@ -105,7 +105,7 @@ extern int panel_handle_x_error_swallow_BadWindow_BadDrawable(Display * d, XErro
 extern const char* lxpanel_get_file_manager();
 
 /* Accessors APIs for Panel* */
-extern gboolean panel_is_horisontal(Panel *panel);
+extern gboolean panel_is_horizontal(Panel *panel);
 extern gint panel_get_icon_size(Panel *panel);
 extern gint panel_get_height(Panel *panel);
 extern GtkWindow *panel_get_toplevel_window(Panel *panel);

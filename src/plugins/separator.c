@@ -16,96 +16,65 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#include "panel.h"
-#include "misc.h"
-#include "private.h"
+#include "plugin.h"
 
 #include <glib/gi18n.h>
 
-#include "dbg.h"
-
-static int separator_constructor(Plugin * p, char ** fp);
-static void separator_destructor(Plugin * p);
-static void separator_panel_configuration_changed(Plugin * p);
-
 /* Plugin constructor. */
-static int separator_constructor(Plugin * p, char ** fp)
+static GtkWidget *separator_constructor(Panel *panel, config_setting_t *settings)
 {
-    /* Load parameters from the configuration file. */
-    line s;
-    s.len = 256;
-    if (fp != NULL)
-    {
-        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END)
-        {
-            ERR( "separator: illegal in this context %s\n", s.str);
-            return 0;
-        }
-    }
+    GtkWidget *instance, *sep;
 
     /* Allocate top level widget and set into Plugin widget pointer. */
-    p->pwid = gtk_event_box_new();
+    instance = gtk_event_box_new();
 #if GTK_CHECK_VERSION(2,18,0)
-    gtk_widget_set_has_window(p->pwid, FALSE);
+    gtk_widget_set_has_window(instance, FALSE);
 #else
-    GTK_WIDGET_SET_FLAGS(p->pwid, GTK_NO_WINDOW);
+    GTK_WIDGET_SET_FLAGS(instance, GTK_NO_WINDOW);
 #endif
-    gtk_widget_add_events(p->pwid, GDK_BUTTON_PRESS_MASK);
-    gtk_container_set_border_width(GTK_CONTAINER(p->pwid), 1);
+    gtk_widget_add_events(instance, GDK_BUTTON_PRESS_MASK);
+    gtk_container_set_border_width(GTK_CONTAINER(instance), 1);
 
     /* Allocate separator as a child of top level. */
-    GtkWidget * sep = p->panel->my_separator_new();
-    gtk_container_add(GTK_CONTAINER(p->pwid), sep);
+    sep = panel_separator_new(panel);
+    gtk_container_add(GTK_CONTAINER(instance), sep);
 
     /* Connect signals. */
-    g_signal_connect(p->pwid, "button-press-event", G_CALLBACK(plugin_button_press_event), p);
+    g_signal_connect(instance, "button-press-event",
+                     G_CALLBACK(lxpanel_plugin_button_press_event), instance);
 
     /* Show the widget and return. */
-    gtk_widget_show_all(p->pwid);
-    return 1;
-}
-
-/* Plugin destructor. */
-static void separator_destructor(Plugin * p)
-{
+    return instance;
 }
 
 /* Callback when panel configuration changes. */
-static void separator_panel_configuration_changed(Plugin * p)
+static void separator_reconfigure(Panel *panel, GtkWidget *instance)
 {
     /* Determine if the orientation changed in a way that requires action. */
-    GtkWidget * sep = gtk_bin_get_child(GTK_BIN(p->pwid));
+    GtkWidget * sep = gtk_bin_get_child(GTK_BIN(instance));
     if (GTK_IS_VSEPARATOR(sep))
     {
-        if (p->panel->orientation == GTK_ORIENTATION_HORIZONTAL)
+        if (panel_is_horizontal(panel))
             return;
     }
     else
     {
-        if (p->panel->orientation == GTK_ORIENTATION_VERTICAL)
+        if (!panel_is_horizontal(panel))
             return;
     }
 
     /* If the orientation changed, recreate the separator. */
     gtk_widget_destroy(sep);
-    sep = p->panel->my_separator_new();
+    sep = panel_separator_new(panel);
     gtk_widget_show(sep);
-    gtk_container_add(GTK_CONTAINER(p->pwid), sep);
+    gtk_container_add(GTK_CONTAINER(instance), sep);
 }
 
 /* Plugin descriptor. */
-PluginClass separator_plugin_class = {
-
-    PLUGINCLASS_VERSIONING,
-
-    .type = "separator",
+LXPanelPluginInit lxpanel_static_plugin_separator = {
     .name = N_("Separator"),
-    .version = "1.0",
     .description = N_("Add a separator to the panel"),
 
-    .constructor = separator_constructor,
-    .destructor  = separator_destructor,
-    .config = NULL,
-    .save = NULL,
-    .panel_configuration_changed = separator_panel_configuration_changed
+    .new_instance = separator_constructor,
+    .reconfigure = separator_reconfigure
 };

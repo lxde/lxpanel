@@ -50,6 +50,11 @@ do {\
     register_plugin_class(&pc, FALSE);\
 } while (0)
 
+/* The same for new plugins type - they will be not unloaded by FmModule */
+#define REGISTER_STATIC_MODULE(pc) do { \
+    extern LXPanelPluginInit lxpanel_static_plugin_##pc; \
+    lxpanel_register_plugin_type(#pc, &lxpanel_static_plugin_##pc); } while (0)
+
 static inline LXPanelPluginInit *_find_plugin(const char *name)
 {
     return g_hash_table_lookup(_all_types, name);
@@ -99,7 +104,7 @@ static void register_plugin_class(PluginClass * pc, gboolean dynamic)
 static void init_plugin_class_list(void)
 {
 #ifdef STATIC_SEPARATOR
-    REGISTER_STATIC_PLUGIN_CLASS(separator_plugin_class);
+    REGISTER_STATIC_MODULE(separator);
 #endif
 
 #ifdef STATIC_LAUNCHBAR

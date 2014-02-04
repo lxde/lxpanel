@@ -1705,7 +1705,7 @@ restart:
     return 0;
 }
 
-extern gboolean panel_is_horisontal(Panel *panel)
+extern gboolean panel_is_horizontal(Panel *panel)
 {
     return (panel->orientation == ORIENT_HORIZ);
 }
