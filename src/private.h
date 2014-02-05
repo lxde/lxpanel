@@ -34,6 +34,9 @@
 #include "bg.h"
 #include "ev.h"
 
+/* -----------------------------------------------------------------------------
+ *   Definitions used by lxpanel main code internally */
+
 /* Extracted from panel.h */
 enum { ALLIGN_NONE, ALLIGN_LEFT, ALLIGN_CENTER, ALLIGN_RIGHT  };
 enum { EDGE_NONE=0, EDGE_LEFT, EDGE_RIGHT, EDGE_TOP, EDGE_BOTTOM };
@@ -44,7 +47,6 @@ enum {
     ORIENT_VERT = GTK_ORIENTATION_VERTICAL,
     ORIENT_HORIZ = GTK_ORIENTATION_HORIZONTAL
 };
-enum { POS_NONE, POS_START, POS_END };
 
 #define PANEL_ICON_SIZE               24	/* Default size of panel icons */
 #define PANEL_HEIGHT_DEFAULT          26	/* Default height of horizontal panel */
@@ -141,6 +143,29 @@ extern FbEv *fbev;
 
 #define FBPANEL_WIN(win)  gdk_window_lookup(win)
 
+/* Extracted from misc.h */
+typedef struct {
+    int num;
+    gchar *str;
+} pair;
+
+extern pair allign_pair[];
+extern pair edge_pair[];
+extern pair width_pair[];
+extern pair height_pair[];
+extern pair bool_pair[];
+
+int str2num(pair *p, const gchar *str, int defval);
+const gchar *num2str(pair *p, int num, const gchar *defval);
+
+char* get_config_file( const char* profile, const char* file_name, gboolean is_global );
+
+/* Extracted from plugin.h */
+
+
+/* -----------------------------------------------------------------------------
+ *   Deprecated declarations. Kept for compatibility with old code plugins.
+ *   Should be removed and appropriate code cleaned on some of next releases. */
 
 /* Extracted from misc.h */
 typedef struct _Plugin Plugin;
@@ -154,30 +179,11 @@ typedef struct {
 } line;
 
 
-typedef struct {
-    int num;
-    gchar *str;
-} pair;
-
-extern pair allign_pair[];
-extern pair edge_pair[];
-extern pair width_pair[];
-extern pair height_pair[];
-extern pair bool_pair[];
-extern pair pos_pair[];
-
-int str2num(pair *p, const gchar *str, int defval);
-const gchar *num2str(pair *p, int num, const gchar *defval);
-
 extern int lxpanel_get_line(char **fp, line *s);
 extern int lxpanel_put_line(FILE* fp, const char* format, ...);
 #define lxpanel_put_str(fp, name, val) (G_UNLIKELY( !(val) || !*(val) )) ? 0 : lxpanel_put_line(fp, "%s=%s", name, val)
 #define lxpanel_put_bool(fp, name, val) lxpanel_put_line(fp, "%s=%c", name, (val) ? '1' : '0')
 #define lxpanel_put_int(fp, name, val) lxpanel_put_line(fp, "%s=%d", name, val)
-//extern int lxpanel_put_str( FILE* fp, const char* name, const char* val );
-//extern int lxpanel_put_bool( FILE* fp, const char* name, gboolean val );
-//extern int lxpanel_put_int( FILE* fp, const char* name, int val );
-int get_line_as_is(char **fp, line *s);
 
 GtkWidget *_gtk_image_new_from_file_scaled(const gchar *file, gint width,
                                            gint height, gboolean keep_ratio);
@@ -198,8 +204,6 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
 extern GtkMenu* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean use_sub_menu );
 
 gboolean lxpanel_launch_app(const char* exec, GList* files, gboolean in_terminal, char const* in_workdir);
-
-char* get_config_file( const char* profile, const char* file_name, gboolean is_global );
 
 
 /* Extracted from plugin.h */
@@ -263,6 +267,8 @@ extern void plugin_adjust_popup_position(GtkWidget * popup, Plugin * plugin);
 extern void plugin_popup_set_position_helper(Plugin * p, GtkWidget * near, GtkWidget * popup, GtkRequisition * popup_req, gint * px, gint * py);
 							/* Helper for position-calculation callback for popup menus */
 
+
+/* -------------------------------------------------------------------------- */
 /* FIXME: optional definitions */
 #define STATIC_SEPARATOR
 #define STATIC_LAUNCHBAR

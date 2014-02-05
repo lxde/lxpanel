@@ -1220,7 +1220,7 @@ void logout(void)
         l_logout_cmd = "lxsession-logout";
 
     if( l_logout_cmd )
-        spawn_command_async(NULL, NULL, l_logout_cmd);
+        fm_launch_command_simple(NULL, NULL, 0, l_logout_cmd, NULL);
     else
         fm_show_error(NULL, NULL, _("Logout command is not set"));
 }

@@ -256,7 +256,7 @@ static void on_response( GtkDialog* dlg, gint response, gpointer user_data )
     GtkEntry* entry = (GtkEntry*)user_data;
     if( G_LIKELY(response == GTK_RESPONSE_OK) )
     {
-        if (!spawn_command_async(GTK_WINDOW(dlg), NULL, gtk_entry_get_text(entry)))
+        if (!fm_launch_command_simple(GTK_WINDOW(dlg), NULL, 0, gtk_entry_get_text(entry), NULL))
         {
             g_signal_stop_emission_by_name( dlg, "response" );
             return;

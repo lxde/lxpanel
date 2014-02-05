@@ -196,13 +196,6 @@ pair bool_pair[] = {
     { 1, "1" },
     { 0, NULL },
 };
-pair pos_pair[] = {
-    { POS_NONE, "none" },
-    { POS_START, "start" },
-    { POS_END,  "end" },
-    { 0, NULL},
-};
-
 
 int
 str2num(pair *p, const gchar *str, int defval)
@@ -314,42 +307,6 @@ lxpanel_get_line(char**fp, line *s)
         break;
     }
     return s->type;
-}
-
-int
-get_line_as_is(char** fp, line *s)
-{
-    gchar *tmp, *tmp2;
-
-    ENTER;
-    if (!fp) {
-        s->type = LINE_NONE;
-        RET(s->type);
-    }
-    s->type = LINE_NONE;
-    while (buf_gets(s->str, s->len, fp)) {
-        g_strstrip(s->str);
-        if (s->str[0] == '#' || s->str[0] == 0)
-        continue;
-        DBG( ">> %s\n", s->str);
-        if (!g_ascii_strcasecmp(s->str, "}")) {
-            s->type = LINE_BLOCK_END;
-            DBG( "        : line_block_end\n");
-            break;
-        }
-        for (tmp = s->str; isalnum(*tmp); tmp++);
-        for (tmp2 = tmp; isspace(*tmp2); tmp2++);
-        if (*tmp2 == '=') {
-            s->type = LINE_VAR;
-        } else if  (*tmp2 == '{') {
-            s->type = LINE_BLOCK_START;
-        } else {
-            DBG( "        : ? <%c>\n", *tmp2);
-        }
-        break;
-    }
-    RET(s->type);
-
 }
 
 void resolve_atoms()
