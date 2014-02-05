@@ -132,7 +132,7 @@ void config_destroy(PanelConf * config)
 gboolean config_read_file(PanelConf * config, const char * filename)
 {
     FILE *f = fopen(filename, "r");
-    long size;
+    size_t size;
     char *buff, *c, *name, *end;
     config_setting_t *s, *parent;
 
@@ -142,7 +142,7 @@ gboolean config_read_file(PanelConf * config, const char * filename)
     size = ftell(f);
     rewind(f);
     buff = g_malloc(size + 1);
-    fread(buff, size, 1, f);
+    size = fread(buff, 1, size, f);
     fclose(f);
     buff[size] = '\0';
     name = NULL;
