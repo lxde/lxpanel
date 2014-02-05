@@ -506,6 +506,7 @@ gboolean config_setting_move_elem(config_setting_t * setting, config_setting_t *
                 index--;
         if (index > 1) /* too few elements yet */
         {
+_out_of_range:
             g_warning("config_setting_move_elem: index out of range");
             return FALSE;
         }

@@ -27,7 +27,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdarg.h>
-#include <libfm/fm.h>
+#include <libfm/fm-gtk.h>
 
 #include "misc.h"
 #include "private.h"
@@ -1287,14 +1287,10 @@ GtkWidget* recreate_box( GtkBox* oldbox, GtkOrientation orientation )
     return GTK_WIDGET(newbox);
 }
 
+/* for compatibility with old plugins */
 void show_error( GtkWindow* parent_win, const char* msg )
 {
-    GtkWidget* dlg = gtk_message_dialog_new( parent_win,
-                                             GTK_DIALOG_MODAL,
-                                             GTK_MESSAGE_ERROR,
-                                             GTK_BUTTONS_OK, "%s", msg );
-    gtk_dialog_run( (GtkDialog*)dlg );
-    gtk_widget_destroy( dlg );
+    fm_show_error(parent_win, NULL, msg);
 }
 
 /* Try to load an icon from a named file via the freedesktop.org data directories path.
@@ -1594,7 +1590,7 @@ gboolean spawn_command_async(GtkWindow *parent_window, gchar const* workdir,
     if (err)
     {
         ERR("%s\n", err->message);
-        show_error(parent_window, err->message);
+        fm_show_error(parent_window, NULL, err->message);
         g_error_free(err);
     }
 

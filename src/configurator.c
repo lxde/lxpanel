@@ -30,7 +30,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <glib/gi18n.h>
-#include <libfm/fm.h>
+#include <libfm/fm-gtk.h>
 
 #include "dbg.h"
 
@@ -1222,7 +1222,7 @@ void logout(void)
     if( l_logout_cmd )
         spawn_command_async(NULL, NULL, l_logout_cmd);
     else
-        show_error( NULL, _("Logout command is not set") );
+        fm_show_error(NULL, NULL, _("Logout command is not set"));
 }
 
 static void notify_apply_config( GtkWidget* widget )
