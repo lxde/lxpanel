@@ -38,6 +38,7 @@ static GtkWidget *separator_constructor(Panel *panel, config_setting_t *settings
     /* Allocate separator as a child of top level. */
     sep = panel_separator_new(panel);
     gtk_container_add(GTK_CONTAINER(instance), sep);
+    gtk_widget_show(sep);
 
     /* Connect signals. */
     g_signal_connect(instance, "button-press-event",

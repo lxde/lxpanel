@@ -511,6 +511,12 @@ gboolean config_setting_move_elem(config_setting_t * setting, config_setting_t *
         }
         if (prev && prev->next == setting) /* it is already there */
             return TRUE;
+        if (prev == setting) /* special case: we moving it +1, swapping with next */
+        {
+            if (prev->next == NULL)
+                goto _out_of_range;
+            prev = prev->next;
+        }
     }
     else if (parent->first == setting) /* it is already there */
         return TRUE;

@@ -457,7 +457,7 @@ GtkWidget *lxpanel_add_plugin(Panel *p, const char *name, config_setting_t *cfg,
 {
     LXPanelPluginInit *init;
     GtkWidget *widget;
-    config_setting_t *s;
+    config_setting_t *s, *pconf;
     gint expand, padding = 0, border = 0, i;
 
     CHECK_MODULES();
@@ -482,16 +482,16 @@ GtkWidget *lxpanel_add_plugin(Panel *p, const char *name, config_setting_t *cfg,
         border = config_setting_get_int(s);
     /* prepare config and create it if need */
     s = config_setting_add(cfg, "", PANEL_CONF_TYPE_LIST);
-    for (i = 0; (cfg = config_setting_get_elem(s, i)); i++)
-        if (strcmp(config_setting_get_name(cfg), "Config") == 0)
+    for (i = 0; (pconf = config_setting_get_elem(s, i)); i++)
+        if (strcmp(config_setting_get_name(pconf), "Config") == 0)
             break;
-    if (!cfg)
-        cfg = config_setting_add(s, "Config", PANEL_CONF_TYPE_GROUP);
+    if (!pconf)
+        pconf = config_setting_add(s, "Config", PANEL_CONF_TYPE_GROUP);
     /* If this plugin can only be instantiated once, count the instantiation.
      * This causes the configuration system to avoid displaying the plugin as one that can be added. */
     if (init->new_instance) /* new style of plugin */
     {
-        widget = init->new_instance(p, cfg);
+        widget = init->new_instance(p, pconf);
         if (widget == NULL)
             return widget;
     }
@@ -499,7 +499,7 @@ GtkWidget *lxpanel_add_plugin(Panel *p, const char *name, config_setting_t *cfg,
     {
         Plugin *pl = g_new0(Plugin, 1);
         PluginClass *pc = init->_reserved1;
-        char *conf = config_setting_to_string(cfg), *fp;
+        char *conf = config_setting_to_string(pconf), *fp;
 
         pl->class = pc;
         pl->panel = p;
@@ -519,7 +519,7 @@ GtkWidget *lxpanel_add_plugin(Panel *p, const char *name, config_setting_t *cfg,
         }
 
         pc->count += 1;
-        config_setting_set_save_hook(cfg, _old_plugin_save_hook, pl);
+        config_setting_set_save_hook(pconf, _old_plugin_save_hook, pl);
         lxpanel_plugin_set_data(widget, pl, _old_plugin_destroy);
     }
     gtk_widget_set_name(widget, init->name);
