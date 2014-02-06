@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2006 LxDE Developers, see the file AUTHORS for details.
+ * Copyright (c) 2006-2014 LxDE Developers, see the file AUTHORS for details.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -112,7 +112,7 @@ static void init_plugin_class_list(void)
 #endif
 
 #ifdef STATIC_DCLOCK
-    REGISTER_STATIC_PLUGIN_CLASS(dclock_plugin_class);
+    REGISTER_STATIC_MODULE(dclock);
 #endif
 
 #ifdef STATIC_WINCMD
