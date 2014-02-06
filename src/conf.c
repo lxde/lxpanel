@@ -261,7 +261,8 @@ static void _config_write_setting(const config_setting_t *setting, GString *buf,
         g_string_append_printf(buf, "%s=%d\n", setting->name, setting->num);
         break;
     case PANEL_CONF_TYPE_STRING:
-        g_string_append_printf(buf, "%s=%s\n", setting->name, setting->str);
+        if (setting->str) /* don't save NULL strings */
+            g_string_append_printf(buf, "%s=%s\n", setting->name, setting->str);
         break;
     case PANEL_CONF_TYPE_GROUP:
         if (!out && setting->hook) /* plugin does not support settings */
