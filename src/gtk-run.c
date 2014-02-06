@@ -25,6 +25,7 @@
 
 #include "misc.h"
 #include <menu-cache.h>
+#include <libfm/fm-gtk.h>
 
 static GtkWidget* win = NULL; /* the run dialog */
 static MenuCache* menu_cache = NULL;
@@ -292,9 +293,14 @@ static void on_entry_changed( GtkEntry* entry, GtkImage* img )
     if( app )
     {
         int w, h;
+        const char *name = menu_cache_item_get_icon(MENU_CACHE_ITEM(app));
+        FmIcon * fm_icon;
         GdkPixbuf* pix;
         gtk_icon_size_lookup(GTK_ICON_SIZE_DIALOG, &w, &h);
-        pix = lxpanel_load_icon(menu_cache_item_get_icon(MENU_CACHE_ITEM(app)), w, h, TRUE);
+
+        fm_icon = fm_icon_from_name(name ? name : "application-x-executable");
+        pix = fm_pixbuf_from_icon_with_fallback(fm_icon, h, "application-x-executable");
+        g_object_unref(fm_icon);
         gtk_image_set_from_pixbuf(img, pix);
         g_object_unref(pix);
     }
