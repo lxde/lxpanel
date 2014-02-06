@@ -212,6 +212,8 @@ extern GtkMenu* lxpanel_get_panel_menu( Panel* panel, Plugin* plugin, gboolean u
 
 gboolean lxpanel_launch_app(const char* exec, GList* files, gboolean in_terminal, char const* in_workdir);
 
+extern GdkPixbuf* lxpanel_load_icon( const char* name, int width, int height, gboolean use_fallback );
+
 
 /* Extracted from plugin.h */
 struct _Plugin;

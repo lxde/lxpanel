@@ -105,6 +105,4 @@ extern GtkWidget *lxpanel_generic_config_dlg(const char *title, Panel *panel,
                                              GtkWidget *plugin,
                                              const char *name, ...);
 
-extern GdkPixbuf* lxpanel_load_icon( const char* name, int width, int height, gboolean use_fallback );
-
 #endif
