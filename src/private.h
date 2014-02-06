@@ -188,6 +188,13 @@ extern int lxpanel_put_line(FILE* fp, const char* format, ...);
 GtkWidget *_gtk_image_new_from_file_scaled(const gchar *file, gint width,
                                            gint height, gboolean keep_ratio);
 
+GtkWidget * fb_button_new_from_file(
+    const gchar * image_file, int width, int height, gulong highlight_color, gboolean keep_ratio);
+GtkWidget * fb_button_new_from_file_with_label(
+    const gchar * image_file, int width, int height, gulong highlight_color, gboolean keep_ratio, Panel * panel, gchar * label);
+
+void fb_button_set_from_file(GtkWidget* btn, const char* img_file, gint width, gint height, gboolean keep_ratio);
+
 char* translate_exec_to_cmd( const char* exec, const char* icon,
                              const char* title, const char* fpath );
 

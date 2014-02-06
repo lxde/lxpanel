@@ -76,10 +76,8 @@ gchar *expand_tilda(gchar *file);
 
 void get_button_spacing(GtkRequisition *req, GtkContainer *parent, gchar *name);
 guint32 gcolor2rgb24(GdkColor *color);
-GtkWidget * fb_button_new_from_file(
-    gchar * image_file, int width, int height, gulong highlight_color, gboolean keep_ratio);
-GtkWidget * fb_button_new_from_file_with_label(
-    gchar * image_file, int width, int height, gulong highlight_color, gboolean keep_ratio, Panel * panel, gchar * label);
+GtkWidget *lxpanel_button_new_for_icon(Panel *panel, const gchar *name, GdkColor *color, gchar *label);
+void lxpanel_button_set_icon(GtkWidget* btn, const gchar *name, gint size);
 
 /*
  This function is used to re-create a new box with different
@@ -108,7 +106,5 @@ extern GtkWidget *lxpanel_generic_config_dlg(const char *title, Panel *panel,
                                              const char *name, ...);
 
 extern GdkPixbuf* lxpanel_load_icon( const char* name, int width, int height, gboolean use_fallback );
-
-void fb_button_set_from_file(GtkWidget* btn, const char* img_file, gint width, gint height, gboolean keep_ratio);
 
 #endif

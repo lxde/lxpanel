@@ -892,8 +892,7 @@ static void on_theme_changed(GtkIconTheme * theme, GtkWidget * img)
     _gtk_image_set_from_file_scaled(img, data);
 }
 
-/* parameters width and keep_ratio are unused, kept for backward compatibility */
-void fb_button_set_from_file(GtkWidget * btn, const char * img_file, gint width, gint height, gboolean keep_ratio)
+void lxpanel_button_set_icon(GtkWidget* btn, const gchar *name, gint size)
 {
     /* Locate the image within the button. */
     GtkWidget * child = gtk_bin_get_child(GTK_BIN(btn));
@@ -912,10 +911,16 @@ void fb_button_set_from_file(GtkWidget * btn, const char * img_file, gint width,
         ImgData * data = (ImgData *) g_object_get_qdata(G_OBJECT(img), img_data_id);
 
         g_object_unref(data->icon);
-        data->icon = fm_icon_from_name(img_file);
-        data->size = height;
+        data->icon = fm_icon_from_name(name);
+        data->size = size;
         _gtk_image_set_from_file_scaled(img, data);
     }
+}
+
+/* parameters width and keep_ratio are unused, kept for backward compatibility */
+void fb_button_set_from_file(GtkWidget * btn, const char * img_file, gint width, gint height, gboolean keep_ratio)
+{
+    lxpanel_button_set_icon(btn, img_file, height);
 }
 
 static void _gtk_image_set_from_file_scaled(GtkWidget * img, ImgData * data)
@@ -1073,22 +1078,15 @@ static gboolean fb_button_leave(GtkImage * widget, GdkEventCrossing * event, gpo
 }
 
 
-/* parameters width and keep_ratio are unused, kept for backward compatibility */
-GtkWidget * fb_button_new_from_file(
-    gchar * image_file, int width, int height, gulong highlight_color, gboolean keep_ratio)
-{
-    return fb_button_new_from_file_with_label(image_file, width, height, highlight_color, keep_ratio, NULL, NULL);
-}
-
-/* parameters width and keep_ratio are unused, kept for backward compatibility */
-GtkWidget * fb_button_new_from_file_with_label(
-    gchar * image_file, int width, int height, gulong highlight_color, gboolean keep_ratio, Panel * panel, gchar * label)
+static GtkWidget *_lxpanel_button_new_for_icon(Panel *panel, const gchar *name,
+                                               gint size, gulong highlight_color,
+                                               gchar *label)
 {
     GtkWidget * event_box = gtk_event_box_new();
     gtk_container_set_border_width(GTK_CONTAINER(event_box), 0);
     GTK_WIDGET_UNSET_FLAGS(event_box, GTK_CAN_FOCUS);
 
-    GtkWidget * image = _gtk_image_new_for_icon(image_file, height);
+    GtkWidget * image = _gtk_image_new_for_icon(name, size);
     gtk_misc_set_padding(GTK_MISC(image), 0, 0);
     gtk_misc_set_alignment(GTK_MISC(image), 0, 0);
     if (highlight_color != 0)
@@ -1120,6 +1118,27 @@ GtkWidget * fb_button_new_from_file_with_label(
 
     gtk_widget_show_all(event_box);
     return event_box;
+}
+
+GtkWidget *lxpanel_button_new_for_icon(Panel *panel, const gchar *name, GdkColor *color, gchar *label)
+{
+    gulong highlight_color = color ? gcolor2rgb24(color) : PANEL_ICON_HIGHLIGHT;
+    return _lxpanel_button_new_for_icon(panel, name, panel->icon_size,
+                                        highlight_color, label);
+}
+
+/* parameters width and keep_ratio are unused, kept for backward compatibility */
+GtkWidget * fb_button_new_from_file(
+    const gchar * image_file, int width, int height, gulong highlight_color, gboolean keep_ratio)
+{
+    return fb_button_new_from_file_with_label(image_file, width, height, highlight_color, keep_ratio, NULL, NULL);
+}
+
+/* parameters width and keep_ratio are unused, kept for backward compatibility */
+GtkWidget * fb_button_new_from_file_with_label(
+    const gchar * image_file, int width, int height, gulong highlight_color, gboolean keep_ratio, Panel * panel, gchar * label)
+{
+    return _lxpanel_button_new_for_icon(panel, image_file, height, highlight_color, label);
 }
 
 char* translate_exec_to_cmd( const char* exec, const char* icon,
