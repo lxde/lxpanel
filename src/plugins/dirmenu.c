@@ -339,7 +339,7 @@ static int dirmenu_constructor(Plugin * p, char ** fp)
         ((dm->image != NULL) ? dm->image : "file-manager"),
         p->panel->icon_size, p->panel->icon_size, PANEL_ICON_HIGHLIGHT, TRUE, p->panel, "Temp");
     gtk_container_set_border_width(GTK_CONTAINER(p->pwid), 0);
-    g_signal_connect(p->pwid, "button_press_event", G_CALLBACK(dirmenu_button_press_event), p);
+    g_signal_connect(p->pwid, "button-press-event", G_CALLBACK(dirmenu_button_press_event), p);
 
     /* Initialize the widget. */
     dirmenu_apply_configuration(p);

@@ -423,10 +423,10 @@ static void desk_new(PagerPlugin * pg, int desktop_number)
     gtk_widget_add_events (d->da, GDK_EXPOSURE_MASK | GDK_BUTTON_PRESS_MASK);
 
     /* Connect signals. */
-    g_signal_connect(G_OBJECT(d->da), "expose_event", G_CALLBACK(desk_expose_event), (gpointer) d);
-    g_signal_connect(G_OBJECT(d->da), "configure_event", G_CALLBACK(desk_configure_event), (gpointer) d);
+    g_signal_connect(G_OBJECT(d->da), "expose-event", G_CALLBACK(desk_expose_event), (gpointer) d);
+    g_signal_connect(G_OBJECT(d->da), "configure-event", G_CALLBACK(desk_configure_event), (gpointer) d);
     g_signal_connect(G_OBJECT(d->da), "scroll-event", G_CALLBACK(desk_scroll_event), (gpointer) d);
-    g_signal_connect(G_OBJECT(d->da), "button_press_event", G_CALLBACK(desk_button_press_event), (gpointer) d);
+    g_signal_connect(G_OBJECT(d->da), "button-press-event", G_CALLBACK(desk_button_press_event), (gpointer) d);
 
     /* Show the widget. */
     gtk_widget_show(d->da);

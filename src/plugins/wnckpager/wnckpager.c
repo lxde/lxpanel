@@ -393,13 +393,13 @@ desk_new(pager *pg, int i)
     gtk_widget_add_events (d->da, GDK_EXPOSURE_MASK
           | GDK_BUTTON_PRESS_MASK
           | GDK_BUTTON_RELEASE_MASK);
-    g_signal_connect (G_OBJECT (d->da), "expose_event",
+    g_signal_connect (G_OBJECT (d->da), "expose-event",
           (GCallback) desk_expose_event, (gpointer)d);
-    g_signal_connect (G_OBJECT (d->da), "configure_event",
+    g_signal_connect (G_OBJECT (d->da), "configure-event",
           (GCallback) desk_configure_event, (gpointer)d);
     g_signal_connect (G_OBJECT (d->da), "scroll-event",
           (GCallback) desk_scroll_event, (gpointer)d);
-    g_signal_connect (G_OBJECT (d->da), "button_press_event",
+    g_signal_connect (G_OBJECT (d->da), "button-press-event",
          (GCallback) desk_button_press_event, (gpointer)d);
     //g_signal_connect (G_OBJECT (d->da), "button_release_event",
     //     (GCallback) desk_button_release_event, (gpointer)d);

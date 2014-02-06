@@ -610,7 +610,7 @@ monitors_constructor(Plugin *p, char **fp)
     p->pwid = gtk_hbox_new(TRUE, 2);
     gtk_container_set_border_width(GTK_CONTAINER(p->pwid), 1);
     GTK_WIDGET_SET_FLAGS(p->pwid, GTK_NO_WINDOW);
-    g_signal_connect(G_OBJECT(p->pwid), "button_press_event", G_CALLBACK(monitors_button_press_event), (gpointer) p);
+    g_signal_connect(G_OBJECT(p->pwid), "button-press-event", G_CALLBACK(monitors_button_press_event), (gpointer) p);
 
     /* Apply options */
     line s;

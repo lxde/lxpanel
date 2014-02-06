@@ -205,7 +205,7 @@ static int wincmd_constructor(Plugin * p, char ** fp)
     /* Allocate top level widget and set into Plugin widget pointer. */
     p->pwid = fb_button_new_from_file(wc->image, p->panel->icon_size, p->panel->icon_size, PANEL_ICON_HIGHLIGHT, TRUE);
     gtk_container_set_border_width(GTK_CONTAINER(p->pwid), 0);
-    g_signal_connect(G_OBJECT(p->pwid), "button_press_event", G_CALLBACK(wincmd_button_clicked), (gpointer) p);
+    g_signal_connect(G_OBJECT(p->pwid), "button-press-event", G_CALLBACK(wincmd_button_clicked), (gpointer) p);
     gtk_widget_set_tooltip_text(p->pwid, _("Left click to iconify all windows.  Middle click to shade them."));
 
     /* Show the widget and return. */

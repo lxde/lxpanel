@@ -432,11 +432,11 @@ constructor(Plugin *p, char **fp)
 
     gtk_widget_show(lx_b->drawingArea);
 
-    g_signal_connect (G_OBJECT (lx_b->drawingArea), "button_press_event",
+    g_signal_connect (G_OBJECT (lx_b->drawingArea), "button-press-event",
             G_CALLBACK(buttonPressEvent), (gpointer) p);
-    g_signal_connect (G_OBJECT (lx_b->drawingArea),"configure_event",
+    g_signal_connect (G_OBJECT (lx_b->drawingArea),"configure-event",
           G_CALLBACK (configureEvent), (gpointer) lx_b);
-    g_signal_connect (G_OBJECT (lx_b->drawingArea), "expose_event",
+    g_signal_connect (G_OBJECT (lx_b->drawingArea), "expose-event",
           G_CALLBACK (exposeEvent), (gpointer) lx_b);
 
     sem_init(&(lx_b->alarmProcessLock), 0, 1);

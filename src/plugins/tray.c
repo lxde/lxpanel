@@ -234,7 +234,7 @@ static void balloon_message_display(TrayPlugin * tr, BalloonMessage * msg)
 
     /* Connect signals.  Clicking the popup dismisses it and displays the next message, if any. */
     gtk_widget_add_events(tr->balloon_message_popup, GDK_BUTTON_PRESS_MASK);
-    g_signal_connect(tr->balloon_message_popup, "button_press_event", G_CALLBACK(balloon_message_activate_event), (gpointer) tr);
+    g_signal_connect(tr->balloon_message_popup, "button-press-event", G_CALLBACK(balloon_message_activate_event), (gpointer) tr);
 
     /* Get the allocation of the popup menu. */
     GtkRequisition popup_req;

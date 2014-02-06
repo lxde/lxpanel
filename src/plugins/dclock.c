@@ -321,7 +321,7 @@ static GtkWidget *dclock_constructor(Panel *panel, config_setting_t *settings)
     gtk_container_add(GTK_CONTAINER(hbox), dc->clock_icon);
 
     /* Connect signals. */
-    g_signal_connect(G_OBJECT (p), "button_press_event", G_CALLBACK(dclock_button_press_event), (gpointer) p);
+    g_signal_connect(G_OBJECT (p), "button-press-event", G_CALLBACK(dclock_button_press_event), (gpointer) p);
 
     /* Initialize the clock display. */
     if (dc->clock_format == NULL)

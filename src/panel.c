@@ -1039,7 +1039,7 @@ panel_start_gui(Panel *p)
           (GCallback) panel_configure_event, p);
 
     gtk_widget_add_events( p->topgwin, GDK_BUTTON_PRESS_MASK );
-    g_signal_connect(G_OBJECT (p->topgwin), "button_press_event",
+    g_signal_connect(G_OBJECT (p->topgwin), "button-press-event",
           (GCallback) panel_button_press_event_with_panel, p);
 
     g_signal_connect (G_OBJECT (p->topgwin), "realize",

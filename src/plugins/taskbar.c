@@ -1117,7 +1117,7 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
                     GtkWidget * im = gtk_image_new_from_pixbuf(gtk_image_get_pixbuf(
                                 GTK_IMAGE(tk_cursor->image)));
                     gtk_image_menu_item_set_image(GTK_IMAGE_MENU_ITEM(mi), im);
-                    g_signal_connect(mi, "button_press_event",
+                    g_signal_connect(mi, "button-press-event",
                             G_CALLBACK(taskbar_popup_activate_event), (gpointer) tk_cursor);
                     gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
                 }
@@ -1337,7 +1337,7 @@ static void task_build_gui(TaskbarPlugin * tb, Task * tk)
     gtk_drag_dest_set(tk->button, 0, NULL, 0, 0);
 
     /* Connect signals to the button. */
-    g_signal_connect(tk->button, "button_press_event", G_CALLBACK(taskbar_button_press_event), (gpointer) tk);
+    g_signal_connect(tk->button, "button-press-event", G_CALLBACK(taskbar_button_press_event), (gpointer) tk);
     g_signal_connect(G_OBJECT(tk->button), "drag-motion", G_CALLBACK(taskbar_button_drag_motion), (gpointer) tk);
     g_signal_connect(G_OBJECT(tk->button), "drag-leave", G_CALLBACK(taskbar_button_drag_leave), (gpointer) tk);
     g_signal_connect_after(G_OBJECT (tk->button), "enter", G_CALLBACK(taskbar_button_enter), (gpointer) tk);
