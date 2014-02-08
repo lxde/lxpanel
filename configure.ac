@@ -118,16 +118,6 @@ AC_ARG_ENABLE(man,
 	[enable_man=no]
 )
 
-AC_ARG_ENABLE([cast-checks],
-    AS_HELP_STRING([--enable-cast-checks],
-               [enable Glib casting checks (default: disable)]),
-               cast_checks=$enableval, cast_checks="no")
-G_CAST_CHECKS=""
-if test x"$cast_checks" = "xno"; then
-    G_CAST_CHECKS="-DG_DISABLE_CAST_CHECKS"
-fi
-AC_SUBST(G_CAST_CHECKS)
-
 dnl linker tweaking
 # The function of the link flag --as-needed is to prevent unnecesary linking.
 # Example: A -> B -> C
@@ -385,6 +375,29 @@ if test x"$enable_man" = x"yes"; then
 fi
 
 AM_CONDITIONAL(ENABLE_REGENERATE_MAN, test "x$enable_man" != "xno")
+
+AC_ARG_ENABLE(debug,
+    [AC_HELP_STRING([--enable-debug],
+        [enable debug support @<:@default=no@:>@])],
+    [enable_debug="${enableval}"],
+    [enable_debug=no]
+)
+if test "$enable_debug" = "yes"; then
+    # turn on debug and disable optimization
+    CPPFLAGS="$CPPFLAGS -DG_ENABLE_DEBUG -O0 -g"
+    case "$CC" in
+    gcc*)
+        CPPFLAGS="$CPPFLAGS -Wall -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -Werror=implicit-function-declaration"
+        ;;
+    *)
+        ;;
+    esac
+    dnl Be more strict on portability
+    #CPPFLAGS="$CPPFLAGS -D_POSIX_C_SOURCE=200112L -D_XOPEN_SOURCE=700"
+else
+    # turn off glib debug checks
+    CPPFLAGS="$CPPFLAGS -DG_DISABLE_ASSERT -DG_DISABLE_CHECKS -DG_DISABLE_CAST_CHECKS"
+fi
 
 AC_CONFIG_FILES([
     lxpanel.pc
