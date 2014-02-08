@@ -363,6 +363,7 @@ static GRecMutex _mutex;
 static GStaticRecMutex _mutex = G_STATIC_REC_MUTEX_INIT;
 #endif
 
+#ifndef DISABLE_PLUGINS_LOADING
 FM_MODULE_DEFINE_TYPE(lxpanel_gtk, LXPanelPluginInit, 1)
 
 static gboolean fm_module_callback_lxpanel_gtk(const char *name, gpointer init, int ver)
@@ -370,6 +371,7 @@ static gboolean fm_module_callback_lxpanel_gtk(const char *name, gpointer init, 
     /* ignore ver for now, only 1 exists */
     return lxpanel_register_plugin_type(name, init);
 }
+#endif
 
 static gboolean old_plugins_loaded = FALSE;
 
@@ -380,8 +382,10 @@ void _prepare_modules(void)
     lxpanel_plugin_qinit = g_quark_from_static_string("LXPanel::plugin-init");
     lxpanel_plugin_qconf = g_quark_from_static_string("LXPanel::plugin-conf");
     lxpanel_plugin_qpanel = g_quark_from_static_string("LXPanel::plugin-panel");
+#ifndef DISABLE_PLUGINS_LOADING
     fm_modules_add_directory(PACKAGE_LIB_DIR "/lxpanel/plugins");
     fm_module_register_lxpanel_gtk();
+#endif
 }
 
 void _unload_modules(void)
@@ -389,7 +393,9 @@ void _unload_modules(void)
     GHashTableIter iter;
     gpointer key, val;
 
+#ifndef DISABLE_PLUGINS_LOADING
     fm_module_unregister_type("lxpanel_gtk");
+#endif
     g_hash_table_iter_init(&iter, _all_types);
     while(g_hash_table_iter_next(&iter, &key, &val))
     {

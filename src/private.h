@@ -160,12 +160,14 @@ const gchar *num2str(pair *p, int num, const gchar *defval);
 
 char* get_config_file( const char* profile, const char* file_name, gboolean is_global );
 
-/* Extracted from plugin.h */
-
 
 /* -----------------------------------------------------------------------------
  *   Deprecated declarations. Kept for compatibility with old code plugins.
  *   Should be removed and appropriate code cleaned on some of next releases. */
+
+/* Extracted from panel.h */
+extern const char* lxpanel_get_file_manager();
+
 
 /* Extracted from misc.h */
 typedef struct _Plugin Plugin;

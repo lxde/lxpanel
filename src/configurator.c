@@ -58,7 +58,6 @@ Command commands[] = {
     { NULL, NULL },
 };
 
-static char* file_manager_cmd = NULL;
 static char* logout_cmd = NULL;
 
 extern GSList* all_panels;
@@ -907,10 +906,24 @@ update_toggle_button(GtkWidget *w, gboolean n)
     RET();
 }
 
+static void on_app_chooser_destroy(GtkComboBox *fm, gpointer _unused)
+{
+    gboolean is_changed;
+    GAppInfo *app = fm_app_chooser_combo_box_dup_selected_app(fm, &is_changed);
+    if(app)
+    {
+        if(is_changed)
+            g_app_info_set_as_default_for_type(app, "inode/directory", NULL);
+        g_object_unref(app);
+    }
+}
+
 void panel_configure( Panel* p, int sel_page )
 {
     GtkBuilder* builder;
     GtkWidget *w, *w2, *tint_clr;
+    FmMimeType *mt;
+    GtkComboBox *fm;
     GdkScreen *screen;
     gint monitors;
 
@@ -1135,12 +1148,11 @@ void panel_configure( Panel* p, int sel_page )
         init_plugin_list( p, GTK_TREE_VIEW(plugin_list), w );
     }
     /* advanced, applications */
-    w = (GtkWidget*)gtk_builder_get_object( builder, "file_manager" );
-    if (file_manager_cmd)
-        gtk_entry_set_text( GTK_ENTRY(w), file_manager_cmd );
-    g_signal_connect( w, "focus-out-event",
-                      G_CALLBACK(on_entry_focus_out),
-                      &file_manager_cmd);
+    mt = fm_mime_type_from_name("inode/directory");
+    fm = GTK_COMBO_BOX(gtk_builder_get_object(builder, "fm_combobox"));
+    fm_app_chooser_combo_box_setup_for_mime_type(fm, mt);
+    fm_mime_type_unref(mt);
+    g_signal_connect(fm, "destroy", G_CALLBACK(on_app_chooser_destroy), NULL);
 
     w = (GtkWidget*)gtk_builder_get_object( builder, "term" );
     if (fm_config->terminal)
@@ -1507,7 +1519,6 @@ void load_global_config()
 
     if( loaded )
     {
-        file_manager_cmd = g_key_file_get_string( kf, command_group, "FileManager", NULL );
         logout_cmd = g_key_file_get_string( kf, command_group, "Logout", NULL );
     }
     g_key_file_free( kf );
@@ -1520,8 +1531,6 @@ static void save_global_config()
     if( f )
     {
         fprintf( f, "[%s]\n", command_group );
-        if( file_manager_cmd )
-            fprintf( f, "FileManager=%s\n", file_manager_cmd );
         if( logout_cmd )
             fprintf( f, "Logout=%s\n", logout_cmd );
         fclose( f );
@@ -1530,14 +1539,27 @@ static void save_global_config()
 
 void free_global_config()
 {
-    g_free( file_manager_cmd );
     g_free( logout_cmd );
 }
 
-extern const char*
+/* this is dirty and should be removed later */
+const char*
 lxpanel_get_file_manager()
 {
-    return file_manager_cmd ? file_manager_cmd : "pcmanfm %s";
+    GAppInfo *app = g_app_info_get_default_for_type("inode/directory", TRUE);
+    static char *exec = NULL;
+    const char *c, *x;
+
+    if (!app)
+        return "pcmanfm %s";
+    c = g_app_info_get_commandline(app);
+    x = strchr(c, ' '); /* skip all arguments */
+    g_free(exec);
+    if (x)
+        exec = g_strndup(c, x - c);
+    else
+        exec = g_strdup(c);
+    return exec;
 }
 
 /* vim: set sw=4 et sts=4 : */
