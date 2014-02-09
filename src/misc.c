@@ -851,7 +851,7 @@ calculate_position(Panel *np)
 }
 
 gchar *
-expand_tilda(gchar *file)
+expand_tilda(const gchar *file)
 {
     ENTER;
     RET((file[0] == '~') ?

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2006 LxDE Developers, see the file AUTHORS for details.
+ * Copyright (c) 2006-2014 LxDE Developers, see the file AUTHORS for details.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,13 +18,10 @@
 
 #include <stdlib.h>
 
-#include <gdk-pixbuf/gdk-pixbuf.h>
 #include <glib/gi18n.h>
 
-#include "panel.h"
 #include "misc.h"
-#include "private.h"
-#include "dbg.h"
+#include "plugin.h"
 
 /* Commands that can be issued. */
 typedef enum {
@@ -35,6 +32,7 @@ typedef enum {
 
 /* Private context for window command plugin. */
 typedef struct {
+    config_setting_t *settings;			/* Settings array */
     char * image;				/* Main icon */
     WindowCommand button_1_command;		/* Command for mouse button 1 */
     WindowCommand button_2_command;		/* Command for mouse button 2 */
@@ -42,22 +40,13 @@ typedef struct {
     gboolean toggle_state;			/* State of toggle */
 } WinCmdPlugin;
 
-static pair wincmd_pair [] = {
-    { WC_NONE,    "none" },
-    { WC_ICONIFY, "iconify" },
-    { WC_SHADE,   "shade" },
-    { 0, NULL },
+static const char *wincmd_names[] = {
+    "none",
+    "iconify",
+    "shade"
 };
 
-static void wincmd_adjust_toggle_state(WinCmdPlugin * wc);
-static void wincmd_execute(WinCmdPlugin * wc, WindowCommand command);
-static gboolean wincmd_button_clicked(GtkWidget * widget, GdkEventButton * event, Plugin * plugin);
-static int wincmd_constructor(Plugin * p, char ** fp);
-static void wincmd_destructor(Plugin * p);
-static void wincmd_apply_configuration(Plugin * p);
-static void wincmd_configure(Plugin * p, GtkWindow * parent);
-static void wincmd_save_configuration(Plugin * p, FILE * fp);
-static void wincmd_panel_configuration_changed(Plugin * p);
+static void wincmd_destructor(gpointer user_data);
 
 /* Adjust the toggle state after a window command. */
 static void wincmd_adjust_toggle_state(WinCmdPlugin * wc)
@@ -77,13 +66,13 @@ static void wincmd_execute(WinCmdPlugin * wc, WindowCommand command)
     if (client_list != NULL)
     {
         /* Loop over all windows. */
-        guint current_desktop = get_net_current_desktop();
+        int current_desktop = get_net_current_desktop();
         int i;
         for (i = 0; i < client_count; i++)
         {
             /* Get the desktop and window type properties. */
             NetWMWindowType nwwt;
-            guint task_desktop = get_net_wm_desktop(client_list[i]);
+            int task_desktop = get_net_wm_desktop(client_list[i]);
             get_net_wm_window_type(client_list[i], &nwwt);
 
             /* If the task is visible on the current desktop and it is an ordinary window,
@@ -119,13 +108,15 @@ static void wincmd_execute(WinCmdPlugin * wc, WindowCommand command)
 }
 
 /* Handler for "clicked" signal on main widget. */
-static gboolean wincmd_button_clicked(GtkWidget * widget, GdkEventButton * event, Plugin * plugin)
+static gboolean wincmd_button_clicked(GtkWidget * widget, GdkEventButton * event, Panel * panel)
 {
-    WinCmdPlugin * wc = (WinCmdPlugin *) plugin->priv;
+    WinCmdPlugin * wc;
 
     /* Standard right-click handling. */
-    if (plugin_button_press_event(widget, event, plugin))
+    if (lxpanel_plugin_button_press_event(widget, event, panel))
         return TRUE;
+
+    wc = lxpanel_plugin_get_data(widget);
 
     /* Left-click to iconify. */
     if (event->button == 1)
@@ -155,122 +146,114 @@ static gboolean wincmd_button_clicked(GtkWidget * widget, GdkEventButton * event
 }
 
 /* Plugin constructor. */
-static int wincmd_constructor(Plugin * p, char ** fp)
+static GtkWidget *wincmd_constructor(Panel *panel, config_setting_t *settings)
 {
     /* Allocate plugin context and set into Plugin private data pointer. */
     WinCmdPlugin * wc = g_new0(WinCmdPlugin, 1);
-    p->priv = wc;
+    GtkWidget * p;
+    const char *str;
+    int tmp_int;
 
     /* Initialize to defaults. */
     wc->button_1_command = WC_ICONIFY;
     wc->button_2_command = WC_SHADE;
 
     /* Load parameters from the configuration file. */
-    line s;
-    s.len = 256;
-    if(fp != NULL)
+    if (config_setting_lookup_string(settings, "Button1", &str))
     {
-        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END)
-        {
-            if (s.type == LINE_NONE)
-            {
-                ERR("wincmd: illegal token %s\n", s.str);
-                return 0;
-            }
-            if (s.type == LINE_VAR)
-            {
-                if (g_ascii_strcasecmp(s.t[0], "Button1") == 0)
-                    wc->button_1_command = str2num(wincmd_pair, s.t[1], WC_ICONIFY);
-                else if (g_ascii_strcasecmp(s.t[0], "Button2") == 0)
-                    wc->button_2_command = str2num(wincmd_pair, s.t[1], WC_SHADE);
-                else if (g_ascii_strcasecmp(s.t[0], "image") == 0)
-                    wc->image = expand_tilda(g_strdup(s.t[1]));
-                else if (g_ascii_strcasecmp(s.t[0], "Toggle") == 0)
-                    wc->toggle_preference = str2num(bool_pair, s.t[1], 0);
-                else
-                    ERR("wincmd: unknown var %s\n", s.t[0]);
-            }
-            else
-            {
-                ERR("wincmd: illegal in this context %s\n", s.str);
-                return 0;
-            }
-        }
+        if (g_ascii_strcasecmp(str, "shade") == 0)
+            wc->button_1_command = WC_SHADE;
+        else if (g_ascii_strcasecmp(str, "none") == 0)
+            wc->button_1_command = WC_NONE;
+        /* default is WC_ICONIFY */
     }
+    if (config_setting_lookup_string(settings, "Button2", &str))
+    {
+        if (g_ascii_strcasecmp(str, "iconify") == 0)
+            wc->button_2_command = WC_ICONIFY;
+        else if (g_ascii_strcasecmp(str, "none") == 0)
+            wc->button_2_command = WC_NONE;
+    }
+    if (config_setting_lookup_string(settings, "image", &str))
+        wc->image = expand_tilda(str);
+    if (config_setting_lookup_int(settings, "Toggle", &tmp_int))
+        wc->toggle_preference = tmp_int != 0;
 
     /* Default the image if unspecified. */
     if (wc->image == NULL)
         wc->image = g_strdup("window-manager");
 
+    /* Save construction pointers */
+    wc->settings = settings;
+
     /* Allocate top level widget and set into Plugin widget pointer. */
-    p->pwid = fb_button_new_from_file(wc->image, p->panel->icon_size, p->panel->icon_size, PANEL_ICON_HIGHLIGHT, TRUE);
-    gtk_container_set_border_width(GTK_CONTAINER(p->pwid), 0);
-    g_signal_connect(G_OBJECT(p->pwid), "button-press-event", G_CALLBACK(wincmd_button_clicked), (gpointer) p);
-    gtk_widget_set_tooltip_text(p->pwid, _("Left click to iconify all windows.  Middle click to shade them."));
+    p = lxpanel_button_new_for_icon(panel, wc->image, NULL, NULL);
+    lxpanel_plugin_set_data(p, wc, wincmd_destructor);
+    gtk_container_set_border_width(GTK_CONTAINER(p), 0);
+    gtk_widget_set_tooltip_text(p, _("Left click to iconify all windows.  Middle click to shade them."));
 
     /* Show the widget and return. */
-    gtk_widget_show(p->pwid);
-    return 1;
+    return p;
 }
 
 /* Plugin destructor. */
-static void wincmd_destructor(Plugin * p)
+static void wincmd_destructor(gpointer user_data)
 {
-    WinCmdPlugin * wc = (WinCmdPlugin *) p->priv;
+    WinCmdPlugin * wc = user_data;
     g_free(wc->image);
     g_free(wc);
 }
 
 /* Callback when the configuration dialog has recorded a configuration change. */
-static void wincmd_apply_configuration(Plugin * p)
+static gboolean wincmd_apply_configuration(gpointer user_data)
 {
+    GtkWidget * p = user_data;
+    WinCmdPlugin * wc = lxpanel_plugin_get_data(p);
+
+    /* Just save settings */
+    config_setting_set_string(config_setting_add(wc->settings, "image",
+                                                 PANEL_CONF_TYPE_STRING),
+                              wc->image);
+    config_setting_set_string(config_setting_add(wc->settings, "Button1",
+                                                 PANEL_CONF_TYPE_STRING),
+                              wincmd_names[wc->button_1_command]);
+    config_setting_set_string(config_setting_add(wc->settings, "Button2",
+                                                 PANEL_CONF_TYPE_STRING),
+                              wincmd_names[wc->button_2_command]);
+    config_setting_set_int(config_setting_add(wc->settings, "Toggle",
+                                              PANEL_CONF_TYPE_INT),
+                           wc->toggle_preference);
+    return FALSE;
 }
 
 /* Callback when the configuration dialog is to be shown. */
-static void wincmd_configure(Plugin * p, GtkWindow * parent)
+static void wincmd_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
 {
-    WinCmdPlugin * wc = (WinCmdPlugin *) p->priv;
-    GtkWidget * dlg = create_generic_config_dlg(
-        _(p->class->name),
-        GTK_WIDGET(parent),
-        (GSourceFunc) wincmd_apply_configuration, (gpointer) p,
+    WinCmdPlugin * wc = lxpanel_plugin_get_data(p);
+    GtkWidget * dlg = lxpanel_generic_config_dlg(_("Minimize All Windows"),
+        panel, wincmd_apply_configuration, p,
         _("Alternately iconify/shade and raise"), &wc->toggle_preference, CONF_TYPE_BOOL,
+        /* FIXME: configure buttons 1 and 2 */
         NULL);
     gtk_window_present(GTK_WINDOW(dlg));
 }
 
 
-/* Save the configuration to the configuration file. */
-static void wincmd_save_configuration(Plugin * p, FILE * fp)
-{
-    WinCmdPlugin * wc = (WinCmdPlugin *) p->priv;
-    lxpanel_put_str(fp, "image", wc->image);
-    lxpanel_put_str(fp, "Button1", num2str(wincmd_pair, wc->button_1_command, NULL));
-    lxpanel_put_str(fp, "Button2", num2str(wincmd_pair, wc->button_2_command, NULL));
-    lxpanel_put_bool(fp, "Toggle", wc->toggle_preference);
-}
-
 /* Callback when panel configuration changes. */
-static void wincmd_panel_configuration_changed(Plugin * p)
+static void wincmd_panel_reconfigure(Panel *panel, GtkWidget *p)
 {
-    WinCmdPlugin * wc = (WinCmdPlugin *) p->priv;
-	fb_button_set_from_file(p->pwid, wc->image, p->panel->icon_size, p->panel->icon_size, TRUE);
+    WinCmdPlugin * wc = lxpanel_plugin_get_data(p);
+
+    lxpanel_button_set_icon(p, wc->image, panel_get_icon_size(panel));
 }
 
 /* Plugin descriptor. */
-PluginClass wincmd_plugin_class = {
-
-    PLUGINCLASS_VERSIONING,
-
-    .type = "wincmd",
+LXPanelPluginInit lxpanel_static_plugin_wincmd = {
     .name = N_("Minimize All Windows"),
-    .version = "1.0",
     .description = N_("Sends commands to all desktop windows.\nSupported commands are 1) iconify and 2) shade"),
 
-    .constructor = wincmd_constructor,
-    .destructor  = wincmd_destructor,
+    .new_instance = wincmd_constructor,
     .config = wincmd_configure,
-    .save = wincmd_save_configuration,
-    .panel_configuration_changed = wincmd_panel_configuration_changed
-
+    .reconfigure = wincmd_panel_reconfigure,
+    .button_press_event = wincmd_button_clicked
 };

@@ -72,7 +72,7 @@ void get_net_wm_window_type(Window win, NetWMWindowType *nwwt);
 GPid get_net_wm_pid(Window win);
 
 void calculate_position(Panel *np);
-gchar *expand_tilda(gchar *file);
+gchar *expand_tilda(const gchar *file);
 
 void get_button_spacing(GtkRequisition *req, GtkContainer *parent, gchar *name);
 guint32 gcolor2rgb24(GdkColor *color);

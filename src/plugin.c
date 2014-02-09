@@ -116,7 +116,7 @@ static void init_plugin_class_list(void)
 #endif
 
 #ifdef STATIC_WINCMD
-    REGISTER_STATIC_PLUGIN_CLASS(wincmd_plugin_class);
+    REGISTER_STATIC_MODULE(wincmd);
 #endif
 
 #ifdef STATIC_DIRMENU
