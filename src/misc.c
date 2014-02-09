@@ -1196,43 +1196,11 @@ char* translate_exec_to_cmd( const char* exec, const char* icon,
  any plugin with a layout box. Since GtkHBox cannot be changed to GtkVBox,
  recreating a new box to replace the old one is required.
 */
+/* for compatibility with old plugins */
 GtkWidget* recreate_box( GtkBox* oldbox, GtkOrientation orientation )
 {
-    GtkBox* newbox;
-    GList *child, *children;
-    GtkWidget* (*my_box_new) (gboolean homogeneous, gint spacing);
-
-    if( GTK_IS_HBOX(oldbox) ) {
-        if( orientation == GTK_ORIENTATION_HORIZONTAL )
-            return GTK_WIDGET(oldbox);
-    }
-    else {
-        if( orientation == GTK_ORIENTATION_VERTICAL )
-            return GTK_WIDGET(oldbox);
-    }
-    my_box_new = (orientation == GTK_ORIENTATION_HORIZONTAL ? gtk_hbox_new : gtk_vbox_new);
-
-    newbox = GTK_BOX(my_box_new( gtk_box_get_homogeneous(oldbox),
-                                 gtk_box_get_spacing(oldbox) ));
-    gtk_container_set_border_width (GTK_CONTAINER (newbox),
-                                    gtk_container_get_border_width(GTK_CONTAINER(oldbox)) );
-    children = gtk_container_get_children( GTK_CONTAINER (oldbox) );
-    for( child = children; child; child = child->next ) {
-        gboolean expand, fill;
-        guint padding;
-        GtkWidget* w = GTK_WIDGET(child->data);
-        gtk_box_query_child_packing( oldbox, w,
-                                     &expand, &fill, &padding, NULL );
-        /* g_debug( "repack %s, expand=%d, fill=%d", gtk_widget_get_name(w), expand, fill ); */
-        g_object_ref( w );
-        gtk_container_remove( GTK_CONTAINER (oldbox), w );
-        gtk_box_pack_start( newbox, w, expand, fill, padding );
-        g_object_unref( w );
-    }
-    g_list_free( children );
-    gtk_widget_show_all( GTK_WIDGET(newbox) );
-    gtk_widget_destroy( GTK_WIDGET(oldbox) );
-    return GTK_WIDGET(newbox);
+    gtk_orientable_set_orientation(GTK_ORIENTABLE(oldbox), orientation);
+    return GTK_WIDGET(oldbox);
 }
 
 /* for compatibility with old plugins */

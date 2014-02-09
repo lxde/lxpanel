@@ -832,6 +832,8 @@ static void on_moveup_plugin(  GtkButton* btn, GtkTreeView* view )
             i = get_widget_index(panel, pl);
             s = g_object_get_qdata(G_OBJECT(pl), lxpanel_plugin_qconf);
             /* reorder in config, 0 is Global */
+            if (i == 0)
+                i = 1;
             config_setting_move_elem(s, config_setting_get_parent(s), i);
             /* reorder in panel */
             gtk_box_reorder_child(GTK_BOX(panel->box), pl, i - 1);

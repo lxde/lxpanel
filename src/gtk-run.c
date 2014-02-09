@@ -294,8 +294,8 @@ static void on_entry_changed( GtkEntry* entry, GtkImage* img )
         const char *name = menu_cache_item_get_icon(MENU_CACHE_ITEM(app));
         FmIcon * fm_icon;
         GdkPixbuf* pix;
-        gtk_icon_size_lookup(GTK_ICON_SIZE_DIALOG, &w, &h);
 
+        gtk_icon_size_lookup(GTK_ICON_SIZE_DIALOG, &w, &h);
         fm_icon = fm_icon_from_name(name ? name : "application-x-executable");
         pix = fm_pixbuf_from_icon_with_fallback(fm_icon, h, "application-x-executable");
         g_object_unref(fm_icon);

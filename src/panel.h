@@ -78,11 +78,6 @@ extern Atom a_MANAGER;
 
 extern Atom a_LXPANEL_CMD; /* for private client message */
 
-extern int verbose;
-
-/* if current window manager is EWMH conforming. */
-extern gboolean is_ewmh_supported;
-
 typedef struct _Panel Panel;
 
 extern void panel_apply_icon(GtkWindow *w);

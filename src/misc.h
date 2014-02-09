@@ -79,16 +79,6 @@ guint32 gcolor2rgb24(GdkColor *color);
 GtkWidget *lxpanel_button_new_for_icon(Panel *panel, const gchar *name, GdkColor *color, gchar *label);
 void lxpanel_button_set_icon(GtkWidget* btn, const gchar *name, gint size);
 
-/*
- This function is used to re-create a new box with different
- orientation from the old one, add all children of the old one to
- the new one, and then destroy the old box.
- It's mainly used when we need to change the orientation of the panel or
- any plugin with a layout box. Since GtkHBox cannot be changed to GtkVBox,
- recreating a new box to replace the old one is required.
-*/
-GtkWidget* recreate_box( GtkBox* oldbox, GtkOrientation orientation );
-
 typedef enum {
     CONF_TYPE_STR,
     CONF_TYPE_INT,

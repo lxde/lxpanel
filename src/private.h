@@ -166,6 +166,21 @@ char* get_config_file( const char* profile, const char* file_name, gboolean is_g
  *   Should be removed and appropriate code cleaned on some of next releases. */
 
 /* Extracted from panel.h */
+extern int verbose;
+
+/* if current window manager is EWMH conforming. */
+extern gboolean is_ewmh_supported;
+
+/*
+ This function is used to re-create a new box with different
+ orientation from the old one, add all children of the old one to
+ the new one, and then destroy the old box.
+ It's mainly used when we need to change the orientation of the panel or
+ any plugin with a layout box. Since GtkHBox cannot be changed to GtkVBox,
+ recreating a new box to replace the old one is required.
+*/
+GtkWidget* recreate_box( GtkBox* oldbox, GtkOrientation orientation );
+
 extern const char* lxpanel_get_file_manager();
 
 
