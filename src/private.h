@@ -160,6 +160,33 @@ const gchar *num2str(pair *p, int num, const gchar *defval);
 
 char* get_config_file( const char* profile, const char* file_name, gboolean is_global );
 
+/* FIXME: optional definitions */
+#define STATIC_SEPARATOR
+#define STATIC_LAUNCHBAR
+#define STATIC_DCLOCK
+#define STATIC_WINCMD
+#define STATIC_DIRMENU
+#define STATIC_TASKBAR
+#define STATIC_PAGER
+#define STATIC_TRAY
+#define STATIC_MENU
+#define STATIC_SPACE
+#define STATIC_ICONS
+
+/* Plugins management - new style */
+void _prepare_modules(void);
+void _unload_modules(void);
+
+GtkWidget *lxpanel_add_plugin(Panel *p, const char *name, config_setting_t *cfg, gint at);
+GHashTable *lxpanel_get_all_types(void); /* transfer none */
+
+GQuark lxpanel_plugin_qinit; /* access to LXPanelPluginInit data */
+#define PLUGIN_CLASS(_i) ((LXPanelPluginInit*)g_object_get_qdata(G_OBJECT(_i),lxpanel_plugin_qinit))
+
+GQuark lxpanel_plugin_qconf; /* access to congig_setting_t data */
+
+GQuark lxpanel_plugin_qpanel; /* access to Panel */
+#define PLUGIN_PANEL(_i) ((Panel*)g_object_get_qdata(G_OBJECT(_i),lxpanel_plugin_qpanel))
 
 /* -----------------------------------------------------------------------------
  *   Deprecated declarations. Kept for compatibility with old code plugins.
@@ -292,35 +319,5 @@ extern void plugin_adjust_popup_position(GtkWidget * popup, Plugin * plugin);
 							/* Helper to move popup windows away from the panel */
 extern void plugin_popup_set_position_helper(Plugin * p, GtkWidget * near, GtkWidget * popup, GtkRequisition * popup_req, gint * px, gint * py);
 							/* Helper for position-calculation callback for popup menus */
-
-
-/* -------------------------------------------------------------------------- */
-/* FIXME: optional definitions */
-#define STATIC_SEPARATOR
-#define STATIC_LAUNCHBAR
-#define STATIC_DCLOCK
-#define STATIC_WINCMD
-#define STATIC_DIRMENU
-#define STATIC_TASKBAR
-#define STATIC_PAGER
-#define STATIC_TRAY
-#define STATIC_MENU
-#define STATIC_SPACE
-#define STATIC_ICONS
-
-/* Plugins management - new style */
-void _prepare_modules(void);
-void _unload_modules(void);
-
-GtkWidget *lxpanel_add_plugin(Panel *p, const char *name, config_setting_t *cfg, gint at);
-GHashTable *lxpanel_get_all_types(void); /* transfer none */
-
-GQuark lxpanel_plugin_qinit; /* access to LXPanelPluginInit data */
-#define PLUGIN_CLASS(_i) ((LXPanelPluginInit*)g_object_get_qdata(G_OBJECT(_i),lxpanel_plugin_qinit))
-
-GQuark lxpanel_plugin_qconf; /* access to congig_setting_t data */
-
-GQuark lxpanel_plugin_qpanel; /* access to Panel */
-#define PLUGIN_PANEL(_i) ((Panel*)g_object_get_qdata(G_OBJECT(_i),lxpanel_plugin_qpanel))
 
 #endif
