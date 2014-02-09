@@ -30,6 +30,16 @@ G_BEGIN_DECLS
 
 #define FM_MODULE_lxpanel_gtk_VERSION 1 /* version of this API */
 
+/**
+ * @init: (allow-none): callback on lxpanel start
+ * @finalize: (allow-none): callback on lxpanel exit
+ * @name: name to represent plugin in lists
+ * @description: tooltip on the plugin in lists
+ * @new_instance: callback to create new plugin instance in panel
+ * @config: (allow-none): callback to show configuration dialog
+ * @reconfigure: (allow-none): callback to apply panel configuration change
+ * @button_press_event: (allow-none): callback on "button-press-event" signal
+ */
 typedef struct {
     /*< public >*/
     void (*init)(void);         /* optional startup */
@@ -39,6 +49,7 @@ typedef struct {
     GtkWidget *(*new_instance)(Panel *panel, config_setting_t *settings);
     void (*config)(Panel *panel, GtkWidget *instance, GtkWindow *parent);
     void (*reconfigure)(Panel *panel, GtkWidget *instance);
+    gboolean (*button_press_event)(GtkWidget *widget, GdkEventButton *event, Panel *panel);
     int one_per_system : 1;     /* True to disable more than one instance */
     int expand_available : 1;   /* True if "stretch" option is available */
     int expand_default : 1;     /* True if "stretch" option is default */
@@ -58,7 +69,7 @@ extern gboolean lxpanel_register_plugin_type(const char *name, LXPanelPluginInit
 
 /* few helper functions */
 extern GtkMenu* lxpanel_get_plugin_menu(Panel* panel, GtkWidget* plugin, gboolean use_sub_menu);
-extern gboolean lxpanel_plugin_button_press_event(GtkWidget *widget, GdkEventButton *event, GtkWidget *plugin);
+extern gboolean lxpanel_plugin_button_press_event(GtkWidget *plugin, GdkEventButton *event, Panel *panel);
 			/* Handler for "button_press_event" signal with Plugin as parameter */
 extern void lxpanel_plugin_adjust_popup_position(GtkWidget * popup, GtkWidget * plugin);
 			/* Helper to move popup windows away from the panel */

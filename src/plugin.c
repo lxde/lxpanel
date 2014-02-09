@@ -268,11 +268,11 @@ void plugin_widget_set_background(GtkWidget * w, Panel * p)
 
 /* Handler for "button_press_event" signal with Plugin as parameter.
  * External so can be used from a plugin. */
-gboolean lxpanel_plugin_button_press_event(GtkWidget *widget, GdkEventButton *event, GtkWidget *plugin)
+gboolean lxpanel_plugin_button_press_event(GtkWidget *plugin, GdkEventButton *event, Panel *panel)
 {
     if (event->button == 3) /* right button */
     {
-        GtkMenu* popup = (GtkMenu*)lxpanel_get_plugin_menu(PLUGIN_PANEL(plugin), plugin, FALSE);
+        GtkMenu* popup = (GtkMenu*)lxpanel_get_plugin_menu(panel, plugin, FALSE);
         gtk_menu_popup(popup, NULL, NULL, NULL, NULL, event->button, event->time);
         return TRUE;
     }
@@ -282,7 +282,7 @@ gboolean lxpanel_plugin_button_press_event(GtkWidget *widget, GdkEventButton *ev
 /* for old plugins compatibility */
 gboolean plugin_button_press_event(GtkWidget *widget, GdkEventButton *event, Plugin *plugin)
 {
-    return lxpanel_plugin_button_press_event(widget, event, plugin->pwid);
+    return lxpanel_plugin_button_press_event(plugin->pwid, event, PLUGIN_PANEL(plugin->pwid));
 }
 
 /* Helper for position-calculation callback for popup menus. */
@@ -500,6 +500,12 @@ GtkWidget *lxpanel_add_plugin(Panel *p, const char *name, config_setting_t *cfg,
         widget = init->new_instance(p, pconf);
         if (widget == NULL)
             return widget;
+        if (init->button_press_event)
+            g_signal_connect(widget, "button-press-event",
+                             G_CALLBACK(init->button_press_event), p);
+        else
+            g_signal_connect(widget, "button-press-event",
+                             G_CALLBACK(lxpanel_plugin_button_press_event), p);
     }
     else
     {

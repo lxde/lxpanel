@@ -61,10 +61,6 @@ static GtkWidget *space_constructor(Panel *panel, config_setting_t *settings)
     gtk_widget_add_events(p, GDK_BUTTON_PRESS_MASK);
     gtk_container_set_border_width(GTK_CONTAINER(p), 0);
 
-    /* Connect signals. */
-    g_signal_connect(p, "button-press-event",
-                     G_CALLBACK(lxpanel_plugin_button_press_event), p);
-
     /* Apply the configuration and show the widget. */
     space_apply_configuration(p);
     return p;

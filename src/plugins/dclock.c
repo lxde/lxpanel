@@ -102,13 +102,15 @@ static GtkWidget * dclock_create_calendar(DClockPlugin * dc)
 }
 
 /* Handler for "button-press-event" event from main widget. */
-static gboolean dclock_button_press_event(GtkWidget * widget, GdkEventButton * evt, GtkWidget * plugin)
+static gboolean dclock_button_press_event(GtkWidget * widget, GdkEventButton * evt, Panel * panel)
 {
-    DClockPlugin * dc = lxpanel_plugin_get_data(plugin);
+    DClockPlugin * dc;
 
     /* Standard right-click handling. */
-    if (lxpanel_plugin_button_press_event(widget, evt, plugin))
+    if (lxpanel_plugin_button_press_event(widget, evt, panel))
         return TRUE;
+
+    dc = lxpanel_plugin_get_data(widget);
 
     /* If an action is set, execute it. */
     if (dc->action != NULL)
@@ -320,9 +322,6 @@ static GtkWidget *dclock_constructor(Panel *panel, config_setting_t *settings)
     dc->clock_icon = gtk_image_new();
     gtk_container_add(GTK_CONTAINER(hbox), dc->clock_icon);
 
-    /* Connect signals. */
-    g_signal_connect(G_OBJECT (p), "button-press-event", G_CALLBACK(dclock_button_press_event), (gpointer) p);
-
     /* Initialize the clock display. */
     if (dc->clock_format == NULL)
         dc->clock_format = g_strdup(_(DEFAULT_CLOCK_FORMAT));
@@ -426,7 +425,7 @@ static void dclock_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
 {
     DClockPlugin * dc = lxpanel_plugin_get_data(p);
     GtkWidget * dlg = lxpanel_generic_config_dlg(_("Digital Clock"), panel,
-        (GSourceFunc) dclock_apply_configuration, p,
+        dclock_apply_configuration, p,
         _("Clock Format"), &dc->clock_format, CONF_TYPE_STR,
         _("Tooltip Format"), &dc->tooltip_format, CONF_TYPE_STR,
         _("Format codes: man 3 strftime; \%n for line break"), NULL, CONF_TYPE_TRIM,
@@ -451,5 +450,6 @@ LXPanelPluginInit lxpanel_static_plugin_dclock = {
 
     .new_instance = dclock_constructor,
     .config = dclock_configure,
-    .reconfigure = dclock_reconfigure
+    .reconfigure = dclock_reconfigure,
+    .button_press_event = dclock_button_press_event
 };

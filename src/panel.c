@@ -777,7 +777,7 @@ GtkMenu* lxpanel_get_plugin_menu( Panel* panel, GtkWidget* plugin, gboolean use_
 {
     GtkWidget  *menu_item, *img;
     GtkMenu *ret,*menu;
-    LXPanelPluginInit *init = PLUGIN_CLASS(plugin);
+    LXPanelPluginInit *init;
     char* tmp;
     ret = menu = GTK_MENU(gtk_menu_new());
 
@@ -789,6 +789,7 @@ GtkMenu* lxpanel_get_plugin_menu( Panel* panel, GtkWidget* plugin, gboolean use_
 
     if( plugin )
     {
+        init = PLUGIN_CLASS(plugin);
         img = gtk_image_new_from_stock( GTK_STOCK_REMOVE, GTK_ICON_SIZE_MENU );
         tmp = g_strdup_printf( _("Remove \"%s\" From Panel"), _(init->name) );
         menu_item = gtk_image_menu_item_new_with_label( tmp );

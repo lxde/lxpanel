@@ -40,10 +40,6 @@ static GtkWidget *separator_constructor(Panel *panel, config_setting_t *settings
     gtk_container_add(GTK_CONTAINER(instance), sep);
     gtk_widget_show(sep);
 
-    /* Connect signals. */
-    g_signal_connect(instance, "button-press-event",
-                     G_CALLBACK(lxpanel_plugin_button_press_event), instance);
-
     /* Show the widget and return. */
     return instance;
 }
