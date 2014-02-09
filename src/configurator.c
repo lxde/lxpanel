@@ -154,6 +154,7 @@ static void set_edge(Panel* p, int edge)
 {
     p->edge = edge;
     update_panel_geometry(p);
+    panel_set_panel_configuration_changed(p);
     UPDATE_GLOBAL_STRING(p, "edge", num2str(edge_pair, edge, "none"));
 }
 
