@@ -385,11 +385,7 @@ netstatus_icon_name_changed (NetstatusIface *iface __attribute__((unused)),
       tip = _("Network Connection");
     }
 
-#if GTK_CHECK_VERSION(2,12,0)
   gtk_widget_set_tooltip_text(GTK_WIDGET (icon), tip);
-#else
-  gtk_tooltips_set_tip (icon->priv->tooltips, GTK_WIDGET (icon), tip, NULL);
-#endif
 
   g_free (freeme);
 }
@@ -615,11 +611,8 @@ netstatus_icon_size_allocate (GtkWidget     *widget,
   GtkAllocation  child_allocation;
   GObjectClass  *klass;
   int            size;
-#if GTK_CHECK_VERSION(2,14,0)
   GdkWindow     *window = gtk_widget_get_window(widget);
   guint border_width = gtk_container_get_border_width(GTK_CONTAINER (widget));
-#else
-#endif
 
   if (icon->priv->orientation == GTK_ORIENTATION_HORIZONTAL)
     size = allocation->height;
@@ -635,32 +628,19 @@ netstatus_icon_size_allocate (GtkWidget     *widget,
 
   if (GTK_WIDGET_REALIZED (widget))
     {
-#if GTK_CHECK_VERSION(2,14,0)
       gdk_window_move_resize (window,
                               allocation->x + border_width,
                               allocation->y + border_width,
                               MAX (allocation->width - border_width * 2, 0),
 			                  MAX (allocation->height - border_width * 2, 0));
-#else
-      gdk_window_move_resize (widget->window,
-                              allocation->x + GTK_CONTAINER (widget)->border_width,
-                              allocation->y + GTK_CONTAINER (widget)->border_width,
-                              MAX (allocation->width - GTK_CONTAINER (widget)->border_width * 2, 0),
-			                  MAX (allocation->height - GTK_CONTAINER (widget)->border_width * 2, 0));
-#endif
     }
 
   klass = get_box_class (icon->priv->orientation);
 
   child_allocation.x = 0;
   child_allocation.y = 0;
-#if GTK_CHECK_VERSION(2,14,0)
   child_allocation.width  = MAX (allocation->width  - border_width * 2, 0);
   child_allocation.height = MAX (allocation->height - border_width * 2, 0);
-#else
-  child_allocation.width  = MAX (allocation->width  - GTK_CONTAINER (widget)->border_width * 2, 0);
-  child_allocation.height = MAX (allocation->height - GTK_CONTAINER (widget)->border_width * 2, 0);
-#endif
 
   if (GTK_WIDGET_CLASS (klass)->size_allocate)
     GTK_WIDGET_CLASS (klass)->size_allocate (widget, &child_allocation);

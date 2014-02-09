@@ -131,11 +131,7 @@ menu_pos(GtkMenu *menu, gint *x, gint *y, gboolean *push_in, GtkWidget *widget)
 #endif
     ENTER;
     p = g_object_get_data(G_OBJECT(widget), "plugin");
-#if GTK_CHECK_VERSION(2,14,0)
     gdk_window_get_origin(gtk_widget_get_window(widget), &ox, &oy);
-#else
-    gdk_window_get_origin(widget->window, &ox, &oy);
-#endif
 #if GTK_CHECK_VERSION(2,20,0)
     GtkRequisition requisition;
     gtk_widget_get_requisition(GTK_WIDGET(menu), &requisition);
@@ -400,22 +396,14 @@ static void restore_grabs(GtkWidget *w, gpointer data)
     if (xgrab_shell && (GTK_MENU_SHELL (xgrab_shell)->have_xgrab))
 #endif
      {
-#if GTK_CHECK_VERSION(2,14,0)
         if (gdk_pointer_grab (gtk_widget_get_window(xgrab_shell), TRUE,
-#else
-        if (gdk_pointer_grab (xgrab_shell->window, TRUE,
-#endif
                     GDK_BUTTON_PRESS_MASK |
                     GDK_BUTTON_RELEASE_MASK |
                     GDK_ENTER_NOTIFY_MASK |
                     GDK_LEAVE_NOTIFY_MASK,
                     NULL, NULL, 0) == 0)
         {
-#if GTK_CHECK_VERSION(2,14,0)
             if (gdk_keyboard_grab (gtk_widget_get_window(xgrab_shell), TRUE,
-#else
-            if (gdk_keyboard_grab (xgrab_shell->window, TRUE,
-#endif
                     GDK_CURRENT_TIME) == 0)
 #if GTK_CHECK_VERSION(2,18,0)
                 gtk_widget_grab_focus (xgrab_shell);

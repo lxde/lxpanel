@@ -1225,17 +1225,8 @@ void panel_set_panel_configuration_changed(Panel *p)
     /* recreate the main layout box */
     if (p->box != NULL)
     {
-#if GTK_CHECK_VERSION(2,16,0)
         GtkOrientation bo = (p->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
         gtk_orientable_set_orientation(GTK_ORIENTABLE(p->box), bo);
-#else
-        GtkBox * newbox = GTK_BOX(recreate_box(GTK_BOX(p->box), p->orientation));
-        if (GTK_WIDGET(newbox) != p->box)
-        {
-            p->box = GTK_WIDGET(newbox);
-            gtk_container_add(GTK_CONTAINER(p->topgwin), GTK_WIDGET(newbox));
-        }
-#endif
     }
 
     /* NOTE: This loop won't be executed when panel started since

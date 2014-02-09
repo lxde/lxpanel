@@ -272,24 +272,12 @@ static void launchbutton_drag_data_received_event(
                 b->desktop_id, b->action);
         return;
     }
-#if GTK_CHECK_VERSION(2,14,0)
     if (gtk_selection_data_get_length(sd) > 0)
-#else
-    if (sd->lengh > 0)
-#endif
     {
         if (info == TARGET_URILIST)
         {
-#if GTK_CHECK_VERSION(2,14,0)
             gchar * s = (gchar *) gtk_selection_data_get_data(sd);
-#else
-            gchar * s = (gchar *) sd->data;
-#endif
-#if GTK_CHECK_VERSION(2,14,0)
             gchar * end = s + gtk_selection_data_get_length(sd);
-#else
-            gchar * end = s + sd->lenght;
-#endif
             gchar * str = g_strdup(b->action);
             while (s < end)
             {
