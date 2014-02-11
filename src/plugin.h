@@ -77,6 +77,7 @@ extern void lxpanel_plugin_popup_set_position_helper(Panel * p, GtkWidget * near
 			/* Helper for position-calculation callback for popup menus */
 extern void plugin_widget_set_background(GtkWidget * plugin, Panel * p);
 			/* Recursively set the background of all widgets on a panel background configuration change */
+extern gboolean lxpanel_launch_path(Panel *panel, FmPath *path);
 
 G_END_DECLS
 

@@ -32,6 +32,8 @@
 #include "bg.h"
 
 #include <glib-object.h>
+#include <glib/gi18n.h>
+#include <libfm/fm-gtk.h>
 
 //#define DEBUG
 #include "dbg.h"
@@ -355,6 +357,35 @@ void lxpanel_plugin_adjust_popup_position(GtkWidget * popup, GtkWidget * parent)
 void plugin_adjust_popup_position(GtkWidget * popup, Plugin * plugin)
 {
     lxpanel_plugin_adjust_popup_position(popup, plugin->pwid);
+}
+
+/* Open a specified path in a file manager. */
+static gboolean _open_dir_in_file_manager(GAppLaunchContext* ctx, GList* folder_infos,
+                                          gpointer user_data, GError** err)
+{
+    FmFileInfo *fi = folder_infos->data; /* only first is used */
+    GAppInfo *app = g_app_info_get_default_for_type("inode/directory", TRUE);
+    GFile *gf;
+    gboolean ret;
+
+    if (app == NULL)
+    {
+        g_set_error_literal(err, G_SHELL_ERROR, G_SHELL_ERROR_EMPTY_STRING,
+                            _("No file manager is configured."));
+        return FALSE;
+    }
+    gf = fm_path_to_gfile(fm_file_info_get_path(fi));
+    folder_infos = g_list_prepend(NULL, gf);
+    ret = fm_app_info_launch(app, folder_infos, ctx, err);
+    g_list_free(folder_infos);
+    g_object_unref(gf);
+    g_object_unref(app);
+    return ret;
+}
+
+gboolean lxpanel_launch_path(Panel *panel, FmPath *path)
+{
+    return fm_launch_path_simple(NULL, NULL, path, _open_dir_in_file_manager, NULL);
 }
 
 #if GLIB_CHECK_VERSION(2, 32, 0)

@@ -47,48 +47,19 @@ static GtkWidget * dirmenu_create_menu(DirMenuPlugin * dm, const char * path, gb
 static void dirmenu_destructor(gpointer user_data);
 static gboolean dirmenu_apply_configuration(gpointer user_data);
 
-/* Open a specified path in a file manager. */
-static gboolean dirmenu_open_in_file_manager(GAppLaunchContext* ctx, GList* folder_infos,
-                                             gpointer user_data, GError** err)
-{
-    FmFileInfo *fi = folder_infos->data; /* only first is used */
-    GAppInfo *app = g_app_info_get_default_for_type("inode/directory", TRUE);
-    GFile *gf;
-    gboolean ret;
-
-    if (app == NULL)
-    {
-        g_set_error_literal(err, G_SHELL_ERROR, G_SHELL_ERROR_EMPTY_STRING,
-                            _("No file manager is configured."));
-        return FALSE;
-    }
-    gf = fm_path_to_gfile(fm_file_info_get_path(fi));
-    folder_infos = g_list_prepend(NULL, gf);
-    ret = fm_app_info_launch(app, folder_infos, ctx, err);
-    g_list_free(folder_infos);
-    g_object_unref(gf);
-    g_object_unref(app);
-    return ret;
-}
-
-/* Open a specified path in a terminal. */
-static void dirmenu_open_in_terminal(DirMenuPlugin * dm, const char * path)
-{
-    fm_terminal_launch(path, NULL);
-}
 
 /* Handler for activate event on popup Open menu item. */
 static void dirmenu_menuitem_open_directory(GtkWidget * item, DirMenuPlugin * dm)
 {
     FmPath *path = fm_path_new_for_str(g_object_get_data(G_OBJECT(gtk_widget_get_parent(item)), "path"));
-    fm_launch_path_simple(NULL, NULL, path, dirmenu_open_in_file_manager, NULL);
+    lxpanel_launch_path(dm->panel, path);
     fm_path_unref(path);
 }
 
 /* Handler for activate event on popup Open In Terminal menu item. */
 static void dirmenu_menuitem_open_in_terminal(GtkWidget * item, DirMenuPlugin * dm)
 {
-    dirmenu_open_in_terminal(dm, g_object_get_data(G_OBJECT(gtk_widget_get_parent(item)), "path"));
+    fm_terminal_launch(g_object_get_data(G_OBJECT(gtk_widget_get_parent(item)), "path"), NULL);
 }
 
 /* Handler for select event on popup menu item. */
@@ -281,7 +252,7 @@ static gboolean dirmenu_button_press_event(GtkWidget * widget, GdkEventButton * 
     }
     else
     {
-        dirmenu_open_in_terminal(dm, dm->path);
+        fm_terminal_launch(dm->path, NULL);
     }
     return TRUE;
 }
