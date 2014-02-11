@@ -1727,3 +1727,24 @@ extern GtkWidget *panel_separator_new(Panel *panel)
 {
     return panel->my_separator_new();
 }
+
+gboolean _class_is_present(LXPanelPluginInit *init)
+{
+    GSList *sl;
+
+    for (sl = all_panels; sl; sl = sl->next )
+    {
+        Panel *panel = (Panel*)sl->data;
+        GList *plugins, *p;
+
+        plugins = gtk_container_get_children(GTK_CONTAINER(panel->box));
+        for (p = plugins; p; p = p->next)
+            if (PLUGIN_CLASS(p->data) == init)
+            {
+                g_list_free(plugins);
+                return TRUE;
+            }
+        g_list_free(plugins);
+    }
+    return FALSE;
+}

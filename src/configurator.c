@@ -654,14 +654,6 @@ static void on_add_plugin_response( GtkDialog* dlg,
     gtk_widget_destroy( GTK_WIDGET(dlg) );
 }
 
-static gboolean _class_is_present(LXPanelPluginInit *init, GList *p)
-{
-    for ( ; p; p = p->next)
-        if (PLUGIN_CLASS(p->data) == init)
-            return TRUE;
-    return FALSE;
-}
-
 static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
 {
     GtkWidget* dlg, *parent_win, *scroll;
@@ -723,7 +715,7 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
     while(g_hash_table_iter_next(&iter, &key, &val))
     {
         register LXPanelPluginInit *init = val;
-        if (!init->one_per_system || !_class_is_present(init, plugins))
+        if (!init->one_per_system || !_class_is_present(init))
         {
             GtkTreeIter it;
             gtk_list_store_append( list, &it );

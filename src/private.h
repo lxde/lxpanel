@@ -193,6 +193,8 @@ GQuark lxpanel_plugin_qconf; /* access to congig_setting_t data */
 GQuark lxpanel_plugin_qpanel; /* access to Panel */
 #define PLUGIN_PANEL(_i) ((Panel*)g_object_get_qdata(G_OBJECT(_i),lxpanel_plugin_qpanel))
 
+gboolean _class_is_present(LXPanelPluginInit *init);
+
 /* -----------------------------------------------------------------------------
  *   Deprecated declarations. Kept for compatibility with old code plugins.
  *   Should be removed and appropriate code cleaned on some of next releases. */
