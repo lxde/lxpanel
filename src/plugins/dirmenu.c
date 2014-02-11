@@ -259,10 +259,7 @@ static GtkWidget * dirmenu_create_menu(DirMenuPlugin * dm, const char * path, gb
 static void dirmenu_show_menu(GtkWidget * widget, DirMenuPlugin * dm, int btn, guint32 time)
 {
     /* Create a menu populated with all subdirectories. */
-    GtkWidget * menu = dirmenu_create_menu(
-        dm,
-        ((dm->path != NULL) ? expand_tilda(dm->path) : g_get_home_dir()),
-        FALSE);
+    GtkWidget * menu = dirmenu_create_menu(dm, dm->path, FALSE);
     g_signal_connect(menu, "selection-done", G_CALLBACK(dirmenu_menu_selection_done), dm);
 
     /* Show the menu.  Use a positioning function to get it placed next to the top level widget. */
@@ -284,7 +281,7 @@ static gboolean dirmenu_button_press_event(GtkWidget * widget, GdkEventButton * 
     }
     else
     {
-        dirmenu_open_in_terminal(dm, ((dm->path != NULL) ? expand_tilda(dm->path) : g_get_home_dir()));
+        dirmenu_open_in_terminal(dm, dm->path);
     }
     return TRUE;
 }
@@ -301,7 +298,9 @@ static GtkWidget *dirmenu_constructor(Panel *panel, config_setting_t *settings)
     if (config_setting_lookup_string(settings, "image", &str))
         dm->image = g_strdup(str);
     if (config_setting_lookup_string(settings, "path", &str))
-        dm->path = g_strdup(str);
+        dm->path = expand_tilda(str);
+    else
+        dm->path = g_strdup(fm_get_home_dir());
     if (config_setting_lookup_string(settings, "name", &str))
         dm->name = g_strdup(str);
 
@@ -360,6 +359,16 @@ static gboolean dirmenu_apply_configuration(gpointer user_data)
 {
     GtkWidget * p = user_data;
     DirMenuPlugin * dm = lxpanel_plugin_get_data(p);
+    char * path = dm->path;
+
+    /* Normalize path */
+    if (path == NULL)
+        dm->path = g_strdup(fm_get_home_dir());
+    else if (path[0] == '~')
+    {
+        dm->path = expand_tilda(path);
+        g_free(path);
+    }
 
     /* Save configuration */
     config_setting_set_string(config_setting_add(dm->settings, "path",
@@ -375,8 +384,7 @@ static gboolean dirmenu_apply_configuration(gpointer user_data)
     lxpanel_button_set_icon(p, ((dm->image != NULL) ? dm->image : "file-manager"),
                             panel_get_icon_size(dm->panel));
 
-    /* FIXME: memory leak is here! */
-    gtk_widget_set_tooltip_text(p, ((dm->path != NULL) ? expand_tilda(dm->path) : g_get_home_dir()));
+    gtk_widget_set_tooltip_text(p, dm->path);
     gtk_container_foreach(GTK_CONTAINER(p), (GtkCallback) dirmenu_apply_configuration_to_children, (gpointer) dm);
     return FALSE;
 }
