@@ -120,7 +120,7 @@ static void init_plugin_class_list(void)
 #endif
 
 #ifdef STATIC_DIRMENU
-    REGISTER_STATIC_PLUGIN_CLASS(dirmenu_plugin_class);
+    REGISTER_STATIC_MODULE(dirmenu);
 #endif
 
 #ifdef STATIC_TASKBAR
@@ -459,6 +459,11 @@ static void _old_plugin_destroy(gpointer data)
     g_free(pl);
 }
 
+//static void on_size_allocate(GtkWidget *widget, GdkRectangle *allocation, Panel *p)
+//{
+//    _queue_panel_calculate_size(p);
+//}
+
 GtkWidget *lxpanel_add_plugin(Panel *p, const char *name, config_setting_t *cfg, gint at)
 {
     LXPanelPluginInit *init;
@@ -537,6 +542,7 @@ GtkWidget *lxpanel_add_plugin(Panel *p, const char *name, config_setting_t *cfg,
     gtk_widget_set_name(widget, init->name);
     gtk_box_pack_start(GTK_BOX(p->box), widget, expand, TRUE, padding);
     gtk_container_set_border_width(GTK_CONTAINER(widget), border);
+//    g_signal_connect(widget, "size-allocate", G_CALLBACK(on_size_allocate), p);
     gtk_widget_show(widget);
     g_object_set_qdata(G_OBJECT(widget), lxpanel_plugin_qconf, cfg);
     g_object_set_qdata(G_OBJECT(widget), lxpanel_plugin_qinit, init);

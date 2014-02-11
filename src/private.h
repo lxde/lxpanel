@@ -129,6 +129,9 @@ struct _Panel {
     GtkWidget* alignment_right_label;	/* Label of alignment: right control */
     GtkWidget* height_control;		/* Height control in preference dialog */
     GtkWidget* width_control;		/* Width control in preference dialog */
+
+    //gint dyn_space;                     /* Space for expandable plugins */
+    //guint calculate_size_idle;          /* The idle handler for dyn_space calc */
 };
 
 typedef struct {
@@ -159,6 +162,8 @@ int str2num(pair *p, const gchar *str, int defval);
 const gchar *num2str(pair *p, int num, const gchar *defval);
 
 char* get_config_file( const char* profile, const char* file_name, gboolean is_global );
+
+//void _queue_panel_calculate_size(Panel *panel);
 
 /* FIXME: optional definitions */
 #define STATIC_SEPARATOR
