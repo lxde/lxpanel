@@ -503,6 +503,7 @@ on_plugin_expand_toggled(GtkCellRendererToggle* render, char* path, GtkTreeView*
 
         if (init->expand_available)
         {
+            config_setting_t *s = g_object_get_qdata(G_OBJECT(pl), lxpanel_plugin_qconf);
             /* Only honor "stretch" if allowed by the plugin. */
             expand = ! expand;
             gtk_list_store_set( GTK_LIST_STORE(model), &it, COL_EXPAND, expand, -1 );
@@ -511,6 +512,10 @@ on_plugin_expand_toggled(GtkCellRendererToggle* render, char* path, GtkTreeView*
              * Apply the new packing with only "expand" modified. */
             gtk_box_query_child_packing( GTK_BOX(panel->box), pl, &old_expand, &fill, &padding, &pack_type );
             gtk_box_set_child_packing( GTK_BOX(panel->box), pl, expand, fill, padding, pack_type );
+            if (expand)
+                config_setting_set_int(config_setting_add(s, "expand", PANEL_CONF_TYPE_INT), 1);
+            else
+                config_setting_remove(s, "expand");
         }
     }
     gtk_tree_path_free( tp );
