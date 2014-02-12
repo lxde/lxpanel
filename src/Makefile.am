@@ -29,7 +29,7 @@ lxpanel_SOURCES = \
 	dbg.c dbg.h \
 	ev.c ev.h \
 	gtkbar.h gtkbar.c \
-	icon-grid.h icon-grid.c \
+	icon-grid.c \
 	menu-policy.h menu-policy.c \
 	panel.c \
 	plugin.c \
@@ -42,6 +42,7 @@ lxpanel_include_HEADERS = \
 	plugin.h \
 	panel.h \
 	misc.h \
+	icon-grid.h \
 	conf.h
 
 if BUILD_PLUGIN_LOADER
