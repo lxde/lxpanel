@@ -110,7 +110,7 @@ static void init_plugin_class_list(void)
 #endif
 
 #ifdef STATIC_LAUNCHBAR
-    REGISTER_STATIC_PLUGIN_CLASS(launchbar_plugin_class);
+    REGISTER_STATIC_MODULE(launchbar);
 #endif
 
 #ifdef STATIC_DCLOCK
