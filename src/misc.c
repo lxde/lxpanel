@@ -951,8 +951,16 @@ static void _gtk_image_set_from_file_scaled(GtkWidget * img, ImgData * data)
         data->hilight = NULL;
     }
 
-    data->pixbuf = fm_pixbuf_from_icon_with_fallback(data->icon, data->size,
-                                                     "application-x-executable");
+    if (G_LIKELY(G_IS_THEMED_ICON(data->icon)))
+        data->pixbuf = fm_pixbuf_from_icon_with_fallback(data->icon, data->size,
+                                                         "application-x-executable");
+    else
+    {
+        char *file = g_icon_to_string(fm_icon_get_gicon(data->icon));
+        data->pixbuf = gdk_pixbuf_new_from_file_at_scale(file, -1, data->size, TRUE, NULL);
+        g_free(file);
+    }
+
     if (data->pixbuf != NULL)
     {
         /* Set the pixbuf into the image widget. */
