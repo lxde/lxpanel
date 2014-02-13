@@ -54,7 +54,6 @@ gboolean is_restarting = FALSE;
 
 static int panel_start(Panel *p);
 static void panel_start_gui(Panel *p);
-void panel_config_save(Panel* panel);   /* defined in configurator.c */
 
 gboolean is_in_lxde = FALSE;
 

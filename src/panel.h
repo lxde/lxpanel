@@ -97,6 +97,8 @@ extern void panel_update_background( Panel* p );
 extern int panel_handle_x_error(Display * d, XErrorEvent * ev);
 extern int panel_handle_x_error_swallow_BadWindow_BadDrawable(Display * d, XErrorEvent * ev);
 
+void panel_config_save(Panel *p); /* defined in configurator.c */
+
 /* Accessors APIs for Panel* */
 extern gboolean panel_is_horizontal(Panel *panel);
 extern gint panel_get_icon_size(Panel *panel);

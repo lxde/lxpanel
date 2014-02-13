@@ -63,8 +63,6 @@ enum
     NUM_CHANGE_COLUMNS
 };
 
-void panel_config_save(Panel * panel);   /* defined in configurator.c */
-
 static int   xkb_constructor(Plugin * p_plugin, char ** fp);
 static void  xkb_destructor(Plugin * p_plugin);
 static void  xkb_configure(Plugin * p, GtkWindow * parent);
