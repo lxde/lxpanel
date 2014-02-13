@@ -911,10 +911,15 @@ static void _lxpanel_button_set_icon(GtkWidget* btn, FmIcon* icon, gint size)
     {
         ImgData * data = (ImgData *) g_object_get_qdata(G_OBJECT(img), img_data_id);
 
-        g_object_unref(data->icon);
-        data->icon = icon;
-        data->size = size;
-        _gtk_image_set_from_file_scaled(img, data);
+        if (icon != data->icon || size != data->size) /* something was changed */
+        {
+            g_object_unref(data->icon);
+            data->icon = icon;
+            data->size = size;
+            _gtk_image_set_from_file_scaled(img, data);
+        }
+        else
+            g_object_unref(icon);
     }
     else
         g_object_unref(icon);
