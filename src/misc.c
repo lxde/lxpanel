@@ -892,7 +892,8 @@ static void on_theme_changed(GtkIconTheme * theme, GtkWidget * img)
     _gtk_image_set_from_file_scaled(img, data);
 }
 
-void lxpanel_button_set_icon(GtkWidget* btn, const gchar *name, gint size)
+/* consumes reference on icon */
+static void _lxpanel_button_set_icon(GtkWidget* btn, FmIcon* icon, gint size)
 {
     /* Locate the image within the button. */
     GtkWidget * child = gtk_bin_get_child(GTK_BIN(btn));
@@ -911,10 +912,22 @@ void lxpanel_button_set_icon(GtkWidget* btn, const gchar *name, gint size)
         ImgData * data = (ImgData *) g_object_get_qdata(G_OBJECT(img), img_data_id);
 
         g_object_unref(data->icon);
-        data->icon = fm_icon_from_name(name);
+        data->icon = icon;
         data->size = size;
         _gtk_image_set_from_file_scaled(img, data);
     }
+    else
+        g_object_unref(icon);
+}
+
+void lxpanel_button_set_icon(GtkWidget* btn, const gchar *name, gint size)
+{
+    _lxpanel_button_set_icon(btn, fm_icon_from_name(name), size);
+}
+
+void lxpanel_button_set_icon2(GtkWidget* btn, FmIcon *icon, gint size)
+{
+    _lxpanel_button_set_icon(btn, g_object_ref(icon), size);
 }
 
 /* parameters width and keep_ratio are unused, kept for backward compatibility */
@@ -952,12 +965,13 @@ static void _gtk_image_set_from_file_scaled(GtkWidget * img, ImgData * data)
     }
 }
 
-static GtkWidget *_gtk_image_new_for_icon(const gchar *name, gint size)
+/* consumes reference on icon */
+static GtkWidget *_gtk_image_new_for_icon(FmIcon *icon, gint size)
 {
     GtkWidget * img = gtk_image_new();
     ImgData * data = g_new0(ImgData, 1);
 
-    data->icon = fm_icon_from_name(name);
+    data->icon = icon;
     data->size = size;
     if (img_data_id == 0)
         img_data_id = g_quark_from_static_string("ImgData");
@@ -974,7 +988,7 @@ static GtkWidget *_gtk_image_new_for_icon(const gchar *name, gint size)
 /* parameters width and keep_ratio are unused, kept for backward compatibility */
 GtkWidget * _gtk_image_new_from_file_scaled(const gchar * file, gint width, gint height, gboolean keep_ratio)
 {
-    return _gtk_image_new_for_icon(file, height);
+    return _gtk_image_new_for_icon(fm_icon_from_name(file), height);
 }
 
 void
@@ -1078,7 +1092,8 @@ static gboolean fb_button_leave(GtkImage * widget, GdkEventCrossing * event, gpo
 }
 
 
-static GtkWidget *_lxpanel_button_new_for_icon(Panel *panel, const gchar *name,
+/* consumes reference on icon */
+static GtkWidget *_lxpanel_button_new_for_icon(Panel *panel, FmIcon *icon,
                                                gint size, gulong highlight_color,
                                                gchar *label)
 {
@@ -1086,7 +1101,7 @@ static GtkWidget *_lxpanel_button_new_for_icon(Panel *panel, const gchar *name,
     gtk_container_set_border_width(GTK_CONTAINER(event_box), 0);
     GTK_WIDGET_UNSET_FLAGS(event_box, GTK_CAN_FOCUS);
 
-    GtkWidget * image = _gtk_image_new_for_icon(name, size);
+    GtkWidget * image = _gtk_image_new_for_icon(icon, size);
     gtk_misc_set_padding(GTK_MISC(image), 0, 0);
     gtk_misc_set_alignment(GTK_MISC(image), 0, 0);
     if (highlight_color != 0)
@@ -1123,8 +1138,15 @@ static GtkWidget *_lxpanel_button_new_for_icon(Panel *panel, const gchar *name,
 GtkWidget *lxpanel_button_new_for_icon(Panel *panel, const gchar *name, GdkColor *color, gchar *label)
 {
     gulong highlight_color = color ? gcolor2rgb24(color) : PANEL_ICON_HIGHLIGHT;
-    return _lxpanel_button_new_for_icon(panel, name, panel->icon_size,
-                                        highlight_color, label);
+    return _lxpanel_button_new_for_icon(panel, fm_icon_from_name(name),
+                                        panel->icon_size, highlight_color, label);
+}
+
+GtkWidget *lxpanel_button_new_for_icon2(Panel *panel, FmIcon *icon, GdkColor *color, gchar *label)
+{
+    gulong highlight_color = color ? gcolor2rgb24(color) : PANEL_ICON_HIGHLIGHT;
+    return _lxpanel_button_new_for_icon(panel, g_object_ref(icon),
+                                        panel->icon_size, highlight_color, label);
 }
 
 /* parameters width and keep_ratio are unused, kept for backward compatibility */
@@ -1138,7 +1160,7 @@ GtkWidget * fb_button_new_from_file(
 GtkWidget * fb_button_new_from_file_with_label(
     const gchar * image_file, int width, int height, gulong highlight_color, gboolean keep_ratio, Panel * panel, gchar * label)
 {
-    return _lxpanel_button_new_for_icon(panel, image_file, height, highlight_color, label);
+    return _lxpanel_button_new_for_icon(panel, fm_icon_from_name(image_file), height, highlight_color, label);
 }
 
 char* translate_exec_to_cmd( const char* exec, const char* icon,
