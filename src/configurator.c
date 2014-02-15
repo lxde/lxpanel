@@ -717,6 +717,8 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
     while(g_hash_table_iter_next(&iter, &key, &val))
     {
         register LXPanelPluginInit *init = val;
+        if (init->superseded)
+            continue;
         if (!init->one_per_system || !_class_is_present(init))
         {
             GtkTreeIter it;

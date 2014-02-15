@@ -80,10 +80,25 @@ static void pager_panel_configuration_changed(Panel *panel, GtkWidget *p)
     on_realize(p, panel);
 }
 
+static LXPanelPluginInit wnck_pager = {
+    .name = N_("Desktop Pager"),
+    .description = N_("Simple pager plugin"),
+
+    .superseded = TRUE,
+    .new_instance = pager_constructor,
+    .reconfigure = pager_panel_configuration_changed
+};
+
+static void pager_wnck_init(void)
+{
+    lxpanel_register_plugin_type("wnckpager", &wnck_pager);
+}
+
 LXPanelPluginInit lxpanel_static_plugin_pager = {
     .name = N_("Desktop Pager"),
     .description = N_("Simple pager plugin"),
 
+    .init = pager_wnck_init,
     .new_instance = pager_constructor,
     .reconfigure = pager_panel_configuration_changed
 };

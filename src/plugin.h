@@ -53,6 +53,7 @@ typedef struct {
     int one_per_system : 1;     /* True to disable more than one instance */
     int expand_available : 1;   /* True if "stretch" option is available */
     int expand_default : 1;     /* True if "stretch" option is default */
+    int superseded : 1;         /* True if plugin was superseded by another */
     /*< private >*/
     gpointer _reserved1;
     gpointer _reserved2;
