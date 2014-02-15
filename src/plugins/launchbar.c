@@ -276,8 +276,8 @@ static LaunchButton *launchbutton_build_gui(LaunchbarPlugin * lb, FmPath * id)
     btn->fi = fi;
 
     /* Create a button with the specified icon. */
-    button = lxpanel_button_new_for_icon2(lb->panel, fm_file_info_get_icon(fi),
-                                          NULL, NULL);
+    button = lxpanel_button_new_for_fm_icon(lb->panel, fm_file_info_get_icon(fi),
+                                            NULL, NULL);
     btn->widget = button;
 #if GLIB_CHECK_VERSION(2,18,0)
      gtk_widget_set_can_focus(button, FALSE);

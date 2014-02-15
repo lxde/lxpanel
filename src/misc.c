@@ -1155,7 +1155,7 @@ GtkWidget *lxpanel_button_new_for_icon(Panel *panel, const gchar *name, GdkColor
                                         panel->icon_size, highlight_color, label);
 }
 
-GtkWidget *lxpanel_button_new_for_icon2(Panel *panel, FmIcon *icon, GdkColor *color, gchar *label)
+GtkWidget *lxpanel_button_new_for_fm_icon(Panel *panel, FmIcon *icon, GdkColor *color, gchar *label)
 {
     gulong highlight_color = color ? gcolor2rgb24(color) : PANEL_ICON_HIGHLIGHT;
     return _lxpanel_button_new_for_icon(panel, g_object_ref(icon),
