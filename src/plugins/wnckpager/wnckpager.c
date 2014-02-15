@@ -42,6 +42,7 @@
 
 #include "dbg.h"
 
+#if 0
 /* managed window: all related info that wm holds about its managed windows */
 typedef struct task {
     Window win;
@@ -69,31 +70,33 @@ struct _desk {
     gfloat scalew, scaleh;
     pager *pg;
 };
+#endif
 
-struct _pager {
+typedef struct _pager {
     Plugin* plugin;
-    GtkWidget *box, *eb;
-    desk *desks[MAX_DESK_NUM];
-    guint desknum;
-    guint curdesk;
-    int dw, dh;
-    gfloat scalex, scaley, ratio;
-    Window *wins;
-    int winnum, dirty;
-    GHashTable* htable;
-    task *focusedtask;
-};
+    GtkWidget *box;
+//    GtkWidget *eb;
+//    desk *desks[MAX_DESK_NUM];
+//    guint desknum;
+//    guint curdesk;
+//    int dw, dh;
+//    gfloat scalex, scaley, ratio;
+//    Window *wins;
+//    int winnum, dirty;
+//    GHashTable* htable;
+//    task *focusedtask;
+} pager;
 
 
 #define TASK_VISIBLE(tk)                            \
  (!( (tk)->nws.hidden || (tk)->nws.skip_pager ))
 //if (t->nws.skip_pager || t->nwwt.desktop /*|| t->nwwt.dock || t->nwwt.splash*/ )
 
-static void pager_rebuild_all(FbEv *ev, pager *pg);
+//static void pager_rebuild_all(FbEv *ev, pager *pg);
 
-static inline void desk_set_dirty_by_win(pager *p, task *t);
-static inline void desk_set_dirty(desk *d);
-static inline void desk_set_dirty_all(pager *pg);
+//static inline void desk_set_dirty_by_win(pager *p, task *t);
+//static inline void desk_set_dirty(desk *d);
+//static inline void desk_set_dirty_all(pager *pg);
 /*
 static void desk_clear_pixmap(desk *d);
 static gboolean task_remove_stale(Window *win, task *t, pager *p);
@@ -107,7 +110,7 @@ static gboolean task_remove_all(Window *win, task *t, pager *p);
  * Task Management Routines                                      *
  *****************************************************************/
 
-
+#if 0
 /* tell to remove element with zero refcount */
 static gboolean
 task_remove_stale(Window *win, task *t, pager *p)
@@ -634,7 +637,7 @@ pager_rebuild_all(FbEv *ev, pager *pg)
     do_net_client_list_stacking(NULL, pg);
     RET();
 }
-
+#endif
 
 static int
 pager_wnck_constructor(Plugin *plug, char **fp)
@@ -650,7 +653,7 @@ pager_wnck_constructor(Plugin *plug, char **fp)
     plug->pwid = gtk_event_box_new();
     GTK_WIDGET_SET_FLAGS( plug->pwid, GTK_NO_WINDOW );
 
-    pg->htable = g_hash_table_new (g_int_hash, g_int_equal);
+    //pg->htable = g_hash_table_new (g_int_hash, g_int_equal);
 
     pg->box = wnck_pager_new(NULL);
     g_return_val_if_fail(pg->box != NULL, 0);
@@ -662,31 +665,31 @@ pager_wnck_constructor(Plugin *plug, char **fp)
     //gtk_widget_show (pg->box);
     //gtk_container_add (GTK_CONTAINER (plugin), pg->box);
 
-    gtk_container_set_border_width (GTK_CONTAINER (pg->box), 2);
+    //gtk_container_set_border_width (GTK_CONTAINER (pg->box), 2);
     gtk_widget_show(pg->box);
 
     gtk_container_set_border_width (GTK_CONTAINER (plug->pwid), 1);
     gtk_container_add(GTK_CONTAINER(plug->pwid), pg->box);
-    pg->eb = pg->box;
+    //pg->eb = pg->box;
 
-    pg->ratio = (gfloat)gdk_screen_width() / (gfloat)gdk_screen_height();
-    pg->scaley = (gfloat)pg->dh / (gfloat)gdk_screen_height();
-    pg->scalex = (gfloat)pg->dw / (gfloat)gdk_screen_width();
+    //pg->ratio = (gfloat)gdk_screen_width() / (gfloat)gdk_screen_height();
+    //pg->scaley = (gfloat)pg->dh / (gfloat)gdk_screen_height();
+    //pg->scalex = (gfloat)pg->dw / (gfloat)gdk_screen_width();
 
-    pager_rebuild_all(fbev, pg);
+    //pager_rebuild_all(fbev, pg);
     //do_net_current_desktop(fbev, pg);
     //do_net_client_list_stacking(fbev, pg);
 
-    gdk_window_add_filter(NULL, (GdkFilterFunc)pager_event_filter, pg );
+//    gdk_window_add_filter(NULL, (GdkFilterFunc)pager_event_filter, pg );
 
-    g_signal_connect (G_OBJECT (fbev), "current_desktop",
-          G_CALLBACK (do_net_current_desktop), (gpointer) pg);
-    g_signal_connect (G_OBJECT (fbev), "active_window",
-          G_CALLBACK (do_net_active_window), (gpointer) pg);
-    g_signal_connect (G_OBJECT (fbev), "number_of_desktops",
-          G_CALLBACK (pager_rebuild_all), (gpointer) pg);
-    g_signal_connect (G_OBJECT (fbev), "client_list_stacking",
-          G_CALLBACK (do_net_client_list_stacking), (gpointer) pg);
+//    g_signal_connect (G_OBJECT (fbev), "current_desktop",
+//          G_CALLBACK (do_net_current_desktop), (gpointer) pg);
+//    g_signal_connect (G_OBJECT (fbev), "active_window",
+//          G_CALLBACK (do_net_active_window), (gpointer) pg);
+//    g_signal_connect (G_OBJECT (fbev), "number_of_desktops",
+//          G_CALLBACK (pager_rebuild_all), (gpointer) pg);
+//    g_signal_connect (G_OBJECT (fbev), "client_list_stacking",
+//          G_CALLBACK (do_net_client_list_stacking), (gpointer) pg);
     RET(1);
 }
 
@@ -696,21 +699,28 @@ pager_destructor(Plugin *p)
     pager *pg = (pager *)p->priv;
 
     ENTER;
-    g_signal_handlers_disconnect_by_func(G_OBJECT (fbev), do_net_current_desktop, pg);
-    g_signal_handlers_disconnect_by_func(G_OBJECT (fbev), do_net_active_window, pg);
-    g_signal_handlers_disconnect_by_func(G_OBJECT (fbev), pager_rebuild_all, pg);
-    g_signal_handlers_disconnect_by_func(G_OBJECT (fbev), do_net_client_list_stacking, pg);
-    gdk_window_remove_filter(NULL, (GdkFilterFunc)pager_event_filter, pg);
-    while (--pg->desknum) {
-        desk_free(pg, pg->desknum);
-    }
-    g_hash_table_foreach_remove(pg->htable, (GHRFunc) task_remove_all, (gpointer)pg);
-    g_hash_table_destroy(pg->htable);
-    gtk_widget_destroy(pg->eb);
+//    g_signal_handlers_disconnect_by_func(G_OBJECT (fbev), do_net_current_desktop, pg);
+//    g_signal_handlers_disconnect_by_func(G_OBJECT (fbev), do_net_active_window, pg);
+//    g_signal_handlers_disconnect_by_func(G_OBJECT (fbev), pager_rebuild_all, pg);
+//    g_signal_handlers_disconnect_by_func(G_OBJECT (fbev), do_net_client_list_stacking, pg);
+//    gdk_window_remove_filter(NULL, (GdkFilterFunc)pager_event_filter, pg);
+//    while (--pg->desknum) {
+//        desk_free(pg, pg->desknum);
+//    }
+    //g_hash_table_foreach_remove(pg->htable, (GHRFunc) task_remove_all, (gpointer)pg);
+    //g_hash_table_destroy(pg->htable);
+    gtk_widget_destroy(p->pwid);
     g_free(pg);
     RET();
 }
 
+static void wnckpager_panel_configuration_changed(Plugin * p)
+{
+    pager *pg = (pager *)p->priv;
+
+    wnck_pager_set_orientation (WNCK_PAGER (pg->box),pg->plugin->panel->orientation);
+    wnck_pager_set_n_rows (WNCK_PAGER (pg->box), pg->plugin->panel->height / 48 + 1);
+}
 
 PluginClass wnckpager_plugin_class = {
 
@@ -726,5 +736,5 @@ PluginClass wnckpager_plugin_class = {
     .destructor  = pager_destructor,
     .config = NULL,
     .save = NULL,
-    .panel_configuration_changed = NULL
+    .panel_configuration_changed = wnckpager_panel_configuration_changed
 };
