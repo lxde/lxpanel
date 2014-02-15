@@ -42,11 +42,6 @@ enum { ALLIGN_NONE, ALLIGN_LEFT, ALLIGN_CENTER, ALLIGN_RIGHT  };
 enum { EDGE_NONE=0, EDGE_LEFT, EDGE_RIGHT, EDGE_TOP, EDGE_BOTTOM };
 enum { WIDTH_NONE, WIDTH_REQUEST, WIDTH_PIXEL, WIDTH_PERCENT };
 enum { HEIGHT_NONE, HEIGHT_PIXEL, HEIGHT_REQUEST };
-enum {
-    ORIENT_NONE = -1,
-    ORIENT_VERT = GTK_ORIENTATION_VERTICAL,
-    ORIENT_HORIZ = GTK_ORIENTATION_HORIZONTAL
-};
 
 #define PANEL_ICON_SIZE               24	/* Default size of panel icons */
 #define PANEL_HEIGHT_DEFAULT          26	/* Default height of horizontal panel */
@@ -83,7 +78,7 @@ struct _Panel {
     int ax, ay, aw, ah;  /* prefferd allocation of a panel */
     int cx, cy, cw, ch;  /* current allocation (as reported by configure event) allocation */
     int allign, edge, margin;
-    int orientation;
+    guint orientation;
     int widthtype, width;
     int heighttype, height;
     gint monitor;
@@ -117,8 +112,8 @@ struct _Panel {
 
     char* background_file;
 
-    GSList * system_menus;		/* List of plugins having menus */
     PanelConf * config;                 /* Panel configuration data */
+    GSList * system_menus;		/* List of plugins having menus */
 
     GtkWidget* plugin_pref_dialog;	/* Plugin preference dialog */
     GtkWidget* pref_dialog;		/* preference dialog */

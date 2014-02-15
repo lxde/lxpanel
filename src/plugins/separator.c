@@ -51,12 +51,12 @@ static void separator_reconfigure(Panel *panel, GtkWidget *instance)
     GtkWidget * sep = gtk_bin_get_child(GTK_BIN(instance));
     if (GTK_IS_VSEPARATOR(sep))
     {
-        if (panel_is_horizontal(panel))
+        if (panel_get_orientation(panel) == GTK_ORIENTATION_HORIZONTAL)
             return;
     }
     else
     {
-        if (!panel_is_horizontal(panel))
+        if (panel_get_orientation(panel) == GTK_ORIENTATION_VERTICAL)
             return;
     }
 

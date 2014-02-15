@@ -142,7 +142,7 @@ menu_pos(GtkMenu *menu, gint *x, gint *y, gboolean *push_in, GtkWidget *widget)
     w = GTK_WIDGET(menu)->requisition.width;
     h = GTK_WIDGET(menu)->requisition.height;
 #endif
-    if (p->panel->orientation == ORIENT_HORIZ) {
+    if (p->panel->orientation == GTK_ORIENTATION_HORIZONTAL) {
         *x = ox;
         if (*x + w > gdk_screen_width())
 #if GTK_CHECK_VERSION(2,18,0)

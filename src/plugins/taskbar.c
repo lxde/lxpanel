@@ -1291,8 +1291,7 @@ static void taskbar_button_size_allocate(GtkWidget * btn, GtkAllocation * alloc,
 /* Update style on the taskbar when created or after a configuration change. */
 static void taskbar_update_style(TaskbarPlugin * tb)
 {
-    GtkOrientation bo = (tb->plug->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
-    icon_grid_set_geometry(tb->icon_grid, bo,
+    icon_grid_set_geometry(tb->icon_grid, tb->plug->panel->orientation,
         ((tb->icons_only) ? tb->icon_size + ICON_ONLY_EXTRA : tb->task_width_max), tb->icon_size,
         tb->spacing, 0, tb->plug->panel->height);
 }
@@ -1918,8 +1917,7 @@ static void taskbar_build_gui(Plugin * p)
     gtk_widget_set_name(p->pwid, "taskbar");
 
     /* Make container for task buttons as a child of top level widget. */
-    GtkOrientation bo = (tb->plug->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
-    tb->icon_grid = icon_grid_new(p->panel, p->pwid, bo, tb->task_width_max, tb->icon_size, tb->spacing, 0, p->panel->height);
+    tb->icon_grid = icon_grid_new(p->panel, p->pwid, tb->plug->panel->orientation, tb->task_width_max, tb->icon_size, tb->spacing, 0, p->panel->height);
     icon_grid_set_constrain_width(tb->icon_grid, TRUE);
     taskbar_update_style(tb);
 

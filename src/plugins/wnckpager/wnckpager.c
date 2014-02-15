@@ -313,7 +313,7 @@ desk_configure_event (GtkWidget *widget, GdkEventConfigure *event, desk *d)
 
     p = d->pg->plugin->panel;
     //request best size
-    if (p->orientation != ORIENT_HORIZ) {
+    if (p->orientation != GTK_ORIENTATION_HORIZONTAL) {
         w = widget->allocation.width;
         h = (gfloat) w / d->pg->ratio;
     } else {

@@ -73,7 +73,7 @@ static gboolean space_apply_configuration(gpointer user_data)
     SpacePlugin * sp = lxpanel_plugin_get_data(p);
 
     /* Apply settings. */
-    if (panel_is_horizontal(sp->panel))
+    if (panel_get_orientation(sp->panel) == GTK_ORIENTATION_HORIZONTAL)
         gtk_widget_set_size_request(p, sp->size, 2);
     else
         gtk_widget_set_size_request(p, 2, sp->size);

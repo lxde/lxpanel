@@ -106,7 +106,7 @@ image_constructor(Plugin *p, char **fp)
         wid = gtk_label_new("?");
     } else {
         float ratio;
-        ratio = (p->panel->orientation == ORIENT_HORIZ) ?
+        ratio = (p->panel->orientation == GTK_ORIENTATION_HORIZONTAL) ?
             (float) (p->panel->ah - 2) / (float) gdk_pixbuf_get_height(gp)
             : (float) (p->panel->aw - 2) / (float) gdk_pixbuf_get_width(gp);
         gps =  gdk_pixbuf_scale_simple (gp,

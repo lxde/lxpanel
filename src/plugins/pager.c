@@ -768,8 +768,7 @@ static int pager_constructor(Plugin * plug, char ** fp)
     gtk_container_set_border_width(GTK_CONTAINER(plug->pwid), 0);
 
     /* Create an icon grid manager to manage the drawing areas within the container. */
-    GtkOrientation bo = (plug->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
-    pg->icon_grid = icon_grid_new(plug->panel, plug->pwid, bo,
+    pg->icon_grid = icon_grid_new(plug->panel, plug->pwid, plug->panel->orientation,
         (plug->panel->icon_size - BORDER_WIDTH * 2) * pg->aspect_ratio,
         plug->panel->icon_size - BORDER_WIDTH * 2,
         1, BORDER_WIDTH,
@@ -825,8 +824,7 @@ static void pager_panel_configuration_changed(Plugin * p)
 {
     /* Reset the icon grid orientation. */
     PagerPlugin * pg = (PagerPlugin *) p->priv;
-    GtkOrientation bo = (p->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
-    icon_grid_set_geometry(pg->icon_grid, bo,
+    icon_grid_set_geometry(pg->icon_grid, p->panel->orientation,
         (p->panel->icon_size - BORDER_WIDTH * 2) * pg->aspect_ratio,
         p->panel->icon_size - BORDER_WIDTH * 2,
         1, BORDER_WIDTH,

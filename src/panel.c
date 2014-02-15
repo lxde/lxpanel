@@ -494,9 +494,9 @@ panel_size_req(GtkWidget *widget, GtkRequisition *req, Panel *p)
         gtk_widget_size_request(p->box, req);
 
     if (p->widthtype == WIDTH_REQUEST)
-        p->width = (p->orientation == ORIENT_HORIZ) ? req->width : req->height;
+        p->width = (p->orientation == GTK_ORIENTATION_HORIZONTAL) ? req->width : req->height;
     if (p->heighttype == HEIGHT_REQUEST)
-        p->height = (p->orientation == ORIENT_HORIZ) ? req->height : req->width;
+        p->height = (p->orientation == GTK_ORIENTATION_HORIZONTAL) ? req->height : req->width;
 
     calculate_position(p);
 
@@ -510,9 +510,9 @@ panel_size_alloc(GtkWidget *widget, GtkAllocation *a, Panel *p)
 {
     ENTER;
     if (p->widthtype == WIDTH_REQUEST)
-        p->width = (p->orientation == ORIENT_HORIZ) ? a->width : a->height;
+        p->width = (p->orientation == GTK_ORIENTATION_HORIZONTAL) ? a->width : a->height;
     if (p->heighttype == HEIGHT_REQUEST)
-        p->height = (p->orientation == ORIENT_HORIZ) ? a->height : a->width;
+        p->height = (p->orientation == GTK_ORIENTATION_HORIZONTAL) ? a->height : a->width;
     calculate_position(p);
 
     if (a->width == p->aw && a->height == p->ah && a->x == p->ax && a->y == p ->ay) {
@@ -1194,27 +1194,27 @@ void panel_set_panel_configuration_changed(Panel *p)
 {
     GList *plugins, *l;
 
-    int previous_orientation = p->orientation;
+    GtkOrientation previous_orientation = p->orientation;
     p->orientation = (p->edge == EDGE_TOP || p->edge == EDGE_BOTTOM)
-        ? ORIENT_HORIZ : ORIENT_VERT;
+        ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
 
-    if (previous_orientation != p->orientation)
+    /* either first run or orientation was changed */
+    if (p->my_box_new == NULL || previous_orientation != p->orientation)
     {
         panel_adjust_geometry_terminology(p);
-        if (previous_orientation != ORIENT_NONE)
-            p->height = ((p->orientation == ORIENT_HORIZ) ? PANEL_HEIGHT_DEFAULT : PANEL_WIDTH_DEFAULT);
+        p->height = ((p->orientation == GTK_ORIENTATION_HORIZONTAL) ? PANEL_HEIGHT_DEFAULT : PANEL_WIDTH_DEFAULT);
         if (p->height_control != NULL)
             gtk_spin_button_set_value(GTK_SPIN_BUTTON(p->height_control), p->height);
         if ((p->widthtype == WIDTH_PIXEL) && (p->width_control != NULL))
         {
-            int value = ((p->orientation == ORIENT_HORIZ) ? gdk_screen_width() : gdk_screen_height());
+            int value = ((p->orientation == GTK_ORIENTATION_HORIZONTAL) ? gdk_screen_width() : gdk_screen_height());
             gtk_spin_button_set_range(GTK_SPIN_BUTTON(p->width_control), 0, value);
             gtk_spin_button_set_value(GTK_SPIN_BUTTON(p->width_control), value);
         }
 
     }
 
-    if (p->orientation == ORIENT_HORIZ) {
+    if (p->orientation == GTK_ORIENTATION_HORIZONTAL) {
         p->my_box_new = gtk_hbox_new;
         p->my_separator_new = gtk_vseparator_new;
     } else {
@@ -1225,8 +1225,7 @@ void panel_set_panel_configuration_changed(Panel *p)
     /* recreate the main layout box */
     if (p->box != NULL)
     {
-        GtkOrientation bo = (p->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
-        gtk_orientable_set_orientation(GTK_ORIENTABLE(p->box), bo);
+        gtk_orientable_set_orientation(GTK_ORIENTABLE(p->box), p->orientation);
     }
 
     /* NOTE: This loop won't be executed when panel started since
@@ -1687,9 +1686,9 @@ restart:
     return 0;
 }
 
-extern gboolean panel_is_horizontal(Panel *panel)
+extern GtkOrientation panel_get_orientation(Panel *panel)
 {
-    return (panel->orientation == ORIENT_HORIZ);
+    return panel->orientation;
 }
 
 extern gint panel_get_icon_size(Panel *panel)
