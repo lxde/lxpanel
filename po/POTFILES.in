@@ -8,6 +8,7 @@ src/panel.c
 src/plugin.c
 src/gtk-run.c
 data/ui/launchbar.glade
+data/ui/launchtaskbar.glade
 data/ui/netstatus.glade
 data/ui/panel-pref.glade
 
@@ -16,6 +17,7 @@ src/plugins/cpu/cpu.c
 src/plugins/deskno/deskno.c
 src/plugins/image.c
 src/plugins/launchbar.c
+src/plugins/launchtaskbar.c
 src/plugins/taskbar.c
 src/plugins/dclock.c
 src/plugins/menu.c
@@ -50,8 +52,6 @@ src/plugins/kbled/kbled.c
 src/plugins/indicator/indicator.c
 
 src/plugins/monitors/monitors.c
-
-src/plugins/wnckpager/wnckpager.c
 
 src/plugins/weather/weatherwidget.c
 src/plugins/weather/weather.c

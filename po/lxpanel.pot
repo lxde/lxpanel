@@ -8,193 +8,197 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-27 10:10+0200\n"
+"POT-Creation-Date: 2014-02-15 20:44+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: ../src/configurator.c:54 ../src/gtk-run.c:360
+#: ../src/configurator.c:53 ../src/gtk-run.c:361
 msgid "Run"
 msgstr ""
 
-#: ../src/configurator.c:56
+#: ../src/configurator.c:55
 msgid "Restart"
 msgstr ""
 
-#: ../src/configurator.c:57
+#: ../src/configurator.c:56
 msgid "Logout"
 msgstr ""
 
-#: ../src/configurator.c:481
+#: ../src/configurator.c:547
 msgid "Currently loaded plugins"
 msgstr ""
 
-#: ../src/configurator.c:490
+#: ../src/configurator.c:556
 msgid "Stretch"
 msgstr ""
 
-#: ../src/configurator.c:609
+#: ../src/configurator.c:678
 msgid "Add plugin to panel"
 msgstr ""
 
-#: ../src/configurator.c:637
+#: ../src/configurator.c:706
 msgid "Available plugins"
 msgstr ""
 
-#: ../src/configurator.c:1221
+#: ../src/configurator.c:1235
 msgid "Logout command is not set"
 msgstr ""
 
-#: ../src/configurator.c:1274
+#: ../src/configurator.c:1301
 msgid "Select a directory"
 msgstr ""
 
-#: ../src/configurator.c:1274 ../src/configurator.c:1365
+#: ../src/configurator.c:1301 ../src/configurator.c:1395
 msgid "Select a file"
 msgstr ""
 
-#: ../src/configurator.c:1392
+#: ../src/configurator.c:1422
 msgid "_Browse"
 msgstr ""
 
-#: ../src/panel.c:658
+#: ../src/panel.c:659
+msgid "There is no room for another panel. All the edges are taken."
+msgstr ""
+
+#: ../src/panel.c:688
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
 
-#: ../src/panel.c:660
+#: ../src/panel.c:690
 msgid "Confirm"
 msgstr ""
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:693
+#: ../src/panel.c:723
 msgid "translator-credits"
 msgstr ""
 
-#: ../src/panel.c:698
+#: ../src/panel.c:728
 msgid "LXPanel"
 msgstr ""
 
-#: ../src/panel.c:716
+#: ../src/panel.c:746
 msgid "Copyright (C) 2008-2013"
 msgstr ""
 
-#: ../src/panel.c:717
+#: ../src/panel.c:747
 msgid "Desktop panel for LXDE project"
 msgstr ""
 
-#: ../src/panel.c:754
+#: ../src/panel.c:784
 msgid "Add / Remove Panel Items"
 msgstr ""
 
-#: ../src/panel.c:762
+#: ../src/panel.c:793
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr ""
 
-#: ../src/panel.c:774
+#: ../src/panel.c:805
 msgid "Panel Settings"
 msgstr ""
 
-#: ../src/panel.c:780
+#: ../src/panel.c:811
 msgid "Create New Panel"
 msgstr ""
 
-#: ../src/panel.c:791
+#: ../src/panel.c:817
 msgid "Delete This Panel"
 msgstr ""
 
-#: ../src/panel.c:802
+#: ../src/panel.c:828
 msgid "About"
 msgstr ""
 
-#: ../src/panel.c:810
+#: ../src/panel.c:836
 msgid "Panel"
 msgstr ""
 
-#: ../src/panel.c:823
+#: ../src/panel.c:849
 #, c-format
 msgid "\"%s\" Settings"
 msgstr ""
 
-#: ../src/panel.c:1079 ../src/panel.c:1087 ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:1111 ../src/panel.c:1119 ../data/ui/panel-pref.glade.h:22
 msgid "Height:"
 msgstr ""
 
-#: ../src/panel.c:1080 ../src/panel.c:1086 ../data/ui/panel-pref.glade.h:20
+#: ../src/panel.c:1112 ../src/panel.c:1118 ../data/ui/panel-pref.glade.h:21
 msgid "Width:"
 msgstr ""
 
-#: ../src/panel.c:1081 ../data/ui/panel-pref.glade.h:13
+#: ../src/panel.c:1113 ../data/ui/panel-pref.glade.h:13
 msgid "Left"
 msgstr ""
 
-#: ../src/panel.c:1082 ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:1114 ../data/ui/panel-pref.glade.h:14
 msgid "Right"
 msgstr ""
 
-#: ../src/panel.c:1088 ../data/ui/panel-pref.glade.h:12
+#: ../src/panel.c:1120 ../data/ui/panel-pref.glade.h:12
 msgid "Top"
 msgstr ""
 
-#: ../src/panel.c:1089 ../data/ui/panel-pref.glade.h:11
+#: ../src/panel.c:1121 ../data/ui/panel-pref.glade.h:11
 msgid "Bottom"
 msgstr ""
 
-#: ../src/panel.c:1501
+#: ../src/panel.c:1434
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr ""
 
-#: ../src/panel.c:1502
+#: ../src/panel.c:1435
 #, c-format
 msgid "Command line options:\n"
 msgstr ""
 
-#: ../src/panel.c:1503
+#: ../src/panel.c:1436
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr ""
 
-#: ../src/panel.c:1504
+#: ../src/panel.c:1437
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr ""
 
-#: ../src/panel.c:1505
+#: ../src/panel.c:1438
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1507
+#: ../src/panel.c:1440
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr ""
 
-#: ../src/panel.c:1509
+#: ../src/panel.c:1442
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr ""
 
-#: ../src/panel.c:1510
+#: ../src/panel.c:1443
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr ""
 
-#: ../src/panel.c:1511
+#: ../src/panel.c:1444
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr ""
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1513
+#: ../src/panel.c:1446
 #, c-format
 msgid ""
 "\n"
@@ -202,12 +206,85 @@ msgid ""
 "\n"
 msgstr ""
 
-#: ../src/gtk-run.c:373
+#: ../src/plugin.c:378
+msgid "No file manager is configured."
+msgstr ""
+
+#: ../src/gtk-run.c:374
 msgid "Enter the command you want to execute:"
 msgstr ""
 
-#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:1039
+#. vim: set sw=4 et sts=4 ts=4 :
+#: ../data/ui/launchbar.glade.h:1 ../src/plugins/launchbar.c:701
 msgid "Application Launch Bar"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:1 ../src/plugins/launchtaskbar.c:3766
+msgid "Application Launch and Task Bar"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:2
+msgid "Only Application Launch Bar"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:3
+msgid "Only Task Bar (Window List)"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:4
+msgid "Integrated Application Launch Bar and Task Bar"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:5
+msgid "<b>Mode</b>"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:6
+msgid "<b>Launchbar</b>"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:7 ../src/plugins/taskbar.c:2092
+msgid "Show tooltips"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:8 ../src/plugins/taskbar.c:2093
+msgid "Icons only"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:9 ../src/plugins/taskbar.c:2094
+msgid "Flat buttons"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:10 ../src/plugins/taskbar.c:2095
+msgid "Show windows from all desktops"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:11 ../src/plugins/taskbar.c:2096
+msgid "Only show windows on the same monitor as the task bar"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:12 ../src/plugins/taskbar.c:2097
+msgid "Use mouse wheel"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:13 ../src/plugins/taskbar.c:2098
+msgid "Flash when there is any window requiring attention"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:14 ../src/plugins/taskbar.c:2099
+msgid "Combine multiple application windows into a single button"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:15 ../src/plugins/taskbar.c:2100
+msgid "Maximum width of task button"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:16 ../src/plugins/taskbar.c:2101
+msgid "Spacing"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:17
+msgid "<b>Taskbar</b>"
 msgstr ""
 
 #: ../data/ui/netstatus.glade.h:1
@@ -346,115 +423,119 @@ msgid "Margin:"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:19
+msgid "Monitor:"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:20
 msgid "<b>Position</b>"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:22
+#: ../data/ui/panel-pref.glade.h:23
 msgid "Icon size:"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:23
+#: ../data/ui/panel-pref.glade.h:24
 msgid "<b>Size</b>"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:24
+#: ../data/ui/panel-pref.glade.h:25
 msgid "Geometry"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:25
+#: ../data/ui/panel-pref.glade.h:26
 msgid "System theme"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:26
+#: ../data/ui/panel-pref.glade.h:27
 msgid "Solid color (with opacity)"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:27 ../src/plugins/xkb/xkb-plugin.c:1401
+#: ../data/ui/panel-pref.glade.h:28 ../src/plugins/xkb/xkb-plugin.c:1479
 msgid "Image"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:28
+#: ../data/ui/panel-pref.glade.h:29
 msgid "Select an image file"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:29
+#: ../data/ui/panel-pref.glade.h:30
 msgid "<b>Background</b>"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:30
+#: ../data/ui/panel-pref.glade.h:31
 msgid "Custom color"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:31 ../src/plugins/space.c:125
-#: ../src/plugins/batt/batt.c:564
+#: ../data/ui/panel-pref.glade.h:32 ../src/plugins/space.c:94
+#: ../src/plugins/batt/batt.c:644
 msgid "Size"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:32
+#: ../data/ui/panel-pref.glade.h:33
 msgid "<b>Font</b>"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:33
+#: ../data/ui/panel-pref.glade.h:34
 msgid "Appearance"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:34
+#: ../data/ui/panel-pref.glade.h:35
 msgid "Panel Applets"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:35
+#: ../data/ui/panel-pref.glade.h:36
 msgid "Logout Command:"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:36
+#: ../data/ui/panel-pref.glade.h:37
 msgid "Terminal Emulator:"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:37
+#: ../data/ui/panel-pref.glade.h:38
 msgid "File Manager:"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:38
+#: ../data/ui/panel-pref.glade.h:39
 msgid "<b>Set Preferred Applications</b>"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:39
+#: ../data/ui/panel-pref.glade.h:40
 msgid "Make window managers treat the panel as dock"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:40
+#: ../data/ui/panel-pref.glade.h:41
 msgid "Reserve space, and not covered by maximized windows"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:41
+#: ../data/ui/panel-pref.glade.h:42
 msgid "<b>Properties</b>"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:42
+#: ../data/ui/panel-pref.glade.h:43
 msgid "Minimize panel when not in use"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:43
+#: ../data/ui/panel-pref.glade.h:44
 msgid "Size when minimized"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:44
+#: ../data/ui/panel-pref.glade.h:45
 msgid "pixels"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:45
+#: ../data/ui/panel-pref.glade.h:46
 msgid "<b>Automatic hiding</b>"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:46
+#: ../data/ui/panel-pref.glade.h:47
 msgid "Log level"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:47
+#: ../data/ui/panel-pref.glade.h:48
 msgid "<b>Log level</b>"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:48
+#: ../data/ui/panel-pref.glade.h:49
 msgid "Advanced"
 msgstr ""
 
@@ -466,7 +547,7 @@ msgstr ""
 msgid "Display CPU usage"
 msgstr ""
 
-#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:440
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:433
 msgid "Bold font"
 msgstr ""
 
@@ -486,183 +567,167 @@ msgstr ""
 msgid "Display Image and Tooltip"
 msgstr ""
 
-#: ../src/plugins/launchbar.c:1041
+#: ../src/plugins/launchbar.c:702
 msgid "Bar with buttons to launch application"
 msgstr ""
 
+#: ../src/plugins/launchtaskbar.c:2835 ../src/plugins/taskbar.c:1129
+msgid "_Close all windows"
+msgstr ""
+
 #. Add Raise menu item.
-#: ../src/plugins/taskbar.c:1722
+#: ../src/plugins/launchtaskbar.c:3629 ../src/plugins/taskbar.c:1812
 msgid "_Raise"
 msgstr ""
 
 #. Add Restore menu item.
-#: ../src/plugins/taskbar.c:1727
+#: ../src/plugins/launchtaskbar.c:3634 ../src/plugins/taskbar.c:1817
 msgid "R_estore"
 msgstr ""
 
 #. Add Maximize menu item.
-#: ../src/plugins/taskbar.c:1732
+#: ../src/plugins/launchtaskbar.c:3639 ../src/plugins/taskbar.c:1822
 msgid "Ma_ximize"
 msgstr ""
 
 #. Add Iconify menu item.
-#: ../src/plugins/taskbar.c:1737
+#: ../src/plugins/launchtaskbar.c:3644 ../src/plugins/taskbar.c:1827
 msgid "Ico_nify"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1756
+#: ../src/plugins/launchtaskbar.c:3663 ../src/plugins/taskbar.c:1846
 #, c-format
 msgid "Workspace _%d"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1761
+#: ../src/plugins/launchtaskbar.c:3668 ../src/plugins/taskbar.c:1851
 #, c-format
 msgid "Workspace %d"
 msgstr ""
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/taskbar.c:1775
+#: ../src/plugins/launchtaskbar.c:3682 ../src/plugins/taskbar.c:1865
 msgid "_All workspaces"
 msgstr ""
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/taskbar.c:1781
+#: ../src/plugins/launchtaskbar.c:3688 ../src/plugins/taskbar.c:1871
 msgid "_Move to Workspace"
 msgstr ""
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/taskbar.c:1787
+#: ../src/plugins/launchtaskbar.c:3694 ../src/plugins/taskbar.c:1877
 msgid "_Close Window"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1994
-msgid "Show tooltips"
+#: ../src/plugins/launchtaskbar.c:3695
+msgid "A_dd to Launcher"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1995
-msgid "Icons only"
+#: ../src/plugins/launchtaskbar.c:3696
+msgid "Rem_ove from Launcher"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1996
-msgid "Flat buttons"
+#: ../src/plugins/launchtaskbar.c:3697
+msgid "_New Instance"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1997
-msgid "Show windows from all desktops"
+#: ../src/plugins/launchtaskbar.c:3768
+msgid "Bar with buttons to launch application and/or shows all opened windows"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:1998
-msgid "Use mouse wheel"
-msgstr ""
-
-#: ../src/plugins/taskbar.c:1999
-msgid "Flash when there is any window requiring attention"
-msgstr ""
-
-#: ../src/plugins/taskbar.c:2000
-msgid "Combine multiple application windows into a single button"
-msgstr ""
-
-#: ../src/plugins/taskbar.c:2001
-msgid "Maximum width of task button"
-msgstr ""
-
-#: ../src/plugins/taskbar.c:2002
-msgid "Spacing"
-msgstr ""
-
-#: ../src/plugins/taskbar.c:2055
+#: ../src/plugins/taskbar.c:2155
 msgid "Task Bar (Window List)"
 msgstr ""
 
-#: ../src/plugins/taskbar.c:2057
+#: ../src/plugins/taskbar.c:2157
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
 
-#: ../src/plugins/dclock.c:436
+#: ../src/plugins/dclock.c:427 ../src/plugins/dclock.c:448
+msgid "Digital Clock"
+msgstr ""
+
+#: ../src/plugins/dclock.c:429
 msgid "Clock Format"
 msgstr ""
 
-#: ../src/plugins/dclock.c:437
+#: ../src/plugins/dclock.c:430
 msgid "Tooltip Format"
 msgstr ""
 
-#: ../src/plugins/dclock.c:438
+#: ../src/plugins/dclock.c:431
 #, c-format
 msgid "Format codes: man 3 strftime; \\%n for line break"
 msgstr ""
 
-#: ../src/plugins/dclock.c:439
+#: ../src/plugins/dclock.c:432
 msgid "Action when clicked (default: display calendar)"
 msgstr ""
 
-#: ../src/plugins/dclock.c:441
+#: ../src/plugins/dclock.c:434
 msgid "Tooltip only"
 msgstr ""
 
-#: ../src/plugins/dclock.c:442
+#: ../src/plugins/dclock.c:435
 msgid "Center text"
 msgstr ""
 
-#: ../src/plugins/dclock.c:471
-msgid "Digital Clock"
-msgstr ""
-
-#: ../src/plugins/dclock.c:473
+#: ../src/plugins/dclock.c:449
 msgid "Display digital clock and tooltip"
 msgstr ""
 
-#: ../src/plugins/menu.c:426
+#: ../src/plugins/menu.c:428
 msgid "Add to desktop"
 msgstr ""
 
-#: ../src/plugins/menu.c:436
+#: ../src/plugins/menu.c:438
 msgid "Properties"
 msgstr ""
 
-#: ../src/plugins/menu.c:1085 ../src/plugins/dirmenu.c:413
+#: ../src/plugins/menu.c:1089 ../src/plugins/dirmenu.c:371
 msgid "Icon"
 msgstr ""
 
-#: ../src/plugins/menu.c:1102
+#: ../src/plugins/menu.c:1106
 msgid "Menu"
 msgstr ""
 
-#: ../src/plugins/menu.c:1104
+#: ../src/plugins/menu.c:1108
 msgid "Application Menu"
 msgstr ""
 
-#: ../src/plugins/separator.c:102
+#: ../src/plugins/separator.c:72
 msgid "Separator"
 msgstr ""
 
-#: ../src/plugins/separator.c:104
+#: ../src/plugins/separator.c:73
 msgid "Add a separator to the panel"
 msgstr ""
 
-#: ../src/plugins/pager.c:842
+#: ../src/plugins/pager.c:84 ../src/plugins/pager.c:98
 msgid "Desktop Pager"
 msgstr ""
 
-#: ../src/plugins/pager.c:844
+#: ../src/plugins/pager.c:85 ../src/plugins/pager.c:99
 msgid "Simple pager plugin"
 msgstr ""
 
-#: ../src/plugins/space.c:143
+#: ../src/plugins/space.c:92 ../src/plugins/space.c:101
 msgid "Spacer"
 msgstr ""
 
-#: ../src/plugins/space.c:145
+#: ../src/plugins/space.c:102
 msgid "Allocate space"
 msgstr ""
 
-#: ../src/plugins/tray.c:764
+#: ../src/plugins/tray.c:734
 msgid "System Tray"
 msgstr ""
 
-#: ../src/plugins/tray.c:766
+#: ../src/plugins/tray.c:736
 msgid "System tray"
 msgstr ""
 
@@ -671,137 +736,133 @@ msgid "New session is required for this option to take effect"
 msgstr ""
 
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:604
+#: ../src/plugins/xkb/xkb-plugin.c:628
 msgid "Select Keyboard Model"
 msgstr ""
 
-#: ../src/plugins/xkb/xkb-plugin.c:627
-msgid "Model"
-msgstr ""
-
-#: ../src/plugins/xkb/xkb-plugin.c:632 ../src/plugins/xkb/xkb-plugin.c:725
-#: ../src/plugins/xkb/xkb-plugin.c:876
+#: ../src/plugins/xkb/xkb-plugin.c:651 ../src/plugins/xkb/xkb-plugin.c:778
+#: ../src/plugins/xkb/xkb-plugin.c:954
 msgid "Description"
 msgstr ""
 
+#: ../src/plugins/xkb/xkb-plugin.c:656 ../src/plugins/xkb/xkb-plugin.c:785
+msgid "Id"
+msgstr ""
+
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:698
+#: ../src/plugins/xkb/xkb-plugin.c:750
 msgid "Select Layout Change Type"
 msgstr ""
 
-#: ../src/plugins/xkb/xkb-plugin.c:721
-msgid "Change Type"
-msgstr ""
-
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:843
+#: ../src/plugins/xkb/xkb-plugin.c:921
 msgid "Add Keyboard Layout"
 msgstr ""
 
-#: ../src/plugins/xkb/xkb-plugin.c:866 ../src/plugins/xkb/xkb-plugin.c:1249
+#: ../src/plugins/xkb/xkb-plugin.c:944 ../src/plugins/xkb/xkb-plugin.c:1327
 msgid "Flag"
 msgstr ""
 
-#: ../src/plugins/xkb/xkb-plugin.c:871 ../src/plugins/xkb/xkb-plugin.c:1253
+#: ../src/plugins/xkb/xkb-plugin.c:949 ../src/plugins/xkb/xkb-plugin.c:1331
 msgid "Layout"
 msgstr ""
 
-#: ../src/plugins/xkb/xkb-plugin.c:1160 ../src/plugins/xkb/xkb-plugin.c:1509
+#: ../src/plugins/xkb/xkb-plugin.c:1238 ../src/plugins/xkb/xkb-plugin.c:1587
 msgid "Keyboard Layout Handler"
 msgstr ""
 
-#: ../src/plugins/xkb/xkb-plugin.c:1182
+#: ../src/plugins/xkb/xkb-plugin.c:1260
 msgid "Keyboard Model"
 msgstr ""
 
-#: ../src/plugins/xkb/xkb-plugin.c:1203
+#: ../src/plugins/xkb/xkb-plugin.c:1281
 msgid "Keyboard Layouts"
 msgstr ""
 
-#: ../src/plugins/xkb/xkb-plugin.c:1257
+#: ../src/plugins/xkb/xkb-plugin.c:1335
 msgid "Variant"
 msgstr ""
 
-#: ../src/plugins/xkb/xkb-plugin.c:1266
+#: ../src/plugins/xkb/xkb-plugin.c:1344
 msgid "Change Layout Option"
 msgstr ""
 
-#: ../src/plugins/xkb/xkb-plugin.c:1286
+#: ../src/plugins/xkb/xkb-plugin.c:1364
 msgid "Advanced setxkbmap Options"
 msgstr ""
 
-#: ../src/plugins/xkb/xkb-plugin.c:1306
+#: ../src/plugins/xkb/xkb-plugin.c:1384
 msgid "Do _not reset existing options"
 msgstr ""
 
-#: ../src/plugins/xkb/xkb-plugin.c:1311
+#: ../src/plugins/xkb/xkb-plugin.c:1389
 msgid "Keep _system layouts"
 msgstr ""
 
-#: ../src/plugins/xkb/xkb-plugin.c:1320
+#: ../src/plugins/xkb/xkb-plugin.c:1398
 msgid "Per Window Settings"
 msgstr ""
 
-#: ../src/plugins/xkb/xkb-plugin.c:1332
+#: ../src/plugins/xkb/xkb-plugin.c:1410
 msgid "_Remember layout for each window"
 msgstr ""
 
-#: ../src/plugins/xkb/xkb-plugin.c:1341
+#: ../src/plugins/xkb/xkb-plugin.c:1419
 msgid "Show Layout as"
 msgstr ""
 
-#: ../src/plugins/xkb/xkb-plugin.c:1402
+#: ../src/plugins/xkb/xkb-plugin.c:1480
 msgid "Custom Image"
 msgstr ""
 
-#: ../src/plugins/xkb/xkb-plugin.c:1403
+#: ../src/plugins/xkb/xkb-plugin.c:1481
 msgid "Text"
 msgstr ""
 
-#: ../src/plugins/xkb/xkb-plugin.c:1429
+#: ../src/plugins/xkb/xkb-plugin.c:1507
 msgid "Panel Icon Size"
 msgstr ""
 
-#: ../src/plugins/xkb/xkb-plugin.c:1511
+#: ../src/plugins/xkb/xkb-plugin.c:1589
 msgid "Handle keyboard layouts"
 msgstr ""
 
-#: ../src/plugins/wincmd.c:209
+#: ../src/plugins/wincmd.c:193
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
 
-#: ../src/plugins/wincmd.c:237
-msgid "Alternately iconify/shade and raise"
-msgstr ""
-
-#: ../src/plugins/wincmd.c:266
+#: ../src/plugins/wincmd.c:233 ../src/plugins/wincmd.c:252
 msgid "Minimize All Windows"
 msgstr ""
 
-#: ../src/plugins/wincmd.c:268
+#: ../src/plugins/wincmd.c:235
+msgid "Alternately iconify/shade and raise"
+msgstr ""
+
+#: ../src/plugins/wincmd.c:253
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
 
-#: ../src/plugins/dirmenu.c:246
+#: ../src/plugins/dirmenu.c:208
 msgid "Open in _Terminal"
 msgstr ""
 
-#: ../src/plugins/dirmenu.c:411
-msgid "Directory"
-msgstr ""
-
-#: ../src/plugins/dirmenu.c:412
-msgid "Label"
-msgstr ""
-
-#: ../src/plugins/dirmenu.c:443
+#: ../src/plugins/dirmenu.c:367 ../src/plugins/dirmenu.c:384
 msgid "Directory Menu"
 msgstr ""
 
-#: ../src/plugins/dirmenu.c:445
-msgid "Browse directory tree via menu (Author: PCMan)"
+#: ../src/plugins/dirmenu.c:369
+msgid "Directory"
+msgstr ""
+
+#: ../src/plugins/dirmenu.c:370
+msgid "Label"
+msgstr ""
+
+#: ../src/plugins/dirmenu.c:385
+msgid "Browse directory tree via menu (Author = PCMan)"
 msgstr ""
 
 #: ../src/plugins/thermal/thermal.c:474
@@ -1042,39 +1103,39 @@ msgstr ""
 msgid "Network Connection"
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus-icon.c:842
+#: ../src/plugins/netstatus/netstatus-icon.c:822
 msgid "Interface"
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus-icon.c:843
+#: ../src/plugins/netstatus/netstatus-icon.c:823
 msgid "The current interface the icon is monitoring."
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus-icon.c:850
+#: ../src/plugins/netstatus/netstatus-icon.c:830
 msgid "Orientation"
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus-icon.c:851
+#: ../src/plugins/netstatus/netstatus-icon.c:831
 msgid "The orientation of the tray."
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus-icon.c:859
+#: ../src/plugins/netstatus/netstatus-icon.c:839
 msgid "Tooltips Enabled"
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus-icon.c:860
+#: ../src/plugins/netstatus/netstatus-icon.c:840
 msgid "Whether or not the icon's tooltips are enabled."
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus-icon.c:867
+#: ../src/plugins/netstatus/netstatus-icon.c:847
 msgid "Show Signal"
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus-icon.c:868
+#: ../src/plugins/netstatus/netstatus-icon.c:848
 msgid "Whether or not the signal strength should be displayed."
 msgstr ""
 
-#: ../src/plugins/netstatus/netstatus-icon.c:985
+#: ../src/plugins/netstatus/netstatus-icon.c:965
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -1091,6 +1152,7 @@ msgid "The interface name"
 msgstr ""
 
 #: ../src/plugins/netstatus/netstatus-iface.c:156
+#: ../src/plugins/weather/weatherwidget.c:2036
 msgid "State"
 msgstr ""
 
@@ -1325,86 +1387,153 @@ msgstr ""
 msgid "Sending/Receiving"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:133
-msgid "No batteries found"
-msgstr ""
-
-#: ../src/plugins/batt/batt.c:179
+#: ../src/plugins/batt/batt.c:149
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:190
+#: ../src/plugins/batt/batt.c:160
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:196
+#: ../src/plugins/batt/batt.c:166
 #, c-format
 msgid "Battery: %d%% charged"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:554
+#: ../src/plugins/batt/batt.c:176
+#, c-format
+msgid ""
+"\n"
+"%sEnergy full design:\t\t%5d mWh"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:178
+#, c-format
+msgid ""
+"\n"
+"%sEnergy full:\t\t\t%5d mWh"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:180
+#, c-format
+msgid ""
+"\n"
+"%sEnergy now:\t\t\t%5d mWh"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:182
+#, c-format
+msgid ""
+"\n"
+"%sPower now:\t\t\t%5d mW"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:185
+#, c-format
+msgid ""
+"\n"
+"%sCharge full design:\t%5d mAh"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:187
+#, c-format
+msgid ""
+"\n"
+"%sCharge full:\t\t\t%5d mAh"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:189
+#, c-format
+msgid ""
+"\n"
+"%sCharge now:\t\t\t%5d mAh"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:191
+#, c-format
+msgid ""
+"\n"
+"%sCurrent now:\t\t\t%5d mA"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:194
+#, c-format
+msgid ""
+"\n"
+"%sCurrent Voltage:\t\t%.3lf V"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:232
+msgid "No batteries found"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:634
 msgid "Hide if there is no battery"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:556
+#: ../src/plugins/batt/batt.c:636
 msgid "Alarm command"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:557
+#: ../src/plugins/batt/batt.c:637
 msgid "Alarm time (minutes left)"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:558
+#: ../src/plugins/batt/batt.c:638
 msgid "Background color"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:559
+#: ../src/plugins/batt/batt.c:639
 msgid "Charging color 1"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:560
+#: ../src/plugins/batt/batt.c:640
 msgid "Charging color 2"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:561
+#: ../src/plugins/batt/batt.c:641
 msgid "Discharging color 1"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:562
+#: ../src/plugins/batt/batt.c:642
 msgid "Discharging color 2"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:563
+#: ../src/plugins/batt/batt.c:643
 msgid "Border width"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:593
+#: ../src/plugins/batt/batt.c:645
+msgid "Show Extended Information"
+msgstr ""
+
+#: ../src/plugins/batt/batt.c:675
 msgid "Battery Monitor"
 msgstr ""
 
-#: ../src/plugins/batt/batt.c:595
+#: ../src/plugins/batt/batt.c:677
 msgid "Display battery status using ACPI"
 msgstr ""
 
-#: ../src/plugins/kbled/kbled.c:258
+#: ../src/plugins/kbled/kbled.c:257
 msgid "Show CapsLock"
 msgstr ""
 
-#: ../src/plugins/kbled/kbled.c:259
+#: ../src/plugins/kbled/kbled.c:258
 msgid "Show NumLock"
 msgstr ""
 
-#: ../src/plugins/kbled/kbled.c:260
+#: ../src/plugins/kbled/kbled.c:259
 msgid "Show ScrollLock"
 msgstr ""
 
-#: ../src/plugins/kbled/kbled.c:295
+#: ../src/plugins/kbled/kbled.c:293
 msgid "Keyboard LED"
 msgstr ""
 
-#: ../src/plugins/kbled/kbled.c:297
+#: ../src/plugins/kbled/kbled.c:295
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr ""
 
@@ -1479,422 +1608,204 @@ msgstr ""
 msgid "Display monitors (CPU, RAM)"
 msgstr ""
 
-#: ../src/plugins/wnckpager/wnckpager.c:720
-msgid "WNCKPager"
-msgstr ""
-
-#: ../src/plugins/wnckpager/wnckpager.c:722
-msgid "WNCKpager plugin"
-msgstr ""
-
-#: ../src/plugins/weather/weather.c:280
-msgid "Weather Plugin"
-msgstr ""
-
-#: ../src/plugins/weather/weather.c:282
-msgid "Show weather conditions for a location."
-msgstr ""
-
 #: ../src/plugins/weather/weatherwidget.c:50
 msgid "[N/A]"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:744
+#: ../src/plugins/weather/weatherwidget.c:784
 msgid "Enter New Location"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:758
+#: ../src/plugins/weather/weatherwidget.c:798
 msgid "_New Location:"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:769
-msgid "Enter the:\n- city, or\n- city and state/country, or\n- postal code\nfor which to retrieve the weather forecast."
+#: ../src/plugins/weather/weatherwidget.c:809
+msgid ""
+"Enter the:\n"
+"- city, or\n"
+"- city and state/country, or\n"
+"- postal code\n"
+"for which to retrieve the weather forecast."
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:806
+#: ../src/plugins/weather/weatherwidget.c:846
+#: ../src/plugins/weather/weatherwidget.c:979
 msgid "You must specify a location."
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:853
+#: ../src/plugins/weather/weatherwidget.c:893
+#, c-format
 msgid "Location '%s' not found!"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1002
+#: ../src/plugins/weather/weatherwidget.c:1051
 msgid "Preferences"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1008
+#: ../src/plugins/weather/weatherwidget.c:1057
 msgid "Refresh"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1014
+#: ../src/plugins/weather/weatherwidget.c:1063
 msgid "Quit"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1106
+#: ../src/plugins/weather/weatherwidget.c:1160
 msgid "Weather Preferences"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1120
+#: ../src/plugins/weather/weatherwidget.c:1174
 msgid "Current Location"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1124
+#: ../src/plugins/weather/weatherwidget.c:1178
+#: ../src/plugins/weather/weatherwidget.c:1475
 msgid "None configured"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1126
+#: ../src/plugins/weather/weatherwidget.c:1180
+#: ../src/plugins/weather/weatherwidget.c:1472
 msgid "_Set"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1147
+#: ../src/plugins/weather/weatherwidget.c:1201
 msgid "Display"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1151
+#: ../src/plugins/weather/weatherwidget.c:1205
 msgid "Name:"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1155
+#: ../src/plugins/weather/weatherwidget.c:1209
 msgid "Units:"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1159
-msgid "_Metric (\302\260C)"
+#: ../src/plugins/weather/weatherwidget.c:1213
+msgid "_Metric (°C)"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1161
-msgid "_English (\302\260F)"
+#: ../src/plugins/weather/weatherwidget.c:1215
+msgid "_English (°F)"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1196
+#: ../src/plugins/weather/weatherwidget.c:1250
 msgid "Forecast"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1200
+#: ../src/plugins/weather/weatherwidget.c:1254
 msgid "Updates:"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1204
+#: ../src/plugins/weather/weatherwidget.c:1258
 msgid "Ma_nual"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1208
+#: ../src/plugins/weather/weatherwidget.c:1262
 msgid "_Automatic, every"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1224
+#: ../src/plugins/weather/weatherwidget.c:1278
 msgid "minutes"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1233
+#: ../src/plugins/weather/weatherwidget.c:1287
 msgid "Source:"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1371
+#: ../src/plugins/weather/weatherwidget.c:1428
 msgid "C_hange"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1415
-msgid "_Set"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:1451
-msgid "Location not set."
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:1455
-msgid "Forecast for %s unavailable."
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:1468
+#. Both are available
+#: ../src/plugins/weather/weatherwidget.c:1519
+#, c-format
 msgid "Current Conditions for %s"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1491
+#: ../src/plugins/weather/weatherwidget.c:1543
 msgid "Location:"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1514
+#: ../src/plugins/weather/weatherwidget.c:1566
 msgid "Last updated:"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1541
+#: ../src/plugins/weather/weatherwidget.c:1593
 msgid "Feels like:"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1566
+#: ../src/plugins/weather/weatherwidget.c:1618
 msgid "Humidity:"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1593
+#: ../src/plugins/weather/weatherwidget.c:1645
 msgid "Pressure:"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1620
+#: ../src/plugins/weather/weatherwidget.c:1672
 msgid "Visibility:"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1648
+#: ../src/plugins/weather/weatherwidget.c:1700
 msgid "Wind:"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1671
+#: ../src/plugins/weather/weatherwidget.c:1723
 msgid "Sunrise:"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1694
+#: ../src/plugins/weather/weatherwidget.c:1746
 msgid "Sunset:"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1800
+#: ../src/plugins/weather/weatherwidget.c:1854
+#: ../src/plugins/weather/weatherwidget.c:2190
+#, c-format
+msgid "Forecast for %s unavailable."
+msgstr ""
+
+#: ../src/plugins/weather/weatherwidget.c:1863
+#: ../src/plugins/weather/weatherwidget.c:2195
+#, c-format
+msgid "Location not set."
+msgstr ""
+
+#: ../src/plugins/weather/weatherwidget.c:1880
+#, c-format
 msgid "Searching for '%s'..."
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1927
+#: ../src/plugins/weather/weatherwidget.c:2006
+#, c-format
 msgid "Location matches for '%s'"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1947
+#: ../src/plugins/weather/weatherwidget.c:2026
 msgid "City"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:1957
-msgid "State"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:1967
+#: ../src/plugins/weather/weatherwidget.c:2046
 msgid "Country"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:2098
+#. make it nice and pretty
+#: ../src/plugins/weather/weatherwidget.c:2177
 msgid "Currently in "
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:2100
+#: ../src/plugins/weather/weatherwidget.c:2179
 msgid "Today: "
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:2101
+#: ../src/plugins/weather/weatherwidget.c:2180
 msgid "Tomorrow: "
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Tornado"
+#: ../src/plugins/weather/weather.c:285
+msgid "Weather Plugin"
 msgstr ""
 
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Tropical Storm"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Hurricane"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Sever Thunderstorms"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Mixed Rain and Snow"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Mixed Rain and Sleet"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Mixed Snow and Sleet"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Freezing Drizzle"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Drizzle"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Freezing Rain"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Showers"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Snow Flurries"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Light Snow Showers"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Blowing Snow"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Snow"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Hail"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Sleet"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Dust"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Foggy"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Haze"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Smoky"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Blustery"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Windy"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Cold"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Cloudy"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Mostly Cloudy"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Partly Cloudy"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Clear"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Sunny"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Fair"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Mixed Rain and Hail"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Hot"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Isolated Thunderstorms"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Scattered Thunderstorms"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Scattered Showers"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Heavy Snow"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Scattered Snow Showers"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Thundershowers"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Snow Showers"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Isolated Thundershowers"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Clouds Early/Clearing Late"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "AM Snow Showers"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "AM Showers"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "PM Snow Showers"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "PM Showers"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Snow Showers Late"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Showers Late"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Snow Showers Early"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Showers Early"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Wintry Mix"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Fog Late"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Fog Early"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "AM Fog"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "PM Fog"
-msgstr ""
-
-#: ../src/plugins/weather/weatherwidget.c:2099
-msgid "Mist"
+#: ../src/plugins/weather/weather.c:287
+msgid "Show weather conditions for a location."
 msgstr ""
