@@ -226,7 +226,7 @@ AC_ARG_WITH(plugins,
 [                         plugins prefixed with '-' are not built]
 [                         Possible plugins are: ]
 [                         netstatus, netstat, volume, volumealsa, cpu, deskno, batt,]
-[                         kbled, xkb, thermal, cpufreq, monitors]
+[                         kbled, xkb, thermal, cpufreq, monitors, weather]
 , plugins="$withval",[plugins="all"])
 
 if test x"$plugins" != xall -a x"$plugins" != xnone; then
@@ -236,7 +236,7 @@ if test x"$plugins" != xall -a x"$plugins" != xnone; then
     fi
 fi
 
-ALL_PLUGINS_LIST="netstatus netstat volume volumealsa cpu deskno batt kbled xkb thermal cpufreq monitors indicator"
+ALL_PLUGINS_LIST="netstatus netstat volume volumealsa cpu deskno batt kbled xkb thermal cpufreq monitors indicator weather"
 AC_SUBST(ALL_PLUGINS_LIST)
 
 AC_DEFUN([check_plugin_name],[
@@ -305,7 +305,8 @@ PLUGINS_LIST="\
     $plugin_thermal \
     $plugin_cpufreq \
     $plugin_monitors \
-    $plugin_indicator"
+    $plugin_indicator \
+    $plugin_weather"
 
 AC_SUBST(PLUGINS_LIST)
 
@@ -314,6 +315,13 @@ AC_SUBST(PLUGINS_LIST)
 if test x"$plugin_netstat" != "x";then
 AC_CHECK_HEADER([iwlib.h],,
  AC_MSG_ERROR([netstat plugin requires wireless-tools-devel]))
+fi
+
+# weather
+if test x"$plugin_weather" != "x";then
+PKG_CHECK_MODULES([LIBXML2], [libxml-2.0])
+AC_SUBST(LIBXML2_CFLAGS)
+AC_SUBST(LIBXML2_LIBS)
 fi
 
 # Checks for header files.
@@ -410,6 +418,7 @@ AC_CONFIG_FILES([
     src/plugins/cpufreq/Makefile
     src/plugins/monitors/Makefile
     src/plugins/indicator/Makefile
+    src/plugins/weather/Makefile
     po/Makefile.in
     data/Makefile
     data/default/panels/panel
@@ -463,6 +472,9 @@ echo Building dynamic plugins:
     fi
     if test x"$plugin_indicator" != x; then
         AC_MSG_RESULT([    indicator - Indicator support])
+    fi
+    if test x"$plugin_weather" != x; then
+        AC_MSG_RESULT([    weather - Weather conditions and forecast])
     fi
 else
 echo Dynamic loader for plugins....... : disabled.

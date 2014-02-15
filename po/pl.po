@@ -4,6 +4,7 @@
 # Grzegorz Gibas <amigib@gmail.com>, 2009.
 # Artur <mazdac@gmail.com>, 2006, 2010.
 # Piotr Sokół <psokol@jabster.pl>, 2010, 2011.
+# Piotr Sipika <Piotr.Sipika@gmail.com>, 2012, 2013.
 #
 msgid ""
 msgstr ""
@@ -92,8 +93,8 @@ msgstr "LXPanel"
 
 # a może "Chronione Prawami Autorskimi (C) 2009-2009"
 #: ../src/panel.c:716
-msgid "Copyright (C) 2008-2011"
-msgstr "Prawa autorskie (C) 2008-2011"
+msgid "Copyright (C) 2008-2013"
+msgstr "Prawa autorskie (C) 2008-2013"
 
 #: ../src/panel.c:717
 msgid "Desktop panel for LXDE project"
@@ -1526,6 +1527,410 @@ msgstr "WNCKPager"
 #: ../src/plugins/wnckpager/wnckpager.c:722
 msgid "WNCKpager plugin"
 msgstr "Wyświetla zawartość obszarów roboczych"
+
+#: ../src/plugins/weather/weather.c:280
+msgid "Weather Plugin"
+msgstr "Wtyczka Pogody"
+
+#: ../src/plugins/weather/weather.c:282
+msgid "Show weather conditions for a location."
+msgstr "Przedstawia warunki pogodowe dla danej lokalizacji."
+
+#: ../src/plugins/weather/weatherwidget.c:50
+msgid "[N/A]"
+msgstr "--"
+
+#: ../src/plugins/weather/weatherwidget.c:744
+msgid "Enter New Location"
+msgstr "Wprowadź Nową Lokalizację"
+
+#: ../src/plugins/weather/weatherwidget.c:758
+msgid "_New Location:"
+msgstr "_Nowa Lokalizacja:"
+
+#: ../src/plugins/weather/weatherwidget.c:769
+msgid "Enter the:\n- city, or\n- city and state/country, or\n- postal code\nfor which to retrieve the weather forecast."
+msgstr "Wprowadź:\n- miasto, lub\n- miasto i województwo/kraj, lub\n- kod pocztowy\ndla którego pobrać prognozę pogody."
+
+#: ../src/plugins/weather/weatherwidget.c:806
+msgid "You must specify a location."
+msgstr "Musisz wprowadzić lokalizacje."
+
+#: ../src/plugins/weather/weatherwidget.c:853
+msgid "Location '%s' not found!"
+msgstr "Nie znaleziono lokalizacji '%s'!"
+
+#: ../src/plugins/weather/weatherwidget.c:1002
+msgid "Preferences"
+msgstr "Preferencje"
+
+#: ../src/plugins/weather/weatherwidget.c:1008
+msgid "Refresh"
+msgstr "Odśwież"
+
+#: ../src/plugins/weather/weatherwidget.c:1014
+msgid "Quit"
+msgstr "Zakończ"
+
+#: ../src/plugins/weather/weatherwidget.c:1106
+msgid "Weather Preferences"
+msgstr "Preferencje Prognozy Pogody"
+
+#: ../src/plugins/weather/weatherwidget.c:1120
+msgid "Current Location"
+msgstr "Bieżąca Lokalizacja"
+
+#: ../src/plugins/weather/weatherwidget.c:1124
+msgid "None configured"
+msgstr "Nie skonfigurowano"
+
+#: ../src/plugins/weather/weatherwidget.c:1147
+msgid "Display"
+msgstr "Wyświetl"
+
+#: ../src/plugins/weather/weatherwidget.c:1151
+msgid "Name:"
+msgstr "Nazwa:"
+
+#: ../src/plugins/weather/weatherwidget.c:1155
+msgid "Units:"
+msgstr "Jednostki:"
+
+#: ../src/plugins/weather/weatherwidget.c:1159
+msgid "_Metric (\302\260C)"
+msgstr "_Metryczne (\302\260C)"
+
+#: ../src/plugins/weather/weatherwidget.c:1161
+msgid "_English (\302\260F)"
+msgstr "Angi_elskie (\302\260F)"
+
+#: ../src/plugins/weather/weatherwidget.c:1196
+msgid "Forecast"
+msgstr "Prognoza"
+
+#: ../src/plugins/weather/weatherwidget.c:1200
+msgid "Updates:"
+msgstr "Aktualizacje"
+
+#: ../src/plugins/weather/weatherwidget.c:1204
+msgid "Ma_nual"
+msgstr "_Ręczne"
+
+#: ../src/plugins/weather/weatherwidget.c:1208
+msgid "_Automatic, every"
+msgstr "_Automatyczne, co"
+
+#: ../src/plugins/weather/weatherwidget.c:1224
+msgid "minutes"
+msgstr "minut"
+
+#: ../src/plugins/weather/weatherwidget.c:1233
+msgid "Source:"
+msgstr "Źródło:"
+
+#: ../src/plugins/weather/weatherwidget.c:1371
+msgid "C_hange"
+msgstr "_Zmień"
+
+#: ../src/plugins/weather/weatherwidget.c:1415
+msgid "_Set"
+msgstr "_Ustaw"
+
+#: ../src/plugins/weather/weatherwidget.c:1451
+msgid "Location not set."
+msgstr "Lokalizacji nie ustawiono."
+
+#: ../src/plugins/weather/weatherwidget.c:1455
+msgid "Forecast for %s unavailable."
+msgstr "Prognoza dla %s nie jest dostępna."
+
+#: ../src/plugins/weather/weatherwidget.c:1468
+msgid "Current Conditions for %s"
+msgstr "Warunki Aktualne dla %s"
+
+#: ../src/plugins/weather/weatherwidget.c:1491
+msgid "Location:"
+msgstr "Lokalizacja:"
+
+#: ../src/plugins/weather/weatherwidget.c:1514
+msgid "Last updated:"
+msgstr "Aktualizowano:"
+
+#: ../src/plugins/weather/weatherwidget.c:1541
+msgid "Feels like:"
+msgstr "Odczuwana temperatura:"
+
+#: ../src/plugins/weather/weatherwidget.c:1566
+msgid "Humidity:"
+msgstr "Wilgotność:"
+
+#: ../src/plugins/weather/weatherwidget.c:1593
+msgid "Pressure:"
+msgstr "Ciśnienie:"
+
+#: ../src/plugins/weather/weatherwidget.c:1620
+msgid "Visibility:"
+msgstr "Widoczność"
+
+#: ../src/plugins/weather/weatherwidget.c:1648
+msgid "Wind:"
+msgstr "Wiatr:"
+
+#: ../src/plugins/weather/weatherwidget.c:1671
+msgid "Sunrise:"
+msgstr "Wschód słońca:"
+
+#: ../src/plugins/weather/weatherwidget.c:1694
+msgid "Sunset:"
+msgstr "Zachód słońca:"
+
+#: ../src/plugins/weather/weatherwidget.c:1800
+msgid "Searching for '%s'..."
+msgstr "Szukam '%s'..."
+
+#: ../src/plugins/weather/weatherwidget.c:1927
+msgid "Location matches for '%s'"
+msgstr "Nazwy lokalizacji podobnych do '%s'"
+
+#: ../src/plugins/weather/weatherwidget.c:1947
+msgid "City"
+msgstr "Miasto"
+
+#: ../src/plugins/weather/weatherwidget.c:1967
+msgid "Country"
+msgstr "Kraj"
+
+#: ../src/plugins/weather/weatherwidget.c:2098
+msgid "Currently in "
+msgstr "Aktualnie w "
+
+#: ../src/plugins/weather/weatherwidget.c:2100
+msgid "Today: "
+msgstr "Dziś: "
+
+#: ../src/plugins/weather/weatherwidget.c:2101
+msgid "Tomorrow: "
+msgstr "Jutro: "
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Tornado"
+msgstr "Tornado"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Tropical Storm"
+msgstr "Burza Tropikalna"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Hurricane"
+msgstr "Huragan"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Severe Thunderstorms"
+msgstr "Mocne Burze"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Mixed Rain and Snow"
+msgstr "Deszcz ze Śniegiem"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Mixed Rain and Sleet"
+msgstr "Deszcz i Gołoledź"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Mixed Snow and Sleet"
+msgstr "Śnieg Gołoledź"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Freezing Drizzle"
+msgstr "Marznąca Mrzawka"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Drizzle"
+msgstr "Mrzawka"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Freezing Rain"
+msgstr "Marznący Deszcz"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Showers"
+msgstr "Opady"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Snow Flurries"
+msgstr "Opady Śniegu"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Light Snow Showers"
+msgstr "Lekkie Opady Śniegu"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Blowing Snow"
+msgstr "Silny Wiatr ze Śniegiem"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Snow"
+msgstr "Śnieg"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Hail"
+msgstr "Grad"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Sleet"
+msgstr "Gołoledź"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Dust"
+msgstr "Kurz"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Foggy"
+msgstr "Mglisto"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Haze"
+msgstr "Mgła"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Smoky"
+msgstr "Mglisto"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Blustery"
+msgstr "Zawierucha"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Windy"
+msgstr "Wietrznie"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Cold"
+msgstr "Zimno"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Cloudy"
+msgstr "Pochmurno"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Mostly Cloudy"
+msgstr "Duże Zachmurzenie"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Partly Cloudy"
+msgstr "Zachmurzenie Umiarkowane"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Clear"
+msgstr "Pogodnie"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Sunny"
+msgstr "Slonecznie"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Fair"
+msgstr "Umiarkowanie"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Mixed Rain and Hail"
+msgstr "Deszcz z Gradem"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Hot"
+msgstr "Gorąco"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Isolated Thunderstorms"
+msgstr "Lokalne Burze"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Scattered Thunderstorms"
+msgstr "Rozproszone, przelotne Burze"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Scattered Showers"
+msgstr "Rozproszone, przelotne Opady Deszczu"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Heavy Snow"
+msgstr "Silne Opady Śniegu"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Scattered Snow Showers"
+msgstr "Rozproszone, przelotne Opady Śniegu"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Thundershowers"
+msgstr "Deszcz z grzmotami"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Snow Showers"
+msgstr "Opady Śniegu"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Isolated Thundershowers"
+msgstr "Lokalne Opady deszczu z grzmotami"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Clouds Early/Clearing Late"
+msgstr "Pochmurno z Późniejszymi Przejaśnieniami"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "AM Snow Showers"
+msgstr "Poranne Opady Śniegu"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "AM Showers"
+msgstr "Poranne Opady"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "PM Snow Showers"
+msgstr "Popołudniowe Opady Śniegu"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "PM Showers"
+msgstr "Popołudniowe Opady"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Snow Showers Early"
+msgstr "Wczesne Opady Śniegu"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Showers Early"
+msgstr "Wczesne Opady"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Snow Showers Late"
+msgstr "Opady Śniegu Wieczorem"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Showers Late"
+msgstr "Opady Wieczorem"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Wintry Mix"
+msgstr "Marznący Deszcz ze Śniegiem"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Fog Late"
+msgstr "Mgła Wieczorem"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Fog Early"
+msgstr "Poranna Mgła"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "AM Fog"
+msgstr "Poranna Mgła"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "PM Fog"
+msgstr "Popołudniowa Mgła"
+
+#: ../src/plugins/weather/weatherwidget.c:2099
+msgid "Mist"
+msgstr "Mżawka"
 
 #~ msgid "<b>Icon</b>"
 #~ msgstr "<b>Ikony</b>"
