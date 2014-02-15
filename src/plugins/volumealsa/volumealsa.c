@@ -27,7 +27,7 @@
 #include <poll.h>
 #include "panel.h"
 #include "misc.h"
-#include "plugin.h"
+#include "private.h"
 #include "dbg.h"
 
 #define ICONS_VOLUME_HIGH   PACKAGE_DATA_DIR "/lxpanel/images/volume-high.png"

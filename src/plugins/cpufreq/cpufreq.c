@@ -29,7 +29,7 @@
 
 #include "panel.h"
 #include "misc.h"
-#include "plugin.h"
+#include "private.h"
 
 #include "dbg.h"
 
@@ -359,7 +359,7 @@ cpufreq_constructor(Plugin *p, char** fp)
     gtk_object_sink( cf->tip );
 #endif
 
-    g_signal_connect (G_OBJECT (p->pwid), "button_press_event", G_CALLBACK (clicked), (gpointer) p);
+    g_signal_connect (G_OBJECT (p->pwid), "button-press-event", G_CALLBACK (clicked), (gpointer) p);
 
     cf->has_cpufreq = 0;
 

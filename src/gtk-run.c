@@ -25,6 +25,7 @@
 
 #include "misc.h"
 #include <menu-cache.h>
+#include <libfm/fm-gtk.h>
 
 static GtkWidget* win = NULL; /* the run dialog */
 static MenuCache* menu_cache = NULL;
@@ -147,10 +148,8 @@ static void setup_auto_complete_with_data(ThreadData* data)
     GtkEntryCompletion* comp = gtk_entry_completion_new();
     gtk_entry_completion_set_minimum_key_length( comp, 2 );
     gtk_entry_completion_set_inline_completion( comp, TRUE );
-#if GTK_CHECK_VERSION( 2, 8, 0 )
     gtk_entry_completion_set_popup_set_width( comp, TRUE );
     gtk_entry_completion_set_popup_single_match( comp, FALSE );
-#endif
     store = gtk_list_store_new( 1, G_TYPE_STRING );
 
     for( l = data->files; l; l = l->next )
@@ -256,7 +255,7 @@ static void on_response( GtkDialog* dlg, gint response, gpointer user_data )
     GtkEntry* entry = (GtkEntry*)user_data;
     if( G_LIKELY(response == GTK_RESPONSE_OK) )
     {
-        if (!spawn_command_async(GTK_WINDOW(dlg), NULL, gtk_entry_get_text(entry)))
+        if (!fm_launch_command_simple(GTK_WINDOW(dlg), NULL, 0, gtk_entry_get_text(entry), NULL))
         {
             g_signal_stop_emission_by_name( dlg, "response" );
             return;
@@ -292,9 +291,14 @@ static void on_entry_changed( GtkEntry* entry, GtkImage* img )
     if( app )
     {
         int w, h;
+        const char *name = menu_cache_item_get_icon(MENU_CACHE_ITEM(app));
+        FmIcon * fm_icon;
         GdkPixbuf* pix;
+
         gtk_icon_size_lookup(GTK_ICON_SIZE_DIALOG, &w, &h);
-        pix = lxpanel_load_icon(menu_cache_item_get_icon(MENU_CACHE_ITEM(app)), w, h, TRUE);
+        fm_icon = fm_icon_from_name(name ? name : "application-x-executable");
+        pix = fm_pixbuf_from_icon_with_fallback(fm_icon, h, "application-x-executable");
+        g_object_unref(fm_icon);
         gtk_image_set_from_pixbuf(img, pix);
         g_object_unref(pix);
     }

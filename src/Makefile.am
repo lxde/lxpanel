@@ -23,22 +23,30 @@ MENU_SOURCES = gtk-run.c
 endif
 
 lxpanel_SOURCES = \
-	misc.c misc.h \
+	misc.c \
 	bg.c bg.h  \
 	configurator.c \
 	dbg.c dbg.h \
 	ev.c ev.h \
 	gtkbar.h gtkbar.c \
-	icon-grid.h icon-grid.c \
+	icon-grid.c \
 	menu-policy.h menu-policy.c \
-	panel.c panel.h \
-	plugin.c plugin.h \
+	panel.c \
+	plugin.c \
+	private.h \
+	conf.c \
 	$(MENU_SOURCES)
+
+lxpanel_includedir = $(includedir)/lxpanel
+lxpanel_include_HEADERS = \
+	plugin.h \
+	panel.h \
+	misc.h \
+	icon-grid.h \
+	conf.h
 
 if BUILD_PLUGIN_LOADER
 DYNAMIC_FLAGS = -export-dynamic
-lxpanel_includedir = $(includedir)/lxpanel
-lxpanel_include_HEADERS = $(top_srcdir)/include/lxpanel/plugin.h
 endif
 lxpanel_LDFLAGS = $(DYNAMIC_FLAGS)
 
@@ -50,12 +58,6 @@ lxpanel_LDADD = \
 
 lxpanelctl_SOURCES = lxpanelctl.c lxpanelctl.h
 lxpanelctl_LDADD = $(X11_LIBS) $(INTLLIBS)
-
-noinst_PROGRAMS=xml-purge
-xml_purge_SOURCES=xml-purge.c
-xml_purge_CFLAGS=@PACKAGE_CFLAGS@
-xml_purge_LDADD=@PACKAGE_LIBS@
-
 
 EXTRA_DIST = \
 	plugins/icon.xpm

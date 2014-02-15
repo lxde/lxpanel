@@ -36,7 +36,7 @@
 #include "wireless.h"
 #include "panel.h"
 #include "misc.h"
-#include "plugin.h"
+#include "private.h"
 #include "dbg.h"
 
 /* 1 second */
@@ -385,7 +385,7 @@ static void refresh_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
                 ni->netdev_list = ptr;
 
                 ptr->info.status_icon = create_statusicon(ns->mainw, select_icon(ptr->info.plug, ptr->info.connected, ptr->info.status), tooltip, select_icon_theme(ptr->info.plug, ptr->info.connected, ptr->info.status));
-                g_signal_connect(ptr->info.status_icon->main, "button_press_event", G_CALLBACK(menupopup), ni);
+                g_signal_connect(ptr->info.status_icon->main, "button-press-event", G_CALLBACK(menupopup), ni);
                 g_object_weak_ref(G_OBJECT(ptr->info.status_icon->main), g_free_weaknotify, ni);
             } else {
                 set_statusicon_tooltips(ptr->info.status_icon, tooltip);

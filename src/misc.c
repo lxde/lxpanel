@@ -27,27 +27,27 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdarg.h>
+#include <libfm/fm-gtk.h>
 
 #include "misc.h"
-#include "panel.h"
+#include "private.h"
 
 #include "dbg.h"
 
 /* data used by themed images buttons */
 typedef struct {
-    char* fname;
+    FmIcon *icon;
     guint theme_changed_handler;
     GdkPixbuf* pixbuf;
     GdkPixbuf* hilight;
     gulong hicolor;
-    int dw, dh; /* desired size */
-    gboolean keep_ratio;
+    gint size; /* desired size */
 } ImgData;
 
 static GQuark img_data_id = 0;
 
 static void on_theme_changed(GtkIconTheme* theme, GtkWidget* img);
-static void _gtk_image_set_from_file_scaled( GtkWidget* img, const gchar *file, gint width, gint height, gboolean keep_ratio);
+static void _gtk_image_set_from_file_scaled(GtkWidget *img, ImgData *data);
 
 /* X11 data types */
 Atom a_UTF8_STRING;
@@ -195,16 +195,9 @@ pair bool_pair[] = {
     { 1, "1" },
     { 0, NULL },
 };
-pair pos_pair[] = {
-    { POS_NONE, "none" },
-    { POS_START, "start" },
-    { POS_END,  "end" },
-    { 0, NULL},
-};
-
 
 int
-str2num(pair *p, gchar *str, int defval)
+str2num(pair *p, const gchar *str, int defval)
 {
     ENTER;
     for (;p && p->str; p++) {
@@ -214,8 +207,8 @@ str2num(pair *p, gchar *str, int defval)
     RET(defval);
 }
 
-gchar *
-num2str(pair *p, int num, gchar *defval)
+const gchar *
+num2str(pair *p, int num, const gchar *defval)
 {
     ENTER;
     for (;p && p->str; p++) {
@@ -313,42 +306,6 @@ lxpanel_get_line(char**fp, line *s)
         break;
     }
     return s->type;
-}
-
-int
-get_line_as_is(char** fp, line *s)
-{
-    gchar *tmp, *tmp2;
-
-    ENTER;
-    if (!fp) {
-        s->type = LINE_NONE;
-        RET(s->type);
-    }
-    s->type = LINE_NONE;
-    while (buf_gets(s->str, s->len, fp)) {
-        g_strstrip(s->str);
-        if (s->str[0] == '#' || s->str[0] == 0)
-        continue;
-        DBG( ">> %s\n", s->str);
-        if (!g_ascii_strcasecmp(s->str, "}")) {
-            s->type = LINE_BLOCK_END;
-            DBG( "        : line_block_end\n");
-            break;
-        }
-        for (tmp = s->str; isalnum(*tmp); tmp++);
-        for (tmp2 = tmp; isspace(*tmp2); tmp2++);
-        if (*tmp2 == '=') {
-            s->type = LINE_VAR;
-        } else if  (*tmp2 == '{') {
-            s->type = LINE_BLOCK_START;
-        } else {
-            DBG( "        : ? <%c>\n", *tmp2);
-        }
-        break;
-    }
-    RET(s->type);
-
 }
 
 void resolve_atoms()
@@ -533,8 +490,8 @@ char **
 get_utf8_property_list(Window win, Atom atom, int *count)
 {
     Atom type;
-    int format, i;
-    gulong nitems;
+    int format;
+    gulong nitems, i;
     gulong bytes_after;
     gchar *s, **retval = NULL;
     int result;
@@ -555,7 +512,7 @@ get_utf8_property_list(Window win, Atom atom, int *count)
                 (*count)++;
         }
         retval = g_new0 (char*, *count + 2);
-        for (i = 0, s = val; i < *count; i++, s = s +  strlen (s) + 1) {
+        for (i = 0, s = val; (int)i < *count; i++, s = s +  strlen (s) + 1) {
             retval[i] = g_strdup(s);
         }
         if (val[nitems-1]) {
@@ -894,7 +851,7 @@ calculate_position(Panel *np)
 }
 
 gchar *
-expand_tilda(gchar *file)
+expand_tilda(const gchar *file)
 {
     ENTER;
     RET((file[0] == '~') ?
@@ -918,7 +875,7 @@ expand_tilda(gchar *file)
 /* DestroyNotify handler for image data in _gtk_image_new_from_file_scaled. */
 static void img_data_free(ImgData * data)
 {
-    g_free(data->fname);
+    g_object_unref(data->icon);
     if (data->theme_changed_handler != 0)
         g_signal_handler_disconnect(gtk_icon_theme_get_default(), data->theme_changed_handler);
     if (data->pixbuf != NULL)
@@ -932,10 +889,11 @@ static void img_data_free(ImgData * data)
 static void on_theme_changed(GtkIconTheme * theme, GtkWidget * img)
 {
     ImgData * data = (ImgData *) g_object_get_qdata(G_OBJECT(img), img_data_id);
-    _gtk_image_set_from_file_scaled(img, data->fname, data->dw, data->dh, data->keep_ratio);
+    _gtk_image_set_from_file_scaled(img, data);
 }
 
-void fb_button_set_from_file(GtkWidget * btn, const char * img_file, gint width, gint height, gboolean keep_ratio)
+/* consumes reference on icon */
+static void _lxpanel_button_set_icon(GtkWidget* btn, FmIcon* icon, gint size)
 {
     /* Locate the image within the button. */
     GtkWidget * child = gtk_bin_get_child(GTK_BIN(btn));
@@ -952,22 +910,39 @@ void fb_button_set_from_file(GtkWidget * btn, const char * img_file, gint width,
     if (img != NULL)
     {
         ImgData * data = (ImgData *) g_object_get_qdata(G_OBJECT(img), img_data_id);
-        g_free(data->fname);
-        data->fname = g_strdup(img_file);
-        data->dw = width;
-        data->dh = height;
-        data->keep_ratio = keep_ratio;
-        _gtk_image_set_from_file_scaled(img, data->fname, data->dw, data->dh, data->keep_ratio);
+
+        if (icon != data->icon || size != data->size) /* something was changed */
+        {
+            g_object_unref(data->icon);
+            data->icon = icon;
+            data->size = size;
+            _gtk_image_set_from_file_scaled(img, data);
+        }
+        else
+            g_object_unref(icon);
     }
+    else
+        g_object_unref(icon);
 }
 
-static void _gtk_image_set_from_file_scaled(GtkWidget * img, const gchar * file, gint width, gint height, gboolean keep_ratio)
+void lxpanel_button_set_icon(GtkWidget* btn, const gchar *name, gint size)
 {
-    ImgData * data = (ImgData *) g_object_get_qdata(G_OBJECT(img), img_data_id);
-    data->dw = width;
-    data->dh = height;
-    data->keep_ratio = keep_ratio;
+    _lxpanel_button_set_icon(btn, fm_icon_from_name(name), size);
+}
 
+void lxpanel_button_update_icon(GtkWidget* btn, FmIcon *icon, gint size)
+{
+    _lxpanel_button_set_icon(btn, g_object_ref(icon), size);
+}
+
+/* parameters width and keep_ratio are unused, kept for backward compatibility */
+void fb_button_set_from_file(GtkWidget * btn, const char * img_file, gint width, gint height, gboolean keep_ratio)
+{
+    lxpanel_button_set_icon(btn, img_file, height);
+}
+
+static void _gtk_image_set_from_file_scaled(GtkWidget * img, ImgData * data)
+{
     if (data->pixbuf != NULL)
     {
         g_object_unref(data->pixbuf);
@@ -981,68 +956,53 @@ static void _gtk_image_set_from_file_scaled(GtkWidget * img, const gchar * file,
         data->hilight = NULL;
     }
 
-    /* if they are the same string, eliminate unnecessary copy. */
-    gboolean themed = FALSE;
-    if (file != NULL)
+    if (G_LIKELY(G_IS_THEMED_ICON(data->icon)))
+        data->pixbuf = fm_pixbuf_from_icon_with_fallback(data->icon, data->size,
+                                                         "application-x-executable");
+    else
     {
-        if (data->fname != file)
-        {
-            g_free(data->fname);
-            data->fname = g_strdup(file);
-        }
-
-        if (g_file_test(file, G_FILE_TEST_EXISTS))
-        {
-            GdkPixbuf * pb_scaled = gdk_pixbuf_new_from_file_at_scale(file, width, height, keep_ratio, NULL);
-            if (pb_scaled != NULL)
-                data->pixbuf = pb_scaled;
-        }
-        else
-        {
-            data->pixbuf = lxpanel_load_icon(file, width, height, keep_ratio);
-            themed = TRUE;
-        }
+        char *file = g_icon_to_string(fm_icon_get_gicon(data->icon));
+        data->pixbuf = gdk_pixbuf_new_from_file_at_scale(file, -1, data->size, TRUE, NULL);
+        g_free(file);
     }
 
     if (data->pixbuf != NULL)
     {
         /* Set the pixbuf into the image widget. */
         gtk_image_set_from_pixbuf((GtkImage *)img, data->pixbuf);
-        if (themed)
-        {
-            /* This image is loaded from icon theme.  Update the image if the icon theme is changed. */
-            if (data->theme_changed_handler == 0)
-                data->theme_changed_handler = g_signal_connect(gtk_icon_theme_get_default(), "changed", G_CALLBACK(on_theme_changed), img);
-        }
-        else
-        {
-            /* This is not loaded from icon theme.  Disconnect the signal handler. */
-            if (data->theme_changed_handler != 0)
-            {
-                g_signal_handler_disconnect(gtk_icon_theme_get_default(), data->theme_changed_handler);
-                data->theme_changed_handler = 0;
-            }
-        }
     }
     else
     {
         /* No pixbuf available.  Set the "missing image" icon. */
         gtk_image_set_from_stock(GTK_IMAGE(img), GTK_STOCK_MISSING_IMAGE, GTK_ICON_SIZE_BUTTON);
     }
-    return;
 }
 
-GtkWidget * _gtk_image_new_from_file_scaled(const gchar * file, gint width, gint height, gboolean keep_ratio)
+/* consumes reference on icon */
+static GtkWidget *_gtk_image_new_for_icon(FmIcon *icon, gint size)
 {
     GtkWidget * img = gtk_image_new();
     ImgData * data = g_new0(ImgData, 1);
+
+    data->icon = icon;
+    data->size = size;
     if (img_data_id == 0)
         img_data_id = g_quark_from_static_string("ImgData");
     g_object_set_qdata_full(G_OBJECT(img), img_data_id, data, (GDestroyNotify) img_data_free);
-    _gtk_image_set_from_file_scaled(img, file, width, height, keep_ratio);
+    _gtk_image_set_from_file_scaled(img, data);
+    if (G_IS_THEMED_ICON(data->icon))
+    {
+        /* This image is loaded from icon theme.  Update the image if the icon theme is changed. */
+        data->theme_changed_handler = g_signal_connect(gtk_icon_theme_get_default(), "changed", G_CALLBACK(on_theme_changed), img);
+    }
     return img;
 }
 
+/* parameters width and keep_ratio are unused, kept for backward compatibility */
+GtkWidget * _gtk_image_new_from_file_scaled(const gchar * file, gint width, gint height, gboolean keep_ratio)
+{
+    return _gtk_image_new_for_icon(fm_icon_from_name(file), height);
+}
 
 void
 get_button_spacing(GtkRequisition *req, GtkContainer *parent, gchar *name)
@@ -1145,20 +1105,16 @@ static gboolean fb_button_leave(GtkImage * widget, GdkEventCrossing * event, gpo
 }
 
 
-GtkWidget * fb_button_new_from_file(
-    gchar * image_file, int width, int height, gulong highlight_color, gboolean keep_ratio)
-{
-    return fb_button_new_from_file_with_label(image_file, width, height, highlight_color, keep_ratio, NULL, NULL);
-}
-
-GtkWidget * fb_button_new_from_file_with_label(
-    gchar * image_file, int width, int height, gulong highlight_color, gboolean keep_ratio, Panel * panel, gchar * label)
+/* consumes reference on icon */
+static GtkWidget *_lxpanel_button_new_for_icon(Panel *panel, FmIcon *icon,
+                                               gint size, gulong highlight_color,
+                                               gchar *label)
 {
     GtkWidget * event_box = gtk_event_box_new();
     gtk_container_set_border_width(GTK_CONTAINER(event_box), 0);
     GTK_WIDGET_UNSET_FLAGS(event_box, GTK_CAN_FOCUS);
 
-    GtkWidget * image = _gtk_image_new_from_file_scaled(image_file, width, height, keep_ratio);
+    GtkWidget * image = _gtk_image_new_for_icon(icon, size);
     gtk_misc_set_padding(GTK_MISC(image), 0, 0);
     gtk_misc_set_alignment(GTK_MISC(image), 0, 0);
     if (highlight_color != 0)
@@ -1190,6 +1146,34 @@ GtkWidget * fb_button_new_from_file_with_label(
 
     gtk_widget_show_all(event_box);
     return event_box;
+}
+
+GtkWidget *lxpanel_button_new_for_icon(Panel *panel, const gchar *name, GdkColor *color, gchar *label)
+{
+    gulong highlight_color = color ? gcolor2rgb24(color) : PANEL_ICON_HIGHLIGHT;
+    return _lxpanel_button_new_for_icon(panel, fm_icon_from_name(name),
+                                        panel->icon_size, highlight_color, label);
+}
+
+GtkWidget *lxpanel_button_new_for_fm_icon(Panel *panel, FmIcon *icon, GdkColor *color, gchar *label)
+{
+    gulong highlight_color = color ? gcolor2rgb24(color) : PANEL_ICON_HIGHLIGHT;
+    return _lxpanel_button_new_for_icon(panel, g_object_ref(icon),
+                                        panel->icon_size, highlight_color, label);
+}
+
+/* parameters width and keep_ratio are unused, kept for backward compatibility */
+GtkWidget * fb_button_new_from_file(
+    const gchar * image_file, int width, int height, gulong highlight_color, gboolean keep_ratio)
+{
+    return fb_button_new_from_file_with_label(image_file, width, height, highlight_color, keep_ratio, NULL, NULL);
+}
+
+/* parameters width and keep_ratio are unused, kept for backward compatibility */
+GtkWidget * fb_button_new_from_file_with_label(
+    const gchar * image_file, int width, int height, gulong highlight_color, gboolean keep_ratio, Panel * panel, gchar * label)
+{
+    return _lxpanel_button_new_for_icon(panel, fm_icon_from_name(image_file), height, highlight_color, label);
 }
 
 char* translate_exec_to_cmd( const char* exec, const char* icon,
@@ -1247,187 +1231,30 @@ char* translate_exec_to_cmd( const char* exec, const char* icon,
  any plugin with a layout box. Since GtkHBox cannot be changed to GtkVBox,
  recreating a new box to replace the old one is required.
 */
+/* for compatibility with old plugins */
 GtkWidget* recreate_box( GtkBox* oldbox, GtkOrientation orientation )
 {
-    GtkBox* newbox;
-    GList *child, *children;
-    GtkWidget* (*my_box_new) (gboolean homogeneous, gint spacing);
-
-    if( GTK_IS_HBOX(oldbox) ) {
-        if( orientation == GTK_ORIENTATION_HORIZONTAL )
-            return GTK_WIDGET(oldbox);
-    }
-    else {
-        if( orientation == GTK_ORIENTATION_VERTICAL )
-            return GTK_WIDGET(oldbox);
-    }
-    my_box_new = (orientation == GTK_ORIENTATION_HORIZONTAL ? gtk_hbox_new : gtk_vbox_new);
-
-    newbox = GTK_BOX(my_box_new( gtk_box_get_homogeneous(oldbox),
-                                 gtk_box_get_spacing(oldbox) ));
-    gtk_container_set_border_width (GTK_CONTAINER (newbox),
-                                    gtk_container_get_border_width(GTK_CONTAINER(oldbox)) );
-    children = gtk_container_get_children( GTK_CONTAINER (oldbox) );
-    for( child = children; child; child = child->next ) {
-        gboolean expand, fill;
-        guint padding;
-        GtkWidget* w = GTK_WIDGET(child->data);
-        gtk_box_query_child_packing( oldbox, w,
-                                     &expand, &fill, &padding, NULL );
-        /* g_debug( "repack %s, expand=%d, fill=%d", gtk_widget_get_name(w), expand, fill ); */
-        g_object_ref( w );
-        gtk_container_remove( GTK_CONTAINER (oldbox), w );
-        gtk_box_pack_start( newbox, w, expand, fill, padding );
-        g_object_unref( w );
-    }
-    g_list_free( children );
-    gtk_widget_show_all( GTK_WIDGET(newbox) );
-    gtk_widget_destroy( GTK_WIDGET(oldbox) );
-    return GTK_WIDGET(newbox);
+    gtk_orientable_set_orientation(GTK_ORIENTABLE(oldbox), orientation);
+    return GTK_WIDGET(oldbox);
 }
 
+/* for compatibility with old plugins */
 void show_error( GtkWindow* parent_win, const char* msg )
 {
-    GtkWidget* dlg = gtk_message_dialog_new( parent_win,
-                                             GTK_DIALOG_MODAL,
-                                             GTK_MESSAGE_ERROR,
-                                             GTK_BUTTONS_OK, "%s", msg );
-    gtk_dialog_run( (GtkDialog*)dlg );
-    gtk_widget_destroy( dlg );
+    fm_show_error(parent_win, NULL, msg);
 }
 
-/* Try to load an icon from a named file via the freedesktop.org data directories path.
- * http://standards.freedesktop.org/basedir-spec/basedir-spec-0.6.html */
-static GdkPixbuf * load_icon_file(const char * file_name, int height, int width)
-{
-    GdkPixbuf * icon = NULL;
-    const gchar ** dirs = (const gchar **) g_get_system_data_dirs();
-    const gchar ** dir;
-    for (dir = dirs; ((*dir != NULL) && (icon == NULL)); dir++)
-    {
-        char * file_path = g_build_filename(*dir, "pixmaps", file_name, NULL);
-        icon = gdk_pixbuf_new_from_file_at_scale(file_path, height, width, TRUE, NULL);
-        g_free(file_path);
-    }
-    return icon;
-}
-
-/* Try to load an icon from the current theme. */
-static GdkPixbuf * load_icon_from_theme(GtkIconTheme * theme, const char * icon_name, int width, int height)
-{
-    GdkPixbuf * icon = NULL;
-
-    /* Look up the icon in the current theme. */
-    GtkIconInfo * icon_info = gtk_icon_theme_lookup_icon(theme, icon_name, height, GTK_ICON_LOOKUP_USE_BUILTIN);
-    if (icon_info != NULL)
-    {
-        /* If that succeeded, get the filename of the icon.
-         * If that succeeds, load the icon from the specified file.
-         * Otherwise, try to get the builtin icon. */
-        const char * file = gtk_icon_info_get_filename(icon_info);
-        if (file != NULL)
-            icon = gdk_pixbuf_new_from_file(file, NULL);
-        else
-        {
-            icon = gtk_icon_info_get_builtin_pixbuf(icon_info);
-            g_object_ref(icon);
-        }
-        gtk_icon_info_free(icon_info);
-
-        /* If the icon is not sized properly, take a trip through the scaler.
-         * The lookup above takes the desired size, so we get the closest result possible. */
-        if (icon != NULL)
-        {
-            if ((height != gdk_pixbuf_get_height(icon)) || (width != gdk_pixbuf_get_width(icon)))
-            {
-                /* Handle case of unspecified width; gdk_pixbuf_scale_simple does not. */
-                if (width < 0)
-                {
-                    int pixbuf_width = gdk_pixbuf_get_width(icon);
-                    int pixbuf_height = gdk_pixbuf_get_height(icon);
-                    width = height * pixbuf_width / pixbuf_height;
-                }
-                GdkPixbuf * scaled = gdk_pixbuf_scale_simple(icon, width, height, GDK_INTERP_BILINEAR);
-                g_object_unref(icon);
-                icon = scaled;
-            }
-        }
-    }
-    return icon;
-}
-
+/* old plugins compatibility mode, use fm_pixbuf_from_icon_with_fallback() instead */
 GdkPixbuf * lxpanel_load_icon(const char * name, int width, int height, gboolean use_fallback)
 {
+    FmIcon * fm_icon;
     GdkPixbuf * icon = NULL;
 
-    if (name != NULL)
-    {
-        if (g_path_is_absolute(name))
-        {
-            /* Absolute path.
-             * To prevent the ugly icon, try to search icon from icon theme first,
-             * instead of loading icon from pixmaps dir */
-            GtkIconTheme * theme = gtk_icon_theme_get_default();
-            char *sub_suffix = strrchr(name, '.');
-            char *sub_deli = strrchr(name, '/');
-            int sub_len = sub_suffix - sub_deli - 1;
-            if (sub_len > 0) {
-                char *icon_name = g_strndup(&sub_deli[1], sub_len);
-                //LOG(LOG_ALL, "lxpanel: icon_name:%s\n", icon_name);
-                icon = load_icon_from_theme(theme, icon_name, width, height);
-                g_free(icon_name);
-            }
-
-            if (icon == NULL) {
-                /* Still not found... */
-                //LOG(LOG_ALL, "lxpanel: icon from theme not found\n");
-                icon = gdk_pixbuf_new_from_file_at_scale(name, width, height, TRUE, NULL);
-            }
-        }
-        else
-        {
-            /* Relative path. */
-            GtkIconTheme * theme = gtk_icon_theme_get_default();
-            char * suffix = strrchr(name, '.');
-            if ((suffix != NULL)
-            && ((g_ascii_strcasecmp(&suffix[1], "png") == 0)
-              || (g_ascii_strcasecmp(&suffix[1], "svg") == 0)
-              || (g_ascii_strcasecmp(&suffix[1], "xpm") == 0)))
-            {
-                /* The file extension indicates it could be in the system pixmap directories.
-                 * But in order to keep the icons in line with the icon theme, it's better to check
-                 * the icon in the current icon theme. Remove the suffix first. */
-                char * icon_name = g_strndup(name, suffix - name);
-                //LOG(LOG_ALL, "lxpanel: icon_name.suffix:%s.%s\n", icon_name, suffix);
-                icon = load_icon_from_theme(theme, icon_name, width, height);
-                g_free(icon_name);
-
-                /* Check the icon can be found in icon theme */
-                if (icon == NULL)
-                {
-                    /* Not found in icon theme, try to load from file directly */
-                    //LOG(LOG_ALL, "lxpanel: icon from theme not found\n");
-                    icon = load_icon_file(name, width, height);
-                }
-            }
-            else
-            {
-                /* No file extension.  It could be an icon name in the icon theme. */
-                //LOG(LOG_ALL, "lxpanel: icon has name:%s\n", name);
-                icon = load_icon_from_theme(theme, name, width, height);
-            }
-        }
-    }
-
-    /* Fall back to generic icons. */
-    if ((icon == NULL) && (use_fallback))
-    {
-        LOG(LOG_ALL, "lxpanel: using fallback icon for '%s'\n", name);
-        GtkIconTheme * theme = gtk_icon_theme_get_default();
-        icon = load_icon_from_theme(theme, "application-x-executable", width, height);
-        if (icon == NULL)
-            icon = load_icon_from_theme(theme, "gnome-mime-application-x-executable", width, height);
-    }
+    fm_icon = fm_icon_from_name(name ? name : "application-x-executable");
+    /* well, we don't use parameter width and not really use cache here */
+    icon = fm_pixbuf_from_icon_with_fallback(fm_icon, height,
+                            use_fallback ? "application-x-executable" : NULL);
+    g_object_unref(fm_icon);
     return icon;
 }
 
@@ -1593,7 +1420,7 @@ gboolean spawn_command_async(GtkWindow *parent_window, gchar const* workdir,
     if (err)
     {
         ERR("%s\n", err->message);
-        show_error(parent_window, err->message);
+        fm_show_error(parent_window, NULL, err->message);
         g_error_free(err);
     }
 
@@ -1602,6 +1429,7 @@ gboolean spawn_command_async(GtkWindow *parent_window, gchar const* workdir,
     return !err;
 }
 
+/* FIXME: this should be replaced with fm_launch_file_simple() */
 gboolean lxpanel_launch_app(const char* exec, GList* files, gboolean in_terminal, char const* in_workdir)
 {
     GError *error = NULL;
@@ -1613,7 +1441,7 @@ gboolean lxpanel_launch_app(const char* exec, GList* files, gboolean in_terminal
     {
 	char * escaped_cmd = g_shell_quote(cmd);
         char* term_cmd;
-        const char* term = lxpanel_get_terminal();
+        const char* term = fm_config->terminal ? fm_config->terminal : "lxterminal";
         if( strstr(term, "%s") )
             term_cmd = g_strdup_printf(term, escaped_cmd);
         else

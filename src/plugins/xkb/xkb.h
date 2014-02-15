@@ -24,7 +24,7 @@
 #include <gtk/gtk.h>
 #include <glib.h>
 
-#include "plugin.h"
+#include "private.h"
 #include "misc.h"
 #include "panel.h"
 #include "ev.h"

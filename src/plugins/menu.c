@@ -32,7 +32,7 @@
 
 #include "panel.h"
 #include "misc.h"
-#include "plugin.h"
+#include "private.h"
 #include "bg.h"
 #include "menu-policy.h"
 
@@ -131,11 +131,7 @@ menu_pos(GtkMenu *menu, gint *x, gint *y, gboolean *push_in, GtkWidget *widget)
 #endif
     ENTER;
     p = g_object_get_data(G_OBJECT(widget), "plugin");
-#if GTK_CHECK_VERSION(2,14,0)
     gdk_window_get_origin(gtk_widget_get_window(widget), &ox, &oy);
-#else
-    gdk_window_get_origin(widget->window, &ox, &oy);
-#endif
 #if GTK_CHECK_VERSION(2,20,0)
     GtkRequisition requisition;
     gtk_widget_get_requisition(GTK_WIDGET(menu), &requisition);
@@ -146,7 +142,7 @@ menu_pos(GtkMenu *menu, gint *x, gint *y, gboolean *push_in, GtkWidget *widget)
     w = GTK_WIDGET(menu)->requisition.width;
     h = GTK_WIDGET(menu)->requisition.height;
 #endif
-    if (p->panel->orientation == ORIENT_HORIZ) {
+    if (p->panel->orientation == GTK_ORIENTATION_HORIZONTAL) {
         *x = ox;
         if (*x + w > gdk_screen_width())
 #if GTK_CHECK_VERSION(2,18,0)
@@ -400,22 +396,14 @@ static void restore_grabs(GtkWidget *w, gpointer data)
     if (xgrab_shell && (GTK_MENU_SHELL (xgrab_shell)->have_xgrab))
 #endif
      {
-#if GTK_CHECK_VERSION(2,14,0)
         if (gdk_pointer_grab (gtk_widget_get_window(xgrab_shell), TRUE,
-#else
-        if (gdk_pointer_grab (xgrab_shell->window, TRUE,
-#endif
                     GDK_BUTTON_PRESS_MASK |
                     GDK_BUTTON_RELEASE_MASK |
                     GDK_ENTER_NOTIFY_MASK |
                     GDK_LEAVE_NOTIFY_MASK,
                     NULL, NULL, 0) == 0)
         {
-#if GTK_CHECK_VERSION(2,14,0)
             if (gdk_keyboard_grab (gtk_widget_get_window(xgrab_shell), TRUE,
-#else
-            if (gdk_keyboard_grab (xgrab_shell->window, TRUE,
-#endif
                     GDK_CURRENT_TIME) == 0)
 #if GTK_CHECK_VERSION(2,18,0)
                 gtk_widget_grab_focus (xgrab_shell);
@@ -786,6 +774,7 @@ read_item(Plugin *p, char** fp)
     if (fname) {
         GtkWidget *img;
 
+        /* FIXME: use FmIcon cache and fm_pixbuf_from_icon() API */
         img = _gtk_image_new_from_file_scaled(fname, m->iconsize, m->iconsize, TRUE);
         gtk_widget_show(img);
         gtk_image_menu_item_set_image(GTK_IMAGE_MENU_ITEM(item), img);
@@ -966,6 +955,7 @@ read_submenu(Plugin *p, char** fp, gboolean as_item)
         mi = gtk_image_menu_item_new_with_label(name);
         if (fname) {
             GtkWidget *img;
+            /* FIXME: use FmIcon cache and fm_pixbuf_from_icon() API */
             img = _gtk_image_new_from_file_scaled(fname, m->iconsize, m->iconsize, TRUE);
             gtk_widget_show(img);
             gtk_image_menu_item_set_image(GTK_IMAGE_MENU_ITEM(mi), img);

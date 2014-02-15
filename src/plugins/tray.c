@@ -32,7 +32,7 @@
 
 #include "panel.h"
 #include "misc.h"
-#include "plugin.h"
+#include "private.h"
 #include "bg.h"
 #include "icon-grid.h"
 
@@ -234,7 +234,7 @@ static void balloon_message_display(TrayPlugin * tr, BalloonMessage * msg)
 
     /* Connect signals.  Clicking the popup dismisses it and displays the next message, if any. */
     gtk_widget_add_events(tr->balloon_message_popup, GDK_BUTTON_PRESS_MASK);
-    g_signal_connect(tr->balloon_message_popup, "button_press_event", G_CALLBACK(balloon_message_activate_event), (gpointer) tr);
+    g_signal_connect(tr->balloon_message_popup, "button-press-event", G_CALLBACK(balloon_message_activate_event), (gpointer) tr);
 
     /* Get the allocation of the popup menu. */
     GtkRequisition popup_req;
@@ -555,17 +555,9 @@ static void tray_unmanage_selection(TrayPlugin * tr)
     {
         GtkWidget * invisible = tr->invisible;
         GdkDisplay * display = gtk_widget_get_display(invisible);
-#if GTK_CHECK_VERSION(2,14,0)
         if (gdk_selection_owner_get_for_display(display, tr->selection_atom) == gtk_widget_get_window(invisible))
-#else
-        if (gdk_selection_owner_get_for_display(display, tr->selection_atom) == invisible->window)
-#endif
         {
-#if GTK_CHECK_VERSION(2,14,0)
             guint32 timestamp = gdk_x11_get_server_time(gtk_widget_get_window(invisible));
-#else
-            guint32 timestamp = gdk_x11_get_server_time(invisible->window);
-#endif
             gdk_selection_owner_set_for_display(
                 display,
                 NULL,
@@ -626,18 +618,10 @@ static int tray_constructor(Plugin * p, char ** fp)
     gtk_widget_add_events(invisible, GDK_PROPERTY_CHANGE_MASK | GDK_STRUCTURE_MASK);
 
     /* Try to claim the _NET_SYSTEM_TRAY_Sn selection. */
-#if GTK_CHECK_VERSION(2,14,0)
     guint32 timestamp = gdk_x11_get_server_time(gtk_widget_get_window(invisible));
-#else
-    guint32 timestamp = gdk_x11_get_server_time(invisible->window);
-#endif
     if (gdk_selection_owner_set_for_display(
         display,
-#if GTK_CHECK_VERSION(2,14,0)
         gtk_widget_get_window(invisible),
-#else
-        invisible->window,
-#endif
         tr->selection_atom,
         timestamp,
         TRUE))
@@ -650,11 +634,7 @@ static int tray_constructor(Plugin * p, char ** fp)
         xev.format = 32;
         xev.data.l[0] = timestamp;
         xev.data.l[1] = selection_atom;
-#if GTK_CHECK_VERSION(2,14,0)
         xev.data.l[2] = GDK_WINDOW_XWINDOW(gtk_widget_get_window(invisible));
-#else
-        xev.data.l[2] = GDK_WINDOW_XWINDOW(invisible->window);
-#endif
         xev.data.l[3] = 0;    /* manager specific data */
         xev.data.l[4] = 0;    /* manager specific data */
         XSendEvent(GDK_DISPLAY_XDISPLAY(display), RootWindowOfScreen(xscreen), False, StructureNotifyMask, (XEvent *) &xev);
@@ -664,11 +644,7 @@ static int tray_constructor(Plugin * p, char ** fp)
         gulong data = SYSTEM_TRAY_ORIENTATION_HORZ;
         XChangeProperty(
             GDK_DISPLAY_XDISPLAY(display),
-#if GTK_CHECK_VERSION(2,14,0)
             GDK_WINDOW_XWINDOW(gtk_widget_get_window(invisible)),
-#else
-            GDK_WINDOW_XWINDOW(invisible->window),
-#endif
             a_NET_SYSTEM_TRAY_ORIENTATION,
             XA_CARDINAL, 32,
             PropModeReplace,
@@ -679,11 +655,7 @@ static int tray_constructor(Plugin * p, char ** fp)
 
         /* Reference the window since it is never added to a container. */
         tr->invisible = invisible;
-#if GTK_CHECK_VERSION(2,14,0)
         tr->invisible_window = GDK_WINDOW_XWINDOW(gtk_widget_get_window(invisible));
-#else
-        tr->invisible_window = GDK_WINDOW_XWINDOW(invisible->window);
-#endif
         g_object_ref(G_OBJECT(invisible));
     }
     else
@@ -704,8 +676,7 @@ static int tray_constructor(Plugin * p, char ** fp)
     gtk_container_set_border_width(GTK_CONTAINER(p->pwid), 1);
 
     /* Create an icon grid to manage the container. */
-    GtkOrientation bo = (p->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
-    tr->icon_grid = icon_grid_new(p->panel, p->pwid, bo, p->panel->icon_size, p->panel->icon_size, 3, 0, p->panel->height);
+    tr->icon_grid = icon_grid_new(p->panel, p->pwid, p->panel->orientation, p->panel->icon_size, p->panel->icon_size, 3, 0, p->panel->height);
     return 1;
 }
 
@@ -750,8 +721,7 @@ static void tray_panel_configuration_changed(Plugin * p)
     TrayPlugin * tr = (TrayPlugin *) p->priv;
     if (tr->icon_grid != NULL)
     {
-        GtkOrientation bo = (p->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
-        icon_grid_set_geometry(tr->icon_grid, bo, p->panel->icon_size, p->panel->icon_size, 3, 0, p->panel->height);
+        icon_grid_set_geometry(tr->icon_grid, p->panel->orientation, p->panel->icon_size, p->panel->icon_size, 3, 0, p->panel->height);
     }
 }
 

@@ -191,26 +191,14 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <child>
-                  <object class="GtkScrolledWindow" id="scroll2">
+                  <object class="GtkScrolledWindow" id="menu_view_window">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="hscrollbar_policy">automatic</property>
                     <property name="vscrollbar_policy">automatic</property>
                     <property name="shadow_type">etched-in</property>
                     <child>
-                      <object class="GtkTreeView" id="menu_view">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="model">menu_store</property>
-                        <property name="headers_clickable">False</property>
-                        <property name="search_column">1</property>
-                        <child>
-                          <object class="GtkTreeViewColumn" id="menu_col">
-                            <property name="title">Available Applications</property>
-                            <property name="expand">True</property>
-                          </object>
-                        </child>
-                      </object>
+                      <placeholder/>
                     </child>
                   </object>
                   <packing>

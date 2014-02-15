@@ -28,7 +28,7 @@ TODO : vertical support (r354)
 
 */
 
-#include "plugin.h"
+#include "private.h"
 
 #include "misc.h"
 #include "panel.h"

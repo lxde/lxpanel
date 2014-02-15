@@ -31,7 +31,7 @@
 
 #include "panel.h"
 #include "misc.h"
-#include "plugin.h"
+#include "private.h"
 #include "icon.xpm"
 #include "gtkbar.h"
 #include "icon-grid.h"
@@ -1117,7 +1117,7 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
                     GtkWidget * im = gtk_image_new_from_pixbuf(gtk_image_get_pixbuf(
                                 GTK_IMAGE(tk_cursor->image)));
                     gtk_image_menu_item_set_image(GTK_IMAGE_MENU_ITEM(mi), im);
-                    g_signal_connect(mi, "button_press_event",
+                    g_signal_connect(mi, "button-press-event",
                             G_CALLBACK(taskbar_popup_activate_event), (gpointer) tk_cursor);
                     gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
                 }
@@ -1291,8 +1291,7 @@ static void taskbar_button_size_allocate(GtkWidget * btn, GtkAllocation * alloc,
 /* Update style on the taskbar when created or after a configuration change. */
 static void taskbar_update_style(TaskbarPlugin * tb)
 {
-    GtkOrientation bo = (tb->plug->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
-    icon_grid_set_geometry(tb->icon_grid, bo,
+    icon_grid_set_geometry(tb->icon_grid, tb->plug->panel->orientation,
         ((tb->icons_only) ? tb->icon_size + ICON_ONLY_EXTRA : tb->task_width_max), tb->icon_size,
         tb->spacing, 0, tb->plug->panel->height);
 }
@@ -1337,7 +1336,7 @@ static void task_build_gui(TaskbarPlugin * tb, Task * tk)
     gtk_drag_dest_set(tk->button, 0, NULL, 0, 0);
 
     /* Connect signals to the button. */
-    g_signal_connect(tk->button, "button_press_event", G_CALLBACK(taskbar_button_press_event), (gpointer) tk);
+    g_signal_connect(tk->button, "button-press-event", G_CALLBACK(taskbar_button_press_event), (gpointer) tk);
     g_signal_connect(G_OBJECT(tk->button), "drag-motion", G_CALLBACK(taskbar_button_drag_motion), (gpointer) tk);
     g_signal_connect(G_OBJECT(tk->button), "drag-leave", G_CALLBACK(taskbar_button_drag_leave), (gpointer) tk);
     g_signal_connect_after(G_OBJECT (tk->button), "enter", G_CALLBACK(taskbar_button_enter), (gpointer) tk);
@@ -1918,8 +1917,7 @@ static void taskbar_build_gui(Plugin * p)
     gtk_widget_set_name(p->pwid, "taskbar");
 
     /* Make container for task buttons as a child of top level widget. */
-    GtkOrientation bo = (tb->plug->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
-    tb->icon_grid = icon_grid_new(p->panel, p->pwid, bo, tb->task_width_max, tb->icon_size, tb->spacing, 0, p->panel->height);
+    tb->icon_grid = icon_grid_new(p->panel, p->pwid, tb->plug->panel->orientation, tb->task_width_max, tb->icon_size, tb->spacing, 0, p->panel->height);
     icon_grid_set_constrain_width(tb->icon_grid, TRUE);
     taskbar_update_style(tb);
 

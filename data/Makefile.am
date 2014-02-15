@@ -24,13 +24,12 @@ ui_in_files= \
 
 ui_DATA = $(ui_in_files:.glade=.ui)
 
-# Generate GtkBuilder UI files from Glade files
-%.ui: %.glade
-	cp $< $@
-	$(top_builddir)/src/xml-purge $@
+# Purge GtkBuilder UI files
+.glade.ui:
+	sed 's/<!--.*-->//' < $< | sed ':a;N;$$!ba;s/ *\n *</</g' > $@
 
 CLEANFILES = \
-        $(ui_DATA)
+	$(ui_DATA)
 
 
 lxpanel_images_DATA = \

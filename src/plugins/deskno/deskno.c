@@ -29,7 +29,7 @@
 
 #include "panel.h"
 #include "misc.h"
-#include "plugin.h"
+#include "private.h"
 
 #include "dbg.h"
 
@@ -164,10 +164,10 @@ static int deskno_constructor(Plugin * p, char ** fp)
     gtk_container_add(GTK_CONTAINER(p->pwid), dc->label);
 
     /* Connect signals.  Note use of window manager event object. */
-    g_signal_connect(p->pwid, "button_press_event", G_CALLBACK(deskno_button_press_event), p);
-    g_signal_connect(G_OBJECT(fbev), "current_desktop", G_CALLBACK(deskno_name_update), (gpointer) dc);
-    g_signal_connect(G_OBJECT(fbev), "desktop_names", G_CALLBACK(deskno_redraw), (gpointer) dc);
-    g_signal_connect(G_OBJECT(fbev), "number_of_desktops", G_CALLBACK(deskno_redraw), (gpointer) dc);
+    g_signal_connect(p->pwid, "button-press-event", G_CALLBACK(deskno_button_press_event), p);
+    g_signal_connect(G_OBJECT(fbev), "current-desktop", G_CALLBACK(deskno_name_update), (gpointer) dc);
+    g_signal_connect(G_OBJECT(fbev), "desktop-names", G_CALLBACK(deskno_redraw), (gpointer) dc);
+    g_signal_connect(G_OBJECT(fbev), "number-of-desktops", G_CALLBACK(deskno_redraw), (gpointer) dc);
 
     /* Initialize value and show the widget. */
     deskno_redraw(NULL, dc);

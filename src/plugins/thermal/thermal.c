@@ -28,7 +28,7 @@
 
 #include "panel.h"
 #include "misc.h"
-#include "plugin.h"
+#include "private.h"
 
 #include "dbg.h"
 
@@ -402,7 +402,7 @@ thermal_constructor(Plugin *p, char** fp)
      * display in warning colors by default. */
     th->not_custom_levels = TRUE;
 
-    g_signal_connect (G_OBJECT (p->pwid), "button_press_event",
+    g_signal_connect (G_OBJECT (p->pwid), "button-press-event",
           G_CALLBACK (plugin_button_press_event), (gpointer) p);
 
     line s;

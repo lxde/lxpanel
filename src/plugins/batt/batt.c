@@ -48,7 +48,7 @@
 #include "batt_sys.h"
 #include "misc.h" /* used for the line struct */
 #include "panel.h" /* used to determine panel orientation */
-#include "plugin.h"
+#include "private.h"
 
 /* The last MAX_SAMPLES samples are averaged when charge rates are evaluated.
    This helps prevent spikes in the "time left" values the user sees. */
@@ -267,7 +267,7 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
 
     int chargeLevel = lx_b->b->percentage * (lx_b->length - 2 * lx_b->border) / 100;
 
-    if (lx_b->orientation == ORIENT_HORIZ) {
+    if (lx_b->orientation == GTK_ORIENTATION_HORIZONTAL) {
 
 	/* Draw the battery bar vertically, using color 1 for the left half and
 	   color 2 for the right half */
@@ -361,7 +361,7 @@ static gint configureEvent(GtkWidget *widget, GdkEventConfigure *event,
     /* Update the plugin's dimensions */
     lx_b->width = widget->allocation.width;
     lx_b->height = widget->allocation.height;
-    if (lx_b->orientation == ORIENT_HORIZ) {
+    if (lx_b->orientation == GTK_ORIENTATION_HORIZONTAL) {
         lx_b->length = lx_b->height;
         lx_b->thickness = lx_b->width;
     }
@@ -420,7 +420,7 @@ constructor(Plugin *p, char **fp)
 
     gtk_container_add( (GtkContainer*)p->pwid, lx_b->drawingArea );
 
-    if ((lx_b->orientation = p->panel->orientation) == ORIENT_HORIZ) {
+    if ((lx_b->orientation = p->panel->orientation) == GTK_ORIENTATION_HORIZONTAL) {
         lx_b->height = lx_b->length = 20;
         lx_b->thickness = lx_b->width = 8;
     }
@@ -432,11 +432,11 @@ constructor(Plugin *p, char **fp)
 
     gtk_widget_show(lx_b->drawingArea);
 
-    g_signal_connect (G_OBJECT (lx_b->drawingArea), "button_press_event",
+    g_signal_connect (G_OBJECT (lx_b->drawingArea), "button-press-event",
             G_CALLBACK(buttonPressEvent), (gpointer) p);
-    g_signal_connect (G_OBJECT (lx_b->drawingArea),"configure_event",
+    g_signal_connect (G_OBJECT (lx_b->drawingArea),"configure-event",
           G_CALLBACK (configureEvent), (gpointer) lx_b);
-    g_signal_connect (G_OBJECT (lx_b->drawingArea), "expose_event",
+    g_signal_connect (G_OBJECT (lx_b->drawingArea), "expose-event",
           G_CALLBACK (exposeEvent), (gpointer) lx_b);
 
     sem_init(&(lx_b->alarmProcessLock), 0, 1);
@@ -482,7 +482,7 @@ constructor(Plugin *p, char **fp)
                     lx_b->requestedBorder = atoi(s.t[1]);
                 else if (!g_ascii_strcasecmp(s.t[0], "Size")) {
                     lx_b->thickness = MAX(1, atoi(s.t[1]));
-                    if (lx_b->orientation == ORIENT_HORIZ)
+                    if (lx_b->orientation == GTK_ORIENTATION_HORIZONTAL)
                         lx_b->width = lx_b->thickness;
                     else
                         lx_b->height = lx_b->thickness;
@@ -609,7 +609,7 @@ static void applyConfig(Plugin* p)
             (MIN(b->length, b->thickness) - 1) / 2);
 
     /* Resize the widget */
-    if (b->orientation == ORIENT_HORIZ)
+    if (b->orientation == GTK_ORIENTATION_HORIZONTAL)
         b->width = b->thickness;
     else
         b->height = b->thickness;
