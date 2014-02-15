@@ -486,12 +486,19 @@ static void _old_plugin_destroy(gpointer data)
 {
     Plugin *pl = data;
 
-    /* Run the destructor. */
-    pl->class->destructor(pl);
     plugin_class_unref(pl->class);
 
     /* Free the Plugin structure. */
     g_free(pl);
+}
+
+static void _on_old_widget_destroy(GtkWidget *widget, Plugin *pl)
+{
+    /* Never let run it again. */
+    g_signal_handlers_disconnect_by_func(widget, _on_old_widget_destroy, pl);
+    /* Run the destructor before destroying the top level widget.
+     * This prevents problems with the plugin destroying child widgets. */
+    pl->class->destructor(pl);
 }
 
 //static void on_size_allocate(GtkWidget *widget, GdkRectangle *allocation, Panel *p)
@@ -571,6 +578,7 @@ GtkWidget *lxpanel_add_plugin(Panel *p, const char *name, config_setting_t *cfg,
         }
 
         pc->count += 1;
+        g_signal_connect(widget, "destroy", G_CALLBACK(_on_old_widget_destroy), pl);
         config_setting_set_save_hook(pconf, _old_plugin_save_hook, pl);
         lxpanel_plugin_set_data(widget, pl, _old_plugin_destroy);
     }
