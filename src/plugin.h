@@ -31,6 +31,7 @@ G_BEGIN_DECLS
 #define FM_MODULE_lxpanel_gtk_VERSION 1 /* version of this API */
 
 /**
+ * LXPanelPluginInit:
  * @init: (allow-none): callback on lxpanel start
  * @finalize: (allow-none): callback on lxpanel exit
  * @name: name to represent plugin in lists
@@ -39,6 +40,24 @@ G_BEGIN_DECLS
  * @config: (allow-none): callback to show configuration dialog
  * @reconfigure: (allow-none): callback to apply panel configuration change
  * @button_press_event: (allow-none): callback on "button-press-event" signal
+ *
+ * Callback @init is called on module loading, only once per application
+ * lifetime.
+ *
+ * Callback @new_instance is called when panel tries to add some plugin.
+ * It should initialize instance data, prepare widget, and return the
+ * widget or %NULL if something went wrong. The @panel and @settings data
+ * are guaranteed to be valid until gtk_widget_destroy() is called on the
+ * instance. Instance own data should be attached to the instance using
+ * lxpanel_plugin_set_data().
+ *
+ * Callback @config is called when user tries to configure the instance
+ * (either via context menu or from plugins selection dialog). It should
+ * create dialog window with configuration options and prepare saving
+ * data when the dialog is closed. See also lxpanel_generic_config_dlg().
+ *
+ * Callback @reconfigure is called when panel configuration was changed
+ * in the panel configuration dialog.
  */
 typedef struct {
     /*< public >*/
@@ -62,7 +81,24 @@ typedef struct {
 extern LXPanelPluginInit fm_module_init_lxpanel_gtk;
 
 extern GQuark lxpanel_plugin_qdata; /* access to plugin private data */
+/**
+ * lxpanel_plugin_get_data
+ * @_i: instance widget
+ *
+ * Retrieves instance data attached to the widget.
+ */
 #define lxpanel_plugin_get_data(_i) g_object_get_qdata(G_OBJECT(_i),lxpanel_plugin_qdata)
+/**
+ * lxpanel_plugin_set_data
+ * @_i: instance widget
+ * @_data: instance data
+ * @_destructor: destructor for @_data
+ *
+ * Attaches data to the widget instance. The @_destructor callback will
+ * be called on @_data when @_i is destroyed and therefore it should free
+ * any allocated data. The instance widget at that moment is already not
+ * available to use in any way so not rely on it.
+ */
 #define lxpanel_plugin_set_data(_i,_data,_destructor) g_object_set_qdata_full(G_OBJECT(_i),lxpanel_plugin_qdata,_data,_destructor)
 
 /* register new plugin type - can be called from plugins init() too */
