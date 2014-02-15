@@ -662,7 +662,6 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
 {
     GtkWidget* dlg, *parent_win, *scroll;
     GHashTable *classes;
-    GList *plugins;
     GtkTreeViewColumn* col;
     GtkCellRenderer* render;
     GtkTreeView* view;
@@ -674,7 +673,6 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
     Panel* p = (Panel*) g_object_get_data( G_OBJECT(_view), "panel" );
 
     classes = lxpanel_get_all_types();
-    plugins = gtk_container_get_children(GTK_CONTAINER(p->box));
 
     parent_win = gtk_widget_get_toplevel( GTK_WIDGET(_view) );
     dlg = gtk_dialog_new_with_buttons( _("Add plugin to panel"),
@@ -745,7 +743,6 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
                       G_CALLBACK(on_add_plugin_row_activated), (gpointer) dlg);
 
     g_object_set_data( G_OBJECT(dlg), "avail-plugins", view );
-    g_list_free(plugins);
 
     gtk_window_set_default_size( GTK_WINDOW(dlg), 320, 400 );
     gtk_widget_show_all( dlg );

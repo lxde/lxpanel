@@ -134,7 +134,7 @@ static void init_plugin_class_list(void)
 #endif
 
 #ifdef STATIC_PAGER
-    REGISTER_STATIC_PLUGIN_CLASS(pager_plugin_class);
+    REGISTER_STATIC_MODULE(pager);
 #endif
 
 #ifdef STATIC_TRAY

@@ -28,80 +28,53 @@
 #endif
 #include <libwnck/libwnck.h>
 
-#include "panel.h"
-#include "misc.h"
-#include "private.h"
-
-#include "dbg.h"
-
-typedef struct _pager {
-    Plugin* plugin;
-    GtkWidget *box;
-} pager;
+#include "plugin.h"
 
 
-static int
-pager_constructor(Plugin *plug, char **fp)
+static void on_realize(GtkWidget *p, Panel *panel)
 {
-    pager *pg;
+    WnckPager *pager = WNCK_PAGER(gtk_bin_get_child(GTK_BIN(p)));
+    int rows, r;
 
-    ENTER;
-    pg = g_new0(pager, 1);
-    g_return_val_if_fail(pg != NULL, 0);
-    plug->priv = pg;
-    pg->plugin = plug;
-
-    plug->pwid = gtk_event_box_new();
-    GTK_WIDGET_SET_FLAGS( plug->pwid, GTK_NO_WINDOW );
-
-    pg->box = wnck_pager_new(NULL);
-    g_return_val_if_fail(pg->box != NULL, 0);
-    //set orientation
-    wnck_pager_set_orientation (WNCK_PAGER (pg->box),pg->plugin->panel->orientation);
-    wnck_pager_set_n_rows (WNCK_PAGER (pg->box), 1); //pager->rows);
-    wnck_pager_set_display_mode (WNCK_PAGER (pg->box),WNCK_PAGER_DISPLAY_CONTENT);
-    //pager->show_names ? WNCK_PAGER_DISPLAY_NAME : WNCK_PAGER_DISPLAY_CONTENT);
-
-    //gtk_container_set_border_width (GTK_CONTAINER (pg->box), 2);
-    gtk_widget_show(pg->box);
-
-    gtk_container_set_border_width (GTK_CONTAINER (plug->pwid), 1);
-    gtk_container_add(GTK_CONTAINER(plug->pwid), pg->box);
-
-    RET(1);
+    /* set geometry */
+    wnck_pager_set_orientation(pager, panel_get_orientation(panel));
+    rows = panel_get_height(panel) / (panel_get_icon_size(panel) * 2) + 1; /* min */
+    r = (panel_get_height(panel) - 4) / panel_get_icon_size(panel); /* max */
+    /* g_debug("pager for height %d and icon size %d: %d to %d",panel_get_height(panel),panel_get_icon_size(panel),r,rows); */
+    rows = MAX(rows, r);
+    wnck_pager_set_n_rows(pager, rows);
 }
 
-static void
-pager_destructor(Plugin *p)
+static GtkWidget *pager_constructor(Panel *panel, config_setting_t *settings)
 {
-    pager *pg = (pager *)p->priv;
+    GtkWidget *p, *w;
 
-    ENTER;
-    gtk_widget_destroy(p->pwid);
-    g_free(pg);
-    RET();
+    w = wnck_pager_new(NULL);
+    g_return_val_if_fail(w != NULL, 0);
+    p = gtk_event_box_new();
+    GTK_WIDGET_SET_FLAGS(p, GTK_NO_WINDOW);
+
+    /* we cannot configure pager until it added into widgets hierarchy */
+    g_signal_connect(p, "realize", G_CALLBACK(on_realize), panel);
+    wnck_pager_set_display_mode(WNCK_PAGER(w), WNCK_PAGER_DISPLAY_CONTENT);
+
+    gtk_widget_show(w);
+
+    gtk_container_set_border_width(GTK_CONTAINER(p), 2);
+    gtk_container_add(GTK_CONTAINER(p), w);
+
+    return p;
 }
 
-static void pager_panel_configuration_changed(Plugin * p)
+static void pager_panel_configuration_changed(Panel *panel, GtkWidget *p)
 {
-    pager *pg = (pager *)p->priv;
-
-    wnck_pager_set_orientation (WNCK_PAGER (pg->box),pg->plugin->panel->orientation);
-    wnck_pager_set_n_rows (WNCK_PAGER (pg->box), pg->plugin->panel->height / 48 + 1);
+    on_realize(p, panel);
 }
 
-PluginClass pager_plugin_class = {
-
-    PLUGINCLASS_VERSIONING,
-
-    .type = "pager",
+LXPanelPluginInit lxpanel_static_plugin_pager = {
     .name = N_("Desktop Pager"),
-    .version = "1.0",
     .description = N_("Simple pager plugin"),
 
-    .constructor = pager_constructor,
-    .destructor  = pager_destructor,
-    .config = NULL,
-    .save = NULL,
-    .panel_configuration_changed = pager_panel_configuration_changed
+    .new_instance = pager_constructor,
+    .reconfigure = pager_panel_configuration_changed
 };
