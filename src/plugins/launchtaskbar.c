@@ -45,7 +45,7 @@
 
 #include "panel.h"
 #include "misc.h"
-#include "plugin.h"
+#include "private.h"
 #include "icon.xpm"
 #include "gtkbar.h"
 #include "icon-grid.h"
@@ -790,8 +790,7 @@ static void launchtaskbar_constructor_launch(LaunchTaskBarPlugin *ltbp, gboolean
         if(ltbp->lbp.icon_grid == NULL)
         {
             /* Allocate an icon grid manager to manage the container. */
-            GtkOrientation bo = (p->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
-            ltbp->lbp.icon_grid = icon_grid_new(p->panel, ltbp->p_evbox_launchbar, bo, p->panel->icon_size, p->panel->icon_size, 3, 0, p->panel->height);
+            ltbp->lbp.icon_grid = icon_grid_new(p->panel, ltbp->p_evbox_launchbar, p->panel->orientation, p->panel->icon_size, p->panel->icon_size, 3, 0, p->panel->height);
         }
         
         if(build_bootstrap)
@@ -815,8 +814,7 @@ static void launchtaskbar_constructor_task(LaunchTaskBarPlugin *ltbp)
         Plugin * p = ltbp->tbp.plug;
         
         /* Make container for task buttons as a child of top level widget. */
-        GtkOrientation bo = (p->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
-        ltbp->tbp.icon_grid = icon_grid_new(p->panel, ltbp->p_evbox_taskbar, bo, ltbp->tbp.task_width_max, ltbp->tbp.icon_size, ltbp->tbp.spacing, 0, p->panel->height);
+        ltbp->tbp.icon_grid = icon_grid_new(p->panel, ltbp->p_evbox_taskbar, p->panel->orientation, ltbp->tbp.task_width_max, ltbp->tbp.icon_size, ltbp->tbp.spacing, 0, p->panel->height);
         icon_grid_set_constrain_width(ltbp->tbp.icon_grid, TRUE);
         taskbar_update_style(&ltbp->tbp);
 
@@ -898,7 +896,7 @@ static int launchtaskbar_constructor(Plugin * p, char ** fp)
     g_free(special_cases_filepath);
 
     /* Allocate top level widget and set into Plugin widget pointer. */
-    p->pwid = p->panel->orientation == ORIENT_HORIZ ? gtk_hbox_new(FALSE, 5):gtk_vbox_new(FALSE, 5);
+    p->pwid = p->panel->my_box_new(FALSE, 5);
     ltbp->p_evbox_launchbar = gtk_event_box_new();
     ltbp->p_evbox_taskbar = gtk_event_box_new();
     gtk_box_pack_start(GTK_BOX(p->pwid), ltbp->p_evbox_launchbar, FALSE, TRUE, 0);
@@ -1860,8 +1858,7 @@ static void launchtaskbar_panel_configuration_changed(Plugin * p)
     /* Set orientation into the icon grid. */
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p->priv;
     
-    GtkOrientation bo = (p->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
-    icon_grid_set_geometry(ltbp->lbp.icon_grid, bo,
+    icon_grid_set_geometry(ltbp->lbp.icon_grid, p->panel->orientation,
         p->panel->icon_size, p->panel->icon_size, 3, 0, p->panel->height);
 
     /* Reset all the images to resize them. */
@@ -3038,8 +3035,7 @@ static void taskbar_button_size_allocate(GtkWidget * btn, GtkAllocation * alloc,
 /* Update style on the taskbar when created or after a configuration change. */
 static void taskbar_update_style(TaskbarPlugin * tb)
 {
-    GtkOrientation bo = (tb->plug->panel->orientation == ORIENT_HORIZ) ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
-    icon_grid_set_geometry(tb->icon_grid, bo,
+    icon_grid_set_geometry(tb->icon_grid, tb->plug->panel->orientation,
         ((tb->icons_only) ? tb->icon_size + ICON_ONLY_EXTRA : tb->task_width_max),
         tb->icon_size, tb->spacing, 0, tb->plug->panel->height);
 }
