@@ -34,15 +34,23 @@
 static void on_realize(GtkWidget *p, Panel *panel)
 {
     WnckPager *pager = WNCK_PAGER(gtk_bin_get_child(GTK_BIN(p)));
-    int rows, r;
+    int rows, r, h = panel_get_height(panel);
 
     /* set geometry */
     wnck_pager_set_orientation(pager, panel_get_orientation(panel));
-    rows = panel_get_height(panel) / (panel_get_icon_size(panel) * 2) + 1; /* min */
-    r = (panel_get_height(panel) - 4) / panel_get_icon_size(panel); /* max */
+    if (panel_get_orientation(panel) == GTK_ORIENTATION_VERTICAL)
+        h *= ((gfloat) gdk_screen_height() / (gfloat) gdk_screen_width());
+    rows = h / (panel_get_icon_size(panel) * 2) + 1; /* min */
+    r = (h - 4) / panel_get_icon_size(panel); /* max */
     /* g_debug("pager for height %d and icon size %d: %d to %d",panel_get_height(panel),panel_get_icon_size(panel),r,rows); */
     rows = MAX(rows, r);
     wnck_pager_set_n_rows(pager, rows);
+}
+
+static void on_size_allocate(GtkWidget *p, GdkRectangle *allocation, Panel *panel)
+{
+    /* g_debug("pager: on_size_allocate(): %dx%d", allocation->width, allocation->height); */
+    on_realize(p, panel);
 }
 
 static GtkWidget *pager_constructor(Panel *panel, config_setting_t *settings)
@@ -56,6 +64,7 @@ static GtkWidget *pager_constructor(Panel *panel, config_setting_t *settings)
 
     /* we cannot configure pager until it added into widgets hierarchy */
     g_signal_connect(p, "realize", G_CALLBACK(on_realize), panel);
+    g_signal_connect(p, "size-allocate", G_CALLBACK(on_size_allocate), panel);
     wnck_pager_set_display_mode(WNCK_PAGER(w), WNCK_PAGER_DISPLAY_CONTENT);
 
     gtk_widget_show(w);
