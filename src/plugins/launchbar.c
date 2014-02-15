@@ -683,8 +683,8 @@ static void launchbar_panel_configuration_changed(Panel *panel, GtkWidget *p)
     for (l = lb->buttons; l != NULL; l = l->next)
     {
         LaunchButton * btn = (LaunchButton *) l->data;
-        lxpanel_button_set_icon2(btn->widget, fm_file_info_get_icon(btn->fi),
-                                 panel_get_icon_size(panel));
+        lxpanel_button_update_icon(btn->widget, fm_file_info_get_icon(btn->fi),
+                                   panel_get_icon_size(panel));
     }
 
     /* Reset the bootstrap button. */

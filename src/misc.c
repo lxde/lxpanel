@@ -930,7 +930,7 @@ void lxpanel_button_set_icon(GtkWidget* btn, const gchar *name, gint size)
     _lxpanel_button_set_icon(btn, fm_icon_from_name(name), size);
 }
 
-void lxpanel_button_set_icon2(GtkWidget* btn, FmIcon *icon, gint size)
+void lxpanel_button_update_icon(GtkWidget* btn, FmIcon *icon, gint size)
 {
     _lxpanel_button_set_icon(btn, g_object_ref(icon), size);
 }
