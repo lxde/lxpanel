@@ -34,9 +34,9 @@ esac],[])
 
 if test "x$enable_gtk3" = "xyes" ; then
   CFLAGS="$CFLAGS -DENABLE_GTK3"
-  pkg_modules="$pkg_modules gtk+-3.0 libfm-gtk3 >= 1.2.0"
+  pkg_modules="$pkg_modules gtk+-3.0 libfm-gtk3 >= 1.2.0 libwnck-3.0"
 else
-  pkg_modules="$pkg_modules gtk+-2.0 >= 2.16.0 libfm-gtk >= 1.2.0"
+  pkg_modules="$pkg_modules gtk+-2.0 >= 2.16.0 libfm-gtk >= 1.2.0 libwnck-1.0"
 fi
 
 pkg_modules="$pkg_modules \
@@ -79,11 +79,6 @@ fi
 pkg_modules="x11"
 PKG_CHECK_MODULES(X11, [$pkg_modules])
 AC_SUBST(X11_LIBS)
-
-pkg_modules="libwnck-1.0"
-PKG_CHECK_MODULES(WNCK, [$pkg_modules])
-AC_SUBST(WNCK_CFLAGS)
-AC_SUBST(WNCK_LIBS)
 
 pkg_modules="libmenu-cache"
 PKG_CHECK_MODULES(MENU_CACHE, [$pkg_modules],
@@ -221,7 +216,6 @@ plugin_kbled=
 plugin_thermal=
 plugin_cpufreq=
 plugin_monitors=
-plugin_wnckpager=
 plugin_indicator=
 
 AC_MSG_CHECKING([which plugins should be built dynamically])
@@ -232,7 +226,7 @@ AC_ARG_WITH(plugins,
 [                         plugins prefixed with '-' are not built]
 [                         Possible plugins are: ]
 [                         netstatus, netstat, volume, volumealsa, cpu, deskno, batt,]
-[                         kbled, xkb, thermal, cpufreq, monitors, wnckpager]
+[                         kbled, xkb, thermal, cpufreq, monitors]
 , plugins="$withval",[plugins="all"])
 
 if test x"$plugins" != xall -a x"$plugins" != xnone; then
@@ -242,7 +236,7 @@ if test x"$plugins" != xall -a x"$plugins" != xnone; then
     fi
 fi
 
-ALL_PLUGINS_LIST="netstatus netstat volume volumealsa cpu deskno batt kbled xkb thermal cpufreq monitors wnckpager indicator"
+ALL_PLUGINS_LIST="netstatus netstat volume volumealsa cpu deskno batt kbled xkb thermal cpufreq monitors indicator"
 AC_SUBST(ALL_PLUGINS_LIST)
 
 AC_DEFUN([check_plugin_name],[
@@ -311,7 +305,6 @@ PLUGINS_LIST="\
     $plugin_thermal \
     $plugin_cpufreq \
     $plugin_monitors \
-    $plugin_wnckpager\
     $plugin_indicator"
 
 AC_SUBST(PLUGINS_LIST)
@@ -416,7 +409,6 @@ AC_CONFIG_FILES([
     src/plugins/thermal/Makefile
     src/plugins/cpufreq/Makefile
     src/plugins/monitors/Makefile
-    src/plugins/wnckpager/Makefile
     src/plugins/indicator/Makefile
     po/Makefile.in
     data/Makefile
@@ -468,9 +460,6 @@ echo Building dynamic plugins:
     fi
     if test x"$plugin_monitors" != x; then
         AC_MSG_RESULT([    monitors - Monitors for CPU & RAM])
-    fi
-    if test x"$plugin_wnckpager" != x; then
-        AC_MSG_RESULT([    wnckpager - Pager which support openbox and compiz])
     fi
     if test x"$plugin_indicator" != x; then
         AC_MSG_RESULT([    indicator - Indicator support])
