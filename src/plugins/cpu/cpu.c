@@ -244,8 +244,8 @@ static int cpu_constructor(Plugin * p, char ** fp)
     gdk_color_parse("green",  &c->foreground_color);
 
     /* Connect signals. */
-    g_signal_connect(G_OBJECT(c->da), "configure_event", G_CALLBACK(configure_event), (gpointer) c);
-    g_signal_connect(G_OBJECT(c->da), "expose_event", G_CALLBACK(expose_event), (gpointer) c);
+    g_signal_connect(G_OBJECT(c->da), "configure-event", G_CALLBACK(configure_event), (gpointer) c);
+    g_signal_connect(G_OBJECT(c->da), "expose-event", G_CALLBACK(expose_event), (gpointer) c);
     g_signal_connect(c->da, "button-press-event", G_CALLBACK(plugin_button_press_event), p);
 
     /* Show the widget.  Connect a timer to refresh the statistics. */

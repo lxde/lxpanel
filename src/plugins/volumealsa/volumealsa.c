@@ -480,7 +480,7 @@ static void volumealsa_build_popup_window(Plugin * p)
     gtk_window_set_type_hint(GTK_WINDOW(vol->popup_window), GDK_WINDOW_TYPE_HINT_DIALOG);
 
     /* Connect signals. */
-    g_signal_connect(G_OBJECT(vol->popup_window), "focus_out_event", G_CALLBACK(volumealsa_popup_focus_out), vol);
+    g_signal_connect(G_OBJECT(vol->popup_window), "focus-out-event", G_CALLBACK(volumealsa_popup_focus_out), vol);
     g_signal_connect(G_OBJECT(vol->popup_window), "map", G_CALLBACK(volumealsa_popup_map), vol);
 
     /* Create a scrolled window as the child of the top level window. */
@@ -514,7 +514,7 @@ static void volumealsa_build_popup_window(Plugin * p)
     gtk_box_pack_start(GTK_BOX(box), vol->volume_scale, TRUE, TRUE, 0);
 
     /* Value-changed and scroll-event signals. */
-    vol->volume_scale_handler = g_signal_connect(vol->volume_scale, "value_changed", G_CALLBACK(volumealsa_popup_scale_changed), vol);
+    vol->volume_scale_handler = g_signal_connect(vol->volume_scale, "value-changed", G_CALLBACK(volumealsa_popup_scale_changed), vol);
     g_signal_connect(vol->volume_scale, "scroll-event", G_CALLBACK(volumealsa_popup_scale_scrolled), vol);
 
     /* Create a check button as the child of the vertical box. */

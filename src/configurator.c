@@ -1019,7 +1019,7 @@ void panel_configure( Panel* p, int sel_page )
     w = (GtkWidget*)gtk_builder_get_object( builder, "icon_size" );
     gtk_spin_button_set_range( GTK_SPIN_BUTTON(w), PANEL_HEIGHT_MIN, PANEL_HEIGHT_MAX );
     gtk_spin_button_set_value( GTK_SPIN_BUTTON(w), p->icon_size );
-    g_signal_connect( w, "value_changed", G_CALLBACK(set_icon_size), p );
+    g_signal_connect( w, "value-changed", G_CALLBACK(set_icon_size), p );
 
     /* properties */
 

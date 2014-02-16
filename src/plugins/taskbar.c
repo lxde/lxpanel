@@ -1930,10 +1930,10 @@ static void taskbar_build_gui(Plugin * p)
     /* Connect signals to receive root window events and initialize root window properties. */
     tb->number_of_desktops = get_net_number_of_desktops();
     tb->current_desktop = get_net_current_desktop();
-    g_signal_connect(G_OBJECT(fbev), "current_desktop", G_CALLBACK(taskbar_net_current_desktop), (gpointer) tb);
-    g_signal_connect(G_OBJECT(fbev), "active_window", G_CALLBACK(taskbar_net_active_window), (gpointer) tb);
-    g_signal_connect(G_OBJECT(fbev), "number_of_desktops", G_CALLBACK(taskbar_net_number_of_desktops), (gpointer) tb);
-    g_signal_connect(G_OBJECT(fbev), "client_list", G_CALLBACK(taskbar_net_client_list), (gpointer) tb);
+    g_signal_connect(G_OBJECT(fbev), "current-desktop", G_CALLBACK(taskbar_net_current_desktop), (gpointer) tb);
+    g_signal_connect(G_OBJECT(fbev), "active-window", G_CALLBACK(taskbar_net_active_window), (gpointer) tb);
+    g_signal_connect(G_OBJECT(fbev), "number-of-desktops", G_CALLBACK(taskbar_net_number_of_desktops), (gpointer) tb);
+    g_signal_connect(G_OBJECT(fbev), "client-list", G_CALLBACK(taskbar_net_client_list), (gpointer) tb);
 
     /* Make right-click menu for task buttons.
      * It is retained for the life of the taskbar and will be shown as needed.

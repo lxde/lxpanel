@@ -356,7 +356,7 @@ static int xkb_constructor(Plugin * p_plugin, char ** fp)
     /* Connect signals. */
     g_signal_connect(p_plugin->pwid, "button-press-event", G_CALLBACK(on_xkb_button_press_event), p_xkb);
     g_signal_connect(p_plugin->pwid, "scroll-event", G_CALLBACK(on_xkb_button_scroll_event), p_xkb);
-    g_signal_connect(G_OBJECT(fbev), "active_window", G_CALLBACK(on_xkb_fbev_active_window_event), p_xkb);
+    g_signal_connect(G_OBJECT(fbev), "active-window", G_CALLBACK(on_xkb_fbev_active_window_event), p_xkb);
 
     /* Show the widget and return. */
     xkb_redraw(p_xkb);

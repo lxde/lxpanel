@@ -129,7 +129,7 @@ create_volume_window (void)
 
 	gtk_box_pack_start (GTK_BOX (hbox1), spinbutton1, TRUE, FALSE, 0);
 	gtk_widget_set_size_request (spinbutton1, -1, 22);
-	g_signal_connect ((gpointer) spinbutton1, "value_changed",
+	g_signal_connect ((gpointer) spinbutton1, "value-changed",
 			  G_CALLBACK (on_spinbutton1_button_release_event),
 			  NULL);
 	g_object_set_data_full(G_OBJECT (volume_window), "spinbutton1", 
@@ -145,7 +145,7 @@ create_volume_window (void)
 	gtk_range_set_inverted (GTK_RANGE (vscale1), TRUE);
 	gtk_box_pack_start (GTK_BOX (hbox3), vscale1, TRUE, TRUE, 0);
 	gtk_scale_set_draw_value (GTK_SCALE (vscale1), FALSE);
-	g_signal_connect ((gpointer) vscale1, "button_release_event",
+	g_signal_connect ((gpointer) vscale1, "button-release-event",
 			  G_CALLBACK (on_vscale1_button_release_event),
 			  vol_adjustment);
 	g_object_set_data_full(G_OBJECT (volume_window), "vscale1",

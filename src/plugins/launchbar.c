@@ -298,7 +298,7 @@ static LaunchButton *launchbutton_build_gui(LaunchbarPlugin * lb, FmPath * id)
 
     /* Connect signals. */
     g_signal_connect(button, "button-press-event", G_CALLBACK(launchbutton_press_event), (gpointer) btn);
-    g_signal_connect(button, "drag_data_received", G_CALLBACK(launchbutton_drag_data_received_event), (gpointer) btn);
+    g_signal_connect(button, "drag-data-received", G_CALLBACK(launchbutton_drag_data_received_event), (gpointer) btn);
 
     /* If the list goes from null to non-null, remove the bootstrap button. */
     if ((lb->buttons == NULL) && (lb->bootstrap_button != NULL))
