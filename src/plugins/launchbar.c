@@ -42,23 +42,6 @@
 
 #define PANEL_ICON_SIZE 24 /* see the private.h */
 
-/* Drag and drop target info. */
-enum {
-  TARGET_URILIST,
-  TARGET_UTF8_STRING,
-  TARGET_STRING,
-  TARGET_TEXT,
-  TARGET_COMPOUND_TEXT
-};
-
-static const GtkTargetEntry target_table[] = {
-    { "text/uri-list", 0, TARGET_URILIST},
-    { "UTF8_STRING", 0, TARGET_UTF8_STRING },
-    { "COMPOUND_TEXT", 0, 0 },
-    { "TEXT",          0, 0 },
-    { "STRING",        0, 0 }
-};
-
 /* Column definitions for configuration dialogs. */
 enum {
     COL_ICON,
@@ -81,6 +64,7 @@ typedef struct {
     GtkWidget * image_widget;		/* Pointer to image */
     FmFileInfo * fi;			/* Launcher application descriptor */
     config_setting_t * settings;	/* Pointer to settings */
+    FmDndDest * dd;			/* Drag and drop support */
 } LaunchButton;
 
 /* Private context for launchbar plugin. */
@@ -103,6 +87,8 @@ static void launchbar_destructor(gpointer user_data);
 static void launchbutton_free(LaunchButton * btn)
 {
     fm_file_info_unref(btn->fi);
+    if (btn->dd)
+        g_object_unref(btn->dd);
     g_free(btn);
 }
 
@@ -183,29 +169,25 @@ static gboolean launchbutton_press_event(GtkWidget * widget, GdkEventButton * ev
     return TRUE;
 }
 
-/* Handler for "drag-data-received" event from launchbar button. */
-static void launchbutton_drag_data_received_event(
+/* Handler for "drag-motion" event from launchbar button. */
+static gboolean launchbutton_drag_motion_event(
     GtkWidget * widget,
     GdkDragContext * context,
     gint x,
     gint y,
-    GtkSelectionData * sd,
-    guint info,
     guint time,
     LaunchButton * b)
 {
-    if (gtk_selection_data_get_length(sd) > 0)
-    {
-        if (info == TARGET_URILIST)
-        {
-            gchar **uris = gtk_selection_data_get_uris(sd);
-            FmPathList *files = fm_path_list_new_from_uris(uris);
+    GdkAtom target;
+    GdkDragAction action = 0;
 
-            g_strfreev(uris);
-            fm_launch_desktop_entry_simple(NULL, NULL, b->fi, files);
-            fm_path_list_unref(files);
-        }
-    }
+    fm_dnd_dest_set_dest_file(b->dd, b->fi);
+    target = fm_dnd_dest_find_target(b->dd, context);
+    if (target != GDK_NONE && fm_dnd_dest_is_target_supported(b->dd, target))
+        action = fm_dnd_dest_get_default_action(b->dd, context, target);
+    gdk_drag_status(context, action, time);
+    /* g_debug("launchbutton_drag_motion_event: act=%u",action); */
+    return (action != 0);
 }
 
 /* Build the graphic elements for the bootstrap launchbar button. */
@@ -291,14 +273,11 @@ static LaunchButton *launchbutton_build_gui(LaunchbarPlugin * lb, FmPath * id)
     icon_grid_add(lb->icon_grid, button, TRUE);
 
     /* Drag and drop support. */
-    gtk_drag_dest_set(GTK_WIDGET(button),
-        GTK_DEST_DEFAULT_ALL,
-        target_table, G_N_ELEMENTS(target_table),
-        GDK_ACTION_COPY);
+    btn->dd = fm_dnd_dest_new_with_handlers(button);
 
     /* Connect signals. */
     g_signal_connect(button, "button-press-event", G_CALLBACK(launchbutton_press_event), (gpointer) btn);
-    g_signal_connect(button, "drag-data-received", G_CALLBACK(launchbutton_drag_data_received_event), (gpointer) btn);
+    g_signal_connect(button, "drag-motion", G_CALLBACK(launchbutton_drag_motion_event), btn);
 
     /* If the list goes from null to non-null, remove the bootstrap button. */
     if ((lb->buttons == NULL) && (lb->bootstrap_button != NULL))
@@ -347,7 +326,6 @@ static GtkWidget *launchbar_constructor(Panel *panel, config_setting_t *settings
     GtkWidget *p;
     LaunchbarPlugin * lb;
     config_setting_t *s;
-    GtkOrientation bo;
 
     gtk_rc_parse_string(launchbar_rc);
 
