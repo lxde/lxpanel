@@ -16,7 +16,7 @@ Vcs-Git: git://git.lxde.org/git/debian/lxpanel.git
 
 Package: lxpanel
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}, lxmenu-data
+Depends: ${misc:Depends}, ${shlibs:Depends}, lxmenu-data, libfm-modules
 Suggests: lxsession | menu, iceweasel | www-browser
 Description: LXDE panel
  LXPanel is a GUI application for the Lightweight X11 Desktop Environment
