@@ -1563,8 +1563,8 @@ int main(int argc, char *argv[], char *env[])
     setlocale(LC_CTYPE, "");
 
 	g_thread_init(NULL);
-	gdk_threads_init();
-	gdk_threads_enter();
+/*	gdk_threads_init();
+	gdk_threads_enter(); */
 
     gtk_init(&argc, &argv);
 
@@ -1673,7 +1673,7 @@ restart:
     if( is_restarting )
         goto restart;
 
-    gdk_threads_leave();
+    /* gdk_threads_leave(); */
 
     g_object_unref(win_grp);
     g_object_unref(fbev);
