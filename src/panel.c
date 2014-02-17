@@ -1202,7 +1202,8 @@ void panel_set_panel_configuration_changed(Panel *p)
     if (p->my_box_new == NULL || previous_orientation != p->orientation)
     {
         panel_adjust_geometry_terminology(p);
-        p->height = ((p->orientation == GTK_ORIENTATION_HORIZONTAL) ? PANEL_HEIGHT_DEFAULT : PANEL_WIDTH_DEFAULT);
+        if (p->my_box_new != NULL)
+            p->height = ((p->orientation == GTK_ORIENTATION_HORIZONTAL) ? PANEL_HEIGHT_DEFAULT : PANEL_WIDTH_DEFAULT);
         if (p->height_control != NULL)
             gtk_spin_button_set_value(GTK_SPIN_BUTTON(p->height_control), p->height);
         if ((p->widthtype == WIDTH_PIXEL) && (p->width_control != NULL))
@@ -1211,7 +1212,6 @@ void panel_set_panel_configuration_changed(Panel *p)
             gtk_spin_button_set_range(GTK_SPIN_BUTTON(p->width_control), 0, value);
             gtk_spin_button_set_value(GTK_SPIN_BUTTON(p->width_control), value);
         }
-
     }
 
     if (p->orientation == GTK_ORIENTATION_HORIZONTAL) {
