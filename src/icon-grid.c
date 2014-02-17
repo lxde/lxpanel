@@ -273,6 +273,7 @@ IconGrid * icon_grid_new(
 
     /* Create a layout container. */
     ig->widget = gtk_fixed_new();
+    g_object_add_weak_pointer(G_OBJECT(ig->widget), (gpointer*)&ig->widget);
     GTK_WIDGET_SET_FLAGS(ig->widget, GTK_NO_WINDOW);
     gtk_widget_set_redraw_on_allocate(ig->widget, FALSE);
     gtk_container_add(GTK_CONTAINER(ig->container), ig->widget);
@@ -433,7 +434,10 @@ void icon_grid_free(IconGrid * ig)
 {
     /* Hide the layout container. */
     if (ig->widget != NULL)
+    {
+        g_object_remove_weak_pointer(G_OBJECT(ig->widget), (gpointer*)&ig->widget);
         gtk_widget_hide(ig->widget);
+    }
 
     /* Free all memory. */
     IconGridElement * ige = ig->child_list;

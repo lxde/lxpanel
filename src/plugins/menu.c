@@ -954,7 +954,7 @@ menu_constructor(Panel *panel, config_setting_t *settings)
     m->settings = settings;
 
     /* Check if configuration exists */
-    settings = config_setting_get_member(settings, "");
+    settings = config_setting_add(settings, "", PANEL_CONF_TYPE_LIST);
     if (config_setting_get_elem(settings, 0) == NULL)
     {
         /* create default menu */
