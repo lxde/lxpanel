@@ -113,7 +113,7 @@ struct _Panel {
     char* background_file;
 
     PanelConf * config;                 /* Panel configuration data */
-    GSList * system_menus;		/* List of plugins having menus */
+    GSList * system_menus;		/* List of plugins having menus: deprecated */
 
     GtkWidget* plugin_pref_dialog;	/* Plugin preference dialog */
     GtkWidget* pref_dialog;		/* preference dialog */
@@ -238,7 +238,7 @@ GtkWidget *_gtk_image_new_from_file_scaled(const gchar *file, gint width,
 GtkWidget * fb_button_new_from_file(
     const gchar * image_file, int width, int height, gulong highlight_color, gboolean keep_ratio);
 GtkWidget * fb_button_new_from_file_with_label(
-    const gchar * image_file, int width, int height, gulong highlight_color, gboolean keep_ratio, Panel * panel, gchar * label);
+    const gchar * image_file, int width, int height, gulong highlight_color, gboolean keep_ratio, Panel * panel, const gchar * label);
 
 void fb_button_set_from_file(GtkWidget* btn, const char* img_file, gint width, gint height, gboolean keep_ratio);
 

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2006 LxDE Developers, see the file AUTHORS for details.
+ * Copyright (c) 2006-2014 LxDE Developers, see the file AUTHORS for details.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,16 +24,15 @@
 #include <glib/gi18n.h>
 
 #include <menu-cache.h>
+#include <libfm/fm-gtk.h>
 
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
 #include <fcntl.h>
 
-#include "panel.h"
 #include "misc.h"
-#include "private.h"
-#include "bg.h"
+#include "plugin.h"
 #include "menu-policy.h"
 
 #include "dbg.h"
@@ -52,12 +51,11 @@ typedef struct {
     GtkWidget *menu, *box, *img, *label;
     char *fname, *caption;
     gulong handler_id;
-    int iconsize, paneliconsize;
-    GSList *files;
+    int iconsize;
     gboolean has_system_menu;
-    char* config_data;
-    int sysmenu_pos;
-    char *config_start, *config_end;
+    guint show_system_menu_idle;
+    Panel *panel;
+    config_setting_t *settings;
 
     MenuCache* menu_cache;
     guint visibility_flags;
@@ -68,14 +66,18 @@ static guint idle_loader = 0;
 
 GQuark SYS_MENU_ITEM_ID = 0;
 
-/* a single-linked list storing all panels */
-extern GSList* all_panels;
-
+/* FIXME: this is defined in misc.c and should be replaced later */
+GtkWidget *_gtk_image_new_from_file_scaled(const gchar *file, gint width,
+                                           gint height, gboolean keep_ratio);
+/* FIXME: those are defined on panel main code */
+void restart(void);
+void gtk_run(void);
+void logout(void);
 
 static void
-menu_destructor(Plugin *p)
+menu_destructor(gpointer user_data)
 {
-    menup *m = (menup *)p->priv;
+    menup *m = (menup *)user_data;
 
     if( G_UNLIKELY( idle_loader ) )
     {
@@ -83,8 +85,8 @@ menu_destructor(Plugin *p)
         idle_loader = 0;
     }
 
-    if( m->has_system_menu )
-        p->panel->system_menus = g_slist_remove( p->panel->system_menus, p );
+    if (m->show_system_menu_idle)
+        g_source_remove(m->show_system_menu_idle);
 
     g_signal_handler_disconnect(G_OBJECT(m->img), m->handler_id);
     gtk_widget_destroy(m->menu);
@@ -106,7 +108,7 @@ spawn_app(GtkWidget *widget, gpointer data)
 {
     ENTER;
     if (data) {
-        spawn_command_async(NULL, NULL, data);
+        fm_launch_command_simple(NULL, NULL, 0, data, NULL);
     }
     RET();
 }
@@ -124,13 +126,13 @@ static void
 menu_pos(GtkMenu *menu, gint *x, gint *y, gboolean *push_in, GtkWidget *widget)
 {
     int ox, oy, w, h;
-    Plugin *p;
+    menup *m;
 #if GTK_CHECK_VERSION(2,18,0)
     GtkAllocation *allocation = g_new0 (GtkAllocation, 1);
     gtk_widget_get_allocation(GTK_WIDGET(widget), allocation);
 #endif
     ENTER;
-    p = g_object_get_data(G_OBJECT(widget), "plugin");
+    m = g_object_get_data(G_OBJECT(widget), "plugin");
     gdk_window_get_origin(gtk_widget_get_window(widget), &ox, &oy);
 #if GTK_CHECK_VERSION(2,20,0)
     GtkRequisition requisition;
@@ -142,7 +144,7 @@ menu_pos(GtkMenu *menu, gint *x, gint *y, gboolean *push_in, GtkWidget *widget)
     w = GTK_WIDGET(menu)->requisition.width;
     h = GTK_WIDGET(menu)->requisition.height;
 #endif
-    if (p->panel->orientation == GTK_ORIENTATION_HORIZONTAL) {
+    if (panel_get_orientation(m->panel) == GTK_ORIENTATION_HORIZONTAL) {
         *x = ox;
         if (*x + w > gdk_screen_width())
 #if GTK_CHECK_VERSION(2,18,0)
@@ -187,38 +189,34 @@ menu_pos(GtkMenu *menu, gint *x, gint *y, gboolean *push_in, GtkWidget *widget)
     RET();
 }
 
-static void on_menu_item( GtkMenuItem* mi, MenuCacheItem* item )
+static void on_menu_item( GtkMenuItem* mi, menup* m )
 {
-    char * exec;
-    /* handle %c, %i field codes */
-    exec = translate_exec_to_cmd(
-            menu_cache_app_get_exec(MENU_CACHE_APP(item)),
-            menu_cache_item_get_icon(item),
-            menu_cache_item_get_name(item),
-            NULL );
-    lxpanel_launch_app(exec,
-            NULL, menu_cache_app_get_use_terminal(MENU_CACHE_APP(item)),
-            menu_cache_app_get_working_dir(MENU_CACHE_APP(item)));
-    g_free(exec);
+    FmFileInfo *fi = g_object_get_qdata(G_OBJECT(mi), SYS_MENU_ITEM_ID);
+
+    lxpanel_launch_path(m->panel, fm_file_info_get_path(fi));
 }
 
 /* load icon when mapping the menu item to speed up */
-static void on_menu_item_map(GtkWidget* mi, MenuCacheItem* item)
+static void on_menu_item_map(GtkWidget *mi, menup *m)
 {
   GtkImage* img = GTK_IMAGE(gtk_image_menu_item_get_image(GTK_IMAGE_MENU_ITEM(mi)));
     if( img )
     {
-        if( gtk_image_get_storage_type(img) == GTK_IMAGE_EMPTY )
+        FmFileInfo *fi;
+        if (gtk_image_get_storage_type(img) == GTK_IMAGE_EMPTY &&
+            (fi = g_object_get_qdata(G_OBJECT(mi), SYS_MENU_ITEM_ID)) != NULL &&
+            fi != (gpointer)1 /* ignore placeholder or separator */)
         {
-            GdkPixbuf* icon;
-            int w, h;
-            /* FIXME: this is inefficient */
-            gtk_icon_size_lookup(GTK_ICON_SIZE_MENU, &w, &h);
-            //LOG(LOG_ALL, "menu: size lookup -- w:%d, h:%d\n", w, h);
-            item = g_object_get_qdata(G_OBJECT(mi), SYS_MENU_ITEM_ID);
-            /* There may be some stupid icon name... */
-            //LOG(LOG_ALL, "menu: item name:%s\n", menu_cache_item_get_name(item));
-            icon = lxpanel_load_icon(menu_cache_item_get_icon(item), w, h, TRUE);
+            FmIcon *fm_icon = fm_file_info_get_icon(fi);
+            FmIcon *_fm_icon = NULL;
+            GdkPixbuf *icon = NULL;
+
+            if (fm_icon == NULL)
+                fm_icon = _fm_icon = fm_icon_from_name("application-x-executable");
+            icon = fm_pixbuf_from_icon_with_fallback(fm_icon, m->iconsize,
+                                                         "application-x-executable");
+            if (_fm_icon)
+                g_object_unref(_fm_icon);
             if (icon)
             {
                 gtk_image_set_from_pixbuf(img, icon);
@@ -228,25 +226,28 @@ static void on_menu_item_map(GtkWidget* mi, MenuCacheItem* item)
     }
 }
 
-static void on_menu_item_style_set(GtkWidget* mi, GtkStyle* prev, MenuCacheItem* item)
+static void on_menu_item_style_set(GtkWidget* mi, GtkStyle* prev, menup *m)
 {
     /* reload icon */
-    on_menu_item_map(mi, item);
+    on_menu_item_map(mi, m);
 }
 
-static void on_add_menu_item_to_desktop(GtkMenuItem* item, MenuCacheApp* app)
+/* FIXME: this is very dirty, especially if desktop is set not to ~/Desktop
+   therefore it should be removed and drag & drop gestures used instead */
+static void on_add_menu_item_to_desktop(GtkMenuItem* item, GtkWidget* mi)
 {
     char* dest;
-    char* src;
+    const char* src;
     const char* desktop = g_get_user_special_dir(G_USER_DIRECTORY_DESKTOP);
+    FmFileInfo *fi = g_object_get_qdata(G_OBJECT(mi), SYS_MENU_ITEM_ID);
     int dir_len = strlen(desktop);
-    int basename_len = strlen(menu_cache_item_get_id(MENU_CACHE_ITEM(app)));
+    int basename_len = strlen(fm_file_info_get_name(fi));
     int dest_fd;
 
     dest = g_malloc( dir_len + basename_len + 6 + 1 + 1 );
     memcpy(dest, desktop, dir_len);
     dest[dir_len] = '/';
-    memcpy(dest + dir_len + 1, menu_cache_item_get_id(MENU_CACHE_ITEM(app)), basename_len + 1);
+    memcpy(dest + dir_len + 1, fm_file_info_get_name(fi), basename_len + 1);
 
     /* if the destination file already exists, make a unique name. */
     if( g_file_test( dest, G_FILE_TEST_EXISTS ) )
@@ -265,14 +266,13 @@ static void on_add_menu_item_to_desktop(GtkMenuItem* item, MenuCacheApp* app)
     {
         char* data;
         gsize len;
-        src = menu_cache_item_get_file_path(MENU_CACHE_ITEM(app));
+        src = fm_file_info_get_target(fi);
         if( g_file_get_contents(src, &data, &len, NULL) )
         {
             write( dest_fd, data, len );
             g_free(data);
         }
         close(dest_fd);
-        g_free(src);
     }
     g_free(dest);
 }
@@ -324,33 +324,14 @@ static void on_add_menu_item_to_panel(GtkMenuItem* item, MenuCacheApp* app)
 }
 #endif
 
-static void on_menu_item_properties(GtkMenuItem* item, MenuCacheApp* app)
+static void on_menu_item_properties(GtkMenuItem* item, GtkWidget* mi)
 {
-    /* FIXME: if the source desktop is in AppDir other then default
-     * applications dirs, where should we store the user-specific file?
-    */
-    char* ifile = menu_cache_item_get_file_path(MENU_CACHE_ITEM(app));
-    char* ofile = g_build_filename(g_get_user_data_dir(), "applications",
-				   menu_cache_item_get_file_basename(MENU_CACHE_ITEM(app)), NULL);
-    char* argv[] = {
-        "lxshortcut",
-        "-i",
-        NULL,
-        "-o",
-        NULL,
-        NULL};
-    GError* err = NULL;
-    argv[2] = ifile;
-    argv[4] = ofile;
-    g_spawn_async( NULL, argv, NULL, G_SPAWN_SEARCH_PATH, NULL, NULL, NULL, &err );
-    if (err)
-    {
-        ERR("%s\n", err->message);
-        show_error(NULL, err->message);
-        g_error_free(err);
-    }
-    g_free( ifile );
-    g_free( ofile );
+    FmFileInfo *fi = g_object_get_qdata(G_OBJECT(mi), SYS_MENU_ITEM_ID);
+    FmFileInfoList *files = fm_file_info_list_new();
+
+    fm_file_info_list_push_tail(files, fi);
+    fm_show_file_properties(NULL, files);
+    fm_file_info_list_unref(files);
 }
 
 /* This following function restore_grabs is taken from menu.c of
@@ -417,29 +398,24 @@ static void restore_grabs(GtkWidget *w, gpointer data)
     gtk_grab_add (GTK_WIDGET (menu));
 }
 
-static gboolean on_menu_button_press(GtkWidget* mi, GdkEventButton* evt, MenuCacheItem* data)
+static gboolean on_menu_button_press(GtkWidget* mi, GdkEventButton* evt, menup* m)
 {
     if( evt->button == 3 )  /* right */
     {
-        char* tmp;
         GtkWidget* item;
         GtkMenu* p = GTK_MENU(gtk_menu_new());
 
         item = gtk_menu_item_new_with_label(_("Add to desktop"));
-        g_signal_connect(item, "activate", G_CALLBACK(on_add_menu_item_to_desktop), data);
+        g_signal_connect(item, "activate", G_CALLBACK(on_add_menu_item_to_desktop), mi);
         gtk_menu_shell_append(GTK_MENU_SHELL(p), item);
 
-        tmp = g_find_program_in_path("lxshortcut");
-        if( tmp )
-        {
-            item = gtk_separator_menu_item_new();
-            gtk_menu_shell_append(GTK_MENU_SHELL(p), item);
+        item = gtk_separator_menu_item_new();
+        gtk_menu_shell_append(GTK_MENU_SHELL(p), item);
 
-            item = gtk_menu_item_new_with_label(_("Properties"));
-            g_signal_connect(item, "activate", G_CALLBACK(on_menu_item_properties), data);
-            gtk_menu_shell_append(GTK_MENU_SHELL(p), item);
-            g_free(tmp);
-        }
+        item = gtk_menu_item_new_with_label(_("Properties"));
+        g_signal_connect(item, "activate", G_CALLBACK(on_menu_item_properties), mi);
+        gtk_menu_shell_append(GTK_MENU_SHELL(p), item);
+
         g_signal_connect(p, "selection-done", G_CALLBACK(gtk_widget_destroy), NULL);
         g_signal_connect(p, "deactivate", G_CALLBACK(restore_grabs), mi);
 
@@ -450,28 +426,40 @@ static gboolean on_menu_button_press(GtkWidget* mi, GdkEventButton* evt, MenuCac
     return FALSE;
 }
 
-static GtkWidget* create_item( MenuCacheItem* item )
+static GtkWidget* create_item(MenuCacheItem *item, menup *m)
 {
     GtkWidget* mi;
     if( menu_cache_item_get_type(item) == MENU_CACHE_TYPE_SEP )
+    {
         mi = gtk_separator_menu_item_new();
+        g_object_set_qdata(G_OBJECT(mi), SYS_MENU_ITEM_ID, (gpointer)1);
+    }
     else
     {
         GtkWidget* img;
+        /* create FmFileInfo for the item, it will be used in callbacks */
+        char *mpath = menu_cache_dir_make_path(MENU_CACHE_DIR(item));
+        FmPath *path = fm_path_new_relative(fm_path_get_apps_menu(), mpath+13);
+                                                    /* skip "/Applications" */
+        FmFileInfo *fi = fm_file_info_new_from_menu_cache_item(path, item);
+
+        g_free(mpath);
+        fm_path_unref(path);
         mi = gtk_image_menu_item_new_with_mnemonic( menu_cache_item_get_name(item) );
+        g_object_set_qdata_full(G_OBJECT(mi), SYS_MENU_ITEM_ID, fi,
+                                (GDestroyNotify)fm_file_info_unref);
         img = gtk_image_new();
         gtk_image_menu_item_set_image( GTK_IMAGE_MENU_ITEM(mi), img );
         if( menu_cache_item_get_type(item) == MENU_CACHE_TYPE_APP )
         {
             gtk_widget_set_tooltip_text( mi, menu_cache_item_get_comment(item) );
-            g_signal_connect( mi, "activate", G_CALLBACK(on_menu_item), item );
+            g_signal_connect(mi, "activate", G_CALLBACK(on_menu_item), m);
         }
-        g_signal_connect(mi, "map", G_CALLBACK(on_menu_item_map), item);
-        g_signal_connect(mi, "style-set", G_CALLBACK(on_menu_item_style_set), item);
-        g_signal_connect(mi, "button-press-event", G_CALLBACK(on_menu_button_press), item);
+        g_signal_connect(mi, "map", G_CALLBACK(on_menu_item_map), m);
+        g_signal_connect(mi, "style-set", G_CALLBACK(on_menu_item_style_set), m);
+        g_signal_connect(mi, "button-press-event", G_CALLBACK(on_menu_button_press), m);
     }
     gtk_widget_show( mi );
-    g_object_set_qdata_full( G_OBJECT(mi), SYS_MENU_ITEM_ID, menu_cache_item_ref(item), (GDestroyNotify) menu_cache_item_unref );
     return mi;
 }
 
@@ -489,7 +477,7 @@ static int load_menu(menup* m, MenuCacheDir* dir, GtkWidget* menu, int pos )
 	
 	if (is_visible) 
 	{
-            GtkWidget * mi = create_item(item);
+            GtkWidget * mi = create_item(item, m);
 	    count++;
             if (mi != NULL)
                 gtk_menu_shell_insert( (GtkMenuShell*)menu, mi, pos );
@@ -524,7 +512,7 @@ static gboolean sys_menu_item_has_data( GtkMenuItem* item )
    return (g_object_get_qdata( G_OBJECT(item), SYS_MENU_ITEM_ID ) != NULL);
 }
 
-static void unload_old_icons(GtkMenu* menu, GtkIconTheme* theme)
+static void _unload_old_icons(GtkMenu* menu, GtkIconTheme* theme, menup* m)
 {
     GList *children, *child;
     GtkMenuItem* item;
@@ -543,16 +531,20 @@ static void unload_old_icons(GtkMenu* menu, GtkIconTheme* theme)
 	        img = GTK_IMAGE(gtk_image_menu_item_get_image(GTK_IMAGE_MENU_ITEM(item)));
                 gtk_image_clear(img);
                 if( GTK_WIDGET_MAPPED(img) )
-		    on_menu_item_map(GTK_WIDGET(item),
-			(MenuCacheItem*)g_object_get_qdata(G_OBJECT(item), SYS_MENU_ITEM_ID) );
+		    on_menu_item_map(GTK_WIDGET(item), m);
             }
         }
         else if( ( sub_menu = gtk_menu_item_get_submenu( item ) ) )
         {
-	    unload_old_icons( GTK_MENU(sub_menu), theme );
+	    _unload_old_icons(GTK_MENU(sub_menu), theme, m);
         }
     }
     g_list_free( children );
+}
+
+static void unload_old_icons(GtkIconTheme* theme, menup* m)
+{
+    _unload_old_icons(GTK_MENU(m->menu), theme, m);
 }
 
 static void remove_change_handler(gpointer id, GObject* menu)
@@ -586,7 +578,7 @@ static void sys_menu_insert_items( menup* m, GtkMenu* menu, int position )
         gtk_menu_shell_insert(GTK_MENU_SHELL(menu), mi, position);
     }
 
-    change_handler = g_signal_connect_swapped( gtk_icon_theme_get_default(), "changed", G_CALLBACK(unload_old_icons), menu );
+    change_handler = g_signal_connect(gtk_icon_theme_get_default(), "changed", G_CALLBACK(unload_old_icons), m);
     g_object_weak_ref( G_OBJECT(menu), remove_change_handler, GINT_TO_POINTER(change_handler) );
 }
 
@@ -623,9 +615,8 @@ reload_system_menu( menup* m, GtkMenu* menu )
     g_list_free( children );
 }
 
-static void show_menu( GtkWidget* widget, Plugin* p, int btn, guint32 time )
+static void show_menu( GtkWidget* widget, menup* m, int btn, guint32 time )
 {
-    menup* m = (menup*)p->priv;
     gtk_menu_popup(GTK_MENU(m->menu),
                    NULL, NULL,
                    (GtkMenuPositionFunc)menu_pos, widget,
@@ -633,7 +624,7 @@ static void show_menu( GtkWidget* widget, Plugin* p, int btn, guint32 time )
 }
 
 static gboolean
-my_button_pressed(GtkWidget *widget, GdkEventButton *event, Plugin* plugin)
+my_button_pressed(GtkWidget *widget, GdkEventButton *event, menup *m)
 {
     ENTER;
 #if GTK_CHECK_VERSION(2,18,0)
@@ -642,7 +633,7 @@ my_button_pressed(GtkWidget *widget, GdkEventButton *event, Plugin* plugin)
 #endif
 
     /* Standard right-click handling. */
-    if (plugin_button_press_event(widget, event, plugin))
+    if (lxpanel_plugin_button_press_event(m->box, event, m->panel))
         return TRUE;
 
     if ((event->type == GDK_BUTTON_PRESS)
@@ -653,7 +644,7 @@ my_button_pressed(GtkWidget *widget, GdkEventButton *event, Plugin* plugin)
           && (event->x >=0 && event->x < widget->allocation.width)
           && (event->y >=0 && event->y < widget->allocation.height)) {
 #endif
-        show_menu( widget, plugin, event->button, event->time );
+        show_menu( widget, m, event->button, event->time );
     }
 #if GTK_CHECK_VERSION(2,18,0)
     g_free (allocation);
@@ -661,22 +652,32 @@ my_button_pressed(GtkWidget *widget, GdkEventButton *event, Plugin* plugin)
     RET(TRUE);
 }
 
-gboolean show_system_menu( gpointer system_menu )
+static gboolean show_system_menu_idle(gpointer user_data)
 {
-    Plugin* p = (Plugin*)system_menu;
-    menup* m = (menup*)p->priv;
-    show_menu( m->img, p, 0, GDK_CURRENT_TIME );
+    menup* m = (menup*)user_data;
+    if (g_source_is_destroyed(g_main_current_source()))
+        return FALSE;
+    show_menu( m->img, m, 0, GDK_CURRENT_TIME );
+    m->show_system_menu_idle = 0;
     return FALSE;
 }
 
+static void show_system_menu(GtkWidget *p)
+{
+    menup *m = lxpanel_plugin_get_data(p);
+
+    if (m->has_system_menu && m->show_system_menu_idle == 0)
+        /* FIXME: I've no idea why this doesn't work without timeout
+                              under some WMs, like icewm. */
+        m->show_system_menu_idle = g_timeout_add(200, show_system_menu_idle, m);
+}
+
 static GtkWidget *
-make_button(Plugin *p, gchar *fname, gchar *name, GdkColor* tint, GtkWidget *menu)
+make_button(menup *m, const gchar *fname, const gchar *name, GdkColor* tint, GtkWidget *menu)
 {
     char* title = NULL;
-    menup *m;
 
     ENTER;
-    m = (menup *)p->priv;
     m->menu = menu;
 
     if( name )
@@ -693,66 +694,63 @@ make_button(Plugin *p, gchar *fname, gchar *name, GdkColor* tint, GtkWidget *men
             g_free( dir_file );
             g_key_file_free( kf );
         }
-        else
-            title = name;
 
-        m->img = fb_button_new_from_file_with_label(fname, -1, p->panel->icon_size, gcolor2rgb24(tint), TRUE, p->panel, title);
+        m->img = lxpanel_button_new_for_icon(m->panel, fname, tint, title ? title : name);
 
-        if( title != name )
-            g_free( title );
+        g_free( title );
     }
     else
     {
-        m->img = fb_button_new_from_file(fname, -1, p->panel->icon_size, gcolor2rgb24(tint), TRUE);
+        m->img = lxpanel_button_new_for_icon(m->panel, fname, tint, NULL);
     }
 
     gtk_widget_show(m->img);
     gtk_box_pack_start(GTK_BOX(m->box), m->img, FALSE, FALSE, 0);
 
     m->handler_id = g_signal_connect (G_OBJECT (m->img), "button-press-event",
-          G_CALLBACK (my_button_pressed), p);
-    g_object_set_data(G_OBJECT(m->img), "plugin", p);
+          G_CALLBACK (my_button_pressed), m);
+    g_object_set_data(G_OBJECT(m->img), "plugin", m);
 
     RET(m->img);
 }
 
+/* those were in configurator.c initially but it's safer to have those here */
+typedef struct {
+    char *name;
+    char *disp_name;
+    void (*cmd)(void);
+} Command;
+
+static Command commands[] = {
+    //{ "configure", N_("Preferences"), configure },
+    { "run", N_("Run"), gtk_run },
+    { "restart", N_("Restart"), restart },
+    { "logout", N_("Logout"), logout },
+    { NULL, NULL },
+};
 
 static GtkWidget *
-read_item(Plugin *p, char** fp)
+read_item(menup *m, config_setting_t *s)
 {
-    line s;
-    gchar *name, *fname, *action;
+    const gchar *name, *fname, *action, *str;
     GtkWidget *item;
-    menup *m = (menup *)p->priv;
     Command *cmd_entry = NULL;
+    char *tmp;
 
     ENTER;
-    s.len = 256;
     name = fname = action = NULL;
 
-    if( fp )
+    config_setting_lookup_string(s, "name", &name);
+    config_setting_lookup_string(s, "image", &fname);
+    config_setting_lookup_string(s, "action", &action);
+    if (config_setting_lookup_string(s, "command", &str))
     {
-        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
-            if (s.type == LINE_VAR) {
-                if (!g_ascii_strcasecmp(s.t[0], "image"))
-                    fname = expand_tilda(s.t[1]);
-                else if (!g_ascii_strcasecmp(s.t[0], "name"))
-                    name = g_strdup(s.t[1]);
-                else if (!g_ascii_strcasecmp(s.t[0], "action"))
-                    action = g_strdup(s.t[1]);
-                else if (!g_ascii_strcasecmp(s.t[0], "command")) {
-                    Command *tmp;
+        Command *tmp;
 
-                    for (tmp = commands; tmp->name; tmp++) {
-                        if (!g_ascii_strcasecmp(s.t[1], tmp->name)) {
-                            cmd_entry = tmp;
-                            break;
-                        }
-                    }
-                } else {
-                    ERR( "menu/item: unknown var %s\n", s.t[0]);
-                    goto error;
-                }
+        for (tmp = commands; tmp->name; tmp++) {
+            if (!g_ascii_strcasecmp(str, tmp->name)) {
+                cmd_entry = tmp;
+                break;
             }
         }
     }
@@ -762,47 +760,36 @@ read_item(Plugin *p, char** fp)
         item = gtk_image_menu_item_new_with_label( _(cmd_entry->disp_name) );
         g_signal_connect(G_OBJECT(item), "activate", (GCallback)run_command, cmd_entry->cmd);
     }
-    else
+    else if (action)
     {
         item = gtk_image_menu_item_new_with_label(name ? name : "");
-        if (action) {
-            g_signal_connect(G_OBJECT(item), "activate", (GCallback)spawn_app, action);
-        }
+        tmp = g_strdup(action);
+        g_object_weak_ref(G_OBJECT(item), (GWeakNotify)g_free, tmp);
+        g_signal_connect(G_OBJECT(item), "activate", (GCallback)spawn_app, tmp);
     }
+    else
+        goto error;
     gtk_container_set_border_width(GTK_CONTAINER(item), 0);
-    g_free(name);
     if (fname) {
         GtkWidget *img;
 
         /* FIXME: use FmIcon cache and fm_pixbuf_from_icon() API */
-        img = _gtk_image_new_from_file_scaled(fname, m->iconsize, m->iconsize, TRUE);
+        tmp = expand_tilda(fname);
+        img = _gtk_image_new_from_file_scaled(tmp, m->iconsize, m->iconsize, TRUE);
         gtk_widget_show(img);
         gtk_image_menu_item_set_image(GTK_IMAGE_MENU_ITEM(item), img);
-        g_free(fname);
+        g_free(tmp);
     }
     RET(item);
 
  error:
-    g_free(fname);
-    g_free(name);
-    g_free(action);
     RET(NULL);
 }
 
 static GtkWidget *
-read_separator(Plugin *p, char **fp)
+read_separator(menup *m, config_setting_t *s)
 {
-    line s;
-
     ENTER;
-    s.len = 256;
-    if( fp )
-    {
-        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
-            ERR("menu: error - separator can not have paramteres\n");
-            RET(NULL);
-        }
-    }
     RET(gtk_separator_menu_item_new());
 }
 
@@ -814,11 +801,8 @@ static void on_reload_menu(MenuCache* cache, gpointer menu_pointer)
 }
 
 static void
-read_system_menu(GtkMenu* menu, Plugin *p, char** fp)
+read_system_menu(GtkMenu *menu, menup *m, config_setting_t *s)
 {
-    line s;
-    menup *m = (menup *)p->priv;
-
     if (m->menu_cache == NULL)
     {
         guint32 flags;
@@ -830,28 +814,17 @@ read_system_menu(GtkMenu* menu, Plugin *p, char** fp)
         }
         m->visibility_flags = flags;
         m->reload_notify = menu_cache_add_reload_notify(m->menu_cache, on_reload_menu, m);
+        sys_menu_insert_items( m, menu, -1 );
     }
 
-    s.len = 256;
-    if( fp )
-    {
-        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
-            ERR("menu: error - system can not have paramteres\n");
-            return;
-        }
-    }
-
-    sys_menu_insert_items( m, menu, -1 );
     m->has_system_menu = TRUE;
-
-    p->panel->system_menus = g_slist_append( p->panel->system_menus, p );
 }
 
+#if 0
 static void
 read_include(Plugin *p, char **fp)
 {
     ENTER;
-#if 0
     gchar *name;
     line s;
     menup *m = (menup *)p->priv;
@@ -880,238 +853,181 @@ read_include(Plugin *p, char **fp)
         ERR("Can't include %s\n", name);
     }
     if (name) g_free(name);
-#endif
     RET();
 }
+#endif
 
 static GtkWidget *
-read_submenu(Plugin *p, char** fp, gboolean as_item)
+read_submenu(menup *m, config_setting_t *s, gboolean as_item)
 {
-    line s;
     GtkWidget *mi, *menu;
-    gchar *name, *fname;
-    menup *m = (menup *)p->priv;
+    const gchar *name, *fname, *str;
+    config_setting_t *list = config_setting_add(s, "", PANEL_CONF_TYPE_LIST);
     GdkColor color={0, 0, 36 * 0xffff / 0xff, 96 * 0xffff / 0xff};
+    guint i;
 
     ENTER;
 
-    s.len = 256;
     menu = gtk_menu_new ();
     gtk_container_set_border_width(GTK_CONTAINER(menu), 0);
 
     fname = NULL;
     name = NULL;
-    while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
-        if (s.type == LINE_BLOCK_START) {
-            mi = NULL;
-            if (!g_ascii_strcasecmp(s.t[0], "item")) {
-                mi = read_item(p, fp);
-            } else if (!g_ascii_strcasecmp(s.t[0], "separator")) {
-                mi = read_separator(p, fp);
-            } else if (!g_ascii_strcasecmp(s.t[0], "system")) {
-                read_system_menu(GTK_MENU(menu), p, fp); /* add system menu items */
-                continue;
-            } else if (!g_ascii_strcasecmp(s.t[0], "menu")) {
-                mi = read_submenu(p, fp, TRUE);
-            } else if (!g_ascii_strcasecmp(s.t[0], "include")) {
-                read_include(p, fp);
-                continue;
-            } else {
-                ERR("menu: unknown block %s\n", s.t[0]);
-                goto error;
-            }
-            if (!mi) {
-                ERR("menu: can't create menu item\n");
-                goto error;
-            }
-            gtk_widget_show(mi);
-            gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
-        } else if (s.type == LINE_VAR) {
-            m->config_start = *fp;
-            if (!g_ascii_strcasecmp(s.t[0], "image"))
-                fname = expand_tilda(s.t[1]);
-            else if (!g_ascii_strcasecmp(s.t[0], "name"))
-                name = g_strdup(s.t[1]);
-        /* FIXME: tintcolor will not be saved.  */
-            else if (!g_ascii_strcasecmp(s.t[0], "tintcolor"))
-                gdk_color_parse( s.t[1], &color);
-            else {
-                ERR("menu: unknown var %s\n", s.t[0]);
-            }
-        } else if (s.type == LINE_NONE) {
-            if (m->files) {
-                /*
-                  fclose(p->fp);
-                  p->fp = m->files->data;
-                */
-                m->files = g_slist_delete_link(m->files, m->files);
-            }
-        }  else {
-            ERR("menu: illegal in this context %s\n", s.str);
+    config_setting_lookup_string(s, "name", &name);
+    config_setting_lookup_string(s, "image", &fname);
+    if (config_setting_lookup_string(s, "tintcolor", &str))
+        gdk_color_parse(str, &color);
+
+    for (i = 0; (s = config_setting_get_elem(list, i)) != NULL; i++)
+    {
+        str = config_setting_get_name(s);
+        if (!g_ascii_strcasecmp(str, "item")) {
+            mi = read_item(m, s);
+        } else if (!g_ascii_strcasecmp(str, "separator")) {
+            mi = read_separator(m, s);
+        } else if (!g_ascii_strcasecmp(str, "system")) {
+            read_system_menu(GTK_MENU(menu), m, s); /* add system menu items */
+            continue;
+        } else if (!g_ascii_strcasecmp(str, "menu")) {
+            mi = read_submenu(m, s, TRUE);
+#if 0
+        } else if (!g_ascii_strcasecmp(str, "include")) {
+            read_include(p, fp);
+            continue;
+#endif
+        } else {
+            ERR("menu: unknown block %s\n", str);
             goto error;
         }
+        if (!mi) {
+            ERR("menu: can't create menu item\n");
+            goto error;
+        }
+        gtk_widget_show(mi);
+        gtk_menu_shell_append (GTK_MENU_SHELL (menu), mi);
     }
     if (as_item) {
         mi = gtk_image_menu_item_new_with_label(name);
         if (fname) {
             GtkWidget *img;
+            char *expanded = expand_tilda(fname);
             /* FIXME: use FmIcon cache and fm_pixbuf_from_icon() API */
-            img = _gtk_image_new_from_file_scaled(fname, m->iconsize, m->iconsize, TRUE);
+            img = _gtk_image_new_from_file_scaled(expanded, m->iconsize, m->iconsize, TRUE);
             gtk_widget_show(img);
             gtk_image_menu_item_set_image(GTK_IMAGE_MENU_ITEM(mi), img);
+            g_free(expanded);
         }
         gtk_menu_item_set_submenu (GTK_MENU_ITEM (mi), menu);
     } else {
-        m->fname = fname ? g_strdup(fname) : g_strdup( DEFAULT_MENU_ICON );
-        m->caption = name ? g_strdup(name) : NULL;
-        mi = make_button(p, fname, name, &color, menu);
-        RET(mi);
+        m->fname = fname ? expand_tilda(fname) : g_strdup(DEFAULT_MENU_ICON);
+        m->caption = g_strdup(name);
+        mi = make_button(m, m->fname, name, &color, menu);
     }
 
-    g_free(fname);
-    g_free(name);
     RET(mi);
 
- error:
+error:
     // FIXME: we need to recursivly destroy all child menus and their items
     gtk_widget_destroy(menu);
-    g_free(fname);
-    g_free(name);
     RET(NULL);
 }
 
-static int
-menu_constructor(Plugin *p, char **fp)
+static GtkWidget *
+menu_constructor(Panel *panel, config_setting_t *settings)
 {
-    char *start;
     menup *m;
-    static char default_config[] =
-        "system {\n"
-        "}\n"
-        "separator {\n"
-        "}\n"
-        "item {\n"
-            "command=run\n"
-        "}\n"
-        "separator {\n"
-        "}\n"
-        "item {\n"
-            "image=gnome-logout\n"
-            "command=logout\n"
-        "}\n"
-        "image=" DEFAULT_MENU_ICON "\n"
-        "}\n";
-    char *config_default = default_config;
+    config_setting_t *s;
     int iw, ih;
 
     m = g_new0(menup, 1);
     g_return_val_if_fail(m != NULL, 0);
-    m->fname = NULL;
-    m->caption = NULL;
-
-    p->priv = m;
 
     gtk_icon_size_lookup( GTK_ICON_SIZE_MENU, &iw, &ih );
     m->iconsize = MAX(iw, ih);
 
     m->box = gtk_hbox_new(FALSE, 0);
+    lxpanel_plugin_set_data(m->box, m, menu_destructor);
     gtk_container_set_border_width(GTK_CONTAINER(m->box), 0);
 
-    if( ! fp )
-        fp = &config_default;
+    /* Save construction pointers */
+    m->panel = panel;
+    m->settings = settings;
 
-    m->config_start = start = *fp;
-    if (!read_submenu(p, fp, FALSE)) {
+    /* Check if configuration exists */
+    settings = config_setting_get_member(settings, "");
+    if (config_setting_get_elem(settings, 0) == NULL)
+    {
+        /* create default menu */
+        config_setting_add(settings, "system", PANEL_CONF_TYPE_GROUP);
+        config_setting_add(settings, "separator", PANEL_CONF_TYPE_GROUP);
+        s = config_setting_add(settings, "item", PANEL_CONF_TYPE_GROUP);
+            config_setting_set_string(config_setting_add(s, "command",
+                                                         PANEL_CONF_TYPE_STRING),
+                                      "run");
+        config_setting_add(settings, "separator", PANEL_CONF_TYPE_GROUP);
+        s = config_setting_add(settings, "item", PANEL_CONF_TYPE_GROUP);
+            config_setting_set_string(config_setting_add(s, "command",
+                                                         PANEL_CONF_TYPE_STRING),
+                                      "logout");
+            config_setting_set_string(config_setting_add(s, "image",
+                                                         PANEL_CONF_TYPE_STRING),
+                                      "gnome-logout");
+        config_setting_set_string(config_setting_add(m->settings, "image",
+                                                     PANEL_CONF_TYPE_STRING),
+                                  DEFAULT_MENU_ICON);
+    }
+
+    if (!read_submenu(m, m->settings, FALSE)) {
         ERR("menu: plugin init failed\n");
-        return 0;
+        gtk_widget_destroy(m->box);
+        return NULL;
     }
-    m->config_end = *fp - 1;
-    while( *m->config_end != '}' && m->config_end > m->config_start ) {
-        --m->config_end;
-    }
-    if( *m->config_end == '}' )
-        --m->config_end;
 
-    m->config_data = g_strndup( start, (m->config_end - start) );
-
-    p->pwid = m->box;
-
-    RET(1);
-
+    return m->box;
 }
 
-static void save_config( Plugin* p, FILE* fp )
+static gboolean apply_config(gpointer user_data)
 {
-    menup* menu = (menup*)p->priv;
-    int level = 0;
-    lxpanel_put_str( fp, "name", menu->caption );
-    lxpanel_put_str( fp, "image", menu->fname );
-    if( menu->config_data ) {
-        char** lines = g_strsplit( menu->config_data, "\n", 0 );
-        char** line;
-        for( line = lines; *line; ++line ) {
-            g_strstrip( *line );
-            if( **line )
-            {
-                if( level == 0 )
-                {
-                    /* skip image and caption since we already save these two items */
-                    if( g_str_has_prefix(*line, "image") || g_str_has_prefix(*line, "caption") )
-                        continue;
-                }
-                g_strchomp(*line); /* remove trailing spaces */
-                if( g_str_has_suffix( *line, "{" ) )
-                    ++level;
-                else if( g_str_has_suffix( *line, "}" ) )
-                    --level;
-                lxpanel_put_line( fp, *line );
-            }
-        }
-        g_strfreev( lines );
+    GtkWidget *p = user_data;
+    menup* m = lxpanel_plugin_get_data(p);
+
+    if( m->fname ) {
+        lxpanel_button_set_icon(m->img, m->fname, panel_get_icon_size(m->panel));
     }
+    config_setting_set_string(config_setting_add(m->settings, "image",
+                                                 PANEL_CONF_TYPE_STRING),
+                              m->fname);
+    config_setting_set_string(config_setting_add(m->settings, "name",
+                                                 PANEL_CONF_TYPE_STRING),
+                              m->caption);
+    return FALSE;
 }
 
-static void apply_config(Plugin* p)
-{
-    menup* m = (menup*)p->priv;
-	if( m->fname ) {
-		fb_button_set_from_file( m->img, m->fname, -1, p->panel->icon_size, TRUE );
-	}
-}
-
-static void menu_config( Plugin *p, GtkWindow* parent )
+static void menu_config(Panel *panel, GtkWidget *p, GtkWindow *parent)
 {
     GtkWidget* dlg;
-    menup* menu = (menup*)p->priv;
-    dlg = create_generic_config_dlg( _(p->class->name),
-                                     GTK_WIDGET(parent),
-                                    (GSourceFunc) apply_config, (gpointer) p,
+    menup* menu = lxpanel_plugin_get_data(p);
+    dlg = lxpanel_generic_config_dlg(_("Menu"), panel, apply_config, p,
                                      _("Icon"), &menu->fname, CONF_TYPE_FILE_ENTRY,
                                      /* _("Caption"), &menu->caption, CONF_TYPE_STR, */
-                                     NULL );
+                                     NULL);
     gtk_window_present( GTK_WINDOW(dlg) );
 }
 
 /* Callback when panel configuration changes. */
-static void menu_panel_configuration_changed(Plugin * p)
+static void menu_panel_configuration_changed(Panel *panel, GtkWidget *p)
 {
     apply_config(p);
 }
 
-PluginClass menu_plugin_class = {
-
-    PLUGINCLASS_VERSIONING,
-
-    .type = "menu",
+LXPanelPluginInit lxpanel_static_plugin_menu = {
     .name = N_("Menu"),
-    .version = "2.0",
     .description = N_("Application Menu"),
 
-    .constructor = menu_constructor,
-    .destructor  = menu_destructor,
+    .new_instance = menu_constructor,
     .config = menu_config,
-    .save = save_config,
-    .panel_configuration_changed = menu_panel_configuration_changed
+    .reconfigure = menu_panel_configuration_changed,
+    .show_system_menu = show_system_menu
 };
 
 /* vim: set sw=4 et sts=4 : */

@@ -40,6 +40,7 @@ G_BEGIN_DECLS
  * @config: (allow-none): callback to show configuration dialog
  * @reconfigure: (allow-none): callback to apply panel configuration change
  * @button_press_event: (allow-none): callback on "button-press-event" signal
+ * @show_system_menu: (allow-none): callback to queue show system menu
  *
  * Callback @init is called on module loading, only once per application
  * lifetime.
@@ -69,6 +70,7 @@ typedef struct {
     void (*config)(Panel *panel, GtkWidget *instance, GtkWindow *parent);
     void (*reconfigure)(Panel *panel, GtkWidget *instance);
     gboolean (*button_press_event)(GtkWidget *widget, GdkEventButton *event, Panel *panel);
+    void (*show_system_menu)(GtkWidget *widget);
     int one_per_system : 1;     /* True to disable more than one instance */
     int expand_available : 1;   /* True if "stretch" option is available */
     int expand_default : 1;     /* True if "stretch" option is default */

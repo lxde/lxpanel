@@ -1108,7 +1108,7 @@ static gboolean fb_button_leave(GtkImage * widget, GdkEventCrossing * event, gpo
 /* consumes reference on icon */
 static GtkWidget *_lxpanel_button_new_for_icon(Panel *panel, FmIcon *icon,
                                                gint size, gulong highlight_color,
-                                               gchar *label)
+                                               const gchar *label)
 {
     GtkWidget * event_box = gtk_event_box_new();
     gtk_container_set_border_width(GTK_CONTAINER(event_box), 0);
@@ -1148,14 +1148,14 @@ static GtkWidget *_lxpanel_button_new_for_icon(Panel *panel, FmIcon *icon,
     return event_box;
 }
 
-GtkWidget *lxpanel_button_new_for_icon(Panel *panel, const gchar *name, GdkColor *color, gchar *label)
+GtkWidget *lxpanel_button_new_for_icon(Panel *panel, const gchar *name, GdkColor *color, const gchar *label)
 {
     gulong highlight_color = color ? gcolor2rgb24(color) : PANEL_ICON_HIGHLIGHT;
     return _lxpanel_button_new_for_icon(panel, fm_icon_from_name(name),
                                         panel->icon_size, highlight_color, label);
 }
 
-GtkWidget *lxpanel_button_new_for_fm_icon(Panel *panel, FmIcon *icon, GdkColor *color, gchar *label)
+GtkWidget *lxpanel_button_new_for_fm_icon(Panel *panel, FmIcon *icon, GdkColor *color, const gchar *label)
 {
     gulong highlight_color = color ? gcolor2rgb24(color) : PANEL_ICON_HIGHLIGHT;
     return _lxpanel_button_new_for_icon(panel, g_object_ref(icon),
@@ -1171,7 +1171,7 @@ GtkWidget * fb_button_new_from_file(
 
 /* parameters width and keep_ratio are unused, kept for backward compatibility */
 GtkWidget * fb_button_new_from_file_with_label(
-    const gchar * image_file, int width, int height, gulong highlight_color, gboolean keep_ratio, Panel * panel, gchar * label)
+    const gchar * image_file, int width, int height, gulong highlight_color, gboolean keep_ratio, Panel * panel, const gchar * label)
 {
     return _lxpanel_button_new_for_icon(panel, fm_icon_from_name(image_file), height, highlight_color, label);
 }

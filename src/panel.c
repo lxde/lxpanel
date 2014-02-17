@@ -225,9 +225,6 @@ void panel_set_wm_strut(Panel *p)
     }
 }
 
-/* defined in plugins/menu.c */
-gboolean show_system_menu( gpointer system_menu );
-
 /* defined in configurator.c */
 void panel_configure(Panel* p, int sel_page );
 gboolean panel_edge_available(Panel* p, int edge, gint monitor);
@@ -249,14 +246,17 @@ static void process_client_msg ( XClientMessageEvent* ev )
             for( l = all_panels; l; l = l->next )
             {
                 Panel* p = (Panel*)l->data;
-                if( p->system_menus )
+                GList *plugins, *pl;
+
+                plugins = gtk_container_get_children(GTK_CONTAINER(p->box));
+                for (pl = plugins; pl; pl = pl->next)
                 {
-                    /* show_system_menu( p->system_menus->data ); */
-                    /* FIXME: I've no idea why this doesn't work without timeout
-                              under some WMs, like icewm. */
-                    g_timeout_add( 200, (GSourceFunc)show_system_menu,
-                                   p->system_menus->data );
+                    LXPanelPluginInit *init = PLUGIN_CLASS(pl->data);
+                    if (init->show_system_menu)
+                        /* queue to show system menu */
+                        init->show_system_menu(pl->data);
                 }
+                g_list_free(plugins);
             }
             break;
         }
@@ -1385,11 +1385,6 @@ void panel_destroy(Panel *p)
     if( p->config_changed )
         panel_config_save( p );
     config_destroy(p->config);
-
-    if( p->system_menus ){
-        do{
-        } while ( g_source_remove_by_user_data( p->system_menus ) );
-    }
 
     if( p->topgwin )
     {

@@ -44,7 +44,7 @@ enum{
 void panel_configure(Panel* p, int sel_page );
 void restart(void);
 void gtk_run(void);
-static void logout(void);
+void logout(void);
 static void save_global_config();
 
 Command commands[] = {
