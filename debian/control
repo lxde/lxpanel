@@ -8,7 +8,7 @@ Build-Depends:
  debhelper (>= 9), dh-autoreconf, autotools-dev, autopoint, docbook-xml,
  docbook-xsl, intltool, intltool-debian, libasound2-dev, libglib2.0-dev,
  libgtk2.0-dev, libiw-dev [linux-any], libmenu-cache1-dev, libwnck-dev,
- libxpm-dev, python, xsltproc, libfm-dev
+ libxpm-dev, python, xsltproc, libfm-dev, libxml2-dev
 Standards-Version: 3.9.3
 Homepage: http://www.lxde.org/
 Vcs-Browser: http://git.lxde.org/gitweb/?p=debian/lxpanel.git
