@@ -622,11 +622,11 @@ static void on_add_plugin_response( GtkDialog* dlg,
             char* type = NULL;
             GtkWidget *pl;
             config_setting_t *cfg;
-            config_setting_t *s = config_setting_get_member(config_root_setting(p->config), "");
-            cfg = config_setting_add(s, "Plugin", PANEL_CONF_TYPE_GROUP);
+
+            cfg = config_group_add_subgroup(config_root_setting(p->config),
+                                            "Plugin");
             gtk_tree_model_get( model, &it, 1, &type, -1 );
-            s = config_setting_add(cfg, "type", PANEL_CONF_TYPE_STRING);
-            config_setting_set_string(s, type);
+            config_group_set_string(cfg, "type", type);
             if ((pl = lxpanel_add_plugin(p, type, cfg, -1)))
             {
                 GtkTreePath* tree_path;
