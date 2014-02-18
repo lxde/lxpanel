@@ -1124,8 +1124,9 @@ void panel_adjust_geometry_terminology(Panel * p)
 }
 
 /* Draw text into a label, with the user preference color and optionally bold. */
-void panel_draw_label_text(Panel * p, GtkWidget * label, char * text, gboolean bold,
-        float custom_size_factor, gboolean custom_color)
+void panel_draw_label_text(Panel * p, GtkWidget * label, const char * text,
+                           gboolean bold, float custom_size_factor,
+                           gboolean custom_color)
 {
     if (text == NULL)
     {
@@ -1151,9 +1152,9 @@ void panel_draw_label_text(Panel * p, GtkWidget * label, char * text, gboolean b
 
     /* Check the string for characters that need to be escaped.
      * If any are found, create the properly escaped string and use it instead. */
-    char * valid_markup = text;
+    const char * valid_markup = text;
     char * escaped_text = NULL;
-    char * q;
+    const char * q;
     for (q = text; *q != '\0'; q += 1)
     {
         if ((*q == '<') || (*q == '>') || (*q == '&'))
