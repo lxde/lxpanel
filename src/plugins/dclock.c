@@ -402,21 +402,12 @@ static gboolean dclock_apply_configuration(gpointer user_data)
     }
 
     /* Save configuration */
-    config_setting_set_string(config_setting_add(dc->settings, "ClockFmt",
-                                              PANEL_CONF_TYPE_STRING),
-                              dc->clock_format);
-    config_setting_set_string(config_setting_add(dc->settings, "TooltipFmt",
-                                              PANEL_CONF_TYPE_STRING),
-                              dc->tooltip_format);
-    config_setting_set_string(config_setting_add(dc->settings, "Action",
-                                              PANEL_CONF_TYPE_STRING),
-                              dc->action);
-    config_setting_set_int(config_setting_add(dc->settings, "BoldFont",
-                                              PANEL_CONF_TYPE_INT), dc->bold);
-    config_setting_set_int(config_setting_add(dc->settings, "IconOnly",
-                                              PANEL_CONF_TYPE_INT), dc->icon_only);
-    config_setting_set_int(config_setting_add(dc->settings, "CenterText",
-                                              PANEL_CONF_TYPE_INT), dc->center_text);
+    config_group_set_string(dc->settings, "ClockFmt", dc->clock_format);
+    config_group_set_string(dc->settings, "TooltipFmt", dc->tooltip_format);
+    config_group_set_string(dc->settings, "Action", dc->action);
+    config_group_set_int(dc->settings, "BoldFont", dc->bold);
+    config_group_set_int(dc->settings, "IconOnly", dc->icon_only);
+    config_group_set_int(dc->settings, "CenterText", dc->center_text);
     return FALSE;
 }
 

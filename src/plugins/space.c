@@ -78,8 +78,7 @@ static gboolean space_apply_configuration(gpointer user_data)
     else
         gtk_widget_set_size_request(p, 2, sp->size);
     /* Save config values */
-    config_setting_set_int(config_setting_add(sp->settings, "Size",
-                                              PANEL_CONF_TYPE_INT), sp->size);
+    config_group_set_int(sp->settings, "Size", sp->size);
     return FALSE;
 }
 

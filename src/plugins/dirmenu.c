@@ -342,15 +342,9 @@ static gboolean dirmenu_apply_configuration(gpointer user_data)
     }
 
     /* Save configuration */
-    config_setting_set_string(config_setting_add(dm->settings, "path",
-                                                 PANEL_CONF_TYPE_STRING),
-                              dm->path);
-    config_setting_set_string(config_setting_add(dm->settings, "name",
-                                                 PANEL_CONF_TYPE_STRING),
-                              dm->name);
-    config_setting_set_string(config_setting_add(dm->settings, "image",
-                                                 PANEL_CONF_TYPE_STRING),
-                              dm->image);
+    config_group_set_string(dm->settings, "path", dm->path);
+    config_group_set_string(dm->settings, "name", dm->name);
+    config_group_set_string(dm->settings, "image", dm->image);
 
     lxpanel_button_set_icon(p, ((dm->image != NULL) ? dm->image : "file-manager"),
                             panel_get_icon_size(dm->panel));

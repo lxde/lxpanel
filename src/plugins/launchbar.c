@@ -428,12 +428,8 @@ static void launchbar_configure_add_button(GtkButton * widget, LaunchbarPlugin *
         g_object_unref(pix);
         path = fm_path_to_str(sel_path);
         /* g_debug("*** path '%s'",path); */
-        btn->settings = config_setting_add(config_setting_add(lb->settings, "",
-                                                              PANEL_CONF_TYPE_LIST),
-                                           "Button", PANEL_CONF_TYPE_GROUP);
-        config_setting_set_string(config_setting_add(btn->settings, "id",
-                                                     PANEL_CONF_TYPE_STRING),
-                                  path);
+        btn->settings = config_group_add_subgroup(lb->settings, "Button");
+        config_group_set_string(btn->settings, "id", path);
         g_free(path);
         fm_path_unref(sel_path);
     }

@@ -211,18 +211,12 @@ static gboolean wincmd_apply_configuration(gpointer user_data)
     WinCmdPlugin * wc = lxpanel_plugin_get_data(p);
 
     /* Just save settings */
-    config_setting_set_string(config_setting_add(wc->settings, "image",
-                                                 PANEL_CONF_TYPE_STRING),
-                              wc->image);
-    config_setting_set_string(config_setting_add(wc->settings, "Button1",
-                                                 PANEL_CONF_TYPE_STRING),
-                              wincmd_names[wc->button_1_command]);
-    config_setting_set_string(config_setting_add(wc->settings, "Button2",
-                                                 PANEL_CONF_TYPE_STRING),
-                              wincmd_names[wc->button_2_command]);
-    config_setting_set_int(config_setting_add(wc->settings, "Toggle",
-                                              PANEL_CONF_TYPE_INT),
-                           wc->toggle_preference);
+    config_group_set_string(wc->settings, "image", wc->image);
+    config_group_set_string(wc->settings, "Button1",
+                            wincmd_names[wc->button_1_command]);
+    config_group_set_string(wc->settings, "Button2",
+                            wincmd_names[wc->button_2_command]);
+    config_group_set_int(wc->settings, "Toggle", wc->toggle_preference);
     return FALSE;
 }
 

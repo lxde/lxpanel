@@ -961,20 +961,12 @@ menu_constructor(Panel *panel, config_setting_t *settings)
         config_setting_add(settings, "system", PANEL_CONF_TYPE_GROUP);
         config_setting_add(settings, "separator", PANEL_CONF_TYPE_GROUP);
         s = config_setting_add(settings, "item", PANEL_CONF_TYPE_GROUP);
-            config_setting_set_string(config_setting_add(s, "command",
-                                                         PANEL_CONF_TYPE_STRING),
-                                      "run");
+            config_group_set_string(s, "command", "run");
         config_setting_add(settings, "separator", PANEL_CONF_TYPE_GROUP);
         s = config_setting_add(settings, "item", PANEL_CONF_TYPE_GROUP);
-            config_setting_set_string(config_setting_add(s, "command",
-                                                         PANEL_CONF_TYPE_STRING),
-                                      "logout");
-            config_setting_set_string(config_setting_add(s, "image",
-                                                         PANEL_CONF_TYPE_STRING),
-                                      "gnome-logout");
-        config_setting_set_string(config_setting_add(m->settings, "image",
-                                                     PANEL_CONF_TYPE_STRING),
-                                  DEFAULT_MENU_ICON);
+            config_group_set_string(s, "command", "logout");
+            config_group_set_string(s, "image", "gnome-logout");
+        config_group_set_string(m->settings, "image", DEFAULT_MENU_ICON);
     }
 
     if (!read_submenu(m, m->settings, FALSE)) {
@@ -994,12 +986,8 @@ static gboolean apply_config(gpointer user_data)
     if( m->fname ) {
         lxpanel_button_set_icon(m->img, m->fname, panel_get_icon_size(m->panel));
     }
-    config_setting_set_string(config_setting_add(m->settings, "image",
-                                                 PANEL_CONF_TYPE_STRING),
-                              m->fname);
-    config_setting_set_string(config_setting_add(m->settings, "name",
-                                                 PANEL_CONF_TYPE_STRING),
-                              m->caption);
+    config_group_set_string(m->settings, "image", m->fname);
+    config_group_set_string(m->settings, "name", m->caption);
     return FALSE;
 }
 

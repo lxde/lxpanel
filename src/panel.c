@@ -665,9 +665,7 @@ found_edge:
     new_panel->name = gen_panel_name(new_panel->edge,new_panel->monitor);
 
     /* create new config with first group "Global" */
-    config_setting_add(config_setting_add(config_root_setting(new_panel->config),
-                                          "", PANEL_CONF_TYPE_LIST),
-                       "Global", PANEL_CONF_TYPE_GROUP);
+    config_group_add_subgroup(config_root_setting(new_panel->config), "Global");
     panel_configure(new_panel, 0);
     panel_normalize_configuration(new_panel);
     panel_start_gui(new_panel);
