@@ -95,8 +95,9 @@ void panel_plugin_config_save( Panel* p, FILE *fp);
 static void update_opt_menu(GtkWidget *w, int ind);
 static void update_toggle_button(GtkWidget *w, gboolean n);
 static void modify_plugin( GtkTreeView* view );
+static gboolean on_entry_focus_out_old( GtkWidget* edit, GdkEventFocus *evt, gpointer user_data );
 static gboolean on_entry_focus_out( GtkWidget* edit, GdkEventFocus *evt, gpointer user_data );
-static gboolean on_entry_focus_out2( GtkWidget* edit, GdkEventFocus *evt, gpointer user_data );
+static gboolean _on_entry_focus_out_do_work(GtkWidget* edit, gpointer user_data);
 
 static void
 response_event(GtkDialog *widget, gint arg1, Panel* panel )
@@ -1162,7 +1163,7 @@ void panel_configure( Panel* p, int sel_page )
     if (fm_config->terminal)
         gtk_entry_set_text( GTK_ENTRY(w), fm_config->terminal );
     g_signal_connect( w, "focus-out-event",
-                      G_CALLBACK(on_entry_focus_out2),
+                      G_CALLBACK(on_entry_focus_out),
                       &fm_config->terminal);
 
     /* If we are under LXSession, setting logout command is not necessary. */
@@ -1176,7 +1177,7 @@ void panel_configure( Panel* p, int sel_page )
         if(logout_cmd)
             gtk_entry_set_text( GTK_ENTRY(w), logout_cmd );
         g_signal_connect( w, "focus-out-event",
-                        G_CALLBACK(on_entry_focus_out),
+                        G_CALLBACK(on_entry_focus_out_old),
                         &logout_cmd);
     }
 
@@ -1252,19 +1253,7 @@ static void notify_apply_config( GtkWidget* widget )
         (*apply_func)( g_object_get_data(G_OBJECT(dlg), "apply_func_data") );
 }
 
-static gboolean on_entry_focus_out( GtkWidget* edit, GdkEventFocus *evt, gpointer user_data )
-{
-    char** val = (char**)user_data;
-    const char *new_val;
-    g_free( *val );
-    new_val = gtk_entry_get_text(GTK_ENTRY(edit));
-    *val = (new_val && *new_val) ? g_strdup( new_val ) : NULL;
-    notify_apply_config( edit );
-    return FALSE;
-}
-
-/* the same but affects fm_config instead of panel config */
-static gboolean on_entry_focus_out2( GtkWidget* edit, GdkEventFocus *evt, gpointer user_data )
+static gboolean _on_entry_focus_out_do_work(GtkWidget* edit, gpointer user_data)
 {
     char** val = (char**)user_data;
     const char *new_val;
@@ -1273,7 +1262,21 @@ static gboolean on_entry_focus_out2( GtkWidget* edit, GdkEventFocus *evt, gpoint
         return FALSE;
     g_free( *val );
     *val = (new_val && *new_val) ? g_strdup( new_val ) : NULL;
-    fm_config_save(fm_config, NULL);
+    return TRUE;
+}
+
+static gboolean on_entry_focus_out_old( GtkWidget* edit, GdkEventFocus *evt, gpointer user_data )
+{
+    if (_on_entry_focus_out_do_work(edit, user_data))
+        notify_apply_config( edit );
+    return FALSE;
+}
+
+/* the same but affects fm_config instead of panel config */
+static gboolean on_entry_focus_out( GtkWidget* edit, GdkEventFocus *evt, gpointer user_data )
+{
+    if (_on_entry_focus_out_do_work(edit, user_data))
+        fm_config_save(fm_config, NULL);
     return FALSE;
 }
 
@@ -1318,7 +1321,7 @@ static void on_browse_btn_clicked(GtkButton* btn, GtkEntry* entry)
     {
         file = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(fc));
         gtk_entry_set_text(entry, file);
-        on_entry_focus_out(GTK_WIDGET(entry), NULL, g_object_get_data(G_OBJECT(dlg), "file-val"));
+        on_entry_focus_out_old(GTK_WIDGET(entry), NULL, g_object_get_data(G_OBJECT(dlg), "file-val"));
         g_free(file);
     }
     gtk_widget_destroy(fc);
@@ -1379,7 +1382,7 @@ static GtkWidget *_lxpanel_generic_config_dlg(const char *title, Panel *p,
                     gtk_entry_set_text( GTK_ENTRY(entry), *(char**)val );
                 gtk_entry_set_width_chars(GTK_ENTRY(entry), 40);
                 g_signal_connect( entry, "focus-out-event",
-                  G_CALLBACK(on_entry_focus_out), val );
+                  G_CALLBACK(on_entry_focus_out_old), val );
                 break;
             case CONF_TYPE_INT:
             {
