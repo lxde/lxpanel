@@ -312,6 +312,62 @@ static gboolean launchbutton_constructor(LaunchbarPlugin * lb, config_setting_t 
     return (btn != NULL);
 }
 
+/* prototype of this is app_info_create_from_commandline() in libfm */
+static gboolean _launchbutton_create_id(LaunchbarPlugin * lb, config_setting_t * s)
+{
+    const char *icon = NULL, *name, *exec, *path = NULL;
+    char *dirname, *filename;
+    int fd, terminal = 0;
+    gboolean ret = FALSE;
+
+    if (!config_setting_lookup_string(s, "action", &exec) || exec[0] == '\0')
+        return FALSE;
+    if (!config_setting_lookup_string(s, "tooltip", &name) || name[0] == '\0')
+        name = "Launcher"; /* placeholder, XDG requires a non-empty name */
+    config_setting_lookup_string(s, "image", &icon);
+    config_setting_lookup_string(s, "path", &path);
+    config_setting_lookup_int(s, "terminal", &terminal);
+
+    dirname = g_build_filename(g_get_user_data_dir(), "applications", NULL);
+    if (g_mkdir_with_parents(dirname, 0700) == 0)
+    {
+        filename = g_strdup_printf("%s/lxpanel-launcher-XXXXXX.desktop", dirname);
+        fd = g_mkstemp (filename);
+        if (fd != -1)
+        {
+            GString* content = g_string_sized_new(256);
+
+            g_string_printf(content,
+                "[" G_KEY_FILE_DESKTOP_GROUP "]\n"
+                G_KEY_FILE_DESKTOP_KEY_TYPE "=" G_KEY_FILE_DESKTOP_TYPE_APPLICATION "\n"
+                G_KEY_FILE_DESKTOP_KEY_NAME "=%s\n"
+                G_KEY_FILE_DESKTOP_KEY_EXEC "=%s\n"
+                G_KEY_FILE_DESKTOP_KEY_CATEGORIES "=X-LXPanel;\n",
+                name, exec);
+            if (icon)
+                g_string_append_printf(content, "Icon=%s\n", icon);
+            if (terminal)
+                g_string_append(content, G_KEY_FILE_DESKTOP_KEY_TERMINAL "=true\n");
+            if (path && path[0] == '/')
+                g_string_append_printf(content, "Path=%s\n", path);
+            close(fd);
+            ret = g_file_set_contents(filename, content->str, content->len, NULL);
+            if (ret) {
+                config_group_set_string(s, "id", filename);
+                /* FIXME: is it reasonable to remove obsolete keys too? */
+                panel_config_save(lb->panel);
+            } else
+                g_unlink(filename);
+            g_string_free(content, TRUE);
+        }
+        g_free(filename);
+    }
+    g_free(dirname);
+    if (ret) /* we created it, let use it */
+        return launchbutton_constructor(lb, s);
+    return FALSE;
+}
+
 /* Plugin constructor. */
 static GtkWidget *launchbar_constructor(Panel *panel, config_setting_t *settings)
 {
@@ -364,7 +420,9 @@ static GtkWidget *launchbar_constructor(Panel *panel, config_setting_t *settings
                 g_warning("launchbar: illegal token %s\n", config_setting_get_name(s));
                 config_setting_destroy(s);
             }
-            else if (!launchbutton_constructor(lb, s))
+            else if (!launchbutton_constructor(lb, s) &&
+                     /* try to create desktop id from old-style manual setup */
+                     !_launchbutton_create_id(lb, s))
             {
                 g_warning( "launchbar: can't init button\n");
                 /* FIXME: show failed id to the user instead */

@@ -1524,6 +1524,7 @@ void load_global_config()
     if( loaded )
     {
         logout_cmd = g_key_file_get_string( kf, command_group, "Logout", NULL );
+        /* FIXME: check for terminal and file manager and apply */
     }
     g_key_file_free( kf );
 }
