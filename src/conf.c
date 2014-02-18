@@ -446,9 +446,59 @@ config_setting_t * config_setting_add(config_setting_t * parent, const char * na
     return _config_setting_t_new(parent, -1, name, type);
 }
 
-gboolean config_setting_move_member(config_setting_t * setting, config_setting_t * parent, const char * name)
+
+static void remove_from_parent(config_setting_t * setting)
 {
     config_setting_t *s;
+
+    if (setting->parent->first == setting) {
+        setting->parent->first = setting->next;
+        goto _isolate_setting;
+    }
+
+    for (s = setting->parent->first; s->next; s = s->next)
+        if (s->next == setting)
+            break;
+    g_assert(s->next);
+    s->next = setting->next;
+
+_isolate_setting:
+    setting->next = NULL;
+    setting->parent = NULL;
+}
+
+static void append_to_parent(config_setting_t * setting, config_setting_t * parent)
+{
+    config_setting_t *s;
+
+    setting->parent = parent;
+    if (parent->first == NULL) {
+        parent->first = setting;
+        return;
+    }
+
+    s = parent->first;
+    while (s->next)
+        s = s->next;
+    s->next = setting;
+}
+
+static void insert_after(config_setting_t * setting, config_setting_t * parent,
+        config_setting_t * prev)
+{
+    setting->parent = parent;
+    if (prev == NULL) {
+        setting->next = parent->first;
+        parent->first = setting;
+    } else {
+        setting->next = prev->next;
+        prev->next = setting;
+    }
+}
+
+gboolean config_setting_move_member(config_setting_t * setting, config_setting_t * parent, const char * name)
+{
+    config_setting_t *s, **p;
 
     g_return_val_if_fail(setting && setting->parent, FALSE);
     if (parent == NULL || name == NULL || parent->type != PANEL_CONF_TYPE_GROUP)
@@ -458,29 +508,8 @@ gboolean config_setting_move_member(config_setting_t * setting, config_setting_t
         return (s == setting);
     if (setting->parent == parent) /* it's just renaming thing */
         goto _rename;
-    /* remove from old parent */
-    if (setting->parent->first == setting)
-        setting->parent->first = setting->next;
-    else
-    {
-        for (s = setting->parent->first; s->next; s = s->next)
-            if (s->next == setting)
-                break;
-        g_assert(s->next);
-        s->next = setting->next;
-    }
-    /* add to new parent */
-    setting->next = NULL;
-    setting->parent = parent;
-    if (parent->first == NULL)
-        parent->first = setting;
-    else
-    {
-        s = parent->first;
-        while (s->next)
-            s = s->next;
-        s->next = setting;
-    }
+    remove_from_parent(setting); /* remove from old parent */
+    append_to_parent(setting, parent); /* add to new parent */
     /* rename if need */
     if (g_strcmp0(setting->name, name) != 0)
     {
@@ -493,7 +522,7 @@ _rename:
 
 gboolean config_setting_move_elem(config_setting_t * setting, config_setting_t * parent, int index)
 {
-    config_setting_t *s, *prev;
+    config_setting_t *s, *prev = NULL;
 
     g_return_val_if_fail(setting && setting->parent, FALSE);
     if (parent == NULL || parent->type != PANEL_CONF_TYPE_LIST)
@@ -503,7 +532,8 @@ gboolean config_setting_move_elem(config_setting_t * setting, config_setting_t *
     /* let check the place */
     if (index != 0)
     {
-        if ((prev = parent->first))
+        prev = parent->first;
+        if (prev)
             for ( ; index != 1 && prev->next; prev = prev->next)
                 index--;
         if (index > 1) /* too few elements yet */
@@ -523,29 +553,11 @@ _out_of_range:
     }
     else if (parent->first == setting) /* it is already there */
         return TRUE;
-    /* remove from old parent */
-    if (setting->parent->first == setting)
-        setting->parent->first = setting->next;
-    else
-    {
-        for (s = setting->parent->first; s->next; s = s->next)
-            if (s->next == setting)
-                break;
-        g_assert(s->next);
-        s->next = setting->next;
-    }
+    remove_from_parent(setting); /* remove from old parent */
     /* add to new parent */
-    setting->parent = parent;
     if (index == 0)
-    {
-        setting->next = parent->first;
-        parent->first = setting;
-    }
-    else
-    {
-        setting->next = prev->next;
-        prev->next = setting;
-    }
+        g_assert(prev == NULL);
+    insert_after(setting, parent, prev);
     /* don't rename  */
     return TRUE;
 }
