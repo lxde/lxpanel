@@ -65,7 +65,6 @@ po/stamp-it
 */*/*/*.a
 src/lxpanel
 src/lxpanelctl
-src/xml-purge
 stamp-h1
 man/*.1
 debian/files
