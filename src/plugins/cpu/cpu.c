@@ -51,8 +51,8 @@ typedef struct {
     guint timer;				/* Timer for periodic update */
     CPUSample * stats_cpu;			/* Ring buffer of CPU utilization values */
     unsigned int ring_cursor;			/* Cursor for ring buffer */
-    int pixmap_width;				/* Width of drawing area pixmap; also size of ring buffer; does not include border size */
-    int pixmap_height;				/* Height of drawing area pixmap; does not include border size */
+    guint pixmap_width;				/* Width of drawing area pixmap; also size of ring buffer; does not include border size */
+    guint pixmap_height;			/* Height of drawing area pixmap; does not include border size */
     struct cpu_stat previous_cpu_stat;		/* Previous value of cpu_stat */
 } CPUPlugin;
 
@@ -145,8 +145,8 @@ static gboolean cpu_update(CPUPlugin * c)
 static gboolean configure_event(GtkWidget * widget, GdkEventConfigure * event, CPUPlugin * c)
 {
     /* Allocate pixmap and statistics buffer without border pixels. */
-    int new_pixmap_width = widget->allocation.width - BORDER_SIZE * 2;
-    int new_pixmap_height = widget->allocation.height - BORDER_SIZE * 2;
+    guint new_pixmap_width = MAX(widget->allocation.width - BORDER_SIZE * 2, 0);
+    guint new_pixmap_height = MAX(widget->allocation.height - BORDER_SIZE * 2, 0);
     if ((new_pixmap_width > 0) && (new_pixmap_height > 0))
     {
         /* If statistics buffer does not exist or it changed size, reallocate and preserve existing data. */
