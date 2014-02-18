@@ -1,7 +1,7 @@
 /**
  * CPU usage plugin to lxpanel
  *
- * Copyright (c) 2008 LxDE Developers, see the file AUTHORS for details.
+ * Copyright (c) 2008-2014 LxDE Developers, see the file AUTHORS for details.
  * Copyright (C) 2004 by Alexandre Pereira da Silva <alexandre.pereira@poli.usp.br>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -28,13 +28,12 @@
 #include <stdlib.h>
 #include <glib/gi18n.h>
 
-#include "private.h"
-#include "panel.h"
-#include "misc.h"
+#include <lxpanel/plugin.h>
 
 #define BORDER_SIZE 2
+#define PANEL_HEIGHT_DEFAULT 26 /* from panel defaults */
 
-#include "dbg.h"
+/* #include "../../dbg.h" */
 
 typedef unsigned long long CPUTick;		/* Value from /proc/stat */
 typedef float CPUSample;			/* Saved CPU utilization value as 0.0..1.0 */
@@ -61,8 +60,8 @@ static void redraw_pixmap(CPUPlugin * c);
 static gboolean cpu_update(CPUPlugin * c);
 static gboolean configure_event(GtkWidget * widget, GdkEventConfigure * event, CPUPlugin * c);
 static gboolean expose_event(GtkWidget * widget, GdkEventExpose * event, CPUPlugin * c);
-static int cpu_constructor(Plugin * p, char ** fp);
-static void cpu_destructor(Plugin * p);
+
+static void cpu_destructor(gpointer user_data);
 
 /* Redraw after timer callback or resize. */
 static void redraw_pixmap(CPUPlugin * c)
@@ -90,11 +89,11 @@ static void redraw_pixmap(CPUPlugin * c)
 
         /* Increment and wrap drawing cursor. */
         drawing_cursor += 1;
-	if (drawing_cursor >= c->pixmap_width)
+        if (drawing_cursor >= c->pixmap_width)
             drawing_cursor = 0;
     }
 
-    check_cairo_status(cr);
+    /* check_cairo_status(cr); */
     cairo_destroy(cr);
 
     /* Redraw pixmap. */
@@ -193,7 +192,7 @@ static gboolean configure_event(GtkWidget * widget, GdkEventConfigure * event, C
         if (c->pixmap)
             cairo_surface_destroy(c->pixmap);
         c->pixmap = cairo_image_surface_create(CAIRO_FORMAT_RGB24, c->pixmap_width, c->pixmap_height);
-	check_cairo_surface_status(&c->pixmap);
+        /* check_cairo_surface_status(&c->pixmap); */
 
         /* Redraw pixmap at the new size. */
         redraw_pixmap(c);
@@ -215,29 +214,30 @@ static gboolean expose_event(GtkWidget * widget, GdkEventExpose * event, CPUPlug
         cairo_set_source_surface(cr, c->pixmap,
               BORDER_SIZE, BORDER_SIZE);
         cairo_paint(cr);
-	check_cairo_status(cr);
+        /* check_cairo_status(cr); */
         cairo_destroy(cr);
     }
     return FALSE;
 }
 
 /* Plugin constructor. */
-static int cpu_constructor(Plugin * p, char ** fp)
+static GtkWidget *cpu_constructor(Panel *panel, config_setting_t *settings)
 {
     /* Allocate plugin context and set into Plugin private data pointer. */
     CPUPlugin * c = g_new0(CPUPlugin, 1);
-    p->priv = c;
+    GtkWidget * p;
 
     /* Allocate top level widget and set into Plugin widget pointer. */
-    p->pwid = gtk_event_box_new();
-    gtk_container_set_border_width(GTK_CONTAINER(p->pwid), 1);
-    GTK_WIDGET_SET_FLAGS(p->pwid, GTK_NO_WINDOW);
+    p = gtk_event_box_new();
+    lxpanel_plugin_set_data(p, c, cpu_destructor);
+    gtk_container_set_border_width(GTK_CONTAINER(p), 1);
+    GTK_WIDGET_SET_FLAGS(p, GTK_NO_WINDOW);
 
     /* Allocate drawing area as a child of top level widget.  Enable button press events. */
     c->da = gtk_drawing_area_new();
     gtk_widget_set_size_request(c->da, 40, PANEL_HEIGHT_DEFAULT);
     gtk_widget_add_events(c->da, GDK_BUTTON_PRESS_MASK);
-    gtk_container_add(GTK_CONTAINER(p->pwid), c->da);
+    gtk_container_add(GTK_CONTAINER(p), c->da);
 
     /* Clone a graphics context and set "green" as its foreground color.
      * We will use this to draw the graph. */
@@ -246,18 +246,17 @@ static int cpu_constructor(Plugin * p, char ** fp)
     /* Connect signals. */
     g_signal_connect(G_OBJECT(c->da), "configure-event", G_CALLBACK(configure_event), (gpointer) c);
     g_signal_connect(G_OBJECT(c->da), "expose-event", G_CALLBACK(expose_event), (gpointer) c);
-    g_signal_connect(c->da, "button-press-event", G_CALLBACK(plugin_button_press_event), p);
 
     /* Show the widget.  Connect a timer to refresh the statistics. */
     gtk_widget_show(c->da);
     c->timer = g_timeout_add(1500, (GSourceFunc) cpu_update, (gpointer) c);
-    return 1;
+    return p;
 }
 
 /* Plugin destructor. */
-static void cpu_destructor(Plugin * p)
+static void cpu_destructor(gpointer user_data)
 {
-    CPUPlugin * c = (CPUPlugin *) p->priv;
+    CPUPlugin * c = (CPUPlugin *)user_data;
 
     /* Disconnect the timer. */
     g_source_remove(c->timer);
@@ -268,18 +267,11 @@ static void cpu_destructor(Plugin * p)
     g_free(c);
 }
 
+FM_DEFINE_MODULE(lxpanel_gtk, cpu)
+
 /* Plugin descriptor. */
-PluginClass cpu_plugin_class = {
-
-    PLUGINCLASS_VERSIONING,
-
-    .type = "cpu",
+LXPanelPluginInit fm_module_init_lxpanel_gtk = {
     .name = N_("CPU Usage Monitor"),
-    .version = "1.0",
     .description = N_("Display CPU usage"),
-
-    .constructor = cpu_constructor,
-    .destructor  = cpu_destructor,
-    .config = NULL,
-    .save = NULL
+    .new_instance = cpu_constructor,
 };
