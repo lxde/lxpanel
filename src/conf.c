@@ -498,7 +498,7 @@ static void insert_after(config_setting_t * setting, config_setting_t * parent,
 
 gboolean config_setting_move_member(config_setting_t * setting, config_setting_t * parent, const char * name)
 {
-    config_setting_t *s, **p;
+    config_setting_t *s;
 
     g_return_val_if_fail(setting && setting->parent, FALSE);
     if (parent == NULL || name == NULL || parent->type != PANEL_CONF_TYPE_GROUP)
@@ -522,7 +522,7 @@ _rename:
 
 gboolean config_setting_move_elem(config_setting_t * setting, config_setting_t * parent, int index)
 {
-    config_setting_t *s, *prev = NULL;
+    config_setting_t *prev = NULL;
 
     g_return_val_if_fail(setting && setting->parent, FALSE);
     if (parent == NULL || parent->type != PANEL_CONF_TYPE_LIST)
