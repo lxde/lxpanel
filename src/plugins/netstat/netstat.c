@@ -400,6 +400,8 @@ static void refresh_systray(netstat *ns, NETDEVLIST_PTR netdev_list)
 
 static gboolean refresh_devstat(netstat *ns)
 {
+    if (g_source_is_destroyed(g_main_current_source()))
+        return FALSE;
     netproc_listener(ns->fnetd);
 #ifdef DEBUG
     netproc_print(ns->fnetd->netdevlist);

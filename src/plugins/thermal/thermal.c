@@ -251,10 +251,13 @@ update_display(thermal *th)
 {
     char buffer [60];
     int i;
-    int temp = get_temperature(th);
+    int temp;
     GdkColor color;
     gchar *separator;
 
+    if (g_source_is_destroyed(g_main_current_source()))
+        return FALSE;
+    temp = get_temperature(th);
     if(temp >= th->warning2)
         color = th->cl_warning2;
     else if(temp >= th->warning1)

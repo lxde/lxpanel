@@ -126,7 +126,8 @@ static gboolean asound_find_element(VolumeALSAPlugin * vol, const char * ename)
 
 static gboolean asound_reset_mixer_evt_idle(VolumeALSAPlugin * vol)
 {
-    vol->mixer_evt_idle = 0;
+    if (!g_source_is_destroyed(g_main_current_source()))
+        vol->mixer_evt_idle = 0;
     return FALSE;
 }
 

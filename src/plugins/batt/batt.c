@@ -313,6 +313,8 @@ update_done:
 /* This callback is called every 3 seconds */
 static int update_timout(lx_battery *lx_b) {
     battery *bat;
+    if (g_source_is_destroyed(g_main_current_source()))
+        return FALSE;
     GDK_THREADS_ENTER();
     lx_b->state_elapsed_time++;
     lx_b->info_elapsed_time++;

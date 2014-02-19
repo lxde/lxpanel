@@ -704,7 +704,7 @@ netstatus_dialog_set_icon (GtkWidget *dialog)
 }
 
 static gboolean
-netstatus_dialog_iface_list_monitor (NetstatusDialogData *data)
+_netstatus_dialog_iface_list_monitor (NetstatusDialogData *data)
 {
   GList *iface_names, *l;
   int    n_ifaces;
@@ -742,6 +742,14 @@ netstatus_dialog_iface_list_monitor (NetstatusDialogData *data)
   g_list_free (iface_names);
 
   return TRUE;
+}
+
+static gboolean
+netstatus_dialog_iface_list_monitor (gpointer data)
+{
+    if (g_source_is_destroyed(g_main_current_source()))
+        return FALSE;
+    return _netstatus_dialog_iface_list_monitor (data);
 }
 
 GtkWidget *
@@ -803,9 +811,9 @@ netstatus_dialog_new (NetstatusIface *iface)
   netstatus_dialog_setup_configure_button (data);
 
   data->iface_list_monitor = g_timeout_add (2 * 1000,
-					    (GSourceFunc) netstatus_dialog_iface_list_monitor,
+					    netstatus_dialog_iface_list_monitor,
 					    data);
-  netstatus_dialog_iface_list_monitor (data);
+  _netstatus_dialog_iface_list_monitor (data);
 
   g_signal_connect_swapped (data->name_entry, "changed",
 			    G_CALLBACK (netstatus_dialog_set_iface_name),

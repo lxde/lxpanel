@@ -216,7 +216,8 @@ static gboolean balloon_message_activate_event(GtkWidget * widget, GdkEventButto
 /* Timer expiration for balloon message. */
 static gboolean balloon_message_timeout(TrayPlugin * tr)
 {
-    balloon_message_advance(tr, FALSE, TRUE);
+    if (!g_source_is_destroyed(g_main_current_source()))
+        balloon_message_advance(tr, FALSE, TRUE);
     return FALSE;
 }
 

@@ -166,8 +166,13 @@ static gboolean dclock_update_display(DClockPlugin * dc)
 {
     /* Determine the current time. */
     time_t now;
+    struct tm * current_time;
+
+    if (g_source_is_destroyed(g_main_current_source()))
+        return FALSE;
+
     time(&now);
-    struct tm * current_time = localtime(&now);
+    current_time = localtime(&now);
 
     /* Determine the content of the clock label and tooltip. */
     char clock_value[64];
@@ -392,7 +397,7 @@ static gboolean dclock_apply_configuration(gpointer user_data)
     dc->experiment_count = 0;
     dc->prev_clock_value = NULL;
     dc->prev_tooltip_value = NULL;
-    dclock_update_display(dc);
+    /* dclock_update_display(dc); */
 
     /* Hide the calendar. */
     if (dc->calendar_window != NULL)

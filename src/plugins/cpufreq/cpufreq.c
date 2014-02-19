@@ -312,8 +312,8 @@ clicked( GtkWidget *widget, GdkEventButton* evt, Plugin* plugin)
     RET2(TRUE);
 }
 
-static gint
-update_tooltip(cpufreq *cf)
+static gboolean
+_update_tooltip(cpufreq *cf)
 {
     char *tooltip;
 
@@ -327,6 +327,13 @@ update_tooltip(cpufreq *cf)
     gtk_tooltips_set_tip(cf->tip, cf->main, tooltip, NULL);
     g_free(tooltip);
     RET(TRUE);
+}
+
+static gboolean update_tooltip(gpointer user_data)
+{
+    if (g_source_is_destroyed(g_main_current_source()))
+        return FALSE;
+    return _update_tooltip(user_data);
 }
 
 static int
@@ -389,8 +396,8 @@ cpufreq_constructor(Plugin *p, char** fp)
         }
 
     }*/
-    update_tooltip(cf);
-    cf->timer = g_timeout_add_seconds(2, (GSourceFunc)update_tooltip, (gpointer)cf);
+    _update_tooltip(cf);
+    cf->timer = g_timeout_add_seconds(2, update_tooltip, (gpointer)cf);
 
     gtk_widget_show(cf->namew);
 

@@ -103,6 +103,8 @@ static void redraw_pixmap(CPUPlugin * c)
 /* Periodic timer callback. */
 static gboolean cpu_update(CPUPlugin * c)
 {
+    if (g_source_is_destroyed(g_main_current_source()))
+        return FALSE;
     if ((c->stats_cpu != NULL) && (c->pixmap != NULL))
     {
         /* Open statistics file and scan out CPU usage. */

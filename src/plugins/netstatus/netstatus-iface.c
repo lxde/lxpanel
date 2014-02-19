@@ -610,7 +610,10 @@ netstatus_iface_monitor_timeout (NetstatusIface *iface)
   NetstatusState state;
   int            signal_strength;
   gboolean       is_wireless;
- 
+
+  if (g_source_is_destroyed(g_main_current_source()))
+    return FALSE;
+
   state = netstatus_iface_poll_state (iface);
 
   if (iface->priv->state != state &&
@@ -668,7 +671,7 @@ netstatus_iface_init_monitor (NetstatusIface *iface)
 					       (GSourceFunc) netstatus_iface_monitor_timeout,
 					       iface);
 
-      netstatus_iface_monitor_timeout (iface);
+      /* netstatus_iface_monitor_timeout (iface); */
     }
 }
 
