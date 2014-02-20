@@ -1432,7 +1432,7 @@ static GtkWidget *_lxpanel_generic_config_dlg(const char *title, Panel *p,
                     gtk_box_pack_start( GTK_BOX(hbox), browse, TRUE, TRUE, 2 );
                     g_object_set_data(G_OBJECT(dlg), "file-val", val);
                     g_object_set_data(G_OBJECT(browse), "dlg", dlg);
-                    
+
                     GtkFileChooserAction action = GTK_FILE_CHOOSER_ACTION_OPEN;
                     if (type == CONF_TYPE_DIRECTORY_ENTRY)
                     {
@@ -1526,8 +1526,42 @@ void load_global_config()
 
     if( loaded )
     {
+        char *fm, *tmp;
+        GList *apps, *l;
+
         logout_cmd = g_key_file_get_string( kf, command_group, "Logout", NULL );
-        /* FIXME: check for terminal and file manager and apply */
+        /* check for terminal setting on upgrade */
+        if (fm_config->terminal == NULL)
+            fm_config->terminal = g_key_file_get_string(kf, command_group,
+                                                        "Terminal", NULL);
+        /* this is heavy but fortunately it will be ran only once: on upgrade */
+        fm = g_key_file_get_string(kf, command_group, "FileManager", NULL);
+        if (fm)
+        {
+            tmp = strchr(fm, ' '); /* chop params */
+            if (tmp)
+                *tmp = '\0';
+            tmp = strrchr(fm, '/'); /* use only basename */
+            if (tmp)
+                tmp++;
+            else
+                tmp = fm;
+            tmp = g_strdup_printf("%s.desktop", tmp); /* generate desktop id */
+            g_free(fm);
+            apps = g_app_info_get_all_for_type("inode/directory");
+            for (l = apps; l; l = l->next) /* scan all known applications */
+                if (strcmp(tmp, g_app_info_get_id(l->data)) == 0)
+                    break;
+            if (l != NULL) /* found */
+                g_app_info_set_as_default_for_type(l->data, "inode/directory",
+                                                   NULL);
+            else
+                g_warning("the %s is not valid desktop id of file manager", tmp);
+            for (l = apps; l; l = l->next) /* free retrieved data */
+                g_object_unref(l->data);
+            g_list_free(apps);
+            g_free(tmp);
+        }
     }
     g_key_file_free( kf );
 }
