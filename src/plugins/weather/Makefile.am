@@ -29,5 +29,5 @@ EXTRA_DIST = \
 	forecast.h \
 	weatherwidget.h
 
-install-exec-hoo:
+install-exec-hook:
 	find . -name "*.{la,a}" -delete
