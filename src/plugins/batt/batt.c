@@ -44,7 +44,7 @@
 #include <string.h>
 #include <stdarg.h>
 
-#include "dbg.h"
+#include "dbg.h" /* for ENTER and RET macros */
 #include "batt_sys.h"
 #include "misc.h" /* used for lxpanel_generic_config_dlg() */
 #include "plugin.h" /* all other APIs including panel configuration */
@@ -140,59 +140,59 @@ static gchar* make_tooltip(lx_battery* lx_b, gboolean isCharging)
     battery *b = lx_b->b;
 
     if (b == NULL)
-	return NULL;
+        return NULL;
 
     if (isCharging) {
-	int hours = lx_b->b->seconds / 3600;
-	int left_seconds = lx_b->b->seconds - 3600 * hours;
-	int minutes = left_seconds / 60;
-	tooltip = g_strdup_printf(
-		_("Battery: %d%% charged, %d:%02d until full"),
-		lx_b->b->percentage,
-		hours,
-		minutes );
+        int hours = lx_b->b->seconds / 3600;
+        int left_seconds = lx_b->b->seconds - 3600 * hours;
+        int minutes = left_seconds / 60;
+        tooltip = g_strdup_printf(
+                _("Battery: %d%% charged, %d:%02d until full"),
+                lx_b->b->percentage,
+                hours,
+                minutes );
     } else {
-	/* if we have enough rate information for battery */
-	if (lx_b->b->percentage != 100) {
-	    int hours = lx_b->b->seconds / 3600;
-	    int left_seconds = lx_b->b->seconds - 3600 * hours;
-	    int minutes = left_seconds / 60;
-	    tooltip = g_strdup_printf(
-		    _("Battery: %d%% charged, %d:%02d left"),
-		    lx_b->b->percentage,
-		    hours,
-		    minutes );
-	} else {
-	    tooltip = g_strdup_printf(
-		    _("Battery: %d%% charged"),
-		    100 );
-	}
+        /* if we have enough rate information for battery */
+        if (lx_b->b->percentage != 100) {
+            int hours = lx_b->b->seconds / 3600;
+            int left_seconds = lx_b->b->seconds - 3600 * hours;
+            int minutes = left_seconds / 60;
+            tooltip = g_strdup_printf(
+                    _("Battery: %d%% charged, %d:%02d left"),
+                    lx_b->b->percentage,
+                    hours,
+                    minutes );
+        } else {
+            tooltip = g_strdup_printf(
+                    _("Battery: %d%% charged"),
+                    100 );
+        }
     }
 
     if (!lx_b->show_extended_information) {
-	return tooltip;
+        return tooltip;
     }
 
     if (b->energy_full_design != -1)
-	append(&tooltip, _("\n%sEnergy full design:\t\t%5d mWh"), indent, b->energy_full_design);
+        append(&tooltip, _("\n%sEnergy full design:\t\t%5d mWh"), indent, b->energy_full_design);
     if (b->energy_full != -1)
-	append(&tooltip, _("\n%sEnergy full:\t\t\t%5d mWh"), indent, b->energy_full);
+        append(&tooltip, _("\n%sEnergy full:\t\t\t%5d mWh"), indent, b->energy_full);
     if (b->energy_now != -1)
-	append(&tooltip, _("\n%sEnergy now:\t\t\t%5d mWh"), indent, b->energy_now);
+        append(&tooltip, _("\n%sEnergy now:\t\t\t%5d mWh"), indent, b->energy_now);
     if (b->power_now != -1)
-	append(&tooltip, _("\n%sPower now:\t\t\t%5d mW"), indent, b->power_now);
+        append(&tooltip, _("\n%sPower now:\t\t\t%5d mW"), indent, b->power_now);
 
     if (b->charge_full_design != -1)
-	append(&tooltip, _("\n%sCharge full design:\t%5d mAh"), indent, b->charge_full_design);
+        append(&tooltip, _("\n%sCharge full design:\t%5d mAh"), indent, b->charge_full_design);
     if (b->charge_full != -1)
-	append(&tooltip, _("\n%sCharge full:\t\t\t%5d mAh"), indent, b->charge_full);
+        append(&tooltip, _("\n%sCharge full:\t\t\t%5d mAh"), indent, b->charge_full);
     if (b->charge_now != -1)
-	append(&tooltip, _("\n%sCharge now:\t\t\t%5d mAh"), indent, b->charge_now);
+        append(&tooltip, _("\n%sCharge now:\t\t\t%5d mAh"), indent, b->charge_now);
     if (b->current_now != -1)
-	append(&tooltip, _("\n%sCurrent now:\t\t\t%5d mA"), indent, b->current_now);
+        append(&tooltip, _("\n%sCurrent now:\t\t\t%5d mA"), indent, b->current_now);
 
     if (b->voltage_now != -1)
-	append(&tooltip, _("\n%sCurrent Voltage:\t\t%.3lf V"), indent, b->voltage_now / 1000.0);
+        append(&tooltip, _("\n%sCurrent Voltage:\t\t%.3lf V"), indent, b->voltage_now / 1000.0);
 
     return tooltip;
 }
@@ -200,7 +200,7 @@ static gchar* make_tooltip(lx_battery* lx_b, gboolean isCharging)
 static void set_tooltip_text(lx_battery* lx_b)
 {
     if (lx_b->b == NULL)
-	return;
+        return;
     gboolean isCharging = battery_is_charging(lx_b->b);
     gchar *tooltip = make_tooltip(lx_b, isCharging);
     gtk_widget_set_tooltip_text(lx_b->drawingArea, tooltip);
@@ -228,40 +228,39 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
     cairo_fill(cr);
 
     /* no battery is found */
-    if( b == NULL ) 
+    if( b == NULL )
     {
-	gtk_widget_set_tooltip_text( lx_b->drawingArea, _("No batteries found") );
-	goto update_done;
+        gtk_widget_set_tooltip_text( lx_b->drawingArea, _("No batteries found") );
+        goto update_done;
     }
-    
+
     /* fixme: only one battery supported */
 
     rate = lx_b->b->current_now;
     isCharging = battery_is_charging ( b );
-    
+
     /* Consider running the alarm command */
     if ( !isCharging && rate > 0 &&
-	( ( battery_get_remaining( b ) / 60 ) < lx_b->alarmTime ) )
+        ( ( battery_get_remaining( b ) / 60 ) < lx_b->alarmTime ) )
     {
-	/* Shrug this should be done using glibs process functions */
-	/* Alarms should not run concurrently; determine whether an alarm is
-	   already running */
-	int alarmCanRun;
-	sem_getvalue(&(lx_b->alarmProcessLock), &alarmCanRun);
-	
-	/* Run the alarm command if it isn't already running */
-	if (alarmCanRun) {
-	    
-	    Alarm *a = (Alarm *) malloc(sizeof(Alarm));
-	    a->command = lx_b->alarmCommand;
-	    a->lock = &(lx_b->alarmProcessLock);
-	    
-	    /* Manage the alarm process in a new thread, which which will be
-	       responsible for freeing the alarm struct it's given */
-	    pthread_t alarmThread;
-	    pthread_create(&alarmThread, NULL, alarmProcess, a);
-	    
-	}
+        /* Shrug this should be done using glibs process functions */
+        /* Alarms should not run concurrently; determine whether an alarm is
+           already running */
+        int alarmCanRun;
+        sem_getvalue(&(lx_b->alarmProcessLock), &alarmCanRun);
+
+        /* Run the alarm command if it isn't already running */
+        if (alarmCanRun) {
+
+            Alarm *a = (Alarm *) malloc(sizeof(Alarm));
+            a->command = lx_b->alarmCommand;
+            a->lock = &(lx_b->alarmProcessLock);
+
+            /* Manage the alarm process in a new thread, which which will be
+               responsible for freeing the alarm struct it's given */
+            pthread_t alarmThread;
+            pthread_create(&alarmThread, NULL, alarmProcess, a);
+        }
     }
 
     set_tooltip_text(lx_b);
@@ -270,8 +269,8 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
 
     if (lx_b->orientation == GTK_ORIENTATION_HORIZONTAL) {
 
-	/* Draw the battery bar vertically, using color 1 for the left half and
-	   color 2 for the right half */
+        /* Draw the battery bar vertically, using color 1 for the left half and
+           color 2 for the right half */
         gdk_cairo_set_source_color(cr,
                 isCharging ? &lx_b->charging1 : &lx_b->discharging1);
         cairo_rectangle(cr, lx_b->border,
@@ -288,8 +287,8 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
     }
     else {
 
-	/* Draw the battery bar horizontally, using color 1 for the top half and
-	   color 2 for the bottom half */
+        /* Draw the battery bar horizontally, using color 1 for the top half and
+           color 2 for the bottom half */
         gdk_cairo_set_source_color(cr,
                 isCharging ? &lx_b->charging1 : &lx_b->discharging1);
         cairo_rectangle(cr, lx_b->border,
@@ -305,7 +304,7 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
 
 update_done:
     if( repaint )
-	gtk_widget_queue_draw( lx_b->drawingArea );
+        gtk_widget_queue_draw( lx_b->drawingArea );
 
     check_cairo_status(cr);
     cairo_destroy(cr);
@@ -323,10 +322,10 @@ static int update_timout(lx_battery *lx_b) {
     bat = battery_update( lx_b->b );
     if (bat == NULL)
     {
-	battery_free(lx_b->b);
+        battery_free(lx_b->b);
 
-	/* maybe in the mean time a battery has been inserted. */
-	lx_b->b = battery_get();
+        /* maybe in the mean time a battery has been inserted. */
+        lx_b->b = battery_get();
     }
 
     update_display( lx_b, TRUE );
@@ -505,7 +504,6 @@ static GtkWidget * constructor(Panel *panel, config_setting_t *settings)
     gdk_color_parse(lx_b->dischargingColor1, &lx_b->discharging1);
     gdk_color_parse(lx_b->dischargingColor2, &lx_b->discharging2);
 
-   
     /* Start the update loop */
     lx_b->timer = g_timeout_add_seconds( 9, (GSourceFunc) update_timout, (gpointer) lx_b);
 
@@ -521,7 +519,7 @@ destructor(gpointer data)
     lx_battery *b = (lx_battery *)data;
 
     if (b->b != NULL)
-	battery_free(b->b);
+        battery_free(b->b);
 
     if (b->pixmap)
         cairo_surface_destroy(b->pixmap);
