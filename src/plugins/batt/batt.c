@@ -46,9 +46,8 @@
 
 #include "dbg.h"
 #include "batt_sys.h"
-#include "misc.h" /* used for the line struct */
-#include "panel.h" /* used to determine panel orientation */
-#include "private.h"
+#include "misc.h" /* used for lxpanel_generic_config_dlg() */
+#include "plugin.h" /* all other APIs including panel configuration */
 
 /* The last MAX_SAMPLES samples are averaged when charge rates are evaluated.
    This helps prevent spikes in the "time left" values the user sees. */
@@ -88,6 +87,8 @@ typedef struct {
     battery* b;
     gboolean has_ac_adapter;
     gboolean show_extended_information;
+    Panel *panel;
+    config_setting_t *settings;
 } lx_battery;
 
 
@@ -96,7 +97,7 @@ typedef struct {
     sem_t *lock;
 } Alarm;
 
-static void destructor(Plugin *p);
+static void destructor(gpointer data);
 static void update_display(lx_battery *lx_b, gboolean repaint);
 
 /* alarmProcess takes the address of a dynamically allocated alarm struct (which
@@ -335,20 +336,14 @@ static int update_timout(lx_battery *lx_b) {
 }
 
 /* An update will be performed whenever the user clicks on the charge bar */
-static gint buttonPressEvent(GtkWidget *widget, GdkEventButton *event,
-        Plugin* plugin) {
-
-    lx_battery *lx_b = (lx_battery*)plugin->priv;
+static gboolean buttonPressEvent(GtkWidget *p, GdkEventButton *event,
+                                 Panel *panel)
+{
+    lx_battery *lx_b = lxpanel_plugin_get_data(p);
 
     update_display(lx_b, TRUE);
 
-    if( event->button == 3 )  /* right button */
-    {
-        GtkMenu* popup = lxpanel_get_panel_menu( plugin->panel, plugin, FALSE );
-        gtk_menu_popup( popup, NULL, NULL, NULL, NULL, event->button, event->time );
-        return TRUE;
-    }
-    return FALSE;
+    return lxpanel_plugin_button_press_event(p, event, panel);
 }
 
 
@@ -402,27 +397,32 @@ static gint exposeEvent(GtkWidget *widget, GdkEventExpose *event, lx_battery *lx
 }
 
 
-static int
-constructor(Plugin *p, char **fp)
+static GtkWidget * constructor(Panel *panel, config_setting_t *settings)
 {
     ENTER;
 
     lx_battery *lx_b;
-    p->priv = lx_b = g_new0(lx_battery, 1);
+    GtkWidget *p;
+    const char *str;
+    int tmp_int;
+
+    lx_b = g_new0(lx_battery, 1);
 
     /* get available battery */
     lx_b->b = battery_get ();
-    
-    p->pwid = gtk_event_box_new();
-    GTK_WIDGET_SET_FLAGS( p->pwid, GTK_NO_WINDOW );
-    gtk_container_set_border_width( GTK_CONTAINER(p->pwid), 1 );
+
+    p = gtk_event_box_new();
+    lxpanel_plugin_set_data(p, lx_b, destructor);
+    GTK_WIDGET_SET_FLAGS( p, GTK_NO_WINDOW );
+    gtk_container_set_border_width( GTK_CONTAINER(p), 1 );
 
     lx_b->drawingArea = gtk_drawing_area_new();
     gtk_widget_add_events( lx_b->drawingArea, GDK_BUTTON_PRESS_MASK );
 
-    gtk_container_add( (GtkContainer*)p->pwid, lx_b->drawingArea );
+    gtk_container_add( (GtkContainer*)p, lx_b->drawingArea );
 
-    if ((lx_b->orientation = p->panel->orientation) == GTK_ORIENTATION_HORIZONTAL) {
+    lx_b->orientation = panel_get_orientation(panel);
+    if (lx_b->orientation == GTK_ORIENTATION_HORIZONTAL) {
         lx_b->height = lx_b->length = 20;
         lx_b->thickness = lx_b->width = 8;
     }
@@ -434,8 +434,6 @@ constructor(Plugin *p, char **fp)
 
     gtk_widget_show(lx_b->drawingArea);
 
-    g_signal_connect (G_OBJECT (lx_b->drawingArea), "button-press-event",
-            G_CALLBACK(buttonPressEvent), (gpointer) p);
     g_signal_connect (G_OBJECT (lx_b->drawingArea),"configure-event",
           G_CALLBACK (configureEvent), (gpointer) lx_b);
     g_signal_connect (G_OBJECT (lx_b->drawingArea), "expose-event",
@@ -450,61 +448,38 @@ constructor(Plugin *p, char **fp)
     lx_b->alarmTime = 5;
     lx_b->requestedBorder = 1;
 
-    line s;
-    s.len = 256;
+    /* remember instance data */
+    lx_b->panel = panel;
+    lx_b->settings = settings;
 
     lx_b->show_extended_information = false;
 
-    if (fp) {
-
-        /* Apply options */
-        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
-            if (s.type == LINE_NONE) {
-                ERR( "batt: illegal token %s\n", s.str);
-                goto error;
-            }
-            if (s.type == LINE_VAR) {
-                if (!g_ascii_strcasecmp(s.t[0], "HideIfNoBattery"))
-                    lx_b->hide_if_no_battery = atoi(s.t[1]);
-                else if (!g_ascii_strcasecmp(s.t[0], "AlarmCommand"))
-                    lx_b->alarmCommand = g_strdup(s.t[1]);
-                else if (!g_ascii_strcasecmp(s.t[0], "BackgroundColor"))
-                    lx_b->backgroundColor = g_strdup(s.t[1]);
-                else if (!g_ascii_strcasecmp(s.t[0], "ChargingColor1"))
-                    lx_b->chargingColor1 = g_strdup(s.t[1]);
-                else if (!g_ascii_strcasecmp(s.t[0], "ChargingColor2"))
-                    lx_b->chargingColor2 = g_strdup(s.t[1]);
-                else if (!g_ascii_strcasecmp(s.t[0], "DischargingColor1"))
-                    lx_b->dischargingColor1 = g_strdup(s.t[1]);
-                else if (!g_ascii_strcasecmp(s.t[0], "DischargingColor2"))
-                    lx_b->dischargingColor2 = g_strdup(s.t[1]);
-                else if (!g_ascii_strcasecmp(s.t[0], "AlarmTime"))
-                    lx_b->alarmTime = atoi(s.t[1]);
-                else if (!g_ascii_strcasecmp(s.t[0], "BorderWidth"))
-                    lx_b->requestedBorder = atoi(s.t[1]);
-                else if (!g_ascii_strcasecmp(s.t[0], "Size")) {
-                    lx_b->thickness = MAX(1, atoi(s.t[1]));
-                    if (lx_b->orientation == GTK_ORIENTATION_HORIZONTAL)
-                        lx_b->width = lx_b->thickness;
-                    else
-                        lx_b->height = lx_b->thickness;
-                    gtk_widget_set_size_request(lx_b->drawingArea, lx_b->width,
-                            lx_b->height);
-                }
-		else if (!g_ascii_strcasecmp(s.t[0], "ShowExtendedInformation"))
-                    lx_b->show_extended_information = atoi(s.t[1]);
-                else {
-                    ERR( "batt: unknown var %s\n", s.t[0]);
-                    continue;
-                }
-            }
-            else {
-                ERR( "batt: illegal in this context %s\n", s.str);
-                goto error;
-            }
-        }
-
+    config_setting_lookup_int(settings, "HideIfNoBattery", &lx_b->hide_if_no_battery);
+    if (config_setting_lookup_string(settings, "AlarmCommand", &str))
+        lx_b->alarmCommand = g_strdup(str);
+    if (config_setting_lookup_string(settings, "BackgroundColor", &str))
+        lx_b->backgroundColor = g_strdup(str);
+    if (config_setting_lookup_string(settings, "ChargingColor1", &str))
+        lx_b->chargingColor1 = g_strdup(str);
+    if (config_setting_lookup_string(settings, "ChargingColor2", &str))
+        lx_b->chargingColor2 = g_strdup(str);
+    if (config_setting_lookup_string(settings, "DischargingColor1", &str))
+        lx_b->dischargingColor1 = g_strdup(str);
+    if (config_setting_lookup_string(settings, "DischargingColor2", &str))
+        lx_b->dischargingColor2 = g_strdup(str);
+    config_setting_lookup_int(settings, "AlarmTime", &lx_b->alarmTime);
+    config_setting_lookup_int(settings, "BorderWidth", &lx_b->requestedBorder);
+    if (config_setting_lookup_int(settings, "Size", &tmp_int)) {
+        lx_b->thickness = MAX(1, tmp_int);
+        if (lx_b->orientation == GTK_ORIENTATION_HORIZONTAL)
+            lx_b->width = lx_b->thickness;
+        else
+            lx_b->height = lx_b->thickness;
+        gtk_widget_set_size_request(lx_b->drawingArea, lx_b->width,
+                                    lx_b->height);
     }
+    if (config_setting_lookup_int(settings, "ShowExtendedInformation", &tmp_int))
+        lx_b->show_extended_information = (tmp_int != 0);
 
     /* Make sure the border value is acceptable */
     lx_b->border = MIN(MAX(0, lx_b->requestedBorder),
@@ -534,19 +509,16 @@ constructor(Plugin *p, char **fp)
     /* Start the update loop */
     lx_b->timer = g_timeout_add_seconds( 9, (GSourceFunc) update_timout, (gpointer) lx_b);
 
-    RET(TRUE);
-
-error:
-    RET(FALSE);
+    RET(p);
 }
 
 
 static void
-destructor(Plugin *p)
+destructor(gpointer data)
 {
     ENTER;
 
-    lx_battery *b = (lx_battery *) p->priv;
+    lx_battery *b = (lx_battery *)data;
 
     if (b->b != NULL)
 	battery_free(b->b);
@@ -572,14 +544,14 @@ destructor(Plugin *p)
 }
 
 
-static void orientation(Plugin *p) {
+static void orientation(Panel *panel, GtkWidget *p) {
 
     ENTER;
 
-    lx_battery *b = (lx_battery *) p->priv;
+    lx_battery *b = lxpanel_plugin_get_data(p);
 
-    if (b->orientation != p->panel->orientation) {
-        b->orientation = p->panel->orientation;
+    if (b->orientation != panel_get_orientation(panel)) {
+        b->orientation = panel_get_orientation(panel);
         unsigned int swap = b->height;
         b->height = b->width;
         b->width = swap;
@@ -590,21 +562,26 @@ static void orientation(Plugin *p) {
 }
 
 
-static void applyConfig(Plugin* p)
+static gboolean applyConfig(gpointer user_data)
 {
     ENTER;
 
-    lx_battery *b = (lx_battery *) p->priv;
+    lx_battery *b = lxpanel_plugin_get_data(user_data);
 
     /* Update colors */
     if (b->backgroundColor &&
-            gdk_color_parse(b->backgroundColor, &b->background));
-    if (b->chargingColor1 && gdk_color_parse(b->chargingColor1, &b->charging1));
-    if (b->chargingColor2 && gdk_color_parse(b->chargingColor2, &b->charging2));
+            gdk_color_parse(b->backgroundColor, &b->background))
+        config_group_set_string(b->settings, "BackgroundColor", b->backgroundColor);
+    if (b->chargingColor1 && gdk_color_parse(b->chargingColor1, &b->charging1))
+        config_group_set_string(b->settings, "ChargingColor1", b->chargingColor1);
+    if (b->chargingColor2 && gdk_color_parse(b->chargingColor2, &b->charging2))
+        config_group_set_string(b->settings, "ChargingColor2", b->chargingColor2);
     if (b->dischargingColor1 &&
-            gdk_color_parse(b->dischargingColor1, &b->discharging1));
+            gdk_color_parse(b->dischargingColor1, &b->discharging1))
+        config_group_set_string(b->settings, "DischargingColor1", b->dischargingColor1);
     if (b->dischargingColor2 &&
-            gdk_color_parse(b->dischargingColor2, &b->discharging2));
+            gdk_color_parse(b->dischargingColor2, &b->discharging2))
+        config_group_set_string(b->settings, "DischargingColor2", b->dischargingColor2);
 
     /* Make sure the border value is acceptable */
     b->border = MIN(MAX(0, b->requestedBorder),
@@ -620,18 +597,28 @@ static void applyConfig(Plugin* p)
     /* update tooltip */
     set_tooltip_text(b);
 
+    /* update settings */
+#if 0
+    config_group_set_int(b->settings, "HideIfNoBattery", b->hide_if_no_battery);
+#endif
+    config_group_set_string(b->settings, "AlarmCommand", b->alarmCommand);
+    config_group_set_int(b->settings, "AlarmTime", b->alarmTime);
+    config_group_set_int(b->settings, "BorderWidth", b->requestedBorder);
+    config_group_set_int(b->settings, "Size", b->thickness);
+    config_group_set_int(b->settings, "ShowExtendedInformation",
+                         b->show_extended_information);
+
     RET();
 }
 
 
-static void config(Plugin *p, GtkWindow* parent) {
+static void config(Panel *panel, GtkWidget *p, GtkWindow *parent) {
     ENTER;
 
     GtkWidget *dialog;
-    lx_battery *b = (lx_battery *) p->priv;
-    dialog = create_generic_config_dlg(_(p->class->name),
-            GTK_WIDGET(parent),
-            (GSourceFunc) applyConfig, (gpointer) p,
+    lx_battery *b = lxpanel_plugin_get_data(p);
+    dialog = lxpanel_generic_config_dlg(_("Battery Monitor"),
+            panel, applyConfig, p,
 #if 0
             _("Hide if there is no battery"), &b->hide_if_no_battery, CONF_TYPE_BOOL,
 #endif
@@ -652,37 +639,17 @@ static void config(Plugin *p, GtkWindow* parent) {
 }
 
 
-static void save(Plugin* p, FILE* fp) {
-    lx_battery *lx_b = (lx_battery *) p->priv;
+FM_DEFINE_MODULE(lxpanel_gtk, batt)
 
-    lxpanel_put_bool(fp, "HideIfNoBattery",lx_b->hide_if_no_battery);
-    lxpanel_put_str(fp, "AlarmCommand", lx_b->alarmCommand);
-    lxpanel_put_int(fp, "AlarmTime", lx_b->alarmTime);
-    lxpanel_put_str(fp, "BackgroundColor", lx_b->backgroundColor);
-    lxpanel_put_int(fp, "BorderWidth", lx_b->requestedBorder);
-    lxpanel_put_str(fp, "ChargingColor1", lx_b->chargingColor1);
-    lxpanel_put_str(fp, "ChargingColor2", lx_b->chargingColor2);
-    lxpanel_put_str(fp, "DischargingColor1", lx_b->dischargingColor1);
-    lxpanel_put_str(fp, "DischargingColor2", lx_b->dischargingColor2);
-    lxpanel_put_int(fp, "Size", lx_b->thickness);
-    lxpanel_put_bool(fp, "ShowExtendedInformation", lx_b->show_extended_information);
-}
-
-
-PluginClass batt_plugin_class = {
-    
-    PLUGINCLASS_VERSIONING,
-
-    .type        = "batt",
+/* Plugin descriptor. */
+LXPanelPluginInit fm_module_init_lxpanel_gtk = {
     .name        = N_("Battery Monitor"),
-    .version     = "2.0",
     .description = N_("Display battery status using ACPI"),
 
-    .constructor = constructor,
-    .destructor  = destructor,
+    .new_instance = constructor,
     .config      = config,
-    .save        = save,
-    .panel_configuration_changed = orientation
+    .reconfigure = orientation,
+    .button_press_event = buttonPressEvent
 };
 
 
