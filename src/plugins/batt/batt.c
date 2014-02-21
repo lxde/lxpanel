@@ -67,7 +67,7 @@ typedef struct {
         discharging2;
     cairo_surface_t *pixmap;
     GtkWidget *drawingArea;
-    int orientation;
+    GtkOrientation orientation;
     unsigned int alarmTime,
         border,
         height,
@@ -106,7 +106,8 @@ static void * alarmProcess(void *arg) {
     Alarm *a = (Alarm *) arg;
 
     sem_wait(a->lock);
-    system(a->command);
+    if (system(a->command) != 0)
+        g_warning("plugin batt: failed to execute alarm command \"%s\"", a->command);
     sem_post(a->lock);
 
     g_free(a);
@@ -241,7 +242,7 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
 
     /* Consider running the alarm command */
     if ( !isCharging && rate > 0 &&
-        ( ( battery_get_remaining( b ) / 60 ) < lx_b->alarmTime ) )
+        ( ( battery_get_remaining( b ) / 60 ) < (int)lx_b->alarmTime ) )
     {
         /* Shrug this should be done using glibs process functions */
         /* Alarms should not run concurrently; determine whether an alarm is
@@ -453,7 +454,8 @@ static GtkWidget * constructor(Panel *panel, config_setting_t *settings)
 
     lx_b->show_extended_information = false;
 
-    config_setting_lookup_int(settings, "HideIfNoBattery", &lx_b->hide_if_no_battery);
+    if (config_setting_lookup_int(settings, "HideIfNoBattery", &tmp_int))
+        lx_b->hide_if_no_battery = (tmp_int != 0);
     if (config_setting_lookup_string(settings, "AlarmCommand", &str))
         lx_b->alarmCommand = g_strdup(str);
     if (config_setting_lookup_string(settings, "BackgroundColor", &str))
@@ -466,8 +468,10 @@ static GtkWidget * constructor(Panel *panel, config_setting_t *settings)
         lx_b->dischargingColor1 = g_strdup(str);
     if (config_setting_lookup_string(settings, "DischargingColor2", &str))
         lx_b->dischargingColor2 = g_strdup(str);
-    config_setting_lookup_int(settings, "AlarmTime", &lx_b->alarmTime);
-    config_setting_lookup_int(settings, "BorderWidth", &lx_b->requestedBorder);
+    if (config_setting_lookup_int(settings, "AlarmTime", &tmp_int))
+        lx_b->alarmTime = MAX(0, tmp_int);
+    if (config_setting_lookup_int(settings, "BorderWidth", &tmp_int))
+        lx_b->requestedBorder = MAX(0, tmp_int);
     if (config_setting_lookup_int(settings, "Size", &tmp_int)) {
         lx_b->thickness = MAX(1, tmp_int);
         if (lx_b->orientation == GTK_ORIENTATION_HORIZONTAL)
@@ -481,8 +485,8 @@ static GtkWidget * constructor(Panel *panel, config_setting_t *settings)
         lx_b->show_extended_information = (tmp_int != 0);
 
     /* Make sure the border value is acceptable */
-    lx_b->border = MIN(MAX(0, lx_b->requestedBorder),
-            (MIN(lx_b->length, lx_b->thickness) - 1) / 2);
+    lx_b->border = MIN(lx_b->requestedBorder,
+                       (MAX(1, MIN(lx_b->length, lx_b->thickness)) - 1) / 2);
 
     /* Apply more default options */
     if (! lx_b->alarmCommand)
@@ -582,8 +586,8 @@ static gboolean applyConfig(gpointer user_data)
         config_group_set_string(b->settings, "DischargingColor2", b->dischargingColor2);
 
     /* Make sure the border value is acceptable */
-    b->border = MIN(MAX(0, b->requestedBorder),
-            (MIN(b->length, b->thickness) - 1) / 2);
+    b->border = MIN(b->requestedBorder,
+                    (MAX(1, MIN(b->length, b->thickness)) - 1) / 2);
 
     /* Resize the widget */
     if (b->orientation == GTK_ORIENTATION_HORIZONTAL)
@@ -606,7 +610,7 @@ static gboolean applyConfig(gpointer user_data)
     config_group_set_int(b->settings, "ShowExtendedInformation",
                          b->show_extended_information);
 
-    RET();
+    RET(FALSE);
 }
 
 
