@@ -229,28 +229,10 @@ static void launchbutton_build_bootstrap(LaunchbarPlugin * lb)
 }
 
 /* Build the graphic elements for a launchbar button.  The desktop_id field is already established. */
-static LaunchButton *launchbutton_build_gui(LaunchbarPlugin * lb, FmPath * id)
+static LaunchButton *launchbutton_build_gui0(LaunchbarPlugin * lb, FmFileInfo * fi)
 {
-    /* Try to get the file data */
-    FmFileInfoJob *job = fm_file_info_job_new(NULL, FM_FILE_INFO_JOB_NONE);
-    FmFileInfo *fi;
     LaunchButton *btn;
     GtkWidget *button;
-
-    fm_file_info_job_add(job, id);
-    if (!fm_job_run_sync(FM_JOB(job)))
-    {
-        g_warning("launchbar: problem running file info job\n");
-        g_object_unref(job);
-        return NULL;
-    }
-    fi = fm_file_info_list_pop_head(job->file_infos);
-    g_object_unref(job);
-    if (fi == NULL)
-    {
-        g_warning("launchbar: desktop entry does not exist\n");
-        return NULL;
-    }
 
     /* Allocate the LaunchButton structure. */
     btn = g_new0(LaunchButton, 1);
@@ -292,11 +274,56 @@ static LaunchButton *launchbutton_build_gui(LaunchbarPlugin * lb, FmPath * id)
     return btn;
 }
 
+static LaunchButton *launchbutton_build_gui(LaunchbarPlugin * lb, FmPath * id)
+{
+    /* Try to get the file data */
+    FmFileInfoJob *job = fm_file_info_job_new(NULL, FM_FILE_INFO_JOB_NONE);
+    FmFileInfo *fi;
+
+    fm_file_info_job_add(job, id);
+    if (!fm_job_run_sync(FM_JOB(job)))
+    {
+        g_warning("launchbar: problem running file info job\n");
+        g_object_unref(job);
+        return NULL;
+    }
+    fi = fm_file_info_list_pop_head(job->file_infos);
+    g_object_unref(job);
+    if (fi == NULL)
+    {
+        g_warning("launchbar: desktop entry does not exist\n");
+        return NULL;
+    }
+    return launchbutton_build_gui0(lb, fi);
+}
+
+static LaunchButton *launchbutton_search_and_build_gui(LaunchbarPlugin * lb, FmPath * id)
+{
+    FmDirListJob *job = fm_dir_list_job_new2(id, FM_DIR_LIST_JOB_FAST);
+    FmFileInfo *fi;
+
+    if (!fm_job_run_sync(FM_JOB(job)))
+    {
+        g_warning("launchbar: problem running file search job\n");
+        g_object_unref(job);
+        return NULL;
+    }
+    fi = fm_file_info_list_pop_head(job->files);
+    g_object_unref(job);
+    if (fi == NULL)
+    {
+        g_warning("launchbar: desktop entry does not exist\n");
+        return NULL;
+    }
+    return launchbutton_build_gui0(lb, fi);
+}
+
 /* Read the configuration file entry for a launchbar button and create it. */
 static gboolean launchbutton_constructor(LaunchbarPlugin * lb, config_setting_t * s)
 {
     LaunchButton *btn;
     const char *str;
+    char *str_path = NULL;
     FmPath *path;
 
     /* Read parameters from the configuration file and validate. */
@@ -304,8 +331,24 @@ static gboolean launchbutton_constructor(LaunchbarPlugin * lb, config_setting_t 
         return FALSE;
 
     /* Build the structures and return. */
-    path = fm_path_new_for_str(str);
-    btn = launchbutton_build_gui(lb, path);
+    if (str[0] == '/')
+    {
+        path = fm_path_new_for_str(str);
+        btn = launchbutton_build_gui(lb, path);
+    }
+    else if (str[0] == '~')
+    {
+        str_path = expand_tilda(str);
+        path = fm_path_new_for_str(str_path);
+        btn = launchbutton_build_gui(lb, path);
+    }
+    else
+    {
+        str_path = g_strdup_printf("search://menu://applications/?recursive=1&name=%s", str);
+        path = fm_path_new_for_str(str_path);
+        btn = launchbutton_search_and_build_gui(lb, path);
+    }
+    g_free(str_path);
     fm_path_unref(path);
     if (btn)
         btn->settings = s;
