@@ -397,7 +397,7 @@ static gboolean dclock_apply_configuration(gpointer user_data)
     dc->experiment_count = 0;
     dc->prev_clock_value = NULL;
     dc->prev_tooltip_value = NULL;
-    /* dclock_update_display(dc); */
+    dclock_timer_set(dc);
 
     /* Hide the calendar. */
     if (dc->calendar_window != NULL)
