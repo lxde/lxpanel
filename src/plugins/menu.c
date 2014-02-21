@@ -37,7 +37,7 @@
 
 #include "dbg.h"
 
-#define DEFAULT_MENU_ICON PACKAGE_DATA_DIR "/lxpanel/images/my-computer.png"
+#define DEFAULT_MENU_ICON PACKAGE_DATA_DIR "/images/my-computer.png"
 /*
  * SuxPanel version 0.1
  * Copyright (c) 2003 Leandro Pereira <leandro@linuxmag.com.br>

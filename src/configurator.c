@@ -1511,7 +1511,7 @@ char* get_config_file( const char* profile, const char* file_name, gboolean is_g
     char* path;
     if( is_global )
     {
-        path = g_build_filename( PACKAGE_DATA_DIR, "lxpanel/profile", profile, file_name, NULL );
+        path = g_build_filename( PACKAGE_DATA_DIR "/profile", profile, file_name, NULL );
     }
     else
     {

@@ -33,7 +33,7 @@
 
 #include "dbg.h"
 
-#define PROC_ICON            PACKAGE_DATA_DIR "/lxpanel/images/cpufreq-icon.png"
+#define PROC_ICON            PACKAGE_DATA_DIR "/images/cpufreq-icon.png"
 #define SYSFS_CPU_DIRECTORY "/sys/devices/system/cpu"
 #define SCALING_GOV         "scaling_governor"
 #define SCALING_AGOV        "scaling_available_governors"

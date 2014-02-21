@@ -2,7 +2,7 @@ cpufreq_la_CFLAGS = \
 	-I. \
 	-I$(top_srcdir)/src \
 	$(PACKAGE_CFLAGS) \
-	-DPACKAGE_DATA_DIR=\""$(datadir)"\" \
+	-DPACKAGE_DATA_DIR=\""$(datadir)/lxpanel"\" \
 	$(G_CAST_CHECKS)
 
 module_LTLIBRARIES = cpufreq.la

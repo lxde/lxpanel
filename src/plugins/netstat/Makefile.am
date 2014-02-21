@@ -1,7 +1,7 @@
 netstat_la_CFLAGS = \
     -I. \
     -I$(top_srcdir)/src \
-    -DPACKAGE_DATA_DIR=\""$(datadir)"\" \
+    -DPACKAGE_DATA_DIR=\""$(datadir)/lxpanel"\" \
     $(PACKAGE_CFLAGS) \
     $(G_CAST_CHECKS)
 

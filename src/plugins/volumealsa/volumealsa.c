@@ -30,10 +30,10 @@
 #include "private.h"
 #include "dbg.h"
 
-#define ICONS_VOLUME_HIGH   PACKAGE_DATA_DIR "/lxpanel/images/volume-high.png"
-#define ICONS_VOLUME_MEDIUM PACKAGE_DATA_DIR "/lxpanel/images/volume-medium.png"
-#define ICONS_VOLUME_LOW    PACKAGE_DATA_DIR "/lxpanel/images/volume-low.png"
-#define ICONS_MUTE          PACKAGE_DATA_DIR "/lxpanel/images/mute.png"
+#define ICONS_VOLUME_HIGH   PACKAGE_DATA_DIR "/images/volume-high.png"
+#define ICONS_VOLUME_MEDIUM PACKAGE_DATA_DIR "/images/volume-medium.png"
+#define ICONS_VOLUME_LOW    PACKAGE_DATA_DIR "/images/volume-low.png"
+#define ICONS_MUTE          PACKAGE_DATA_DIR "/images/mute.png"
 
 typedef struct {
 

@@ -370,7 +370,7 @@ static gboolean dclock_apply_configuration(gpointer user_data)
     if (dc->icon_only)
     {
         if(panel_image_set_icon_theme(dc->panel, dc->clock_icon, "clock") != FALSE) {
-            panel_image_set_from_file(dc->panel, dc->clock_icon, PACKAGE_DATA_DIR "/lxpanel/images/clock.png");
+            panel_image_set_from_file(dc->panel, dc->clock_icon, PACKAGE_DATA_DIR "/images/clock.png");
         }
         gtk_widget_show(dc->clock_icon);
         gtk_widget_hide(dc->clock_label);

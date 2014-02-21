@@ -737,7 +737,7 @@ static void panel_popupmenu_about( GtkMenuItem* item, Panel* panel )
     else 
     {
         gtk_about_dialog_set_logo(  GTK_ABOUT_DIALOG(about),
-                                    gdk_pixbuf_new_from_file(PACKAGE_DATA_DIR "/lxpanel/images/my-computer.png", NULL));
+                                    gdk_pixbuf_new_from_file(PACKAGE_DATA_DIR "/images/my-computer.png", NULL));
     }
 
     gtk_about_dialog_set_copyright(GTK_ABOUT_DIALOG(about), _("Copyright (C) 2008-2013"));
@@ -764,7 +764,7 @@ void panel_apply_icon( GtkWindow *w )
 	}
     else
     {
-		window_icon = gdk_pixbuf_new_from_file(PACKAGE_DATA_DIR "/lxpanel/images/my-computer.png", NULL);
+		window_icon = gdk_pixbuf_new_from_file(PACKAGE_DATA_DIR "/images/my-computer.png", NULL);
 	}
     gtk_window_set_icon(w, window_icon);
 }
@@ -1622,7 +1622,7 @@ int main(int argc, char *argv[], char *env[])
     }
 
     /* Add our own icons to the search path of icon theme */
-    gtk_icon_theme_append_search_path( gtk_icon_theme_get_default(), PACKAGE_DATA_DIR "/lxpanel/images" );
+    gtk_icon_theme_append_search_path( gtk_icon_theme_get_default(), PACKAGE_DATA_DIR "/images" );
 
     fbev = fb_ev_new();
     win_grp = gtk_window_group_new();
