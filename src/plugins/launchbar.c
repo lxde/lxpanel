@@ -229,10 +229,16 @@ static void launchbutton_build_bootstrap(LaunchbarPlugin * lb)
 }
 
 /* Build the graphic elements for a launchbar button.  The desktop_id field is already established. */
-static LaunchButton *launchbutton_build_gui0(LaunchbarPlugin * lb, FmFileInfo * fi)
+static LaunchButton *launchbutton_for_file_info(LaunchbarPlugin * lb, FmFileInfo * fi)
 {
     LaunchButton *btn;
     GtkWidget *button;
+
+    if (fi == NULL)
+    {
+        g_warning("launchbar: desktop entry does not exist\n");
+        return NULL;
+    }
 
     /* Allocate the LaunchButton structure. */
     btn = g_new0(LaunchButton, 1);
@@ -289,12 +295,7 @@ static LaunchButton *launchbutton_build_gui(LaunchbarPlugin * lb, FmPath * id)
     }
     fi = fm_file_info_list_pop_head(job->file_infos);
     g_object_unref(job);
-    if (fi == NULL)
-    {
-        g_warning("launchbar: desktop entry does not exist\n");
-        return NULL;
-    }
-    return launchbutton_build_gui0(lb, fi);
+    return launchbutton_for_file_info(lb, fi);
 }
 
 static LaunchButton *launchbutton_search_and_build_gui(LaunchbarPlugin * lb, FmPath * id)
@@ -310,12 +311,7 @@ static LaunchButton *launchbutton_search_and_build_gui(LaunchbarPlugin * lb, FmP
     }
     fi = fm_file_info_list_pop_head(job->files);
     g_object_unref(job);
-    if (fi == NULL)
-    {
-        g_warning("launchbar: desktop entry does not exist\n");
-        return NULL;
-    }
-    return launchbutton_build_gui0(lb, fi);
+    return launchbutton_for_file_info(lb, fi);
 }
 
 /* Read the configuration file entry for a launchbar button and create it. */
