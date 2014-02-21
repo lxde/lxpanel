@@ -472,7 +472,7 @@ static void volumealsa_build_popup_window(Plugin * p)
     VolumeALSAPlugin * vol = p->priv;
 
     /* Create a new window. */
-    vol->popup_window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    vol->popup_window = gtk_window_new(GTK_WINDOW_POPUP);
     gtk_window_set_decorated(GTK_WINDOW(vol->popup_window), FALSE);
     gtk_container_set_border_width(GTK_CONTAINER(vol->popup_window), 5);
     gtk_window_set_default_size(GTK_WINDOW(vol->popup_window), 80, 140);
