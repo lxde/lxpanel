@@ -182,7 +182,7 @@ _skip_all:
                 break;
             size = strtol(c, &end, 10);
             while (*end == ' ' || *end == '\t')
-                c++; /* skip trailing spaces */
+                end++; /* skip trailing spaces */
             if (*end == '\0' || *end == '\n')
             {
                 s = config_setting_add(parent, name, PANEL_CONF_TYPE_INT);
