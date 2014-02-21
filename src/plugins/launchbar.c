@@ -86,7 +86,8 @@ static void launchbar_destructor(gpointer user_data);
 /* Deallocate a LaunchButton. */
 static void launchbutton_free(LaunchButton * btn)
 {
-    fm_file_info_unref(btn->fi);
+    if (btn->fi)
+        fm_file_info_unref(btn->fi);
     if (btn->dd)
         g_object_unref(btn->dd);
     g_free(btn);
