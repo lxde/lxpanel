@@ -191,6 +191,8 @@ GQuark lxpanel_plugin_qpanel; /* access to Panel */
 
 gboolean _class_is_present(LXPanelPluginInit *init);
 
+void _panel_show_config_dialog(Panel *panel, GtkWidget *p, GtkWidget *dlg);
+
 /* -----------------------------------------------------------------------------
  *   Deprecated declarations. Kept for compatibility with old code plugins.
  *   Should be removed and appropriate code cleaned on some of next releases. */

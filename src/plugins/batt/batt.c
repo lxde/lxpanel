@@ -614,12 +614,9 @@ static gboolean applyConfig(gpointer user_data)
 }
 
 
-static void config(Panel *panel, GtkWidget *p, GtkWindow *parent) {
-    ENTER;
-
-    GtkWidget *dialog;
+static GtkWidget *config(Panel *panel, GtkWidget *p, GtkWindow *parent) {
     lx_battery *b = lxpanel_plugin_get_data(p);
-    dialog = lxpanel_generic_config_dlg(_("Battery Monitor"),
+    return lxpanel_generic_config_dlg(_("Battery Monitor"),
             panel, applyConfig, p,
 #if 0
             _("Hide if there is no battery"), &b->hide_if_no_battery, CONF_TYPE_BOOL,
@@ -635,9 +632,6 @@ static void config(Panel *panel, GtkWidget *p, GtkWindow *parent) {
             _("Size"), &b->thickness, CONF_TYPE_INT,
             _("Show Extended Information"), &b->show_extended_information, CONF_TYPE_BOOL,
             NULL);
-    gtk_window_present(GTK_WINDOW(dialog));
-
-    RET();
 }
 
 

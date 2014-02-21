@@ -80,7 +80,6 @@ struct LaunchbarPlugin {
     GtkWidget     *p_button_add, *p_button_remove, *p_label_menu_app_exec, *p_label_def_app_exec;
 };
 
-static void launchbar_configure(Panel *panel, GtkWidget *p, GtkWindow *parent);
 static void launchbar_destructor(gpointer user_data);
 
 /* Deallocate a LaunchButton. */
@@ -163,7 +162,7 @@ static gboolean launchbutton_press_event(GtkWidget * widget, GdkEventButton * ev
     if (event->button == 1)    /* left button */
     {
         if (b->fi == NULL)	/* The bootstrap button */
-            launchbar_configure(b->p->panel, b->p->plugin, NULL);
+            lxpanel_plugin_show_config_dialog(b->p->panel, b->p->plugin);
         else
             lxpanel_launch_path(b->p->panel, fm_file_info_get_path(b->fi));
     }
@@ -452,10 +451,6 @@ static void launchbar_destructor(gpointer user_data)
     if (lb->bootstrap_button != NULL)
         launchbutton_free(lb->bootstrap_button);
 
-    /* Ensure that the configuration dialog is dismissed. */
-    if (lb->config_dlg != NULL)
-        gtk_widget_destroy(lb->config_dlg);
-
     if (lb->add_icon != NULL)
         g_object_unref(lb->add_icon);
 
@@ -587,14 +582,6 @@ static void launchbar_configure_move_down_button(GtkButton * widget, LaunchbarPl
     }
 }
 
-/* Handler for "response" signal from launchbar configuration dialog. */
-static void launchbar_configure_response(GtkDialog * dlg, int response, LaunchbarPlugin * lb)
-{
-    /* Deallocate the configuration dialog. */
-    lb->config_dlg = NULL;
-    gtk_widget_destroy(GTK_WIDGET(dlg));
-}
-
 /* Initialize the list of existing launchbar buttons when the configuration dialog is shown. */
 static void launchbar_configure_initialize_list(LaunchbarPlugin * lb, GtkWidget * dlg, GtkTreeView * view)
 {
@@ -637,11 +624,10 @@ static void launchbar_configure_initialize_list(LaunchbarPlugin * lb, GtkWidget 
 }
 
 /* Callback when the configuration dialog is to be shown. */
-static void launchbar_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *launchbar_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
 {
     LaunchbarPlugin * lb = lxpanel_plugin_get_data(p);
 
-    if (lb->config_dlg == NULL)
     {
         GtkWidget *dlg, *btn, *defined_view, *menu_view, *menu_view_window;
         GtkBuilder *builder = gtk_builder_new();
@@ -664,8 +650,6 @@ static void launchbar_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
         lb->p_label_menu_app_exec = (GtkWidget*)gtk_builder_get_object(builder, "label_menu_app_exec");
 
         /* Connect signals. */
-        g_signal_connect(dlg, "response", G_CALLBACK(launchbar_configure_response), lb);
-
         lb->p_button_add = (GtkWidget*)gtk_builder_get_object(builder, "add");
         g_signal_connect(lb->p_button_add, "clicked", G_CALLBACK(launchbar_configure_add_button), lb);
 
@@ -682,11 +666,7 @@ static void launchbar_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
         g_signal_connect(defined_view, "cursor-changed", G_CALLBACK(on_defined_view_cursor_changed), lb);
         g_signal_connect(menu_view, "cursor-changed", G_CALLBACK(on_menu_view_cursor_changed), lb);
 
-        gtk_window_present(GTK_WINDOW(dlg));
         lb->config_dlg = dlg;
-
-        /* Establish a callback when the dialog completes. */
-        g_object_weak_ref(G_OBJECT(dlg), (GWeakNotify) panel_config_save, panel);
 
         /* Initialize the tree view contents. */
         launchbar_configure_initialize_list(lb, dlg, GTK_TREE_VIEW(defined_view));
@@ -698,8 +678,8 @@ static void launchbar_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
         gtk_widget_set_sensitive(lb->p_button_remove, FALSE);
 
         g_object_unref(builder);
-        return;
     }
+    return lb->config_dlg;
 }
 
 /* Callback when panel configuration changes. */

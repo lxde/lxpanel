@@ -991,15 +991,13 @@ static gboolean apply_config(gpointer user_data)
     return FALSE;
 }
 
-static void menu_config(Panel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *menu_config(Panel *panel, GtkWidget *p, GtkWindow *parent)
 {
-    GtkWidget* dlg;
     menup* menu = lxpanel_plugin_get_data(p);
-    dlg = lxpanel_generic_config_dlg(_("Menu"), panel, apply_config, p,
-                                     _("Icon"), &menu->fname, CONF_TYPE_FILE_ENTRY,
-                                     /* _("Caption"), &menu->caption, CONF_TYPE_STR, */
-                                     NULL);
-    gtk_window_present( GTK_WINDOW(dlg) );
+    return lxpanel_generic_config_dlg(_("Menu"), panel, apply_config, p,
+                                      _("Icon"), &menu->fname, CONF_TYPE_FILE_ENTRY,
+                                      /* _("Caption"), &menu->caption, CONF_TYPE_STR, */
+                                      NULL);
 }
 
 /* Callback when panel configuration changes. */

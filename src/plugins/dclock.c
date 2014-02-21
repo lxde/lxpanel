@@ -417,10 +417,10 @@ static gboolean dclock_apply_configuration(gpointer user_data)
 }
 
 /* Callback when the configuration dialog is to be shown. */
-static void dclock_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *dclock_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
 {
     DClockPlugin * dc = lxpanel_plugin_get_data(p);
-    GtkWidget * dlg = lxpanel_generic_config_dlg(_("Digital Clock"), panel,
+    return lxpanel_generic_config_dlg(_("Digital Clock"), panel,
         dclock_apply_configuration, p,
         _("Clock Format"), &dc->clock_format, CONF_TYPE_STR,
         _("Tooltip Format"), &dc->tooltip_format, CONF_TYPE_STR,
@@ -430,7 +430,6 @@ static void dclock_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
         _("Tooltip only"), &dc->icon_only, CONF_TYPE_BOOL,
         _("Center text"), &dc->center_text, CONF_TYPE_BOOL,
         NULL);
-    gtk_window_present(GTK_WINDOW(dlg));
 }
 
 /* Callback when panel configuration changes. */

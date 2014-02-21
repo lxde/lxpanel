@@ -221,15 +221,14 @@ static gboolean wincmd_apply_configuration(gpointer user_data)
 }
 
 /* Callback when the configuration dialog is to be shown. */
-static void wincmd_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *wincmd_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
 {
     WinCmdPlugin * wc = lxpanel_plugin_get_data(p);
-    GtkWidget * dlg = lxpanel_generic_config_dlg(_("Minimize All Windows"),
+    return lxpanel_generic_config_dlg(_("Minimize All Windows"),
         panel, wincmd_apply_configuration, p,
         _("Alternately iconify/shade and raise"), &wc->toggle_preference, CONF_TYPE_BOOL,
         /* FIXME: configure buttons 1 and 2 */
         NULL);
-    gtk_window_present(GTK_WINDOW(dlg));
 }
 
 

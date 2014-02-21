@@ -562,10 +562,9 @@ static gboolean panel_button_press_event_with_panel(GtkWidget *widget, GdkEventB
 
 static void panel_popupmenu_config_plugin( GtkMenuItem* item, GtkWidget* plugin )
 {
-    LXPanelPluginInit *init = PLUGIN_CLASS(plugin);
     Panel *panel = PLUGIN_PANEL(plugin);
 
-    init->config(panel, plugin, GTK_WINDOW(panel->topgwin));
+    lxpanel_plugin_show_config_dialog(panel, plugin);
 
     /* FIXME: this should be more elegant */
     panel->config_changed = TRUE;

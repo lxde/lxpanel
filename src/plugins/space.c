@@ -83,7 +83,7 @@ static gboolean space_apply_configuration(gpointer user_data)
 }
 
 /* Callback when the configuration dialog is to be shown. */
-static void space_configure(Panel *panel, GtkWidget *instance, GtkWindow *parent)
+static GtkWidget *space_configure(Panel *panel, GtkWidget *instance, GtkWindow *parent)
 {
     SpacePlugin * sp = lxpanel_plugin_get_data(instance);
     GtkWidget * dlg;
@@ -91,8 +91,8 @@ static void space_configure(Panel *panel, GtkWidget *instance, GtkWindow *parent
     dlg = lxpanel_generic_config_dlg(_("Spacer"), panel,
                                      space_apply_configuration, instance,
                                      _("Size"), &sp->size, CONF_TYPE_INT, NULL);
-    gtk_widget_set_size_request(GTK_WIDGET(dlg), 200, -1);	/* Improve geometry */
-    gtk_window_present(GTK_WINDOW(dlg));
+    gtk_widget_set_size_request(dlg, 200, -1);	/* Improve geometry */
+    return dlg;
 }
 
 /* Plugin descriptor. */

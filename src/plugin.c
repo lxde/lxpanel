@@ -62,15 +62,16 @@ static inline LXPanelPluginInit *_find_plugin(const char *name)
     return g_hash_table_lookup(_all_types, name);
 }
 
-static void _old_plugin_config(Panel *panel, GtkWidget *instance, GtkWindow *parent)
+static GtkWidget *_old_plugin_config(Panel *panel, GtkWidget *instance, GtkWindow *parent)
 {
     LXPanelPluginInit *init = PLUGIN_CLASS(instance);
     Plugin * plugin;
 
-    g_return_if_fail(init != NULL && init->new_instance == NULL);
+    g_return_val_if_fail(init != NULL && init->new_instance == NULL, NULL);
     plugin = lxpanel_plugin_get_data(instance);
     if (plugin->class->config)
         plugin->class->config(plugin, parent);
+    return NULL;
 }
 
 static void _old_plugin_reconfigure(Panel *panel, GtkWidget *instance)
@@ -390,6 +391,18 @@ static gboolean _open_dir_in_file_manager(GAppLaunchContext* ctx, GList* folder_
 gboolean lxpanel_launch_path(Panel *panel, FmPath *path)
 {
     return fm_launch_path_simple(NULL, NULL, path, _open_dir_in_file_manager, NULL);
+}
+
+void lxpanel_plugin_show_config_dialog(Panel* panel, GtkWidget* plugin)
+{
+    LXPanelPluginInit *init = PLUGIN_CLASS(plugin);
+    GtkWidget *dlg = panel->plugin_pref_dialog;
+
+    if (dlg && g_object_get_data(G_OBJECT(dlg), "generic-config-plugin") == plugin)
+        return; /* configuration dialog is already shown for this widget */
+    dlg = init->config(panel, plugin, GTK_WINDOW(panel->topgwin));
+    if (dlg)
+        _panel_show_config_dialog(panel, plugin, dlg);
 }
 
 #if GLIB_CHECK_VERSION(2, 32, 0)
