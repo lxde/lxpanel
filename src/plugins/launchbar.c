@@ -340,7 +340,7 @@ static gboolean launchbutton_constructor(LaunchbarPlugin * lb, config_setting_t 
     }
     else
     {
-        str_path = g_strdup_printf("search://menu://applications/?recursive=1&name=%s", str);
+        str_path = g_strdup_printf("search://menu://applications/?recursive=1&show_hidden=1&name=%s", str);
         path = fm_path_new_for_str(str_path);
         btn = launchbutton_search_and_build_gui(lb, path);
     }
