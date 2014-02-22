@@ -1,5 +1,6 @@
 usr/bin
 usr/lib/*/lxpanel
 usr/share
+etc/xdg/lxpanel
 
 debian/desktop/*	/usr/share/applications
