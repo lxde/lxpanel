@@ -69,14 +69,16 @@ get_cur_governor(cpufreq *cf){
 
     snprintf(sstmp, sizeof(sstmp), "%s/%s", (char*)cf->cpus->data, SCALING_GOV);
     if ((fp = fopen( sstmp, "r")) != NULL) {
-        fgets(buf, 100, fp);
-        buf[strlen(buf)-1] = '\0';
         if(cf->cur_governor)
         {
           g_free(cf->cur_governor);
           cf->cur_governor = NULL;
         }
-        cf->cur_governor = strdup(buf);
+        if (fgets(buf, 100, fp))
+        {
+            buf[strlen(buf)-1] = '\0';
+            cf->cur_governor = strdup(buf);
+        }
         fclose(fp);
     }
 }
@@ -88,9 +90,11 @@ get_cur_freq(cpufreq *cf){
 
     snprintf(sstmp, sizeof(sstmp), "%s/%s", (char*)cf->cpus->data, SCALING_CUR_FREQ);
     if ((fp = fopen( sstmp, "r")) != NULL) {
-        fgets(buf, 100, fp);
-        buf[strlen(buf)-1] = '\0';
-        cf->cur_freq = atoi(buf);
+        if (fgets(buf, 100, fp))
+        {
+            buf[strlen(buf)-1] = '\0';
+            cf->cur_freq = atoi(buf);
+        }
         fclose(fp);
     }
 }
