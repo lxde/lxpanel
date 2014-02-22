@@ -30,6 +30,8 @@ src/plugins/wincmd.c
 src/plugins/dirmenu.c
 src/plugins/thermal/thermal.c
 
+src/plugins/cpufreq/cpufreq.c
+
 src/plugins/volume/volume.c
 src/plugins/volume/volume-impl.c
 src/plugins/volumealsa/volumealsa.c

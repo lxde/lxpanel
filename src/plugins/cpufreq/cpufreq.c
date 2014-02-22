@@ -326,7 +326,7 @@ _update_tooltip(cpufreq *cf)
 
     ENTER;
 
-    tooltip = g_strdup_printf("Frequency: %d MHz\nGovernor: %s", 
+    tooltip = g_strdup_printf(_("Frequency: %d MHz\nGovernor: %s"),
                               cf->cur_freq / 1000, cf->cur_governor);
     gtk_tooltips_set_tip(cf->tip, cf->main, tooltip, NULL);
     g_free(tooltip);
