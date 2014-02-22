@@ -403,18 +403,24 @@ netstatus_iface_set_polling_error (NetstatusIface *iface,
 {
   GError  *error;
   va_list  args;
+#if !GLIB_CHECK_VERSION(2, 22, 0)
   char    *error_message;
-  
+#endif
+
   va_start (args, format);
 
+#if GLIB_CHECK_VERSION(2, 22, 0)
+  error = g_error_new_valist (NETSTATUS_ERROR, code, format, args);
+#else
   error_message = g_strdup_vprintf (format, args);
-  error = g_error_new (NETSTATUS_ERROR, code, error_message);
+  error = g_error_new (NETSTATUS_ERROR, code, "%s", error_message);
+  g_free (error_message);
+#endif
 
   dprintf (POLLING, "ERROR: %s\n", error->message);
   netstatus_iface_set_error (iface, error);
 
   g_error_free (error);
-  g_free (error_message);
 
   va_end (args);
 }

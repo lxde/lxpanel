@@ -239,6 +239,7 @@ int netproc_scandevice(int sockfd, int iwsockfd, FILE *fp, NETDEVLIST_PTR *netde
 		}
 
 		/* reading packet infomation */
+		in_packets = out_packets = in_bytes = out_bytes = 0L;
 		status = netproc_parse_ifname(name);
 		netproc_parse_status(status, prx_idx, ptx_idx, &in_packets, &out_packets,
 				     brx_idx, btx_idx, &in_bytes, &out_bytes);

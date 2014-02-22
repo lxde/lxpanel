@@ -225,7 +225,7 @@ static gboolean asound_initialize(VolumeALSAPlugin * vol)
 
 static void asound_deinitialize(VolumeALSAPlugin * vol)
 {
-    int i;
+    guint i;
 
     if (vol->mixer_evt_idle != 0) {
         g_source_remove(vol->mixer_evt_idle);

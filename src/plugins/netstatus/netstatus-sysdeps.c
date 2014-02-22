@@ -180,8 +180,9 @@ netstatus_sysdeps_read_iface_statistics (const char  *iface,
     return g_strdup_printf (_("Cannot open /proc/net/dev: %s"),
 			    g_strerror (errno));
 
-  fgets (buf, sizeof (buf), fh);
-  fgets (buf, sizeof (buf), fh);
+  if (fgets (buf, sizeof (buf), fh) == NULL ||
+      fgets (buf, sizeof (buf), fh) == NULL)
+    return g_strdup (_("Could not parse /proc/net/dev. No data."));
 
   parse_stats_header (buf, &prx_idx, &ptx_idx, &brx_idx, &btx_idx);
   if (prx_idx == -1 || ptx_idx == -1 ||
@@ -306,8 +307,9 @@ netstatus_sysdeps_read_iface_wireless_details (const char *iface,
   if (!fh)
     return NULL;
 
-  fgets (buf, sizeof (buf), fh);
-  fgets (buf, sizeof (buf), fh);
+  if (fgets (buf, sizeof (buf), fh) == NULL ||
+      fgets (buf, sizeof (buf), fh) == NULL)
+    return g_strdup (_("Could not parse /proc/net/wireless. No data."));
 
   link_idx = parse_wireless_header (buf);
   if (link_idx == -1)

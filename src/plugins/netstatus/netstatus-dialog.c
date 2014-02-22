@@ -143,23 +143,23 @@ print_bytes_string (GString *str,
     {
       bytes = (bytes * 10) / (1 << 30);
 
-      g_string_append_printf (str, " (%lld.%lld Gb)", bytes / 10, bytes % 10);
+      g_string_append_printf (str, " (%lld.%lld GiB)", bytes / 10, bytes % 10);
     }
   else if (bytes > 1 << 20)
     {
       bytes = (bytes * 10) / (1 << 20);
 
-      g_string_append_printf (str, " (%lld.%lld Mb)", bytes / 10, bytes % 10);
+      g_string_append_printf (str, " (%lld.%lld MiB)", bytes / 10, bytes % 10);
     }
   else if (bytes > 1 << 10)
     {
       bytes = (bytes * 10) / (1 << 10);
 
-      g_string_append_printf (str, " (%lld.%lld Kb)", bytes / 10, bytes % 10);
+      g_string_append_printf (str, " (%lld.%lld KiB)", bytes / 10, bytes % 10);
     }
-  else if (bytes >= 0)
+  else if (bytes > 0)
     {
-      g_string_append_printf (str, " (%lld.%lld b)", bytes / 10, bytes % 10);
+      g_string_append_printf (str, " (%lld B)", bytes);
     }
 }
 

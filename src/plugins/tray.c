@@ -444,9 +444,9 @@ static void trayclient_request_dock(TrayPlugin * tr, XClientMessageEvent * xeven
     TrayClient * tc_cursor;
     for (tc_cursor = tr->client_list; tc_cursor != NULL; tc_pred = tc_cursor, tc_cursor = tc_cursor->client_flink)
     {
-        if (tc_cursor->window == xevent->data.l[2])
+        if (tc_cursor->window == (Window)xevent->data.l[2])
             return;		/* We already got this notification earlier, ignore this one. */
-        if (tc_cursor->window > xevent->data.l[2])
+        if (tc_cursor->window > (Window)xevent->data.l[2])
             break;
     }
 

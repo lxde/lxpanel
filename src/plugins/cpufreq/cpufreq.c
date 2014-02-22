@@ -58,7 +58,7 @@ typedef struct {
 } cpufreq;
 
 typedef struct {
-    void *data;
+    char *data;
     cpufreq *cf;
 } Param;
 
@@ -67,7 +67,7 @@ get_cur_governor(cpufreq *cf){
     FILE *fp;
     char buf[ 100 ], sstmp [ 256 ];
 
-    sprintf(sstmp,"%s/%s",cf->cpus->data, SCALING_GOV);
+    sprintf(sstmp,"%s/%s", (char*)cf->cpus->data, SCALING_GOV);
     if ((fp = fopen( sstmp, "r")) != NULL) {
         fgets(buf, 100, fp);
         buf[strlen(buf)-1] = '\0';
@@ -86,7 +86,7 @@ get_cur_freq(cpufreq *cf){
     FILE *fp;
     char buf[ 100 ], sstmp [ 256 ];
 
-    sprintf(sstmp,"%s/%s",cf->cpus->data, SCALING_CUR_FREQ);
+    sprintf(sstmp,"%s/%s", (char*)cf->cpus->data, SCALING_CUR_FREQ);
     if ((fp = fopen( sstmp, "r")) != NULL) {
         fgets(buf, 100, fp);
         buf[strlen(buf)-1] = '\0';
@@ -95,7 +95,7 @@ get_cur_freq(cpufreq *cf){
     }
 }
 
-static void
+/*static void
 get_governors(cpufreq *cf){
     FILE *fp;
     GList *l;
@@ -185,7 +185,7 @@ frequency_menu(cpufreq *cf){
 
     fclose(fp);
     return GTK_WIDGET(menu);
-}
+}*/
 
 static void
 get_cpus(cpufreq *cf)
@@ -224,7 +224,7 @@ get_cpus(cpufreq *cf)
     g_dir_close(cpuDirectory);
 }
 
-static void
+/*static void
 cpufreq_set_governor(GtkWidget *widget, Param* p){
     FILE *fp;
     char buf[ 100 ], sstmp [ 256 ];
@@ -287,7 +287,7 @@ cpufreq_menu(cpufreq *cf){
     }
 
     return GTK_WIDGET (menu);
-}
+}*/
 
 
 
@@ -340,7 +340,7 @@ static int
 cpufreq_constructor(Plugin *p, char** fp)
 {
     cpufreq *cf;
-    GtkWidget *button;
+    //GtkWidget *button;
 
     ENTER;
     cf = g_new0(cpufreq, 1);
@@ -434,14 +434,14 @@ cpufreq_destructor(Plugin *p)
     g_free(cf);
 }
 
-static void save_config( Plugin* p, FILE* fp )
+/*static void save_config( Plugin* p, FILE* fp )
 {
     cpufreq *cf = (cpufreq *)p->priv;
 
     lxpanel_put_bool( fp, "Remember", cf->remember);
     lxpanel_put_str( fp, "Governor", cf->cur_governor );
     lxpanel_put_int( fp, "Frequency", cf->cur_freq );
-}
+}*/
 
 PluginClass cpufreq_plugin_class = {
     PLUGINCLASS_VERSIONING,
