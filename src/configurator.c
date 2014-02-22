@@ -1307,7 +1307,7 @@ static void on_browse_btn_clicked(GtkButton* btn, GtkEntry* entry)
 {
     char* file;
     GtkFileChooserAction action = (GtkFileChooserAction) g_object_get_data(G_OBJECT(btn), "chooser-action");
-    GtkWidget* dlg = GTK_WIDGET(g_object_get_data(G_OBJECT(btn), "dlg"));    
+    GtkWidget* dlg = GTK_WIDGET(g_object_get_data(G_OBJECT(btn), "dlg"));
     GtkWidget* fc = gtk_file_chooser_dialog_new(
                                         (action == GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER) ? _("Select a directory") : _("Select a file"),
                                         GTK_WINDOW(dlg),
@@ -1323,7 +1323,7 @@ static void on_browse_btn_clicked(GtkButton* btn, GtkEntry* entry)
     {
         file = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(fc));
         gtk_entry_set_text(entry, file);
-        on_entry_focus_out_old(GTK_WIDGET(entry), NULL, g_object_get_data(G_OBJECT(dlg), "file-val"));
+        on_entry_focus_out_old(GTK_WIDGET(entry), NULL, g_object_get_data(G_OBJECT(btn), "file-val"));
         g_free(file);
     }
     gtk_widget_destroy(fc);
@@ -1445,7 +1445,7 @@ static GtkWidget *_lxpanel_generic_config_dlg(const char *title, Panel *p,
                 {
                     GtkWidget* browse = gtk_button_new_with_mnemonic(_("_Browse"));
                     gtk_box_pack_start( GTK_BOX(hbox), browse, TRUE, TRUE, 2 );
-                    g_object_set_data(G_OBJECT(dlg), "file-val", val);
+                    g_object_set_data(G_OBJECT(browse), "file-val", val);
                     g_object_set_data(G_OBJECT(browse), "dlg", dlg);
 
                     GtkFileChooserAction action = GTK_FILE_CHOOSER_ACTION_OPEN;
