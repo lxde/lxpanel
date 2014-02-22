@@ -74,7 +74,7 @@ GType                netstatus_stats_get_type             (void);
 void                 netstatus_adopt_error                (GError         *error,
 							   NetstatusError  code);
 
-G_CONST_RETURN char *netstatus_get_state_string           (NetstatusState  state);
+const char *         netstatus_get_state_string           (NetstatusState  state);
 
 GList               *netstatus_list_insert_unique         (GList          *list,
 							   char           *str);

@@ -308,7 +308,7 @@ netstatus_iface_set_name (NetstatusIface *iface,
   g_object_notify (G_OBJECT (iface), "name");
 }
 
-G_CONST_RETURN char *
+const char *
 netstatus_iface_get_name (NetstatusIface *iface)
 {
   g_return_val_if_fail (NETSTATUS_IS_IFACE (iface), NULL);
@@ -368,7 +368,7 @@ netstatus_iface_set_error (NetstatusIface *iface,
     }
 }
 
-G_CONST_RETURN GError *
+const GError *
 netstatus_iface_get_error (NetstatusIface *iface)
 {
   g_return_val_if_fail (NETSTATUS_IS_IFACE (iface), NULL);
