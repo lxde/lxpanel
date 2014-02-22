@@ -21,6 +21,8 @@
 #include "config.h"
 #endif
 
+#define __LXPANEL_INTERNALS__
+
 #include "private.h"
 #include "misc.h"
 #include "bg.h"
@@ -60,7 +62,6 @@ Command commands[] = {
 static char* logout_cmd = NULL;
 
 extern GSList* all_panels;
-extern gchar *cprofile;
 extern int config;
 
 /* macros to update config */
@@ -1202,15 +1203,10 @@ void panel_configure( Panel* p, int sel_page )
 
 void panel_config_save( Panel* p )
 {
-    gchar *fname, *dir;
+    gchar *fname;
 
-    dir = get_config_file( cprofile, "panels", FALSE );
-    fname = g_build_filename( dir, p->name, NULL );
-
-    /* ensure the 'panels' dir exists */
-    if( ! g_file_test( dir, G_FILE_TEST_EXISTS ) )
-        g_mkdir_with_parents( dir, 0755 );
-    g_free( dir );
+    fname = _user_config_file_name("panels", p->name);
+    /* existance of 'panels' dir ensured in main() */
 
     if (!config_write_file(p->config, fname)) {
         ERR("can't open for write %s:", fname);
@@ -1506,38 +1502,29 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
     return dlg;
 }
 
-char* get_config_file( const char* profile, const char* file_name, gboolean is_global )
-{
-    char* path;
-    if( is_global )
-    {
-        path = g_build_filename( PACKAGE_DATA_DIR "/profile", profile, file_name, NULL );
-    }
-    else
-    {
-        char* dir = g_build_filename( g_get_user_config_dir(), "lxpanel" , profile, NULL);
-        /* make sure the private profile dir exists */
-        /* FIXME: Should we do this everytime this func gets called?
-    *        Maybe simply doing this before saving config files is enough. */
-        g_mkdir_with_parents( dir, 0700 );
-        path = g_build_filename( dir,file_name, NULL);
-        g_free( dir );
-    }
-    return path;
-}
-
 const char command_group[] = "Command";
 void load_global_config()
 {
     GKeyFile* kf = g_key_file_new();
-    char* file = get_config_file( cprofile, "config", FALSE );
-    gboolean loaded = g_key_file_load_from_file( kf, file, 0, NULL );
-    if( ! loaded )
+    char* file = _old_system_config_file_name("config");
+    gboolean loaded = FALSE;
+
+    /* try to load system config file first */
+    if (g_key_file_load_from_file(kf, file, 0, NULL))
+        loaded = TRUE;
+    else /* fallback to old config place for backward compatibility */
     {
-        g_free( file );
-        file = get_config_file( cprofile, "config", TRUE ); /* get the system-wide config file */
-        loaded = g_key_file_load_from_file( kf, file, 0, NULL );
+        g_free(file);
+        file = _system_config_file_name("config");
+        if (g_key_file_load_from_file(kf, file, 0, NULL))
+            loaded = TRUE;
     }
+    /* now try to load user config file */
+    g_free(file);
+    file = _user_config_file_name("config", NULL);
+    if (g_key_file_load_from_file(kf, file, 0, NULL))
+        loaded = TRUE;
+    g_free(file);
 
     if( loaded )
     {
@@ -1583,7 +1570,7 @@ void load_global_config()
 
 static void save_global_config()
 {
-    char* file = get_config_file( cprofile, "config", FALSE );
+    char* file = _user_config_file_name("config", NULL);
     FILE* f = fopen( file, "w" );
     if( f )
     {

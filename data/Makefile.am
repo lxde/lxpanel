@@ -1,19 +1,19 @@
 default_config_DATA = \
 	default/config
-default_configdir = $(datadir)/lxpanel/profile/default
+default_configdir = $(sysconfdir)/xdg/lxpanel/default
 
 default_config_panel_DATA = \
 	default/panels/panel
-default_config_paneldir = $(datadir)/lxpanel/profile/default/panels
+default_config_paneldir = $(sysconfdir)/xdg/lxpanel/default/panels
 
 two_panels_config_DATA = \
 	two_panels/config
-two_panels_configdir = $(datadir)/lxpanel/profile/two_panels
+two_panels_configdir = $(sysconfdir)/xdg/lxpanel/two_panels
 
 two_panels_config_panel_DATA = \
 	two_panels/panels/bottom \
 	two_panels/panels/top
-two_panels_config_paneldir = $(datadir)/lxpanel/profile/two_panels/panels
+two_panels_config_paneldir = $(sysconfdir)/xdg/lxpanel/two_panels/panels
 
 uidir=$(datadir)/lxpanel/ui
 ui_in_files= \

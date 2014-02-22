@@ -400,6 +400,12 @@ else
     CPPFLAGS="$CPPFLAGS -DG_DISABLE_ASSERT -DG_DISABLE_CHECKS -DG_DISABLE_CAST_CHECKS"
 fi
 
+dnl Fix invalid sysconfdir when --prefix=/usr
+if test `eval "echo $sysconfdir"` = /usr/etc
+then
+    sysconfdir=/etc
+fi
+
 AC_CONFIG_FILES([
     lxpanel.pc
     Makefile
@@ -432,6 +438,9 @@ echo
 echo lxpanel ......................... : Version $VERSION
 echo
 echo Prefix........................... : $prefix
+echo System config directory.......... : `eval "echo $sysconfdir"`
+echo
+
 if test x$plugins_loading = xyes; then
 echo Building dynamic plugins:
     if test x"$plugin_netstatus" != x; then
@@ -478,6 +487,12 @@ echo Building dynamic plugins:
     fi
 else
 echo Dynamic loader for plugins....... : disabled.
+fi
+
+if test x"$sysconfdir" != x'/etc'; then
+    echo
+    echo 'Warning: sysconfdir is not /etc. It might be not what you want.'
+    echo 'Please consider passing --sysconfdir=/etc to configure.'
 fi
 
 echo

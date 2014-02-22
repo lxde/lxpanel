@@ -32,6 +32,8 @@
 #include <gdk/gdkx.h>
 #include <libfm/fm-gtk.h>
 
+#define __LXPANEL_INTERNALS__
+
 #include "private.h"
 #include "misc.h"
 #include "bg.h"
@@ -602,7 +604,7 @@ static char* gen_panel_name( int edge, gint monitor )
 {
     const char* edge_str = num2str( edge_pair, edge, "" );
     char* name = NULL;
-    char* dir = get_config_file( cprofile, "panels", FALSE );
+    char* dir = _user_config_file_name("panels", NULL);
     int i;
     for( i = 0; i < G_MAXINT; ++i )
     {
@@ -689,14 +691,13 @@ static void panel_popupmenu_delete_panel( GtkMenuItem* item, Panel* panel )
     gtk_widget_destroy( dlg );
     if( ok )
     {
-        gchar *fname, *dir;
+        gchar *fname;
         all_panels = g_slist_remove( all_panels, panel );
 
         /* delete the config file of this panel */
-        dir = get_config_file( cprofile, "panels", FALSE );
-        fname = g_build_filename( dir, panel->name, NULL );
-        g_free( dir );
+        fname = _user_config_file_name("panels", panel->name);
         g_unlink( fname );
+        g_free(fname);
         panel->config_changed = 0;
         panel_destroy( panel );
     }
@@ -1518,40 +1519,65 @@ out:
 }
 #undef CLIPBOARD_NAME
 
+static void _start_panels_from_dir(const char *panel_dir)
+{
+    GDir* dir = g_dir_open( panel_dir, 0, NULL );
+    const gchar* name;
+
+    if( ! dir )
+    {
+        return;
+    }
+
+    while((name = g_dir_read_name(dir)) != NULL)
+    {
+        char* panel_config = g_build_filename( panel_dir, name, NULL );
+        if (strchr(panel_config, '~') == NULL)	/* Skip editor backup files in case user has hand edited in this directory */
+        {
+            Panel* panel = panel_new( panel_config, name );
+            if( panel )
+                all_panels = g_slist_prepend( all_panels, panel );
+        }
+        g_free( panel_config );
+    }
+    g_dir_close( dir );
+}
+
 static gboolean start_all_panels( )
 {
-    gboolean is_global;
-    for( is_global = 0; ! all_panels && is_global < 2; ++is_global )
-    {
-        char* panel_dir = get_config_file( cprofile, "panels", is_global );
-        GDir* dir = g_dir_open( panel_dir, 0, NULL );
-        const gchar* name;
+    char *panel_dir;
 
-        if( ! dir )
-        {
-            g_free( panel_dir );
-            continue;
-        }
-
-        while((name = g_dir_read_name(dir)) != NULL)
-        {
-            char* panel_config = g_build_filename( panel_dir, name, NULL );
-            if (strchr(panel_config, '~') == NULL)	/* Skip editor backup files in case user has hand edited in this directory */
-            {
-                Panel* panel = panel_new( panel_config, name );
-                if( panel )
-                    all_panels = g_slist_prepend( all_panels, panel );
-            }
-            g_free( panel_config );
-        }
-        g_dir_close( dir );
-        g_free( panel_dir );
-    }
+    /* try user panels */
+    panel_dir = _user_config_file_name("panels", NULL);
+    _start_panels_from_dir(panel_dir);
+    g_free(panel_dir);
+    if (all_panels != NULL)
+        return TRUE;
+    /* else try XDG fallback */
+    panel_dir = _system_config_file_name("panels");
+    _start_panels_from_dir(panel_dir);
+    g_free(panel_dir);
+    if (all_panels != NULL)
+        return TRUE;
+    /* last try at old fallback for compatibility reasons */
+    panel_dir = _old_system_config_file_name("panels");
+    _start_panels_from_dir(panel_dir);
+    g_free(panel_dir);
     return all_panels != NULL;
 }
 
 void load_global_config();
 void free_global_config();
+
+static void _ensure_user_config_dirs(void)
+{
+    char *dir = g_build_filename(g_get_user_config_dir(), "lxpanel", cprofile,
+                                 "panels", NULL);
+
+    /* make sure the private profile and panels dir exists */
+    g_mkdir_with_parents(dir, 0700);
+    g_free(dir);
+}
 
 int main(int argc, char *argv[], char *env[])
 {
@@ -1620,6 +1646,8 @@ int main(int argc, char *argv[], char *env[])
         printf("There is already an instance of LXPanel.  Now to exit\n");
         exit(1);
     }
+
+    _ensure_user_config_dirs();
 
     /* Add our own icons to the search path of icon theme */
     gtk_icon_theme_append_search_path( gtk_icon_theme_get_default(), PACKAGE_DATA_DIR "/images" );
