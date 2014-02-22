@@ -67,7 +67,7 @@ get_cur_governor(cpufreq *cf){
     FILE *fp;
     char buf[ 100 ], sstmp [ 256 ];
 
-    sprintf(sstmp,"%s/%s", (char*)cf->cpus->data, SCALING_GOV);
+    snprintf(sstmp, sizeof(sstmp), "%s/%s", (char*)cf->cpus->data, SCALING_GOV);
     if ((fp = fopen( sstmp, "r")) != NULL) {
         fgets(buf, 100, fp);
         buf[strlen(buf)-1] = '\0';
@@ -86,7 +86,7 @@ get_cur_freq(cpufreq *cf){
     FILE *fp;
     char buf[ 100 ], sstmp [ 256 ];
 
-    sprintf(sstmp,"%s/%s", (char*)cf->cpus->data, SCALING_CUR_FREQ);
+    snprintf(sstmp, sizeof(sstmp), "%s/%s", (char*)cf->cpus->data, SCALING_CUR_FREQ);
     if ((fp = fopen( sstmp, "r")) != NULL) {
         fgets(buf, 100, fp);
         buf[strlen(buf)-1] = '\0';
@@ -207,7 +207,7 @@ get_cpus(cpufreq *cf)
         /* Look for directories of the form "cpu<n>", where "<n>" is a decimal integer. */
         if ((strncmp(cpu, "cpu", 3) == 0) && (cpu[3] >= '0') && (cpu[3] <= '9'))
         {
-            sprintf(cpu_path, "%s/%s/cpufreq", SYSFS_CPU_DIRECTORY, cpu);
+            snprintf(cpu_path, sizeof(cpu_path), "%s/%s/cpufreq", SYSFS_CPU_DIRECTORY, cpu);
 
             GDir * cpufreqDir = g_dir_open(SYSFS_CPU_DIRECTORY, 0, NULL);
 	        if (cpufreqDir == NULL)

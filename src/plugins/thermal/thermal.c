@@ -79,7 +79,7 @@ proc_get_critical(char const* sensor_path){
 
     if(sensor_path == NULL) return -1;
 
-    sprintf(sstmp,"%s%s",sensor_path,PROC_THERMAL_TRIP);
+    snprintf(sstmp,sizeof(sstmp),"%s%s",sensor_path,PROC_THERMAL_TRIP);
 
     if (!(state = fopen( sstmp, "r"))) {
         ERR("thermal: cannot open %s\n", sstmp);
@@ -111,7 +111,7 @@ proc_get_temperature(char const* sensor_path){
 
     if(sensor_path == NULL) return -1;
 
-    sprintf(sstmp,"%s%s",sensor_path,PROC_THERMAL_TEMPF);
+    snprintf(sstmp,sizeof(sstmp),"%s%s",sensor_path,PROC_THERMAL_TEMPF);
 
     if (!(state = fopen( sstmp, "r"))) {
         ERR("thermal: cannot open %s\n", sstmp);
@@ -143,7 +143,7 @@ sysfs_get_critical(char const* sensor_path){
 
     if(sensor_path == NULL) return -1;
 
-    sprintf(sstmp,"%s%s",sensor_path,SYSFS_THERMAL_TRIP);
+    snprintf(sstmp,sizeof(sstmp),"%s%s",sensor_path,SYSFS_THERMAL_TRIP);
 
     if (!(state = fopen( sstmp, "r"))) {
         ERR("thermal: cannot open %s\n", sstmp);
@@ -170,7 +170,7 @@ sysfs_get_temperature(char const* sensor_path){
 
     if(sensor_path == NULL) return -1;
 
-    sprintf(sstmp,"%s%s",sensor_path,SYSFS_THERMAL_TEMPF);
+    snprintf(sstmp,sizeof(sstmp),"%s%s",sensor_path,SYSFS_THERMAL_TEMPF);
 
     if (!(state = fopen( sstmp, "r"))) {
         ERR("thermal: cannot open %s\n", sstmp);
@@ -270,7 +270,8 @@ update_display(thermal *th)
         panel_draw_label_text(th->plugin->panel, th->namew, "NA", TRUE, 1, TRUE);
     else
     {
-        sprintf(buffer, "<span color=\"#%06x\"><b>%02d</b></span>", gcolor2rgb24(&color), temp);
+        snprintf(buffer, sizeof(buffer), "<span color=\"#%06x\"><b>%02d</b></span>",
+                 gcolor2rgb24(&color), temp);
         gtk_label_set_markup (GTK_LABEL(th->namew), buffer) ;
     }
 
@@ -328,7 +329,7 @@ find_sensors(thermal* th, char const* directory, char const* subdir_prefix)
             if (strncmp(sensor_name, subdir_prefix, strlen(subdir_prefix)) != 0)
                 continue;
         }
-        sprintf(sensor_path,"%s%s/", directory, sensor_name);
+        snprintf(sensor_path,sizeof(sensor_path),"%s%s/", directory, sensor_name);
         add_sensor(th, sensor_path);
     }
     g_dir_close(sensorsDirectory);
