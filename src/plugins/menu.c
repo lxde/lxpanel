@@ -16,6 +16,10 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <stdlib.h>
 #include <string.h>
 
@@ -36,6 +40,15 @@
 #include "menu-policy.h"
 
 #include "dbg.h"
+
+/* support for libmenu-cache 0.4.x */
+#ifndef MENU_CACHE_CHECK_VERSION
+# ifdef HAVE_MENU_CACHE_DIR_LIST_CHILDREN
+#  define MENU_CACHE_CHECK_VERSION(_a,_b,_c) (_a == 0 && _b < 5) /* < 0.5.0 */
+# else
+#  define MENU_CACHE_CHECK_VERSION(_a,_b,_c) 0 /* not even 0.4.0 */
+# endif
+#endif
 
 #define DEFAULT_MENU_ICON PACKAGE_DATA_DIR "/images/my-computer.png"
 /*
@@ -468,7 +481,12 @@ static int load_menu(menup* m, MenuCacheDir* dir, GtkWidget* menu, int pos )
     GSList * l;
     /* number of visible entries */
     gint count = 0;		
+#if MENU_CACHE_CHECK_VERSION(0, 4, 0)
+    GSList *children = menu_cache_dir_list_children(dir);
+    for (l = children; l; l = l->next)
+#else
     for( l = menu_cache_dir_get_children(dir); l; l = l->next )
+#endif
     {
         MenuCacheItem* item = MENU_CACHE_ITEM(l->data);
 	
@@ -502,6 +520,10 @@ static int load_menu(menup* m, MenuCacheDir* dir, GtkWidget* menu, int pos )
 		}
 	}
     }
+#if MENU_CACHE_CHECK_VERSION(0, 4, 0)
+    g_slist_foreach(children, (GFunc)menu_cache_item_unref, NULL);
+    g_slist_free(children);
+#endif
     return count;
 }
 
@@ -567,7 +589,11 @@ static void sys_menu_insert_items( menup* m, GtkMenu* menu, int position )
     if( G_UNLIKELY( SYS_MENU_ITEM_ID == 0 ) )
         SYS_MENU_ITEM_ID = g_quark_from_static_string( "SysMenuItem" );
 
+#if MENU_CACHE_CHECK_VERSION(0, 4, 0)
+    dir = menu_cache_dup_root_dir(m->menu_cache);
+#else
     dir = menu_cache_get_root_dir( m->menu_cache );
+#endif
     if(dir)
         load_menu( m, dir, GTK_WIDGET(menu), position );
     else /* menu content is empty */
@@ -577,6 +603,9 @@ static void sys_menu_insert_items( menup* m, GtkMenu* menu, int position )
         g_object_set_qdata( G_OBJECT(mi), SYS_MENU_ITEM_ID, GINT_TO_POINTER(1) );
         gtk_menu_shell_insert(GTK_MENU_SHELL(menu), mi, position);
     }
+#if MENU_CACHE_CHECK_VERSION(0, 4, 0)
+    menu_cache_item_unref(MENU_CACHE_ITEM(dir));
+#endif
 
     change_handler = g_signal_connect(gtk_icon_theme_get_default(), "changed", G_CALLBACK(unload_old_icons), m);
     g_object_weak_ref( G_OBJECT(menu), remove_change_handler, GINT_TO_POINTER(change_handler) );

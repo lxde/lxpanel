@@ -343,6 +343,12 @@ AC_FUNC_STAT
 AC_FUNC_STRFTIME
 AC_CHECK_FUNCS([bzero memset mkdir setlocale strchr])
 
+dnl check for menu-cache versions 0.4.x since no macro MENU_CACHE_CHECK_VERSION
+dnl is available in those versions
+LIBS_save="${LIBS}"
+LIBS="${LIBS} ${MENU_CACHE_LIBS}"
+AC_CHECK_FUNCS(menu_cache_dir_list_children)
+LIBS="${LIBS_save}"
 
 # Generate po/LINGUAS on the fly rather than relying on translators
 # to maintain it manually. This also overcome the problem that Transifex
