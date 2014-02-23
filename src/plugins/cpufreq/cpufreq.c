@@ -363,12 +363,7 @@ cpufreq_constructor(Plugin *p, char** fp)
     cf->main = p->pwid;
     cf->tip = gtk_tooltips_new();
 
-#if GLIB_CHECK_VERSION( 2, 10, 0 )
     g_object_ref_sink( cf->tip );
-#else
-    g_object_ref( cf->tip );
-    gtk_object_sink( cf->tip );
-#endif
 
     g_signal_connect (G_OBJECT (p->pwid), "button-press-event", G_CALLBACK (clicked), (gpointer) p);
 

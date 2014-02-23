@@ -204,7 +204,7 @@ static void launchbutton_build_bootstrap(LaunchbarPlugin * lb)
         /* Create an event box. */
         GtkWidget * event_box = gtk_event_box_new();
         gtk_container_set_border_width(GTK_CONTAINER(event_box), 0);
-#if GLIB_CHECK_VERSION(2,18,0)
+#if GTK_CHECK_VERSION(2,18,0)
         gtk_widget_set_can_focus            (event_box, FALSE);
 #else
         GTK_WIDGET_UNSET_FLAGS(event_box, GTK_CAN_FOCUS);
@@ -249,7 +249,7 @@ static LaunchButton *launchbutton_for_file_info(LaunchbarPlugin * lb, FmFileInfo
     button = lxpanel_button_new_for_fm_icon(lb->panel, fm_file_info_get_icon(fi),
                                             NULL, NULL);
     btn->widget = button;
-#if GLIB_CHECK_VERSION(2,18,0)
+#if GTK_CHECK_VERSION(2,18,0)
      gtk_widget_set_can_focus(button, FALSE);
 #else
      GTK_WIDGET_UNSET_FLAGS(button, GTK_CAN_FOCUS);
@@ -434,7 +434,7 @@ static GtkWidget *launchbar_constructor(Panel *panel, config_setting_t *settings
     /* Allocate top level widget and set into Plugin widget pointer. */
     lb->plugin = p = gtk_event_box_new();
     lxpanel_plugin_set_data(p, lb, launchbar_destructor);
-#if GLIB_CHECK_VERSION(2,18,0)
+#if GTK_CHECK_VERSION(2,18,0)
     gtk_widget_set_has_window(p, FALSE);
 #else
     GTK_WIDGET_SET_FLAGS(p, GTK_NO_WINDOW);
