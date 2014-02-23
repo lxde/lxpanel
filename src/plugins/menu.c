@@ -595,7 +595,12 @@ static void sys_menu_insert_items( menup* m, GtkMenu* menu, int position )
     dir = menu_cache_get_root_dir( m->menu_cache );
 #endif
     if(dir)
+    {
         load_menu( m, dir, GTK_WIDGET(menu), position );
+#if MENU_CACHE_CHECK_VERSION(0, 4, 0)
+        menu_cache_item_unref(MENU_CACHE_ITEM(dir));
+#endif
+    }
     else /* menu content is empty */
     {
         /* add a place holder */
@@ -603,9 +608,6 @@ static void sys_menu_insert_items( menup* m, GtkMenu* menu, int position )
         g_object_set_qdata( G_OBJECT(mi), SYS_MENU_ITEM_ID, GINT_TO_POINTER(1) );
         gtk_menu_shell_insert(GTK_MENU_SHELL(menu), mi, position);
     }
-#if MENU_CACHE_CHECK_VERSION(0, 4, 0)
-    menu_cache_item_unref(MENU_CACHE_ITEM(dir));
-#endif
 
     change_handler = g_signal_connect(gtk_icon_theme_get_default(), "changed", G_CALLBACK(unload_old_icons), m);
     g_object_weak_ref( G_OBJECT(menu), remove_change_handler, GINT_TO_POINTER(change_handler) );
