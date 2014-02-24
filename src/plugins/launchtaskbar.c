@@ -48,6 +48,9 @@
 #include "plugin.h"
 #include "icon.xpm"
 #include "icon-grid.h"
+#ifndef DISABLE_MENU
+# include "menu-policy.h"
+#endif
 
 #include "dbg.h" /* for ERR macro. FIXME: is it required? */
 
@@ -150,9 +153,11 @@ struct LaunchTaskBarPlugin {
     gboolean use_net_active;       /* NET_WM_ACTIVE_WINDOW is supported by the window manager */
     gboolean net_active_checked;   /* True if use_net_active is valid */
     /* COMMON */
+#ifndef DISABLE_MENU
     GtkWidget       *p_menuitem_lock_tbp;
     GtkWidget       *p_menuitem_unlock_tbp;
     GtkWidget       *p_menuitem_new_instance;
+#endif
     GtkWidget * plugin;                 /* Back pointer to Plugin */
     Panel * panel;                      /* Back pointer to panel */
     config_setting_t * settings;
@@ -223,29 +228,50 @@ static void f_get_exec_cmd_from_pid(GPid pid, gchar *buffer_128, const gchar *pr
     if(pipe != NULL) pclose(pipe);
 }
 
+#ifndef DISABLE_MENU
 static FmFileInfo *f_find_menu_launchbutton_recursive(const char *exec_bin)
 {
+    MenuCache *mc;
+    guint32 flags;
+    GSList *apps, *l;
+    size_t len = strlen(exec_bin);
+    const char *exec;
     char *str_path;
     FmPath *path;
-    FmDirListJob *job;
-    FmFileInfo *fi;
+    FmFileInfoJob *job;
+    FmFileInfo *fi = NULL;
 
-    str_path = g_strdup_printf("search://menu://applications/?recursive=1&show_hidden=1&name=*&content_regex=Exec=%s(%%20|$)", exec_bin);
-    path = fm_path_new_for_str(str_path);
-    g_free(str_path);
-    job = fm_dir_list_job_new2(path, FM_DIR_LIST_JOB_FAST);
-    fm_path_unref(path);
-    if (!fm_job_run_sync(FM_JOB(job)))
+    /* FIXME: cache it in Task object */
+    mc = panel_menu_cache_new(&flags);
+    apps = menu_cache_list_all_apps(mc);
+    for (l = apps; l; l = l->next)
     {
-        g_warning("launchtaskbar: problem running file search job\n");
-        fi = NULL;
+        exec = menu_cache_app_get_exec(MENU_CACHE_APP(l->data));
+        /* we don't check flags here because user always can manually
+           start any app that isn't visible in the desktop menu */
+        if (strncmp(exec, exec_bin, len) == 0 && (exec[len] == ' ' || exec[len] == 0))
+            break;
     }
-    else
-        fi = fm_file_info_list_pop_head(job->files);
+    if (l)
+    {
+        str_path = menu_cache_dir_make_path(MENU_CACHE_DIR(l->data));
+        path = fm_path_new_relative(fm_path_get_apps_menu(), str_path+13); /* skip /Applications */
+        g_free(str_path);
+        job = fm_file_info_job_new(NULL, FM_FILE_INFO_JOB_NONE);
+        fm_file_info_job_add(job, path);
+        fm_path_unref(path);
+        if (!fm_job_run_sync(FM_JOB(job)))
+            g_warning("launchtaskbar: problem running file info job");
+        else
+            fi = fm_file_info_list_pop_head(job->file_infos);
+        g_object_unref(job);
+    }
+    g_slist_foreach(apps, (GFunc)menu_cache_item_unref, NULL);
+    g_slist_free(apps);
     g_debug("f_find_menu_launchbutton_recursive: search '%s' found=%d", exec_bin, (fi != NULL));
-    g_object_unref(job);
     return fi;
 }
+#endif
 
 /* Deallocate a LaunchButton. */
 static void launchbutton_free(LaunchButton * btn)
@@ -333,6 +359,7 @@ static void launchbutton_build_bootstrap(LaunchTaskBarPlugin *lb)
         icon_grid_set_visible(lb->lb_icon_grid, lb->bootstrap_button->widget, TRUE);
 }
 
+#ifndef DISABLE_MENU
 static LaunchButton *launchbar_exec_bin_exists(LaunchTaskBarPlugin *lb, FmFileInfo *fi)
 {
     LaunchButton *ret_val = NULL;
@@ -353,6 +380,7 @@ static LaunchButton *launchbar_exec_bin_exists(LaunchTaskBarPlugin *lb, FmFileIn
     }
     return ret_val;
 }
+#endif
 
 static void launchbar_update_after_taskbar_class_added(LaunchTaskBarPlugin *ltbp, Task *tk)
 {
@@ -397,6 +425,7 @@ static void launchbar_update_after_taskbar_class_removed(LaunchTaskBarPlugin *lt
 }
 
 /* Build the graphic elements for a launchtaskbar button.  The desktop_id field is already established. */
+/* NOTE: this func consumes reference on fi */
 static LaunchButton *launchbutton_for_file_info(LaunchTaskBarPlugin * lb, FmFileInfo * fi)
 {
     LaunchButton *btn;
@@ -2413,6 +2442,7 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
         {
             /* Right button.  Bring up the window state popup menu. */
             tk->tb->menutask = tk;
+#ifndef DISABLE_MENU
             LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)tk->tb;
             if(ltbp->lb_on)
             {
@@ -2441,6 +2471,7 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
                 gtk_widget_set_visible(ltbp->p_menuitem_unlock_tbp, FALSE);
                 gtk_widget_set_visible(ltbp->p_menuitem_new_instance, FALSE);
             }
+#endif
             gtk_menu_popup(
                 GTK_MENU(tb->menu),
                 NULL, NULL,
@@ -3080,15 +3111,23 @@ static void menu_close_window(GtkWidget * widget, LaunchTaskBarPlugin * tb)
     task_group_menu_destroy(tb);
 }
 
+#ifndef DISABLE_MENU
 static void  on_menuitem_lock_tbp_clicked(GtkWidget * widget, LaunchTaskBarPlugin * tb)
 {
     FmFileInfo *fi = f_find_menu_launchbutton_recursive(tb->menutask->exec_bin);
+    LaunchButton *btn;
+    char *path;
 
     if (fi)
     {
-        /* FIXME: how to add button correctly? */
-        //......
-        fm_file_info_unref(fi);
+        /* Create a button and add settings for it */
+        btn = launchbutton_for_file_info(tb, fi);
+        path = fm_path_to_str(fm_file_info_get_path(fi));
+        /* g_debug("*** path '%s'",path); */
+        btn->settings = config_group_add_subgroup(tb->settings, "Button");
+        config_group_set_string(btn->settings, "id", path);
+        g_free(path);
+        panel_config_save(tb->panel);
     }
 }
 
@@ -3116,6 +3155,7 @@ static void  on_menuitem_new_instance_clicked(GtkWidget * widget, LaunchTaskBarP
         fm_file_info_unref(fi);
     }
 }
+#endif
 
 /* Make right-click menu for task buttons.
  * This depends on number of desktops and edge. */
@@ -3197,28 +3237,32 @@ static void taskbar_make_menu(LaunchTaskBarPlugin * tb)
 
     /* Add Close menu item.  By popular demand, we place this menu item closest to the cursor. */
     mi = gtk_menu_item_new_with_mnemonic (_("_Close Window"));
+#ifndef DISABLE_MENU
     tb->p_menuitem_lock_tbp = gtk_menu_item_new_with_mnemonic(_("A_dd to Launcher"));
     tb->p_menuitem_unlock_tbp = gtk_menu_item_new_with_mnemonic(_("Rem_ove from Launcher"));
     tb->p_menuitem_new_instance = gtk_menu_item_new_with_mnemonic(_("_New Instance"));
+#endif
 
     if (panel_is_at_bottom(tb->panel))
         _m_add = gtk_menu_shell_append;
     else
         _m_add = gtk_menu_shell_prepend;
 
+#ifndef DISABLE_MENU
     _m_add(GTK_MENU_SHELL(menu), gtk_separator_menu_item_new());
     _m_add(GTK_MENU_SHELL(menu), tb->p_menuitem_lock_tbp);
     _m_add(GTK_MENU_SHELL(menu), tb->p_menuitem_unlock_tbp);
     _m_add(GTK_MENU_SHELL(menu), tb->p_menuitem_new_instance);
-
+#endif
     _m_add(GTK_MENU_SHELL(menu), gtk_separator_menu_item_new());
     _m_add(GTK_MENU_SHELL(menu), mi);
 
     g_signal_connect(G_OBJECT(mi), "activate", (GCallback)menu_close_window, tb);
+#ifndef DISABLE_MENU
     g_signal_connect(G_OBJECT(tb->p_menuitem_lock_tbp), "activate", (GCallback)on_menuitem_lock_tbp_clicked, tb);
     g_signal_connect(G_OBJECT(tb->p_menuitem_unlock_tbp), "activate", (GCallback)on_menuitem_unlock_tbp_clicked, tb);
     g_signal_connect(G_OBJECT(tb->p_menuitem_new_instance), "activate", (GCallback)on_menuitem_new_instance_clicked, tb);
-
+#endif
     gtk_widget_show_all(menu);
     tb->menu = menu;
 }
