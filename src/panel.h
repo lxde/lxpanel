@@ -105,8 +105,11 @@ extern GtkOrientation panel_get_orientation(Panel *panel);
 extern gint panel_get_icon_size(Panel *panel);
 extern gint panel_get_height(Panel *panel);
 extern GtkWindow *panel_get_toplevel_window(Panel *panel);
+extern Window panel_get_xwindow(Panel *panel);
+extern gint panel_get_monitor(Panel *panel);
 extern GtkStyle *panel_get_defstyle(Panel *panel);
 extern GtkIconTheme *panel_get_icon_theme(Panel *panel);
+extern gboolean panel_is_at_bottom(Panel *panel);
 extern GtkWidget *panel_box_new(Panel *panel, gboolean homogeneous, gint spacing);
 extern GtkWidget *panel_separator_new(Panel *panel);
 

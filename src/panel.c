@@ -1707,42 +1707,57 @@ restart:
     return 0;
 }
 
-extern GtkOrientation panel_get_orientation(Panel *panel)
+GtkOrientation panel_get_orientation(Panel *panel)
 {
     return panel->orientation;
 }
 
-extern gint panel_get_icon_size(Panel *panel)
+gint panel_get_icon_size(Panel *panel)
 {
     return panel->icon_size;
 }
 
-extern gint panel_get_height(Panel *panel)
+gint panel_get_height(Panel *panel)
 {
     return panel->height;
 }
 
-extern GtkWindow *panel_get_toplevel_window(Panel *panel)
+GtkWindow *panel_get_toplevel_window(Panel *panel)
 {
     return GTK_WINDOW(panel->topgwin);
 }
 
-extern GtkStyle *panel_get_defstyle(Panel *panel)
+Window panel_get_xwindow(Panel *panel)
+{
+    return panel->topxwin;
+}
+
+gint panel_get_monitor(Panel *panel)
+{
+    return panel->monitor;
+}
+
+GtkStyle *panel_get_defstyle(Panel *panel)
 {
     return panel->defstyle;
 }
 
-extern GtkIconTheme *panel_get_icon_theme(Panel *panel)
+GtkIconTheme *panel_get_icon_theme(Panel *panel)
 {
     return panel->icon_theme;
 }
 
-extern GtkWidget *panel_box_new(Panel *panel, gboolean homogeneous, gint spacing)
+gboolean panel_is_at_bottom(Panel *panel)
+{
+    return panel->edge == EDGE_BOTTOM;
+}
+
+GtkWidget *panel_box_new(Panel *panel, gboolean homogeneous, gint spacing)
 {
     return panel->my_box_new(homogeneous, spacing);
 }
 
-extern GtkWidget *panel_separator_new(Panel *panel)
+GtkWidget *panel_separator_new(Panel *panel)
 {
     return panel->my_separator_new();
 }
