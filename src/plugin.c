@@ -115,7 +115,7 @@ static void init_plugin_class_list(void)
 #endif
 
 #ifdef STATIC_LAUNCHTASKBAR
-    REGISTER_STATIC_PLUGIN_CLASS(launchtaskbar_plugin_class);
+    REGISTER_STATIC_MODULE(launchtaskbar);
 #endif
 
 #ifdef STATIC_DCLOCK
