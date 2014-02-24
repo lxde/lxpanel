@@ -166,7 +166,7 @@ struct LaunchTaskBarPlugin {
     GtkWidget       *config_dlg;        /* Configuration dialog */
     GtkWidget       *p_notebook_page_launch;
     GtkWidget       *p_notebook_page_task;
-    //GKeyFile        *p_key_file_special_cases;
+    GKeyFile        *p_key_file_special_cases;
     gboolean         lb_on;
     gboolean         lb_built;
     gboolean         tb_on;
@@ -390,22 +390,19 @@ static void launchbar_update_after_taskbar_class_added(LaunchTaskBarPlugin *ltbp
     gchar *p_char = strrchr(exec_bin_full, '/');
     if(p_char == NULL) p_char = exec_bin_full;
     else p_char++;
+    g_free(tk->exec_bin);
     if(strcmp(p_char, "python") == 0)
     {
         f_get_exec_cmd_from_pid(pid, exec_bin_full, "comm");
     }
-    g_free(tk->exec_bin);
-    tk->exec_bin = g_strdup(exec_bin_full);
-
-    /*if(ltbp->p_key_file_special_cases != NULL)
+    else
     {
-        gchar *converted_tb_exec_bin = g_key_file_get_string(ltbp->p_key_file_special_cases, "special_cases", tk->exec_bin, NULL);
-        if(converted_tb_exec_bin != NULL)
-        {
-            snprintf(tk->exec_bin, 128, "%s", converted_tb_exec_bin);
-            g_free(converted_tb_exec_bin);
-        }
-    }*/
+        tk->exec_bin = g_key_file_get_string(ltbp->p_key_file_special_cases,
+                                             "special_cases", p_char, NULL);
+        if (tk->exec_bin != NULL) /* found this key */
+            return;
+    }
+    tk->exec_bin = g_strdup(exec_bin_full);
 
     /*if(ltbp->lb_on)
     {
@@ -604,10 +601,10 @@ static gboolean _launchbutton_create_id(LaunchTaskBarPlugin * lb, config_setting
     return FALSE;
 }
 
-/*static void launchtaskbar_constructor_add_default_special_case(LaunchTaskBarPlugin *ltbp, const gchar *tk_exec, const gchar *mb_exec)
+static void launchtaskbar_constructor_add_default_special_case(LaunchTaskBarPlugin *ltbp, const gchar *tk_exec, const gchar *mb_exec)
 {
     g_key_file_set_value(ltbp->p_key_file_special_cases, "special_cases", tk_exec, mb_exec);
-}*/
+}
 
 static void launchtaskbar_constructor_launch(LaunchTaskBarPlugin *ltbp, gboolean build_bootstrap)
 {
@@ -755,16 +752,12 @@ static GtkWidget *launchtaskbar_constructor(Panel *panel, config_setting_t *sett
     ltbp->grouped_tasks     = FALSE;
 
     /* Special cases key file */
-    /*ltbp->p_key_file_special_cases = g_key_file_new();
+    ltbp->p_key_file_special_cases = g_key_file_new();
     gchar *special_cases_filepath = g_build_filename(g_get_user_config_dir(),
                                                      "lxpanel", "launchtaskbar.cfg", NULL);
-    if(g_file_test(special_cases_filepath, G_FILE_TEST_EXISTS))
-    {
-        gboolean  loaded = load_app_key_file(special_cases_filepath,
-                                             ltbp->p_key_file_special_cases);
-        if(!loaded) ltbp->p_key_file_special_cases = NULL;
-    }
-    else
+    if (!g_key_file_load_from_file(ltbp->p_key_file_special_cases,
+                                   special_cases_filepath,
+                                   G_KEY_FILE_KEEP_COMMENTS, NULL))
     {
         launchtaskbar_constructor_add_default_special_case(ltbp, "synaptic", "synaptic-pkexec");
         launchtaskbar_constructor_add_default_special_case(ltbp, "soffice.bin", "libreoffice");
@@ -773,7 +766,7 @@ static GtkWidget *launchtaskbar_constructor(Panel *panel, config_setting_t *sett
         g_file_set_contents(special_cases_filepath, key_file_data, -1, NULL);
         g_free(key_file_data);
     }
-    g_free(special_cases_filepath);*/
+    g_free(special_cases_filepath);
 
     /* Allocate top level widget and set into Plugin widget pointer. */
     ltbp->plugin = p = panel_box_new(panel, FALSE, 5);
@@ -870,7 +863,8 @@ static void launchtaskbar_destructor(gpointer user_data)
     // LAUNCHTASKBAR
 
     /* Deallocate all memory. */
-    //if(ltbp->p_key_file_special_cases != NULL) g_key_file_free(ltbp->p_key_file_special_cases);
+    if (ltbp->p_key_file_special_cases != NULL)
+        g_key_file_free(ltbp->p_key_file_special_cases);
     g_free(ltbp);
 }
 
