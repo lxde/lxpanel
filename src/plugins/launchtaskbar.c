@@ -1275,6 +1275,7 @@ static GtkWidget *launchtaskbar_configure(Panel *panel, GtkWidget *p, GtkWindow 
     {
         GtkWidget *dlg, *btn, *defined_view, *menu_view, *menu_view_window;
         GtkBuilder *builder = gtk_builder_new();
+        GObject *object;
 
         gtk_builder_add_from_file(builder, PACKAGE_UI_DIR "/launchtaskbar.ui", NULL);
         dlg = (GtkWidget *)gtk_builder_get_object(builder, "dlg");
@@ -1310,80 +1311,49 @@ static GtkWidget *launchtaskbar_configure(Panel *panel, GtkWidget *p, GtkWindow 
         g_signal_connect(defined_view, "cursor-changed", G_CALLBACK(on_defined_view_cursor_changed), ltbp);
         g_signal_connect(menu_view, "cursor-changed", G_CALLBACK(on_menu_view_cursor_changed), ltbp);
 
-        GtkWidget *p_checkbutton_show_tooltips, *p_checkbutton_icons_only, *p_checkbutton_flat_buttons;
-        GtkWidget *p_checkbutton_show_all_desks, *p_checkbutton_same_monitor_only;
-        GtkWidget *p_checkbutton_mouse_wheel, *p_checkbutton_urgency_hint;
-        GtkWidget *p_checkbutton_grouped_tasks, *p_spinbutton_max_width, *p_spinbutton_spacing;
-        GtkWidget *p_notebook, *p_radiobutton_launch, *p_radiobutton_task, *p_radiobutton_launchtask;
-        
-        p_notebook = (GtkWidget *)gtk_builder_get_object(builder, "notebook");
-        ltbp->p_notebook_page_launch = gtk_notebook_get_nth_page(GTK_NOTEBOOK(p_notebook), 0);
-        ltbp->p_notebook_page_task = gtk_notebook_get_nth_page(GTK_NOTEBOOK(p_notebook), 1);
+        object = gtk_builder_get_object(builder, "notebook");
+        ltbp->p_notebook_page_launch = gtk_notebook_get_nth_page(GTK_NOTEBOOK(object), 0);
+        ltbp->p_notebook_page_task = gtk_notebook_get_nth_page(GTK_NOTEBOOK(object), 1);
         gtk_widget_set_visible(ltbp->p_notebook_page_launch, ltbp->lb_on);
         gtk_widget_set_visible(ltbp->p_notebook_page_task, ltbp->tb_on);
-        
-        p_radiobutton_launch = (GtkWidget *)gtk_builder_get_object(builder, "radiobutton_launch");
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_radiobutton_launch), !ltbp->tb_on);
-        p_radiobutton_task = (GtkWidget *)gtk_builder_get_object(builder, "radiobutton_task");
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_radiobutton_task), !ltbp->lb_on);
-        p_radiobutton_launchtask = (GtkWidget *)gtk_builder_get_object(builder, "radiobutton_launchtask");
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_radiobutton_launchtask), ltbp->lb_on && ltbp->tb_on);
-        g_signal_connect(GTK_TOGGLE_BUTTON(p_radiobutton_launch), "toggled",
+
+        object = gtk_builder_get_object(builder, "radiobutton_launch");
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(object), !ltbp->tb_on);
+        g_signal_connect(object, "toggled",
                          G_CALLBACK(on_radiobutton_launch_toggled), ltbp);
-        g_signal_connect(GTK_TOGGLE_BUTTON(p_radiobutton_task), "toggled",
+        object = gtk_builder_get_object(builder, "radiobutton_task");
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(object), !ltbp->lb_on);
+        g_signal_connect(object, "toggled",
                          G_CALLBACK(on_radiobutton_task_toggled), ltbp);
-        g_signal_connect(GTK_TOGGLE_BUTTON(p_radiobutton_launchtask), "toggled",
+        object = gtk_builder_get_object(builder, "radiobutton_launchtask");
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(object), ltbp->lb_on && ltbp->tb_on);
+        g_signal_connect(object, "toggled",
                          G_CALLBACK(on_radiobutton_launchtask_toggled), ltbp);
-        
-        p_checkbutton_show_tooltips = (GtkWidget *)gtk_builder_get_object(builder, "checkbutton_show_tooltips");
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_checkbutton_show_tooltips), ltbp->tooltips);
-        g_signal_connect(GTK_TOGGLE_BUTTON(p_checkbutton_show_tooltips), "toggled",
-                         G_CALLBACK(on_checkbutton_show_tooltips_toggled), ltbp);
-        
-        p_checkbutton_icons_only = (GtkWidget *)gtk_builder_get_object(builder, "checkbutton_icons_only");
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_checkbutton_icons_only), ltbp->icons_only);
-        g_signal_connect(GTK_TOGGLE_BUTTON(p_checkbutton_icons_only), "toggled",
-                         G_CALLBACK(on_checkbutton_icons_only_toggled), ltbp);
-        
-        p_checkbutton_flat_buttons = (GtkWidget *)gtk_builder_get_object(builder, "checkbutton_flat_buttons");
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_checkbutton_flat_buttons), ltbp->flat_button);
-        g_signal_connect(GTK_TOGGLE_BUTTON(p_checkbutton_flat_buttons), "toggled",
-                         G_CALLBACK(on_checkbutton_flat_buttons_toggled), ltbp);
-        
-        p_checkbutton_show_all_desks = (GtkWidget *)gtk_builder_get_object(builder, "checkbutton_show_all_desks");
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_checkbutton_show_all_desks), ltbp->show_all_desks);
-        g_signal_connect(GTK_TOGGLE_BUTTON(p_checkbutton_show_all_desks), "toggled",
-                         G_CALLBACK(on_checkbutton_show_all_desks_toggled), ltbp);
-        
-        p_checkbutton_same_monitor_only = (GtkWidget *)gtk_builder_get_object(builder, "checkbutton_same_monitor_only");
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_checkbutton_same_monitor_only), ltbp->same_monitor_only);
-        g_signal_connect(GTK_TOGGLE_BUTTON(p_checkbutton_same_monitor_only), "toggled",
-                         G_CALLBACK(on_checkbutton_same_monitor_only_toggled), ltbp);
-        
-        p_checkbutton_mouse_wheel = (GtkWidget *)gtk_builder_get_object(builder, "checkbutton_mouse_wheel");
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_checkbutton_mouse_wheel), ltbp->use_mouse_wheel);
-        g_signal_connect(GTK_TOGGLE_BUTTON(p_checkbutton_mouse_wheel), "toggled",
-                         G_CALLBACK(on_checkbutton_mouse_wheel_toggled), ltbp);
-        
-        p_checkbutton_urgency_hint = (GtkWidget *)gtk_builder_get_object(builder, "checkbutton_urgency_hint");
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_checkbutton_urgency_hint), ltbp->use_urgency_hint);
-        g_signal_connect(GTK_TOGGLE_BUTTON(p_checkbutton_urgency_hint), "toggled",
-                         G_CALLBACK(on_checkbutton_urgency_hint_toggled), ltbp);
-        
-        p_checkbutton_grouped_tasks = (GtkWidget *)gtk_builder_get_object(builder, "checkbutton_grouped_tasks");
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_checkbutton_grouped_tasks), ltbp->grouped_tasks);
-        g_signal_connect(GTK_TOGGLE_BUTTON(p_checkbutton_grouped_tasks), "toggled",
-                         G_CALLBACK(on_checkbutton_grouped_tasks_toggled), ltbp);
-        
-        p_spinbutton_max_width = (GtkWidget *)gtk_builder_get_object(builder, "spinbutton_max_width");
-        gtk_spin_button_set_value(GTK_SPIN_BUTTON(p_spinbutton_max_width), ltbp->task_width_max);
-        g_signal_connect(GTK_SPIN_BUTTON(p_spinbutton_max_width), "value-changed",
-                         G_CALLBACK(on_spinbutton_max_width_value_changed), ltbp);
-        
-        p_spinbutton_spacing = (GtkWidget *)gtk_builder_get_object(builder, "spinbutton_spacing");
-        gtk_spin_button_set_value(GTK_SPIN_BUTTON(p_spinbutton_spacing), ltbp->spacing);
-        g_signal_connect(GTK_SPIN_BUTTON(p_spinbutton_spacing), "value-changed",
-                         G_CALLBACK(on_spinbutton_spacing_value_changed), ltbp);
+
+#define SETUP_TOGGLE_BUTTON(button,member) \
+        object = gtk_builder_get_object(builder, #button); \
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(object), ltbp->member); \
+        g_signal_connect(object, "toggled", G_CALLBACK(on_##button##_toggled), ltbp)
+
+        SETUP_TOGGLE_BUTTON(checkbutton_show_tooltips, tooltips);
+        SETUP_TOGGLE_BUTTON(checkbutton_icons_only, icons_only);
+        SETUP_TOGGLE_BUTTON(checkbutton_flat_buttons, flat_button);
+        SETUP_TOGGLE_BUTTON(checkbutton_show_all_desks, show_all_desks);
+        SETUP_TOGGLE_BUTTON(checkbutton_same_monitor_only, same_monitor_only);
+        SETUP_TOGGLE_BUTTON(checkbutton_mouse_wheel, use_mouse_wheel);
+        SETUP_TOGGLE_BUTTON(checkbutton_urgency_hint, use_urgency_hint);
+        SETUP_TOGGLE_BUTTON(checkbutton_grouped_tasks, grouped_tasks);
+#undef SETUP_TOGGLE_BUTTON
+
+#define SETUP_SPIN_BUTTON(button,member) \
+        object = gtk_builder_get_object(builder, #button); \
+        gtk_spin_button_set_value(GTK_SPIN_BUTTON(object), ltbp->member); \
+        g_signal_connect(object, "value-changed", \
+                         G_CALLBACK(on_##button##_value_changed), ltbp)
+
+        SETUP_SPIN_BUTTON(spinbutton_max_width, task_width_max);
+        SETUP_SPIN_BUTTON(spinbutton_spacing, spacing);
+#undef SETUP_SPIN_BUTTON
 
         ltbp->config_dlg = dlg;
 
