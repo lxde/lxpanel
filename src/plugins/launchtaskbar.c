@@ -511,7 +511,7 @@ static LaunchButton *launchbutton_search_and_build_gui(LaunchTaskBarPlugin * lb,
 /* Read the configuration file entry for a launchtaskbar button and create it. */
 static gboolean launchbutton_constructor(LaunchTaskBarPlugin * lb, config_setting_t * s)
 {
-    LaunchButton *btn;
+    LaunchButton *btn = NULL;
     const char *str;
     char *str_path = NULL;
     FmPath *path;
@@ -521,21 +521,22 @@ static gboolean launchbutton_constructor(LaunchTaskBarPlugin * lb, config_settin
         return FALSE;
 
     /* Build the structures and return. */
-    if (str[0] == '/')
-    {
-        path = fm_path_new_for_str(str);
-        btn = launchbutton_build_gui(lb, path);
-    }
-    else if (str[0] == '~')
+    if (str[0] == '~')
     {
         str_path = expand_tilda(str);
-        path = fm_path_new_for_str(str_path);
+        path = fm_path_new_for_path(str_path);
+        btn = launchbutton_build_gui(lb, path);
+    }
+    else if (strchr(str, '/') != NULL)
+    {
+        path = fm_path_new_for_str(str);
+        /* FIXME: check if str contains invalid path */
         btn = launchbutton_build_gui(lb, path);
     }
     else
     {
         str_path = g_strdup_printf("search://menu://applications/?recursive=1&show_hidden=1&name=%s", str);
-        path = fm_path_new_for_str(str_path);
+        path = fm_path_new_for_uri(str_path);
         btn = launchbutton_search_and_build_gui(lb, path);
     }
     g_free(str_path);
