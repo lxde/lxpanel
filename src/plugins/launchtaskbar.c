@@ -780,10 +780,6 @@ static GtkWidget *launchtaskbar_constructor(Panel *panel, config_setting_t *sett
     gtk_container_set_border_width(GTK_CONTAINER(p), 0);
     gtk_container_set_border_width(GTK_CONTAINER(ltbp->p_evbox_launchbar), 0);
     gtk_container_set_border_width(GTK_CONTAINER(ltbp->p_evbox_taskbar), 0);
-    ltbp->lb_on = TRUE;
-    ltbp->lb_built = FALSE;
-    ltbp->tb_on = TRUE;
-    ltbp->tb_built = FALSE;
 #if GTK_CHECK_VERSION(2,18,0)
     gtk_widget_set_has_window(p, FALSE);
 #else
@@ -792,7 +788,9 @@ static GtkWidget *launchtaskbar_constructor(Panel *panel, config_setting_t *sett
 
     /* Read parameters from the configuration file. */
     config_setting_lookup_int(settings, "LaunchBarON", &ltbp->lb_on);
-    config_setting_lookup_int(settings, "TaskBarON", &ltbp->lb_on);
+    config_setting_lookup_int(settings, "TaskBarON", &ltbp->tb_on);
+    if (!ltbp->lb_on && !ltbp->tb_on) /* both off is illegal, assume both on */
+        ltbp->lb_on = ltbp->tb_on = TRUE;
 
     if(ltbp->lb_on) launchtaskbar_constructor_launch(ltbp, TRUE/*build_bootstrap*/);
     if(ltbp->tb_on) launchtaskbar_constructor_task(ltbp);
@@ -1059,15 +1057,16 @@ static void  on_radiobutton_launch_toggled(GtkToggleButton *p_togglebutton, gpoi
     {
         ltbp->lb_on = TRUE;
         launchtaskbar_constructor_launch(ltbp, TRUE/*build_bootstrap*/);
+        config_group_set_int(ltbp->settings, "LaunchBarON", 1);
     }
     if(ltbp->tb_on)
     {
         ltbp->tb_on = FALSE;
         gtk_widget_set_visible(ltbp->p_evbox_taskbar, FALSE);
+        config_group_set_int(ltbp->settings, "TaskBarON", 0);
     }
     gtk_widget_set_visible(ltbp->p_notebook_page_launch, TRUE);
     gtk_widget_set_visible(ltbp->p_notebook_page_task, FALSE);
-    config_group_set_int(ltbp->settings, "LaunchBarON", ltbp->lb_on);
 
     plugin_set_expand_status(ltbp, FALSE);
 }
@@ -1081,15 +1080,16 @@ static void  on_radiobutton_task_toggled(GtkToggleButton *p_togglebutton, gpoint
     {
         ltbp->lb_on = FALSE;
         gtk_widget_set_visible(ltbp->p_evbox_launchbar, FALSE);
+        config_group_set_int(ltbp->settings, "LaunchBarON", 0);
     }
     if(!ltbp->tb_on)
     {
         ltbp->tb_on = TRUE;
         launchtaskbar_constructor_task(ltbp);
+        config_group_set_int(ltbp->settings, "TaskBarON", 1);
     }
     gtk_widget_set_visible(ltbp->p_notebook_page_launch, FALSE);
     gtk_widget_set_visible(ltbp->p_notebook_page_task, TRUE);
-    config_group_set_int(ltbp->settings, "TaskBarON", ltbp->tb_on);
 
     plugin_set_expand_status(ltbp, TRUE);
 }
@@ -1103,16 +1103,16 @@ static void  on_radiobutton_launchtask_toggled(GtkToggleButton *p_togglebutton, 
     {
         ltbp->lb_on = TRUE;
         launchtaskbar_constructor_launch(ltbp, TRUE/*build_bootstrap*/);
+        config_group_set_int(ltbp->settings, "LaunchBarON", 1);
     }
     if(!ltbp->tb_on)
     {
         ltbp->tb_on = TRUE;
         launchtaskbar_constructor_task(ltbp);
+        config_group_set_int(ltbp->settings, "TaskBarON", 1);
     }
     gtk_widget_set_visible(ltbp->p_notebook_page_launch, TRUE);
     gtk_widget_set_visible(ltbp->p_notebook_page_task, TRUE);
-    config_group_set_int(ltbp->settings, "LaunchBarON", 1);
-    config_group_set_int(ltbp->settings, "TaskBarON", 1);
 
     plugin_set_expand_status(ltbp, TRUE);
 }
