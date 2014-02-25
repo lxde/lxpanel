@@ -867,10 +867,8 @@ static void launchtaskbar_destructor(gpointer user_data)
     g_free(ltbp);
 }
 
-/* Handler for "clicked" action on launchtaskbar configuration dialog "Add" button. */
-static void launchbar_configure_add_button(GtkButton * widget, LaunchTaskBarPlugin *ltbp)
+static void _launchbar_configure_add(GtkTreeView *menu_view, LaunchTaskBarPlugin *ltbp)
 {
-    GtkTreeView * menu_view = GTK_TREE_VIEW(g_object_get_data(G_OBJECT(ltbp->config_dlg), "menu_view"));
     GtkTreeView * defined_view = GTK_TREE_VIEW(g_object_get_data(G_OBJECT(ltbp->config_dlg), "defined_view"));
     FmPath * sel_path = fm_app_menu_view_dup_selected_app_desktop_path(menu_view);
     LaunchButton * btn;
@@ -896,6 +894,14 @@ static void launchbar_configure_add_button(GtkButton * widget, LaunchTaskBarPlug
         g_free(path);
         fm_path_unref(sel_path);
     }
+}
+
+/* Handler for "clicked" action on launchtaskbar configuration dialog "Add" button. */
+static void launchbar_configure_add_button(GtkButton * widget, LaunchTaskBarPlugin *ltbp)
+{
+    GtkTreeView * menu_view = GTK_TREE_VIEW(g_object_get_data(G_OBJECT(ltbp->config_dlg), "menu_view"));
+
+    _launchbar_configure_add(menu_view, ltbp);
 }
 
 static void  launchbar_remove_button(LaunchTaskBarPlugin *ltbp, LaunchButton *btn)
@@ -1267,6 +1273,13 @@ static void on_menu_view_cursor_changed(GtkTreeView *p_treeview, gpointer p_data
     gtk_widget_set_sensitive(lb->p_button_add, label_set);
 }
 
+static void on_menu_view_row_activated(GtkTreeView *tree_view, GtkTreePath *path,
+                                       GtkTreeViewColumn *column,
+                                       LaunchTaskBarPlugin *ltbp)
+{
+    _launchbar_configure_add(tree_view, ltbp);
+}
+
 /* Callback when the configuration dialog is to be shown. */
 static GtkWidget *launchtaskbar_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
 {
@@ -1310,6 +1323,7 @@ static GtkWidget *launchtaskbar_configure(Panel *panel, GtkWidget *p, GtkWindow 
         g_signal_connect(defined_view, "button-press-event", G_CALLBACK(on_defined_view_button_press_event), ltbp);
         g_signal_connect(defined_view, "cursor-changed", G_CALLBACK(on_defined_view_cursor_changed), ltbp);
         g_signal_connect(menu_view, "cursor-changed", G_CALLBACK(on_menu_view_cursor_changed), ltbp);
+        g_signal_connect(menu_view, "row-activated", G_CALLBACK(on_menu_view_row_activated), ltbp);
 
         object = gtk_builder_get_object(builder, "notebook");
         ltbp->p_notebook_page_launch = gtk_notebook_get_nth_page(GTK_NOTEBOOK(object), 0);
