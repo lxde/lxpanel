@@ -20,6 +20,7 @@
  * Started by Giuseppe Penone <giuspen@gmail.com> merging launchbar and taskbar
  * and adding interoperability between them.
 */
+#define DEBUG_WITH_GPRINTS // killall lxpanel && lxpanel --profile Lubuntu &
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -418,21 +419,27 @@ static void launchbar_update_after_taskbar_class_added(LaunchTaskBarPlugin *ltbp
     }
     tk->exec_bin = g_strdup(exec_bin_full);
 
-    /*if(ltbp->lb_on)
+#ifdef DEBUG_WITH_GPRINTS
+    if(ltbp->lb_on)
     {
-        LaunchButton *btn = launchbar_exec_bin_exists(&ltbp->lbp, tk->exec_bin);
+        FmFileInfo *fi = f_find_menu_launchbutton_recursive(tk->exec_bin);
+        LaunchButton *btn = launchbar_exec_bin_exists(ltbp, fi);
         g_print("\nTB '%s' OPEN (pid=%u), in LB: %c\n",
             tk->exec_bin, pid, btn != NULL ? 'Y':'N');
-    }*/
+    }
+#endif
 }
 
 static void launchbar_update_after_taskbar_class_removed(LaunchTaskBarPlugin *ltbp, Task *tk)
 {
-    /*if(ltbp->lb_on)
+#ifdef DEBUG_WITH_GPRINTS
+    if(ltbp->lb_on)
     {
-        LaunchButton *btn = launchbar_exec_bin_exists(&ltbp->lbp, tk->exec_bin);
+        FmFileInfo *fi = f_find_menu_launchbutton_recursive(tk->exec_bin);
+        LaunchButton *btn = launchbar_exec_bin_exists(ltbp, fi);
         g_print("\nTB '%s' CLOSE, in LB: %c\n", tk->exec_bin, btn != NULL ? 'Y':'N');
-    }*/
+    }
+#endif
 }
 
 /* Build the graphic elements for a launchtaskbar button.  The desktop_id field is already established. */
@@ -2442,7 +2449,9 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
                 FmFileInfo *fi = f_find_menu_launchbutton_recursive(tk->exec_bin);
                 LaunchButton *btn = launchbar_exec_bin_exists(ltbp, fi);
                 /* FIXME: shouldn't we make file info at task button creation? */
-                //g_print("\nTB '%s' right-click, in LB: %c\n", tk->exec_bin, btn != NULL ? 'Y':'N');
+#ifdef DEBUG_WITH_GPRINTS
+                g_print("\nTB '%s' right-click, in LB: %c\n", tk->exec_bin, btn != NULL ? 'Y':'N');
+#endif
                 if(btn != NULL)
                 {
                     gtk_widget_set_visible(ltbp->p_menuitem_lock_tbp, FALSE);
