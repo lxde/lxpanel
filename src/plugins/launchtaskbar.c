@@ -20,7 +20,7 @@
  * Started by Giuseppe Penone <giuspen@gmail.com> merging launchbar and taskbar
  * and adding interoperability between them.
 */
-#define DEBUG_WITH_GPRINTS // killall lxpanel && lxpanel --profile Lubuntu &
+//#define DEBUG_WITH_GPRINTS // killall lxpanel && lxpanel --profile Lubuntu &
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -235,7 +235,7 @@ static FmFileInfo *f_find_menu_launchbutton_recursive(const char *exec_bin)
     MenuCache *mc;
     guint32 flags;
     GSList *apps, *l;
-    size_t len = strlen(exec_bin);
+    size_t len;
     const char *exec, *short_exec;
     char *str_path;
     FmPath *path;
@@ -245,25 +245,41 @@ static FmFileInfo *f_find_menu_launchbutton_recursive(const char *exec_bin)
     /* FIXME: cache it in Task object */
     mc = panel_menu_cache_new(&flags);
     apps = menu_cache_list_all_apps(mc);
-    /* try exact match first */
+    short_exec = strrchr(exec_bin, '/');
+    if (short_exec != NULL)
+        short_exec++;
+    else
+        short_exec = exec_bin;
+    len = strlen(short_exec);
+    /* the same executable may be used in numerous applications so wild guess
+       estimation check for desktop id equal to short_exec+".desktop" first */
     for (l = apps; l; l = l->next)
     {
-        exec = menu_cache_app_get_exec(MENU_CACHE_APP(l->data));
-        /* we don't check flags here because user always can manually
-           start any app that isn't visible in the desktop menu */
-        if (strncmp(exec, exec_bin, len) == 0 && (exec[len] == ' ' || exec[len] == 0))
+        exec = menu_cache_item_get_id(MENU_CACHE_ITEM(l->data));
+         /* we don't check flags here because user always can manually
+            start any app that isn't visible in the desktop menu */
+        if (strncmp(exec, short_exec, len) == 0 && exec[len] == '.')
             break;
     }
-    /* well, not matched, let match to expanded */
-    if (l == NULL && (short_exec = strrchr(exec_bin, '/')) != NULL)
+    /* if not found then check for non-absolute exec name in application
+       since it usually is expanded by application starting functions */
+    if (l == NULL) for (l = apps; l; l = l->next)
     {
-        short_exec++;
-        len = strlen(short_exec);
+        exec = menu_cache_app_get_exec(MENU_CACHE_APP(l->data));
+        if (exec[0] != '/' && strncmp(exec, short_exec, len) == 0 &&
+            (exec[len] == ' ' || exec[len] == 0))
+            break;
+    }
+    /* well, not matched, let try full path, we assume here if application
+       starts executable by full path then process cannot have short name */
+    if (l == NULL && exec_bin[0] == '/')
+    {
+        len = strlen(exec_bin);
         for (l = apps; l; l = l->next)
         {
             exec = menu_cache_app_get_exec(MENU_CACHE_APP(l->data));
-            if (exec[0] != '/' && strncmp(exec, short_exec, len) == 0
-                && (exec[len] == ' ' || exec[len] == 0))
+            if (exec[0] == '/' && strncmp(exec, exec_bin, len) == 0 &&
+                (exec[len] == ' ' || exec[len] == 0))
                 break;
         }
     }
