@@ -235,7 +235,7 @@ static FmFileInfo *f_find_menu_launchbutton_recursive(const char *exec_bin)
     guint32 flags;
     GSList *apps, *l;
     size_t len = strlen(exec_bin);
-    const char *exec;
+    const char *exec, *short_exec;
     char *str_path;
     FmPath *path;
     FmFileInfoJob *job;
@@ -244,6 +244,7 @@ static FmFileInfo *f_find_menu_launchbutton_recursive(const char *exec_bin)
     /* FIXME: cache it in Task object */
     mc = panel_menu_cache_new(&flags);
     apps = menu_cache_list_all_apps(mc);
+    /* try exact match first */
     for (l = apps; l; l = l->next)
     {
         exec = menu_cache_app_get_exec(MENU_CACHE_APP(l->data));
@@ -251,6 +252,19 @@ static FmFileInfo *f_find_menu_launchbutton_recursive(const char *exec_bin)
            start any app that isn't visible in the desktop menu */
         if (strncmp(exec, exec_bin, len) == 0 && (exec[len] == ' ' || exec[len] == 0))
             break;
+    }
+    /* well, not matched, let match to expanded */
+    if (l == NULL && (short_exec = strrchr(exec_bin, '/')) != NULL)
+    {
+        short_exec++;
+        len = strlen(short_exec);
+        for (l = apps; l; l = l->next)
+        {
+            exec = menu_cache_app_get_exec(MENU_CACHE_APP(l->data));
+            if (exec[0] != '/' && strncmp(exec, short_exec, len) == 0
+                && (exec[len] == ' ' || exec[len] == 0))
+                break;
+        }
     }
     if (l)
     {
