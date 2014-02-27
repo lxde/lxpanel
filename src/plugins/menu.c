@@ -482,7 +482,20 @@ static int load_menu(menup* m, MenuCacheDir* dir, GtkWidget* menu, int pos )
     /* number of visible entries */
     gint count = 0;		
 #if MENU_CACHE_CHECK_VERSION(0, 4, 0)
-    GSList *children = menu_cache_dir_list_children(dir);
+    GSList *children;
+#if MENU_CACHE_CHECK_VERSION(0, 5, 0)
+    char *kfpath = menu_cache_item_get_file_path(MENU_CACHE_ITEM(dir));
+    GKeyFile *kf = g_key_file_new();
+    /* for version 0.5.0 we enable hidden so should test NoDisplay flag */
+    if (kfpath && g_key_file_load_from_file(kf, kfpath, 0, NULL) &&
+        g_key_file_get_boolean(kf, "Desktop Entry", "NoDisplay", NULL))
+        count = -1;
+    g_free(kfpath);
+    g_key_file_free(kf);
+    if (count < 0) /* directory is hidden, ignore children */
+        return 0;
+#endif
+    children = menu_cache_dir_list_children(dir);
     for (l = children; l; l = l->next)
 #else
     for( l = menu_cache_dir_get_children(dir); l; l = l->next )
