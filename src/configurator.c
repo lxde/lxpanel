@@ -1534,8 +1534,12 @@ void load_global_config()
         logout_cmd = g_key_file_get_string( kf, command_group, "Logout", NULL );
         /* check for terminal setting on upgrade */
         if (fm_config->terminal == NULL)
+        {
             fm_config->terminal = g_key_file_get_string(kf, command_group,
                                                         "Terminal", NULL);
+            if (fm_config->terminal != NULL) /* setting changed, save it */
+                fm_config_save(fm_config, NULL);
+        }
         /* this is heavy but fortunately it will be ran only once: on upgrade */
         fm = g_key_file_get_string(kf, command_group, "FileManager", NULL);
         if (fm)
