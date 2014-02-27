@@ -256,8 +256,8 @@ static FmFileInfo *f_find_menu_launchbutton_recursive(const char *exec_bin)
     for (l = apps; l; l = l->next)
     {
         exec = menu_cache_item_get_id(MENU_CACHE_ITEM(l->data));
-         /* we don't check flags here because user always can manually
-            start any app that isn't visible in the desktop menu */
+        /* we don't check flags here because user always can manually
+           start any app that isn't visible in the desktop menu */
         if (strncmp(exec, short_exec, len) == 0 && exec[len] == '.')
             break;
     }
@@ -299,6 +299,7 @@ static FmFileInfo *f_find_menu_launchbutton_recursive(const char *exec_bin)
     }
     g_slist_foreach(apps, (GFunc)menu_cache_item_unref, NULL);
     g_slist_free(apps);
+    menu_cache_unref(mc);
     g_debug("f_find_menu_launchbutton_recursive: search '%s' found=%d", exec_bin, (fi != NULL));
     return fi;
 }
@@ -442,6 +443,8 @@ static void launchbar_update_after_taskbar_class_added(LaunchTaskBarPlugin *ltbp
         LaunchButton *btn = launchbar_exec_bin_exists(ltbp, fi);
         g_print("\nTB '%s' OPEN (pid=%u), in LB: %c\n",
             tk->exec_bin, pid, btn != NULL ? 'Y':'N');
+        if (fi)
+            fm_file_info_unref(fi);
     }
 #endif
 }
@@ -454,6 +457,8 @@ static void launchbar_update_after_taskbar_class_removed(LaunchTaskBarPlugin *lt
         FmFileInfo *fi = f_find_menu_launchbutton_recursive(tk->exec_bin);
         LaunchButton *btn = launchbar_exec_bin_exists(ltbp, fi);
         g_print("\nTB '%s' CLOSE, in LB: %c\n", tk->exec_bin, btn != NULL ? 'Y':'N');
+        if (fi)
+            fm_file_info_unref(fi);
     }
 #endif
 }
