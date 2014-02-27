@@ -219,10 +219,31 @@ _skip_all:
                 else
                     g_warning("config: duplicate setting '%s' conflicts, ignored", name);
             }
+            else if (c[0] == '"')
+            {
+                char *p;
+                c++;
+                for (end = p = c; *p && *p != '\n' && *p != '"'; p++, end++)
+                {
+                    if (*p == '\\' && p[1] != '\0' && p[1] != '\n')
+                    {
+                        p++; /* skip quoted char */
+                        if (*p == 'n') /* \n */
+                            *p = '\n';
+                    }
+                    if (p != end)
+                        *end = *p; /* move char skipping '\\' */
+                }
+                if (*end == '"')
+                    goto _make_string;
+                else /* incomplete string */
+                    g_warning("config: unfinished string setting '%s', ignored", name);
+            }
             else
             {
                 for (end = c; *end && *end != '\n'; )
                     end++;
+_make_string:
                 s = _config_setting_try_add(parent, name, PANEL_CONF_TYPE_STRING);
                 if (s)
                 {
