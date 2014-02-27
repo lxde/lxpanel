@@ -116,6 +116,31 @@ static void _config_setting_t_remove(config_setting_t *setting)
     _config_setting_t_free(setting);
 }
 
+static config_setting_t * _config_setting_get_member(const config_setting_t * setting, const char * name)
+{
+    config_setting_t *s;
+    for (s = setting->first; s; s = s->next)
+        if (g_strcmp0(s->name, name) == 0)
+            break;
+    return s;
+}
+
+/* returns either new or existing setting struct, NULL on error or conflict */
+static config_setting_t * _config_setting_try_add(config_setting_t * parent,
+                                                  const char * name,
+                                                  PanelConfType type)
+{
+    config_setting_t *s;
+    if (parent == NULL)
+        return NULL;
+    if (name[0] == '\0')
+        return NULL;
+    if (parent->type == PANEL_CONF_TYPE_GROUP &&
+        (s = _config_setting_get_member(parent, name)))
+        return (s->type == type) ? s : NULL;
+    return _config_setting_t_new(parent, -1, name, type);
+}
+
 PanelConf *config_new(void)
 {
     PanelConf *c = g_slice_new(PanelConf);
@@ -185,7 +210,7 @@ _skip_all:
                 end++; /* skip trailing spaces */
             if (*end == '\0' || *end == '\n')
             {
-                s = config_setting_add(parent, name, PANEL_CONF_TYPE_INT);
+                s = _config_setting_try_add(parent, name, PANEL_CONF_TYPE_INT);
                 if (s)
                 {
                     s->num = (int)size;
@@ -198,7 +223,7 @@ _skip_all:
             {
                 for (end = c; *end && *end != '\n'; )
                     end++;
-                s = config_setting_add(parent, name, PANEL_CONF_TYPE_STRING);
+                s = _config_setting_try_add(parent, name, PANEL_CONF_TYPE_STRING);
                 if (s)
                 {
                     g_free(s->str);
@@ -347,15 +372,6 @@ config_setting_t * config_root_setting(const PanelConf * config)
     return config->root;
 }
 
-static inline config_setting_t * _config_setting_get_member(const config_setting_t * setting, const char * name)
-{
-    config_setting_t *s;
-    for (s = setting->first; s; s = s->next)
-        if (g_strcmp0(s->name, name) == 0)
-            break;
-    return s;
-}
-
 config_setting_t * config_setting_get_member(const config_setting_t * setting, const char * name)
 {
     g_return_val_if_fail(name && setting, NULL);
@@ -425,7 +441,8 @@ gboolean config_setting_lookup_string(const config_setting_t * setting,
     return TRUE;
 }
 
-/* returns either new or existing setting struct, NULL on error */
+/* returns either new or existing setting struct, NULL on args error,
+   removes old setting on conflict */
 config_setting_t * config_setting_add(config_setting_t * parent, const char * name, PanelConfType type)
 {
     config_setting_t *s;
@@ -442,7 +459,11 @@ config_setting_t * config_setting_add(config_setting_t * parent, const char * na
         return NULL;
     if (parent->type == PANEL_CONF_TYPE_GROUP &&
         (s = _config_setting_get_member(parent, name)))
-        return (s->type == type) ? s : NULL;
+    {
+        if (s->type == type)
+            return s;
+        _config_setting_t_remove(s);
+    }
     return _config_setting_t_new(parent, -1, name, type);
 }
 
