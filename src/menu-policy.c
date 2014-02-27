@@ -30,7 +30,12 @@ MenuCache * panel_menu_cache_new(guint32* visibility_flags)
     MenuCache* cache;
     if (g_getenv("XDG_MENU_PREFIX") == NULL)
         g_setenv("XDG_MENU_PREFIX", "lxde-", TRUE);
+#if MENU_CACHE_CHECK_VERSION(0, 5, 0)
+    /* do it the same way menu:// VFS plugin in libfm does */
+    cache = menu_cache_lookup("applications.menu+hidden");
+#else
     cache = menu_cache_lookup("applications.menu");
+#endif
     if(visibility_flags)
     {
         if(is_in_lxde)
