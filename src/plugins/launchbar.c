@@ -327,21 +327,21 @@ static gboolean launchbutton_constructor(LaunchbarPlugin * lb, config_setting_t 
         return FALSE;
 
     /* Build the structures and return. */
-    if (str[0] == '/')
-    {
-        path = fm_path_new_for_str(str);
-        btn = launchbutton_build_gui(lb, path);
-    }
-    else if (str[0] == '~')
+    if (str[0] == '~')
     {
         str_path = expand_tilda(str);
-        path = fm_path_new_for_str(str_path);
+        path = fm_path_new_for_path(str_path);
+        btn = launchbutton_build_gui(lb, path);
+    }
+    else if (strchr(str, '/'))
+    {
+        path = fm_path_new_for_str(str);
         btn = launchbutton_build_gui(lb, path);
     }
     else
     {
         str_path = g_strdup_printf("search://menu://applications/?recursive=1&show_hidden=1&name=%s", str);
-        path = fm_path_new_for_str(str_path);
+        path = fm_path_new_for_uri(str_path);
         btn = launchbutton_search_and_build_gui(lb, path);
     }
     g_free(str_path);
