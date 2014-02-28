@@ -20,7 +20,7 @@ lxpanel_CFLAGS = \
 BUILTIN_PLUGINS = $(top_builddir)/src/plugins/libbuiltin_plugins.a
 
 if ENABLE_MENU_CACHE
-MENU_SOURCES = gtk-run.c
+MENU_SOURCES = gtk-run.c menu-policy.h menu-policy.c
 endif
 
 lxpanel_SOURCES = \
@@ -31,7 +31,6 @@ lxpanel_SOURCES = \
 	ev.c ev.h \
 	gtkbar.h gtkbar.c \
 	icon-grid.c \
-	menu-policy.h menu-policy.c \
 	panel.c \
 	plugin.c \
 	private.h \

@@ -42,8 +42,7 @@ fi
 pkg_modules="$pkg_modules \
              gio-unix-2.0 \
              gthread-2.0 \
-             gmodule-2.0 \
-             libmenu-cache"
+             gmodule-2.0"
 PKG_CHECK_MODULES(PACKAGE, [$pkg_modules])
 AC_SUBST(PACKAGE_CFLAGS)
 AC_SUBST(PACKAGE_LIBS)
