@@ -164,6 +164,7 @@ struct LaunchTaskBarPlugin {
     GtkWidget * plugin;                 /* Back pointer to Plugin */
     Panel * panel;                      /* Back pointer to panel */
     config_setting_t * settings;
+    GdkScreen       *screen;
     GtkWidget       *p_evbox_launchbar;
     GtkWidget       *p_evbox_taskbar;
     GtkWidget       *config_dlg;        /* Configuration dialog */
@@ -196,7 +197,7 @@ static gchar *launchtaskbar_rc = "style 'launchtaskbar-style'\n"
 static void launchtaskbar_destructor(gpointer user_data);
 
 static void taskbar_redraw(LaunchTaskBarPlugin * tb);
-static void task_delete(LaunchTaskBarPlugin * tb, Task * tk, gboolean unlink);
+static void task_delete(LaunchTaskBarPlugin * tb, Task * tk, gboolean unlink, gboolean remove);
 static GdkPixbuf * task_update_icon(LaunchTaskBarPlugin * tb, Task * tk, Atom source);
 static void flash_window_update(Task * tk);
 static gboolean flash_window_timeout(gpointer tk);
@@ -761,7 +762,7 @@ static void launchtaskbar_constructor_task(LaunchTaskBarPlugin *ltbp)
         taskbar_make_menu(ltbp);
 
         /* Connect a signal to be notified when the window manager changes.  This causes re-evaluation of the "use_net_active" status. */
-        g_signal_connect(gtk_widget_get_screen(ltbp->p_evbox_taskbar), "window-manager-changed", G_CALLBACK(taskbar_window_manager_changed), ltbp);
+        g_signal_connect(ltbp->screen, "window-manager-changed", G_CALLBACK(taskbar_window_manager_changed), ltbp);
 
         /* Fetch the client list and redraw the taskbar.  Then determine what window has focus. */
         taskbar_net_client_list(NULL, ltbp);
@@ -785,6 +786,7 @@ static GtkWidget *launchtaskbar_constructor(Panel *panel, config_setting_t *sett
     ltbp = g_new0(LaunchTaskBarPlugin, 1);
     ltbp->panel = panel;
     ltbp->settings = settings;
+    ltbp->screen = gtk_widget_get_screen((GtkWidget*)panel_get_toplevel_window(panel));
 
     /* Initialize to defaults. */
     ltbp->icon_size         = panel_get_icon_size(panel);
@@ -880,11 +882,11 @@ static void launchtaskbar_destructor_task(LaunchTaskBarPlugin *ltbp)
     g_signal_handlers_disconnect_by_func(fbev, taskbar_net_client_list, ltbp);
 
     /* Remove "window-manager-changed" handler. */
-    g_signal_handlers_disconnect_by_func(gtk_widget_get_screen(ltbp->p_evbox_taskbar), taskbar_window_manager_changed, ltbp);
+    g_signal_handlers_disconnect_by_func(ltbp->screen, taskbar_window_manager_changed, ltbp);
 
     /* Deallocate task list. */
     while(ltbp->p_task_list != NULL)
-        task_delete(ltbp, ltbp->p_task_list, TRUE);
+        task_delete(ltbp, ltbp->p_task_list, TRUE, FALSE);
 
     /* Deallocate class list. */
     while(ltbp->p_taskclass_list != NULL)
@@ -1863,7 +1865,7 @@ static Task * task_lookup(LaunchTaskBarPlugin * tb, Window win)
 }
 
 /* Delete a task and optionally unlink it from the task list. */
-static void task_delete(LaunchTaskBarPlugin * tb, Task * tk, gboolean unlink)
+static void task_delete(LaunchTaskBarPlugin * tb, Task * tk, gboolean unlink, gboolean remove)
 {
     /* If we think this task had focus, remove that. */
     if (tb->focused == tk)
@@ -1876,10 +1878,13 @@ static void task_delete(LaunchTaskBarPlugin * tb, Task * tk, gboolean unlink)
     }
 
     /* Deallocate structures. */
-    icon_grid_remove(tb->tb_icon_grid, tk->button);
+    if (remove)
+    {
+        icon_grid_remove(tb->tb_icon_grid, tk->button);
+        task_unlink_class(tk);
+    }
     task_free_names(tk);
     g_free(tk->exec_bin);
-    task_unlink_class(tk);
 
     /* If requested, unlink the task from the task list.
      * If not requested, the caller will do this. */
@@ -2334,7 +2339,7 @@ static void task_raise_window(Task * tk, guint32 time)
     {
         LaunchTaskBarPlugin * tb = tk->tb;
         GdkAtom net_active_atom = gdk_x11_xatom_to_atom(a_NET_ACTIVE_WINDOW);
-        tb->use_net_active = gdk_x11_screen_supports_net_wm_hint(gtk_widget_get_screen(tb->plugin), net_active_atom);
+        tb->use_net_active = gdk_x11_screen_supports_net_wm_hint(tb->screen, net_active_atom);
         tb->net_active_checked = TRUE;
     }
 
@@ -2862,7 +2867,7 @@ static void taskbar_net_client_list(GtkWidget * widget, LaunchTaskBarPlugin * tb
             if (tk_pred == NULL)
                 tb->p_task_list = tk_succ;
                 else tk_pred->p_task_flink_xwid = tk_succ;
-            task_delete(tb, tk, FALSE);
+            task_delete(tb, tk, FALSE, TRUE);
         }
         tk = tk_succ;
     }
@@ -3053,7 +3058,7 @@ static void taskbar_property_notify_event(LaunchTaskBarPlugin *tb, XEvent *ev)
                     get_net_wm_state(tk->win, &nws);
                     if ( ! accept_net_wm_state(&nws))
                     {
-                        task_delete(tb, tk, TRUE);
+                        task_delete(tb, tk, TRUE, TRUE);
                         taskbar_redraw(tb);
                     }
                 }
@@ -3074,7 +3079,7 @@ static void taskbar_property_notify_event(LaunchTaskBarPlugin *tb, XEvent *ev)
                     get_net_wm_window_type(tk->win, &nwwt);
                     if ( ! accept_net_wm_window_type(&nwwt))
                     {
-                        task_delete(tb, tk, TRUE);
+                        task_delete(tb, tk, TRUE, TRUE);
                         taskbar_redraw(tb);
                     }
                 }
