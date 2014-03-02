@@ -246,7 +246,7 @@ static gint get_critical(thermal *th)
     return min;
 }
 
-static gint
+static void
 update_display(thermal *th)
 {
     char buffer [60];
@@ -255,8 +255,6 @@ update_display(thermal *th)
     GdkColor color;
     gchar *separator;
 
-    if (g_source_is_destroyed(g_main_current_source()))
-        return FALSE;
     temp = get_temperature(th);
     if(temp >= th->warning2)
         color = th->cl_warning2;
@@ -286,6 +284,13 @@ update_display(thermal *th)
     RET(TRUE);
 }
 
+static gboolean update_display_timeout(gpointer user_data)
+{
+    if (g_source_is_destroyed(g_main_current_source()))
+        return FALSE;
+    update_display(user_data);
+    return TRUE; /* repeat later */
+}
 
 static int
 add_sensor(thermal* th, char const* sensor_path)
@@ -459,7 +464,7 @@ thermal_constructor(Plugin *p, char** fp)
     gtk_widget_show(th->namew);
 
     update_display(th);
-    th->timer = g_timeout_add_seconds(3, (GSourceFunc) update_display, (gpointer)th);
+    th->timer = g_timeout_add_seconds(3, (GSourceFunc) update_display_timeout, (gpointer)th);
 
     RET(TRUE);
 
