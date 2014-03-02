@@ -838,6 +838,13 @@ static GtkWidget *launchtaskbar_constructor(Panel *panel, config_setting_t *sett
     if(ltbp->lb_on) launchtaskbar_constructor_launch(ltbp, TRUE/*build_bootstrap*/);
     if(ltbp->tb_on) launchtaskbar_constructor_task(ltbp);
 
+    if (!ltbp->lb_on)
+        gtk_widget_set_name(p, "taskbar");
+    else if (!ltbp->tb_on)
+        gtk_widget_set_name(p, "launchbar");
+    else
+        gtk_widget_set_name(p, "launchtaskbar");
+
     return p;
 }
 
@@ -1118,6 +1125,7 @@ static void  on_radiobutton_launch_toggled(GtkToggleButton *p_togglebutton, gpoi
     gtk_widget_set_visible(ltbp->p_notebook_page_task, FALSE);
 
     plugin_set_expand_status(ltbp, FALSE);
+    gtk_widget_set_name(ltbp->plugin, "launchbar");
 }
 
 static void  on_radiobutton_task_toggled(GtkToggleButton *p_togglebutton, gpointer p_data)
@@ -1141,6 +1149,7 @@ static void  on_radiobutton_task_toggled(GtkToggleButton *p_togglebutton, gpoint
     gtk_widget_set_visible(ltbp->p_notebook_page_task, TRUE);
 
     plugin_set_expand_status(ltbp, TRUE);
+    gtk_widget_set_name(ltbp->plugin, "taskbar");
 }
 
 static void  on_radiobutton_launchtask_toggled(GtkToggleButton *p_togglebutton, gpointer p_data)
@@ -1164,6 +1173,7 @@ static void  on_radiobutton_launchtask_toggled(GtkToggleButton *p_togglebutton, 
     gtk_widget_set_visible(ltbp->p_notebook_page_task, TRUE);
 
     plugin_set_expand_status(ltbp, TRUE);
+    gtk_widget_set_name(ltbp->plugin, "launchtaskbar");
 }
 
 static void on_checkbutton_show_tooltips_toggled(GtkToggleButton *p_togglebutton, gpointer p_data)
@@ -1435,9 +1445,10 @@ static void launchtaskbar_panel_configuration_changed(Panel *panel, GtkWidget *p
     LaunchTaskBarPlugin *ltbp = lxpanel_plugin_get_data(p);
     int new_icon_size = panel_get_icon_size(panel);
 
-    icon_grid_set_geometry(ltbp->lb_icon_grid, panel_get_orientation(panel),
-                           new_icon_size, new_icon_size, 3, 0,
-                           panel_get_height(panel));
+    if (ltbp->lb_built)
+        icon_grid_set_geometry(ltbp->lb_icon_grid, panel_get_orientation(panel),
+                               new_icon_size, new_icon_size, 3, 0,
+                               panel_get_height(panel));
 
     /* Reset the bootstrap button. */
     if (ltbp->bootstrap_button != NULL)
@@ -1447,8 +1458,11 @@ static void launchtaskbar_panel_configuration_changed(Panel *panel, GtkWidget *p
         g_object_unref(icon);
     }
 
-    taskbar_update_style(ltbp);
-    taskbar_make_menu(ltbp);
+    if (ltbp->tb_built)
+    {
+        taskbar_update_style(ltbp);
+        taskbar_make_menu(ltbp);
+    }
 
     /* If the icon size changed, refetch all the icons. */
     if (new_icon_size != ltbp->icon_size)
@@ -1475,7 +1489,8 @@ static void launchtaskbar_panel_configuration_changed(Panel *panel, GtkWidget *p
     }
 
     /* Redraw all the labels.  Icon size or font color may have changed. */
-    taskbar_redraw(ltbp);
+    if (ltbp->tb_built)
+        taskbar_redraw(ltbp);
 }
 
 /* Set an urgency timer on a task. */
@@ -1583,7 +1598,7 @@ static void task_draw_label(Task * tk)
     TaskClass * tc = tk->p_taskclass;
     gboolean bold_style = (((tk->entered_state) || (tk->flash_state)) && (tk->tb->flat_button));
     char *label;
-    
+
     if ((tk->tb->grouped_tasks) && (tc != NULL) && (tc->p_task_visible == tk) && (tc->visible_count > 1))
     {
         label = g_strdup_printf("(%d) %s", tc->visible_count, tc->visible_name);
@@ -1592,7 +1607,7 @@ static void task_draw_label(Task * tk)
     {
         label = g_strdup(tk->iconified ? tk->name_iconified : tk->name);
     }
-    
+
     if (tk->tb->tooltips)
         gtk_widget_set_tooltip_text(tk->button, label);
 
@@ -1713,7 +1728,7 @@ static void task_unlink_class(Task * tk)
     {
         /* Action in Launchbar after class removed */
         launchbar_update_after_taskbar_class_removed(tk->tb, tk);
-        
+
         /* Remove from per-class task list. */
         if (tc->p_task_head == tk)
         {
@@ -1822,7 +1837,7 @@ static void task_set_class(Task * tk)
 
                 /* Recompute group visibility. */
                 recompute_group_visibility_for_class(tk->tb, tc);
-                
+
                 /* Action in Launchbar after class added */
                 launchbar_update_after_taskbar_class_added(tk->tb, tk);
             }
@@ -2175,7 +2190,7 @@ static GdkPixbuf * get_wm_icon(Window task_win, guint required_width, guint requ
         }
 
         /* If we have an X pixmap and its geometry, convert it to a GDK pixmap. */
-        if (result == Success) 
+        if (result == Success)
         {
             pixmap = _wnck_gdk_pixbuf_get_from_pixmap(xpixmap, w, h);
             result = ((pixmap != NULL) ? Success : -1);
@@ -2743,7 +2758,7 @@ static void taskbar_net_client_list(GtkWidget * widget, LaunchTaskBarPlugin * tb
 {
     LaunchTaskBarPlugin *ltbp = tb;
     if(!ltbp->tb_on) return;
-    
+
     /* Get the NET_CLIENT_LIST property. */
     int client_count;
     Window * client_list = get_xaproperty(GDK_ROOT_WINDOW(), a_NET_CLIENT_LIST, XA_WINDOW, &client_count);
@@ -2847,7 +2862,7 @@ static void taskbar_net_current_desktop(GtkWidget * widget, LaunchTaskBarPlugin 
 {
     LaunchTaskBarPlugin *ltbp = tb;
     if(!ltbp->tb_on) return;
-    
+
     /* Store the local copy of current desktops.  Redisplay the taskbar. */
     tb->current_desktop = get_net_current_desktop();
     recompute_group_visibility_on_current_desktop(tb);
@@ -2859,7 +2874,7 @@ static void taskbar_net_number_of_desktops(GtkWidget * widget, LaunchTaskBarPlug
 {
     LaunchTaskBarPlugin *ltbp = tb;
     if(!ltbp->tb_on) return;
-    
+
     /* Store the local copy of number of desktops.  Recompute the popup menu and redisplay the taskbar. */
     tb->number_of_desktops = get_net_number_of_desktops();
     taskbar_make_menu(tb);
@@ -2871,7 +2886,7 @@ static void taskbar_net_active_window(GtkWidget * widget, LaunchTaskBarPlugin * 
 {
     LaunchTaskBarPlugin *ltbp = tb;
     if(!ltbp->tb_on) return;
-    
+
     gboolean drop_old = FALSE;
     gboolean make_new = FALSE;
     Task * ctk = tb->focused;
@@ -3087,7 +3102,7 @@ static GdkFilterReturn taskbar_event_filter(XEvent * xev, GdkEvent * event, Laun
 {
     LaunchTaskBarPlugin *ltbp = tb;
     if(!ltbp->tb_on) return GDK_FILTER_CONTINUE;
-    
+
     if (xev->type == PropertyNotify)
         taskbar_property_notify_event(tb, xev);
     else if (xev->type == ConfigureNotify)
