@@ -133,6 +133,7 @@ struct LaunchTaskBarPlugin {
     IconGrid * tb_icon_grid;       /* Manager for taskbar buttons */
     GtkWidget * menu;              /* Popup menu for task control (Close, Raise, etc.) */
     GtkWidget * group_menu;        /* Popup menu for grouping selection */
+    GtkWidget * workspace_menu0;   /* "Workspace 1" menu item */
     GdkPixbuf * fallback_pixbuf;   /* Fallback task icon when none is available */
     int number_of_desktops;        /* Number of desktops, from NET_WM_NUMBER_OF_DESKTOPS */
     int current_desktop;           /* Current desktop, from NET_WM_CURRENT_DESKTOP */
@@ -158,6 +159,7 @@ struct LaunchTaskBarPlugin {
     GtkWidget       *p_menuitem_lock_tbp;
     GtkWidget       *p_menuitem_unlock_tbp;
     GtkWidget       *p_menuitem_new_instance;
+    GtkWidget       *p_menuitem_separator;
 #endif
     GtkWidget * plugin;                 /* Back pointer to Plugin */
     Panel * panel;                      /* Back pointer to panel */
@@ -2508,6 +2510,7 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
                     gtk_widget_set_visible(ltbp->p_menuitem_unlock_tbp, FALSE);
                     gtk_widget_set_visible(ltbp->p_menuitem_new_instance, fi != NULL);
                 }
+                gtk_widget_set_visible(ltbp->p_menuitem_separator, TRUE);
                 if (fi)
                     fm_file_info_unref(fi);
             }
@@ -2516,8 +2519,19 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
                 gtk_widget_set_visible(ltbp->p_menuitem_lock_tbp, FALSE);
                 gtk_widget_set_visible(ltbp->p_menuitem_unlock_tbp, FALSE);
                 gtk_widget_set_visible(ltbp->p_menuitem_new_instance, FALSE);
+                gtk_widget_set_visible(ltbp->p_menuitem_separator, FALSE);
             }
 #endif
+            if (tb->workspace_menu0)
+            {
+                GList *items = gtk_container_get_children(GTK_CONTAINER(gtk_widget_get_parent(tb->workspace_menu0)));
+                GList *item = g_list_find(items, tb->workspace_menu0);
+                int i;
+                if (item != NULL) /* else error */
+                    for (i = 0; i < tb->number_of_desktops; i++, item = item->next)
+                        gtk_widget_set_sensitive(item->data, i != tk->desktop);
+                g_list_free(items);
+            }
             gtk_menu_popup(
                 GTK_MENU(tb->menu),
                 NULL, NULL,
@@ -3267,6 +3281,8 @@ static void taskbar_make_menu(LaunchTaskBarPlugin * tb)
             g_object_set_data(G_OBJECT(mi), "num", GINT_TO_POINTER(i - 1));
             g_signal_connect(mi, "activate", G_CALLBACK(menu_move_to_workspace), tb);
             gtk_menu_shell_append(GTK_MENU_SHELL(workspace_menu), mi);
+            if (G_UNLIKELY(tb->workspace_menu0 == NULL))
+                tb->workspace_menu0 = mi;
         }
 
         /* Add a separator. */
@@ -3290,6 +3306,7 @@ static void taskbar_make_menu(LaunchTaskBarPlugin * tb)
     tb->p_menuitem_lock_tbp = gtk_menu_item_new_with_mnemonic(_("A_dd to Launcher"));
     tb->p_menuitem_unlock_tbp = gtk_menu_item_new_with_mnemonic(_("Rem_ove from Launcher"));
     tb->p_menuitem_new_instance = gtk_menu_item_new_with_mnemonic(_("_New Instance"));
+    tb->p_menuitem_separator = gtk_separator_menu_item_new();
 #endif
 
     if (panel_is_at_bottom(tb->panel))
@@ -3298,7 +3315,7 @@ static void taskbar_make_menu(LaunchTaskBarPlugin * tb)
         _m_add = gtk_menu_shell_prepend;
 
 #ifndef DISABLE_MENU
-    _m_add(GTK_MENU_SHELL(menu), gtk_separator_menu_item_new());
+    _m_add(GTK_MENU_SHELL(menu), tb->p_menuitem_separator);
     _m_add(GTK_MENU_SHELL(menu), tb->p_menuitem_lock_tbp);
     _m_add(GTK_MENU_SHELL(menu), tb->p_menuitem_unlock_tbp);
     _m_add(GTK_MENU_SHELL(menu), tb->p_menuitem_new_instance);
