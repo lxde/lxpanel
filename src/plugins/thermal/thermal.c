@@ -263,7 +263,6 @@ update_display(thermal *th)
     else
         color = th->cl_normal;
 
-    ENTER;
     if(temp == -1)
         panel_draw_label_text(th->plugin->panel, th->namew, "NA", TRUE, 1, TRUE);
     else
@@ -280,8 +279,6 @@ update_display(thermal *th)
         separator = "\n";
     }
     gtk_widget_set_tooltip_text(th->namew, th->tip->str);
-
-    RET(TRUE);
 }
 
 static gboolean update_display_timeout(gpointer user_data)

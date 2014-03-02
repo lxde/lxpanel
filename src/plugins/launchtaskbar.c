@@ -196,7 +196,8 @@ static void launchtaskbar_destructor(gpointer user_data);
 static void taskbar_redraw(LaunchTaskBarPlugin * tb);
 static void task_delete(LaunchTaskBarPlugin * tb, Task * tk, gboolean unlink);
 static GdkPixbuf * task_update_icon(LaunchTaskBarPlugin * tb, Task * tk, Atom source);
-static gboolean flash_window_timeout(Task * tk);
+static void flash_window_update(Task * tk);
+static gboolean flash_window_timeout(gpointer tk);
 static void task_group_menu_destroy(LaunchTaskBarPlugin * tb);
 static gboolean taskbar_popup_activate_event(GtkWidget * widget, GdkEventButton * event, Task * tk);
 static void taskbar_update_style(LaunchTaskBarPlugin * tb);
@@ -1483,7 +1484,7 @@ static void set_timer_on_task(Task * tk)
     gint interval;
     g_return_if_fail(tk->flash_timeout == 0);
     g_object_get(gtk_widget_get_settings(tk->button), "gtk-cursor-blink-time", &interval, NULL);
-    tk->flash_timeout = g_timeout_add(interval, (GSourceFunc) flash_window_timeout, tk);
+    tk->flash_timeout = g_timeout_add(interval, flash_window_timeout, tk);
 }
 
 /* Determine if a task is visible considering only its desktop placement. */
@@ -1538,7 +1539,7 @@ static void recompute_group_visibility_for_class(LaunchTaskBarPlugin * tb, TaskC
         {
             /* Set the flashing context and flash the window immediately. */
             tc->p_task_visible->flash_state = TRUE;
-            flash_window_timeout(tc->p_task_visible);
+            flash_window_update(tc->p_task_visible);
 
             /* Set the timer, since none is set. */
             set_timer_on_task(tc->p_task_visible);
@@ -1552,7 +1553,7 @@ static void recompute_group_visibility_for_class(LaunchTaskBarPlugin * tb, TaskC
             tc->p_task_visible->flash_state = flashing_task->flash_state;
             flashing_task->flash_state = FALSE;
             set_timer_on_task(tc->p_task_visible);
-        }   
+        }
     }
     else
     {
@@ -2241,7 +2242,7 @@ static GdkPixbuf * task_update_icon(LaunchTaskBarPlugin * tb, Task * tk, Atom so
 }
 
 /* Timer expiration for urgency notification.  Also used to draw the button in setting and clearing urgency. */
-static gboolean flash_window_timeout(Task * tk)
+static void flash_window_update(Task * tk)
 {
     /* Set state on the button and redraw. */
     if ( ! tk->tb->flat_button)
@@ -2250,6 +2251,13 @@ static gboolean flash_window_timeout(Task * tk)
 
     /* Complement the flashing context. */
     tk->flash_state = ! tk->flash_state;
+}
+
+static gboolean flash_window_timeout(gpointer tk)
+{
+    if (g_source_is_destroyed(g_main_current_source()))
+        return FALSE;
+    flash_window_update(tk);
     return TRUE;
 }
 
@@ -2264,7 +2272,7 @@ static void task_set_urgency(Task * tk)
     {
         /* Set the flashing context and flash the window immediately. */
         tk->flash_state = TRUE;
-        flash_window_timeout(tk);
+        flash_window_update(tk);
 
         /* Set the timer if none is set. */
         if (tk->flash_timeout == 0)
@@ -2290,7 +2298,7 @@ static void task_clear_urgency(Task * tk)
 
         /* Clear the flashing context and unflash the window immediately. */
         tk->flash_state = FALSE;
-        flash_window_timeout(tk);
+        flash_window_update(tk);
         tk->flash_state = FALSE;
     }
 }
@@ -2524,7 +2532,10 @@ static gboolean taskbar_popup_activate_event(GtkWidget * widget, GdkEventButton 
 /* Handler for "drag-motion" timeout. */
 static gboolean taskbar_button_drag_motion_timeout(Task * tk)
 {
-    guint time = gtk_get_current_event_time();
+    guint time;
+    if (g_source_is_destroyed(g_main_current_source()))
+        return FALSE;
+    time = gtk_get_current_event_time();
     task_raise_window(tk, ((time != 0) ? time : CurrentTime));
     tk->tb->dnd_delay_timer = 0;
     return FALSE;
