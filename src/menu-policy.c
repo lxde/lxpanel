@@ -22,6 +22,15 @@
 #include "menu-policy.h"
 #include "private.h"
 
+/* support for libmenu-cache 0.4.x */
+#ifndef MENU_CACHE_CHECK_VERSION
+# ifdef HAVE_MENU_CACHE_DIR_LIST_CHILDREN
+#  define MENU_CACHE_CHECK_VERSION(_a,_b,_c) (_a == 0 && _b < 5) /* < 0.5.0 */
+# else
+#  define MENU_CACHE_CHECK_VERSION(_a,_b,_c) 0 /* not even 0.4.0 */
+# endif
+#endif
+
 guint32 visibility_flags = 0;
 
 /* Allocate a menu cache. */
