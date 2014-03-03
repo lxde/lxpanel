@@ -69,6 +69,12 @@ enum {
     N_COLS
 };
 
+typedef enum {
+    LAUNCHBAR = 1,
+    TASKBAR,
+    LAUNCHTASKBAR
+} LtbMode;
+
 typedef struct LaunchTaskBarPlugin LaunchTaskBarPlugin;
 
 /* Structure representing a class.  This comes from WM_CLASS, and should identify windows that come from an application. */
@@ -171,9 +177,8 @@ struct LaunchTaskBarPlugin {
     GtkWidget       *p_notebook_page_launch;
     GtkWidget       *p_notebook_page_task;
     GKeyFile        *p_key_file_special_cases;
-    gboolean         lb_on;
+    int              mode;
     gboolean         lb_built;
-    gboolean         tb_on;
     gboolean         tb_built;
 };
 
@@ -441,7 +446,7 @@ static void launchbar_update_after_taskbar_class_added(LaunchTaskBarPlugin *ltbp
     tk->exec_bin = g_strdup(exec_bin_full);
 
 #ifdef DEBUG_WITH_GPRINTS
-    if(ltbp->lb_on)
+    if(ltbp->mode == LAUNCHTASKBAR)
     {
         FmFileInfo *fi = f_find_menu_launchbutton_recursive(tk->exec_bin);
         LaunchButton *btn = launchbar_exec_bin_exists(ltbp, fi);
@@ -456,7 +461,7 @@ static void launchbar_update_after_taskbar_class_added(LaunchTaskBarPlugin *ltbp
 static void launchbar_update_after_taskbar_class_removed(LaunchTaskBarPlugin *ltbp, Task *tk)
 {
 #ifdef DEBUG_WITH_GPRINTS
-    if(ltbp->lb_on)
+    if(ltbp->mode == LAUNCHTASKBAR)
     {
         FmFileInfo *fi = f_find_menu_launchbutton_recursive(tk->exec_bin);
         LaunchButton *btn = launchbar_exec_bin_exists(ltbp, fi);
@@ -834,20 +839,22 @@ static GtkWidget *launchtaskbar_constructor(Panel *panel, config_setting_t *sett
 #endif
 
     /* Read parameters from the configuration file. */
-    config_setting_lookup_int(settings, "LaunchBarON", &ltbp->lb_on);
-    config_setting_lookup_int(settings, "TaskBarON", &ltbp->tb_on);
-    if (!ltbp->lb_on && !ltbp->tb_on) /* both off is illegal, assume both on */
-        ltbp->lb_on = ltbp->tb_on = TRUE;
-
-    if(ltbp->lb_on) launchtaskbar_constructor_launch(ltbp, TRUE/*build_bootstrap*/);
-    if(ltbp->tb_on) launchtaskbar_constructor_task(ltbp);
-
-    if (!ltbp->lb_on)
-        gtk_widget_set_name(p, "taskbar");
-    else if (!ltbp->tb_on)
+    config_setting_lookup_int(settings, "LaunchTaskBarMode", &ltbp->mode);
+    switch (ltbp->mode) {
+    case LAUNCHBAR:
+        launchtaskbar_constructor_launch(ltbp, TRUE/*build_bootstrap*/);
         gtk_widget_set_name(p, "launchbar");
-    else
+        break;
+    default:
+        ltbp->mode = LAUNCHTASKBAR; /* reset invalid value */
+    case LAUNCHTASKBAR:
+        launchtaskbar_constructor_launch(ltbp, TRUE/*build_bootstrap*/);
         gtk_widget_set_name(p, "launchtaskbar");
+    case TASKBAR:
+        launchtaskbar_constructor_task(ltbp);
+        if (ltbp->mode == TASKBAR)
+            gtk_widget_set_name(p, "taskbar");
+    }
 
     return p;
 }
@@ -1113,18 +1120,19 @@ static void  on_radiobutton_launch_toggled(GtkToggleButton *p_togglebutton, gpoi
     if(!gtk_toggle_button_get_active(p_togglebutton)) return;
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p_data;
 
-    if(!ltbp->lb_on)
-    {
-        ltbp->lb_on = TRUE;
+    switch (ltbp->mode) {
+    case LAUNCHBAR:
+        return;
+    case TASKBAR:
         launchtaskbar_constructor_launch(ltbp, TRUE/*build_bootstrap*/);
-        config_group_set_int(ltbp->settings, "LaunchBarON", 1);
+        break;
+    case LAUNCHTASKBAR:
+        break;
     }
-    if(ltbp->tb_on)
-    {
-        ltbp->tb_on = FALSE;
-        gtk_widget_set_visible(ltbp->p_evbox_taskbar, FALSE);
-        config_group_set_int(ltbp->settings, "TaskBarON", 0);
-    }
+    gtk_widget_set_visible(ltbp->p_evbox_taskbar, FALSE);
+    ltbp->mode = LAUNCHBAR;
+    config_group_set_int(ltbp->settings, "LaunchTaskBarMode", LAUNCHBAR);
+
     gtk_widget_set_visible(ltbp->p_notebook_page_launch, TRUE);
     gtk_widget_set_visible(ltbp->p_notebook_page_task, FALSE);
 
@@ -1137,18 +1145,19 @@ static void  on_radiobutton_task_toggled(GtkToggleButton *p_togglebutton, gpoint
     if(!gtk_toggle_button_get_active(p_togglebutton)) return;
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p_data;
 
-    if(ltbp->lb_on)
-    {
-        ltbp->lb_on = FALSE;
-        gtk_widget_set_visible(ltbp->p_evbox_launchbar, FALSE);
-        config_group_set_int(ltbp->settings, "LaunchBarON", 0);
-    }
-    if(!ltbp->tb_on)
-    {
-        ltbp->tb_on = TRUE;
+    switch (ltbp->mode) {
+    case LAUNCHBAR:
         launchtaskbar_constructor_task(ltbp);
-        config_group_set_int(ltbp->settings, "TaskBarON", 1);
+        break;
+    case TASKBAR:
+        return;
+    case LAUNCHTASKBAR:
+        break;
     }
+    gtk_widget_set_visible(ltbp->p_evbox_launchbar, FALSE);
+    ltbp->mode = TASKBAR;
+    config_group_set_int(ltbp->settings, "LaunchTaskBarMode", TASKBAR);
+
     gtk_widget_set_visible(ltbp->p_notebook_page_launch, FALSE);
     gtk_widget_set_visible(ltbp->p_notebook_page_task, TRUE);
 
@@ -1161,18 +1170,19 @@ static void  on_radiobutton_launchtask_toggled(GtkToggleButton *p_togglebutton, 
     if(!gtk_toggle_button_get_active(p_togglebutton)) return;
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p_data;
 
-    if(!ltbp->lb_on)
-    {
-        ltbp->lb_on = TRUE;
-        launchtaskbar_constructor_launch(ltbp, TRUE/*build_bootstrap*/);
-        config_group_set_int(ltbp->settings, "LaunchBarON", 1);
-    }
-    if(!ltbp->tb_on)
-    {
-        ltbp->tb_on = TRUE;
+    switch (ltbp->mode) {
+    case LAUNCHBAR:
         launchtaskbar_constructor_task(ltbp);
-        config_group_set_int(ltbp->settings, "TaskBarON", 1);
+        break;
+    case TASKBAR:
+        launchtaskbar_constructor_launch(ltbp, TRUE/*build_bootstrap*/);
+        break;
+    case LAUNCHTASKBAR:
+        return;
     }
+    ltbp->mode = LAUNCHTASKBAR;
+    config_group_set_int(ltbp->settings, "LaunchTaskBarMode", LAUNCHTASKBAR);
+
     gtk_widget_set_visible(ltbp->p_notebook_page_launch, TRUE);
     gtk_widget_set_visible(ltbp->p_notebook_page_task, TRUE);
 
@@ -1385,19 +1395,33 @@ static GtkWidget *launchtaskbar_configure(Panel *panel, GtkWidget *p, GtkWindow 
         object = gtk_builder_get_object(builder, "notebook");
         ltbp->p_notebook_page_launch = gtk_notebook_get_nth_page(GTK_NOTEBOOK(object), 0);
         ltbp->p_notebook_page_task = gtk_notebook_get_nth_page(GTK_NOTEBOOK(object), 1);
-        gtk_widget_set_visible(ltbp->p_notebook_page_launch, ltbp->lb_on);
-        gtk_widget_set_visible(ltbp->p_notebook_page_task, ltbp->tb_on);
+        switch (ltbp->mode) {
+        case LAUNCHTASKBAR:
+            gtk_widget_set_visible(ltbp->p_notebook_page_launch, TRUE);
+            gtk_widget_set_visible(ltbp->p_notebook_page_task, TRUE);
+            object = gtk_builder_get_object(builder, "radiobutton_launchtask");
+            break;
+        case TASKBAR:
+            gtk_widget_set_visible(ltbp->p_notebook_page_launch, FALSE);
+            gtk_widget_set_visible(ltbp->p_notebook_page_task, TRUE);
+            object = gtk_builder_get_object(builder, "radiobutton_task");
+            /* FIXME: hide tab labels */
+            break;
+        case LAUNCHBAR:
+            gtk_widget_set_visible(ltbp->p_notebook_page_launch, TRUE);
+            gtk_widget_set_visible(ltbp->p_notebook_page_task, FALSE);
+            object = gtk_builder_get_object(builder, "radiobutton_launch");
+            /* FIXME: hide tab labels */
+        }
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(object), TRUE);
 
         object = gtk_builder_get_object(builder, "radiobutton_launch");
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(object), !ltbp->tb_on);
         g_signal_connect(object, "toggled",
                          G_CALLBACK(on_radiobutton_launch_toggled), ltbp);
         object = gtk_builder_get_object(builder, "radiobutton_task");
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(object), !ltbp->lb_on);
         g_signal_connect(object, "toggled",
                          G_CALLBACK(on_radiobutton_task_toggled), ltbp);
         object = gtk_builder_get_object(builder, "radiobutton_launchtask");
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(object), ltbp->lb_on && ltbp->tb_on);
         g_signal_connect(object, "toggled",
                          G_CALLBACK(on_radiobutton_launchtask_toggled), ltbp);
 
@@ -2495,7 +2519,7 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
             tk->tb->menutask = tk;
 #ifndef DISABLE_MENU
             LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)tk->tb;
-            if(ltbp->lb_on)
+            if(ltbp->mode == LAUNCHTASKBAR)
             {
                 FmFileInfo *fi = f_find_menu_launchbutton_recursive(tk->exec_bin);
                 LaunchButton *btn = launchbar_exec_bin_exists(ltbp, fi);
@@ -2776,7 +2800,7 @@ static gint get_window_monitor(Window win)
 static void taskbar_net_client_list(GtkWidget * widget, LaunchTaskBarPlugin * tb)
 {
     LaunchTaskBarPlugin *ltbp = tb;
-    if(!ltbp->tb_on) return;
+    if(ltbp->mode == LAUNCHBAR) return;
 
     /* Get the NET_CLIENT_LIST property. */
     int client_count;
@@ -2880,7 +2904,7 @@ static void taskbar_net_client_list(GtkWidget * widget, LaunchTaskBarPlugin * tb
 static void taskbar_net_current_desktop(GtkWidget * widget, LaunchTaskBarPlugin * tb)
 {
     LaunchTaskBarPlugin *ltbp = tb;
-    if(!ltbp->tb_on) return;
+    if(ltbp->mode == LAUNCHBAR) return;
 
     /* Store the local copy of current desktops.  Redisplay the taskbar. */
     tb->current_desktop = get_net_current_desktop();
@@ -2892,7 +2916,7 @@ static void taskbar_net_current_desktop(GtkWidget * widget, LaunchTaskBarPlugin 
 static void taskbar_net_number_of_desktops(GtkWidget * widget, LaunchTaskBarPlugin * tb)
 {
     LaunchTaskBarPlugin *ltbp = tb;
-    if(!ltbp->tb_on) return;
+    if(ltbp->mode == LAUNCHBAR) return;
 
     /* Store the local copy of number of desktops.  Recompute the popup menu and redisplay the taskbar. */
     tb->number_of_desktops = get_net_number_of_desktops();
@@ -2904,7 +2928,7 @@ static void taskbar_net_number_of_desktops(GtkWidget * widget, LaunchTaskBarPlug
 static void taskbar_net_active_window(GtkWidget * widget, LaunchTaskBarPlugin * tb)
 {
     LaunchTaskBarPlugin *ltbp = tb;
-    if(!ltbp->tb_on) return;
+    if(ltbp->mode == LAUNCHBAR) return;
 
     gboolean drop_old = FALSE;
     gboolean make_new = FALSE;
@@ -3120,7 +3144,7 @@ static void taskbar_configure_notify_event(LaunchTaskBarPlugin * tb, XConfigureE
 static GdkFilterReturn taskbar_event_filter(XEvent * xev, GdkEvent * event, LaunchTaskBarPlugin * tb)
 {
     LaunchTaskBarPlugin *ltbp = tb;
-    if(!ltbp->tb_on) return GDK_FILTER_CONTINUE;
+    if(ltbp->mode == LAUNCHBAR) return GDK_FILTER_CONTINUE;
 
     if (xev->type == PropertyNotify)
         taskbar_property_notify_event(tb, xev);
