@@ -188,11 +188,11 @@ static gchar *launchtaskbar_rc = "style 'launchtaskbar-style'\n"
         "GtkWidget::focus-line-width=0\n"
         "GtkWidget::focus-padding=0\n"
         "GtkButton::default-border={0,0,0,0}\n"
-        "GtkWidget::focus-padding=0\n"
         "GtkButton::default-outside-border={0,0,0,0}\n"
         "GtkButton::inner-border={0,0,0,0}\n"
         "}\n"
-        "widget '*launchtaskbar*' style 'launchtaskbar-style'";
+        "widget '*launchbar.*' style 'launchtaskbar-style'\n"
+        "widget '*taskbar.*' style 'launchtaskbar-style'";
 
 #define DRAG_ACTIVE_DELAY    1000
 #define TASK_WIDTH_MAX       200
