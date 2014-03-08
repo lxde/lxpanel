@@ -174,6 +174,7 @@ struct LaunchTaskBarPlugin {
     GtkWidget       *p_evbox_launchbar;
     GtkWidget       *p_evbox_taskbar;
     GtkWidget       *config_dlg;        /* Configuration dialog */
+    GtkNotebook     *p_notebook;
     GtkWidget       *p_notebook_page_launch;
     GtkWidget       *p_notebook_page_task;
     GKeyFile        *p_key_file_special_cases;
@@ -1135,6 +1136,7 @@ static void  on_radiobutton_launch_toggled(GtkToggleButton *p_togglebutton, gpoi
 
     gtk_widget_set_visible(ltbp->p_notebook_page_launch, TRUE);
     gtk_widget_set_visible(ltbp->p_notebook_page_task, FALSE);
+    gtk_notebook_set_show_tabs(ltbp->p_notebook, FALSE);
 
     plugin_set_expand_status(ltbp, FALSE);
     gtk_widget_set_name(ltbp->plugin, "launchbar");
@@ -1160,6 +1162,7 @@ static void  on_radiobutton_task_toggled(GtkToggleButton *p_togglebutton, gpoint
 
     gtk_widget_set_visible(ltbp->p_notebook_page_launch, FALSE);
     gtk_widget_set_visible(ltbp->p_notebook_page_task, TRUE);
+    gtk_notebook_set_show_tabs(ltbp->p_notebook, FALSE);
 
     plugin_set_expand_status(ltbp, TRUE);
     gtk_widget_set_name(ltbp->plugin, "taskbar");
@@ -1185,6 +1188,7 @@ static void  on_radiobutton_launchtask_toggled(GtkToggleButton *p_togglebutton, 
 
     gtk_widget_set_visible(ltbp->p_notebook_page_launch, TRUE);
     gtk_widget_set_visible(ltbp->p_notebook_page_task, TRUE);
+    gtk_notebook_set_show_tabs(ltbp->p_notebook, TRUE);
 
     plugin_set_expand_status(ltbp, TRUE);
     gtk_widget_set_name(ltbp->plugin, "launchtaskbar");
@@ -1392,26 +1396,28 @@ static GtkWidget *launchtaskbar_configure(Panel *panel, GtkWidget *p, GtkWindow 
         g_signal_connect(menu_view, "cursor-changed", G_CALLBACK(on_menu_view_cursor_changed), ltbp);
         g_signal_connect(menu_view, "row-activated", G_CALLBACK(on_menu_view_row_activated), ltbp);
 
-        object = gtk_builder_get_object(builder, "notebook");
-        ltbp->p_notebook_page_launch = gtk_notebook_get_nth_page(GTK_NOTEBOOK(object), 0);
-        ltbp->p_notebook_page_task = gtk_notebook_get_nth_page(GTK_NOTEBOOK(object), 1);
+        ltbp->p_notebook = GTK_NOTEBOOK(gtk_builder_get_object(builder, "notebook"));
+        ltbp->p_notebook_page_launch = gtk_notebook_get_nth_page(ltbp->p_notebook, 0);
+        ltbp->p_notebook_page_task = gtk_notebook_get_nth_page(ltbp->p_notebook, 1);
         switch (ltbp->mode) {
+        default:
         case LAUNCHTASKBAR:
             gtk_widget_set_visible(ltbp->p_notebook_page_launch, TRUE);
             gtk_widget_set_visible(ltbp->p_notebook_page_task, TRUE);
+            gtk_notebook_set_show_tabs(ltbp->p_notebook, TRUE);
             object = gtk_builder_get_object(builder, "radiobutton_launchtask");
             break;
         case TASKBAR:
             gtk_widget_set_visible(ltbp->p_notebook_page_launch, FALSE);
             gtk_widget_set_visible(ltbp->p_notebook_page_task, TRUE);
+            gtk_notebook_set_show_tabs(ltbp->p_notebook, FALSE);
             object = gtk_builder_get_object(builder, "radiobutton_task");
-            /* FIXME: hide tab labels */
             break;
         case LAUNCHBAR:
             gtk_widget_set_visible(ltbp->p_notebook_page_launch, TRUE);
             gtk_widget_set_visible(ltbp->p_notebook_page_task, FALSE);
+            gtk_notebook_set_show_tabs(ltbp->p_notebook, FALSE);
             object = gtk_builder_get_object(builder, "radiobutton_launch");
-            /* FIXME: hide tab labels */
         }
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(object), TRUE);
 
