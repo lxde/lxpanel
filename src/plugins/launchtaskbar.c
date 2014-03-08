@@ -781,7 +781,8 @@ static void launchtaskbar_constructor_task(LaunchTaskBarPlugin *ltbp)
 }
 
 /* Plugin constructor. */
-static GtkWidget *launchtaskbar_constructor(Panel *panel, config_setting_t *settings)
+static GtkWidget *_launchtaskbar_constructor(Panel *panel, config_setting_t *settings,
+                                             LtbMode mode)
 {
     GtkWidget *p;
     LaunchTaskBarPlugin *ltbp;
@@ -792,6 +793,7 @@ static GtkWidget *launchtaskbar_constructor(Panel *panel, config_setting_t *sett
     ltbp = g_new0(LaunchTaskBarPlugin, 1);
     ltbp->panel = panel;
     ltbp->settings = settings;
+    ltbp->mode = mode;
     ltbp->screen = gtk_widget_get_screen((GtkWidget*)panel_get_toplevel_window(panel));
 
     /* Initialize to defaults. */
@@ -858,6 +860,11 @@ static GtkWidget *launchtaskbar_constructor(Panel *panel, config_setting_t *sett
     }
 
     return p;
+}
+
+static GtkWidget *launchtaskbar_constructor(Panel *panel, config_setting_t *settings)
+{
+    return _launchtaskbar_constructor(panel, settings, LAUNCHTASKBAR);
 }
 
 static void launchtaskbar_destructor_launch(LaunchTaskBarPlugin *ltbp)
@@ -3399,14 +3406,56 @@ static void taskbar_apply_configuration(LaunchTaskBarPlugin *ltbp)
     taskbar_net_client_list(NULL, ltbp);
 }
 
-/* Plugin descriptor. */
-LXPanelPluginInit lxpanel_static_plugin_launchtaskbar = {
-    .name = N_("Application Launch and Task Bar"),
-    .description = N_("Bar with buttons to launch application and/or shows all opened windows"),
+/*
+static GtkWidget *launchbar_constructor(Panel *panel, config_setting_t *settings)
+{
+    return _launchtaskbar_constructor(panel, settings, LAUNCHBAR);
+}
+
+static GtkWidget *taskbar_constructor(Panel *panel, config_setting_t *settings)
+{
+    return _launchtaskbar_constructor(panel, settings, TASKBAR);
+}
+
+static LXPanelPluginInit _launchbar_init = {
+    .name = N_("Application Launch Bar"),
+    .description = N_("Bar with buttons to launch application"),
+
+    .expand_available = TRUE,
+
+    .new_instance = launchbar_constructor,
+    .config = launchtaskbar_configure,
+    .reconfigure = launchtaskbar_panel_configuration_changed
+};
+
+static LXPanelPluginInit _taskbar_init = {
+    .name = N_("Task Bar (Window List)"),
+    .description = N_("Taskbar shows all opened windows and allow to iconify them, shade or get focus"),
 
     .expand_available = TRUE,
     .expand_default = TRUE,
 
+    .new_instance = taskbar_constructor,
+    .config = launchtaskbar_configure,
+    .reconfigure = launchtaskbar_panel_configuration_changed
+};
+
+static void launchtaskbar_init(void)
+{
+    lxpanel_register_plugin_type("launchbar", &_launchbar_init);
+    lxpanel_register_plugin_type("taskbar", &_taskbar_init);
+}
+*/
+
+/* Plugin descriptor. */
+LXPanelPluginInit lxpanel_static_plugin_launchtaskbar = {
+    .name = N_("Application Launch and Task Bar"),
+    .description = N_("Bar with buttons to launch application and/or show all opened windows"),
+
+    .expand_available = TRUE,
+    .expand_default = TRUE,
+
+    //.init = launchtaskbar_init,
     .new_instance = launchtaskbar_constructor,
     .config = launchtaskbar_configure,
     .reconfigure = launchtaskbar_panel_configuration_changed
