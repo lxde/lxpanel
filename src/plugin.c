@@ -595,7 +595,7 @@ GtkWidget *lxpanel_add_plugin(Panel *p, const char *name, config_setting_t *cfg,
         config_setting_set_save_hook(pconf, _old_plugin_save_hook, pl);
         lxpanel_plugin_set_data(widget, pl, _old_plugin_destroy);
     }
-    gtk_widget_set_name(widget, init->name);
+    gtk_widget_set_name(widget, name);
     gtk_box_pack_start(GTK_BOX(p->box), widget, expand, TRUE, padding);
     gtk_container_set_border_width(GTK_CONTAINER(widget), border);
 //    g_signal_connect(widget, "size-allocate", G_CALLBACK(on_size_allocate), p);
