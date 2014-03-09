@@ -27,9 +27,8 @@
 
 #include <string.h>
 
-#include "panel.h"
+#include "plugin.h"
 #include "misc.h"
-#include "private.h"
 
 #include "dbg.h"
 
@@ -46,6 +45,7 @@
 
 typedef struct {
     GtkWidget *main;
+    config_setting_t *settings;
     GtkWidget *namew;
     GtkTooltips *tip;
     GList *governors;
@@ -54,13 +54,15 @@ typedef struct {
     char* cur_governor;
     int   cur_freq;
     unsigned int timer;
-    gboolean remember;
+    //gboolean remember;
 } cpufreq;
 
 typedef struct {
     char *data;
     cpufreq *cf;
 } Param;
+
+static void cpufreq_destructor(gpointer user_data);
 
 static void
 get_cur_governor(cpufreq *cf){
@@ -296,24 +298,22 @@ cpufreq_menu(cpufreq *cf){
 
 
 static  gboolean
-clicked( GtkWidget *widget, GdkEventButton* evt, Plugin* plugin)
+clicked(GtkWidget *widget, GdkEventButton *evt, Panel *panel)
 {
     ENTER2;
+
+    /* Standard right-click handling. */
+    if (lxpanel_plugin_button_press_event(widget, evt, panel))
+        return TRUE;
     if( evt->button == 1 )
     {
 // Setting governor can't work without root privilege
 //      gtk_menu_popup( cpufreq_menu((cpufreq*)plugin->priv), NULL, NULL, NULL, NULL, 
 //                      evt->button, evt->time );
       return TRUE;
-    }else if ( evt->button == 3 )
-    {
-        GtkMenu* popup = lxpanel_get_panel_menu( plugin->panel, plugin, FALSE );
-        gtk_menu_popup( popup, NULL, NULL, NULL, NULL, evt->button, evt->time );
-        return TRUE;
-      return TRUE;
     }
 
-    RET2(TRUE);
+    RET2(FALSE);
 }
 
 static gboolean
@@ -340,119 +340,88 @@ static gboolean update_tooltip(gpointer user_data)
     return _update_tooltip(user_data);
 }
 
-static int
-cpufreq_constructor(Plugin *p, char** fp)
+static GtkWidget *cpufreq_constructor(Panel *panel, config_setting_t *settings)
 {
     cpufreq *cf;
     //GtkWidget *button;
 
     ENTER;
     cf = g_new0(cpufreq, 1);
+    g_return_val_if_fail(cf != NULL, NULL);
     cf->governors = NULL;
     cf->cpus = NULL;
-    g_return_val_if_fail(cf != NULL, 0);
-    p->priv = cf;
+    cf->settings = settings;
 
-    p->pwid = gtk_event_box_new();
-    GTK_WIDGET_SET_FLAGS( p->pwid, GTK_NO_WINDOW );
-    gtk_container_set_border_width( GTK_CONTAINER(p->pwid), 2 );
+    cf->main = gtk_event_box_new();
+    lxpanel_plugin_set_data(cf->main, cf, cpufreq_destructor);
+#if GTK_CHECK_VERSION(2,18,0)
+    gtk_widget_set_has_window(cf->main, FALSE);
+#else
+    GTK_WIDGET_SET_FLAGS(cf->main, GTK_NO_WINDOW);
+#endif
+    gtk_container_set_border_width(GTK_CONTAINER(cf->main), 2);
 
     cf->namew = gtk_image_new_from_file(PROC_ICON);
-    gtk_container_add(GTK_CONTAINER(p->pwid), cf->namew);
+    gtk_container_add(GTK_CONTAINER(cf->main), cf->namew);
 
-    cf->main = p->pwid;
     cf->tip = gtk_tooltips_new();
 
     g_object_ref_sink( cf->tip );
-
-    g_signal_connect (G_OBJECT (p->pwid), "button-press-event", G_CALLBACK (clicked), (gpointer) p);
 
     cf->has_cpufreq = 0;
 
     get_cpus(cf);
 
-/*    line s;
-    s.len = 256;
+    //if (config_setting_lookup_int(settings, "Remember", &tmp_int)) cf->remember = tmp_int != 0;
+    //if (config_setting_lookup_int(settings, "Governor", &tmp_str)) cf->cur_governor = g_strdup(tmp_str);
+    //config_setting_lookup_int(settings, "Frequency", &cf->cur_freq);
 
-    if (fp) {
-        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
-            if (s.type == LINE_NONE) {
-                ERR( "cpufreq: illegal token %s\n", s.str);
-                goto error;
-            }
-            if (s.type == LINE_VAR) {
-                if (!g_ascii_strcasecmp(s.t[0], "DefaultGovernor")){
-                    //cf->str_cl_normal = g_strdup(s.t[1]);
-                }else {
-                    ERR( "cpufreq: unknown var %s\n", s.t[0]);
-                    continue;
-                }
-            }
-            else {
-                ERR( "cpufreq: illegal in cfis context %s\n", s.str);
-                goto error;
-            }
-        }
-
-    }*/
     _update_tooltip(cf);
     cf->timer = g_timeout_add_seconds(2, update_tooltip, (gpointer)cf);
 
     gtk_widget_show(cf->namew);
 
-    RET(TRUE);
-
-/*error:
-    RET(FALSE);*/
+    RET(cf->main);
 }
 
-static void applyConfig(Plugin* p) { }
+/*
+static gboolean applyConfig(gpointer user_data)
+{
+    cpufreq *cf = lxpanel_plugin_get_data(user_data);
 
-static void config(Plugin *p, GtkWindow* parent) {
-    ENTER;
+    config_group_set_int(cf->settings, "Remember", cf->remember);
+    return FALSE;
+}
 
-    GtkWidget *dialog;
-    cpufreq *cf = (cpufreq *) p->priv;
-    dialog = create_generic_config_dlg(_(p->class->name),
-            GTK_WIDGET(parent),
-            (GSourceFunc) applyConfig, (gpointer) p,
+static GtkWidget *config(Panel *panel, GtkWidget *p, GtkWindow *parent)
+{
+    cpufreq *cf = lxpanel_plugin_get_data(p);
+    return lxpanel_generic_config_dlg(_("CPUFreq frontend"), panel, applyConfig, p,
             _("Remember governor and frequency"), &cf->remember, CONF_TYPE_BOOL,
             NULL);
-    gtk_window_present(GTK_WINDOW(dialog));
-
-    RET();
 }
+*/
 
 static void
-cpufreq_destructor(Plugin *p)
+cpufreq_destructor(gpointer user_data)
 {
-    cpufreq *cf = (cpufreq *)p->priv;
+    cpufreq *cf = (cpufreq *)user_data;
     g_list_free ( cf->cpus );
     g_list_free ( cf->governors );
     g_source_remove(cf->timer);
+    g_object_unref(cf->tip);
     g_free(cf);
 }
 
-/*static void save_config( Plugin* p, FILE* fp )
-{
-    cpufreq *cf = (cpufreq *)p->priv;
 
-    lxpanel_put_bool( fp, "Remember", cf->remember);
-    lxpanel_put_str( fp, "Governor", cf->cur_governor );
-    lxpanel_put_int( fp, "Frequency", cf->cur_freq );
-}*/
+FM_DEFINE_MODULE(lxpanel_gtk, cpufreq)
 
-PluginClass cpufreq_plugin_class = {
-    PLUGINCLASS_VERSIONING,
-
-    .type = "cpufreq",
+/* Plugin descriptor. */
+LXPanelPluginInit fm_module_init_lxpanel_gtk = {
     .name = N_("CPUFreq frontend"),
-    .version = "0.1",
     .description = N_("Display CPU frequency and allow to change governors and frequency"),
 
-    .constructor = cpufreq_constructor,
-    .destructor  = cpufreq_destructor,
-    .config = config,
-    .save = NULL,
-    .panel_configuration_changed = NULL
+    .new_instance = cpufreq_constructor,
+    //.config      = config,
+    .button_press_event = clicked
 };
