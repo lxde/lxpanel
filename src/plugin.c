@@ -38,7 +38,6 @@
 //#define DEBUG
 #include "dbg.h"
 
-static void register_plugin_class(PluginClass * pc, gboolean dynamic);
 static void init_plugin_class_list(void);
 static void plugin_class_unref(PluginClass * pc);
 
@@ -110,10 +109,6 @@ static void init_plugin_class_list(void)
     REGISTER_STATIC_MODULE(separator);
 #endif
 
-#ifdef STATIC_LAUNCHBAR
-    REGISTER_STATIC_MODULE(launchbar);
-#endif
-
 #ifdef STATIC_LAUNCHTASKBAR
     REGISTER_STATIC_MODULE(launchtaskbar);
 #endif
@@ -129,10 +124,6 @@ static void init_plugin_class_list(void)
 #ifdef STATIC_DIRMENU
     REGISTER_STATIC_MODULE(dirmenu);
 #endif
-
-//#ifdef STATIC_TASKBAR
-//    REGISTER_STATIC_PLUGIN_CLASS(taskbar_plugin_class);
-//#endif
 
 #ifdef STATIC_PAGER
     REGISTER_STATIC_MODULE(pager);

@@ -3406,7 +3406,6 @@ static void taskbar_apply_configuration(LaunchTaskBarPlugin *ltbp)
     taskbar_net_client_list(NULL, ltbp);
 }
 
-/*
 static GtkWidget *launchbar_constructor(Panel *panel, config_setting_t *settings)
 {
     return _launchtaskbar_constructor(panel, settings, LAUNCHBAR);
@@ -3445,7 +3444,6 @@ static void launchtaskbar_init(void)
     lxpanel_register_plugin_type("launchbar", &_launchbar_init);
     lxpanel_register_plugin_type("taskbar", &_taskbar_init);
 }
-*/
 
 /* Plugin descriptor. */
 LXPanelPluginInit lxpanel_static_plugin_launchtaskbar = {
@@ -3455,7 +3453,7 @@ LXPanelPluginInit lxpanel_static_plugin_launchtaskbar = {
     .expand_available = TRUE,
     .expand_default = TRUE,
 
-    //.init = launchtaskbar_init,
+    .init = launchtaskbar_init,
     .new_instance = launchtaskbar_constructor,
     .config = launchtaskbar_configure,
     .reconfigure = launchtaskbar_panel_configuration_changed

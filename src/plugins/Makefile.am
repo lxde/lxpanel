@@ -31,12 +31,10 @@ PLUGINS_SOURCES = \
 	dclock.c \
 	dirmenu.c \
 	image.c \
-	launchbar.c \
 	launchtaskbar.c \
 	pager.c \
 	separator.c \
 	space.c \
-	taskbar.c \
 	tray.c \
 	wincmd.c \
 	$(MENU_SOURCES)
