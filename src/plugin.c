@@ -130,16 +130,16 @@ static void init_plugin_class_list(void)
     REGISTER_STATIC_MODULE(dirmenu);
 #endif
 
-#ifdef STATIC_TASKBAR
-    REGISTER_STATIC_PLUGIN_CLASS(taskbar_plugin_class);
-#endif
+//#ifdef STATIC_TASKBAR
+//    REGISTER_STATIC_PLUGIN_CLASS(taskbar_plugin_class);
+//#endif
 
 #ifdef STATIC_PAGER
     REGISTER_STATIC_MODULE(pager);
 #endif
 
 #ifdef STATIC_TRAY
-    REGISTER_STATIC_PLUGIN_CLASS(tray_plugin_class);
+    REGISTER_STATIC_MODULE(tray);
 #endif
 
 #ifndef DISABLE_MENU
