@@ -70,7 +70,7 @@ enum {
 };
 
 typedef enum {
-    LAUNCHBAR = 1,
+    LAUNCHBAR = 0,  /* GtkComboBox is 0-indexed. */
     TASKBAR,
     LAUNCHTASKBAR
 } LtbMode;
@@ -1123,82 +1123,59 @@ static void  plugin_set_expand_status(LaunchTaskBarPlugin *ltbp, gboolean expand
     gtk_box_set_child_packing(GTK_BOX(box), ltbp->plugin, expand_new, fill, padding, pack_type);
 }
 
-static void  on_radiobutton_launch_toggled(GtkToggleButton *p_togglebutton, gpointer p_data)
+static void set_config_visibility(LaunchTaskBarPlugin *ltbp)
 {
-    if(!gtk_toggle_button_get_active(p_togglebutton)) return;
-    LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p_data;
-
     switch (ltbp->mode) {
-    case LAUNCHBAR:
-        return;
-    case TASKBAR:
-        launchtaskbar_constructor_launch(ltbp, TRUE/*build_bootstrap*/);
-        break;
+    default:
     case LAUNCHTASKBAR:
+        gtk_widget_set_visible(ltbp->p_notebook_page_launch, TRUE);
+        gtk_widget_set_visible(ltbp->p_notebook_page_task, TRUE);
+        gtk_notebook_set_show_tabs(ltbp->p_notebook, TRUE);
         break;
+    case TASKBAR:
+        gtk_widget_set_visible(ltbp->p_notebook_page_launch, FALSE);
+        gtk_widget_set_visible(ltbp->p_notebook_page_task, TRUE);
+        gtk_notebook_set_show_tabs(ltbp->p_notebook, FALSE);
+        break;
+    case LAUNCHBAR:
+        gtk_widget_set_visible(ltbp->p_notebook_page_launch, TRUE);
+        gtk_widget_set_visible(ltbp->p_notebook_page_task, FALSE);
+        gtk_notebook_set_show_tabs(ltbp->p_notebook, FALSE);
     }
-    gtk_widget_set_visible(ltbp->p_evbox_taskbar, FALSE);
-    ltbp->mode = LAUNCHBAR;
-    config_group_set_int(ltbp->settings, "LaunchTaskBarMode", LAUNCHBAR);
-
-    gtk_widget_set_visible(ltbp->p_notebook_page_launch, TRUE);
-    gtk_widget_set_visible(ltbp->p_notebook_page_task, FALSE);
-    gtk_notebook_set_show_tabs(ltbp->p_notebook, FALSE);
-
-    plugin_set_expand_status(ltbp, FALSE);
-    gtk_widget_set_name(ltbp->plugin, "launchbar");
 }
 
-static void  on_radiobutton_task_toggled(GtkToggleButton *p_togglebutton, gpointer p_data)
+static void on_combobox_mode_changed(GtkComboBox *p_combobox, gpointer p_data)
 {
-    if(!gtk_toggle_button_get_active(p_togglebutton)) return;
-    LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p_data;
+    LaunchTaskBarPlugin *ltbp = p_data;
+
+    ltbp->mode = gtk_combo_box_get_active(GTK_COMBO_BOX(p_combobox));
+
+    set_config_visibility(ltbp);
 
     switch (ltbp->mode) {
     case LAUNCHBAR:
-        launchtaskbar_constructor_task(ltbp);
-        break;
-    case TASKBAR:
-        return;
-    case LAUNCHTASKBAR:
-        break;
-    }
-    gtk_widget_set_visible(ltbp->p_evbox_launchbar, FALSE);
-    ltbp->mode = TASKBAR;
-    config_group_set_int(ltbp->settings, "LaunchTaskBarMode", TASKBAR);
-
-    gtk_widget_set_visible(ltbp->p_notebook_page_launch, FALSE);
-    gtk_widget_set_visible(ltbp->p_notebook_page_task, TRUE);
-    gtk_notebook_set_show_tabs(ltbp->p_notebook, FALSE);
-
-    plugin_set_expand_status(ltbp, TRUE);
-    gtk_widget_set_name(ltbp->plugin, "taskbar");
-}
-
-static void  on_radiobutton_launchtask_toggled(GtkToggleButton *p_togglebutton, gpointer p_data)
-{
-    if(!gtk_toggle_button_get_active(p_togglebutton)) return;
-    LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p_data;
-
-    switch (ltbp->mode) {
-    case LAUNCHBAR:
-        launchtaskbar_constructor_task(ltbp);
-        break;
-    case TASKBAR:
+        gtk_widget_set_visible(ltbp->p_evbox_taskbar, FALSE);
         launchtaskbar_constructor_launch(ltbp, TRUE/*build_bootstrap*/);
-        break;
-    case LAUNCHTASKBAR:
+        plugin_set_expand_status(ltbp, FALSE);
+        gtk_widget_set_name(ltbp->plugin, "launchbar");
         return;
+    case TASKBAR:
+        gtk_widget_set_visible(ltbp->p_evbox_launchbar, FALSE);
+        launchtaskbar_constructor_task(ltbp);
+        plugin_set_expand_status(ltbp, TRUE);
+        gtk_widget_set_name(ltbp->plugin, "taskbar");
+        break;
+    default:
+        ltbp->mode = LAUNCHTASKBAR;
+    case LAUNCHTASKBAR:
+        launchtaskbar_constructor_launch(ltbp, TRUE/*build_bootstrap*/);
+        launchtaskbar_constructor_task(ltbp);
+        plugin_set_expand_status(ltbp, TRUE);
+        gtk_widget_set_name(ltbp->plugin, "launchtaskbar");
+        break;
     }
-    ltbp->mode = LAUNCHTASKBAR;
-    config_group_set_int(ltbp->settings, "LaunchTaskBarMode", LAUNCHTASKBAR);
 
-    gtk_widget_set_visible(ltbp->p_notebook_page_launch, TRUE);
-    gtk_widget_set_visible(ltbp->p_notebook_page_task, TRUE);
-    gtk_notebook_set_show_tabs(ltbp->p_notebook, TRUE);
-
-    plugin_set_expand_status(ltbp, TRUE);
-    gtk_widget_set_name(ltbp->plugin, "launchtaskbar");
+    config_group_set_int(ltbp->settings, "LaunchTaskBarMode", ltbp->mode);
 }
 
 static void on_checkbutton_show_tooltips_toggled(GtkToggleButton *p_togglebutton, gpointer p_data)
@@ -1406,37 +1383,11 @@ static GtkWidget *launchtaskbar_configure(Panel *panel, GtkWidget *p, GtkWindow 
         ltbp->p_notebook = GTK_NOTEBOOK(gtk_builder_get_object(builder, "notebook"));
         ltbp->p_notebook_page_launch = gtk_notebook_get_nth_page(ltbp->p_notebook, 0);
         ltbp->p_notebook_page_task = gtk_notebook_get_nth_page(ltbp->p_notebook, 1);
-        switch (ltbp->mode) {
-        default:
-        case LAUNCHTASKBAR:
-            gtk_widget_set_visible(ltbp->p_notebook_page_launch, TRUE);
-            gtk_widget_set_visible(ltbp->p_notebook_page_task, TRUE);
-            gtk_notebook_set_show_tabs(ltbp->p_notebook, TRUE);
-            object = gtk_builder_get_object(builder, "radiobutton_launchtask");
-            break;
-        case TASKBAR:
-            gtk_widget_set_visible(ltbp->p_notebook_page_launch, FALSE);
-            gtk_widget_set_visible(ltbp->p_notebook_page_task, TRUE);
-            gtk_notebook_set_show_tabs(ltbp->p_notebook, FALSE);
-            object = gtk_builder_get_object(builder, "radiobutton_task");
-            break;
-        case LAUNCHBAR:
-            gtk_widget_set_visible(ltbp->p_notebook_page_launch, TRUE);
-            gtk_widget_set_visible(ltbp->p_notebook_page_task, FALSE);
-            gtk_notebook_set_show_tabs(ltbp->p_notebook, FALSE);
-            object = gtk_builder_get_object(builder, "radiobutton_launch");
-        }
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(object), TRUE);
-
-        object = gtk_builder_get_object(builder, "radiobutton_launch");
-        g_signal_connect(object, "toggled",
-                         G_CALLBACK(on_radiobutton_launch_toggled), ltbp);
-        object = gtk_builder_get_object(builder, "radiobutton_task");
-        g_signal_connect(object, "toggled",
-                         G_CALLBACK(on_radiobutton_task_toggled), ltbp);
-        object = gtk_builder_get_object(builder, "radiobutton_launchtask");
-        g_signal_connect(object, "toggled",
-                         G_CALLBACK(on_radiobutton_launchtask_toggled), ltbp);
+        set_config_visibility(ltbp);
+	object = gtk_builder_get_object(builder, "combobox_mode");
+        gtk_combo_box_set_active(GTK_COMBO_BOX(object), ltbp->mode);
+	g_signal_connect(object, "changed",
+			G_CALLBACK(on_combobox_mode_changed), ltbp);
 
 #define SETUP_TOGGLE_BUTTON(button,member) \
         object = gtk_builder_get_object(builder, #button); \
