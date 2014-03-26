@@ -1,7 +1,7 @@
 /**
  * Desktop number plugin to lxpanel
  *
- * Copyright (c) 2008 LxDE Developers, see the file AUTHORS for details.
+ * Copyright (c) 2008-2014 LxDE Developers, see the file AUTHORS for details.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,15 +27,16 @@
 #include <stdlib.h>
 #include <glib/gi18n.h>
 
-#include "panel.h"
+#include "plugin.h"
 #include "misc.h"
-#include "private.h"
+#include "ev.h"
 
-#include "dbg.h"
+extern FbEv *fbev; /* defined in lxpanel */
 
 /* Private context for desktop number plugin. */
 typedef struct {
     Panel * panel;			/* Back pointer to Panel */
+    config_setting_t *settings;
     GtkWidget * label;			/* The label */
     int number_of_desktops;		/* Number of desktops */
     char * * desktop_labels;		/* Vector of desktop labels */
@@ -43,15 +44,7 @@ typedef struct {
     gboolean wm_labels;			/* User preference: True to display window manager labels */
 } DesknoPlugin;
 
-static gboolean deskno_name_update(GtkWidget * widget, DesknoPlugin * dc);
-static void deskno_redraw(GtkWidget * widget, DesknoPlugin * dc);
-static gboolean deskno_button_press_event(GtkWidget * widget, GdkEventButton * event, Plugin * p);
-static int deskno_constructor(Plugin * p, char ** fp);
-static void deskno_destructor(Plugin * p);
-static void deskno_apply_configuration(Plugin * p);
-static void deskno_configure(Plugin * p, GtkWindow * parent);
-static void deskno_save_configuration(Plugin * p, FILE * fp);
-static void deskno_panel_configuration_changed(Plugin * p);
+static void deskno_destructor(gpointer user_data);
 
 /* Handler for current_desktop event from window manager. */
 static gboolean deskno_name_update(GtkWidget * widget, DesknoPlugin * dc)
@@ -96,10 +89,10 @@ static void deskno_redraw(GtkWidget * widget, DesknoPlugin * dc)
 }
 
 /* Handler for button-press-event on top level widget. */
-static gboolean deskno_button_press_event(GtkWidget * widget, GdkEventButton * event, Plugin * p)
+static gboolean deskno_button_press_event(GtkWidget * widget, GdkEventButton * event, Panel * p)
 {
-    /* Standard left-click handling. */
-    if (plugin_button_press_event(widget, event, p))
+    /* Standard right-click handling. */
+    if (lxpanel_plugin_button_press_event(widget, event, p))
         return TRUE;
 
     /* Right-click goes to next desktop, wrapping around to first. */
@@ -115,73 +108,54 @@ static gboolean deskno_button_press_event(GtkWidget * widget, GdkEventButton * e
 }
 
 /* Plugin constructor. */
-static int deskno_constructor(Plugin * p, char ** fp)
+static GtkWidget *deskno_constructor(Panel *panel, config_setting_t *settings)
 {
     /* Allocate plugin context and set into Plugin private data pointer. */
     DesknoPlugin * dc = g_new0(DesknoPlugin, 1);
+    GtkWidget *p;
+    int tmp_int;
+
     g_return_val_if_fail(dc != NULL, 0);
-    p->priv = dc;
-    dc->panel = p->panel;
+    dc->panel = panel;
+    dc->settings = settings;
 
     /* Default parameters. */
     dc->wm_labels = TRUE;
 
     /* Load parameters from the configuration file. */
-    line s;
-    s.len = 256;
-    if (fp != NULL)
-    {
-        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END)
-        {
-            if (s.type == LINE_NONE)
-            {
-                ERR( "deskno: illegal token %s\n", s.str);
-                return 0;
-            }
-            if (s.type == LINE_VAR)
-            {
-                if (g_ascii_strcasecmp(s.t[0], "BoldFont") == 0)
-                    dc->bold = str2num(bool_pair, s.t[1], 0);
-                else if (g_ascii_strcasecmp(s.t[0], "WMLabels") == 0)
-                    dc->wm_labels = str2num(bool_pair, s.t[1], 0);
-                else
-                    ERR( "deskno: unknown var %s\n", s.t[0]);
-            }
-            else
-            {
-                ERR( "deskno: illegal in this context %s\n", s.str);
-                return 0;
-            }
-        }
-    }
+    if (config_setting_lookup_int(settings, "BoldFont", &tmp_int))
+        dc->bold = tmp_int != 0;
+    if (config_setting_lookup_int(settings, "WMLabels", &tmp_int))
+        dc->wm_labels = tmp_int != 0;
 
     /* Allocate top level widget and set into Plugin widget pointer. */
-    p->pwid = gtk_event_box_new();
-    gtk_container_set_border_width(GTK_CONTAINER (p->pwid), 1);
+    p = gtk_event_box_new();
+    lxpanel_plugin_set_data(p, dc, deskno_destructor);
+    gtk_container_set_border_width(GTK_CONTAINER (p), 1);
 
     /* Allocate label widget and add to top level. */
     dc->label = gtk_label_new(NULL);
-    gtk_container_add(GTK_CONTAINER(p->pwid), dc->label);
+    gtk_container_add(GTK_CONTAINER(p), dc->label);
 
     /* Connect signals.  Note use of window manager event object. */
-    g_signal_connect(p->pwid, "button-press-event", G_CALLBACK(deskno_button_press_event), p);
     g_signal_connect(G_OBJECT(fbev), "current-desktop", G_CALLBACK(deskno_name_update), (gpointer) dc);
     g_signal_connect(G_OBJECT(fbev), "desktop-names", G_CALLBACK(deskno_redraw), (gpointer) dc);
     g_signal_connect(G_OBJECT(fbev), "number-of-desktops", G_CALLBACK(deskno_redraw), (gpointer) dc);
 
     /* Initialize value and show the widget. */
     deskno_redraw(NULL, dc);
-    gtk_widget_show_all(p->pwid);
-    return 1;
+    gtk_widget_show_all(p);
+    return p;
 }
 
 /* Plugin destructor. */
-static void deskno_destructor(Plugin * p)
+static void deskno_destructor(gpointer user_data)
 {
-    DesknoPlugin * dc = (DesknoPlugin *) p->priv;
+    DesknoPlugin * dc = (DesknoPlugin *) user_data;
 
     /* Disconnect signal from window manager event object. */
     g_signal_handlers_disconnect_by_func(G_OBJECT(fbev), deskno_name_update, dc);
+    g_signal_handlers_disconnect_by_func(G_OBJECT(fbev), deskno_redraw, dc);
 
     /* Deallocate all memory. */
     if (dc->desktop_labels != NULL)
@@ -190,56 +164,44 @@ static void deskno_destructor(Plugin * p)
 }
 
 /* Callback when the configuration dialog has recorded a configuration change. */
-static void deskno_apply_configuration(Plugin * p)
+static gboolean deskno_apply_configuration(gpointer user_data)
 {
-    DesknoPlugin * dc = (DesknoPlugin *) p->priv;
+    DesknoPlugin * dc = lxpanel_plugin_get_data(user_data);
     deskno_redraw(NULL, dc);
+    config_group_set_int(dc->settings, "BoldFont", dc->bold);
+    config_group_set_int(dc->settings, "WMLabels", dc->wm_labels);
+    return FALSE;
 }
 
 /* Callback when the configuration dialog is to be shown. */
-static void deskno_configure(Plugin * p, GtkWindow * parent)
+static GtkWidget *deskno_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
 {
-    DesknoPlugin * dc = (DesknoPlugin *) p->priv;
-    GtkWidget * dlg = create_generic_config_dlg(
-        _(p->class->name),
-        GTK_WIDGET(parent),
-        (GSourceFunc) deskno_apply_configuration, (gpointer) p,
+    DesknoPlugin * dc = lxpanel_plugin_get_data(p);
+    GtkWidget * dlg = lxpanel_generic_config_dlg(_("Desktop Number / Workspace Name"),
+        panel, deskno_apply_configuration, p,
         _("Bold font"), &dc->bold, CONF_TYPE_BOOL,
         _("Display desktop names"), &dc->wm_labels, CONF_TYPE_BOOL,
         NULL);
     gtk_widget_set_size_request(GTK_WIDGET(dlg), 400, -1);	/* Improve geometry */
-    gtk_window_present(GTK_WINDOW(dlg));
-}
-
-/* Callback when the configuration is to be saved. */
-static void deskno_save_configuration(Plugin * p, FILE * fp)
-{
-    DesknoPlugin * dc = (DesknoPlugin *) p->priv;
-    lxpanel_put_int(fp, "BoldFont", dc->bold);
-    lxpanel_put_int(fp, "WMLabels", dc->wm_labels);
+    return dlg;
 }
 
 /* Callback when panel configuration changes. */
-static void deskno_panel_configuration_changed(Plugin * p)
+static void deskno_panel_configuration_changed(Panel *panel, GtkWidget *p)
 {
-    DesknoPlugin * dc = (DesknoPlugin *) p->priv;
+    DesknoPlugin * dc = lxpanel_plugin_get_data(p);
     deskno_name_update(NULL, dc);
 }
 
+FM_DEFINE_MODULE(lxpanel_gtk, deskno)
+
 /* Plugin descriptor. */
-PluginClass deskno_plugin_class = {
-
-    PLUGINCLASS_VERSIONING,
-
-    .type = "deskno",
+LXPanelPluginInit fm_module_init_lxpanel_gtk = {
     .name = N_("Desktop Number / Workspace Name"),
-    .version = "0.6",
     .description = N_("Display workspace number, by cmeury@users.sf.net"),
 
-    .constructor = deskno_constructor,
-    .destructor  = deskno_destructor,
+    .new_instance = deskno_constructor,
     .config = deskno_configure,
-    .save = deskno_save_configuration,
-    .panel_configuration_changed = deskno_panel_configuration_changed
-
+    .reconfigure = deskno_panel_configuration_changed,
+    .button_press_event = deskno_button_press_event
 };
