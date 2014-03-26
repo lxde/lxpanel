@@ -109,7 +109,7 @@
                             <property name="search_column">1</property>
                             <child>
                               <object class="GtkTreeViewColumn" id="defined_col">
-                                <property name="title">Applications</property>
+                                <property name="title" translatable="yes">Launchers</property>
                                 <property name="expand">True</property>
                               </object>
                             </child>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-26 03:37+0200\n"
+"POT-Creation-Date: 2014-03-26 23:57+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -253,34 +253,38 @@ msgid "Integrated Application Launch Bar and Task Bar"
 msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:10
-msgid "Maximum width of task button"
+msgid "Launchers"
 msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:11
-msgid "Only Application Launch Bar"
+msgid "Maximum width of task button"
 msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:12
-msgid "Only Task Bar (Window List)"
+msgid "Only Application Launch Bar"
 msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:13
-msgid "Only show windows on the same monitor as the task bar"
+msgid "Only Task Bar (Window List)"
 msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:14
-msgid "Show tooltips"
+msgid "Only show windows on the same monitor as the task bar"
 msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:15
-msgid "Show windows from all desktops"
+msgid "Show tooltips"
 msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:16
-msgid "Spacing"
+msgid "Show windows from all desktops"
 msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:17
+msgid "Spacing"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:18
 msgid "Use mouse wheel"
 msgstr ""
 
