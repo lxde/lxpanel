@@ -20,9 +20,10 @@ sudo checkinstall
 
 ## lubuntu 12.04
 10 (Requires) -> libasound2, libc6, libgdk-pixbuf2.0-0, libglib2.0-0, libgtk2.0-0, libiw30, libmenu-cache1, libwnck22, libx11-6, lxmenu-data
-
 ## lubuntu 13.04
 10 (Requires) -> libasound2, libc6, libcairo2, libgdk-pixbuf2.0-0, libglib2.0-0, libgtk2.0-0, libiw30, libmenu-cache2, libwnck22, libx11-6, lxmenu-data
+## lubuntu 13.10
+10 (Requires) -> libasound2, libc6, libcairo2, libgdk-pixbuf2.0-0, libglib2.0-0, libgtk2.0-0, libiw30, libmenu-cache3, libwnck22, libx11-6, lxmenu-data
 
 11 (Provides) -> lxpanel
 13 (Replaces) -> lxpanel-indicator-applet-plugin

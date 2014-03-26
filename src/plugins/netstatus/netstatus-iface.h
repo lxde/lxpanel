@@ -61,7 +61,7 @@ GType                  netstatus_iface_get_type              (void) G_GNUC_CONST
 
 NetstatusIface *       netstatus_iface_new                   (const char      *name);
 
-G_CONST_RETURN char *  netstatus_iface_get_name              (NetstatusIface  *iface);
+const char *           netstatus_iface_get_name              (NetstatusIface  *iface);
 void                   netstatus_iface_set_name              (NetstatusIface  *iface,
 							      const char      *name);
 NetstatusState         netstatus_iface_get_state             (NetstatusIface  *iface);
@@ -72,7 +72,7 @@ int                    netstatus_iface_get_signal_strength   (NetstatusIface  *i
 
 void                   netstatus_iface_set_error             (NetstatusIface  *iface,
 							      const GError    *error);
-G_CONST_RETURN GError *netstatus_iface_get_error             (NetstatusIface  *iface);
+const GError *         netstatus_iface_get_error             (NetstatusIface  *iface);
 void                   netstatus_iface_clear_error           (NetstatusIface  *iface,
 							      NetstatusError   code);
 

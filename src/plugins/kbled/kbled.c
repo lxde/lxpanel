@@ -98,7 +98,7 @@ static void kbled_update_image(KeyboardLEDPlugin * kl, int i, unsigned int state
 {
 	if(panel_image_set_icon_theme(kl->plugin->panel, kl->indicator_image[i], (state ? on_icons_theme[i] : off_icons_theme[i])) != TRUE) {
 		char * file = g_build_filename(
-			PACKAGE_DATA_DIR "/lxpanel/images",
+			PACKAGE_DATA_DIR "/images",
 			((state) ? on_icons[i] : off_icons[i]),
 			NULL);
 		panel_image_set_from_file(kl->plugin->panel, kl->indicator_image[i], file);

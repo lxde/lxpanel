@@ -9,7 +9,8 @@ lxpanel_CFLAGS = \
 	-I$(top_srcdir)/include \
 	-I$(top_srcdir)/src/plugins \
 	-DPACKAGE_LIB_DIR=\""$(libdir)"\" \
-	-DPACKAGE_DATA_DIR=\""$(datadir)"\" \
+	-DPACKAGE_DATA_DIR=\""$(datadir)/lxpanel"\" \
+	-DPACKAGE_SYSCONF_DIR=\""$(sysconfdir)/xdg/lxpanel"\" \
 	-DPACKAGE_UI_DIR=\""$(datadir)/lxpanel/ui"\" \
 	-DPACKAGE_BIN_DIR=\""$(bindir)"\" \
 	-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
@@ -19,7 +20,7 @@ lxpanel_CFLAGS = \
 BUILTIN_PLUGINS = $(top_builddir)/src/plugins/libbuiltin_plugins.a
 
 if ENABLE_MENU_CACHE
-MENU_SOURCES = gtk-run.c
+MENU_SOURCES = gtk-run.c menu-policy.h menu-policy.c
 endif
 
 lxpanel_SOURCES = \
@@ -30,7 +31,6 @@ lxpanel_SOURCES = \
 	ev.c ev.h \
 	gtkbar.h gtkbar.c \
 	icon-grid.c \
-	menu-policy.h menu-policy.c \
 	panel.c \
 	plugin.c \
 	private.h \

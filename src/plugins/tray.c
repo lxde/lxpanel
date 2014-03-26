@@ -30,10 +30,8 @@
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <glib/gi18n.h>
 
-#include "panel.h"
+#include "plugin.h"
 #include "misc.h"
-#include "private.h"
-#include "bg.h"
 #include "icon-grid.h"
 
 /* Standards reference:  http://standards.freedesktop.org/systemtray-spec/ */
@@ -74,7 +72,8 @@ typedef struct _tray_client {
 
 /* Private context for system tray plugin. */
 typedef struct _tray_plugin {
-    Plugin * plugin;				/* Back pointer to Plugin */
+    GtkWidget * plugin;				/* Back pointer to Plugin */
+    Panel * panel;
     IconGrid * icon_grid;			/* Icon grid to manage tray presentation */
     TrayClient * client_list;			/* List of tray clients */
     BalloonMessage * incomplete_messages;	/* List of balloon messages for which we are awaiting data */
@@ -86,25 +85,11 @@ typedef struct _tray_plugin {
     GdkAtom selection_atom;			/* Atom for _NET_SYSTEM_TRAY_S%d */
 } TrayPlugin;
 
-static TrayClient * client_lookup(TrayPlugin * tr, Window win);
-static void client_delete(TrayPlugin * tr, TrayClient * tc, gboolean unlink);
-static void balloon_message_free(BalloonMessage * message);
-static void balloon_message_advance(TrayPlugin * tr, gboolean destroy_timer, gboolean display_next);
-static gboolean balloon_message_activate_event(GtkWidget * widget, GdkEventButton * event, TrayPlugin * tr);
-static gboolean balloon_message_timeout(TrayPlugin * tr);
 static void balloon_message_display(TrayPlugin * tr, BalloonMessage * msg);
-static void balloon_message_queue(TrayPlugin * tr, BalloonMessage * msg);
 static void balloon_incomplete_message_remove(TrayPlugin * tr, Window window, gboolean all_ids, long id);
 static void balloon_message_remove(TrayPlugin * tr, Window window, gboolean all_ids, long id);
-static void balloon_message_begin_event(TrayPlugin * tr, XClientMessageEvent * xevent);
-static void balloon_message_cancel_event(TrayPlugin * tr, XClientMessageEvent * xevent);
-static void balloon_message_data_event(TrayPlugin * tr, XClientMessageEvent * xevent);
-static void trayclient_request_dock(TrayPlugin * tr, XClientMessageEvent * xevent);
-static GdkFilterReturn tray_event_filter(XEvent * xev, GdkEvent * event, TrayPlugin * tr);
 static void tray_unmanage_selection(TrayPlugin * tr);
-static int tray_constructor(Plugin * p, char ** fp);
-static void tray_destructor(Plugin * p);
-static void tray_panel_configuration_changed(Plugin * p);
+static void tray_destructor(gpointer user_data);
 
 /* Look up a client in the client list. */
 static TrayClient * client_lookup(TrayPlugin * tr, Window window)
@@ -138,7 +123,7 @@ static void client_print(TrayPlugin * tr, char c, TrayClient * tc, XClientMessag
 }
 
 /* Delete a client. */
-static void client_delete(TrayPlugin * tr, TrayClient * tc, gboolean unlink)
+static void client_delete(TrayPlugin * tr, TrayClient * tc, gboolean unlink, gboolean remove)
 {
     client_print(tr, '-', tc, NULL);
 
@@ -165,7 +150,8 @@ static void client_delete(TrayPlugin * tr, TrayClient * tc, gboolean unlink)
     balloon_message_remove(tr, tc->window, TRUE, 0);
 
     /* Remove the socket from the icon grid. */
-    icon_grid_remove(tr->icon_grid, tc->socket);
+    if (remove)
+        icon_grid_remove(tr->icon_grid, tc->socket);
 
     /* Deallocate the client structure. */
     g_free(tc);
@@ -216,7 +202,8 @@ static gboolean balloon_message_activate_event(GtkWidget * widget, GdkEventButto
 /* Timer expiration for balloon message. */
 static gboolean balloon_message_timeout(TrayPlugin * tr)
 {
-    balloon_message_advance(tr, FALSE, TRUE);
+    if (!g_source_is_destroyed(g_main_current_source()))
+        balloon_message_advance(tr, FALSE, TRUE);
     return FALSE;
 }
 
@@ -243,7 +230,7 @@ static void balloon_message_display(TrayPlugin * tr, BalloonMessage * msg)
     /* Compute the desired position in screen coordinates near the tray plugin. */
     int x;
     int y;
-    plugin_popup_set_position_helper(tr->plugin, tr->plugin->pwid, tr->balloon_message_popup, &popup_req, &x, &y);
+    lxpanel_plugin_popup_set_position_helper(tr->panel, tr->plugin, tr->balloon_message_popup, &popup_req, &x, &y);
 
     /* Push onscreen. */
     int screen_width = gdk_screen_width();
@@ -443,9 +430,9 @@ static void trayclient_request_dock(TrayPlugin * tr, XClientMessageEvent * xeven
     TrayClient * tc_cursor;
     for (tc_cursor = tr->client_list; tc_cursor != NULL; tc_pred = tc_cursor, tc_cursor = tc_cursor->client_flink)
     {
-        if (tc_cursor->window == xevent->data.l[2])
+        if (tc_cursor->window == (Window)xevent->data.l[2])
             return;		/* We already got this notification earlier, ignore this one. */
-        if (tc_cursor->window > xevent->data.l[2])
+        if (tc_cursor->window > (Window)xevent->data.l[2])
             break;
     }
 
@@ -496,7 +483,7 @@ static GdkFilterReturn tray_event_filter(XEvent * xev, GdkEvent * event, TrayPlu
         XDestroyWindowEvent * xev_destroy = (XDestroyWindowEvent *) xev;
         TrayClient * tc = client_lookup(tr, xev_destroy->window);
         if (tc != NULL)
-            client_delete(tr, tc, TRUE);
+            client_delete(tr, tc, TRUE, TRUE);
     }
 
     else if (xev->type == ClientMessage)
@@ -575,41 +562,26 @@ static void tray_unmanage_selection(TrayPlugin * tr)
 }
 
 /* Plugin constructor. */
-static int tray_constructor(Plugin * p, char ** fp)
+static GtkWidget *tray_constructor(Panel *panel, config_setting_t *settings)
 {
-    /* Read configuration from file. */
-    line s;
-    s.len = 256;
-    if (fp != NULL)
-    {
-        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END)
-        {
-            ERR("tray: illegal in this context %s\n", s.str);
-            return 0;
-        }
-    }
-
-    /* Allocate plugin context and set into Plugin private data pointer and static variable. */
-    TrayPlugin * tr = g_new0(TrayPlugin, 1);
-    p->priv = tr;
-    tr->plugin = p;
+    GtkWidget *p;
 
     /* Get the screen and display. */
-    GdkScreen * screen = gtk_widget_get_screen(GTK_WIDGET(p->panel->topgwin));
+    GdkScreen * screen = gtk_widget_get_screen(GTK_WIDGET(panel_get_toplevel_window(panel)));
     Screen * xscreen = GDK_SCREEN_XSCREEN(screen);
     GdkDisplay * display = gdk_screen_get_display(screen);
 
     /* Create the selection atom.  This has the screen number in it, so cannot be done ahead of time. */
     char * selection_atom_name = g_strdup_printf("_NET_SYSTEM_TRAY_S%d", gdk_screen_get_number(screen));
     Atom selection_atom = gdk_x11_get_xatom_by_name_for_display(display, selection_atom_name);
-    tr->selection_atom = gdk_atom_intern(selection_atom_name, FALSE);
+    GdkAtom gdk_selection_atom = gdk_atom_intern(selection_atom_name, FALSE);
     g_free(selection_atom_name);
 
     /* If the selection is already owned, there is another tray running. */
     if (XGetSelectionOwner(GDK_DISPLAY_XDISPLAY(display), selection_atom) != None)
     {
         ERR("tray: another systray already running\n");
-        return 1;
+        return NULL;
     }
 
     /* Create an invisible window to hold the selection. */
@@ -622,7 +594,7 @@ static int tray_constructor(Plugin * p, char ** fp)
     if (gdk_selection_owner_set_for_display(
         display,
         gtk_widget_get_window(invisible),
-        tr->selection_atom,
+        gdk_selection_atom,
         timestamp,
         TRUE))
     {
@@ -638,7 +610,7 @@ static int tray_constructor(Plugin * p, char ** fp)
         xev.data.l[3] = 0;    /* manager specific data */
         xev.data.l[4] = 0;    /* manager specific data */
         XSendEvent(GDK_DISPLAY_XDISPLAY(display), RootWindowOfScreen(xscreen), False, StructureNotifyMask, (XEvent *) &xev);
-        
+
         /* Set the orientation property.
          * We always set "horizontal" since even vertical panels are designed to use a lot of width. */
         gulong data = SYSTEM_TRAY_ORIENTATION_HORZ;
@@ -649,14 +621,6 @@ static int tray_constructor(Plugin * p, char ** fp)
             XA_CARDINAL, 32,
             PropModeReplace,
             (guchar *) &data, 1);
-
-        /* Add GDK event filter. */
-        gdk_window_add_filter(NULL, (GdkFilterFunc) tray_event_filter, tr);
-
-        /* Reference the window since it is never added to a container. */
-        tr->invisible = invisible;
-        tr->invisible_window = GDK_WINDOW_XWINDOW(gtk_widget_get_window(invisible));
-        g_object_ref(G_OBJECT(invisible));
     }
     else
     {
@@ -664,26 +628,39 @@ static int tray_constructor(Plugin * p, char ** fp)
         g_printerr("tray: System tray didn't get the system tray manager selection\n");
         return 0;
     }
-        
+
+    /* Allocate plugin context and set into Plugin private data pointer and static variable. */
+    TrayPlugin * tr = g_new0(TrayPlugin, 1);
+    tr->panel = panel;
+    tr->selection_atom = gdk_selection_atom;
+    /* Add GDK event filter. */
+    gdk_window_add_filter(NULL, (GdkFilterFunc) tray_event_filter, tr);
+    /* Reference the window since it is never added to a container. */
+    tr->invisible = g_object_ref_sink(G_OBJECT(invisible));
+    tr->invisible_window = GDK_WINDOW_XWINDOW(gtk_widget_get_window(invisible));
+
     /* Allocate top level widget and set into Plugin widget pointer. */
-    p->pwid = gtk_event_box_new();
+    tr->plugin = p = gtk_event_box_new();
+    lxpanel_plugin_set_data(p, tr, tray_destructor);
 #if GTK_CHECK_VERSION(2,18,0)
-    gtk_widget_set_has_window(p->pwid,FALSE);
+    gtk_widget_set_has_window(p,FALSE);
 #else
-    GTK_WIDGET_SET_FLAGS(p->pwid, GTK_NO_WINDOW);
+    GTK_WIDGET_SET_FLAGS(p, GTK_NO_WINDOW);
 #endif
-    gtk_widget_set_name(p->pwid, "tray");
-    gtk_container_set_border_width(GTK_CONTAINER(p->pwid), 1);
+    gtk_widget_set_name(p, "tray");
+    gtk_container_set_border_width(GTK_CONTAINER(p), 1);
 
     /* Create an icon grid to manage the container. */
-    tr->icon_grid = icon_grid_new(p->panel, p->pwid, p->panel->orientation, p->panel->icon_size, p->panel->icon_size, 3, 0, p->panel->height);
-    return 1;
+    tr->icon_grid = icon_grid_new(panel, p, panel_get_orientation(panel),
+                                  panel_get_icon_size(panel), panel_get_icon_size(panel),
+                                  3, 0, panel_get_height(panel));
+    return p;
 }
 
 /* Plugin destructor. */
-static void tray_destructor(Plugin * p)
+static void tray_destructor(gpointer user_data)
 {
-    TrayPlugin * tr = (TrayPlugin *) p->priv;
+    TrayPlugin * tr = user_data;
 
     /* Remove GDK event filter. */
     gdk_window_remove_filter(NULL, (GdkFilterFunc) tray_event_filter, tr);
@@ -705,7 +682,7 @@ static void tray_destructor(Plugin * p)
 
     /* Deallocate client list. */
     while (tr->client_list != NULL)
-        client_delete(tr, tr->client_list, TRUE);
+        client_delete(tr, tr->client_list, TRUE, FALSE);
 
     /* Deallocate memory. */
     if (tr->icon_grid != NULL)
@@ -715,35 +692,28 @@ static void tray_destructor(Plugin * p)
 }
 
 /* Callback when panel configuration changes. */
-static void tray_panel_configuration_changed(Plugin * p)
+static void tray_panel_configuration_changed(Panel *panel, GtkWidget *p)
 {
     /* Set orientation into the icon grid. */
-    TrayPlugin * tr = (TrayPlugin *) p->priv;
+    TrayPlugin * tr = lxpanel_plugin_get_data(p);
     if (tr->icon_grid != NULL)
     {
-        icon_grid_set_geometry(tr->icon_grid, p->panel->orientation, p->panel->icon_size, p->panel->icon_size, 3, 0, p->panel->height);
+        icon_grid_set_geometry(tr->icon_grid, panel_get_orientation(panel),
+                               panel_get_icon_size(panel), panel_get_icon_size(panel),
+                               3, 0, panel_get_height(panel));
     }
 }
 
 /* Plugin descriptor. */
-PluginClass tray_plugin_class = {
-
-    PLUGINCLASS_VERSIONING,
-
-    .type = "tray",
+LXPanelPluginInit lxpanel_static_plugin_tray = {
     .name = N_("System Tray"),
-    .version = "1.0",
     .description = N_("System tray"),
 
     /* Set a flag to identify the system tray.  It is special in that only one per system can exist. */
     .one_per_system = TRUE,
 
-    .constructor = tray_constructor,
-    .destructor  = tray_destructor,
-    .config = NULL,
-    .save = NULL,
-    .panel_configuration_changed = tray_panel_configuration_changed
-
+    .new_instance = tray_constructor,
+    .reconfigure = tray_panel_configuration_changed
 };
 
 /* vim: set sw=4 sts=4 et : */

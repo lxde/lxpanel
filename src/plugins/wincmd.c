@@ -211,31 +211,24 @@ static gboolean wincmd_apply_configuration(gpointer user_data)
     WinCmdPlugin * wc = lxpanel_plugin_get_data(p);
 
     /* Just save settings */
-    config_setting_set_string(config_setting_add(wc->settings, "image",
-                                                 PANEL_CONF_TYPE_STRING),
-                              wc->image);
-    config_setting_set_string(config_setting_add(wc->settings, "Button1",
-                                                 PANEL_CONF_TYPE_STRING),
-                              wincmd_names[wc->button_1_command]);
-    config_setting_set_string(config_setting_add(wc->settings, "Button2",
-                                                 PANEL_CONF_TYPE_STRING),
-                              wincmd_names[wc->button_2_command]);
-    config_setting_set_int(config_setting_add(wc->settings, "Toggle",
-                                              PANEL_CONF_TYPE_INT),
-                           wc->toggle_preference);
+    config_group_set_string(wc->settings, "image", wc->image);
+    config_group_set_string(wc->settings, "Button1",
+                            wincmd_names[wc->button_1_command]);
+    config_group_set_string(wc->settings, "Button2",
+                            wincmd_names[wc->button_2_command]);
+    config_group_set_int(wc->settings, "Toggle", wc->toggle_preference);
     return FALSE;
 }
 
 /* Callback when the configuration dialog is to be shown. */
-static void wincmd_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *wincmd_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
 {
     WinCmdPlugin * wc = lxpanel_plugin_get_data(p);
-    GtkWidget * dlg = lxpanel_generic_config_dlg(_("Minimize All Windows"),
+    return lxpanel_generic_config_dlg(_("Minimize All Windows"),
         panel, wincmd_apply_configuration, p,
         _("Alternately iconify/shade and raise"), &wc->toggle_preference, CONF_TYPE_BOOL,
         /* FIXME: configure buttons 1 and 2 */
         NULL);
-    gtk_window_present(GTK_WINDOW(dlg));
 }
 
 

@@ -79,7 +79,7 @@ proc_get_critical(char const* sensor_path){
 
     if(sensor_path == NULL) return -1;
 
-    sprintf(sstmp,"%s%s",sensor_path,PROC_THERMAL_TRIP);
+    snprintf(sstmp,sizeof(sstmp),"%s%s",sensor_path,PROC_THERMAL_TRIP);
 
     if (!(state = fopen( sstmp, "r"))) {
         ERR("thermal: cannot open %s\n", sstmp);
@@ -111,7 +111,7 @@ proc_get_temperature(char const* sensor_path){
 
     if(sensor_path == NULL) return -1;
 
-    sprintf(sstmp,"%s%s",sensor_path,PROC_THERMAL_TEMPF);
+    snprintf(sstmp,sizeof(sstmp),"%s%s",sensor_path,PROC_THERMAL_TEMPF);
 
     if (!(state = fopen( sstmp, "r"))) {
         ERR("thermal: cannot open %s\n", sstmp);
@@ -143,7 +143,7 @@ sysfs_get_critical(char const* sensor_path){
 
     if(sensor_path == NULL) return -1;
 
-    sprintf(sstmp,"%s%s",sensor_path,SYSFS_THERMAL_TRIP);
+    snprintf(sstmp,sizeof(sstmp),"%s%s",sensor_path,SYSFS_THERMAL_TRIP);
 
     if (!(state = fopen( sstmp, "r"))) {
         ERR("thermal: cannot open %s\n", sstmp);
@@ -170,7 +170,7 @@ sysfs_get_temperature(char const* sensor_path){
 
     if(sensor_path == NULL) return -1;
 
-    sprintf(sstmp,"%s%s",sensor_path,SYSFS_THERMAL_TEMPF);
+    snprintf(sstmp,sizeof(sstmp),"%s%s",sensor_path,SYSFS_THERMAL_TEMPF);
 
     if (!(state = fopen( sstmp, "r"))) {
         ERR("thermal: cannot open %s\n", sstmp);
@@ -246,15 +246,16 @@ static gint get_critical(thermal *th)
     return min;
 }
 
-static gint
+static void
 update_display(thermal *th)
 {
     char buffer [60];
     int i;
-    int temp = get_temperature(th);
+    int temp;
     GdkColor color;
     gchar *separator;
 
+    temp = get_temperature(th);
     if(temp >= th->warning2)
         color = th->cl_warning2;
     else if(temp >= th->warning1)
@@ -262,12 +263,12 @@ update_display(thermal *th)
     else
         color = th->cl_normal;
 
-    ENTER;
     if(temp == -1)
         panel_draw_label_text(th->plugin->panel, th->namew, "NA", TRUE, 1, TRUE);
     else
     {
-        sprintf(buffer, "<span color=\"#%06x\"><b>%02d</b></span>", gcolor2rgb24(&color), temp);
+        snprintf(buffer, sizeof(buffer), "<span color=\"#%06x\"><b>%02d</b></span>",
+                 gcolor2rgb24(&color), temp);
         gtk_label_set_markup (GTK_LABEL(th->namew), buffer) ;
     }
 
@@ -278,10 +279,15 @@ update_display(thermal *th)
         separator = "\n";
     }
     gtk_widget_set_tooltip_text(th->namew, th->tip->str);
-
-    RET(TRUE);
 }
 
+static gboolean update_display_timeout(gpointer user_data)
+{
+    if (g_source_is_destroyed(g_main_current_source()))
+        return FALSE;
+    update_display(user_data);
+    return TRUE; /* repeat later */
+}
 
 static int
 add_sensor(thermal* th, char const* sensor_path)
@@ -325,7 +331,7 @@ find_sensors(thermal* th, char const* directory, char const* subdir_prefix)
             if (strncmp(sensor_name, subdir_prefix, strlen(subdir_prefix)) != 0)
                 continue;
         }
-        sprintf(sensor_path,"%s%s/", directory, sensor_name);
+        snprintf(sensor_path,sizeof(sensor_path),"%s%s/", directory, sensor_name);
         add_sensor(th, sensor_path);
     }
     g_dir_close(sensorsDirectory);
@@ -455,7 +461,7 @@ thermal_constructor(Plugin *p, char** fp)
     gtk_widget_show(th->namew);
 
     update_display(th);
-    th->timer = g_timeout_add_seconds(3, (GSourceFunc) update_display, (gpointer)th);
+    th->timer = g_timeout_add_seconds(3, (GSourceFunc) update_display_timeout, (gpointer)th);
 
     RET(TRUE);
 

@@ -21,6 +21,8 @@
 #include "config.h"
 #endif
 
+#define __LXPANEL_INTERNALS__
+
 #include "private.h"
 #include "misc.h"
 #include "bg.h"
@@ -60,7 +62,6 @@ Command commands[] = {
 static char* logout_cmd = NULL;
 
 extern GSList* all_panels;
-extern gchar *cprofile;
 extern int config;
 
 /* macros to update config */
@@ -95,8 +96,9 @@ void panel_plugin_config_save( Panel* p, FILE *fp);
 static void update_opt_menu(GtkWidget *w, int ind);
 static void update_toggle_button(GtkWidget *w, gboolean n);
 static void modify_plugin( GtkTreeView* view );
+static gboolean on_entry_focus_out_old( GtkWidget* edit, GdkEventFocus *evt, gpointer user_data );
 static gboolean on_entry_focus_out( GtkWidget* edit, GdkEventFocus *evt, gpointer user_data );
-static gboolean on_entry_focus_out2( GtkWidget* edit, GdkEventFocus *evt, gpointer user_data );
+static gboolean _on_entry_focus_out_do_work(GtkWidget* edit, gpointer user_data);
 
 static void
 response_event(GtkDialog *widget, gint arg1, Panel* panel )
@@ -512,7 +514,7 @@ on_plugin_expand_toggled(GtkCellRendererToggle* render, char* path, GtkTreeView*
             gtk_box_query_child_packing( GTK_BOX(panel->box), pl, &old_expand, &fill, &padding, &pack_type );
             gtk_box_set_child_packing( GTK_BOX(panel->box), pl, expand, fill, padding, pack_type );
             if (expand)
-                config_setting_set_int(config_setting_add(s, "expand", PANEL_CONF_TYPE_INT), 1);
+                config_group_set_int(s, "expand", 1);
             else
                 config_setting_remove(s, "expand");
         }
@@ -622,11 +624,11 @@ static void on_add_plugin_response( GtkDialog* dlg,
             char* type = NULL;
             GtkWidget *pl;
             config_setting_t *cfg;
-            config_setting_t *s = config_setting_get_member(config_root_setting(p->config), "");
-            cfg = config_setting_add(s, "Plugin", PANEL_CONF_TYPE_GROUP);
+
+            cfg = config_group_add_subgroup(config_root_setting(p->config),
+                                            "Plugin");
             gtk_tree_model_get( model, &it, 1, &type, -1 );
-            s = config_setting_add(cfg, "type", PANEL_CONF_TYPE_STRING);
-            config_setting_set_string(s, type);
+            config_group_set_string(cfg, "type", type);
             if ((pl = lxpanel_add_plugin(p, type, cfg, -1)))
             {
                 GtkTreePath* tree_path;
@@ -792,7 +794,13 @@ void modify_plugin( GtkTreeView* view )
     gtk_tree_model_get( model, &it, COL_DATA, &pl, -1 );
     init = PLUGIN_CLASS(pl);
     if (init->config)
-        init->config(PLUGIN_PANEL(pl), pl, GTK_WINDOW(gtk_widget_get_toplevel(GTK_WIDGET(view))));
+    {
+        GtkWidget *dlg;
+        Panel *panel = PLUGIN_PANEL(pl);
+        dlg = init->config(panel, pl, GTK_WINDOW(gtk_widget_get_toplevel(GTK_WIDGET(view))));
+        if (dlg)
+            _panel_show_config_dialog(panel, pl, dlg);
+    }
 }
 
 static int get_widget_index(Panel* p, GtkWidget* pl)
@@ -1162,7 +1170,7 @@ void panel_configure( Panel* p, int sel_page )
     if (fm_config->terminal)
         gtk_entry_set_text( GTK_ENTRY(w), fm_config->terminal );
     g_signal_connect( w, "focus-out-event",
-                      G_CALLBACK(on_entry_focus_out2),
+                      G_CALLBACK(on_entry_focus_out),
                       &fm_config->terminal);
 
     /* If we are under LXSession, setting logout command is not necessary. */
@@ -1176,7 +1184,7 @@ void panel_configure( Panel* p, int sel_page )
         if(logout_cmd)
             gtk_entry_set_text( GTK_ENTRY(w), logout_cmd );
         g_signal_connect( w, "focus-out-event",
-                        G_CALLBACK(on_entry_focus_out),
+                        G_CALLBACK(on_entry_focus_out_old),
                         &logout_cmd);
     }
 
@@ -1195,15 +1203,10 @@ void panel_configure( Panel* p, int sel_page )
 
 void panel_config_save( Panel* p )
 {
-    gchar *fname, *dir;
+    gchar *fname;
 
-    dir = get_config_file( cprofile, "panels", FALSE );
-    fname = g_build_filename( dir, p->name, NULL );
-
-    /* ensure the 'panels' dir exists */
-    if( ! g_file_test( dir, G_FILE_TEST_EXISTS ) )
-        g_mkdir_with_parents( dir, 0755 );
-    g_free( dir );
+    fname = _user_config_file_name("panels", p->name);
+    /* existance of 'panels' dir ensured in main() */
 
     if (!config_write_file(p->config, fname)) {
         ERR("can't open for write %s:", fname);
@@ -1252,19 +1255,7 @@ static void notify_apply_config( GtkWidget* widget )
         (*apply_func)( g_object_get_data(G_OBJECT(dlg), "apply_func_data") );
 }
 
-static gboolean on_entry_focus_out( GtkWidget* edit, GdkEventFocus *evt, gpointer user_data )
-{
-    char** val = (char**)user_data;
-    const char *new_val;
-    g_free( *val );
-    new_val = gtk_entry_get_text(GTK_ENTRY(edit));
-    *val = (new_val && *new_val) ? g_strdup( new_val ) : NULL;
-    notify_apply_config( edit );
-    return FALSE;
-}
-
-/* the same but affects fm_config instead of panel config */
-static gboolean on_entry_focus_out2( GtkWidget* edit, GdkEventFocus *evt, gpointer user_data )
+static gboolean _on_entry_focus_out_do_work(GtkWidget* edit, gpointer user_data)
 {
     char** val = (char**)user_data;
     const char *new_val;
@@ -1273,7 +1264,21 @@ static gboolean on_entry_focus_out2( GtkWidget* edit, GdkEventFocus *evt, gpoint
         return FALSE;
     g_free( *val );
     *val = (new_val && *new_val) ? g_strdup( new_val ) : NULL;
-    fm_config_save(fm_config, NULL);
+    return TRUE;
+}
+
+static gboolean on_entry_focus_out_old( GtkWidget* edit, GdkEventFocus *evt, gpointer user_data )
+{
+    if (_on_entry_focus_out_do_work(edit, user_data))
+        notify_apply_config( edit );
+    return FALSE;
+}
+
+/* the same but affects fm_config instead of panel config */
+static gboolean on_entry_focus_out( GtkWidget* edit, GdkEventFocus *evt, gpointer user_data )
+{
+    if (_on_entry_focus_out_do_work(edit, user_data))
+        fm_config_save(fm_config, NULL);
     return FALSE;
 }
 
@@ -1302,7 +1307,7 @@ static void on_browse_btn_clicked(GtkButton* btn, GtkEntry* entry)
 {
     char* file;
     GtkFileChooserAction action = (GtkFileChooserAction) g_object_get_data(G_OBJECT(btn), "chooser-action");
-    GtkWidget* dlg = GTK_WIDGET(g_object_get_data(G_OBJECT(btn), "dlg"));    
+    GtkWidget* dlg = GTK_WIDGET(g_object_get_data(G_OBJECT(btn), "dlg"));
     GtkWidget* fc = gtk_file_chooser_dialog_new(
                                         (action == GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER) ? _("Select a directory") : _("Select a file"),
                                         GTK_WINDOW(dlg),
@@ -1318,7 +1323,7 @@ static void on_browse_btn_clicked(GtkButton* btn, GtkEntry* entry)
     {
         file = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(fc));
         gtk_entry_set_text(entry, file);
-        on_entry_focus_out(GTK_WIDGET(entry), NULL, g_object_get_data(G_OBJECT(dlg), "file-val"));
+        on_entry_focus_out_old(GTK_WIDGET(entry), NULL, g_object_get_data(G_OBJECT(btn), "file-val"));
         g_free(file);
     }
     gtk_widget_destroy(fc);
@@ -1333,19 +1338,35 @@ static void on_plugin_destroy(GtkWidget *plugin, GtkDialog *dlg)
 /* Handler for "response" signal from standard configuration dialog. */
 static void generic_config_dlg_response(GtkWidget * dlg, int response, Panel * panel)
 {
-    gpointer plugin = g_object_get_data(G_OBJECT(dlg), "plugin");
+    gpointer plugin = g_object_get_data(G_OBJECT(dlg), "generic-config-plugin");
     if (plugin)
         g_signal_handlers_disconnect_by_func(plugin, on_plugin_destroy, dlg);
-    g_object_set_data(G_OBJECT(dlg), "plugin", NULL);
+    g_object_set_data(G_OBJECT(dlg), "generic-config-plugin", NULL);
     panel->plugin_pref_dialog = NULL;
     gtk_widget_destroy(dlg);
     panel_config_save(panel);
 }
 
+void _panel_show_config_dialog(Panel *panel, GtkWidget *p, GtkWidget *dlg)
+{
+    /* If there is already a plugin configuration dialog open, close it.
+     * Then record this one in case the panel or plugin is deleted. */
+    if (panel->plugin_pref_dialog != NULL)
+        gtk_dialog_response(GTK_DIALOG(panel->plugin_pref_dialog), GTK_RESPONSE_CLOSE);
+    panel->plugin_pref_dialog = dlg;
+
+    /* add some handlers to destroy the dialog on responce or widget destroy */
+    g_signal_connect(dlg, "response", G_CALLBACK(generic_config_dlg_response), panel);
+    g_signal_connect(p, "destroy", G_CALLBACK(on_plugin_destroy), dlg);
+    g_object_set_data(G_OBJECT(dlg), "generic-config-plugin", p);
+
+    gtk_window_present(GTK_WINDOW(dlg));
+}
+
 /* Parameters: const char* name, gpointer ret_value, GType type, ....NULL */
 static GtkWidget *_lxpanel_generic_config_dlg(const char *title, Panel *p,
                                               GSourceFunc apply_func,
-                                              gpointer plugin, GtkWidget *widget,
+                                              gpointer plugin,
                                               const char *name, va_list args)
 {
     GtkWidget* dlg = gtk_dialog_new_with_buttons( title, NULL, 0,
@@ -1354,9 +1375,6 @@ static GtkWidget *_lxpanel_generic_config_dlg(const char *title, Panel *p,
                                                   NULL );
     panel_apply_icon(GTK_WINDOW(dlg));
 
-    g_signal_connect( dlg, "response", G_CALLBACK(generic_config_dlg_response), p);
-    g_signal_connect(widget, "destroy", G_CALLBACK(on_plugin_destroy), dlg);
-    g_object_set_data(G_OBJECT(dlg), "plugin", widget);
     if( apply_func )
         g_object_set_data( G_OBJECT(dlg), "apply_func", apply_func );
     g_object_set_data( G_OBJECT(dlg), "apply_func_data", plugin );
@@ -1379,7 +1397,7 @@ static GtkWidget *_lxpanel_generic_config_dlg(const char *title, Panel *p,
                     gtk_entry_set_text( GTK_ENTRY(entry), *(char**)val );
                 gtk_entry_set_width_chars(GTK_ENTRY(entry), 40);
                 g_signal_connect( entry, "focus-out-event",
-                  G_CALLBACK(on_entry_focus_out), val );
+                  G_CALLBACK(on_entry_focus_out_old), val );
                 break;
             case CONF_TYPE_INT:
             {
@@ -1427,9 +1445,9 @@ static GtkWidget *_lxpanel_generic_config_dlg(const char *title, Panel *p,
                 {
                     GtkWidget* browse = gtk_button_new_with_mnemonic(_("_Browse"));
                     gtk_box_pack_start( GTK_BOX(hbox), browse, TRUE, TRUE, 2 );
-                    g_object_set_data(G_OBJECT(dlg), "file-val", val);
+                    g_object_set_data(G_OBJECT(browse), "file-val", val);
                     g_object_set_data(G_OBJECT(browse), "dlg", dlg);
-                    
+
                     GtkFileChooserAction action = GTK_FILE_CHOOSER_ACTION_OPEN;
                     if (type == CONF_TYPE_DIRECTORY_ENTRY)
                     {
@@ -1446,13 +1464,8 @@ static GtkWidget *_lxpanel_generic_config_dlg(const char *title, Panel *p,
 
     gtk_container_set_border_width( GTK_CONTAINER(dlg), 8 );
 
-    /* If there is already a plugin configuration dialog open, close it.
-     * Then record this one in case the panel or plugin is deleted. */
-    if (p->plugin_pref_dialog != NULL)
-        gtk_dialog_response(GTK_DIALOG(p->plugin_pref_dialog), GTK_RESPONSE_CLOSE);
-    p->plugin_pref_dialog = dlg;
-
     gtk_widget_show_all( dlg );
+
     return dlg;
 }
 
@@ -1467,7 +1480,7 @@ GtkWidget *lxpanel_generic_config_dlg(const char *title, Panel *panel,
     if (plugin == NULL)
         return NULL;
     va_start(args, name);
-    dlg = _lxpanel_generic_config_dlg(title, panel, apply_func, plugin, plugin, name, args);
+    dlg = _lxpanel_generic_config_dlg(title, panel, apply_func, plugin, name, args);
     va_end(args);
     return dlg;
 }
@@ -1483,54 +1496,85 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
     if (plugin == NULL)
         return NULL;
     va_start(args, name);
-    dlg = _lxpanel_generic_config_dlg(title, plugin->panel, apply_func, plugin, plugin->pwid, name, args);
+    dlg = _lxpanel_generic_config_dlg(title, plugin->panel, apply_func, plugin, name, args);
     va_end(args);
+    _panel_show_config_dialog(plugin->panel, plugin->pwid, dlg);
     return dlg;
-}
-
-char* get_config_file( const char* profile, const char* file_name, gboolean is_global )
-{
-    char* path;
-    if( is_global )
-    {
-        path = g_build_filename( PACKAGE_DATA_DIR, "lxpanel/profile", profile, file_name, NULL );
-    }
-    else
-    {
-        char* dir = g_build_filename( g_get_user_config_dir(), "lxpanel" , profile, NULL);
-        /* make sure the private profile dir exists */
-        /* FIXME: Should we do this everytime this func gets called?
-    *        Maybe simply doing this before saving config files is enough. */
-        g_mkdir_with_parents( dir, 0700 );
-        path = g_build_filename( dir,file_name, NULL);
-        g_free( dir );
-    }
-    return path;
 }
 
 const char command_group[] = "Command";
 void load_global_config()
 {
     GKeyFile* kf = g_key_file_new();
-    char* file = get_config_file( cprofile, "config", FALSE );
-    gboolean loaded = g_key_file_load_from_file( kf, file, 0, NULL );
-    if( ! loaded )
+    char* file = _old_system_config_file_name("config");
+    gboolean loaded = FALSE;
+
+    /* try to load system config file first */
+    if (g_key_file_load_from_file(kf, file, 0, NULL))
+        loaded = TRUE;
+    else /* fallback to old config place for backward compatibility */
     {
-        g_free( file );
-        file = get_config_file( cprofile, "config", TRUE ); /* get the system-wide config file */
-        loaded = g_key_file_load_from_file( kf, file, 0, NULL );
+        g_free(file);
+        file = _system_config_file_name("config");
+        if (g_key_file_load_from_file(kf, file, 0, NULL))
+            loaded = TRUE;
     }
+    /* now try to load user config file */
+    g_free(file);
+    file = _user_config_file_name("config", NULL);
+    if (g_key_file_load_from_file(kf, file, 0, NULL))
+        loaded = TRUE;
+    g_free(file);
 
     if( loaded )
     {
+        char *fm, *tmp;
+        GList *apps, *l;
+
         logout_cmd = g_key_file_get_string( kf, command_group, "Logout", NULL );
+        /* check for terminal setting on upgrade */
+        if (fm_config->terminal == NULL)
+        {
+            fm_config->terminal = g_key_file_get_string(kf, command_group,
+                                                        "Terminal", NULL);
+            if (fm_config->terminal != NULL) /* setting changed, save it */
+                fm_config_save(fm_config, NULL);
+        }
+        /* this is heavy but fortunately it will be ran only once: on upgrade */
+        fm = g_key_file_get_string(kf, command_group, "FileManager", NULL);
+        if (fm)
+        {
+            tmp = strchr(fm, ' '); /* chop params */
+            if (tmp)
+                *tmp = '\0';
+            tmp = strrchr(fm, '/'); /* use only basename */
+            if (tmp)
+                tmp++;
+            else
+                tmp = fm;
+            tmp = g_strdup_printf("%s.desktop", tmp); /* generate desktop id */
+            g_free(fm);
+            apps = g_app_info_get_all_for_type("inode/directory");
+            for (l = apps; l; l = l->next) /* scan all known applications */
+                if (strcmp(tmp, g_app_info_get_id(l->data)) == 0)
+                    break;
+            if (l != NULL) /* found */
+                g_app_info_set_as_default_for_type(l->data, "inode/directory",
+                                                   NULL);
+            else
+                g_warning("the %s is not valid desktop id of file manager", tmp);
+            for (l = apps; l; l = l->next) /* free retrieved data */
+                g_object_unref(l->data);
+            g_list_free(apps);
+            g_free(tmp);
+        }
     }
     g_key_file_free( kf );
 }
 
 static void save_global_config()
 {
-    char* file = get_config_file( cprofile, "config", FALSE );
+    char* file = _user_config_file_name("config", NULL);
     FILE* f = fopen( file, "w" );
     if( f )
     {

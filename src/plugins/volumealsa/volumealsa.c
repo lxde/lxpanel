@@ -30,10 +30,10 @@
 #include "private.h"
 #include "dbg.h"
 
-#define ICONS_VOLUME_HIGH   PACKAGE_DATA_DIR "/lxpanel/images/volume-high.png"
-#define ICONS_VOLUME_MEDIUM PACKAGE_DATA_DIR "/lxpanel/images/volume-medium.png"
-#define ICONS_VOLUME_LOW    PACKAGE_DATA_DIR "/lxpanel/images/volume-low.png"
-#define ICONS_MUTE          PACKAGE_DATA_DIR "/lxpanel/images/mute.png"
+#define ICONS_VOLUME_HIGH   PACKAGE_DATA_DIR "/images/volume-high.png"
+#define ICONS_VOLUME_MEDIUM PACKAGE_DATA_DIR "/images/volume-medium.png"
+#define ICONS_VOLUME_LOW    PACKAGE_DATA_DIR "/images/volume-low.png"
+#define ICONS_MUTE          PACKAGE_DATA_DIR "/images/mute.png"
 
 typedef struct {
 
@@ -126,7 +126,8 @@ static gboolean asound_find_element(VolumeALSAPlugin * vol, const char * ename)
 
 static gboolean asound_reset_mixer_evt_idle(VolumeALSAPlugin * vol)
 {
-    vol->mixer_evt_idle = 0;
+    if (!g_source_is_destroyed(g_main_current_source()))
+        vol->mixer_evt_idle = 0;
     return FALSE;
 }
 
@@ -224,7 +225,7 @@ static gboolean asound_initialize(VolumeALSAPlugin * vol)
 
 static void asound_deinitialize(VolumeALSAPlugin * vol)
 {
-    int i;
+    guint i;
 
     if (vol->mixer_evt_idle != 0) {
         g_source_remove(vol->mixer_evt_idle);
@@ -471,7 +472,7 @@ static void volumealsa_build_popup_window(Plugin * p)
     VolumeALSAPlugin * vol = p->priv;
 
     /* Create a new window. */
-    vol->popup_window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    vol->popup_window = gtk_window_new(GTK_WINDOW_POPUP);
     gtk_window_set_decorated(GTK_WINDOW(vol->popup_window), FALSE);
     gtk_container_set_border_width(GTK_CONTAINER(vol->popup_window), 5);
     gtk_window_set_default_size(GTK_WINDOW(vol->popup_window), 80, 140);

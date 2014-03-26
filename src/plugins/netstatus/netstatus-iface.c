@@ -308,7 +308,7 @@ netstatus_iface_set_name (NetstatusIface *iface,
   g_object_notify (G_OBJECT (iface), "name");
 }
 
-G_CONST_RETURN char *
+const char *
 netstatus_iface_get_name (NetstatusIface *iface)
 {
   g_return_val_if_fail (NETSTATUS_IS_IFACE (iface), NULL);
@@ -368,7 +368,7 @@ netstatus_iface_set_error (NetstatusIface *iface,
     }
 }
 
-G_CONST_RETURN GError *
+const GError *
 netstatus_iface_get_error (NetstatusIface *iface)
 {
   g_return_val_if_fail (NETSTATUS_IS_IFACE (iface), NULL);
@@ -403,18 +403,24 @@ netstatus_iface_set_polling_error (NetstatusIface *iface,
 {
   GError  *error;
   va_list  args;
+#if !GLIB_CHECK_VERSION(2, 22, 0)
   char    *error_message;
-  
+#endif
+
   va_start (args, format);
 
+#if GLIB_CHECK_VERSION(2, 22, 0)
+  error = g_error_new_valist (NETSTATUS_ERROR, code, format, args);
+#else
   error_message = g_strdup_vprintf (format, args);
-  error = g_error_new (NETSTATUS_ERROR, code, error_message);
+  error = g_error_new (NETSTATUS_ERROR, code, "%s", error_message);
+  g_free (error_message);
+#endif
 
   dprintf (POLLING, "ERROR: %s\n", error->message);
   netstatus_iface_set_error (iface, error);
 
   g_error_free (error);
-  g_free (error_message);
 
   va_end (args);
 }
@@ -610,7 +616,10 @@ netstatus_iface_monitor_timeout (NetstatusIface *iface)
   NetstatusState state;
   int            signal_strength;
   gboolean       is_wireless;
- 
+
+  if (g_source_is_destroyed(g_main_current_source()))
+    return FALSE;
+
   state = netstatus_iface_poll_state (iface);
 
   if (iface->priv->state != state &&
@@ -668,7 +677,7 @@ netstatus_iface_init_monitor (NetstatusIface *iface)
 					       (GSourceFunc) netstatus_iface_monitor_timeout,
 					       iface);
 
-      netstatus_iface_monitor_timeout (iface);
+      /* netstatus_iface_monitor_timeout (iface); */
     }
 }
 

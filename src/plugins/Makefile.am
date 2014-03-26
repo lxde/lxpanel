@@ -16,7 +16,7 @@ libbuiltin_plugins_a_CFLAGS = \
 	-I$(top_srcdir)/include \
 	-I$(top_srcdir)/src \
 	-I$(top_srcdir)/src/plugins \
-	-DPACKAGE_DATA_DIR=\""$(datadir)"\" \
+	-DPACKAGE_DATA_DIR=\""$(datadir)/lxpanel"\" \
 	-DPACKAGE_UI_DIR=\""$(datadir)/lxpanel/ui"\" \
 	-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
 	$(PACKAGE_CFLAGS) \
@@ -31,12 +31,10 @@ PLUGINS_SOURCES = \
 	dclock.c \
 	dirmenu.c \
 	image.c \
-	launchbar.c \
 	launchtaskbar.c \
 	pager.c \
 	separator.c \
 	space.c \
-	taskbar.c \
 	tray.c \
 	wincmd.c \
 	$(MENU_SOURCES)

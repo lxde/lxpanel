@@ -42,8 +42,7 @@ fi
 pkg_modules="$pkg_modules \
              gio-unix-2.0 \
              gthread-2.0 \
-             gmodule-2.0 \
-             libmenu-cache"
+             gmodule-2.0"
 PKG_CHECK_MODULES(PACKAGE, [$pkg_modules])
 AC_SUBST(PACKAGE_CFLAGS)
 AC_SUBST(PACKAGE_LIBS)
@@ -343,6 +342,12 @@ AC_FUNC_STAT
 AC_FUNC_STRFTIME
 AC_CHECK_FUNCS([bzero memset mkdir setlocale strchr])
 
+dnl check for menu-cache versions 0.4.x since no macro MENU_CACHE_CHECK_VERSION
+dnl is available in those versions
+LIBS_save="${LIBS}"
+LIBS="${LIBS} ${MENU_CACHE_LIBS}"
+AC_CHECK_FUNCS(menu_cache_dir_list_children)
+LIBS="${LIBS_save}"
 
 # Generate po/LINGUAS on the fly rather than relying on translators
 # to maintain it manually. This also overcome the problem that Transifex
@@ -400,6 +405,12 @@ else
     CPPFLAGS="$CPPFLAGS -DG_DISABLE_ASSERT -DG_DISABLE_CHECKS -DG_DISABLE_CAST_CHECKS"
 fi
 
+dnl Fix invalid sysconfdir when --prefix=/usr
+if test `eval "echo $sysconfdir"` = /usr/etc
+then
+    sysconfdir=/etc
+fi
+
 AC_CONFIG_FILES([
     lxpanel.pc
     Makefile
@@ -432,6 +443,9 @@ echo
 echo lxpanel ......................... : Version $VERSION
 echo
 echo Prefix........................... : $prefix
+echo System config directory.......... : `eval "echo $sysconfdir"`
+echo
+
 if test x$plugins_loading = xyes; then
 echo Building dynamic plugins:
     if test x"$plugin_netstatus" != x; then
@@ -478,6 +492,12 @@ echo Building dynamic plugins:
     fi
 else
 echo Dynamic loader for plugins....... : disabled.
+fi
+
+if test x"$sysconfdir" != x'/etc'; then
+    echo
+    echo 'Warning: sysconfdir is not /etc. It might be not what you want.'
+    echo 'Please consider passing --sysconfdir=/etc to configure.'
 fi
 
 echo

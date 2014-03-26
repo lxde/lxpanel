@@ -474,14 +474,6 @@ netstatus_icon_destroy (GtkObject *widget)
   icon->priv->wireless_changed_id = 0;
   icon->priv->signal_changed_id   = 0;
 
-#if GLIB_CHECK_VERSION(2,12,0)
-/* not needed with GTKTooltip API*/
-#else
-  if (icon->priv->tooltips)
-    g_object_unref (icon->priv->tooltips);
-  icon->priv->tooltips = NULL;
-#endif
-
   icon->priv->image = NULL;
 
   GTK_OBJECT_CLASS (parent_class)->destroy (widget);
@@ -884,14 +876,6 @@ netstatus_icon_instance_init (NetstatusIcon      *icon,
   gtk_container_add (GTK_CONTAINER (icon), icon->priv->signal_image);
   gtk_widget_hide (icon->priv->signal_image);
 
-#if GLIB_CHECK_VERSION(2,12,0)
-/* not needed with GTKTooltip API*/
-#else
-  icon->priv->tooltips = gtk_tooltips_new ();
-  g_object_ref (icon->priv->tooltips);
-  gtk_object_sink (GTK_OBJECT (icon->priv->tooltips));
-#endif
-
   gtk_widget_add_events (GTK_WIDGET (icon),
 			 GDK_BUTTON_PRESS_MASK | GDK_ENTER_NOTIFY_MASK | GDK_LEAVE_NOTIFY_MASK);
 }
@@ -1078,15 +1062,6 @@ netstatus_icon_set_tooltips_enabled (NetstatusIcon *icon,
   if (icon->priv->tooltips_enabled != enabled)
     {
       icon->priv->tooltips_enabled = enabled;
-
-#if GLIB_CHECK_VERSION(2,12,0)
-/* not needed with GTKTooltip API*/
-#else
-      if (enabled)
-	gtk_tooltips_enable (icon->priv->tooltips);
-      else
-	gtk_tooltips_disable (icon->priv->tooltips);
-#endif
 
       g_object_notify (G_OBJECT (icon), "tooltips-enabled");
     }

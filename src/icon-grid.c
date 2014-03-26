@@ -33,6 +33,9 @@ static void icon_grid_demand_resize(IconGrid * ig);
 /* Establish the widget placement of an icon grid. */
 static gboolean icon_grid_placement(IconGrid * ig)
 {
+    if (ig->widget == NULL)
+        return FALSE;
+
     /* Make sure the container is visible. */
     gtk_widget_show(ig->container);
 

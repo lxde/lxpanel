@@ -156,7 +156,23 @@ extern pair bool_pair[];
 int str2num(pair *p, const gchar *str, int defval);
 const gchar *num2str(pair *p, int num, const gchar *defval);
 
-char* get_config_file( const char* profile, const char* file_name, gboolean is_global );
+#ifdef __LXPANEL_INTERNALS__
+static inline char *_system_config_file_name(const char *file_name)
+{
+    return g_build_filename(PACKAGE_SYSCONF_DIR, cprofile, file_name, NULL);
+}
+
+static inline char *_old_system_config_file_name(const char *file_name)
+{
+    return g_build_filename(PACKAGE_DATA_DIR "/profile", cprofile, file_name, NULL);
+}
+
+static inline char *_user_config_file_name(const char *name1, const char *name2)
+{
+    return g_build_filename(g_get_user_config_dir(), "lxpanel", cprofile, name1,
+                            name2, NULL);
+}
+#endif
 
 //void _queue_panel_calculate_size(Panel *panel);
 
@@ -190,6 +206,8 @@ GQuark lxpanel_plugin_qpanel; /* access to Panel */
 #define PLUGIN_PANEL(_i) ((Panel*)g_object_get_qdata(G_OBJECT(_i),lxpanel_plugin_qpanel))
 
 gboolean _class_is_present(LXPanelPluginInit *init);
+
+void _panel_show_config_dialog(Panel *panel, GtkWidget *p, GtkWidget *dlg);
 
 /* -----------------------------------------------------------------------------
  *   Deprecated declarations. Kept for compatibility with old code plugins.

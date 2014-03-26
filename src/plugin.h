@@ -54,8 +54,10 @@ G_BEGIN_DECLS
  *
  * Callback @config is called when user tries to configure the instance
  * (either via context menu or from plugins selection dialog). It should
- * create dialog window with configuration options and prepare saving
- * data when the dialog is closed. See also lxpanel_generic_config_dlg().
+ * create dialog window with instance configuration options. Returned
+ * dialog will be destroyed on responce or on instance destroy and any
+ * changed settings will be saved to the panel configuration file. See
+ * also lxpanel_generic_config_dlg().
  *
  * Callback @reconfigure is called when panel configuration was changed
  * in the panel configuration dialog.
@@ -67,7 +69,7 @@ typedef struct {
     char *name;                 /* name to represent in lists */
     char *description;          /* tooltip text */
     GtkWidget *(*new_instance)(Panel *panel, config_setting_t *settings);
-    void (*config)(Panel *panel, GtkWidget *instance, GtkWindow *parent);
+    GtkWidget *(*config)(Panel *panel, GtkWidget *instance, GtkWindow *parent);
     void (*reconfigure)(Panel *panel, GtkWidget *instance);
     gboolean (*button_press_event)(GtkWidget *widget, GdkEventButton *event, Panel *panel);
     void (*show_system_menu)(GtkWidget *widget);
@@ -117,6 +119,8 @@ extern void lxpanel_plugin_popup_set_position_helper(Panel * p, GtkWidget * near
 extern void plugin_widget_set_background(GtkWidget * plugin, Panel * p);
 			/* Recursively set the background of all widgets on a panel background configuration change */
 extern gboolean lxpanel_launch_path(Panel *panel, FmPath *path);
+extern void lxpanel_plugin_show_config_dialog(Panel* panel, GtkWidget* plugin);
+			/* Calls config() callback and shows configuration window */
 
 G_END_DECLS
 

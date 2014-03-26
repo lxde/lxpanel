@@ -342,15 +342,9 @@ static gboolean dirmenu_apply_configuration(gpointer user_data)
     }
 
     /* Save configuration */
-    config_setting_set_string(config_setting_add(dm->settings, "path",
-                                                 PANEL_CONF_TYPE_STRING),
-                              dm->path);
-    config_setting_set_string(config_setting_add(dm->settings, "name",
-                                                 PANEL_CONF_TYPE_STRING),
-                              dm->name);
-    config_setting_set_string(config_setting_add(dm->settings, "image",
-                                                 PANEL_CONF_TYPE_STRING),
-                              dm->image);
+    config_group_set_string(dm->settings, "path", dm->path);
+    config_group_set_string(dm->settings, "name", dm->name);
+    config_group_set_string(dm->settings, "image", dm->image);
 
     lxpanel_button_set_icon(p, ((dm->image != NULL) ? dm->image : "file-manager"),
                             panel_get_icon_size(dm->panel));
@@ -361,16 +355,15 @@ static gboolean dirmenu_apply_configuration(gpointer user_data)
 }
 
 /* Callback when the configuration dialog is to be shown. */
-static void dirmenu_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *dirmenu_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
 {
     DirMenuPlugin * dm = lxpanel_plugin_get_data(p);
-    GtkWidget * dlg = lxpanel_generic_config_dlg(_("Directory Menu"),
+    return lxpanel_generic_config_dlg(_("Directory Menu"),
         panel, dirmenu_apply_configuration, p,
         _("Directory"), &dm->path, CONF_TYPE_DIRECTORY_ENTRY,
         _("Label"), &dm->name, CONF_TYPE_STR,
         _("Icon"), &dm->image, CONF_TYPE_FILE_ENTRY,
         NULL);
-    gtk_window_present(GTK_WINDOW(dlg));
 }
 
 /* Callback when panel configuration changes. */

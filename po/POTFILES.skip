@@ -1,4 +1,3 @@
-src/plugins/cpufreq/cpufreq.c
-data/ui/launchbar.ui
 data/ui/netstatus.ui
 data/ui/panel-pref.ui
+data/ui/launchtaskbar.ui

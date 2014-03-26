@@ -561,7 +561,9 @@ monitors_update(gpointer data)
 {
     MonitorsPlugin *mp;
     int i;
-    
+
+    if (g_source_is_destroyed(g_main_current_source()))
+        return FALSE;
     mp = (MonitorsPlugin *) data;
     if (!mp)
         RET(FALSE);

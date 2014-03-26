@@ -84,8 +84,9 @@ extern void panel_apply_icon(GtkWindow *w);
 extern void panel_destroy(Panel *p);
 extern void panel_adjust_geometry_terminology(Panel *p);
 extern void panel_determine_background_pixmap(Panel * p, GtkWidget * widget, GdkWindow * window);
-extern void panel_draw_label_text(Panel * p, GtkWidget * label, char * text, gboolean bold,
-        float custom_size_factor, gboolean custom_color);
+extern void panel_draw_label_text(Panel * p, GtkWidget * label, const char * text,
+                                  gboolean bold, float custom_size_factor,
+                                  gboolean custom_color);
 extern void panel_establish_autohide(Panel *p);
 extern void panel_image_set_from_file(Panel * p, GtkWidget * image, const char * file);
 extern gboolean panel_image_set_icon_theme(Panel * p, GtkWidget * image, const gchar * icon);
@@ -104,8 +105,11 @@ extern GtkOrientation panel_get_orientation(Panel *panel);
 extern gint panel_get_icon_size(Panel *panel);
 extern gint panel_get_height(Panel *panel);
 extern GtkWindow *panel_get_toplevel_window(Panel *panel);
+extern Window panel_get_xwindow(Panel *panel);
+extern gint panel_get_monitor(Panel *panel);
 extern GtkStyle *panel_get_defstyle(Panel *panel);
 extern GtkIconTheme *panel_get_icon_theme(Panel *panel);
+extern gboolean panel_is_at_bottom(Panel *panel);
 extern GtkWidget *panel_box_new(Panel *panel, gboolean homogeneous, gint spacing);
 extern GtkWidget *panel_separator_new(Panel *panel);
 

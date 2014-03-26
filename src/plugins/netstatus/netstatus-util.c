@@ -141,7 +141,7 @@ netstatus_connect_signal_while_alive (gpointer    object,
   g_signal_connect_closure_by_id (object, signal_id, detail, closure, FALSE);
 }
 
-G_CONST_RETURN char *
+const char *
 netstatus_get_state_string (NetstatusState state)
 {
   char *retval = NULL;

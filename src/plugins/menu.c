@@ -16,6 +16,10 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <stdlib.h>
 #include <string.h>
 
@@ -37,7 +41,16 @@
 
 #include "dbg.h"
 
-#define DEFAULT_MENU_ICON PACKAGE_DATA_DIR "/lxpanel/images/my-computer.png"
+/* support for libmenu-cache 0.4.x */
+#ifndef MENU_CACHE_CHECK_VERSION
+# ifdef HAVE_MENU_CACHE_DIR_LIST_CHILDREN
+#  define MENU_CACHE_CHECK_VERSION(_a,_b,_c) (_a == 0 && _b < 5) /* < 0.5.0 */
+# else
+#  define MENU_CACHE_CHECK_VERSION(_a,_b,_c) 0 /* not even 0.4.0 */
+# endif
+#endif
+
+#define DEFAULT_MENU_ICON PACKAGE_DATA_DIR "/images/my-computer.png"
 /*
  * SuxPanel version 0.1
  * Copyright (c) 2003 Leandro Pereira <leandro@linuxmag.com.br>
@@ -468,7 +481,25 @@ static int load_menu(menup* m, MenuCacheDir* dir, GtkWidget* menu, int pos )
     GSList * l;
     /* number of visible entries */
     gint count = 0;		
+#if MENU_CACHE_CHECK_VERSION(0, 4, 0)
+    GSList *children;
+#if MENU_CACHE_CHECK_VERSION(0, 5, 0)
+    char *kfpath = menu_cache_item_get_file_path(MENU_CACHE_ITEM(dir));
+    GKeyFile *kf = g_key_file_new();
+    /* for version 0.5.0 we enable hidden so should test NoDisplay flag */
+    if (kfpath && g_key_file_load_from_file(kf, kfpath, 0, NULL) &&
+        g_key_file_get_boolean(kf, "Desktop Entry", "NoDisplay", NULL))
+        count = -1;
+    g_free(kfpath);
+    g_key_file_free(kf);
+    if (count < 0) /* directory is hidden, ignore children */
+        return 0;
+#endif
+    children = menu_cache_dir_list_children(dir);
+    for (l = children; l; l = l->next)
+#else
     for( l = menu_cache_dir_get_children(dir); l; l = l->next )
+#endif
     {
         MenuCacheItem* item = MENU_CACHE_ITEM(l->data);
 	
@@ -502,6 +533,10 @@ static int load_menu(menup* m, MenuCacheDir* dir, GtkWidget* menu, int pos )
 		}
 	}
     }
+#if MENU_CACHE_CHECK_VERSION(0, 4, 0)
+    g_slist_foreach(children, (GFunc)menu_cache_item_unref, NULL);
+    g_slist_free(children);
+#endif
     return count;
 }
 
@@ -567,9 +602,18 @@ static void sys_menu_insert_items( menup* m, GtkMenu* menu, int position )
     if( G_UNLIKELY( SYS_MENU_ITEM_ID == 0 ) )
         SYS_MENU_ITEM_ID = g_quark_from_static_string( "SysMenuItem" );
 
+#if MENU_CACHE_CHECK_VERSION(0, 4, 0)
+    dir = menu_cache_dup_root_dir(m->menu_cache);
+#else
     dir = menu_cache_get_root_dir( m->menu_cache );
+#endif
     if(dir)
+    {
         load_menu( m, dir, GTK_WIDGET(menu), position );
+#if MENU_CACHE_CHECK_VERSION(0, 4, 0)
+        menu_cache_item_unref(MENU_CACHE_ITEM(dir));
+#endif
+    }
     else /* menu content is empty */
     {
         /* add a place holder */
@@ -961,20 +1005,12 @@ menu_constructor(Panel *panel, config_setting_t *settings)
         config_setting_add(settings, "system", PANEL_CONF_TYPE_GROUP);
         config_setting_add(settings, "separator", PANEL_CONF_TYPE_GROUP);
         s = config_setting_add(settings, "item", PANEL_CONF_TYPE_GROUP);
-            config_setting_set_string(config_setting_add(s, "command",
-                                                         PANEL_CONF_TYPE_STRING),
-                                      "run");
+            config_group_set_string(s, "command", "run");
         config_setting_add(settings, "separator", PANEL_CONF_TYPE_GROUP);
         s = config_setting_add(settings, "item", PANEL_CONF_TYPE_GROUP);
-            config_setting_set_string(config_setting_add(s, "command",
-                                                         PANEL_CONF_TYPE_STRING),
-                                      "logout");
-            config_setting_set_string(config_setting_add(s, "image",
-                                                         PANEL_CONF_TYPE_STRING),
-                                      "gnome-logout");
-        config_setting_set_string(config_setting_add(m->settings, "image",
-                                                     PANEL_CONF_TYPE_STRING),
-                                  DEFAULT_MENU_ICON);
+            config_group_set_string(s, "command", "logout");
+            config_group_set_string(s, "image", "gnome-logout");
+        config_group_set_string(m->settings, "image", DEFAULT_MENU_ICON);
     }
 
     if (!read_submenu(m, m->settings, FALSE)) {
@@ -994,24 +1030,18 @@ static gboolean apply_config(gpointer user_data)
     if( m->fname ) {
         lxpanel_button_set_icon(m->img, m->fname, panel_get_icon_size(m->panel));
     }
-    config_setting_set_string(config_setting_add(m->settings, "image",
-                                                 PANEL_CONF_TYPE_STRING),
-                              m->fname);
-    config_setting_set_string(config_setting_add(m->settings, "name",
-                                                 PANEL_CONF_TYPE_STRING),
-                              m->caption);
+    config_group_set_string(m->settings, "image", m->fname);
+    config_group_set_string(m->settings, "name", m->caption);
     return FALSE;
 }
 
-static void menu_config(Panel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *menu_config(Panel *panel, GtkWidget *p, GtkWindow *parent)
 {
-    GtkWidget* dlg;
     menup* menu = lxpanel_plugin_get_data(p);
-    dlg = lxpanel_generic_config_dlg(_("Menu"), panel, apply_config, p,
-                                     _("Icon"), &menu->fname, CONF_TYPE_FILE_ENTRY,
-                                     /* _("Caption"), &menu->caption, CONF_TYPE_STR, */
-                                     NULL);
-    gtk_window_present( GTK_WINDOW(dlg) );
+    return lxpanel_generic_config_dlg(_("Menu"), panel, apply_config, p,
+                                      _("Icon"), &menu->fname, CONF_TYPE_FILE_ENTRY,
+                                      /* _("Caption"), &menu->caption, CONF_TYPE_STR, */
+                                      NULL);
 }
 
 /* Callback when panel configuration changes. */

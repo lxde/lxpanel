@@ -7,7 +7,6 @@ src/gtkbar.c
 src/panel.c
 src/plugin.c
 src/gtk-run.c
-data/ui/launchbar.glade
 data/ui/launchtaskbar.glade
 data/ui/netstatus.glade
 data/ui/panel-pref.glade
@@ -16,9 +15,7 @@ data/ui/panel-pref.glade
 src/plugins/cpu/cpu.c
 src/plugins/deskno/deskno.c
 src/plugins/image.c
-src/plugins/launchbar.c
 src/plugins/launchtaskbar.c
-src/plugins/taskbar.c
 src/plugins/dclock.c
 src/plugins/menu.c
 src/plugins/separator.c
@@ -29,6 +26,8 @@ src/plugins/xkb/xkb-plugin.c
 src/plugins/wincmd.c
 src/plugins/dirmenu.c
 src/plugins/thermal/thermal.c
+
+src/plugins/cpufreq/cpufreq.c
 
 src/plugins/volume/volume.c
 src/plugins/volume/volume-impl.c

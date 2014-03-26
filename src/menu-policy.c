@@ -16,11 +16,23 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#include <menu-cache.h>
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <glib.h>
 
 #include "menu-policy.h"
 #include "private.h"
+
+/* support for libmenu-cache 0.4.x */
+#ifndef MENU_CACHE_CHECK_VERSION
+# ifdef HAVE_MENU_CACHE_DIR_LIST_CHILDREN
+#  define MENU_CACHE_CHECK_VERSION(_a,_b,_c) (_a == 0 && _b < 5) /* < 0.5.0 */
+# else
+#  define MENU_CACHE_CHECK_VERSION(_a,_b,_c) 0 /* not even 0.4.0 */
+# endif
+#endif
 
 guint32 visibility_flags = 0;
 
@@ -30,7 +42,12 @@ MenuCache * panel_menu_cache_new(guint32* visibility_flags)
     MenuCache* cache;
     if (g_getenv("XDG_MENU_PREFIX") == NULL)
         g_setenv("XDG_MENU_PREFIX", "lxde-", TRUE);
+#if MENU_CACHE_CHECK_VERSION(0, 5, 0)
+    /* do it the same way menu:// VFS plugin in libfm does */
+    cache = menu_cache_lookup("applications.menu+hidden");
+#else
     cache = menu_cache_lookup("applications.menu");
+#endif
     if(visibility_flags)
     {
         if(is_in_lxde)

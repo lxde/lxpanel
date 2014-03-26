@@ -76,6 +76,18 @@ gboolean config_setting_remove(config_setting_t * parent, const char * name);
 gboolean config_setting_remove_elem(config_setting_t * parent, unsigned int index);
 gboolean config_setting_destroy(config_setting_t * setting);
 
+#define config_group_set_int(_group,_name,_value) \
+        config_setting_set_int(config_setting_add(_group, _name, \
+                                                  PANEL_CONF_TYPE_INT), \
+                               _value)
+#define config_group_set_string(_group,_name,_value) \
+        config_setting_set_string(config_setting_add(_group, _name, \
+                                                     PANEL_CONF_TYPE_STRING), \
+                               _value)
+#define config_group_add_subgroup(_group,_name) \
+        config_setting_add(config_setting_add(_group, "", PANEL_CONF_TYPE_LIST), \
+                           _name, PANEL_CONF_TYPE_GROUP)
+
 PanelConfType config_setting_type(const config_setting_t * setting);
 #define config_setting_is_group(_s) config_setting_type(_s) == PANEL_CONF_TYPE_GROUP
 #define config_setting_is_list(_s) config_setting_type(_s) == PANEL_CONF_TYPE_LIST

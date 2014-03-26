@@ -57,12 +57,7 @@ struct statusicon *create_statusicon(GtkWidget *box, const char *filename,
 
     /* tooltip */
     newicon->tooltips = gtk_tooltips_new();
-#if GLIB_CHECK_VERSION( 2, 10, 0 )
     g_object_ref_sink(newicon->tooltips);
-#else
-    g_object_ref(newicon->tooltips);
-    gtk_object_sink(newicon->tooltips);
-#endif
     gtk_tooltips_set_tip(newicon->tooltips, newicon->main, tooltips, NULL);
 
     return newicon;

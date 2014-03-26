@@ -32,6 +32,8 @@
 #include <gdk/gdkx.h>
 #include <libfm/fm-gtk.h>
 
+#define __LXPANEL_INTERNALS__
+
 #include "private.h"
 #include "misc.h"
 #include "bg.h"
@@ -562,10 +564,9 @@ static gboolean panel_button_press_event_with_panel(GtkWidget *widget, GdkEventB
 
 static void panel_popupmenu_config_plugin( GtkMenuItem* item, GtkWidget* plugin )
 {
-    LXPanelPluginInit *init = PLUGIN_CLASS(plugin);
     Panel *panel = PLUGIN_PANEL(plugin);
 
-    init->config(panel, plugin, GTK_WINDOW(panel->topgwin));
+    lxpanel_plugin_show_config_dialog(panel, plugin);
 
     /* FIXME: this should be more elegant */
     panel->config_changed = TRUE;
@@ -603,7 +604,7 @@ static char* gen_panel_name( int edge, gint monitor )
 {
     const char* edge_str = num2str( edge_pair, edge, "" );
     char* name = NULL;
-    char* dir = get_config_file( cprofile, "panels", FALSE );
+    char* dir = _user_config_file_name("panels", NULL);
     int i;
     for( i = 0; i < G_MAXINT; ++i )
     {
@@ -665,9 +666,7 @@ found_edge:
     new_panel->name = gen_panel_name(new_panel->edge,new_panel->monitor);
 
     /* create new config with first group "Global" */
-    config_setting_add(config_setting_add(config_root_setting(new_panel->config),
-                                          "", PANEL_CONF_TYPE_LIST),
-                       "Global", PANEL_CONF_TYPE_GROUP);
+    config_group_add_subgroup(config_root_setting(new_panel->config), "Global");
     panel_configure(new_panel, 0);
     panel_normalize_configuration(new_panel);
     panel_start_gui(new_panel);
@@ -692,14 +691,13 @@ static void panel_popupmenu_delete_panel( GtkMenuItem* item, Panel* panel )
     gtk_widget_destroy( dlg );
     if( ok )
     {
-        gchar *fname, *dir;
+        gchar *fname;
         all_panels = g_slist_remove( all_panels, panel );
 
         /* delete the config file of this panel */
-        dir = get_config_file( cprofile, "panels", FALSE );
-        fname = g_build_filename( dir, panel->name, NULL );
-        g_free( dir );
+        fname = _user_config_file_name("panels", panel->name);
         g_unlink( fname );
+        g_free(fname);
         panel->config_changed = 0;
         panel_destroy( panel );
     }
@@ -740,7 +738,7 @@ static void panel_popupmenu_about( GtkMenuItem* item, Panel* panel )
     else 
     {
         gtk_about_dialog_set_logo(  GTK_ABOUT_DIALOG(about),
-                                    gdk_pixbuf_new_from_file(PACKAGE_DATA_DIR "/lxpanel/images/my-computer.png", NULL));
+                                    gdk_pixbuf_new_from_file(PACKAGE_DATA_DIR "/images/my-computer.png", NULL));
     }
 
     gtk_about_dialog_set_copyright(GTK_ABOUT_DIALOG(about), _("Copyright (C) 2008-2013"));
@@ -767,7 +765,7 @@ void panel_apply_icon( GtkWindow *w )
 	}
     else
     {
-		window_icon = gdk_pixbuf_new_from_file(PACKAGE_DATA_DIR "/lxpanel/images/my-computer.png", NULL);
+		window_icon = gdk_pixbuf_new_from_file(PACKAGE_DATA_DIR "/images/my-computer.png", NULL);
 	}
     gtk_window_set_icon(w, window_icon);
 }
@@ -1124,8 +1122,9 @@ void panel_adjust_geometry_terminology(Panel * p)
 }
 
 /* Draw text into a label, with the user preference color and optionally bold. */
-void panel_draw_label_text(Panel * p, GtkWidget * label, char * text, gboolean bold,
-        float custom_size_factor, gboolean custom_color)
+void panel_draw_label_text(Panel * p, GtkWidget * label, const char * text,
+                           gboolean bold, float custom_size_factor,
+                           gboolean custom_color)
 {
     if (text == NULL)
     {
@@ -1151,9 +1150,9 @@ void panel_draw_label_text(Panel * p, GtkWidget * label, char * text, gboolean b
 
     /* Check the string for characters that need to be escaped.
      * If any are found, create the properly escaped string and use it instead. */
-    char * valid_markup = text;
+    const char * valid_markup = text;
     char * escaped_text = NULL;
-    char * q;
+    const char * q;
     for (q = text; *q != '\0'; q += 1)
     {
         if ((*q == '<') || (*q == '>') || (*q == '&'))
@@ -1520,40 +1519,65 @@ out:
 }
 #undef CLIPBOARD_NAME
 
+static void _start_panels_from_dir(const char *panel_dir)
+{
+    GDir* dir = g_dir_open( panel_dir, 0, NULL );
+    const gchar* name;
+
+    if( ! dir )
+    {
+        return;
+    }
+
+    while((name = g_dir_read_name(dir)) != NULL)
+    {
+        char* panel_config = g_build_filename( panel_dir, name, NULL );
+        if (strchr(panel_config, '~') == NULL)	/* Skip editor backup files in case user has hand edited in this directory */
+        {
+            Panel* panel = panel_new( panel_config, name );
+            if( panel )
+                all_panels = g_slist_prepend( all_panels, panel );
+        }
+        g_free( panel_config );
+    }
+    g_dir_close( dir );
+}
+
 static gboolean start_all_panels( )
 {
-    gboolean is_global;
-    for( is_global = 0; ! all_panels && is_global < 2; ++is_global )
-    {
-        char* panel_dir = get_config_file( cprofile, "panels", is_global );
-        GDir* dir = g_dir_open( panel_dir, 0, NULL );
-        const gchar* name;
+    char *panel_dir;
 
-        if( ! dir )
-        {
-            g_free( panel_dir );
-            continue;
-        }
-
-        while((name = g_dir_read_name(dir)) != NULL)
-        {
-            char* panel_config = g_build_filename( panel_dir, name, NULL );
-            if (strchr(panel_config, '~') == NULL)	/* Skip editor backup files in case user has hand edited in this directory */
-            {
-                Panel* panel = panel_new( panel_config, name );
-                if( panel )
-                    all_panels = g_slist_prepend( all_panels, panel );
-            }
-            g_free( panel_config );
-        }
-        g_dir_close( dir );
-        g_free( panel_dir );
-    }
+    /* try user panels */
+    panel_dir = _user_config_file_name("panels", NULL);
+    _start_panels_from_dir(panel_dir);
+    g_free(panel_dir);
+    if (all_panels != NULL)
+        return TRUE;
+    /* else try XDG fallback */
+    panel_dir = _system_config_file_name("panels");
+    _start_panels_from_dir(panel_dir);
+    g_free(panel_dir);
+    if (all_panels != NULL)
+        return TRUE;
+    /* last try at old fallback for compatibility reasons */
+    panel_dir = _old_system_config_file_name("panels");
+    _start_panels_from_dir(panel_dir);
+    g_free(panel_dir);
     return all_panels != NULL;
 }
 
 void load_global_config();
 void free_global_config();
+
+static void _ensure_user_config_dirs(void)
+{
+    char *dir = g_build_filename(g_get_user_config_dir(), "lxpanel", cprofile,
+                                 "panels", NULL);
+
+    /* make sure the private profile and panels dir exists */
+    g_mkdir_with_parents(dir, 0700);
+    g_free(dir);
+}
 
 int main(int argc, char *argv[], char *env[])
 {
@@ -1623,8 +1647,10 @@ int main(int argc, char *argv[], char *env[])
         exit(1);
     }
 
+    _ensure_user_config_dirs();
+
     /* Add our own icons to the search path of icon theme */
-    gtk_icon_theme_append_search_path( gtk_icon_theme_get_default(), PACKAGE_DATA_DIR "/lxpanel/images" );
+    gtk_icon_theme_append_search_path( gtk_icon_theme_get_default(), PACKAGE_DATA_DIR "/images" );
 
     fbev = fb_ev_new();
     win_grp = gtk_window_group_new();
@@ -1681,42 +1707,57 @@ restart:
     return 0;
 }
 
-extern GtkOrientation panel_get_orientation(Panel *panel)
+GtkOrientation panel_get_orientation(Panel *panel)
 {
     return panel->orientation;
 }
 
-extern gint panel_get_icon_size(Panel *panel)
+gint panel_get_icon_size(Panel *panel)
 {
     return panel->icon_size;
 }
 
-extern gint panel_get_height(Panel *panel)
+gint panel_get_height(Panel *panel)
 {
     return panel->height;
 }
 
-extern GtkWindow *panel_get_toplevel_window(Panel *panel)
+GtkWindow *panel_get_toplevel_window(Panel *panel)
 {
     return GTK_WINDOW(panel->topgwin);
 }
 
-extern GtkStyle *panel_get_defstyle(Panel *panel)
+Window panel_get_xwindow(Panel *panel)
+{
+    return panel->topxwin;
+}
+
+gint panel_get_monitor(Panel *panel)
+{
+    return panel->monitor;
+}
+
+GtkStyle *panel_get_defstyle(Panel *panel)
 {
     return panel->defstyle;
 }
 
-extern GtkIconTheme *panel_get_icon_theme(Panel *panel)
+GtkIconTheme *panel_get_icon_theme(Panel *panel)
 {
     return panel->icon_theme;
 }
 
-extern GtkWidget *panel_box_new(Panel *panel, gboolean homogeneous, gint spacing)
+gboolean panel_is_at_bottom(Panel *panel)
+{
+    return panel->edge == EDGE_BOTTOM;
+}
+
+GtkWidget *panel_box_new(Panel *panel, gboolean homogeneous, gint spacing)
 {
     return panel->my_box_new(homogeneous, spacing);
 }
 
-extern GtkWidget *panel_separator_new(Panel *panel)
+GtkWidget *panel_separator_new(Panel *panel)
 {
     return panel->my_separator_new();
 }
