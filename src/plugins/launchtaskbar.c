@@ -1158,7 +1158,7 @@ static void on_combobox_mode_changed(GtkComboBox *p_combobox, gpointer p_data)
         launchtaskbar_constructor_launch(ltbp, TRUE/*build_bootstrap*/);
         plugin_set_expand_status(ltbp, FALSE);
         gtk_widget_set_name(ltbp->plugin, "launchbar");
-        return;
+        break;
     case TASKBAR:
         gtk_widget_set_visible(ltbp->p_evbox_launchbar, FALSE);
         launchtaskbar_constructor_task(ltbp);
@@ -3409,3 +3409,6 @@ LXPanelPluginInit lxpanel_static_plugin_launchtaskbar = {
     .config = launchtaskbar_configure,
     .reconfigure = launchtaskbar_panel_configuration_changed
 };
+
+
+/* vim: set sw=4 sts=4 et : */
