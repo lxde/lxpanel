@@ -1,17 +1,15 @@
 # translation of LxPanel to French
 # Copyright (C) 2006-2008 the LXDE team
 # This file is distributed under the same license as the LxPanel package.
-#
 # Frank Endres <frank_endres@yahoo.fr>, 2008.
 # Robert-André Mauchin <zebob.m@pengzone.org>, 2008.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel r839\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-27 10:10+0200\n"
-"PO-Revision-Date: 2013-08-27 09:54+0000\n"
-"Last-Translator: Julien <Julius22@laposte.net>\n"
+"PO-Revision-Date: 2014-03-24 17:43+0000\n"
+"Last-Translator: Pierre <lubuntu@pierregobin.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1377597255.0\n"
+"X-POOTLE-MTIME: 1395683018.0\n"
 
 #: ../src/configurator.c:54 ../src/gtk-run.c:360
 msgid "Run"
@@ -176,8 +174,7 @@ msgstr " --version   -- afficher la version et quitter\n"
 #: ../src/panel.c:1505
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <nombre> -- définir la quantité d'informations de débogage 0-5. 0 - "
+msgstr " --log <nombre> -- définir la quantité d'informations de débogage 0-5. 0 - "
 "aucun 5 - maximum\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
@@ -322,21 +319,20 @@ msgstr "Aucun(e)"
 
 #: ../data/ui/panel-pref.glade.h:6
 msgid "Err"
-msgstr "Err."
+msgstr "Erreurs"
 
 # Truly more explained than english version
 #: ../data/ui/panel-pref.glade.h:7
-#, fuzzy
 msgid "Warn"
-msgstr "Couleur d'avertissement, niveau 1"
+msgstr "Avertissements"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "Info"
-msgstr "Info."
+msgstr "Informations"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "All"
-msgstr ""
+msgstr "Tous"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "Panel Preferences"
@@ -1082,7 +1078,6 @@ msgstr "Interface"
 # chose comme ça. Et pour le français : L'interface actuelle représentée par
 # l'icône. => Très bonne idée :D
 #: ../src/plugins/netstatus/netstatus-icon.c:843
-#, fuzzy
 msgid "The current interface the icon is monitoring."
 msgstr "L'interface actuelle représentée par l'icône."
 
@@ -1462,7 +1457,6 @@ msgid "No Indicators"
 msgstr "Aucun indicateur"
 
 #: ../src/plugins/indicator/indicator.c:897
-#, fuzzy
 msgid "Indicator Applications"
 msgstr "Indicateurs"
 
