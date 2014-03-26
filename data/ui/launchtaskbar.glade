@@ -29,8 +29,8 @@
     <property name="border_width">10</property>
     <property name="title" translatable="yes">Application Launch and Task Bar</property>
     <property name="window_position">center</property>
-    <property name="default_width">700</property>
-    <property name="default_height">500</property>
+    <property name="default_width">640</property>
+    <property name="default_height">440</property>
     <property name="type_hint">dialog</property>
     <child internal-child="vbox">
       <object class="GtkVBox" id="dialog-vbox">
@@ -38,38 +38,40 @@
         <property name="can_focus">False</property>
         <property name="spacing">6</property>
         <child>
-          <object class="GtkFrame" id="frame">
+          <object class="GtkHBox" id="hbox4">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label_xalign">0</property>
-            <property name="shadow_type">none</property>
+            <property name="spacing">12</property>
             <child>
-              <object class="GtkAlignment" id="alignment1">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="left_padding">12</property>
-                <child>
-                  <object class="GtkComboBox" id="combobox_mode">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="model">liststore_mode</property>
-                    <child>
-                      <object class="GtkCellRendererText" id="cellrenderertext1"/>
-                      <attributes>
-                        <attribute name="text">0</attribute>
-                      </attributes>
-                    </child>
-                  </object>
-                </child>
-              </object>
-            </child>
-            <child type="label">
               <object class="GtkLabel" id="label5">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">&lt;b&gt;Mode&lt;/b&gt;</property>
+                <property name="label" translatable="yes">&lt;b&gt;Mode:&lt;/b&gt;</property>
                 <property name="use_markup">True</property>
               </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkComboBox" id="combobox_mode">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="model">liststore_mode</property>
+                <child>
+                  <object class="GtkCellRendererText" id="cellrenderertext1"/>
+                  <attributes>
+                    <attribute name="text">0</attribute>
+                  </attributes>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
             </child>
           </object>
           <packing>
@@ -124,6 +126,7 @@
                       <object class="GtkLabel" id="label_def_app_exec">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="ellipsize">end</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -211,26 +214,14 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
-                      <object class="GtkScrolledWindow" id="scroll2">
+                      <object class="GtkScrolledWindow" id="menu_view_window">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="hscrollbar_policy">automatic</property>
                         <property name="vscrollbar_policy">automatic</property>
                         <property name="shadow_type">etched-in</property>
                         <child>
-                          <object class="GtkTreeView" id="menu_view">
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="model">menu_store</property>
-                            <property name="headers_clickable">False</property>
-                            <property name="search_column">1</property>
-                            <child>
-                              <object class="GtkTreeViewColumn" id="menu_col">
-                                <property name="title">Available Applications</property>
-                                <property name="expand">True</property>
-                              </object>
-                            </child>
-                          </object>
+                          <placeholder/>
                         </child>
                       </object>
                       <packing>
@@ -243,6 +234,7 @@
                       <object class="GtkLabel" id="label_menu_app_exec">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="ellipsize">end</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>

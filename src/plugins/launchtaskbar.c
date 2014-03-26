@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2006 LxDE Developers, see the file AUTHORS for details.
+ * Copyright (c) 2006-2014 LxDE Developers, see the file AUTHORS for details.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,6 +20,15 @@
  * Started by Giuseppe Penone <giuspen@gmail.com> merging launchbar and taskbar
  * and adding interoperability between them.
 */
+
+/*
+ * Taskbar plugin:
+ * 2006.09.10 modified by Hong Jen Yee (PCMan) pcman.tw (AT) gmail.com
+ * Following features are added:
+ * 1. Add XUrgencyHint support. (Flashing task bar buttons, can be disabled)
+ * 2. Raise window when files get dragged over taskbar buttons.
+ * 3. Add Restore & Maximize menu items to popup menu of task bar buttons.
+ */
 //#define DEBUG_WITH_GPRINTS // killall lxpanel && lxpanel --profile Lubuntu &
 
 #ifdef HAVE_CONFIG_H
@@ -1147,8 +1156,12 @@ static void set_config_visibility(LaunchTaskBarPlugin *ltbp)
 static void on_combobox_mode_changed(GtkComboBox *p_combobox, gpointer p_data)
 {
     LaunchTaskBarPlugin *ltbp = p_data;
+    int new_mode = gtk_combo_box_get_active(GTK_COMBO_BOX(p_combobox));
 
-    ltbp->mode = gtk_combo_box_get_active(GTK_COMBO_BOX(p_combobox));
+    if (new_mode < 0 || new_mode == ltbp->mode) /* no change was made */
+        return;
+
+    ltbp->mode = new_mode;
 
     set_config_visibility(ltbp);
 
