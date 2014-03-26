@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-26 03:37+0200\n"
-"PO-Revision-Date: 2014-03-26 21:46+0000\n"
+"PO-Revision-Date: 2014-03-26 21:51+0000\n"
 "Last-Translator: Andriy <andrej@rep.kiev.ua>\n"
 "Language-Team: UKRAINIAN <translate@linux.org.ua>\n"
 "Language: uk\n"
@@ -18,7 +18,7 @@ msgstr ""
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.5.0\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-POOTLE-MTIME: 1395870361.0\n"
+"X-POOTLE-MTIME: 1395870661.0\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:55 ../src/gtk-run.c:361 ../src/plugins/menu.c:770
@@ -480,7 +480,7 @@ msgstr "Дозволити віконному менеджеру трактув�
 
 #: ../data/ui/panel-pref.glade.h:31
 msgid "Margin:"
-msgstr "Границя:"
+msgstr "Відступ:"
 
 #: ../data/ui/panel-pref.glade.h:32
 msgid "Minimize panel when not in use"
