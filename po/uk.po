@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-26 03:37+0200\n"
-"PO-Revision-Date: 2014-03-26 21:51+0000\n"
+"POT-Creation-Date: 2014-03-26 23:57+0200\n"
+"PO-Revision-Date: 2014-03-26 22:00+0000\n"
 "Last-Translator: Andriy <andrej@rep.kiev.ua>\n"
 "Language-Team: UKRAINIAN <translate@linux.org.ua>\n"
 "Language: uk\n"
@@ -18,7 +18,7 @@ msgstr ""
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.5.0\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-POOTLE-MTIME: 1395870661.0\n"
+"X-POOTLE-MTIME: 1395871236.0\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:55 ../src/gtk-run.c:361 ../src/plugins/menu.c:770
@@ -260,34 +260,38 @@ msgid "Integrated Application Launch Bar and Task Bar"
 msgstr "Суміщена панель запуску програм та вікон"
 
 #: ../data/ui/launchtaskbar.glade.h:10
+msgid "Launchers"
+msgstr "Кнопки запуску"
+
+#: ../data/ui/launchtaskbar.glade.h:11
 msgid "Maximum width of task button"
 msgstr "Максимальна ширина кнопки завдань"
 
-#: ../data/ui/launchtaskbar.glade.h:11
+#: ../data/ui/launchtaskbar.glade.h:12
 msgid "Only Application Launch Bar"
 msgstr "Лише панель запуску програм"
 
-#: ../data/ui/launchtaskbar.glade.h:12
+#: ../data/ui/launchtaskbar.glade.h:13
 msgid "Only Task Bar (Window List)"
 msgstr "Лише панель задач (Список вікон)"
 
-#: ../data/ui/launchtaskbar.glade.h:13
+#: ../data/ui/launchtaskbar.glade.h:14
 msgid "Only show windows on the same monitor as the task bar"
 msgstr "Показувати лише вікна з одного монітору"
 
-#: ../data/ui/launchtaskbar.glade.h:14
+#: ../data/ui/launchtaskbar.glade.h:15
 msgid "Show tooltips"
 msgstr "Показати підказки"
 
-#: ../data/ui/launchtaskbar.glade.h:15
+#: ../data/ui/launchtaskbar.glade.h:16
 msgid "Show windows from all desktops"
 msgstr "Показати вікна з усіх робочих столів"
 
-#: ../data/ui/launchtaskbar.glade.h:16
+#: ../data/ui/launchtaskbar.glade.h:17
 msgid "Spacing"
 msgstr "Відступи"
 
-#: ../data/ui/launchtaskbar.glade.h:17
+#: ../data/ui/launchtaskbar.glade.h:18
 msgid "Use mouse wheel"
 msgstr "Використовувати коліщатко миші"
 
