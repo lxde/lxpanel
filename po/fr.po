@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel r839\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-27 08:58+0100\n"
-"PO-Revision-Date: 2014-03-27 17:01+0000\n"
+"PO-Revision-Date: 2014-03-27 17:14+0000\n"
 "Last-Translator: Pierre <lubuntu@pierregobin.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "Language: fr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1395939696.0\n"
+"X-POOTLE-MTIME: 1395940440.0\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:55 ../src/gtk-run.c:361 ../src/plugins/menu.c:770
@@ -882,7 +882,7 @@ msgstr "Ouvrir avec un _terminal"
 
 #: ../src/plugins/dirmenu.c:361 ../src/plugins/dirmenu.c:377
 msgid "Directory Menu"
-msgstr "Menu du dossier"
+msgstr "Menu de répertoire"
 
 #: ../src/plugins/dirmenu.c:363
 msgid "Directory"
