@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-26 23:57+0200\n"
+"POT-Creation-Date: 2014-03-27 08:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -128,27 +128,27 @@ msgstr ""
 msgid "\"%s\" Settings"
 msgstr ""
 
-#: ../src/panel.c:1109 ../src/panel.c:1117 ../data/ui/panel-pref.glade.h:23
+#: ../src/panel.c:1109 ../src/panel.c:1117 ../data/ui/panel-pref.glade.h:22
 msgid "Height:"
 msgstr ""
 
-#: ../src/panel.c:1110 ../src/panel.c:1116 ../data/ui/panel-pref.glade.h:48
+#: ../src/panel.c:1110 ../src/panel.c:1116 ../data/ui/panel-pref.glade.h:21
 msgid "Width:"
 msgstr ""
 
-#: ../src/panel.c:1111 ../data/ui/panel-pref.glade.h:27
+#: ../src/panel.c:1111 ../data/ui/panel-pref.glade.h:13
 msgid "Left"
 msgstr ""
 
-#: ../src/panel.c:1112 ../data/ui/panel-pref.glade.h:39
+#: ../src/panel.c:1112 ../data/ui/panel-pref.glade.h:14
 msgid "Right"
 msgstr ""
 
-#: ../src/panel.c:1118 ../data/ui/panel-pref.glade.h:46
+#: ../src/panel.c:1118 ../data/ui/panel-pref.glade.h:12
 msgid "Top"
 msgstr ""
 
-#: ../src/panel.c:1119 ../data/ui/panel-pref.glade.h:15
+#: ../src/panel.c:1119 ../data/ui/panel-pref.glade.h:11
 msgid "Bottom"
 msgstr ""
 
@@ -216,8 +216,8 @@ msgid "Enter the command you want to execute:"
 msgstr ""
 
 #. vim: set sw=4 et sts=4 ts=4 :
-#: ../data/ui/launchtaskbar.glade.h:1
-msgid "<b>Launchbar</b>"
+#: ../data/ui/launchtaskbar.glade.h:1 ../src/plugins/launchtaskbar.c:3414
+msgid "Application Launch and Task Bar"
 msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:2
@@ -225,19 +225,19 @@ msgid "<b>Mode:</b>"
 msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:3
-msgid "<b>Taskbar</b>"
+msgid "Launchers"
 msgstr ""
 
-#: ../data/ui/launchtaskbar.glade.h:4 ../src/plugins/launchtaskbar.c:3414
-msgid "Application Launch and Task Bar"
+#: ../data/ui/launchtaskbar.glade.h:4
+msgid "<b>Launchbar</b>"
 msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:5
-msgid "Combine multiple application windows into a single button"
+msgid "Show tooltips"
 msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:6
-msgid "Flash when there is any window requiring attention"
+msgid "Icons only"
 msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:7
@@ -245,182 +245,170 @@ msgid "Flat buttons"
 msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:8
-msgid "Icons only"
-msgstr ""
-
-#: ../data/ui/launchtaskbar.glade.h:9
-msgid "Integrated Application Launch Bar and Task Bar"
-msgstr ""
-
-#: ../data/ui/launchtaskbar.glade.h:10
-msgid "Launchers"
-msgstr ""
-
-#: ../data/ui/launchtaskbar.glade.h:11
-msgid "Maximum width of task button"
-msgstr ""
-
-#: ../data/ui/launchtaskbar.glade.h:12
-msgid "Only Application Launch Bar"
-msgstr ""
-
-#: ../data/ui/launchtaskbar.glade.h:13
-msgid "Only Task Bar (Window List)"
-msgstr ""
-
-#: ../data/ui/launchtaskbar.glade.h:14
-msgid "Only show windows on the same monitor as the task bar"
-msgstr ""
-
-#: ../data/ui/launchtaskbar.glade.h:15
-msgid "Show tooltips"
-msgstr ""
-
-#: ../data/ui/launchtaskbar.glade.h:16
 msgid "Show windows from all desktops"
 msgstr ""
 
-#: ../data/ui/launchtaskbar.glade.h:17
-msgid "Spacing"
+#: ../data/ui/launchtaskbar.glade.h:9
+msgid "Only show windows on the same monitor as the task bar"
 msgstr ""
 
-#: ../data/ui/launchtaskbar.glade.h:18
+#: ../data/ui/launchtaskbar.glade.h:10
 msgid "Use mouse wheel"
 msgstr ""
 
-#: ../data/ui/netstatus.glade.h:2
-#, no-c-format
-msgid "0%"
+#: ../data/ui/launchtaskbar.glade.h:11
+msgid "Flash when there is any window requiring attention"
 msgstr ""
 
-#: ../data/ui/netstatus.glade.h:3
-msgid "<b>Activity</b>"
+#: ../data/ui/launchtaskbar.glade.h:12
+msgid "Combine multiple application windows into a single button"
 msgstr ""
 
-#: ../data/ui/netstatus.glade.h:4
+#: ../data/ui/launchtaskbar.glade.h:13
+msgid "Maximum width of task button"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:14
+msgid "Spacing"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:15
+msgid "<b>Taskbar</b>"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:16
+msgid "Only Application Launch Bar"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:17
+msgid "Only Task Bar (Window List)"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:18
+msgid "Integrated Application Launch Bar and Task Bar"
+msgstr ""
+
+#: ../data/ui/netstatus.glade.h:1
 msgid "<b>Connection</b>"
 msgstr ""
 
+#: ../data/ui/netstatus.glade.h:2
+msgid "Status:"
+msgstr ""
+
+#: ../data/ui/netstatus.glade.h:3
+msgid "_Name:"
+msgstr ""
+
+#: ../data/ui/netstatus.glade.h:4
+msgid "<b>Activity</b>"
+msgstr ""
+
 #: ../data/ui/netstatus.glade.h:5
-msgid "<b>Internet Protocol (IPv4)</b>"
+msgid "Received:"
 msgstr ""
 
 #: ../data/ui/netstatus.glade.h:6
-msgid "<b>Internet Protocol (IPv6)</b>"
+msgid "Sent:"
 msgstr ""
 
 #: ../data/ui/netstatus.glade.h:7
-msgid "<b>Network Device</b>"
-msgstr ""
-
-#: ../data/ui/netstatus.glade.h:8
 msgid "<b>Signal Strength</b>"
 msgstr ""
 
 #: ../data/ui/netstatus.glade.h:9
+#, no-c-format
+msgid "0%"
+msgstr ""
+
+#: ../data/ui/netstatus.glade.h:10
+msgid "General"
+msgstr ""
+
+#: ../data/ui/netstatus.glade.h:11
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr ""
+
+#: ../data/ui/netstatus.glade.h:12
 msgid "Address:"
 msgstr ""
 
-#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:362
+#: ../data/ui/netstatus.glade.h:13
+msgid "Destination:"
+msgstr ""
+
+#: ../data/ui/netstatus.glade.h:14 ../src/plugins/netstat/netstat.c:362
 #: ../src/plugins/netstat/netstat.c:373
 msgid "Broadcast:"
 msgstr ""
 
-#: ../data/ui/netstatus.glade.h:11
-msgid "Con_figure"
-msgstr ""
-
-#: ../data/ui/netstatus.glade.h:12
-msgid "Destination:"
-msgstr ""
-
-#: ../data/ui/netstatus.glade.h:13
-msgid "General"
-msgstr ""
-
-#: ../data/ui/netstatus.glade.h:14
-msgid "Received:"
-msgstr ""
-
 #: ../data/ui/netstatus.glade.h:15
-msgid "Scope:"
-msgstr ""
-
-#: ../data/ui/netstatus.glade.h:16
-msgid "Sent:"
-msgstr ""
-
-#: ../data/ui/netstatus.glade.h:17
-msgid "Status:"
-msgstr ""
-
-#: ../data/ui/netstatus.glade.h:18
 msgid "Subnet Mask:"
 msgstr ""
 
-#: ../data/ui/netstatus.glade.h:19
-msgid "Support"
+#: ../data/ui/netstatus.glade.h:16
+msgid "<b>Internet Protocol (IPv6)</b>"
 msgstr ""
 
-#: ../data/ui/netstatus.glade.h:20
+#: ../data/ui/netstatus.glade.h:17
+msgid "Scope:"
+msgstr ""
+
+#: ../data/ui/netstatus.glade.h:18
+msgid "<b>Network Device</b>"
+msgstr ""
+
+#: ../data/ui/netstatus.glade.h:19
 msgid "Type:"
 msgstr ""
 
+#: ../data/ui/netstatus.glade.h:20
+msgid "Support"
+msgstr ""
+
 #: ../data/ui/netstatus.glade.h:21
-msgid "_Name:"
+msgid "Con_figure"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:1
+msgid "Dynamic"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:2
+msgid "Pixels"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:4
 #, no-c-format
 msgid "% Percent"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:3
-msgid "<b>Automatic hiding</b>"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:4
-msgid "<b>Background</b>"
-msgstr ""
-
 #: ../data/ui/panel-pref.glade.h:5
-msgid "<b>Font</b>"
+msgid "None"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:6
-msgid "<b>Log level</b>"
+msgid "Err"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:7
-msgid "<b>Position</b>"
+msgid "Warn"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:8
-msgid "<b>Properties</b>"
+msgid "Info"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:9
-msgid "<b>Set Preferred Applications</b>"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:10
-msgid "<b>Size</b>"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:11
-msgid "Advanced"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:12
-msgid "Alignment:"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:13
 msgid "All"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:14
-msgid "Appearance"
+#: ../data/ui/panel-pref.glade.h:10
+msgid "Panel Preferences"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:15
+msgid "Edge:"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:16
@@ -428,67 +416,68 @@ msgid "Center"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:17
-msgid "Custom color"
+msgid "Alignment:"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:18
-msgid "Dynamic"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:19
-msgid "Edge:"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:20
-msgid "Err"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:21
-msgid "File Manager:"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:22
-msgid "Geometry"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:24
-msgid "Icon size:"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:25 ../src/plugins/xkb/xkb-plugin.c:1479
-msgid "Image"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:26
-msgid "Info"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:28
-msgid "Log level"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:29
-msgid "Logout Command:"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:30
-msgid "Make window managers treat the panel as dock"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:31
 msgid "Margin:"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:32
-msgid "Minimize panel when not in use"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:33
+#: ../data/ui/panel-pref.glade.h:19
 msgid "Monitor:"
 msgstr ""
 
+#: ../data/ui/panel-pref.glade.h:20
+msgid "<b>Position</b>"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:23
+msgid "Icon size:"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:24
+msgid "<b>Size</b>"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:25
+msgid "Geometry"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:26
+msgid "System theme"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:27
+msgid "Solid color (with opacity)"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:28 ../src/plugins/xkb/xkb-plugin.c:1479
+msgid "Image"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:29
+msgid "Select an image file"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:30
+msgid "<b>Background</b>"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:31
+msgid "Custom color"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:32 ../src/plugins/space.c:93
+#: ../src/plugins/batt/batt.c:632
+msgid "Size"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:33
+msgid "<b>Font</b>"
+msgstr ""
+
 #: ../data/ui/panel-pref.glade.h:34
-msgid "None"
+msgid "Appearance"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:35
@@ -496,48 +485,59 @@ msgid "Panel Applets"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:36
-msgid "Panel Preferences"
+msgid "Logout Command:"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:37
-msgid "Pixels"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:38
-msgid "Reserve space, and not covered by maximized windows"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:40
-msgid "Select an image file"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:41 ../src/plugins/space.c:93
-#: ../src/plugins/batt/batt.c:632
-msgid "Size"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:42
-msgid "Size when minimized"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:43
-msgid "Solid color (with opacity)"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:44
-msgid "System theme"
-msgstr ""
-
-#: ../data/ui/panel-pref.glade.h:45
 msgid "Terminal Emulator:"
 msgstr ""
 
+#: ../data/ui/panel-pref.glade.h:38
+msgid "File Manager:"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:39
+msgid "<b>Set Preferred Applications</b>"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:40
+msgid "Make window managers treat the panel as dock"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:41
+msgid "Reserve space, and not covered by maximized windows"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:42
+msgid "<b>Properties</b>"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:43
+msgid "Minimize panel when not in use"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:44
+msgid "Size when minimized"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:45
+msgid "pixels"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:46
+msgid "<b>Automatic hiding</b>"
+msgstr ""
+
 #: ../data/ui/panel-pref.glade.h:47
-msgid "Warn"
+msgid "Log level"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:48
+msgid "<b>Log level</b>"
 msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:49
-msgid "pixels"
+msgid "Advanced"
 msgstr ""
 
 #: ../src/plugins/cpu/cpu.c:276
@@ -548,19 +548,19 @@ msgstr ""
 msgid "Display CPU usage"
 msgstr ""
 
-#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:429
-msgid "Bold font"
-msgstr ""
-
-#: ../src/plugins/deskno/deskno.c:208
-msgid "Display desktop names"
-msgstr ""
-
-#: ../src/plugins/deskno/deskno.c:235
+#: ../src/plugins/deskno/deskno.c:180 ../src/plugins/deskno/deskno.c:200
 msgid "Desktop Number / Workspace Name"
 msgstr ""
 
-#: ../src/plugins/deskno/deskno.c:237
+#: ../src/plugins/deskno/deskno.c:182 ../src/plugins/dclock.c:429
+msgid "Bold font"
+msgstr ""
+
+#: ../src/plugins/deskno/deskno.c:183
+msgid "Display desktop names"
+msgstr ""
+
+#: ../src/plugins/deskno/deskno.c:201
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr ""
 
