@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-27 08:58+0100\n"
-"PO-Revision-Date: 2014-03-27 18:45+0000\n"
+"PO-Revision-Date: 2014-03-27 22:02+0000\n"
 "Last-Translator: Pjotr <pjotrvertaalt@gmail.com>\n"
 "Language-Team: Dutch\n"
 "Language: nl\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1395945912.0\n"
+"X-POOTLE-MTIME: 1395957729.0\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:55 ../src/gtk-run.c:361 ../src/plugins/menu.c:770
@@ -765,9 +765,8 @@ msgid "Description"
 msgstr "Beschrijving"
 
 #: ../src/plugins/xkb/xkb-plugin.c:656 ../src/plugins/xkb/xkb-plugin.c:785
-#, fuzzy
 msgid "Id"
-msgstr "Niet bezig"
+msgstr "Id"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:750
@@ -887,7 +886,6 @@ msgid "Label"
 msgstr "Etiket"
 
 #: ../src/plugins/dirmenu.c:378
-#, fuzzy
 msgid "Browse directory tree via menu (Author = PCMan)"
 msgstr "Boomstructuur doorbladeren via menu (auteur: PCMan)"
 
@@ -937,14 +935,18 @@ msgid ""
 "Frequency: %d MHz\n"
 "Governor: %s"
 msgstr ""
+"Frequentie: %d MHz\n"
+"Governor: %s"
 
 #: ../src/plugins/cpufreq/cpufreq.c:421
 msgid "CPUFreq frontend"
-msgstr ""
+msgstr "Bedieningsschil voor CPUFreq"
 
 #: ../src/plugins/cpufreq/cpufreq.c:422
 msgid "Display CPU frequency and allow to change governors and frequency"
 msgstr ""
+"CPU-frequentie tonen en toestaan dat governors en frequentie worden "
+"veranderd"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -1373,9 +1375,8 @@ msgid "Cannot open /proc/net/dev: %s"
 msgstr "Kan /proc/net/dev niet openen: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:185
-#, fuzzy
 msgid "Could not parse /proc/net/dev. No data."
-msgstr "Kon /proc/net/dev niet lezen. Onbekende opmaak."
+msgstr "Kon /proc/net/dev niet lezen. Geen gegevens."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:190
 msgid "Could not parse /proc/net/dev. Unknown format."
@@ -1398,9 +1399,8 @@ msgstr ""
 "= %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:312
-#, fuzzy
 msgid "Could not parse /proc/net/wireless. No data."
-msgstr "Kan /proc/net/wireless niet lezen. Onbekende opmaak."
+msgstr "Kan /proc/net/wireless niet lezen. Geen gegevens."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:316
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1471,6 +1471,8 @@ msgid ""
 "\n"
 "%sEnergy full design:\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sLading-vol-ontwerp:\t\t%5d mWh"
 
 #: ../src/plugins/batt/batt.c:180
 #, c-format
@@ -1478,6 +1480,8 @@ msgid ""
 "\n"
 "%sEnergy full:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sLading vol:\t\t\t%5d mWh"
 
 #: ../src/plugins/batt/batt.c:182
 #, c-format
@@ -1485,6 +1489,8 @@ msgid ""
 "\n"
 "%sEnergy now:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sLading nu:\t\t\t%5d mWh"
 
 #: ../src/plugins/batt/batt.c:184
 #, c-format
@@ -1692,9 +1698,8 @@ msgid "Enter New Location"
 msgstr "Voer nieuwe locatie in"
 
 #: ../src/plugins/weather/weatherwidget.c:798
-#, fuzzy
 msgid "_New Location:"
-msgstr "Netwerkverbinding"
+msgstr "_Nieuwe locatie:"
 
 #: ../src/plugins/weather/weatherwidget.c:809
 msgid ""
@@ -1704,39 +1709,41 @@ msgid ""
 "- postal code\n"
 "for which to retrieve the weather forecast."
 msgstr ""
+"Voer het volgende in:\n"
+"- stad, of\n"
+"- stad en staat/land, of\n"
+"- postcode\n"
+"waarvoor de weersverwachting moet worden opgehaald."
 
 #: ../src/plugins/weather/weatherwidget.c:846
 #: ../src/plugins/weather/weatherwidget.c:979
 msgid "You must specify a location."
-msgstr ""
+msgstr "U dient een locatie op te geven."
 
 #: ../src/plugins/weather/weatherwidget.c:893
 #, c-format
 msgid "Location '%s' not found!"
-msgstr ""
+msgstr "Locatie '%s' niet gevonden!"
 
 #: ../src/plugins/weather/weatherwidget.c:1051
-#, fuzzy
 msgid "Preferences"
-msgstr "Werkbalkvoorkeuren"
+msgstr "Voorkeuren"
 
 #: ../src/plugins/weather/weatherwidget.c:1057
 msgid "Refresh"
-msgstr ""
+msgstr "Verversen"
 
 #: ../src/plugins/weather/weatherwidget.c:1063
 msgid "Quit"
-msgstr ""
+msgstr "Afsluiten"
 
 #: ../src/plugins/weather/weatherwidget.c:1160
-#, fuzzy
 msgid "Weather Preferences"
-msgstr "Werkbalkvoorkeuren"
+msgstr "Weervoorkeuren"
 
 #: ../src/plugins/weather/weatherwidget.c:1174
-#, fuzzy
 msgid "Current Location"
-msgstr "Oriëntatie"
+msgstr "Huidige locatie"
 
 #: ../src/plugins/weather/weatherwidget.c:1178
 #: ../src/plugins/weather/weatherwidget.c:1475
@@ -1778,39 +1785,37 @@ msgstr "Bijwerken:"
 
 #: ../src/plugins/weather/weatherwidget.c:1258
 msgid "Ma_nual"
-msgstr ""
+msgstr "Handleiding"
 
 #: ../src/plugins/weather/weatherwidget.c:1262
 msgid "_Automatic, every"
-msgstr ""
+msgstr "_Automatisch, elke"
 
 #: ../src/plugins/weather/weatherwidget.c:1278
 msgid "minutes"
-msgstr ""
+msgstr "minuten"
 
 #: ../src/plugins/weather/weatherwidget.c:1287
 msgid "Source:"
-msgstr ""
+msgstr "Bron:"
 
 #: ../src/plugins/weather/weatherwidget.c:1428
-#, fuzzy
 msgid "C_hange"
-msgstr "Type veranderen"
+msgstr "Veranderen"
 
 #. Both are available
 #: ../src/plugins/weather/weatherwidget.c:1519
 #, c-format
 msgid "Current Conditions for %s"
-msgstr ""
+msgstr "Huidige omstandigheden voor %s"
 
 #: ../src/plugins/weather/weatherwidget.c:1543
-#, fuzzy
 msgid "Location:"
-msgstr "Actie"
+msgstr "Locatie:"
 
 #: ../src/plugins/weather/weatherwidget.c:1566
 msgid "Last updated:"
-msgstr ""
+msgstr "Laatst bijgewerkt:"
 
 #: ../src/plugins/weather/weatherwidget.c:1593
 msgid "Feels like:"
@@ -1850,7 +1855,7 @@ msgstr "Voorspelling voor %s niet beschikbaar."
 #: ../src/plugins/weather/weatherwidget.c:2195
 #, c-format
 msgid "Location not set."
-msgstr "Lokatie niet ingesteld."
+msgstr "Locatie niet ingesteld."
 
 #: ../src/plugins/weather/weatherwidget.c:1880
 #, c-format
@@ -1860,7 +1865,7 @@ msgstr "Aan het zoeken naar '%s'..."
 #: ../src/plugins/weather/weatherwidget.c:2006
 #, c-format
 msgid "Location matches for '%s'"
-msgstr "Lokatie-overeenkomsten voor '%s'"
+msgstr "Locatie-overeenkomsten voor '%s'"
 
 #: ../src/plugins/weather/weatherwidget.c:2026
 msgid "City"
@@ -1889,7 +1894,7 @@ msgstr "Weer-invoegtoepassing"
 
 #: ../src/plugins/weather/weather.c:287
 msgid "Show weather conditions for a location."
-msgstr "Toon weersomstandigheden voor een lokatie."
+msgstr "Toon weersomstandigheden voor een locatie."
 
 #~ msgid "Model"
 #~ msgstr "Model"
