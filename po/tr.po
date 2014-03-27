@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-27 08:58+0100\n"
-"PO-Revision-Date: 2014-01-12 02:30+0000\n"
+"PO-Revision-Date: 2014-03-27 12:23+0000\n"
 "Last-Translator: vgezer <volkangezer@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1389493826.0\n"
+"X-POOTLE-MTIME: 1395923005.0\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:55 ../src/gtk-run.c:361 ../src/plugins/menu.c:770
@@ -68,7 +68,7 @@ msgstr "_Gözat"
 
 #: ../src/panel.c:660
 msgid "There is no room for another panel. All the edges are taken."
-msgstr ""
+msgstr "Başka bir panel için boş alan yok. Tüm köşeler alınmış."
 
 #: ../src/panel.c:687
 msgid ""
@@ -94,9 +94,8 @@ msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:744
-#, fuzzy
 msgid "Copyright (C) 2008-2013"
-msgstr "Telif Hakkı (C) 2008-2011"
+msgstr "Telif Hakkı (C) 2008-2013"
 
 #: ../src/panel.c:745
 msgid "Desktop panel for LXDE project"
@@ -220,7 +219,7 @@ msgstr ""
 
 #: ../src/plugin.c:370
 msgid "No file manager is configured."
-msgstr ""
+msgstr "Yapılandırılmış dosya yöneticisi yok."
 
 #: ../src/gtk-run.c:374
 msgid "Enter the command you want to execute:"
@@ -228,23 +227,20 @@ msgstr "Çalıştırmak istediğiniz komutu girin:"
 
 #. vim: set sw=4 et sts=4 ts=4 :
 #: ../data/ui/launchtaskbar.glade.h:1 ../src/plugins/launchtaskbar.c:3414
-#, fuzzy
 msgid "Application Launch and Task Bar"
-msgstr "Uygulama Açma Çubuğu"
+msgstr "Uygulama Başlatma ve Görev Çubuğu"
 
 #: ../data/ui/launchtaskbar.glade.h:2
-#, fuzzy
 msgid "<b>Mode:</b>"
-msgstr "<b>Boyut</b>"
+msgstr "<b>Kip:</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:3
 msgid "Launchers"
-msgstr ""
+msgstr "Başlatıcılar"
 
 #: ../data/ui/launchtaskbar.glade.h:4
-#, fuzzy
 msgid "<b>Launchbar</b>"
-msgstr "<b>Arkaplan</b>"
+msgstr "<b>Başlatma çubuğu</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:5
 msgid "Show tooltips"
@@ -264,7 +260,7 @@ msgstr "Tüm masaüstlerindeki pencereleri göster"
 
 #: ../data/ui/launchtaskbar.glade.h:9
 msgid "Only show windows on the same monitor as the task bar"
-msgstr ""
+msgstr "Sadece görev çubuğu ile aynı ekranda olan pencereleri göster"
 
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Use mouse wheel"
@@ -289,19 +285,16 @@ msgid "Spacing"
 msgstr "Aralıklandırma"
 
 #: ../data/ui/launchtaskbar.glade.h:15
-#, fuzzy
 msgid "<b>Taskbar</b>"
-msgstr "<b>Arkaplan</b>"
+msgstr "<b>Görev çubuğu</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:16
-#, fuzzy
 msgid "Only Application Launch Bar"
-msgstr "Uygulama Açma Çubuğu"
+msgstr "Sadece Uygulama Başlatma Çubuğu"
 
 #: ../data/ui/launchtaskbar.glade.h:17
-#, fuzzy
 msgid "Only Task Bar (Window List)"
-msgstr "Görev Çubuğu (Pencere Listesi)"
+msgstr "Sadece Görev Çubuğu (Pencere Listesi)"
 
 #: ../data/ui/launchtaskbar.glade.h:18
 #, fuzzy
@@ -644,7 +637,7 @@ msgstr "_Pencereyi Kapat"
 
 #: ../src/plugins/launchtaskbar.c:3312
 msgid "A_dd to Launcher"
-msgstr ""
+msgstr "Başlatıcıya _Ekle"
 
 #: ../src/plugins/launchtaskbar.c:3313
 #, fuzzy
@@ -653,7 +646,7 @@ msgstr "Tabladan \"%s\" Ögesini Kaldır"
 
 #: ../src/plugins/launchtaskbar.c:3314
 msgid "_New Instance"
-msgstr ""
+msgstr "_Yeni Örnek"
 
 #: ../src/plugins/launchtaskbar.c:3384
 msgid "Application Launch Bar"
@@ -952,14 +945,18 @@ msgid ""
 "Frequency: %d MHz\n"
 "Governor: %s"
 msgstr ""
+"Frekans: %d MHz\n"
+"Yönetim: %s"
 
 #: ../src/plugins/cpufreq/cpufreq.c:421
 msgid "CPUFreq frontend"
-msgstr ""
+msgstr "CPUFreq ön ucu"
 
 #: ../src/plugins/cpufreq/cpufreq.c:422
 msgid "Display CPU frequency and allow to change governors and frequency"
 msgstr ""
+"İşlemci frekansını görüntüle ve frekans ile yönetim şeklini değiştirmeye "
+"izin ver"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -1485,6 +1482,8 @@ msgid ""
 "\n"
 "%sEnergy full design:\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sTasarım sırasındaki tüm enerji:\t\t%5d mWh"
 
 #: ../src/plugins/batt/batt.c:180
 #, c-format
@@ -1492,6 +1491,8 @@ msgid ""
 "\n"
 "%sEnergy full:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sTüm enerji:\t\t\t%5d mWh"
 
 #: ../src/plugins/batt/batt.c:182
 #, c-format
@@ -1499,6 +1500,8 @@ msgid ""
 "\n"
 "%sEnergy now:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sŞimdiki enerji:\t\t\t%5d mWh"
 
 #: ../src/plugins/batt/batt.c:184
 #, c-format
@@ -1506,6 +1509,8 @@ msgid ""
 "\n"
 "%sPower now:\t\t\t%5d mW"
 msgstr ""
+"\n"
+"%sŞimdiki güç:\t\t\t%5d mW"
 
 #: ../src/plugins/batt/batt.c:187
 #, c-format
@@ -1513,6 +1518,8 @@ msgid ""
 "\n"
 "%sCharge full design:\t%5d mAh"
 msgstr ""
+"\n"
+"%sTasarımdaki tüm şarj:\t%5d mAh"
 
 #: ../src/plugins/batt/batt.c:189
 #, c-format
@@ -1520,6 +1527,8 @@ msgid ""
 "\n"
 "%sCharge full:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sTüm şarj:\t\t\t%5d mAh"
 
 #: ../src/plugins/batt/batt.c:191
 #, c-format
@@ -1527,6 +1536,8 @@ msgid ""
 "\n"
 "%sCharge now:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sŞimdiki şarj:\t\t\t%5d mAh"
 
 #: ../src/plugins/batt/batt.c:193
 #, c-format
@@ -1534,6 +1545,8 @@ msgid ""
 "\n"
 "%sCurrent now:\t\t\t%5d mA"
 msgstr ""
+"\n"
+"%sŞimdiki akım:\t\t\t%5d mA"
 
 #: ../src/plugins/batt/batt.c:196
 #, c-format
@@ -1541,6 +1554,8 @@ msgid ""
 "\n"
 "%sCurrent Voltage:\t\t%.3lf V"
 msgstr ""
+"\n"
+"%sŞimdiki Gerilim:\t\t%.3lf V"
 
 #: ../src/plugins/batt/batt.c:234
 msgid "No batteries found"
@@ -1768,39 +1783,39 @@ msgstr "_Ad:"
 
 #: ../src/plugins/weather/weatherwidget.c:1209
 msgid "Units:"
-msgstr ""
+msgstr "Birimler:"
 
 #: ../src/plugins/weather/weatherwidget.c:1213
 msgid "_Metric (°C)"
-msgstr ""
+msgstr "_Metrik (°C)"
 
 #: ../src/plugins/weather/weatherwidget.c:1215
 msgid "_English (°F)"
-msgstr ""
+msgstr "_İngiliz (°F)"
 
 #: ../src/plugins/weather/weatherwidget.c:1250
 msgid "Forecast"
-msgstr ""
+msgstr "Hava Tahmini"
 
 #: ../src/plugins/weather/weatherwidget.c:1254
 msgid "Updates:"
-msgstr ""
+msgstr "Güncellemeler:"
 
 #: ../src/plugins/weather/weatherwidget.c:1258
 msgid "Ma_nual"
-msgstr ""
+msgstr "_Elle"
 
 #: ../src/plugins/weather/weatherwidget.c:1262
 msgid "_Automatic, every"
-msgstr ""
+msgstr "_Otomatik, her"
 
 #: ../src/plugins/weather/weatherwidget.c:1278
 msgid "minutes"
-msgstr ""
+msgstr "dakika"
 
 #: ../src/plugins/weather/weatherwidget.c:1287
 msgid "Source:"
-msgstr ""
+msgstr "Kaynak:"
 
 #: ../src/plugins/weather/weatherwidget.c:1428
 #, fuzzy
@@ -1848,13 +1863,13 @@ msgstr ""
 
 #: ../src/plugins/weather/weatherwidget.c:1746
 msgid "Sunset:"
-msgstr ""
+msgstr "Günbatımı:"
 
 #: ../src/plugins/weather/weatherwidget.c:1854
 #: ../src/plugins/weather/weatherwidget.c:2190
 #, c-format
 msgid "Forecast for %s unavailable."
-msgstr ""
+msgstr "%s için hava tahmini kullanılamıyor."
 
 #: ../src/plugins/weather/weatherwidget.c:1863
 #: ../src/plugins/weather/weatherwidget.c:2195
@@ -1865,20 +1880,20 @@ msgstr "Oturumu kapama komutu atanmadı"
 #: ../src/plugins/weather/weatherwidget.c:1880
 #, c-format
 msgid "Searching for '%s'..."
-msgstr ""
+msgstr "'%s' aranıyor..."
 
 #: ../src/plugins/weather/weatherwidget.c:2006
 #, c-format
 msgid "Location matches for '%s'"
-msgstr ""
+msgstr "'%s' için konum eşleşmeleri"
 
 #: ../src/plugins/weather/weatherwidget.c:2026
 msgid "City"
-msgstr ""
+msgstr "Şehir"
 
 #: ../src/plugins/weather/weatherwidget.c:2046
 msgid "Country"
-msgstr ""
+msgstr "Ülke"
 
 # Önceki çevirmene: takıntı borç, sorun, obsesyon (en çok bu kullanılır) ya da
 # manita anlamına gelir. Yöresel ağızda ise mücevher.  Ancak "plugin" anlamına
@@ -1891,11 +1906,11 @@ msgstr "Şimdi yüklü olan yan uygulamalar"
 
 #: ../src/plugins/weather/weatherwidget.c:2179
 msgid "Today: "
-msgstr ""
+msgstr "Bugün: "
 
 #: ../src/plugins/weather/weatherwidget.c:2180
 msgid "Tomorrow: "
-msgstr ""
+msgstr "Yarın: "
 
 #: ../src/plugins/weather/weather.c:285
 #, fuzzy
@@ -1904,7 +1919,7 @@ msgstr "WNCKpager eklentisi"
 
 #: ../src/plugins/weather/weather.c:287
 msgid "Show weather conditions for a location."
-msgstr ""
+msgstr "Bir konumun hava durumunu göster."
 
 #~ msgid "Model"
 #~ msgstr "Model"
