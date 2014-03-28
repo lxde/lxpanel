@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-27 08:58+0100\n"
-"PO-Revision-Date: 2013-08-27 09:02+0000\n"
+"PO-Revision-Date: 2014-03-28 09:50+0000\n"
 "Last-Translator: sotrud_nik <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
 "Language: kk\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1377594139.0\n"
+"X-POOTLE-MTIME: 1396000225.0\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:55 ../src/gtk-run.c:361 ../src/plugins/menu.c:770
@@ -66,7 +66,7 @@ msgstr "Қара_п шығу"
 
 #: ../src/panel.c:660
 msgid "There is no room for another panel. All the edges are taken."
-msgstr ""
+msgstr "Жаңа панель үшін орын жоқ. Бұрыштардың барлығы қолдануда болып тұр."
 
 #: ../src/panel.c:687
 msgid ""
@@ -90,9 +90,8 @@ msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:744
-#, fuzzy
 msgid "Copyright (C) 2008-2013"
-msgstr "Copyright (C) 2008-2011"
+msgstr "Copyright (C) 2008-2013"
 
 #: ../src/panel.c:745
 msgid "Desktop panel for LXDE project"
@@ -216,7 +215,7 @@ msgstr ""
 
 #: ../src/plugin.c:370
 msgid "No file manager is configured."
-msgstr ""
+msgstr "Бапталған файлдар басқарушысы жоқ."
 
 #: ../src/gtk-run.c:374
 msgid "Enter the command you want to execute:"
@@ -224,23 +223,20 @@ msgstr "Орындау үшін командалық жолды енгізіңі
 
 #. vim: set sw=4 et sts=4 ts=4 :
 #: ../data/ui/launchtaskbar.glade.h:1 ../src/plugins/launchtaskbar.c:3414
-#, fuzzy
 msgid "Application Launch and Task Bar"
-msgstr "Қолданбаларды жөнелту панелі"
+msgstr "Қолданбаларды жөнелту және тапсырмалар панелі"
 
 #: ../data/ui/launchtaskbar.glade.h:2
-#, fuzzy
 msgid "<b>Mode:</b>"
-msgstr "<b>Өлшемі</b>"
+msgstr "<b>Режимі:</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:3
 msgid "Launchers"
-msgstr ""
+msgstr "Жөнелткіштер"
 
 #: ../data/ui/launchtaskbar.glade.h:4
-#, fuzzy
 msgid "<b>Launchbar</b>"
-msgstr "<b>Фон</b>"
+msgstr "<b>Жөнелткіштер панелі</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:5
 msgid "Show tooltips"
@@ -260,7 +256,7 @@ msgstr "Барлық жұмыс орындарынан терезелерді к
 
 #: ../data/ui/launchtaskbar.glade.h:9
 msgid "Only show windows on the same monitor as the task bar"
-msgstr ""
+msgstr "Тек тапсырмалар панелімен бір мониторда орналасқан терезелерді көрсету"
 
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Use mouse wheel"
@@ -283,24 +279,20 @@ msgid "Spacing"
 msgstr "Аралық"
 
 #: ../data/ui/launchtaskbar.glade.h:15
-#, fuzzy
 msgid "<b>Taskbar</b>"
-msgstr "<b>Фон</b>"
+msgstr "<b>Тапсырмалар панелі</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:16
-#, fuzzy
 msgid "Only Application Launch Bar"
-msgstr "Қолданбаларды жөнелту панелі"
+msgstr "Тек қолданбаларды жөнелту панелі"
 
 #: ../data/ui/launchtaskbar.glade.h:17
-#, fuzzy
 msgid "Only Task Bar (Window List)"
-msgstr "Тапсырмалар жолағы (Терезелер тізімі)"
+msgstr "Тек тапсырмалар жолағы (Терезелер тізімі)"
 
 #: ../data/ui/launchtaskbar.glade.h:18
-#, fuzzy
 msgid "Integrated Application Launch Bar and Task Bar"
-msgstr "Қолданбаларды жөнелту панелі"
+msgstr "Құрамындағы қолданбаларды жөнелту және тапсырмалар панелдері"
 
 #: ../data/ui/netstatus.glade.h:1
 msgid "<b>Connection</b>"
@@ -438,9 +430,8 @@ msgid "Margin:"
 msgstr "Шеті:"
 
 #: ../data/ui/panel-pref.glade.h:19
-#, fuzzy
 msgid "Monitor:"
-msgstr "Батарея бақылаушысы"
+msgstr "Монитор:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "<b>Position</b>"
@@ -584,9 +575,8 @@ msgid "Display Image and Tooltip"
 msgstr "Сурет пен қалқымалы кеңесті көрсету"
 
 #: ../src/plugins/launchtaskbar.c:2450
-#, fuzzy
 msgid "_Close all windows"
-msgstr "Те_резені жабу"
+msgstr "Барлық терезелерді ж_абу"
 
 #. Add Raise menu item.
 #: ../src/plugins/launchtaskbar.c:3243
@@ -635,16 +625,15 @@ msgstr "Те_резені жабу"
 
 #: ../src/plugins/launchtaskbar.c:3312
 msgid "A_dd to Launcher"
-msgstr ""
+msgstr "Жөнелткіштер панеліне қо_су"
 
 #: ../src/plugins/launchtaskbar.c:3313
-#, fuzzy
 msgid "Rem_ove from Launcher"
-msgstr "Панельден \"%s\" өшіру"
+msgstr "Жөнелткіштер панелінен ө_шіру"
 
 #: ../src/plugins/launchtaskbar.c:3314
 msgid "_New Instance"
-msgstr ""
+msgstr "Ж_аңа экземпляр"
 
 #: ../src/plugins/launchtaskbar.c:3384
 msgid "Application Launch Bar"
