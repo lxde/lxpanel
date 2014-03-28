@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-27 08:58+0100\n"
-"PO-Revision-Date: 2014-03-28 15:08+0000\n"
+"PO-Revision-Date: 2014-03-28 15:40+0000\n"
 "Last-Translator: Piotr <strebski@o2.pl>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1396019288.0\n"
+"X-POOTLE-MTIME: 1396021219.0\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:55 ../src/gtk-run.c:361 ../src/plugins/menu.c:770
@@ -296,19 +296,16 @@ msgid "<b>Taskbar</b>"
 msgstr "<b>Pasek zadań</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:16
-#, fuzzy
 msgid "Only Application Launch Bar"
-msgstr "Aktywatory"
+msgstr "Tylko pasek uruchamiania programów"
 
 #: ../data/ui/launchtaskbar.glade.h:17
-#, fuzzy
 msgid "Only Task Bar (Window List)"
-msgstr "Przyciski okien"
+msgstr "Tylko pasek zadań (lista okien)"
 
 #: ../data/ui/launchtaskbar.glade.h:18
-#, fuzzy
 msgid "Integrated Application Launch Bar and Task Bar"
-msgstr "Aktywatory"
+msgstr "Zintegrowany pasek uruchamiania programów i pasek zadań"
 
 #: ../data/ui/netstatus.glade.h:1
 msgid "<b>Connection</b>"
@@ -446,9 +443,8 @@ msgid "Margin:"
 msgstr "Margines:"
 
 #: ../data/ui/panel-pref.glade.h:19
-#, fuzzy
 msgid "Monitor:"
-msgstr "Monitor baterii"
+msgstr "Monitor:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "<b>Position</b>"
@@ -593,9 +589,8 @@ msgid "Display Image and Tooltip"
 msgstr "Wyświetl obraz i podpowiedź"
 
 #: ../src/plugins/launchtaskbar.c:2450
-#, fuzzy
 msgid "_Close all windows"
-msgstr "Za_mknij"
+msgstr "Za_mknij wszystkie okna"
 
 #. Add Raise menu item.
 #: ../src/plugins/launchtaskbar.c:3243
@@ -644,12 +639,11 @@ msgstr "Za_mknij"
 
 #: ../src/plugins/launchtaskbar.c:3312
 msgid "A_dd to Launcher"
-msgstr ""
+msgstr "_Dodaj do wyzwalacza"
 
 #: ../src/plugins/launchtaskbar.c:3313
-#, fuzzy
 msgid "Rem_ove from Launcher"
-msgstr "Usuń aplet „%s”"
+msgstr "_Usuń z wyzwalacza"
 
 #: ../src/plugins/launchtaskbar.c:3314
 msgid "_New Instance"
@@ -674,9 +668,10 @@ msgid ""
 msgstr "Wyświetla wszystkie otwarte okna i umożliwia manipulowanie nimi."
 
 #: ../src/plugins/launchtaskbar.c:3415
-#, fuzzy
 msgid "Bar with buttons to launch application and/or show all opened windows"
-msgstr "Wyświetla aktywatory programów w postaci przycisków"
+msgstr ""
+"Pasek z przyciskami do uruchamiania programów i/lub wszystkich otwartych "
+"okien"
 
 #: ../src/plugins/dclock.c:423 ../src/plugins/dclock.c:443
 msgid "Digital Clock"
@@ -780,9 +775,8 @@ msgid "Description"
 msgstr "Opis"
 
 #: ../src/plugins/xkb/xkb-plugin.c:656 ../src/plugins/xkb/xkb-plugin.c:785
-#, fuzzy
 msgid "Id"
-msgstr "Bezczynny"
+msgstr "Identyfikator"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:750
@@ -901,9 +895,8 @@ msgid "Label"
 msgstr "Etykiety:"
 
 #: ../src/plugins/dirmenu.c:378
-#, fuzzy
 msgid "Browse directory tree via menu (Author = PCMan)"
-msgstr "Wyświetla zawartość katalogu w menu. Autor: PCMan"
+msgstr "Przeglądaj drzewo katalogów poprzez menu (Autor = PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:480
 msgid "Normal"
@@ -1388,9 +1381,8 @@ msgid "Cannot open /proc/net/dev: %s"
 msgstr "Nie można otworzyć /proc/net/dev: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:185
-#, fuzzy
 msgid "Could not parse /proc/net/dev. No data."
-msgstr "Nie można przeanalizować /prov/net/dev. Nieznany format."
+msgstr "Nie można przeanalizować /prov/net/dev. Brak danych."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:190
 msgid "Could not parse /proc/net/dev. Unknown format."
@@ -1413,9 +1405,8 @@ msgstr ""
 "= %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:312
-#, fuzzy
 msgid "Could not parse /proc/net/wireless. No data."
-msgstr "Nie można przeanalizować pliku /prov/net/wireless. Nieznany format."
+msgstr "Nie można przeanalizować /prov/net/wireless. Brak danych."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:316
 msgid "Could not parse /proc/net/wireless. Unknown format."
