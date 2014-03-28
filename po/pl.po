@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-27 08:58+0100\n"
-"PO-Revision-Date: 2013-09-04 12:29+0000\n"
+"PO-Revision-Date: 2014-03-28 15:08+0000\n"
 "Last-Translator: Piotr <strebski@o2.pl>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1378297767.0\n"
+"X-POOTLE-MTIME: 1396019288.0\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:55 ../src/gtk-run.c:361 ../src/plugins/menu.c:770
@@ -69,7 +69,7 @@ msgstr "_Przeglądaj"
 
 #: ../src/panel.c:660
 msgid "There is no room for another panel. All the edges are taken."
-msgstr ""
+msgstr "Brak miejsca dla kolejnego panelu. Wszystkie krawędzie są zajęte."
 
 #: ../src/panel.c:687
 msgid ""
@@ -227,9 +227,8 @@ msgstr ""
 "\n"
 
 #: ../src/plugin.c:370
-#, fuzzy
 msgid "No file manager is configured."
-msgstr "Nie skonfigurowano"
+msgstr "Nie skonfigurowano menedżera plików."
 
 #: ../src/gtk-run.c:374
 msgid "Enter the command you want to execute:"
@@ -237,23 +236,20 @@ msgstr "Proszę wprowadzić polecenie do wykonania:"
 
 #. vim: set sw=4 et sts=4 ts=4 :
 #: ../data/ui/launchtaskbar.glade.h:1 ../src/plugins/launchtaskbar.c:3414
-#, fuzzy
 msgid "Application Launch and Task Bar"
-msgstr "Aktywatory"
+msgstr "Uruchamianie programów i pasek zadań"
 
 #: ../data/ui/launchtaskbar.glade.h:2
-#, fuzzy
 msgid "<b>Mode:</b>"
-msgstr "<b>Rozmiar</b>"
+msgstr "<b>Tryb:</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:3
 msgid "Launchers"
-msgstr ""
+msgstr "Aktywatory"
 
 #: ../data/ui/launchtaskbar.glade.h:4
-#, fuzzy
 msgid "<b>Launchbar</b>"
-msgstr "<b>Tło</b>"
+msgstr "<b>Pasek uruchamiania</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:5
 msgid "Show tooltips"
@@ -296,9 +292,8 @@ msgid "Spacing"
 msgstr "Odstępy:"
 
 #: ../data/ui/launchtaskbar.glade.h:15
-#, fuzzy
 msgid "<b>Taskbar</b>"
-msgstr "<b>Tło</b>"
+msgstr "<b>Pasek zadań</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:16
 #, fuzzy
