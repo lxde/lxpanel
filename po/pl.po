@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-27 08:58+0100\n"
-"PO-Revision-Date: 2014-03-28 15:40+0000\n"
+"PO-Revision-Date: 2014-03-28 15:49+0000\n"
 "Last-Translator: Piotr <strebski@o2.pl>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1396021219.0\n"
+"X-POOTLE-MTIME: 1396021776.0\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:55 ../src/gtk-run.c:361 ../src/plugins/menu.c:770
@@ -269,7 +269,7 @@ msgstr "Wyświetlane okien wszystkich obszarów roboczych"
 
 #: ../data/ui/launchtaskbar.glade.h:9
 msgid "Only show windows on the same monitor as the task bar"
-msgstr ""
+msgstr "Pokazuj tylko okna na tym samym monitorze jako pasek zadań"
 
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Use mouse wheel"
@@ -647,7 +647,7 @@ msgstr "_Usuń z wyzwalacza"
 
 #: ../src/plugins/launchtaskbar.c:3314
 msgid "_New Instance"
-msgstr ""
+msgstr "_Nowy egzemplarz"
 
 #: ../src/plugins/launchtaskbar.c:3384
 msgid "Application Launch Bar"
@@ -945,14 +945,18 @@ msgid ""
 "Frequency: %d MHz\n"
 "Governor: %s"
 msgstr ""
+"Częstotliwość: %d MHz\n"
+"Zarządca: %s"
 
 #: ../src/plugins/cpufreq/cpufreq.c:421
 msgid "CPUFreq frontend"
-msgstr ""
+msgstr "Nakładka CPUFreq"
 
 #: ../src/plugins/cpufreq/cpufreq.c:422
 msgid "Display CPU frequency and allow to change governors and frequency"
 msgstr ""
+"Wyświetlaj częstotliwość CPU i miej możliwość zmieniania zarządców i "
+"częstotliwości"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
