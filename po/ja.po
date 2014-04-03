@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-27 08:58+0100\n"
-"PO-Revision-Date: 2013-11-26 05:10+0000\n"
+"PO-Revision-Date: 2014-04-03 04:34+0000\n"
 "Last-Translator: Hironao <hirkmt@gmail.com>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
 "Language: ja\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1385442654.0\n"
+"X-POOTLE-MTIME: 1396499684.0\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:55 ../src/gtk-run.c:361 ../src/plugins/menu.c:770
@@ -67,7 +67,7 @@ msgstr "ダイアログから選択(_B)"
 
 #: ../src/panel.c:660
 msgid "There is no room for another panel. All the edges are taken."
-msgstr ""
+msgstr "これ以上パネルを置く余地がありません。すべての辺が使われています。"
 
 #: ../src/panel.c:687
 msgid ""
@@ -93,9 +93,8 @@ msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:744
-#, fuzzy
 msgid "Copyright (C) 2008-2013"
-msgstr "Copyright (C) 2008-2011"
+msgstr "Copyright (C) 2008-2013"
 
 #: ../src/panel.c:745
 msgid "Desktop panel for LXDE project"
@@ -220,7 +219,7 @@ msgstr ""
 
 #: ../src/plugin.c:370
 msgid "No file manager is configured."
-msgstr ""
+msgstr "ファイルマネージャが設定されていません。"
 
 #: ../src/gtk-run.c:374
 msgid "Enter the command you want to execute:"
@@ -228,23 +227,20 @@ msgstr "実行したいコマンドを入力してください:"
 
 #. vim: set sw=4 et sts=4 ts=4 :
 #: ../data/ui/launchtaskbar.glade.h:1 ../src/plugins/launchtaskbar.c:3414
-#, fuzzy
 msgid "Application Launch and Task Bar"
-msgstr "アプリケーション・ランチャー"
+msgstr "アプリケーション・ランチャー／タスクバー"
 
 #: ../data/ui/launchtaskbar.glade.h:2
-#, fuzzy
 msgid "<b>Mode:</b>"
-msgstr "<b>サイズ</b>"
+msgstr "<b>モード:</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:3
 msgid "Launchers"
-msgstr ""
+msgstr "ランチャ"
 
 #: ../data/ui/launchtaskbar.glade.h:4
-#, fuzzy
 msgid "<b>Launchbar</b>"
-msgstr "<b>背景</b>"
+msgstr "<b>ランチャーバー</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:5
 msgid "Show tooltips"
@@ -264,7 +260,7 @@ msgstr "すべてのデスクトップのウィンドウを表示する"
 
 #: ../data/ui/launchtaskbar.glade.h:9
 msgid "Only show windows on the same monitor as the task bar"
-msgstr ""
+msgstr "タスクバーには同一モニタ上のウィンドウだけを表示する"
 
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Use mouse wheel"
@@ -287,24 +283,20 @@ msgid "Spacing"
 msgstr "間隔"
 
 #: ../data/ui/launchtaskbar.glade.h:15
-#, fuzzy
 msgid "<b>Taskbar</b>"
-msgstr "<b>背景</b>"
+msgstr "<b>タスクバー</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:16
-#, fuzzy
 msgid "Only Application Launch Bar"
-msgstr "アプリケーション・ランチャー"
+msgstr "アプリケーション・ランチャーのみ"
 
 #: ../data/ui/launchtaskbar.glade.h:17
-#, fuzzy
 msgid "Only Task Bar (Window List)"
-msgstr "タスクバー (ウィンドウのリスト)"
+msgstr "タスクバー (ウィンドウのリスト) のみ"
 
 #: ../data/ui/launchtaskbar.glade.h:18
-#, fuzzy
 msgid "Integrated Application Launch Bar and Task Bar"
-msgstr "アプリケーション・ランチャー"
+msgstr "統合アプリケーション・ランチャー／タスクバー"
 
 #: ../data/ui/netstatus.glade.h:1
 msgid "<b>Connection</b>"
@@ -442,9 +434,8 @@ msgid "Margin:"
 msgstr "余白:"
 
 #: ../data/ui/panel-pref.glade.h:19
-#, fuzzy
 msgid "Monitor:"
-msgstr "バッテリモニタ"
+msgstr "モニタ:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "<b>Position</b>"
@@ -588,9 +579,8 @@ msgid "Display Image and Tooltip"
 msgstr "画像とツールチップを表示します"
 
 #: ../src/plugins/launchtaskbar.c:2450
-#, fuzzy
 msgid "_Close all windows"
-msgstr "ウィンドウを閉じる(_C)"
+msgstr "すべてのウィンドウを閉じる(_C)"
 
 #. Add Raise menu item.
 #: ../src/plugins/launchtaskbar.c:3243
@@ -639,16 +629,15 @@ msgstr "ウィンドウを閉じる(_C)"
 
 #: ../src/plugins/launchtaskbar.c:3312
 msgid "A_dd to Launcher"
-msgstr ""
+msgstr "ランチャーに追加する(_D)"
 
 #: ../src/plugins/launchtaskbar.c:3313
-#, fuzzy
 msgid "Rem_ove from Launcher"
-msgstr "パネルから \"%s\" を削除する"
+msgstr "ランチャーから \"%s\" を削除する(_O)"
 
 #: ../src/plugins/launchtaskbar.c:3314
 msgid "_New Instance"
-msgstr ""
+msgstr "新規インスタンス(_N)"
 
 #: ../src/plugins/launchtaskbar.c:3384
 msgid "Application Launch Bar"
@@ -671,9 +660,8 @@ msgstr ""
 "カスの移動を可能にします"
 
 #: ../src/plugins/launchtaskbar.c:3415
-#, fuzzy
 msgid "Bar with buttons to launch application and/or show all opened windows"
-msgstr "アプリケーションを呼び出すボタンのついたバー"
+msgstr "アプリケーションを呼び出すボタンやウィンドウのリストを表示するボタンのついたバー"
 
 #: ../src/plugins/dclock.c:423 ../src/plugins/dclock.c:443
 msgid "Digital Clock"
@@ -775,9 +763,8 @@ msgid "Description"
 msgstr "説明"
 
 #: ../src/plugins/xkb/xkb-plugin.c:656 ../src/plugins/xkb/xkb-plugin.c:785
-#, fuzzy
 msgid "Id"
-msgstr "待機中"
+msgstr "Id"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:750
@@ -894,9 +881,8 @@ msgid "Label"
 msgstr "ラベル"
 
 #: ../src/plugins/dirmenu.c:378
-#, fuzzy
 msgid "Browse directory tree via menu (Author = PCMan)"
-msgstr "ディレクトリ・ツリーをメニュー形式で表示します (作者: PCMan)"
+msgstr "ディレクトリ・ツリーをメニュー形式で表示します (作者 = PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:480
 msgid "Normal"
@@ -944,14 +930,16 @@ msgid ""
 "Frequency: %d MHz\n"
 "Governor: %s"
 msgstr ""
+"動作周波数: %d MHz\n"
+"速度管理: %s"
 
 #: ../src/plugins/cpufreq/cpufreq.c:421
 msgid "CPUFreq frontend"
-msgstr ""
+msgstr "CPUFreq フロントエンド"
 
 #: ../src/plugins/cpufreq/cpufreq.c:422
 msgid "Display CPU frequency and allow to change governors and frequency"
-msgstr ""
+msgstr "CPU の動作周波数を表示し、またその変更ができます"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -1378,9 +1366,8 @@ msgid "Cannot open /proc/net/dev: %s"
 msgstr "/proc/net/dev が開けません: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:185
-#, fuzzy
 msgid "Could not parse /proc/net/dev. No data."
-msgstr "/proc/net/dev をパースできません。未知のフォーマットです。"
+msgstr "/proc/net/dev をパースできません。データがありません。"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:190
 msgid "Could not parse /proc/net/dev. Unknown format."
@@ -1403,9 +1390,8 @@ msgstr ""
 "brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:312
-#, fuzzy
 msgid "Could not parse /proc/net/wireless. No data."
-msgstr "/proc/net/wireless をパースできません。未知のフォーマットです。"
+msgstr "/proc/net/wireless をパースできません。データがありません。"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:316
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1476,6 +1462,8 @@ msgid ""
 "\n"
 "%sEnergy full design:\t\t%5d mWh"
 msgstr ""
+"\n"
+"%s設計上の最大電力量:\t\t%5d mWh"
 
 #: ../src/plugins/batt/batt.c:180
 #, c-format
@@ -1483,6 +1471,8 @@ msgid ""
 "\n"
 "%sEnergy full:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%s最大電力量:\t\t\t%5d mWh"
 
 #: ../src/plugins/batt/batt.c:182
 #, c-format
@@ -1490,6 +1480,8 @@ msgid ""
 "\n"
 "%sEnergy now:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%s現在の電力量:\t\t\t%5d mWh"
 
 #: ../src/plugins/batt/batt.c:184
 #, c-format
@@ -1497,6 +1489,8 @@ msgid ""
 "\n"
 "%sPower now:\t\t\t%5d mW"
 msgstr ""
+"\n"
+"%s現在の電力:\t\t\t%5d mW"
 
 #: ../src/plugins/batt/batt.c:187
 #, c-format
@@ -1504,6 +1498,8 @@ msgid ""
 "\n"
 "%sCharge full design:\t%5d mAh"
 msgstr ""
+"\n"
+"%s設計上の最大充電容量:\t%5d mAh"
 
 #: ../src/plugins/batt/batt.c:189
 #, c-format
@@ -1511,6 +1507,8 @@ msgid ""
 "\n"
 "%sCharge full:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%s満充電:\t\t\t%5d mAh"
 
 #: ../src/plugins/batt/batt.c:191
 #, c-format
@@ -1518,6 +1516,8 @@ msgid ""
 "\n"
 "%sCharge now:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%s現在の充電容量:\t\t\t%5d mAh"
 
 #: ../src/plugins/batt/batt.c:193
 #, c-format
@@ -1525,6 +1525,8 @@ msgid ""
 "\n"
 "%sCurrent now:\t\t\t%5d mA"
 msgstr ""
+"\n"
+"%s現在の電流:\t\t\t%5d mA"
 
 #: ../src/plugins/batt/batt.c:196
 #, c-format
@@ -1532,6 +1534,8 @@ msgid ""
 "\n"
 "%sCurrent Voltage:\t\t%.3lf V"
 msgstr ""
+"\n"
+"%s現在の電圧:\t\t%.3lf V"
 
 #: ../src/plugins/batt/batt.c:234
 msgid "No batteries found"
@@ -1579,7 +1583,7 @@ msgstr "境界の幅"
 
 #: ../src/plugins/batt/batt.c:633
 msgid "Show Extended Information"
-msgstr ""
+msgstr "さらなる情報を表示"
 
 #: ../src/plugins/batt/batt.c:643
 msgid "Display battery status using ACPI"
@@ -1678,16 +1682,15 @@ msgstr "モニタを表示します (CPU, RAM)"
 
 #: ../src/plugins/weather/weatherwidget.c:50
 msgid "[N/A]"
-msgstr ""
+msgstr "[不明]"
 
 #: ../src/plugins/weather/weatherwidget.c:784
 msgid "Enter New Location"
-msgstr ""
+msgstr "新しい地点を入力する"
 
 #: ../src/plugins/weather/weatherwidget.c:798
-#, fuzzy
 msgid "_New Location:"
-msgstr "ネットワーク接続"
+msgstr "新しい地点(_N)"
 
 #: ../src/plugins/weather/weatherwidget.c:809
 msgid ""
@@ -1697,196 +1700,191 @@ msgid ""
 "- postal code\n"
 "for which to retrieve the weather forecast."
 msgstr ""
+"天気予報を取得するには以下のいずれかを入力します:\n"
+"- 都市名\n"
+"- 都市名と州あるいは国名\n"
+"- 郵便番号"
 
 #: ../src/plugins/weather/weatherwidget.c:846
 #: ../src/plugins/weather/weatherwidget.c:979
 msgid "You must specify a location."
-msgstr ""
+msgstr "地点を入力する必要があります。"
 
 #: ../src/plugins/weather/weatherwidget.c:893
 #, c-format
 msgid "Location '%s' not found!"
-msgstr ""
+msgstr "'%s' という地名は見つかりません！"
 
 #: ../src/plugins/weather/weatherwidget.c:1051
-#, fuzzy
 msgid "Preferences"
-msgstr "パネルの設定"
+msgstr "設定"
 
 #: ../src/plugins/weather/weatherwidget.c:1057
 msgid "Refresh"
-msgstr ""
+msgstr "更新"
 
 #: ../src/plugins/weather/weatherwidget.c:1063
 msgid "Quit"
-msgstr ""
+msgstr "終了"
 
 #: ../src/plugins/weather/weatherwidget.c:1160
-#, fuzzy
 msgid "Weather Preferences"
-msgstr "パネルの設定"
+msgstr "天気予報の設定"
 
 #: ../src/plugins/weather/weatherwidget.c:1174
-#, fuzzy
 msgid "Current Location"
-msgstr "方向"
+msgstr "現在の地点"
 
 #: ../src/plugins/weather/weatherwidget.c:1178
 #: ../src/plugins/weather/weatherwidget.c:1475
-#, fuzzy
 msgid "None configured"
-msgstr "設定(_F)"
+msgstr "未設定"
 
 #: ../src/plugins/weather/weatherwidget.c:1180
 #: ../src/plugins/weather/weatherwidget.c:1472
 msgid "_Set"
-msgstr ""
+msgstr "設定(_S)"
 
 #: ../src/plugins/weather/weatherwidget.c:1201
 msgid "Display"
-msgstr ""
+msgstr "表示"
 
 #: ../src/plugins/weather/weatherwidget.c:1205
-#, fuzzy
 msgid "Name:"
-msgstr "名前(_N):"
+msgstr "名前:"
 
 #: ../src/plugins/weather/weatherwidget.c:1209
 msgid "Units:"
-msgstr ""
+msgstr "単位:"
 
 #: ../src/plugins/weather/weatherwidget.c:1213
 msgid "_Metric (°C)"
-msgstr ""
+msgstr "メートル法(°C) (_M)"
 
 #: ../src/plugins/weather/weatherwidget.c:1215
 msgid "_English (°F)"
-msgstr ""
+msgstr "英米(°F) (_E)"
 
 #: ../src/plugins/weather/weatherwidget.c:1250
 msgid "Forecast"
-msgstr ""
+msgstr "予報"
 
 #: ../src/plugins/weather/weatherwidget.c:1254
 msgid "Updates:"
-msgstr ""
+msgstr "更新:"
 
 #: ../src/plugins/weather/weatherwidget.c:1258
 msgid "Ma_nual"
-msgstr ""
+msgstr "マニュアル(_N)"
 
 #: ../src/plugins/weather/weatherwidget.c:1262
 msgid "_Automatic, every"
-msgstr ""
+msgstr "定時(_A)"
 
 #: ../src/plugins/weather/weatherwidget.c:1278
 msgid "minutes"
-msgstr ""
+msgstr "分"
 
 #: ../src/plugins/weather/weatherwidget.c:1287
 msgid "Source:"
-msgstr ""
+msgstr "情報元:"
 
 #: ../src/plugins/weather/weatherwidget.c:1428
-#, fuzzy
 msgid "C_hange"
-msgstr "改変のタイプ"
+msgstr "変更(_H)"
 
 #. Both are available
 #: ../src/plugins/weather/weatherwidget.c:1519
 #, c-format
 msgid "Current Conditions for %s"
-msgstr ""
+msgstr "現在の %s の状況"
 
 #: ../src/plugins/weather/weatherwidget.c:1543
 msgid "Location:"
-msgstr ""
+msgstr "地点:"
 
 #: ../src/plugins/weather/weatherwidget.c:1566
 msgid "Last updated:"
-msgstr ""
+msgstr "更新時刻:"
 
 #: ../src/plugins/weather/weatherwidget.c:1593
 msgid "Feels like:"
-msgstr ""
+msgstr "体感:"
 
 #: ../src/plugins/weather/weatherwidget.c:1618
 msgid "Humidity:"
-msgstr ""
+msgstr "湿度:"
 
 #: ../src/plugins/weather/weatherwidget.c:1645
-#, fuzzy
 msgid "Pressure:"
-msgstr "IP アドレス:"
+msgstr "気圧:"
 
 #: ../src/plugins/weather/weatherwidget.c:1672
 msgid "Visibility:"
-msgstr ""
+msgstr "視界:"
 
 #: ../src/plugins/weather/weatherwidget.c:1700
 msgid "Wind:"
-msgstr ""
+msgstr "風:"
 
 #: ../src/plugins/weather/weatherwidget.c:1723
 msgid "Sunrise:"
-msgstr ""
+msgstr "日昇:"
 
 #: ../src/plugins/weather/weatherwidget.c:1746
 msgid "Sunset:"
-msgstr ""
+msgstr "日没:"
 
 #: ../src/plugins/weather/weatherwidget.c:1854
 #: ../src/plugins/weather/weatherwidget.c:2190
 #, c-format
 msgid "Forecast for %s unavailable."
-msgstr ""
+msgstr "%s の天気予報は取得できません。"
 
 #: ../src/plugins/weather/weatherwidget.c:1863
 #: ../src/plugins/weather/weatherwidget.c:2195
-#, fuzzy, c-format
+#, c-format
 msgid "Location not set."
-msgstr "ログアウトのコマンドが設定されていません"
+msgstr "地点が設定されていません。"
 
 #: ../src/plugins/weather/weatherwidget.c:1880
 #, c-format
 msgid "Searching for '%s'..."
-msgstr ""
+msgstr "'%s' を検索中..."
 
 #: ../src/plugins/weather/weatherwidget.c:2006
 #, c-format
 msgid "Location matches for '%s'"
-msgstr ""
+msgstr "'%s' が地点に合致します"
 
 #: ../src/plugins/weather/weatherwidget.c:2026
 msgid "City"
-msgstr ""
+msgstr "都市"
 
 #: ../src/plugins/weather/weatherwidget.c:2046
 msgid "Country"
-msgstr ""
+msgstr "国名"
 
 #. make it nice and pretty
 #: ../src/plugins/weather/weatherwidget.c:2177
-#, fuzzy
 msgid "Currently in "
-msgstr "現在ロードされているプラグイン"
+msgstr "現在地 "
 
 #: ../src/plugins/weather/weatherwidget.c:2179
 msgid "Today: "
-msgstr ""
+msgstr "今日: "
 
 #: ../src/plugins/weather/weatherwidget.c:2180
 msgid "Tomorrow: "
-msgstr ""
+msgstr "明日: "
 
 #: ../src/plugins/weather/weather.c:285
-#, fuzzy
 msgid "Weather Plugin"
-msgstr "WNCKページャ・プラグイン"
+msgstr "天気予報プラグイン"
 
 #: ../src/plugins/weather/weather.c:287
 msgid "Show weather conditions for a location."
-msgstr ""
+msgstr "気象状況を表示します。"
 
 #~ msgid "Model"
 #~ msgstr "モデル"
