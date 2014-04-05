@@ -67,6 +67,7 @@
 
 #include <stdlib.h>
 #include <glib/gi18n.h>
+#include <errno.h>
 
 #include "private.h"
 #include "panel.h"
@@ -294,58 +295,72 @@ mem_update(Monitor * m)
     ENTER; 
 
     FILE *meminfo;
-    int mem_total = 0;
-    int mem_free  = 0;
-    int mem_buffers = 0;
-    int mem_cached = 0;
+    int const buflen = 80;
+    char buf[buflen];
+    long int mem_total = 0;
+    long int mem_free  = 0;
+    long int mem_buffers = 0;
+    long int mem_cached = 0;
+    unsigned int readmask = 0x8 | 0x4 | 0x2 | 0x1;
 
-    if (m->stats && m->pixmap)
-    {
-        meminfo = fopen("/proc/meminfo", "r");
-        if (!meminfo)
-            RET(FALSE);
+    if (!m->stats || !m->pixmap)
+        RET(TRUE);
 
-        if (fscanf(meminfo, "MemTotal: %d kB\n", &mem_total) != 1) {
-            fclose (meminfo);
-            RET(FALSE);
-        }
-        if (fscanf(meminfo, "MemFree: %d kB\n", &mem_free) != 1) {
-            fclose (meminfo);
-            RET(FALSE);
-        }
-        if (fscanf(meminfo, "Buffers: %d kB\n", &mem_buffers) != 1) {
-            fclose (meminfo);
-            RET(FALSE);
-        }
-        if (fscanf(meminfo, "Cached: %d kB\n", &mem_cached) != 1) {
-            fclose (meminfo);
-            RET(FALSE);
-        }
-
-        fclose(meminfo);
-
-        m->total = mem_total;
-
-        /* Adding stats to the buffer:
-         * It is debatable if 'mem_buffers' counts as free or not. I'll go with
-         * 'free', because it can be flushed fairly quickly, and generally
-         * isn't necessary to keep in memory.
-         * It is hard to draw the line, which caches should be counted as free,
-         * and which not. Pagecaches, dentry, and inode caches are quickly
-         * filled up again for almost any use case. Hence I would not count
-         * them as 'free'.
-         * 'mem_cached' definitely counts as 'free' because it is immediately
-         * released should any application need it. */
-        m->stats[m->ring_cursor] = (mem_total - mem_buffers - mem_free -
-                mem_cached) / (float)mem_total; m->ring_cursor++;
-
-        if (m->ring_cursor >= m->pixmap_width)
-            m->ring_cursor = 0; 
-
-
-        /* Redraw the pixmap, with the new sample */
-        redraw_pixmap (m);
+    meminfo = fopen("/proc/meminfo", "r");
+    if (!meminfo) {
+        ERR("monitors: Could not open /proc/meminfo: %d, %s\n",
+                errno, strerror(errno));
+        RET(FALSE);
     }
+
+    while (readmask && fgets(buf, buflen, meminfo)) {
+        if (sscanf(buf, "MemTotal: %ld kB\n", &mem_total) == 1) {
+            readmask ^= 0x1;
+            continue;
+        }
+        if (sscanf(buf, "MemFree: %ld kB\n", &mem_free) == 1) {
+            readmask ^= 0x2;
+            continue;
+        }
+        if (sscanf(buf, "Buffers: %ld kB\n", &mem_buffers) == 1) {
+            readmask ^= 0x4;
+            continue;
+        }
+        if (sscanf(buf, "Cached: %ld kB\n", &mem_cached) == 1) {
+            readmask ^= 0x8;
+            continue;
+        }
+    }
+
+    fclose(meminfo);
+
+    if (readmask) {
+        ERR("monitors: Couldn't read all values from /proc/meminfo: "
+                "readmask %x\n", readmask);
+        RET(FALSE);
+    }
+
+    m->total = mem_total;
+
+    /* Adding stats to the buffer:
+     * It is debatable if 'mem_buffers' counts as free or not. I'll go with
+     * 'free', because it can be flushed fairly quickly, and generally
+     * isn't necessary to keep in memory.
+     * It is hard to draw the line, which caches should be counted as free,
+     * and which not. Pagecaches, dentry, and inode caches are quickly
+     * filled up again for almost any use case. Hence I would not count
+     * them as 'free'.
+     * 'mem_cached' definitely counts as 'free' because it is immediately
+     * released should any application need it. */
+    m->stats[m->ring_cursor] = (mem_total - mem_buffers - mem_free -
+            mem_cached) / (float)mem_total;
+
+    m->ring_cursor++;
+    if (m->ring_cursor >= m->pixmap_width)
+        m->ring_cursor = 0;
+
+    /* Redraw the pixmap, with the new sample */
+    redraw_pixmap (m);
 
     RET(TRUE);
 }
