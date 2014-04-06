@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-27 08:58+0100\n"
-"PO-Revision-Date: 2014-01-31 06:42+0000\n"
+"PO-Revision-Date: 2014-04-06 06:54+0000\n"
 "Last-Translator: wwycheuk <wwycheuk@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: zh_TW\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1391150537.0\n"
+"X-POOTLE-MTIME: 1396767290.0\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:55 ../src/gtk-run.c:361 ../src/plugins/menu.c:770
@@ -65,7 +65,7 @@ msgstr "瀏覽(_B)"
 
 #: ../src/panel.c:660
 msgid "There is no room for another panel. All the edges are taken."
-msgstr ""
+msgstr "無空間容納另一個面板。已使用所有邊沿。"
 
 #: ../src/panel.c:687
 msgid ""
@@ -94,9 +94,8 @@ msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:744
-#, fuzzy
 msgid "Copyright (C) 2008-2013"
-msgstr "版權所有 (C) 2008-2011"
+msgstr "版權所有 (C) 2008-2013"
 
 #: ../src/panel.c:745
 msgid "Desktop panel for LXDE project"
@@ -220,7 +219,7 @@ msgstr ""
 
 #: ../src/plugin.c:370
 msgid "No file manager is configured."
-msgstr ""
+msgstr "未設定檔案管理員。"
 
 #: ../src/gtk-run.c:374
 msgid "Enter the command you want to execute:"
@@ -230,21 +229,20 @@ msgstr "輸入要想執行的指令："
 #: ../data/ui/launchtaskbar.glade.h:1 ../src/plugins/launchtaskbar.c:3414
 #, fuzzy
 msgid "Application Launch and Task Bar"
-msgstr "應用程式啟動列"
+msgstr "應用程式啟動列及工作列"
 
 #: ../data/ui/launchtaskbar.glade.h:2
-#, fuzzy
 msgid "<b>Mode:</b>"
-msgstr "<b>大小</b>"
+msgstr "<b>模式：</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:3
 msgid "Launchers"
-msgstr ""
+msgstr "啟動器"
 
 #: ../data/ui/launchtaskbar.glade.h:4
 #, fuzzy
 msgid "<b>Launchbar</b>"
-msgstr "<b>背景</b>"
+msgstr "<b>啟動列</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:5
 msgid "Show tooltips"
@@ -287,24 +285,23 @@ msgid "Spacing"
 msgstr "間距"
 
 #: ../data/ui/launchtaskbar.glade.h:15
-#, fuzzy
 msgid "<b>Taskbar</b>"
-msgstr "<b>背景</b>"
+msgstr "<b>工作列</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:16
 #, fuzzy
 msgid "Only Application Launch Bar"
-msgstr "應用程式啟動列"
+msgstr "僅應用程式啟動列"
 
 #: ../data/ui/launchtaskbar.glade.h:17
 #, fuzzy
 msgid "Only Task Bar (Window List)"
-msgstr "工作列 (視窗清單)"
+msgstr "僅工作列 (視窗清單)"
 
 #: ../data/ui/launchtaskbar.glade.h:18
 #, fuzzy
 msgid "Integrated Application Launch Bar and Task Bar"
-msgstr "應用程式啟動列"
+msgstr "整合應用程式啟動列及工作列"
 
 #: ../data/ui/netstatus.glade.h:1
 msgid "<b>Connection</b>"
@@ -444,7 +441,7 @@ msgstr "留空："
 #: ../data/ui/panel-pref.glade.h:19
 #, fuzzy
 msgid "Monitor:"
-msgstr "電池電量顯示"
+msgstr "螢幕："
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "<b>Position</b>"
@@ -588,9 +585,8 @@ msgid "Display Image and Tooltip"
 msgstr "顯示圖片及工具提示"
 
 #: ../src/plugins/launchtaskbar.c:2450
-#, fuzzy
 msgid "_Close all windows"
-msgstr "關閉視窗(_C)"
+msgstr "關閉所有視窗(_C)"
 
 #. Add Raise menu item.
 #: ../src/plugins/launchtaskbar.c:3243
@@ -639,16 +635,15 @@ msgstr "關閉視窗(_C)"
 
 #: ../src/plugins/launchtaskbar.c:3312
 msgid "A_dd to Launcher"
-msgstr ""
+msgstr "加入至啟動列(_D)"
 
 #: ../src/plugins/launchtaskbar.c:3313
-#, fuzzy
 msgid "Rem_ove from Launcher"
-msgstr "從工作列移除 \"%s\""
+msgstr "從啟動器移除(_O)"
 
 #: ../src/plugins/launchtaskbar.c:3314
 msgid "_New Instance"
-msgstr ""
+msgstr "新執行實體(_N)"
 
 #: ../src/plugins/launchtaskbar.c:3384
 msgid "Application Launch Bar"
@@ -671,7 +666,7 @@ msgstr "工作列顯示所有開啟的視窗，並讓能視窗最小化、折疊
 #: ../src/plugins/launchtaskbar.c:3415
 #, fuzzy
 msgid "Bar with buttons to launch application and/or show all opened windows"
-msgstr "具有應用程式啟動按鈕的工具列"
+msgstr "具有啟動應用程式及/或顯示所有已開啟視窗按鈕的工具列"
 
 #: ../src/plugins/dclock.c:423 ../src/plugins/dclock.c:443
 msgid "Digital Clock"
@@ -1401,7 +1396,7 @@ msgstr ""
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:312
 #, fuzzy
 msgid "Could not parse /proc/net/wireless. No data."
-msgstr "無法解析 /proc/net/wireless。未知格式。"
+msgstr "無法解析 /proc/net/wireless。沒有資料。"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:316
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1683,9 +1678,10 @@ msgstr ""
 #: ../src/plugins/weather/weatherwidget.c:798
 #, fuzzy
 msgid "_New Location:"
-msgstr "網路連線"
+msgstr "新增位置(_N)："
 
 #: ../src/plugins/weather/weatherwidget.c:809
+#, fuzzy
 msgid ""
 "Enter the:\n"
 "- city, or\n"
@@ -1693,79 +1689,80 @@ msgid ""
 "- postal code\n"
 "for which to retrieve the weather forecast."
 msgstr ""
+"輸入：\n"
+"- 城市，或\n"
+"- 城市及州份/國家，或\n"
+"- 郵遞區號\n"
+"總之是取得天氣預測的位置。"
 
 #: ../src/plugins/weather/weatherwidget.c:846
 #: ../src/plugins/weather/weatherwidget.c:979
 msgid "You must specify a location."
-msgstr ""
+msgstr "必須指定位置。"
 
 #: ../src/plugins/weather/weatherwidget.c:893
 #, c-format
 msgid "Location '%s' not found!"
-msgstr ""
+msgstr "找不到「%s」位置！"
 
 #: ../src/plugins/weather/weatherwidget.c:1051
-#, fuzzy
 msgid "Preferences"
-msgstr "工作列偏好設定"
+msgstr "偏好設定"
 
 #: ../src/plugins/weather/weatherwidget.c:1057
 msgid "Refresh"
-msgstr ""
+msgstr "重新整理"
 
 #: ../src/plugins/weather/weatherwidget.c:1063
 msgid "Quit"
-msgstr ""
+msgstr "結束"
 
 #: ../src/plugins/weather/weatherwidget.c:1160
-#, fuzzy
 msgid "Weather Preferences"
-msgstr "工作列偏好設定"
+msgstr "天氣偏好設定"
 
 #: ../src/plugins/weather/weatherwidget.c:1174
-#, fuzzy
 msgid "Current Location"
-msgstr "方向"
+msgstr "目前位置"
 
 #: ../src/plugins/weather/weatherwidget.c:1178
 #: ../src/plugins/weather/weatherwidget.c:1475
 #, fuzzy
 msgid "None configured"
-msgstr "設定(_F)"
+msgstr "沒有設定好的"
 
 #: ../src/plugins/weather/weatherwidget.c:1180
 #: ../src/plugins/weather/weatherwidget.c:1472
 msgid "_Set"
-msgstr ""
+msgstr "設定(_S)"
 
 #: ../src/plugins/weather/weatherwidget.c:1201
 msgid "Display"
-msgstr ""
+msgstr "顯示器"
 
 #: ../src/plugins/weather/weatherwidget.c:1205
-#, fuzzy
 msgid "Name:"
-msgstr "名稱(_N)："
+msgstr "名稱："
 
 #: ../src/plugins/weather/weatherwidget.c:1209
 msgid "Units:"
-msgstr ""
+msgstr "單位："
 
 #: ../src/plugins/weather/weatherwidget.c:1213
 msgid "_Metric (°C)"
-msgstr ""
+msgstr "公制(_M) (°C)"
 
 #: ../src/plugins/weather/weatherwidget.c:1215
 msgid "_English (°F)"
-msgstr ""
+msgstr "美制(_E) (°F)"
 
 #: ../src/plugins/weather/weatherwidget.c:1250
 msgid "Forecast"
-msgstr ""
+msgstr "預測"
 
 #: ../src/plugins/weather/weatherwidget.c:1254
 msgid "Updates:"
-msgstr ""
+msgstr "更新："
 
 #: ../src/plugins/weather/weatherwidget.c:1258
 msgid "Ma_nual"
@@ -1801,42 +1798,41 @@ msgstr "教育"
 
 #: ../src/plugins/weather/weatherwidget.c:1566
 msgid "Last updated:"
-msgstr ""
+msgstr "最後更新："
 
 #: ../src/plugins/weather/weatherwidget.c:1593
 msgid "Feels like:"
-msgstr ""
+msgstr "就好像："
 
 #: ../src/plugins/weather/weatherwidget.c:1618
 msgid "Humidity:"
-msgstr ""
+msgstr "溼度："
 
 #: ../src/plugins/weather/weatherwidget.c:1645
-#, fuzzy
 msgid "Pressure:"
-msgstr "IP 位址："
+msgstr "氣壓："
 
 #: ../src/plugins/weather/weatherwidget.c:1672
 msgid "Visibility:"
-msgstr ""
+msgstr "能見度："
 
 #: ../src/plugins/weather/weatherwidget.c:1700
 msgid "Wind:"
-msgstr ""
+msgstr "風向："
 
 #: ../src/plugins/weather/weatherwidget.c:1723
 msgid "Sunrise:"
-msgstr ""
+msgstr "日出："
 
 #: ../src/plugins/weather/weatherwidget.c:1746
 msgid "Sunset:"
-msgstr ""
+msgstr "日落："
 
 #: ../src/plugins/weather/weatherwidget.c:1854
 #: ../src/plugins/weather/weatherwidget.c:2190
-#, c-format
+#, c-format, fuzzy
 msgid "Forecast for %s unavailable."
-msgstr ""
+msgstr "無法提供 %s 的預測。"
 
 #: ../src/plugins/weather/weatherwidget.c:1863
 #: ../src/plugins/weather/weatherwidget.c:2195
@@ -1883,7 +1879,7 @@ msgstr "WNCKPager 工作區顯示外掛程式"
 
 #: ../src/plugins/weather/weather.c:287
 msgid "Show weather conditions for a location."
-msgstr ""
+msgstr "顯示某個位置的天氣情況。"
 
 #~ msgid "Model"
 #~ msgstr "型號"
