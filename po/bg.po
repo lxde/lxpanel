@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-27 08:58+0100\n"
-"PO-Revision-Date: 2013-11-09 14:12+0000\n"
+"PO-Revision-Date: 2014-04-17 21:36+0000\n"
 "Last-Translator: Радослав <reckku@gmail.com>\n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1384006372.0\n"
+"X-POOTLE-MTIME: 1397770578.0\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:55 ../src/gtk-run.c:361 ../src/plugins/menu.c:770
@@ -65,7 +65,7 @@ msgstr "_Разгледай"
 
 #: ../src/panel.c:660
 msgid "There is no room for another panel. All the edges are taken."
-msgstr ""
+msgstr "Няма място за друг панел. Всички ъгли са заети."
 
 #: ../src/panel.c:687
 msgid ""
@@ -89,9 +89,8 @@ msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:744
-#, fuzzy
 msgid "Copyright (C) 2008-2013"
-msgstr "Авторски права © 2008-2011"
+msgstr "Авторски права © 2008-2013"
 
 #: ../src/panel.c:745
 msgid "Desktop panel for LXDE project"
@@ -215,7 +214,7 @@ msgstr ""
 
 #: ../src/plugin.c:370
 msgid "No file manager is configured."
-msgstr ""
+msgstr "Няма настроен файлов мениджър."
 
 #: ../src/gtk-run.c:374
 msgid "Enter the command you want to execute:"
@@ -223,23 +222,20 @@ msgstr "Въведете командата, която искате да изп
 
 #. vim: set sw=4 et sts=4 ts=4 :
 #: ../data/ui/launchtaskbar.glade.h:1 ../src/plugins/launchtaskbar.c:3414
-#, fuzzy
 msgid "Application Launch and Task Bar"
-msgstr "Панел с програми"
+msgstr "Стартиране на програми и лента със задачи"
 
 #: ../data/ui/launchtaskbar.glade.h:2
-#, fuzzy
 msgid "<b>Mode:</b>"
-msgstr "<b>Размер</b>"
+msgstr "<b>Режим:</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:3
 msgid "Launchers"
-msgstr ""
+msgstr "Стартери"
 
 #: ../data/ui/launchtaskbar.glade.h:4
-#, fuzzy
 msgid "<b>Launchbar</b>"
-msgstr "<b>Фон</b>"
+msgstr "<b>Поле за стартери</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:5
 msgid "Show tooltips"
@@ -259,7 +255,7 @@ msgstr "Показване на прозорците от всички сред�
 
 #: ../data/ui/launchtaskbar.glade.h:9
 msgid "Only show windows on the same monitor as the task bar"
-msgstr ""
+msgstr "Показвай само прозорци от същия монитор като лентата със задачи"
 
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Use mouse wheel"
@@ -282,24 +278,20 @@ msgid "Spacing"
 msgstr "Разредка"
 
 #: ../data/ui/launchtaskbar.glade.h:15
-#, fuzzy
 msgid "<b>Taskbar</b>"
-msgstr "<b>Фон</b>"
+msgstr "<b>Лента със задачи</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:16
-#, fuzzy
 msgid "Only Application Launch Bar"
-msgstr "Панел с програми"
+msgstr "Само Лента със стартери"
 
 #: ../data/ui/launchtaskbar.glade.h:17
-#, fuzzy
 msgid "Only Task Bar (Window List)"
-msgstr "Лента със задачи (Лист прозорци)"
+msgstr "Само Лента със задачи (Лист с прозорци)"
 
 #: ../data/ui/launchtaskbar.glade.h:18
-#, fuzzy
 msgid "Integrated Application Launch Bar and Task Bar"
-msgstr "Панел с програми"
+msgstr "Вградени Стартер на програми и Лента със задачи"
 
 #: ../data/ui/netstatus.glade.h:1
 msgid "<b>Connection</b>"
@@ -437,9 +429,8 @@ msgid "Margin:"
 msgstr "Граница:"
 
 #: ../data/ui/panel-pref.glade.h:19
-#, fuzzy
 msgid "Monitor:"
-msgstr "Датчик за батерията"
+msgstr "Монитор:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "<b>Position</b>"
@@ -524,7 +515,7 @@ msgstr "Не покривай от увеличените прозорци"
 
 #: ../data/ui/panel-pref.glade.h:42
 msgid "<b>Properties</b>"
-msgstr "<b>Свойства</b>"
+msgstr "<b>Настройки</b>"
 
 #: ../data/ui/panel-pref.glade.h:43
 msgid "Minimize panel when not in use"
@@ -583,9 +574,8 @@ msgid "Display Image and Tooltip"
 msgstr "Показвай картина и подсказка"
 
 #: ../src/plugins/launchtaskbar.c:2450
-#, fuzzy
 msgid "_Close all windows"
-msgstr "_Затваряне"
+msgstr "_Затвори всички прозорци"
 
 #. Add Raise menu item.
 #: ../src/plugins/launchtaskbar.c:3243
@@ -634,16 +624,15 @@ msgstr "_Затваряне"
 
 #: ../src/plugins/launchtaskbar.c:3312
 msgid "A_dd to Launcher"
-msgstr ""
+msgstr "До_бави към Стартера"
 
 #: ../src/plugins/launchtaskbar.c:3313
-#, fuzzy
 msgid "Rem_ove from Launcher"
-msgstr "Премахни '%s' от панела"
+msgstr "Пре_махни от Стартера"
 
 #: ../src/plugins/launchtaskbar.c:3314
 msgid "_New Instance"
-msgstr ""
+msgstr "_Нова истанция"
 
 #: ../src/plugins/launchtaskbar.c:3384
 msgid "Application Launch Bar"
@@ -666,9 +655,10 @@ msgstr ""
 "скриване или фокусиране"
 
 #: ../src/plugins/launchtaskbar.c:3415
-#, fuzzy
 msgid "Bar with buttons to launch application and/or show all opened windows"
-msgstr "Бар за стартиране на програми"
+msgstr ""
+"Лента с бутони за стартиране на програма и/или показване на всички отворени "
+"прозорци"
 
 #: ../src/plugins/dclock.c:423 ../src/plugins/dclock.c:443
 msgid "Digital Clock"
@@ -770,9 +760,8 @@ msgid "Description"
 msgstr "Описание"
 
 #: ../src/plugins/xkb/xkb-plugin.c:656 ../src/plugins/xkb/xkb-plugin.c:785
-#, fuzzy
 msgid "Id"
-msgstr "Неактивен"
+msgstr ""
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:750
@@ -891,7 +880,6 @@ msgid "Label"
 msgstr "Етикет"
 
 #: ../src/plugins/dirmenu.c:378
-#, fuzzy
 msgid "Browse directory tree via menu (Author = PCMan)"
 msgstr "Търсене в дървесна структура чрез меню (Автор: PCMan)"
 
@@ -941,14 +929,17 @@ msgid ""
 "Frequency: %d MHz\n"
 "Governor: %s"
 msgstr ""
+"Честота: %d МХц\n"
+"Стабилизатор: %s"
 
 #: ../src/plugins/cpufreq/cpufreq.c:421
 msgid "CPUFreq frontend"
-msgstr ""
+msgstr "Оформление за CPUFreq"
 
 #: ../src/plugins/cpufreq/cpufreq.c:422
 msgid "Display CPU frequency and allow to change governors and frequency"
 msgstr ""
+"Извеждай честотата на ЦПУ и позволявай промяна на стабилизацията и честотата"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -1002,7 +993,7 @@ msgstr "Поправяне"
 #. interface down
 #: ../src/plugins/netstat/netstat.c:252
 msgid "Disable"
-msgstr "Забрана"
+msgstr "Деактивирай"
 
 #: ../src/plugins/netstat/netstat.c:342
 msgid "Wireless Connection has no connectivity"
@@ -1376,9 +1367,8 @@ msgid "Cannot open /proc/net/dev: %s"
 msgstr "Не може да се отвори /proc/net/dev: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:185
-#, fuzzy
 msgid "Could not parse /proc/net/dev. No data."
-msgstr "Неуспешен анализ на /proc/net/dev. Непознат формат."
+msgstr "Неуспешен разбор на /proc/net/dev. Няма данни."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:190
 msgid "Could not parse /proc/net/dev. Unknown format."
@@ -1401,9 +1391,8 @@ msgstr ""
 "brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:312
-#, fuzzy
 msgid "Could not parse /proc/net/wireless. No data."
-msgstr "Неуспешен анализ на /proc/net/wireless. Непознат формат."
+msgstr "Неуспешен разбор на /proc/net/wireless. Няма данни."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:316
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1477,6 +1466,8 @@ msgid ""
 "\n"
 "%sEnergy full design:\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sПроектна енергия:\t\t%5d мВтч"
 
 #: ../src/plugins/batt/batt.c:180
 #, c-format
@@ -1484,6 +1475,8 @@ msgid ""
 "\n"
 "%sEnergy full:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sПълна енергия:\t\t\t%5d мВтч"
 
 #: ../src/plugins/batt/batt.c:182
 #, c-format
@@ -1491,6 +1484,8 @@ msgid ""
 "\n"
 "%sEnergy now:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sТекуща енергия:\t\t\t%5d мВтч"
 
 #: ../src/plugins/batt/batt.c:184
 #, c-format
@@ -1498,6 +1493,8 @@ msgid ""
 "\n"
 "%sPower now:\t\t\t%5d mW"
 msgstr ""
+"\n"
+"%sТекуща мощност:\t\t\t%5d мВт"
 
 #: ../src/plugins/batt/batt.c:187
 #, c-format
@@ -1505,6 +1502,8 @@ msgid ""
 "\n"
 "%sCharge full design:\t%5d mAh"
 msgstr ""
+"\n"
+"%sПроектиран заряд:\t%5d мАч"
 
 #: ../src/plugins/batt/batt.c:189
 #, c-format
@@ -1512,6 +1511,8 @@ msgid ""
 "\n"
 "%sCharge full:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sПълен заряд:\t\t\t%5d мАч"
 
 #: ../src/plugins/batt/batt.c:191
 #, c-format
@@ -1519,6 +1520,8 @@ msgid ""
 "\n"
 "%sCharge now:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sТекущ заряд:t\t\t%5d мАч"
 
 #: ../src/plugins/batt/batt.c:193
 #, c-format
@@ -1526,6 +1529,8 @@ msgid ""
 "\n"
 "%sCurrent now:\t\t\t%5d mA"
 msgstr ""
+"\n"
+"%sТекущ ток:\t\t\t%5d мА"
 
 #: ../src/plugins/batt/batt.c:196
 #, c-format
@@ -1533,6 +1538,8 @@ msgid ""
 "\n"
 "%sCurrent Voltage:\t\t%.3lf V"
 msgstr ""
+"\n"
+"%sТекущо напрежение:\t\t%.3lf В"
 
 #: ../src/plugins/batt/batt.c:234
 msgid "No batteries found"
@@ -1580,7 +1587,7 @@ msgstr "Ширина на рамка"
 
 #: ../src/plugins/batt/batt.c:633
 msgid "Show Extended Information"
-msgstr ""
+msgstr "Покажи разширена информация"
 
 #: ../src/plugins/batt/batt.c:643
 msgid "Display battery status using ACPI"
@@ -1679,16 +1686,15 @@ msgstr "Показване на използването на ресурсите
 
 #: ../src/plugins/weather/weatherwidget.c:50
 msgid "[N/A]"
-msgstr ""
+msgstr "[Няма]"
 
 #: ../src/plugins/weather/weatherwidget.c:784
 msgid "Enter New Location"
-msgstr ""
+msgstr "Въведи ново местоположение"
 
 #: ../src/plugins/weather/weatherwidget.c:798
-#, fuzzy
 msgid "_New Location:"
-msgstr "Мрежова връзка"
+msgstr "_Ново местоположение:"
 
 #: ../src/plugins/weather/weatherwidget.c:809
 msgid ""
@@ -1698,196 +1704,192 @@ msgid ""
 "- postal code\n"
 "for which to retrieve the weather forecast."
 msgstr ""
+"Веведете:\n"
+"- град или\n"
+"- град и държава, или\n"
+"- пощенски код,\n"
+"за които да се получи прогноза за времето."
 
 #: ../src/plugins/weather/weatherwidget.c:846
 #: ../src/plugins/weather/weatherwidget.c:979
 msgid "You must specify a location."
-msgstr ""
+msgstr "Трябва да зададете местоположение."
 
 #: ../src/plugins/weather/weatherwidget.c:893
 #, c-format
 msgid "Location '%s' not found!"
-msgstr ""
+msgstr "Местоположението '%s' не е намерено!"
 
 #: ../src/plugins/weather/weatherwidget.c:1051
-#, fuzzy
 msgid "Preferences"
-msgstr "Панелни настройки"
+msgstr "Предпочитания"
 
 #: ../src/plugins/weather/weatherwidget.c:1057
 msgid "Refresh"
-msgstr ""
+msgstr "Опресняване"
 
 #: ../src/plugins/weather/weatherwidget.c:1063
 msgid "Quit"
-msgstr ""
+msgstr "Изход"
 
 #: ../src/plugins/weather/weatherwidget.c:1160
-#, fuzzy
 msgid "Weather Preferences"
-msgstr "Панелни настройки"
+msgstr "Настройки на прогнозата"
 
 #: ../src/plugins/weather/weatherwidget.c:1174
-#, fuzzy
 msgid "Current Location"
-msgstr "Ориентация"
+msgstr "Текущо местоположение"
 
 #: ../src/plugins/weather/weatherwidget.c:1178
 #: ../src/plugins/weather/weatherwidget.c:1475
-#, fuzzy
 msgid "None configured"
-msgstr "_Настройване..."
+msgstr "Няма зададено"
 
 #: ../src/plugins/weather/weatherwidget.c:1180
 #: ../src/plugins/weather/weatherwidget.c:1472
 msgid "_Set"
-msgstr ""
+msgstr "_Задай"
 
 #: ../src/plugins/weather/weatherwidget.c:1201
 msgid "Display"
-msgstr ""
+msgstr "Екран"
 
 #: ../src/plugins/weather/weatherwidget.c:1205
-#, fuzzy
 msgid "Name:"
-msgstr "_Име:"
+msgstr "Име:"
 
 #: ../src/plugins/weather/weatherwidget.c:1209
 msgid "Units:"
-msgstr ""
+msgstr "Eдиници:"
 
 #: ../src/plugins/weather/weatherwidget.c:1213
 msgid "_Metric (°C)"
-msgstr ""
+msgstr "_Мерни (°C)"
 
 #: ../src/plugins/weather/weatherwidget.c:1215
 msgid "_English (°F)"
-msgstr ""
+msgstr "_Английски (°F)"
 
 #: ../src/plugins/weather/weatherwidget.c:1250
 msgid "Forecast"
-msgstr ""
+msgstr "Прогноза"
 
 #: ../src/plugins/weather/weatherwidget.c:1254
 msgid "Updates:"
-msgstr ""
+msgstr "Обновяване:"
 
 #: ../src/plugins/weather/weatherwidget.c:1258
 msgid "Ma_nual"
-msgstr ""
+msgstr "Ръчн_о"
 
 #: ../src/plugins/weather/weatherwidget.c:1262
 msgid "_Automatic, every"
-msgstr ""
+msgstr "Ав_томатично, на всеки"
 
 #: ../src/plugins/weather/weatherwidget.c:1278
 msgid "minutes"
-msgstr ""
+msgstr "минути"
 
 #: ../src/plugins/weather/weatherwidget.c:1287
 msgid "Source:"
-msgstr ""
+msgstr "Източник:"
 
 #: ../src/plugins/weather/weatherwidget.c:1428
-#, fuzzy
 msgid "C_hange"
-msgstr "Начин на промяна"
+msgstr "Пром_яна"
 
 #. Both are available
 #: ../src/plugins/weather/weatherwidget.c:1519
 #, c-format
 msgid "Current Conditions for %s"
-msgstr ""
+msgstr "Текущи условия за %s"
 
 #: ../src/plugins/weather/weatherwidget.c:1543
 msgid "Location:"
-msgstr ""
+msgstr "Местоположение:"
 
 #: ../src/plugins/weather/weatherwidget.c:1566
 msgid "Last updated:"
-msgstr ""
+msgstr "Последно обновено:"
 
 #: ../src/plugins/weather/weatherwidget.c:1593
 msgid "Feels like:"
-msgstr ""
+msgstr "Усеща се като:"
 
 #: ../src/plugins/weather/weatherwidget.c:1618
 msgid "Humidity:"
-msgstr ""
+msgstr "Влажност:"
 
 #: ../src/plugins/weather/weatherwidget.c:1645
-#, fuzzy
 msgid "Pressure:"
-msgstr "IP адрес:"
+msgstr "Налягане:"
 
 #: ../src/plugins/weather/weatherwidget.c:1672
 msgid "Visibility:"
-msgstr ""
+msgstr "Видимост:"
 
 #: ../src/plugins/weather/weatherwidget.c:1700
 msgid "Wind:"
-msgstr ""
+msgstr "Вятър:"
 
 #: ../src/plugins/weather/weatherwidget.c:1723
 msgid "Sunrise:"
-msgstr ""
+msgstr "Изгрев:"
 
 #: ../src/plugins/weather/weatherwidget.c:1746
 msgid "Sunset:"
-msgstr ""
+msgstr "Залез:"
 
 #: ../src/plugins/weather/weatherwidget.c:1854
 #: ../src/plugins/weather/weatherwidget.c:2190
 #, c-format
 msgid "Forecast for %s unavailable."
-msgstr ""
+msgstr "Няма налична прогноза за %s."
 
 #: ../src/plugins/weather/weatherwidget.c:1863
 #: ../src/plugins/weather/weatherwidget.c:2195
-#, fuzzy, c-format
+#, c-format
 msgid "Location not set."
-msgstr "Не е зададена команда за изход"
+msgstr "Не е зададено местоположение."
 
 #: ../src/plugins/weather/weatherwidget.c:1880
 #, c-format
 msgid "Searching for '%s'..."
-msgstr ""
+msgstr "Търсене за '%s'..."
 
 #: ../src/plugins/weather/weatherwidget.c:2006
 #, c-format
 msgid "Location matches for '%s'"
-msgstr ""
+msgstr "Мястото съвпадна с '%s'"
 
 #: ../src/plugins/weather/weatherwidget.c:2026
 msgid "City"
-msgstr ""
+msgstr "Град"
 
 #: ../src/plugins/weather/weatherwidget.c:2046
 msgid "Country"
-msgstr ""
+msgstr "Държава"
 
 #. make it nice and pretty
 #: ../src/plugins/weather/weatherwidget.c:2177
-#, fuzzy
 msgid "Currently in "
-msgstr "Заредени приставки"
+msgstr "В момента за"
 
 #: ../src/plugins/weather/weatherwidget.c:2179
 msgid "Today: "
-msgstr ""
+msgstr "Днес:"
 
 #: ../src/plugins/weather/weatherwidget.c:2180
 msgid "Tomorrow: "
-msgstr ""
+msgstr "Утре:"
 
 #: ../src/plugins/weather/weather.c:285
-#, fuzzy
 msgid "Weather Plugin"
-msgstr "Добавка WNCKPager"
+msgstr "Приставка за климата"
 
 #: ../src/plugins/weather/weather.c:287
 msgid "Show weather conditions for a location."
-msgstr ""
+msgstr "Показвай климатичните условия за местоположение."
 
 #~ msgid "Model"
 #~ msgstr "Модел"
