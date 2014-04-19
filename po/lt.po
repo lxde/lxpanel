@@ -6,11 +6,11 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-27 08:58+0100\n"
-"PO-Revision-Date: 2013-08-29 08:38+0200\n"
-"Last-Translator: Algimantas Margevičius <margevicius.algimantas@gmail.com>\n"
+"PO-Revision-Date: 2014-04-19 16:15+0200\n"
+"Last-Translator: Algimantas Margevičius <algimantas@margevicius.lt>\n"
 "Language-Team: Lietuvių <>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
 "%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.6.4\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:55 ../src/gtk-run.c:361 ../src/plugins/menu.c:770
@@ -67,7 +67,7 @@ msgstr "N_aršyti"
 
 #: ../src/panel.c:660
 msgid "There is no room for another panel. All the edges are taken."
-msgstr ""
+msgstr "Nėra vietos kitam skydeliui. Visi kampai užimti."
 
 #: ../src/panel.c:687
 msgid ""
@@ -93,9 +93,8 @@ msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:744
-#, fuzzy
 msgid "Copyright (C) 2008-2013"
-msgstr "Autorinės teisės (C) 2008-2011"
+msgstr "Autorinės teisės (C) 2008-2013"
 
 #: ../src/panel.c:745
 msgid "Desktop panel for LXDE project"
@@ -220,7 +219,7 @@ msgstr ""
 
 #: ../src/plugin.c:370
 msgid "No file manager is configured."
-msgstr ""
+msgstr "Jokia failų naršyklė nesukonfigūruota."
 
 #: ../src/gtk-run.c:374
 msgid "Enter the command you want to execute:"
@@ -228,23 +227,20 @@ msgstr "Įveskite komandą, kurią norite įvykdyti:"
 
 #. vim: set sw=4 et sts=4 ts=4 :
 #: ../data/ui/launchtaskbar.glade.h:1 ../src/plugins/launchtaskbar.c:3414
-#, fuzzy
 msgid "Application Launch and Task Bar"
-msgstr "Programų paleidimo juosta"
+msgstr "Programos paleidimas ir užduočių juosta"
 
 #: ../data/ui/launchtaskbar.glade.h:2
-#, fuzzy
 msgid "<b>Mode:</b>"
-msgstr "<b>Dydis</b>"
+msgstr "<b>Režimas:</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:3
 msgid "Launchers"
-msgstr ""
+msgstr "Leistukai"
 
 #: ../data/ui/launchtaskbar.glade.h:4
-#, fuzzy
 msgid "<b>Launchbar</b>"
-msgstr "<b>Fonas</b>"
+msgstr "<b>Paleidimo juosta</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:5
 msgid "Show tooltips"
@@ -265,6 +261,7 @@ msgstr "Rodyti langus iš visų darbastalių"
 #: ../data/ui/launchtaskbar.glade.h:9
 msgid "Only show windows on the same monitor as the task bar"
 msgstr ""
+"Rodyti tik tuos langus kurie tame pačiame monitoriuje kaip ir užduočių juosta"
 
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Use mouse wheel"
@@ -287,24 +284,20 @@ msgid "Spacing"
 msgstr "Tarpai"
 
 #: ../data/ui/launchtaskbar.glade.h:15
-#, fuzzy
 msgid "<b>Taskbar</b>"
-msgstr "<b>Fonas</b>"
+msgstr "<b>Užduočių juosta</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:16
-#, fuzzy
 msgid "Only Application Launch Bar"
-msgstr "Programų paleidimo juosta"
+msgstr "Tik programų paleidimo juosta"
 
 #: ../data/ui/launchtaskbar.glade.h:17
-#, fuzzy
 msgid "Only Task Bar (Window List)"
-msgstr "Užduočių juosta (langų sąrašas)"
+msgstr "Tik užduočių juosta (Langų sąrašas)"
 
 #: ../data/ui/launchtaskbar.glade.h:18
-#, fuzzy
 msgid "Integrated Application Launch Bar and Task Bar"
-msgstr "Programų paleidimo juosta"
+msgstr "Integruota programų paleidimo juosta ir užduočių juosta"
 
 #: ../data/ui/netstatus.glade.h:1
 msgid "<b>Connection</b>"
@@ -442,9 +435,8 @@ msgid "Margin:"
 msgstr "Paraštė:"
 
 #: ../data/ui/panel-pref.glade.h:19
-#, fuzzy
 msgid "Monitor:"
-msgstr "Baterijos įkrovos stebyklė"
+msgstr "Stebėjimas:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "<b>Position</b>"
@@ -588,9 +580,8 @@ msgid "Display Image and Tooltip"
 msgstr "Rodyti paveikslėlį ir patarimus"
 
 #: ../src/plugins/launchtaskbar.c:2450
-#, fuzzy
 msgid "_Close all windows"
-msgstr "_Uždaryti langą"
+msgstr "_Užverti visus langus"
 
 #. Add Raise menu item.
 #: ../src/plugins/launchtaskbar.c:3243
@@ -639,16 +630,15 @@ msgstr "_Uždaryti langą"
 
 #: ../src/plugins/launchtaskbar.c:3312
 msgid "A_dd to Launcher"
-msgstr ""
+msgstr "_Pridėti į leistuką"
 
 #: ../src/plugins/launchtaskbar.c:3313
-#, fuzzy
 msgid "Rem_ove from Launcher"
-msgstr "Pašalinti „%s“ iš skydelio"
+msgstr "_Pašalinti iš leistuko"
 
 #: ../src/plugins/launchtaskbar.c:3314
 msgid "_New Instance"
-msgstr ""
+msgstr "_Nauja kopija"
 
 #: ../src/plugins/launchtaskbar.c:3384
 msgid "Application Launch Bar"
@@ -671,9 +661,10 @@ msgstr ""
 "išdidinti"
 
 #: ../src/plugins/launchtaskbar.c:3415
-#, fuzzy
 msgid "Bar with buttons to launch application and/or show all opened windows"
-msgstr "Juosta su mygtukais, skirtais paleisti programoms"
+msgstr ""
+"Juosta su mygtukais, skirtais paleisti programoms ar parodyti visus atvertus "
+"langus"
 
 #: ../src/plugins/dclock.c:423 ../src/plugins/dclock.c:443
 msgid "Digital Clock"
@@ -775,9 +766,8 @@ msgid "Description"
 msgstr "Aprašymas"
 
 #: ../src/plugins/xkb/xkb-plugin.c:656 ../src/plugins/xkb/xkb-plugin.c:785
-#, fuzzy
 msgid "Id"
-msgstr "Nieko nedaroma"
+msgstr "Id"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:750
@@ -895,9 +885,8 @@ msgid "Label"
 msgstr "Etiketė"
 
 #: ../src/plugins/dirmenu.c:378
-#, fuzzy
 msgid "Browse directory tree via menu (Author = PCMan)"
-msgstr "Naršyti aplankus per meniu (Autorius: PCMan)"
+msgstr "Naršyti aplankus per meniu (Autorius = PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:480
 msgid "Normal"
@@ -945,14 +934,16 @@ msgid ""
 "Frequency: %d MHz\n"
 "Governor: %s"
 msgstr ""
+"Dažnis: %d MHz\n"
+"Nustatymas: %s"
 
 #: ../src/plugins/cpufreq/cpufreq.c:421
 msgid "CPUFreq frontend"
-msgstr ""
+msgstr "CpuFreq grafinė sąsaja"
 
 #: ../src/plugins/cpufreq/cpufreq.c:422
 msgid "Display CPU frequency and allow to change governors and frequency"
-msgstr ""
+msgstr "Rodo CPU dažnį ir leidžia keisti nustatymus ir dažnį"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -1381,9 +1372,8 @@ msgid "Cannot open /proc/net/dev: %s"
 msgstr "Negalima atverti /proc/net/dev: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:185
-#, fuzzy
 msgid "Could not parse /proc/net/dev. No data."
-msgstr "Negalima apdoroti /proc/net/dev: nežnomas formatas."
+msgstr "Nepavyko apdoroti /proc/net/dev. Nėra duomenų."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:190
 msgid "Could not parse /proc/net/dev. Unknown format."
@@ -1406,9 +1396,8 @@ msgstr ""
 "brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:312
-#, fuzzy
 msgid "Could not parse /proc/net/wireless. No data."
-msgstr "Negalima apdoroti /proc/net/wireless: nežnomas formatas."
+msgstr "Nepavyko apdoroti /proc/net/wireless. Nėra duomenų."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:316
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1479,6 +1468,8 @@ msgid ""
 "\n"
 "%sEnergy full design:\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sMaksimali jėga:\t\t%5d mWh"
 
 #: ../src/plugins/batt/batt.c:180
 #, c-format
@@ -1486,6 +1477,8 @@ msgid ""
 "\n"
 "%sEnergy full:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sPilna jėga:\t\t\t%5d mWh"
 
 #: ../src/plugins/batt/batt.c:182
 #, c-format
@@ -1493,6 +1486,8 @@ msgid ""
 "\n"
 "%sEnergy now:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sJėga dabar:\t\t\t%5d mWh"
 
 #: ../src/plugins/batt/batt.c:184
 #, c-format
@@ -1500,6 +1495,8 @@ msgid ""
 "\n"
 "%sPower now:\t\t\t%5d mW"
 msgstr ""
+"\n"
+"%sPajėgumas dabar:\t\t\t%5d mW"
 
 #: ../src/plugins/batt/batt.c:187
 #, c-format
@@ -1507,6 +1504,8 @@ msgid ""
 "\n"
 "%sCharge full design:\t%5d mAh"
 msgstr ""
+"\n"
+"%sMaksimaliai įkrauta:\t%5d mAh"
 
 #: ../src/plugins/batt/batt.c:189
 #, c-format
@@ -1514,6 +1513,8 @@ msgid ""
 "\n"
 "%sCharge full:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sPilnai įkrautal:\t\t\t%5d mAh"
 
 #: ../src/plugins/batt/batt.c:191
 #, c-format
@@ -1521,6 +1522,8 @@ msgid ""
 "\n"
 "%sCharge now:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sĮkrauta dabar:\t\t\t%5d mAh"
 
 #: ../src/plugins/batt/batt.c:193
 #, c-format
@@ -1528,6 +1531,8 @@ msgid ""
 "\n"
 "%sCurrent now:\t\t\t%5d mA"
 msgstr ""
+"\n"
+"%sSrovė dabar:\t\t\t%5d mA"
 
 #: ../src/plugins/batt/batt.c:196
 #, c-format
@@ -1535,6 +1540,8 @@ msgid ""
 "\n"
 "%sCurrent Voltage:\t\t%.3lf V"
 msgstr ""
+"\n"
+"%sDabartinis voltažas:\t\t%.3lf V"
 
 #: ../src/plugins/batt/batt.c:234
 msgid "No batteries found"
@@ -1582,7 +1589,7 @@ msgstr "Paraštės plotis"
 
 #: ../src/plugins/batt/batt.c:633
 msgid "Show Extended Information"
-msgstr ""
+msgstr "Rodyti papildomą informaciją"
 
 #: ../src/plugins/batt/batt.c:643
 msgid "Display battery status using ACPI"
@@ -1681,16 +1688,15 @@ msgstr "Rodyti stebykles (CPU, RAM)"
 
 #: ../src/plugins/weather/weatherwidget.c:50
 msgid "[N/A]"
-msgstr ""
+msgstr "[N/A]"
 
 #: ../src/plugins/weather/weatherwidget.c:784
 msgid "Enter New Location"
-msgstr ""
+msgstr "Įveskite naują vietą"
 
 #: ../src/plugins/weather/weatherwidget.c:798
-#, fuzzy
 msgid "_New Location:"
-msgstr "Tinklo ryšys"
+msgstr "_Nauja vieta:"
 
 #: ../src/plugins/weather/weatherwidget.c:809
 msgid ""
@@ -1700,196 +1706,192 @@ msgid ""
 "- postal code\n"
 "for which to retrieve the weather forecast."
 msgstr ""
+"Įveskite:\n"
+"- miestą, ar\n"
+"- miestą ir valstiją/šalį, ar\n"
+"- pašto kodą\n"
+"vietos kurios prognozę norite gauti."
 
 #: ../src/plugins/weather/weatherwidget.c:846
 #: ../src/plugins/weather/weatherwidget.c:979
 msgid "You must specify a location."
-msgstr ""
+msgstr "Turite nurodyti vietą."
 
 #: ../src/plugins/weather/weatherwidget.c:893
 #, c-format
 msgid "Location '%s' not found!"
-msgstr ""
+msgstr "Vieta „%s“ nerasta!"
 
 #: ../src/plugins/weather/weatherwidget.c:1051
-#, fuzzy
 msgid "Preferences"
-msgstr "Skydelio nustatymai"
+msgstr "Nustatymai"
 
 #: ../src/plugins/weather/weatherwidget.c:1057
 msgid "Refresh"
-msgstr ""
+msgstr "Atnaujinti"
 
 #: ../src/plugins/weather/weatherwidget.c:1063
 msgid "Quit"
-msgstr ""
+msgstr "Baigti"
 
 #: ../src/plugins/weather/weatherwidget.c:1160
-#, fuzzy
 msgid "Weather Preferences"
-msgstr "Skydelio nustatymai"
+msgstr "Oro sąlygų stebyklės nustatymai"
 
 #: ../src/plugins/weather/weatherwidget.c:1174
-#, fuzzy
 msgid "Current Location"
-msgstr "Pozicija"
+msgstr "Dabartinė vieta"
 
 #: ../src/plugins/weather/weatherwidget.c:1178
 #: ../src/plugins/weather/weatherwidget.c:1475
-#, fuzzy
 msgid "None configured"
-msgstr "Kon_figūruoti"
+msgstr "Nesukonfigūruota"
 
 #: ../src/plugins/weather/weatherwidget.c:1180
 #: ../src/plugins/weather/weatherwidget.c:1472
 msgid "_Set"
-msgstr ""
+msgstr "_Nustatyti"
 
 #: ../src/plugins/weather/weatherwidget.c:1201
 msgid "Display"
-msgstr ""
+msgstr "Rodymas"
 
 #: ../src/plugins/weather/weatherwidget.c:1205
-#, fuzzy
 msgid "Name:"
-msgstr "Pavadi_nimas:"
+msgstr "Pavadinimas"
 
 #: ../src/plugins/weather/weatherwidget.c:1209
 msgid "Units:"
-msgstr ""
+msgstr "Vienetai:"
 
 #: ../src/plugins/weather/weatherwidget.c:1213
 msgid "_Metric (°C)"
-msgstr ""
+msgstr "_Metrinė (°C)"
 
 #: ../src/plugins/weather/weatherwidget.c:1215
 msgid "_English (°F)"
-msgstr ""
+msgstr "_Anglų (°F)"
 
 #: ../src/plugins/weather/weatherwidget.c:1250
 msgid "Forecast"
-msgstr ""
+msgstr "Prognozė"
 
 #: ../src/plugins/weather/weatherwidget.c:1254
 msgid "Updates:"
-msgstr ""
+msgstr "Atnaujinimai:"
 
 #: ../src/plugins/weather/weatherwidget.c:1258
 msgid "Ma_nual"
-msgstr ""
+msgstr "_Rankiniu būdu"
 
 #: ../src/plugins/weather/weatherwidget.c:1262
 msgid "_Automatic, every"
-msgstr ""
+msgstr "_Automatiškai, kas"
 
 #: ../src/plugins/weather/weatherwidget.c:1278
 msgid "minutes"
-msgstr ""
+msgstr "minutes"
 
 #: ../src/plugins/weather/weatherwidget.c:1287
 msgid "Source:"
-msgstr ""
+msgstr "Šaltinis:"
 
 #: ../src/plugins/weather/weatherwidget.c:1428
-#, fuzzy
 msgid "C_hange"
-msgstr "Keisti tipą"
+msgstr "_Pakeisti"
 
 #. Both are available
 #: ../src/plugins/weather/weatherwidget.c:1519
 #, c-format
 msgid "Current Conditions for %s"
-msgstr ""
+msgstr "Dabartinės sąlygos %s"
 
 #: ../src/plugins/weather/weatherwidget.c:1543
 msgid "Location:"
-msgstr ""
+msgstr "Vieta:"
 
 #: ../src/plugins/weather/weatherwidget.c:1566
 msgid "Last updated:"
-msgstr ""
+msgstr "Paskutinis atnaujinimas:"
 
 #: ../src/plugins/weather/weatherwidget.c:1593
 msgid "Feels like:"
-msgstr ""
+msgstr "Jaučiama kaip:"
 
 #: ../src/plugins/weather/weatherwidget.c:1618
 msgid "Humidity:"
-msgstr ""
+msgstr "Santykinis drėgnumas:"
 
 #: ../src/plugins/weather/weatherwidget.c:1645
-#, fuzzy
 msgid "Pressure:"
-msgstr "IP adresas:"
+msgstr "Slėgis:"
 
 #: ../src/plugins/weather/weatherwidget.c:1672
 msgid "Visibility:"
-msgstr ""
+msgstr "Matomumas:"
 
 #: ../src/plugins/weather/weatherwidget.c:1700
 msgid "Wind:"
-msgstr ""
+msgstr "Vėjas:"
 
 #: ../src/plugins/weather/weatherwidget.c:1723
 msgid "Sunrise:"
-msgstr ""
+msgstr "Saulėtekis:"
 
 #: ../src/plugins/weather/weatherwidget.c:1746
 msgid "Sunset:"
-msgstr ""
+msgstr "Saulėlydis:"
 
 #: ../src/plugins/weather/weatherwidget.c:1854
 #: ../src/plugins/weather/weatherwidget.c:2190
 #, c-format
 msgid "Forecast for %s unavailable."
-msgstr ""
+msgstr "Prognozė skirta „%s“ neprieinama."
 
 #: ../src/plugins/weather/weatherwidget.c:1863
 #: ../src/plugins/weather/weatherwidget.c:2195
-#, fuzzy, c-format
+#, c-format
 msgid "Location not set."
-msgstr "Atsijungimo komanda nenustatyta"
+msgstr "Vieta nenustatyta."
 
 #: ../src/plugins/weather/weatherwidget.c:1880
 #, c-format
 msgid "Searching for '%s'..."
-msgstr ""
+msgstr "Ieškoma „%s“..."
 
 #: ../src/plugins/weather/weatherwidget.c:2006
 #, c-format
 msgid "Location matches for '%s'"
-msgstr ""
+msgstr "Vietos atitinkančios „%s“"
 
 #: ../src/plugins/weather/weatherwidget.c:2026
 msgid "City"
-msgstr ""
+msgstr "Miestas"
 
 #: ../src/plugins/weather/weatherwidget.c:2046
 msgid "Country"
-msgstr ""
+msgstr "Šalis"
 
 #. make it nice and pretty
 #: ../src/plugins/weather/weatherwidget.c:2177
-#, fuzzy
 msgid "Currently in "
-msgstr "Šiuo metu įkrauti priedai"
+msgstr "Šiuo metu"
 
 #: ../src/plugins/weather/weatherwidget.c:2179
 msgid "Today: "
-msgstr ""
+msgstr "Šiandien:"
 
 #: ../src/plugins/weather/weatherwidget.c:2180
 msgid "Tomorrow: "
-msgstr ""
+msgstr "Rytoj:"
 
 #: ../src/plugins/weather/weather.c:285
-#, fuzzy
 msgid "Weather Plugin"
-msgstr "WNCKpager įskiepis"
+msgstr "Oro įskiepis"
 
 #: ../src/plugins/weather/weather.c:287
 msgid "Show weather conditions for a location."
-msgstr ""
+msgstr "Rodyti vietos oro sąlygas ir prognozes."
 
 #~ msgid "Model"
 #~ msgstr "Моdelis"
