@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxpanel-0.3.5.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-27 08:58+0100\n"
-"PO-Revision-Date: 2014-04-01 03:29+0000\n"
+"PO-Revision-Date: 2014-04-26 02:19+0000\n"
 "Last-Translator: Adolfo <fitoschido@ubuntu.com>\n"
 "Language-Team: Spanish <daniel@tunki.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.5.0\n"
 "X-Poedit-Bookmarks: 19,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
-"X-POOTLE-MTIME: 1396322981.0\n"
+"X-POOTLE-MTIME: 1398478784.0\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:55 ../src/gtk-run.c:361 ../src/plugins/menu.c:770
@@ -938,6 +938,8 @@ msgid ""
 "Frequency: %d MHz\n"
 "Governor: %s"
 msgstr ""
+"Frecuencia: %d MHz\n"
+"Regulador: %s"
 
 #: ../src/plugins/cpufreq/cpufreq.c:421
 msgid "CPUFreq frontend"
@@ -945,7 +947,7 @@ msgstr "Interfaz de CPUFreq"
 
 #: ../src/plugins/cpufreq/cpufreq.c:422
 msgid "Display CPU frequency and allow to change governors and frequency"
-msgstr ""
+msgstr "Muestra la frecuencia de la CPU y permite modificar los reguladores"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
