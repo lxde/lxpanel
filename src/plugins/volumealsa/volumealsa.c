@@ -293,7 +293,7 @@ static void volumealsa_update_current_icon(VolumeALSAPlugin * vol)
     /* Mute status. */
     gboolean mute = asound_is_muted(vol);
     int level = asound_get_volume(vol);
-    
+
     /* Change icon according to mute / volume */
     const char* icon="audio-volume-muted";
     const char* icon_panel="audio-volume-muted-panel";
@@ -636,7 +636,7 @@ static void volumealsa_configure(Plugin * p, GtkWindow * parent)
                                       0,
                                       GTK_MESSAGE_ERROR,
                                       GTK_BUTTONS_OK,
-                                      (_("Error, you need to install an application to configure the sound (pavucontol, alsamixer ...)")) );
+                                      (_("Error, you need to install an application to configure the sound (pavucontrol, alsamixer ...)")) );
         gtk_dialog_run( GTK_DIALOG(msg) );
         gtk_widget_destroy( msg );
 
