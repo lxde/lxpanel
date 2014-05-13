@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # Algimantas Margevičius <margevicius.algimantas@gmail.com>, 2012.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-27 08:58+0100\n"
+"POT-Creation-Date: 2014-03-26 23:57+0200\n"
 "PO-Revision-Date: 2014-04-19 16:15+0200\n"
 "Last-Translator: Algimantas Margevičius <algimantas@margevicius.lt>\n"
 "Language-Team: Lietuvių <>\n"
@@ -16,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
-"%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
+"100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 1.6.4\n"
 
 #. { "configure", N_("Preferences"), configure },
@@ -134,27 +133,27 @@ msgstr "Skydelis"
 msgid "\"%s\" Settings"
 msgstr "„%s“ nustatymai"
 
-#: ../src/panel.c:1109 ../src/panel.c:1117 ../data/ui/panel-pref.glade.h:22
+#: ../src/panel.c:1109 ../src/panel.c:1117 ../data/ui/panel-pref.glade.h:23
 msgid "Height:"
 msgstr "Aukštis:"
 
-#: ../src/panel.c:1110 ../src/panel.c:1116 ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:1110 ../src/panel.c:1116 ../data/ui/panel-pref.glade.h:48
 msgid "Width:"
 msgstr "Plotis:"
 
-#: ../src/panel.c:1111 ../data/ui/panel-pref.glade.h:13
+#: ../src/panel.c:1111 ../data/ui/panel-pref.glade.h:27
 msgid "Left"
 msgstr "Kairė"
 
-#: ../src/panel.c:1112 ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:1112 ../data/ui/panel-pref.glade.h:39
 msgid "Right"
 msgstr "Dešinė"
 
-#: ../src/panel.c:1118 ../data/ui/panel-pref.glade.h:12
+#: ../src/panel.c:1118 ../data/ui/panel-pref.glade.h:46
 msgid "Top"
 msgstr "Viršus"
 
-#: ../src/panel.c:1119 ../data/ui/panel-pref.glade.h:11
+#: ../src/panel.c:1119 ../data/ui/panel-pref.glade.h:15
 msgid "Bottom"
 msgstr "Apačia"
 
@@ -181,8 +180,7 @@ msgstr " --version   -- parodyti versiją ir išeiti\n"
 #: ../src/panel.c:1432
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <skaičius> -- nustatyti registravimo lygį 0-5. 0 - jokio 5 - chatty\n"
+msgstr " --log <skaičius> -- nustatyti registravimo lygį 0-5. 0 - jokio 5 - chatty\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1434
@@ -226,330 +224,331 @@ msgid "Enter the command you want to execute:"
 msgstr "Įveskite komandą, kurią norite įvykdyti:"
 
 #. vim: set sw=4 et sts=4 ts=4 :
-#: ../data/ui/launchtaskbar.glade.h:1 ../src/plugins/launchtaskbar.c:3414
-msgid "Application Launch and Task Bar"
-msgstr "Programos paleidimas ir užduočių juosta"
+#: ../data/ui/launchtaskbar.glade.h:1
+msgid "<b>Launchbar</b>"
+msgstr "<b>Paleidimo juosta</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:2
 msgid "<b>Mode:</b>"
 msgstr "<b>Režimas:</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:3
-msgid "Launchers"
-msgstr "Leistukai"
+msgid "<b>Taskbar</b>"
+msgstr "<b>Užduočių juosta</b>"
 
-#: ../data/ui/launchtaskbar.glade.h:4
-msgid "<b>Launchbar</b>"
-msgstr "<b>Paleidimo juosta</b>"
+#: ../data/ui/launchtaskbar.glade.h:4 ../src/plugins/launchtaskbar.c:3414
+msgid "Application Launch and Task Bar"
+msgstr "Programos paleidimas ir užduočių juosta"
 
 #: ../data/ui/launchtaskbar.glade.h:5
-msgid "Show tooltips"
-msgstr "Rodyti patarimus"
+msgid "Combine multiple application windows into a single button"
+msgstr "Sujungti tos pačios programos langus į vieną mygtuką"
 
 #: ../data/ui/launchtaskbar.glade.h:6
-msgid "Icons only"
-msgstr "Tik piktogramos"
+msgid "Flash when there is any window requiring attention"
+msgstr "Sumirksėti, kai langas reikalauja dėmesio"
 
 #: ../data/ui/launchtaskbar.glade.h:7
 msgid "Flat buttons"
 msgstr "Plokšti mygtukai"
 
 #: ../data/ui/launchtaskbar.glade.h:8
-msgid "Show windows from all desktops"
-msgstr "Rodyti langus iš visų darbastalių"
+msgid "Icons only"
+msgstr "Tik piktogramos"
 
 #: ../data/ui/launchtaskbar.glade.h:9
-msgid "Only show windows on the same monitor as the task bar"
-msgstr ""
-"Rodyti tik tuos langus kurie tame pačiame monitoriuje kaip ir užduočių juosta"
-
-#: ../data/ui/launchtaskbar.glade.h:10
-msgid "Use mouse wheel"
-msgstr "Naudoti pelės ratuką"
-
-#: ../data/ui/launchtaskbar.glade.h:11
-msgid "Flash when there is any window requiring attention"
-msgstr "Sumirksėti, kai langas reikalauja dėmesio"
-
-#: ../data/ui/launchtaskbar.glade.h:12
-msgid "Combine multiple application windows into a single button"
-msgstr "Sujungti tos pačios programos langus į vieną mygtuką"
-
-#: ../data/ui/launchtaskbar.glade.h:13
-msgid "Maximum width of task button"
-msgstr "Maksimalus paleistos programos mygtuko plotis"
-
-#: ../data/ui/launchtaskbar.glade.h:14
-msgid "Spacing"
-msgstr "Tarpai"
-
-#: ../data/ui/launchtaskbar.glade.h:15
-msgid "<b>Taskbar</b>"
-msgstr "<b>Užduočių juosta</b>"
-
-#: ../data/ui/launchtaskbar.glade.h:16
-msgid "Only Application Launch Bar"
-msgstr "Tik programų paleidimo juosta"
-
-#: ../data/ui/launchtaskbar.glade.h:17
-msgid "Only Task Bar (Window List)"
-msgstr "Tik užduočių juosta (Langų sąrašas)"
-
-#: ../data/ui/launchtaskbar.glade.h:18
 msgid "Integrated Application Launch Bar and Task Bar"
 msgstr "Integruota programų paleidimo juosta ir užduočių juosta"
 
-#: ../data/ui/netstatus.glade.h:1
-msgid "<b>Connection</b>"
-msgstr "<b>Ryšys</b>"
+#: ../data/ui/launchtaskbar.glade.h:10
+msgid "Launchers"
+msgstr "Leistukai"
+
+#: ../data/ui/launchtaskbar.glade.h:11
+msgid "Maximum width of task button"
+msgstr "Maksimalus paleistos programos mygtuko plotis"
+
+#: ../data/ui/launchtaskbar.glade.h:12
+msgid "Only Application Launch Bar"
+msgstr "Tik programų paleidimo juosta"
+
+#: ../data/ui/launchtaskbar.glade.h:13
+msgid "Only Task Bar (Window List)"
+msgstr "Tik užduočių juosta (Langų sąrašas)"
+
+#: ../data/ui/launchtaskbar.glade.h:14
+msgid "Only show windows on the same monitor as the task bar"
+msgstr ""
+"Rodyti tik tuos langus kurie tame pačiame monitoriuje kaip ir užduočių "
+"juosta"
+
+#: ../data/ui/launchtaskbar.glade.h:15
+msgid "Show tooltips"
+msgstr "Rodyti patarimus"
+
+#: ../data/ui/launchtaskbar.glade.h:16
+msgid "Show windows from all desktops"
+msgstr "Rodyti langus iš visų darbastalių"
+
+#: ../data/ui/launchtaskbar.glade.h:17
+msgid "Spacing"
+msgstr "Tarpai"
+
+#: ../data/ui/launchtaskbar.glade.h:18
+msgid "Use mouse wheel"
+msgstr "Naudoti pelės ratuką"
 
 #: ../data/ui/netstatus.glade.h:2
-msgid "Status:"
-msgstr "Būsena:"
-
-#: ../data/ui/netstatus.glade.h:3
-msgid "_Name:"
-msgstr "Pavadi_nimas:"
-
-#: ../data/ui/netstatus.glade.h:4
-msgid "<b>Activity</b>"
-msgstr "<b>Aktyvumas</b>"
-
-#: ../data/ui/netstatus.glade.h:5
-msgid "Received:"
-msgstr "Gauta:"
-
-#: ../data/ui/netstatus.glade.h:6
-msgid "Sent:"
-msgstr "Išsiųsta:"
-
-#: ../data/ui/netstatus.glade.h:7
-msgid "<b>Signal Strength</b>"
-msgstr "<b>Signalo stiprumas</b>"
-
-#: ../data/ui/netstatus.glade.h:9
 #, no-c-format
 msgid "0%"
 msgstr "0%"
 
-#: ../data/ui/netstatus.glade.h:10
-msgid "General"
-msgstr "Bendra"
+#: ../data/ui/netstatus.glade.h:3
+msgid "<b>Activity</b>"
+msgstr "<b>Aktyvumas</b>"
 
-#: ../data/ui/netstatus.glade.h:11
+#: ../data/ui/netstatus.glade.h:4
+msgid "<b>Connection</b>"
+msgstr "<b>Ryšys</b>"
+
+#: ../data/ui/netstatus.glade.h:5
 msgid "<b>Internet Protocol (IPv4)</b>"
 msgstr "<b>Interneto protokolas (IPv4)</b>"
 
-#: ../data/ui/netstatus.glade.h:12
+#: ../data/ui/netstatus.glade.h:6
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>Interneto protokolas (IPv6)</b>"
+
+#: ../data/ui/netstatus.glade.h:7
+msgid "<b>Network Device</b>"
+msgstr "<b>Tinklo įrenginys</b>"
+
+#: ../data/ui/netstatus.glade.h:8
+msgid "<b>Signal Strength</b>"
+msgstr "<b>Signalo stiprumas</b>"
+
+#: ../data/ui/netstatus.glade.h:9
 msgid "Address:"
 msgstr "Adresas:"
 
-#: ../data/ui/netstatus.glade.h:13
-msgid "Destination:"
-msgstr "Paskirtis:"
-
-#: ../data/ui/netstatus.glade.h:14 ../src/plugins/netstat/netstat.c:362
+#: ../data/ui/netstatus.glade.h:10 ../src/plugins/netstat/netstat.c:362
 #: ../src/plugins/netstat/netstat.c:373
 msgid "Broadcast:"
 msgstr "Transliacija:"
 
-#: ../data/ui/netstatus.glade.h:15
-msgid "Subnet Mask:"
-msgstr "Potinklio kaukė:"
-
-#: ../data/ui/netstatus.glade.h:16
-msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr "<b>Interneto protokolas (IPv6)</b>"
-
-#: ../data/ui/netstatus.glade.h:17
-msgid "Scope:"
-msgstr "Apimtis:"
-
-#: ../data/ui/netstatus.glade.h:18
-msgid "<b>Network Device</b>"
-msgstr "<b>Tinklo įrenginys</b>"
-
-#: ../data/ui/netstatus.glade.h:19
-msgid "Type:"
-msgstr "Tipas:"
-
-#: ../data/ui/netstatus.glade.h:20
-msgid "Support"
-msgstr "Palaikymas"
-
-#: ../data/ui/netstatus.glade.h:21
+#: ../data/ui/netstatus.glade.h:11
 msgid "Con_figure"
 msgstr "Kon_figūruoti"
 
-#: ../data/ui/panel-pref.glade.h:1
-msgid "Dynamic"
-msgstr "Dinaminis"
+#: ../data/ui/netstatus.glade.h:12
+msgid "Destination:"
+msgstr "Paskirtis:"
+
+#: ../data/ui/netstatus.glade.h:13
+msgid "General"
+msgstr "Bendra"
+
+#: ../data/ui/netstatus.glade.h:14
+msgid "Received:"
+msgstr "Gauta:"
+
+#: ../data/ui/netstatus.glade.h:15
+msgid "Scope:"
+msgstr "Apimtis:"
+
+#: ../data/ui/netstatus.glade.h:16
+msgid "Sent:"
+msgstr "Išsiųsta:"
+
+#: ../data/ui/netstatus.glade.h:17
+msgid "Status:"
+msgstr "Būsena:"
+
+#: ../data/ui/netstatus.glade.h:18
+msgid "Subnet Mask:"
+msgstr "Potinklio kaukė:"
+
+#: ../data/ui/netstatus.glade.h:19
+msgid "Support"
+msgstr "Palaikymas"
+
+#: ../data/ui/netstatus.glade.h:20
+msgid "Type:"
+msgstr "Tipas:"
+
+#: ../data/ui/netstatus.glade.h:21
+msgid "_Name:"
+msgstr "Pavadi_nimas:"
 
 #: ../data/ui/panel-pref.glade.h:2
-msgid "Pixels"
-msgstr "Pikseliai"
-
-#: ../data/ui/panel-pref.glade.h:4
 #, no-c-format
 msgid "% Percent"
 msgstr "% procentų"
 
+#: ../data/ui/panel-pref.glade.h:3
+msgid "<b>Automatic hiding</b>"
+msgstr "<b>Automatinis paslėpimas</b>"
+
+#: ../data/ui/panel-pref.glade.h:4
+msgid "<b>Background</b>"
+msgstr "<b>Fonas</b>"
+
 #: ../data/ui/panel-pref.glade.h:5
-msgid "None"
-msgstr "Nieko"
+msgid "<b>Font</b>"
+msgstr "<b>Šriftas</b>"
 
 #: ../data/ui/panel-pref.glade.h:6
-msgid "Err"
-msgstr "Klaidos"
+msgid "<b>Log level</b>"
+msgstr "<b>Žurnalo lygis</b>"
 
 #: ../data/ui/panel-pref.glade.h:7
-msgid "Warn"
-msgstr "Perspėjimai"
+msgid "<b>Position</b>"
+msgstr "<b>Pozicija</b>"
 
 #: ../data/ui/panel-pref.glade.h:8
-msgid "Info"
-msgstr "Info"
+msgid "<b>Properties</b>"
+msgstr "<b>Savybės</b>"
 
 #: ../data/ui/panel-pref.glade.h:9
+msgid "<b>Set Preferred Applications</b>"
+msgstr "<b>Nustatyti pageidaujamas programas</b>"
+
+#: ../data/ui/panel-pref.glade.h:10
+msgid "<b>Size</b>"
+msgstr "<b>Dydis</b>"
+
+#: ../data/ui/panel-pref.glade.h:11
+msgid "Advanced"
+msgstr "Sudėtingesni"
+
+#: ../data/ui/panel-pref.glade.h:12
+msgid "Alignment:"
+msgstr "Lygiavimas:"
+
+#: ../data/ui/panel-pref.glade.h:13
 msgid "All"
 msgstr "Viskas"
 
-#: ../data/ui/panel-pref.glade.h:10
-msgid "Panel Preferences"
-msgstr "Skydelio nustatymai"
-
-#: ../data/ui/panel-pref.glade.h:15
-msgid "Edge:"
-msgstr "Kampas:"
+#: ../data/ui/panel-pref.glade.h:14
+msgid "Appearance"
+msgstr "Išvaizda"
 
 #: ../data/ui/panel-pref.glade.h:16
 msgid "Center"
 msgstr "Centras"
 
 #: ../data/ui/panel-pref.glade.h:17
-msgid "Alignment:"
-msgstr "Lygiavimas:"
-
-#: ../data/ui/panel-pref.glade.h:18
-msgid "Margin:"
-msgstr "Paraštė:"
-
-#: ../data/ui/panel-pref.glade.h:19
-msgid "Monitor:"
-msgstr "Stebėjimas:"
-
-#: ../data/ui/panel-pref.glade.h:20
-msgid "<b>Position</b>"
-msgstr "<b>Pozicija</b>"
-
-#: ../data/ui/panel-pref.glade.h:23
-msgid "Icon size:"
-msgstr "Piktogramos dydis:"
-
-#: ../data/ui/panel-pref.glade.h:24
-msgid "<b>Size</b>"
-msgstr "<b>Dydis</b>"
-
-#: ../data/ui/panel-pref.glade.h:25
-msgid "Geometry"
-msgstr "Geometrija"
-
-#: ../data/ui/panel-pref.glade.h:26
-msgid "System theme"
-msgstr "Sistemos tema"
-
-#: ../data/ui/panel-pref.glade.h:27
-msgid "Solid color (with opacity)"
-msgstr "Spalva (su permatomumu)"
-
-#: ../data/ui/panel-pref.glade.h:28 ../src/plugins/xkb/xkb-plugin.c:1479
-msgid "Image"
-msgstr "Paveikslėlis"
-
-#: ../data/ui/panel-pref.glade.h:29
-msgid "Select an image file"
-msgstr "Pasirinkite paveiksliuką"
-
-#: ../data/ui/panel-pref.glade.h:30
-msgid "<b>Background</b>"
-msgstr "<b>Fonas</b>"
-
-#: ../data/ui/panel-pref.glade.h:31
 msgid "Custom color"
 msgstr "Pasirinktinė spalva"
 
-#: ../data/ui/panel-pref.glade.h:32 ../src/plugins/space.c:93
-#: ../src/plugins/batt/batt.c:632
-msgid "Size"
-msgstr "Dydis"
+#: ../data/ui/panel-pref.glade.h:18
+msgid "Dynamic"
+msgstr "Dinaminis"
+
+#: ../data/ui/panel-pref.glade.h:19
+msgid "Edge:"
+msgstr "Kampas:"
+
+#: ../data/ui/panel-pref.glade.h:20
+msgid "Err"
+msgstr "Klaidos"
+
+#: ../data/ui/panel-pref.glade.h:21
+msgid "File Manager:"
+msgstr "Failų tvarkyklė:"
+
+#: ../data/ui/panel-pref.glade.h:22
+msgid "Geometry"
+msgstr "Geometrija"
+
+#: ../data/ui/panel-pref.glade.h:24
+msgid "Icon size:"
+msgstr "Piktogramos dydis:"
+
+#: ../data/ui/panel-pref.glade.h:25 ../src/plugins/xkb/xkb-plugin.c:1479
+msgid "Image"
+msgstr "Paveikslėlis"
+
+#: ../data/ui/panel-pref.glade.h:26
+msgid "Info"
+msgstr "Info"
+
+#: ../data/ui/panel-pref.glade.h:28
+msgid "Log level"
+msgstr "Žurnalo lygis"
+
+#: ../data/ui/panel-pref.glade.h:29
+msgid "Logout Command:"
+msgstr "Atsijungimo komanda:"
+
+#: ../data/ui/panel-pref.glade.h:30
+msgid "Make window managers treat the panel as dock"
+msgstr "Langų tvarkyklės skydelį matys kaip doką"
+
+#: ../data/ui/panel-pref.glade.h:31
+msgid "Margin:"
+msgstr "Paraštė:"
+
+#: ../data/ui/panel-pref.glade.h:32
+msgid "Minimize panel when not in use"
+msgstr "Sumažinti skydelį kai jis nenaudojamas"
 
 #: ../data/ui/panel-pref.glade.h:33
-msgid "<b>Font</b>"
-msgstr "<b>Šriftas</b>"
+msgid "Monitor:"
+msgstr "Stebėjimas:"
 
 #: ../data/ui/panel-pref.glade.h:34
-msgid "Appearance"
-msgstr "Išvaizda"
+msgid "None"
+msgstr "Nieko"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Panel Applets"
 msgstr "Skydelio priedai"
 
 #: ../data/ui/panel-pref.glade.h:36
-msgid "Logout Command:"
-msgstr "Atsijungimo komanda:"
+msgid "Panel Preferences"
+msgstr "Skydelio nustatymai"
 
 #: ../data/ui/panel-pref.glade.h:37
-msgid "Terminal Emulator:"
-msgstr "Terminalo emuliatorius:"
+msgid "Pixels"
+msgstr "Pikseliai"
 
 #: ../data/ui/panel-pref.glade.h:38
-msgid "File Manager:"
-msgstr "Failų tvarkyklė:"
-
-#: ../data/ui/panel-pref.glade.h:39
-msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>Nustatyti pageidaujamas programas</b>"
-
-#: ../data/ui/panel-pref.glade.h:40
-msgid "Make window managers treat the panel as dock"
-msgstr "Langų tvarkyklės skydelį matys kaip doką"
-
-#: ../data/ui/panel-pref.glade.h:41
 msgid "Reserve space, and not covered by maximized windows"
 msgstr "Rezervuota vieta neuždengiama išdidintų langų"
 
+#: ../data/ui/panel-pref.glade.h:40
+msgid "Select an image file"
+msgstr "Pasirinkite paveiksliuką"
+
+#: ../data/ui/panel-pref.glade.h:41 ../src/plugins/space.c:93
+#: ../src/plugins/batt/batt.c:632
+msgid "Size"
+msgstr "Dydis"
+
 #: ../data/ui/panel-pref.glade.h:42
-msgid "<b>Properties</b>"
-msgstr "<b>Savybės</b>"
-
-#: ../data/ui/panel-pref.glade.h:43
-msgid "Minimize panel when not in use"
-msgstr "Sumažinti skydelį kai jis nenaudojamas"
-
-#: ../data/ui/panel-pref.glade.h:44
 msgid "Size when minimized"
 msgstr "Dydis sumažinus"
 
-#: ../data/ui/panel-pref.glade.h:45
-msgid "pixels"
-msgstr "pikselių"
+#: ../data/ui/panel-pref.glade.h:43
+msgid "Solid color (with opacity)"
+msgstr "Spalva (su permatomumu)"
 
-#: ../data/ui/panel-pref.glade.h:46
-msgid "<b>Automatic hiding</b>"
-msgstr "<b>Automatinis paslėpimas</b>"
+#: ../data/ui/panel-pref.glade.h:44
+msgid "System theme"
+msgstr "Sistemos tema"
+
+#: ../data/ui/panel-pref.glade.h:45
+msgid "Terminal Emulator:"
+msgstr "Terminalo emuliatorius:"
 
 #: ../data/ui/panel-pref.glade.h:47
-msgid "Log level"
-msgstr "Žurnalo lygis"
-
-#: ../data/ui/panel-pref.glade.h:48
-msgid "<b>Log level</b>"
-msgstr "<b>Žurnalo lygis</b>"
+msgid "Warn"
+msgstr "Perspėjimai"
 
 #: ../data/ui/panel-pref.glade.h:49
-msgid "Advanced"
-msgstr "Sudėtingesni"
+msgid "pixels"
+msgstr "pikselių"
 
 #: ../src/plugins/cpu/cpu.c:276
 msgid "CPU Usage Monitor"
@@ -559,19 +558,19 @@ msgstr "CPU apkrovimo stebėjimo priemonė"
 msgid "Display CPU usage"
 msgstr "Rodo CPU apkrovimą"
 
-#: ../src/plugins/deskno/deskno.c:180 ../src/plugins/deskno/deskno.c:200
-msgid "Desktop Number / Workspace Name"
-msgstr "Darbastalio numeris / Darbo vietos pavadinimas"
-
-#: ../src/plugins/deskno/deskno.c:182 ../src/plugins/dclock.c:429
+#: ../src/plugins/deskno/deskno.c:207 ../src/plugins/dclock.c:429
 msgid "Bold font"
 msgstr "Paryškintas šriftas"
 
-#: ../src/plugins/deskno/deskno.c:183
+#: ../src/plugins/deskno/deskno.c:208
 msgid "Display desktop names"
 msgstr "Rodyti darbastalių pavadinimus"
 
-#: ../src/plugins/deskno/deskno.c:201
+#: ../src/plugins/deskno/deskno.c:235
+msgid "Desktop Number / Workspace Name"
+msgstr "Darbastalio numeris / Darbo vietos pavadinimas"
+
+#: ../src/plugins/deskno/deskno.c:237
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Rodo darbastalio numerį. Parašė cmeury@users.sf.net"
 
@@ -850,7 +849,8 @@ msgstr "Tvarkyti klaviatūros išdėstymus"
 #: ../src/plugins/wincmd.c:193
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
-"Kairysis pelės mygtukas sumažina visus langus.  Vidurinysis suskleidžia juos."
+"Kairysis pelės mygtukas sumažina visus langus.  Vidurinysis suskleidžia "
+"juos."
 
 #: ../src/plugins/wincmd.c:227 ../src/plugins/wincmd.c:245
 msgid "Minimize All Windows"
