@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-27 08:58+0100\n"
-"PO-Revision-Date: 2014-03-28 09:50+0000\n"
+"PO-Revision-Date: 2014-05-18 05:07+0000\n"
 "Last-Translator: sotrud_nik <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
 "Language: kk\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1396000225.0\n"
+"X-POOTLE-MTIME: 1400389644.0\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:55 ../src/gtk-run.c:361 ../src/plugins/menu.c:770
@@ -656,9 +656,10 @@ msgstr ""
 "не оларнда фокусты алуға мүмкін қылады."
 
 #: ../src/plugins/launchtaskbar.c:3415
-#, fuzzy
 msgid "Bar with buttons to launch application and/or show all opened windows"
-msgstr "Қолданбаларды жөнелту үшін батырмалары бар панель"
+msgstr ""
+"Қолданбаларды жөнелту немесе барлық ашық терезелерді көрсету үшін "
+"батырмалары бар панель"
 
 #: ../src/plugins/dclock.c:423 ../src/plugins/dclock.c:443
 msgid "Digital Clock"
@@ -760,9 +761,8 @@ msgid "Description"
 msgstr "Сипаттамасы"
 
 #: ../src/plugins/xkb/xkb-plugin.c:656 ../src/plugins/xkb/xkb-plugin.c:785
-#, fuzzy
 msgid "Id"
-msgstr "Іссіз"
+msgstr "Id"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:750
@@ -881,9 +881,8 @@ msgid "Label"
 msgstr "Белгі"
 
 #: ../src/plugins/dirmenu.c:378
-#, fuzzy
 msgid "Browse directory tree via menu (Author = PCMan)"
-msgstr "Бумаларды ағаш түрінде шолу"
+msgstr "Бумаларды ағаш түрінде шолу (Авторы = PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:480
 msgid "Normal"
@@ -931,14 +930,18 @@ msgid ""
 "Frequency: %d MHz\n"
 "Governor: %s"
 msgstr ""
+"Жиілік: %d МГц\n"
+"Режимі: %s"
 
 #: ../src/plugins/cpufreq/cpufreq.c:421
 msgid "CPUFreq frontend"
-msgstr ""
+msgstr "CPUFreq фронтенді"
 
 #: ../src/plugins/cpufreq/cpufreq.c:422
 msgid "Display CPU frequency and allow to change governors and frequency"
 msgstr ""
+"Процессор жиілігін көрсетеді, режимін және жиілігін өзгерту мүмкіндігін "
+"береді"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -1365,9 +1368,8 @@ msgid "Cannot open /proc/net/dev: %s"
 msgstr "/proc/net/dev ашу мүмкін емес: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:185
-#, fuzzy
 msgid "Could not parse /proc/net/dev. No data."
-msgstr "/proc/net/dev талдау мүмкін емес. Пішімі белгісіз."
+msgstr "/proc/net/dev талдау мүмкін емес. Деректер жоқ."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:190
 msgid "Could not parse /proc/net/dev. Unknown format."
@@ -1390,9 +1392,8 @@ msgstr ""
 "= %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:312
-#, fuzzy
 msgid "Could not parse /proc/net/wireless. No data."
-msgstr "/proc/net/wireless талдау мүмкін емес. Пішімі белгісіз."
+msgstr "/proc/net/wireless талдау мүмкін емес. Деректер жоқ."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:316
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1463,6 +1464,8 @@ msgid ""
 "\n"
 "%sEnergy full design:\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sТолық энергия (дизайн):\t\t%5d мВт*сағ"
 
 #: ../src/plugins/batt/batt.c:180
 #, c-format
@@ -1470,6 +1473,8 @@ msgid ""
 "\n"
 "%sEnergy full:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sТолық энергия:\t\t\t%5d мВт*сағ"
 
 #: ../src/plugins/batt/batt.c:182
 #, c-format
@@ -1477,6 +1482,8 @@ msgid ""
 "\n"
 "%sEnergy now:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sАғымдағы энергиясы:\t\t\t%5d мВт*сағ"
 
 #: ../src/plugins/batt/batt.c:184
 #, c-format
@@ -1484,6 +1491,8 @@ msgid ""
 "\n"
 "%sPower now:\t\t\t%5d mW"
 msgstr ""
+"\n"
+"%sАғымдағы қорегі:\t\t\t%5d мВт"
 
 #: ../src/plugins/batt/batt.c:187
 #, c-format
@@ -1491,6 +1500,8 @@ msgid ""
 "\n"
 "%sCharge full design:\t%5d mAh"
 msgstr ""
+"\n"
+"%sТолық заряд (дизайн):\t%5d мА*сағ"
 
 #: ../src/plugins/batt/batt.c:189
 #, c-format
@@ -1498,6 +1509,8 @@ msgid ""
 "\n"
 "%sCharge full:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sТолық заряд:\t\t\t%5d мА*сағ"
 
 #: ../src/plugins/batt/batt.c:191
 #, c-format
@@ -1505,6 +1518,8 @@ msgid ""
 "\n"
 "%sCharge now:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sАғымдағы заряд:\t\t\t%5d мА*сағ"
 
 #: ../src/plugins/batt/batt.c:193
 #, c-format
@@ -1512,6 +1527,8 @@ msgid ""
 "\n"
 "%sCurrent now:\t\t\t%5d mA"
 msgstr ""
+"\n"
+"%sАғымдағы ток:\t\t\t%5d мА"
 
 #: ../src/plugins/batt/batt.c:196
 #, c-format
@@ -1519,6 +1536,8 @@ msgid ""
 "\n"
 "%sCurrent Voltage:\t\t%.3lf V"
 msgstr ""
+"\n"
+"%sАғымдағы кернеу:\t\t%.3lf В"
 
 #: ../src/plugins/batt/batt.c:234
 msgid "No batteries found"
@@ -1566,7 +1585,7 @@ msgstr "Шек ені"
 
 #: ../src/plugins/batt/batt.c:633
 msgid "Show Extended Information"
-msgstr ""
+msgstr "Кеңейтілген ақпаратты көрсету"
 
 #: ../src/plugins/batt/batt.c:643
 msgid "Display battery status using ACPI"
@@ -1665,16 +1684,15 @@ msgstr "Мониторларды көрсету (процессор, жады)"
 
 #: ../src/plugins/weather/weatherwidget.c:50
 msgid "[N/A]"
-msgstr ""
+msgstr "[Қолжетерсіз]"
 
 #: ../src/plugins/weather/weatherwidget.c:784
 msgid "Enter New Location"
-msgstr ""
+msgstr "Жаңа орналасуды енгізіңіз"
 
 #: ../src/plugins/weather/weatherwidget.c:798
-#, fuzzy
 msgid "_New Location:"
-msgstr "Желілік байланыс"
+msgstr "Жаңа ор_наласу:"
 
 #: ../src/plugins/weather/weatherwidget.c:809
 msgid ""
@@ -1684,196 +1702,191 @@ msgid ""
 "- postal code\n"
 "for which to retrieve the weather forecast."
 msgstr ""
+"Ауа райы болжамын алу үшін енгізіңіз:\n"
+"- қала, немесе\n"
+"- қала және штат/ел, немесе\n"
+"- пошта индесі."
 
 #: ../src/plugins/weather/weatherwidget.c:846
 #: ../src/plugins/weather/weatherwidget.c:979
 msgid "You must specify a location."
-msgstr ""
+msgstr "Орналасуды көрсетуіңіз керек."
 
 #: ../src/plugins/weather/weatherwidget.c:893
 #, c-format
 msgid "Location '%s' not found!"
-msgstr ""
+msgstr "'%s' орналасуы табылмады!"
 
 #: ../src/plugins/weather/weatherwidget.c:1051
-#, fuzzy
 msgid "Preferences"
-msgstr "Панель баптаулары"
+msgstr "Баптаулар"
 
 #: ../src/plugins/weather/weatherwidget.c:1057
 msgid "Refresh"
-msgstr ""
+msgstr "Жаңарту"
 
 #: ../src/plugins/weather/weatherwidget.c:1063
 msgid "Quit"
-msgstr ""
+msgstr "Шығу"
 
 #: ../src/plugins/weather/weatherwidget.c:1160
-#, fuzzy
 msgid "Weather Preferences"
-msgstr "Панель баптаулары"
+msgstr "Ауа райы баптаулары"
 
 #: ../src/plugins/weather/weatherwidget.c:1174
-#, fuzzy
 msgid "Current Location"
-msgstr "Бағдары"
+msgstr "Ағымдағы орналасу"
 
 #: ../src/plugins/weather/weatherwidget.c:1178
 #: ../src/plugins/weather/weatherwidget.c:1475
-#, fuzzy
 msgid "None configured"
-msgstr "Бап_тау"
+msgstr "Ешбірі бапталмаған"
 
 #: ../src/plugins/weather/weatherwidget.c:1180
 #: ../src/plugins/weather/weatherwidget.c:1472
 msgid "_Set"
-msgstr ""
+msgstr "Ор_нату"
 
 #: ../src/plugins/weather/weatherwidget.c:1201
 msgid "Display"
-msgstr ""
+msgstr "Көрсету"
 
 #: ../src/plugins/weather/weatherwidget.c:1205
-#, fuzzy
 msgid "Name:"
-msgstr "_Аты:"
+msgstr "Аты:"
 
 #: ../src/plugins/weather/weatherwidget.c:1209
 msgid "Units:"
-msgstr ""
+msgstr "Өлшем бірліктері:"
 
 #: ../src/plugins/weather/weatherwidget.c:1213
 msgid "_Metric (°C)"
-msgstr ""
+msgstr "_Метрлік (°C)"
 
 #: ../src/plugins/weather/weatherwidget.c:1215
 msgid "_English (°F)"
-msgstr ""
+msgstr "Ағ_ылшын (°F)"
 
 #: ../src/plugins/weather/weatherwidget.c:1250
 msgid "Forecast"
-msgstr ""
+msgstr "Болжам"
 
 #: ../src/plugins/weather/weatherwidget.c:1254
 msgid "Updates:"
-msgstr ""
+msgstr "Жаңартулар:"
 
 #: ../src/plugins/weather/weatherwidget.c:1258
 msgid "Ma_nual"
-msgstr ""
+msgstr "Қолме_н"
 
 #: ../src/plugins/weather/weatherwidget.c:1262
 msgid "_Automatic, every"
-msgstr ""
+msgstr "_Автоматты түрде, әр"
 
 #: ../src/plugins/weather/weatherwidget.c:1278
 msgid "minutes"
-msgstr ""
+msgstr "минут"
 
 #: ../src/plugins/weather/weatherwidget.c:1287
 msgid "Source:"
-msgstr ""
+msgstr "Көзі:"
 
 #: ../src/plugins/weather/weatherwidget.c:1428
-#, fuzzy
 msgid "C_hange"
-msgstr "Ауыстыру түрі"
+msgstr "Ө_згерту"
 
 #. Both are available
 #: ../src/plugins/weather/weatherwidget.c:1519
 #, c-format
 msgid "Current Conditions for %s"
-msgstr ""
+msgstr "%s үшін ағымдағы күйі"
 
 #: ../src/plugins/weather/weatherwidget.c:1543
 msgid "Location:"
-msgstr ""
+msgstr "Орналасу:"
 
 #: ../src/plugins/weather/weatherwidget.c:1566
 msgid "Last updated:"
-msgstr ""
+msgstr "Соңғы жаңартылған:"
 
 #: ../src/plugins/weather/weatherwidget.c:1593
 msgid "Feels like:"
-msgstr ""
+msgstr "Сезіледі:"
 
 #: ../src/plugins/weather/weatherwidget.c:1618
 msgid "Humidity:"
-msgstr ""
+msgstr "Ылғалдылық:"
 
 #: ../src/plugins/weather/weatherwidget.c:1645
-#, fuzzy
 msgid "Pressure:"
-msgstr "IP адресі:"
+msgstr "Қысым:"
 
 #: ../src/plugins/weather/weatherwidget.c:1672
 msgid "Visibility:"
-msgstr ""
+msgstr "Көріну:"
 
 #: ../src/plugins/weather/weatherwidget.c:1700
 msgid "Wind:"
-msgstr ""
+msgstr "Жел:"
 
 #: ../src/plugins/weather/weatherwidget.c:1723
 msgid "Sunrise:"
-msgstr ""
+msgstr "Күннің шығуы:"
 
 #: ../src/plugins/weather/weatherwidget.c:1746
 msgid "Sunset:"
-msgstr ""
+msgstr "Күннің батуы:"
 
 #: ../src/plugins/weather/weatherwidget.c:1854
 #: ../src/plugins/weather/weatherwidget.c:2190
 #, c-format
 msgid "Forecast for %s unavailable."
-msgstr ""
+msgstr "%s үшін болжам қолжетерсіз."
 
 #: ../src/plugins/weather/weatherwidget.c:1863
 #: ../src/plugins/weather/weatherwidget.c:2195
-#, fuzzy, c-format
+#, c-format
 msgid "Location not set."
-msgstr "Жүйеден шығу командасы орнатылмаған"
+msgstr "Орналасу көрсетілмеген."
 
 #: ../src/plugins/weather/weatherwidget.c:1880
 #, c-format
 msgid "Searching for '%s'..."
-msgstr ""
+msgstr "'%s' іздеу..."
 
 #: ../src/plugins/weather/weatherwidget.c:2006
 #, c-format
 msgid "Location matches for '%s'"
-msgstr ""
+msgstr "'%s' үшін сәйкес орналасулар"
 
 #: ../src/plugins/weather/weatherwidget.c:2026
 msgid "City"
-msgstr ""
+msgstr "Қала"
 
 #: ../src/plugins/weather/weatherwidget.c:2046
 msgid "Country"
-msgstr ""
+msgstr "Ел"
 
 #. make it nice and pretty
 #: ../src/plugins/weather/weatherwidget.c:2177
-#, fuzzy
 msgid "Currently in "
-msgstr "Ағымдағы жүктелген плагиндер"
+msgstr "Ағымдағы "
 
 #: ../src/plugins/weather/weatherwidget.c:2179
 msgid "Today: "
-msgstr ""
+msgstr "Бүгін: "
 
 #: ../src/plugins/weather/weatherwidget.c:2180
 msgid "Tomorrow: "
-msgstr ""
+msgstr "Ертең: "
 
 #: ../src/plugins/weather/weather.c:285
-#, fuzzy
 msgid "Weather Plugin"
-msgstr "WNCKpager плагині"
+msgstr "Ауа райы плагині"
 
 #: ../src/plugins/weather/weather.c:287
 msgid "Show weather conditions for a location."
-msgstr ""
+msgstr "Орналасу үшін ауа райы күйін көрсету."
 
 #~ msgid "Model"
 #~ msgstr "Модель"
