@@ -8,14 +8,15 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.3.99\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-27 08:58+0100\n"
-"PO-Revision-Date: 2012-10-09 17:46+0200\n"
-"Last-Translator: ALIUM <info@aloisnespor.info>\n"
+"PO-Revision-Date: 2014-05-23 22:46+0000\n"
+"Last-Translator: Jan <jhelebrant@seznam.cz>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.5.0\n"
+"X-POOTLE-MTIME: 1400885189.0\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:55 ../src/gtk-run.c:361 ../src/plugins/menu.c:770
@@ -64,7 +65,7 @@ msgstr "_Procházet"
 
 #: ../src/panel.c:660
 msgid "There is no room for another panel. All the edges are taken."
-msgstr ""
+msgstr "Není tu místo pro další panel. Všechny strany jsou zabrané."
 
 #: ../src/panel.c:687
 msgid ""
@@ -88,9 +89,8 @@ msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:744
-#, fuzzy
 msgid "Copyright (C) 2008-2013"
-msgstr "Copyright (C) 2008-2011"
+msgstr "Copyright (C) 2008-2013"
 
 #: ../src/panel.c:745
 msgid "Desktop panel for LXDE project"
@@ -217,7 +217,7 @@ msgstr ""
 
 #: ../src/plugin.c:370
 msgid "No file manager is configured."
-msgstr ""
+msgstr "Není nastaven žádný správce souborů."
 
 #: ../src/gtk-run.c:374
 msgid "Enter the command you want to execute:"
@@ -225,23 +225,20 @@ msgstr "Zadejte příkaz ke spuštění:"
 
 #. vim: set sw=4 et sts=4 ts=4 :
 #: ../data/ui/launchtaskbar.glade.h:1 ../src/plugins/launchtaskbar.c:3414
-#, fuzzy
 msgid "Application Launch and Task Bar"
-msgstr "Spouštěcí panel aplikací"
+msgstr "Panel úloh a spouštění aplikací"
 
 #: ../data/ui/launchtaskbar.glade.h:2
-#, fuzzy
 msgid "<b>Mode:</b>"
-msgstr "<b>Velikost</b>"
+msgstr "<b>Režim</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:3
 msgid "Launchers"
-msgstr ""
+msgstr "Spouštěče"
 
 #: ../data/ui/launchtaskbar.glade.h:4
-#, fuzzy
 msgid "<b>Launchbar</b>"
-msgstr "<b>Pozadí</b>"
+msgstr "<b>Panel spouštění</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:5
 msgid "Show tooltips"
@@ -261,7 +258,7 @@ msgstr "Zobrazit okna všech pracovních ploch"
 
 #: ../data/ui/launchtaskbar.glade.h:9
 msgid "Only show windows on the same monitor as the task bar"
-msgstr ""
+msgstr "Zobrazovat okna pouze na tom samém monitoru jako lištu úloh"
 
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Use mouse wheel"
@@ -284,24 +281,20 @@ msgid "Spacing"
 msgstr "Rozestupy"
 
 #: ../data/ui/launchtaskbar.glade.h:15
-#, fuzzy
 msgid "<b>Taskbar</b>"
-msgstr "<b>Pozadí</b>"
+msgstr "<b>Panel úloh</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:16
-#, fuzzy
 msgid "Only Application Launch Bar"
-msgstr "Spouštěcí panel aplikací"
+msgstr "Pouze panel spouštění aplikací"
 
 #: ../data/ui/launchtaskbar.glade.h:17
-#, fuzzy
 msgid "Only Task Bar (Window List)"
-msgstr "Panel úloh (Seznam oken)"
+msgstr "Pouze panel úloh (Seznam oken)"
 
 #: ../data/ui/launchtaskbar.glade.h:18
-#, fuzzy
 msgid "Integrated Application Launch Bar and Task Bar"
-msgstr "Spouštěcí panel aplikací"
+msgstr "Integrovaný panel spouštění aplikací a panel úloh"
 
 #: ../data/ui/netstatus.glade.h:1
 msgid "<b>Connection</b>"
@@ -439,9 +432,8 @@ msgid "Margin:"
 msgstr "Okraj:"
 
 #: ../data/ui/panel-pref.glade.h:19
-#, fuzzy
 msgid "Monitor:"
-msgstr "Sledování baterie"
+msgstr "Monitor:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "<b>Position</b>"
@@ -585,9 +577,8 @@ msgid "Display Image and Tooltip"
 msgstr "Zobrazovat obrázek a tip"
 
 #: ../src/plugins/launchtaskbar.c:2450
-#, fuzzy
 msgid "_Close all windows"
-msgstr "_Zavřít okno"
+msgstr "_Zavřít všechna okna"
 
 #. Add Raise menu item.
 #: ../src/plugins/launchtaskbar.c:3243
@@ -636,16 +627,15 @@ msgstr "_Zavřít okno"
 
 #: ../src/plugins/launchtaskbar.c:3312
 msgid "A_dd to Launcher"
-msgstr ""
+msgstr "P_řidat do spouštěče"
 
 #: ../src/plugins/launchtaskbar.c:3313
-#, fuzzy
 msgid "Rem_ove from Launcher"
-msgstr "Odebrat \"%s\" z panelu"
+msgstr "Ode_brat ze spouštěče"
 
 #: ../src/plugins/launchtaskbar.c:3314
 msgid "_New Instance"
-msgstr ""
+msgstr "_Nová instance"
 
 #: ../src/plugins/launchtaskbar.c:3384
 msgid "Application Launch Bar"
@@ -668,9 +658,10 @@ msgstr ""
 "skrýt nebo aktivovat"
 
 #: ../src/plugins/launchtaskbar.c:3415
-#, fuzzy
 msgid "Bar with buttons to launch application and/or show all opened windows"
-msgstr "Panel s tlačítko pro spouštění aplikací"
+msgstr ""
+"Panel s tlačítky pro spouštění aplikací a/nebo zobrazení všech otevřených "
+"oken"
 
 #: ../src/plugins/dclock.c:423 ../src/plugins/dclock.c:443
 msgid "Digital Clock"
@@ -950,7 +941,7 @@ msgstr ""
 
 #: ../src/plugins/cpufreq/cpufreq.c:422
 msgid "Display CPU frequency and allow to change governors and frequency"
-msgstr ""
+msgstr "Zobrazit frekvenci CPU a povolit změnu regulátorů a frekvence"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -986,7 +977,7 @@ msgstr ""
 
 #: ../src/plugins/volumealsa/volumealsa.c:668
 msgid "Display and control volume for ALSA"
-msgstr ""
+msgstr "Zobrazení a ovládání hlasitosti pro ALSA"
 
 #: ../src/plugins/netstat/netstat.c:180
 msgid "<Hidden Access Point>"
@@ -1379,9 +1370,8 @@ msgid "Cannot open /proc/net/dev: %s"
 msgstr "Nelze otevřít /proc/net/dev: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:185
-#, fuzzy
 msgid "Could not parse /proc/net/dev. No data."
-msgstr "Nelze zpracovat /proc/net/dev. Neznámý formát."
+msgstr "Nelze zpracovat /proc/net/dev. Žádná data."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:190
 msgid "Could not parse /proc/net/dev. Unknown format."
@@ -1404,9 +1394,8 @@ msgstr ""
 "brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:312
-#, fuzzy
 msgid "Could not parse /proc/net/wireless. No data."
-msgstr "Nelze zpracovat /proc/net/wireless. Neznámý formát."
+msgstr "Nelze zpracovat /proc/net/wireless. Žádná data."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:316
 msgid "Could not parse /proc/net/wireless. Unknown format."
