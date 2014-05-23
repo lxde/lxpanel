@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.3.99\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-27 08:58+0100\n"
-"PO-Revision-Date: 2014-05-23 22:46+0000\n"
+"PO-Revision-Date: 2014-05-23 22:52+0000\n"
 "Last-Translator: Jan <jhelebrant@seznam.cz>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1400885189.0\n"
+"X-POOTLE-MTIME: 1400885528.0\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:55 ../src/gtk-run.c:361 ../src/plugins/menu.c:770
@@ -676,9 +676,9 @@ msgid "Tooltip Format"
 msgstr "Formát tipů"
 
 #: ../src/plugins/dclock.c:427
-#, fuzzy, c-format
+#, c-format
 msgid "Format codes: man 3 strftime; \\%n for line break"
-msgstr "Kódy formátu: man 3 strftime; \\n pro zalomení řádku"
+msgstr "Formátovací kódy: man 3 strftime; \\n pro zalomení řádku"
 
 #: ../src/plugins/dclock.c:428
 msgid "Action when clicked (default: display calendar)"
@@ -937,7 +937,7 @@ msgstr ""
 
 #: ../src/plugins/cpufreq/cpufreq.c:421
 msgid "CPUFreq frontend"
-msgstr ""
+msgstr "CPUFreq frontend"
 
 #: ../src/plugins/cpufreq/cpufreq.c:422
 msgid "Display CPU frequency and allow to change governors and frequency"
@@ -1673,12 +1673,11 @@ msgstr ""
 
 #: ../src/plugins/weather/weatherwidget.c:784
 msgid "Enter New Location"
-msgstr ""
+msgstr "Zadejte nové umístění"
 
 #: ../src/plugins/weather/weatherwidget.c:798
-#, fuzzy
 msgid "_New Location:"
-msgstr "Síťové připojení"
+msgstr "_Nové umístění"
 
 #: ../src/plugins/weather/weatherwidget.c:809
 msgid ""
@@ -1700,22 +1699,20 @@ msgid "Location '%s' not found!"
 msgstr ""
 
 #: ../src/plugins/weather/weatherwidget.c:1051
-#, fuzzy
 msgid "Preferences"
-msgstr "Předvolby panelu"
+msgstr "Předvolby"
 
 #: ../src/plugins/weather/weatherwidget.c:1057
 msgid "Refresh"
-msgstr ""
+msgstr "Aktualizovat"
 
 #: ../src/plugins/weather/weatherwidget.c:1063
 msgid "Quit"
-msgstr ""
+msgstr "Ukončit"
 
 #: ../src/plugins/weather/weatherwidget.c:1160
-#, fuzzy
 msgid "Weather Preferences"
-msgstr "Předvolby panelu"
+msgstr "Předvolby počasí"
 
 #: ../src/plugins/weather/weatherwidget.c:1174
 #, fuzzy
@@ -1724,18 +1721,17 @@ msgstr "Orientace"
 
 #: ../src/plugins/weather/weatherwidget.c:1178
 #: ../src/plugins/weather/weatherwidget.c:1475
-#, fuzzy
 msgid "None configured"
-msgstr "Kon_figurovat"
+msgstr "Nic nenastaveno"
 
 #: ../src/plugins/weather/weatherwidget.c:1180
 #: ../src/plugins/weather/weatherwidget.c:1472
 msgid "_Set"
-msgstr ""
+msgstr "_Nastavit"
 
 #: ../src/plugins/weather/weatherwidget.c:1201
 msgid "Display"
-msgstr ""
+msgstr "Zobrazení"
 
 #: ../src/plugins/weather/weatherwidget.c:1205
 #, fuzzy
@@ -1744,23 +1740,23 @@ msgstr "_Název:"
 
 #: ../src/plugins/weather/weatherwidget.c:1209
 msgid "Units:"
-msgstr ""
+msgstr "Jednotky:"
 
 #: ../src/plugins/weather/weatherwidget.c:1213
 msgid "_Metric (°C)"
-msgstr ""
+msgstr "_Metrické (°C)"
 
 #: ../src/plugins/weather/weatherwidget.c:1215
 msgid "_English (°F)"
-msgstr ""
+msgstr "_Anglické (°F)"
 
 #: ../src/plugins/weather/weatherwidget.c:1250
 msgid "Forecast"
-msgstr ""
+msgstr "Předpověď počasí"
 
 #: ../src/plugins/weather/weatherwidget.c:1254
 msgid "Updates:"
-msgstr ""
+msgstr "Aktualizace:"
 
 #: ../src/plugins/weather/weatherwidget.c:1258
 msgid "Ma_nual"
@@ -1790,42 +1786,40 @@ msgid "Current Conditions for %s"
 msgstr ""
 
 #: ../src/plugins/weather/weatherwidget.c:1543
-#, fuzzy
 msgid "Location:"
-msgstr "Akce"
+msgstr "Umístění:"
 
 #: ../src/plugins/weather/weatherwidget.c:1566
 msgid "Last updated:"
-msgstr ""
+msgstr "Poslední aktualizace:"
 
 #: ../src/plugins/weather/weatherwidget.c:1593
 msgid "Feels like:"
-msgstr ""
+msgstr "Připadá jako:"
 
 #: ../src/plugins/weather/weatherwidget.c:1618
 msgid "Humidity:"
-msgstr ""
+msgstr "Vlhkost:"
 
 #: ../src/plugins/weather/weatherwidget.c:1645
-#, fuzzy
 msgid "Pressure:"
-msgstr "Adresa IP:"
+msgstr "Tlak:"
 
 #: ../src/plugins/weather/weatherwidget.c:1672
 msgid "Visibility:"
-msgstr ""
+msgstr "Viditelnost:"
 
 #: ../src/plugins/weather/weatherwidget.c:1700
 msgid "Wind:"
-msgstr ""
+msgstr "Vítr:"
 
 #: ../src/plugins/weather/weatherwidget.c:1723
 msgid "Sunrise:"
-msgstr ""
+msgstr "Východ Slunce:"
 
 #: ../src/plugins/weather/weatherwidget.c:1746
 msgid "Sunset:"
-msgstr ""
+msgstr "Západ Slunce:"
 
 #: ../src/plugins/weather/weatherwidget.c:1854
 #: ../src/plugins/weather/weatherwidget.c:2190
@@ -1865,20 +1859,19 @@ msgstr "Právě zavedené zásuvné moduly"
 
 #: ../src/plugins/weather/weatherwidget.c:2179
 msgid "Today: "
-msgstr ""
+msgstr "Dnes: "
 
 #: ../src/plugins/weather/weatherwidget.c:2180
 msgid "Tomorrow: "
-msgstr ""
+msgstr "Zítra: "
 
 #: ../src/plugins/weather/weather.c:285
-#, fuzzy
 msgid "Weather Plugin"
-msgstr "WNCKpager plugin"
+msgstr "Modul Počasí"
 
 #: ../src/plugins/weather/weather.c:287
 msgid "Show weather conditions for a location."
-msgstr ""
+msgstr "Zobrazit počasí pro dané umístění."
 
 #~ msgid "Model"
 #~ msgstr "Model"
