@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-27 08:58+0100\n"
-"PO-Revision-Date: 2014-03-27 12:23+0000\n"
+"PO-Revision-Date: 2014-06-04 12:24+0000\n"
 "Last-Translator: vgezer <volkangezer@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1395923005.0\n"
+"X-POOTLE-MTIME: 1401884643.0\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:55 ../src/gtk-run.c:361 ../src/plugins/menu.c:770
@@ -87,7 +87,8 @@ msgstr "Onayla"
 msgid "translator-credits"
 msgstr ""
 "çevirmenler Mehmet Gülmen (memetgulmen@gmail.com)\n"
-"Kılıç Köken (kilickoken@gmail.com)"
+"Kılıç Köken (kilickoken@gmail.com)\n"
+"Ayhan Yalçınsoy (ayhanyalcinsoy@gmail.com)"
 
 #: ../src/panel.c:726
 msgid "LXPanel"
@@ -297,9 +298,8 @@ msgid "Only Task Bar (Window List)"
 msgstr "Sadece Görev Çubuğu (Pencere Listesi)"
 
 #: ../data/ui/launchtaskbar.glade.h:18
-#, fuzzy
 msgid "Integrated Application Launch Bar and Task Bar"
-msgstr "Uygulama Açma Çubuğu"
+msgstr "Tümleşik Uygulama Başlatma Çubuğu ve Görev Çubuğu"
 
 #: ../data/ui/netstatus.glade.h:1
 msgid "<b>Connection</b>"
@@ -437,9 +437,8 @@ msgid "Margin:"
 msgstr "Kıyı boşluğu:"
 
 #: ../data/ui/panel-pref.glade.h:19
-#, fuzzy
 msgid "Monitor:"
-msgstr "Pil İzleyici"
+msgstr "Monitör:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "<b>Position</b>"
@@ -586,9 +585,8 @@ msgid "Display Image and Tooltip"
 msgstr "Resim ve Görsel İpucunu Göster"
 
 #: ../src/plugins/launchtaskbar.c:2450
-#, fuzzy
 msgid "_Close all windows"
-msgstr "_Pencereyi Kapat"
+msgstr "Tüm Pencereleri _Kapat"
 
 #. Add Raise menu item.
 #: ../src/plugins/launchtaskbar.c:3243
@@ -640,9 +638,8 @@ msgid "A_dd to Launcher"
 msgstr "Başlatıcıya _Ekle"
 
 #: ../src/plugins/launchtaskbar.c:3313
-#, fuzzy
 msgid "Rem_ove from Launcher"
-msgstr "Tabladan \"%s\" Ögesini Kaldır"
+msgstr "Başlatıcıdan kaldır"
 
 #: ../src/plugins/launchtaskbar.c:3314
 msgid "_New Instance"
@@ -669,9 +666,8 @@ msgstr ""
 "loşlaştırmanıza ya da odaklamanıza olanak verir"
 
 #: ../src/plugins/launchtaskbar.c:3415
-#, fuzzy
 msgid "Bar with buttons to launch application and/or show all opened windows"
-msgstr "Uygulama başlatmaya yarayan düğmeli çubuk"
+msgstr "Tüm açık pencereleri ve/veya uygulama başlatmak için düğmeli çubuk"
 
 #: ../src/plugins/dclock.c:423 ../src/plugins/dclock.c:443
 msgid "Digital Clock"
@@ -773,9 +769,8 @@ msgid "Description"
 msgstr "Tanımlama"
 
 #: ../src/plugins/xkb/xkb-plugin.c:656 ../src/plugins/xkb/xkb-plugin.c:785
-#, fuzzy
 msgid "Id"
-msgstr "Boşta"
+msgstr "Kimlik"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:750
@@ -895,7 +890,6 @@ msgid "Label"
 msgstr "Etiket"
 
 #: ../src/plugins/dirmenu.c:378
-#, fuzzy
 msgid "Browse directory tree via menu (Author = PCMan)"
 msgstr "Dizin ağacına menü yoluyla gözat (Yazar: PCMan)"
 
@@ -1384,9 +1378,8 @@ msgid "Cannot open /proc/net/dev: %s"
 msgstr "/proc/net/dev açılamadı: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:185
-#, fuzzy
 msgid "Could not parse /proc/net/dev. No data."
-msgstr "/proc/net/dev ayrıştırılamadı. Bilinmeyen biçim."
+msgstr "/proc/net/dev ayrıştırılamadı. Veri yok."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:190
 msgid "Could not parse /proc/net/dev. Unknown format."
@@ -1409,9 +1402,8 @@ msgstr ""
 "brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:312
-#, fuzzy
 msgid "Could not parse /proc/net/wireless. No data."
-msgstr "/proc/net/wireless ayrıştırılamadı. Bilinmeyen biçim."
+msgstr "/proc/net/wireless ayrıştırılamadı. Veri yok."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:316
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1604,7 +1596,7 @@ msgstr "Sınır genişliği"
 
 #: ../src/plugins/batt/batt.c:633
 msgid "Show Extended Information"
-msgstr ""
+msgstr "Genişletilmiş Bilgi Göster"
 
 # GYGA: Gelişmiş Yapılandırma ve Güç Arayüzü
 #: ../src/plugins/batt/batt.c:643
@@ -1708,16 +1700,15 @@ msgstr "Monitörleri göster (CPU, RAM)"
 
 #: ../src/plugins/weather/weatherwidget.c:50
 msgid "[N/A]"
-msgstr ""
+msgstr "[N/A]"
 
 #: ../src/plugins/weather/weatherwidget.c:784
 msgid "Enter New Location"
-msgstr ""
+msgstr "Yeni Konum Girin"
 
 #: ../src/plugins/weather/weatherwidget.c:798
-#, fuzzy
 msgid "_New Location:"
-msgstr "Ağ Bağlantısı"
+msgstr "_Yeni Konum:"
 
 #: ../src/plugins/weather/weatherwidget.c:809
 msgid ""
@@ -1727,59 +1718,58 @@ msgid ""
 "- postal code\n"
 "for which to retrieve the weather forecast."
 msgstr ""
+"Hava tahmini için şunları girin:\n"
+"- şehir, veya\n"
+"- şehir ve devlet/ülke, veya\n"
+"- posta kodu\n"
 
 #: ../src/plugins/weather/weatherwidget.c:846
 #: ../src/plugins/weather/weatherwidget.c:979
 msgid "You must specify a location."
-msgstr ""
+msgstr "Bir konum belirlemelisiniz."
 
 #: ../src/plugins/weather/weatherwidget.c:893
 #, c-format
 msgid "Location '%s' not found!"
-msgstr ""
+msgstr "Konum '%s' bulunamadı!"
 
 #: ../src/plugins/weather/weatherwidget.c:1051
-#, fuzzy
 msgid "Preferences"
-msgstr "Tabla Tercihleri"
+msgstr "Tercihler"
 
 #: ../src/plugins/weather/weatherwidget.c:1057
 msgid "Refresh"
-msgstr ""
+msgstr "Yenile"
 
 #: ../src/plugins/weather/weatherwidget.c:1063
 msgid "Quit"
-msgstr ""
+msgstr "Çık"
 
 #: ../src/plugins/weather/weatherwidget.c:1160
-#, fuzzy
 msgid "Weather Preferences"
-msgstr "Tabla Tercihleri"
+msgstr "Hava Durumu Tercihleri"
 
 #: ../src/plugins/weather/weatherwidget.c:1174
-#, fuzzy
 msgid "Current Location"
-msgstr "Yön ayarı"
+msgstr "Geçerli Konum"
 
 #: ../src/plugins/weather/weatherwidget.c:1178
 #: ../src/plugins/weather/weatherwidget.c:1475
-#, fuzzy
 msgid "None configured"
-msgstr "Yap_ılandır"
+msgstr "Yapılandırılmadı"
 
 #: ../src/plugins/weather/weatherwidget.c:1180
 #: ../src/plugins/weather/weatherwidget.c:1472
 msgid "_Set"
-msgstr ""
+msgstr "_Ayarla"
 
 #: ../src/plugins/weather/weatherwidget.c:1201
 msgid "Display"
-msgstr ""
+msgstr "Göster"
 
 #: ../src/plugins/weather/weatherwidget.c:1205
-#, fuzzy
 msgid "Name:"
-msgstr "_Ad:"
+msgstr "İsim:"
 
 #: ../src/plugins/weather/weatherwidget.c:1209
 msgid "Units:"
@@ -1818,48 +1808,46 @@ msgid "Source:"
 msgstr "Kaynak:"
 
 #: ../src/plugins/weather/weatherwidget.c:1428
-#, fuzzy
 msgid "C_hange"
-msgstr "Türü Değiştir"
+msgstr "Değiştir"
 
 #. Both are available
 #: ../src/plugins/weather/weatherwidget.c:1519
 #, c-format
 msgid "Current Conditions for %s"
-msgstr ""
+msgstr "%s için mevcut durum"
 
 #: ../src/plugins/weather/weatherwidget.c:1543
 msgid "Location:"
-msgstr ""
+msgstr "Konum:"
 
 #: ../src/plugins/weather/weatherwidget.c:1566
 msgid "Last updated:"
-msgstr ""
+msgstr "Son güncelleme:"
 
 #: ../src/plugins/weather/weatherwidget.c:1593
 msgid "Feels like:"
-msgstr ""
+msgstr "Hissedilen:"
 
 #: ../src/plugins/weather/weatherwidget.c:1618
 msgid "Humidity:"
-msgstr ""
+msgstr "Nem:"
 
 #: ../src/plugins/weather/weatherwidget.c:1645
-#, fuzzy
 msgid "Pressure:"
-msgstr "IP Adresi:"
+msgstr "Basınç:"
 
 #: ../src/plugins/weather/weatherwidget.c:1672
 msgid "Visibility:"
-msgstr ""
+msgstr "Görüş mesafesi:"
 
 #: ../src/plugins/weather/weatherwidget.c:1700
 msgid "Wind:"
-msgstr ""
+msgstr "Rüzgar:"
 
 #: ../src/plugins/weather/weatherwidget.c:1723
 msgid "Sunrise:"
-msgstr ""
+msgstr "Gündoğumu:"
 
 #: ../src/plugins/weather/weatherwidget.c:1746
 msgid "Sunset:"
@@ -1873,9 +1861,9 @@ msgstr "%s için hava tahmini kullanılamıyor."
 
 #: ../src/plugins/weather/weatherwidget.c:1863
 #: ../src/plugins/weather/weatherwidget.c:2195
-#, fuzzy, c-format
+#, c-format
 msgid "Location not set."
-msgstr "Oturumu kapama komutu atanmadı"
+msgstr "Konum ayarlanmadı."
 
 #: ../src/plugins/weather/weatherwidget.c:1880
 #, c-format
@@ -1913,9 +1901,8 @@ msgid "Tomorrow: "
 msgstr "Yarın: "
 
 #: ../src/plugins/weather/weather.c:285
-#, fuzzy
 msgid "Weather Plugin"
-msgstr "WNCKpager eklentisi"
+msgstr "Hava Durumu Eklentisi"
 
 #: ../src/plugins/weather/weather.c:287
 msgid "Show weather conditions for a location."
