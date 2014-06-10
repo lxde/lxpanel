@@ -184,8 +184,6 @@ battery* battery_update(battery *b)
      * available. */
     if (b->current_now < -1)
 	    b->current_now = - b->current_now;
-    if (b->power_now < -1)
-	    b->power_now = - b->power_now;
 
     b->charge_full = get_gint_from_infofile(b, "charge_full");
     b->energy_full = get_gint_from_infofile(b, "energy_full");
@@ -240,6 +238,10 @@ battery* battery_update(battery *b)
 	}
     }
 
+    if (b->power_now < -1)
+        b->power_now = - b->power_now;
+    else if (b->power_now == -1 && b->voltage_now != -1 && b->current_now != -1)
+        b->power_now = b->voltage_now * b->current_now / 1000; // P = U*I
     if (b->power_now != -1 && b->current_now == -1) {
 	if (b->voltage_now != -1 && b->voltage_now != 0)
 	    b->current_now = b->power_now * 1000 / b->voltage_now;
