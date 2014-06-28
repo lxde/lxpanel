@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxpanel-0.3.5.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-27 08:58+0100\n"
-"PO-Revision-Date: 2014-04-26 02:19+0000\n"
+"PO-Revision-Date: 2014-06-28 00:28+0000\n"
 "Last-Translator: Adolfo <fitoschido@ubuntu.com>\n"
 "Language-Team: Spanish <daniel@tunki.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.5.0\n"
 "X-Poedit-Bookmarks: 19,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
-"X-POOTLE-MTIME: 1398478784.0\n"
+"X-POOTLE-MTIME: 1403915331.0\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:55 ../src/gtk-run.c:361 ../src/plugins/menu.c:770
@@ -1472,6 +1472,8 @@ msgid ""
 "\n"
 "%sEnergy full design:\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sEnergía total teórica:\t\t%5d mWh"
 
 #: ../src/plugins/batt/batt.c:180
 #, c-format
@@ -1479,6 +1481,8 @@ msgid ""
 "\n"
 "%sEnergy full:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sEnergía total:\t\t\t%5d mWh"
 
 #: ../src/plugins/batt/batt.c:182
 #, c-format
@@ -1504,6 +1508,8 @@ msgid ""
 "\n"
 "%sCharge full design:\t%5d mAh"
 msgstr ""
+"\n"
+"%sCarga total teórica:\t%5d mAh"
 
 #: ../src/plugins/batt/batt.c:189
 #, c-format
@@ -1511,6 +1517,8 @@ msgid ""
 "\n"
 "%sCharge full:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sCarga total:\t\t\t%5d mAh"
 
 #: ../src/plugins/batt/batt.c:191
 #, c-format
@@ -1527,6 +1535,8 @@ msgid ""
 "\n"
 "%sCurrent now:\t\t\t%5d mA"
 msgstr ""
+"\n"
+"%sActual:\t\t\t%5d mA"
 
 #: ../src/plugins/batt/batt.c:196
 #, c-format
