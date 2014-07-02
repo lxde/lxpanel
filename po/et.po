@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-27 08:58+0100\n"
-"PO-Revision-Date: 2014-01-17 08:52+0000\n"
-"Last-Translator: mahfiaz <mahfiaz@gmail.com>\n"
+"PO-Revision-Date: 2014-07-02 16:33+0000\n"
+"Last-Translator: Anari <anari.jalakas@gmail.com>\n"
 "Language-Team: Gnome Estonian translation team <gnome-et@linux.ee>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1389948778.0\n"
+"X-POOTLE-MTIME: 1404318803.0\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:55 ../src/gtk-run.c:361 ../src/plugins/menu.c:770
@@ -66,7 +66,7 @@ msgstr "_Lehitse"
 
 #: ../src/panel.c:660
 msgid "There is no room for another panel. All the edges are taken."
-msgstr ""
+msgstr "Uue paneeli jaoks pole ruumi. Kõik ääred on hõivatud."
 
 #: ../src/panel.c:687
 msgid ""
@@ -92,9 +92,8 @@ msgid "LXPanel"
 msgstr "LXPaneel"
 
 #: ../src/panel.c:744
-#, fuzzy
 msgid "Copyright (C) 2008-2013"
-msgstr "Autoriõigus (C) 2008-2011"
+msgstr "Autoriõigus (C) 2008-2013"
 
 #: ../src/panel.c:745
 msgid "Desktop panel for LXDE project"
@@ -219,7 +218,7 @@ msgstr ""
 
 #: ../src/plugin.c:370
 msgid "No file manager is configured."
-msgstr ""
+msgstr "Failihaldur on määramata."
 
 #: ../src/gtk-run.c:374
 msgid "Enter the command you want to execute:"
@@ -227,23 +226,20 @@ msgstr "Sisesta käsk, mida tahad käivitada:"
 
 #. vim: set sw=4 et sts=4 ts=4 :
 #: ../data/ui/launchtaskbar.glade.h:1 ../src/plugins/launchtaskbar.c:3414
-#, fuzzy
 msgid "Application Launch and Task Bar"
-msgstr "Rakenduste käivitamise riba"
+msgstr "Rakenduste käivitamise ja tegumiriba"
 
 #: ../data/ui/launchtaskbar.glade.h:2
-#, fuzzy
 msgid "<b>Mode:</b>"
-msgstr "<b>Suurus</b>"
+msgstr "<b>Viis:</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:3
 msgid "Launchers"
-msgstr ""
+msgstr "Käivitajad"
 
 #: ../data/ui/launchtaskbar.glade.h:4
-#, fuzzy
 msgid "<b>Launchbar</b>"
-msgstr "<b>Taust</b>"
+msgstr "<b>Käivitusriba</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:5
 msgid "Show tooltips"
@@ -263,7 +259,7 @@ msgstr "Näidatakse aknaid kõigilt töölaudadelt"
 
 #: ../data/ui/launchtaskbar.glade.h:9
 msgid "Only show windows on the same monitor as the task bar"
-msgstr ""
+msgstr "Aknaid näidatakse tegumiribaga samas aknas"
 
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Use mouse wheel"
@@ -286,24 +282,20 @@ msgid "Spacing"
 msgstr "Eraldusvahe"
 
 #: ../data/ui/launchtaskbar.glade.h:15
-#, fuzzy
 msgid "<b>Taskbar</b>"
-msgstr "<b>Taust</b>"
+msgstr "<b>Tegumiriba</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:16
-#, fuzzy
 msgid "Only Application Launch Bar"
-msgstr "Rakenduste käivitamise riba"
+msgstr "Ainult rakenduste käivitamise riba"
 
 #: ../data/ui/launchtaskbar.glade.h:17
-#, fuzzy
 msgid "Only Task Bar (Window List)"
-msgstr "Tegumiriba (akende nimekiri)"
+msgstr "Ainult tegumiriba (akende nimekiri)"
 
 #: ../data/ui/launchtaskbar.glade.h:18
-#, fuzzy
 msgid "Integrated Application Launch Bar and Task Bar"
-msgstr "Rakenduste käivitamise riba"
+msgstr "Põimitud rakenduste käivitamise ja tegumiriba"
 
 #: ../data/ui/netstatus.glade.h:1
 msgid "<b>Connection</b>"
@@ -441,9 +433,8 @@ msgid "Margin:"
 msgstr "Veeris:"
 
 #: ../data/ui/panel-pref.glade.h:19
-#, fuzzy
 msgid "Monitor:"
-msgstr "Aku monitor"
+msgstr "Kuvar:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "<b>Position</b>"
@@ -587,9 +578,8 @@ msgid "Display Image and Tooltip"
 msgstr "Pildi ja kohtspikri kuvamine"
 
 #: ../src/plugins/launchtaskbar.c:2450
-#, fuzzy
 msgid "_Close all windows"
-msgstr "_Sulge aken"
+msgstr "_Sulge kõik aknad"
 
 #. Add Raise menu item.
 #: ../src/plugins/launchtaskbar.c:3243
@@ -638,16 +628,15 @@ msgstr "_Sulge aken"
 
 #: ../src/plugins/launchtaskbar.c:3312
 msgid "A_dd to Launcher"
-msgstr ""
+msgstr "Li_sa käivitajasse"
 
 #: ../src/plugins/launchtaskbar.c:3313
-#, fuzzy
 msgid "Rem_ove from Launcher"
-msgstr "Eemalda \"%s\" paneelilt"
+msgstr "Eem_alda käivituspaneelilt"
 
 #: ../src/plugins/launchtaskbar.c:3314
 msgid "_New Instance"
-msgstr ""
+msgstr "_Uus juhtum"
 
 #: ../src/plugins/launchtaskbar.c:3384
 msgid "Application Launch Bar"
@@ -670,9 +659,8 @@ msgstr ""
 "või fokuseerida"
 
 #: ../src/plugins/launchtaskbar.c:3415
-#, fuzzy
 msgid "Bar with buttons to launch application and/or show all opened windows"
-msgstr "Rakenduste käivitamise nuppude riba"
+msgstr ""
 
 #: ../src/plugins/dclock.c:423 ../src/plugins/dclock.c:443
 msgid "Digital Clock"
@@ -774,9 +762,8 @@ msgid "Description"
 msgstr "Kirjeldus"
 
 #: ../src/plugins/xkb/xkb-plugin.c:656 ../src/plugins/xkb/xkb-plugin.c:785
-#, fuzzy
 msgid "Id"
-msgstr "Ootel"
+msgstr "Id"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:750
@@ -894,9 +881,8 @@ msgid "Label"
 msgstr "Silt"
 
 #: ../src/plugins/dirmenu.c:378
-#, fuzzy
 msgid "Browse directory tree via menu (Author = PCMan)"
-msgstr "Lehitse kataloogipuu menüüd (autor: PCMan)"
+msgstr "Lehitse kataloogipuu menüüd (Autor =  CMan)"
 
 #: ../src/plugins/thermal/thermal.c:480
 msgid "Normal"
@@ -1499,6 +1485,8 @@ msgid ""
 "\n"
 "%sPower now:\t\t\t%5d mW"
 msgstr ""
+"\n"
+"%sVõimsus praegu:\t\t\t%5d mW"
 
 #: ../src/plugins/batt/batt.c:187
 #, c-format
@@ -1506,6 +1494,8 @@ msgid ""
 "\n"
 "%sCharge full design:\t%5d mAh"
 msgstr ""
+"\n"
+"%sTehasetäituvus:\t%5d mAh"
 
 #: ../src/plugins/batt/batt.c:189
 #, c-format
@@ -1513,6 +1503,8 @@ msgid ""
 "\n"
 "%sCharge full:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sTäistäituvus:\t\t\t%5d mAh"
 
 #: ../src/plugins/batt/batt.c:191
 #, c-format
@@ -1520,6 +1512,8 @@ msgid ""
 "\n"
 "%sCharge now:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sTäituvus:\t\t\t%5d mAh"
 
 #: ../src/plugins/batt/batt.c:193
 #, c-format
@@ -1527,6 +1521,8 @@ msgid ""
 "\n"
 "%sCurrent now:\t\t\t%5d mA"
 msgstr ""
+"\n"
+"%sHetkevool:\t\t\t%5d mA"
 
 #: ../src/plugins/batt/batt.c:196
 #, c-format
@@ -1534,6 +1530,8 @@ msgid ""
 "\n"
 "%sCurrent Voltage:\t\t%.3lf V"
 msgstr ""
+"\n"
+"%sHetkepinge:\t\t%.3lf V"
 
 #: ../src/plugins/batt/batt.c:234
 msgid "No batteries found"
@@ -1581,7 +1579,7 @@ msgstr "Raami laius"
 
 #: ../src/plugins/batt/batt.c:633
 msgid "Show Extended Information"
-msgstr ""
+msgstr "Näita täiendavat informatsiooni"
 
 #: ../src/plugins/batt/batt.c:643
 msgid "Display battery status using ACPI"
@@ -1680,11 +1678,11 @@ msgstr "Näita kuvasid (CPU, RAM)"
 
 #: ../src/plugins/weather/weatherwidget.c:50
 msgid "[N/A]"
-msgstr ""
+msgstr "[N/A]"
 
 #: ../src/plugins/weather/weatherwidget.c:784
 msgid "Enter New Location"
-msgstr ""
+msgstr "Sisesta uus asukoht"
 
 #: ../src/plugins/weather/weatherwidget.c:798
 #, fuzzy
@@ -1729,45 +1727,42 @@ msgid "Weather Preferences"
 msgstr "Paneeli eelistused"
 
 #: ../src/plugins/weather/weatherwidget.c:1174
-#, fuzzy
 msgid "Current Location"
-msgstr "Suund"
+msgstr "Praegune asukoht"
 
 #: ../src/plugins/weather/weatherwidget.c:1178
 #: ../src/plugins/weather/weatherwidget.c:1475
-#, fuzzy
 msgid "None configured"
-msgstr "_Seadistamine"
+msgstr "Seadistamata"
 
 #: ../src/plugins/weather/weatherwidget.c:1180
 #: ../src/plugins/weather/weatherwidget.c:1472
 msgid "_Set"
-msgstr ""
+msgstr "_Määra"
 
 #: ../src/plugins/weather/weatherwidget.c:1201
 msgid "Display"
-msgstr ""
+msgstr "Kuva"
 
 #: ../src/plugins/weather/weatherwidget.c:1205
-#, fuzzy
 msgid "Name:"
-msgstr "_Nimi:"
+msgstr "Nimi:"
 
 #: ../src/plugins/weather/weatherwidget.c:1209
 msgid "Units:"
-msgstr ""
+msgstr "Ühikud:"
 
 #: ../src/plugins/weather/weatherwidget.c:1213
 msgid "_Metric (°C)"
-msgstr ""
+msgstr "_Meetriline (°C)"
 
 #: ../src/plugins/weather/weatherwidget.c:1215
 msgid "_English (°F)"
-msgstr ""
+msgstr "_Inglise (°F)"
 
 #: ../src/plugins/weather/weatherwidget.c:1250
 msgid "Forecast"
-msgstr ""
+msgstr "Ilmaennustus"
 
 #: ../src/plugins/weather/weatherwidget.c:1254
 msgid "Updates:"
@@ -1811,32 +1806,31 @@ msgstr ""
 
 #: ../src/plugins/weather/weatherwidget.c:1593
 msgid "Feels like:"
-msgstr ""
+msgstr "Tundub nagu:"
 
 #: ../src/plugins/weather/weatherwidget.c:1618
 msgid "Humidity:"
-msgstr ""
+msgstr "Niiskus:"
 
 #: ../src/plugins/weather/weatherwidget.c:1645
-#, fuzzy
 msgid "Pressure:"
-msgstr "IP-aadress:"
+msgstr "Õhurõhk:"
 
 #: ../src/plugins/weather/weatherwidget.c:1672
 msgid "Visibility:"
-msgstr ""
+msgstr "Nähtavus:"
 
 #: ../src/plugins/weather/weatherwidget.c:1700
 msgid "Wind:"
-msgstr ""
+msgstr "Tuul:"
 
 #: ../src/plugins/weather/weatherwidget.c:1723
 msgid "Sunrise:"
-msgstr ""
+msgstr "Päikesetõus:"
 
 #: ../src/plugins/weather/weatherwidget.c:1746
 msgid "Sunset:"
-msgstr ""
+msgstr "Päikeseloojang:"
 
 #: ../src/plugins/weather/weatherwidget.c:1854
 #: ../src/plugins/weather/weatherwidget.c:2190
@@ -1846,9 +1840,9 @@ msgstr ""
 
 #: ../src/plugins/weather/weatherwidget.c:1863
 #: ../src/plugins/weather/weatherwidget.c:2195
-#, fuzzy, c-format
+#, c-format
 msgid "Location not set."
-msgstr "Väljalogimise käsk pole määratud"
+msgstr "Asukoht määramata."
 
 #: ../src/plugins/weather/weatherwidget.c:1880
 #, c-format
@@ -1862,34 +1856,32 @@ msgstr ""
 
 #: ../src/plugins/weather/weatherwidget.c:2026
 msgid "City"
-msgstr ""
+msgstr "Linn"
 
 #: ../src/plugins/weather/weatherwidget.c:2046
 msgid "Country"
-msgstr ""
+msgstr "Maakond"
 
 #. make it nice and pretty
 #: ../src/plugins/weather/weatherwidget.c:2177
-#, fuzzy
 msgid "Currently in "
-msgstr "Kasutusel olevad pluginad"
+msgstr "Praegu  "
 
 #: ../src/plugins/weather/weatherwidget.c:2179
 msgid "Today: "
-msgstr ""
+msgstr "Täna: "
 
 #: ../src/plugins/weather/weatherwidget.c:2180
 msgid "Tomorrow: "
-msgstr ""
+msgstr "Homme: "
 
 #: ../src/plugins/weather/weather.c:285
-#, fuzzy
 msgid "Weather Plugin"
-msgstr "WNCKPageri plugin"
+msgstr "Ilma plugin"
 
 #: ../src/plugins/weather/weather.c:287
 msgid "Show weather conditions for a location."
-msgstr ""
+msgstr "Näita asukoha ilmaseisu:"
 
 #~ msgid "Model"
 #~ msgstr "Mudel"
