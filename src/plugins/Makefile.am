@@ -30,7 +30,6 @@ endif
 PLUGINS_SOURCES = \
 	dclock.c \
 	dirmenu.c \
-	image.c \
 	launchtaskbar.c \
 	pager.c \
 	separator.c \

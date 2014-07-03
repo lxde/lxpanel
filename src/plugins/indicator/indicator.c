@@ -70,8 +70,8 @@ static gchar * indicator_order[][2] = {
 GOutputStream * log_file = NULL;
 
 typedef struct {
-
-    Plugin * plugin;			/* Back pointer to plugin */
+    Panel *panel;
+    config_setting_t *settings;
 
     IndicatorObject *io;		/* Indicators applets */
 
@@ -79,7 +79,7 @@ typedef struct {
     GList *menus;				/* List of menus of applets */
 
     GtkWidget * menubar;		/* Displayed menubar */
-    
+
     gboolean applications;      /* Support for differents indicators */
     gboolean datetime;
     gboolean me;
@@ -110,7 +110,7 @@ name2order (const gchar * name, const gchar * hint) {
 
   return -1;
 }
- 
+
 typedef struct _incoming_position_t incoming_position_t;
 struct _incoming_position_t {
         gint objposition;
@@ -277,6 +277,7 @@ entry_secondary_activated (GtkWidget * widget, GdkEvent * event, gpointer user_d
         }
       }
       break;
+    default: ;
   }
 
   return FALSE;
@@ -307,7 +308,7 @@ entry_added (IndicatorObject * io, IndicatorObjectEntry * entry, GtkWidget * men
 
     GtkWidget * menuitem = gtk_menu_item_new();
     GtkWidget * hbox = gtk_hbox_new(FALSE, 3);
-    
+
     g_object_set_data (G_OBJECT (menuitem), MENU_DATA_BOX, hbox);
     g_object_set_data(G_OBJECT(menuitem), MENU_DATA_INDICATOR_OBJECT, io);
     g_object_set_data(G_OBJECT(menuitem), MENU_DATA_INDICATOR_ENTRY,  entry);
@@ -325,15 +326,14 @@ entry_added (IndicatorObject * io, IndicatorObjectEntry * entry, GtkWidget * men
         if (gtk_widget_get_visible(GTK_WIDGET(entry->image))) {
                 something_visible = TRUE;
         }
-        
+
         if (gtk_widget_get_sensitive(GTK_WIDGET(entry->image))) {
             something_sensitive = TRUE;
         }
-        
+
         g_signal_connect(G_OBJECT(entry->image), "show", G_CALLBACK(something_shown), menuitem);
         g_signal_connect(G_OBJECT(entry->image), "hide", G_CALLBACK(something_hidden), menuitem);
         g_signal_connect(G_OBJECT(entry->image), "notify::sensitive", G_CALLBACK(sensitive_cb), menuitem);
-        
     }
     if (entry->label != NULL)
     {
@@ -410,11 +410,11 @@ entry_moved_find_cb (GtkWidget * widget, gpointer userdata)
     if (data != array[0]) {
         return;
     }
- 
+
     array[1] = widget;
     return;
 }
- 
+
 /* Gets called when an entry for an object was moved. */
 static void 
 entry_moved (IndicatorObject * io, IndicatorObjectEntry * entry,
@@ -437,7 +437,7 @@ entry_moved (IndicatorObject * io, IndicatorObjectEntry * entry,
     gtk_container_remove(GTK_CONTAINER(menubar), mi);
     place_in_menu(menubar, mi, io, entry);
     g_object_unref(G_OBJECT(mi));
- 
+
     return;
 }
 
@@ -497,7 +497,7 @@ load_module (const gchar * name, GtkWidget * menubar)
 
     /* Set the environment it's in */
     indicator_object_set_environment(io, (const GStrv)indicator_env);
-    
+
     /* Attach the 'name' to the object */
     g_object_set_data_full(G_OBJECT(io), IO_DATA_NAME, g_strdup(name), g_free);
     g_object_set_data(G_OBJECT(io), IO_DATA_ORDER_NUMBER, GINT_TO_POINTER(name2order(name, NULL)));
@@ -530,7 +530,7 @@ log_to_file_cb (GObject * source_obj G_GNUC_UNUSED,
     g_free(user_data);
     return;
 }
- 
+
 static void
 log_to_file (const gchar * domain G_GNUC_UNUSED,
              GLogLevelFlags level G_GNUC_UNUSED,
@@ -546,15 +546,15 @@ log_to_file (const gchar * domain G_GNUC_UNUSED,
         if (!g_file_test(g_get_user_cache_dir(), G_FILE_TEST_EXISTS | G_FILE_TEST_IS_DIR)) {
             GFile * cachedir = g_file_new_for_path(g_get_user_cache_dir());
             g_file_make_directory_with_parents(cachedir, NULL, &error);
- 
+
             if (error != NULL) {
                 g_error("Unable to make directory '%s' for log file: %s", g_get_user_cache_dir(), error->message);
                 return;
             }
         }
- 
+
         g_file_delete(file, NULL, NULL);
- 
+
         GFileIOStream * io = g_file_create_readwrite(file,
                                 G_FILE_CREATE_REPLACE_DESTINATION, /* flags */
                                 NULL, /* cancelable */
@@ -566,7 +566,7 @@ log_to_file (const gchar * domain G_GNUC_UNUSED,
 
         log_file = g_io_stream_get_output_stream(G_IO_STREAM(io));
     }
-        
+
     gchar * outputstring = g_strdup_printf("%s\n", message);
     g_output_stream_write_async(log_file,
                                 outputstring, /* data */
@@ -575,7 +575,7 @@ log_to_file (const gchar * domain G_GNUC_UNUSED,
                                 NULL, /* cancelable */
                                 log_to_file_cb, /* callback */
                                 outputstring); /* data */
- 
+
     return;
 }
 
@@ -584,15 +584,15 @@ menubar_press (GtkWidget * widget,
                     GdkEventButton *event,
                     gpointer data G_GNUC_UNUSED)
 
-{	
-    if (event->button != 1) {	
-        g_signal_stop_emission_by_name(widget, "button-press-event");	
+{
+    if (event->button != 1) {
+        g_signal_stop_emission_by_name(widget, "button-press-event");
     }
 
     return FALSE;
 
 }
-	
+
 static gboolean
 menubar_scroll (GtkWidget      *widget G_GNUC_UNUSED,
                 GdkEventScroll *event,
@@ -605,33 +605,31 @@ menubar_scroll (GtkWidget      *widget G_GNUC_UNUSED,
 
     IndicatorObject *io = g_object_get_data (G_OBJECT (menuitem), "indicator");
     g_signal_emit_by_name (io, "scroll", 1, event->direction);
-	
+
     return FALSE;
 
 }
 
-	
 static gboolean
 menubar_on_expose (GtkWidget * widget,
                     GdkEventExpose *event G_GNUC_UNUSED,
                     GtkWidget * menubar)
 {
+    if (GTK_WIDGET_HAS_FOCUS(menubar))
+        gtk_paint_focus(widget->style, widget->window, GTK_WIDGET_STATE(menubar),
+                        NULL, widget, "menubar-applet", 0, 0, -1, -1);
 
-	if (GTK_WIDGET_HAS_FOCUS(menubar))
-		gtk_paint_focus(widget->style, widget->window, GTK_WIDGET_STATE(menubar),
-		                NULL, widget, "menubar-applet", 0, 0, -1, -1);
-
-	return FALSE;
+    return FALSE;
 }
 
-static gint indicator_load_modules(Plugin * p)
+static void indicator_load_modules(Panel *panel, GtkWidget *p)
 {
 
     gint indicators_loaded = 0;
-    IndicatorPlugin * indicator = (IndicatorPlugin *) p->priv;
-    
-    gtk_widget_hide_all(p->pwid);
-    
+    IndicatorPlugin * indicator = lxpanel_plugin_get_data(p);
+
+    gtk_widget_hide_all(p);
+
     GList *l = NULL;
     for (l = gtk_container_get_children(GTK_CONTAINER(indicator->menubar)); l; l = l->next)
     {
@@ -691,36 +689,38 @@ static gint indicator_load_modules(Plugin * p)
         }
         g_dir_close (dir);
     }
-    
+
     if (indicators_loaded == 0)
     {
         /* A label to allow for click through */
         GtkWidget * item = gtk_label_new(_("No Indicators"));
-        gtk_container_add(GTK_CONTAINER(p->pwid), item);
+        gtk_container_add(GTK_CONTAINER(p), item);
         gtk_widget_show(item);
     }
     else
     {
-        gtk_container_add(GTK_CONTAINER(p->pwid), indicator->menubar);
-        
+        gtk_container_add(GTK_CONTAINER(p), indicator->menubar);
         /* Set background to default. */
-        gtk_widget_set_style(indicator->menubar, p->panel->defstyle);
+        gtk_widget_set_style(indicator->menubar, panel->defstyle);
         gtk_widget_show(indicator->menubar);
     }
 
     /* Update the display, show the widget, and return. */
-    gtk_widget_show_all(p->pwid);
+    gtk_widget_show_all(p);
 
 }
 
 /* Plugin constructor. */
-static int indicator_constructor(Plugin * p, char ** fp)
+static GtkWidget *indicator_constructor(Panel *panel, config_setting_t *settings)
 {
     /* Allocate and initialize plugin context and set into Plugin private data pointer. */
     IndicatorPlugin * indicator = g_new0(IndicatorPlugin, 1);
-    indicator->plugin = p;
-    p->priv = indicator;
-    
+    GtkWidget *p;
+    int tmp_int;
+
+    indicator->panel = panel;
+    indicator->settings = settings;
+
     /* Default support for indicators */
     indicator->applications = TRUE;
     indicator->datetime     = FALSE;
@@ -731,48 +731,24 @@ static int indicator_constructor(Plugin * p, char ** fp)
     /* indicator->appmenu      = FALSE; */
 
     /* Load parameters from the configuration file. */
-
-    line s;
-    s.len = 256;
-    if (fp != NULL)
-    {
-        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END)
-        {
-            if (s.type == LINE_NONE)
-            {
-                ERR( "space: illegal token %s\n", s.str);
-                return 0;
-            }
-            if (s.type == LINE_VAR)
-            {
-                if (g_ascii_strcasecmp(s.t[0], "applications") == 0)
-                    indicator->applications = str2num(bool_pair, s.t[1], 0);
-                else if (g_ascii_strcasecmp(s.t[0], "datetime") == 0)
-                    indicator->datetime = str2num(bool_pair, s.t[1], 0);
-                else if (g_ascii_strcasecmp(s.t[0], "messages") == 0)
-                    indicator->messages = str2num(bool_pair, s.t[1], 0);
-                else if (g_ascii_strcasecmp(s.t[0], "network") == 1)
-                    indicator->network = str2num(bool_pair, s.t[1], 0);
-                else if (g_ascii_strcasecmp(s.t[0], "session") == 0)
-                    indicator->session = str2num(bool_pair, s.t[1], 0);
-                else if (g_ascii_strcasecmp(s.t[0], "sound") == 0)
-                    indicator->sound = str2num(bool_pair, s.t[1], 0);
-                /* else if (g_ascii_strcasecmp(s.t[0], "appmenu") == 0)
-                    indicator->appmenu = str2num(bool_pair, s.t[1], 0);*/
-
-                else
-                    ERR( "indicator: unknown var %s\n", s.t[0]);
-            }
-            else
-            {
-                ERR( "indicator: illegal in this context %s\n", s.str);
-                return 0;
-            }
-        }
-    }
+    if (config_setting_lookup_int(settings, "applications", &tmp_int))
+        indicator->applications = tmp_int != 0;
+    if (config_setting_lookup_int(settings, "datetime", &tmp_int))
+        indicator->datetime = tmp_int != 0;
+    if (config_setting_lookup_int(settings, "messages", &tmp_int))
+        indicator->messages = tmp_int != 0;
+    if (config_setting_lookup_int(settings, "network", &tmp_int))
+        indicator->network = tmp_int != 0;
+    if (config_setting_lookup_int(settings, "session", &tmp_int))
+        indicator->session = tmp_int != 0;
+    if (config_setting_lookup_int(settings, "sound", &tmp_int))
+        indicator->sound = tmp_int != 0;
+    /* if (config_setting_lookup_int(settings, "appmenu", &tmp_int))
+        indicator->appmenu = tmp_int != 0;*/
 
     /* Allocate top level widget and set into Plugin widget pointer. */
-    p->pwid = gtk_event_box_new();
+    p = gtk_event_box_new();
+    lxpanel_plugin_set_data(p, indicator, g_free);
 
     gtk_rc_parse_string (
         "style \"indicator-applet-style\"\n"
@@ -800,11 +776,9 @@ static int indicator_constructor(Plugin * p, char ** fp)
         "widget \"*.fast-user-switch-menuitem\" style \"indicator-applet-menuitem-style\""
         "widget \"*.fast-user-switch-menubar\" style \"indicator-applet-menubar-style\"");
 
-    gtk_widget_set_name(GTK_WIDGET (p->pwid), "fast-user-switch-applet");
-    
-    /* Connect signals for container */
-    g_signal_connect(p->pwid, "button-press-event", G_CALLBACK(plugin_button_press_event), p);
+    gtk_widget_set_name(p, "fast-user-switch-applet");
 
+    /* Connect signals for container */
     g_log_set_default_handler(log_to_file, NULL);
 
     /* Allocate icon as a child of top level. */
@@ -812,45 +786,45 @@ static int indicator_constructor(Plugin * p, char ** fp)
     GTK_WIDGET_SET_FLAGS (indicator->menubar, GTK_WIDGET_FLAGS(indicator->menubar) | GTK_CAN_FOCUS);
 
     /* Init some theme/icon stuff */
-    gtk_icon_theme_append_search_path(p->panel->icon_theme,
+    gtk_icon_theme_append_search_path(panel->icon_theme,
                                     INDICATOR_ICONS_DIR);
     g_debug("Icons directory: %s", INDICATOR_ICONS_DIR);
 
-    gtk_widget_set_name(GTK_WIDGET (indicator->menubar), "fast-user-switch-menubar");
+    gtk_widget_set_name(indicator->menubar, "fast-user-switch-menubar");
 
     /* Connect signals. */
-    g_signal_connect(p->pwid, "button-press-event", G_CALLBACK(plugin_button_press_event), p);
     g_signal_connect(indicator->menubar, "button-press-event", G_CALLBACK(menubar_press), NULL);
     g_signal_connect(indicator->menubar, "scroll-event", G_CALLBACK (menubar_scroll), NULL);
     g_signal_connect_after(indicator->menubar, "expose-event", G_CALLBACK(menubar_on_expose), indicator->menubar);
 
     gtk_container_set_border_width(GTK_CONTAINER(indicator->menubar), 0);
 
-	/* load 'em */
-    indicator_load_modules(p);
+    /* load 'em */
+    indicator_load_modules(panel, p);
 
-    return 1;
-
+    return p;
 }
 
+#if 0
 /* Plugin destructor. */
-static void indicator_destructor(Plugin * p)
+static void indicator_destructor(gpointer user_data)
 {
-    IndicatorPlugin * indicator = (IndicatorPlugin *) p->priv;
+    IndicatorPlugin * indicator = (IndicatorPlugin *) user_data;
 
     /* Deallocate all memory. */
     g_free(indicator);
 }
+#endif
 
 /* Callback when panel configuration changes. */
-static void indicator_panel_configuration_changed(Plugin * p)
+static void indicator_panel_configuration_changed(Panel *panel, GtkWidget *p)
 {
     /*
     Update when configuration changed
     */
 
     /* load 'em */
-	indicator_load_modules(p);
+    indicator_load_modules(panel, p);
 
     /* Determine if the orientation changed in a way that requires action. */
     /*
@@ -869,14 +843,19 @@ static void indicator_panel_configuration_changed(Plugin * p)
 }
 
 /* Callback when the configuration dialog has recorded a configuration change. */
-static void indicator_apply_configuration(Plugin * p)
+static gboolean indicator_apply_configuration(gpointer user_data)
 {
+    IndicatorPlugin * indicator = lxpanel_plugin_get_data(user_data);
 
-    /* IndicatorPlugin * indicator = (IndicatorPlugin *) p->priv;*/
-    
     /* load 'em */
-	indicator_load_modules(p);
+    indicator_load_modules(indicator->panel, user_data);
 
+    config_group_set_int(indicator->settings, "applications", indicator->applications);
+    config_group_set_int(indicator->settings, "datetime", indicator->datetime);
+    config_group_set_int(indicator->settings, "messages", indicator->messages);
+    config_group_set_int(indicator->settings, "network", indicator->network);
+    config_group_set_int(indicator->settings, "session", indicator->session);
+    config_group_set_int(indicator->settings, "sound", indicator->sound);
     /* Apply settings. */
 /*
     if (p->panel->orientation == ORIENT_HORIZ)
@@ -884,16 +863,15 @@ static void indicator_apply_configuration(Plugin * p)
     else
         gtk_widget_set_size_request(p->pwid, 2, sp->size);
 */
+    return FALSE;
 }
 
 /* Callback when the configuration dialog is to be shown. */
-static void indicator_configure(Plugin * p, GtkWindow * parent)
+static GtkWidget *indicator_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
 {
-    IndicatorPlugin * indicator = (IndicatorPlugin *) p->priv;
-    GtkWidget * dlg = create_generic_config_dlg(
-        _(p->class->name),
-        GTK_WIDGET(parent),
-        (GSourceFunc) indicator_apply_configuration, (gpointer) p,
+    IndicatorPlugin * indicator = lxpanel_plugin_get_data(p);
+    GtkWidget * dlg = lxpanel_generic_config_dlg(_("Indicator applets"),
+        panel, indicator_apply_configuration, p,
         _("Indicator Applications"), &indicator->applications, CONF_TYPE_BOOL,
         _("Clock Indicator"), &indicator->datetime, CONF_TYPE_BOOL,
         _("Messaging Menu"), &indicator->messages, CONF_TYPE_BOOL,
@@ -903,35 +881,17 @@ static void indicator_configure(Plugin * p, GtkWindow * parent)
         /* _("Applications menus"), &indicator->appmenu, CONF_TYPE_BOOL,*/
         NULL);
     gtk_widget_set_size_request(GTK_WIDGET(dlg), 300, -1);
-    gtk_window_present(GTK_WINDOW(dlg));
+    return dlg;
 }
 
-/* Callback when the configuration is to be saved. */
-static void indicator_save_configuration(Plugin * p, FILE * fp)
-{
-    IndicatorPlugin * indicator= (IndicatorPlugin *) p->priv;
-    lxpanel_put_int(fp, "applications", indicator->applications);
-    lxpanel_put_int(fp, "datetime", indicator->datetime);
-    lxpanel_put_int(fp, "messages", indicator->messages);
-    lxpanel_put_int(fp, "network", indicator->network);
-    lxpanel_put_int(fp, "session", indicator->session);
-    lxpanel_put_int(fp, "sound", indicator->sound);
-    /* lxpanel_put_int(fp, "appmenu", indicator->appmenu);*/
-}
+FM_DEFINE_MODULE(lxpanel_gtk, indicator)
 
 /* Plugin descriptor. */
-PluginClass indicator_plugin_class = {
-
-    PLUGINCLASS_VERSIONING,
-
-    .type = "indicator",
+LXPanelPluginInit fm_module_init_lxpanel_gtk = {
     .name = N_("Indicator applets"),
-    .version = "1.0",
     .description = N_("Add indicator applets to the panel"),
 
-    .constructor = indicator_constructor,
-    .destructor  = indicator_destructor,
+    .new_instance = indicator_constructor,
     .config = indicator_configure,
-    .save = indicator_save_configuration,
-    .panel_configuration_changed = indicator_panel_configuration_changed
+    .reconfigure = indicator_panel_configuration_changed
 };
