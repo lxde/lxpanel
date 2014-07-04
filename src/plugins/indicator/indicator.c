@@ -28,11 +28,8 @@ TODO : vertical support (r354)
 
 */
 
-#include "private.h"
-
+#include "plugin.h"
 #include "misc.h"
-#include "panel.h"
-#include "dbg.h"
 
 #include <stdlib.h>
 #include <glib/gi18n.h>
@@ -701,7 +698,7 @@ static void indicator_load_modules(Panel *panel, GtkWidget *p)
     {
         gtk_container_add(GTK_CONTAINER(p), indicator->menubar);
         /* Set background to default. */
-        gtk_widget_set_style(indicator->menubar, panel->defstyle);
+        gtk_widget_set_style(indicator->menubar, panel_get_defstyle(panel));
         gtk_widget_show(indicator->menubar);
     }
 
@@ -786,7 +783,7 @@ static GtkWidget *indicator_constructor(Panel *panel, config_setting_t *settings
     GTK_WIDGET_SET_FLAGS (indicator->menubar, GTK_WIDGET_FLAGS(indicator->menubar) | GTK_CAN_FOCUS);
 
     /* Init some theme/icon stuff */
-    gtk_icon_theme_append_search_path(panel->icon_theme,
+    gtk_icon_theme_append_search_path(panel_get_icon_theme(panel),
                                     INDICATOR_ICONS_DIR);
     g_debug("Icons directory: %s", INDICATOR_ICONS_DIR);
 
