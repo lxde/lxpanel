@@ -39,7 +39,8 @@ static gint g_iCount = 0;
 typedef struct
 {
   gint iMyId_;
-  GtkWidget * pWeather_;
+  GtkWidget *pWeather_;
+  config_setting_t *pConfig_;
 } WeatherPluginPrivate;
 
 
@@ -79,6 +80,8 @@ static GtkWidget *
 weather_constructor(Panel *pPanel, config_setting_t *pConfig)
 {
   WeatherPluginPrivate * pPriv = g_new0(WeatherPluginPrivate, 1);
+
+  pPriv->pConfig_ = pConfig;
 
   /* There is one more now... */
   ++g_iCount;
@@ -214,6 +217,50 @@ weather_constructor(Panel *pPanel, config_setting_t *pConfig)
 }
 
 /**
+ * Weather Plugin callback to save configuration
+ *
+ * @param pWidget Pointer to this widget.
+ */
+static void
+weather_save_configuration(GtkWidget *pWidget)
+{
+  WeatherPluginPrivate * pPriv = (WeatherPluginPrivate *) lxpanel_plugin_get_data(pWidget);
+
+  LXW_LOG(LXW_DEBUG, "weather_save_configuration(%d)", pPriv->iMyId_);
+
+  GValue location = G_VALUE_INIT;
+
+  g_value_init(&location, G_TYPE_POINTER);
+
+  /* pwid is the WeatherWidget */
+  g_object_get_property(G_OBJECT(pPriv->pWeather_),
+                        "location",
+                        &location);
+
+  LocationInfo * pLocation = g_value_get_pointer(&location);
+
+  if (pLocation)
+    {
+      /* save configuration */
+      config_group_set_string(pPriv->pConfig_, "alias", pLocation->pcAlias_);
+      config_group_set_string(pPriv->pConfig_, "city", pLocation->pcCity_);
+      config_group_set_string(pPriv->pConfig_, "state", pLocation->pcState_);
+      config_group_set_string(pPriv->pConfig_, "country", pLocation->pcCountry_);
+      config_group_set_string(pPriv->pConfig_, "woeid", pLocation->pcWOEID_);
+
+      char units[2] = {0};
+      if (snprintf(units, 2, "%c", pLocation->cUnits_) > 0)
+        {
+          config_group_set_string(pPriv->pConfig_, "units", units);
+        }
+
+      config_group_set_int(pPriv->pConfig_, "interval", (int) pLocation->uiInterval_);
+      config_group_set_int(pPriv->pConfig_, "enabled", (int) pLocation->bEnabled_);
+    }
+
+}
+
+/**
  * Weather Plugin configuration change callback.
  *
  * @param pPanel  Pointer to the panel instance.
@@ -228,11 +275,13 @@ weather_configuration_changed(Panel *pPanel, GtkWidget *pWidget)
     {
       LXW_LOG(LXW_DEBUG, 
              "   orientation: %s, width: %d, height: %d, icon size: %d\n", 
-             (pPanel->orientation == ORIENT_HORIZ)?"HORIZONTAL":
-             (pPanel->orientation == ORIENT_VERT)?"VERTICAL":"NONE",
-             pPanel->width, pPanel->height, pPanel->icon_size);
+              (panel_get_orientation(pPanel) == GTK_ORIENTATION_HORIZONTAL)?"HORIZONTAL":
+              (panel_get_orientation(pPanel) == GTK_ORIENTATION_VERTICAL)?"VERTICAL":"NONE",
+              pPanel->width, panel_get_height(pPanel), 
+              panel_get_icon_size(pPanel));
     }
 
+  weather_save_configuration(pWidget);
 }
 
 /**
@@ -254,44 +303,6 @@ weather_configure(Panel *pPanel G_GNUC_UNUSED, GtkWidget *pWidget, GtkWindow * p
   gtk_weather_run_preferences_dialog(GTK_WIDGET(pPriv->pWeather_));
 
   return pWidget;
-}
-
-/**
- * Weather Plugin callback to save configuration
- *
- * @param pPlugin Pointer to the PluginClass wrapper instance.
- * @param pFile Pointer to the FILE object
- */
-static void
-weather_save_configuration(Plugin * pPlugin, FILE *pFile)
-{
-  WeatherPluginPrivate * pPriv = (WeatherPluginPrivate *) pPlugin->priv;
-
-  LXW_LOG(LXW_DEBUG, "weather_save_configuration(%d)", pPriv->iMyId_);
-
-  GValue location = G_VALUE_INIT;
-
-  g_value_init(&location, G_TYPE_POINTER);
-
-  /* pwid is the WeatherWidget */
-  g_object_get_property(G_OBJECT(pPriv->pWeather_),
-                        "location",
-                        &location);
-
-  LocationInfo * pLocation = g_value_get_pointer(&location);
-
-  if (pLocation)
-    {
-      lxpanel_put_str(pFile, "alias", pLocation->pcAlias_);
-      lxpanel_put_str(pFile, "city", pLocation->pcCity_);
-      lxpanel_put_str(pFile, "state", pLocation->pcState_);
-      lxpanel_put_str(pFile, "country", pLocation->pcCountry_);
-      lxpanel_put_str(pFile, "woeid", pLocation->pcWOEID_);
-      lxpanel_put_line(pFile, "units=%c", pLocation->cUnits_);
-      lxpanel_put_int(pFile, "interval", pLocation->uiInterval_);
-      lxpanel_put_bool(pFile, "enabled", pLocation->bEnabled_);
-    }
-
 }
 
 FM_DEFINE_MODULE(lxpanel_gtk, weather)
