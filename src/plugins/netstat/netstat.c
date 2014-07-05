@@ -34,9 +34,7 @@
 #include "passwd_gui.h"
 #include "devproc.h"
 #include "wireless.h"
-#include "panel.h"
-#include "misc.h"
-#include "private.h"
+#include "plugin.h"
 #include "dbg.h"
 
 /* 1 second */
@@ -412,9 +410,9 @@ static gboolean refresh_devstat(netstat *ns)
 }
 
 /* Plugin constructor */
-static void netstat_destructor(Plugin *p)
+static void netstat_destructor(gpointer user_data)
 {
-    netstat *ns = (netstat *) p->priv;
+    netstat *ns = (netstat *) user_data;
 
     ENTER;
     g_source_remove(ns->ttag);
@@ -431,36 +429,18 @@ static void netstat_destructor(Plugin *p)
     RET();
 }
 
-static int netstat_constructor(Plugin *p, char **fp)
+static GtkWidget *netstat_constructor(Panel *panel, config_setting_t *settings)
 {
     netstat *ns;
-    line s;
+    const char *tmp;
+    GtkWidget *p;
 
     ENTER;
-    s.len = 256;
     ns = g_new0(netstat, 1);
-    g_return_val_if_fail(ns != NULL, 0);
-    p->priv = ns;
-	ns->fixcmd = NULL;
-
-    if( fp ) {
-        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
-            if (s.type == LINE_NONE) {
-                ERR( "netstat: illegal token %s\n", s.str);
-                goto error;
-            }
-            if (s.type == LINE_VAR) {
-                if (!g_ascii_strcasecmp(s.t[0], "FixCommand"))
-                    ns->fixcmd = g_strdup(s.t[1]);
-                else {
-                    ERR( "netstat: unknown var %s\n", s.t[0]);
-                }
-            } else {
-                ERR( "netstat: illegal in this context %s\n", s.str);
-                goto error;
-            }
-        }
-    }
+    g_return_val_if_fail(ns != NULL, NULL);
+    /* apply config */
+    if (config_setting_lookup_string(settings, "FixCommand", &tmp))
+        ns->fixcmd = g_strdup(tmp);
 
     /* initializing */
     ns->fnetd = malloc(sizeof(FNETD));
@@ -470,7 +450,7 @@ static int netstat_constructor(Plugin *p, char **fp)
     ns->fnetd->lxnmchannel = lxnm_socket();
 
     /* main */
-    ns->mainw = p->panel->my_box_new(FALSE, 1);
+    ns->mainw = panel_box_new(panel, FALSE, 1);
     gtk_widget_show_all(ns->mainw);
 
     /* Initializing network device list*/
@@ -482,45 +462,30 @@ static int netstat_constructor(Plugin *p, char **fp)
 
     ns->ttag = g_timeout_add(NETSTAT_IFACE_POLL_DELAY, (GSourceFunc)refresh_devstat, ns);
 
-    p->pwid = gtk_event_box_new();
-    GTK_WIDGET_SET_FLAGS(p->pwid, GTK_NO_WINDOW);
-    gtk_container_add((GtkContainer*)p->pwid, ns->mainw);
+    p = gtk_event_box_new();
+    lxpanel_plugin_set_data(p, ns, netstat_destructor);
+    GTK_WIDGET_SET_FLAGS(p, GTK_NO_WINDOW);
+    gtk_container_add((GtkContainer*)p, ns->mainw);
 
-    RET(1);
-error:
-    g_free(ns->fnetd);
-    g_free(ns->fixcmd);
-    g_free(ns);
-    RET(0);
+    RET(p);
 }
 
-static void orientation_changed(Plugin* p)
+static void orientation_changed(Panel *panel, GtkWidget *p)
 {
-    netstat *ns = (netstat *)p->priv;
-    GtkBox* newbox;
-    newbox = GTK_BOX(recreate_box(GTK_BOX(ns->mainw), p->panel->orientation));
-    if( GTK_WIDGET(newbox) != ns->mainw ) {
-        /* Since the old box has been destroyed,
-        we need to re-add the new box to the container */
-        ns->mainw = GTK_WIDGET(newbox);
-        gtk_container_add(GTK_CONTAINER(p->pwid), ns->mainw);
-    }
+    netstat *ns = lxpanel_plugin_get_data(p);
+
+    gtk_orientable_set_orientation(GTK_ORIENTABLE(ns->mainw),
+                                   panel_get_orientation(panel));
 }
 
-PluginClass netstat_plugin_class = {
-    
-    PLUGINCLASS_VERSIONING,
+FM_DEFINE_MODULE(lxpanel_gtk, netstat)
 
-    .type = "netstat",
+LXPanelPluginInit fm_module_init_lxpanel_gtk = {
     .name = N_("Manage Networks"),
-    .version = "1.0",
     .description = N_("Monitor and Manage networks"),
 
-    .constructor = netstat_constructor,
-    .destructor  = netstat_destructor,
-    .panel_configuration_changed = orientation_changed,
-    .config = NULL,
-    .save = NULL
+    .new_instance = netstat_constructor,
+    .reconfigure = orientation_changed,
 };
 
 /* vim: set sw=4 sts=4 et : */
