@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-27 08:58+0100\n"
-"PO-Revision-Date: 2014-04-21 20:49+0000\n"
+"PO-Revision-Date: 2014-07-05 10:48+0000\n"
 "Last-Translator: Juhani <juhaninumminen0@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fi\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1398113376.0\n"
+"X-POOTLE-MTIME: 1404557328.0\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:55 ../src/gtk-run.c:361 ../src/plugins/menu.c:770
@@ -260,7 +260,7 @@ msgstr "Näytä ikkunat kaikilta työpöydiltä"
 
 #: ../data/ui/launchtaskbar.glade.h:9
 msgid "Only show windows on the same monitor as the task bar"
-msgstr ""
+msgstr "Näytä vain tehtäväpalkin kanssa samalla näytöllä olevat ikkunat"
 
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Use mouse wheel"
@@ -283,9 +283,8 @@ msgid "Spacing"
 msgstr "Väli"
 
 #: ../data/ui/launchtaskbar.glade.h:15
-#, fuzzy
 msgid "<b>Taskbar</b>"
-msgstr "<b>Taustakuva</b>"
+msgstr "<b>Tehtäväpalkki</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:16
 msgid "Only Application Launch Bar"
@@ -638,7 +637,7 @@ msgstr "P_oista käynnistimestä"
 
 #: ../src/plugins/launchtaskbar.c:3314
 msgid "_New Instance"
-msgstr ""
+msgstr "_Uusi instanssi"
 
 #: ../src/plugins/launchtaskbar.c:3384
 msgid "Application Launch Bar"
@@ -661,9 +660,10 @@ msgstr ""
 "pienentämisen, piilottamisen ja aktivoimisen."
 
 #: ../src/plugins/launchtaskbar.c:3415
-#, fuzzy
 msgid "Bar with buttons to launch application and/or show all opened windows"
-msgstr "Käynnistyspalkki painikkeiden kanssa"
+msgstr ""
+"Käynnistyspalkki, jossa on painikkeet sovelluksen käynnistämiseen tai "
+"kaikkien avattujen ikkunoiden näyttämiseen"
 
 #: ../src/plugins/dclock.c:423 ../src/plugins/dclock.c:443
 msgid "Digital Clock"
@@ -765,9 +765,8 @@ msgid "Description"
 msgstr "Kuvaus"
 
 #: ../src/plugins/xkb/xkb-plugin.c:656 ../src/plugins/xkb/xkb-plugin.c:785
-#, fuzzy
 msgid "Id"
-msgstr "Jouten"
+msgstr "ID"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:750
@@ -886,7 +885,6 @@ msgid "Label"
 msgstr "Nimi"
 
 #: ../src/plugins/dirmenu.c:378
-#, fuzzy
 msgid "Browse directory tree via menu (Author = PCMan)"
 msgstr "Selaa hakemistopuuta valikon kautta (tekijä: PCMan)"
 
@@ -936,14 +934,18 @@ msgid ""
 "Frequency: %d MHz\n"
 "Governor: %s"
 msgstr ""
+"Kellotaajuus: %d MHz\n"
+"Governor: %s"
 
 #: ../src/plugins/cpufreq/cpufreq.c:421
 msgid "CPUFreq frontend"
-msgstr ""
+msgstr "CPUFreq-edustaohjelma"
 
 #: ../src/plugins/cpufreq/cpufreq.c:422
 msgid "Display CPU frequency and allow to change governors and frequency"
 msgstr ""
+"Näyttää suorittimen kellotaajuuden sekä sallii vaihtaa governoria ja muuttaa "
+"taajuutta"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -1371,10 +1373,8 @@ msgid "Cannot open /proc/net/dev: %s"
 msgstr "Ei voida avata polkua /proc/net/dev: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:185
-#, fuzzy
 msgid "Could not parse /proc/net/dev. No data."
-msgstr ""
-"Tiedoston /dev/proc/net jäsentäminen ei onnistunut. Tuntematon muotoilu."
+msgstr "Tiedoston /dev/proc/net jäsentäminen ei onnistunut. Ei dataa."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:190
 msgid "Could not parse /proc/net/dev. Unknown format."
@@ -1398,9 +1398,8 @@ msgstr ""
 "ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:312
-#, fuzzy
 msgid "Could not parse /proc/net/wireless. No data."
-msgstr "Tiedostoa /proc/net/wireless ei voitu jäsentää. Tuntematon muotoilu."
+msgstr "Tiedostoa /proc/net/wireless ei voitu jäsentää. Ei dataa."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:316
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1473,6 +1472,8 @@ msgid ""
 "\n"
 "%sEnergy full design:\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sEnergia täynnä, design:\t\t%5d mWh"
 
 #: ../src/plugins/batt/batt.c:180
 #, c-format
@@ -1480,6 +1481,8 @@ msgid ""
 "\n"
 "%sEnergy full:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sEnergia täynnä\t\t\t%5d mWh"
 
 #: ../src/plugins/batt/batt.c:182
 #, c-format
@@ -1505,6 +1508,8 @@ msgid ""
 "\n"
 "%sCharge full design:\t%5d mAh"
 msgstr ""
+"\n"
+"%sTäysi lataus, design:\t%5d mAh"
 
 #: ../src/plugins/batt/batt.c:189
 #, c-format
@@ -1512,6 +1517,8 @@ msgid ""
 "\n"
 "%sCharge full:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sTäysi lataus:\t\t\t%5d mAh"
 
 #: ../src/plugins/batt/batt.c:191
 #, c-format
@@ -1519,6 +1526,8 @@ msgid ""
 "\n"
 "%sCharge now:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sLataus nyt:\t\t\t%5d mAh"
 
 #: ../src/plugins/batt/batt.c:193
 #, c-format
@@ -1687,12 +1696,11 @@ msgstr "–"
 
 #: ../src/plugins/weather/weatherwidget.c:784
 msgid "Enter New Location"
-msgstr ""
+msgstr "Kirjoita uusi sijainti"
 
 #: ../src/plugins/weather/weatherwidget.c:798
-#, fuzzy
 msgid "_New Location:"
-msgstr "Verkkoyhteys"
+msgstr "_Uusi sijainti:"
 
 #: ../src/plugins/weather/weatherwidget.c:809
 msgid ""
@@ -1702,11 +1710,16 @@ msgid ""
 "- postal code\n"
 "for which to retrieve the weather forecast."
 msgstr ""
+"Kirjoita\n"
+"- kaupunki,\n"
+"- kaupunki ja maa tai\n"
+"- postinumero\n"
+"jonka sääennuste haetaan."
 
 #: ../src/plugins/weather/weatherwidget.c:846
 #: ../src/plugins/weather/weatherwidget.c:979
 msgid "You must specify a location."
-msgstr ""
+msgstr "Sijainti täytyy määrittää."
 
 #: ../src/plugins/weather/weatherwidget.c:893
 #, c-format
@@ -1748,33 +1761,32 @@ msgid "Display"
 msgstr "Näyttö"
 
 #: ../src/plugins/weather/weatherwidget.c:1205
-#, fuzzy
 msgid "Name:"
-msgstr "_Nimi:"
+msgstr "Nimi:"
 
 #: ../src/plugins/weather/weatherwidget.c:1209
 msgid "Units:"
-msgstr ""
+msgstr "Yksikköjärjestelmä:"
 
 #: ../src/plugins/weather/weatherwidget.c:1213
 msgid "_Metric (°C)"
-msgstr ""
+msgstr "_SI-yksiköt (°C)"
 
 #: ../src/plugins/weather/weatherwidget.c:1215
 msgid "_English (°F)"
-msgstr ""
+msgstr "_Englantilainen (°F)"
 
 #: ../src/plugins/weather/weatherwidget.c:1250
 msgid "Forecast"
-msgstr ""
+msgstr "Ennuste"
 
 #: ../src/plugins/weather/weatherwidget.c:1254
 msgid "Updates:"
-msgstr ""
+msgstr "Päivitykset:"
 
 #: ../src/plugins/weather/weatherwidget.c:1258
 msgid "Ma_nual"
-msgstr ""
+msgstr "_Käsin"
 
 #: ../src/plugins/weather/weatherwidget.c:1262
 msgid "_Automatic, every"
@@ -1796,7 +1808,7 @@ msgstr "Vai_hda"
 #: ../src/plugins/weather/weatherwidget.c:1519
 #, c-format
 msgid "Current Conditions for %s"
-msgstr ""
+msgstr "Säätila – %s"
 
 #: ../src/plugins/weather/weatherwidget.c:1543
 msgid "Location:"
@@ -1815,37 +1827,36 @@ msgid "Humidity:"
 msgstr "Kosteus:"
 
 #: ../src/plugins/weather/weatherwidget.c:1645
-#, fuzzy
 msgid "Pressure:"
-msgstr "IP-osoite:"
+msgstr "Paine:"
 
 #: ../src/plugins/weather/weatherwidget.c:1672
 msgid "Visibility:"
-msgstr ""
+msgstr "Näkyvyys:"
 
 #: ../src/plugins/weather/weatherwidget.c:1700
 msgid "Wind:"
-msgstr ""
+msgstr "Tuuli:"
 
 #: ../src/plugins/weather/weatherwidget.c:1723
 msgid "Sunrise:"
-msgstr ""
+msgstr "Aurinko nousee:"
 
 #: ../src/plugins/weather/weatherwidget.c:1746
 msgid "Sunset:"
-msgstr ""
+msgstr "Aurinko laskee:"
 
 #: ../src/plugins/weather/weatherwidget.c:1854
 #: ../src/plugins/weather/weatherwidget.c:2190
 #, c-format
 msgid "Forecast for %s unavailable."
-msgstr ""
+msgstr "Paikkakunnan %s sääennuste ei ole saatavilla."
 
 #: ../src/plugins/weather/weatherwidget.c:1863
 #: ../src/plugins/weather/weatherwidget.c:2195
-#, fuzzy, c-format
+#, c-format
 msgid "Location not set."
-msgstr "Uloskirjautumisen komentoa ei ole asetettu"
+msgstr "Sijaintia ei ole asetettu."
 
 #: ../src/plugins/weather/weatherwidget.c:1880
 #, c-format
