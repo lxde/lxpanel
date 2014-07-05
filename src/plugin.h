@@ -60,7 +60,8 @@ G_BEGIN_DECLS
  * also lxpanel_generic_config_dlg().
  *
  * Callback @reconfigure is called when panel configuration was changed
- * in the panel configuration dialog.
+ * in the panel configuration dialog so the instance may change layout of
+ * own subwidgets appropriately to new geometry.
  */
 typedef struct {
     /*< public >*/

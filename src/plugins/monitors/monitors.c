@@ -68,9 +68,9 @@
 #include <stdlib.h>
 #include <glib/gi18n.h>
 #include <errno.h>
+#include <libfm/fm-gtk.h>
 
-#include "private.h"
-#include "panel.h"
+#include "plugin.h"
 #include "misc.h"
 
 #include "dbg.h"
@@ -122,6 +122,8 @@ typedef void (*tooltip_update_func) (Monitor *);
 
 /* Our plugin */
 typedef struct {
+    Panel *panel;
+    config_setting_t *settings;
     Monitor  *monitors[N_MONITORS];          /* Monitors                      */
     int      displayed_monitors[N_MONITORS]; /* Booleans                      */
     char     *action;                        /* What to do on click           */
@@ -131,9 +133,7 @@ typedef struct {
 /* 
  * Prototypes 
  */
-static Monitor* monitor_init(Plugin *, Monitor *, gchar *);
-static void monitor_free(Monitor *m);
-static void monitor_set_foreground_color(Plugin *, Monitor *, const gchar *);
+static void monitor_set_foreground_color(MonitorsPlugin *, Monitor *, const gchar *);
 
 /* CPU Monitor */
 static gboolean cpu_update(Monitor *);
@@ -147,41 +147,33 @@ static void     mem_tooltip_update (Monitor *m);
 static gboolean configure_event(GtkWidget*, GdkEventConfigure*, gpointer);
 static gboolean expose_event(GtkWidget *, GdkEventExpose *, Monitor *);
 static void redraw_pixmap (Monitor *m);
-static gboolean monitors_button_press_event(GtkWidget*, GdkEventButton*, Plugin*);
 
 /* Monitors functions */
-static int monitors_constructor(Plugin *, char **);
-static void monitors_destructor(Plugin*p);
-static void monitors_config (Plugin *p, GtkWindow *parent);
-static void monitors_apply_config (Plugin *);
-static void monitors_save(Plugin *p, FILE *fp);
-static gboolean monitors_update(gpointer);
-static Monitor* monitors_add_monitor (Plugin *p, MonitorsPlugin *mp, 
-        update_func update, tooltip_update_func update_tooltip, gchar *color);
-
+static void monitors_destructor(gpointer);
+static gboolean monitors_apply_config(gpointer);
 
 
 /******************************************************************************
  *                              Monitor functions                             *
  ******************************************************************************/
 static Monitor*
-monitor_init(Plugin *p, Monitor *m, gchar *color) 
+monitor_init(MonitorsPlugin *mp, Monitor *m, gchar *color) 
 {
     ENTER;
 
     m->da = gtk_drawing_area_new();
-    gtk_widget_set_size_request(m->da, DEFAULT_WIDTH, PANEL_HEIGHT_DEFAULT);
+    gtk_widget_set_size_request(m->da, DEFAULT_WIDTH, panel_get_height(mp->panel));
     gtk_widget_add_events(m->da, GDK_BUTTON_PRESS_MASK);
 
-    monitor_set_foreground_color(p, m, color);
+    monitor_set_foreground_color(mp, m, color);
 
     /* Signals */
     g_signal_connect(G_OBJECT(m->da), "configure-event", 
         G_CALLBACK(configure_event), (gpointer) m);
     g_signal_connect (G_OBJECT(m->da), "expose-event",
         G_CALLBACK(expose_event), (gpointer) m);
-    g_signal_connect(G_OBJECT(m->da), "button-press-event", 
-                    G_CALLBACK(plugin_button_press_event), p);
+    /* g_signal_connect(G_OBJECT(m->da), "button-press-event", 
+                    G_CALLBACK(plugin_button_press_event), p); */
 
     return m;
 }
@@ -203,7 +195,7 @@ monitor_free(Monitor *m)
 }
 
 static void
-monitor_set_foreground_color(Plugin *p, Monitor *m, const gchar *color)
+monitor_set_foreground_color(MonitorsPlugin *mp, Monitor *m, const gchar *color)
 {
     g_free(m->color);
     m->color = g_strndup(color, COLOR_SIZE - 1);
@@ -409,7 +401,7 @@ configure_event(GtkWidget* widget, GdkEventConfigure* dummy, gpointer data)
         if (!m->stats || (new_pixmap_width != m->pixmap_width))
         {
             stats_set *new_stats = g_new0(stats_set, new_pixmap_width);
-            
+
             if (!new_stats)
                 return TRUE;
 
@@ -469,7 +461,7 @@ configure_event(GtkWidget* widget, GdkEventConfigure* dummy, gpointer data)
         check_cairo_surface_status(&m->pixmap);
         redraw_pixmap(m);
     }
-    
+
     return TRUE;
 }
 
@@ -489,24 +481,23 @@ expose_event(GtkWidget * widget, GdkEventExpose * event, Monitor *m)
         check_cairo_status(cr);
         cairo_destroy(cr);
     }
-    
+
     return FALSE;
-    
 }
 
 
-static gboolean monitors_button_press_event(GtkWidget* widget, GdkEventButton* evt, Plugin *plugin)
+static gboolean monitors_button_press_event(GtkWidget* widget, GdkEventButton* evt, Panel *panel)
 {
-    MonitorsPlugin* mp = plugin->priv;
+    MonitorsPlugin* mp = lxpanel_plugin_get_data(widget);
 
     /* Standard right-click handling. */
-    if (plugin_button_press_event(widget, evt, plugin))
+    if (lxpanel_plugin_button_press_event(widget, evt, panel))
         return TRUE;
 
     if (mp->action != NULL)
-        spawn_command_async(NULL, NULL, mp->action);
+        fm_launch_command_simple(NULL, NULL, 0, mp->action, NULL);
     else
-        spawn_command_async(NULL, NULL, "lxtask");
+        fm_launch_command_simple(NULL, NULL, 0, "lxtask", NULL);
 
     return TRUE;
 }
@@ -597,7 +588,7 @@ monitors_update(gpointer data)
 }
 
 static Monitor*
-monitors_add_monitor (Plugin *p, MonitorsPlugin *mp, update_func update,
+monitors_add_monitor (GtkWidget *p, MonitorsPlugin *mp, update_func update,
              tooltip_update_func update_tooltip, gchar *color)
 {
     ENTER;
@@ -605,65 +596,48 @@ monitors_add_monitor (Plugin *p, MonitorsPlugin *mp, update_func update,
     Monitor *m;
 
     m = g_new0(Monitor, 1);
-    m = monitor_init(p, m, color);
+    m = monitor_init(mp, m, color);
     m->update = update;
     m->update_tooltip = update_tooltip;
-    gtk_box_pack_start(GTK_BOX(p->pwid), m->da, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(p), m->da, FALSE, FALSE, 0);
     gtk_widget_show(m->da);
 
     RET(m);
 }
 
-static int
-monitors_constructor(Plugin *p, char **fp)
+static GtkWidget *
+monitors_constructor(Panel *panel, config_setting_t *settings)
 {
     ENTER;
     int i;
     MonitorsPlugin *mp;
+    GtkWidget *p;
+    const char *tmp;
 
     mp = g_new0(MonitorsPlugin, 1);
-    p->priv = mp;
+    mp->panel = panel;
+    mp->settings = settings;
 
-    p->pwid = gtk_hbox_new(TRUE, 2);
-    gtk_container_set_border_width(GTK_CONTAINER(p->pwid), 1);
-    GTK_WIDGET_SET_FLAGS(p->pwid, GTK_NO_WINDOW);
-    g_signal_connect(G_OBJECT(p->pwid), "button-press-event", G_CALLBACK(monitors_button_press_event), (gpointer) p);
+    p = gtk_hbox_new(TRUE, 2);
+    lxpanel_plugin_set_data(p, mp, monitors_destructor);
+    gtk_container_set_border_width(GTK_CONTAINER(p), 1);
+    GTK_WIDGET_SET_FLAGS(p, GTK_NO_WINDOW);
+
+    /* First time we use this plugin : only display CPU usage */
+    mp->displayed_monitors[CPU_POSITION] = 1;
 
     /* Apply options */
-    line s;
-    s.len = 256;
+    config_setting_lookup_int(settings, "DisplayCPU",
+                              &mp->displayed_monitors[CPU_POSITION]);
+    config_setting_lookup_int(settings, "DisplayRAM",
+                              &mp->displayed_monitors[MEM_POSITION]);
+    if (config_setting_lookup_string(settings, "Action", &tmp))
+        mp->action = g_strdup(tmp);
+    if (config_setting_lookup_string(settings, "CPUColor", &tmp))
+        colors[CPU_POSITION] = g_strndup(tmp, COLOR_SIZE-1);
+    if (config_setting_lookup_string(settings, "RAMColor", &tmp))
+        colors[MEM_POSITION] = g_strndup(tmp, COLOR_SIZE-1);
 
-    if (fp)
-    {
-        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
-            if (s.type == LINE_NONE) {
-                ERR("%s : illegal token %s\n", PLUGIN_NAME, s.str);
-                continue;
-            }
-            if (s.type == LINE_VAR) {
-                if (g_ascii_strcasecmp(s.t[0], "DisplayCPU") == 0)
-                    mp->displayed_monitors[CPU_POSITION] = atoi(s.t[1]);
-                else if (g_ascii_strcasecmp(s.t[0], "DisplayRAM") == 0)
-                    mp->displayed_monitors[MEM_POSITION] = atoi(s.t[1]);
-                else if (g_ascii_strcasecmp(s.t[0], "Action") == 0)
-                    mp->action = g_strdup(s.t[1]);
-                else if (g_ascii_strcasecmp(s.t[0], "CPUColor") == 0)
-                    colors[CPU_POSITION] = g_strndup(s.t[1], COLOR_SIZE-1);
-                else if (g_ascii_strcasecmp(s.t[0], "RAMColor") == 0)
-                    colors[MEM_POSITION] = g_strndup(s.t[1], COLOR_SIZE-1);
-                else {
-                    ERR("%s : unknown var %s\n", PLUGIN_NAME, s.t[0]);
-                    continue;
-                }
-            }
-        }
-    }
-    else
-    {
-        /* First time we use this plugin : only display CPU usage */
-        mp->displayed_monitors[CPU_POSITION] = 1;
-    }
-  
     /* Initializing monitors */ 
     for (i = 0; i < N_MONITORS; i++)
     {
@@ -678,26 +652,26 @@ monitors_constructor(Plugin *p, char **fp)
                                                    colors[i]);
         }
     }
-   
+
     /* Adding a timer : monitors will be updated every UPDATE_PERIOD
      * seconds */
     mp->timer = g_timeout_add_seconds(UPDATE_PERIOD, (GSourceFunc) monitors_update,
                               (gpointer) mp);
-    RET(TRUE);
+    RET(p);
 }
 
 static void
-monitors_destructor(Plugin *p)
+monitors_destructor(gpointer user_data)
 {
     ENTER;
     int            i;
     MonitorsPlugin *mp;
-    
-    mp = (MonitorsPlugin *) p->priv;
+
+    mp = (MonitorsPlugin *) user_data;
 
     /* Removing timer */
     g_source_remove(mp->timer);
-    
+
     /* Freeing all monitors */
     for (i = 0; i < N_MONITORS; i++)
     {
@@ -712,36 +686,35 @@ monitors_destructor(Plugin *p)
 }
 
 
-static void 
-monitors_config (Plugin *p, GtkWindow *parent)
+static GtkWidget *
+monitors_config (Panel *panel, GtkWidget *p, GtkWindow *parent)
 {
     ENTER;
 
     GtkWidget *dialog;
     MonitorsPlugin *mp;
 
-    mp = (MonitorsPlugin *) p->priv;
+    mp = lxpanel_plugin_get_data(p);
 
-    dialog = create_generic_config_dlg(_(p->class->name),
-        GTK_WIDGET(parent),
-        (GSourceFunc) monitors_apply_config, (gpointer) p,
+    dialog = lxpanel_generic_config_dlg(_("Resource monitors"),
+        panel, monitors_apply_config, p,
         _("Display CPU usage"), &mp->displayed_monitors[0], CONF_TYPE_BOOL,
         _("CPU color"), &colors[CPU_POSITION], CONF_TYPE_STR,
         _("Display RAM usage"), &mp->displayed_monitors[1], CONF_TYPE_BOOL,
         _("RAM color"), &colors[MEM_POSITION], CONF_TYPE_STR,
         _("Action when clicked (default: lxtask)"), &mp->action, CONF_TYPE_STR,
         NULL);
-    gtk_window_present(GTK_WINDOW(dialog));    
 
-    RET();
+    RET(dialog);
 }
 
-static void
-monitors_apply_config (Plugin *p)
+static gboolean
+monitors_apply_config (gpointer user_data)
 {
     ENTER;
+    GtkWidget *p = user_data;
     MonitorsPlugin *mp;
-    mp = (MonitorsPlugin *) p->priv;
+    mp = lxpanel_plugin_get_data(p);
 
     int i;
     int current_n_monitors = 0;
@@ -767,13 +740,13 @@ start:
              * gtk_box_pack_start/gtk_box_pack_end, and use
              * gtk_box_reorder_child.
              */
-            gtk_box_reorder_child(GTK_BOX(p->pwid), 
+            gtk_box_reorder_child(GTK_BOX(p), 
                                   mp->monitors[i]->da,current_n_monitors-1);
         }
         else if (!mp->displayed_monitors[i] && mp->monitors[i])
         {
             /* We've just removed monitor<i> */
-            gtk_container_remove(GTK_CONTAINER(p->pwid), mp->monitors[i]->da);
+            gtk_container_remove(GTK_CONTAINER(p), mp->monitors[i]->da);
             monitor_free(mp->monitors[i]);
             mp->monitors[i] = NULL;
         }
@@ -781,7 +754,7 @@ start:
             strncmp(mp->monitors[i]->color, colors[i], COLOR_SIZE) != 0)
         {
             /* We've changed the color */
-            monitor_set_foreground_color(p, mp->monitors[i], colors[i]);
+            monitor_set_foreground_color(mp, mp->monitors[i], colors[i]);
         }
     }
 
@@ -793,43 +766,26 @@ start:
         mp->displayed_monitors[0] = 1;
         goto start;
     }
+    config_group_set_int(mp->settings, "DisplayCPU", mp->displayed_monitors[CPU_POSITION]);
+    config_group_set_int(mp->settings, "DisplayRAM", mp->displayed_monitors[MEM_POSITION]);
+    config_group_set_string(mp->settings, "Action", mp->action);
+    config_group_set_string(mp->settings, "CPUColor",
+                            mp->monitors[CPU_POSITION] ? colors[CPU_POSITION] : NULL);
+    config_group_set_string(mp->settings, "RAMColor",
+                            mp->monitors[MEM_POSITION] ? colors[MEM_POSITION] : NULL);
 
-    RET();
+    RET(FALSE);
 }
 
-static void
-monitors_save(Plugin *p, FILE *fp)
-{
-    ENTER;
 
-    MonitorsPlugin *mp;
-    
-    mp = (MonitorsPlugin *) p->priv;
+FM_DEFINE_MODULE(lxpanel_gtk, monitors)
 
-    lxpanel_put_bool(fp, "DisplayCPU", mp->displayed_monitors[CPU_POSITION]);
-    lxpanel_put_bool(fp, "DisplayRAM", mp->displayed_monitors[MEM_POSITION]);
-    lxpanel_put_str(fp, "Action", mp->action);
-
-    if (mp->monitors[CPU_POSITION])
-        lxpanel_put_str(fp, "CPUColor", colors[CPU_POSITION]);
-
-    if (mp->monitors[MEM_POSITION])
-        lxpanel_put_str(fp, "RAMColor", colors[MEM_POSITION]);
-
-    RET();    
-}
-
-PluginClass monitors_plugin_class = {
-    PLUGINCLASS_VERSIONING,
-    .type = "monitors",
+LXPanelPluginInit fm_module_init_lxpanel_gtk = {
     .name = N_("Resource monitors"),
-    .version = "0.1", 
     .description = N_("Display monitors (CPU, RAM)"),
-    .constructor = monitors_constructor,
-    .destructor = monitors_destructor,
+    .new_instance = monitors_constructor,
     .config = monitors_config,
-    .save = monitors_save,
-    .panel_configuration_changed = NULL
+    .button_press_event = monitors_button_press_event
 };
 
 /* vim: set sw=4 sts=4 et : */
