@@ -22,9 +22,8 @@
 #include <gdk-pixbuf/gdk-pixbuf.h>
 #include <glib/gi18n.h>
 
-#include "panel.h"
+#include "plugin.h"
 #include "misc.h"
-#include "private.h"
 
 #include "dbg.h"
 
@@ -32,18 +31,19 @@
 #include "netstatus-dialog.h"
 
 typedef struct {
-    Plugin* plugin;
+    config_setting_t *settings;
     char *iface;
     char *config_tool;
-    GtkWidget *mainw;
     GtkWidget *dlg;
 } netstatus;
 
 
+static void on_response( GtkDialog* dlg, gint response, netstatus *ns );
+
 static void
-netstatus_destructor(Plugin *p)
+netstatus_destructor(gpointer user_data)
 {
-    netstatus *ns = (netstatus *)p->priv;
+    netstatus *ns = (netstatus *)user_data;
 
     ENTER;
     /* The widget is destroyed in plugin_stop().
@@ -51,6 +51,11 @@ netstatus_destructor(Plugin *p)
     */
     g_free( ns->iface );
     g_free( ns->config_tool );
+    if (ns->dlg)
+    {
+        g_signal_handlers_disconnect_by_func(ns->dlg, on_response, ns);
+        gtk_widget_destroy(ns->dlg);
+    }
     g_free(ns);
     RET();
 }
@@ -74,13 +79,13 @@ static void on_response( GtkDialog* dlg, gint response, netstatus *ns )
     }
 }
 
-static gboolean on_button_press( GtkWidget* widget, GdkEventButton* evt, Plugin* p )
+static gboolean on_button_press( GtkWidget* widget, GdkEventButton* evt, Panel *p )
 {
     NetstatusIface* iface;
-    netstatus *ns = (netstatus*)p->priv;
+    netstatus *ns = lxpanel_plugin_get_data(widget);
 
     /* Standard right-click handling. */
-    if (plugin_button_press_event(widget, evt, p))
+    if (lxpanel_plugin_button_press_event(widget, evt, p))
         return TRUE;
 
     if( evt->button == 1 ) /*  Left click*/
@@ -91,7 +96,7 @@ static gboolean on_button_press( GtkWidget* widget, GdkEventButton* evt, Plugin*
             ns->dlg = netstatus_dialog_new(iface);
 
             /* fix background */
-            gtk_widget_set_style(ns->dlg, p->panel->defstyle);
+            gtk_widget_set_style(ns->dlg, panel_get_defstyle(p));
 
             netstatus_dialog_set_configuration_tool( ns->dlg, ns->config_tool );
             g_signal_connect( ns->dlg, "response", G_CALLBACK(on_response), ns );
@@ -101,108 +106,70 @@ static gboolean on_button_press( GtkWidget* widget, GdkEventButton* evt, Plugin*
     return TRUE;
 }
 
-static int
-netstatus_constructor(Plugin *p, char** fp)
+static GtkWidget *
+netstatus_constructor(Panel *panel, config_setting_t *settings)
 {
     netstatus *ns;
-    line s;
     NetstatusIface* iface;
+    GtkWidget *p;
+    const char *tmp;
 
     ENTER;
-    s.len = 256;
     ns = g_new0(netstatus, 1);
-    g_return_val_if_fail(ns != NULL, 0);
-    p->priv = ns;
-    ns->plugin = p;
-    if( fp )
-    {
-        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
-            if (s.type == LINE_NONE) {
-                ERR( "netstatus: illegal token %s\n", s.str);
-                goto error;
-            }
-            if (s.type == LINE_VAR) {
-                if (!g_ascii_strcasecmp(s.t[0], "iface"))
-                    ns->iface = g_strdup(s.t[1]);
-                else if (!g_ascii_strcasecmp(s.t[0], "configtool"))
-                    ns->config_tool = g_strdup(s.t[1]);
-                else {
-                    ERR( "netstatus: unknown var %s\n", s.t[0]);
-                }
-            } else {
-                ERR( "netstatus: illegal in this context %s\n", s.str);
-                goto error;
-            }
-        }
-    }
-    else
-    {
-        ns->iface = g_strdup("eth0");
-        ns->config_tool = g_strdup("network-admin --configure %i");
-    }
+    ns->settings = settings;
+    g_return_val_if_fail(ns != NULL, NULL);
+
+    if (!config_setting_lookup_string(settings, "iface", &tmp))
+        tmp = "eth0";
+    ns->iface = g_strdup(tmp);
+    if (!config_setting_lookup_string(settings, "configtool", &tmp))
+        tmp = "network-admin --configure %i";
+    ns->config_tool = g_strdup(tmp);
 
     iface = netstatus_iface_new(ns->iface);
-    ns->mainw = netstatus_icon_new( iface );
-    netstatus_icon_set_show_signal((NetstatusIcon *)ns->mainw, TRUE);
-    gtk_widget_add_events( ns->mainw, GDK_BUTTON_PRESS_MASK );
+    p = netstatus_icon_new( iface );
+    lxpanel_plugin_set_data(p, ns, netstatus_destructor);
+    netstatus_icon_set_show_signal((NetstatusIcon *)p, TRUE);
+    gtk_widget_add_events( p, GDK_BUTTON_PRESS_MASK );
     g_object_unref( iface );
-    g_signal_connect( ns->mainw, "button-press-event",
-                      G_CALLBACK(on_button_press), p );
 
-    gtk_widget_show(ns->mainw);
-
-    p->pwid = ns->mainw;
-
-    RET(1);
-
- error:
-    RET(0);
+    RET(p);
 }
 
-static void apply_config(Plugin* p)
+static gboolean apply_config(gpointer user_data)
 {
-    netstatus *ns = (netstatus *)p->priv;
+    GtkWidget *p = user_data;
+    netstatus *ns = lxpanel_plugin_get_data(p);
     NetstatusIface* iface;
 
     iface = netstatus_iface_new(ns->iface);
-    netstatus_icon_set_iface((NetstatusIcon *)ns->mainw, iface);
+    netstatus_icon_set_iface((NetstatusIcon *)p, iface);
+    g_object_unref(iface);
+    config_group_set_string(ns->settings, "iface", ns->iface);
+    config_group_set_string(ns->settings, "configtool", ns->config_tool);
+    return FALSE;
 }
 
-static void netstatus_config( Plugin* p, GtkWindow* parent  )
+static GtkWidget *netstatus_config(Panel *panel, GtkWidget *p, GtkWindow *parent)
 {
     GtkWidget* dlg;
-    netstatus *ns = (netstatus*)p->priv;
-    dlg = create_generic_config_dlg(
-                _(p->class->name),
-                GTK_WIDGET(parent),
-                (GSourceFunc) apply_config, p,
+    netstatus *ns = lxpanel_plugin_get_data(p);
+    dlg = lxpanel_generic_config_dlg(_("Network Status Monitor"),
+                panel, apply_config, p,
                 _("Interface to monitor"), &ns->iface, CONF_TYPE_STR,
                 _("Config tool"), &ns->config_tool, CONF_TYPE_STR,
                 NULL );
-    gtk_window_present( GTK_WINDOW(dlg) );
+    return dlg;
 }
 
-static void save_config( Plugin* p, FILE* fp )
-{
-    netstatus *ns = (netstatus*)p->priv;
-    lxpanel_put_str( fp, "iface", ns->iface );
-    lxpanel_put_str( fp, "configtool", ns->config_tool );
-}
 
-PluginClass netstatus_plugin_class = {
+FM_DEFINE_MODULE(lxpanel_gtk, netstatus)
 
-    PLUGINCLASS_VERSIONING,
-
-    .type = "netstatus",
+LXPanelPluginInit fm_module_init_lxpanel_gtk = {
     .name = N_("Network Status Monitor"),
-    .version = "1.0",
     .description = N_("Monitor network status"),
 
-    /* Reloading netstatus results in segfault due to registering static type. */
-    .not_unloadable = TRUE,
-
-    .constructor = netstatus_constructor,
-    .destructor  = netstatus_destructor,
+    .new_instance = netstatus_constructor,
     .config = netstatus_config,
-    .save = save_config
+    .button_press_event = on_button_press
 };
