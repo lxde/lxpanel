@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012-2013 Piotr Sipika; see the AUTHORS file for more.
+ * Copyright (c) 2012-2014 Piotr Sipika; see the AUTHORS file for more.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -369,6 +369,7 @@ gtk_weather_destroy(GObject * object)
     }
   
   /* Need to free location and forecast. */
+  freeLocation(priv->previous_location);
   freeLocation(priv->location);
   freeForecast(priv->forecast);
 
@@ -1024,7 +1025,7 @@ gtk_weather_run_error_dialog(GtkWindow * parent, gchar * error_msg)
                                                         GTK_DIALOG_MODAL,
                                                         GTK_MESSAGE_ERROR,
                                                         GTK_BUTTONS_OK,
-                                                        error_msg);
+                                                        "%s", error_msg);
       
       gtk_weather_set_window_icon(GTK_WINDOW(error_dialog), "gtk-dialog-error");
       

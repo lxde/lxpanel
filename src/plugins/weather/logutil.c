@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012-2013 Piotr Sipika; see the AUTHORS file for more.
+ * Copyright (c) 2012-2014 Piotr Sipika; see the AUTHORS file for more.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -174,17 +174,18 @@ logUtil(LXWEATHER_LOGLEVEL level, const char * pczMsg, ...)
 
               if (level == LXW_ERROR)
                 {
-                  fprintf(stderr, cBuf);
+                  fprintf(stderr, "%s", cBuf);
                 }
               else
                 {
-                  fprintf(stdout, cBuf);
+                  fprintf(stdout, "%s", cBuf);
                 }
             }
           else
             {
               /* write to file */
-              write(g_FD, cBuf, szBuf);
+              size_t wsz = write(g_FD, cBuf, szBuf);
+              (void) wsz; /* to prevent compile warning */
             }
         }
            
