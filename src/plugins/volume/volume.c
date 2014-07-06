@@ -25,16 +25,13 @@
 #include <glib/gi18n.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
 
-#include "panel.h"
-#include "misc.h"
-#include "private.h"
+#include "plugin.h"
 
 #include "dbg.h"
 
 #include "volume-impl.h"
 
 #include "volume_xpm.h"
-#undef const
 
 int mixer_fd;
 
@@ -45,55 +42,54 @@ static GtkWidget *curr_image;
 static gboolean skip_botton1_event;
 
 typedef struct {
-    GtkWidget *mainw;
+    Panel *panel;
     GtkWidget *dlg;
     GtkTooltips* tooltips;
 } volume_t;
 
 static void
-volume_destructor(Plugin *p)
+volume_destructor(gpointer user_data)
 {
-    volume_t *vol = (volume_t *) p->priv;
+    volume_t *vol = (volume_t *) user_data;
 
     ENTER;
     if (vol->dlg)
         gtk_widget_destroy(vol->dlg);
     g_object_unref( vol->tooltips );
-    gtk_widget_destroy(vol->mainw);
     if (mixer_fd)
         close(mixer_fd);
     g_free(vol);
     RET();
 }
 
-static void update_icon (Plugin* p)
+static void update_icon (GtkWidget *p, volume_t *vol)
 {
-	volume_t *vol = (volume_t*) p->priv;
-	
 	GdkPixbuf *icon;
 	GtkWidget *image;
 	GtkIconTheme* theme;
 	GtkIconInfo* info;
-	
-	theme = p->panel->icon_theme;
-	
+	int icon_size;
+
+	theme = panel_get_icon_theme(vol->panel);
+	icon_size = panel_get_icon_size(vol->panel);
+
 	if (curr_volume <= 0) {
-		info = gtk_icon_theme_lookup_icon( theme, "stock_volume-mute", p->panel->icon_size, 0 );
+		info = gtk_icon_theme_lookup_icon( theme, "stock_volume-mute", icon_size, 0 );
 	}
 	else if (curr_volume > 0 && curr_volume <= 50) {
-		info = gtk_icon_theme_lookup_icon( theme, "stock_volume-min", p->panel->icon_size, 0 );
+		info = gtk_icon_theme_lookup_icon( theme, "stock_volume-min", icon_size, 0 );
 	}
 	else if (curr_volume > 50 && curr_volume <= 75) {
-		info = gtk_icon_theme_lookup_icon( theme, "stock_volume-med", p->panel->icon_size, 0 );
+		info = gtk_icon_theme_lookup_icon( theme, "stock_volume-med", icon_size, 0 );
 	}
-	else if (curr_volume > 75) {
-		info = gtk_icon_theme_lookup_icon( theme, "stock_volume-max", p->panel->icon_size, 0 );
+	else /* curr_volume > 75 */ {
+		info = gtk_icon_theme_lookup_icon( theme, "stock_volume-max", icon_size, 0 );
 	}
 
 	if (info ) {
 		icon = gdk_pixbuf_new_from_file_at_size(
 				gtk_icon_info_get_filename( info ),
-				p->panel->icon_size, p->panel->icon_size, NULL );
+				icon_size, icon_size, NULL );
 		gtk_icon_info_free( info );
 	}
 	else {
@@ -104,43 +100,41 @@ static void update_icon (Plugin* p)
 	
 	if (icon) {
 		if (curr_image) { 
-			gtk_container_remove(GTK_CONTAINER (vol->mainw),curr_image);
+			gtk_container_remove(GTK_CONTAINER(p), curr_image);
 			curr_image = NULL;
 		}
 		image = gtk_image_new_from_pixbuf(icon);
-		gtk_container_add (GTK_CONTAINER (vol->mainw), image);
+		gtk_container_add(GTK_CONTAINER(p), image);
 		 
 		curr_image = image;
 	}
-	gtk_widget_show_all(vol->mainw);
+	gtk_widget_show_all(p);
 	return;
 }
 
-static void on_volume_focus (GtkWidget* dlg, GdkEventFocus *event, Plugin* p)
+static void on_volume_focus (GtkWidget* dlg, GdkEventFocus *event, GtkWidget *p)
 {
-	volume_t *vol = (volume_t*) p->priv;
-	
+	volume_t *vol = lxpanel_plugin_get_data(p);
+
 	if (! vol_spin) return;
 	GtkAdjustment *vol_adjustment = gtk_spin_button_get_adjustment (vol_spin);
 	if (! vol_adjustment) return;
 	curr_volume = gtk_adjustment_get_value (vol_adjustment);
 	
-	update_icon(p);
+	update_icon(p, vol);
 	
 	/* FIXME: use smarter method */
 	gtk_widget_destroy( dlg );
 	vol->dlg = NULL;
 }
 
-static void on_mouse_scroll (GtkWidget* widget, GdkEventScroll* evt, Plugin* p)
+static void on_mouse_scroll (GtkWidget* widget, GdkEventScroll* evt, volume_t *vol)
 {
-	volume_t *vol = (volume_t*) p->priv;
-
 	if ( ! vol->dlg ) {
 
 		vol->dlg = create_volume_window();
-		g_signal_connect( vol->mainw, "delete-event",
-				G_CALLBACK(on_volume_focus), p );
+		g_signal_connect( vol->dlg, "delete-event",
+				G_CALLBACK(on_volume_focus), widget );
 
 	}
 	else {
@@ -157,16 +151,16 @@ static void on_mouse_scroll (GtkWidget* widget, GdkEventScroll* evt, Plugin* p)
 		else /*if (evt->direction == GDK_SCROLL_DOWN)*/ {
 			curr_volume -= 2;
 		}
-		update_icon(p);
+		update_icon(widget, vol);
 		gtk_adjustment_set_value (vol_adjustment, curr_volume);
 		gtk_spin_button_set_adjustment(vol_spin, vol_adjustment);
 		skip_botton1_event = TRUE;
 	}
 }
 
-static gboolean on_button_press (GtkWidget* widget, GdkEventButton* evt, Plugin* p)
+static gboolean on_button_press (GtkWidget* widget, GdkEventButton* evt, Panel* p)
 {
-	volume_t *vol = (volume_t*) p->priv;
+	volume_t *vol = lxpanel_plugin_get_data(widget);
 
 	/* for scroll correction */
 	if (skip_botton1_event) {
@@ -181,10 +175,10 @@ static gboolean on_button_press (GtkWidget* widget, GdkEventButton* evt, Plugin*
 			vol->dlg = create_volume_window();
 
 			/* setting background to default */
-			gtk_widget_set_style(vol->dlg, p->panel->defstyle);
+			gtk_widget_set_style(vol->dlg, panel_get_defstyle(p));
 
 			g_signal_connect( vol->dlg, "focus-out-event",
-					G_CALLBACK(on_volume_focus), p );
+					G_CALLBACK(on_volume_focus), widget );
 
 			gtk_window_present( GTK_WINDOW(vol->dlg) );
 		}
@@ -195,7 +189,7 @@ static gboolean on_button_press (GtkWidget* widget, GdkEventButton* evt, Plugin*
 				gtk_spin_button_get_adjustment (vol_spin);
 			if (! vol_adjustment) return FALSE;
 			curr_volume = gtk_adjustment_get_value (vol_adjustment);
-			update_icon(p);
+			update_icon(widget, vol);
 
 			gtk_widget_destroy(vol->dlg);
 			vol->dlg = NULL;
@@ -204,8 +198,7 @@ static gboolean on_button_press (GtkWidget* widget, GdkEventButton* evt, Plugin*
 	}
 
 	case 3:	{	/* right button */
-		GtkMenu* popup = lxpanel_get_panel_menu( p->panel, p, FALSE );
-		gtk_menu_popup( popup, NULL, NULL, NULL, NULL, evt->button, evt->time );
+		lxpanel_plugin_button_press_event(widget, evt, p);
 		return TRUE;
 	}
 
@@ -233,7 +226,7 @@ static gboolean on_button_press (GtkWidget* widget, GdkEventButton* evt, Plugin*
 		gtk_adjustment_set_value (vol_adjustment, curr_volume);
 		gtk_spin_button_set_adjustment(vol_spin, vol_adjustment);
 
-		update_icon(p);
+		update_icon(widget, vol);
 
 		gtk_widget_destroy( vol->dlg );
 		vol->dlg = NULL;
@@ -245,76 +238,66 @@ static gboolean on_button_press (GtkWidget* widget, GdkEventButton* evt, Plugin*
 	return FALSE;
 }
 
-static int volume_constructor(Plugin *p, char **fp)
+static GtkWidget *volume_constructor(Panel *panel, config_setting_t *settings)
 {
     volume_t *vol;
-    line s;
-    GdkPixbuf *icon;
-    GtkWidget *image;
-    GtkIconTheme* theme;
-    GtkIconInfo* info;
-    
+    GtkWidget *p;
+    GtkAdjustment *vol_adjustment;
+
     vol_before_mute = 1;
     curr_volume = 0;
     curr_image = NULL;
     skip_botton1_event = FALSE;
 
     ENTER;
-    s.len = 256;
-    vol = g_new0(volume_t, 1);
-    g_return_val_if_fail(vol != NULL, 0);
-    p->priv = vol;
-
     /* check if OSS mixer device could be open */
     mixer_fd = open ("/dev/mixer", O_RDWR, 0);
     if (mixer_fd < 0) {
-        RET(0);
+        RET(NULL);
     }
-
-    vol->mainw = gtk_event_box_new();
-
-    gtk_widget_add_events( vol->mainw, GDK_BUTTON_PRESS_MASK );
-    g_signal_connect( vol->mainw, "button-press-event",
-            G_CALLBACK(on_button_press), p );
-            
-    g_signal_connect( vol->mainw, "scroll-event",
-            G_CALLBACK(on_mouse_scroll), p );
-    gtk_widget_set_size_request( vol->mainw, p->panel->icon_size, p->panel->icon_size );
-
-    /* obtain current volume */
-    vol->dlg = create_volume_window();
-    if (! vol_spin) return 0;
-	GtkAdjustment *vol_adjustment =
-		gtk_spin_button_get_adjustment (vol_spin);
-    if (! vol_adjustment) return 0;
+    /* try to obtain current volume */
+    p = create_volume_window(); /* use pointer */
+    if (! vol_spin)
+        goto _error;
+    vol_adjustment = gtk_spin_button_get_adjustment (vol_spin);
+    if (! vol_adjustment)
+    {
+_error:
+        gtk_widget_destroy(p);
+        RET(NULL);
+    }
     curr_volume = gtk_adjustment_get_value (vol_adjustment);
-    
-    update_icon(p);
-	gtk_widget_destroy( vol->dlg );
-    vol->dlg = NULL;  
+
+    vol = g_new0(volume_t, 1);
+    vol->dlg = p; /* it was reused */
+
+    p = gtk_event_box_new();
+    lxpanel_plugin_set_data(p, vol, volume_destructor);
+    vol->panel = panel;
+
+    gtk_widget_add_events(p, GDK_BUTTON_PRESS_MASK);
+    g_signal_connect(p, "scroll-event", G_CALLBACK(on_mouse_scroll), vol);
+    gtk_widget_set_size_request(p, panel_get_icon_size(panel), panel_get_icon_size(panel));
+
+    update_icon(p, vol);
+    gtk_widget_destroy( vol->dlg );
+    vol->dlg = NULL;
 
     vol->tooltips = gtk_tooltips_new ();
     g_object_ref_sink( vol->tooltips );
 
     /* FIXME: display current level in tooltip. ex: "Volume Control: 80%"  */
-    gtk_tooltips_set_tip (vol->tooltips, vol->mainw, _("Volume control"), NULL);
+    gtk_tooltips_set_tip (vol->tooltips, p, _("Volume control"), NULL);
 
-    p->pwid = vol->mainw;
-    RET(1);
+    RET(p);
 }
 
+FM_DEFINE_MODULE(lxpanel_gtk, volume)
 
-PluginClass volume_plugin_class = {
-
-    PLUGINCLASS_VERSIONING,
-
-    .type = "volume",
+LXPanelPluginInit fm_module_init_lxpanel_gtk = {
     .name = N_("Volume Control"),
-    .version = "1.0",
     .description = "Display and control volume",
 
-    .constructor = volume_constructor,
-    .destructor  = volume_destructor,
-    .config = NULL,
-    .save = NULL
+    .new_instance = volume_constructor,
+    .button_press_event = on_button_press
 };
