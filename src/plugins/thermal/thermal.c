@@ -26,9 +26,8 @@
 
 #include <string.h>
 
-#include "panel.h"
+#include "plugin.h"
 #include "misc.h"
-#include "private.h"
 
 #include "dbg.h"
 
@@ -47,8 +46,8 @@
 
 
 typedef struct thermal {
-    Plugin * plugin;
-    GtkWidget *main;
+    Panel *panel;
+    config_setting_t *settings;
     GtkWidget *namew;
     GString *tip;
     int critical;
@@ -264,7 +263,7 @@ update_display(thermal *th)
         color = th->cl_normal;
 
     if(temp == -1)
-        panel_draw_label_text(th->plugin->panel, th->namew, "NA", TRUE, 1, TRUE);
+        panel_draw_label_text(th->panel, th->namew, "NA", TRUE, 1, TRUE);
     else
     {
         snprintf(buffer, sizeof(buffer), "<span color=\"#%06x\"><b>%02d</b></span>",
@@ -359,9 +358,9 @@ check_sensors( thermal *th )
 }
 
 
-static void applyConfig(Plugin* p)
+static gboolean applyConfig(gpointer p)
 {
-    thermal *th = p->priv;
+    thermal *th = lxpanel_plugin_get_data(p);
     ENTER;
 
     if (th->str_cl_normal) gdk_color_parse(th->str_cl_normal, &th->cl_normal);
@@ -380,27 +379,54 @@ static void applyConfig(Plugin* p)
         th->warning2 = th->critical - 5;
     }
 
-    RET();
+    config_group_set_string(th->settings, "NormalColor", th->str_cl_normal);
+    config_group_set_string(th->settings, "Warning1Color", th->str_cl_warning1);
+    config_group_set_string(th->settings, "Warning2Color", th->str_cl_warning2);
+    config_group_set_int(th->settings, "CustomLevels", th->not_custom_levels);
+    config_group_set_int(th->settings, "Warning1Temp", th->warning1);
+    config_group_set_int(th->settings, "Warning2Temp", th->warning2);
+    config_group_set_int(th->settings, "AutomaticSensor", th->auto_sensor);
+    config_group_set_string(th->settings, "Sensor", th->sensor);
+    RET(FALSE);
 }
 
-static int
-thermal_constructor(Plugin *p, char** fp)
+static void
+thermal_destructor(gpointer user_data)
+{
+  thermal *th = (thermal *)user_data;
+
+  ENTER;
+  remove_all_sensors(th);
+  g_string_free(th->tip, TRUE);
+  g_free(th->sensor);
+  g_free(th->str_cl_normal);
+  g_free(th->str_cl_warning1);
+  g_free(th->str_cl_warning2);
+  g_source_remove(th->timer);
+  g_free(th);
+  RET();
+}
+
+static GtkWidget *
+thermal_constructor(Panel *panel, config_setting_t *settings)
 {
     thermal *th;
+    GtkWidget *p;
+    const char *tmp;
 
     ENTER;
     th = g_new0(thermal, 1);
-    th->plugin = p;
-    p->priv = th;
+    th->panel = panel;
+    th->settings = settings;
 
-    p->pwid = gtk_event_box_new();
-    GTK_WIDGET_SET_FLAGS( p->pwid, GTK_NO_WINDOW );
-    gtk_container_set_border_width( GTK_CONTAINER(p->pwid), 2 );
+    p = gtk_event_box_new();
+    lxpanel_plugin_set_data(p, th, thermal_destructor);
+    GTK_WIDGET_SET_FLAGS( p, GTK_NO_WINDOW );
+    gtk_container_set_border_width( GTK_CONTAINER(p), 2 );
 
     th->namew = gtk_label_new("ww");
-    gtk_container_add(GTK_CONTAINER(p->pwid), th->namew);
+    gtk_container_add(GTK_CONTAINER(p), th->namew);
 
-    th->main = p->pwid;
     th->tip = g_string_new(NULL);
 
     /* By default, use automatic, that is, "not custom" temperature levels. If
@@ -408,46 +434,18 @@ thermal_constructor(Plugin *p, char** fp)
      * display in warning colors by default. */
     th->not_custom_levels = TRUE;
 
-    g_signal_connect (G_OBJECT (p->pwid), "button-press-event",
-          G_CALLBACK (plugin_button_press_event), (gpointer) p);
-
-    line s;
-    s.len = 256;
-
-    if (fp) {
-        /* Apply options */
-        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END) {
-            if (s.type == LINE_NONE) {
-                ERR( "thermal: illegal token %s\n", s.str);
-                goto error;
-            }
-            if (s.type == LINE_VAR) {
-                if (!g_ascii_strcasecmp(s.t[0], "NormalColor")){
-                    th->str_cl_normal = g_strdup(s.t[1]);
-                }else if (!g_ascii_strcasecmp(s.t[0], "Warning1Color")){
-                    th->str_cl_warning1 = g_strdup(s.t[1]);
-                }else if (!g_ascii_strcasecmp(s.t[0], "Warning2Color")){
-                    th->str_cl_warning2 = g_strdup(s.t[1]);
-                }else if (!g_ascii_strcasecmp(s.t[0], "AutomaticSensor")){
-                    th->auto_sensor= atoi(s.t[1]);
-                }else if (!g_ascii_strcasecmp(s.t[0], "CustomLevels")){
-                    th->not_custom_levels= atoi(s.t[1]);
-                }else if (!g_ascii_strcasecmp(s.t[0], "Sensor")){
-                    th->sensor= g_strdup(s.t[1]);
-                }else if (!g_ascii_strcasecmp(s.t[0], "Warning1Temp")){
-                    th->warning1 = atoi(s.t[1]);
-                }else if (!g_ascii_strcasecmp(s.t[0], "Warning2Temp")){
-                    th->warning2 = atoi(s.t[1]);
-                }else {
-                    ERR( "thermal: unknown var %s\n", s.t[0]);
-                }
-            }
-            else {
-                ERR( "thermal: illegal in this context %s\n", s.str);
-                goto error;
-            }
-        }
-    }
+    if (config_setting_lookup_string(settings, "NormalColor", &tmp))
+        th->str_cl_normal = g_strdup(tmp);
+    if (config_setting_lookup_string(settings, "Warning1Color", &tmp))
+        th->str_cl_warning1 = g_strdup(tmp);
+    if (config_setting_lookup_string(settings, "Warning2Color", &tmp))
+        th->str_cl_warning2 = g_strdup(tmp);
+    config_setting_lookup_int(settings, "AutomaticSensor", &th->auto_sensor);
+    config_setting_lookup_int(settings, "CustomLevels", &th->not_custom_levels);
+    if (config_setting_lookup_string(settings, "Sensor", &tmp))
+        th->sensor = g_strdup(tmp);
+    config_setting_lookup_int(settings, "Warning1Temp", &th->warning1);
+    config_setting_lookup_int(settings, "Warning2Temp", &th->warning2);
 
     if(!th->str_cl_normal)
         th->str_cl_normal = g_strdup("#00ff00");
@@ -463,20 +461,17 @@ thermal_constructor(Plugin *p, char** fp)
     update_display(th);
     th->timer = g_timeout_add_seconds(3, (GSourceFunc) update_display_timeout, (gpointer)th);
 
-    RET(TRUE);
-
-error:
-    RET(FALSE);
+    RET(p);
 }
 
-static void config(Plugin *p, GtkWindow* parent) {
+static GtkWidget *config(Panel *panel, GtkWidget *p, GtkWindow *parent)
+{
     ENTER;
 
     GtkWidget *dialog;
-    thermal *th = (thermal *) p->priv;
-    dialog = create_generic_config_dlg(_(p->class->name),
-            GTK_WIDGET(parent),
-            (GSourceFunc) applyConfig, (gpointer) p,
+    thermal *th = lxpanel_plugin_get_data(p);
+    dialog = lxpanel_generic_config_dlg(_("Temperature Monitor"),
+            panel, applyConfig, p,
             _("Normal"), &th->str_cl_normal, CONF_TYPE_STR,
             _("Warning1"), &th->str_cl_warning1, CONF_TYPE_STR,
             _("Warning2"), &th->str_cl_warning2, CONF_TYPE_STR,
@@ -486,57 +481,18 @@ static void config(Plugin *p, GtkWindow* parent) {
             _("Warning1 Temperature"), &th->warning1, CONF_TYPE_INT,
             _("Warning2 Temperature"), &th->warning2, CONF_TYPE_INT,
             NULL);
-    gtk_window_present(GTK_WINDOW(dialog));
 
-    RET();
+    RET(dialog);
 }
 
-static void
-thermal_destructor(Plugin *p)
-{
-  thermal *th = (thermal *)p->priv;
+FM_DEFINE_MODULE(lxpanel_gtk, thermal)
 
-  ENTER;
-  th = (thermal *) p->priv;
-  remove_all_sensors(th);
-  g_string_free(th->tip, TRUE);
-  g_free(th->sensor);
-  g_free(th->str_cl_normal);
-  g_free(th->str_cl_warning1);
-  g_free(th->str_cl_warning2);
-  g_source_remove(th->timer);
-  g_free(th);
-  RET();
-}
-
-static void save_config( Plugin* p, FILE* fp )
-{
-    thermal *th = (thermal *)p->priv;
-
-    lxpanel_put_str( fp, "NormalColor", th->str_cl_normal );
-    lxpanel_put_str( fp, "Warning1Color", th->str_cl_warning1 );
-    lxpanel_put_str( fp, "Warning2Color", th->str_cl_warning2 );
-    lxpanel_put_int( fp, "CustomLevels", th->not_custom_levels );
-    lxpanel_put_int( fp, "Warning1Temp", th->warning1 );
-    lxpanel_put_int( fp, "Warning2Temp", th->warning2 );
-    lxpanel_put_int( fp, "AutomaticSensor", th->auto_sensor );
-    lxpanel_put_str( fp, "Sensor", th->sensor );
-}
-
-PluginClass thermal_plugin_class = {
-
-    PLUGINCLASS_VERSIONING,
-
-    .type = "thermal",
+LXPanelPluginInit fm_module_init_lxpanel_gtk = {
     .name = N_("Temperature Monitor"),
-    .version = "0.6",
     .description = N_("Display system temperature"),
 
-    .constructor = thermal_constructor,
-    .destructor  = thermal_destructor,
+    .new_instance = thermal_constructor,
     .config = config,
-    .save = save_config,
-    .panel_configuration_changed = NULL
 };
 
 
