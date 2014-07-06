@@ -1711,6 +1711,7 @@ msgid "_New Location:"
 msgstr "_Yeni Konum:"
 
 #: ../src/plugins/weather/weatherwidget.c:809
+#, fuzzy
 msgid ""
 "Enter the:\n"
 "- city, or\n"
