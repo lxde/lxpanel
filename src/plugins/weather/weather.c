@@ -31,7 +31,7 @@
 #include <stdlib.h>
 
 /* External button-press handler from plugin.c */
-extern gboolean plugin_button_press_event(GtkWidget *widget, GdkEventButton *event, Plugin *plugin);
+extern gboolean lxpanel_plugin_button_press_event(GtkWidget *widget, GdkEventButton *event, Panel *panel);
 
 /* Need to maintain count for bookkeeping */
 static gint g_iCount = 0;
@@ -105,11 +105,11 @@ weather_constructor(Panel *pPanel, config_setting_t *pConfig)
 
   GtkWidget * pEventBox = gtk_event_box_new();
 
-  /* Connect signals. 
+  /* Connect signals. */
   g_signal_connect(pEventBox, 
                    "button-press-event", 
-                   G_CALLBACK(plugin_button_press_event),
-                   pPlugin);*/
+                   G_CALLBACK(lxpanel_plugin_button_press_event),
+                   pPanel);
 
   lxpanel_plugin_set_data(pEventBox, pPriv, weather_destructor);
   gtk_container_add(GTK_CONTAINER(pEventBox), pWidg);
@@ -314,10 +314,6 @@ LXPanelPluginInit fm_module_init_lxpanel_gtk =
   {
     .name = N_("Weather Plugin"),
     .description = N_("Show weather conditions for a location."),
-
-    // system settings
-    .one_per_system = 0,
-    .expand_available = 0,
 
     // API functions
     .new_instance = weather_constructor,
