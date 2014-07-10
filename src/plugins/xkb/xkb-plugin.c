@@ -65,11 +65,7 @@ enum
     NUM_CHANGE_COLUMNS
 };
 
-static int   xkb_constructor(Plugin * p_plugin, char ** fp);
-static void  xkb_destructor(Plugin * p_plugin);
-static void  xkb_configure(Plugin * p, GtkWindow * parent);
-static void  xkb_save_configuration(Plugin * p, FILE * fp);
-static void  xkb_panel_configuration_changed(Plugin * p);
+static void  xkb_destructor(gpointer user_data);
 static void  xkb_settings_fill_layout_tree_model_with_config(XkbPlugin *p_xkb);
 static void  xkb_update_layouts_n_variants(XkbPlugin *p_xkb);
 static void  xkb_add_layout(XkbPlugin *p_xkb, gchar *layout, gchar*variant);
@@ -77,7 +73,6 @@ static int   xkb_get_flag_size(XkbPlugin *p_xkb);
 
 static void      on_xkb_fbev_active_window_event(FbEv *ev, gpointer p_data);
 static gboolean  on_xkb_button_scroll_event(GtkWidget * widget, GdkEventScroll * event, gpointer p_data);
-static gboolean  on_xkb_button_press_event(GtkWidget * widget,  GdkEventButton * event, gpointer p_data);
 static void      on_radiobutton_disp_type_image_toggled(GtkToggleButton *p_radiobutton, gpointer p_data);
 static void      on_radiobutton_disp_type_image_cust_toggled(GtkToggleButton *p_radiobutton, gpointer p_data);
 static void      on_radiobutton_disp_type_text_toggled(GtkToggleButton *p_radiobutton, gpointer p_data);
@@ -95,7 +90,7 @@ static const gchar    flag_filepath_generator[] = "%s/%s.png";
 
 static int xkb_get_flag_size(XkbPlugin *p_xkb)
 {
-    int  size = p_xkb->p_plugin->panel->icon_size;
+    int  size = panel_get_icon_size(p_xkb->panel);
     switch(p_xkb->flag_size)
     {
         case 1: return size*0.5;
@@ -149,7 +144,7 @@ void xkb_redraw(XkbPlugin *p_xkb)
                     g_object_unref(G_OBJECT(pixbuf));
                     gtk_widget_hide(p_xkb->p_label);
                     gtk_widget_show(p_xkb->p_image);
-                    gtk_widget_set_tooltip_text(p_xkb->p_plugin->pwid, xkb_get_current_group_name(p_xkb));
+                    gtk_widget_set_tooltip_text(p_xkb->p_plugin, xkb_get_current_group_name(p_xkb));
                     valid_image = TRUE;
                 }
                 g_object_unref(unscaled_pixbuf);
@@ -163,11 +158,11 @@ void xkb_redraw(XkbPlugin *p_xkb)
         char *group_name = (char *)xkb_get_current_symbol_name(p_xkb);
         if (group_name != NULL)
         {
-            panel_draw_label_text(p_xkb->p_plugin->panel, p_xkb->p_label, group_name,
+            panel_draw_label_text(p_xkb->panel, p_xkb->p_label, group_name,
                     TRUE, size*4/(5*10.0), TRUE);
             gtk_widget_hide(p_xkb->p_image);
             gtk_widget_show(p_xkb->p_label);
-            gtk_widget_set_tooltip_text(p_xkb->p_plugin->pwid, xkb_get_current_group_name(p_xkb));
+            gtk_widget_set_tooltip_text(p_xkb->p_plugin, xkb_get_current_group_name(p_xkb));
         }
     }
 }
@@ -199,16 +194,14 @@ static gboolean on_xkb_button_scroll_event(GtkWidget * widget, GdkEventScroll * 
 }
 
 /* Handler for button-press-event on top level widget. */
-static gboolean on_xkb_button_press_event(GtkWidget * widget,  GdkEventButton * event, gpointer p_data)
+static gboolean on_xkb_button_press_event(GtkWidget * widget,  GdkEventButton * event, Panel * panel)
 {
-    XkbPlugin * xkb = (XkbPlugin *)p_data;
-
     /* Standard right-click handling. */
-    if (plugin_button_press_event(widget, event, xkb->p_plugin))
+    if (lxpanel_plugin_button_press_event(widget, event, panel))
         return TRUE;
 
     /* Change to next group. */
-    xkb_change_group(xkb, 1);
+    xkb_change_group(lxpanel_plugin_get_data(widget), 1);
     return TRUE;
 }
 
@@ -220,103 +213,64 @@ static void on_xkb_entry_advanced_opt_icon_press(GtkEntry             *p_entry,
     XkbPlugin *p_xkb = (XkbPlugin *)p_data;
     g_free(p_xkb->kbd_advanced_options);
     p_xkb->kbd_advanced_options = g_strdup(gtk_entry_get_text(p_entry));
+    config_group_set_string(p_xkb->settings, "AdvancedOpt", p_xkb->kbd_advanced_options);
     xkb_setxkbmap(p_xkb);
 }
 
 /* Plugin constructor. */
-static int xkb_constructor(Plugin * p_plugin, char ** fp)
+static GtkWidget *xkb_constructor(Panel *panel, config_setting_t *settings)
 {
     /* Allocate plugin context and set into Plugin private data pointer. */
     XkbPlugin * p_xkb = g_new0(XkbPlugin, 1);
-    p_xkb->p_plugin = p_plugin;
-    p_plugin->priv = p_xkb;
+    GtkWidget * p;
+    const char *tmp;
+    int tmp_int;
+
+    p_xkb->panel = panel;
+    p_xkb->settings = settings;
 
     /* Initialize to defaults. */
     p_xkb->display_type = DISP_TYPE_IMAGE;
-    p_xkb->enable_perwin = FALSE;
-    p_xkb->do_not_reset_opt = FALSE;
+    //p_xkb->enable_perwin = FALSE;
+    //p_xkb->do_not_reset_opt = FALSE;
     p_xkb->keep_system_layouts = TRUE;
-    p_xkb->kbd_model = NULL;
-    p_xkb->kbd_layouts = NULL;
-    p_xkb->kbd_variants = NULL;
-    p_xkb->kbd_change_option = NULL;
-    p_xkb->kbd_advanced_options = NULL;
+    //p_xkb->kbd_model = NULL;
+    //p_xkb->kbd_layouts = NULL;
+    //p_xkb->kbd_variants = NULL;
+    //p_xkb->kbd_change_option = NULL;
+    //p_xkb->kbd_advanced_options = NULL;
     p_xkb->flag_size = 3;
     p_xkb->cust_dir_exists = g_file_test(FLAGSCUSTDIR,  G_FILE_TEST_IS_DIR);
 
     /* Load parameters from the configuration file. */
-    line s;
-    s.len = 256;
-    if (fp != NULL)
-    {
-        while (lxpanel_get_line(fp, &s) != LINE_BLOCK_END)
-        {
-            if (s.type == LINE_NONE)
-            {
-                ERR( "xkb: illegal token %s\n", s.str);
-                return 0;
-            }
-            if (s.type == LINE_VAR)
-            {
-                if(g_ascii_strcasecmp(s.t[0], "DisplayType") == 0)
-                {
-                    p_xkb->display_type = atoi(s.t[1]);
-                }
-                else if(g_ascii_strcasecmp(s.t[0], "PerWinLayout") == 0)
-                {
-                    p_xkb->enable_perwin = str2num(bool_pair, s.t[1], 0);
-                }
-                else if(g_ascii_strcasecmp(s.t[0], "NoResetOpt") == 0)
-                {
-                    p_xkb->do_not_reset_opt = str2num(bool_pair, s.t[1], 0);
-                }
-                else if(g_ascii_strcasecmp(s.t[0], "KeepSysLayouts") == 0)
-                {
-                    p_xkb->keep_system_layouts = str2num(bool_pair, s.t[1], 0);
-                }
-                else if(g_ascii_strcasecmp(s.t[0], "Model") == 0)
-                {
-                    p_xkb->kbd_model = g_strdup(s.t[1]);
-                }
-                else if(g_ascii_strcasecmp(s.t[0], "LayoutsList") == 0)
-                {
-                    p_xkb->kbd_layouts = g_strdup(s.t[1]);
-                }
-                else if(g_ascii_strcasecmp(s.t[0], "VariantsList") == 0)
-                {
-                    p_xkb->kbd_variants = g_strdup(s.t[1]);
-                }
-                else if(g_ascii_strcasecmp(s.t[0], "ToggleOpt") == 0)
-                {
-                    p_xkb->kbd_change_option = g_strdup(s.t[1]);
-                }
-                else if(g_ascii_strcasecmp(s.t[0], "AdvancedOpt") == 0)
-                {
-                    p_xkb->kbd_advanced_options = g_strdup(s.t[1]);
-                }
-                else if(g_ascii_strcasecmp(s.t[0], "FlagSize") == 0)
-                {
-                    p_xkb->flag_size = atoi(s.t[1]);
-                }
-                else
-                    ERR( "xkb: unknown var %s\n", s.t[0]);
-            }
-            else
-            {
-                ERR( "xkb: illegal in this context %s\n", s.str);
-                return 0;
-            }
-        }
-    }
+    config_setting_lookup_int(settings, "DisplayType", &p_xkb->display_type);
+    if (config_setting_lookup_int(settings, "PerWinLayout", &tmp_int))
+        p_xkb->enable_perwin = tmp_int != 0;
+    if (config_setting_lookup_int(settings, "NoResetOpt", &tmp_int))
+        p_xkb->do_not_reset_opt = tmp_int != 0;
+    if (config_setting_lookup_int(settings, "KeepSysLayouts", &tmp_int))
+        p_xkb->do_not_reset_opt = tmp_int != 0;
+    if (config_setting_lookup_string(settings, "Model", &tmp))
+        p_xkb->kbd_model = g_strdup(tmp);
+    if (config_setting_lookup_string(settings, "LayoutsList", &tmp))
+        p_xkb->kbd_model = g_strdup(tmp);
+    if (config_setting_lookup_string(settings, "VariantsList", &tmp))
+        p_xkb->kbd_model = g_strdup(tmp);
+    if (config_setting_lookup_string(settings, "ToggleOpt", &tmp))
+        p_xkb->kbd_model = g_strdup(tmp);
+    if (config_setting_lookup_string(settings, "AdvancedOpt", &tmp))
+        p_xkb->kbd_model = g_strdup(tmp);
+    config_setting_lookup_int(settings, "FlagSize", &p_xkb->flag_size);
 
     /* Allocate top level widget and set into Plugin widget pointer. */
-    p_plugin->pwid = gtk_event_box_new();
-    gtk_widget_add_events(p_plugin->pwid, GDK_BUTTON_PRESS_MASK);
+    p_xkb->p_plugin = p = gtk_event_box_new();
+    lxpanel_plugin_set_data(p, p_xkb, xkb_destructor);
+    gtk_widget_add_events(p, GDK_BUTTON_PRESS_MASK);
 
     /* Create a horizontal box as the child of the button. */
     GtkWidget * hbox = gtk_hbox_new(FALSE, 0);
     gtk_container_set_border_width(GTK_CONTAINER(hbox), 3);
-    gtk_container_add(GTK_CONTAINER(p_xkb->p_plugin->pwid), hbox);
+    gtk_container_add(GTK_CONTAINER(p), hbox);
     gtk_widget_show(hbox);
 
     /* Create a label and an image as children of the horizontal box.
@@ -333,52 +287,49 @@ static int xkb_constructor(Plugin * p_plugin, char ** fp)
     {
         /* This is a first run, read the current layout */
         xkb_mechanism_constructor(p_xkb);
-        
+
         if(p_xkb->kbd_model != NULL) g_free(p_xkb->kbd_model);
         if(p_xkb->kbd_layouts != NULL) g_free(p_xkb->kbd_layouts);
         if(p_xkb->kbd_variants != NULL) g_free(p_xkb->kbd_variants);
         if(p_xkb->kbd_change_option != NULL) g_free(p_xkb->kbd_change_option);
-        
+
         p_xkb->kbd_model = g_strdup("pc105");
         gchar *symbol_name_lowercase = (char *)xkb_get_current_symbol_name_lowercase(p_xkb);
         p_xkb->kbd_layouts = g_strdup(symbol_name_lowercase);
         g_free(symbol_name_lowercase);
         p_xkb->kbd_variants = g_strdup(",");
         p_xkb->kbd_change_option = g_strdup("grp:shift_caps_toggle");
-        
+        config_group_set_string(p_xkb->settings, "Model", p_xkb->kbd_model);
+        config_group_set_string(p_xkb->settings, "LayoutsList", p_xkb->kbd_layouts);
+        config_group_set_string(p_xkb->settings, "VariantsList", p_xkb->kbd_variants);
+        config_group_set_string(p_xkb->settings, "ToggleOpt", p_xkb->kbd_change_option);
+
         xkb_mechanism_destructor(p_xkb);
     }
-    
+
     /* Initialize the XKB interface. */
     xkb_setxkbmap(p_xkb);
     xkb_mechanism_constructor(p_xkb);
 
     /* Connect signals. */
-    g_signal_connect(p_plugin->pwid, "button-press-event", G_CALLBACK(on_xkb_button_press_event), p_xkb);
-    g_signal_connect(p_plugin->pwid, "scroll-event", G_CALLBACK(on_xkb_button_scroll_event), p_xkb);
+    g_signal_connect(p, "scroll-event", G_CALLBACK(on_xkb_button_scroll_event), p_xkb);
     g_signal_connect(G_OBJECT(fbev), "active-window", G_CALLBACK(on_xkb_fbev_active_window_event), p_xkb);
 
     /* Show the widget and return. */
     xkb_redraw(p_xkb);
-    gtk_widget_show(p_plugin->pwid);
-    return 1;
+    return p;
 }
 
 /* Plugin destructor. */
-static void xkb_destructor(Plugin * p_plugin)
+static void xkb_destructor(gpointer user_data)
 {
-    XkbPlugin *p_xkb = (XkbPlugin *)p_plugin->priv;
+    XkbPlugin *p_xkb = (XkbPlugin *)user_data;
 
     /* Disconnect root window event handler. */
     g_signal_handlers_disconnect_by_func(G_OBJECT(fbev), on_xkb_fbev_active_window_event, p_xkb);
 
     /* Disconnect from the XKB mechanism. */
-    g_source_remove(p_xkb->source_id);
     xkb_mechanism_destructor(p_xkb);
-
-    /* Ensure that the configuration dialog is dismissed. */
-    if(p_xkb->p_dialog_config != NULL)
-        gtk_widget_destroy(p_xkb->p_dialog_config);
 
     /* Deallocate all memory. */
     g_free(p_xkb->kbd_model);
@@ -404,6 +355,7 @@ static void on_xkb_checkbutton_per_app_toggled(GtkToggleButton *tb, gpointer p_d
                 g_hash_table_destroy(xkb->p_hash_table_group);
             xkb->p_hash_table_group = g_hash_table_new(g_direct_hash, NULL);
         }
+        config_group_set_int(xkb->settings, "PerWinLayout", xkb->enable_perwin);
         xkb_redraw(xkb);
     }
 }
@@ -416,6 +368,7 @@ static void on_xkb_checkbutton_no_reset_opt_toggled(GtkToggleButton *tb, gpointe
         /* Fetch the new value and redraw. */
         XkbPlugin * xkb = (XkbPlugin *)p_data;
         xkb->do_not_reset_opt = gtk_toggle_button_get_active(tb);
+        config_group_set_int(xkb->settings, "NoResetOpt", xkb->do_not_reset_opt);
         xkb_redraw(xkb);
     }
 }
@@ -428,6 +381,7 @@ static void on_xkb_checkbutton_keep_system_layouts_toggled(GtkToggleButton *tb, 
         /* Fetch the new value and redraw. */
         XkbPlugin * p_xkb = (XkbPlugin *)p_data;
         p_xkb->keep_system_layouts = gtk_toggle_button_get_active(tb);
+        config_group_set_int(p_xkb->settings, "KeepSysLayouts", p_xkb->keep_system_layouts);
         xkb_redraw(p_xkb);
         
         gtk_widget_set_sensitive(p_xkb->p_frame_kbd_model, !p_xkb->keep_system_layouts);
@@ -444,7 +398,7 @@ static void on_xkb_checkbutton_keep_system_layouts_toggled(GtkToggleButton *tb, 
         else
         {
             GtkWidget *dialog;
-            dialog = gtk_message_dialog_new(GTK_WINDOW(p_xkb->p_dialog_config),
+            dialog = gtk_message_dialog_new(p_xkb->p_dialog_config,
                                             GTK_DIALOG_DESTROY_WITH_PARENT,
                                             GTK_MESSAGE_WARNING,
                                             GTK_BUTTONS_OK,
@@ -462,6 +416,7 @@ static void on_radiobutton_flag_size_1_toggled(GtkToggleButton *p_radiobutton, g
     {
         XkbPlugin * p_xkb = (XkbPlugin *)p_data;
         p_xkb->flag_size = 1;
+        config_group_set_int(p_xkb->settings, "FlagSize", 1);
         xkb_redraw(p_xkb);
     }
 }
@@ -472,6 +427,7 @@ static void on_radiobutton_flag_size_2_toggled(GtkToggleButton *p_radiobutton, g
     {
         XkbPlugin * p_xkb = (XkbPlugin *)p_data;
         p_xkb->flag_size = 2;
+        config_group_set_int(p_xkb->settings, "FlagSize", 2);
         xkb_redraw(p_xkb);
     }
 }
@@ -482,6 +438,7 @@ static void on_radiobutton_flag_size_3_toggled(GtkToggleButton *p_radiobutton, g
     {
         XkbPlugin * p_xkb = (XkbPlugin *)p_data;
         p_xkb->flag_size = 3;
+        config_group_set_int(p_xkb->settings, "FlagSize", 3);
         xkb_redraw(p_xkb);
     }
 }
@@ -492,6 +449,7 @@ static void on_radiobutton_flag_size_4_toggled(GtkToggleButton *p_radiobutton, g
     {
         XkbPlugin * p_xkb = (XkbPlugin *)p_data;
         p_xkb->flag_size = 4;
+        config_group_set_int(p_xkb->settings, "FlagSize", 4);
         xkb_redraw(p_xkb);
     }
 }
@@ -502,6 +460,7 @@ static void on_radiobutton_flag_size_5_toggled(GtkToggleButton *p_radiobutton, g
     {
         XkbPlugin * p_xkb = (XkbPlugin *)p_data;
         p_xkb->flag_size = 5;
+        config_group_set_int(p_xkb->settings, "FlagSize", 5);
         xkb_redraw(p_xkb);
     }
 }
@@ -512,6 +471,7 @@ static void on_radiobutton_flag_size_6_toggled(GtkToggleButton *p_radiobutton, g
     {
         XkbPlugin * p_xkb = (XkbPlugin *)p_data;
         p_xkb->flag_size = 6;
+        config_group_set_int(p_xkb->settings, "FlagSize", 6);
         xkb_redraw(p_xkb);
     }
 }
@@ -524,6 +484,7 @@ static void on_radiobutton_disp_type_image_toggled(GtkToggleButton *p_radiobutto
         /* Fetch the new value and redraw. */
         XkbPlugin * p_xkb = (XkbPlugin *)p_data;
         p_xkb->display_type =  DISP_TYPE_IMAGE;
+        config_group_set_int(p_xkb->settings, "DisplayType", p_xkb->display_type);
         xkb_redraw(p_xkb);
     }
 }
@@ -536,6 +497,7 @@ static void on_radiobutton_disp_type_image_cust_toggled(GtkToggleButton *p_radio
         /* Fetch the new value and redraw. */
         XkbPlugin * p_xkb = (XkbPlugin *)p_data;
         p_xkb->display_type =  DISP_TYPE_IMAGE_CUST;
+        config_group_set_int(p_xkb->settings, "DisplayType", p_xkb->display_type);
         xkb_redraw(p_xkb);
     }
 }
@@ -548,6 +510,7 @@ static void on_radiobutton_disp_type_text_toggled(GtkToggleButton *p_radiobutton
         /* Fetch the new value and redraw. */
         XkbPlugin * p_xkb = (XkbPlugin *)p_data;
         p_xkb->display_type =  DISP_TYPE_TEXT;
+        config_group_set_int(p_xkb->settings, "DisplayType", p_xkb->display_type);
         xkb_redraw(p_xkb);
     }
 }
@@ -557,12 +520,7 @@ static void on_dialog_config_response(GtkDialog *p_dialog, gint response, gpoint
 {
     XkbPlugin * p_xkb = (XkbPlugin *)data;
 
-    /* Save the new configuration and redraw the plugin. */
-    panel_config_save(p_xkb->p_plugin->panel);
-    xkb_redraw(p_xkb);
-
-    /* Destroy the dialog. */
-    gtk_widget_destroy(p_xkb->p_dialog_config);
+    /* Reset pointer because dialog will be destroyed */
     p_xkb->p_dialog_config = NULL;
 }
 
@@ -626,7 +584,7 @@ static void on_button_kbd_model_clicked(GtkButton *p_button, gpointer *p_data)
     
     // dialog
     GtkWidget *p_dialog = gtk_dialog_new_with_buttons(_("Select Keyboard Model"),
-                            GTK_WINDOW(p_xkb->p_dialog_config),
+                            p_xkb->p_dialog_config,
                             GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
                             GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
                             GTK_STOCK_OK, GTK_RESPONSE_OK,
@@ -706,6 +664,7 @@ static void on_button_kbd_model_clicked(GtkButton *p_button, gpointer *p_data)
                                &tree_iter_sel, COLUMN_MODEL_ID, &kbd_model_new, -1);
             g_free(p_xkb->kbd_model);
             p_xkb->kbd_model = g_strdup(kbd_model_new);
+            config_group_set_string(p_xkb->settings, "Model", kbd_model_new);
             gtk_button_set_label(GTK_BUTTON(p_xkb->p_button_kbd_model), p_xkb->kbd_model);
             g_free(kbd_model_new);
             xkb_setxkbmap(p_xkb);
@@ -748,7 +707,7 @@ static void on_button_kbd_change_layout_clicked(GtkButton *p_button, gpointer *p
     
     // dialog
     GtkWidget *p_dialog = gtk_dialog_new_with_buttons(_("Select Layout Change Type"),
-                            GTK_WINDOW(p_xkb->p_dialog_config),
+                            p_xkb->p_dialog_config,
                             GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
                             GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
                             GTK_STOCK_OK, GTK_RESPONSE_OK,
@@ -848,6 +807,7 @@ static void on_button_kbd_change_layout_clicked(GtkButton *p_button, gpointer *p
         }
         g_free(p_xkb->kbd_change_option);
         p_xkb->kbd_change_option = g_strdup(p_xkb->p_gstring_change_opt_partial->str);
+        config_group_set_string(p_xkb->settings, "ToggleOpt", p_xkb->kbd_change_option);
         g_string_free(p_xkb->p_gstring_change_opt_partial, TRUE/*free also gstring->str*/);
         
         gtk_button_set_label(GTK_BUTTON(p_xkb->p_button_change_layout), p_xkb->kbd_change_option);
@@ -919,7 +879,7 @@ static void on_button_add_layout_clicked(GtkButton *p_button, gpointer *p_data)
     
     // dialog
     GtkWidget *p_dialog = gtk_dialog_new_with_buttons(_("Add Keyboard Layout"),
-                            GTK_WINDOW(p_xkb->p_dialog_config),
+                            p_xkb->p_dialog_config,
                             GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
                             GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
                             GTK_STOCK_OK, GTK_RESPONSE_OK,
@@ -1087,9 +1047,12 @@ static void on_button_add_layout_clicked(GtkButton *p_button, gpointer *p_data)
 
 void xkb_setxkbmap(XkbPlugin *p_xkb)
 {
+    GString *p_gstring_syscmd;
+    int rc;
+
     if(p_xkb->keep_system_layouts) return;
-    
-    GString *p_gstring_syscmd = g_string_new("");
+
+    p_gstring_syscmd = g_string_new("");
     g_string_printf(p_gstring_syscmd,
                     "setxkbmap -model %s -layout %s -variant %s -option %s",
                     p_xkb->kbd_model, p_xkb->kbd_layouts, p_xkb->kbd_variants,
@@ -1101,14 +1064,16 @@ void xkb_setxkbmap(XkbPlugin *p_xkb)
     }
     if(!p_xkb->do_not_reset_opt)
     {
-        if(system("setxkbmap -option")) // reset options
+        rc = system("setxkbmap -option"); // reset options
+        if(rc)
         {
-            ERR("xkb: system(setxkbmap -option)\n");
+            g_warning("xkb: system(setxkbmap -option) returned %d", rc);
         }
     }
-    if(system(p_gstring_syscmd->str)) // set new map
+    rc = system(p_gstring_syscmd->str); // set new map
+    if(rc)
     {
-        ERR("xkb: system(%s)\n", p_gstring_syscmd->str);
+        g_warning("xkb: system(%s) returned %d", p_gstring_syscmd->str, rc);
     }
     //g_printf("\n%s\n", p_gstring_syscmd->str);
     g_string_free(p_gstring_syscmd, TRUE/*free also gstring->str*/);
@@ -1164,6 +1129,8 @@ static void xkb_update_layouts_n_variants(XkbPlugin *p_xkb)
     xkb_setxkbmap(p_xkb);
     xkb_mechanism_destructor(p_xkb);
     xkb_mechanism_constructor(p_xkb);
+    config_group_set_string(p_xkb->settings, "LayoutsList", p_xkb->kbd_layouts);
+    config_group_set_string(p_xkb->settings, "VariantsList", p_xkb->kbd_variants);
     xkb_redraw(p_xkb);
 }
 
@@ -1226,9 +1193,9 @@ static void xkb_settings_fill_layout_tree_model_with_config(XkbPlugin *p_xkb)
 }
 
 /* Callback when the configuration dialog is to be shown. */
-static void xkb_configure(Plugin * p, GtkWindow * parent)
+static GtkWidget *xkb_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
 {
-    XkbPlugin * p_xkb = (XkbPlugin *)p->priv;
+    XkbPlugin * p_xkb = lxpanel_plugin_get_data(p);
     gchar       markup_str[MAX_MARKUP_LEN];
 
     user_active = FALSE;
@@ -1241,8 +1208,8 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
         GTK_STOCK_CLOSE,
         GTK_RESPONSE_OK,
         NULL);
-    p_xkb->p_dialog_config = dlg;
-    panel_apply_icon(GTK_WINDOW(dlg));
+    p_xkb->p_dialog_config = GTK_WINDOW(dlg);
+    panel_apply_icon(p_xkb->p_dialog_config);
 
     // main vbox of the config dialog
     GtkWidget * p_hbox_main = gtk_hbox_new(TRUE, 0);
@@ -1313,7 +1280,7 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
     gtk_box_pack_start(GTK_BOX(p_vbox_kbd_layouts), p_xkb->p_button_rm_layout, FALSE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(p_vbox_kbd_layouts), p_button_up_layout, FALSE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(p_vbox_kbd_layouts), p_button_down_layout, FALSE, TRUE, 0);
-    
+
     // liststore
     p_xkb->p_liststore_layout = gtk_list_store_new(NUM_COLUMNS, GDK_TYPE_PIXBUF, G_TYPE_STRING, G_TYPE_STRING);
     p_xkb->p_treeview_layout = gtk_tree_view_new_with_model(GTK_TREE_MODEL(p_xkb->p_liststore_layout));
@@ -1431,7 +1398,7 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
     GtkWidget *p_table = gtk_table_new(3, 2, FALSE);
     gtk_table_set_col_spacings(GTK_TABLE(p_table), 10);
     gtk_container_add(GTK_CONTAINER(p_alignment_display_type), p_table);
-    
+
     // radiobuttons
     GtkWidget * p_image_disp_type_image = gtk_image_new();
     GtkWidget * p_image_disp_type_image_cust = NULL;
@@ -1479,7 +1446,7 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
     GtkWidget * p_radiobutton_disp_type_image = gtk_radio_button_new_with_label(NULL, (const gchar *)_("Image"));
     GtkWidget * p_radiobutton_disp_type_image_cust = gtk_radio_button_new_with_label_from_widget(GTK_RADIO_BUTTON(p_radiobutton_disp_type_image), (const gchar *)_("Custom Image"));
     GtkWidget * p_radiobutton_disp_type_text = gtk_radio_button_new_with_label_from_widget(GTK_RADIO_BUTTON(p_radiobutton_disp_type_image), (const gchar *)_("Text"));
-    
+
     gtk_table_attach(GTK_TABLE(p_table), p_image_disp_type_image, 0, 1, 0, 1, GTK_FILL, GTK_FILL, 0, 0);
     gtk_table_attach(GTK_TABLE(p_table), p_radiobutton_disp_type_image, 1, 2, 0, 1, GTK_FILL, GTK_FILL, 0, 0);
     if(p_xkb->cust_dir_exists)
@@ -1489,7 +1456,7 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
     }
     gtk_table_attach(GTK_TABLE(p_table), p_label_disp_type_text, 0, 1, 2, 3, GTK_FILL, GTK_FILL, 0, 0);
     gtk_table_attach(GTK_TABLE(p_table), p_radiobutton_disp_type_text, 1, 2, 2, 3, GTK_FILL, GTK_FILL, 0, 0);
-    
+
     g_signal_connect(p_radiobutton_disp_type_image, "toggled", G_CALLBACK(on_radiobutton_disp_type_image_toggled), p_xkb);
     if(p_xkb->cust_dir_exists)
         g_signal_connect(p_radiobutton_disp_type_image_cust, "toggled", G_CALLBACK(on_radiobutton_disp_type_image_cust_toggled), p_xkb);
@@ -1518,7 +1485,7 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
     gtk_alignment_set_padding(GTK_ALIGNMENT(p_alignment_flag_size), 4, 4, 10, 10);
     GtkWidget *p_hbox_flag_size = gtk_hbox_new(FALSE, 2);
     gtk_container_add(GTK_CONTAINER(p_alignment_flag_size), p_hbox_flag_size);
-    
+
     GtkWidget *p_radiobutton_flag_size_1 = gtk_radio_button_new_with_label(NULL, "1");
     GtkWidget *p_radiobutton_flag_size_2 = gtk_radio_button_new_with_label_from_widget(GTK_RADIO_BUTTON(p_radiobutton_flag_size_1), "2");
     GtkWidget *p_radiobutton_flag_size_3 = gtk_radio_button_new_with_label_from_widget(GTK_RADIO_BUTTON(p_radiobutton_flag_size_1), "3");
@@ -1545,53 +1512,31 @@ static void xkb_configure(Plugin * p, GtkWindow * parent)
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(p_radiobutton_flag_size_6), p_xkb->flag_size == 6);
 
     /* Connect signals. */
-    g_signal_connect(p_xkb->p_dialog_config, "response", G_CALLBACK(on_dialog_config_response), p_xkb);
+    g_signal_connect(dlg, "response", G_CALLBACK(on_dialog_config_response), p_xkb);
 
     /* Display the dialog. */
-    gtk_widget_show_all(p_xkb->p_dialog_config);
-    gtk_window_present(GTK_WINDOW(p_xkb->p_dialog_config));
-    
-    user_active = TRUE;
-}
+    gtk_widget_show_all(dlg);
 
-/* Callback when the configuration is to be saved. */
-static void xkb_save_configuration(Plugin * p, FILE * fp)
-{
-    XkbPlugin * p_xkb = (XkbPlugin *)p->priv;
-    lxpanel_put_int(fp, "DisplayType", p_xkb->display_type);
-    lxpanel_put_int(fp, "PerWinLayout", p_xkb->enable_perwin);
-    lxpanel_put_int(fp, "NoResetOpt", p_xkb->do_not_reset_opt);
-    lxpanel_put_int(fp, "KeepSysLayouts", p_xkb->keep_system_layouts);
-    lxpanel_put_str(fp, "Model", p_xkb->kbd_model);
-    lxpanel_put_str(fp, "LayoutsList", p_xkb->kbd_layouts);
-    lxpanel_put_str(fp, "VariantsList", p_xkb->kbd_variants);
-    lxpanel_put_str(fp, "ToggleOpt", p_xkb->kbd_change_option);
-    lxpanel_put_str(fp, "AdvancedOpt", p_xkb->kbd_advanced_options);
-    lxpanel_put_int(fp, "FlagSize", p_xkb->flag_size);
+    user_active = TRUE;
+    return dlg;
 }
 
 /* Callback when panel configuration changes. */
-static void xkb_panel_configuration_changed(Plugin * p)
+static void xkb_panel_configuration_changed(Panel *panel, GtkWidget *p)
 {
     /* Do a full redraw. */
-    XkbPlugin * p_xkb = (XkbPlugin *)p->priv;
-    xkb_redraw(p_xkb);
+    xkb_redraw(lxpanel_plugin_get_data(p));
 }
 
+FM_DEFINE_MODULE(lxpanel_gtk, xkb)
+
 /* Plugin descriptor. */
-PluginClass xkb_plugin_class = {
-
-    PLUGINCLASS_VERSIONING,
-
-    .type = "xkb",
+LXPanelPluginInit fm_module_init_lxpanel_gtk = {
     .name = N_("Keyboard Layout Handler"),
-    .version = "2.0",
     .description = N_("Handle keyboard layouts"),
 
-    .constructor = xkb_constructor,
-    .destructor  = xkb_destructor,
+    .new_instance = xkb_constructor,
     .config = xkb_configure,
-    .save = xkb_save_configuration,
-    .panel_configuration_changed = xkb_panel_configuration_changed
-
+    .reconfigure = xkb_panel_configuration_changed,
+    .button_press_event = on_xkb_button_press_event
 };

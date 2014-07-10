@@ -24,12 +24,10 @@
 #include <gtk/gtk.h>
 #include <glib.h>
 
-#include "private.h"
-#include "misc.h"
-#include "panel.h"
+#include "plugin.h"
 #include "ev.h"
 
-#include "dbg.h"
+extern FbEv *fbev;
 
 typedef enum {
     DISP_TYPE_IMAGE=0,
@@ -40,15 +38,16 @@ typedef enum {
 typedef struct {
 
     /* Plugin interface. */
-    Plugin       *p_plugin;                    /* Back pointer to Plugin */
+    Panel        *panel;                       /* Back pointer to Panel */
+    config_setting_t *settings;                /* Plugin settings */
+    GtkWidget    *p_plugin;                    /* Back pointer to Plugin */
     GtkWidget    *p_label;                     /* Label containing country name */
     GtkWidget    *p_image;                     /* Image containing country flag */
-    DisplayType   display_type;                /* Display layout as image or text */
+    int           display_type;                /* Display layout as image or text */
     gboolean      enable_perwin;               /* Enable per window layout */
     gboolean      do_not_reset_opt;            /* Do not reset options in setxkbmap */
     gboolean      keep_system_layouts;         /* Keey system layouts, skip setxkbmap */
-    guint         source_id;                   /* Source ID for channel listening to XKB events */
-    GtkWidget    *p_dialog_config;             /* Configuration dialog */
+    GtkWindow    *p_dialog_config;             /* Configuration dialog */
     GtkListStore *p_liststore_layout;
     GtkWidget    *p_treeview_layout;
     GtkTreeSelection  *p_treeselection_layout;
@@ -71,10 +70,10 @@ typedef struct {
     gchar    *kbd_variants;
     gchar    *kbd_change_option;
     gchar    *kbd_advanced_options;
-    guchar    flag_size;
     GString  *p_gstring_layouts_partial;
     GString  *p_gstring_variants_partial;
     GString  *p_gstring_change_opt_partial;
+    gint      flag_size;
     int       num_layouts;
     gboolean  cust_dir_exists;
 
