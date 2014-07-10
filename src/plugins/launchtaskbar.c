@@ -188,6 +188,7 @@ struct LaunchTaskBarPlugin {
     int              mode;
     gboolean         lb_built;
     gboolean         tb_built;
+    gboolean         fixed_mode;        /* if mode cannot be changed */
 };
 
 static gchar *launchtaskbar_rc = "style 'launchtaskbar-style'\n"
@@ -813,6 +814,7 @@ static GtkWidget *_launchtaskbar_constructor(Panel *panel, config_setting_t *set
     ltbp->use_mouse_wheel   = TRUE;
     ltbp->use_urgency_hint  = TRUE;
     ltbp->grouped_tasks     = FALSE;
+    ltbp->fixed_mode        = (mode == LAUNCHBAR) || (mode == TASKBAR);
 
     /* Special cases key file */
     ltbp->p_key_file_special_cases = g_key_file_new();
@@ -1435,6 +1437,18 @@ static GtkWidget *launchtaskbar_configure(Panel *panel, GtkWidget *p, GtkWindow 
         gtk_widget_set_visible(ltbp->p_label_def_app_exec, FALSE);
         gtk_widget_set_sensitive(ltbp->p_button_add, FALSE);
         gtk_widget_set_sensitive(ltbp->p_button_remove, FALSE);
+        if (ltbp->fixed_mode)
+        {
+            object = gtk_builder_get_object(builder, "hbox_mode");
+            if (object)
+                gtk_widget_destroy(GTK_WIDGET(object));
+            if (ltbp->mode == LAUNCHBAR)
+                gtk_window_set_title(GTK_WINDOW(ltbp->config_dlg),
+                                     _("Application Launch Bar"));
+            else
+                gtk_window_set_title(GTK_WINDOW(ltbp->config_dlg),
+                                     _("Task Bar (Window List)"));
+        }
 
         g_object_unref(builder);
     }
