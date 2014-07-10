@@ -1344,7 +1344,8 @@ static GtkWidget *xkb_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
     gtk_container_add(GTK_CONTAINER(p_alignment_advanced_opt), p_vbox_advanced_opt);
     p_xkb->p_entry_advanced_opt = gtk_entry_new();
     gtk_widget_set_sensitive(p_xkb->p_entry_advanced_opt, !p_xkb->keep_system_layouts);
-    gtk_entry_set_text(GTK_ENTRY(p_xkb->p_entry_advanced_opt), p_xkb->kbd_advanced_options);
+    if (p_xkb->kbd_advanced_options)
+        gtk_entry_set_text(GTK_ENTRY(p_xkb->p_entry_advanced_opt), p_xkb->kbd_advanced_options);
     gtk_entry_set_icon_from_stock(GTK_ENTRY(p_xkb->p_entry_advanced_opt), GTK_ENTRY_ICON_SECONDARY, "gtk-save");
     g_signal_connect(p_xkb->p_entry_advanced_opt, "icon-press", G_CALLBACK(on_xkb_entry_advanced_opt_icon_press), p_xkb);
     gtk_box_pack_start(GTK_BOX(p_vbox_advanced_opt), p_xkb->p_entry_advanced_opt, FALSE, TRUE, 0);
