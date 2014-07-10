@@ -27,8 +27,6 @@
 #include "plugin.h"
 #include "ev.h"
 
-extern FbEv *fbev;
-
 typedef enum {
     DISP_TYPE_IMAGE=0,
     DISP_TYPE_TEXT=1,

@@ -31,8 +31,6 @@
 #include "misc.h"
 #include "ev.h"
 
-extern FbEv *fbev; /* defined in lxpanel */
-
 /* Private context for desktop number plugin. */
 typedef struct {
     Panel * panel;			/* Back pointer to Panel */

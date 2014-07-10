@@ -77,5 +77,7 @@ extern Window *fb_ev_active_window(FbEv *ev);
 extern Window *fb_ev_client_list(FbEv *ev);
 extern Window *fb_ev_client_list_stacking(FbEv *ev);
 
+/* it is defined in the panel.c */
+extern FbEv *fbev;
 
 #endif /* __FB_EV_H__ */

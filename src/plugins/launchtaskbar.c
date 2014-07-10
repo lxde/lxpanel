@@ -67,8 +67,6 @@
 
 #define PANEL_ICON_SIZE 24 /* see the private.h */
 
-extern FbEv *fbev;
-
 /* Column definitions for configuration dialogs. */
 enum {
     COL_ICON,

@@ -137,8 +137,6 @@ typedef struct {
 
 extern Command commands[];
 
-extern FbEv *fbev;
-
 #define FBPANEL_WIN(win)  gdk_window_lookup(win)
 
 /* Extracted from misc.h */
