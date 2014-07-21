@@ -249,45 +249,12 @@ static void on_menu_item_style_set(GtkWidget* mi, GtkStyle* prev, menup *m)
    therefore it should be removed and drag & drop gestures used instead */
 static void on_add_menu_item_to_desktop(GtkMenuItem* item, GtkWidget* mi)
 {
-    char* dest;
-    const char* src;
-    const char* desktop = g_get_user_special_dir(G_USER_DIRECTORY_DESKTOP);
     FmFileInfo *fi = g_object_get_qdata(G_OBJECT(mi), SYS_MENU_ITEM_ID);
-    int dir_len = strlen(desktop);
-    int basename_len = strlen(fm_file_info_get_name(fi));
-    int dest_fd;
+    FmPathList *files = fm_path_list_new();
 
-    dest = g_malloc( dir_len + basename_len + 6 + 1 + 1 );
-    memcpy(dest, desktop, dir_len);
-    dest[dir_len] = '/';
-    memcpy(dest + dir_len + 1, fm_file_info_get_name(fi), basename_len + 1);
-
-    /* if the destination file already exists, make a unique name. */
-    if( g_file_test( dest, G_FILE_TEST_EXISTS ) )
-    {
-        memcpy( dest + dir_len + 1 + basename_len - 8 /* .desktop */, "XXXXXX.desktop", 15 );
-        dest_fd = g_mkstemp(dest);
-        if( dest_fd >= 0 )
-            chmod(dest, 0600);
-    }
-    else
-    {
-        dest_fd = creat(dest, 0600);
-    }
-
-    if( dest_fd >=0 )
-    {
-        char* data;
-        gsize len;
-        src = fm_file_info_get_target(fi);
-        if( g_file_get_contents(src, &data, &len, NULL) )
-        {
-            write( dest_fd, data, len );
-            g_free(data);
-        }
-        close(dest_fd);
-    }
-    g_free(dest);
+    fm_path_list_push_tail(files, fm_file_info_get_path(fi));
+    fm_link_files(NULL, files, fm_path_get_desktop());
+    fm_path_list_unref(files);
 }
 
 /* TODO: add menu item to panel */
