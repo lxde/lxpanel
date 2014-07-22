@@ -300,9 +300,9 @@ weather_configure(Panel *pPanel G_GNUC_UNUSED, GtkWidget *pWidget, GtkWindow * p
 
   WeatherPluginPrivate * pPriv = (WeatherPluginPrivate *) lxpanel_plugin_get_data(pWidget);
 
-  gtk_weather_run_preferences_dialog(GTK_WIDGET(pPriv->pWeather_));
+  GtkWidget * pDialog = gtk_weather_create_preferences_dialog(GTK_WIDGET(pPriv->pWeather_));
 
-  return pWidget;
+  return pDialog;
 }
 
 FM_DEFINE_MODULE(lxpanel_gtk, weather)

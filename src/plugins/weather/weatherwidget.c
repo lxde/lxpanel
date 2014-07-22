@@ -73,6 +73,7 @@ struct _PopupMenuData
 
 struct _PreferencesDialogData
 {
+  gboolean shown;
   GtkWidget * dialog;
   GtkWidget * location_label;
   GtkWidget * location_button;
@@ -1103,6 +1104,77 @@ gtk_weather_create_popup_menu(GtkWeather * weather)
 }
 
 /**
+ * Callback for the preferences menu response.
+ *
+ * @param dialog Pointer to the preferences dialog.
+ * @param response ID of the response action.
+ * @param data   Pointer to user data (weather widget instance).
+ */
+void
+gtk_weather_preferences_dialog_response(GtkDialog *dialog, gint response, gpointer data)
+{
+  LXW_LOG(LXW_DEBUG, "GtkWeather::popup_menu(%d)", response);
+
+  GtkWeather * weather = GTK_WEATHER(data);
+
+  GtkWeatherPrivate * priv = GTK_WEATHER_GET_PRIVATE(weather);
+
+  switch(response)
+    {
+    case GTK_RESPONSE_ACCEPT:
+      if (priv->location)
+        {
+          LocationInfo * location = (LocationInfo *)priv->location;
+
+          setLocationAlias(priv->location, 
+                           (gpointer)gtk_entry_get_text(GTK_ENTRY(priv->preferences_data.alias_entry)));
+          
+          location->bEnabled_ = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(priv->preferences_data.auto_button));
+
+          if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON((priv->preferences_data.c_button))))
+            {
+              location->cUnits_ = 'c';
+            }
+          else
+            {
+              location->cUnits_ = 'f';
+            }
+          
+          location->uiInterval_ = (guint)gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(priv->preferences_data.auto_spin_button));
+
+          /* Set this location as the valid one */
+          copyLocation(&priv->previous_location, priv->location);          
+
+          /* get forecast */
+          gtk_weather_get_forecast(GTK_WIDGET(weather));
+
+          gtk_weather_render(weather);
+        }
+
+      break;
+
+    case GTK_RESPONSE_REJECT:
+      gtk_weather_set_location(weather, priv->previous_location);
+      
+      gtk_weather_get_forecast(GTK_WIDGET(weather));
+
+      break;
+    default:
+      /* Leave everything as-is*/
+      break;
+    }
+
+  if (GTK_IS_WIDGET(priv->preferences_data.dialog))
+    {
+      gtk_widget_destroy(priv->preferences_data.dialog);
+    }
+
+  priv->preferences_data.dialog = NULL;
+  
+  priv->preferences_data.shown = FALSE;
+}
+
+/**
  * Shows the popup menu used for configuration.
  *
  * @param widget Pointer to the current instance of the weather widget.
@@ -1141,25 +1213,26 @@ gtk_weather_run_popup_menu(GtkWidget * widget)
 }
 
 /**
- * Creates and shows the preferences dialog.
+ * Creates the preferences dialog.
  *
  * @param widget Pointer to the current instance of the weather object.
+ *
+ * @return pointer to the preferences dialog, or NULL on failure.
  */
-void
-gtk_weather_run_preferences_dialog(GtkWidget * widget)
+GtkWidget *
+gtk_weather_create_preferences_dialog(GtkWidget * widget)
 {
   GtkWeather * weather = GTK_WEATHER(widget);
 
-  static gboolean shown = FALSE;
-
   /* @NOTE: watch for parent window when dealing with the plugin */
+  /* @TODO: connect the response signal to the proper function */
   LXW_LOG(LXW_DEBUG, "GtkWeather::create_preferences_dialog()");
 
   GtkWeatherPrivate * priv = GTK_WEATHER_GET_PRIVATE(weather);
 
-  if (shown)
+  if (priv->preferences_data.shown)
     {
-      return;
+      return priv->preferences_data.dialog;
     }
 
   priv->preferences_data.dialog = gtk_dialog_new_with_buttons(_("Weather Preferences"),
@@ -1271,6 +1344,11 @@ gtk_weather_run_preferences_dialog(GtkWidget * widget)
                            G_CALLBACK(gtk_weather_auto_update_toggled),
                            widget);
 
+  g_signal_connect(G_OBJECT(priv->preferences_data.dialog),
+                   "response",
+                   G_CALLBACK(gtk_weather_preferences_dialog_response),
+                   widget);
+
   /*  g_signal_connect_swapped(G_OBJECT(priv->preferences_data.auto_button),
                            "toggled",
                            G_CALLBACK(gtk_weather_auto_update_toggled),
@@ -1335,66 +1413,37 @@ gtk_weather_run_preferences_dialog(GtkWidget * widget)
   gtk_box_pack_start(GTK_BOX(GTK_DIALOG(priv->preferences_data.dialog)->vbox),
                      forecast_frame, TRUE, TRUE, 0);
 
-  /* Dialog is shown inside */
   gtk_weather_update_preferences_dialog(weather);
 
-  shown = TRUE;
+  return priv->preferences_data.dialog;
+}
 
-  gint response = gtk_dialog_run(GTK_DIALOG(priv->preferences_data.dialog));
+/**
+ * Creates and shows the preferences dialog.
+ *
+ * @param widget Pointer to the current instance of the weather object.
+ */
+void
+gtk_weather_run_preferences_dialog(GtkWidget * widget)
+{
+  GtkWeather * weather = GTK_WEATHER(widget);
 
-  switch(response)
+  /* @NOTE: watch for parent window when dealing with the plugin */
+  LXW_LOG(LXW_DEBUG, "GtkWeather::run_preferences_dialog()");
+
+  GtkWeatherPrivate * priv = GTK_WEATHER_GET_PRIVATE(weather);
+
+  if (priv->preferences_data.shown)
     {
-    case GTK_RESPONSE_ACCEPT:
-      if (priv->location)
-        {
-          LocationInfo * location = (LocationInfo *)priv->location;
-
-          setLocationAlias(priv->location, 
-                           (gpointer)gtk_entry_get_text(GTK_ENTRY(priv->preferences_data.alias_entry)));
-          
-          location->bEnabled_ = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(priv->preferences_data.auto_button));
-
-          if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON((priv->preferences_data.c_button))))
-            {
-              location->cUnits_ = 'c';
-            }
-          else
-            {
-              location->cUnits_ = 'f';
-            }
-          
-          location->uiInterval_ = (guint)gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(priv->preferences_data.auto_spin_button));
-
-          /* Set this location as the valid one */
-          copyLocation(&priv->previous_location, priv->location);          
-
-          /* get forecast */
-          gtk_weather_get_forecast(GTK_WIDGET(weather));
-
-          gtk_weather_render(weather);
-        }
-
-      break;
-
-    case GTK_RESPONSE_REJECT:
-      gtk_weather_set_location(weather, priv->previous_location);
-      
-      gtk_weather_get_forecast(GTK_WIDGET(weather));
-
-      break;
-    default:
-      /* Leave everything as-is*/
-      break;
+      return;
     }
 
-  if (GTK_IS_WIDGET(priv->preferences_data.dialog))
-    {
-      gtk_widget_destroy(priv->preferences_data.dialog);
-    }
+  /* this dialog is the same one as priv->preferences_data.dialog */
+  GtkWidget * dialog = gtk_weather_create_preferences_dialog(widget);
 
-  priv->preferences_data.dialog = NULL;
-  
-  shown = FALSE;
+  gtk_widget_show_all(dialog);
+
+  priv->preferences_data.shown = TRUE;
 }
 
 /**
@@ -1491,7 +1540,6 @@ gtk_weather_update_preferences_dialog(GtkWeather * weather)
       gtk_widget_set_sensitive(GTK_WIDGET(priv->preferences_data.auto_spin_button), FALSE);
     }
 
-  gtk_widget_show_all(priv->preferences_data.dialog);
 }
 
 /**

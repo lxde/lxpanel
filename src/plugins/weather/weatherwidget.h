@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2012-201 Piotr Sipika; see the AUTHORS file for more.
+ * Copyright (c) 2012-2014 Piotr Sipika; see the AUTHORS file for more.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -60,6 +60,7 @@ void        gtk_weather_run_preferences_dialog(GtkWidget * widget);
 void        gtk_weather_run_popup_menu(GtkWidget * widget);
 void        gtk_weather_run_conditions_dialog(GtkWidget * widget);
 gchar *     gtk_weather_get_tooltip_text(GtkWidget * widget);
+GtkWidget * gtk_weather_create_preferences_dialog(GtkWidget * widget);
 
 G_END_DECLS
 
