@@ -73,6 +73,7 @@ typedef struct {
     MenuCache* menu_cache;
     guint visibility_flags;
     gpointer reload_notify;
+    FmDndSrc *ds;
 } menup;
 
 static guint idle_loader = 0;
@@ -86,6 +87,14 @@ GtkWidget *_gtk_image_new_from_file_scaled(const gchar *file, gint width,
 void restart(void);
 void gtk_run(void);
 void logout(void);
+
+static void on_data_get(FmDndSrc *ds, GtkWidget *mi)
+{
+    FmFileInfo *fi = g_object_get_qdata(G_OBJECT(mi), SYS_MENU_ITEM_ID);
+
+    g_debug("on_data_get(...)");
+    fm_dnd_src_set_file(ds, fi);
+}
 
 static void
 menu_destructor(gpointer user_data)
@@ -102,6 +111,9 @@ menu_destructor(gpointer user_data)
         g_source_remove(m->show_system_menu_idle);
 
     g_signal_handler_disconnect(G_OBJECT(m->img), m->handler_id);
+    g_signal_handlers_disconnect_matched(m->ds, G_SIGNAL_MATCH_FUNC, 0, 0, NULL,
+                                         on_data_get, NULL);
+    g_object_unref(G_OBJECT(m->ds));
     gtk_widget_destroy(m->menu);
 
     if( m->menu_cache )
@@ -403,6 +415,15 @@ static gboolean on_menu_button_press(GtkWidget* mi, GdkEventButton* evt, menup* 
         gtk_menu_popup(p, NULL, NULL, NULL, NULL, 0, evt->time);
         return TRUE;
     }
+    else if (evt->button == 1) /* allow drag on clicked item */
+    {
+        /* disconnect previous menu item */
+        g_signal_handlers_disconnect_matched(m->ds, G_SIGNAL_MATCH_FUNC, 0, 0,
+                                             NULL, on_data_get, NULL);
+        /* remap FmDndSrc onto current item */
+        fm_dnd_src_set_widget(m->ds, mi);
+        g_signal_connect(m->ds, "data-get", G_CALLBACK(on_data_get), mi);
+    }
     return FALSE;
 }
 
@@ -438,6 +459,9 @@ static GtkWidget* create_item(MenuCacheItem *item, menup *m)
         g_signal_connect(mi, "map", G_CALLBACK(on_menu_item_map), m);
         g_signal_connect(mi, "style-set", G_CALLBACK(on_menu_item_style_set), m);
         g_signal_connect(mi, "button-press-event", G_CALLBACK(on_menu_button_press), m);
+        /* allow drag and add empty set for now to allow dragging the item
+           the rest will be done by FmDndSrc after drag begins */
+        gtk_drag_source_set(mi, GDK_BUTTON1_MASK, NULL, 0, GDK_ACTION_COPY);
     }
     gtk_widget_show( mi );
     return mi;
@@ -721,6 +745,8 @@ make_button(menup *m, const gchar *fname, const gchar *name, GdkColor* tint, Gtk
     m->handler_id = g_signal_connect (G_OBJECT (m->img), "button-press-event",
           G_CALLBACK (my_button_pressed), m);
     g_object_set_data(G_OBJECT(m->img), "plugin", m);
+
+    m->ds = fm_dnd_src_new(NULL);
 
     RET(m->img);
 }
