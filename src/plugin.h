@@ -62,6 +62,14 @@ G_BEGIN_DECLS
  * Callback @reconfigure is called when panel configuration was changed
  * in the panel configuration dialog so the instance may change layout of
  * own subwidgets appropriately to new geometry.
+ *
+ * Callback @update_context_menu is called when panel context menu being
+ * composed. The @menu contains only item for plugin instance config. The
+ * callback can append or prepend own items to the menu. The callback
+ * should return %TRUE if panel's common menu should be moved into the
+ * submenu 'Panel' (therefore context menu will contain 'Settings' item,
+ * any added ones, and 'Panel') and %FALSE if panel's common menu items
+ * should be in this menu after separator.
  */
 typedef struct {
     /*< public >*/
@@ -74,6 +82,7 @@ typedef struct {
     void (*reconfigure)(Panel *panel, GtkWidget *instance);
     gboolean (*button_press_event)(GtkWidget *widget, GdkEventButton *event, Panel *panel);
     void (*show_system_menu)(GtkWidget *widget);
+    gboolean (*update_context_menu)(GtkWidget *plugin, GtkMenu *menu);
     int one_per_system : 1;     /* True to disable more than one instance */
     int expand_available : 1;   /* True if "stretch" option is available */
     int expand_default : 1;     /* True if "stretch" option is default */
