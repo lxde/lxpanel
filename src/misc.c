@@ -365,7 +365,7 @@ void resolve_atoms()
 
     ENTER;
    
-    if( !  XInternAtoms( GDK_DISPLAY(), (char**)atom_names,
+    if( !  XInternAtoms( GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), (char**)atom_names,
             N_ATOMS, False, atoms ) )
     {
         g_warning( "Error: unable to return Atoms" );
@@ -438,7 +438,7 @@ Xclimsg(Window win, Atom type, long l0, long l1, long l2, long l3, long l4)
     xev.data.l[2] = l2;
     xev.data.l[3] = l3;
     xev.data.l[4] = l4;
-    XSendEvent(GDK_DISPLAY(), GDK_ROOT_WINDOW(), False,
+    XSendEvent(GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), GDK_ROOT_WINDOW(), False,
           (SubstructureNotifyMask | SubstructureRedirectMask),
           (XEvent *) &xev);
 }
@@ -454,7 +454,7 @@ Xclimsgwm(Window win, Atom type, Atom arg)
     xev.format = 32;
     xev.data.l[0] = arg;
     xev.data.l[1] = GDK_CURRENT_TIME;
-    XSendEvent(GDK_DISPLAY(), win, False, 0L, (XEvent *) &xev);
+    XSendEvent(GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), win, False, 0L, (XEvent *) &xev);
 }
 
 
@@ -471,7 +471,7 @@ get_utf8_property(Window win, Atom atom)
 
     type = None;
     retval = NULL;
-    result = XGetWindowProperty (GDK_DISPLAY(), win, atom, 0, G_MAXLONG, False,
+    result = XGetWindowProperty (GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), win, atom, 0, G_MAXLONG, False,
           a_UTF8_STRING, &type, &format, &nitems,
           &bytes_after, &tmp);
     if (result != Success || type == None)
@@ -498,7 +498,7 @@ get_utf8_property_list(Window win, Atom atom, int *count)
     guchar *tmp = NULL;
 
     *count = 0;
-    result = XGetWindowProperty(GDK_DISPLAY(), win, atom, 0, G_MAXLONG, False,
+    result = XGetWindowProperty(GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), win, atom, 0, G_MAXLONG, False,
           a_UTF8_STRING, &type, &format, &nitems,
           &bytes_after, &tmp);
     if (result != Success || type != a_UTF8_STRING || tmp == NULL)
@@ -542,7 +542,7 @@ get_xaproperty (Window win, Atom prop, Atom type, int *nitems)
 
     ENTER;
     prop_data = NULL;
-    if (XGetWindowProperty (GDK_DISPLAY(), win, prop, 0, 0x7fffffff, False,
+    if (XGetWindowProperty (GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), win, prop, 0, 0x7fffffff, False,
               type, &type_ret, &format_ret, &items_ret,
               &after_ret, &prop_data) != Success)
     {
@@ -566,7 +566,8 @@ text_property_to_utf8 (const XTextProperty *prop)
 
   ENTER;
   list = NULL;
-  count = gdk_text_property_to_utf8_list (gdk_x11_xatom_to_atom (prop->encoding),
+  count = gdk_text_property_to_utf8_list_for_display (gdk_display_get_default(),
+                                          gdk_x11_xatom_to_atom (prop->encoding),
                                           prop->format,
                                           prop->value,
                                           prop->nitems,
@@ -591,7 +592,7 @@ get_textproperty(Window win, Atom atom)
     char *retval;
 
     ENTER;
-    if (XGetTextProperty(GDK_DISPLAY(), win, &text_prop, atom)) {
+    if (XGetTextProperty(GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), win, &text_prop, atom)) {
         DBG("format=%d enc=%d nitems=%d value=%s   \n",
               text_prop.format,
               text_prop.encoding,
@@ -1014,8 +1015,8 @@ get_button_spacing(GtkRequisition *req, GtkContainer *parent, gchar *name)
     ENTER;
     b = gtk_button_new();
     gtk_widget_set_name(GTK_WIDGET(b), name);
-    GTK_WIDGET_UNSET_FLAGS (b, GTK_CAN_FOCUS);
-    GTK_WIDGET_UNSET_FLAGS (b, GTK_CAN_DEFAULT);
+    gtk_widget_set_can_focus(b, FALSE);
+    gtk_widget_set_can_default(b, FALSE);
     gtk_container_set_border_width (GTK_CONTAINER (b), 0);
 
     if (parent)
@@ -1112,7 +1113,7 @@ static GtkWidget *_lxpanel_button_new_for_icon(Panel *panel, FmIcon *icon,
 {
     GtkWidget * event_box = gtk_event_box_new();
     gtk_container_set_border_width(GTK_CONTAINER(event_box), 0);
-    GTK_WIDGET_UNSET_FLAGS(event_box, GTK_CAN_FOCUS);
+    gtk_widget_set_can_focus(event_box, FALSE);
 
     GtkWidget * image = _gtk_image_new_for_icon(icon, size);
     gtk_misc_set_padding(GTK_MISC(image), 0, 0);
@@ -1133,7 +1134,7 @@ static GtkWidget *_lxpanel_button_new_for_icon(Panel *panel, FmIcon *icon,
     {
         GtkWidget * inner = gtk_hbox_new(FALSE, 0);
         gtk_container_set_border_width(GTK_CONTAINER(inner), 0);
-        GTK_WIDGET_UNSET_FLAGS (inner, GTK_CAN_FOCUS);
+        gtk_widget_set_can_focus(inner, FALSE);
         gtk_container_add(GTK_CONTAINER(event_box), inner);
 
         gtk_box_pack_start(GTK_BOX(inner), image, FALSE, FALSE, 0);

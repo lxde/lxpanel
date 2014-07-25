@@ -17,7 +17,6 @@
  */
 
 #include <gtk/gtk.h>
-#include <gtk/gtkprivate.h>
 #include <string.h>
 
 #include "icon-grid.h"
@@ -277,7 +276,7 @@ IconGrid * icon_grid_new(
     /* Create a layout container. */
     ig->widget = gtk_fixed_new();
     g_object_add_weak_pointer(G_OBJECT(ig->widget), (gpointer*)&ig->widget);
-    GTK_WIDGET_SET_FLAGS(ig->widget, GTK_NO_WINDOW);
+    gtk_widget_set_has_window(ig->widget, FALSE);
     gtk_widget_set_redraw_on_allocate(ig->widget, FALSE);
     gtk_container_add(GTK_CONTAINER(ig->container), ig->widget);
     gtk_widget_show(ig->widget);

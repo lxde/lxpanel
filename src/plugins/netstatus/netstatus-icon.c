@@ -26,7 +26,6 @@
 
 #include <gtk/gtk.h>
 #include <glib/gi18n.h>
-#include <gtk/gtktooltips.h>
 
 #include "netstatus-util.h"
 #include "netstatus-enums.h"
@@ -579,7 +578,7 @@ netstatus_icon_scale_icons (NetstatusIcon  *icon,
 static inline GObjectClass *
 get_box_class (GtkOrientation orientation)
 {
-  return gtk_type_class (orientation == GTK_ORIENTATION_HORIZONTAL ? GTK_TYPE_HBOX : GTK_TYPE_VBOX);
+  return g_type_class_peek(orientation == GTK_ORIENTATION_HORIZONTAL ? GTK_TYPE_HBOX : GTK_TYPE_VBOX);
 }
 
 static void
@@ -618,7 +617,11 @@ netstatus_icon_size_allocate (GtkWidget     *widget,
       netstatus_icon_scale_icons (icon, size);
     }
 
+#if GTK_CHECK_VERSION(2, 20, 0)
+  if (gtk_widget_get_realized(widget))
+#else
   if (GTK_WIDGET_REALIZED (widget))
+#endif
     {
       gdk_window_move_resize (window,
                               allocation->x + border_width,
@@ -637,11 +640,7 @@ netstatus_icon_size_allocate (GtkWidget     *widget,
   if (GTK_WIDGET_CLASS (klass)->size_allocate)
     GTK_WIDGET_CLASS (klass)->size_allocate (widget, &child_allocation);
 
-#if GTK_CHECK_VERSION(2,18,0)
   gtk_widget_get_allocation(widget, allocation);
-#else
-  widget->allocation = *allocation;
-#endif
 }
 
 static void
@@ -651,7 +650,11 @@ netstatus_icon_realize (GtkWidget *widget)
   int           attributes_mask;
   int           border_width;
 
+#if GTK_CHECK_VERSION(2, 20, 0)
+  gtk_widget_set_realized(widget, TRUE);
+#else
   GTK_WIDGET_SET_FLAGS (widget, GTK_REALIZED);
+#endif
 
   border_width = GTK_CONTAINER (widget)->border_width;
 
@@ -858,7 +861,7 @@ netstatus_icon_instance_init (NetstatusIcon      *icon,
 {
   icon->priv = g_new0 (NetstatusIconPrivate, 1);
 
-  GTK_WIDGET_UNSET_FLAGS (icon, GTK_NO_WINDOW);
+  gtk_widget_set_has_window(GTK_WIDGET(icon), TRUE);
 
   icon->priv->iface            = NULL;
   icon->priv->state            = NETSTATUS_STATE_DISCONNECTED;

@@ -413,7 +413,7 @@ static GtkWidget * constructor(Panel *panel, config_setting_t *settings)
 
     p = gtk_event_box_new();
     lxpanel_plugin_set_data(p, lx_b, destructor);
-    GTK_WIDGET_SET_FLAGS( p, GTK_NO_WINDOW );
+    gtk_widget_set_has_window(p, FALSE);
     gtk_container_set_border_width( GTK_CONTAINER(p), 1 );
 
     lx_b->drawingArea = gtk_drawing_area_new();

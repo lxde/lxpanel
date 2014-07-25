@@ -152,10 +152,9 @@ menu_pos(GtkMenu *menu, gint *x, gint *y, gboolean *push_in, GtkWidget *widget)
 {
     int ox, oy, w, h;
     menup *m;
-#if GTK_CHECK_VERSION(2,18,0)
-    GtkAllocation *allocation = g_new0 (GtkAllocation, 1);
-    gtk_widget_get_allocation(GTK_WIDGET(widget), allocation);
-#endif
+    GtkAllocation allocation;
+
+    gtk_widget_get_allocation(GTK_WIDGET(widget), &allocation);
     ENTER;
     m = g_object_get_data(G_OBJECT(widget), "plugin");
     gdk_window_get_origin(gtk_widget_get_window(widget), &ox, &oy);
@@ -172,45 +171,22 @@ menu_pos(GtkMenu *menu, gint *x, gint *y, gboolean *push_in, GtkWidget *widget)
     if (panel_get_orientation(m->panel) == GTK_ORIENTATION_HORIZONTAL) {
         *x = ox;
         if (*x + w > gdk_screen_width())
-#if GTK_CHECK_VERSION(2,18,0)
-            *x = ox + allocation->width - w;
-#else
-            *x = ox + widget->allocation.width - w;
-#endif
+            *x = ox + allocation.width - w;
         *y = oy - h;
         if (*y < 0)
-#if GTK_CHECK_VERSION(2,18,0)
-            *y = oy + allocation->height;
-#else
-            *y = oy + widget->allocation.height;
-#endif
+            *y = oy + allocation.height;
     } else {
-#if GTK_CHECK_VERSION(2,18,0)
-        *x = ox + allocation->width;
-#else
-        *x = ox + widget->allocation.width;
-#endif
+        *x = ox + allocation.width;
         if (*x > gdk_screen_width())
             *x = ox - w;
         *y = oy;
         if (*y + h >  gdk_screen_height())
-#if GTK_CHECK_VERSION(2,18,0)
-            *y = oy + allocation->height - h;
-#else
-            *y = oy + widget->allocation.height - h;
-#endif
+            *y = oy + allocation.height - h;
     }
     DBG("widget: x,y=%d,%d  w,h=%d,%d\n", ox, oy,
-#if GTK_CHECK_VERSION(2,18,0)
-          allocation->width, allocation->height );
-#else
-          widget->allocation.width, widget->allocation.height );
-#endif
+          allocation.width, allocation.height );
     DBG("w-h %d %d\n", w, h);
     *push_in = TRUE;
-#if GTK_CHECK_VERSION(2,18,0)
-    g_free (allocation);
-#endif
     RET();
 }
 
@@ -348,7 +324,11 @@ static void restore_grabs(GtkWidget *w, gpointer data)
 
         while (tmp)
         {
+#if GTK_CHECK_VERSION(2, 24, 0)
+            if (!gtk_widget_get_mapped(tmp))
+#else
             if (!GTK_WIDGET_MAPPED (tmp))
+#endif
             {
                 viewable = FALSE;
                 break;
@@ -363,11 +343,7 @@ static void restore_grabs(GtkWidget *w, gpointer data)
     }
 
     /*only grab if this HAD a grab before*/
-#if GTK_CHECK_VERSION(2,18,0)
     if (xgrab_shell && (gtk_widget_has_focus(xgrab_shell)))
-#else
-    if (xgrab_shell && (GTK_MENU_SHELL (xgrab_shell)->have_xgrab))
-#endif
      {
         if (gdk_pointer_grab (gtk_widget_get_window(xgrab_shell), TRUE,
                     GDK_BUTTON_PRESS_MASK |
@@ -378,11 +354,7 @@ static void restore_grabs(GtkWidget *w, gpointer data)
         {
             if (gdk_keyboard_grab (gtk_widget_get_window(xgrab_shell), TRUE,
                     GDK_CURRENT_TIME) == 0)
-#if GTK_CHECK_VERSION(2,18,0)
                 gtk_widget_grab_focus (xgrab_shell);
-#else
-                GTK_MENU_SHELL (xgrab_shell)->have_xgrab = TRUE;
-#endif
             else
                 gdk_pointer_ungrab (GDK_CURRENT_TIME);
         }
@@ -556,7 +528,11 @@ static void _unload_old_icons(GtkMenu* menu, GtkIconTheme* theme, menup* m)
             {
 	        img = GTK_IMAGE(gtk_image_menu_item_get_image(GTK_IMAGE_MENU_ITEM(item)));
                 gtk_image_clear(img);
+#if GTK_CHECK_VERSION(2, 24, 0)
+                if (gtk_widget_get_mapped(GTK_WIDGET(img)))
+#else
                 if( GTK_WIDGET_MAPPED(img) )
+#endif
 		    on_menu_item_map(GTK_WIDGET(item), m);
             }
         }
@@ -662,28 +638,18 @@ static gboolean
 my_button_pressed(GtkWidget *widget, GdkEventButton *event, menup *m)
 {
     ENTER;
-#if GTK_CHECK_VERSION(2,18,0)
-    GtkAllocation *allocation = g_new0 (GtkAllocation, 1);
-    gtk_widget_get_allocation(GTK_WIDGET(widget), allocation);
-#endif
+    GtkAllocation allocation;
+    gtk_widget_get_allocation(GTK_WIDGET(widget), &allocation);
 
     /* Standard right-click handling. */
     if (lxpanel_plugin_button_press_event(m->box, event, m->panel))
         return TRUE;
 
     if ((event->type == GDK_BUTTON_PRESS)
-#if GTK_CHECK_VERSION(2,18,0)
-          && (event->x >=0 && event->x < allocation->width)
-          && (event->y >=0 && event->y < allocation->height)) {
-#else
-          && (event->x >=0 && event->x < widget->allocation.width)
-          && (event->y >=0 && event->y < widget->allocation.height)) {
-#endif
+          && (event->x >=0 && event->x < allocation.width)
+          && (event->y >=0 && event->y < allocation.height)) {
         show_menu( widget, m, event->button, event->time );
     }
-#if GTK_CHECK_VERSION(2,18,0)
-    g_free (allocation);
-#endif
     RET(TRUE);
 }
 

@@ -53,11 +53,7 @@ static GtkWidget *space_constructor(Panel *panel, config_setting_t *settings)
     /* Allocate top level widget and set into Plugin widget pointer. */
     p = gtk_event_box_new();
     lxpanel_plugin_set_data(p, sp, g_free);
-#if GTK_CHECK_VERSION(2,18,0)
     gtk_widget_set_has_window(p,FALSE);
-#else
-    GTK_WIDGET_SET_FLAGS(p, GTK_NO_WINDOW);
-#endif
     gtk_widget_add_events(p, GDK_BUTTON_PRESS_MASK);
     gtk_container_set_border_width(GTK_CONTAINER(p), 0);
 

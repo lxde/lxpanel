@@ -44,7 +44,6 @@ static gboolean skip_botton1_event;
 typedef struct {
     Panel *panel;
     GtkWidget *dlg;
-    GtkTooltips* tooltips;
 } volume_t;
 
 static void
@@ -55,7 +54,6 @@ volume_destructor(gpointer user_data)
     ENTER;
     if (vol->dlg)
         gtk_widget_destroy(vol->dlg);
-    g_object_unref( vol->tooltips );
     if (mixer_fd)
         close(mixer_fd);
     g_free(vol);
@@ -283,11 +281,8 @@ _error:
     gtk_widget_destroy( vol->dlg );
     vol->dlg = NULL;
 
-    vol->tooltips = gtk_tooltips_new ();
-    g_object_ref_sink( vol->tooltips );
-
     /* FIXME: display current level in tooltip. ex: "Volume Control: 80%"  */
-    gtk_tooltips_set_tip (vol->tooltips, p, _("Volume control"), NULL);
+    gtk_widget_set_tooltip_text(p, _("Volume control"));
 
     RET(p);
 }

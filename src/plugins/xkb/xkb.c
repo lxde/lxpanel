@@ -112,7 +112,7 @@ static void refresh_group_xkb(XkbPlugin * xkb)
     /* Get the current group number.
      * This shouldn't be necessary, but mask the group number down for safety. */
     XkbStateRec xkb_state;
-    XkbGetState(GDK_DISPLAY(), XkbUseCoreKbd, &xkb_state);
+    XkbGetState(GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), XkbUseCoreKbd, &xkb_state);
     xkb->current_group_xkb_no = xkb_state.group & (XkbNumKbdGroups - 1);
 }
 
@@ -126,8 +126,9 @@ static int initialize_keyboard_description(XkbPlugin * xkb)
     else
     {
         /* Read necessary values into the keyboard description. */
-        XkbGetControls(GDK_DISPLAY(), XkbAllControlsMask, xkb_desc);
-        XkbGetNames(GDK_DISPLAY(), XkbSymbolsNameMask | XkbGroupNamesMask, xkb_desc);
+        Display *xdisplay = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
+        XkbGetControls(xdisplay, XkbAllControlsMask, xkb_desc);
+        XkbGetNames(xdisplay, XkbSymbolsNameMask | XkbGroupNamesMask, xkb_desc);
         if ((xkb_desc->names == NULL) || (xkb_desc->ctrls == NULL) || (xkb_desc->names->groups == NULL))
             g_warning("XkbGetControls/XkbGetNames failed\n");
         else
@@ -142,7 +143,7 @@ static int initialize_keyboard_description(XkbPlugin * xkb)
                 if (group_source[i] != None)
                 {
                     xkb->group_count = i + 1;
-                    char * p = XGetAtomName(GDK_DISPLAY(), group_source[i]);
+                    char * p = XGetAtomName(xdisplay, group_source[i]);
                     xkb->group_names[i] = g_strdup(p);
                     XFree(p);
                 }
@@ -159,7 +160,7 @@ static int initialize_keyboard_description(XkbPlugin * xkb)
              * This is a plus-sign separated string. */
             if (xkb_desc->names->symbols != None)
             {
-                char * symbol_string = XGetAtomName(GDK_DISPLAY(), xkb_desc->names->symbols);
+                char * symbol_string = XGetAtomName(xdisplay, xkb_desc->names->symbols);
                 if (symbol_string != NULL)
                 {
                     char * p = symbol_string;
@@ -289,8 +290,11 @@ void xkb_mechanism_constructor(XkbPlugin * xkb)
     int maj = XkbMajorVersion;
     int min = XkbMinorVersion;
     if ((XkbLibraryVersion(&maj, &min))
-    && (XkbQueryExtension(GDK_DISPLAY(), &opcode, &xkb->base_event_code, &xkb->base_error_code, &maj, &min)))
+    && (XkbQueryExtension(GDK_DISPLAY_XDISPLAY(gdk_display_get_default()),
+                          &opcode, &xkb->base_event_code, &xkb->base_error_code, &maj, &min)))
     {
+        Display *xdisplay = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
+
         /* Read the keyboard description. */
         initialize_keyboard_description(xkb);
 
@@ -298,8 +302,8 @@ void xkb_mechanism_constructor(XkbPlugin * xkb)
         gdk_window_add_filter(NULL, (GdkFilterFunc) xkb_event_filter, (gpointer) xkb);
 
         /* Specify events we will receive. */
-        XkbSelectEvents(GDK_DISPLAY(), XkbUseCoreKbd, XkbNewKeyboardNotifyMask, XkbNewKeyboardNotifyMask);
-        XkbSelectEventDetails(GDK_DISPLAY(), XkbUseCoreKbd, XkbStateNotify, XkbAllStateComponentsMask, XkbGroupStateMask);
+        XkbSelectEvents(xdisplay, XkbUseCoreKbd, XkbNewKeyboardNotifyMask, XkbNewKeyboardNotifyMask);
+        XkbSelectEventDetails(xdisplay, XkbUseCoreKbd, XkbStateNotify, XkbAllStateComponentsMask, XkbGroupStateMask);
 
         /* Get current state. */
         refresh_group_xkb(xkb);
@@ -342,7 +346,7 @@ int xkb_change_group(XkbPlugin * xkb, int increment)
     if (next_group >= xkb->group_count) next_group = 0;
 
     /* Execute the change. */
-    XkbLockGroup(GDK_DISPLAY(), XkbUseCoreKbd, next_group);
+    XkbLockGroup(GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), XkbUseCoreKbd, next_group);
     refresh_group_xkb(xkb);
     xkb_redraw(xkb);
     xkb_enter_locale_by_process(xkb);
@@ -360,7 +364,8 @@ void xkb_active_window_changed(XkbPlugin * xkb, Window window)
 
     if (new_group_xkb_no < xkb->group_count)
     {
-        XkbLockGroup(GDK_DISPLAY(), XkbUseCoreKbd, new_group_xkb_no);
+        XkbLockGroup(GDK_DISPLAY_XDISPLAY(gdk_display_get_default()),
+                     XkbUseCoreKbd, new_group_xkb_no);
         refresh_group_xkb(xkb);
     }
 }

@@ -780,7 +780,7 @@ static GtkWidget *indicator_constructor(Panel *panel, config_setting_t *settings
 
     /* Allocate icon as a child of top level. */
     indicator->menubar = gtk_menu_bar_new();
-    GTK_WIDGET_SET_FLAGS (indicator->menubar, GTK_WIDGET_FLAGS(indicator->menubar) | GTK_CAN_FOCUS);
+    gtk_widget_set_can_focus(indicator->menubar, TRUE);
 
     /* Init some theme/icon stuff */
     gtk_icon_theme_append_search_path(panel_get_icon_theme(panel),

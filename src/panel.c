@@ -145,6 +145,7 @@ static void panel_normalize_configuration(Panel* p)
 void panel_set_wm_strut(Panel *p)
 {
     int index;
+    Display *xdisplay = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
     gulong strut_size;
     gulong strut_lower;
     gulong strut_upper;
@@ -202,7 +203,11 @@ void panel_set_wm_strut(Panel *p)
 
     /* If strut value changed, set the property value on the panel window.
      * This avoids property change traffic when the panel layout is recalculated but strut geometry hasn't changed. */
+#if GTK_CHECK_VERSION(2, 20, 0)
+    if ((gtk_widget_get_mapped(p->topgwin))
+#else
     if ((GTK_WIDGET_MAPPED(p->topgwin))
+#endif
     && ((p->strut_size != strut_size) || (p->strut_lower != strut_lower) || (p->strut_upper != strut_upper) || (p->strut_edge != p->edge)))
     {
         p->strut_size = strut_size;
@@ -214,15 +219,15 @@ void panel_set_wm_strut(Panel *p)
          * Set STRUT also for window managers that do not support STRUT_PARTIAL. */
         if (strut_size != 0)
         {
-            XChangeProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STRUT_PARTIAL,
+            XChangeProperty(xdisplay, p->topxwin, a_NET_WM_STRUT_PARTIAL,
                 XA_CARDINAL, 32, PropModeReplace,  (unsigned char *) desired_strut, 12);
-            XChangeProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STRUT,
+            XChangeProperty(xdisplay, p->topxwin, a_NET_WM_STRUT,
                 XA_CARDINAL, 32, PropModeReplace,  (unsigned char *) desired_strut, 4);
         }
         else
         {
-            XDeleteProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STRUT);
-            XDeleteProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STRUT_PARTIAL);
+            XDeleteProperty(xdisplay, p->topxwin, a_NET_WM_STRUT);
+            XDeleteProperty(xdisplay, p->topxwin, a_NET_WM_STRUT_PARTIAL);
         }
     }
 }
@@ -461,7 +466,11 @@ void panel_update_background(Panel * p)
 static gboolean delay_update_background( Panel* p )
 {
     /* Panel could be destroyed while background update scheduled */
+#if GTK_CHECK_VERSION(2, 20, 0)
+    if (p->topgwin && gtk_widget_get_realized(p->topgwin)) {
+#else
     if ( p->topgwin && GTK_WIDGET_REALIZED ( p->topgwin ) ) {
+#endif
 	gdk_display_sync( gtk_widget_get_display(p->topgwin) );
 	panel_update_background( p );
     }
@@ -480,7 +489,11 @@ static void
 panel_style_set(GtkWidget *widget, GtkStyle* prev, Panel *p)
 {
     /* FIXME: This dirty hack is used to fix the background of systray... */
+#if GTK_CHECK_VERSION(2, 20, 0)
+    if (gtk_widget_get_realized(widget))
+#else
     if( GTK_WIDGET_REALIZED( widget ) )
+#endif
         g_idle_add_full( G_PRIORITY_LOW, 
                 (GSourceFunc)delay_update_background, p, NULL );
 }
@@ -723,7 +736,7 @@ static void panel_popupmenu_about( GtkMenuItem* item, Panel* panel )
     about = gtk_about_dialog_new();
     panel_apply_icon(GTK_WINDOW(about));
     gtk_about_dialog_set_version(GTK_ABOUT_DIALOG(about), VERSION);
-    gtk_about_dialog_set_name(GTK_ABOUT_DIALOG(about), _("LXPanel"));
+    gtk_about_dialog_set_program_name(GTK_ABOUT_DIALOG(about), _("LXPanel"));
 
     if(gtk_icon_theme_has_icon(panel->icon_theme, "video-display"))
     {
@@ -884,14 +897,16 @@ make_round_corners(Panel *p)
 
 void panel_set_dock_type(Panel *p)
 {
+    Display *xdisplay = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
+
     if (p->setdocktype) {
         Atom state = a_NET_WM_WINDOW_TYPE_DOCK;
-        XChangeProperty(GDK_DISPLAY(), p->topxwin,
+        XChangeProperty(xdisplay, p->topxwin,
                         a_NET_WM_WINDOW_TYPE, XA_ATOM, 32,
                         PropModeReplace, (unsigned char *) &state, 1);
     }
     else {
-        XDeleteProperty( GDK_DISPLAY(), p->topxwin, a_NET_WM_WINDOW_TYPE );
+        XDeleteProperty( xdisplay, p->topxwin, a_NET_WM_WINDOW_TYPE );
     }
 }
 
@@ -1008,6 +1023,7 @@ panel_start_gui(Panel *p)
     Atom state[3];
     XWMHints wmhints;
     guint32 val;
+    Display *xdisplay = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
 
     ENTER;
 
@@ -1067,11 +1083,11 @@ panel_start_gui(Panel *p)
     /* the settings that should be done before window is mapped */
     wmhints.flags = InputHint;
     wmhints.input = 0;
-    XSetWMHints (GDK_DISPLAY(), p->topxwin, &wmhints);
+    XSetWMHints (xdisplay, p->topxwin, &wmhints);
 #define WIN_HINTS_SKIP_FOCUS      (1<<0)    /* "alt-tab" skips this win */
     val = WIN_HINTS_SKIP_FOCUS;
-    XChangeProperty(GDK_DISPLAY(), p->topxwin,
-          XInternAtom(GDK_DISPLAY(), "_WIN_HINTS", False), XA_CARDINAL, 32,
+    XChangeProperty(xdisplay, p->topxwin,
+          XInternAtom(xdisplay, "_WIN_HINTS", False), XA_CARDINAL, 32,
           PropModeReplace, (unsigned char *) &val, 1);
 
     panel_set_dock_type(p);
@@ -1086,13 +1102,13 @@ panel_start_gui(Panel *p)
     Xclimsg(p->topxwin, a_NET_WM_DESKTOP, 0xFFFFFFFF, 0, 0, 0, 0);
     /* and assign it ourself just for case when wm is not running */
     val = 0xFFFFFFFF;
-    XChangeProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_DESKTOP, XA_CARDINAL, 32,
+    XChangeProperty(xdisplay, p->topxwin, a_NET_WM_DESKTOP, XA_CARDINAL, 32,
           PropModeReplace, (unsigned char *) &val, 1);
 
     state[0] = a_NET_WM_STATE_SKIP_PAGER;
     state[1] = a_NET_WM_STATE_SKIP_TASKBAR;
     state[2] = a_NET_WM_STATE_STICKY;
-    XChangeProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STATE, XA_ATOM,
+    XChangeProperty(xdisplay, p->topxwin, a_NET_WM_STATE, XA_ATOM,
           32, PropModeReplace, (unsigned char *) state, 3);
 
     calculate_position(p);
@@ -1371,6 +1387,7 @@ int panel_start( Panel *p )
 
 void panel_destroy(Panel *p)
 {
+    Display *xdisplay = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
     ENTER;
 
     if (p->pref_dialog != NULL)
@@ -1398,8 +1415,8 @@ void panel_destroy(Panel *p)
     g_free( p->background_file );
     g_slist_free( p->system_menus );
     gdk_flush();
-    XFlush(GDK_DISPLAY());
-    XSync(GDK_DISPLAY(), True);
+    XFlush(xdisplay);
+    XSync(xdisplay, True);
 
     g_free( p->name );
     g_free(p);
@@ -1449,7 +1466,7 @@ int panel_handle_x_error(Display * d, XErrorEvent * ev)
     char buf[256];
 
     if (log_level >= LOG_WARN) {
-        XGetErrorText(GDK_DISPLAY(), ev->error_code, buf, 256);
+        XGetErrorText(d, ev->error_code, buf, 256);
         LOG(LOG_WARN, "lxpanel : X error: %s\n", buf);
     }
     return 0;	/* Ignored */
@@ -1499,12 +1516,13 @@ static gboolean check_main_lock()
     gboolean retval = FALSE;
     GtkClipboard *clipboard;
     Atom atom;
+    Display *xdisplay = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
 
     atom = gdk_x11_get_xatom_by_name(CLIPBOARD_NAME);
 
-    XGrabServer(GDK_DISPLAY());
+    XGrabServer(xdisplay);
 
-    if (XGetSelectionOwner(GDK_DISPLAY(), atom) != None)
+    if (XGetSelectionOwner(xdisplay, atom) != None)
         goto out;
 
     clipboard = gtk_clipboard_get(gdk_atom_intern(CLIPBOARD_NAME, FALSE));
@@ -1516,7 +1534,7 @@ static gboolean check_main_lock()
         retval = TRUE;
 
 out:
-    XUngrabServer (GDK_DISPLAY ());
+    XUngrabServer (xdisplay);
     gdk_flush ();
 
     return retval;
@@ -1686,7 +1704,7 @@ restart:
 */
     gtk_main();
 
-    XSelectInput (GDK_DISPLAY(), GDK_ROOT_WINDOW(), NoEventMask);
+    XSelectInput (GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), GDK_ROOT_WINDOW(), NoEventMask);
     gdk_window_remove_filter(gdk_get_default_root_window (), (GdkFilterFunc)panel_event_filter, NULL);
 
     /* destroy all panels */

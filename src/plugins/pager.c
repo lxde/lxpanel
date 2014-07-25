@@ -60,7 +60,7 @@ static GtkWidget *pager_constructor(Panel *panel, config_setting_t *settings)
     w = wnck_pager_new(NULL);
     g_return_val_if_fail(w != NULL, 0);
     p = gtk_event_box_new();
-    GTK_WIDGET_SET_FLAGS(p, GTK_NO_WINDOW);
+    gtk_widget_set_has_window(p, FALSE);
 
     /* we cannot configure pager until it added into widgets hierarchy */
     g_signal_connect(p, "realize", G_CALLBACK(on_realize), panel);

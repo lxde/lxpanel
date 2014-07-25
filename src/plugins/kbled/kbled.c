@@ -137,6 +137,7 @@ static GtkWidget *kbled_constructor(Panel *panel, config_setting_t *settings)
     GtkWidget *p;
     int i;
     unsigned int current_state;
+    Display *xdisplay = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
 
     kl->panel = panel;
     kl->settings = settings;
@@ -178,18 +179,18 @@ static GtkWidget *kbled_constructor(Panel *panel, config_setting_t *settings)
         int min = XkbMinorVersion;
         if ( ! XkbLibraryVersion(&maj, &min))
             return 0;
-        if ( ! XkbQueryExtension(GDK_DISPLAY(), &opcode, &xkb_event_base, &xkb_error_base, &maj, &min))
+        if ( ! XkbQueryExtension(xdisplay, &opcode, &xkb_event_base, &xkb_error_base, &maj, &min))
             return 0;
     }
 
     /* Add GDK event filter and enable XkbIndicatorStateNotify events. */
     gdk_window_add_filter(NULL, (GdkFilterFunc) kbled_event_filter, kl);
-    if ( ! XkbSelectEvents(GDK_DISPLAY(), XkbUseCoreKbd, XkbIndicatorStateNotifyMask, XkbIndicatorStateNotifyMask))
+    if ( ! XkbSelectEvents(xdisplay, XkbUseCoreKbd, XkbIndicatorStateNotifyMask, XkbIndicatorStateNotifyMask))
         return 0;
 
     /* Get current indicator state and update display.
      * Force current state to differ in all bits so a full redraw will occur. */
-    XkbGetIndicatorState(GDK_DISPLAY(), XkbUseCoreKbd, &current_state);
+    XkbGetIndicatorState(xdisplay, XkbUseCoreKbd, &current_state);
     kl->current_state = ~ current_state;
     kbled_update_display(kl, current_state);
 

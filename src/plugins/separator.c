@@ -27,11 +27,7 @@ static GtkWidget *separator_constructor(Panel *panel, config_setting_t *settings
 
     /* Allocate top level widget and set into Plugin widget pointer. */
     instance = gtk_event_box_new();
-#if GTK_CHECK_VERSION(2,18,0)
     gtk_widget_set_has_window(instance, FALSE);
-#else
-    GTK_WIDGET_SET_FLAGS(instance, GTK_NO_WINDOW);
-#endif
     gtk_widget_add_events(instance, GDK_BUTTON_PRESS_MASK);
     gtk_container_set_border_width(GTK_CONTAINER(instance), 1);
 

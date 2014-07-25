@@ -227,11 +227,15 @@ void plugin_widget_set_background(GtkWidget * w, Panel * p)
 {
     if (w != NULL)
     {
-        if ( ! GTK_WIDGET_NO_WINDOW(w))
+        if (gtk_widget_get_has_window(w))
         {
             if ((p->background) || (p->transparent))
             {
+#if GTK_CHECK_VERSION(2, 20, 0)
+                if (gtk_widget_get_realized(w))
+#else
                 if (GTK_WIDGET_REALIZED(w))
+#endif
                 {
                     panel_determine_background_pixmap(p, w, w->window);
                     gdk_window_invalidate_rect(w->window, NULL, TRUE);
@@ -241,7 +245,11 @@ void plugin_widget_set_background(GtkWidget * w, Panel * p)
             {
                 /* Set background according to the current GTK style. */
                 gtk_widget_set_app_paintable(w, FALSE);
+#if GTK_CHECK_VERSION(2, 20, 0)
+                if (gtk_widget_get_realized(w))
+#else
                 if (GTK_WIDGET_REALIZED(w))
+#endif
                 {
                     gdk_window_set_back_pixmap(w->window, NULL, TRUE);
                     gtk_style_set_background(w->style, w->window, GTK_STATE_NORMAL);

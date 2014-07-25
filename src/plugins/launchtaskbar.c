@@ -385,11 +385,7 @@ static void launchbutton_build_bootstrap(LaunchTaskBarPlugin *lb)
         /* Create an event box. */
         GtkWidget * event_box = gtk_event_box_new();
         gtk_container_set_border_width(GTK_CONTAINER(event_box), 0);
-#if GTK_CHECK_VERSION(2,18,0)
         gtk_widget_set_can_focus            (event_box, FALSE);
-#else
-        GTK_WIDGET_UNSET_FLAGS(event_box, GTK_CAN_FOCUS);
-#endif
         lb->bootstrap_button->widget = event_box;
         g_signal_connect(event_box, "button-press-event", G_CALLBACK(launchbutton_press_event), lb->bootstrap_button);
 
@@ -503,11 +499,7 @@ static LaunchButton *launchbutton_for_file_info(LaunchTaskBarPlugin * lb, FmFile
     button = lxpanel_button_new_for_fm_icon(lb->panel, fm_file_info_get_icon(fi),
                                             NULL, NULL);
     btn->widget = button;
-#if GTK_CHECK_VERSION(2,18,0)
     gtk_widget_set_can_focus(button, FALSE);
-#else
-    GTK_WIDGET_UNSET_FLAGS(button, GTK_CAN_FOCUS);
-#endif
 
     gtk_widget_set_tooltip_text(button, fm_file_info_get_disp_name(fi));
 
@@ -844,11 +836,7 @@ static GtkWidget *_launchtaskbar_constructor(Panel *panel, config_setting_t *set
     gtk_container_set_border_width(GTK_CONTAINER(p), 0);
     gtk_container_set_border_width(GTK_CONTAINER(ltbp->p_evbox_launchbar), 0);
     gtk_container_set_border_width(GTK_CONTAINER(ltbp->p_evbox_taskbar), 0);
-#if GTK_CHECK_VERSION(2,18,0)
     gtk_widget_set_has_window(p, FALSE);
-#else
-    GTK_WIDGET_SET_FLAGS(p, GTK_NO_WINDOW);
-#endif
 
     /* Read parameters from the configuration file. */
     config_setting_lookup_int(settings, "LaunchTaskBarMode", &ltbp->mode);
@@ -1813,7 +1801,7 @@ static void task_set_class(Task * tk)
     XClassHint ch;
     ch.res_name = NULL;
     ch.res_class = NULL;
-    XGetClassHint(GDK_DISPLAY(), tk->win, &ch);
+    XGetClassHint(GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), tk->win, &ch);
 
     /* If the res_name was returned, free it.  We make no use of it at this time. */
     if (ch.res_name != NULL)
@@ -1928,7 +1916,11 @@ static void task_delete(LaunchTaskBarPlugin * tb, Task * tk, gboolean unlink, gb
 static GdkPixbuf * _wnck_gdk_pixbuf_get_from_pixmap(Pixmap xpixmap, int width, int height)
 {
     /* Get the drawable. */
+#if GTK_CHECK_VERSION(2, 24, 0)
+    GdkDrawable * drawable = gdk_x11_window_lookup_for_display(gdk_display_get_default(), xpixmap);
+#else
     GdkDrawable * drawable = gdk_xid_table_lookup(xpixmap);
+#endif
     if (drawable != NULL)
         g_object_ref(G_OBJECT(drawable));
     else
@@ -1948,7 +1940,11 @@ static GdkPixbuf * _wnck_gdk_pixbuf_get_from_pixmap(Pixmap xpixmap, int width, i
             colormap = NULL;
         else
         {
+#if GTK_CHECK_VERSION(2, 24, 0)
+            colormap = gdk_screen_get_system_colormap(gdk_window_get_screen(drawable));
+#else
             colormap = gdk_screen_get_system_colormap(gdk_drawable_get_screen(drawable));
+#endif
             g_object_ref(G_OBJECT(colormap));
         }
 
@@ -2013,6 +2009,7 @@ static GdkPixbuf * get_wm_icon(Window task_win, guint required_width, guint requ
     GdkPixbuf * pixmap = NULL;
     Atom possible_source = None;
     int result = -1;
+    Display *xdisplay = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
 
     if ((source == None) || (source == a_NET_WM_ICON))
     {
@@ -2035,7 +2032,7 @@ static GdkPixbuf * get_wm_icon(Window task_win, guint required_width, guint requ
         gulong bytes_after;
         gulong * data = NULL;
         result = XGetWindowProperty(
-            GDK_DISPLAY(),
+            xdisplay,
             task_win,
             a_NET_WM_ICON,
             0, G_MAXLONG,
@@ -2135,7 +2132,7 @@ static GdkPixbuf * get_wm_icon(Window task_win, guint required_width, guint requ
     if ((result != Success) && (*current_source != a_NET_WM_ICON)
     && ((source == None) || (source != a_NET_WM_ICON)))
     {
-        XWMHints * hints = XGetWMHints(GDK_DISPLAY(), task_win);
+        XWMHints * hints = XGetWMHints(xdisplay, task_win);
         result = (hints != NULL) ? Success : -1;
         Pixmap xpixmap = None;
         Pixmap xmask = None;
@@ -2167,7 +2164,7 @@ static GdkPixbuf * get_wm_icon(Window task_win, guint required_width, guint requ
             Pixmap *icons = NULL;
             Atom kwin_win_icon_atom = gdk_x11_get_xatom_by_name("KWM_WIN_ICON");
             result = XGetWindowProperty(
-                GDK_DISPLAY(),
+                xdisplay,
                 task_win,
                 kwin_win_icon_atom,
                 0, G_MAXLONG,
@@ -2205,7 +2202,7 @@ static GdkPixbuf * get_wm_icon(Window task_win, guint required_width, guint requ
             int unused;
             unsigned int unused_2;
             result = XGetGeometry(
-                GDK_DISPLAY(), xpixmap,
+                xdisplay, xpixmap,
                 &unused_win, &unused, &unused, &w, &h, &unused_2, &unused_2) ? Success : -1;
         }
 
@@ -2224,7 +2221,7 @@ static GdkPixbuf * get_wm_icon(Window task_win, guint required_width, guint requ
             int unused;
             unsigned int unused_2;
             if (XGetGeometry(
-                GDK_DISPLAY(), xmask,
+                xdisplay, xmask,
                 &unused_win, &unused, &unused, &w, &h, &unused_2, &unused_2))
             {
                 /* Convert the X mask to a GDK pixmap. */
@@ -2343,6 +2340,8 @@ static void task_clear_urgency(Task * tk)
  * We also switch the active desktop and viewport if needed. */
 static void task_raise_window(Task * tk, guint32 time)
 {
+    Display *xdisplay = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
+
     /* Change desktop if needed. */
     if ((tk->desktop != ALL_WORKSPACES) && (tk->desktop != tk->tb->current_desktop))
         Xclimsg(GDK_ROOT_WINDOW(), a_NET_CURRENT_DESKTOP, tk->desktop, 0, 0, 0, 0);
@@ -2362,23 +2361,28 @@ static void task_raise_window(Task * tk, guint32 time)
         Xclimsg(tk->win, a_NET_ACTIVE_WINDOW, 2, time, 0, 0, 0);
     else
     {
+#if GTK_CHECK_VERSION(2, 24, 0)
+        GdkWindow * gdkwindow = gdk_x11_window_lookup_for_display(gdk_display_get_default(), tk->win);
+#else
         GdkWindow * gdkwindow = gdk_xid_table_lookup(tk->win);
+#endif
         if (gdkwindow != NULL)
             gdk_window_show(gdkwindow);
         else
-            XMapRaised(GDK_DISPLAY(), tk->win);
+            XMapRaised(xdisplay, tk->win);
 
     /* There is a race condition between the X server actually executing the XMapRaised and this code executing XSetInputFocus.
      * If the window is not viewable, the XSetInputFocus will fail with BadMatch. */
     XWindowAttributes attr;
-    XGetWindowAttributes(GDK_DISPLAY(), tk->win, &attr);
+    Display *xdisplay = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
+    XGetWindowAttributes(xdisplay, tk->win, &attr);
     if (attr.map_state == IsViewable)
-            XSetInputFocus(GDK_DISPLAY(), tk->win, RevertToNone, time);
+            XSetInputFocus(xdisplay, tk->win, RevertToNone, time);
     }
 
     /* Change viewport if needed. */
     XWindowAttributes xwa;
-    XGetWindowAttributes(GDK_DISPLAY(), tk->win, &xwa);
+    XGetWindowAttributes(xdisplay, tk->win, &xwa);
     Xclimsg(tk->win, a_NET_DESKTOP_VIEWPORT, xwa.x, xwa.y, 0, 0, 0);
 }
 
@@ -2483,6 +2487,7 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
 
         if (event->button == 1)
         {
+            Display *xdisplay = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
             /* Left button.
              * If the task is iconified, raise it.
              * If the task is not iconified and has focus, iconify it.
@@ -2490,7 +2495,7 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
             if (tk->iconified)
                 task_raise_window(tk, event->time);
             else if ((tk->focused) || (tk == tb->focused_previous))
-                XIconifyWindow(GDK_DISPLAY(), tk->win, DefaultScreen(GDK_DISPLAY()));
+                XIconifyWindow(xdisplay, tk->win, DefaultScreen(xdisplay));
             else
                 task_raise_window(tk, event->time);
         }
@@ -2637,7 +2642,10 @@ static gboolean taskbar_button_scroll_event(GtkWidget * widget, GdkEventScroll *
         if ((event->direction == GDK_SCROLL_UP) || (event->direction == GDK_SCROLL_LEFT))
             task_raise_window(tk, event->time);
         else
-            XIconifyWindow(GDK_DISPLAY(), tk->win, DefaultScreen(GDK_DISPLAY()));
+        {
+            Display *xdisplay = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
+            XIconifyWindow(xdisplay, tk->win, DefaultScreen(xdisplay));
+        }
     }
     return TRUE;
 }
@@ -2645,7 +2653,11 @@ static gboolean taskbar_button_scroll_event(GtkWidget * widget, GdkEventScroll *
 /* Handler for "size-allocate" event from taskbar button. */
 static void taskbar_button_size_allocate(GtkWidget * btn, GtkAllocation * alloc, Task * tk)
 {
+#if GTK_CHECK_VERSION(2, 20, 0)
+    if (gtk_widget_get_realized(btn))
+#else
     if (GTK_WIDGET_REALIZED(btn))
+#endif
     {
         /* Get the coordinates of the button. */
         int x, y;
@@ -2662,7 +2674,7 @@ static void taskbar_button_size_allocate(GtkWidget * btn, GtkAllocation * alloc,
         data[1] = y;
         data[2] = alloc->width;
         data[3] = alloc->height;
-        XChangeProperty(GDK_DISPLAY(), tk->win,
+        XChangeProperty(GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), tk->win,
             gdk_x11_get_xatom_by_name("_NET_WM_ICON_GEOMETRY"),
             XA_CARDINAL, 32, PropModeReplace, (guchar *) &data, 4);
     }
@@ -2701,14 +2713,20 @@ static void task_update_style(Task * tk, LaunchTaskBarPlugin * tb)
 /* Build graphic elements needed for a task button. */
 static void task_build_gui(LaunchTaskBarPlugin * tb, Task * tk)
 {
+    GdkDisplay *display = gdk_display_get_default();
     /* NOTE
      * 1. the extended mask is sum of taskbar and pager needs
      * see bug [ 940441 ] pager loose track of windows
      *
      * Do not change event mask to gtk windows spawned by this gtk client
      * this breaks gtk internals */
+#if GTK_CHECK_VERSION(2, 24, 0)
+    if (!gdk_x11_window_lookup_for_display(display, tk->win))
+#else
     if (! gdk_window_lookup(tk->win))
-        XSelectInput(GDK_DISPLAY(), tk->win, PropertyChangeMask | StructureNotifyMask);
+#endif
+        XSelectInput(GDK_DISPLAY_XDISPLAY(display), tk->win,
+                     PropertyChangeMask | StructureNotifyMask);
 
     /* Allocate a toggle button as the top level widget. */
     tk->button = gtk_toggle_button_new();
@@ -2749,13 +2767,8 @@ static void task_build_gui(LaunchTaskBarPlugin * tb, Task * tk)
 
     /* Add the button to the taskbar. */
     icon_grid_add(tb->tb_icon_grid, tk->button, TRUE);
-#if GTK_CHECK_VERSION(2,18,0)
     gtk_widget_set_can_focus(GTK_WIDGET(tk->button),FALSE);
     gtk_widget_set_can_default(GTK_WIDGET(tk->button),FALSE);
-#else
-    GTK_WIDGET_UNSET_FLAGS(tk->button, GTK_CAN_FOCUS);
-    GTK_WIDGET_UNSET_FLAGS(tk->button, GTK_CAN_DEFAULT);
-#endif
 
     /* Update styles on the button. */
     task_update_style(tk, tb);
@@ -2777,7 +2790,7 @@ static gint get_window_monitor(Window win)
     gwin = gdk_x11_window_foreign_new_for_display(display,win);
     g_assert(gwin);
     m = gdk_screen_get_monitor_at_window(gdk_window_get_screen(gwin),gwin);
-    gdk_window_unref(gwin);
+    g_object_unref(gwin);
     return m;
 }
 
@@ -3148,32 +3161,45 @@ static void menu_raise_window(GtkWidget * widget, LaunchTaskBarPlugin * tb)
 {
     if ((tb->menutask->desktop != ALL_WORKSPACES) && (tb->menutask->desktop != tb->current_desktop))
         Xclimsg(GDK_ROOT_WINDOW(), a_NET_CURRENT_DESKTOP, tb->menutask->desktop, 0, 0, 0, 0);
-    XMapRaised(GDK_DISPLAY(), tb->menutask->win);
+    XMapRaised(GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), tb->menutask->win);
     task_group_menu_destroy(tb);
 }
 
 /* Handler for "activate" event on Restore item of right-click menu for task buttons. */
 static void menu_restore_window(GtkWidget * widget, LaunchTaskBarPlugin * tb)
 {
+#if GTK_CHECK_VERSION(2, 24, 0)
+    GdkWindow * win = gdk_x11_window_foreign_new_for_display(gdk_display_get_default(),
+                                                             tb->menutask->win);
+#else
     GdkWindow * win = gdk_window_foreign_new(tb->menutask->win);
+#endif
+
     gdk_window_unmaximize(win);
-    gdk_window_unref(win);
+    g_object_unref(win);
     task_group_menu_destroy(tb);
 }
 
 /* Handler for "activate" event on Maximize item of right-click menu for task buttons. */
 static void menu_maximize_window(GtkWidget * widget, LaunchTaskBarPlugin * tb)
 {
+#if GTK_CHECK_VERSION(2, 24, 0)
+    GdkWindow * win = gdk_x11_window_foreign_new_for_display(gdk_display_get_default(),
+                                                             tb->menutask->win);
+#else
     GdkWindow * win = gdk_window_foreign_new(tb->menutask->win);
+#endif
+
     gdk_window_maximize(win);
-    gdk_window_unref(win);
+    g_object_unref(win);
     task_group_menu_destroy(tb);
 }
 
 /* Handler for "activate" event on Iconify item of right-click menu for task buttons. */
 static void menu_iconify_window(GtkWidget * widget, LaunchTaskBarPlugin * tb)
 {
-    XIconifyWindow(GDK_DISPLAY(), tb->menutask->win, DefaultScreen(GDK_DISPLAY()));
+    Display *xdisplay = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
+    XIconifyWindow(xdisplay, tb->menutask->win, DefaultScreen(xdisplay));
     task_group_menu_destroy(tb);
 }
 

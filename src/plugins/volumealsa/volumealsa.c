@@ -484,7 +484,7 @@ static void volumealsa_build_popup_window(GtkWidget *p)
     gtk_container_set_border_width (GTK_CONTAINER(scrolledwindow), 0);
     gtk_widget_show(scrolledwindow);
     gtk_container_add(GTK_CONTAINER(vol->popup_window), scrolledwindow);
-    GTK_WIDGET_UNSET_FLAGS(scrolledwindow, GTK_CAN_FOCUS);
+    gtk_widget_set_can_focus(scrolledwindow, FALSE);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW (scrolledwindow), GTK_POLICY_NEVER, GTK_POLICY_NEVER);
     gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scrolledwindow), GTK_SHADOW_NONE);
 
@@ -582,8 +582,6 @@ static void volumealsa_destructor(gpointer user_data)
 
 static GtkWidget *volumealsa_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
 {
-    GdkScreen *screen = gdk_screen_get_default();
-    GError *error = NULL;
     const gchar *command_line = NULL;
 
     if (g_find_program_in_path("pulseaudio"))
@@ -623,21 +621,14 @@ static GtkWidget *volumealsa_configure(Panel *panel, GtkWidget *p, GtkWindow *pa
 
     if (command_line)
     {
-        gdk_spawn_command_line_on_screen(screen,
-                                         command_line,
-                                         &error);
+        fm_launch_command_simple(NULL, NULL, G_APP_INFO_CREATE_NONE,
+                                 command_line, NULL);
     }
     else
     {
         fm_show_error(NULL,
                       _("Error, you need to install an application to configure the sound (pavucontrol, alsamixer ...)"),
                       NULL);
-    }
-
-    if (error)
-    {
-        g_print("%s\n", error->message);
-        g_free (error);
     }
 
     return NULL;

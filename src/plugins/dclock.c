@@ -89,10 +89,10 @@ static GtkWidget * dclock_create_calendar(DClockPlugin * dc)
 
     /* Create a standard calendar widget as a child of the vertical box. */
     GtkWidget * calendar = gtk_calendar_new();
-    gtk_calendar_display_options(
+    gtk_calendar_set_display_options(
         GTK_CALENDAR(calendar),
         GTK_CALENDAR_SHOW_WEEK_NUMBERS | GTK_CALENDAR_SHOW_DAY_NAMES | GTK_CALENDAR_SHOW_HEADING);
-    gtk_box_pack_start_defaults(GTK_BOX(box), calendar);
+    gtk_box_pack_start(GTK_BOX(box), calendar, TRUE, TRUE, 0);
 
     /* Connect signals. */
     g_signal_connect(G_OBJECT(win), "map", G_CALLBACK(dclock_popup_map), dc);

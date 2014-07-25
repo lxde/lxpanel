@@ -121,7 +121,7 @@ fb_bg_init (FbBg *bg)
     uint mask;
 
     ENTER;
-    bg->dpy = GDK_DISPLAY();
+    bg->dpy = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
     bg->xroot = DefaultRootWindow(bg->dpy);
     bg->id = gdk_x11_get_xatom_by_name("_XROOTPMAP_ID");
     bg->pixmap = fb_bg_get_xrootpmap(bg);

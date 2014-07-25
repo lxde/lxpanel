@@ -621,7 +621,7 @@ monitors_constructor(Panel *panel, config_setting_t *settings)
     p = gtk_hbox_new(TRUE, 2);
     lxpanel_plugin_set_data(p, mp, monitors_destructor);
     gtk_container_set_border_width(GTK_CONTAINER(p), 1);
-    GTK_WIDGET_SET_FLAGS(p, GTK_NO_WINDOW);
+    gtk_widget_set_has_window(p, FALSE);
 
     /* First time we use this plugin : only display CPU usage */
     mp->displayed_monitors[CPU_POSITION] = 1;
