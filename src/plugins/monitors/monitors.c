@@ -382,11 +382,13 @@ static gboolean
 configure_event(GtkWidget* widget, GdkEventConfigure* dummy, gpointer data) 
 {
     (void) dummy;
+    GtkAllocation allocation;
 
     int new_pixmap_width, new_pixmap_height;
 
-    new_pixmap_width = widget->allocation.width - BORDER_SIZE * 2;
-    new_pixmap_height = widget->allocation.height - BORDER_SIZE *2;
+    gtk_widget_get_allocation(widget, &allocation);
+    new_pixmap_width = allocation.width - BORDER_SIZE * 2;
+    new_pixmap_height = allocation.height - BORDER_SIZE *2;
     Monitor *m;
 
     m = (Monitor *) data;
@@ -472,10 +474,11 @@ expose_event(GtkWidget * widget, GdkEventExpose * event, Monitor *m)
      * Translate it in both x and y by the border size. */
     if (m->pixmap != NULL)
     {
-        cairo_t *cr = gdk_cairo_create(widget->window);
+        cairo_t *cr = gdk_cairo_create(gtk_widget_get_window(widget));
+        GtkStyle *style = gtk_widget_get_style(m->da);
         gdk_cairo_region(cr, event->region);
         cairo_clip(cr);
-        gdk_cairo_set_source_color(cr, &m->da->style->black);
+        gdk_cairo_set_source_color(cr, &style->black);
         cairo_set_source_surface(cr, m->pixmap, BORDER_SIZE, BORDER_SIZE);
         cairo_paint(cr);
         check_cairo_status(cr);
@@ -510,10 +513,12 @@ redraw_pixmap (Monitor *m)
 {
     int i;
     cairo_t *cr = cairo_create(m->pixmap);
+    GtkStyle *style = gtk_widget_get_style(m->da);
+
     cairo_set_line_width (cr, 1.0);
 
     /* Erase pixmap */
-    gdk_cairo_set_source_color(cr, &m->da->style->black);
+    gdk_cairo_set_source_color(cr, &style->black);
     cairo_paint(cr);
 
     gdk_cairo_set_source_color(cr, &m->foreground_color);

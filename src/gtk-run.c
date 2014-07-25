@@ -323,7 +323,7 @@ static void activate_window(GtkWindow* toplevel_window)
 	if (gdk_x11_screen_supports_net_wm_hint (screen,
 					   gdk_atom_intern_static_string ("_NET_ACTIVE_WINDOW")))
     {
-		GdkWindow* window = widget->window;
+		GdkWindow* window = gtk_widget_get_window(widget);
 		GdkDisplay* display = gtk_widget_get_display(widget);
 		GdkWindow* root = gdk_screen_get_root_window(screen);
 
@@ -354,7 +354,7 @@ static void activate_window(GtkWindow* toplevel_window)
 
 void gtk_run()
 {
-    GtkWidget *entry, *hbox, *img;
+    GtkWidget *entry, *hbox, *img, *dlg_vbox;
 
     if(!win)
     {
@@ -370,7 +370,8 @@ void gtk_run()
 		entry = gtk_entry_new();
 
 		gtk_entry_set_activates_default( (GtkEntry*)entry, TRUE );
-		gtk_box_pack_start( (GtkBox*)((GtkDialog*)win)->vbox,
+		dlg_vbox = gtk_dialog_get_content_area((GtkDialog*)win);
+		gtk_box_pack_start( (GtkBox*)dlg_vbox,
 							 gtk_label_new(_("Enter the command you want to execute:")),
 							 FALSE, FALSE, 8 );
 		hbox = gtk_hbox_new( FALSE, 2 );
@@ -378,7 +379,7 @@ void gtk_run()
 		gtk_box_pack_start( (GtkBox*)hbox, img,
 							 FALSE, FALSE, 4 );
 		gtk_box_pack_start( (GtkBox*)hbox, entry, TRUE, TRUE, 4 );
-		gtk_box_pack_start( (GtkBox*)((GtkDialog*)win)->vbox,
+		gtk_box_pack_start( (GtkBox*)dlg_vbox,
 							 hbox, FALSE, FALSE, 8 );
 		g_signal_connect( win, "response", G_CALLBACK(on_response), entry );
 		gtk_window_set_position( (GtkWindow*)win, GTK_WIN_POS_CENTER );

@@ -594,7 +594,8 @@ static void on_button_kbd_model_clicked(GtkButton *p_button, gpointer *p_data)
     GtkWidget * p_scrolledwindow_kbd_model = gtk_scrolled_window_new(NULL, NULL);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(p_scrolledwindow_kbd_model),
                                    GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
-    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(p_dialog)->vbox), p_scrolledwindow_kbd_model, TRUE, TRUE, 2);
+    gtk_box_pack_start(GTK_BOX(gtk_dialog_get_content_area(GTK_DIALOG(p_dialog))),
+                       p_scrolledwindow_kbd_model, TRUE, TRUE, 2);
     
     // liststore
     GtkListStore *p_liststore_kbd_model = gtk_list_store_new(NUM_MODEL_COLUMNS, G_TYPE_STRING, G_TYPE_STRING);
@@ -717,7 +718,8 @@ static void on_button_kbd_change_layout_clicked(GtkButton *p_button, gpointer *p
     GtkWidget * p_scrolledwindow_kbd_change = gtk_scrolled_window_new(NULL, NULL);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(p_scrolledwindow_kbd_change),
                                    GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
-    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(p_dialog)->vbox), p_scrolledwindow_kbd_change, TRUE, TRUE, 2);
+    gtk_box_pack_start(GTK_BOX(gtk_dialog_get_content_area(GTK_DIALOG(p_dialog))),
+                       p_scrolledwindow_kbd_change, TRUE, TRUE, 2);
     
     // liststore
     GtkListStore *p_liststore_kbd_change = gtk_list_store_new(NUM_CHANGE_COLUMNS, G_TYPE_STRING, G_TYPE_STRING, G_TYPE_BOOLEAN, G_TYPE_INT);
@@ -889,7 +891,8 @@ static void on_button_add_layout_clicked(GtkButton *p_button, gpointer *p_data)
     GtkWidget * p_scrolledwindow_add_layout = gtk_scrolled_window_new(NULL, NULL);
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(p_scrolledwindow_add_layout),
                                    GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
-    gtk_box_pack_start(GTK_BOX(GTK_DIALOG(p_dialog)->vbox), p_scrolledwindow_add_layout, TRUE, TRUE, 2);
+    gtk_box_pack_start(GTK_BOX(gtk_dialog_get_content_area(GTK_DIALOG(p_dialog))),
+                       p_scrolledwindow_add_layout, TRUE, TRUE, 2);
     
     // treestore
     GtkTreeStore *p_treestore_add_layout = gtk_tree_store_new(NUM_ADD_COLUMNS, GDK_TYPE_PIXBUF, G_TYPE_STRING, G_TYPE_STRING);
@@ -1215,7 +1218,8 @@ static GtkWidget *xkb_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
     GtkWidget * p_hbox_main = gtk_hbox_new(TRUE, 0);
     GtkWidget * p_vbox_left = gtk_vbox_new(FALSE, 0);
     GtkWidget * p_vbox_right = gtk_vbox_new(FALSE, 0);
-    gtk_container_add(GTK_CONTAINER(GTK_DIALOG(dlg)->vbox), p_hbox_main);
+    gtk_container_add(GTK_CONTAINER(gtk_dialog_get_content_area(GTK_DIALOG(dlg))),
+                      p_hbox_main);
     gtk_box_pack_start(GTK_BOX(p_hbox_main), p_vbox_left, FALSE, TRUE, 0);
     gtk_box_pack_start(GTK_BOX(p_hbox_main), p_vbox_right, FALSE, TRUE, 0);
 

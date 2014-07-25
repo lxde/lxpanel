@@ -452,8 +452,8 @@ void panel_update_background(Panel * p)
     GList *plugins, *l;
 
     /* Redraw the top level widget. */
-    panel_determine_background_pixmap(p, p->topgwin, p->topgwin->window);
-    gdk_window_clear(p->topgwin->window);
+    panel_determine_background_pixmap(p, p->topgwin, gtk_widget_get_window(p->topgwin));
+    gdk_window_clear(gtk_widget_get_window(p->topgwin));
     gtk_widget_queue_draw(p->topgwin);
 
     /* Loop over all plugins redrawing each plugin. */
@@ -916,7 +916,7 @@ static void panel_set_visibility(Panel *p, gboolean visible)
     p->visible = visible;
     calculate_position(p);
     gtk_widget_set_size_request(p->topgwin, p->aw, p->ah);
-    gdk_window_move(p->topgwin->window, p->ax, p->ay);
+    gdk_window_move(gtk_widget_get_window(p->topgwin), p->ax, p->ay);
     if (visible) gtk_widget_show(p->box);
     panel_set_wm_strut(p);
 }
@@ -1066,7 +1066,7 @@ panel_start_gui(Panel *p)
     g_signal_connect (G_OBJECT (p->topgwin), "style-set",
           (GCallback)panel_style_set, p);
     gtk_widget_realize(p->topgwin);
-    //gdk_window_set_decorations(p->topgwin->window, 0);
+    //gdk_window_set_decorations(gtk_widget_get_window(p->topgwin), 0);
 
     // main layout manager as a single child of panel
     p->box = p->my_box_new(FALSE, 0);
@@ -1077,7 +1077,7 @@ panel_start_gui(Panel *p)
     if (p->round_corners)
         make_round_corners(p);
 
-    p->topxwin = GDK_WINDOW_XWINDOW(GTK_WIDGET(p->topgwin)->window);
+    p->topxwin = GDK_WINDOW_XWINDOW(gtk_widget_get_window(p->topgwin));
     DBG("topxwin = %x\n", p->topxwin);
 
     /* the settings that should be done before window is mapped */
@@ -1112,7 +1112,7 @@ panel_start_gui(Panel *p)
           32, PropModeReplace, (unsigned char *) state, 3);
 
     calculate_position(p);
-    gdk_window_move_resize(p->topgwin->window, p->ax, p->ay, p->aw, p->ah);
+    gdk_window_move_resize(gtk_widget_get_window(p->topgwin), p->ax, p->ay, p->aw, p->ah);
     panel_set_wm_strut(p);
 
     RET();

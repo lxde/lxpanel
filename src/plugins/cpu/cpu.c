@@ -67,10 +67,11 @@ static void cpu_destructor(gpointer user_data);
 static void redraw_pixmap(CPUPlugin * c)
 {
     cairo_t * cr = cairo_create(c->pixmap);
+    GtkStyle * style = gtk_widget_get_style(c->da);
     cairo_set_line_width (cr, 1.0);
     /* Erase pixmap. */
     cairo_rectangle(cr, 0, 0, c->pixmap_width, c->pixmap_height);
-    gdk_cairo_set_source_color(cr, &c->da->style->black);
+    gdk_cairo_set_source_color(cr, &style->black);
     cairo_fill(cr);
 
     /* Recompute pixmap. */
@@ -146,9 +147,12 @@ static gboolean cpu_update(CPUPlugin * c)
 /* Handler for configure_event on drawing area. */
 static gboolean configure_event(GtkWidget * widget, GdkEventConfigure * event, CPUPlugin * c)
 {
+    GtkAllocation allocation;
+
+    gtk_widget_get_allocation(widget, &allocation);
     /* Allocate pixmap and statistics buffer without border pixels. */
-    guint new_pixmap_width = MAX(widget->allocation.width - BORDER_SIZE * 2, 0);
-    guint new_pixmap_height = MAX(widget->allocation.height - BORDER_SIZE * 2, 0);
+    guint new_pixmap_width = MAX(allocation.width - BORDER_SIZE * 2, 0);
+    guint new_pixmap_height = MAX(allocation.height - BORDER_SIZE * 2, 0);
     if ((new_pixmap_width > 0) && (new_pixmap_height > 0))
     {
         /* If statistics buffer does not exist or it changed size, reallocate and preserve existing data. */
@@ -209,10 +213,11 @@ static gboolean expose_event(GtkWidget * widget, GdkEventExpose * event, CPUPlug
      * Translate it in both x and y by the border size. */
     if (c->pixmap != NULL)
     {
-        cairo_t * cr = gdk_cairo_create(widget->window);
+        cairo_t * cr = gdk_cairo_create(gtk_widget_get_window(widget));
+        GtkStyle * style = gtk_widget_get_style(c->da);
         gdk_cairo_region(cr, event->region);
         cairo_clip(cr);
-        gdk_cairo_set_source_color(cr, &c->da->style->black);
+        gdk_cairo_set_source_color(cr, &style->black);
         cairo_set_source_surface(cr, c->pixmap,
               BORDER_SIZE, BORDER_SIZE);
         cairo_paint(cr);

@@ -126,7 +126,7 @@ update_panel_geometry( Panel* p )
     {
         calculate_position(p);
         gtk_widget_set_size_request(p->topgwin, p->aw, p->ah);
-        gdk_window_move(p->topgwin->window, p->ax, p->ay);
+        gdk_window_move(gtk_widget_get_window(p->topgwin), p->ax, p->ay);
         panel_update_background(p);
         panel_establish_autohide(p);
         panel_set_wm_strut(p);
@@ -696,8 +696,8 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scroll),
                                    GTK_POLICY_AUTOMATIC,
                                    GTK_POLICY_AUTOMATIC );
-    gtk_box_pack_start( GTK_BOX(GTK_DIALOG(dlg)->vbox), scroll,
-                         TRUE, TRUE, 4 );
+    gtk_box_pack_start( GTK_BOX(gtk_dialog_get_content_area(GTK_DIALOG(dlg))),
+                        scroll, TRUE, TRUE, 4 );
     view = GTK_TREE_VIEW(gtk_tree_view_new());
     gtk_container_add( GTK_CONTAINER(scroll), GTK_WIDGET(view) );
     tree_sel = gtk_tree_view_get_selection( view );
@@ -1373,13 +1373,15 @@ static GtkWidget *_lxpanel_generic_config_dlg(const char *title, Panel *p,
                                                   GTK_STOCK_CLOSE,
                                                   GTK_RESPONSE_CLOSE,
                                                   NULL );
+    GtkBox *dlg_vbox = GTK_BOX(gtk_dialog_get_content_area(GTK_DIALOG(dlg)));
+
     panel_apply_icon(GTK_WINDOW(dlg));
 
     if( apply_func )
         g_object_set_data( G_OBJECT(dlg), "apply_func", apply_func );
     g_object_set_data( G_OBJECT(dlg), "apply_func_data", plugin );
 
-    gtk_box_set_spacing( GTK_BOX(GTK_DIALOG(dlg)->vbox), 4 );
+    gtk_box_set_spacing( dlg_vbox, 4 );
 
     while( name )
     {
@@ -1434,13 +1436,13 @@ static GtkWidget *_lxpanel_generic_config_dlg(const char *title, Panel *p,
         if( entry )
         {
             if(( type == CONF_TYPE_BOOL ) || ( type == CONF_TYPE_TRIM ))
-                gtk_box_pack_start( GTK_BOX(GTK_DIALOG(dlg)->vbox), entry, FALSE, FALSE, 2 );
+                gtk_box_pack_start( dlg_vbox, entry, FALSE, FALSE, 2 );
             else
             {
                 GtkWidget* hbox = gtk_hbox_new( FALSE, 2 );
                 gtk_box_pack_start( GTK_BOX(hbox), label, FALSE, FALSE, 2 );
                 gtk_box_pack_start( GTK_BOX(hbox), entry, TRUE, TRUE, 2 );
-                gtk_box_pack_start( GTK_BOX(GTK_DIALOG(dlg)->vbox), hbox, FALSE, FALSE, 2 );
+                gtk_box_pack_start( dlg_vbox, hbox, FALSE, FALSE, 2 );
                 if ((type == CONF_TYPE_FILE_ENTRY) || (type == CONF_TYPE_DIRECTORY_ENTRY))
                 {
                     GtkWidget* browse = gtk_button_new_with_mnemonic(_("_Browse"));

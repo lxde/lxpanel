@@ -32,6 +32,8 @@ static void icon_grid_demand_resize(IconGrid * ig);
 /* Establish the widget placement of an icon grid. */
 static gboolean icon_grid_placement(IconGrid * ig)
 {
+    GtkAllocation allocation;
+
     if (ig->widget == NULL)
         return FALSE;
 
@@ -39,13 +41,14 @@ static gboolean icon_grid_placement(IconGrid * ig)
     gtk_widget_show(ig->container);
 
     /* Erase the window. */
-    GdkWindow * window = ig->widget->window;
+    GdkWindow * window = gtk_widget_get_window(ig->widget);
     if (window != NULL)
         panel_determine_background_pixmap(ig->panel, ig->widget, window);
 
     /* Get and save the desired container geometry. */
-    ig->container_width = ig->container->allocation.width;
-    ig->container_height = ig->container->allocation.height;
+    gtk_widget_get_allocation(ig->container, &allocation);
+    ig->container_width = allocation.width;
+    ig->container_height = allocation.height;
     int child_width = ig->child_width;
     int child_height = ig->child_height;
 
@@ -70,7 +73,7 @@ static gboolean icon_grid_placement(IconGrid * ig)
         ?  (ig->rows * (child_height + ig->spacing))
         :  (ig->columns * (child_width + ig->spacing)));
     int x_initial = ((direction == GTK_TEXT_DIR_RTL)
-        ? ig->widget->allocation.width - child_width - ig->border
+        ? allocation.width - child_width - ig->border
         : ig->border);
     int x_delta = child_width + ig->spacing;
     if (direction == GTK_TEXT_DIR_RTL) x_delta = - x_delta;
@@ -86,7 +89,8 @@ static gboolean icon_grid_placement(IconGrid * ig)
         {
             /* Do necessary operations on the child. */
             gtk_widget_show(ige->widget);
-            if (((child_width != ige->widget->allocation.width) || (child_height != ige->widget->allocation.height))
+            gtk_widget_get_allocation(ige->widget, &allocation);
+            if (((child_width != allocation.width) || (child_height != allocation.height))
             && (child_width > 0) && (child_height > 0))
                 {
                 GtkAllocation alloc;
@@ -143,6 +147,8 @@ static void icon_grid_geometry(IconGrid * ig, gboolean layout)
     /* Count visible children. */
     int visible_children = 0;
     IconGridElement * ige;
+    GtkAllocation allocation;
+
     for (ige = ig->child_list; ige != NULL; ige = ige->flink)
         if (ige->visible)
             visible_children += 1;
@@ -150,12 +156,13 @@ static void icon_grid_geometry(IconGrid * ig, gboolean layout)
    int original_rows = ig->rows;
    int original_columns = ig->columns;
    int target_dimension = ig->target_dimension;
+   gtk_widget_get_allocation(ig->container, &allocation);
    if (ig->orientation == GTK_ORIENTATION_HORIZONTAL)
     {
         /* In horizontal orientation, fit as many rows into the available height as possible.
          * Then allocate as many columns as necessary.  Guard against zerodivides. */
-        if (ig->container->allocation.height > 1)
-            target_dimension = ig->container->allocation.height;
+        if (allocation.height > 1)
+            target_dimension = allocation.height;
         ig->rows = 0;
         if ((ig->child_height + ig->spacing) != 0)
             ig->rows = (target_dimension + ig->spacing - ig->border * 2) / (ig->child_height + ig->spacing);
@@ -169,8 +176,8 @@ static void icon_grid_geometry(IconGrid * ig, gboolean layout)
     {
         /* In vertical orientation, fit as many columns into the available width as possible.
          * Then allocate as many rows as necessary.  Guard against zerodivides. */
-        if (ig->container->allocation.width > 1)
-            target_dimension = ig->container->allocation.width;
+        if (allocation.width > 1)
+            target_dimension = allocation.width;
         ig->columns = 0;
         if ((ig->child_width + ig->spacing) != 0)
             ig->columns = (target_dimension + ig->spacing - ig->border * 2) / (ig->child_width + ig->spacing);
@@ -188,8 +195,8 @@ static void icon_grid_geometry(IconGrid * ig, gboolean layout)
     && (( ! ig->actual_dimension)
       || (ig->rows != original_rows)
       || (ig->columns != original_columns)
-      || (ig->container_width != ig->container->allocation.width)
-      || (ig->container_height != ig->container->allocation.height)
+      || (ig->container_width != allocation.width)
+      || (ig->container_height != allocation.height)
       || (ig->children_changed)))
         {
         ig->actual_dimension = TRUE;
