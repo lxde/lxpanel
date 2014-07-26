@@ -28,7 +28,7 @@
 #include <stdlib.h>
 #include <glib/gi18n.h>
 
-#include <lxpanel/plugin.h>
+#include "plugin.h"
 
 #define BORDER_SIZE 2
 #define PANEL_HEIGHT_DEFAULT 26 /* from panel defaults */

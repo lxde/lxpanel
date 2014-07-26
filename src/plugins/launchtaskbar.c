@@ -1376,6 +1376,8 @@ static GtkWidget *launchtaskbar_configure(Panel *panel, GtkWidget *p, GtkWindow 
         btn = (GtkWidget *)gtk_builder_get_object(builder, "button_down");
         g_signal_connect(btn, "clicked", G_CALLBACK(launchbar_configure_move_down_button), ltbp);
 
+        /* FIXME: add a button 'New' with launcher creation dialog */
+
         g_signal_connect(defined_view, "button-press-event", G_CALLBACK(on_defined_view_button_press_event), ltbp);
         g_signal_connect(defined_view, "cursor-changed", G_CALLBACK(on_defined_view_cursor_changed), ltbp);
         g_signal_connect(menu_view, "cursor-changed", G_CALLBACK(on_menu_view_cursor_changed), ltbp);
@@ -3458,6 +3460,7 @@ LXPanelPluginInit lxpanel_static_plugin_launchtaskbar = {
     .init = launchtaskbar_init,
     .new_instance = launchtaskbar_constructor,
     .config = launchtaskbar_configure,
+    /* .update_context_menu = launchtaskbar_update_context_menu, */
     .reconfigure = launchtaskbar_panel_configuration_changed
 };
 
