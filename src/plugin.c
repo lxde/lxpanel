@@ -294,12 +294,16 @@ gboolean plugin_button_press_event(GtkWidget *widget, GdkEventButton *event, Plu
 }
 
 /* Helper for position-calculation callback for popup menus. */
-void lxpanel_plugin_popup_set_position_helper(Panel * p, GtkWidget * near, GtkWidget * popup, GtkRequisition * popup_req, gint * px, gint * py)
+void lxpanel_plugin_popup_set_position_helper(Panel * p, GtkWidget * near, GtkWidget * popup, gint * px, gint * py)
 {
-    /* Get the origin of the requested-near widget in screen coordinates. */
     gint x, y;
     GtkAllocation allocation;
+    GtkRequisition popup_req;
 
+    /* Get the allocation of the popup menu. */
+    gtk_widget_size_request(popup, &popup_req);
+
+    /* Get the origin of the requested-near widget in screen coordinates. */
     gtk_widget_get_allocation(near, &allocation);
     gdk_window_get_origin(gtk_widget_get_window(near), &x, &y);
     if (x != allocation.x) x += allocation.x;	/* Doesn't seem to be working according to spec; the allocation.x sometimes has the window origin in it */
@@ -310,18 +314,27 @@ void lxpanel_plugin_popup_set_position_helper(Panel * p, GtkWidget * near, GtkWi
     switch (p->edge)
     {
         case EDGE_TOP:          y += allocation.height;         break;
-        case EDGE_BOTTOM:       y -= popup_req->height;                break;
+        case EDGE_BOTTOM:       y -= popup_req.height;                break;
         case EDGE_LEFT:         x += allocation.width;          break;
-        case EDGE_RIGHT:        x -= popup_req->width;                 break;
+        case EDGE_RIGHT:        x -= popup_req.width;                 break;
     }
+
+    /* Push onscreen. */
+    int screen_width = gdk_screen_width();
+    int screen_height = gdk_screen_height();
+    if ((x + popup_req.width) > screen_width)
+        x -= (x + popup_req.width) - screen_width;
+    if ((y + popup_req.height) > screen_height)
+        y -= (y + popup_req.height) - screen_height;
+
     *px = x;
     *py = y;
 }
 
-/* for old plugins compatibility */
+/* for old plugins compatibility -- popup_req is ignored here */
 void plugin_popup_set_position_helper(Plugin * p, GtkWidget * near, GtkWidget * popup, GtkRequisition * popup_req, gint * px, gint * py)
 {
-    lxpanel_plugin_popup_set_position_helper(p->panel, near, popup, popup_req, px, py);
+    lxpanel_plugin_popup_set_position_helper(p->panel, near, popup, px, py);
 }
 
 /* Adjust the position of a popup window to ensure that it is not hidden by the panel.

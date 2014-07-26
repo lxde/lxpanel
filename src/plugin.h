@@ -124,7 +124,7 @@ extern gboolean lxpanel_plugin_button_press_event(GtkWidget *plugin, GdkEventBut
 			/* Handler for "button_press_event" signal with Plugin as parameter */
 extern void lxpanel_plugin_adjust_popup_position(GtkWidget * popup, GtkWidget * plugin);
 			/* Helper to move popup windows away from the panel */
-extern void lxpanel_plugin_popup_set_position_helper(Panel * p, GtkWidget * near, GtkWidget * popup, GtkRequisition * popup_req, gint * px, gint * py);
+extern void lxpanel_plugin_popup_set_position_helper(Panel * p, GtkWidget * near, GtkWidget * popup, gint * px, gint * py);
 			/* Helper for position-calculation callback for popup menus */
 extern void plugin_widget_set_background(GtkWidget * plugin, Panel * p);
 			/* Recursively set the background of all widgets on a panel background configuration change */

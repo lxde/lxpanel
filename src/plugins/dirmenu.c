@@ -101,12 +101,9 @@ static void dirmenu_menu_selection_done(GtkWidget * menu, DirMenuPlugin * dm)
 static void dirmenu_popup_set_position(GtkWidget * menu, gint * px, gint * py, gboolean * push_in, GtkWidget * p)
 {
     DirMenuPlugin * dm = lxpanel_plugin_get_data(p);
-    /* Get the allocation of the popup menu. */
-    GtkRequisition popup_req;
-    gtk_widget_size_request(menu, &popup_req);
 
     /* Determine the coordinates. */
-    lxpanel_plugin_popup_set_position_helper(dm->panel, p, menu, &popup_req, px, py);
+    lxpanel_plugin_popup_set_position_helper(dm->panel, p, menu, px, py);
     *push_in = TRUE;
 }
 

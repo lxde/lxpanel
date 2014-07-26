@@ -2393,13 +2393,9 @@ static void taskbar_popup_set_position(GtkWidget * menu, gint * px, gint * py, g
 {
     Task * tk = (Task *) data;
 
-    /* Get the allocation of the popup menu. */
-    GtkRequisition popup_req;
-    gtk_widget_size_request(menu, &popup_req);
-
     /* Determine the coordinates. */
     lxpanel_plugin_popup_set_position_helper(tk->tb->panel, tk->button, menu,
-                                             &popup_req, px, py);
+                                             px, py);
     *push_in = TRUE;
 }
 
