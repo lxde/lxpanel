@@ -1349,6 +1349,8 @@ static void generic_config_dlg_response(GtkWidget * dlg, int response, Panel * p
 
 void _panel_show_config_dialog(Panel *panel, GtkWidget *p, GtkWidget *dlg)
 {
+    gint x, y;
+
     /* If there is already a plugin configuration dialog open, close it.
      * Then record this one in case the panel or plugin is deleted. */
     if (panel->plugin_pref_dialog != NULL)
@@ -1359,6 +1361,11 @@ void _panel_show_config_dialog(Panel *panel, GtkWidget *p, GtkWidget *dlg)
     g_signal_connect(dlg, "response", G_CALLBACK(generic_config_dlg_response), panel);
     g_signal_connect(p, "destroy", G_CALLBACK(on_plugin_destroy), dlg);
     g_object_set_data(G_OBJECT(dlg), "generic-config-plugin", p);
+
+    /* adjust config dialog window position to be near plugin */
+    gtk_widget_realize(dlg);
+    lxpanel_plugin_popup_set_position_helper(panel, p, dlg, &x, &y);
+    gdk_window_move(gtk_widget_get_window(dlg), x, y);
 
     gtk_window_present(GTK_WINDOW(dlg));
 }
