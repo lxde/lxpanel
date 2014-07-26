@@ -562,7 +562,7 @@ static void init_plugin_list( Panel* p, GtkTreeView* view, GtkWidget* label )
     gtk_tree_view_append_column( view, col );
 
     list = gtk_list_store_new( N_COLS, G_TYPE_STRING, G_TYPE_BOOLEAN, G_TYPE_POINTER );
-    plugins = gtk_container_get_children(GTK_CONTAINER(p->box));
+    plugins = p->box ? gtk_container_get_children(GTK_CONTAINER(p->box)) : NULL;
     for( l = plugins; l; l = l->next )
     {
         GtkTreeIter it;
