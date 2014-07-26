@@ -3,7 +3,6 @@ src/bg.c
 src/configurator.c
 src/dbg.c
 src/ev.c
-src/gtkbar.c
 src/panel.c
 src/plugin.c
 src/gtk-run.c
@@ -14,7 +13,6 @@ data/ui/panel-pref.glade
 # Putting translation of plugins in main catalog is not a good idea...
 src/plugins/cpu/cpu.c
 src/plugins/deskno/deskno.c
-src/plugins/image.c
 src/plugins/launchtaskbar.c
 src/plugins/dclock.c
 src/plugins/menu.c
