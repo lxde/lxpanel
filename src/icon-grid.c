@@ -354,6 +354,23 @@ void icon_grid_remove(IconGrid * ig, GtkWidget * child)
     }
 }
 
+/* Get the index of an icon grid element. */
+extern gint icon_grid_get_child_position(IconGrid * ig, GtkWidget * child)
+{
+    gint i;
+    IconGridElement * ige;
+    for (ige = ig->child_list, i = 0; ige != NULL; ige = ige->flink, i++)
+    {
+        if (ige->widget == child)
+        {
+            return i;
+            break;
+        }
+    }
+
+    return -1;
+}
+
 /* Reorder an icon grid element. */
 extern void icon_grid_reorder_child(IconGrid * ig, GtkWidget * child, gint position)
 {

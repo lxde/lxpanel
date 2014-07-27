@@ -68,6 +68,8 @@ extern void icon_grid_set_geometry(IconGrid * ig,
 extern void icon_grid_add(IconGrid * ig, GtkWidget * child, gboolean visible);
 						/* Add a child to the icon grid */
 extern void icon_grid_remove(IconGrid * ig, GtkWidget * child);
+						/* Get the index of an icon grid element. */
+extern gint icon_grid_get_child_position(IconGrid * ig, GtkWidget * child);
 						/* Remove a child from the icon grid */
 extern void icon_grid_reorder_child(IconGrid * ig, GtkWidget * child, gint position);
 						/* Reorder the position of a child in the icon grid */

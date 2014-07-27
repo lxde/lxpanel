@@ -2594,11 +2594,38 @@ static gboolean taskbar_button_drag_motion_timeout(Task * tk)
 /* Handler for "drag-motion" event from taskbar button. */
 static gboolean taskbar_button_drag_motion(GtkWidget * widget, GdkDragContext * drag_context, gint x, gint y, guint time, Task * tk)
 {
-    /* Prevent excessive motion notification. */
-    if (tk->tb->dnd_delay_timer == 0)
-        tk->tb->dnd_delay_timer = g_timeout_add(DRAG_ACTIVE_DELAY, (GSourceFunc) taskbar_button_drag_motion_timeout, tk);
-    gdk_drag_status(drag_context, 0, time);
+    GtkWidget * drag_source = gtk_drag_get_source_widget(drag_context);
+    if (drag_source != NULL && gtk_widget_get_parent(drag_source) == gtk_widget_get_parent(tk->button))
+    {
+        gdk_drag_status(drag_context, GDK_ACTION_MOVE, time);
+    }
+    else
+    {
+        /* Prevent excessive motion notification. */
+        if (tk->tb->dnd_delay_timer == 0)
+            tk->tb->dnd_delay_timer = g_timeout_add(DRAG_ACTIVE_DELAY, (GSourceFunc) taskbar_button_drag_motion_timeout, tk);
+
+        gdk_drag_status(drag_context, 0, time);
+    }
     return TRUE;
+}
+
+/* Handler for "drag-drop" event from taskbar button. */
+static gboolean taskbar_button_drag_drop(GtkWidget * widget, GdkDragContext * drag_context, gint x, gint y, guint time, Task * tk)
+{
+    GtkWidget * drag_source = gtk_drag_get_source_widget(drag_context);
+    if (drag_source != NULL && gtk_widget_get_parent(drag_source) == gtk_widget_get_parent(tk->button))
+    {
+        if (drag_source != tk->button)
+        {
+            gint i = icon_grid_get_child_position(tk->tb->tb_icon_grid, tk->button);
+            icon_grid_reorder_child(tk->tb->tb_icon_grid, drag_source, i);
+        }
+        gtk_drag_finish(drag_context, TRUE, TRUE, time);
+        return TRUE;
+    }
+
+    return FALSE;
 }
 
 /* Handler for "drag-leave" event from taskbar button. */
@@ -2708,6 +2735,16 @@ static void task_update_style(Task * tk, LaunchTaskBarPlugin * tb)
     task_draw_label(tk);
 }
 
+enum {
+    TARGET_TASK_BUTTON
+};
+
+static GtkTargetEntry task_button_target_list[] = {
+    { "task_button", GTK_TARGET_SAME_APP, TARGET_TASK_BUTTON }
+};
+
+static guint task_button_n_targets = G_N_ELEMENTS(task_button_target_list);
+
 /* Build graphic elements needed for a task button. */
 static void task_build_gui(LaunchTaskBarPlugin * tb, Task * tk)
 {
@@ -2730,11 +2767,13 @@ static void task_build_gui(LaunchTaskBarPlugin * tb, Task * tk)
     tk->button = gtk_toggle_button_new();
     gtk_container_set_border_width(GTK_CONTAINER(tk->button), 0);
     gtk_drag_dest_set(tk->button, 0, NULL, 0, 0);
+    gtk_drag_source_set(tk->button, GDK_BUTTON1_MASK, task_button_target_list, task_button_n_targets, GDK_ACTION_MOVE);
 
     /* Connect signals to the button. */
     g_signal_connect(tk->button, "button-press-event", G_CALLBACK(taskbar_button_press_event), (gpointer) tk);
     g_signal_connect(G_OBJECT(tk->button), "drag-motion", G_CALLBACK(taskbar_button_drag_motion), (gpointer) tk);
     g_signal_connect(G_OBJECT(tk->button), "drag-leave", G_CALLBACK(taskbar_button_drag_leave), (gpointer) tk);
+    g_signal_connect(G_OBJECT(tk->button), "drag-drop", G_CALLBACK(taskbar_button_drag_drop), (gpointer) tk);
     g_signal_connect_after(G_OBJECT (tk->button), "enter", G_CALLBACK(taskbar_button_enter), (gpointer) tk);
     g_signal_connect_after(G_OBJECT (tk->button), "leave", G_CALLBACK(taskbar_button_leave), (gpointer) tk);
     g_signal_connect_after(G_OBJECT(tk->button), "scroll-event", G_CALLBACK(taskbar_button_scroll_event), (gpointer) tk);
