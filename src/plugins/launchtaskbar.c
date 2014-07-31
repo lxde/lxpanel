@@ -340,7 +340,7 @@ static gboolean launchbutton_press_event(GtkWidget * widget, GdkEventButton * ev
     if (lxpanel_plugin_button_press_event(b->p->plugin, event, b->p->panel))
         return TRUE;
 
-    if (event->button == 1)    /* left button */
+    if (event->button == 1 && event->type == GDK_BUTTON_PRESS) /* left button */
     {
         if (b->fi == NULL)  /* The bootstrap button */
             lxpanel_plugin_show_config_dialog(b->p->panel, b->p->plugin);
