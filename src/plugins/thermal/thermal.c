@@ -44,6 +44,7 @@
 #define MAX_NUM_SENSORS 10
 #define MAX_AUTOMATIC_CRITICAL_TEMP 150 /* in degrees Celsius */
 
+typedef gint (*GetTempFunc)(char const *);
 
 typedef struct thermal {
     Panel *panel;
@@ -64,8 +65,8 @@ typedef struct thermal {
              cl_warning2;
     int numsensors;
     char *sensor_array[MAX_NUM_SENSORS];
-    gint (*get_temperature[MAX_NUM_SENSORS])(char const* sensor_path);
-    gint (*get_critical[MAX_NUM_SENSORS])(char const* sensor_path);
+    GetTempFunc get_temperature[MAX_NUM_SENSORS];
+    GetTempFunc get_critical[MAX_NUM_SENSORS];
     gint temperature[MAX_NUM_SENSORS];
 } thermal;
 
@@ -188,32 +189,61 @@ sysfs_get_temperature(char const* sensor_path){
     return -1;
 }
 
-static gboolean
-is_sysfs(char const* path)
-{
-    return path && strncmp(path, "/sys/", 5) == 0;
+static gint
+hwmon_get_critical(char const* sensor_path){
+    FILE *state;
+    char buf[ 256 ], sstmp [ 100 ];
+    int spl;
+    char* pstr;
+
+    if(sensor_path == NULL) return -1;
+
+    spl = strlen(sensor_path) - 6;
+    if (spl < 17 || spl > 94)
+        return -1;
+
+    snprintf(sstmp, sizeof(sstmp), "%.*s_crit", spl, sensor_path);
+
+    if (!(state = fopen( sstmp, "r"))) {
+        ERR("thermal: cannot open %s\n", sstmp);
+        return -1;
+    }
+
+    while( fgets(buf, 256, state) &&
+            ! ( pstr = buf ) );
+    if( pstr )
+    {
+        fclose(state);
+        return atoi(pstr)/1000;
+    }
+
+    fclose(state);
+    return -1;
 }
 
-/* get_temp_function():
- *      - This function is called 'get_temp_function'.
- *      - It takes 'path' as argument.
- *      - It returns a pointer to a function.
- *      - The returned function takes a pointer to a char const as arg.
- *      - The returned function returns a gint. */
-static gint (*get_temp_function(char const* path))(char const* sensor_path)
-{
-    if (is_sysfs(path))
-        return sysfs_get_temperature;
-    else
-        return proc_get_temperature;
-}
+static gint
+hwmon_get_temperature(char const* sensor_path){
+    FILE *state;
+    char buf[ 256 ];
+    char* pstr;
 
-static gint (*get_crit_function(char const* path))(char const* sensor_path)
-{
-    if (is_sysfs(path))
-        return sysfs_get_critical;
-    else
-        return proc_get_critical;
+    if(sensor_path == NULL) return -1;
+
+    if (!(state = fopen(sensor_path, "r"))) {
+        ERR("thermal: cannot open %s\n", sensor_path);
+        return -1;
+    }
+
+    while (fgets(buf, 256, state) &&
+           ! ( pstr = buf ) );
+    if( pstr )
+    {
+        fclose(state);
+        return atoi(pstr)/1000;
+    }
+
+    fclose(state);
+    return -1;
 }
 
 static gint get_temperature(thermal *th)
@@ -289,7 +319,7 @@ static gboolean update_display_timeout(gpointer user_data)
 }
 
 static int
-add_sensor(thermal* th, char const* sensor_path)
+add_sensor(thermal* th, char const* sensor_path, GetTempFunc get_temp, GetTempFunc get_crit)
 {
     if (th->numsensors + 1 > MAX_NUM_SENSORS){
         ERR("thermal: Too many sensors (max %d), ignoring '%s'\n",
@@ -298,8 +328,8 @@ add_sensor(thermal* th, char const* sensor_path)
     }
 
     th->sensor_array[th->numsensors] = g_strdup(sensor_path);
-    th->get_critical[th->numsensors] = get_crit_function(sensor_path);
-    th->get_temperature[th->numsensors] = get_temp_function(sensor_path);
+    th->get_critical[th->numsensors] = get_crit;
+    th->get_temperature[th->numsensors] = get_temp;
     th->numsensors++;
 
     LOG(LOG_ALL, "thermal: Added sensor %s\n", sensor_path);
@@ -313,7 +343,8 @@ add_sensor(thermal* th, char const* sensor_path)
  *      - Only the subdirectories starting with 'subdir_prefix' are accepted as sensors.
  *      - 'subdir_prefix' may be NULL, in which case any subdir is considered a sensor. */
 static void
-find_sensors(thermal* th, char const* directory, char const* subdir_prefix)
+find_sensors(thermal* th, char const* directory, char const* subdir_prefix,
+             GetTempFunc get_temp, GetTempFunc get_crit)
 {
     GDir *sensorsDirectory;
     const char *sensor_name;
@@ -331,10 +362,34 @@ find_sensors(thermal* th, char const* directory, char const* subdir_prefix)
                 continue;
         }
         snprintf(sensor_path,sizeof(sensor_path),"%s%s/", directory, sensor_name);
-        add_sensor(th, sensor_path);
+        add_sensor(th, sensor_path, get_temp, get_crit);
     }
     g_dir_close(sensorsDirectory);
 }
+
+static void find_hwmon_sensors(thermal* th)
+{
+    GDir *sensorsDirectory;
+    const char *sensor_name;
+    char sensor_path[100];
+
+    if (!(sensorsDirectory = g_dir_open("/sys/class/hwmon/hwmon0/device/", 0, NULL)))
+        return;
+    /* FIXME: do scanning hwmonX other than 0 */
+
+    while ((sensor_name = g_dir_read_name(sensorsDirectory)))
+    {
+        if (strncmp(sensor_name, "temp", 4) == 0 &&
+            strcmp(&sensor_name[5], "_input") == 0)
+        {
+            snprintf(sensor_path, sizeof(sensor_path),
+                     "/sys/class/hwmon/hwmon0/device/%s", sensor_name);
+            add_sensor(th, sensor_path, hwmon_get_temperature, hwmon_get_critical);
+        }
+    }
+    g_dir_close(sensorsDirectory);
+}
+
 
 static void
 remove_all_sensors(thermal *th)
@@ -352,8 +407,10 @@ remove_all_sensors(thermal *th)
 static void
 check_sensors( thermal *th )
 {
-    find_sensors(th, PROC_THERMAL_DIRECTORY, NULL);
-    find_sensors(th, SYSFS_THERMAL_DIRECTORY, SYSFS_THERMAL_SUBDIR_PREFIX);
+    find_sensors(th, PROC_THERMAL_DIRECTORY, NULL, proc_get_temperature, proc_get_critical);
+    find_sensors(th, SYSFS_THERMAL_DIRECTORY, SYSFS_THERMAL_SUBDIR_PREFIX, sysfs_get_temperature, sysfs_get_critical);
+    if (th->numsensors == 0)
+        find_hwmon_sensors(th);
     LOG(LOG_INFO, "thermal: Found %d sensors\n", th->numsensors);
 }
 
@@ -370,7 +427,12 @@ static gboolean applyConfig(gpointer p)
     remove_all_sensors(th);
     if(th->sensor == NULL) th->auto_sensor = TRUE;
     if(th->auto_sensor) check_sensors(th);
-    else add_sensor(th, th->sensor);
+    else if (strncmp(th->sensor, "/sys/", 5) != 0)
+        add_sensor(th, th->sensor, proc_get_temperature, proc_get_critical);
+    else if (strncmp(th->sensor, "/sys/class/hwmon/", 17) != 0)
+        add_sensor(th, th->sensor, sysfs_get_temperature, sysfs_get_critical);
+    else
+        add_sensor(th, th->sensor, hwmon_get_temperature, hwmon_get_critical);
 
     th->critical = get_critical(th);
 

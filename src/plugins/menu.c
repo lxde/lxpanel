@@ -92,7 +92,7 @@ static void on_data_get(FmDndSrc *ds, GtkWidget *mi)
 {
     FmFileInfo *fi = g_object_get_qdata(G_OBJECT(mi), SYS_MENU_ITEM_ID);
 
-    g_debug("on_data_get(...)");
+    /* g_debug("on_data_get(...)"); */
     fm_dnd_src_set_file(ds, fi);
 }
 
