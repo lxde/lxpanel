@@ -1,6 +1,7 @@
 /* pager.c -- pager module of lxpanel project
  *
  * Copyright (C) 2009 Dongxu Li <song6song@sourceforge.net>
+ *               2012 Julien Lavergne <gilir@ubuntu.com>
  *
  * This file is part of lxpanel.
  *
@@ -21,6 +22,8 @@
  */
 
 #include <gtk/gtk.h>
+#include <gdk/gdkx.h>
+#include <libfm/fm-gtk.h>
 
 #include <glib/gi18n.h>
 #ifndef WNCK_I_KNOW_THIS_IS_UNSTABLE
@@ -30,6 +33,8 @@
 
 #include "plugin.h"
 
+/* command to configure desktop, it will be set by .config callback */
+static const char *configure_command = NULL;
 
 static void on_realize(GtkWidget *p, Panel *panel)
 {
@@ -75,6 +80,54 @@ static GtkWidget *pager_constructor(Panel *panel, config_setting_t *settings)
     return p;
 }
 
+/* this is a modified version of patch from Lubuntu */
+static GtkWidget *pager_configure(Panel *panel, GtkWidget *instance, GtkWindow *parent)
+{
+    if (configure_command)
+        fm_launch_command_simple(NULL, NULL, G_APP_INFO_CREATE_NONE,
+                                 configure_command, NULL);
+    return NULL; /* no configuration dialog of lxpanel available */
+}
+
+static void pager_menu_callback(GtkWidget *widget, gpointer data)
+{
+    gtk_widget_set_sensitive(widget, FALSE);
+}
+
+static gboolean pager_update_context_menu(GtkWidget *plugin, GtkMenu *menu)
+{
+    GdkScreen *screen = gdk_screen_get_default();
+    const char *wm_name = gdk_x11_screen_get_window_manager_name(screen);
+
+    /* update configure_command */
+    configure_command = NULL;
+    if (g_strcmp0(wm_name, "Openbox") == 0)
+    {
+        if (g_find_program_in_path("obconf"))
+        {
+            configure_command = "obconf --tab 6";
+        }
+    }
+    else if (g_strcmp0(wm_name, "compiz") == 0)
+    {
+         if (g_find_program_in_path("ccsm"))
+         {
+              configure_command = "ccsm";
+         }
+         else if (g_find_program_in_path("simple-ccsm"))
+         {
+              configure_command = "simple-ccsm";
+         }
+    }
+    /* FIXME: support other WMs */
+    if (configure_command == NULL)
+    {
+        /* disable 'Settings' menu item */
+        gtk_container_foreach(GTK_CONTAINER(menu), pager_menu_callback, NULL);
+    }
+    return FALSE;
+}
+
 static void pager_panel_configuration_changed(Panel *panel, GtkWidget *p)
 {
     on_realize(p, panel);
@@ -86,6 +139,8 @@ static LXPanelPluginInit wnck_pager = {
 
     .superseded = TRUE,
     .new_instance = pager_constructor,
+    .config = pager_configure,
+    .update_context_menu = pager_update_context_menu,
     .reconfigure = pager_panel_configuration_changed
 };
 
@@ -100,5 +155,7 @@ LXPanelPluginInit lxpanel_static_plugin_pager = {
 
     .init = pager_wnck_init,
     .new_instance = pager_constructor,
+    .config = pager_configure,
+    .update_context_menu = pager_update_context_menu,
     .reconfigure = pager_panel_configuration_changed
 };
