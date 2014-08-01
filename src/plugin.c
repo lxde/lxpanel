@@ -416,13 +416,15 @@ gboolean lxpanel_launch_path(Panel *panel, FmPath *path)
     return fm_launch_path_simple(NULL, NULL, path, _open_dir_in_file_manager, NULL);
 }
 
-void lxpanel_plugin_show_config_dialog(Panel* panel, GtkWidget* plugin)
+void lxpanel_plugin_show_config_dialog(GtkWidget* plugin)
 {
     LXPanelPluginInit *init = PLUGIN_CLASS(plugin);
+    Panel *panel = PLUGIN_PANEL(plugin);
     GtkWidget *dlg = panel->plugin_pref_dialog;
 
     if (dlg && g_object_get_data(G_OBJECT(dlg), "generic-config-plugin") == plugin)
         return; /* configuration dialog is already shown for this widget */
+    g_return_if_fail(panel != NULL);
     dlg = init->config(panel, plugin, GTK_WINDOW(panel->topgwin));
     if (dlg)
         _panel_show_config_dialog(panel, plugin, dlg);

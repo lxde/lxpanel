@@ -126,10 +126,10 @@ extern void lxpanel_plugin_adjust_popup_position(GtkWidget * popup, GtkWidget * 
 			/* Helper to move popup windows away from the panel */
 extern void lxpanel_plugin_popup_set_position_helper(Panel * p, GtkWidget * near, GtkWidget * popup, gint * px, gint * py);
 			/* Helper for position-calculation callback for popup menus */
-extern void plugin_widget_set_background(GtkWidget * plugin, Panel * p);
+extern void plugin_widget_set_background(GtkWidget * widget, Panel * p);
 			/* Recursively set the background of all widgets on a panel background configuration change */
 extern gboolean lxpanel_launch_path(Panel *panel, FmPath *path);
-extern void lxpanel_plugin_show_config_dialog(Panel* panel, GtkWidget* plugin);
+extern void lxpanel_plugin_show_config_dialog(GtkWidget* plugin);
 			/* Calls config() callback and shows configuration window */
 
 G_END_DECLS

@@ -579,7 +579,7 @@ static void panel_popupmenu_config_plugin( GtkMenuItem* item, GtkWidget* plugin 
 {
     Panel *panel = PLUGIN_PANEL(plugin);
 
-    lxpanel_plugin_show_config_dialog(panel, plugin);
+    lxpanel_plugin_show_config_dialog(plugin);
 
     /* FIXME: this should be more elegant */
     panel->config_changed = TRUE;
