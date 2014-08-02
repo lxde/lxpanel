@@ -33,6 +33,7 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
+#include "../../plugin.h"
 
 /* Private structure, property and signal definitions. */
 #define GTK_WEATHER_GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), \
@@ -1149,6 +1150,8 @@ gtk_weather_preferences_dialog_response(GtkDialog *dialog, gint response, gpoint
           gtk_weather_get_forecast(GTK_WIDGET(weather));
 
           gtk_weather_render(weather);
+
+          weather_save_configuration(GTK_WIDGET(weather), location);
         }
 
       break;
@@ -1162,11 +1165,6 @@ gtk_weather_preferences_dialog_response(GtkDialog *dialog, gint response, gpoint
     default:
       /* Leave everything as-is*/
       break;
-    }
-
-  if (GTK_IS_WIDGET(priv->preferences_data.dialog))
-    {
-      gtk_widget_destroy(priv->preferences_data.dialog);
     }
 
   priv->preferences_data.dialog = NULL;
@@ -1229,11 +1227,6 @@ gtk_weather_create_preferences_dialog(GtkWidget * widget)
   LXW_LOG(LXW_DEBUG, "GtkWeather::create_preferences_dialog()");
 
   GtkWeatherPrivate * priv = GTK_WEATHER_GET_PRIVATE(weather);
-
-  if (priv->preferences_data.shown)
-    {
-      return priv->preferences_data.dialog;
-    }
 
   priv->preferences_data.dialog = gtk_dialog_new_with_buttons(_("Weather Preferences"),
                                                               NULL,
@@ -1415,6 +1408,8 @@ gtk_weather_create_preferences_dialog(GtkWidget * widget)
 
   gtk_weather_update_preferences_dialog(weather);
 
+  gtk_widget_show_all(priv->preferences_data.dialog);
+
   return priv->preferences_data.dialog;
 }
 
@@ -1441,7 +1436,7 @@ gtk_weather_run_preferences_dialog(GtkWidget * widget)
   /* this dialog is the same one as priv->preferences_data.dialog */
   GtkWidget * dialog = gtk_weather_create_preferences_dialog(widget);
 
-  gtk_widget_show_all(dialog);
+  g_signal_connect(G_OBJECT(dialog), "response", G_CALLBACK(gtk_widget_destroy), NULL);
 
   priv->preferences_data.shown = TRUE;
 }

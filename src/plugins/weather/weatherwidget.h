@@ -62,6 +62,8 @@ void        gtk_weather_run_conditions_dialog(GtkWidget * widget);
 gchar *     gtk_weather_get_tooltip_text(GtkWidget * widget);
 GtkWidget * gtk_weather_create_preferences_dialog(GtkWidget * widget);
 
+void weather_save_configuration(GtkWidget * pWeather, LocationInfo * pLocation);
+
 G_END_DECLS
 
 #endif

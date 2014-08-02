@@ -23,15 +23,12 @@
 #include "yahooutil.h"
 #include "logutil.h"
 
-#include "../../private.h"
+#include "../../plugin.h"
 
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
 #include <stdlib.h>
-
-/* External button-press handler from plugin.c */
-extern gboolean lxpanel_plugin_button_press_event(GtkWidget *widget, GdkEventButton *event, Panel *panel);
 
 /* Need to maintain count for bookkeeping */
 static gint g_iCount = 0;
@@ -105,12 +102,6 @@ weather_constructor(Panel *pPanel, config_setting_t *pConfig)
 
   GtkWidget * pEventBox = gtk_event_box_new();
 
-  /* Connect signals. */
-  g_signal_connect(pEventBox, 
-                   "button-press-event", 
-                   G_CALLBACK(lxpanel_plugin_button_press_event),
-                   pPanel);
-
   lxpanel_plugin_set_data(pEventBox, pPriv, weather_destructor);
   gtk_container_add(GTK_CONTAINER(pEventBox), pWidg);
 
@@ -121,6 +112,7 @@ weather_constructor(Panel *pPanel, config_setting_t *pConfig)
   /* use config settings */
   LocationInfo * pLocation = g_new0(LocationInfo, 1);
   const char *pczDummy = NULL;
+  int iDummyVal = 0;
 
   if (config_setting_lookup_string(pConfig, "alias", &pczDummy))
     {
@@ -162,6 +154,10 @@ weather_constructor(Panel *pPanel, config_setting_t *pConfig)
     {
       pLocation->pcWOEID_ = g_strndup(pczDummy, (pczDummy) ? strlen(pczDummy) : 0);
     }
+  else if (config_setting_lookup_int(pConfig, "woeid", &iDummyVal))
+    {
+      pLocation->pcWOEID_ = g_strdup_printf("%d", iDummyVal);
+    }
   else
     {
       LXW_LOG(LXW_ERROR, "Weather: could not lookup woeid in config.");
@@ -176,7 +172,6 @@ weather_constructor(Panel *pPanel, config_setting_t *pConfig)
       LXW_LOG(LXW_ERROR, "Weather: could not lookup units in config.");
     }
 
-  int iDummyVal = 0;
   if (config_setting_lookup_int(pConfig, "interval", &iDummyVal))
     {
       pLocation->uiInterval_ = (guint)iDummyVal;
@@ -221,23 +216,22 @@ weather_constructor(Panel *pPanel, config_setting_t *pConfig)
  *
  * @param pWidget Pointer to this widget.
  */
-static void
-weather_save_configuration(GtkWidget *pWidget)
+void weather_save_configuration(GtkWidget * pWeather, LocationInfo * pLocation)
 {
-  WeatherPluginPrivate * pPriv = (WeatherPluginPrivate *) lxpanel_plugin_get_data(pWidget);
+  GtkWidget * pWidget = gtk_widget_get_parent(pWeather);
+  WeatherPluginPrivate * pPriv = NULL;
+
+  if (pWidget)
+    {
+      pPriv = (WeatherPluginPrivate *) lxpanel_plugin_get_data(pWidget);
+    }
+  if (pPriv == NULL)
+    {
+      LXW_LOG(LXW_ERROR, "Weather: weather_save_configuration() for invalid widget");
+      return;
+    }
 
   LXW_LOG(LXW_DEBUG, "weather_save_configuration(%d)", pPriv->iMyId_);
-
-  GValue location = G_VALUE_INIT;
-
-  g_value_init(&location, G_TYPE_POINTER);
-
-  /* pwid is the WeatherWidget */
-  g_object_get_property(G_OBJECT(pPriv->pWeather_),
-                        "location",
-                        &location);
-
-  LocationInfo * pLocation = g_value_get_pointer(&location);
 
   if (pLocation)
     {
@@ -280,8 +274,6 @@ weather_configuration_changed(Panel *pPanel, GtkWidget *pWidget)
               pPanel->width, panel_get_height(pPanel), 
               panel_get_icon_size(pPanel));
     }
-
-  weather_save_configuration(pWidget);
 }
 
 /**
