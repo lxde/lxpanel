@@ -302,6 +302,7 @@ static void on_menu_item_properties(GtkMenuItem* item, GtkWidget* mi)
     fm_file_info_list_unref(files);
 }
 
+#if 0
 /* This following function restore_grabs is taken from menu.c of
  * gnome-panel.
  */
@@ -361,13 +362,30 @@ static void restore_grabs(GtkWidget *w, gpointer data)
     }
     gtk_grab_add (GTK_WIDGET (menu));
 }
+#endif
+
+static void restore_submenu(GtkMenuItem *mi, GtkWidget *submenu)
+{
+    g_signal_handlers_disconnect_by_func(mi, restore_submenu, submenu);
+    gtk_menu_item_set_submenu(mi, submenu);
+    g_object_set_data(G_OBJECT(mi), "PanelMenuItemSubmenu", NULL);
+}
 
 static gboolean on_menu_button_press(GtkWidget* mi, GdkEventButton* evt, menup* m)
 {
     if( evt->button == 3 )  /* right */
     {
         GtkWidget* item;
-        GtkMenu* p = GTK_MENU(gtk_menu_new());
+        GtkMenu* p;
+
+        /* don't make duplicates */
+        if (g_signal_handler_find(mi, G_SIGNAL_MATCH_FUNC, 0, 0, NULL,
+            restore_submenu, NULL))
+        {
+            return FALSE;
+        }
+
+        p = GTK_MENU(gtk_menu_new());
 
         item = gtk_menu_item_new_with_label(_("Add to desktop"));
         g_signal_connect(item, "activate", G_CALLBACK(on_add_menu_item_to_desktop), mi);
@@ -380,12 +398,17 @@ static gboolean on_menu_button_press(GtkWidget* mi, GdkEventButton* evt, menup* 
         g_signal_connect(item, "activate", G_CALLBACK(on_menu_item_properties), mi);
         gtk_menu_shell_append(GTK_MENU_SHELL(p), item);
 
-        g_signal_connect(p, "selection-done", G_CALLBACK(gtk_widget_destroy), NULL);
-        g_signal_connect(p, "deactivate", G_CALLBACK(restore_grabs), mi);
-
+        item = gtk_menu_item_get_submenu(GTK_MENU_ITEM(mi)); /* reuse it */
+        if (item)
+        {
+            /* set object data to keep reference on the submenu we preserve */
+            g_object_set_data_full(G_OBJECT(mi), "PanelMenuItemSubmenu",
+                                   g_object_ref(item), g_object_unref);
+            gtk_menu_popdown(GTK_MENU(item));
+        }
+        gtk_menu_item_set_submenu(GTK_MENU_ITEM(mi), GTK_WIDGET(p));
+        g_signal_connect(mi, "deselect", G_CALLBACK(restore_submenu), item);
         gtk_widget_show_all(GTK_WIDGET(p));
-        gtk_menu_popup(p, NULL, NULL, NULL, NULL, 0, evt->time);
-        return TRUE;
     }
     else if (evt->button == 1) /* allow drag on clicked item */
     {

@@ -1303,7 +1303,8 @@ panel_parse_global(Panel *p, config_setting_t *cfg)
     }
     if (config_setting_lookup_int(cfg, "autohide", &i))
         p->autohide = i != 0;
-    config_setting_lookup_int(cfg, "heightwhenhidden", &p->height_when_hidden);
+    if (config_setting_lookup_int(cfg, "heightwhenhidden", &i) && i >= 2)
+        p->height_when_hidden = i;
     if (config_setting_lookup_string(cfg, "tintcolor", &str))
     {
         if (!gdk_color_parse (str, &p->gtintcolor))
