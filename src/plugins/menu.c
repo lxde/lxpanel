@@ -466,7 +466,7 @@ static int load_menu(menup* m, MenuCacheDir* dir, GtkWidget* menu, int pos )
 {
     GSList * l;
     /* number of visible entries */
-    gint count = 0;		
+    gint count = 0;
 #if MENU_CACHE_CHECK_VERSION(0, 4, 0)
     GSList *children;
 #if MENU_CACHE_CHECK_VERSION(0, 5, 0)
@@ -488,11 +488,11 @@ static int load_menu(menup* m, MenuCacheDir* dir, GtkWidget* menu, int pos )
 #endif
     {
         MenuCacheItem* item = MENU_CACHE_ITEM(l->data);
-	
-        gboolean is_visible = ((menu_cache_item_get_type(item) != MENU_CACHE_TYPE_APP) || 
+
+        gboolean is_visible = ((menu_cache_item_get_type(item) != MENU_CACHE_TYPE_APP) ||
 			       (panel_menu_item_evaluate_visibility(item, m->visibility_flags)));
-	
-	if (is_visible) 
+
+	if (is_visible)
 	{
             GtkWidget * mi = create_item(item, m);
 	    count++;
@@ -501,14 +501,14 @@ static int load_menu(menup* m, MenuCacheDir* dir, GtkWidget* menu, int pos )
                 if( pos >= 0 )
                     ++pos;
 		/* process subentries */
-		if (menu_cache_item_get_type(item) == MENU_CACHE_TYPE_DIR) 
+		if (menu_cache_item_get_type(item) == MENU_CACHE_TYPE_DIR)
 		{
                     GtkWidget* sub = gtk_menu_new();
 		    /*  always pass -1 for position */
-		    gint s_count = load_menu( m, MENU_CACHE_DIR(item), sub, -1 );    
-                    if (s_count) 
-			gtk_menu_item_set_submenu( GTK_MENU_ITEM(mi), sub );	    
-		    else 
+		    gint s_count = load_menu( m, MENU_CACHE_DIR(item), sub, -1 );
+                    if (s_count)
+			gtk_menu_item_set_submenu( GTK_MENU_ITEM(mi), sub );
+		    else
 		    {
 			/* don't keep empty submenus */
 			gtk_widget_destroy( sub );

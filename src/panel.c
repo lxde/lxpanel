@@ -474,14 +474,14 @@ static gboolean delay_update_background( Panel* p )
 	gdk_display_sync( gtk_widget_get_display(p->topgwin) );
 	panel_update_background( p );
     }
-    
+
     return FALSE;
 }
 
 static void
 panel_realize(GtkWidget *widget, Panel *p)
 {
-    g_idle_add_full( G_PRIORITY_LOW, 
+    g_idle_add_full( G_PRIORITY_LOW,
             (GSourceFunc)delay_update_background, p, NULL );
 }
 
@@ -494,7 +494,7 @@ panel_style_set(GtkWidget *widget, GtkStyle* prev, Panel *p)
 #else
     if( GTK_WIDGET_REALIZED( widget ) )
 #endif
-        g_idle_add_full( G_PRIORITY_LOW, 
+        g_idle_add_full( G_PRIORITY_LOW,
                 (GSourceFunc)delay_update_background, p, NULL );
 }
 
@@ -566,12 +566,12 @@ panel_popupmenu_configure(GtkWidget *widget, gpointer user_data)
 /* Handler for "button_press_event" signal with Panel as parameter. */
 static gboolean panel_button_press_event_with_panel(GtkWidget *widget, GdkEventButton *event, Panel *panel)
 {
-    if (event->button == 3)	 /* right button */
+    if (event->button == 3) /* right button */
     {
         GtkMenu* popup = (GtkMenu*) lxpanel_get_plugin_menu(panel, NULL, FALSE);
         gtk_menu_popup(popup, NULL, NULL, NULL, NULL, event->button, event->time);
         return TRUE;
-    }    
+    }
     return FALSE;
 }
 
@@ -748,7 +748,7 @@ static void panel_popupmenu_about( GtkMenuItem* item, Panel* panel )
          gtk_about_dialog_set_logo( GTK_ABOUT_DIALOG(about),
                                     gtk_icon_theme_load_icon(panel->icon_theme, "start-here", 48, 0, NULL));
     }
-    else 
+    else
     {
         gtk_about_dialog_set_logo(  GTK_ABOUT_DIALOG(about),
                                     gdk_pixbuf_new_from_file(PACKAGE_DATA_DIR "/images/my-computer.png", NULL));
@@ -761,25 +761,25 @@ static void panel_popupmenu_about( GtkMenuItem* item, Panel* panel )
     gtk_about_dialog_set_authors(GTK_ABOUT_DIALOG(about), authors);
     gtk_about_dialog_set_translator_credits(GTK_ABOUT_DIALOG(about), translators);
     gtk_dialog_run(GTK_DIALOG(about));
-    gtk_widget_destroy(about); 
+    gtk_widget_destroy(about);
 }
 
 void panel_apply_icon( GtkWindow *w )
 {
-	GdkPixbuf* window_icon;
-	
-	if(gtk_icon_theme_has_icon(gtk_icon_theme_get_default(), "video-display"))
+    GdkPixbuf* window_icon;
+
+    if(gtk_icon_theme_has_icon(gtk_icon_theme_get_default(), "video-display"))
     {
-		window_icon = gtk_icon_theme_load_icon(gtk_icon_theme_get_default(), "video-display", 24, 0, NULL);
-	}
-	else if(gtk_icon_theme_has_icon(gtk_icon_theme_get_default(), "start-here"))
+        window_icon = gtk_icon_theme_load_icon(gtk_icon_theme_get_default(), "video-display", 24, 0, NULL);
+    }
+    else if(gtk_icon_theme_has_icon(gtk_icon_theme_get_default(), "start-here"))
     {
-		window_icon = gtk_icon_theme_load_icon(gtk_icon_theme_get_default(), "start-here", 24, 0, NULL);
-	}
+        window_icon = gtk_icon_theme_load_icon(gtk_icon_theme_get_default(), "start-here", 24, 0, NULL);
+    }
     else
     {
-		window_icon = gdk_pixbuf_new_from_file(PACKAGE_DATA_DIR "/images/my-computer.png", NULL);
-	}
+        window_icon = gdk_pixbuf_new_from_file(PACKAGE_DATA_DIR "/images/my-computer.png", NULL);
+    }
     gtk_window_set_icon(w, window_icon);
 }
 
@@ -988,7 +988,7 @@ void panel_establish_autohide(Panel *p)
     }
     else if ( ! p->visible)
     {
-	gtk_widget_show(p->box);
+    gtk_widget_show(p->box);
         p->visible = TRUE;
     }
 }
@@ -1470,14 +1470,14 @@ int panel_handle_x_error(Display * d, XErrorEvent * ev)
         XGetErrorText(d, ev->error_code, buf, 256);
         LOG(LOG_WARN, "lxpanel : X error: %s\n", buf);
     }
-    return 0;	/* Ignored */
+    return 0;    /* Ignored */
 }
 
 int panel_handle_x_error_swallow_BadWindow_BadDrawable(Display * d, XErrorEvent * ev)
 {
     if ((ev->error_code != BadWindow) && (ev->error_code != BadDrawable))
         panel_handle_x_error(d, ev);
-    return 0;	/* Ignored */
+    return 0;    /* Ignored */
 }
 
 /* Lightweight lock related functions - X clipboard hacks */
@@ -1555,7 +1555,7 @@ static void _start_panels_from_dir(const char *panel_dir)
     while((name = g_dir_read_name(dir)) != NULL)
     {
         char* panel_config = g_build_filename( panel_dir, name, NULL );
-        if (strchr(panel_config, '~') == NULL)	/* Skip editor backup files in case user has hand edited in this directory */
+        if (strchr(panel_config, '~') == NULL)    /* Skip editor backup files in case user has hand edited in this directory */
         {
             Panel* panel = panel_new( panel_config, name );
             if( panel )
@@ -1609,9 +1609,9 @@ int main(int argc, char *argv[], char *env[])
 
     setlocale(LC_CTYPE, "");
 
-	g_thread_init(NULL);
-/*	gdk_threads_init();
-	gdk_threads_enter(); */
+    g_thread_init(NULL);
+/*    gdk_threads_init();
+    gdk_threads_enter(); */
 
     gtk_init(&argc, &argv);
 
@@ -1689,9 +1689,9 @@ restart:
 
     load_global_config();
 
-	/* NOTE: StructureNotifyMask is required by XRandR
-	 * See init_randr_support() in gdkscreen-x11.c of gtk+ for detail.
-	 */
+    /* NOTE: StructureNotifyMask is required by XRandR
+     * See init_randr_support() in gdkscreen-x11.c of gtk+ for detail.
+     */
     gdk_window_set_events(gdk_get_default_root_window(), GDK_STRUCTURE_MASK |
             GDK_SUBSTRUCTURE_MASK | GDK_PROPERTY_CHANGE_MASK);
     gdk_window_add_filter(gdk_get_default_root_window (), (GdkFilterFunc)panel_event_filter, NULL);

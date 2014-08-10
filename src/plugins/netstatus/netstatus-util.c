@@ -126,7 +126,7 @@ netstatus_connect_signal_while_alive (gpointer    object,
   GType     type;
   guint     signal_id = 0;
   GQuark    detail = 0;
-  
+
   type = G_OBJECT_TYPE (object);
 
   if (!g_signal_parse_name (detailed_signal, type, &signal_id, &detail, FALSE))

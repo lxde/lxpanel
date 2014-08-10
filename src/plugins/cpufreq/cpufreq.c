@@ -215,7 +215,7 @@ get_cpus(cpufreq *cf)
             snprintf(cpu_path, sizeof(cpu_path), "%s/%s/cpufreq", SYSFS_CPU_DIRECTORY, cpu);
 
             GDir * cpufreqDir = g_dir_open(SYSFS_CPU_DIRECTORY, 0, NULL);
-	        if (cpufreqDir == NULL)
+            if (cpufreqDir == NULL)
             {
                 cf->cpus = NULL;
                 cf->has_cpufreq = 0;
@@ -307,7 +307,7 @@ clicked(GtkWidget *widget, GdkEventButton *evt, Panel *panel)
     if( evt->button == 1 )
     {
 // Setting governor can't work without root privilege
-//      gtk_menu_popup( cpufreq_menu((cpufreq*)plugin->priv), NULL, NULL, NULL, NULL, 
+//      gtk_menu_popup( cpufreq_menu((cpufreq*)plugin->priv), NULL, NULL, NULL, NULL,
 //                      evt->button, evt->time );
       return TRUE;
     }

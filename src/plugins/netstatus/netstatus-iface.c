@@ -249,7 +249,7 @@ netstatus_iface_get_property (GObject    *object,
 			      GParamSpec *pspec)
 {
   NetstatusIface *iface = (NetstatusIface *) object;
-  
+
   switch (property_id)
     {
     case PROP_NAME:
@@ -304,7 +304,7 @@ netstatus_iface_set_name (NetstatusIface *iface,
   iface->priv->name = g_strdup (name);
 
   netstatus_iface_init_monitor (iface);
-  
+
   g_object_notify (G_OBJECT (iface), "name");
 }
 
@@ -389,7 +389,7 @@ netstatus_iface_clear_error (NetstatusIface *iface,
 
       g_error_free (iface->priv->error);
       iface->priv->error = NULL;
-     
+
       g_object_notify (G_OBJECT (iface), "state");
       g_object_notify (G_OBJECT (iface), "error");
     }
@@ -470,7 +470,7 @@ netstatus_iface_poll_iface_statistics (NetstatusIface *iface,
 					 NETSTATUS_ERROR_STATISTICS,
 					 error_message);
       g_free (error_message);
-      
+
       return FALSE;
     }
 
@@ -522,7 +522,7 @@ netstatus_iface_poll_state (NetstatusIface *iface)
   dprintf (POLLING, "Bytes in: %ld out: %ld. Prev in: %ld out: %ld\n",
 	   in_bytes, out_bytes,
 	   iface->priv->stats.in_bytes, iface->priv->stats.out_bytes);
-  
+
   rx = in_packets  > iface->priv->stats.in_packets;
   tx = out_packets > iface->priv->stats.out_packets;
 
@@ -567,7 +567,7 @@ netstatus_iface_poll_wireless_details (NetstatusIface *iface,
 					 NETSTATUS_ERROR_WIRELESS_DETAILS,
 					 error_message);
       g_free (error_message);
-      
+
       return FALSE;
     }
 
@@ -643,7 +643,7 @@ netstatus_iface_monitor_timeout (NetstatusIface *iface)
     }
 
   netstatus_iface_increase_poll_delay_in_error (iface);
-  
+
   return TRUE;
 }
 
@@ -708,7 +708,7 @@ netstatus_iface_get_inet4_details (NetstatusIface  *iface,
 		 g_strerror (errno));
       return FALSE;
     }
-  
+
   if_req.ifr_addr.sa_family = AF_INET;
 
   strncpy (if_req.ifr_name, iface->priv->name, IF_NAMESIZE - 1);
@@ -776,17 +776,17 @@ print_ash_addr (guchar *p)
   int      i = 0;
 
   str = g_string_new ("[");
-  
+
   while (p [i] != 0xc9 && p [i] != 0xff && (i < ASH_ALEN))
     g_string_append_printf (str, "%1x", p [i++]);
 
   g_string_append_c (str, ']');
-  
+
   retval = str->str;
   g_string_free (str, FALSE);
 
   return retval;
-  
+
 #undef ASH_ALEN
 }
 
@@ -798,7 +798,7 @@ print_ax25_addr (guchar *p)
   int      i;
 
   str = g_string_new (NULL);
-  
+
   for (i = 0; i < 6; i++)
     {
       char c = (p [i] & 0377) >> 1;
@@ -807,7 +807,7 @@ print_ax25_addr (guchar *p)
 	{
 	  retval = str->str;
 	  g_string_free (str, FALSE);
-	  
+
 	  return retval;
 	}
 
@@ -1024,7 +1024,6 @@ static struct HwType
 static struct HwType *
 netstatus_iface_get_hw_details (NetstatusIface  *iface,
 				char           **hw_addr)
-				
 {
 #ifdef SIOCGIFHWADDR
   static struct HwType *hw_type = NULL;
@@ -1034,7 +1033,7 @@ netstatus_iface_get_hw_details (NetstatusIface  *iface,
 
   if (hw_addr)
     *hw_addr = NULL;
-  
+
   if (!iface->priv->name)
     return NULL;
 
@@ -1044,7 +1043,7 @@ netstatus_iface_get_hw_details (NetstatusIface  *iface,
 		 g_strerror (errno));
       return NULL;
     }
-  
+
   strncpy (if_req.ifr_name, iface->priv->name, IF_NAMESIZE - 1);
   if_req.ifr_name [IF_NAMESIZE - 1] = '\0';
   if (ioctl (fd, SIOCGIFHWADDR, &if_req) < 0)
@@ -1078,7 +1077,7 @@ netstatus_iface_get_hw_details (NetstatusIface  *iface,
 
 #else /* !defined(SIOCGIFHWADDR) */
   return NULL;
-#endif 
+#endif
 }
 
 gboolean
@@ -1163,7 +1162,7 @@ get_ifconf (int      fd,
 				      NETSTATUS_ERROR_IOCTL_IFCONF,
 				      _("SIOCGIFCONF error: %s"),
 				      g_strerror (errno));
-				      
+
 	      return NULL;
 	    }
 	}
@@ -1197,7 +1196,7 @@ netstatus_list_interface_names (GError **error)
   GList         *loopbacks;
   char          *p;
   int            fd;
-  
+
   if ((fd = socket (AF_INET, SOCK_DGRAM, 0)) < 0)
     {
       if (error)

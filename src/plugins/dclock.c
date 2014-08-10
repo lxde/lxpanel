@@ -54,7 +54,7 @@ typedef struct {
 	AWAITING_SECOND_CHANGE,			/* Experimenting to determine interval, waiting for second change */
 	ONE_SECOND_INTERVAL,			/* Determined that one second interval is necessary */
 	ONE_MINUTE_INTERVAL			/* Determined that one minute interval is sufficient */
-    } expiration_interval;			
+    } expiration_interval;
     int experiment_count;			/* Count of experiments that have been done to determine interval */
     char * prev_clock_value;			/* Previous value of clock */
     char * prev_tooltip_value;			/* Previous value of tooltip */

@@ -193,7 +193,7 @@ static void set_monitor(GtkAdjustment *widget, Panel *p)
 
 static void set_alignment(Panel* p, int align)
 {
-    if (p->margin_control) 
+    if (p->margin_control)
         gtk_widget_set_sensitive(p->margin_control, (align != ALLIGN_CENTER));
     p->allign = align;
     update_panel_geometry(p);
@@ -588,14 +588,14 @@ static void init_plugin_list( Panel* p, GtkTreeView* view, GtkWidget* label )
         gtk_tree_selection_select_iter( tree_sel, &it );
 }
 
-static void on_add_plugin_row_activated( GtkTreeView *tree_view, 
-                                         GtkTreePath *path, 
-                                         GtkTreeViewColumn *col, 
-                                         gpointer user_data) 
+static void on_add_plugin_row_activated( GtkTreeView *tree_view,
+                                         GtkTreePath *path,
+                                         GtkTreeViewColumn *col,
+                                         gpointer user_data)
 {
     GtkWidget *dlg;
 
-    dlg = (GtkWidget *) user_data; 
+    dlg = (GtkWidget *) user_data;
 
     (void) tree_view;
     (void) path;
@@ -737,7 +737,7 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
     gtk_tree_view_set_model( view, GTK_TREE_MODEL(list) );
     g_object_unref( list );
 
-    /* 
+    /*
      * The user can add a plugin either by clicking the "Add" button, or by
      * double-clicking the plugin.
      */

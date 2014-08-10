@@ -247,7 +247,7 @@ int netproc_scandevice(int sockfd, int iwsockfd, FILE *fp, NETDEVLIST_PTR *netde
 		/* check interface hw_type */
 		bzero(&ifr, sizeof(ifr));
 		strncpy(ifr.ifr_name, name, strlen(name));
-  		ifr.ifr_name[strlen(name)+1] = '\0';
+		ifr.ifr_name[strlen(name)+1] = '\0';
 		if (ioctl(sockfd, SIOCGIFHWADDR, &ifr)<0)
 			continue;
 
@@ -279,7 +279,7 @@ int netproc_scandevice(int sockfd, int iwsockfd, FILE *fp, NETDEVLIST_PTR *netde
 			if (devptr->info.recv_packets!=in_packets&&devptr->info.trans_packets!=out_packets) {
 				if (devptr->info.status!=NETDEV_STAT_BOTHRS)
 					devptr->info.updated = TRUE;
-			
+
 				devptr->info.status = NETDEV_STAT_BOTHRS;
 			} else if (devptr->info.recv_packets!=in_packets) {
 				if (devptr->info.status!=NETDEV_STAT_RECVDATA)
@@ -326,7 +326,7 @@ int netproc_scandevice(int sockfd, int iwsockfd, FILE *fp, NETDEVLIST_PTR *netde
 				/* Workaround for Atheros Cards */
 				if (strncmp(devptr->info.ifname, "ath", 3)==0)
 					wireless_refresh(iwsockfd, devptr->info.ifname);
-				
+
 				/* plug */
 				bzero(&ifr, sizeof(ifr));
 				strcpy(ifr.ifr_name, devptr->info.ifname);

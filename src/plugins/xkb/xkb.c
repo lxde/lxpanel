@@ -18,7 +18,7 @@
 
 /* Originally derived from xfce4-xkb-plugin, Copyright 2004 Alexander Iliev,
  * which credits Michael Glickman. */
- 
+
 /* Modified by Giuseppe Penone <giuspen@gmail.com> starting from 2012-07 and lxpanel 0.5.10 */
 
 #include "xkb.h"
@@ -41,7 +41,7 @@ typedef enum
     NEW_KBD_STATE_NOTIFY_IGNORE_NO,
     NEW_KBD_STATE_NOTIFY_IGNORE_YES_SET,
     NEW_KBD_STATE_NOTIFY_IGNORE_YES_ALL,
-    
+
 } t_new_kbd_notify_ignore;
 
 static void             xkb_enter_locale_by_process(XkbPlugin * xkb);
@@ -76,38 +76,38 @@ int xkb_get_current_group_xkb_no(XkbPlugin * xkb)
 }
 
 /* Return the count of members in the current group. */
-int xkb_get_group_count(XkbPlugin * xkb) 
-{ 
+int xkb_get_group_count(XkbPlugin * xkb)
+{
   return xkb->group_count;
 }
 
 /* Get the current group name. */
-const char * xkb_get_current_group_name(XkbPlugin * xkb) 
+const char * xkb_get_current_group_name(XkbPlugin * xkb)
 {
     return xkb->group_names[xkb->current_group_xkb_no];
 }
 
 /* Convert a group number to a symbol name. */
-const char * xkb_get_symbol_name_by_res_no(XkbPlugin * xkb, int n) 
+const char * xkb_get_symbol_name_by_res_no(XkbPlugin * xkb, int n)
 {
     return xkb->symbol_names[n];
 }
 
 /* Get the current symbol name. */
-const char * xkb_get_current_symbol_name(XkbPlugin * xkb) 
+const char * xkb_get_current_symbol_name(XkbPlugin * xkb)
 {
     return xkb_get_symbol_name_by_res_no(xkb, xkb->current_group_xkb_no);
 }
 
 /* Get the current symbol name converted to lowercase. */
-const char * xkb_get_current_symbol_name_lowercase(XkbPlugin * xkb) 
+const char * xkb_get_current_symbol_name_lowercase(XkbPlugin * xkb)
 {
     const char * tmp = xkb_get_current_symbol_name(xkb);
     return ((tmp != NULL) ? g_utf8_strdown(tmp, -1) : NULL);
 }
 
 /* Refresh current group number from Xkb state. */
-static void refresh_group_xkb(XkbPlugin * xkb) 
+static void refresh_group_xkb(XkbPlugin * xkb)
 {
     /* Get the current group number.
      * This shouldn't be necessary, but mask the group number down for safety. */
@@ -200,7 +200,7 @@ static int initialize_keyboard_description(XkbPlugin * xkb)
                         else if ((*p < 'a') || (*p > 'z'))
                             *p = '\0';
                     }
-                    
+
                     /* Crosscheck the group count determined from the "ctrls" structure,
                      * that determined from the "groups" vector, and that determined from the "symbols" string.
                      * The "ctrls" structure is considered less reliable because it has been observed to be incorrect. */
@@ -229,12 +229,12 @@ static int initialize_keyboard_description(XkbPlugin * xkb)
         if (xkb->symbol_names[i] == NULL)
             xkb->symbol_names[i] = g_strdup("None");
     }
-    
+
     /* Create or recreate hash table */
     if (xkb->p_hash_table_group != NULL)
         g_hash_table_destroy(xkb->p_hash_table_group);
     xkb->p_hash_table_group = g_hash_table_new(g_direct_hash, NULL);
-    
+
     return TRUE;
 }
 
@@ -311,7 +311,7 @@ void xkb_mechanism_constructor(XkbPlugin * xkb)
 }
 
 /* Deallocate resources associated with Xkb interface. */
-void xkb_mechanism_destructor(XkbPlugin * xkb) 
+void xkb_mechanism_destructor(XkbPlugin * xkb)
 {
     /* Remove event filter. */
     gdk_window_remove_filter(NULL, (GdkFilterFunc) xkb_event_filter, xkb);
@@ -331,14 +331,14 @@ void xkb_mechanism_destructor(XkbPlugin * xkb)
             xkb->symbol_names[i] = NULL;
         }
     }
-    
+
     /* Destroy the hash table. */
     g_hash_table_destroy(xkb->p_hash_table_group);
     xkb->p_hash_table_group = NULL;
 }
 
 /* Set the layout to the next layout. */
-int xkb_change_group(XkbPlugin * xkb, int increment) 
+int xkb_change_group(XkbPlugin * xkb, int increment)
 {
     /* Apply the increment and wrap the result. */
     int next_group = xkb->current_group_xkb_no + increment;

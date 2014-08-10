@@ -19,7 +19,7 @@
  *
  * Authors:
  *    Erwann Chenede  <erwann.chenede@sun.com>
- *    Mark McLoughlin  <mark@skynet.ie>  
+ *    Mark McLoughlin  <mark@skynet.ie>
  *    Joe Marcus Clarke  <marcus@freebsd.org>
  */
 
@@ -169,7 +169,7 @@ netstatus_sysdeps_read_iface_statistics (const char  *iface,
   g_return_val_if_fail (out_packets != NULL, NULL);
   g_return_val_if_fail (in_bytes != NULL, NULL);
   g_return_val_if_fail (out_bytes != NULL, NULL);
-  
+
   *in_packets  = -1;
   *out_packets = -1;
   *in_bytes    = -1;
@@ -302,7 +302,7 @@ netstatus_sysdeps_read_iface_wireless_details (const char *iface,
     *is_wireless = FALSE;
   if (signal_strength)
     *signal_strength = 0;
-  
+
   fh = get_proc_net_wireless_fh ();
   if (!fh)
     return NULL;
@@ -602,7 +602,7 @@ netstatus_sysdeps_read_iface_statistics (const char *iface,
 				       error->message);
       g_error_free (error);
       g_free (command_line);
-      
+
       return error_message;
     }
   g_free (command_line);
@@ -662,7 +662,7 @@ netstatus_sysdeps_read_iface_statistics (const char *iface,
     }
   else
     {
-      error_message = g_strdup_printf ("Error running /usr/bin/netstat for '%s': %s", 
+      error_message = g_strdup_printf ("Error running /usr/bin/netstat for '%s': %s",
 				       iface, error->message);
       g_error_free (error);
     }

@@ -49,18 +49,18 @@
  *       in the config file.
  *     - edit the monitors_constructor() function so that options are correctly
  *     aplied. Adding something like :
- *     
+ *
  *     else if (g_ascii_strcasecmp(s.t[0], "DisplayFOO") == 0)
  *         mp->displayed_monitors[FOO_POSITION] = atoi(s.t[1])
  *     else if (g_ascii_strcasecmp(s.t[0], "FOOColor") == 0)
- *         colors[FOO_POSITION] = g_strndup(s.t[1], COLOR_SIZE-1);       
+ *         colors[FOO_POSITION] = g_strndup(s.t[1], COLOR_SIZE-1);
  *
  *     should be enough.
  * 6) Enjoy.
  */
 
 /*
- * FIXME : known BUGS : 
+ * FIXME : known BUGS :
  *     - when removing a monitor and re-adding it, it is drawn with a white
  *     border of BORDER_SIZE pixels around it.
  */
@@ -87,7 +87,7 @@
 #endif
 
 /*
- * Stats are stored in a circular buffer. 
+ * Stats are stored in a circular buffer.
  * Newest values are on the left of the ring cursor.
  * Oldest values are on the right of the ring cursor.
  */
@@ -111,7 +111,7 @@ typedef struct Monitor Monitor;
 typedef gboolean (*update_func) (Monitor *);
 typedef void (*tooltip_update_func) (Monitor *);
 
-/* 
+/*
  * Position of our monitors : monitor 0 will always be on the left of the
  * plugin, monitor 1 on the right of monitor 0 (or on the left of the plugin if
  * monitor 0 is not displayed), etc.
@@ -130,8 +130,8 @@ typedef struct {
     guint    timer;                          /* Timer for regular updates     */
 } MonitorsPlugin;
 
-/* 
- * Prototypes 
+/*
+ * Prototypes
  */
 static void monitor_set_foreground_color(MonitorsPlugin *, Monitor *, const gchar *);
 
@@ -157,7 +157,7 @@ static gboolean monitors_apply_config(gpointer);
  *                              Monitor functions                             *
  ******************************************************************************/
 static Monitor*
-monitor_init(MonitorsPlugin *mp, Monitor *m, gchar *color) 
+monitor_init(MonitorsPlugin *mp, Monitor *m, gchar *color)
 {
     ENTER;
 
@@ -168,11 +168,11 @@ monitor_init(MonitorsPlugin *mp, Monitor *m, gchar *color)
     monitor_set_foreground_color(mp, m, color);
 
     /* Signals */
-    g_signal_connect(G_OBJECT(m->da), "configure-event", 
+    g_signal_connect(G_OBJECT(m->da), "configure-event",
         G_CALLBACK(configure_event), (gpointer) m);
     g_signal_connect (G_OBJECT(m->da), "expose-event",
         G_CALLBACK(expose_event), (gpointer) m);
-    /* g_signal_connect(G_OBJECT(m->da), "button-press-event", 
+    /* g_signal_connect(G_OBJECT(m->da), "button-press-event",
                     G_CALLBACK(plugin_button_press_event), p); */
 
     return m;
@@ -284,7 +284,7 @@ cpu_tooltip_update (Monitor *m)
 static gboolean
 mem_update(Monitor * m)
 {
-    ENTER; 
+    ENTER;
 
     FILE *meminfo;
     int const buflen = 80;
@@ -379,7 +379,7 @@ mem_tooltip_update (Monitor *m)
  *                            Basic events handlers                           *
  ******************************************************************************/
 static gboolean
-configure_event(GtkWidget* widget, GdkEventConfigure* dummy, gpointer data) 
+configure_event(GtkWidget* widget, GdkEventConfigure* dummy, gpointer data)
 {
     (void) dummy;
     GtkAllocation allocation;
@@ -439,8 +439,8 @@ configure_event(GtkWidget* widget, GdkEventConfigure* dummy, gpointer data)
                            nvalues * sizeof(stats_set));
                 }
                 /* New allocation is smaller, and also smaller than the ring
-                 * buffer cursor.  Discard all oldest samples following the ring 
-                 * buffer cursor and additional samples at the beginning of the 
+                 * buffer cursor.  Discard all oldest samples following the ring
+                 * buffer cursor and additional samples at the beginning of the
                  * buffer. */
                 else
                 {
@@ -468,7 +468,7 @@ configure_event(GtkWidget* widget, GdkEventConfigure* dummy, gpointer data)
 }
 
 static gboolean
-expose_event(GtkWidget * widget, GdkEventExpose * event, Monitor *m) 
+expose_event(GtkWidget * widget, GdkEventExpose * event, Monitor *m)
 {
     /* Draw the requested part of the pixmap onto the drawing area.
      * Translate it in both x and y by the border size. */
@@ -539,9 +539,9 @@ redraw_pixmap (Monitor *m)
 }
 
 
-static update_func update_functions [N_MONITORS] = { 
-    [CPU_POSITION] = cpu_update, 
-    [MEM_POSITION] = mem_update 
+static update_func update_functions [N_MONITORS] = {
+    [CPU_POSITION] = cpu_update,
+    [MEM_POSITION] = mem_update
 };
 
 static char *default_colors[N_MONITORS] = {
@@ -558,12 +558,12 @@ static tooltip_update_func tooltip_update[N_MONITORS] = {
 /* Colors currently used. We cannot store them in the "struct Monitor"s where
  * they belong, because we free these when the user removes them. And since we
  * want the colors to stay the same even after removing/adding a widget... */
-static char *colors[N_MONITORS] = { 
-    NULL, 
-    NULL 
+static char *colors[N_MONITORS] = {
+    NULL,
+    NULL
 };
 
-/* 
+/*
  * This function is called every UPDATE_PERIOD seconds. It updates all
  * monitors.
  */
@@ -643,7 +643,7 @@ monitors_constructor(Panel *panel, config_setting_t *settings)
     if (config_setting_lookup_string(settings, "RAMColor", &tmp))
         colors[MEM_POSITION] = g_strndup(tmp, COLOR_SIZE-1);
 
-    /* Initializing monitors */ 
+    /* Initializing monitors */
     for (i = 0; i < N_MONITORS; i++)
     {
         if (!colors[i])
@@ -651,9 +651,9 @@ monitors_constructor(Panel *panel, config_setting_t *settings)
 
         if (mp->displayed_monitors[i])
         {
-            mp->monitors[i] = monitors_add_monitor(p, mp, 
-                                                   update_functions[i], 
-                                                   tooltip_update[i], 
+            mp->monitors[i] = monitors_add_monitor(p, mp,
+                                                   update_functions[i],
+                                                   tooltip_update[i],
                                                    colors[i]);
         }
     }
@@ -685,7 +685,7 @@ monitors_destructor(gpointer user_data)
     }
 
     g_free(mp->action);
-    g_free(mp); 
+    g_free(mp);
 
     RET();
 }
@@ -733,9 +733,9 @@ start:
         if (mp->displayed_monitors[i] && !mp->monitors[i])
         {
             /* We've just activated monitor<i> */
-            mp->monitors[i] = monitors_add_monitor(p, mp, 
-                                                   update_functions[i], 
-                                                   tooltip_update[i], 
+            mp->monitors[i] = monitors_add_monitor(p, mp,
+                                                   update_functions[i],
+                                                   tooltip_update[i],
                                                    colors[i]);
             /*
              * It is probably best for users if their monitors are always
@@ -745,7 +745,7 @@ start:
              * gtk_box_pack_start/gtk_box_pack_end, and use
              * gtk_box_reorder_child.
              */
-            gtk_box_reorder_child(GTK_BOX(p), 
+            gtk_box_reorder_child(GTK_BOX(p),
                                   mp->monitors[i]->da,current_n_monitors-1);
         }
         else if (!mp->displayed_monitors[i] && mp->monitors[i])
@@ -755,7 +755,7 @@ start:
             monitor_free(mp->monitors[i]);
             mp->monitors[i] = NULL;
         }
-        if (mp->monitors[i] && 
+        if (mp->monitors[i] &&
             strncmp(mp->monitors[i]->color, colors[i], COLOR_SIZE) != 0)
         {
             /* We've changed the color */

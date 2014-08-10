@@ -364,7 +364,7 @@ void resolve_atoms()
     Atom atoms[ N_ATOMS ];
 
     ENTER;
-   
+
     if( !  XInternAtoms( GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), (char**)atom_names,
             N_ATOMS, False, atoms ) )
     {
