@@ -191,7 +191,7 @@ struct LaunchTaskBarPlugin {
     gboolean         fixed_mode;        /* if mode cannot be changed */
 };
 
-static gchar *launchtaskbar_rc = "style 'launchtaskbar-style'\n"
+static gchar *launchtaskbar_rc = "style 'launchtaskbar-style' = 'theme-panel'\n"
         "{\n"
         "GtkWidget::focus-line-width=0\n"
         "GtkWidget::focus-padding=0\n"
@@ -2766,6 +2766,8 @@ static void task_build_gui(LaunchTaskBarPlugin * tb, Task * tk)
     /* Allocate a toggle button as the top level widget. */
     tk->button = gtk_toggle_button_new();
     gtk_container_set_border_width(GTK_CONTAINER(tk->button), 0);
+    if (!tb->flat_button)
+        gtk_widget_set_state(tk->button, GTK_STATE_NORMAL);
     gtk_drag_dest_set(tk->button, 0, NULL, 0, 0);
     gtk_drag_source_set(tk->button, GDK_BUTTON1_MASK, task_button_target_list, task_button_n_targets, GDK_ACTION_MOVE);
 
