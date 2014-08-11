@@ -302,6 +302,14 @@ void lxpanel_plugin_popup_set_position_helper(Panel * p, GtkWidget * near, GtkWi
 
     /* Get the allocation of the popup menu. */
     gtk_widget_size_request(popup, &popup_req);
+    if (gtk_widget_is_toplevel(popup))
+    {
+        GdkRectangle extents;
+        /* FIXME: can we wait somehow for WM drawing decorations? */
+        gdk_window_get_frame_extents(gtk_widget_get_window(popup), &extents);
+        popup_req.width = extents.width;
+        popup_req.height = extents.height;
+    }
 
     /* Get the origin of the requested-near widget in screen coordinates. */
     gtk_widget_get_allocation(near, &allocation);

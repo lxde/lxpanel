@@ -948,6 +948,7 @@ void panel_configure( Panel* p, int sel_page )
     }
 
     p->pref_dialog = (GtkWidget*)gtk_builder_get_object( builder, "panel_pref" );
+    gtk_window_set_transient_for(GTK_WINDOW(p->pref_dialog), panel_get_toplevel_window(p));
     g_signal_connect(p->pref_dialog, "response", G_CALLBACK(response_event), p);
     g_object_add_weak_pointer( G_OBJECT(p->pref_dialog), (gpointer) &p->pref_dialog );
     gtk_window_set_position( GTK_WINDOW(p->pref_dialog), GTK_WIN_POS_CENTER );
@@ -1363,7 +1364,9 @@ void _panel_show_config_dialog(Panel *panel, GtkWidget *p, GtkWidget *dlg)
     g_object_set_data(G_OBJECT(dlg), "generic-config-plugin", p);
 
     /* adjust config dialog window position to be near plugin */
-    gtk_widget_realize(dlg);
+    gtk_window_set_transient_for(GTK_WINDOW(dlg), panel_get_toplevel_window(panel));
+//    gtk_window_iconify(GTK_WINDOW(dlg));
+    gtk_widget_show(dlg);
     lxpanel_plugin_popup_set_position_helper(panel, p, dlg, &x, &y);
     gdk_window_move(gtk_widget_get_window(dlg), x, y);
 
@@ -1473,7 +1476,7 @@ static GtkWidget *_lxpanel_generic_config_dlg(const char *title, Panel *p,
 
     gtk_container_set_border_width( GTK_CONTAINER(dlg), 8 );
 
-    gtk_widget_show_all( dlg );
+    gtk_widget_show_all(GTK_WIDGET(dlg_vbox));
 
     return dlg;
 }
