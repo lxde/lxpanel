@@ -19,7 +19,7 @@
  *
  * Authors:
  *    Erwann Chenede  <erwann.chenede@sun.com>
- *    Mark McLoughlin  <mark@skynet.ie>  
+ *    Mark McLoughlin  <mark@skynet.ie>
  */
 
 #ifndef __NETSTATUS_SYSDEPS_H__

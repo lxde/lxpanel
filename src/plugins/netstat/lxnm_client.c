@@ -130,9 +130,9 @@ lxnm_send_command(GIOChannel *gio, int command, const char* cmdargs)
 }
 
 char *lxnm_wireless_command_make(const char *ifname, const char *essid,
-								 const char *apaddr, const char *key,
-								 int protocol, int key_mgmt,
-								 int group, int pairwise)
+                                 const char *apaddr, const char *key,
+                                 int protocol, int key_mgmt,
+                                 int group, int pairwise)
 {
     char *cmd_essid;
     char *cmd_key;
@@ -141,13 +141,13 @@ char *lxnm_wireless_command_make(const char *ifname, const char *essid,
     if (essid==NULL || strlen(essid)==0) {
         cmd_essid = g_strdup("NULL");
     } else {
-	cmd_essid = asc2hex(essid);
+        cmd_essid = asc2hex(essid);
     }
 
     if (key==NULL || strlen(key)==0) {
         cmd_key = g_strdup("OFF");
     } else {
-	cmd_key = asc2hex(key);
+        cmd_key = asc2hex(key);
     }
 
     cmd = g_strdup_printf("%s %s %s %s %d %d %d %d", ifname, cmd_essid, apaddr,

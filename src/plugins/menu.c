@@ -92,7 +92,7 @@ static void on_data_get(FmDndSrc *ds, GtkWidget *mi)
 {
     FmFileInfo *fi = g_object_get_qdata(G_OBJECT(mi), SYS_MENU_ITEM_ID);
 
-    g_debug("on_data_get(...)");
+    /* g_debug("on_data_get(...)"); */
     fm_dnd_src_set_file(ds, fi);
 }
 
@@ -152,10 +152,9 @@ menu_pos(GtkMenu *menu, gint *x, gint *y, gboolean *push_in, GtkWidget *widget)
 {
     int ox, oy, w, h;
     menup *m;
-#if GTK_CHECK_VERSION(2,18,0)
-    GtkAllocation *allocation = g_new0 (GtkAllocation, 1);
-    gtk_widget_get_allocation(GTK_WIDGET(widget), allocation);
-#endif
+    GtkAllocation allocation;
+
+    gtk_widget_get_allocation(GTK_WIDGET(widget), &allocation);
     ENTER;
     m = g_object_get_data(G_OBJECT(widget), "plugin");
     gdk_window_get_origin(gtk_widget_get_window(widget), &ox, &oy);
@@ -172,45 +171,22 @@ menu_pos(GtkMenu *menu, gint *x, gint *y, gboolean *push_in, GtkWidget *widget)
     if (panel_get_orientation(m->panel) == GTK_ORIENTATION_HORIZONTAL) {
         *x = ox;
         if (*x + w > gdk_screen_width())
-#if GTK_CHECK_VERSION(2,18,0)
-            *x = ox + allocation->width - w;
-#else
-            *x = ox + widget->allocation.width - w;
-#endif
+            *x = ox + allocation.width - w;
         *y = oy - h;
         if (*y < 0)
-#if GTK_CHECK_VERSION(2,18,0)
-            *y = oy + allocation->height;
-#else
-            *y = oy + widget->allocation.height;
-#endif
+            *y = oy + allocation.height;
     } else {
-#if GTK_CHECK_VERSION(2,18,0)
-        *x = ox + allocation->width;
-#else
-        *x = ox + widget->allocation.width;
-#endif
+        *x = ox + allocation.width;
         if (*x > gdk_screen_width())
             *x = ox - w;
         *y = oy;
         if (*y + h >  gdk_screen_height())
-#if GTK_CHECK_VERSION(2,18,0)
-            *y = oy + allocation->height - h;
-#else
-            *y = oy + widget->allocation.height - h;
-#endif
+            *y = oy + allocation.height - h;
     }
     DBG("widget: x,y=%d,%d  w,h=%d,%d\n", ox, oy,
-#if GTK_CHECK_VERSION(2,18,0)
-          allocation->width, allocation->height );
-#else
-          widget->allocation.width, widget->allocation.height );
-#endif
+          allocation.width, allocation.height );
     DBG("w-h %d %d\n", w, h);
     *push_in = TRUE;
-#if GTK_CHECK_VERSION(2,18,0)
-    g_free (allocation);
-#endif
     RET();
 }
 
@@ -326,6 +302,7 @@ static void on_menu_item_properties(GtkMenuItem* item, GtkWidget* mi)
     fm_file_info_list_unref(files);
 }
 
+#if 0
 /* This following function restore_grabs is taken from menu.c of
  * gnome-panel.
  */
@@ -348,7 +325,11 @@ static void restore_grabs(GtkWidget *w, gpointer data)
 
         while (tmp)
         {
+#if GTK_CHECK_VERSION(2, 24, 0)
+            if (!gtk_widget_get_mapped(tmp))
+#else
             if (!GTK_WIDGET_MAPPED (tmp))
+#endif
             {
                 viewable = FALSE;
                 break;
@@ -363,11 +344,7 @@ static void restore_grabs(GtkWidget *w, gpointer data)
     }
 
     /*only grab if this HAD a grab before*/
-#if GTK_CHECK_VERSION(2,18,0)
     if (xgrab_shell && (gtk_widget_has_focus(xgrab_shell)))
-#else
-    if (xgrab_shell && (GTK_MENU_SHELL (xgrab_shell)->have_xgrab))
-#endif
      {
         if (gdk_pointer_grab (gtk_widget_get_window(xgrab_shell), TRUE,
                     GDK_BUTTON_PRESS_MASK |
@@ -378,16 +355,20 @@ static void restore_grabs(GtkWidget *w, gpointer data)
         {
             if (gdk_keyboard_grab (gtk_widget_get_window(xgrab_shell), TRUE,
                     GDK_CURRENT_TIME) == 0)
-#if GTK_CHECK_VERSION(2,18,0)
                 gtk_widget_grab_focus (xgrab_shell);
-#else
-                GTK_MENU_SHELL (xgrab_shell)->have_xgrab = TRUE;
-#endif
             else
                 gdk_pointer_ungrab (GDK_CURRENT_TIME);
         }
     }
     gtk_grab_add (GTK_WIDGET (menu));
+}
+#endif
+
+static void restore_submenu(GtkMenuItem *mi, GtkWidget *submenu)
+{
+    g_signal_handlers_disconnect_by_func(mi, restore_submenu, submenu);
+    gtk_menu_item_set_submenu(mi, submenu);
+    g_object_set_data(G_OBJECT(mi), "PanelMenuItemSubmenu", NULL);
 }
 
 static gboolean on_menu_button_press(GtkWidget* mi, GdkEventButton* evt, menup* m)
@@ -395,7 +376,16 @@ static gboolean on_menu_button_press(GtkWidget* mi, GdkEventButton* evt, menup* 
     if( evt->button == 3 )  /* right */
     {
         GtkWidget* item;
-        GtkMenu* p = GTK_MENU(gtk_menu_new());
+        GtkMenu* p;
+
+        /* don't make duplicates */
+        if (g_signal_handler_find(mi, G_SIGNAL_MATCH_FUNC, 0, 0, NULL,
+            restore_submenu, NULL))
+        {
+            return FALSE;
+        }
+
+        p = GTK_MENU(gtk_menu_new());
 
         item = gtk_menu_item_new_with_label(_("Add to desktop"));
         g_signal_connect(item, "activate", G_CALLBACK(on_add_menu_item_to_desktop), mi);
@@ -408,12 +398,17 @@ static gboolean on_menu_button_press(GtkWidget* mi, GdkEventButton* evt, menup* 
         g_signal_connect(item, "activate", G_CALLBACK(on_menu_item_properties), mi);
         gtk_menu_shell_append(GTK_MENU_SHELL(p), item);
 
-        g_signal_connect(p, "selection-done", G_CALLBACK(gtk_widget_destroy), NULL);
-        g_signal_connect(p, "deactivate", G_CALLBACK(restore_grabs), mi);
-
+        item = gtk_menu_item_get_submenu(GTK_MENU_ITEM(mi)); /* reuse it */
+        if (item)
+        {
+            /* set object data to keep reference on the submenu we preserve */
+            g_object_set_data_full(G_OBJECT(mi), "PanelMenuItemSubmenu",
+                                   g_object_ref(item), g_object_unref);
+            gtk_menu_popdown(GTK_MENU(item));
+        }
+        gtk_menu_item_set_submenu(GTK_MENU_ITEM(mi), GTK_WIDGET(p));
+        g_signal_connect(mi, "deselect", G_CALLBACK(restore_submenu), item);
         gtk_widget_show_all(GTK_WIDGET(p));
-        gtk_menu_popup(p, NULL, NULL, NULL, NULL, 0, evt->time);
-        return TRUE;
     }
     else if (evt->button == 1) /* allow drag on clicked item */
     {
@@ -471,7 +466,7 @@ static int load_menu(menup* m, MenuCacheDir* dir, GtkWidget* menu, int pos )
 {
     GSList * l;
     /* number of visible entries */
-    gint count = 0;		
+    gint count = 0;
 #if MENU_CACHE_CHECK_VERSION(0, 4, 0)
     GSList *children;
 #if MENU_CACHE_CHECK_VERSION(0, 5, 0)
@@ -493,11 +488,11 @@ static int load_menu(menup* m, MenuCacheDir* dir, GtkWidget* menu, int pos )
 #endif
     {
         MenuCacheItem* item = MENU_CACHE_ITEM(l->data);
-	
-        gboolean is_visible = ((menu_cache_item_get_type(item) != MENU_CACHE_TYPE_APP) || 
+
+        gboolean is_visible = ((menu_cache_item_get_type(item) != MENU_CACHE_TYPE_APP) ||
 			       (panel_menu_item_evaluate_visibility(item, m->visibility_flags)));
-	
-	if (is_visible) 
+
+	if (is_visible)
 	{
             GtkWidget * mi = create_item(item, m);
 	    count++;
@@ -506,14 +501,14 @@ static int load_menu(menup* m, MenuCacheDir* dir, GtkWidget* menu, int pos )
                 if( pos >= 0 )
                     ++pos;
 		/* process subentries */
-		if (menu_cache_item_get_type(item) == MENU_CACHE_TYPE_DIR) 
+		if (menu_cache_item_get_type(item) == MENU_CACHE_TYPE_DIR)
 		{
                     GtkWidget* sub = gtk_menu_new();
 		    /*  always pass -1 for position */
-		    gint s_count = load_menu( m, MENU_CACHE_DIR(item), sub, -1 );    
-                    if (s_count) 
-			gtk_menu_item_set_submenu( GTK_MENU_ITEM(mi), sub );	    
-		    else 
+		    gint s_count = load_menu( m, MENU_CACHE_DIR(item), sub, -1 );
+                    if (s_count)
+			gtk_menu_item_set_submenu( GTK_MENU_ITEM(mi), sub );
+		    else
 		    {
 			/* don't keep empty submenus */
 			gtk_widget_destroy( sub );
@@ -556,7 +551,11 @@ static void _unload_old_icons(GtkMenu* menu, GtkIconTheme* theme, menup* m)
             {
 	        img = GTK_IMAGE(gtk_image_menu_item_get_image(GTK_IMAGE_MENU_ITEM(item)));
                 gtk_image_clear(img);
+#if GTK_CHECK_VERSION(2, 24, 0)
+                if (gtk_widget_get_mapped(GTK_WIDGET(img)))
+#else
                 if( GTK_WIDGET_MAPPED(img) )
+#endif
 		    on_menu_item_map(GTK_WIDGET(item), m);
             }
         }
@@ -662,28 +661,18 @@ static gboolean
 my_button_pressed(GtkWidget *widget, GdkEventButton *event, menup *m)
 {
     ENTER;
-#if GTK_CHECK_VERSION(2,18,0)
-    GtkAllocation *allocation = g_new0 (GtkAllocation, 1);
-    gtk_widget_get_allocation(GTK_WIDGET(widget), allocation);
-#endif
+    GtkAllocation allocation;
+    gtk_widget_get_allocation(GTK_WIDGET(widget), &allocation);
 
     /* Standard right-click handling. */
     if (lxpanel_plugin_button_press_event(m->box, event, m->panel))
         return TRUE;
 
     if ((event->type == GDK_BUTTON_PRESS)
-#if GTK_CHECK_VERSION(2,18,0)
-          && (event->x >=0 && event->x < allocation->width)
-          && (event->y >=0 && event->y < allocation->height)) {
-#else
-          && (event->x >=0 && event->x < widget->allocation.width)
-          && (event->y >=0 && event->y < widget->allocation.height)) {
-#endif
+          && (event->x >=0 && event->x < allocation.width)
+          && (event->y >=0 && event->y < allocation.height)) {
         show_menu( widget, m, event->button, event->time );
     }
-#if GTK_CHECK_VERSION(2,18,0)
-    g_free (allocation);
-#endif
     RET(TRUE);
 }
 

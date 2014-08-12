@@ -145,6 +145,7 @@ static void panel_normalize_configuration(Panel* p)
 void panel_set_wm_strut(Panel *p)
 {
     int index;
+    Display *xdisplay = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
     gulong strut_size;
     gulong strut_lower;
     gulong strut_upper;
@@ -202,7 +203,11 @@ void panel_set_wm_strut(Panel *p)
 
     /* If strut value changed, set the property value on the panel window.
      * This avoids property change traffic when the panel layout is recalculated but strut geometry hasn't changed. */
+#if GTK_CHECK_VERSION(2, 20, 0)
+    if ((gtk_widget_get_mapped(p->topgwin))
+#else
     if ((GTK_WIDGET_MAPPED(p->topgwin))
+#endif
     && ((p->strut_size != strut_size) || (p->strut_lower != strut_lower) || (p->strut_upper != strut_upper) || (p->strut_edge != p->edge)))
     {
         p->strut_size = strut_size;
@@ -214,15 +219,15 @@ void panel_set_wm_strut(Panel *p)
          * Set STRUT also for window managers that do not support STRUT_PARTIAL. */
         if (strut_size != 0)
         {
-            XChangeProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STRUT_PARTIAL,
+            XChangeProperty(xdisplay, p->topxwin, a_NET_WM_STRUT_PARTIAL,
                 XA_CARDINAL, 32, PropModeReplace,  (unsigned char *) desired_strut, 12);
-            XChangeProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STRUT,
+            XChangeProperty(xdisplay, p->topxwin, a_NET_WM_STRUT,
                 XA_CARDINAL, 32, PropModeReplace,  (unsigned char *) desired_strut, 4);
         }
         else
         {
-            XDeleteProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STRUT);
-            XDeleteProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STRUT_PARTIAL);
+            XDeleteProperty(xdisplay, p->topxwin, a_NET_WM_STRUT);
+            XDeleteProperty(xdisplay, p->topxwin, a_NET_WM_STRUT_PARTIAL);
         }
     }
 }
@@ -447,8 +452,8 @@ void panel_update_background(Panel * p)
     GList *plugins, *l;
 
     /* Redraw the top level widget. */
-    panel_determine_background_pixmap(p, p->topgwin, p->topgwin->window);
-    gdk_window_clear(p->topgwin->window);
+    panel_determine_background_pixmap(p, p->topgwin, gtk_widget_get_window(p->topgwin));
+    gdk_window_clear(gtk_widget_get_window(p->topgwin));
     gtk_widget_queue_draw(p->topgwin);
 
     /* Loop over all plugins redrawing each plugin. */
@@ -461,18 +466,22 @@ void panel_update_background(Panel * p)
 static gboolean delay_update_background( Panel* p )
 {
     /* Panel could be destroyed while background update scheduled */
+#if GTK_CHECK_VERSION(2, 20, 0)
+    if (p->topgwin && gtk_widget_get_realized(p->topgwin)) {
+#else
     if ( p->topgwin && GTK_WIDGET_REALIZED ( p->topgwin ) ) {
+#endif
 	gdk_display_sync( gtk_widget_get_display(p->topgwin) );
 	panel_update_background( p );
     }
-    
+
     return FALSE;
 }
 
 static void
 panel_realize(GtkWidget *widget, Panel *p)
 {
-    g_idle_add_full( G_PRIORITY_LOW, 
+    g_idle_add_full( G_PRIORITY_LOW,
             (GSourceFunc)delay_update_background, p, NULL );
 }
 
@@ -480,8 +489,12 @@ static void
 panel_style_set(GtkWidget *widget, GtkStyle* prev, Panel *p)
 {
     /* FIXME: This dirty hack is used to fix the background of systray... */
+#if GTK_CHECK_VERSION(2, 20, 0)
+    if (gtk_widget_get_realized(widget))
+#else
     if( GTK_WIDGET_REALIZED( widget ) )
-        g_idle_add_full( G_PRIORITY_LOW, 
+#endif
+        g_idle_add_full( G_PRIORITY_LOW,
                 (GSourceFunc)delay_update_background, p, NULL );
 }
 
@@ -553,12 +566,12 @@ panel_popupmenu_configure(GtkWidget *widget, gpointer user_data)
 /* Handler for "button_press_event" signal with Panel as parameter. */
 static gboolean panel_button_press_event_with_panel(GtkWidget *widget, GdkEventButton *event, Panel *panel)
 {
-    if (event->button == 3)	 /* right button */
+    if (event->button == 3) /* right button */
     {
         GtkMenu* popup = (GtkMenu*) lxpanel_get_plugin_menu(panel, NULL, FALSE);
         gtk_menu_popup(popup, NULL, NULL, NULL, NULL, event->button, event->time);
         return TRUE;
-    }    
+    }
     return FALSE;
 }
 
@@ -566,7 +579,7 @@ static void panel_popupmenu_config_plugin( GtkMenuItem* item, GtkWidget* plugin 
 {
     Panel *panel = PLUGIN_PANEL(plugin);
 
-    lxpanel_plugin_show_config_dialog(panel, plugin);
+    lxpanel_plugin_show_config_dialog(plugin);
 
     /* FIXME: this should be more elegant */
     panel->config_changed = TRUE;
@@ -723,7 +736,7 @@ static void panel_popupmenu_about( GtkMenuItem* item, Panel* panel )
     about = gtk_about_dialog_new();
     panel_apply_icon(GTK_WINDOW(about));
     gtk_about_dialog_set_version(GTK_ABOUT_DIALOG(about), VERSION);
-    gtk_about_dialog_set_name(GTK_ABOUT_DIALOG(about), _("LXPanel"));
+    gtk_about_dialog_set_program_name(GTK_ABOUT_DIALOG(about), _("LXPanel"));
 
     if(gtk_icon_theme_has_icon(panel->icon_theme, "video-display"))
     {
@@ -735,7 +748,7 @@ static void panel_popupmenu_about( GtkMenuItem* item, Panel* panel )
          gtk_about_dialog_set_logo( GTK_ABOUT_DIALOG(about),
                                     gtk_icon_theme_load_icon(panel->icon_theme, "start-here", 48, 0, NULL));
     }
-    else 
+    else
     {
         gtk_about_dialog_set_logo(  GTK_ABOUT_DIALOG(about),
                                     gdk_pixbuf_new_from_file(PACKAGE_DATA_DIR "/images/my-computer.png", NULL));
@@ -748,25 +761,25 @@ static void panel_popupmenu_about( GtkMenuItem* item, Panel* panel )
     gtk_about_dialog_set_authors(GTK_ABOUT_DIALOG(about), authors);
     gtk_about_dialog_set_translator_credits(GTK_ABOUT_DIALOG(about), translators);
     gtk_dialog_run(GTK_DIALOG(about));
-    gtk_widget_destroy(about); 
+    gtk_widget_destroy(about);
 }
 
 void panel_apply_icon( GtkWindow *w )
 {
-	GdkPixbuf* window_icon;
-	
-	if(gtk_icon_theme_has_icon(gtk_icon_theme_get_default(), "video-display"))
+    GdkPixbuf* window_icon;
+
+    if(gtk_icon_theme_has_icon(gtk_icon_theme_get_default(), "video-display"))
     {
-		window_icon = gtk_icon_theme_load_icon(gtk_icon_theme_get_default(), "video-display", 24, 0, NULL);
-	}
-	else if(gtk_icon_theme_has_icon(gtk_icon_theme_get_default(), "start-here"))
+        window_icon = gtk_icon_theme_load_icon(gtk_icon_theme_get_default(), "video-display", 24, 0, NULL);
+    }
+    else if(gtk_icon_theme_has_icon(gtk_icon_theme_get_default(), "start-here"))
     {
-		window_icon = gtk_icon_theme_load_icon(gtk_icon_theme_get_default(), "start-here", 24, 0, NULL);
-	}
+        window_icon = gtk_icon_theme_load_icon(gtk_icon_theme_get_default(), "start-here", 24, 0, NULL);
+    }
     else
     {
-		window_icon = gdk_pixbuf_new_from_file(PACKAGE_DATA_DIR "/images/my-computer.png", NULL);
-	}
+        window_icon = gdk_pixbuf_new_from_file(PACKAGE_DATA_DIR "/images/my-computer.png", NULL);
+    }
     gtk_window_set_icon(w, window_icon);
 }
 
@@ -776,7 +789,32 @@ GtkMenu* lxpanel_get_plugin_menu( Panel* panel, GtkWidget* plugin, gboolean use_
     GtkMenu *ret,*menu;
     LXPanelPluginInit *init;
     char* tmp;
+
     ret = menu = GTK_MENU(gtk_menu_new());
+
+    if (plugin)
+    {
+        init = PLUGIN_CLASS(plugin);
+        /* create single item - plugin instance settings */
+        img = gtk_image_new_from_stock( GTK_STOCK_PREFERENCES, GTK_ICON_SIZE_MENU );
+        tmp = g_strdup_printf( _("\"%s\" Settings"), _(init->name) );
+        menu_item = gtk_image_menu_item_new_with_label( tmp );
+        g_free( tmp );
+        gtk_image_menu_item_set_image( (GtkImageMenuItem*)menu_item, img );
+        gtk_menu_shell_prepend(GTK_MENU_SHELL(ret), menu_item);
+        if( init->config )
+            g_signal_connect( menu_item, "activate", G_CALLBACK(panel_popupmenu_config_plugin), plugin );
+        else
+            gtk_widget_set_sensitive( menu_item, FALSE );
+        /* add custom items by plugin if requested */
+        if (init->update_context_menu != NULL)
+            use_sub_menu = init->update_context_menu(plugin, ret);
+        /* append a separator */
+        menu_item = gtk_separator_menu_item_new();
+        gtk_menu_shell_append(GTK_MENU_SHELL(ret), menu_item);
+    }
+    if (use_sub_menu)
+        menu = GTK_MENU(gtk_menu_new());
 
     img = gtk_image_new_from_stock( GTK_STOCK_EDIT, GTK_ICON_SIZE_MENU );
     menu_item = gtk_image_menu_item_new_with_label(_("Add / Remove Panel Items"));
@@ -786,7 +824,6 @@ GtkMenu* lxpanel_get_plugin_menu( Panel* panel, GtkWidget* plugin, gboolean use_
 
     if( plugin )
     {
-        init = PLUGIN_CLASS(plugin);
         img = gtk_image_new_from_stock( GTK_STOCK_REMOVE, GTK_ICON_SIZE_MENU );
         tmp = g_strdup_printf( _("Remove \"%s\" From Panel"), _(init->name) );
         menu_item = gtk_image_menu_item_new_with_label( tmp );
@@ -830,32 +867,12 @@ GtkMenu* lxpanel_get_plugin_menu( Panel* panel, GtkWidget* plugin, gboolean use_
 
     if( use_sub_menu )
     {
-        ret = GTK_MENU(gtk_menu_new());
         menu_item = gtk_image_menu_item_new_with_label(_("Panel"));
         gtk_menu_shell_append(GTK_MENU_SHELL(ret), menu_item);
         gtk_menu_item_set_submenu(GTK_MENU_ITEM(menu_item), GTK_WIDGET(menu) );
-
-        gtk_widget_show_all(GTK_WIDGET(ret));
     }
 
-    if( plugin )
-    {
-        menu_item = gtk_separator_menu_item_new();
-        gtk_menu_shell_prepend(GTK_MENU_SHELL(ret), menu_item);
-
-        img = gtk_image_new_from_stock( GTK_STOCK_PREFERENCES, GTK_ICON_SIZE_MENU );
-        tmp = g_strdup_printf( _("\"%s\" Settings"), _(init->name) );
-        menu_item = gtk_image_menu_item_new_with_label( tmp );
-        g_free( tmp );
-        gtk_image_menu_item_set_image( (GtkImageMenuItem*)menu_item, img );
-        gtk_menu_shell_prepend(GTK_MENU_SHELL(ret), menu_item);
-        if( init->config )
-            g_signal_connect( menu_item, "activate", G_CALLBACK(panel_popupmenu_config_plugin), plugin );
-        else
-            gtk_widget_set_sensitive( menu_item, FALSE );
-    }
-
-    gtk_widget_show_all(GTK_WIDGET(menu));
+    gtk_widget_show_all(GTK_WIDGET(ret));
 
     g_signal_connect( ret, "selection-done", G_CALLBACK(gtk_widget_destroy), NULL );
     return ret;
@@ -880,14 +897,16 @@ make_round_corners(Panel *p)
 
 void panel_set_dock_type(Panel *p)
 {
+    Display *xdisplay = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
+
     if (p->setdocktype) {
         Atom state = a_NET_WM_WINDOW_TYPE_DOCK;
-        XChangeProperty(GDK_DISPLAY(), p->topxwin,
+        XChangeProperty(xdisplay, p->topxwin,
                         a_NET_WM_WINDOW_TYPE, XA_ATOM, 32,
                         PropModeReplace, (unsigned char *) &state, 1);
     }
     else {
-        XDeleteProperty( GDK_DISPLAY(), p->topxwin, a_NET_WM_WINDOW_TYPE );
+        XDeleteProperty( xdisplay, p->topxwin, a_NET_WM_WINDOW_TYPE );
     }
 }
 
@@ -897,7 +916,7 @@ static void panel_set_visibility(Panel *p, gboolean visible)
     p->visible = visible;
     calculate_position(p);
     gtk_widget_set_size_request(p->topgwin, p->aw, p->ah);
-    gdk_window_move(p->topgwin->window, p->ax, p->ay);
+    gdk_window_move(gtk_widget_get_window(p->topgwin), p->ax, p->ay);
     if (visible) gtk_widget_show(p->box);
     panel_set_wm_strut(p);
 }
@@ -969,7 +988,7 @@ void panel_establish_autohide(Panel *p)
     }
     else if ( ! p->visible)
     {
-	gtk_widget_show(p->box);
+    gtk_widget_show(p->box);
         p->visible = TRUE;
     }
 }
@@ -1004,6 +1023,7 @@ panel_start_gui(Panel *p)
     Atom state[3];
     XWMHints wmhints;
     guint32 val;
+    Display *xdisplay = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
 
     ENTER;
 
@@ -1046,7 +1066,7 @@ panel_start_gui(Panel *p)
     g_signal_connect (G_OBJECT (p->topgwin), "style-set",
           (GCallback)panel_style_set, p);
     gtk_widget_realize(p->topgwin);
-    //gdk_window_set_decorations(p->topgwin->window, 0);
+    //gdk_window_set_decorations(gtk_widget_get_window(p->topgwin), 0);
 
     // main layout manager as a single child of panel
     p->box = p->my_box_new(FALSE, 0);
@@ -1057,17 +1077,17 @@ panel_start_gui(Panel *p)
     if (p->round_corners)
         make_round_corners(p);
 
-    p->topxwin = GDK_WINDOW_XWINDOW(GTK_WIDGET(p->topgwin)->window);
+    p->topxwin = GDK_WINDOW_XWINDOW(gtk_widget_get_window(p->topgwin));
     DBG("topxwin = %x\n", p->topxwin);
 
     /* the settings that should be done before window is mapped */
     wmhints.flags = InputHint;
     wmhints.input = 0;
-    XSetWMHints (GDK_DISPLAY(), p->topxwin, &wmhints);
+    XSetWMHints (xdisplay, p->topxwin, &wmhints);
 #define WIN_HINTS_SKIP_FOCUS      (1<<0)    /* "alt-tab" skips this win */
     val = WIN_HINTS_SKIP_FOCUS;
-    XChangeProperty(GDK_DISPLAY(), p->topxwin,
-          XInternAtom(GDK_DISPLAY(), "_WIN_HINTS", False), XA_CARDINAL, 32,
+    XChangeProperty(xdisplay, p->topxwin,
+          XInternAtom(xdisplay, "_WIN_HINTS", False), XA_CARDINAL, 32,
           PropModeReplace, (unsigned char *) &val, 1);
 
     panel_set_dock_type(p);
@@ -1082,17 +1102,17 @@ panel_start_gui(Panel *p)
     Xclimsg(p->topxwin, a_NET_WM_DESKTOP, 0xFFFFFFFF, 0, 0, 0, 0);
     /* and assign it ourself just for case when wm is not running */
     val = 0xFFFFFFFF;
-    XChangeProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_DESKTOP, XA_CARDINAL, 32,
+    XChangeProperty(xdisplay, p->topxwin, a_NET_WM_DESKTOP, XA_CARDINAL, 32,
           PropModeReplace, (unsigned char *) &val, 1);
 
     state[0] = a_NET_WM_STATE_SKIP_PAGER;
     state[1] = a_NET_WM_STATE_SKIP_TASKBAR;
     state[2] = a_NET_WM_STATE_STICKY;
-    XChangeProperty(GDK_DISPLAY(), p->topxwin, a_NET_WM_STATE, XA_ATOM,
+    XChangeProperty(xdisplay, p->topxwin, a_NET_WM_STATE, XA_ATOM,
           32, PropModeReplace, (unsigned char *) state, 3);
 
     calculate_position(p);
-    gdk_window_move_resize(p->topgwin->window, p->ax, p->ay, p->aw, p->ah);
+    gdk_window_move_resize(gtk_widget_get_window(p->topgwin), p->ax, p->ay, p->aw, p->ah);
     panel_set_wm_strut(p);
 
     RET();
@@ -1283,7 +1303,8 @@ panel_parse_global(Panel *p, config_setting_t *cfg)
     }
     if (config_setting_lookup_int(cfg, "autohide", &i))
         p->autohide = i != 0;
-    config_setting_lookup_int(cfg, "heightwhenhidden", &p->height_when_hidden);
+    if (config_setting_lookup_int(cfg, "heightwhenhidden", &i) && i >= 2)
+        p->height_when_hidden = i;
     if (config_setting_lookup_string(cfg, "tintcolor", &str))
     {
         if (!gdk_color_parse (str, &p->gtintcolor))
@@ -1367,6 +1388,7 @@ int panel_start( Panel *p )
 
 void panel_destroy(Panel *p)
 {
+    Display *xdisplay = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
     ENTER;
 
     if (p->pref_dialog != NULL)
@@ -1394,8 +1416,8 @@ void panel_destroy(Panel *p)
     g_free( p->background_file );
     g_slist_free( p->system_menus );
     gdk_flush();
-    XFlush(GDK_DISPLAY());
-    XSync(GDK_DISPLAY(), True);
+    XFlush(xdisplay);
+    XSync(xdisplay, True);
 
     g_free( p->name );
     g_free(p);
@@ -1445,17 +1467,17 @@ int panel_handle_x_error(Display * d, XErrorEvent * ev)
     char buf[256];
 
     if (log_level >= LOG_WARN) {
-        XGetErrorText(GDK_DISPLAY(), ev->error_code, buf, 256);
+        XGetErrorText(d, ev->error_code, buf, 256);
         LOG(LOG_WARN, "lxpanel : X error: %s\n", buf);
     }
-    return 0;	/* Ignored */
+    return 0;    /* Ignored */
 }
 
 int panel_handle_x_error_swallow_BadWindow_BadDrawable(Display * d, XErrorEvent * ev)
 {
     if ((ev->error_code != BadWindow) && (ev->error_code != BadDrawable))
         panel_handle_x_error(d, ev);
-    return 0;	/* Ignored */
+    return 0;    /* Ignored */
 }
 
 /* Lightweight lock related functions - X clipboard hacks */
@@ -1495,12 +1517,13 @@ static gboolean check_main_lock()
     gboolean retval = FALSE;
     GtkClipboard *clipboard;
     Atom atom;
+    Display *xdisplay = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
 
     atom = gdk_x11_get_xatom_by_name(CLIPBOARD_NAME);
 
-    XGrabServer(GDK_DISPLAY());
+    XGrabServer(xdisplay);
 
-    if (XGetSelectionOwner(GDK_DISPLAY(), atom) != None)
+    if (XGetSelectionOwner(xdisplay, atom) != None)
         goto out;
 
     clipboard = gtk_clipboard_get(gdk_atom_intern(CLIPBOARD_NAME, FALSE));
@@ -1512,7 +1535,7 @@ static gboolean check_main_lock()
         retval = TRUE;
 
 out:
-    XUngrabServer (GDK_DISPLAY ());
+    XUngrabServer (xdisplay);
     gdk_flush ();
 
     return retval;
@@ -1532,7 +1555,7 @@ static void _start_panels_from_dir(const char *panel_dir)
     while((name = g_dir_read_name(dir)) != NULL)
     {
         char* panel_config = g_build_filename( panel_dir, name, NULL );
-        if (strchr(panel_config, '~') == NULL)	/* Skip editor backup files in case user has hand edited in this directory */
+        if (strchr(panel_config, '~') == NULL)    /* Skip editor backup files in case user has hand edited in this directory */
         {
             Panel* panel = panel_new( panel_config, name );
             if( panel )
@@ -1586,9 +1609,9 @@ int main(int argc, char *argv[], char *env[])
 
     setlocale(LC_CTYPE, "");
 
-	g_thread_init(NULL);
-/*	gdk_threads_init();
-	gdk_threads_enter(); */
+    g_thread_init(NULL);
+/*    gdk_threads_init();
+    gdk_threads_enter(); */
 
     gtk_init(&argc, &argv);
 
@@ -1666,9 +1689,9 @@ restart:
 
     load_global_config();
 
-	/* NOTE: StructureNotifyMask is required by XRandR
-	 * See init_randr_support() in gdkscreen-x11.c of gtk+ for detail.
-	 */
+    /* NOTE: StructureNotifyMask is required by XRandR
+     * See init_randr_support() in gdkscreen-x11.c of gtk+ for detail.
+     */
     gdk_window_set_events(gdk_get_default_root_window(), GDK_STRUCTURE_MASK |
             GDK_SUBSTRUCTURE_MASK | GDK_PROPERTY_CHANGE_MASK);
     gdk_window_add_filter(gdk_get_default_root_window (), (GdkFilterFunc)panel_event_filter, NULL);
@@ -1682,7 +1705,7 @@ restart:
 */
     gtk_main();
 
-    XSelectInput (GDK_DISPLAY(), GDK_ROOT_WINDOW(), NoEventMask);
+    XSelectInput (GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), GDK_ROOT_WINDOW(), NoEventMask);
     gdk_window_remove_filter(gdk_get_default_root_window (), (GdkFilterFunc)panel_event_filter, NULL);
 
     /* destroy all panels */

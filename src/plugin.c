@@ -227,24 +227,34 @@ void plugin_widget_set_background(GtkWidget * w, Panel * p)
 {
     if (w != NULL)
     {
-        if ( ! GTK_WIDGET_NO_WINDOW(w))
+        if (gtk_widget_get_has_window(w))
         {
             if ((p->background) || (p->transparent))
             {
+#if GTK_CHECK_VERSION(2, 20, 0)
+                if (gtk_widget_get_realized(w))
+#else
                 if (GTK_WIDGET_REALIZED(w))
+#endif
                 {
-                    panel_determine_background_pixmap(p, w, w->window);
-                    gdk_window_invalidate_rect(w->window, NULL, TRUE);
+                    panel_determine_background_pixmap(p, w, gtk_widget_get_window(w));
+                    gdk_window_invalidate_rect(gtk_widget_get_window(w), NULL, TRUE);
                 }
             }
             else
             {
                 /* Set background according to the current GTK style. */
                 gtk_widget_set_app_paintable(w, FALSE);
+#if GTK_CHECK_VERSION(2, 20, 0)
+                if (gtk_widget_get_realized(w))
+#else
                 if (GTK_WIDGET_REALIZED(w))
+#endif
                 {
-                    gdk_window_set_back_pixmap(w->window, NULL, TRUE);
-                    gtk_style_set_background(w->style, w->window, GTK_STATE_NORMAL);
+                    gdk_window_set_back_pixmap(gtk_widget_get_window(w), NULL, TRUE);
+                    gtk_style_set_background(gtk_widget_get_style(w),
+                                             gtk_widget_get_window(w),
+                                             GTK_STATE_NORMAL);
                 }
             }
         }
@@ -284,31 +294,55 @@ gboolean plugin_button_press_event(GtkWidget *widget, GdkEventButton *event, Plu
 }
 
 /* Helper for position-calculation callback for popup menus. */
-void lxpanel_plugin_popup_set_position_helper(Panel * p, GtkWidget * near, GtkWidget * popup, GtkRequisition * popup_req, gint * px, gint * py)
+void lxpanel_plugin_popup_set_position_helper(Panel * p, GtkWidget * near, GtkWidget * popup, gint * px, gint * py)
 {
-    /* Get the origin of the requested-near widget in screen coordinates. */
     gint x, y;
-    gdk_window_get_origin(GDK_WINDOW(near->window), &x, &y);
-    if (x != near->allocation.x) x += near->allocation.x;	/* Doesn't seem to be working according to spec; the allocation.x sometimes has the window origin in it */
-    if (y != near->allocation.y) y += near->allocation.y;
+    GtkAllocation allocation;
+    GtkRequisition popup_req;
+
+    /* Get the allocation of the popup menu. */
+    gtk_widget_size_request(popup, &popup_req);
+    if (gtk_widget_is_toplevel(popup))
+    {
+        GdkRectangle extents;
+        /* FIXME: can we wait somehow for WM drawing decorations? */
+        gdk_window_get_frame_extents(gtk_widget_get_window(popup), &extents);
+        popup_req.width = extents.width;
+        popup_req.height = extents.height;
+    }
+
+    /* Get the origin of the requested-near widget in screen coordinates. */
+    gtk_widget_get_allocation(near, &allocation);
+    gdk_window_get_origin(gtk_widget_get_window(near), &x, &y);
+    if (x != allocation.x) x += allocation.x;	/* Doesn't seem to be working according to spec; the allocation.x sometimes has the window origin in it */
+    if (y != allocation.y) y += allocation.y;
 
     /* Dispatch on edge to lay out the popup menu with respect to the button.
      * Also set "push-in" to avoid any case where it might flow off screen. */
     switch (p->edge)
     {
-        case EDGE_TOP:          y += near->allocation.height;         break;
-        case EDGE_BOTTOM:       y -= popup_req->height;                break;
-        case EDGE_LEFT:         x += near->allocation.width;          break;
-        case EDGE_RIGHT:        x -= popup_req->width;                 break;
+        case EDGE_TOP:          y += allocation.height;         break;
+        case EDGE_BOTTOM:       y -= popup_req.height;                break;
+        case EDGE_LEFT:         x += allocation.width;          break;
+        case EDGE_RIGHT:        x -= popup_req.width;                 break;
     }
+
+    /* Push onscreen. */
+    int screen_width = gdk_screen_width();
+    int screen_height = gdk_screen_height();
+    if ((x + popup_req.width) > screen_width)
+        x -= (x + popup_req.width) - screen_width;
+    if ((y + popup_req.height) > screen_height)
+        y -= (y + popup_req.height) - screen_height;
+
     *px = x;
     *py = y;
 }
 
-/* for old plugins compatibility */
+/* for old plugins compatibility -- popup_req is ignored here */
 void plugin_popup_set_position_helper(Plugin * p, GtkWidget * near, GtkWidget * popup, GtkRequisition * popup_req, gint * px, gint * py)
 {
-    lxpanel_plugin_popup_set_position_helper(p->panel, near, popup, popup_req, px, py);
+    lxpanel_plugin_popup_set_position_helper(p->panel, near, popup, px, py);
 }
 
 /* Adjust the position of a popup window to ensure that it is not hidden by the panel.
@@ -317,36 +351,42 @@ void lxpanel_plugin_adjust_popup_position(GtkWidget * popup, GtkWidget * parent)
 {
     /* Initialize. */
     Panel * p = PLUGIN_PANEL(parent);
+    GtkAllocation allocation;
 
+    gtk_widget_get_allocation(parent, &allocation);
     /* Get the coordinates of the plugin top level widget. */
-    int x = p->cx + parent->allocation.x;
-    int y = p->cy + parent->allocation.y;
+    int x = p->cx + allocation.x;
+    int y = p->cy + allocation.y;
 
     /* Adjust these coordinates according to the panel edge. */
     switch (p->edge)
     {
         case EDGE_TOP:
-	    y += parent->allocation.height;
+            y += allocation.height;
+            gtk_widget_get_allocation(popup, &allocation);
             break;
         case EDGE_BOTTOM:
-            y -= popup->allocation.height;
+            gtk_widget_get_allocation(popup, &allocation);
+            y -= allocation.height;
             break;
         case EDGE_LEFT:
-            x += parent->allocation.width;
+            x += allocation.width;
+            gtk_widget_get_allocation(popup, &allocation);
             break;
         case EDGE_RIGHT:
-            x -= popup->allocation.width;
+            gtk_widget_get_allocation(popup, &allocation);
+            x -= allocation.width;
             break;
     }
 
     /* Clip the coordinates to ensure that the popup remains on screen. */
     int screen_width = gdk_screen_width();
     int screen_height = gdk_screen_height();
-    if ((x + popup->allocation.width) > screen_width) x = screen_width - popup->allocation.width;
-    if ((y + popup->allocation.height) > screen_height) y = screen_height - popup->allocation.height;
+    if ((x + allocation.width) > screen_width) x = screen_width - allocation.width;
+    if ((y + allocation.height) > screen_height) y = screen_height - allocation.height;
 
     /* Move the popup to position. */
-    gdk_window_move(popup->window, x, y);
+    gdk_window_move(gtk_widget_get_window(popup), x, y);
 }
 
 /* for old plugins compatibility */
@@ -384,13 +424,15 @@ gboolean lxpanel_launch_path(Panel *panel, FmPath *path)
     return fm_launch_path_simple(NULL, NULL, path, _open_dir_in_file_manager, NULL);
 }
 
-void lxpanel_plugin_show_config_dialog(Panel* panel, GtkWidget* plugin)
+void lxpanel_plugin_show_config_dialog(GtkWidget* plugin)
 {
     LXPanelPluginInit *init = PLUGIN_CLASS(plugin);
+    Panel *panel = PLUGIN_PANEL(plugin);
     GtkWidget *dlg = panel->plugin_pref_dialog;
 
     if (dlg && g_object_get_data(G_OBJECT(dlg), "generic-config-plugin") == plugin)
         return; /* configuration dialog is already shown for this widget */
+    g_return_if_fail(panel != NULL);
     dlg = init->config(panel, plugin, GTK_WINDOW(panel->topgwin));
     if (dlg)
         _panel_show_config_dialog(panel, plugin, dlg);

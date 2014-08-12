@@ -19,7 +19,7 @@
  *
  * Authors:
  *    Erwann Chenede  <erwann.chenede@sun.com>
- *    Mark McLoughlin  <mark@skynet.ie>  
+ *    Mark McLoughlin  <mark@skynet.ie>
  */
 
 #ifndef __NETSTATUS_IFACE_H__
@@ -45,8 +45,8 @@ typedef struct _NetstatusIfacePrivate NetstatusIfacePrivate;
 
 struct _NetstatusIface
 {
-  GObject                 parent_instance; 
-	
+  GObject                 parent_instance;
+
   NetstatusIfacePrivate  *priv;
 };
 

@@ -21,5 +21,13 @@ weather_la_LDFLAGS= \
  @LXPANEL_MODULE@   \
  $(LIBXML2_LIBS)
 
+EXTRA_DIST = \
+	logutil.h \
+	httputil.h \
+	yahooutil.h \
+	location.h \
+	forecast.h \
+	weatherwidget.h
+
 install-exec-hoo:
 	find . -name "*.{la,a}" -delete

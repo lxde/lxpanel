@@ -427,7 +427,11 @@ gtk_weather_size_allocate(GtkWidget * widget, GtkAllocation * allocation)
 
   gboolean weather_has_window = gtk_widget_get_has_window(widget);
 
+#if GTK_CHECK_VERSION(2, 20, 0)
+  if (gtk_widget_get_realized(widget) && weather_has_window)
+#else
   if (GTK_WIDGET_REALIZED(widget) && weather_has_window)
+#endif
     {
       gdk_window_move_resize(widget->window, 
                              allocation->x, 
@@ -1281,8 +1285,8 @@ gtk_weather_run_preferences_dialog(GtkWidget * widget)
   gtk_box_pack_start(GTK_BOX(auto_hbox), priv->preferences_data.auto_spin_button, FALSE, FALSE, 1);
   gtk_box_pack_start(GTK_BOX(auto_hbox), auto_min_label, FALSE, FALSE, 1);
 
-  gtk_box_pack_start_defaults(GTK_BOX(update_vbox), priv->preferences_data.manual_button);
-  gtk_box_pack_start_defaults(GTK_BOX(update_vbox), auto_hbox);
+  gtk_box_pack_start(GTK_BOX(update_vbox), priv->preferences_data.manual_button, TRUE, TRUE, 0);
+  gtk_box_pack_start(GTK_BOX(update_vbox), auto_hbox, TRUE, TRUE, 0);
 
   GtkWidget * source_label = gtk_label_new(_("Source:"));
 
@@ -1321,14 +1325,14 @@ gtk_weather_run_preferences_dialog(GtkWidget * widget)
   gtk_container_add(GTK_CONTAINER(forecast_frame), forecast_table);
 
   /* VBox packing starts here */
-  gtk_box_pack_start_defaults(GTK_BOX(GTK_DIALOG(priv->preferences_data.dialog)->vbox), 
-                              location_frame);
+  gtk_box_pack_start(GTK_BOX(GTK_DIALOG(priv->preferences_data.dialog)->vbox),
+                     location_frame, TRUE, TRUE, 0);
 
-  gtk_box_pack_start_defaults(GTK_BOX(GTK_DIALOG(priv->preferences_data.dialog)->vbox),
-                              display_frame);
+  gtk_box_pack_start(GTK_BOX(GTK_DIALOG(priv->preferences_data.dialog)->vbox),
+                     display_frame, TRUE, TRUE, 0);
 
-  gtk_box_pack_start_defaults(GTK_BOX(GTK_DIALOG(priv->preferences_data.dialog)->vbox),
-                              forecast_frame);
+  gtk_box_pack_start(GTK_BOX(GTK_DIALOG(priv->preferences_data.dialog)->vbox),
+                     forecast_frame, TRUE, TRUE, 0);
 
   /* Dialog is shown inside */
   gtk_weather_update_preferences_dialog(weather);
@@ -1902,7 +1906,7 @@ gtk_weather_show_location_progress_bar(GtkWeather * weather)
 
   gtk_container_add(GTK_CONTAINER(alignment), progress_bar);
 
-  gtk_box_pack_start_defaults(GTK_BOX(GTK_DIALOG(dialog)->vbox), alignment);
+  gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox), alignment, TRUE, TRUE, 0);
 
   int timer = g_timeout_add(500, gtk_weather_update_location_progress_bar, &priv->location_data);
 
@@ -2088,7 +2092,7 @@ gtk_weather_show_location_list(GtkWeather * weather, GList * list)
 
   gtk_container_add(GTK_CONTAINER(scrolled_window), treeview);
 
-  gtk_box_pack_start_defaults(GTK_BOX(GTK_DIALOG(dialog)->vbox), scrolled_window);
+  gtk_box_pack_start(GTK_BOX(GTK_DIALOG(dialog)->vbox), scrolled_window, TRUE, TRUE, 0);
 
   gtk_widget_show_all(dialog);
 

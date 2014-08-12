@@ -126,7 +126,7 @@ update_panel_geometry( Panel* p )
     {
         calculate_position(p);
         gtk_widget_set_size_request(p->topgwin, p->aw, p->ah);
-        gdk_window_move(p->topgwin->window, p->ax, p->ay);
+        gdk_window_move(gtk_widget_get_window(p->topgwin), p->ax, p->ay);
         panel_update_background(p);
         panel_establish_autohide(p);
         panel_set_wm_strut(p);
@@ -193,7 +193,7 @@ static void set_monitor(GtkAdjustment *widget, Panel *p)
 
 static void set_alignment(Panel* p, int align)
 {
-    if (p->margin_control) 
+    if (p->margin_control)
         gtk_widget_set_sensitive(p->margin_control, (align != ALLIGN_CENTER));
     p->allign = align;
     update_panel_geometry(p);
@@ -562,7 +562,7 @@ static void init_plugin_list( Panel* p, GtkTreeView* view, GtkWidget* label )
     gtk_tree_view_append_column( view, col );
 
     list = gtk_list_store_new( N_COLS, G_TYPE_STRING, G_TYPE_BOOLEAN, G_TYPE_POINTER );
-    plugins = gtk_container_get_children(GTK_CONTAINER(p->box));
+    plugins = p->box ? gtk_container_get_children(GTK_CONTAINER(p->box)) : NULL;
     for( l = plugins; l; l = l->next )
     {
         GtkTreeIter it;
@@ -588,14 +588,14 @@ static void init_plugin_list( Panel* p, GtkTreeView* view, GtkWidget* label )
         gtk_tree_selection_select_iter( tree_sel, &it );
 }
 
-static void on_add_plugin_row_activated( GtkTreeView *tree_view, 
-                                         GtkTreePath *path, 
-                                         GtkTreeViewColumn *col, 
-                                         gpointer user_data) 
+static void on_add_plugin_row_activated( GtkTreeView *tree_view,
+                                         GtkTreePath *path,
+                                         GtkTreeViewColumn *col,
+                                         gpointer user_data)
 {
     GtkWidget *dlg;
 
-    dlg = (GtkWidget *) user_data; 
+    dlg = (GtkWidget *) user_data;
 
     (void) tree_view;
     (void) path;
@@ -696,8 +696,8 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
     gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scroll),
                                    GTK_POLICY_AUTOMATIC,
                                    GTK_POLICY_AUTOMATIC );
-    gtk_box_pack_start( GTK_BOX(GTK_DIALOG(dlg)->vbox), scroll,
-                         TRUE, TRUE, 4 );
+    gtk_box_pack_start( GTK_BOX(gtk_dialog_get_content_area(GTK_DIALOG(dlg))),
+                        scroll, TRUE, TRUE, 4 );
     view = GTK_TREE_VIEW(gtk_tree_view_new());
     gtk_container_add( GTK_CONTAINER(scroll), GTK_WIDGET(view) );
     tree_sel = gtk_tree_view_get_selection( view );
@@ -737,7 +737,7 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
     gtk_tree_view_set_model( view, GTK_TREE_MODEL(list) );
     g_object_unref( list );
 
-    /* 
+    /*
      * The user can add a plugin either by clicking the "Add" button, or by
      * double-clicking the plugin.
      */
@@ -948,6 +948,7 @@ void panel_configure( Panel* p, int sel_page )
     }
 
     p->pref_dialog = (GtkWidget*)gtk_builder_get_object( builder, "panel_pref" );
+    gtk_window_set_transient_for(GTK_WINDOW(p->pref_dialog), panel_get_toplevel_window(p));
     g_signal_connect(p->pref_dialog, "response", G_CALLBACK(response_event), p);
     g_object_add_weak_pointer( G_OBJECT(p->pref_dialog), (gpointer) &p->pref_dialog );
     gtk_window_set_position( GTK_WINDOW(p->pref_dialog), GTK_WIN_POS_CENTER );
@@ -1349,6 +1350,8 @@ static void generic_config_dlg_response(GtkWidget * dlg, int response, Panel * p
 
 void _panel_show_config_dialog(Panel *panel, GtkWidget *p, GtkWidget *dlg)
 {
+    gint x, y;
+
     /* If there is already a plugin configuration dialog open, close it.
      * Then record this one in case the panel or plugin is deleted. */
     if (panel->plugin_pref_dialog != NULL)
@@ -1359,6 +1362,13 @@ void _panel_show_config_dialog(Panel *panel, GtkWidget *p, GtkWidget *dlg)
     g_signal_connect(dlg, "response", G_CALLBACK(generic_config_dlg_response), panel);
     g_signal_connect(p, "destroy", G_CALLBACK(on_plugin_destroy), dlg);
     g_object_set_data(G_OBJECT(dlg), "generic-config-plugin", p);
+
+    /* adjust config dialog window position to be near plugin */
+    gtk_window_set_transient_for(GTK_WINDOW(dlg), panel_get_toplevel_window(panel));
+//    gtk_window_iconify(GTK_WINDOW(dlg));
+    gtk_widget_show(dlg);
+    lxpanel_plugin_popup_set_position_helper(panel, p, dlg, &x, &y);
+    gdk_window_move(gtk_widget_get_window(dlg), x, y);
 
     gtk_window_present(GTK_WINDOW(dlg));
 }
@@ -1373,13 +1383,15 @@ static GtkWidget *_lxpanel_generic_config_dlg(const char *title, Panel *p,
                                                   GTK_STOCK_CLOSE,
                                                   GTK_RESPONSE_CLOSE,
                                                   NULL );
+    GtkBox *dlg_vbox = GTK_BOX(gtk_dialog_get_content_area(GTK_DIALOG(dlg)));
+
     panel_apply_icon(GTK_WINDOW(dlg));
 
     if( apply_func )
         g_object_set_data( G_OBJECT(dlg), "apply_func", apply_func );
     g_object_set_data( G_OBJECT(dlg), "apply_func_data", plugin );
 
-    gtk_box_set_spacing( GTK_BOX(GTK_DIALOG(dlg)->vbox), 4 );
+    gtk_box_set_spacing( dlg_vbox, 4 );
 
     while( name )
     {
@@ -1434,13 +1446,13 @@ static GtkWidget *_lxpanel_generic_config_dlg(const char *title, Panel *p,
         if( entry )
         {
             if(( type == CONF_TYPE_BOOL ) || ( type == CONF_TYPE_TRIM ))
-                gtk_box_pack_start( GTK_BOX(GTK_DIALOG(dlg)->vbox), entry, FALSE, FALSE, 2 );
+                gtk_box_pack_start( dlg_vbox, entry, FALSE, FALSE, 2 );
             else
             {
                 GtkWidget* hbox = gtk_hbox_new( FALSE, 2 );
                 gtk_box_pack_start( GTK_BOX(hbox), label, FALSE, FALSE, 2 );
                 gtk_box_pack_start( GTK_BOX(hbox), entry, TRUE, TRUE, 2 );
-                gtk_box_pack_start( GTK_BOX(GTK_DIALOG(dlg)->vbox), hbox, FALSE, FALSE, 2 );
+                gtk_box_pack_start( dlg_vbox, hbox, FALSE, FALSE, 2 );
                 if ((type == CONF_TYPE_FILE_ENTRY) || (type == CONF_TYPE_DIRECTORY_ENTRY))
                 {
                     GtkWidget* browse = gtk_button_new_with_mnemonic(_("_Browse"));
@@ -1464,7 +1476,7 @@ static GtkWidget *_lxpanel_generic_config_dlg(const char *title, Panel *p,
 
     gtk_container_set_border_width( GTK_CONTAINER(dlg), 8 );
 
-    gtk_widget_show_all( dlg );
+    gtk_widget_show_all(GTK_WIDGET(dlg_vbox));
 
     return dlg;
 }

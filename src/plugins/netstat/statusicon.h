@@ -7,7 +7,6 @@
 struct statusicon {
         GtkWidget *main;
         GtkWidget *icon;
-        GtkTooltips *tooltips;
 };
 
 struct statusicon *create_statusicon(GtkWidget *box, const char *filename,

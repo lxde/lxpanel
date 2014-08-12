@@ -121,7 +121,7 @@ fb_bg_init (FbBg *bg)
     uint mask;
 
     ENTER;
-    bg->dpy = GDK_DISPLAY();
+    bg->dpy = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
     bg->xroot = DefaultRootWindow(bg->dpy);
     bg->id = gdk_x11_get_xatom_by_name("_XROOTPMAP_ID");
     bg->pixmap = fb_bg_get_xrootpmap(bg);
@@ -190,7 +190,7 @@ fb_bg_get_xroot_pix_for_win(FbBg *bg, GtkWidget *widget)
     int  x, y;
 
     ENTER;
-    win =  GDK_WINDOW_XWINDOW(widget->window);
+    win = GDK_WINDOW_XWINDOW(gtk_widget_get_window(widget));
     if (!XGetGeometry(bg->dpy, win, &dummy, &x, &y, &width, &height, &border,
               &depth)) {
         DBG2("XGetGeometry failed\n");
@@ -253,7 +253,7 @@ FbBg *fb_bg_get_for_display(void)
     if (!default_bg)
     {
         default_bg = fb_bg_new();
-        g_object_add_weak_pointer( G_OBJECT(default_bg), 
+        g_object_add_weak_pointer( G_OBJECT(default_bg),
                 (gpointer)&default_bg );
     }
     else
@@ -271,9 +271,11 @@ fb_bg_get_pix_from_file(GtkWidget *widget, const char *filename)
 
     pixbuf = gdk_pixbuf_new_from_file(filename, NULL);
     if (!pixbuf) {
-        RET(widget->style->bg_pixmap[0]);
+        GtkStyle *style = gtk_widget_get_style(widget);
+        RET(style->bg_pixmap[0]);
     }
-    pixmap = gdk_pixmap_new(widget->window, gdk_pixbuf_get_width(pixbuf), gdk_pixbuf_get_height(pixbuf), -1);
+    pixmap = gdk_pixmap_new(gtk_widget_get_window(widget), gdk_pixbuf_get_width(pixbuf),
+                            gdk_pixbuf_get_height(pixbuf), -1);
     cr = gdk_cairo_create(pixmap);
     gdk_cairo_set_source_pixbuf(cr, pixbuf, 0, 0);
     cairo_paint(cr);

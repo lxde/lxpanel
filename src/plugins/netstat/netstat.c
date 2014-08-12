@@ -198,7 +198,7 @@ wireless_menu(netdev_info *ni)
 
             /* add this item to menu */
             gtk_container_add(GTK_CONTAINER(menu_item), item_box);
-            gtk_menu_append(GTK_MENU(menu), menu_item);
+            gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
             g_signal_connect(G_OBJECT(menu_item), "activate", G_CALLBACK(wireless_connect), aps);
             g_object_weak_ref(G_OBJECT(menu_item), g_free_weaknotify, aps);
 
@@ -212,7 +212,7 @@ wireless_menu(netdev_info *ni)
         gtk_label_set_justify(GTK_LABEL(wireless_label), GTK_JUSTIFY_LEFT);
         gtk_widget_set_sensitive(GTK_WIDGET(wireless_label), FALSE);
         gtk_container_add(GTK_CONTAINER(menu_item), wireless_label);
-        gtk_menu_append(GTK_MENU(menu), menu_item);
+        gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
     }
 
     gtk_widget_show_all(menu);
@@ -464,7 +464,7 @@ static GtkWidget *netstat_constructor(Panel *panel, config_setting_t *settings)
 
     p = gtk_event_box_new();
     lxpanel_plugin_set_data(p, ns, netstat_destructor);
-    GTK_WIDGET_SET_FLAGS(p, GTK_NO_WINDOW);
+    gtk_widget_set_has_window(p, FALSE);
     gtk_container_add((GtkContainer*)p, ns->mainw);
 
     RET(p);

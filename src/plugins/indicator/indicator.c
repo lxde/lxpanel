@@ -168,9 +168,9 @@ place_in_menu_cb (GtkWidget * widget, gpointer user_data)
 
 /* Position the entry */
 static void
-place_in_menu (GtkWidget *menubar, 
-               GtkWidget *menuitem, 
-               IndicatorObject *io, 
+place_in_menu (GtkWidget *menubar,
+               GtkWidget *menuitem,
+               IndicatorObject *io,
                IndicatorObjectEntry *entry)
 {
   incoming_position_t position;
@@ -269,7 +269,7 @@ entry_secondary_activated (GtkWidget * widget, GdkEvent * event, gpointer user_d
 
           g_return_val_if_fail(INDICATOR_IS_OBJECT(io), FALSE);
 
-          g_signal_emit_by_name(io, INDICATOR_OBJECT_SIGNAL_SECONDARY_ACTIVATE, 
+          g_signal_emit_by_name(io, INDICATOR_OBJECT_SIGNAL_SECONDARY_ACTIVATE,
               entry, event->button.time);
         }
       }
@@ -413,7 +413,7 @@ entry_moved_find_cb (GtkWidget * widget, gpointer userdata)
 }
 
 /* Gets called when an entry for an object was moved. */
-static void 
+static void
 entry_moved (IndicatorObject * io, IndicatorObjectEntry * entry,
              gint old G_GNUC_UNUSED, gint new G_GNUC_UNUSED, gpointer user_data)
 {
@@ -593,7 +593,7 @@ menubar_press (GtkWidget * widget,
 static gboolean
 menubar_scroll (GtkWidget      *widget G_GNUC_UNUSED,
                 GdkEventScroll *event,
-                gpointer        data G_GNUC_UNUSED)	
+                gpointer        data G_GNUC_UNUSED)
 {
 
     GtkWidget *menuitem;
@@ -780,7 +780,7 @@ static GtkWidget *indicator_constructor(Panel *panel, config_setting_t *settings
 
     /* Allocate icon as a child of top level. */
     indicator->menubar = gtk_menu_bar_new();
-    GTK_WIDGET_SET_FLAGS (indicator->menubar, GTK_WIDGET_FLAGS(indicator->menubar) | GTK_CAN_FOCUS);
+    gtk_widget_set_can_focus(indicator->menubar, TRUE);
 
     /* Init some theme/icon stuff */
     gtk_icon_theme_append_search_path(panel_get_icon_theme(panel),

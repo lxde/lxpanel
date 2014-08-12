@@ -29,6 +29,7 @@
 
 #include <glib/gi18n.h>
 #include "netstatus-dialog.h"
+#include <libfm/fm-gtk.h>
 
 #include <string.h>
 /* #include <gconf/gconf-client.h> */
@@ -97,7 +98,7 @@ static void
 netstatus_dialog_update_state (NetstatusDialogData *data)
 {
   NetstatusState state;
-  
+
   state = netstatus_iface_get_state (data->iface);
   gtk_label_set_text (GTK_LABEL (data->status),
 		      netstatus_get_state_string (state));
@@ -123,7 +124,7 @@ netstatus_dialog_update_name (NetstatusDialogData *data)
       gtk_window_set_title (GTK_WINDOW (data->dialog), p);
       g_free (p);
     }
-  
+
   UNKNOWN_STR (text, iface_name);
   gtk_entry_set_text (GTK_ENTRY (data->name_entry), text);
 }
@@ -176,11 +177,11 @@ netstatus_dialog_update_activity (NetstatusDialogData *data)
   print_packets_string (str, stats.out_packets);
   print_bytes_string (str, stats.out_bytes);
   gtk_label_set_text (GTK_LABEL (data->sent), str->str);
-	
+
   print_packets_string (str, stats.in_packets);
   print_bytes_string (str, stats.in_bytes);
   gtk_label_set_text (GTK_LABEL (data->received), str->str);
-  
+
   g_string_free (str, TRUE);
 }
 
@@ -304,7 +305,7 @@ netstatus_dialog_update_device_support (NetstatusDialogData *data)
 
       /* Device type */
       gtk_label_set_text (GTK_LABEL (data->dev_type), type);
-      
+
       /* Address */
       if (addr)
 	gtk_label_set_text (GTK_LABEL (data->dev_addr), addr);
@@ -388,7 +389,7 @@ netstatus_dialog_response (GtkWidget *dialog,
 	if (error)
 	  {
 	    GtkWidget *message_dialog;
-                                                                              
+
 	    message_dialog = gtk_message_dialog_new (GTK_WINDOW (dialog),
 						     GTK_DIALOG_DESTROY_WITH_PARENT,
 						     GTK_MESSAGE_ERROR,
@@ -398,11 +399,11 @@ netstatus_dialog_response (GtkWidget *dialog,
 
 	    gtk_window_set_resizable (GTK_WINDOW (message_dialog), FALSE);
 	    gtk_window_set_screen (GTK_WINDOW (message_dialog), screen);
-	    
+
 	    g_signal_connect (message_dialog, "response",
 			      G_CALLBACK (gtk_widget_destroy),
 			      NULL);
-	    
+
 	    gtk_widget_show (message_dialog);
 
 	    g_error_free (error);
@@ -539,8 +540,6 @@ static void
 netstatus_iface_configure (GtkWidget           *configure_button,
 			   NetstatusDialogData *dialog_data)
 {
-  GError     *error;
-  GdkScreen  *screen;
   GString    *command;
   char      **argv = NULL;
   int         i;
@@ -566,29 +565,8 @@ netstatus_iface_configure (GtkWidget           *configure_button,
 	command = g_string_append (command, argv [i]);
     }
 
-  screen = gtk_window_get_screen (GTK_WINDOW (dialog_data->dialog));
-
-  error = NULL;
-  if (!gdk_spawn_command_line_on_screen (screen, command->str, &error))
-    {
-      GtkWidget *error_dialog;
-
-      error_dialog = gtk_message_dialog_new (NULL,
-					     GTK_DIALOG_DESTROY_WITH_PARENT,
-					     GTK_MESSAGE_ERROR,
-					     GTK_BUTTONS_OK,
-					     _("Failed to launch time configuration tool: %s"),
-					     error->message);
-      g_signal_connect (error_dialog, "response",
-			G_CALLBACK (gtk_widget_destroy), NULL);
-
-      gtk_window_set_resizable (GTK_WINDOW (error_dialog), FALSE);
-      gtk_window_set_screen (GTK_WINDOW (error_dialog), screen);
-      
-      gtk_widget_show_all (error_dialog);
-
-      g_error_free (error);
-    }
+  fm_launch_command_simple(GTK_WINDOW (dialog_data->dialog), NULL,
+                           G_APP_INFO_CREATE_NONE, command->str, NULL);
 
   g_string_free (command, TRUE);
   g_strfreev (argv);
@@ -603,7 +581,7 @@ netstatus_dialog_setup_configure_button (NetstatusDialogData *data)
 		    G_CALLBACK (netstatus_iface_configure), data);
 
   netstatus_dialog_detect_configuration_tool (data);
-  
+
   if (!data->config_tool)
     gtk_widget_hide (data->configure_button);
 
@@ -617,7 +595,7 @@ netstatus_dialog_setup_connection (NetstatusDialogData *data)
   GtkWidget *hbox;
   GtkWidget *icon;
   GtkListStore* model;
-  
+
   hbox = (GtkWidget*)gtk_builder_get_object(data->builder, "connection_hbox");
 
   icon = netstatus_icon_new (data->iface);
@@ -632,7 +610,11 @@ netstatus_dialog_setup_connection (NetstatusDialogData *data)
   data->name_entry = gtk_bin_get_child((GtkBin*)data->name);
   model = gtk_list_store_new(1, G_TYPE_STRING);
   gtk_combo_box_set_model(GTK_COMBO_BOX(data->name), GTK_TREE_MODEL(model));
+#if GTK_CHECK_VERSION(2, 24, 0)
+  gtk_combo_box_set_entry_text_column(GTK_COMBO_BOX(data->name), 0);
+#else
   gtk_combo_box_entry_set_text_column(GTK_COMBO_BOX_ENTRY(data->name), 0);
+#endif
   g_object_unref(model);
 
   data->status = (GtkWidget*)gtk_builder_get_object(data->builder, "status_label");
@@ -682,7 +664,7 @@ netstatus_dialog_setup_device_support (NetstatusDialogData *data)
   data->dev_frame = (GtkWidget*)gtk_builder_get_object(data->builder, "dev_frame");
   data->dev_type  = (GtkWidget*)gtk_builder_get_object(data->builder, "dev_type_label");
   data->dev_addr  = (GtkWidget*)gtk_builder_get_object(data->builder, "dev_addr_label");
-  
+
   netstatus_dialog_update_device_support (data);
 }
 
@@ -720,7 +702,7 @@ _netstatus_dialog_iface_list_monitor (NetstatusDialogData *data)
       gtk_list_store_clear(model);
       g_signal_handlers_block_by_func (data->name_entry,
 				       G_CALLBACK (netstatus_dialog_set_iface_name), data);
-				       
+
       for (l = iface_names; l; l = l->next)
         {
           GtkTreeIter it;
@@ -784,7 +766,7 @@ netstatus_dialog_new (NetstatusIface *iface)
 					G_CALLBACK (netstatus_dialog_iface_name_changed),
 					data,
 					data->dialog);
-  
+
   netstatus_connect_signal_while_alive (data->iface,
 					"notify::wireless",
 					G_CALLBACK (netstatus_dialog_iface_signal_strength_changed),

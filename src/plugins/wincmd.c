@@ -63,6 +63,7 @@ static void wincmd_execute(WinCmdPlugin * wc, WindowCommand command)
     /* Get the list of all windows. */
     int client_count;
     Window * client_list = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_CLIENT_LIST, XA_WINDOW, &client_count);
+    Display *xdisplay = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
     if (client_list != NULL)
     {
         /* Loop over all windows. */
@@ -87,9 +88,9 @@ static void wincmd_execute(WinCmdPlugin * wc, WindowCommand command)
 
                     case WC_ICONIFY:
                         if (( ! wc->toggle_preference) || ( ! wc->toggle_state))
-                            XIconifyWindow(GDK_DISPLAY(), client_list[i], DefaultScreen(GDK_DISPLAY()));
+                            XIconifyWindow(xdisplay, client_list[i], DefaultScreen(xdisplay));
                         else
-                            XMapWindow (GDK_DISPLAY(), client_list[i]);
+                            XMapWindow (xdisplay, client_list[i]);
                         break;
 
                     case WC_SHADE:
@@ -131,7 +132,8 @@ static gboolean wincmd_button_clicked(GtkWidget * widget, GdkEventButton * event
         if (gdk_x11_screen_supports_net_wm_hint(screen, atom))
         {
             int showing_desktop = ((( ! wc->toggle_preference) || ( ! wc->toggle_state)) ? 1 : 0);
-            Xclimsg(DefaultRootWindow(GDK_DISPLAY()), a_NET_SHOWING_DESKTOP, showing_desktop, 0, 0, 0, 0);
+            Xclimsg(DefaultRootWindow(GDK_DISPLAY_XDISPLAY(gdk_display_get_default())),
+                    a_NET_SHOWING_DESKTOP, showing_desktop, 0, 0, 0, 0);
             wincmd_adjust_toggle_state(wc);
         }
         else

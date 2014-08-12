@@ -26,42 +26,41 @@
 
 /*
 static const char * iw_ie_cypher_name[] = {
-	"none",
-	"WEP-40",
-	"TKIP",
-	"WRAP",
-	"CCMP",
-	"WEP-104",
+    "none",
+    "WEP-40",
+    "TKIP",
+    "WRAP",
+    "CCMP",
+    "WEP-104",
 };
 
 static const char * iw_ie_key_mgmt_name[] = {
-	"none",
-	"802.1x",
-	"PSK",
+    "none",
+    "802.1x",
+    "PSK",
 };
 */
 
 void wireless_aplist_free(void *aplist, GObject *dummy)
 {
-	APLIST *ptr;
-	APLIST *delptr;
+    APLIST *ptr;
+    APLIST *delptr;
 
     if (aplist!=NULL) {
         ptr = aplist;
         do {
-			g_free(ptr->info->essid);
-			g_free(ptr->info->apaddr);
-			g_free(ptr->info);
+            g_free(ptr->info->essid);
+            g_free(ptr->info->apaddr);
+            g_free(ptr->info);
 
             delptr = ptr;
             ptr = ptr->next;
-			g_free(delptr);
+            g_free(delptr);
         } while(ptr!=NULL);
     }
 }
 
-void 
-wireless_gen_ie(ap_info *info, unsigned char *buffer, int ielen)
+void wireless_gen_ie(ap_info *info, unsigned char *buffer, int ielen)
 {
 	int offset = 2;
 	int count;
@@ -94,7 +93,7 @@ wireless_gen_ie(ap_info *info, unsigned char *buffer, int ielen)
 			offset += 4;
 			break;
 
-		case 0x30: /* IEEE 802.11i/WPA2 */ 
+		case 0x30: /* IEEE 802.11i/WPA2 */
 			wpa_oui = wpa2_oui;
 			break;
 
@@ -245,7 +244,7 @@ wireless_parse_scanning_event(struct iw_event *event, ap_info *oldinfo)
 				/* check IE type */
 				switch(iebuf[offset]) {
 					case 0xdd: /* WPA or else */
-					case 0x30: /* IEEE 802.11i/WPA2 */ 
+					case 0x30: /* IEEE 802.11i/WPA2 */
 						wireless_gen_ie(info, iebuf, ielen);
 						break;
 				}
@@ -425,7 +424,7 @@ realloc:
 
 				/* Bad error */
 				free(buffer);
-				fprintf(stderr, 
+				fprintf(stderr,
 				"%-8.16s  Failed to read scan data : %s\n\n",
 						ifname, strerror(errno));
 				return NULL;

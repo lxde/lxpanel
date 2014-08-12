@@ -6,17 +6,17 @@
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301, USA.
- * 
+ *
  */
 
 #include <stdio.h>
@@ -31,7 +31,7 @@ int  main(int argc, char *argv[])
     FILE *fp;
     char  buf[MAX_BUF_LEN];
     char *layouts=NULL, *variants=NULL, *model=NULL;
-    
+
     /* Open the command for reading. */
     fp = popen("setxkbmap -query", "r");
     if(fp == NULL)
@@ -39,12 +39,12 @@ int  main(int argc, char *argv[])
         printf("Failed to run command\n");
         return -1;
     }
-    
+
     GRegex *p_regex_model = g_regex_new("(?<=model:).*", 0, 0, NULL);
     GRegex *p_regex_layouts = g_regex_new("(?<=layout:).*", 0, 0, NULL);
     GRegex *p_regex_variants = g_regex_new("(?<=variant:).*", 0, 0, NULL);
     GMatchInfo *p_match_info;
-    
+
     /* Read the output a line at a time - output it. */
     while(fgets(buf, MAX_BUF_LEN, fp) != NULL)
     {
@@ -59,7 +59,7 @@ int  main(int argc, char *argv[])
             continue;
         }
         g_match_info_free(p_match_info);
-        
+
         // layouts
         g_regex_match(p_regex_layouts, buf, 0, &p_match_info);
         if(g_match_info_matches(p_match_info))
@@ -71,7 +71,7 @@ int  main(int argc, char *argv[])
             continue;
         }
         g_match_info_free(p_match_info);
-        
+
         // variants
         g_regex_match(p_regex_variants, buf, 0, &p_match_info);
         if(g_match_info_matches(p_match_info))
@@ -83,16 +83,16 @@ int  main(int argc, char *argv[])
             continue;
         }
         g_match_info_free(p_match_info);
-        
+
         //printf("No match: '%s'\n", buf);
     }
-    
+
     g_regex_unref(p_regex_model);
     g_regex_unref(p_regex_layouts);
     g_regex_unref(p_regex_variants);
-    
+
     /* close */
     pclose(fp);
-    
+
     return 0;
 }

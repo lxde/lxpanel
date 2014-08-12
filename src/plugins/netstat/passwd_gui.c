@@ -76,6 +76,7 @@ struct pgui *passwd_gui_new(ap_setting *aps)
 {
     GtkWidget *msg, *inputlabel;
     GtkWidget *inputbox;
+    GtkBox *dialog_vbox;
     struct pgui *pwdgui;
     struct passwd_resp *pr;
 
@@ -93,8 +94,9 @@ struct pgui *passwd_gui_new(ap_setting *aps)
     gtk_window_set_position(GTK_WINDOW(pwdgui->dlg), GTK_WIN_POS_CENTER);
 
     /* messages */
+    dialog_vbox = GTK_BOX(gtk_dialog_get_content_area(GTK_DIALOG(pwdgui->dlg)));
     msg = gtk_label_new(_("This wireless network was encrypted.\nYou must have the encryption key."));
-    gtk_box_pack_start(GTK_BOX(((GtkDialog*)(pwdgui->dlg))->vbox), msg, FALSE, FALSE, 8);
+    gtk_box_pack_start(dialog_vbox, msg, FALSE, FALSE, 8);
 
     /* entry Box */
     inputbox = gtk_hbox_new(FALSE, 0);
@@ -104,7 +106,7 @@ struct pgui *passwd_gui_new(ap_setting *aps)
     gtk_entry_set_visibility(GTK_ENTRY(pwdgui->pentry), FALSE);
     gtk_entry_set_activates_default(GTK_ENTRY(pwdgui->pentry), TRUE);
     gtk_box_pack_start(GTK_BOX(inputbox), pwdgui->pentry, FALSE, FALSE, 4);
-    gtk_box_pack_start(GTK_BOX(((GtkDialog*)(pwdgui->dlg))->vbox), inputbox, FALSE, FALSE, 8);
+    gtk_box_pack_start(dialog_vbox, inputbox, FALSE, FALSE, 8);
 
     /* passwd_resp structure */
     pr->aps = aps;

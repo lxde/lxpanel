@@ -32,43 +32,40 @@ struct statusicon *create_statusicon(GtkWidget *box, const char *filename,
     /* main */
     newicon->main = gtk_event_box_new();
 
-    GTK_WIDGET_SET_FLAGS(newicon->main, GTK_NO_WINDOW);
+    gtk_widget_set_has_window(newicon->main, FALSE);
     gtk_widget_add_events(newicon->main, GDK_BUTTON_PRESS_MASK);
     gtk_widget_set_size_request(newicon->main, 24, 24);
     gtk_box_pack_start(GTK_BOX(box), newicon->main, TRUE, TRUE, 0);
 
     /* icon */
-    
+
     /*icon theme*/
     GtkIconTheme* icon_theme = gtk_icon_theme_get_default();
-    
+
     /*if we've got a theme*/
     if(gtk_icon_theme_has_icon(icon_theme, icon_name)) {
-		GdkPixbuf* temp_pixbuf = gtk_icon_theme_load_icon(icon_theme, icon_name, 24, 0, NULL);
-		newicon->icon = gtk_image_new_from_pixbuf(temp_pixbuf);
-	}
-    
+        GdkPixbuf* temp_pixbuf = gtk_icon_theme_load_icon(icon_theme, icon_name, 24, 0, NULL);
+        newicon->icon = gtk_image_new_from_pixbuf(temp_pixbuf);
+    }
+
     /* oh well...*/
     else {
-		newicon->icon = gtk_image_new_from_file(filename);
-	}
+        newicon->icon = gtk_image_new_from_file(filename);
+    }
     gtk_container_add(GTK_CONTAINER(newicon->main), newicon->icon);
     gtk_widget_show_all(newicon->main);
 
     /* tooltip */
-    newicon->tooltips = gtk_tooltips_new();
-    g_object_ref_sink(newicon->tooltips);
-    gtk_tooltips_set_tip(newicon->tooltips, newicon->main, tooltips, NULL);
+    gtk_widget_set_tooltip_text(newicon->main, tooltips);
 
     return newicon;
 }
 
 void statusicon_destroy(struct statusicon *icon)
 {
-	if (icon==NULL)
+    if (icon==NULL)
         return;
 
-    g_object_unref(icon->tooltips);
     gtk_widget_destroy(GTK_WIDGET(icon->icon));
     gtk_widget_destroy(GTK_WIDGET(icon->main));
     g_free(icon);
@@ -82,7 +79,7 @@ void set_statusicon_image_from_file(struct statusicon *widget, const char *filen
 
 void set_statusicon_tooltips(struct statusicon *widget, const char *tooltips)
 {
-    gtk_tooltips_set_tip(widget->tooltips, widget->main, tooltips, NULL);
+    gtk_widget_set_tooltip_text(widget->main, tooltips);
 }
 
 void set_statusicon_visible(struct statusicon *widget, gboolean b)

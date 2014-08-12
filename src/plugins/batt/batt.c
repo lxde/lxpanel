@@ -348,16 +348,19 @@ static gboolean buttonPressEvent(GtkWidget *p, GdkEventButton *event,
 
 
 static gint configureEvent(GtkWidget *widget, GdkEventConfigure *event,
-        lx_battery *lx_b) {
+        lx_battery *lx_b)
+{
+    GtkAllocation allocation;
 
     ENTER;
 
+    gtk_widget_get_allocation(widget, &allocation);
     if (lx_b->pixmap)
         cairo_surface_destroy(lx_b->pixmap);
 
     /* Update the plugin's dimensions */
-    lx_b->width = widget->allocation.width;
-    lx_b->height = widget->allocation.height;
+    lx_b->width = allocation.width;
+    lx_b->height = allocation.height;
     if (lx_b->orientation == GTK_ORIENTATION_HORIZONTAL) {
         lx_b->length = lx_b->height;
         lx_b->thickness = lx_b->width;
@@ -367,8 +370,8 @@ static gint configureEvent(GtkWidget *widget, GdkEventConfigure *event,
         lx_b->thickness = lx_b->height;
     }
 
-    lx_b->pixmap = cairo_image_surface_create (CAIRO_FORMAT_RGB24, widget->allocation.width,
-          widget->allocation.height);
+    lx_b->pixmap = cairo_image_surface_create (CAIRO_FORMAT_RGB24, allocation.width,
+                                               allocation.height);
     check_cairo_surface_status(&lx_b->pixmap);
 
     /* Perform an update so the bar will look right in its new orientation */
@@ -382,11 +385,13 @@ static gint configureEvent(GtkWidget *widget, GdkEventConfigure *event,
 static gint exposeEvent(GtkWidget *widget, GdkEventExpose *event, lx_battery *lx_b) {
 
     ENTER;
-    cairo_t *cr = gdk_cairo_create(widget->window);
+    cairo_t *cr = gdk_cairo_create(gtk_widget_get_window(widget));
+    GtkStyle *style = gtk_widget_get_style(lx_b->drawingArea);
+
     gdk_cairo_region(cr, event->region);
     cairo_clip(cr);
 
-    gdk_cairo_set_source_color(cr, &lx_b->drawingArea->style->black);
+    gdk_cairo_set_source_color(cr, &style->black);
     cairo_set_source_surface(cr, lx_b->pixmap, 0, 0);
     cairo_paint(cr);
 
@@ -413,7 +418,7 @@ static GtkWidget * constructor(Panel *panel, config_setting_t *settings)
 
     p = gtk_event_box_new();
     lxpanel_plugin_set_data(p, lx_b, destructor);
-    GTK_WIDGET_SET_FLAGS( p, GTK_NO_WINDOW );
+    gtk_widget_set_has_window(p, FALSE);
     gtk_container_set_border_width( GTK_CONTAINER(p), 1 );
 
     lx_b->drawingArea = gtk_drawing_area_new();

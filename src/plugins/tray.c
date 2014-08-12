@@ -223,22 +223,10 @@ static void balloon_message_display(TrayPlugin * tr, BalloonMessage * msg)
     gtk_widget_add_events(tr->balloon_message_popup, GDK_BUTTON_PRESS_MASK);
     g_signal_connect(tr->balloon_message_popup, "button-press-event", G_CALLBACK(balloon_message_activate_event), (gpointer) tr);
 
-    /* Get the allocation of the popup menu. */
-    GtkRequisition popup_req;
-    gtk_widget_size_request(GTK_WIDGET(tr->balloon_message_popup), &popup_req);
-
     /* Compute the desired position in screen coordinates near the tray plugin. */
     int x;
     int y;
-    lxpanel_plugin_popup_set_position_helper(tr->panel, tr->plugin, tr->balloon_message_popup, &popup_req, &x, &y);
-
-    /* Push onscreen. */
-    int screen_width = gdk_screen_width();
-    int screen_height = gdk_screen_height();
-    if ((x + popup_req.width) > screen_width)
-        x -= (x + popup_req.width) - screen_width;
-    if ((y + popup_req.height) > screen_height)
-    y -= (y + popup_req.height) - screen_height;
+    lxpanel_plugin_popup_set_position_helper(tr->panel, tr->plugin, tr->balloon_message_popup, &x, &y);
 
     /* Show the popup. */
     gtk_window_move(GTK_WINDOW(tr->balloon_message_popup), x, y);
@@ -642,11 +630,7 @@ static GtkWidget *tray_constructor(Panel *panel, config_setting_t *settings)
     /* Allocate top level widget and set into Plugin widget pointer. */
     tr->plugin = p = gtk_event_box_new();
     lxpanel_plugin_set_data(p, tr, tray_destructor);
-#if GTK_CHECK_VERSION(2,18,0)
     gtk_widget_set_has_window(p,FALSE);
-#else
-    GTK_WIDGET_SET_FLAGS(p, GTK_NO_WINDOW);
-#endif
     gtk_widget_set_name(p, "tray");
     gtk_container_set_border_width(GTK_CONTAINER(p), 1);
 

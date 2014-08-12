@@ -47,7 +47,6 @@ typedef struct {
     GtkWidget *main;
     config_setting_t *settings;
     GtkWidget *namew;
-    GtkTooltips *tip;
     GList *governors;
     GList *cpus;
     int has_cpufreq;
@@ -216,7 +215,7 @@ get_cpus(cpufreq *cf)
             snprintf(cpu_path, sizeof(cpu_path), "%s/%s/cpufreq", SYSFS_CPU_DIRECTORY, cpu);
 
             GDir * cpufreqDir = g_dir_open(SYSFS_CPU_DIRECTORY, 0, NULL);
-	        if (cpufreqDir == NULL)
+            if (cpufreqDir == NULL)
             {
                 cf->cpus = NULL;
                 cf->has_cpufreq = 0;
@@ -308,7 +307,7 @@ clicked(GtkWidget *widget, GdkEventButton *evt, Panel *panel)
     if( evt->button == 1 )
     {
 // Setting governor can't work without root privilege
-//      gtk_menu_popup( cpufreq_menu((cpufreq*)plugin->priv), NULL, NULL, NULL, NULL, 
+//      gtk_menu_popup( cpufreq_menu((cpufreq*)plugin->priv), NULL, NULL, NULL, NULL,
 //                      evt->button, evt->time );
       return TRUE;
     }
@@ -328,7 +327,7 @@ _update_tooltip(cpufreq *cf)
 
     tooltip = g_strdup_printf(_("Frequency: %d MHz\nGovernor: %s"),
                               cf->cur_freq / 1000, cf->cur_governor);
-    gtk_tooltips_set_tip(cf->tip, cf->main, tooltip, NULL);
+    gtk_widget_set_tooltip_text(cf->main, tooltip);
     g_free(tooltip);
     RET(TRUE);
 }
@@ -354,19 +353,11 @@ static GtkWidget *cpufreq_constructor(Panel *panel, config_setting_t *settings)
 
     cf->main = gtk_event_box_new();
     lxpanel_plugin_set_data(cf->main, cf, cpufreq_destructor);
-#if GTK_CHECK_VERSION(2,18,0)
     gtk_widget_set_has_window(cf->main, FALSE);
-#else
-    GTK_WIDGET_SET_FLAGS(cf->main, GTK_NO_WINDOW);
-#endif
     gtk_container_set_border_width(GTK_CONTAINER(cf->main), 2);
 
     cf->namew = gtk_image_new_from_file(PROC_ICON);
     gtk_container_add(GTK_CONTAINER(cf->main), cf->namew);
-
-    cf->tip = gtk_tooltips_new();
-
-    g_object_ref_sink( cf->tip );
 
     cf->has_cpufreq = 0;
 
@@ -409,7 +400,6 @@ cpufreq_destructor(gpointer user_data)
     g_list_free ( cf->cpus );
     g_list_free ( cf->governors );
     g_source_remove(cf->timer);
-    g_object_unref(cf->tip);
     g_free(cf);
 }
 

@@ -85,7 +85,7 @@ on_vscale1_button_release_event (GtkWidget *widget,
                                  gpointer user_data);
 
 static void
-get_current_levels() 
+get_current_levels()
 {
 	ioctl(mixer_fd, MIXER_READ(SOUND_MIXER_VOLUME), &tmpvol);
 	orig.mainvol = tmpvol.left;
@@ -132,7 +132,7 @@ create_volume_window (void)
 	g_signal_connect ((gpointer) spinbutton1, "value-changed",
 			  G_CALLBACK (on_spinbutton1_button_release_event),
 			  NULL);
-	g_object_set_data_full(G_OBJECT (volume_window), "spinbutton1", 
+	g_object_set_data_full(G_OBJECT (volume_window), "spinbutton1",
 			       gtk_widget_ref (spinbutton1),
 			       (GDestroyNotify) gtk_widget_unref);
 
@@ -162,19 +162,19 @@ create_volume_window (void)
 
 	g_object_set_data (G_OBJECT (volume_window), "volume_window", volume_window);
 	g_object_set_data_full (G_OBJECT (volume_window), "frame",
-			        gtk_widget_ref (frame), 
+			        gtk_widget_ref (frame),
 				(GDestroyNotify) gtk_widget_unref);
 	g_object_set_data_full (G_OBJECT (volume_window), "vbox1",
-			        gtk_widget_ref (vbox1), 
+			        gtk_widget_ref (vbox1),
 				(GDestroyNotify) gtk_widget_unref);
 	g_object_set_data_full (G_OBJECT (volume_window), "hbox1",
-			        gtk_widget_ref (hbox1), 
+			        gtk_widget_ref (hbox1),
 				(GDestroyNotify) gtk_widget_unref);
 	g_object_set_data_full (G_OBJECT (volume_window), "hbox3",
-			        gtk_widget_ref (hbox3), 
+			        gtk_widget_ref (hbox3),
 				(GDestroyNotify) gtk_widget_unref);
 	g_object_set_data_full (G_OBJECT (volume_window), "hbox4",
-			        gtk_widget_ref (hbox4), 
+			        gtk_widget_ref (hbox4),
 				(GDestroyNotify) gtk_widget_unref);
 
 	gtk_window_add_accel_group (GTK_WINDOW (volume_window), accel_group);
@@ -186,8 +186,8 @@ create_volume_window (void)
 
 static StereoVolume vol;
 
-static gboolean 
-on_spinbutton1_button_release_event (GtkWidget *widget, 
+static gboolean
+on_spinbutton1_button_release_event (GtkWidget *widget,
 		                     GdkEventButton *event,
 				     gpointer user_data)
 {
@@ -202,10 +202,10 @@ on_spinbutton1_button_release_event (GtkWidget *widget,
 
 static gboolean
 on_vscale1_button_release_event (GtkWidget *widget,
-		 		 GdkEventButton *event,
+				 GdkEventButton *event,
 		                 gpointer user_data)
 {
-	vol.left = vol.right = 
+	vol.left = vol.right =
 		(int) gtk_adjustment_get_value(GTK_ADJUSTMENT(user_data));
 	ioctl(mixer_fd, MIXER_WRITE(SOUND_MIXER_VOLUME), &vol);
 	return FALSE;

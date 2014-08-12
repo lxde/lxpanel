@@ -58,7 +58,7 @@ struct _FbEv {
     Window active_window;
     Window *client_list;
     Window *client_list_stacking;
-    
+
     Window   xroot;
     Atom     id;
     GC       gc;
@@ -112,7 +112,7 @@ fb_ev_class_init (FbEvClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-    signals [EV_CURRENT_DESKTOP] = 
+    signals [EV_CURRENT_DESKTOP] =
         g_signal_new ("current_desktop",
               G_OBJECT_CLASS_TYPE (object_class),
               G_SIGNAL_RUN_FIRST,
@@ -120,7 +120,7 @@ fb_ev_class_init (FbEvClass *klass)
               NULL, NULL,
               g_cclosure_marshal_VOID__VOID,
               G_TYPE_NONE, 0);
-    signals [EV_NUMBER_OF_DESKTOPS] = 
+    signals [EV_NUMBER_OF_DESKTOPS] =
         g_signal_new ("number_of_desktops",
               G_OBJECT_CLASS_TYPE (object_class),
               G_SIGNAL_RUN_FIRST,
@@ -128,7 +128,7 @@ fb_ev_class_init (FbEvClass *klass)
               NULL, NULL,
               g_cclosure_marshal_VOID__VOID,
               G_TYPE_NONE, 0);
-    signals [EV_DESKTOP_NAMES] = 
+    signals [EV_DESKTOP_NAMES] =
         g_signal_new ("desktop_names",
               G_OBJECT_CLASS_TYPE (object_class),
               G_SIGNAL_RUN_FIRST,
@@ -136,7 +136,7 @@ fb_ev_class_init (FbEvClass *klass)
               NULL, NULL,
               g_cclosure_marshal_VOID__VOID,
               G_TYPE_NONE, 0);
-    signals [EV_ACTIVE_WINDOW] = 
+    signals [EV_ACTIVE_WINDOW] =
         g_signal_new ("active_window",
               G_OBJECT_CLASS_TYPE (object_class),
               G_SIGNAL_RUN_FIRST,
@@ -144,7 +144,7 @@ fb_ev_class_init (FbEvClass *klass)
               NULL, NULL,
               g_cclosure_marshal_VOID__VOID,
               G_TYPE_NONE, 0);
-    signals [EV_DESTROY_WINDOW] = 
+    signals [EV_DESTROY_WINDOW] =
         g_signal_new ("destroy_window",
               G_OBJECT_CLASS_TYPE (object_class),
               G_SIGNAL_RUN_FIRST,
@@ -152,7 +152,7 @@ fb_ev_class_init (FbEvClass *klass)
               NULL, NULL,
               g_cclosure_marshal_VOID__POINTER,
               G_TYPE_NONE, 1, G_TYPE_POINTER);
-    signals [EV_CLIENT_LIST_STACKING] = 
+    signals [EV_CLIENT_LIST_STACKING] =
         g_signal_new ("client_list_stacking",
               G_OBJECT_CLASS_TYPE (object_class),
               G_SIGNAL_RUN_FIRST,
@@ -160,7 +160,7 @@ fb_ev_class_init (FbEvClass *klass)
               NULL, NULL,
               g_cclosure_marshal_VOID__VOID,
               G_TYPE_NONE, 0);
-    signals [EV_CLIENT_LIST] = 
+    signals [EV_CLIENT_LIST] =
         g_signal_new ("client_list",
               G_OBJECT_CLASS_TYPE (object_class),
               G_SIGNAL_RUN_FIRST,
@@ -212,21 +212,21 @@ fb_ev_emit(FbEv *ev, int signal)
     DBG("\n");
     if( signal == EV_ACTIVE_WINDOW )
     {
-    	Window* win = None;
-		ev->active_window = None;
-		win = (Window*)get_xaproperty (GDK_ROOT_WINDOW(), a_NET_ACTIVE_WINDOW, XA_WINDOW, 0);
-		if (win) {
-			ev->active_window = *win;
-			/* g_debug( "WIN: %p", *win ); */
-			XFree (win);
-		}
+        Window* win = None;
+        ev->active_window = None;
+        win = (Window*)get_xaproperty (GDK_ROOT_WINDOW(), a_NET_ACTIVE_WINDOW, XA_WINDOW, 0);
+        if (win) {
+            ev->active_window = *win;
+            /* g_debug( "WIN: %p", *win ); */
+            XFree (win);
+        }
     }
     g_signal_emit(ev, signals [signal], 0);
 }
 
 void fb_ev_emit_destroy(FbEv *ev, Window win)
 {
-    g_signal_emit(ev, signals [EV_DESTROY_WINDOW], 0, win );	
+    g_signal_emit(ev, signals [EV_DESTROY_WINDOW], 0, win );
 }
 
 static void
@@ -297,11 +297,11 @@ fb_ev_current_desktop(FbEv *ev)
             ev->current_desktop = *data;
             XFree (data);
         } else
-            ev->current_desktop = 0;              
+            ev->current_desktop = 0;
     }
     RET(ev->current_desktop);
 }
-        
+
 int
 fb_ev_number_of_desktops(FbEv *ev)
 {
@@ -314,7 +314,7 @@ fb_ev_number_of_desktops(FbEv *ev)
             ev->number_of_desktops = *data;
             XFree (data);
         } else
-            ev->number_of_desktops = 0;              
+            ev->number_of_desktops = 0;
     }
     RET(ev->number_of_desktops);
 
@@ -322,16 +322,16 @@ fb_ev_number_of_desktops(FbEv *ev)
 
 Window *fb_ev_active_window(FbEv *ev)
 {
-	return &ev->active_window;	
+    return &ev->active_window;
 }
 
 Window *fb_ev_client_list(FbEv *ev)
 {
-	return ev->client_list;
+    return ev->client_list;
 }
 
 Window *fb_ev_client_list_stacking(FbEv *ev)
 {
-	return ev->client_list_stacking;
+    return ev->client_list_stacking;
 }
 

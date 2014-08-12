@@ -44,7 +44,6 @@ static gboolean skip_botton1_event;
 typedef struct {
     Panel *panel;
     GtkWidget *dlg;
-    GtkTooltips* tooltips;
 } volume_t;
 
 static void
@@ -55,7 +54,6 @@ volume_destructor(gpointer user_data)
     ENTER;
     if (vol->dlg)
         gtk_widget_destroy(vol->dlg);
-    g_object_unref( vol->tooltips );
     if (mixer_fd)
         close(mixer_fd);
     g_free(vol);
@@ -95,17 +93,15 @@ static void update_icon (GtkWidget *p, volume_t *vol)
 	else {
 			icon = gdk_pixbuf_new_from_xpm_data((const char **) volume_xpm);
 	}
-	
-	 
-	
+
 	if (icon) {
-		if (curr_image) { 
+		if (curr_image) {
 			gtk_container_remove(GTK_CONTAINER(p), curr_image);
 			curr_image = NULL;
 		}
 		image = gtk_image_new_from_pixbuf(icon);
 		gtk_container_add(GTK_CONTAINER(p), image);
-		 
+
 		curr_image = image;
 	}
 	gtk_widget_show_all(p);
@@ -120,9 +116,9 @@ static void on_volume_focus (GtkWidget* dlg, GdkEventFocus *event, GtkWidget *p)
 	GtkAdjustment *vol_adjustment = gtk_spin_button_get_adjustment (vol_spin);
 	if (! vol_adjustment) return;
 	curr_volume = gtk_adjustment_get_value (vol_adjustment);
-	
+
 	update_icon(p, vol);
-	
+
 	/* FIXME: use smarter method */
 	gtk_widget_destroy( dlg );
 	vol->dlg = NULL;
@@ -139,7 +135,7 @@ static void on_mouse_scroll (GtkWidget* widget, GdkEventScroll* evt, volume_t *v
 	}
 	else {
 		if (! vol_spin) return;
-		GtkAdjustment *vol_adjustment = 
+		GtkAdjustment *vol_adjustment =
 			gtk_spin_button_get_adjustment (vol_spin);
 		if (! vol_adjustment) return;
 
@@ -169,8 +165,8 @@ static gboolean on_button_press (GtkWidget* widget, GdkEventButton* evt, Panel* 
 		skip_botton1_event = FALSE;
 	}
 
-	switch ( evt->button ) { 
-	case 1:	{	/*  Left click */
+	switch ( evt->button ) {
+	case 1: {	/*  Left click */
 		if ( ! vol->dlg ) {
 			vol->dlg = create_volume_window();
 
@@ -283,11 +279,8 @@ _error:
     gtk_widget_destroy( vol->dlg );
     vol->dlg = NULL;
 
-    vol->tooltips = gtk_tooltips_new ();
-    g_object_ref_sink( vol->tooltips );
-
     /* FIXME: display current level in tooltip. ex: "Volume Control: 80%"  */
-    gtk_tooltips_set_tip (vol->tooltips, p, _("Volume control"), NULL);
+    gtk_widget_set_tooltip_text(p, _("Volume control"));
 
     RET(p);
 }
