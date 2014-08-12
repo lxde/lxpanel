@@ -134,22 +134,21 @@ static gboolean dclock_button_press_event(GtkWidget * widget, GdkEventButton * e
 }
 
 /* Set the timer. */
-static void dclock_timer_set(DClockPlugin * dc)
+static void dclock_timer_set(DClockPlugin * dc, struct timeval *current_time)
 {
     int milliseconds = 1000;
 
     /* Get current time to millisecond resolution. */
-    struct timeval current_time;
-    if (gettimeofday(&current_time, NULL) >= 0)
+    if (gettimeofday(current_time, NULL) >= 0)
     {
         /* Compute number of milliseconds until next second boundary. */
-        milliseconds = 1000 - (current_time.tv_usec / 1000);
+        milliseconds = 1000 - (current_time->tv_usec / 1000);
 
         /* If the expiration interval is the minute boundary,
          * add number of milliseconds after that until next minute boundary. */
         if (dc->expiration_interval == ONE_MINUTE_INTERVAL)
         {
-            time_t seconds = 60 - (current_time.tv_sec - (current_time.tv_sec / 60) * 60);
+            time_t seconds = 60 - (current_time->tv_sec - (current_time->tv_sec / 60) * 60);
             milliseconds += seconds * 1000;
         }
     }
@@ -165,14 +164,14 @@ static void dclock_timer_set(DClockPlugin * dc)
 static gboolean dclock_update_display(DClockPlugin * dc)
 {
     /* Determine the current time. */
-    time_t now;
+    struct timeval now;
     struct tm * current_time;
 
     if (g_source_is_destroyed(g_main_current_source()))
         return FALSE;
 
-    time(&now);
-    current_time = localtime(&now);
+    dclock_timer_set(dc, &now);
+    current_time = localtime(&now.tv_sec);
 
     /* Determine the content of the clock label and tooltip. */
     char clock_value[64];
@@ -278,7 +277,6 @@ static gboolean dclock_update_display(DClockPlugin * dc)
     }
 
     /* Reset the timer and return. */
-    dclock_timer_set(dc);
     return FALSE;
 }
 
@@ -365,6 +363,11 @@ static gboolean dclock_apply_configuration(gpointer user_data)
 {
     GtkWidget * p = user_data;
     DClockPlugin * dc = lxpanel_plugin_get_data(p);
+    struct timeval now;
+
+    /* stop the updater now */
+    if (dc->timer)
+        g_source_remove(dc->timer);
 
     /* Set up the icon or the label as the displayable widget. */
     if (dc->icon_only)
@@ -397,7 +400,7 @@ static gboolean dclock_apply_configuration(gpointer user_data)
     dc->experiment_count = 0;
     dc->prev_clock_value = NULL;
     dc->prev_tooltip_value = NULL;
-    dclock_timer_set(dc);
+    dclock_timer_set(dc, &now);
 
     /* Hide the calendar. */
     if (dc->calendar_window != NULL)
