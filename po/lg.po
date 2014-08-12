@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-27 08:58+0100\n"
-"PO-Revision-Date: 2013-08-28 11:46+0000\n"
-"Last-Translator: kizito <kbirabwa@yahoo.co.uk>\n"
+"PO-Revision-Date: 2014-08-11 20:40+0000\n"
+"Last-Translator:   <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Luganda <kbirabwa@yahoo.co.uk>\n"
 "Language: lg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1377690379.0\n"
+"X-Generator: Pootle 2.6.0-rc1\n"
+"X-POOTLE-MTIME: 1407789637.000000\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:55 ../src/gtk-run.c:361 ../src/plugins/menu.c:770
@@ -66,7 +66,7 @@ msgstr "_Noonya"
 
 #: ../src/panel.c:660
 msgid "There is no room for another panel. All the edges are taken."
-msgstr ""
+msgstr "Tewali wagenda lubaawo lulala. Buli ludda lw'olutimbe kuliko."
 
 #: ../src/panel.c:687
 msgid ""
@@ -83,16 +83,15 @@ msgstr "Kakasa"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:721
 msgid "translator-credits"
-msgstr "Kizito Birabwa <kbirabwa@yahoo.co.uk</b>"
+msgstr "Kizito Birabwa <kbirabwa@yahoo.co.uk>"
 
 #: ../src/panel.c:726
 msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:744
-#, fuzzy
 msgid "Copyright (C) 2008-2013"
-msgstr "Copyright (C) 2008-2011"
+msgstr "Buyinza bw'ebikugizo eby'obwa nannyini (C) 2008-2013"
 
 #: ../src/panel.c:745
 msgid "Desktop panel for LXDE project"
@@ -100,7 +99,7 @@ msgstr "Olubaawo olutuula awakolerwa olw'omu LXDE"
 
 #: ../src/panel.c:782
 msgid "Add / Remove Panel Items"
-msgstr "Yongerako oba gyako ebisangibwa ku lubaawo"
+msgstr "Yongerako / gyako ebisangibwa ku lubaawo"
 
 #: ../src/panel.c:791
 #, c-format
@@ -188,8 +187,9 @@ msgstr ""
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
-" --log <number> -- kano kategeka obungi bw'ebifa ku mulimu bye kiwandika. 0 "
-"- tekibaako bye kiwandika ate 5 - kiwandikawandika nnyo\n"
+" --log <number> -- kano kategeka obungi bw'ebifa ku mulimu bye kiwandika mu "
+"mitendera 0-5. Ku 0 - tekibaako bye kiwandika ate ku 5 - kiwandikawandika "
+"nnyo\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/panel.c:1434
@@ -223,12 +223,12 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"Okumanya ebisingawo, kyalira http://lxde.org/ .\n"
+"Kyalira http://lxde.org/ okumanya ebisingawo.\n"
 "\n"
 
 #: ../src/plugin.c:370
 msgid "No file manager is configured."
-msgstr ""
+msgstr "Kyetaagisa kutegekawo ekiteekateekafayiro."
 
 #: ../src/gtk-run.c:374
 msgid "Enter the command you want to execute:"
@@ -236,23 +236,20 @@ msgstr "Wandika ekiragiro kye wetaaga:"
 
 #. vim: set sw=4 et sts=4 ts=4 :
 #: ../data/ui/launchtaskbar.glade.h:1 ../src/plugins/launchtaskbar.c:3414
-#, fuzzy
 msgid "Application Launch and Task Bar"
-msgstr "Kabaawo ak'okutandika puloguramu"
+msgstr "Kabaawo k'emirimu n'okutandika puloguramu"
 
 #: ../data/ui/launchtaskbar.glade.h:2
-#, fuzzy
 msgid "<b>Mode:</b>"
-msgstr "<b>Obunene bwa lwo</b>"
+msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:3
 msgid "Launchers"
-msgstr ""
+msgstr "Matandikiro"
 
 #: ../data/ui/launchtaskbar.glade.h:4
-#, fuzzy
 msgid "<b>Launchbar</b>"
-msgstr "<b>Bwaliriro bwa lwo</b>"
+msgstr "<b>Kabaawo ka kutandika puloguramu</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:5
 msgid "Show tooltips"
@@ -273,6 +270,8 @@ msgstr "Eddirisa lirabikenga wonna w'okolera"
 #: ../data/ui/launchtaskbar.glade.h:9
 msgid "Only show windows on the same monitor as the task bar"
 msgstr ""
+"Madirisa agali ku lutimbe lwe lumu n'akabaawo k'emirimu gokka ge gaba "
+"galabika"
 
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Use mouse wheel"
@@ -295,24 +294,20 @@ msgid "Spacing"
 msgstr "Ebbanga eryawula mapeesa"
 
 #: ../data/ui/launchtaskbar.glade.h:15
-#, fuzzy
 msgid "<b>Taskbar</b>"
-msgstr "<b>Bwaliriro bwa lwo</b>"
+msgstr "<b>Kabaawo k'emirimu</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:16
-#, fuzzy
 msgid "Only Application Launch Bar"
-msgstr "Kabaawo ak'okutandika puloguramu"
+msgstr "Kabaawo ak'okutandika puloguramu kokka"
 
 #: ../data/ui/launchtaskbar.glade.h:17
-#, fuzzy
 msgid "Only Task Bar (Window List)"
-msgstr "Kabaawo k'emirimu (Lukalala lw'amadirisa agaliwo)"
+msgstr "Kabaawo k'emirimu (Lukalala lw'amadirisa agaliwo) kokka"
 
 #: ../data/ui/launchtaskbar.glade.h:18
-#, fuzzy
 msgid "Integrated Application Launch Bar and Task Bar"
-msgstr "Kabaawo ak'okutandika puloguramu"
+msgstr "Kabaawo akagatta kulaga mirimu n'okutandika puloguramu"
 
 #: ../data/ui/netstatus.glade.h:1
 msgid "<b>Connection</b>"
@@ -450,9 +445,8 @@ msgid "Margin:"
 msgstr "Gye lugwa lulekeyo akabanga ka:"
 
 #: ../data/ui/panel-pref.glade.h:19
-#, fuzzy
 msgid "Monitor:"
-msgstr "Ekirabiriza manda"
+msgstr "Labiriza:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "<b>Position</b>"
@@ -561,7 +555,8 @@ msgstr "Ekkomo ery'okunnyonyola okusangibwamu likooda y'emirimu gya lubaawo"
 
 #: ../data/ui/panel-pref.glade.h:48
 msgid "<b>Log level</b>"
-msgstr "Ekkomo ery'okunnyonyola okusangibwamu likooda y'emirimu gya lubaawo"
+msgstr ""
+"<b>Ekkomo ery'okunnyonyola okusangibwamu likooda y'emirimu gya lubaawo</b>"
 
 #: ../data/ui/panel-pref.glade.h:49
 msgid "Advanced"
@@ -577,7 +572,7 @@ msgstr "Laga okukulusana kw'ekitundu ekibazi"
 
 #: ../src/plugins/deskno/deskno.c:180 ../src/plugins/deskno/deskno.c:200
 msgid "Desktop Number / Workspace Name"
-msgstr "Namba y'awakolerwa /Linnya ly'awakolerwa"
+msgstr "Namba y'awakolerwa / Linnya ly'awakolerwa"
 
 #: ../src/plugins/deskno/deskno.c:182 ../src/plugins/dclock.c:429
 msgid "Bold font"
@@ -596,9 +591,8 @@ msgid "Display Image and Tooltip"
 msgstr "Walabikewo akafaananyi era wajjengawo amagezi"
 
 #: ../src/plugins/launchtaskbar.c:2450
-#, fuzzy
 msgid "_Close all windows"
-msgstr "_Ddirisa liggalewo"
+msgstr "_Gala madirisa gonna"
 
 #. Add Raise menu item.
 #: ../src/plugins/launchtaskbar.c:3243
@@ -647,16 +641,15 @@ msgstr "_Ddirisa liggalewo"
 
 #: ../src/plugins/launchtaskbar.c:3312
 msgid "A_dd to Launcher"
-msgstr ""
+msgstr "T_eeka ku tandikiro"
 
 #: ../src/plugins/launchtaskbar.c:3313
-#, fuzzy
 msgid "Rem_ove from Launcher"
-msgstr "Gya \"%s\" ku Lubaawo"
+msgstr "Gy_a ku tandikiro"
 
 #: ../src/plugins/launchtaskbar.c:3314
 msgid "_New Instance"
-msgstr ""
+msgstr "_Tandikawo omulimu guno omulala"
 
 #: ../src/plugins/launchtaskbar.c:3384
 msgid "Application Launch Bar"
@@ -679,9 +672,10 @@ msgstr ""
 "okugafunza, okugazingako n'okugasembeza kungulu"
 
 #: ../src/plugins/launchtaskbar.c:3415
-#, fuzzy
 msgid "Bar with buttons to launch application and/or show all opened windows"
-msgstr "Kabaawo akagendako mapeesa agatandika puloguramu"
+msgstr ""
+"Kabaawo akagendako mapeesa agatandika puloguramu n'agalaga madirisa "
+"agaggudwawo"
 
 #: ../src/plugins/dclock.c:423 ../src/plugins/dclock.c:443
 msgid "Digital Clock"
@@ -785,9 +779,8 @@ msgid "Description"
 msgstr "Okunnyonyola"
 
 #: ../src/plugins/xkb/xkb-plugin.c:656 ../src/plugins/xkb/xkb-plugin.c:785
-#, fuzzy
 msgid "Id"
-msgstr "Tewali biyita"
+msgstr "Obumanye"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:750
@@ -881,7 +874,7 @@ msgstr "Funza madirisa gonna"
 #: ../src/plugins/wincmd.c:229
 msgid "Alternately iconify/shade and raise"
 msgstr ""
-"Okuddiŋana kuleetere eddirisa okufunzibwa/ kuzingibwako n'okuzzibwa ku ngulu"
+"Okuddiŋana kuleetere eddirisa okufunzibwa/kuzingibwako n'okuzzibwa ku ngulu"
 
 #: ../src/plugins/wincmd.c:246
 msgid ""
@@ -908,9 +901,8 @@ msgid "Label"
 msgstr "Bulambe"
 
 #: ../src/plugins/dirmenu.c:378
-#, fuzzy
 msgid "Browse directory tree via menu (Author = PCMan)"
-msgstr "Menyu ekuyamba okunoonyeza mu materekero (Yakolebwa: PCMan)"
+msgstr "Menyu ekuyamba okunoonyeza mu materekero (Eyagikola = PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:480
 msgid "Normal"
@@ -958,14 +950,18 @@ msgid ""
 "Frequency: %d MHz\n"
 "Governor: %s"
 msgstr ""
+"Bwangu: MHz %d\n"
+"Puloguramu efuga obwangu: %s"
 
 #: ../src/plugins/cpufreq/cpufreq.c:421
 msgid "CPUFreq frontend"
-msgstr ""
+msgstr "Puloguramu efuga CPUFreq"
 
 #: ../src/plugins/cpufreq/cpufreq.c:422
 msgid "Display CPU frequency and allow to change governors and frequency"
 msgstr ""
+"Kino kikulaga obwangu ekitundu kibazi kwekikolera era ne kikusobozesa "
+"okubukyusa n'okukyusa puloguramu ebufuga"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -1398,9 +1394,8 @@ msgid "Cannot open /proc/net/dev: %s"
 msgstr "Nnemedwa kubikkula /proc/net/dev: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:185
-#, fuzzy
 msgid "Could not parse /proc/net/dev. No data."
-msgstr "Nnemedwa okukebera /proc/net/dev. Empandika ya mu sigitegeera."
+msgstr "Nnemedwa okuyungulula makulu mu /proc/net/dev. Tewali bikeberwa."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:190
 msgid "Could not parse /proc/net/dev. Unknown format."
@@ -1423,9 +1418,8 @@ msgstr ""
 "ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:312
-#, fuzzy
 msgid "Could not parse /proc/net/wireless. No data."
-msgstr "Nnemedwa okukebera /proc/net/wireless. Emepandika ya mu sigitegeera."
+msgstr "Nnemedwa okuyungulula makulu mu /proc/net/wireless. Tewali bikeberwa."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:316
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1482,12 +1476,12 @@ msgstr "Kusindika/Kufuna"
 #: ../src/plugins/batt/batt.c:151
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
-msgstr "Amanda: Gatuuse ku %d%%, ebulayo %d:%02d gajjule"
+msgstr "Amanda: gatuuse ku %d%%, ebulayo %d:%02d gajjule"
 
 #: ../src/plugins/batt/batt.c:162
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
-msgstr "Amanda: Gatuuse ku %d%%; ebulayo %d:%02d gaggwemu"
+msgstr "Amanda: gatuuse ku %d%%; ebulayo %d:%02d gaggwemu"
 
 #: ../src/plugins/batt/batt.c:168
 #, c-format
@@ -1500,6 +1494,8 @@ msgid ""
 "\n"
 "%sEnergy full design:\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sObungi b'wamasanyalaze eryanda ge lyakolebwa okutereka:\t\t%5d mWh"
 
 #: ../src/plugins/batt/batt.c:180
 #, c-format
@@ -1507,6 +1503,8 @@ msgid ""
 "\n"
 "%sEnergy full:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sBungi bw'amasanyalaze agaterekedwa:\t\t\t%5d mWh"
 
 #: ../src/plugins/batt/batt.c:182
 #, c-format
@@ -1514,6 +1512,8 @@ msgid ""
 "\n"
 "%sEnergy now:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sBungi bw'amasanyalaze agasigaddemu:\t\t\t%5d mWh"
 
 #: ../src/plugins/batt/batt.c:184
 #, c-format
@@ -1521,6 +1521,8 @@ msgid ""
 "\n"
 "%sPower now:\t\t\t%5d mW"
 msgstr ""
+"\n"
+"%sMaanyi kwegakolera kaakano:\t\t\t%5d mW"
 
 #: ../src/plugins/batt/batt.c:187
 #, c-format
@@ -1528,6 +1530,8 @@ msgid ""
 "\n"
 "%sCharge full design:\t%5d mAh"
 msgstr ""
+"\n"
+"%sObungi b'wamasanyalaze eryanda ge lyakolebwa okutereka:\t%5d mAh"
 
 #: ../src/plugins/batt/batt.c:189
 #, c-format
@@ -1535,6 +1539,8 @@ msgid ""
 "\n"
 "%sCharge full:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sBungi bw'amasanyalaze agaterekedwa:\t\t\t%5d mAh"
 
 #: ../src/plugins/batt/batt.c:191
 #, c-format
@@ -1542,6 +1548,8 @@ msgid ""
 "\n"
 "%sCharge now:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sBungi bw'amasanyalaze agasigaddemu:\t\t\t%5d mAh"
 
 #: ../src/plugins/batt/batt.c:193
 #, c-format
@@ -1549,6 +1557,8 @@ msgid ""
 "\n"
 "%sCurrent now:\t\t\t%5d mA"
 msgstr ""
+"\n"
+"%sObwangu kwegakozesebwa kaakano:\t\t\t%5d mA"
 
 #: ../src/plugins/batt/batt.c:196
 #, c-format
@@ -1556,6 +1566,8 @@ msgid ""
 "\n"
 "%sCurrent Voltage:\t\t%.3lf V"
 msgstr ""
+"\n"
+"%sEryanyi ly'amasanyalaze kaakano:\t\t%.3lf V"
 
 #: ../src/plugins/batt/batt.c:234
 msgid "No batteries found"
@@ -1603,7 +1615,7 @@ msgstr "Buggumivu bw'olukoboze olwetoolola njegoyego"
 
 #: ../src/plugins/batt/batt.c:633
 msgid "Show Extended Information"
-msgstr ""
+msgstr "Birage mu bujjuvu"
 
 #: ../src/plugins/batt/batt.c:643
 msgid "Display battery status using ACPI"
@@ -1702,16 +1714,15 @@ msgstr "Laga ebirabiriza (ekitundu ekibazi ne RAM)"
 
 #: ../src/plugins/weather/weatherwidget.c:50
 msgid "[N/A]"
-msgstr ""
+msgstr "[T/W]"
 
 #: ../src/plugins/weather/weatherwidget.c:784
 msgid "Enter New Location"
-msgstr ""
+msgstr "Tegeka kifo kipya"
 
 #: ../src/plugins/weather/weatherwidget.c:798
-#, fuzzy
 msgid "_New Location:"
-msgstr "Mukutu gwa kayungirizi"
+msgstr "_Kifo Kipya:"
 
 #: ../src/plugins/weather/weatherwidget.c:809
 msgid ""
@@ -1721,196 +1732,192 @@ msgid ""
 "- postal code\n"
 "for which to retrieve the weather forecast."
 msgstr ""
+"Wandika:\n"
+"- kibuga, oba\n"
+"- kibuga n'eggwanga/nsi, oba\n"
+"- namba za posita\n"
+"gy'oyagala okumanya ebifa ku mbeera y'obudde."
 
 #: ../src/plugins/weather/weatherwidget.c:846
 #: ../src/plugins/weather/weatherwidget.c:979
 msgid "You must specify a location."
-msgstr ""
+msgstr "kyetaagisa olage ekifo."
 
 #: ../src/plugins/weather/weatherwidget.c:893
 #, c-format
 msgid "Location '%s' not found!"
-msgstr ""
+msgstr "Ekifo '%s' kimbuze!"
 
 #: ../src/plugins/weather/weatherwidget.c:1051
-#, fuzzy
 msgid "Preferences"
-msgstr "Enteekateeka ya lubaawo"
+msgstr "Enteekateeka"
 
 #: ../src/plugins/weather/weatherwidget.c:1057
 msgid "Refresh"
-msgstr ""
+msgstr "Damu okukebera"
 
 #: ../src/plugins/weather/weatherwidget.c:1063
 msgid "Quit"
-msgstr ""
+msgstr "Mala"
 
 #: ../src/plugins/weather/weatherwidget.c:1160
-#, fuzzy
 msgid "Weather Preferences"
-msgstr "Enteekateeka ya lubaawo"
+msgstr "Nteekateeka y'eby'okukebera eby'embeera y'obudde"
 
 #: ../src/plugins/weather/weatherwidget.c:1174
-#, fuzzy
 msgid "Current Location"
-msgstr "Entereera"
+msgstr "Ekifo ekitegekedwa kakati"
 
 #: ../src/plugins/weather/weatherwidget.c:1178
 #: ../src/plugins/weather/weatherwidget.c:1475
-#, fuzzy
 msgid "None configured"
-msgstr "En_teekateeka"
+msgstr "Tewali kitegekedwa"
 
 #: ../src/plugins/weather/weatherwidget.c:1180
 #: ../src/plugins/weather/weatherwidget.c:1472
 msgid "_Set"
-msgstr ""
+msgstr "_Tegeka"
 
 #: ../src/plugins/weather/weatherwidget.c:1201
 msgid "Display"
 msgstr ""
 
 #: ../src/plugins/weather/weatherwidget.c:1205
-#, fuzzy
 msgid "Name:"
-msgstr "_Linnya:"
+msgstr "Linnya:"
 
 #: ../src/plugins/weather/weatherwidget.c:1209
 msgid "Units:"
-msgstr ""
+msgstr "Bipimo:"
 
 #: ../src/plugins/weather/weatherwidget.c:1213
 msgid "_Metric (°C)"
-msgstr ""
+msgstr "_Meturici (°C)"
 
 #: ../src/plugins/weather/weatherwidget.c:1215
 msgid "_English (°F)"
-msgstr ""
+msgstr "_Kingereza (°F)"
 
 #: ../src/plugins/weather/weatherwidget.c:1250
 msgid "Forecast"
-msgstr ""
+msgstr "Ebisuubirwa"
 
 #: ../src/plugins/weather/weatherwidget.c:1254
 msgid "Updates:"
-msgstr ""
+msgstr "Ngeri ya kukebera ebijja:"
 
 #: ../src/plugins/weather/weatherwidget.c:1258
 msgid "Ma_nual"
-msgstr ""
+msgstr "Gira_girenga okukebera"
 
 #: ../src/plugins/weather/weatherwidget.c:1262
 msgid "_Automatic, every"
-msgstr ""
+msgstr "_Yelagirenga okubera ebijja, oluvanyuma lwa buli"
 
 #: ../src/plugins/weather/weatherwidget.c:1278
 msgid "minutes"
-msgstr ""
+msgstr "ddakiika"
 
 #: ../src/plugins/weather/weatherwidget.c:1287
 msgid "Source:"
-msgstr ""
+msgstr "Ennono:"
 
 #: ../src/plugins/weather/weatherwidget.c:1428
-#, fuzzy
 msgid "C_hange"
-msgstr "Kyusa ekika"
+msgstr "K_yusa"
 
 #. Both are available
 #: ../src/plugins/weather/weatherwidget.c:1519
 #, c-format
 msgid "Current Conditions for %s"
-msgstr ""
+msgstr "Embeera y'obudde e %s"
 
 #: ../src/plugins/weather/weatherwidget.c:1543
 msgid "Location:"
-msgstr ""
+msgstr "Kifo:"
 
 #: ../src/plugins/weather/weatherwidget.c:1566
 msgid "Last updated:"
-msgstr ""
+msgstr "Ebijja byasemba kukeberwa nga:"
 
 #: ../src/plugins/weather/weatherwidget.c:1593
 msgid "Feels like:"
-msgstr ""
+msgstr "Buwulirika nga:"
 
 #: ../src/plugins/weather/weatherwidget.c:1618
 msgid "Humidity:"
-msgstr ""
+msgstr "Lubugumu:"
 
 #: ../src/plugins/weather/weatherwidget.c:1645
-#, fuzzy
 msgid "Pressure:"
-msgstr "Endagiriro eya IP:"
+msgstr "Erikkatizi:"
 
 #: ../src/plugins/weather/weatherwidget.c:1672
 msgid "Visibility:"
-msgstr ""
+msgstr "Okulaba:"
 
 #: ../src/plugins/weather/weatherwidget.c:1700
 msgid "Wind:"
-msgstr ""
+msgstr "Mbuyaga:"
 
 #: ../src/plugins/weather/weatherwidget.c:1723
 msgid "Sunrise:"
-msgstr ""
+msgstr "Njuba kuva yo:"
 
 #: ../src/plugins/weather/weatherwidget.c:1746
 msgid "Sunset:"
-msgstr ""
+msgstr "Njuba kubulirayo:"
 
 #: ../src/plugins/weather/weatherwidget.c:1854
 #: ../src/plugins/weather/weatherwidget.c:2190
 #, c-format
 msgid "Forecast for %s unavailable."
-msgstr ""
+msgstr "Eby'e %s tebifunise."
 
 #: ../src/plugins/weather/weatherwidget.c:1863
 #: ../src/plugins/weather/weatherwidget.c:2195
-#, fuzzy, c-format
+#, c-format
 msgid "Location not set."
-msgstr "Totegese kiragiro ekikomya olutuula"
+msgstr "Totegese kifo."
 
 #: ../src/plugins/weather/weatherwidget.c:1880
 #, c-format
 msgid "Searching for '%s'..."
-msgstr ""
+msgstr "Nnoonya eby'e '%s'..."
 
 #: ../src/plugins/weather/weatherwidget.c:2006
 #, c-format
 msgid "Location matches for '%s'"
-msgstr ""
+msgstr "Ebifo ebiyinza okuba '%s'"
 
 #: ../src/plugins/weather/weatherwidget.c:2026
 msgid "City"
-msgstr ""
+msgstr "Kibuga"
 
 #: ../src/plugins/weather/weatherwidget.c:2046
 msgid "Country"
-msgstr ""
+msgstr "Nsi"
 
 #. make it nice and pretty
 #: ../src/plugins/weather/weatherwidget.c:2177
-#, fuzzy
 msgid "Currently in "
-msgstr "Ebyongerwako ebikola kakano"
+msgstr "Kaakano e "
 
 #: ../src/plugins/weather/weatherwidget.c:2179
 msgid "Today: "
-msgstr ""
+msgstr "Olwaleero: "
 
 #: ../src/plugins/weather/weatherwidget.c:2180
 msgid "Tomorrow: "
-msgstr ""
+msgstr "Nkya: "
 
 #: ../src/plugins/weather/weather.c:285
-#, fuzzy
 msgid "Weather Plugin"
-msgstr "Ekyongerwako kya WNCKpager"
+msgstr "Ekyongerwako eky'eby'embeera y'obudde"
 
 #: ../src/plugins/weather/weather.c:287
 msgid "Show weather conditions for a location."
-msgstr ""
+msgstr "Kikulaga ebifa ku mbeera y'obudde mu kifo ky'oba olonze."
 
 #~ msgid "Model"
 #~ msgstr "Kika"
