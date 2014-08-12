@@ -678,8 +678,29 @@ static void ah_state_set(Panel *p, PanelAHState ah_state)
             p->visible = FALSE;
         }
     } else if (p->autohide && p->ah_far) {
-        if (ah_state == AH_STATE_VISIBLE)
+        switch (ah_state) {
+        case AH_STATE_VISIBLE:
             ah_state_set(p, AH_STATE_WAITING);
+            break;
+        case AH_STATE_WAITING:
+            break;
+        case AH_STATE_HIDDEN:
+            /* configurator might change height_when_hidden value */
+            if (p->height_when_hidden > 0)
+            {
+                if (gtk_widget_get_visible(p->box))
+                {
+                    gtk_widget_hide(p->box);
+                    gtk_widget_show(p->topgwin);
+                }
+            }
+            else
+                if (gtk_widget_get_visible(p->topgwin))
+                {
+                    gtk_widget_hide(p->topgwin);
+                    gtk_widget_show(p->box);
+                }
+        }
     } else {
         switch (ah_state) {
         case AH_STATE_VISIBLE:
@@ -702,7 +723,6 @@ static void ah_start(Panel *p)
     ENTER;
     if (!p->mouse_timeout)
         p->mouse_timeout = g_timeout_add(PERIOD, (GSourceFunc) mouse_watch, p);
-    ah_state_set(p, AH_STATE_VISIBLE);
     RET();
 }
 
