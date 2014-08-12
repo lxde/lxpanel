@@ -101,8 +101,11 @@ struct _Panel {
 
     guint autohide : 1;
     guint visible : 1;
+    guint ah_far : 1;
+    guint ah_state : 3;
     int height_when_hidden;
     guint hide_timeout;
+    guint mouse_timeout;
     int icon_size;			/* Icon size */
 
     int desknum;

@@ -150,6 +150,17 @@ void panel_set_wm_strut(Panel *p)
     gulong strut_lower;
     gulong strut_upper;
 
+#if GTK_CHECK_VERSION(2, 20, 0)
+    if (!gtk_widget_get_mapped(p->topgwin))
+#else
+    if (!GTK_WIDGET_MAPPED(p->topgwin))
+#endif
+        return;
+    /* most wm's tend to ignore struts of unmapped windows, and that's how
+     * lxpanel hides itself. so no reason to set it. */
+    if (p->autohide && p->height_when_hidden <= 0)
+        return;
+
     /* Dispatch on edge to set up strut parameters. */
     switch (p->edge)
     {
@@ -203,12 +214,7 @@ void panel_set_wm_strut(Panel *p)
 
     /* If strut value changed, set the property value on the panel window.
      * This avoids property change traffic when the panel layout is recalculated but strut geometry hasn't changed. */
-#if GTK_CHECK_VERSION(2, 20, 0)
-    if ((gtk_widget_get_mapped(p->topgwin))
-#else
-    if ((GTK_WIDGET_MAPPED(p->topgwin))
-#endif
-    && ((p->strut_size != strut_size) || (p->strut_lower != strut_lower) || (p->strut_upper != strut_upper) || (p->strut_edge != p->edge)))
+    if ((p->strut_size != strut_size) || (p->strut_lower != strut_lower) || (p->strut_upper != strut_upper) || (p->strut_edge != p->edge))
     {
         p->strut_size = strut_size;
         p->strut_lower = strut_lower;
@@ -503,7 +509,7 @@ panel_size_req(GtkWidget *widget, GtkRequisition *req, Panel *p)
 {
     ENTER;
 
-    if (p->autohide && !p->visible)
+    if (!p->visible)
         /* When the panel is in invisible state, the content box also got hidden, thus always
          * report 0 size.  Ask the content box instead for its size. */
         gtk_widget_size_request(p->box, req);
@@ -555,6 +561,176 @@ panel_configure_event (GtkWidget *widget, GdkEventConfigure *e, Panel *p)
 
     RET(FALSE);
 }
+
+/****************************************************
+ *         autohide : borrowed from fbpanel         *
+ ****************************************************/
+
+/* Autohide is behaviour when panel hides itself when mouse is "far enough"
+ * and pops up again when mouse comes "close enough".
+ * Formally, it's a state machine with 3 states that driven by mouse
+ * coordinates and timer:
+ * 1. VISIBLE - ensures that panel is visible. When/if mouse goes "far enough"
+ *      switches to WAITING state
+ * 2. WAITING - starts timer. If mouse comes "close enough", stops timer and
+ *      switches to VISIBLE.  If timer expires, switches to HIDDEN
+ * 3. HIDDEN - hides panel. When mouse comes "close enough" switches to VISIBLE
+ *
+ * Note 1
+ * Mouse coordinates are queried every PERIOD milisec
+ *
+ * Note 2
+ * If mouse is less then GAP pixels to panel it's considered to be close,
+ * otherwise it's far
+ */
+
+#define GAP 2
+#define PERIOD 300
+
+typedef enum
+{
+    AH_STATE_VISIBLE,
+    AH_STATE_WAITING,
+    AH_STATE_HIDDEN
+} PanelAHState;
+
+static void ah_state_set(Panel *p, PanelAHState ah_state);
+
+static gboolean
+mouse_watch(Panel *p)
+{
+    gint x, y;
+
+    if (g_source_is_destroyed(g_main_current_source()))
+        return FALSE;
+
+    ENTER;
+    gdk_display_get_pointer(gdk_display_get_default(), NULL, &x, &y, NULL);
+
+/*  Reduce sensitivity area
+    p->ah_far = ((x < p->cx - GAP) || (x > p->cx + p->cw + GAP)
+        || (y < p->cy - GAP) || (y > p->cy + p->ch + GAP));
+*/
+
+    gint cx, cy, cw, ch, gap;
+
+    cx = p->cx;
+    cy = p->cy;
+    cw = p->aw;
+    ch = p->ah;
+
+    /* reduce area which will raise panel so it does not interfere with apps */
+    if (p->ah_state == AH_STATE_HIDDEN) {
+        gap = MAX(p->height_when_hidden, GAP);
+        switch (p->edge) {
+        case EDGE_LEFT:
+            cw = gap;
+            break;
+        case EDGE_RIGHT:
+            cx = cx + cw - gap;
+            cw = gap;
+            break;
+        case EDGE_TOP:
+            ch = gap;
+            break;
+        case EDGE_BOTTOM:
+            cy = cy + ch - gap;
+            ch = gap;
+            break;
+       }
+    }
+    p->ah_far = ((x < cx) || (x > cx + cw) || (y < cy) || (y > cy + ch));
+
+    ah_state_set(p, p->ah_state);
+    RET(TRUE);
+}
+
+static gboolean ah_state_hide_timeout(gpointer p)
+{
+    if (!g_source_is_destroyed(g_main_current_source()))
+    {
+        ah_state_set(p, AH_STATE_HIDDEN);
+        ((Panel *)p)->hide_timeout = 0;
+    }
+    return FALSE;
+}
+
+static void ah_state_set(Panel *p, PanelAHState ah_state)
+{
+    ENTER;
+    if (p->ah_state != ah_state) {
+        p->ah_state = ah_state;
+        switch (ah_state) {
+        case AH_STATE_VISIBLE:
+            gtk_widget_show(p->topgwin);
+            gtk_widget_show(p->box);
+            gtk_window_stick(GTK_WINDOW(p->topgwin));
+            p->visible = TRUE;
+            break;
+        case AH_STATE_WAITING:
+            p->hide_timeout = g_timeout_add(2 * PERIOD, ah_state_hide_timeout, p);
+            break;
+        case AH_STATE_HIDDEN:
+            if (p->height_when_hidden > 0)
+                gtk_widget_hide(p->box);
+            else
+                gtk_widget_hide(p->topgwin);
+            p->visible = FALSE;
+        }
+    } else if (p->autohide && p->ah_far) {
+        if (ah_state == AH_STATE_VISIBLE)
+            ah_state_set(p, AH_STATE_WAITING);
+    } else {
+        switch (ah_state) {
+        case AH_STATE_VISIBLE:
+            break;
+        case AH_STATE_WAITING:
+            if (p->hide_timeout)
+                g_source_remove(p->hide_timeout);
+            p->hide_timeout = 0;
+            /* continue with setting visible */
+        case AH_STATE_HIDDEN:
+            ah_state_set(p, AH_STATE_VISIBLE);
+        }
+    }
+    RET();
+}
+
+/* starts autohide behaviour */
+static void ah_start(Panel *p)
+{
+    ENTER;
+    if (!p->mouse_timeout)
+        p->mouse_timeout = g_timeout_add(PERIOD, (GSourceFunc) mouse_watch, p);
+    ah_state_set(p, AH_STATE_VISIBLE);
+    RET();
+}
+
+/* stops autohide */
+static void ah_stop(Panel *p)
+{
+    ENTER;
+    if (p->mouse_timeout) {
+        g_source_remove(p->mouse_timeout);
+        p->mouse_timeout = 0;
+    }
+    if (p->hide_timeout) {
+        g_source_remove(p->hide_timeout);
+        p->hide_timeout = 0;
+    }
+    RET();
+}
+
+static gboolean
+panel_map_event(GtkWidget *widget, GdkEvent *event, Panel *p)
+{
+    ENTER;
+    if (p->autohide)
+        ah_start(p);
+    RET(FALSE);
+}
+/* end of the autohide code
+ * ------------------------------------------------------------- */
 
 static gint
 panel_popupmenu_configure(GtkWidget *widget, gpointer user_data)
@@ -910,86 +1086,14 @@ void panel_set_dock_type(Panel *p)
     }
 }
 
-static void panel_set_visibility(Panel *p, gboolean visible)
-{
-    if ( ! visible) gtk_widget_hide(p->box);
-    p->visible = visible;
-    calculate_position(p);
-    gtk_widget_set_size_request(p->topgwin, p->aw, p->ah);
-    gdk_window_move(gtk_widget_get_window(p->topgwin), p->ax, p->ay);
-    if (visible) gtk_widget_show(p->box);
-    panel_set_wm_strut(p);
-}
-
-static gboolean panel_leave_real(Panel *p)
-{
-    /* If the pointer is grabbed by this application, leave the panel displayed.
-     * There is no way to determine if it is grabbed by another application, such as an application that has a systray icon. */
-    if (gdk_display_pointer_is_grabbed(p->display))
-        return TRUE;
-
-    /* If the pointer is inside the panel, leave the panel displayed. */
-    gint x, y;
-    gdk_display_get_pointer(p->display, NULL, &x, &y, NULL);
-    if ((p->cx <= x) && (x <= (p->cx + p->cw)) && (p->cy <= y) && (y <= (p->cy + p->ch)))
-        return TRUE;
-
-    /* If the panel is configured to autohide and if it is visible, hide the panel. */
-    if ((p->autohide) && (p->visible))
-        panel_set_visibility(p, FALSE);
-
-    /* Clear the timer. */
-    p->hide_timeout = 0;
-    return FALSE;
-}
-
-static gboolean panel_enter(GtkImage *widget, GdkEventCrossing *event, Panel *p)
-{
-    /* We may receive multiple enter-notify events when the pointer crosses into the panel.
-     * Do extra tests to make sure this does not cause misoperation such as blinking.
-     * If the pointer is inside the panel, unhide it. */
-    gint x, y;
-    gdk_display_get_pointer(p->display, NULL, &x, &y, NULL);
-    if ((p->cx <= x) && (x <= (p->cx + p->cw)) && (p->cy <= y) && (y <= (p->cy + p->ch)))
-    {
-        /* If the pointer is inside the panel and we have not already unhidden it, do so and
-         * set a timer to recheck it in a half second. */
-        if (p->hide_timeout == 0)
-        {
-            p->hide_timeout = g_timeout_add(500, (GSourceFunc) panel_leave_real, p);
-            panel_set_visibility(p, TRUE);
-        }
-    }
-    else
-    {
-        /* If the pointer is not inside the panel, simulate a timer expiration. */
-        panel_leave_real(p);
-    }
-    return TRUE;
-}
-
-static gboolean panel_drag_motion(GtkWidget *widget, GdkDragContext *drag_context, gint x,
-      gint y, guint time, Panel *p)
-{
-    panel_enter(NULL, NULL, p);
-    return TRUE;
-}
-
 void panel_establish_autohide(Panel *p)
 {
     if (p->autohide)
+        ah_start(p);
+    else
     {
-        gtk_widget_add_events(p->topgwin, GDK_ENTER_NOTIFY_MASK | GDK_LEAVE_NOTIFY_MASK);
-        g_signal_connect(G_OBJECT(p->topgwin), "enter-notify-event", G_CALLBACK(panel_enter), p);
-        g_signal_connect(G_OBJECT(p->topgwin), "drag-motion", (GCallback) panel_drag_motion, p);
-        gtk_drag_dest_set(p->topgwin, GTK_DEST_DEFAULT_MOTION, NULL, 0, 0);
-        gtk_drag_dest_set_track_motion(p->topgwin, TRUE);
-        panel_enter(NULL, NULL, p);
-    }
-    else if ( ! p->visible)
-    {
-    gtk_widget_show(p->box);
-        p->visible = TRUE;
+        ah_stop(p);
+        ah_state_set(p, AH_STATE_VISIBLE);
     }
 }
 
@@ -1055,6 +1159,8 @@ panel_start_gui(Panel *p)
           (GCallback) panel_size_alloc, p);
     g_signal_connect (G_OBJECT (p->topgwin), "configure-event",
           (GCallback) panel_configure_event, p);
+    g_signal_connect(G_OBJECT(p->topgwin), "map-event",
+          G_CALLBACK(panel_map_event), p);
 
     gtk_widget_add_events( p->topgwin, GDK_BUTTON_PRESS_MASK );
     g_signal_connect(G_OBJECT (p->topgwin), "button-press-event",
@@ -1303,8 +1409,8 @@ panel_parse_global(Panel *p, config_setting_t *cfg)
     }
     if (config_setting_lookup_int(cfg, "autohide", &i))
         p->autohide = i != 0;
-    if (config_setting_lookup_int(cfg, "heightwhenhidden", &i) && i >= 2)
-        p->height_when_hidden = i;
+    if (config_setting_lookup_int(cfg, "heightwhenhidden", &i))
+        p->height_when_hidden = MAX(0, i);
     if (config_setting_lookup_string(cfg, "tintcolor", &str))
     {
         if (!gdk_color_parse (str, &p->gtintcolor))
@@ -1391,6 +1497,8 @@ void panel_destroy(Panel *p)
     Display *xdisplay = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
     ENTER;
 
+    if (p->autohide)
+        ah_stop(p);
     if (p->pref_dialog != NULL)
         gtk_widget_destroy(p->pref_dialog);
     if (p->plugin_pref_dialog != NULL)
