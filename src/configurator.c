@@ -1595,6 +1595,7 @@ static void save_global_config()
             fprintf( f, "Logout=%s\n", logout_cmd );
         fclose( f );
     }
+    g_free(file);
 }
 
 void free_global_config()
