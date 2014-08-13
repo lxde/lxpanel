@@ -1388,6 +1388,9 @@ void panel_set_panel_configuration_changed(Panel *p)
             init->reconfigure(p, w);
     }
     g_list_free(plugins);
+    /* panel geometry changed? update panel background then */
+    g_idle_add_full( G_PRIORITY_LOW,
+                    (GSourceFunc)delay_update_background, p, NULL );
 }
 
 static int
