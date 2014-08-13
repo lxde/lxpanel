@@ -249,17 +249,17 @@ static GtkWidget *xkb_constructor(Panel *panel, config_setting_t *settings)
     if (config_setting_lookup_int(settings, "NoResetOpt", &tmp_int))
         p_xkb->do_not_reset_opt = tmp_int != 0;
     if (config_setting_lookup_int(settings, "KeepSysLayouts", &tmp_int))
-        p_xkb->do_not_reset_opt = tmp_int != 0;
+        p_xkb->keep_system_layouts = tmp_int != 0;
     if (config_setting_lookup_string(settings, "Model", &tmp))
         p_xkb->kbd_model = g_strdup(tmp);
     if (config_setting_lookup_string(settings, "LayoutsList", &tmp))
-        p_xkb->kbd_model = g_strdup(tmp);
+        p_xkb->kbd_layouts = g_strdup(tmp);
     if (config_setting_lookup_string(settings, "VariantsList", &tmp))
-        p_xkb->kbd_model = g_strdup(tmp);
+        p_xkb->kbd_variants = g_strdup(tmp);
     if (config_setting_lookup_string(settings, "ToggleOpt", &tmp))
-        p_xkb->kbd_model = g_strdup(tmp);
+        p_xkb->kbd_change_option = g_strdup(tmp);
     if (config_setting_lookup_string(settings, "AdvancedOpt", &tmp))
-        p_xkb->kbd_model = g_strdup(tmp);
+        p_xkb->kbd_advanced_options = g_strdup(tmp);
     config_setting_lookup_int(settings, "FlagSize", &p_xkb->flag_size);
 
     /* Allocate top level widget and set into Plugin widget pointer. */
@@ -281,7 +281,7 @@ static GtkWidget *xkb_constructor(Panel *panel, config_setting_t *settings)
     p_xkb->p_image = gtk_image_new();
     gtk_container_add(GTK_CONTAINER(hbox), p_xkb->p_image);
 
-    /* Chech for first run */
+    /* Check for first run */
     if( (p_xkb->kbd_model == NULL) || (p_xkb->kbd_layouts == NULL) ||
         (p_xkb->kbd_variants == NULL) || (p_xkb->kbd_change_option == NULL) )
     {
