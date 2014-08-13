@@ -150,7 +150,7 @@ static void client_delete(TrayPlugin * tr, TrayClient * tc, gboolean unlink, gbo
 
     /* Remove the socket from the icon grid. */
     if (remove)
-        gtk_container_remove(GTK_CONTAINER(tr->plugin), tc->socket);
+        gtk_widget_destroy(tc->socket);
 
     /* Deallocate the client structure. */
     g_free(tc);
@@ -431,18 +431,6 @@ static void trayclient_request_dock(TrayPlugin * tr, XClientMessageEvent * xeven
     /* Allocate a socket.  This is the tray side of the Xembed connection. */
     tc->socket = gtk_socket_new();
 
-    /* Link the client structure into the client list. */
-    if (tc_pred == NULL)
-    {
-        tc->client_flink = tr->client_list;
-        tr->client_list = tc;
-    }
-    else
-    {
-        tc->client_flink = tc_pred->client_flink;
-        tc_pred->client_flink = tc;
-    }
-
     /* Add the socket to the icon grid. */
     gtk_container_add(GTK_CONTAINER(tr->plugin), tc->socket);
     gtk_widget_show(tc->socket);
@@ -454,8 +442,21 @@ static void trayclient_request_dock(TrayPlugin * tr, XClientMessageEvent * xeven
     /* Checks if the plug has been created inside of the socket. */
     if (gtk_socket_get_plug_window ( GTK_SOCKET(tc->socket) ) == NULL) {
         //fprintf(stderr, "Notice: removing plug %ud\n", tc->window );
-        gtk_container_remove(GTK_CONTAINER(tr->plugin), tc->socket);
+        gtk_widget_destroy(tc->socket);
+        g_free(tc);
         return;
+    }
+
+    /* Link the client structure into the client list. */
+    if (tc_pred == NULL)
+    {
+        tc->client_flink = tr->client_list;
+        tr->client_list = tc;
+    }
+    else
+    {
+        tc->client_flink = tc_pred->client_flink;
+        tc_pred->client_flink = tc;
     }
 }
 
@@ -662,7 +663,7 @@ static void tray_destructor(gpointer user_data)
     while (tr->messages != NULL)
         balloon_message_advance(tr, TRUE, FALSE);
 
-    /* Deallocate client list. */
+    /* Deallocate client list - widgets are already destroyed. */
     while (tr->client_list != NULL)
         client_delete(tr, tr->client_list, TRUE, FALSE);
 

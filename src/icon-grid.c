@@ -258,6 +258,9 @@ static void panel_icon_grid_remove(GtkContainer *container, GtkWidget *widget)
             gboolean was_visible = gtk_widget_get_visible(widget);
 
             /* The child is found.  Remove from child list and layout container. */
+            g_signal_handlers_disconnect_by_func(widget,
+                                                 icon_grid_element_size_request,
+                                                 container);
             gtk_widget_unparent (widget);
             ig->children = g_list_remove_link(ig->children, children);
             g_list_free(children);

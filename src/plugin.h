@@ -111,7 +111,7 @@ extern GQuark lxpanel_plugin_qdata; /* access to plugin private data */
  * Attaches data to the widget instance. The @_destructor callback will
  * be called on @_data when @_i is destroyed and therefore it should free
  * any allocated data. The instance widget at that moment is already not
- * available to use in any way so not rely on it.
+ * available to use in any way so not rely on it or its children.
  */
 #define lxpanel_plugin_set_data(_i,_data,_destructor) g_object_set_qdata_full(G_OBJECT(_i),lxpanel_plugin_qdata,_data,_destructor)
 

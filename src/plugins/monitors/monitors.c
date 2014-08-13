@@ -751,7 +751,7 @@ start:
         else if (!mp->displayed_monitors[i] && mp->monitors[i])
         {
             /* We've just removed monitor<i> */
-            gtk_container_remove(GTK_CONTAINER(p), mp->monitors[i]->da);
+            gtk_widget_destroy(mp->monitors[i]->da);
             monitor_free(mp->monitors[i]);
             mp->monitors[i] = NULL;
         }

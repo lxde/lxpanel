@@ -96,7 +96,7 @@ static void update_icon (GtkWidget *p, volume_t *vol)
 
 	if (icon) {
 		if (curr_image) {
-			gtk_container_remove(GTK_CONTAINER(p), curr_image);
+			gtk_widget_destroy(curr_image);
 			curr_image = NULL;
 		}
 		image = gtk_image_new_from_pixbuf(icon);

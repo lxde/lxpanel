@@ -627,11 +627,8 @@ static void indicator_load_modules(Panel *panel, GtkWidget *p)
 
     gtk_widget_hide_all(p);
 
-    GList *l = NULL;
-    for (l = gtk_container_get_children(GTK_CONTAINER(indicator->menubar)); l; l = l->next)
-    {
-        gtk_widget_destroy(GTK_WIDGET(l->data));
-    }
+    gtk_container_forall(GTK_CONTAINER(indicator->menubar),
+                         (GtkCallback)gtk_widget_destroy, NULL);
 
     if (g_file_test(INDICATOR_DIR, (G_FILE_TEST_EXISTS | G_FILE_TEST_IS_DIR)))
     {
@@ -690,16 +687,13 @@ static void indicator_load_modules(Panel *panel, GtkWidget *p)
     if (indicators_loaded == 0)
     {
         /* A label to allow for click through */
-        GtkWidget * item = gtk_label_new(_("No Indicators"));
-        gtk_container_add(GTK_CONTAINER(p), item);
-        gtk_widget_show(item);
+        gtk_container_add(GTK_CONTAINER(p), gtk_label_new(_("No Indicators")));
     }
     else
     {
         gtk_container_add(GTK_CONTAINER(p), indicator->menubar);
         /* Set background to default. */
         gtk_widget_set_style(indicator->menubar, panel_get_defstyle(panel));
-        gtk_widget_show(indicator->menubar);
     }
 
     /* Update the display, show the widget, and return. */

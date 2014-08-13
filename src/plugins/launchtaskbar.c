@@ -504,7 +504,6 @@ static LaunchButton *launchbutton_for_file_info(LaunchTaskBarPlugin * lb, FmFile
 
     /* Add the button to the icon grid. */
     gtk_container_add(GTK_CONTAINER(lb->lb_icon_grid), button);
-    gtk_widget_show(button);
 
     /* Drag and drop support. */
     btn->dd = fm_dnd_dest_new_with_handlers(button);
@@ -515,7 +514,7 @@ static LaunchButton *launchbutton_for_file_info(LaunchTaskBarPlugin * lb, FmFile
 
     /* If the list goes from null to non-null, remove the bootstrap button. */
     if ((lb->buttons == NULL) && (lb->bootstrap_button != NULL))
-        gtk_widget_show(lb->bootstrap_button->widget);
+        gtk_widget_hide(lb->bootstrap_button->widget);
 
     /* Append at end of list to preserve configured order. */
     lb->buttons = g_slist_append(lb->buttons, btn);
@@ -880,7 +879,7 @@ static void launchtaskbar_destructor_task(LaunchTaskBarPlugin *ltbp)
     /* Remove "window-manager-changed" handler. */
     g_signal_handlers_disconnect_by_func(ltbp->screen, taskbar_window_manager_changed, ltbp);
 
-    /* Deallocate task list. */
+    /* Deallocate task list - widgets are already destroyed there. */
     while(ltbp->p_task_list != NULL)
         task_delete(ltbp, ltbp->p_task_list, TRUE, FALSE);
 
@@ -895,6 +894,7 @@ static void launchtaskbar_destructor_task(LaunchTaskBarPlugin *ltbp)
 
     /* Deallocate other memory. */
     gtk_widget_destroy(ltbp->menu);
+    task_group_menu_destroy(ltbp);
 }
 
 /* Plugin destructor. */
@@ -955,8 +955,8 @@ static void launchbar_configure_add_button(GtkButton * widget, LaunchTaskBarPlug
 
 static void  launchbar_remove_button(LaunchTaskBarPlugin *ltbp, LaunchButton *btn)
 {
-    gtk_container_remove(GTK_CONTAINER(ltbp->lb_icon_grid), btn->widget);
     ltbp->buttons = g_slist_remove(ltbp->buttons, btn);
+    gtk_widget_destroy(btn->widget);
     config_setting_destroy(btn->settings);
     launchbutton_free(btn);
     /* Put the bootstrap button back if the list becomes empty. */
@@ -1870,7 +1870,7 @@ static void task_delete(LaunchTaskBarPlugin * tb, Task * tk, gboolean unlink, gb
     /* Deallocate structures. */
     if (remove)
     {
-        gtk_container_remove(GTK_CONTAINER(tb->tb_icon_grid), tk->button);
+        gtk_widget_destroy(tk->button);
         task_unlink_class(tk);
     }
     task_free_names(tk);
@@ -2458,6 +2458,7 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
          * positioned with respect to the button. */
         if (menu) {
             gtk_widget_show_all(menu);
+            task_group_menu_destroy(tb);
             tb->group_menu = menu;
             gtk_menu_popup(GTK_MENU(menu), NULL, NULL,
                     (GtkMenuPositionFunc) taskbar_popup_set_position, (gpointer) tk,
