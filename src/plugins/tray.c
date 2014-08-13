@@ -74,7 +74,6 @@ typedef struct _tray_client {
 typedef struct _tray_plugin {
     GtkWidget * plugin;				/* Back pointer to Plugin */
     Panel * panel;
-    IconGrid * icon_grid;			/* Icon grid to manage tray presentation */
     TrayClient * client_list;			/* List of tray clients */
     BalloonMessage * incomplete_messages;	/* List of balloon messages for which we are awaiting data */
     BalloonMessage * messages;			/* List of balloon messages actively being displayed or waiting to be displayed */
@@ -151,7 +150,7 @@ static void client_delete(TrayPlugin * tr, TrayClient * tc, gboolean unlink, gbo
 
     /* Remove the socket from the icon grid. */
     if (remove)
-        icon_grid_remove(tr->icon_grid, tc->socket);
+        gtk_container_remove(GTK_CONTAINER(tr->plugin), tc->socket);
 
     /* Deallocate the client structure. */
     g_free(tc);
@@ -215,8 +214,8 @@ static void balloon_message_display(TrayPlugin * tr, BalloonMessage * msg)
     GtkWidget * balloon_text = gtk_label_new(msg->string);
     gtk_label_set_line_wrap(GTK_LABEL(balloon_text), TRUE);
     gtk_misc_set_alignment(GTK_MISC(balloon_text), 0.5, 0.5);
-    gtk_widget_show(balloon_text);
     gtk_container_add(GTK_CONTAINER(tr->balloon_message_popup), balloon_text);
+    gtk_widget_show(balloon_text);
     gtk_container_set_border_width(GTK_CONTAINER(tr->balloon_message_popup), 4);
 
     /* Connect signals.  Clicking the popup dismisses it and displays the next message, if any. */
@@ -445,7 +444,8 @@ static void trayclient_request_dock(TrayPlugin * tr, XClientMessageEvent * xeven
     }
 
     /* Add the socket to the icon grid. */
-    icon_grid_add(tr->icon_grid, tc->socket, TRUE);
+    gtk_container_add(GTK_CONTAINER(tr->plugin), tc->socket);
+    gtk_widget_show(tc->socket);
 
     /* Connect the socket to the plug.  This can only be done after the socket is realized. */
     gtk_socket_add_id(GTK_SOCKET(tc->socket), tc->window);
@@ -454,7 +454,7 @@ static void trayclient_request_dock(TrayPlugin * tr, XClientMessageEvent * xeven
     /* Checks if the plug has been created inside of the socket. */
     if (gtk_socket_get_plug_window ( GTK_SOCKET(tc->socket) ) == NULL) {
         //fprintf(stderr, "Notice: removing plug %ud\n", tc->window );
-        icon_grid_remove(tr->icon_grid, tc->socket);
+        gtk_container_remove(GTK_CONTAINER(tr->plugin), tc->socket);
         return;
     }
 }
@@ -628,16 +628,14 @@ static GtkWidget *tray_constructor(Panel *panel, config_setting_t *settings)
     tr->invisible_window = GDK_WINDOW_XWINDOW(gtk_widget_get_window(invisible));
 
     /* Allocate top level widget and set into Plugin widget pointer. */
-    tr->plugin = p = gtk_event_box_new();
+    tr->plugin = p = panel_icon_grid_new(panel_get_orientation(panel),
+                                         panel_get_icon_size(panel),
+                                         panel_get_icon_size(panel),
+                                         3, 0, panel_get_height(panel));
     lxpanel_plugin_set_data(p, tr, tray_destructor);
-    gtk_widget_set_has_window(p,FALSE);
     gtk_widget_set_name(p, "tray");
     gtk_container_set_border_width(GTK_CONTAINER(p), 1);
 
-    /* Create an icon grid to manage the container. */
-    tr->icon_grid = icon_grid_new(panel, p, panel_get_orientation(panel),
-                                  panel_get_icon_size(panel), panel_get_icon_size(panel),
-                                  3, 0, panel_get_height(panel));
     return p;
 }
 
@@ -668,10 +666,6 @@ static void tray_destructor(gpointer user_data)
     while (tr->client_list != NULL)
         client_delete(tr, tr->client_list, TRUE, FALSE);
 
-    /* Deallocate memory. */
-    if (tr->icon_grid != NULL)
-        icon_grid_free(tr->icon_grid);
-
     g_free(tr);
 }
 
@@ -679,13 +673,10 @@ static void tray_destructor(gpointer user_data)
 static void tray_panel_configuration_changed(Panel *panel, GtkWidget *p)
 {
     /* Set orientation into the icon grid. */
-    TrayPlugin * tr = lxpanel_plugin_get_data(p);
-    if (tr->icon_grid != NULL)
-    {
-        icon_grid_set_geometry(tr->icon_grid, panel_get_orientation(panel),
-                               panel_get_icon_size(panel), panel_get_icon_size(panel),
-                               3, 0, panel_get_height(panel));
-    }
+    panel_icon_grid_set_geometry(PANEL_ICON_GRID(p), panel_get_orientation(panel),
+                                 panel_get_icon_size(panel),
+                                 panel_get_icon_size(panel),
+                                 3, 0, panel_get_height(panel));
 }
 
 /* Plugin descriptor. */

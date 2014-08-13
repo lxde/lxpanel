@@ -135,7 +135,7 @@ typedef struct {
 /* Private context for taskbar plugin. */
 struct LaunchTaskBarPlugin {
     /* LAUNCHBAR */
-    IconGrid      *lb_icon_grid;     /* Icon grid managing the container */
+    GtkWidget *lb_icon_grid;         /* Icon grid managing the container */
     GSList        *buttons;          /* Launchbar buttons */
     LaunchButton  *bootstrap_button; /* Bootstrapping button for empty launchtaskbar */
     FmIcon * add_icon;                  /* Icon for bootstrap_button */
@@ -143,7 +143,7 @@ struct LaunchTaskBarPlugin {
     /* TASKBAR */
     Task * p_task_list;            /* List of tasks to be displayed in taskbar */
     TaskClass * p_taskclass_list;  /* Window class list */
-    IconGrid * tb_icon_grid;       /* Manager for taskbar buttons */
+    GtkWidget * tb_icon_grid;      /* Manager for taskbar buttons */
     GtkWidget * menu;              /* Popup menu for task control (Close, Raise, etc.) */
     GtkWidget * group_menu;        /* Popup menu for grouping selection */
     GtkWidget * workspace_menu0;   /* "Workspace 1" menu item */
@@ -178,8 +178,6 @@ struct LaunchTaskBarPlugin {
     Panel * panel;                      /* Back pointer to panel */
     config_setting_t * settings;
     GdkScreen       *screen;
-    GtkWidget       *p_evbox_launchbar;
-    GtkWidget       *p_evbox_taskbar;
     GtkWidget       *config_dlg;        /* Configuration dialog */
     GtkNotebook     *p_notebook;
     GtkWidget       *p_notebook_page_launch;
@@ -399,10 +397,11 @@ static void launchbutton_build_bootstrap(LaunchTaskBarPlugin *lb)
         gtk_container_add(GTK_CONTAINER(event_box), lb->bootstrap_button->image_widget);
 
         /* Add the bootstrap button to the icon grid.  By policy it is empty at this point. */
-        icon_grid_add(lb->lb_icon_grid, event_box, TRUE);
+        gtk_container_add(GTK_CONTAINER(lb->lb_icon_grid), event_box);
+        gtk_widget_show(event_box);
     }
     else
-        icon_grid_set_visible(lb->lb_icon_grid, lb->bootstrap_button->widget, TRUE);
+        gtk_widget_show(lb->bootstrap_button->widget);
 }
 
 #ifndef DISABLE_MENU
@@ -504,7 +503,8 @@ static LaunchButton *launchbutton_for_file_info(LaunchTaskBarPlugin * lb, FmFile
     gtk_widget_set_tooltip_text(button, fm_file_info_get_disp_name(fi));
 
     /* Add the button to the icon grid. */
-    icon_grid_add(lb->lb_icon_grid, button, TRUE);
+    gtk_container_add(GTK_CONTAINER(lb->lb_icon_grid), button);
+    gtk_widget_show(button);
 
     /* Drag and drop support. */
     btn->dd = fm_dnd_dest_new_with_handlers(button);
@@ -515,7 +515,7 @@ static LaunchButton *launchbutton_for_file_info(LaunchTaskBarPlugin * lb, FmFile
 
     /* If the list goes from null to non-null, remove the bootstrap button. */
     if ((lb->buttons == NULL) && (lb->bootstrap_button != NULL))
-        icon_grid_set_visible(lb->lb_icon_grid, lb->bootstrap_button->widget, FALSE);
+        gtk_widget_show(lb->bootstrap_button->widget);
 
     /* Append at end of list to preserve configured order. */
     lb->buttons = g_slist_append(lb->buttons, btn);
@@ -666,15 +666,6 @@ static void launchtaskbar_constructor_launch(LaunchTaskBarPlugin *ltbp, gboolean
     if(!ltbp->lb_built)
     {
         ltbp->lb_built = TRUE;
-        if(ltbp->lb_icon_grid == NULL)
-        {
-            /* Allocate an icon grid manager to manage the container. */
-            ltbp->lb_icon_grid = icon_grid_new(ltbp->panel, ltbp->p_evbox_launchbar,
-                                               panel_get_orientation(ltbp->panel),
-                                               ltbp->icon_size, ltbp->icon_size,
-                                               3, 0,
-                                               panel_get_height(ltbp->panel));
-        }
         /* Read parameters from the configuration file. */
         settings = config_setting_get_member(ltbp->settings, "");
         if (settings && config_setting_is_list(settings))
@@ -707,10 +698,7 @@ static void launchtaskbar_constructor_launch(LaunchTaskBarPlugin *ltbp, gboolean
                 launchbutton_build_bootstrap(ltbp);
         }
     }
-    else
-    {
-        gtk_widget_set_visible(ltbp->p_evbox_launchbar, TRUE);
-    }
+    gtk_widget_set_visible(ltbp->lb_icon_grid, TRUE);
 }
 
 static void launchtaskbar_constructor_task(LaunchTaskBarPlugin *ltbp)
@@ -743,12 +731,13 @@ static void launchtaskbar_constructor_task(LaunchTaskBarPlugin *ltbp)
             ltbp->grouped_tasks = (tmp_int != 0);
 
         /* Make container for task buttons as a child of top level widget. */
-        ltbp->tb_icon_grid = icon_grid_new(ltbp->panel, ltbp->p_evbox_taskbar,
-                                           panel_get_orientation(ltbp->panel),
-                                           ltbp->task_width_max, ltbp->icon_size,
-                                           ltbp->spacing, 0,
-                                           panel_get_height(ltbp->panel));
-        icon_grid_set_constrain_width(ltbp->tb_icon_grid, TRUE);
+        ltbp->tb_icon_grid = panel_icon_grid_new(panel_get_orientation(ltbp->panel),
+                                                 ltbp->task_width_max,
+                                                 ltbp->icon_size, ltbp->spacing, 0,
+                                                 panel_get_height(ltbp->panel));
+        panel_icon_grid_set_constrain_width(PANEL_ICON_GRID(ltbp->tb_icon_grid), TRUE);
+        gtk_box_pack_start(GTK_BOX(ltbp->plugin), ltbp->tb_icon_grid, TRUE, TRUE, 0);
+        gtk_container_set_border_width(GTK_CONTAINER(ltbp->tb_icon_grid), 0);
         taskbar_update_style(ltbp);
 
         /* Add GDK event filter. */
@@ -774,10 +763,7 @@ static void launchtaskbar_constructor_task(LaunchTaskBarPlugin *ltbp)
         taskbar_net_client_list(NULL, ltbp);
         taskbar_net_active_window(NULL, ltbp);
     }
-    else
-    {
-        gtk_widget_set_visible(ltbp->p_evbox_taskbar, TRUE);
-    }
+    gtk_widget_set_visible(ltbp->tb_icon_grid, TRUE);
 }
 
 /* Plugin constructor. */
@@ -828,14 +814,14 @@ static GtkWidget *_launchtaskbar_constructor(Panel *panel, config_setting_t *set
     /* Allocate top level widget and set into Plugin widget pointer. */
     ltbp->plugin = p = panel_box_new(panel, FALSE, 5);
     lxpanel_plugin_set_data(p, ltbp, launchtaskbar_destructor);
-    ltbp->p_evbox_launchbar = gtk_event_box_new();
-    ltbp->p_evbox_taskbar = gtk_event_box_new();
-    gtk_box_pack_start(GTK_BOX(p), ltbp->p_evbox_launchbar, FALSE, TRUE, 0);
-    gtk_box_pack_start(GTK_BOX(p), ltbp->p_evbox_taskbar, TRUE, TRUE, 0);
+    /* Allocate an icon grid manager to manage the container. */
+    ltbp->lb_icon_grid = panel_icon_grid_new(panel_get_orientation(panel),
+                                             ltbp->icon_size, ltbp->icon_size,
+                                             3, 0, panel_get_height(panel));
+    gtk_box_pack_start(GTK_BOX(p), ltbp->lb_icon_grid, FALSE, TRUE, 0);
 
     gtk_container_set_border_width(GTK_CONTAINER(p), 0);
-    gtk_container_set_border_width(GTK_CONTAINER(ltbp->p_evbox_launchbar), 0);
-    gtk_container_set_border_width(GTK_CONTAINER(ltbp->p_evbox_taskbar), 0);
+    gtk_container_set_border_width(GTK_CONTAINER(ltbp->lb_icon_grid), 0);
     gtk_widget_set_has_window(p, FALSE);
 
     /* Read parameters from the configuration file. */
@@ -868,8 +854,6 @@ static void launchtaskbar_destructor_launch(LaunchTaskBarPlugin *ltbp)
 {
     /* Free the launchbar. */
     g_slist_foreach(ltbp->buttons, (GFunc) launchbutton_free, NULL);
-    icon_grid_free(ltbp->lb_icon_grid);
-    ltbp->lb_icon_grid = NULL;
 
     /* Free the bootstrap button if it exists. */
     if(ltbp->bootstrap_button != NULL)
@@ -911,7 +895,6 @@ static void launchtaskbar_destructor_task(LaunchTaskBarPlugin *ltbp)
 
     /* Deallocate other memory. */
     gtk_widget_destroy(ltbp->menu);
-    icon_grid_free(ltbp->tb_icon_grid);
 }
 
 /* Plugin destructor. */
@@ -972,7 +955,7 @@ static void launchbar_configure_add_button(GtkButton * widget, LaunchTaskBarPlug
 
 static void  launchbar_remove_button(LaunchTaskBarPlugin *ltbp, LaunchButton *btn)
 {
-    icon_grid_remove(ltbp->lb_icon_grid, btn->widget);
+    gtk_container_remove(GTK_CONTAINER(ltbp->lb_icon_grid), btn->widget);
     ltbp->buttons = g_slist_remove(ltbp->buttons, btn);
     config_setting_destroy(btn->settings);
     launchbutton_free(btn);
@@ -1024,7 +1007,8 @@ static void launchbar_configure_move_up_button(GtkButton * widget, LaunchTaskBar
                 ltbp->buttons = g_slist_remove(ltbp->buttons, btn);
                 ltbp->buttons = g_slist_insert(ltbp->buttons, btn, i);
                 gtk_list_store_move_before(GTK_LIST_STORE(list), &it, &it2);
-                icon_grid_reorder_child(ltbp->lb_icon_grid, btn->widget, i);
+                panel_icon_grid_reorder_child(PANEL_ICON_GRID(ltbp->lb_icon_grid),
+                                              btn->widget, i);
                 config_setting_move_elem(btn->settings,
                                          config_setting_get_parent(btn->settings),
                                          i);
@@ -1058,7 +1042,8 @@ static void launchbar_configure_move_down_button(GtkButton * widget, LaunchTaskB
                 ltbp->buttons = g_slist_remove(ltbp->buttons, btn);
                 ltbp->buttons = g_slist_insert(ltbp->buttons, btn, i + 1);
                 gtk_list_store_move_after(GTK_LIST_STORE(list), &it, &it2);
-                icon_grid_reorder_child( ltbp->lb_icon_grid, btn->widget, i);
+                panel_icon_grid_reorder_child(PANEL_ICON_GRID(ltbp->lb_icon_grid),
+                                              btn->widget, i);
                 config_setting_move_elem(btn->settings,
                                          config_setting_get_parent(btn->settings),
                                          i);
@@ -1155,13 +1140,14 @@ static void on_combobox_mode_changed(GtkComboBox *p_combobox, gpointer p_data)
 
     switch (ltbp->mode) {
     case LAUNCHBAR:
-        gtk_widget_set_visible(ltbp->p_evbox_taskbar, FALSE);
+        if (ltbp->tb_icon_grid)
+            gtk_widget_set_visible(ltbp->tb_icon_grid, FALSE);
         launchtaskbar_constructor_launch(ltbp, TRUE/*build_bootstrap*/);
         plugin_set_expand_status(ltbp, FALSE);
         gtk_widget_set_name(ltbp->plugin, "launchbar");
         break;
     case TASKBAR:
-        gtk_widget_set_visible(ltbp->p_evbox_launchbar, FALSE);
+        gtk_widget_set_visible(ltbp->lb_icon_grid, FALSE);
         launchtaskbar_constructor_task(ltbp);
         plugin_set_expand_status(ltbp, TRUE);
         gtk_widget_set_name(ltbp->plugin, "taskbar");
@@ -1453,9 +1439,10 @@ static void launchtaskbar_panel_configuration_changed(Panel *panel, GtkWidget *p
     int new_icon_size = panel_get_icon_size(panel);
 
     if (ltbp->lb_built)
-        icon_grid_set_geometry(ltbp->lb_icon_grid, panel_get_orientation(panel),
-                               new_icon_size, new_icon_size, 3, 0,
-                               panel_get_height(panel));
+        panel_icon_grid_set_geometry(PANEL_ICON_GRID(ltbp->lb_icon_grid),
+                                     panel_get_orientation(panel),
+                                     new_icon_size, new_icon_size, 3, 0,
+                                     panel_get_height(panel));
 
     /* Reset the bootstrap button. */
     if (ltbp->bootstrap_button != NULL)
@@ -1645,10 +1632,10 @@ static void task_button_redraw(Task * tk, LaunchTaskBarPlugin * tb)
     if (task_is_visible(tb, tk))
     {
         task_draw_label(tk);
-        icon_grid_set_visible(tb->tb_icon_grid, tk->button, TRUE);
+        gtk_widget_set_visible(tk->button, TRUE);
     }
     else
-        icon_grid_set_visible(tb->tb_icon_grid, tk->button, FALSE);
+        gtk_widget_set_visible(tk->button, FALSE);
 }
 
 /* Redraw all tasks in the taskbar. */
@@ -1883,7 +1870,7 @@ static void task_delete(LaunchTaskBarPlugin * tb, Task * tk, gboolean unlink, gb
     /* Deallocate structures. */
     if (remove)
     {
-        icon_grid_remove(tb->tb_icon_grid, tk->button);
+        gtk_container_remove(GTK_CONTAINER(tb->tb_icon_grid), tk->button);
         task_unlink_class(tk);
     }
     task_free_names(tk);
@@ -2618,8 +2605,9 @@ static gboolean taskbar_button_drag_drop(GtkWidget * widget, GdkDragContext * dr
     {
         if (drag_source != tk->button)
         {
-            gint i = icon_grid_get_child_position(tk->tb->tb_icon_grid, tk->button);
-            icon_grid_reorder_child(tk->tb->tb_icon_grid, drag_source, i);
+            PanelIconGrid *ig = PANEL_ICON_GRID(tk->tb->tb_icon_grid);
+            gint i = panel_icon_grid_get_child_position(ig, tk->button);
+            panel_icon_grid_reorder_child(ig, drag_source, i);
         }
         gtk_drag_finish(drag_context, TRUE, TRUE, time);
         return TRUE;
@@ -2708,7 +2696,8 @@ static void taskbar_button_size_allocate(GtkWidget * btn, GtkAllocation * alloc,
 /* Update style on the taskbar when created or after a configuration change. */
 static void taskbar_update_style(LaunchTaskBarPlugin * tb)
 {
-    icon_grid_set_geometry(tb->tb_icon_grid, panel_get_orientation(tb->panel),
+    panel_icon_grid_set_geometry(PANEL_ICON_GRID(tb->tb_icon_grid),
+        panel_get_orientation(tb->panel),
         ((tb->icons_only) ? tb->icon_size + ICON_ONLY_EXTRA : tb->task_width_max),
         tb->icon_size, tb->spacing, 0, panel_get_height(tb->panel));
 }
@@ -2800,12 +2789,13 @@ static void task_build_gui(LaunchTaskBarPlugin * tb, Task * tk)
     gtk_box_pack_start(GTK_BOX(container), tk->label, TRUE, TRUE, 0);
 
     /* Add the box to the button. */
-    gtk_widget_show(container);
     gtk_container_add(GTK_CONTAINER(tk->button), container);
+//    gtk_widget_show(container);
     gtk_container_set_border_width(GTK_CONTAINER(tk->button), 0);
 
     /* Add the button to the taskbar. */
-    icon_grid_add(tb->tb_icon_grid, tk->button, TRUE);
+    gtk_container_add(GTK_CONTAINER(tb->tb_icon_grid), tk->button);
+    gtk_widget_show_all(tk->button);
     gtk_widget_set_can_focus(GTK_WIDGET(tk->button),FALSE);
     gtk_widget_set_can_default(GTK_WIDGET(tk->button),FALSE);
 

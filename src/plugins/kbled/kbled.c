@@ -65,7 +65,6 @@ static int xkb_error_base = 0;
 typedef struct {
     Panel * panel;				/* Back pointer to panel */
     config_setting_t *settings;
-    IconGrid * icon_grid;			/* Icon grid manager */
     GtkWidget *indicator_image[3];		/* Image for each indicator */
     unsigned int current_state;			/* Current LED state, bit encoded */
     gboolean visible[3];			/* True if control is visible (per user configuration) */
@@ -154,21 +153,20 @@ static GtkWidget *kbled_constructor(Panel *panel, config_setting_t *settings)
         kl->visible[2] = i != 0;
 
     /* Allocate top level widget and set into Plugin widget pointer. */
-    p = gtk_event_box_new();
+    p = panel_icon_grid_new(panel_get_orientation(panel),
+                            panel_get_icon_size(panel),
+                            panel_get_icon_size(panel),
+                            0, 0, panel_get_height(panel));
     lxpanel_plugin_set_data(p, kl, kbled_destructor);
     gtk_widget_add_events(p, GDK_BUTTON_PRESS_MASK);
     g_signal_connect(panel_get_icon_theme(panel), "changed", G_CALLBACK(kbled_theme_changed), kl);
 
-    /* Allocate an icon grid manager to manage the container.
-     * Then allocate three images for the three indications, but make them visible only when the configuration requests. */
-    kl->icon_grid = icon_grid_new(panel, p, panel_get_orientation(panel),
-                                  panel_get_icon_size(panel),
-                                  panel_get_icon_size(panel),
-                                  0, 0, panel_get_height(panel));
+    /* Then allocate three images for the three indications, but make them visible only when the configuration requests. */
     for (i = 0; i < 3; i++)
     {
         kl->indicator_image[i] = gtk_image_new();
-        icon_grid_add(kl->icon_grid, kl->indicator_image[i], kl->visible[i]);
+        gtk_container_add(GTK_CONTAINER(p), kl->indicator_image[i]);
+        gtk_widget_set_visible(kl->indicator_image[i], kl->visible[i]);
     }
 
     /* Initialize Xkb extension if not yet done. */
@@ -207,7 +205,6 @@ static void kbled_destructor(gpointer user_data)
     gdk_window_remove_filter(NULL, (GdkFilterFunc) kbled_event_filter, kl);
     g_signal_handlers_disconnect_by_func(panel_get_icon_theme(kl->panel),
                                          kbled_theme_changed, kl);
-    icon_grid_free(kl->icon_grid);
     g_free(kl);
 }
 
@@ -218,7 +215,7 @@ static gboolean kbled_apply_configuration(gpointer user_data)
     int i;
 
     for (i = 0; i < 3; i++)
-        icon_grid_set_visible(kl->icon_grid, kl->indicator_image[i], kl->visible[i]);
+        gtk_widget_set_visible(kl->indicator_image[i], kl->visible[i]);
     config_group_set_int(kl->settings, "ShowCapsLock", kl->visible[0]);
     config_group_set_int(kl->settings, "ShowNumLock", kl->visible[1]);
     config_group_set_int(kl->settings, "ShowScrollLock", kl->visible[2]);
@@ -245,9 +242,10 @@ static void kbled_panel_configuration_changed(Panel *panel, GtkWidget *p)
     /* Set orientation into the icon grid. */
     KeyboardLEDPlugin * kl = lxpanel_plugin_get_data(p);
 
-    icon_grid_set_geometry(kl->icon_grid, panel_get_orientation(panel),
-                           panel_get_icon_size(panel), panel_get_icon_size(panel),
-                           0, 0, panel_get_height(panel));
+    panel_icon_grid_set_geometry(PANEL_ICON_GRID(p), panel_get_orientation(panel),
+                                 panel_get_icon_size(panel),
+                                 panel_get_icon_size(panel),
+                                 0, 0, panel_get_height(panel));
 
     /* Do a full redraw. */
     int current_state = kl->current_state;

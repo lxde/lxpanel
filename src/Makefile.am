@@ -25,14 +25,14 @@ endif
 
 lxpanel_SOURCES = \
 	misc.c \
-	bg.c bg.h  \
+	bg.c \
 	configurator.c \
-	dbg.c dbg.h \
-	ev.c ev.h \
+	dbg.c \
+	ev.c \
+	icon-grid-old.c \
 	icon-grid.c \
 	panel.c \
 	plugin.c \
-	private.h \
 	conf.c \
 	$(MENU_SOURCES)
 
@@ -59,4 +59,8 @@ lxpanelctl_SOURCES = lxpanelctl.c lxpanelctl.h
 lxpanelctl_LDADD = $(X11_LIBS) $(INTLLIBS)
 
 EXTRA_DIST = \
-	plugins/icon.xpm
+	bg.h \
+	dbg.h \
+	ev.h \
+	icon-grid-old.h \
+	private.h

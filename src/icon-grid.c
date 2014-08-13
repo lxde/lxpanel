@@ -20,93 +20,105 @@
 #include <string.h>
 
 #include "icon-grid.h"
-#include "private.h"
 
-static gboolean icon_grid_placement(IconGrid * ig);
-static void icon_grid_geometry(IconGrid * ig, gboolean layout);
-static void icon_grid_element_size_request(GtkWidget * widget, GtkRequisition * requisition, IconGridElement * ige);
-static void icon_grid_size_request(GtkWidget * widget, GtkRequisition * requisition, IconGrid * ig);
-static void icon_grid_size_allocate(GtkWidget * widget, GtkAllocation * allocation, IconGrid * ig);
-static void icon_grid_demand_resize(IconGrid * ig);
+/* Properties */
+enum {
+  PROP_0,
+  PROP_ORIENTATION,
+  PROP_SPACING,
+  PROP_CONSTRAIN_WIDTH
+};
+
+/* Representative of an icon grid.  This is a manager that packs widgets into a rectangular grid whose size adapts to conditions. */
+struct _PanelIconGrid
+{
+    GtkContainer container;			/* Parent widget */
+    GList * children;				/* List of icon grid elements */
+    GtkOrientation orientation;			/* Desired orientation */
+    gint child_width;				/* Desired child width */
+    gint child_height;				/* Desired child height */
+    gint spacing;				/* Desired spacing between grid elements */
+    gint border;				/* Desired border around grid elements */
+    gint target_dimension;			/* Desired dimension perpendicular to orientation */
+    gboolean constrain_width;			/* True if width should be constrained by allocated space */
+    int rows;					/* Computed layout rows */
+    int columns;				/* Computed layout columns */
+    int constrained_child_width;		/* Child width constrained by allocation */
+};
+
+struct _PanelIconGridClass
+{
+    GtkContainerClass parent_class;
+};
 
 /* Establish the widget placement of an icon grid. */
-static gboolean icon_grid_placement(IconGrid * ig)
+static void panel_icon_grid_size_allocate(GtkWidget *widget,
+                                          GtkAllocation *allocation)
 {
-    GtkAllocation allocation;
+    PanelIconGrid *ig = PANEL_ICON_GRID(widget);
+    GtkRequisition req;
+    GtkAllocation child_allocation;
+    int child_width;
+    int child_height;
+    GtkTextDirection direction;
+    int limit;
+    int x_initial;
+    int x_delta;
+    int x, y;
+    GList *ige;
+    GtkWidget *child;
 
-    if (ig->widget == NULL)
-        return FALSE;
-
-    /* Make sure the container is visible. */
-    gtk_widget_show(ig->container);
-
-    /* Erase the window. */
-    GdkWindow * window = gtk_widget_get_window(ig->widget);
-    if (window != NULL)
-        panel_determine_background_pixmap(ig->panel, ig->widget, window);
+    /* Calculate required size without borders */
+    gtk_widget_size_request(widget, &req);
+    req.width -= 2 * ig->border;
+    req.height -= 2 * ig->border;
 
     /* Get and save the desired container geometry. */
-    gtk_widget_get_allocation(ig->container, &allocation);
-    ig->container_width = allocation.width;
-    ig->container_height = allocation.height;
-    int child_width = ig->child_width;
-    int child_height = ig->child_height;
-
-    /* Get the required container geometry if all elements get the client's desired allocation. */
-    int container_width_needed = (ig->columns * (child_width + ig->spacing)) - ig->spacing;
-    int container_height_needed = (ig->rows * (child_height + ig->spacing)) - ig->spacing;
+    child_width = ig->child_width;
+    child_height = ig->child_height;
 
     /* Get the constrained child geometry if the allocated geometry is insufficient.
      * All children are still the same size and share equally in the deficit. */
     ig->constrained_child_width = ig->child_width;
-    if ((ig->columns != 0) && (ig->rows != 0) && (ig->container_width > 1))
+    if ((ig->columns != 0) && (ig->rows != 0) && (allocation->width > 1))
     {
-        if (container_width_needed > ig->container_width)
-            ig->constrained_child_width = child_width = (ig->container_width - ((ig->columns - 1) * ig->spacing)) / ig->columns;
-        if (container_height_needed > ig->container_height)
-            child_height = (ig->container_height - ((ig->rows - 1) * ig->spacing)) / ig->rows;
+        if (req.width > allocation->width)
+            ig->constrained_child_width = child_width = (allocation->width - ((ig->columns - 1) * ig->spacing)) / ig->columns;
+        if (req.height > allocation->height)
+            child_height = (allocation->height - ((ig->rows - 1) * ig->spacing)) / ig->rows;
     }
 
     /* Initialize parameters to control repositioning each visible child. */
-    GtkTextDirection direction = gtk_widget_get_direction(ig->container);
-    int limit = ig->border + ((ig->orientation == GTK_ORIENTATION_HORIZONTAL)
+    direction = gtk_widget_get_direction(widget);
+    limit = ig->border + ((ig->orientation == GTK_ORIENTATION_HORIZONTAL)
         ?  (ig->rows * (child_height + ig->spacing))
         :  (ig->columns * (child_width + ig->spacing)));
-    int x_initial = ((direction == GTK_TEXT_DIR_RTL)
-        ? allocation.width - child_width - ig->border
+    x_initial = ((direction == GTK_TEXT_DIR_RTL)
+        ? allocation->width - child_width - ig->border
         : ig->border);
-    int x_delta = child_width + ig->spacing;
+    x_delta = child_width + ig->spacing;
     if (direction == GTK_TEXT_DIR_RTL) x_delta = - x_delta;
 
     /* Reposition each visible child. */
-    int x = x_initial;
-    int y = ig->border;
-    gboolean contains_sockets = FALSE;
-    IconGridElement * ige;
-    for (ige = ig->child_list; ige != NULL; ige = ige->flink)
+    x = x_initial;
+    y = ig->border;
+    for (ige = ig->children; ige != NULL; ige = ige->next)
     {
-        if (ige->visible)
+        child = ige->data;
+        if (gtk_widget_get_visible(child))
         {
             /* Do necessary operations on the child. */
-            gtk_widget_show(ige->widget);
-            gtk_widget_get_allocation(ige->widget, &allocation);
-            if (((child_width != allocation.width) || (child_height != allocation.height))
-            && (child_width > 0) && (child_height > 0))
-                {
-                GtkAllocation alloc;
-                alloc.x = x;
-                alloc.y = y;
-                alloc.width = child_width;
-                alloc.height = child_height;
-                gtk_widget_size_allocate(ige->widget, &alloc);
-                gtk_widget_queue_resize(ige->widget);		/* Get labels to redraw ellipsized */
-                }
-            gtk_fixed_move(GTK_FIXED(ig->widget), ige->widget, x, y);
-            gtk_widget_queue_draw(ige->widget);
-
-            /* Note if a socket is placed. */
-            if (GTK_IS_SOCKET(ige->widget))
-                contains_sockets = TRUE;
+            gtk_widget_size_request(child, &req);
+            child_allocation.x = x;
+            child_allocation.y = y;
+            child_allocation.width = child_width;
+            child_allocation.height = child_height;
+            if (!gtk_widget_get_has_window (widget))
+            {
+                child_allocation.x += allocation->x;
+                child_allocation.y += allocation->y;
+            }
+            gtk_widget_size_allocate(child, &child_allocation);
 
             /* Advance to the next grid position. */
             if (ig->orientation == GTK_ORIENTATION_HORIZONTAL)
@@ -129,40 +141,26 @@ static gboolean icon_grid_placement(IconGrid * ig)
             }
         }
     }
-
-    /* Redraw the container. */
-    if (window != NULL)
-        gdk_window_invalidate_rect(window, NULL, TRUE);
-    gtk_widget_queue_draw(ig->container);
-
-    /* If the icon grid contains sockets, do special handling to get the background erased. */
-    if (contains_sockets)
-        plugin_widget_set_background(ig->widget, ig->panel);
-    return FALSE;
 }
 
 /* Establish the geometry of an icon grid. */
-static void icon_grid_geometry(IconGrid * ig, gboolean layout)
+static void panel_icon_grid_size_request(GtkWidget *widget,
+                                         GtkRequisition *requisition)
 {
-    /* Count visible children. */
+    PanelIconGrid *ig = PANEL_ICON_GRID(widget);
     int visible_children = 0;
-    IconGridElement * ige;
-    GtkAllocation allocation;
+    GList *ige;
+    int target_dimension = ig->target_dimension;
 
-    for (ige = ig->child_list; ige != NULL; ige = ige->flink)
-        if (ige->visible)
+    /* Count visible children. */
+    for (ige = ig->children; ige != NULL; ige = ige->next)
+        if (gtk_widget_get_visible(ige->data))
             visible_children += 1;
 
-   int original_rows = ig->rows;
-   int original_columns = ig->columns;
-   int target_dimension = ig->target_dimension;
-   gtk_widget_get_allocation(ig->container, &allocation);
-   if (ig->orientation == GTK_ORIENTATION_HORIZONTAL)
+    if (ig->orientation == GTK_ORIENTATION_HORIZONTAL)
     {
         /* In horizontal orientation, fit as many rows into the available height as possible.
          * Then allocate as many columns as necessary.  Guard against zerodivides. */
-        if (allocation.height > 1)
-            target_dimension = allocation.height;
         ig->rows = 0;
         if ((ig->child_height + ig->spacing) != 0)
             ig->rows = (target_dimension + ig->spacing - ig->border * 2) / (ig->child_height + ig->spacing);
@@ -176,8 +174,6 @@ static void icon_grid_geometry(IconGrid * ig, gboolean layout)
     {
         /* In vertical orientation, fit as many columns into the available width as possible.
          * Then allocate as many rows as necessary.  Guard against zerodivides. */
-        if (allocation.width > 1)
-            target_dimension = allocation.width;
         ig->columns = 0;
         if ((ig->child_width + ig->spacing) != 0)
             ig->columns = (target_dimension + ig->spacing - ig->border * 2) / (ig->child_width + ig->spacing);
@@ -188,47 +184,12 @@ static void icon_grid_geometry(IconGrid * ig, gboolean layout)
             ig->columns = visible_children;
     }
 
-    /* If the table geometry or child composition changed, redo the placement of children in table cells.
-     * This is gated by having a valid table allocation and by the "layout" parameter, which prevents a recursive loop.
-     * We do the placement later, also to prevent a recursive loop. */
-    if ((layout)
-    && (( ! ig->actual_dimension)
-      || (ig->rows != original_rows)
-      || (ig->columns != original_columns)
-      || (ig->container_width != allocation.width)
-      || (ig->container_height != allocation.height)
-      || (ig->children_changed)))
-        {
-        ig->actual_dimension = TRUE;
-        ig->children_changed = FALSE;
-        g_idle_add((GSourceFunc) icon_grid_placement, ig);
-        }
-}
-
-/* Handler for "size-request" event on the icon grid element. */
-static void icon_grid_element_size_request(GtkWidget * widget, GtkRequisition * requisition, IconGridElement * ige)
-{
-    /* This is our opportunity to request space for the element. */
-    IconGrid * ig = ige->ig;
-    requisition->width = ig->child_width;
-    if ((ig->constrain_width) && (ig->actual_dimension) && (ig->constrained_child_width > 1))
-        requisition->width = ig->constrained_child_width;
-    requisition->height = ig->child_height;
-}
-
-/* Handler for "size-request" event on the icon grid's container. */
-static void icon_grid_size_request(GtkWidget * widget, GtkRequisition * requisition, IconGrid * ig)
-{
-    /* This is our opportunity to request space for the layout container.
-     * Compute the geometry.  Do not lay out children at this time to avoid a recursive loop. */
-    icon_grid_geometry(ig, FALSE);
-
     /* Compute the requisition. */
     if ((ig->columns == 0) || (ig->rows == 0))
     {
         requisition->width = 1;
         requisition->height = 1;
-        gtk_widget_hide(ig->widget);	/* Necessary to get the plugin to disappear */
+        gtk_widget_hide(widget);	/* Necessary to get the plugin to disappear */
     }
     else
     {
@@ -238,190 +199,118 @@ static void icon_grid_size_request(GtkWidget * widget, GtkRequisition * requisit
         if (row_spaces < 0) row_spaces = 0;
         requisition->width = ig->child_width * ig->columns + column_spaces * ig->spacing + 2 * ig->border;
         requisition->height = ig->child_height * ig->rows + row_spaces * ig->spacing + 2 * ig->border;
-        gtk_widget_show(ig->widget);
+        gtk_widget_show(widget);
     }
 }
 
-/* Handler for "size-allocate" event on the icon grid's container. */
-static void icon_grid_size_allocate(GtkWidget * widget, GtkAllocation * allocation, IconGrid * ig)
+/* Handler for "size-request" event on the icon grid element. */
+static void icon_grid_element_size_request(GtkWidget * widget, GtkRequisition * requisition, PanelIconGrid * ig)
 {
-    /* This is our notification that there is a resize of the entire panel.
-     * Compute the geometry and recompute layout if the geometry changed. */
-    icon_grid_geometry(ig, TRUE);
-}
-
-/* Initiate a resize. */
-static void icon_grid_demand_resize(IconGrid * ig)
-{
-    ig->children_changed = TRUE;
-    GtkRequisition req;
-    icon_grid_size_request(NULL, &req, ig);
-
-    if ((ig->rows != 0) || (ig->columns != 0))
-        icon_grid_placement(ig);
-}
-
-/* Establish an icon grid in a specified container widget.
- * The icon grid manages the contents of the container.
- * The orientation, geometry of the elements, and spacing can be varied.  All elements are the same size. */
-IconGrid * icon_grid_new(
-    Panel * panel, GtkWidget * container,
-    GtkOrientation orientation, gint child_width, gint child_height, gint spacing, gint border, gint target_dimension)
-{
-    /* Create a structure representing the icon grid and collect the parameters. */
-    IconGrid * ig = g_new0(IconGrid, 1);
-    ig->panel = panel;
-    ig->container = container;
-    ig->orientation = orientation;
-    ig->child_width = child_width;
-    ig->constrained_child_width = child_width;
-    ig->child_height = child_height;
-    ig->spacing = spacing;
-    ig->border = border;
-    ig->target_dimension = target_dimension;
-
-    /* Create a layout container. */
-    ig->widget = gtk_fixed_new();
-    g_object_add_weak_pointer(G_OBJECT(ig->widget), (gpointer*)&ig->widget);
-    gtk_widget_set_has_window(ig->widget, FALSE);
-    gtk_widget_set_redraw_on_allocate(ig->widget, FALSE);
-    gtk_container_add(GTK_CONTAINER(ig->container), ig->widget);
-    gtk_widget_show(ig->widget);
-
-    /* Connect signals. */
-    g_signal_connect(G_OBJECT(ig->widget), "size-request", G_CALLBACK(icon_grid_size_request), (gpointer) ig);
-    g_signal_connect(G_OBJECT(container), "size-request", G_CALLBACK(icon_grid_size_request), (gpointer) ig);
-    g_signal_connect(G_OBJECT(container), "size-allocate", G_CALLBACK(icon_grid_size_allocate), (gpointer) ig);
-    return ig;
+    /* This is our opportunity to request space for the element. */
+    requisition->width = ig->child_width;
+    if ((ig->constrain_width) && (ig->constrained_child_width > 1))
+        requisition->width = ig->constrained_child_width;
+    requisition->height = ig->child_height;
 }
 
 /* Add an icon grid element and establish its initial visibility. */
-void icon_grid_add(IconGrid * ig, GtkWidget * child, gboolean visible)
+static void panel_icon_grid_add(GtkContainer *container, GtkWidget *widget)
 {
-    /* Create and initialize a structure representing the child. */
-    IconGridElement * ige = g_new0(IconGridElement, 1);
-    ige->ig = ig;
-    ige->widget = child;
-    ige->visible = visible;
+    PanelIconGrid *ig = PANEL_ICON_GRID(container);
 
     /* Insert at the tail of the child list.  This keeps the graphics in the order they were added. */
-    if (ig->child_list == NULL)
-        ig->child_list = ige;
-    else
-    {
-        IconGridElement * ige_cursor;
-        for (ige_cursor = ig->child_list; ige_cursor->flink != NULL; ige_cursor = ige_cursor->flink) ;
-        ige_cursor->flink = ige;
-    }
+    ig->children = g_list_append(ig->children, widget);
 
     /* Add the widget to the layout container. */
-    if (visible)
-        gtk_widget_show(ige->widget);
-    gtk_fixed_put(GTK_FIXED(ig->widget), ige->widget, 0, 0);
-    g_signal_connect(G_OBJECT(child), "size-request", G_CALLBACK(icon_grid_element_size_request), (gpointer) ige);
-
-    /* Do a relayout. */
-    icon_grid_demand_resize(ig);
+    g_signal_connect(G_OBJECT(widget), "size-request",
+                     G_CALLBACK(icon_grid_element_size_request), container);
+    gtk_widget_set_parent(widget, GTK_WIDGET(container));
+    gtk_widget_queue_resize(GTK_WIDGET(container));
 }
 
-extern void icon_grid_set_constrain_width(IconGrid * ig, gboolean constrain_width)
+void panel_icon_grid_set_constrain_width(PanelIconGrid * ig, gboolean constrain_width)
 {
     ig->constrain_width = constrain_width;
 }
 
 /* Remove an icon grid element. */
-void icon_grid_remove(IconGrid * ig, GtkWidget * child)
+static void panel_icon_grid_remove(GtkContainer *container, GtkWidget *widget)
 {
-    IconGridElement * ige_pred = NULL;
-    IconGridElement * ige;
-    for (ige = ig->child_list; ige != NULL; ige_pred = ige, ige = ige->flink)
+    PanelIconGrid *ig = PANEL_ICON_GRID(container);
+    GList *children = ig->children;
+    GtkWidget *child;
+
+    while (children)
     {
-        if (ige->widget == child)
+        child = children->data;
+        if (widget == child)
         {
+            gboolean was_visible = gtk_widget_get_visible(widget);
+
             /* The child is found.  Remove from child list and layout container. */
-            gtk_widget_hide(ige->widget);
-            gtk_container_remove(GTK_CONTAINER(ig->widget), ige->widget);
+            gtk_widget_unparent (widget);
+            ig->children = g_list_remove_link(ig->children, children);
+            g_list_free(children);
 
-            if (ige_pred == NULL)
-                ig->child_list = ige->flink;
-            else
-                ige_pred->flink = ige->flink;
-
-            /* Do a relayout. */
-            icon_grid_demand_resize(ig);
+            /* Do a relayout if needed. */
+            if (was_visible)
+                gtk_widget_queue_resize(GTK_WIDGET(ig));
             break;
         }
+        children = children->next;
     }
 }
 
 /* Get the index of an icon grid element. */
-extern gint icon_grid_get_child_position(IconGrid * ig, GtkWidget * child)
+gint panel_icon_grid_get_child_position(PanelIconGrid * ig, GtkWidget * child)
 {
-    gint i;
-    IconGridElement * ige;
-    for (ige = ig->child_list, i = 0; ige != NULL; ige = ige->flink, i++)
-    {
-        if (ige->widget == child)
-        {
-            return i;
-            break;
-        }
-    }
+    g_return_val_if_fail(PANEL_IS_ICON_GRID(ig), -1);
 
-    return -1;
+    return g_list_index(ig->children, child);
 }
 
 /* Reorder an icon grid element. */
-extern void icon_grid_reorder_child(IconGrid * ig, GtkWidget * child, gint position)
+void panel_icon_grid_reorder_child(PanelIconGrid * ig, GtkWidget * child, gint position)
 {
-    /* Remove the child from its current position. */
-    IconGridElement * ige_pred = NULL;
-    IconGridElement * ige;
-    for (ige = ig->child_list; ige != NULL; ige_pred = ige, ige = ige->flink)
+    GList *old_link;
+    GList *new_link;
+    gint old_position;
+
+    g_return_if_fail(PANEL_IS_ICON_GRID(ig));
+    g_return_if_fail(GTK_IS_WIDGET(child));
+
+    old_link = ig->children;
+    old_position = 0;
+    while (old_link)
     {
-        if (ige->widget == child)
-        {
-            if (ige_pred == NULL)
-                ig->child_list = ige->flink;
-            else
-                ige_pred->flink = ige->flink;
+        if (old_link->data == child)
             break;
-        }
+        old_link = old_link->next;
+        old_position++;
     }
+
+    g_return_if_fail(old_link != NULL);
+
+    if (position == old_position)
+        return;
+
+    /* Remove the child from its current position. */
+    ig->children = g_list_delete_link(ig->children, old_link);
+    if (position < 0)
+        new_link = NULL;
+    else
+        new_link = g_list_nth(ig->children, position);
 
     /* If the child was found, insert it at the new position. */
-    if (ige != NULL)
-    {
-        if (ig->child_list == NULL)
-        {
-            ige->flink = NULL;
-            ig->child_list = ige;
-        }
-        else if (position == 0)
-        {
-            ige->flink = ig->child_list;
-            ig->child_list = ige;
-        }
-        else
-            {
-            int local_position = position - 1;
-            IconGridElement * ige_pred;
-            for (
-              ige_pred = ig->child_list;
-              ((ige_pred != NULL) && (local_position > 0));
-              local_position -= 1, ige_pred = ige_pred->flink) ;
-            ige->flink = ige_pred->flink;
-            ige_pred->flink = ige;
-            }
+    ig->children = g_list_insert_before(ig->children, new_link, child);
 
-        /* Do a relayout. */
-        if (ige->visible)
-            icon_grid_demand_resize(ig);
-    }
+    /* Do a relayout. */
+    if (gtk_widget_get_visible(child) && gtk_widget_get_visible(GTK_WIDGET(ig)))
+        gtk_widget_queue_resize(child);
 }
 
 /* Change the geometry of an icon grid. */
-void icon_grid_set_geometry(IconGrid * ig,
+void panel_icon_grid_set_geometry(PanelIconGrid * ig,
     GtkOrientation orientation, gint child_width, gint child_height, gint spacing, gint border, gint target_dimension)
 {
     ig->orientation = orientation;
@@ -431,47 +320,147 @@ void icon_grid_set_geometry(IconGrid * ig,
     ig->spacing = spacing;
     ig->border = border;
     ig->target_dimension = target_dimension;
-    icon_grid_demand_resize(ig);
+    gtk_widget_queue_resize(GTK_WIDGET(ig));
 }
 
-/* Change the visibility of an icon grid element. */
-void icon_grid_set_visible(IconGrid * ig, GtkWidget * child, gboolean visible)
+G_DEFINE_TYPE_WITH_CODE(PanelIconGrid, panel_icon_grid, GTK_TYPE_CONTAINER,
+                        G_IMPLEMENT_INTERFACE(GTK_TYPE_ORIENTABLE, NULL));
+
+static void panel_icon_grid_set_property(GObject *object, guint prop_id,
+                                         const GValue *value, GParamSpec *pspec)
 {
-    IconGridElement * ige;
-    for (ige = ig->child_list; ige != NULL; ige = ige->flink)
+    PanelIconGrid *ig = PANEL_ICON_GRID(object);
+    gint spacing;
+
+    switch (prop_id)
     {
-        if (ige->widget == child)
+    case PROP_ORIENTATION:
+        ig->orientation = g_value_get_enum(value);
+        gtk_widget_queue_resize(GTK_WIDGET(ig));
+        break;
+    case PROP_SPACING:
+        spacing = g_value_get_int(value);
+        if (spacing != ig->spacing)
         {
-            if (ige->visible != visible)
-            {
-                /* Found, and the visibility changed.  Do a relayout. */
-                ige->visible = visible;
-                if ( ! ige->visible)
-                    gtk_widget_hide(ige->widget);
-                icon_grid_demand_resize(ig);
-            }
-            break;
+            ig->spacing = spacing;
+            g_object_notify(object, "spacing");
+            gtk_widget_queue_resize(GTK_WIDGET(ig));
         }
+        break;
+    case PROP_CONSTRAIN_WIDTH:
+        panel_icon_grid_set_constrain_width(ig, g_value_get_boolean(value));
+        break;
+    default:
+        G_OBJECT_WARN_INVALID_PROPERTY_ID(object, prop_id, pspec);
+        break;
     }
 }
 
-/* Deallocate the icon grid structures. */
-void icon_grid_free(IconGrid * ig)
+static void panel_icon_grid_get_property(GObject *object, guint prop_id,
+                                         GValue *value, GParamSpec *pspec)
 {
-    /* Hide the layout container. */
-    if (ig->widget != NULL)
-    {
-        g_object_remove_weak_pointer(G_OBJECT(ig->widget), (gpointer*)&ig->widget);
-        gtk_widget_hide(ig->widget);
-    }
+    PanelIconGrid *ig = PANEL_ICON_GRID(object);
 
-    /* Free all memory. */
-    IconGridElement * ige = ig->child_list;
-    while (ige != NULL)
+    switch (prop_id)
     {
-        IconGridElement * ige_succ = ige->flink;
-        g_free(ige);
-        ige = ige_succ;
+    case PROP_ORIENTATION:
+        g_value_set_enum(value, ig->orientation);
+        break;
+    case PROP_SPACING:
+        g_value_set_int(value, ig->spacing);
+        break;
+    case PROP_CONSTRAIN_WIDTH:
+        g_value_set_boolean(value, ig->constrain_width);
+        break;
+    default:
+        G_OBJECT_WARN_INVALID_PROPERTY_ID(object, prop_id, pspec);
+        break;
     }
-    g_free(ig);
+}
+
+static void panel_icon_grid_forall(GtkContainer *container,
+                                   gboolean      include_internals,
+                                   GtkCallback   callback,
+                                   gpointer      callback_data)
+{
+    PanelIconGrid *ig = PANEL_ICON_GRID(container);
+    GList *children = ig->children;
+    GtkWidget *child;
+
+    while (children)
+    {
+        child = children->data;
+        children = children->next;
+        (* callback)(child, callback_data);
+    }
+}
+
+static GType panel_icon_grid_child_type(GtkContainer *container)
+{
+    return GTK_TYPE_WIDGET;
+}
+
+static void panel_icon_grid_class_init(PanelIconGridClass *class)
+{
+    GObjectClass *object_class = G_OBJECT_CLASS(class);
+    GtkWidgetClass *widget_class = GTK_WIDGET_CLASS(class);
+    GtkContainerClass *container_class = GTK_CONTAINER_CLASS(class);
+
+    object_class->set_property = panel_icon_grid_set_property;
+    object_class->get_property = panel_icon_grid_get_property;
+
+    widget_class->size_request = panel_icon_grid_size_request;
+    widget_class->size_allocate = panel_icon_grid_size_allocate;
+
+    container_class->add = panel_icon_grid_add;
+    container_class->remove = panel_icon_grid_remove;
+    container_class->forall = panel_icon_grid_forall;
+    container_class->child_type = panel_icon_grid_child_type;
+
+    g_object_class_override_property(object_class,
+                                     PROP_ORIENTATION,
+                                     "orientation");
+    g_object_class_install_property(object_class,
+                                    PROP_SPACING,
+                                    g_param_spec_int("spacing",
+                                                     "Spacing",
+                                                     "The amount of space between children",
+                                                     0,
+                                                     G_MAXINT,
+                                                     0,
+                                                     G_PARAM_READWRITE));
+    g_object_class_install_property(object_class,
+                                    PROP_CONSTRAIN_WIDTH,
+                                    g_param_spec_boolean("constrain-width",
+                                                         "Constrain width",
+                                                         "Whether to constrain width by allocated space",
+                                                         FALSE, G_PARAM_READWRITE));
+}
+
+static void panel_icon_grid_init(PanelIconGrid *ig)
+{
+    gtk_widget_set_has_window(GTK_WIDGET(ig), FALSE);
+    gtk_widget_set_redraw_on_allocate(GTK_WIDGET(ig), FALSE);
+
+    ig->orientation = GTK_ORIENTATION_HORIZONTAL;
+}
+
+/* Establish an icon grid in a specified container widget.
+ * The icon grid manages the contents of the container.
+ * The orientation, geometry of the elements, and spacing can be varied.  All elements are the same size. */
+GtkWidget * panel_icon_grid_new(
+    GtkOrientation orientation, gint child_width, gint child_height, gint spacing, gint border, gint target_dimension)
+{
+    /* Create a structure representing the icon grid and collect the parameters. */
+    PanelIconGrid * ig = g_object_new(PANEL_TYPE_ICON_GRID,
+                                      "orientation", orientation,
+                                      "spacing", spacing, NULL);
+
+    ig->child_width = child_width;
+    ig->constrained_child_width = child_width;
+    ig->child_height = child_height;
+    ig->border = border;
+    ig->target_dimension = target_dimension;
+
+    return (GtkWidget *)ig;
 }
