@@ -98,23 +98,24 @@ static gboolean pager_update_context_menu(GtkWidget *plugin, GtkMenu *menu)
 {
     GdkScreen *screen = gdk_screen_get_default();
     const char *wm_name = gdk_x11_screen_get_window_manager_name(screen);
+    char *path = NULL;
 
     /* update configure_command */
     configure_command = NULL;
     if (g_strcmp0(wm_name, "Openbox") == 0)
     {
-        if (g_find_program_in_path("obconf"))
+        if ((path = g_find_program_in_path("obconf")))
         {
             configure_command = "obconf --tab 6";
         }
     }
     else if (g_strcmp0(wm_name, "compiz") == 0)
     {
-         if (g_find_program_in_path("ccsm"))
+         if ((path = g_find_program_in_path("ccsm")))
          {
               configure_command = "ccsm";
          }
-         else if (g_find_program_in_path("simple-ccsm"))
+         else if ((path = g_find_program_in_path("simple-ccsm")))
          {
               configure_command = "simple-ccsm";
          }
@@ -125,6 +126,7 @@ static gboolean pager_update_context_menu(GtkWidget *plugin, GtkMenu *menu)
         /* disable 'Settings' menu item */
         gtk_container_foreach(GTK_CONTAINER(menu), pager_menu_callback, NULL);
     }
+    g_free(path);
     return FALSE;
 }
 
