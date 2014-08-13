@@ -1195,7 +1195,7 @@ panel_start_gui(Panel *p)
     //gdk_window_set_decorations(gtk_widget_get_window(p->topgwin), 0);
 
     // main layout manager as a single child of panel
-    p->box = p->my_box_new(FALSE, 0);
+    p->box = panel_box_new(p, FALSE, 0);
     gtk_container_set_border_width(GTK_CONTAINER(p->box), 0);
 //    gtk_container_add(GTK_CONTAINER(p->bbox), p->box);
     gtk_container_add(GTK_CONTAINER(p->topgwin), p->box);
@@ -1240,6 +1240,7 @@ panel_start_gui(Panel *p)
     calculate_position(p);
     gdk_window_move_resize(gtk_widget_get_window(p->topgwin), p->ax, p->ay, p->aw, p->ah);
     panel_set_wm_strut(p);
+    p->initialized = TRUE;
 
     RET();
 }
@@ -1344,10 +1345,10 @@ void panel_set_panel_configuration_changed(Panel *p)
         ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
 
     /* either first run or orientation was changed */
-    if (p->my_box_new == NULL || previous_orientation != p->orientation)
+    if (!p->initialized || previous_orientation != p->orientation)
     {
         panel_adjust_geometry_terminology(p);
-        if (p->my_box_new != NULL)
+        if (p->initialized)
             p->height = ((p->orientation == GTK_ORIENTATION_HORIZONTAL) ? PANEL_HEIGHT_DEFAULT : PANEL_WIDTH_DEFAULT);
         if (p->height_control != NULL)
             gtk_spin_button_set_value(GTK_SPIN_BUTTON(p->height_control), p->height);
@@ -1359,6 +1360,7 @@ void panel_set_panel_configuration_changed(Panel *p)
         }
     }
 
+    /* FIXME: it's deprecated, kept for binary compatibility */
     if (p->orientation == GTK_ORIENTATION_HORIZONTAL) {
         p->my_box_new = gtk_hbox_new;
         p->my_separator_new = gtk_vseparator_new;
@@ -1905,12 +1907,16 @@ gboolean panel_is_at_bottom(Panel *panel)
 
 GtkWidget *panel_box_new(Panel *panel, gboolean homogeneous, gint spacing)
 {
-    return panel->my_box_new(homogeneous, spacing);
+    if (panel->orientation == GTK_ORIENTATION_HORIZONTAL)
+        return gtk_hbox_new(homogeneous, spacing);
+    return gtk_vbox_new(homogeneous, spacing);
 }
 
 GtkWidget *panel_separator_new(Panel *panel)
 {
-    return panel->my_separator_new();
+    if (panel->orientation == GTK_ORIENTATION_HORIZONTAL)
+        return gtk_vseparator_new();
+    return gtk_hseparator_new();
 }
 
 gboolean _class_is_present(LXPanelPluginInit *init)

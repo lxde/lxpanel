@@ -101,11 +101,8 @@ struct _Panel {
 
     guint autohide : 1;
     guint visible : 1;
-    guint ah_far : 1;
-    guint ah_state : 3;
     int height_when_hidden;
     guint hide_timeout;
-    guint mouse_timeout;
     int icon_size;			/* Icon size */
 
     int desknum;
@@ -128,6 +125,10 @@ struct _Panel {
     GtkWidget* height_control;		/* Height control in preference dialog */
     GtkWidget* width_control;		/* Width control in preference dialog */
 
+    guint initialized : 1;              /* Should be grouped better later, */
+    guint ah_far : 1;                   /* placed here for binary compatibility */
+    guint ah_state : 3;
+    guint mouse_timeout;
     //gint dyn_space;                     /* Space for expandable plugins */
     //guint calculate_size_idle;          /* The idle handler for dyn_space calc */
 };
