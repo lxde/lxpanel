@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-27 08:58+0100\n"
-"PO-Revision-Date: 2014-03-28 21:15+0000\n"
-"Last-Translator: Miguel Anxo <mbouzada@gmail.com>\n"
+"PO-Revision-Date: 2014-08-11 17:55+0000\n"
+"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Proxecto Trasno <proxecto@trasno.net>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1396041312.0\n"
+"X-Generator: Pootle 2.6.0-rc1\n"
+"X-POOTLE-MTIME: 1407779739.000000\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:55 ../src/gtk-run.c:361 ../src/plugins/menu.c:770
@@ -84,8 +84,9 @@ msgstr "Confirmar"
 #: ../src/panel.c:721
 msgid "translator-credits"
 msgstr ""
-"Indalecio Freiría Santos <ifreiria@gmail.com>, 2009\n"
-"Miguel Anxo Bouzada <mbouzada@gmail.com>,2010, 2011"
+"Indalecio Freiría Santos <ifreiria@gmail.com>, 2009 \n"
+"Miguel Anxo Bouzada <mbouzada@gmail.com>,2010, 2011, 2012, 2013, 2014 \n"
+"Proxecto Trasno <proxecto@trasno.net>"
 
 #: ../src/panel.c:726
 msgid "LXPanel"
@@ -181,7 +182,7 @@ msgstr " --version   -- amosar a versión e saír\n"
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
-" --log <número> -- estabelecer o nivel do rexistro 0-5. 0 - ningún 5 - "
+" --log <number> -- estabelecer o nivel do rexistro 0-5. 0 - ningún 5 - "
 "máximo\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
@@ -228,7 +229,7 @@ msgstr "Introduza a orde a executar:"
 #. vim: set sw=4 et sts=4 ts=4 :
 #: ../data/ui/launchtaskbar.glade.h:1 ../src/plugins/launchtaskbar.c:3414
 msgid "Application Launch and Task Bar"
-msgstr "Barra de tarefas e iniciador de aplicativos"
+msgstr "Barra de tarefas e iniciador de aplicacións"
 
 #: ../data/ui/launchtaskbar.glade.h:2
 msgid "<b>Mode:</b>"
@@ -272,7 +273,7 @@ msgstr "Avisar cando unha xanela require atención"
 
 #: ../data/ui/launchtaskbar.glade.h:12
 msgid "Combine multiple application windows into a single button"
-msgstr "Combinar múltiples xanelas de aplicativos nun só botón"
+msgstr "Combinar múltiples xanelas de aplicacións nun só botón"
 
 #: ../data/ui/launchtaskbar.glade.h:13
 msgid "Maximum width of task button"
@@ -288,7 +289,7 @@ msgstr "<b>Barra de tarefas</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:16
 msgid "Only Application Launch Bar"
-msgstr "Só a barra de iniciadores de aplicativos"
+msgstr "Só a barra de iniciadores de aplicacións"
 
 #: ../data/ui/launchtaskbar.glade.h:17
 msgid "Only Task Bar (Window List)"
@@ -296,7 +297,7 @@ msgstr "Só a barra de tarefas (lista de xanelas)"
 
 #: ../data/ui/launchtaskbar.glade.h:18
 msgid "Integrated Application Launch Bar and Task Bar"
-msgstr "Barras de iniciadores de aplicativos e tarefas integradas"
+msgstr "Barras de iniciadores de aplicacións e tarefas integradas"
 
 #: ../data/ui/netstatus.glade.h:1
 msgid "<b>Connection</b>"
@@ -641,11 +642,11 @@ msgstr "Instancia _nova"
 
 #: ../src/plugins/launchtaskbar.c:3384
 msgid "Application Launch Bar"
-msgstr "Barra de aplicativos"
+msgstr "Barra de aplicacións"
 
 #: ../src/plugins/launchtaskbar.c:3385
 msgid "Bar with buttons to launch application"
-msgstr "Barra de aceso a aplicativos"
+msgstr "Barra de aceso a aplicacións"
 
 #: ../src/plugins/launchtaskbar.c:3395
 msgid "Task Bar (Window List)"
@@ -662,7 +663,7 @@ msgstr ""
 #: ../src/plugins/launchtaskbar.c:3415
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr ""
-"Barra con botóns para iniciar aplicativos e/ou amosar todas as xanelas "
+"Barra con botóns para iniciar aplicacións e/ou amosar todas as xanelas "
 "abertas"
 
 #: ../src/plugins/dclock.c:423 ../src/plugins/dclock.c:443
@@ -716,7 +717,7 @@ msgstr "Icona"
 
 #: ../src/plugins/menu.c:1055
 msgid "Application Menu"
-msgstr "Menú de aplicativos"
+msgstr "Menú de aplicacións"
 
 #: ../src/plugins/separator.c:72
 msgid "Separator"
@@ -974,8 +975,8 @@ msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontol, alsamixer ...)"
 msgstr ""
-"Erro, é necesario instalar un aplicativo para configurar o son (pavucontol, "
-"alsamixer ...)"
+"Erro, é necesario instalar unha aplicación para configurar o son ("
+"pavucontol, alsamixer ...)"
 
 #: ../src/plugins/volumealsa/volumealsa.c:668
 msgid "Display and control volume for ALSA"
@@ -1621,7 +1622,7 @@ msgstr "Sen indicadores"
 
 #: ../src/plugins/indicator/indicator.c:897
 msgid "Indicator Applications"
-msgstr "Indicador de aplicativos"
+msgstr "Indicador de aplicacións"
 
 #: ../src/plugins/indicator/indicator.c:898
 msgid "Clock Indicator"
@@ -1645,11 +1646,11 @@ msgstr "Menú de son"
 
 #: ../src/plugins/indicator/indicator.c:928
 msgid "Indicator applets"
-msgstr "Indicador de miniaplicativos"
+msgstr "Indicador de miniaplicacións"
 
 #: ../src/plugins/indicator/indicator.c:930
 msgid "Add indicator applets to the panel"
-msgstr "Engadir un indicador de miniaplicativos ao panel"
+msgstr "Engadir un indicador de miniaplicacións ao panel"
 
 #: ../src/plugins/monitors/monitors.c:277
 #, c-format
