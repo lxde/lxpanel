@@ -128,6 +128,7 @@ extern gint panel_get_monitor(LXPanel *panel);
 extern GtkStyle *panel_get_defstyle(LXPanel *panel);
 extern GtkIconTheme *panel_get_icon_theme(LXPanel *panel);
 extern gboolean panel_is_at_bottom(LXPanel *panel);
+extern gboolean panel_is_dynamic(LXPanel *panel);
 extern GtkWidget *panel_box_new(LXPanel *panel, gboolean homogeneous, gint spacing);
 extern GtkWidget *panel_separator_new(LXPanel *panel);
 

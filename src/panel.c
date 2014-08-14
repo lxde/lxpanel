@@ -1983,6 +1983,11 @@ gboolean panel_is_at_bottom(LXPanel *panel)
     return panel->priv->edge == EDGE_BOTTOM;
 }
 
+gboolean panel_is_dynamic(LXPanel *panel)
+{
+    return panel->priv->widthtype == WIDTH_REQUEST;
+}
+
 GtkWidget *panel_box_new(LXPanel *panel, gboolean homogeneous, gint spacing)
 {
     if (panel->priv->orientation == GTK_ORIENTATION_HORIZONTAL)

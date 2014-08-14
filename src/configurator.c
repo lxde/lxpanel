@@ -258,19 +258,23 @@ static void set_width_type( GtkWidget *item, LXPanel* panel )
     Panel *p = panel->priv;
     int widthtype;
     gboolean t;
+
     widthtype = gtk_combo_box_get_active(GTK_COMBO_BOX(item)) + 1;
+    if (p->widthtype == widthtype) /* not changed */
+        return;
+
     p->widthtype = widthtype;
 
     spin = (GtkWidget*)g_object_get_data(G_OBJECT(item), "width_spin" );
     t = (widthtype != WIDTH_REQUEST);
     gtk_widget_set_sensitive( spin, t );
-    if (widthtype == WIDTH_PERCENT)
+    switch (widthtype)
     {
+    case WIDTH_PERCENT:
         gtk_spin_button_set_range( GTK_SPIN_BUTTON(spin), 0, 100 );
         gtk_spin_button_set_value( GTK_SPIN_BUTTON(spin), 100 );
-    }
-    else if (widthtype == WIDTH_PIXEL)
-    {
+        break;
+    case WIDTH_PIXEL:
         if ((p->edge == EDGE_TOP) || (p->edge == EDGE_BOTTOM))
         {
             gtk_spin_button_set_range( GTK_SPIN_BUTTON(spin), 0, gdk_screen_width() );
@@ -281,8 +285,11 @@ static void set_width_type( GtkWidget *item, LXPanel* panel )
             gtk_spin_button_set_range( GTK_SPIN_BUTTON(spin), 0, gdk_screen_height() );
             gtk_spin_button_set_value( GTK_SPIN_BUTTON(spin), gdk_screen_height() );
         }
-    } else
-        return;
+        break;
+    case WIDTH_REQUEST:
+        break;
+    default: ;
+    }
 
     update_panel_geometry(panel);
     UPDATE_GLOBAL_STRING(p, "widthtype", num2str(width_pair, widthtype, "none"));
