@@ -110,7 +110,7 @@ menu_destructor(gpointer user_data)
     if (m->show_system_menu_idle)
         g_source_remove(m->show_system_menu_idle);
 
-    g_signal_handler_disconnect(G_OBJECT(m->img), m->handler_id);
+    /* g_signal_handler_disconnect(G_OBJECT(m->img), m->handler_id); */
     g_signal_handlers_disconnect_matched(m->ds, G_SIGNAL_MATCH_FUNC, 0, 0, NULL,
                                          on_data_get, NULL);
     g_object_unref(G_OBJECT(m->ds));
