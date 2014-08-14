@@ -87,7 +87,7 @@ typedef struct {
     battery* b;
     gboolean has_ac_adapter;
     gboolean show_extended_information;
-    Panel *panel;
+    LXPanel *panel;
     config_setting_t *settings;
 } lx_battery;
 
@@ -337,7 +337,7 @@ static int update_timout(lx_battery *lx_b) {
 
 /* An update will be performed whenever the user clicks on the charge bar */
 static gboolean buttonPressEvent(GtkWidget *p, GdkEventButton *event,
-                                 Panel *panel)
+                                 LXPanel *panel)
 {
     lx_battery *lx_b = lxpanel_plugin_get_data(p);
 
@@ -402,7 +402,7 @@ static gint exposeEvent(GtkWidget *widget, GdkEventExpose *event, lx_battery *lx
 }
 
 
-static GtkWidget * constructor(Panel *panel, config_setting_t *settings)
+static GtkWidget * constructor(LXPanel *panel, config_setting_t *settings)
 {
     ENTER;
 
@@ -551,7 +551,7 @@ destructor(gpointer data)
 }
 
 
-static void orientation(Panel *panel, GtkWidget *p) {
+static void orientation(LXPanel *panel, GtkWidget *p) {
 
     ENTER;
 
@@ -619,7 +619,7 @@ static gboolean applyConfig(gpointer user_data)
 }
 
 
-static GtkWidget *config(Panel *panel, GtkWidget *p, GtkWindow *parent) {
+static GtkWidget *config(LXPanel *panel, GtkWidget *p, GtkWindow *parent) {
     lx_battery *b = lxpanel_plugin_get_data(p);
     return lxpanel_generic_config_dlg(_("Battery Monitor"),
             panel, applyConfig, p,

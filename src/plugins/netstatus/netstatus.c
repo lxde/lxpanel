@@ -79,7 +79,7 @@ static void on_response( GtkDialog* dlg, gint response, netstatus *ns )
     }
 }
 
-static gboolean on_button_press( GtkWidget* widget, GdkEventButton* evt, Panel *p )
+static gboolean on_button_press( GtkWidget* widget, GdkEventButton* evt, LXPanel *p )
 {
     NetstatusIface* iface;
     netstatus *ns = lxpanel_plugin_get_data(widget);
@@ -107,7 +107,7 @@ static gboolean on_button_press( GtkWidget* widget, GdkEventButton* evt, Panel *
 }
 
 static GtkWidget *
-netstatus_constructor(Panel *panel, config_setting_t *settings)
+netstatus_constructor(LXPanel *panel, config_setting_t *settings)
 {
     netstatus *ns;
     NetstatusIface* iface;
@@ -150,7 +150,7 @@ static gboolean apply_config(gpointer user_data)
     return FALSE;
 }
 
-static GtkWidget *netstatus_config(Panel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *netstatus_config(LXPanel *panel, GtkWidget *p, GtkWindow *parent)
 {
     GtkWidget* dlg;
     netstatus *ns = lxpanel_plugin_get_data(p);

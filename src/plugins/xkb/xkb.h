@@ -36,7 +36,7 @@ typedef enum {
 typedef struct {
 
     /* Plugin interface. */
-    Panel        *panel;                       /* Back pointer to Panel */
+    LXPanel      *panel;                       /* Back pointer to Panel */
     config_setting_t *settings;                /* Plugin settings */
     GtkWidget    *p_plugin;                    /* Back pointer to Plugin */
     GtkWidget    *p_label;                     /* Label containing country name */

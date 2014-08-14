@@ -109,7 +109,7 @@ static void wincmd_execute(WinCmdPlugin * wc, WindowCommand command)
 }
 
 /* Handler for "clicked" signal on main widget. */
-static gboolean wincmd_button_clicked(GtkWidget * widget, GdkEventButton * event, Panel * panel)
+static gboolean wincmd_button_clicked(GtkWidget * widget, GdkEventButton * event, LXPanel * panel)
 {
     WinCmdPlugin * wc;
 
@@ -148,7 +148,7 @@ static gboolean wincmd_button_clicked(GtkWidget * widget, GdkEventButton * event
 }
 
 /* Plugin constructor. */
-static GtkWidget *wincmd_constructor(Panel *panel, config_setting_t *settings)
+static GtkWidget *wincmd_constructor(LXPanel *panel, config_setting_t *settings)
 {
     /* Allocate plugin context and set into Plugin private data pointer. */
     WinCmdPlugin * wc = g_new0(WinCmdPlugin, 1);
@@ -223,7 +223,7 @@ static gboolean wincmd_apply_configuration(gpointer user_data)
 }
 
 /* Callback when the configuration dialog is to be shown. */
-static GtkWidget *wincmd_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *wincmd_configure(LXPanel *panel, GtkWidget *p, GtkWindow *parent)
 {
     WinCmdPlugin * wc = lxpanel_plugin_get_data(p);
     return lxpanel_generic_config_dlg(_("Minimize All Windows"),
@@ -235,7 +235,7 @@ static GtkWidget *wincmd_configure(Panel *panel, GtkWidget *p, GtkWindow *parent
 
 
 /* Callback when panel configuration changes. */
-static void wincmd_panel_reconfigure(Panel *panel, GtkWidget *p)
+static void wincmd_panel_reconfigure(LXPanel *panel, GtkWidget *p)
 {
     WinCmdPlugin * wc = lxpanel_plugin_get_data(p);
 

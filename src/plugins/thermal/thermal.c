@@ -47,7 +47,7 @@
 typedef gint (*GetTempFunc)(char const *);
 
 typedef struct thermal {
-    Panel *panel;
+    LXPanel *panel;
     config_setting_t *settings;
     GtkWidget *namew;
     GString *tip;
@@ -253,7 +253,7 @@ update_display(thermal *th)
         color = th->cl_normal;
 
     if(temp == -1)
-        panel_draw_label_text(th->panel, th->namew, "NA", TRUE, 1, TRUE);
+        lxpanel_draw_label_text(th->panel, th->namew, "NA", TRUE, 1, TRUE);
     else
     {
         snprintf(buffer, sizeof(buffer), "<span color=\"#%06x\"><b>%02d</b></span>",
@@ -451,7 +451,7 @@ thermal_destructor(gpointer user_data)
 }
 
 static GtkWidget *
-thermal_constructor(Panel *panel, config_setting_t *settings)
+thermal_constructor(LXPanel *panel, config_setting_t *settings)
 {
     thermal *th;
     GtkWidget *p;
@@ -507,7 +507,7 @@ thermal_constructor(Panel *panel, config_setting_t *settings)
     RET(p);
 }
 
-static GtkWidget *config(Panel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *config(LXPanel *panel, GtkWidget *p, GtkWindow *parent)
 {
     ENTER;
 

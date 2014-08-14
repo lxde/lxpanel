@@ -73,7 +73,7 @@ typedef struct _tray_client {
 /* Private context for system tray plugin. */
 typedef struct _tray_plugin {
     GtkWidget * plugin;				/* Back pointer to Plugin */
-    Panel * panel;
+    LXPanel * panel;
     TrayClient * client_list;			/* List of tray clients */
     BalloonMessage * incomplete_messages;	/* List of balloon messages for which we are awaiting data */
     BalloonMessage * messages;			/* List of balloon messages actively being displayed or waiting to be displayed */
@@ -551,12 +551,12 @@ static void tray_unmanage_selection(TrayPlugin * tr)
 }
 
 /* Plugin constructor. */
-static GtkWidget *tray_constructor(Panel *panel, config_setting_t *settings)
+static GtkWidget *tray_constructor(LXPanel *panel, config_setting_t *settings)
 {
     GtkWidget *p;
 
     /* Get the screen and display. */
-    GdkScreen * screen = gtk_widget_get_screen(GTK_WIDGET(panel_get_toplevel_window(panel)));
+    GdkScreen * screen = gtk_widget_get_screen(GTK_WIDGET(panel));
     Screen * xscreen = GDK_SCREEN_XSCREEN(screen);
     GdkDisplay * display = gdk_screen_get_display(screen);
 
@@ -671,7 +671,7 @@ static void tray_destructor(gpointer user_data)
 }
 
 /* Callback when panel configuration changes. */
-static void tray_panel_configuration_changed(Panel *panel, GtkWidget *p)
+static void tray_panel_configuration_changed(LXPanel *panel, GtkWidget *p)
 {
     /* Set orientation into the icon grid. */
     panel_icon_grid_set_geometry(PANEL_ICON_GRID(p), panel_get_orientation(panel),

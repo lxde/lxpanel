@@ -67,7 +67,7 @@ typedef struct {
     int iconsize;
     gboolean has_system_menu;
     guint show_system_menu_idle;
-    Panel *panel;
+    LXPanel *panel;
     config_setting_t *settings;
 
     MenuCache* menu_cache;
@@ -959,7 +959,7 @@ error:
 }
 
 static GtkWidget *
-menu_constructor(Panel *panel, config_setting_t *settings)
+menu_constructor(LXPanel *panel, config_setting_t *settings)
 {
     menup *m;
     config_setting_t *s;
@@ -1017,7 +1017,7 @@ static gboolean apply_config(gpointer user_data)
     return FALSE;
 }
 
-static GtkWidget *menu_config(Panel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *menu_config(LXPanel *panel, GtkWidget *p, GtkWindow *parent)
 {
     menup* menu = lxpanel_plugin_get_data(p);
     return lxpanel_generic_config_dlg(_("Menu"), panel, apply_config, p,
@@ -1027,7 +1027,7 @@ static GtkWidget *menu_config(Panel *panel, GtkWidget *p, GtkWindow *parent)
 }
 
 /* Callback when panel configuration changes. */
-static void menu_panel_configuration_changed(Panel *panel, GtkWidget *p)
+static void menu_panel_configuration_changed(LXPanel *panel, GtkWidget *p)
 {
     apply_config(p);
 }

@@ -297,7 +297,7 @@ cpufreq_menu(cpufreq *cf){
 
 
 static  gboolean
-clicked(GtkWidget *widget, GdkEventButton *evt, Panel *panel)
+clicked(GtkWidget *widget, GdkEventButton *evt, LXPanel *panel)
 {
     ENTER2;
 
@@ -339,7 +339,7 @@ static gboolean update_tooltip(gpointer user_data)
     return _update_tooltip(user_data);
 }
 
-static GtkWidget *cpufreq_constructor(Panel *panel, config_setting_t *settings)
+static GtkWidget *cpufreq_constructor(LXPanel *panel, config_setting_t *settings)
 {
     cpufreq *cf;
     //GtkWidget *button;
@@ -384,7 +384,7 @@ static gboolean applyConfig(gpointer user_data)
     return FALSE;
 }
 
-static GtkWidget *config(Panel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *config(LXPanel *panel, GtkWidget *p, GtkWindow *parent)
 {
     cpufreq *cf = lxpanel_plugin_get_data(p);
     return lxpanel_generic_config_dlg(_("CPUFreq frontend"), panel, applyConfig, p,

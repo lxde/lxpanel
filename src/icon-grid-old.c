@@ -137,7 +137,7 @@ static gboolean icon_grid_placement(IconGrid * ig)
 
     /* If the icon grid contains sockets, do special handling to get the background erased. */
     if (contains_sockets)
-        plugin_widget_set_background(ig->widget, ig->panel);
+        plugin_widget_set_background(ig->widget, ig->panel->topgwin);
     return FALSE;
 }
 

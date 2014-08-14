@@ -429,7 +429,7 @@ static void netstat_destructor(gpointer user_data)
     RET();
 }
 
-static GtkWidget *netstat_constructor(Panel *panel, config_setting_t *settings)
+static GtkWidget *netstat_constructor(LXPanel *panel, config_setting_t *settings)
 {
     netstat *ns;
     const char *tmp;
@@ -470,7 +470,7 @@ static GtkWidget *netstat_constructor(Panel *panel, config_setting_t *settings)
     RET(p);
 }
 
-static void orientation_changed(Panel *panel, GtkWidget *p)
+static void orientation_changed(LXPanel *panel, GtkWidget *p)
 {
     netstat *ns = lxpanel_plugin_get_data(p);
 

@@ -72,13 +72,12 @@ void get_net_wm_state(Window win, NetWMState *nws);
 void get_net_wm_window_type(Window win, NetWMWindowType *nwwt);
 GPid get_net_wm_pid(Window win);
 
-void calculate_position(Panel *np);
 gchar *expand_tilda(const gchar *file);
 
 void get_button_spacing(GtkRequisition *req, GtkContainer *parent, gchar *name);
 guint32 gcolor2rgb24(GdkColor *color);
-GtkWidget *lxpanel_button_new_for_icon(Panel *panel, const gchar *name, GdkColor *color, const gchar *label);
-GtkWidget *lxpanel_button_new_for_fm_icon(Panel *panel, FmIcon *icon, GdkColor *color, const gchar *label);
+GtkWidget *lxpanel_button_new_for_icon(LXPanel *panel, const gchar *name, GdkColor *color, const gchar *label);
+GtkWidget *lxpanel_button_new_for_fm_icon(LXPanel *panel, FmIcon *icon, GdkColor *color, const gchar *label);
 void lxpanel_button_set_icon(GtkWidget* btn, const gchar *name, gint size);
 void lxpanel_button_update_icon(GtkWidget* btn, FmIcon *icon, gint size);
 
@@ -93,7 +92,7 @@ typedef enum {
 } PluginConfType;
 
 /* Parameters: const char* name, gpointer ret_value, PluginConfType type, ....NULL */
-extern GtkWidget *lxpanel_generic_config_dlg(const char *title, Panel *panel,
+extern GtkWidget *lxpanel_generic_config_dlg(const char *title, LXPanel *panel,
                                              GSourceFunc apply_func,
                                              GtkWidget *plugin,
                                              const char *name, ...);

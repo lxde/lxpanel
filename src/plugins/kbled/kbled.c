@@ -63,7 +63,7 @@ static int xkb_error_base = 0;
 
 /* Private context for keyboard LED plugin. */
 typedef struct {
-    Panel * panel;				/* Back pointer to panel */
+    LXPanel * panel;				/* Back pointer to panel */
     config_setting_t *settings;
     GtkWidget *indicator_image[3];		/* Image for each indicator */
     unsigned int current_state;			/* Current LED state, bit encoded */
@@ -87,12 +87,12 @@ static void kbled_theme_changed(GtkWidget * widget, KeyboardLEDPlugin * kl)
 /* Update image to correspond to current state. */
 static void kbled_update_image(KeyboardLEDPlugin * kl, int i, unsigned int state)
 {
-    if(panel_image_set_icon_theme(kl->panel, kl->indicator_image[i], (state ? on_icons_theme[i] : off_icons_theme[i])) != TRUE) {
+    if(lxpanel_image_set_icon_theme(kl->panel, kl->indicator_image[i], (state ? on_icons_theme[i] : off_icons_theme[i])) != TRUE) {
         char * file = g_build_filename(
             PACKAGE_DATA_DIR "/images",
             ((state) ? on_icons[i] : off_icons[i]),
             NULL);
-        panel_image_set_from_file(kl->panel, kl->indicator_image[i], file);
+        lxpanel_image_set_from_file(kl->panel, kl->indicator_image[i], file);
         g_free(file);
     }
 }
@@ -129,7 +129,7 @@ static GdkFilterReturn kbled_event_filter(GdkXEvent * gdkxevent, GdkEvent * even
 }
 
 /* Plugin constructor. */
-static GtkWidget *kbled_constructor(Panel *panel, config_setting_t *settings)
+static GtkWidget *kbled_constructor(LXPanel *panel, config_setting_t *settings)
 {
     /* Allocate and initialize plugin context and set into Plugin private data pointer. */
     KeyboardLEDPlugin * kl = g_new0(KeyboardLEDPlugin, 1);
@@ -223,7 +223,7 @@ static gboolean kbled_apply_configuration(gpointer user_data)
 }
 
 /* Callback when the configuration dialog is to be shown. */
-static GtkWidget *kbled_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *kbled_configure(LXPanel *panel, GtkWidget *p, GtkWindow *parent)
 {
     KeyboardLEDPlugin * kl = lxpanel_plugin_get_data(p);
     GtkWidget * dlg = lxpanel_generic_config_dlg(_("Keyboard LED"),
@@ -237,7 +237,7 @@ static GtkWidget *kbled_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
 }
 
 /* Callback when panel configuration changes. */
-static void kbled_panel_configuration_changed(Panel *panel, GtkWidget *p)
+static void kbled_panel_configuration_changed(LXPanel *panel, GtkWidget *p)
 {
     /* Set orientation into the icon grid. */
     KeyboardLEDPlugin * kl = lxpanel_plugin_get_data(p);

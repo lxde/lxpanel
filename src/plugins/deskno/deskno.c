@@ -33,7 +33,7 @@
 
 /* Private context for desktop number plugin. */
 typedef struct {
-    Panel * panel;			/* Back pointer to Panel */
+    LXPanel * panel;			/* Back pointer to Panel */
     config_setting_t *settings;
     GtkWidget * label;			/* The label */
     int number_of_desktops;		/* Number of desktops */
@@ -50,7 +50,7 @@ static gboolean deskno_name_update(GtkWidget * widget, DesknoPlugin * dc)
     /* Compute and redraw the desktop number. */
     int desktop_number = get_net_current_desktop();
     if (desktop_number < dc->number_of_desktops)
-        panel_draw_label_text(dc->panel, dc->label, dc->desktop_labels[desktop_number], dc->bold, 1, TRUE);
+        lxpanel_draw_label_text(dc->panel, dc->label, dc->desktop_labels[desktop_number], dc->bold, 1, TRUE);
     return TRUE;
 }
 
@@ -87,7 +87,7 @@ static void deskno_redraw(GtkWidget * widget, DesknoPlugin * dc)
 }
 
 /* Handler for button-press-event on top level widget. */
-static gboolean deskno_button_press_event(GtkWidget * widget, GdkEventButton * event, Panel * p)
+static gboolean deskno_button_press_event(GtkWidget * widget, GdkEventButton * event, LXPanel * p)
 {
     /* Standard right-click handling. */
     if (lxpanel_plugin_button_press_event(widget, event, p))
@@ -106,7 +106,7 @@ static gboolean deskno_button_press_event(GtkWidget * widget, GdkEventButton * e
 }
 
 /* Plugin constructor. */
-static GtkWidget *deskno_constructor(Panel *panel, config_setting_t *settings)
+static GtkWidget *deskno_constructor(LXPanel *panel, config_setting_t *settings)
 {
     /* Allocate plugin context and set into Plugin private data pointer. */
     DesknoPlugin * dc = g_new0(DesknoPlugin, 1);
@@ -172,7 +172,7 @@ static gboolean deskno_apply_configuration(gpointer user_data)
 }
 
 /* Callback when the configuration dialog is to be shown. */
-static GtkWidget *deskno_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *deskno_configure(LXPanel *panel, GtkWidget *p, GtkWindow *parent)
 {
     DesknoPlugin * dc = lxpanel_plugin_get_data(p);
     GtkWidget * dlg = lxpanel_generic_config_dlg(_("Desktop Number / Workspace Name"),
@@ -185,7 +185,7 @@ static GtkWidget *deskno_configure(Panel *panel, GtkWidget *p, GtkWindow *parent
 }
 
 /* Callback when panel configuration changes. */
-static void deskno_panel_configuration_changed(Panel *panel, GtkWidget *p)
+static void deskno_panel_configuration_changed(LXPanel *panel, GtkWidget *p)
 {
     DesknoPlugin * dc = lxpanel_plugin_get_data(p);
     deskno_name_update(NULL, dc);

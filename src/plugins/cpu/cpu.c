@@ -228,7 +228,7 @@ static gboolean expose_event(GtkWidget * widget, GdkEventExpose * event, CPUPlug
 }
 
 /* Plugin constructor. */
-static GtkWidget *cpu_constructor(Panel *panel, config_setting_t *settings)
+static GtkWidget *cpu_constructor(LXPanel *panel, config_setting_t *settings)
 {
     /* Allocate plugin context and set into Plugin private data pointer. */
     CPUPlugin * c = g_new0(CPUPlugin, 1);

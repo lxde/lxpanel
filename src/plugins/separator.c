@@ -21,7 +21,7 @@
 #include <glib/gi18n.h>
 
 /* Plugin constructor. */
-static GtkWidget *separator_constructor(Panel *panel, config_setting_t *settings)
+static GtkWidget *separator_constructor(LXPanel *panel, config_setting_t *settings)
 {
     GtkWidget *instance, *sep;
 
@@ -41,7 +41,7 @@ static GtkWidget *separator_constructor(Panel *panel, config_setting_t *settings
 }
 
 /* Callback when panel configuration changes. */
-static void separator_reconfigure(Panel *panel, GtkWidget *instance)
+static void separator_reconfigure(LXPanel *panel, GtkWidget *instance)
 {
     /* Determine if the orientation changed in a way that requires action. */
     GtkWidget * sep = gtk_bin_get_child(GTK_BIN(instance));

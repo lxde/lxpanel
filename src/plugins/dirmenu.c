@@ -35,7 +35,7 @@ typedef struct _directory_name {
 
 /* Private context for directory menu plugin. */
 typedef struct {
-    Panel * panel; /* The panel and settings are required to apply config */
+    LXPanel * panel; /* The panel and settings are required to apply config */
     config_setting_t * settings;
     char * image;			/* Icon for top level widget */
     char * path;			/* Top level path for widget */
@@ -235,7 +235,7 @@ static void dirmenu_show_menu(GtkWidget * widget, DirMenuPlugin * dm, int btn, g
 }
 
 /* Handler for button-press-event on top level widget. */
-static gboolean dirmenu_button_press_event(GtkWidget * widget, GdkEventButton * event, Panel * p)
+static gboolean dirmenu_button_press_event(GtkWidget * widget, GdkEventButton * event, LXPanel * p)
 {
     DirMenuPlugin * dm = lxpanel_plugin_get_data(widget);
 
@@ -255,7 +255,7 @@ static gboolean dirmenu_button_press_event(GtkWidget * widget, GdkEventButton * 
 }
 
 /* Plugin constructor. */
-static GtkWidget *dirmenu_constructor(Panel *panel, config_setting_t *settings)
+static GtkWidget *dirmenu_constructor(LXPanel *panel, config_setting_t *settings)
 {
     /* Allocate and initialize plugin context and set into Plugin private data pointer. */
     DirMenuPlugin * dm = g_new0(DirMenuPlugin, 1);
@@ -318,7 +318,7 @@ static void dirmenu_apply_configuration_to_children(GtkWidget * w, DirMenuPlugin
         if (dm->name == NULL)
             gtk_label_set_text(GTK_LABEL(w), NULL);
         else
-            panel_draw_label_text(dm->panel, w, dm->name, FALSE, 1, TRUE);
+            lxpanel_draw_label_text(dm->panel, w, dm->name, FALSE, 1, TRUE);
     }
 }
 
@@ -352,7 +352,7 @@ static gboolean dirmenu_apply_configuration(gpointer user_data)
 }
 
 /* Callback when the configuration dialog is to be shown. */
-static GtkWidget *dirmenu_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *dirmenu_configure(LXPanel *panel, GtkWidget *p, GtkWindow *parent)
 {
     DirMenuPlugin * dm = lxpanel_plugin_get_data(p);
     return lxpanel_generic_config_dlg(_("Directory Menu"),
@@ -364,7 +364,7 @@ static GtkWidget *dirmenu_configure(Panel *panel, GtkWidget *p, GtkWindow *paren
 }
 
 /* Callback when panel configuration changes. */
-static void dirmenu_panel_configuration_changed(Panel *panel, GtkWidget *p)
+static void dirmenu_panel_configuration_changed(LXPanel *panel, GtkWidget *p)
 {
     dirmenu_apply_configuration(p);
 }

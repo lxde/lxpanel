@@ -122,7 +122,7 @@ typedef void (*tooltip_update_func) (Monitor *);
 
 /* Our plugin */
 typedef struct {
-    Panel *panel;
+    LXPanel *panel;
     config_setting_t *settings;
     Monitor  *monitors[N_MONITORS];          /* Monitors                      */
     int      displayed_monitors[N_MONITORS]; /* Booleans                      */
@@ -489,7 +489,7 @@ expose_event(GtkWidget * widget, GdkEventExpose * event, Monitor *m)
 }
 
 
-static gboolean monitors_button_press_event(GtkWidget* widget, GdkEventButton* evt, Panel *panel)
+static gboolean monitors_button_press_event(GtkWidget* widget, GdkEventButton* evt, LXPanel *panel)
 {
     MonitorsPlugin* mp = lxpanel_plugin_get_data(widget);
 
@@ -611,7 +611,7 @@ monitors_add_monitor (GtkWidget *p, MonitorsPlugin *mp, update_func update,
 }
 
 static GtkWidget *
-monitors_constructor(Panel *panel, config_setting_t *settings)
+monitors_constructor(LXPanel *panel, config_setting_t *settings)
 {
     ENTER;
     int i;
@@ -692,7 +692,7 @@ monitors_destructor(gpointer user_data)
 
 
 static GtkWidget *
-monitors_config (Panel *panel, GtkWidget *p, GtkWindow *parent)
+monitors_config (LXPanel *panel, GtkWidget *p, GtkWindow *parent)
 {
     ENTER;
 

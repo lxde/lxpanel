@@ -56,7 +56,7 @@ extern gboolean is_in_lxde;
 /* Context of a panel on a given edge. */
 struct _Panel {
     char* name;
-    GtkWidget * topgwin;		/* Main panel window */
+    LXPanel * topgwin;			/* Main panel window */
     Window topxwin;			/* Main panel's X window   */
     GdkDisplay * display;		/* Main panel's GdkDisplay */
     GtkStyle * defstyle;
@@ -196,7 +196,7 @@ static inline char *_user_config_file_name(const char *name1, const char *name2)
 void _prepare_modules(void);
 void _unload_modules(void);
 
-GtkWidget *lxpanel_add_plugin(Panel *p, const char *name, config_setting_t *cfg, gint at);
+GtkWidget *lxpanel_add_plugin(LXPanel *p, const char *name, config_setting_t *cfg, gint at);
 GHashTable *lxpanel_get_all_types(void); /* transfer none */
 
 GQuark lxpanel_plugin_qinit; /* access to LXPanelPluginInit data */
@@ -204,12 +204,19 @@ GQuark lxpanel_plugin_qinit; /* access to LXPanelPluginInit data */
 
 GQuark lxpanel_plugin_qconf; /* access to congig_setting_t data */
 
-GQuark lxpanel_plugin_qpanel; /* access to Panel */
-#define PLUGIN_PANEL(_i) ((Panel*)g_object_get_qdata(G_OBJECT(_i),lxpanel_plugin_qpanel))
+#define PLUGIN_PANEL(_i) ((LXPanel*)gtk_widget_get_toplevel(_i))
 
 gboolean _class_is_present(LXPanelPluginInit *init);
 
-void _panel_show_config_dialog(Panel *panel, GtkWidget *p, GtkWidget *dlg);
+void _panel_show_config_dialog(LXPanel *panel, GtkWidget *p, GtkWidget *dlg);
+
+void _calculate_position(LXPanel *panel);
+
+void _panel_determine_background_pixmap(LXPanel * p, GtkWidget * widget);
+void _panel_establish_autohide(LXPanel *p);
+void _panel_set_wm_strut(LXPanel *p);
+void _panel_set_panel_configuration_changed(LXPanel *p);
+void _panel_update_background(LXPanel *p);
 
 /* -----------------------------------------------------------------------------
  *   Deprecated declarations. Kept for compatibility with old code plugins.
@@ -217,6 +224,20 @@ void _panel_show_config_dialog(Panel *panel, GtkWidget *p, GtkWidget *dlg);
 
 /* Extracted from panel.h */
 extern int verbose;
+
+extern void panel_destroy(Panel *p);
+extern void panel_adjust_geometry_terminology(Panel *p);
+extern void panel_determine_background_pixmap(Panel * p, GtkWidget * widget, GdkWindow * window);
+extern void panel_draw_label_text(Panel * p, GtkWidget * label, const char * text,
+                                  gboolean bold, float custom_size_factor,
+                                  gboolean custom_color);
+extern void panel_establish_autohide(Panel *p);
+extern void panel_image_set_from_file(Panel * p, GtkWidget * image, const char * file);
+extern gboolean panel_image_set_icon_theme(Panel * p, GtkWidget * image, const gchar * icon);
+extern void panel_set_wm_strut(Panel *p);
+extern void panel_set_dock_type(Panel *p);
+extern void panel_set_panel_configuration_changed(Panel *p);
+extern void panel_update_background( Panel* p );
 
 /* if current window manager is EWMH conforming. */
 extern gboolean is_ewmh_supported;
@@ -245,6 +266,7 @@ typedef struct {
     gchar *t[3];
 } line;
 
+void calculate_position(Panel *np);
 
 extern int lxpanel_get_line(char **fp, line *s);
 extern int lxpanel_put_line(FILE* fp, const char* format, ...);

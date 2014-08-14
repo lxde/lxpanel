@@ -158,7 +158,7 @@ void xkb_redraw(XkbPlugin *p_xkb)
         char *group_name = (char *)xkb_get_current_symbol_name(p_xkb);
         if (group_name != NULL)
         {
-            panel_draw_label_text(p_xkb->panel, p_xkb->p_label, group_name,
+            lxpanel_draw_label_text(p_xkb->panel, p_xkb->p_label, group_name,
                     TRUE, size*4/(5*10.0), TRUE);
             gtk_widget_hide(p_xkb->p_image);
             gtk_widget_show(p_xkb->p_label);
@@ -194,7 +194,7 @@ static gboolean on_xkb_button_scroll_event(GtkWidget * widget, GdkEventScroll * 
 }
 
 /* Handler for button-press-event on top level widget. */
-static gboolean on_xkb_button_press_event(GtkWidget * widget,  GdkEventButton * event, Panel * panel)
+static gboolean on_xkb_button_press_event(GtkWidget * widget,  GdkEventButton * event, LXPanel * panel)
 {
     /* Standard right-click handling. */
     if (lxpanel_plugin_button_press_event(widget, event, panel))
@@ -218,7 +218,7 @@ static void on_xkb_entry_advanced_opt_icon_press(GtkEntry             *p_entry,
 }
 
 /* Plugin constructor. */
-static GtkWidget *xkb_constructor(Panel *panel, config_setting_t *settings)
+static GtkWidget *xkb_constructor(LXPanel *panel, config_setting_t *settings)
 {
     /* Allocate plugin context and set into Plugin private data pointer. */
     XkbPlugin * p_xkb = g_new0(XkbPlugin, 1);
@@ -1196,7 +1196,7 @@ static void xkb_settings_fill_layout_tree_model_with_config(XkbPlugin *p_xkb)
 }
 
 /* Callback when the configuration dialog is to be shown. */
-static GtkWidget *xkb_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *xkb_configure(LXPanel *panel, GtkWidget *p, GtkWindow *parent)
 {
     XkbPlugin * p_xkb = lxpanel_plugin_get_data(p);
     gchar       markup_str[MAX_MARKUP_LEN];
@@ -1527,7 +1527,7 @@ static GtkWidget *xkb_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
 }
 
 /* Callback when panel configuration changes. */
-static void xkb_panel_configuration_changed(Panel *panel, GtkWidget *p)
+static void xkb_panel_configuration_changed(LXPanel *panel, GtkWidget *p)
 {
     /* Do a full redraw. */
     xkb_redraw(lxpanel_plugin_get_data(p));

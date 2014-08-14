@@ -175,7 +175,7 @@ struct LaunchTaskBarPlugin {
     GtkWidget       *p_menuitem_separator;
 #endif
     GtkWidget * plugin;                 /* Back pointer to Plugin */
-    Panel * panel;                      /* Back pointer to panel */
+    LXPanel * panel;                    /* Back pointer to panel */
     config_setting_t * settings;
     GdkScreen       *screen;
     GtkWidget       *config_dlg;        /* Configuration dialog */
@@ -640,7 +640,7 @@ static gboolean _launchbutton_create_id(LaunchTaskBarPlugin * lb, config_setting
             if (ret) {
                 config_group_set_string(s, "id", filename);
                 /* FIXME: is it reasonable to remove obsolete keys too? */
-                panel_config_save(lb->panel);
+                lxpanel_config_save(lb->panel);
             } else
                 g_unlink(filename);
             g_string_free(content, TRUE);
@@ -766,7 +766,7 @@ static void launchtaskbar_constructor_task(LaunchTaskBarPlugin *ltbp)
 }
 
 /* Plugin constructor. */
-static GtkWidget *_launchtaskbar_constructor(Panel *panel, config_setting_t *settings,
+static GtkWidget *_launchtaskbar_constructor(LXPanel *panel, config_setting_t *settings,
                                              LtbMode mode)
 {
     GtkWidget *p;
@@ -779,7 +779,7 @@ static GtkWidget *_launchtaskbar_constructor(Panel *panel, config_setting_t *set
     ltbp->panel = panel;
     ltbp->settings = settings;
     ltbp->mode = mode;
-    ltbp->screen = gtk_widget_get_screen((GtkWidget*)panel_get_toplevel_window(panel));
+    ltbp->screen = gtk_widget_get_screen((GtkWidget*)panel);
 
     /* Initialize to defaults. */
     ltbp->icon_size         = panel_get_icon_size(panel);
@@ -844,7 +844,7 @@ static GtkWidget *_launchtaskbar_constructor(Panel *panel, config_setting_t *set
     return p;
 }
 
-static GtkWidget *launchtaskbar_constructor(Panel *panel, config_setting_t *settings)
+static GtkWidget *launchtaskbar_constructor(LXPanel *panel, config_setting_t *settings)
 {
     return _launchtaskbar_constructor(panel, settings, LAUNCHTASKBAR);
 }
@@ -1323,7 +1323,7 @@ static void on_menu_view_row_activated(GtkTreeView *tree_view, GtkTreePath *path
 }
 
 /* Callback when the configuration dialog is to be shown. */
-static GtkWidget *launchtaskbar_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *launchtaskbar_configure(LXPanel *panel, GtkWidget *p, GtkWindow *parent)
 {
     LaunchTaskBarPlugin *ltbp = lxpanel_plugin_get_data(p);
 
@@ -1432,7 +1432,7 @@ static GtkWidget *launchtaskbar_configure(Panel *panel, GtkWidget *p, GtkWindow 
 }
 
 /* Callback when panel configuration changes. */
-static void launchtaskbar_panel_configuration_changed(Panel *panel, GtkWidget *p)
+static void launchtaskbar_panel_configuration_changed(LXPanel *panel, GtkWidget *p)
 {
     /* Set orientation into the icon grid. */
     LaunchTaskBarPlugin *ltbp = lxpanel_plugin_get_data(p);
@@ -1605,7 +1605,7 @@ static void task_draw_label(Task * tk)
     if (tk->tb->tooltips)
         gtk_widget_set_tooltip_text(tk->button, label);
 
-    panel_draw_label_text(tk->tb->panel, tk->label, label, bold_style, 1,
+    lxpanel_draw_label_text(tk->tb->panel, tk->label, label, bold_style, 1,
             tk->tb->flat_button);
 
     g_free(label);
@@ -3264,7 +3264,7 @@ static void  on_menuitem_lock_tbp_clicked(GtkWidget * widget, LaunchTaskBarPlugi
         btn->settings = config_group_add_subgroup(tb->settings, "Button");
         config_group_set_string(btn->settings, "id", path);
         g_free(path);
-        panel_config_save(tb->panel);
+        lxpanel_config_save(tb->panel);
     }
 }
 
@@ -3276,7 +3276,7 @@ static void  on_menuitem_unlock_tbp_clicked(GtkWidget * widget, LaunchTaskBarPlu
     if(btn != NULL)
     {
         launchbar_remove_button(ltbp, btn);
-        panel_config_save(tb->panel);
+        lxpanel_config_save(tb->panel);
     }
     if (fi)
         fm_file_info_unref(fi);
@@ -3438,12 +3438,12 @@ static void taskbar_apply_configuration(LaunchTaskBarPlugin *ltbp)
     taskbar_net_client_list(NULL, ltbp);
 }
 
-static GtkWidget *launchbar_constructor(Panel *panel, config_setting_t *settings)
+static GtkWidget *launchbar_constructor(LXPanel *panel, config_setting_t *settings)
 {
     return _launchtaskbar_constructor(panel, settings, LAUNCHBAR);
 }
 
-static GtkWidget *taskbar_constructor(Panel *panel, config_setting_t *settings)
+static GtkWidget *taskbar_constructor(LXPanel *panel, config_setting_t *settings)
 {
     return _launchtaskbar_constructor(panel, settings, TASKBAR);
 }

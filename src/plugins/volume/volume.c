@@ -42,7 +42,7 @@ static GtkWidget *curr_image;
 static gboolean skip_botton1_event;
 
 typedef struct {
-    Panel *panel;
+    LXPanel *panel;
     GtkWidget *dlg;
 } volume_t;
 
@@ -154,7 +154,7 @@ static void on_mouse_scroll (GtkWidget* widget, GdkEventScroll* evt, volume_t *v
 	}
 }
 
-static gboolean on_button_press (GtkWidget* widget, GdkEventButton* evt, Panel* p)
+static gboolean on_button_press (GtkWidget* widget, GdkEventButton* evt, LXPanel* p)
 {
 	volume_t *vol = lxpanel_plugin_get_data(widget);
 
@@ -234,7 +234,7 @@ static gboolean on_button_press (GtkWidget* widget, GdkEventButton* evt, Panel* 
 	return FALSE;
 }
 
-static GtkWidget *volume_constructor(Panel *panel, config_setting_t *settings)
+static GtkWidget *volume_constructor(LXPanel *panel, config_setting_t *settings)
 {
     volume_t *vol;
     GtkWidget *p;

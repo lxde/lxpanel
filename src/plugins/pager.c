@@ -36,7 +36,7 @@
 /* command to configure desktop, it will be set by .config callback */
 static const char *configure_command = NULL;
 
-static void on_realize(GtkWidget *p, Panel *panel)
+static void on_realize(GtkWidget *p, LXPanel *panel)
 {
     WnckPager *pager = WNCK_PAGER(gtk_bin_get_child(GTK_BIN(p)));
     int rows, r, h = panel_get_height(panel);
@@ -52,13 +52,13 @@ static void on_realize(GtkWidget *p, Panel *panel)
     wnck_pager_set_n_rows(pager, rows);
 }
 
-static void on_size_allocate(GtkWidget *p, GdkRectangle *allocation, Panel *panel)
+static void on_size_allocate(GtkWidget *p, GdkRectangle *allocation, LXPanel *panel)
 {
     /* g_debug("pager: on_size_allocate(): %dx%d", allocation->width, allocation->height); */
     on_realize(p, panel);
 }
 
-static GtkWidget *pager_constructor(Panel *panel, config_setting_t *settings)
+static GtkWidget *pager_constructor(LXPanel *panel, config_setting_t *settings)
 {
     GtkWidget *p, *w;
 
@@ -81,7 +81,7 @@ static GtkWidget *pager_constructor(Panel *panel, config_setting_t *settings)
 }
 
 /* this is a modified version of patch from Lubuntu */
-static GtkWidget *pager_configure(Panel *panel, GtkWidget *instance, GtkWindow *parent)
+static GtkWidget *pager_configure(LXPanel *panel, GtkWidget *instance, GtkWindow *parent)
 {
     if (configure_command)
         fm_launch_command_simple(NULL, NULL, G_APP_INFO_CREATE_NONE,
@@ -130,7 +130,7 @@ static gboolean pager_update_context_menu(GtkWidget *plugin, GtkMenu *menu)
     return FALSE;
 }
 
-static void pager_panel_configuration_changed(Panel *panel, GtkWidget *p)
+static void pager_panel_configuration_changed(LXPanel *panel, GtkWidget *p)
 {
     on_realize(p, panel);
 }

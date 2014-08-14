@@ -78,39 +78,57 @@ extern Atom a_MANAGER;
 
 extern Atom a_LXPANEL_CMD; /* for private client message */
 
+#define LX_TYPE_PANEL                  (lxpanel_get_type())
+#define LXPANEL(obj)                   (G_TYPE_CHECK_INSTANCE_CAST((obj), \
+                                        LX_TYPE_PANEL, LXPanel))
+#define LXPANEL_CLASS(klass)           (G_TYPE_CHECK_CLASS_CAST((klass), \
+                                        LX_TYPE_PANEL, LXPanelClass))
+#define LX_IS_PANEL(obj)               (G_TYPE_CHECK_INSTANCE_TYPE ((obj), \
+                                        LX_TYPE_PANEL))
+
+extern GType lxpanel_get_type          (void) G_GNUC_CONST;
+
+/* A little trick to be compatible with some themes which rely on the
+   PanelToplevel class, so we use LXPanel as alias for PanelToplevel */
+typedef struct _LXPanel LXPanel;
+typedef struct _LXPanel PanelToplevel;
+typedef struct _LXPanelClass PanelToplevelClass;
+
 typedef struct _Panel Panel;
 
+struct _LXPanel
+{
+    GtkWindow window;
+    Panel *priv;
+};
+
+struct _LXPanelClass
+{
+    GtkWindowClass parent_class;
+};
+
 extern void panel_apply_icon(GtkWindow *w);
-extern void panel_destroy(Panel *p);
-extern void panel_adjust_geometry_terminology(Panel *p);
-extern void panel_determine_background_pixmap(Panel * p, GtkWidget * widget, GdkWindow * window);
-extern void panel_draw_label_text(Panel * p, GtkWidget * label, const char * text,
-                                  gboolean bold, float custom_size_factor,
-                                  gboolean custom_color);
-extern void panel_establish_autohide(Panel *p);
-extern void panel_image_set_from_file(Panel * p, GtkWidget * image, const char * file);
-extern gboolean panel_image_set_icon_theme(Panel * p, GtkWidget * image, const gchar * icon);
-extern void panel_set_wm_strut(Panel *p);
-extern void panel_set_dock_type(Panel *p);
-extern void panel_set_panel_configuration_changed(Panel *p);
-extern void panel_update_background( Panel* p );
+extern void lxpanel_draw_label_text(LXPanel * p, GtkWidget * label, const char * text,
+                                    gboolean bold, float custom_size_factor,
+                                    gboolean custom_color);
+extern void lxpanel_image_set_from_file(LXPanel * p, GtkWidget * image, const char * file);
+extern gboolean lxpanel_image_set_icon_theme(LXPanel * p, GtkWidget * image, const gchar * icon);
 
 extern int panel_handle_x_error(Display * d, XErrorEvent * ev);
 extern int panel_handle_x_error_swallow_BadWindow_BadDrawable(Display * d, XErrorEvent * ev);
 
-void panel_config_save(Panel *p); /* defined in configurator.c */
+void lxpanel_config_save(LXPanel *p); /* defined in configurator.c */
 
 /* Accessors APIs for Panel* */
-extern GtkOrientation panel_get_orientation(Panel *panel);
-extern gint panel_get_icon_size(Panel *panel);
-extern gint panel_get_height(Panel *panel);
-extern GtkWindow *panel_get_toplevel_window(Panel *panel);
-extern Window panel_get_xwindow(Panel *panel);
-extern gint panel_get_monitor(Panel *panel);
-extern GtkStyle *panel_get_defstyle(Panel *panel);
-extern GtkIconTheme *panel_get_icon_theme(Panel *panel);
-extern gboolean panel_is_at_bottom(Panel *panel);
-extern GtkWidget *panel_box_new(Panel *panel, gboolean homogeneous, gint spacing);
-extern GtkWidget *panel_separator_new(Panel *panel);
+extern GtkOrientation panel_get_orientation(LXPanel *panel);
+extern gint panel_get_icon_size(LXPanel *panel);
+extern gint panel_get_height(LXPanel *panel);
+extern Window panel_get_xwindow(LXPanel *panel);
+extern gint panel_get_monitor(LXPanel *panel);
+extern GtkStyle *panel_get_defstyle(LXPanel *panel);
+extern GtkIconTheme *panel_get_icon_theme(LXPanel *panel);
+extern gboolean panel_is_at_bottom(LXPanel *panel);
+extern GtkWidget *panel_box_new(LXPanel *panel, gboolean homogeneous, gint spacing);
+extern GtkWidget *panel_separator_new(LXPanel *panel);
 
 #endif

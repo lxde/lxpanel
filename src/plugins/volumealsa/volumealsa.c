@@ -38,7 +38,7 @@ typedef struct {
 
     /* Graphics. */
     GtkWidget * plugin;				/* Back pointer to the widget */
-    Panel * panel;				/* Back pointer to panel */
+    LXPanel * panel;				/* Back pointer to panel */
     GtkWidget * tray_icon;			/* Displayed image */
     GtkWidget * popup_window;			/* Top level window for popup */
     GtkWidget * volume_scale;			/* Scale for volume */
@@ -329,11 +329,11 @@ static void volumealsa_update_display(VolumeALSAPlugin * vol)
     volumealsa_update_current_icon(vol);
 
     /* Change icon, fallback to default icon if theme doesn't exsit */
-    if ( ! panel_image_set_icon_theme(vol->panel, vol->tray_icon, vol->icon_panel))
+    if ( ! lxpanel_image_set_icon_theme(vol->panel, vol->tray_icon, vol->icon_panel))
     {
-        if ( ! panel_image_set_icon_theme(vol->panel, vol->tray_icon, vol->icon))
+        if ( ! lxpanel_image_set_icon_theme(vol->panel, vol->tray_icon, vol->icon))
         {
-            panel_image_set_from_file(vol->panel, vol->tray_icon, vol->icon_fallback);
+            lxpanel_image_set_from_file(vol->panel, vol->tray_icon, vol->icon_fallback);
         }
     }
 
@@ -358,7 +358,7 @@ static void volumealsa_update_display(VolumeALSAPlugin * vol)
 
 
 /* Handler for "button-press-event" signal on main widget. */
-static gboolean volumealsa_button_press_event(GtkWidget * widget, GdkEventButton * event, Panel * panel)
+static gboolean volumealsa_button_press_event(GtkWidget * widget, GdkEventButton * event, LXPanel * panel)
 {
     VolumeALSAPlugin * vol;
 
@@ -408,11 +408,11 @@ static void volumealsa_popup_map(GtkWidget * widget, VolumeALSAPlugin * vol)
 
 static void volumealsa_theme_change(GtkWidget * widget, VolumeALSAPlugin * vol)
 {
-    if ( ! panel_image_set_icon_theme(vol->panel, vol->tray_icon, vol->icon_panel))
+    if ( ! lxpanel_image_set_icon_theme(vol->panel, vol->tray_icon, vol->icon_panel))
     {
-        if ( ! panel_image_set_icon_theme(vol->panel, vol->tray_icon, vol->icon))
+        if ( ! lxpanel_image_set_icon_theme(vol->panel, vol->tray_icon, vol->icon))
         {
-            panel_image_set_from_file(vol->panel, vol->tray_icon, vol->icon_fallback);
+            lxpanel_image_set_from_file(vol->panel, vol->tray_icon, vol->icon_fallback);
         }
     }
 }
@@ -523,7 +523,7 @@ static void volumealsa_build_popup_window(GtkWidget *p)
 }
 
 /* Plugin constructor. */
-static GtkWidget *volumealsa_constructor(Panel *panel, config_setting_t *settings)
+static GtkWidget *volumealsa_constructor(LXPanel *panel, config_setting_t *settings)
 {
     /* Allocate and initialize plugin context and set into Plugin private data pointer. */
     VolumeALSAPlugin * vol = g_new0(VolumeALSAPlugin, 1);
@@ -580,7 +580,7 @@ static void volumealsa_destructor(gpointer user_data)
 
 /* Callback when the configuration dialog is to be shown. */
 
-static GtkWidget *volumealsa_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *volumealsa_configure(LXPanel *panel, GtkWidget *p, GtkWindow *parent)
 {
     const gchar *command_line = NULL;
 
@@ -635,7 +635,7 @@ static GtkWidget *volumealsa_configure(Panel *panel, GtkWidget *p, GtkWindow *pa
 }
 
 /* Callback when panel configuration changes. */
-static void volumealsa_panel_configuration_changed(Panel *panel, GtkWidget *p)
+static void volumealsa_panel_configuration_changed(LXPanel *panel, GtkWidget *p)
 {
     /* Do a full redraw. */
     volumealsa_update_display(lxpanel_plugin_get_data(p));

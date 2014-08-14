@@ -61,7 +61,7 @@ static inline LXPanelPluginInit *_find_plugin(const char *name)
     return g_hash_table_lookup(_all_types, name);
 }
 
-static GtkWidget *_old_plugin_config(Panel *panel, GtkWidget *instance, GtkWindow *parent)
+static GtkWidget *_old_plugin_config(LXPanel *panel, GtkWidget *instance, GtkWindow *parent)
 {
     LXPanelPluginInit *init = PLUGIN_CLASS(instance);
     Plugin * plugin;
@@ -73,7 +73,7 @@ static GtkWidget *_old_plugin_config(Panel *panel, GtkWidget *instance, GtkWindo
     return NULL;
 }
 
-static void _old_plugin_reconfigure(Panel *panel, GtkWidget *instance)
+static void _old_plugin_reconfigure(LXPanel *panel, GtkWidget *instance)
 {
     LXPanelPluginInit *init = PLUGIN_CLASS(instance);
     Plugin * plugin;
@@ -223,10 +223,11 @@ static void plugin_get_available_classes(void)
 }
 
 /* Recursively set the background of all widgets on a panel background configuration change. */
-void plugin_widget_set_background(GtkWidget * w, Panel * p)
+void plugin_widget_set_background(GtkWidget * w, LXPanel * panel)
 {
     if (w != NULL)
     {
+        Panel *p = panel->priv;
         if (gtk_widget_get_has_window(w))
         {
             if ((p->background) || (p->transparent))
@@ -237,7 +238,7 @@ void plugin_widget_set_background(GtkWidget * w, Panel * p)
                 if (GTK_WIDGET_REALIZED(w))
 #endif
                 {
-                    panel_determine_background_pixmap(p, w, gtk_widget_get_window(w));
+                    _panel_determine_background_pixmap(panel, w);
                     gdk_window_invalidate_rect(gtk_widget_get_window(w), NULL, TRUE);
                 }
             }
@@ -270,13 +271,13 @@ void plugin_widget_set_background(GtkWidget * w, Panel * p)
 
         /* Recursively process all children of a container. */
         if (GTK_IS_CONTAINER(w))
-            gtk_container_foreach(GTK_CONTAINER(w), (GtkCallback) plugin_widget_set_background, p);
+            gtk_container_foreach(GTK_CONTAINER(w), (GtkCallback) plugin_widget_set_background, panel);
     }
 }
 
 /* Handler for "button_press_event" signal with Plugin as parameter.
  * External so can be used from a plugin. */
-gboolean lxpanel_plugin_button_press_event(GtkWidget *plugin, GdkEventButton *event, Panel *panel)
+gboolean lxpanel_plugin_button_press_event(GtkWidget *plugin, GdkEventButton *event, LXPanel *panel)
 {
     if (event->button == 3) /* right button */
     {
@@ -294,7 +295,7 @@ gboolean plugin_button_press_event(GtkWidget *widget, GdkEventButton *event, Plu
 }
 
 /* Helper for position-calculation callback for popup menus. */
-void lxpanel_plugin_popup_set_position_helper(Panel * p, GtkWidget * near, GtkWidget * popup, gint * px, gint * py)
+void lxpanel_plugin_popup_set_position_helper(LXPanel * p, GtkWidget * near, GtkWidget * popup, gint * px, gint * py)
 {
     gint x, y;
     GtkAllocation allocation;
@@ -319,7 +320,7 @@ void lxpanel_plugin_popup_set_position_helper(Panel * p, GtkWidget * near, GtkWi
 
     /* Dispatch on edge to lay out the popup menu with respect to the button.
      * Also set "push-in" to avoid any case where it might flow off screen. */
-    switch (p->edge)
+    switch (p->priv->edge)
     {
         case EDGE_TOP:          y += allocation.height;         break;
         case EDGE_BOTTOM:       y -= popup_req.height;                break;
@@ -342,7 +343,7 @@ void lxpanel_plugin_popup_set_position_helper(Panel * p, GtkWidget * near, GtkWi
 /* for old plugins compatibility -- popup_req is ignored here */
 void plugin_popup_set_position_helper(Plugin * p, GtkWidget * near, GtkWidget * popup, GtkRequisition * popup_req, gint * px, gint * py)
 {
-    lxpanel_plugin_popup_set_position_helper(p->panel, near, popup, px, py);
+    lxpanel_plugin_popup_set_position_helper(p->panel->topgwin, near, popup, px, py);
 }
 
 /* Adjust the position of a popup window to ensure that it is not hidden by the panel.
@@ -350,7 +351,7 @@ void plugin_popup_set_position_helper(Plugin * p, GtkWidget * near, GtkWidget * 
 void lxpanel_plugin_adjust_popup_position(GtkWidget * popup, GtkWidget * parent)
 {
     /* Initialize. */
-    Panel * p = PLUGIN_PANEL(parent);
+    Panel * p = PLUGIN_PANEL(parent)->priv;
     GtkAllocation allocation;
 
     gtk_widget_get_allocation(parent, &allocation);
@@ -419,7 +420,7 @@ static gboolean _open_dir_in_file_manager(GAppLaunchContext* ctx, GList* folder_
     return ret;
 }
 
-gboolean lxpanel_launch_path(Panel *panel, FmPath *path)
+gboolean lxpanel_launch_path(LXPanel *panel, FmPath *path)
 {
     return fm_launch_path_simple(NULL, NULL, path, _open_dir_in_file_manager, NULL);
 }
@@ -427,13 +428,13 @@ gboolean lxpanel_launch_path(Panel *panel, FmPath *path)
 void lxpanel_plugin_show_config_dialog(GtkWidget* plugin)
 {
     LXPanelPluginInit *init = PLUGIN_CLASS(plugin);
-    Panel *panel = PLUGIN_PANEL(plugin);
-    GtkWidget *dlg = panel->plugin_pref_dialog;
+    LXPanel *panel = PLUGIN_PANEL(plugin);
+    GtkWidget *dlg = panel->priv->plugin_pref_dialog;
 
     if (dlg && g_object_get_data(G_OBJECT(dlg), "generic-config-plugin") == plugin)
         return; /* configuration dialog is already shown for this widget */
     g_return_if_fail(panel != NULL);
-    dlg = init->config(panel, plugin, GTK_WINDOW(panel->topgwin));
+    dlg = init->config(panel, plugin, GTK_WINDOW(panel));
     if (dlg)
         _panel_show_config_dialog(panel, plugin, dlg);
 }
@@ -462,7 +463,6 @@ void _prepare_modules(void)
     lxpanel_plugin_qdata = g_quark_from_static_string("LXPanel::plugin-data");
     lxpanel_plugin_qinit = g_quark_from_static_string("LXPanel::plugin-init");
     lxpanel_plugin_qconf = g_quark_from_static_string("LXPanel::plugin-conf");
-    lxpanel_plugin_qpanel = g_quark_from_static_string("LXPanel::plugin-panel");
 #ifndef DISABLE_PLUGINS_LOADING
     fm_modules_add_directory(PACKAGE_LIB_DIR "/lxpanel/plugins");
     fm_module_register_lxpanel_gtk();
@@ -547,12 +547,12 @@ static void _on_old_widget_destroy(GtkWidget *widget, Plugin *pl)
     pl->class->destructor(pl);
 }
 
-//static void on_size_allocate(GtkWidget *widget, GdkRectangle *allocation, Panel *p)
+//static void on_size_allocate(GtkWidget *widget, GdkRectangle *allocation, LXPanel *p)
 //{
 //    _queue_panel_calculate_size(p);
 //}
 
-GtkWidget *lxpanel_add_plugin(Panel *p, const char *name, config_setting_t *cfg, gint at)
+GtkWidget *lxpanel_add_plugin(LXPanel *p, const char *name, config_setting_t *cfg, gint at)
 {
     LXPanelPluginInit *init;
     GtkWidget *widget;
@@ -607,7 +607,7 @@ GtkWidget *lxpanel_add_plugin(Panel *p, const char *name, config_setting_t *cfg,
         char *conf = config_setting_to_string(pconf), *fp;
 
         pl->class = pc;
-        pl->panel = p;
+        pl->panel = p->priv;
         widget = NULL;
         fp = &conf[9]; /* skip "Config {\n" */
         /* g_debug("created conf: %s",conf); */
@@ -629,13 +629,12 @@ GtkWidget *lxpanel_add_plugin(Panel *p, const char *name, config_setting_t *cfg,
         lxpanel_plugin_set_data(widget, pl, _old_plugin_destroy);
     }
     gtk_widget_set_name(widget, name);
-    gtk_box_pack_start(GTK_BOX(p->box), widget, expand, TRUE, padding);
+    gtk_box_pack_start(GTK_BOX(p->priv->box), widget, expand, TRUE, padding);
     gtk_container_set_border_width(GTK_CONTAINER(widget), border);
 //    g_signal_connect(widget, "size-allocate", G_CALLBACK(on_size_allocate), p);
     gtk_widget_show(widget);
     g_object_set_qdata(G_OBJECT(widget), lxpanel_plugin_qconf, cfg);
     g_object_set_qdata(G_OBJECT(widget), lxpanel_plugin_qinit, init);
-    g_object_set_qdata(G_OBJECT(widget), lxpanel_plugin_qpanel, p);
     return widget;
 }
 

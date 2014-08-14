@@ -37,7 +37,7 @@
 /* Private context for digital clock plugin. */
 typedef struct {
     GtkWidget * plugin;				/* Back pointer to plugin */
-    Panel * panel;
+    LXPanel * panel;
     config_setting_t *settings;
     GtkWidget * clock_label;			/* Label containing clock value */
     GtkWidget * clock_icon;			/* Icon when icon_only */
@@ -102,7 +102,7 @@ static GtkWidget * dclock_create_calendar(DClockPlugin * dc)
 }
 
 /* Handler for "button-press-event" event from main widget. */
-static gboolean dclock_button_press_event(GtkWidget * widget, GdkEventButton * evt, Panel * panel)
+static gboolean dclock_button_press_event(GtkWidget * widget, GdkEventButton * evt, LXPanel * panel)
 {
     DClockPlugin * dc;
 
@@ -212,7 +212,7 @@ static gboolean dclock_update_display(DClockPlugin * dc)
         gchar * utf8 = g_locale_to_utf8(((newlines_converted != NULL) ? newlines_converted : clock_value), -1, NULL, NULL, NULL);
         if (utf8 != NULL)
         {
-            panel_draw_label_text(dc->panel, dc->clock_label, utf8, dc->bold, 1, TRUE);
+            lxpanel_draw_label_text(dc->panel, dc->clock_label, utf8, dc->bold, 1, TRUE);
             g_free(utf8);
         }
         g_free(newlines_converted);
@@ -281,7 +281,7 @@ static gboolean dclock_update_display(DClockPlugin * dc)
 }
 
 /* Plugin constructor. */
-static GtkWidget *dclock_constructor(Panel *panel, config_setting_t *settings)
+static GtkWidget *dclock_constructor(LXPanel *panel, config_setting_t *settings)
 {
     /* Allocate and initialize plugin context and set into Plugin private data pointer. */
     DClockPlugin * dc = g_new0(DClockPlugin, 1);
@@ -372,8 +372,8 @@ static gboolean dclock_apply_configuration(gpointer user_data)
     /* Set up the icon or the label as the displayable widget. */
     if (dc->icon_only)
     {
-        if(panel_image_set_icon_theme(dc->panel, dc->clock_icon, "clock") != FALSE) {
-            panel_image_set_from_file(dc->panel, dc->clock_icon, PACKAGE_DATA_DIR "/images/clock.png");
+        if(lxpanel_image_set_icon_theme(dc->panel, dc->clock_icon, "clock") != FALSE) {
+            lxpanel_image_set_from_file(dc->panel, dc->clock_icon, PACKAGE_DATA_DIR "/images/clock.png");
         }
         gtk_widget_show(dc->clock_icon);
         gtk_widget_hide(dc->clock_label);
@@ -420,7 +420,7 @@ static gboolean dclock_apply_configuration(gpointer user_data)
 }
 
 /* Callback when the configuration dialog is to be shown. */
-static GtkWidget *dclock_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *dclock_configure(LXPanel *panel, GtkWidget *p, GtkWindow *parent)
 {
     DClockPlugin * dc = lxpanel_plugin_get_data(p);
     return lxpanel_generic_config_dlg(_("Digital Clock"), panel,
@@ -436,7 +436,7 @@ static GtkWidget *dclock_configure(Panel *panel, GtkWidget *p, GtkWindow *parent
 }
 
 /* Callback when panel configuration changes. */
-static void dclock_reconfigure(Panel *panel, GtkWidget *p)
+static void dclock_reconfigure(LXPanel *panel, GtkWidget *p)
 {
     dclock_apply_configuration(p);
 }

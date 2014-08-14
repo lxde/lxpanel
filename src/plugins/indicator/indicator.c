@@ -67,7 +67,7 @@ static gchar * indicator_order[][2] = {
 GOutputStream * log_file = NULL;
 
 typedef struct {
-    Panel *panel;
+    LXPanel *panel;
     config_setting_t *settings;
 
     IndicatorObject *io;		/* Indicators applets */
@@ -619,7 +619,7 @@ menubar_on_expose (GtkWidget * widget,
     return FALSE;
 }
 
-static void indicator_load_modules(Panel *panel, GtkWidget *p)
+static void indicator_load_modules(LXPanel *panel, GtkWidget *p)
 {
 
     gint indicators_loaded = 0;
@@ -702,7 +702,7 @@ static void indicator_load_modules(Panel *panel, GtkWidget *p)
 }
 
 /* Plugin constructor. */
-static GtkWidget *indicator_constructor(Panel *panel, config_setting_t *settings)
+static GtkWidget *indicator_constructor(LXPanel *panel, config_setting_t *settings)
 {
     /* Allocate and initialize plugin context and set into Plugin private data pointer. */
     IndicatorPlugin * indicator = g_new0(IndicatorPlugin, 1);
@@ -808,7 +808,7 @@ static void indicator_destructor(gpointer user_data)
 #endif
 
 /* Callback when panel configuration changes. */
-static void indicator_panel_configuration_changed(Panel *panel, GtkWidget *p)
+static void indicator_panel_configuration_changed(LXPanel *panel, GtkWidget *p)
 {
     /*
     Update when configuration changed
@@ -858,7 +858,7 @@ static gboolean indicator_apply_configuration(gpointer user_data)
 }
 
 /* Callback when the configuration dialog is to be shown. */
-static GtkWidget *indicator_configure(Panel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *indicator_configure(LXPanel *panel, GtkWidget *p, GtkWindow *parent)
 {
     IndicatorPlugin * indicator = lxpanel_plugin_get_data(p);
     GtkWidget * dlg = lxpanel_generic_config_dlg(_("Indicator applets"),
