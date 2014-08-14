@@ -27,6 +27,7 @@ enum {
   PROP_ORIENTATION,
   PROP_SPACING,
   PROP_CONSTRAIN_WIDTH
+  //PROP_FILL_WIDTH
 };
 
 /* Representative of an icon grid.  This is a manager that packs widgets into a rectangular grid whose size adapts to conditions. */
@@ -40,7 +41,8 @@ struct _PanelIconGrid
     gint spacing;				/* Desired spacing between grid elements */
     gint border;				/* Desired border around grid elements */
     gint target_dimension;			/* Desired dimension perpendicular to orientation */
-    gboolean constrain_width;			/* True if width should be constrained by allocated space */
+    gboolean constrain_width : 1;		/* True if width should be constrained by allocated space */
+    gboolean fill_width : 1;			/* True if children should fill unused width */
     int rows;					/* Computed layout rows */
     int columns;				/* Computed layout columns */
     int constrained_child_width;		/* Child width constrained by allocation */
@@ -124,6 +126,7 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
                 child_allocation.x += allocation->x;
                 child_allocation.y += allocation->y;
             }
+            // FIXME: if fill_width and rows > 1 then delay allocation
             gtk_widget_size_allocate(child, &child_allocation);
 
             /* Advance to the next grid position. */
@@ -134,10 +137,12 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
                 {
                     y = ig->border;
                     x += x_delta;
+                    // FIXME: if fill_width and rows = 1 then allocate whole column
                 }
             }
             else
             {
+                // FIXME: if fill_width then use aspect to check delta
                 x += x_delta;
                 if ((direction == GTK_TEXT_DIR_RTL) ? (x <= 0) : (x >= limit))
                 {
@@ -217,6 +222,7 @@ static void panel_icon_grid_size_request(GtkWidget *widget,
 static void icon_grid_element_size_request(GtkWidget * widget, GtkRequisition * requisition, PanelIconGrid * ig)
 {
     /* This is our opportunity to request space for the element. */
+    // FIXME: if fill_width then calculate width from aspect
     requisition->width = ig->child_width;
     if ((ig->constrain_width) && (ig->constrained_child_width > 1))
         requisition->width = ig->constrained_child_width;
@@ -240,8 +246,26 @@ static void panel_icon_grid_add(GtkContainer *container, GtkWidget *widget)
 
 void panel_icon_grid_set_constrain_width(PanelIconGrid * ig, gboolean constrain_width)
 {
-    ig->constrain_width = constrain_width;
+    g_return_if_fail(PANEL_IS_ICON_GRID(ig));
+
+    if ((!ig->constrain_width && !constrain_width) ||
+        (ig->constrain_width && constrain_width))
+        return;
+
+    ig->constrain_width = !!constrain_width;
+    gtk_widget_queue_resize(GTK_WIDGET(ig));
 }
+
+/* void panel_icon_grid_set_fill_width(PanelIconGrid * ig, gboolean fill_width)
+{
+    g_return_if_fail(PANEL_IS_ICON_GRID(ig));
+
+    if ((!ig->fill_width && !fill_width) || (ig->fill_width && fill_width))
+        return;
+
+    ig->fill_width = !!fill_width;
+    gtk_widget_queue_resize(GTK_WIDGET(ig));
+} */
 
 /* Remove an icon grid element. */
 static void panel_icon_grid_remove(GtkContainer *container, GtkWidget *widget)
@@ -326,12 +350,12 @@ void panel_icon_grid_reorder_child(PanelIconGrid * ig, GtkWidget * child, gint p
 void panel_icon_grid_set_geometry(PanelIconGrid * ig,
     GtkOrientation orientation, gint child_width, gint child_height, gint spacing, gint border, gint target_dimension)
 {
-    gboolean changed = (ig->orientation != orientation ||
-                        ig->child_width != child_width ||
-                        ig->child_height != child_height ||
-                        ig->spacing != spacing ||
-                        ig->border != border ||
-                        ig->target_dimension != target_dimension);
+    g_return_if_fail(PANEL_IS_ICON_GRID(ig));
+
+    if (ig->orientation == orientation && ig->child_width == child_width &&
+            ig->child_height == child_height && ig->spacing == spacing &&
+            ig->border == border && ig->target_dimension == target_dimension)
+        return;
 
     ig->orientation = orientation;
     ig->child_width = child_width;
@@ -340,8 +364,7 @@ void panel_icon_grid_set_geometry(PanelIconGrid * ig,
     ig->spacing = spacing;
     ig->border = border;
     ig->target_dimension = target_dimension;
-    if (changed)
-        gtk_widget_queue_resize(GTK_WIDGET(ig));
+    gtk_widget_queue_resize(GTK_WIDGET(ig));
 }
 
 G_DEFINE_TYPE_WITH_CODE(PanelIconGrid, panel_icon_grid, GTK_TYPE_CONTAINER,
@@ -352,12 +375,17 @@ static void panel_icon_grid_set_property(GObject *object, guint prop_id,
 {
     PanelIconGrid *ig = PANEL_ICON_GRID(object);
     gint spacing;
+    GtkOrientation orientation;
 
     switch (prop_id)
     {
     case PROP_ORIENTATION:
-        ig->orientation = g_value_get_enum(value);
-        gtk_widget_queue_resize(GTK_WIDGET(ig));
+        orientation = g_value_get_enum(value);
+        if (orientation != ig->orientation)
+        {
+            ig->orientation = orientation;
+            gtk_widget_queue_resize(GTK_WIDGET(ig));
+        }
         break;
     case PROP_SPACING:
         spacing = g_value_get_int(value);
@@ -371,6 +399,9 @@ static void panel_icon_grid_set_property(GObject *object, guint prop_id,
     case PROP_CONSTRAIN_WIDTH:
         panel_icon_grid_set_constrain_width(ig, g_value_get_boolean(value));
         break;
+    /* case PROP_FILL_WIDTH:
+        panel_icon_grid_set_fill_width(ig, g_value_get_boolean(value));
+        break; */
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID(object, prop_id, pspec);
         break;
@@ -393,6 +424,9 @@ static void panel_icon_grid_get_property(GObject *object, guint prop_id,
     case PROP_CONSTRAIN_WIDTH:
         g_value_set_boolean(value, ig->constrain_width);
         break;
+    /* case PROP_FILL_WIDTH:
+        g_value_set_boolean(value, ig->fill_width);
+        break; */
     default:
         G_OBJECT_WARN_INVALID_PROPERTY_ID(object, prop_id, pspec);
         break;
