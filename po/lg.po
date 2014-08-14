@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-27 08:58+0100\n"
-"PO-Revision-Date: 2014-08-14 19:43+0000\n"
+"PO-Revision-Date: 2014-08-14 19:53+0000\n"
 "Last-Translator:   <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Luganda <kbirabwa@yahoo.co.uk>\n"
 "Language: lg\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc1\n"
-"X-POOTLE-MTIME: 1408045394.000000\n"
+"X-POOTLE-MTIME: 1408046021.000000\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:55 ../src/gtk-run.c:361 ../src/plugins/menu.c:770
@@ -46,7 +46,7 @@ msgstr "Ekyongerwako kigatte ku lubaawo"
 
 #: ../src/configurator.c:708
 msgid "Available plugins"
-msgstr "Ebyongerwako ebirowo"
+msgstr "Ebyongerwako ebiriwo"
 
 #: ../src/configurator.c:1244
 msgid "Logout command is not set"
@@ -95,7 +95,7 @@ msgstr "Buyinza bw'ebikugizo eby'obwa nannyini (C) 2008-2013"
 
 #: ../src/panel.c:745
 msgid "Desktop panel for LXDE project"
-msgstr "Olubaawo olutuula awakolerwa olw'omu LXDE"
+msgstr "Olubaawo olutuula awakolerwa mu LXDE"
 
 #: ../src/panel.c:782
 msgid "Add / Remove Panel Items"
