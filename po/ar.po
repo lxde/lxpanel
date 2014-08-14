@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-27 08:58+0100\n"
-"PO-Revision-Date: 2013-06-07 05:33+0200\n"
-"Last-Translator: Mohamed Mohsen <linuxer9@gmail.com>\n"
+"PO-Revision-Date: 2014-07-24 02:52+0000\n"
+"Last-Translator: system user <>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Pootle 2.0.5\n"
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Pootle 2.6.0-rc1\n"
+"X-POOTLE-MTIME: 1406170344.000000\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:55 ../src/gtk-run.c:361 ../src/plugins/menu.c:770
@@ -89,9 +90,8 @@ msgid "LXPanel"
 msgstr "شريط لكسدي"
 
 #: ../src/panel.c:744
-#, fuzzy
 msgid "Copyright (C) 2008-2013"
-msgstr "حقوق النشر محفوظة (C) 2008-2011"
+msgstr "حقوق النشر محفوظة (C) 2008-2013"
 
 #: ../src/panel.c:745
 msgid "Desktop panel for LXDE project"
@@ -216,7 +216,7 @@ msgstr ""
 
 #: ../src/plugin.c:370
 msgid "No file manager is configured."
-msgstr ""
+msgstr "لم يتم ضبط مدير ملفات."
 
 #: ../src/gtk-run.c:374
 msgid "Enter the command you want to execute:"
@@ -638,9 +638,8 @@ msgid "A_dd to Launcher"
 msgstr ""
 
 #: ../src/plugins/launchtaskbar.c:3313
-#, fuzzy
 msgid "Rem_ove from Launcher"
-msgstr "أزل \"%s\" من الشريط"
+msgstr "أز_ل من الشريط"
 
 #: ../src/plugins/launchtaskbar.c:3314
 msgid "_New Instance"
@@ -684,9 +683,9 @@ msgid "Tooltip Format"
 msgstr "هيئة التلميح"
 
 #: ../src/plugins/dclock.c:427
-#, fuzzy, c-format
+#, c-format
 msgid "Format codes: man 3 strftime; \\%n for line break"
-msgstr "لمعرفة شفرات التنسيق: man 3 strftime؛ اكتب \\n لبدء سطر جديد"
+msgstr "لمعرفة شفرات التنسيق: man 3 strftime؛ اكتب \\%n لبدء سطر جديد"
 
 #: ../src/plugins/dclock.c:428
 msgid "Action when clicked (default: display calendar)"
