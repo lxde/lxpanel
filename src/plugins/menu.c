@@ -725,7 +725,7 @@ make_button(menup *m, const gchar *fname, const gchar *name, GdkColor* tint, Gtk
     }
 
     gtk_widget_show(m->img);
-    gtk_box_pack_start(GTK_BOX(m->box), m->img, FALSE, FALSE, 0);
+    gtk_box_pack_start(GTK_BOX(m->box), m->img, TRUE, FALSE, 0);
 
     m->handler_id = g_signal_connect (G_OBJECT (m->img), "button-press-event",
           G_CALLBACK (my_button_pressed), m);
@@ -967,7 +967,7 @@ menu_constructor(LXPanel *panel, config_setting_t *settings)
     gtk_icon_size_lookup( GTK_ICON_SIZE_MENU, &iw, &ih );
     m->iconsize = MAX(iw, ih);
 
-    m->box = gtk_hbox_new(FALSE, 0);
+    m->box = gtk_vbox_new(TRUE, 0);
     lxpanel_plugin_set_data(m->box, m, menu_destructor);
     gtk_container_set_border_width(GTK_CONTAINER(m->box), 0);
 

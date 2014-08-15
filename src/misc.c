@@ -1122,7 +1122,7 @@ static GtkWidget *_lxpanel_button_new_for_icon(LXPanel *panel, FmIcon *icon,
 
     GtkWidget * image = _gtk_image_new_for_icon(icon, size);
     gtk_misc_set_padding(GTK_MISC(image), 0, 0);
-    gtk_misc_set_alignment(GTK_MISC(image), 0, 0);
+    gtk_misc_set_alignment(GTK_MISC(image), 0.5, 0.5);
     if (highlight_color != 0)
     {
         ImgData * data = (ImgData *) g_object_get_qdata(G_OBJECT(image), img_data_id);
