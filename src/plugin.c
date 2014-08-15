@@ -277,7 +277,7 @@ void plugin_widget_set_background(GtkWidget * w, LXPanel * panel)
 
 /* Handler for "button_press_event" signal with Plugin as parameter.
  * External so can be used from a plugin. */
-gboolean lxpanel_plugin_button_press_event(GtkWidget *plugin, GdkEventButton *event, LXPanel *panel)
+static gboolean lxpanel_plugin_button_press_event(GtkWidget *plugin, GdkEventButton *event, LXPanel *panel)
 {
     if (event->button == 3 && /* right button */
         (event->state & gtk_accelerator_get_default_mod_mask()) == 0) /* no key */
