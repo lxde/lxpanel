@@ -89,10 +89,6 @@ static void deskno_redraw(GtkWidget * widget, DesknoPlugin * dc)
 /* Handler for button-press-event on top level widget. */
 static gboolean deskno_button_press_event(GtkWidget * widget, GdkEventButton * event, LXPanel * p)
 {
-    /* Standard right-click handling. */
-    if (lxpanel_plugin_button_press_event(widget, event, p))
-        return TRUE;
-
     /* Right-click goes to next desktop, wrapping around to first. */
     int desknum = get_net_current_desktop();
     int desks = get_net_number_of_desktops();

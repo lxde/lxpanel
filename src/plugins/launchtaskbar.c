@@ -334,10 +334,6 @@ static void launchbutton_free(LaunchButton * btn)
 /* Handler for "button-press-event" event from launchtaskbar button. */
 static gboolean launchbutton_press_event(GtkWidget * widget, GdkEventButton * event, LaunchButton * b)
 {
-    /* Standard right-click handling. */
-    if (lxpanel_plugin_button_press_event(b->p->plugin, event, b->p->panel))
-        return TRUE;
-
     if (event->button == 1 && event->type == GDK_BUTTON_PRESS) /* left button */
     {
         if (b->fi == NULL)  /* The bootstrap button */

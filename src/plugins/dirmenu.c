@@ -239,10 +239,6 @@ static gboolean dirmenu_button_press_event(GtkWidget * widget, GdkEventButton * 
 {
     DirMenuPlugin * dm = lxpanel_plugin_get_data(widget);
 
-    /* Standard left-click handling. */
-    if (lxpanel_plugin_button_press_event(widget, event, p))
-        return TRUE;
-
     if (event->button == 1)
     {
         dirmenu_show_menu(widget, dm, event->button, event->time);

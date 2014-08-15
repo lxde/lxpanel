@@ -84,10 +84,6 @@ static gboolean on_button_press( GtkWidget* widget, GdkEventButton* evt, LXPanel
     NetstatusIface* iface;
     netstatus *ns = lxpanel_plugin_get_data(widget);
 
-    /* Standard right-click handling. */
-    if (lxpanel_plugin_button_press_event(widget, evt, p))
-        return TRUE;
-
     if( evt->button == 1 ) /*  Left click*/
     {
         if( ! ns->dlg )

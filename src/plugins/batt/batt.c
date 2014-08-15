@@ -343,7 +343,7 @@ static gboolean buttonPressEvent(GtkWidget *p, GdkEventButton *event,
 
     update_display(lx_b, TRUE);
 
-    return lxpanel_plugin_button_press_event(p, event, panel);
+    return FALSE;
 }
 
 

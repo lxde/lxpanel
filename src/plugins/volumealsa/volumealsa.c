@@ -360,13 +360,7 @@ static void volumealsa_update_display(VolumeALSAPlugin * vol)
 /* Handler for "button-press-event" signal on main widget. */
 static gboolean volumealsa_button_press_event(GtkWidget * widget, GdkEventButton * event, LXPanel * panel)
 {
-    VolumeALSAPlugin * vol;
-
-    /* Standard right-click handling. */
-    if (lxpanel_plugin_button_press_event(widget, event, panel))
-        return TRUE;
-
-    vol = lxpanel_plugin_get_data(widget);
+    VolumeALSAPlugin * vol = lxpanel_plugin_get_data(widget);
 
     /* Left-click.  Show or hide the popup window. */
     if (event->button == 1)

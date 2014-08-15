@@ -196,10 +196,6 @@ static gboolean on_xkb_button_scroll_event(GtkWidget * widget, GdkEventScroll * 
 /* Handler for button-press-event on top level widget. */
 static gboolean on_xkb_button_press_event(GtkWidget * widget,  GdkEventButton * event, LXPanel * panel)
 {
-    /* Standard right-click handling. */
-    if (lxpanel_plugin_button_press_event(widget, event, panel))
-        return TRUE;
-
     /* Change to next group. */
     xkb_change_group(lxpanel_plugin_get_data(widget), 1);
     return TRUE;

@@ -66,8 +66,10 @@ G_BEGIN_DECLS
  * own subwidgets appropriately to new geometry.
  *
  * Callback @button_press_event is a handler for "button-press-event"
- * signal on the plugin instance. If this callback is not set then
- * lxpanel_plugin_button_press_event() will be used.
+ * signal on the plugin instance. If this callback is not set then only
+ * lxpanel_plugin_button_press_event() will be used. Note that callback
+ * will never receive right-clicks without modifier because mentioned
+ * lxpanel_plugin_button_press_event() handles it.
  *
  * Callback @show_system_menu is called when lxpanel received a message
  * by 'lxpanelctl menu' command. It will be sent to each instance if more
@@ -139,7 +141,7 @@ extern gboolean lxpanel_register_plugin_type(const char *name, LXPanelPluginInit
 /* few helper functions */
 extern GtkMenu* lxpanel_get_plugin_menu(LXPanel* panel, GtkWidget* plugin, gboolean use_sub_menu);
 extern gboolean lxpanel_plugin_button_press_event(GtkWidget *plugin, GdkEventButton *event, LXPanel *panel);
-			/* Handler for "button_press_event" signal with Plugin as parameter */
+			/* Handler for "button-press-event" signal on plugin */
 extern void lxpanel_plugin_adjust_popup_position(GtkWidget * popup, GtkWidget * plugin);
 			/* Helper to move popup windows away from the panel */
 extern void lxpanel_plugin_popup_set_position_helper(LXPanel * p, GtkWidget * near, GtkWidget * popup, gint * px, gint * py);

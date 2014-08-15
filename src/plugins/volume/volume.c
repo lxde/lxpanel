@@ -193,11 +193,6 @@ static gboolean on_button_press (GtkWidget* widget, GdkEventButton* evt, LXPanel
 		break;
 	}
 
-	case 3:	{	/* right button */
-		lxpanel_plugin_button_press_event(widget, evt, p);
-		return TRUE;
-	}
-
 	case 2:	{	/* middle mouse button */
 		if ( ! vol->dlg ) {
 			vol->dlg = create_volume_window();

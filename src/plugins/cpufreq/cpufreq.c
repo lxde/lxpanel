@@ -302,8 +302,6 @@ clicked(GtkWidget *widget, GdkEventButton *evt, LXPanel *panel)
     ENTER2;
 
     /* Standard right-click handling. */
-    if (lxpanel_plugin_button_press_event(widget, evt, panel))
-        return TRUE;
     if( evt->button == 1 )
     {
 // Setting governor can't work without root privilege

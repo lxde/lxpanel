@@ -111,13 +111,7 @@ static void wincmd_execute(WinCmdPlugin * wc, WindowCommand command)
 /* Handler for "clicked" signal on main widget. */
 static gboolean wincmd_button_clicked(GtkWidget * widget, GdkEventButton * event, LXPanel * panel)
 {
-    WinCmdPlugin * wc;
-
-    /* Standard right-click handling. */
-    if (lxpanel_plugin_button_press_event(widget, event, panel))
-        return TRUE;
-
-    wc = lxpanel_plugin_get_data(widget);
+    WinCmdPlugin * wc = lxpanel_plugin_get_data(widget);
 
     /* Left-click to iconify. */
     if (event->button == 1)

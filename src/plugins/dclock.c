@@ -104,13 +104,7 @@ static GtkWidget * dclock_create_calendar(DClockPlugin * dc)
 /* Handler for "button-press-event" event from main widget. */
 static gboolean dclock_button_press_event(GtkWidget * widget, GdkEventButton * evt, LXPanel * panel)
 {
-    DClockPlugin * dc;
-
-    /* Standard right-click handling. */
-    if (lxpanel_plugin_button_press_event(widget, evt, panel))
-        return TRUE;
-
-    dc = lxpanel_plugin_get_data(widget);
+    DClockPlugin * dc = lxpanel_plugin_get_data(widget);
 
     /* If an action is set, execute it. */
     if (dc->action != NULL)

@@ -493,10 +493,6 @@ static gboolean monitors_button_press_event(GtkWidget* widget, GdkEventButton* e
 {
     MonitorsPlugin* mp = lxpanel_plugin_get_data(widget);
 
-    /* Standard right-click handling. */
-    if (lxpanel_plugin_button_press_event(widget, evt, panel))
-        return TRUE;
-
     if (mp->action != NULL)
         fm_launch_command_simple(NULL, NULL, 0, mp->action, NULL);
     else

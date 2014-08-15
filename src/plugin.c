@@ -279,7 +279,8 @@ void plugin_widget_set_background(GtkWidget * w, LXPanel * panel)
  * External so can be used from a plugin. */
 gboolean lxpanel_plugin_button_press_event(GtkWidget *plugin, GdkEventButton *event, LXPanel *panel)
 {
-    if (event->button == 3) /* right button */
+    if (event->button == 3 && /* right button */
+        (event->state & gtk_accelerator_get_default_mod_mask()) == 0) /* no key */
     {
         GtkMenu* popup = (GtkMenu*)lxpanel_get_plugin_menu(panel, plugin, FALSE);
         gtk_menu_popup(popup, NULL, NULL, NULL, NULL, event->button, event->time);
@@ -593,12 +594,12 @@ GtkWidget *lxpanel_add_plugin(LXPanel *p, const char *name, config_setting_t *cf
         widget = init->new_instance(p, pconf);
         if (widget == NULL)
             return widget;
+        /* always connect lxpanel_plugin_button_press_event() */
+        g_signal_connect(widget, "button-press-event",
+                         G_CALLBACK(lxpanel_plugin_button_press_event), p);
         if (init->button_press_event)
             g_signal_connect(widget, "button-press-event",
                              G_CALLBACK(init->button_press_event), p);
-        else
-            g_signal_connect(widget, "button-press-event",
-                             G_CALLBACK(lxpanel_plugin_button_press_event), p);
     }
     else
     {

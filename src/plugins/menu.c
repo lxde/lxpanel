@@ -664,10 +664,6 @@ my_button_pressed(GtkWidget *widget, GdkEventButton *event, menup *m)
     GtkAllocation allocation;
     gtk_widget_get_allocation(GTK_WIDGET(widget), &allocation);
 
-    /* Standard right-click handling. */
-    if (lxpanel_plugin_button_press_event(m->box, event, m->panel))
-        return TRUE;
-
     if ((event->type == GDK_BUTTON_PRESS)
           && (event->x >=0 && event->x < allocation.width)
           && (event->y >=0 && event->y < allocation.height)) {
