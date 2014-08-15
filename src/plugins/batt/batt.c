@@ -232,6 +232,11 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
     if( b == NULL )
     {
         gtk_widget_set_tooltip_text( lx_b->drawingArea, _("No batteries found") );
+        if (lx_b->hide_if_no_battery)
+        {
+            gtk_widget_hide(gtk_widget_get_parent(lx_b->drawingArea));
+            repaint = FALSE;
+        }
         goto update_done;
     }
 
@@ -302,6 +307,7 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
         cairo_fill(cr);
 
     }
+    gtk_widget_show(gtk_widget_get_parent(lx_b->drawingArea));
 
 update_done:
     if( repaint )
@@ -342,6 +348,7 @@ static gboolean buttonPressEvent(GtkWidget *p, GdkEventButton *event,
     lx_battery *lx_b = lxpanel_plugin_get_data(p);
 
     update_display(lx_b, TRUE);
+    /* FIXME: open some application for lid/power management may be? */
 
     return FALSE;
 }
@@ -355,6 +362,12 @@ static gint configureEvent(GtkWidget *widget, GdkEventConfigure *event,
     ENTER;
 
     gtk_widget_get_allocation(widget, &allocation);
+    if (allocation.width <= 1 && allocation.height <= 1)
+    {
+        /* If plugin is hidden currently then we get 1x1 here */
+        RET(TRUE);
+    }
+
     if (lx_b->pixmap)
         cairo_surface_destroy(lx_b->pixmap);
 
@@ -378,7 +391,6 @@ static gint configureEvent(GtkWidget *widget, GdkEventConfigure *event,
     update_display(lx_b, FALSE);
 
     RET(TRUE);
-
 }
 
 
@@ -595,19 +607,23 @@ static gboolean applyConfig(gpointer user_data)
                     (MAX(1, MIN(b->length, b->thickness)) - 1) / 2);
 
     /* Resize the widget */
+    b->width = b->height = b->length;
     if (b->orientation == GTK_ORIENTATION_HORIZONTAL)
         b->width = b->thickness;
     else
         b->height = b->thickness;
     gtk_widget_set_size_request(b->drawingArea, b->width, b->height);
+    /* ensure visibility if requested */
+    if (!b->hide_if_no_battery)
+        gtk_widget_show(user_data);
+    else if (b->b == NULL)
+        gtk_widget_hide(user_data);
 
     /* update tooltip */
     set_tooltip_text(b);
 
     /* update settings */
-#if 0
     config_group_set_int(b->settings, "HideIfNoBattery", b->hide_if_no_battery);
-#endif
     config_group_set_string(b->settings, "AlarmCommand", b->alarmCommand);
     config_group_set_int(b->settings, "AlarmTime", b->alarmTime);
     config_group_set_int(b->settings, "BorderWidth", b->requestedBorder);
@@ -623,9 +639,7 @@ static GtkWidget *config(LXPanel *panel, GtkWidget *p, GtkWindow *parent) {
     lx_battery *b = lxpanel_plugin_get_data(p);
     return lxpanel_generic_config_dlg(_("Battery Monitor"),
             panel, applyConfig, p,
-#if 0
             _("Hide if there is no battery"), &b->hide_if_no_battery, CONF_TYPE_BOOL,
-#endif
             _("Alarm command"), &b->alarmCommand, CONF_TYPE_STR,
             _("Alarm time (minutes left)"), &b->alarmTime, CONF_TYPE_INT,
             _("Background color"), &b->backgroundColor, CONF_TYPE_STR,
