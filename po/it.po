@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.3.99\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-27 08:58+0100\n"
-"PO-Revision-Date: 2014-08-07 15:49+0000\n"
+"PO-Revision-Date: 2014-08-15 17:05+0000\n"
 "Last-Translator: Daniele Forsi <daniele@forsi.it>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc1\n"
-"X-POOTLE-MTIME: 1407426545.000000\n"
+"X-POOTLE-MTIME: 1408122319.000000\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:55 ../src/gtk-run.c:361 ../src/plugins/menu.c:770
@@ -66,7 +66,7 @@ msgstr "_Sfoglia"
 
 #: ../src/panel.c:660
 msgid "There is no room for another panel. All the edges are taken."
-msgstr ""
+msgstr "Non c'è spazio per un altro pannello. Tutti i bordi sono occupati."
 
 #: ../src/panel.c:687
 msgid ""
@@ -92,9 +92,8 @@ msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:744
-#, fuzzy
 msgid "Copyright (C) 2008-2013"
-msgstr "Copyright © 2008-2011"
+msgstr "Copyright © 2008-2013"
 
 #: ../src/panel.c:745
 msgid "Desktop panel for LXDE project"
@@ -220,7 +219,7 @@ msgstr ""
 
 #: ../src/plugin.c:370
 msgid "No file manager is configured."
-msgstr ""
+msgstr "Nessun gestore di file configurato."
 
 #: ../src/gtk-run.c:374
 msgid "Enter the command you want to execute:"
@@ -233,13 +232,12 @@ msgid "Application Launch and Task Bar"
 msgstr "Barra avvio applicazioni"
 
 #: ../data/ui/launchtaskbar.glade.h:2
-#, fuzzy
 msgid "<b>Mode:</b>"
-msgstr "<b>Dimensioni</b>"
+msgstr "<b>Modo:</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:3
 msgid "Launchers"
-msgstr ""
+msgstr "Lanciatori"
 
 #: ../data/ui/launchtaskbar.glade.h:4
 #, fuzzy
@@ -292,14 +290,13 @@ msgid "<b>Taskbar</b>"
 msgstr "<b>Sfondo</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:16
-#, fuzzy
 msgid "Only Application Launch Bar"
-msgstr "Barra avvio applicazioni"
+msgstr "Solo barra avvio applicazioni"
 
 #: ../data/ui/launchtaskbar.glade.h:17
 #, fuzzy
 msgid "Only Task Bar (Window List)"
-msgstr "Barra delle applicazioni (Elenco finestre)"
+msgstr "Solo barra dei task (Elenco finestre)"
 
 #: ../data/ui/launchtaskbar.glade.h:18
 #, fuzzy
@@ -448,9 +445,8 @@ msgid "Margin:"
 msgstr "Margine:"
 
 #: ../data/ui/panel-pref.glade.h:19
-#, fuzzy
 msgid "Monitor:"
-msgstr "Monitor batteria"
+msgstr "Monitor:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "<b>Position</b>"
@@ -594,9 +590,8 @@ msgid "Display Image and Tooltip"
 msgstr "Mostra immagine e suggerimento"
 
 #: ../src/plugins/launchtaskbar.c:2450
-#, fuzzy
 msgid "_Close all windows"
-msgstr "_Chiudi finestra"
+msgstr "_Chiudi tutte le finestre"
 
 #. Add Raise menu item.
 #: ../src/plugins/launchtaskbar.c:3243
@@ -645,16 +640,15 @@ msgstr "_Chiudi finestra"
 
 #: ../src/plugins/launchtaskbar.c:3312
 msgid "A_dd to Launcher"
-msgstr ""
+msgstr "A_ggiungi al lanciatore"
 
 #: ../src/plugins/launchtaskbar.c:3313
-#, fuzzy
 msgid "Rem_ove from Launcher"
 msgstr "Elimina dal lanciat_ore"
 
 #: ../src/plugins/launchtaskbar.c:3314
 msgid "_New Instance"
-msgstr ""
+msgstr "_Nuova istanza"
 
 #: ../src/plugins/launchtaskbar.c:3384
 msgid "Application Launch Bar"
@@ -677,9 +671,10 @@ msgstr ""
 "minimizzarle, arrotolarle o attivarle"
 
 #: ../src/plugins/launchtaskbar.c:3415
-#, fuzzy
 msgid "Bar with buttons to launch application and/or show all opened windows"
-msgstr "Barra con pulsanti per avviare applicazioni"
+msgstr ""
+"Barra con pulsanti per avviare applicazioni e/o mostrare tutte le finestre "
+"aperte"
 
 #: ../src/plugins/dclock.c:423 ../src/plugins/dclock.c:443
 msgid "Digital Clock"
@@ -781,9 +776,8 @@ msgid "Description"
 msgstr "Descrizione"
 
 #: ../src/plugins/xkb/xkb-plugin.c:656 ../src/plugins/xkb/xkb-plugin.c:785
-#, fuzzy
 msgid "Id"
-msgstr "Inattiva"
+msgstr "Id"
 
 #. dialog
 #: ../src/plugins/xkb/xkb-plugin.c:750
@@ -900,9 +894,8 @@ msgid "Label"
 msgstr "Etichetta"
 
 #: ../src/plugins/dirmenu.c:378
-#, fuzzy
 msgid "Browse directory tree via menu (Author = PCMan)"
-msgstr "Sfoglia l'albero di cartelle tramite menu (Autore: PCMan)"
+msgstr "Sfoglia l'albero di cartelle tramite menu (autore: PCMan)"
 
 #: ../src/plugins/thermal/thermal.c:480
 msgid "Normal"
@@ -950,6 +943,8 @@ msgid ""
 "Frequency: %d MHz\n"
 "Governor: %s"
 msgstr ""
+"Frequenza: %d MHz\n"
+"Governor: %s"
 
 #: ../src/plugins/cpufreq/cpufreq.c:421
 msgid "CPUFreq frontend"
@@ -1386,9 +1381,8 @@ msgid "Cannot open /proc/net/dev: %s"
 msgstr "Impossibile aprire /proc/net/dev: %s"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:185
-#, fuzzy
 msgid "Could not parse /proc/net/dev. No data."
-msgstr "Impossibile analizzare /proc/net/dev. Formato sconosciuto."
+msgstr "Impossibile analizzare /proc/net/dev. Nessun dato."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:190
 msgid "Could not parse /proc/net/dev. Unknown format."
@@ -1411,9 +1405,8 @@ msgstr ""
 "%d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:312
-#, fuzzy
 msgid "Could not parse /proc/net/wireless. No data."
-msgstr "Impossibile analizzare /proc/net/wireless. Formato sconosciuto."
+msgstr "Impossibile analizzare /proc/net/wireless. Nessun dato."
 
 #: ../src/plugins/netstatus/netstatus-sysdeps.c:316
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1587,7 +1580,7 @@ msgstr "Larghezza bordo"
 
 #: ../src/plugins/batt/batt.c:633
 msgid "Show Extended Information"
-msgstr ""
+msgstr "Mostra informazioni dettagliate"
 
 #: ../src/plugins/batt/batt.c:643
 msgid "Display battery status using ACPI"
@@ -1686,16 +1679,15 @@ msgstr "Mostra il monitoraggio di CPU e RAM"
 
 #: ../src/plugins/weather/weatherwidget.c:50
 msgid "[N/A]"
-msgstr ""
+msgstr "[N/D]"
 
 #: ../src/plugins/weather/weatherwidget.c:784
 msgid "Enter New Location"
 msgstr ""
 
 #: ../src/plugins/weather/weatherwidget.c:798
-#, fuzzy
 msgid "_New Location:"
-msgstr "Connessione rete"
+msgstr "_Nuova località"
 
 #: ../src/plugins/weather/weatherwidget.c:809
 msgid ""
@@ -1705,174 +1697,171 @@ msgid ""
 "- postal code\n"
 "for which to retrieve the weather forecast."
 msgstr ""
+"Inserire:\n"
+"- la città, oppure\n"
+"- la città e la nazione o lo stato, oppure\n"
+"- il codice postale\n"
+"di cui recuperare le previsioni del tempo."
 
 #: ../src/plugins/weather/weatherwidget.c:846
 #: ../src/plugins/weather/weatherwidget.c:979
 msgid "You must specify a location."
-msgstr ""
+msgstr "È necessario specificare una località."
 
 #: ../src/plugins/weather/weatherwidget.c:893
 #, c-format
 msgid "Location '%s' not found!"
-msgstr ""
+msgstr "Località «%s» non trovata."
 
 #: ../src/plugins/weather/weatherwidget.c:1051
-#, fuzzy
 msgid "Preferences"
-msgstr "Impostazioni pannello"
+msgstr "Preferenze"
 
 #: ../src/plugins/weather/weatherwidget.c:1057
 msgid "Refresh"
-msgstr ""
+msgstr "Aggiorna"
 
 #: ../src/plugins/weather/weatherwidget.c:1063
 msgid "Quit"
-msgstr ""
+msgstr "Esci"
 
 #: ../src/plugins/weather/weatherwidget.c:1160
-#, fuzzy
 msgid "Weather Preferences"
-msgstr "Impostazioni pannello"
+msgstr "Preferenze delle condizioni meteo"
 
 #: ../src/plugins/weather/weatherwidget.c:1174
-#, fuzzy
 msgid "Current Location"
-msgstr "Orientamento"
+msgstr "Località corrente"
 
 #: ../src/plugins/weather/weatherwidget.c:1178
 #: ../src/plugins/weather/weatherwidget.c:1475
-#, fuzzy
 msgid "None configured"
-msgstr "Con_figura"
+msgstr "Non configurata"
 
 #: ../src/plugins/weather/weatherwidget.c:1180
 #: ../src/plugins/weather/weatherwidget.c:1472
 msgid "_Set"
-msgstr ""
+msgstr "Impo_sta"
 
 #: ../src/plugins/weather/weatherwidget.c:1201
 msgid "Display"
 msgstr ""
 
 #: ../src/plugins/weather/weatherwidget.c:1205
-#, fuzzy
 msgid "Name:"
 msgstr "_Nome:"
 
 #: ../src/plugins/weather/weatherwidget.c:1209
 msgid "Units:"
-msgstr ""
+msgstr "Unità:"
 
 #: ../src/plugins/weather/weatherwidget.c:1213
 msgid "_Metric (°C)"
-msgstr ""
+msgstr "_Metriche (°C)"
 
 #: ../src/plugins/weather/weatherwidget.c:1215
 msgid "_English (°F)"
-msgstr ""
+msgstr "_Inglesi (°F)"
 
 #: ../src/plugins/weather/weatherwidget.c:1250
 msgid "Forecast"
-msgstr ""
+msgstr "Previsioni"
 
 #: ../src/plugins/weather/weatherwidget.c:1254
 msgid "Updates:"
-msgstr ""
+msgstr "Aggiornamenti:"
 
 #: ../src/plugins/weather/weatherwidget.c:1258
 msgid "Ma_nual"
-msgstr ""
+msgstr "Ma_nuali"
 
 #: ../src/plugins/weather/weatherwidget.c:1262
 msgid "_Automatic, every"
-msgstr ""
+msgstr "_Automatici, ogni"
 
 #: ../src/plugins/weather/weatherwidget.c:1278
 msgid "minutes"
-msgstr ""
+msgstr "minuti"
 
 #: ../src/plugins/weather/weatherwidget.c:1287
 msgid "Source:"
-msgstr ""
+msgstr "Fonte:"
 
 #: ../src/plugins/weather/weatherwidget.c:1428
-#, fuzzy
 msgid "C_hange"
-msgstr "Cambia tipo"
+msgstr "Camb_ia"
 
 #. Both are available
 #: ../src/plugins/weather/weatherwidget.c:1519
 #, c-format
 msgid "Current Conditions for %s"
-msgstr ""
+msgstr "Condizioni attuali per %s"
 
 #: ../src/plugins/weather/weatherwidget.c:1543
-#, fuzzy
 msgid "Location:"
-msgstr "Azione"
+msgstr "Località:"
 
 #: ../src/plugins/weather/weatherwidget.c:1566
 msgid "Last updated:"
-msgstr ""
+msgstr "Ultimo aggiornamento:"
 
 #: ../src/plugins/weather/weatherwidget.c:1593
 msgid "Feels like:"
-msgstr ""
+msgstr "Percepita:"
 
 #: ../src/plugins/weather/weatherwidget.c:1618
 msgid "Humidity:"
-msgstr ""
+msgstr "Umidità:"
 
 #: ../src/plugins/weather/weatherwidget.c:1645
-#, fuzzy
 msgid "Pressure:"
-msgstr "Indirizzo IP:"
+msgstr "Pressione:"
 
 #: ../src/plugins/weather/weatherwidget.c:1672
 msgid "Visibility:"
-msgstr ""
+msgstr "Visibilità:"
 
 #: ../src/plugins/weather/weatherwidget.c:1700
 msgid "Wind:"
-msgstr ""
+msgstr "Vento:"
 
 #: ../src/plugins/weather/weatherwidget.c:1723
 msgid "Sunrise:"
-msgstr ""
+msgstr "Alba:"
 
 #: ../src/plugins/weather/weatherwidget.c:1746
 msgid "Sunset:"
-msgstr ""
+msgstr "Tramonto:"
 
 #: ../src/plugins/weather/weatherwidget.c:1854
 #: ../src/plugins/weather/weatherwidget.c:2190
 #, c-format
 msgid "Forecast for %s unavailable."
-msgstr ""
+msgstr "Previsioni non disponibili per %s."
 
 #: ../src/plugins/weather/weatherwidget.c:1863
 #: ../src/plugins/weather/weatherwidget.c:2195
-#, fuzzy, c-format
+#, c-format
 msgid "Location not set."
-msgstr "Il comando di chiusura sessione non è impostato"
+msgstr "Località non impostata."
 
 #: ../src/plugins/weather/weatherwidget.c:1880
 #, c-format
 msgid "Searching for '%s'..."
-msgstr ""
+msgstr "Ricerca di «%s»..."
 
 #: ../src/plugins/weather/weatherwidget.c:2006
 #, c-format
 msgid "Location matches for '%s'"
-msgstr ""
+msgstr "Località corrispondenti a «%s»"
 
 #: ../src/plugins/weather/weatherwidget.c:2026
 msgid "City"
-msgstr ""
+msgstr "Città"
 
 #: ../src/plugins/weather/weatherwidget.c:2046
 msgid "Country"
-msgstr ""
+msgstr "Nazione"
 
 #. make it nice and pretty
 #: ../src/plugins/weather/weatherwidget.c:2177
@@ -1882,16 +1871,16 @@ msgstr "Plugin attualmente caricati"
 
 #: ../src/plugins/weather/weatherwidget.c:2179
 msgid "Today: "
-msgstr ""
+msgstr "Oggi: "
 
 #: ../src/plugins/weather/weatherwidget.c:2180
 msgid "Tomorrow: "
-msgstr ""
+msgstr "Domani: "
 
 #: ../src/plugins/weather/weather.c:285
 #, fuzzy
 msgid "Weather Plugin"
-msgstr "Plugin WNCKpager"
+msgstr "Weather Plugin"
 
 #: ../src/plugins/weather/weather.c:287
 msgid "Show weather conditions for a location."
