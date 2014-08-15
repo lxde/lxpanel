@@ -41,6 +41,8 @@
 static void init_plugin_class_list(void);
 static void plugin_class_unref(PluginClass * pc);
 
+GQuark lxpanel_plugin_qinit;
+GQuark lxpanel_plugin_qconf;
 GQuark lxpanel_plugin_qdata;
 static GHashTable *_all_types = NULL;
 
@@ -61,7 +63,7 @@ static inline LXPanelPluginInit *_find_plugin(const char *name)
     return g_hash_table_lookup(_all_types, name);
 }
 
-static GtkWidget *_old_plugin_config(LXPanel *panel, GtkWidget *instance, GtkWindow *parent)
+static GtkWidget *_old_plugin_config(LXPanel *panel, GtkWidget *instance)
 {
     LXPanelPluginInit *init = PLUGIN_CLASS(instance);
     Plugin * plugin;
@@ -69,7 +71,7 @@ static GtkWidget *_old_plugin_config(LXPanel *panel, GtkWidget *instance, GtkWin
     g_return_val_if_fail(init != NULL && init->new_instance == NULL, NULL);
     plugin = lxpanel_plugin_get_data(instance);
     if (plugin->class->config)
-        plugin->class->config(plugin, parent);
+        plugin->class->config(plugin, GTK_WINDOW(panel));
     return NULL;
 }
 
@@ -435,7 +437,7 @@ void lxpanel_plugin_show_config_dialog(GtkWidget* plugin)
     if (dlg && g_object_get_data(G_OBJECT(dlg), "generic-config-plugin") == plugin)
         return; /* configuration dialog is already shown for this widget */
     g_return_if_fail(panel != NULL);
-    dlg = init->config(panel, plugin, GTK_WINDOW(panel));
+    dlg = init->config(panel, plugin);
     if (dlg)
         _panel_show_config_dialog(panel, plugin, dlg);
 }

@@ -1319,7 +1319,7 @@ static void on_menu_view_row_activated(GtkTreeView *tree_view, GtkTreePath *path
 }
 
 /* Callback when the configuration dialog is to be shown. */
-static GtkWidget *launchtaskbar_configure(LXPanel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *launchtaskbar_configure(LXPanel *panel, GtkWidget *p)
 {
     LaunchTaskBarPlugin *ltbp = lxpanel_plugin_get_data(p);
 

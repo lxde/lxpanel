@@ -574,7 +574,7 @@ static void volumealsa_destructor(gpointer user_data)
 
 /* Callback when the configuration dialog is to be shown. */
 
-static GtkWidget *volumealsa_configure(LXPanel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *volumealsa_configure(LXPanel *panel, GtkWidget *p)
 {
     const gchar *command_line = NULL;
 

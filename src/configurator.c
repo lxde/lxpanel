@@ -824,7 +824,7 @@ void modify_plugin( GtkTreeView* view )
     {
         GtkWidget *dlg;
         LXPanel *panel = PLUGIN_PANEL(pl);
-        dlg = init->config(panel, pl, GTK_WINDOW(gtk_widget_get_toplevel(GTK_WIDGET(view))));
+        dlg = init->config(panel, pl);
         if (dlg)
             _panel_show_config_dialog(panel, pl, dlg);
     }

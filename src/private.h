@@ -199,10 +199,10 @@ void _unload_modules(void);
 GtkWidget *lxpanel_add_plugin(LXPanel *p, const char *name, config_setting_t *cfg, gint at);
 GHashTable *lxpanel_get_all_types(void); /* transfer none */
 
-GQuark lxpanel_plugin_qinit; /* access to LXPanelPluginInit data */
+extern GQuark lxpanel_plugin_qinit; /* access to LXPanelPluginInit data */
 #define PLUGIN_CLASS(_i) ((LXPanelPluginInit*)g_object_get_qdata(G_OBJECT(_i),lxpanel_plugin_qinit))
 
-GQuark lxpanel_plugin_qconf; /* access to congig_setting_t data */
+extern GQuark lxpanel_plugin_qconf; /* access to congig_setting_t data */
 
 #define PLUGIN_PANEL(_i) ((LXPanel*)gtk_widget_get_toplevel(_i))
 

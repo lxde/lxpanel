@@ -635,7 +635,7 @@ static gboolean applyConfig(gpointer user_data)
 }
 
 
-static GtkWidget *config(LXPanel *panel, GtkWidget *p, GtkWindow *parent) {
+static GtkWidget *config(LXPanel *panel, GtkWidget *p) {
     lx_battery *b = lxpanel_plugin_get_data(p);
     return lxpanel_generic_config_dlg(_("Battery Monitor"),
             panel, applyConfig, p,

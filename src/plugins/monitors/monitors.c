@@ -688,7 +688,7 @@ monitors_destructor(gpointer user_data)
 
 
 static GtkWidget *
-monitors_config (LXPanel *panel, GtkWidget *p, GtkWindow *parent)
+monitors_config (LXPanel *panel, GtkWidget *p)
 {
     ENTER;
 

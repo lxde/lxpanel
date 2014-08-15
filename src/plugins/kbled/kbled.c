@@ -223,7 +223,7 @@ static gboolean kbled_apply_configuration(gpointer user_data)
 }
 
 /* Callback when the configuration dialog is to be shown. */
-static GtkWidget *kbled_configure(LXPanel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *kbled_configure(LXPanel *panel, GtkWidget *p)
 {
     KeyboardLEDPlugin * kl = lxpanel_plugin_get_data(p);
     GtkWidget * dlg = lxpanel_generic_config_dlg(_("Keyboard LED"),

@@ -84,7 +84,7 @@ G_BEGIN_DECLS
  *
  * Callback @control is called when command was sent via the lxpanelctl.
  * The message will be sent to only one instance of plugin. Some messages
- * are handled by lxpanel: "STOP" will remove plugin from panel, "START"
+ * are handled by lxpanel: "DEL" will remove plugin from panel, "ADD"
  * will create new instance if there is no instance yet. (TODO)
  */
 typedef struct {
@@ -94,7 +94,7 @@ typedef struct {
     char *name;                 /* name to represent in lists */
     char *description;          /* tooltip text */
     GtkWidget *(*new_instance)(LXPanel *panel, config_setting_t *settings);
-    GtkWidget *(*config)(LXPanel *panel, GtkWidget *instance, GtkWindow *parent);
+    GtkWidget *(*config)(LXPanel *panel, GtkWidget *instance);
     void (*reconfigure)(LXPanel *panel, GtkWidget *instance);
     gboolean (*button_press_event)(GtkWidget *widget, GdkEventButton *event, LXPanel *panel);
     void (*show_system_menu)(GtkWidget *widget);

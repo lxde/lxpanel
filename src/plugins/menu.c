@@ -1013,7 +1013,7 @@ static gboolean apply_config(gpointer user_data)
     return FALSE;
 }
 
-static GtkWidget *menu_config(LXPanel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *menu_config(LXPanel *panel, GtkWidget *p)
 {
     menup* menu = lxpanel_plugin_get_data(p);
     return lxpanel_generic_config_dlg(_("Menu"), panel, apply_config, p,

@@ -415,7 +415,7 @@ static gboolean dclock_apply_configuration(gpointer user_data)
 }
 
 /* Callback when the configuration dialog is to be shown. */
-static GtkWidget *dclock_configure(LXPanel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *dclock_configure(LXPanel *panel, GtkWidget *p)
 {
     DClockPlugin * dc = lxpanel_plugin_get_data(p);
     return lxpanel_generic_config_dlg(_("Digital Clock"), panel,

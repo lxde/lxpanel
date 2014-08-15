@@ -79,7 +79,7 @@ static gboolean space_apply_configuration(gpointer user_data)
 }
 
 /* Callback when the configuration dialog is to be shown. */
-static GtkWidget *space_configure(LXPanel *panel, GtkWidget *instance, GtkWindow *parent)
+static GtkWidget *space_configure(LXPanel *panel, GtkWidget *instance)
 {
     SpacePlugin * sp = lxpanel_plugin_get_data(instance);
     GtkWidget * dlg;

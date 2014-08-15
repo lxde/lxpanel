@@ -168,7 +168,7 @@ static gboolean deskno_apply_configuration(gpointer user_data)
 }
 
 /* Callback when the configuration dialog is to be shown. */
-static GtkWidget *deskno_configure(LXPanel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *deskno_configure(LXPanel *panel, GtkWidget *p)
 {
     DesknoPlugin * dc = lxpanel_plugin_get_data(p);
     GtkWidget * dlg = lxpanel_generic_config_dlg(_("Desktop Number / Workspace Name"),

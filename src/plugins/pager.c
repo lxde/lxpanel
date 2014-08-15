@@ -81,7 +81,7 @@ static GtkWidget *pager_constructor(LXPanel *panel, config_setting_t *settings)
 }
 
 /* this is a modified version of patch from Lubuntu */
-static GtkWidget *pager_configure(LXPanel *panel, GtkWidget *instance, GtkWindow *parent)
+static GtkWidget *pager_configure(LXPanel *panel, GtkWidget *instance)
 {
     if (configure_command)
         fm_launch_command_simple(NULL, NULL, G_APP_INFO_CREATE_NONE,

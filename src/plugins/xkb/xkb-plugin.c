@@ -1192,7 +1192,7 @@ static void xkb_settings_fill_layout_tree_model_with_config(XkbPlugin *p_xkb)
 }
 
 /* Callback when the configuration dialog is to be shown. */
-static GtkWidget *xkb_configure(LXPanel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *xkb_configure(LXPanel *panel, GtkWidget *p)
 {
     XkbPlugin * p_xkb = lxpanel_plugin_get_data(p);
     gchar       markup_str[MAX_MARKUP_LEN];

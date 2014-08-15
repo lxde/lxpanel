@@ -348,7 +348,7 @@ static gboolean dirmenu_apply_configuration(gpointer user_data)
 }
 
 /* Callback when the configuration dialog is to be shown. */
-static GtkWidget *dirmenu_configure(LXPanel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *dirmenu_configure(LXPanel *panel, GtkWidget *p)
 {
     DirMenuPlugin * dm = lxpanel_plugin_get_data(p);
     return lxpanel_generic_config_dlg(_("Directory Menu"),

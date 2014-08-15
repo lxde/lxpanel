@@ -507,7 +507,7 @@ thermal_constructor(LXPanel *panel, config_setting_t *settings)
     RET(p);
 }
 
-static GtkWidget *config(LXPanel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *config(LXPanel *panel, GtkWidget *p)
 {
     ENTER;
 

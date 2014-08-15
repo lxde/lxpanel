@@ -146,7 +146,7 @@ static gboolean apply_config(gpointer user_data)
     return FALSE;
 }
 
-static GtkWidget *netstatus_config(LXPanel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *netstatus_config(LXPanel *panel, GtkWidget *p)
 {
     GtkWidget* dlg;
     netstatus *ns = lxpanel_plugin_get_data(p);

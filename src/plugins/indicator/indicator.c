@@ -858,7 +858,7 @@ static gboolean indicator_apply_configuration(gpointer user_data)
 }
 
 /* Callback when the configuration dialog is to be shown. */
-static GtkWidget *indicator_configure(LXPanel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *indicator_configure(LXPanel *panel, GtkWidget *p)
 {
     IndicatorPlugin * indicator = lxpanel_plugin_get_data(p);
     GtkWidget * dlg = lxpanel_generic_config_dlg(_("Indicator applets"),

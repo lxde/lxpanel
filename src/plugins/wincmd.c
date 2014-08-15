@@ -217,7 +217,7 @@ static gboolean wincmd_apply_configuration(gpointer user_data)
 }
 
 /* Callback when the configuration dialog is to be shown. */
-static GtkWidget *wincmd_configure(LXPanel *panel, GtkWidget *p, GtkWindow *parent)
+static GtkWidget *wincmd_configure(LXPanel *panel, GtkWidget *p)
 {
     WinCmdPlugin * wc = lxpanel_plugin_get_data(p);
     return lxpanel_generic_config_dlg(_("Minimize All Windows"),
