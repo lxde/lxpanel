@@ -120,7 +120,9 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
             child_allocation.x = x;
             child_allocation.y = y;
             child_allocation.width = child_width;
-            child_allocation.height = child_height;
+            child_allocation.height = MIN(req.height, child_height);
+            if (req.height < child_height - 1)
+                child_allocation.y += (child_height - req.height) / 2;
             if (!gtk_widget_get_has_window (widget))
             {
                 child_allocation.x += allocation->x;
@@ -180,8 +182,8 @@ static void panel_icon_grid_size_request(GtkWidget *widget,
         if (ig->rows == 0)
             ig->rows = 1;
         ig->columns = (visible_children + (ig->rows - 1)) / ig->rows;
-        if ((ig->columns == 1) && (ig->rows > visible_children))
-            ig->rows = visible_children;
+        /* if ((ig->columns == 1) && (ig->rows > visible_children))
+            ig->rows = visible_children; */
     }
     else
     {
