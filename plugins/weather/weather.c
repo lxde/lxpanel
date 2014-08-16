@@ -18,6 +18,8 @@
  * See the COPYRIGHT file for more information.
  */
 
+#ifndef USE_STANDALONE
+
 #include "location.h"
 #include "weatherwidget.h"
 #include "yahooutil.h"
@@ -96,7 +98,7 @@ weather_constructor(LXPanel *pPanel, config_setting_t *pConfig)
 
   LXW_LOG(LXW_DEBUG, "weather_constructor()");
   
-  GtkWidget * pWidg = gtk_weather_new(FALSE);
+  GtkWidget * pWidg = gtk_weather_new();
 
   pPriv->pWeather_ = pWidg;
 
@@ -315,3 +317,4 @@ LXPanelPluginInit fm_module_init_lxpanel_gtk =
     .config = weather_configure,
     .reconfigure = weather_configuration_changed
   };
+#endif /* USE_STANDALONE */

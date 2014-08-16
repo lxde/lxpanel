@@ -55,13 +55,16 @@ struct _GtkWeatherClass
 };
 
 GType       gtk_weather_get_type(void) G_GNUC_CONST;
-GtkWidget * gtk_weather_new(gboolean);
+GtkWidget * gtk_weather_new(void);
+#ifdef USE_STANDALONE
 void        gtk_weather_run_preferences_dialog(GtkWidget * widget);
 void        gtk_weather_run_popup_menu(GtkWidget * widget);
+#endif
 void        gtk_weather_run_conditions_dialog(GtkWidget * widget);
 gchar *     gtk_weather_get_tooltip_text(GtkWidget * widget);
 GtkWidget * gtk_weather_create_preferences_dialog(GtkWidget * widget);
 
+/* if USE_STANDALONE is used then application should provide this function */
 void weather_save_configuration(GtkWidget * pWeather, LocationInfo * pLocation);
 
 G_END_DECLS
