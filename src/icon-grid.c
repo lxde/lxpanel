@@ -72,6 +72,8 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
     GList *ige;
     GtkWidget *child;
 
+    gtk_widget_set_allocation(widget, allocation);
+
     /* Get and save the desired container geometry. */
     if (ig->orientation == GTK_ORIENTATION_HORIZONTAL && allocation->height > 1)
         ig->target_dimension = allocation->height;
