@@ -112,6 +112,7 @@ struct _GtkWeatherPrivate
   /* Menus and dialogs */
   PopupMenuData menu_data;
   PreferencesDialogData preferences_data;
+  GtkWidget * conditions_dialog;
 
   /* Internal data */
   gpointer    previous_location;
@@ -735,10 +736,15 @@ gtk_weather_button_pressed(GtkWidget * widget, GdkEventButton * event)
     }
   else if (event->button == 1 && (event->type == GDK_BUTTON_PRESS))
     {
-      gtk_weather_run_conditions_dialog(widget);
+      if (priv->conditions_dialog)
+        gtk_dialog_response(GTK_DIALOG(priv->conditions_dialog), GTK_RESPONSE_ACCEPT);
+      else
+        gtk_weather_run_conditions_dialog(widget);
+
+      return TRUE;
     }
 
-  return TRUE;
+  return FALSE;
 }
 
 /**
@@ -1547,8 +1553,6 @@ gtk_weather_run_conditions_dialog(GtkWidget * widget)
 {
   GtkWeather * weather = GTK_WEATHER(widget);
 
-  static gboolean shown = FALSE;
-
   LXW_LOG(LXW_DEBUG, "GtkWeather::run_conditions_dialog()");
 
   GtkWeatherPrivate * priv = GTK_WEATHER_GET_PRIVATE(weather);
@@ -1558,7 +1562,7 @@ gtk_weather_run_conditions_dialog(GtkWidget * widget)
 
   if (location && forecast)
     {
-      if (shown)
+      if (priv->conditions_dialog)
         {
           return;
         }
@@ -1855,7 +1859,7 @@ gtk_weather_run_conditions_dialog(GtkWidget * widget)
 
       gtk_dialog_set_default_response(GTK_DIALOG(dialog), GTK_RESPONSE_ACCEPT);
 
-      shown = TRUE;
+      priv->conditions_dialog = dialog;
 
       gtk_widget_show_all(dialog);
 
@@ -1893,9 +1897,7 @@ gtk_weather_run_conditions_dialog(GtkWidget * widget)
           gtk_widget_destroy(dialog);
         }
 
-      dialog = NULL;
-
-      shown = FALSE;
+      priv->conditions_dialog = NULL;
     }
   else if (!forecast && location)
     {
