@@ -11,44 +11,44 @@ data/ui/netstatus.glade
 data/ui/panel-pref.glade
 
 # Putting translation of plugins in main catalog is not a good idea...
-src/plugins/cpu/cpu.c
-src/plugins/deskno/deskno.c
-src/plugins/launchtaskbar.c
-src/plugins/dclock.c
-src/plugins/menu.c
-src/plugins/separator.c
-src/plugins/pager.c
-src/plugins/space.c
-src/plugins/tray.c
-src/plugins/xkb/xkb-plugin.c
-src/plugins/wincmd.c
-src/plugins/dirmenu.c
-src/plugins/thermal/thermal.c
+plugins/cpu/cpu.c
+plugins/deskno/deskno.c
+plugins/launchtaskbar.c
+plugins/dclock.c
+plugins/menu.c
+plugins/separator.c
+plugins/pager.c
+plugins/space.c
+plugins/tray.c
+plugins/xkb/xkb-plugin.c
+plugins/wincmd.c
+plugins/dirmenu.c
+plugins/thermal/thermal.c
 
-src/plugins/cpufreq/cpufreq.c
+plugins/cpufreq/cpufreq.c
 
-src/plugins/volume/volume.c
-src/plugins/volume/volume-impl.c
-src/plugins/volumealsa/volumealsa.c
+plugins/volume/volume.c
+plugins/volume/volume-impl.c
+plugins/volumealsa/volumealsa.c
 
-src/plugins/netstat/netstat.c
-src/plugins/netstat/passwd_gui.c
-src/plugins/netstat/lxnm_client.c
+plugins/netstat/netstat.c
+plugins/netstat/passwd_gui.c
+plugins/netstat/lxnm_client.c
 
-src/plugins/netstatus/netstatus.c
-src/plugins/netstatus/netstatus-dialog.c
-src/plugins/netstatus/netstatus-icon.c
-src/plugins/netstatus/netstatus-iface.c
-src/plugins/netstatus/netstatus-sysdeps.c
-src/plugins/netstatus/netstatus-util.c
+plugins/netstatus/netstatus.c
+plugins/netstatus/netstatus-dialog.c
+plugins/netstatus/netstatus-icon.c
+plugins/netstatus/netstatus-iface.c
+plugins/netstatus/netstatus-sysdeps.c
+plugins/netstatus/netstatus-util.c
 
-src/plugins/batt/batt.c
+plugins/batt/batt.c
 
-src/plugins/kbled/kbled.c
+plugins/kbled/kbled.c
 
-src/plugins/indicator/indicator.c
+plugins/indicator/indicator.c
 
-src/plugins/monitors/monitors.c
+plugins/monitors/monitors.c
 
-src/plugins/weather/weatherwidget.c
-src/plugins/weather/weather.c
+plugins/weather/weatherwidget.c
+plugins/weather/weather.c

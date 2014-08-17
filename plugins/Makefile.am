@@ -13,9 +13,7 @@ noinst_LIBRARIES = libbuiltin_plugins.a
 
 libbuiltin_plugins_a_CFLAGS = \
 	-I$(top_srcdir) \
-	-I$(top_srcdir)/include \
 	-I$(top_srcdir)/src \
-	-I$(top_srcdir)/src/plugins \
 	-DPACKAGE_DATA_DIR=\""$(datadir)/lxpanel"\" \
 	-DPACKAGE_UI_DIR=\""$(datadir)/lxpanel/ui"\" \
 	-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \

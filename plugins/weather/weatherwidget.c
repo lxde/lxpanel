@@ -33,7 +33,6 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
-#include "../../plugin.h"
 
 /* Private structure, property and signal definitions. */
 #define GTK_WEATHER_GET_PRIVATE(obj) (G_TYPE_INSTANCE_GET_PRIVATE ((obj), \

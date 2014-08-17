@@ -13,6 +13,7 @@ weather_la_SOURCES= \
 
 weather_la_CFLAGS= \
  -I.               \
+ -I$(top_builddir)/src \
  $(PACKAGE_CFLAGS) \
  $(LIBXML2_CFLAGS)
 

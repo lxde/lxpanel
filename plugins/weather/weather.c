@@ -23,7 +23,7 @@
 #include "yahooutil.h"
 #include "logutil.h"
 
-#include "../../plugin.h"
+#include "plugin.h"
 
 #include <glib.h>
 #include <glib/gi18n.h>

@@ -415,21 +415,21 @@ AC_CONFIG_FILES([
     lxpanel.pc
     Makefile
     src/Makefile
-    src/plugins/Makefile
-    src/plugins/netstatus/Makefile
-    src/plugins/netstat/Makefile
-    src/plugins/volume/Makefile
-    src/plugins/volumealsa/Makefile
-    src/plugins/cpu/Makefile
-    src/plugins/deskno/Makefile
-    src/plugins/batt/Makefile
-    src/plugins/kbled/Makefile
-    src/plugins/xkb/Makefile
-    src/plugins/thermal/Makefile
-    src/plugins/cpufreq/Makefile
-    src/plugins/monitors/Makefile
-    src/plugins/indicator/Makefile
-    src/plugins/weather/Makefile
+    plugins/Makefile
+    plugins/netstatus/Makefile
+    plugins/netstat/Makefile
+    plugins/volume/Makefile
+    plugins/volumealsa/Makefile
+    plugins/cpu/Makefile
+    plugins/deskno/Makefile
+    plugins/batt/Makefile
+    plugins/kbled/Makefile
+    plugins/xkb/Makefile
+    plugins/thermal/Makefile
+    plugins/cpufreq/Makefile
+    plugins/monitors/Makefile
+    plugins/indicator/Makefile
+    plugins/weather/Makefile
     po/Makefile.in
     data/Makefile
     data/default/panels/panel
