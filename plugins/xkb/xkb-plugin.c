@@ -628,7 +628,7 @@ static void on_button_kbd_model_clicked(GtkButton *p_button, gpointer *p_data)
             gtk_list_store_append(p_liststore_kbd_model, &tree_iter);
             gtk_list_store_set(p_liststore_kbd_model, &tree_iter,
                                 COLUMN_MODEL_ID, keys_models[model_idx],
-                                COLUMN_MODEL_DESC, p_model_desc,
+                                COLUMN_MODEL_DESC, g_dgettext("xkeyboard-config", p_model_desc),
                                 -1);
             g_free(p_model_desc);
             model_idx++;
@@ -773,7 +773,7 @@ static void on_button_kbd_change_layout_clicked(GtkButton *p_button, gpointer *p
             }
             gtk_list_store_set(p_liststore_kbd_change, &tree_iter,
                                 COLUMN_CHANGE_ID, keys_changes[change_idx],
-                                COLUMN_CHANGE_DESC, p_change_desc,
+                                COLUMN_CHANGE_DESC, g_dgettext("xkeyboard-config", p_change_desc),
                                 COLUMN_CHANGE_INCL, included,
                                 COLUMN_CHANGE_WEIGHT, included ? PANGO_WEIGHT_ULTRAHEAVY : PANGO_WEIGHT_NORMAL,
                                 -1);
@@ -950,7 +950,7 @@ static void on_button_add_layout_clicked(GtkButton *p_button, gpointer *p_data)
                     gtk_tree_store_set(p_treestore_add_layout, &tree_top,
                                         COLUMN_ADD_ICON, p_pixbuf,
                                         COLUMN_ADD_LAYOUT, keys_layouts[layout_idx],
-                                        COLUMN_ADD_DESC, p_layout_desc,
+                                        COLUMN_ADD_DESC, g_dgettext("xkeyboard-config", p_layout_desc),
                                         -1);
                     g_object_unref(G_OBJECT(p_pixbuf));
                 }
