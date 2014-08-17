@@ -620,9 +620,9 @@ static GtkWidget *volumealsa_configure(LXPanel *panel, GtkWidget *p)
     }
     else
     {
-        fm_show_error(NULL,
-                      _("Error, you need to install an application to configure the sound (pavucontrol, alsamixer ...)"),
-                      NULL);
+        fm_show_error(NULL, NULL,
+                      _("Error, you need to install an application to configure"
+                        " the sound (pavucontrol, alsamixer ...)"));
     }
 
     return NULL;

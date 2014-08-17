@@ -88,6 +88,9 @@ static GtkWidget *pager_configure(LXPanel *panel, GtkWidget *instance)
     if (configure_command)
         fm_launch_command_simple(NULL, NULL, G_APP_INFO_CREATE_NONE,
                                  configure_command, NULL);
+    else
+        fm_show_error(NULL, NULL,
+                      _("Sorry, there was no window manager configuration program found."));
     return NULL; /* no configuration dialog of lxpanel available */
 }
 
