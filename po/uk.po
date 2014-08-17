@@ -6,70 +6,70 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-27 08:58+0100\n"
-"PO-Revision-Date: 2014-03-26 22:00+0000\n"
-"Last-Translator: Andriy <andrej@rep.kiev.ua>\n"
+"POT-Creation-Date: 2014-08-17 22:00+0300\n"
+"PO-Revision-Date: 2014-08-17 19:47+0000\n"
+"Last-Translator: Andriy Grytsenko <andrej@rep.kiev.ua>\n"
 "Language-Team: UKRAINIAN <translate@linux.org.ua>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.5.0\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Pootle 2.6.0-rc1\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-POOTLE-MTIME: 1395871236.0\n"
+"X-POOTLE-MTIME: 1408304823.000000\n"
 
 #. { "configure", N_("Preferences"), configure },
-#: ../src/configurator.c:55 ../src/gtk-run.c:361 ../src/plugins/menu.c:770
+#: ../src/configurator.c:55 ../src/gtk-run.c:361 ../plugins/menu.c:748
 msgid "Run"
 msgstr "Виконати"
 
-#: ../src/configurator.c:57 ../src/plugins/menu.c:771
+#: ../src/configurator.c:57 ../plugins/menu.c:749
 msgid "Restart"
 msgstr "Перезавантажити"
 
-#: ../src/configurator.c:58 ../src/plugins/menu.c:772
+#: ../src/configurator.c:58 ../plugins/menu.c:750
 msgid "Logout"
 msgstr "Вихід"
 
-#: ../src/configurator.c:549
+#: ../src/configurator.c:576
 msgid "Currently loaded plugins"
 msgstr "Завантажені доповнення"
 
-#: ../src/configurator.c:558
+#: ../src/configurator.c:585
 msgid "Stretch"
 msgstr "Розтягнути"
 
-#: ../src/configurator.c:680
+#: ../src/configurator.c:707
 msgid "Add plugin to panel"
 msgstr "Додати доповнення до панелі"
 
-#: ../src/configurator.c:708
+#: ../src/configurator.c:735
 msgid "Available plugins"
 msgstr "Доступні доповнення"
 
-#: ../src/configurator.c:1244
+#: ../src/configurator.c:1278
 msgid "Logout command is not set"
 msgstr "Команда виходу з сесії не встановлена"
 
-#: ../src/configurator.c:1312
+#: ../src/configurator.c:1346
 msgid "Select a directory"
 msgstr "Вибрати теку"
 
-#: ../src/configurator.c:1312 ../src/configurator.c:1419
+#: ../src/configurator.c:1346 ../src/configurator.c:1464
 msgid "Select a file"
 msgstr "Вибрати файл"
 
-#: ../src/configurator.c:1446
+#: ../src/configurator.c:1491
 msgid "_Browse"
 msgstr "_Переглянути"
 
-#: ../src/panel.c:660
+#: ../src/panel.c:941
 msgid "There is no room for another panel. All the edges are taken."
 msgstr "Нема місця для ще однієї панелі, усі сторони вже зайняті."
 
-#: ../src/panel.c:687
+#: ../src/panel.c:968
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -77,134 +77,134 @@ msgstr ""
 "Дійсно видалити цю панель?\n"
 "<b>Увага: Повернення назад неможливе.</b>"
 
-#: ../src/panel.c:689
+#: ../src/panel.c:970
 msgid "Confirm"
 msgstr "Підтвердити"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:721
+#: ../src/panel.c:1002
 msgid "translator-credits"
 msgstr "Yarema aka Knedlyk <yupadmin@gmail.com>"
 
-#: ../src/panel.c:726
+#: ../src/panel.c:1007
 msgid "LXPanel"
 msgstr "LX-панель"
 
-#: ../src/panel.c:744
-msgid "Copyright (C) 2008-2013"
-msgstr "Всі права застережено (С) 2008-2013"
+#: ../src/panel.c:1025
+msgid "Copyright (C) 2008-2014"
+msgstr "Всі права застережено (С) 2008-2014"
 
-#: ../src/panel.c:745
+#: ../src/panel.c:1026
 msgid "Desktop panel for LXDE project"
 msgstr "Панель робочого столу для проекту LXDE"
 
-#: ../src/panel.c:782
-msgid "Add / Remove Panel Items"
-msgstr "Додати/Видалити компоненти панелі"
-
-#: ../src/panel.c:791
-#, c-format
-msgid "Remove \"%s\" From Panel"
-msgstr "Видалити \"%s\" з панелі"
-
-#: ../src/panel.c:803
-msgid "Panel Settings"
-msgstr "Налаштування панелі"
-
-#: ../src/panel.c:809
-msgid "Create New Panel"
-msgstr "Створити нову панель"
-
-#: ../src/panel.c:815
-msgid "Delete This Panel"
-msgstr "Видалити цю панель"
-
-#: ../src/panel.c:826
-msgid "About"
-msgstr "Про LXDE-панель"
-
-#: ../src/panel.c:834
-msgid "Panel"
-msgstr "Панель"
-
-#: ../src/panel.c:847
+#: ../src/panel.c:1068
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "Налаштування \"%s\""
 
-#: ../src/panel.c:1109 ../src/panel.c:1117 ../data/ui/panel-pref.glade.h:22
+#: ../src/panel.c:1088
+msgid "Add / Remove Panel Items"
+msgstr "Додати/Видалити компоненти панелі"
+
+#: ../src/panel.c:1096
+#, c-format
+msgid "Remove \"%s\" From Panel"
+msgstr "Видалити \"%s\" з панелі"
+
+#: ../src/panel.c:1108
+msgid "Panel Settings"
+msgstr "Налаштування панелі"
+
+#: ../src/panel.c:1114
+msgid "Create New Panel"
+msgstr "Створити нову панель"
+
+#: ../src/panel.c:1120
+msgid "Delete This Panel"
+msgstr "Видалити цю панель"
+
+#: ../src/panel.c:1131
+msgid "About"
+msgstr "Про LXDE-панель"
+
+#: ../src/panel.c:1138
+msgid "Panel"
+msgstr "Панель"
+
+#: ../src/panel.c:1343 ../src/panel.c:1351 ../data/ui/panel-pref.glade.h:22
 msgid "Height:"
 msgstr "Висота:"
 
-#: ../src/panel.c:1110 ../src/panel.c:1116 ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:1344 ../src/panel.c:1350 ../data/ui/panel-pref.glade.h:21
 msgid "Width:"
 msgstr "Ширина:"
 
-#: ../src/panel.c:1111 ../data/ui/panel-pref.glade.h:13
+#: ../src/panel.c:1345 ../data/ui/panel-pref.glade.h:13
 msgid "Left"
 msgstr "Зліва"
 
-#: ../src/panel.c:1112 ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:1346 ../data/ui/panel-pref.glade.h:14
 msgid "Right"
 msgstr "Справа"
 
-#: ../src/panel.c:1118 ../data/ui/panel-pref.glade.h:12
+#: ../src/panel.c:1352 ../data/ui/panel-pref.glade.h:12
 msgid "Top"
 msgstr "Зверху"
 
-#: ../src/panel.c:1119 ../data/ui/panel-pref.glade.h:11
+#: ../src/panel.c:1353 ../data/ui/panel-pref.glade.h:11
 msgid "Bottom"
 msgstr "Внизу"
 
-#: ../src/panel.c:1428
+#: ../src/panel.c:1648
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - легка GTK2+ панель для робочого середовища UNIX\n"
 
-#: ../src/panel.c:1429
+#: ../src/panel.c:1649
 #, c-format
 msgid "Command line options:\n"
 msgstr "Опції командного рядка:\n"
 
-#: ../src/panel.c:1430
+#: ../src/panel.c:1650
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- надрукувати цю допомогу і вийти\n"
 
-#: ../src/panel.c:1431
+#: ../src/panel.c:1651
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- надрукувати версію та вийти\n"
 
-#: ../src/panel.c:1432
+#: ../src/panel.c:1652
 #, c-format
 msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 msgstr ""
 " --log <number> -- виставити рівень журналювання 0-5. 0 - нема, 5 - повний\n"
 
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1434
+#: ../src/panel.c:1654
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr "--profile name -- використовувати вибраний профіль\n"
 
-#: ../src/panel.c:1436
+#: ../src/panel.c:1656
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr "-h  -- те саме, що й --help\n"
 
-#: ../src/panel.c:1437
+#: ../src/panel.c:1657
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- те саме, що й --profile\n"
 
-#: ../src/panel.c:1438
+#: ../src/panel.c:1658
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- те саме, що й --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1440
+#: ../src/panel.c:1660
 #, c-format
 msgid ""
 "\n"
@@ -215,16 +215,16 @@ msgstr ""
 "Відвідайте http://lxde.org/ для деталей.\n"
 "\n"
 
-#: ../src/plugin.c:370
+#: ../src/plugin.c:414
 msgid "No file manager is configured."
 msgstr "Менеджер файлів не обрано."
 
-#: ../src/gtk-run.c:374
+#: ../src/gtk-run.c:375
 msgid "Enter the command you want to execute:"
 msgstr "Введіть команду, яку Ви бажаєте запустити:"
 
 #. vim: set sw=4 et sts=4 ts=4 :
-#: ../data/ui/launchtaskbar.glade.h:1 ../src/plugins/launchtaskbar.c:3414
+#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3477
 msgid "Application Launch and Task Bar"
 msgstr "Панель запуску програм та вікон"
 
@@ -345,8 +345,8 @@ msgstr "Адреса:"
 msgid "Destination:"
 msgstr "Призначення:"
 
-#: ../data/ui/netstatus.glade.h:14 ../src/plugins/netstat/netstat.c:362
-#: ../src/plugins/netstat/netstat.c:373
+#: ../data/ui/netstatus.glade.h:14 ../plugins/netstat/netstat.c:360
+#: ../plugins/netstat/netstat.c:371
 msgid "Broadcast:"
 msgstr "Адреса трансляції:"
 
@@ -459,7 +459,7 @@ msgstr "Системна тема"
 msgid "Solid color (with opacity)"
 msgstr "Колір підкладки (з прозорістю)"
 
-#: ../data/ui/panel-pref.glade.h:28 ../src/plugins/xkb/xkb-plugin.c:1479
+#: ../data/ui/panel-pref.glade.h:28 ../plugins/xkb/xkb-plugin.c:1447
 msgid "Image"
 msgstr "Зображення"
 
@@ -475,8 +475,8 @@ msgstr "<b>Тло</b>"
 msgid "Custom color"
 msgstr "Спеціальний колір"
 
-#: ../data/ui/panel-pref.glade.h:32 ../src/plugins/space.c:93
-#: ../src/plugins/batt/batt.c:632
+#: ../data/ui/panel-pref.glade.h:32 ../plugins/space.c:89
+#: ../plugins/batt/batt.c:652
 msgid "Size"
 msgstr "Розмір"
 
@@ -548,108 +548,104 @@ msgstr "<b>Глибина журналу</b>"
 msgid "Advanced"
 msgstr "Додатково"
 
-#: ../src/plugins/cpu/cpu.c:276
+#: ../plugins/cpu/cpu.c:281
 msgid "CPU Usage Monitor"
 msgstr "Монітор використання CPU"
 
-#: ../src/plugins/cpu/cpu.c:277 ../src/plugins/monitors/monitors.c:713
+#: ../plugins/cpu/cpu.c:282 ../plugins/monitors/monitors.c:702
 msgid "Display CPU usage"
 msgstr "Показати завантаження CPU"
 
-#: ../src/plugins/deskno/deskno.c:180 ../src/plugins/deskno/deskno.c:200
+#: ../plugins/deskno/deskno.c:174 ../plugins/deskno/deskno.c:194
 msgid "Desktop Number / Workspace Name"
 msgstr "Номер робочого столу / Назва робочої області"
 
-#: ../src/plugins/deskno/deskno.c:182 ../src/plugins/dclock.c:429
+#: ../plugins/deskno/deskno.c:176 ../plugins/dclock.c:427
 msgid "Bold font"
 msgstr "Жирний шрифт"
 
-#: ../src/plugins/deskno/deskno.c:183
+#: ../plugins/deskno/deskno.c:177
 msgid "Display desktop names"
 msgstr "Показати назви робочих столів"
 
-#: ../src/plugins/deskno/deskno.c:201
+#: ../plugins/deskno/deskno.c:195
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Показати номер робочої області, завдяки cmeury@users.sf.net"
 
-#: ../src/plugins/image.c:161
-msgid "Display Image and Tooltip"
-msgstr "Показати зображення та підказки"
+#: ../plugins/launchtaskbar.c:1419 ../plugins/launchtaskbar.c:3447
+msgid "Application Launch Bar"
+msgstr "Панель запуску програм"
 
-#: ../src/plugins/launchtaskbar.c:2450
+#: ../plugins/launchtaskbar.c:1422 ../plugins/launchtaskbar.c:3458
+msgid "Task Bar (Window List)"
+msgstr "Панель задач (Список вікон)"
+
+#: ../plugins/launchtaskbar.c:2447
 msgid "_Close all windows"
 msgstr "З_акрити всі вікна"
 
 #. Add Raise menu item.
-#: ../src/plugins/launchtaskbar.c:3243
+#: ../plugins/launchtaskbar.c:3306
 msgid "_Raise"
 msgstr "_Розгорнути"
 
 #. Add Restore menu item.
-#: ../src/plugins/launchtaskbar.c:3248
+#: ../plugins/launchtaskbar.c:3311
 msgid "R_estore"
 msgstr "В_ідновити"
 
 #. Add Maximize menu item.
-#: ../src/plugins/launchtaskbar.c:3253
+#: ../plugins/launchtaskbar.c:3316
 msgid "Ma_ximize"
 msgstr "М_аксималізувати"
 
 #. Add Iconify menu item.
-#: ../src/plugins/launchtaskbar.c:3258
+#: ../plugins/launchtaskbar.c:3321
 msgid "Ico_nify"
 msgstr "_Згорнути в іконку"
 
-#: ../src/plugins/launchtaskbar.c:3277
+#: ../plugins/launchtaskbar.c:3340
 #, c-format
 msgid "Workspace _%d"
 msgstr "Робоча область _%d"
 
-#: ../src/plugins/launchtaskbar.c:3282
+#: ../plugins/launchtaskbar.c:3345
 #, c-format
 msgid "Workspace %d"
 msgstr "Робоча область %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../src/plugins/launchtaskbar.c:3298
+#: ../plugins/launchtaskbar.c:3361
 msgid "_All workspaces"
 msgstr "_Всі робочі області"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../src/plugins/launchtaskbar.c:3304
+#: ../plugins/launchtaskbar.c:3367
 msgid "_Move to Workspace"
 msgstr "_Перенести до робочої області"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../src/plugins/launchtaskbar.c:3310
+#: ../plugins/launchtaskbar.c:3373
 msgid "_Close Window"
 msgstr "За_крити вікно"
 
-#: ../src/plugins/launchtaskbar.c:3312
+#: ../plugins/launchtaskbar.c:3375
 msgid "A_dd to Launcher"
 msgstr "Додати _кнопку"
 
-#: ../src/plugins/launchtaskbar.c:3313
+#: ../plugins/launchtaskbar.c:3376
 msgid "Rem_ove from Launcher"
 msgstr "_Видалити кнопку"
 
-#: ../src/plugins/launchtaskbar.c:3314
+#: ../plugins/launchtaskbar.c:3377
 msgid "_New Instance"
 msgstr "_Новий екземпляр"
 
-#: ../src/plugins/launchtaskbar.c:3384
-msgid "Application Launch Bar"
-msgstr "Панель запуску програм"
-
-#: ../src/plugins/launchtaskbar.c:3385
+#: ../plugins/launchtaskbar.c:3448
 msgid "Bar with buttons to launch application"
 msgstr "Панель з кнопками для запуску програм"
 
-#: ../src/plugins/launchtaskbar.c:3395
-msgid "Task Bar (Window List)"
-msgstr "Панель задач (Список вікон)"
-
-#: ../src/plugins/launchtaskbar.c:3396
+#: ../plugins/launchtaskbar.c:3459
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -657,205 +653,209 @@ msgstr ""
 "Панель задач показує всі відкриті вікна і дозволяє згортати їх, відтіняти і "
 "фокусувати"
 
-#: ../src/plugins/launchtaskbar.c:3415
+#: ../plugins/launchtaskbar.c:3478
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr "Панель кнопок для запуску програм або відображення вікон"
 
-#: ../src/plugins/dclock.c:423 ../src/plugins/dclock.c:443
+#: ../plugins/dclock.c:421 ../plugins/dclock.c:441
 msgid "Digital Clock"
 msgstr "Цифровий годинник"
 
-#: ../src/plugins/dclock.c:425
+#: ../plugins/dclock.c:423
 msgid "Clock Format"
 msgstr "Формат годинника"
 
-#: ../src/plugins/dclock.c:426
+#: ../plugins/dclock.c:424
 msgid "Tooltip Format"
 msgstr "Формат підказок"
 
-#: ../src/plugins/dclock.c:427
+#: ../plugins/dclock.c:425
 #, c-format
 msgid "Format codes: man 3 strftime; \\%n for line break"
 msgstr "Формат кодів: запустіть man 3 strftime; \\%n для розриву стрічки"
 
-#: ../src/plugins/dclock.c:428
+#: ../plugins/dclock.c:426
 msgid "Action when clicked (default: display calendar)"
 msgstr "Дія при клацанні (по замовчуванню: показати календар)"
 
-#: ../src/plugins/dclock.c:430
+#: ../plugins/dclock.c:428
 msgid "Tooltip only"
 msgstr "Тільки підказки"
 
-#: ../src/plugins/dclock.c:431
+#: ../plugins/dclock.c:429
 msgid "Center text"
 msgstr "Центрувати  текст"
 
-#: ../src/plugins/dclock.c:444
+#: ../plugins/dclock.c:442
 msgid "Display digital clock and tooltip"
 msgstr "Показувати цифровий годинник і підказки"
 
-#: ../src/plugins/menu.c:421
+#: ../plugins/menu.c:390
 msgid "Add to desktop"
 msgstr "Додати до робочого столу"
 
-#: ../src/plugins/menu.c:428
+#: ../plugins/menu.c:397
 msgid "Properties"
 msgstr "Властивості"
 
-#: ../src/plugins/menu.c:1041 ../src/plugins/menu.c:1054
+#: ../plugins/menu.c:1019 ../plugins/menu.c:1032
 msgid "Menu"
 msgstr "Меню"
 
-#: ../src/plugins/menu.c:1042 ../src/plugins/dirmenu.c:365
+#: ../plugins/menu.c:1020 ../plugins/dirmenu.c:358
 msgid "Icon"
 msgstr "Іконка"
 
-#: ../src/plugins/menu.c:1055
+#: ../plugins/menu.c:1033
 msgid "Application Menu"
 msgstr "Панель програм"
 
-#: ../src/plugins/separator.c:72
+#: ../plugins/separator.c:68
 msgid "Separator"
 msgstr "Розділювач"
 
-#: ../src/plugins/separator.c:73
+#: ../plugins/separator.c:69
 msgid "Add a separator to the panel"
 msgstr "Додати розділювач до панелі"
 
-#: ../src/plugins/pager.c:84 ../src/plugins/pager.c:98
+#: ../plugins/pager.c:93
+msgid "Sorry, there was no window manager configuration program found."
+msgstr "Програму налаштування кількості стільниць не знайдено. Вибачте."
+
+#: ../plugins/pager.c:144 ../plugins/pager.c:160
 msgid "Desktop Pager"
 msgstr "Пейджер робочого столу"
 
-#: ../src/plugins/pager.c:85 ../src/plugins/pager.c:99
+#: ../plugins/pager.c:145 ../plugins/pager.c:161
 msgid "Simple pager plugin"
 msgstr "Просте доповнення пейджера"
 
-#: ../src/plugins/space.c:91 ../src/plugins/space.c:100
+#: ../plugins/space.c:87 ../plugins/space.c:96
 msgid "Spacer"
 msgstr "Пропуск"
 
-#: ../src/plugins/space.c:101
+#: ../plugins/space.c:97
 msgid "Allocate space"
 msgstr "Виділити місце"
 
-#: ../src/plugins/tray.c:709
+#: ../plugins/tray.c:685
 msgid "System Tray"
 msgstr "Системний лоток"
 
-#: ../src/plugins/tray.c:710
+#: ../plugins/tray.c:686
 msgid "System tray"
 msgstr "Системний лоток"
 
-#: ../src/plugins/xkb/xkb-plugin.c:451
+#: ../plugins/xkb/xkb-plugin.c:401
 msgid "New session is required for this option to take effect"
 msgstr "Для застосування цієї зміни потрібно вийти з сесії та зайти знов"
 
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:628
+#: ../plugins/xkb/xkb-plugin.c:582
 msgid "Select Keyboard Model"
 msgstr "Вибрати модель клавіатури"
 
-#: ../src/plugins/xkb/xkb-plugin.c:651 ../src/plugins/xkb/xkb-plugin.c:778
-#: ../src/plugins/xkb/xkb-plugin.c:954
+#: ../plugins/xkb/xkb-plugin.c:606 ../plugins/xkb/xkb-plugin.c:735
+#: ../plugins/xkb/xkb-plugin.c:913
 msgid "Description"
 msgstr "Опис"
 
-#: ../src/plugins/xkb/xkb-plugin.c:656 ../src/plugins/xkb/xkb-plugin.c:785
+#: ../plugins/xkb/xkb-plugin.c:611 ../plugins/xkb/xkb-plugin.c:742
 msgid "Id"
 msgstr "Id"
 
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:750
+#: ../plugins/xkb/xkb-plugin.c:706
 msgid "Select Layout Change Type"
 msgstr "Вибрати спосіб зміни розкладки"
 
 #. dialog
-#: ../src/plugins/xkb/xkb-plugin.c:921
+#: ../plugins/xkb/xkb-plugin.c:879
 msgid "Add Keyboard Layout"
 msgstr "Додати розкладку клавіатури"
 
-#: ../src/plugins/xkb/xkb-plugin.c:944 ../src/plugins/xkb/xkb-plugin.c:1327
+#: ../plugins/xkb/xkb-plugin.c:903 ../plugins/xkb/xkb-plugin.c:1294
 msgid "Flag"
 msgstr "Прапор"
 
-#: ../src/plugins/xkb/xkb-plugin.c:949 ../src/plugins/xkb/xkb-plugin.c:1331
+#: ../plugins/xkb/xkb-plugin.c:908 ../plugins/xkb/xkb-plugin.c:1298
 msgid "Layout"
 msgstr "Розкладка"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1238 ../src/plugins/xkb/xkb-plugin.c:1587
+#: ../plugins/xkb/xkb-plugin.c:1204 ../plugins/xkb/xkb-plugin.c:1536
 msgid "Keyboard Layout Handler"
 msgstr "Менеджер розкладки клавіатури"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1260
+#: ../plugins/xkb/xkb-plugin.c:1227
 msgid "Keyboard Model"
 msgstr "Модель клавіатури"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1281
+#: ../plugins/xkb/xkb-plugin.c:1248
 msgid "Keyboard Layouts"
 msgstr "Розкладки клавіатури"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1335
+#: ../plugins/xkb/xkb-plugin.c:1302
 msgid "Variant"
 msgstr "Варіант"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1344
+#: ../plugins/xkb/xkb-plugin.c:1311
 msgid "Change Layout Option"
 msgstr "Параметри зміни розкладки"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1364
+#: ../plugins/xkb/xkb-plugin.c:1331
 msgid "Advanced setxkbmap Options"
 msgstr "Додаткові параметри setxkbmap"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1384
+#: ../plugins/xkb/xkb-plugin.c:1352
 msgid "Do _not reset existing options"
 msgstr "_Не скидати існуючі параметри"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1389
+#: ../plugins/xkb/xkb-plugin.c:1357
 msgid "Keep _system layouts"
 msgstr "_Зберегти системні розкладки"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1398
+#: ../plugins/xkb/xkb-plugin.c:1366
 msgid "Per Window Settings"
 msgstr "Окрема для кожного вікна"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1410
+#: ../plugins/xkb/xkb-plugin.c:1378
 msgid "_Remember layout for each window"
 msgstr "_Пам’ятати розкладку для кожного вікна"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1419
+#: ../plugins/xkb/xkb-plugin.c:1387
 msgid "Show Layout as"
 msgstr "Показати розкладку як"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1480
+#: ../plugins/xkb/xkb-plugin.c:1448
 msgid "Custom Image"
 msgstr "Власний малюнок"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1481
+#: ../plugins/xkb/xkb-plugin.c:1449
 msgid "Text"
 msgstr "Текст"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1507
+#: ../plugins/xkb/xkb-plugin.c:1475
 msgid "Panel Icon Size"
 msgstr "Розмір іконок панелі"
 
-#: ../src/plugins/xkb/xkb-plugin.c:1589
+#: ../plugins/xkb/xkb-plugin.c:1537
 msgid "Handle keyboard layouts"
 msgstr "Обробляння розкладок клавіатури"
 
-#: ../src/plugins/wincmd.c:193
+#: ../plugins/wincmd.c:189
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
 "Клік лівою кнопкою миші мінімалізує всі вікна. Середня кнопка затіняє їх."
 
-#: ../src/plugins/wincmd.c:227 ../src/plugins/wincmd.c:245
+#: ../plugins/wincmd.c:223 ../plugins/wincmd.c:241
 msgid "Minimize All Windows"
 msgstr "Мінімалізувати всі вікна"
 
-#: ../src/plugins/wincmd.c:229
+#: ../plugins/wincmd.c:225
 msgid "Alternately iconify/shade and raise"
 msgstr "Поперемінно згортати/затінювати і розгортати"
 
-#: ../src/plugins/wincmd.c:246
+#: ../plugins/wincmd.c:242
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
@@ -863,67 +863,67 @@ msgstr ""
 "Вислати команди до всіх вікон робочого столу.\n"
 "Команди що підтримуються: 1) згорнути в іконку 2) згорнути в тінь"
 
-#: ../src/plugins/dirmenu.c:208
+#: ../plugins/dirmenu.c:205
 msgid "Open in _Terminal"
 msgstr "Відкрити в _терміналі"
 
-#: ../src/plugins/dirmenu.c:361 ../src/plugins/dirmenu.c:377
+#: ../plugins/dirmenu.c:354 ../plugins/dirmenu.c:370
 msgid "Directory Menu"
 msgstr "Меню тек"
 
-#: ../src/plugins/dirmenu.c:363
+#: ../plugins/dirmenu.c:356
 msgid "Directory"
 msgstr "Тека"
 
-#: ../src/plugins/dirmenu.c:364
+#: ../plugins/dirmenu.c:357
 msgid "Label"
 msgstr "Мітка"
 
-#: ../src/plugins/dirmenu.c:378
+#: ../plugins/dirmenu.c:371
 msgid "Browse directory tree via menu (Author = PCMan)"
 msgstr "Переглянути дерево тек через меню (Автор: PCMan)"
 
-#: ../src/plugins/thermal/thermal.c:480
-msgid "Normal"
-msgstr "Нормально"
-
-#: ../src/plugins/thermal/thermal.c:481
-msgid "Warning1"
-msgstr "Попередження1"
-
-#: ../src/plugins/thermal/thermal.c:482
-msgid "Warning2"
-msgstr "Попередження2"
-
-#: ../src/plugins/thermal/thermal.c:483
-msgid "Automatic sensor location"
-msgstr "Автоматичний пошук сенсорів"
-
-#: ../src/plugins/thermal/thermal.c:484
-msgid "Sensor"
-msgstr "Сенсор"
-
-#: ../src/plugins/thermal/thermal.c:485
-msgid "Automatic temperature levels"
-msgstr "Автоматичні рівні температури"
-
-#: ../src/plugins/thermal/thermal.c:486
-msgid "Warning1 Temperature"
-msgstr "Попередження1 Температура"
-
-#: ../src/plugins/thermal/thermal.c:487
-msgid "Warning2 Temperature"
-msgstr "Попередження2 Температура"
-
-#: ../src/plugins/thermal/thermal.c:531
+#: ../plugins/thermal/thermal.c:517 ../plugins/thermal/thermal.c:535
 msgid "Temperature Monitor"
 msgstr "Монітор температури"
 
-#: ../src/plugins/thermal/thermal.c:533
+#: ../plugins/thermal/thermal.c:519
+msgid "Normal"
+msgstr "Нормально"
+
+#: ../plugins/thermal/thermal.c:520
+msgid "Warning1"
+msgstr "Попередження1"
+
+#: ../plugins/thermal/thermal.c:521
+msgid "Warning2"
+msgstr "Попередження2"
+
+#: ../plugins/thermal/thermal.c:522
+msgid "Automatic sensor location"
+msgstr "Автоматичний пошук сенсорів"
+
+#: ../plugins/thermal/thermal.c:523
+msgid "Sensor"
+msgstr "Сенсор"
+
+#: ../plugins/thermal/thermal.c:524
+msgid "Automatic temperature levels"
+msgstr "Автоматичні рівні температури"
+
+#: ../plugins/thermal/thermal.c:525
+msgid "Warning1 Temperature"
+msgstr "Попередження1 Температура"
+
+#: ../plugins/thermal/thermal.c:526
+msgid "Warning2 Temperature"
+msgstr "Попередження2 Температура"
+
+#: ../plugins/thermal/thermal.c:536
 msgid "Display system temperature"
 msgstr "Показати системну температуру"
 
-#: ../src/plugins/cpufreq/cpufreq.c:329
+#: ../plugins/cpufreq/cpufreq.c:326
 #, c-format
 msgid ""
 "Frequency: %d MHz\n"
@@ -932,147 +932,142 @@ msgstr ""
 "Частота: %d МГц\n"
 "Керування: %s"
 
-#: ../src/plugins/cpufreq/cpufreq.c:421
+#: ../plugins/cpufreq/cpufreq.c:409
 msgid "CPUFreq frontend"
 msgstr "Відображення CPUFreq"
 
-#: ../src/plugins/cpufreq/cpufreq.c:422
+#: ../plugins/cpufreq/cpufreq.c:410
 msgid "Display CPU frequency and allow to change governors and frequency"
 msgstr "Показ та керування частотою та режимом процесора"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
-#: ../src/plugins/volume/volume.c:300
-#: ../src/plugins/volumealsa/volumealsa.c:363
-#: ../src/plugins/volumealsa/volumealsa.c:545
+#: ../plugins/volume/volume.c:278 ../plugins/volumealsa/volumealsa.c:354
+#: ../plugins/volumealsa/volumealsa.c:538
 msgid "Volume control"
 msgstr "Регулятор гучності"
 
-#: ../src/plugins/volume/volume.c:312
-#: ../src/plugins/volumealsa/volumealsa.c:666
+#: ../plugins/volume/volume.c:286 ../plugins/volumealsa/volumealsa.c:642
 msgid "Volume Control"
 msgstr "Регулятор Гучності"
 
 #. Create a frame as the child of the viewport.
-#: ../src/plugins/volume/volume-impl.c:109
-#: ../src/plugins/volumealsa/volumealsa.c:503
+#: ../plugins/volume/volume-impl.c:109 ../plugins/volumealsa/volumealsa.c:492
 msgid "Volume"
 msgstr "Гучність"
 
 #. Create a check button as the child of the vertical box.
-#: ../src/plugins/volumealsa/volumealsa.c:522
+#: ../plugins/volumealsa/volumealsa.c:511
 msgid "Mute"
 msgstr "Заглушити"
 
-#: ../src/plugins/volumealsa/volumealsa.c:639
+#: ../plugins/volumealsa/volumealsa.c:624
 msgid ""
 "Error, you need to install an application to configure the sound "
-"(pavucontol, alsamixer ...)"
+"(pavucontrol, alsamixer ...)"
 msgstr ""
-"Помилка, Вам потрібно встановити програму для налаштування звуку "
-"(pavucontol, alsamixer ...)"
+"Помилка, Вам потрібно встановити програму для налаштування звуку ("
+"pavucontol, alsamixer ...)"
 
-#: ../src/plugins/volumealsa/volumealsa.c:668
+#: ../plugins/volumealsa/volumealsa.c:643
 msgid "Display and control volume for ALSA"
 msgstr "Відображення та керування гучністю для ALSA"
 
-#: ../src/plugins/netstat/netstat.c:180
+#: ../plugins/netstat/netstat.c:178
 msgid "<Hidden Access Point>"
 msgstr "<Прихована точка доступу>"
 
-#: ../src/plugins/netstat/netstat.c:213
+#: ../plugins/netstat/netstat.c:211
 msgid "Wireless Networks not found in range"
 msgstr "Не знайдено безпровідних мереж"
 
 #. Repair
-#: ../src/plugins/netstat/netstat.c:247
+#: ../plugins/netstat/netstat.c:245
 msgid "Repair"
 msgstr "Спробувати ще"
 
 #. interface down
-#: ../src/plugins/netstat/netstat.c:252
+#: ../plugins/netstat/netstat.c:250
 msgid "Disable"
 msgstr "Виключити"
 
-#: ../src/plugins/netstat/netstat.c:342
+#: ../plugins/netstat/netstat.c:340
 msgid "Wireless Connection has no connectivity"
 msgstr "Безпровідна мережа недоступна"
 
-#: ../src/plugins/netstat/netstat.c:344
+#: ../plugins/netstat/netstat.c:342
 msgid "Network cable is plugged out"
 msgstr "Мережний кабель від’єднано"
 
-#: ../src/plugins/netstat/netstat.c:346
+#: ../plugins/netstat/netstat.c:344
 msgid "Connection has limited or no connectivity"
 msgstr "Зв’язок обмежений або ж немає з’єднання"
 
-#: ../src/plugins/netstat/netstat.c:350 ../src/plugins/netstat/netstat.c:361
-#: ../src/plugins/netstat/netstat.c:372
+#: ../plugins/netstat/netstat.c:348 ../plugins/netstat/netstat.c:359
+#: ../plugins/netstat/netstat.c:370
 msgid "IP Address:"
 msgstr "IP адреса:"
 
-#: ../src/plugins/netstat/netstat.c:351
+#: ../plugins/netstat/netstat.c:349
 msgid "Remote IP:"
 msgstr "Віддалене IP:"
 
-#: ../src/plugins/netstat/netstat.c:352 ../src/plugins/netstat/netstat.c:363
-#: ../src/plugins/netstat/netstat.c:374
+#: ../plugins/netstat/netstat.c:350 ../plugins/netstat/netstat.c:361
+#: ../plugins/netstat/netstat.c:372
 msgid "Netmask:"
 msgstr "Маска мережі:"
 
-#: ../src/plugins/netstat/netstat.c:353 ../src/plugins/netstat/netstat.c:365
-#: ../src/plugins/netstat/netstat.c:376
+#: ../plugins/netstat/netstat.c:351 ../plugins/netstat/netstat.c:363
+#: ../plugins/netstat/netstat.c:374
 msgid "Activity"
 msgstr "Активність"
 
-#: ../src/plugins/netstat/netstat.c:353 ../src/plugins/netstat/netstat.c:365
-#: ../src/plugins/netstat/netstat.c:376
+#: ../plugins/netstat/netstat.c:351 ../plugins/netstat/netstat.c:363
+#: ../plugins/netstat/netstat.c:374
 msgid "Sent"
 msgstr "Вислано"
 
-#: ../src/plugins/netstat/netstat.c:353 ../src/plugins/netstat/netstat.c:365
-#: ../src/plugins/netstat/netstat.c:376
+#: ../plugins/netstat/netstat.c:351 ../plugins/netstat/netstat.c:363
+#: ../plugins/netstat/netstat.c:374
 msgid "Received"
 msgstr "Отримано"
 
-#: ../src/plugins/netstat/netstat.c:354 ../src/plugins/netstat/netstat.c:366
-#: ../src/plugins/netstat/netstat.c:377
+#: ../plugins/netstat/netstat.c:352 ../plugins/netstat/netstat.c:364
+#: ../plugins/netstat/netstat.c:375
 msgid "bytes"
 msgstr "байт"
 
-#: ../src/plugins/netstat/netstat.c:355 ../src/plugins/netstat/netstat.c:367
-#: ../src/plugins/netstat/netstat.c:378
+#: ../plugins/netstat/netstat.c:353 ../plugins/netstat/netstat.c:365
+#: ../plugins/netstat/netstat.c:376
 msgid "packets"
 msgstr "пакетів"
 
-#: ../src/plugins/netstat/netstat.c:358
-#: ../src/plugins/netstatus/netstatus-iface.c:173
+#: ../plugins/netstat/netstat.c:356 ../plugins/netstatus/netstatus-iface.c:173
 msgid "Wireless"
 msgstr "Безпровідна сітка"
 
-#: ../src/plugins/netstat/netstat.c:360
+#: ../plugins/netstat/netstat.c:358
 msgid "Protocol:"
 msgstr "Протокол:"
 
-#: ../src/plugins/netstat/netstat.c:364 ../src/plugins/netstat/netstat.c:375
+#: ../plugins/netstat/netstat.c:362 ../plugins/netstat/netstat.c:373
 msgid "HW Address:"
 msgstr "Адреса \"заліза\":"
 
-#: ../src/plugins/netstat/netstat.c:515
+#: ../plugins/netstat/netstat.c:484
 msgid "Manage Networks"
 msgstr "Налаштування мереж"
 
-#: ../src/plugins/netstat/netstat.c:517
+#: ../plugins/netstat/netstat.c:485
 msgid "Monitor and Manage networks"
 msgstr "Моніторинг і налаштування мереж"
 
 #. create dialog
-#: ../src/plugins/netstat/passwd_gui.c:86
+#: ../plugins/netstat/passwd_gui.c:87
 msgid "Setting Encryption Key"
 msgstr "Ввести ключ шифрування"
 
-#. messages
-#: ../src/plugins/netstat/passwd_gui.c:96
+#: ../plugins/netstat/passwd_gui.c:98
 msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
@@ -1080,41 +1075,41 @@ msgstr ""
 "Ця безпровідна сітка захищена.\n"
 "Ви повинні мати ключ шифрування."
 
-#: ../src/plugins/netstat/passwd_gui.c:101
+#: ../plugins/netstat/passwd_gui.c:103
 msgid "Encryption Key:"
 msgstr "Ключ шифрування:"
 
-#: ../src/plugins/netstatus/netstatus.c:179
-msgid "Interface to monitor"
-msgstr "Моніторинг інтерфейсу"
-
-#: ../src/plugins/netstatus/netstatus.c:180
-msgid "Config tool"
-msgstr "Утиліти конфігурації"
-
-#: ../src/plugins/netstatus/netstatus.c:197
+#: ../plugins/netstatus/netstatus.c:153 ../plugins/netstatus/netstatus.c:165
 msgid "Network Status Monitor"
 msgstr "Монітор статусу мережі"
 
-#: ../src/plugins/netstatus/netstatus.c:199
+#: ../plugins/netstatus/netstatus.c:155
+msgid "Interface to monitor"
+msgstr "Моніторинг інтерфейсу"
+
+#: ../plugins/netstatus/netstatus.c:156
+msgid "Config tool"
+msgstr "Утиліти конфігурації"
+
+#: ../plugins/netstatus/netstatus.c:166
 msgid "Monitor network status"
 msgstr "Моніторинг статусу мережі"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:51
-#: ../src/plugins/netstatus/netstatus-dialog.c:312
+#: ../plugins/netstatus/netstatus-dialog.c:52
+#: ../plugins/netstatus/netstatus-dialog.c:313
 msgid "Unknown"
 msgstr "Невідомо"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:116
+#: ../plugins/netstatus/netstatus-dialog.c:117
 msgid "Connection Properties"
 msgstr "Властивості з’єднання"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:122
+#: ../plugins/netstatus/netstatus-dialog.c:123
 #, c-format
 msgid "Connection Properties: %s"
 msgstr "Властивості з’єднання: %s"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:135
+#: ../plugins/netstatus/netstatus-dialog.c:136
 #, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
@@ -1122,7 +1117,7 @@ msgstr[0] "%lu пакет"
 msgstr[1] "%lu пакети"
 msgstr[2] "%lu пакетів"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:396
+#: ../plugins/netstatus/netstatus-dialog.c:397
 #, c-format
 msgid ""
 "There was an error displaying help:\n"
@@ -1131,53 +1126,48 @@ msgstr ""
 "Помилка під час показу допомоги:\n"
 "%s"
 
-#: ../src/plugins/netstatus/netstatus-dialog.c:580
-#, c-format
-msgid "Failed to launch time configuration tool: %s"
-msgstr "Помилка запуску утиліт налаштування часу: %s"
-
-#: ../src/plugins/netstatus/netstatus-icon.c:380
+#: ../plugins/netstatus/netstatus-icon.c:379
 #, c-format
 msgid "Network Connection: %s"
 msgstr "Мережне з’єднання: %s"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:385
+#: ../plugins/netstatus/netstatus-icon.c:384
 msgid "Network Connection"
 msgstr "Мережне з’єднання"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:814
+#: ../plugins/netstatus/netstatus-icon.c:824
 msgid "Interface"
 msgstr "Інтерфейс"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:815
+#: ../plugins/netstatus/netstatus-icon.c:825
 msgid "The current interface the icon is monitoring."
 msgstr "Іконка моніторингу поточного інтерфейсу."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:822
+#: ../plugins/netstatus/netstatus-icon.c:832
 msgid "Orientation"
 msgstr "Орієнтація"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:823
+#: ../plugins/netstatus/netstatus-icon.c:833
 msgid "The orientation of the tray."
 msgstr "Орієнтація лотка."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:831
+#: ../plugins/netstatus/netstatus-icon.c:841
 msgid "Tooltips Enabled"
 msgstr "Підказки запущено"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:832
+#: ../plugins/netstatus/netstatus-icon.c:842
 msgid "Whether or not the icon's tooltips are enabled."
 msgstr "Чи включені або виключені підказки."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:839
+#: ../plugins/netstatus/netstatus-icon.c:849
 msgid "Show Signal"
 msgstr "Показати сигнал"
 
-#: ../src/plugins/netstatus/netstatus-icon.c:840
+#: ../plugins/netstatus/netstatus-icon.c:850
 msgid "Whether or not the signal strength should be displayed."
 msgstr "Чи потрібно показувати рівень сигналу."
 
-#: ../src/plugins/netstatus/netstatus-icon.c:949
+#: ../plugins/netstatus/netstatus-icon.c:959
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -1189,200 +1179,200 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:148
+#: ../plugins/netstatus/netstatus-iface.c:148
 msgid "Name"
 msgstr "Назва"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:149
+#: ../plugins/netstatus/netstatus-iface.c:149
 msgid "The interface name"
 msgstr "Назва інтерфейсу"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:156
-#: ../src/plugins/weather/weatherwidget.c:2036
+#: ../plugins/netstatus/netstatus-iface.c:156
+#: ../plugins/weather/weatherwidget.c:2085
 msgid "State"
 msgstr "Стан"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:157
+#: ../plugins/netstatus/netstatus-iface.c:157
 msgid "The interface state"
 msgstr "Стан інтерфейсу"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:165
+#: ../plugins/netstatus/netstatus-iface.c:165
 msgid "Stats"
 msgstr "Статистика"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:166
+#: ../plugins/netstatus/netstatus-iface.c:166
 msgid "The interface packets/bytes statistics"
 msgstr "Пакети/байти статистика інтерфейсу"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:174
+#: ../plugins/netstatus/netstatus-iface.c:174
 msgid "Whether the interface is a wireless interface"
 msgstr "Чи інтерфейс є безпровідним"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:181
+#: ../plugins/netstatus/netstatus-iface.c:181
 msgid "Signal"
 msgstr "Сигнал"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:182
+#: ../plugins/netstatus/netstatus-iface.c:182
 msgid "Wireless signal strength percentage"
 msgstr "Сила сигналу безпровідної сітки в процентах"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:191
-#: ../src/plugins/netstatus/netstatus-util.c:167
+#: ../plugins/netstatus/netstatus-iface.c:191
+#: ../plugins/netstatus/netstatus-util.c:167
 msgid "Error"
 msgstr "Помилка"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:192
+#: ../plugins/netstatus/netstatus-iface.c:192
 msgid "The current error condition"
 msgstr "Поточні умови помилки"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:440
-#: ../src/plugins/netstatus/netstatus-iface.c:1206
+#: ../plugins/netstatus/netstatus-iface.c:440
+#: ../plugins/netstatus/netstatus-iface.c:1205
 #, c-format
 msgid "Unable to open socket: %s"
 msgstr "Не можу відкрити сокет: %s"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:502
-#: ../src/plugins/netstatus/netstatus-iface.c:1232
+#: ../plugins/netstatus/netstatus-iface.c:502
+#: ../plugins/netstatus/netstatus-iface.c:1231
 #, c-format
 msgid "SIOCGIFFLAGS error: %s"
 msgstr "SIOCGIFFLAGS помилка: %s"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:879
+#: ../plugins/netstatus/netstatus-iface.c:879
 msgid "AMPR NET/ROM"
 msgstr "AMPR NET/ROM"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:882
+#: ../plugins/netstatus/netstatus-iface.c:882
 msgid "Ethernet"
 msgstr "Ethernet"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:888
+#: ../plugins/netstatus/netstatus-iface.c:888
 msgid "AMPR AX.25"
 msgstr "AMPR AX.25"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:897
-#: ../src/plugins/netstatus/netstatus-iface.c:1017
+#: ../plugins/netstatus/netstatus-iface.c:897
+#: ../plugins/netstatus/netstatus-iface.c:1017
 msgid "16/4 Mbps Token Ring"
 msgstr "16/4 Mbps Token Ring"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:900
+#: ../plugins/netstatus/netstatus-iface.c:900
 msgid "ARCnet"
 msgstr "ARCnet"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:906
+#: ../plugins/netstatus/netstatus-iface.c:906
 msgid "Frame Relay DLCI"
 msgstr "Frame Relay DLCI"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:912
+#: ../plugins/netstatus/netstatus-iface.c:912
 msgid "Metricom Starmode IP"
 msgstr "Metricom Starmode IP"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:915
+#: ../plugins/netstatus/netstatus-iface.c:915
 msgid "Serial Line IP"
 msgstr "Serial Line IP"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:918
+#: ../plugins/netstatus/netstatus-iface.c:918
 msgid "VJ Serial Line IP"
 msgstr "VJ Serial Line IP"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:921
+#: ../plugins/netstatus/netstatus-iface.c:921
 msgid "6-bit Serial Line IP"
 msgstr "6-bit Serial Line IP"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:924
+#: ../plugins/netstatus/netstatus-iface.c:924
 msgid "VJ 6-bit Serial Line IP"
 msgstr "VJ 6-bit Serial Line IP"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:930
+#: ../plugins/netstatus/netstatus-iface.c:930
 msgid "Adaptive Serial Line IP"
 msgstr "Adaptive Serial Line IP"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:933
+#: ../plugins/netstatus/netstatus-iface.c:933
 msgid "AMPR ROSE"
 msgstr "AMPR ROSE"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:936
+#: ../plugins/netstatus/netstatus-iface.c:936
 msgid "Generic X.25"
 msgstr "Generic X.25"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:939
+#: ../plugins/netstatus/netstatus-iface.c:939
 msgid "Point-to-Point Protocol"
 msgstr "Протокол Point-to-Point"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:945
+#: ../plugins/netstatus/netstatus-iface.c:945
 msgid "(Cisco)-HDLC"
 msgstr "(Cisco)-HDLC"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:948
+#: ../plugins/netstatus/netstatus-iface.c:948
 msgid "LAPB"
 msgstr "LAPB"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:957
+#: ../plugins/netstatus/netstatus-iface.c:957
 msgid "IPIP Tunnel"
 msgstr "Тунель IPIP"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:963
+#: ../plugins/netstatus/netstatus-iface.c:963
 msgid "Frame Relay Access Device"
 msgstr "Frame Relay Access Device"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:969
+#: ../plugins/netstatus/netstatus-iface.c:969
 msgid "Local Loopback"
 msgstr "Local Loopback"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:975
+#: ../plugins/netstatus/netstatus-iface.c:975
 msgid "Fiber Distributed Data Interface"
 msgstr "Fiber Distributed Data Interface"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:981
+#: ../plugins/netstatus/netstatus-iface.c:981
 msgid "IPv6-in-IPv4"
 msgstr "IPv6-в-IPv4"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:993
+#: ../plugins/netstatus/netstatus-iface.c:993
 msgid "HIPPI"
 msgstr "HIPPI"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:996
+#: ../plugins/netstatus/netstatus-iface.c:996
 msgid "Ash"
 msgstr "Ash"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:999
+#: ../plugins/netstatus/netstatus-iface.c:999
 msgid "Econet"
 msgstr "Econet"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:1002
+#: ../plugins/netstatus/netstatus-iface.c:1002
 msgid "IrLAP"
 msgstr "IrLAP"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:1164
+#: ../plugins/netstatus/netstatus-iface.c:1163
 #, c-format
 msgid "SIOCGIFCONF error: %s"
 msgstr "SIOCGIFCONF помилка: %s"
 
-#: ../src/plugins/netstatus/netstatus-iface.c:1257
+#: ../plugins/netstatus/netstatus-iface.c:1256
 #, c-format
 msgid "No network devices found"
 msgstr "Не знайдено мережних пристроїв"
 
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:180
+#: ../plugins/netstatus/netstatus-sysdeps.c:180
 #, c-format
 msgid "Cannot open /proc/net/dev: %s"
 msgstr "Не можу відкрити /proc/net/dev: %s"
 
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:185
+#: ../plugins/netstatus/netstatus-sysdeps.c:185
 msgid "Could not parse /proc/net/dev. No data."
 msgstr "Не можу обробити /proc/net/dev. Немає даних."
 
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:190
+#: ../plugins/netstatus/netstatus-sysdeps.c:190
 msgid "Could not parse /proc/net/dev. Unknown format."
 msgstr "Не можу обробити /proc/net/dev. Невідомий формат."
 
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:205
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:332
+#: ../plugins/netstatus/netstatus-sysdeps.c:205
+#: ../plugins/netstatus/netstatus-sysdeps.c:332
 #, c-format
 msgid "Could not parse interface name from '%s'"
 msgstr "Не можу обробити назву пристрою з '%s'"
 
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:218
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:647
+#: ../plugins/netstatus/netstatus-sysdeps.c:218
+#: ../plugins/netstatus/netstatus-sysdeps.c:647
 #, c-format
 msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
@@ -1391,74 +1381,74 @@ msgstr ""
 "Не можу обробити статистику пристрою '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:312
+#: ../plugins/netstatus/netstatus-sysdeps.c:312
 msgid "Could not parse /proc/net/wireless. No data."
 msgstr "Не можу обробити /proc/net/wireless. Немає даних."
 
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:316
+#: ../plugins/netstatus/netstatus-sysdeps.c:316
 msgid "Could not parse /proc/net/wireless. Unknown format."
 msgstr "Не можу обробити /proc/net/wireless. Невідомий формат."
 
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:343
+#: ../plugins/netstatus/netstatus-sysdeps.c:343
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
 msgstr "Не можу обробити деталі безпровідної мережі з '%s'. link_idx = %d;"
 
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:416
+#: ../plugins/netstatus/netstatus-sysdeps.c:416
 #, c-format
 msgid "Could not connect to interface, '%s'"
 msgstr "Не можу з’єднатися з пристроєм, '%s'"
 
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:422
+#: ../plugins/netstatus/netstatus-sysdeps.c:422
 #, c-format
 msgid "Could not send ioctl to interface, '%s'"
 msgstr "Не можу вислати ioctl до пристрою, '%s'"
 
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:600
+#: ../plugins/netstatus/netstatus-sysdeps.c:600
 #, c-format
 msgid "Could not parse command line '%s': %s"
 msgstr "Не можу обробити команду рядка '%s': %s"
 
-#: ../src/plugins/netstatus/netstatus-sysdeps.c:637
+#: ../plugins/netstatus/netstatus-sysdeps.c:637
 msgid "Could not parse 'netstat' output. Unknown format"
 msgstr "Не можу обробити вивід 'netstat'. Невідомий формат"
 
-#: ../src/plugins/netstatus/netstatus-util.c:152
+#: ../plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
 msgstr "Роз’єднано"
 
-#: ../src/plugins/netstatus/netstatus-util.c:155
+#: ../plugins/netstatus/netstatus-util.c:155
 msgid "Idle"
 msgstr "В спокої"
 
-#: ../src/plugins/netstatus/netstatus-util.c:158
+#: ../plugins/netstatus/netstatus-util.c:158
 msgid "Sending"
 msgstr "Відсилання"
 
-#: ../src/plugins/netstatus/netstatus-util.c:161
+#: ../plugins/netstatus/netstatus-util.c:161
 msgid "Receiving"
 msgstr "Отримання"
 
-#: ../src/plugins/netstatus/netstatus-util.c:164
+#: ../plugins/netstatus/netstatus-util.c:164
 msgid "Sending/Receiving"
 msgstr "Відсилання/Отримання"
 
-#: ../src/plugins/batt/batt.c:151
+#: ../plugins/batt/batt.c:152
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
 msgstr "Батарея: %d%% заряджено, %d:%02d до повної зарядки"
 
-#: ../src/plugins/batt/batt.c:162
+#: ../plugins/batt/batt.c:163
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr "Батарея: %d%% заряджено, %d:%02d залишилося"
 
-#: ../src/plugins/batt/batt.c:168
+#: ../plugins/batt/batt.c:169
 #, c-format
 msgid "Battery: %d%% charged"
 msgstr "Батарея: %d%% заряджено"
 
-#: ../src/plugins/batt/batt.c:178
+#: ../plugins/batt/batt.c:179
 #, c-format
 msgid ""
 "\n"
@@ -1467,7 +1457,7 @@ msgstr ""
 "\n"
 "%sПроектна повна енергія:\t\t%5d мВт*г"
 
-#: ../src/plugins/batt/batt.c:180
+#: ../plugins/batt/batt.c:181
 #, c-format
 msgid ""
 "\n"
@@ -1476,7 +1466,7 @@ msgstr ""
 "\n"
 "%sПовна енергія:\t\t\t%5d мВт*г"
 
-#: ../src/plugins/batt/batt.c:182
+#: ../plugins/batt/batt.c:183
 #, c-format
 msgid ""
 "\n"
@@ -1485,7 +1475,7 @@ msgstr ""
 "\n"
 "%sЕнергія зараз:\t\t\t%5d мВт*г"
 
-#: ../src/plugins/batt/batt.c:184
+#: ../plugins/batt/batt.c:185
 #, c-format
 msgid ""
 "\n"
@@ -1494,7 +1484,7 @@ msgstr ""
 "\n"
 "%sПотужність зараз:\t\t\t%5d мВт"
 
-#: ../src/plugins/batt/batt.c:187
+#: ../plugins/batt/batt.c:188
 #, c-format
 msgid ""
 "\n"
@@ -1503,7 +1493,7 @@ msgstr ""
 "\n"
 "%sПроектний повний заряд:\t%5d мА*г"
 
-#: ../src/plugins/batt/batt.c:189
+#: ../plugins/batt/batt.c:190
 #, c-format
 msgid ""
 "\n"
@@ -1512,7 +1502,7 @@ msgstr ""
 "\n"
 "%sПовний заряд:\t\t\t%5d мА*г"
 
-#: ../src/plugins/batt/batt.c:191
+#: ../plugins/batt/batt.c:192
 #, c-format
 msgid ""
 "\n"
@@ -1521,7 +1511,7 @@ msgstr ""
 "\n"
 "%sЗаряд зараз:\t\t\t%5d мА*г"
 
-#: ../src/plugins/batt/batt.c:193
+#: ../plugins/batt/batt.c:194
 #, c-format
 msgid ""
 "\n"
@@ -1530,7 +1520,7 @@ msgstr ""
 "\n"
 "%sСтрум зараз:\t\t\t%5d мА"
 
-#: ../src/plugins/batt/batt.c:196
+#: ../plugins/batt/batt.c:197
 #, c-format
 msgid ""
 "\n"
@@ -1539,162 +1529,162 @@ msgstr ""
 "\n"
 "%sНапруга зараз:\t\t%.3lf В"
 
-#: ../src/plugins/batt/batt.c:234
+#: ../plugins/batt/batt.c:235
 msgid "No batteries found"
 msgstr "Батарею не знайдено"
 
-#: ../src/plugins/batt/batt.c:619 ../src/plugins/batt/batt.c:642
+#: ../plugins/batt/batt.c:641 ../plugins/batt/batt.c:662
 msgid "Battery Monitor"
 msgstr "Монітор батареї"
 
-#: ../src/plugins/batt/batt.c:622
+#: ../plugins/batt/batt.c:643
 msgid "Hide if there is no battery"
 msgstr "Приховати, якщо немає батареї"
 
-#: ../src/plugins/batt/batt.c:624
+#: ../plugins/batt/batt.c:644
 msgid "Alarm command"
 msgstr "Команда будильника"
 
-#: ../src/plugins/batt/batt.c:625
+#: ../plugins/batt/batt.c:645
 msgid "Alarm time (minutes left)"
 msgstr "Час будильника (залишилося хвилин)"
 
-#: ../src/plugins/batt/batt.c:626
+#: ../plugins/batt/batt.c:646
 msgid "Background color"
 msgstr "Колір тла"
 
-#: ../src/plugins/batt/batt.c:627
+#: ../plugins/batt/batt.c:647
 msgid "Charging color 1"
 msgstr "Колір зарядки 1"
 
-#: ../src/plugins/batt/batt.c:628
+#: ../plugins/batt/batt.c:648
 msgid "Charging color 2"
 msgstr "Колір зарядки 2"
 
-#: ../src/plugins/batt/batt.c:629
+#: ../plugins/batt/batt.c:649
 msgid "Discharging color 1"
 msgstr "Колір розрядки 1"
 
-#: ../src/plugins/batt/batt.c:630
+#: ../plugins/batt/batt.c:650
 msgid "Discharging color 2"
 msgstr "Колір розрядки 2"
 
-#: ../src/plugins/batt/batt.c:631
+#: ../plugins/batt/batt.c:651
 msgid "Border width"
 msgstr "Ширина краю"
 
-#: ../src/plugins/batt/batt.c:633
+#: ../plugins/batt/batt.c:653
 msgid "Show Extended Information"
 msgstr "Показати детальну інформацію"
 
-#: ../src/plugins/batt/batt.c:643
+#: ../plugins/batt/batt.c:663
 msgid "Display battery status using ACPI"
 msgstr "Показувати статус батареї, використовуючи ACPI"
 
-#: ../src/plugins/kbled/kbled.c:257
-msgid "Show CapsLock"
-msgstr "Показувати CapsLock"
-
-#: ../src/plugins/kbled/kbled.c:258
-msgid "Show NumLock"
-msgstr "Показувати NumLock"
-
-#: ../src/plugins/kbled/kbled.c:259
-msgid "Show ScrollLock"
-msgstr "Показувати ScrollLock"
-
-#: ../src/plugins/kbled/kbled.c:293
+#: ../plugins/kbled/kbled.c:229 ../plugins/kbled/kbled.c:260
 msgid "Keyboard LED"
 msgstr "Індикатор клавіатури"
 
-#: ../src/plugins/kbled/kbled.c:295
+#: ../plugins/kbled/kbled.c:231
+msgid "Show CapsLock"
+msgstr "Показувати CapsLock"
+
+#: ../plugins/kbled/kbled.c:232
+msgid "Show NumLock"
+msgstr "Показувати NumLock"
+
+#: ../plugins/kbled/kbled.c:233
+msgid "Show ScrollLock"
+msgstr "Показувати ScrollLock"
+
+#: ../plugins/kbled/kbled.c:261
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Індикатори для клавіш CapsLock, NumLock і ScrollLock"
 
 #. A label to allow for click through
-#: ../src/plugins/indicator/indicator.c:698
+#: ../plugins/indicator/indicator.c:690
 msgid "No Indicators"
 msgstr "Немає індикаторів"
 
-#: ../src/plugins/indicator/indicator.c:897
-msgid "Indicator Applications"
-msgstr "Індикатор програм"
-
-#: ../src/plugins/indicator/indicator.c:898
-msgid "Clock Indicator"
-msgstr "Індикатор годинника"
-
-#: ../src/plugins/indicator/indicator.c:899
-msgid "Messaging Menu"
-msgstr "Меню повідомлень"
-
-#: ../src/plugins/indicator/indicator.c:900
-msgid "Network Menu"
-msgstr "Меню мережі"
-
-#: ../src/plugins/indicator/indicator.c:901
-msgid "Session Menu"
-msgstr "Меню сесії"
-
-#: ../src/plugins/indicator/indicator.c:902
-msgid "Sound Menu"
-msgstr "Меню звуку"
-
-#: ../src/plugins/indicator/indicator.c:928
+#: ../plugins/indicator/indicator.c:864 ../plugins/indicator/indicator.c:882
 msgid "Indicator applets"
 msgstr "Індикатор аплетів"
 
-#: ../src/plugins/indicator/indicator.c:930
+#: ../plugins/indicator/indicator.c:866
+msgid "Indicator Applications"
+msgstr "Індикатор програм"
+
+#: ../plugins/indicator/indicator.c:867
+msgid "Clock Indicator"
+msgstr "Індикатор годинника"
+
+#: ../plugins/indicator/indicator.c:868
+msgid "Messaging Menu"
+msgstr "Меню повідомлень"
+
+#: ../plugins/indicator/indicator.c:869
+msgid "Network Menu"
+msgstr "Меню мережі"
+
+#: ../plugins/indicator/indicator.c:870
+msgid "Session Menu"
+msgstr "Меню сесії"
+
+#: ../plugins/indicator/indicator.c:871
+msgid "Sound Menu"
+msgstr "Меню звуку"
+
+#: ../plugins/indicator/indicator.c:883
 msgid "Add indicator applets to the panel"
 msgstr "Додати індикатор аплетів до панелі"
 
-#: ../src/plugins/monitors/monitors.c:277
+#: ../plugins/monitors/monitors.c:270
 #, c-format
 msgid "CPU usage: %.2f%%"
 msgstr "Використання CPU: %.2f%%"
 
-#: ../src/plugins/monitors/monitors.c:360
+#: ../plugins/monitors/monitors.c:367
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
 msgstr "Використання RAM: %.1fМБ (%.2f%%)"
 
-#: ../src/plugins/monitors/monitors.c:714
-msgid "CPU color"
-msgstr "Колір CPU"
-
-#: ../src/plugins/monitors/monitors.c:715
-msgid "Display RAM usage"
-msgstr "Показати використання RAM"
-
-#: ../src/plugins/monitors/monitors.c:716
-msgid "RAM color"
-msgstr "Колір RAM"
-
-#: ../src/plugins/monitors/monitors.c:717
-msgid "Action when clicked (default: lxtask)"
-msgstr "Дія при клацанні (типово: lxtask)"
-
-#: ../src/plugins/monitors/monitors.c:810
+#: ../plugins/monitors/monitors.c:700 ../plugins/monitors/monitors.c:785
 msgid "Resource monitors"
 msgstr "Монітори ресурсів"
 
-#: ../src/plugins/monitors/monitors.c:812
+#: ../plugins/monitors/monitors.c:703
+msgid "CPU color"
+msgstr "Колір CPU"
+
+#: ../plugins/monitors/monitors.c:704
+msgid "Display RAM usage"
+msgstr "Показати використання RAM"
+
+#: ../plugins/monitors/monitors.c:705
+msgid "RAM color"
+msgstr "Колір RAM"
+
+#: ../plugins/monitors/monitors.c:706
+msgid "Action when clicked (default: lxtask)"
+msgstr "Дія при клацанні (типово: lxtask)"
+
+#: ../plugins/monitors/monitors.c:786
 msgid "Display monitors (CPU, RAM)"
 msgstr "Показати монітори (CPU, RAM)"
 
-#: ../src/plugins/weather/weatherwidget.c:50
+#: ../plugins/weather/weatherwidget.c:50
 msgid "[N/A]"
 msgstr "[Н/Д]"
 
-#: ../src/plugins/weather/weatherwidget.c:784
+#: ../plugins/weather/weatherwidget.c:796
 msgid "Enter New Location"
 msgstr "Вкажіть нове місце"
 
-#: ../src/plugins/weather/weatherwidget.c:798
+#: ../plugins/weather/weatherwidget.c:810
 msgid "_New Location:"
 msgstr "_Нове місце:"
 
-#: ../src/plugins/weather/weatherwidget.c:809
+#: ../plugins/weather/weatherwidget.c:821
 msgid ""
 "Enter the:\n"
 "- city, or\n"
@@ -1708,186 +1698,203 @@ msgstr ""
 "- поштовий індекс\n"
 "для отримання прогнозу погоди."
 
-#: ../src/plugins/weather/weatherwidget.c:846
-#: ../src/plugins/weather/weatherwidget.c:979
+#: ../plugins/weather/weatherwidget.c:858
+#: ../plugins/weather/weatherwidget.c:991
 msgid "You must specify a location."
 msgstr "Необхідно вказати розташування."
 
-#: ../src/plugins/weather/weatherwidget.c:893
+#: ../plugins/weather/weatherwidget.c:905
 #, c-format
 msgid "Location '%s' not found!"
 msgstr "Розташування «%s» не знайдено."
 
-#: ../src/plugins/weather/weatherwidget.c:1051
+#: ../plugins/weather/weatherwidget.c:1063
 msgid "Preferences"
 msgstr "Налаштування"
 
-#: ../src/plugins/weather/weatherwidget.c:1057
+#: ../plugins/weather/weatherwidget.c:1069
 msgid "Refresh"
 msgstr "Оновити"
 
-#: ../src/plugins/weather/weatherwidget.c:1063
+#: ../plugins/weather/weatherwidget.c:1075
 msgid "Quit"
 msgstr "Вийти"
 
-#: ../src/plugins/weather/weatherwidget.c:1160
+#: ../plugins/weather/weatherwidget.c:1236
 msgid "Weather Preferences"
 msgstr "Параметри погоди"
 
-#: ../src/plugins/weather/weatherwidget.c:1174
+#: ../plugins/weather/weatherwidget.c:1250
 msgid "Current Location"
 msgstr "Поточне розташування"
 
-#: ../src/plugins/weather/weatherwidget.c:1178
-#: ../src/plugins/weather/weatherwidget.c:1475
+#: ../plugins/weather/weatherwidget.c:1254
+#: ../plugins/weather/weatherwidget.c:1529
 msgid "None configured"
 msgstr "Не налаштовано"
 
-#: ../src/plugins/weather/weatherwidget.c:1180
-#: ../src/plugins/weather/weatherwidget.c:1472
+#: ../plugins/weather/weatherwidget.c:1256
+#: ../plugins/weather/weatherwidget.c:1526
 msgid "_Set"
 msgstr "_Встановити"
 
-#: ../src/plugins/weather/weatherwidget.c:1201
+#: ../plugins/weather/weatherwidget.c:1277
 msgid "Display"
 msgstr "Відображення"
 
-#: ../src/plugins/weather/weatherwidget.c:1205
+#: ../plugins/weather/weatherwidget.c:1281
 msgid "Name:"
 msgstr "_Назва:"
 
-#: ../src/plugins/weather/weatherwidget.c:1209
+#: ../plugins/weather/weatherwidget.c:1285
 msgid "Units:"
 msgstr "Одиниці:"
 
-#: ../src/plugins/weather/weatherwidget.c:1213
+#: ../plugins/weather/weatherwidget.c:1289
 msgid "_Metric (°C)"
 msgstr "_Метричні (°C)"
 
-#: ../src/plugins/weather/weatherwidget.c:1215
+#: ../plugins/weather/weatherwidget.c:1291
 msgid "_English (°F)"
 msgstr "_Англійські (°F)"
 
-#: ../src/plugins/weather/weatherwidget.c:1250
+#: ../plugins/weather/weatherwidget.c:1326
 msgid "Forecast"
 msgstr "Прогноз"
 
-#: ../src/plugins/weather/weatherwidget.c:1254
+#: ../plugins/weather/weatherwidget.c:1330
 msgid "Updates:"
 msgstr "Оновлення:"
 
-#: ../src/plugins/weather/weatherwidget.c:1258
+#: ../plugins/weather/weatherwidget.c:1334
 msgid "Ma_nual"
 msgstr "В_ручну"
 
-#: ../src/plugins/weather/weatherwidget.c:1262
+#: ../plugins/weather/weatherwidget.c:1338
 msgid "_Automatic, every"
 msgstr "_Автоматично, кожних"
 
-#: ../src/plugins/weather/weatherwidget.c:1278
+#: ../plugins/weather/weatherwidget.c:1359
 msgid "minutes"
 msgstr "хвилин"
 
-#: ../src/plugins/weather/weatherwidget.c:1287
+#: ../plugins/weather/weatherwidget.c:1368
 msgid "Source:"
 msgstr "Джерело:"
 
-#: ../src/plugins/weather/weatherwidget.c:1428
+#: ../plugins/weather/weatherwidget.c:1482
 msgid "C_hange"
 msgstr "_Змінити"
 
 #. Both are available
-#: ../src/plugins/weather/weatherwidget.c:1519
+#: ../plugins/weather/weatherwidget.c:1570
 #, c-format
 msgid "Current Conditions for %s"
 msgstr "Поточні погодні умови для %s"
 
-#: ../src/plugins/weather/weatherwidget.c:1543
+#: ../plugins/weather/weatherwidget.c:1594
 msgid "Location:"
 msgstr "Розташування:"
 
-#: ../src/plugins/weather/weatherwidget.c:1566
+#: ../plugins/weather/weatherwidget.c:1617
 msgid "Last updated:"
 msgstr "Останнє оновлення:"
 
-#: ../src/plugins/weather/weatherwidget.c:1593
+#: ../plugins/weather/weatherwidget.c:1644
 msgid "Feels like:"
 msgstr "Відчуття:"
 
-#: ../src/plugins/weather/weatherwidget.c:1618
+#: ../plugins/weather/weatherwidget.c:1669
 msgid "Humidity:"
 msgstr "Вологість:"
 
-#: ../src/plugins/weather/weatherwidget.c:1645
+#: ../plugins/weather/weatherwidget.c:1696
 msgid "Pressure:"
 msgstr "Тиск:"
 
-#: ../src/plugins/weather/weatherwidget.c:1672
+#: ../plugins/weather/weatherwidget.c:1723
 msgid "Visibility:"
 msgstr "Видимість:"
 
-#: ../src/plugins/weather/weatherwidget.c:1700
+#: ../plugins/weather/weatherwidget.c:1751
 msgid "Wind:"
 msgstr "Вітер:"
 
-#: ../src/plugins/weather/weatherwidget.c:1723
+#: ../plugins/weather/weatherwidget.c:1774
 msgid "Sunrise:"
 msgstr "Схід сонця:"
 
-#: ../src/plugins/weather/weatherwidget.c:1746
+#: ../plugins/weather/weatherwidget.c:1797
 msgid "Sunset:"
 msgstr "Захід сонця:"
 
-#: ../src/plugins/weather/weatherwidget.c:1854
-#: ../src/plugins/weather/weatherwidget.c:2190
+#: ../plugins/weather/weatherwidget.c:1903
+#: ../plugins/weather/weatherwidget.c:2239
 #, c-format
 msgid "Forecast for %s unavailable."
 msgstr "Неможливо отримати прогноз для %s."
 
-#: ../src/plugins/weather/weatherwidget.c:1863
-#: ../src/plugins/weather/weatherwidget.c:2195
+#: ../plugins/weather/weatherwidget.c:1912
+#: ../plugins/weather/weatherwidget.c:2244
 #, c-format
 msgid "Location not set."
 msgstr "Розташування не обрано."
 
-#: ../src/plugins/weather/weatherwidget.c:1880
+#: ../plugins/weather/weatherwidget.c:1929
 #, c-format
 msgid "Searching for '%s'..."
 msgstr "Пошук «%s»…"
 
-#: ../src/plugins/weather/weatherwidget.c:2006
+#: ../plugins/weather/weatherwidget.c:2055
 #, c-format
 msgid "Location matches for '%s'"
 msgstr "Місця що задовольняють «%s»"
 
-#: ../src/plugins/weather/weatherwidget.c:2026
+#: ../plugins/weather/weatherwidget.c:2075
 msgid "City"
 msgstr "Місто"
 
-#: ../src/plugins/weather/weatherwidget.c:2046
+#: ../plugins/weather/weatherwidget.c:2095
 msgid "Country"
 msgstr "Країна"
 
 #. make it nice and pretty
-#: ../src/plugins/weather/weatherwidget.c:2177
+#: ../plugins/weather/weatherwidget.c:2226
 msgid "Currently in "
 msgstr "Зараз у "
 
-#: ../src/plugins/weather/weatherwidget.c:2179
+#: ../plugins/weather/weatherwidget.c:2228
 msgid "Today: "
 msgstr "Сьогодні: "
 
-#: ../src/plugins/weather/weatherwidget.c:2180
+#: ../plugins/weather/weatherwidget.c:2229
 msgid "Tomorrow: "
 msgstr "Завтра: "
 
-#: ../src/plugins/weather/weather.c:285
+#: ../plugins/weather/weather.c:307
 msgid "Weather Plugin"
 msgstr "Додаток погоди"
 
-#: ../src/plugins/weather/weather.c:287
+#: ../plugins/weather/weather.c:308
 msgid "Show weather conditions for a location."
 msgstr "Показ умов погоди у визначеному місці."
+
+#~ msgid "Copyright (C) 2008-2013"
+#~ msgstr "Всі права застережено (С) 2008-2013"
+
+#~ msgid "Display Image and Tooltip"
+#~ msgstr "Показати зображення та підказки"
+
+#~ msgid ""
+#~ "Error, you need to install an application to configure the sound "
+#~ "(pavucontol, alsamixer ...)"
+#~ msgstr ""
+#~ "Помилка, Вам потрібно встановити програму для налаштування звуку "
+#~ "(pavucontol, alsamixer ...)"
+
+#, c-format
+#~ msgid "Failed to launch time configuration tool: %s"
+#~ msgstr "Помилка запуску утиліт налаштування часу: %s"
 
 #~ msgid "Copyright (C) 2008-2011"
 #~ msgstr "Всі права застережено (С) 2008-2011"
