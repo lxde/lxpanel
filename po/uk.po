@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-17 22:00+0300\n"
-"PO-Revision-Date: 2014-08-17 19:47+0000\n"
+"PO-Revision-Date: 2014-08-17 19:52+0000\n"
 "Last-Translator: Andriy Grytsenko <andrej@rep.kiev.ua>\n"
 "Language-Team: UKRAINIAN <translate@linux.org.ua>\n"
 "Language: uk\n"
@@ -18,7 +18,7 @@ msgstr ""
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.6.0-rc1\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-POOTLE-MTIME: 1408304823.000000\n"
+"X-POOTLE-MTIME: 1408305154.000000\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:55 ../src/gtk-run.c:361 ../plugins/menu.c:748
@@ -967,7 +967,7 @@ msgid ""
 "(pavucontrol, alsamixer ...)"
 msgstr ""
 "Помилка, Вам потрібно встановити програму для налаштування звуку ("
-"pavucontol, alsamixer ...)"
+"pavucontrol, alsamixer ...)"
 
 #: ../plugins/volumealsa/volumealsa.c:643
 msgid "Display and control volume for ALSA"
