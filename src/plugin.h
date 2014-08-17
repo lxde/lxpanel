@@ -121,6 +121,7 @@ extern GQuark lxpanel_plugin_qdata; /* access to plugin private data */
  * Retrieves instance data attached to the widget.
  */
 #define lxpanel_plugin_get_data(_i) g_object_get_qdata(G_OBJECT(_i),lxpanel_plugin_qdata)
+
 /**
  * lxpanel_plugin_set_data
  * @_i: instance widget
@@ -134,20 +135,81 @@ extern GQuark lxpanel_plugin_qdata; /* access to plugin private data */
  */
 #define lxpanel_plugin_set_data(_i,_data,_destructor) g_object_set_qdata_full(G_OBJECT(_i),lxpanel_plugin_qdata,_data,_destructor)
 
-/* register new plugin type - can be called from plugins init() too */
-extern gboolean lxpanel_register_plugin_type(const char *name, LXPanelPluginInit *init);
+/**
+ * lxpanel_register_plugin_type
+ * @name: name of new plugin type
+ * @init: plugin-specific type descriptor
+ *
+ * Register new plugin type. Can be called from plugins init() callback too.
+ *
+ * Returns: %TRUE in case of success.
+ */
+extern gboolean lxpanel_register_plugin_type(const char *name, const LXPanelPluginInit *init);
 
-/* few helper functions */
+/**
+ * lxpanel_get_plugin_menu
+ * @panel: panel instance pointer
+ * @plugin: plugin instance pointer
+ * @use_sub_menu: %TRUE if panel management options should be in separated submenu
+ *
+ * Creates context menu for given @panel and @plugin.
+ *
+ * Returns: (transfer full): new menu widget.
+ */
 extern GtkMenu* lxpanel_get_plugin_menu(LXPanel* panel, GtkWidget* plugin, gboolean use_sub_menu);
+
+/**
+ * lxpanel_plugin_adjust_popup_position
+ * @popup: a widget to adjust position
+ * @plugin: a plugin instance
+ *
+ * Adjusts the position of a @popup window to ensure that it is not hidden
+ * by the panel and moves @popup near @plugin if possible.
+ */
 extern void lxpanel_plugin_adjust_popup_position(GtkWidget * popup, GtkWidget * plugin);
-			/* Helper to move popup windows away from the panel */
+
+/**
+ * lxpanel_plugin_popup_set_position_helper
+ * @p: a panel instance
+ * @near: a widget to position the popup
+ * @popup: a widget to calculate position
+ * @px: (out): pointer to receive X coordinate
+ * @py: (out): pointer to receive Y coordinate
+ *
+ * Calculates desired position of @popup to be placed right to the widget
+ * @near accordingly to position of panel @p and returns its coordinates.
+ * Can be used in position-calculation callback for popup menus.
+ */
 extern void lxpanel_plugin_popup_set_position_helper(LXPanel * p, GtkWidget * near, GtkWidget * popup, gint * px, gint * py);
-			/* Helper for position-calculation callback for popup menus */
+
+/**
+ * plugin_widget_set_background
+ * @widget: a widget
+ * @p: a panel instance
+ *
+ * Recursively set the background of @widget and its children. Can be
+ * used on a panel background configuration change.
+ */
 extern void plugin_widget_set_background(GtkWidget * widget, LXPanel * p);
-			/* Recursively set the background of all widgets on a panel background configuration change */
+
+/**
+ * lxpanel_launch_path
+ * @panel: a panel instance
+ * @path: a path to launch
+ *
+ * Launches the @path either itself, or using default application.
+ *
+ * Returns: %TRUE if launch was successful.
+ */
 extern gboolean lxpanel_launch_path(LXPanel *panel, FmPath *path);
+
+/**
+ * lxpanel_plugin_show_config_dialog
+ * @plugin: a plugin instance
+ *
+ * Calls config() callback and shows configuration window.
+ */
 extern void lxpanel_plugin_show_config_dialog(GtkWidget* plugin);
-			/* Calls config() callback and shows configuration window */
 
 G_END_DECLS
 

@@ -58,14 +58,14 @@ do {\
     extern LXPanelPluginInit lxpanel_static_plugin_##pc; \
     lxpanel_register_plugin_type(#pc, &lxpanel_static_plugin_##pc); } while (0)
 
-static inline LXPanelPluginInit *_find_plugin(const char *name)
+static inline const LXPanelPluginInit *_find_plugin(const char *name)
 {
     return g_hash_table_lookup(_all_types, name);
 }
 
 static GtkWidget *_old_plugin_config(LXPanel *panel, GtkWidget *instance)
 {
-    LXPanelPluginInit *init = PLUGIN_CLASS(instance);
+    const LXPanelPluginInit *init = PLUGIN_CLASS(instance);
     Plugin * plugin;
 
     g_return_val_if_fail(init != NULL && init->new_instance == NULL, NULL);
@@ -77,7 +77,7 @@ static GtkWidget *_old_plugin_config(LXPanel *panel, GtkWidget *instance)
 
 static void _old_plugin_reconfigure(LXPanel *panel, GtkWidget *instance)
 {
-    LXPanelPluginInit *init = PLUGIN_CLASS(instance);
+    const LXPanelPluginInit *init = PLUGIN_CLASS(instance);
     Plugin * plugin;
 
     g_return_if_fail(init != NULL && init->new_instance == NULL);
@@ -388,6 +388,8 @@ void lxpanel_plugin_adjust_popup_position(GtkWidget * popup, GtkWidget * parent)
     int screen_height = gdk_screen_height();
     if ((x + allocation.width) > screen_width) x = screen_width - allocation.width;
     if ((y + allocation.height) > screen_height) y = screen_height - allocation.height;
+    if (y < 0) y = 0;
+    if (x < 0) x = 0;
 
     /* Move the popup to position. */
     gdk_window_move(gtk_widget_get_window(popup), x, y);
@@ -430,7 +432,7 @@ gboolean lxpanel_launch_path(LXPanel *panel, FmPath *path)
 
 void lxpanel_plugin_show_config_dialog(GtkWidget* plugin)
 {
-    LXPanelPluginInit *init = PLUGIN_CLASS(plugin);
+    const LXPanelPluginInit *init = PLUGIN_CLASS(plugin);
     LXPanel *panel = PLUGIN_PANEL(plugin);
     GtkWidget *dlg = panel->priv->plugin_pref_dialog;
 
@@ -483,7 +485,7 @@ void _unload_modules(void)
     g_hash_table_iter_init(&iter, _all_types);
     while(g_hash_table_iter_next(&iter, &key, &val))
     {
-        register LXPanelPluginInit *init = val;
+        register const LXPanelPluginInit *init = val;
         if (init->new_instance == NULL) /* old type of plugin */
         {
             plugin_class_unref(init->_reserved1);
@@ -494,9 +496,9 @@ void _unload_modules(void)
     old_plugins_loaded = FALSE;
 }
 
-gboolean lxpanel_register_plugin_type(const char *name, LXPanelPluginInit *init)
+gboolean lxpanel_register_plugin_type(const char *name, const LXPanelPluginInit *init)
 {
-    LXPanelPluginInit *data;
+    const LXPanelPluginInit *data;
 
     /* validate it */
     if (init->new_instance == NULL || name == NULL || name[0] == '\0')
@@ -512,7 +514,7 @@ gboolean lxpanel_register_plugin_type(const char *name, LXPanelPluginInit *init)
     {
         if (init->init)
             init->init();
-        g_hash_table_insert(_all_types, g_strdup(name), init);
+        g_hash_table_insert(_all_types, g_strdup(name), (gpointer)init);
     }
 #if GLIB_CHECK_VERSION(2, 32, 0)
     g_rec_mutex_unlock(&_mutex);
@@ -557,7 +559,7 @@ static void _on_old_widget_destroy(GtkWidget *widget, Plugin *pl)
 
 GtkWidget *lxpanel_add_plugin(LXPanel *p, const char *name, config_setting_t *cfg, gint at)
 {
-    LXPanelPluginInit *init;
+    const LXPanelPluginInit *init;
     GtkWidget *widget;
     config_setting_t *s, *pconf;
     gint expand, padding = 0, border = 0, i;
@@ -637,7 +639,7 @@ GtkWidget *lxpanel_add_plugin(LXPanel *p, const char *name, config_setting_t *cf
 //    g_signal_connect(widget, "size-allocate", G_CALLBACK(on_size_allocate), p);
     gtk_widget_show(widget);
     g_object_set_qdata(G_OBJECT(widget), lxpanel_plugin_qconf, cfg);
-    g_object_set_qdata(G_OBJECT(widget), lxpanel_plugin_qinit, init);
+    g_object_set_qdata(G_OBJECT(widget), lxpanel_plugin_qinit, (gpointer)init);
     return widget;
 }
 

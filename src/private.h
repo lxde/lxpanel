@@ -206,7 +206,7 @@ extern GQuark lxpanel_plugin_qconf; /* access to congig_setting_t data */
 
 #define PLUGIN_PANEL(_i) ((LXPanel*)gtk_widget_get_toplevel(_i))
 
-gboolean _class_is_present(LXPanelPluginInit *init);
+gboolean _class_is_present(const LXPanelPluginInit *init);
 
 void _panel_show_config_dialog(LXPanel *panel, GtkWidget *p, GtkWidget *dlg);
 

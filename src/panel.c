@@ -319,7 +319,7 @@ static void process_client_msg ( XClientMessageEvent* ev )
                 plugins = gtk_container_get_children(GTK_CONTAINER(p->priv->box));
                 for (pl = plugins; pl; pl = pl->next)
                 {
-                    LXPanelPluginInit *init = PLUGIN_CLASS(pl->data);
+                    const LXPanelPluginInit *init = PLUGIN_CLASS(pl->data);
                     if (init->show_system_menu)
                         /* queue to show system menu */
                         init->show_system_menu(pl->data);
@@ -1055,7 +1055,7 @@ GtkMenu* lxpanel_get_plugin_menu( LXPanel* panel, GtkWidget* plugin, gboolean us
 {
     GtkWidget  *menu_item, *img;
     GtkMenu *ret,*menu;
-    LXPanelPluginInit *init;
+    const LXPanelPluginInit *init;
     char* tmp;
 
     ret = menu = GTK_MENU(gtk_menu_new());
@@ -1483,7 +1483,7 @@ void _panel_set_panel_configuration_changed(LXPanel *panel)
     plugins = p->box ? gtk_container_get_children(GTK_CONTAINER(p->box)) : NULL;
     for( l = plugins; l; l = l->next ) {
         GtkWidget *w = (GtkWidget*)l->data;
-        LXPanelPluginInit *init = PLUGIN_CLASS(w);
+        const LXPanelPluginInit *init = PLUGIN_CLASS(w);
         if (init->reconfigure)
             init->reconfigure(panel, w);
     }
@@ -2002,7 +2002,7 @@ GtkWidget *panel_separator_new(LXPanel *panel)
     return gtk_hseparator_new();
 }
 
-gboolean _class_is_present(LXPanelPluginInit *init)
+gboolean _class_is_present(const LXPanelPluginInit *init)
 {
     GSList *sl;
 

@@ -500,7 +500,7 @@ on_sel_plugin_changed( GtkTreeSelection* tree_sel, GtkWidget* label )
     {
         GtkTreeView* view = gtk_tree_selection_get_tree_view( tree_sel );
         GtkWidget *edit_btn = GTK_WIDGET(g_object_get_data( G_OBJECT(view), "edit_btn" ));
-        LXPanelPluginInit *init;
+        const LXPanelPluginInit *init;
         gtk_tree_model_get( model, &it, COL_DATA, &pl, -1 );
         init = PLUGIN_CLASS(pl);
         gtk_label_set_text( GTK_LABEL(label), _(init->description) );
@@ -521,7 +521,7 @@ on_plugin_expand_toggled(GtkCellRendererToggle* render, char* path, GtkTreeView*
         gboolean old_expand, expand, fill;
         guint padding;
         GtkPackType pack_type;
-        LXPanelPluginInit *init;
+        const LXPanelPluginInit *init;
         LXPanel *panel;
 
         gtk_tree_model_get( model, &it, COL_DATA, &pl, COL_EXPAND, &expand, -1 );
@@ -745,7 +745,7 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
     g_hash_table_iter_init(&iter, classes);
     while(g_hash_table_iter_next(&iter, &key, &val))
     {
-        register LXPanelPluginInit *init = val;
+        register const LXPanelPluginInit *init = val;
         if (init->superseded)
             continue;
         if (!init->one_per_system || !_class_is_present(init))
@@ -813,7 +813,7 @@ void modify_plugin( GtkTreeView* view )
     GtkTreeModel* model;
     GtkTreeIter it;
     GtkWidget* pl;
-    LXPanelPluginInit *init;
+    const LXPanelPluginInit *init;
 
     if( ! gtk_tree_selection_get_selected( tree_sel, &model, &it ) )
         return;
