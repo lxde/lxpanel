@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2006, 2008 LxDE Developers,
+ * Copyright (c) 2006, 2008, 2014 LxDE Developers,
  * 	see the file AUTHORS for details.
  *
  * This program is free software; you can redistribute it and/or modify

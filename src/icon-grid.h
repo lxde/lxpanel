@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2009 LxDE Developers, see the file AUTHORS for details.
+ * Copyright (c) 2009-2014 LxDE Developers, see the file AUTHORS for details.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,8 +16,8 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef ICON_GRID_H
-#define ICON_GRID_H
+#ifndef __ICON_GRID_H__
+#define __ICON_GRID_H__
 
 #include <gtk/gtk.h>
 

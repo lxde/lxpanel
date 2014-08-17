@@ -7,7 +7,7 @@
  * CPU monitor), that is distributed under the following terms :
  *
  * <terms>
- * Copyright (c) 2008 LxDE Developers, see the file AUTHORS for details.
+ * Copyright (c) 2008-2014 LxDE Developers, see the file AUTHORS for details.
  * Copyright (C) 2004 by Alexandre Pereira da Silva <alexandre.pereira@poli.usp.br>
  *
  * This program is free software; you can redistribute it and/or modify

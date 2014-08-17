@@ -4,6 +4,7 @@
  * Copyright (C) 2007 by Greg McNew <gmcnew@gmail.com>
  * Copyright (C) 2008 by Hong Jen Yee <pcman.tw@gmail.com>
  * Copyright (C) 2009 by Juergen Hoetzel <juergen@archlinux.org>
+ * Copyright (C) 2014 by Andriy Grytsenko <andrej@rep.kiev.ua>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
