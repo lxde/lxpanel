@@ -17,9 +17,11 @@
  */
 
 #ifndef __ICON_GRID_H__
-#define __ICON_GRID_H__
+#define __ICON_GRID_H__ 1
 
 #include <gtk/gtk.h>
+
+G_BEGIN_DECLS
 
 #define PANEL_TYPE_ICON_GRID               (panel_icon_grid_get_type())
 #define PANEL_ICON_GRID(obj)               (G_TYPE_CHECK_INSTANCE_CAST((obj), \
@@ -50,5 +52,7 @@ extern gint panel_icon_grid_get_child_position(PanelIconGrid * ig, GtkWidget * c
 						/* Get the index of an icon grid element. */
 extern void panel_icon_grid_reorder_child(PanelIconGrid * ig, GtkWidget * child, gint position);
 						/* Reorder the position of a child in the icon grid */
+
+G_END_DECLS
 
 #endif

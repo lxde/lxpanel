@@ -16,11 +16,13 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef PANEL_H
-#define PANEL_H
+#ifndef __PANEL_H__
+#define __PANEL_H__ 1
 
 #include <X11/Xlib.h>
 #include <gtk/gtk.h>
+
+G_BEGIN_DECLS
 
 extern gchar *cprofile;
 
@@ -131,5 +133,7 @@ extern gboolean panel_is_at_bottom(LXPanel *panel);
 extern gboolean panel_is_dynamic(LXPanel *panel);
 extern GtkWidget *panel_box_new(LXPanel *panel, gboolean homogeneous, gint spacing);
 extern GtkWidget *panel_separator_new(LXPanel *panel);
+
+G_END_DECLS
 
 #endif

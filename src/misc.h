@@ -16,8 +16,8 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#ifndef MISC_H
-#define MISC_H
+#ifndef __MISC_H__
+#define __MISC_H__ 1
 
 #include <X11/Xatom.h>
 #include <gtk/gtk.h>
@@ -27,6 +27,8 @@
 #include <libfm/fm.h>
 
 #include "panel.h"
+
+G_BEGIN_DECLS
 
 /* Decoded value of WM_STATE property. */
 typedef struct {
@@ -96,5 +98,7 @@ extern GtkWidget *lxpanel_generic_config_dlg(const char *title, LXPanel *panel,
                                              GSourceFunc apply_func,
                                              GtkWidget *plugin,
                                              const char *name, ...);
+
+G_END_DECLS
 
 #endif
