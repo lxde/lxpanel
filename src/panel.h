@@ -109,16 +109,68 @@ struct _LXPanelClass
     GtkWindowClass parent_class;
 };
 
+/**
+ * panel_apply_icon
+ * @w: a window to apply
+ *
+ * Sets appropriate icon as the window icon for @w.
+ */
 extern void panel_apply_icon(GtkWindow *w);
+
+/**
+ * lxpanel_draw_label_text
+ * @p: a panel instance
+ * @label: a label widget
+ * @text: (allow-none): text for the label
+ * @bold: %TRUE if text should be bold
+ * @custom_size_factor: scale factor for font size
+ * @custom_color: %TRUE to use font color from panel settings
+ *
+ * Changes @label to contain @text with appropriate attributes using the
+ * panel @p settings.
+ */
 extern void lxpanel_draw_label_text(LXPanel * p, GtkWidget * label, const char * text,
                                     gboolean bold, float custom_size_factor,
                                     gboolean custom_color);
+
+/**
+ * lxpanel_image_set_from_file
+ * @p: a panel instance
+ * @image: a #GtkImage widget
+ * @file: image file path
+ *
+ * Applies icon from @file to @image in accordance with icon size setting
+ * on panel @p.
+ */
 extern void lxpanel_image_set_from_file(LXPanel * p, GtkWidget * image, const char * file);
+
+/**
+ * lxpanel_image_set_icon_theme
+ * @p: a panel instance
+ * @image: a #GtkImage widget
+ * @icon: icon name
+ *
+ * Applies icon size and theme from settings of @p to @image using @icon
+ * name to select icon.
+ */
 extern gboolean lxpanel_image_set_icon_theme(LXPanel * p, GtkWidget * image, const gchar * icon);
 
+/**
+ * panel_handle_x_error
+ * @d: X display
+ * @ev: X error event
+ *
+ * Prints X error message to stderr if logging was enabled.
+ */
 extern int panel_handle_x_error(Display * d, XErrorEvent * ev);
 extern int panel_handle_x_error_swallow_BadWindow_BadDrawable(Display * d, XErrorEvent * ev);
 
+/**
+ * lxpanel_config_save
+ * @p: a panel instance
+ *
+ * Immediately saves current configuration for panel @p.
+ */
 void lxpanel_config_save(LXPanel *p); /* defined in configurator.c */
 
 /* Accessors APIs for Panel* */
