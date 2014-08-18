@@ -302,14 +302,16 @@ void lxpanel_plugin_popup_set_position_helper(LXPanel * p, GtkWidget * near, Gtk
 {
     gint x, y;
     GtkAllocation allocation;
-    GtkRequisition popup_req;
+    GtkAllocation popup_req;
 
     /* Get the allocation of the popup menu. */
-    gtk_widget_size_request(popup, &popup_req);
+    gtk_widget_realize(popup);
+    gtk_widget_get_allocation(popup, &popup_req);
     if (gtk_widget_is_toplevel(popup))
     {
         GdkRectangle extents;
         /* FIXME: can we wait somehow for WM drawing decorations? */
+        gdk_window_process_all_updates();
         gdk_window_get_frame_extents(gtk_widget_get_window(popup), &extents);
         popup_req.width = extents.width;
         popup_req.height = extents.height;
@@ -318,8 +320,12 @@ void lxpanel_plugin_popup_set_position_helper(LXPanel * p, GtkWidget * near, Gtk
     /* Get the origin of the requested-near widget in screen coordinates. */
     gtk_widget_get_allocation(near, &allocation);
     gdk_window_get_origin(gtk_widget_get_window(near), &x, &y);
-    if (x != allocation.x) x += allocation.x;	/* Doesn't seem to be working according to spec; the allocation.x sometimes has the window origin in it */
-    if (y != allocation.y) y += allocation.y;
+    if (!gtk_widget_get_has_window(near))
+    {
+        /* For non-window widgets allocation is given within the screen */
+        x += allocation.x;
+        y += allocation.y;
+    }
 
     /* Dispatch on edge to lay out the popup menu with respect to the button.
      * Also set "push-in" to avoid any case where it might flow off screen. */
@@ -334,10 +340,9 @@ void lxpanel_plugin_popup_set_position_helper(LXPanel * p, GtkWidget * near, Gtk
     /* Push onscreen. */
     int screen_width = gdk_screen_width();
     int screen_height = gdk_screen_height();
-    if ((x + popup_req.width) > screen_width)
-        x -= (x + popup_req.width) - screen_width;
-    if ((y + popup_req.height) > screen_height)
-        y -= (y + popup_req.height) - screen_height;
+    x = CLAMP(x, 0, screen_width - popup_req.width);
+    y = CLAMP(y, 0, screen_height - popup_req.height);
+    /* FIXME: take monitor area into account not just screen */
 
     *px = x;
     *py = y;
@@ -353,44 +358,11 @@ void plugin_popup_set_position_helper(Plugin * p, GtkWidget * near, GtkWidget * 
  * It is observed that some window managers do not honor the strut that is set on the panel. */
 void lxpanel_plugin_adjust_popup_position(GtkWidget * popup, GtkWidget * parent)
 {
-    /* Initialize. */
-    Panel * p = PLUGIN_PANEL(parent)->priv;
-    GtkAllocation allocation;
+    gint x, y;
 
-    gtk_widget_get_allocation(parent, &allocation);
-    /* Get the coordinates of the plugin top level widget. */
-    int x = p->cx + allocation.x;
-    int y = p->cy + allocation.y;
-
-    /* Adjust these coordinates according to the panel edge. */
-    switch (p->edge)
-    {
-        case EDGE_TOP:
-            y += allocation.height;
-            gtk_widget_get_allocation(popup, &allocation);
-            break;
-        case EDGE_BOTTOM:
-            gtk_widget_get_allocation(popup, &allocation);
-            y -= allocation.height;
-            break;
-        case EDGE_LEFT:
-            x += allocation.width;
-            gtk_widget_get_allocation(popup, &allocation);
-            break;
-        case EDGE_RIGHT:
-            gtk_widget_get_allocation(popup, &allocation);
-            x -= allocation.width;
-            break;
-    }
-
-    /* Clip the coordinates to ensure that the popup remains on screen. */
-    int screen_width = gdk_screen_width();
-    int screen_height = gdk_screen_height();
-    if ((x + allocation.width) > screen_width) x = screen_width - allocation.width;
-    if ((y + allocation.height) > screen_height) y = screen_height - allocation.height;
-    if (y < 0) y = 0;
-    if (x < 0) x = 0;
-
+    /* Calculate desired position for the popup. */
+    lxpanel_plugin_popup_set_position_helper(PLUGIN_PANEL(parent), parent,
+                                             popup, &x, &y);
     /* Move the popup to position. */
     gdk_window_move(gtk_widget_get_window(popup), x, y);
 }
