@@ -818,7 +818,6 @@ static GtkWidget *_launchtaskbar_constructor(LXPanel *panel, config_setting_t *s
 
     gtk_container_set_border_width(GTK_CONTAINER(p), 0);
     gtk_container_set_border_width(GTK_CONTAINER(ltbp->lb_icon_grid), 0);
-    gtk_widget_set_has_window(p, FALSE);
 
     /* Read parameters from the configuration file. */
     config_setting_lookup_int(settings, "LaunchTaskBarMode", &ltbp->mode);
