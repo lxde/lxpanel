@@ -122,7 +122,7 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
     ig->constrained_child_width = ig->child_width;
     if ((ig->columns != 0) && (ig->rows != 0) && (allocation->width > 1))
     {
-        if (req.width > allocation->width)
+        if (req.width > allocation->width && ig->constrain_width)
             ig->constrained_child_width = child_width = (allocation->width + ig->spacing - 2 * border) / ig->columns - ig->spacing;
         if (ig->orientation == GTK_ORIENTATION_HORIZONTAL && req.height < allocation->height)
             child_height = (allocation->height + ig->spacing - 2 * border) / ig->rows - ig->spacing;
