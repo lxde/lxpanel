@@ -340,8 +340,9 @@ static gboolean launchbutton_press_event(GtkWidget * widget, GdkEventButton * ev
             lxpanel_plugin_show_config_dialog(b->p->plugin);
         else
             lxpanel_launch_path(b->p->panel, fm_file_info_get_path(b->fi));
+        return TRUE;
     }
-    return TRUE;
+    return FALSE;
 }
 
 /* Handler for "drag-motion" event from launchtaskbar button. */
