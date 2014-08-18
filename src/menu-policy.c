@@ -34,8 +34,6 @@
 # endif
 #endif
 
-guint32 visibility_flags = 0;
-
 /* Allocate a menu cache. */
 MenuCache * panel_menu_cache_new(guint32* visibility_flags)
 {

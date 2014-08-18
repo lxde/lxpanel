@@ -139,8 +139,6 @@ typedef struct {
     void (*cmd)(void);
 } Command;
 
-extern Command commands[];
-
 #define FBPANEL_WIN(win)  gdk_window_lookup(win)
 
 /* Extracted from misc.h */
@@ -218,9 +216,17 @@ void _panel_set_wm_strut(LXPanel *p);
 void _panel_set_panel_configuration_changed(LXPanel *p);
 void _panel_update_background(LXPanel *p);
 
+void panel_configure(LXPanel* p, int sel_page);
+gboolean panel_edge_available(Panel* p, int edge, gint monitor);
+void restart(void);
+void logout(void);
+void gtk_run(void);
+
 /* -----------------------------------------------------------------------------
  *   Deprecated declarations. Kept for compatibility with old code plugins.
  *   Should be removed and appropriate code cleaned on some of next releases. */
+
+extern Command commands[];
 
 /* Extracted from panel.h */
 extern int verbose;

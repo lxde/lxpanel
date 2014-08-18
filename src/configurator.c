@@ -43,10 +43,6 @@ enum{
     N_COLS
 };
 
-void panel_configure(LXPanel* p, int sel_page );
-void restart(void);
-void gtk_run(void);
-void logout(void);
 static void save_global_config();
 
 Command commands[] = {
@@ -91,8 +87,6 @@ extern int config;
 static guint16 const alpha_scale_factor = 257;
 
 void panel_config_save(Panel *p);
-void panel_global_config_save( Panel* p, FILE *fp);
-void panel_plugin_config_save( Panel* p, FILE *fp);
 
 static void update_opt_menu(GtkWidget *w, int ind);
 static void update_toggle_button(GtkWidget *w, gboolean n);
@@ -807,7 +801,7 @@ static void on_remove_plugin( GtkButton* btn, GtkTreeView* view )
     }
 }
 
-void modify_plugin( GtkTreeView* view )
+static void modify_plugin( GtkTreeView* view )
 {
     GtkTreeSelection* tree_sel = gtk_tree_view_get_selection( view );
     GtkTreeModel* model;

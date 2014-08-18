@@ -294,14 +294,6 @@ void _panel_set_wm_strut(LXPanel *panel)
     }
 }
 
-/* defined in configurator.c */
-void panel_configure(LXPanel* p, int sel_page );
-gboolean panel_edge_available(Panel* p, int edge, gint monitor);
-
-/* built-in commands, defined in configurator.c */
-void restart(void);
-void gtk_run(void);
-
 static void process_client_msg ( XClientMessageEvent* ev )
 {
     int cmd = ev->data.b[0];
@@ -1591,7 +1583,7 @@ error:
     RET(0);
 }
 
-int panel_start( LXPanel *p )
+static int panel_start( LXPanel *p )
 {
     config_setting_t *list, *s;
     int i;

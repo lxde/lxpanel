@@ -170,7 +170,7 @@ static void setup_auto_complete_with_data(ThreadData* data)
     g_object_unref( comp );
 }
 
-void thread_data_free(ThreadData* data)
+static void thread_data_free(ThreadData* data)
 {
     g_slist_foreach(data->files, (GFunc)g_free, NULL);
     g_slist_free(data->files);
