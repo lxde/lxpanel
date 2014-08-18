@@ -39,13 +39,13 @@ struct _PanelIconGrid
     gint child_width;				/* Desired child width */
     gint child_height;				/* Desired child height */
     gint spacing;				/* Desired spacing between grid elements */
-    gint border;				/* Desired border around grid elements */
     gint target_dimension;			/* Desired dimension perpendicular to orientation */
     gboolean constrain_width : 1;		/* True if width should be constrained by allocated space */
     gboolean fill_width : 1;			/* True if children should fill unused width */
     int rows;					/* Computed layout rows */
     int columns;				/* Computed layout columns */
     int constrained_child_width;		/* Child width constrained by allocation */
+    GdkWindow *event_window;			/* Event window if NO_WINDOW is set */
 };
 
 struct _PanelIconGridClass
@@ -65,6 +65,7 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
     int child_width;
     int child_height;
     GtkTextDirection direction;
+    guint border;
     int limit;
     int x_initial;
     int x_delta;
@@ -72,7 +73,36 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
     GList *ige;
     GtkWidget *child;
 
+    /* Apply given allocation */
     gtk_widget_set_allocation(widget, allocation);
+    border = gtk_container_get_border_width(GTK_CONTAINER(widget));
+    if (gtk_widget_get_realized(widget))
+    {
+        if (!gtk_widget_get_has_window(widget))
+        {
+            child_allocation.x = allocation->x + border;
+            child_allocation.y = allocation->y + border;
+        }
+        else
+        {
+            child_allocation.x = 0;
+            child_allocation.y = 0;
+        }
+        child_allocation.width = MAX(allocation->width - border * 2, 0);
+        child_allocation.height = MAX(allocation->height - border * 2, 0);
+        if (ig->event_window != NULL)
+            gdk_window_move_resize(ig->event_window,
+                                   child_allocation.x,
+                                   child_allocation.y,
+                                   child_allocation.width,
+                                   child_allocation.height);
+        if (gtk_widget_get_has_window(widget))
+            gdk_window_move_resize(gtk_widget_get_window(widget),
+                                   allocation->x + border,
+                                   allocation->y + border,
+                                   child_allocation.width,
+                                   child_allocation.height);
+    }
 
     /* Get and save the desired container geometry. */
     if (ig->orientation == GTK_ORIENTATION_HORIZONTAL && allocation->height > 1)
@@ -84,8 +114,8 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
 
     /* Calculate required size without borders */
     panel_icon_grid_size_request(widget, &req);
-    req.width -= 2 * ig->border;
-    req.height -= 2 * ig->border;
+    req.width -= 2 * border;
+    req.height -= 2 * border;
 
     /* Get the constrained child geometry if the allocated geometry is insufficient.
      * All children are still the same size and share equally in the deficit. */
@@ -93,25 +123,25 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
     if ((ig->columns != 0) && (ig->rows != 0) && (allocation->width > 1))
     {
         if (req.width > allocation->width)
-            ig->constrained_child_width = child_width = (allocation->width + ig->spacing - 2 * ig->border) / ig->columns - ig->spacing;
+            ig->constrained_child_width = child_width = (allocation->width + ig->spacing - 2 * border) / ig->columns - ig->spacing;
         if (ig->orientation == GTK_ORIENTATION_HORIZONTAL && req.height < allocation->height)
-            child_height = (allocation->height + ig->spacing - 2 * ig->border) / ig->rows - ig->spacing;
+            child_height = (allocation->height + ig->spacing - 2 * border) / ig->rows - ig->spacing;
     }
 
     /* Initialize parameters to control repositioning each visible child. */
     direction = gtk_widget_get_direction(widget);
-    limit = ig->border + ((ig->orientation == GTK_ORIENTATION_HORIZONTAL)
+    limit = border + ((ig->orientation == GTK_ORIENTATION_HORIZONTAL)
         ?  (ig->rows * (child_height + ig->spacing))
         :  (ig->columns * (child_width + ig->spacing)));
     x_initial = ((direction == GTK_TEXT_DIR_RTL)
-        ? allocation->width - child_width - ig->border
-        : ig->border);
+        ? allocation->width - child_width - border
+        : border);
     x_delta = child_width + ig->spacing;
     if (direction == GTK_TEXT_DIR_RTL) x_delta = - x_delta;
 
     /* Reposition each visible child. */
     x = x_initial;
-    y = ig->border;
+    y = border;
     for (ige = ig->children; ige != NULL; ige = ige->next)
     {
         child = ige->data;
@@ -139,7 +169,7 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
                 y += child_height + ig->spacing;
                 if (y >= limit)
                 {
-                    y = ig->border;
+                    y = border;
                     x += x_delta;
                     // FIXME: if fill_width and rows = 1 then allocate whole column
                 }
@@ -166,6 +196,7 @@ static void panel_icon_grid_size_request(GtkWidget *widget,
     int visible_children = 0;
     GList *ige;
     int target_dimension = ig->target_dimension;
+    guint border = gtk_container_get_border_width(GTK_CONTAINER(widget));
     gint old_rows = ig->rows;
     gint old_columns = ig->columns;
 
@@ -180,7 +211,7 @@ static void panel_icon_grid_size_request(GtkWidget *widget,
          * Then allocate as many columns as necessary.  Guard against zerodivides. */
         ig->rows = 0;
         if ((ig->child_height + ig->spacing) != 0)
-            ig->rows = (target_dimension + ig->spacing - ig->border * 2) / (ig->child_height + ig->spacing);
+            ig->rows = (target_dimension + ig->spacing - border * 2) / (ig->child_height + ig->spacing);
         if (ig->rows == 0)
             ig->rows = 1;
         ig->columns = (visible_children + (ig->rows - 1)) / ig->rows;
@@ -193,7 +224,7 @@ static void panel_icon_grid_size_request(GtkWidget *widget,
          * Then allocate as many rows as necessary.  Guard against zerodivides. */
         ig->columns = 0;
         if ((ig->child_width + ig->spacing) != 0)
-            ig->columns = (target_dimension + ig->spacing - ig->border * 2) / (ig->child_width + ig->spacing);
+            ig->columns = (target_dimension + ig->spacing - border * 2) / (ig->child_width + ig->spacing);
         if (ig->columns == 0)
             ig->columns = 1;
         ig->rows = (visible_children + (ig->columns - 1)) / ig->columns;
@@ -214,8 +245,8 @@ static void panel_icon_grid_size_request(GtkWidget *widget,
         int row_spaces = ig->rows - 1;
         if (column_spaces < 0) column_spaces = 0;
         if (row_spaces < 0) row_spaces = 0;
-        requisition->width = ig->child_width * ig->columns + column_spaces * ig->spacing + 2 * ig->border;
-        requisition->height = ig->child_height * ig->rows + row_spaces * ig->spacing + 2 * ig->border;
+        requisition->width = ig->child_width * ig->columns + column_spaces * ig->spacing + 2 * border;
+        requisition->height = ig->child_height * ig->rows + row_spaces * ig->spacing + 2 * border;
         gtk_widget_show(widget);
     }
     if (ig->rows != old_rows || ig->columns != old_columns)
@@ -356,9 +387,11 @@ void panel_icon_grid_set_geometry(PanelIconGrid * ig,
 {
     g_return_if_fail(PANEL_IS_ICON_GRID(ig));
 
+    gtk_container_set_border_width(GTK_CONTAINER(ig), border);
+
     if (ig->orientation == orientation && ig->child_width == child_width &&
             ig->child_height == child_height && ig->spacing == spacing &&
-            ig->border == border && ig->target_dimension == target_dimension)
+            ig->target_dimension == target_dimension)
         return;
 
     ig->orientation = orientation;
@@ -366,7 +399,6 @@ void panel_icon_grid_set_geometry(PanelIconGrid * ig,
     ig->constrained_child_width = child_width;
     ig->child_height = child_height;
     ig->spacing = spacing;
-    ig->border = border;
     ig->target_dimension = target_dimension;
     gtk_widget_queue_resize(GTK_WIDGET(ig));
 }
@@ -437,6 +469,117 @@ static void panel_icon_grid_get_property(GObject *object, guint prop_id,
     }
 }
 
+/* realize()...expose() are taken from GtkEventBox implementation */
+static void panel_icon_grid_realize(GtkWidget *widget)
+{
+    PanelIconGrid *ig = PANEL_ICON_GRID(widget);
+    GdkWindow *window;
+    GtkStyle *style;
+    GtkAllocation allocation;
+    GdkWindowAttr attributes;
+    guint border = gtk_container_get_border_width(GTK_CONTAINER(widget));
+    gint attributes_mask;
+    gboolean visible_window;
+
+    gtk_widget_set_realized(widget, TRUE);
+
+    gtk_widget_get_allocation(widget, &allocation);
+    attributes.x = allocation.x + border;
+    attributes.y = allocation.y + border;
+    attributes.width = allocation.width - 2*border;
+    attributes.height = allocation.height - 2*border;
+    attributes.window_type = GDK_WINDOW_CHILD;
+    attributes.event_mask = gtk_widget_get_events(widget)
+                            | GDK_BUTTON_MOTION_MASK
+                            | GDK_BUTTON_PRESS_MASK
+                            | GDK_BUTTON_RELEASE_MASK
+                            | GDK_EXPOSURE_MASK
+                            | GDK_ENTER_NOTIFY_MASK
+                            | GDK_LEAVE_NOTIFY_MASK;
+
+    visible_window = gtk_widget_get_has_window(widget);
+    if (visible_window)
+    {
+        attributes.visual = gtk_widget_get_visual(widget);
+        attributes.colormap = gtk_widget_get_colormap(widget);
+        attributes.wclass = GDK_INPUT_OUTPUT;
+
+        attributes_mask = GDK_WA_X | GDK_WA_Y | GDK_WA_VISUAL | GDK_WA_COLORMAP;
+
+        window = gdk_window_new(gtk_widget_get_parent_window(widget),
+                                &attributes, attributes_mask);
+        gtk_widget_set_window(widget, window);
+        gdk_window_set_user_data(window, widget);
+    }
+    else
+    {
+        window = gtk_widget_get_parent_window(widget);
+        gtk_widget_set_window(widget, window);
+        g_object_ref(window);
+
+        attributes.wclass = GDK_INPUT_ONLY;
+        attributes_mask = GDK_WA_X | GDK_WA_Y;
+
+        ig->event_window = gdk_window_new(window, &attributes, attributes_mask);
+        gdk_window_set_user_data(ig->event_window, widget);
+    }
+
+    style = gtk_style_attach(gtk_widget_get_style(widget), window);
+    gtk_widget_set_style(widget, style);
+
+    if (visible_window)
+        gtk_style_set_background(style, window, GTK_STATE_NORMAL);
+}
+
+static void panel_icon_grid_unrealize(GtkWidget *widget)
+{
+    PanelIconGrid *ig = PANEL_ICON_GRID(widget);
+
+    if (ig->event_window != NULL)
+    {
+        gdk_window_set_user_data(ig->event_window, NULL);
+        gdk_window_destroy(ig->event_window);
+        ig->event_window = NULL;
+    }
+
+    GTK_WIDGET_CLASS(panel_icon_grid_parent_class)->unrealize(widget);
+}
+
+static void panel_icon_grid_map(GtkWidget *widget)
+{
+    PanelIconGrid *ig = PANEL_ICON_GRID(widget);
+
+    if (ig->event_window != NULL)
+        gdk_window_show(ig->event_window);
+    GTK_WIDGET_CLASS(panel_icon_grid_parent_class)->map(widget);
+}
+
+static void panel_icon_grid_unmap(GtkWidget *widget)
+{
+    PanelIconGrid *ig = PANEL_ICON_GRID(widget);
+
+    if (ig->event_window != NULL)
+        gdk_window_hide(ig->event_window);
+    GTK_WIDGET_CLASS(panel_icon_grid_parent_class)->unmap(widget);
+}
+
+static gboolean panel_icon_grid_expose(GtkWidget *widget, GdkEventExpose *event)
+{
+    if (gtk_widget_is_drawable(widget))
+    {
+        if (gtk_widget_get_has_window(widget) &&
+            !gtk_widget_get_app_paintable(widget))
+            gtk_paint_flat_box(gtk_widget_get_style(widget),
+                               gtk_widget_get_window(widget),
+                               gtk_widget_get_state(widget), GTK_SHADOW_NONE,
+                               &event->area, widget, "panelicongrid",
+                               0, 0, -1, -1);
+
+        GTK_WIDGET_CLASS(panel_icon_grid_parent_class)->expose_event(widget, event);
+    }
+    return FALSE;
+}
+
 static void panel_icon_grid_forall(GtkContainer *container,
                                    gboolean      include_internals,
                                    GtkCallback   callback,
@@ -470,6 +613,11 @@ static void panel_icon_grid_class_init(PanelIconGridClass *class)
 
     widget_class->size_request = panel_icon_grid_size_request;
     widget_class->size_allocate = panel_icon_grid_size_allocate;
+    widget_class->realize = panel_icon_grid_realize;
+    widget_class->unrealize = panel_icon_grid_unrealize;
+    widget_class->map = panel_icon_grid_map;
+    widget_class->unmap = panel_icon_grid_unmap;
+    widget_class->expose_event = panel_icon_grid_expose;
 
     container_class->add = panel_icon_grid_add;
     container_class->remove = panel_icon_grid_remove;
@@ -518,8 +666,8 @@ GtkWidget * panel_icon_grid_new(
     ig->child_width = child_width;
     ig->constrained_child_width = child_width;
     ig->child_height = child_height;
-    ig->border = border;
     ig->target_dimension = target_dimension;
+    gtk_container_set_border_width(GTK_CONTAINER(ig), border);
 
     return (GtkWidget *)ig;
 }
