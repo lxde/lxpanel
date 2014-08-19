@@ -24,8 +24,6 @@
 
 G_BEGIN_DECLS
 
-extern gchar *cprofile;
-
 #define LX_TYPE_PANEL                  (lxpanel_get_type())
 #define LXPANEL(obj)                   (G_TYPE_CHECK_INSTANCE_CAST((obj), \
                                         LX_TYPE_PANEL, LXPanel))

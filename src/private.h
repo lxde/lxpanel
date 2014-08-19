@@ -53,6 +53,8 @@ enum { HEIGHT_NONE, HEIGHT_PIXEL, HEIGHT_REQUEST };
 /* to check if we are in LXDE */
 extern gboolean is_in_lxde;
 
+extern gchar *cprofile;
+
 /* Context of a panel on a given edge. */
 struct _Panel {
     char* name;
