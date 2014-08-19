@@ -21,7 +21,6 @@
 #include <glib/gi18n.h>
 
 #include "plugin.h"
-#include "misc.h"
 
 /* Private context for space plugin. */
 typedef struct {

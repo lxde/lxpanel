@@ -147,22 +147,6 @@ GtkWidget *lxpanel_button_new_for_fm_icon(LXPanel *panel, FmIcon *icon, GdkColor
 void lxpanel_button_set_icon(GtkWidget* btn, const gchar *name, gint size);
 void lxpanel_button_update_icon(GtkWidget* btn, FmIcon *icon, gint size);
 
-typedef enum {
-    CONF_TYPE_STR,
-    CONF_TYPE_INT,
-    CONF_TYPE_BOOL,
-    CONF_TYPE_FILE,
-    CONF_TYPE_FILE_ENTRY,
-    CONF_TYPE_DIRECTORY_ENTRY,
-    CONF_TYPE_TRIM
-} PluginConfType;
-
-/* Parameters: const char* name, gpointer ret_value, PluginConfType type, ....NULL */
-extern GtkWidget *lxpanel_generic_config_dlg(const char *title, LXPanel *panel,
-                                             GSourceFunc apply_func,
-                                             GtkWidget *plugin,
-                                             const char *name, ...);
-
 G_END_DECLS
 
 #endif

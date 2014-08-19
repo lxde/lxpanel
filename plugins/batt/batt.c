@@ -47,7 +47,6 @@
 
 #include "dbg.h" /* for ENTER and RET macros */
 #include "batt_sys.h"
-#include "misc.h" /* used for lxpanel_generic_config_dlg() */
 #include "plugin.h" /* all other APIs including panel configuration */
 
 /* The last MAX_SAMPLES samples are averaged when charge rates are evaluated.

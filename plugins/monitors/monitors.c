@@ -71,7 +71,6 @@
 #include <libfm/fm-gtk.h>
 
 #include "plugin.h"
-#include "misc.h"
 
 #include "dbg.h"
 

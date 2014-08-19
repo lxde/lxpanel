@@ -119,6 +119,8 @@ extern GQuark lxpanel_plugin_qdata; /* access to plugin private data */
  * @_i: instance widget
  *
  * Retrieves instance data attached to the widget.
+ *
+ * Returns: (transfer none): pointer to the data.
  */
 #define lxpanel_plugin_get_data(_i) g_object_get_qdata(G_OBJECT(_i),lxpanel_plugin_qdata)
 
@@ -210,6 +212,45 @@ extern gboolean lxpanel_launch_path(LXPanel *panel, FmPath *path);
  * Calls config() callback and shows configuration window.
  */
 extern void lxpanel_plugin_show_config_dialog(GtkWidget* plugin);
+
+/**
+ * PluginConfType:
+ *
+ * Type of variable passed to lxpanel_generic_config_dlg().
+ */
+typedef enum {
+    CONF_TYPE_STR,
+    CONF_TYPE_INT,
+    CONF_TYPE_BOOL,
+    CONF_TYPE_FILE,
+    CONF_TYPE_FILE_ENTRY,
+    CONF_TYPE_DIRECTORY_ENTRY,
+    CONF_TYPE_TRIM
+} PluginConfType;
+
+/**
+ * lxpanel_generic_config_dlg
+ * @title: (allow-none): optional title of dialog window
+ * @panel: a panel instance
+ * @apply_func: (allow-none): function to apply changes to the plugin
+ * @plugin: (allow-none): an argument for @apply_func
+ * @name: variable-size list of options to configure, terminated with %NULL
+ *
+ * Creates a generic dialog widget to configure the plugin parameters.
+ * The dialog widget may be used for plugin's callback config() then.
+ * Variable-size list of options consists of three arguments for each
+ * option:
+ *   - const char* name: text representing the option in dialog
+ *   - gpointer ret_value: (out): pointer to the option value
+ *   - PluginConfType type: type of the option
+ *
+ * Returns: (tranfer full): new created dialog widget.
+ */
+/* Parameters: const char* name, gpointer ret_value, PluginConfType type, ....NULL */
+extern GtkWidget *lxpanel_generic_config_dlg(const char *title, LXPanel *panel,
+                                             GSourceFunc apply_func,
+                                             GtkWidget *plugin,
+                                             const char *name, ...);
 
 G_END_DECLS
 

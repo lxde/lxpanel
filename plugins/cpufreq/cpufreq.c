@@ -28,7 +28,6 @@
 #include <string.h>
 
 #include "plugin.h"
-#include "misc.h"
 
 #include "dbg.h"
 
