@@ -1650,24 +1650,6 @@ usage()
     g_print(_("\nVisit http://lxde.org/ for detail.\n\n"));
 }
 
-int panel_handle_x_error(Display * d, XErrorEvent * ev)
-{
-    char buf[256];
-
-    if (log_level >= LOG_WARN) {
-        XGetErrorText(d, ev->error_code, buf, 256);
-        LOG(LOG_WARN, "lxpanel : X error: %s\n", buf);
-    }
-    return 0;    /* Ignored */
-}
-
-int panel_handle_x_error_swallow_BadWindow_BadDrawable(Display * d, XErrorEvent * ev)
-{
-    if ((ev->error_code != BadWindow) && (ev->error_code != BadDrawable))
-        panel_handle_x_error(d, ev);
-    return 0;    /* Ignored */
-}
-
 /* Lightweight lock related functions - X clipboard hacks */
 
 #define CLIPBOARD_NAME "LXPANEL_SELECTION"

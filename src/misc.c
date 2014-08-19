@@ -772,6 +772,24 @@ get_wm_state (Window win)
     RET(ret);
 }
 
+int panel_handle_x_error(Display * d, XErrorEvent * ev)
+{
+    char buf[256];
+
+    if (log_level >= LOG_WARN) {
+        XGetErrorText(d, ev->error_code, buf, 256);
+        LOG(LOG_WARN, "lxpanel : X error: %s\n", buf);
+    }
+    return 0;    /* Ignored */
+}
+
+int panel_handle_x_error_swallow_BadWindow_BadDrawable(Display * d, XErrorEvent * ev)
+{
+    if ((ev->error_code != BadWindow) && (ev->error_code != BadDrawable))
+        panel_handle_x_error(d, ev);
+    return 0;    /* Ignored */
+}
+
 static void
 calculate_width(int scrw, int wtype, int allign, int margin,
       int *panw, int *x)

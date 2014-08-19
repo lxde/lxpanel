@@ -100,16 +100,6 @@ extern void lxpanel_image_set_from_file(LXPanel * p, GtkWidget * image, const ch
 extern gboolean lxpanel_image_set_icon_theme(LXPanel * p, GtkWidget * image, const gchar * icon);
 
 /**
- * panel_handle_x_error
- * @d: X display
- * @ev: X error event
- *
- * Prints X error message to stderr if logging was enabled.
- */
-extern int panel_handle_x_error(Display * d, XErrorEvent * ev);
-extern int panel_handle_x_error_swallow_BadWindow_BadDrawable(Display * d, XErrorEvent * ev);
-
-/**
  * lxpanel_config_save
  * @p: a panel instance
  *

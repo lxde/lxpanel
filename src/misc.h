@@ -128,6 +128,16 @@ void get_net_wm_state(Window win, NetWMState *nws);
 void get_net_wm_window_type(Window win, NetWMWindowType *nwwt);
 GPid get_net_wm_pid(Window win);
 
+/**
+ * panel_handle_x_error
+ * @d: X display
+ * @ev: X error event
+ *
+ * Prints X error message to stderr if logging was enabled.
+ */
+extern int panel_handle_x_error(Display * d, XErrorEvent * ev);
+extern int panel_handle_x_error_swallow_BadWindow_BadDrawable(Display * d, XErrorEvent * ev);
+
 gchar *expand_tilda(const gchar *file);
 
 void get_button_spacing(GtkRequisition *req, GtkContainer *parent, gchar *name);
