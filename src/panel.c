@@ -321,11 +321,9 @@ static void process_client_msg ( XClientMessageEvent* ev )
             break;
         }
 #endif
-#ifndef DISABLE_MENU
         case LXPANEL_CMD_RUN:
             gtk_run();
             break;
-#endif
         case LXPANEL_CMD_CONFIG:
             {
             LXPanel * p = ((all_panels != NULL) ? all_panels->data : NULL);

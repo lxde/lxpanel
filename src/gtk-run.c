@@ -24,13 +24,17 @@
 #include <unistd.h>
 
 #include "misc.h"
+#ifndef DISABLE_MENU
 #include <menu-cache.h>
+#endif
 #include <libfm/fm-gtk.h>
 
 static GtkWidget* win = NULL; /* the run dialog */
+#ifndef DISABLE_MENU
 static MenuCache* menu_cache = NULL;
 static GSList* app_list = NULL; /* all known apps in menu cache */
 static gpointer reload_notify_id = NULL;
+#endif
 
 typedef struct _ThreadData
 {
@@ -41,6 +45,7 @@ typedef struct _ThreadData
 
 static ThreadData* thread_data = NULL; /* thread data used to load availble programs in PATH */
 
+#ifndef DISABLE_MENU
 static MenuCacheApp* match_app_by_exec(const char* exec)
 {
     GSList* l;
@@ -140,6 +145,7 @@ static MenuCacheApp* match_app_by_exec(const char* exec)
     g_free(exec_path);
     return ret;
 }
+#endif
 
 static void setup_auto_complete_with_data(ThreadData* data)
 {
@@ -239,6 +245,7 @@ static void setup_auto_complete( GtkEntry* entry )
     }
 }
 
+#ifndef DISABLE_MENU
 static void reload_apps(MenuCache* cache, gpointer user_data)
 {
     g_debug("reload apps!");
@@ -249,6 +256,7 @@ static void reload_apps(MenuCache* cache, gpointer user_data)
     }
     app_list = (GSList*)menu_cache_list_all_apps(cache);
 }
+#endif
 
 static void on_response( GtkDialog* dlg, gint response, gpointer user_data )
 {
@@ -269,6 +277,7 @@ static void on_response( GtkDialog* dlg, gint response, gpointer user_data )
     gtk_widget_destroy( (GtkWidget*)dlg );
     win = NULL;
 
+#ifndef DISABLE_MENU
     /* free app list */
     g_slist_foreach(app_list, (GFunc)menu_cache_item_unref, NULL);
     g_slist_free(app_list);
@@ -279,8 +288,10 @@ static void on_response( GtkDialog* dlg, gint response, gpointer user_data )
     reload_notify_id = NULL;
     menu_cache_unref(menu_cache);
     menu_cache = NULL;
+#endif
 }
 
+#ifndef DISABLE_MENU
 static void on_entry_changed( GtkEntry* entry, GtkImage* img )
 {
     const char* str = gtk_entry_get_text(entry);
@@ -307,6 +318,7 @@ static void on_entry_changed( GtkEntry* entry, GtkImage* img )
         gtk_image_set_from_stock(img, GTK_STOCK_EXECUTE, GTK_ICON_SIZE_DIALOG);
     }
 }
+#endif
 
 static void activate_window(GtkWindow* toplevel_window)
 {
@@ -389,6 +401,7 @@ void gtk_run()
         setup_auto_complete( (GtkEntry*)entry );
         gtk_widget_show(win);
 
+#ifndef DISABLE_MENU
         g_signal_connect(entry ,"changed", G_CALLBACK(on_entry_changed), img);
 
         /* get all apps */
@@ -399,6 +412,7 @@ void gtk_run()
             app_list = (GSList*)menu_cache_list_all_apps(menu_cache);
             reload_notify_id = menu_cache_add_reload_notify(menu_cache, reload_apps, NULL);
         }
+#endif
     }
 
     activate_window(GTK_WINDOW(win));

@@ -47,9 +47,7 @@ static void save_global_config();
 
 Command commands[] = {
     //{ "configure", N_("Preferences"), configure },
-#ifndef DISABLE_MENU
     { "run", N_("Run"), gtk_run },
-#endif
     { "restart", N_("Restart"), restart },
     { "logout", N_("Logout"), logout },
     { NULL, NULL },
