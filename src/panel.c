@@ -159,6 +159,7 @@ static void lxpanel_init(PanelToplevel *self)
     p->icon_size = PANEL_ICON_SIZE;
     p->icon_theme = gtk_icon_theme_get_default();
     p->config = config_new();
+    gtk_window_set_type_hint(GTK_WINDOW(self), GDK_WINDOW_TYPE_HINT_DOCK);
 }
 
 /* Allocate and initialize new Panel structure. */
