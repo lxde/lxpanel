@@ -907,7 +907,6 @@ static void panel_popupmenu_create_panel( GtkMenuItem* item, LXPanel* panel )
 {
     gint m, e, monitors;
     GdkScreen *screen;
-    GtkWidget *err;
     LXPanel *new_panel = panel_allocate();
     Panel *p = new_panel->priv;
 
@@ -930,9 +929,7 @@ static void panel_popupmenu_create_panel( GtkMenuItem* item, LXPanel* panel )
 
     gtk_widget_destroy(GTK_WIDGET(new_panel));
     ERR("Error adding panel: There is no room for another panel. All the edges are taken.\n");
-    err = gtk_message_dialog_new(NULL,0,GTK_MESSAGE_ERROR,GTK_BUTTONS_OK,_("There is no room for another panel. All the edges are taken."));
-    gtk_dialog_run(GTK_DIALOG(err));
-    gtk_widget_destroy(err);
+    fm_show_error(NULL, NULL, _("There is no room for another panel. All the edges are taken."));
     return;
 
 found_edge:
@@ -988,6 +985,9 @@ static void panel_popupmenu_about( GtkMenuItem* item, Panel* panel )
         "Juergen Hoetzel <juergen@archlinux.org>",
         "Marty Jack <martyj19@comcast.net>",
         "Martin Bagge <brother@bsnet.se>",
+        "Andriy Grytsenko <andrej@rep.kiev.ua>",
+        "Giuseppe Penone <giuspen@gmail.com>",
+        "Piotr Sipika <piotr.sipika@gmail.com>",
         NULL
     };
     /* TRANSLATORS: Replace this string with your names, one name per line. */
