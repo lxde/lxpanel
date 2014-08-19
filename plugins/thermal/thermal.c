@@ -516,14 +516,14 @@ static GtkWidget *config(LXPanel *panel, GtkWidget *p)
     thermal *th = lxpanel_plugin_get_data(p);
     dialog = lxpanel_generic_config_dlg(_("Temperature Monitor"),
             panel, applyConfig, p,
-            _("Normal"), &th->str_cl_normal, CONF_TYPE_STR,
-            _("Warning1"), &th->str_cl_warning1, CONF_TYPE_STR,
-            _("Warning2"), &th->str_cl_warning2, CONF_TYPE_STR,
+            _("Normal color"), &th->str_cl_normal, CONF_TYPE_STR,
+            _("Warning1 color"), &th->str_cl_warning1, CONF_TYPE_STR,
+            _("Warning2 color"), &th->str_cl_warning2, CONF_TYPE_STR,
             _("Automatic sensor location"), &th->auto_sensor, CONF_TYPE_BOOL,
             _("Sensor"), &th->sensor, CONF_TYPE_STR,
             _("Automatic temperature levels"), &th->not_custom_levels, CONF_TYPE_BOOL,
-            _("Warning1 Temperature"), &th->warning1, CONF_TYPE_INT,
-            _("Warning2 Temperature"), &th->warning2, CONF_TYPE_INT,
+            _("Warning1 temperature"), &th->warning1, CONF_TYPE_INT,
+            _("Warning2 temperature"), &th->warning2, CONF_TYPE_INT,
             NULL);
 
     RET(dialog);
