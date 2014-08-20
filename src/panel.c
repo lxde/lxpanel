@@ -61,6 +61,14 @@ static void on_root_bg_changed(FbBg *bg, LXPanel* p);
 
 gboolean is_in_lxde = FALSE;
 
+static void lxpanel_size_request(GtkWidget *widget, GtkRequisition *req);
+static void lxpanel_realize(GtkWidget *widget);
+static gboolean lxpanel_button_press(GtkWidget *widget, GdkEventButton *event);
+static void lxpanel_size_allocate(GtkWidget *widget, GtkAllocation *a);
+static gboolean lxpanel_configure_event (GtkWidget *widget, GdkEventConfigure *e);
+static gboolean lxpanel_map_event(GtkWidget *widget, GdkEventAny *event);
+static void lxpanel_style_set(GtkWidget *widget, GtkStyle *prev);
+
 G_DEFINE_TYPE(PanelToplevel, lxpanel, GTK_TYPE_WINDOW);
 
 static void lxpanel_finalize(GObject *object)
@@ -123,9 +131,17 @@ static void lxpanel_class_init(PanelToplevelClass *klass)
 {
     GObjectClass *gobject_class = (GObjectClass *)klass;
     GtkObjectClass *gtk_object_class = (GtkObjectClass *)klass;
+    GtkWidgetClass *widget_class = (GtkWidgetClass *)klass;
 
     gobject_class->finalize = lxpanel_finalize;
     gtk_object_class->destroy = lxpanel_destroy;
+    widget_class->size_request = lxpanel_size_request;
+    widget_class->size_allocate = lxpanel_size_allocate;
+    widget_class->realize = lxpanel_realize;
+    widget_class->button_press_event = lxpanel_button_press;
+    widget_class->configure_event = lxpanel_configure_event;
+    widget_class->map_event = lxpanel_map_event;
+    widget_class->style_set = lxpanel_style_set;
 }
 
 static void lxpanel_init(PanelToplevel *self)
@@ -433,22 +449,6 @@ panel_event_filter(GdkXEvent *xevent, GdkEvent *event, gpointer not_used)
  ****************************************************/
 
 
-static gint
-panel_delete_event(GtkWidget * widget, GdkEvent * event, gpointer data)
-{
-    ENTER;
-    RET(FALSE);
-}
-
-static gint
-panel_destroy_event(GtkWidget * widget, GdkEvent * event, gpointer data)
-{
-    //Panel *p = (Panel *) data;
-    //if (!p->self_destroy)
-    gtk_main_quit();
-    RET(FALSE);
-}
-
 static void
 on_root_bg_changed(FbBg *bg, LXPanel* p)
 {
@@ -543,16 +543,18 @@ static gboolean delay_update_background( GtkWidget* p )
     return FALSE;
 }
 
-static void
-panel_realize(GtkWidget *widget, Panel *p)
+static void lxpanel_realize(GtkWidget *widget)
 {
+    GTK_WIDGET_CLASS(lxpanel_parent_class)->realize(widget);
+
     g_idle_add_full( G_PRIORITY_LOW,
             (GSourceFunc)delay_update_background, widget, NULL );
 }
 
-static void
-panel_style_set(GtkWidget *widget, GtkStyle* prev, Panel *p)
+static void lxpanel_style_set(GtkWidget *widget, GtkStyle* prev)
 {
+    GTK_WIDGET_CLASS(lxpanel_parent_class)->style_set(widget, prev);
+
     /* FIXME: This dirty hack is used to fix the background of systray... */
 #if GTK_CHECK_VERSION(2, 20, 0)
     if (gtk_widget_get_realized(widget))
@@ -563,53 +565,52 @@ panel_style_set(GtkWidget *widget, GtkStyle* prev, Panel *p)
                 (GSourceFunc)delay_update_background, widget, NULL );
 }
 
-static gint
-panel_size_req(GtkWidget *widget, GtkRequisition *req, Panel *p)
+static void lxpanel_size_request(GtkWidget *widget, GtkRequisition *req)
 {
-    ENTER;
+    Panel *p = LXPANEL(widget)->priv;
+
+    GTK_WIDGET_CLASS(lxpanel_parent_class)->size_request(widget, req);
 
     if (!p->visible)
         /* When the panel is in invisible state, the content box also got hidden, thus always
          * report 0 size.  Ask the content box instead for its size. */
         gtk_widget_size_request(p->box, req);
 
+    /* FIXME: is this ever required? */
     if (p->widthtype == WIDTH_REQUEST)
         p->width = (p->orientation == GTK_ORIENTATION_HORIZONTAL) ? req->width : req->height;
     if (p->heighttype == HEIGHT_REQUEST)
         p->height = (p->orientation == GTK_ORIENTATION_HORIZONTAL) ? req->height : req->width;
-
     calculate_position(p);
 
     gtk_widget_set_size_request( widget, p->aw, p->ah );
-
-    RET( TRUE );
 }
 
-static gint
-panel_size_alloc(GtkWidget *widget, GtkAllocation *a, Panel *p)
+static void lxpanel_size_allocate(GtkWidget *widget, GtkAllocation *a)
 {
-    ENTER;
+    Panel *p = LXPANEL(widget)->priv;
+
+    GTK_WIDGET_CLASS(lxpanel_parent_class)->size_allocate(widget, a);
+
     if (p->widthtype == WIDTH_REQUEST)
         p->width = (p->orientation == GTK_ORIENTATION_HORIZONTAL) ? a->width : a->height;
     if (p->heighttype == HEIGHT_REQUEST)
         p->height = (p->orientation == GTK_ORIENTATION_HORIZONTAL) ? a->height : a->width;
     calculate_position(p);
 
-    if (a->width == p->aw && a->height == p->ah && a->x == p->ax && a->y == p->ay) {
-        RET(TRUE);
+    if (a->width != p->aw || a->height != p->ah || a->x != p->ax || a->y != p->ay)
+    {
+        gtk_window_move(GTK_WINDOW(widget), p->ax, p->ay);
+        _panel_set_wm_strut(LXPANEL(widget));
     }
-
-    gtk_window_move(GTK_WINDOW(widget), p->ax, p->ay);
-    _panel_set_wm_strut(LXPANEL(widget));
-    RET(TRUE);
 }
 
-static  gboolean
-panel_configure_event (GtkWidget *widget, GdkEventConfigure *e, Panel *p)
+static gboolean lxpanel_configure_event (GtkWidget *widget, GdkEventConfigure *e)
 {
-    ENTER;
+    Panel *p = LXPANEL(widget)->priv;
+
     if (e->width == p->cw && e->height == p->ch && e->x == p->cx && e->y == p->cy)
-        RET(TRUE);
+        goto ok;
     p->cw = e->width;
     p->ch = e->height;
     p->cx = e->x;
@@ -617,8 +618,8 @@ panel_configure_event (GtkWidget *widget, GdkEventConfigure *e, Panel *p)
 
     if (p->transparent)
         fb_bg_notify_changed_bg(p->bg);
-
-    RET(FALSE);
+ok:
+    return GTK_WIDGET_CLASS(lxpanel_parent_class)->configure_event(widget, e);
 }
 
 /****************************************************
@@ -803,13 +804,13 @@ static void ah_stop(LXPanel *p)
     RET();
 }
 
-static gboolean
-panel_map_event(GtkWidget *widget, GdkEvent *event, Panel *p)
+static gboolean lxpanel_map_event(GtkWidget *widget, GdkEventAny *event)
 {
-    ENTER;
+    Panel *p = PLUGIN_PANEL(widget)->priv;
+
     if (p->autohide)
         ah_start(LXPANEL(widget));
-    RET(FALSE);
+    return GTK_WIDGET_CLASS(lxpanel_parent_class)->map_event(widget, event);
 }
 /* end of the autohide code
  * ------------------------------------------------------------- */
@@ -822,15 +823,15 @@ panel_popupmenu_configure(GtkWidget *widget, gpointer user_data)
 }
 
 /* Handler for "button_press_event" signal with Panel as parameter. */
-static gboolean panel_button_press_event_with_panel(GtkWidget *widget, GdkEventButton *event, LXPanel *panel)
+static gboolean lxpanel_button_press(GtkWidget *widget, GdkEventButton *event)
 {
     if (event->button == 3) /* right button */
     {
-        GtkMenu* popup = (GtkMenu*) lxpanel_get_plugin_menu(panel, NULL, FALSE);
+        GtkMenu* popup = (GtkMenu*) lxpanel_get_plugin_menu(LXPANEL(widget), NULL, FALSE);
         gtk_menu_popup(popup, NULL, NULL, NULL, NULL, event->button, event->time);
         return TRUE;
     }
-    return FALSE;
+    return GTK_WIDGET_CLASS(lxpanel_parent_class)->button_press_event(widget, event);
 }
 
 static void panel_popupmenu_config_plugin( GtkMenuItem* item, GtkWidget* plugin )
@@ -1248,28 +1249,8 @@ panel_start_gui(LXPanel *panel)
 
     gtk_window_group_add_window( win_grp, (GtkWindow*)panel );
 
-    g_signal_connect(G_OBJECT(panel), "delete-event",
-          G_CALLBACK(panel_delete_event), p);
-    g_signal_connect(G_OBJECT(panel), "destroy-event",
-          G_CALLBACK(panel_destroy_event), p);
-    g_signal_connect (G_OBJECT (panel), "size-request",
-          (GCallback) panel_size_req, p);
-    g_signal_connect (G_OBJECT (panel), "size-allocate",
-          (GCallback) panel_size_alloc, p);
-    g_signal_connect (G_OBJECT (panel), "configure-event",
-          (GCallback) panel_configure_event, p);
-    g_signal_connect(G_OBJECT(panel), "map-event",
-          G_CALLBACK(panel_map_event), p);
-
     gtk_widget_add_events( w, GDK_BUTTON_PRESS_MASK );
-    g_signal_connect(G_OBJECT (panel), "button-press-event",
-          (GCallback) panel_button_press_event_with_panel, panel);
 
-    g_signal_connect (G_OBJECT (panel), "realize",
-          (GCallback) panel_realize, p);
-
-    g_signal_connect (G_OBJECT (panel), "style-set",
-          (GCallback)panel_style_set, p);
     gtk_widget_realize(w);
     //gdk_window_set_decorations(gtk_widget_get_window(p->topgwin), 0);
 
