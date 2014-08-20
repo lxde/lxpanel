@@ -168,7 +168,7 @@ static void plugin_load_dynamic(const char * type, const gchar * path)
         || (strcmp(type, pc->type) != 0))			/* Then and only then access other fields; check name */
         {
             g_module_close(m);
-            ERR("%s.so is not a lxpanel plugin\n", type);
+            g_warning("%s.so is not a lxpanel plugin", type);
             return;
         }
 

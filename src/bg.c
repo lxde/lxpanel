@@ -193,14 +193,14 @@ fb_bg_get_xroot_pix_for_win(FbBg *bg, GtkWidget *widget)
     win = GDK_WINDOW_XWINDOW(gtk_widget_get_window(widget));
     if (!XGetGeometry(bg->dpy, win, &dummy, &x, &y, &width, &height, &border,
               &depth)) {
-        DBG2("XGetGeometry failed\n");
+        g_warning("XGetGeometry failed\n");
         RET(NULL);
     }
     XTranslateCoordinates(bg->dpy, win, bg->xroot, 0, 0, &x, &y, &dummy);
     DBG("win=%x %dx%d%+d%+d\n", win, width, height, x, y);
     gbgpix = gdk_pixmap_new(NULL, width, height, depth);
     if (!gbgpix) {
-        ERR("gdk_pixmap_new failed\n");
+        g_critical("gdk_pixmap_new failed");
         RET(NULL);
     }
     bgpix =  gdk_x11_drawable_get_xid(gbgpix);

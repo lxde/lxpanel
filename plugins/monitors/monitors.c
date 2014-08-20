@@ -299,8 +299,8 @@ mem_update(Monitor * m)
 
     meminfo = fopen("/proc/meminfo", "r");
     if (!meminfo) {
-        ERR("monitors: Could not open /proc/meminfo: %d, %s\n",
-                errno, strerror(errno));
+        g_warning("monitors: Could not open /proc/meminfo: %d, %s",
+                  errno, strerror(errno));
         RET(FALSE);
     }
 
@@ -326,8 +326,8 @@ mem_update(Monitor * m)
     fclose(meminfo);
 
     if (readmask) {
-        ERR("monitors: Couldn't read all values from /proc/meminfo: "
-                "readmask %x\n", readmask);
+        g_warning("monitors: Couldn't read all values from /proc/meminfo: "
+                  "readmask %x", readmask);
         RET(FALSE);
     }
 

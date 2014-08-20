@@ -27,7 +27,6 @@
 #include <poll.h>
 #include <libfm/fm-gtk.h>
 #include "plugin.h"
-#include "dbg.h"
 
 #define ICONS_VOLUME_HIGH   PACKAGE_DATA_DIR "/images/volume-high.png"
 #define ICONS_VOLUME_MEDIUM PACKAGE_DATA_DIR "/images/volume-medium.png"
@@ -137,9 +136,9 @@ static gboolean asound_mixer_event(GIOChannel * channel, GIOCondition cond, gpoi
     if ((cond & G_IO_HUP) || (res < 0))
     {
         /* This means there're some problems with alsa. */
-        ERR("volumealsa: ALSA (or pulseaudio) had a problem: \n"
+        g_warning("volumealsa: ALSA (or pulseaudio) had a problem: "
                 "volumealsa: snd_mixer_handle_events() = %d,"
-                " cond 0x%x (IN: 0x%x, HUP: 0x%x).\n", res, cond,
+                " cond 0x%x (IN: 0x%x, HUP: 0x%x).", res, cond,
                 G_IO_IN, G_IO_HUP);
         gtk_widget_set_tooltip_text(vol->plugin, "ALSA (or pulseaudio) had a problem."
                 " Please check the lxpanel logs.");
@@ -163,11 +162,11 @@ static gboolean asound_restart(gpointer vol_gpointer)
     asound_deinitialize(vol);
 
     if (!asound_initialize(vol)) {
-        ERR("volumealsa: Re-initialization failed.\n");
+        g_warning("volumealsa: Re-initialization failed.");
         return TRUE; // try again in a second
     }
 
-    ERR("volumealsa: Restarted ALSA interface...\n");
+    g_warning("volumealsa: Restarted ALSA interface...");
 
     vol->restart_idle = 0;
     return FALSE;

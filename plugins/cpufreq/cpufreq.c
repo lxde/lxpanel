@@ -298,7 +298,7 @@ cpufreq_menu(cpufreq *cf){
 static  gboolean
 clicked(GtkWidget *widget, GdkEventButton *evt, LXPanel *panel)
 {
-    ENTER2;
+    ENTER;
 
     /* Standard right-click handling. */
     if( evt->button == 1 )
@@ -309,7 +309,7 @@ clicked(GtkWidget *widget, GdkEventButton *evt, LXPanel *panel)
       return TRUE;
     }
 
-    RET2(FALSE);
+    RET(FALSE);
 }
 
 static gboolean

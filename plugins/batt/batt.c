@@ -469,7 +469,7 @@ static GtkWidget * constructor(LXPanel *panel, config_setting_t *settings)
     lx_b->panel = panel;
     lx_b->settings = settings;
 
-    lx_b->show_extended_information = false;
+    lx_b->show_extended_information = FALSE;
 
     if (config_setting_lookup_int(settings, "HideIfNoBattery", &tmp_int))
         lx_b->hide_if_no_battery = (tmp_int != 0);

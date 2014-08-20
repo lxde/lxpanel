@@ -29,7 +29,8 @@
  * 2. Raise window when files get dragged over taskbar buttons.
  * 3. Add Restore & Maximize menu items to popup menu of task bar buttons.
  */
-//#define DEBUG_WITH_GPRINTS // killall lxpanel && lxpanel --profile Lubuntu &
+
+//#define DEBUG // killall lxpanel && lxpanel --profile Lubuntu &
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
@@ -61,8 +62,6 @@
 #ifndef DISABLE_MENU
 # include "menu-policy.h"
 #endif
-
-#include "dbg.h" /* for ERR macro. FIXME: is it required? */
 
 
 #define PANEL_ICON_SIZE 24 /* see the private.h */
@@ -234,9 +233,9 @@ static void f_get_exec_cmd_from_pid(GPid pid, gchar *buffer_128, const gchar *pr
     snprintf(command, 64, "cat /proc/%u/%s", pid, proc_file);
     pipe = popen(command, "r");
     if(pipe == NULL)
-        ERR("ltbp: popen '%s'\n", command);
+        g_warning("ltbp: popen '%s'", command);
     else if(fgets(buffer_128, 128, pipe) == NULL)
-        ERR("ltbp: fgets '%s'\n", command);
+        g_warning("ltbp: fgets '%s'", command);
     else
     {
         gchar *p_char = strchr(buffer_128, '\n');
@@ -446,7 +445,7 @@ static void launchbar_update_after_taskbar_class_added(LaunchTaskBarPlugin *ltbp
     }
     tk->exec_bin = g_strdup(exec_bin_full);
 
-#ifdef DEBUG_WITH_GPRINTS
+#ifdef DEBUG
     if(ltbp->mode == LAUNCHTASKBAR)
     {
         FmFileInfo *fi = f_find_menu_launchbutton_recursive(tk->exec_bin);
@@ -461,7 +460,7 @@ static void launchbar_update_after_taskbar_class_added(LaunchTaskBarPlugin *ltbp
 
 static void launchbar_update_after_taskbar_class_removed(LaunchTaskBarPlugin *ltbp, Task *tk)
 {
-#ifdef DEBUG_WITH_GPRINTS
+#ifdef DEBUG
     if(ltbp->mode == LAUNCHTASKBAR)
     {
         FmFileInfo *fi = f_find_menu_launchbutton_recursive(tk->exec_bin);
@@ -1701,9 +1700,8 @@ static void task_set_names(Task * tk, Atom source)
     if (name != NULL)
     {
         task_free_names(tk);
-        tk->name = g_strdup(name);
+        tk->name = name;
         tk->name_iconified = g_strdup_printf("[%s]", name);
-        g_free(name);
 
         /* Redraw the button. */
         task_button_redraw(tk, tk->tb);
@@ -2500,7 +2498,7 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
                 FmFileInfo *fi = f_find_menu_launchbutton_recursive(tk->exec_bin);
                 LaunchButton *btn = launchbar_exec_bin_exists(ltbp, fi);
                 /* FIXME: shouldn't we make file info at task button creation? */
-#ifdef DEBUG_WITH_GPRINTS
+#ifdef DEBUG
                 g_print("\nTB '%s' right-click, in LB: %c\n", tk->exec_bin, btn != NULL ? 'Y':'N');
 #endif
                 if(btn != NULL)

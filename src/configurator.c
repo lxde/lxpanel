@@ -289,16 +289,6 @@ static void set_width_type( GtkWidget *item, LXPanel* panel )
 
 /* FIXME: heighttype and spacing and RoundCorners */
 
-static void set_log_level( GtkWidget *cbox, Panel* p)
-{
-    configured_log_level = gtk_combo_box_get_active(GTK_COMBO_BOX(cbox));
-    if (!log_level_set_on_commandline)
-        log_level = configured_log_level;
-    ERR("panel-pref: log level configured to %d, log_level is now %d\n",
-            configured_log_level, log_level);
-    UPDATE_GLOBAL_INT(p, "loglevel", configured_log_level);
-}
-
 static void transparency_toggle( GtkWidget *b, Panel* p)
 {
     GtkWidget* tr = (GtkWidget*)g_object_get_data(G_OBJECT(b), "tint_clr");
@@ -1209,11 +1199,6 @@ void panel_configure( LXPanel* panel, int sel_page )
                         &logout_cmd);
     }
 
-    w = (GtkWidget*)gtk_builder_get_object( builder, "log_level" );
-    update_opt_menu(w, configured_log_level);
-    g_signal_connect(w, "changed", G_CALLBACK(set_log_level), p);
-
-
     panel_adjust_geometry_terminology(p);
     gtk_widget_show(GTK_WIDGET(p->pref_dialog));
     w = (GtkWidget*)gtk_builder_get_object( builder, "notebook" );
@@ -1230,9 +1215,9 @@ void panel_config_save( Panel* p )
     /* existance of 'panels' dir ensured in main() */
 
     if (!config_write_file(p->config, fname)) {
-        ERR("can't open for write %s:", fname);
+        g_warning("can't open for write %s:", fname);
         g_free( fname );
-        RET();
+        return;
     }
     g_free( fname );
 

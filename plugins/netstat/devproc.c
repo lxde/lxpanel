@@ -225,10 +225,10 @@ int netproc_scandevice(int sockfd, int iwsockfd, FILE *fp, NETDEVLIST_PTR *netde
 
 	status = fgets (buffer, sizeof(buffer), fp);
 	if (!status)
-		ERR("netstat: netproc_scnadevice(): Error reading first line from stream!\n");
+		g_warning("netstat: netproc_scnadevice(): Error reading first line from stream!");
 	status = fgets (buffer, sizeof(buffer), fp);
 	if (!status)
-		ERR("netstat: netproc_scnadevice(): Error reading second line from stream!\n");
+		g_warning("netstat: netproc_scnadevice(): Error reading second line from stream!");
 	netproc_parse_stats_header(buffer, &prx_idx, &ptx_idx, &brx_idx, &btx_idx);
 
 	while (fgets(buffer, sizeof(buffer), fp)) {

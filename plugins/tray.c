@@ -44,9 +44,6 @@
 #define SYSTEM_TRAY_ORIENTATION_HORZ 0
 #define SYSTEM_TRAY_ORIENTATION_VERT 1
 
-//#define DEBUG
-#include "dbg.h"
-
 struct _balloon_message;
 struct _tray_client;
 struct _tray_plugin;
@@ -106,19 +103,16 @@ static TrayClient * client_lookup(TrayPlugin * tr, Window window)
 
 static void client_print(TrayPlugin * tr, char c, TrayClient * tc, XClientMessageEvent * xevent)
 {
-    int const log_at_level = LOG_ALL;
-    if (log_at_level <= log_level) {
         char *name = get_utf8_property(tc->window, a_NET_WM_NAME);
         int pid = get_net_wm_pid(tc->window);
         XClientMessageEvent xcm = {0};
         if (!xevent)
             xevent = &xcm;
-        LOG(log_at_level, "tray: %c%p, winid 0x%lx: %s (PID %d), plug %p, serial no %lu, send_event %c, format %d\n",
+        g_debug("tray: %c%p, winid 0x%lx: %s (PID %d), plug %p, serial no %lu, send_event %c, format %d",
                 c, tc, tc->window, name, pid,
                 gtk_socket_get_plug_window(GTK_SOCKET(tc->socket)),
                 xevent->serial, xevent->send_event ? 'y' : 'n', xevent->format);
         g_free(name);
-    }
 }
 
 /* Delete a client. */
@@ -569,7 +563,7 @@ static GtkWidget *tray_constructor(LXPanel *panel, config_setting_t *settings)
     /* If the selection is already owned, there is another tray running. */
     if (XGetSelectionOwner(GDK_DISPLAY_XDISPLAY(display), selection_atom) != None)
     {
-        ERR("tray: another systray already running\n");
+        g_warning("tray: another systray already running");
         return NULL;
     }
 

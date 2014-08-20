@@ -922,7 +922,7 @@ static void panel_popupmenu_create_panel( GtkMenuItem* item, LXPanel* panel )
     }
 
     gtk_widget_destroy(GTK_WIDGET(new_panel));
-    ERR("Error adding panel: There is no room for another panel. All the edges are taken.\n");
+    g_warning("Error adding panel: There is no room for another panel. All the edges are taken.");
     fm_show_error(NULL, NULL, _("There is no room for another panel. All the edges are taken."));
     return;
 
@@ -1468,7 +1468,7 @@ panel_parse_global(Panel *p, config_setting_t *cfg)
     /* check Global config */
     if (!cfg || strcmp(config_setting_get_name(cfg), "Global") != 0)
     {
-        ERR( "lxpanel: Global section not found\n");
+        g_warning( "lxpanel: Global section not found");
         RET(0);
     }
     if (config_setting_lookup_string(cfg, "edge", &str))
@@ -1527,11 +1527,6 @@ panel_parse_global(Panel *p, config_setting_t *cfg)
     if (config_setting_lookup_string(cfg, "backgroundfile", &str))
         p->background_file = g_strdup(str);
     config_setting_lookup_int(cfg, "iconsize", &p->icon_size);
-    if (config_setting_lookup_int(cfg, "loglevel", &configured_log_level))
-    {
-        if (!log_level_set_on_commandline)
-            log_level = configured_log_level;
-    }
 
     panel_normalize_configuration(p);
 
@@ -1548,7 +1543,7 @@ panel_parse_plugin(LXPanel *p, config_setting_t *cfg)
     DBG("plug %s\n", type);
 
     if (!type || lxpanel_add_plugin(p, type, cfg, -1) == NULL) {
-        ERR( "lxpanel: can't load %s plugin\n", type);
+        g_warning( "lxpanel: can't load %s plugin", type);
         goto error;
     }
     RET(1);
@@ -1600,7 +1595,7 @@ static LXPanel* panel_new( const char* config_file, const char* config_name )
         if (!config_read_file(panel->priv->config, config_file) ||
             !panel_start(panel))
         {
-            ERR( "lxpanel: can't start panel\n");
+            g_warning( "lxpanel: can't start panel");
             gtk_widget_destroy(GTK_WIDGET(panel));
             panel = NULL;
         }
@@ -1615,7 +1610,7 @@ usage()
     g_print(_("Command line options:\n"));
     g_print(_(" --help      -- print this help and exit\n"));
     g_print(_(" --version   -- print version and exit\n"));
-    g_print(_(" --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"));
+//    g_print(_(" --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"));
 //    g_print(_(" --configure -- launch configuration utility\n"));
     g_print(_(" --profile name -- use specified profile\n"));
     g_print("\n");
@@ -1791,19 +1786,18 @@ int main(int argc, char *argv[], char *env[])
         } else if (!strcmp(argv[i], "--log")) {
             i++;
             if (i == argc) {
-                ERR( "lxpanel: missing log level\n");
+                g_critical( "lxpanel: missing log level");
                 usage();
                 exit(1);
             } else {
-                log_level = atoi(argv[i]);
-                log_level_set_on_commandline = true;
+                /* deprecated */
             }
         } else if (!strcmp(argv[i], "--configure") || !strcmp(argv[i], "-C")) {
             config = 1;
         } else if (!strcmp(argv[i], "--profile") || !strcmp(argv[i], "-p")) {
             i++;
             if (i == argc) {
-                ERR( "lxpanel: missing profile name\n");
+                g_critical( "lxpanel: missing profile name");
                 usage();
                 exit(1);
             } else {
