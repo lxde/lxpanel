@@ -1541,7 +1541,8 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
     return dlg;
 }
 
-const char command_group[] = "Command";
+#define COMMAND_GROUP "Command"
+
 void load_global_config()
 {
     GKeyFile* kf = g_key_file_new();
@@ -1570,17 +1571,17 @@ void load_global_config()
         char *fm, *tmp;
         GList *apps, *l;
 
-        logout_cmd = g_key_file_get_string( kf, command_group, "Logout", NULL );
+        logout_cmd = g_key_file_get_string( kf, COMMAND_GROUP, "Logout", NULL );
         /* check for terminal setting on upgrade */
         if (fm_config->terminal == NULL)
         {
-            fm_config->terminal = g_key_file_get_string(kf, command_group,
+            fm_config->terminal = g_key_file_get_string(kf, COMMAND_GROUP,
                                                         "Terminal", NULL);
             if (fm_config->terminal != NULL) /* setting changed, save it */
                 fm_config_save(fm_config, NULL);
         }
         /* this is heavy but fortunately it will be ran only once: on upgrade */
-        fm = g_key_file_get_string(kf, command_group, "FileManager", NULL);
+        fm = g_key_file_get_string(kf, COMMAND_GROUP, "FileManager", NULL);
         if (fm)
         {
             tmp = strchr(fm, ' '); /* chop params */
@@ -1617,7 +1618,7 @@ static void save_global_config()
     FILE* f = fopen( file, "w" );
     if( f )
     {
-        fprintf( f, "[%s]\n", command_group );
+        fprintf( f, "[" COMMAND_GROUP "]\n");
         if( logout_cmd )
             fprintf( f, "Logout=%s\n", logout_cmd );
         fclose( f );
