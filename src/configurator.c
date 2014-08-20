@@ -812,12 +812,29 @@ static void modify_plugin( GtkTreeView* view )
     }
 }
 
+typedef struct
+{
+    GtkWidget *pl;
+    int cur;
+    int idx;
+} WidgetIndexData;
+
+static void get_widget_index_cb(GtkWidget *widget, gpointer data)
+{
+    if (((WidgetIndexData *)data)->pl == widget)
+        ((WidgetIndexData *)data)->idx = ((WidgetIndexData *)data)->cur;
+    ((WidgetIndexData *)data)->cur++;
+}
+
 static int get_widget_index(LXPanel* p, GtkWidget* pl)
 {
-    GList *plugins = gtk_container_get_children(GTK_CONTAINER(p->priv->box));
-    int i = g_list_index(plugins, pl);
-    g_list_free(plugins);
-    return i;
+    WidgetIndexData data;
+
+    data.pl = pl;
+    data.idx = -1;
+    data.cur = 0;
+    gtk_container_foreach(GTK_CONTAINER(p->priv->box), get_widget_index_cb, &data);
+    return data.idx;
 }
 
 static void on_moveup_plugin(  GtkButton* btn, GtkTreeView* view )
