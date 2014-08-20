@@ -14,12 +14,6 @@ EXTRA_DIST = \
 pkgconfigdir   = $(libdir)/pkgconfig
 pkgconfig_DATA = lxpanel.pc
 
-##desktopdir = $(datadir)/applications
-##desktop_DATA = pcmanfm.desktop
-
-## icondir = $(datadir)/pixmaps
-## icon_DATA = data/pcmanfm.png
-
 install-data-local:
 	@$(NORMAL_INSTALL)
 	if test -d $(srcdir)/pixmaps; then \
@@ -40,4 +34,3 @@ dist-hook:
 	    fi \
 	  done \
 	fi
-

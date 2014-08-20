@@ -235,9 +235,8 @@ static void panel_icon_grid_size_request(GtkWidget *widget,
     /* Compute the requisition. */
     if ((ig->columns == 0) || (ig->rows == 0))
     {
-        requisition->width = 1;
-        requisition->height = 1;
-        gtk_widget_hide(widget);	/* Necessary to get the plugin to disappear */
+        requisition->width = 0;
+        requisition->height = 0;
     }
     else
     {
@@ -247,7 +246,6 @@ static void panel_icon_grid_size_request(GtkWidget *widget,
         if (row_spaces < 0) row_spaces = 0;
         requisition->width = ig->child_width * ig->columns + column_spaces * ig->spacing + 2 * border;
         requisition->height = ig->child_height * ig->rows + row_spaces * ig->spacing + 2 * border;
-        gtk_widget_show(widget);
     }
     if (ig->rows != old_rows || ig->columns != old_columns)
         gtk_widget_queue_resize(widget);
@@ -276,7 +274,7 @@ static void panel_icon_grid_add(GtkContainer *container, GtkWidget *widget)
     g_signal_connect(G_OBJECT(widget), "size-request",
                      G_CALLBACK(icon_grid_element_size_request), container);
     gtk_widget_set_parent(widget, GTK_WIDGET(container));
-    gtk_widget_queue_resize(GTK_WIDGET(container));
+//    gtk_widget_queue_resize(GTK_WIDGET(container));
 }
 
 void panel_icon_grid_set_constrain_width(PanelIconGrid * ig, gboolean constrain_width)
