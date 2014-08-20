@@ -236,9 +236,9 @@ static GtkWidget *cpu_constructor(LXPanel *panel, config_setting_t *settings)
 
     /* Allocate top level widget and set into Plugin widget pointer. */
     p = gtk_event_box_new();
+    gtk_widget_set_has_window(p, FALSE);
     lxpanel_plugin_set_data(p, c, cpu_destructor);
     gtk_container_set_border_width(GTK_CONTAINER(p), 1);
-    gtk_widget_set_has_window(p, FALSE);
 
     /* Allocate drawing area as a child of top level widget.  Enable button press events. */
     c->da = gtk_drawing_area_new();

@@ -158,7 +158,7 @@ gboolean config_read_file(PanelConf * config, const char * filename)
 {
     FILE *f = fopen(filename, "r");
     size_t size;
-    char *buff, *c, *name, *end;
+    char *buff, *c, *name, *end, *p;
     config_setting_t *s, *parent;
 
     if (f == NULL)
@@ -221,21 +221,23 @@ _skip_all:
             }
             else if (c[0] == '"')
             {
-                char *p;
                 c++;
-                for (end = p = c; *p && *p != '\n' && *p != '"'; p++, end++)
+                for (end = p = c; *end && *end != '\n' && *end != '"'; p++, end++)
                 {
-                    if (*p == '\\' && p[1] != '\0' && p[1] != '\n')
+                    if (*end == '\\' && end[1] != '\0' && end[1] != '\n')
                     {
-                        p++; /* skip quoted char */
-                        if (*p == 'n') /* \n */
-                            *p = '\n';
+                        end++; /* skip quoted char */
+                        if (*end == 'n') /* \n */
+                            *end = '\n';
                     }
                     if (p != end)
-                        *end = *p; /* move char skipping '\\' */
+                        *p = *end; /* move char skipping '\\' */
                 }
                 if (*end == '"')
+                {
+                    end++;
                     goto _make_string;
+                }
                 else /* incomplete string */
                     g_warning("config: unfinished string setting '%s', ignored", name);
             }
@@ -243,12 +245,13 @@ _skip_all:
             {
                 for (end = c; *end && *end != '\n'; )
                     end++;
+                p = end;
 _make_string:
                 s = _config_setting_try_add(parent, name, PANEL_CONF_TYPE_STRING);
                 if (s)
                 {
                     g_free(s->str);
-                    s->str = g_strndup(c, end - c);
+                    s->str = g_strndup(c, p - c);
                     /* g_debug("config loader: got new string %s: %s", name, s->str); */
                 }
                 else

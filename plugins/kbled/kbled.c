@@ -31,7 +31,6 @@
 
 #include <X11/XKBlib.h>
 
-#include "misc.h"
 #include "icon-grid.h"
 
 static const char * on_icons_theme[] = {

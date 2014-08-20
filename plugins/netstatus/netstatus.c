@@ -23,7 +23,6 @@
 #include <glib/gi18n.h>
 
 #include "plugin.h"
-#include "misc.h"
 
 #include "dbg.h"
 

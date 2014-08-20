@@ -71,7 +71,6 @@
 #include <libfm/fm-gtk.h>
 
 #include "plugin.h"
-#include "misc.h"
 
 #include "dbg.h"
 
@@ -300,8 +299,8 @@ mem_update(Monitor * m)
 
     meminfo = fopen("/proc/meminfo", "r");
     if (!meminfo) {
-        ERR("monitors: Could not open /proc/meminfo: %d, %s\n",
-                errno, strerror(errno));
+        g_warning("monitors: Could not open /proc/meminfo: %d, %s",
+                  errno, strerror(errno));
         RET(FALSE);
     }
 
@@ -327,8 +326,8 @@ mem_update(Monitor * m)
     fclose(meminfo);
 
     if (readmask) {
-        ERR("monitors: Couldn't read all values from /proc/meminfo: "
-                "readmask %x\n", readmask);
+        g_warning("monitors: Couldn't read all values from /proc/meminfo: "
+                  "readmask %x", readmask);
         RET(FALSE);
     }
 
@@ -622,7 +621,6 @@ monitors_constructor(LXPanel *panel, config_setting_t *settings)
     p = gtk_hbox_new(TRUE, 2);
     lxpanel_plugin_set_data(p, mp, monitors_destructor);
     gtk_container_set_border_width(GTK_CONTAINER(p), 1);
-    gtk_widget_set_has_window(p, FALSE);
 
     /* First time we use this plugin : only display CPU usage */
     mp->displayed_monitors[CPU_POSITION] = 1;

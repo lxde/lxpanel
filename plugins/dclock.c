@@ -17,7 +17,6 @@
  */
 
 #include "plugin.h"
-#include "misc.h"
 
 #include <libfm/fm-gtk.h>
 
@@ -422,7 +421,7 @@ static GtkWidget *dclock_configure(LXPanel *panel, GtkWidget *p)
         dclock_apply_configuration, p,
         _("Clock Format"), &dc->clock_format, CONF_TYPE_STR,
         _("Tooltip Format"), &dc->tooltip_format, CONF_TYPE_STR,
-        _("Format codes: man 3 strftime; \%n for line break"), NULL, CONF_TYPE_TRIM,
+        _("Format codes: man 3 strftime; %n for line break"), NULL, CONF_TYPE_TRIM,
         _("Action when clicked (default: display calendar)"), &dc->action, CONF_TYPE_STR,
         _("Bold font"), &dc->bold, CONF_TYPE_BOOL,
         _("Tooltip only"), &dc->icon_only, CONF_TYPE_BOOL,

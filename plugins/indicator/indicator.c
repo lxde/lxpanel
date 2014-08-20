@@ -29,7 +29,6 @@ TODO : vertical support (r354)
 */
 
 #include "plugin.h"
-#include "misc.h"
 
 #include <stdlib.h>
 #include <glib/gi18n.h>

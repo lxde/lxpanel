@@ -664,12 +664,13 @@ my_button_pressed(GtkWidget *widget, GdkEventButton *event, menup *m)
     GtkAllocation allocation;
     gtk_widget_get_allocation(GTK_WIDGET(widget), &allocation);
 
-    if ((event->type == GDK_BUTTON_PRESS)
+    if ((event->type == GDK_BUTTON_PRESS) && event->button == 1
           && (event->x >=0 && event->x < allocation.width)
           && (event->y >=0 && event->y < allocation.height)) {
         show_menu( widget, m, event->button, event->time );
+        RET(TRUE);
     }
-    RET(TRUE);
+    RET(FALSE);
 }
 
 static gboolean show_system_menu_idle(gpointer user_data)
@@ -831,7 +832,7 @@ read_system_menu(GtkMenu *menu, menup *m, config_setting_t *s)
         m->menu_cache = panel_menu_cache_new(&flags);
         if (m->menu_cache == NULL)
         {
-            ERR("error loading applications menu");
+            g_warning("error loading applications menu");
             return;
         }
         m->visibility_flags = flags;
@@ -918,11 +919,11 @@ read_submenu(menup *m, config_setting_t *s, gboolean as_item)
             continue;
 #endif
         } else {
-            ERR("menu: unknown block %s\n", str);
+            g_warning("menu: unknown block %s", str);
             goto error;
         }
         if (!mi) {
-            ERR("menu: can't create menu item\n");
+            g_warning("menu: can't create menu item");
             goto error;
         }
         gtk_widget_show(mi);
@@ -992,7 +993,7 @@ menu_constructor(LXPanel *panel, config_setting_t *settings)
     }
 
     if (!read_submenu(m, m->settings, FALSE)) {
-        ERR("menu: plugin init failed\n");
+        g_warning("menu: plugin init failed");
         gtk_widget_destroy(m->box);
         return NULL;
     }

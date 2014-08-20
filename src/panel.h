@@ -24,62 +24,6 @@
 
 G_BEGIN_DECLS
 
-extern gchar *cprofile;
-
-extern Atom a_UTF8_STRING;
-extern Atom a_XROOTPMAP_ID;
-
-extern Atom a_WM_STATE;
-extern Atom a_WM_CLASS;
-extern Atom a_WM_DELETE_WINDOW;
-extern Atom a_WM_PROTOCOLS;
-extern Atom a_NET_WORKAREA;
-extern Atom a_NET_CLIENT_LIST;
-extern Atom a_NET_CLIENT_LIST_STACKING;
-extern Atom a_NET_NUMBER_OF_DESKTOPS;
-extern Atom a_NET_CURRENT_DESKTOP;
-extern Atom a_NET_DESKTOP_VIEWPORT;
-extern Atom a_NET_DESKTOP_NAMES;
-extern Atom a_NET_ACTIVE_WINDOW;
-extern Atom a_NET_CLOSE_WINDOW;
-extern Atom a_NET_SHOWING_DESKTOP;
-extern Atom a_NET_SUPPORTED;
-extern Atom a_NET_WM_STATE;
-extern Atom a_NET_WM_STATE_SKIP_TASKBAR;
-extern Atom a_NET_WM_STATE_SKIP_PAGER;
-extern Atom a_NET_WM_STATE_STICKY;
-extern Atom a_NET_WM_STATE_HIDDEN;
-extern Atom a_NET_WM_STATE_SHADED;
-
-#define a_NET_WM_STATE_REMOVE        0    /* remove/unset property */
-#define a_NET_WM_STATE_ADD           1    /* add/set property */
-#define a_NET_WM_STATE_TOGGLE        2    /* toggle property  */
-
-extern Atom a_NET_WM_WINDOW_TYPE;
-extern Atom a_NET_WM_WINDOW_TYPE_DESKTOP;
-extern Atom a_NET_WM_WINDOW_TYPE_DOCK;
-extern Atom a_NET_WM_WINDOW_TYPE_TOOLBAR;
-extern Atom a_NET_WM_WINDOW_TYPE_MENU;
-extern Atom a_NET_WM_WINDOW_TYPE_UTILITY;
-extern Atom a_NET_WM_WINDOW_TYPE_SPLASH;
-extern Atom a_NET_WM_WINDOW_TYPE_DIALOG;
-extern Atom a_NET_WM_WINDOW_TYPE_NORMAL;
-
-extern Atom a_NET_WM_DESKTOP;
-extern Atom a_NET_WM_NAME;
-extern Atom a_NET_WM_VISIBLE_NAME;
-extern Atom a_NET_WM_STRUT;
-extern Atom a_NET_WM_STRUT_PARTIAL;
-extern Atom a_NET_WM_ICON;
-extern Atom a_KDE_NET_WM_SYSTEM_TRAY_WINDOW_FOR;
-
-extern Atom a_NET_SYSTEM_TRAY_OPCODE;
-extern Atom a_NET_SYSTEM_TRAY_MESSAGE_DATA;
-extern Atom a_NET_SYSTEM_TRAY_ORIENTATION;
-extern Atom a_MANAGER;
-
-extern Atom a_LXPANEL_CMD; /* for private client message */
-
 #define LX_TYPE_PANEL                  (lxpanel_get_type())
 #define LXPANEL(obj)                   (G_TYPE_CHECK_INSTANCE_CAST((obj), \
                                         LX_TYPE_PANEL, LXPanel))
@@ -109,16 +53,58 @@ struct _LXPanelClass
     GtkWindowClass parent_class;
 };
 
+/**
+ * panel_apply_icon
+ * @w: a window to apply
+ *
+ * Sets appropriate icon as the window icon for @w.
+ */
 extern void panel_apply_icon(GtkWindow *w);
+
+/**
+ * lxpanel_draw_label_text
+ * @p: a panel instance
+ * @label: a label widget
+ * @text: (allow-none): text for the label
+ * @bold: %TRUE if text should be bold
+ * @custom_size_factor: scale factor for font size
+ * @custom_color: %TRUE to use font color from panel settings
+ *
+ * Changes @label to contain @text with appropriate attributes using the
+ * panel @p settings.
+ */
 extern void lxpanel_draw_label_text(LXPanel * p, GtkWidget * label, const char * text,
                                     gboolean bold, float custom_size_factor,
                                     gboolean custom_color);
+
+/**
+ * lxpanel_image_set_from_file
+ * @p: a panel instance
+ * @image: a #GtkImage widget
+ * @file: image file path
+ *
+ * Applies icon from @file to @image in accordance with icon size setting
+ * on panel @p.
+ */
 extern void lxpanel_image_set_from_file(LXPanel * p, GtkWidget * image, const char * file);
+
+/**
+ * lxpanel_image_set_icon_theme
+ * @p: a panel instance
+ * @image: a #GtkImage widget
+ * @icon: icon name
+ *
+ * Applies icon size and theme from settings of @p to @image using @icon
+ * name to select icon.
+ */
 extern gboolean lxpanel_image_set_icon_theme(LXPanel * p, GtkWidget * image, const gchar * icon);
 
-extern int panel_handle_x_error(Display * d, XErrorEvent * ev);
-extern int panel_handle_x_error_swallow_BadWindow_BadDrawable(Display * d, XErrorEvent * ev);
-
+/**
+ * lxpanel_config_save
+ * @p: a panel instance
+ *
+ * Immediately saves current configuration for panel @p.
+ */
 void lxpanel_config_save(LXPanel *p); /* defined in configurator.c */
 
 /* Accessors APIs for Panel* */

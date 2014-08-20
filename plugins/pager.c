@@ -67,7 +67,6 @@ static GtkWidget *pager_constructor(LXPanel *panel, config_setting_t *settings)
     w = wnck_pager_new(NULL);
     g_return_val_if_fail(w != NULL, 0);
     p = gtk_alignment_new(0, 0, 1.0, 1.0);
-    gtk_widget_set_has_window(p, FALSE);
 
     /* we cannot configure pager until it added into widgets hierarchy */
     g_signal_connect(p, "realize", G_CALLBACK(on_realize), panel);

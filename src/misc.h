@@ -30,6 +30,60 @@
 
 G_BEGIN_DECLS
 
+extern Atom a_UTF8_STRING;
+extern Atom a_XROOTPMAP_ID;
+
+extern Atom a_WM_STATE;
+extern Atom a_WM_CLASS;
+extern Atom a_WM_DELETE_WINDOW;
+extern Atom a_WM_PROTOCOLS;
+extern Atom a_NET_WORKAREA;
+extern Atom a_NET_CLIENT_LIST;
+extern Atom a_NET_CLIENT_LIST_STACKING;
+extern Atom a_NET_NUMBER_OF_DESKTOPS;
+extern Atom a_NET_CURRENT_DESKTOP;
+extern Atom a_NET_DESKTOP_VIEWPORT;
+extern Atom a_NET_DESKTOP_NAMES;
+extern Atom a_NET_ACTIVE_WINDOW;
+extern Atom a_NET_CLOSE_WINDOW;
+extern Atom a_NET_SHOWING_DESKTOP;
+extern Atom a_NET_SUPPORTED;
+extern Atom a_NET_WM_STATE;
+extern Atom a_NET_WM_STATE_SKIP_TASKBAR;
+extern Atom a_NET_WM_STATE_SKIP_PAGER;
+extern Atom a_NET_WM_STATE_STICKY;
+extern Atom a_NET_WM_STATE_HIDDEN;
+extern Atom a_NET_WM_STATE_SHADED;
+
+#define a_NET_WM_STATE_REMOVE        0    /* remove/unset property */
+#define a_NET_WM_STATE_ADD           1    /* add/set property */
+#define a_NET_WM_STATE_TOGGLE        2    /* toggle property  */
+
+extern Atom a_NET_WM_WINDOW_TYPE;
+extern Atom a_NET_WM_WINDOW_TYPE_DESKTOP;
+extern Atom a_NET_WM_WINDOW_TYPE_DOCK;
+extern Atom a_NET_WM_WINDOW_TYPE_TOOLBAR;
+extern Atom a_NET_WM_WINDOW_TYPE_MENU;
+extern Atom a_NET_WM_WINDOW_TYPE_UTILITY;
+extern Atom a_NET_WM_WINDOW_TYPE_SPLASH;
+extern Atom a_NET_WM_WINDOW_TYPE_DIALOG;
+extern Atom a_NET_WM_WINDOW_TYPE_NORMAL;
+
+extern Atom a_NET_WM_DESKTOP;
+extern Atom a_NET_WM_NAME;
+extern Atom a_NET_WM_VISIBLE_NAME;
+extern Atom a_NET_WM_STRUT;
+extern Atom a_NET_WM_STRUT_PARTIAL;
+extern Atom a_NET_WM_ICON;
+extern Atom a_KDE_NET_WM_SYSTEM_TRAY_WINDOW_FOR;
+
+extern Atom a_NET_SYSTEM_TRAY_OPCODE;
+extern Atom a_NET_SYSTEM_TRAY_MESSAGE_DATA;
+extern Atom a_NET_SYSTEM_TRAY_ORIENTATION;
+extern Atom a_MANAGER;
+
+extern Atom a_LXPANEL_CMD; /* for private client message */
+
 /* Decoded value of WM_STATE property. */
 typedef struct {
     unsigned int modal : 1;
@@ -74,6 +128,16 @@ void get_net_wm_state(Window win, NetWMState *nws);
 void get_net_wm_window_type(Window win, NetWMWindowType *nwwt);
 GPid get_net_wm_pid(Window win);
 
+/**
+ * panel_handle_x_error
+ * @d: X display
+ * @ev: X error event
+ *
+ * Prints X error message to stderr if logging was enabled.
+ */
+extern int panel_handle_x_error(Display * d, XErrorEvent * ev);
+extern int panel_handle_x_error_swallow_BadWindow_BadDrawable(Display * d, XErrorEvent * ev);
+
 gchar *expand_tilda(const gchar *file);
 
 void get_button_spacing(GtkRequisition *req, GtkContainer *parent, gchar *name);
@@ -82,22 +146,6 @@ GtkWidget *lxpanel_button_new_for_icon(LXPanel *panel, const gchar *name, GdkCol
 GtkWidget *lxpanel_button_new_for_fm_icon(LXPanel *panel, FmIcon *icon, GdkColor *color, const gchar *label);
 void lxpanel_button_set_icon(GtkWidget* btn, const gchar *name, gint size);
 void lxpanel_button_update_icon(GtkWidget* btn, FmIcon *icon, gint size);
-
-typedef enum {
-    CONF_TYPE_STR,
-    CONF_TYPE_INT,
-    CONF_TYPE_BOOL,
-    CONF_TYPE_FILE,
-    CONF_TYPE_FILE_ENTRY,
-    CONF_TYPE_DIRECTORY_ENTRY,
-    CONF_TYPE_TRIM
-} PluginConfType;
-
-/* Parameters: const char* name, gpointer ret_value, PluginConfType type, ....NULL */
-extern GtkWidget *lxpanel_generic_config_dlg(const char *title, LXPanel *panel,
-                                             GSourceFunc apply_func,
-                                             GtkWidget *plugin,
-                                             const char *name, ...);
 
 G_END_DECLS
 

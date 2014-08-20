@@ -45,6 +45,10 @@
 #define MAX_NUM_SENSORS 10
 #define MAX_AUTOMATIC_CRITICAL_TEMP 150 /* in degrees Celsius */
 
+#if !GLIB_CHECK_VERSION(2, 40, 0)
+# define g_info(...) g_log(G_LOG_DOMAIN, G_LOG_LEVEL_INFO, __VA_ARGS__)
+#endif
+
 typedef gint (*GetTempFunc)(char const *);
 
 typedef struct thermal {
@@ -84,7 +88,7 @@ proc_get_critical(char const* sensor_path){
     snprintf(sstmp,sizeof(sstmp),"%s%s",sensor_path,PROC_THERMAL_TRIP);
 
     if (!(state = fopen( sstmp, "r"))) {
-        ERR("thermal: cannot open %s\n", sstmp);
+        g_warning("thermal: cannot open %s", sstmp);
         return -1;
     }
 
@@ -116,7 +120,7 @@ proc_get_temperature(char const* sensor_path){
     snprintf(sstmp,sizeof(sstmp),"%s%s",sensor_path,PROC_THERMAL_TEMPF);
 
     if (!(state = fopen( sstmp, "r"))) {
-        ERR("thermal: cannot open %s\n", sstmp);
+        g_warning("thermal: cannot open %s", sstmp);
         return -1;
     }
 
@@ -144,7 +148,7 @@ static gint _get_reading(const char *path)
     char* pstr;
 
     if (!(state = fopen(path, "r"))) {
-        ERR("thermal: cannot open %s\n", path);
+        g_warning("thermal: cannot open %s", path);
         return -1;
     }
 
@@ -284,7 +288,7 @@ add_sensor(thermal* th, char const* sensor_path, const char *sensor_name,
            GetTempFunc get_temp, GetTempFunc get_crit)
 {
     if (th->numsensors + 1 > MAX_NUM_SENSORS){
-        ERR("thermal: Too many sensors (max %d), ignoring '%s'\n",
+        g_warning("thermal: Too many sensors (max %d), ignoring '%s'",
                 MAX_NUM_SENSORS, sensor_path);
         return -1;
     }
@@ -295,7 +299,7 @@ add_sensor(thermal* th, char const* sensor_path, const char *sensor_name,
     th->get_temperature[th->numsensors] = get_temp;
     th->numsensors++;
 
-    LOG(LOG_ALL, "thermal: Added sensor %s\n", sensor_path);
+    g_debug("thermal: Added sensor %s", sensor_path);
 
     return 0;
 }
@@ -375,7 +379,7 @@ remove_all_sensors(thermal *th)
 {
     int i;
 
-    LOG(LOG_ALL, "thermal: Removing all sensors (%d)\n", th->numsensors);
+    g_debug("thermal: Removing all sensors (%d)", th->numsensors);
 
     for (i = 0; i < th->numsensors; i++)
     {
@@ -393,7 +397,7 @@ check_sensors( thermal *th )
     find_sensors(th, SYSFS_THERMAL_DIRECTORY, SYSFS_THERMAL_SUBDIR_PREFIX, sysfs_get_temperature, sysfs_get_critical);
     if (th->numsensors == 0)
         find_hwmon_sensors(th);
-    LOG(LOG_INFO, "thermal: Found %d sensors\n", th->numsensors);
+    g_info("thermal: Found %d sensors", th->numsensors);
 }
 
 
@@ -516,14 +520,14 @@ static GtkWidget *config(LXPanel *panel, GtkWidget *p)
     thermal *th = lxpanel_plugin_get_data(p);
     dialog = lxpanel_generic_config_dlg(_("Temperature Monitor"),
             panel, applyConfig, p,
-            _("Normal"), &th->str_cl_normal, CONF_TYPE_STR,
-            _("Warning1"), &th->str_cl_warning1, CONF_TYPE_STR,
-            _("Warning2"), &th->str_cl_warning2, CONF_TYPE_STR,
+            _("Normal color"), &th->str_cl_normal, CONF_TYPE_STR,
+            _("Warning1 color"), &th->str_cl_warning1, CONF_TYPE_STR,
+            _("Warning2 color"), &th->str_cl_warning2, CONF_TYPE_STR,
             _("Automatic sensor location"), &th->auto_sensor, CONF_TYPE_BOOL,
             _("Sensor"), &th->sensor, CONF_TYPE_STR,
             _("Automatic temperature levels"), &th->not_custom_levels, CONF_TYPE_BOOL,
-            _("Warning1 Temperature"), &th->warning1, CONF_TYPE_INT,
-            _("Warning2 Temperature"), &th->warning2, CONF_TYPE_INT,
+            _("Warning1 temperature"), &th->warning1, CONF_TYPE_INT,
+            _("Warning2 temperature"), &th->warning2, CONF_TYPE_INT,
             NULL);
 
     RET(dialog);

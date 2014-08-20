@@ -34,6 +34,10 @@
 #include "bg.h"
 #include "ev.h"
 
+#if !GLIB_CHECK_VERSION(2, 40, 0)
+# define g_info(...) g_log(G_LOG_DOMAIN, G_LOG_LEVEL_INFO, __VA_ARGS__)
+#endif
+
 /* -----------------------------------------------------------------------------
  *   Definitions used by lxpanel main code internally */
 
@@ -52,6 +56,8 @@ enum { HEIGHT_NONE, HEIGHT_PIXEL, HEIGHT_REQUEST };
 
 /* to check if we are in LXDE */
 extern gboolean is_in_lxde;
+
+extern gchar *cprofile;
 
 /* Context of a panel on a given edge. */
 struct _Panel {
@@ -139,8 +145,6 @@ typedef struct {
     void (*cmd)(void);
 } Command;
 
-extern Command commands[];
-
 #define FBPANEL_WIN(win)  gdk_window_lookup(win)
 
 /* Extracted from misc.h */
@@ -206,7 +210,7 @@ extern GQuark lxpanel_plugin_qconf; /* access to congig_setting_t data */
 
 #define PLUGIN_PANEL(_i) ((LXPanel*)gtk_widget_get_toplevel(_i))
 
-gboolean _class_is_present(LXPanelPluginInit *init);
+gboolean _class_is_present(const LXPanelPluginInit *init);
 
 void _panel_show_config_dialog(LXPanel *panel, GtkWidget *p, GtkWidget *dlg);
 
@@ -218,9 +222,17 @@ void _panel_set_wm_strut(LXPanel *p);
 void _panel_set_panel_configuration_changed(LXPanel *p);
 void _panel_update_background(LXPanel *p);
 
+void panel_configure(LXPanel* p, int sel_page);
+gboolean panel_edge_available(Panel* p, int edge, gint monitor);
+void restart(void);
+void logout(void);
+void gtk_run(void);
+
 /* -----------------------------------------------------------------------------
  *   Deprecated declarations. Kept for compatibility with old code plugins.
  *   Should be removed and appropriate code cleaned on some of next releases. */
+
+extern Command commands[];
 
 /* Extracted from panel.h */
 extern int verbose;

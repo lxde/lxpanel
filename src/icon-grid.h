@@ -31,7 +31,7 @@ G_BEGIN_DECLS
 #define PANEL_IS_ICON_GRID(obj)            (G_TYPE_CHECK_INSTANCE_TYPE ((obj), \
                                             PANEL_TYPE_ICON_GRID))
 #define PANEL_IS_ICON_GRID_CLASS(klass)    (G_TYPE_CHECK_CLASS_TYPE ((klass), \
-                                            PANEL_TYPE_ICON_GRID), PanelIconGrid)
+                                            PANEL_TYPE_ICON_GRID))
 
 extern GType panel_icon_grid_get_type   (void) G_GNUC_CONST;
 

@@ -79,7 +79,7 @@ static void wincmd_execute(WinCmdPlugin * wc, WindowCommand command)
             /* If the task is visible on the current desktop and it is an ordinary window,
              * execute the requested Iconify or Shade change. */
             if (((task_desktop == -1) || (task_desktop == current_desktop))
-            && (( ! nwwt.dock) && ( ! nwwt.desktop) && ( ! nwwt.splash)))
+                && (( ! nwwt.dock) && ( ! nwwt.desktop) && ( ! nwwt.splash)))
             {
                 switch (command)
                 {

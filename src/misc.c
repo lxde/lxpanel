@@ -301,7 +301,7 @@ lxpanel_get_line(char**fp, line *s)
             *tmp = 0;
             s->type = LINE_BLOCK_START;
         } else {
-            ERR( "parser: unknown token: '%c'\n", *tmp2);
+            g_warning( "parser: unknown token: '%c'", *tmp2);
         }
         break;
     }
@@ -772,6 +772,22 @@ get_wm_state (Window win)
     RET(ret);
 }
 
+int panel_handle_x_error(Display * d, XErrorEvent * ev)
+{
+    char buf[256];
+
+    XGetErrorText(d, ev->error_code, buf, 256);
+    g_warning("lxpanel : X error: %s", buf);
+    return 0;    /* Ignored */
+}
+
+int panel_handle_x_error_swallow_BadWindow_BadDrawable(Display * d, XErrorEvent * ev)
+{
+    if ((ev->error_code != BadWindow) && (ev->error_code != BadDrawable))
+        panel_handle_x_error(d, ev);
+    return 0;    /* Ignored */
+}
+
 static void
 calculate_width(int scrw, int wtype, int allign, int margin,
       int *panw, int *x)
@@ -790,7 +806,7 @@ calculate_width(int scrw, int wtype, int allign, int margin,
     }
     if (allign != ALLIGN_CENTER) {
         if (margin > scrw) {
-            ERR( "margin is bigger then edge size %d > %d. Ignoring margin\n",
+            g_warning( "margin is bigger then edge size %d > %d. Ignoring margin",
                   margin, scrw);
             margin = 0;
         }
@@ -1417,7 +1433,7 @@ gboolean spawn_command_async(GtkWindow *parent_window, gchar const* workdir,
     GError* err = NULL;
     gchar** argv = NULL;
 
-    LOG(LOG_INFO, "lxpanel: spawning \"%s\"...\n", cmd);
+    g_info("lxpanel: spawning \"%s\"...", cmd);
 
     g_shell_parse_argv(cmd, NULL, &argv, &err);
     if (!err)
@@ -1425,7 +1441,7 @@ gboolean spawn_command_async(GtkWindow *parent_window, gchar const* workdir,
 
     if (err)
     {
-        ERR("%s\n", err->message);
+        g_warning("%s\n", err->message);
         fm_show_error(parent_window, NULL, err->message);
         g_error_free(err);
     }

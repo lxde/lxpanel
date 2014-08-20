@@ -43,17 +43,11 @@ enum{
     N_COLS
 };
 
-void panel_configure(LXPanel* p, int sel_page );
-void restart(void);
-void gtk_run(void);
-void logout(void);
 static void save_global_config();
 
 Command commands[] = {
     //{ "configure", N_("Preferences"), configure },
-#ifndef DISABLE_MENU
     { "run", N_("Run"), gtk_run },
-#endif
     { "restart", N_("Restart"), restart },
     { "logout", N_("Logout"), logout },
     { NULL, NULL },
@@ -91,8 +85,6 @@ extern int config;
 static guint16 const alpha_scale_factor = 257;
 
 void panel_config_save(Panel *p);
-void panel_global_config_save( Panel* p, FILE *fp);
-void panel_plugin_config_save( Panel* p, FILE *fp);
 
 static void update_opt_menu(GtkWidget *w, int ind);
 static void update_toggle_button(GtkWidget *w, gboolean n);
@@ -297,16 +289,6 @@ static void set_width_type( GtkWidget *item, LXPanel* panel )
 
 /* FIXME: heighttype and spacing and RoundCorners */
 
-static void set_log_level( GtkWidget *cbox, Panel* p)
-{
-    configured_log_level = gtk_combo_box_get_active(GTK_COMBO_BOX(cbox));
-    if (!log_level_set_on_commandline)
-        log_level = configured_log_level;
-    ERR("panel-pref: log level configured to %d, log_level is now %d\n",
-            configured_log_level, log_level);
-    UPDATE_GLOBAL_INT(p, "loglevel", configured_log_level);
-}
-
 static void transparency_toggle( GtkWidget *b, Panel* p)
 {
     GtkWidget* tr = (GtkWidget*)g_object_get_data(G_OBJECT(b), "tint_clr");
@@ -500,7 +482,7 @@ on_sel_plugin_changed( GtkTreeSelection* tree_sel, GtkWidget* label )
     {
         GtkTreeView* view = gtk_tree_selection_get_tree_view( tree_sel );
         GtkWidget *edit_btn = GTK_WIDGET(g_object_get_data( G_OBJECT(view), "edit_btn" ));
-        LXPanelPluginInit *init;
+        const LXPanelPluginInit *init;
         gtk_tree_model_get( model, &it, COL_DATA, &pl, -1 );
         init = PLUGIN_CLASS(pl);
         gtk_label_set_text( GTK_LABEL(label), _(init->description) );
@@ -521,7 +503,7 @@ on_plugin_expand_toggled(GtkCellRendererToggle* render, char* path, GtkTreeView*
         gboolean old_expand, expand, fill;
         guint padding;
         GtkPackType pack_type;
-        LXPanelPluginInit *init;
+        const LXPanelPluginInit *init;
         LXPanel *panel;
 
         gtk_tree_model_get( model, &it, COL_DATA, &pl, COL_EXPAND, &expand, -1 );
@@ -745,7 +727,7 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
     g_hash_table_iter_init(&iter, classes);
     while(g_hash_table_iter_next(&iter, &key, &val))
     {
-        register LXPanelPluginInit *init = val;
+        register const LXPanelPluginInit *init = val;
         if (init->superseded)
             continue;
         if (!init->one_per_system || !_class_is_present(init))
@@ -807,13 +789,13 @@ static void on_remove_plugin( GtkButton* btn, GtkTreeView* view )
     }
 }
 
-void modify_plugin( GtkTreeView* view )
+static void modify_plugin( GtkTreeView* view )
 {
     GtkTreeSelection* tree_sel = gtk_tree_view_get_selection( view );
     GtkTreeModel* model;
     GtkTreeIter it;
     GtkWidget* pl;
-    LXPanelPluginInit *init;
+    const LXPanelPluginInit *init;
 
     if( ! gtk_tree_selection_get_selected( tree_sel, &model, &it ) )
         return;
@@ -1217,11 +1199,6 @@ void panel_configure( LXPanel* panel, int sel_page )
                         &logout_cmd);
     }
 
-    w = (GtkWidget*)gtk_builder_get_object( builder, "log_level" );
-    update_opt_menu(w, configured_log_level);
-    g_signal_connect(w, "changed", G_CALLBACK(set_log_level), p);
-
-
     panel_adjust_geometry_terminology(p);
     gtk_widget_show(GTK_WIDGET(p->pref_dialog));
     w = (GtkWidget*)gtk_builder_get_object( builder, "notebook" );
@@ -1238,9 +1215,9 @@ void panel_config_save( Panel* p )
     /* existance of 'panels' dir ensured in main() */
 
     if (!config_write_file(p->config, fname)) {
-        ERR("can't open for write %s:", fname);
+        g_warning("can't open for write %s:", fname);
         g_free( fname );
-        RET();
+        return;
     }
     g_free( fname );
 

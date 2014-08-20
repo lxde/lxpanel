@@ -193,14 +193,14 @@ fb_bg_get_xroot_pix_for_win(FbBg *bg, GtkWidget *widget)
     win = GDK_WINDOW_XWINDOW(gtk_widget_get_window(widget));
     if (!XGetGeometry(bg->dpy, win, &dummy, &x, &y, &width, &height, &border,
               &depth)) {
-        DBG2("XGetGeometry failed\n");
+        g_warning("XGetGeometry failed\n");
         RET(NULL);
     }
     XTranslateCoordinates(bg->dpy, win, bg->xroot, 0, 0, &x, &y, &dummy);
     DBG("win=%x %dx%d%+d%+d\n", win, width, height, x, y);
     gbgpix = gdk_pixmap_new(NULL, width, height, depth);
     if (!gbgpix) {
-        ERR("gdk_pixmap_new failed\n");
+        g_critical("gdk_pixmap_new failed");
         RET(NULL);
     }
     bgpix =  gdk_x11_drawable_get_xid(gbgpix);
@@ -213,6 +213,7 @@ void
 fb_bg_composite(GdkDrawable *base, GdkColor *tintcolor, gint alpha)
 {
     cairo_t *cr;
+    FbBg *bg;
 
     ENTER;
     cr = gdk_cairo_create(base);
@@ -220,7 +221,9 @@ fb_bg_composite(GdkDrawable *base, GdkColor *tintcolor, gint alpha)
     cairo_paint_with_alpha(cr, (double) alpha/255);
     check_cairo_status(cr);
     cairo_destroy(cr);
-    fb_bg_changed(fb_bg_get_for_display());
+    bg = fb_bg_get_for_display();
+    fb_bg_changed(bg);
+    g_object_unref(bg);
     RET();
 }
 
@@ -272,6 +275,8 @@ fb_bg_get_pix_from_file(GtkWidget *widget, const char *filename)
     pixbuf = gdk_pixbuf_new_from_file(filename, NULL);
     if (!pixbuf) {
         GtkStyle *style = gtk_widget_get_style(widget);
+        if (style->bg_pixmap[0])
+            g_object_ref(style->bg_pixmap[0]);
         RET(style->bg_pixmap[0]);
     }
     pixmap = gdk_pixmap_new(gtk_widget_get_window(widget), gdk_pixbuf_get_width(pixbuf),
