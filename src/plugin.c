@@ -451,9 +451,6 @@ void _unload_modules(void)
     GHashTableIter iter;
     gpointer key, val;
 
-#ifndef DISABLE_PLUGINS_LOADING
-    fm_module_unregister_type("lxpanel_gtk");
-#endif
     g_hash_table_iter_init(&iter, _all_types);
     while(g_hash_table_iter_next(&iter, &key, &val))
     {
@@ -465,6 +462,9 @@ void _unload_modules(void)
         }
     }
     g_hash_table_destroy(_all_types);
+#ifndef DISABLE_PLUGINS_LOADING
+    fm_module_unregister_type("lxpanel_gtk");
+#endif
     old_plugins_loaded = FALSE;
 }
 

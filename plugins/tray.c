@@ -101,6 +101,7 @@ static TrayClient * client_lookup(TrayPlugin * tr, Window window)
     return NULL;
 }
 
+#if 0
 static void client_print(TrayPlugin * tr, char c, TrayClient * tc, XClientMessageEvent * xevent)
 {
         char *name = get_utf8_property(tc->window, a_NET_WM_NAME);
@@ -114,11 +115,12 @@ static void client_print(TrayPlugin * tr, char c, TrayClient * tc, XClientMessag
                 xevent->serial, xevent->send_event ? 'y' : 'n', xevent->format);
         g_free(name);
 }
+#endif
 
 /* Delete a client. */
 static void client_delete(TrayPlugin * tr, TrayClient * tc, gboolean unlink, gboolean remove)
 {
-    client_print(tr, '-', tc, NULL);
+    //client_print(tr, '-', tc, NULL);
 
     if (unlink)
     {
