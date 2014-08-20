@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-20 13:56+0300\n"
-"PO-Revision-Date: 2014-08-20 11:31+0000\n"
+"PO-Revision-Date: 2014-08-20 11:43+0000\n"
 "Last-Translator: Andriy Grytsenko <andrej@rep.kiev.ua>\n"
 "Language-Team: UKRAINIAN <translate@linux.org.ua>\n"
 "Language: uk\n"
@@ -18,7 +18,7 @@ msgstr ""
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.6.0-rc1\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-POOTLE-MTIME: 1408534261.000000\n"
+"X-POOTLE-MTIME: 1408535009.000000\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:50 ../src/gtk-run.c:373 ../plugins/menu.c:749
@@ -84,7 +84,9 @@ msgstr "Підтвердити"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:988
 msgid "translator-credits"
-msgstr "Yarema aka Knedlyk <yupadmin@gmail.com>"
+msgstr ""
+"Yarema aka Knedlyk <yupadmin@gmail.com>\n"
+"Andriy Grytsenko <andrej@rep.kiev.ua>"
 
 #: ../src/panel.c:993
 msgid "LXPanel"
