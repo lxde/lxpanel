@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-17 22:00+0300\n"
-"PO-Revision-Date: 2014-08-17 19:52+0000\n"
+"POT-Creation-Date: 2014-08-20 13:56+0300\n"
+"PO-Revision-Date: 2014-08-20 11:31+0000\n"
 "Last-Translator: Andriy Grytsenko <andrej@rep.kiev.ua>\n"
 "Language-Team: UKRAINIAN <translate@linux.org.ua>\n"
 "Language: uk\n"
@@ -18,58 +18,58 @@ msgstr ""
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.6.0-rc1\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-POOTLE-MTIME: 1408305154.000000\n"
+"X-POOTLE-MTIME: 1408534261.000000\n"
 
 #. { "configure", N_("Preferences"), configure },
-#: ../src/configurator.c:55 ../src/gtk-run.c:361 ../plugins/menu.c:748
+#: ../src/configurator.c:50 ../src/gtk-run.c:373 ../plugins/menu.c:749
 msgid "Run"
 msgstr "Виконати"
 
-#: ../src/configurator.c:57 ../plugins/menu.c:749
+#: ../src/configurator.c:51 ../plugins/menu.c:750
 msgid "Restart"
 msgstr "Перезавантажити"
 
-#: ../src/configurator.c:58 ../plugins/menu.c:750
+#: ../src/configurator.c:52 ../plugins/menu.c:751
 msgid "Logout"
 msgstr "Вихід"
 
-#: ../src/configurator.c:576
+#: ../src/configurator.c:558
 msgid "Currently loaded plugins"
 msgstr "Завантажені доповнення"
 
-#: ../src/configurator.c:585
+#: ../src/configurator.c:567
 msgid "Stretch"
 msgstr "Розтягнути"
 
-#: ../src/configurator.c:707
+#: ../src/configurator.c:689
 msgid "Add plugin to panel"
 msgstr "Додати доповнення до панелі"
 
-#: ../src/configurator.c:735
+#: ../src/configurator.c:717
 msgid "Available plugins"
 msgstr "Доступні доповнення"
 
-#: ../src/configurator.c:1278
+#: ../src/configurator.c:1255
 msgid "Logout command is not set"
 msgstr "Команда виходу з сесії не встановлена"
 
-#: ../src/configurator.c:1346
+#: ../src/configurator.c:1323
 msgid "Select a directory"
 msgstr "Вибрати теку"
 
-#: ../src/configurator.c:1346 ../src/configurator.c:1464
+#: ../src/configurator.c:1323 ../src/configurator.c:1441
 msgid "Select a file"
 msgstr "Вибрати файл"
 
-#: ../src/configurator.c:1491
+#: ../src/configurator.c:1468
 msgid "_Browse"
 msgstr "_Переглянути"
 
-#: ../src/panel.c:941
+#: ../src/panel.c:926
 msgid "There is no room for another panel. All the edges are taken."
 msgstr "Нема місця для ще однієї панелі, усі сторони вже зайняті."
 
-#: ../src/panel.c:968
+#: ../src/panel.c:951
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -77,134 +77,129 @@ msgstr ""
 "Дійсно видалити цю панель?\n"
 "<b>Увага: Повернення назад неможливе.</b>"
 
-#: ../src/panel.c:970
+#: ../src/panel.c:953
 msgid "Confirm"
 msgstr "Підтвердити"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:1002
+#: ../src/panel.c:988
 msgid "translator-credits"
 msgstr "Yarema aka Knedlyk <yupadmin@gmail.com>"
 
-#: ../src/panel.c:1007
+#: ../src/panel.c:993
 msgid "LXPanel"
 msgstr "LX-панель"
 
-#: ../src/panel.c:1025
+#: ../src/panel.c:1011
 msgid "Copyright (C) 2008-2014"
 msgstr "Всі права застережено (С) 2008-2014"
 
-#: ../src/panel.c:1026
+#: ../src/panel.c:1012
 msgid "Desktop panel for LXDE project"
 msgstr "Панель робочого столу для проекту LXDE"
 
-#: ../src/panel.c:1068
+#: ../src/panel.c:1054
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "Налаштування \"%s\""
 
-#: ../src/panel.c:1088
+#: ../src/panel.c:1074
 msgid "Add / Remove Panel Items"
 msgstr "Додати/Видалити компоненти панелі"
 
-#: ../src/panel.c:1096
+#: ../src/panel.c:1082
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Видалити \"%s\" з панелі"
 
-#: ../src/panel.c:1108
+#: ../src/panel.c:1094
 msgid "Panel Settings"
 msgstr "Налаштування панелі"
 
-#: ../src/panel.c:1114
+#: ../src/panel.c:1100
 msgid "Create New Panel"
 msgstr "Створити нову панель"
 
-#: ../src/panel.c:1120
+#: ../src/panel.c:1106
 msgid "Delete This Panel"
 msgstr "Видалити цю панель"
 
-#: ../src/panel.c:1131
+#: ../src/panel.c:1117
 msgid "About"
 msgstr "Про LXDE-панель"
 
-#: ../src/panel.c:1138
+#: ../src/panel.c:1124
 msgid "Panel"
 msgstr "Панель"
 
-#: ../src/panel.c:1343 ../src/panel.c:1351 ../data/ui/panel-pref.glade.h:22
+#: ../src/panel.c:1309 ../src/panel.c:1317 ../data/ui/panel-pref.glade.h:22
 msgid "Height:"
 msgstr "Висота:"
 
-#: ../src/panel.c:1344 ../src/panel.c:1350 ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:1310 ../src/panel.c:1316 ../data/ui/panel-pref.glade.h:21
 msgid "Width:"
 msgstr "Ширина:"
 
-#: ../src/panel.c:1345 ../data/ui/panel-pref.glade.h:13
+#: ../src/panel.c:1311 ../data/ui/panel-pref.glade.h:13
 msgid "Left"
 msgstr "Зліва"
 
-#: ../src/panel.c:1346 ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:1312 ../data/ui/panel-pref.glade.h:14
 msgid "Right"
 msgstr "Справа"
 
-#: ../src/panel.c:1352 ../data/ui/panel-pref.glade.h:12
+#: ../src/panel.c:1318 ../data/ui/panel-pref.glade.h:12
 msgid "Top"
 msgstr "Зверху"
 
-#: ../src/panel.c:1353 ../data/ui/panel-pref.glade.h:11
+#: ../src/panel.c:1319 ../data/ui/panel-pref.glade.h:11
 msgid "Bottom"
 msgstr "Внизу"
 
-#: ../src/panel.c:1648
+#: ../src/panel.c:1609
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - легка GTK2+ панель для робочого середовища UNIX\n"
 
-#: ../src/panel.c:1649
+#: ../src/panel.c:1610
 #, c-format
 msgid "Command line options:\n"
 msgstr "Опції командного рядка:\n"
 
-#: ../src/panel.c:1650
+#: ../src/panel.c:1611
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- надрукувати цю допомогу і вийти\n"
 
-#: ../src/panel.c:1651
+#: ../src/panel.c:1612
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- надрукувати версію та вийти\n"
 
-#: ../src/panel.c:1652
-#, c-format
-msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-msgstr ""
-" --log <number> -- виставити рівень журналювання 0-5. 0 - нема, 5 - повний\n"
-
+#. g_print(_(" --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"));
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1654
+#: ../src/panel.c:1615
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr "--profile name -- використовувати вибраний профіль\n"
 
-#: ../src/panel.c:1656
+#: ../src/panel.c:1617
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr "-h  -- те саме, що й --help\n"
 
-#: ../src/panel.c:1657
+#: ../src/panel.c:1618
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- те саме, що й --profile\n"
 
-#: ../src/panel.c:1658
+#: ../src/panel.c:1619
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- те саме, що й --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1660
+#: ../src/panel.c:1621
 #, c-format
 msgid ""
 "\n"
@@ -215,84 +210,85 @@ msgstr ""
 "Відвідайте http://lxde.org/ для деталей.\n"
 "\n"
 
-#: ../src/plugin.c:414
+#: ../src/plugin.c:388
 msgid "No file manager is configured."
 msgstr "Менеджер файлів не обрано."
 
-#: ../src/gtk-run.c:375
+#: ../src/gtk-run.c:387
 msgid "Enter the command you want to execute:"
 msgstr "Введіть команду, яку Ви бажаєте запустити:"
 
 #. vim: set sw=4 et sts=4 ts=4 :
-#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3477
+#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3475
 msgid "Application Launch and Task Bar"
 msgstr "Панель запуску програм та вікон"
 
-#: ../data/ui/launchtaskbar.glade.h:2
+#. Launchtaskbar mode: launchbar, taskbar, or combined
+#: ../data/ui/launchtaskbar.glade.h:3
 msgid "<b>Mode:</b>"
 msgstr "<b>Режим:</b>"
 
-#: ../data/ui/launchtaskbar.glade.h:3
+#: ../data/ui/launchtaskbar.glade.h:4
 msgid "Launchers"
 msgstr "Кнопки запуску"
 
-#: ../data/ui/launchtaskbar.glade.h:4
+#: ../data/ui/launchtaskbar.glade.h:5
 msgid "<b>Launchbar</b>"
 msgstr "<b>Панель запуску програм</b>"
 
-#: ../data/ui/launchtaskbar.glade.h:5
+#: ../data/ui/launchtaskbar.glade.h:6
 msgid "Show tooltips"
 msgstr "Показати підказки"
 
-#: ../data/ui/launchtaskbar.glade.h:6
+#: ../data/ui/launchtaskbar.glade.h:7
 msgid "Icons only"
 msgstr "Тільки іконки"
 
-#: ../data/ui/launchtaskbar.glade.h:7
+#: ../data/ui/launchtaskbar.glade.h:8
 msgid "Flat buttons"
 msgstr "Плоскі кнопки"
 
-#: ../data/ui/launchtaskbar.glade.h:8
+#: ../data/ui/launchtaskbar.glade.h:9
 msgid "Show windows from all desktops"
 msgstr "Показати вікна з усіх робочих столів"
 
-#: ../data/ui/launchtaskbar.glade.h:9
+#: ../data/ui/launchtaskbar.glade.h:10
 msgid "Only show windows on the same monitor as the task bar"
 msgstr "Показувати лише вікна з одного монітору"
 
-#: ../data/ui/launchtaskbar.glade.h:10
+#: ../data/ui/launchtaskbar.glade.h:11
 msgid "Use mouse wheel"
 msgstr "Використовувати коліщатко миші"
 
-#: ../data/ui/launchtaskbar.glade.h:11
+#: ../data/ui/launchtaskbar.glade.h:12
 msgid "Flash when there is any window requiring attention"
 msgstr "Блимати, якщо вікно потребує уваги"
 
-#: ../data/ui/launchtaskbar.glade.h:12
+#: ../data/ui/launchtaskbar.glade.h:13
 msgid "Combine multiple application windows into a single button"
 msgstr "Зібрати вікна з кількома програмами в одну кнопку"
 
-#: ../data/ui/launchtaskbar.glade.h:13
+#: ../data/ui/launchtaskbar.glade.h:14
 msgid "Maximum width of task button"
 msgstr "Максимальна ширина кнопки завдань"
 
-#: ../data/ui/launchtaskbar.glade.h:14
+#: ../data/ui/launchtaskbar.glade.h:15
 msgid "Spacing"
 msgstr "Відступи"
 
-#: ../data/ui/launchtaskbar.glade.h:15
+#: ../data/ui/launchtaskbar.glade.h:16
 msgid "<b>Taskbar</b>"
 msgstr "<b>Панель задач</b>"
 
-#: ../data/ui/launchtaskbar.glade.h:16
+#: ../data/ui/launchtaskbar.glade.h:17
 msgid "Only Application Launch Bar"
 msgstr "Лише панель запуску програм"
 
-#: ../data/ui/launchtaskbar.glade.h:17
+#: ../data/ui/launchtaskbar.glade.h:18
 msgid "Only Task Bar (Window List)"
 msgstr "Лише панель задач (Список вікон)"
 
-#: ../data/ui/launchtaskbar.glade.h:18
+#: ../data/ui/launchtaskbar.glade.h:19
 msgid "Integrated Application Launch Bar and Task Bar"
 msgstr "Суміщена панель запуску програм та вікон"
 
@@ -475,8 +471,8 @@ msgstr "<b>Тло</b>"
 msgid "Custom color"
 msgstr "Спеціальний колір"
 
-#: ../data/ui/panel-pref.glade.h:32 ../plugins/space.c:89
-#: ../plugins/batt/batt.c:652
+#: ../data/ui/panel-pref.glade.h:32 ../plugins/space.c:88
+#: ../plugins/batt/batt.c:651
 msgid "Size"
 msgstr "Розмір"
 
@@ -552,7 +548,7 @@ msgstr "Додатково"
 msgid "CPU Usage Monitor"
 msgstr "Монітор використання CPU"
 
-#: ../plugins/cpu/cpu.c:282 ../plugins/monitors/monitors.c:702
+#: ../plugins/cpu/cpu.c:282 ../plugins/monitors/monitors.c:700
 msgid "Display CPU usage"
 msgstr "Показати завантаження CPU"
 
@@ -560,7 +556,7 @@ msgstr "Показати завантаження CPU"
 msgid "Desktop Number / Workspace Name"
 msgstr "Номер робочого столу / Назва робочої області"
 
-#: ../plugins/deskno/deskno.c:176 ../plugins/dclock.c:427
+#: ../plugins/deskno/deskno.c:176 ../plugins/dclock.c:426
 msgid "Bold font"
 msgstr "Жирний шрифт"
 
@@ -572,80 +568,80 @@ msgstr "Показати назви робочих столів"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Показати номер робочої області, завдяки cmeury@users.sf.net"
 
-#: ../plugins/launchtaskbar.c:1419 ../plugins/launchtaskbar.c:3447
+#: ../plugins/launchtaskbar.c:1418 ../plugins/launchtaskbar.c:3445
 msgid "Application Launch Bar"
 msgstr "Панель запуску програм"
 
-#: ../plugins/launchtaskbar.c:1422 ../plugins/launchtaskbar.c:3458
+#: ../plugins/launchtaskbar.c:1421 ../plugins/launchtaskbar.c:3456
 msgid "Task Bar (Window List)"
 msgstr "Панель задач (Список вікон)"
 
-#: ../plugins/launchtaskbar.c:2447
+#: ../plugins/launchtaskbar.c:2445
 msgid "_Close all windows"
 msgstr "З_акрити всі вікна"
 
 #. Add Raise menu item.
-#: ../plugins/launchtaskbar.c:3306
+#: ../plugins/launchtaskbar.c:3304
 msgid "_Raise"
 msgstr "_Розгорнути"
 
 #. Add Restore menu item.
-#: ../plugins/launchtaskbar.c:3311
+#: ../plugins/launchtaskbar.c:3309
 msgid "R_estore"
 msgstr "В_ідновити"
 
 #. Add Maximize menu item.
-#: ../plugins/launchtaskbar.c:3316
+#: ../plugins/launchtaskbar.c:3314
 msgid "Ma_ximize"
 msgstr "М_аксималізувати"
 
 #. Add Iconify menu item.
-#: ../plugins/launchtaskbar.c:3321
+#: ../plugins/launchtaskbar.c:3319
 msgid "Ico_nify"
 msgstr "_Згорнути в іконку"
 
-#: ../plugins/launchtaskbar.c:3340
+#: ../plugins/launchtaskbar.c:3338
 #, c-format
 msgid "Workspace _%d"
 msgstr "Робоча область _%d"
 
-#: ../plugins/launchtaskbar.c:3345
+#: ../plugins/launchtaskbar.c:3343
 #, c-format
 msgid "Workspace %d"
 msgstr "Робоча область %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../plugins/launchtaskbar.c:3361
+#: ../plugins/launchtaskbar.c:3359
 msgid "_All workspaces"
 msgstr "_Всі робочі області"
 
 #. Add Move to Workspace menu item as a submenu.
-#: ../plugins/launchtaskbar.c:3367
+#: ../plugins/launchtaskbar.c:3365
 msgid "_Move to Workspace"
 msgstr "_Перенести до робочої області"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../plugins/launchtaskbar.c:3373
+#: ../plugins/launchtaskbar.c:3371
 msgid "_Close Window"
 msgstr "За_крити вікно"
 
-#: ../plugins/launchtaskbar.c:3375
+#: ../plugins/launchtaskbar.c:3373
 msgid "A_dd to Launcher"
 msgstr "Додати _кнопку"
 
-#: ../plugins/launchtaskbar.c:3376
+#: ../plugins/launchtaskbar.c:3374
 msgid "Rem_ove from Launcher"
 msgstr "_Видалити кнопку"
 
-#: ../plugins/launchtaskbar.c:3377
+#: ../plugins/launchtaskbar.c:3375
 msgid "_New Instance"
 msgstr "_Новий екземпляр"
 
-#: ../plugins/launchtaskbar.c:3448
+#: ../plugins/launchtaskbar.c:3446
 msgid "Bar with buttons to launch application"
 msgstr "Панель з кнопками для запуску програм"
 
-#: ../plugins/launchtaskbar.c:3459
+#: ../plugins/launchtaskbar.c:3457
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -653,40 +649,40 @@ msgstr ""
 "Панель задач показує всі відкриті вікна і дозволяє згортати їх, відтіняти і "
 "фокусувати"
 
-#: ../plugins/launchtaskbar.c:3478
+#: ../plugins/launchtaskbar.c:3476
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr "Панель кнопок для запуску програм або відображення вікон"
 
-#: ../plugins/dclock.c:421 ../plugins/dclock.c:441
+#: ../plugins/dclock.c:420 ../plugins/dclock.c:440
 msgid "Digital Clock"
 msgstr "Цифровий годинник"
 
-#: ../plugins/dclock.c:423
+#: ../plugins/dclock.c:422
 msgid "Clock Format"
 msgstr "Формат годинника"
 
-#: ../plugins/dclock.c:424
+#: ../plugins/dclock.c:423
 msgid "Tooltip Format"
 msgstr "Формат підказок"
 
-#: ../plugins/dclock.c:425
+#: ../plugins/dclock.c:424
 #, c-format
-msgid "Format codes: man 3 strftime; \\%n for line break"
-msgstr "Формат кодів: запустіть man 3 strftime; \\%n для розриву стрічки"
+msgid "Format codes: man 3 strftime; %n for line break"
+msgstr "Формат кодів: запустіть man 3 strftime; %n для розриву стрічки"
 
-#: ../plugins/dclock.c:426
+#: ../plugins/dclock.c:425
 msgid "Action when clicked (default: display calendar)"
 msgstr "Дія при клацанні (по замовчуванню: показати календар)"
 
-#: ../plugins/dclock.c:428
+#: ../plugins/dclock.c:427
 msgid "Tooltip only"
 msgstr "Тільки підказки"
 
-#: ../plugins/dclock.c:429
+#: ../plugins/dclock.c:428
 msgid "Center text"
 msgstr "Центрувати  текст"
 
-#: ../plugins/dclock.c:442
+#: ../plugins/dclock.c:441
 msgid "Display digital clock and tooltip"
 msgstr "Показувати цифровий годинник і підказки"
 
@@ -698,15 +694,15 @@ msgstr "Додати до робочого столу"
 msgid "Properties"
 msgstr "Властивості"
 
-#: ../plugins/menu.c:1019 ../plugins/menu.c:1032
+#: ../plugins/menu.c:1020 ../plugins/menu.c:1033
 msgid "Menu"
 msgstr "Меню"
 
-#: ../plugins/menu.c:1020 ../plugins/dirmenu.c:358
+#: ../plugins/menu.c:1021 ../plugins/dirmenu.c:358
 msgid "Icon"
 msgstr "Іконка"
 
-#: ../plugins/menu.c:1033
+#: ../plugins/menu.c:1034
 msgid "Application Menu"
 msgstr "Панель програм"
 
@@ -718,31 +714,31 @@ msgstr "Розділювач"
 msgid "Add a separator to the panel"
 msgstr "Додати розділювач до панелі"
 
-#: ../plugins/pager.c:93
+#: ../plugins/pager.c:92
 msgid "Sorry, there was no window manager configuration program found."
 msgstr "Програму налаштування кількості стільниць не знайдено. Вибачте."
 
-#: ../plugins/pager.c:144 ../plugins/pager.c:160
+#: ../plugins/pager.c:143 ../plugins/pager.c:159
 msgid "Desktop Pager"
 msgstr "Пейджер робочого столу"
 
-#: ../plugins/pager.c:145 ../plugins/pager.c:161
+#: ../plugins/pager.c:144 ../plugins/pager.c:160
 msgid "Simple pager plugin"
 msgstr "Просте доповнення пейджера"
 
-#: ../plugins/space.c:87 ../plugins/space.c:96
+#: ../plugins/space.c:86 ../plugins/space.c:95
 msgid "Spacer"
 msgstr "Пропуск"
 
-#: ../plugins/space.c:97
+#: ../plugins/space.c:96
 msgid "Allocate space"
 msgstr "Виділити місце"
 
-#: ../plugins/tray.c:685
+#: ../plugins/tray.c:679
 msgid "System Tray"
 msgstr "Системний лоток"
 
-#: ../plugins/tray.c:686
+#: ../plugins/tray.c:680
 msgid "System tray"
 msgstr "Системний лоток"
 
@@ -883,47 +879,47 @@ msgstr "Мітка"
 msgid "Browse directory tree via menu (Author = PCMan)"
 msgstr "Переглянути дерево тек через меню (Автор: PCMan)"
 
-#: ../plugins/thermal/thermal.c:517 ../plugins/thermal/thermal.c:535
+#: ../plugins/thermal/thermal.c:521 ../plugins/thermal/thermal.c:539
 msgid "Temperature Monitor"
 msgstr "Монітор температури"
 
-#: ../plugins/thermal/thermal.c:519
-msgid "Normal"
-msgstr "Нормально"
+#: ../plugins/thermal/thermal.c:523
+msgid "Normal color"
+msgstr "Нормальний колір"
 
-#: ../plugins/thermal/thermal.c:520
-msgid "Warning1"
-msgstr "Попередження1"
+#: ../plugins/thermal/thermal.c:524
+msgid "Warning1 color"
+msgstr "Колір попередження 1"
 
-#: ../plugins/thermal/thermal.c:521
-msgid "Warning2"
-msgstr "Попередження2"
+#: ../plugins/thermal/thermal.c:525
+msgid "Warning2 color"
+msgstr "Колір попередження 2"
 
-#: ../plugins/thermal/thermal.c:522
+#: ../plugins/thermal/thermal.c:526
 msgid "Automatic sensor location"
 msgstr "Автоматичний пошук сенсорів"
 
-#: ../plugins/thermal/thermal.c:523
+#: ../plugins/thermal/thermal.c:527
 msgid "Sensor"
 msgstr "Сенсор"
 
-#: ../plugins/thermal/thermal.c:524
+#: ../plugins/thermal/thermal.c:528
 msgid "Automatic temperature levels"
 msgstr "Автоматичні рівні температури"
 
-#: ../plugins/thermal/thermal.c:525
-msgid "Warning1 Temperature"
-msgstr "Попередження1 Температура"
+#: ../plugins/thermal/thermal.c:529
+msgid "Warning1 temperature"
+msgstr "Температура попередження 1"
 
-#: ../plugins/thermal/thermal.c:526
-msgid "Warning2 Temperature"
-msgstr "Попередження2 Температура"
+#: ../plugins/thermal/thermal.c:530
+msgid "Warning2 temperature"
+msgstr "Температура попередження 2"
 
-#: ../plugins/thermal/thermal.c:536
+#: ../plugins/thermal/thermal.c:540
 msgid "Display system temperature"
 msgstr "Показати системну температуру"
 
-#: ../plugins/cpufreq/cpufreq.c:326
+#: ../plugins/cpufreq/cpufreq.c:325
 #, c-format
 msgid ""
 "Frequency: %d MHz\n"
@@ -932,36 +928,36 @@ msgstr ""
 "Частота: %d МГц\n"
 "Керування: %s"
 
-#: ../plugins/cpufreq/cpufreq.c:409
+#: ../plugins/cpufreq/cpufreq.c:408
 msgid "CPUFreq frontend"
 msgstr "Відображення CPUFreq"
 
-#: ../plugins/cpufreq/cpufreq.c:410
+#: ../plugins/cpufreq/cpufreq.c:409
 msgid "Display CPU frequency and allow to change governors and frequency"
 msgstr "Показ та керування частотою та режимом процесора"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
-#: ../plugins/volume/volume.c:278 ../plugins/volumealsa/volumealsa.c:354
-#: ../plugins/volumealsa/volumealsa.c:538
+#: ../plugins/volume/volume.c:278 ../plugins/volumealsa/volumealsa.c:353
+#: ../plugins/volumealsa/volumealsa.c:537
 msgid "Volume control"
 msgstr "Регулятор гучності"
 
-#: ../plugins/volume/volume.c:286 ../plugins/volumealsa/volumealsa.c:642
+#: ../plugins/volume/volume.c:286 ../plugins/volumealsa/volumealsa.c:641
 msgid "Volume Control"
 msgstr "Регулятор Гучності"
 
 #. Create a frame as the child of the viewport.
-#: ../plugins/volume/volume-impl.c:109 ../plugins/volumealsa/volumealsa.c:492
+#: ../plugins/volume/volume-impl.c:109 ../plugins/volumealsa/volumealsa.c:491
 msgid "Volume"
 msgstr "Гучність"
 
 #. Create a check button as the child of the vertical box.
-#: ../plugins/volumealsa/volumealsa.c:511
+#: ../plugins/volumealsa/volumealsa.c:510
 msgid "Mute"
 msgstr "Заглушити"
 
-#: ../plugins/volumealsa/volumealsa.c:624
+#: ../plugins/volumealsa/volumealsa.c:623
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontrol, alsamixer ...)"
@@ -969,7 +965,7 @@ msgstr ""
 "Помилка, Вам потрібно встановити програму для налаштування звуку ("
 "pavucontrol, alsamixer ...)"
 
-#: ../plugins/volumealsa/volumealsa.c:643
+#: ../plugins/volumealsa/volumealsa.c:642
 msgid "Display and control volume for ALSA"
 msgstr "Відображення та керування гучністю для ALSA"
 
@@ -1079,19 +1075,19 @@ msgstr ""
 msgid "Encryption Key:"
 msgstr "Ключ шифрування:"
 
-#: ../plugins/netstatus/netstatus.c:153 ../plugins/netstatus/netstatus.c:165
+#: ../plugins/netstatus/netstatus.c:152 ../plugins/netstatus/netstatus.c:164
 msgid "Network Status Monitor"
 msgstr "Монітор статусу мережі"
 
-#: ../plugins/netstatus/netstatus.c:155
+#: ../plugins/netstatus/netstatus.c:154
 msgid "Interface to monitor"
 msgstr "Моніторинг інтерфейсу"
 
-#: ../plugins/netstatus/netstatus.c:156
+#: ../plugins/netstatus/netstatus.c:155
 msgid "Config tool"
 msgstr "Утиліти конфігурації"
 
-#: ../plugins/netstatus/netstatus.c:166
+#: ../plugins/netstatus/netstatus.c:165
 msgid "Monitor network status"
 msgstr "Моніторинг статусу мережі"
 
@@ -1433,22 +1429,22 @@ msgstr "Отримання"
 msgid "Sending/Receiving"
 msgstr "Відсилання/Отримання"
 
-#: ../plugins/batt/batt.c:152
+#: ../plugins/batt/batt.c:151
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
 msgstr "Батарея: %d%% заряджено, %d:%02d до повної зарядки"
 
-#: ../plugins/batt/batt.c:163
+#: ../plugins/batt/batt.c:162
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr "Батарея: %d%% заряджено, %d:%02d залишилося"
 
-#: ../plugins/batt/batt.c:169
+#: ../plugins/batt/batt.c:168
 #, c-format
 msgid "Battery: %d%% charged"
 msgstr "Батарея: %d%% заряджено"
 
-#: ../plugins/batt/batt.c:179
+#: ../plugins/batt/batt.c:178
 #, c-format
 msgid ""
 "\n"
@@ -1457,7 +1453,7 @@ msgstr ""
 "\n"
 "%sПроектна повна енергія:\t\t%5d мВт*г"
 
-#: ../plugins/batt/batt.c:181
+#: ../plugins/batt/batt.c:180
 #, c-format
 msgid ""
 "\n"
@@ -1466,7 +1462,7 @@ msgstr ""
 "\n"
 "%sПовна енергія:\t\t\t%5d мВт*г"
 
-#: ../plugins/batt/batt.c:183
+#: ../plugins/batt/batt.c:182
 #, c-format
 msgid ""
 "\n"
@@ -1475,7 +1471,7 @@ msgstr ""
 "\n"
 "%sЕнергія зараз:\t\t\t%5d мВт*г"
 
-#: ../plugins/batt/batt.c:185
+#: ../plugins/batt/batt.c:184
 #, c-format
 msgid ""
 "\n"
@@ -1484,7 +1480,7 @@ msgstr ""
 "\n"
 "%sПотужність зараз:\t\t\t%5d мВт"
 
-#: ../plugins/batt/batt.c:188
+#: ../plugins/batt/batt.c:187
 #, c-format
 msgid ""
 "\n"
@@ -1493,7 +1489,7 @@ msgstr ""
 "\n"
 "%sПроектний повний заряд:\t%5d мА*г"
 
-#: ../plugins/batt/batt.c:190
+#: ../plugins/batt/batt.c:189
 #, c-format
 msgid ""
 "\n"
@@ -1502,7 +1498,7 @@ msgstr ""
 "\n"
 "%sПовний заряд:\t\t\t%5d мА*г"
 
-#: ../plugins/batt/batt.c:192
+#: ../plugins/batt/batt.c:191
 #, c-format
 msgid ""
 "\n"
@@ -1511,7 +1507,7 @@ msgstr ""
 "\n"
 "%sЗаряд зараз:\t\t\t%5d мА*г"
 
-#: ../plugins/batt/batt.c:194
+#: ../plugins/batt/batt.c:193
 #, c-format
 msgid ""
 "\n"
@@ -1520,7 +1516,7 @@ msgstr ""
 "\n"
 "%sСтрум зараз:\t\t\t%5d мА"
 
-#: ../plugins/batt/batt.c:197
+#: ../plugins/batt/batt.c:196
 #, c-format
 msgid ""
 "\n"
@@ -1529,146 +1525,146 @@ msgstr ""
 "\n"
 "%sНапруга зараз:\t\t%.3lf В"
 
-#: ../plugins/batt/batt.c:235
+#: ../plugins/batt/batt.c:234
 msgid "No batteries found"
 msgstr "Батарею не знайдено"
 
-#: ../plugins/batt/batt.c:641 ../plugins/batt/batt.c:662
+#: ../plugins/batt/batt.c:640 ../plugins/batt/batt.c:661
 msgid "Battery Monitor"
 msgstr "Монітор батареї"
 
-#: ../plugins/batt/batt.c:643
+#: ../plugins/batt/batt.c:642
 msgid "Hide if there is no battery"
 msgstr "Приховати, якщо немає батареї"
 
-#: ../plugins/batt/batt.c:644
+#: ../plugins/batt/batt.c:643
 msgid "Alarm command"
 msgstr "Команда будильника"
 
-#: ../plugins/batt/batt.c:645
+#: ../plugins/batt/batt.c:644
 msgid "Alarm time (minutes left)"
 msgstr "Час будильника (залишилося хвилин)"
 
-#: ../plugins/batt/batt.c:646
+#: ../plugins/batt/batt.c:645
 msgid "Background color"
 msgstr "Колір тла"
 
-#: ../plugins/batt/batt.c:647
+#: ../plugins/batt/batt.c:646
 msgid "Charging color 1"
 msgstr "Колір зарядки 1"
 
-#: ../plugins/batt/batt.c:648
+#: ../plugins/batt/batt.c:647
 msgid "Charging color 2"
 msgstr "Колір зарядки 2"
 
-#: ../plugins/batt/batt.c:649
+#: ../plugins/batt/batt.c:648
 msgid "Discharging color 1"
 msgstr "Колір розрядки 1"
 
-#: ../plugins/batt/batt.c:650
+#: ../plugins/batt/batt.c:649
 msgid "Discharging color 2"
 msgstr "Колір розрядки 2"
 
-#: ../plugins/batt/batt.c:651
+#: ../plugins/batt/batt.c:650
 msgid "Border width"
 msgstr "Ширина краю"
 
-#: ../plugins/batt/batt.c:653
+#: ../plugins/batt/batt.c:652
 msgid "Show Extended Information"
 msgstr "Показати детальну інформацію"
 
-#: ../plugins/batt/batt.c:663
+#: ../plugins/batt/batt.c:662
 msgid "Display battery status using ACPI"
 msgstr "Показувати статус батареї, використовуючи ACPI"
 
-#: ../plugins/kbled/kbled.c:229 ../plugins/kbled/kbled.c:260
+#: ../plugins/kbled/kbled.c:228 ../plugins/kbled/kbled.c:259
 msgid "Keyboard LED"
 msgstr "Індикатор клавіатури"
 
-#: ../plugins/kbled/kbled.c:231
+#: ../plugins/kbled/kbled.c:230
 msgid "Show CapsLock"
 msgstr "Показувати CapsLock"
 
-#: ../plugins/kbled/kbled.c:232
+#: ../plugins/kbled/kbled.c:231
 msgid "Show NumLock"
 msgstr "Показувати NumLock"
 
-#: ../plugins/kbled/kbled.c:233
+#: ../plugins/kbled/kbled.c:232
 msgid "Show ScrollLock"
 msgstr "Показувати ScrollLock"
 
-#: ../plugins/kbled/kbled.c:261
+#: ../plugins/kbled/kbled.c:260
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Індикатори для клавіш CapsLock, NumLock і ScrollLock"
 
 #. A label to allow for click through
-#: ../plugins/indicator/indicator.c:690
+#: ../plugins/indicator/indicator.c:689
 msgid "No Indicators"
 msgstr "Немає індикаторів"
 
-#: ../plugins/indicator/indicator.c:864 ../plugins/indicator/indicator.c:882
+#: ../plugins/indicator/indicator.c:863 ../plugins/indicator/indicator.c:881
 msgid "Indicator applets"
 msgstr "Індикатор аплетів"
 
-#: ../plugins/indicator/indicator.c:866
+#: ../plugins/indicator/indicator.c:865
 msgid "Indicator Applications"
 msgstr "Індикатор програм"
 
-#: ../plugins/indicator/indicator.c:867
+#: ../plugins/indicator/indicator.c:866
 msgid "Clock Indicator"
 msgstr "Індикатор годинника"
 
-#: ../plugins/indicator/indicator.c:868
+#: ../plugins/indicator/indicator.c:867
 msgid "Messaging Menu"
 msgstr "Меню повідомлень"
 
-#: ../plugins/indicator/indicator.c:869
+#: ../plugins/indicator/indicator.c:868
 msgid "Network Menu"
 msgstr "Меню мережі"
 
-#: ../plugins/indicator/indicator.c:870
+#: ../plugins/indicator/indicator.c:869
 msgid "Session Menu"
 msgstr "Меню сесії"
 
-#: ../plugins/indicator/indicator.c:871
+#: ../plugins/indicator/indicator.c:870
 msgid "Sound Menu"
 msgstr "Меню звуку"
 
-#: ../plugins/indicator/indicator.c:883
+#: ../plugins/indicator/indicator.c:882
 msgid "Add indicator applets to the panel"
 msgstr "Додати індикатор аплетів до панелі"
 
-#: ../plugins/monitors/monitors.c:270
+#: ../plugins/monitors/monitors.c:269
 #, c-format
 msgid "CPU usage: %.2f%%"
 msgstr "Використання CPU: %.2f%%"
 
-#: ../plugins/monitors/monitors.c:367
+#: ../plugins/monitors/monitors.c:366
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
 msgstr "Використання RAM: %.1fМБ (%.2f%%)"
 
-#: ../plugins/monitors/monitors.c:700 ../plugins/monitors/monitors.c:785
+#: ../plugins/monitors/monitors.c:698 ../plugins/monitors/monitors.c:783
 msgid "Resource monitors"
 msgstr "Монітори ресурсів"
 
-#: ../plugins/monitors/monitors.c:703
+#: ../plugins/monitors/monitors.c:701
 msgid "CPU color"
 msgstr "Колір CPU"
 
-#: ../plugins/monitors/monitors.c:704
+#: ../plugins/monitors/monitors.c:702
 msgid "Display RAM usage"
 msgstr "Показати використання RAM"
 
-#: ../plugins/monitors/monitors.c:705
+#: ../plugins/monitors/monitors.c:703
 msgid "RAM color"
 msgstr "Колір RAM"
 
-#: ../plugins/monitors/monitors.c:706
+#: ../plugins/monitors/monitors.c:704
 msgid "Action when clicked (default: lxtask)"
 msgstr "Дія при клацанні (типово: lxtask)"
 
-#: ../plugins/monitors/monitors.c:786
+#: ../plugins/monitors/monitors.c:784
 msgid "Display monitors (CPU, RAM)"
 msgstr "Показати монітори (CPU, RAM)"
 
@@ -1878,6 +1874,30 @@ msgstr "Додаток погоди"
 #: ../plugins/weather/weather.c:308
 msgid "Show weather conditions for a location."
 msgstr "Показ умов погоди у визначеному місці."
+
+#, c-format
+#~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
+#~ msgstr ""
+#~ " --log <number> -- виставити рівень журналювання 0-5. 0 - нема, 5 - повний\n"
+
+#, c-format
+#~ msgid "Format codes: man 3 strftime; \\%n for line break"
+#~ msgstr "Формат кодів: запустіть man 3 strftime; \\%n для розриву стрічки"
+
+#~ msgid "Normal"
+#~ msgstr "Нормально"
+
+#~ msgid "Warning1"
+#~ msgstr "Попередження1"
+
+#~ msgid "Warning2"
+#~ msgstr "Попередження2"
+
+#~ msgid "Warning1 Temperature"
+#~ msgstr "Попередження1 Температура"
+
+#~ msgid "Warning2 Temperature"
+#~ msgstr "Попередження2 Температура"
 
 #~ msgid "Copyright (C) 2008-2013"
 #~ msgstr "Всі права застережено (С) 2008-2013"
