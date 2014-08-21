@@ -46,7 +46,7 @@ About theming & lxpanel:
 	*possibly more, as yet unfound.
 
 3. You can also set theme for any plugin specifically using it's widget name
-    which is equal to plugin name.
+    which is equal to plugin type.
 
 4. There is a specific RC file which can be loaded by LXPanel, it can be placed
     as ~/.config/lxpanel/$PROFILE/gtkrc, where $PROFILE is the profile used on

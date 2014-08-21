@@ -19,7 +19,7 @@ The lxpanel API consists of:
         * data/ui/netstatus.ui
 
     - The plugin API:
-        * include/lxpanel/plugin.h (Must be the same as src/plugin.h)
+        * /usr/include/lxpanel/plugin.h (Must be the same as src/plugin.h)
 
     - The command line arguments to lxpanel and lxpanelctl.
 
