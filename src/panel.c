@@ -233,7 +233,7 @@ static gboolean lxpanel_button_press(GtkWidget *widget, GdkEventButton *event)
         gtk_menu_popup(popup, NULL, NULL, NULL, NULL, event->button, event->time);
         return TRUE;
     }
-    return GTK_WIDGET_CLASS(lxpanel_parent_class)->button_press_event(widget, event);
+    return FALSE;
 }
 
 static void lxpanel_class_init(PanelToplevelClass *klass)
