@@ -87,7 +87,7 @@ msgstr ""
 "Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2013-2014\n"
 "Hugo Florentino <hugo@acdam.cu>, 2009-2012\n"
 "Guillermo Iguarán <johnnyprez@gmail.com>, 2009\n"
-"Daniel Pacheco <daniel@tunki.org>, 2008\n"
+"Daniel Pacheco <daniel@tunki.org>, 2008"
 
 #: ../src/panel.c:993
 msgid "LXPanel"
