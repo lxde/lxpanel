@@ -1030,8 +1030,6 @@ void
 get_button_spacing(GtkRequisition *req, GtkContainer *parent, gchar *name)
 {
     GtkWidget *b;
-    //gint focus_width;
-    //gint focus_pad;
 
     ENTER;
     b = gtk_button_new();

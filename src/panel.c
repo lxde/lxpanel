@@ -1824,7 +1824,6 @@ int main(int argc, char *argv[], char *env[])
     fbev = fb_ev_new();
     win_grp = gtk_window_group_new();
 
-restart:
     is_restarting = FALSE;
 
     /* init LibFM */
@@ -1865,24 +1864,18 @@ restart:
     _unload_modules();
     fm_gtk_finalize();
 
-    if( is_restarting )
-        goto restart;
-
     /* gdk_threads_leave(); */
 
     g_object_unref(win_grp);
     g_object_unref(fbev);
 
-    /* FIXME: do restart more correct way:
     if (!is_restarting)
         return 0;
-    if (strchr(argv[0], G_PATH_SEPARATOR))
+    if (strchr(argv[0], G_DIR_SEPARATOR))
         execve(argv[0], argv, env);
     else
         execve(g_find_program_in_path(argv[0]), argv, env);
-    return 1; */
-
-    return 0;
+    return 1;
 }
 
 GtkOrientation panel_get_orientation(LXPanel *panel)
