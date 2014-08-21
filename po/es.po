@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: lxpanel-0.3.5.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-20 13:56+0300\n"
-"PO-Revision-Date: 2014-08-21 02:53+0000\n"
-"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
+"PO-Revision-Date: 2014-08-21 15:38+0000\n"
+"Last-Translator: Andriy Grytsenko <andrej@rep.kiev.ua>\n"
 "Language-Team: Spanish <daniel@tunki.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc1\n"
 "X-Poedit-Bookmarks: 19,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
-"X-POOTLE-MTIME: 1408589591.000000\n"
+"X-POOTLE-MTIME: 1408635517.000000\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:50 ../src/gtk-run.c:373 ../plugins/menu.c:749
@@ -80,6 +80,7 @@ msgstr ""
 msgid "Confirm"
 msgstr "Confirmar"
 
+# Do not end list with \n please!
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:988
 msgid "translator-credits"
@@ -87,7 +88,7 @@ msgstr ""
 "Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2013-2014\n"
 "Hugo Florentino <hugo@acdam.cu>, 2009-2012\n"
 "Guillermo Iguarán <johnnyprez@gmail.com>, 2009\n"
-"Daniel Pacheco <daniel@tunki.org>, 2008\n"
+"Daniel Pacheco <daniel@tunki.org>, 2008"
 
 #: ../src/panel.c:993
 msgid "LXPanel"
