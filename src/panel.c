@@ -1755,11 +1755,6 @@ int main(int argc, char *argv[], char *env[])
 /*    gdk_threads_init();
     gdk_threads_enter(); */
 
-    /* Add a gtkrc file to be parsed too. */
-    file = _user_config_file_name("gtkrc", NULL);
-    gtk_rc_add_default_file(file);
-    g_free(file);
-
     gtk_init(&argc, &argv);
 
 #ifdef ENABLE_NLS
@@ -1809,6 +1804,11 @@ int main(int argc, char *argv[], char *env[])
             exit(1);
         }
     }
+
+    /* Add a gtkrc file to be parsed too. */
+    file = _user_config_file_name("gtkrc", NULL);
+    gtk_rc_parse(file);
+    g_free(file);
 
     /* Check for duplicated lxpanel instances */
     if (!check_main_lock() && !config) {
