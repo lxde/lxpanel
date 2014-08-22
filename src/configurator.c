@@ -1546,16 +1546,23 @@ GtkWidget* create_generic_config_dlg( const char* title, GtkWidget* parent,
 void load_global_config()
 {
     GKeyFile* kf = g_key_file_new();
-    char* file = _old_system_config_file_name("config");
+    char* file = NULL;
     gboolean loaded = FALSE;
+    const gchar * const * dir = g_get_system_config_dirs();
 
     /* try to load system config file first */
-    if (g_key_file_load_from_file(kf, file, 0, NULL))
-        loaded = TRUE;
-    else /* fallback to old config place for backward compatibility */
+    if (dir) while (dir[0] && !loaded)
     {
         g_free(file);
-        file = _system_config_file_name("config");
+        file = _system_config_file_name(dir[0], "config");
+        if (g_key_file_load_from_file(kf, file, 0, NULL))
+            loaded = TRUE;
+        dir++;
+    }
+    if (!loaded) /* fallback to old config place for backward compatibility */
+    {
+        g_free(file);
+        file = _old_system_config_file_name("config");
         if (g_key_file_load_from_file(kf, file, 0, NULL))
             loaded = TRUE;
     }

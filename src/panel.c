@@ -1710,6 +1710,7 @@ static void _start_panels_from_dir(const char *panel_dir)
 static gboolean start_all_panels( )
 {
     char *panel_dir;
+    const gchar * const * dir;
 
     /* try user panels */
     panel_dir = _user_config_file_name("panels", NULL);
@@ -1717,12 +1718,17 @@ static gboolean start_all_panels( )
     g_free(panel_dir);
     if (all_panels != NULL)
         return TRUE;
-    /* else try XDG fallback */
-    panel_dir = _system_config_file_name("panels");
-    _start_panels_from_dir(panel_dir);
-    g_free(panel_dir);
-    if (all_panels != NULL)
-        return TRUE;
+    /* else try XDG fallbacks */
+    dir = g_get_system_config_dirs();
+    if (dir) while (dir[0])
+    {
+        panel_dir = _system_config_file_name(dir[0], "panels");
+        _start_panels_from_dir(panel_dir);
+        g_free(panel_dir);
+        if (all_panels != NULL)
+            return TRUE;
+        dir++;
+    }
     /* last try at old fallback for compatibility reasons */
     panel_dir = _old_system_config_file_name("panels");
     _start_panels_from_dir(panel_dir);
