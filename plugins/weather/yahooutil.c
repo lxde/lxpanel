@@ -940,8 +940,7 @@ getLocationInfo(const gchar * pczLocation)
 
   gsize len = getWOEIDQueryLength(pcEscapedLocation);
 
-  gchar cQueryBuffer[len];
-  bzero(cQueryBuffer, len);
+  gchar * cQueryBuffer = g_malloc0(len);
 
   gint iRet = getWOEIDQuery(cQueryBuffer, pcEscapedLocation);
 
@@ -978,6 +977,7 @@ getLocationInfo(const gchar * pczLocation)
 
     }
 
+  g_free(cQueryBuffer);
   g_free(pResponse);
 
   return pList;
@@ -1000,8 +1000,7 @@ getForecastInfo(const gchar * pczWOEID, const gchar czUnits, gpointer * pForecas
 
   gsize len = getForecastQueryLength(pczWOEID);
 
-  gchar cQueryBuffer[len];
-  bzero(cQueryBuffer, len);
+  gchar * cQueryBuffer = g_malloc0(len);
 
   gint iRet = getForecastQuery(cQueryBuffer, pczWOEID, czUnits);
 
@@ -1037,5 +1036,6 @@ getForecastInfo(const gchar * pczWOEID, const gchar czUnits, gpointer * pForecas
 
     }
 
+  g_free(cQueryBuffer);
   g_free(pResponse);
 }

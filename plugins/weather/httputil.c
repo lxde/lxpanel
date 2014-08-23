@@ -63,7 +63,7 @@ gpointer
 getURL(const gchar * pczURL, gint * piRetCode, gint * piDataSize)
 {
   /* nanohttp magic */
-  gint iBufReadSize = 1024;
+#define iBufReadSize 1024
   gint iReadSize = 0;
   gint iCurrSize = 0;
 
