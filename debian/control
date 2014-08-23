@@ -6,7 +6,7 @@ Uploaders:
  Andrew Lee (李健秋) <ajqlee@debian.org>,
  Andriy Grytsenko <andrej@rep.kiev.ua>
 Build-Depends:
- debhelper (>= 9), dh-autoreconf, autopoint,
+ debhelper (>= 8.9.0~), dh-autoreconf, gtk-doc-tools,
  intltool, libasound2-dev,
  libgtk2.0-dev (>= 2.18), libiw-dev [linux-any],
  libmenu-cache-dev | libmenu-cache1-dev,
