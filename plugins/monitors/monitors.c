@@ -286,8 +286,7 @@ mem_update(Monitor * m)
     ENTER;
 
     FILE *meminfo;
-    int const buflen = 80;
-    char buf[buflen];
+    char buf[80];
     long int mem_total = 0;
     long int mem_free  = 0;
     long int mem_buffers = 0;
@@ -304,7 +303,7 @@ mem_update(Monitor * m)
         RET(FALSE);
     }
 
-    while (readmask && fgets(buf, buflen, meminfo)) {
+    while (readmask && fgets(buf, sizeof(buf), meminfo)) {
         if (sscanf(buf, "MemTotal: %ld kB\n", &mem_total) == 1) {
             readmask ^= 0x1;
             continue;
