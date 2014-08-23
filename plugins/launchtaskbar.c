@@ -3445,8 +3445,6 @@ static LXPanelPluginInit _launchbar_init = {
     .name = N_("Application Launch Bar"),
     .description = N_("Bar with buttons to launch application"),
 
-    .expand_available = TRUE,
-
     .new_instance = launchbar_constructor,
     .config = launchtaskbar_configure,
     .reconfigure = launchtaskbar_panel_configuration_changed
