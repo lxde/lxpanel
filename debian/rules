@@ -2,35 +2,25 @@
 
 DEB_HOST_ARCH_OS ?= $(shell dpkg-architecture -qDEB_HOST_ARCH_OS)
 
-# lxpanel does not build (yet) with hardening
-export DEB_BUILD_MAINT_OPTIONS = hardening=-all
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
 %:
-	dh ${@} --with autoreconf
-
-autoreconf:
-	autoreconf --install --force
-	intltoolize --copy --force --automake
+	dh ${@} --parallel --with autoreconf
 
 override_dh_autoreconf:
-	dh_autoreconf debian/rules -- autoreconf
+	dh_autoreconf ./autogen.sh -- 
 
 override_dh_auto_configure:
 ifeq ($(DEB_HOST_ARCH_OS),linux)
-	dh_auto_configure -- --enable-man --with-plugins=all
+	dh_auto_configure -- --enable-man --with-plugins=all --disable-silent-rules
 else
 	# omit netstat plugin on non-linux, requires wireless-tools
-	dh_auto_configure -- --enable-man --with-plugins=netstatus,volume,volumealsa,cpu,deskno,batt,kbled,xkb,thermal,cpufreq,monitors,wnckpager,weather
+	dh_auto_configure -- --enable-man --with-plugins=all,-netstat --disable-silent-rules
 endif
-
-override_dh_auto_test:
-	# disabled: test fails in po directory
-
-override_dh_builddeb:
-	dh_builddeb -- -Zxz -z9
-
-override_dh_install:
-	dh_install --fail-missing
 
 override_dh_strip:
 	dh_strip --dbg-package=lxpanel-dbg
+
+override_dh_makeshlibs:
+	# plugins are not shared libs so disable processing for them
+	dh_makeshlibs -X/plugins/

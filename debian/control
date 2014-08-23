@@ -3,20 +3,24 @@ Section: x11
 Priority: optional
 Maintainer: Debian LXDE Maintainers <lxde-debian@lists.lxde.org>
 Uploaders:
- Andrew Lee (李健秋) <ajqlee@debian.org>, Daniel Baumann <daniel@debian.org>
+ Andrew Lee (李健秋) <ajqlee@debian.org>,
+ Andriy Grytsenko <andrej@rep.kiev.ua>
 Build-Depends:
- debhelper (>= 9), dh-autoreconf, autotools-dev, autopoint, docbook-xml,
- docbook-xsl, intltool, intltool-debian, libasound2-dev, libglib2.0-dev,
- libgtk2.0-dev, libiw-dev [linux-any], libmenu-cache1-dev, libwnck-dev,
- libxpm-dev, python, xsltproc, libfm-dev, libxml2-dev
-Standards-Version: 3.9.3
+ debhelper (>= 9), dh-autoreconf, autopoint,
+ intltool, libasound2-dev,
+ libgtk2.0-dev (>= 2.18), libiw-dev [linux-any],
+ libmenu-cache-dev | libmenu-cache1-dev,
+ libwnck-dev, libfm-dev (>= 1.2.0), libxml2-dev
+Standards-Version: 3.9.5
 Homepage: http://www.lxde.org/
 Vcs-Browser: http://git.lxde.org/gitweb/?p=debian/lxpanel.git
 Vcs-Git: git://git.lxde.org/git/debian/lxpanel.git
 
 Package: lxpanel
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}, lxmenu-data, libfm-modules
+Depends: ${misc:Depends}, ${shlibs:Depends}, lxmenu-data, libfm-modules,
+ lxpanel-data (= ${source:Version})
+Recommends: xkb-data
 Suggests: lxsession | menu, iceweasel | www-browser
 Description: LXDE panel
  LXPanel is a GUI application for the Lightweight X11 Desktop Environment
@@ -61,3 +65,14 @@ Description: LXDE panel (debug)
  (LXDE).
  .
  This package contains the debugging symbols.
+
+Package: lxpanel-data
+Architecture: all
+Depends: ${misc:Depends}
+Breaks: lxpanel (<< 0.7.0)
+Replaces: lxpanel (<< 0.7.0)
+Description: LXDE panel (data files)
+ LXPanel is a GUI application for the Lightweight X11 Desktop Environment
+ (LXDE).
+ .
+ This package contains the data required for panel.

@@ -1,2 +1,3 @@
 version=3
-http://sf.net/lxde/lxpanel-([\d.]*)\.tar\.gz
+opts=uversionmangle=s/(\d)[_\.\-\+]?((RC|rc|beta|alpha)\d*)$/$1~$2/ \
+http://sf.net/lxde/lxpanel-(\d\S*)\.tar\.(?:xz|gz)

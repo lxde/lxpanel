@@ -1,3 +1,85 @@
+lxpanel (0.7.0-1) unstable; urgency=low
+
+  * Adding --disable-silent-rules to fix buildlog checker warning.
+  * Bump Standards-Version to 3.9.5.
+  * Removing Daniel Baumann from Uploaders by his request (Closes: #704344).
+  * Updating watch file to support XZ tarball format and non-numeric versions.
+  * Remove '03-run-in-background.patch' as fixed in upstream.
+  * Adding myself to Uploaders.
+  * Removing TODO from debian/lxpanel.docs.
+  * Enabling multithreaded compilation.
+  * Merging upstream version 0.7.0 (Closes: #493243, #510888, #567617, #699414,
+    #709777, #757130)
+  * Adding libfm-gtk-dev >= 1.2.0 into build dependencies.
+  * Removing 02-desktop-number.patch, it's included into upstream.
+  * Removing unwanted (deprecated) build dependencies.
+  * Adding libxml2-dev into build dependencies.
+  * Adding xkb-data as recommended for lxpanel.
+  * Enabling hardening on the package.
+  * Fixing configure parameters on non-linux architectures.
+  * Enabling build with autoreconf.
+  * Updating debian/copyright file.
+  * Adding package lxpanel-data with arch-independent files.
+  * Fixing minus signs in debian/manpages/lxpanel.hints.5 file.
+  * Disabling run ldconfig on plugins by overriding dh_makeshlibs.
+  * Removing obsolete target override_dh_builddeb from debian/rules file.
+  * Adding libfm-modules into Depends for lxpanel.
+
+ -- Andriy Grytsenko <andrej@rep.kiev.ua>  Fri, 22 Aug 2014 13:39:47 +0300
+
+lxpanel (0.5.12-3) unstable; urgency=low
+
+  * Revert fix_gtk_main.diff. (Closes:#720109)
+
+ -- Andrew Lee (李健秋) <ajqlee@debian.org>  Mon, 26 Aug 2013 19:47:13 +0800
+
+lxpanel (0.5.12-2) unstable; urgency=low
+
+  * debian/rules: re-added override_dh_install.
+  * Applied fix_gtk_main.diff from
+    Christoph Egger <christoph@debian.org>. (Closes: #706276)
+
+ -- Andrew Lee (李健秋) <ajqlee@debian.org>  Tue, 13 Aug 2013 01:33:27 +0800
+
+lxpanel (0.5.12-1) unstable; urgency=low
+
+  [ Andrew Lee (李健秋) ]
+  * Merging upstream version 0.5.12.
+
+  Grab from Mateusz's package changelog from mentors.d.n:
+  (Closes: #713305, #705057, #697405, #695427, #588532, #598824, #609909,
+  #638207, #656036, #661224, #667728, #694350, #586352, #693900, #687615, 
+  #670257, #669242)
+
+  [ Mateusz Łukasik ]
+  * debian/control: bumpped standard-version.
+  * debian/control: build-deps on libgtk2.0-dev (>= 2.16).
+  * debian/control: build-deps on libindicator-dev.
+  * debian/control: suggests indicator componments and provides 
+    indicator-renderer.
+  * debian/copyright: Update copyright for xkb and indicator plugins.
+  * debian/rules: drop override_dh_install, autoreconf.
+
+  [ Andrew Lee (李健秋) ]
+  * Merged changes from Mateusz's package from mentors.d.n.
+  * debian/control: build-deps on libmenu-cache-dev.
+
+ -- Andrew Lee (李健秋) <ajqlee@debian.org>  Thu, 08 Aug 2013 00:07:17 +0800
+
+lxpanel (0.5.10-1) unstable; urgency=low
+
+  * Merging upstream version 0.5.10.
+
+ -- Daniel Baumann <daniel@debian.org>  Mon, 11 Jun 2012 12:24:09 +0200
+
+lxpanel (0.5.9-4) unstable; urgency=low
+
+  * Merging lxpanel-dev into lxpanel package itself, lxpanel-dev only
+    contained one header and one pkgconfig file.
+  * Adding debug package.
+
+ -- Daniel Baumann <daniel@debian.org>  Fri, 18 May 2012 19:47:56 +0200
+
 lxpanel (0.5.9-3) unstable; urgency=low
 
   * Remove extra tab in host_art_os variable assignment in rules files.
