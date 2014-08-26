@@ -153,6 +153,7 @@ struct LaunchTaskBarPlugin {
     Task * focused_previous;       /* Task that had focus just before panel got it */
     Task * menutask;               /* Task for which popup menu is open */
     guint dnd_delay_timer;         /* Timer for drag and drop delay */
+    gboolean dnd_task_moving;      /* User is currently moving a task button */
     int icon_size;                 /* Size of task icons */
     gboolean show_all_desks;       /* User preference: show windows from all desktops */
     gboolean tooltips;             /* User preference: show tooltips */
@@ -2552,7 +2553,16 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
 /* Handler for "button-press-event" event from taskbar button. */
 static gboolean taskbar_button_press_event(GtkWidget * widget, GdkEventButton * event, Task * tk)
 {
-    return taskbar_task_control_event(widget, event, tk, FALSE);
+    // needed to prevent releasing focused task button
+    return TRUE;
+}
+
+/* Handler for "button-release-event" event from taskbar button. */
+static gboolean taskbar_button_release_event(GtkWidget * widget, GdkEventButton * event, Task * tk)
+{
+    if (!tk->tb->dnd_task_moving)
+        return taskbar_task_control_event(widget, event, tk, FALSE);
+    return TRUE;
 }
 
 /* Handler for "activate" event from grouped-task popup menu item. */
@@ -2579,6 +2589,7 @@ static gboolean taskbar_button_drag_motion(GtkWidget * widget, GdkDragContext * 
     GtkWidget * drag_source = gtk_drag_get_source_widget(drag_context);
     if (drag_source != NULL && gtk_widget_get_parent(drag_source) == gtk_widget_get_parent(tk->button))
     {
+        tk->tb->dnd_task_moving = TRUE;
         gdk_drag_status(drag_context, GDK_ACTION_MOVE, time);
     }
     else
@@ -2595,6 +2606,7 @@ static gboolean taskbar_button_drag_motion(GtkWidget * widget, GdkDragContext * 
 /* Handler for "drag-drop" event from taskbar button. */
 static gboolean taskbar_button_drag_drop(GtkWidget * widget, GdkDragContext * drag_context, gint x, gint y, guint time, Task * tk)
 {
+    tk->tb->dnd_task_moving = FALSE;
     GtkWidget * drag_source = gtk_drag_get_source_widget(drag_context);
     if (drag_source != NULL && gtk_widget_get_parent(drag_source) == gtk_widget_get_parent(tk->button))
     {
@@ -2626,6 +2638,7 @@ static void taskbar_button_drag_leave(GtkWidget * widget, GdkDragContext * drag_
 /* Handler for "enter" event from taskbar button.  This indicates that the cursor position has entered the button. */
 static void taskbar_button_enter(GtkWidget * widget, Task * tk)
 {
+    tk->tb->dnd_task_moving = FALSE;
     tk->entered_state = TRUE;
     if (tk->tb->flat_button)
         gtk_widget_set_state(widget, GTK_STATE_NORMAL);
@@ -2757,6 +2770,7 @@ static void task_build_gui(LaunchTaskBarPlugin * tb, Task * tk)
 
     /* Connect signals to the button. */
     g_signal_connect(tk->button, "button-press-event", G_CALLBACK(taskbar_button_press_event), (gpointer) tk);
+    g_signal_connect(tk->button, "button-release-event", G_CALLBACK(taskbar_button_release_event), (gpointer) tk);
     g_signal_connect(G_OBJECT(tk->button), "drag-motion", G_CALLBACK(taskbar_button_drag_motion), (gpointer) tk);
     g_signal_connect(G_OBJECT(tk->button), "drag-leave", G_CALLBACK(taskbar_button_drag_leave), (gpointer) tk);
     g_signal_connect(G_OBJECT(tk->button), "drag-drop", G_CALLBACK(taskbar_button_drag_drop), (gpointer) tk);
