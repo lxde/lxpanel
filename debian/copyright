@@ -15,6 +15,7 @@ Copyright: Hong Jen Yee (PCMan)  <pcman.tw@gmail.com>
            Andriy Grytsenko <andrej@rep.kiev.ua>
            Giuseppe Penone <giuspen@gmail.com>
            Piotr Sipika <piotr.sipika@gmail.com>
+           Raimar Bühmann <raimar@buehmann.de>
 License: GPL-2+
 
 Files: src/bg.* src/ev.*:

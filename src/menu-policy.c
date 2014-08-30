@@ -38,13 +38,13 @@
 MenuCache * panel_menu_cache_new(guint32* visibility_flags)
 {
     MenuCache* cache;
-    if (g_getenv("XDG_MENU_PREFIX") == NULL)
-        g_setenv("XDG_MENU_PREFIX", "lxde-", TRUE);
+    gboolean need_prefix = (g_getenv("XDG_MENU_PREFIX") == NULL);
+
 #if MENU_CACHE_CHECK_VERSION(0, 5, 0)
     /* do it the same way menu:// VFS plugin in libfm does */
-    cache = menu_cache_lookup("applications.menu+hidden");
+    cache = menu_cache_lookup(need_prefix ? "lxde-applications.menu+hidden" : "applications.menu+hidden");
 #else
-    cache = menu_cache_lookup("applications.menu");
+    cache = menu_cache_lookup(need_prefix ? "lxde-applications.menu" : "applications.menu");
 #endif
     if(visibility_flags)
     {
