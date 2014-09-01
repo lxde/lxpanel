@@ -334,15 +334,15 @@ find_sensors(thermal* th, char const* directory, char const* subdir_prefix,
     g_dir_close(sensorsDirectory);
 }
 
-static void find_hwmon_sensors(thermal* th)
+static gboolean try_hwmon_sensors(thermal* th, const char *path)
 {
     GDir *sensorsDirectory;
     const char *sensor_name;
     char sensor_path[100], buf[256];
     FILE *fp;
 
-    if (!(sensorsDirectory = g_dir_open("/sys/class/hwmon/hwmon0/device/", 0, NULL)))
-        return;
+    if (!(sensorsDirectory = g_dir_open(path, 0, NULL)))
+        return FALSE;
     /* FIXME: do scanning hwmonX other than 0 */
 
     while ((sensor_name = g_dir_read_name(sensorsDirectory)))
@@ -350,8 +350,8 @@ static void find_hwmon_sensors(thermal* th)
         if (strncmp(sensor_name, "temp", 4) == 0 &&
             strcmp(&sensor_name[5], "_input") == 0)
         {
-            snprintf(sensor_path, sizeof(sensor_path),
-                     "/sys/class/hwmon/hwmon0/device/temp%c_label", sensor_name[4]);
+            snprintf(sensor_path, sizeof(sensor_path), "%s/temp%c_label", path,
+                     sensor_name[4]);
             fp = fopen(sensor_path, "r");
             buf[0] = '\0';
             if (fp)
@@ -364,13 +364,30 @@ static void find_hwmon_sensors(thermal* th)
                 }
                 fclose(fp);
             }
-            snprintf(sensor_path, sizeof(sensor_path),
-                     "/sys/class/hwmon/hwmon0/device/%s", sensor_name);
+            snprintf(sensor_path, sizeof(sensor_path), "%s/%s", path, sensor_name);
             add_sensor(th, sensor_path, buf[0] ? buf : sensor_name,
                        hwmon_get_temperature, hwmon_get_critical);
         }
     }
     g_dir_close(sensorsDirectory);
+    return TRUE;
+}
+
+static void find_hwmon_sensors(thermal* th)
+{
+    char dir_path[100];
+    char *c;
+    int i; /* sensor type num, we'll try up to 4 */
+
+    for (i = 0; i < 4; i++)
+    {
+        snprintf(dir_path, sizeof(dir_path), "/sys/class/hwmon/hwmon%d/device", i);
+        if (try_hwmon_sensors(th, dir_path))
+            continue;
+        c = strrchr(dir_path, '/');
+        *c = '\0';
+        try_hwmon_sensors(th, dir_path);
+    }
 }
 
 
