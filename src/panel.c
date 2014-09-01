@@ -284,6 +284,7 @@ static void lxpanel_init(PanelToplevel *self)
     p->icon_size = PANEL_ICON_SIZE;
     p->icon_theme = gtk_icon_theme_get_default();
     p->config = config_new();
+    p->defstyle = gtk_widget_get_default_style();
     gtk_window_set_type_hint(GTK_WINDOW(self), GDK_WINDOW_TYPE_HINT_DOCK);
 }
 
@@ -1339,12 +1340,8 @@ void panel_draw_label_text(Panel * p, GtkWidget * label, const char * text,
         font_desc = p->fontsize;
     else
     {
-        if (p->icon_size < 20)
-            font_desc = 9;
-        else if (p->icon_size >= 20 && p->icon_size < 36)
-            font_desc = 10;
-        else
-            font_desc = 12;
+        GtkStyle *style = gtk_widget_get_style(label);
+        font_desc = pango_font_description_get_size(style->font_desc) / PANGO_SCALE;
     }
     font_desc *= custom_size_factor;
 
