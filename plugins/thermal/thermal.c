@@ -56,7 +56,6 @@ typedef struct thermal {
     config_setting_t *settings;
     GtkWidget *namew;
     GString *tip;
-    int critical;
     int warning1;
     int warning2;
     int not_custom_levels, auto_sensor;
@@ -74,6 +73,7 @@ typedef struct thermal {
     GetTempFunc get_temperature[MAX_NUM_SENSORS];
     GetTempFunc get_critical[MAX_NUM_SENSORS];
     gint temperature[MAX_NUM_SENSORS];
+    gint critical[MAX_NUM_SENSORS];
 } thermal;
 
 
@@ -141,14 +141,15 @@ proc_get_temperature(char const* sensor_path){
     return -1;
 }
 
-static gint _get_reading(const char *path)
+static gint _get_reading(const char *path, gboolean quiet)
 {
     FILE *state;
     char buf[256];
     char* pstr;
 
     if (!(state = fopen(path, "r"))) {
-        g_warning("thermal: cannot open %s", path);
+        if (!quiet)
+            g_warning("thermal: cannot open %s", path);
         return -1;
     }
 
@@ -172,7 +173,7 @@ sysfs_get_critical(char const* sensor_path){
 
     snprintf(sstmp,sizeof(sstmp),"%s%s",sensor_path,SYSFS_THERMAL_TRIP);
 
-    return _get_reading(sstmp);
+    return _get_reading(sstmp, TRUE);
 }
 
 static gint
@@ -183,7 +184,7 @@ sysfs_get_temperature(char const* sensor_path){
 
     snprintf(sstmp,sizeof(sstmp),"%s%s",sensor_path,SYSFS_THERMAL_TEMPF);
 
-    return _get_reading(sstmp);
+    return _get_reading(sstmp, FALSE);
 }
 
 static gint
@@ -200,7 +201,7 @@ hwmon_get_critical(char const* sensor_path)
 
     snprintf(sstmp, sizeof(sstmp), "%.*s_crit", spl, sensor_path);
 
-    return _get_reading(sstmp);
+    return _get_reading(sstmp, TRUE);
 }
 
 static gint
@@ -208,20 +209,33 @@ hwmon_get_temperature(char const* sensor_path)
 {
     if(sensor_path == NULL) return -1;
 
-    return _get_reading(sensor_path);
+    return _get_reading(sensor_path, FALSE);
 }
 
-static gint get_temperature(thermal *th)
+static gint get_temperature(thermal *th, gint *warn)
 {
     gint max = -273;
-    gint cur, i;
+    gint cur, i, w = 0;
 
     for(i = 0; i < th->numsensors; i++){
         cur = th->get_temperature[i](th->sensor_array[i]);
+        if (w == 2) ; /* already warning2 */
+        else if (th->critical[i] > 0 && cur >= th->critical[i] - 5)
+            w = 2;
+        else if ((!th->not_custom_levels || th->critical[i] < 0) &&
+                 cur >= th->warning2)
+            w = 2;
+        else if (w == 1) ; /* already warning1 */
+        else if (th->critical[i] > 0 && cur >= th->critical[i] - 10)
+            w = 1;
+        else if ((!th->not_custom_levels || th->critical[i] < 0) &&
+                 cur >= th->warning1)
+            w = 1;
         if (cur > max)
             max = cur;
         th->temperature[i] = cur;
     }
+    *warn = w;
 
     return max;
 }
@@ -229,12 +243,12 @@ static gint get_temperature(thermal *th)
 static gint get_critical(thermal *th)
 {
     gint min = MAX_AUTOMATIC_CRITICAL_TEMP;
-    gint cur, i;
+    gint i;
 
     for(i = 0; i < th->numsensors; i++){
-        cur = th->get_critical[i](th->sensor_array[i]);
-        if (cur < min)
-            min = cur;
+        th->critical[i] = th->get_critical[i](th->sensor_array[i]);
+        if (th->critical[i] > 0 && th->critical[i] < min)
+            min = th->critical[i];
     }
 
     return min;
@@ -249,10 +263,10 @@ update_display(thermal *th)
     GdkColor color;
     gchar *separator;
 
-    temp = get_temperature(th);
-    if(temp >= th->warning2)
+    temp = get_temperature(th, &i);
+    if (i >= 2)
         color = th->cl_warning2;
-    else if(temp >= th->warning1)
+    else if (i >= 1)
         color = th->cl_warning1;
     else
         color = th->cl_normal;
@@ -421,6 +435,7 @@ check_sensors( thermal *th )
 static gboolean applyConfig(gpointer p)
 {
     thermal *th = lxpanel_plugin_get_data(p);
+    int critical;
     ENTER;
 
     if (th->str_cl_normal) gdk_color_parse(th->str_cl_normal, &th->cl_normal);
@@ -437,11 +452,11 @@ static gboolean applyConfig(gpointer p)
     else
         add_sensor(th, th->sensor, th->sensor, hwmon_get_temperature, hwmon_get_critical);
 
-    th->critical = get_critical(th);
+    critical = get_critical(th);
 
     if(th->not_custom_levels){
-        th->warning1 = th->critical - 10;
-        th->warning2 = th->critical - 5;
+        th->warning1 = critical - 10;
+        th->warning2 = critical - 5;
     }
 
     config_group_set_string(th->settings, "NormalColor", th->str_cl_normal);
