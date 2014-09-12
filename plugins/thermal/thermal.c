@@ -462,7 +462,9 @@ static gboolean applyConfig(gpointer p)
     config_group_set_string(th->settings, "NormalColor", th->str_cl_normal);
     config_group_set_string(th->settings, "Warning1Color", th->str_cl_warning1);
     config_group_set_string(th->settings, "Warning2Color", th->str_cl_warning2);
-    config_group_set_int(th->settings, "CustomLevels", th->not_custom_levels);
+    config_group_set_int(th->settings, "AutomaticLevels", th->not_custom_levels);
+    /* TODO: clean obsolete setting
+    config_setting_remove(th->settings, "CustomLevels"); */
     config_group_set_int(th->settings, "Warning1Temp", th->warning1);
     config_group_set_int(th->settings, "Warning2Temp", th->warning2);
     config_group_set_int(th->settings, "AutomaticSensor", th->auto_sensor);
@@ -521,7 +523,9 @@ thermal_constructor(LXPanel *panel, config_setting_t *settings)
     if (config_setting_lookup_string(settings, "Warning2Color", &tmp))
         th->str_cl_warning2 = g_strdup(tmp);
     config_setting_lookup_int(settings, "AutomaticSensor", &th->auto_sensor);
+    /* backward compatibility for wrong variable */
     config_setting_lookup_int(settings, "CustomLevels", &th->not_custom_levels);
+    config_setting_lookup_int(settings, "AutomaticLevels", &th->not_custom_levels);
     if (config_setting_lookup_string(settings, "Sensor", &tmp))
         th->sensor = g_strdup(tmp);
     config_setting_lookup_int(settings, "Warning1Temp", &th->warning1);
