@@ -1,24 +1,23 @@
 ## Process this file with automake to produce Makefile.in
 
-DIST_SUBDIRS=$(ALL_PLUGINS_LIST)
+## common flags for all plugins
+AM_CPPFLAGS = \
+	-I$(top_srcdir) \
+	-I$(top_srcdir)/src \
+	$(PACKAGE_CFLAGS) \
+	$(G_CAST_CHECKS)
 
-if BUILD_PLUGIN_LOADER
-DYNAMIC_PLUGINS = \
-	$(PLUGINS_LIST)
-endif
+AM_LDFLAGS = \
+	$(PACKAGE_LIBS)
 
-SUBDIRS = $(DYNAMIC_PLUGINS)
 
+## built-in plugins
 noinst_LIBRARIES = libbuiltin_plugins.a
 
 libbuiltin_plugins_a_CFLAGS = \
-	-I$(top_srcdir) \
-	-I$(top_srcdir)/src \
 	-DPACKAGE_DATA_DIR=\""$(datadir)/lxpanel"\" \
 	-DPACKAGE_UI_DIR=\""$(datadir)/lxpanel/ui"\" \
-	-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
-	$(PACKAGE_CFLAGS) \
-	$(G_CAST_CHECKS)
+	-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\"
 
 if ENABLE_MENU_CACHE
 MENU_SOURCES = \
@@ -41,7 +40,294 @@ libbuiltin_plugins_a_SOURCES = \
 
 libbuiltin_plugins_a_LIBADD =
 
+
+## loadable plugins
+if BUILD_PLUGIN_LOADER
+DYNAMIC_PLUGINS = \
+	$(PLUGINS_LIST)
+endif
+
+pkglib_LTLIBRARIES = $(DYNAMIC_PLUGINS)
+
+EXTRA_LTLIBRARIES = \
+	batt.la \
+	cpu.la \
+	cpufreq.la \
+	deskno.la \
+	indicator.la \
+	kbled.la \
+	monitors.la \
+	netstat.la \
+	netstatus.la \
+	thermal.la \
+	volume.la \
+	volumealsa.la \
+	weather.la \
+	xkb.la
+
+pkglibdir = $(libdir)/lxpanel/plugins
+
+# batt
+batt_la_SOURCES = \
+	batt/batt.c \
+	batt/batt_sys.c
+batt_la_CFLAGS = -I$(srcdir)/batt
+batt_la_LDFLAGS = -module @LXPANEL_MODULE@
+
+# cpu
+cpu_la_SOURCES = cpu/cpu.c
+cpu_la_LDFLAGS = -module @LXPANEL_MODULE@
+
+# cpufreq
+cpufreq_la_SOURCES = cpufreq/cpufreq.c
+cpufreq_la_CFLAGS = -DPACKAGE_DATA_DIR=\""$(datadir)/lxpanel"\"
+cpufreq_la_LDFLAGS = -module @LXPANEL_MODULE@
+
+# deskno
+deskno_la_SOURCES = deskno/deskno.c
+deskno_la_LDFLAGS = -module @LXPANEL_MODULE@
+
+# indicator
+indicator_la_SOURCES = indicator/indicator.c
+indicator_la_CFLAGS = \
+	-DINDICATOR_DIR=\""$(INDICATORDIR)"\" \
+	-DINDICATOR_ICONS_DIR=\""$(INDICATORICONSDIR)"\" \
+	$(APPLET_CFLAGS)
+indicator_la_LDFLAGS = -module @LXPANEL_MODULE@ $(APPLET_LIBS)
+
+# kbled
+kbled_la_SOURCES = kbled/kbled.c
+kbled_la_CFLAGS = -DPACKAGE_DATA_DIR=\""$(datadir)/lxpanel"\"
+kbled_la_LDFLAGS = -module @LXPANEL_MODULE@
+
+# monitors
+monitors_la_SOURCES = monitors/monitors.c
+monitors_la_LDFLAGS = -module @LXPANEL_MODULE@
+
+# netstat
+netstat_la_SOURCES = \
+	netstat/netstat.c \
+	netstat/devproc.c \
+	netstat/statusicon.c \
+	netstat/wireless.c \
+	netstat/lxnm_client.c \
+	netstat/passwd_gui.c
+netstat_la_CFLAGS = \
+	-I$(srcdir)/netstat \
+	-DPACKAGE_DATA_DIR=\""$(datadir)/lxpanel"\"
+netstat_la_LDFLAGS = -module @LXPANEL_MODULE@ -liw
+
+# netstatus
+netstatus_la_SOURCES = \
+	netstatus/netstatus.c \
+	netstatus/netstatus-dialog.c \
+	netstatus/netstatus-enums.c \
+	netstatus/netstatus-icon.c \
+	netstatus/netstatus-iface.c \
+	netstatus/netstatus-sysdeps.c \
+	netstatus/netstatus-util.c
+netstatus_la_CFLAGS = \
+	-I$(srcdir)/netstatus \
+	-DPACKAGE_DATA_DIR=\""$(datadir)/lxpanel"\" \
+	-DPACKAGE_UI_DIR=\""$(datadir)/lxpanel/ui"\"
+netstatus_la_LDFLAGS = -module @LXPANEL_MODULE@
+
+# thermal
+thermal_la_SOURCES = thermal/thermal.c
+thermal_la_LDFLAGS = -module @LXPANEL_MODULE@
+
+# volume (OSS)
+volume_la_SOURCES = \
+	volume/volume-impl.c \
+	volume/volume.c
+volume_la_CFLAGS = -I$(srcdir)/volume
+volume_la_LDFLAGS = -module @LXPANEL_MODULE@
+
+# volumealsa
+volumealsa_la_SOURCES = volumealsa/volumealsa.c
+volumealsa_la_CFLAGS = -DPACKAGE_DATA_DIR=\""$(datadir)/lxpanel"\"
+volumealsa_la_LDFLAGS = -module @LXPANEL_MODULE@ -lasound
+
+# weather
+weather_la_SOURCES = \
+	weather/logutil.c          \
+	weather/httputil.c         \
+	weather/yahooutil.c        \
+	weather/location.c         \
+	weather/forecast.c         \
+	weather/weatherwidget.c    \
+	weather/weather.c
+weather_la_CFLAGS = \
+	-I$(srcdir)/weather \
+	$(LIBXML2_CFLAGS)
+weather_la_LDFLAGS = -module @LXPANEL_MODULE@ $(LIBXML2_LIBS)
+
+# xkb
+xkb_la_CFLAGS = \
+	-I$(srcdir)/xkb \
+	-DFLAGSDIR=\"$(datadir)/lxpanel/images/xkb-flags\" \
+	-DFLAGSCUSTDIR=\"$(datadir)/lxpanel/images/xkb-flags-cust\" \
+	-DXKBCONFDIR=\"$(datadir)/lxpanel/xkeyboardconfig\"
+xkb_la_SOURCES = \
+	xkb/xkb-plugin.c \
+	xkb/xkb.c
+xkb_la_LDFLAGS = -module @LXPANEL_MODULE@
+
+xkeyboardconfigdir=$(datadir)/lxpanel/xkeyboardconfig
+xkeyboardconfig_DATA = \
+	xkb/xkeyboardconfig/models.cfg \
+	xkb/xkeyboardconfig/layouts.cfg \
+	xkb/xkeyboardconfig/toggle.cfg
+
+flagsdir=$(datadir)/lxpanel/images/xkb-flags
+flags_DATA= \
+	xkb/flags/ad.png \
+	xkb/flags/ae.png \
+	xkb/flags/af.png \
+	xkb/flags/al.png \
+	xkb/flags/am.png \
+	xkb/flags/ar.png \
+	xkb/flags/ara.png \
+	xkb/flags/at.png \
+	xkb/flags/az.png \
+	xkb/flags/ba.png \
+	xkb/flags/bd.png \
+	xkb/flags/be.png \
+	xkb/flags/ben.png \
+	xkb/flags/bg.png \
+	xkb/flags/bh.png \
+	xkb/flags/br.png \
+	xkb/flags/brai.png \
+	xkb/flags/bt.png \
+	xkb/flags/bw.png \
+	xkb/flags/by.png \
+	xkb/flags/ca.png \
+	xkb/flags/cd.png \
+	xkb/flags/ch.png \
+	xkb/flags/cm.png \
+	xkb/flags/cn.png \
+	xkb/flags/cu.png \
+	xkb/flags/cz.png \
+	xkb/flags/de.png \
+	xkb/flags/dev.png \
+	xkb/flags/dj.png \
+	xkb/flags/dk.png \
+	xkb/flags/dvorak.png \
+	xkb/flags/dz.png \
+	xkb/flags/ee.png \
+	xkb/flags/eg.png \
+	xkb/flags/epo.png \
+	xkb/flags/es.png \
+	xkb/flags/et.png \
+	xkb/flags/fi.png \
+	xkb/flags/fo.png \
+	xkb/flags/fr.png \
+	xkb/flags/gb.png \
+	xkb/flags/ge.png \
+	xkb/flags/gh.png \
+	xkb/flags/gn.png \
+	xkb/flags/gr.png \
+	xkb/flags/hr.png \
+	xkb/flags/hu.png \
+	xkb/flags/ie.png \
+	xkb/flags/il.png \
+	xkb/flags/in.png \
+	xkb/flags/iq.png \
+	xkb/flags/ir.png \
+	xkb/flags/is.png \
+	xkb/flags/it.png \
+	xkb/flags/jo.png \
+	xkb/flags/jp.png \
+	xkb/flags/ke.png \
+	xkb/flags/kg.png \
+	xkb/flags/kh.png \
+	xkb/flags/km.png \
+	xkb/flags/kp.png \
+	xkb/flags/kr.png \
+	xkb/flags/kw.png \
+	xkb/flags/kz.png \
+	xkb/flags/la.png \
+	xkb/flags/latam.png \
+	xkb/flags/lb.png \
+	xkb/flags/lk.png \
+	xkb/flags/lt.png \
+	xkb/flags/lv.png \
+	xkb/flags/ly.png \
+	xkb/flags/ma.png \
+	xkb/flags/mao.png \
+	xkb/flags/me.png \
+	xkb/flags/mk.png \
+	xkb/flags/ml.png \
+	xkb/flags/mm.png \
+	xkb/flags/mn.png \
+	xkb/flags/mt.png \
+	xkb/flags/mv.png \
+	xkb/flags/mx.png \
+	xkb/flags/nec_vndr-jp.png \
+	xkb/flags/ng.png \
+	xkb/flags/nl.png \
+	xkb/flags/no.png \
+	xkb/flags/np.png \
+	xkb/flags/om.png \
+	xkb/flags/ph.png \
+	xkb/flags/pk.png \
+	xkb/flags/pl.png \
+	xkb/flags/pt.png \
+	xkb/flags/qa.png \
+	xkb/flags/ro.png \
+	xkb/flags/rs.png \
+	xkb/flags/ru.png \
+	xkb/flags/sa.png \
+	xkb/flags/sd.png \
+	xkb/flags/se.png \
+	xkb/flags/si.png \
+	xkb/flags/sk.png \
+	xkb/flags/sn.png \
+	xkb/flags/so.png \
+	xkb/flags/sr.png \
+	xkb/flags/sy.png \
+	xkb/flags/th.png \
+	xkb/flags/tj.png \
+	xkb/flags/tm.png \
+	xkb/flags/tn.png \
+	xkb/flags/tr.png \
+	xkb/flags/tw.png \
+	xkb/flags/tz.png \
+	xkb/flags/ua.png \
+	xkb/flags/us.png \
+	xkb/flags/uy.png \
+	xkb/flags/uz.png \
+	xkb/flags/vn.png \
+	xkb/flags/ye.png \
+	xkb/flags/za.png
+
 EXTRA_DIST = \
+	batt/batt_sys.h \
+	netstat/netstat.h \
+	netstat/nsconfig.h \
+	netstat/devproc.h \
+	netstat/statusicon.h \
+	netstat/wireless.h \
+	netstat/lxnm_client.h \
+	netstat/passwd_gui.h \
+	netstatus/netstatus-dialog.h \
+	netstatus/netstatus-enums.h \
+	netstatus/netstatus-fallback-pixbuf.h \
+	netstatus/netstatus-icon.h \
+	netstatus/netstatus-iface.h \
+	netstatus/netstatus-sysdeps.h \
+	netstatus/netstatus-util.h \
+	volume/volume_xpm.h \
+	volume/volume-impl.h \
+	weather/logutil.h \
+	weather/httputil.h \
+	weather/yahooutil.h \
+	weather/location.h \
+	weather/forecast.h \
+	weather/weatherwidget.h \
+	xkb/xkb.h \
+	$(flags_DATA) \
+	$(xkeyboardconfig_DATA) \
 	icon.xpm
 
 install-exec-hook:

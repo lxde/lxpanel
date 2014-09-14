@@ -1,6 +1,6 @@
 AC_PREREQ(2.53)
 AC_INIT(lxpanel, 0.7.0, http://lxde.org/)
-AM_INIT_AUTOMAKE([-Wall foreign no-dist-gzip dist-xz])
+AM_INIT_AUTOMAKE([-Wall foreign subdir-objects no-dist-gzip dist-xz])
 AC_CONFIG_HEADER([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 
@@ -259,7 +259,7 @@ if test "$plugins" != "none"; then
             all)
                 for name in $ALL_PLUGINS_LIST
                 do
-                    export plugin_$name="$name"
+                    export plugin_$name="$name.la"
                 done
                 ;;
             -*)
@@ -268,7 +268,7 @@ if test "$plugins" != "none"; then
                 ;;
             *)
                 check_plugin_name([$plugin])
-                export plugin_$plugin=$plugin
+                export plugin_$plugin=$plugin.la
                 ;;
         esac
     done
@@ -416,20 +416,6 @@ AC_CONFIG_FILES([
     Makefile
     src/Makefile
     plugins/Makefile
-    plugins/netstatus/Makefile
-    plugins/netstat/Makefile
-    plugins/volume/Makefile
-    plugins/volumealsa/Makefile
-    plugins/cpu/Makefile
-    plugins/deskno/Makefile
-    plugins/batt/Makefile
-    plugins/kbled/Makefile
-    plugins/xkb/Makefile
-    plugins/thermal/Makefile
-    plugins/cpufreq/Makefile
-    plugins/monitors/Makefile
-    plugins/indicator/Makefile
-    plugins/weather/Makefile
     po/Makefile.in
     data/Makefile
     data/default/panels/panel
