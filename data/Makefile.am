@@ -35,6 +35,7 @@ lxpanel_images_DATA = \
 	images/my-computer.png \
 	images/stock_volume.png \
 	images/file-manager.png \
+	images/gnome-fs-desktop.png \
 	images/gnome-logout.png \
 	images/gnome-netstatus-0-24.png \
 	images/gnome-netstatus-25-49.png \
@@ -47,6 +48,7 @@ lxpanel_images_DATA = \
 	images/gnome-netstatus-txrx.png \
 	images/gnome-netstatus-tx.png \
 	images/background.png \
+	images/volume.png \
 	images/volume-low.png \
 	images/volume-medium.png \
 	images/volume-high.png \

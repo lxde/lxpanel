@@ -219,6 +219,7 @@ flags_DATA= \
 	xkb/flags/epo.png \
 	xkb/flags/es.png \
 	xkb/flags/et.png \
+	xkb/flags/eu.png \
 	xkb/flags/fi.png \
 	xkb/flags/fo.png \
 	xkb/flags/fr.png \
@@ -272,8 +273,10 @@ flags_DATA= \
 	xkb/flags/ph.png \
 	xkb/flags/pk.png \
 	xkb/flags/pl.png \
+	xkb/flags/ps.png \
 	xkb/flags/pt.png \
 	xkb/flags/qa.png \
+	xkb/flags/qc.png \
 	xkb/flags/ro.png \
 	xkb/flags/rs.png \
 	xkb/flags/ru.png \
@@ -294,11 +297,14 @@ flags_DATA= \
 	xkb/flags/tw.png \
 	xkb/flags/tz.png \
 	xkb/flags/ua.png \
+	xkb/flags/uk.png \
 	xkb/flags/us.png \
+	xkb/flags/un.png \
 	xkb/flags/uy.png \
 	xkb/flags/uz.png \
 	xkb/flags/vn.png \
 	xkb/flags/ye.png \
+	xkb/flags/yu.png \
 	xkb/flags/za.png
 
 EXTRA_DIST = \
@@ -310,6 +316,7 @@ EXTRA_DIST = \
 	netstat/wireless.h \
 	netstat/lxnm_client.h \
 	netstat/passwd_gui.h \
+	netstatus/COPYING \
 	netstatus/netstatus-dialog.h \
 	netstatus/netstatus-enums.h \
 	netstatus/netstatus-fallback-pixbuf.h \
