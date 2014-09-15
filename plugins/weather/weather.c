@@ -118,6 +118,10 @@ weather_constructor(LXPanel *pPanel, config_setting_t *pConfig)
     {
       pLocation->pcAlias_ = g_strndup(pczDummy, (pczDummy) ? strlen(pczDummy) : 0);
     }
+  else if (config_setting_lookup_int(pConfig, "alias", &iDummyVal))
+    {
+      pLocation->pcAlias_ = g_strdup_printf("%d", iDummyVal);
+    }
   else
     {
       LXW_LOG(LXW_ERROR, "Weather: could not lookup alias in config.");
@@ -149,7 +153,7 @@ weather_constructor(LXPanel *pPanel, config_setting_t *pConfig)
     {
       LXW_LOG(LXW_ERROR, "Weather: could not lookup country in config.");
     }
-    
+
   if (config_setting_lookup_string(pConfig, "woeid", &pczDummy))
     {
       pLocation->pcWOEID_ = g_strndup(pczDummy, (pczDummy) ? strlen(pczDummy) : 0);
@@ -180,7 +184,7 @@ weather_constructor(LXPanel *pPanel, config_setting_t *pConfig)
     {
       LXW_LOG(LXW_ERROR, "Weather: could not lookup interval in config.");
     }
-  
+
   iDummyVal = 0;
   if (config_setting_lookup_int(pConfig, "enabled", &iDummyVal))
     {
@@ -191,16 +195,15 @@ weather_constructor(LXPanel *pPanel, config_setting_t *pConfig)
       LXW_LOG(LXW_ERROR, "Weather: could not lookup enabled flag in config.");
     }
 
-  
   if (pLocation->pcAlias_ && pLocation->pcWOEID_)
     {
       GValue locationValue = G_VALUE_INIT;
 
       g_value_init(&locationValue, G_TYPE_POINTER);
-              
+
       /* location is copied by the widget */
       g_value_set_pointer(&locationValue, pLocation);
-              
+
       g_object_set_property(G_OBJECT(pWidg),
                             "location",
                             &locationValue);
