@@ -165,7 +165,7 @@ const gchar *num2str(pair *p, int num, const gchar *defval);
 #ifdef __LXPANEL_INTERNALS__
 static inline char *_system_config_file_name(const char *dir, const char *file_name)
 {
-    return g_build_filename(dir, cprofile, file_name, NULL);
+    return g_build_filename(dir, "lxpanel", cprofile, file_name, NULL);
 }
 
 static inline char *_old_system_config_file_name(const char *file_name)
