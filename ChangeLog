@@ -14,6 +14,7 @@
     can be contained in the plugins/Makefile.am. Adding a simple plugin
     basically would mean to add three lines into that file instead of
     writing whole Makefile.am.
+* Fixed invalid system config path search ("lxpanel" part was missing).
 
 0.7.0
 -------------------------------------------------------------------------
