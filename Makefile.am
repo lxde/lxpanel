@@ -6,9 +6,6 @@ SUBDIRS = plugins src data po man
 
 EXTRA_DIST = \
         autogen.sh \
-        intltool-extract.in \
-        intltool-merge.in \
-        intltool-update.in \
         lxpanel.pc.in
 
 pkgconfigdir   = $(libdir)/pkgconfig
