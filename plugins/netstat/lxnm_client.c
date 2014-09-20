@@ -103,6 +103,7 @@ lxnm_socket(void)
 
     gio = g_io_channel_unix_new(sockfd);
     g_io_channel_set_encoding(gio, NULL, NULL);
+    /* FIXME: g_source_remove() on the watch or we get crash sometime! */
     g_io_add_watch(gio, G_IO_IN | G_IO_HUP, lxnm_read_channel, NULL);
 
     return gio;

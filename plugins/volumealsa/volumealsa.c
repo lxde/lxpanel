@@ -56,6 +56,7 @@ typedef struct {
 
     /* unloading and error handling */
     GIOChannel **channels;                      /* Channels that we listen to */
+    guint *watches;                             /* Watcher IDs for channels */
     guint num_channels;                         /* Number of channels */
 
     /* Icons */
@@ -121,6 +122,9 @@ static gboolean asound_mixer_event(GIOChannel * channel, GIOCondition cond, gpoi
 {
     VolumeALSAPlugin * vol = (VolumeALSAPlugin *) vol_gpointer;
     int res = 0;
+
+    if (g_source_is_destroyed(g_main_current_source()))
+        return FALSE;
 
     if (vol->mixer_evt_idle == 0)
     {
@@ -199,6 +203,7 @@ static gboolean asound_initialize(VolumeALSAPlugin * vol)
     struct pollfd * fds = g_new0(struct pollfd, n_fds);
 
     vol->channels = g_new0(GIOChannel *, n_fds);
+    vol->watches = g_new0(guint, n_fds);
     vol->num_channels = n_fds;
 
     snd_mixer_poll_descriptors(vol->mixer, fds, n_fds);
@@ -206,7 +211,7 @@ static gboolean asound_initialize(VolumeALSAPlugin * vol)
     for (i = 0; i < n_fds; ++i)
     {
         GIOChannel* channel = g_io_channel_unix_new(fds[i].fd);
-        g_io_add_watch(channel, G_IO_IN | G_IO_HUP, asound_mixer_event, vol);
+        vol->watches[i] = g_io_add_watch(channel, G_IO_IN | G_IO_HUP, asound_mixer_event, vol);
         vol->channels[i] = channel;
     }
     g_free(fds);
@@ -223,11 +228,14 @@ static void asound_deinitialize(VolumeALSAPlugin * vol)
     }
 
     for (i = 0; i < vol->num_channels; i++) {
+        g_source_remove(vol->watches[i]);
         g_io_channel_shutdown(vol->channels[i], FALSE, NULL);
         g_io_channel_unref(vol->channels[i]);
     }
     g_free(vol->channels);
+    g_free(vol->watches);
     vol->channels = NULL;
+    vol->watches = NULL;
     vol->num_channels = 0;
 
     snd_mixer_close(vol->mixer);
