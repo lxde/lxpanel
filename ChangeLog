@@ -19,6 +19,7 @@
 * Fixed memory leak in the 'volumealsa' plugin.
 * Now 'volumealsa' checks for 'MixerCommand' setting in the configuration
     before gusssing it.
+* Fixed color saving in the configuration.
 
 0.7.0
 -------------------------------------------------------------------------

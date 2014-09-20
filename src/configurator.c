@@ -74,7 +74,7 @@ extern int config;
 #define UPDATE_GLOBAL_COLOR(panel,name,val) do { \
     config_setting_t *_s = config_setting_add(config_setting_get_elem(config_setting_get_member(config_root_setting(panel->config),""),\
                                                                       0),\
-                                              name,PANEL_CONF_TYPE_INT);\
+                                              name,PANEL_CONF_TYPE_STRING);\
     if (_s) { \
         char _c[8];\
         snprintf(_c, sizeof(_c), "#%06x",val);\
