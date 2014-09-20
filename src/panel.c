@@ -380,7 +380,7 @@ void _panel_set_wm_strut(LXPanel *panel)
         strut_size = p->height_when_hidden;
 
     /* Set up strut value in property format. */
-    gulong desired_strut[12];
+    guint32 desired_strut[12];
     memset(desired_strut, 0, sizeof(desired_strut));
     if (p->setstrut)
     {
