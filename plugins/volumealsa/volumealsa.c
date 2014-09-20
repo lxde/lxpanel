@@ -38,6 +38,7 @@ typedef struct {
     /* Graphics. */
     GtkWidget * plugin;				/* Back pointer to the widget */
     LXPanel * panel;				/* Back pointer to panel */
+    config_setting_t * settings;		/* Plugin settings */
     GtkWidget * tray_icon;			/* Displayed image */
     GtkWidget * popup_window;			/* Top level window for popup */
     GtkWidget * volume_scale;			/* Scale for volume */
@@ -532,6 +533,7 @@ static GtkWidget *volumealsa_constructor(LXPanel *panel, config_setting_t *setti
     /* Allocate top level widget and set into Plugin widget pointer. */
     vol->panel = panel;
     vol->plugin = p = gtk_event_box_new();
+    vol->settings = settings;
     lxpanel_plugin_set_data(p, vol, volumealsa_destructor);
     gtk_widget_add_events(p, GDK_BUTTON_PRESS_MASK);
     gtk_widget_set_tooltip_text(p, _("Volume control"));
@@ -575,42 +577,50 @@ static void volumealsa_destructor(gpointer user_data)
 
 static GtkWidget *volumealsa_configure(LXPanel *panel, GtkWidget *p)
 {
+    VolumeALSAPlugin * vol = lxpanel_plugin_get_data(p);
+    char *path = NULL;
     const gchar *command_line = NULL;
 
-    if (g_find_program_in_path("pulseaudio"))
+    /* FIXME: configure settings! */
+    /* check if command line was configured */
+    config_setting_lookup_string(vol->settings, "MixerCommand", &command_line);
+
+    /* if command isn't set in settings then let guess it */
+    if (command_line == NULL && (path = g_find_program_in_path("pulseaudio")))
     {
+        g_free(path);
      /* Assume that when pulseaudio is installed, it's launching every time */
-        if (g_find_program_in_path("gnome-sound-applet"))
+        if ((path = g_find_program_in_path("gnome-sound-applet")))
         {
             command_line = "gnome-sound-applet";
         }
-        else
+        else if ((path = g_find_program_in_path("pavucontrol")))
         {
-            if (g_find_program_in_path("pavucontrol"))
-            {
-                command_line = "pavucontrol";
-            }
+            command_line = "pavucontrol";
         }
     }
 
     /* Fallback to alsamixer when PA is not running, or when no PA utility is find */
     if (command_line == NULL)
     {
-        if (g_find_program_in_path("gnome-alsamixer"))
+        if ((path = g_find_program_in_path("gnome-alsamixer")))
         {
             command_line = "gnome-alsamixer";
         }
-        else
+        else if ((path = g_find_program_in_path("alsamixergui")))
         {
-            if (g_find_program_in_path("alsamixer"))
+            command_line = "alsamixergui";
+        }
+        else if ((path = g_find_program_in_path("alsamixer")))
+        {
+            g_free(path);
+            if ((path = g_find_program_in_path("xterm")))
             {
-                if (g_find_program_in_path("xterm"))
-                {
-                    command_line = "xterm -e alsamixer";
-                }
+                command_line = "xterm -e alsamixer";
             }
         }
     }
+    g_free(path);
 
     if (command_line)
     {

@@ -15,6 +15,10 @@
     basically would mean to add three lines into that file instead of
     writing whole Makefile.am.
 * Fixed invalid system config path search ("lxpanel" part was missing).
+* Fixed incorrect requirements in the lxpanel.pc file.
+* Fixed memory leak in the 'volumealsa' plugin.
+* Now 'volumealsa' checks for 'MixerCommand' setting in the configuration
+    before gusssing it.
 
 0.7.0
 -------------------------------------------------------------------------
