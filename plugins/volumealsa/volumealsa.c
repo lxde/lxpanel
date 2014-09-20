@@ -569,6 +569,9 @@ static void volumealsa_destructor(gpointer user_data)
     if (vol->restart_idle)
         g_source_remove(vol->restart_idle);
 
+    g_signal_handlers_disconnect_by_func(panel_get_icon_theme(vol->panel),
+                                         volumealsa_theme_change, vol);
+
     /* Deallocate all memory. */
     g_free(vol);
 }

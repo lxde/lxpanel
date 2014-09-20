@@ -20,6 +20,7 @@
 * Now 'volumealsa' checks for 'MixerCommand' setting in the configuration
     before gusssing it.
 * Fixed color saving in the configuration.
+* Fixed incomplete resources deallocation in 'volumealsa' plugin.
 
 0.7.0
 -------------------------------------------------------------------------
