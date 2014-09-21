@@ -693,8 +693,8 @@ mouse_watch(LXPanel *panel)
 
     cx = p->cx;
     cy = p->cy;
-    cw = p->aw;
-    ch = p->ah;
+    cw = p->cw;
+    ch = p->ch;
 
     /* reduce area which will raise panel so it does not interfere with apps */
     if (p->ah_state == AH_STATE_HIDDEN) {
