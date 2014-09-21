@@ -610,7 +610,7 @@ netstatus_icon_size_allocate (GtkWidget     *widget,
   else
     size = allocation->width;
 
-  if (icon->priv->size != size)
+  if (icon->priv->size != size && size > 1)
     {
       icon->priv->size = size;
 
