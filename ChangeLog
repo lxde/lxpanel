@@ -23,6 +23,8 @@
 * Fixed incomplete resources deallocation in 'volumealsa' plugin.
 * Fixed make uninstall (it left plugins installed).
 * Fixed monitor number set from GUI.
+* Fixed hang on netstatus icon in auto-hidden panel.
+* Fixed icon grid compilation with GTK+ < 2.20.
 
 0.7.0
 -------------------------------------------------------------------------
