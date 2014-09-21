@@ -21,6 +21,7 @@
     before gusssing it.
 * Fixed color saving in the configuration.
 * Fixed incomplete resources deallocation in 'volumealsa' plugin.
+* Fixed make uninstall (it left plugins installed).
 
 0.7.0
 -------------------------------------------------------------------------
