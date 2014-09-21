@@ -22,6 +22,7 @@
 * Fixed color saving in the configuration.
 * Fixed incomplete resources deallocation in 'volumealsa' plugin.
 * Fixed make uninstall (it left plugins installed).
+* Fixed monitor number set from GUI.
 
 0.7.0
 -------------------------------------------------------------------------
