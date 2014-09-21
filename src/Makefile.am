@@ -15,7 +15,7 @@ lxpanel_CFLAGS = \
 BUILTIN_PLUGINS = $(top_builddir)/plugins/libbuiltin_plugins.a
 
 if ENABLE_MENU_CACHE
-MENU_SOURCES = menu-policy.h menu-policy.c
+MENU_SOURCES = menu-policy.c
 endif
 
 lxpanel_SOURCES = \
@@ -59,6 +59,7 @@ EXTRA_DIST = \
 	bg.h \
 	dbg.h \
 	ev.h \
+	menu-policy.h \
 	icon-grid-old.h \
 	private.h
 

@@ -18,13 +18,14 @@
 * Fixed incorrect requirements in the lxpanel.pc file.
 * Fixed memory leak in the 'volumealsa' plugin.
 * Now 'volumealsa' checks for 'MixerCommand' setting in the configuration
-    before gusssing it.
+    before guessing it.
 * Fixed color saving in the configuration.
 * Fixed incomplete resources deallocation in 'volumealsa' plugin.
 * Fixed make uninstall (it left plugins installed).
 * Fixed monitor number set from GUI.
 * Fixed hang on netstatus icon in auto-hidden panel.
 * Fixed icon grid compilation with GTK+ < 2.20.
+* Fixed compilation without menu-cache.
 
 0.7.0
 -------------------------------------------------------------------------
