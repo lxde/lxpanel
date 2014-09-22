@@ -50,7 +50,6 @@ Makefile
 src/lxpanel
 src/lxpanelctl
 stamp-h1
-man/*.1
 debian/files
 debian/lxpanel.debhelper.log
 debian/lxpanel.substvars
