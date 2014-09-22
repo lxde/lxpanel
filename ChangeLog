@@ -26,6 +26,8 @@
 * Fixed hang on netstatus icon in auto-hidden panel.
 * Fixed icon grid compilation with GTK+ < 2.20.
 * Fixed compilation without menu-cache.
+* Now man pages are included in the GIT and tarball, not just xml files.
+* Fixed incorrect printf arguments in 'netstatus' plugin.
 
 0.7.0
 -------------------------------------------------------------------------
