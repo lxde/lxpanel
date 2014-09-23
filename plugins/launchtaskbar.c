@@ -3346,6 +3346,8 @@ static void taskbar_make_menu(LaunchTaskBarPlugin * tb)
     gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
     g_signal_connect(G_OBJECT(mi), "activate", (GCallback) menu_iconify_window, tb);
 
+    /* FIXME: if WM is Openbox then add "Window special parameters" submenu */
+
     /* If multiple desktops are supported, add menu items to select them. */
     if (tb->number_of_desktops > 1)
     {
@@ -3386,6 +3388,8 @@ static void taskbar_make_menu(LaunchTaskBarPlugin * tb)
         g_object_set_data(G_OBJECT(mi), "num", GINT_TO_POINTER(ALL_WORKSPACES));
         g_signal_connect(mi, "activate", G_CALLBACK(menu_move_to_workspace), tb);
         gtk_menu_shell_append(GTK_MENU_SHELL(workspace_menu), mi);
+
+        /* FIXME: add "Current workspace" item, active if not on a current */
 
         /* Add Move to Workspace menu item as a submenu. */
         mi = gtk_menu_item_new_with_mnemonic(_("_Move to Workspace"));

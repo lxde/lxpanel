@@ -38,7 +38,6 @@
 //#define DEBUG
 #include "dbg.h"
 
-static void init_plugin_class_list(void);
 static void plugin_class_unref(PluginClass * pc);
 
 GQuark lxpanel_plugin_qinit;
@@ -53,11 +52,6 @@ do {\
     extern PluginClass pc;\
     register_plugin_class(&pc, FALSE);\
 } while (0)
-
-/* The same for new plugins type - they will be not unloaded by FmModule */
-#define REGISTER_STATIC_MODULE(pc) do { \
-    extern LXPanelPluginInit lxpanel_static_plugin_##pc; \
-    lxpanel_register_plugin_type(#pc, &lxpanel_static_plugin_##pc); } while (0)
 
 static inline const LXPanelPluginInit *_find_plugin(const char *name)
 {
@@ -103,48 +97,6 @@ static void register_plugin_class(PluginClass * pc, gboolean dynamic)
     init->expand_default = pc->expand_default;
     pc->dynamic = dynamic;
     g_hash_table_insert(_all_types, g_strdup(pc->type), init);
-}
-
-/* Initialize the static plugins. */
-static void init_plugin_class_list(void)
-{
-#ifdef STATIC_SEPARATOR
-    REGISTER_STATIC_MODULE(separator);
-#endif
-
-#ifdef STATIC_LAUNCHTASKBAR
-    REGISTER_STATIC_MODULE(launchtaskbar);
-#endif
-
-#ifdef STATIC_DCLOCK
-    REGISTER_STATIC_MODULE(dclock);
-#endif
-
-#ifdef STATIC_WINCMD
-    REGISTER_STATIC_MODULE(wincmd);
-#endif
-
-#ifdef STATIC_DIRMENU
-    REGISTER_STATIC_MODULE(dirmenu);
-#endif
-
-#ifdef STATIC_PAGER
-    REGISTER_STATIC_MODULE(pager);
-#endif
-
-#ifdef STATIC_TRAY
-    REGISTER_STATIC_MODULE(tray);
-#endif
-
-#ifndef DISABLE_MENU
-#ifdef STATIC_MENU
-    REGISTER_STATIC_MODULE(menu);
-#endif
-#endif
-
-#ifdef STATIC_SPACE
-    REGISTER_STATIC_MODULE(space);
-#endif
 }
 
 /* Load a dynamic plugin. */
@@ -197,9 +149,6 @@ static void plugin_class_unref(PluginClass * pc)
 /* Loads all available old type plugins. Should be removed in future releases. */
 static void plugin_get_available_classes(void)
 {
-    /* Initialize static plugins on first call. */
-    init_plugin_class_list();
-
 #ifndef DISABLE_PLUGINS_LOADING
     GDir * dir = g_dir_open(PACKAGE_LIB_DIR "/lxpanel/plugins", 0, NULL);
     if (dir != NULL)

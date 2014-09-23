@@ -59,6 +59,10 @@ extern gboolean is_in_lxde;
 
 extern gchar *cprofile;
 
+extern GSList* all_panels;
+
+extern GtkWindowGroup* win_grp;
+
 /* Context of a panel on a given edge. */
 struct _Panel {
     char* name;
@@ -212,6 +216,8 @@ extern GQuark lxpanel_plugin_qconf; /* access to congig_setting_t data */
 #define PLUGIN_PANEL(_i) ((LXPanel*)gtk_widget_get_toplevel(_i))
 
 gboolean _class_is_present(const LXPanelPluginInit *init);
+
+LXPanel* panel_new(const char* config_file, const char* config_name);
 
 void _panel_show_config_dialog(LXPanel *panel, GtkWidget *p, GtkWidget *dlg);
 

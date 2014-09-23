@@ -66,6 +66,9 @@ struct _FbEv {
     Pixmap   pixmap;
 };
 
+/* it is created in main.c */
+FbEv *fbev = NULL;
+
 static void fb_ev_class_init (FbEvClass *klass);
 static void fb_ev_init (FbEv *monitor);
 static void fb_ev_finalize (GObject *object);

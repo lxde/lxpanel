@@ -1,5 +1,6 @@
 usr/bin
-usr/lib/*/lxpanel
+usr/lib/*/lxpanel/liblxpanel.so.*
+usr/lib/*/lxpanel/plugins
 usr/share/man
 etc/xdg/lxpanel
 

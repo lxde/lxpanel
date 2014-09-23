@@ -45,18 +45,7 @@ enum{
 
 static void save_global_config();
 
-Command commands[] = {
-    //{ "configure", N_("Preferences"), configure },
-    { "run", N_("Run"), gtk_run },
-    { "restart", N_("Restart"), restart },
-    { "logout", N_("Logout"), logout },
-    { NULL, NULL },
-};
-
 static char* logout_cmd = NULL;
-
-extern GSList* all_panels;
-extern int config;
 
 /* macros to update config */
 #define UPDATE_GLOBAL_INT(panel,name,val) do { \
@@ -1246,17 +1235,6 @@ void panel_config_save( Panel* p )
 void lxpanel_config_save(LXPanel *p)
 {
     panel_config_save(p->priv);
-}
-
-void restart(void)
-{
-    /* This is defined in panel.c */
-    extern gboolean is_restarting;
-    ENTER;
-    is_restarting = TRUE;
-
-    gtk_main_quit();
-    RET();
 }
 
 void logout(void)

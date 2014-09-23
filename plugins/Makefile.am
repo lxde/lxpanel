@@ -8,8 +8,13 @@ AM_CPPFLAGS = \
 	$(G_CAST_CHECKS)
 
 AM_LDFLAGS = \
+	-module -avoid-version -shared -export-dynamic \
+	-no-undefined -rpath $(libdir)/lxpanel/plugins \
+	$(top_builddir)/src/liblxpanel.la \
 	$(PACKAGE_LIBS)
 
+$(top_builddir)/src/liblxpanel.la:
+	cd $(top_builddir)/src && $(MAKE) liblxpanel.la
 
 ## built-in plugins
 noinst_LIBRARIES = libbuiltin_plugins.a
@@ -72,20 +77,16 @@ batt_la_SOURCES = \
 	batt/batt.c \
 	batt/batt_sys.c
 batt_la_CFLAGS = -I$(srcdir)/batt
-batt_la_LDFLAGS = -module @LXPANEL_MODULE@
 
 # cpu
 cpu_la_SOURCES = cpu/cpu.c
-cpu_la_LDFLAGS = -module @LXPANEL_MODULE@
 
 # cpufreq
 cpufreq_la_SOURCES = cpufreq/cpufreq.c
 cpufreq_la_CFLAGS = -DPACKAGE_DATA_DIR=\""$(datadir)/lxpanel"\"
-cpufreq_la_LDFLAGS = -module @LXPANEL_MODULE@
 
 # deskno
 deskno_la_SOURCES = deskno/deskno.c
-deskno_la_LDFLAGS = -module @LXPANEL_MODULE@
 
 # indicator
 indicator_la_SOURCES = indicator/indicator.c
@@ -93,16 +94,15 @@ indicator_la_CFLAGS = \
 	-DINDICATOR_DIR=\""$(INDICATORDIR)"\" \
 	-DINDICATOR_ICONS_DIR=\""$(INDICATORICONSDIR)"\" \
 	$(APPLET_CFLAGS)
-indicator_la_LDFLAGS = -module @LXPANEL_MODULE@ $(APPLET_LIBS)
+indicator_la_LIBADD = $(APPLET_LIBS)
 
 # kbled
 kbled_la_SOURCES = kbled/kbled.c
 kbled_la_CFLAGS = -DPACKAGE_DATA_DIR=\""$(datadir)/lxpanel"\"
-kbled_la_LDFLAGS = -module @LXPANEL_MODULE@
+kbled_la_LIBADD = $(X11_LIBS)
 
 # monitors
 monitors_la_SOURCES = monitors/monitors.c
-monitors_la_LDFLAGS = -module @LXPANEL_MODULE@
 
 # netstat
 netstat_la_SOURCES = \
@@ -115,7 +115,7 @@ netstat_la_SOURCES = \
 netstat_la_CFLAGS = \
 	-I$(srcdir)/netstat \
 	-DPACKAGE_DATA_DIR=\""$(datadir)/lxpanel"\"
-netstat_la_LDFLAGS = -module @LXPANEL_MODULE@ -liw
+netstat_la_LIBADD = -liw
 
 # netstatus
 netstatus_la_SOURCES = \
@@ -130,23 +130,20 @@ netstatus_la_CFLAGS = \
 	-I$(srcdir)/netstatus \
 	-DPACKAGE_DATA_DIR=\""$(datadir)/lxpanel"\" \
 	-DPACKAGE_UI_DIR=\""$(datadir)/lxpanel/ui"\"
-netstatus_la_LDFLAGS = -module @LXPANEL_MODULE@
 
 # thermal
 thermal_la_SOURCES = thermal/thermal.c
-thermal_la_LDFLAGS = -module @LXPANEL_MODULE@
 
 # volume (OSS)
 volume_la_SOURCES = \
 	volume/volume-impl.c \
 	volume/volume.c
 volume_la_CFLAGS = -I$(srcdir)/volume
-volume_la_LDFLAGS = -module @LXPANEL_MODULE@
 
 # volumealsa
 volumealsa_la_SOURCES = volumealsa/volumealsa.c
 volumealsa_la_CFLAGS = -DPACKAGE_DATA_DIR=\""$(datadir)/lxpanel"\"
-volumealsa_la_LDFLAGS = -module @LXPANEL_MODULE@ -lasound
+volumealsa_la_LIBADD = -lasound
 
 # weather
 weather_la_SOURCES = \
@@ -160,7 +157,7 @@ weather_la_SOURCES = \
 weather_la_CFLAGS = \
 	-I$(srcdir)/weather \
 	$(LIBXML2_CFLAGS)
-weather_la_LDFLAGS = -module @LXPANEL_MODULE@ $(LIBXML2_LIBS)
+weather_la_LIBADD = $(LIBXML2_LIBS)
 
 # xkb
 xkb_la_CFLAGS = \
@@ -171,7 +168,7 @@ xkb_la_CFLAGS = \
 xkb_la_SOURCES = \
 	xkb/xkb-plugin.c \
 	xkb/xkb.c
-xkb_la_LDFLAGS = -module @LXPANEL_MODULE@
+xkb_la_LIBADD = $(X11_LIBS)
 
 xkeyboardconfigdir=$(datadir)/lxpanel/xkeyboardconfig
 xkeyboardconfig_DATA = \
