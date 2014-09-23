@@ -691,11 +691,13 @@ mouse_watch(LXPanel *panel)
 
     gint cx, cy, cw, ch, gap;
 
-    cx = p->cx;
-    cy = p->cy;
+    cx = p->ax;
+    cy = p->ay;
     cw = p->cw;
     ch = p->ch;
 
+    if (cw == 1) cw = 0;
+    if (ch == 1) ch = 0;
     /* reduce area which will raise panel so it does not interfere with apps */
     if (p->ah_state == AH_STATE_HIDDEN) {
         gap = MAX(p->height_when_hidden, GAP);
@@ -743,10 +745,13 @@ static void ah_state_set(LXPanel *panel, PanelAHState ah_state)
         case AH_STATE_VISIBLE:
             gtk_widget_show(GTK_WIDGET(panel));
             gtk_widget_show(p->box);
+            gtk_widget_queue_resize(GTK_WIDGET(panel));
             gtk_window_stick(GTK_WINDOW(panel));
             p->visible = TRUE;
             break;
         case AH_STATE_WAITING:
+            if (p->hide_timeout)
+                g_source_remove(p->hide_timeout);
             p->hide_timeout = g_timeout_add(2 * PERIOD, ah_state_hide_timeout, panel);
             break;
         case AH_STATE_HIDDEN:

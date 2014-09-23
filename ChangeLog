@@ -1,3 +1,7 @@
+* Fixed unhiding panel if it becomes empty and height_when_hidden is 0.
+
+0.7.1
+-------------------------------------------------------------------------
 * Fixed search for the gtkrc file.
 * Fixed search path for configuration - it should be not compilation time
     path but paths using $XDG_CONFIG_DIRS.
