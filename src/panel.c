@@ -73,7 +73,7 @@ static void lxpanel_finalize(GObject *object)
         lxpanel_config_save( self );
     config_destroy(p->config);
 
-    g_free(p->workarea);
+    XFree(p->workarea);
     g_free( p->background_file );
     g_slist_free( p->system_menus );
 
@@ -380,7 +380,7 @@ void _panel_set_wm_strut(LXPanel *panel)
         strut_size = p->height_when_hidden;
 
     /* Set up strut value in property format. */
-    guint32 desired_strut[12];
+    gulong desired_strut[12];
     memset(desired_strut, 0, sizeof(desired_strut));
     if (p->setstrut)
     {
@@ -541,7 +541,7 @@ panel_event_filter(GdkXEvent *xevent, GdkEvent *event, gpointer not_used)
             for( l = all_panels; l; l = l->next )
             {
                 LXPanel* p = (LXPanel*)l->data;
-                g_free( p->priv->workarea );
+                XFree( p->priv->workarea );
                 p->priv->workarea = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_WORKAREA, XA_CARDINAL, &p->priv->wa_len);
                 /* print_wmdata(p); */
             }
@@ -1225,7 +1225,7 @@ panel_start_gui(LXPanel *panel)
 {
     Atom state[3];
     XWMHints wmhints;
-    guint32 val;
+    gulong val;
     Display *xdisplay = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
     Panel *p = panel->priv;
     GtkWidget *w = GTK_WIDGET(panel);
@@ -1284,9 +1284,9 @@ panel_start_gui(LXPanel *panel)
     _panel_establish_autohide(panel);
 
     /* send it to running wm */
-    Xclimsg(p->topxwin, a_NET_WM_DESKTOP, 0xFFFFFFFF, 0, 0, 0, 0);
+    Xclimsg(p->topxwin, a_NET_WM_DESKTOP, G_MAXULONG, 0, 0, 0, 0);
     /* and assign it ourself just for case when wm is not running */
-    val = 0xFFFFFFFF;
+    val = G_MAXULONG;
     XChangeProperty(xdisplay, p->topxwin, a_NET_WM_DESKTOP, XA_CARDINAL, 32,
           PropModeReplace, (unsigned char *) &val, 1);
 

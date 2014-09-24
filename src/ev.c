@@ -290,7 +290,7 @@ fb_ev_current_desktop(FbEv *ev)
 {
     ENTER;
     if (ev->current_desktop == -1) {
-        guint32 *data;
+        gulong *data;
 
         data = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_CURRENT_DESKTOP, XA_CARDINAL, 0);
         if (data) {
@@ -307,7 +307,7 @@ fb_ev_number_of_desktops(FbEv *ev)
 {
     ENTER;
      if (ev->number_of_desktops == -1) {
-        guint32 *data;
+        gulong *data;
 
         data = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_NUMBER_OF_DESKTOPS, XA_CARDINAL, 0);
         if (data) {

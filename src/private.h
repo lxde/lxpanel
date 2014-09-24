@@ -113,7 +113,7 @@ struct _Panel {
 
     int desknum;
     int curdesk;
-    guint32 *workarea;
+    gulong *workarea;
     int wa_len;
 
     char* background_file;
