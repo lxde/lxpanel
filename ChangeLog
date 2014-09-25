@@ -78,6 +78,9 @@
 * Changed to use persistent background image for panel and Cairo. This
     way updating background should be faster, and also fixed background
     of plugins when image is used, both placement and alpha color.
+* Urgent window is now always visible on the taskbar irrelevant of the
+    desktop number on which it appears, because urgent window requires
+    user attention (patch from Andy Balaam).
 
 0.7.2
 -------------------------------------------------------------------------
