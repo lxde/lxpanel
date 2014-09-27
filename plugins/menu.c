@@ -448,7 +448,9 @@ static GtkWidget* create_item(MenuCacheItem *item, menup *m)
         gtk_image_menu_item_set_image( GTK_IMAGE_MENU_ITEM(mi), img );
         if( menu_cache_item_get_type(item) == MENU_CACHE_TYPE_APP )
         {
-            gtk_widget_set_tooltip_text( mi, menu_cache_item_get_comment(item) );
+            const char *comment = menu_cache_item_get_comment(item);
+            if (comment != NULL)
+                gtk_widget_set_tooltip_text(mi, comment);
             g_signal_connect(mi, "activate", G_CALLBACK(on_menu_item), m);
         }
         g_signal_connect(mi, "map", G_CALLBACK(on_menu_item_map), m);
