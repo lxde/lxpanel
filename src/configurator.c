@@ -74,7 +74,7 @@ extern int config;
 #define UPDATE_GLOBAL_COLOR(panel,name,val) do { \
     config_setting_t *_s = config_setting_add(config_setting_get_elem(config_setting_get_member(config_root_setting(panel->config),""),\
                                                                       0),\
-                                              name,PANEL_CONF_TYPE_INT);\
+                                              name,PANEL_CONF_TYPE_STRING);\
     if (_s) { \
         char _c[8];\
         snprintf(_c, sizeof(_c), "#%06x",val);\
@@ -175,11 +175,11 @@ static void edge_right_toggle(GtkToggleButton *widget, LXPanel *p)
         set_edge(p, EDGE_RIGHT);
 }
 
-static void set_monitor(GtkAdjustment *widget, LXPanel *panel)
+static void set_monitor(GtkSpinButton *widget, LXPanel *panel)
 {
     Panel *p = panel->priv;
 
-    p->monitor = gtk_adjustment_get_value(widget);
+    p->monitor = gtk_spin_button_get_value_as_int(widget) - 1;
     update_panel_geometry(panel);
     _panel_set_panel_configuration_changed(panel);
     UPDATE_GLOBAL_INT(p, "monitor", p->monitor);
@@ -1001,8 +1001,8 @@ void panel_configure( LXPanel* panel, int sel_page )
     if(screen) monitors = gdk_screen_get_n_monitors(screen);
     g_assert(monitors >= 1);
     w = (GtkWidget*)gtk_builder_get_object( builder, "monitor" );
-    gtk_spin_button_set_value(GTK_SPIN_BUTTON(w), p->monitor + 1);
     gtk_spin_button_set_range(GTK_SPIN_BUTTON(w), 1, monitors);
+    gtk_spin_button_set_value(GTK_SPIN_BUTTON(w), p->monitor + 1);
     gtk_widget_set_sensitive(w, monitors > 1);
     g_signal_connect(w, "value-changed", G_CALLBACK(set_monitor), panel);
 

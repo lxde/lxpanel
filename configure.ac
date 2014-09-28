@@ -1,5 +1,5 @@
 AC_PREREQ(2.53)
-AC_INIT(lxpanel, 0.7.0, http://lxde.org/)
+AC_INIT(lxpanel, 0.7.1, http://lxde.org/)
 AM_INIT_AUTOMAKE([-Wall foreign subdir-objects no-dist-gzip dist-xz])
 AC_CONFIG_HEADER([config.h])
 AC_CONFIG_MACRO_DIR([m4])
@@ -15,7 +15,7 @@ AC_DISABLE_STATIC
 AC_PROG_CC
 AC_PROG_INSTALL
 AC_PROG_LN_S
-AC_PROG_INTLTOOL(, [no-xml])
+IT_PROG_INTLTOOL([0.40.0], [no-xml])
 AM_PROG_CC_C_O
 m4_ifdef([AM_PROG_AR], [AM_PROG_AR])
 
@@ -104,13 +104,6 @@ AC_SUBST(ADDITIONAL_FLAGS)
 
 PACKAGE_CFLAGS="$PACKAGE_CFLAGS $MENU_CACHE_CFLAGS $ADDITIONAL_FLAGS"
 PACKAGE_LIBS="$PACKAGE_LIBS $MENU_CACHE_LIBS"
-
-AC_ARG_ENABLE(man,
-	[AC_HELP_STRING([--enable-man],
-		[regenerate roff man pages from Docbook @<:@default=no@:>@])],
-	[enable_man="${enableval}"],
-	[enable_man=no]
-)
 
 dnl linker tweaking
 # The function of the link flag --as-needed is to prevent unnecesary linking.
@@ -225,7 +218,7 @@ AC_ARG_WITH(plugins,
 [                         plugins prefixed with '-' are not built]
 [                         Possible plugins are: ]
 [                         netstatus, netstat, volume, volumealsa, cpu, deskno, batt,]
-[                         kbled, xkb, thermal, cpufreq, monitors, weather]
+[                         kbled, xkb, thermal, cpufreq, monitors, indicator, weather]
 , plugins="$withval",[plugins="all"])
 
 if test x"$plugins" != xall -a x"$plugins" != xnone; then
@@ -360,27 +353,10 @@ do
 done
 
 GETTEXT_PACKAGE=lxpanel
-AM_GNU_GETTEXT([external])
-AM_GNU_GETTEXT_VERSION(0.14.1)
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package.])
 
 AM_GLIB_GNU_GETTEXT
-
-if test x"$enable_man" = x"yes"; then
-	AC_PATH_PROG([XSLTPROC], [xsltproc])
-	if test -z "$XSLTPROC"; then
-		enable_man=no
-	fi
-
-	dnl check for DocBook DTD and stylesheets in the local catalog.
-	JH_CHECK_XML_CATALOG([-//OASIS//DTD DocBook XML V4.1.2//EN],
-		[DocBook XML DTD V4.1.2], [], enable_man=no)
-	JH_CHECK_XML_CATALOG([http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl],
-		[DocBook XSL Stylesheets >= 1.70.1], [], enable_man=no)
-fi
-
-AM_CONDITIONAL(ENABLE_REGENERATE_MAN, test "x$enable_man" != "xno")
 
 AC_ARG_ENABLE(debug,
     [AC_HELP_STRING([--enable-debug],

@@ -76,7 +76,11 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
     /* Apply given allocation */
     gtk_widget_set_allocation(widget, allocation);
     border = gtk_container_get_border_width(GTK_CONTAINER(widget));
+#if GTK_CHECK_VERSION(2, 20, 0)
     if (gtk_widget_get_realized(widget))
+#else
+    if (GTK_WIDGET_REALIZED(widget))
+#endif
     {
         if (!gtk_widget_get_has_window(widget))
         {
@@ -479,7 +483,11 @@ static void panel_icon_grid_realize(GtkWidget *widget)
     gint attributes_mask;
     gboolean visible_window;
 
+#if GTK_CHECK_VERSION(2, 20, 0)
     gtk_widget_set_realized(widget, TRUE);
+#else
+    GTK_WIDGET_SET_FLAGS(widget, GTK_REALIZED);
+#endif
 
     gtk_widget_get_allocation(widget, &allocation);
     attributes.x = allocation.x + border;

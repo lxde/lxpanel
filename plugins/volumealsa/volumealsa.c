@@ -38,6 +38,7 @@ typedef struct {
     /* Graphics. */
     GtkWidget * plugin;				/* Back pointer to the widget */
     LXPanel * panel;				/* Back pointer to panel */
+    config_setting_t * settings;		/* Plugin settings */
     GtkWidget * tray_icon;			/* Displayed image */
     GtkWidget * popup_window;			/* Top level window for popup */
     GtkWidget * volume_scale;			/* Scale for volume */
@@ -55,6 +56,7 @@ typedef struct {
 
     /* unloading and error handling */
     GIOChannel **channels;                      /* Channels that we listen to */
+    guint *watches;                             /* Watcher IDs for channels */
     guint num_channels;                         /* Number of channels */
 
     /* Icons */
@@ -120,6 +122,9 @@ static gboolean asound_mixer_event(GIOChannel * channel, GIOCondition cond, gpoi
 {
     VolumeALSAPlugin * vol = (VolumeALSAPlugin *) vol_gpointer;
     int res = 0;
+
+    if (g_source_is_destroyed(g_main_current_source()))
+        return FALSE;
 
     if (vol->mixer_evt_idle == 0)
     {
@@ -198,6 +203,7 @@ static gboolean asound_initialize(VolumeALSAPlugin * vol)
     struct pollfd * fds = g_new0(struct pollfd, n_fds);
 
     vol->channels = g_new0(GIOChannel *, n_fds);
+    vol->watches = g_new0(guint, n_fds);
     vol->num_channels = n_fds;
 
     snd_mixer_poll_descriptors(vol->mixer, fds, n_fds);
@@ -205,7 +211,7 @@ static gboolean asound_initialize(VolumeALSAPlugin * vol)
     for (i = 0; i < n_fds; ++i)
     {
         GIOChannel* channel = g_io_channel_unix_new(fds[i].fd);
-        g_io_add_watch(channel, G_IO_IN | G_IO_HUP, asound_mixer_event, vol);
+        vol->watches[i] = g_io_add_watch(channel, G_IO_IN | G_IO_HUP, asound_mixer_event, vol);
         vol->channels[i] = channel;
     }
     g_free(fds);
@@ -222,11 +228,14 @@ static void asound_deinitialize(VolumeALSAPlugin * vol)
     }
 
     for (i = 0; i < vol->num_channels; i++) {
+        g_source_remove(vol->watches[i]);
         g_io_channel_shutdown(vol->channels[i], FALSE, NULL);
         g_io_channel_unref(vol->channels[i]);
     }
     g_free(vol->channels);
+    g_free(vol->watches);
     vol->channels = NULL;
+    vol->watches = NULL;
     vol->num_channels = 0;
 
     snd_mixer_close(vol->mixer);
@@ -532,6 +541,7 @@ static GtkWidget *volumealsa_constructor(LXPanel *panel, config_setting_t *setti
     /* Allocate top level widget and set into Plugin widget pointer. */
     vol->panel = panel;
     vol->plugin = p = gtk_event_box_new();
+    vol->settings = settings;
     lxpanel_plugin_set_data(p, vol, volumealsa_destructor);
     gtk_widget_add_events(p, GDK_BUTTON_PRESS_MASK);
     gtk_widget_set_tooltip_text(p, _("Volume control"));
@@ -567,6 +577,9 @@ static void volumealsa_destructor(gpointer user_data)
     if (vol->restart_idle)
         g_source_remove(vol->restart_idle);
 
+    g_signal_handlers_disconnect_by_func(panel_get_icon_theme(vol->panel),
+                                         volumealsa_theme_change, vol);
+
     /* Deallocate all memory. */
     g_free(vol);
 }
@@ -575,42 +588,50 @@ static void volumealsa_destructor(gpointer user_data)
 
 static GtkWidget *volumealsa_configure(LXPanel *panel, GtkWidget *p)
 {
+    VolumeALSAPlugin * vol = lxpanel_plugin_get_data(p);
+    char *path = NULL;
     const gchar *command_line = NULL;
 
-    if (g_find_program_in_path("pulseaudio"))
+    /* FIXME: configure settings! */
+    /* check if command line was configured */
+    config_setting_lookup_string(vol->settings, "MixerCommand", &command_line);
+
+    /* if command isn't set in settings then let guess it */
+    if (command_line == NULL && (path = g_find_program_in_path("pulseaudio")))
     {
+        g_free(path);
      /* Assume that when pulseaudio is installed, it's launching every time */
-        if (g_find_program_in_path("gnome-sound-applet"))
+        if ((path = g_find_program_in_path("gnome-sound-applet")))
         {
             command_line = "gnome-sound-applet";
         }
-        else
+        else if ((path = g_find_program_in_path("pavucontrol")))
         {
-            if (g_find_program_in_path("pavucontrol"))
-            {
-                command_line = "pavucontrol";
-            }
+            command_line = "pavucontrol";
         }
     }
 
     /* Fallback to alsamixer when PA is not running, or when no PA utility is find */
     if (command_line == NULL)
     {
-        if (g_find_program_in_path("gnome-alsamixer"))
+        if ((path = g_find_program_in_path("gnome-alsamixer")))
         {
             command_line = "gnome-alsamixer";
         }
-        else
+        else if ((path = g_find_program_in_path("alsamixergui")))
         {
-            if (g_find_program_in_path("alsamixer"))
+            command_line = "alsamixergui";
+        }
+        else if ((path = g_find_program_in_path("alsamixer")))
+        {
+            g_free(path);
+            if ((path = g_find_program_in_path("xterm")))
             {
-                if (g_find_program_in_path("xterm"))
-                {
-                    command_line = "xterm -e alsamixer";
-                }
+                command_line = "xterm -e alsamixer";
             }
         }
     }
+    g_free(path);
 
     if (command_line)
     {

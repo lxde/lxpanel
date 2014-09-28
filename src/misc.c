@@ -542,7 +542,7 @@ get_xaproperty (Window win, Atom prop, Atom type, int *nitems)
 
     ENTER;
     prop_data = NULL;
-    if (XGetWindowProperty (GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), win, prop, 0, 0x7fffffff, False,
+    if (XGetWindowProperty (GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), win, prop, 0, G_MAXLONG, False,
               type, &type_ret, &format_ret, &items_ret,
               &after_ret, &prop_data) != Success)
     {
@@ -612,7 +612,7 @@ int
 get_net_number_of_desktops()
 {
     int desknum;
-    guint32 *data;
+    gulong *data;
 
     ENTER;
     data = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_NUMBER_OF_DESKTOPS,
@@ -630,7 +630,7 @@ int
 get_net_current_desktop ()
 {
     int desk;
-    guint32 *data;
+    gulong *data;
 
     ENTER;
     data = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_CURRENT_DESKTOP, XA_CARDINAL, 0);
@@ -646,7 +646,7 @@ int
 get_net_wm_desktop(Window win)
 {
     int desk = 0;
-    guint32 *data;
+    gulong *data;
 
     ENTER;
     data = get_xaproperty (win, a_NET_WM_DESKTOP, XA_CARDINAL, 0);
@@ -661,7 +661,7 @@ GPid
 get_net_wm_pid(Window win)
 {
     GPid pid = 0;
-    guint32 *data;
+    gulong *data;
 
     ENTER;
     data = get_xaproperty (win, a_NET_WM_PID, XA_CARDINAL, 0);

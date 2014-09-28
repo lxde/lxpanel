@@ -2690,7 +2690,7 @@ static void taskbar_button_size_allocate(GtkWidget * btn, GtkAllocation * alloc,
 
 
         /* Send a NET_WM_ICON_GEOMETRY property change on the window. */
-        guint32 data[4];
+        gulong data[4];
         data[0] = x;
         data[1] = y;
         data[2] = alloc->width;

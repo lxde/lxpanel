@@ -341,3 +341,9 @@ install-exec-hook:
 	rm -f $(DESTDIR)$(libdir)/lxpanel/plugins/*.la
 	rm -f $(DESTDIR)$(libdir)/lxpanel/plugins/*.a
 	rm -f $(DESTDIR)$(libdir)/lxpanel/plugins/*.
+
+if BUILD_PLUGIN_LOADER
+DYNAMIC_PLUGINS_INSTALLED = $(DYNAMIC_PLUGINS:.la=.so)
+uninstall-hook:
+	cd $(DESTDIR)$(libdir)/lxpanel/plugins && rm -f $(DYNAMIC_PLUGINS_INSTALLED) || true
+endif

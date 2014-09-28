@@ -1,3 +1,7 @@
+* Fixed unhiding panel if it becomes empty and height_when_hidden is 0.
+
+0.7.1
+-------------------------------------------------------------------------
 * Fixed search for the gtkrc file.
 * Fixed search path for configuration - it should be not compilation time
     path but paths using $XDG_CONFIG_DIRS.
@@ -14,6 +18,20 @@
     can be contained in the plugins/Makefile.am. Adding a simple plugin
     basically would mean to add three lines into that file instead of
     writing whole Makefile.am.
+* Fixed invalid system config path search ("lxpanel" part was missing).
+* Fixed incorrect requirements in the lxpanel.pc file.
+* Fixed memory leak in the 'volumealsa' plugin.
+* Now 'volumealsa' checks for 'MixerCommand' setting in the configuration
+    before guessing it.
+* Fixed color saving in the configuration.
+* Fixed incomplete resources deallocation in 'volumealsa' plugin.
+* Fixed make uninstall (it left plugins installed).
+* Fixed monitor number set from GUI.
+* Fixed hang on netstatus icon in auto-hidden panel.
+* Fixed icon grid compilation with GTK+ < 2.20.
+* Fixed compilation without menu-cache.
+* Now man pages are included in the GIT and tarball, not just xml files.
+* Fixed incorrect printf arguments in 'netstatus' plugin.
 
 0.7.0
 -------------------------------------------------------------------------
