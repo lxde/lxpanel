@@ -260,6 +260,7 @@ static FmFileInfo *f_find_menu_launchbutton_recursive(const char *exec_bin)
 
     /* FIXME: cache it in Task object */
     mc = panel_menu_cache_new(&flags);
+    /* FIXME: if menu plugin wasn't loaded yet we'll get NULL list here */
     apps = menu_cache_list_all_apps(mc);
     short_exec = strrchr(exec_bin, '/');
     if (short_exec != NULL)

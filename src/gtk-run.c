@@ -258,7 +258,7 @@ static void reload_apps(MenuCache* cache, gpointer user_data)
         g_slist_foreach(app_list, (GFunc)menu_cache_item_unref, NULL);
         g_slist_free(app_list);
     }
-    app_list = (GSList*)menu_cache_list_all_apps(cache);
+    app_list = menu_cache_list_all_apps(cache);
 }
 #endif
 
@@ -409,11 +409,10 @@ void gtk_run()
         g_signal_connect(entry ,"changed", G_CALLBACK(on_entry_changed), img);
 
         /* get all apps */
-        menu_cache = menu_cache_lookup(g_getenv("XDG_MENU_PREFIX") ? "applications.menu" : "lxde-applications.menu" );
+        menu_cache = menu_cache_lookup_sync(g_getenv("XDG_MENU_PREFIX") ? "applications.menu" : "lxde-applications.menu" );
         if( menu_cache )
         {
-            menu_cache_reload(menu_cache);
-            app_list = (GSList*)menu_cache_list_all_apps(menu_cache);
+            app_list = menu_cache_list_all_apps(menu_cache);
             reload_notify_id = menu_cache_add_reload_notify(menu_cache, reload_apps, NULL);
         }
 #endif
