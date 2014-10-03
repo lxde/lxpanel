@@ -2541,7 +2541,7 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
                 GTK_MENU(tb->menu),
                 NULL, NULL,
                 (GtkMenuPositionFunc) taskbar_popup_set_position, (gpointer) visible_task,
-                event->button, event->time);
+                0, event->time);
         }
     }
 
