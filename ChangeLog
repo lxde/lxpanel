@@ -3,6 +3,7 @@
     server uses unsigned long which is 64 bit on 64-bit architectures.
 * Adapted to use libmenu-cache >= 1.0.0 - it could show empty folders in
     the desktop menu.
+* Fixed crash in taskbar after visible task changed name then gone.
 
 0.7.1
 -------------------------------------------------------------------------
