@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (c) 2006-2014 LxDE Developers, see the file AUTHORS for details.
  *
  * This program is free software; you can redistribute it and/or modify
@@ -60,7 +60,7 @@ static void panel_start_gui(LXPanel *p);
 static void ah_start(LXPanel *p);
 static void ah_stop(LXPanel *p);
 static void on_root_bg_changed(FbBg *bg, LXPanel* p);
-
+static void _panel_update_background(LXPanel * p);
 
 G_DEFINE_TYPE(PanelToplevel, lxpanel, GTK_TYPE_WINDOW);
 
@@ -117,11 +117,22 @@ static void lxpanel_destroy(GtkObject *object)
         p->initialized = FALSE;
     }
 
+    if (p->background_update_queued)
+    {
+        g_source_remove(p->background_update_queued);
+        p->background_update_queued = 0;
+    }
+
     GTK_OBJECT_CLASS(lxpanel_parent_class)->destroy(object);
 }
 
-static gboolean delay_update_background( GtkWidget* p )
+static gboolean idle_update_background(gpointer p)
 {
+    LXPanel *panel = LXPANEL(p);
+
+    if (g_source_is_destroyed(g_main_current_source()))
+        return FALSE;
+
     /* Panel could be destroyed while background update scheduled */
 #if GTK_CHECK_VERSION(2, 20, 0)
     if (gtk_widget_get_realized(p))
@@ -130,18 +141,27 @@ static gboolean delay_update_background( GtkWidget* p )
 #endif
     {
         gdk_display_sync( gtk_widget_get_display(p) );
-        _panel_update_background( LXPANEL(p) );
+        _panel_update_background(panel);
     }
+    panel->priv->background_update_queued = 0;
 
     return FALSE;
+}
+
+void _panel_queue_update_background(LXPanel *panel)
+{
+    if (panel->priv->background_update_queued)
+        return;
+    panel->priv->background_update_queued = g_idle_add_full(G_PRIORITY_HIGH,
+                                                            idle_update_background,
+                                                            panel, NULL);
 }
 
 static void lxpanel_realize(GtkWidget *widget)
 {
     GTK_WIDGET_CLASS(lxpanel_parent_class)->realize(widget);
 
-    g_idle_add_full( G_PRIORITY_LOW,
-            (GSourceFunc)delay_update_background, widget, NULL );
+    _panel_queue_update_background(LXPANEL(widget));
 }
 
 static void lxpanel_style_set(GtkWidget *widget, GtkStyle* prev)
@@ -149,13 +169,7 @@ static void lxpanel_style_set(GtkWidget *widget, GtkStyle* prev)
     GTK_WIDGET_CLASS(lxpanel_parent_class)->style_set(widget, prev);
 
     /* FIXME: This dirty hack is used to fix the background of systray... */
-#if GTK_CHECK_VERSION(2, 20, 0)
-    if (gtk_widget_get_realized(widget))
-#else
-    if( GTK_WIDGET_REALIZED( widget ) )
-#endif
-        g_idle_add_full( G_PRIORITY_LOW,
-                (GSourceFunc)delay_update_background, widget, NULL );
+    _panel_queue_update_background(LXPANEL(widget));
 }
 
 static void lxpanel_size_request(GtkWidget *widget, GtkRequisition *req)
@@ -195,6 +209,17 @@ static void lxpanel_size_allocate(GtkWidget *widget, GtkAllocation *a)
     {
         gtk_window_move(GTK_WINDOW(widget), p->ax, p->ay);
         _panel_set_wm_strut(LXPANEL(widget));
+    }
+    else if (p->background_update_queued)
+    {
+        g_source_remove(p->background_update_queued);
+        p->background_update_queued = 0;
+#if GTK_CHECK_VERSION(2, 20, 0)
+        if (gtk_widget_get_realized(widget))
+#else
+        if (GTK_WIDGET_REALIZED(widget))
+#endif
+            _panel_update_background(LXPANEL(widget));
     }
 }
 
@@ -621,7 +646,7 @@ void panel_update_background(Panel * p)
     _panel_update_background(p->topgwin);
 }
 
-void _panel_update_background(LXPanel * p)
+static void _panel_update_background(LXPanel * p)
 {
     GtkWidget *w = GTK_WIDGET(p);
     GList *plugins, *l;
@@ -1457,8 +1482,7 @@ void _panel_set_panel_configuration_changed(LXPanel *panel)
     }
     g_list_free(plugins);
     /* panel geometry changed? update panel background then */
-    g_idle_add_full( G_PRIORITY_LOW,
-                    (GSourceFunc)delay_update_background, panel, NULL );
+    _panel_queue_update_background(panel);
 }
 
 static int

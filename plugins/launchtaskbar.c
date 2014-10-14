@@ -260,6 +260,7 @@ static FmFileInfo *f_find_menu_launchbutton_recursive(const char *exec_bin)
 
     /* FIXME: cache it in Task object */
     mc = panel_menu_cache_new(&flags);
+    /* FIXME: if menu plugin wasn't loaded yet we'll get NULL list here */
     apps = menu_cache_list_all_apps(mc);
     short_exec = strrchr(exec_bin, '/');
     if (short_exec != NULL)
@@ -1657,6 +1658,12 @@ static gboolean accept_net_wm_window_type(NetWMWindowType * nwwt)
 /* Free the names associated with a task. */
 static void task_free_names(Task * tk)
 {
+    TaskClass * tc = tk->p_taskclass;
+
+    if (tc != NULL && tk->name != NULL)
+        /* Reset the name from class */
+        if (tc->visible_name == tk->name)
+            tc->visible_name = tc->res_class;
     g_free(tk->name);
     g_free(tk->name_iconified);
     tk->name = tk->name_iconified = NULL;
@@ -1715,6 +1722,10 @@ static void task_unlink_class(Task * tk)
     TaskClass * tc = tk->p_taskclass;
     if (tc != NULL)
     {
+        /* Reset the name from class */
+        if (tc->visible_name == tk->name)
+            tc->visible_name = tc->res_class;
+
         /* Action in Launchbar after class removed */
         launchbar_update_after_taskbar_class_removed(tk->tb, tk);
 
@@ -1739,6 +1750,7 @@ static void task_unlink_class(Task * tk)
                 tk_pred->p_task_flink_same_class = tk->p_task_flink_same_class;
         }
         tk->p_task_flink_same_class = NULL;
+        tk->p_taskclass = NULL;
 
         /* Recompute group visibility. */
         recompute_group_visibility_for_class(tk->tb, tc);
@@ -2540,7 +2552,7 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
                 GTK_MENU(tb->menu),
                 NULL, NULL,
                 (GtkMenuPositionFunc) taskbar_popup_set_position, (gpointer) visible_task,
-                event->button, event->time);
+                0, event->time);
         }
     }
 

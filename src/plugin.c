@@ -44,6 +44,7 @@ static void plugin_class_unref(PluginClass * pc);
 GQuark lxpanel_plugin_qinit;
 GQuark lxpanel_plugin_qconf;
 GQuark lxpanel_plugin_qdata;
+GQuark lxpanel_plugin_qsize;
 static GHashTable *_all_types = NULL;
 
 /* Dynamic parameter for static (built-in) plugins must be FALSE so we will not try to unload them */
@@ -440,6 +441,7 @@ void _prepare_modules(void)
     lxpanel_plugin_qdata = g_quark_from_static_string("LXPanel::plugin-data");
     lxpanel_plugin_qinit = g_quark_from_static_string("LXPanel::plugin-init");
     lxpanel_plugin_qconf = g_quark_from_static_string("LXPanel::plugin-conf");
+    lxpanel_plugin_qsize = g_quark_from_static_string("LXPanel::plugin-size");
 #ifndef DISABLE_PLUGINS_LOADING
     fm_modules_add_directory(PACKAGE_LIB_DIR "/lxpanel/plugins");
     fm_module_register_lxpanel_gtk();
@@ -524,10 +526,19 @@ static void _on_old_widget_destroy(GtkWidget *widget, Plugin *pl)
     pl->class->destructor(pl);
 }
 
-//static void on_size_allocate(GtkWidget *widget, GdkRectangle *allocation, LXPanel *p)
-//{
+static void on_size_allocate(GtkWidget *widget, GdkRectangle *allocation, LXPanel *p)
+{
+    GdkRectangle *alloc;
+
+    alloc = g_object_get_qdata(G_OBJECT(widget), lxpanel_plugin_qsize);
+    if (alloc->x == allocation->x && alloc->y == allocation->y &&
+        alloc->width == allocation->width && alloc->height == allocation->height)
+        return; /* not changed */
+    *alloc = *allocation;
+    /* g_debug("size-allocate on %s", PLUGIN_CLASS(widget)->name); */
+    _panel_queue_update_background(p);
 //    _queue_panel_calculate_size(p);
-//}
+}
 
 GtkWidget *lxpanel_add_plugin(LXPanel *p, const char *name, config_setting_t *cfg, gint at)
 {
@@ -608,10 +619,12 @@ GtkWidget *lxpanel_add_plugin(LXPanel *p, const char *name, config_setting_t *cf
     gtk_widget_set_name(widget, name);
     gtk_box_pack_start(GTK_BOX(p->priv->box), widget, expand, TRUE, padding);
     gtk_container_set_border_width(GTK_CONTAINER(widget), border);
-//    g_signal_connect(widget, "size-allocate", G_CALLBACK(on_size_allocate), p);
+    g_signal_connect(widget, "size-allocate", G_CALLBACK(on_size_allocate), p);
     gtk_widget_show(widget);
     g_object_set_qdata(G_OBJECT(widget), lxpanel_plugin_qconf, cfg);
     g_object_set_qdata(G_OBJECT(widget), lxpanel_plugin_qinit, (gpointer)init);
+    g_object_set_qdata_full(G_OBJECT(widget), lxpanel_plugin_qsize,
+                            g_new0(GdkRectangle, 1), g_free);
     return widget;
 }
 

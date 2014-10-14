@@ -448,7 +448,9 @@ static GtkWidget* create_item(MenuCacheItem *item, menup *m)
         gtk_image_menu_item_set_image( GTK_IMAGE_MENU_ITEM(mi), img );
         if( menu_cache_item_get_type(item) == MENU_CACHE_TYPE_APP )
         {
-            gtk_widget_set_tooltip_text( mi, menu_cache_item_get_comment(item) );
+            const char *comment = menu_cache_item_get_comment(item);
+            if (comment != NULL)
+                gtk_widget_set_tooltip_text(mi, comment);
             g_signal_connect(mi, "activate", G_CALLBACK(on_menu_item), m);
         }
         g_signal_connect(mi, "map", G_CALLBACK(on_menu_item_map), m);
@@ -469,9 +471,17 @@ static int load_menu(menup* m, MenuCacheDir* dir, GtkWidget* menu, int pos )
     gint count = 0;
 #if MENU_CACHE_CHECK_VERSION(0, 4, 0)
     GSList *children;
-#if MENU_CACHE_CHECK_VERSION(0, 5, 0)
-    char *kfpath = menu_cache_item_get_file_path(MENU_CACHE_ITEM(dir));
-    GKeyFile *kf = g_key_file_new();
+# if MENU_CACHE_CHECK_VERSION(0, 5, 0)
+#  if !MENU_CACHE_CHECK_VERSION(1, 0, 0)
+    char *kfpath;
+    GKeyFile *kf;
+#  endif
+    if (!menu_cache_dir_is_visible(dir)) /* directory is hidden, ignore children */
+        return 0;
+#  if !MENU_CACHE_CHECK_VERSION(1, 0, 0)
+    /* version 1.0.0 has NoDisplay checked internally */
+    kfpath = menu_cache_item_get_file_path(MENU_CACHE_ITEM(dir));
+    kf = g_key_file_new();
     /* for version 0.5.0 we enable hidden so should test NoDisplay flag */
     if (kfpath && g_key_file_load_from_file(kf, kfpath, 0, NULL) &&
         g_key_file_get_boolean(kf, "Desktop Entry", "NoDisplay", NULL))
@@ -480,10 +490,11 @@ static int load_menu(menup* m, MenuCacheDir* dir, GtkWidget* menu, int pos )
     g_key_file_free(kf);
     if (count < 0) /* directory is hidden, ignore children */
         return 0;
-#endif
+#  endif /* < 1.0.0 */
+# endif /* < 0.5.0 */
     children = menu_cache_dir_list_children(dir);
     for (l = children; l; l = l->next)
-#else
+#else /* < 0.4.0 */
     for( l = menu_cache_dir_get_children(dir); l; l = l->next )
 #endif
     {
