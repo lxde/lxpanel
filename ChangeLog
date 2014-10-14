@@ -4,6 +4,7 @@
 * Adapted to use libmenu-cache >= 1.0.0 - it could show empty folders in
     the desktop menu.
 * Fixed crash in taskbar after visible task changed name then gone.
+* Ensured panel background update after some plugin was resized.
 
 0.7.1
 -------------------------------------------------------------------------

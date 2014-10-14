@@ -118,7 +118,7 @@ update_panel_geometry( LXPanel* p )
     _calculate_position(p);
     gtk_widget_set_size_request(GTK_WIDGET(p), p->priv->aw, p->priv->ah);
     gdk_window_move(gtk_widget_get_window(GTK_WIDGET(p)), p->priv->ax, p->priv->ay);
-    _panel_update_background(p);
+    _panel_queue_update_background(p);
     _panel_establish_autohide(p);
     _panel_set_wm_strut(p);
 }

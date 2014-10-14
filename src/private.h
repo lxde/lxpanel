@@ -134,6 +134,7 @@ struct _Panel {
     guint initialized : 1;              /* Should be grouped better later, */
     guint ah_far : 1;                   /* placed here for binary compatibility */
     guint ah_state : 3;
+    guint background_update_queued;
     guint mouse_timeout;
     //gint dyn_space;                     /* Space for expandable plugins */
     //guint calculate_size_idle;          /* The idle handler for dyn_space calc */
@@ -220,7 +221,7 @@ void _panel_determine_background_pixmap(LXPanel * p, GtkWidget * widget);
 void _panel_establish_autohide(LXPanel *p);
 void _panel_set_wm_strut(LXPanel *p);
 void _panel_set_panel_configuration_changed(LXPanel *p);
-void _panel_update_background(LXPanel *p);
+void _panel_queue_update_background(LXPanel *p);
 
 void panel_configure(LXPanel* p, int sel_page);
 gboolean panel_edge_available(Panel* p, int edge, gint monitor);
