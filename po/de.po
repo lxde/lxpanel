@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-20 13:56+0300\n"
-"PO-Revision-Date: 2014-10-14 14:31+0000\n"
+"PO-Revision-Date: 2014-10-14 16:00+0000\n"
 "Last-Translator: H.Humpel <H.Humpel@gmx.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: de\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1413297079.000000\n"
+"X-POOTLE-MTIME: 1413302429.000000\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:50 ../src/gtk-run.c:373 ../plugins/menu.c:749
@@ -722,6 +722,8 @@ msgstr "Trenner zum Panel hinzufügen"
 #: ../plugins/pager.c:92
 msgid "Sorry, there was no window manager configuration program found."
 msgstr ""
+"Entschuldigung, es wurde kein Programm gefunden, um den Fenstermanger zu "
+"konfigurieren."
 
 #: ../plugins/pager.c:143 ../plugins/pager.c:159
 msgid "Desktop Pager"
@@ -912,14 +914,12 @@ msgid "Automatic temperature levels"
 msgstr "Automatische Temperatur-Stufen"
 
 #: ../plugins/thermal/thermal.c:529
-#, fuzzy
 msgid "Warning1 temperature"
-msgstr "Warnung1 Temperatur"
+msgstr "Warnung1: Temperatur"
 
 #: ../plugins/thermal/thermal.c:530
-#, fuzzy
 msgid "Warning2 temperature"
-msgstr "Warnung2 Temperatur"
+msgstr "Warnung2: Temperatur"
 
 #: ../plugins/thermal/thermal.c:540
 msgid "Display system temperature"
@@ -936,7 +936,7 @@ msgstr ""
 
 #: ../plugins/cpufreq/cpufreq.c:408
 msgid "CPUFreq frontend"
-msgstr ""
+msgstr "CPUFreq Frontend"
 
 #: ../plugins/cpufreq/cpufreq.c:409
 msgid "Display CPU frequency and allow to change governors and frequency"
