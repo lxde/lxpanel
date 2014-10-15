@@ -130,6 +130,7 @@ static gboolean pager_update_context_menu(GtkWidget *plugin, GtkMenu *menu)
         /* disable 'Settings' menu item */
         gtk_container_foreach(GTK_CONTAINER(menu), pager_menu_callback, NULL);
     }
+    /* FIXME: else replace 'Settings' item label with "Launch Workspaces Configurator (%s)" */
     g_free(path);
     return FALSE;
 }

@@ -1614,6 +1614,7 @@ void load_global_config()
                 g_object_unref(l->data);
             g_list_free(apps);
             g_free(tmp);
+            save_global_config();
         }
     }
     g_key_file_free( kf );

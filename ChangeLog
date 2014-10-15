@@ -5,6 +5,7 @@
     the desktop menu.
 * Fixed crash in taskbar after visible task changed name then gone.
 * Ensured panel background update after some plugin was resized.
+* FileManager statement from old config should never be scanned again.
 
 0.7.1
 -------------------------------------------------------------------------
