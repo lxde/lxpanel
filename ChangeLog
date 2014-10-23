@@ -7,6 +7,8 @@
 * Ensured panel background update after some plugin was resized.
 * FileManager statement from old config should never be scanned again.
 * Fixed positioning of new created panel, the edge was not saved.
+* Eliminated hardcoded "xterm" in 'volumealsa' plugin - LibFM has enough
+    means to call terminal when needed.
 
 0.7.1
 -------------------------------------------------------------------------
