@@ -1,3 +1,5 @@
+0.7.2
+-------------------------------------------------------------------------
 * Fixed unhiding panel if it becomes empty and height_when_hidden is 0.
 * Fixed invalid X protocol word size: despite of stating it 32 bit, the X
     server uses unsigned long which is 64 bit on 64-bit architectures.
