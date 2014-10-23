@@ -9,6 +9,7 @@
 * Fixed positioning of new created panel, the edge was not saved.
 * Eliminated hardcoded "xterm" in 'volumealsa' plugin - LibFM has enough
     means to call terminal when needed.
+* Fixed crash if 'volumealsa' plugin initialization failed.
 
 0.7.1
 -------------------------------------------------------------------------
