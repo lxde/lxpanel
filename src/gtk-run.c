@@ -409,9 +409,17 @@ void gtk_run()
         g_signal_connect(entry ,"changed", G_CALLBACK(on_entry_changed), img);
 
         /* get all apps */
+#if defined(MENU_CACHE_CHECK_VERSION) && MENU_CACHE_CHECK_VERSION(0, 6, 1)
         menu_cache = menu_cache_lookup_sync(g_getenv("XDG_MENU_PREFIX") ? "applications.menu" : "lxde-applications.menu" );
         if( menu_cache )
         {
+#else
+        /* SF bug #689: menu_cache_lookup_sync() was fail-prone before 0.6.1 */
+        menu_cache = menu_cache_lookup(g_getenv("XDG_MENU_PREFIX") ? "applications.menu" : "lxde-applications.menu" );
+        if( menu_cache )
+        {
+            menu_cache_reload(menu_cache);
+#endif
             app_list = menu_cache_list_all_apps(menu_cache);
             reload_notify_id = menu_cache_add_reload_notify(menu_cache, reload_apps, NULL);
         }

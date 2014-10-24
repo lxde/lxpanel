@@ -1,3 +1,5 @@
+* Added workaround for crash in gtk-run with old libmenu-cache.
+
 0.7.2
 -------------------------------------------------------------------------
 * Fixed unhiding panel if it becomes empty and height_when_hidden is 0.
