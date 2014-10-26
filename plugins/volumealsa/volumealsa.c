@@ -577,8 +577,9 @@ static void volumealsa_destructor(gpointer user_data)
     if (vol->restart_idle)
         g_source_remove(vol->restart_idle);
 
-    g_signal_handlers_disconnect_by_func(panel_get_icon_theme(vol->panel),
-                                         volumealsa_theme_change, vol);
+    if (vol->panel) /* SF bug #683: crash if constructor failed */
+        g_signal_handlers_disconnect_by_func(panel_get_icon_theme(vol->panel),
+                                             volumealsa_theme_change, vol);
 
     /* Deallocate all memory. */
     g_free(vol);
@@ -591,10 +592,14 @@ static GtkWidget *volumealsa_configure(LXPanel *panel, GtkWidget *p)
     VolumeALSAPlugin * vol = lxpanel_plugin_get_data(p);
     char *path = NULL;
     const gchar *command_line = NULL;
+    GAppInfoCreateFlags flags = G_APP_INFO_CREATE_NONE;
 
     /* FIXME: configure settings! */
     /* check if command line was configured */
     config_setting_lookup_string(vol->settings, "MixerCommand", &command_line);
+    /* FIXME: support "needs terminal" for MixerCommand */
+    /* FIXME: selection for master channel! */
+    /* FIXME: configure buttons for each action (toggle volume/mixer/mute)! */
 
     /* if command isn't set in settings then let guess it */
     if (command_line == NULL && (path = g_find_program_in_path("pulseaudio")))
@@ -624,19 +629,15 @@ static GtkWidget *volumealsa_configure(LXPanel *panel, GtkWidget *p)
         }
         else if ((path = g_find_program_in_path("alsamixer")))
         {
-            g_free(path);
-            if ((path = g_find_program_in_path("xterm")))
-            {
-                command_line = "xterm -e alsamixer";
-            }
+            command_line = "alsamixer";
+            flags = G_APP_INFO_CREATE_NEEDS_TERMINAL;
         }
     }
     g_free(path);
 
     if (command_line)
     {
-        fm_launch_command_simple(NULL, NULL, G_APP_INFO_CREATE_NONE,
-                                 command_line, NULL);
+        fm_launch_command_simple(NULL, NULL, flags, command_line, NULL);
     }
     else
     {

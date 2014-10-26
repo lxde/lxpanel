@@ -1,3 +1,7 @@
+* Added workaround for crash in gtk-run with old libmenu-cache.
+
+0.7.2
+-------------------------------------------------------------------------
 * Fixed unhiding panel if it becomes empty and height_when_hidden is 0.
 * Fixed invalid X protocol word size: despite of stating it 32 bit, the X
     server uses unsigned long which is 64 bit on 64-bit architectures.
@@ -6,6 +10,10 @@
 * Fixed crash in taskbar after visible task changed name then gone.
 * Ensured panel background update after some plugin was resized.
 * FileManager statement from old config should never be scanned again.
+* Fixed positioning of new created panel, the edge was not saved.
+* Eliminated hardcoded "xterm" in 'volumealsa' plugin - LibFM has enough
+    means to call terminal when needed.
+* Fixed crash if 'volumealsa' plugin initialization failed.
 
 0.7.1
 -------------------------------------------------------------------------
