@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.3.99\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-20 13:56+0300\n"
-"PO-Revision-Date: 2014-08-21 07:42+0000\n"
+"PO-Revision-Date: 2014-10-26 23:14+0000\n"
 "Last-Translator: Daniele Forsi <daniele@forsi.it>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: it\n"
@@ -17,8 +17,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.6.0-rc1\n"
-"X-POOTLE-MTIME: 1408606975.000000\n"
+"X-Generator: Pootle 2.6.0-rc2\n"
+"X-POOTLE-MTIME: 1414365267.000000\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:50 ../src/gtk-run.c:373 ../plugins/menu.c:749
@@ -676,9 +676,9 @@ msgid "Tooltip Format"
 msgstr "Formato suggerimenti"
 
 #: ../plugins/dclock.c:424
-#, c-format, fuzzy
+#, c-format
 msgid "Format codes: man 3 strftime; %n for line break"
-msgstr "Codici formato: man 3 strftime; \\%n per ritorno a capo"
+msgstr "Codici formato: man 3 strftime; %n per ritorno a capo"
 
 #: ../plugins/dclock.c:425
 msgid "Action when clicked (default: display calendar)"
