@@ -1703,7 +1703,7 @@ msgstr ""
 "天気予報を取得するには以下のいずれかを入力します:\n"
 "- 都市名\n"
 "- 都市名と州あるいは国名\n"
-"- 郵便番号\n"
+"- 郵便番号"
 
 #: ../src/plugins/weather/weatherwidget.c:846
 #: ../src/plugins/weather/weatherwidget.c:979
