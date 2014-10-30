@@ -1,4 +1,6 @@
 * Added workaround for crash in gtk-run with old libmenu-cache.
+* Core functions are separated into a private library to allow reliable
+    linking of modules using -Wl,-z,defs.
 
 0.7.2
 -------------------------------------------------------------------------
