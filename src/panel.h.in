@@ -24,6 +24,12 @@
 
 G_BEGIN_DECLS
 
+#define LXPANEL_CHECK_VERSION(_a,_b,_c) \
+    (@VERSION_MAJOR@ > _a || \
+    (@VERSION_MAJOR@ == _a && @VERSION_MINOR@ > _b) || \
+    (@VERSION_MAJOR@ == _a && @VERSION_MINOR@ == _b && @VERSION_MICRO@ >= _c))
+
+
 #define LX_TYPE_PANEL                  (lxpanel_get_type())
 #define LXPANEL(obj)                   (G_TYPE_CHECK_INSTANCE_CAST((obj), \
                                         LX_TYPE_PANEL, LXPanel))

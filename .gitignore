@@ -49,6 +49,7 @@ Makefile
 .[A-Za-z]*
 src/lxpanel
 src/lxpanelctl
+src/panel.h
 stamp-h1
 debian/files
 debian/lxpanel.debhelper.log

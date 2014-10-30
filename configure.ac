@@ -374,6 +374,13 @@ else
     CPPFLAGS="$CPPFLAGS -DG_DISABLE_ASSERT -DG_DISABLE_CHECKS -DG_DISABLE_CAST_CHECKS"
 fi
 
+dnl Make version subfields for LXPANEL_CHECK_VERSION macro
+ac_version_subst_str=`echo $VERSION | awk -F '.' '/.*/ { printf "VERSION_MAJOR=%d VERSION_MINOR=%d VERSION_MICRO=%d", $1, $2, $3 }'`
+eval ${ac_version_subst_str}
+AC_SUBST(VERSION_MAJOR)
+AC_SUBST(VERSION_MINOR)
+AC_SUBST(VERSION_MICRO)
+
 dnl Fix invalid sysconfdir when --prefix=/usr
 if test `eval "echo $sysconfdir"` = /usr/etc
 then
@@ -384,6 +391,7 @@ AC_CONFIG_FILES([
     lxpanel.pc
     Makefile
     src/Makefile
+    src/panel.h
     plugins/Makefile
     po/Makefile.in
     data/Makefile
