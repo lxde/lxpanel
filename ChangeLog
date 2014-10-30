@@ -2,6 +2,7 @@
 * Core functions are separated into a private library to allow reliable
     linking of modules using -Wl,-z,defs.
 * Added macro LXPANEL_CHECK_VERSION() for third party pluguns API check.
+* Added CONF_TYPE_EXTERNAL support for lxpanel_generic_config_dlg().
 
 0.7.2
 -------------------------------------------------------------------------

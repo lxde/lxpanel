@@ -1403,7 +1403,9 @@ static GtkWidget *_lxpanel_generic_config_dlg(const char *title, Panel *p,
         GtkWidget* entry = NULL;
         gpointer val = va_arg( args, gpointer );
         PluginConfType type = va_arg( args, PluginConfType );
-        switch( type )
+        if (type != CONF_TYPE_TRIM && val == NULL)
+            g_critical("NULL pointer for generic config dialog");
+        else switch( type )
         {
             case CONF_TYPE_STR:
             case CONF_TYPE_FILE_ENTRY: /* entry with a button to browse for files. */
@@ -1443,6 +1445,12 @@ static GtkWidget *_lxpanel_generic_config_dlg(const char *title, Panel *p,
                 gtk_label_set_markup (GTK_LABEL (entry), markup);
                 g_free (markup);
                 }
+                break;
+            case CONF_TYPE_EXTERNAL:
+                if (GTK_IS_WIDGET(val))
+                    gtk_box_pack_start(dlg_vbox, val, FALSE, FALSE, 2);
+                else
+                    g_critical("value for CONF_TYPE_EXTERNAL is not a GtkWidget");
                 break;
         }
         if( entry )
