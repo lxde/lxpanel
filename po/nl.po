@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-20 13:56+0300\n"
-"PO-Revision-Date: 2014-08-26 15:47+0000\n"
+"PO-Revision-Date: 2014-10-30 11:03+0000\n"
 "Last-Translator: Pjotr  <pjotrvertaalt@gmail.com>\n"
 "Language-Team: Dutch\n"
 "Language: nl\n"
@@ -16,8 +16,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.6.0-rc1\n"
-"X-POOTLE-MTIME: 1409068048.000000\n"
+"X-Generator: Pootle 2.6.0-rc2\n"
+"X-POOTLE-MTIME: 1414667024.000000\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:50 ../src/gtk-run.c:373 ../plugins/menu.c:749
@@ -106,7 +106,7 @@ msgstr "Instellingen van '%s'"
 
 #: ../src/panel.c:1074
 msgid "Add / Remove Panel Items"
-msgstr "Werkbalkelementen verwijderen/toevoegen"
+msgstr "Werkbalkelementen verwijderen of toevoegen"
 
 #: ../src/panel.c:1082
 #, c-format
@@ -386,7 +386,7 @@ msgstr "Pixels"
 #: ../data/ui/panel-pref.glade.h:4
 #, no-c-format
 msgid "% Percent"
-msgstr "% Procent"
+msgstr "% procent"
 
 #: ../data/ui/panel-pref.glade.h:5
 msgid "None"
@@ -648,7 +648,7 @@ msgid ""
 "focus"
 msgstr ""
 "De taakbalk toont alle geopende vensters, en laat toe er pictogrammen van te "
-"maken, op te rollen, of focus te verkrijgen"
+"maken, op te rollen, of scherpstelling te verkrijgen"
 
 #: ../plugins/launchtaskbar.c:3476
 msgid "Bar with buttons to launch application and/or show all opened windows"
@@ -1381,21 +1381,21 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"Kan netwerkkaart-statistieken niet lezen vanuit '%s'. prx_idx = %d; ptx_idx ="
+"Kon netwerkkaart-statistieken niet lezen vanuit '%s'. prx_idx = %d; ptx_idx ="
 " %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:312
 msgid "Could not parse /proc/net/wireless. No data."
-msgstr "Kan /proc/net/wireless niet lezen. Geen gegevens."
+msgstr "Kon /proc/net/wireless niet lezen. Geen gegevens."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:316
 msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr "Kan /proc/net/wireless niet lezen. Onbekende opmaak."
+msgstr "Kon /proc/net/wireless niet lezen. Onbekende opmaak."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:343
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr "Kan draadloze details niet lezen vanuit '%s'. link_idx = %d;"
+msgstr "Kon draadloze details niet lezen vanuit '%s'. link_idx = %d;"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:416
 #, c-format
@@ -1426,15 +1426,15 @@ msgstr "Niet bezig"
 
 #: ../plugins/netstatus/netstatus-util.c:158
 msgid "Sending"
-msgstr "Aan het verzenden"
+msgstr "Verzenden..."
 
 #: ../plugins/netstatus/netstatus-util.c:161
 msgid "Receiving"
-msgstr "Aan het ontvangen"
+msgstr "Ontvangen..."
 
 #: ../plugins/netstatus/netstatus-util.c:164
 msgid "Sending/Receiving"
-msgstr "Aan het verzenden/ontvangen"
+msgstr "Verzenden/ontvangen..."
 
 #: ../plugins/batt/batt.c:151
 #, c-format
@@ -1582,7 +1582,7 @@ msgstr "Uitgebreide informatie tonen"
 
 #: ../plugins/batt/batt.c:662
 msgid "Display battery status using ACPI"
-msgstr "Toont status van de accu met behulp van ACPI"
+msgstr "Toon status van de accu met behulp van ACPI"
 
 #: ../plugins/kbled/kbled.c:228 ../plugins/kbled/kbled.c:259
 msgid "Keyboard LED"
