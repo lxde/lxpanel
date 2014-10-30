@@ -1009,6 +1009,7 @@ menu_constructor(LXPanel *panel, config_setting_t *settings)
         return NULL;
     }
 
+    /* FIXME: allow bind a global key to toggle menu using libkeybinder */
     return m->box;
 }
 
