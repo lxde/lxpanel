@@ -1,6 +1,7 @@
 #!/usr/bin/make -f
 
 DEB_HOST_ARCH_OS ?= $(shell dpkg-architecture -qDEB_HOST_ARCH_OS)
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
@@ -20,6 +21,13 @@ endif
 
 override_dh_strip:
 	dh_strip --dbg-package=lxpanel-dbg
+
+override_dh_auto_install:
+	dh_auto_install
+	rm -f debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH)/lxpanel/*.la
+
+override_dh_install:
+	dh_install --fail-missing
 
 override_dh_makeshlibs:
 	# plugins are not shared libs so disable processing for them

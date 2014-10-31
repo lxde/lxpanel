@@ -45,18 +45,7 @@ enum{
 
 static void save_global_config();
 
-Command commands[] = {
-    //{ "configure", N_("Preferences"), configure },
-    { "run", N_("Run"), gtk_run },
-    { "restart", N_("Restart"), restart },
-    { "logout", N_("Logout"), logout },
-    { NULL, NULL },
-};
-
 static char* logout_cmd = NULL;
-
-extern GSList* all_panels;
-extern int config;
 
 /* macros to update config */
 #define UPDATE_GLOBAL_INT(panel,name,val) do { \
@@ -1248,17 +1237,6 @@ void lxpanel_config_save(LXPanel *p)
     panel_config_save(p->priv);
 }
 
-void restart(void)
-{
-    /* This is defined in panel.c */
-    extern gboolean is_restarting;
-    ENTER;
-    is_restarting = TRUE;
-
-    gtk_main_quit();
-    RET();
-}
-
 void logout(void)
 {
     const char* l_logout_cmd = logout_cmd;
@@ -1422,11 +1400,12 @@ static GtkWidget *_lxpanel_generic_config_dlg(const char *title, Panel *p,
 
     while( name )
     {
-        GtkWidget* label = gtk_label_new( name );
         GtkWidget* entry = NULL;
         gpointer val = va_arg( args, gpointer );
         PluginConfType type = va_arg( args, PluginConfType );
-        switch( type )
+        if (type != CONF_TYPE_TRIM && val == NULL)
+            g_critical("NULL pointer for generic config dialog");
+        else switch( type )
         {
             case CONF_TYPE_STR:
             case CONF_TYPE_FILE_ENTRY: /* entry with a button to browse for files. */
@@ -1439,17 +1418,15 @@ static GtkWidget *_lxpanel_generic_config_dlg(const char *title, Panel *p,
                   G_CALLBACK(on_entry_focus_out_old), val );
                 break;
             case CONF_TYPE_INT:
-            {
                 /* FIXME: the range shouldn't be hardcoded */
                 entry = gtk_spin_button_new_with_range( 0, 1000, 1 );
                 gtk_spin_button_set_value( GTK_SPIN_BUTTON(entry), *(int*)val );
                 g_signal_connect( entry, "value-changed",
                   G_CALLBACK(on_spin_changed), val );
                 break;
-            }
             case CONF_TYPE_BOOL:
                 entry = gtk_check_button_new();
-                gtk_container_add( GTK_CONTAINER(entry), label );
+                gtk_container_add(GTK_CONTAINER(entry), gtk_label_new(name));
                 gtk_toggle_button_set_active( GTK_TOGGLE_BUTTON(entry), *(gboolean*)val );
                 g_signal_connect( entry, "toggled",
                   G_CALLBACK(on_toggle_changed), val );
@@ -1469,6 +1446,12 @@ static GtkWidget *_lxpanel_generic_config_dlg(const char *title, Panel *p,
                 g_free (markup);
                 }
                 break;
+            case CONF_TYPE_EXTERNAL:
+                if (GTK_IS_WIDGET(val))
+                    gtk_box_pack_start(dlg_vbox, val, FALSE, FALSE, 2);
+                else
+                    g_critical("value for CONF_TYPE_EXTERNAL is not a GtkWidget");
+                break;
         }
         if( entry )
         {
@@ -1477,7 +1460,7 @@ static GtkWidget *_lxpanel_generic_config_dlg(const char *title, Panel *p,
             else
             {
                 GtkWidget* hbox = gtk_hbox_new( FALSE, 2 );
-                gtk_box_pack_start( GTK_BOX(hbox), label, FALSE, FALSE, 2 );
+                gtk_box_pack_start( GTK_BOX(hbox), gtk_label_new(name), FALSE, FALSE, 2 );
                 gtk_box_pack_start( GTK_BOX(hbox), entry, TRUE, TRUE, 2 );
                 gtk_box_pack_start( dlg_vbox, hbox, FALSE, FALSE, 2 );
                 if ((type == CONF_TYPE_FILE_ENTRY) || (type == CONF_TYPE_DIRECTORY_ENTRY))

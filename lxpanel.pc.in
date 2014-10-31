@@ -1,10 +1,11 @@
 prefix=@prefix@
 exec_prefix=@exec_prefix@
-libdir=@libdir@
-includedir=@includedir@
-datadir=@datadir@
+pkglibdir=@libdir@/lxpanel
+includedir=@includedir@/lxpanel
+pluginsdir=${pkglibdir}/plugins
 
 Name: lxpanel
 Description: A lightweight X11 desktop panel
 Requires: glib-2.0 libfm
 Version: @VERSION@
+Libs: -L${pkglibdir} -llxpanel

@@ -1,4 +1,5 @@
 ## Process this file with automake to produce Makefile.in
+ABI_VERSION=0:0:0
 
 bin_PROGRAMS = lxpanel lxpanelctl
 
@@ -18,19 +19,23 @@ if ENABLE_MENU_CACHE
 MENU_SOURCES = menu-policy.c
 endif
 
-lxpanel_SOURCES = \
+pkglib_LTLIBRARIES = liblxpanel.la
+
+liblxpanel_la_CFLAGS = $(lxpanel_CFLAGS)
+liblxpanel_la_SOURCES = \
 	misc.c \
-	gtk-run.c \
 	bg.c \
 	configurator.c \
 	dbg.c \
 	ev.c \
-	icon-grid-old.c \
 	icon-grid.c \
 	panel.c \
 	plugin.c \
-	conf.c \
-	$(MENU_SOURCES)
+	conf.c
+
+liblxpanel_la_LIBADD = \
+	$(PACKAGE_LIBS) \
+	$(X11_LIBS)
 
 lxpanel_includedir = $(includedir)/lxpanel
 lxpanel_include_HEADERS = \
@@ -40,6 +45,12 @@ lxpanel_include_HEADERS = \
 	icon-grid.h \
 	conf.h
 
+lxpanel_SOURCES = \
+	icon-grid-old.c \
+	gtk-run.c \
+	main.c \
+	$(MENU_SOURCES)
+
 if BUILD_PLUGIN_LOADER
 DYNAMIC_FLAGS = -export-dynamic
 endif
@@ -47,13 +58,13 @@ lxpanel_LDFLAGS = $(DYNAMIC_FLAGS)
 lxpanel_DEPENDENCIES_EXTRA = $(BUILTIN_PLUGINS)
 
 lxpanel_LDADD = \
+		liblxpanel.la \
 		$(BUILTIN_PLUGINS) \
 		$(PACKAGE_LIBS) \
-		$(X11_LIBS) \
-		$(INTLLIBS)
+		$(X11_LIBS)
 
 lxpanelctl_SOURCES = lxpanelctl.c lxpanelctl.h
-lxpanelctl_LDADD = $(X11_LIBS) $(INTLLIBS)
+lxpanelctl_LDADD = $(X11_LIBS)
 
 EXTRA_DIST = \
 	bg.h \

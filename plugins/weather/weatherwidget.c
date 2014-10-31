@@ -63,6 +63,7 @@ enum
   MAX_COLUMNS
 };
 
+#ifdef USE_STANDALONE
 struct _PopupMenuData
 {
   GtkWidget * menu;
@@ -70,6 +71,7 @@ struct _PopupMenuData
   GtkWidget * preferences_item;
   GtkWidget * quit_item;
 };
+#endif
 
 struct _PreferencesDialogData
 {
@@ -100,16 +102,15 @@ struct _ForecastThreadData
 
 struct _GtkWeatherPrivate
 {
-  /* Whether or not this widget is being used by itself */
-  gboolean standalone;
-
   /* Main Widget Box layout */
   GtkWidget * hbox;
   GtkWidget * image;
   GtkWidget * label;
 
   /* Menus and dialogs */
+#ifdef USE_STANDALONE
   PopupMenuData menu_data;
+#endif
   PreferencesDialogData preferences_data;
   GtkWidget * conditions_dialog;
 
@@ -161,7 +162,9 @@ static gboolean gtk_weather_change_location (GtkWidget * widget, GdkEventButton 
 
 static void gtk_weather_auto_update_toggled (GtkWidget * widget);
 
+#ifdef USE_STANDALONE
 static void gtk_weather_create_popup_menu            (GtkWeather * weather);
+#endif
 static void gtk_weather_set_window_icon              (GtkWindow * window, gchar * icon_id);
 static void gtk_weather_show_location_progress_bar   (GtkWeather * weather);
 static void gtk_weather_show_location_list           (GtkWeather * weather, GList * list);
@@ -235,13 +238,9 @@ gtk_weather_get_type(void)
  * @return A new instance of this widget type.
  */
 GtkWidget *
-gtk_weather_new(gboolean standalone)
+gtk_weather_new(void)
 {
   GObject * object = g_object_new(gtk_weather_get_type(), NULL);
-
-  GtkWeatherPrivate * priv = GTK_WEATHER_GET_PRIVATE(GTK_WEATHER(object));
-
-  priv->standalone = standalone;
 
   return GTK_WIDGET(object);
 }
@@ -340,7 +339,9 @@ gtk_weather_init(GtkWeather * weather)
   gtk_container_set_border_width(GTK_CONTAINER(weather), 2);
 
   /* Popup menu */
+#ifdef USE_STANDALONE
   gtk_weather_create_popup_menu(weather);
+#endif
 
   priv->forecast_data.timerid = 0;
 
@@ -375,10 +376,12 @@ gtk_weather_destroy(GObject * object)
   freeLocation(priv->location);
   freeForecast(priv->forecast);
 
+#ifdef USE_STANDALONE
   if (priv->menu_data.menu && GTK_IS_WIDGET(priv->menu_data.menu))
     {
       gtk_widget_destroy(priv->menu_data.menu);
     }
+#endif
 
   if (priv->hbox && GTK_IS_WIDGET(priv->hbox))
     {
@@ -719,21 +722,16 @@ gtk_weather_button_pressed(GtkWidget * widget, GdkEventButton * event)
 
   GtkWeatherPrivate * priv = GTK_WEATHER_GET_PRIVATE(GTK_WEATHER(widget));
 
+#ifdef USE_STANDALONE
   /* If right-clicked, show popup */
   if (event->button == 3 && (event->type == GDK_BUTTON_PRESS))
     {
-      if (priv->standalone)
-        {
-          gtk_weather_run_popup_menu(widget);
+      gtk_weather_run_popup_menu(widget);
 
-          return TRUE;
-        }
-      else
-        {
-          return FALSE;
-        }
+      return TRUE;
     }
-  else if (event->button == 1 && (event->type == GDK_BUTTON_PRESS))
+#endif
+  if (event->button == 1 && (event->type == GDK_BUTTON_PRESS))
     {
       if (priv->conditions_dialog)
         gtk_dialog_response(GTK_DIALOG(priv->conditions_dialog), GTK_RESPONSE_ACCEPT);
@@ -1046,6 +1044,7 @@ gtk_weather_run_error_dialog(GtkWindow * parent, gchar * error_msg)
     }
 }
 
+#ifdef USE_STANDALONE
 /**
  * Creates a pop-up menu.
  *
@@ -1108,6 +1107,7 @@ gtk_weather_create_popup_menu(GtkWeather * weather)
 
   gtk_widget_show_all(priv->menu_data.menu);
 }
+#endif
 
 /**
  * Callback for the preferences menu response.
@@ -1177,6 +1177,7 @@ gtk_weather_preferences_dialog_response(GtkDialog *dialog, gint response, gpoint
   priv->preferences_data.shown = FALSE;
 }
 
+#ifdef USE_STANDALONE
 /**
  * Shows the popup menu used for configuration.
  *
@@ -1187,16 +1188,9 @@ gtk_weather_run_popup_menu(GtkWidget * widget)
 {
   GtkWeatherPrivate * priv = GTK_WEATHER_GET_PRIVATE(GTK_WEATHER(widget));
 
-  LXW_LOG(LXW_DEBUG, "GtkWeather::popup_menu(%d)", priv->standalone);
+  LXW_LOG(LXW_DEBUG, "GtkWeather::popup_menu()");
 
-  if (priv->standalone)
-    {
-      gtk_widget_show(GTK_WIDGET(priv->menu_data.quit_item));
-    }
-  else
-    {
-      gtk_widget_hide(GTK_WIDGET(priv->menu_data.quit_item));
-    }
+  gtk_widget_show(GTK_WIDGET(priv->menu_data.quit_item));
 
   /* grey-out refresh, if no location is set */
   if (!priv->location)
@@ -1214,6 +1208,7 @@ gtk_weather_run_popup_menu(GtkWidget * widget)
                  gtk_get_current_event_time());
   
 }
+#endif
 
 /**
  * Creates the preferences dialog.
@@ -1418,6 +1413,7 @@ gtk_weather_create_preferences_dialog(GtkWidget * widget)
   return priv->preferences_data.dialog;
 }
 
+#ifdef USE_STANDALONE
 /**
  * Creates and shows the preferences dialog.
  *
@@ -1445,6 +1441,7 @@ gtk_weather_run_preferences_dialog(GtkWidget * widget)
 
   priv->preferences_data.shown = TRUE;
 }
+#endif
 
 /**
  * Creates and shows the preferences dialog window
