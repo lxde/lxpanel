@@ -43,6 +43,8 @@ extern GtkWidget * panel_icon_grid_new(
 						/* Create an icon grid */
 extern void panel_icon_grid_set_constrain_width(PanelIconGrid * ig, gboolean constrain_width);
 						/* Set the constrain-width property */
+extern void panel_icon_grid_set_aspect_width(PanelIconGrid * ig, gboolean aspect_width);
+						/* Set the aspect-width property */
 /* extern void panel_icon_grid_set_fill_width(PanelIconGrid * ig, gboolean fill_width);
 						 Set the fill-width property */
 extern void panel_icon_grid_set_geometry(PanelIconGrid * ig,
