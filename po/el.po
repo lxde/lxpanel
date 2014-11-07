@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-20 13:56+0300\n"
-"PO-Revision-Date: 2014-11-07 22:16+0000\n"
+"PO-Revision-Date: 2014-11-07 23:02+0000\n"
 "Last-Translator: armakolas <armakolas@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: el\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1415398617.000000\n"
+"X-POOTLE-MTIME: 1415401378.000000\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:50 ../src/gtk-run.c:373 ../plugins/menu.c:749
@@ -830,7 +830,6 @@ msgid "Show Layout as"
 msgstr "Εμφάνιση Διάταξης ως"
 
 #: ../plugins/xkb/xkb-plugin.c:1448
-#, fuzzy
 msgid "Custom Image"
 msgstr "Προσωπικά Επιλεγμένη Εικόνα"
 
@@ -971,10 +970,12 @@ msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontrol, alsamixer ...)"
 msgstr ""
+"Σφάλμα, πρέπει να εγκατασταθεί εφαρμογή για να ρυθμιστεί ο ήχος ("
+"pavucontrol, alsamixer ...)"
 
 #: ../plugins/volumealsa/volumealsa.c:642
 msgid "Display and control volume for ALSA"
-msgstr ""
+msgstr "Εμφάνιση και έλεγχος ήχου για το ALSA"
 
 #: ../plugins/netstat/netstat.c:178
 msgid "<Hidden Access Point>"
@@ -1360,9 +1361,8 @@ msgid "Cannot open /proc/net/dev: %s"
 msgstr "Αδυναμία ανοίγματος /proc/net/dev: %s"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:185
-#, fuzzy
 msgid "Could not parse /proc/net/dev. No data."
-msgstr "Δε μπορεί να προσπελαστεί το /proc/net/dev. Άγνωστο φορμάτ."
+msgstr "Δεν μπορούσε να αναλυθεί το /proc/net/dev. Απουσία δεδομένων."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:190
 msgid "Could not parse /proc/net/dev. Unknown format."
@@ -1385,9 +1385,8 @@ msgstr ""
 " %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:312
-#, fuzzy
 msgid "Could not parse /proc/net/wireless. No data."
-msgstr "Δε μπορεί να προσπελαστεί το /proc/net/wireless. Άγνωστο φορμάτ."
+msgstr "Δεν μπορούσε να αναλυθεί το /proc/net/wireless. Απουσία δεδομένων."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:316
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1460,6 +1459,8 @@ msgid ""
 "\n"
 "%sEnergy full design:\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sΣχέδιο πλήρους ενέργειας:\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:180
 #, c-format
@@ -1467,6 +1468,8 @@ msgid ""
 "\n"
 "%sEnergy full:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sΕνέργεια πλήρης:\t\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:182
 #, c-format
@@ -1474,6 +1477,8 @@ msgid ""
 "\n"
 "%sEnergy now:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sΕνέργεια τώρα:\t\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:184
 #, c-format
@@ -1481,6 +1486,8 @@ msgid ""
 "\n"
 "%sPower now:\t\t\t%5d mW"
 msgstr ""
+"\n"
+"%sΙσχύς τώρα:\t\t\t%5d mW"
 
 #: ../plugins/batt/batt.c:187
 #, c-format
@@ -1488,6 +1495,8 @@ msgid ""
 "\n"
 "%sCharge full design:\t%5d mAh"
 msgstr ""
+"\n"
+"%sΣχέδιο πλήρους φόρτισης:\t%5d mAh"
 
 #: ../plugins/batt/batt.c:189
 #, c-format
@@ -1495,6 +1504,8 @@ msgid ""
 "\n"
 "%sCharge full:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sΦόρτιση πλήρης:\t\t\t%5d mAh"
 
 #: ../plugins/batt/batt.c:191
 #, c-format
@@ -1502,6 +1513,8 @@ msgid ""
 "\n"
 "%sCharge now:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sΦόρτιση τώρα:\t\t\t%5d mAh"
 
 #: ../plugins/batt/batt.c:193
 #, c-format
@@ -1509,6 +1522,8 @@ msgid ""
 "\n"
 "%sCurrent now:\t\t\t%5d mA"
 msgstr ""
+"\n"
+"%sΡεύμα τώρα:\t\t\t%5d mA"
 
 #: ../plugins/batt/batt.c:196
 #, c-format
@@ -1516,6 +1531,8 @@ msgid ""
 "\n"
 "%sCurrent Voltage:\t\t%.3lf V"
 msgstr ""
+"\n"
+"%sΤάση Ρεύματος:\t\t%.3lf V"
 
 #: ../plugins/batt/batt.c:234
 msgid "No batteries found"
@@ -1563,7 +1580,7 @@ msgstr "Πλάτος περιγράμματος"
 
 #: ../plugins/batt/batt.c:652
 msgid "Show Extended Information"
-msgstr ""
+msgstr "Εμφάνιση Αναλυτικών Πληροφοριών"
 
 #: ../plugins/batt/batt.c:662
 msgid "Display battery status using ACPI"
@@ -1663,16 +1680,15 @@ msgstr "Εμφάνιση παρακολουθήσεων (CPU, RAM)"
 
 #: ../plugins/weather/weatherwidget.c:50
 msgid "[N/A]"
-msgstr ""
+msgstr "[Δ/Υ]"
 
 #: ../plugins/weather/weatherwidget.c:796
 msgid "Enter New Location"
-msgstr ""
+msgstr "Εισαγωγή Νέας Θέσης"
 
 #: ../plugins/weather/weatherwidget.c:810
-#, fuzzy
 msgid "_New Location:"
-msgstr "Σύνδεση δικτύου"
+msgstr "Νέα Θέση:"
 
 #: ../plugins/weather/weatherwidget.c:821
 msgid ""
@@ -1682,197 +1698,192 @@ msgid ""
 "- postal code\n"
 "for which to retrieve the weather forecast."
 msgstr ""
+"Εισαγωγή των:\n"
+"- πόλη, ή\n"
+"- πόλη και νομός, ή\n"
+"- ταχυδρομικός κωδικός\n"
+"για τα οποία να ανακτηθεί πρόγνωση καιρού."
 
 #: ../plugins/weather/weatherwidget.c:858
 #: ../plugins/weather/weatherwidget.c:991
 msgid "You must specify a location."
-msgstr ""
+msgstr "Πρέπει να καθοριστεί μία τοποθεσία."
 
 #: ../plugins/weather/weatherwidget.c:905
 #, c-format
 msgid "Location '%s' not found!"
-msgstr ""
+msgstr "Δεν βρέθηκε η τοποθεσία '%s'!"
 
 #: ../plugins/weather/weatherwidget.c:1063
-#, fuzzy
 msgid "Preferences"
-msgstr "Ιδιότητες πλαισίου"
+msgstr "Προτιμήσεις"
 
 #: ../plugins/weather/weatherwidget.c:1069
 msgid "Refresh"
-msgstr ""
+msgstr "Ανανέωση"
 
 #: ../plugins/weather/weatherwidget.c:1075
 msgid "Quit"
-msgstr ""
+msgstr "Έξοδος"
 
 #: ../plugins/weather/weatherwidget.c:1236
-#, fuzzy
 msgid "Weather Preferences"
-msgstr "Ιδιότητες πλαισίου"
+msgstr "Προτιμήσεις Καιρού"
 
 #: ../plugins/weather/weatherwidget.c:1250
-#, fuzzy
 msgid "Current Location"
-msgstr "Προσανατολισμός"
+msgstr "Τρέχουσα Τοποθεσία"
 
 #: ../plugins/weather/weatherwidget.c:1254
 #: ../plugins/weather/weatherwidget.c:1529
-#, fuzzy
 msgid "None configured"
-msgstr "_Ρύθμιση"
+msgstr "Κανένα διαμορφωμένο"
 
 #: ../plugins/weather/weatherwidget.c:1256
 #: ../plugins/weather/weatherwidget.c:1526
 msgid "_Set"
-msgstr ""
+msgstr "Ορισμός"
 
 #: ../plugins/weather/weatherwidget.c:1277
 msgid "Display"
-msgstr ""
+msgstr "Εμφάνιση"
 
 #: ../plugins/weather/weatherwidget.c:1281
-#, fuzzy
 msgid "Name:"
-msgstr "_Όνομα:"
+msgstr "Όνομα:"
 
 #: ../plugins/weather/weatherwidget.c:1285
 msgid "Units:"
-msgstr ""
+msgstr "Μονάδες"
 
 #: ../plugins/weather/weatherwidget.c:1289
 msgid "_Metric (°C)"
-msgstr ""
+msgstr "Μετρικό (°C)"
 
 #: ../plugins/weather/weatherwidget.c:1291
 msgid "_English (°F)"
-msgstr ""
+msgstr "Αγγλικό (°F)"
 
 #: ../plugins/weather/weatherwidget.c:1326
 msgid "Forecast"
-msgstr ""
+msgstr "Πρόγνωση"
 
 #: ../plugins/weather/weatherwidget.c:1330
 msgid "Updates:"
-msgstr ""
+msgstr "Ενημερώσεις"
 
 #: ../plugins/weather/weatherwidget.c:1334
 msgid "Ma_nual"
-msgstr ""
+msgstr "Εγχειρίδιο"
 
 #: ../plugins/weather/weatherwidget.c:1338
 msgid "_Automatic, every"
-msgstr ""
+msgstr "Αυτόματο, κάθε"
 
 #: ../plugins/weather/weatherwidget.c:1359
 msgid "minutes"
-msgstr ""
+msgstr "λεπτά"
 
 #: ../plugins/weather/weatherwidget.c:1368
 msgid "Source:"
-msgstr ""
+msgstr "Πηγή:"
 
 #: ../plugins/weather/weatherwidget.c:1482
 msgid "C_hange"
-msgstr ""
+msgstr "Αλλαγή"
 
 #. Both are available
 #: ../plugins/weather/weatherwidget.c:1570
 #, c-format
 msgid "Current Conditions for %s"
-msgstr ""
+msgstr "Τρέχουσες Συνθήκες για %s"
 
 #: ../plugins/weather/weatherwidget.c:1594
-#, fuzzy
 msgid "Location:"
-msgstr "Ενέργεια"
+msgstr "Τοποθεσία:"
 
 #: ../plugins/weather/weatherwidget.c:1617
 msgid "Last updated:"
-msgstr ""
+msgstr "Τελευταία ενημέρωση:"
 
 #: ../plugins/weather/weatherwidget.c:1644
 msgid "Feels like:"
-msgstr ""
+msgstr "Αισθητό σαν:"
 
 #: ../plugins/weather/weatherwidget.c:1669
 msgid "Humidity:"
-msgstr ""
+msgstr "Υγρασία:"
 
 #: ../plugins/weather/weatherwidget.c:1696
-#, fuzzy
 msgid "Pressure:"
-msgstr "Διεύθυνση IP:"
+msgstr "Πίεση:"
 
 #: ../plugins/weather/weatherwidget.c:1723
 msgid "Visibility:"
-msgstr ""
+msgstr "Ορατότητα:"
 
 #: ../plugins/weather/weatherwidget.c:1751
 msgid "Wind:"
-msgstr ""
+msgstr "Άνεμος:"
 
 #: ../plugins/weather/weatherwidget.c:1774
 msgid "Sunrise:"
-msgstr ""
+msgstr "Ανατολή:"
 
 #: ../plugins/weather/weatherwidget.c:1797
 msgid "Sunset:"
-msgstr ""
+msgstr "Δύση:"
 
 #: ../plugins/weather/weatherwidget.c:1903
 #: ../plugins/weather/weatherwidget.c:2239
 #, c-format
 msgid "Forecast for %s unavailable."
-msgstr ""
+msgstr "Μη διαθέσιμη πρόγνωση για %s."
 
 #: ../plugins/weather/weatherwidget.c:1912
 #: ../plugins/weather/weatherwidget.c:2244
-#, c-format
-#, fuzzy, c-format
+#, c-format, c-format
 msgid "Location not set."
-msgstr "Δεν έχει οριστεί εντολή αποσύνδεσης"
+msgstr "Δεν έχει οριστεί τοποθεσία."
 
 #: ../plugins/weather/weatherwidget.c:1929
 #, c-format
 msgid "Searching for '%s'..."
-msgstr ""
+msgstr "Αναζήτηση για '%s'..."
 
 #: ../plugins/weather/weatherwidget.c:2055
 #, c-format
 msgid "Location matches for '%s'"
-msgstr ""
+msgstr "Ταίριασμα Τοποθεσιών για '%s'"
 
 #: ../plugins/weather/weatherwidget.c:2075
 msgid "City"
-msgstr ""
+msgstr "Πόλη"
 
 #: ../plugins/weather/weatherwidget.c:2095
 msgid "Country"
-msgstr ""
+msgstr "Περιοχή"
 
 #. make it nice and pretty
 #: ../plugins/weather/weatherwidget.c:2226
-#, fuzzy
 msgid "Currently in "
-msgstr "Φορτωμένες προσθήκες"
+msgstr "Τρέχον στο "
 
 #: ../plugins/weather/weatherwidget.c:2228
 msgid "Today: "
-msgstr ""
+msgstr "Σήμερα:"
 
 #: ../plugins/weather/weatherwidget.c:2229
 msgid "Tomorrow: "
-msgstr ""
+msgstr "Αύριο:"
 
 #: ../plugins/weather/weather.c:307
-#, fuzzy
 msgid "Weather Plugin"
-msgstr "Επέκταση WNCKpager"
+msgstr "Άρθρωμα Καιρού"
 
 #: ../plugins/weather/weather.c:308
 msgid "Show weather conditions for a location."
-msgstr ""
+msgstr "Προβολή καιρικών συνθηκών για μια περιοχή."
 
 #, c-format
 #~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
