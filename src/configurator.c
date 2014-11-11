@@ -122,11 +122,12 @@ gboolean panel_edge_available(Panel* p, int edge, gint monitor)
 {
     GSList* l;
     for (l = all_panels; l != NULL; l = l->next)
-        {
+    {
         LXPanel* pl = (LXPanel*) l->data;
-        if ((pl->priv != p) && (pl->priv->edge == edge) && (pl->priv->monitor == monitor))
+        if ((pl->priv != p) && (pl->priv->edge == edge) &&
+            (pl->priv->monitor < 0 || monitor < 0 || pl->priv->monitor == monitor))
             return FALSE;
-        }
+    }
     return TRUE;
 }
 
@@ -138,6 +139,7 @@ static void set_edge(LXPanel* panel, int edge)
     update_panel_geometry(panel);
     _panel_set_panel_configuration_changed(panel);
     UPDATE_GLOBAL_STRING(p, "edge", num2str(edge_pair, edge, "none"));
+    //FIXME: update monitors and strut sensitivities
 }
 
 static void edge_bottom_toggle(GtkToggleButton *widget, LXPanel *p)
@@ -164,6 +166,7 @@ static void edge_right_toggle(GtkToggleButton *widget, LXPanel *p)
         set_edge(p, EDGE_RIGHT);
 }
 
+/* only for old UI file, safe fallback */
 static void set_monitor(GtkSpinButton *widget, LXPanel *panel)
 {
     Panel *p = panel->priv;
@@ -172,6 +175,35 @@ static void set_monitor(GtkSpinButton *widget, LXPanel *panel)
     update_panel_geometry(panel);
     _panel_set_panel_configuration_changed(panel);
     UPDATE_GLOBAL_INT(p, "monitor", p->monitor);
+}
+
+static void update_mon_sensitivity(GtkCellLayout *layout, GtkCellRenderer *cell,
+                                   GtkTreeModel *model, GtkTreeIter *iter,
+                                   gpointer user_data)
+{
+    LXPanel *panel = user_data;
+    Panel *p = panel->priv;
+    GtkTreePath *path;
+    gint *indices;
+
+    /* set it sensitive if edge is available */
+    path = gtk_tree_model_get_path(model, iter);
+    indices = gtk_tree_path_get_indices(path);
+    g_object_set(cell, "sensitive", (panel_edge_available(p, p->edge,
+                                                          indices[0] - 1)), NULL);
+    gtk_tree_path_free(path);
+}
+
+static void set_monitor_cb(GtkComboBox *cb, LXPanel *panel)
+{
+    Panel *p = panel->priv;
+
+    /* change monitor */
+    p->monitor = gtk_combo_box_get_active(cb) - 1;
+    update_panel_geometry(panel);
+    _panel_set_panel_configuration_changed(panel);
+    UPDATE_GLOBAL_INT(p, "monitor", p->monitor);
+    //FIXME: update edge and strut sensitivities
 }
 
 static void set_alignment(LXPanel* panel, int align)
@@ -986,14 +1018,39 @@ void panel_configure( LXPanel* panel, int sel_page )
 
     /* monitor */
     monitors = 1;
-    screen = gdk_screen_get_default();
+    screen = gtk_widget_get_screen(GTK_WIDGET(panel));
     if(screen) monitors = gdk_screen_get_n_monitors(screen);
     g_assert(monitors >= 1);
     w = (GtkWidget*)gtk_builder_get_object( builder, "monitor" );
-    gtk_spin_button_set_range(GTK_SPIN_BUTTON(w), 1, monitors);
-    gtk_spin_button_set_value(GTK_SPIN_BUTTON(w), p->monitor + 1);
-    gtk_widget_set_sensitive(w, monitors > 1);
-    g_signal_connect(w, "value-changed", G_CALLBACK(set_monitor), panel);
+    if (GTK_IS_SPIN_BUTTON(w))
+    {
+        gtk_spin_button_set_range(GTK_SPIN_BUTTON(w), 1, monitors);
+        gtk_spin_button_set_value(GTK_SPIN_BUTTON(w), p->monitor + 1);
+        gtk_widget_set_sensitive(w, monitors > 1);
+        g_signal_connect(w, "value-changed", G_CALLBACK(set_monitor), panel);
+    }
+    else if (GTK_IS_COMBO_BOX(w))
+    {
+        GtkCellRenderer *cell;
+        gint i;
+        char itext[4];
+
+        /* create a new cell renderer and bind cell data function to it */
+        cell = gtk_cell_renderer_text_new();
+        gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(w), cell, TRUE);
+        gtk_cell_layout_add_attribute(GTK_CELL_LAYOUT(w), cell, "text", 0);
+        gtk_cell_layout_set_cell_data_func(GTK_CELL_LAYOUT(w), cell,
+                                           update_mon_sensitivity, panel, NULL);
+        /* add monitors beyond first one to the model */
+        for (i = 1; i < monitors; i++)
+        {
+            snprintf(itext, sizeof(itext), "%d", i + 1);
+            gtk_combo_box_append_text(GTK_COMBO_BOX(w), itext);
+        }
+        gtk_combo_box_set_active(GTK_COMBO_BOX(w), p->monitor + 1);
+        /* FIXME: set sensitive only if more than 1 monitor available? */
+        g_signal_connect(w, "changed", G_CALLBACK(set_monitor_cb), panel);
+    }
 
     /* alignment */
     p->alignment_left_label = w = (GtkWidget*)gtk_builder_get_object( builder, "alignment_left" );

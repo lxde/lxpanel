@@ -235,6 +235,14 @@ void restart(void);
 void logout(void);
 void gtk_run(void);
 
+/*
+ * creates GtkButton subclass which can change, test and apply global hotkey
+ * emits "changed" signal: void callback(LXHotkeyButton *, char *, gpointer);
+ */
+/*
+GtkWidget *_config_hotkey_button_new(const char *hotkey);
+*/
+
 /* -----------------------------------------------------------------------------
  *   Deprecated declarations. Kept for compatibility with old code plugins.
  *   Should be removed and appropriate code cleaned on some of next releases. */

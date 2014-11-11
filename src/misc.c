@@ -843,8 +843,22 @@ void _calculate_position(LXPanel *panel)
         marea.height = np->workarea[np->curdesk*4 + 3];
     } else {
         screen = gtk_widget_get_screen(GTK_WIDGET(panel));
-        g_assert(np->monitor >= 0 && np->monitor < gdk_screen_get_n_monitors(screen));
-        gdk_screen_get_monitor_geometry(screen,np->monitor,&marea);
+        if (np->monitor < 0) /* all monitors */
+        {
+            marea.x = 0;
+            marea.y = 0;
+            marea.width = gdk_screen_get_width(screen);
+            marea.height = gdk_screen_get_height(screen);
+        }
+        else if (np->monitor < gdk_screen_get_n_monitors(screen))
+            gdk_screen_get_monitor_geometry(screen,np->monitor,&marea);
+        else
+        {
+            marea.x = 0;
+            marea.y = 0;
+            marea.width = 0;
+            marea.height = 0;
+        }
     }
 
     if (np->edge == EDGE_TOP || np->edge == EDGE_BOTTOM) {

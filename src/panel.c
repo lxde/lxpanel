@@ -328,7 +328,7 @@ static void panel_normalize_configuration(Panel* p)
             p->height = PANEL_HEIGHT_MAX;
     }
     if (p->monitor < 0)
-        p->monitor = 0;
+        p->monitor = -1;
     if (p->background)
         p->transparent = 0;
 }
@@ -797,9 +797,10 @@ static void panel_popupmenu_create_panel( GtkMenuItem* item, LXPanel* panel )
     config_setting_t *global;
 
     /* Allocate the edge. */
-    screen = gdk_screen_get_default();
+    screen = gtk_widget_get_screen(GTK_WIDGET(panel));
     g_assert(screen);
     monitors = gdk_screen_get_n_monitors(screen);
+    /* FIXME: try to allocate edge on current monitor first */
     for(m=0; m<monitors; ++m)
     {
         /* try each of the four edges */

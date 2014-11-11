@@ -1319,6 +1319,8 @@ static void on_menu_view_row_activated(GtkTreeView *tree_view, GtkTreePath *path
     _launchbar_configure_add(tree_view, ltbp);
 }
 
+/* FIXME: add support for global hotkeys for launchers */
+
 /* Callback when the configuration dialog is to be shown. */
 static GtkWidget *launchtaskbar_configure(LXPanel *panel, GtkWidget *p)
 {
@@ -1616,7 +1618,8 @@ static gboolean task_is_visible(LaunchTaskBarPlugin * tb, Task * tk)
         return FALSE;
 
     /* Not on same monitor */
-    if (tb->same_monitor_only && panel_get_monitor(tb->panel) != tk->monitor)
+    if (tb->same_monitor_only && panel_get_monitor(tb->panel) != tk->monitor
+        && panel_get_monitor(tb->panel) >= 0)
         return FALSE;
 
     /* Desktop placement. */

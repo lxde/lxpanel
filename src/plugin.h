@@ -242,6 +242,7 @@ extern void lxpanel_plugin_show_config_dialog(GtkWidget* plugin);
  * @CONF_TYPE_DIRECTORY_ENTRY: directory path entry, pointer is char **
  * @CONF_TYPE_TRIM: just a text in italic, pointer is ignored
  * @CONF_TYPE_EXTERNAL: (since 0.8) provided by caller, pointer is GtkWidget *
+ * @CONF_TYPE_HOTKEY: (not implemented) change global hotkey, pointer is char **
  *
  * Type of variable passed to lxpanel_generic_config_dlg().
  */
@@ -253,7 +254,8 @@ typedef enum {
     CONF_TYPE_FILE_ENTRY,
     CONF_TYPE_DIRECTORY_ENTRY,
     CONF_TYPE_TRIM,
-    CONF_TYPE_EXTERNAL
+    CONF_TYPE_EXTERNAL,
+    //CONF_TYPE_HOTKEY
 } PluginConfType;
 
 /**
