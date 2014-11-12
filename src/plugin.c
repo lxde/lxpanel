@@ -253,6 +253,8 @@ void lxpanel_plugin_popup_set_position_helper(LXPanel * p, GtkWidget * near, Gtk
     gint x, y;
     GtkAllocation allocation;
     GtkAllocation popup_req;
+    GdkScreen *screen = NULL;
+    gint monitor;
 
     /* Get the allocation of the popup menu. */
     gtk_widget_realize(popup);
@@ -288,11 +290,18 @@ void lxpanel_plugin_popup_set_position_helper(LXPanel * p, GtkWidget * near, Gtk
     }
 
     /* Push onscreen. */
-    int screen_width = gdk_screen_width();
-    int screen_height = gdk_screen_height();
-    x = CLAMP(x, 0, screen_width - popup_req.width);
-    y = CLAMP(y, 0, screen_height - popup_req.height);
-    /* FIXME: take monitor area into account not just screen */
+    if (gtk_widget_has_screen(near))
+        screen = gtk_widget_get_screen(near);
+    else
+        screen = gdk_screen_get_default();
+    monitor = gdk_screen_get_monitor_at_point(screen, x, y);
+#if GTK_CHECK_VERSION(3, 4, 0)
+    gdk_screen_get_monitor_workarea(screen, monitor, &allocation);
+#else
+    gdk_screen_get_monitor_geometry(screen, monitor, &allocation);
+#endif
+    x = CLAMP(x, allocation.x, allocation.x + allocation.width - popup_req.width);
+    y = CLAMP(y, allocation.y, allocation.y + allocation.height - popup_req.height);
 
     *px = x;
     *py = y;

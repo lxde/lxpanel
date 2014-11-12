@@ -8,6 +8,7 @@
 * Added support for monitors "All" to span panel over all monitors (i.e.
     to allow pre-0.6.0 behavior).
 * Implemented monitors hotplug support.
+* Fixed popups positioning in multi-monitor environment.
 
 0.7.2
 -------------------------------------------------------------------------
