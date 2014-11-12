@@ -7,6 +7,7 @@
     non-square tray sockets.
 * Added support for monitors "All" to span panel over all monitors (i.e.
     to allow pre-0.6.0 behavior).
+* Implemented monitors hotplug support.
 
 0.7.2
 -------------------------------------------------------------------------

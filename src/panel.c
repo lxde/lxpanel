@@ -46,10 +46,11 @@ gchar *cprofile = "default";
 GtkWindowGroup* win_grp = NULL; /* window group used to limit the scope of model dialog. */
 
 GSList* all_panels = NULL;  /* a single-linked list storing all panels */
+static gulong monitors_handler = 0;
 
 gboolean is_in_lxde = FALSE;
 
-static void panel_start_gui(LXPanel *p);
+static void panel_start_gui(LXPanel *p, config_setting_t *list);
 static void ah_start(LXPanel *p);
 static void ah_stop(LXPanel *p);
 static void on_root_bg_changed(FbBg *bg, LXPanel* p);
@@ -76,12 +77,12 @@ static void lxpanel_finalize(GObject *object)
     G_OBJECT_CLASS(lxpanel_parent_class)->finalize(object);
 }
 
-static void lxpanel_destroy(GtkObject *object)
+static void panel_stop_gui(LXPanel *self)
 {
-    LXPanel *self = LXPANEL(object);
     Panel *p = self->priv;
     Display *xdisplay;
 
+    g_debug("panel_stop_gui on '%s'", p->name);
     if (p->autohide)
         ah_stop(self);
 
@@ -115,6 +116,19 @@ static void lxpanel_destroy(GtkObject *object)
         g_source_remove(p->background_update_queued);
         p->background_update_queued = 0;
     }
+
+    if (gtk_bin_get_child(GTK_BIN(self)))
+    {
+        gtk_widget_destroy(p->box);
+        p->box = NULL;
+    }
+}
+
+static void lxpanel_destroy(GtkObject *object)
+{
+    LXPanel *self = LXPANEL(object);
+
+    panel_stop_gui(self);
 
     GTK_OBJECT_CLASS(lxpanel_parent_class)->destroy(object);
 }
@@ -828,8 +842,7 @@ found_edge:
     config_group_set_int(global, "monitor", p->monitor);
     panel_configure(new_panel, 0);
     panel_normalize_configuration(p);
-    panel_start_gui(new_panel);
-    gtk_widget_show_all(GTK_WIDGET(new_panel));
+    panel_start_gui(new_panel, NULL);
 
     lxpanel_config_save(new_panel);
     all_panels = g_slist_prepend(all_panels, new_panel);
@@ -1109,8 +1122,27 @@ gboolean lxpanel_image_set_icon_theme(LXPanel * p, GtkWidget * image, const gcha
     return panel_image_set_icon_theme(p->priv, image, icon);
 }
 
+static int
+panel_parse_plugin(LXPanel *p, config_setting_t *cfg)
+{
+    const char *type = NULL;
+
+    ENTER;
+    config_setting_lookup_string(cfg, "type", &type);
+    DBG("plug %s\n", type);
+
+    if (!type || lxpanel_add_plugin(p, type, cfg, -1) == NULL) {
+        g_warning( "lxpanel: can't load %s plugin", type);
+        goto error;
+    }
+    RET(1);
+
+error:
+    RET(0);
+}
+
 static void
-panel_start_gui(LXPanel *panel)
+panel_start_gui(LXPanel *panel, config_setting_t *list)
 {
     Atom state[3];
     XWMHints wmhints;
@@ -1118,9 +1150,12 @@ panel_start_gui(LXPanel *panel)
     Display *xdisplay = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
     Panel *p = panel->priv;
     GtkWidget *w = GTK_WIDGET(panel);
+    config_setting_t *s;
+    int i;
 
     ENTER;
 
+    g_debug("panel_start_gui on '%s'", p->name);
     p->curdesk = get_net_current_desktop();
     p->desknum = get_net_number_of_desktops();
     p->workarea = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_WORKAREA, XA_CARDINAL, &p->wa_len);
@@ -1189,6 +1224,16 @@ panel_start_gui(LXPanel *panel)
     gdk_window_move_resize(gtk_widget_get_window(w), p->ax, p->ay, p->aw, p->ah);
     _panel_set_wm_strut(panel);
     p->initialized = TRUE;
+
+    if (list) for (i = 1; (s = config_setting_get_elem(list, i)) != NULL; )
+        if (strcmp(config_setting_get_name(s), "Plugin") == 0 &&
+            panel_parse_plugin(panel, s)) /* success on plugin start */
+            i++;
+        else /* remove invalid data from config */
+            config_setting_remove_elem(list, i);
+
+    /* update backgrond of panel and all plugins */
+    _panel_update_background(panel);
 
     RET();
 }
@@ -1423,29 +1468,27 @@ panel_parse_global(Panel *p, config_setting_t *cfg)
     return 1;
 }
 
-static int
-panel_parse_plugin(LXPanel *p, config_setting_t *cfg)
+static void on_monitors_changed(GdkScreen* screen, gpointer unused)
 {
-    const char *type = NULL;
+    GSList *pl;
+    int monitors = gdk_screen_get_n_monitors(screen);
 
-    ENTER;
-    config_setting_lookup_string(cfg, "type", &type);
-    DBG("plug %s\n", type);
+    for (pl = all_panels; pl; pl = pl->next)
+    {
+        LXPanel *p = pl->data;
 
-    if (!type || lxpanel_add_plugin(p, type, cfg, -1) == NULL) {
-        g_warning( "lxpanel: can't load %s plugin", type);
-        goto error;
+        /* handle connecting and disconnecting monitors now */
+        if (p->priv->monitor < monitors && !p->priv->initialized)
+            panel_start_gui(p, config_setting_get_member(config_root_setting(p->priv->config), ""));
+        else if (p->priv->monitor >= monitors && p->priv->initialized)
+            panel_stop_gui(p);
     }
-    RET(1);
-
-error:
-    RET(0);
 }
 
-static int panel_start( LXPanel *p )
+static int panel_start(LXPanel *p)
 {
-    config_setting_t *list, *s;
-    int i;
+    config_setting_t *list;
+    GdkScreen *screen = gdk_screen_get_default();
 
     /* parse global section */
     ENTER;
@@ -1454,17 +1497,11 @@ static int panel_start( LXPanel *p )
     if (!list || !panel_parse_global(p->priv, config_setting_get_elem(list, 0)))
         RET(0);
 
-    panel_start_gui(p);
-
-    for (i = 1; (s = config_setting_get_elem(list, i)) != NULL; )
-        if (strcmp(config_setting_get_name(s), "Plugin") == 0 &&
-            panel_parse_plugin(p, s)) /* success on plugin start */
-            i++;
-        else /* remove invalid data from config */
-            config_setting_remove_elem(list, i);
-
-    /* update backgrond of panel and all plugins */
-    _panel_update_background(p);
+    if (p->priv->monitor < gdk_screen_get_n_monitors(screen))
+        panel_start_gui(p, list);
+    if (monitors_handler == 0)
+        monitors_handler = g_signal_connect(screen, "monitors-changed",
+                                            G_CALLBACK(on_monitors_changed), NULL);
     return 1;
 }
 
@@ -1562,6 +1599,8 @@ gboolean _class_is_present(const LXPanelPluginInit *init)
         LXPanel *panel = (LXPanel*)sl->data;
         GList *plugins, *p;
 
+        if (panel->priv->box == NULL)
+            continue;
         plugins = gtk_container_get_children(GTK_CONTAINER(panel->priv->box));
         for (p = plugins; p; p = p->next)
             if (PLUGIN_CLASS(p->data) == init)

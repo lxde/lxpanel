@@ -842,7 +842,7 @@ void _calculate_position(LXPanel *panel)
         marea.width  = np->workarea[np->curdesk*4 + 2];
         marea.height = np->workarea[np->curdesk*4 + 3];
     } else {
-        screen = gtk_widget_get_screen(GTK_WIDGET(panel));
+        screen = gdk_screen_get_default();
         if (np->monitor < 0) /* all monitors */
         {
             marea.x = 0;

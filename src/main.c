@@ -78,6 +78,8 @@ static void process_client_msg ( XClientMessageEvent* ev )
                 LXPanel* p = (LXPanel*)l->data;
                 GList *plugins, *pl;
 
+                if (p->priv->box == NULL)
+                    continue;
                 plugins = gtk_container_get_children(GTK_CONTAINER(p->priv->box));
                 for (pl = plugins; pl; pl = pl->next)
                 {
