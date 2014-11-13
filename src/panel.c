@@ -1482,6 +1482,9 @@ static void on_monitors_changed(GdkScreen* screen, gpointer unused)
             panel_start_gui(p, config_setting_get_member(config_root_setting(p->priv->config), ""));
         else if (p->priv->monitor >= monitors && p->priv->initialized)
             panel_stop_gui(p);
+        /* resize panel if appropriate monitor changed its size or position */
+        else
+            gtk_widget_queue_resize(GTK_WIDGET(p));
     }
 }
 
