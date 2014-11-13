@@ -181,7 +181,9 @@ static void lxpanel_style_set(GtkWidget *widget, GtkStyle* prev)
 
 static void lxpanel_size_request(GtkWidget *widget, GtkRequisition *req)
 {
-    Panel *p = LXPANEL(widget)->priv;
+    LXPanel *panel = LXPANEL(widget);
+    Panel *p = panel->priv;
+    GdkRectangle rect;
 
     GTK_WIDGET_CLASS(lxpanel_parent_class)->size_request(widget, req);
 
@@ -190,19 +192,19 @@ static void lxpanel_size_request(GtkWidget *widget, GtkRequisition *req)
          * report 0 size.  Ask the content box instead for its size. */
         gtk_widget_size_request(p->box, req);
 
-    /* FIXME: is this ever required? */
-    if (p->widthtype == WIDTH_REQUEST)
-        p->width = (p->orientation == GTK_ORIENTATION_HORIZONTAL) ? req->width : req->height;
-    if (p->heighttype == HEIGHT_REQUEST)
-        p->height = (p->orientation == GTK_ORIENTATION_HORIZONTAL) ? req->height : req->width;
-    calculate_position(p);
-
-    gtk_widget_set_size_request( widget, p->aw, p->ah );
+    rect.width = req->width;
+    rect.height = req->height;
+    _calculate_position(panel, &rect);
+    req->width = rect.width;
+    req->height = rect.height;
 }
 
 static void lxpanel_size_allocate(GtkWidget *widget, GtkAllocation *a)
 {
-    Panel *p = LXPANEL(widget)->priv;
+    LXPanel *panel = LXPANEL(widget);
+    Panel *p = panel->priv;
+    GdkRectangle rect;
+    gint x, y;
 
     GTK_WIDGET_CLASS(lxpanel_parent_class)->size_allocate(widget, a);
 
@@ -210,10 +212,18 @@ static void lxpanel_size_allocate(GtkWidget *widget, GtkAllocation *a)
         p->width = (p->orientation == GTK_ORIENTATION_HORIZONTAL) ? a->width : a->height;
     if (p->heighttype == HEIGHT_REQUEST)
         p->height = (p->orientation == GTK_ORIENTATION_HORIZONTAL) ? a->height : a->width;
-    calculate_position(p);
+    rect = *a;
+    /* get real coords since a contains 0, 0 */
+    gdk_window_get_origin(gtk_widget_get_window(widget), &x, &y);
+    _calculate_position(panel, &rect);
+    p->ax = rect.x;
+    p->ay = rect.y;
 
-    if (a->width != p->aw || a->height != p->ah || a->x != p->ax || a->y != p->ay)
+    if (a->width != p->aw || a->height != p->ah || x != p->ax || y != p->ay)
     {
+        p->aw = a->width;
+        p->ah = a->height;
+        /* FIXME: should we "correct" requested sizes? */
         gtk_window_move(GTK_WINDOW(widget), p->ax, p->ay);
         _panel_set_wm_strut(LXPANEL(widget));
     }
@@ -1159,6 +1169,7 @@ panel_start_gui(LXPanel *panel, config_setting_t *list)
     p->curdesk = get_net_current_desktop();
     p->desknum = get_net_number_of_desktops();
     p->workarea = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_WORKAREA, XA_CARDINAL, &p->wa_len);
+    p->ax = p->ay = p->aw = p->ah = 0;
 
     /* main toplevel window */
     /* p->topgwin =  gtk_window_new(GTK_WINDOW_TOPLEVEL); */
@@ -1220,9 +1231,9 @@ panel_start_gui(LXPanel *panel, config_setting_t *list)
     XChangeProperty(xdisplay, p->topxwin, a_NET_WM_STATE, XA_ATOM,
           32, PropModeReplace, (unsigned char *) state, 3);
 
-    _calculate_position(panel);
-    gdk_window_move_resize(gtk_widget_get_window(w), p->ax, p->ay, p->aw, p->ah);
-    _panel_set_wm_strut(panel);
+    //_calculate_position(panel);
+    //gdk_window_move_resize(gtk_widget_get_window(w), p->ax, p->ay, p->aw, p->ah);
+    //_panel_set_wm_strut(panel);
     p->initialized = TRUE;
 
     if (list) for (i = 1; (s = config_setting_get_elem(list, i)) != NULL; )

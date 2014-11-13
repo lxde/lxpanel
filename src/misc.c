@@ -825,7 +825,7 @@ calculate_width(int scrw, int wtype, int allign, int margin,
 }
 
 
-void _calculate_position(LXPanel *panel)
+void _calculate_position(LXPanel *panel, GdkRectangle *rect)
 {
     Panel *np = panel->priv;
     GdkScreen *screen;
@@ -862,20 +862,20 @@ void _calculate_position(LXPanel *panel)
     }
 
     if (np->edge == EDGE_TOP || np->edge == EDGE_BOTTOM) {
-        np->aw = np->width;
-        np->ax = marea.x;
+        rect->width = np->width;
+        rect->x = marea.x;
         calculate_width(marea.width, np->widthtype, np->allign, np->margin,
-              &np->aw, &np->ax);
-        np->ah = ((( ! np->autohide) || (np->visible)) ? np->height : np->height_when_hidden);
-        np->ay = marea.y + ((np->edge == EDGE_TOP) ? 0 : (marea.height - np->ah));
+              &rect->width, &rect->x);
+        rect->height = ((( ! np->autohide) || (np->visible)) ? np->height : np->height_when_hidden);
+        rect->y = marea.y + ((np->edge == EDGE_TOP) ? 0 : (marea.height - rect->height));
 
     } else {
-        np->ah = np->width;
-        np->ay = marea.y;
+        rect->height = np->width;
+        rect->y = marea.y;
         calculate_width(marea.height, np->widthtype, np->allign, np->margin,
-              &np->ah, &np->ay);
-        np->aw = ((( ! np->autohide) || (np->visible)) ? np->height : np->height_when_hidden);
-        np->ax = marea.x + ((np->edge == EDGE_LEFT) ? 0 : (marea.width - np->aw));
+              &rect->height, &rect->y);
+        rect->width = ((( ! np->autohide) || (np->visible)) ? np->height : np->height_when_hidden);
+        rect->x = marea.x + ((np->edge == EDGE_LEFT) ? 0 : (marea.width - rect->width));
     }
     //g_debug("%s - x=%d y=%d w=%d h=%d\n", __FUNCTION__, np->ax, np->ay, np->aw, np->ah);
     RET();
@@ -883,7 +883,15 @@ void _calculate_position(LXPanel *panel)
 
 void calculate_position(Panel *np)
 {
-    _calculate_position(np->topgwin);
+    GdkRectangle rect;
+
+    rect.width = np->aw;
+    rect.height = np->ah;
+    _calculate_position(np->topgwin, &rect);
+    np->aw = rect.width;
+    np->ah = rect.height;
+    np->ax = rect.x;
+    np->ay = rect.y;
 }
 
 gchar *
