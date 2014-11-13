@@ -1575,7 +1575,12 @@ static void on_monitors_changed(GdkScreen* screen, gpointer unused)
             panel_stop_gui(p);
         /* resize panel if appropriate monitor changed its size or position */
         else
+        {
+            /* SF bug #666: after screen resize panel cannot establish
+               right size since cannot be moved while is hidden */
+            ah_state_set(p, AH_STATE_VISIBLE);
             gtk_widget_queue_resize(GTK_WIDGET(p));
+        }
     }
 }
 

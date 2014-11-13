@@ -17,6 +17,7 @@
 * Some edge and monitors selections in panel configuration dialog may be
     insensitive now if appropriate edge and monitor combination is not
     available, to avoid panels stacking one over another.
+* Fixed bug with hidden panel disappearing after resolution change.
 
 0.7.2
 -------------------------------------------------------------------------
