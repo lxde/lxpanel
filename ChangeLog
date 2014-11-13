@@ -9,6 +9,11 @@
     to allow pre-0.6.0 behavior).
 * Implemented monitors hotplug support.
 * Fixed popups positioning in multi-monitor environment.
+* Fixed updating panel size if appropriate monitor changed its size or
+    position.
+* Implemented disabling for "Reserve space" button if another monitor
+    lies beyond the edge so reservation will cover it. Also reservation
+    will not be applied in such cases even if set in config manually.
 
 0.7.2
 -------------------------------------------------------------------------

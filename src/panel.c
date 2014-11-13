@@ -357,6 +357,92 @@ static void panel_normalize_configuration(Panel* p)
         p->transparent = 0;
 }
 
+gboolean _panel_edge_can_strut(LXPanel *panel, int edge, gint monitor, gulong *size)
+{
+    Panel *p;
+    GdkScreen *screen;
+    GdkRectangle rect;
+    GdkRectangle rect2;
+    gint n, i;
+    gulong s;
+
+#if GTK_CHECK_VERSION(2, 20, 0)
+    if (!gtk_widget_get_mapped(GTK_WIDGET(panel)))
+#else
+    if (!GTK_WIDGET_MAPPED(p))
+#endif
+        return FALSE;
+
+    p = panel->priv;
+    /* Handle autohide case.  EWMH recommends having the strut be the minimized size. */
+    if (p->autohide)
+        s = p->height_when_hidden;
+    else switch (edge)
+    {
+    case EDGE_LEFT:
+    case EDGE_RIGHT:
+        s = p->aw;
+        break;
+    case EDGE_TOP:
+    case EDGE_BOTTOM:
+        s = p->ah;
+        break;
+    default: /* error! */
+        return FALSE;
+    }
+
+    if (monitor < 0) /* screen span */
+    {
+        if (G_LIKELY(size))
+            *size = s;
+        return TRUE;
+    }
+
+    screen = gtk_widget_get_screen(GTK_WIDGET(panel));
+    gdk_screen_get_monitor_geometry(screen, monitor, &rect);
+    switch (edge)
+    {
+        case EDGE_LEFT:
+            rect.width = rect.x;
+            rect.x = 0;
+            s += rect.width;
+            break;
+        case EDGE_RIGHT:
+            rect.x += rect.width;
+            rect.width = gdk_screen_get_width(screen) - rect.x;
+            s += rect.width;
+            break;
+        case EDGE_TOP:
+            rect.height = rect.y;
+            rect.y = 0;
+            s += rect.height;
+            break;
+        case EDGE_BOTTOM:
+            rect.y += rect.height;
+            rect.height = gdk_screen_get_height(screen) - rect.y;
+            s += rect.height;
+            break;
+        default: ;
+    }
+    if (rect.height == 0 || rect.width == 0) ; /* on a border of monitor */
+    else
+    {
+        n = gdk_screen_get_n_monitors(screen);
+        for (i = 0; i < n; i++)
+        {
+            if (i == monitor)
+                continue;
+            gdk_screen_get_monitor_geometry(screen, i, &rect2);
+            if (gdk_rectangle_intersect(&rect, &rect2, NULL))
+                /* that monitor lies over the edge */
+                return FALSE;
+        }
+    }
+    if (G_LIKELY(size))
+        *size = s;
+    return TRUE;
+}
+
 /****************************************************
  *         panel's handlers for WM events           *
  ****************************************************/
@@ -391,25 +477,21 @@ void _panel_set_wm_strut(LXPanel *panel)
     {
         case EDGE_LEFT:
             index = 0;
-            strut_size = p->aw;
             strut_lower = p->ay;
             strut_upper = p->ay + p->ah;
             break;
         case EDGE_RIGHT:
             index = 1;
-            strut_size = p->aw;
             strut_lower = p->ay;
             strut_upper = p->ay + p->ah;
             break;
         case EDGE_TOP:
             index = 2;
-            strut_size = p->ah;
             strut_lower = p->ax;
             strut_upper = p->ax + p->aw;
             break;
         case EDGE_BOTTOM:
             index = 3;
-            strut_size = p->ah;
             strut_lower = p->ax;
             strut_upper = p->ax + p->aw;
             break;
@@ -417,14 +499,11 @@ void _panel_set_wm_strut(LXPanel *panel)
             return;
     }
 
-    /* Handle autohide case.  EWMH recommends having the strut be the minimized size. */
-    if (p->autohide)
-        strut_size = p->height_when_hidden;
-
     /* Set up strut value in property format. */
     gulong desired_strut[12];
     memset(desired_strut, 0, sizeof(desired_strut));
-    if (p->setstrut)
+    if (p->setstrut &&
+        _panel_edge_can_strut(panel, p->edge, p->monitor, &strut_size))
     {
         desired_strut[index] = strut_size;
         desired_strut[4 + index * 2] = strut_lower;

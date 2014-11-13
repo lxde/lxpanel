@@ -119,6 +119,26 @@ gboolean panel_edge_available(Panel* p, int edge, gint monitor)
     return TRUE;
 }
 
+static void update_strut_control_button(LXPanel *panel)
+{
+    Panel *p = panel->priv;
+    gboolean active = _panel_edge_can_strut(panel, p->edge, p->monitor, NULL);
+    gboolean old_active = !!gtk_widget_get_sensitive(p->strut_control);
+
+    if (active == old_active)
+        return;
+    gtk_widget_set_sensitive(p->strut_control, active);
+    if (active)
+        gtk_widget_set_tooltip_text(p->strut_control, NULL);
+    else
+        gtk_widget_set_tooltip_text(p->strut_control,
+                                    _("Space reservation is not available for"
+                                      " this panel because there is another"
+                                      " monitor beyond this edge and reservation"
+                                      " would cover it if enabled."));
+    _panel_set_wm_strut(panel);
+}
+
 static void set_edge(LXPanel* panel, int edge)
 {
     Panel *p = panel->priv;
@@ -128,6 +148,7 @@ static void set_edge(LXPanel* panel, int edge)
     _panel_set_panel_configuration_changed(panel);
     UPDATE_GLOBAL_STRING(p, "edge", num2str(edge_pair, edge, "none"));
     //FIXME: update monitors and strut sensitivities
+    update_strut_control_button(panel);
 }
 
 static void edge_bottom_toggle(GtkToggleButton *widget, LXPanel *p)
@@ -192,6 +213,7 @@ static void set_monitor_cb(GtkComboBox *cb, LXPanel *panel)
     _panel_set_panel_configuration_changed(panel);
     UPDATE_GLOBAL_INT(p, "monitor", p->monitor);
     //FIXME: update edge and strut sensitivities
+    update_strut_control_button(panel);
 }
 
 static void set_alignment(LXPanel* panel, int align)
@@ -449,6 +471,7 @@ set_strut(GtkToggleButton* toggle, LXPanel* panel)
 
     p->setstrut = gtk_toggle_button_get_active(toggle) ? 1 : 0;
     gtk_widget_queue_resize(GTK_WIDGET(panel));
+    _panel_set_wm_strut(panel);
     UPDATE_GLOBAL_INT(p, "setpartialstrut", p->setstrut);
 }
 
@@ -1114,8 +1137,9 @@ void panel_configure( LXPanel* panel, int sel_page )
         be accessed by other applications.
         GNOME Panel acts this way, too.
     */
-    w = (GtkWidget*)gtk_builder_get_object( builder, "reserve_space" );
+    p->strut_control = w = (GtkWidget*)gtk_builder_get_object( builder, "reserve_space" );
     update_toggle_button( w, p->setstrut );
+    update_strut_control_button(panel);
     g_signal_connect( w, "toggled",
                       G_CALLBACK(set_strut), panel );
 

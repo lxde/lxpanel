@@ -134,6 +134,7 @@ struct _Panel {
     GtkWidget* alignment_right_label;	/* Label of alignment: right control */
     GtkWidget* height_control;		/* Height control in preference dialog */
     GtkWidget* width_control;		/* Width control in preference dialog */
+    GtkWidget* strut_control;		/* Reserve space in preference dialog */
 
     guint initialized : 1;              /* Should be grouped better later, */
     guint ah_far : 1;                   /* placed here for binary compatibility */
@@ -231,6 +232,7 @@ void _panel_queue_update_background(LXPanel *p);
 
 void panel_configure(LXPanel* p, int sel_page);
 gboolean panel_edge_available(Panel* p, int edge, gint monitor);
+gboolean _panel_edge_can_strut(LXPanel *panel, int edge, gint monitor, gulong *size);
 void restart(void);
 void logout(void);
 void gtk_run(void);
