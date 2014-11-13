@@ -100,18 +100,6 @@ response_event(GtkDialog *widget, gint arg1, Panel* panel )
     return;
 }
 
-static void
-update_panel_geometry( LXPanel* p )
-{
-    /* Guard against being called early in panel creation. */
-    _calculate_position(p);
-    gtk_widget_set_size_request(GTK_WIDGET(p), p->priv->aw, p->priv->ah);
-    gdk_window_move(gtk_widget_get_window(GTK_WIDGET(p)), p->priv->ax, p->priv->ay);
-    _panel_queue_update_background(p);
-    _panel_establish_autohide(p);
-    _panel_set_wm_strut(p);
-}
-
 static gboolean edge_selector(Panel* p, int edge)
 {
     return (p->edge == edge);
@@ -136,7 +124,7 @@ static void set_edge(LXPanel* panel, int edge)
     Panel *p = panel->priv;
 
     p->edge = edge;
-    update_panel_geometry(panel);
+    gtk_widget_queue_resize(GTK_WIDGET(panel));
     _panel_set_panel_configuration_changed(panel);
     UPDATE_GLOBAL_STRING(p, "edge", num2str(edge_pair, edge, "none"));
     //FIXME: update monitors and strut sensitivities
@@ -172,7 +160,7 @@ static void set_monitor(GtkSpinButton *widget, LXPanel *panel)
     Panel *p = panel->priv;
 
     p->monitor = gtk_spin_button_get_value_as_int(widget) - 1;
-    update_panel_geometry(panel);
+    gtk_widget_queue_resize(GTK_WIDGET(panel));
     _panel_set_panel_configuration_changed(panel);
     UPDATE_GLOBAL_INT(p, "monitor", p->monitor);
 }
@@ -200,7 +188,7 @@ static void set_monitor_cb(GtkComboBox *cb, LXPanel *panel)
 
     /* change monitor */
     p->monitor = gtk_combo_box_get_active(cb) - 1;
-    update_panel_geometry(panel);
+    gtk_widget_queue_resize(GTK_WIDGET(panel));
     _panel_set_panel_configuration_changed(panel);
     UPDATE_GLOBAL_INT(p, "monitor", p->monitor);
     //FIXME: update edge and strut sensitivities
@@ -213,7 +201,7 @@ static void set_alignment(LXPanel* panel, int align)
     if (p->margin_control)
         gtk_widget_set_sensitive(p->margin_control, (align != ALLIGN_CENTER));
     p->allign = align;
-    update_panel_geometry(panel);
+    gtk_widget_queue_resize(GTK_WIDGET(panel));
     UPDATE_GLOBAL_STRING(p, "allign", num2str(allign_pair, align, "none"));
 }
 
@@ -241,7 +229,7 @@ set_margin(GtkSpinButton* spin, LXPanel* panel)
     Panel *p = panel->priv;
 
     p->margin = (int)gtk_spin_button_get_value(spin);
-    update_panel_geometry(panel);
+    gtk_widget_queue_resize(GTK_WIDGET(panel));
     UPDATE_GLOBAL_INT(p, "margin", p->margin);
 }
 
@@ -251,7 +239,7 @@ set_width(GtkSpinButton* spin, LXPanel* panel)
     Panel *p = panel->priv;
 
     p->width = (int)gtk_spin_button_get_value(spin);
-    update_panel_geometry(panel);
+    gtk_widget_queue_resize(GTK_WIDGET(panel));
     UPDATE_GLOBAL_INT(p, "width", p->width);
 }
 
@@ -261,7 +249,7 @@ set_height(GtkSpinButton* spin, LXPanel* panel)
     Panel *p = panel->priv;
 
     p->height = (int)gtk_spin_button_get_value(spin);
-    update_panel_geometry(panel);
+    gtk_widget_queue_resize(GTK_WIDGET(panel));
     UPDATE_GLOBAL_INT(p, "height", p->height);
 }
 
@@ -304,7 +292,7 @@ static void set_width_type( GtkWidget *item, LXPanel* panel )
     default: ;
     }
 
-    update_panel_geometry(panel);
+    gtk_widget_queue_resize(GTK_WIDGET(panel));
     UPDATE_GLOBAL_STRING(p, "widthtype", num2str(width_pair, widthtype, "none"));
 }
 
@@ -450,7 +438,7 @@ set_dock_type(GtkToggleButton* toggle, LXPanel* panel)
 
     p->setdocktype = gtk_toggle_button_get_active(toggle) ? 1 : 0;
     panel_set_dock_type( p );
-    update_panel_geometry(panel);
+    gtk_widget_queue_resize(GTK_WIDGET(panel));
     UPDATE_GLOBAL_INT(p, "setdocktype", p->setdocktype);
 }
 
@@ -460,7 +448,7 @@ set_strut(GtkToggleButton* toggle, LXPanel* panel)
     Panel *p = panel->priv;
 
     p->setstrut = gtk_toggle_button_get_active(toggle) ? 1 : 0;
-    update_panel_geometry(panel);
+    gtk_widget_queue_resize(GTK_WIDGET(panel));
     UPDATE_GLOBAL_INT(p, "setpartialstrut", p->setstrut);
 }
 
@@ -470,7 +458,7 @@ set_autohide(GtkToggleButton* toggle, LXPanel* panel)
     Panel *p = panel->priv;
 
     p->autohide = gtk_toggle_button_get_active(toggle) ? 1 : 0;
-    update_panel_geometry(panel);
+    gtk_widget_queue_resize(GTK_WIDGET(panel));
     UPDATE_GLOBAL_INT(p, "autohide", p->autohide);
 }
 
@@ -480,7 +468,7 @@ set_height_when_minimized(GtkSpinButton* spin, LXPanel* panel)
     Panel *p = panel->priv;
 
     p->height_when_hidden = (int)gtk_spin_button_get_value(spin);
-    update_panel_geometry(panel);
+    gtk_widget_queue_resize(GTK_WIDGET(panel));
     UPDATE_GLOBAL_INT(p, "heightwhenhidden", p->height_when_hidden);
 }
 
