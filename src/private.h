@@ -135,6 +135,10 @@ struct _Panel {
     GtkWidget* height_control;		/* Height control in preference dialog */
     GtkWidget* width_control;		/* Width control in preference dialog */
     GtkWidget* strut_control;		/* Reserve space in preference dialog */
+    GtkWidget* edge_bottom_button;
+    GtkWidget* edge_top_button;
+    GtkWidget* edge_left_button;
+    GtkWidget* edge_right_button;
 
     guint initialized : 1;              /* Should be grouped better later, */
     guint ah_far : 1;                   /* placed here for binary compatibility */

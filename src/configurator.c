@@ -147,7 +147,6 @@ static void set_edge(LXPanel* panel, int edge)
     gtk_widget_queue_resize(GTK_WIDGET(panel));
     _panel_set_panel_configuration_changed(panel);
     UPDATE_GLOBAL_STRING(p, "edge", num2str(edge_pair, edge, "none"));
-    //FIXME: update monitors and strut sensitivities
     update_strut_control_button(panel);
 }
 
@@ -203,6 +202,18 @@ static void update_mon_sensitivity(GtkCellLayout *layout, GtkCellRenderer *cell,
     gtk_tree_path_free(path);
 }
 
+static void update_edges_buttons(Panel *p)
+{
+    gtk_widget_set_sensitive(p->edge_bottom_button,
+                             panel_edge_available(p, EDGE_BOTTOM, p->monitor));
+    gtk_widget_set_sensitive(p->edge_top_button,
+                             panel_edge_available(p, EDGE_TOP, p->monitor));
+    gtk_widget_set_sensitive(p->edge_left_button,
+                             panel_edge_available(p, EDGE_LEFT, p->monitor));
+    gtk_widget_set_sensitive(p->edge_right_button,
+                             panel_edge_available(p, EDGE_RIGHT, p->monitor));
+}
+
 static void set_monitor_cb(GtkComboBox *cb, LXPanel *panel)
 {
     Panel *p = panel->priv;
@@ -212,7 +223,8 @@ static void set_monitor_cb(GtkComboBox *cb, LXPanel *panel)
     gtk_widget_queue_resize(GTK_WIDGET(panel));
     _panel_set_panel_configuration_changed(panel);
     UPDATE_GLOBAL_INT(p, "monitor", p->monitor);
-    //FIXME: update edge and strut sensitivities
+    /* update edge and strut sensitivities */
+    update_edges_buttons(p);
     update_strut_control_button(panel);
 }
 
@@ -1015,17 +1027,22 @@ void panel_configure( LXPanel* panel, int sel_page )
 
     /* position */
     w = (GtkWidget*)gtk_builder_get_object( builder, "edge_bottom" );
+    p->edge_bottom_button = w;
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(w), edge_selector(p, EDGE_BOTTOM));
     g_signal_connect(w, "toggled", G_CALLBACK(edge_bottom_toggle), panel);
     w = (GtkWidget*)gtk_builder_get_object( builder, "edge_top" );
+    p->edge_top_button = w;
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(w), edge_selector(p, EDGE_TOP));
     g_signal_connect(w, "toggled", G_CALLBACK(edge_top_toggle), panel);
     w = (GtkWidget*)gtk_builder_get_object( builder, "edge_left" );
+    p->edge_left_button = w;
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(w), edge_selector(p, EDGE_LEFT));
     g_signal_connect(w, "toggled", G_CALLBACK(edge_left_toggle), panel);
     w = (GtkWidget*)gtk_builder_get_object( builder, "edge_right" );
+    p->edge_right_button = w;
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(w), edge_selector(p, EDGE_RIGHT));
     g_signal_connect(w, "toggled", G_CALLBACK(edge_right_toggle), panel);
+    update_edges_buttons(p);
 
     /* monitor */
     monitors = 1;

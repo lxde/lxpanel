@@ -212,6 +212,14 @@ static void lxpanel_size_allocate(GtkWidget *widget, GtkAllocation *a)
         p->width = (p->orientation == GTK_ORIENTATION_HORIZONTAL) ? a->width : a->height;
     if (p->heighttype == HEIGHT_REQUEST)
         p->height = (p->orientation == GTK_ORIENTATION_HORIZONTAL) ? a->height : a->width;
+
+#if GTK_CHECK_VERSION(2, 20, 0)
+    if (!gtk_widget_get_realized(widget))
+#else
+    if (!GTK_WIDGET_REALIZED(widget))
+#endif
+        return;
+
     rect = *a;
     /* get real coords since a contains 0, 0 */
     gdk_window_get_origin(gtk_widget_get_window(widget), &x, &y);
@@ -225,18 +233,14 @@ static void lxpanel_size_allocate(GtkWidget *widget, GtkAllocation *a)
         p->ah = a->height;
         /* FIXME: should we "correct" requested sizes? */
         gtk_window_move(GTK_WINDOW(widget), p->ax, p->ay);
-        _panel_set_wm_strut(LXPANEL(widget));
+        _panel_set_wm_strut(panel);
+        _panel_queue_update_background(panel);
     }
-    else if (p->background_update_queued)
+    if (p->background_update_queued)
     {
         g_source_remove(p->background_update_queued);
         p->background_update_queued = 0;
-#if GTK_CHECK_VERSION(2, 20, 0)
-        if (gtk_widget_get_realized(widget))
-#else
-        if (GTK_WIDGET_REALIZED(widget))
-#endif
-            _panel_update_background(LXPANEL(widget));
+        _panel_update_background(LXPANEL(widget));
     }
 }
 
@@ -399,6 +403,9 @@ gboolean _panel_edge_can_strut(LXPanel *panel, int edge, gint monitor, gulong *s
     }
 
     screen = gtk_widget_get_screen(GTK_WIDGET(panel));
+    n = gdk_screen_get_n_monitors(screen);
+    if (monitor >= n) /* hidden now */
+        return FALSE;
     gdk_screen_get_monitor_geometry(screen, monitor, &rect);
     switch (edge)
     {
@@ -427,7 +434,6 @@ gboolean _panel_edge_can_strut(LXPanel *panel, int edge, gint monitor, gulong *s
     if (rect.height == 0 || rect.width == 0) ; /* on a border of monitor */
     else
     {
-        n = gdk_screen_get_n_monitors(screen);
         for (i = 0; i < n; i++)
         {
             if (i == monitor)
@@ -612,7 +618,7 @@ void panel_update_background(Panel * p)
 static void _panel_update_background(LXPanel * p)
 {
     GtkWidget *w = GTK_WIDGET(p);
-    GList *plugins, *l;
+    GList *plugins = NULL, *l;
 
     /* Redraw the top level widget. */
     _panel_determine_background_pixmap(p, w);
@@ -620,7 +626,8 @@ static void _panel_update_background(LXPanel * p)
     gtk_widget_queue_draw(w);
 
     /* Loop over all plugins redrawing each plugin. */
-    plugins = gtk_container_get_children(GTK_CONTAINER(p->priv->box));
+    if (p->priv->box != NULL)
+        plugins = gtk_container_get_children(GTK_CONTAINER(p->priv->box));
     for (l = plugins; l != NULL; l = l->next)
         plugin_widget_set_background(l->data, p);
     g_list_free(plugins);
@@ -1310,9 +1317,6 @@ panel_start_gui(LXPanel *panel, config_setting_t *list)
     XChangeProperty(xdisplay, p->topxwin, a_NET_WM_STATE, XA_ATOM,
           32, PropModeReplace, (unsigned char *) state, 3);
 
-    //_calculate_position(panel);
-    //gdk_window_move_resize(gtk_widget_get_window(w), p->ax, p->ay, p->aw, p->ah);
-    //_panel_set_wm_strut(panel);
     p->initialized = TRUE;
 
     if (list) for (i = 1; (s = config_setting_get_elem(list, i)) != NULL; )
@@ -1321,9 +1325,6 @@ panel_start_gui(LXPanel *panel, config_setting_t *list)
             i++;
         else /* remove invalid data from config */
             config_setting_remove_elem(list, i);
-
-    /* update backgrond of panel and all plugins */
-    _panel_update_background(panel);
 
     RET();
 }

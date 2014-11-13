@@ -14,6 +14,9 @@
 * Implemented disabling for "Reserve space" button if another monitor
     lies beyond the edge so reservation will cover it. Also reservation
     will not be applied in such cases even if set in config manually.
+* Some edge and monitors selections in panel configuration dialog may be
+    insensitive now if appropriate edge and monitor combination is not
+    available, to avoid panels stacking one over another.
 
 0.7.2
 -------------------------------------------------------------------------
