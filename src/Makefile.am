@@ -30,7 +30,8 @@ liblxpanel_la_SOURCES = \
 	icon-grid.c \
 	panel.c \
 	plugin.c \
-	conf.c
+	conf.c \
+	input-button.c
 
 liblxpanel_la_LDFLAGS = \
 	-no-undefined \
@@ -75,6 +76,7 @@ EXTRA_DIST = \
 	ev.h \
 	menu-policy.h \
 	icon-grid-old.h \
+	gtk-compat.h \
 	private.h
 
 $(top_builddir)/plugins/libbuiltin_plugins.a: $(lxpanel_include_HEADERS)

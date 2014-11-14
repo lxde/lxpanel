@@ -18,6 +18,11 @@
     insensitive now if appropriate edge and monitor combination is not
     available, to avoid panels stacking one over another.
 * Fixed bug with hidden panel disappearing after resolution change.
+* Add lxpanel_image_new_for_icon() API to replace another (obsolete) API
+    _gtk_image_new_from_file_scaled().
+* Added API panel_config_hotkey_button_new() to use as CONF_TYPE_EXTERNAL
+    widget to allow configure global hotkeys for plugins functions.
+* Added API panel_config_click_button_new() to configure mouse gestures.
 
 0.7.2
 -------------------------------------------------------------------------
