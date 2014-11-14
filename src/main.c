@@ -471,7 +471,6 @@ int main(int argc, char *argv[], char *env[])
     gtk_icon_theme_append_search_path( gtk_icon_theme_get_default(), PACKAGE_DATA_DIR "/images" );
 
     fbev = fb_ev_new();
-    win_grp = gtk_window_group_new();
 
     is_restarting = FALSE;
 
@@ -479,7 +478,7 @@ int main(int argc, char *argv[], char *env[])
     fm_gtk_init(NULL);
 
     /* prepare modules data */
-    _prepare_modules();
+    lxpanel_prepare_modules();
     init_static_plugins();
 
     load_global_config();
@@ -511,12 +510,11 @@ int main(int argc, char *argv[], char *env[])
 
     free_global_config();
 
-    _unload_modules();
+    lxpanel_unload_modules();
     fm_gtk_finalize();
 
     /* gdk_threads_leave(); */
 
-    g_object_unref(win_grp);
     g_object_unref(fbev);
 
     if (!is_restarting)

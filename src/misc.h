@@ -146,6 +146,7 @@ GtkWidget *lxpanel_button_new_for_icon(LXPanel *panel, const gchar *name, GdkCol
 GtkWidget *lxpanel_button_new_for_fm_icon(LXPanel *panel, FmIcon *icon, GdkColor *color, const gchar *label);
 void lxpanel_button_set_icon(GtkWidget* btn, const gchar *name, gint size);
 void lxpanel_button_update_icon(GtkWidget* btn, FmIcon *icon, gint size);
+GtkWidget *lxpanel_image_new_for_icon(const gchar *name, gint height);
 
 G_END_DECLS
 

@@ -1048,6 +1048,11 @@ GtkWidget * _gtk_image_new_from_file_scaled(const gchar * file, gint width, gint
     return _gtk_image_new_for_icon(fm_icon_from_name(file), height);
 }
 
+GtkWidget *lxpanel_image_new_for_icon(const gchar *name, gint height)
+{
+    return _gtk_image_new_for_icon(fm_icon_from_name(name), height);
+}
+
 void
 get_button_spacing(GtkRequisition *req, GtkContainer *parent, gchar *name)
 {

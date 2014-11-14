@@ -1,5 +1,4 @@
 ## Process this file with automake to produce Makefile.in
-ABI_VERSION=0:0:0
 
 bin_PROGRAMS = lxpanel lxpanelctl
 
@@ -32,6 +31,10 @@ liblxpanel_la_SOURCES = \
 	panel.c \
 	plugin.c \
 	conf.c
+
+liblxpanel_la_LDFLAGS = \
+	-no-undefined \
+	-version-info 0:0:0
 
 liblxpanel_la_LIBADD = \
 	$(PACKAGE_LIBS) \

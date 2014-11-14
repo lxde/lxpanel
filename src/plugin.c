@@ -393,7 +393,7 @@ static gboolean fm_module_callback_lxpanel_gtk(const char *name, gpointer init, 
 
 static gboolean old_plugins_loaded = FALSE;
 
-void _prepare_modules(void)
+void lxpanel_prepare_modules(void)
 {
     _all_types = g_hash_table_new_full(g_str_hash, g_str_equal, g_free, NULL);
     lxpanel_plugin_qdata = g_quark_from_static_string("LXPanel::plugin-data");
@@ -406,7 +406,7 @@ void _prepare_modules(void)
 #endif
 }
 
-void _unload_modules(void)
+void lxpanel_unload_modules(void)
 {
     GHashTableIter iter;
     gpointer key, val;

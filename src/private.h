@@ -61,8 +61,6 @@ extern gchar *cprofile;
 
 extern GSList* all_panels;
 
-extern GtkWindowGroup* win_grp;
-
 /* Context of a panel on a given edge. */
 struct _Panel {
     char* name;
@@ -207,8 +205,8 @@ static inline char *_user_config_file_name(const char *name1, const char *name2)
 #define STATIC_ICONS
 
 /* Plugins management - new style */
-void _prepare_modules(void);
-void _unload_modules(void);
+void lxpanel_prepare_modules(void);
+void lxpanel_unload_modules(void);
 
 GtkWidget *lxpanel_add_plugin(LXPanel *p, const char *name, config_setting_t *cfg, gint at);
 GHashTable *lxpanel_get_all_types(void); /* transfer none */
@@ -241,13 +239,6 @@ void restart(void);
 void logout(void);
 void gtk_run(void);
 
-/*
- * creates GtkButton subclass which can change, test and apply global hotkey
- * emits "changed" signal: void callback(LXHotkeyButton *, char *, gpointer);
- */
-/*
-GtkWidget *_config_hotkey_button_new(const char *hotkey);
-*/
 
 /* -----------------------------------------------------------------------------
  *   Deprecated declarations. Kept for compatibility with old code plugins.

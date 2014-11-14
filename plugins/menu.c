@@ -80,9 +80,6 @@ static guint idle_loader = 0;
 
 GQuark SYS_MENU_ITEM_ID = 0;
 
-/* FIXME: this is defined in misc.c and should be replaced later */
-GtkWidget *_gtk_image_new_from_file_scaled(const gchar *file, gint width,
-                                           gint height, gboolean keep_ratio);
 /* FIXME: those are defined on panel main code */
 void restart(void);
 void gtk_run(void);
@@ -807,9 +804,8 @@ read_item(menup *m, config_setting_t *s)
     if (fname) {
         GtkWidget *img;
 
-        /* FIXME: use FmIcon cache and fm_pixbuf_from_icon() API */
         tmp = expand_tilda(fname);
-        img = _gtk_image_new_from_file_scaled(tmp, m->iconsize, m->iconsize, TRUE);
+        img = lxpanel_image_new_for_icon(tmp, m->iconsize);
         gtk_widget_show(img);
         gtk_image_menu_item_set_image(GTK_IMAGE_MENU_ITEM(item), img);
         g_free(tmp);
@@ -945,8 +941,7 @@ read_submenu(menup *m, config_setting_t *s, gboolean as_item)
         if (fname) {
             GtkWidget *img;
             char *expanded = expand_tilda(fname);
-            /* FIXME: use FmIcon cache and fm_pixbuf_from_icon() API */
-            img = _gtk_image_new_from_file_scaled(expanded, m->iconsize, m->iconsize, TRUE);
+            img = lxpanel_image_new_for_icon(expanded, m->iconsize);
             gtk_widget_show(img);
             gtk_image_menu_item_set_image(GTK_IMAGE_MENU_ITEM(mi), img);
             g_free(expanded);

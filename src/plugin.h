@@ -242,7 +242,6 @@ extern void lxpanel_plugin_show_config_dialog(GtkWidget* plugin);
  * @CONF_TYPE_DIRECTORY_ENTRY: directory path entry, pointer is char **
  * @CONF_TYPE_TRIM: just a text in italic, pointer is ignored
  * @CONF_TYPE_EXTERNAL: (since 0.8) provided by caller, pointer is GtkWidget *
- * @CONF_TYPE_HOTKEY: (not implemented) change global hotkey, pointer is char **
  *
  * Type of variable passed to lxpanel_generic_config_dlg().
  */
@@ -254,8 +253,7 @@ typedef enum {
     CONF_TYPE_FILE_ENTRY,
     CONF_TYPE_DIRECTORY_ENTRY,
     CONF_TYPE_TRIM,
-    CONF_TYPE_EXTERNAL,
-    //CONF_TYPE_HOTKEY
+    CONF_TYPE_EXTERNAL
 } PluginConfType;
 
 /**
@@ -281,6 +279,17 @@ extern GtkWidget *lxpanel_generic_config_dlg(const char *title, LXPanel *panel,
                                              GSourceFunc apply_func,
                                              GtkWidget *plugin,
                                              const char *name, ...);
+
+/*
+ * creates GtkButton subclass which can change hotkey or mouse binding
+ * emits "changed" signal: void callback(PanelCfgInputButton *, char *, gpointer);
+ * caller should test if keybinding can be used in the callback
+ * widget can be used for lxpanel_generic_config_dlg as CONF_TYPE_EXTERNAL
+ */
+/*
+GtkWidget *panel_config_hotkey_button_new(const char *label, const char *hotkey);
+GtkWidget *panel_config_click_button_new(const char *label, const char *click);
+*/
 
 G_END_DECLS
 

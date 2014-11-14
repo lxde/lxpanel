@@ -43,12 +43,13 @@
 
 gchar *cprofile = "default";
 
-GtkWindowGroup* win_grp = NULL; /* window group used to limit the scope of model dialog. */
-
 GSList* all_panels = NULL;  /* a single-linked list storing all panels */
-static gulong monitors_handler = 0;
 
 gboolean is_in_lxde = FALSE;
+
+static GtkWindowGroup* win_grp = NULL; /* window group used to limit the scope of model dialog. */
+
+static gulong monitors_handler = 0;
 
 static void panel_start_gui(LXPanel *p, config_setting_t *list);
 static void ah_start(LXPanel *p);
@@ -1268,7 +1269,15 @@ panel_start_gui(LXPanel *panel, config_setting_t *list)
     gtk_window_set_position(GTK_WINDOW(panel), GTK_WIN_POS_NONE);
     gtk_window_set_decorated(GTK_WINDOW(panel), FALSE);
 
-    gtk_window_group_add_window( win_grp, (GtkWindow*)panel );
+    if (G_UNLIKELY(win_grp == NULL))
+    {
+        win_grp = gtk_window_group_new();
+        g_object_add_weak_pointer(G_OBJECT(win_grp), (gpointer *)&win_grp);
+        gtk_window_group_add_window(win_grp, (GtkWindow*)panel);
+        g_object_unref(win_grp);
+    }
+    else
+        gtk_window_group_add_window(win_grp, (GtkWindow*)panel);
 
     gtk_widget_add_events( w, GDK_BUTTON_PRESS_MASK );
 
