@@ -62,7 +62,7 @@
 #ifndef DISABLE_MENU
 # include "menu-policy.h"
 #endif
-
+#include "gtk-compat.h"
 
 #define PANEL_ICON_SIZE 24 /* see the private.h */
 
@@ -1939,20 +1939,12 @@ static GdkPixbuf * _wnck_gdk_pixbuf_get_from_pixmap(Pixmap xpixmap, int width, i
             colormap = NULL;
         else
         {
-#if GTK_CHECK_VERSION(2, 24, 0)
             colormap = gdk_screen_get_system_colormap(gdk_window_get_screen(drawable));
-#else
-            colormap = gdk_screen_get_system_colormap(gdk_drawable_get_screen(drawable));
-#endif
             g_object_ref(G_OBJECT(colormap));
         }
 
         /* Be sure we aren't going to fail due to visual mismatch. */
-#if GTK_CHECK_VERSION(2,22,0)
         if ((colormap != NULL) && (gdk_visual_get_depth(gdk_colormap_get_visual(colormap)) != depth))
-#else
-        if ((colormap != NULL) && (gdk_colormap_get_visual(colormap)->depth != depth))
-#endif
         {
             g_object_unref(G_OBJECT(colormap));
             colormap = NULL;
@@ -2689,19 +2681,11 @@ static gboolean taskbar_button_scroll_event(GtkWidget * widget, GdkEventScroll *
 /* Handler for "size-allocate" event from taskbar button. */
 static void taskbar_button_size_allocate(GtkWidget * btn, GtkAllocation * alloc, Task * tk)
 {
-#if GTK_CHECK_VERSION(2, 20, 0)
     if (gtk_widget_get_realized(btn))
-#else
-    if (GTK_WIDGET_REALIZED(btn))
-#endif
     {
         /* Get the coordinates of the button. */
         int x, y;
-#if GTK_CHECK_VERSION(2,22,0)
         gdk_window_get_origin(gtk_button_get_event_window(GTK_BUTTON(btn)), &x, &y);
-#else
-        gdk_window_get_origin(GTK_BUTTON(btn)->event_window, &x, &y);
-#endif
 
 
         /* Send a NET_WM_ICON_GEOMETRY property change on the window. */

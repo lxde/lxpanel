@@ -40,6 +40,7 @@
 #include "menu-policy.h"
 
 #include "dbg.h"
+#include "gtk-compat.h"
 
 /* support for libmenu-cache 0.4.x */
 #ifndef MENU_CACHE_CHECK_VERSION
@@ -322,11 +323,7 @@ static void restore_grabs(GtkWidget *w, gpointer data)
 
         while (tmp)
         {
-#if GTK_CHECK_VERSION(2, 24, 0)
             if (!gtk_widget_get_mapped(tmp))
-#else
-            if (!GTK_WIDGET_MAPPED (tmp))
-#endif
             {
                 viewable = FALSE;
                 break;
@@ -559,11 +556,7 @@ static void _unload_old_icons(GtkMenu* menu, GtkIconTheme* theme, menup* m)
             {
 	        img = GTK_IMAGE(gtk_image_menu_item_get_image(GTK_IMAGE_MENU_ITEM(item)));
                 gtk_image_clear(img);
-#if GTK_CHECK_VERSION(2, 24, 0)
                 if (gtk_widget_get_mapped(GTK_WIDGET(img)))
-#else
-                if( GTK_WIDGET_MAPPED(img) )
-#endif
 		    on_menu_item_map(GTK_WIDGET(item), m);
             }
         }

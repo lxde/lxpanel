@@ -20,6 +20,7 @@
 #include <string.h>
 
 #include "icon-grid.h"
+#include "gtk-compat.h"
 
 /* Properties */
 enum {
@@ -77,11 +78,7 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
     /* Apply given allocation */
     gtk_widget_set_allocation(widget, allocation);
     border = gtk_container_get_border_width(GTK_CONTAINER(widget));
-#if GTK_CHECK_VERSION(2, 20, 0)
     if (gtk_widget_get_realized(widget))
-#else
-    if (GTK_WIDGET_REALIZED(widget))
-#endif
     {
         if (!gtk_widget_get_has_window(widget))
         {

@@ -40,6 +40,7 @@
 
 #include "lxpanelctl.h"
 #include "dbg.h"
+#include "gtk-compat.h"
 
 gchar *cprofile = "default";
 
@@ -142,11 +143,7 @@ static gboolean idle_update_background(gpointer p)
         return FALSE;
 
     /* Panel could be destroyed while background update scheduled */
-#if GTK_CHECK_VERSION(2, 20, 0)
     if (gtk_widget_get_realized(p))
-#else
-    if (GTK_WIDGET_REALIZED(p))
-#endif
     {
         gdk_display_sync( gtk_widget_get_display(p) );
         _panel_update_background(panel);
@@ -214,11 +211,7 @@ static void lxpanel_size_allocate(GtkWidget *widget, GtkAllocation *a)
     if (p->heighttype == HEIGHT_REQUEST)
         p->height = (p->orientation == GTK_ORIENTATION_HORIZONTAL) ? a->height : a->width;
 
-#if GTK_CHECK_VERSION(2, 20, 0)
     if (!gtk_widget_get_realized(widget))
-#else
-    if (!GTK_WIDGET_REALIZED(widget))
-#endif
         return;
 
     rect = *a;
@@ -371,11 +364,7 @@ gboolean _panel_edge_can_strut(LXPanel *panel, int edge, gint monitor, gulong *s
     gint n, i;
     gulong s;
 
-#if GTK_CHECK_VERSION(2, 20, 0)
     if (!gtk_widget_get_mapped(GTK_WIDGET(panel)))
-#else
-    if (!GTK_WIDGET_MAPPED(p))
-#endif
         return FALSE;
 
     p = panel->priv;
@@ -468,11 +457,7 @@ void _panel_set_wm_strut(LXPanel *panel)
     gulong strut_lower;
     gulong strut_upper;
 
-#if GTK_CHECK_VERSION(2, 20, 0)
     if (!gtk_widget_get_mapped(GTK_WIDGET(panel)))
-#else
-    if (!GTK_WIDGET_MAPPED(panel))
-#endif
         return;
     /* most wm's tend to ignore struts of unmapped windows, and that's how
      * lxpanel hides itself. so no reason to set it. */

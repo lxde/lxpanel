@@ -435,11 +435,7 @@ gtk_weather_size_allocate(GtkWidget * widget, GtkAllocation * allocation)
 
   gboolean weather_has_window = gtk_widget_get_has_window(widget);
 
-#if GTK_CHECK_VERSION(2, 20, 0)
   if (gtk_widget_get_realized(widget) && weather_has_window)
-#else
-  if (GTK_WIDGET_REALIZED(widget) && weather_has_window)
-#endif
     {
       gdk_window_move_resize(gtk_widget_get_window(widget),
                              allocation->x, 

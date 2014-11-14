@@ -31,6 +31,8 @@
 #include "netstatus-enums.h"
 #include "netstatus-fallback-pixbuf.h"
 
+#include "gtk-compat.h"
+
 typedef enum
 {
   NETSTATUS_SIGNAL_0_24 = 0,
@@ -617,11 +619,7 @@ netstatus_icon_size_allocate (GtkWidget     *widget,
       netstatus_icon_scale_icons (icon, size);
     }
 
-#if GTK_CHECK_VERSION(2, 20, 0)
   if (gtk_widget_get_realized(widget))
-#else
-  if (GTK_WIDGET_REALIZED (widget))
-#endif
     {
       gdk_window_move_resize (window,
                               allocation->x + border_width,

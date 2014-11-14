@@ -37,6 +37,7 @@
 
 //#define DEBUG
 #include "dbg.h"
+#include "gtk-compat.h"
 
 static void plugin_class_unref(PluginClass * pc);
 
@@ -184,11 +185,7 @@ void plugin_widget_set_background(GtkWidget * w, LXPanel * panel)
         {
             if ((p->background) || (p->transparent))
             {
-#if GTK_CHECK_VERSION(2, 20, 0)
                 if (gtk_widget_get_realized(w))
-#else
-                if (GTK_WIDGET_REALIZED(w))
-#endif
                 {
                     _panel_determine_background_pixmap(panel, w);
                     gdk_window_invalidate_rect(gtk_widget_get_window(w), NULL, TRUE);
@@ -198,11 +195,7 @@ void plugin_widget_set_background(GtkWidget * w, LXPanel * panel)
             {
                 /* Set background according to the current GTK style. */
                 gtk_widget_set_app_paintable(w, FALSE);
-#if GTK_CHECK_VERSION(2, 20, 0)
                 if (gtk_widget_get_realized(w))
-#else
-                if (GTK_WIDGET_REALIZED(w))
-#endif
                 {
                     gdk_window_set_back_pixmap(gtk_widget_get_window(w), NULL, TRUE);
                     gtk_style_set_background(gtk_widget_get_style(w),

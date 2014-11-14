@@ -20,11 +20,25 @@
 #define __GTK_COMPAT_H__ 1
 
 /* compatibility things */
+#if !GTK_CHECK_VERSION(2, 20, 0)
+#  define  gtk_widget_get_realized      GTK_WIDGET_REALIZED
+#  define  gtk_widget_get_mapped        GTK_WIDGET_MAPPED
+#endif
+
 #if !GTK_CHECK_VERSION(2, 21, 0)
-#  define   GDK_KEY_Tab     GDK_Tab
-#  define   GDK_KEY_space   GDK_space
-#  define   GDK_KEY_Return  GDK_Return
-#  define   GDK_KEY_KP_Enter GDK_KP_Enter
+#  define  GDK_KEY_Tab                  GDK_Tab
+#  define  GDK_KEY_space                GDK_space
+#  define  GDK_KEY_Return               GDK_Return
+#  define  GDK_KEY_KP_Enter             GDK_KP_Enter
+#endif
+
+#if !GTK_CHECK_VERSION(2, 22, 0)
+#  define  gtk_button_get_event_window(a)  a->event_window
+#  define  gdk_visual_get_depth(a)      a->depth
+#endif
+
+#if !GTK_CHECK_VERSION(2, 24, 0)
+#  define  gdk_window_get_screen        gdk_drawable_get_screen
 #endif
 
 #endif
