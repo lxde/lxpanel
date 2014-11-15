@@ -17,6 +17,7 @@
  */
 
 #include "plugin.h"
+#include "misc.h"
 
 #include <libfm/fm-gtk.h>
 
@@ -316,7 +317,7 @@ static GtkWidget *dclock_constructor(LXPanel *panel, config_setting_t *settings)
     gtk_misc_set_alignment(GTK_MISC(dc->clock_label), 0.5, 0.5);
     gtk_misc_set_padding(GTK_MISC(dc->clock_label), 4, 0);
     gtk_container_add(GTK_CONTAINER(hbox), dc->clock_label);
-    dc->clock_icon = gtk_image_new();
+    dc->clock_icon = lxpanel_image_new_for_icon(panel, "clock", -1, NULL);
     gtk_container_add(GTK_CONTAINER(hbox), dc->clock_icon);
 
     /* Initialize the clock display. */
@@ -366,9 +367,6 @@ static gboolean dclock_apply_configuration(gpointer user_data)
     /* Set up the icon or the label as the displayable widget. */
     if (dc->icon_only)
     {
-        if(lxpanel_image_set_icon_theme(dc->panel, dc->clock_icon, "clock") != FALSE) {
-            lxpanel_image_set_from_file(dc->panel, dc->clock_icon, PACKAGE_DATA_DIR "/images/clock.png");
-        }
         gtk_widget_show(dc->clock_icon);
         gtk_widget_hide(dc->clock_label);
     }

@@ -26,7 +26,9 @@
 * Added "icon-size-changed" signal to LXPanel which is emitted when icons
     size in configuration dialog was changed.
 * Improved lxpanel_image_new_for_icon() API to follow panel icons size
-    changes, not only theme changes.
+    changes, not only theme changes. This way calls on lxpanel_image_*
+    APIs on theme or panel changes may be eliminated, i.e. code becomes
+    simpler.
 * Added new lxpanel_image_change_icon() API for simplification reasons so
     other lxpanel_image_* APIs can be replaced completely.
 

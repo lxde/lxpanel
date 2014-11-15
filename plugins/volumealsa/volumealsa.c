@@ -27,11 +27,12 @@
 #include <poll.h>
 #include <libfm/fm-gtk.h>
 #include "plugin.h"
+#include "misc.h"
 
-#define ICONS_VOLUME_HIGH   PACKAGE_DATA_DIR "/images/volume-high.png"
-#define ICONS_VOLUME_MEDIUM PACKAGE_DATA_DIR "/images/volume-medium.png"
-#define ICONS_VOLUME_LOW    PACKAGE_DATA_DIR "/images/volume-low.png"
-#define ICONS_MUTE          PACKAGE_DATA_DIR "/images/mute.png"
+#define ICONS_VOLUME_HIGH   "volume-high"
+#define ICONS_VOLUME_MEDIUM "volume-medium"
+#define ICONS_VOLUME_LOW    "volume-low"
+#define ICONS_MUTE          "mute"
 
 typedef struct {
 
@@ -60,7 +61,6 @@ typedef struct {
     guint num_channels;                         /* Number of channels */
 
     /* Icons */
-    const char* icon;
     const char* icon_panel;
     const char* icon_fallback;
 
@@ -294,36 +294,30 @@ static void volumealsa_update_current_icon(VolumeALSAPlugin * vol)
     int level = asound_get_volume(vol);
 
     /* Change icon according to mute / volume */
-    const char* icon="audio-volume-muted";
     const char* icon_panel="audio-volume-muted-panel";
     const char* icon_fallback=ICONS_MUTE;
     if (mute)
     {
          icon_panel = "audio-volume-muted-panel";
-         icon="audio-volume-muted";
          icon_fallback=ICONS_MUTE;
     }
     else if (level >= 75)
     {
          icon_panel = "audio-volume-high-panel";
-         icon="audio-volume-high";
          icon_fallback=ICONS_VOLUME_HIGH;
     }
     else if (level >= 50)
     {
          icon_panel = "audio-volume-medium-panel";
-         icon="audio-volume-medium";
          icon_fallback=ICONS_VOLUME_MEDIUM;
     }
     else if (level > 0)
     {
          icon_panel = "audio-volume-low-panel";
-         icon="audio-volume-low";
          icon_fallback=ICONS_VOLUME_LOW;
     }
 
     vol->icon_panel = icon_panel;
-    vol->icon = icon;
     vol->icon_fallback= icon_fallback;
 }
 
@@ -337,13 +331,7 @@ static void volumealsa_update_display(VolumeALSAPlugin * vol)
     volumealsa_update_current_icon(vol);
 
     /* Change icon, fallback to default icon if theme doesn't exsit */
-    if ( ! lxpanel_image_set_icon_theme(vol->panel, vol->tray_icon, vol->icon_panel))
-    {
-        if ( ! lxpanel_image_set_icon_theme(vol->panel, vol->tray_icon, vol->icon))
-        {
-            lxpanel_image_set_from_file(vol->panel, vol->tray_icon, vol->icon_fallback);
-        }
-    }
+    lxpanel_image_change_icon(vol->tray_icon, vol->icon_panel, vol->icon_fallback);
 
     g_signal_handler_block(vol->mute_check, vol->mute_check_handler);
     gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(vol->mute_check), mute);
@@ -406,17 +394,6 @@ static gboolean volumealsa_popup_focus_out(GtkWidget * widget, GdkEvent * event,
 static void volumealsa_popup_map(GtkWidget * widget, VolumeALSAPlugin * vol)
 {
     lxpanel_plugin_adjust_popup_position(widget, vol->plugin);
-}
-
-static void volumealsa_theme_change(GtkWidget * widget, VolumeALSAPlugin * vol)
-{
-    if ( ! lxpanel_image_set_icon_theme(vol->panel, vol->tray_icon, vol->icon_panel))
-    {
-        if ( ! lxpanel_image_set_icon_theme(vol->panel, vol->tray_icon, vol->icon))
-        {
-            lxpanel_image_set_from_file(vol->panel, vol->tray_icon, vol->icon_fallback);
-        }
-    }
 }
 
 /* Handler for "value_changed" signal on popup window vertical scale. */
@@ -547,7 +524,8 @@ static GtkWidget *volumealsa_constructor(LXPanel *panel, config_setting_t *setti
     gtk_widget_set_tooltip_text(p, _("Volume control"));
 
     /* Allocate icon as a child of top level. */
-    vol->tray_icon = gtk_image_new();
+    vol->tray_icon = lxpanel_image_new_for_icon(panel, "audio-volume-muted-panel",
+                                                -1, ICONS_MUTE);
     gtk_container_add(GTK_CONTAINER(p), vol->tray_icon);
 
     /* Initialize window to appear when icon clicked. */
@@ -555,7 +533,6 @@ static GtkWidget *volumealsa_constructor(LXPanel *panel, config_setting_t *setti
 
     /* Connect signals. */
     g_signal_connect(G_OBJECT(p), "scroll-event", G_CALLBACK(volumealsa_popup_scale_scrolled), vol );
-    g_signal_connect(panel_get_icon_theme(panel), "changed", G_CALLBACK(volumealsa_theme_change), vol );
 
     /* Update the display, show the widget, and return. */
     volumealsa_update_display(vol);
@@ -576,10 +553,6 @@ static void volumealsa_destructor(gpointer user_data)
 
     if (vol->restart_idle)
         g_source_remove(vol->restart_idle);
-
-    if (vol->panel) /* SF bug #683: crash if constructor failed */
-        g_signal_handlers_disconnect_by_func(panel_get_icon_theme(vol->panel),
-                                             volumealsa_theme_change, vol);
 
     /* Deallocate all memory. */
     g_free(vol);

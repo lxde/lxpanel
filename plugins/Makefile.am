@@ -98,7 +98,6 @@ indicator_la_LIBADD = $(APPLET_LIBS)
 
 # kbled
 kbled_la_SOURCES = kbled/kbled.c
-kbled_la_CFLAGS = -DPACKAGE_DATA_DIR=\""$(datadir)/lxpanel"\"
 kbled_la_LIBADD = $(X11_LIBS)
 
 # monitors
@@ -142,7 +141,6 @@ volume_la_CFLAGS = -I$(srcdir)/volume
 
 # volumealsa
 volumealsa_la_SOURCES = volumealsa/volumealsa.c
-volumealsa_la_CFLAGS = -DPACKAGE_DATA_DIR=\""$(datadir)/lxpanel"\"
 volumealsa_la_LIBADD = -lasound
 
 # weather

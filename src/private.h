@@ -390,4 +390,26 @@ extern void plugin_adjust_popup_position(GtkWidget * popup, Plugin * plugin);
 extern void plugin_popup_set_position_helper(Plugin * p, GtkWidget * near, GtkWidget * popup, GtkRequisition * popup_req, gint * px, gint * py);
 							/* Helper for position-calculation callback for popup menus */
 
+/**
+ * lxpanel_image_set_from_file
+ * @p: a panel instance
+ * @image: a #GtkImage widget
+ * @file: image file path
+ *
+ * Applies icon from @file to @image in accordance with icon size setting
+ * on panel @p.
+ */
+extern void lxpanel_image_set_from_file(LXPanel * p, GtkWidget * image, const char * file);
+
+/**
+ * lxpanel_image_set_icon_theme
+ * @p: a panel instance
+ * @image: a #GtkImage widget
+ * @icon: icon name
+ *
+ * Applies icon size and theme from settings of @p to @image using @icon
+ * name to select icon.
+ */
+extern gboolean lxpanel_image_set_icon_theme(LXPanel * p, GtkWidget * image, const gchar * icon);
+
 #endif
