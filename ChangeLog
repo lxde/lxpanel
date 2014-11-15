@@ -27,6 +27,8 @@
     size in configuration dialog was changed.
 * Improved lxpanel_image_new_for_icon() API to follow panel icons size
     changes, not only theme changes.
+* Added new lxpanel_image_change_icon() API for simplification reasons so
+    other lxpanel_image_* APIs can be replaced completely.
 
 0.7.2
 -------------------------------------------------------------------------

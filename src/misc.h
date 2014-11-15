@@ -178,6 +178,18 @@ void lxpanel_button_update_icon(GtkWidget* btn, FmIcon *icon, gint size);
 GtkWidget *lxpanel_image_new_for_icon(LXPanel *panel, const gchar *name,
                                       gint height, const gchar *fallback);
 
+/**
+ * lxpanel_image_change_icon
+ * @img: an image
+ * @name: icon name or image path
+ * @fallback: (allow-none): fallback image name or path
+ *
+ * Changes an image @img created by lxpanel_image_new_for_icon() to use
+ * new icon @name and @fallback.
+ */
+gboolean lxpanel_image_change_icon(GtkWidget *img, const gchar *name,
+                                   const char *fallback);
+
 G_END_DECLS
 
 #endif

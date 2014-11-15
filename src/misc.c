@@ -1090,6 +1090,31 @@ GtkWidget *lxpanel_image_new_for_icon(LXPanel *panel, const gchar *name,
     return _gtk_image_new_for_icon(panel, fm_icon_from_name(name), height, fallback);
 }
 
+gboolean lxpanel_image_change_icon(GtkWidget *img, const gchar *name, const char *fallback)
+{
+    ImgData * data = (ImgData *) g_object_get_qdata(G_OBJECT(img), img_data_id);
+
+    g_return_val_if_fail(data != NULL && name != NULL, FALSE);
+    g_object_unref(data->icon);
+    g_free(data->fallback);
+    data->icon = fm_icon_from_name(name);
+    data->fallback = g_strdup(fallback);
+    if (!G_IS_THEMED_ICON(data->icon))
+    {
+        if (data->theme_changed_handler != 0)
+            g_signal_handler_disconnect(gtk_icon_theme_get_default(), data->theme_changed_handler);
+        data->theme_changed_handler = 0;
+    }
+    else if (data->theme_changed_handler == 0)
+    {
+        /* This image is loaded from icon theme.  Update the image if the icon theme is changed. */
+        data->theme_changed_handler = g_signal_connect_swapped(gtk_icon_theme_get_default(),
+                                                "changed", G_CALLBACK(on_theme_changed), img);
+    }
+    _gtk_image_set_from_file_scaled(img, data);
+    return TRUE;
+}
+
 void
 get_button_spacing(GtkRequisition *req, GtkContainer *parent, gchar *name)
 {
