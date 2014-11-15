@@ -23,6 +23,8 @@
 * Added API panel_config_hotkey_button_new() to use as CONF_TYPE_EXTERNAL
     widget to allow configure global hotkeys for plugins functions.
 * Added API panel_config_click_button_new() to configure mouse gestures.
+* Added "icon-size-changed" signal to LXPanel which is emitted when icons
+    size in configuration dialog was changed.
 
 0.7.2
 -------------------------------------------------------------------------

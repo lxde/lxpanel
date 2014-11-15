@@ -58,6 +58,14 @@ static void ah_stop(LXPanel *p);
 static void on_root_bg_changed(FbBg *bg, LXPanel* p);
 static void _panel_update_background(LXPanel * p);
 
+enum
+{
+    ICON_SIZE_CHANGED,
+    N_SIGNALS
+};
+
+static guint signals[N_SIGNALS];
+
 G_DEFINE_TYPE(PanelToplevel, lxpanel, GTK_TYPE_WINDOW);
 
 static void lxpanel_finalize(GObject *object)
@@ -291,6 +299,15 @@ static void lxpanel_class_init(PanelToplevelClass *klass)
     widget_class->style_set = lxpanel_style_set;
     widget_class->map_event = lxpanel_map_event;
     widget_class->button_press_event = lxpanel_button_press;
+
+    signals[ICON_SIZE_CHANGED] =
+        g_signal_new("icon-size-changed",
+                     G_TYPE_FROM_CLASS(klass),
+                     G_SIGNAL_RUN_LAST,
+                     G_STRUCT_OFFSET(PanelToplevelClass, icon_size_changed),
+                     NULL, NULL,
+                     g_cclosure_marshal_VOID__VOID,
+                     G_TYPE_NONE, 0, G_TYPE_NONE);
 }
 
 static void lxpanel_init(PanelToplevel *self)
@@ -332,6 +349,11 @@ static void lxpanel_init(PanelToplevel *self)
 static LXPanel* panel_allocate(void)
 {
     return g_object_new(LX_TYPE_PANEL, NULL);
+}
+
+void _panel_emit_icon_size_changed(LXPanel *p)
+{
+    g_signal_emit(p, signals[ICON_SIZE_CHANGED], 0);
 }
 
 /* Normalize panel configuration after load from file or reconfiguration. */

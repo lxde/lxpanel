@@ -231,6 +231,7 @@ void _panel_establish_autohide(LXPanel *p);
 void _panel_set_wm_strut(LXPanel *p);
 void _panel_set_panel_configuration_changed(LXPanel *p);
 void _panel_queue_update_background(LXPanel *p);
+void _panel_emit_icon_size_changed(LXPanel *p);
 
 void panel_configure(LXPanel* p, int sel_page);
 gboolean panel_edge_available(Panel* p, int edge, gint monitor);
