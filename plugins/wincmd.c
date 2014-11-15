@@ -206,8 +206,9 @@ static gboolean wincmd_apply_configuration(gpointer user_data)
     GtkWidget * p = user_data;
     WinCmdPlugin * wc = lxpanel_plugin_get_data(p);
 
+    //lxpanel_button_set_icon(p, wc->image, -1);
     /* Just save settings */
-    config_group_set_string(wc->settings, "image", wc->image);
+    //config_group_set_string(wc->settings, "image", wc->image);
     config_group_set_string(wc->settings, "Button1",
                             wincmd_names[wc->button_1_command]);
     config_group_set_string(wc->settings, "Button2",
@@ -228,14 +229,6 @@ static GtkWidget *wincmd_configure(LXPanel *panel, GtkWidget *p)
 }
 
 
-/* Callback when panel configuration changes. */
-static void wincmd_panel_reconfigure(LXPanel *panel, GtkWidget *p)
-{
-    WinCmdPlugin * wc = lxpanel_plugin_get_data(p);
-
-    lxpanel_button_set_icon(p, wc->image, panel_get_icon_size(panel));
-}
-
 /* Plugin descriptor. */
 LXPanelPluginInit lxpanel_static_plugin_wincmd = {
     .name = N_("Minimize All Windows"),
@@ -243,6 +236,5 @@ LXPanelPluginInit lxpanel_static_plugin_wincmd = {
 
     .new_instance = wincmd_constructor,
     .config = wincmd_configure,
-    .reconfigure = wincmd_panel_reconfigure,
     .button_press_event = wincmd_button_clicked
 };

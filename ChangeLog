@@ -31,6 +31,10 @@
     simpler.
 * Added new lxpanel_image_change_icon() API for simplification reasons so
     other lxpanel_image_* APIs can be replaced completely.
+* APIs lxpanel_button_set_icon() lxpanel_button_update_icon() now don't
+    require setting icon size since created button already follows size
+    from panel settings. Also it doesn't require refresh after the panel
+    configuration change.
 
 0.7.2
 -------------------------------------------------------------------------

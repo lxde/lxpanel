@@ -339,8 +339,7 @@ static gboolean dirmenu_apply_configuration(gpointer user_data)
     config_group_set_string(dm->settings, "name", dm->name);
     config_group_set_string(dm->settings, "image", dm->image);
 
-    lxpanel_button_set_icon(p, ((dm->image != NULL) ? dm->image : "file-manager"),
-                            panel_get_icon_size(dm->panel));
+    lxpanel_button_set_icon(p, ((dm->image != NULL) ? dm->image : "file-manager"), -1);
 
     gtk_widget_set_tooltip_text(p, dm->path);
     gtk_container_foreach(GTK_CONTAINER(p), (GtkCallback) dirmenu_apply_configuration_to_children, (gpointer) dm);

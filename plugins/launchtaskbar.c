@@ -1461,8 +1461,6 @@ static void launchtaskbar_panel_configuration_changed(LXPanel *panel, GtkWidget 
     if (new_icon_size != ltbp->icon_size)
     {
         Task * tk;
-        GSList * l;
-        ltbp->icon_size = new_icon_size;
         for (tk = ltbp->p_task_list; tk != NULL; tk = tk->p_task_flink_xwid)
         {
             GdkPixbuf * pixbuf = task_update_icon(ltbp, tk, None);
@@ -1472,13 +1470,6 @@ static void launchtaskbar_panel_configuration_changed(LXPanel *panel, GtkWidget 
                 g_object_unref(pixbuf);
             }
         }
-        for (l = ltbp->buttons; l != NULL; l = l->next)
-        {
-            LaunchButton * btn = (LaunchButton *) l->data;
-            lxpanel_button_update_icon(btn->widget, fm_file_info_get_icon(btn->fi),
-                                       new_icon_size);
-        }
-
     }
 
     /* Redraw all the labels.  Icon size or font color may have changed. */

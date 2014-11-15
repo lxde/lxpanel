@@ -156,8 +156,16 @@ guint32 gcolor2rgb24(GdkColor *color);
  */
 GtkWidget *lxpanel_button_new_for_icon(LXPanel *panel, const gchar *name, GdkColor *color, const gchar *label);
 GtkWidget *lxpanel_button_new_for_fm_icon(LXPanel *panel, FmIcon *icon, GdkColor *color, const gchar *label);
+
 /**
- * Deprecated since redudant.
+ * lxpanel_button_set_icon
+ * @btn: a button instance
+ * @name: icon name or path
+ * @size: new icon size
+ *
+ * Updates icon in the button created with lxpanel_button_new_for_icon()
+ * or lxpanel_button_new_for_fm_icon() before. If @size > 0 then stop
+ * follow panel icon size and use this fixed size, otherwise not change.
  */
 void lxpanel_button_set_icon(GtkWidget* btn, const gchar *name, gint size);
 void lxpanel_button_update_icon(GtkWidget* btn, FmIcon *icon, gint size);

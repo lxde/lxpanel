@@ -1007,7 +1007,7 @@ static gboolean apply_config(gpointer user_data)
     menup* m = lxpanel_plugin_get_data(p);
 
     if( m->fname ) {
-        lxpanel_button_set_icon(m->img, m->fname, panel_get_icon_size(m->panel));
+        lxpanel_button_set_icon(m->img, m->fname, -1);
     }
     config_group_set_string(m->settings, "image", m->fname);
     config_group_set_string(m->settings, "name", m->caption);

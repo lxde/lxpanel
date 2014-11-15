@@ -964,6 +964,8 @@ static void _lxpanel_button_set_icon(GtkWidget* btn, FmIcon* icon, gint size)
     {
         ImgData * data = (ImgData *) g_object_get_qdata(G_OBJECT(img), img_data_id);
 
+        if (size <= 0)
+            size = data->size;
         if (icon != data->icon || size != data->size) /* something was changed */
         {
             g_object_unref(data->icon);
