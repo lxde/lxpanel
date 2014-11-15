@@ -918,7 +918,25 @@ static void panel_popupmenu_create_panel( GtkMenuItem* item, LXPanel* panel )
     screen = gtk_widget_get_screen(GTK_WIDGET(panel));
     g_assert(screen);
     monitors = gdk_screen_get_n_monitors(screen);
-    /* FIXME: try to allocate edge on current monitor first */
+    /* try to allocate edge on current monitor first */
+    m = panel->priv->monitor;
+    if (m < 0)
+    {
+        /* panel is spanned over the screen, guess from pointer now */
+        gint x, y;
+        gdk_display_get_pointer(gdk_display_get_default(), NULL, &x, &y, NULL);
+        m = gdk_screen_get_monitor_at_point(screen, x, y);
+    }
+    for (e = 1; e < 5; ++e)
+    {
+        if (panel_edge_available(p, e, m))
+        {
+            p->edge = e;
+            p->monitor = m;
+            goto found_edge;
+        }
+    }
+    /* try all monitors */
     for(m=0; m<monitors; ++m)
     {
         /* try each of the four edges */
