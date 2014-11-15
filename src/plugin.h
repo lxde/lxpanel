@@ -285,6 +285,8 @@ extern GtkWidget *lxpanel_generic_config_dlg(const char *title, LXPanel *panel,
  * emits "changed" signal: void callback(PanelCfgInputButton *, char *, gpointer);
  * caller should test if keybinding can be used in the callback
  * widget can be used for lxpanel_generic_config_dlg as CONF_TYPE_EXTERNAL
+ *
+ * Since: 0.8.0
  */
 GtkWidget *panel_config_hotkey_button_new(const char *label, const char *hotkey);
 GtkWidget *panel_config_click_button_new(const char *label, const char *click);

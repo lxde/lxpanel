@@ -24,6 +24,13 @@
 
 G_BEGIN_DECLS
 
+/**
+ * LXPANEL_CHECK_VERSION
+ *
+ * A simple macro for plugins to check features.
+ *
+ * Since: 0.8.0
+ */
 #define LXPANEL_CHECK_VERSION(_a,_b,_c) \
     (@VERSION_MAJOR@ > _a || \
     (@VERSION_MAJOR@ == _a && @VERSION_MINOR@ > _b) || \

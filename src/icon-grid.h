@@ -43,8 +43,25 @@ extern GtkWidget * panel_icon_grid_new(
 						/* Create an icon grid */
 extern void panel_icon_grid_set_constrain_width(PanelIconGrid * ig, gboolean constrain_width);
 						/* Set the constrain-width property */
+/**
+ * panel_icon_grid_set_aspect_width
+ * @ig: a widget
+ * @aspect_width: value to set
+ *
+ * Changes #PanelIconGrid::aspect-width property on the @ig. The property
+ * enables or disables taking icons aspect into consideration for @ig.
+ * If disabled then all icons will have the same size (child_width) as
+ * defined for widget. If enabled then child_width will be ignored but
+ * icons aspect will be taken into consideration when children space is
+ * allocated.
+ * Note that if #PanelIconGrid::constrain-width is set to %TRUE then the
+ * #PanelIconGrid::aspect-width is ignored and behavior of widget is that
+ * if #PanelIconGrid::aspect-width is set to %FALSE.
+ *
+ * Since: 0.8.0
+ */
 extern void panel_icon_grid_set_aspect_width(PanelIconGrid * ig, gboolean aspect_width);
-						/* Set the aspect-width property */
+
 /* extern void panel_icon_grid_set_fill_width(PanelIconGrid * ig, gboolean fill_width);
 						 Set the fill-width property */
 extern void panel_icon_grid_set_geometry(PanelIconGrid * ig,

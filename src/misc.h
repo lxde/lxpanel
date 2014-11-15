@@ -153,6 +153,8 @@ guint32 gcolor2rgb24(GdkColor *color);
  * Creates new #GtkEventBox button which will follow theme and icon size
  * changes on @panel. If icon name is not found in theme then fallback
  * name "application-x-executable" will be used.
+ *
+ * Returns: (transfer full): a new #GtkEventBox widget.
  */
 GtkWidget *lxpanel_button_new_for_icon(LXPanel *panel, const gchar *name, GdkColor *color, const gchar *label);
 GtkWidget *lxpanel_button_new_for_fm_icon(LXPanel *panel, FmIcon *icon, GdkColor *color, const gchar *label);
@@ -182,6 +184,10 @@ void lxpanel_button_update_icon(GtkWidget* btn, FmIcon *icon, gint size);
  * size changes on @panel. If icon not found in theme and @fallback is
  * not %NULL then it will be used to load icon or image. Otherwise the
  * "application-x-executable" will be used as fallback.
+ *
+ * Returns: (transfer full): a new #GtkImage widget.
+ *
+ * Since: 0.8.0
  */
 GtkWidget *lxpanel_image_new_for_icon(LXPanel *panel, const gchar *name,
                                       gint height, const gchar *fallback);
@@ -194,6 +200,10 @@ GtkWidget *lxpanel_image_new_for_icon(LXPanel *panel, const gchar *name,
  *
  * Changes an image @img created by lxpanel_image_new_for_icon() to use
  * new icon @name and @fallback.
+ *
+ * Returns: %TRUE.
+ *
+ * Since: 0.8.0
  */
 gboolean lxpanel_image_change_icon(GtkWidget *img, const gchar *name,
                                    const char *fallback);
