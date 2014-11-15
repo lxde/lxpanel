@@ -508,10 +508,13 @@ set_height_when_minimized(GtkSpinButton* spin, LXPanel* panel)
 }
 
 static void
-set_icon_size( GtkSpinButton* spin,  Panel* p  )
+set_icon_size(GtkSpinButton *spin, LXPanel *panel)
 {
+    Panel *p = panel->priv;
+
     p->icon_size = (int)gtk_spin_button_get_value(spin);
     panel_set_panel_configuration_changed(p);
+    _panel_emit_icon_size_changed(panel);
     UPDATE_GLOBAL_INT(p, "iconsize", p->icon_size);
 }
 
@@ -1129,7 +1132,7 @@ void panel_configure( LXPanel* panel, int sel_page )
     w = (GtkWidget*)gtk_builder_get_object( builder, "icon_size" );
     gtk_spin_button_set_range( GTK_SPIN_BUTTON(w), PANEL_HEIGHT_MIN, PANEL_HEIGHT_MAX );
     gtk_spin_button_set_value( GTK_SPIN_BUTTON(w), p->icon_size );
-    g_signal_connect( w, "value-changed", G_CALLBACK(set_icon_size), p );
+    g_signal_connect( w, "value-changed", G_CALLBACK(set_icon_size), panel );
 
     /* properties */
 

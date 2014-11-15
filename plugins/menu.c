@@ -798,7 +798,7 @@ read_item(menup *m, config_setting_t *s)
         GtkWidget *img;
 
         tmp = expand_tilda(fname);
-        img = lxpanel_image_new_for_icon(tmp, m->iconsize);
+        img = lxpanel_image_new_for_icon(m->panel, tmp, m->iconsize, NULL);
         gtk_widget_show(img);
         gtk_image_menu_item_set_image(GTK_IMAGE_MENU_ITEM(item), img);
         g_free(tmp);
@@ -934,7 +934,7 @@ read_submenu(menup *m, config_setting_t *s, gboolean as_item)
         if (fname) {
             GtkWidget *img;
             char *expanded = expand_tilda(fname);
-            img = lxpanel_image_new_for_icon(expanded, m->iconsize);
+            img = lxpanel_image_new_for_icon(m->panel, expanded, m->iconsize, NULL);
             gtk_widget_show(img);
             gtk_image_menu_item_set_image(GTK_IMAGE_MENU_ITEM(mi), img);
             g_free(expanded);

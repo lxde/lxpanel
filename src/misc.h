@@ -142,11 +142,41 @@ gchar *expand_tilda(const gchar *file);
 
 void get_button_spacing(GtkRequisition *req, GtkContainer *parent, gchar *name);
 guint32 gcolor2rgb24(GdkColor *color);
+
+/**
+ * lxpanel_button_new_for_icon
+ * @panel: panel instance
+ * @name: icon name or path
+ * @color: (allow-none): hilight color for icon
+ * @label: (allow-none): optional label for button
+ *
+ * Creates new #GtkEventBox button which will follow theme and icon size
+ * changes on @panel. If icon name is not found in theme then fallback
+ * name "application-x-executable" will be used.
+ */
 GtkWidget *lxpanel_button_new_for_icon(LXPanel *panel, const gchar *name, GdkColor *color, const gchar *label);
 GtkWidget *lxpanel_button_new_for_fm_icon(LXPanel *panel, FmIcon *icon, GdkColor *color, const gchar *label);
+/**
+ * Deprecated since redudant.
+ */
 void lxpanel_button_set_icon(GtkWidget* btn, const gchar *name, gint size);
 void lxpanel_button_update_icon(GtkWidget* btn, FmIcon *icon, gint size);
-GtkWidget *lxpanel_image_new_for_icon(const gchar *name, gint height);
+
+/**
+ * lxpanel_image_new_for_icon
+ * @panel: (allow-none): panel instance
+ * @name: icon name or image path
+ * @height: image size
+ * @fallback: (allow-none): fallback image name or path
+ *
+ * Creates new #GtkImage which will follow theme if @name is a themed
+ * icon name. If @height is -1 then created image will also follow icon
+ * size changes on @panel. If icon not found in theme and @fallback is
+ * not %NULL then it will be used to load icon or image. Otherwise the
+ * "application-x-executable" will be used as fallback.
+ */
+GtkWidget *lxpanel_image_new_for_icon(LXPanel *panel, const gchar *name,
+                                      gint height, const gchar *fallback);
 
 G_END_DECLS
 
