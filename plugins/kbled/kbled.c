@@ -134,7 +134,7 @@ static GtkWidget *kbled_constructor(LXPanel *panel, config_setting_t *settings)
     /* Then allocate three images for the three indications, but make them visible only when the configuration requests. */
     for (i = 0; i < 3; i++)
     {
-        kl->indicator_image[i] = gtk_image_new();
+        kl->indicator_image[i] = lxpanel_image_new_for_icon(panel, off_icons_theme[i], -1, NULL);
         gtk_container_add(GTK_CONTAINER(p), kl->indicator_image[i]);
         gtk_widget_set_visible(kl->indicator_image[i], kl->visible[i]);
     }

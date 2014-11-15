@@ -22,9 +22,10 @@
 #include <glib/gi18n.h>
 #include "netstat.h"
 #include "statusicon.h"
+#include "misc.h"
 
-struct statusicon *create_statusicon(GtkWidget *box, const char *filename,
-        const char *tooltips, const char* icon_name)
+struct statusicon *create_statusicon(LXPanel *panel, GtkWidget *box,
+        const char *filename, const char *tooltips, const char* icon_name)
 {
     struct statusicon *newicon;
     newicon = malloc(sizeof(struct statusicon));
@@ -34,24 +35,12 @@ struct statusicon *create_statusicon(GtkWidget *box, const char *filename,
 
     gtk_widget_set_has_window(newicon->main, FALSE);
     gtk_widget_add_events(newicon->main, GDK_BUTTON_PRESS_MASK);
-    gtk_widget_set_size_request(newicon->main, 24, 24);
+    //gtk_widget_set_size_request(newicon->main, 24, 24);
     gtk_box_pack_start(GTK_BOX(box), newicon->main, TRUE, TRUE, 0);
 
     /* icon */
+    newicon->icon = lxpanel_image_new_for_icon(panel, icon_name, -1, filename);
 
-    /*icon theme*/
-    GtkIconTheme* icon_theme = gtk_icon_theme_get_default();
-
-    /*if we've got a theme*/
-    if(gtk_icon_theme_has_icon(icon_theme, icon_name)) {
-        GdkPixbuf* temp_pixbuf = gtk_icon_theme_load_icon(icon_theme, icon_name, 24, 0, NULL);
-        newicon->icon = gtk_image_new_from_pixbuf(temp_pixbuf);
-    }
-
-    /* oh well...*/
-    else {
-        newicon->icon = gtk_image_new_from_file(filename);
-    }
     gtk_container_add(GTK_CONTAINER(newicon->main), newicon->icon);
     gtk_widget_show_all(newicon->main);
 
@@ -72,9 +61,10 @@ void statusicon_destroy(struct statusicon *icon)
 }
 
 
-void set_statusicon_image_from_file(struct statusicon *widget, const char *filename)
+//void set_statusicon_image_from_file(struct statusicon *widget, const char *filename)
+void update_statusicon(struct statusicon *widget, const char *filename, const char *icon_name)
 {
-    gtk_image_set_from_file(GTK_IMAGE(widget->icon), filename);
+    lxpanel_image_change_icon(widget->icon, icon_name, filename);
 }
 
 void set_statusicon_tooltips(struct statusicon *widget, const char *tooltips)

@@ -83,7 +83,6 @@ cpu_la_SOURCES = cpu/cpu.c
 
 # cpufreq
 cpufreq_la_SOURCES = cpufreq/cpufreq.c
-cpufreq_la_CFLAGS = -DPACKAGE_DATA_DIR=\""$(datadir)/lxpanel"\"
 
 # deskno
 deskno_la_SOURCES = deskno/deskno.c
@@ -111,9 +110,7 @@ netstat_la_SOURCES = \
 	netstat/wireless.c \
 	netstat/lxnm_client.c \
 	netstat/passwd_gui.c
-netstat_la_CFLAGS = \
-	-I$(srcdir)/netstat \
-	-DPACKAGE_DATA_DIR=\""$(datadir)/lxpanel"\"
+netstat_la_CFLAGS = -I$(srcdir)/netstat
 netstat_la_LIBADD = -liw
 
 # netstatus
@@ -127,7 +124,6 @@ netstatus_la_SOURCES = \
 	netstatus/netstatus-util.c
 netstatus_la_CFLAGS = \
 	-I$(srcdir)/netstatus \
-	-DPACKAGE_DATA_DIR=\""$(datadir)/lxpanel"\" \
 	-DPACKAGE_UI_DIR=\""$(datadir)/lxpanel/ui"\"
 
 # thermal

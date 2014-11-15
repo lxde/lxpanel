@@ -5,6 +5,7 @@
 #include <netinet/in.h>
 #include <gtk/gtk.h>
 #include "wireless.h"
+#include "plugin.h"
 
 #define NETDEV_STAT_NORMAL	0
 #define NETDEV_STAT_PROBLEM	1
@@ -70,9 +71,11 @@ typedef struct {
 
 typedef struct {
     GtkWidget *mainw;
+    LXPanel *panel;
     FNETD *fnetd;
     char *fixcmd;
     gint ttag;
+    gboolean use_theme;
 } netstat;
 
 typedef struct {
