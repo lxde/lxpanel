@@ -156,12 +156,6 @@ case `$LD --sort-common -v 2>&1 </dev/null` in
   ;;
 esac
 
-dnl FIXME: filter for undefined symbols in plugins
-# when passing "-z defs" to linker, we would better to make sure
-# there are no undefined references.  However, we intend not to
-# fix at the moment since we don't have spin-off libraray containing
-# the necessary functions.
-
 AC_ARG_ENABLE([alsa],
     AS_HELP_STRING([--disable-alsa],
                     [compile ALSA providers (default: enable)]),

@@ -227,15 +227,17 @@ static gint menupopup(GtkWidget *widget, GdkEvent *event, netdev_info *ni)
 
     g_return_val_if_fail (event != NULL, FALSE);
 
-    if (event->type == GDK_BUTTON_PRESS) {
+//    if (event->type == GDK_BUTTON_PRESS) {
         event_button = (GdkEventButton *) event;
-        if (event_button->button == 1) {
+    if (event->type == GDK_BUTTON_PRESS && event_button->button == 1) {
+//        if (event_button->button == 1) {
             /* wireless device */
             if (ni->netdev_list->info.wireless) {
                 gtk_menu_popup(GTK_MENU(wireless_menu(ni)), NULL, NULL, NULL, NULL, event_button->button, event_button->time);
-            }
+//            }
             return TRUE;
-        } else if (event_button->button == 3) {
+        } else {
+//        } else if (event_button->button == 3) {
             GtkWidget *menu;
             GtkWidget *menu_item;
 

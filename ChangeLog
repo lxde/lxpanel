@@ -35,6 +35,8 @@
     require setting icon size since created button already follows size
     from panel settings. Also it doesn't require refresh after the panel
     configuration change.
+* Correctly open 'netstat' plugin own menu on leftclick since rightclick
+    should open panel context menu instead.
 
 0.7.2
 -------------------------------------------------------------------------
