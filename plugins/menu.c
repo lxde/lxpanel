@@ -64,7 +64,6 @@
 typedef struct {
     GtkWidget *menu, *box, *img, *label;
     char *fname, *caption;
-    gulong handler_id;
     int iconsize;
     gboolean has_system_menu;
     guint show_system_menu_idle;
@@ -108,7 +107,6 @@ menu_destructor(gpointer user_data)
     if (m->show_system_menu_idle)
         g_source_remove(m->show_system_menu_idle);
 
-    /* g_signal_handler_disconnect(G_OBJECT(m->img), m->handler_id); */
     g_signal_handlers_disconnect_matched(m->ds, G_SIGNAL_MATCH_FUNC, 0, 0, NULL,
                                          on_data_get, NULL);
     g_object_unref(G_OBJECT(m->ds));
@@ -154,7 +152,7 @@ menu_pos(GtkMenu *menu, gint *x, gint *y, gboolean *push_in, GtkWidget *widget)
 
     gtk_widget_get_allocation(GTK_WIDGET(widget), &allocation);
     ENTER;
-    m = g_object_get_data(G_OBJECT(widget), "plugin");
+    m = lxpanel_plugin_get_data(widget);
     gdk_window_get_origin(gtk_widget_get_window(widget), &ox, &oy);
 #if GTK_CHECK_VERSION(2,20,0)
     GtkRequisition requisition;
@@ -659,16 +657,13 @@ static void show_menu( GtkWidget* widget, menup* m, int btn, guint32 time )
 }
 
 static gboolean
-my_button_pressed(GtkWidget *widget, GdkEventButton *event, menup *m)
+menu_button_press_event(GtkWidget * widget, GdkEventButton * event, LXPanel * panel)
 {
     ENTER;
-    GtkAllocation allocation;
-    gtk_widget_get_allocation(GTK_WIDGET(widget), &allocation);
 
-    if ((event->type == GDK_BUTTON_PRESS) && event->button == 1
-          && (event->x >=0 && event->x < allocation.width)
-          && (event->y >=0 && event->y < allocation.height)) {
-        show_menu( widget, m, event->button, event->time );
+    if (event->button == 1)
+    {
+        show_menu( widget, lxpanel_plugin_get_data(widget), event->button, event->time );
         RET(TRUE);
     }
     RET(FALSE);
@@ -679,7 +674,7 @@ static gboolean show_system_menu_idle(gpointer user_data)
     menup* m = (menup*)user_data;
     if (g_source_is_destroyed(g_main_current_source()))
         return FALSE;
-    show_menu( m->img, m, 0, GDK_CURRENT_TIME );
+    show_menu( m->box, m, 0, GDK_CURRENT_TIME );
     m->show_system_menu_idle = 0;
     return FALSE;
 }
@@ -727,11 +722,7 @@ make_button(menup *m, const gchar *fname, const gchar *name, GdkColor* tint, Gtk
     }
 
     gtk_widget_show(m->img);
-    gtk_box_pack_start(GTK_BOX(m->box), m->img, TRUE, FALSE, 0);
-
-    m->handler_id = g_signal_connect (G_OBJECT (m->img), "button-press-event",
-          G_CALLBACK (my_button_pressed), m);
-    g_object_set_data(G_OBJECT(m->img), "plugin", m);
+    gtk_container_add(GTK_CONTAINER(m->box), m->img);
 
     m->ds = fm_dnd_src_new(NULL);
 
@@ -967,7 +958,8 @@ menu_constructor(LXPanel *panel, config_setting_t *settings)
     gtk_icon_size_lookup( GTK_ICON_SIZE_MENU, &iw, &ih );
     m->iconsize = MAX(iw, ih);
 
-    m->box = gtk_vbox_new(TRUE, 0);
+    m->box = gtk_event_box_new();
+    gtk_widget_set_has_window(m->box, FALSE);
     lxpanel_plugin_set_data(m->box, m, menu_destructor);
     gtk_container_set_border_width(GTK_CONTAINER(m->box), 0);
 
@@ -1036,6 +1028,7 @@ LXPanelPluginInit lxpanel_static_plugin_menu = {
     .new_instance = menu_constructor,
     .config = menu_config,
     .reconfigure = menu_panel_configuration_changed,
+    .button_press_event = menu_button_press_event,
     .show_system_menu = show_system_menu
 };
 
