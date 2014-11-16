@@ -7,6 +7,7 @@ src/panel.c
 src/plugin.c
 src/gtk-run.c
 src/main.c
+src/input-button.c
 data/ui/launchtaskbar.glade
 data/ui/netstatus.glade
 data/ui/panel-pref.glade

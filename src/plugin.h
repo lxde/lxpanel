@@ -147,7 +147,7 @@ extern GQuark lxpanel_plugin_qdata; /* access to plugin private data */
  * lxpanel_plugin_set_data
  * @_i: instance widget
  * @_data: instance data
- * @_destructor: destructor for @_data
+ * @_destructor: (allow-none): destructor for @_data
  *
  * Attaches data to the widget instance. The @_destructor callback will
  * be called on @_data when @_i is destroyed and therefore it should free
@@ -281,7 +281,7 @@ extern GtkWidget *lxpanel_generic_config_dlg(const char *title, LXPanel *panel,
                                              const char *name, ...);
 
 /*
- * creates GtkButton subclass which can change hotkey or mouse binding
+ * creates GtkFrame derived widget which can change hotkey or mouse binding
  * emits "changed" signal: void callback(PanelCfgInputButton *, char *, gpointer);
  * caller should test if keybinding can be used in the callback
  * widget can be used for lxpanel_generic_config_dlg as CONF_TYPE_EXTERNAL
