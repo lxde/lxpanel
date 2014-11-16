@@ -37,6 +37,8 @@
     configuration change.
 * Correctly open 'netstat' plugin own menu on leftclick since rightclick
     should open panel context menu instead.
+* System critical temperature level in 'thermal' plugin now is properly
+    ignored if manual levels are active.
 
 0.7.2
 -------------------------------------------------------------------------
