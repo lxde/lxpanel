@@ -359,7 +359,6 @@ static gboolean try_hwmon_sensors(thermal* th, const char *path)
 
     if (!(sensorsDirectory = g_dir_open(path, 0, NULL)))
         return FALSE;
-    /* FIXME: do scanning hwmonX other than 0 */
 
     while ((sensor_name = g_dir_read_name(sensorsDirectory)))
     {
