@@ -1,23 +1,22 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Gofer <vovka@hotbox.ru>, 2008.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-16 02:35+0200\n"
-"PO-Revision-Date: 2014-11-16 03:27+0200\n"
+"POT-Creation-Date: 2014-11-17 16:55+0200\n"
+"PO-Revision-Date: 2014-11-17 15:01+0000\n"
 "Last-Translator: Andriy Grytsenko <andrej@rep.kiev.ua>\n"
 "Language-Team: Russian <hsh@runtu.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.6.0-rc1\n"
-"X-POOTLE-MTIME: 1407841216.000000\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Pootle 2.6.0-rc2\n"
+"X-POOTLE-MTIME: 1416236473.000000\n"
 
 #: ../src/configurator.c:135
 msgid ""
@@ -158,7 +157,7 @@ msgid "No file manager is configured."
 msgstr "Менеджер файлов не выбран."
 
 #. { "configure", N_("Preferences"), configure },
-#: ../src/gtk-run.c:377 ../src/main.c:52 ../plugins/menu.c:750
+#: ../src/gtk-run.c:377 ../src/main.c:52 ../plugins/menu.c:741
 msgid "Run"
 msgstr "Выполнить"
 
@@ -166,11 +165,11 @@ msgstr "Выполнить"
 msgid "Enter the command you want to execute:"
 msgstr "Введите команду для выполнения:"
 
-#: ../src/main.c:53 ../plugins/menu.c:751
+#: ../src/main.c:53 ../plugins/menu.c:742
 msgid "Restart"
 msgstr "Перезапустить"
 
-#: ../src/main.c:54 ../plugins/menu.c:752
+#: ../src/main.c:54 ../plugins/menu.c:743
 msgid "Logout"
 msgstr "Завершить cеанс"
 
@@ -228,24 +227,33 @@ msgstr ""
 "Более подробная информация на http://lxde.org/\n"
 "\n"
 
-#: ../src/input-button.c:127
+#: ../src/input-button.c:129
 #, c-format
 msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
-msgstr "Нажатие '%s' не может быть использовано в качестве глобального сокращения."
+msgstr ""
+"Нажатие '%s' не может быть использовано в качестве глобального сокращения."
 
-#: ../src/input-button.c:130 ../plugins/netstatus/netstatus-iface.c:191
+#: ../src/input-button.c:132 ../src/input-button.c:308
+#: ../plugins/netstatus/netstatus-iface.c:191
 #: ../plugins/netstatus/netstatus-util.c:167
 msgid "Error"
 msgstr "Ошибка"
 
 #. GtkRadioButton "None"
-#: ../src/input-button.c:223 ../data/ui/panel-pref.glade.h:5
+#: ../src/input-button.c:225 ../data/ui/panel-pref.glade.h:5
 msgid "None"
 msgstr "Нет"
 
-#: ../src/input-button.c:230
+#: ../src/input-button.c:232
 msgid "Custom:"
 msgstr "Выбрать:"
+
+#: ../src/input-button.c:306
+#, c-format
+msgid "Cannot assign '%s' as a global hotkey: it is already bound."
+msgstr ""
+"Невозможно назначить '%s' как глобальное сокращение: эта комбинация клавиш "
+"уже используется."
 
 #: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3494
 msgid "Application Launch and Task Bar"
@@ -369,8 +377,8 @@ msgstr "Адрес:"
 msgid "Destination:"
 msgstr "Куда:"
 
-#: ../data/ui/netstatus.glade.h:14 ../plugins/netstat/netstat.c:362
-#: ../plugins/netstat/netstat.c:373
+#: ../data/ui/netstatus.glade.h:14 ../plugins/netstat/netstat.c:364
+#: ../plugins/netstat/netstat.c:375
 msgid "Broadcast:"
 msgstr "Широковещательный адрес:"
 
@@ -534,8 +542,7 @@ msgstr "Пристыковывать панели"
 
 #: ../data/ui/panel-pref.glade.h:41
 msgid "Reserve space, and not covered by maximized windows"
-msgstr ""
-"Зарезервировать место и не закрывать окнами, развернутыми на весь экран"
+msgstr "Зарезервировать место и не закрывать окнами, развернутыми на весь экран"
 
 #: ../data/ui/panel-pref.glade.h:42
 msgid "<b>Properties</b>"
@@ -712,23 +719,23 @@ msgstr "Текст по центру"
 msgid "Display digital clock and tooltip"
 msgstr "Показывает цифровые часы и подсказки"
 
-#: ../plugins/menu.c:384
+#: ../plugins/menu.c:382
 msgid "Add to desktop"
 msgstr "Добавить на Рабочий стол"
 
-#: ../plugins/menu.c:391
+#: ../plugins/menu.c:389
 msgid "Properties"
 msgstr "Свойства"
 
-#: ../plugins/menu.c:1020 ../plugins/menu.c:1033
+#: ../plugins/menu.c:1013 ../plugins/menu.c:1027
 msgid "Menu"
 msgstr "Меню приложений"
 
-#: ../plugins/menu.c:1021 ../plugins/dirmenu.c:357
+#: ../plugins/menu.c:1014 ../plugins/dirmenu.c:357
 msgid "Icon"
 msgstr "Значок"
 
-#: ../plugins/menu.c:1034
+#: ../plugins/menu.c:1028
 msgid "Application Menu"
 msgstr "Главное меню (программы)"
 
@@ -904,43 +911,43 @@ msgstr "Метка"
 msgid "Browse directory tree via menu (Author = PCMan)"
 msgstr "Просмотр каталогов в виде дерева (Автор - PCMan)"
 
-#: ../plugins/thermal/thermal.c:557 ../plugins/thermal/thermal.c:575
+#: ../plugins/thermal/thermal.c:559 ../plugins/thermal/thermal.c:577
 msgid "Temperature Monitor"
 msgstr "Монитор температуры"
 
-#: ../plugins/thermal/thermal.c:559
+#: ../plugins/thermal/thermal.c:561
 msgid "Normal color"
 msgstr "Нормальный цвет"
 
-#: ../plugins/thermal/thermal.c:560
+#: ../plugins/thermal/thermal.c:562
 msgid "Warning1 color"
 msgstr "Цвет предупреждения 1"
 
-#: ../plugins/thermal/thermal.c:561
+#: ../plugins/thermal/thermal.c:563
 msgid "Warning2 color"
 msgstr "Цвет предупреждения 2"
 
-#: ../plugins/thermal/thermal.c:562
+#: ../plugins/thermal/thermal.c:564
 msgid "Automatic sensor location"
 msgstr "Автоматическое определение сенсора"
 
-#: ../plugins/thermal/thermal.c:563
+#: ../plugins/thermal/thermal.c:565
 msgid "Sensor"
 msgstr "Сенсор"
 
-#: ../plugins/thermal/thermal.c:564
+#: ../plugins/thermal/thermal.c:566
 msgid "Automatic temperature levels"
 msgstr "Автоматический уровень температуры"
 
-#: ../plugins/thermal/thermal.c:565
+#: ../plugins/thermal/thermal.c:567
 msgid "Warning1 temperature"
 msgstr "Температурный порог 1"
 
-#: ../plugins/thermal/thermal.c:566
+#: ../plugins/thermal/thermal.c:568
 msgid "Warning2 temperature"
 msgstr "Температурный порог 2"
 
-#: ../plugins/thermal/thermal.c:576
+#: ../plugins/thermal/thermal.c:578
 msgid "Display system temperature"
 msgstr "Отображение температуры компьютера"
 
@@ -1003,83 +1010,83 @@ msgid "Wireless Networks not found in range"
 msgstr "Беспроводные сети не найдены"
 
 #. Repair
-#: ../plugins/netstat/netstat.c:246
+#: ../plugins/netstat/netstat.c:248
 msgid "Repair"
 msgstr "Восстановить"
 
 #. interface down
-#: ../plugins/netstat/netstat.c:251
+#: ../plugins/netstat/netstat.c:253
 msgid "Disable"
 msgstr "Отключить"
 
-#: ../plugins/netstat/netstat.c:342
+#: ../plugins/netstat/netstat.c:344
 msgid "Wireless Connection has no connectivity"
 msgstr "Беспроводное соединение не подключено"
 
-#: ../plugins/netstat/netstat.c:344
+#: ../plugins/netstat/netstat.c:346
 msgid "Network cable is plugged out"
 msgstr "Сетевой кабель не подключен"
 
-#: ../plugins/netstat/netstat.c:346
+#: ../plugins/netstat/netstat.c:348
 msgid "Connection has limited or no connectivity"
 msgstr "Соединение ограничено или не подключено"
 
-#: ../plugins/netstat/netstat.c:350 ../plugins/netstat/netstat.c:361
-#: ../plugins/netstat/netstat.c:372
+#: ../plugins/netstat/netstat.c:352 ../plugins/netstat/netstat.c:363
+#: ../plugins/netstat/netstat.c:374
 msgid "IP Address:"
 msgstr "IP Адрес:"
 
-#: ../plugins/netstat/netstat.c:351
+#: ../plugins/netstat/netstat.c:353
 msgid "Remote IP:"
 msgstr "Удалённый IP:"
 
-#: ../plugins/netstat/netstat.c:352 ../plugins/netstat/netstat.c:363
-#: ../plugins/netstat/netstat.c:374
+#: ../plugins/netstat/netstat.c:354 ../plugins/netstat/netstat.c:365
+#: ../plugins/netstat/netstat.c:376
 msgid "Netmask:"
 msgstr "Маска сети:"
 
-#: ../plugins/netstat/netstat.c:353 ../plugins/netstat/netstat.c:365
-#: ../plugins/netstat/netstat.c:376
+#: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
+#: ../plugins/netstat/netstat.c:378
 msgid "Activity"
 msgstr "Активность"
 
-#: ../plugins/netstat/netstat.c:353 ../plugins/netstat/netstat.c:365
-#: ../plugins/netstat/netstat.c:376
+#: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
+#: ../plugins/netstat/netstat.c:378
 msgid "Sent"
 msgstr "Передано"
 
-#: ../plugins/netstat/netstat.c:353 ../plugins/netstat/netstat.c:365
-#: ../plugins/netstat/netstat.c:376
+#: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
+#: ../plugins/netstat/netstat.c:378
 msgid "Received"
 msgstr "Принято"
 
-#: ../plugins/netstat/netstat.c:354 ../plugins/netstat/netstat.c:366
-#: ../plugins/netstat/netstat.c:377
+#: ../plugins/netstat/netstat.c:356 ../plugins/netstat/netstat.c:368
+#: ../plugins/netstat/netstat.c:379
 msgid "bytes"
 msgstr "байт"
 
-#: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
-#: ../plugins/netstat/netstat.c:378
+#: ../plugins/netstat/netstat.c:357 ../plugins/netstat/netstat.c:369
+#: ../plugins/netstat/netstat.c:380
 msgid "packets"
 msgstr "пакетов"
 
-#: ../plugins/netstat/netstat.c:358 ../plugins/netstatus/netstatus-iface.c:173
+#: ../plugins/netstat/netstat.c:360 ../plugins/netstatus/netstatus-iface.c:173
 msgid "Wireless"
 msgstr "беспроводное"
 
-#: ../plugins/netstat/netstat.c:360
+#: ../plugins/netstat/netstat.c:362
 msgid "Protocol:"
 msgstr "Протокол:"
 
-#: ../plugins/netstat/netstat.c:364 ../plugins/netstat/netstat.c:375
+#: ../plugins/netstat/netstat.c:366 ../plugins/netstat/netstat.c:377
 msgid "HW Address:"
 msgstr "HW Адрес:"
 
-#: ../plugins/netstat/netstat.c:495
+#: ../plugins/netstat/netstat.c:497
 msgid "Manage Networks"
 msgstr "Управление сетями"
 
-#: ../plugins/netstat/netstat.c:496
+#: ../plugins/netstat/netstat.c:498
 msgid "Monitor and Manage networks"
 msgstr "Мониторинг и управление сетями"
 
