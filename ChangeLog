@@ -50,6 +50,8 @@
 * System critical temperature level in 'thermal' plugin now is properly
     ignored if manual levels are active.
 * Fixed click on 'menu' plugin, only image was clickable, not whole area.
+* Added API panel_config_int_button_new() for generic plugin config spin
+    button with custom range, not just generic 0...1000.
 
 0.7.2
 -------------------------------------------------------------------------

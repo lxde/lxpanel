@@ -1507,11 +1507,9 @@ static GtkWidget *_lxpanel_generic_config_dlg(const char *title, Panel *p,
                   G_CALLBACK(on_entry_focus_out_old), val );
                 break;
             case CONF_TYPE_INT:
-                /* FIXME: the range shouldn't be hardcoded */
-                entry = gtk_spin_button_new_with_range( 0, 1000, 1 );
-                gtk_spin_button_set_value( GTK_SPIN_BUTTON(entry), *(int*)val );
-                g_signal_connect( entry, "value-changed",
-                  G_CALLBACK(on_spin_changed), val );
+                gtk_box_pack_start(dlg_vbox,
+                                   panel_config_int_button_new(name, val, 0, 1000),
+                                   FALSE, FALSE, 2);
                 break;
             case CONF_TYPE_BOOL:
                 entry = gtk_check_button_new();
@@ -1578,6 +1576,19 @@ static GtkWidget *_lxpanel_generic_config_dlg(const char *title, Panel *p,
     gtk_widget_show_all(GTK_WIDGET(dlg_vbox));
 
     return dlg;
+}
+
+GtkWidget *panel_config_int_button_new(const char *name, gint *val,
+                                       gint min, gint max)
+{
+    GtkWidget *entry = gtk_spin_button_new_with_range(min, max, 1);
+    GtkWidget *hbox = gtk_hbox_new(FALSE, 2);
+
+    gtk_spin_button_set_value(GTK_SPIN_BUTTON(entry), *val);
+    g_signal_connect(entry, "value-changed", G_CALLBACK(on_spin_changed), val);
+    gtk_box_pack_start(GTK_BOX(hbox), gtk_label_new(name), FALSE, FALSE, 2);
+    gtk_box_pack_start(GTK_BOX(hbox), entry, TRUE, TRUE, 2);
+    return hbox;
 }
 
 /* new plugins API -- apply_func() gets GtkWidget* */
