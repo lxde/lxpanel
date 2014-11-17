@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-16 02:35+0200\n"
-"PO-Revision-Date: 2014-11-16 00:46+0000\n"
+"POT-Creation-Date: 2014-11-17 16:55+0200\n"
+"PO-Revision-Date: 2014-11-17 15:03+0000\n"
 "Last-Translator: Andriy Grytsenko <andrej@rep.kiev.ua>\n"
 "Language-Team: UKRAINIAN <translate@linux.org.ua>\n"
 "Language: uk\n"
@@ -18,7 +18,7 @@ msgstr ""
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-POOTLE-MTIME: 1416098812.000000\n"
+"X-POOTLE-MTIME: 1416236624.000000\n"
 
 #: ../src/configurator.c:135
 msgid ""
@@ -158,7 +158,7 @@ msgid "No file manager is configured."
 msgstr "Менеджер файлів не обрано."
 
 #. { "configure", N_("Preferences"), configure },
-#: ../src/gtk-run.c:377 ../src/main.c:52 ../plugins/menu.c:750
+#: ../src/gtk-run.c:377 ../src/main.c:52 ../plugins/menu.c:741
 msgid "Run"
 msgstr "Виконати"
 
@@ -166,11 +166,11 @@ msgstr "Виконати"
 msgid "Enter the command you want to execute:"
 msgstr "Введіть команду, яку Ви бажаєте запустити:"
 
-#: ../src/main.c:53 ../plugins/menu.c:751
+#: ../src/main.c:53 ../plugins/menu.c:742
 msgid "Restart"
 msgstr "Перезавантажити"
 
-#: ../src/main.c:54 ../plugins/menu.c:752
+#: ../src/main.c:54 ../plugins/menu.c:743
 msgid "Logout"
 msgstr "Вихід"
 
@@ -228,24 +228,32 @@ msgstr ""
 "Відвідайте http://lxde.org/ для деталей.\n"
 "\n"
 
-#: ../src/input-button.c:127
+#: ../src/input-button.c:129
 #, c-format
 msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
 msgstr "Клавіші '%s' неможливо використовувати в якості глобального скорочення."
 
-#: ../src/input-button.c:130 ../plugins/netstatus/netstatus-iface.c:191
+#: ../src/input-button.c:132 ../src/input-button.c:308
+#: ../plugins/netstatus/netstatus-iface.c:191
 #: ../plugins/netstatus/netstatus-util.c:167
 msgid "Error"
 msgstr "Помилка"
 
 #. GtkRadioButton "None"
-#: ../src/input-button.c:223 ../data/ui/panel-pref.glade.h:5
+#: ../src/input-button.c:225 ../data/ui/panel-pref.glade.h:5
 msgid "None"
 msgstr "Немає"
 
-#: ../src/input-button.c:230
+#: ../src/input-button.c:232
 msgid "Custom:"
 msgstr "Призначити:"
+
+#: ../src/input-button.c:306
+#, c-format
+msgid "Cannot assign '%s' as a global hotkey: it is already bound."
+msgstr ""
+"Неможливо призначити глобальне скорочення '%s': ці клавіші вже "
+"використовуються."
 
 #: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3494
 msgid "Application Launch and Task Bar"
@@ -369,8 +377,8 @@ msgstr "Адреса:"
 msgid "Destination:"
 msgstr "Призначення:"
 
-#: ../data/ui/netstatus.glade.h:14 ../plugins/netstat/netstat.c:362
-#: ../plugins/netstat/netstat.c:373
+#: ../data/ui/netstatus.glade.h:14 ../plugins/netstat/netstat.c:364
+#: ../plugins/netstat/netstat.c:375
 msgid "Broadcast:"
 msgstr "Адреса трансляції:"
 
@@ -711,23 +719,23 @@ msgstr "Центрувати  текст"
 msgid "Display digital clock and tooltip"
 msgstr "Показувати цифровий годинник і підказки"
 
-#: ../plugins/menu.c:384
+#: ../plugins/menu.c:382
 msgid "Add to desktop"
 msgstr "Додати до робочого столу"
 
-#: ../plugins/menu.c:391
+#: ../plugins/menu.c:389
 msgid "Properties"
 msgstr "Властивості"
 
-#: ../plugins/menu.c:1020 ../plugins/menu.c:1033
+#: ../plugins/menu.c:1013 ../plugins/menu.c:1027
 msgid "Menu"
 msgstr "Меню"
 
-#: ../plugins/menu.c:1021 ../plugins/dirmenu.c:357
+#: ../plugins/menu.c:1014 ../plugins/dirmenu.c:357
 msgid "Icon"
 msgstr "Іконка"
 
-#: ../plugins/menu.c:1034
+#: ../plugins/menu.c:1028
 msgid "Application Menu"
 msgstr "Панель програм"
 
@@ -904,43 +912,43 @@ msgstr "Мітка"
 msgid "Browse directory tree via menu (Author = PCMan)"
 msgstr "Переглянути дерево тек через меню (Автор: PCMan)"
 
-#: ../plugins/thermal/thermal.c:557 ../plugins/thermal/thermal.c:575
+#: ../plugins/thermal/thermal.c:559 ../plugins/thermal/thermal.c:577
 msgid "Temperature Monitor"
 msgstr "Монітор температури"
 
-#: ../plugins/thermal/thermal.c:559
+#: ../plugins/thermal/thermal.c:561
 msgid "Normal color"
 msgstr "Нормальний колір"
 
-#: ../plugins/thermal/thermal.c:560
+#: ../plugins/thermal/thermal.c:562
 msgid "Warning1 color"
 msgstr "Колір попередження 1"
 
-#: ../plugins/thermal/thermal.c:561
+#: ../plugins/thermal/thermal.c:563
 msgid "Warning2 color"
 msgstr "Колір попередження 2"
 
-#: ../plugins/thermal/thermal.c:562
+#: ../plugins/thermal/thermal.c:564
 msgid "Automatic sensor location"
 msgstr "Автоматичний пошук сенсорів"
 
-#: ../plugins/thermal/thermal.c:563
+#: ../plugins/thermal/thermal.c:565
 msgid "Sensor"
 msgstr "Сенсор"
 
-#: ../plugins/thermal/thermal.c:564
+#: ../plugins/thermal/thermal.c:566
 msgid "Automatic temperature levels"
 msgstr "Автоматичні рівні температури"
 
-#: ../plugins/thermal/thermal.c:565
+#: ../plugins/thermal/thermal.c:567
 msgid "Warning1 temperature"
 msgstr "Температура попередження 1"
 
-#: ../plugins/thermal/thermal.c:566
+#: ../plugins/thermal/thermal.c:568
 msgid "Warning2 temperature"
 msgstr "Температура попередження 2"
 
-#: ../plugins/thermal/thermal.c:576
+#: ../plugins/thermal/thermal.c:578
 msgid "Display system temperature"
 msgstr "Показати системну температуру"
 
@@ -1003,83 +1011,83 @@ msgid "Wireless Networks not found in range"
 msgstr "Не знайдено безпровідних мереж"
 
 #. Repair
-#: ../plugins/netstat/netstat.c:246
+#: ../plugins/netstat/netstat.c:248
 msgid "Repair"
 msgstr "Спробувати ще"
 
 #. interface down
-#: ../plugins/netstat/netstat.c:251
+#: ../plugins/netstat/netstat.c:253
 msgid "Disable"
 msgstr "Виключити"
 
-#: ../plugins/netstat/netstat.c:342
+#: ../plugins/netstat/netstat.c:344
 msgid "Wireless Connection has no connectivity"
 msgstr "Безпровідна мережа недоступна"
 
-#: ../plugins/netstat/netstat.c:344
+#: ../plugins/netstat/netstat.c:346
 msgid "Network cable is plugged out"
 msgstr "Мережний кабель від’єднано"
 
-#: ../plugins/netstat/netstat.c:346
+#: ../plugins/netstat/netstat.c:348
 msgid "Connection has limited or no connectivity"
 msgstr "Зв’язок обмежений або ж немає з’єднання"
 
-#: ../plugins/netstat/netstat.c:350 ../plugins/netstat/netstat.c:361
-#: ../plugins/netstat/netstat.c:372
+#: ../plugins/netstat/netstat.c:352 ../plugins/netstat/netstat.c:363
+#: ../plugins/netstat/netstat.c:374
 msgid "IP Address:"
 msgstr "IP адреса:"
 
-#: ../plugins/netstat/netstat.c:351
+#: ../plugins/netstat/netstat.c:353
 msgid "Remote IP:"
 msgstr "Віддалене IP:"
 
-#: ../plugins/netstat/netstat.c:352 ../plugins/netstat/netstat.c:363
-#: ../plugins/netstat/netstat.c:374
+#: ../plugins/netstat/netstat.c:354 ../plugins/netstat/netstat.c:365
+#: ../plugins/netstat/netstat.c:376
 msgid "Netmask:"
 msgstr "Маска мережі:"
 
-#: ../plugins/netstat/netstat.c:353 ../plugins/netstat/netstat.c:365
-#: ../plugins/netstat/netstat.c:376
+#: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
+#: ../plugins/netstat/netstat.c:378
 msgid "Activity"
 msgstr "Активність"
 
-#: ../plugins/netstat/netstat.c:353 ../plugins/netstat/netstat.c:365
-#: ../plugins/netstat/netstat.c:376
+#: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
+#: ../plugins/netstat/netstat.c:378
 msgid "Sent"
 msgstr "Вислано"
 
-#: ../plugins/netstat/netstat.c:353 ../plugins/netstat/netstat.c:365
-#: ../plugins/netstat/netstat.c:376
+#: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
+#: ../plugins/netstat/netstat.c:378
 msgid "Received"
 msgstr "Отримано"
 
-#: ../plugins/netstat/netstat.c:354 ../plugins/netstat/netstat.c:366
-#: ../plugins/netstat/netstat.c:377
+#: ../plugins/netstat/netstat.c:356 ../plugins/netstat/netstat.c:368
+#: ../plugins/netstat/netstat.c:379
 msgid "bytes"
 msgstr "байт"
 
-#: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
-#: ../plugins/netstat/netstat.c:378
+#: ../plugins/netstat/netstat.c:357 ../plugins/netstat/netstat.c:369
+#: ../plugins/netstat/netstat.c:380
 msgid "packets"
 msgstr "пакетів"
 
-#: ../plugins/netstat/netstat.c:358 ../plugins/netstatus/netstatus-iface.c:173
+#: ../plugins/netstat/netstat.c:360 ../plugins/netstatus/netstatus-iface.c:173
 msgid "Wireless"
 msgstr "Безпровідна сітка"
 
-#: ../plugins/netstat/netstat.c:360
+#: ../plugins/netstat/netstat.c:362
 msgid "Protocol:"
 msgstr "Протокол:"
 
-#: ../plugins/netstat/netstat.c:364 ../plugins/netstat/netstat.c:375
+#: ../plugins/netstat/netstat.c:366 ../plugins/netstat/netstat.c:377
 msgid "HW Address:"
 msgstr "Адреса \"заліза\":"
 
-#: ../plugins/netstat/netstat.c:495
+#: ../plugins/netstat/netstat.c:497
 msgid "Manage Networks"
 msgstr "Налаштування мереж"
 
-#: ../plugins/netstat/netstat.c:496
+#: ../plugins/netstat/netstat.c:498
 msgid "Monitor and Manage networks"
 msgstr "Моніторинг і налаштування мереж"
 
