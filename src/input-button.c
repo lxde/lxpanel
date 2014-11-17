@@ -168,7 +168,7 @@ static gboolean on_button_press_event(GtkButton *test, GdkEventButton *event,
     if (event->button == 3 && state == 0)
         return FALSE;
     /* FIXME: how else to represent buttons? */
-    snprintf(digit, sizeof(digit), "%d", event->button);
+    snprintf(digit, sizeof(digit), "%u", event->button);
     keyval = gdk_keyval_from_name(digit);
     /* if click is equal to previous then nothing to do */
     if (state == btn->mods && keyval == btn->key)
@@ -317,6 +317,20 @@ gboolean lxpanel_apply_hotkey(char **hkptr, const char *keystring,
     g_free(*hkptr);
     *hkptr = g_strdup(keystring);
     return TRUE;
+}
+
+guint panel_config_click_parse(const char *keystring, GdkModifierType *mods)
+{
+    guint key;
+    const char *name;
+
+    if (keystring == NULL)
+        return 0;
+    gtk_accelerator_parse(keystring, &key, mods);
+    name = gdk_keyval_name(key);
+    if (name[0] >= '1' && name[0] <= '9')
+        return (name[0] - '0');
+    return 0;
 }
 #if 0
 // test code, can be used as an example until erased. :)

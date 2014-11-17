@@ -25,7 +25,8 @@
 * Added API lxpanel_apply_hotkey() as a convenient libkeybinder interface
     to use in modules that also use panel_config_hotkey_button_new(). Now
     LXPanel requires libkeybinder too.
-* Added API panel_config_click_button_new() to configure mouse gestures.
+* Added API panel_config_click_button_new() to configure mouse gestures
+    and panel_config_click_parse() to parse its output.
 * Added "icon-size-changed" signal to LXPanel which is emitted when icons
     size in configuration dialog was changed.
 * Improved lxpanel_image_new_for_icon() API to follow panel icons size

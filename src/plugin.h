@@ -314,6 +314,21 @@ gboolean lxpanel_apply_hotkey(char **hkptr, const char *keystring,
                               void (*handler)(const char *keystring, gpointer user_data),
                               gpointer user_data, gboolean show_error);
 
+/**
+ * panel_config_click_parse
+ * @keystring: string to parse
+ * @mods: (out): return location for modifier
+ *
+ * Parses click string received in "changed" signal emission of widget
+ * created with panel_config_click_button_new() and returns button and
+ * modifier that can be compared with GdkEventButton data when required.
+ *
+ * Returns: button number or 0 if @keystring is invalid.
+ *
+ * Since: 0.8.0
+ */
+guint panel_config_click_parse(const char *keystring, GdkModifierType *mods);
+
 G_END_DECLS
 
 #endif /* __PLUGIN_H__ */
