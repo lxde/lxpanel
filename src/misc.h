@@ -167,7 +167,8 @@ GtkWidget *lxpanel_button_new_for_fm_icon(LXPanel *panel, FmIcon *icon, GdkColor
  *
  * Updates icon in the button created with lxpanel_button_new_for_icon()
  * or lxpanel_button_new_for_fm_icon() before. If @size > 0 then stop
- * follow panel icon size and use this fixed size, otherwise not change.
+ * following panel icon size and use this fixed size, if @size is 0 then
+ * do no changes on icons size.
  */
 void lxpanel_button_set_icon(GtkWidget* btn, const gchar *name, gint size);
 void lxpanel_button_update_icon(GtkWidget* btn, FmIcon *icon, gint size);

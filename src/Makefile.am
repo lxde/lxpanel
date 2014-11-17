@@ -20,7 +20,7 @@ endif
 
 pkglib_LTLIBRARIES = liblxpanel.la
 
-liblxpanel_la_CFLAGS = $(lxpanel_CFLAGS)
+liblxpanel_la_CFLAGS = $(lxpanel_CFLAGS) $(KEYBINDER_CFLAGS)
 liblxpanel_la_SOURCES = \
 	misc.c \
 	bg.c \
@@ -39,6 +39,7 @@ liblxpanel_la_LDFLAGS = \
 
 liblxpanel_la_LIBADD = \
 	$(PACKAGE_LIBS) \
+	$(KEYBINDER_LIBS) \
 	$(X11_LIBS)
 
 lxpanel_includedir = $(includedir)/lxpanel

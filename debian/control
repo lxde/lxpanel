@@ -11,7 +11,7 @@ Build-Depends:
  libgtk2.0-dev (>= 2.18), libiw-dev [linux-any],
  libmenu-cache-dev | libmenu-cache1-dev,
  libwnck-dev, libfm-gtk-dev (>= 1.2.0) | libfm-dev (>= 1.2.0),
- libxml2-dev
+ libxml2-dev, libkeybinder-dev
 Standards-Version: 3.9.5
 Homepage: http://www.lxde.org/
 Vcs-Browser: http://git.lxde.org/gitweb/?p=debian/lxpanel.git

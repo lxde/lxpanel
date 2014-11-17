@@ -48,6 +48,10 @@ PKG_CHECK_MODULES(PACKAGE, [$pkg_modules])
 AC_SUBST(PACKAGE_CFLAGS)
 AC_SUBST(PACKAGE_LIBS)
 
+PKG_CHECK_MODULES(KEYBINDER, [keybinder])
+AC_SUBST(KEYBINDER_CFLAGS)
+AC_SUBST(KEYBINDER_LIBS)
+
 ###########################
 # Indicator Info
 ###########################

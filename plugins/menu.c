@@ -1002,6 +1002,7 @@ static gboolean apply_config(gpointer user_data)
         lxpanel_button_set_icon(m->img, m->fname, -1);
     }
     config_group_set_string(m->settings, "image", m->fname);
+    /* config_group_set_int(m->settings, "panelSize", m->match_panel); */
     config_group_set_string(m->settings, "name", m->caption);
     return FALSE;
 }
@@ -1011,6 +1012,7 @@ static GtkWidget *menu_config(LXPanel *panel, GtkWidget *p)
     menup* menu = lxpanel_plugin_get_data(p);
     return lxpanel_generic_config_dlg(_("Menu"), panel, apply_config, p,
                                       _("Icon"), &menu->fname, CONF_TYPE_FILE_ENTRY,
+                                      /* _("Use panel size as icon size"), &menu->match_panel, CONF_TYPE_INT, */
                                       /* _("Caption"), &menu->caption, CONF_TYPE_STR, */
                                       NULL);
 }

@@ -291,6 +291,29 @@ extern GtkWidget *lxpanel_generic_config_dlg(const char *title, LXPanel *panel,
 GtkWidget *panel_config_hotkey_button_new(const char *label, const char *hotkey);
 GtkWidget *panel_config_click_button_new(const char *label, const char *click);
 
+/**
+ * lxpanel_apply_hotkey
+ * @hkptr: (in out) (transfer full): pointer to hotkey string
+ * @keystring: (allow-none): new hotkey
+ * @handler: callback to assign to hotkey
+ * @user_data: data to provide for @handler
+ * @show_error: %TRUE to show error window if assignment failed
+ *
+ * Function designed to use in callback on "changed" signal from widget
+ * created by panel_config_hotkey_button_new(). Should be also used on
+ * initial binding and on unbinding when module unloaded (in latter case
+ * @keystring should be %NULL). In case of success returns %TRUE, unbinds
+ * previous hotkey from @hkptr, and updates @hkptr. The @hkptr contains
+ * allocated string.
+ *
+ * Returns: %TRUE on success.
+ *
+ * Since: 0.8.0
+ */
+gboolean lxpanel_apply_hotkey(char **hkptr, const char *keystring,
+                              void (*handler)(const char *keystring, gpointer user_data),
+                              gpointer user_data, gboolean show_error);
+
 G_END_DECLS
 
 #endif /* __PLUGIN_H__ */

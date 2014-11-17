@@ -22,6 +22,9 @@
     _gtk_image_new_from_file_scaled().
 * Added API panel_config_hotkey_button_new() to use as CONF_TYPE_EXTERNAL
     widget to allow configure global hotkeys for plugins functions.
+* Added API lxpanel_apply_hotkey() as a convenient libkeybinder interface
+    to use in modules that also use panel_config_hotkey_button_new(). Now
+    LXPanel requires libkeybinder too.
 * Added API panel_config_click_button_new() to configure mouse gestures.
 * Added "icon-size-changed" signal to LXPanel which is emitted when icons
     size in configuration dialog was changed.
@@ -35,6 +38,12 @@
     require setting icon size since created button already follows size
     from panel settings. Also it doesn't require refresh after the panel
     configuration change.
+* Disabled scaling up small icons in the taskbar: scaled up icons look
+    bad due to pixelization (patch from Anton Lobashev).
+* Set relief for taskbar button in flat button mode on mouseover (patch
+    from SHiNE CsyFeK).
+* When adding new panel, now correctly edges of monitor where popup was
+    are tried before any other monitors.
 * Correctly open 'netstat' plugin own menu on leftclick since rightclick
     should open panel context menu instead.
 * System critical temperature level in 'thermal' plugin now is properly

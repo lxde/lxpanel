@@ -27,6 +27,8 @@
 #include "plugin.h"
 #include "gtk-compat.h"
 
+#include <keybinder.h>
+
 #define PANEL_TYPE_CFG_INPUT_BUTTON     (config_input_button_get_type())
 
 typedef struct _PanelCfgInputButton      PanelCfgInputButton;
@@ -286,9 +288,38 @@ GtkWidget *panel_config_click_button_new(const char *label, const char *click)
     }
     return GTK_WIDGET(btn);
 }
+
+gboolean lxpanel_apply_hotkey(char **hkptr, const char *keystring,
+                              void (*handler)(const char *keystring, gpointer user_data),
+                              gpointer user_data, gboolean show_error)
+{
+    g_return_val_if_fail(hkptr != NULL, FALSE);
+    g_return_val_if_fail(handler != NULL, FALSE);
+
+    if (keystring != NULL && !keybinder_bind(keystring, handler, user_data))
+    {
+        if (show_error)
+        {
+            GtkWidget* dlg;
+
+            dlg = gtk_message_dialog_new(NULL, 0, GTK_MESSAGE_ERROR, GTK_BUTTONS_OK,
+                                         _("Cannot assign '%s' as a global hotkey:"
+                                           " it is already bound."), keystring);
+            gtk_window_set_title(GTK_WINDOW(dlg), _("Error"));
+            gtk_window_set_keep_above(GTK_WINDOW(dlg), TRUE);
+            gtk_dialog_run(GTK_DIALOG(dlg));
+            gtk_widget_destroy(dlg);
+        }
+        return FALSE;
+    }
+    if (*hkptr != NULL)
+        keybinder_unbind(*hkptr, handler);
+    g_free(*hkptr);
+    *hkptr = g_strdup(keystring);
+    return TRUE;
+}
 #if 0
 // test code, can be used as an example until erased. :)
-#include <keybinder.h>
 static void handler(const char *keystring, void *user_data)
 {
 }
@@ -301,13 +332,7 @@ static void cb(PanelCfgInputButton *btn, char *text, gpointer unused)
 
     if (!btn->do_key)
         return;
-    if (text == NULL || keybinder_bind(text, handler, NULL))
-    {
-        if (hotkey)
-            keybinder_unbind(hotkey, handler);
-        g_free(hotkey);
-        hotkey = g_strdup(text);
-    }
+    lxpanel_apply_hotkey(&hotkey, text, &handler, NULL, TRUE);
 }
 
 int main(int argc, char **argv)
@@ -317,7 +342,7 @@ int main(int argc, char **argv)
 
     gtk_init(&argc, &argv);
     dialog = gtk_dialog_new();
-    hotkey = g_strdup("<Super>z");
+    lxpanel_apply_hotkey(&hotkey, "<Super>z", &handler, NULL, FALSE);
     btn = panel_config_hotkey_button_new("test", hotkey);
 //    btn = panel_config_click_button_new("test", NULL);
     gtk_widget_show(btn);

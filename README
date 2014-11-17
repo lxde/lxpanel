@@ -2,7 +2,7 @@ LXPanel is a lightweight X11 desktop panel.
 
 To build this program you need some development packages:
   libtool 2.2 or newer, intltool, libgtk 2.18 or newer,
-  libfm-gtk 1.2 or newer, libwnck.
+  libfm-gtk 1.2 or newer, libwnck, libkeybinder.
 Optional development packages may be required to build some modules:
   libmenu-cache,
   libalsasound ('volumealsa' plugin isn't built if missing),
@@ -40,7 +40,9 @@ About Netstat and Netstatus plugins:
 
 About theming & lxpanel:
 
-1. In future, hardcoding should not be used for icon lookup. Instead, use Gtk's built-in functions to handle icon lookup. If necessary, provide a fallback (hardcoded) icon.
+1. LXPanel tries to use as much themed icons as possible.  Fallback icons
+   may be also provided if they are placed into $(datadir)/lxpanel/images
+   directory.  Few plugins already provide their fallback icons.
 
 2. Current icon names that can be themed specifically for lxpanel include:
 	*"lxpanel-background"
@@ -51,9 +53,12 @@ About theming & lxpanel:
 	*"numlock-off"
 	*"scrllock-on"
 	*"scrllock-off"
-	*"wincmd"
+	*"window-manager"
 	*"ns-lock"
+	*"cpufreq-icon"
 	*possibly more, as yet unfound.
+
+There are also a substantial amount of others, but they use the icon naming specification.
 
 3. You can also set theme for any plugin specifically using it's widget name
     which is equal to plugin type.
@@ -61,8 +66,6 @@ About theming & lxpanel:
 4. There is a specific RC file which can be loaded by LXPanel, it can be placed
     as ~/.config/lxpanel/$PROFILE/gtkrc, where $PROFILE is the profile used on
     the LXPanel start.
-
-There are also a substantial amount of others, but they use the icon naming specification.
 
 
 About keyboard options translations in xkb plugin:
