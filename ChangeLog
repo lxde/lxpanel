@@ -52,6 +52,8 @@
 * Fixed click on 'menu' plugin, only image was clickable, not whole area.
 * Added API panel_config_int_button_new() for generic plugin config spin
     button with custom range, not just generic 0...1000.
+* Fixed wrong behavior with PanelIconGrid constrained width after child
+    was removed: size wasn't always renegotiated correctly.
 
 0.7.2
 -------------------------------------------------------------------------

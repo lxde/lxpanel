@@ -47,7 +47,6 @@ struct _PanelIconGrid
     gboolean fill_width : 1;			/* True if children should fill unused width */
     int rows;					/* Computed layout rows */
     int columns;				/* Computed layout columns */
-    int constrained_child_width;		/* Child width constrained by allocation */
     GdkWindow *event_window;			/* Event window if NO_WINDOW is set */
 };
 
@@ -67,6 +66,7 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
     GtkAllocation child_allocation;
     int child_width;
     int child_height;
+    int constrained_child_width;
     GtkTextDirection direction;
     guint border;
     int x_delta;
@@ -115,20 +115,20 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
     child_height = ig->child_height;
 
     /* Calculate required size without borders */
-    ig->constrained_child_width = 1;
+    constrained_child_width = 1;
     panel_icon_grid_size_request(widget, &req);
     req.width -= 2 * border;
     req.height -= 2 * border;
 
     /* Get the constrained child geometry if the allocated geometry is insufficient.
      * All children are still the same size and share equally in the deficit. */
-    ig->constrained_child_width = ig->child_width;
+    constrained_child_width = ig->child_width;
     if (ig->aspect_width && !ig->constrain_width)
-        ig->constrained_child_width = allocation->width;
+        constrained_child_width = allocation->width;
     if ((ig->columns != 0) && (ig->rows != 0) && (allocation->width > 1))
     {
         if (req.width > allocation->width && ig->constrain_width)
-            ig->constrained_child_width = child_width = (allocation->width + ig->spacing - 2 * border) / ig->columns - ig->spacing;
+            constrained_child_width = child_width = (allocation->width + ig->spacing - 2 * border) / ig->columns - ig->spacing;
         if (ig->orientation == GTK_ORIENTATION_HORIZONTAL && req.height < allocation->height)
             child_height = (allocation->height + ig->spacing - 2 * border) / ig->rows - ig->spacing;
     }
@@ -147,8 +147,8 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
         if (gtk_widget_get_visible(child))
         {
             /* Do necessary operations on the child. */
-            gtk_widget_get_requisition(child, &req);
-            child_allocation.width = MIN(req.width, ig->constrained_child_width);
+            gtk_widget_get_child_requisition(child, &req);
+            child_allocation.width = MIN(req.width, constrained_child_width);
             child_allocation.height = MIN(req.height, child_height);
 
             /* Check this grid position */
@@ -309,8 +309,6 @@ static void icon_grid_element_size_request(GtkWidget * widget, GtkRequisition * 
     else
     {
         requisition->width = ig->child_width;
-        if ((ig->constrain_width) && (ig->constrained_child_width > 1))
-            requisition->width = ig->constrained_child_width;
     }
     requisition->height = ig->child_height;
 }
@@ -458,7 +456,6 @@ void panel_icon_grid_set_geometry(PanelIconGrid * ig,
 
     ig->orientation = orientation;
     ig->child_width = child_width;
-    ig->constrained_child_width = child_width;
     ig->child_height = child_height;
     ig->spacing = spacing;
     ig->target_dimension = target_dimension;
@@ -742,7 +739,6 @@ GtkWidget * panel_icon_grid_new(
                                       "spacing", spacing, NULL);
 
     ig->child_width = child_width;
-    ig->constrained_child_width = child_width;
     ig->child_height = child_height;
     ig->target_dimension = target_dimension;
     gtk_container_set_border_width(GTK_CONTAINER(ig), border);
