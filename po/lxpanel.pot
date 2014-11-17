@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-16 02:35+0200\n"
+"POT-Creation-Date: 2014-11-17 16:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -150,7 +150,7 @@ msgid "No file manager is configured."
 msgstr ""
 
 #. { "configure", N_("Preferences"), configure },
-#: ../src/gtk-run.c:377 ../src/main.c:52 ../plugins/menu.c:750
+#: ../src/gtk-run.c:377 ../src/main.c:52 ../plugins/menu.c:741
 msgid "Run"
 msgstr ""
 
@@ -158,11 +158,11 @@ msgstr ""
 msgid "Enter the command you want to execute:"
 msgstr ""
 
-#: ../src/main.c:53 ../plugins/menu.c:751
+#: ../src/main.c:53 ../plugins/menu.c:742
 msgid "Restart"
 msgstr ""
 
-#: ../src/main.c:54 ../plugins/menu.c:752
+#: ../src/main.c:54 ../plugins/menu.c:743
 msgid "Logout"
 msgstr ""
 
@@ -217,23 +217,29 @@ msgid ""
 "\n"
 msgstr ""
 
-#: ../src/input-button.c:127
+#: ../src/input-button.c:129
 #, c-format
 msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
 msgstr ""
 
-#: ../src/input-button.c:130 ../plugins/netstatus/netstatus-iface.c:191
+#: ../src/input-button.c:132 ../src/input-button.c:308
+#: ../plugins/netstatus/netstatus-iface.c:191
 #: ../plugins/netstatus/netstatus-util.c:167
 msgid "Error"
 msgstr ""
 
 #. GtkRadioButton "None"
-#: ../src/input-button.c:223 ../data/ui/panel-pref.glade.h:5
+#: ../src/input-button.c:225 ../data/ui/panel-pref.glade.h:5
 msgid "None"
 msgstr ""
 
-#: ../src/input-button.c:230
+#: ../src/input-button.c:232
 msgid "Custom:"
+msgstr ""
+
+#: ../src/input-button.c:306
+#, c-format
+msgid "Cannot assign '%s' as a global hotkey: it is already bound."
 msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3494
@@ -358,8 +364,8 @@ msgstr ""
 msgid "Destination:"
 msgstr ""
 
-#: ../data/ui/netstatus.glade.h:14 ../plugins/netstat/netstat.c:362
-#: ../plugins/netstat/netstat.c:373
+#: ../data/ui/netstatus.glade.h:14 ../plugins/netstat/netstat.c:364
+#: ../plugins/netstat/netstat.c:375
 msgid "Broadcast:"
 msgstr ""
 
@@ -698,23 +704,23 @@ msgstr ""
 msgid "Display digital clock and tooltip"
 msgstr ""
 
-#: ../plugins/menu.c:384
+#: ../plugins/menu.c:382
 msgid "Add to desktop"
 msgstr ""
 
-#: ../plugins/menu.c:391
+#: ../plugins/menu.c:389
 msgid "Properties"
 msgstr ""
 
-#: ../plugins/menu.c:1020 ../plugins/menu.c:1033
+#: ../plugins/menu.c:1013 ../plugins/menu.c:1027
 msgid "Menu"
 msgstr ""
 
-#: ../plugins/menu.c:1021 ../plugins/dirmenu.c:357
+#: ../plugins/menu.c:1014 ../plugins/dirmenu.c:357
 msgid "Icon"
 msgstr ""
 
-#: ../plugins/menu.c:1034
+#: ../plugins/menu.c:1028
 msgid "Application Menu"
 msgstr ""
 
@@ -888,43 +894,43 @@ msgstr ""
 msgid "Browse directory tree via menu (Author = PCMan)"
 msgstr ""
 
-#: ../plugins/thermal/thermal.c:557 ../plugins/thermal/thermal.c:575
+#: ../plugins/thermal/thermal.c:559 ../plugins/thermal/thermal.c:577
 msgid "Temperature Monitor"
 msgstr ""
 
-#: ../plugins/thermal/thermal.c:559
+#: ../plugins/thermal/thermal.c:561
 msgid "Normal color"
 msgstr ""
 
-#: ../plugins/thermal/thermal.c:560
+#: ../plugins/thermal/thermal.c:562
 msgid "Warning1 color"
 msgstr ""
 
-#: ../plugins/thermal/thermal.c:561
+#: ../plugins/thermal/thermal.c:563
 msgid "Warning2 color"
 msgstr ""
 
-#: ../plugins/thermal/thermal.c:562
+#: ../plugins/thermal/thermal.c:564
 msgid "Automatic sensor location"
 msgstr ""
 
-#: ../plugins/thermal/thermal.c:563
+#: ../plugins/thermal/thermal.c:565
 msgid "Sensor"
 msgstr ""
 
-#: ../plugins/thermal/thermal.c:564
+#: ../plugins/thermal/thermal.c:566
 msgid "Automatic temperature levels"
 msgstr ""
 
-#: ../plugins/thermal/thermal.c:565
+#: ../plugins/thermal/thermal.c:567
 msgid "Warning1 temperature"
 msgstr ""
 
-#: ../plugins/thermal/thermal.c:566
+#: ../plugins/thermal/thermal.c:568
 msgid "Warning2 temperature"
 msgstr ""
 
-#: ../plugins/thermal/thermal.c:576
+#: ../plugins/thermal/thermal.c:578
 msgid "Display system temperature"
 msgstr ""
 
@@ -983,83 +989,83 @@ msgid "Wireless Networks not found in range"
 msgstr ""
 
 #. Repair
-#: ../plugins/netstat/netstat.c:246
+#: ../plugins/netstat/netstat.c:248
 msgid "Repair"
 msgstr ""
 
 #. interface down
-#: ../plugins/netstat/netstat.c:251
+#: ../plugins/netstat/netstat.c:253
 msgid "Disable"
 msgstr ""
 
-#: ../plugins/netstat/netstat.c:342
+#: ../plugins/netstat/netstat.c:344
 msgid "Wireless Connection has no connectivity"
 msgstr ""
 
-#: ../plugins/netstat/netstat.c:344
+#: ../plugins/netstat/netstat.c:346
 msgid "Network cable is plugged out"
 msgstr ""
 
-#: ../plugins/netstat/netstat.c:346
+#: ../plugins/netstat/netstat.c:348
 msgid "Connection has limited or no connectivity"
-msgstr ""
-
-#: ../plugins/netstat/netstat.c:350 ../plugins/netstat/netstat.c:361
-#: ../plugins/netstat/netstat.c:372
-msgid "IP Address:"
-msgstr ""
-
-#: ../plugins/netstat/netstat.c:351
-msgid "Remote IP:"
 msgstr ""
 
 #: ../plugins/netstat/netstat.c:352 ../plugins/netstat/netstat.c:363
 #: ../plugins/netstat/netstat.c:374
+msgid "IP Address:"
+msgstr ""
+
+#: ../plugins/netstat/netstat.c:353
+msgid "Remote IP:"
+msgstr ""
+
+#: ../plugins/netstat/netstat.c:354 ../plugins/netstat/netstat.c:365
+#: ../plugins/netstat/netstat.c:376
 msgid "Netmask:"
-msgstr ""
-
-#: ../plugins/netstat/netstat.c:353 ../plugins/netstat/netstat.c:365
-#: ../plugins/netstat/netstat.c:376
-msgid "Activity"
-msgstr ""
-
-#: ../plugins/netstat/netstat.c:353 ../plugins/netstat/netstat.c:365
-#: ../plugins/netstat/netstat.c:376
-msgid "Sent"
-msgstr ""
-
-#: ../plugins/netstat/netstat.c:353 ../plugins/netstat/netstat.c:365
-#: ../plugins/netstat/netstat.c:376
-msgid "Received"
-msgstr ""
-
-#: ../plugins/netstat/netstat.c:354 ../plugins/netstat/netstat.c:366
-#: ../plugins/netstat/netstat.c:377
-msgid "bytes"
 msgstr ""
 
 #: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
 #: ../plugins/netstat/netstat.c:378
+msgid "Activity"
+msgstr ""
+
+#: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
+#: ../plugins/netstat/netstat.c:378
+msgid "Sent"
+msgstr ""
+
+#: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
+#: ../plugins/netstat/netstat.c:378
+msgid "Received"
+msgstr ""
+
+#: ../plugins/netstat/netstat.c:356 ../plugins/netstat/netstat.c:368
+#: ../plugins/netstat/netstat.c:379
+msgid "bytes"
+msgstr ""
+
+#: ../plugins/netstat/netstat.c:357 ../plugins/netstat/netstat.c:369
+#: ../plugins/netstat/netstat.c:380
 msgid "packets"
 msgstr ""
 
-#: ../plugins/netstat/netstat.c:358 ../plugins/netstatus/netstatus-iface.c:173
+#: ../plugins/netstat/netstat.c:360 ../plugins/netstatus/netstatus-iface.c:173
 msgid "Wireless"
 msgstr ""
 
-#: ../plugins/netstat/netstat.c:360
+#: ../plugins/netstat/netstat.c:362
 msgid "Protocol:"
 msgstr ""
 
-#: ../plugins/netstat/netstat.c:364 ../plugins/netstat/netstat.c:375
+#: ../plugins/netstat/netstat.c:366 ../plugins/netstat/netstat.c:377
 msgid "HW Address:"
 msgstr ""
 
-#: ../plugins/netstat/netstat.c:495
+#: ../plugins/netstat/netstat.c:497
 msgid "Manage Networks"
 msgstr ""
 
-#: ../plugins/netstat/netstat.c:496
+#: ../plugins/netstat/netstat.c:498
 msgid "Monitor and Manage networks"
 msgstr ""
 
