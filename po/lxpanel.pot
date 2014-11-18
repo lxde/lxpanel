@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-17 16:55+0200\n"
+"POT-Creation-Date: 2014-11-19 01:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,100 +48,100 @@ msgstr ""
 msgid "Select a directory"
 msgstr ""
 
-#: ../src/configurator.c:1407 ../src/configurator.c:1524
+#: ../src/configurator.c:1407 ../src/configurator.c:1522
 msgid "Select a file"
 msgstr ""
 
-#: ../src/configurator.c:1557
+#: ../src/configurator.c:1555
 msgid "_Browse"
 msgstr ""
 
-#: ../src/panel.c:955
+#: ../src/panel.c:981
 msgid "There is no room for another panel. All the edges are taken."
 msgstr ""
 
-#: ../src/panel.c:981
+#: ../src/panel.c:1007
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
 
-#: ../src/panel.c:983
+#: ../src/panel.c:1009
 msgid "Confirm"
 msgstr ""
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:1018
+#: ../src/panel.c:1044
 msgid "translator-credits"
 msgstr ""
 
-#: ../src/panel.c:1023
+#: ../src/panel.c:1049
 msgid "LXPanel"
 msgstr ""
 
-#: ../src/panel.c:1041
+#: ../src/panel.c:1067
 msgid "Copyright (C) 2008-2014"
 msgstr ""
 
-#: ../src/panel.c:1042
+#: ../src/panel.c:1068
 msgid "Desktop panel for LXDE project"
 msgstr ""
 
-#: ../src/panel.c:1084
+#: ../src/panel.c:1110
 #, c-format
 msgid "\"%s\" Settings"
 msgstr ""
 
-#: ../src/panel.c:1104
+#: ../src/panel.c:1130
 msgid "Add / Remove Panel Items"
 msgstr ""
 
-#: ../src/panel.c:1112
+#: ../src/panel.c:1138
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr ""
 
-#: ../src/panel.c:1124
+#: ../src/panel.c:1150
 msgid "Panel Settings"
 msgstr ""
 
-#: ../src/panel.c:1130
+#: ../src/panel.c:1156
 msgid "Create New Panel"
 msgstr ""
 
-#: ../src/panel.c:1136
+#: ../src/panel.c:1162
 msgid "Delete This Panel"
 msgstr ""
 
-#: ../src/panel.c:1147
+#: ../src/panel.c:1173
 msgid "About"
 msgstr ""
 
-#: ../src/panel.c:1154
+#: ../src/panel.c:1180
 msgid "Panel"
 msgstr ""
 
-#: ../src/panel.c:1374 ../src/panel.c:1382 ../data/ui/panel-pref.glade.h:22
+#: ../src/panel.c:1391 ../src/panel.c:1399 ../data/ui/panel-pref.glade.h:22
 msgid "Height:"
 msgstr ""
 
-#: ../src/panel.c:1375 ../src/panel.c:1381 ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:1392 ../src/panel.c:1398 ../data/ui/panel-pref.glade.h:21
 msgid "Width:"
 msgstr ""
 
-#: ../src/panel.c:1376 ../data/ui/panel-pref.glade.h:13
+#: ../src/panel.c:1393 ../data/ui/panel-pref.glade.h:13
 msgid "Left"
 msgstr ""
 
-#: ../src/panel.c:1377 ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:1394 ../data/ui/panel-pref.glade.h:14
 msgid "Right"
 msgstr ""
 
-#: ../src/panel.c:1383 ../data/ui/panel-pref.glade.h:12
+#: ../src/panel.c:1400 ../data/ui/panel-pref.glade.h:12
 msgid "Top"
 msgstr ""
 
-#: ../src/panel.c:1384 ../data/ui/panel-pref.glade.h:11
+#: ../src/panel.c:1401 ../data/ui/panel-pref.glade.h:11
 msgid "Bottom"
 msgstr ""
 
@@ -242,7 +242,7 @@ msgstr ""
 msgid "Cannot assign '%s' as a global hotkey: it is already bound."
 msgstr ""
 
-#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3494
+#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3519
 msgid "Application Launch and Task Bar"
 msgstr ""
 
@@ -292,26 +292,30 @@ msgid "Combine multiple application windows into a single button"
 msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:14
-msgid "Maximum width of task button"
+msgid "Disable enlargement for small task icons"
 msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:15
-msgid "Spacing"
+msgid "Maximum width of task button"
 msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:16
-msgid "<b>Taskbar</b>"
+msgid "Spacing"
 msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:17
-msgid "Only Application Launch Bar"
+msgid "<b>Taskbar</b>"
 msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:18
-msgid "Only Task Bar (Window List)"
+msgid "Only Application Launch Bar"
 msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:19
+msgid "Only Task Bar (Window List)"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:20
 msgid "Integrated Application Launch Bar and Task Bar"
 msgstr ""
 
@@ -587,87 +591,87 @@ msgstr ""
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr ""
 
-#: ../plugins/launchtaskbar.c:1422 ../plugins/launchtaskbar.c:3466
+#: ../plugins/launchtaskbar.c:1442 ../plugins/launchtaskbar.c:3491
 msgid "Application Launch Bar"
 msgstr ""
 
-#: ../plugins/launchtaskbar.c:1425 ../plugins/launchtaskbar.c:3475
+#: ../plugins/launchtaskbar.c:1445 ../plugins/launchtaskbar.c:3500
 msgid "Task Bar (Window List)"
 msgstr ""
 
-#: ../plugins/launchtaskbar.c:2452
+#: ../plugins/launchtaskbar.c:2477
 msgid "_Close all windows"
 msgstr ""
 
 #. Add Raise menu item.
-#: ../plugins/launchtaskbar.c:3321
+#: ../plugins/launchtaskbar.c:3346
 msgid "_Raise"
 msgstr ""
 
 #. Add Restore menu item.
-#: ../plugins/launchtaskbar.c:3326
+#: ../plugins/launchtaskbar.c:3351
 msgid "R_estore"
 msgstr ""
 
 #. Add Maximize menu item.
-#: ../plugins/launchtaskbar.c:3331
+#: ../plugins/launchtaskbar.c:3356
 msgid "Ma_ximize"
 msgstr ""
 
 #. Add Iconify menu item.
-#: ../plugins/launchtaskbar.c:3336
+#: ../plugins/launchtaskbar.c:3361
 msgid "Ico_nify"
 msgstr ""
 
-#: ../plugins/launchtaskbar.c:3357
+#: ../plugins/launchtaskbar.c:3382
 #, c-format
 msgid "Workspace _%d"
 msgstr ""
 
-#: ../plugins/launchtaskbar.c:3362
+#: ../plugins/launchtaskbar.c:3387
 #, c-format
 msgid "Workspace %d"
 msgstr ""
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../plugins/launchtaskbar.c:3378
+#: ../plugins/launchtaskbar.c:3403
 msgid "_All workspaces"
 msgstr ""
 
 #. FIXME: add "Current workspace" item, active if not on a current
 #. Add Move to Workspace menu item as a submenu.
-#: ../plugins/launchtaskbar.c:3386
+#: ../plugins/launchtaskbar.c:3411
 msgid "_Move to Workspace"
 msgstr ""
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../plugins/launchtaskbar.c:3392
+#: ../plugins/launchtaskbar.c:3417
 msgid "_Close Window"
 msgstr ""
 
-#: ../plugins/launchtaskbar.c:3394
+#: ../plugins/launchtaskbar.c:3419
 msgid "A_dd to Launcher"
 msgstr ""
 
-#: ../plugins/launchtaskbar.c:3395
+#: ../plugins/launchtaskbar.c:3420
 msgid "Rem_ove from Launcher"
 msgstr ""
 
-#: ../plugins/launchtaskbar.c:3396
+#: ../plugins/launchtaskbar.c:3421
 msgid "_New Instance"
 msgstr ""
 
-#: ../plugins/launchtaskbar.c:3467
+#: ../plugins/launchtaskbar.c:3492
 msgid "Bar with buttons to launch application"
 msgstr ""
 
-#: ../plugins/launchtaskbar.c:3476
+#: ../plugins/launchtaskbar.c:3501
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
 
-#: ../plugins/launchtaskbar.c:3495
+#: ../plugins/launchtaskbar.c:3520
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr ""
 
@@ -894,43 +898,43 @@ msgstr ""
 msgid "Browse directory tree via menu (Author = PCMan)"
 msgstr ""
 
-#: ../plugins/thermal/thermal.c:559 ../plugins/thermal/thermal.c:577
+#: ../plugins/thermal/thermal.c:558 ../plugins/thermal/thermal.c:576
 msgid "Temperature Monitor"
 msgstr ""
 
-#: ../plugins/thermal/thermal.c:561
+#: ../plugins/thermal/thermal.c:560
 msgid "Normal color"
 msgstr ""
 
-#: ../plugins/thermal/thermal.c:562
+#: ../plugins/thermal/thermal.c:561
 msgid "Warning1 color"
 msgstr ""
 
-#: ../plugins/thermal/thermal.c:563
+#: ../plugins/thermal/thermal.c:562
 msgid "Warning2 color"
 msgstr ""
 
-#: ../plugins/thermal/thermal.c:564
+#: ../plugins/thermal/thermal.c:563
 msgid "Automatic sensor location"
 msgstr ""
 
-#: ../plugins/thermal/thermal.c:565
+#: ../plugins/thermal/thermal.c:564
 msgid "Sensor"
 msgstr ""
 
-#: ../plugins/thermal/thermal.c:566
+#: ../plugins/thermal/thermal.c:565
 msgid "Automatic temperature levels"
 msgstr ""
 
-#: ../plugins/thermal/thermal.c:567
+#: ../plugins/thermal/thermal.c:566
 msgid "Warning1 temperature"
 msgstr ""
 
-#: ../plugins/thermal/thermal.c:568
+#: ../plugins/thermal/thermal.c:567
 msgid "Warning2 temperature"
 msgstr ""
 
-#: ../plugins/thermal/thermal.c:578
+#: ../plugins/thermal/thermal.c:577
 msgid "Display system temperature"
 msgstr ""
 
