@@ -56,7 +56,6 @@
     was removed: size wasn't always renegotiated correctly.
 * Fixed range of space reservation in multi-monitor setup (reservation
     might cover another monitor).
-* Fixed icon size updating from configuration on 'launchtaskbar' plugin.
 
 0.7.2
 -------------------------------------------------------------------------
