@@ -1471,12 +1471,6 @@ static void launchtaskbar_panel_configuration_changed(LXPanel *panel, GtkWidget 
         g_object_unref(icon);
     }
 
-    if (ltbp->tb_built)
-    {
-        taskbar_update_style(ltbp);
-        taskbar_make_menu(ltbp);
-    }
-
     /* If the icon size changed, refetch all the icons. */
     if (new_icon_size != ltbp->icon_size)
     {
@@ -1490,11 +1484,16 @@ static void launchtaskbar_panel_configuration_changed(LXPanel *panel, GtkWidget 
                 g_object_unref(pixbuf);
             }
         }
+        ltbp->icon_size = new_icon_size;
     }
 
     /* Redraw all the labels.  Icon size or font color may have changed. */
     if (ltbp->tb_built)
+    {
+        taskbar_update_style(ltbp);
+        taskbar_make_menu(ltbp);
         taskbar_redraw(ltbp);
+    }
 }
 
 /* Set an urgency timer on a task. */
