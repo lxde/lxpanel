@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-20 13:56+0300\n"
-"PO-Revision-Date: 2014-11-07 23:04+0000\n"
-"Last-Translator: armakolas <armakolas@gmail.com>\n"
+"PO-Revision-Date: 2014-11-18 12:35+0000\n"
+"Last-Translator: Giorgos Siafis <geosiafis@yahoo.gr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1415401443.000000\n"
+"X-POOTLE-MTIME: 1416314109.000000\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:50 ../src/gtk-run.c:373 ../plugins/menu.c:749
@@ -85,8 +85,8 @@ msgstr "Επιβεβαίωση"
 #: ../src/panel.c:988
 msgid "translator-credits"
 msgstr ""
-"Αρμακόλας Νικόλαος <armakolas@gmail.com> 2014\n"
-"Βασιλάκος Γιώργος <forfolias@linuxteam.cs.teilar.gr>"
+"Βασιλάκος Γιώργος <forfolias@linuxteam.cs.teilar.gr> \n"
+"Αρμακόλας Νικόλαος <armakolas@gmail.com> 2014"
 
 #: ../src/panel.c:993
 msgid "LXPanel"
