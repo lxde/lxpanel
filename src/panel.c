@@ -260,6 +260,9 @@ static void lxpanel_size_allocate(GtkWidget *widget, GtkAllocation *a)
                                                                panel, NULL);
         _panel_queue_update_background(panel);
     }
+
+    if (gtk_widget_get_mapped(widget))
+        _panel_establish_autohide(panel);
 }
 
 static gboolean lxpanel_configure_event (GtkWidget *widget, GdkEventConfigure *e)
@@ -1351,7 +1354,6 @@ panel_start_gui(LXPanel *panel, config_setting_t *list)
     gtk_window_present(GTK_WINDOW(panel));
 
     /* the settings that should be done after window is mapped */
-    _panel_establish_autohide(panel);
 
     /* send it to running wm */
     Xclimsg(p->topxwin, a_NET_WM_DESKTOP, G_MAXULONG, 0, 0, 0, 0);
