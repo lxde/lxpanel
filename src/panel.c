@@ -126,6 +126,11 @@ static void panel_stop_gui(LXPanel *self)
         g_source_remove(p->background_update_queued);
         p->background_update_queued = 0;
     }
+    if (p->strut_update_queued)
+    {
+        g_source_remove(p->strut_update_queued);
+        p->strut_update_queued = 0;
+    }
 
     if (gtk_bin_get_child(GTK_BIN(self)))
     {
@@ -168,6 +173,19 @@ void _panel_queue_update_background(LXPanel *panel)
     panel->priv->background_update_queued = g_idle_add_full(G_PRIORITY_HIGH,
                                                             idle_update_background,
                                                             panel, NULL);
+}
+
+static gboolean idle_update_strut(gpointer p)
+{
+    LXPanel *panel = LXPANEL(p);
+
+    if (g_source_is_destroyed(g_main_current_source()))
+        return FALSE;
+
+    _panel_set_wm_strut(panel);
+    panel->priv->strut_update_queued = 0;
+
+    return FALSE;
 }
 
 static void lxpanel_realize(GtkWidget *widget)
@@ -235,14 +253,12 @@ static void lxpanel_size_allocate(GtkWidget *widget, GtkAllocation *a)
         p->ah = a->height;
         /* FIXME: should we "correct" requested sizes? */
         gtk_window_move(GTK_WINDOW(widget), p->ax, p->ay);
-        _panel_set_wm_strut(panel);
+        /* SF bug #708: strut update does not work while in size allocation */
+        if (!panel->priv->strut_update_queued)
+            panel->priv->strut_update_queued = g_idle_add_full(G_PRIORITY_HIGH,
+                                                               idle_update_strut,
+                                                               panel, NULL);
         _panel_queue_update_background(panel);
-    }
-    if (p->background_update_queued)
-    {
-        g_source_remove(p->background_update_queued);
-        p->background_update_queued = 0;
-        _panel_update_background(LXPANEL(widget));
     }
 }
 

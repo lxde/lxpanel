@@ -142,6 +142,7 @@ struct _Panel {
     guint ah_far : 1;                   /* placed here for binary compatibility */
     guint ah_state : 3;
     guint background_update_queued;
+    guint strut_update_queued;
     guint mouse_timeout;
     //gint dyn_space;                     /* Space for expandable plugins */
     //guint calculate_size_idle;          /* The idle handler for dyn_space calc */

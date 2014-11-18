@@ -727,12 +727,13 @@ GtkWidget * panel_icon_grid_new(
     /* Create a structure representing the icon grid and collect the parameters. */
     PanelIconGrid * ig = g_object_new(PANEL_TYPE_ICON_GRID,
                                       "orientation", orientation,
-                                      "spacing", spacing, NULL);
+                                      "spacing", spacing,
+                                      "border-width", border,
+                                      NULL);
 
     ig->child_width = child_width;
     ig->child_height = child_height;
     ig->target_dimension = target_dimension;
-    gtk_container_set_border_width(GTK_CONTAINER(ig), border);
 
     return (GtkWidget *)ig;
 }
