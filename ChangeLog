@@ -54,6 +54,8 @@
     button with custom range, not just generic 0...1000.
 * Fixed wrong behavior with PanelIconGrid constrained width after child
     was removed: size wasn't always renegotiated correctly.
+* Fixed range of space reservation in multi-monitor setup (reservation
+    might cover another monitor).
 
 0.7.2
 -------------------------------------------------------------------------

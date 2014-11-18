@@ -544,7 +544,7 @@ void _panel_set_wm_strut(LXPanel *panel)
     {
         desired_strut[index] = strut_size;
         desired_strut[4 + index * 2] = strut_lower;
-        desired_strut[5 + index * 2] = strut_upper;
+        desired_strut[5 + index * 2] = strut_upper - 1;
     }
     else
     {
