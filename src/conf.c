@@ -312,6 +312,16 @@ static void _config_write_setting(const config_setting_t *setting, GString *buf,
     case PANEL_CONF_TYPE_STRING:
         if (!setting->str) /* don't save NULL strings */
             return;
+        if (setting->str[0])
+        {
+            char *end;
+            if (strtol(setting->str, &end, 10)) end = end;
+            if (*end == '\0') /* numeric string, quote it */
+            {
+                g_string_append_printf(buf, "%s=\"%s\"\n", setting->name, setting->str);
+                break;
+            }
+        }
         g_string_append_printf(buf, "%s=%s\n", setting->name, setting->str);
         break;
     case PANEL_CONF_TYPE_GROUP:

@@ -56,6 +56,8 @@
     was removed: size wasn't always renegotiated correctly.
 * Fixed range of space reservation in multi-monitor setup (reservation
     might cover another monitor).
+* Numeric-only string will be saved now double-quoted to distinguish it
+    from number in config.
 
 0.7.2
 -------------------------------------------------------------------------
