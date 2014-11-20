@@ -58,6 +58,7 @@
     might cover another monitor).
 * Numeric-only string will be saved now double-quoted to distinguish it
     from number in config.
+* Implemented flashing on task with urgency in grouped task list menu.
 
 0.7.2
 -------------------------------------------------------------------------

@@ -108,6 +108,7 @@ typedef struct _task {
     GtkWidget * image;                      /* Icon for task, child of button */
     Atom image_source;                      /* Atom that is the source of taskbar icon */
     GtkWidget * label;                      /* Label for task, child of button */
+    GtkWidget * menu_item;                  /* Menu item for grouped task after click */
     int desktop;                            /* Desktop that contains task, needed to switch to it on Raise */
     gint monitor;                           /* Monitor that the window is on or closest to */
     guint flash_timeout;                    /* Timer for urgency notification */
@@ -1502,7 +1503,7 @@ static void set_timer_on_task(Task * tk)
     gint interval;
     g_return_if_fail(tk->flash_timeout == 0);
     g_object_get(gtk_widget_get_settings(tk->button), "gtk-cursor-blink-time", &interval, NULL);
-    tk->flash_timeout = g_timeout_add(interval, flash_window_timeout, tk);
+    tk->flash_timeout = g_timeout_add(interval / 2, flash_window_timeout, tk);
 }
 
 /* Determine if a task is visible considering only its desktop placement. */
@@ -1885,6 +1886,12 @@ static void task_delete(LaunchTaskBarPlugin * tb, Task * tk, gboolean unlink, gb
     if (tk->flash_timeout != 0) {
         g_source_remove(tk->flash_timeout);
         tk->flash_timeout = 0;
+    }
+
+    if (tk->menu_item)
+    {
+        g_object_unref(tk->menu_item);
+        tk->menu_item = NULL;
     }
 
     /* Deallocate structures. */
@@ -2295,6 +2302,9 @@ static void flash_window_update(Task * tk)
     if ( ! tk->tb->flat_button)
         gtk_widget_set_state(tk->button, tk->flash_state ? GTK_STATE_SELECTED : GTK_STATE_NORMAL);
     task_draw_label(tk);
+    if (tk->menu_item != NULL && gtk_widget_get_mapped(tk->menu_item))
+        /* if submenu exists and mapped then set state too */
+        gtk_widget_set_state(tk->menu_item, tk->flash_state ? GTK_STATE_SELECTED : GTK_STATE_NORMAL);
 
     /* Complement the flashing context. */
     tk->flash_state = ! tk->flash_state;
@@ -2341,6 +2351,11 @@ static void task_clear_urgency(Task * tk)
         {
             g_source_remove(tk->flash_timeout);
             tk->flash_timeout = 0;
+        }
+        if (tk->menu_item)
+        {
+            g_object_unref(tk->menu_item);
+            tk->menu_item = NULL;
         }
 
         /* Clear the flashing context and unflash the window immediately. */
@@ -2453,6 +2468,7 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
             menu = gtk_menu_new();
             /* Bring up a popup menu listing all the class members. */
             Task * tk_cursor;
+            GtkWidget * flashing_menu = NULL;
             for (tk_cursor = tc->p_task_head; tk_cursor != NULL;
                     tk_cursor = tk_cursor->p_task_flink_same_class)
             {
@@ -2468,8 +2484,15 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
                     g_signal_connect(mi, "button-press-event",
                             G_CALLBACK(taskbar_popup_activate_event), (gpointer) tk_cursor);
                     gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
+                    /* set mi as if it's urgent with reference */
+                    if (tk_cursor->menu_item != NULL)
+                        g_object_unref(tk_cursor->menu_item);
+                    tk_cursor->menu_item = NULL;
+                    if (tk_cursor->urgency && flashing_menu == NULL)
+                        flashing_menu = g_object_ref_sink(mi);
                 }
             }
+            tc->p_task_visible->menu_item = flashing_menu;
         }
         else if(event->button == 3) /* Right click */
         {
