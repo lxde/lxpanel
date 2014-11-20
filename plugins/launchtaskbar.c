@@ -1532,7 +1532,7 @@ static void recompute_group_visibility_for_class(LaunchTaskBarPlugin * tb, TaskC
             tc->visible_count += 1;
 
             /* Compute summary bit for urgency anywhere in the class. */
-            if (tk->urgency)
+            if (tk->urgency && !tk->focused)
                 class_has_urgency = TRUE;
 
             /* If there is urgency, record the currently flashing task. */
@@ -2488,7 +2488,7 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
                     if (tk_cursor->menu_item != NULL)
                         g_object_unref(tk_cursor->menu_item);
                     tk_cursor->menu_item = NULL;
-                    if (tk_cursor->urgency && flashing_menu == NULL)
+                    if (tk_cursor->urgency && !tk_cursor->focused && flashing_menu == NULL)
                         flashing_menu = g_object_ref_sink(mi);
                 }
             }
@@ -2862,7 +2862,7 @@ static void task_build_gui(LaunchTaskBarPlugin * tb, Task * tk)
     task_update_style(tk, tb);
 
     /* Flash button for window with urgency hint. */
-    if (tk->urgency)
+    if (tk->urgency && !tk->focused)
         task_set_urgency(tk);
 }
 
@@ -3062,6 +3062,8 @@ static void taskbar_net_active_window(GtkWidget * widget, LaunchTaskBarPlugin * 
     if ((ctk != NULL) && (drop_old))
     {
         ctk->focused = FALSE;
+        if (ctk->urgency)
+            task_set_urgency(ctk);
         tb->focused = NULL;
         if(!tb->flat_button) /* relieve the button if flat buttons is not used. */
             gtk_toggle_button_set_active((GtkToggleButton*)ctk->button, FALSE);
@@ -3075,6 +3077,8 @@ static void taskbar_net_active_window(GtkWidget * widget, LaunchTaskBarPlugin * 
         if(!tb->flat_button) /* depress the button if flat buttons is not used. */
             gtk_toggle_button_set_active((GtkToggleButton*)ntk->button, TRUE);
         ntk->focused = TRUE;
+        if (ntk->urgency)
+            task_clear_urgency(ntk);
         tb->focused = ntk;
         task_button_redraw(ntk, tb);
     }
@@ -3159,7 +3163,7 @@ static void taskbar_property_notify_event(LaunchTaskBarPlugin *tb, XEvent *ev)
                     if (tb->use_urgency_hint)
                     {
                         tk->urgency = task_has_urgency(tk);
-                        if (tk->urgency)
+                        if (tk->urgency && !tk->focused)
                             task_set_urgency(tk);
                         else
                             task_clear_urgency(tk);

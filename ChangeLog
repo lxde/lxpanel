@@ -59,6 +59,8 @@
 * Numeric-only string will be saved now double-quoted to distinguish it
     from number in config.
 * Implemented flashing on task with urgency in grouped task list menu.
+* Disabled flashing on urgency hint if window has focus, most of window
+    managers do the same on window decorations.
 
 0.7.2
 -------------------------------------------------------------------------
