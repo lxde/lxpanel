@@ -716,6 +716,19 @@ static void on_add_plugin_response( GtkDialog* dlg,
     gtk_widget_destroy( GTK_WIDGET(dlg) );
 }
 
+static gint sort_by_name(GtkTreeModel *model, GtkTreeIter *a, GtkTreeIter *b, gpointer user_data)
+{
+    char *str_a, *str_b;
+    gint res;
+
+    gtk_tree_model_get(model, a, 0, &str_a, -1);
+    gtk_tree_model_get(model, b, 0, &str_b, -1);
+    res = g_utf8_collate(str_a, str_b);
+    g_free(str_a);
+    g_free(str_b);
+    return res;
+}
+
 static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
 {
     GtkWidget* dlg, *parent_win, *scroll;
@@ -789,6 +802,11 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
             /* g_debug( "%s (%s)", pc->type, _(pc->name) ); */
         }
     }
+    gtk_tree_sortable_set_default_sort_func(GTK_TREE_SORTABLE(list),
+                                            sort_by_name, NULL, NULL);
+    gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(list),
+                                         GTK_TREE_SORTABLE_DEFAULT_SORT_COLUMN_ID,
+                                         GTK_SORT_ASCENDING);
 
     gtk_tree_view_set_model( view, GTK_TREE_MODEL(list) );
     g_object_unref( list );
