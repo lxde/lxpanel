@@ -147,6 +147,35 @@ static gboolean on_key_event(GtkButton *test, GdkEventKey *event,
     return FALSE;
 }
 
+static void _button_set_click_label(GtkButton *btn, guint keyval, GdkModifierType state)
+{
+    char *mod_text, *text;
+    const char *btn_text;
+    char buff[64];
+
+    mod_text = gtk_accelerator_get_label(0, state);
+    btn_text = gdk_keyval_name(keyval);
+    switch (btn_text[0])
+    {
+    case '1':
+        btn_text = _("LeftBtn");
+        break;
+    case '2':
+        btn_text = _("MiddleBtn");
+        break;
+    case '3':
+        btn_text = _("RightBtn");
+        break;
+    default:
+        snprintf(buff, sizeof(buff), _("Btn%s"), btn_text);
+        btn_text = buff;
+    }
+    text = g_strdup_printf("%s%s", mod_text, btn_text);
+    gtk_button_set_label(btn, text);
+    g_free(text);
+    g_free(mod_text);
+}
+
 static gboolean on_button_press_event(GtkButton *test, GdkEventButton *event,
                                       PanelCfgInputButton *btn)
 {
@@ -173,17 +202,13 @@ static gboolean on_button_press_event(GtkButton *test, GdkEventButton *event,
     /* if click is equal to previous then nothing to do */
     if (state == btn->mods && keyval == btn->key)
     {
-        text = gtk_accelerator_get_label(keyval, state);
-        gtk_button_set_label(test, text);
-        g_free(text);
+        _button_set_click_label(test, keyval, state);
         return FALSE;
     }
     /* send a signal that it's changed */
-    text = gtk_accelerator_get_label(keyval, state);
     btn->mods = state;
     btn->key = keyval;
-    gtk_button_set_label(test, text);
-    g_free(text);
+    _button_set_click_label(test, keyval, state);
     text = gtk_accelerator_name(keyval, state);
     g_signal_emit(btn, signals[CHANGED], 0, text);
     g_free(text);
@@ -281,9 +306,7 @@ GtkWidget *panel_config_click_button_new(const char *label, const char *click)
     if (click && *click)
     {
         gtk_accelerator_parse(click, &btn->key, &btn->mods);
-        text = gtk_accelerator_get_label(btn->key, btn->mods);
-        gtk_button_set_label(btn->btn, text);
-        g_free(text);
+        _button_set_click_label(btn->btn, btn->key, btn->mods);
         gtk_toggle_button_set_active(btn->custom, TRUE);
     }
     return GTK_WIDGET(btn);
