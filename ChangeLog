@@ -61,6 +61,8 @@
 * Implemented flashing on task with urgency in grouped task list menu.
 * Disabled flashing on urgency hint if window has focus, most of window
     managers do the same on window decorations.
+* Fixed border of 'batt' plugin, it should correctly use panel settings.
+    Also 'Size' setting of it doesn't include border width.
 
 0.7.2
 -------------------------------------------------------------------------
