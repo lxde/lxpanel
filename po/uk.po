@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-17 16:55+0200\n"
-"PO-Revision-Date: 2014-11-17 15:03+0000\n"
+"POT-Creation-Date: 2014-11-21 21:13+0200\n"
+"PO-Revision-Date: 2014-11-21 19:18+0000\n"
 "Last-Translator: Andriy Grytsenko <andrej@rep.kiev.ua>\n"
 "Language-Team: UKRAINIAN <translate@linux.org.ua>\n"
 "Language: uk\n"
@@ -18,7 +18,7 @@ msgstr ""
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-POOTLE-MTIME: 1416236624.000000\n"
+"X-POOTLE-MTIME: 1416597504.000000\n"
 
 #: ../src/configurator.c:135
 msgid ""
@@ -36,35 +36,35 @@ msgstr "Завантажені доповнення"
 msgid "Stretch"
 msgstr "Розтягнути"
 
-#: ../src/configurator.c:736
+#: ../src/configurator.c:749
 msgid "Add plugin to panel"
 msgstr "Додати доповнення до панелі"
 
-#: ../src/configurator.c:764
+#: ../src/configurator.c:777
 msgid "Available plugins"
 msgstr "Доступні доповнення"
 
-#: ../src/configurator.c:1339
+#: ../src/configurator.c:1357
 msgid "Logout command is not set"
 msgstr "Команда виходу з сесії не встановлена"
 
-#: ../src/configurator.c:1407
+#: ../src/configurator.c:1425
 msgid "Select a directory"
 msgstr "Вибрати теку"
 
-#: ../src/configurator.c:1407 ../src/configurator.c:1524
+#: ../src/configurator.c:1425 ../src/configurator.c:1540
 msgid "Select a file"
 msgstr "Вибрати файл"
 
-#: ../src/configurator.c:1557
+#: ../src/configurator.c:1573
 msgid "_Browse"
 msgstr "_Переглянути"
 
-#: ../src/panel.c:955
+#: ../src/panel.c:981
 msgid "There is no room for another panel. All the edges are taken."
 msgstr "Нема місця для ще однієї панелі, усі сторони вже зайняті."
 
-#: ../src/panel.c:981
+#: ../src/panel.c:1007
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -72,84 +72,84 @@ msgstr ""
 "Дійсно видалити цю панель?\n"
 "<b>Увага: Повернення назад неможливе.</b>"
 
-#: ../src/panel.c:983
+#: ../src/panel.c:1009
 msgid "Confirm"
 msgstr "Підтвердити"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:1018
+#: ../src/panel.c:1044
 msgid "translator-credits"
 msgstr ""
 "Yarema aka Knedlyk <yupadmin@gmail.com>\n"
 "Andriy Grytsenko <andrej@rep.kiev.ua>"
 
-#: ../src/panel.c:1023
+#: ../src/panel.c:1049
 msgid "LXPanel"
 msgstr "LX-панель"
 
-#: ../src/panel.c:1041
+#: ../src/panel.c:1067
 msgid "Copyright (C) 2008-2014"
 msgstr "Всі права застережено (С) 2008-2014"
 
-#: ../src/panel.c:1042
+#: ../src/panel.c:1068
 msgid "Desktop panel for LXDE project"
 msgstr "Панель робочого столу для проекту LXDE"
 
-#: ../src/panel.c:1084
+#: ../src/panel.c:1110
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "Налаштування \"%s\""
 
-#: ../src/panel.c:1104
+#: ../src/panel.c:1130
 msgid "Add / Remove Panel Items"
 msgstr "Додати/Видалити компоненти панелі"
 
-#: ../src/panel.c:1112
+#: ../src/panel.c:1138
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Видалити \"%s\" з панелі"
 
-#: ../src/panel.c:1124
+#: ../src/panel.c:1150
 msgid "Panel Settings"
 msgstr "Налаштування панелі"
 
-#: ../src/panel.c:1130
+#: ../src/panel.c:1156
 msgid "Create New Panel"
 msgstr "Створити нову панель"
 
-#: ../src/panel.c:1136
+#: ../src/panel.c:1162
 msgid "Delete This Panel"
 msgstr "Видалити цю панель"
 
-#: ../src/panel.c:1147
+#: ../src/panel.c:1173
 msgid "About"
 msgstr "Про LXDE-панель"
 
-#: ../src/panel.c:1154
+#: ../src/panel.c:1180
 msgid "Panel"
 msgstr "Панель"
 
-#: ../src/panel.c:1374 ../src/panel.c:1382 ../data/ui/panel-pref.glade.h:22
+#: ../src/panel.c:1391 ../src/panel.c:1399 ../data/ui/panel-pref.glade.h:22
 msgid "Height:"
 msgstr "Висота:"
 
-#: ../src/panel.c:1375 ../src/panel.c:1381 ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:1392 ../src/panel.c:1398 ../data/ui/panel-pref.glade.h:21
 msgid "Width:"
 msgstr "Ширина:"
 
-#: ../src/panel.c:1376 ../data/ui/panel-pref.glade.h:13
+#: ../src/panel.c:1393 ../data/ui/panel-pref.glade.h:13
 msgid "Left"
 msgstr "Зліва"
 
-#: ../src/panel.c:1377 ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:1394 ../data/ui/panel-pref.glade.h:14
 msgid "Right"
 msgstr "Справа"
 
-#: ../src/panel.c:1383 ../data/ui/panel-pref.glade.h:12
+#: ../src/panel.c:1400 ../data/ui/panel-pref.glade.h:12
 msgid "Top"
 msgstr "Зверху"
 
-#: ../src/panel.c:1384 ../data/ui/panel-pref.glade.h:11
+#: ../src/panel.c:1401 ../data/ui/panel-pref.glade.h:11
 msgid "Bottom"
 msgstr "Внизу"
 
@@ -233,29 +233,46 @@ msgstr ""
 msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
 msgstr "Клавіші '%s' неможливо використовувати в якості глобального скорочення."
 
-#: ../src/input-button.c:132 ../src/input-button.c:308
+#: ../src/input-button.c:132 ../src/input-button.c:331
 #: ../plugins/netstatus/netstatus-iface.c:191
 #: ../plugins/netstatus/netstatus-util.c:167
 msgid "Error"
 msgstr "Помилка"
 
+#: ../src/input-button.c:161
+msgid "LeftBtn"
+msgstr "ЛіваКн."
+
+#: ../src/input-button.c:164
+msgid "MiddleBtn"
+msgstr "СередняКн."
+
+#: ../src/input-button.c:167
+msgid "RightBtn"
+msgstr "ПраваКн."
+
+#: ../src/input-button.c:170
+#, c-format
+msgid "Btn%s"
+msgstr "Кн.%s"
+
 #. GtkRadioButton "None"
-#: ../src/input-button.c:225 ../data/ui/panel-pref.glade.h:5
+#: ../src/input-button.c:250 ../data/ui/panel-pref.glade.h:5
 msgid "None"
 msgstr "Немає"
 
-#: ../src/input-button.c:232
+#: ../src/input-button.c:257
 msgid "Custom:"
 msgstr "Призначити:"
 
-#: ../src/input-button.c:306
+#: ../src/input-button.c:329
 #, c-format
 msgid "Cannot assign '%s' as a global hotkey: it is already bound."
 msgstr ""
 "Неможливо призначити глобальне скорочення '%s': ці клавіші вже "
 "використовуються."
 
-#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3494
+#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3553
 msgid "Application Launch and Task Bar"
 msgstr "Панель запуску програм та вікон"
 
@@ -305,26 +322,30 @@ msgid "Combine multiple application windows into a single button"
 msgstr "Зібрати вікна з кількома програмами в одну кнопку"
 
 #: ../data/ui/launchtaskbar.glade.h:14
+msgid "Disable enlargement for small task icons"
+msgstr "Не дозволяти збільшення маленьких значків задач"
+
+#: ../data/ui/launchtaskbar.glade.h:15
 msgid "Maximum width of task button"
 msgstr "Максимальна ширина кнопки завдань"
 
-#: ../data/ui/launchtaskbar.glade.h:15
+#: ../data/ui/launchtaskbar.glade.h:16
 msgid "Spacing"
 msgstr "Відступи"
 
-#: ../data/ui/launchtaskbar.glade.h:16
+#: ../data/ui/launchtaskbar.glade.h:17
 msgid "<b>Taskbar</b>"
 msgstr "<b>Панель задач</b>"
 
-#: ../data/ui/launchtaskbar.glade.h:17
+#: ../data/ui/launchtaskbar.glade.h:18
 msgid "Only Application Launch Bar"
 msgstr "Лише панель запуску програм"
 
-#: ../data/ui/launchtaskbar.glade.h:18
+#: ../data/ui/launchtaskbar.glade.h:19
 msgid "Only Task Bar (Window List)"
 msgstr "Лише панель задач (Список вікон)"
 
-#: ../data/ui/launchtaskbar.glade.h:19
+#: ../data/ui/launchtaskbar.glade.h:20
 msgid "Integrated Application Launch Bar and Task Bar"
 msgstr "Суміщена панель запуску програм та вікон"
 
@@ -504,7 +525,7 @@ msgid "Custom color"
 msgstr "Спеціальний колір"
 
 #: ../data/ui/panel-pref.glade.h:32 ../plugins/space.c:88
-#: ../plugins/batt/batt.c:651
+#: ../plugins/batt/batt.c:675
 msgid "Size"
 msgstr "Розмір"
 
@@ -600,81 +621,81 @@ msgstr "Показати назви робочих столів"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Показати номер робочої області, завдяки cmeury@users.sf.net"
 
-#: ../plugins/launchtaskbar.c:1422 ../plugins/launchtaskbar.c:3466
+#: ../plugins/launchtaskbar.c:1443 ../plugins/launchtaskbar.c:3525
 msgid "Application Launch Bar"
 msgstr "Панель запуску програм"
 
-#: ../plugins/launchtaskbar.c:1425 ../plugins/launchtaskbar.c:3475
+#: ../plugins/launchtaskbar.c:1446 ../plugins/launchtaskbar.c:3534
 msgid "Task Bar (Window List)"
 msgstr "Панель задач (Список вікон)"
 
-#: ../plugins/launchtaskbar.c:2452
+#: ../plugins/launchtaskbar.c:2507
 msgid "_Close all windows"
 msgstr "З_акрити всі вікна"
 
 #. Add Raise menu item.
-#: ../plugins/launchtaskbar.c:3321
+#: ../plugins/launchtaskbar.c:3380
 msgid "_Raise"
 msgstr "_Розгорнути"
 
 #. Add Restore menu item.
-#: ../plugins/launchtaskbar.c:3326
+#: ../plugins/launchtaskbar.c:3385
 msgid "R_estore"
 msgstr "В_ідновити"
 
 #. Add Maximize menu item.
-#: ../plugins/launchtaskbar.c:3331
+#: ../plugins/launchtaskbar.c:3390
 msgid "Ma_ximize"
 msgstr "М_аксималізувати"
 
 #. Add Iconify menu item.
-#: ../plugins/launchtaskbar.c:3336
+#: ../plugins/launchtaskbar.c:3395
 msgid "Ico_nify"
 msgstr "_Згорнути в іконку"
 
-#: ../plugins/launchtaskbar.c:3357
+#: ../plugins/launchtaskbar.c:3416
 #, c-format
 msgid "Workspace _%d"
 msgstr "Робоча область _%d"
 
-#: ../plugins/launchtaskbar.c:3362
+#: ../plugins/launchtaskbar.c:3421
 #, c-format
 msgid "Workspace %d"
 msgstr "Робоча область %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../plugins/launchtaskbar.c:3378
+#: ../plugins/launchtaskbar.c:3437
 msgid "_All workspaces"
 msgstr "_Всі робочі області"
 
 #. FIXME: add "Current workspace" item, active if not on a current
 #. Add Move to Workspace menu item as a submenu.
-#: ../plugins/launchtaskbar.c:3386
+#: ../plugins/launchtaskbar.c:3445
 msgid "_Move to Workspace"
 msgstr "_Перенести до робочої області"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../plugins/launchtaskbar.c:3392
+#: ../plugins/launchtaskbar.c:3451
 msgid "_Close Window"
 msgstr "За_крити вікно"
 
-#: ../plugins/launchtaskbar.c:3394
+#: ../plugins/launchtaskbar.c:3453
 msgid "A_dd to Launcher"
 msgstr "Додати _кнопку"
 
-#: ../plugins/launchtaskbar.c:3395
+#: ../plugins/launchtaskbar.c:3454
 msgid "Rem_ove from Launcher"
 msgstr "_Видалити кнопку"
 
-#: ../plugins/launchtaskbar.c:3396
+#: ../plugins/launchtaskbar.c:3455
 msgid "_New Instance"
 msgstr "_Новий екземпляр"
 
-#: ../plugins/launchtaskbar.c:3467
+#: ../plugins/launchtaskbar.c:3526
 msgid "Bar with buttons to launch application"
 msgstr "Панель з кнопками для запуску програм"
 
-#: ../plugins/launchtaskbar.c:3476
+#: ../plugins/launchtaskbar.c:3535
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -682,7 +703,7 @@ msgstr ""
 "Панель задач показує всі відкриті вікна і дозволяє згортати їх, відтіняти і "
 "фокусувати"
 
-#: ../plugins/launchtaskbar.c:3495
+#: ../plugins/launchtaskbar.c:3554
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr "Панель кнопок для запуску програм або відображення вікон"
 
@@ -912,43 +933,43 @@ msgstr "Мітка"
 msgid "Browse directory tree via menu (Author = PCMan)"
 msgstr "Переглянути дерево тек через меню (Автор: PCMan)"
 
-#: ../plugins/thermal/thermal.c:559 ../plugins/thermal/thermal.c:577
+#: ../plugins/thermal/thermal.c:558 ../plugins/thermal/thermal.c:576
 msgid "Temperature Monitor"
 msgstr "Монітор температури"
 
-#: ../plugins/thermal/thermal.c:561
+#: ../plugins/thermal/thermal.c:560
 msgid "Normal color"
 msgstr "Нормальний колір"
 
-#: ../plugins/thermal/thermal.c:562
+#: ../plugins/thermal/thermal.c:561
 msgid "Warning1 color"
 msgstr "Колір попередження 1"
 
-#: ../plugins/thermal/thermal.c:563
+#: ../plugins/thermal/thermal.c:562
 msgid "Warning2 color"
 msgstr "Колір попередження 2"
 
-#: ../plugins/thermal/thermal.c:564
+#: ../plugins/thermal/thermal.c:563
 msgid "Automatic sensor location"
 msgstr "Автоматичний пошук сенсорів"
 
-#: ../plugins/thermal/thermal.c:565
+#: ../plugins/thermal/thermal.c:564
 msgid "Sensor"
 msgstr "Сенсор"
 
-#: ../plugins/thermal/thermal.c:566
+#: ../plugins/thermal/thermal.c:565
 msgid "Automatic temperature levels"
 msgstr "Автоматичні рівні температури"
 
-#: ../plugins/thermal/thermal.c:567
+#: ../plugins/thermal/thermal.c:566
 msgid "Warning1 temperature"
 msgstr "Температура попередження 1"
 
-#: ../plugins/thermal/thermal.c:568
+#: ../plugins/thermal/thermal.c:567
 msgid "Warning2 temperature"
 msgstr "Температура попередження 2"
 
-#: ../plugins/thermal/thermal.c:578
+#: ../plugins/thermal/thermal.c:577
 msgid "Display system temperature"
 msgstr "Показати системну температуру"
 
@@ -1457,22 +1478,22 @@ msgstr "Отримання"
 msgid "Sending/Receiving"
 msgstr "Відсилання/Отримання"
 
-#: ../plugins/batt/batt.c:151
+#: ../plugins/batt/batt.c:152
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
 msgstr "Батарея: %d%% заряджено, %d:%02d до повної зарядки"
 
-#: ../plugins/batt/batt.c:162
+#: ../plugins/batt/batt.c:163
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr "Батарея: %d%% заряджено, %d:%02d залишилося"
 
-#: ../plugins/batt/batt.c:168
+#: ../plugins/batt/batt.c:169
 #, c-format
 msgid "Battery: %d%% charged"
 msgstr "Батарея: %d%% заряджено"
 
-#: ../plugins/batt/batt.c:178
+#: ../plugins/batt/batt.c:179
 #, c-format
 msgid ""
 "\n"
@@ -1481,7 +1502,7 @@ msgstr ""
 "\n"
 "%sПроектна повна енергія:\t\t%5d мВт*г"
 
-#: ../plugins/batt/batt.c:180
+#: ../plugins/batt/batt.c:181
 #, c-format
 msgid ""
 "\n"
@@ -1490,7 +1511,7 @@ msgstr ""
 "\n"
 "%sПовна енергія:\t\t\t%5d мВт*г"
 
-#: ../plugins/batt/batt.c:182
+#: ../plugins/batt/batt.c:183
 #, c-format
 msgid ""
 "\n"
@@ -1499,7 +1520,7 @@ msgstr ""
 "\n"
 "%sЕнергія зараз:\t\t\t%5d мВт*г"
 
-#: ../plugins/batt/batt.c:184
+#: ../plugins/batt/batt.c:185
 #, c-format
 msgid ""
 "\n"
@@ -1508,7 +1529,7 @@ msgstr ""
 "\n"
 "%sПотужність зараз:\t\t\t%5d мВт"
 
-#: ../plugins/batt/batt.c:187
+#: ../plugins/batt/batt.c:188
 #, c-format
 msgid ""
 "\n"
@@ -1517,7 +1538,7 @@ msgstr ""
 "\n"
 "%sПроектний повний заряд:\t%5d мА*г"
 
-#: ../plugins/batt/batt.c:189
+#: ../plugins/batt/batt.c:190
 #, c-format
 msgid ""
 "\n"
@@ -1526,7 +1547,7 @@ msgstr ""
 "\n"
 "%sПовний заряд:\t\t\t%5d мА*г"
 
-#: ../plugins/batt/batt.c:191
+#: ../plugins/batt/batt.c:192
 #, c-format
 msgid ""
 "\n"
@@ -1535,7 +1556,7 @@ msgstr ""
 "\n"
 "%sЗаряд зараз:\t\t\t%5d мА*г"
 
-#: ../plugins/batt/batt.c:193
+#: ../plugins/batt/batt.c:194
 #, c-format
 msgid ""
 "\n"
@@ -1544,7 +1565,7 @@ msgstr ""
 "\n"
 "%sСтрум зараз:\t\t\t%5d мА"
 
-#: ../plugins/batt/batt.c:196
+#: ../plugins/batt/batt.c:197
 #, c-format
 msgid ""
 "\n"
@@ -1553,55 +1574,59 @@ msgstr ""
 "\n"
 "%sНапруга зараз:\t\t%.3lf В"
 
-#: ../plugins/batt/batt.c:234
+#: ../plugins/batt/batt.c:235
 msgid "No batteries found"
 msgstr "Батарею не знайдено"
 
-#: ../plugins/batt/batt.c:640 ../plugins/batt/batt.c:661
+#: ../plugins/batt/batt.c:515 ../plugins/batt/batt.c:644
+msgid "Battery low"
+msgstr "Батарею розряджено"
+
+#: ../plugins/batt/batt.c:664 ../plugins/batt/batt.c:685
 msgid "Battery Monitor"
 msgstr "Монітор батареї"
 
-#: ../plugins/batt/batt.c:642
+#: ../plugins/batt/batt.c:666
 msgid "Hide if there is no battery"
 msgstr "Приховати, якщо немає батареї"
 
-#: ../plugins/batt/batt.c:643
+#: ../plugins/batt/batt.c:667
 msgid "Alarm command"
 msgstr "Команда будильника"
 
-#: ../plugins/batt/batt.c:644
+#: ../plugins/batt/batt.c:668
 msgid "Alarm time (minutes left)"
 msgstr "Час будильника (залишилося хвилин)"
 
-#: ../plugins/batt/batt.c:645
+#: ../plugins/batt/batt.c:669
 msgid "Background color"
 msgstr "Колір тла"
 
-#: ../plugins/batt/batt.c:646
+#: ../plugins/batt/batt.c:670
 msgid "Charging color 1"
 msgstr "Колір зарядки 1"
 
-#: ../plugins/batt/batt.c:647
+#: ../plugins/batt/batt.c:671
 msgid "Charging color 2"
 msgstr "Колір зарядки 2"
 
-#: ../plugins/batt/batt.c:648
+#: ../plugins/batt/batt.c:672
 msgid "Discharging color 1"
 msgstr "Колір розрядки 1"
 
-#: ../plugins/batt/batt.c:649
+#: ../plugins/batt/batt.c:673
 msgid "Discharging color 2"
 msgstr "Колір розрядки 2"
 
-#: ../plugins/batt/batt.c:650
+#: ../plugins/batt/batt.c:674
 msgid "Border width"
 msgstr "Ширина краю"
 
-#: ../plugins/batt/batt.c:652
+#: ../plugins/batt/batt.c:676
 msgid "Show Extended Information"
 msgstr "Показати детальну інформацію"
 
-#: ../plugins/batt/batt.c:662
+#: ../plugins/batt/batt.c:686
 msgid "Display battery status using ACPI"
 msgstr "Показувати статус батареї, використовуючи ACPI"
 
