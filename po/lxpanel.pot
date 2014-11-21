@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-19 01:29+0200\n"
+"POT-Creation-Date: 2014-11-21 12:26+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -222,27 +222,44 @@ msgstr ""
 msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
 msgstr ""
 
-#: ../src/input-button.c:132 ../src/input-button.c:308
+#: ../src/input-button.c:132 ../src/input-button.c:331
 #: ../plugins/netstatus/netstatus-iface.c:191
 #: ../plugins/netstatus/netstatus-util.c:167
 msgid "Error"
 msgstr ""
 
+#: ../src/input-button.c:161
+msgid "LeftBtn"
+msgstr ""
+
+#: ../src/input-button.c:164
+msgid "MiddleBtn"
+msgstr ""
+
+#: ../src/input-button.c:167
+msgid "RightBtn"
+msgstr ""
+
+#: ../src/input-button.c:170
+#, c-format
+msgid "Btn%s"
+msgstr ""
+
 #. GtkRadioButton "None"
-#: ../src/input-button.c:225 ../data/ui/panel-pref.glade.h:5
+#: ../src/input-button.c:250 ../data/ui/panel-pref.glade.h:5
 msgid "None"
 msgstr ""
 
-#: ../src/input-button.c:232
+#: ../src/input-button.c:257
 msgid "Custom:"
 msgstr ""
 
-#: ../src/input-button.c:306
+#: ../src/input-button.c:329
 #, c-format
 msgid "Cannot assign '%s' as a global hotkey: it is already bound."
 msgstr ""
 
-#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3519
+#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3546
 msgid "Application Launch and Task Bar"
 msgstr ""
 
@@ -591,87 +608,87 @@ msgstr ""
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr ""
 
-#: ../plugins/launchtaskbar.c:1442 ../plugins/launchtaskbar.c:3491
+#: ../plugins/launchtaskbar.c:1443 ../plugins/launchtaskbar.c:3518
 msgid "Application Launch Bar"
 msgstr ""
 
-#: ../plugins/launchtaskbar.c:1445 ../plugins/launchtaskbar.c:3500
+#: ../plugins/launchtaskbar.c:1446 ../plugins/launchtaskbar.c:3527
 msgid "Task Bar (Window List)"
 msgstr ""
 
-#: ../plugins/launchtaskbar.c:2477
+#: ../plugins/launchtaskbar.c:2500
 msgid "_Close all windows"
 msgstr ""
 
 #. Add Raise menu item.
-#: ../plugins/launchtaskbar.c:3346
+#: ../plugins/launchtaskbar.c:3373
 msgid "_Raise"
 msgstr ""
 
 #. Add Restore menu item.
-#: ../plugins/launchtaskbar.c:3351
+#: ../plugins/launchtaskbar.c:3378
 msgid "R_estore"
 msgstr ""
 
 #. Add Maximize menu item.
-#: ../plugins/launchtaskbar.c:3356
+#: ../plugins/launchtaskbar.c:3383
 msgid "Ma_ximize"
 msgstr ""
 
 #. Add Iconify menu item.
-#: ../plugins/launchtaskbar.c:3361
+#: ../plugins/launchtaskbar.c:3388
 msgid "Ico_nify"
 msgstr ""
 
-#: ../plugins/launchtaskbar.c:3382
+#: ../plugins/launchtaskbar.c:3409
 #, c-format
 msgid "Workspace _%d"
 msgstr ""
 
-#: ../plugins/launchtaskbar.c:3387
+#: ../plugins/launchtaskbar.c:3414
 #, c-format
 msgid "Workspace %d"
 msgstr ""
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../plugins/launchtaskbar.c:3403
+#: ../plugins/launchtaskbar.c:3430
 msgid "_All workspaces"
 msgstr ""
 
 #. FIXME: add "Current workspace" item, active if not on a current
 #. Add Move to Workspace menu item as a submenu.
-#: ../plugins/launchtaskbar.c:3411
+#: ../plugins/launchtaskbar.c:3438
 msgid "_Move to Workspace"
 msgstr ""
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../plugins/launchtaskbar.c:3417
+#: ../plugins/launchtaskbar.c:3444
 msgid "_Close Window"
 msgstr ""
 
-#: ../plugins/launchtaskbar.c:3419
+#: ../plugins/launchtaskbar.c:3446
 msgid "A_dd to Launcher"
 msgstr ""
 
-#: ../plugins/launchtaskbar.c:3420
+#: ../plugins/launchtaskbar.c:3447
 msgid "Rem_ove from Launcher"
 msgstr ""
 
-#: ../plugins/launchtaskbar.c:3421
+#: ../plugins/launchtaskbar.c:3448
 msgid "_New Instance"
 msgstr ""
 
-#: ../plugins/launchtaskbar.c:3492
+#: ../plugins/launchtaskbar.c:3519
 msgid "Bar with buttons to launch application"
 msgstr ""
 
-#: ../plugins/launchtaskbar.c:3501
+#: ../plugins/launchtaskbar.c:3528
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
 
-#: ../plugins/launchtaskbar.c:3520
+#: ../plugins/launchtaskbar.c:3547
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr ""
 
