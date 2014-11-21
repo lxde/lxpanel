@@ -614,6 +614,10 @@ static gboolean applyConfig(gpointer user_data)
             gdk_color_parse(b->dischargingColor2, &b->discharging2))
         config_group_set_string(b->settings, "DischargingColor2", b->dischargingColor2);
 
+    /* Make sure it is at least 1 px */
+    if (b->thickness < 1)
+        b->thickness = 1;
+
     /* Make sure the border value is acceptable */
     b->requestedBorder = MIN(b->requestedBorder, 6);
     updateSizes(b);
