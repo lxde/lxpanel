@@ -671,8 +671,10 @@ static GtkWidget *config(LXPanel *panel, GtkWidget *p) {
             _("Charging color 2"), &b->chargingColor2, CONF_TYPE_STR,
             _("Discharging color 1"), &b->dischargingColor1, CONF_TYPE_STR,
             _("Discharging color 2"), &b->dischargingColor2, CONF_TYPE_STR,
-            _("Border width"), &b->requestedBorder, CONF_TYPE_INT,
-            _("Size"), &b->thickness, CONF_TYPE_INT,
+            "", panel_config_int_button_new(_("Border width"), (int *)&b->requestedBorder,
+                                            0, 6), CONF_TYPE_EXTERNAL,
+            "", panel_config_int_button_new(_("Size"), (int *)&b->thickness,
+                                            1, 50), CONF_TYPE_EXTERNAL,
             _("Show Extended Information"), &b->show_extended_information, CONF_TYPE_BOOL,
             NULL);
 }
