@@ -512,7 +512,7 @@ static GtkWidget * constructor(LXPanel *panel, config_setting_t *settings)
 
     /* Apply more default options */
     if (! lx_b->alarmCommand)
-        lx_b->alarmCommand = g_strdup("xmessage Battery low");
+        lx_b->alarmCommand = g_strconcat("xmessage ", _("Battery low"), NULL);
     if (! lx_b->backgroundColor)
         lx_b->backgroundColor = g_strdup("black");
     if (! lx_b->chargingColor1)
@@ -635,6 +635,9 @@ static gboolean applyConfig(gpointer user_data)
         gtk_widget_show(user_data);
     else if (b->b == NULL)
         gtk_widget_hide(user_data);
+
+    if (b->alarmCommand == NULL)
+        b->alarmCommand = g_strconcat("xmessage ", _("Battery low"), NULL);
 
     /* update tooltip */
     set_tooltip_text(b);

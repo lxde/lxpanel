@@ -63,6 +63,7 @@
     managers do the same on window decorations.
 * Fixed border of 'batt' plugin, it should correctly use panel settings.
     Also 'Size' setting of it doesn't include border width.
+* Allowed default alarmCommand on 'batt' plugin be translated.
 
 0.7.2
 -------------------------------------------------------------------------
