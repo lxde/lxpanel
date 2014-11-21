@@ -65,6 +65,7 @@
     Also 'Size' setting of it doesn't include border width.
 * Allowed default alarmCommand on 'batt' plugin be translated.
 * Implemented sorting plugins in Add plugin window in alphabetic order.
+* Fixed font in the weather plugin to use panel settings.
 
 0.7.2
 -------------------------------------------------------------------------

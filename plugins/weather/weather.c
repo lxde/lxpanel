@@ -40,6 +40,7 @@ typedef struct
   gint iMyId_;
   GtkWidget *pWeather_;
   config_setting_t *pConfig_;
+  LXPanel *pPanel_;
 } WeatherPluginPrivate;
 
 
@@ -81,6 +82,7 @@ weather_constructor(LXPanel *pPanel, config_setting_t *pConfig)
   WeatherPluginPrivate * pPriv = g_new0(WeatherPluginPrivate, 1);
 
   pPriv->pConfig_ = pConfig;
+  pPriv->pPanel_ = pPanel;
 
   /* There is one more now... */
   ++g_iCount;
@@ -257,6 +259,24 @@ void weather_save_configuration(GtkWidget * pWeather, LocationInfo * pLocation)
       config_group_set_int(pPriv->pConfig_, "enabled", (int) pLocation->bEnabled_);
     }
 
+}
+
+void weather_set_label_text(GtkWidget * pWeather, GtkWidget * label, const gchar * text)
+{
+  GtkWidget * pWidget = gtk_widget_get_parent(pWeather);
+  WeatherPluginPrivate * pPriv = NULL;
+
+  if (pWidget)
+    {
+      pPriv = (WeatherPluginPrivate *) lxpanel_plugin_get_data(pWidget);
+    }
+  if (pPriv == NULL)
+    {
+      LXW_LOG(LXW_ERROR, "Weather: weather_set_label_text() for invalid widget");
+      return;
+    }
+
+  lxpanel_draw_label_text(pPriv->pPanel_, label, text, TRUE, 1, TRUE);
 }
 
 /**

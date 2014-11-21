@@ -512,7 +512,7 @@ gtk_weather_render(GtkWeather * weather)
                                             forecast->iTemperature_,
                                             forecast->units_.pcTemperature_);
 
-      gtk_label_set_text(GTK_LABEL(priv->label), temperature);
+      weather_set_label_text(GTK_WIDGET(weather), priv->label, temperature);
 
       //gtk_widget_show_all(priv->hbox);
 
@@ -533,9 +533,9 @@ gtk_weather_render(GtkWeather * weather)
                                    GTK_STOCK_DIALOG_ERROR, 
                                    GTK_ICON_SIZE_BUTTON);
         }
-      
-      gtk_label_set_text(GTK_LABEL(priv->label), 
-                         GTK_WEATHER_NOT_AVAILABLE_LABEL);
+
+      weather_set_label_text(GTK_WIDGET(weather), priv->label,
+                             GTK_WEATHER_NOT_AVAILABLE_LABEL);
     }
 
   /* update tooltip with proper data... */
