@@ -25,7 +25,8 @@
 * Added API lxpanel_apply_hotkey() as a convenient libkeybinder interface
     to use in modules that also use panel_config_hotkey_button_new(). Now
     LXPanel requires libkeybinder too.
-* Added API panel_config_click_button_new() to configure mouse gestures.
+* Added API panel_config_click_button_new() to configure mouse gestures
+    and panel_config_click_parse() to parse its output.
 * Added "icon-size-changed" signal to LXPanel which is emitted when icons
     size in configuration dialog was changed.
 * Improved lxpanel_image_new_for_icon() API to follow panel icons size
@@ -49,6 +50,21 @@
 * System critical temperature level in 'thermal' plugin now is properly
     ignored if manual levels are active.
 * Fixed click on 'menu' plugin, only image was clickable, not whole area.
+* Added API panel_config_int_button_new() for generic plugin config spin
+    button with custom range, not just generic 0...1000.
+* Fixed wrong behavior with PanelIconGrid constrained width after child
+    was removed: size wasn't always renegotiated correctly.
+* Fixed range of space reservation in multi-monitor setup (reservation
+    might cover another monitor).
+* Numeric-only string will be saved now double-quoted to distinguish it
+    from number in config.
+* Implemented flashing on task with urgency in grouped task list menu.
+* Disabled flashing on urgency hint if window has focus, most of window
+    managers do the same on window decorations.
+* Fixed border of 'batt' plugin, it should correctly use panel settings.
+    Also 'Size' setting of it doesn't include border width.
+* Allowed default alarmCommand on 'batt' plugin be translated.
+* Implemented sorting plugins in Add plugin window in alphabetic order.
 
 0.7.2
 -------------------------------------------------------------------------

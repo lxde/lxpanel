@@ -716,6 +716,19 @@ static void on_add_plugin_response( GtkDialog* dlg,
     gtk_widget_destroy( GTK_WIDGET(dlg) );
 }
 
+static gint sort_by_name(GtkTreeModel *model, GtkTreeIter *a, GtkTreeIter *b, gpointer user_data)
+{
+    char *str_a, *str_b;
+    gint res;
+
+    gtk_tree_model_get(model, a, 0, &str_a, -1);
+    gtk_tree_model_get(model, b, 0, &str_b, -1);
+    res = g_utf8_collate(str_a, str_b);
+    g_free(str_a);
+    g_free(str_b);
+    return res;
+}
+
 static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
 {
     GtkWidget* dlg, *parent_win, *scroll;
@@ -789,6 +802,11 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
             /* g_debug( "%s (%s)", pc->type, _(pc->name) ); */
         }
     }
+    gtk_tree_sortable_set_default_sort_func(GTK_TREE_SORTABLE(list),
+                                            sort_by_name, NULL, NULL);
+    gtk_tree_sortable_set_sort_column_id(GTK_TREE_SORTABLE(list),
+                                         GTK_TREE_SORTABLE_DEFAULT_SORT_COLUMN_ID,
+                                         GTK_SORT_ASCENDING);
 
     gtk_tree_view_set_model( view, GTK_TREE_MODEL(list) );
     g_object_unref( list );
@@ -1507,11 +1525,9 @@ static GtkWidget *_lxpanel_generic_config_dlg(const char *title, Panel *p,
                   G_CALLBACK(on_entry_focus_out_old), val );
                 break;
             case CONF_TYPE_INT:
-                /* FIXME: the range shouldn't be hardcoded */
-                entry = gtk_spin_button_new_with_range( 0, 1000, 1 );
-                gtk_spin_button_set_value( GTK_SPIN_BUTTON(entry), *(int*)val );
-                g_signal_connect( entry, "value-changed",
-                  G_CALLBACK(on_spin_changed), val );
+                gtk_box_pack_start(dlg_vbox,
+                                   panel_config_int_button_new(name, val, 0, 1000),
+                                   FALSE, FALSE, 2);
                 break;
             case CONF_TYPE_BOOL:
                 entry = gtk_check_button_new();
@@ -1578,6 +1594,19 @@ static GtkWidget *_lxpanel_generic_config_dlg(const char *title, Panel *p,
     gtk_widget_show_all(GTK_WIDGET(dlg_vbox));
 
     return dlg;
+}
+
+GtkWidget *panel_config_int_button_new(const char *name, gint *val,
+                                       gint min, gint max)
+{
+    GtkWidget *entry = gtk_spin_button_new_with_range(min, max, 1);
+    GtkWidget *hbox = gtk_hbox_new(FALSE, 2);
+
+    gtk_spin_button_set_value(GTK_SPIN_BUTTON(entry), *val);
+    g_signal_connect(entry, "value-changed", G_CALLBACK(on_spin_changed), val);
+    gtk_box_pack_start(GTK_BOX(hbox), gtk_label_new(name), FALSE, FALSE, 2);
+    gtk_box_pack_start(GTK_BOX(hbox), entry, TRUE, TRUE, 2);
+    return hbox;
 }
 
 /* new plugins API -- apply_func() gets GtkWidget* */

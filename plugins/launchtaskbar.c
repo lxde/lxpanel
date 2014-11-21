@@ -108,6 +108,7 @@ typedef struct _task {
     GtkWidget * image;                      /* Icon for task, child of button */
     Atom image_source;                      /* Atom that is the source of taskbar icon */
     GtkWidget * label;                      /* Label for task, child of button */
+    GtkWidget * menu_item;                  /* Menu item for grouped task after click */
     int desktop;                            /* Desktop that contains task, needed to switch to it on Raise */
     gint monitor;                           /* Monitor that the window is on or closest to */
     guint flash_timeout;                    /* Timer for urgency notification */
@@ -163,6 +164,7 @@ struct LaunchTaskBarPlugin {
     gboolean flat_button;          /* User preference: taskbar buttons have visible background */
     gboolean grouped_tasks;        /* User preference: windows from same task are grouped onto a single button */
     gboolean same_monitor_only;    /* User preference: only show windows that are in the same monitor as the taskbar */
+    gboolean disable_taskbar_upscale; /* User preference: don't upscale taskbar icons */
     int task_width_max;            /* Maximum width of a taskbar button in horizontal orientation */
     int spacing;                   /* Spacing between taskbar buttons */
     gboolean use_net_active;       /* NET_WM_ACTIVE_WINDOW is supported by the window manager */
@@ -716,6 +718,8 @@ static void launchtaskbar_constructor_task(LaunchTaskBarPlugin *ltbp)
             ltbp->show_all_desks = (tmp_int != 0);
         if (config_setting_lookup_int(s, "SameMonitorOnly", &tmp_int))
             ltbp->same_monitor_only = (tmp_int != 0);
+        if (config_setting_lookup_int(s, "DisableUpscale", &tmp_int))
+            ltbp->disable_taskbar_upscale = (tmp_int != 0);
         config_setting_lookup_int(s, "MaxTaskWidth", &ltbp->task_width_max);
         config_setting_lookup_int(s, "spacing", &ltbp->spacing);
         if (config_setting_lookup_int(s, "UseMouseWheel", &tmp_int))
@@ -1207,6 +1211,15 @@ static void on_checkbutton_same_monitor_only_toggled(GtkToggleButton *p_togglebu
     taskbar_apply_configuration(ltbp);
 }
 
+static void on_checkbutton_disable_taskbar_upscale_toggled(GtkToggleButton *p_togglebutton, gpointer p_data)
+{
+    LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p_data;
+    ltbp->disable_taskbar_upscale = gtk_toggle_button_get_active(p_togglebutton);
+    //g_print("\ntb->disable_taskbar_upscale upd\n");
+    config_group_set_int(ltbp->settings, "DisableUpscale", ltbp->disable_taskbar_upscale);
+    taskbar_apply_configuration(ltbp);
+}
+
 static void on_checkbutton_mouse_wheel_toggled(GtkToggleButton *p_togglebutton, gpointer p_data)
 {
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p_data;
@@ -1390,7 +1403,15 @@ static GtkWidget *launchtaskbar_configure(LXPanel *panel, GtkWidget *p)
         SETUP_TOGGLE_BUTTON(checkbutton_mouse_wheel, use_mouse_wheel);
         SETUP_TOGGLE_BUTTON(checkbutton_urgency_hint, use_urgency_hint);
         SETUP_TOGGLE_BUTTON(checkbutton_grouped_tasks, grouped_tasks);
+        //SETUP_TOGGLE_BUTTON(checkbutton_disable_taskbar_upscale, disable_taskbar_upscale);
 #undef SETUP_TOGGLE_BUTTON
+        /* FIXME: for transitional period, turn into SETUP_TOGGLE_BUTTON later */
+        object = gtk_builder_get_object(builder, "checkbutton_disable_taskbar_upscale");
+        if (object)
+        {
+            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(object), ltbp->disable_taskbar_upscale); \
+            g_signal_connect(object, "toggled", G_CALLBACK(on_checkbutton_disable_taskbar_upscale_toggled), ltbp);
+        }
 
 #define SETUP_SPIN_BUTTON(button,member) \
         object = gtk_builder_get_object(builder, #button); \
@@ -1451,16 +1472,11 @@ static void launchtaskbar_panel_configuration_changed(LXPanel *panel, GtkWidget 
         g_object_unref(icon);
     }
 
-    if (ltbp->tb_built)
-    {
-        taskbar_update_style(ltbp);
-        taskbar_make_menu(ltbp);
-    }
-
     /* If the icon size changed, refetch all the icons. */
     if (new_icon_size != ltbp->icon_size)
     {
         Task * tk;
+        ltbp->icon_size = new_icon_size;
         for (tk = ltbp->p_task_list; tk != NULL; tk = tk->p_task_flink_xwid)
         {
             GdkPixbuf * pixbuf = task_update_icon(ltbp, tk, None);
@@ -1474,7 +1490,11 @@ static void launchtaskbar_panel_configuration_changed(LXPanel *panel, GtkWidget 
 
     /* Redraw all the labels.  Icon size or font color may have changed. */
     if (ltbp->tb_built)
+    {
+        taskbar_update_style(ltbp);
+        taskbar_make_menu(ltbp);
         taskbar_redraw(ltbp);
+    }
 }
 
 /* Set an urgency timer on a task. */
@@ -1483,7 +1503,7 @@ static void set_timer_on_task(Task * tk)
     gint interval;
     g_return_if_fail(tk->flash_timeout == 0);
     g_object_get(gtk_widget_get_settings(tk->button), "gtk-cursor-blink-time", &interval, NULL);
-    tk->flash_timeout = g_timeout_add(interval, flash_window_timeout, tk);
+    tk->flash_timeout = g_timeout_add(interval / 2, flash_window_timeout, tk);
 }
 
 /* Determine if a task is visible considering only its desktop placement. */
@@ -1512,7 +1532,7 @@ static void recompute_group_visibility_for_class(LaunchTaskBarPlugin * tb, TaskC
             tc->visible_count += 1;
 
             /* Compute summary bit for urgency anywhere in the class. */
-            if (tk->urgency)
+            if (tk->urgency && !tk->focused)
                 class_has_urgency = TRUE;
 
             /* If there is urgency, record the currently flashing task. */
@@ -1551,6 +1571,10 @@ static void recompute_group_visibility_for_class(LaunchTaskBarPlugin * tb, TaskC
             flashing_task->flash_timeout = 0;
             tc->p_task_visible->flash_state = flashing_task->flash_state;
             flashing_task->flash_state = FALSE;
+            if (tc->p_task_visible->menu_item != NULL)
+                g_object_unref(tc->p_task_visible->menu_item);
+            tc->p_task_visible->menu_item = flashing_task->menu_item;
+            flashing_task->menu_item = NULL;
             set_timer_on_task(tc->p_task_visible);
         }
     }
@@ -1868,6 +1892,12 @@ static void task_delete(LaunchTaskBarPlugin * tb, Task * tk, gboolean unlink, gb
         tk->flash_timeout = 0;
     }
 
+    if (tk->menu_item)
+    {
+        g_object_unref(tk->menu_item);
+        tk->menu_item = NULL;
+    }
+
     /* Deallocate structures. */
     if (remove)
     {
@@ -1985,7 +2015,9 @@ static GdkPixbuf * apply_mask(GdkPixbuf * pixbuf, GdkPixbuf * mask)
 }
 
 /* Get an icon from the window manager for a task, and scale it to a specified size. */
-static GdkPixbuf * get_wm_icon(Window task_win, guint required_width, guint required_height, Atom source, Atom * current_source)
+static GdkPixbuf * get_wm_icon(Window task_win, guint required_width,
+                               guint required_height, Atom source,
+                               Atom * current_source, LaunchTaskBarPlugin * tb)
 {
     /* The result. */
     GdkPixbuf * pixmap = NULL;
@@ -2225,17 +2257,21 @@ static GdkPixbuf * get_wm_icon(Window task_win, guint required_width, guint requ
         return NULL;
     else
     {
-        gulong w = gdk_pixbuf_get_width (pixmap);
-	gulong h = gdk_pixbuf_get_height (pixmap);
-	if ((w > required_width) || (h > required_height))
-	{
-	    w = required_width;
-	    h = required_height;
-	}
+        GdkPixbuf * ret;
 
-        GdkPixbuf * ret = gdk_pixbuf_scale_simple(pixmap, w, h, GDK_INTERP_TILES);
-        g_object_unref(pixmap);
         *current_source = possible_source;
+        if (tb->disable_taskbar_upscale)
+        {
+            guint w = gdk_pixbuf_get_width (pixmap);
+            guint h = gdk_pixbuf_get_height (pixmap);
+            if (w <= required_width || h <= required_height)
+            {
+                return pixmap;
+            }
+        }
+        ret = gdk_pixbuf_scale_simple(pixmap, required_width, required_height,
+                                      GDK_INTERP_BILINEAR);
+        g_object_unref(pixmap);
         return ret;
     }
 }
@@ -2246,7 +2282,7 @@ static GdkPixbuf * task_update_icon(LaunchTaskBarPlugin * tb, Task * tk, Atom so
     /* Get the icon from the window's hints. */
     GdkPixbuf * pixbuf = get_wm_icon(tk->win, MAX(0, tb->icon_size - ICON_BUTTON_TRIM),
                                      MAX(0, tb->icon_size - ICON_BUTTON_TRIM),
-                                     source, &tk->image_source);
+                                     source, &tk->image_source, tb);
 
     /* If that fails, and we have no other icon yet, return the fallback icon. */
     if ((pixbuf == NULL)
@@ -2270,6 +2306,9 @@ static void flash_window_update(Task * tk)
     if ( ! tk->tb->flat_button)
         gtk_widget_set_state(tk->button, tk->flash_state ? GTK_STATE_SELECTED : GTK_STATE_NORMAL);
     task_draw_label(tk);
+    if (tk->menu_item != NULL && gtk_widget_get_mapped(tk->menu_item))
+        /* if submenu exists and mapped then set state too */
+        gtk_widget_set_state(tk->menu_item, tk->flash_state ? GTK_STATE_SELECTED : GTK_STATE_NORMAL);
 
     /* Complement the flashing context. */
     tk->flash_state = ! tk->flash_state;
@@ -2316,6 +2355,11 @@ static void task_clear_urgency(Task * tk)
         {
             g_source_remove(tk->flash_timeout);
             tk->flash_timeout = 0;
+        }
+        if (tk->menu_item)
+        {
+            g_object_unref(tk->menu_item);
+            tk->menu_item = NULL;
         }
 
         /* Clear the flashing context and unflash the window immediately. */
@@ -2428,6 +2472,7 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
             menu = gtk_menu_new();
             /* Bring up a popup menu listing all the class members. */
             Task * tk_cursor;
+            GtkWidget * flashing_menu = NULL;
             for (tk_cursor = tc->p_task_head; tk_cursor != NULL;
                     tk_cursor = tk_cursor->p_task_flink_same_class)
             {
@@ -2443,8 +2488,18 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
                     g_signal_connect(mi, "button-press-event",
                             G_CALLBACK(taskbar_popup_activate_event), (gpointer) tk_cursor);
                     gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
+                    /* set mi as if it's urgent with reference */
+                    if (tk_cursor->menu_item != NULL)
+                        g_object_unref(tk_cursor->menu_item);
+                    tk_cursor->menu_item = NULL;
+                    if (tk_cursor->urgency && !tk_cursor->focused && flashing_menu == NULL)
+                        flashing_menu = g_object_ref_sink(mi);
                 }
             }
+            /* since tc->visible_count > 1, tc->p_task_visible cannot be NULL */
+            g_assert(tc->p_task_visible != NULL);
+            g_assert(tc->p_task_visible->menu_item == NULL);
+            tc->p_task_visible->menu_item = flashing_menu;
         }
         else if(event->button == 3) /* Right click */
         {
@@ -2814,7 +2869,7 @@ static void task_build_gui(LaunchTaskBarPlugin * tb, Task * tk)
     task_update_style(tk, tb);
 
     /* Flash button for window with urgency hint. */
-    if (tk->urgency)
+    if (tk->urgency && !tk->focused)
         task_set_urgency(tk);
 }
 
@@ -3014,6 +3069,8 @@ static void taskbar_net_active_window(GtkWidget * widget, LaunchTaskBarPlugin * 
     if ((ctk != NULL) && (drop_old))
     {
         ctk->focused = FALSE;
+        if (ctk->urgency)
+            task_set_urgency(ctk);
         tb->focused = NULL;
         if(!tb->flat_button) /* relieve the button if flat buttons is not used. */
             gtk_toggle_button_set_active((GtkToggleButton*)ctk->button, FALSE);
@@ -3027,6 +3084,8 @@ static void taskbar_net_active_window(GtkWidget * widget, LaunchTaskBarPlugin * 
         if(!tb->flat_button) /* depress the button if flat buttons is not used. */
             gtk_toggle_button_set_active((GtkToggleButton*)ntk->button, TRUE);
         ntk->focused = TRUE;
+        if (ntk->urgency)
+            task_clear_urgency(ntk);
         tb->focused = ntk;
         task_button_redraw(ntk, tb);
     }
@@ -3111,7 +3170,7 @@ static void taskbar_property_notify_event(LaunchTaskBarPlugin *tb, XEvent *ev)
                     if (tb->use_urgency_hint)
                     {
                         tk->urgency = task_has_urgency(tk);
-                        if (tk->urgency)
+                        if (tk->urgency && !tk->focused)
                             task_set_urgency(tk);
                         else
                             task_clear_urgency(tk);

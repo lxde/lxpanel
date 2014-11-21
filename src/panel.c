@@ -126,6 +126,11 @@ static void panel_stop_gui(LXPanel *self)
         g_source_remove(p->background_update_queued);
         p->background_update_queued = 0;
     }
+    if (p->strut_update_queued)
+    {
+        g_source_remove(p->strut_update_queued);
+        p->strut_update_queued = 0;
+    }
 
     if (gtk_bin_get_child(GTK_BIN(self)))
     {
@@ -168,6 +173,19 @@ void _panel_queue_update_background(LXPanel *panel)
     panel->priv->background_update_queued = g_idle_add_full(G_PRIORITY_HIGH,
                                                             idle_update_background,
                                                             panel, NULL);
+}
+
+static gboolean idle_update_strut(gpointer p)
+{
+    LXPanel *panel = LXPANEL(p);
+
+    if (g_source_is_destroyed(g_main_current_source()))
+        return FALSE;
+
+    _panel_set_wm_strut(panel);
+    panel->priv->strut_update_queued = 0;
+
+    return FALSE;
 }
 
 static void lxpanel_realize(GtkWidget *widget)
@@ -235,15 +253,16 @@ static void lxpanel_size_allocate(GtkWidget *widget, GtkAllocation *a)
         p->ah = a->height;
         /* FIXME: should we "correct" requested sizes? */
         gtk_window_move(GTK_WINDOW(widget), p->ax, p->ay);
-        _panel_set_wm_strut(panel);
+        /* SF bug #708: strut update does not work while in size allocation */
+        if (!panel->priv->strut_update_queued)
+            panel->priv->strut_update_queued = g_idle_add_full(G_PRIORITY_HIGH,
+                                                               idle_update_strut,
+                                                               panel, NULL);
         _panel_queue_update_background(panel);
     }
-    if (p->background_update_queued)
-    {
-        g_source_remove(p->background_update_queued);
-        p->background_update_queued = 0;
-        _panel_update_background(LXPANEL(widget));
-    }
+
+    if (gtk_widget_get_mapped(widget))
+        _panel_establish_autohide(panel);
 }
 
 static gboolean lxpanel_configure_event (GtkWidget *widget, GdkEventConfigure *e)
@@ -342,13 +361,20 @@ static void lxpanel_init(PanelToplevel *self)
     p->icon_theme = gtk_icon_theme_get_default();
     p->config = config_new();
     p->defstyle = gtk_widget_get_default_style();
-    gtk_window_set_type_hint(GTK_WINDOW(self), GDK_WINDOW_TYPE_HINT_DOCK);
 }
 
 /* Allocate and initialize new Panel structure. */
 static LXPanel* panel_allocate(void)
 {
-    return g_object_new(LX_TYPE_PANEL, NULL);
+    return g_object_new(LX_TYPE_PANEL,
+                        "border-width", 0,
+                        "decorated", FALSE,
+                        "name", "PanelToplevel",
+                        "resizable", FALSE,
+                        "title", "panel",
+                        "type-hint", GDK_WINDOW_TYPE_HINT_DOCK,
+                        "window-position", GTK_WIN_POS_NONE,
+                        NULL);
 }
 
 void _panel_emit_icon_size_changed(LXPanel *p)
@@ -521,7 +547,7 @@ void _panel_set_wm_strut(LXPanel *panel)
     {
         desired_strut[index] = strut_size;
         desired_strut[4 + index * 2] = strut_lower;
-        desired_strut[5 + index * 2] = strut_upper;
+        desired_strut[5 + index * 2] = strut_upper - 1;
     }
     else
     {
@@ -1283,16 +1309,8 @@ panel_start_gui(LXPanel *panel, config_setting_t *list)
     p->workarea = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_WORKAREA, XA_CARDINAL, &p->wa_len);
     p->ax = p->ay = p->aw = p->ah = 0;
 
-    /* main toplevel window */
-    /* p->topgwin =  gtk_window_new(GTK_WINDOW_TOPLEVEL); */
-    gtk_widget_set_name(w, "PanelToplevel");
     p->display = gdk_display_get_default();
-    gtk_container_set_border_width(GTK_CONTAINER(panel), 0);
-    gtk_window_set_resizable(GTK_WINDOW(panel), FALSE);
     gtk_window_set_wmclass(GTK_WINDOW(panel), "panel", "lxpanel");
-    gtk_window_set_title(GTK_WINDOW(panel), "panel");
-    gtk_window_set_position(GTK_WINDOW(panel), GTK_WIN_POS_NONE);
-    gtk_window_set_decorated(GTK_WINDOW(panel), FALSE);
 
     if (G_UNLIKELY(win_grp == NULL))
     {
@@ -1333,10 +1351,9 @@ panel_start_gui(LXPanel *panel, config_setting_t *list)
     panel_set_dock_type(p);
 
     /* window mapping point */
-    gtk_widget_show_all(w);
+    gtk_window_present(GTK_WINDOW(panel));
 
     /* the settings that should be done after window is mapped */
-    _panel_establish_autohide(panel);
 
     /* send it to running wm */
     Xclimsg(p->topxwin, a_NET_WM_DESKTOP, G_MAXULONG, 0, 0, 0, 0);

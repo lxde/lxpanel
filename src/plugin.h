@@ -269,7 +269,7 @@ typedef enum {
  * Variable-size list of options consists of three arguments for each
  * option:
  *   - const char* name: text representing the option in dialog
- *   - gpointer ret_value: (out): pointer to the option value
+ *   - gpointer ret_value: (in out): pointer to the option value
  *   - PluginConfType type: type of the option
  *
  * Returns: (tranfer full): new created dialog widget.
@@ -280,6 +280,28 @@ extern GtkWidget *lxpanel_generic_config_dlg(const char *title, LXPanel *panel,
                                              GtkWidget *plugin,
                                              const char *name, ...);
 
+/**
+ * panel_config_int_button_new
+ * @name: text representing the option in dialog
+ * @min: minimal spin button value
+ * @max: maximal spin button value
+ * @val: (in out): pointer to the option value
+ *
+ * Widget to use as CONF_TYPE_EXTERNAL instead of CONF_TYPE_INT if plugin
+ * wants to customize range for lxpanel_generic_config_dlg(). The default
+ * widget uses range 0...1000 and here you can set custom range. This API
+ * should be never used outside of lxpanel_generic_config_dlg() arguments
+ * since it uses callbacks specific to that API.
+ *
+ * See also: lxpanel_generic_config_dlg().
+ *
+ * Returns: (transfer full): new widget.
+ *
+ * Since: 0.8.0
+ */
+extern GtkWidget *panel_config_int_button_new(const char *name, gint *val,
+                                              gint min, gint max);
+
 /*
  * creates GtkFrame derived widget which can change hotkey or mouse binding
  * emits "changed" signal: void callback(PanelCfgInputButton *, char *, gpointer);
@@ -288,8 +310,8 @@ extern GtkWidget *lxpanel_generic_config_dlg(const char *title, LXPanel *panel,
  *
  * Since: 0.8.0
  */
-GtkWidget *panel_config_hotkey_button_new(const char *label, const char *hotkey);
-GtkWidget *panel_config_click_button_new(const char *label, const char *click);
+extern GtkWidget *panel_config_hotkey_button_new(const char *label, const char *hotkey);
+extern GtkWidget *panel_config_click_button_new(const char *label, const char *click);
 
 /**
  * lxpanel_apply_hotkey
@@ -310,9 +332,24 @@ GtkWidget *panel_config_click_button_new(const char *label, const char *click);
  *
  * Since: 0.8.0
  */
-gboolean lxpanel_apply_hotkey(char **hkptr, const char *keystring,
-                              void (*handler)(const char *keystring, gpointer user_data),
-                              gpointer user_data, gboolean show_error);
+extern gboolean lxpanel_apply_hotkey(char **hkptr, const char *keystring,
+                                     void (*handler)(const char *keystring, gpointer user_data),
+                                     gpointer user_data, gboolean show_error);
+
+/**
+ * panel_config_click_parse
+ * @keystring: string to parse
+ * @mods: (out): return location for modifier
+ *
+ * Parses click string received in "changed" signal emission of widget
+ * created with panel_config_click_button_new() and returns button and
+ * modifier that can be compared with GdkEventButton data when required.
+ *
+ * Returns: button number or 0 if @keystring is invalid.
+ *
+ * Since: 0.8.0
+ */
+extern guint panel_config_click_parse(const char *keystring, GdkModifierType *mods);
 
 G_END_DECLS
 

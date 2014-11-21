@@ -1,0 +1,11 @@
+* drag & drop plugins via middle button
+* "Move" option in plugin context menu
+* "lxpanelctl command ..."
+* drag & drop launchers
+* accessibility
+* 'volumealsa' improvements
+* compose new custom launcher in launchbar config dialog
+* manage invisible panel from unplugged monitor
+* hotkeys for launchers
+* support rounded corners
+* support keywords in gtk-run
