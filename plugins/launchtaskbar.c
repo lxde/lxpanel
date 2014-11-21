@@ -1571,6 +1571,10 @@ static void recompute_group_visibility_for_class(LaunchTaskBarPlugin * tb, TaskC
             flashing_task->flash_timeout = 0;
             tc->p_task_visible->flash_state = flashing_task->flash_state;
             flashing_task->flash_state = FALSE;
+            if (tc->p_task_visible->menu_item != NULL)
+                g_object_unref(tc->p_task_visible->menu_item);
+            tc->p_task_visible->menu_item = flashing_task->menu_item;
+            flashing_task->menu_item = NULL;
             set_timer_on_task(tc->p_task_visible);
         }
     }
@@ -2492,6 +2496,9 @@ static gboolean taskbar_task_control_event(GtkWidget * widget, GdkEventButton * 
                         flashing_menu = g_object_ref_sink(mi);
                 }
             }
+            /* since tc->visible_count > 1, tc->p_task_visible cannot be NULL */
+            g_assert(tc->p_task_visible != NULL);
+            g_assert(tc->p_task_visible->menu_item == NULL);
             tc->p_task_visible->menu_item = flashing_menu;
         }
         else if(event->button == 3) /* Right click */
