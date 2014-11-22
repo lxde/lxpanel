@@ -152,7 +152,8 @@ guint32 gcolor2rgb24(GdkColor *color);
  *
  * Creates new #GtkEventBox button which will follow theme and icon size
  * changes on @panel. If icon name is not found in theme then fallback
- * name "application-x-executable" will be used.
+ * name "application-x-executable" will be used. Button is flagged to be
+ * displayed.
  *
  * Returns: (transfer full): a new #GtkEventBox widget.
  */

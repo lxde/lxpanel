@@ -386,7 +386,6 @@ static void launchbutton_build_bootstrap(LaunchTaskBarPlugin *lb)
 
         /* Add the bootstrap button to the icon grid.  By policy it is empty at this point. */
         gtk_container_add(GTK_CONTAINER(lb->lb_icon_grid), lb->bootstrap_button->widget);
-        gtk_widget_show_all(lb->bootstrap_button->widget);
         plugin_widget_set_background(lb->bootstrap_button->widget, lb->panel);
     }
     else
@@ -508,7 +507,6 @@ static LaunchButton *launchbutton_for_file_info(LaunchTaskBarPlugin * lb, FmFile
     lb->buttons = g_slist_append(lb->buttons, btn);
 
     /* Show the widget and return. */
-    gtk_widget_show(button);
     plugin_widget_set_background(button, lb->panel);
     return btn;
 }

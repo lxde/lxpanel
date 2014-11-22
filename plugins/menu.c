@@ -721,7 +721,6 @@ make_button(menup *m, const gchar *fname, const gchar *name, GdkColor* tint, Gtk
         m->img = lxpanel_button_new_for_icon(m->panel, fname, tint, NULL);
     }
 
-    gtk_widget_show(m->img);
     gtk_container_add(GTK_CONTAINER(m->box), m->img);
 
     m->ds = fm_dnd_src_new(NULL);
