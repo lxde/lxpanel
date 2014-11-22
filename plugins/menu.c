@@ -1016,19 +1016,12 @@ static GtkWidget *menu_config(LXPanel *panel, GtkWidget *p)
                                       NULL);
 }
 
-/* Callback when panel configuration changes. */
-static void menu_panel_configuration_changed(LXPanel *panel, GtkWidget *p)
-{
-    apply_config(p);
-}
-
 LXPanelPluginInit lxpanel_static_plugin_menu = {
     .name = N_("Menu"),
     .description = N_("Application Menu"),
 
     .new_instance = menu_constructor,
     .config = menu_config,
-    .reconfigure = menu_panel_configuration_changed,
     .button_press_event = menu_button_press_event,
     .show_system_menu = show_system_menu
 };

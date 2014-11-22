@@ -427,12 +427,6 @@ static GtkWidget *dclock_configure(LXPanel *panel, GtkWidget *p)
         NULL);
 }
 
-/* Callback when panel configuration changes. */
-static void dclock_reconfigure(LXPanel *panel, GtkWidget *p)
-{
-    dclock_apply_configuration(p);
-}
-
 /* Plugin descriptor. */
 LXPanelPluginInit lxpanel_static_plugin_dclock = {
     .name = N_("Digital Clock"),
@@ -440,6 +434,5 @@ LXPanelPluginInit lxpanel_static_plugin_dclock = {
 
     .new_instance = dclock_constructor,
     .config = dclock_configure,
-    .reconfigure = dclock_reconfigure,
     .button_press_event = dclock_button_press_event
 };
