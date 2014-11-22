@@ -69,6 +69,10 @@
 * Added new API lxpanel_button_compose() for future usage by plugins.
 * Added optional volumealsa plugin volume mapping from alsamixer (patch
     from Peter).
+* Added new API lxpanel_button_set_label() to change label of button that
+    was created using some lxpanel_button_*() API.
+* Added "panel-font-changed" signal to LXPanel to be able follow settings
+    change in font configuration of panel using lxpanel_button_*() API.
 
 0.7.2
 -------------------------------------------------------------------------

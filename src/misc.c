@@ -39,6 +39,7 @@ typedef struct {
     FmIcon *icon;
     guint theme_changed_handler;
     guint icon_changed_handler;
+    guint font_changed_handler;
     GdkPixbuf* pixbuf;
     GdkPixbuf* hilight;
     gulong hicolor;
@@ -928,6 +929,8 @@ static void img_data_free(ImgData * data)
     {
         g_object_remove_weak_pointer(G_OBJECT(data->panel), (gpointer *)&data->panel);
         g_signal_handler_disconnect(data->panel, data->icon_changed_handler);
+        if (data->font_changed_handler != 0)
+            g_signal_handler_disconnect(data->panel, data->font_changed_handler);
     }
     if (data->pixbuf != NULL)
         g_object_unref(data->pixbuf);
@@ -988,6 +991,38 @@ void lxpanel_button_set_icon(GtkWidget* btn, const gchar *name, gint size)
 void lxpanel_button_update_icon(GtkWidget* btn, FmIcon *icon, gint size)
 {
     _lxpanel_button_set_icon(btn, g_object_ref(icon), size);
+}
+
+gboolean lxpanel_button_set_label(GtkWidget *btn, const char *label)
+{
+    /* Locate the image within the button. */
+    GtkWidget * child = gtk_bin_get_child(GTK_BIN(btn));
+    GtkWidget * lbl = NULL;
+    GtkWidget * img = NULL;
+    ImgData * data = NULL;
+
+    if (GTK_IS_BOX(child))
+    {
+        GList * children = gtk_container_get_children(GTK_CONTAINER(child)), *l;
+        for (l = children; l; l = l->next)
+            if (GTK_IS_LABEL(l->data))
+                lbl = l->data;
+            else if (GTK_IS_IMAGE(l->data))
+                img = l->data;
+        g_list_free(children);
+    }
+
+    if (G_UNLIKELY(lbl == NULL))
+        return FALSE;
+
+    if (G_LIKELY(img != NULL))
+        data = (ImgData *) g_object_get_qdata(G_OBJECT(img), img_data_id);
+
+    if (G_LIKELY(data != NULL && data->panel != NULL))
+        lxpanel_draw_label_text(data->panel, lbl, label, FALSE, 1, TRUE);
+    else
+        gtk_label_set_text(GTK_LABEL(lbl), label);
+    return TRUE;
 }
 
 /* parameters width and keep_ratio are unused, kept for backward compatibility */
@@ -1221,6 +1256,12 @@ static gboolean fb_button_leave(GtkImage * widget, GdkEventCrossing * event, gpo
     return TRUE;
 }
 
+static void on_font_changed(LXPanel * panel, GtkLabel * lbl)
+{
+    const char *label = gtk_label_get_text(lbl);
+    lxpanel_draw_label_text(panel, GTK_WIDGET(lbl), label, FALSE, 1, TRUE);
+}
+
 static GtkWidget *_lxpanel_button_compose(GtkWidget *event_box, GtkWidget *image,
                                           gulong highlight_color, const gchar *label)
 {
@@ -1251,7 +1292,13 @@ static GtkWidget *_lxpanel_button_compose(GtkWidget *event_box, GtkWidget *image
 
         lbl = gtk_label_new("");
         if (G_LIKELY(data != NULL && data->panel != NULL))
+        {
             lxpanel_draw_label_text(data->panel, lbl, label, FALSE, 1, TRUE);
+            data->font_changed_handler = g_signal_connect(data->panel,
+                                                          "panel-font-changed",
+                                                          G_CALLBACK(on_font_changed),
+                                                          lbl);
+        }
         else
             gtk_label_set_text(GTK_LABEL(lbl), label);
         gtk_misc_set_padding(GTK_MISC(lbl), 2, 0);

@@ -304,20 +304,6 @@ static void dirmenu_destructor(gpointer user_data)
     g_free(dm);
 }
 
-/* Recursively apply a configuration change. */
-static void dirmenu_apply_configuration_to_children(GtkWidget * w, DirMenuPlugin * dm)
-{
-    if (GTK_IS_CONTAINER(w))
-        gtk_container_foreach(GTK_CONTAINER(w), (GtkCallback) dirmenu_apply_configuration_to_children, (gpointer) dm);
-    else if (GTK_IS_LABEL(w))
-    {
-        if (dm->name == NULL)
-            gtk_label_set_text(GTK_LABEL(w), NULL);
-        else
-            lxpanel_draw_label_text(dm->panel, w, dm->name, FALSE, 1, TRUE);
-    }
-}
-
 /* Callback when the configuration dialog has recorded a configuration change. */
 static gboolean dirmenu_apply_configuration(gpointer user_data)
 {
@@ -340,9 +326,9 @@ static gboolean dirmenu_apply_configuration(gpointer user_data)
     config_group_set_string(dm->settings, "image", dm->image);
 
     lxpanel_button_set_icon(p, ((dm->image != NULL) ? dm->image : "file-manager"), -1);
+    lxpanel_button_set_label(p, dm->name);
 
     gtk_widget_set_tooltip_text(p, dm->path);
-    gtk_container_foreach(GTK_CONTAINER(p), (GtkCallback) dirmenu_apply_configuration_to_children, (gpointer) dm);
     return FALSE;
 }
 
@@ -358,12 +344,6 @@ static GtkWidget *dirmenu_configure(LXPanel *panel, GtkWidget *p)
         NULL);
 }
 
-/* Callback when panel configuration changes. */
-static void dirmenu_panel_configuration_changed(LXPanel *panel, GtkWidget *p)
-{
-    dirmenu_apply_configuration(p);
-}
-
 /* Plugin descriptor. */
 LXPanelPluginInit lxpanel_static_plugin_dirmenu = {
     .name = N_("Directory Menu"),
@@ -371,6 +351,5 @@ LXPanelPluginInit lxpanel_static_plugin_dirmenu = {
 
     .new_instance = dirmenu_constructor,
     .config = dirmenu_configure,
-    .reconfigure = dirmenu_panel_configuration_changed,
     .button_press_event = dirmenu_button_press_event
 };
