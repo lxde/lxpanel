@@ -300,7 +300,6 @@ GtkWidget *panel_config_hotkey_button_new(const char *label, const char *hotkey)
 GtkWidget *panel_config_click_button_new(const char *label, const char *click)
 {
     PanelCfgInputButton *btn = _config_input_button_new(label);
-    char *text;
 
     btn->do_click = TRUE;
     if (click && *click)

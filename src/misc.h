@@ -175,6 +175,21 @@ extern void lxpanel_button_set_icon(GtkWidget* btn, const gchar *name, gint size
 extern void lxpanel_button_update_icon(GtkWidget* btn, FmIcon *icon, gint size);
 
 /**
+ * lxpanel_button_set_label
+ * @btn: a button instance
+ * @label: new label text
+ *
+ * Changes text of label created with lxpanel_button_new_for_icon(),
+ * lxpanel_button_new_for_fm_icon(), or lxpanel_button_compose(). Does
+ * nothing if those API were called with NULL passed as label.
+ *
+ * Returns: %TRUE in case of success.
+ *
+ * Since: 0.8.0
+ */
+extern gboolean lxpanel_button_set_label(GtkWidget *btn, const char *label);
+
+/**
  * lxpanel_button_compose
  * @event_box: a widget to add image and label
  * @image: an image widget

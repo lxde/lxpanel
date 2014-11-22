@@ -990,6 +990,38 @@ void lxpanel_button_update_icon(GtkWidget* btn, FmIcon *icon, gint size)
     _lxpanel_button_set_icon(btn, g_object_ref(icon), size);
 }
 
+gboolean lxpanel_button_set_label(GtkWidget *btn, const char *label)
+{
+    /* Locate the image within the button. */
+    GtkWidget * child = gtk_bin_get_child(GTK_BIN(btn));
+    GtkWidget * lbl = NULL;
+    GtkWidget * img = NULL;
+    ImgData * data = NULL;
+
+    if (GTK_IS_BOX(child))
+    {
+        GList * children = gtk_container_get_children(GTK_CONTAINER(child)), *l;
+        for (l = children; l; l = l->next)
+            if (GTK_IS_LABEL(l->data))
+                lbl = l->data;
+            else if (GTK_IS_IMAGE(l->data))
+                img = l->data;
+        g_list_free(children);
+    }
+
+    if (G_UNLIKELY(lbl == NULL))
+        return FALSE;
+
+    if (G_LIKELY(img != NULL))
+        data = (ImgData *) g_object_get_qdata(G_OBJECT(img), img_data_id);
+
+    if (G_LIKELY(data != NULL && data->panel != NULL))
+        lxpanel_draw_label_text(data->panel, lbl, label, FALSE, 1, TRUE);
+    else
+        gtk_label_set_text(GTK_LABEL(lbl), label);
+    return TRUE;
+}
+
 /* parameters width and keep_ratio are unused, kept for backward compatibility */
 void fb_button_set_from_file(GtkWidget * btn, const char * img_file, gint width, gint height, gboolean keep_ratio)
 {
