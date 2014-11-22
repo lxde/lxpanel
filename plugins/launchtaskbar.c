@@ -2676,10 +2676,8 @@ static void taskbar_button_enter(GtkWidget * widget, Task * tk)
 {
     tk->tb->dnd_task_moving = FALSE;
     tk->entered_state = TRUE;
-    if (tk->tb->flat_button) {
+    if (tk->tb->flat_button)
         gtk_widget_set_state(widget, GTK_STATE_NORMAL);
-        gtk_button_set_relief(GTK_BUTTON(tk->button), GTK_RELIEF_HALF);
-    }
     task_draw_label(tk);
 }
 
@@ -2687,9 +2685,6 @@ static void taskbar_button_enter(GtkWidget * widget, Task * tk)
 static void taskbar_button_leave(GtkWidget * widget, Task * tk)
 {
     tk->entered_state = FALSE;
-    if (tk->tb->flat_button) {
-        gtk_button_set_relief(GTK_BUTTON(tk->button), GTK_RELIEF_NONE);
-    }
     task_draw_label(tk);
 }
 

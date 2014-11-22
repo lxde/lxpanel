@@ -41,8 +41,6 @@
     configuration change.
 * Disabled scaling up small icons in the taskbar: scaled up icons look
     bad due to pixelization (patch from Anton Lobashev).
-* Set relief for taskbar button in flat button mode on mouseover (patch
-    from SHiNE CsyFeK).
 * When adding new panel, now correctly edges of monitor where popup was
     are tried before any other monitors.
 * Correctly open 'netstat' plugin own menu on leftclick since rightclick
