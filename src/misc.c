@@ -1221,6 +1221,53 @@ static gboolean fb_button_leave(GtkImage * widget, GdkEventCrossing * event, gpo
     return TRUE;
 }
 
+static GtkWidget *_lxpanel_button_compose(GtkWidget *event_box, GtkWidget *image,
+                                          gulong highlight_color, const gchar *label)
+{
+    ImgData * data = (ImgData *) g_object_get_qdata(G_OBJECT(image), img_data_id);
+
+    gtk_misc_set_padding(GTK_MISC(image), 0, 0);
+    gtk_misc_set_alignment(GTK_MISC(image), 0.5, 0.5);
+    if (highlight_color != 0 && data != NULL)
+    {
+        data->hicolor = highlight_color;
+        gtk_widget_add_events(event_box, GDK_ENTER_NOTIFY_MASK | GDK_LEAVE_NOTIFY_MASK);
+        g_signal_connect_swapped(G_OBJECT(event_box), "enter-notify-event", G_CALLBACK(fb_button_enter), image);
+        g_signal_connect_swapped(G_OBJECT(event_box), "leave-notify-event", G_CALLBACK(fb_button_leave), image);
+    }
+
+    if (label == NULL)
+        gtk_container_add(GTK_CONTAINER(event_box), image);
+    else
+    {
+        GtkWidget *inner, *lbl;
+
+        inner = gtk_hbox_new(FALSE, 0);
+        gtk_container_set_border_width(GTK_CONTAINER(inner), 0);
+        gtk_widget_set_can_focus(inner, FALSE);
+        gtk_container_add(GTK_CONTAINER(event_box), inner);
+
+        gtk_box_pack_start(GTK_BOX(inner), image, FALSE, FALSE, 0);
+
+        lbl = gtk_label_new("");
+        if (G_LIKELY(data != NULL && data->panel != NULL))
+            lxpanel_draw_label_text(data->panel, lbl, label, FALSE, 1, TRUE);
+        else
+            gtk_label_set_text(GTK_LABEL(lbl), label);
+        gtk_misc_set_padding(GTK_MISC(lbl), 2, 0);
+        gtk_box_pack_end(GTK_BOX(inner), lbl, FALSE, FALSE, 0);
+    }
+
+    gtk_widget_show_all(event_box);
+    return event_box;
+}
+
+GtkWidget *lxpanel_button_compose(GtkWidget *event_box, GtkWidget *image,
+                                  GdkColor *color, const gchar *label)
+{
+    gulong highlight_color = color ? gcolor2rgb24(color) : PANEL_ICON_HIGHLIGHT;
+    return _lxpanel_button_compose(event_box, image, highlight_color, label);
+}
 
 /* consumes reference on icon */
 static GtkWidget *_lxpanel_button_new_for_icon(LXPanel *panel, FmIcon *icon,
@@ -1232,37 +1279,7 @@ static GtkWidget *_lxpanel_button_new_for_icon(LXPanel *panel, FmIcon *icon,
     gtk_widget_set_can_focus(event_box, FALSE);
 
     GtkWidget * image = _gtk_image_new_for_icon(panel, icon, size, NULL);
-    gtk_misc_set_padding(GTK_MISC(image), 0, 0);
-    gtk_misc_set_alignment(GTK_MISC(image), 0.5, 0.5);
-    if (highlight_color != 0)
-    {
-        ImgData * data = (ImgData *) g_object_get_qdata(G_OBJECT(image), img_data_id);
-        data->hicolor = highlight_color;
-
-        gtk_widget_add_events(event_box, GDK_ENTER_NOTIFY_MASK | GDK_LEAVE_NOTIFY_MASK);
-        g_signal_connect_swapped(G_OBJECT(event_box), "enter-notify-event", G_CALLBACK(fb_button_enter), image);
-        g_signal_connect_swapped(G_OBJECT(event_box), "leave-notify-event", G_CALLBACK(fb_button_leave), image);
-    }
-
-    if (label == NULL)
-        gtk_container_add(GTK_CONTAINER(event_box), image);
-    else
-    {
-        GtkWidget * inner = gtk_hbox_new(FALSE, 0);
-        gtk_container_set_border_width(GTK_CONTAINER(inner), 0);
-        gtk_widget_set_can_focus(inner, FALSE);
-        gtk_container_add(GTK_CONTAINER(event_box), inner);
-
-        gtk_box_pack_start(GTK_BOX(inner), image, FALSE, FALSE, 0);
-
-        GtkWidget * lbl = gtk_label_new("");
-        lxpanel_draw_label_text(panel, lbl, label, FALSE, 1, TRUE);
-        gtk_misc_set_padding(GTK_MISC(lbl), 2, 0);
-        gtk_box_pack_end(GTK_BOX(inner), lbl, FALSE, FALSE, 0);
-    }
-
-    gtk_widget_show_all(event_box);
-    return event_box;
+    return _lxpanel_button_compose(event_box, image, highlight_color, label);
 }
 
 GtkWidget *lxpanel_button_new_for_icon(LXPanel *panel, const gchar *name, GdkColor *color, const gchar *label)

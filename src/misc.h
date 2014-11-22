@@ -156,8 +156,8 @@ guint32 gcolor2rgb24(GdkColor *color);
  *
  * Returns: (transfer full): a new #GtkEventBox widget.
  */
-GtkWidget *lxpanel_button_new_for_icon(LXPanel *panel, const gchar *name, GdkColor *color, const gchar *label);
-GtkWidget *lxpanel_button_new_for_fm_icon(LXPanel *panel, FmIcon *icon, GdkColor *color, const gchar *label);
+extern GtkWidget *lxpanel_button_new_for_icon(LXPanel *panel, const gchar *name, GdkColor *color, const gchar *label);
+extern GtkWidget *lxpanel_button_new_for_fm_icon(LXPanel *panel, FmIcon *icon, GdkColor *color, const gchar *label);
 
 /**
  * lxpanel_button_set_icon
@@ -170,8 +170,27 @@ GtkWidget *lxpanel_button_new_for_fm_icon(LXPanel *panel, FmIcon *icon, GdkColor
  * following panel icon size and use this fixed size, if @size is 0 then
  * do no changes on icons size.
  */
-void lxpanel_button_set_icon(GtkWidget* btn, const gchar *name, gint size);
-void lxpanel_button_update_icon(GtkWidget* btn, FmIcon *icon, gint size);
+extern void lxpanel_button_set_icon(GtkWidget* btn, const gchar *name, gint size);
+extern void lxpanel_button_update_icon(GtkWidget* btn, FmIcon *icon, gint size);
+
+/**
+ * lxpanel_button_compose
+ * @event_box: a widget to add image and label
+ * @image: an image widget
+ * @color: (allow-none): hilight color for icon
+ * @label: (allow-none): optional label for button
+ *
+ * Composes button similarly to lxpanel_button_new_for_icon() but using
+ * existing container @event_box and @image. The @image should be created
+ * using lxpanel_image_new_for_icon() or lxpanel_image_new_for_fm_icon(),
+ * and it can be updated later using lxpanel_button_set_icon() API.
+ *
+ * Returns: (transfer none): @event_box.
+ *
+ * Since: 0.8.0
+ */
+extern GtkWidget *lxpanel_button_compose(GtkWidget *event_box, GtkWidget *image,
+                                         GdkColor *color, const gchar *label);
 
 /**
  * lxpanel_image_new_for_icon
@@ -190,10 +209,10 @@ void lxpanel_button_update_icon(GtkWidget* btn, FmIcon *icon, gint size);
  *
  * Since: 0.8.0
  */
-GtkWidget *lxpanel_image_new_for_icon(LXPanel *panel, const gchar *name,
-                                      gint height, const gchar *fallback);
-GtkWidget *lxpanel_image_new_for_fm_icon(LXPanel *panel, FmIcon *icon,
-                                         gint height, const gchar *fallback);
+extern GtkWidget *lxpanel_image_new_for_icon(LXPanel *panel, const gchar *name,
+                                             gint height, const gchar *fallback);
+extern GtkWidget *lxpanel_image_new_for_fm_icon(LXPanel *panel, FmIcon *icon,
+                                                gint height, const gchar *fallback);
 
 /**
  * lxpanel_image_change_icon
@@ -208,8 +227,8 @@ GtkWidget *lxpanel_image_new_for_fm_icon(LXPanel *panel, FmIcon *icon,
  *
  * Since: 0.8.0
  */
-gboolean lxpanel_image_change_icon(GtkWidget *img, const gchar *name,
-                                   const char *fallback);
+extern gboolean lxpanel_image_change_icon(GtkWidget *img, const gchar *name,
+                                          const char *fallback);
 
 G_END_DECLS
 
