@@ -192,6 +192,8 @@ void lxpanel_button_update_icon(GtkWidget* btn, FmIcon *icon, gint size);
  */
 GtkWidget *lxpanel_image_new_for_icon(LXPanel *panel, const gchar *name,
                                       gint height, const gchar *fallback);
+GtkWidget *lxpanel_image_new_for_fm_icon(LXPanel *panel, FmIcon *icon,
+                                         gint height, const gchar *fallback);
 
 /**
  * lxpanel_image_change_icon

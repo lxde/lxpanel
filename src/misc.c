@@ -1092,6 +1092,12 @@ GtkWidget *lxpanel_image_new_for_icon(LXPanel *panel, const gchar *name,
     return _gtk_image_new_for_icon(panel, fm_icon_from_name(name), height, fallback);
 }
 
+GtkWidget *lxpanel_image_new_for_fm_icon(LXPanel *panel, FmIcon *icon,
+                                         gint height, const char *fallback)
+{
+    return _gtk_image_new_for_icon(panel, g_object_ref(icon), height, fallback);
+}
+
 gboolean lxpanel_image_change_icon(GtkWidget *img, const gchar *name, const char *fallback)
 {
     ImgData * data = (ImgData *) g_object_get_qdata(G_OBJECT(img), img_data_id);
