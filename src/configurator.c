@@ -692,7 +692,7 @@ static void on_add_plugin_response( GtkDialog* dlg,
 
                 panel_config_save(p->priv);
 
-                plugin_widget_set_background(pl, p);
+                //plugin_widget_set_background(pl, p);
                 gtk_container_child_get(GTK_CONTAINER(p->priv->box), pl, "expand", &expand, NULL);
                 model = gtk_tree_view_get_model( _view );
                 gtk_list_store_append( GTK_LIST_STORE(model), &it );
