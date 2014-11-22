@@ -67,6 +67,8 @@
 * Implemented sorting plugins in Add plugin window in alphabetic order.
 * Fixed font in the weather plugin to use panel settings.
 * Added new API lxpanel_button_compose() for future usage by plugins.
+* Added optional volumealsa plugin volume mapping from alsamixer (patch
+    from Peter).
 
 0.7.2
 -------------------------------------------------------------------------

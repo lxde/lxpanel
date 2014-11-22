@@ -627,16 +627,8 @@ static GtkWidget *volumealsa_constructor(LXPanel *panel, config_setting_t *setti
     VolumeALSAPlugin * vol = g_new0(VolumeALSAPlugin, 1);
     GtkWidget *p;
 
-    /* Allocate top level widget and set into Plugin widget pointer. */
-    vol->panel = panel;
-    vol->plugin = p = gtk_event_box_new();
-    vol->settings = settings;
-    lxpanel_plugin_set_data(p, vol, volumealsa_destructor);
-    gtk_widget_add_events(p, GDK_BUTTON_PRESS_MASK);
-    gtk_widget_set_tooltip_text(p, _("Volume control"));
-
     /* Read config necessary for proper initialization of ALSA. */
-    config_setting_lookup_int(vol->settings, "UseAlsamixerVolumeMapping", &vol->alsamixer_mapping);
+    config_setting_lookup_int(settings, "UseAlsamixerVolumeMapping", &vol->alsamixer_mapping);
 
     /* Initialize ALSA.  If that fails, present nothing. */
     if ( ! asound_initialize(vol))
@@ -644,6 +636,14 @@ static GtkWidget *volumealsa_constructor(LXPanel *panel, config_setting_t *setti
         volumealsa_destructor(vol);
         return NULL;
     }
+
+    /* Allocate top level widget and set into Plugin widget pointer. */
+    vol->panel = panel;
+    vol->plugin = p = gtk_event_box_new();
+    vol->settings = settings;
+    lxpanel_plugin_set_data(p, vol, volumealsa_destructor);
+    gtk_widget_add_events(p, GDK_BUTTON_PRESS_MASK);
+    gtk_widget_set_tooltip_text(p, _("Volume control"));
 
     /* Allocate icon as a child of top level. */
     vol->tray_icon = lxpanel_image_new_for_icon(panel, "audio-volume-muted-panel",
