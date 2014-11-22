@@ -9,3 +9,4 @@
 * hotkeys for launchers
 * support rounded corners
 * support keywords in gtk-run
+* convert Task into GtkWidget and use it to emit signals for menus and buttons

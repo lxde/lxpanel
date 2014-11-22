@@ -109,7 +109,7 @@ typedef struct _task {
     Atom image_source;                      /* Atom that is the source of taskbar icon */
     GtkWidget * label;                      /* Label for task, child of button */
     GtkWidget * menu_item;                  /* Menu item for grouped task after click */
-    int desktop;                            /* Desktop that contains task, needed to switch to it on Raise */
+    gint desktop;                           /* Desktop that contains task, needed to switch to it on Raise */
     gint monitor;                           /* Monitor that the window is on or closest to */
     guint flash_timeout;                    /* Timer for urgency notification */
     unsigned int focused                :1; /* True if window has focus */
@@ -118,19 +118,18 @@ typedef struct _task {
     unsigned int flash_state            :1; /* One-bit counter to flash taskbar */
     unsigned int entered_state          :1; /* True if cursor is inside taskbar button */
     unsigned int present_in_client_list :1; /* State during WM_CLIENT_LIST processing to detect deletions */
-} Task;
+} Task; /* FIXME: convert it into GtkWidget, eliminate button and menu_item */
 
 /* Representative of one launch button.
  * Note that the launch parameters come from the specified desktop file, or from the configuration file.
  * This structure is also used during the "add to launchtaskbar" dialog to hold menu items. */
 typedef struct {
     LaunchTaskBarPlugin * p;            /* Back pointer to plugin */
-    GtkWidget * widget;         /* Pointer to button */
-    GtkWidget * image_widget;   /* Pointer to image */
+    GtkWidget * widget;                 /* Pointer to button */
     FmFileInfo * fi;                    /* Launcher application descriptor */
     config_setting_t * settings;        /* Pointer to settings */
     FmDndDest * dd;                     /* Drag and drop support */
-} LaunchButton;
+} LaunchButton; /* FIXME: convert it into GtkWidget, button itself */
 
 /* Private context for taskbar plugin. */
 struct LaunchTaskBarPlugin {
@@ -138,7 +137,6 @@ struct LaunchTaskBarPlugin {
     GtkWidget *lb_icon_grid;         /* Icon grid managing the container */
     GSList        *buttons;          /* Launchbar buttons */
     LaunchButton  *bootstrap_button; /* Bootstrapping button for empty launchtaskbar */
-    FmIcon * add_icon;                  /* Icon for bootstrap_button */
     GtkWidget     *p_button_add, *p_button_remove, *p_label_menu_app_exec, *p_label_def_app_exec;
     /* TASKBAR */
     Task * p_task_list;            /* List of tasks to be displayed in taskbar */
@@ -374,31 +372,22 @@ static void launchbutton_build_bootstrap(LaunchTaskBarPlugin *lb)
 {
     if(lb->bootstrap_button == NULL)
     {
-        GdkPixbuf * icon;
         /* Build a button that has the stock "Add" icon.
          * The "desktop-id" being NULL is the marker that this is the bootstrap button. */
         lb->bootstrap_button = g_new0(LaunchButton, 1);
         lb->bootstrap_button->p = lb;
 
         /* Create an event box. */
-        GtkWidget * event_box = gtk_event_box_new();
-        gtk_container_set_border_width(GTK_CONTAINER(event_box), 0);
-        gtk_widget_set_can_focus            (event_box, FALSE);
-        lb->bootstrap_button->widget = event_box;
-        g_signal_connect(event_box, "button-press-event", G_CALLBACK(launchbutton_press_event), lb->bootstrap_button);
-
-        /* Create an image containing the stock "Add" icon as a child of the event box. */
-        lb->add_icon = fm_icon_from_name(GTK_STOCK_ADD);
-        icon = fm_pixbuf_from_icon(lb->add_icon, lb->icon_size);
-        lb->bootstrap_button->image_widget = gtk_image_new_from_pixbuf(icon);
-        g_object_unref(icon);
-        gtk_misc_set_padding(GTK_MISC(lb->bootstrap_button->image_widget), 0, 0);
-        gtk_misc_set_alignment(GTK_MISC(lb->bootstrap_button->image_widget), 0, 0);
-        gtk_container_add(GTK_CONTAINER(event_box), lb->bootstrap_button->image_widget);
+        lb->bootstrap_button->widget = lxpanel_button_new_for_icon(lb->panel,
+                                                                   GTK_STOCK_ADD,
+                                                                   NULL, NULL);
+        g_signal_connect(lb->bootstrap_button->widget, "button-press-event",
+                         G_CALLBACK(launchbutton_press_event), lb->bootstrap_button);
 
         /* Add the bootstrap button to the icon grid.  By policy it is empty at this point. */
-        gtk_container_add(GTK_CONTAINER(lb->lb_icon_grid), event_box);
-        gtk_widget_show_all(event_box);
+        gtk_container_add(GTK_CONTAINER(lb->lb_icon_grid), lb->bootstrap_button->widget);
+        gtk_widget_show_all(lb->bootstrap_button->widget);
+        plugin_widget_set_background(lb->bootstrap_button->widget, lb->panel);
     }
     else
         gtk_widget_show(lb->bootstrap_button->widget);
@@ -498,7 +487,6 @@ static LaunchButton *launchbutton_for_file_info(LaunchTaskBarPlugin * lb, FmFile
     button = lxpanel_button_new_for_fm_icon(lb->panel, fm_file_info_get_icon(fi),
                                             NULL, NULL);
     btn->widget = button;
-    gtk_widget_set_can_focus(button, FALSE);
 
     gtk_widget_set_tooltip_text(button, fm_file_info_get_disp_name(fi));
 
@@ -861,9 +849,6 @@ static void launchtaskbar_destructor_launch(LaunchTaskBarPlugin *ltbp)
         launchbutton_free(ltbp->bootstrap_button);
         ltbp->bootstrap_button = NULL;
     }
-
-    if (ltbp->add_icon != NULL)
-        g_object_unref(ltbp->add_icon);
 }
 
 static void launchtaskbar_destructor_task(LaunchTaskBarPlugin *ltbp)
@@ -1463,14 +1448,6 @@ static void launchtaskbar_panel_configuration_changed(LXPanel *panel, GtkWidget 
                                      panel_get_orientation(panel),
                                      new_icon_size, new_icon_size, 3, 0,
                                      panel_get_height(panel));
-
-    /* Reset the bootstrap button. */
-    if (ltbp->bootstrap_button != NULL)
-    {
-        GdkPixbuf * icon = fm_pixbuf_from_icon(ltbp->add_icon, new_icon_size);
-        gtk_image_set_from_pixbuf(GTK_IMAGE(ltbp->bootstrap_button->image_widget), icon);
-        g_object_unref(icon);
-    }
 
     /* If the icon size changed, refetch all the icons. */
     if (new_icon_size != ltbp->icon_size)
