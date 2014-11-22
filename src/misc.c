@@ -39,6 +39,7 @@ typedef struct {
     FmIcon *icon;
     guint theme_changed_handler;
     guint icon_changed_handler;
+    guint font_changed_handler;
     GdkPixbuf* pixbuf;
     GdkPixbuf* hilight;
     gulong hicolor;
@@ -928,6 +929,8 @@ static void img_data_free(ImgData * data)
     {
         g_object_remove_weak_pointer(G_OBJECT(data->panel), (gpointer *)&data->panel);
         g_signal_handler_disconnect(data->panel, data->icon_changed_handler);
+        if (data->font_changed_handler != 0)
+            g_signal_handler_disconnect(data->panel, data->font_changed_handler);
     }
     if (data->pixbuf != NULL)
         g_object_unref(data->pixbuf);
@@ -1253,6 +1256,12 @@ static gboolean fb_button_leave(GtkImage * widget, GdkEventCrossing * event, gpo
     return TRUE;
 }
 
+static void on_font_changed(LXPanel * panel, GtkLabel * lbl)
+{
+    const char *label = gtk_label_get_text(lbl);
+    lxpanel_draw_label_text(panel, GTK_WIDGET(lbl), label, FALSE, 1, TRUE);
+}
+
 static GtkWidget *_lxpanel_button_compose(GtkWidget *event_box, GtkWidget *image,
                                           gulong highlight_color, const gchar *label)
 {
@@ -1283,7 +1292,13 @@ static GtkWidget *_lxpanel_button_compose(GtkWidget *event_box, GtkWidget *image
 
         lbl = gtk_label_new("");
         if (G_LIKELY(data != NULL && data->panel != NULL))
+        {
             lxpanel_draw_label_text(data->panel, lbl, label, FALSE, 1, TRUE);
+            data->font_changed_handler = g_signal_connect(data->panel,
+                                                          "panel-font-changed",
+                                                          G_CALLBACK(on_font_changed),
+                                                          lbl);
+        }
         else
             gtk_label_set_text(GTK_LABEL(lbl), label);
         gtk_misc_set_padding(GTK_MISC(lbl), 2, 0);

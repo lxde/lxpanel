@@ -61,6 +61,7 @@ static void _panel_update_background(LXPanel * p);
 enum
 {
     ICON_SIZE_CHANGED,
+    PANEL_FONT_CHANGED,
     N_SIGNALS
 };
 
@@ -327,6 +328,15 @@ static void lxpanel_class_init(PanelToplevelClass *klass)
                      NULL, NULL,
                      g_cclosure_marshal_VOID__VOID,
                      G_TYPE_NONE, 0, G_TYPE_NONE);
+
+    signals[PANEL_FONT_CHANGED] =
+        g_signal_new("panel-font-changed",
+                     G_TYPE_FROM_CLASS(klass),
+                     G_SIGNAL_RUN_LAST,
+                     G_STRUCT_OFFSET(PanelToplevelClass, panel_font_changed),
+                     NULL, NULL,
+                     g_cclosure_marshal_VOID__VOID,
+                     G_TYPE_NONE, 0, G_TYPE_NONE);
 }
 
 static void lxpanel_init(PanelToplevel *self)
@@ -380,6 +390,11 @@ static LXPanel* panel_allocate(void)
 void _panel_emit_icon_size_changed(LXPanel *p)
 {
     g_signal_emit(p, signals[ICON_SIZE_CHANGED], 0);
+}
+
+void _panel_emit_font_changed(LXPanel *p)
+{
+    g_signal_emit(p, signals[PANEL_FONT_CHANGED], 0);
 }
 
 /* Normalize panel configuration after load from file or reconfiguration. */

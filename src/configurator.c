@@ -411,12 +411,15 @@ background_disable_toggle( GtkWidget *b, Panel* p )
 }
 
 static void
-on_font_color_set( GtkColorButton* clr,  Panel* p )
+on_font_color_set(GtkColorButton* clr, LXPanel* panel)
 {
+    Panel *p = panel->priv;
+
     gtk_color_button_get_color( clr, &p->gfontcolor );
     panel_set_panel_configuration_changed(p);
     p->fontcolor = gcolor2rgb24(&p->gfontcolor);
     UPDATE_GLOBAL_COLOR(p, "fontcolor", p->fontcolor);
+    _panel_emit_font_changed(panel);
 }
 
 static void
@@ -431,9 +434,11 @@ on_tint_color_set( GtkColorButton* clr,  Panel* p )
 }
 
 static void
-on_use_font_color_toggled( GtkToggleButton* btn,   Panel* p )
+on_use_font_color_toggled(GtkToggleButton* btn, LXPanel* panel)
 {
     GtkWidget* clr = (GtkWidget*)g_object_get_data( G_OBJECT(btn), "clr" );
+    Panel *p = panel->priv;
+
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(btn)))
         gtk_widget_set_sensitive( clr, TRUE );
     else
@@ -441,20 +446,26 @@ on_use_font_color_toggled( GtkToggleButton* btn,   Panel* p )
     p->usefontcolor = gtk_toggle_button_get_active( btn );
     panel_set_panel_configuration_changed(p);
     UPDATE_GLOBAL_INT(p, "usefontcolor", p->usefontcolor);
+    _panel_emit_font_changed(panel);
 }
 
 static void
-on_font_size_set( GtkSpinButton* spin, Panel* p )
+on_font_size_set(GtkSpinButton* spin, LXPanel* panel)
 {
+    Panel *p = panel->priv;
+
     p->fontsize = (int)gtk_spin_button_get_value(spin);
     panel_set_panel_configuration_changed(p);
     UPDATE_GLOBAL_INT(p, "fontsize", p->fontsize);
+    _panel_emit_font_changed(panel);
 }
 
 static void
-on_use_font_size_toggled( GtkToggleButton* btn,   Panel* p )
+on_use_font_size_toggled(GtkToggleButton* btn, LXPanel* panel)
 {
     GtkWidget* clr = (GtkWidget*)g_object_get_data( G_OBJECT(btn), "clr" );
+    Panel *p = panel->priv;
+
     if (gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(btn)))
         gtk_widget_set_sensitive( clr, TRUE );
     else
@@ -462,6 +473,7 @@ on_use_font_size_toggled( GtkToggleButton* btn,   Panel* p )
     p->usefontsize = gtk_toggle_button_get_active( btn );
     panel_set_panel_configuration_changed(p);
     UPDATE_GLOBAL_INT(p, "usefontsize", p->usefontsize);
+    _panel_emit_font_changed(panel);
 }
 
 
@@ -1239,12 +1251,12 @@ void panel_configure( LXPanel* panel, int sel_page )
     /* font color */
     w = (GtkWidget*)gtk_builder_get_object( builder, "font_clr" );
     gtk_color_button_set_color( GTK_COLOR_BUTTON(w), &p->gfontcolor );
-    g_signal_connect( w, "color-set", G_CALLBACK( on_font_color_set ), p );
+    g_signal_connect(w, "color-set", G_CALLBACK( on_font_color_set ), panel);
 
     w2 = (GtkWidget*)gtk_builder_get_object( builder, "use_font_clr" );
     gtk_toggle_button_set_active( GTK_TOGGLE_BUTTON(w2), p->usefontcolor );
     g_object_set_data( G_OBJECT(w2), "clr", w );
-    g_signal_connect(w2, "toggled", G_CALLBACK(on_use_font_color_toggled), p);
+    g_signal_connect(w2, "toggled", G_CALLBACK(on_use_font_color_toggled), panel);
     if( ! p->usefontcolor )
         gtk_widget_set_sensitive( w, FALSE );
 
@@ -1252,12 +1264,12 @@ void panel_configure( LXPanel* panel, int sel_page )
     w = (GtkWidget*)gtk_builder_get_object( builder, "font_size" );
     gtk_spin_button_set_value( GTK_SPIN_BUTTON(w), p->fontsize );
     g_signal_connect( w, "value-changed",
-                      G_CALLBACK(on_font_size_set), p);
+                      G_CALLBACK(on_font_size_set), panel);
 
     w2 = (GtkWidget*)gtk_builder_get_object( builder, "use_font_size" );
     gtk_toggle_button_set_active( GTK_TOGGLE_BUTTON(w2), p->usefontsize );
     g_object_set_data( G_OBJECT(w2), "clr", w );
-    g_signal_connect(w2, "toggled", G_CALLBACK(on_use_font_size_toggled), p);
+    g_signal_connect(w2, "toggled", G_CALLBACK(on_use_font_size_toggled), panel);
     if( ! p->usefontsize )
         gtk_widget_set_sensitive( w, FALSE );
 
