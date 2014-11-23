@@ -305,10 +305,18 @@ extern GtkWidget *panel_config_int_button_new(const char *name, gint *val,
                                               gint min, gint max);
 
 /*
- * creates GtkFrame derived widget which can change hotkey or mouse binding
- * emits "changed" signal: void callback(PanelCfgInputButton *, char *, gpointer);
- * caller should test if keybinding can be used in the callback
- * widget can be used for lxpanel_generic_config_dlg as CONF_TYPE_EXTERNAL
+ * panel_config_hotkey_button_new
+ * @label: text representing the option in dialog
+ * @hotkey: (allow-none): current hotkey
+ *
+ * Creates a #GtkFrame derived widget which can select hotkey binding.
+ * The widget emits "changed" signal when some new combination selected
+ *      gboolean callback(PanelCfgInputButton *, char *, gpointer);
+ * Caller should test if keybinding can be used in the callback and then
+ * return test result as %TRUE or %FALSE.
+ * Widget can be used for lxpanel_generic_config_dlg as CONF_TYPE_EXTERNAL
+ *
+ * Returns: (transfer full): a created widget.
  *
  * Since: 0.8.0
  */
