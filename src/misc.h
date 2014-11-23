@@ -138,6 +138,15 @@ GPid get_net_wm_pid(Window win);
 extern int panel_handle_x_error(Display * d, XErrorEvent * ev);
 extern int panel_handle_x_error_swallow_BadWindow_BadDrawable(Display * d, XErrorEvent * ev);
 
+/**
+ * expand_tilda
+ * @file: file path
+ *
+ * If first char of @file is a tilda (~) then replaces it with content of
+ * environment variable HOME.
+ *
+ * Returns: (transfer full): new allocated path string.
+ */
 gchar *expand_tilda(const gchar *file);
 
 void get_button_spacing(GtkRequisition *req, GtkContainer *parent, gchar *name);

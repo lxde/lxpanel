@@ -271,6 +271,8 @@ typedef enum {
  *   - const char* name: text representing the option in dialog
  *   - gpointer ret_value: (in out): pointer to the option value
  *   - PluginConfType type: type of the option
+ * Note that for type CONF_TYPE_EXTERNAL the name argument is ignored and
+ * therefore empty string ("") have to be passed.
  *
  * Returns: (tranfer full): new created dialog widget.
  */
