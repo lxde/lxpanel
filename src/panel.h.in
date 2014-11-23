@@ -65,6 +65,7 @@ struct _LXPanelClass
 {
     GtkWindowClass parent_class;
     void (*icon_size_changed)(LXPanel *panel);
+    void (*panel_font_changed)(LXPanel *panel);
 };
 
 /**
