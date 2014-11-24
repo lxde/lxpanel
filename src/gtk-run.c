@@ -249,7 +249,7 @@ static void setup_auto_complete( GtkEntry* entry )
         thread_data = g_slice_new0(ThreadData); /* the data will be freed in idle handler later. */
         thread_data->entry = entry;
 #if GLIB_CHECK_VERSION(2, 32, 0)
-        g_thread_new("gtk-run-autocomplete", thread_func, NULL);
+        g_thread_new("gtk-run-autocomplete", (GThreadFunc)thread_func, thread_data);
         /* we don't use loader_thread_id but Glib 2.32 crashes if we unref
            GThread while it's in creation progress. It is a bug of GLib
            certainly but as workaround we'll unref it in the thread itself */
