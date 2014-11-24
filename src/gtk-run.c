@@ -228,6 +228,9 @@ static gpointer thread_func(ThreadData* data)
     data->files = list;
     /* install an idle handler to free associated data */
     g_idle_add((GSourceFunc)on_thread_finished, data);
+#if GLIB_CHECK_VERSION(2, 32, 0)
+    g_thread_unref(g_thread_self());
+#endif
 
     return NULL;
 }
@@ -245,7 +248,14 @@ static void setup_auto_complete( GtkEntry* entry )
         /* load in another working thread */
         thread_data = g_slice_new0(ThreadData); /* the data will be freed in idle handler later. */
         thread_data->entry = entry;
+#if GLIB_CHECK_VERSION(2, 32, 0)
+        g_thread_new("gtk-run-autocomplete", (GThreadFunc)thread_func, thread_data);
+        /* we don't use loader_thread_id but Glib 2.32 crashes if we unref
+           GThread while it's in creation progress. It is a bug of GLib
+           certainly but as workaround we'll unref it in the thread itself */
+#else
         g_thread_create((GThreadFunc)thread_func, thread_data, FALSE, NULL);
+#endif
     }
 }
 
@@ -409,7 +419,10 @@ void gtk_run()
         g_signal_connect(entry ,"changed", G_CALLBACK(on_entry_changed), img);
 
         /* get all apps */
-#if defined(MENU_CACHE_CHECK_VERSION) && MENU_CACHE_CHECK_VERSION(0, 6, 1)
+#ifndef MENU_CACHE_CHECK_VERSION
+#define MENU_CACHE_CHECK_VERSION(a,b,c) 0
+#endif
+#if MENU_CACHE_CHECK_VERSION(0, 6, 1)
         menu_cache = menu_cache_lookup_sync(g_getenv("XDG_MENU_PREFIX") ? "applications.menu" : "lxde-applications.menu" );
         if( menu_cache )
         {
