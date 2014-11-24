@@ -409,7 +409,10 @@ void gtk_run()
         g_signal_connect(entry ,"changed", G_CALLBACK(on_entry_changed), img);
 
         /* get all apps */
-#if defined(MENU_CACHE_CHECK_VERSION) && MENU_CACHE_CHECK_VERSION(0, 6, 1)
+#ifndef MENU_CACHE_CHECK_VERSION
+#define MENU_CACHE_CHECK_VERSION(a,b,c) 0
+#endif
+#if MENU_CACHE_CHECK_VERSION(0, 6, 1)
         menu_cache = menu_cache_lookup_sync(g_getenv("XDG_MENU_PREFIX") ? "applications.menu" : "lxde-applications.menu" );
         if( menu_cache )
         {
