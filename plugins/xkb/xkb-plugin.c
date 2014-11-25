@@ -1516,7 +1516,7 @@ static GtkWidget *xkb_configure(LXPanel *panel, GtkWidget *p)
     g_signal_connect(dlg, "response", G_CALLBACK(on_dialog_config_response), p_xkb);
 
     /* Display the dialog. */
-    gtk_widget_show_all(dlg);
+    gtk_widget_show_all(p_hbox_main);
 
     user_active = TRUE;
     return dlg;
