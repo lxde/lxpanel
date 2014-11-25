@@ -444,6 +444,7 @@ static gboolean applyConfig(gpointer p)
     if (th->str_cl_warning2) gdk_color_parse(th->str_cl_warning2, &th->cl_warning2);
 
     remove_all_sensors(th);
+    /* FIXME: support wildcards in th->sensor */
     if(th->sensor == NULL) th->auto_sensor = TRUE;
     if(th->auto_sensor) check_sensors(th);
     else if (strncmp(th->sensor, "/sys/", 5) != 0)

@@ -781,17 +781,20 @@ static gboolean ah_state_hide_timeout(gpointer p)
 static void ah_state_set(LXPanel *panel, PanelAHState ah_state)
 {
     Panel *p = panel->priv;
+    GdkRectangle rect;
 
     ENTER;
     if (p->ah_state != ah_state) {
         p->ah_state = ah_state;
         switch (ah_state) {
         case AH_STATE_VISIBLE:
+            p->visible = TRUE;
+            _calculate_position(panel, &rect);
+            gtk_window_move(GTK_WINDOW(panel), rect.x, rect.y);
             gtk_widget_show(GTK_WIDGET(panel));
             gtk_widget_show(p->box);
             gtk_widget_queue_resize(GTK_WIDGET(panel));
             gtk_window_stick(GTK_WINDOW(panel));
-            p->visible = TRUE;
             break;
         case AH_STATE_WAITING:
             if (p->hide_timeout)
@@ -1314,6 +1317,7 @@ panel_start_gui(LXPanel *panel, config_setting_t *list)
     Panel *p = panel->priv;
     GtkWidget *w = GTK_WIDGET(panel);
     config_setting_t *s;
+    GdkRectangle rect;
     int i;
 
     ENTER;
@@ -1366,6 +1370,9 @@ panel_start_gui(LXPanel *panel, config_setting_t *list)
     panel_set_dock_type(p);
 
     /* window mapping point */
+    p->visible = TRUE;
+    _calculate_position(panel, &rect);
+    gtk_window_move(GTK_WINDOW(panel), rect.x, rect.y);
     gtk_window_present(GTK_WINDOW(panel));
 
     /* the settings that should be done after window is mapped */
