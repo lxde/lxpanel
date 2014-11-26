@@ -75,6 +75,9 @@
     time somewhere at the screen.
 * Fixed calendar and configuration windows blinking on their appearance.
 * Fixed panel update when background image changed in configuration.
+* Changed to use persistent background image for panel and Cairo. This
+    way updating background should be faster, and also fixed background
+    of plugins when image is used, both placement and alpha color.
 
 0.7.2
 -------------------------------------------------------------------------

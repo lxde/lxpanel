@@ -363,7 +363,6 @@ static void background_file_helper(Panel * p, GtkWidget * toggle, GtkFileChooser
     {
         g_free(p->background_file);
         p->background_file = file;
-        p->background = FALSE; /* mark it for update below */
         UPDATE_GLOBAL_STRING(p, "backgroundfile", p->background_file);
     }
 
@@ -373,11 +372,11 @@ static void background_file_helper(Panel * p, GtkWidget * toggle, GtkFileChooser
         {
             p->transparent = FALSE;
             p->background = TRUE;
-            panel_update_background(p);
             UPDATE_GLOBAL_INT(p, "transparent", p->transparent);
             UPDATE_GLOBAL_INT(p, "background", p->background);
         }
     }
+    panel_update_background(p);
 }
 
 static void background_toggle( GtkWidget *b, Panel* p)
