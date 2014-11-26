@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-20 13:56+0300\n"
-"PO-Revision-Date: 2014-10-14 16:00+0000\n"
-"Last-Translator: H.Humpel <H.Humpel@gmx.de>\n"
+"PO-Revision-Date: 2014-11-26 20:18+0000\n"
+"Last-Translator: Daniel Winzen <d@winzen4.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1413302429.000000\n"
+"X-POOTLE-MTIME: 1417033098.000000\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:50 ../src/gtk-run.c:373 ../plugins/menu.c:749
@@ -968,6 +968,8 @@ msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontrol, alsamixer ...)"
 msgstr ""
+"Fehler. Sie müssen eine Anwendung zur Audio-Konfiguration (pavucontrol, "
+"alsamixer ...) installieren"
 
 #: ../plugins/volumealsa/volumealsa.c:642
 msgid "Display and control volume for ALSA"
@@ -1455,6 +1457,8 @@ msgid ""
 "\n"
 "%sEnergy full design:\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sEnergie voll Design:\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:180
 #, c-format
@@ -1462,6 +1466,8 @@ msgid ""
 "\n"
 "%sEnergy full:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sEnergie voll:\t\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:182
 #, c-format
@@ -1469,6 +1475,8 @@ msgid ""
 "\n"
 "%sEnergy now:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sAktuelle Energie:\t\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:184
 #, c-format
@@ -1476,6 +1484,8 @@ msgid ""
 "\n"
 "%sPower now:\t\t\t%5d mW"
 msgstr ""
+"\n"
+"%sAktuelle Leistung:\t\t\t%5d mW"
 
 #: ../plugins/batt/batt.c:187
 #, c-format
@@ -1483,6 +1493,8 @@ msgid ""
 "\n"
 "%sCharge full design:\t%5d mAh"
 msgstr ""
+"\n"
+"%sVollständig aufgeladen Design:\t%5d mAh"
 
 #: ../plugins/batt/batt.c:189
 #, c-format
@@ -1490,6 +1502,8 @@ msgid ""
 "\n"
 "%sCharge full:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sVollständig aufgeladen:\t\t\t%5d mAh"
 
 #: ../plugins/batt/batt.c:191
 #, c-format
@@ -1497,6 +1511,8 @@ msgid ""
 "\n"
 "%sCharge now:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sAktuelle Ladung:\t\t\t%5d mAh"
 
 #: ../plugins/batt/batt.c:193
 #, c-format
@@ -1504,6 +1520,8 @@ msgid ""
 "\n"
 "%sCurrent now:\t\t\t%5d mA"
 msgstr ""
+"\n"
+"%sAktuelle Stromstärke:\t\t\t%5d mA"
 
 #: ../plugins/batt/batt.c:196
 #, c-format
@@ -1511,6 +1529,8 @@ msgid ""
 "\n"
 "%sCurrent Voltage:\t\t%.3lf V"
 msgstr ""
+"\n"
+"%sAktuelle Spannung:\t\t%.3lf V"
 
 #: ../plugins/batt/batt.c:234
 msgid "No batteries found"
