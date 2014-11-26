@@ -651,11 +651,11 @@ void _panel_determine_background_pixmap(LXPanel * panel, GtkWidget * widget)
             y = 0;
             g_object_unref(pixbuf);
         }
-        if (p->transparent)
+        else
         {
-            /* Color is set, fill the background */
+            /* Either color is set or image is invalid, fill the background */
             gdk_cairo_set_source_color(cr, &p->gtintcolor);
-            cairo_paint_with_alpha(cr, (double)p->alpha/255);
+            cairo_paint_with_alpha(cr, p->transparent ? (double)p->alpha/255 : 1.0);
         }
         cairo_destroy(cr);
     }
