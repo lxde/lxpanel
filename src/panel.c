@@ -55,7 +55,6 @@ static gulong monitors_handler = 0;
 static void panel_start_gui(LXPanel *p, config_setting_t *list);
 static void ah_start(LXPanel *p);
 static void ah_stop(LXPanel *p);
-static void on_root_bg_changed(FbBg *bg, LXPanel* p);
 static void _panel_update_background(LXPanel * p);
 
 enum
@@ -105,12 +104,6 @@ static void panel_stop_gui(LXPanel *self)
         /* just close the dialog, it will do all required cleanup */
         gtk_dialog_response(GTK_DIALOG(p->plugin_pref_dialog), GTK_RESPONSE_CLOSE);
 
-    if (p->bg != NULL)
-    {
-        g_signal_handlers_disconnect_by_func(G_OBJECT(p->bg), on_root_bg_changed, self);
-        g_object_unref(p->bg);
-        p->bg = NULL;
-    }
 
     if (p->initialized)
     {
@@ -275,16 +268,11 @@ static gboolean lxpanel_configure_event (GtkWidget *widget, GdkEventConfigure *e
 {
     Panel *p = LXPANEL(widget)->priv;
 
-    if (e->width == p->cw && e->height == p->ch && e->x == p->cx && e->y == p->cy)
-        goto ok;
     p->cw = e->width;
     p->ch = e->height;
     p->cx = e->x;
     p->cy = e->y;
 
-    if (p->transparent)
-        fb_bg_notify_changed_bg(p->bg);
-ok:
     return GTK_WIDGET_CLASS(lxpanel_parent_class)->configure_event(widget, e);
 }
 
@@ -607,12 +595,6 @@ void _panel_set_wm_strut(LXPanel *panel)
  ****************************************************/
 
 
-static void
-on_root_bg_changed(FbBg *bg, LXPanel* p)
-{
-    _panel_update_background( p );
-}
-
 void panel_determine_background_pixmap(Panel * panel, GtkWidget * widget, GdkWindow * window)
 {
     _panel_determine_background_pixmap(panel->topgwin, widget);
@@ -642,24 +624,17 @@ void _panel_determine_background_pixmap(LXPanel * panel, GtkWidget * widget)
             /* User specified background pixmap. */
             pixbuf = gdk_pixbuf_new_from_file(p->background_file, NULL);
         }
-        if (p->transparent || (pixbuf != NULL && gdk_pixbuf_get_has_alpha(pixbuf)))
+        if ((p->transparent && p->alpha != 255) || /* ignore it for opaque panel */
+            (pixbuf != NULL && gdk_pixbuf_get_has_alpha(pixbuf)))
         {
-            if (p->bg == NULL)
-            {
-                p->bg = fb_bg_get_for_display();
-                g_signal_connect(G_OBJECT(p->bg), "changed", G_CALLBACK(on_root_bg_changed), panel);
-            }
+            /* we don't need to keep it since we get it once */
+            FbBg *bg = fb_bg_get_for_display();
             /* Transparent.  Determine the appropriate value from the root pixmap. */
-            pixmap = fb_bg_get_xroot_pix_for_win(p->bg, widget);
+            pixmap = fb_bg_get_xroot_pix_for_win(bg, widget);
             gdk_cairo_set_source_pixmap(cr, pixmap, 0, 0);
             cairo_paint(cr);
             g_object_unref(pixmap);
-        }
-        else if (p->bg != NULL)
-        {
-            g_signal_handlers_disconnect_by_func(G_OBJECT(p->bg), on_root_bg_changed, panel);
-            g_object_unref(p->bg);
-            p->bg = NULL;
+            g_object_unref(bg);
         }
         if (pixbuf != NULL)
         {
@@ -675,6 +650,12 @@ void _panel_determine_background_pixmap(LXPanel * panel, GtkWidget * widget)
                 }
             y = 0;
             g_object_unref(pixbuf);
+        }
+        if (p->transparent)
+        {
+            /* Color is set, fill the background */
+            gdk_cairo_set_source_color(cr, &p->gtintcolor);
+            cairo_paint_with_alpha(cr, (double)p->alpha/255);
         }
         cairo_destroy(cr);
     }
@@ -697,12 +678,6 @@ void _panel_determine_background_pixmap(LXPanel * panel, GtkWidget * widget)
 not_paintable:
         gtk_widget_set_app_paintable(widget, FALSE);
         /* Free p->bg if it is not going to be used. */
-        if (p->bg != NULL)
-        {
-            g_signal_handlers_disconnect_by_func(G_OBJECT(p->bg), on_root_bg_changed, panel);
-            g_object_unref(p->bg);
-            p->bg = NULL;
-        }
     }
 }
 

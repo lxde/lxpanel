@@ -173,12 +173,7 @@ panel_event_filter(GdkXEvent *xevent, GdkEvent *event, gpointer not_used)
         {
             GSList* l;
             for( l = all_panels; l; l = l->next )
-            {
-                LXPanel* p = (LXPanel*)l->data;
-                if (p->priv->transparent) {
-                    fb_bg_notify_changed_bg(p->priv->bg);
-                }
-            }
+                _panel_queue_update_background((LXPanel*)l->data);
         }
         else if (at == a_NET_WORKAREA)
         {

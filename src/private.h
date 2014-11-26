@@ -76,7 +76,7 @@ struct _Panel {
     GtkWidget *(*my_box_new) (gboolean, gint);
     GtkWidget *(*my_separator_new) ();
 
-    FbBg *bg;
+    FbBg *bg; /* unused since 0.8.0 */
     int alpha;
     guint32 tintcolor;
     guint32 fontcolor;

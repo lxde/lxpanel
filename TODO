@@ -10,3 +10,4 @@
 * support rounded corners
 * support keywords in gtk-run
 * convert Task into GtkWidget and use it to emit signals for menus and buttons
+* make click-wait-release popdown popups similarly to as GtkMenuShell does
