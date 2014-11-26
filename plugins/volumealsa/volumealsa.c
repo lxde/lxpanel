@@ -410,7 +410,7 @@ static void asound_set_volume(VolumeALSAPlugin * vol, int volume)
 
 /*** Graphics ***/
 
-static void volumealsa_update_current_icon(VolumeALSAPlugin * vol, gboolean mute, int level)
+static void volumealsa_lookup_current_icon(VolumeALSAPlugin * vol, gboolean mute, int level)
 {
     /* Change icon according to mute / volume */
     const char* icon_panel="audio-volume-muted-panel";
@@ -437,33 +437,16 @@ static void volumealsa_update_current_icon(VolumeALSAPlugin * vol, gboolean mute
     }
 
     vol->icon_panel = icon_panel;
-    vol->icon_fallback= icon_fallback;
+    vol->icon_fallback = icon_fallback;
 }
 
-/* Do a full redraw of the display. */
-static void volumealsa_update_display(VolumeALSAPlugin * vol)
+static void volumealsa_update_current_icon(VolumeALSAPlugin * vol, gboolean mute, int level)
 {
-    /* Mute status. */
-    gboolean mute = asound_is_muted(vol);
-    int level = asound_get_volume(vol);
-
-    volumealsa_update_current_icon(vol, mute, level);
+    /* Find suitable icon */
+    volumealsa_lookup_current_icon(vol, mute, level);
 
     /* Change icon, fallback to default icon if theme doesn't exsit */
     lxpanel_image_change_icon(vol->tray_icon, vol->icon_panel, vol->icon_fallback);
-
-    g_signal_handler_block(vol->mute_check, vol->mute_check_handler);
-    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(vol->mute_check), mute);
-    gtk_widget_set_sensitive(vol->mute_check, asound_has_mute(vol));
-    g_signal_handler_unblock(vol->mute_check, vol->mute_check_handler);
-
-    /* Volume. */
-    if (vol->volume_scale != NULL)
-    {
-        g_signal_handler_block(vol->volume_scale, vol->volume_scale_handler);
-        gtk_range_set_value(GTK_RANGE(vol->volume_scale), level);
-        g_signal_handler_unblock(vol->volume_scale, vol->volume_scale_handler);
-    }
 
     /* Display current level in tooltip. */
     char * tooltip = g_strdup_printf("%s %d", _("Volume control"), level);
@@ -471,6 +454,22 @@ static void volumealsa_update_display(VolumeALSAPlugin * vol)
     g_free(tooltip);
 }
 
+/*
+ * Here we just update volume's vertical scale and mute check button.
+ * The rest will be updated by signal handelrs.
+ */
+static void volumealsa_update_display(VolumeALSAPlugin * vol)
+{
+    /* Mute. */
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(vol->mute_check), asound_is_muted(vol));
+    gtk_widget_set_sensitive(vol->mute_check, (asound_has_mute(vol)));
+
+    /* Volume. */
+    if (vol->volume_scale != NULL)
+    {
+        gtk_range_set_value(GTK_RANGE(vol->volume_scale), asound_get_volume(vol));
+    }
+}
 
 /* Handler for "button-press-event" signal on main widget. */
 static gboolean volumealsa_button_press_event(GtkWidget * widget, GdkEventButton * event, LXPanel * panel)
@@ -518,11 +517,18 @@ static void volumealsa_popup_map(GtkWidget * widget, VolumeALSAPlugin * vol)
 /* Handler for "value_changed" signal on popup window vertical scale. */
 static void volumealsa_popup_scale_changed(GtkRange * range, VolumeALSAPlugin * vol)
 {
-    /* Reflect the value of the control to the sound system. */
-    asound_set_volume(vol, gtk_range_get_value(range));
+    int level = gtk_range_get_value(GTK_RANGE(vol->volume_scale));
+    gboolean mute = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(vol->mute_check));
 
-    /* Redraw the controls. */
-    volumealsa_update_display(vol);
+    /* Reflect the value of the control to the sound system. */
+    asound_set_volume(vol, level);
+
+    /*
+     * Redraw the controls.
+     * Scale and check button do not need to be updated, as these are always
+     * in sync with user's actions.
+     */
+    volumealsa_update_current_icon(vol, mute, level);
 }
 
 /* Handler for "scroll-event" signal on popup window vertical scale. */
@@ -544,19 +550,23 @@ static void volumealsa_popup_scale_scrolled(GtkScale * scale, GdkEventScroll * e
 /* Handler for "toggled" signal on popup window mute checkbox. */
 static void volumealsa_popup_mute_toggled(GtkWidget * widget, VolumeALSAPlugin * vol)
 {
-    /* Get the state of the mute toggle. */
-    gboolean active = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(widget));
+    int level = gtk_range_get_value(GTK_RANGE(vol->volume_scale));
+    gboolean mute = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(vol->mute_check));
 
     /* Reflect the mute toggle to the sound system. */
     if (vol->master_element != NULL)
     {
         int chn;
         for (chn = 0; chn <= SND_MIXER_SCHN_LAST; chn++)
-            snd_mixer_selem_set_playback_switch(vol->master_element, chn, ((active) ? 0 : 1));
+            snd_mixer_selem_set_playback_switch(vol->master_element, chn, ((mute) ? 0 : 1));
     }
 
-    /* Redraw the controls. */
-    volumealsa_update_display(vol);
+    /*
+     * Redraw the controls.
+     * Scale and check button do not need to be updated, as these are always
+     * in sync with user's actions.
+     */
+    volumealsa_update_current_icon(vol, mute, level);
 }
 
 /* Build the window that appears when the top level widget is clicked. */
