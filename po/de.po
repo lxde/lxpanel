@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-20 13:56+0300\n"
-"PO-Revision-Date: 2014-11-26 20:18+0000\n"
+"PO-Revision-Date: 2014-11-26 20:24+0000\n"
 "Last-Translator: Daniel Winzen <d@winzen4.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: de\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1417033098.000000\n"
+"X-POOTLE-MTIME: 1417033440.000000\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:50 ../src/gtk-run.c:373 ../plugins/menu.c:749
@@ -1594,7 +1594,7 @@ msgstr "CapsLock zeigen"
 
 #: ../plugins/kbled/kbled.c:231
 msgid "Show NumLock"
-msgstr "NumLock zeigen "
+msgstr "NumLock zeigen"
 
 #: ../plugins/kbled/kbled.c:232
 msgid "Show ScrollLock"
