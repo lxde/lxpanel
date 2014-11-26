@@ -74,6 +74,7 @@
 * Fixed nasty bug with autohidden panel after unhide appeared for short
     time somewhere at the screen.
 * Fixed calendar and configuration windows blinking on their appearance.
+* Fixed panel update when background image changed in configuration.
 
 0.7.2
 -------------------------------------------------------------------------
