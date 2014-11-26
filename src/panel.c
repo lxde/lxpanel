@@ -121,6 +121,11 @@ static void panel_stop_gui(LXPanel *self)
         XSync(xdisplay, True);
         p->initialized = FALSE;
     }
+    if (p->surface != NULL)
+    {
+        cairo_surface_destroy(p->surface);
+        p->surface = NULL;
+    }
 
     if (p->background_update_queued)
     {
@@ -618,43 +623,87 @@ void _panel_determine_background_pixmap(LXPanel * panel, GtkWidget * widget)
     GdkPixmap * pixmap = NULL;
     GdkWindow * window = gtk_widget_get_window(widget);
     Panel * p = panel->priv;
+    cairo_t *cr;
+    GtkAllocation alloc;
+    gint x = 0, y = 0;
 
-    /* Free p->bg if it is not going to be used. */
-    if (( ! p->transparent) && (p->bg != NULL))
+    if (!p->background && !p->transparent)
+        goto not_paintable;
+    else if (p->aw <= 1 || p->ah <= 1)
+        goto not_paintable;
+    else if (p->surface == NULL)
     {
-        g_signal_handlers_disconnect_by_func(G_OBJECT(p->bg), on_root_bg_changed, panel);
-        g_object_unref(p->bg);
-        p->bg = NULL;
-    }
+        GdkPixbuf *pixbuf = NULL;
 
-    if (p->background)
-    {
-        /* User specified background pixmap. */
-        if (p->background_file != NULL)
-            pixmap = fb_bg_get_pix_from_file(widget, p->background_file);
-    }
-
-    else if (p->transparent)
-    {
-        /* Transparent.  Determine the appropriate value from the root pixmap. */
-        if (p->bg == NULL)
+        p->surface = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, p->aw, p->ah);
+        cr = cairo_create(p->surface);
+        if (p->background)
         {
-            p->bg = fb_bg_get_for_display();
-            g_signal_connect(G_OBJECT(p->bg), "changed", G_CALLBACK(on_root_bg_changed), panel);
+            /* User specified background pixmap. */
+            pixbuf = gdk_pixbuf_new_from_file(p->background_file, NULL);
         }
-        pixmap = fb_bg_get_xroot_pix_for_win(p->bg, widget);
-        if ((pixmap != NULL) && (pixmap != GDK_NO_BG) && (p->alpha != 0))
-            fb_bg_composite(pixmap, &p->gtintcolor, p->alpha);
+        if (p->transparent || (pixbuf != NULL && gdk_pixbuf_get_has_alpha(pixbuf)))
+        {
+            if (p->bg == NULL)
+            {
+                p->bg = fb_bg_get_for_display();
+                g_signal_connect(G_OBJECT(p->bg), "changed", G_CALLBACK(on_root_bg_changed), panel);
+            }
+            /* Transparent.  Determine the appropriate value from the root pixmap. */
+            pixmap = fb_bg_get_xroot_pix_for_win(p->bg, widget);
+            gdk_cairo_set_source_pixmap(cr, pixmap, 0, 0);
+            cairo_paint(cr);
+            g_object_unref(pixmap);
+        }
+        else if (p->bg != NULL)
+        {
+            g_signal_handlers_disconnect_by_func(G_OBJECT(p->bg), on_root_bg_changed, panel);
+            g_object_unref(p->bg);
+            p->bg = NULL;
+        }
+        if (pixbuf != NULL)
+        {
+            gint w = gdk_pixbuf_get_width(pixbuf);
+            gint h = gdk_pixbuf_get_height(pixbuf);
+
+            /* Tile the image */
+            for (y = 0; y < p->ah; y += h)
+                for (x = 0; x < p->aw; x += w)
+                {
+                    gdk_cairo_set_source_pixbuf(cr, pixbuf, x, y);
+                    cairo_paint(cr);
+                }
+            y = 0;
+            g_object_unref(pixbuf);
+        }
+        cairo_destroy(cr);
     }
 
-    if (pixmap != NULL)
+    if (p->surface != NULL)
     {
-        gtk_widget_set_app_paintable(widget, TRUE );
+        gtk_widget_set_app_paintable(widget, TRUE);
+        gtk_widget_get_allocation(widget, &alloc);
+        pixmap = gdk_pixmap_new(window, alloc.width, alloc.height, -1);
+        cr = gdk_cairo_create(pixmap);
+        gtk_widget_translate_coordinates(widget, GTK_WIDGET(panel), 0, 0, &x, &y);
+        cairo_set_source_surface(cr, p->surface, 0.0 - x, 0.0 - y);
+        cairo_paint(cr);
+        cairo_destroy(cr);
         gdk_window_set_back_pixmap(window, pixmap, FALSE);
         g_object_unref(pixmap);
     }
     else
+    {
+not_paintable:
         gtk_widget_set_app_paintable(widget, FALSE);
+        /* Free p->bg if it is not going to be used. */
+        if (p->bg != NULL)
+        {
+            g_signal_handlers_disconnect_by_func(G_OBJECT(p->bg), on_root_bg_changed, panel);
+            g_object_unref(p->bg);
+            p->bg = NULL;
+        }
+    }
 }
 
 /* Update the background of the entire panel.
@@ -668,6 +717,13 @@ static void _panel_update_background(LXPanel * p)
 {
     GtkWidget *w = GTK_WIDGET(p);
     GList *plugins = NULL, *l;
+
+    /* reset background image */
+    if (p->priv->surface != NULL)
+    {
+        cairo_surface_destroy(p->priv->surface);
+        p->priv->surface = NULL;
+    }
 
     /* Redraw the top level widget. */
     _panel_determine_background_pixmap(p, w);
@@ -781,17 +837,20 @@ static gboolean ah_state_hide_timeout(gpointer p)
 static void ah_state_set(LXPanel *panel, PanelAHState ah_state)
 {
     Panel *p = panel->priv;
+    GdkRectangle rect;
 
     ENTER;
     if (p->ah_state != ah_state) {
         p->ah_state = ah_state;
         switch (ah_state) {
         case AH_STATE_VISIBLE:
+            p->visible = TRUE;
+            _calculate_position(panel, &rect);
+            gtk_window_move(GTK_WINDOW(panel), rect.x, rect.y);
             gtk_widget_show(GTK_WIDGET(panel));
             gtk_widget_show(p->box);
             gtk_widget_queue_resize(GTK_WIDGET(panel));
             gtk_window_stick(GTK_WINDOW(panel));
-            p->visible = TRUE;
             break;
         case AH_STATE_WAITING:
             if (p->hide_timeout)
@@ -1314,6 +1373,7 @@ panel_start_gui(LXPanel *panel, config_setting_t *list)
     Panel *p = panel->priv;
     GtkWidget *w = GTK_WIDGET(panel);
     config_setting_t *s;
+    GdkRectangle rect;
     int i;
 
     ENTER;
@@ -1366,6 +1426,9 @@ panel_start_gui(LXPanel *panel, config_setting_t *list)
     panel_set_dock_type(p);
 
     /* window mapping point */
+    p->visible = TRUE;
+    _calculate_position(panel, &rect);
+    gtk_window_move(GTK_WINDOW(panel), rect.x, rect.y);
     gtk_window_present(GTK_WINDOW(panel));
 
     /* the settings that should be done after window is mapped */

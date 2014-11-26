@@ -146,6 +146,7 @@ struct _Panel {
     guint mouse_timeout;
     //gint dyn_space;                     /* Space for expandable plugins */
     //guint calculate_size_idle;          /* The idle handler for dyn_space calc */
+    cairo_surface_t *surface;           /* Panel background */
 };
 
 typedef struct {
