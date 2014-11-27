@@ -505,8 +505,10 @@ set_autohide(GtkToggleButton* toggle, LXPanel* panel)
     Panel *p = panel->priv;
 
     p->autohide = gtk_toggle_button_get_active(toggle) ? 1 : 0;
+    gtk_widget_show(GTK_WIDGET(panel));
     gtk_widget_queue_resize(GTK_WIDGET(panel));
     UPDATE_GLOBAL_INT(p, "autohide", p->autohide);
+    update_strut_control_button(panel);
 }
 
 static void

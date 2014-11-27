@@ -440,6 +440,8 @@ gboolean _panel_edge_can_strut(LXPanel *panel, int edge, gint monitor, gulong *s
     default: /* error! */
         return FALSE;
     }
+    if (s == 0)
+        return FALSE; /* nothing to strut here */
 
     if (monitor < 0) /* screen span */
     {
