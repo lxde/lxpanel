@@ -1484,7 +1484,7 @@ static void set_timer_on_task(Task * tk)
 /* Determine if a task is visible considering only its desktop placement. */
 static gboolean task_is_visible_on_current_desktop(LaunchTaskBarPlugin * tb, Task * tk)
 {
-    return ((tk->desktop == ALL_WORKSPACES) || (tk->desktop == tb->current_desktop) || (tb->show_all_desks) || (tb->urgency));
+    return ((tk->desktop == ALL_WORKSPACES) || (tk->desktop == tb->current_desktop) || (tb->show_all_desks) || (tk->urgency));
 }
 
 /* Recompute the visible task for a class when the class membership changes.
