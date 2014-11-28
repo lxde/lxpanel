@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-20 13:56+0300\n"
-"PO-Revision-Date: 2014-08-25 20:18+0000\n"
+"PO-Revision-Date: 2014-11-28 09:36+0000\n"
 "Last-Translator: Piotr Sokół <psokol@jabster.pl>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pl\n"
@@ -19,8 +19,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.6.0-rc1\n"
-"X-POOTLE-MTIME: 1408997929.000000\n"
+"X-Generator: Pootle 2.6.0-rc2\n"
+"X-POOTLE-MTIME: 1417167374.000000\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:50 ../src/gtk-run.c:373 ../plugins/menu.c:749
@@ -89,8 +89,8 @@ msgid "translator-credits"
 msgstr ""
 "Grzegorz Gibas <amigib@gmail.com>, 2009.\n"
 "Artur Kruszewski <mazdac@gmail.com>, 2006, 2010.\n"
-"Piotr Sokół <psokol@jabster.pl>, 2010, 2011.\n"
-"Piotr Strębski <strebski@o2.pl>, 2013."
+"Piotr Strębski <strebski@o2.pl>, 2013.\n"
+"Piotr Sokół <psokol@jabster.pl>, 2010, 2011, 2014."
 
 #: ../src/panel.c:993
 msgid "LXPanel"
@@ -121,7 +121,7 @@ msgstr "Usuń aplet „%s”"
 
 #: ../src/panel.c:1094
 msgid "Panel Settings"
-msgstr "Preferencje panelu..."
+msgstr "Ustawienia panelu..."
 
 #: ../src/panel.c:1100
 msgid "Create New Panel"
@@ -216,7 +216,7 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"Proszę odwiedzić witrynę http://lxde.org/ aby poznać więcej szczegółów.\n"
+"Proszę odwiedzić witrynę http://lxde.org/, aby poznać więcej szczegółów.\n"
 "\n"
 
 #: ../src/plugin.c:388
@@ -263,15 +263,15 @@ msgstr "Wyświetlane okien wszystkich obszarów roboczych"
 
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Only show windows on the same monitor as the task bar"
-msgstr "Pokazuj tylko okna na tym samym monitorze jako pasek zadań"
+msgstr "Wyświetlanie okien tylko z tego samego ekranu co panel "
 
 #: ../data/ui/launchtaskbar.glade.h:11
 msgid "Use mouse wheel"
-msgstr "Manipulowanie oknami za pomocą rolki myszy"
+msgstr "Manipulowanie oknami za pomocą kółka myszy"
 
 #: ../data/ui/launchtaskbar.glade.h:12
 msgid "Flash when there is any window requiring attention"
-msgstr "Miganie okien wymagających uwagi użytkownika"
+msgstr "Manipulowanie oknami za pomocą kółka myszy"
 
 #: ../data/ui/launchtaskbar.glade.h:13
 msgid "Combine multiple application windows into a single button"
@@ -418,7 +418,7 @@ msgstr "Wszystko"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "Panel Preferences"
-msgstr "Preferencje panelu"
+msgstr "Ustawienia panelu"
 
 #: ../data/ui/panel-pref.glade.h:15
 msgid "Edge:"
@@ -458,7 +458,7 @@ msgstr "Geometria"
 
 #: ../data/ui/panel-pref.glade.h:26
 msgid "System theme"
-msgstr "Motyw systemowy"
+msgstr "Styl systemowy"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Solid color (with opacity)"
@@ -470,7 +470,7 @@ msgstr "Obraz"
 
 #: ../data/ui/panel-pref.glade.h:29
 msgid "Select an image file"
-msgstr "Wybierz obrazek"
+msgstr "Wybór obrazu"
 
 #: ../data/ui/panel-pref.glade.h:30
 msgid "<b>Background</b>"
@@ -519,7 +519,7 @@ msgstr "Traktowanie panelu przez menedżery okien jako doku"
 
 #: ../data/ui/panel-pref.glade.h:41
 msgid "Reserve space, and not covered by maximized windows"
-msgstr "Rezerwowanie obszaru pulpitu dla panelu"
+msgstr "Rezerwowanie części obszaru roboczego dla panelu"
 
 #: ../data/ui/panel-pref.glade.h:42
 msgid "<b>Properties</b>"
@@ -527,7 +527,7 @@ msgstr "<b>Właściwości</b>"
 
 #: ../data/ui/panel-pref.glade.h:43
 msgid "Minimize panel when not in use"
-msgstr "Minimalizuj panel, gdy nie jest w użyciu"
+msgstr "Ukrywanie nie używanego panelu"
 
 #: ../data/ui/panel-pref.glade.h:44
 msgid "Size when minimized"
@@ -669,7 +669,7 @@ msgstr "Zegar cyfrowy"
 
 #: ../plugins/dclock.c:422
 msgid "Clock Format"
-msgstr "Format zegara:"
+msgstr "Format wskazań:"
 
 #: ../plugins/dclock.c:423
 msgid "Tooltip Format"
@@ -727,7 +727,7 @@ msgstr "Oddziela aplety panelu pustą przestrzenią"
 #: ../plugins/pager.c:92
 msgid "Sorry, there was no window manager configuration program found."
 msgstr ""
-"Przepraszamy, ale nie znaleziono programu konfiguracyjnego menedżera okien."
+"Przepraszamy, ale nie odnaleziono programu konfiguracyjnego menedżera okien."
 
 #: ../plugins/pager.c:143 ../plugins/pager.c:159
 msgid "Desktop Pager"
@@ -755,7 +755,7 @@ msgstr "Wyświetla ikony powiadamiania programów"
 
 #: ../plugins/xkb/xkb-plugin.c:401
 msgid "New session is required for this option to take effect"
-msgstr "Konieczne jest uruchomienie nowej sesji, aby ta opcja odniosła skutek"
+msgstr "Wprowadzenie tego ustawienia wymaga uruchomienia nowej sesji"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:582
@@ -1734,7 +1734,7 @@ msgstr "Zakończ"
 
 #: ../plugins/weather/weatherwidget.c:1236
 msgid "Weather Preferences"
-msgstr "Preferencje Prognozy Pogody"
+msgstr "Preferencje pogody"
 
 #: ../plugins/weather/weatherwidget.c:1250
 msgid "Current Location"
