@@ -1,8 +1,5 @@
 [encoding: UTF-8]
-src/bg.c
 src/configurator.c
-src/dbg.c
-src/ev.c
 src/panel.c
 src/plugin.c
 src/gtk-run.c

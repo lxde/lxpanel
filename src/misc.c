@@ -547,7 +547,7 @@ get_xaproperty (Window win, Atom prop, Atom type, int *nitems)
     prop_data = NULL;
     if (XGetWindowProperty (GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), win, prop, 0, G_MAXLONG, False,
               type, &type_ret, &format_ret, &items_ret,
-              &after_ret, &prop_data) != Success)
+              &after_ret, &prop_data) != Success || items_ret == 0)
     {
         if( G_UNLIKELY(prop_data) )
             XFree( prop_data );

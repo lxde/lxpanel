@@ -36,7 +36,6 @@
 
 #include "private.h"
 #include "misc.h"
-#include "bg.h"
 
 #include "lxpanelctl.h"
 #include "dbg.h"
@@ -596,6 +595,46 @@ void _panel_set_wm_strut(LXPanel *panel)
  *         panel's handlers for GTK events          *
  ****************************************************/
 
+static void paint_root_pixmap(LXPanel *panel, cairo_t *cr)
+{
+    /*
+     * this code was extracted from code for FbBg object
+     *
+     * Copyright (C) 2001, 2002 Ian McKellar <yakk@yakk.net>
+     *                     2002 Sun Microsystems, Inc.
+     */
+    XGCValues gcv;
+    uint mask;
+    Window xroot;
+    GC gc;
+    Display *dpy;
+    Pixmap *prop;
+    GdkPixmap *pixmap;
+    Panel *p = panel->priv;
+
+    dpy = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
+    xroot = DefaultRootWindow(dpy);
+    gcv.ts_x_origin = 0;
+    gcv.ts_y_origin = 0;
+    gcv.fill_style = FillTiled;
+    mask = GCTileStipXOrigin | GCTileStipYOrigin | GCFillStyle;
+    prop = get_xaproperty(xroot, a_XROOTPMAP_ID, XA_PIXMAP, NULL);
+    if (prop)
+    {
+        gcv.tile = *prop;
+        mask |= GCTile;
+        XFree(prop);
+    }
+    gc = XCreateGC(dpy, xroot, mask, &gcv);
+    pixmap = gdk_pixmap_new(gtk_widget_get_window(GTK_WIDGET(panel)),
+                            p->aw, p->ah, -1);
+    XSetTSOrigin(dpy, gc, -p->ax, -p->ay);
+    XFillRectangle(dpy, gdk_x11_drawable_get_xid(pixmap), gc, 0, 0, p->aw, p->ah);
+    XFreeGC(dpy, gc);
+    gdk_cairo_set_source_pixmap(cr, pixmap, 0, 0);
+    cairo_paint(cr);
+    g_object_unref(pixmap);
+}
 
 void panel_determine_background_pixmap(Panel * panel, GtkWidget * widget, GdkWindow * window)
 {
@@ -629,14 +668,8 @@ void _panel_determine_background_pixmap(LXPanel * panel, GtkWidget * widget)
         if ((p->transparent && p->alpha != 255) || /* ignore it for opaque panel */
             (pixbuf != NULL && gdk_pixbuf_get_has_alpha(pixbuf)))
         {
-            /* we don't need to keep it since we get it once */
-            FbBg *bg = fb_bg_get_for_display();
             /* Transparent.  Determine the appropriate value from the root pixmap. */
-            pixmap = fb_bg_get_xroot_pix_for_win(bg, widget);
-            gdk_cairo_set_source_pixmap(cr, pixmap, 0, 0);
-            cairo_paint(cr);
-            g_object_unref(pixmap);
-            g_object_unref(bg);
+            paint_root_pixmap(panel, cr);
         }
         if (pixbuf != NULL)
         {

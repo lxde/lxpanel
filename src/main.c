@@ -36,7 +36,6 @@
 
 #include "private.h"
 #include "misc.h"
-#include "bg.h"
 
 #include "lxpanelctl.h"
 #include "dbg.h"

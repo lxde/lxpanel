@@ -23,7 +23,6 @@ pkglib_LTLIBRARIES = liblxpanel.la
 liblxpanel_la_CFLAGS = $(lxpanel_CFLAGS) $(KEYBINDER_CFLAGS)
 liblxpanel_la_SOURCES = \
 	misc.c \
-	bg.c \
 	configurator.c \
 	dbg.c \
 	ev.c \
@@ -72,7 +71,6 @@ lxpanelctl_SOURCES = lxpanelctl.c lxpanelctl.h
 lxpanelctl_LDADD = $(X11_LIBS)
 
 EXTRA_DIST = \
-	bg.h \
 	dbg.h \
 	ev.h \
 	menu-policy.h \

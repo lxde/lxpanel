@@ -81,6 +81,8 @@
 * Urgent window is now always visible on the taskbar irrelevant of the
     desktop number on which it appears, because urgent window requires
     user attention (patch from Andy Balaam).
+* Moved bit of code that is used out from src/bg.c and discarded src/bg.c
+    with src/bg.h from distro tarball.
 
 0.7.2
 -------------------------------------------------------------------------
