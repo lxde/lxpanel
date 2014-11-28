@@ -51,6 +51,7 @@ lxpanel_include_HEADERS = \
 
 lxpanel_SOURCES = \
 	icon-grid-old.c \
+	bg.c \
 	gtk-run.c \
 	main.c \
 	$(MENU_SOURCES)
@@ -71,6 +72,7 @@ lxpanelctl_SOURCES = lxpanelctl.c lxpanelctl.h
 lxpanelctl_LDADD = $(X11_LIBS)
 
 EXTRA_DIST = \
+	bg.h \
 	dbg.h \
 	ev.h \
 	menu-policy.h \
