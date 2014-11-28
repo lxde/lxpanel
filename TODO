@@ -11,4 +11,4 @@
 * support keywords in gtk-run
 * convert Task into GtkWidget and use it to emit signals for menus and buttons
 * make click-wait-release popdown popups similarly to as GtkMenuShell does
-* drop src/bg.[hc] files, only one function of it is used in fact.
+* make lxpanel multiscreen-aware

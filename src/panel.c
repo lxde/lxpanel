@@ -609,7 +609,12 @@ static void paint_root_pixmap(LXPanel *panel, cairo_t *cr)
     GC gc;
     Display *dpy;
     Pixmap *prop;
+#if GTK_CHECK_VERSION(3, 0, 0)
+    cairo_surface_t *surface;
+#else
     GdkPixmap *pixmap;
+#endif
+    Pixmap xpixmap;
     Panel *p = panel->priv;
 
     dpy = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
@@ -626,14 +631,32 @@ static void paint_root_pixmap(LXPanel *panel, cairo_t *cr)
         XFree(prop);
     }
     gc = XCreateGC(dpy, xroot, mask, &gcv);
+#if GTK_CHECK_VERSION(3, 0, 0)
+    xpixmap = XCreatePixmap(dpy, xroot, p->aw, p->ah,
+                            DefaultDepth(dpy, DefaultScreen(dpy)));
+    surface = cairo_xlib_surface_create(dpy, xpixmap,
+                                        DefaultVisual(dpy, DefaultScreen(dpy)),
+                                        p->aw, p->ah);
+#else
     pixmap = gdk_pixmap_new(gtk_widget_get_window(GTK_WIDGET(panel)),
                             p->aw, p->ah, -1);
+    xpixmap = gdk_x11_drawable_get_xid(pixmap);
+#endif
     XSetTSOrigin(dpy, gc, -p->ax, -p->ay);
-    XFillRectangle(dpy, gdk_x11_drawable_get_xid(pixmap), gc, 0, 0, p->aw, p->ah);
+    XFillRectangle(dpy, xpixmap, gc, 0, 0, p->aw, p->ah);
     XFreeGC(dpy, gc);
+#if GTK_CHECK_VERSION(3, 0, 0)
+    cairo_set_source_surface(cr, surface, 0, 0);
+#else
     gdk_cairo_set_source_pixmap(cr, pixmap, 0, 0);
+#endif
     cairo_paint(cr);
+#if GTK_CHECK_VERSION(3, 0, 0)
+    cairo_surface_destroy(surface);
+    XFreePixmap(xpixmap);
+#else
     g_object_unref(pixmap);
+#endif
 }
 
 void panel_determine_background_pixmap(Panel * panel, GtkWidget * widget, GdkWindow * window)
