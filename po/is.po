@@ -1,16 +1,16 @@
-# SOME DESCRIPTIVE TITLE.
+# Icelandic translation for LXPanel package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Sveinn í Felli <sv1@fellsnet.is>, 2014.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: LXPanel 0.8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-27 08:58+0100\n"
 "PO-Revision-Date: 2014-11-28 13:02+0000\n"
-"Last-Translator: Andriy Grytsenko <andrej@rep.kiev.ua>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
+"Language-Team: Icelandic\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"

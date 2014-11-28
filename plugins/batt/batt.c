@@ -250,7 +250,8 @@ void update_display(lx_battery *lx_b, gboolean repaint) {
     if ( !isCharging && rate > 0 &&
         ( ( battery_get_remaining( b ) / 60 ) < (int)lx_b->alarmTime ) )
     {
-        /* Shrug this should be done using glibs process functions */
+        /* FIXME: this should be done using glibs process functions */
+        /* FIXME: see bug #463: it should not spawn process all the time */
         /* Alarms should not run concurrently; determine whether an alarm is
            already running */
         int alarmCanRun;
