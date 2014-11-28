@@ -517,8 +517,10 @@ set_height_when_minimized(GtkSpinButton* spin, LXPanel* panel)
     Panel *p = panel->priv;
 
     p->height_when_hidden = (int)gtk_spin_button_get_value(spin);
+    gtk_widget_show(GTK_WIDGET(panel));
     gtk_widget_queue_resize(GTK_WIDGET(panel));
     UPDATE_GLOBAL_INT(p, "heightwhenhidden", p->height_when_hidden);
+    update_strut_control_button(panel);
 }
 
 static void
