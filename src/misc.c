@@ -547,7 +547,7 @@ get_xaproperty (Window win, Atom prop, Atom type, int *nitems)
     prop_data = NULL;
     if (XGetWindowProperty (GDK_DISPLAY_XDISPLAY(gdk_display_get_default()), win, prop, 0, G_MAXLONG, False,
               type, &type_ret, &format_ret, &items_ret,
-              &after_ret, &prop_data) != Success)
+              &after_ret, &prop_data) != Success || items_ret == 0)
     {
         if( G_UNLIKELY(prop_data) )
             XFree( prop_data );
@@ -835,33 +835,22 @@ void _calculate_position(LXPanel *panel, GdkRectangle *rect)
     GdkRectangle marea;
 
     ENTER;
-    /* FIXME: Why this doesn't work? */
-    /* if you are still going to use this, be sure to update it to take into
-       account multiple monitors */
-    if (0)  {
-//        if (np->curdesk < np->wa_len/4) {
-        marea.x = np->workarea[np->curdesk*4 + 0];
-        marea.y = np->workarea[np->curdesk*4 + 1];
-        marea.width  = np->workarea[np->curdesk*4 + 2];
-        marea.height = np->workarea[np->curdesk*4 + 3];
-    } else {
-        screen = gdk_screen_get_default();
-        if (np->monitor < 0) /* all monitors */
-        {
-            marea.x = 0;
-            marea.y = 0;
-            marea.width = gdk_screen_get_width(screen);
-            marea.height = gdk_screen_get_height(screen);
-        }
-        else if (np->monitor < gdk_screen_get_n_monitors(screen))
-            gdk_screen_get_monitor_geometry(screen,np->monitor,&marea);
-        else
-        {
-            marea.x = 0;
-            marea.y = 0;
-            marea.width = 0;
-            marea.height = 0;
-        }
+    screen = gdk_screen_get_default();
+    if (np->monitor < 0) /* all monitors */
+    {
+        marea.x = 0;
+        marea.y = 0;
+        marea.width = gdk_screen_get_width(screen);
+        marea.height = gdk_screen_get_height(screen);
+    }
+    else if (np->monitor < gdk_screen_get_n_monitors(screen))
+        gdk_screen_get_monitor_geometry(screen,np->monitor,&marea);
+    else
+    {
+        marea.x = 0;
+        marea.y = 0;
+        marea.width = 0;
+        marea.height = 0;
     }
 
     if (np->edge == EDGE_TOP || np->edge == EDGE_BOTTOM) {

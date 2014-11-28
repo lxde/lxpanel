@@ -29,7 +29,6 @@
 #include <stdlib.h>
 
 #include "misc.h"
-#include "bg.h"
 
 #include <glib-object.h>
 #include <glib/gi18n.h>

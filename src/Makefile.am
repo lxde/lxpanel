@@ -23,7 +23,6 @@ pkglib_LTLIBRARIES = liblxpanel.la
 liblxpanel_la_CFLAGS = $(lxpanel_CFLAGS) $(KEYBINDER_CFLAGS)
 liblxpanel_la_SOURCES = \
 	misc.c \
-	bg.c \
 	configurator.c \
 	dbg.c \
 	ev.c \
@@ -52,6 +51,7 @@ lxpanel_include_HEADERS = \
 
 lxpanel_SOURCES = \
 	icon-grid-old.c \
+	bg.c \
 	gtk-run.c \
 	main.c \
 	$(MENU_SOURCES)

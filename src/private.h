@@ -31,7 +31,6 @@
 
 #include <gdk/gdk.h>
 
-#include "bg.h"
 #include "ev.h"
 
 #if !GLIB_CHECK_VERSION(2, 40, 0)
@@ -76,7 +75,7 @@ struct _Panel {
     GtkWidget *(*my_box_new) (gboolean, gint);
     GtkWidget *(*my_separator_new) ();
 
-    FbBg *bg; /* unused since 0.8.0 */
+    void *bg; /* unused since 0.8.0 */
     int alpha;
     guint32 tintcolor;
     guint32 fontcolor;
@@ -115,8 +114,8 @@ struct _Panel {
 
     int desknum;
     int curdesk;
-    gulong *workarea;
-    int wa_len;
+    gulong *workarea; /* unused since 0.8.0 */
+    int wa_len; /* unused since 0.8.0 */
 
     char* background_file;
 
