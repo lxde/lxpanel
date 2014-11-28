@@ -76,7 +76,7 @@ static void lxpanel_finalize(GObject *object)
         lxpanel_config_save( self );
     config_destroy(p->config);
 
-    XFree(p->workarea);
+    //XFree(p->workarea);
     g_free( p->background_file );
     g_slist_free( p->system_menus );
 
@@ -1391,7 +1391,7 @@ panel_start_gui(LXPanel *panel, config_setting_t *list)
     g_debug("panel_start_gui on '%s'", p->name);
     p->curdesk = get_net_current_desktop();
     p->desknum = get_net_number_of_desktops();
-    p->workarea = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_WORKAREA, XA_CARDINAL, &p->wa_len);
+    //p->workarea = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_WORKAREA, XA_CARDINAL, &p->wa_len);
     p->ax = p->ay = p->aw = p->ah = 0;
 
     p->display = gdk_display_get_default();

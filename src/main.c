@@ -174,17 +174,6 @@ panel_event_filter(GdkXEvent *xevent, GdkEvent *event, gpointer not_used)
             for( l = all_panels; l; l = l->next )
                 _panel_queue_update_background((LXPanel*)l->data);
         }
-        else if (at == a_NET_WORKAREA)
-        {
-            GSList* l;
-            for( l = all_panels; l; l = l->next )
-            {
-                LXPanel* p = (LXPanel*)l->data;
-                g_free( p->priv->workarea );
-                p->priv->workarea = get_xaproperty (GDK_ROOT_WINDOW(), a_NET_WORKAREA, XA_CARDINAL, &p->priv->wa_len);
-                /* print_wmdata(p); */
-            }
-        }
         else
             return GDK_FILTER_CONTINUE;
 

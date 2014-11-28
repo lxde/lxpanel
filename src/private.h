@@ -114,8 +114,8 @@ struct _Panel {
 
     int desknum;
     int curdesk;
-    gulong *workarea;
-    int wa_len;
+    gulong *workarea; /* unused since 0.8.0 */
+    int wa_len; /* unused since 0.8.0 */
 
     char* background_file;
 
