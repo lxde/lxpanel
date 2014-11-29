@@ -2,7 +2,7 @@
 
 bin_PROGRAMS = lxpanel lxpanelctl
 
-lxpanel_CFLAGS = \
+lxpanel_CPPFLAGS = \
 	-I$(top_srcdir) \
 	-DPACKAGE_LIB_DIR=\""$(libdir)"\" \
 	-DPACKAGE_DATA_DIR=\""$(datadir)/lxpanel"\" \
@@ -20,7 +20,7 @@ endif
 
 pkglib_LTLIBRARIES = liblxpanel.la
 
-liblxpanel_la_CFLAGS = $(lxpanel_CFLAGS) $(KEYBINDER_CFLAGS)
+liblxpanel_la_CPPFLAGS = $(lxpanel_CPPFLAGS) $(KEYBINDER_CFLAGS)
 liblxpanel_la_SOURCES = \
 	misc.c \
 	configurator.c \
