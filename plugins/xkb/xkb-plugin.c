@@ -32,6 +32,7 @@
 #include <ctype.h>
 
 #include "xkb.h"
+#include "gtk-compat.h"
 
 enum
 {
