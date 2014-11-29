@@ -666,7 +666,12 @@ void panel_determine_background_pixmap(Panel * panel, GtkWidget * widget, GdkWin
 
 void _panel_determine_background_pixmap(LXPanel * panel, GtkWidget * widget)
 {
+#if GTK_CHECK_VERSION(3, 0, 0)
+    cairo_surface_t *surface;
+    cairo_pattern_t *pattern;
+#else
     GdkPixmap * pixmap = NULL;
+#endif
     GdkWindow * window = gtk_widget_get_window(widget);
     Panel * p = panel->priv;
     cairo_t *cr;
@@ -677,6 +682,14 @@ void _panel_determine_background_pixmap(LXPanel * panel, GtkWidget * widget)
         goto not_paintable;
     else if (p->aw <= 1 || p->ah <= 1)
         goto not_paintable;
+#if GTK_CHECK_VERSION(3, 0, 0)
+    else if (GTK_WIDGET(panel) != widget)
+    {
+        /* reset background for the child, using background of panel */
+        gdk_window_set_background_pattern(window, NULL);
+        return;
+    }
+#else
     else if (p->surface == NULL)
     {
         GdkPixbuf *pixbuf = NULL;
@@ -722,20 +735,32 @@ void _panel_determine_background_pixmap(LXPanel * panel, GtkWidget * widget)
     {
         gtk_widget_set_app_paintable(widget, TRUE);
         gtk_widget_get_allocation(widget, &alloc);
+#if GTK_CHECK_VERSION(3, 0, 0)
+        surface = gdk_window_create_similar_surface(window, CAIRO_CONTENT_COLOR_ALPHA,
+                                                    alloc.width, alloc.height);
+        cr = cairo_create(surface);
+#else
         pixmap = gdk_pixmap_new(window, alloc.width, alloc.height, -1);
         cr = gdk_cairo_create(pixmap);
+#endif
         gtk_widget_translate_coordinates(widget, GTK_WIDGET(panel), 0, 0, &x, &y);
         cairo_set_source_surface(cr, p->surface, 0.0 - x, 0.0 - y);
         cairo_paint(cr);
         cairo_destroy(cr);
+#if GTK_CHECK_VERSION(3, 0, 0)
+        pattern = cairo_pattern_create_for_surface(surface);
+        gdk_window_set_background_pattern(window, pattern);
+        cairo_pattern_destroy(pattern);
+        cairo_surface_destroy(surface);
+#else
         gdk_window_set_back_pixmap(window, pixmap, FALSE);
         g_object_unref(pixmap);
+#endif
     }
     else
     {
 not_paintable:
         gtk_widget_set_app_paintable(widget, FALSE);
-        /* Free p->bg if it is not going to be used. */
     }
 }
 
