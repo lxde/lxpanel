@@ -28,14 +28,17 @@
 #include <glib-object.h>
 #include <gdk/gdk.h>
 #include <gdk/gdkx.h>
+#include <gtk/gtk.h>
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
+
+#if !GTK_CHECK_VERSION(3, 0, 0)
+/* we don't provide these APIs for GTK+ 3.0 */
 
 #include "bg.h"
 
 //#define DEBUG
 #include "dbg.h"
-
 
 enum {
     CHANGED,
@@ -290,3 +293,4 @@ fb_bg_get_pix_from_file(GtkWidget *widget, const char *filename)
     g_object_unref( pixbuf );
     RET(pixmap);
 }
+#endif /* GTK_CHECK_VERSION */

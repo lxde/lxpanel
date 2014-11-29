@@ -309,6 +309,47 @@ static void panel_icon_grid_size_request(GtkWidget *widget,
         gtk_widget_queue_resize(widget);
 }
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+static void panel_icon_grid_get_preferred_width(GtkWidget *widget,
+                                                gint *minimal_width,
+                                                gint *natural_width)
+{
+    PanelIconGrid *ig = PANEL_ICON_GRID(widget);
+    GtkRequisition requisition;
+
+    if (ig->orientation == GTK_ORIENTATION_VERTICAL)
+    {
+        if (minimal_width)
+            *minimal_width = MIN(ig->target_dimension, ig->child_width);
+        if (natural_width)
+            *natural_width = ig->target_dimension;
+        return;
+    }
+    panel_icon_grid_size_request(widget, &requisition);
+    if (minimal_width)
+        *minimal_width = requisition.width;
+    if (natural_width)
+        *natural_width = requisition.width;
+}
+
+static void panel_icon_grid_get_preferred_height(GtkWidget *widget,
+                                                 gint *minimal_height,
+                                                 gint *natural_height)
+{
+    PanelIconGrid *ig = PANEL_ICON_GRID(widget);
+    GtkRequisition requisition;
+
+    if (ig->orientation == GTK_ORIENTATION_HORIZONTAL)
+        requisition.height = ig->target_dimension;
+    else
+        panel_icon_grid_size_request(widget, &requisition);
+    if (minimal_height)
+        *minimal_height = requisition.height;
+    if (natural_height)
+        *natural_height = requisition.height;
+}
+#endif
+
 /* Add an icon grid element and establish its initial visibility. */
 static void panel_icon_grid_add(GtkContainer *container, GtkWidget *widget)
 {
@@ -561,10 +602,16 @@ static void panel_icon_grid_realize(GtkWidget *widget)
     if (visible_window)
     {
         attributes.visual = gtk_widget_get_visual(widget);
+#if !GTK_CHECK_VERSION(3, 0, 0)
         attributes.colormap = gtk_widget_get_colormap(widget);
+#endif
         attributes.wclass = GDK_INPUT_OUTPUT;
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+        attributes_mask = GDK_WA_X | GDK_WA_Y | GDK_WA_VISUAL;
+#else
         attributes_mask = GDK_WA_X | GDK_WA_Y | GDK_WA_VISUAL | GDK_WA_COLORMAP;
+#endif
 
         window = gdk_window_new(gtk_widget_get_parent_window(widget),
                                 &attributes, attributes_mask);
@@ -685,7 +732,12 @@ static void panel_icon_grid_class_init(PanelIconGridClass *class)
     object_class->set_property = panel_icon_grid_set_property;
     object_class->get_property = panel_icon_grid_get_property;
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+    widget_class->get_preferred_width = panel_icon_grid_get_preferred_width;
+    widget_class->get_preferred_height = panel_icon_grid_get_preferred_height;
+#else
     widget_class->size_request = panel_icon_grid_size_request;
+#endif
     widget_class->size_allocate = panel_icon_grid_size_allocate;
     widget_class->realize = panel_icon_grid_realize;
     widget_class->unrealize = panel_icon_grid_unrealize;
