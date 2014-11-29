@@ -31,6 +31,7 @@
 #include <string.h>
 #include <gdk/gdkx.h>
 #include <libfm/fm-gtk.h>
+#include <cairo-xlib.h>
 
 #define __LXPANEL_INTERNALS__
 
@@ -137,13 +138,21 @@ static void panel_stop_gui(LXPanel *self)
     }
 }
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+static void lxpanel_destroy(GtkWidget *object)
+#else
 static void lxpanel_destroy(GtkObject *object)
+#endif
 {
     LXPanel *self = LXPANEL(object);
 
     panel_stop_gui(self);
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+    GTK_WIDGET_CLASS(lxpanel_parent_class)->destroy(object);
+#else
     GTK_OBJECT_CLASS(lxpanel_parent_class)->destroy(object);
+#endif
 }
 
 static gboolean idle_update_background(gpointer p)
@@ -299,11 +308,17 @@ static gboolean lxpanel_button_press(GtkWidget *widget, GdkEventButton *event)
 static void lxpanel_class_init(PanelToplevelClass *klass)
 {
     GObjectClass *gobject_class = (GObjectClass *)klass;
+#if !GTK_CHECK_VERSION(3, 0, 0)
     GtkObjectClass *gtk_object_class = (GtkObjectClass *)klass;
+#endif
     GtkWidgetClass *widget_class = (GtkWidgetClass *)klass;
 
     gobject_class->finalize = lxpanel_finalize;
+#if GTK_CHECK_VERSION(3, 0, 0)
+    widget_class->destroy = lxpanel_destroy;
+#else
     gtk_object_class->destroy = lxpanel_destroy;
+#endif
     widget_class->realize = lxpanel_realize;
     widget_class->size_request = lxpanel_size_request;
     widget_class->size_allocate = lxpanel_size_allocate;
@@ -653,7 +668,7 @@ static void paint_root_pixmap(LXPanel *panel, cairo_t *cr)
     cairo_paint(cr);
 #if GTK_CHECK_VERSION(3, 0, 0)
     cairo_surface_destroy(surface);
-    XFreePixmap(xpixmap);
+    XFreePixmap(dpy, xpixmap);
 #else
     g_object_unref(pixmap);
 #endif
@@ -1468,7 +1483,7 @@ panel_start_gui(LXPanel *panel, config_setting_t *list)
     if (p->round_corners)
         make_round_corners(p);
 
-    p->topxwin = GDK_WINDOW_XWINDOW(gtk_widget_get_window(w));
+    p->topxwin = GDK_WINDOW_XID(gtk_widget_get_window(w));
     DBG("topxwin = %x\n", p->topxwin);
 
     /* the settings that should be done before window is mapped */
