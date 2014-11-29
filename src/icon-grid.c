@@ -623,19 +623,33 @@ static void panel_icon_grid_unmap(GtkWidget *widget)
     GTK_WIDGET_CLASS(panel_icon_grid_parent_class)->unmap(widget);
 }
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+static gboolean panel_icon_grid_draw(GtkWidget *widget, cairo_t *cr)
+#else
 static gboolean panel_icon_grid_expose(GtkWidget *widget, GdkEventExpose *event)
+#endif
 {
     if (gtk_widget_is_drawable(widget))
     {
         if (gtk_widget_get_has_window(widget) &&
             !gtk_widget_get_app_paintable(widget))
+#if GTK_CHECK_VERSION(3, 0, 0)
+            gtk_render_background(gtk_widget_get_style_context(widget), cr, 0, 0,
+                                  gtk_widget_get_allocated_width(widget),
+                                  gtk_widget_get_allocated_height(widget));
+#else
             gtk_paint_flat_box(gtk_widget_get_style(widget),
                                gtk_widget_get_window(widget),
                                gtk_widget_get_state(widget), GTK_SHADOW_NONE,
                                &event->area, widget, "panelicongrid",
                                0, 0, -1, -1);
+#endif
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+        GTK_WIDGET_CLASS(panel_icon_grid_parent_class)->draw(widget, cr);
+#else
         GTK_WIDGET_CLASS(panel_icon_grid_parent_class)->expose_event(widget, event);
+#endif
     }
     return FALSE;
 }
@@ -677,7 +691,11 @@ static void panel_icon_grid_class_init(PanelIconGridClass *class)
     widget_class->unrealize = panel_icon_grid_unrealize;
     widget_class->map = panel_icon_grid_map;
     widget_class->unmap = panel_icon_grid_unmap;
+#if GTK_CHECK_VERSION(3, 0, 0)
+    widget_class->draw = panel_icon_grid_draw;
+#else
     widget_class->expose_event = panel_icon_grid_expose;
+#endif
 
     container_class->add = panel_icon_grid_add;
     container_class->remove = panel_icon_grid_remove;

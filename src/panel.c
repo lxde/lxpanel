@@ -689,7 +689,7 @@ void _panel_determine_background_pixmap(LXPanel * panel, GtkWidget * widget)
         gdk_window_set_background_pattern(window, NULL);
         return;
     }
-#else
+#endif
     else if (p->surface == NULL)
     {
         GdkPixbuf *pixbuf = NULL;
