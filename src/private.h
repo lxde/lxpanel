@@ -269,6 +269,8 @@ extern void panel_update_background( Panel* p );
 /* if current window manager is EWMH conforming. */
 extern gboolean is_ewmh_supported;
 
+void get_button_spacing(GtkRequisition *req, GtkContainer *parent, gchar *name);
+
 /*
  This function is used to re-create a new box with different
  orientation from the old one, add all children of the old one to
