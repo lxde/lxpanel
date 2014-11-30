@@ -227,7 +227,6 @@ void _panel_show_config_dialog(LXPanel *panel, GtkWidget *p, GtkWidget *dlg);
 
 void _calculate_position(LXPanel *panel, GdkRectangle *rect);
 
-void _panel_determine_background_pixmap(LXPanel * p, GtkWidget * widget);
 void _panel_establish_autohide(LXPanel *p);
 void _panel_set_wm_strut(LXPanel *p);
 void _panel_set_panel_configuration_changed(LXPanel *p);

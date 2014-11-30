@@ -83,6 +83,11 @@
     user attention (patch from Andy Balaam).
 * Moved bit of code that is used out from src/bg.c and discarded src/bg.c
     from code used.
+* Dropped setting members of Panel structure: workarea, wa_len, bg.
+* Replaced GtkComboBoxEntry in netstatus plugin window with GtkComboBox.
+* Simplified plugins background setting - they should never use any own
+    background but either use one from panel or from theme (depending on
+    panel configuration). This should improve performance.
 
 0.7.2
 -------------------------------------------------------------------------

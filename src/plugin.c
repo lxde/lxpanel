@@ -183,32 +183,26 @@ void plugin_widget_set_background(GtkWidget * w, LXPanel * panel)
 {
     if (w != NULL)
     {
-        Panel *p = panel->priv;
         if (gtk_widget_get_has_window(w))
         {
-            if ((p->background) || (p->transparent))
+            Panel *p = panel->priv;
+
+            gtk_widget_set_app_paintable(w, ((p->background) || (p->transparent)));
+            if (gtk_widget_get_realized(w))
             {
-                if (gtk_widget_get_realized(w))
-                {
-                    _panel_determine_background_pixmap(panel, w);
-                    gdk_window_invalidate_rect(gtk_widget_get_window(w), NULL, TRUE);
-                }
-            }
-            else
-            {
-                /* Set background according to the current GTK style. */
-                gtk_widget_set_app_paintable(w, FALSE);
-                if (gtk_widget_get_realized(w))
-                {
+                GdkWindow *window = gtk_widget_get_window(w);
 #if GTK_CHECK_VERSION(3, 0, 0)
-                    gdk_window_set_background_pattern(gtk_widget_get_window(w), NULL);
+                gdk_window_set_background_pattern(window, NULL);
 #else
-                    gdk_window_set_back_pixmap(gtk_widget_get_window(w), NULL, TRUE);
+                gdk_window_set_back_pixmap(window, NULL, TRUE);
 #endif
-                    gtk_style_set_background(gtk_widget_get_style(w),
-                                             gtk_widget_get_window(w),
+                if ((p->background) || (p->transparent))
+                    /* Reset background for the child, using background of panel */
+                    gdk_window_invalidate_rect(window, NULL, TRUE);
+                else
+                    /* Set background according to the current GTK style. */
+                    gtk_style_set_background(gtk_widget_get_style(w), window,
                                              GTK_STATE_NORMAL);
-                }
             }
         }
 
