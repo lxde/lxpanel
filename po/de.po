@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-20 13:56+0300\n"
-"PO-Revision-Date: 2014-11-26 20:24+0000\n"
-"Last-Translator: Daniel Winzen <d@winzen4.de>\n"
+"PO-Revision-Date: 2014-11-30 14:39+0000\n"
+"Last-Translator: system user <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1417033440.000000\n"
+"X-POOTLE-MTIME: 1417358347.000000\n"
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/configurator.c:50 ../src/gtk-run.c:373 ../plugins/menu.c:749
@@ -41,7 +41,7 @@ msgstr "Ausdehnen"
 
 #: ../src/configurator.c:689
 msgid "Add plugin to panel"
-msgstr "Erweiterung zum Panel hinzufügen"
+msgstr "Erweiterung zur Leiste hinzufügen"
 
 #: ../src/configurator.c:717
 msgid "Available plugins"
@@ -72,7 +72,7 @@ msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
-"Dieses Panel wirklich entfernen?\n"
+"Diese Leiste wirklich entfernen?\n"
 "<b>Warnung: Es kann nicht wiederhergestellt werden.</b>"
 
 #: ../src/panel.c:953
@@ -97,7 +97,7 @@ msgstr "Copyright (C) 2008-2014"
 
 #: ../src/panel.c:1012
 msgid "Desktop panel for LXDE project"
-msgstr "Desktop-Panel für das LXDE-Projekt"
+msgstr "Arbeitsflächen-Leiste für das LXDE-Projekt"
 
 #: ../src/panel.c:1054
 #, c-format
@@ -106,24 +106,24 @@ msgstr "»%s«-Einstellungen"
 
 #: ../src/panel.c:1074
 msgid "Add / Remove Panel Items"
-msgstr "Paneleinträge hinzufügen/entfernen"
+msgstr "Leisteneinträge hinzufügen/entfernen"
 
 #: ../src/panel.c:1082
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr "»%s« aus dem Panel entfernen"
+msgstr "»%s« aus der Leiste entfernen"
 
 #: ../src/panel.c:1094
 msgid "Panel Settings"
-msgstr "Panel-Einstellungen"
+msgstr "Leisten-Einstellungen"
 
 #: ../src/panel.c:1100
 msgid "Create New Panel"
-msgstr "Neues Panel anlegen"
+msgstr "Neue Leiste anlegen"
 
 #: ../src/panel.c:1106
 msgid "Delete This Panel"
-msgstr "Dieses Panel entfernen"
+msgstr "Diese Leiste entfernen"
 
 #: ../src/panel.c:1117
 msgid "About"
@@ -131,7 +131,7 @@ msgstr "Info"
 
 #: ../src/panel.c:1124
 msgid "Panel"
-msgstr "Panel"
+msgstr "Leiste"
 
 #: ../src/panel.c:1309 ../src/panel.c:1317 ../data/ui/panel-pref.glade.h:22
 msgid "Height:"
@@ -160,7 +160,7 @@ msgstr "Unten"
 #: ../src/panel.c:1609
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr "lxpanel %s - leichtgewichtiges GTK2+ Panel für UNIX-Desktops\n"
+msgstr "lxpanel %s - leichtgewichtige GTK2+ Leiste für UNIX-Arbeitsflächen\n"
 
 #: ../src/panel.c:1610
 #, c-format
@@ -412,7 +412,7 @@ msgstr "Alle"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "Panel Preferences"
-msgstr "Panel-Einstellungen"
+msgstr "Leisten-Einstellungen"
 
 #: ../data/ui/panel-pref.glade.h:15
 msgid "Edge:"
@@ -489,7 +489,7 @@ msgstr "Erscheinungsbild"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Panel Applets"
-msgstr "Panel-Erweiterungen"
+msgstr "Leisten-Erweiterungen"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "Logout Command:"
@@ -509,7 +509,7 @@ msgstr "<b>Bevorzugte Anwendungen wählen</b>"
 
 #: ../data/ui/panel-pref.glade.h:40
 msgid "Make window managers treat the panel as dock"
-msgstr "Fenstermanager soll das Panel als Dock identifizieren"
+msgstr "Fenstermanager soll die Leiste als Dock identifizieren"
 
 #: ../data/ui/panel-pref.glade.h:41
 msgid "Reserve space, and not covered by maximized windows"
@@ -521,7 +521,7 @@ msgstr "<b>Eigenschaften</b>"
 
 #: ../data/ui/panel-pref.glade.h:43
 msgid "Minimize panel when not in use"
-msgstr "Panel bei Nichtbenutzung minimieren"
+msgstr "Leiste bei Nichtbenutzung minimieren"
 
 #: ../data/ui/panel-pref.glade.h:44
 msgid "Size when minimized"
@@ -693,7 +693,7 @@ msgstr "Digitale Uhr und Minihilfe anzeigen"
 
 #: ../plugins/menu.c:390
 msgid "Add to desktop"
-msgstr "Dem Desktop hinzufügen"
+msgstr "Der Arbeitsfläche hinzufügen"
 
 #: ../plugins/menu.c:397
 msgid "Properties"
@@ -717,7 +717,7 @@ msgstr "Trenner"
 
 #: ../plugins/separator.c:69
 msgid "Add a separator to the panel"
-msgstr "Trenner zum Panel hinzufügen"
+msgstr "Trenner zur Leiste hinzufügen"
 
 #: ../plugins/pager.c:92
 msgid "Sorry, there was no window manager configuration program found."
@@ -839,7 +839,7 @@ msgstr "Text"
 
 #: ../plugins/xkb/xkb-plugin.c:1475
 msgid "Panel Icon Size"
-msgstr "Panel-Symbolgröße"
+msgstr "Leisten-Symbolgröße"
 
 #: ../plugins/xkb/xkb-plugin.c:1537
 msgid "Handle keyboard layouts"
@@ -1639,7 +1639,7 @@ msgstr "Audiomenü"
 
 #: ../plugins/indicator/indicator.c:882
 msgid "Add indicator applets to the panel"
-msgstr "Indikator Anwendungen zum Panel hinzufügen"
+msgstr "Indikator Anwendungen zur Leiste hinzufügen"
 
 #: ../plugins/monitors/monitors.c:269
 #, c-format
