@@ -592,6 +592,30 @@ netstatus_dialog_setup_configure_button (NetstatusDialogData *data)
 			    !netstatus_iface_get_is_loopback (data->iface));
 }
 
+#if !GTK_CHECK_VERSION(2, 24, 0)
+static void _combo_box_entry_active_changed (GtkComboBox *combo_box,
+                                             gpointer     user_data)
+{
+  GtkTreeModel *model;
+  GtkTreeIter iter;
+  gchar *str = NULL;
+
+  if (gtk_combo_box_get_active_iter (combo_box, &iter))
+    {
+      GtkEntry *entry = GTK_ENTRY (gtk_bin_get_child (GTK_BIN (combo_box)));
+
+      if (entry)
+        {
+          model = gtk_combo_box_get_model (combo_box);
+
+          gtk_tree_model_get (model, &iter, 0, &str, -1);
+          gtk_entry_set_text (entry, str);
+          g_free (str);
+        }
+    }
+}
+#endif
+
 static void
 netstatus_dialog_setup_connection (NetstatusDialogData *data)
 {
@@ -616,7 +640,18 @@ netstatus_dialog_setup_connection (NetstatusDialogData *data)
 #if GTK_CHECK_VERSION(2, 24, 0)
   gtk_combo_box_set_entry_text_column(GTK_COMBO_BOX(data->name), 0);
 #else
-  gtk_combo_box_entry_set_text_column(GTK_COMBO_BOX_ENTRY(data->name), 0);
+  /* emulate 2.24/GtkComboBoxEntry behavior */
+  GtkCellRenderer *text_renderer = gtk_cell_renderer_text_new ();
+  gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (data->name),
+                              text_renderer, TRUE);
+
+  gtk_combo_box_set_active (GTK_COMBO_BOX (data->name), -1);
+
+  g_signal_connect (data->name, "changed",
+                    G_CALLBACK (_combo_box_entry_active_changed), NULL);
+
+  gtk_cell_layout_set_attributes (GTK_CELL_LAYOUT (data->name),
+                                  text_renderer, "text", 0, NULL);
 #endif
   g_object_unref(model);
 

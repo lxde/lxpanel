@@ -1096,6 +1096,10 @@ void panel_configure( LXPanel* panel, int sel_page )
     else if (GTK_IS_COMBO_BOX(w))
     {
         GtkCellRenderer *cell;
+#if GTK_CHECK_VERSION(3, 0, 0)
+        GtkListStore *model;
+        GtkTreeIter it;
+#endif
         gint i;
         char itext[4];
 
@@ -1105,11 +1109,19 @@ void panel_configure( LXPanel* panel, int sel_page )
         gtk_cell_layout_add_attribute(GTK_CELL_LAYOUT(w), cell, "text", 0);
         gtk_cell_layout_set_cell_data_func(GTK_CELL_LAYOUT(w), cell,
                                            update_mon_sensitivity, panel, NULL);
+#if GTK_CHECK_VERSION(3, 0, 0)
+        model = GTK_LIST_STORE(gtk_combo_box_get_model(GTK_COMBO_BOX(w)));
+#endif
         /* add monitors beyond first one to the model */
         for (i = 1; i < monitors; i++)
         {
             snprintf(itext, sizeof(itext), "%d", i + 1);
+#if GTK_CHECK_VERSION(3, 0, 0)
+            gtk_list_store_append(model, &it);
+            gtk_list_store_set(model, &it, 0, itext, -1);
+#else
             gtk_combo_box_append_text(GTK_COMBO_BOX(w), itext);
+#endif
         }
         gtk_combo_box_set_active(GTK_COMBO_BOX(w), p->monitor + 1);
         /* FIXME: set sensitive only if more than 1 monitor available? */

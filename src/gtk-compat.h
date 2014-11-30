@@ -41,4 +41,8 @@
 #  define  gdk_window_get_screen        gdk_drawable_get_screen
 #endif
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+#  define  GTK_DIALOG_NO_SEPARATOR      0
+#endif
+
 #endif
