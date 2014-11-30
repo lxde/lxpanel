@@ -38,6 +38,10 @@
 #include "dbg.h"
 #include "gtk-compat.h"
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+#include <gtk/gtkx.h>
+#endif
+
 static void plugin_class_unref(PluginClass * pc);
 
 GQuark lxpanel_plugin_qinit;
@@ -196,7 +200,11 @@ void plugin_widget_set_background(GtkWidget * w, LXPanel * panel)
                 gtk_widget_set_app_paintable(w, FALSE);
                 if (gtk_widget_get_realized(w))
                 {
+#if GTK_CHECK_VERSION(3, 0, 0)
+                    gdk_window_set_background_pattern(gtk_widget_get_window(w), NULL);
+#else
                     gdk_window_set_back_pixmap(gtk_widget_get_window(w), NULL, TRUE);
+#endif
                     gtk_style_set_background(gtk_widget_get_style(w),
                                              gtk_widget_get_window(w),
                                              GTK_STATE_NORMAL);

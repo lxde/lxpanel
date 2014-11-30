@@ -34,6 +34,10 @@
 #include "misc.h"
 #include "icon-grid.h"
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+#include <gtk/gtkx.h>
+#endif
+
 /* Standards reference:  http://standards.freedesktop.org/systemtray-spec/ */
 
 /* Protocol constants. */
