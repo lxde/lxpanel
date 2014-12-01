@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel r839\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 21:13+0200\n"
-"PO-Revision-Date: 2014-11-28 14:33+0000\n"
+"PO-Revision-Date: 2014-11-28 17:19+0000\n"
 "Last-Translator: Pierre Gobin <lubuntu@pierregobin.fr>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "Language: fr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1417185183.000000\n"
+"X-POOTLE-MTIME: 1417195167.000000\n"
 
 #: ../src/configurator.c:135
 msgid ""
@@ -247,9 +247,8 @@ msgid "LeftBtn"
 msgstr "BtnGauche"
 
 #: ../src/input-button.c:164
-#, fuzzy
 msgid "MiddleBtn"
-msgstr "Molette"
+msgstr "BtnCentral"
 
 #: ../src/input-button.c:167
 msgid "RightBtn"
@@ -1527,6 +1526,7 @@ msgstr ""
 "%sÉnergie maximum théorique :\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:181
+#, c-format
 #, c-format, c-format
 msgid ""
 "\n"
