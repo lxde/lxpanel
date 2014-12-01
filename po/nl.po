@@ -1430,8 +1430,8 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"Kon netwerkkaart-statistieken niet lezen vanuit '%s'. prx_idx = %d; ptx_idx ="
-" %d; brx_idx = %d; btx_idx = %d;"
+"Kon netwerkkaart-statistieken niet lezen vanuit '%s'. prx_idx = %d; ptx_idx "
+"= %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:312
 msgid "Could not parse /proc/net/wireless. No data."
@@ -1935,13 +1935,11 @@ msgstr "Weer-invoegtoepassing"
 msgid "Show weather conditions for a location."
 msgstr "Toon weersomstandigheden voor een locatie."
 
-#, c-format
 #~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 #~ msgstr ""
 #~ " --log <number> -- stel logboekniveau in van 0-5.  0 = geen 5 = "
 #~ "breedsprakig\n"
 
-#, c-format
 #~ msgid "Format codes: man 3 strftime; \\%n for line break"
 #~ msgstr "Opmaakcodes: man 3 strftime; \\%n voor regelafbreking"
 
@@ -1973,7 +1971,6 @@ msgstr "Toon weersomstandigheden voor een locatie."
 #~ "Foutmelding: u dient een toepassing te installeren om het geluid in te "
 #~ "stellen (pavucontrol, alsamixer, ...)."
 
-#, c-format
 #~ msgid "Failed to launch time configuration tool: %s"
 #~ msgstr "Kon configuratiegereedschap voor tijd niet starten: %s"
 

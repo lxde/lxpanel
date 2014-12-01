@@ -1930,13 +1930,11 @@ msgstr "Sää-lisäosa"
 msgid "Show weather conditions for a location."
 msgstr "Näytä paikan säätiedot."
 
-#, c-format
 #~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 #~ msgstr ""
 #~ " --log <numero> -- asettaa lokin tasoksi 0-5. 0 = ei mitään, 5 = "
 #~ "lavertelija\n"
 
-#, c-format
 #~ msgid "Format codes: man 3 strftime; \\%n for line break"
 #~ msgstr "Muotoilukoodit: man 3 strftime, \\%n aloittaa uuden rivin"
 
@@ -1968,7 +1966,6 @@ msgstr "Näytä paikan säätiedot."
 #~ "Tapahtui virhe, sinun pitää asentaa joku ääniasetusten muokkausohjelma "
 #~ "(pavucontrol, alsamixer ...)"
 
-#, c-format
 #~ msgid "Failed to launch time configuration tool: %s"
 #~ msgstr "Ajanhallintatyökalun käynnistys epäonnistui: %s"
 
