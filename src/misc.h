@@ -149,7 +149,15 @@ extern int panel_handle_x_error_swallow_BadWindow_BadDrawable(Display * d, XErro
  */
 gchar *expand_tilda(const gchar *file);
 
-void get_button_spacing(GtkRequisition *req, GtkContainer *parent, gchar *name);
+/**
+ * gcolor2rgb24
+ * @color: a color structure
+ *
+ * Creates integer @color representation which can be easily converted
+ * into string using printf conversion "#%06x".
+ *
+ * Returns: a 32-bit integer.
+ */
 guint32 gcolor2rgb24(GdkColor *color);
 
 /**

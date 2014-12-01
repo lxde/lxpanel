@@ -674,37 +674,23 @@ static void paint_root_pixmap(LXPanel *panel, cairo_t *cr)
 #endif
 }
 
-void panel_determine_background_pixmap(Panel * panel, GtkWidget * widget, GdkWindow * window)
-{
-    _panel_determine_background_pixmap(panel->topgwin, widget);
-}
-
-void _panel_determine_background_pixmap(LXPanel * panel, GtkWidget * widget)
+void _panel_determine_background_pixmap(LXPanel * panel)
 {
 #if GTK_CHECK_VERSION(3, 0, 0)
-    cairo_surface_t *surface;
     cairo_pattern_t *pattern;
 #else
     GdkPixmap * pixmap = NULL;
 #endif
+    GtkWidget * widget = GTK_WIDGET(panel);
     GdkWindow * window = gtk_widget_get_window(widget);
     Panel * p = panel->priv;
     cairo_t *cr;
-    GtkAllocation alloc;
     gint x = 0, y = 0;
 
     if (!p->background && !p->transparent)
         goto not_paintable;
     else if (p->aw <= 1 || p->ah <= 1)
         goto not_paintable;
-#if GTK_CHECK_VERSION(3, 0, 0)
-    else if (GTK_WIDGET(panel) != widget)
-    {
-        /* reset background for the child, using background of panel */
-        gdk_window_set_background_pattern(window, NULL);
-        return;
-    }
-#endif
     else if (p->surface == NULL)
     {
         GdkPixbuf *pixbuf = NULL;
@@ -749,25 +735,16 @@ void _panel_determine_background_pixmap(LXPanel * panel, GtkWidget * widget)
     if (p->surface != NULL)
     {
         gtk_widget_set_app_paintable(widget, TRUE);
-        gtk_widget_get_allocation(widget, &alloc);
 #if GTK_CHECK_VERSION(3, 0, 0)
-        surface = gdk_window_create_similar_surface(window, CAIRO_CONTENT_COLOR_ALPHA,
-                                                    alloc.width, alloc.height);
-        cr = cairo_create(surface);
-#else
-        pixmap = gdk_pixmap_new(window, alloc.width, alloc.height, -1);
-        cr = gdk_cairo_create(pixmap);
-#endif
-        gtk_widget_translate_coordinates(widget, GTK_WIDGET(panel), 0, 0, &x, &y);
-        cairo_set_source_surface(cr, p->surface, 0.0 - x, 0.0 - y);
-        cairo_paint(cr);
-        cairo_destroy(cr);
-#if GTK_CHECK_VERSION(3, 0, 0)
-        pattern = cairo_pattern_create_for_surface(surface);
+        pattern = cairo_pattern_create_for_surface(p->surface);
         gdk_window_set_background_pattern(window, pattern);
         cairo_pattern_destroy(pattern);
-        cairo_surface_destroy(surface);
 #else
+        pixmap = gdk_pixmap_new(window, p->aw, p->ah, -1);
+        cr = gdk_cairo_create(pixmap);
+        cairo_set_source_surface(cr, p->surface, 0, 0);
+        cairo_paint(cr);
+        cairo_destroy(cr);
         gdk_window_set_back_pixmap(window, pixmap, FALSE);
         g_object_unref(pixmap);
 #endif
@@ -777,6 +754,23 @@ void _panel_determine_background_pixmap(LXPanel * panel, GtkWidget * widget)
 not_paintable:
         gtk_widget_set_app_paintable(widget, FALSE);
     }
+}
+
+void panel_determine_background_pixmap(Panel * panel, GtkWidget * widget, GdkWindow * window)
+{
+    if (GTK_WIDGET(panel->topgwin) != widget)
+    {
+        /* Backward compatibility:
+           reset background for the child, using background of panel */
+        gtk_widget_set_app_paintable(widget, (panel->background || panel->transparent));
+#if GTK_CHECK_VERSION(3, 0, 0)
+        gdk_window_set_background_pattern(window, NULL);
+#else
+        gdk_window_set_back_pixmap(window, NULL, TRUE);
+#endif
+    }
+    else
+        _panel_determine_background_pixmap(panel->topgwin);
 }
 
 /* Update the background of the entire panel.
@@ -799,7 +793,7 @@ static void _panel_update_background(LXPanel * p)
     }
 
     /* Redraw the top level widget. */
-    _panel_determine_background_pixmap(p, w);
+    _panel_determine_background_pixmap(p);
     gdk_window_clear(gtk_widget_get_window(w));
     gtk_widget_queue_draw(w);
 

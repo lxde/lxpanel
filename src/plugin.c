@@ -38,6 +38,10 @@
 #include "dbg.h"
 #include "gtk-compat.h"
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+#include <gtk/gtkx.h>
+#endif
+
 static void plugin_class_unref(PluginClass * pc);
 
 GQuark lxpanel_plugin_qinit;
@@ -179,28 +183,26 @@ void plugin_widget_set_background(GtkWidget * w, LXPanel * panel)
 {
     if (w != NULL)
     {
-        Panel *p = panel->priv;
         if (gtk_widget_get_has_window(w))
         {
-            if ((p->background) || (p->transparent))
+            Panel *p = panel->priv;
+
+            gtk_widget_set_app_paintable(w, ((p->background) || (p->transparent)));
+            if (gtk_widget_get_realized(w))
             {
-                if (gtk_widget_get_realized(w))
-                {
-                    _panel_determine_background_pixmap(panel, w);
-                    gdk_window_invalidate_rect(gtk_widget_get_window(w), NULL, TRUE);
-                }
-            }
-            else
-            {
-                /* Set background according to the current GTK style. */
-                gtk_widget_set_app_paintable(w, FALSE);
-                if (gtk_widget_get_realized(w))
-                {
-                    gdk_window_set_back_pixmap(gtk_widget_get_window(w), NULL, TRUE);
-                    gtk_style_set_background(gtk_widget_get_style(w),
-                                             gtk_widget_get_window(w),
+                GdkWindow *window = gtk_widget_get_window(w);
+#if GTK_CHECK_VERSION(3, 0, 0)
+                gdk_window_set_background_pattern(window, NULL);
+#else
+                gdk_window_set_back_pixmap(window, NULL, TRUE);
+#endif
+                if ((p->background) || (p->transparent))
+                    /* Reset background for the child, using background of panel */
+                    gdk_window_invalidate_rect(window, NULL, TRUE);
+                else
+                    /* Set background according to the current GTK style. */
+                    gtk_style_set_background(gtk_widget_get_style(w), window,
                                              GTK_STATE_NORMAL);
-                }
             }
         }
 
@@ -486,7 +488,8 @@ static void on_size_allocate(GtkWidget *widget, GdkRectangle *allocation, LXPane
         return; /* not changed */
     *alloc = *allocation;
     /* g_debug("size-allocate on %s", PLUGIN_CLASS(widget)->name); */
-    _panel_queue_update_background(p);
+    plugin_widget_set_background(widget, p);
+//    _panel_queue_update_background(p);
 //    _queue_panel_calculate_size(p);
 }
 

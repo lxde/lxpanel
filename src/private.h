@@ -227,7 +227,6 @@ void _panel_show_config_dialog(LXPanel *panel, GtkWidget *p, GtkWidget *dlg);
 
 void _calculate_position(LXPanel *panel, GdkRectangle *rect);
 
-void _panel_determine_background_pixmap(LXPanel * p, GtkWidget * widget);
 void _panel_establish_autohide(LXPanel *p);
 void _panel_set_wm_strut(LXPanel *p);
 void _panel_set_panel_configuration_changed(LXPanel *p);
@@ -268,6 +267,8 @@ extern void panel_update_background( Panel* p );
 
 /* if current window manager is EWMH conforming. */
 extern gboolean is_ewmh_supported;
+
+void get_button_spacing(GtkRequisition *req, GtkContainer *parent, gchar *name);
 
 /*
  This function is used to re-create a new box with different
