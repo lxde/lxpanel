@@ -488,7 +488,8 @@ static void on_size_allocate(GtkWidget *widget, GdkRectangle *allocation, LXPane
         return; /* not changed */
     *alloc = *allocation;
     /* g_debug("size-allocate on %s", PLUGIN_CLASS(widget)->name); */
-    _panel_queue_update_background(p);
+    plugin_widget_set_background(widget, p);
+//    _panel_queue_update_background(p);
 //    _queue_panel_calculate_size(p);
 }
 

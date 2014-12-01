@@ -88,6 +88,8 @@
 * Simplified plugins background setting - they should never use any own
     background but either use one from panel or from theme (depending on
     panel configuration). This should improve performance.
+* Don't update a whole panel background anymore after some plugin was
+    resized, only update the plugin itself to improve performance.
 
 0.7.2
 -------------------------------------------------------------------------
