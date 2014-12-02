@@ -1034,8 +1034,8 @@ msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontrol, alsamixer ...)"
 msgstr ""
-"Erreur, vous devez installer une application pour configurer le son ("
-"pavucontrol, alsamixer, etc.)"
+"Erreur, vous devez installer une application pour configurer le son "
+"(pavucontrol, alsamixer, etc.)"
 
 #: ../plugins/volumealsa/volumealsa.c:638
 msgid "Display and control volume for ALSA"
@@ -1527,7 +1527,6 @@ msgstr ""
 
 #: ../plugins/batt/batt.c:181
 #, c-format
-#, c-format, c-format
 msgid ""
 "\n"
 "%sEnergy full:\t\t\t%5d mWh"
@@ -1956,13 +1955,11 @@ msgstr "Météo"
 msgid "Show weather conditions for a location."
 msgstr "Affiche les conditions météo pour un lieu donné."
 
-#, c-format
 #~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 #~ msgstr ""
-#~ " --log <nombre> -- définir la quantité d'informations de débogage 0-5. 0 - "
-#~ "aucun 5 - maximum\n"
+#~ " --log <nombre> -- définir la quantité d'informations de débogage 0-5. 0 "
+#~ "- aucun 5 - maximum\n"
 
-#, c-format
 #~ msgid "Format codes: man 3 strftime; \\%n for line break"
 #~ msgstr "Codes de format : man 3 strftime ; \\%n pour fin de ligne"
 
@@ -1996,7 +1993,6 @@ msgstr "Affiche les conditions météo pour un lieu donné."
 #~ "Erreur, vous devez installer une application pour configurer le son "
 #~ "(pavucontrol, alsamixer...)"
 
-#, c-format
 #~ msgid "Failed to launch time configuration tool: %s"
 #~ msgstr "Le lancement l'outil de configuration de l'heure a échoué : %s"
 

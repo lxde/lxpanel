@@ -1026,8 +1026,8 @@ msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontrol, alsamixer ...)"
 msgstr ""
-"Errore: è necessario installare un'applicazione per configurare il suono ("
-"pavucontrol, alsamixer, ...)"
+"Errore: è necessario installare un'applicazione per configurare il suono "
+"(pavucontrol, alsamixer, ...)"
 
 #: ../plugins/volumealsa/volumealsa.c:638
 msgid "Display and control volume for ALSA"
@@ -1937,13 +1937,11 @@ msgstr "Plugin per le previsioni del tempo"
 msgid "Show weather conditions for a location."
 msgstr "Mostra le condizioni meteo per una località."
 
-#, c-format
 #~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 #~ msgstr ""
 #~ "  --log NUMERO   -- definisce il livello di log 0-5. 0 - nessuno, 5 - "
 #~ "completo\n"
 
-#, c-format
 #~ msgid "Format codes: man 3 strftime; \\%n for line break"
 #~ msgstr "Codici formato: man 3 strftime; \\%n per ritorno a capo"
 
@@ -1975,9 +1973,9 @@ msgstr "Mostra le condizioni meteo per una località."
 #~ "Errore: è necessario installare un'applicazione per configurare il suono "
 #~ "(pavucontol, alsamixer, ...)"
 
-#, c-format
 #~ msgid "Failed to launch time configuration tool: %s"
-#~ msgstr "Lancio dello strumento di configurazione della data non riuscito: %s"
+#~ msgstr ""
+#~ "Lancio dello strumento di configurazione della data non riuscito: %s"
 
 #~ msgid "Model"
 #~ msgstr "Modello"

@@ -188,8 +188,8 @@ msgstr ""
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr ""
-" --help      -- kano kakireetera okukoma ku kuwandika obuyambi buno bw'"
-"osoma\n"
+" --help      -- kano kakireetera okukoma ku kuwandika obuyambi buno "
+"bw'osoma\n"
 
 #: ../src/main.c:255
 #, c-format
@@ -1951,14 +1951,12 @@ msgstr "Ekyongerwako eky'eby'embeera y'obudde"
 msgid "Show weather conditions for a location."
 msgstr "Kikulaga ebifa ku mbeera y'obudde mu kifo ky'oba olonze."
 
-#, c-format
 #~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 #~ msgstr ""
-#~ " --log <number> -- kano kategeka obungi bw'ebifa ku mulimu bye kiwandika mu "
-#~ "mitendera 0-5. Ku 0 - tekibaako bye kiwandika ate ku 5 - kiwandikawandika "
-#~ "nnyo\n"
+#~ " --log <number> -- kano kategeka obungi bw'ebifa ku mulimu bye kiwandika "
+#~ "mu mitendera 0-5. Ku 0 - tekibaako bye kiwandika ate ku 5 - "
+#~ "kiwandikawandika nnyo\n"
 
-#, c-format
 #~ msgid "Format codes: man 3 strftime; \\%n for line break"
 #~ msgstr ""
 #~ "Obubonero obufuga empandika: bunyonyolebwa mu man 3 strftime; \\%n "
@@ -1989,10 +1987,9 @@ msgstr "Kikulaga ebifa ku mbeera y'obudde mu kifo ky'oba olonze."
 #~ "Error, you need to install an application to configure the sound "
 #~ "(pavucontol, alsamixer ...)"
 #~ msgstr ""
-#~ "Wazewo kiremya. Wetaaga kufuna puloguramu eteekateeka eby'ebiwulirizibwa ku "
-#~ "sisitemu yo (okugeza nga pavucontrol, alsamixer ...)"
+#~ "Wazewo kiremya. Wetaaga kufuna puloguramu eteekateeka eby'ebiwulirizibwa "
+#~ "ku sisitemu yo (okugeza nga pavucontrol, alsamixer ...)"
 
-#, c-format
 #~ msgid "Failed to launch time configuration tool: %s"
 #~ msgstr "Nemedwa okutandika ekiyamba okuteekateeka ssaawa: %s"
 

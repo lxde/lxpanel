@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-20 13:56+0300\n"
+"POT-Creation-Date: 2014-11-21 21:13+0200\n"
 "PO-Revision-Date: 2014-10-26 18:32+0000\n"
 "Last-Translator: Klemen Košir <klemen913@gmail.com>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -14,61 +14,54 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || "
-"n%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
 "X-POOTLE-MTIME: 1414348370.000000\n"
 
-#. { "configure", N_("Preferences"), configure },
-#: ../src/configurator.c:50 ../src/gtk-run.c:373 ../plugins/menu.c:749
-msgid "Run"
-msgstr "Zaženi"
+#: ../src/configurator.c:135
+msgid ""
+"Space reservation is not available for this panel because there is another "
+"monitor beyond this edge and reservation would cover it if enabled."
+msgstr ""
 
-#: ../src/configurator.c:51 ../plugins/menu.c:750
-msgid "Restart"
-msgstr "Ponovni zagon"
-
-#: ../src/configurator.c:52 ../plugins/menu.c:751
-msgid "Logout"
-msgstr "Odjava"
-
-#: ../src/configurator.c:558
+#: ../src/configurator.c:605
 msgid "Currently loaded plugins"
 msgstr "Naloženi vstavki"
 
-#: ../src/configurator.c:567
+#: ../src/configurator.c:614
 msgid "Stretch"
 msgstr "Raztegni"
 
-#: ../src/configurator.c:689
+#: ../src/configurator.c:749
 msgid "Add plugin to panel"
 msgstr "Dodaj vstavek na pult"
 
-#: ../src/configurator.c:717
+#: ../src/configurator.c:777
 msgid "Available plugins"
 msgstr "Razpoložljivi vstavki"
 
-#: ../src/configurator.c:1255
+#: ../src/configurator.c:1357
 msgid "Logout command is not set"
 msgstr "Ukaz za odjavo ni nastavljen."
 
-#: ../src/configurator.c:1323
+#: ../src/configurator.c:1425
 msgid "Select a directory"
 msgstr "Izberite mapo"
 
-#: ../src/configurator.c:1323 ../src/configurator.c:1441
+#: ../src/configurator.c:1425 ../src/configurator.c:1540
 msgid "Select a file"
 msgstr "Izberite datoteko"
 
-#: ../src/configurator.c:1468
+#: ../src/configurator.c:1573
 msgid "_Browse"
 msgstr "_Brskaj"
 
-#: ../src/panel.c:926
+#: ../src/panel.c:981
 msgid "There is no room for another panel. All the edges are taken."
 msgstr "Zmanjkalo je prostora za dodaten pult. Vsi robovi so zasedeni."
 
-#: ../src/panel.c:951
+#: ../src/panel.c:1007
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -76,129 +69,150 @@ msgstr ""
 "Ali ste prepričani, da želite izbrisati ta pult?\n"
 "<b>Pulta ni mogoče obnoviti!</b>"
 
-#: ../src/panel.c:953
+#: ../src/panel.c:1009
 msgid "Confirm"
 msgstr "Potrditev"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:988
+#: ../src/panel.c:1044
 msgid "translator-credits"
 msgstr "Klemen Košir <klemen913@gmail.com>"
 
-#: ../src/panel.c:993
+#: ../src/panel.c:1049
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:1011
+#: ../src/panel.c:1067
 msgid "Copyright (C) 2008-2014"
 msgstr "Avtorske pravice (C) 2008 - 2014"
 
-#: ../src/panel.c:1012
+#: ../src/panel.c:1068
 msgid "Desktop panel for LXDE project"
 msgstr "Namizni pult za projekt LXDE"
 
-#: ../src/panel.c:1054
+#: ../src/panel.c:1110
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "Nastavitve za »%s«"
 
-#: ../src/panel.c:1074
+#: ../src/panel.c:1130
 msgid "Add / Remove Panel Items"
 msgstr "Dodaj/odstrani vstavke"
 
-#: ../src/panel.c:1082
+#: ../src/panel.c:1138
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "Odstrani »%s« s pulta"
 
-#: ../src/panel.c:1094
+#: ../src/panel.c:1150
 msgid "Panel Settings"
 msgstr "Nastavitve pulta"
 
-#: ../src/panel.c:1100
+#: ../src/panel.c:1156
 msgid "Create New Panel"
 msgstr "Ustvari nov pult"
 
-#: ../src/panel.c:1106
+#: ../src/panel.c:1162
 msgid "Delete This Panel"
 msgstr "Izbriši pult"
 
-#: ../src/panel.c:1117
+#: ../src/panel.c:1173
 msgid "About"
 msgstr "O LXPanel"
 
-#: ../src/panel.c:1124
+#: ../src/panel.c:1180
 msgid "Panel"
 msgstr "Pult"
 
-#: ../src/panel.c:1309 ../src/panel.c:1317 ../data/ui/panel-pref.glade.h:22
+#: ../src/panel.c:1391 ../src/panel.c:1399 ../data/ui/panel-pref.glade.h:22
 msgid "Height:"
 msgstr "Višina:"
 
-#: ../src/panel.c:1310 ../src/panel.c:1316 ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:1392 ../src/panel.c:1398 ../data/ui/panel-pref.glade.h:21
 msgid "Width:"
 msgstr "Širina:"
 
-#: ../src/panel.c:1311 ../data/ui/panel-pref.glade.h:13
+#: ../src/panel.c:1393 ../data/ui/panel-pref.glade.h:13
 msgid "Left"
 msgstr "Levo"
 
-#: ../src/panel.c:1312 ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:1394 ../data/ui/panel-pref.glade.h:14
 msgid "Right"
 msgstr "Desno"
 
-#: ../src/panel.c:1318 ../data/ui/panel-pref.glade.h:12
+#: ../src/panel.c:1400 ../data/ui/panel-pref.glade.h:12
 msgid "Top"
 msgstr "Vrh"
 
-#: ../src/panel.c:1319 ../data/ui/panel-pref.glade.h:11
+#: ../src/panel.c:1401 ../data/ui/panel-pref.glade.h:11
 msgid "Bottom"
 msgstr "Dno"
 
-#: ../src/panel.c:1609
+#: ../src/plugin.c:340
+msgid "No file manager is configured."
+msgstr "Upravljalnik datotek ni nastavljen."
+
+#. { "configure", N_("Preferences"), configure },
+#: ../src/gtk-run.c:377 ../src/main.c:52 ../plugins/menu.c:741
+msgid "Run"
+msgstr "Zaženi"
+
+#: ../src/gtk-run.c:391
+msgid "Enter the command you want to execute:"
+msgstr "Vnesite ukaz, ki ga želite izvesti:"
+
+#: ../src/main.c:53 ../plugins/menu.c:742
+msgid "Restart"
+msgstr "Ponovni zagon"
+
+#: ../src/main.c:54 ../plugins/menu.c:743
+msgid "Logout"
+msgstr "Odjava"
+
+#: ../src/main.c:252
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "LXPanel %s - Na GTK2+ osnovan pult za sisteme UNIX.\n"
 
-#: ../src/panel.c:1610
+#: ../src/main.c:253
 #, c-format
 msgid "Command line options:\n"
 msgstr "Možnosti ukazne vrstice:\n"
 
-#: ../src/panel.c:1611
+#: ../src/main.c:254
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- Izpiše to pomoč.\n"
 
-#: ../src/panel.c:1612
+#: ../src/main.c:255
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- Izpiše različico programa.\n"
 
 #. g_print(_(" --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"));
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/panel.c:1615
+#: ../src/main.c:258
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile <ime> -- Uporabi naveden profil.\n"
 
-#: ../src/panel.c:1617
+#: ../src/main.c:260
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- Enako kot --help\n"
 
-#: ../src/panel.c:1618
+#: ../src/main.c:261
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- Enako kot --profile\n"
 
-#: ../src/panel.c:1619
+#: ../src/main.c:262
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- Enako kot --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/panel.c:1621
+#: ../src/main.c:264
 #, c-format
 msgid ""
 "\n"
@@ -209,16 +223,52 @@ msgstr ""
 "Za več podatkov obiščite http://lxde.org/.\n"
 "\n"
 
-#: ../src/plugin.c:388
-msgid "No file manager is configured."
-msgstr "Upravljalnik datotek ni nastavljen."
+#: ../src/input-button.c:129
+#, c-format
+msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
+msgstr ""
 
-#: ../src/gtk-run.c:387
-msgid "Enter the command you want to execute:"
-msgstr "Vnesite ukaz, ki ga želite izvesti:"
+#: ../src/input-button.c:132 ../src/input-button.c:331
+#: ../plugins/netstatus/netstatus-iface.c:191
+#: ../plugins/netstatus/netstatus-util.c:167
+msgid "Error"
+msgstr "Napaka"
 
-#. vim: set sw=4 et sts=4 ts=4 :
-#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3475
+#: ../src/input-button.c:161
+#, fuzzy
+msgid "LeftBtn"
+msgstr "Levo"
+
+#: ../src/input-button.c:164
+msgid "MiddleBtn"
+msgstr ""
+
+#: ../src/input-button.c:167
+#, fuzzy
+msgid "RightBtn"
+msgstr "Desno"
+
+#: ../src/input-button.c:170
+#, c-format
+msgid "Btn%s"
+msgstr ""
+
+#. GtkRadioButton "None"
+#: ../src/input-button.c:250 ../data/ui/panel-pref.glade.h:5
+msgid "None"
+msgstr "Brez"
+
+#: ../src/input-button.c:257
+#, fuzzy
+msgid "Custom:"
+msgstr "Barva po meri"
+
+#: ../src/input-button.c:329
+#, c-format
+msgid "Cannot assign '%s' as a global hotkey: it is already bound."
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3553
 msgid "Application Launch and Task Bar"
 msgstr "Zaganjalna in opravilna vrstica"
 
@@ -268,26 +318,30 @@ msgid "Combine multiple application windows into a single button"
 msgstr "Združi več oken enakega programa v en gumb"
 
 #: ../data/ui/launchtaskbar.glade.h:14
+msgid "Disable enlargement for small task icons"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:15
 msgid "Maximum width of task button"
 msgstr "Največja širina gumba"
 
-#: ../data/ui/launchtaskbar.glade.h:15
+#: ../data/ui/launchtaskbar.glade.h:16
 msgid "Spacing"
 msgstr "Razmik med gumbi"
 
-#: ../data/ui/launchtaskbar.glade.h:16
+#: ../data/ui/launchtaskbar.glade.h:17
 msgid "<b>Taskbar</b>"
 msgstr "<b>Opravilna vrstica</b>"
 
-#: ../data/ui/launchtaskbar.glade.h:17
+#: ../data/ui/launchtaskbar.glade.h:18
 msgid "Only Application Launch Bar"
 msgstr "Samo zaganjalna vrstica"
 
-#: ../data/ui/launchtaskbar.glade.h:18
+#: ../data/ui/launchtaskbar.glade.h:19
 msgid "Only Task Bar (Window List)"
 msgstr "Samo opravilna vrstica (seznam oken)"
 
-#: ../data/ui/launchtaskbar.glade.h:19
+#: ../data/ui/launchtaskbar.glade.h:20
 msgid "Integrated Application Launch Bar and Task Bar"
 msgstr "Vgrajena zaganjalna in opravilna vrstica"
 
@@ -340,8 +394,8 @@ msgstr "Naslov MAC:"
 msgid "Destination:"
 msgstr "Cilj:"
 
-#: ../data/ui/netstatus.glade.h:14 ../plugins/netstat/netstat.c:360
-#: ../plugins/netstat/netstat.c:371
+#: ../data/ui/netstatus.glade.h:14 ../plugins/netstat/netstat.c:364
+#: ../plugins/netstat/netstat.c:375
 msgid "Broadcast:"
 msgstr "Naslov za razpršeno oddajanje:"
 
@@ -385,10 +439,6 @@ msgstr "Slik. točk"
 #, no-c-format
 msgid "% Percent"
 msgstr "Odstotkov"
-
-#: ../data/ui/panel-pref.glade.h:5
-msgid "None"
-msgstr "Brez"
 
 #: ../data/ui/panel-pref.glade.h:6
 msgid "Err"
@@ -471,7 +521,7 @@ msgid "Custom color"
 msgstr "Barva po meri"
 
 #: ../data/ui/panel-pref.glade.h:32 ../plugins/space.c:88
-#: ../plugins/batt/batt.c:651
+#: ../plugins/batt/batt.c:675
 msgid "Size"
 msgstr "Velikost"
 
@@ -547,7 +597,7 @@ msgstr "Napredno"
 msgid "CPU Usage Monitor"
 msgstr "Nadzornik obremenjenosti CPE-ja"
 
-#: ../plugins/cpu/cpu.c:282 ../plugins/monitors/monitors.c:700
+#: ../plugins/cpu/cpu.c:282 ../plugins/monitors/monitors.c:699
 msgid "Display CPU usage"
 msgstr "Prikazuje obremenjenost procesorja"
 
@@ -555,7 +605,7 @@ msgstr "Prikazuje obremenjenost procesorja"
 msgid "Desktop Number / Workspace Name"
 msgstr "Številka in ime namizja"
 
-#: ../plugins/deskno/deskno.c:176 ../plugins/dclock.c:426
+#: ../plugins/deskno/deskno.c:176 ../plugins/dclock.c:424
 msgid "Bold font"
 msgstr "Uporabi krepko pisavo"
 
@@ -567,80 +617,81 @@ msgstr "Pokaži imena namizij"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Prikazuje ime ali številko namizja. Avtor: cmeury@users.sf.net"
 
-#: ../plugins/launchtaskbar.c:1418 ../plugins/launchtaskbar.c:3445
+#: ../plugins/launchtaskbar.c:1443 ../plugins/launchtaskbar.c:3525
 msgid "Application Launch Bar"
 msgstr "Vrstica za zagon programov"
 
-#: ../plugins/launchtaskbar.c:1421 ../plugins/launchtaskbar.c:3456
+#: ../plugins/launchtaskbar.c:1446 ../plugins/launchtaskbar.c:3534
 msgid "Task Bar (Window List)"
 msgstr "Opravilna vrstica"
 
-#: ../plugins/launchtaskbar.c:2445
+#: ../plugins/launchtaskbar.c:2507
 msgid "_Close all windows"
 msgstr "_Zapri vsa okna"
 
 #. Add Raise menu item.
-#: ../plugins/launchtaskbar.c:3304
+#: ../plugins/launchtaskbar.c:3380
 msgid "_Raise"
 msgstr "_V ospredje"
 
 #. Add Restore menu item.
-#: ../plugins/launchtaskbar.c:3309
+#: ../plugins/launchtaskbar.c:3385
 msgid "R_estore"
 msgstr "_Obnovi"
 
 #. Add Maximize menu item.
-#: ../plugins/launchtaskbar.c:3314
+#: ../plugins/launchtaskbar.c:3390
 msgid "Ma_ximize"
 msgstr "_Razpni"
 
 #. Add Iconify menu item.
-#: ../plugins/launchtaskbar.c:3319
+#: ../plugins/launchtaskbar.c:3395
 msgid "Ico_nify"
 msgstr "_Skrči"
 
-#: ../plugins/launchtaskbar.c:3338
+#: ../plugins/launchtaskbar.c:3416
 #, c-format
 msgid "Workspace _%d"
 msgstr "Namizje _%d"
 
-#: ../plugins/launchtaskbar.c:3343
+#: ../plugins/launchtaskbar.c:3421
 #, c-format
 msgid "Workspace %d"
 msgstr "Namizje %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../plugins/launchtaskbar.c:3359
+#: ../plugins/launchtaskbar.c:3437
 msgid "_All workspaces"
 msgstr "_Vsa namizja"
 
+#. FIXME: add "Current workspace" item, active if not on a current
 #. Add Move to Workspace menu item as a submenu.
-#: ../plugins/launchtaskbar.c:3365
+#: ../plugins/launchtaskbar.c:3445
 msgid "_Move to Workspace"
 msgstr "_Premakni na namizje"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../plugins/launchtaskbar.c:3371
+#: ../plugins/launchtaskbar.c:3451
 msgid "_Close Window"
 msgstr "_Zapri okno"
 
-#: ../plugins/launchtaskbar.c:3373
+#: ../plugins/launchtaskbar.c:3453
 msgid "A_dd to Launcher"
 msgstr "_Dodaj na zaganjalnik"
 
-#: ../plugins/launchtaskbar.c:3374
+#: ../plugins/launchtaskbar.c:3454
 msgid "Rem_ove from Launcher"
 msgstr "_Odstrani z zaganjalnika"
 
-#: ../plugins/launchtaskbar.c:3375
+#: ../plugins/launchtaskbar.c:3455
 msgid "_New Instance"
 msgstr "_Nov primerek"
 
-#: ../plugins/launchtaskbar.c:3446
+#: ../plugins/launchtaskbar.c:3526
 msgid "Bar with buttons to launch application"
 msgstr "Vrstica z gumbi za zagon programov"
 
-#: ../plugins/launchtaskbar.c:3457
+#: ../plugins/launchtaskbar.c:3535
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -648,62 +699,62 @@ msgstr ""
 "Opravilna vrstica pokaže vsa odprta okna in omogoča, da jih skrčite, zvijete "
 "ali izberete."
 
-#: ../plugins/launchtaskbar.c:3476
+#: ../plugins/launchtaskbar.c:3554
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr "Vrstica z gumbi za zagon programov in vsemi odprtimi okni"
 
-#: ../plugins/dclock.c:420 ../plugins/dclock.c:440
+#: ../plugins/dclock.c:418 ../plugins/dclock.c:438
 msgid "Digital Clock"
 msgstr "Digitalna ura"
 
-#: ../plugins/dclock.c:422
+#: ../plugins/dclock.c:420
 msgid "Clock Format"
 msgstr "Oblika zapisa ure"
 
-#: ../plugins/dclock.c:423
+#: ../plugins/dclock.c:421
 msgid "Tooltip Format"
 msgstr "Oblika orodnega namiga"
 
-#: ../plugins/dclock.c:424
+#: ../plugins/dclock.c:422
 #, c-format
 msgid "Format codes: man 3 strftime; %n for line break"
 msgstr ""
 "Za več oblik zapisa uporabite ukaz »man 3 strftime.«\n"
 "Za prelom vrstice uporabite »%n«."
 
-#: ../plugins/dclock.c:425
+#: ../plugins/dclock.c:423
 msgid "Action when clicked (default: display calendar)"
 msgstr "Dejanje ob kliku (privzeto pokaže koledar)"
 
-#: ../plugins/dclock.c:427
+#: ../plugins/dclock.c:425
 msgid "Tooltip only"
 msgstr "Samo orodni namig"
 
-#: ../plugins/dclock.c:428
+#: ../plugins/dclock.c:426
 msgid "Center text"
 msgstr "Usredini besedilo"
 
-#: ../plugins/dclock.c:441
+#: ../plugins/dclock.c:439
 msgid "Display digital clock and tooltip"
 msgstr "Prikazuje čas in datum"
 
-#: ../plugins/menu.c:390
+#: ../plugins/menu.c:382
 msgid "Add to desktop"
 msgstr "Dodaj na namizje"
 
-#: ../plugins/menu.c:397
+#: ../plugins/menu.c:389
 msgid "Properties"
 msgstr "Lastnosti"
 
-#: ../plugins/menu.c:1020 ../plugins/menu.c:1033
+#: ../plugins/menu.c:1013 ../plugins/menu.c:1027
 msgid "Menu"
 msgstr "Meni"
 
-#: ../plugins/menu.c:1021 ../plugins/dirmenu.c:358
+#: ../plugins/menu.c:1014 ../plugins/dirmenu.c:357
 msgid "Icon"
 msgstr "Ikona"
 
-#: ../plugins/menu.c:1034
+#: ../plugins/menu.c:1028
 msgid "Application Menu"
 msgstr "Meni programov"
 
@@ -719,11 +770,11 @@ msgstr "Ločuje posamezne vstavke"
 msgid "Sorry, there was no window manager configuration program found."
 msgstr "Programa za nastavitev upravljalnika oken ni mogoče najti."
 
-#: ../plugins/pager.c:143 ../plugins/pager.c:159
+#: ../plugins/pager.c:144 ../plugins/pager.c:160
 msgid "Desktop Pager"
 msgstr "Izbirnik namizja"
 
-#: ../plugins/pager.c:144 ../plugins/pager.c:160
+#: ../plugins/pager.c:145 ../plugins/pager.c:161
 msgid "Simple pager plugin"
 msgstr "Preprost izbirnik namizja"
 
@@ -735,11 +786,11 @@ msgstr "Presledek"
 msgid "Allocate space"
 msgstr "Prazen prostor med vstavki"
 
-#: ../plugins/tray.c:679
+#: ../plugins/tray.c:682
 msgid "System Tray"
 msgstr "Sistemska vrstica"
 
-#: ../plugins/tray.c:680
+#: ../plugins/tray.c:683
 msgid "System tray"
 msgstr "Sistemska vrstica"
 
@@ -843,15 +894,15 @@ msgstr "Obravnavaj razporeditve tipkovnice"
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr "Levi klik skrči vsa okna, medtem ko jih srednji klik zvije."
 
-#: ../plugins/wincmd.c:223 ../plugins/wincmd.c:241
+#: ../plugins/wincmd.c:224 ../plugins/wincmd.c:234
 msgid "Minimize All Windows"
 msgstr "Skrči vsa okna"
 
-#: ../plugins/wincmd.c:225
+#: ../plugins/wincmd.c:226
 msgid "Alternately iconify/shade and raise"
 msgstr "S ponovnim klikom se vsa okna znova pokažejo"
 
-#: ../plugins/wincmd.c:242
+#: ../plugins/wincmd.c:235
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
@@ -863,63 +914,63 @@ msgstr ""
 msgid "Open in _Terminal"
 msgstr "Odpri v _terminalu"
 
-#: ../plugins/dirmenu.c:354 ../plugins/dirmenu.c:370
+#: ../plugins/dirmenu.c:353 ../plugins/dirmenu.c:369
 msgid "Directory Menu"
 msgstr "Mapa"
 
-#: ../plugins/dirmenu.c:356
+#: ../plugins/dirmenu.c:355
 msgid "Directory"
 msgstr "Mapa"
 
-#: ../plugins/dirmenu.c:357
+#: ../plugins/dirmenu.c:356
 msgid "Label"
 msgstr "Oznaka"
 
-#: ../plugins/dirmenu.c:371
+#: ../plugins/dirmenu.c:370
 msgid "Browse directory tree via menu (Author = PCMan)"
 msgstr "Brskajte po drevesu map preko menija (avtor: PCMan)."
 
-#: ../plugins/thermal/thermal.c:521 ../plugins/thermal/thermal.c:539
+#: ../plugins/thermal/thermal.c:558 ../plugins/thermal/thermal.c:576
 msgid "Temperature Monitor"
 msgstr "Nadzornik temperature"
 
-#: ../plugins/thermal/thermal.c:523
+#: ../plugins/thermal/thermal.c:560
 msgid "Normal color"
 msgstr "Navadna barva"
 
-#: ../plugins/thermal/thermal.c:524
+#: ../plugins/thermal/thermal.c:561
 msgid "Warning1 color"
 msgstr "Barva prvega opozorila"
 
-#: ../plugins/thermal/thermal.c:525
+#: ../plugins/thermal/thermal.c:562
 msgid "Warning2 color"
 msgstr "Barva drugega opozorila"
 
-#: ../plugins/thermal/thermal.c:526
+#: ../plugins/thermal/thermal.c:563
 msgid "Automatic sensor location"
 msgstr "Samodejno najdi tipalo"
 
-#: ../plugins/thermal/thermal.c:527
+#: ../plugins/thermal/thermal.c:564
 msgid "Sensor"
 msgstr "Tipalo"
 
-#: ../plugins/thermal/thermal.c:528
+#: ../plugins/thermal/thermal.c:565
 msgid "Automatic temperature levels"
 msgstr "Samodejno nastavi temperaturni prag"
 
-#: ../plugins/thermal/thermal.c:529
+#: ../plugins/thermal/thermal.c:566
 msgid "Warning1 temperature"
 msgstr "Temperatura prvega opozorila"
 
-#: ../plugins/thermal/thermal.c:530
+#: ../plugins/thermal/thermal.c:567
 msgid "Warning2 temperature"
 msgstr "Temperatura drugega opozorila"
 
-#: ../plugins/thermal/thermal.c:540
+#: ../plugins/thermal/thermal.c:577
 msgid "Display system temperature"
 msgstr "Prikazuje temperaturo sistema"
 
-#: ../plugins/cpufreq/cpufreq.c:325
+#: ../plugins/cpufreq/cpufreq.c:326
 #, c-format
 msgid ""
 "Frequency: %d MHz\n"
@@ -928,133 +979,133 @@ msgstr ""
 "Frekvenca: %d MHz\n"
 "Upravljalnik: %s"
 
-#: ../plugins/cpufreq/cpufreq.c:408
+#: ../plugins/cpufreq/cpufreq.c:409
 msgid "CPUFreq frontend"
 msgstr "Začelje CPUFreq"
 
-#: ../plugins/cpufreq/cpufreq.c:409
+#: ../plugins/cpufreq/cpufreq.c:410
 msgid "Display CPU frequency and allow to change governors and frequency"
 msgstr ""
 "Prikazuje frekvenco CPE in omogoča prilagajanje upravljalnika ter frekvence"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
-#: ../plugins/volume/volume.c:278 ../plugins/volumealsa/volumealsa.c:353
-#: ../plugins/volumealsa/volumealsa.c:537
+#: ../plugins/volume/volume.c:278 ../plugins/volumealsa/volumealsa.c:350
+#: ../plugins/volumealsa/volumealsa.c:524
 msgid "Volume control"
 msgstr "Glasnost:"
 
-#: ../plugins/volume/volume.c:286 ../plugins/volumealsa/volumealsa.c:641
+#: ../plugins/volume/volume.c:286 ../plugins/volumealsa/volumealsa.c:637
 msgid "Volume Control"
 msgstr "Nadzornik glasnosti"
 
 #. Create a frame as the child of the viewport.
-#: ../plugins/volume/volume-impl.c:109 ../plugins/volumealsa/volumealsa.c:491
+#: ../plugins/volume/volume-impl.c:109 ../plugins/volumealsa/volumealsa.c:477
 msgid "Volume"
 msgstr "Glasnost"
 
 #. Create a check button as the child of the vertical box.
-#: ../plugins/volumealsa/volumealsa.c:510
+#: ../plugins/volumealsa/volumealsa.c:496
 msgid "Mute"
 msgstr "Utišaj"
 
-#: ../plugins/volumealsa/volumealsa.c:623
+#: ../plugins/volumealsa/volumealsa.c:619
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontrol, alsamixer ...)"
 msgstr ""
 "Prosimo, namestite program za nastavitev zvoka (pavucontrol, alsamixer ...)"
 
-#: ../plugins/volumealsa/volumealsa.c:642
+#: ../plugins/volumealsa/volumealsa.c:638
 msgid "Display and control volume for ALSA"
 msgstr "Nadzorujte glasnost sistema ALSA"
 
-#: ../plugins/netstat/netstat.c:178
+#: ../plugins/netstat/netstat.c:179
 msgid "<Hidden Access Point>"
 msgstr "<Skrita dostopna točka>"
 
-#: ../plugins/netstat/netstat.c:211
+#: ../plugins/netstat/netstat.c:212
 msgid "Wireless Networks not found in range"
 msgstr "Brezžičnega omrežja ni mogoče najti"
 
 #. Repair
-#: ../plugins/netstat/netstat.c:245
+#: ../plugins/netstat/netstat.c:248
 msgid "Repair"
 msgstr "Popravi"
 
 #. interface down
-#: ../plugins/netstat/netstat.c:250
+#: ../plugins/netstat/netstat.c:253
 msgid "Disable"
 msgstr "Onemogoči"
 
-#: ../plugins/netstat/netstat.c:340
+#: ../plugins/netstat/netstat.c:344
 msgid "Wireless Connection has no connectivity"
 msgstr "Brezžična povezava nima povezljivosti"
 
-#: ../plugins/netstat/netstat.c:342
+#: ../plugins/netstat/netstat.c:346
 msgid "Network cable is plugged out"
 msgstr "Omrežni kabel je izključen"
 
-#: ../plugins/netstat/netstat.c:344
+#: ../plugins/netstat/netstat.c:348
 msgid "Connection has limited or no connectivity"
 msgstr "Povezava je omejena ali nima povezljivosti"
 
-#: ../plugins/netstat/netstat.c:348 ../plugins/netstat/netstat.c:359
-#: ../plugins/netstat/netstat.c:370
+#: ../plugins/netstat/netstat.c:352 ../plugins/netstat/netstat.c:363
+#: ../plugins/netstat/netstat.c:374
 msgid "IP Address:"
 msgstr "Naslov IP:"
 
-#: ../plugins/netstat/netstat.c:349
+#: ../plugins/netstat/netstat.c:353
 msgid "Remote IP:"
 msgstr "Oddaljen naslov IP:"
 
-#: ../plugins/netstat/netstat.c:350 ../plugins/netstat/netstat.c:361
-#: ../plugins/netstat/netstat.c:372
+#: ../plugins/netstat/netstat.c:354 ../plugins/netstat/netstat.c:365
+#: ../plugins/netstat/netstat.c:376
 msgid "Netmask:"
 msgstr "Maska omrežja:"
 
-#: ../plugins/netstat/netstat.c:351 ../plugins/netstat/netstat.c:363
-#: ../plugins/netstat/netstat.c:374
+#: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
+#: ../plugins/netstat/netstat.c:378
 msgid "Activity"
 msgstr "Dejavnost"
 
-#: ../plugins/netstat/netstat.c:351 ../plugins/netstat/netstat.c:363
-#: ../plugins/netstat/netstat.c:374
+#: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
+#: ../plugins/netstat/netstat.c:378
 msgid "Sent"
 msgstr "Poslano"
 
-#: ../plugins/netstat/netstat.c:351 ../plugins/netstat/netstat.c:363
-#: ../plugins/netstat/netstat.c:374
+#: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
+#: ../plugins/netstat/netstat.c:378
 msgid "Received"
 msgstr "Prejeto"
 
-#: ../plugins/netstat/netstat.c:352 ../plugins/netstat/netstat.c:364
-#: ../plugins/netstat/netstat.c:375
+#: ../plugins/netstat/netstat.c:356 ../plugins/netstat/netstat.c:368
+#: ../plugins/netstat/netstat.c:379
 msgid "bytes"
 msgstr "bajtov"
 
-#: ../plugins/netstat/netstat.c:353 ../plugins/netstat/netstat.c:365
-#: ../plugins/netstat/netstat.c:376
+#: ../plugins/netstat/netstat.c:357 ../plugins/netstat/netstat.c:369
+#: ../plugins/netstat/netstat.c:380
 msgid "packets"
 msgstr "paketov"
 
-#: ../plugins/netstat/netstat.c:356 ../plugins/netstatus/netstatus-iface.c:173
+#: ../plugins/netstat/netstat.c:360 ../plugins/netstatus/netstatus-iface.c:173
 msgid "Wireless"
 msgstr "Brezžični vmesnik"
 
-#: ../plugins/netstat/netstat.c:358
+#: ../plugins/netstat/netstat.c:362
 msgid "Protocol:"
 msgstr "Protokol:"
 
-#: ../plugins/netstat/netstat.c:362 ../plugins/netstat/netstat.c:373
+#: ../plugins/netstat/netstat.c:366 ../plugins/netstat/netstat.c:377
 msgid "HW Address:"
 msgstr "Naslov MAC:"
 
-#: ../plugins/netstat/netstat.c:484
+#: ../plugins/netstat/netstat.c:497
 msgid "Manage Networks"
 msgstr "Upravljajte omrežja"
 
-#: ../plugins/netstat/netstat.c:485
+#: ../plugins/netstat/netstat.c:498
 msgid "Monitor and Manage networks"
 msgstr "Nadzorujte in upravljajte omrežja"
 
@@ -1092,7 +1143,7 @@ msgid "Monitor network status"
 msgstr "Nadzorujte stanje omrežja"
 
 #: ../plugins/netstatus/netstatus-dialog.c:52
-#: ../plugins/netstatus/netstatus-dialog.c:313
+#: ../plugins/netstatus/netstatus-dialog.c:316
 msgid "Unknown"
 msgstr "Neznano"
 
@@ -1114,7 +1165,7 @@ msgstr[1] "%lu paket"
 msgstr[2] "%lu paketa"
 msgstr[3] "%lu paketi"
 
-#: ../plugins/netstatus/netstatus-dialog.c:397
+#: ../plugins/netstatus/netstatus-dialog.c:400
 #, c-format
 msgid ""
 "There was an error displaying help:\n"
@@ -1123,48 +1174,48 @@ msgstr ""
 "Med prikazovanjem pomoči je prišlo do napake:\n"
 "%s"
 
-#: ../plugins/netstatus/netstatus-icon.c:379
+#: ../plugins/netstatus/netstatus-icon.c:381
 #, c-format
 msgid "Network Connection: %s"
 msgstr "Omrežna povezava: %s"
 
-#: ../plugins/netstatus/netstatus-icon.c:384
+#: ../plugins/netstatus/netstatus-icon.c:386
 msgid "Network Connection"
 msgstr "Omrežna povezava"
 
-#: ../plugins/netstatus/netstatus-icon.c:824
+#: ../plugins/netstatus/netstatus-icon.c:822
 msgid "Interface"
 msgstr "Vmesnik"
 
-#: ../plugins/netstatus/netstatus-icon.c:825
+#: ../plugins/netstatus/netstatus-icon.c:823
 msgid "The current interface the icon is monitoring."
 msgstr "Vmesnik, ki ga ikona nadzoruje."
 
-#: ../plugins/netstatus/netstatus-icon.c:832
+#: ../plugins/netstatus/netstatus-icon.c:830
 msgid "Orientation"
 msgstr "Usmerjenost"
 
-#: ../plugins/netstatus/netstatus-icon.c:833
+#: ../plugins/netstatus/netstatus-icon.c:831
 msgid "The orientation of the tray."
 msgstr "Usmerjenost vrstice."
 
-#: ../plugins/netstatus/netstatus-icon.c:841
+#: ../plugins/netstatus/netstatus-icon.c:839
 msgid "Tooltips Enabled"
 msgstr "Orodni namigi"
 
-#: ../plugins/netstatus/netstatus-icon.c:842
+#: ../plugins/netstatus/netstatus-icon.c:840
 msgid "Whether or not the icon's tooltips are enabled."
 msgstr "Ali so orodni namigi ikone omogočeni."
 
-#: ../plugins/netstatus/netstatus-icon.c:849
+#: ../plugins/netstatus/netstatus-icon.c:847
 msgid "Show Signal"
 msgstr "Pokaži signal"
 
-#: ../plugins/netstatus/netstatus-icon.c:850
+#: ../plugins/netstatus/netstatus-icon.c:848
 msgid "Whether or not the signal strength should be displayed."
 msgstr "Ali naj bo moč signala prikazana."
 
-#: ../plugins/netstatus/netstatus-icon.c:959
+#: ../plugins/netstatus/netstatus-icon.c:957
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -1184,7 +1235,7 @@ msgid "The interface name"
 msgstr "Ime vmesnika"
 
 #: ../plugins/netstatus/netstatus-iface.c:156
-#: ../plugins/weather/weatherwidget.c:2085
+#: ../plugins/weather/weatherwidget.c:2080
 msgid "State"
 msgstr "Stanje"
 
@@ -1211,11 +1262,6 @@ msgstr "Signal"
 #: ../plugins/netstatus/netstatus-iface.c:182
 msgid "Wireless signal strength percentage"
 msgstr "Moč brezžičnega signala v odstotkih"
-
-#: ../plugins/netstatus/netstatus-iface.c:191
-#: ../plugins/netstatus/netstatus-util.c:167
-msgid "Error"
-msgstr "Napaka"
 
 #: ../plugins/netstatus/netstatus-iface.c:192
 msgid "The current error condition"
@@ -1374,8 +1420,8 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"Iz »%s« ni mogoče razčleniti statistike vmesnika. prx_idx = %d; ptx_idx = %d;"
-" brx_idx = %d; btx_idx = %d;"
+"Iz »%s« ni mogoče razčleniti statistike vmesnika. prx_idx = %d; ptx_idx = "
+"%d; brx_idx = %d; btx_idx = %d;"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:312
 msgid "Could not parse /proc/net/wireless. No data."
@@ -1430,26 +1476,26 @@ msgstr "Prejemanje"
 msgid "Sending/Receiving"
 msgstr "Pošiljanje/prejemanje"
 
-#: ../plugins/batt/batt.c:151
+#: ../plugins/batt/batt.c:152
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
 msgstr ""
 "Baterija: %d %%\n"
 "Polna čez: %d:%02d"
 
-#: ../plugins/batt/batt.c:162
+#: ../plugins/batt/batt.c:163
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
 msgstr ""
 "Baterija: %d %%\n"
 "Preostalo: %d:%02d"
 
-#: ../plugins/batt/batt.c:168
+#: ../plugins/batt/batt.c:169
 #, c-format
 msgid "Battery: %d%% charged"
 msgstr "Baterija: %d %%"
 
-#: ../plugins/batt/batt.c:178
+#: ../plugins/batt/batt.c:179
 #, c-format
 msgid ""
 "\n"
@@ -1458,7 +1504,7 @@ msgstr ""
 "\n"
 "%sNačrtovana energija polne baterije:\t\t%5d mWh"
 
-#: ../plugins/batt/batt.c:180
+#: ../plugins/batt/batt.c:181
 #, c-format
 msgid ""
 "\n"
@@ -1467,7 +1513,7 @@ msgstr ""
 "\n"
 "%sEnergija polne baterije:\t\t\t%5d mWh"
 
-#: ../plugins/batt/batt.c:182
+#: ../plugins/batt/batt.c:183
 #, c-format
 msgid ""
 "\n"
@@ -1476,7 +1522,7 @@ msgstr ""
 "\n"
 "%sTrenutna energija baterije:\t\t\t%5d mWh"
 
-#: ../plugins/batt/batt.c:184
+#: ../plugins/batt/batt.c:185
 #, c-format
 msgid ""
 "\n"
@@ -1485,7 +1531,7 @@ msgstr ""
 "\n"
 "%sTrenutna moč baterije:\t\t\t%5d mW"
 
-#: ../plugins/batt/batt.c:187
+#: ../plugins/batt/batt.c:188
 #, c-format
 msgid ""
 "\n"
@@ -1494,7 +1540,7 @@ msgstr ""
 "\n"
 "%sNačrtovana napolnjenost polne baterije:\t%5d mAh"
 
-#: ../plugins/batt/batt.c:189
+#: ../plugins/batt/batt.c:190
 #, c-format
 msgid ""
 "\n"
@@ -1503,7 +1549,7 @@ msgstr ""
 "\n"
 "%sNapolnjenost polne baterije:\t\t\t%5d mAh"
 
-#: ../plugins/batt/batt.c:191
+#: ../plugins/batt/batt.c:192
 #, c-format
 msgid ""
 "\n"
@@ -1512,7 +1558,7 @@ msgstr ""
 "\n"
 "%sTrenutna napolnjenost baterije:\t\t\t%5d mAh"
 
-#: ../plugins/batt/batt.c:193
+#: ../plugins/batt/batt.c:194
 #, c-format
 msgid ""
 "\n"
@@ -1521,7 +1567,7 @@ msgstr ""
 "\n"
 "%sTrenutni tok baterije:\t\t\t%5d mA"
 
-#: ../plugins/batt/batt.c:196
+#: ../plugins/batt/batt.c:197
 #, c-format
 msgid ""
 "\n"
@@ -1530,75 +1576,80 @@ msgstr ""
 "\n"
 "%sTrenutna napetost:\t\t%.3lf V"
 
-#: ../plugins/batt/batt.c:234
+#: ../plugins/batt/batt.c:235
 msgid "No batteries found"
 msgstr "Baterije ni mogoče najti"
 
-#: ../plugins/batt/batt.c:640 ../plugins/batt/batt.c:661
+#: ../plugins/batt/batt.c:515 ../plugins/batt/batt.c:644
+#, fuzzy
+msgid "Battery low"
+msgstr "Nadzornik baterije"
+
+#: ../plugins/batt/batt.c:664 ../plugins/batt/batt.c:685
 msgid "Battery Monitor"
 msgstr "Nadzornik baterije"
 
-#: ../plugins/batt/batt.c:642
+#: ../plugins/batt/batt.c:666
 msgid "Hide if there is no battery"
 msgstr "Skrij, če baterija ni prisotna"
 
-#: ../plugins/batt/batt.c:643
+#: ../plugins/batt/batt.c:667
 msgid "Alarm command"
 msgstr "Ukaz ob opozorilu"
 
-#: ../plugins/batt/batt.c:644
+#: ../plugins/batt/batt.c:668
 msgid "Alarm time (minutes left)"
 msgstr "Čas opozorila pred prazno baterijo (v minutah)"
 
-#: ../plugins/batt/batt.c:645
+#: ../plugins/batt/batt.c:669
 msgid "Background color"
 msgstr "Barva ozadja"
 
-#: ../plugins/batt/batt.c:646
+#: ../plugins/batt/batt.c:670
 msgid "Charging color 1"
 msgstr "Polnjenje (1. barva)"
 
-#: ../plugins/batt/batt.c:647
+#: ../plugins/batt/batt.c:671
 msgid "Charging color 2"
 msgstr "Polnjenje (2. barva)"
 
-#: ../plugins/batt/batt.c:648
+#: ../plugins/batt/batt.c:672
 msgid "Discharging color 1"
 msgstr "Praznjenje (1. barva)"
 
-#: ../plugins/batt/batt.c:649
+#: ../plugins/batt/batt.c:673
 msgid "Discharging color 2"
 msgstr "Praznjenje (2. barva)"
 
-#: ../plugins/batt/batt.c:650
+#: ../plugins/batt/batt.c:674
 msgid "Border width"
 msgstr "Širina obrobe"
 
-#: ../plugins/batt/batt.c:652
+#: ../plugins/batt/batt.c:676
 msgid "Show Extended Information"
 msgstr "Pokaži podrobnosti"
 
-#: ../plugins/batt/batt.c:662
+#: ../plugins/batt/batt.c:686
 msgid "Display battery status using ACPI"
 msgstr "Prikazuje stanje baterije s pomočjo ACPI-ja"
 
-#: ../plugins/kbled/kbled.c:228 ../plugins/kbled/kbled.c:259
+#: ../plugins/kbled/kbled.c:197 ../plugins/kbled/kbled.c:228
 msgid "Keyboard LED"
 msgstr "Kazalniki tipkovnice"
 
-#: ../plugins/kbled/kbled.c:230
+#: ../plugins/kbled/kbled.c:199
 msgid "Show CapsLock"
 msgstr "Pokaži Caps Lock"
 
-#: ../plugins/kbled/kbled.c:231
+#: ../plugins/kbled/kbled.c:200
 msgid "Show NumLock"
 msgstr "Pokaži Num Lock"
 
-#: ../plugins/kbled/kbled.c:232
+#: ../plugins/kbled/kbled.c:201
 msgid "Show ScrollLock"
 msgstr "Pokaži Scroll Lock"
 
-#: ../plugins/kbled/kbled.c:260
+#: ../plugins/kbled/kbled.c:229
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "Kazalniki za tipke Num Lock, Caps Lock, in Scroll Lock"
 
@@ -1644,48 +1695,48 @@ msgstr "Doda kazalnike na pult"
 msgid "CPU usage: %.2f%%"
 msgstr "Uporaba CPE: %.2f% %"
 
-#: ../plugins/monitors/monitors.c:366
+#: ../plugins/monitors/monitors.c:365
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
 msgstr "Uporaba pomnilnika: %.1f MB (%.2f% %)"
 
-#: ../plugins/monitors/monitors.c:698 ../plugins/monitors/monitors.c:783
+#: ../plugins/monitors/monitors.c:697 ../plugins/monitors/monitors.c:782
 msgid "Resource monitors"
 msgstr "Nadzorniki virov"
 
-#: ../plugins/monitors/monitors.c:701
+#: ../plugins/monitors/monitors.c:700
 msgid "CPU color"
 msgstr "Barva procesorja"
 
-#: ../plugins/monitors/monitors.c:702
+#: ../plugins/monitors/monitors.c:701
 msgid "Display RAM usage"
 msgstr "Pokaži zasedenost pomnilnika"
 
-#: ../plugins/monitors/monitors.c:703
+#: ../plugins/monitors/monitors.c:702
 msgid "RAM color"
 msgstr "Barva pomnilnika"
 
-#: ../plugins/monitors/monitors.c:704
+#: ../plugins/monitors/monitors.c:703
 msgid "Action when clicked (default: lxtask)"
 msgstr "Dejanje ob kliku (privzeto: lxtask)"
 
-#: ../plugins/monitors/monitors.c:784
+#: ../plugins/monitors/monitors.c:783
 msgid "Display monitors (CPU, RAM)"
 msgstr "Prikaže nadzornike virov (procesor, pomnilnik)"
 
-#: ../plugins/weather/weatherwidget.c:50
+#: ../plugins/weather/weatherwidget.c:52
 msgid "[N/A]"
 msgstr "[N/A]"
 
-#: ../plugins/weather/weatherwidget.c:796
+#: ../plugins/weather/weatherwidget.c:792
 msgid "Enter New Location"
 msgstr "Vnesite novo mesto"
 
-#: ../plugins/weather/weatherwidget.c:810
+#: ../plugins/weather/weatherwidget.c:806
 msgid "_New Location:"
 msgstr "_Novo mesto:"
 
-#: ../plugins/weather/weatherwidget.c:821
+#: ../plugins/weather/weatherwidget.c:817
 msgid ""
 "Enter the:\n"
 "- city, or\n"
@@ -1699,195 +1750,192 @@ msgstr ""
 "- poštno številko mesta,\n"
 "za katerega želite vremensko napoved."
 
-#: ../plugins/weather/weatherwidget.c:858
-#: ../plugins/weather/weatherwidget.c:991
+#: ../plugins/weather/weatherwidget.c:854
+#: ../plugins/weather/weatherwidget.c:987
 msgid "You must specify a location."
 msgstr "Prosimo, vnesite mesto."
 
-#: ../plugins/weather/weatherwidget.c:905
+#: ../plugins/weather/weatherwidget.c:901
 #, c-format
 msgid "Location '%s' not found!"
 msgstr "Mesta »%s« ni mogoče najti."
 
-#: ../plugins/weather/weatherwidget.c:1063
+#: ../plugins/weather/weatherwidget.c:1060
 msgid "Preferences"
 msgstr "Možnosti"
 
-#: ../plugins/weather/weatherwidget.c:1069
+#: ../plugins/weather/weatherwidget.c:1066
 msgid "Refresh"
 msgstr "Osveži"
 
-#: ../plugins/weather/weatherwidget.c:1075
+#: ../plugins/weather/weatherwidget.c:1072
 msgid "Quit"
 msgstr "Končaj"
 
-#: ../plugins/weather/weatherwidget.c:1236
+#: ../plugins/weather/weatherwidget.c:1229
 msgid "Weather Preferences"
 msgstr "Možnosti vremena"
 
-#: ../plugins/weather/weatherwidget.c:1250
+#: ../plugins/weather/weatherwidget.c:1243
 msgid "Current Location"
 msgstr "Trenutno mesto"
 
-#: ../plugins/weather/weatherwidget.c:1254
-#: ../plugins/weather/weatherwidget.c:1529
+#: ../plugins/weather/weatherwidget.c:1247
+#: ../plugins/weather/weatherwidget.c:1524
 msgid "None configured"
 msgstr "Ni nastavljeno"
 
-#: ../plugins/weather/weatherwidget.c:1256
-#: ../plugins/weather/weatherwidget.c:1526
+#: ../plugins/weather/weatherwidget.c:1249
+#: ../plugins/weather/weatherwidget.c:1521
 msgid "_Set"
 msgstr "Na_stavi"
 
-#: ../plugins/weather/weatherwidget.c:1277
+#: ../plugins/weather/weatherwidget.c:1270
 msgid "Display"
 msgstr "Prikaz"
 
-#: ../plugins/weather/weatherwidget.c:1281
+#: ../plugins/weather/weatherwidget.c:1274
 msgid "Name:"
 msgstr "Ime:"
 
-#: ../plugins/weather/weatherwidget.c:1285
+#: ../plugins/weather/weatherwidget.c:1278
 msgid "Units:"
 msgstr "Enote:"
 
-#: ../plugins/weather/weatherwidget.c:1289
+#: ../plugins/weather/weatherwidget.c:1282
 msgid "_Metric (°C)"
 msgstr "_Celzij (°C)"
 
-#: ../plugins/weather/weatherwidget.c:1291
+#: ../plugins/weather/weatherwidget.c:1284
 msgid "_English (°F)"
 msgstr "_Fahrenheit (°F)"
 
-#: ../plugins/weather/weatherwidget.c:1326
+#: ../plugins/weather/weatherwidget.c:1319
 msgid "Forecast"
 msgstr "Napoved"
 
-#: ../plugins/weather/weatherwidget.c:1330
+#: ../plugins/weather/weatherwidget.c:1323
 msgid "Updates:"
 msgstr "Posodobitve:"
 
-#: ../plugins/weather/weatherwidget.c:1334
+#: ../plugins/weather/weatherwidget.c:1327
 msgid "Ma_nual"
 msgstr "_Ročno"
 
-#: ../plugins/weather/weatherwidget.c:1338
+#: ../plugins/weather/weatherwidget.c:1331
 msgid "_Automatic, every"
 msgstr "_Samodejno, vsakih"
 
-#: ../plugins/weather/weatherwidget.c:1359
+#: ../plugins/weather/weatherwidget.c:1352
 msgid "minutes"
 msgstr "minut"
 
-#: ../plugins/weather/weatherwidget.c:1368
+#: ../plugins/weather/weatherwidget.c:1361
 msgid "Source:"
 msgstr "Vir:"
 
-#: ../plugins/weather/weatherwidget.c:1482
+#: ../plugins/weather/weatherwidget.c:1477
 msgid "C_hange"
 msgstr "Spre_meni"
 
 #. Both are available
-#: ../plugins/weather/weatherwidget.c:1570
+#: ../plugins/weather/weatherwidget.c:1565
 #, c-format
 msgid "Current Conditions for %s"
 msgstr "Trenutne razmere v %s"
 
-#: ../plugins/weather/weatherwidget.c:1594
+#: ../plugins/weather/weatherwidget.c:1589
 msgid "Location:"
 msgstr "Mesto:"
 
-#: ../plugins/weather/weatherwidget.c:1617
+#: ../plugins/weather/weatherwidget.c:1612
 msgid "Last updated:"
 msgstr "Nazadnje posodobljeno:"
 
-#: ../plugins/weather/weatherwidget.c:1644
+#: ../plugins/weather/weatherwidget.c:1639
 msgid "Feels like:"
 msgstr "Občuti se kot:"
 
-#: ../plugins/weather/weatherwidget.c:1669
+#: ../plugins/weather/weatherwidget.c:1664
 msgid "Humidity:"
 msgstr "Vlaga:"
 
-#: ../plugins/weather/weatherwidget.c:1696
+#: ../plugins/weather/weatherwidget.c:1691
 msgid "Pressure:"
 msgstr "Pritisk:"
 
-#: ../plugins/weather/weatherwidget.c:1723
+#: ../plugins/weather/weatherwidget.c:1718
 msgid "Visibility:"
 msgstr "Vidljivost:"
 
-#: ../plugins/weather/weatherwidget.c:1751
+#: ../plugins/weather/weatherwidget.c:1746
 msgid "Wind:"
 msgstr "Veter:"
 
-#: ../plugins/weather/weatherwidget.c:1774
+#: ../plugins/weather/weatherwidget.c:1769
 msgid "Sunrise:"
 msgstr "Sončni vzhod:"
 
-#: ../plugins/weather/weatherwidget.c:1797
+#: ../plugins/weather/weatherwidget.c:1792
 msgid "Sunset:"
 msgstr "Sončni zahod:"
 
-#: ../plugins/weather/weatherwidget.c:1903
-#: ../plugins/weather/weatherwidget.c:2239
+#: ../plugins/weather/weatherwidget.c:1898
+#: ../plugins/weather/weatherwidget.c:2234
 #, c-format
 msgid "Forecast for %s unavailable."
 msgstr "Vremenska napoved za %s ni na voljo."
 
-#: ../plugins/weather/weatherwidget.c:1912
-#: ../plugins/weather/weatherwidget.c:2244
+#: ../plugins/weather/weatherwidget.c:1907
+#: ../plugins/weather/weatherwidget.c:2239
 #, c-format
-#, c-format, c-format
 msgid "Location not set."
 msgstr "Mesto ni nastavljeno."
 
-#: ../plugins/weather/weatherwidget.c:1929
+#: ../plugins/weather/weatherwidget.c:1924
 #, c-format
 msgid "Searching for '%s'..."
 msgstr "Iskanje »%s« ..."
 
-#: ../plugins/weather/weatherwidget.c:2055
+#: ../plugins/weather/weatherwidget.c:2050
 #, c-format
 msgid "Location matches for '%s'"
 msgstr "Rezultati za »%s«"
 
-#: ../plugins/weather/weatherwidget.c:2075
+#: ../plugins/weather/weatherwidget.c:2070
 msgid "City"
 msgstr "Mesto"
 
-#: ../plugins/weather/weatherwidget.c:2095
+#: ../plugins/weather/weatherwidget.c:2090
 msgid "Country"
 msgstr "Država"
 
 #. make it nice and pretty
-#: ../plugins/weather/weatherwidget.c:2226
+#: ../plugins/weather/weatherwidget.c:2221
 msgid "Currently in "
 msgstr "Trenutno mesto: "
 
-#: ../plugins/weather/weatherwidget.c:2228
+#: ../plugins/weather/weatherwidget.c:2223
 msgid "Today: "
 msgstr "Danes: "
 
-#: ../plugins/weather/weatherwidget.c:2229
+#: ../plugins/weather/weatherwidget.c:2224
 msgid "Tomorrow: "
 msgstr "Jutri: "
 
-#: ../plugins/weather/weather.c:307
+#: ../plugins/weather/weather.c:312
 msgid "Weather Plugin"
 msgstr "Vstavek za vremensko napoved"
 
-#: ../plugins/weather/weather.c:308
+#: ../plugins/weather/weather.c:313
 msgid "Show weather conditions for a location."
 msgstr "Pokaže vremensko napoved za izbrano mesto"
 
-#, c-format
 #~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 #~ msgstr ""
-#~ " --log <številka> -- Nastavi raven dnevnika, od 0 (brez dnevnika) do 5 ("
-#~ "izdaten dnevnik).\n"
+#~ " --log <številka> -- Nastavi raven dnevnika, od 0 (brez dnevnika) do 5 "
+#~ "(izdaten dnevnik).\n"
 
-#, c-format
 #~ msgid "Format codes: man 3 strftime; \\%n for line break"
 #~ msgstr ""
 #~ "Za več oblik zapisa uporabite ukaz »man 3 strftime.«\n"
@@ -1922,7 +1970,6 @@ msgstr "Pokaže vremensko napoved za izbrano mesto"
 #~ "Prišlo je do napake. Prosimo, namestite program za nastavljanje zvoka "
 #~ "(pavucontrol, alsamixer ...)."
 
-#, c-format
 #~ msgid "Failed to launch time configuration tool: %s"
 #~ msgstr "Orodja za nastavitev časa ni mogoče zagnati: %s"
 

@@ -776,7 +776,8 @@ msgstr "Añadir un separador al panel"
 
 #: ../plugins/pager.c:92
 msgid "Sorry, there was no window manager configuration program found."
-msgstr "No se encontró ningún programa de configuración del gestor de ventanas."
+msgstr ""
+"No se encontró ningún programa de configuración del gestor de ventanas."
 
 #: ../plugins/pager.c:144 ../plugins/pager.c:160
 msgid "Desktop Pager"
@@ -1934,12 +1935,10 @@ msgstr "Complemento de meteorología"
 msgid "Show weather conditions for a location."
 msgstr "Muestra las condiciones del clima de una ubicación."
 
-#, c-format
 #~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 #~ msgstr ""
 #~ " --log <número> -- definir el nivel de registro 0-5. 0 - nada, 5 - mucho\n"
 
-#, c-format
 #~ msgid "Format codes: man 3 strftime; \\%n for line break"
 #~ msgstr "Códigos de formato: man 3 strftime; \\%n para un salto de línea"
 
@@ -1972,7 +1971,6 @@ msgstr "Muestra las condiciones del clima de una ubicación."
 #~ "Necesita instalar una aplicación para configurar el sonido (pavucontol, "
 #~ "alsamixer…)"
 
-#, c-format
 #~ msgid "Failed to launch time configuration tool: %s"
 #~ msgstr "No se pudo iniciar la herramienta de configuración de hora: %s"
 
