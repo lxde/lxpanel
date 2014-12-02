@@ -1,22 +1,22 @@
 # Icelandic translation for LXPanel package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Sveinn í Felli <sv1@fellsnet.is>, 2014.
 #
+# Sveinn í Felli <sv1@fellsnet.is>, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: LXPanel 0.8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 21:13+0200\n"
-"PO-Revision-Date: 2014-11-28 13:02+0000\n"
+"PO-Revision-Date: 2014-12-02 14:30+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
-"Language-Team: Icelandic\n"
+"Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.6.0-rc2\n"
+"X-Generator: Lokalize 1.5\n"
 "X-POOTLE-MTIME: 1417179737.000000\n"
 
 #: ../src/configurator.c:135
@@ -24,26 +24,29 @@ msgid ""
 "Space reservation is not available for this panel because there is another "
 "monitor beyond this edge and reservation would cover it if enabled."
 msgstr ""
+"Ekki er hægt að taka frá pláss fyrir þessa skjástiku vegna þess að annar "
+"skjár er handan við þennan skjájaðar og myndi stikan hylja hann ef hún væri "
+"virk."
 
 #: ../src/configurator.c:605
 msgid "Currently loaded plugins"
-msgstr ""
+msgstr "Hlaðin íforrit"
 
 #: ../src/configurator.c:614
 msgid "Stretch"
-msgstr ""
+msgstr "Teygja"
 
 #: ../src/configurator.c:749
 msgid "Add plugin to panel"
-msgstr ""
+msgstr "Bæta íforriti við skjástiku"
 
 #: ../src/configurator.c:777
 msgid "Available plugins"
-msgstr ""
+msgstr "Tiltækar viðbætur"
 
 #: ../src/configurator.c:1357
 msgid "Logout command is not set"
-msgstr ""
+msgstr "Skipun til að skrá sig út er ekki stillt"
 
 #: ../src/configurator.c:1425
 msgid "Select a directory"
@@ -59,13 +62,15 @@ msgstr "_Velja"
 
 #: ../src/panel.c:981
 msgid "There is no room for another panel. All the edges are taken."
-msgstr ""
+msgstr "Það er ekkert pláss fyrir aðra skjástiku. Allir jaðrar eru í notkun."
 
 #: ../src/panel.c:1007
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
+"Eyða í alvörunni þessari skjástiku?\n"
+"<b>Aðvörun: Þetta er ekki hægt að afturkalla.</b>"
 
 #: ../src/panel.c:1009
 msgid "Confirm"
@@ -74,81 +79,81 @@ msgstr "Staðfesta"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:1044
 msgid "translator-credits"
-msgstr "Sveinn í Felli"
+msgstr "Sveinn í Felli, sv1@fellsnet.is"
 
 #: ../src/panel.c:1049
 msgid "LXPanel"
-msgstr ""
+msgstr "LXPanel"
 
 #: ../src/panel.c:1067
 msgid "Copyright (C) 2008-2014"
-msgstr ""
+msgstr "Höfundarréttur (C) 2008-2014"
 
 #: ../src/panel.c:1068
 msgid "Desktop panel for LXDE project"
-msgstr ""
+msgstr "Skjástika fyrir LXDE verkefnið"
 
 #: ../src/panel.c:1110
 #, c-format
 msgid "\"%s\" Settings"
-msgstr ""
+msgstr "Stillingar \"%s\""
 
 #: ../src/panel.c:1130
 msgid "Add / Remove Panel Items"
-msgstr ""
+msgstr "Bæta við/Fjarlægja hluti á skjástiku"
 
 #: ../src/panel.c:1138
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr ""
+msgstr "Fjarlægja \"%s\"af skjástiku"
 
 #: ../src/panel.c:1150
 msgid "Panel Settings"
-msgstr ""
+msgstr "Stillingar skjástiku"
 
 #: ../src/panel.c:1156
 msgid "Create New Panel"
-msgstr ""
+msgstr "Búa til nýja skjástiku"
 
 #: ../src/panel.c:1162
 msgid "Delete This Panel"
-msgstr ""
+msgstr "Eyða þessari skjástiku"
 
 #: ../src/panel.c:1173
 msgid "About"
-msgstr ""
+msgstr "Um forritið"
 
 #: ../src/panel.c:1180
 msgid "Panel"
-msgstr ""
+msgstr "Skjástika"
 
 #: ../src/panel.c:1391 ../src/panel.c:1399 ../data/ui/panel-pref.glade.h:22
 msgid "Height:"
-msgstr ""
+msgstr "Hæð:"
 
 #: ../src/panel.c:1392 ../src/panel.c:1398 ../data/ui/panel-pref.glade.h:21
 msgid "Width:"
-msgstr ""
+msgstr "Breidd:"
 
 #: ../src/panel.c:1393 ../data/ui/panel-pref.glade.h:13
 msgid "Left"
-msgstr ""
+msgstr "Vinstri"
 
 #: ../src/panel.c:1394 ../data/ui/panel-pref.glade.h:14
 msgid "Right"
-msgstr ""
+msgstr "Hægri"
 
 #: ../src/panel.c:1400 ../data/ui/panel-pref.glade.h:12
 msgid "Top"
-msgstr ""
+msgstr "Efst"
 
 #: ../src/panel.c:1401 ../data/ui/panel-pref.glade.h:11
 msgid "Bottom"
-msgstr ""
+msgstr "Neðst"
 
 #: ../src/plugin.c:340
 msgid "No file manager is configured."
-msgstr ""
+msgstr "Enginn skráastjóri er stilltur."
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/gtk-run.c:377 ../src/main.c:52 ../plugins/menu.c:741
@@ -157,7 +162,7 @@ msgstr "Keyra"
 
 #: ../src/gtk-run.c:391
 msgid "Enter the command you want to execute:"
-msgstr ""
+msgstr "Settu inn skipunina sem á að keyra:"
 
 #: ../src/main.c:53 ../plugins/menu.c:742
 msgid "Restart"
@@ -170,44 +175,44 @@ msgstr "Skrá út"
 #: ../src/main.c:252
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr ""
+msgstr "lxpanel %s - létt GTK2+ skjástika fyrir UNIX skjáborð\n"
 
 #: ../src/main.c:253
 #, c-format
 msgid "Command line options:\n"
-msgstr ""
+msgstr "Skipanalínurofar:\n"
 
 #: ../src/main.c:254
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr ""
+msgstr " --help     -- birtir þessa hjálp og hættir\n"
 
 #: ../src/main.c:255
 #, c-format
 msgid " --version   -- print version and exit\n"
-msgstr ""
+msgstr " --version  -- birtir útgáfuupplýsingar og hættir\n"
 
 #. g_print(_(" --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"));
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/main.c:258
 #, c-format
 msgid " --profile name -- use specified profile\n"
-msgstr ""
+msgstr " --profile nafn -- nota tiltekið snið\n"
 
 #: ../src/main.c:260
 #, c-format
 msgid " -h  -- same as --help\n"
-msgstr ""
+msgstr " -h  -- sama og --help\n"
 
 #: ../src/main.c:261
 #, c-format
 msgid " -p  -- same as --profile\n"
-msgstr ""
+msgstr " -p  -- sama og --profile\n"
 
 #: ../src/main.c:262
 #, c-format
 msgid " -v  -- same as --version\n"
-msgstr ""
+msgstr " -v  -- sama og --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
 #: ../src/main.c:264
@@ -217,81 +222,85 @@ msgid ""
 "Visit http://lxde.org/ for detail.\n"
 "\n"
 msgstr ""
+"\n"
+"Skoðaðu http://lxde.org/ fyrir nánari upplýsingar.\n"
+"\n"
 
 #: ../src/input-button.c:129
 #, c-format
 msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
 msgstr ""
+"Lyklasamsetninguna '%s' er ekki hægt að nota sem víðværa flýtileið, því miður."
 
 #: ../src/input-button.c:132 ../src/input-button.c:331
 #: ../plugins/netstatus/netstatus-iface.c:191
 #: ../plugins/netstatus/netstatus-util.c:167
 msgid "Error"
-msgstr ""
+msgstr "Villa"
 
 #: ../src/input-button.c:161
 msgid "LeftBtn"
-msgstr ""
+msgstr "VinstriHn"
 
 #: ../src/input-button.c:164
 msgid "MiddleBtn"
-msgstr ""
+msgstr "MiðHn"
 
 #: ../src/input-button.c:167
 msgid "RightBtn"
-msgstr ""
+msgstr "HægriHn"
 
 #: ../src/input-button.c:170
 #, c-format
 msgid "Btn%s"
-msgstr ""
+msgstr "Hn%s"
 
 #. GtkRadioButton "None"
 #: ../src/input-button.c:250 ../data/ui/panel-pref.glade.h:5
 msgid "None"
-msgstr ""
+msgstr "Ekkert"
 
 #: ../src/input-button.c:257
 msgid "Custom:"
-msgstr ""
+msgstr "Sérsniðið:"
 
 #: ../src/input-button.c:329
 #, c-format
 msgid "Cannot assign '%s' as a global hotkey: it is already bound."
-msgstr ""
+msgstr "Get ekki úthlutað '%s' sem víðværa flýtileið: þegar í notkun."
 
 #: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3553
 msgid "Application Launch and Task Bar"
-msgstr ""
+msgstr "Forritaræsi- og verkefnaslá"
 
 #. Launchtaskbar mode: launchbar, taskbar, or combined
 #: ../data/ui/launchtaskbar.glade.h:3
 msgid "<b>Mode:</b>"
-msgstr ""
+msgstr "<b>Hamur:</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:4
 msgid "Launchers"
-msgstr ""
+msgstr "Forritaræsar"
 
 #: ../data/ui/launchtaskbar.glade.h:5
 msgid "<b>Launchbar</b>"
-msgstr ""
+msgstr "<b>Ræsislá</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:6
 msgid "Show tooltips"
-msgstr ""
+msgstr "Sýna vísbendingar áhalda"
 
 #: ../data/ui/launchtaskbar.glade.h:7
 msgid "Icons only"
-msgstr ""
+msgstr "Aðeins táknmyndir"
 
 #: ../data/ui/launchtaskbar.glade.h:8
 msgid "Flat buttons"
-msgstr ""
+msgstr "Flatir hnappar"
 
 #: ../data/ui/launchtaskbar.glade.h:9
 msgid "Show windows from all desktops"
-msgstr ""
+msgstr "Sýna glugga frá öllum skjáborðum"
 
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Only show windows on the same monitor as the task bar"
@@ -299,11 +308,11 @@ msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:11
 msgid "Use mouse wheel"
-msgstr ""
+msgstr "Nota músarhjól"
 
 #: ../data/ui/launchtaskbar.glade.h:12
 msgid "Flash when there is any window requiring attention"
-msgstr ""
+msgstr "Blikka þegar einhver gluggi krefst athygli"
 
 #: ../data/ui/launchtaskbar.glade.h:13
 msgid "Combine multiple application windows into a single button"
@@ -315,239 +324,239 @@ msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:15
 msgid "Maximum width of task button"
-msgstr ""
+msgstr "Hámarksbreidd verkefnahnapps"
 
 #: ../data/ui/launchtaskbar.glade.h:16
 msgid "Spacing"
-msgstr ""
+msgstr "Millibil"
 
 #: ../data/ui/launchtaskbar.glade.h:17
 msgid "<b>Taskbar</b>"
-msgstr ""
+msgstr "<b>Verkefnaslá</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:18
 msgid "Only Application Launch Bar"
-msgstr ""
+msgstr "Einungis forritaræsislá"
 
 #: ../data/ui/launchtaskbar.glade.h:19
 msgid "Only Task Bar (Window List)"
-msgstr ""
+msgstr "Einungis verkefnaslá (gluggalisti)"
 
 #: ../data/ui/launchtaskbar.glade.h:20
 msgid "Integrated Application Launch Bar and Task Bar"
-msgstr ""
+msgstr "Samtvinnuð forritaræsi- og verkefnaslá"
 
 #: ../data/ui/netstatus.glade.h:1
 msgid "<b>Connection</b>"
-msgstr ""
+msgstr "<b>Tenging</b>"
 
 #: ../data/ui/netstatus.glade.h:2
 msgid "Status:"
-msgstr ""
+msgstr "Staða:"
 
 #: ../data/ui/netstatus.glade.h:3
 msgid "_Name:"
-msgstr ""
+msgstr "_Heiti:"
 
 #: ../data/ui/netstatus.glade.h:4
 msgid "<b>Activity</b>"
-msgstr ""
+msgstr "<b>Virkni</b>"
 
 #: ../data/ui/netstatus.glade.h:5
 msgid "Received:"
-msgstr ""
+msgstr "Móttekið:"
 
 #: ../data/ui/netstatus.glade.h:6
 msgid "Sent:"
-msgstr ""
+msgstr "Sent:"
 
 #: ../data/ui/netstatus.glade.h:7
 msgid "<b>Signal Strength</b>"
-msgstr ""
+msgstr "<b>Styrkur merkis</b>"
 
 #: ../data/ui/netstatus.glade.h:9
 #, no-c-format
 msgid "0%"
-msgstr ""
+msgstr "0%"
 
 #: ../data/ui/netstatus.glade.h:10
 msgid "General"
-msgstr ""
+msgstr "Almennt"
 
 #: ../data/ui/netstatus.glade.h:11
 msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr ""
+msgstr "<b>Internetsamskiptamáti (IPv4)</b>"
 
 #: ../data/ui/netstatus.glade.h:12
 msgid "Address:"
-msgstr ""
+msgstr "Vistfang:"
 
 #: ../data/ui/netstatus.glade.h:13
 msgid "Destination:"
-msgstr ""
+msgstr "Áfangastaður:"
 
 #: ../data/ui/netstatus.glade.h:14 ../plugins/netstat/netstat.c:364
 #: ../plugins/netstat/netstat.c:375
 msgid "Broadcast:"
-msgstr ""
+msgstr "Útvörpun:"
 
 #: ../data/ui/netstatus.glade.h:15
 msgid "Subnet Mask:"
-msgstr ""
+msgstr "Undirnetssía (subnet):"
 
 #: ../data/ui/netstatus.glade.h:16
 msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr ""
+msgstr "<b>Internetsamskiptamáti (IPv6)</b>"
 
 #: ../data/ui/netstatus.glade.h:17
 msgid "Scope:"
-msgstr ""
+msgstr "Umfang:"
 
 #: ../data/ui/netstatus.glade.h:18
 msgid "<b>Network Device</b>"
-msgstr ""
+msgstr "<b>Netkerfisbúnaður</b>"
 
 #: ../data/ui/netstatus.glade.h:19
 msgid "Type:"
-msgstr ""
+msgstr "Tegund:"
 
 #: ../data/ui/netstatus.glade.h:20
 msgid "Support"
-msgstr ""
+msgstr "Stuðningur"
 
 #: ../data/ui/netstatus.glade.h:21
 msgid "Con_figure"
-msgstr ""
+msgstr "_Stilla"
 
 #: ../data/ui/panel-pref.glade.h:1
 msgid "Dynamic"
-msgstr ""
+msgstr "Breytilegt"
 
 #: ../data/ui/panel-pref.glade.h:2
 msgid "Pixels"
-msgstr ""
+msgstr "mynddílar"
 
 #: ../data/ui/panel-pref.glade.h:4
 #, no-c-format
 msgid "% Percent"
-msgstr ""
+msgstr "% prósent"
 
 #: ../data/ui/panel-pref.glade.h:6
 msgid "Err"
-msgstr ""
+msgstr "Villa"
 
 #: ../data/ui/panel-pref.glade.h:7
 msgid "Warn"
-msgstr ""
+msgstr "Viðvörun"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "Info"
-msgstr ""
+msgstr "Upplýsingar"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "All"
-msgstr ""
+msgstr "Allt"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "Panel Preferences"
-msgstr ""
+msgstr "Kjörstillingar skjástiku"
 
 #: ../data/ui/panel-pref.glade.h:15
 msgid "Edge:"
-msgstr ""
+msgstr "Kantur:"
 
 #: ../data/ui/panel-pref.glade.h:16
 msgid "Center"
-msgstr ""
+msgstr "Miðjað"
 
 #: ../data/ui/panel-pref.glade.h:17
 msgid "Alignment:"
-msgstr ""
+msgstr "Jöfnun:"
 
 #: ../data/ui/panel-pref.glade.h:18
 msgid "Margin:"
-msgstr ""
+msgstr "Spássía:"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "Monitor:"
-msgstr ""
+msgstr "Mælir:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "<b>Position</b>"
-msgstr ""
+msgstr "<b>Staða</b>"
 
 #: ../data/ui/panel-pref.glade.h:23
 msgid "Icon size:"
-msgstr ""
+msgstr "Táknmyndastærð:"
 
 #: ../data/ui/panel-pref.glade.h:24
 msgid "<b>Size</b>"
-msgstr ""
+msgstr "<b>Stærð</b>"
 
 #: ../data/ui/panel-pref.glade.h:25
 msgid "Geometry"
-msgstr ""
+msgstr "Lögun"
 
 #: ../data/ui/panel-pref.glade.h:26
 msgid "System theme"
-msgstr ""
+msgstr "Kerfisþema"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Solid color (with opacity)"
-msgstr ""
+msgstr "Heillitur (með gegnsæi)"
 
 #: ../data/ui/panel-pref.glade.h:28 ../plugins/xkb/xkb-plugin.c:1447
 msgid "Image"
-msgstr ""
+msgstr "Mynd"
 
 #: ../data/ui/panel-pref.glade.h:29
 msgid "Select an image file"
-msgstr ""
+msgstr "Veldu myndskrá"
 
 #: ../data/ui/panel-pref.glade.h:30
 msgid "<b>Background</b>"
-msgstr ""
+msgstr "<b>Bakgrunnur</b>"
 
 #: ../data/ui/panel-pref.glade.h:31
 msgid "Custom color"
-msgstr ""
+msgstr "Sérsniðinn litur"
 
 #: ../data/ui/panel-pref.glade.h:32 ../plugins/space.c:88
 #: ../plugins/batt/batt.c:675
 msgid "Size"
-msgstr ""
+msgstr "Stærð"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "<b>Font</b>"
-msgstr ""
+msgstr "<b>Letur</b>"
 
 #: ../data/ui/panel-pref.glade.h:34
 msgid "Appearance"
-msgstr ""
+msgstr "Útlit"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Panel Applets"
-msgstr ""
+msgstr "Smáforrit á skjástiku"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "Logout Command:"
-msgstr ""
+msgstr "Skipun til að skrá sig út:"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "Terminal Emulator:"
-msgstr ""
+msgstr "Skjáhermir:"
 
 #: ../data/ui/panel-pref.glade.h:38
 msgid "File Manager:"
-msgstr ""
+msgstr "Skráastjóri:"
 
 #: ../data/ui/panel-pref.glade.h:39
 msgid "<b>Set Preferred Applications</b>"
-msgstr ""
+msgstr "<b>Stilla forgangsforrit</b>"
 
 #: ../data/ui/panel-pref.glade.h:40
 msgid "Make window managers treat the panel as dock"
-msgstr ""
+msgstr "Láta gluggastjóra meðhöndla skjástikuna eins og tengispjald"
 
 #: ../data/ui/panel-pref.glade.h:41
 msgid "Reserve space, and not covered by maximized windows"
@@ -555,133 +564,133 @@ msgstr ""
 
 #: ../data/ui/panel-pref.glade.h:42
 msgid "<b>Properties</b>"
-msgstr ""
+msgstr "<b>Eiginleikar</b>"
 
 #: ../data/ui/panel-pref.glade.h:43
 msgid "Minimize panel when not in use"
-msgstr ""
+msgstr "Lágmarka skjástiku þegar hún er ekki í notkun"
 
 #: ../data/ui/panel-pref.glade.h:44
 msgid "Size when minimized"
-msgstr ""
+msgstr "Stærð þegar er minnkað"
 
 #: ../data/ui/panel-pref.glade.h:45
 msgid "pixels"
-msgstr ""
+msgstr "mynddílar"
 
 #: ../data/ui/panel-pref.glade.h:46
 msgid "<b>Automatic hiding</b>"
-msgstr ""
+msgstr "<b>Sjálfvirk felun</b>"
 
 #: ../data/ui/panel-pref.glade.h:47
 msgid "Log level"
-msgstr ""
+msgstr "Annálsstig"
 
 #: ../data/ui/panel-pref.glade.h:48
 msgid "<b>Log level</b>"
-msgstr ""
+msgstr "<b>Annálsstig</b>"
 
 #: ../data/ui/panel-pref.glade.h:49
 msgid "Advanced"
-msgstr ""
+msgstr "Nánar"
 
 #: ../plugins/cpu/cpu.c:281
 msgid "CPU Usage Monitor"
-msgstr ""
+msgstr "Eftirlit með notkun örgjörva"
 
 #: ../plugins/cpu/cpu.c:282 ../plugins/monitors/monitors.c:699
 msgid "Display CPU usage"
-msgstr ""
+msgstr "Sýna notkun örgjörva"
 
 #: ../plugins/deskno/deskno.c:174 ../plugins/deskno/deskno.c:194
 msgid "Desktop Number / Workspace Name"
-msgstr ""
+msgstr "Númer skjáborðs / Heiti vinnusvæðis"
 
 #: ../plugins/deskno/deskno.c:176 ../plugins/dclock.c:424
 msgid "Bold font"
-msgstr ""
+msgstr "Feitletur"
 
 #: ../plugins/deskno/deskno.c:177
 msgid "Display desktop names"
-msgstr ""
+msgstr "Birta nöfn skjáborða"
 
 #: ../plugins/deskno/deskno.c:195
 msgid "Display workspace number, by cmeury@users.sf.net"
-msgstr ""
+msgstr "Birta númer skjáborða, eftir cmeury@users.sf.net"
 
 #: ../plugins/launchtaskbar.c:1443 ../plugins/launchtaskbar.c:3525
 msgid "Application Launch Bar"
-msgstr ""
+msgstr "Forritaræsislá"
 
 #: ../plugins/launchtaskbar.c:1446 ../plugins/launchtaskbar.c:3534
 msgid "Task Bar (Window List)"
-msgstr ""
+msgstr "Verkefnaslá (gluggalisti)"
 
 #: ../plugins/launchtaskbar.c:2507
 msgid "_Close all windows"
-msgstr ""
+msgstr "Loka _öllum gluggum"
 
 #. Add Raise menu item.
 #: ../plugins/launchtaskbar.c:3380
 msgid "_Raise"
-msgstr ""
+msgstr "_Hækka"
 
 #. Add Restore menu item.
 #: ../plugins/launchtaskbar.c:3385
 msgid "R_estore"
-msgstr ""
+msgstr "_Endurheimta"
 
 #. Add Maximize menu item.
 #: ../plugins/launchtaskbar.c:3390
 msgid "Ma_ximize"
-msgstr ""
+msgstr "_Hámarka"
 
 #. Add Iconify menu item.
 #: ../plugins/launchtaskbar.c:3395
 msgid "Ico_nify"
-msgstr ""
+msgstr "Ták_ngera"
 
 #: ../plugins/launchtaskbar.c:3416
 #, c-format
 msgid "Workspace _%d"
-msgstr ""
+msgstr "Vinnusvæði _%d"
 
 #: ../plugins/launchtaskbar.c:3421
 #, c-format
 msgid "Workspace %d"
-msgstr ""
+msgstr "Vinnusvæði %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../plugins/launchtaskbar.c:3437
 msgid "_All workspaces"
-msgstr ""
+msgstr "Ö_ll vinnusvæði"
 
 #. FIXME: add "Current workspace" item, active if not on a current
 #. Add Move to Workspace menu item as a submenu.
 #: ../plugins/launchtaskbar.c:3445
 msgid "_Move to Workspace"
-msgstr ""
+msgstr "_Flytja á vinnusvæði"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../plugins/launchtaskbar.c:3451
 msgid "_Close Window"
-msgstr ""
+msgstr "_Loka glugga"
 
 #: ../plugins/launchtaskbar.c:3453
 msgid "A_dd to Launcher"
-msgstr ""
+msgstr "_Bæta við ræsi"
 
 #: ../plugins/launchtaskbar.c:3454
 msgid "Rem_ove from Launcher"
-msgstr ""
+msgstr "Fjarlægja af ræsi"
 
 #: ../plugins/launchtaskbar.c:3455
 msgid "_New Instance"
-msgstr ""
+msgstr "_Nýtt tilvik"
 
 #: ../plugins/launchtaskbar.c:3526
 msgid "Bar with buttons to launch application"
-msgstr ""
+msgstr "Slá með hnöppum til að ræsa forrit"
 
 #: ../plugins/launchtaskbar.c:3535
 msgid ""
@@ -695,64 +704,64 @@ msgstr ""
 
 #: ../plugins/dclock.c:418 ../plugins/dclock.c:438
 msgid "Digital Clock"
-msgstr ""
+msgstr "Stafræn klukka"
 
 #: ../plugins/dclock.c:420
 msgid "Clock Format"
-msgstr ""
+msgstr "Snið klukku"
 
 #: ../plugins/dclock.c:421
 msgid "Tooltip Format"
-msgstr ""
+msgstr "Snið áhaldavísbendinga"
 
 #: ../plugins/dclock.c:422
 #, c-format
 msgid "Format codes: man 3 strftime; %n for line break"
-msgstr ""
+msgstr "Kóðasnið: man 3 strftime; %n fyrir línuskipti"
 
 #: ../plugins/dclock.c:423
 msgid "Action when clicked (default: display calendar)"
-msgstr ""
+msgstr "Aðgerð við smell (sjálfgefið: birta dagatal)"
 
 #: ../plugins/dclock.c:425
 msgid "Tooltip only"
-msgstr ""
+msgstr "Aðeins vísbending"
 
 #: ../plugins/dclock.c:426
 msgid "Center text"
-msgstr ""
+msgstr "Miðja texta"
 
 #: ../plugins/dclock.c:439
 msgid "Display digital clock and tooltip"
-msgstr ""
+msgstr "Birta stafræna klukku og vísbendingar"
 
 #: ../plugins/menu.c:382
 msgid "Add to desktop"
-msgstr ""
+msgstr "Bæta við skjáborð"
 
 #: ../plugins/menu.c:389
 msgid "Properties"
-msgstr ""
+msgstr "Eiginleikar"
 
 #: ../plugins/menu.c:1013 ../plugins/menu.c:1027
 msgid "Menu"
-msgstr ""
+msgstr "Valmynd"
 
 #: ../plugins/menu.c:1014 ../plugins/dirmenu.c:357
 msgid "Icon"
-msgstr ""
+msgstr "Táknmynd"
 
 #: ../plugins/menu.c:1028
 msgid "Application Menu"
-msgstr ""
+msgstr "Forritavalmynd"
 
 #: ../plugins/separator.c:68
 msgid "Separator"
-msgstr ""
+msgstr "Aðgreinir"
 
 #: ../plugins/separator.c:69
 msgid "Add a separator to the panel"
-msgstr ""
+msgstr "Bæta aðgreini á skjástiku"
 
 #: ../plugins/pager.c:92
 msgid "Sorry, there was no window manager configuration program found."
@@ -760,27 +769,27 @@ msgstr ""
 
 #: ../plugins/pager.c:144 ../plugins/pager.c:160
 msgid "Desktop Pager"
-msgstr ""
+msgstr "Skjáborðaflettir"
 
 #: ../plugins/pager.c:145 ../plugins/pager.c:161
 msgid "Simple pager plugin"
-msgstr ""
+msgstr "Einfalt flettiforrit"
 
 #: ../plugins/space.c:86 ../plugins/space.c:95
 msgid "Spacer"
-msgstr ""
+msgstr "Bil"
 
 #: ../plugins/space.c:96
 msgid "Allocate space"
-msgstr ""
+msgstr "Úthluta plássi"
 
 #: ../plugins/tray.c:682
 msgid "System Tray"
-msgstr ""
+msgstr "Kerfisbakki"
 
 #: ../plugins/tray.c:683
 msgid "System tray"
-msgstr ""
+msgstr "Kerfisbakki"
 
 #: ../plugins/xkb/xkb-plugin.c:401
 msgid "New session is required for this option to take effect"
@@ -789,16 +798,16 @@ msgstr ""
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:582
 msgid "Select Keyboard Model"
-msgstr ""
+msgstr "Veldu tegund lyklaborðs"
 
 #: ../plugins/xkb/xkb-plugin.c:606 ../plugins/xkb/xkb-plugin.c:735
 #: ../plugins/xkb/xkb-plugin.c:913
 msgid "Description"
-msgstr ""
+msgstr "Lýsing"
 
 #: ../plugins/xkb/xkb-plugin.c:611 ../plugins/xkb/xkb-plugin.c:742
 msgid "Id"
-msgstr ""
+msgstr "Auðkenni"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:706
@@ -808,31 +817,31 @@ msgstr ""
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:879
 msgid "Add Keyboard Layout"
-msgstr ""
+msgstr "Bæta við lyklaborðsuppsetningu"
 
 #: ../plugins/xkb/xkb-plugin.c:903 ../plugins/xkb/xkb-plugin.c:1294
 msgid "Flag"
-msgstr ""
+msgstr "Fáni"
 
 #: ../plugins/xkb/xkb-plugin.c:908 ../plugins/xkb/xkb-plugin.c:1298
 msgid "Layout"
-msgstr ""
+msgstr "Framsetning"
 
 #: ../plugins/xkb/xkb-plugin.c:1204 ../plugins/xkb/xkb-plugin.c:1536
 msgid "Keyboard Layout Handler"
-msgstr ""
+msgstr "Meðhöndlun lyklaborðsuppsetninga"
 
 #: ../plugins/xkb/xkb-plugin.c:1227
 msgid "Keyboard Model"
-msgstr ""
+msgstr "Gerð lyklaborðs"
 
 #: ../plugins/xkb/xkb-plugin.c:1248
 msgid "Keyboard Layouts"
-msgstr ""
+msgstr "Lyklaborðsuppsetningar"
 
 #: ../plugins/xkb/xkb-plugin.c:1302
 msgid "Variant"
-msgstr ""
+msgstr "Tilbrigði"
 
 #: ../plugins/xkb/xkb-plugin.c:1311
 msgid "Change Layout Option"
@@ -840,43 +849,43 @@ msgstr ""
 
 #: ../plugins/xkb/xkb-plugin.c:1331
 msgid "Advanced setxkbmap Options"
-msgstr ""
+msgstr "Nánari stillingar setxkbmap"
 
 #: ../plugins/xkb/xkb-plugin.c:1352
 msgid "Do _not reset existing options"
-msgstr ""
+msgstr "E_kki endurstilla eldri valkosti"
 
 #: ../plugins/xkb/xkb-plugin.c:1357
 msgid "Keep _system layouts"
-msgstr ""
+msgstr "_Halda kerfisstillingum"
 
 #: ../plugins/xkb/xkb-plugin.c:1366
 msgid "Per Window Settings"
-msgstr ""
+msgstr "Stillingar per glugga"
 
 #: ../plugins/xkb/xkb-plugin.c:1378
 msgid "_Remember layout for each window"
-msgstr ""
+msgstr "_Muna stillingar fyrir hvern glugga"
 
 #: ../plugins/xkb/xkb-plugin.c:1387
 msgid "Show Layout as"
-msgstr ""
+msgstr "Sýna  lyklaborðsuppsetningu sem"
 
 #: ../plugins/xkb/xkb-plugin.c:1448
 msgid "Custom Image"
-msgstr ""
+msgstr "Sérsniðin mynd"
 
 #: ../plugins/xkb/xkb-plugin.c:1449
 msgid "Text"
-msgstr ""
+msgstr "Texti"
 
 #: ../plugins/xkb/xkb-plugin.c:1475
 msgid "Panel Icon Size"
-msgstr ""
+msgstr "Tákn á skjástiku"
 
 #: ../plugins/xkb/xkb-plugin.c:1537
 msgid "Handle keyboard layouts"
-msgstr ""
+msgstr "Meðhöndla lyklaborðsuppsetningar"
 
 #: ../plugins/wincmd.c:189
 msgid "Left click to iconify all windows.  Middle click to shade them."
@@ -884,7 +893,7 @@ msgstr ""
 
 #: ../plugins/wincmd.c:224 ../plugins/wincmd.c:234
 msgid "Minimize All Windows"
-msgstr ""
+msgstr "Minnka alla glugga"
 
 #: ../plugins/wincmd.c:226
 msgid "Alternately iconify/shade and raise"
@@ -898,19 +907,19 @@ msgstr ""
 
 #: ../plugins/dirmenu.c:205
 msgid "Open in _Terminal"
-msgstr ""
+msgstr "O_pna í skjáhermi"
 
 #: ../plugins/dirmenu.c:353 ../plugins/dirmenu.c:369
 msgid "Directory Menu"
-msgstr ""
+msgstr "Möppuvalmynd"
 
 #: ../plugins/dirmenu.c:355
 msgid "Directory"
-msgstr ""
+msgstr "Mappa"
 
 #: ../plugins/dirmenu.c:356
 msgid "Label"
-msgstr ""
+msgstr "Skýring"
 
 #: ../plugins/dirmenu.c:370
 msgid "Browse directory tree via menu (Author = PCMan)"
@@ -918,43 +927,43 @@ msgstr ""
 
 #: ../plugins/thermal/thermal.c:558 ../plugins/thermal/thermal.c:576
 msgid "Temperature Monitor"
-msgstr ""
+msgstr "Hitamælir"
 
 #: ../plugins/thermal/thermal.c:560
 msgid "Normal color"
-msgstr ""
+msgstr "Venjulegur litur"
 
 #: ../plugins/thermal/thermal.c:561
 msgid "Warning1 color"
-msgstr ""
+msgstr "Aðvörunarlitur 1"
 
 #: ../plugins/thermal/thermal.c:562
 msgid "Warning2 color"
-msgstr ""
+msgstr "Aðvörunarlitur 2"
 
 #: ../plugins/thermal/thermal.c:563
 msgid "Automatic sensor location"
-msgstr ""
+msgstr "Sjálfvirk staðsetning skynjara"
 
 #: ../plugins/thermal/thermal.c:564
 msgid "Sensor"
-msgstr ""
+msgstr "Skynjari"
 
 #: ../plugins/thermal/thermal.c:565
 msgid "Automatic temperature levels"
-msgstr ""
+msgstr "Sjálfvirk hitastig"
 
 #: ../plugins/thermal/thermal.c:566
 msgid "Warning1 temperature"
-msgstr ""
+msgstr "Aðvörunarhitastig 1"
 
 #: ../plugins/thermal/thermal.c:567
 msgid "Warning2 temperature"
-msgstr ""
+msgstr "Aðvörunarhitastig 2"
 
 #: ../plugins/thermal/thermal.c:577
 msgid "Display system temperature"
-msgstr ""
+msgstr "Birta hitastig í kerfinu"
 
 #: ../plugins/cpufreq/cpufreq.c:326
 #, c-format
@@ -962,10 +971,12 @@ msgid ""
 "Frequency: %d MHz\n"
 "Governor: %s"
 msgstr ""
+"Tíðni: %d MHz\n"
+"Stýring: %s"
 
 #: ../plugins/cpufreq/cpufreq.c:409
 msgid "CPUFreq frontend"
-msgstr ""
+msgstr "Viðmót á CPUFreq"
 
 #: ../plugins/cpufreq/cpufreq.c:410
 msgid "Display CPU frequency and allow to change governors and frequency"
@@ -976,49 +987,51 @@ msgstr ""
 #: ../plugins/volume/volume.c:278 ../plugins/volumealsa/volumealsa.c:350
 #: ../plugins/volumealsa/volumealsa.c:524
 msgid "Volume control"
-msgstr ""
+msgstr "Hljóðstillir"
 
 #: ../plugins/volume/volume.c:286 ../plugins/volumealsa/volumealsa.c:637
 msgid "Volume Control"
-msgstr ""
+msgstr "Hljóðstillir"
 
 #. Create a frame as the child of the viewport.
 #: ../plugins/volume/volume-impl.c:109 ../plugins/volumealsa/volumealsa.c:477
 msgid "Volume"
-msgstr ""
+msgstr "Hljóðstyrkur"
 
 #. Create a check button as the child of the vertical box.
 #: ../plugins/volumealsa/volumealsa.c:496
 msgid "Mute"
-msgstr ""
+msgstr "Þagga niður"
 
 #: ../plugins/volumealsa/volumealsa.c:619
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontrol, alsamixer ...)"
 msgstr ""
+"Villa, þú verður að setja upp forrit til hljóðstillinga (pavucontrol, "
+"alsamixer ...)"
 
 #: ../plugins/volumealsa/volumealsa.c:638
 msgid "Display and control volume for ALSA"
-msgstr ""
+msgstr "Birta og sýsla með hljóðstyrk ALSA"
 
 #: ../plugins/netstat/netstat.c:179
 msgid "<Hidden Access Point>"
-msgstr ""
+msgstr "<Falinn aðgangspunktur>"
 
 #: ../plugins/netstat/netstat.c:212
 msgid "Wireless Networks not found in range"
-msgstr ""
+msgstr "Þráðlaus net fundust ekki á svæðinu"
 
 #. Repair
 #: ../plugins/netstat/netstat.c:248
 msgid "Repair"
-msgstr ""
+msgstr "Laga"
 
 #. interface down
 #: ../plugins/netstat/netstat.c:253
 msgid "Disable"
-msgstr ""
+msgstr "Afvirkja"
 
 #: ../plugins/netstat/netstat.c:344
 msgid "Wireless Connection has no connectivity"
@@ -1026,7 +1039,7 @@ msgstr ""
 
 #: ../plugins/netstat/netstat.c:346
 msgid "Network cable is plugged out"
-msgstr ""
+msgstr "Netkapall er ekki í sambandi"
 
 #: ../plugins/netstat/netstat.c:348
 msgid "Connection has limited or no connectivity"
@@ -1035,66 +1048,66 @@ msgstr ""
 #: ../plugins/netstat/netstat.c:352 ../plugins/netstat/netstat.c:363
 #: ../plugins/netstat/netstat.c:374
 msgid "IP Address:"
-msgstr ""
+msgstr "IP vistfang:"
 
 #: ../plugins/netstat/netstat.c:353
 msgid "Remote IP:"
-msgstr ""
+msgstr "Fjarlægt IP vistfang:"
 
 #: ../plugins/netstat/netstat.c:354 ../plugins/netstat/netstat.c:365
 #: ../plugins/netstat/netstat.c:376
 msgid "Netmask:"
-msgstr ""
+msgstr "Nethula (netmask):"
 
 #: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
 #: ../plugins/netstat/netstat.c:378
 msgid "Activity"
-msgstr ""
+msgstr "Virkni"
 
 #: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
 #: ../plugins/netstat/netstat.c:378
 msgid "Sent"
-msgstr ""
+msgstr "Sent"
 
 #: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
 #: ../plugins/netstat/netstat.c:378
 msgid "Received"
-msgstr ""
+msgstr "Móttekið"
 
 #: ../plugins/netstat/netstat.c:356 ../plugins/netstat/netstat.c:368
 #: ../plugins/netstat/netstat.c:379
 msgid "bytes"
-msgstr ""
+msgstr "bæti"
 
 #: ../plugins/netstat/netstat.c:357 ../plugins/netstat/netstat.c:369
 #: ../plugins/netstat/netstat.c:380
 msgid "packets"
-msgstr ""
+msgstr "pakkar"
 
 #: ../plugins/netstat/netstat.c:360 ../plugins/netstatus/netstatus-iface.c:173
 msgid "Wireless"
-msgstr ""
+msgstr "Þráðlaust"
 
 #: ../plugins/netstat/netstat.c:362
 msgid "Protocol:"
-msgstr ""
+msgstr "Samskiptamáti:"
 
 #: ../plugins/netstat/netstat.c:366 ../plugins/netstat/netstat.c:377
 msgid "HW Address:"
-msgstr ""
+msgstr "HW vistfang:"
 
 #: ../plugins/netstat/netstat.c:497
 msgid "Manage Networks"
-msgstr ""
+msgstr "Sýsla með netkerfi"
 
 #: ../plugins/netstat/netstat.c:498
 msgid "Monitor and Manage networks"
-msgstr ""
+msgstr "Skoða og sýsla með netkerfi"
 
 #. create dialog
 #: ../plugins/netstat/passwd_gui.c:87
 msgid "Setting Encryption Key"
-msgstr ""
+msgstr "Set upp dulritunarlykil"
 
 #: ../plugins/netstat/passwd_gui.c:98
 msgid ""
@@ -1104,44 +1117,44 @@ msgstr ""
 
 #: ../plugins/netstat/passwd_gui.c:103
 msgid "Encryption Key:"
-msgstr ""
+msgstr "Dulritunarlykill:"
 
 #: ../plugins/netstatus/netstatus.c:152 ../plugins/netstatus/netstatus.c:164
 msgid "Network Status Monitor"
-msgstr ""
+msgstr "Netkerfisvaktari"
 
 #: ../plugins/netstatus/netstatus.c:154
 msgid "Interface to monitor"
-msgstr ""
+msgstr "Tengi sem á að fylgjast með"
 
 #: ../plugins/netstatus/netstatus.c:155
 msgid "Config tool"
-msgstr ""
+msgstr "Stillingatól"
 
 #: ../plugins/netstatus/netstatus.c:165
 msgid "Monitor network status"
-msgstr ""
+msgstr "Fylgjast með stöðu netkerfis"
 
 #: ../plugins/netstatus/netstatus-dialog.c:52
 #: ../plugins/netstatus/netstatus-dialog.c:316
 msgid "Unknown"
-msgstr ""
+msgstr "Óþekkt"
 
 #: ../plugins/netstatus/netstatus-dialog.c:117
 msgid "Connection Properties"
-msgstr ""
+msgstr "Eiginleikar tengingar"
 
 #: ../plugins/netstatus/netstatus-dialog.c:123
 #, c-format
 msgid "Connection Properties: %s"
-msgstr ""
+msgstr "Eiginleikar tengingar: %s"
 
 #: ../plugins/netstatus/netstatus-dialog.c:136
 #, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%lu pakki"
+msgstr[1] "%lu pakkar"
 
 #: ../plugins/netstatus/netstatus-dialog.c:400
 #, c-format
@@ -1149,47 +1162,49 @@ msgid ""
 "There was an error displaying help:\n"
 "%s"
 msgstr ""
+"Það kom upp villa við að sýna hjálpina:\n"
+"%s"
 
 #: ../plugins/netstatus/netstatus-icon.c:381
 #, c-format
 msgid "Network Connection: %s"
-msgstr ""
+msgstr "Nettenging: %s"
 
 #: ../plugins/netstatus/netstatus-icon.c:386
 msgid "Network Connection"
-msgstr ""
+msgstr "Nettenging"
 
 #: ../plugins/netstatus/netstatus-icon.c:822
 msgid "Interface"
-msgstr ""
+msgstr "Netkort"
 
 #: ../plugins/netstatus/netstatus-icon.c:823
 msgid "The current interface the icon is monitoring."
-msgstr ""
+msgstr "Netkortið sem verið er að vakta."
 
 #: ../plugins/netstatus/netstatus-icon.c:830
 msgid "Orientation"
-msgstr ""
+msgstr "Stefna"
 
 #: ../plugins/netstatus/netstatus-icon.c:831
 msgid "The orientation of the tray."
-msgstr ""
+msgstr "Stefna kerfisbakkans."
 
 #: ../plugins/netstatus/netstatus-icon.c:839
 msgid "Tooltips Enabled"
-msgstr ""
+msgstr "Vísbendingar virkar"
 
 #: ../plugins/netstatus/netstatus-icon.c:840
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr ""
+msgstr "Hvort vísbendingar táknmynda séu virkar eða ekki."
 
 #: ../plugins/netstatus/netstatus-icon.c:847
 msgid "Show Signal"
-msgstr ""
+msgstr "Birta merki"
 
 #: ../plugins/netstatus/netstatus-icon.c:848
 msgid "Whether or not the signal strength should be displayed."
-msgstr ""
+msgstr "Hvort birta eigi styrk merkis"
 
 #: ../plugins/netstatus/netstatus-icon.c:957
 #, c-format
@@ -1198,193 +1213,197 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Vinsamlegast hafðu samband við kerfisstjóra til þess að leysa eftirfarandi "
+"vandamál:\n"
+"\n"
+"%s"
 
 #: ../plugins/netstatus/netstatus-iface.c:148
 msgid "Name"
-msgstr ""
+msgstr "Heiti"
 
 #: ../plugins/netstatus/netstatus-iface.c:149
 msgid "The interface name"
-msgstr ""
+msgstr "Heiti netkortsins"
 
 #: ../plugins/netstatus/netstatus-iface.c:156
 #: ../plugins/weather/weatherwidget.c:2080
 msgid "State"
-msgstr ""
+msgstr "Staða"
 
 #: ../plugins/netstatus/netstatus-iface.c:157
 msgid "The interface state"
-msgstr ""
+msgstr "Staða netkortsins"
 
 #: ../plugins/netstatus/netstatus-iface.c:165
 msgid "Stats"
-msgstr ""
+msgstr "Tölfræði"
 
 #: ../plugins/netstatus/netstatus-iface.c:166
 msgid "The interface packets/bytes statistics"
-msgstr ""
+msgstr "Tölfræði pakka/bæta netkorts"
 
 #: ../plugins/netstatus/netstatus-iface.c:174
 msgid "Whether the interface is a wireless interface"
-msgstr ""
+msgstr "Hvort viðmótið sé þráðlaust netkort"
 
 #: ../plugins/netstatus/netstatus-iface.c:181
 msgid "Signal"
-msgstr ""
+msgstr "Merki"
 
 #: ../plugins/netstatus/netstatus-iface.c:182
 msgid "Wireless signal strength percentage"
-msgstr ""
+msgstr "Styrkur þráðlausa merkisins í prósentum"
 
 #: ../plugins/netstatus/netstatus-iface.c:192
 msgid "The current error condition"
-msgstr ""
+msgstr "Núverandi villuskilyrði"
 
 #: ../plugins/netstatus/netstatus-iface.c:440
 #: ../plugins/netstatus/netstatus-iface.c:1205
 #, c-format
 msgid "Unable to open socket: %s"
-msgstr ""
+msgstr "Gat ekki opnað sökkul (socket): %s"
 
 #: ../plugins/netstatus/netstatus-iface.c:502
 #: ../plugins/netstatus/netstatus-iface.c:1231
 #, c-format
 msgid "SIOCGIFFLAGS error: %s"
-msgstr ""
+msgstr "SIOCGIFFLAGS villa: %s"
 
 #: ../plugins/netstatus/netstatus-iface.c:879
 msgid "AMPR NET/ROM"
-msgstr ""
+msgstr "AMPR NET/ROM"
 
 #: ../plugins/netstatus/netstatus-iface.c:882
 msgid "Ethernet"
-msgstr ""
+msgstr "Ethernet"
 
 #: ../plugins/netstatus/netstatus-iface.c:888
 msgid "AMPR AX.25"
-msgstr ""
+msgstr "AMPR AX.25"
 
 #: ../plugins/netstatus/netstatus-iface.c:897
 #: ../plugins/netstatus/netstatus-iface.c:1017
 msgid "16/4 Mbps Token Ring"
-msgstr ""
+msgstr "16/4 Mbps tókahringur"
 
 #: ../plugins/netstatus/netstatus-iface.c:900
 msgid "ARCnet"
-msgstr ""
+msgstr "ARCnet"
 
 #: ../plugins/netstatus/netstatus-iface.c:906
 msgid "Frame Relay DLCI"
-msgstr ""
+msgstr "Frame Relay DLCI"
 
 #: ../plugins/netstatus/netstatus-iface.c:912
 msgid "Metricom Starmode IP"
-msgstr ""
+msgstr "Metricom Starmode IP"
 
 #: ../plugins/netstatus/netstatus-iface.c:915
 msgid "Serial Line IP"
-msgstr ""
+msgstr "Raðlínu-IP"
 
 #: ../plugins/netstatus/netstatus-iface.c:918
 msgid "VJ Serial Line IP"
-msgstr ""
+msgstr "VJ Serial Line IP"
 
 #: ../plugins/netstatus/netstatus-iface.c:921
 msgid "6-bit Serial Line IP"
-msgstr ""
+msgstr "6-bit Serial Line IP"
 
 #: ../plugins/netstatus/netstatus-iface.c:924
 msgid "VJ 6-bit Serial Line IP"
-msgstr ""
+msgstr "VJ 6-bit Serial Line IP"
 
 #: ../plugins/netstatus/netstatus-iface.c:930
 msgid "Adaptive Serial Line IP"
-msgstr ""
+msgstr "Adaptive Serial Line IP"
 
 #: ../plugins/netstatus/netstatus-iface.c:933
 msgid "AMPR ROSE"
-msgstr ""
+msgstr "AMPR ROSE"
 
 #: ../plugins/netstatus/netstatus-iface.c:936
 msgid "Generic X.25"
-msgstr ""
+msgstr "Almennt X.25"
 
 #: ../plugins/netstatus/netstatus-iface.c:939
 msgid "Point-to-Point Protocol"
-msgstr ""
+msgstr "Punkt-í-punkt samskiptamáti"
 
 #: ../plugins/netstatus/netstatus-iface.c:945
 msgid "(Cisco)-HDLC"
-msgstr ""
+msgstr "(Cisco)-HDLC"
 
 #: ../plugins/netstatus/netstatus-iface.c:948
 msgid "LAPB"
-msgstr ""
+msgstr "LAPB"
 
 #: ../plugins/netstatus/netstatus-iface.c:957
 msgid "IPIP Tunnel"
-msgstr ""
+msgstr "IPIP göng"
 
 #: ../plugins/netstatus/netstatus-iface.c:963
 msgid "Frame Relay Access Device"
-msgstr ""
+msgstr "Frame Relay Access tæki"
 
 #: ../plugins/netstatus/netstatus-iface.c:969
 msgid "Local Loopback"
-msgstr ""
+msgstr "Staðvær endurlykkja (loopback)"
 
 #: ../plugins/netstatus/netstatus-iface.c:975
 msgid "Fiber Distributed Data Interface"
-msgstr ""
+msgstr "Ljósleiðaraviðmót (fiber distributed data interface)"
 
 #: ../plugins/netstatus/netstatus-iface.c:981
 msgid "IPv6-in-IPv4"
-msgstr ""
+msgstr "IPv6-í-IPv4"
 
 #: ../plugins/netstatus/netstatus-iface.c:993
 msgid "HIPPI"
-msgstr ""
+msgstr "HIPPI"
 
 #: ../plugins/netstatus/netstatus-iface.c:996
 msgid "Ash"
-msgstr ""
+msgstr "Ash"
 
 #: ../plugins/netstatus/netstatus-iface.c:999
 msgid "Econet"
-msgstr ""
+msgstr "Econet"
 
 #: ../plugins/netstatus/netstatus-iface.c:1002
 msgid "IrLAP"
-msgstr ""
+msgstr "IrLAP"
 
 #: ../plugins/netstatus/netstatus-iface.c:1163
 #, c-format
 msgid "SIOCGIFCONF error: %s"
-msgstr ""
+msgstr "SIOCGIFCONF villa: %s"
 
 #: ../plugins/netstatus/netstatus-iface.c:1256
 #, c-format
 msgid "No network devices found"
-msgstr ""
+msgstr "Enginn netbúnaður fannst"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:180
 #, c-format
 msgid "Cannot open /proc/net/dev: %s"
-msgstr ""
+msgstr "Get ekki opnað /proc/net/dev: %s"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:185
 msgid "Could not parse /proc/net/dev. No data."
-msgstr ""
+msgstr "Gat ekki þáttað /proc/net/dev Engin gögn."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:190
 msgid "Could not parse /proc/net/dev. Unknown format."
-msgstr ""
+msgstr "Gat ekki þáttað /proc/net/dev. Óþekkt snið."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:205
 #: ../plugins/netstatus/netstatus-sysdeps.c:332
 #, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr ""
+msgstr "Gat ekki þáttað heiti netkorts frá '%s'"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:218
 #: ../plugins/netstatus/netstatus-sysdeps.c:647
@@ -1393,73 +1412,75 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
+"Gat ekki þáttað tölfræði netkorts frá '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:312
 msgid "Could not parse /proc/net/wireless. No data."
-msgstr ""
+msgstr "Gat ekki þáttað /proc/net/wireless. Engin gögn."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:316
 msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr ""
+msgstr "Gat ekki þáttað /proc/net/wireless. Óþekkt snið."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:343
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr ""
+msgstr "Gat ekki þáttað upplýsingar um þráðlaust net frá '%s'. link_idx = %d;"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:416
 #, c-format
 msgid "Could not connect to interface, '%s'"
-msgstr ""
+msgstr "Gat ekki tengst netkorti, '%s'"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:422
 #, c-format
 msgid "Could not send ioctl to interface, '%s'"
-msgstr ""
+msgstr "Gat ekki sent ioctl til netkorts, '%s'"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:600
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr ""
+msgstr "Gat ekki þáttað skipanalínu '%s': %s"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:637
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr ""
+msgstr "Gat eki þáttað 'netstat' frálag. Óþekkt snið"
 
 #: ../plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
-msgstr ""
+msgstr "Aftengt"
 
 #: ../plugins/netstatus/netstatus-util.c:155
 msgid "Idle"
-msgstr ""
+msgstr "Aðgerðalaus"
 
 #: ../plugins/netstatus/netstatus-util.c:158
 msgid "Sending"
-msgstr ""
+msgstr "Sendi"
 
 #: ../plugins/netstatus/netstatus-util.c:161
 msgid "Receiving"
-msgstr ""
+msgstr "Móttek"
 
 #: ../plugins/netstatus/netstatus-util.c:164
 msgid "Sending/Receiving"
-msgstr ""
+msgstr "Sendi/Móttek"
 
 #: ../plugins/batt/batt.c:152
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
-msgstr ""
+msgstr "Rafhlaða: %d%% hlaðin, %d:%02d þar til fullhlaðin"
 
 #: ../plugins/batt/batt.c:163
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
-msgstr ""
+msgstr "Rafhlaða: %d%% hlaðin, %d:%02d eftir"
 
 #: ../plugins/batt/batt.c:169
 #, c-format
 msgid "Battery: %d%% charged"
-msgstr ""
+msgstr "Rafhlaða: %d%% hlaðin"
 
 #: ../plugins/batt/batt.c:179
 #, c-format
@@ -1467,6 +1488,8 @@ msgid ""
 "\n"
 "%sEnergy full design:\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sFullt afl (skv. framl.):\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:181
 #, c-format
@@ -1474,6 +1497,8 @@ msgid ""
 "\n"
 "%sEnergy full:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sFullt afl:\t\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:183
 #, c-format
@@ -1481,6 +1506,8 @@ msgid ""
 "\n"
 "%sEnergy now:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sAfl núna:\t\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:185
 #, c-format
@@ -1488,6 +1515,8 @@ msgid ""
 "\n"
 "%sPower now:\t\t\t%5d mW"
 msgstr ""
+"\n"
+"%sAfl núna:\t\t\t%5d mW"
 
 #: ../plugins/batt/batt.c:188
 #, c-format
@@ -1495,6 +1524,8 @@ msgid ""
 "\n"
 "%sCharge full design:\t%5d mAh"
 msgstr ""
+"\n"
+"%sFull hleðsla (skv. framl.):\t%5d mAh"
 
 #: ../plugins/batt/batt.c:190
 #, c-format
@@ -1502,6 +1533,8 @@ msgid ""
 "\n"
 "%sCharge full:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sFull hleðsla:\t\t\t%5d mAh"
 
 #: ../plugins/batt/batt.c:192
 #, c-format
@@ -1509,6 +1542,8 @@ msgid ""
 "\n"
 "%sCharge now:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sHleðsla núna:\t\t\t%5d mAh"
 
 #: ../plugins/batt/batt.c:194
 #, c-format
@@ -1516,6 +1551,8 @@ msgid ""
 "\n"
 "%sCurrent now:\t\t\t%5d mA"
 msgstr ""
+"\n"
+"%sStraumur núna:\t\t\t%5d mA"
 
 #: ../plugins/batt/batt.c:197
 #, c-format
@@ -1523,165 +1560,167 @@ msgid ""
 "\n"
 "%sCurrent Voltage:\t\t%.3lf V"
 msgstr ""
+"\n"
+"%sVolt núna:\t\t%.3lf V"
 
 #: ../plugins/batt/batt.c:235
 msgid "No batteries found"
-msgstr ""
+msgstr "Fann engar rafhlöður"
 
 #: ../plugins/batt/batt.c:515 ../plugins/batt/batt.c:644
 msgid "Battery low"
-msgstr ""
+msgstr "Lítið á rafhlöðu"
 
 #: ../plugins/batt/batt.c:664 ../plugins/batt/batt.c:685
 msgid "Battery Monitor"
-msgstr ""
+msgstr "Rafhlöðueftirlit"
 
 #: ../plugins/batt/batt.c:666
 msgid "Hide if there is no battery"
-msgstr ""
+msgstr "Fela ef það er engin rafhlaða"
 
 #: ../plugins/batt/batt.c:667
 msgid "Alarm command"
-msgstr ""
+msgstr "Áminningarskipun"
 
 #: ../plugins/batt/batt.c:668
 msgid "Alarm time (minutes left)"
-msgstr ""
+msgstr "Tími áminningar (mínútur eftir)"
 
 #: ../plugins/batt/batt.c:669
 msgid "Background color"
-msgstr ""
+msgstr "Bakgrunnslitur"
 
 #: ../plugins/batt/batt.c:670
 msgid "Charging color 1"
-msgstr ""
+msgstr "Hleðslulitur 1"
 
 #: ../plugins/batt/batt.c:671
 msgid "Charging color 2"
-msgstr ""
+msgstr "Hleðslulitur 2"
 
 #: ../plugins/batt/batt.c:672
 msgid "Discharging color 1"
-msgstr ""
+msgstr "Afhleðslulitur 1"
 
 #: ../plugins/batt/batt.c:673
 msgid "Discharging color 2"
-msgstr ""
+msgstr "Afhleðslulitur 2"
 
 #: ../plugins/batt/batt.c:674
 msgid "Border width"
-msgstr ""
+msgstr "Breidd jaðars"
 
 #: ../plugins/batt/batt.c:676
 msgid "Show Extended Information"
-msgstr ""
+msgstr "Birta ítarlegar upplýsingar"
 
 #: ../plugins/batt/batt.c:686
 msgid "Display battery status using ACPI"
-msgstr ""
+msgstr "Birta stöðu rafhlöðu með ACPI"
 
 #: ../plugins/kbled/kbled.c:197 ../plugins/kbled/kbled.c:228
 msgid "Keyboard LED"
-msgstr ""
+msgstr "LED-ljós lyklaborðs"
 
 #: ../plugins/kbled/kbled.c:199
 msgid "Show CapsLock"
-msgstr ""
+msgstr "Sýna CapsLock"
 
 #: ../plugins/kbled/kbled.c:200
 msgid "Show NumLock"
-msgstr ""
+msgstr "Sýna NumLock"
 
 #: ../plugins/kbled/kbled.c:201
 msgid "Show ScrollLock"
-msgstr ""
+msgstr "Sýna ScrollLock"
 
 #: ../plugins/kbled/kbled.c:229
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr ""
+msgstr "Stöðuvísar fyrir CapsLock, NumLock, og ScrollLock lykla"
 
 #. A label to allow for click through
 #: ../plugins/indicator/indicator.c:689
 msgid "No Indicators"
-msgstr ""
+msgstr "Engir stöðuvísar"
 
 #: ../plugins/indicator/indicator.c:863 ../plugins/indicator/indicator.c:881
 msgid "Indicator applets"
-msgstr ""
+msgstr "Stöðuvísasmáforrit"
 
 #: ../plugins/indicator/indicator.c:865
 msgid "Indicator Applications"
-msgstr ""
+msgstr "Stöðuvísaforrit"
 
 #: ../plugins/indicator/indicator.c:866
 msgid "Clock Indicator"
-msgstr ""
+msgstr "Klukkuvísir"
 
 #: ../plugins/indicator/indicator.c:867
 msgid "Messaging Menu"
-msgstr ""
+msgstr "Skilaboðavalmynd"
 
 #: ../plugins/indicator/indicator.c:868
 msgid "Network Menu"
-msgstr ""
+msgstr "Netkerfisvalmynd"
 
 #: ../plugins/indicator/indicator.c:869
 msgid "Session Menu"
-msgstr ""
+msgstr "Setuvalmynd"
 
 #: ../plugins/indicator/indicator.c:870
 msgid "Sound Menu"
-msgstr ""
+msgstr "Hljóðvalmynd"
 
 #: ../plugins/indicator/indicator.c:882
 msgid "Add indicator applets to the panel"
-msgstr ""
+msgstr "Bæta stöðuvísasmáforritum á skjástiku"
 
 #: ../plugins/monitors/monitors.c:269
 #, c-format
 msgid "CPU usage: %.2f%%"
-msgstr ""
+msgstr "Örgjörvanotkun: %.2f%%"
 
 #: ../plugins/monitors/monitors.c:365
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
-msgstr ""
+msgstr "Notkun vinnsluminnis (RAM): %.1fMB (%.2f%%)"
 
 #: ../plugins/monitors/monitors.c:697 ../plugins/monitors/monitors.c:782
 msgid "Resource monitors"
-msgstr ""
+msgstr "Virknimælar"
 
 #: ../plugins/monitors/monitors.c:700
 msgid "CPU color"
-msgstr ""
+msgstr "Litur fyrir örgjörva"
 
 #: ../plugins/monitors/monitors.c:701
 msgid "Display RAM usage"
-msgstr ""
+msgstr "Sýna notkun vinnsluminnis"
 
 #: ../plugins/monitors/monitors.c:702
 msgid "RAM color"
-msgstr ""
+msgstr "Litur fyrir vinnsluminni"
 
 #: ../plugins/monitors/monitors.c:703
 msgid "Action when clicked (default: lxtask)"
-msgstr ""
+msgstr "Aðgerð við smell (sjálfgefið: lxtask)"
 
 #: ../plugins/monitors/monitors.c:783
 msgid "Display monitors (CPU, RAM)"
-msgstr ""
+msgstr "Birta mæla (CPU, RAM)"
 
 #: ../plugins/weather/weatherwidget.c:52
 msgid "[N/A]"
-msgstr ""
+msgstr "[Ekki tiltækt]"
 
 #: ../plugins/weather/weatherwidget.c:792
 msgid "Enter New Location"
-msgstr ""
+msgstr "Settu inn nýja staðsetningu"
 
 #: ../plugins/weather/weatherwidget.c:806
 msgid "_New Location:"
-msgstr ""
+msgstr "_Ný staðsetning:"
 
 #: ../plugins/weather/weatherwidget.c:817
 msgid ""
@@ -1691,184 +1730,191 @@ msgid ""
 "- postal code\n"
 "for which to retrieve the weather forecast."
 msgstr ""
+"Settu inn::\n"
+"- borg, eða\n"
+"- borg og hérað/land, eða\n"
+"- póstnúmer\n"
+"þess staðar sem á að ná í veðurspá fyrir."
 
 #: ../plugins/weather/weatherwidget.c:854
 #: ../plugins/weather/weatherwidget.c:987
 msgid "You must specify a location."
-msgstr ""
+msgstr "Þú verður að tiltaka staðsetningu."
 
 #: ../plugins/weather/weatherwidget.c:901
 #, c-format
 msgid "Location '%s' not found!"
-msgstr ""
+msgstr "Staðsetningin '%s' fannst ekki!"
 
 #: ../plugins/weather/weatherwidget.c:1060
 msgid "Preferences"
-msgstr ""
+msgstr "Kjörstillingar"
 
 #: ../plugins/weather/weatherwidget.c:1066
 msgid "Refresh"
-msgstr ""
+msgstr "Endurlesa"
 
 #: ../plugins/weather/weatherwidget.c:1072
 msgid "Quit"
-msgstr ""
+msgstr "Hætta"
 
 #: ../plugins/weather/weatherwidget.c:1229
 msgid "Weather Preferences"
-msgstr ""
+msgstr "Veðurstillingar"
 
 #: ../plugins/weather/weatherwidget.c:1243
 msgid "Current Location"
-msgstr ""
+msgstr "Núverandi staðsetning"
 
 #: ../plugins/weather/weatherwidget.c:1247
 #: ../plugins/weather/weatherwidget.c:1524
 msgid "None configured"
-msgstr ""
+msgstr "Ekkert stillt"
 
 #: ../plugins/weather/weatherwidget.c:1249
 #: ../plugins/weather/weatherwidget.c:1521
 msgid "_Set"
-msgstr ""
+msgstr "_Setja"
 
 #: ../plugins/weather/weatherwidget.c:1270
 msgid "Display"
-msgstr ""
+msgstr "Birting"
 
 #: ../plugins/weather/weatherwidget.c:1274
 msgid "Name:"
-msgstr ""
+msgstr "Heiti:"
 
 #: ../plugins/weather/weatherwidget.c:1278
 msgid "Units:"
-msgstr ""
+msgstr "Mælieiningar:"
 
 #: ../plugins/weather/weatherwidget.c:1282
 msgid "_Metric (°C)"
-msgstr ""
+msgstr "_Metrakerfi (°C)"
 
 #: ../plugins/weather/weatherwidget.c:1284
 msgid "_English (°F)"
-msgstr ""
+msgstr "_Enskar (°F)"
 
 #: ../plugins/weather/weatherwidget.c:1319
 msgid "Forecast"
-msgstr ""
+msgstr "Spár"
 
 #: ../plugins/weather/weatherwidget.c:1323
 msgid "Updates:"
-msgstr ""
+msgstr "Uppfærslur:"
 
 #: ../plugins/weather/weatherwidget.c:1327
 msgid "Ma_nual"
-msgstr ""
+msgstr "Ha_ndvirkt"
 
 #: ../plugins/weather/weatherwidget.c:1331
 msgid "_Automatic, every"
-msgstr ""
+msgstr "S_jálfvirkt á"
 
 #: ../plugins/weather/weatherwidget.c:1352
 msgid "minutes"
-msgstr ""
+msgstr "mínútna fresti"
 
 #: ../plugins/weather/weatherwidget.c:1361
 msgid "Source:"
-msgstr ""
+msgstr "Heimild:"
 
 #: ../plugins/weather/weatherwidget.c:1477
 msgid "C_hange"
-msgstr ""
+msgstr "Bre_yta"
 
 #. Both are available
 #: ../plugins/weather/weatherwidget.c:1565
 #, c-format
 msgid "Current Conditions for %s"
-msgstr ""
+msgstr "Veðurskilyrði á %s"
 
 #: ../plugins/weather/weatherwidget.c:1589
 msgid "Location:"
-msgstr ""
+msgstr "Staðsetning:"
 
 #: ../plugins/weather/weatherwidget.c:1612
 msgid "Last updated:"
-msgstr ""
+msgstr "Síðast uppfært:"
 
 #: ../plugins/weather/weatherwidget.c:1639
 msgid "Feels like:"
-msgstr ""
+msgstr "Með vindkælingu:"
 
 #: ../plugins/weather/weatherwidget.c:1664
 msgid "Humidity:"
-msgstr ""
+msgstr "Rakastig:"
 
 #: ../plugins/weather/weatherwidget.c:1691
 msgid "Pressure:"
-msgstr ""
+msgstr "Þrýstingur:"
 
 #: ../plugins/weather/weatherwidget.c:1718
 msgid "Visibility:"
-msgstr ""
+msgstr "Skyggni:"
 
 #: ../plugins/weather/weatherwidget.c:1746
 msgid "Wind:"
-msgstr ""
+msgstr "Vindhraði:"
 
 #: ../plugins/weather/weatherwidget.c:1769
 msgid "Sunrise:"
-msgstr ""
+msgstr "Sólarupprás:"
 
 #: ../plugins/weather/weatherwidget.c:1792
 msgid "Sunset:"
-msgstr ""
+msgstr "Sólsetur:"
 
 #: ../plugins/weather/weatherwidget.c:1898
 #: ../plugins/weather/weatherwidget.c:2234
 #, c-format
 msgid "Forecast for %s unavailable."
-msgstr ""
+msgstr "Spá fyrir %s er ekki tiltæk."
 
 #: ../plugins/weather/weatherwidget.c:1907
 #: ../plugins/weather/weatherwidget.c:2239
 #, c-format
 msgid "Location not set."
-msgstr ""
+msgstr "Staðsetning var ekki skilgreind."
 
 #: ../plugins/weather/weatherwidget.c:1924
 #, c-format
 msgid "Searching for '%s'..."
-msgstr ""
+msgstr "Leita að '%s'..."
 
 #: ../plugins/weather/weatherwidget.c:2050
 #, c-format
 msgid "Location matches for '%s'"
-msgstr ""
+msgstr "Samsvarandi staðir fyrir '%s'"
 
 #: ../plugins/weather/weatherwidget.c:2070
 msgid "City"
-msgstr ""
+msgstr "Borg"
 
 #: ../plugins/weather/weatherwidget.c:2090
 msgid "Country"
-msgstr ""
+msgstr "Land"
 
 #. make it nice and pretty
 #: ../plugins/weather/weatherwidget.c:2221
 msgid "Currently in "
-msgstr ""
+msgstr "Núna í "
 
 #: ../plugins/weather/weatherwidget.c:2223
 msgid "Today: "
-msgstr ""
+msgstr "Í dag: "
 
 #: ../plugins/weather/weatherwidget.c:2224
 msgid "Tomorrow: "
-msgstr ""
+msgstr "Á morgun: "
 
 #: ../plugins/weather/weather.c:312
 msgid "Weather Plugin"
-msgstr ""
+msgstr "Viðbótaríforrit fyrir veðurlýsingar/spár"
 
 #: ../plugins/weather/weather.c:313
 msgid "Show weather conditions for a location."
-msgstr ""
+msgstr "Birta veðurslýsingu fyrir ákveðinn stað."
+
+
