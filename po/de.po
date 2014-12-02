@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 21:13+0200\n"
-"PO-Revision-Date: 2014-11-30 14:39+0000\n"
-"Last-Translator: system user <>\n"
+"PO-Revision-Date: 2014-12-02 17:15+0000\n"
+"Last-Translator: Daniel Winzen <d@winzen4.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -16,13 +16,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1417358347.000000\n"
+"X-POOTLE-MTIME: 1417540506.000000\n"
 
 #: ../src/configurator.c:135
 msgid ""
 "Space reservation is not available for this panel because there is another "
 "monitor beyond this edge and reservation would cover it if enabled."
 msgstr ""
+"Platzreservierung ist nicht verfügbar für diese Leiste, weil ein weiterer "
+"Bildschirm hinter dieser Ecke ist und dieser auch betroffen wäre, wenn "
+"aktiviert."
 
 #: ../src/configurator.c:605
 msgid "Currently loaded plugins"
@@ -229,6 +232,8 @@ msgstr ""
 #, c-format
 msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
 msgstr ""
+"Entschuldigung, die Tastenkombination »%s« kann nicht als globales "
+"Tastenkürzel benutzt werden."
 
 #: ../src/input-button.c:132 ../src/input-button.c:331
 #: ../plugins/netstatus/netstatus-iface.c:191
@@ -238,20 +243,20 @@ msgstr "Fehler"
 
 #: ../src/input-button.c:161
 msgid "LeftBtn"
-msgstr ""
+msgstr "Linkstaste"
 
 #: ../src/input-button.c:164
 msgid "MiddleBtn"
-msgstr ""
+msgstr "Mitteltaste"
 
 #: ../src/input-button.c:167
 msgid "RightBtn"
-msgstr ""
+msgstr "Rechtstaste"
 
 #: ../src/input-button.c:170
 #, c-format
 msgid "Btn%s"
-msgstr ""
+msgstr "%s-Taste"
 
 #. GtkRadioButton "None"
 #: ../src/input-button.c:250 ../data/ui/panel-pref.glade.h:5
@@ -260,12 +265,14 @@ msgstr "Keine"
 
 #: ../src/input-button.c:257
 msgid "Custom:"
-msgstr ""
+msgstr "Benutzerdefiniert:"
 
 #: ../src/input-button.c:329
 #, c-format
 msgid "Cannot assign '%s' as a global hotkey: it is already bound."
 msgstr ""
+"»%s« kann nicht als globales Tastenkürzel zugewiesen werden: es wird bereits "
+"verwendet."
 
 #: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3553
 msgid "Application Launch and Task Bar"
@@ -320,7 +327,7 @@ msgstr "Mehrere Fenster einer Anwendung in einem Knopf zusammenfassen"
 
 #: ../data/ui/launchtaskbar.glade.h:14
 msgid "Disable enlargement for small task icons"
-msgstr ""
+msgstr "Vergrößerung für kleine Symbole deaktivieren"
 
 #: ../data/ui/launchtaskbar.glade.h:15
 msgid "Maximum width of task button"
@@ -1581,7 +1588,7 @@ msgstr "Kein Akku gefunden"
 
 #: ../plugins/batt/batt.c:515 ../plugins/batt/batt.c:644
 msgid "Battery low"
-msgstr ""
+msgstr "Akku leer"
 
 #: ../plugins/batt/batt.c:664 ../plugins/batt/batt.c:685
 msgid "Battery Monitor"
