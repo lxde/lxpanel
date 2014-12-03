@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.3.8.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 21:13+0200\n"
-"PO-Revision-Date: 2014-08-21 02:30+0000\n"
+"PO-Revision-Date: 2014-12-03 01:37+0000\n"
 "Last-Translator: Wylmer Wang <wantinghard@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: zh_CN\n"
@@ -15,14 +15,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.6.0-rc1\n"
-"X-POOTLE-MTIME: 1408588234.000000\n"
+"X-Generator: Pootle 2.6.0-rc2\n"
+"X-POOTLE-MTIME: 1417570650.000000\n"
 
 #: ../src/configurator.c:135
 msgid ""
 "Space reservation is not available for this panel because there is another "
 "monitor beyond this edge and reservation would cover it if enabled."
-msgstr ""
+msgstr "无法为此面板预留空间，因为屏幕这一侧有另一个显示器，预留空间会遮挡它。"
 
 #: ../src/configurator.c:605
 msgid "Currently loaded plugins"
@@ -227,7 +227,7 @@ msgstr ""
 #: ../src/input-button.c:129
 #, c-format
 msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
-msgstr ""
+msgstr "对不起，组合键“%s”不能作为全局热键。"
 
 #: ../src/input-button.c:132 ../src/input-button.c:331
 #: ../plugins/netstatus/netstatus-iface.c:191
@@ -236,23 +236,21 @@ msgid "Error"
 msgstr "错误"
 
 #: ../src/input-button.c:161
-#, fuzzy
 msgid "LeftBtn"
-msgstr "左"
+msgstr "左键"
 
 #: ../src/input-button.c:164
 msgid "MiddleBtn"
-msgstr ""
+msgstr "中键"
 
 #: ../src/input-button.c:167
-#, fuzzy
 msgid "RightBtn"
-msgstr "右"
+msgstr "右键"
 
 #: ../src/input-button.c:170
 #, c-format
 msgid "Btn%s"
-msgstr ""
+msgstr "键 %s"
 
 #. GtkRadioButton "None"
 #: ../src/input-button.c:250 ../data/ui/panel-pref.glade.h:5
@@ -260,14 +258,13 @@ msgid "None"
 msgstr "无"
 
 #: ../src/input-button.c:257
-#, fuzzy
 msgid "Custom:"
-msgstr "自定义色彩"
+msgstr "自定义："
 
 #: ../src/input-button.c:329
 #, c-format
 msgid "Cannot assign '%s' as a global hotkey: it is already bound."
-msgstr ""
+msgstr "不能将“%s”分配为全局热键：已经绑定。"
 
 #: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3553
 msgid "Application Launch and Task Bar"
@@ -320,7 +317,7 @@ msgstr "将应用程序的多个窗口组合到单个按钮中"
 
 #: ../data/ui/launchtaskbar.glade.h:14
 msgid "Disable enlargement for small task icons"
-msgstr ""
+msgstr "禁止扩大小任务图标"
 
 #: ../data/ui/launchtaskbar.glade.h:15
 msgid "Maximum width of task button"
@@ -1411,9 +1408,7 @@ msgstr "无法从“%s”中解析接口名称"
 msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
-msgstr ""
-"无法从“%s”中解析接口统计。prx_idx = %d；ptx_idx = %d；brx_idx = %d；btx_idx "
-"= %d；"
+msgstr "无法从“%s”中解析接口统计。prx_idx = %d；ptx_idx = %d；brx_idx = %d；btx_idx = %d；"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:312
 msgid "Could not parse /proc/net/wireless. No data."
@@ -1568,9 +1563,8 @@ msgid "No batteries found"
 msgstr "没有电池"
 
 #: ../plugins/batt/batt.c:515 ../plugins/batt/batt.c:644
-#, fuzzy
 msgid "Battery low"
-msgstr "电池电量显示"
+msgstr "电池电量低"
 
 #: ../plugins/batt/batt.c:664 ../plugins/batt/batt.c:685
 msgid "Battery Monitor"
@@ -1899,9 +1893,8 @@ msgstr "国家"
 
 #. make it nice and pretty
 #: ../plugins/weather/weatherwidget.c:2221
-#, fuzzy
 msgid "Currently in "
-msgstr "当前加载的插件"
+msgstr "当前位于 "
 
 #: ../plugins/weather/weatherwidget.c:2223
 msgid "Today: "
@@ -1912,9 +1905,8 @@ msgid "Tomorrow: "
 msgstr "明天："
 
 #: ../plugins/weather/weather.c:312
-#, fuzzy
 msgid "Weather Plugin"
-msgstr "WNCKpager 工作区插件"
+msgstr "天气插件"
 
 #: ../plugins/weather/weather.c:313
 msgid "Show weather conditions for a location."
