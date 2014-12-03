@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 21:13+0200\n"
-"PO-Revision-Date: 2014-12-03 10:40+0000\n"
-"Last-Translator: ubsy <ubsy@riseup.net>\n"
+"PO-Revision-Date: 2014-12-02 17:15+0000\n"
+"Last-Translator: Daniel Winzen <d@winzen4.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -16,63 +16,60 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1417603205.000000\n"
+"X-POOTLE-MTIME: 1417540506.000000\n"
 
 #: ../src/configurator.c:135
-#, fuzzy
 msgid ""
 "Space reservation is not available for this panel because there is another "
 "monitor beyond this edge and reservation would cover it if enabled."
 msgstr ""
-"Lo spazio riservato non è disponibile per questo pannello perché c'è un "
-"altro monitor su questo lato che sarebbe coperto abilitando lo spazio "
-"riservato."
+"Platzreservierung ist nicht verfügbar für diese Leiste, weil ein weiterer "
+"Bildschirm hinter dieser Ecke ist und dieser auch betroffen wäre, wenn "
+"aktiviert."
 
 #: ../src/configurator.c:605
 msgid "Currently loaded plugins"
-msgstr "Momentan geladene Plugins"
+msgstr "Gegenwärtig geladene Erweiterungen"
 
 #: ../src/configurator.c:614
-#, fuzzy
 msgid "Stretch"
-msgstr "Estendi"
+msgstr "Ausdehnen"
 
 #: ../src/configurator.c:749
 msgid "Add plugin to panel"
-msgstr "Füge Plugin zu Panel hinzu"
+msgstr "Erweiterung zur Leiste hinzufügen"
 
 #: ../src/configurator.c:777
 msgid "Available plugins"
-msgstr "Verfügbare Plugins"
+msgstr "Verfügbare Erweiterungen"
 
 #: ../src/configurator.c:1357
 msgid "Logout command is not set"
-msgstr "Befehl zum Abmelden ist nicht gesetzt"
+msgstr "Abmeldebefehl ist nicht definiert"
 
 #: ../src/configurator.c:1425
 msgid "Select a directory"
-msgstr "Verzeichnis wählen"
+msgstr "Ordner auswählen"
 
 #: ../src/configurator.c:1425 ../src/configurator.c:1540
 msgid "Select a file"
-msgstr "Datei wählen"
+msgstr "Bilddatei auswählen"
 
 #: ../src/configurator.c:1573
 msgid "_Browse"
-msgstr "_Durchsuchen"
+msgstr "A_uswählen"
 
 #: ../src/panel.c:981
 msgid "There is no room for another panel. All the edges are taken."
-msgstr ""
-"Kein Platz für eine weitere Leiste verfügbar. Alle Randbereiche sind belegt."
+msgstr "Es ist kein Platz für eine weitere Leiste. Alle Ecken sind belegt."
 
 #: ../src/panel.c:1007
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
-"Diese Leiste wirklich löschen?\n"
-"<b>Achtung: Das kann nicht mehr rückgängig gemacht werden.</b>"
+"Diese Leiste wirklich entfernen?\n"
+"<b>Warnung: Es kann nicht wiederhergestellt werden.</b>"
 
 #: ../src/panel.c:1009
 msgid "Confirm"
@@ -80,11 +77,11 @@ msgstr "Bestätigen"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:1044
-#, fuzzy
 msgid "translator-credits"
 msgstr ""
-"Alessandro Pellizzari\n"
-"Daniele Forsi <daniele@forsi.it>"
+"Christoph Wickert <cwickert@fedorapeoject.org>\n"
+"Mario Blättermann <mariobl@gnome.org>\n"
+"Daniel Winzen <d@winzen4.de>"
 
 #: ../src/panel.c:1049
 msgid "LXPanel"
@@ -92,45 +89,45 @@ msgstr "LXPanel"
 
 #: ../src/panel.c:1067
 msgid "Copyright (C) 2008-2014"
-msgstr "Copyright © 2008-2014"
+msgstr "Copyright (C) 2008-2014"
 
 #: ../src/panel.c:1068
 msgid "Desktop panel for LXDE project"
-msgstr "Desktop Panel für das LXDE Projekt"
+msgstr "Arbeitsflächen-Leiste für das LXDE-Projekt"
 
 #: ../src/panel.c:1110
 #, c-format
 msgid "\"%s\" Settings"
-msgstr "\"%s\" Einstellungen"
+msgstr "»%s«-Einstellungen"
 
 #: ../src/panel.c:1130
 msgid "Add / Remove Panel Items"
-msgstr "Panel-Elemente hinzufügen / entfernen"
+msgstr "Leisteneinträge hinzufügen/entfernen"
 
 #: ../src/panel.c:1138
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr "Entferne \"%s\" vom Panel"
+msgstr "»%s« aus der Leiste entfernen"
 
 #: ../src/panel.c:1150
 msgid "Panel Settings"
-msgstr "Panel Einstellungen"
+msgstr "Leisten-Einstellungen"
 
 #: ../src/panel.c:1156
 msgid "Create New Panel"
-msgstr "Neues Panel erstellen"
+msgstr "Neue Leiste anlegen"
 
 #: ../src/panel.c:1162
 msgid "Delete This Panel"
-msgstr "Dieses Panel löschen"
+msgstr "Diese Leiste entfernen"
 
 #: ../src/panel.c:1173
 msgid "About"
-msgstr "Über"
+msgstr "Info"
 
 #: ../src/panel.c:1180
 msgid "Panel"
-msgstr "Panel"
+msgstr "Leiste"
 
 #: ../src/panel.c:1391 ../src/panel.c:1399 ../data/ui/panel-pref.glade.h:22
 msgid "Height:"
@@ -158,7 +155,7 @@ msgstr "Unten"
 
 #: ../src/plugin.c:340
 msgid "No file manager is configured."
-msgstr "Kein Dateimanager konfiguriert."
+msgstr "Es ist keine Dateiverwaltung konfiguriert."
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/gtk-run.c:377 ../src/main.c:52 ../plugins/menu.c:741
@@ -167,11 +164,11 @@ msgstr "Ausführen"
 
 #: ../src/gtk-run.c:391
 msgid "Enter the command you want to execute:"
-msgstr "Befehl zum Ausführen eingeben:"
+msgstr "Auszuführenden Befehl eingeben:"
 
 #: ../src/main.c:53 ../plugins/menu.c:742
 msgid "Restart"
-msgstr "Neustarten"
+msgstr "Neu starten"
 
 #: ../src/main.c:54 ../plugins/menu.c:743
 msgid "Logout"
@@ -180,44 +177,44 @@ msgstr "Abmelden"
 #: ../src/main.c:252
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr "lxpanel %s - Leichtgewichtiges GTK2+ Panel für UNIX Desktops\n"
+msgstr "lxpanel %s - leichtgewichtige GTK2+ Leiste für UNIX-Arbeitsflächen\n"
 
 #: ../src/main.c:253
 #, c-format
 msgid "Command line options:\n"
-msgstr "Kommandozeilenoptionen:\n"
+msgstr "Befehlszeilenoptionen:\n"
 
 #: ../src/main.c:254
 #, c-format
 msgid " --help      -- print this help and exit\n"
-msgstr " --help         -- zeige diese Hilfe an und beende\n"
+msgstr " --help       --zeigt diese Hilfe an und beendet\n"
 
 #: ../src/main.c:255
 #, c-format
 msgid " --version   -- print version and exit\n"
-msgstr " --version      -- zeige die Version an und beende\n"
+msgstr " --version    -- zeigt Versionshinweise an und beendet\n"
 
 #. g_print(_(" --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"));
 #. g_print(_(" --configure -- launch configuration utility\n"));
 #: ../src/main.c:258
 #, c-format
 msgid " --profile name -- use specified profile\n"
-msgstr " --profile name -- verwende das angegebene Profil\n"
+msgstr " --profile Name -- verwendet ein benutzerdefiniertes Profil\n"
 
 #: ../src/main.c:260
 #, c-format
 msgid " -h  -- same as --help\n"
-msgstr " -h  -- identisch mit --help\n"
+msgstr " -h  -- wie --help\n"
 
 #: ../src/main.c:261
 #, c-format
 msgid " -p  -- same as --profile\n"
-msgstr " -p  -- identisch mit --profile\n"
+msgstr " -p  -- wie --profile\n"
 
 #: ../src/main.c:262
 #, c-format
 msgid " -v  -- same as --version\n"
-msgstr " -v  -- identisch mit --version\n"
+msgstr " -v  -- wie --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
 #: ../src/main.c:264
@@ -228,193 +225,161 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"Besuche http://lxde.org/ für Details.\n"
+"Besuchen Sie http://lxde.org/ für detaillierte Informationen.\n"
 "\n"
 
 #: ../src/input-button.c:129
 #, c-format
 msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
 msgstr ""
-"Tastenkombination '%s' kann leider nicht als globaler Hotkey verwendet "
-"werden."
+"Entschuldigung, die Tastenkombination »%s« kann nicht als globales "
+"Tastenkürzel benutzt werden."
 
 #: ../src/input-button.c:132 ../src/input-button.c:331
 #: ../plugins/netstatus/netstatus-iface.c:191
 #: ../plugins/netstatus/netstatus-util.c:167
-#, fuzzy
 msgid "Error"
-msgstr "Errore"
+msgstr "Fehler"
 
 #: ../src/input-button.c:161
-#, fuzzy
 msgid "LeftBtn"
-msgstr "PulsanteSinistro"
+msgstr "Linkstaste"
 
 #: ../src/input-button.c:164
-#, fuzzy
 msgid "MiddleBtn"
-msgstr "PulsanteCentrale"
+msgstr "Mitteltaste"
 
 #: ../src/input-button.c:167
-#, fuzzy
 msgid "RightBtn"
-msgstr "PulsanteDestro"
+msgstr "Rechtstaste"
 
 #: ../src/input-button.c:170
-#, c-format, fuzzy
+#, c-format
 msgid "Btn%s"
-msgstr "Pulsante%s"
+msgstr "%s-Taste"
 
-# è un'opzione per "Livello registro:"
 #. GtkRadioButton "None"
 #: ../src/input-button.c:250 ../data/ui/panel-pref.glade.h:5
-#, fuzzy
 msgid "None"
-msgstr "Niente"
+msgstr "Keine"
 
 #: ../src/input-button.c:257
-#, fuzzy
 msgid "Custom:"
-msgstr "Personalizzata:"
+msgstr "Benutzerdefiniert:"
 
 #: ../src/input-button.c:329
 #, c-format
 msgid "Cannot assign '%s' as a global hotkey: it is already bound."
 msgstr ""
-"Kann '%s' nicht als globalen hotkey zuweisen: Ist anderweitig zugewiesen."
+"»%s« kann nicht als globales Tastenkürzel zugewiesen werden: es wird bereits "
+"verwendet."
 
 #: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3553
-#, fuzzy
 msgid "Application Launch and Task Bar"
-msgstr "Avvio applicazioni e Barra dei task"
+msgstr "Anwendungsstart- und Aufgabenleiste"
 
 #. Launchtaskbar mode: launchbar, taskbar, or combined
 #: ../data/ui/launchtaskbar.glade.h:3
-#, fuzzy
 msgid "<b>Mode:</b>"
-msgstr "<b>Modo:</b>"
+msgstr "<b>Modus:</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:4
-#, fuzzy
 msgid "Launchers"
-msgstr "Lanciatori"
+msgstr "Starter"
 
 #: ../data/ui/launchtaskbar.glade.h:5
-#, fuzzy
 msgid "<b>Launchbar</b>"
-msgstr "<b>Barra di lancio</b>"
+msgstr "<b>Startleiste</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:6
-#, fuzzy
 msgid "Show tooltips"
-msgstr "Mostra suggerimenti"
+msgstr "Minihilfen anzeigen"
 
 #: ../data/ui/launchtaskbar.glade.h:7
-#, fuzzy
 msgid "Icons only"
-msgstr "Solo icone"
+msgstr "Nur Symbole"
 
 #: ../data/ui/launchtaskbar.glade.h:8
-#, fuzzy
 msgid "Flat buttons"
-msgstr "Pulsanti piatti"
+msgstr "Flache Knöpfe"
 
 #: ../data/ui/launchtaskbar.glade.h:9
-#, fuzzy
 msgid "Show windows from all desktops"
-msgstr "Mostra finestre da tutte le scrivanie"
+msgstr "Fenster aller Arbeitsflächen anzeigen"
 
 #: ../data/ui/launchtaskbar.glade.h:10
-#, fuzzy
 msgid "Only show windows on the same monitor as the task bar"
-msgstr "Mostra solo le finestre dello stesso monitor della barra dei task"
+msgstr ""
+"Zeige nur Fenster, die auf dem gleichen Bildschirm sind, wie die "
+"Aufgabenleiste"
 
 #: ../data/ui/launchtaskbar.glade.h:11
-#, fuzzy
 msgid "Use mouse wheel"
-msgstr "Usa rotellina del mouse"
+msgstr "Mausrad benutzen"
 
 #: ../data/ui/launchtaskbar.glade.h:12
-#, fuzzy
 msgid "Flash when there is any window requiring attention"
-msgstr "Lampeggia quando una finestra richiede attenzione"
+msgstr "Blinken, wenn ein Fenster um Aufmerksamkeit bittet"
 
 #: ../data/ui/launchtaskbar.glade.h:13
-#, fuzzy
 msgid "Combine multiple application windows into a single button"
-msgstr "Combina finestre multiple applicazione in un singolo pulsante"
+msgstr "Mehrere Fenster einer Anwendung in einem Knopf zusammenfassen"
 
 #: ../data/ui/launchtaskbar.glade.h:14
-#, fuzzy
 msgid "Disable enlargement for small task icons"
-msgstr "Diisabilita l'ingrandimento delle icone piccole dei task"
+msgstr "Vergrößerung für kleine Symbole deaktivieren"
 
 #: ../data/ui/launchtaskbar.glade.h:15
-#, fuzzy
 msgid "Maximum width of task button"
-msgstr "Larghezza massima di un pulsante applicazione"
+msgstr "Maximale Breite des Knopfes"
 
 #: ../data/ui/launchtaskbar.glade.h:16
-#, fuzzy
 msgid "Spacing"
-msgstr "Spaziatura"
+msgstr "Zwischenraum"
 
 #: ../data/ui/launchtaskbar.glade.h:17
-#, fuzzy
 msgid "<b>Taskbar</b>"
-msgstr "<b>Barra dei task</b>"
+msgstr "<b>Aufgabenleiste</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:18
-#, fuzzy
 msgid "Only Application Launch Bar"
-msgstr "Solo barra avvio applicazioni"
+msgstr "Nur Anwendungsstartleiste"
 
 #: ../data/ui/launchtaskbar.glade.h:19
-#, fuzzy
 msgid "Only Task Bar (Window List)"
-msgstr "Solo barra dei task (Elenco finestre)"
+msgstr "Nur Aufgabenleiste (Fensterliste)"
 
 #: ../data/ui/launchtaskbar.glade.h:20
-#, fuzzy
 msgid "Integrated Application Launch Bar and Task Bar"
-msgstr "Barra avvio applicazioni e barra dei task integrata"
+msgstr "Integrierte Anwendungsstart- und Aufgabenleiste"
 
 #: ../data/ui/netstatus.glade.h:1
-#, fuzzy
 msgid "<b>Connection</b>"
-msgstr "<b>Connessione</b>"
+msgstr "<b>Verbindung</b>"
 
 #: ../data/ui/netstatus.glade.h:2
-#, fuzzy
 msgid "Status:"
-msgstr "Stato:"
+msgstr "Status:"
 
 #: ../data/ui/netstatus.glade.h:3
-#, fuzzy
 msgid "_Name:"
-msgstr "_Nome:"
+msgstr "_Name:"
 
 #: ../data/ui/netstatus.glade.h:4
-#, fuzzy
 msgid "<b>Activity</b>"
-msgstr "<b>Attività</b>"
+msgstr "<b>Aktivität</b>"
 
-# esempio "Ricevuti: 1234 pacchetti (9876.5 Mb)"
 #: ../data/ui/netstatus.glade.h:5
-#, fuzzy
 msgid "Received:"
-msgstr "Ricevuti:"
+msgstr "Empfangen:"
 
-# esempio "Inviati: 1234 pacchetti (9876.5 Mb)"
 #: ../data/ui/netstatus.glade.h:6
-#, fuzzy
 msgid "Sent:"
-msgstr "Inviati:"
+msgstr "Gesendet:"
 
 #: ../data/ui/netstatus.glade.h:7
-#, fuzzy
 msgid "<b>Signal Strength</b>"
-msgstr "<b>Intensità del segnale</b>"
+msgstr "<b>Signalstärke</b>"
 
 #: ../data/ui/netstatus.glade.h:9
 #, no-c-format
@@ -422,24 +387,20 @@ msgid "0%"
 msgstr "0%"
 
 #: ../data/ui/netstatus.glade.h:10
-#, fuzzy
 msgid "General"
-msgstr "Generale"
+msgstr "Allgemein"
 
 #: ../data/ui/netstatus.glade.h:11
-#, fuzzy
 msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr "<b>Protocollo Internet (IPv4)</b>"
+msgstr "<b>Internetprotokoll (IPv4)</b>"
 
 #: ../data/ui/netstatus.glade.h:12
-#, fuzzy
 msgid "Address:"
-msgstr "Indirizzo:"
+msgstr "Adresse:"
 
 #: ../data/ui/netstatus.glade.h:13
-#, fuzzy
 msgid "Destination:"
-msgstr "Destinazione:"
+msgstr "Ziel:"
 
 #: ../data/ui/netstatus.glade.h:14 ../plugins/netstat/netstat.c:364
 #: ../plugins/netstat/netstat.c:375
@@ -447,1072 +408,885 @@ msgid "Broadcast:"
 msgstr "Broadcast:"
 
 #: ../data/ui/netstatus.glade.h:15
-#, fuzzy
 msgid "Subnet Mask:"
-msgstr "Maschera sottorete:"
+msgstr "Subnetzmaske:"
 
 #: ../data/ui/netstatus.glade.h:16
-#, fuzzy
 msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr "<b>Protocollo Internet (IPv6)</b>"
+msgstr "<b>Internetprotokoll (IPv6)</b>"
 
 #: ../data/ui/netstatus.glade.h:17
-#, fuzzy
 msgid "Scope:"
-msgstr "Ambito:"
+msgstr "Bandbreite:"
 
 #: ../data/ui/netstatus.glade.h:18
-#, fuzzy
 msgid "<b>Network Device</b>"
-msgstr "<b>Scheda di rete</b>"
+msgstr "<b>Netzwerkgerät</b>"
 
 #: ../data/ui/netstatus.glade.h:19
-#, fuzzy
 msgid "Type:"
-msgstr "Tipo:"
+msgstr "Typ:"
 
 #: ../data/ui/netstatus.glade.h:20
-#, fuzzy
 msgid "Support"
-msgstr "Supporto"
+msgstr "Unterstützung"
 
 #: ../data/ui/netstatus.glade.h:21
-#, fuzzy
 msgid "Con_figure"
-msgstr "Con_figura"
+msgstr "_Einstellungen"
 
 #: ../data/ui/panel-pref.glade.h:1
-#, fuzzy
 msgid "Dynamic"
-msgstr "Dinamico"
+msgstr "Dynamisch"
 
 #: ../data/ui/panel-pref.glade.h:2
 msgid "Pixels"
 msgstr "Pixel"
 
 #: ../data/ui/panel-pref.glade.h:4
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "% Percent"
-msgstr "% Percento"
+msgstr "% Prozent"
 
-# è un'opzione per "Livello registro:"
 #: ../data/ui/panel-pref.glade.h:6
-#, fuzzy
 msgid "Err"
-msgstr "Errori"
+msgstr "Err"
 
-# è un'opzione per "Livello registro:"
 #: ../data/ui/panel-pref.glade.h:7
-#, fuzzy
 msgid "Warn"
-msgstr "Avvertimenti"
+msgstr "Warn"
 
-# è un'opzione per "Livello registro:"
 #: ../data/ui/panel-pref.glade.h:8
-#, fuzzy
 msgid "Info"
-msgstr "Informazioni"
+msgstr "Info"
 
 #: ../data/ui/panel-pref.glade.h:9
-#, fuzzy
 msgid "All"
-msgstr "Tutto"
+msgstr "Alle"
 
 #: ../data/ui/panel-pref.glade.h:10
-#, fuzzy
 msgid "Panel Preferences"
-msgstr "Impostazioni pannello"
+msgstr "Leisten-Einstellungen"
 
 #: ../data/ui/panel-pref.glade.h:15
-#, fuzzy
 msgid "Edge:"
-msgstr "Lato:"
+msgstr "Rand:"
 
 #: ../data/ui/panel-pref.glade.h:16
-#, fuzzy
 msgid "Center"
-msgstr "Centro"
+msgstr "Mitte"
 
 #: ../data/ui/panel-pref.glade.h:17
-#, fuzzy
 msgid "Alignment:"
-msgstr "Allineamento:"
+msgstr "Lage:"
 
 #: ../data/ui/panel-pref.glade.h:18
-#, fuzzy
 msgid "Margin:"
-msgstr "Margine:"
+msgstr "Ränder:"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "Monitor:"
 msgstr "Monitor:"
 
 #: ../data/ui/panel-pref.glade.h:20
-#, fuzzy
 msgid "<b>Position</b>"
-msgstr "<b>Posizione</b>"
+msgstr "<b>Position</b>"
 
 #: ../data/ui/panel-pref.glade.h:23
-#, fuzzy
 msgid "Icon size:"
-msgstr "Dimensioni icona:"
+msgstr "Symbolgröße:"
 
 #: ../data/ui/panel-pref.glade.h:24
-#, fuzzy
 msgid "<b>Size</b>"
-msgstr "<b>Dimensioni</b>"
+msgstr "<b>Größe</b>"
 
 #: ../data/ui/panel-pref.glade.h:25
-#, fuzzy
 msgid "Geometry"
-msgstr "Geometria"
+msgstr "Geometrie"
 
 #: ../data/ui/panel-pref.glade.h:26
-#, fuzzy
 msgid "System theme"
-msgstr "Tema di sistema"
+msgstr "Kein (Systemthema verwenden)"
 
 #: ../data/ui/panel-pref.glade.h:27
-#, fuzzy
 msgid "Solid color (with opacity)"
-msgstr "Tinta unita (con opacità)"
+msgstr "Durchgehende Farbe (deckend)"
 
 #: ../data/ui/panel-pref.glade.h:28 ../plugins/xkb/xkb-plugin.c:1447
-#, fuzzy
 msgid "Image"
-msgstr "Immagine"
+msgstr "Bild"
 
 #: ../data/ui/panel-pref.glade.h:29
-#, fuzzy
 msgid "Select an image file"
-msgstr "Seleziona un file immagine"
+msgstr "Bilddatei auswählen"
 
 #: ../data/ui/panel-pref.glade.h:30
-#, fuzzy
 msgid "<b>Background</b>"
-msgstr "<b>Sfondo</b>"
+msgstr "<b>Hintergrund</b>"
 
 #: ../data/ui/panel-pref.glade.h:31
-#, fuzzy
 msgid "Custom color"
-msgstr "Colore personalizzato"
+msgstr "Benutzerdefinierte Farbe"
 
 #: ../data/ui/panel-pref.glade.h:32 ../plugins/space.c:88
 #: ../plugins/batt/batt.c:675
-#, fuzzy
 msgid "Size"
-msgstr "Dimensione"
+msgstr "Größe"
 
 #: ../data/ui/panel-pref.glade.h:33
-#, fuzzy
 msgid "<b>Font</b>"
-msgstr "<b>Carattere</b>"
+msgstr "<b>Schrift</b>"
 
 #: ../data/ui/panel-pref.glade.h:34
-#, fuzzy
 msgid "Appearance"
-msgstr "Aspetto"
+msgstr "Erscheinungsbild"
 
 #: ../data/ui/panel-pref.glade.h:35
-#, fuzzy
 msgid "Panel Applets"
-msgstr "Applet pannello"
+msgstr "Leisten-Erweiterungen"
 
 #: ../data/ui/panel-pref.glade.h:36
-#, fuzzy
 msgid "Logout Command:"
-msgstr "Comando chiusura sessione:"
+msgstr "Befehl zum Abmelden:"
 
 #: ../data/ui/panel-pref.glade.h:37
-#, fuzzy
 msgid "Terminal Emulator:"
-msgstr "Emulatore terminale:"
+msgstr "Terminal-Emulator:"
 
 #: ../data/ui/panel-pref.glade.h:38
-#, fuzzy
 msgid "File Manager:"
-msgstr "Gestore file:"
+msgstr "Dateimanager:"
 
 #: ../data/ui/panel-pref.glade.h:39
-#, fuzzy
 msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>Seleziona applicazioni preferite</b>"
+msgstr "<b>Bevorzugte Anwendungen wählen</b>"
 
 #: ../data/ui/panel-pref.glade.h:40
-#, fuzzy
 msgid "Make window managers treat the panel as dock"
-msgstr "I window manager trattano il pannello come dock"
+msgstr "Fenstermanager soll die Leiste als Dock identifizieren"
 
 #: ../data/ui/panel-pref.glade.h:41
-#, fuzzy
 msgid "Reserve space, and not covered by maximized windows"
-msgstr "Riserva spazio e non è coperto da finestre massimizzate"
+msgstr "Platz, der nicht von maximierten Fenstern überdeckt wird"
 
 #: ../data/ui/panel-pref.glade.h:42
-#, fuzzy
 msgid "<b>Properties</b>"
-msgstr "<b>Proprietà</b>"
+msgstr "<b>Eigenschaften</b>"
 
 #: ../data/ui/panel-pref.glade.h:43
-#, fuzzy
 msgid "Minimize panel when not in use"
-msgstr "Minimizza il pannello quando non è in uso"
+msgstr "Leiste bei Nichtbenutzung minimieren"
 
 #: ../data/ui/panel-pref.glade.h:44
-#, fuzzy
 msgid "Size when minimized"
-msgstr "Dimensione quando minimizzato"
+msgstr "Größe im minimierten Zustand"
 
 #: ../data/ui/panel-pref.glade.h:45
-#, fuzzy
 msgid "pixels"
-msgstr "pixel"
+msgstr "Pixel"
 
 #: ../data/ui/panel-pref.glade.h:46
-#, fuzzy
 msgid "<b>Automatic hiding</b>"
-msgstr "<b>Nascondere automaticamente</b>"
+msgstr "<b>Automatisch verbergen</b>"
 
 #: ../data/ui/panel-pref.glade.h:47
-#, fuzzy
 msgid "Log level"
-msgstr "Livello registro"
+msgstr "Protokollierungsstufe"
 
 #: ../data/ui/panel-pref.glade.h:48
-#, fuzzy
 msgid "<b>Log level</b>"
-msgstr "<b>Livello registro</b>"
+msgstr "<b>Protokollierungsstufe</b>"
 
 #: ../data/ui/panel-pref.glade.h:49
-#, fuzzy
 msgid "Advanced"
-msgstr "Avanzate"
+msgstr "Erweitert"
 
 #: ../plugins/cpu/cpu.c:281
-#, fuzzy
 msgid "CPU Usage Monitor"
-msgstr "Monitor uso CPU"
+msgstr "Prozessorlast-Monitor"
 
 #: ../plugins/cpu/cpu.c:282 ../plugins/monitors/monitors.c:699
-#, fuzzy
 msgid "Display CPU usage"
-msgstr "Mostra uso CPU"
+msgstr "Prozessorlast anzeigen"
 
 #: ../plugins/deskno/deskno.c:174 ../plugins/deskno/deskno.c:194
-#, fuzzy
 msgid "Desktop Number / Workspace Name"
-msgstr "Numero scrivania / Nome area di lavoro"
+msgstr "Nummer und Name der Arbeitsfläche"
 
 #: ../plugins/deskno/deskno.c:176 ../plugins/dclock.c:424
-#, fuzzy
 msgid "Bold font"
-msgstr "Carattere grassetto"
+msgstr "Fettschrift"
 
 #: ../plugins/deskno/deskno.c:177
-#, fuzzy
 msgid "Display desktop names"
-msgstr "Mostra nomi scrivanie"
+msgstr "Namen der Arbeitsflächen anzeigen"
 
 #: ../plugins/deskno/deskno.c:195
-#, fuzzy
 msgid "Display workspace number, by cmeury@users.sf.net"
-msgstr "Mostra il numero dell'area di lavoro, di cmeury@users.sf.net"
+msgstr "Nummer der Arbeitsfläche anzeigen"
 
 #: ../plugins/launchtaskbar.c:1443 ../plugins/launchtaskbar.c:3525
-#, fuzzy
 msgid "Application Launch Bar"
-msgstr "Barra avvio applicazioni"
+msgstr "Anwendungsstartleiste"
 
 #: ../plugins/launchtaskbar.c:1446 ../plugins/launchtaskbar.c:3534
-#, fuzzy
 msgid "Task Bar (Window List)"
-msgstr "Barra delle applicazioni (Elenco finestre)"
+msgstr "Taskbar (Fensterliste)"
 
 #: ../plugins/launchtaskbar.c:2507
-#, fuzzy
 msgid "_Close all windows"
-msgstr "_Chiudi tutte le finestre"
+msgstr "Alle Fenster s_chließen"
 
 #. Add Raise menu item.
 #: ../plugins/launchtaskbar.c:3380
-#, fuzzy
 msgid "_Raise"
-msgstr "_Rivela"
+msgstr "Hervorheben"
 
 #. Add Restore menu item.
 #: ../plugins/launchtaskbar.c:3385
-#, fuzzy
 msgid "R_estore"
-msgstr "R_ipristina"
+msgstr "Wiederherstellen"
 
 #. Add Maximize menu item.
 #: ../plugins/launchtaskbar.c:3390
-#, fuzzy
 msgid "Ma_ximize"
-msgstr "Massimi_zza"
+msgstr "Maximieren"
 
 #. Add Iconify menu item.
 #: ../plugins/launchtaskbar.c:3395
-#, fuzzy
 msgid "Ico_nify"
-msgstr "Ico_nifica"
+msgstr "Minimieren"
 
 #: ../plugins/launchtaskbar.c:3416
-#, c-format, fuzzy
+#, c-format
 msgid "Workspace _%d"
-msgstr "Area di lavoro _%d"
+msgstr "Arbeitsfläche _%d"
 
 #: ../plugins/launchtaskbar.c:3421
-#, c-format, fuzzy
+#, c-format
 msgid "Workspace %d"
-msgstr "Area di lavoro %d"
+msgstr "Arbeitsfläche %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../plugins/launchtaskbar.c:3437
-#, fuzzy
 msgid "_All workspaces"
-msgstr "_Tutte le aree di lavoro"
+msgstr "_Alle Arbeitsflächen"
 
 #. FIXME: add "Current workspace" item, active if not on a current
 #. Add Move to Workspace menu item as a submenu.
 #: ../plugins/launchtaskbar.c:3445
-#, fuzzy
 msgid "_Move to Workspace"
-msgstr "_Muovi ad area di lavoro"
+msgstr "_Verschieben auf Arbeitsfläche"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../plugins/launchtaskbar.c:3451
-#, fuzzy
 msgid "_Close Window"
-msgstr "_Chiudi finestra"
+msgstr "Fenster schließen"
 
 #: ../plugins/launchtaskbar.c:3453
-#, fuzzy
 msgid "A_dd to Launcher"
-msgstr "A_ggiungi al lanciatore"
+msgstr "Zum Starter hinzufügen"
 
 #: ../plugins/launchtaskbar.c:3454
-#, fuzzy
 msgid "Rem_ove from Launcher"
-msgstr "Elimina dal lanciat_ore"
+msgstr "Aus dem Starter _entfernen"
 
 #: ../plugins/launchtaskbar.c:3455
-#, fuzzy
 msgid "_New Instance"
-msgstr "_Nuova istanza"
+msgstr "_Neue Instanz"
 
 #: ../plugins/launchtaskbar.c:3526
-#, fuzzy
 msgid "Bar with buttons to launch application"
-msgstr "Barra con pulsanti per avviare applicazioni"
+msgstr "Leiste mit Knöpfen zum Starten von Anwendungen"
 
 #: ../plugins/launchtaskbar.c:3535
-#, fuzzy
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
-"La barra delle applicazioni mostra tutte le finestre aperte e permette di "
-"minimizzarle, arrotolarle o attivarle"
+"Die Taskbar zeigt alle geöffneten Fenster und erlaubt die Reduktion auf "
+"Desktop-Symbole, Schattierungen und Fokussierungen"
 
 #: ../plugins/launchtaskbar.c:3554
-#, fuzzy
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr ""
-"Barra con pulsanti per avviare applicazioni e/o mostrare tutte le finestre "
-"aperte"
+"Leiste mit Knöpfen zum Starten von Anwendungen und/oder zum Anzeigen aller "
+"geöffneten Fenster"
 
 #: ../plugins/dclock.c:418 ../plugins/dclock.c:438
-#, fuzzy
 msgid "Digital Clock"
-msgstr "Orologio digitale"
+msgstr "Digitale Uhr"
 
 #: ../plugins/dclock.c:420
-#, fuzzy
 msgid "Clock Format"
-msgstr "Formato orologio"
+msgstr "Zeitformat"
 
 #: ../plugins/dclock.c:421
-#, fuzzy
 msgid "Tooltip Format"
-msgstr "Formato suggerimenti"
+msgstr "Minihilfe-Format"
 
 #: ../plugins/dclock.c:422
-#, c-format, fuzzy
+#, c-format
 msgid "Format codes: man 3 strftime; %n for line break"
-msgstr "Codici formato: man 3 strftime; %n per ritorno a capo"
+msgstr "Formate: man 3 strftime; %n für Zeilenumbruch"
 
 #: ../plugins/dclock.c:423
-#, fuzzy
 msgid "Action when clicked (default: display calendar)"
-msgstr "Azione al clic (predefinita: mostra calendario)"
+msgstr "Aktion bei Klick (Vorgabe: Kalender anzeigen)"
 
 #: ../plugins/dclock.c:425
-#, fuzzy
 msgid "Tooltip only"
-msgstr "Solo suggerimenti"
+msgstr "Nur Minihilfen"
 
 #: ../plugins/dclock.c:426
-#, fuzzy
 msgid "Center text"
-msgstr "Testo centrato"
+msgstr "Text zentrieren"
 
 #: ../plugins/dclock.c:439
-#, fuzzy
 msgid "Display digital clock and tooltip"
-msgstr "Mostra orologio digitale e suggerimento"
+msgstr "Digitale Uhr und Minihilfe anzeigen"
 
 #: ../plugins/menu.c:382
-#, fuzzy
 msgid "Add to desktop"
-msgstr "Aggiungere alla scrivania"
+msgstr "Der Arbeitsfläche hinzufügen"
 
 #: ../plugins/menu.c:389
-#, fuzzy
 msgid "Properties"
-msgstr "Proprietà"
+msgstr "Eigenschaften"
 
 #: ../plugins/menu.c:1013 ../plugins/menu.c:1027
-#, fuzzy
 msgid "Menu"
-msgstr "Menu"
+msgstr "Menü"
 
 #: ../plugins/menu.c:1014 ../plugins/dirmenu.c:357
-#, fuzzy
 msgid "Icon"
-msgstr "Icona"
+msgstr "Symbol"
 
 #: ../plugins/menu.c:1028
-#, fuzzy
 msgid "Application Menu"
-msgstr "Menu applicazioni"
+msgstr "Anwendungsmenü"
 
 #: ../plugins/separator.c:68
-#, fuzzy
 msgid "Separator"
-msgstr "Separatore"
+msgstr "Trenner"
 
 #: ../plugins/separator.c:69
-#, fuzzy
 msgid "Add a separator to the panel"
-msgstr "Aggiunge un separatore al pannello"
+msgstr "Trenner zur Leiste hinzufügen"
 
 #: ../plugins/pager.c:92
-#, fuzzy
 msgid "Sorry, there was no window manager configuration program found."
 msgstr ""
-"Non è stato trovato alcun programma di configurazione del gestore delle "
-"finestre."
+"Entschuldigung, es wurde kein Programm gefunden, um den Fenstermanger zu "
+"konfigurieren."
 
 #: ../plugins/pager.c:144 ../plugins/pager.c:160
-#, fuzzy
 msgid "Desktop Pager"
-msgstr "Pager scrivania"
+msgstr "Desktop-Pager"
 
 #: ../plugins/pager.c:145 ../plugins/pager.c:161
-#, fuzzy
 msgid "Simple pager plugin"
-msgstr "Plugin pager semplice"
+msgstr "Einfache Pager-Erweiterung"
 
 #: ../plugins/space.c:86 ../plugins/space.c:95
-#, fuzzy
 msgid "Spacer"
-msgstr "Spaziatore"
+msgstr "Abstand"
 
 #: ../plugins/space.c:96
-#, fuzzy
 msgid "Allocate space"
-msgstr "Alloca spazio"
+msgstr "Zwischenraum zuweisen"
 
 #: ../plugins/tray.c:682
-#, fuzzy
 msgid "System Tray"
-msgstr "Pannello di sistema"
+msgstr "Benachrichtigungsfeld"
 
 #: ../plugins/tray.c:683
-#, fuzzy
 msgid "System tray"
-msgstr "Pannello di sistema"
+msgstr "Benachrichtigungsfeld"
 
 #: ../plugins/xkb/xkb-plugin.c:401
-#, fuzzy
 msgid "New session is required for this option to take effect"
-msgstr "È richiesta una nuova sessione perché questa opzione abbia effetto"
+msgstr "Es wird eine neue Sitzung benötigt, damit diese Option in Kraft tritt"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:582
-#, fuzzy
 msgid "Select Keyboard Model"
-msgstr "Scegli modello di tastiera"
+msgstr "Tastaturmodell auswählen"
 
 #: ../plugins/xkb/xkb-plugin.c:606 ../plugins/xkb/xkb-plugin.c:735
 #: ../plugins/xkb/xkb-plugin.c:913
-#, fuzzy
 msgid "Description"
-msgstr "Descrizione"
+msgstr "Beschreibung"
 
 #: ../plugins/xkb/xkb-plugin.c:611 ../plugins/xkb/xkb-plugin.c:742
-#, fuzzy
 msgid "Id"
-msgstr "Id"
+msgstr "ID"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:706
-#, fuzzy
 msgid "Select Layout Change Type"
-msgstr "Seleziona tipo cambiamento disposizione"
+msgstr "Layout-Änderungstyp auswählen"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:879
-#, fuzzy
 msgid "Add Keyboard Layout"
-msgstr "Aggiungi disposizione tastiera"
+msgstr "Tastaturbelegung hinzufügen"
 
 #: ../plugins/xkb/xkb-plugin.c:903 ../plugins/xkb/xkb-plugin.c:1294
-#, fuzzy
 msgid "Flag"
-msgstr "Bandiera"
+msgstr "Flagge"
 
 #: ../plugins/xkb/xkb-plugin.c:908 ../plugins/xkb/xkb-plugin.c:1298
-#, fuzzy
 msgid "Layout"
-msgstr "Disposizione"
+msgstr "Belegung"
 
 #: ../plugins/xkb/xkb-plugin.c:1204 ../plugins/xkb/xkb-plugin.c:1536
-#, fuzzy
 msgid "Keyboard Layout Handler"
-msgstr "Gestore disposizione tastiera"
+msgstr "Tastaturbelegungshandhaber"
 
 #: ../plugins/xkb/xkb-plugin.c:1227
-#, fuzzy
 msgid "Keyboard Model"
-msgstr "Modello tastiera"
+msgstr "Tastaturmodell"
 
 #: ../plugins/xkb/xkb-plugin.c:1248
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "Disposizioni della tastiera"
+msgstr "Tastaturbelegungen"
 
 #: ../plugins/xkb/xkb-plugin.c:1302
 msgid "Variant"
 msgstr "Variante"
 
 #: ../plugins/xkb/xkb-plugin.c:1311
-#, fuzzy
 msgid "Change Layout Option"
-msgstr "Modifica opzione della disposizione"
+msgstr "Belegung ändern Option"
 
 #: ../plugins/xkb/xkb-plugin.c:1331
-#, fuzzy
 msgid "Advanced setxkbmap Options"
-msgstr "Opzioni avanzate per setxkbmap"
+msgstr "Erweiterte setxkbmap Optionen"
 
 #: ../plugins/xkb/xkb-plugin.c:1352
 msgid "Do _not reset existing options"
-msgstr "Vorhandene Optionen _nicht zurücksetzen"
+msgstr "Bestehende Einstellungen _nicht zurücksetzen"
 
 #: ../plugins/xkb/xkb-plugin.c:1357
-#, fuzzy
 msgid "Keep _system layouts"
-msgstr "Mantenere le di_sposizioni di sistema"
+msgstr "_Systembelegungen beibehalten"
 
 #: ../plugins/xkb/xkb-plugin.c:1366
-#, fuzzy
 msgid "Per Window Settings"
-msgstr "Impostazioni finestra"
+msgstr "Fenster-Einstellungen"
 
 #: ../plugins/xkb/xkb-plugin.c:1378
-#, fuzzy
 msgid "_Remember layout for each window"
-msgstr "_Ricordare la disposizione per ogni finestra"
+msgstr "Belegung für jedes Fenster _beibehalten"
 
 #: ../plugins/xkb/xkb-plugin.c:1387
-#, fuzzy
 msgid "Show Layout as"
-msgstr "Mostrare la disposizione come"
+msgstr "Belegung anzeigen als"
 
 #: ../plugins/xkb/xkb-plugin.c:1448
-#, fuzzy
 msgid "Custom Image"
-msgstr "Immagine personalizzata"
+msgstr "Benutzerdefiniertes Bild"
 
 #: ../plugins/xkb/xkb-plugin.c:1449
-#, fuzzy
 msgid "Text"
-msgstr "Testo"
+msgstr "Text"
 
 #: ../plugins/xkb/xkb-plugin.c:1475
-#, fuzzy
 msgid "Panel Icon Size"
-msgstr "Dimensioni icona pannello"
+msgstr "Leisten-Symbolgröße"
 
 #: ../plugins/xkb/xkb-plugin.c:1537
-#, fuzzy
 msgid "Handle keyboard layouts"
-msgstr "Gestisce le disposizioni della tastiera"
+msgstr "Tastaturbelegungen handhaben"
 
 #: ../plugins/wincmd.c:189
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr ""
-"Linksklick um alle Fenster zu minimieren.  Mittlerer Mausklick um alle "
-"einzuklappen."
+msgstr "Linksklick zum Minimieren aller Fenster. Mittelklick zum Einrollen."
 
 #: ../plugins/wincmd.c:224 ../plugins/wincmd.c:234
-#, fuzzy
 msgid "Minimize All Windows"
-msgstr "Minimizza tutte le finestre"
+msgstr "Alle Fenster minimieren"
 
 #: ../plugins/wincmd.c:226
-#, fuzzy
 msgid "Alternately iconify/shade and raise"
-msgstr "Iconificare/arrotolare e rivelare alternativamente"
+msgstr "Fenster abwechselnd minimieren/einrollen und anzeigen"
 
 #: ../plugins/wincmd.c:235
-#, fuzzy
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
-"Manda comandi a tutte le finestre della scrivania.\n"
-"Comandi supportati: 1) iconifica e 2) arrotola"
+"Sendet Befehle an alle Fenster.\n"
+"Unterstützte Befehle sind 1) Minimieren und 2) Einrollen"
 
 #: ../plugins/dirmenu.c:205
-#, fuzzy
 msgid "Open in _Terminal"
-msgstr "Aprire nel _terminale"
+msgstr "Im _Terminal öffnen"
 
 #: ../plugins/dirmenu.c:353 ../plugins/dirmenu.c:369
-#, fuzzy
 msgid "Directory Menu"
-msgstr "Menu directory"
+msgstr "Ordnermenü"
 
 #: ../plugins/dirmenu.c:355
-#, fuzzy
 msgid "Directory"
-msgstr "Directory"
+msgstr "Ordner"
 
 #: ../plugins/dirmenu.c:356
-#, fuzzy
 msgid "Label"
-msgstr "Etichetta"
+msgstr "Bezeichnung"
 
 #: ../plugins/dirmenu.c:370
-#, fuzzy
 msgid "Browse directory tree via menu (Author = PCMan)"
-msgstr "Sfoglia l'albero di cartelle tramite menu (autore: PCMan)"
+msgstr "Ordnerstruktur über das Menü durchsuchen (Autor = PCMan)"
 
 #: ../plugins/thermal/thermal.c:558 ../plugins/thermal/thermal.c:576
-#, fuzzy
 msgid "Temperature Monitor"
-msgstr "Monitor temperatura"
+msgstr "Temperaturmonitor"
 
 #: ../plugins/thermal/thermal.c:560
-#, fuzzy
 msgid "Normal color"
-msgstr "Colore normale"
+msgstr "Normale Farbe"
 
 #: ../plugins/thermal/thermal.c:561
-#, fuzzy
 msgid "Warning1 color"
-msgstr "Colore avvertimento 1"
+msgstr "Warnung1 Farbe"
 
 #: ../plugins/thermal/thermal.c:562
-#, fuzzy
 msgid "Warning2 color"
-msgstr "Colore avvertimento 2"
+msgstr "Warnung2 Farbe"
 
 #: ../plugins/thermal/thermal.c:563
-#, fuzzy
 msgid "Automatic sensor location"
-msgstr "Posizionamento automatico sensore"
+msgstr "Automatische Wahl des Sensors"
 
 #: ../plugins/thermal/thermal.c:564
-#, fuzzy
 msgid "Sensor"
-msgstr "Sensore"
+msgstr "Sensor"
 
 #: ../plugins/thermal/thermal.c:565
-#, fuzzy
 msgid "Automatic temperature levels"
-msgstr "Livelli di temperatura automatici"
+msgstr "Automatische Temperatur-Stufen"
 
 #: ../plugins/thermal/thermal.c:566
-#, fuzzy
 msgid "Warning1 temperature"
-msgstr "Temperatura avvertimento 1"
+msgstr "Warnung1: Temperatur"
 
 #: ../plugins/thermal/thermal.c:567
-#, fuzzy
 msgid "Warning2 temperature"
-msgstr "Temperatura avvertimento 2"
+msgstr "Warnung2: Temperatur"
 
 #: ../plugins/thermal/thermal.c:577
-#, fuzzy
 msgid "Display system temperature"
-msgstr "Mostra la temperatura del sistema"
+msgstr "Systemtemperatur anzeigen"
 
 #: ../plugins/cpufreq/cpufreq.c:326
-#, c-format, fuzzy
+#, c-format
 msgid ""
 "Frequency: %d MHz\n"
 "Governor: %s"
 msgstr ""
-"Frequenza: %d MHz\n"
-"Governor: %s"
+"Frequenz: %d MHz\n"
+"Regler: %s"
 
 #: ../plugins/cpufreq/cpufreq.c:409
-#, fuzzy
 msgid "CPUFreq frontend"
-msgstr "Interfaccia CPUFreq"
+msgstr "CPUFreq Frontend"
 
 #: ../plugins/cpufreq/cpufreq.c:410
 msgid "Display CPU frequency and allow to change governors and frequency"
-msgstr "Zeige die CPU frequenz an und ändere Regler und Frequenz"
+msgstr "CPU-Frequenz anzeigen und erlauben Regler und Frequenz zu ändern"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
 #: ../plugins/volume/volume.c:278 ../plugins/volumealsa/volumealsa.c:350
 #: ../plugins/volumealsa/volumealsa.c:524
-#, fuzzy
 msgid "Volume control"
-msgstr "Controllo volume"
+msgstr "Lautstärkeregler"
 
 #: ../plugins/volume/volume.c:286 ../plugins/volumealsa/volumealsa.c:637
-#, fuzzy
 msgid "Volume Control"
-msgstr "Controllo volume"
+msgstr "Lautstärkeregler"
 
 #. Create a frame as the child of the viewport.
 #: ../plugins/volume/volume-impl.c:109 ../plugins/volumealsa/volumealsa.c:477
-#, fuzzy
 msgid "Volume"
-msgstr "Volume"
+msgstr "Lautstärke"
 
 #. Create a check button as the child of the vertical box.
 #: ../plugins/volumealsa/volumealsa.c:496
-#, fuzzy
 msgid "Mute"
-msgstr "Muto"
+msgstr "Stumm"
 
 #: ../plugins/volumealsa/volumealsa.c:619
-#, fuzzy
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontrol, alsamixer ...)"
 msgstr ""
-"Errore: è necessario installare un'applicazione per configurare il suono ("
-"pavucontrol, alsamixer, ...)"
+"Fehler. Sie müssen eine Anwendung zur Audio-Konfiguration (pavucontrol, "
+"alsamixer ...) installieren"
 
 #: ../plugins/volumealsa/volumealsa.c:638
-#, fuzzy
 msgid "Display and control volume for ALSA"
-msgstr "Mostra e controlla il volume per ALSA"
+msgstr "Lautstärke für ALSA anzeigen und einstellen"
 
 #: ../plugins/netstat/netstat.c:179
-#, fuzzy
 msgid "<Hidden Access Point>"
-msgstr "<Punto di accesso nascosto>"
+msgstr "<Versteckter Zugangspunkt>"
 
 #: ../plugins/netstat/netstat.c:212
-#, fuzzy
 msgid "Wireless Networks not found in range"
-msgstr "Nessuna rete wireless trovata nell'area"
+msgstr "Keine drahtlosen Netzwerke in Reichweite"
 
 #. Repair
 #: ../plugins/netstat/netstat.c:248
-#, fuzzy
 msgid "Repair"
-msgstr "Ripara"
+msgstr "Reparieren"
 
 #. interface down
 #: ../plugins/netstat/netstat.c:253
-#, fuzzy
 msgid "Disable"
-msgstr "Disattiva"
+msgstr "Deaktivieren"
 
-# simile a "Connetività limitata o assente"
 #: ../plugins/netstat/netstat.c:344
-#, fuzzy
 msgid "Wireless Connection has no connectivity"
-msgstr "Connettività wireless assente"
+msgstr "Drahtloses Netzwerk ist nicht verbunden"
 
 #: ../plugins/netstat/netstat.c:346
-#, fuzzy
 msgid "Network cable is plugged out"
-msgstr "Cavo di rete disconnesso"
+msgstr "Netzwerkkabel wurde herausgezogen"
 
 #: ../plugins/netstat/netstat.c:348
-#, fuzzy
 msgid "Connection has limited or no connectivity"
-msgstr "Connettività limitata o assente"
+msgstr "Verbindung eingeschränkt oder gar keine Verbindung"
 
 #: ../plugins/netstat/netstat.c:352 ../plugins/netstat/netstat.c:363
 #: ../plugins/netstat/netstat.c:374
-#, fuzzy
 msgid "IP Address:"
-msgstr "Indirizzo IP:"
+msgstr "IP-Adresse:"
 
 #: ../plugins/netstat/netstat.c:353
-#, fuzzy
 msgid "Remote IP:"
-msgstr "IP remoto:"
+msgstr "Entfernte IP-Adresse:"
 
 #: ../plugins/netstat/netstat.c:354 ../plugins/netstat/netstat.c:365
 #: ../plugins/netstat/netstat.c:376
-#, fuzzy
 msgid "Netmask:"
-msgstr "Maschera di rete:"
+msgstr "Netzmaske:"
 
 #: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
 #: ../plugins/netstat/netstat.c:378
-#, fuzzy
 msgid "Activity"
-msgstr "Attività"
+msgstr "Aktivität"
 
 #: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
 #: ../plugins/netstat/netstat.c:378
-#, fuzzy
 msgid "Sent"
-msgstr "Inviati"
+msgstr "Gesendet"
 
 #: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
 #: ../plugins/netstat/netstat.c:378
-#, fuzzy
 msgid "Received"
-msgstr "Ricevuti"
+msgstr "Empfangen"
 
 #: ../plugins/netstat/netstat.c:356 ../plugins/netstat/netstat.c:368
 #: ../plugins/netstat/netstat.c:379
-#, fuzzy
 msgid "bytes"
-msgstr "byte"
+msgstr "Bytes"
 
 #: ../plugins/netstat/netstat.c:357 ../plugins/netstat/netstat.c:369
 #: ../plugins/netstat/netstat.c:380
-#, fuzzy
 msgid "packets"
-msgstr "pacchetti"
+msgstr "Pakete"
 
 #: ../plugins/netstat/netstat.c:360 ../plugins/netstatus/netstatus-iface.c:173
-#, fuzzy
 msgid "Wireless"
-msgstr "Wireless"
+msgstr "Drahtlos"
 
 #: ../plugins/netstat/netstat.c:362
-#, fuzzy
 msgid "Protocol:"
-msgstr "Protocollo:"
+msgstr "Protokoll:"
 
 #: ../plugins/netstat/netstat.c:366 ../plugins/netstat/netstat.c:377
-#, fuzzy
 msgid "HW Address:"
-msgstr "Indirizzo HW:"
+msgstr "HW-Adresse:"
 
 #: ../plugins/netstat/netstat.c:497
-#, fuzzy
 msgid "Manage Networks"
-msgstr "Amministra reti"
+msgstr "Netzwerke verwalten"
 
 #: ../plugins/netstat/netstat.c:498
-#, fuzzy
 msgid "Monitor and Manage networks"
-msgstr "Monitora e amministra reti"
+msgstr "Netzwerke anzeigen und verwalten"
 
 #. create dialog
 #: ../plugins/netstat/passwd_gui.c:87
-#, fuzzy
 msgid "Setting Encryption Key"
-msgstr "Configurazione chiave di crittazione"
+msgstr "Verschlüsselung konfigurieren"
 
 #: ../plugins/netstat/passwd_gui.c:98
-#, fuzzy
 msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
 msgstr ""
-"La rete wireless è crittata.\n"
-"È necessaria la chiave di crittazione."
+"Das drahtlose Netzwerk ist verschlüsselt.\n"
+"Sie benötigen einen Schlüssel."
 
 #: ../plugins/netstat/passwd_gui.c:103
-#, fuzzy
 msgid "Encryption Key:"
-msgstr "Chiave di crittazione:"
+msgstr "Schlüssel:"
 
 #: ../plugins/netstatus/netstatus.c:152 ../plugins/netstatus/netstatus.c:164
-#, fuzzy
 msgid "Network Status Monitor"
-msgstr "Monitor stato rete"
+msgstr "Netzwerkmonitor"
 
 #: ../plugins/netstatus/netstatus.c:154
-#, fuzzy
 msgid "Interface to monitor"
-msgstr "Interfaccia da monitorare"
+msgstr "Schnittstelle zum Überwachen"
 
 #: ../plugins/netstatus/netstatus.c:155
-#, fuzzy
 msgid "Config tool"
-msgstr "Strumento di configurazione"
+msgstr "Konfigurationswerkzeug"
 
 #: ../plugins/netstatus/netstatus.c:165
-#, fuzzy
 msgid "Monitor network status"
-msgstr "Monitora lo stato della rete"
+msgstr "Zeigt den Netzwerkstatus an"
 
 #: ../plugins/netstatus/netstatus-dialog.c:52
 #: ../plugins/netstatus/netstatus-dialog.c:316
-#, fuzzy
 msgid "Unknown"
-msgstr "Sconosciuto"
+msgstr "Unbekannt"
 
 #: ../plugins/netstatus/netstatus-dialog.c:117
-#, fuzzy
 msgid "Connection Properties"
-msgstr "Proprietà della connessione"
+msgstr "Verbindungseigenschaften"
 
 #: ../plugins/netstatus/netstatus-dialog.c:123
-#, c-format, fuzzy
+#, c-format
 msgid "Connection Properties: %s"
-msgstr "Proprietà della connessione: %s"
+msgstr "Verbindungseigenschaften: %s"
 
 #: ../plugins/netstatus/netstatus-dialog.c:136
-#, c-format, fuzzy
+#, c-format
 msgid "%lu packet"
 msgid_plural "%lu packets"
-msgstr[0] "%lu pacchetto"
-msgstr[1] "%lu pacchetti"
+msgstr[0] "%lu Paket"
+msgstr[1] "%lu Pakete"
 
 #: ../plugins/netstatus/netstatus-dialog.c:400
-#, c-format, fuzzy
+#, c-format
 msgid ""
 "There was an error displaying help:\n"
 "%s"
 msgstr ""
-"Errore alla visualizzazione dell'aiuto:\n"
+"Beim Anzeigen der Hilfe ist ein Fehler aufgetreten:\n"
 "%s"
 
 #: ../plugins/netstatus/netstatus-icon.c:381
-#, c-format, fuzzy
+#, c-format
 msgid "Network Connection: %s"
-msgstr "Connessione rete: %s"
+msgstr "Netzwerkverbindung: %s"
 
 #: ../plugins/netstatus/netstatus-icon.c:386
-#, fuzzy
 msgid "Network Connection"
-msgstr "Connessione rete"
+msgstr "Netzwerkverbindung"
 
 #: ../plugins/netstatus/netstatus-icon.c:822
-#, fuzzy
 msgid "Interface"
-msgstr "Interfaccia"
+msgstr "Schnittstelle"
 
 #: ../plugins/netstatus/netstatus-icon.c:823
-#, fuzzy
 msgid "The current interface the icon is monitoring."
-msgstr "L'interfaccia che l'icona sta monitorando attualmente."
+msgstr "Die Schnittstelle, die vom Symbol zur Zeit überwacht wird."
 
 #: ../plugins/netstatus/netstatus-icon.c:830
-#, fuzzy
 msgid "Orientation"
-msgstr "Orientamento"
+msgstr "Orientierung"
 
 #: ../plugins/netstatus/netstatus-icon.c:831
-#, fuzzy
 msgid "The orientation of the tray."
-msgstr "L'orientamento della barra di sistema."
+msgstr "Orientierung des Systembereichs"
 
 #: ../plugins/netstatus/netstatus-icon.c:839
-#, fuzzy
 msgid "Tooltips Enabled"
-msgstr "Suggerimenti attivi"
+msgstr "Minihilfen eingeschaltet"
 
 #: ../plugins/netstatus/netstatus-icon.c:840
-#, fuzzy
 msgid "Whether or not the icon's tooltips are enabled."
-msgstr "Se i suggerimenti delle icone sono abilitati o meno."
+msgstr "Minihilfen ein- oder ausgeschaltet"
 
 #: ../plugins/netstatus/netstatus-icon.c:847
-#, fuzzy
 msgid "Show Signal"
-msgstr "Mostra segnale"
+msgstr "Signal anzeigen"
 
 #: ../plugins/netstatus/netstatus-icon.c:848
-#, fuzzy
 msgid "Whether or not the signal strength should be displayed."
-msgstr "Se l'intensità del segnale deve essere mostrata o meno."
+msgstr "Signalstärkeanzeige ein/aus"
 
 #: ../plugins/netstatus/netstatus-icon.c:957
-#, c-format, fuzzy
+#, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
 "\n"
 "%s"
 msgstr ""
-"Contattare l'amministratore del sistema per risolvere il seguente problema:\n"
+"Bitte kontaktieren Sie Ihren Systemverwalter zur Lösung des folgenden "
+"Problems:\n"
 "\n"
 "%s"
 
 #: ../plugins/netstatus/netstatus-iface.c:148
-#, fuzzy
 msgid "Name"
-msgstr "Nome"
+msgstr "Name"
 
 #: ../plugins/netstatus/netstatus-iface.c:149
-#, fuzzy
 msgid "The interface name"
-msgstr "Nome dell'interfaccia"
+msgstr "Name der Schnittstelle"
 
 #: ../plugins/netstatus/netstatus-iface.c:156
 #: ../plugins/weather/weatherwidget.c:2080
-#, fuzzy
 msgid "State"
-msgstr "Stato"
+msgstr "Status"
 
 #: ../plugins/netstatus/netstatus-iface.c:157
-#, fuzzy
 msgid "The interface state"
-msgstr "Stato dell'interfaccia"
+msgstr "Status der Schnittstelle"
 
 #: ../plugins/netstatus/netstatus-iface.c:165
-#, fuzzy
 msgid "Stats"
-msgstr "Statistiche"
+msgstr "Statistik:"
 
 #: ../plugins/netstatus/netstatus-iface.c:166
-#, fuzzy
 msgid "The interface packets/bytes statistics"
-msgstr "Le statistiche pacchetti/byte dell'interfaccia"
+msgstr "Die Schnittstellen-Statistik für Pakete/Bytes"
 
 #: ../plugins/netstatus/netstatus-iface.c:174
-#, fuzzy
 msgid "Whether the interface is a wireless interface"
-msgstr "Se l'interfaccia è senza fili"
+msgstr "Ist es eine drahtlose Schnittstelle?"
 
 #: ../plugins/netstatus/netstatus-iface.c:181
-#, fuzzy
 msgid "Signal"
-msgstr "Segnale"
+msgstr "Signal"
 
 #: ../plugins/netstatus/netstatus-iface.c:182
-#, fuzzy
 msgid "Wireless signal strength percentage"
-msgstr "Percentuale di intensità del segnale"
+msgstr "Stärke des drahtlosen Signals in Prozent"
 
 #: ../plugins/netstatus/netstatus-iface.c:192
-#, fuzzy
 msgid "The current error condition"
-msgstr "L'attuale condizione di errore"
+msgstr "Die gegenwärtige Fehler-Situation"
 
 #: ../plugins/netstatus/netstatus-iface.c:440
 #: ../plugins/netstatus/netstatus-iface.c:1205
-#, c-format, fuzzy
+#, c-format
 msgid "Unable to open socket: %s"
-msgstr "Impossibile aprire il socket: %s"
+msgstr "Konnte Socket nicht öffen: %s"
 
 #: ../plugins/netstatus/netstatus-iface.c:502
 #: ../plugins/netstatus/netstatus-iface.c:1231
-#, c-format, fuzzy
+#, c-format
 msgid "SIOCGIFFLAGS error: %s"
-msgstr "Errore SIOCGIFFLAGS: %s"
+msgstr "SIOCGIFFLAGS-Fehler: %s"
 
 #: ../plugins/netstatus/netstatus-iface.c:879
 msgid "AMPR NET/ROM"
@@ -1568,14 +1342,12 @@ msgid "AMPR ROSE"
 msgstr "AMPR ROSE"
 
 #: ../plugins/netstatus/netstatus-iface.c:936
-#, fuzzy
 msgid "Generic X.25"
-msgstr "Generico X.25"
+msgstr "Generisches X.25"
 
 #: ../plugins/netstatus/netstatus-iface.c:939
-#, fuzzy
 msgid "Point-to-Point Protocol"
-msgstr "Point-to-Point Protocol"
+msgstr "Punkt-zu-Punkt Protokoll"
 
 #: ../plugins/netstatus/netstatus-iface.c:945
 msgid "(Cisco)-HDLC"
@@ -1586,29 +1358,24 @@ msgid "LAPB"
 msgstr "LAPB"
 
 #: ../plugins/netstatus/netstatus-iface.c:957
-#, fuzzy
 msgid "IPIP Tunnel"
-msgstr "Tunnel IPIP"
+msgstr "IPIP-Tunnel"
 
 #: ../plugins/netstatus/netstatus-iface.c:963
-#, fuzzy
 msgid "Frame Relay Access Device"
-msgstr "Dispositivo Frame Relay Access"
+msgstr "Frame Relay Access Device"
 
 #: ../plugins/netstatus/netstatus-iface.c:969
-#, fuzzy
 msgid "Local Loopback"
-msgstr "Loopback locale"
+msgstr "Lokale Schleife"
 
 #: ../plugins/netstatus/netstatus-iface.c:975
-#, fuzzy
 msgid "Fiber Distributed Data Interface"
-msgstr "Fiber Distributed Data Interface"
+msgstr "Glasfaserkabel-Datenschnittstelle"
 
 #: ../plugins/netstatus/netstatus-iface.c:981
-#, fuzzy
 msgid "IPv6-in-IPv4"
-msgstr "IPv6-in-IPv4"
+msgstr "IPv6-zu-IPv4"
 
 #: ../plugins/netstatus/netstatus-iface.c:993
 msgid "HIPPI"
@@ -1627,35 +1394,33 @@ msgid "IrLAP"
 msgstr "IrLAP"
 
 #: ../plugins/netstatus/netstatus-iface.c:1163
-#, c-format, fuzzy
+#, c-format
 msgid "SIOCGIFCONF error: %s"
-msgstr "Errore SIOCGIFCONF: %s"
+msgstr "SIOCGIFCONF-Fehler: %s"
 
 #: ../plugins/netstatus/netstatus-iface.c:1256
-#, c-format, fuzzy
+#, c-format
 msgid "No network devices found"
-msgstr "Nessun dispositivo di rete rilevato"
+msgstr "Keine Netzwerkgeräte gefunden"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:180
-#, c-format, fuzzy
+#, c-format
 msgid "Cannot open /proc/net/dev: %s"
-msgstr "Impossibile aprire /proc/net/dev: %s"
+msgstr "/proc/net/dev konnte nicht geöffnet werden: %s"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:185
-#, fuzzy
 msgid "Could not parse /proc/net/dev. No data."
-msgstr "Impossibile analizzare /proc/net/dev. Nessun dato."
+msgstr "/proc/net/dev konnte nicht ausgelesen werden. Keine Daten."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:190
-#, fuzzy
 msgid "Could not parse /proc/net/dev. Unknown format."
-msgstr "Impossibile analizzare /proc/net/dev. Formato sconosciuto."
+msgstr "/proc/net/dev konnte nicht ausgelesen werden. Unbekanntes Format."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:205
 #: ../plugins/netstatus/netstatus-sysdeps.c:332
-#, c-format, fuzzy
+#, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr "Impossibile analizzare il nome dell'interfaccia da '%s'"
+msgstr "Schnittstellen-Namen von »%s« konnte nicht ausgelesen werden"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:218
 #: ../plugins/netstatus/netstatus-sysdeps.c:647
@@ -1664,361 +1429,319 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"Konnte die Schnittstellenstatistiken von '%s' nicht parsen. prx_idx = %d; "
-"ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+"Schnittstellen-Statistik von »%s« konnte nicht ausgelesen werden. prx_idx = "
+"%d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:312
-#, fuzzy
 msgid "Could not parse /proc/net/wireless. No data."
-msgstr "Impossibile analizzare /proc/net/wireless. Nessun dato."
+msgstr "/proc/net/wireless konnte nicht ausgelesen werden. Keine Daten."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:316
-#, fuzzy
 msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr "Impossibile analizzare /proc/net/wireless. Formato sconosciuto."
+msgstr "/proc/net/wireless konnte nicht ausgelesen werden. Unbekanntes Format."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:343
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr "Konnte die Drahtlos-Details '%s' nicht parsen. link_idx = %d;"
+msgstr ""
+"Details für die drahtlose Verbindung von »%s« konnten nicht ausgelesen "
+"werden. link_idx = %d;"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:416
 #, c-format
 msgid "Could not connect to interface, '%s'"
-msgstr "Konnte zur Schnittstelle '%s' keine Verbindung aufbauen"
+msgstr "Keine Verbindung zur Schnittstelle, '%s'"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:422
 #, c-format
 msgid "Could not send ioctl to interface, '%s'"
-msgstr "Konnte ioctl nicht zur Schnittstelle '%s' senden"
+msgstr "ioctl konnte nicht an die Schnittstelle gesendet werden, »%s«"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:600
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr "Konnte Kommandozeilenbefehl nicht '%s': %s nicht parsen"
+msgstr "Befehlszeile von »%s« konnte nicht ausgelesen werden: %s"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:637
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr "Konnte 'netstst' Ausgabe nicht parsen. Unbekanntes Format"
+msgstr "Ausgabe von »netstat« konnte nicht gelesen werden. Unbekanntes Format"
 
 #: ../plugins/netstatus/netstatus-util.c:152
-#, fuzzy
 msgid "Disconnected"
-msgstr "Disconnesso"
+msgstr "Verbindung"
 
 #: ../plugins/netstatus/netstatus-util.c:155
-#, fuzzy
 msgid "Idle"
-msgstr "Inattiva"
+msgstr "Nicht in Betrieb"
 
 #: ../plugins/netstatus/netstatus-util.c:158
-#, fuzzy
 msgid "Sending"
-msgstr "In invio"
+msgstr "Senden"
 
 #: ../plugins/netstatus/netstatus-util.c:161
-#, fuzzy
 msgid "Receiving"
-msgstr "In ricezione"
+msgstr "Empfangen"
 
 #: ../plugins/netstatus/netstatus-util.c:164
-#, fuzzy
 msgid "Sending/Receiving"
-msgstr "In invio/ricezione"
+msgstr "Senden/Empfangen"
 
 #: ../plugins/batt/batt.c:152
-#, c-format, fuzzy
+#, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
-msgstr "Batteria: %d%% carica, %d:%02d alla carica completa"
+msgstr "Akku: %d%% geladen, %d:%02d verbleiben"
 
 #: ../plugins/batt/batt.c:163
-#, c-format, fuzzy
+#, c-format
 msgid "Battery: %d%% charged, %d:%02d left"
-msgstr "Batteria: %d%% carica, %d:%02d rimanenti"
+msgstr "Akku: %d%% geladen, %d:%02d verbleiben"
 
 #: ../plugins/batt/batt.c:169
-#, c-format, fuzzy
+#, c-format
 msgid "Battery: %d%% charged"
-msgstr "Batteria: %d%% carica"
+msgstr "Akku: %d%% geladen"
 
 #: ../plugins/batt/batt.c:179
-#, c-format, fuzzy
+#, c-format
 msgid ""
 "\n"
 "%sEnergy full design:\t\t%5d mWh"
 msgstr ""
 "\n"
-"%sEnergia massima teorica:\t\t%5d mWh"
+"%sEnergie voll Design:\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:181
-#, c-format, fuzzy
+#, c-format
 msgid ""
 "\n"
 "%sEnergy full:\t\t\t%5d mWh"
 msgstr ""
 "\n"
-"%sEnergia massima:\t\t\t%5d mWh"
+"%sEnergie voll:\t\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:183
-#, c-format, fuzzy
+#, c-format
 msgid ""
 "\n"
 "%sEnergy now:\t\t\t%5d mWh"
 msgstr ""
 "\n"
-"%sEnergia ora:\t\t\t%5d mWh"
+"%sAktuelle Energie:\t\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:185
-#, c-format, fuzzy
+#, c-format
 msgid ""
 "\n"
 "%sPower now:\t\t\t%5d mW"
 msgstr ""
 "\n"
-"%sPotenza ora:\t\t\t%5d mW"
+"%sAktuelle Leistung:\t\t\t%5d mW"
 
 #: ../plugins/batt/batt.c:188
-#, c-format, fuzzy
+#, c-format
 msgid ""
 "\n"
 "%sCharge full design:\t%5d mAh"
 msgstr ""
 "\n"
-"%sCarica massima teorica:\t%5d mAh"
+"%sVollständig aufgeladen Design:\t%5d mAh"
 
 #: ../plugins/batt/batt.c:190
-#, c-format, fuzzy
+#, c-format
 msgid ""
 "\n"
 "%sCharge full:\t\t\t%5d mAh"
 msgstr ""
 "\n"
-"%sCarica massima:\t\t\t%5d mAh"
+"%sVollständig aufgeladen:\t\t\t%5d mAh"
 
 #: ../plugins/batt/batt.c:192
-#, c-format, fuzzy
+#, c-format
 msgid ""
 "\n"
 "%sCharge now:\t\t\t%5d mAh"
 msgstr ""
 "\n"
-"%sCarica ora:\t\t\t%5d mAh"
+"%sAktuelle Ladung:\t\t\t%5d mAh"
 
 #: ../plugins/batt/batt.c:194
-#, c-format, fuzzy
+#, c-format
 msgid ""
 "\n"
 "%sCurrent now:\t\t\t%5d mA"
 msgstr ""
 "\n"
-"%sCorrente ora:\t\t\t%5d mA"
+"%sAktuelle Stromstärke:\t\t\t%5d mA"
 
 #: ../plugins/batt/batt.c:197
-#, c-format, fuzzy
+#, c-format
 msgid ""
 "\n"
 "%sCurrent Voltage:\t\t%.3lf V"
 msgstr ""
 "\n"
-"%sVoltaggio corrente:\t\t%.3lf V"
+"%sAktuelle Spannung:\t\t%.3lf V"
 
 #: ../plugins/batt/batt.c:235
-#, fuzzy
 msgid "No batteries found"
-msgstr "Nessuna batteria rilevata"
+msgstr "Kein Akku gefunden"
 
 #: ../plugins/batt/batt.c:515 ../plugins/batt/batt.c:644
-#, fuzzy
 msgid "Battery low"
-msgstr "Batteria quasi scarica"
+msgstr "Akku leer"
 
 #: ../plugins/batt/batt.c:664 ../plugins/batt/batt.c:685
-#, fuzzy
 msgid "Battery Monitor"
-msgstr "Monitor batteria"
+msgstr "Akkumonitor"
 
 #: ../plugins/batt/batt.c:666
-#, fuzzy
 msgid "Hide if there is no battery"
-msgstr "Nascondi se non ci sono batterie"
+msgstr "Verstecken, falls kein Akku existiert"
 
 #: ../plugins/batt/batt.c:667
-#, fuzzy
 msgid "Alarm command"
-msgstr "Comando di allarme"
+msgstr "Alarmbefehl"
 
 #: ../plugins/batt/batt.c:668
-#, fuzzy
 msgid "Alarm time (minutes left)"
-msgstr "Tempo allarme (minuti restanti)"
+msgstr "Alarmzeit (...Minuten verbleiben)"
 
 #: ../plugins/batt/batt.c:669
-#, fuzzy
 msgid "Background color"
-msgstr "Colore sfondo"
+msgstr "Hintergrundfarbe"
 
 #: ../plugins/batt/batt.c:670
-#, fuzzy
 msgid "Charging color 1"
-msgstr "Colore 1 ricarica"
+msgstr "Laden - Farbe 1"
 
 #: ../plugins/batt/batt.c:671
-#, fuzzy
 msgid "Charging color 2"
-msgstr "Colore 2 ricarica"
+msgstr "Laden - Farbe 2"
 
 #: ../plugins/batt/batt.c:672
-#, fuzzy
 msgid "Discharging color 1"
-msgstr "Colore 1 scarica"
+msgstr "Entladen - Farbe 1"
 
 #: ../plugins/batt/batt.c:673
-#, fuzzy
 msgid "Discharging color 2"
-msgstr "Colore 2 scarica"
+msgstr "Entladen - Farbe 2"
 
 #: ../plugins/batt/batt.c:674
-#, fuzzy
 msgid "Border width"
-msgstr "Larghezza bordo"
+msgstr "Randbreite"
 
 #: ../plugins/batt/batt.c:676
-#, fuzzy
 msgid "Show Extended Information"
-msgstr "Mostra informazioni dettagliate"
+msgstr "Erweiterte Informationen anzeigen"
 
 #: ../plugins/batt/batt.c:686
-#, fuzzy
 msgid "Display battery status using ACPI"
-msgstr "Mostra stato batteria tramite ACPI"
+msgstr "Zeigt den Akkuzustand mittels ACPI an"
 
 #: ../plugins/kbled/kbled.c:197 ../plugins/kbled/kbled.c:228
-#, fuzzy
 msgid "Keyboard LED"
-msgstr "LED tastiera"
+msgstr "Tastatur-LEDs"
 
 #: ../plugins/kbled/kbled.c:199
-#, fuzzy
 msgid "Show CapsLock"
-msgstr "Mostra BlocMaiusc"
+msgstr "CapsLock zeigen"
 
 #: ../plugins/kbled/kbled.c:200
-#, fuzzy
 msgid "Show NumLock"
-msgstr "Mostra BlocNum"
+msgstr "NumLock zeigen"
 
 #: ../plugins/kbled/kbled.c:201
-#, fuzzy
 msgid "Show ScrollLock"
-msgstr "Mostra BlocScorr"
+msgstr "ScrollLock zeigen"
 
 #: ../plugins/kbled/kbled.c:229
-#, fuzzy
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr "Indicatori per i tasti BlocMaiusc, BlocNum e BlocScorr"
+msgstr "Indikatoren für CapsLock, NumLock und ScrollLock-Tasten"
 
 #. A label to allow for click through
 #: ../plugins/indicator/indicator.c:689
-#, fuzzy
 msgid "No Indicators"
-msgstr "Nessun indicatore"
+msgstr "Keine Indikatoren"
 
 #: ../plugins/indicator/indicator.c:863 ../plugins/indicator/indicator.c:881
-#, fuzzy
 msgid "Indicator applets"
-msgstr "Applet Indicatore"
+msgstr "Indikator Anwendungen"
 
 #: ../plugins/indicator/indicator.c:865
-#, fuzzy
 msgid "Indicator Applications"
-msgstr "Applicazioni Indicatore"
+msgstr "Indikator Anwendungen"
 
 #: ../plugins/indicator/indicator.c:866
-#, fuzzy
 msgid "Clock Indicator"
-msgstr "Indicatore orologio"
+msgstr "Uhr Indikator"
 
 #: ../plugins/indicator/indicator.c:867
-#, fuzzy
 msgid "Messaging Menu"
-msgstr "Menu messaggi"
+msgstr "Nachrichtenmenü"
 
 #: ../plugins/indicator/indicator.c:868
-#, fuzzy
 msgid "Network Menu"
-msgstr "Menu rete"
+msgstr "Netzwerkmenü"
 
 #: ../plugins/indicator/indicator.c:869
-#, fuzzy
 msgid "Session Menu"
-msgstr "Menu sessione"
+msgstr "Sitzungsmenü"
 
 #: ../plugins/indicator/indicator.c:870
-#, fuzzy
 msgid "Sound Menu"
-msgstr "Menu suono"
+msgstr "Audiomenü"
 
 #: ../plugins/indicator/indicator.c:882
-#, fuzzy
 msgid "Add indicator applets to the panel"
-msgstr "Aggiunge applet Indicatore al pannello"
+msgstr "Indikator Anwendungen zur Leiste hinzufügen"
 
 #: ../plugins/monitors/monitors.c:269
-#, c-format, fuzzy
+#, c-format
 msgid "CPU usage: %.2f%%"
-msgstr "Uso CPU: %.2f%%"
+msgstr "CPU Auslastung: %.2f%%"
 
 #: ../plugins/monitors/monitors.c:365
-#, c-format, fuzzy
+#, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
-msgstr "Uso RAM: %.1fMB (%.2f%%)"
+msgstr "Speichernutzung: %.1fMB (%.2f%%)"
 
 #: ../plugins/monitors/monitors.c:697 ../plugins/monitors/monitors.c:782
-#, fuzzy
 msgid "Resource monitors"
-msgstr "Monitor risorse"
+msgstr "Ressourcen-Überwachungen"
 
 #: ../plugins/monitors/monitors.c:700
-#, fuzzy
 msgid "CPU color"
-msgstr "Colore CPU"
+msgstr "Farbe für CPU"
 
 #: ../plugins/monitors/monitors.c:701
-#, fuzzy
 msgid "Display RAM usage"
-msgstr "Mostra uso RAM"
+msgstr "Speichernutzung anzeigen"
 
 #: ../plugins/monitors/monitors.c:702
-#, fuzzy
 msgid "RAM color"
-msgstr "Colore RAM"
+msgstr "Farbe für Speicher"
 
 #: ../plugins/monitors/monitors.c:703
-#, fuzzy
 msgid "Action when clicked (default: lxtask)"
-msgstr "Azione al clic (predefinita: lxtask)"
+msgstr "Aktion bei Klick (Vorgabe: lxtask)"
 
 #: ../plugins/monitors/monitors.c:783
-#, fuzzy
 msgid "Display monitors (CPU, RAM)"
-msgstr "Mostra il monitoraggio di CPU e RAM"
+msgstr "Ressourcenüberwachung anzeigen (CPU, RAM)"
 
 #: ../plugins/weather/weatherwidget.c:52
 msgid "[N/A]"
-msgstr "[n. z.]"
+msgstr "[N/A]"
 
 #: ../plugins/weather/weatherwidget.c:792
-#, fuzzy
 msgid "Enter New Location"
-msgstr "Inserire una nuova località"
+msgstr "Neuen Standort eingeben"
 
 #: ../plugins/weather/weatherwidget.c:806
-#, fuzzy
 msgid "_New Location:"
-msgstr "_Nuova località"
+msgstr "_Neuer Standort"
 
 #: ../plugins/weather/weatherwidget.c:817
-#, fuzzy
 msgid ""
 "Enter the:\n"
 "- city, or\n"
@@ -2026,375 +1749,343 @@ msgid ""
 "- postal code\n"
 "for which to retrieve the weather forecast."
 msgstr ""
-"Inserire:\n"
-"- la città, oppure\n"
-"- la città e la nazione o lo stato, oppure\n"
-"- il codice postale\n"
-"di cui recuperare le previsioni del tempo."
+"Geben Sie die:\n"
+"- Stadt, oder\n"
+"- Stadt und Staat/Land, oder\n"
+"- Postleitzahl\n"
+"an, für die die Wettervorhersage abgeholt werden soll."
 
 #: ../plugins/weather/weatherwidget.c:854
 #: ../plugins/weather/weatherwidget.c:987
-#, fuzzy
 msgid "You must specify a location."
-msgstr "È necessario specificare una località."
+msgstr "Sie müssen einen Standort angeben."
 
 #: ../plugins/weather/weatherwidget.c:901
 #, c-format
 msgid "Location '%s' not found!"
-msgstr "Ort '%s' nicht gefunden!"
+msgstr "Standort »%s« wurde nicht gefunden!"
 
 #: ../plugins/weather/weatherwidget.c:1060
-#, fuzzy
 msgid "Preferences"
-msgstr "Preferenze"
+msgstr "Einstellungen"
 
 #: ../plugins/weather/weatherwidget.c:1066
-#, fuzzy
 msgid "Refresh"
-msgstr "Aggiorna"
+msgstr "Aktualisieren"
 
 #: ../plugins/weather/weatherwidget.c:1072
-#, fuzzy
 msgid "Quit"
-msgstr "Esci"
+msgstr "Beenden"
 
 #: ../plugins/weather/weatherwidget.c:1229
-#, fuzzy
 msgid "Weather Preferences"
-msgstr "Preferenze delle condizioni meteo"
+msgstr "Wetter-Einstellungen"
 
 #: ../plugins/weather/weatherwidget.c:1243
-#, fuzzy
 msgid "Current Location"
-msgstr "Località corrente"
+msgstr "Aktueller Standort"
 
 #: ../plugins/weather/weatherwidget.c:1247
 #: ../plugins/weather/weatherwidget.c:1524
-#, fuzzy
 msgid "None configured"
-msgstr "Non configurata"
+msgstr "Nicht konfiguriert"
 
 #: ../plugins/weather/weatherwidget.c:1249
 #: ../plugins/weather/weatherwidget.c:1521
 msgid "_Set"
-msgstr "Ein_stellen"
+msgstr "_Setzen"
 
 #: ../plugins/weather/weatherwidget.c:1270
-#, fuzzy
 msgid "Display"
-msgstr "Visualizzazione"
+msgstr "Anzeige"
 
 #: ../plugins/weather/weatherwidget.c:1274
 msgid "Name:"
 msgstr "Name:"
 
 #: ../plugins/weather/weatherwidget.c:1278
-#, fuzzy
 msgid "Units:"
-msgstr "Unità:"
+msgstr "Einheiten:"
 
 #: ../plugins/weather/weatherwidget.c:1282
-#, fuzzy
 msgid "_Metric (°C)"
-msgstr "_Metriche (°C)"
+msgstr "_Metrisch (°C)"
 
 #: ../plugins/weather/weatherwidget.c:1284
-#, fuzzy
 msgid "_English (°F)"
-msgstr "_Inglesi (°F)"
+msgstr "_Englisch (°F)"
 
 #: ../plugins/weather/weatherwidget.c:1319
-#, fuzzy
 msgid "Forecast"
-msgstr "Previsioni"
+msgstr "Vorhersage"
 
 #: ../plugins/weather/weatherwidget.c:1323
-#, fuzzy
 msgid "Updates:"
-msgstr "Aggiornamenti:"
+msgstr "Aktualisierungen:"
 
 #: ../plugins/weather/weatherwidget.c:1327
-#, fuzzy
 msgid "Ma_nual"
-msgstr "Ma_nuali"
+msgstr "Ma_nuell"
 
 #: ../plugins/weather/weatherwidget.c:1331
-#, fuzzy
 msgid "_Automatic, every"
-msgstr "_Automatici, ogni"
+msgstr "_Automatisch, alle"
 
 #: ../plugins/weather/weatherwidget.c:1352
-#, fuzzy
 msgid "minutes"
-msgstr "minuti"
+msgstr "Minuten"
 
 #: ../plugins/weather/weatherwidget.c:1361
-#, fuzzy
 msgid "Source:"
-msgstr "Fonte:"
+msgstr "Quelle:"
 
 #: ../plugins/weather/weatherwidget.c:1477
-#, fuzzy
 msgid "C_hange"
-msgstr "Camb_ia"
+msgstr "Ä_ndern"
 
 #. Both are available
 #: ../plugins/weather/weatherwidget.c:1565
-#, c-format, fuzzy
+#, c-format
 msgid "Current Conditions for %s"
-msgstr "Condizioni attuali per %s"
+msgstr "Momentane Bedingungen für %s"
 
 #: ../plugins/weather/weatherwidget.c:1589
-#, fuzzy
 msgid "Location:"
-msgstr "Località:"
+msgstr "Standort:"
 
 #: ../plugins/weather/weatherwidget.c:1612
-#, fuzzy
 msgid "Last updated:"
-msgstr "Ultimo aggiornamento:"
+msgstr "Zuletzt aktualisiert:"
 
 #: ../plugins/weather/weatherwidget.c:1639
-#, fuzzy
 msgid "Feels like:"
-msgstr "Percepita:"
+msgstr "Gefühlt:"
 
 #: ../plugins/weather/weatherwidget.c:1664
-#, fuzzy
 msgid "Humidity:"
-msgstr "Umidità:"
+msgstr "Luftfeuchtigkeit:"
 
 #: ../plugins/weather/weatherwidget.c:1691
-#, fuzzy
 msgid "Pressure:"
-msgstr "Pressione:"
+msgstr "Luftdruck:"
 
 #: ../plugins/weather/weatherwidget.c:1718
-#, fuzzy
 msgid "Visibility:"
-msgstr "Visibilità:"
+msgstr "Sichtverhältnisse:"
 
 #: ../plugins/weather/weatherwidget.c:1746
-#, fuzzy
 msgid "Wind:"
-msgstr "Vento:"
+msgstr "Wind:"
 
 #: ../plugins/weather/weatherwidget.c:1769
-#, fuzzy
 msgid "Sunrise:"
-msgstr "Alba:"
+msgstr "Sonnenaufgang:"
 
 #: ../plugins/weather/weatherwidget.c:1792
-#, fuzzy
 msgid "Sunset:"
-msgstr "Tramonto:"
+msgstr "Sonnenuntergang:"
 
 #: ../plugins/weather/weatherwidget.c:1898
 #: ../plugins/weather/weatherwidget.c:2234
-#, c-format, fuzzy
+#, c-format
 msgid "Forecast for %s unavailable."
-msgstr "Previsioni non disponibili per %s."
+msgstr "Vorhersage für %s ist nicht verfügbar."
 
 #: ../plugins/weather/weatherwidget.c:1907
 #: ../plugins/weather/weatherwidget.c:2239
-#, c-format, fuzzy
+#, c-format
 msgid "Location not set."
-msgstr "Località non impostata."
+msgstr "Standort wurde nicht angegeben."
 
 #: ../plugins/weather/weatherwidget.c:1924
 #, c-format
 msgid "Searching for '%s'..."
-msgstr "Suche nach '%s'..."
+msgstr "Suche nach »%s« …"
 
 #: ../plugins/weather/weatherwidget.c:2050
 #, c-format
 msgid "Location matches for '%s'"
-msgstr "Ort stimmt mit '%s' überein"
+msgstr "Standortübereinstimmungen für »%s«"
 
 #: ../plugins/weather/weatherwidget.c:2070
-#, fuzzy
 msgid "City"
-msgstr "Città"
+msgstr "Stadt"
 
 #: ../plugins/weather/weatherwidget.c:2090
-#, fuzzy
 msgid "Country"
-msgstr "Nazione"
+msgstr "Land"
 
 #. make it nice and pretty
 #: ../plugins/weather/weatherwidget.c:2221
-#, fuzzy
 msgid "Currently in "
-msgstr "Attualmente"
+msgstr "Momentan in "
 
 #: ../plugins/weather/weatherwidget.c:2223
-#, fuzzy
 msgid "Today: "
-msgstr "Oggi: "
+msgstr "Heute: "
 
 #: ../plugins/weather/weatherwidget.c:2224
-#, fuzzy
 msgid "Tomorrow: "
-msgstr "Domani: "
+msgstr "Morgen: "
 
 #: ../plugins/weather/weather.c:312
-#, fuzzy
 msgid "Weather Plugin"
-msgstr "Plugin per le previsioni del tempo"
+msgstr "Wetter-Modul"
 
 #: ../plugins/weather/weather.c:313
-#, fuzzy
 msgid "Show weather conditions for a location."
-msgstr "Mostra le condizioni meteo per una località."
+msgstr "Wetterbedingungen für einen Standort anzeigen."
 
+#, c-format
 #~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 #~ msgstr ""
-#~ "  --log NUMERO   -- definisce il livello di log 0-5. 0 - nessuno, 5 - "
-#~ "completo\n"
+#~ " --log <Zahl> -- setzt den Loglevel auf 0-5. 0 - keine Logs, 5 - "
+#~ "vollständig\n"
 
+#, c-format
 #~ msgid "Format codes: man 3 strftime; \\%n for line break"
-#~ msgstr "Codici formato: man 3 strftime; \\%n per ritorno a capo"
+#~ msgstr "Formate: man 3 strftime; \\%n für Zeilenumbruch"
 
 #~ msgid "Normal"
-#~ msgstr "Normale"
+#~ msgstr "Normal"
 
 #~ msgid "Warning1"
-#~ msgstr "Avvertimento1"
+#~ msgstr "Warnung1"
 
 #~ msgid "Warning2"
-#~ msgstr "Avvertimento2"
+#~ msgstr "Warnung2"
 
 #~ msgid "Warning1 Temperature"
-#~ msgstr "Temperatura avvertimento1"
+#~ msgstr "Warnung1 Temperatur"
 
 #~ msgid "Warning2 Temperature"
-#~ msgstr "Temperatura avvertimento2"
+#~ msgstr "Warnung2 Temperatur"
 
 #~ msgid "Copyright (C) 2008-2013"
-#~ msgstr "Copyright © 2008-2013"
+#~ msgstr "Copyright (C) 2008-2013"
 
 #~ msgid "Display Image and Tooltip"
-#~ msgstr "Mostra immagine e suggerimento"
+#~ msgstr "Bild und Minihilfe anzeigen"
 
 #~ msgid ""
 #~ "Error, you need to install an application to configure the sound "
 #~ "(pavucontol, alsamixer ...)"
 #~ msgstr ""
-#~ "Errore: è necessario installare un'applicazione per configurare il suono "
-#~ "(pavucontol, alsamixer, ...)"
+#~ "Fehler, Sie müssen eine Anwendung zum Einstellen der Lautstärke installieren "
+#~ "(z. B. pavucontrol, alsamixer ...)"
 
+#, c-format
 #~ msgid "Failed to launch time configuration tool: %s"
-#~ msgstr ""
-#~ "Lancio dello strumento di configurazione della data non riuscito: %s"
+#~ msgstr "Werkzeug zur Zeiteinstellung konnte nicht gestartet werden: %s"
 
 #~ msgid "Model"
-#~ msgstr "Modello"
+#~ msgstr "Modell"
 
 #~ msgid "WNCKPager"
 #~ msgstr "WNCKPager"
 
 #~ msgid "<b>Icon</b>"
-#~ msgstr "<b>Icona</b>"
+#~ msgstr "<b>Symbol</b>"
 
 #~ msgid "Configure Keyboard Layout Switcher"
-#~ msgstr "Configura Cambio Layout Tastiera"
+#~ msgstr "Konfiguration des Tastaturbelegungsschalters"
 
 #~ msgid "image"
-#~ msgstr "immagine"
+#~ msgstr "Bild"
 
 #~ msgid "text"
-#~ msgstr "testo"
+#~ msgstr "Text"
 
 #~ msgid "Per application settings"
-#~ msgstr "Impostazioni per applicazione"
+#~ msgstr "Einstellungen für jede Anwendung"
 
 #~ msgid "Default layout:"
-#~ msgstr "Layout predefinito:"
+#~ msgstr "Standardbelegung:"
 
 #~ msgid "Available Applications"
-#~ msgstr "Applicazioni Disponibili"
+#~ msgstr "Verfügbare Anwendungen"
 
 #~ msgid "Display system temperature, by kesler.daniel@gmail.com"
-#~ msgstr "Mostra temperatura di sistema, by kesler.daniel@gmail.com"
+#~ msgstr "Anzeige der Systemtemperatur, von kesler.daniel@gmail.com"
 
 #~ msgid "Left\t"
-#~ msgstr "Sinistra\t"
+#~ msgstr "Links\t"
 
 #~ msgid "Top\t"
-#~ msgstr "Superiore\t"
+#~ msgstr "Oben\t"
 
 #~ msgid "Couldn't find pixmap file: %s"
-#~ msgstr "Impossibile trovare file pixmap: %s"
+#~ msgstr "Bilddatei konnte nicht gefunden werden: %s"
 
 #~ msgid "Desktop No / Workspace Name"
-#~ msgstr "Numero scrivania / area di lavoro"
+#~ msgstr "Arbeitsflächennummer und -name"
 
 #~ msgid ""
 #~ "Allows you to switch the keyboard layout and\n"
 #~ "displays the currently selected layout."
 #~ msgstr ""
-#~ "Permette di cambiare il layout della tastiera\n"
-#~ "e mostra il layout attuale."
+#~ "Erlaubt die Tastaturbelegung zu wechseln und zeigt die aktuell gewählte "
+#~ "Belegung an."
 
 #~ msgid "Other plugins available here"
-#~ msgstr "Altri plugin disponibili qui"
+#~ msgstr "Andere Plugins sind hier verfügbar"
 
 #~ msgid "Old KDE/GNOME Tray"
-#~ msgstr "Pannello KDE/GNOME vecchio"
+#~ msgstr "Alter KDE/GNOME-Systembereich"
 
 #~ msgid "Enable Image:"
-#~ msgstr "Attiva immagine:"
+#~ msgstr "Bild:"
 
 #~ msgid "Enable Transparency"
-#~ msgstr "Attiva trasparenza"
+#~ msgstr "Transparenz aktivieren"
 
 #~ msgid " --configure -- launch configuration utility\n"
-#~ msgstr " --configure -- avvia il programma di configurazione\n"
+#~ msgstr " --configure -- startet das Konfigurationsprogramm\n"
 
 #~ msgid " -C  -- same as --configure\n"
-#~ msgstr " -C  -- analogo a --configure\n"
+#~ msgstr " -C  -- wie --configure\n"
 
 #~ msgid "Add Button"
-#~ msgstr "Aggiungi bottone"
+#~ msgstr "Knopf hinzufügen"
 
 #~ msgid "Button Properties"
-#~ msgstr "Proprietà bottone"
+#~ msgstr "Knopfeigenschaften"
 
 #~ msgid "Remove Button"
-#~ msgstr "Eliminare bottone"
+#~ msgstr "Knopf entfernen"
 
 #~ msgid "Buttons"
-#~ msgstr "Bottoni"
+#~ msgstr "Knöpfe"
 
 #~ msgid "Accept SkipPager"
-#~ msgstr "Accetta SkipPager"
+#~ msgstr "SkipPager akzeptieren"
 
 #~ msgid "Show Iconified windows"
-#~ msgstr "Mostra finestre minimizzate"
+#~ msgstr "Minimierte Fenster anzeigen"
 
 #~ msgid "Show mapped windows"
-#~ msgstr "Mostra finestre arrotolate"
+#~ msgstr "Eingerollte Fenster anzeigen"
 
 #~ msgid "Kayboard Layout switcher"
-#~ msgstr "Cambio Layout Tastiera"
+#~ msgstr "Tastatur-Layout-Schalter"
 
 #~ msgid ""
 #~ "Dynamic\n"
 #~ "Pixels\n"
 #~ "% Percent"
 #~ msgstr ""
-#~ "Dinamico\n"
+#~ "Dynamische\n"
 #~ "Pixel\n"
-#~ "% Percento"
+#~ "% Prozent"
 
 #~ msgid ""
 #~ "Left\n"
 #~ "Center\n"
 #~ "Right"
 #~ msgstr ""
-#~ "Sinistra\n"
-#~ "Centro\n"
-#~ "Destra"
+#~ "Links\n"
+#~ "Mitte\n"
+#~ "Rechts"
 
 #~ msgid ""
 #~ "Left\n"
@@ -2402,22 +2093,22 @@ msgstr "Mostra le condizioni meteo per una località."
 #~ "Top\n"
 #~ "Bottom"
 #~ msgstr ""
-#~ "Sinistra\n"
-#~ "Destra\n"
-#~ "Sopra\n"
-#~ "Sotto"
+#~ "Links\n"
+#~ "Rechts\n"
+#~ "Oben\n"
+#~ "Unten"
 
 #~ msgid "Where to put the panel?"
-#~ msgstr "Dove devo piazzare il pannello?"
+#~ msgstr "Wo soll das Panel platziert werden?"
 
 #~ msgid "Battery: %d%% charged, %s"
-#~ msgstr "Batteria: %d%% caricata, %s"
+#~ msgstr "Akku: %d%% geladen, %s"
 
 #~ msgid "charging finished"
-#~ msgstr "carica completata"
+#~ msgstr "Laden beendet"
 
 #~ msgid "charging"
-#~ msgstr "in caricamento"
+#~ msgstr "laden"
 
 #~ msgid "Add to desktop panel"
-#~ msgstr "Aggiungere al pannello scrivania"
+#~ msgstr "Erweiterung zum Panel hinzufügen"
