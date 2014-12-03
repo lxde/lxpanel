@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.3.99\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 21:13+0200\n"
-"PO-Revision-Date: 2014-11-27 23:20+0000\n"
-"Last-Translator: Daniele Forsi <daniele@forsi.it>\n"
+"PO-Revision-Date: 2014-12-03 08:51+0000\n"
+"Last-Translator: kunturweb <kunturweb@altervista.org>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1417130452.000000\n"
+"X-POOTLE-MTIME: 1417596709.000000\n"
 
 #: ../src/configurator.c:135
 msgid ""
@@ -308,7 +308,7 @@ msgstr "Mostra finestre da tutte le scrivanie"
 
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Only show windows on the same monitor as the task bar"
-msgstr "Mostra solo le finestre dello stesso monitor della barar dei task"
+msgstr "Mostra solo le finestre dello stesso monitor della barra dei task"
 
 #: ../data/ui/launchtaskbar.glade.h:11
 msgid "Use mouse wheel"
@@ -348,7 +348,7 @@ msgstr "Solo barra dei task (Elenco finestre)"
 
 #: ../data/ui/launchtaskbar.glade.h:20
 msgid "Integrated Application Launch Bar and Task Bar"
-msgstr "Barra avvio applicazioni e barra dei task integrate"
+msgstr "Barra avvio applicazioni e barra dei task integrata"
 
 #: ../data/ui/netstatus.glade.h:1
 msgid "<b>Connection</b>"
