@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: LXPanel 0.8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 21:13+0200\n"
-"PO-Revision-Date: 2014-12-02 14:30+0000\n"
+"PO-Revision-Date: 2014-12-03 12:38+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
 "Language: is\n"
@@ -320,7 +320,7 @@ msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:14
 msgid "Disable enlargement for small task icons"
-msgstr ""
+msgstr "Gera óvirkt að stækka litlar verkefnatáknmyndir"
 
 #: ../data/ui/launchtaskbar.glade.h:15
 msgid "Maximum width of task button"
@@ -793,7 +793,7 @@ msgstr "Kerfisbakki"
 
 #: ../plugins/xkb/xkb-plugin.c:401
 msgid "New session is required for this option to take effect"
-msgstr ""
+msgstr "Ræsa þarf nýja setu til þess að breytingar taki gildi"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:582
@@ -812,7 +812,7 @@ msgstr "Auðkenni"
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:706
 msgid "Select Layout Change Type"
-msgstr ""
+msgstr "Veldu breytingu á tegund uppsetningar"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:879
@@ -845,7 +845,7 @@ msgstr "Tilbrigði"
 
 #: ../plugins/xkb/xkb-plugin.c:1311
 msgid "Change Layout Option"
-msgstr ""
+msgstr "Veldu valkosti uppsetningar"
 
 #: ../plugins/xkb/xkb-plugin.c:1331
 msgid "Advanced setxkbmap Options"
@@ -890,6 +890,8 @@ msgstr "Meðhöndla lyklaborðsuppsetningar"
 #: ../plugins/wincmd.c:189
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
+"Vinstrismella til að gera alla glugga að táknmyndum. Miðjusmella til að "
+"skyggja þá."
 
 #: ../plugins/wincmd.c:224 ../plugins/wincmd.c:234
 msgid "Minimize All Windows"
@@ -897,13 +899,15 @@ msgstr "Minnka alla glugga"
 
 #: ../plugins/wincmd.c:226
 msgid "Alternately iconify/shade and raise"
-msgstr ""
+msgstr "Til skiptis tákngera/skyggja og lyfta"
 
 #: ../plugins/wincmd.c:235
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
+"Sendir skipanir til allra skjáborðsglugga.\n"
+"Studdar skipanir eru 1) tákngera and 2) skyggja"
 
 #: ../plugins/dirmenu.c:205
 msgid "Open in _Terminal"
@@ -923,7 +927,7 @@ msgstr "Skýring"
 
 #: ../plugins/dirmenu.c:370
 msgid "Browse directory tree via menu (Author = PCMan)"
-msgstr ""
+msgstr "Flakka um möppugreinar með valmynd (höfundur = PCMan)"
 
 #: ../plugins/thermal/thermal.c:558 ../plugins/thermal/thermal.c:576
 msgid "Temperature Monitor"
@@ -980,7 +984,7 @@ msgstr "Viðmót á CPUFreq"
 
 #: ../plugins/cpufreq/cpufreq.c:410
 msgid "Display CPU frequency and allow to change governors and frequency"
-msgstr ""
+msgstr "Sýna tíðni örgjörva og leyfa að breytt sé um stýringar og tíðnir"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -1035,7 +1039,7 @@ msgstr "Afvirkja"
 
 #: ../plugins/netstat/netstat.c:344
 msgid "Wireless Connection has no connectivity"
-msgstr ""
+msgstr "Þráðlausa tengingin er ekki með samband"
 
 #: ../plugins/netstat/netstat.c:346
 msgid "Network cable is plugged out"
@@ -1043,7 +1047,7 @@ msgstr "Netkapall er ekki í sambandi"
 
 #: ../plugins/netstat/netstat.c:348
 msgid "Connection has limited or no connectivity"
-msgstr ""
+msgstr "Tengingin er með lélegt eða ekkert samband"
 
 #: ../plugins/netstat/netstat.c:352 ../plugins/netstat/netstat.c:363
 #: ../plugins/netstat/netstat.c:374
@@ -1114,6 +1118,8 @@ msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
 msgstr ""
+"Þráðlausa netið er dulkóðað.\n"
+"Þú verður að vera með dulritunarlykilinn."
 
 #: ../plugins/netstat/passwd_gui.c:103
 msgid "Encryption Key:"
