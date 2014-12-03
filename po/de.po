@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 21:13+0200\n"
-"PO-Revision-Date: 2014-12-03 10:22+0000\n"
+"PO-Revision-Date: 2014-12-03 10:40+0000\n"
 "Last-Translator: ubsy <ubsy@riseup.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: de\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1417602127.000000\n"
+"X-POOTLE-MTIME: 1417603205.000000\n"
 
 #: ../src/configurator.c:135
 #, fuzzy
@@ -232,10 +232,11 @@ msgstr ""
 "\n"
 
 #: ../src/input-button.c:129
-#, c-format, fuzzy
+#, c-format
 msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
 msgstr ""
-"La combinazione di tasti «%s» non può essere usata come scorciatoia globale."
+"Tastenkombination '%s' kann leider nicht als globaler Hotkey verwendet "
+"werden."
 
 #: ../src/input-button.c:132 ../src/input-button.c:331
 #: ../plugins/netstatus/netstatus-iface.c:191
@@ -277,9 +278,10 @@ msgid "Custom:"
 msgstr "Personalizzata:"
 
 #: ../src/input-button.c:329
-#, c-format, fuzzy
+#, c-format
 msgid "Cannot assign '%s' as a global hotkey: it is already bound."
-msgstr "Impossibile assegnare «%s» come scorciatoia globale: è già associato."
+msgstr ""
+"Kann '%s' nicht als globalen hotkey zuweisen: Ist anderweitig zugewiesen."
 
 #: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3553
 #, fuzzy
@@ -1006,9 +1008,8 @@ msgid "Advanced setxkbmap Options"
 msgstr "Opzioni avanzate per setxkbmap"
 
 #: ../plugins/xkb/xkb-plugin.c:1352
-#, fuzzy
 msgid "Do _not reset existing options"
-msgstr "_Non reimpostare le opzioni esistenti"
+msgstr "Vorhandene Optionen _nicht zurücksetzen"
 
 #: ../plugins/xkb/xkb-plugin.c:1357
 #, fuzzy
@@ -1051,9 +1052,10 @@ msgid "Handle keyboard layouts"
 msgstr "Gestisce le disposizioni della tastiera"
 
 #: ../plugins/wincmd.c:189
-#, fuzzy
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr "Clic sinistro per iconificare. Clic centrale per arrotolare."
+msgstr ""
+"Linksklick um alle Fenster zu minimieren.  Mittlerer Mausklick um alle "
+"einzuklappen."
 
 #: ../plugins/wincmd.c:224 ../plugins/wincmd.c:234
 #, fuzzy
@@ -1164,10 +1166,8 @@ msgid "CPUFreq frontend"
 msgstr "Interfaccia CPUFreq"
 
 #: ../plugins/cpufreq/cpufreq.c:410
-#, fuzzy
 msgid "Display CPU frequency and allow to change governors and frequency"
-msgstr ""
-"Mostra la frequenza della CPU e permette di cambiare «governor» e frequenza"
+msgstr "Zeige die CPU frequenz an und ändere Regler und Frequenz"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -1659,13 +1659,13 @@ msgstr "Impossibile analizzare il nome dell'interfaccia da '%s'"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:218
 #: ../plugins/netstatus/netstatus-sysdeps.c:647
-#, c-format, fuzzy
+#, c-format
 msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"Impossibile analizzare le statistiche dell'interfaccia da \"%s\". prx_idx = "
-"%d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+"Konnte die Schnittstellenstatistiken von '%s' nicht parsen. prx_idx = %d; "
+"ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:312
 #, fuzzy
@@ -1678,29 +1678,28 @@ msgid "Could not parse /proc/net/wireless. Unknown format."
 msgstr "Impossibile analizzare /proc/net/wireless. Formato sconosciuto."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:343
-#, c-format, fuzzy
+#, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr "Impossibile analizzare i dettagli wireless da \"%s\". link_idx = %d;"
+msgstr "Konnte die Drahtlos-Details '%s' nicht parsen. link_idx = %d;"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:416
-#, c-format, fuzzy
+#, c-format
 msgid "Could not connect to interface, '%s'"
-msgstr "Impossibile connettersi all'interfaccia, \"%s\""
+msgstr "Konnte zur Schnittstelle '%s' keine Verbindung aufbauen"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:422
-#, c-format, fuzzy
+#, c-format
 msgid "Could not send ioctl to interface, '%s'"
-msgstr "Impossibile inviare ioctl all'interfaccia, \"%s\""
+msgstr "Konnte ioctl nicht zur Schnittstelle '%s' senden"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:600
-#, c-format, fuzzy
+#, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr "Impossibile analizzare la riga di comando \"%s\": %s"
+msgstr "Konnte Kommandozeilenbefehl nicht '%s': %s nicht parsen"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:637
-#, fuzzy
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr "Impossibile analizzare l'output di \"netstat\". Formato sconosciuto."
+msgstr "Konnte 'netstst' Ausgabe nicht parsen. Unbekanntes Format"
 
 #: ../plugins/netstatus/netstatus-util.c:152
 #, fuzzy
@@ -2005,9 +2004,8 @@ msgid "Display monitors (CPU, RAM)"
 msgstr "Mostra il monitoraggio di CPU e RAM"
 
 #: ../plugins/weather/weatherwidget.c:52
-#, fuzzy
 msgid "[N/A]"
-msgstr "[N/D]"
+msgstr "[n. z.]"
 
 #: ../plugins/weather/weatherwidget.c:792
 #, fuzzy
@@ -2041,9 +2039,9 @@ msgid "You must specify a location."
 msgstr "È necessario specificare una località."
 
 #: ../plugins/weather/weatherwidget.c:901
-#, c-format, fuzzy
+#, c-format
 msgid "Location '%s' not found!"
-msgstr "Località «%s» non trovata."
+msgstr "Ort '%s' nicht gefunden!"
 
 #: ../plugins/weather/weatherwidget.c:1060
 #, fuzzy
@@ -2078,9 +2076,8 @@ msgstr "Non configurata"
 
 #: ../plugins/weather/weatherwidget.c:1249
 #: ../plugins/weather/weatherwidget.c:1521
-#, fuzzy
 msgid "_Set"
-msgstr "Impo_sta"
+msgstr "Ein_stellen"
 
 #: ../plugins/weather/weatherwidget.c:1270
 #, fuzzy
@@ -2088,9 +2085,8 @@ msgid "Display"
 msgstr "Visualizzazione"
 
 #: ../plugins/weather/weatherwidget.c:1274
-#, fuzzy
 msgid "Name:"
-msgstr "_Nome:"
+msgstr "Name:"
 
 #: ../plugins/weather/weatherwidget.c:1278
 #, fuzzy
@@ -2206,14 +2202,14 @@ msgid "Location not set."
 msgstr "Località non impostata."
 
 #: ../plugins/weather/weatherwidget.c:1924
-#, c-format, fuzzy
+#, c-format
 msgid "Searching for '%s'..."
-msgstr "Ricerca di «%s»..."
+msgstr "Suche nach '%s'..."
 
 #: ../plugins/weather/weatherwidget.c:2050
-#, c-format, fuzzy
+#, c-format
 msgid "Location matches for '%s'"
-msgstr "Località corrispondenti a «%s»"
+msgstr "Ort stimmt mit '%s' überein"
 
 #: ../plugins/weather/weatherwidget.c:2070
 #, fuzzy
