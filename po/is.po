@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: LXPanel 0.8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 21:13+0200\n"
-"PO-Revision-Date: 2014-12-03 12:38+0000\n"
+"PO-Revision-Date: 2014-12-04 14:37+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
 "Language: is\n"
@@ -304,7 +304,7 @@ msgstr "Sýna glugga frá öllum skjáborðum"
 
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Only show windows on the same monitor as the task bar"
-msgstr ""
+msgstr "Einungis birta glugga af sama skjá og verkefnasláin er á"
 
 #: ../data/ui/launchtaskbar.glade.h:11
 msgid "Use mouse wheel"
@@ -316,7 +316,7 @@ msgstr "Blikka þegar einhver gluggi krefst athygli"
 
 #: ../data/ui/launchtaskbar.glade.h:13
 msgid "Combine multiple application windows into a single button"
-msgstr ""
+msgstr "Sameina marga forritaglugga í einn hnapp"
 
 #: ../data/ui/launchtaskbar.glade.h:14
 msgid "Disable enlargement for small task icons"
@@ -560,7 +560,7 @@ msgstr "Láta gluggastjóra meðhöndla skjástikuna eins og tengispjald"
 
 #: ../data/ui/panel-pref.glade.h:41
 msgid "Reserve space, and not covered by maximized windows"
-msgstr ""
+msgstr "Taka frá pláss, og ekki hylja með hámörkuðum gluggum"
 
 #: ../data/ui/panel-pref.glade.h:42
 msgid "<b>Properties</b>"
@@ -697,10 +697,12 @@ msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
+"Verkefnaslá birtir alla opna glugga og leyfir að tákngera þá, skyggja, eða "
+"gera þá virka"
 
 #: ../plugins/launchtaskbar.c:3554
 msgid "Bar with buttons to launch application and/or show all opened windows"
-msgstr ""
+msgstr "Slá með hnöppum til að ræsa forrit og/eða sýna alla opna glugga"
 
 #: ../plugins/dclock.c:418 ../plugins/dclock.c:438
 msgid "Digital Clock"
@@ -765,7 +767,7 @@ msgstr "Bæta aðgreini á skjástiku"
 
 #: ../plugins/pager.c:92
 msgid "Sorry, there was no window manager configuration program found."
-msgstr ""
+msgstr "Því miður, ekkert stilliforrit fyrir gluggastjórnun fannst"
 
 #: ../plugins/pager.c:144 ../plugins/pager.c:160
 msgid "Desktop Pager"
