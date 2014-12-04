@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: lxpanel r839\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 21:13+0200\n"
-"PO-Revision-Date: 2014-11-28 17:19+0000\n"
-"Last-Translator: Pierre Gobin <lubuntu@pierregobin.fr>\n"
+"PO-Revision-Date: 2014-12-04 14:35+0000\n"
+"Last-Translator: Julien Henry <Julius22@laposte.net>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1417195167.000000\n"
+"X-POOTLE-MTIME: 1417703746.000000\n"
 
 #: ../src/configurator.c:135
 msgid ""
@@ -73,7 +73,7 @@ msgid ""
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
 "Voulez-vous vraiment supprimer ce panneau ?\n"
-"<b>Avertissement : cette opération ne peut pas être annulée.</b>"
+"<b>Avertissement : Cette opération ne peut pas être annulée.</b>"
 
 #: ../src/panel.c:1009
 msgid "Confirm"
@@ -82,7 +82,7 @@ msgstr "Confirmer"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:1044
 msgid "translator-credits"
-msgstr "Cilyan Olowen <gaknar@gmail.com>"
+msgstr "Cilyan Olowen <gaknar@gmail.com>Julius22"
 
 #: ../src/panel.c:1049
 msgid "LXPanel"
@@ -103,7 +103,7 @@ msgstr "Paramètres de « %s »"
 
 #: ../src/panel.c:1130
 msgid "Add / Remove Panel Items"
-msgstr "Ajouter/Enlever des éléments au tableau de bord"
+msgstr "Ajouter / Enlever des éléments au tableau de bord"
 
 #: ../src/panel.c:1138
 #, c-format
@@ -200,7 +200,7 @@ msgstr " --version   -- afficher la version et quitter\n"
 #: ../src/main.c:258
 #, c-format
 msgid " --profile name -- use specified profile\n"
-msgstr " --profile nom -- utiliser le profil indiqué\n"
+msgstr " --profile nom -- utiliser le profil spécifié\n"
 
 #: ../src/main.c:260
 #, c-format
@@ -226,15 +226,15 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"Consultez le site http://lxde.org/ pour plus d'informations.\n"
+"Consultez http://lxde.org/ pour plus d'informations.\n"
 "\n"
 
 #: ../src/input-button.c:129
 #, c-format
 msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
 msgstr ""
-"La combinaison de touches « %s » ne peut pas être utilisée comme un "
-"raccourci global, désolé."
+"La combinaison de touches « %s » ne peut pas être utilisée comme raccourci "
+"global, désolé."
 
 #: ../src/input-button.c:132 ../src/input-button.c:331
 #: ../plugins/netstatus/netstatus-iface.c:191
@@ -272,7 +272,7 @@ msgstr "Personnalisé :"
 #, c-format
 msgid "Cannot assign '%s' as a global hotkey: it is already bound."
 msgstr ""
-"Impossible d'assigner « %s » comme un raccourci global : la combinaison est "
+"Impossible d'assigner « %s » comme raccourci global : la combinaison est "
 "déjà utilisée."
 
 #: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3553
@@ -311,8 +311,8 @@ msgstr "Afficher les fenêtres de tous les espaces de travail"
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Only show windows on the same monitor as the task bar"
 msgstr ""
-"Afficher uniquement les fenêtres placées sur le même écran que la barre des "
-"tâches"
+"Afficher uniquement les fenêtres placées sur le même moniteur que la barre "
+"des tâches"
 
 #: ../data/ui/launchtaskbar.glade.h:11
 msgid "Use mouse wheel"
@@ -451,16 +451,16 @@ msgstr "% Pourcent"
 
 #: ../data/ui/panel-pref.glade.h:6
 msgid "Err"
-msgstr "Erreurs"
+msgstr "Err."
 
 # Truly more explained than english version
 #: ../data/ui/panel-pref.glade.h:7
 msgid "Warn"
-msgstr "Avertissements"
+msgstr "Avert."
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "Info"
-msgstr "Informations"
+msgstr "Info."
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "All"
@@ -488,7 +488,7 @@ msgstr "Marge :"
 
 #: ../data/ui/panel-pref.glade.h:19
 msgid "Monitor:"
-msgstr "Écran :"
+msgstr "Moniteur :"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "<b>Position</b>"
@@ -545,7 +545,7 @@ msgstr "Apparence"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Panel Applets"
-msgstr "Applets du tableau de bord"
+msgstr "Appliquettes du tableau de bord"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "Logout Command:"
@@ -567,7 +567,7 @@ msgstr "<b>Choisir les applications préférées</b>"
 msgid "Make window managers treat the panel as dock"
 msgstr ""
 "Les gestionnaires de fenêtres doivent considérer le tableau de bord comme un "
-"dock"
+"port"
 
 #: ../data/ui/panel-pref.glade.h:41
 msgid "Reserve space, and not covered by maximized windows"
@@ -581,11 +581,11 @@ msgstr "<b>Propriétés</b>"
 
 #: ../data/ui/panel-pref.glade.h:43
 msgid "Minimize panel when not in use"
-msgstr "Réduire le tableau de bord lorsqu'il n'est pas utilisé"
+msgstr "Minimiser le tableau de bord lorsqu'il n'est pas utilisé"
 
 #: ../data/ui/panel-pref.glade.h:44
 msgid "Size when minimized"
-msgstr "Taille une fois réduit"
+msgstr "Taille une fois minimisé"
 
 #: ../data/ui/panel-pref.glade.h:45
 msgid "pixels"
@@ -695,7 +695,7 @@ msgstr "_Ajouter à la barre de lancement"
 
 #: ../plugins/launchtaskbar.c:3454
 msgid "Rem_ove from Launcher"
-msgstr "Supprimer de la barre de lancement"
+msgstr "Suppr_imer de la barre de lancement"
 
 #: ../plugins/launchtaskbar.c:3455
 msgid "_New Instance"
@@ -703,21 +703,21 @@ msgstr "_Nouvelle instance"
 
 #: ../plugins/launchtaskbar.c:3526
 msgid "Bar with buttons to launch application"
-msgstr "Barre contenant des boutons pour lancer des applications"
+msgstr "Barre avec des boutons pour lancer des applications"
 
 #: ../plugins/launchtaskbar.c:3535
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
-"Affiche la liste des fenêtres ouvertes et permet de les minimiser, de les "
-"enrouler ou de leur donner le focus"
+"La barre des tâches affiche toutes les fenêtres ouvertes et permet de les "
+"réduire, de les enrouler ou de leur donner le focus"
 
 #: ../plugins/launchtaskbar.c:3554
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr ""
-"Barre contenant des boutons pour lancer des applications et/ou afficher "
-"toutes les fenêtres ouvertes"
+"Barre avec des boutons pour lancer des applications ou afficher toutes les "
+"fenêtres ouvertes"
 
 #: ../plugins/dclock.c:418 ../plugins/dclock.c:438
 msgid "Digital Clock"
@@ -812,7 +812,7 @@ msgstr "Zone de notification"
 
 #: ../plugins/xkb/xkb-plugin.c:401
 msgid "New session is required for this option to take effect"
-msgstr "Il faut redémarrer la session pour que cette option prenne effet"
+msgstr "Une nouvelle session est nécessaire pour que cette option prenne effet"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:582
@@ -918,7 +918,7 @@ msgstr "Minimiser toutes les fenêtres"
 
 #: ../plugins/wincmd.c:226
 msgid "Alternately iconify/shade and raise"
-msgstr "Iconifier/enrouler et restaurer alternativement"
+msgstr "Icônifier / Enrouler et restaurer alternativement"
 
 #: ../plugins/wincmd.c:235
 msgid ""
@@ -926,11 +926,11 @@ msgid ""
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
 "Envoie des commandes à toutes les fenêtres du bureau.\n"
-"Les commandes prises en charge sont 1) réduire et 2) enrouler"
+"Les commandes prises en charge sont 1) icônifier et 2) enrouler"
 
 #: ../plugins/dirmenu.c:205
 msgid "Open in _Terminal"
-msgstr "Ouvrir avec un _terminal"
+msgstr "Ouvrir dans un _terminal"
 
 #: ../plugins/dirmenu.c:353 ../plugins/dirmenu.c:369
 msgid "Directory Menu"
@@ -938,7 +938,7 @@ msgstr "Menu de répertoire"
 
 #: ../plugins/dirmenu.c:355
 msgid "Directory"
-msgstr "Dossier"
+msgstr "Répertoire"
 
 #: ../plugins/dirmenu.c:356
 msgid "Label"
@@ -946,7 +946,7 @@ msgstr "Libellé"
 
 #: ../plugins/dirmenu.c:370
 msgid "Browse directory tree via menu (Author = PCMan)"
-msgstr "Parcourt l'arborescence d'un dossier via un menu (auteur : PCMan)"
+msgstr "Parcourt l'arborescence d'un répertoire via un menu (auteur : PCMan)"
 
 #: ../plugins/thermal/thermal.c:558 ../plugins/thermal/thermal.c:576
 msgid "Temperature Monitor"
@@ -1005,8 +1005,8 @@ msgstr "Interface pour CPUFreq"
 #: ../plugins/cpufreq/cpufreq.c:410
 msgid "Display CPU frequency and allow to change governors and frequency"
 msgstr ""
-"Affiche la fréquence du processeur et permet de modifier le gouverneur et la "
-"fréquence"
+"Affiche la fréquence du processeur et permet de modifier les gouverneurs et "
+"la fréquence"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -1034,8 +1034,8 @@ msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontrol, alsamixer ...)"
 msgstr ""
-"Erreur, vous devez installer une application pour configurer le son "
-"(pavucontrol, alsamixer, etc.)"
+"Erreur, il faut installer une application pour configurer le son ("
+"pavucontrol, alsamixer, etc.)"
 
 #: ../plugins/volumealsa/volumealsa.c:638
 msgid "Display and control volume for ALSA"
@@ -1047,7 +1047,7 @@ msgstr "<Point d'accès caché>"
 
 #: ../plugins/netstat/netstat.c:212
 msgid "Wireless Networks not found in range"
-msgstr "Aucun réseau sans fil détecté"
+msgstr "Aucun réseau sans fil à portée détecté"
 
 #. Repair
 #: ../plugins/netstat/netstat.c:248
@@ -1220,7 +1220,7 @@ msgstr "Orientation"
 
 #: ../plugins/netstatus/netstatus-icon.c:831
 msgid "The orientation of the tray."
-msgstr "L'orientation de la zone de notification."
+msgstr "Orientation de la zone de notification."
 
 #: ../plugins/netstatus/netstatus-icon.c:839
 msgid "Tooltips Enabled"
@@ -1273,11 +1273,11 @@ msgstr "Statistiques"
 
 #: ../plugins/netstatus/netstatus-iface.c:166
 msgid "The interface packets/bytes statistics"
-msgstr "Statistiques paquets/octets de l'interface"
+msgstr "Statistiques de paquets / d'octets de l'interface"
 
 #: ../plugins/netstatus/netstatus-iface.c:174
 msgid "Whether the interface is a wireless interface"
-msgstr "Si oui ou non l'interface est une interface sans fil"
+msgstr "Interface sans fil ou pas"
 
 #: ../plugins/netstatus/netstatus-iface.c:181
 msgid "Signal"
@@ -1318,7 +1318,7 @@ msgstr "AMPR AX.25"
 #: ../plugins/netstatus/netstatus-iface.c:897
 #: ../plugins/netstatus/netstatus-iface.c:1017
 msgid "16/4 Mbps Token Ring"
-msgstr "Anneau à jeton de 16/4 Mo/s"
+msgstr "Anneau à jeton de 16/4 Mb/s"
 
 #: ../plugins/netstatus/netstatus-iface.c:900
 msgid "ARCnet"
@@ -1330,27 +1330,27 @@ msgstr "DLCI du relais de trames"
 
 #: ../plugins/netstatus/netstatus-iface.c:912
 msgid "Metricom Starmode IP"
-msgstr "Metricom Starmode IP"
+msgstr "IP Metricom Starmode"
 
 #: ../plugins/netstatus/netstatus-iface.c:915
 msgid "Serial Line IP"
-msgstr "Serial Line IP"
+msgstr "IP de ligne série"
 
 #: ../plugins/netstatus/netstatus-iface.c:918
 msgid "VJ Serial Line IP"
-msgstr "VJ Serial Line IP"
+msgstr "IP de ligne série VJ"
 
 #: ../plugins/netstatus/netstatus-iface.c:921
 msgid "6-bit Serial Line IP"
-msgstr "6 bits Serial Line IP"
+msgstr "IP de ligne série à six bits"
 
 #: ../plugins/netstatus/netstatus-iface.c:924
 msgid "VJ 6-bit Serial Line IP"
-msgstr "VJ 6 bits Serial Line IP"
+msgstr "IP de ligne série VJ à six bits"
 
 #: ../plugins/netstatus/netstatus-iface.c:930
 msgid "Adaptive Serial Line IP"
-msgstr "Adaptive Serial Line IP"
+msgstr "IP de ligne série adaptative"
 
 #: ../plugins/netstatus/netstatus-iface.c:933
 msgid "AMPR ROSE"
@@ -1435,7 +1435,7 @@ msgstr "Impossible d'analyser /proc/net/dev. Format inconnu."
 #: ../plugins/netstatus/netstatus-sysdeps.c:332
 #, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr "Impossible de récupérer le nom de l'interface à partir de « %s »."
+msgstr "Impossible de récupérer le nom de l'interface depuis « %s »"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:218
 #: ../plugins/netstatus/netstatus-sysdeps.c:647
@@ -1444,7 +1444,7 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"Impossible de récupérer les statistiques de l'interface à partir de « %s ». "
+"Impossible de récupérer les statistiques de l'interface depuis « %s ». "
 "prx_idx = %d ; ptx_idx = %d ; brx_idx = %d ; btx_idx = %d ;"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:312
@@ -1459,8 +1459,8 @@ msgstr "Impossible d'analyser /proc/net/wireless. Format inconnu."
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
 msgstr ""
-"Impossible de récupérer les détails de l'interface sans fil à partir de « %s "
-"». link_idx = %d ;"
+"Impossible de récupérer les détails de l'interface sans fil depuis « %s ». "
+"link_idx = %d ;"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:416
 #, c-format
@@ -1499,12 +1499,12 @@ msgstr "Réception"
 
 #: ../plugins/netstatus/netstatus-util.c:164
 msgid "Sending/Receiving"
-msgstr "Envoi/Réception"
+msgstr "Envoi / Réception"
 
 #: ../plugins/batt/batt.c:152
 #, c-format
 msgid "Battery: %d%% charged, %d:%02d until full"
-msgstr "Batterie : chargée à %d %%, %d:%02d jusqu'à charge complète"
+msgstr "Batterie : chargée à %d %%, %d:%02d jusqu'à charge complète"
 
 #: ../plugins/batt/batt.c:163
 #, c-format
@@ -1559,7 +1559,7 @@ msgid ""
 "%sCharge full design:\t%5d mAh"
 msgstr ""
 "\n"
-"%sCharge maximum théorique :\t%5d mAh"
+"%sCharge maximale théorique :\t%5d mAh"
 
 #: ../plugins/batt/batt.c:190
 #, c-format
@@ -1684,15 +1684,15 @@ msgstr "Aucun indicateur"
 
 #: ../plugins/indicator/indicator.c:863 ../plugins/indicator/indicator.c:881
 msgid "Indicator applets"
-msgstr "Indicateurs"
+msgstr "Appliquettes d'indicateurs"
 
 #: ../plugins/indicator/indicator.c:865
 msgid "Indicator Applications"
-msgstr "Indicateurs"
+msgstr "Applications d'indicateurs"
 
 #: ../plugins/indicator/indicator.c:866
 msgid "Clock Indicator"
-msgstr "Horloge"
+msgstr "Indicateur d'horloge"
 
 #: ../plugins/indicator/indicator.c:867
 msgid "Messaging Menu"
@@ -1712,7 +1712,7 @@ msgstr "Menu Son"
 
 #: ../plugins/indicator/indicator.c:882
 msgid "Add indicator applets to the panel"
-msgstr "Ajoute des indicateurs au tableau de bord"
+msgstr "Ajoute des appliquettes d'indicateurs au tableau de bord"
 
 #: ../plugins/monitors/monitors.c:269
 #, c-format
@@ -1770,19 +1770,19 @@ msgid ""
 msgstr ""
 "Entrer :\n"
 "- soit la ville ;\n"
-"- soit la ville et l'État/le pays ;\n"
+"- soit la ville et l'état / le pays ;\n"
 "- soit le code postal\n"
 "pour désigner le lieu pour lequel récupérer les prévisions météo."
 
 #: ../plugins/weather/weatherwidget.c:854
 #: ../plugins/weather/weatherwidget.c:987
 msgid "You must specify a location."
-msgstr "Vous devez indiquer un lieu."
+msgstr "Vous devez spécifier un lieu."
 
 #: ../plugins/weather/weatherwidget.c:901
 #, c-format
 msgid "Location '%s' not found!"
-msgstr "Le lieu « %s » est introuvable !"
+msgstr "Le lieu « %s » n'a pas été trouvé !"
 
 #: ../plugins/weather/weatherwidget.c:1060
 msgid "Preferences"
@@ -1828,11 +1828,11 @@ msgstr "Unités :"
 
 #: ../plugins/weather/weatherwidget.c:1282
 msgid "_Metric (°C)"
-msgstr "Métrique (°C)"
+msgstr "_Métriques (°C)"
 
 #: ../plugins/weather/weatherwidget.c:1284
 msgid "_English (°F)"
-msgstr "_Anglaise (°F)"
+msgstr "_Anglaises (°F)"
 
 #: ../plugins/weather/weatherwidget.c:1319
 msgid "Forecast"
@@ -1844,7 +1844,7 @@ msgstr "Mises à jour :"
 
 #: ../plugins/weather/weatherwidget.c:1327
 msgid "Ma_nual"
-msgstr "_Manuelles"
+msgstr "Ma_nuelles"
 
 #: ../plugins/weather/weatherwidget.c:1331
 msgid "_Automatic, every"
@@ -1860,7 +1860,7 @@ msgstr "Source :"
 
 #: ../plugins/weather/weatherwidget.c:1477
 msgid "C_hange"
-msgstr "_Modifier"
+msgstr "M_odifier"
 
 #. Both are available
 #: ../plugins/weather/weatherwidget.c:1565
@@ -1870,7 +1870,7 @@ msgstr "Conditions actuelles pour %s"
 
 #: ../plugins/weather/weatherwidget.c:1589
 msgid "Location:"
-msgstr "Emplacement :"
+msgstr "Lieu :"
 
 #: ../plugins/weather/weatherwidget.c:1612
 msgid "Last updated:"
@@ -1949,7 +1949,7 @@ msgstr "Demain : "
 
 #: ../plugins/weather/weather.c:312
 msgid "Weather Plugin"
-msgstr "Météo"
+msgstr "Greffon de météo"
 
 #: ../plugins/weather/weather.c:313
 msgid "Show weather conditions for a location."
