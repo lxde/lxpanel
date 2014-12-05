@@ -266,7 +266,6 @@ _error:
     lxpanel_plugin_set_data(p, vol, volume_destructor);
     vol->panel = panel;
 
-    gtk_widget_add_events(p, GDK_BUTTON_PRESS_MASK);
     g_signal_connect(p, "scroll-event", G_CALLBACK(on_mouse_scroll), vol);
     gtk_widget_set_size_request(p, panel_get_icon_size(panel), panel_get_icon_size(panel));
 

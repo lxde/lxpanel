@@ -262,7 +262,6 @@ static GtkWidget *xkb_constructor(LXPanel *panel, config_setting_t *settings)
     /* Allocate top level widget and set into Plugin widget pointer. */
     p_xkb->p_plugin = p = gtk_event_box_new();
     lxpanel_plugin_set_data(p, p_xkb, xkb_destructor);
-    gtk_widget_add_events(p, GDK_BUTTON_PRESS_MASK);
 
     /* Create a horizontal box as the child of the button. */
     GtkWidget * hbox = gtk_hbox_new(FALSE, 0);

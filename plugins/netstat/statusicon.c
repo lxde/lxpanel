@@ -34,7 +34,6 @@ struct statusicon *create_statusicon(LXPanel *panel, GtkWidget *box,
     newicon->main = gtk_event_box_new();
 
     gtk_widget_set_has_window(newicon->main, FALSE);
-    gtk_widget_add_events(newicon->main, GDK_BUTTON_PRESS_MASK);
     //gtk_widget_set_size_request(newicon->main, 24, 24);
     gtk_box_pack_start(GTK_BOX(box), newicon->main, TRUE, TRUE, 0);
 

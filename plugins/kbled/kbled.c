@@ -129,7 +129,6 @@ static GtkWidget *kbled_constructor(LXPanel *panel, config_setting_t *settings)
                             panel_get_icon_size(panel),
                             0, 0, panel_get_height(panel));
     lxpanel_plugin_set_data(p, kl, kbled_destructor);
-    gtk_widget_add_events(p, GDK_BUTTON_PRESS_MASK);
 
     /* Then allocate three images for the three indications, but make them visible only when the configuration requests. */
     for (i = 0; i < 3; i++)
