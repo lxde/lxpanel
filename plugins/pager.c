@@ -39,6 +39,7 @@ static const char *configure_command = NULL;
 static void on_realize(GtkWidget *p, LXPanel *panel)
 {
     WnckPager *pager = WNCK_PAGER(gtk_bin_get_child(GTK_BIN(p)));
+    int border = gtk_container_get_border_width(GTK_CONTAINER(p));
     int rows, r, h = panel_get_height(panel);
 
     /* set geometry */
@@ -46,7 +47,7 @@ static void on_realize(GtkWidget *p, LXPanel *panel)
     if (panel_get_orientation(panel) == GTK_ORIENTATION_VERTICAL)
         h *= ((gfloat) gdk_screen_height() / (gfloat) gdk_screen_width());
     rows = h / (panel_get_icon_size(panel) * 2) + 1; /* min */
-    r = (h - 4) / panel_get_icon_size(panel); /* max */
+    r = (h - 2 - 2 * border) / panel_get_icon_size(panel); /* max */
     /* g_debug("pager for height %d and icon size %d: %d to %d",panel_get_height(panel),panel_get_icon_size(panel),r,rows); */
     rows = MAX(rows, r);
     wnck_pager_set_n_rows(pager, rows);
@@ -54,14 +55,18 @@ static void on_realize(GtkWidget *p, LXPanel *panel)
 
 static void on_size_allocate(GtkWidget *p, GdkRectangle *allocation, LXPanel *panel)
 {
+    int border = 1; /* NOTE: old 'pager' used 2, WnckPager has 1, need 1 more */
+
     /* g_debug("pager: on_size_allocate(): %dx%d", allocation->width, allocation->height); */
+    /* NOTE: we enforce border here since panel sets it to 0
+       FIXME: this behavior should be configurable */
+    gtk_container_set_border_width(GTK_CONTAINER(p), border);
     on_realize(p, panel);
 }
 
 static GtkWidget *pager_constructor(LXPanel *panel, config_setting_t *settings)
 {
     GtkWidget *p, *w;
-    int border = 1; /* NOTE: old 'pager' used 2, WnckPager has 1, need 1 more */
 
     /* FIXME: use some global setting for border */
 #if GTK_CHECK_VERSION(3, 0, 0)
@@ -70,7 +75,8 @@ static GtkWidget *pager_constructor(LXPanel *panel, config_setting_t *settings)
     w = wnck_pager_new(NULL);
 #endif
     g_return_val_if_fail(w != NULL, 0);
-    p = gtk_alignment_new(0, 0, 1.0, 1.0);
+    p = gtk_event_box_new();
+    gtk_widget_set_has_window(p, FALSE);
 
     /* we cannot configure pager until it added into widgets hierarchy */
     g_signal_connect(p, "realize", G_CALLBACK(on_realize), panel);
@@ -79,7 +85,6 @@ static GtkWidget *pager_constructor(LXPanel *panel, config_setting_t *settings)
 
     gtk_widget_show(w);
 
-    gtk_alignment_set_padding(GTK_ALIGNMENT(p), border, border, border, border);
     gtk_container_add(GTK_CONTAINER(p), w);
 
     return p;
