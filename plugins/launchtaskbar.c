@@ -724,7 +724,6 @@ static void launchtaskbar_constructor_task(LaunchTaskBarPlugin *ltbp)
                                                  panel_get_height(ltbp->panel));
         panel_icon_grid_set_constrain_width(PANEL_ICON_GRID(ltbp->tb_icon_grid), TRUE);
         gtk_box_pack_start(GTK_BOX(ltbp->plugin), ltbp->tb_icon_grid, TRUE, TRUE, 0);
-        gtk_container_set_border_width(GTK_CONTAINER(ltbp->tb_icon_grid), 0);
         taskbar_update_style(ltbp);
 
         /* Add GDK event filter. */
@@ -806,9 +805,6 @@ static GtkWidget *_launchtaskbar_constructor(LXPanel *panel, config_setting_t *s
                                              ltbp->icon_size, ltbp->icon_size,
                                              3, 0, panel_get_height(panel));
     gtk_box_pack_start(GTK_BOX(p), ltbp->lb_icon_grid, FALSE, TRUE, 0);
-
-    gtk_container_set_border_width(GTK_CONTAINER(p), 0);
-    gtk_container_set_border_width(GTK_CONTAINER(ltbp->lb_icon_grid), 0);
 
     /* Read parameters from the configuration file. */
     config_setting_lookup_int(settings, "LaunchTaskBarMode", &ltbp->mode);

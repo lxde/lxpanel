@@ -518,6 +518,7 @@ GtkWidget *lxpanel_add_plugin(LXPanel *p, const char *name, config_setting_t *cf
     if (s)
         padding = config_setting_get_int(s);
     s = config_setting_get_member(cfg, "border");
+    /* FIXME: this is useless setting, it should be 0 or panel becomes weird */
     if (s)
         border = config_setting_get_int(s);
     /* prepare config and create it if need */

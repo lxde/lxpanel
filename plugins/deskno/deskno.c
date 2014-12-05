@@ -125,7 +125,6 @@ static GtkWidget *deskno_constructor(LXPanel *panel, config_setting_t *settings)
     /* Allocate top level widget and set into Plugin widget pointer. */
     p = gtk_event_box_new();
     lxpanel_plugin_set_data(p, dc, deskno_destructor);
-    gtk_container_set_border_width(GTK_CONTAINER (p), 1);
 
     /* Allocate label widget and add to top level. */
     dc->label = gtk_label_new(NULL);

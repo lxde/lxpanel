@@ -350,7 +350,6 @@ static GtkWidget *cpufreq_constructor(LXPanel *panel, config_setting_t *settings
 
     cf->main = lxpanel_button_new_for_icon(panel, PROC_ICON, NULL, NULL);
     lxpanel_plugin_set_data(cf->main, cf, cpufreq_destructor);
-    gtk_container_set_border_width(GTK_CONTAINER(cf->main), 2);
 
     cf->has_cpufreq = 0;
 

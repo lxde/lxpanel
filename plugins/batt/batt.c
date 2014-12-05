@@ -386,7 +386,7 @@ static gint configureEvent(GtkWidget *widget, GdkEventConfigure *event,
     /* Perform an update so the bar will look right in its new orientation */
     update_display(lx_b, FALSE);
 
-    /* we enforce border width here as it seems GtkEventBox doesn't apply it initially */
+    /* we enforce border width here because panel sets it to 0 */
     gtk_container_set_border_width(lx_b->box, lx_b->border);
 
     RET(TRUE);
@@ -504,7 +504,6 @@ static GtkWidget * constructor(LXPanel *panel, config_setting_t *settings)
         lx_b->height = lx_b->thickness;
         gtk_widget_set_size_request(lx_b->drawingArea, -1, lx_b->height);
     }
-    gtk_container_set_border_width(lx_b->box, lx_b->border);
 
     g_signal_connect (G_OBJECT (lx_b->drawingArea),"configure-event",
           G_CALLBACK (configureEvent), (gpointer) lx_b);

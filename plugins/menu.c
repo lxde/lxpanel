@@ -925,7 +925,6 @@ menu_constructor(LXPanel *panel, config_setting_t *settings)
     m->box = gtk_event_box_new();
     gtk_widget_set_has_window(m->box, FALSE);
     lxpanel_plugin_set_data(m->box, m, menu_destructor);
-    gtk_container_set_border_width(GTK_CONTAINER(m->box), 0);
 
     /* Save construction pointers */
     m->panel = panel;

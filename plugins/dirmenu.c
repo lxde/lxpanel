@@ -279,7 +279,6 @@ static GtkWidget *dirmenu_constructor(LXPanel *panel, config_setting_t *settings
                             ((dm->image != NULL) ? dm->image : "file-manager"),
                             NULL, "Temp");
     lxpanel_plugin_set_data(p, dm, dirmenu_destructor);
-    gtk_container_set_border_width(GTK_CONTAINER(p), 0);
 
     /* Initialize the widget. */
     dirmenu_apply_configuration(p);

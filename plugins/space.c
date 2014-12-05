@@ -54,7 +54,6 @@ static GtkWidget *space_constructor(LXPanel *panel, config_setting_t *settings)
     lxpanel_plugin_set_data(p, sp, g_free);
     gtk_widget_set_has_window(p,FALSE);
     gtk_widget_add_events(p, GDK_BUTTON_PRESS_MASK);
-    gtk_container_set_border_width(GTK_CONTAINER(p), 0);
 
     /* Apply the configuration and show the widget. */
     space_apply_configuration(p);

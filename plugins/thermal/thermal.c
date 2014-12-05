@@ -506,7 +506,6 @@ thermal_constructor(LXPanel *panel, config_setting_t *settings)
     p = gtk_event_box_new();
     lxpanel_plugin_set_data(p, th, thermal_destructor);
     gtk_widget_set_has_window(p, FALSE);
-    gtk_container_set_border_width( GTK_CONTAINER(p), 2 );
 
     th->namew = gtk_label_new("ww");
     gtk_container_add(GTK_CONTAINER(p), th->namew);

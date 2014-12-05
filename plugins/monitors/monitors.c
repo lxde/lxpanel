@@ -619,7 +619,6 @@ monitors_constructor(LXPanel *panel, config_setting_t *settings)
 
     p = gtk_hbox_new(TRUE, 2);
     lxpanel_plugin_set_data(p, mp, monitors_destructor);
-    gtk_container_set_border_width(GTK_CONTAINER(p), 1);
 
     /* First time we use this plugin : only display CPU usage */
     mp->displayed_monitors[CPU_POSITION] = 1;
