@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 21:13+0200\n"
-"PO-Revision-Date: 2014-08-26 11:17+0000\n"
+"PO-Revision-Date: 2014-12-05 08:58+0000\n"
 "Last-Translator: Andika Triwidada <andika@gmail.com>\n"
 "Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
 "Language: id\n"
@@ -16,14 +16,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.6.0-rc1\n"
-"X-POOTLE-MTIME: 1409051860.000000\n"
+"X-Generator: Pootle 2.6.0-rc2\n"
+"X-POOTLE-MTIME: 1417769938.000000\n"
 
 #: ../src/configurator.c:135
 msgid ""
 "Space reservation is not available for this panel because there is another "
 "monitor beyond this edge and reservation would cover it if enabled."
 msgstr ""
+"Pemesanan ruang tak tersedia bagi panel ini karena ada monitor lain di luar "
+"tepi ini dan pemesanan akan menutupinya bila itu difungsikan."
 
 #: ../src/configurator.c:605
 msgid "Currently loaded plugins"
@@ -226,7 +228,7 @@ msgstr ""
 #: ../src/input-button.c:129
 #, c-format
 msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
-msgstr ""
+msgstr "Kombinasi tombol '%s' tak dapat dipakai sebagai pintasan global, maaf."
 
 #: ../src/input-button.c:132 ../src/input-button.c:331
 #: ../plugins/netstatus/netstatus-iface.c:191
@@ -235,23 +237,21 @@ msgid "Error"
 msgstr "Galat"
 
 #: ../src/input-button.c:161
-#, fuzzy
 msgid "LeftBtn"
-msgstr "Kiri"
+msgstr "TmblKiri"
 
 #: ../src/input-button.c:164
 msgid "MiddleBtn"
-msgstr ""
+msgstr "TmblTengah"
 
 #: ../src/input-button.c:167
-#, fuzzy
 msgid "RightBtn"
-msgstr "Kanan"
+msgstr "TmblKanan"
 
 #: ../src/input-button.c:170
 #, c-format
 msgid "Btn%s"
-msgstr ""
+msgstr "Tmbl%s"
 
 #. GtkRadioButton "None"
 #: ../src/input-button.c:250 ../data/ui/panel-pref.glade.h:5
@@ -259,14 +259,13 @@ msgid "None"
 msgstr "Nihil"
 
 #: ../src/input-button.c:257
-#, fuzzy
 msgid "Custom:"
-msgstr "Warna gubahan"
+msgstr "Tersuai:"
 
 #: ../src/input-button.c:329
 #, c-format
 msgid "Cannot assign '%s' as a global hotkey: it is already bound."
-msgstr ""
+msgstr "Tak bisa menugaskan '%s' sebagai pintasan global: itu telah diikat."
 
 #: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3553
 msgid "Application Launch and Task Bar"
@@ -319,7 +318,7 @@ msgstr "Menggabungkan beberapa jendela aplikasi dalam satu tombol"
 
 #: ../data/ui/launchtaskbar.glade.h:14
 msgid "Disable enlargement for small task icons"
-msgstr ""
+msgstr "Nonaktifkan pembesaran bagi ikon tugas kecil"
 
 #: ../data/ui/launchtaskbar.glade.h:15
 msgid "Maximum width of task button"
@@ -892,8 +891,7 @@ msgstr "Kelola tata letak papan ketik"
 
 #: ../plugins/wincmd.c:189
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr ""
-"Klik kiri untuk mengikonkan semua jendela. Klik tengah untuk berbayang."
+msgstr "Klik kiri untuk mengikonkan semua jendela. Klik tengah untuk berbayang."
 
 #: ../plugins/wincmd.c:224 ../plugins/wincmd.c:234
 msgid "Minimize All Windows"
@@ -1419,8 +1417,8 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"Tak dapat mengurai statistik antarmuka dari '%s'. prx_idx = %d; ptx_idx = "
-"%d; brx_idx = %d; btx_idx = %d;"
+"Tak dapat mengurai statistik antarmuka dari '%s'. prx_idx = %d; ptx_idx = %d;"
+" brx_idx = %d; btx_idx = %d;"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:312
 msgid "Could not parse /proc/net/wireless. No data."
@@ -1575,9 +1573,8 @@ msgid "No batteries found"
 msgstr "Tak ada baterai yang ditemukan"
 
 #: ../plugins/batt/batt.c:515 ../plugins/batt/batt.c:644
-#, fuzzy
 msgid "Battery low"
-msgstr "Monitor Baterai"
+msgstr "Baterai lemah"
 
 #: ../plugins/batt/batt.c:664 ../plugins/batt/batt.c:685
 msgid "Battery Monitor"
