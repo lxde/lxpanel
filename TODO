@@ -1,10 +1,11 @@
 * drag & drop plugins via middle button
 * "Move" option in plugin context menu
 * "lxpanelctl command ..."
-* drag & drop launchers
-* accessibility
+* drag & drop launchers (LauncherButton widget as "application/x-lxpanel-launcher")
+* accessibility (keys-only; single-button-mouse; special devices)
 * 'volumealsa' improvements
 * compose new custom launcher in launchbar config dialog
+* special launchers support ()
 * manage invisible panel from unplugged monitor
 * hotkeys for launchers
 * support rounded corners

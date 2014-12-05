@@ -1759,7 +1759,7 @@ msgstr ""
 "Hava tahmini için şunları girin:\n"
 "- şehir, veya\n"
 "- şehir ve eyalet/ülke veya\n"
-"- posta kodu\n"
+"- posta kodu"
 
 #: ../plugins/weather/weatherwidget.c:854
 #: ../plugins/weather/weatherwidget.c:987
