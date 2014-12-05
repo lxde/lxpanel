@@ -283,6 +283,7 @@ set_height(GtkSpinButton* spin, LXPanel* panel)
 
     p->height = (int)gtk_spin_button_get_value(spin);
     gtk_widget_queue_resize(GTK_WIDGET(panel));
+    _panel_set_panel_configuration_changed(panel);
     UPDATE_GLOBAL_INT(p, "height", p->height);
 }
 
