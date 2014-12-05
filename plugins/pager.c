@@ -33,40 +33,42 @@
 
 #include "plugin.h"
 
+typedef struct
+{
+    WnckPager *pager;
+    gint border;
+} PagerData;
+
 /* command to configure desktop, it will be set by .config callback */
 static const char *configure_command = NULL;
 
 static void on_realize(GtkWidget *p, LXPanel *panel)
 {
-    WnckPager *pager = WNCK_PAGER(gtk_bin_get_child(GTK_BIN(p)));
-    int border = gtk_container_get_border_width(GTK_CONTAINER(p));
-    int rows, r, h = panel_get_height(panel);
+    PagerData *d = lxpanel_plugin_get_data(p);
+    int rows, r, h = panel_get_height(panel) - 2 * d->border;
 
     /* set geometry */
-    wnck_pager_set_orientation(pager, panel_get_orientation(panel));
+    wnck_pager_set_orientation(d->pager, panel_get_orientation(panel));
     if (panel_get_orientation(panel) == GTK_ORIENTATION_VERTICAL)
         h *= ((gfloat) gdk_screen_height() / (gfloat) gdk_screen_width());
     rows = h / (panel_get_icon_size(panel) * 2) + 1; /* min */
-    r = (h - 2 - 2 * border) / panel_get_icon_size(panel); /* max */
+    r = (h - 2) / panel_get_icon_size(panel); /* max */
     /* g_debug("pager for height %d and icon size %d: %d to %d",panel_get_height(panel),panel_get_icon_size(panel),r,rows); */
     rows = MAX(rows, r);
-    wnck_pager_set_n_rows(pager, rows);
+    wnck_pager_set_n_rows(d->pager, rows);
 }
 
 static void on_size_allocate(GtkWidget *p, GdkRectangle *allocation, LXPanel *panel)
 {
-    int border = 1; /* NOTE: old 'pager' used 2, WnckPager has 1, need 1 more */
-
     /* g_debug("pager: on_size_allocate(): %dx%d", allocation->width, allocation->height); */
-    /* NOTE: we enforce border here since panel sets it to 0
-       FIXME: this behavior should be configurable */
-    gtk_container_set_border_width(GTK_CONTAINER(p), border);
     on_realize(p, panel);
 }
 
 static GtkWidget *pager_constructor(LXPanel *panel, config_setting_t *settings)
 {
     GtkWidget *p, *w;
+    PagerData *d;
+    int border = 1; /* NOTE: old 'pager' used 2, WnckPager has 1, need 1 more */
 
     /* FIXME: use some global setting for border */
 #if GTK_CHECK_VERSION(3, 0, 0)
@@ -74,17 +76,27 @@ static GtkWidget *pager_constructor(LXPanel *panel, config_setting_t *settings)
 #else
     w = wnck_pager_new(NULL);
 #endif
-    g_return_val_if_fail(w != NULL, 0);
+    g_return_val_if_fail(w != NULL, NULL);
+    d = g_new(PagerData, 1);
+    d->pager = WNCK_PAGER(w);
+    d->border = border;
     p = gtk_event_box_new();
     gtk_widget_set_has_window(p, FALSE);
+    lxpanel_plugin_set_data(p, d, g_free);
 
     /* we cannot configure pager until it added into widgets hierarchy */
     g_signal_connect(p, "realize", G_CALLBACK(on_realize), panel);
     g_signal_connect(p, "size-allocate", G_CALLBACK(on_size_allocate), panel);
-    wnck_pager_set_display_mode(WNCK_PAGER(w), WNCK_PAGER_DISPLAY_CONTENT);
+    wnck_pager_set_display_mode(d->pager, WNCK_PAGER_DISPLAY_CONTENT);
 
     gtk_widget_show(w);
 
+    /* add an additional container to setup a border */
+    w = gtk_event_box_new();
+    gtk_widget_set_has_window(w, FALSE);
+    gtk_container_set_border_width(GTK_CONTAINER(w), border);
+    gtk_container_add(GTK_CONTAINER(w), (GtkWidget*)d->pager);
+    gtk_widget_show(w);
     gtk_container_add(GTK_CONTAINER(p), w);
 
     return p;
