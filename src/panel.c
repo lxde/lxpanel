@@ -55,7 +55,7 @@ static gulong monitors_handler = 0;
 static void panel_start_gui(LXPanel *p, config_setting_t *list);
 static void ah_start(LXPanel *p);
 static void ah_stop(LXPanel *p);
-static void _panel_update_background(LXPanel * p);
+static void _panel_update_background(LXPanel * p, gboolean enforce);
 
 enum
 {
@@ -166,7 +166,7 @@ static gboolean idle_update_background(gpointer p)
     if (gtk_widget_get_realized(p))
     {
         gdk_display_sync( gtk_widget_get_display(p) );
-        _panel_update_background(panel);
+        _panel_update_background(panel, FALSE);
     }
     panel->priv->background_update_queued = 0;
 
@@ -777,16 +777,16 @@ void panel_determine_background_pixmap(Panel * panel, GtkWidget * widget, GdkWin
  * This function should only be called after the panel has been realized. */
 void panel_update_background(Panel * p)
 {
-    _panel_update_background(p->topgwin);
+    _panel_update_background(p->topgwin, TRUE);
 }
 
-static void _panel_update_background(LXPanel * p)
+static void _panel_update_background(LXPanel * p, gboolean enforce)
 {
     GtkWidget *w = GTK_WIDGET(p);
     GList *plugins = NULL, *l;
 
     /* reset background image */
-    if (p->priv->surface != NULL)
+    if (p->priv->surface != NULL) /* FIXME: honor enforce on composited screen */
     {
         cairo_surface_destroy(p->priv->surface);
         p->priv->surface = NULL;
