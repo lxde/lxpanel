@@ -352,7 +352,7 @@ static void lxpanel_init(PanelToplevel *self)
 
     self->priv = p;
     p->topgwin = self;
-    p->allign = ALLIGN_CENTER;
+    p->align = ALIGN_CENTER;
     p->edge = EDGE_NONE;
     p->widthtype = WIDTH_PERCENT;
     p->width = 100;
@@ -1695,8 +1695,10 @@ panel_parse_global(Panel *p, config_setting_t *cfg)
     }
     if (config_setting_lookup_string(cfg, "edge", &str))
         p->edge = str2num(edge_pair, str, EDGE_NONE);
-    if (config_setting_lookup_string(cfg, "allign", &str))
-        p->allign = str2num(allign_pair, str, ALLIGN_NONE);
+    if (config_setting_lookup_string(cfg, "align", &str))
+        p->align = str2num(allign_pair, str, ALIGN_NONE);
+    else if (config_setting_lookup_string(cfg, "allign", &str))
+        p->align = str2num(allign_pair, str, ALIGN_NONE);
     config_setting_lookup_int(cfg, "monitor", &p->monitor);
     config_setting_lookup_int(cfg, "margin", &p->margin);
     if (config_setting_lookup_string(cfg, "widthtype", &str))
