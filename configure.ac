@@ -267,6 +267,13 @@ else
     dnl force OSS plugin to <null>
     plugin_volume=
 fi
+if test ! -z $plugin_volume; then
+    AC_CHECK_HEADERS([sys/soundcard.h linux/soundcard.h])
+    if test x$ac_cv_header_sys_soundcard_h = xno && test x$ac_cv_header_linux_soundcard_h = xno; then
+        AC_MSG_RESULT([no OSS headers found!])
+        plugin_volume=
+    fi
+fi
 
 dnl Exclude indicator support when there is no support.
 if test x"$indicator_support" = "xno"; then

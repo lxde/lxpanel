@@ -14,3 +14,6 @@
 * make click-wait-release popdown popups similarly to as GtkMenuShell does
 * make lxpanel multiscreen-aware
 * improve startup time (move every non-instant operation into idle callback)
+* merge 'volume' into 'volumealsa' to have the same interface
+* support custom timezone in the 'dclock'
+* decide 'netstat' vs 'netstatus'

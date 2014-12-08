@@ -17,6 +17,10 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/ioctl.h>
@@ -30,9 +34,9 @@
 
 #include "volume-impl.h"
 
-#ifdef __FreeBSD__
+#ifdef HAVE_SYS_SOUNDCARD_H
 #include <sys/soundcard.h>
-#elif defined(__linux__) || defined(__Linux__)
+#elif defined(HAVE_LINUX_SOUNDCARD_H)
 #include <linux/soundcard.h>
 #else
 #error "Not supported platform"
