@@ -212,6 +212,8 @@ static void taskbar_redraw(LaunchTaskBarPlugin * tb);
 static void task_delete(LaunchTaskBarPlugin * tb, Task * tk, gboolean unlink, gboolean remove);
 static GdkPixbuf * task_update_icon(LaunchTaskBarPlugin * tb, Task * tk, Atom source);
 static void flash_window_update(Task * tk);
+static void taskbar_button_enter(GtkWidget * widget, Task * tk);
+static void taskbar_button_leave(GtkWidget * widget, Task * tk);
 static gboolean flash_window_timeout(gpointer tk);
 static void task_group_menu_destroy(LaunchTaskBarPlugin * tb);
 static gboolean taskbar_popup_activate_event(GtkWidget * widget, GdkEventButton * event, Task * tk);
@@ -1530,9 +1532,6 @@ static void recompute_group_visibility_for_class(LaunchTaskBarPlugin * tb, TaskC
             /* Set the flashing context and flash the window immediately. */
             tc->p_task_visible->flash_state = TRUE;
             flash_window_update(tc->p_task_visible);
-
-            /* Set the timer, since none is set. */
-            set_timer_on_task(tc->p_task_visible);
         }
         else if (flashing_task != tc->p_task_visible)
         {
@@ -1546,8 +1545,9 @@ static void recompute_group_visibility_for_class(LaunchTaskBarPlugin * tb, TaskC
                 g_object_unref(tc->p_task_visible->menu_item);
             tc->p_task_visible->menu_item = flashing_task->menu_item;
             flashing_task->menu_item = NULL;
-            set_timer_on_task(tc->p_task_visible);
         }
+        if (tc->p_task_visible->flash_timeout == 0)
+            set_timer_on_task(tc->p_task_visible);
     }
     else
     {
@@ -1857,6 +1857,9 @@ static void task_delete(LaunchTaskBarPlugin * tb, Task * tk, gboolean unlink, gb
     if (tb->focused == tk)
         tb->focused = NULL;
 
+    if (tb->menutask == tk)
+        tb->menutask = NULL;
+
     /* If there is an urgency timeout, remove it. */
     if (tk->flash_timeout != 0) {
         g_source_remove(tk->flash_timeout);
@@ -1872,6 +1875,8 @@ static void task_delete(LaunchTaskBarPlugin * tb, Task * tk, gboolean unlink, gb
     /* Deallocate structures. */
     if (remove)
     {
+        g_signal_handlers_disconnect_by_func(tk->button, taskbar_button_enter, tk);
+        g_signal_handlers_disconnect_by_func(tk->button, taskbar_button_leave, tk);
         gtk_widget_destroy(tk->button);
         task_unlink_class(tk);
     }
@@ -2868,6 +2873,9 @@ static void taskbar_net_client_list(GtkWidget * widget, LaunchTaskBarPlugin * tb
     /* Get the NET_CLIENT_LIST property. */
     int client_count;
     Window * client_list = get_xaproperty(GDK_ROOT_WINDOW(), a_NET_CLIENT_LIST, XA_WINDOW, &client_count);
+    Task * tk;
+    for (tk = tb->p_task_list; tk != NULL; tk = tk->p_task_flink_xwid)
+        tk->present_in_client_list = FALSE;
     if (client_list != NULL)
     {
         /* Loop over client list, correlating it with task list. */
@@ -2940,20 +2948,18 @@ static void taskbar_net_client_list(GtkWidget * widget, LaunchTaskBarPlugin * tb
 
     /* Remove windows from the task list that are not present in the NET_CLIENT_LIST. */
     Task * tk_pred = NULL;
-    Task * tk = tb->p_task_list;
+    tk = tb->p_task_list;
     while (tk != NULL)
     {
         Task * tk_succ = tk->p_task_flink_xwid;
         if (tk->present_in_client_list)
-        {
-            tk->present_in_client_list = FALSE;
             tk_pred = tk;
-        }
         else
         {
             if (tk_pred == NULL)
                 tb->p_task_list = tk_succ;
-                else tk_pred->p_task_flink_xwid = tk_succ;
+            else
+                tk_pred->p_task_flink_xwid = tk_succ;
             task_delete(tb, tk, FALSE, TRUE);
         }
         tk = tk_succ;
