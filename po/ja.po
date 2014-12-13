@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 21:13+0200\n"
-"PO-Revision-Date: 2014-10-27 21:07+0000\n"
+"PO-Revision-Date: 2014-12-13 22:19+0000\n"
 "Last-Translator: rago1975 <take1975@kumamoto.email.ne.jp>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
 "Language: ja\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1414444043.000000\n"
+"X-POOTLE-MTIME: 1418509156.000000\n"
 
 #: ../src/configurator.c:135
 msgid ""
@@ -722,9 +722,9 @@ msgid "Tooltip Format"
 msgstr "ツールチップのフォーマット"
 
 #: ../plugins/dclock.c:422
-#, fuzzy, c-format
+#, c-format
 msgid "Format codes: man 3 strftime; %n for line break"
-msgstr "フォーマットについては: man 3 strftime; \\%n で改行"
+msgstr "フォーマットコード: man 3 strftime;  %n で改行"
 
 #: ../plugins/dclock.c:423
 msgid "Action when clicked (default: display calendar)"
@@ -1746,10 +1746,11 @@ msgid ""
 "- postal code\n"
 "for which to retrieve the weather forecast."
 msgstr ""
-"天気予報を取得するには以下のいずれかを入力します:\n"
+"以下のいずれかを入力してください:\n"
 "- 都市名\n"
 "- 都市名と州あるいは国名\n"
-"- 郵便番号"
+"- 郵便番号\n"
+"これらは天気予報を再取得するのに使用します・"
 
 #: ../plugins/weather/weatherwidget.c:854
 #: ../plugins/weather/weatherwidget.c:987
