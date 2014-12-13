@@ -585,10 +585,7 @@ on_plugin_expand_toggled(GtkCellRendererToggle* render, char* path, GtkTreeView*
              * Apply the new packing with only "expand" modified. */
             gtk_box_query_child_packing( box, pl, &old_expand, &fill, &padding, &pack_type );
             gtk_box_set_child_packing( box, pl, expand, fill, padding, pack_type );
-            if (expand)
-                config_group_set_int(s, "expand", 1);
-            else
-                config_setting_remove(s, "expand");
+            config_group_set_int(s, "expand", expand ? 1 : 0);
         }
     }
     gtk_tree_path_free( tp );

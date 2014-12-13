@@ -61,6 +61,15 @@ struct _LXPanel
     Panel *priv;
 };
 
+/**
+ * LXPanelClass:
+ * @parent_class: The parent class.
+ * @icon_size_changed: callback for "icon-size-changed" signal, emitted when
+ *              icons size for panel is changed in the configuration dialog.
+ * @panel_font_changed: callback for "panel-font-changed" signal, emitted when
+ *              custom font enabled, disabled or its metrics or color changed
+ *              in the panel configuration dialog.
+ */
 struct _LXPanelClass
 {
     GtkWindowClass parent_class;

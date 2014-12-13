@@ -12,7 +12,7 @@
 * support keywords in gtk-run
 * convert Task into GtkWidget and use it to emit signals for menus and buttons
 * make click-wait-release popdown popups similarly to as GtkMenuShell does
-* make lxpanel multiscreen-aware
+* make lxpanel multiscreen-aware (build fb_ev_* and get_net_* into lxpanel)
 * improve startup time (move every non-instant operation into idle callback)
 * merge 'volume' into 'volumealsa' to have the same interface
 * support custom timezone in the 'dclock'

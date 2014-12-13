@@ -723,11 +723,11 @@ static GType panel_icon_grid_child_type(GtkContainer *container)
     return GTK_TYPE_WIDGET;
 }
 
-static void panel_icon_grid_class_init(PanelIconGridClass *class)
+static void panel_icon_grid_class_init(PanelIconGridClass *klass)
 {
-    GObjectClass *object_class = G_OBJECT_CLASS(class);
-    GtkWidgetClass *widget_class = GTK_WIDGET_CLASS(class);
-    GtkContainerClass *container_class = GTK_CONTAINER_CLASS(class);
+    GObjectClass *object_class = G_OBJECT_CLASS(klass);
+    GtkWidgetClass *widget_class = GTK_WIDGET_CLASS(klass);
+    GtkContainerClass *container_class = GTK_CONTAINER_CLASS(klass);
 
     object_class->set_property = panel_icon_grid_set_property;
     object_class->get_property = panel_icon_grid_get_property;
