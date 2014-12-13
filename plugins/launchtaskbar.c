@@ -1909,7 +1909,7 @@ static void task_delete(LaunchTaskBarPlugin * tb, Task * tk, gboolean unlink, gb
 
 /* Get a pixbuf from a pixmap.
  * Originally from libwnck, Copyright (C) 2001 Havoc Pennington. */
-static GdkPixbuf * _wnck_gdk_pixbuf_get_from_pixmap(Pixmap xpixmap, int width, int height)
+static GdkPixbuf * _wnck_gdk_pixbuf_get_from_pixmap(GdkScreen *screen, Pixmap xpixmap, int width, int height)
 {
     /* Get the drawable. */
 #if GTK_CHECK_VERSION(2, 24, 0)
@@ -1936,7 +1936,7 @@ static GdkPixbuf * _wnck_gdk_pixbuf_get_from_pixmap(Pixmap xpixmap, int width, i
             colormap = NULL;
         else
         {
-            colormap = gdk_screen_get_system_colormap(gdk_window_get_screen(drawable));
+            colormap = gdk_screen_get_system_colormap(screen);
             g_object_ref(G_OBJECT(colormap));
         }
 
@@ -2000,6 +2000,7 @@ static GdkPixbuf * get_wm_icon(Window task_win, guint required_width,
     Atom possible_source = None;
     int result = -1;
     Display *xdisplay = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
+    GdkScreen *screen = gtk_widget_get_screen(tb->plugin);
 
     if ((source == None) || (source == a_NET_WM_ICON))
     {
@@ -2199,7 +2200,7 @@ static GdkPixbuf * get_wm_icon(Window task_win, guint required_width,
         /* If we have an X pixmap and its geometry, convert it to a GDK pixmap. */
         if (result == Success)
         {
-            pixmap = _wnck_gdk_pixbuf_get_from_pixmap(xpixmap, w, h);
+            pixmap = _wnck_gdk_pixbuf_get_from_pixmap(screen, xpixmap, w, h);
             result = ((pixmap != NULL) ? Success : -1);
         }
 
@@ -2215,7 +2216,7 @@ static GdkPixbuf * get_wm_icon(Window task_win, guint required_width,
                 &unused_win, &unused, &unused, &w, &h, &unused_2, &unused_2))
             {
                 /* Convert the X mask to a GDK pixmap. */
-                GdkPixbuf * mask = _wnck_gdk_pixbuf_get_from_pixmap(xmask, w, h);
+                GdkPixbuf * mask = _wnck_gdk_pixbuf_get_from_pixmap(screen, xmask, w, h);
                 if (mask != NULL)
                 {
                     /* Apply the mask. */
