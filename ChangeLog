@@ -2,6 +2,7 @@
 * Fixed expand setting on plugins with default_expand when more than one
     is available on the same panel.
 * Fixed icon for task button that retrieved using WM_HINTS.
+* Fixed wrong PanelIconGrid arrangement in vertical panel orientation.
 
 0.8.0
 -------------------------------------------------------------------------

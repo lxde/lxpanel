@@ -292,6 +292,8 @@ static void panel_icon_grid_size_request(GtkWidget *widget,
                     w = 0;
                     ig->rows++;
                 }
+                if (w > 0)
+                    w += ig->spacing;
                 w += child_requisition.width;
                 requisition->width = MAX(requisition->width, w);
             }
@@ -304,6 +306,8 @@ static void panel_icon_grid_size_request(GtkWidget *widget,
         requisition->height = 0;
     else
         requisition->height = (ig->child_height + ig->spacing) * ig->rows - ig->spacing + 2 * border;
+    if (requisition->width > 0)
+        requisition->width += 2 * border;
 
     if (ig->rows != old_rows || ig->columns != old_columns)
         gtk_widget_queue_resize(widget);
