@@ -7,6 +7,7 @@
 * Removed writing debug messages to file when 'indicator' plugin is in
     use - it will write all the debug there and that changes the behavior
     which was not intended really.
+* Corrected background for 'indicator' plugin.
 
 0.8.0
 -------------------------------------------------------------------------

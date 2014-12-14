@@ -693,8 +693,6 @@ static void indicator_load_modules(LXPanel *panel, GtkWidget *p)
     else
     {
         gtk_container_add(GTK_CONTAINER(p), indicator->menubar);
-        /* Set background to default. */
-        gtk_widget_set_style(indicator->menubar, panel_get_defstyle(panel));
     }
 
     /* Update the display, show the widget, and return. */
