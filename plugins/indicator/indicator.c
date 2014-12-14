@@ -519,6 +519,7 @@ load_module (const gchar * name, GtkWidget * menubar)
     return TRUE;
 }
 
+#if 0
 static void
 log_to_file_cb (GObject * source_obj G_GNUC_UNUSED,
                 GAsyncResult * result G_GNUC_UNUSED, gpointer user_data)
@@ -574,6 +575,7 @@ log_to_file (const gchar * domain G_GNUC_UNUSED,
 
     return;
 }
+#endif
 
 static gboolean
 menubar_press (GtkWidget * widget,
@@ -769,7 +771,7 @@ static GtkWidget *indicator_constructor(LXPanel *panel, config_setting_t *settin
     gtk_widget_set_name(p, "fast-user-switch-applet");
 
     /* Connect signals for container */
-    g_log_set_default_handler(log_to_file, NULL);
+    //g_log_set_default_handler(log_to_file, NULL);
 
     /* Allocate icon as a child of top level. */
     indicator->menubar = gtk_menu_bar_new();

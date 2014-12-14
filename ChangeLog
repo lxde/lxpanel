@@ -3,6 +3,10 @@
     is available on the same panel.
 * Fixed icon for task button that retrieved using WM_HINTS.
 * Fixed wrong PanelIconGrid arrangement in vertical panel orientation.
+* Fixed missing handlers disconnect when destroying Task structure.
+* Removed writing debug messages to file when 'indicator' plugin is in
+    use - it will write all the debug there and that changes the behavior
+    which was not intended really.
 
 0.8.0
 -------------------------------------------------------------------------
