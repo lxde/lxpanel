@@ -8,6 +8,7 @@
     use - it will write all the debug there and that changes the behavior
     which was not intended really.
 * Corrected background for 'indicator' plugin.
+* Fixed update 'indicator' plugin on configuration changes.
 
 0.8.0
 -------------------------------------------------------------------------
