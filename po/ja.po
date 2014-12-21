@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 21:13+0200\n"
-"PO-Revision-Date: 2014-12-13 22:19+0000\n"
+"PO-Revision-Date: 2014-12-21 02:11+0000\n"
 "Last-Translator: rago1975 <take1975@kumamoto.email.ne.jp>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
 "Language: ja\n"
@@ -18,13 +18,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1418509156.000000\n"
+"X-POOTLE-MTIME: 1419127905.000000\n"
 
 #: ../src/configurator.c:135
 msgid ""
 "Space reservation is not available for this panel because there is another "
 "monitor beyond this edge and reservation would cover it if enabled."
-msgstr ""
+msgstr "他のモニタがこの端に重なっており使用を予約してあるため、このパネルのスペースを使用することができません。"
 
 #: ../src/configurator.c:605
 msgid "Currently loaded plugins"
@@ -78,17 +78,16 @@ msgstr "確認"
 #: ../src/panel.c:1044
 msgid "translator-credits"
 msgstr ""
-"Hironao Komatsu <hironao@users.sourceforge.net>\n"
-"IWAI, Masaharu <iwai@alib.jp>"
+"Hironao Komatsu (hironao@users.sourceforge.net)IWAI, Masaharu (iwai@alib.jp)"
+"Takefumi Nagata (take1975@kumamoto.email.ne.jp)"
 
 #: ../src/panel.c:1049
 msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:1067
-#, fuzzy
 msgid "Copyright (C) 2008-2014"
-msgstr "Copyright (C) 2008-2013"
+msgstr "Copyright (C) 2008-2014"
 
 #: ../src/panel.c:1068
 msgid "Desktop panel for LXDE project"
@@ -230,7 +229,7 @@ msgstr ""
 #: ../src/input-button.c:129
 #, c-format
 msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
-msgstr ""
+msgstr "申し訳ありませんが、キー組み合わせ '%s' はグローバルホットキーとして使用できません。"
 
 #: ../src/input-button.c:132 ../src/input-button.c:331
 #: ../plugins/netstatus/netstatus-iface.c:191
@@ -239,23 +238,21 @@ msgid "Error"
 msgstr "エラー"
 
 #: ../src/input-button.c:161
-#, fuzzy
 msgid "LeftBtn"
-msgstr "左"
+msgstr "左ボタン"
 
 #: ../src/input-button.c:164
 msgid "MiddleBtn"
-msgstr ""
+msgstr "中ボタン"
 
 #: ../src/input-button.c:167
-#, fuzzy
 msgid "RightBtn"
-msgstr "右"
+msgstr "右ボタン"
 
 #: ../src/input-button.c:170
 #, c-format
 msgid "Btn%s"
-msgstr ""
+msgstr "ボタン%s"
 
 #. GtkRadioButton "None"
 #: ../src/input-button.c:250 ../data/ui/panel-pref.glade.h:5
@@ -263,18 +260,17 @@ msgid "None"
 msgstr "なし"
 
 #: ../src/input-button.c:257
-#, fuzzy
 msgid "Custom:"
-msgstr "独自の色"
+msgstr "カスタム:"
 
 #: ../src/input-button.c:329
 #, c-format
 msgid "Cannot assign '%s' as a global hotkey: it is already bound."
-msgstr ""
+msgstr "'%s' をグローバルホットキーとして割り当てることができません: すでに使用されています。"
 
 #: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3553
 msgid "Application Launch and Task Bar"
-msgstr "アプリケーション・ランチャー／タスクバー"
+msgstr "アプリケーション・ランチャーおよびタスクバー"
 
 #. Launchtaskbar mode: launchbar, taskbar, or combined
 #: ../data/ui/launchtaskbar.glade.h:3
@@ -323,7 +319,7 @@ msgstr "複数のアプリケーションのウィンドウを一つのボタン
 
 #: ../data/ui/launchtaskbar.glade.h:14
 msgid "Disable enlargement for small task icons"
-msgstr ""
+msgstr "小さいアイコンを拡大できないようにする"
 
 #: ../data/ui/launchtaskbar.glade.h:15
 msgid "Maximum width of task button"
@@ -772,7 +768,7 @@ msgstr "パネルにセパレータを追加します"
 
 #: ../plugins/pager.c:92
 msgid "Sorry, there was no window manager configuration program found."
-msgstr ""
+msgstr "申し訳ありませんが、ウィンドウマネージャーの設定プログラムが見つかりません。"
 
 #: ../plugins/pager.c:144 ../plugins/pager.c:160
 msgid "Desktop Pager"
@@ -860,11 +856,11 @@ msgstr "setxkbmap の高度なオプション"
 
 #: ../plugins/xkb/xkb-plugin.c:1352
 msgid "Do _not reset existing options"
-msgstr "既にあるオプションはリセットしない (_N)"
+msgstr "既にあるオプションはリセットしない （_N）"
 
 #: ../plugins/xkb/xkb-plugin.c:1357
 msgid "Keep _system layouts"
-msgstr "システムの配列を維持する (_S)"
+msgstr "システムの配列を維持する （_S）"
 
 #: ../plugins/xkb/xkb-plugin.c:1366
 msgid "Per Window Settings"
@@ -896,7 +892,7 @@ msgstr "キーボード配列を設定する"
 
 #: ../plugins/wincmd.c:189
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr "左クリックですべてのウィンドウを最小化し、中クリックでシェード化します"
+msgstr "左クリックですべてのウィンドウを最小化し、  中クリックでシェード化します。"
 
 #: ../plugins/wincmd.c:224 ../plugins/wincmd.c:234
 msgid "Minimize All Windows"
@@ -916,7 +912,7 @@ msgstr ""
 
 #: ../plugins/dirmenu.c:205
 msgid "Open in _Terminal"
-msgstr "端末で開く(_T)"
+msgstr "端末で開く（_T）"
 
 #: ../plugins/dirmenu.c:353 ../plugins/dirmenu.c:369
 msgid "Directory Menu"
@@ -949,9 +945,8 @@ msgid "Warning1 color"
 msgstr "残量の色 1"
 
 #: ../plugins/thermal/thermal.c:562
-#, fuzzy
 msgid "Warning2 color"
-msgstr "残量の色 1"
+msgstr "残量の色 2"
 
 #: ../plugins/thermal/thermal.c:563
 msgid "Automatic sensor location"
@@ -966,14 +961,12 @@ msgid "Automatic temperature levels"
 msgstr "自動温度警戒域"
 
 #: ../plugins/thermal/thermal.c:566
-#, fuzzy
 msgid "Warning1 temperature"
-msgstr "警戒1 の温度"
+msgstr "警告1 温度"
 
 #: ../plugins/thermal/thermal.c:567
-#, fuzzy
 msgid "Warning2 temperature"
-msgstr "警戒2 の温度"
+msgstr "警告2 温度"
 
 #: ../plugins/thermal/thermal.c:577
 msgid "Display system temperature"
@@ -1220,7 +1213,7 @@ msgstr "信号を表示するか"
 
 #: ../plugins/netstatus/netstatus-icon.c:848
 msgid "Whether or not the signal strength should be displayed."
-msgstr "信号の強さを表示するかどうかです"
+msgstr "信号の強さを表示するかどうかです。"
 
 #: ../plugins/netstatus/netstatus-icon.c:957
 #, c-format
@@ -1583,9 +1576,8 @@ msgid "No batteries found"
 msgstr "バッテリが見つかりません"
 
 #: ../plugins/batt/batt.c:515 ../plugins/batt/batt.c:644
-#, fuzzy
 msgid "Battery low"
-msgstr "バッテリモニタ"
+msgstr "バッテリ残量が低下"
 
 #: ../plugins/batt/batt.c:664 ../plugins/batt/batt.c:685
 msgid "Battery Monitor"
@@ -1790,7 +1782,7 @@ msgstr "未設定"
 #: ../plugins/weather/weatherwidget.c:1249
 #: ../plugins/weather/weatherwidget.c:1521
 msgid "_Set"
-msgstr "設定(_S)"
+msgstr "設定（_S）"
 
 #: ../plugins/weather/weatherwidget.c:1270
 msgid "Display"
@@ -1806,11 +1798,11 @@ msgstr "単位:"
 
 #: ../plugins/weather/weatherwidget.c:1282
 msgid "_Metric (°C)"
-msgstr "メートル法(°C) (_M)"
+msgstr "メートル法(°C) （_M）"
 
 #: ../plugins/weather/weatherwidget.c:1284
 msgid "_English (°F)"
-msgstr "英米(°F) (_E)"
+msgstr "英米(°F) （_E）"
 
 #: ../plugins/weather/weatherwidget.c:1319
 msgid "Forecast"
@@ -1822,11 +1814,11 @@ msgstr "更新:"
 
 #: ../plugins/weather/weatherwidget.c:1327
 msgid "Ma_nual"
-msgstr "マニュアル(_N)"
+msgstr "マニュアル（_N）"
 
 #: ../plugins/weather/weatherwidget.c:1331
 msgid "_Automatic, every"
-msgstr "定時(_A)"
+msgstr "定時（_A）"
 
 #: ../plugins/weather/weatherwidget.c:1352
 msgid "minutes"
@@ -1838,7 +1830,7 @@ msgstr "情報元:"
 
 #: ../plugins/weather/weatherwidget.c:1477
 msgid "C_hange"
-msgstr "変更(_H)"
+msgstr "変更（_H）"
 
 #. Both are available
 #: ../plugins/weather/weatherwidget.c:1565
