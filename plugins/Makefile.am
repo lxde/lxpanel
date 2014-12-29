@@ -13,6 +13,8 @@ AM_LDFLAGS = \
 	$(top_builddir)/src/liblxpanel.la \
 	$(PACKAGE_LIBS)
 
+BUILT_SOURCES = $(top_builddir)/src/liblxpanel.la
+
 $(top_builddir)/src/liblxpanel.la:
 	cd $(top_builddir)/src && $(MAKE) liblxpanel.la
 
