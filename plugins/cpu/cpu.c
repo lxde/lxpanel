@@ -69,7 +69,11 @@ typedef struct {
 static void redraw_pixmap(CPUPlugin * c);
 static gboolean cpu_update(CPUPlugin * c);
 static gboolean configure_event(GtkWidget * widget, GdkEventConfigure * event, CPUPlugin * c);
+#if !GTK_CHECK_VERSION(3, 0, 0)
 static gboolean expose_event(GtkWidget * widget, GdkEventExpose * event, CPUPlugin * c);
+#else
+static gboolean draw(GtkWidget * widget, cairo_t * cr, CPUPlugin * c);
+#endif
 
 static void cpu_destructor(gpointer user_data);
 
@@ -217,6 +221,7 @@ static gboolean configure_event(GtkWidget * widget, GdkEventConfigure * event, C
 }
 
 /* Handler for expose_event on drawing area. */
+#if !GTK_CHECK_VERSION(3, 0, 0)
 static gboolean expose_event(GtkWidget * widget, GdkEventExpose * event, CPUPlugin * c)
 {
     /* Draw the requested part of the pixmap onto the drawing area.
@@ -236,6 +241,22 @@ static gboolean expose_event(GtkWidget * widget, GdkEventExpose * event, CPUPlug
     }
     return FALSE;
 }
+#else
+static gboolean draw(GtkWidget * widget, cairo_t * cr, CPUPlugin * c)
+{
+    /* Draw the requested part of the pixmap onto the drawing area.
+     * Translate it in both x and y by the border size. */
+    if (c->pixmap != NULL)
+    {
+        cairo_set_source_rgb(cr, 0, 0, 0);
+        cairo_set_source_surface(cr, c->pixmap,
+              BORDER_SIZE, BORDER_SIZE);
+        cairo_paint(cr);
+        /* check_cairo_status(cr); */
+    }
+    return FALSE;
+}
+#endif
 
 /* Plugin constructor. */
 static GtkWidget *cpu_constructor(LXPanel *panel, config_setting_t *settings)
@@ -261,7 +282,11 @@ static GtkWidget *cpu_constructor(LXPanel *panel, config_setting_t *settings)
 
     /* Connect signals. */
     g_signal_connect(G_OBJECT(c->da), "configure-event", G_CALLBACK(configure_event), (gpointer) c);
+    #if !GTK_CHECK_VERSION(3, 0, 0)
     g_signal_connect(G_OBJECT(c->da), "expose-event", G_CALLBACK(expose_event), (gpointer) c);
+    #else
+    g_signal_connect(G_OBJECT(c->da), "draw", G_CALLBACK(draw), (gpointer) c);
+    #endif
 
     /* Show the widget.  Connect a timer to refresh the statistics. */
     gtk_widget_show(c->da);

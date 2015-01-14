@@ -237,7 +237,12 @@ static void lxpanel_size_request(GtkWidget *widget, GtkRequisition *req)
     Panel *p = panel->priv;
     GdkRectangle rect;
 
+#if !GTK_CHECK_VERSION(3, 0, 0)
     GTK_WIDGET_CLASS(lxpanel_parent_class)->size_request(widget, req);
+#else
+    GTK_WIDGET_CLASS(lxpanel_parent_class)->get_preferred_width(widget, &req->width, &req->width);
+    GTK_WIDGET_CLASS(lxpanel_parent_class)->get_preferred_height(widget, &req->height, &req->height);
+#endif
 
     if (!p->visible)
         /* When the panel is in invisible state, the content box also got hidden, thus always
@@ -250,6 +255,32 @@ static void lxpanel_size_request(GtkWidget *widget, GtkRequisition *req)
     req->width = rect.width;
     req->height = rect.height;
 }
+
+#if GTK_CHECK_VERSION(3, 0, 0)
+static void
+lxpanel_get_preferred_width (GtkWidget *widget,
+                             gint      *minimal_width,
+                             gint      *natural_width)
+{
+  GtkRequisition requisition;
+
+  lxpanel_size_request (widget, &requisition);
+
+  *minimal_width = *natural_width = requisition.width;
+}
+
+static void
+lxpanel_get_preferred_height (GtkWidget *widget,
+                              gint      *minimal_height,
+                              gint      *natural_height)
+{
+  GtkRequisition requisition;
+
+  lxpanel_size_request (widget, &requisition);
+
+  *minimal_height = *natural_height = requisition.height;
+}
+#endif
 
 static void lxpanel_size_allocate(GtkWidget *widget, GtkAllocation *a)
 {
@@ -341,7 +372,12 @@ static void lxpanel_class_init(PanelToplevelClass *klass)
     gtk_object_class->destroy = lxpanel_destroy;
 #endif
     widget_class->realize = lxpanel_realize;
+#if GTK_CHECK_VERSION(3, 0, 0)
+    widget_class->get_preferred_width = lxpanel_get_preferred_width;
+    widget_class->get_preferred_height = lxpanel_get_preferred_height;
+#else
     widget_class->size_request = lxpanel_size_request;
+#endif
     widget_class->size_allocate = lxpanel_size_allocate;
     widget_class->configure_event = lxpanel_configure_event;
     widget_class->style_set = lxpanel_style_set;
@@ -815,7 +851,9 @@ static void _panel_update_background(LXPanel * p, gboolean enforce)
 
     /* Redraw the top level widget. */
     _panel_determine_background_pixmap(p);
+#if !GTK_CHECK_VERSION(3, 0, 0)
     gdk_window_clear(gtk_widget_get_window(w));
+#endif
     gtk_widget_queue_draw(w);
 
     /* Loop over all plugins redrawing each plugin. */

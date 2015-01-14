@@ -1927,6 +1927,7 @@ static void task_delete(LaunchTaskBarPlugin * tb, Task * tk, gboolean unlink, gb
 
 /* Get a pixbuf from a pixmap.
  * Originally from libwnck, Copyright (C) 2001 Havoc Pennington. */
+#if !GTK_CHECK_VERSION(3, 0, 0)
 static GdkPixbuf * _wnck_gdk_pixbuf_get_from_pixmap(GdkScreen *screen, Pixmap xpixmap, int width, int height)
 {
     /* Get the drawable. */
@@ -1976,6 +1977,50 @@ static GdkPixbuf * _wnck_gdk_pixbuf_get_from_pixmap(GdkScreen *screen, Pixmap xp
         g_object_unref(G_OBJECT(drawable));
     return retval;
 }
+#else
+static GdkPixbuf * _wnck_gdk_pixbuf_get_from_pixmap(GdkScreen *screen, Pixmap xpixmap, int width, int height)
+{
+  cairo_surface_t *surface;
+  GdkPixbuf *pixbuf;
+  Display *xdisplay;
+  Window root_return;
+  XWindowAttributes attrs;
+
+  surface = NULL;
+  xdisplay = GDK_DISPLAY_XDISPLAY(gdk_display_get_default());
+
+
+  gdk_error_trap_push();
+
+  if (!XGetWindowAttributes (xdisplay, root_return, &attrs))
+    goto TRAP_POP;
+
+  if (attrs.depth == 1)
+    {
+      surface = cairo_xlib_surface_create_for_bitmap (xdisplay,
+                                                      xpixmap,
+                                                      attrs.screen,
+                                                      width,
+                                                      height);
+    }
+  else
+    {
+      surface = cairo_xlib_surface_create (xdisplay,
+                                           xpixmap,
+                                           attrs.visual,
+                                           width, height);
+    }
+
+  pixbuf = gdk_pixbuf_get_from_surface (surface, 0, 0, width, height);
+  cairo_surface_destroy (surface);
+
+TRAP_POP:
+  gdk_flush();
+  gdk_error_trap_pop();
+
+  return pixbuf;
+}
+#endif
 
 /* Apply a mask to a pixbuf.
  * Originally from libwnck, Copyright (C) 2001 Havoc Pennington. */

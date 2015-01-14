@@ -149,7 +149,11 @@ static void     mem_tooltip_update (Monitor *m);
 
 
 static gboolean configure_event(GtkWidget*, GdkEventConfigure*, gpointer);
+#if !GTK_CHECK_VERSION(3, 0, 0)
 static gboolean expose_event(GtkWidget *, GdkEventExpose *, Monitor *);
+#else
+static gboolean draw(GtkWidget *, cairo_t *, Monitor *);
+#endif
 static void redraw_pixmap (Monitor *m);
 
 /* Monitors functions */
@@ -174,8 +178,13 @@ monitor_init(MonitorsPlugin *mp, Monitor *m, gchar *color)
     /* Signals */
     g_signal_connect(G_OBJECT(m->da), "configure-event",
         G_CALLBACK(configure_event), (gpointer) m);
+    #if !GTK_CHECK_VERSION(3, 0, 0)
     g_signal_connect (G_OBJECT(m->da), "expose-event",
         G_CALLBACK(expose_event), (gpointer) m);
+    #else
+    g_signal_connect (G_OBJECT(m->da), "draw",
+        G_CALLBACK(draw), (gpointer) m);
+    #endif
     /* g_signal_connect(G_OBJECT(m->da), "button-press-event",
                     G_CALLBACK(plugin_button_press_event), p); */
 
@@ -470,6 +479,7 @@ configure_event(GtkWidget* widget, GdkEventConfigure* dummy, gpointer data)
     return TRUE;
 }
 
+#if !GTK_CHECK_VERSION(3, 0, 0)
 static gboolean
 expose_event(GtkWidget * widget, GdkEventExpose * event, Monitor *m)
 {
@@ -490,6 +500,23 @@ expose_event(GtkWidget * widget, GdkEventExpose * event, Monitor *m)
 
     return FALSE;
 }
+#else
+static gboolean
+draw(GtkWidget * widget, cairo_t * cr, Monitor *m)
+{
+    /* Draw the requested part of the pixmap onto the drawing area.
+     * Translate it in both x and y by the border size. */
+    if (m->pixmap != NULL)
+    {
+        cairo_set_source_rgb(cr, 0, 0, 0);
+        cairo_set_source_surface(cr, m->pixmap, BORDER_SIZE, BORDER_SIZE);
+        cairo_paint(cr);
+        check_cairo_status(cr);
+    }
+
+    return FALSE;
+}
+#endif
 
 
 static gboolean monitors_button_press_event(GtkWidget* widget, GdkEventButton* evt, LXPanel *panel)

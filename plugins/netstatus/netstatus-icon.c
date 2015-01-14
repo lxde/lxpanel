@@ -449,7 +449,11 @@ netstatus_icon_signal_changed (NetstatusIface *iface,
 }
 
 static void
+#if GTK_CHECK_VERSION(3, 0, 0)
+netstatus_icon_destroy (GtkWidget *widget)
+#else
 netstatus_icon_destroy (GtkObject *widget)
+#endif
 {
   NetstatusIcon *icon = (NetstatusIcon *) widget;
 
@@ -477,7 +481,11 @@ netstatus_icon_destroy (GtkObject *widget)
 
   icon->priv->image = NULL;
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+  GTK_WIDGET_CLASS (parent_class)->destroy (widget);
+#else
   GTK_OBJECT_CLASS (parent_class)->destroy (widget);
+#endif
 }
 
 static GdkPixbuf *
@@ -583,6 +591,7 @@ get_box_class (GtkOrientation orientation)
   return g_type_class_peek(orientation == GTK_ORIENTATION_HORIZONTAL ? GTK_TYPE_HBOX : GTK_TYPE_VBOX);
 }
 
+#if !GTK_CHECK_VERSION(3, 0, 0)
 static void
 netstatus_icon_size_request (GtkWidget      *widget,
 			     GtkRequisition *requisition)
@@ -595,6 +604,7 @@ netstatus_icon_size_request (GtkWidget      *widget,
   if (GTK_WIDGET_CLASS (klass)->size_request)
     GTK_WIDGET_CLASS (klass)->size_request (widget, requisition);
 }
+#endif
 
 static void
 netstatus_icon_size_allocate (GtkWidget     *widget,
@@ -668,7 +678,9 @@ netstatus_icon_realize (GtkWidget *widget)
   attributes.window_type = GDK_WINDOW_CHILD;
   attributes.wclass = GDK_INPUT_OUTPUT;
   attributes.visual = gtk_widget_get_visual (widget);
+#if !GTK_CHECK_VERSION(3, 0, 0)
   attributes.colormap = gtk_widget_get_colormap (widget);
+#endif
   attributes.event_mask = gtk_widget_get_events (widget) |
                           GDK_BUTTON_MOTION_MASK         |
                           GDK_BUTTON_PRESS_MASK          |
@@ -677,7 +689,10 @@ netstatus_icon_realize (GtkWidget *widget)
                           GDK_ENTER_NOTIFY_MASK          |
                           GDK_LEAVE_NOTIFY_MASK;
 
-  attributes_mask = GDK_WA_X | GDK_WA_Y | GDK_WA_VISUAL | GDK_WA_COLORMAP;
+  attributes_mask = GDK_WA_X | GDK_WA_Y | GDK_WA_VISUAL;
+#if !GTK_CHECK_VERSION(3, 0, 0)
+   attributes_mask |= GDK_WA_COLORMAP;
+#endif
 
   window = gdk_window_new (gtk_widget_get_parent_window (widget), &attributes, attributes_mask);
   gtk_widget_set_window (widget, window);
@@ -797,7 +812,9 @@ static void
 netstatus_icon_class_init (NetstatusIconClass *klass)
 {
   GObjectClass   *gobject_class   = (GObjectClass   *) klass;
+#if !GTK_CHECK_VERSION(3, 0, 0)
   GtkObjectClass *gtkobject_class = (GtkObjectClass *) klass;
+#endif
   GtkWidgetClass *widget_class    = (GtkWidgetClass *) klass;
 
   parent_class = g_type_class_peek_parent (klass);
@@ -809,9 +826,15 @@ netstatus_icon_class_init (NetstatusIconClass *klass)
 
   gobject_class->finalize     = netstatus_icon_finalize;
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+  widget_class->destroy = netstatus_icon_destroy;
+#else
   gtkobject_class->destroy = netstatus_icon_destroy;
+#endif
 
+#if !GTK_CHECK_VERSION(3, 0, 0)
   widget_class->size_request       = netstatus_icon_size_request;
+#endif
   widget_class->size_allocate      = netstatus_icon_size_allocate;
   widget_class->realize            = netstatus_icon_realize;
   widget_class->button_press_event = netstatus_icon_button_press_event;
