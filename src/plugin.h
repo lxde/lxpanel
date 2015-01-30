@@ -98,6 +98,7 @@ typedef struct {
     void (*finalize)(void);     /* optional finalize */
     char *name;                 /* name to represent in lists */
     char *description;          /* tooltip text */
+    char *gettext_package;      /* optional: gettext package used to translate name and description */
     GtkWidget *(*new_instance)(LXPanel *panel, config_setting_t *settings);
     GtkWidget *(*config)(LXPanel *panel, GtkWidget *instance);
     void (*reconfigure)(LXPanel *panel, GtkWidget *instance);

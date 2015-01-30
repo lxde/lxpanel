@@ -560,7 +560,10 @@ on_sel_plugin_changed( GtkTreeSelection* tree_sel, GtkWidget* label )
         const LXPanelPluginInit *init;
         gtk_tree_model_get( model, &it, COL_DATA, &pl, -1 );
         init = PLUGIN_CLASS(pl);
-        gtk_label_set_text( GTK_LABEL(label), _(init->description) );
+        gtk_label_set_text(
+            GTK_LABEL(label),
+            ( init->gettext_package == NULL ? _(init->description) : g_dgettext(init->gettext_package, init->description) )
+        );
         gtk_widget_set_sensitive( edit_btn, init->config != NULL );
     }
 }
@@ -652,7 +655,11 @@ static void init_plugin_list( LXPanel* p, GtkTreeView* view, GtkWidget* label )
         gtk_container_child_get(GTK_CONTAINER(p->priv->box), w, "expand", &expand, NULL);
         gtk_list_store_append( list, &it );
         gtk_list_store_set( list, &it,
-                            COL_NAME, _(PLUGIN_CLASS(w)->name),
+                            COL_NAME,
+                            ( PLUGIN_CLASS(w)->gettext_package == NULL ?
+                              _(PLUGIN_CLASS(w)->name) :
+                              g_dgettext(PLUGIN_CLASS(w)->gettext_package, PLUGIN_CLASS(w)->name)
+                            ),
                             COL_EXPAND, expand,
                             COL_DATA, w,
                             -1);
@@ -722,7 +729,11 @@ static void on_add_plugin_response( GtkDialog* dlg,
                 model = gtk_tree_view_get_model( _view );
                 gtk_list_store_append( GTK_LIST_STORE(model), &it );
                 gtk_list_store_set( GTK_LIST_STORE(model), &it,
-                                    COL_NAME, _(PLUGIN_CLASS(pl)->name),
+                                    COL_NAME,
+                                    ( PLUGIN_CLASS(pl)->gettext_package == NULL ?
+                                      _(PLUGIN_CLASS(pl)->name) :
+                                      g_dgettext(PLUGIN_CLASS(pl)->gettext_package, PLUGIN_CLASS(pl)->name)
+                                    ),
                                     COL_EXPAND, expand,
                                     COL_DATA, pl, -1 );
                 tree_sel = gtk_tree_view_get_selection( _view );
@@ -821,7 +832,7 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
             gtk_list_store_append( list, &it );
             /* it is safe to put classes data here - they will be valid until restart */
             gtk_list_store_set( list, &it,
-                                0, _(init->name),
+                                0, ( init->gettext_package == NULL ? _(init->name) : g_dgettext(init->gettext_package, init->name) ),
                                 1, key,
                                 -1 );
             /* g_debug( "%s (%s)", pc->type, _(pc->name) ); */
