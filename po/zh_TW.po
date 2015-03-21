@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 21:13+0200\n"
-"PO-Revision-Date: 2014-04-06 06:54+0000\n"
-"Last-Translator: wwycheuk <wwycheuk@gmail.com>\n"
+"PO-Revision-Date: 2015-03-20 07:19+0000\n"
+"Last-Translator: <wwycheuk@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1396767290.0\n"
+"X-Generator: Pootle 2.6.0-rc2\n"
+"X-POOTLE-MTIME: 1426835946.000000\n"
 
 #: ../src/configurator.c:135
 msgid ""
@@ -87,9 +87,8 @@ msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:1067
-#, fuzzy
 msgid "Copyright (C) 2008-2014"
-msgstr "版權所有 (C) 2008-2013"
+msgstr "版權所有 (C) 2008-2014"
 
 #: ../src/panel.c:1068
 msgid "Desktop panel for LXDE project"
@@ -246,7 +245,7 @@ msgstr "左"
 
 #: ../src/input-button.c:164
 msgid "MiddleBtn"
-msgstr ""
+msgstr "中"
 
 #: ../src/input-button.c:167
 #, fuzzy
@@ -264,9 +263,8 @@ msgid "None"
 msgstr "無"
 
 #: ../src/input-button.c:257
-#, fuzzy
 msgid "Custom:"
-msgstr "自訂色彩"
+msgstr "自訂："
 
 #: ../src/input-button.c:329
 #, c-format
@@ -274,9 +272,8 @@ msgid "Cannot assign '%s' as a global hotkey: it is already bound."
 msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3553
-#, fuzzy
 msgid "Application Launch and Task Bar"
-msgstr "應用程式啟動列及工作列"
+msgstr "應用程式啟動及工作列"
 
 #. Launchtaskbar mode: launchbar, taskbar, or combined
 #: ../data/ui/launchtaskbar.glade.h:3
@@ -288,7 +285,6 @@ msgid "Launchers"
 msgstr "啟動器"
 
 #: ../data/ui/launchtaskbar.glade.h:5
-#, fuzzy
 msgid "<b>Launchbar</b>"
 msgstr "<b>啟動列</b>"
 
@@ -310,7 +306,7 @@ msgstr "顯示來自所有桌面的視窗"
 
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Only show windows on the same monitor as the task bar"
-msgstr ""
+msgstr "僅顯示和工作列同一螢幕的視窗"
 
 #: ../data/ui/launchtaskbar.glade.h:11
 msgid "Use mouse wheel"
@@ -326,7 +322,7 @@ msgstr "將同一應用程式的視窗合併顯示為單一按鈕"
 
 #: ../data/ui/launchtaskbar.glade.h:14
 msgid "Disable enlargement for small task icons"
-msgstr ""
+msgstr "停用小工作圖示放大"
 
 #: ../data/ui/launchtaskbar.glade.h:15
 msgid "Maximum width of task button"
@@ -341,19 +337,16 @@ msgid "<b>Taskbar</b>"
 msgstr "<b>工作列</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:18
-#, fuzzy
 msgid "Only Application Launch Bar"
 msgstr "僅應用程式啟動列"
 
 #: ../data/ui/launchtaskbar.glade.h:19
-#, fuzzy
 msgid "Only Task Bar (Window List)"
 msgstr "僅工作列 (視窗清單)"
 
 #: ../data/ui/launchtaskbar.glade.h:20
-#, fuzzy
 msgid "Integrated Application Launch Bar and Task Bar"
-msgstr "整合應用程式啟動列及工作列"
+msgstr "整合式應用程式啟動列及工作列"
 
 #: ../data/ui/netstatus.glade.h:1
 msgid "<b>Connection</b>"
@@ -487,7 +480,6 @@ msgid "Margin:"
 msgstr "留空："
 
 #: ../data/ui/panel-pref.glade.h:19
-#, fuzzy
 msgid "Monitor:"
 msgstr "螢幕："
 
@@ -706,12 +698,11 @@ msgstr "具有應用程式啟動按鈕的工具列"
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
-msgstr "工作列顯示所有開啟的視窗，並讓能視窗最小化、折疊、或取得焦點"
+msgstr "工作列顯示所有開啟的視窗，並能令視窗最小化、摺疊、或取得焦點"
 
 #: ../plugins/launchtaskbar.c:3554
-#, fuzzy
 msgid "Bar with buttons to launch application and/or show all opened windows"
-msgstr "具有啟動應用程式及/或顯示所有已開啟視窗按鈕的工具列"
+msgstr "具有啟動應用程式及/或顯示所有已開啟視窗按鈕的條列"
 
 #: ../plugins/dclock.c:418 ../plugins/dclock.c:438
 msgid "Digital Clock"
@@ -726,9 +717,9 @@ msgid "Tooltip Format"
 msgstr "工具提示格式"
 
 #: ../plugins/dclock.c:422
-#, fuzzy, c-format
+#, c-format
 msgid "Format codes: man 3 strftime; %n for line break"
-msgstr "格式字串說明：man 3 strftime; \\%n 用來表示換行"
+msgstr "格式字串說明：man 3 strftime; %n 用來表示換行"
 
 #: ../plugins/dclock.c:423
 msgid "Action when clicked (default: display calendar)"
@@ -776,7 +767,7 @@ msgstr "在工作列上增加分隔線"
 
 #: ../plugins/pager.c:92
 msgid "Sorry, there was no window manager configuration program found."
-msgstr ""
+msgstr "抱歉，找不到視窗管理員配置程式。"
 
 #: ../plugins/pager.c:144 ../plugins/pager.c:160
 msgid "Desktop Pager"
@@ -817,9 +808,8 @@ msgid "Description"
 msgstr "說明"
 
 #: ../plugins/xkb/xkb-plugin.c:611 ../plugins/xkb/xkb-plugin.c:742
-#, fuzzy
 msgid "Id"
-msgstr "閒置"
+msgstr "識別號"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:706
@@ -901,7 +891,7 @@ msgstr "處理鍵盤配置"
 
 #: ../plugins/wincmd.c:189
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr "按左鍵最小化所有視窗 / 中鍵折疊所有視窗"
+msgstr "按左鍵最小化所有視窗 / 中鍵摺疊所有視窗"
 
 #: ../plugins/wincmd.c:224 ../plugins/wincmd.c:234
 msgid "Minimize All Windows"
@@ -909,7 +899,7 @@ msgstr "最小化所有視窗"
 
 #: ../plugins/wincmd.c:226
 msgid "Alternately iconify/shade and raise"
-msgstr "切換視窗最小化/折疊/移到最上層"
+msgstr "切換視窗最小化/摺疊/移到最上層"
 
 #: ../plugins/wincmd.c:235
 msgid ""
@@ -917,7 +907,7 @@ msgid ""
 "Supported commands are 1) iconify and 2) shade"
 msgstr ""
 "發送指令給所有桌面視窗\n"
-"支援的指令  1) 最小化  2) 折疊"
+"支援的指令  1) 最小化  2) 摺疊"
 
 #: ../plugins/dirmenu.c:205
 msgid "Open in _Terminal"
@@ -936,28 +926,24 @@ msgid "Label"
 msgstr "標籤"
 
 #: ../plugins/dirmenu.c:370
-#, fuzzy
 msgid "Browse directory tree via menu (Author = PCMan)"
-msgstr "使用選單瀏覽目錄 (作者：PCMan)"
+msgstr "以選單瀏覽目錄樹 (作者：PCMan)"
 
 #: ../plugins/thermal/thermal.c:558 ../plugins/thermal/thermal.c:576
 msgid "Temperature Monitor"
 msgstr "溫度監視器"
 
 #: ../plugins/thermal/thermal.c:560
-#, fuzzy
 msgid "Normal color"
-msgstr "自訂色彩"
+msgstr "一般配色"
 
 #: ../plugins/thermal/thermal.c:561
-#, fuzzy
 msgid "Warning1 color"
-msgstr "充電顯示顏色 1"
+msgstr "警告1 配色"
 
 #: ../plugins/thermal/thermal.c:562
-#, fuzzy
 msgid "Warning2 color"
-msgstr "充電顯示顏色 1"
+msgstr "警告2 配色"
 
 #: ../plugins/thermal/thermal.c:563
 msgid "Automatic sensor location"
@@ -972,12 +958,10 @@ msgid "Automatic temperature levels"
 msgstr "自動溫度等級"
 
 #: ../plugins/thermal/thermal.c:566
-#, fuzzy
 msgid "Warning1 temperature"
 msgstr "警告1的溫度"
 
 #: ../plugins/thermal/thermal.c:567
-#, fuzzy
 msgid "Warning2 temperature"
 msgstr "警告2的溫度"
 
@@ -991,14 +975,16 @@ msgid ""
 "Frequency: %d MHz\n"
 "Governor: %s"
 msgstr ""
+"頻率：%d MHz\n"
+"管控器：%s"
 
 #: ../plugins/cpufreq/cpufreq.c:409
 msgid "CPUFreq frontend"
-msgstr ""
+msgstr "CPUFreq 前端程式"
 
 #: ../plugins/cpufreq/cpufreq.c:410
 msgid "Display CPU frequency and allow to change governors and frequency"
-msgstr ""
+msgstr "顯示 CPU 的頻率，並可變更管控器及頻率"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -1022,11 +1008,10 @@ msgid "Mute"
 msgstr "靜音"
 
 #: ../plugins/volumealsa/volumealsa.c:619
-#, fuzzy
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontrol, alsamixer ...)"
-msgstr "出錯，要安裝適當應用程式才能設定聲音 (pavucontol、alsamixer 等等)"
+msgstr "出錯，要安裝應用程以設定音效 (pavucontrol、alsamixer ... 等)"
 
 #: ../plugins/volumealsa/volumealsa.c:638
 msgid "Display and control volume for ALSA"
@@ -1409,13 +1394,12 @@ msgid "Cannot open /proc/net/dev: %s"
 msgstr "無法開啟 /proc/net/dev: %s"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:185
-#, fuzzy
 msgid "Could not parse /proc/net/dev. No data."
-msgstr "無法解析 /proc/net/dev。未知的格式。"
+msgstr "無法解析 /proc/net/dev。沒有資料。"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:190
 msgid "Could not parse /proc/net/dev. Unknown format."
-msgstr "無法解析 /proc/net/dev。未知的格式。"
+msgstr "無法解析 /proc/net/dev。格式不明。"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:205
 #: ../plugins/netstatus/netstatus-sysdeps.c:332
@@ -1434,13 +1418,12 @@ msgstr ""
 "卡統計資料"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:312
-#, fuzzy
 msgid "Could not parse /proc/net/wireless. No data."
 msgstr "無法解析 /proc/net/wireless。沒有資料。"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:316
 msgid "Could not parse /proc/net/wireless. Unknown format."
-msgstr "無法解析 /proc/net/wireless。未知格式。"
+msgstr "無法解析 /proc/net/wireless。格式不明。"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:343
 #, c-format
@@ -1464,7 +1447,7 @@ msgstr "無法解析命令列 '%s': %s"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:637
 msgid "Could not parse 'netstat' output. Unknown format"
-msgstr "無法解析 'netstat' 的輸出。未知格式"
+msgstr "無法解析 'netstat' 的輸出。格式不明"
 
 #: ../plugins/netstatus/netstatus-util.c:152
 msgid "Disconnected"
@@ -1507,6 +1490,8 @@ msgid ""
 "\n"
 "%sEnergy full design:\t\t%5d mWh"
 msgstr ""
+"\n"
+"%s設計最大能量：\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:181
 #, c-format
@@ -1514,6 +1499,8 @@ msgid ""
 "\n"
 "%sEnergy full:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%s最大能量：\t\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:183
 #, c-format
@@ -1521,6 +1508,8 @@ msgid ""
 "\n"
 "%sEnergy now:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%s現有能量：\t\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:185
 #, c-format
@@ -1528,6 +1517,8 @@ msgid ""
 "\n"
 "%sPower now:\t\t\t%5d mW"
 msgstr ""
+"\n"
+"%s現有功率：\t\t\t%5d mW"
 
 #: ../plugins/batt/batt.c:188
 #, c-format
@@ -1535,6 +1526,8 @@ msgid ""
 "\n"
 "%sCharge full design:\t%5d mAh"
 msgstr ""
+"\n"
+"%s設計最大充電量：\t%5d mAh"
 
 #: ../plugins/batt/batt.c:190
 #, c-format
@@ -1542,6 +1535,8 @@ msgid ""
 "\n"
 "%sCharge full:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%s最大充電量：\t\t\t%5d mAh"
 
 #: ../plugins/batt/batt.c:192
 #, c-format
@@ -1549,6 +1544,8 @@ msgid ""
 "\n"
 "%sCharge now:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%s現有充電量：\t\t\t%5d mAh"
 
 #: ../plugins/batt/batt.c:194
 #, c-format
@@ -1556,6 +1553,8 @@ msgid ""
 "\n"
 "%sCurrent now:\t\t\t%5d mA"
 msgstr ""
+"\n"
+"%s現有電流：\t\t\t%5d mA"
 
 #: ../plugins/batt/batt.c:197
 #, c-format
@@ -1563,15 +1562,16 @@ msgid ""
 "\n"
 "%sCurrent Voltage:\t\t%.3lf V"
 msgstr ""
+"\n"
+"%s現有電壓：\t\t%.3lf V"
 
 #: ../plugins/batt/batt.c:235
 msgid "No batteries found"
 msgstr "沒有電池"
 
 #: ../plugins/batt/batt.c:515 ../plugins/batt/batt.c:644
-#, fuzzy
 msgid "Battery low"
-msgstr "電池電量顯示"
+msgstr "電池電量低"
 
 #: ../plugins/batt/batt.c:664 ../plugins/batt/batt.c:685
 msgid "Battery Monitor"
@@ -1615,7 +1615,7 @@ msgstr "邊框寬度"
 
 #: ../plugins/batt/batt.c:676
 msgid "Show Extended Information"
-msgstr ""
+msgstr "顯示額外資訊"
 
 #: ../plugins/batt/batt.c:686
 msgid "Display battery status using ACPI"
@@ -1714,19 +1714,17 @@ msgstr "顯示監控 (CPU、記憶體)"
 
 #: ../plugins/weather/weatherwidget.c:52
 msgid "[N/A]"
-msgstr ""
+msgstr "[不適用]"
 
 #: ../plugins/weather/weatherwidget.c:792
 msgid "Enter New Location"
-msgstr ""
+msgstr "輸入新位置"
 
 #: ../plugins/weather/weatherwidget.c:806
-#, fuzzy
 msgid "_New Location:"
-msgstr "新增位置(_N)："
+msgstr "新位置(_N)："
 
 #: ../plugins/weather/weatherwidget.c:817
-#, fuzzy
 msgid ""
 "Enter the:\n"
 "- city, or\n"
@@ -1738,7 +1736,7 @@ msgstr ""
 "- 城市，或\n"
 "- 城市及州份/國家，或\n"
 "- 郵遞區號\n"
-"總之是取得天氣預測的位置。"
+"總之能是取得天氣預測的位置。"
 
 #: ../plugins/weather/weatherwidget.c:854
 #: ../plugins/weather/weatherwidget.c:987
@@ -1772,9 +1770,8 @@ msgstr "目前位置"
 
 #: ../plugins/weather/weatherwidget.c:1247
 #: ../plugins/weather/weatherwidget.c:1524
-#, fuzzy
 msgid "None configured"
-msgstr "沒有設定好的"
+msgstr "未設定"
 
 #: ../plugins/weather/weatherwidget.c:1249
 #: ../plugins/weather/weatherwidget.c:1521
@@ -1811,35 +1808,33 @@ msgstr "更新："
 
 #: ../plugins/weather/weatherwidget.c:1327
 msgid "Ma_nual"
-msgstr ""
+msgstr "手動(_N)"
 
 #: ../plugins/weather/weatherwidget.c:1331
 msgid "_Automatic, every"
-msgstr ""
+msgstr "自動(_A)，每"
 
 #: ../plugins/weather/weatherwidget.c:1352
 msgid "minutes"
-msgstr ""
+msgstr "分鐘"
 
 #: ../plugins/weather/weatherwidget.c:1361
 msgid "Source:"
-msgstr ""
+msgstr "來源："
 
 #: ../plugins/weather/weatherwidget.c:1477
-#, fuzzy
 msgid "C_hange"
-msgstr "變更類型"
+msgstr "變更(_H)"
 
 #. Both are available
 #: ../plugins/weather/weatherwidget.c:1565
 #, c-format
 msgid "Current Conditions for %s"
-msgstr ""
+msgstr "%s目前的天氣情況"
 
 #: ../plugins/weather/weatherwidget.c:1589
-#, fuzzy
 msgid "Location:"
-msgstr "教育"
+msgstr "地點："
 
 #: ../plugins/weather/weatherwidget.c:1612
 msgid "Last updated:"
@@ -1875,52 +1870,50 @@ msgstr "日落："
 
 #: ../plugins/weather/weatherwidget.c:1898
 #: ../plugins/weather/weatherwidget.c:2234
-#, fuzzy, c-format
+#, c-format
 msgid "Forecast for %s unavailable."
-msgstr "無法提供 %s 的預測。"
+msgstr "無法提供%s的預測。"
 
 #: ../plugins/weather/weatherwidget.c:1907
 #: ../plugins/weather/weatherwidget.c:2239
-#, fuzzy, c-format
+#, c-format
 msgid "Location not set."
-msgstr "登出指令尚未設定"
+msgstr "未設定地點。"
 
 #: ../plugins/weather/weatherwidget.c:1924
 #, c-format
 msgid "Searching for '%s'..."
-msgstr ""
+msgstr "正在搜尋「%s」的資訊..."
 
 #: ../plugins/weather/weatherwidget.c:2050
 #, c-format
 msgid "Location matches for '%s'"
-msgstr ""
+msgstr "符合「%s」的地點"
 
 #: ../plugins/weather/weatherwidget.c:2070
 msgid "City"
-msgstr ""
+msgstr "城市"
 
 #: ../plugins/weather/weatherwidget.c:2090
 msgid "Country"
-msgstr ""
+msgstr "國家/地區"
 
 #. make it nice and pretty
 #: ../plugins/weather/weatherwidget.c:2221
-#, fuzzy
 msgid "Currently in "
-msgstr "目前載入的外掛"
+msgstr "目前在"
 
 #: ../plugins/weather/weatherwidget.c:2223
 msgid "Today: "
-msgstr ""
+msgstr "今日："
 
 #: ../plugins/weather/weatherwidget.c:2224
 msgid "Tomorrow: "
-msgstr ""
+msgstr "明日："
 
 #: ../plugins/weather/weather.c:312
-#, fuzzy
 msgid "Weather Plugin"
-msgstr "WNCKPager 工作區顯示外掛程式"
+msgstr "天氣外掛程式"
 
 #: ../plugins/weather/weather.c:313
 msgid "Show weather conditions for a location."
