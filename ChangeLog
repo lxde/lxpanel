@@ -9,6 +9,10 @@
     which was not intended really.
 * Corrected background for 'indicator' plugin.
 * Fixed update 'indicator' plugin on configuration changes.
+* Fixed battery status: if discharge rate is 0 then it's charged.
+* Fixed incorrect cycle in netproc_devicelist_clear() leading to crash on
+    resume (after suspend).
+* Fixed scanning for temperature sensors which failed with some kernels.
 
 0.8.0
 -------------------------------------------------------------------------

@@ -356,9 +356,10 @@ static gboolean try_hwmon_sensors(thermal* th, const char *path)
     const char *sensor_name;
     char sensor_path[100], buf[256];
     FILE *fp;
+    gboolean found = FALSE;
 
     if (!(sensorsDirectory = g_dir_open(path, 0, NULL)))
-        return FALSE;
+        return found;
 
     while ((sensor_name = g_dir_read_name(sensorsDirectory)))
     {
@@ -382,10 +383,11 @@ static gboolean try_hwmon_sensors(thermal* th, const char *path)
             snprintf(sensor_path, sizeof(sensor_path), "%s/%s", path, sensor_name);
             add_sensor(th, sensor_path, buf[0] ? buf : sensor_name,
                        hwmon_get_temperature, hwmon_get_critical);
+            found = TRUE;
         }
     }
     g_dir_close(sensorsDirectory);
-    return TRUE;
+    return found;
 }
 
 static void find_hwmon_sensors(thermal* th)
@@ -399,6 +401,7 @@ static void find_hwmon_sensors(thermal* th)
         snprintf(dir_path, sizeof(dir_path), "/sys/class/hwmon/hwmon%d/device", i);
         if (try_hwmon_sensors(th, dir_path))
             continue;
+        /* no sensors found under device/, try parent dir */
         c = strrchr(dir_path, '/');
         *c = '\0';
         try_hwmon_sensors(th, dir_path);
