@@ -6,6 +6,7 @@
 * 'volumealsa' improvements
 * compose new custom launcher in launchbar config dialog
 * special launchers support ()
+* launchbar template with LockScreen and Shutdown
 * manage invisible panel from unplugged monitor
 * hotkeys for launchers
 * support rounded corners

@@ -475,34 +475,22 @@ static void netproc_alive(NETDEVLIST_PTR netdev_list)
 void netproc_devicelist_clear(NETDEVLIST_PTR *netdev_list)
 {
 	NETDEVLIST_PTR ptr;
-	NETDEVLIST_PTR prev_ptr;
-	NETDEVLIST_PTR del_ptr;
+	NETDEVLIST_PTR next_ptr;
 
-	if (*netdev_list==NULL) {
-		return;
-	}
-
-	prev_ptr = NULL;
-	ptr = *netdev_list;
-	do {
+	for (ptr = *netdev_list; ptr != NULL; ptr = next_ptr) {
+		next_ptr = ptr->next;
 		if (!ptr->info.alive) { /* if device was removed */
-			if (prev_ptr!=NULL) {
+			if (ptr->prev != NULL)
 				ptr->prev->next = ptr->next;
+			if (ptr->next != NULL)
 				ptr->next->prev = ptr->prev;
-			} else {
-				ptr->next->prev = NULL;
+			if (ptr == *netdev_list)
 				*netdev_list = ptr->next;
-			}
 
-			del_ptr = ptr;
-			ptr = ptr->next;
-			netproc_netdevlist_destroy(del_ptr);
-			g_free(del_ptr);
-		} else {
-			prev_ptr = ptr;
-			ptr = ptr->next;
+			netproc_netdevlist_destroy(ptr);
+			g_free(ptr);
 		}
-	} while(ptr!=NULL);
+	}
 }
 
 void netproc_listener(FNETD *fnetd)
