@@ -13,6 +13,10 @@
 * Fixed incorrect cycle in netproc_devicelist_clear() leading to crash on
     resume (after suspend).
 * Fixed scanning for temperature sensors which failed with some kernels.
+* Changed reconfiguring panel behavior: callbacks to plugins will be sent
+    on idle, not immediately to avoid "stuck" spin button (and eventually
+    even crash was possible).
+* Fixed initial icon on 'volumealsa' to show real state instead of muted.
 
 0.8.0
 -------------------------------------------------------------------------

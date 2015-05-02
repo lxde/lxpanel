@@ -1700,9 +1700,7 @@ static gboolean _panel_idle_reconfigure(gpointer widget)
 void _panel_set_panel_configuration_changed(LXPanel *panel)
 {
     if (panel->priv->reconfigure_queued)
-    {
         return;
-    }
     panel->priv->reconfigure_queued = g_idle_add(_panel_idle_reconfigure, panel);
 }
 

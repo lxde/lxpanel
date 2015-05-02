@@ -667,6 +667,7 @@ static GtkWidget *volumealsa_constructor(LXPanel *panel, config_setting_t *setti
 
     /* Update the display, show the widget, and return. */
     volumealsa_update_display(vol);
+    volumealsa_update_current_icon(vol, asound_is_muted(vol), asound_get_volume(vol));
     gtk_widget_show_all(p);
     return p;
 }
