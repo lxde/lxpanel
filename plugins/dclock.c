@@ -326,6 +326,7 @@ static GtkWidget *dclock_constructor(LXPanel *panel, config_setting_t *settings)
     dclock_apply_configuration(p);
 
     /* Show the widget and return. */
+    dc->timer = g_idle_add((GSourceFunc)dclock_update_display, dc);
     return p;
 }
 
@@ -356,7 +357,6 @@ static gboolean dclock_apply_configuration(gpointer user_data)
 {
     GtkWidget * p = user_data;
     DClockPlugin * dc = lxpanel_plugin_get_data(p);
-    struct timeval now;
 
     /* stop the updater now */
     if (dc->timer)
@@ -390,7 +390,7 @@ static gboolean dclock_apply_configuration(gpointer user_data)
     dc->experiment_count = 0;
     dc->prev_clock_value = NULL;
     dc->prev_tooltip_value = NULL;
-    dclock_timer_set(dc, &now);
+    dc->timer = g_idle_add((GSourceFunc)dclock_update_display, dc);
 
     /* Hide the calendar. */
     if (dc->calendar_window != NULL)

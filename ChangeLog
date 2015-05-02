@@ -17,6 +17,8 @@
     on idle, not immediately to avoid "stuck" spin button (and eventually
     even crash was possible).
 * Fixed initial icon on 'volumealsa' to show real state instead of muted.
+* Fixed 'dclock' updating that it will show time on start, not just on
+    next second change. It would create impression it's slow otherwise.
 
 0.8.0
 -------------------------------------------------------------------------
