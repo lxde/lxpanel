@@ -130,6 +130,11 @@ static void panel_stop_gui(LXPanel *self)
         g_source_remove(p->strut_update_queued);
         p->strut_update_queued = 0;
     }
+    if (p->reconfigure_queued)
+    {
+        g_source_remove(p->reconfigure_queued);
+        p->reconfigure_queued = 0;
+    }
 
     if (gtk_bin_get_child(GTK_BIN(self)))
     {
@@ -1624,12 +1629,19 @@ void panel_set_panel_configuration_changed(Panel *p)
     _panel_set_panel_configuration_changed(p->topgwin);
 }
 
-void _panel_set_panel_configuration_changed(LXPanel *panel)
+static gboolean _panel_idle_reconfigure(gpointer widget)
 {
-    Panel *p = panel->priv;
+    LXPanel *panel;
+    Panel *p;
     GList *plugins, *l;
+    GtkOrientation previous_orientation;
 
-    GtkOrientation previous_orientation = p->orientation;
+    if (g_source_is_destroyed(g_main_current_source()))
+        return FALSE;
+
+    panel = LXPANEL(widget);
+    p = panel->priv;
+    previous_orientation = p->orientation;
     p->orientation = (p->edge == EDGE_TOP || p->edge == EDGE_BOTTOM)
         ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
 
@@ -1679,6 +1691,19 @@ void _panel_set_panel_configuration_changed(LXPanel *panel)
     g_list_free(plugins);
     /* panel geometry changed? update panel background then */
     _panel_queue_update_background(panel);
+
+    p->reconfigure_queued = 0;
+
+    return FALSE;
+}
+
+void _panel_set_panel_configuration_changed(LXPanel *panel)
+{
+    if (panel->priv->reconfigure_queued)
+    {
+        return;
+    }
+    panel->priv->reconfigure_queued = g_idle_add(_panel_idle_reconfigure, panel);
 }
 
 static int

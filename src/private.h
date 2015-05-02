@@ -143,6 +143,7 @@ struct _Panel {
     guint background_update_queued;
     guint strut_update_queued;
     guint mouse_timeout;
+    guint reconfigure_queued;
     //gint dyn_space;                     /* Space for expandable plugins */
     //guint calculate_size_idle;          /* The idle handler for dyn_space calc */
     cairo_surface_t *surface;           /* Panel background */
