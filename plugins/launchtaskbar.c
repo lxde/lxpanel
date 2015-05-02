@@ -2598,7 +2598,10 @@ static gboolean taskbar_button_press_event(GtkWidget * widget, GdkEventButton * 
 /* Handler for "button-release-event" event from taskbar button. */
 static gboolean taskbar_button_release_event(GtkWidget * widget, GdkEventButton * event, Task * tk)
 {
-    if (!tk->tb->dnd_task_moving)
+    if (!tk->tb->dnd_task_moving && tk->entered_state)
+        /* SF bug#731: don't process button release with DND. Also if button was
+           released outside of widget but DND wasn't activated: this might happen
+           if drag started at edge of button so drag treshold wasn't reached. */
         return taskbar_task_control_event(widget, event, tk, FALSE);
     return TRUE;
 }

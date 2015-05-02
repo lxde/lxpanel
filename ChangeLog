@@ -19,6 +19,7 @@
 * Fixed initial icon on 'volumealsa' to show real state instead of muted.
 * Fixed 'dclock' updating that it will show time on start, not just on
     next second change. It would create impression it's slow otherwise.
+* Fixed wrong task button activation on not processed drag of button.
 
 0.8.0
 -------------------------------------------------------------------------
