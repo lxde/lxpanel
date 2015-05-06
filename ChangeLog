@@ -1,3 +1,5 @@
+0.8.1
+-------------------------------------------------------------------------
 * Improved OSS headers detection a bit.
 * Fixed expand setting on plugins with default_expand when more than one
     is available on the same panel.
