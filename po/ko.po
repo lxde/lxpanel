@@ -8,14 +8,18 @@ msgstr ""
 "Project-Id-Version: lxtask\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 21:13+0200\n"
-"PO-Revision-Date: 2012-10-16 17:35+0900\n"
-"Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
+"PO-Revision-Date: 2014-12-02 11:45+0000\n"
+"Last-Translator: system user <>\n"
 "Language-Team: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 2.7.0-alpha1\n"
+"X-POOTLE-MTIME: 1417520711.000000\n"
+"X-Pootle-Path: /ko/lxpanel/po/ko.po\n"
+"X-Pootle-Revision: 0\n"
 
 #: ../src/configurator.c:135
 msgid ""
@@ -57,7 +61,7 @@ msgstr "찾아보기(_B)"
 
 #: ../src/panel.c:981
 msgid "There is no room for another panel. All the edges are taken."
-msgstr ""
+msgstr "다른 패널에 대한 공간이 없습니다. 모든 가장자리를 차지했습니다."
 
 #: ../src/panel.c:1007
 msgid ""
@@ -81,9 +85,8 @@ msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:1067
-#, fuzzy
 msgid "Copyright (C) 2008-2014"
-msgstr "Copyright (C) 2008-2011"
+msgstr "Copyright (C) 2008-2014"
 
 #: ../src/panel.c:1068
 msgid "Desktop panel for LXDE project"
@@ -149,7 +152,7 @@ msgstr "아래"
 
 #: ../src/plugin.c:340
 msgid "No file manager is configured."
-msgstr ""
+msgstr "파일 관리자를 설정하지 않았습니다."
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/gtk-run.c:377 ../src/main.c:52 ../plugins/menu.c:741
@@ -268,24 +271,21 @@ msgid "Cannot assign '%s' as a global hotkey: it is already bound."
 msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3553
-#, fuzzy
 msgid "Application Launch and Task Bar"
-msgstr "프로그램 실행 표시줄"
+msgstr "프로그램 실행 및 작업 표시줄"
 
 #. Launchtaskbar mode: launchbar, taskbar, or combined
 #: ../data/ui/launchtaskbar.glade.h:3
-#, fuzzy
 msgid "<b>Mode:</b>"
-msgstr "<b>크기</b>"
+msgstr "<b>모드:</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:4
 msgid "Launchers"
-msgstr ""
+msgstr "실행 아이콘"
 
 #: ../data/ui/launchtaskbar.glade.h:5
-#, fuzzy
 msgid "<b>Launchbar</b>"
-msgstr "<b>배경</b>"
+msgstr "<b>실행 표시줄</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:6
 msgid "Show tooltips"
@@ -305,7 +305,7 @@ msgstr "모든 데스크톱에 창 표시"
 
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Only show windows on the same monitor as the task bar"
-msgstr ""
+msgstr "작업 표시줄로 동일한 모니터의 창 표시"
 
 #: ../data/ui/launchtaskbar.glade.h:11
 msgid "Use mouse wheel"
@@ -332,24 +332,20 @@ msgid "Spacing"
 msgstr "여백"
 
 #: ../data/ui/launchtaskbar.glade.h:17
-#, fuzzy
 msgid "<b>Taskbar</b>"
-msgstr "<b>배경</b>"
+msgstr "<b>작업 표시줄</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:18
-#, fuzzy
 msgid "Only Application Launch Bar"
-msgstr "프로그램 실행 표시줄"
+msgstr "프로그램 실행 표시줄만"
 
 #: ../data/ui/launchtaskbar.glade.h:19
-#, fuzzy
 msgid "Only Task Bar (Window List)"
-msgstr "작업 표시줄(창 목록)"
+msgstr "작업 표시줄만(창 목록)"
 
 #: ../data/ui/launchtaskbar.glade.h:20
-#, fuzzy
 msgid "Integrated Application Launch Bar and Task Bar"
-msgstr "프로그램 실행 표시줄"
+msgstr "프로그램 실행 표시줄과 작업 표시줄 통합"
 
 #: ../data/ui/netstatus.glade.h:1
 msgid "<b>Connection</b>"
@@ -483,9 +479,8 @@ msgid "Margin:"
 msgstr "여백:"
 
 #: ../data/ui/panel-pref.glade.h:19
-#, fuzzy
 msgid "Monitor:"
-msgstr "배터리 감시기"
+msgstr "모니터:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "<b>Position</b>"
@@ -633,9 +628,8 @@ msgid "Task Bar (Window List)"
 msgstr "작업 표시줄(창 목록)"
 
 #: ../plugins/launchtaskbar.c:2507
-#, fuzzy
 msgid "_Close all windows"
-msgstr "창 닫기(_C)"
+msgstr "모든 창 닫기(_C)"
 
 #. Add Raise menu item.
 #: ../plugins/launchtaskbar.c:3380
@@ -685,16 +679,15 @@ msgstr "창 닫기(_C)"
 
 #: ../plugins/launchtaskbar.c:3453
 msgid "A_dd to Launcher"
-msgstr ""
+msgstr "실행 아이콘 추가(_D)"
 
 #: ../plugins/launchtaskbar.c:3454
-#, fuzzy
 msgid "Rem_ove from Launcher"
 msgstr "\"%s\" 패널에서 제거"
 
 #: ../plugins/launchtaskbar.c:3455
 msgid "_New Instance"
-msgstr ""
+msgstr "새 인스턴스(_N)"
 
 #: ../plugins/launchtaskbar.c:3526
 msgid "Bar with buttons to launch application"
@@ -709,9 +702,8 @@ msgstr ""
 "하도록 해줍니다"
 
 #: ../plugins/launchtaskbar.c:3554
-#, fuzzy
 msgid "Bar with buttons to launch application and/or show all opened windows"
-msgstr "프로그램을 실행할 단추 표시줄"
+msgstr "프로그램을 실행하거나 열려있는 모든 창을 표시할 단추 표시줄"
 
 #: ../plugins/dclock.c:418 ../plugins/dclock.c:438
 msgid "Digital Clock"
@@ -726,9 +718,9 @@ msgid "Tooltip Format"
 msgstr "풍선도움말 형식"
 
 #: ../plugins/dclock.c:422
-#, fuzzy, c-format
+#, c-format
 msgid "Format codes: man 3 strftime; %n for line break"
-msgstr "형식 코드: man 3 strftime; \\n 줄바꿈 문자"
+msgstr "형식 코드: man 3 strftime; 줄바꿈 문자: %n "
 
 #: ../plugins/dclock.c:423
 msgid "Action when clicked (default: display calendar)"
@@ -776,7 +768,7 @@ msgstr "패널에 구분선 추가"
 
 #: ../plugins/pager.c:92
 msgid "Sorry, there was no window manager configuration program found."
-msgstr ""
+msgstr "죄송하지만, 창 관리자 설정 프로그램이 없습니다."
 
 #: ../plugins/pager.c:144 ../plugins/pager.c:160
 msgid "Desktop Pager"
@@ -804,7 +796,7 @@ msgstr "시스템 표시줄"
 
 #: ../plugins/xkb/xkb-plugin.c:401
 msgid "New session is required for this option to take effect"
-msgstr ""
+msgstr "이 옵션의 설정을 적용하려면 새 세션이 필요합니다"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:582
@@ -817,9 +809,8 @@ msgid "Description"
 msgstr "설명"
 
 #: ../plugins/xkb/xkb-plugin.c:611 ../plugins/xkb/xkb-plugin.c:742
-#, fuzzy
 msgid "Id"
-msgstr "대기"
+msgstr "ID"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:706
@@ -861,15 +852,15 @@ msgstr "배치 옵션 바꾸기"
 
 #: ../plugins/xkb/xkb-plugin.c:1331
 msgid "Advanced setxkbmap Options"
-msgstr ""
+msgstr "고급 setxkbmap 옵션"
 
 #: ../plugins/xkb/xkb-plugin.c:1352
 msgid "Do _not reset existing options"
-msgstr ""
+msgstr "기존 옵션 초기화 안함(_N)"
 
 #: ../plugins/xkb/xkb-plugin.c:1357
 msgid "Keep _system layouts"
-msgstr ""
+msgstr "시스템 배치 유지(_S)"
 
 #: ../plugins/xkb/xkb-plugin.c:1366
 msgid "Per Window Settings"
@@ -938,28 +929,24 @@ msgid "Label"
 msgstr "레이블"
 
 #: ../plugins/dirmenu.c:370
-#, fuzzy
 msgid "Browse directory tree via menu (Author = PCMan)"
-msgstr "메뉴를 이용하여 디렉터리 트리를 탐색합니다(Author: PCMan)"
+msgstr "메뉴로 디렉터리 트리 탐색(Author = PCMan)"
 
 #: ../plugins/thermal/thermal.c:558 ../plugins/thermal/thermal.c:576
 msgid "Temperature Monitor"
 msgstr "온도 감시기"
 
 #: ../plugins/thermal/thermal.c:560
-#, fuzzy
 msgid "Normal color"
-msgstr "사용자 지정 색"
+msgstr "보통 색상"
 
 #: ../plugins/thermal/thermal.c:561
-#, fuzzy
 msgid "Warning1 color"
-msgstr "충전 색 1"
+msgstr "경고1 색상"
 
 #: ../plugins/thermal/thermal.c:562
-#, fuzzy
 msgid "Warning2 color"
-msgstr "충전 색 1"
+msgstr "경고2 색상"
 
 #: ../plugins/thermal/thermal.c:563
 msgid "Automatic sensor location"
@@ -974,14 +961,12 @@ msgid "Automatic temperature levels"
 msgstr "자동 온도 수준표시"
 
 #: ../plugins/thermal/thermal.c:566
-#, fuzzy
 msgid "Warning1 temperature"
-msgstr "경고 1단계 온도"
+msgstr "경고1 온도"
 
 #: ../plugins/thermal/thermal.c:567
-#, fuzzy
 msgid "Warning2 temperature"
-msgstr "경고 2단계 온도"
+msgstr "경고2 온도"
 
 #: ../plugins/thermal/thermal.c:577
 msgid "Display system temperature"
@@ -993,14 +978,16 @@ msgid ""
 "Frequency: %d MHz\n"
 "Governor: %s"
 msgstr ""
+"주파수: %d MHz\n"
+"정책: %s"
 
 #: ../plugins/cpufreq/cpufreq.c:409
 msgid "CPUFreq frontend"
-msgstr ""
+msgstr "CPUFreq 프론트엔드"
 
 #: ../plugins/cpufreq/cpufreq.c:410
 msgid "Display CPU frequency and allow to change governors and frequency"
-msgstr ""
+msgstr "CPU 주파수를 표시하고 정책과 주파수를 조절할 수 있도록 합니다"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -1024,17 +1011,14 @@ msgid "Mute"
 msgstr "음소거"
 
 #: ../plugins/volumealsa/volumealsa.c:619
-#, fuzzy
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontrol, alsamixer ...)"
-msgstr ""
-"오류가 있습니다. 소리를 설정할 프로그램을 설치가 필요합니다(pavucontrol, "
-"alsamixer ...)"
+msgstr "오류가 발생했습니다. 음성을 설정할 프로그램(pavucontrol, alsamixer...)을 설치해야 합니다"
 
 #: ../plugins/volumealsa/volumealsa.c:638
 msgid "Display and control volume for ALSA"
-msgstr ""
+msgstr "ALSA의 음량을 표시하고 조절합니다"
 
 #: ../plugins/netstat/netstat.c:179
 msgid "<Hidden Access Point>"
@@ -1413,9 +1397,8 @@ msgid "Cannot open /proc/net/dev: %s"
 msgstr "/proc/net/dev를 열 수 없습니다: %s"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:185
-#, fuzzy
 msgid "Could not parse /proc/net/dev. No data."
-msgstr "/proc/net/dev를 해석할 수 없습니다. 알 수 없는 형식입니다."
+msgstr "/proc/net/dev를 해석할 수 없습니다. 데이터가 없습니다."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:190
 msgid "Could not parse /proc/net/dev. Unknown format."
@@ -1438,9 +1421,8 @@ msgstr ""
 "%d; brx_idx = %d; btx_idx = %d;"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:312
-#, fuzzy
 msgid "Could not parse /proc/net/wireless. No data."
-msgstr "/proc/net/wireless를 해석할 수 없습니다. 알 수 없는 형식입니다."
+msgstr "/proc/net/wireless를 해석할 수 없습니다. 데이터가 없습니다."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:316
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1511,6 +1493,8 @@ msgid ""
 "\n"
 "%sEnergy full design:\t\t%5d mWh"
 msgstr ""
+"\n"
+"%s 에너지 완전 소비 설계:\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:181
 #, c-format
@@ -1518,6 +1502,8 @@ msgid ""
 "\n"
 "%sEnergy full:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%s 에너지 완전 소비:\t\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:183
 #, c-format
@@ -1525,6 +1511,8 @@ msgid ""
 "\n"
 "%sEnergy now:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%s 에너지 현재 소비:\t\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:185
 #, c-format
@@ -1532,6 +1520,8 @@ msgid ""
 "\n"
 "%sPower now:\t\t\t%5d mW"
 msgstr ""
+"\n"
+"%s 전력 현재 소비:\t\t\t%5d mW"
 
 #: ../plugins/batt/batt.c:188
 #, c-format
@@ -1539,6 +1529,8 @@ msgid ""
 "\n"
 "%sCharge full design:\t%5d mAh"
 msgstr ""
+"\n"
+"%s 완충 설계:\t%5d mAh"
 
 #: ../plugins/batt/batt.c:190
 #, c-format
@@ -1546,6 +1538,8 @@ msgid ""
 "\n"
 "%sCharge full:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%s 완충:\t\t\t%5d mAh"
 
 #: ../plugins/batt/batt.c:192
 #, c-format
@@ -1553,6 +1547,8 @@ msgid ""
 "\n"
 "%sCharge now:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%s 현재 충전량:\t\t\t%5d mAh"
 
 #: ../plugins/batt/batt.c:194
 #, c-format
@@ -1560,6 +1556,8 @@ msgid ""
 "\n"
 "%sCurrent now:\t\t\t%5d mA"
 msgstr ""
+"\n"
+"%s 현재 전류:\t\t\t%5d mA"
 
 #: ../plugins/batt/batt.c:197
 #, c-format
@@ -1567,6 +1565,8 @@ msgid ""
 "\n"
 "%sCurrent Voltage:\t\t%.3lf V"
 msgstr ""
+"\n"
+"%s 현재 전압:\t\t%.3lf V"
 
 #: ../plugins/batt/batt.c:235
 msgid "No batteries found"
@@ -1619,7 +1619,7 @@ msgstr "데투리 두께"
 
 #: ../plugins/batt/batt.c:676
 msgid "Show Extended Information"
-msgstr ""
+msgstr "추가 정보 표시"
 
 #: ../plugins/batt/batt.c:686
 msgid "Display battery status using ACPI"
@@ -1718,16 +1718,15 @@ msgstr "감시기를 보여줍니다(CPU, RAM)"
 
 #: ../plugins/weather/weatherwidget.c:52
 msgid "[N/A]"
-msgstr ""
+msgstr "[없음]"
 
 #: ../plugins/weather/weatherwidget.c:792
 msgid "Enter New Location"
-msgstr ""
+msgstr "새 위치를 입력하십시오"
 
 #: ../plugins/weather/weatherwidget.c:806
-#, fuzzy
 msgid "_New Location:"
-msgstr "네트워크 연결"
+msgstr "새 위치(_N):"
 
 #: ../plugins/weather/weatherwidget.c:817
 msgid ""
@@ -1737,196 +1736,192 @@ msgid ""
 "- postal code\n"
 "for which to retrieve the weather forecast."
 msgstr ""
+"다음을 입력하십시오:\n"
+"- 도시\n"
+"- 도시, 도/국가\n"
+"- 우편번호\n"
+"를 활용하여 날씨 예보 정보를 가져옵니다."
 
 #: ../plugins/weather/weatherwidget.c:854
 #: ../plugins/weather/weatherwidget.c:987
 msgid "You must specify a location."
-msgstr ""
+msgstr "위치를 지정해야 합니다."
 
 #: ../plugins/weather/weatherwidget.c:901
 #, c-format
 msgid "Location '%s' not found!"
-msgstr ""
+msgstr "'%s' 위치가 없습니다!"
 
 #: ../plugins/weather/weatherwidget.c:1060
-#, fuzzy
 msgid "Preferences"
-msgstr "패널 기본 설정"
+msgstr "기본 설정"
 
 #: ../plugins/weather/weatherwidget.c:1066
 msgid "Refresh"
-msgstr ""
+msgstr "새로 고침"
 
 #: ../plugins/weather/weatherwidget.c:1072
 msgid "Quit"
-msgstr ""
+msgstr "나가기"
 
 #: ../plugins/weather/weatherwidget.c:1229
-#, fuzzy
 msgid "Weather Preferences"
-msgstr "패널 기본 설정"
+msgstr "날씨 기본 설정"
 
 #: ../plugins/weather/weatherwidget.c:1243
-#, fuzzy
 msgid "Current Location"
-msgstr "방향"
+msgstr "현재 위치"
 
 #: ../plugins/weather/weatherwidget.c:1247
 #: ../plugins/weather/weatherwidget.c:1524
-#, fuzzy
 msgid "None configured"
-msgstr "설정(_F)"
+msgstr "설정하지 않음"
 
 #: ../plugins/weather/weatherwidget.c:1249
 #: ../plugins/weather/weatherwidget.c:1521
 msgid "_Set"
-msgstr ""
+msgstr "설정(_S)"
 
 #: ../plugins/weather/weatherwidget.c:1270
 msgid "Display"
-msgstr ""
+msgstr "표시"
 
 #: ../plugins/weather/weatherwidget.c:1274
-#, fuzzy
 msgid "Name:"
-msgstr "이름(_N):"
+msgstr "이름:"
 
 #: ../plugins/weather/weatherwidget.c:1278
 msgid "Units:"
-msgstr ""
+msgstr "단위:"
 
 #: ../plugins/weather/weatherwidget.c:1282
 msgid "_Metric (°C)"
-msgstr ""
+msgstr "미터법(°C)(_M)"
 
 #: ../plugins/weather/weatherwidget.c:1284
 msgid "_English (°F)"
-msgstr ""
+msgstr "영국식(°F)(_E)"
 
 #: ../plugins/weather/weatherwidget.c:1319
 msgid "Forecast"
-msgstr ""
+msgstr "예보"
 
 #: ../plugins/weather/weatherwidget.c:1323
 msgid "Updates:"
-msgstr ""
+msgstr "업데이트:"
 
 #: ../plugins/weather/weatherwidget.c:1327
 msgid "Ma_nual"
-msgstr ""
+msgstr "수동(_N)"
 
 #: ../plugins/weather/weatherwidget.c:1331
 msgid "_Automatic, every"
-msgstr ""
+msgstr "다음 시간마다 자동(_A)"
 
 #: ../plugins/weather/weatherwidget.c:1352
 msgid "minutes"
-msgstr ""
+msgstr "분"
 
 #: ../plugins/weather/weatherwidget.c:1361
 msgid "Source:"
-msgstr ""
+msgstr "공급원:"
 
 #: ../plugins/weather/weatherwidget.c:1477
-#, fuzzy
 msgid "C_hange"
-msgstr "형식 바꾸기"
+msgstr "바꾸기(_H)"
 
 #. Both are available
 #: ../plugins/weather/weatherwidget.c:1565
 #, c-format
 msgid "Current Conditions for %s"
-msgstr ""
+msgstr "%s의 현재 상태"
 
 #: ../plugins/weather/weatherwidget.c:1589
 msgid "Location:"
-msgstr ""
+msgstr "위치:"
 
 #: ../plugins/weather/weatherwidget.c:1612
 msgid "Last updated:"
-msgstr ""
+msgstr "최종 업데이트:"
 
 #: ../plugins/weather/weatherwidget.c:1639
 msgid "Feels like:"
-msgstr ""
+msgstr "체감:"
 
 #: ../plugins/weather/weatherwidget.c:1664
 msgid "Humidity:"
-msgstr ""
+msgstr "습도:"
 
 #: ../plugins/weather/weatherwidget.c:1691
-#, fuzzy
 msgid "Pressure:"
-msgstr "IP 주소:"
+msgstr "기압:"
 
 #: ../plugins/weather/weatherwidget.c:1718
 msgid "Visibility:"
-msgstr ""
+msgstr "가시도:"
 
 #: ../plugins/weather/weatherwidget.c:1746
 msgid "Wind:"
-msgstr ""
+msgstr "바람:"
 
 #: ../plugins/weather/weatherwidget.c:1769
 msgid "Sunrise:"
-msgstr ""
+msgstr "일출:"
 
 #: ../plugins/weather/weatherwidget.c:1792
 msgid "Sunset:"
-msgstr ""
+msgstr "일몰:"
 
 #: ../plugins/weather/weatherwidget.c:1898
 #: ../plugins/weather/weatherwidget.c:2234
 #, c-format
 msgid "Forecast for %s unavailable."
-msgstr ""
+msgstr "%s 예보 정보가 없습니다."
 
 #: ../plugins/weather/weatherwidget.c:1907
 #: ../plugins/weather/weatherwidget.c:2239
-#, fuzzy, c-format
+#, c-format
 msgid "Location not set."
-msgstr "로그아웃 명령을 지정하지 않았습니다"
+msgstr "위치를 설정하지 않았습니다."
 
 #: ../plugins/weather/weatherwidget.c:1924
 #, c-format
 msgid "Searching for '%s'..."
-msgstr ""
+msgstr "'%s' 정보 검색 중..."
 
 #: ../plugins/weather/weatherwidget.c:2050
 #, c-format
 msgid "Location matches for '%s'"
-msgstr ""
+msgstr "'%s'에 일치하는 위치"
 
 #: ../plugins/weather/weatherwidget.c:2070
 msgid "City"
-msgstr ""
+msgstr "도시"
 
 #: ../plugins/weather/weatherwidget.c:2090
 msgid "Country"
-msgstr ""
+msgstr "국가"
 
 #. make it nice and pretty
 #: ../plugins/weather/weatherwidget.c:2221
-#, fuzzy
 msgid "Currently in "
-msgstr "현재 불러온 플러그인"
+msgstr "현재 "
 
 #: ../plugins/weather/weatherwidget.c:2223
 msgid "Today: "
-msgstr ""
+msgstr "오늘: "
 
 #: ../plugins/weather/weatherwidget.c:2224
 msgid "Tomorrow: "
-msgstr ""
+msgstr "내일: "
 
 #: ../plugins/weather/weather.c:312
-#, fuzzy
 msgid "Weather Plugin"
-msgstr "WNCKpager 플러그인"
+msgstr "날씨 플러그인"
 
 #: ../plugins/weather/weather.c:313
 msgid "Show weather conditions for a location."
-msgstr ""
+msgstr "지정 위치의 날씨를 표시합니다."
 
 #~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 #~ msgstr ""

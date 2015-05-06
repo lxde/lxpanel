@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 21:13+0200\n"
-"PO-Revision-Date: 2014-11-28 15:55+0000\n"
+"PO-Revision-Date: 2015-03-26 13:25+0000\n"
 "Last-Translator: Sérgio Marques <smarquespt@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pt\n"
@@ -17,8 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1417190158.000000\n"
+"X-Generator: Pootle 2.7.0-alpha1\n"
+"X-POOTLE-MTIME: 1427376352.000000\n"
+"X-Pootle-Path: /pt/lxpanel/po/pt.po\n"
+"X-Pootle-Revision: 71\n"
 
 #: ../src/configurator.c:135
 msgid ""
@@ -1911,15 +1913,15 @@ msgstr "País"
 #. make it nice and pretty
 #: ../plugins/weather/weatherwidget.c:2221
 msgid "Currently in "
-msgstr "Atualmente em"
+msgstr "Atualmente em "
 
 #: ../plugins/weather/weatherwidget.c:2223
 msgid "Today: "
-msgstr "Hoje:"
+msgstr "Hoje: "
 
 #: ../plugins/weather/weatherwidget.c:2224
 msgid "Tomorrow: "
-msgstr "Amanhã:"
+msgstr "Amanhã: "
 
 #: ../plugins/weather/weather.c:312
 msgid "Weather Plugin"

@@ -11,15 +11,18 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 21:13+0200\n"
-"PO-Revision-Date: 2012-10-13 20:26+0200\n"
-"Last-Translator: Henrique P. <zehrique@gmail.com>\n"
+"PO-Revision-Date: 2014-12-02 11:51+0000\n"
+"Last-Translator: system user <>\n"
 "Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Pootle 2.0.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.6.0-rc2\n"
+"X-POOTLE-MTIME: 1417521081.000000\n"
+"X-Pootle-Path: /pt_BR/lxpanel/po/pt_BR.po\n"
+"X-Pootle-Revision: 0\n"
 
 #: ../src/configurator.c:135
 msgid ""
@@ -696,9 +699,8 @@ msgid "A_dd to Launcher"
 msgstr ""
 
 #: ../plugins/launchtaskbar.c:3454
-#, fuzzy
 msgid "Rem_ove from Launcher"
-msgstr "Remover \"%s\" do painel"
+msgstr "Rem_over do Lançador "
 
 #: ../plugins/launchtaskbar.c:3455
 msgid "_New Instance"
@@ -734,9 +736,9 @@ msgid "Tooltip Format"
 msgstr "Formato da dica"
 
 #: ../plugins/dclock.c:422
-#, fuzzy, c-format
+#, c-format
 msgid "Format codes: man 3 strftime; %n for line break"
-msgstr "Códigos de formato: man 3 strftime; \\n para quebra de linha"
+msgstr "Códigos de formato: man 3 strftime; %n para quebra de linha "
 
 #: ../plugins/dclock.c:423
 msgid "Action when clicked (default: display calendar)"

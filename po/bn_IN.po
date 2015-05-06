@@ -17,6 +17,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 1.1.0\n"
+"X-Pootle-Path: /bn_IN/lxpanel/po/bn_IN.po\n"
+"X-Pootle-Revision: 0\n"
 
 #: ../src/configurator.c:135
 msgid ""

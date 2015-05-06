@@ -8,16 +8,18 @@ msgstr ""
 "Project-Id-Version: LXPanel 0.8\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 21:13+0200\n"
-"PO-Revision-Date: 2014-12-04 14:37+0000\n"
-"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
+"PO-Revision-Date: 2014-12-08 09:30+0000\n"
+"Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
 "Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.5\n"
-"X-POOTLE-MTIME: 1417179737.000000\n"
+"X-Generator: Pootle 2.7.0-alpha1\n"
+"X-POOTLE-MTIME: 1418031016.000000\n"
+"X-Pootle-Path: /is/lxpanel/po/is.po\n"
+"X-Pootle-Revision: 0\n"
 
 #: ../src/configurator.c:135
 msgid ""
@@ -100,12 +102,12 @@ msgstr "Stillingar \"%s\""
 
 #: ../src/panel.c:1130
 msgid "Add / Remove Panel Items"
-msgstr "Bæta við/Fjarlægja hluti á skjástiku"
+msgstr "Bæta við / Fjarlægja hluti á skjástiku"
 
 #: ../src/panel.c:1138
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr "Fjarlægja \"%s\"af skjástiku"
+msgstr "Fjarlægja \"%s\" af skjástiku"
 
 #: ../src/panel.c:1150
 msgid "Panel Settings"
@@ -767,7 +769,7 @@ msgstr "Bæta aðgreini á skjástiku"
 
 #: ../plugins/pager.c:92
 msgid "Sorry, there was no window manager configuration program found."
-msgstr "Því miður, ekkert stilliforrit fyrir gluggastjórnun fannst"
+msgstr "Því miður, ekkert stilliforrit fyrir gluggastjórnun fannst."
 
 #: ../plugins/pager.c:144 ../plugins/pager.c:160
 msgid "Desktop Pager"
@@ -1212,7 +1214,7 @@ msgstr "Birta merki"
 
 #: ../plugins/netstatus/netstatus-icon.c:848
 msgid "Whether or not the signal strength should be displayed."
-msgstr "Hvort birta eigi styrk merkis"
+msgstr "Hvort birta eigi styrk merkis."
 
 #: ../plugins/netstatus/netstatus-icon.c:957
 #, c-format
@@ -1924,5 +1926,3 @@ msgstr "Viðbótaríforrit fyrir veðurlýsingar/spár"
 #: ../plugins/weather/weather.c:313
 msgid "Show weather conditions for a location."
 msgstr "Birta veðurslýsingu fyrir ákveðinn stað."
-
-

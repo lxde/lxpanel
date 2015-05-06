@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 21:13+0200\n"
-"PO-Revision-Date: 2014-12-21 02:11+0000\n"
+"PO-Revision-Date: 2015-05-04 04:29+0000\n"
 "Last-Translator: rago1975 <take1975@kumamoto.email.ne.jp>\n"
 "Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
 "Language: ja\n"
@@ -17,8 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1419127905.000000\n"
+"X-Generator: Pootle 2.7.0-alpha1\n"
+"X-POOTLE-MTIME: 1430713785.000000\n"
+"X-Pootle-Path: /ja/lxpanel/po/ja.po\n"
+"X-Pootle-Revision: 1332\n"
 
 #: ../src/configurator.c:135
 msgid ""
@@ -78,8 +80,8 @@ msgstr "確認"
 #: ../src/panel.c:1044
 msgid "translator-credits"
 msgstr ""
-"Hironao Komatsu (hironao@users.sourceforge.net)IWAI, Masaharu (iwai@alib.jp)"
-"Takefumi Nagata (take1975@kumamoto.email.ne.jp)"
+"Hironao Komatsu (hironao@users.sourceforge.net), IWAI Masaharu (iwai@alib.jp)"
+", Takefumi Nagata (take1975@kumamoto.email.ne.jp)"
 
 #: ../src/panel.c:1049
 msgid "LXPanel"
@@ -935,14 +937,12 @@ msgid "Temperature Monitor"
 msgstr "温度モニタ"
 
 #: ../plugins/thermal/thermal.c:560
-#, fuzzy
 msgid "Normal color"
-msgstr "独自の色"
+msgstr "標準の色"
 
 #: ../plugins/thermal/thermal.c:561
-#, fuzzy
 msgid "Warning1 color"
-msgstr "残量の色 1"
+msgstr "警告1 色"
 
 #: ../plugins/thermal/thermal.c:562
 msgid "Warning2 color"
@@ -1011,7 +1011,6 @@ msgid "Mute"
 msgstr "ミュート"
 
 #: ../plugins/volumealsa/volumealsa.c:619
-#, fuzzy
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontrol, alsamixer ...)"
@@ -1025,7 +1024,7 @@ msgstr "ALSA の音量の表示と操作"
 
 #: ../plugins/netstat/netstat.c:179
 msgid "<Hidden Access Point>"
-msgstr "<隠れたアクセスポイント>"
+msgstr "<Hidden Access Point>"
 
 #: ../plugins/netstat/netstat.c:212
 msgid "Wireless Networks not found in range"

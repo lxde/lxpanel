@@ -8,15 +8,17 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.3.99\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 21:13+0200\n"
-"PO-Revision-Date: 2014-07-27 22:13+0000\n"
-"Last-Translator: Jan Helebrant <jhelebrant@seznam.cz>\n"
+"PO-Revision-Date: 2015-03-26 21:31+0000\n"
+"Last-Translator: Pavel Fric <pavelfric@seznam.cz>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Pootle 2.6.0-rc1\n"
-"X-POOTLE-MTIME: 1406499198.000000\n"
+"X-Generator: Pootle 2.7.0-alpha1\n"
+"X-POOTLE-MTIME: 1427405508.000000\n"
+"X-Pootle-Path: /cs/lxpanel/po/cs.po\n"
+"X-Pootle-Revision: 134\n"
 
 #: ../src/configurator.c:135
 msgid ""
@@ -82,7 +84,6 @@ msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:1067
-#, fuzzy
 msgid "Copyright (C) 2008-2014"
 msgstr "Copyright (C) 2008-2013"
 
@@ -236,23 +237,21 @@ msgid "Error"
 msgstr "Chyba"
 
 #: ../src/input-button.c:161
-#, fuzzy
 msgid "LeftBtn"
-msgstr "Vlevo"
+msgstr "Levé tlačítko"
 
 #: ../src/input-button.c:164
 msgid "MiddleBtn"
-msgstr ""
+msgstr "Prostřední tlačítko"
 
 #: ../src/input-button.c:167
-#, fuzzy
 msgid "RightBtn"
-msgstr "Vpravo"
+msgstr "Pravé tlačítko"
 
 #: ../src/input-button.c:170
 #, c-format
 msgid "Btn%s"
-msgstr ""
+msgstr "Tlačítko %s"
 
 #. GtkRadioButton "None"
 #: ../src/input-button.c:250 ../data/ui/panel-pref.glade.h:5
@@ -260,14 +259,13 @@ msgid "None"
 msgstr "Žádný"
 
 #: ../src/input-button.c:257
-#, fuzzy
 msgid "Custom:"
-msgstr "Vlastní barva"
+msgstr "Vlastní:"
 
 #: ../src/input-button.c:329
 #, c-format
 msgid "Cannot assign '%s' as a global hotkey: it is already bound."
-msgstr ""
+msgstr "'%s' nelze přiřadit jako obecnou klávesovou zkratku: Již se používá."
 
 #: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3553
 msgid "Application Launch and Task Bar"
@@ -320,7 +318,7 @@ msgstr "Kombinovat více oken aplikací do jediného tlačítka"
 
 #: ../data/ui/launchtaskbar.glade.h:14
 msgid "Disable enlargement for small task icons"
-msgstr ""
+msgstr "Vypnout zvětšení pro malé ikony"
 
 #: ../data/ui/launchtaskbar.glade.h:15
 msgid "Maximum width of task button"
@@ -653,7 +651,7 @@ msgstr "Mi_nimalizovat"
 #: ../plugins/launchtaskbar.c:3416
 #, c-format
 msgid "Workspace _%d"
-msgstr "Pra_covní plocha %d"
+msgstr "Pracovní plocha _%d"
 
 #: ../plugins/launchtaskbar.c:3421
 #, c-format
@@ -719,9 +717,9 @@ msgid "Tooltip Format"
 msgstr "Formát tipů"
 
 #: ../plugins/dclock.c:422
-#, fuzzy, c-format
+#, c-format
 msgid "Format codes: man 3 strftime; %n for line break"
-msgstr "Formátovací kódy: man 3 strftime; \\%n pro zalomení řádku"
+msgstr "Formátovací kódy: man 3 strftime; %n pro zalomení řádku"
 
 #: ../plugins/dclock.c:423
 msgid "Action when clicked (default: display calendar)"
@@ -769,7 +767,7 @@ msgstr "Přidá na panel oddělovač"
 
 #: ../plugins/pager.c:92
 msgid "Sorry, there was no window manager configuration program found."
-msgstr ""
+msgstr "Promiňte, nebyl nalezen žádný program na nastavení správce oken."
 
 #: ../plugins/pager.c:144 ../plugins/pager.c:160
 msgid "Desktop Pager"
@@ -797,7 +795,7 @@ msgstr "Systémová oblast"
 
 #: ../plugins/xkb/xkb-plugin.c:401
 msgid "New session is required for this option to take effect"
-msgstr ""
+msgstr "Je potřeba nové sezení, aby tato volba začala účinkovat"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:582
@@ -810,9 +808,8 @@ msgid "Description"
 msgstr "Popis"
 
 #: ../plugins/xkb/xkb-plugin.c:611 ../plugins/xkb/xkb-plugin.c:742
-#, fuzzy
 msgid "Id"
-msgstr "Nečinný"
+msgstr "ID"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:706
@@ -854,15 +851,15 @@ msgstr "Volby změny rozvržení"
 
 #: ../plugins/xkb/xkb-plugin.c:1331
 msgid "Advanced setxkbmap Options"
-msgstr ""
+msgstr "Pokročilé volby pro setxkbmap"
 
 #: ../plugins/xkb/xkb-plugin.c:1352
 msgid "Do _not reset existing options"
-msgstr ""
+msgstr "_Nevracet nastavení stávajících voleb zpátky"
 
 #: ../plugins/xkb/xkb-plugin.c:1357
 msgid "Keep _system layouts"
-msgstr ""
+msgstr "Zachovat _systémové rozvržení"
 
 #: ../plugins/xkb/xkb-plugin.c:1366
 msgid "Per Window Settings"
@@ -931,26 +928,22 @@ msgid "Label"
 msgstr "Popisek"
 
 #: ../plugins/dirmenu.c:370
-#, fuzzy
 msgid "Browse directory tree via menu (Author = PCMan)"
-msgstr "Procházení adresářové struktury v nabídce (Autor: PCMan)"
+msgstr "Procházet adresářový strom přes nabídku (Autor = PCMan)"
 
 #: ../plugins/thermal/thermal.c:558 ../plugins/thermal/thermal.c:576
 msgid "Temperature Monitor"
 msgstr "Sledování teploty"
 
 #: ../plugins/thermal/thermal.c:560
-#, fuzzy
 msgid "Normal color"
 msgstr "Vlastní barva"
 
 #: ../plugins/thermal/thermal.c:561
-#, fuzzy
 msgid "Warning1 color"
 msgstr "Barva nabíjení 1"
 
 #: ../plugins/thermal/thermal.c:562
-#, fuzzy
 msgid "Warning2 color"
 msgstr "Barva nabíjení 1"
 
@@ -967,12 +960,10 @@ msgid "Automatic temperature levels"
 msgstr "Automatické úrovně teploty"
 
 #: ../plugins/thermal/thermal.c:566
-#, fuzzy
 msgid "Warning1 temperature"
 msgstr "Teplota Varování1"
 
 #: ../plugins/thermal/thermal.c:567
-#, fuzzy
 msgid "Warning2 temperature"
 msgstr "Teplota Varování2"
 
@@ -986,6 +977,8 @@ msgid ""
 "Frequency: %d MHz\n"
 "Governor: %s"
 msgstr ""
+"Kmitočet: %d MHz\n"
+"Ovladač: %s"
 
 #: ../plugins/cpufreq/cpufreq.c:409
 msgid "CPUFreq frontend"
@@ -1017,7 +1010,6 @@ msgid "Mute"
 msgstr "Ztlumit"
 
 #: ../plugins/volumealsa/volumealsa.c:619
-#, fuzzy
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontrol, alsamixer ...)"
@@ -1505,6 +1497,8 @@ msgid ""
 "\n"
 "%sEnergy full design:\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sEnergie plná, návrh:\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:181
 #, c-format
@@ -1512,6 +1506,8 @@ msgid ""
 "\n"
 "%sEnergy full:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sEnergie plná:\t\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:183
 #, c-format
@@ -1519,6 +1515,8 @@ msgid ""
 "\n"
 "%sEnergy now:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sEnergie nyní:\t\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:185
 #, c-format
@@ -1526,6 +1524,8 @@ msgid ""
 "\n"
 "%sPower now:\t\t\t%5d mW"
 msgstr ""
+"\n"
+"%sVýkon nyní:\t\t\t%5d mW"
 
 #: ../plugins/batt/batt.c:188
 #, c-format
@@ -1533,6 +1533,8 @@ msgid ""
 "\n"
 "%sCharge full design:\t%5d mAh"
 msgstr ""
+"\n"
+"%sPlné nabití, návrh:\t%5d mAh"
 
 #: ../plugins/batt/batt.c:190
 #, c-format
@@ -1540,6 +1542,8 @@ msgid ""
 "\n"
 "%sCharge full:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sPlné nabití:\t\t\t%5d mAh"
 
 #: ../plugins/batt/batt.c:192
 #, c-format
@@ -1547,6 +1551,8 @@ msgid ""
 "\n"
 "%sCharge now:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sNabití nyní:\t\t\t%5d mAh"
 
 #: ../plugins/batt/batt.c:194
 #, c-format
@@ -1554,6 +1560,8 @@ msgid ""
 "\n"
 "%sCurrent now:\t\t\t%5d mA"
 msgstr ""
+"\n"
+"%sSíla proudu nyní:\t\t\t%5d mA"
 
 #: ../plugins/batt/batt.c:197
 #, c-format
@@ -1561,15 +1569,16 @@ msgid ""
 "\n"
 "%sCurrent Voltage:\t\t%.3lf V"
 msgstr ""
+"\n"
+"%sNapětí nyní:\t\t%.3lf V"
 
 #: ../plugins/batt/batt.c:235
 msgid "No batteries found"
 msgstr "Nenalezeny žádné baterie"
 
 #: ../plugins/batt/batt.c:515 ../plugins/batt/batt.c:644
-#, fuzzy
 msgid "Battery low"
-msgstr "Sledování baterie"
+msgstr "Prázdná baterie"
 
 #: ../plugins/batt/batt.c:664 ../plugins/batt/batt.c:685
 msgid "Battery Monitor"
@@ -1613,7 +1622,7 @@ msgstr "Šířka okraje"
 
 #: ../plugins/batt/batt.c:676
 msgid "Show Extended Information"
-msgstr ""
+msgstr "Ukázat rozšířené informace"
 
 #: ../plugins/batt/batt.c:686
 msgid "Display battery status using ACPI"
@@ -1712,7 +1721,7 @@ msgstr "Zobrazit monitory (CPU,RAM)"
 
 #: ../plugins/weather/weatherwidget.c:52
 msgid "[N/A]"
-msgstr ""
+msgstr "[N/A]"
 
 #: ../plugins/weather/weatherwidget.c:792
 msgid "Enter New Location"
@@ -1730,16 +1739,21 @@ msgid ""
 "- postal code\n"
 "for which to retrieve the weather forecast."
 msgstr ""
+"Zadejte:\n"
+"- město, nebo\n"
+"- město a stát/zemi, nebo\n"
+"- poštovní směrovací číslo\n"
+"pro které se má získávat předpověď počasí."
 
 #: ../plugins/weather/weatherwidget.c:854
 #: ../plugins/weather/weatherwidget.c:987
 msgid "You must specify a location."
-msgstr ""
+msgstr "Musíte zadat polohu stanoviště."
 
 #: ../plugins/weather/weatherwidget.c:901
 #, c-format
 msgid "Location '%s' not found!"
-msgstr ""
+msgstr "Stanoviště '%s' nenalezeno!"
 
 #: ../plugins/weather/weatherwidget.c:1060
 msgid "Preferences"
@@ -1758,9 +1772,8 @@ msgid "Weather Preferences"
 msgstr "Předvolby počasí"
 
 #: ../plugins/weather/weatherwidget.c:1243
-#, fuzzy
 msgid "Current Location"
-msgstr "Orientace"
+msgstr "Nynější poloha"
 
 #: ../plugins/weather/weatherwidget.c:1247
 #: ../plugins/weather/weatherwidget.c:1524
@@ -1777,9 +1790,8 @@ msgid "Display"
 msgstr "Zobrazení"
 
 #: ../plugins/weather/weatherwidget.c:1274
-#, fuzzy
 msgid "Name:"
-msgstr "_Název:"
+msgstr "Název:"
 
 #: ../plugins/weather/weatherwidget.c:1278
 msgid "Units:"
@@ -1803,30 +1815,29 @@ msgstr "Aktualizace:"
 
 #: ../plugins/weather/weatherwidget.c:1327
 msgid "Ma_nual"
-msgstr ""
+msgstr "_Ručně"
 
 #: ../plugins/weather/weatherwidget.c:1331
 msgid "_Automatic, every"
-msgstr ""
+msgstr "_Automaticky, každých"
 
 #: ../plugins/weather/weatherwidget.c:1352
 msgid "minutes"
-msgstr ""
+msgstr "minut"
 
 #: ../plugins/weather/weatherwidget.c:1361
 msgid "Source:"
-msgstr ""
+msgstr "Zdroj:"
 
 #: ../plugins/weather/weatherwidget.c:1477
-#, fuzzy
 msgid "C_hange"
-msgstr "Změnit typ"
+msgstr "_Změnit"
 
 #. Both are available
 #: ../plugins/weather/weatherwidget.c:1565
 #, c-format
 msgid "Current Conditions for %s"
-msgstr ""
+msgstr "Nynější podmínky pro %s"
 
 #: ../plugins/weather/weatherwidget.c:1589
 msgid "Location:"
@@ -1868,37 +1879,36 @@ msgstr "Západ Slunce:"
 #: ../plugins/weather/weatherwidget.c:2234
 #, c-format
 msgid "Forecast for %s unavailable."
-msgstr ""
+msgstr "Předpověď pro %s není dostupná."
 
 #: ../plugins/weather/weatherwidget.c:1907
 #: ../plugins/weather/weatherwidget.c:2239
-#, fuzzy, c-format
+#, c-format
 msgid "Location not set."
-msgstr "Příkaz pro ohlášení není nastaven"
+msgstr "Poloha nebyla zadána."
 
 #: ../plugins/weather/weatherwidget.c:1924
 #, c-format
 msgid "Searching for '%s'..."
-msgstr ""
+msgstr "Hledá se '%s'..."
 
 #: ../plugins/weather/weatherwidget.c:2050
 #, c-format
 msgid "Location matches for '%s'"
-msgstr ""
+msgstr "Stanoviště odpovídá '%s'"
 
 #: ../plugins/weather/weatherwidget.c:2070
 msgid "City"
-msgstr ""
+msgstr "Město"
 
 #: ../plugins/weather/weatherwidget.c:2090
 msgid "Country"
-msgstr ""
+msgstr "Země"
 
 #. make it nice and pretty
 #: ../plugins/weather/weatherwidget.c:2221
-#, fuzzy
 msgid "Currently in "
-msgstr "Právě zavedené zásuvné moduly"
+msgstr "Nyní v "
 
 #: ../plugins/weather/weatherwidget.c:2223
 msgid "Today: "

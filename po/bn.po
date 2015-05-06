@@ -3,7 +3,6 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Sankarshan <sankarshan.mukhopadhyay@gmail.com>, 2009.
 # Sadia Afroz <sadia@ankur.org.bd>, 2010. 
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: bn\n"
@@ -18,6 +17,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 1.1.0\n"
+"X-Pootle-Path: /bn/lxpanel/po/bn.po\n"
+"X-Pootle-Revision: 0\n"
 
 #: ../src/configurator.c:135
 msgid ""
@@ -570,7 +571,8 @@ msgstr "<b>পছন্দসই অ্যাপ্লিকেশন নির�
 #: ../data/ui/panel-pref.glade.h:40
 msgid "Make window managers treat the panel as dock"
 msgstr ""
-"উইন্ডো ব্যবস্থাপকে নির্ধারণ করুন যেন প্যানেলকে ডক হিসেবে মূল্যায়ন করা হয়           "
+"উইন্ডো ব্যবস্থাপকে নির্ধারণ করুন যেন প্যানেলকে ডক হিসেবে মূল্যায়ন করা "
+"হয়           "
 
 #: ../data/ui/panel-pref.glade.h:41
 msgid "Reserve space, and not covered by maximized windows"
@@ -737,9 +739,12 @@ msgid "Tooltip Format"
 msgstr "টুলটিপের ফরম্যাট"
 
 #: ../plugins/dclock.c:422
+#, c-format
 #, fuzzy, c-format
 msgid "Format codes: man 3 strftime; %n for line break"
-msgstr "Format codes: man 3 strftime; \\n রেখা বিভাজনের জন্য"
+msgstr ""
+"Format codes: man 3 strftime; \\n"
+" রেখা বিভাজনের জন্য"
 
 #: ../plugins/dclock.c:423
 msgid "Action when clicked (default: display calendar)"
@@ -925,8 +930,8 @@ msgstr "বিদ্যমান কীবোর্ড লেআউটের ম
 #: ../plugins/wincmd.c:189
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
-"সব উইন্ডোর সাথে আইকন যোগ করার জন্য বামদিকে ক্লিক করুন। ছায়ান্বিত করার জন্য মাঝে "
-"ক্লিক করুন।"
+"সব উইন্ডোর সাথে আইকন যোগ করার জন্য বামদিকে ক্লিক করুন। ছায়ান্বিত করার জন্য "
+"মাঝে ক্লিক করুন।"
 
 #: ../plugins/wincmd.c:224 ../plugins/wincmd.c:234
 msgid "Minimize All Windows"
@@ -1256,8 +1261,8 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"নিম্নোক্ত সমস্যা সমাধানের জন্য অনুগ্রহ করে আপনার সিস্টেম প্রশাসকের সাথে যোগাযোগ "
-"করুন:\n"
+"নিম্নোক্ত সমস্যা সমাধানের জন্য অনুগ্রহ করে আপনার সিস্টেম প্রশাসকের সাথে "
+"যোগাযোগ করুন:\n"
 "\n"
 "%s"
 
@@ -1911,6 +1916,7 @@ msgstr ""
 
 #: ../plugins/weather/weatherwidget.c:1907
 #: ../plugins/weather/weatherwidget.c:2239
+#, c-format
 #, fuzzy, c-format
 msgid "Location not set."
 msgstr "লগ-আউট কমান্ড নির্ধারণ করা হয়নি"

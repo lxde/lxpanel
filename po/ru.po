@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 21:13+0200\n"
-"PO-Revision-Date: 2014-11-21 19:21+0000\n"
+"PO-Revision-Date: 2015-04-30 19:46+0000\n"
 "Last-Translator: Andriy Grytsenko <andrej@rep.kiev.ua>\n"
 "Language-Team: Russian <hsh@runtu.org>\n"
 "Language: ru\n"
@@ -15,8 +15,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1416597676.000000\n"
+"X-Generator: Pootle 2.7.0-alpha1\n"
+"X-POOTLE-MTIME: 1430423184.000000\n"
+"X-Pootle-Path: /ru/lxpanel/po/ru.po\n"
+"X-Pootle-Revision: 679\n"
 
 #: ../src/configurator.c:135
 msgid ""
@@ -854,7 +856,7 @@ msgstr "Изменение параметров раскладки"
 
 #: ../plugins/xkb/xkb-plugin.c:1331
 msgid "Advanced setxkbmap Options"
-msgstr "Расширенные настройки setxkbmap "
+msgstr "Расширенные настройки setxkbmap"
 
 #: ../plugins/xkb/xkb-plugin.c:1352
 msgid "Do _not reset existing options"

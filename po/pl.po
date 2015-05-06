@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: lxpanel 0.5.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 21:13+0200\n"
-"PO-Revision-Date: 2014-11-28 09:36+0000\n"
-"Last-Translator: Piotr Sokół <psokol@jabster.pl>\n"
+"PO-Revision-Date: 2015-03-23 08:48+0000\n"
+"Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -19,18 +19,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1417167374.000000\n"
+"X-Generator: Pootle 2.7.0-alpha1\n"
+"X-POOTLE-MTIME: 1427100504.000000\n"
+"X-Pootle-Path: /pl/lxpanel/po/pl.po\n"
+"X-Pootle-Revision: 0\n"
 
 #: ../src/configurator.c:135
 msgid ""
 "Space reservation is not available for this panel because there is another "
 "monitor beyond this edge and reservation would cover it if enabled."
 msgstr ""
+"Zarezerwowanie przestrzeni na tym panelu nie jest możliwe, ponieważ inny "
+"monitor jest ustawiony poza tą krawędzią, a w przypadku włączenia rezerwacji "
+"mogłaby ona go pokryć."
 
 #: ../src/configurator.c:605
 msgid "Currently loaded plugins"
-msgstr "Wczytane wtyczki"
+msgstr "Wczytane obecnie wtyczki"
 
 #: ../src/configurator.c:614
 msgid "Stretch"
@@ -92,7 +97,7 @@ msgstr "LXPanel"
 # a może "Chronione Prawami Autorskimi (C) 2009-2009"
 #: ../src/panel.c:1067
 msgid "Copyright (C) 2008-2014"
-msgstr "Copyright (C) 2008-2014"
+msgstr "Prawa autorskie (C) 2008-2014"
 
 #: ../src/panel.c:1068
 msgid "Desktop panel for LXDE project"
@@ -101,7 +106,7 @@ msgstr "Panel pulpitu dla środowiska graficznego LXDE"
 #: ../src/panel.c:1110
 #, c-format
 msgid "\"%s\" Settings"
-msgstr "Preferencje apletu „%s”..."
+msgstr "Ustawienia \"%s\""
 
 #: ../src/panel.c:1130
 msgid "Add / Remove Panel Items"
@@ -110,7 +115,7 @@ msgstr "Zarządzaj apletami..."
 #: ../src/panel.c:1138
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr "Usuń aplet „%s”"
+msgstr "Usuń \"%s\" z panelu"
 
 #: ../src/panel.c:1150
 msgid "Panel Settings"
@@ -238,6 +243,8 @@ msgstr ""
 #, c-format
 msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
 msgstr ""
+"Kombinacja klawiszy '%s' nie może zostać użyta jako ogólny skrót klawiszowy, "
+"przepraszamy."
 
 #: ../src/input-button.c:132 ../src/input-button.c:331
 #: ../plugins/netstatus/netstatus-iface.c:191
@@ -246,23 +253,21 @@ msgid "Error"
 msgstr "Błąd"
 
 #: ../src/input-button.c:161
-#, fuzzy
 msgid "LeftBtn"
-msgstr "Lewo"
+msgstr "Lewy przycisk"
 
 #: ../src/input-button.c:164
 msgid "MiddleBtn"
-msgstr ""
+msgstr "Środkowy przycisk"
 
 #: ../src/input-button.c:167
-#, fuzzy
 msgid "RightBtn"
-msgstr "Prawo"
+msgstr "Prawy przycisk"
 
 #: ../src/input-button.c:170
 #, c-format
 msgid "Btn%s"
-msgstr ""
+msgstr "Przycisk %s"
 
 #. GtkRadioButton "None"
 #: ../src/input-button.c:250 ../data/ui/panel-pref.glade.h:5
@@ -270,14 +275,15 @@ msgid "None"
 msgstr "Brak"
 
 #: ../src/input-button.c:257
-#, fuzzy
 msgid "Custom:"
-msgstr "Własny kolor"
+msgstr "Własny:"
 
 #: ../src/input-button.c:329
 #, c-format
 msgid "Cannot assign '%s' as a global hotkey: it is already bound."
 msgstr ""
+"Nie można przypisać '%s' jako ogólnego skrótu klawiszowego: jest on już "
+"powiązany."
 
 #: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3553
 msgid "Application Launch and Task Bar"
@@ -314,7 +320,7 @@ msgstr "Wyświetlane okien wszystkich obszarów roboczych"
 
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Only show windows on the same monitor as the task bar"
-msgstr "Wyświetlanie okien tylko z tego samego ekranu co panel "
+msgstr "Wyświetlanie okien tylko z tego samego ekranu co panel"
 
 #: ../data/ui/launchtaskbar.glade.h:11
 msgid "Use mouse wheel"
@@ -330,11 +336,11 @@ msgstr "Grupowanie wielu okien tego samego programu"
 
 #: ../data/ui/launchtaskbar.glade.h:14
 msgid "Disable enlargement for small task icons"
-msgstr ""
+msgstr "Wyłącz powiększanie dla małych ikon zadań"
 
 #: ../data/ui/launchtaskbar.glade.h:15
 msgid "Maximum width of task button"
-msgstr "Maksymalna szerokość przycisku zadań:"
+msgstr "Maksymalna szerokość przycisku zadań"
 
 #: ../data/ui/launchtaskbar.glade.h:16
 msgid "Spacing"
@@ -465,7 +471,7 @@ msgstr "Informacje"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "All"
-msgstr "Wszystko"
+msgstr "Wszystkie"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "Panel Preferences"
@@ -610,7 +616,7 @@ msgstr "Monitor obciążenia CPU"
 
 #: ../plugins/cpu/cpu.c:282 ../plugins/monitors/monitors.c:699
 msgid "Display CPU usage"
-msgstr "Wyświetla przebieg obciążenia CPU"
+msgstr "Wyświetlanie obciążenia CPU"
 
 #: ../plugins/deskno/deskno.c:174 ../plugins/deskno/deskno.c:194
 msgid "Desktop Number / Workspace Name"
@@ -626,12 +632,11 @@ msgstr "Wyświetlanie nazw obszarów roboczych"
 
 #: ../plugins/deskno/deskno.c:195
 msgid "Display workspace number, by cmeury@users.sf.net"
-msgstr ""
-"Wyświetla nazwę i numer obszaru roboczego. Autorstwa cmeury@users.sf.net."
+msgstr "Wyświetla numer obszaru roboczego. Autorstwa cmeury@users.sf.net"
 
 #: ../plugins/launchtaskbar.c:1443 ../plugins/launchtaskbar.c:3525
 msgid "Application Launch Bar"
-msgstr "Aktywatory"
+msgstr "Pasek aktywatorów programów"
 
 #: ../plugins/launchtaskbar.c:1446 ../plugins/launchtaskbar.c:3534
 msgid "Task Bar (Window List)"
@@ -689,11 +694,11 @@ msgstr "Za_mknij"
 
 #: ../plugins/launchtaskbar.c:3453
 msgid "A_dd to Launcher"
-msgstr "_Dodaj do wyzwalacza"
+msgstr "_Dodaj do aktywatora"
 
 #: ../plugins/launchtaskbar.c:3454
 msgid "Rem_ove from Launcher"
-msgstr "_Usuń z wyzwalacza"
+msgstr "_Usuń z aktywatora"
 
 #: ../plugins/launchtaskbar.c:3455
 msgid "_New Instance"
@@ -707,13 +712,14 @@ msgstr "Wyświetla aktywatory programów w postaci przycisków"
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
-msgstr "Wyświetla wszystkie otwarte okna i umożliwia manipulowanie nimi."
+msgstr ""
+"Pasek zadań wyświetla wszystkie otwarte okna i umożliwia manipulowanie nimi."
 
 #: ../plugins/launchtaskbar.c:3554
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr ""
-"Pasek z przyciskami do uruchamiania programów i/lub wszystkich otwartych "
-"okien"
+"Pasek z przyciskami do uruchamiania programów i/lub wyświetlania wszystkich "
+"otwartych okien"
 
 #: ../plugins/dclock.c:418 ../plugins/dclock.c:438
 msgid "Digital Clock"
@@ -804,7 +810,7 @@ msgstr "Obszar powiadamiania"
 
 #: ../plugins/tray.c:683
 msgid "System tray"
-msgstr "Wyświetla ikony powiadamiania programów"
+msgstr "Obszar powiadamiania"
 
 #: ../plugins/xkb/xkb-plugin.c:401
 msgid "New session is required for this option to take effect"
@@ -872,7 +878,7 @@ msgstr "_Nie resetuj istniejących opcji"
 
 #: ../plugins/xkb/xkb-plugin.c:1357
 msgid "Keep _system layouts"
-msgstr "Zachowaj układy _systemowe"
+msgstr "Zachowanie układów _systemowych"
 
 #: ../plugins/xkb/xkb-plugin.c:1366
 msgid "Per Window Settings"
@@ -884,7 +890,7 @@ msgstr "Pamiętanie _układu dla każdego okna"
 
 #: ../plugins/xkb/xkb-plugin.c:1387
 msgid "Show Layout as"
-msgstr "Pokazuj układ jako"
+msgstr "Wyświetlaj układ jako"
 
 #: ../plugins/xkb/xkb-plugin.c:1448
 msgid "Custom Image"
@@ -914,7 +920,7 @@ msgstr "Minimalizowanie okien"
 
 #: ../plugins/wincmd.c:226
 msgid "Alternately iconify/shade and raise"
-msgstr "Kolejno ikonifikuj/ukrywaj i maksymalizuj"
+msgstr "Naprzemienne minimalizowanie/zwijanie i maksymalizowanie"
 
 #: ../plugins/wincmd.c:235
 msgid ""
@@ -954,11 +960,11 @@ msgstr "Zwykły kolor"
 
 #: ../plugins/thermal/thermal.c:561
 msgid "Warning1 color"
-msgstr "Kolor Ostrzeżenia1"
+msgstr "Kolor ostrzeżenia 1"
 
 #: ../plugins/thermal/thermal.c:562
 msgid "Warning2 color"
-msgstr "Kolor Ostrzeżenia2"
+msgstr "Kolor ostrzeżenia 2"
 
 #: ../plugins/thermal/thermal.c:563
 msgid "Automatic sensor location"
@@ -974,16 +980,15 @@ msgstr "Automatyczne poziomy temperatur"
 
 #: ../plugins/thermal/thermal.c:566
 msgid "Warning1 temperature"
-msgstr "Temperatura dla Ostrzeżenia1"
+msgstr "Temperatura ostrzeżenia 1"
 
 #: ../plugins/thermal/thermal.c:567
 msgid "Warning2 temperature"
-msgstr "Temperatura dla Ostrzeżenia2"
+msgstr "Temperatura ostrzeżenia 2"
 
 #: ../plugins/thermal/thermal.c:577
 msgid "Display system temperature"
-msgstr ""
-"Wyświetla temperaturę podzespołów komputera. Autor: kesler.daniel@gmail.com"
+msgstr "Wyświetla temperaturę podzespołów komputera"
 
 #: ../plugins/cpufreq/cpufreq.c:326
 #, c-format
@@ -1001,7 +1006,7 @@ msgstr "Nakładka CPUFreq"
 #: ../plugins/cpufreq/cpufreq.c:410
 msgid "Display CPU frequency and allow to change governors and frequency"
 msgstr ""
-"Wyświetlaj częstotliwość CPU i miej możliwość zmieniania zarządców i "
+"Wyświetla częstotliwość CPU i umożliwia zmianę jego zarządcy oraz "
 "częstotliwości"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
@@ -1009,7 +1014,7 @@ msgstr ""
 #: ../plugins/volume/volume.c:278 ../plugins/volumealsa/volumealsa.c:350
 #: ../plugins/volumealsa/volumealsa.c:524
 msgid "Volume control"
-msgstr "Poziom głośności: "
+msgstr "Poziom głośności"
 
 #: ../plugins/volume/volume.c:286 ../plugins/volumealsa/volumealsa.c:637
 msgid "Volume Control"
@@ -1035,7 +1040,7 @@ msgstr ""
 
 #: ../plugins/volumealsa/volumealsa.c:638
 msgid "Display and control volume for ALSA"
-msgstr "Wyświetl i kontroluj głośność dla ALSA"
+msgstr "Wyświetla poziom głośności i steruje głośnością ALSA"
 
 #: ../plugins/netstat/netstat.c:179
 msgid "<Hidden Access Point>"
@@ -1043,7 +1048,7 @@ msgstr "<Ukryty punkt dostępowy>"
 
 #: ../plugins/netstat/netstat.c:212
 msgid "Wireless Networks not found in range"
-msgstr "Nie znaleziono bezprzewodowej sieci w zasięgu"
+msgstr "Nie odnaleziono bezprzewodowej sieci w zasięgu"
 
 #. Repair
 #: ../plugins/netstat/netstat.c:248
@@ -1057,7 +1062,7 @@ msgstr "Wyłącz"
 
 #: ../plugins/netstat/netstat.c:344
 msgid "Wireless Connection has no connectivity"
-msgstr "Bezprzewodowe połączenie sieciowe ma ograniczoną lub brak łączności"
+msgstr "Bezprzewodowe połączenie sieciowe jest ograniczone lub brak łączności"
 
 #: ../plugins/netstat/netstat.c:346
 msgid "Network cable is plugged out"
@@ -1065,7 +1070,7 @@ msgstr "Kabel sieciowy jest odłączony"
 
 #: ../plugins/netstat/netstat.c:348
 msgid "Connection has limited or no connectivity"
-msgstr "Połączenie sieciowe ma ograniczoną lub brak łączności"
+msgstr "Połączenie sieciowe jest ograniczone lub brak połączenia"
 
 #: ../plugins/netstat/netstat.c:352 ../plugins/netstat/netstat.c:363
 #: ../plugins/netstat/netstat.c:374
@@ -1515,7 +1520,7 @@ msgid ""
 "%sEnergy full design:\t\t%5d mWh"
 msgstr ""
 "\n"
-"%sProjektowana pełna energia:\t\t%5d mWh"
+"%sZnamionowa ilość energii:\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:181
 #, c-format
@@ -1533,7 +1538,7 @@ msgid ""
 "%sEnergy now:\t\t\t%5d mWh"
 msgstr ""
 "\n"
-"%sBieżąca energia:\t\t\t%5d mWh"
+"%sAktualna energia:\t\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:185
 #, c-format
@@ -1542,7 +1547,7 @@ msgid ""
 "%sPower now:\t\t\t%5d mW"
 msgstr ""
 "\n"
-"%sBieżąca moc:\t\t\t%5d mW"
+"%sAktualna moc:\t\t\t%5d mW"
 
 #: ../plugins/batt/batt.c:188
 #, c-format
@@ -1591,12 +1596,11 @@ msgstr ""
 
 #: ../plugins/batt/batt.c:235
 msgid "No batteries found"
-msgstr "Nie znaleziono akumulatora"
+msgstr "Nie odnaleziono akumulatora"
 
 #: ../plugins/batt/batt.c:515 ../plugins/batt/batt.c:644
-#, fuzzy
 msgid "Battery low"
-msgstr "Monitor baterii"
+msgstr "Niski poziom baterii"
 
 #: ../plugins/batt/batt.c:664 ../plugins/batt/batt.c:685
 msgid "Battery Monitor"
@@ -1604,7 +1608,7 @@ msgstr "Monitor baterii"
 
 #: ../plugins/batt/batt.c:666
 msgid "Hide if there is no battery"
-msgstr "Ukryj jeśli nie ma akumulatora"
+msgstr "Ukryj, jeśli nie ma baterii"
 
 #: ../plugins/batt/batt.c:667
 msgid "Alarm command"
@@ -1640,11 +1644,11 @@ msgstr "Grubość obramowania"
 
 #: ../plugins/batt/batt.c:676
 msgid "Show Extended Information"
-msgstr "Pokaż rozszerzone informacje"
+msgstr "Wyświetlanie dodatkowych informacji"
 
 #: ../plugins/batt/batt.c:686
 msgid "Display battery status using ACPI"
-msgstr "Wyświetla wskaźnik stanu baterii używając ACPI."
+msgstr "Wyświetla wskaźnik stanu baterii używając ACPI"
 
 #: ../plugins/kbled/kbled.c:197 ../plugins/kbled/kbled.c:228
 msgid "Keyboard LED"
@@ -1664,7 +1668,7 @@ msgstr "Klawisz ScrollLock"
 
 #: ../plugins/kbled/kbled.c:229
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr "Wyświetla wskaźniki stanu klawiszy CapsLock, NumLock i ScrollLock."
+msgstr "Wyświetla wskaźniki klawiszy CapsLock, NumLock i ScrollLock"
 
 #. A label to allow for click through
 #: ../plugins/indicator/indicator.c:689
@@ -1739,15 +1743,15 @@ msgstr "Wyświetl monitory (procesor, pamięć)"
 
 #: ../plugins/weather/weatherwidget.c:52
 msgid "[N/A]"
-msgstr "--"
+msgstr "n/d"
 
 #: ../plugins/weather/weatherwidget.c:792
 msgid "Enter New Location"
-msgstr "Wprowadź nową lokalizację"
+msgstr "Wprowadź nowe położenie"
 
 #: ../plugins/weather/weatherwidget.c:806
 msgid "_New Location:"
-msgstr "_Nowa Lokalizacja:"
+msgstr "_Nowa lokalizacja:"
 
 #: ../plugins/weather/weatherwidget.c:817
 msgid ""
@@ -1845,7 +1849,7 @@ msgstr "minut"
 
 #: ../plugins/weather/weatherwidget.c:1361
 msgid "Source:"
-msgstr "Źródło:"
+msgstr "Zasób:"
 
 #: ../plugins/weather/weatherwidget.c:1477
 msgid "C_hange"
@@ -1938,11 +1942,11 @@ msgstr "Jutro: "
 
 #: ../plugins/weather/weather.c:312
 msgid "Weather Plugin"
-msgstr "Wtyczka Pogody"
+msgstr "Wtyczka pogody"
 
 #: ../plugins/weather/weather.c:313
 msgid "Show weather conditions for a location."
-msgstr "Przedstawia warunki pogodowe dla danej lokalizacji."
+msgstr "Wyświetla warunki pogodowe dla danej lokalizacji."
 
 #~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 #~ msgstr ""

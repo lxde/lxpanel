@@ -20,6 +20,8 @@ msgstr ""
 "X-Poedit-Language: Urdu\n"
 "X-Poedit-Country: PAKISTAN\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Pootle-Path: /ur/lxpanel/po/ur.po\n"
+"X-Pootle-Revision: 0\n"
 
 #: ../src/configurator.c:135
 msgid ""

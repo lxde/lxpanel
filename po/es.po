@@ -18,6 +18,8 @@ msgstr ""
 "X-Generator: Pootle 2.6.0-rc2\n"
 "X-Poedit-Bookmarks: 19,-1,-1,-1,-1,-1,-1,-1,-1,-1\n"
 "X-POOTLE-MTIME: 1416606932.000000\n"
+"X-Pootle-Path: /es/lxpanel/po/es.po\n"
+"X-Pootle-Revision: 0\n"
 
 #: ../src/configurator.c:135
 msgid ""
@@ -776,8 +778,7 @@ msgstr "Añadir un separador al panel"
 
 #: ../plugins/pager.c:92
 msgid "Sorry, there was no window manager configuration program found."
-msgstr ""
-"No se encontró ningún programa de configuración del gestor de ventanas."
+msgstr "No se encontró ningún programa de configuración del gestor de ventanas."
 
 #: ../plugins/pager.c:144 ../plugins/pager.c:160
 msgid "Desktop Pager"

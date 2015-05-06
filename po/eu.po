@@ -1,23 +1,24 @@
 # Translation of lxpanel to basque
 # Copyright (C) 2009 Alain Mendizabal <alainmendi@gmail.com>
 # This file is distributed under the same license as the lxpanel package.
-#
 # Alain Mendizabal <alainmendi@gmail.com>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 21:13+0200\n"
-"PO-Revision-Date: 2013-07-08 20:28+0000\n"
-"Last-Translator: Asier_Iturralde_Sarasola <asier.iturralde@gmail.com>\n"
+"PO-Revision-Date: 2015-05-05 20:22+0000\n"
+"Last-Translator: Asier Iturralde Sarasola <asier.iturralde@gmail.com>\n"
 "Language-Team: Basque <alainmendi@gmail.com>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.5.0\n"
-"X-POOTLE-MTIME: 1373315307.0\n"
+"X-Generator: Pootle 2.7.0-alpha1\n"
+"X-POOTLE-MTIME: 1430857320.000000\n"
+"X-Pootle-Path: /eu/lxpanel/po/eu.po\n"
+"X-Pootle-Revision: 1878\n"
 
 #: ../src/configurator.c:135
 msgid ""
@@ -76,16 +77,15 @@ msgstr "Berretsi"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:1044
 msgid "translator-credits"
-msgstr "Asier Iturralde Sarasola <asier.iturralde@gmail.com>"
+msgstr "Asier Iturralde Sarasola"
 
 #: ../src/panel.c:1049
 msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:1067
-#, fuzzy
 msgid "Copyright (C) 2008-2014"
-msgstr "Copyright-a (C) 2008-2011"
+msgstr "Copyright-a (C) 2008-2014"
 
 #: ../src/panel.c:1068
 msgid "Desktop panel for LXDE project"
@@ -151,7 +151,7 @@ msgstr "Behean"
 
 #: ../src/plugin.c:340
 msgid "No file manager is configured."
-msgstr ""
+msgstr "Ez da fitxategi-kudeatzailerik konfiguratu."
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/gtk-run.c:377 ../src/main.c:52 ../plugins/menu.c:741
@@ -228,6 +228,8 @@ msgstr ""
 #, c-format
 msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
 msgstr ""
+"Barkatu baina '%s' tekla konbinazioa ezin da laster-tekla global bezala "
+"erabili."
 
 #: ../src/input-button.c:132 ../src/input-button.c:331
 #: ../plugins/netstatus/netstatus-iface.c:191
@@ -236,23 +238,21 @@ msgid "Error"
 msgstr "Errorea"
 
 #: ../src/input-button.c:161
-#, fuzzy
 msgid "LeftBtn"
-msgstr "Ezkerrean"
+msgstr "Ezkerreko botoia"
 
 #: ../src/input-button.c:164
 msgid "MiddleBtn"
-msgstr ""
+msgstr "Erdiko botoia"
 
 #: ../src/input-button.c:167
-#, fuzzy
 msgid "RightBtn"
-msgstr "Eskuinean"
+msgstr "Eskuineko botoia"
 
 #: ../src/input-button.c:170
 #, c-format
 msgid "Btn%s"
-msgstr ""
+msgstr "%s botoia"
 
 #. GtkRadioButton "None"
 #: ../src/input-button.c:250 ../data/ui/panel-pref.glade.h:5
@@ -260,34 +260,30 @@ msgid "None"
 msgstr "Bat ere ez"
 
 #: ../src/input-button.c:257
-#, fuzzy
 msgid "Custom:"
-msgstr "Kolore pertsonalizatua"
+msgstr "Pertsonalizatua:"
 
 #: ../src/input-button.c:329
 #, c-format
 msgid "Cannot assign '%s' as a global hotkey: it is already bound."
-msgstr ""
+msgstr "Ezin da '%s' laster-tekla globala esleitu, dagoeneko erabiltzen baita."
 
 #: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3553
-#, fuzzy
 msgid "Application Launch and Task Bar"
-msgstr "Aplikazioen abiarazle-barra"
+msgstr "Aplikazioen abiarazle-barra eta ataza-barra"
 
 #. Launchtaskbar mode: launchbar, taskbar, or combined
 #: ../data/ui/launchtaskbar.glade.h:3
-#, fuzzy
 msgid "<b>Mode:</b>"
-msgstr "<b>Tamaina</b>"
+msgstr "<b>Modua:</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:4
 msgid "Launchers"
-msgstr ""
+msgstr "Abiarazleak"
 
 #: ../data/ui/launchtaskbar.glade.h:5
-#, fuzzy
 msgid "<b>Launchbar</b>"
-msgstr "<b>Atzeko planoa</b>"
+msgstr "<b>Abiarazle-barra</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:6
 msgid "Show tooltips"
@@ -307,7 +303,7 @@ msgstr "Erakutsi mahaigain guztietako leihoak"
 
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Only show windows on the same monitor as the task bar"
-msgstr ""
+msgstr "Ataza-barra dagoen monitore berean soilik erakusten ditu leihoak"
 
 #: ../data/ui/launchtaskbar.glade.h:11
 msgid "Use mouse wheel"
@@ -334,24 +330,20 @@ msgid "Spacing"
 msgstr "Tartea"
 
 #: ../data/ui/launchtaskbar.glade.h:17
-#, fuzzy
 msgid "<b>Taskbar</b>"
-msgstr "<b>Atzeko planoa</b>"
+msgstr "<b>Ataza-barra</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:18
-#, fuzzy
 msgid "Only Application Launch Bar"
-msgstr "Aplikazioen abiarazle-barra"
+msgstr "Aplikazioen abiarazle-barra soilik"
 
 #: ../data/ui/launchtaskbar.glade.h:19
-#, fuzzy
 msgid "Only Task Bar (Window List)"
-msgstr "Ataza-barra (Leihoen zerrenda)"
+msgstr "Ataza-barra soilik (Leihoen zerrenda)"
 
 #: ../data/ui/launchtaskbar.glade.h:20
-#, fuzzy
 msgid "Integrated Application Launch Bar and Task Bar"
-msgstr "Aplikazioen abiarazle-barra"
+msgstr "Aplikazioen abiarazle-barra eta ataza-barra integratuak"
 
 #: ../data/ui/netstatus.glade.h:1
 msgid "<b>Connection</b>"
@@ -485,9 +477,8 @@ msgid "Margin:"
 msgstr "Marjina:"
 
 #: ../data/ui/panel-pref.glade.h:19
-#, fuzzy
 msgid "Monitor:"
-msgstr "Bateriaren monitorea"
+msgstr "Monitorea:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "<b>Position</b>"
@@ -564,8 +555,7 @@ msgstr "<b>Ezarri hobetsitako aplikazioak</b>"
 
 #: ../data/ui/panel-pref.glade.h:40
 msgid "Make window managers treat the panel as dock"
-msgstr ""
-"Leiho-kudeatzaileek panela atrakagarri bezala tratatzea ahalbidetzen du"
+msgstr "Leiho-kudeatzaileek panela atrakagarri bezala tratatzea ahalbidetzen du"
 
 #: ../data/ui/panel-pref.glade.h:41
 msgid "Reserve space, and not covered by maximized windows"
@@ -636,9 +626,8 @@ msgid "Task Bar (Window List)"
 msgstr "Ataza-barra (Leihoen zerrenda)"
 
 #: ../plugins/launchtaskbar.c:2507
-#, fuzzy
 msgid "_Close all windows"
-msgstr "_Itxi leihoa"
+msgstr "_Itxi leiho guztiak"
 
 #. Add Raise menu item.
 #: ../plugins/launchtaskbar.c:3380
@@ -688,16 +677,15 @@ msgstr "_Itxi leihoa"
 
 #: ../plugins/launchtaskbar.c:3453
 msgid "A_dd to Launcher"
-msgstr ""
+msgstr "_Gehitu abiarazlera"
 
 #: ../plugins/launchtaskbar.c:3454
-#, fuzzy
 msgid "Rem_ove from Launcher"
-msgstr "Ezabatu \"%s\" paneletik"
+msgstr "_Kendu abiarazletik"
 
 #: ../plugins/launchtaskbar.c:3455
 msgid "_New Instance"
-msgstr ""
+msgstr "Instantzia _berria"
 
 #: ../plugins/launchtaskbar.c:3526
 msgid "Bar with buttons to launch application"
@@ -729,11 +717,9 @@ msgid "Tooltip Format"
 msgstr "Argibideen formatua"
 
 #: ../plugins/dclock.c:422
-#, fuzzy, c-format
+#, c-format, c-format
 msgid "Format codes: man 3 strftime; %n for line break"
-msgstr ""
-"Formatu kodeak: man 3 strftime; \n"
-" lerro jauzirako"
+msgstr "Formatu kodeak: man 3 strftime; %n lerro jauzirako"
 
 #: ../plugins/dclock.c:423
 msgid "Action when clicked (default: display calendar)"
@@ -809,7 +795,7 @@ msgstr "Sistemaren erretilua"
 
 #: ../plugins/xkb/xkb-plugin.c:401
 msgid "New session is required for this option to take effect"
-msgstr ""
+msgstr "Saio berria hasi behar da aukera honek eragina izan dezan"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:582
@@ -822,9 +808,8 @@ msgid "Description"
 msgstr "Deskribapena"
 
 #: ../plugins/xkb/xkb-plugin.c:611 ../plugins/xkb/xkb-plugin.c:742
-#, fuzzy
 msgid "Id"
-msgstr "Inaktibo"
+msgstr "Id-a"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:706
@@ -866,15 +851,15 @@ msgstr "Aldatu diseinuaren aukera"
 
 #: ../plugins/xkb/xkb-plugin.c:1331
 msgid "Advanced setxkbmap Options"
-msgstr ""
+msgstr "setxkbmap aukera aurreratuak"
 
 #: ../plugins/xkb/xkb-plugin.c:1352
 msgid "Do _not reset existing options"
-msgstr ""
+msgstr "_Ez berrezarri existitzen diren aukerak"
 
 #: ../plugins/xkb/xkb-plugin.c:1357
 msgid "Keep _system layouts"
-msgstr ""
+msgstr "Mantendu _sistemaren diseinuak"
 
 #: ../plugins/xkb/xkb-plugin.c:1366
 msgid "Per Window Settings"
@@ -943,28 +928,24 @@ msgid "Label"
 msgstr "Etiketa"
 
 #: ../plugins/dirmenu.c:370
-#, fuzzy
 msgid "Browse directory tree via menu (Author = PCMan)"
-msgstr "Arakatu direktorio-zuhaitza menuaren bidez (Egilea: PCMan)"
+msgstr "Arakatu direktorio-zuhaitza menuaren bidez (Egilea = PCMan)"
 
 #: ../plugins/thermal/thermal.c:558 ../plugins/thermal/thermal.c:576
 msgid "Temperature Monitor"
 msgstr "Tenperaturaren monitorea"
 
 #: ../plugins/thermal/thermal.c:560
-#, fuzzy
 msgid "Normal color"
-msgstr "Kolore pertsonalizatua"
+msgstr "Kolore normala"
 
 #: ../plugins/thermal/thermal.c:561
-#, fuzzy
 msgid "Warning1 color"
-msgstr "Kargatzen dagoenerako kolorea 1"
+msgstr "Abisua1 kolorea"
 
 #: ../plugins/thermal/thermal.c:562
-#, fuzzy
 msgid "Warning2 color"
-msgstr "Kargatzen dagoenerako kolorea 1"
+msgstr "Abisua2 kolorea"
 
 #: ../plugins/thermal/thermal.c:563
 msgid "Automatic sensor location"
@@ -979,12 +960,10 @@ msgid "Automatic temperature levels"
 msgstr "Tenperaturaren maila automatikoak"
 
 #: ../plugins/thermal/thermal.c:566
-#, fuzzy
 msgid "Warning1 temperature"
 msgstr "Abisua1 tenperatura"
 
 #: ../plugins/thermal/thermal.c:567
-#, fuzzy
 msgid "Warning2 temperature"
 msgstr "Abisua2 tenperatura"
 
@@ -998,14 +977,17 @@ msgid ""
 "Frequency: %d MHz\n"
 "Governor: %s"
 msgstr ""
+"Maiztasuna: %d MHz\n"
+"Kontrolagailua: %s"
 
 #: ../plugins/cpufreq/cpufreq.c:409
 msgid "CPUFreq frontend"
-msgstr ""
+msgstr "CPUFreq interfazea"
 
 #: ../plugins/cpufreq/cpufreq.c:410
 msgid "Display CPU frequency and allow to change governors and frequency"
 msgstr ""
+"Bistaratu PUZ maiztasuna. Kontrolagailu eta maiztasuna aldatzeko aukera eman"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -1029,17 +1011,16 @@ msgid "Mute"
 msgstr "Mututu"
 
 #: ../plugins/volumealsa/volumealsa.c:619
-#, fuzzy
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontrol, alsamixer ...)"
 msgstr ""
-"Errorea, aplikazio bat instalatu behar duzu soinua konfiguratzeko "
-"(pavucontrol, alsamixer, ...)"
+"Errorea, aplikazio bat instalatu behar duzu soinua konfiguratzeko ("
+"pavucontrol, alsamixer...)"
 
 #: ../plugins/volumealsa/volumealsa.c:638
 msgid "Display and control volume for ALSA"
-msgstr ""
+msgstr "Bistaratu eta kontrolatu ALSAren bolumena"
 
 #: ../plugins/netstat/netstat.c:179
 msgid "<Hidden Access Point>"
@@ -1420,9 +1401,8 @@ msgid "Cannot open /proc/net/dev: %s"
 msgstr "Ezin izan da /proc/net/dev: %s ireki"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:185
-#, fuzzy
 msgid "Could not parse /proc/net/dev. No data."
-msgstr "Ezin izan da /proc/net/dev analizatu. Formatu ezezaguna."
+msgstr "Ezin izan da /proc/net/dev analizatu. Daturik ez."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:190
 msgid "Could not parse /proc/net/dev. Unknown format."
@@ -1445,9 +1425,8 @@ msgstr ""
 "= %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:312
-#, fuzzy
 msgid "Could not parse /proc/net/wireless. No data."
-msgstr "Ezin izan da /proc/net/wireless analizatu. Formatu ezezaguna."
+msgstr "Ezin izan da /proc/net/wireless analizatu. Daturik ez."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:316
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1581,9 +1560,8 @@ msgid "No batteries found"
 msgstr "Ez da bateriarik aurkitu"
 
 #: ../plugins/batt/batt.c:515 ../plugins/batt/batt.c:644
-#, fuzzy
 msgid "Battery low"
-msgstr "Bateriaren monitorea"
+msgstr "Bateria baxua"
 
 #: ../plugins/batt/batt.c:664 ../plugins/batt/batt.c:685
 msgid "Battery Monitor"
@@ -1627,7 +1605,7 @@ msgstr "Ertzaren zabalera"
 
 #: ../plugins/batt/batt.c:676
 msgid "Show Extended Information"
-msgstr ""
+msgstr "Erakutsi informazio hedatua"
 
 #: ../plugins/batt/batt.c:686
 msgid "Display battery status using ACPI"
@@ -1730,12 +1708,11 @@ msgstr ""
 
 #: ../plugins/weather/weatherwidget.c:792
 msgid "Enter New Location"
-msgstr ""
+msgstr "Sartu kokaleku berria"
 
 #: ../plugins/weather/weatherwidget.c:806
-#, fuzzy
 msgid "_New Location:"
-msgstr "Sareko konexioa"
+msgstr "Kokaleku _berria:"
 
 #: ../plugins/weather/weatherwidget.c:817
 msgid ""
@@ -1745,197 +1722,192 @@ msgid ""
 "- postal code\n"
 "for which to retrieve the weather forecast."
 msgstr ""
+"Idatzi:\n"
+"- herria, edo\n"
+"- herria eta estatua/herrialdea, edo\n"
+"- posta-kodea\n"
+"eguraldiaren iragarpena jasotzeko."
 
 #: ../plugins/weather/weatherwidget.c:854
 #: ../plugins/weather/weatherwidget.c:987
 msgid "You must specify a location."
-msgstr ""
+msgstr "Kokapen bat zehaztu behar duzu."
 
 #: ../plugins/weather/weatherwidget.c:901
 #, c-format
 msgid "Location '%s' not found!"
-msgstr ""
+msgstr "'%s' kokapena ez da aurkitu!"
 
 #: ../plugins/weather/weatherwidget.c:1060
-#, fuzzy
 msgid "Preferences"
-msgstr "Panelaren hobespenak"
+msgstr "Hobespenak"
 
 #: ../plugins/weather/weatherwidget.c:1066
 msgid "Refresh"
-msgstr ""
+msgstr "Freskatu"
 
 #: ../plugins/weather/weatherwidget.c:1072
 msgid "Quit"
-msgstr ""
+msgstr "Irten"
 
 #: ../plugins/weather/weatherwidget.c:1229
-#, fuzzy
 msgid "Weather Preferences"
-msgstr "Panelaren hobespenak"
+msgstr "Eguraldiaren hobespenak"
 
 #: ../plugins/weather/weatherwidget.c:1243
-#, fuzzy
 msgid "Current Location"
-msgstr "Orientazioa"
+msgstr "Uneko kokalekua"
 
 #: ../plugins/weather/weatherwidget.c:1247
 #: ../plugins/weather/weatherwidget.c:1524
-#, fuzzy
 msgid "None configured"
-msgstr "_Konfiguratu"
+msgstr "Konfiguratu gabe"
 
 #: ../plugins/weather/weatherwidget.c:1249
 #: ../plugins/weather/weatherwidget.c:1521
 msgid "_Set"
-msgstr ""
+msgstr "_Ezarri"
 
 #: ../plugins/weather/weatherwidget.c:1270
 msgid "Display"
-msgstr ""
+msgstr "Bistaratu"
 
 #: ../plugins/weather/weatherwidget.c:1274
-#, fuzzy
 msgid "Name:"
-msgstr "_Izena:"
+msgstr "Izena:"
 
 #: ../plugins/weather/weatherwidget.c:1278
 msgid "Units:"
-msgstr ""
+msgstr "Unitateak:"
 
 #: ../plugins/weather/weatherwidget.c:1282
 msgid "_Metric (°C)"
-msgstr ""
+msgstr "_Celsius (°C)"
 
 #: ../plugins/weather/weatherwidget.c:1284
 msgid "_English (°F)"
-msgstr ""
+msgstr "_Fahrenheit (°F)"
 
 #: ../plugins/weather/weatherwidget.c:1319
 msgid "Forecast"
-msgstr ""
+msgstr "Iragarpena"
 
 #: ../plugins/weather/weatherwidget.c:1323
 msgid "Updates:"
-msgstr ""
+msgstr "Eguneraketak:"
 
 #: ../plugins/weather/weatherwidget.c:1327
 msgid "Ma_nual"
-msgstr ""
+msgstr "_Eskuz"
 
 #: ../plugins/weather/weatherwidget.c:1331
 msgid "_Automatic, every"
-msgstr ""
+msgstr "_Automatikoki, maiztasuna:"
 
 #: ../plugins/weather/weatherwidget.c:1352
 msgid "minutes"
-msgstr ""
+msgstr "minutuero"
 
 #: ../plugins/weather/weatherwidget.c:1361
 msgid "Source:"
-msgstr ""
+msgstr "Iturburua:"
 
 #: ../plugins/weather/weatherwidget.c:1477
-#, fuzzy
 msgid "C_hange"
-msgstr "Aldatu mota"
+msgstr "_Aldatu"
 
 #. Both are available
 #: ../plugins/weather/weatherwidget.c:1565
 #, c-format
 msgid "Current Conditions for %s"
-msgstr ""
+msgstr "%s(r)en uneko baldintzak"
 
 #: ../plugins/weather/weatherwidget.c:1589
-#, fuzzy
 msgid "Location:"
-msgstr "Akzioa"
+msgstr "Kokalekua:"
 
 #: ../plugins/weather/weatherwidget.c:1612
 msgid "Last updated:"
-msgstr ""
+msgstr "Azken eguneraketa:"
 
 #: ../plugins/weather/weatherwidget.c:1639
 msgid "Feels like:"
-msgstr ""
+msgstr "Sentsazioa:"
 
 #: ../plugins/weather/weatherwidget.c:1664
 msgid "Humidity:"
-msgstr ""
+msgstr "Hezetasuna:"
 
 #: ../plugins/weather/weatherwidget.c:1691
-#, fuzzy
 msgid "Pressure:"
-msgstr "IP helbidea:"
+msgstr "Presioa:"
 
 #: ../plugins/weather/weatherwidget.c:1718
 msgid "Visibility:"
-msgstr ""
+msgstr "Ikusgaitasuna:"
 
 #: ../plugins/weather/weatherwidget.c:1746
 msgid "Wind:"
-msgstr ""
+msgstr "Haizea:"
 
 #: ../plugins/weather/weatherwidget.c:1769
 msgid "Sunrise:"
-msgstr ""
+msgstr "Egunsentia:"
 
 #: ../plugins/weather/weatherwidget.c:1792
 msgid "Sunset:"
-msgstr ""
+msgstr "Ilunabarra:"
 
 #: ../plugins/weather/weatherwidget.c:1898
 #: ../plugins/weather/weatherwidget.c:2234
 #, c-format
 msgid "Forecast for %s unavailable."
-msgstr ""
+msgstr "%s(e)rako iragarpena ez dago erabilgarri."
 
 #: ../plugins/weather/weatherwidget.c:1907
 #: ../plugins/weather/weatherwidget.c:2239
-#, fuzzy, c-format
+#, c-format, c-format
 msgid "Location not set."
-msgstr "Saioa amaitzeko komandoa ez dago ezarririk"
+msgstr "Ez da ezarri kokapenik."
 
 #: ../plugins/weather/weatherwidget.c:1924
 #, c-format
 msgid "Searching for '%s'..."
-msgstr ""
+msgstr "'%s' bilatzen..."
 
 #: ../plugins/weather/weatherwidget.c:2050
 #, c-format
 msgid "Location matches for '%s'"
-msgstr ""
+msgstr "Kokapena bat dator '%s'(r)ekin"
 
 #: ../plugins/weather/weatherwidget.c:2070
 msgid "City"
-msgstr ""
+msgstr "Herria"
 
 #: ../plugins/weather/weatherwidget.c:2090
 msgid "Country"
-msgstr ""
+msgstr "Herrialdea"
 
 #. make it nice and pretty
 #: ../plugins/weather/weatherwidget.c:2221
-#, fuzzy
 msgid "Currently in "
-msgstr "Unean kargatutako pluginak"
+msgstr "Unean hemen: "
 
 #: ../plugins/weather/weatherwidget.c:2223
 msgid "Today: "
-msgstr ""
+msgstr "Gaur: "
 
 #: ../plugins/weather/weatherwidget.c:2224
 msgid "Tomorrow: "
-msgstr ""
+msgstr "Bihar: "
 
 #: ../plugins/weather/weather.c:312
-#, fuzzy
 msgid "Weather Plugin"
-msgstr "WNCKpager plugina"
+msgstr "Eguraldia plugina"
 
 #: ../plugins/weather/weather.c:313
 msgid "Show weather conditions for a location."
-msgstr ""
+msgstr "Erakutsi kokapen bateko eguraldia"
 
 #~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 #~ msgstr ""

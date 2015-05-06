@@ -8,16 +8,18 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 21:13+0200\n"
-"PO-Revision-Date: 2014-07-24 02:52+0000\n"
-"Last-Translator: system user <>\n"
+"PO-Revision-Date: 2015-01-01 06:47+0000\n"
+"Last-Translator: <safa1996alfulaij@gmail.com>\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Pootle 2.6.0-rc1\n"
-"X-POOTLE-MTIME: 1406170344.000000\n"
+"X-Generator: Pootle 2.6.0-rc2\n"
+"X-POOTLE-MTIME: 1420094824.000000\n"
+"X-Pootle-Path: /ar/lxpanel/po/ar.po\n"
+"X-Pootle-Revision: 0\n"
 
 #: ../src/configurator.c:135
 msgid ""
@@ -27,60 +29,63 @@ msgstr ""
 
 #: ../src/configurator.c:605
 msgid "Currently loaded plugins"
-msgstr "الملحقات المحملة حاليا"
+msgstr "الملحقات المحمّلة حاليًّا"
 
 #: ../src/configurator.c:614
 msgid "Stretch"
-msgstr "مَدِّدْ"
+msgstr "مدّد"
 
 #: ../src/configurator.c:749
 msgid "Add plugin to panel"
-msgstr "أضف ملحقا للشريط"
+msgstr "أضف ملحقةً إلى اللوحة"
 
 #: ../src/configurator.c:777
 msgid "Available plugins"
-msgstr "الملحقات المتوفرة"
+msgstr "الملحقات المتوفّرة"
 
 #: ../src/configurator.c:1357
 msgid "Logout command is not set"
-msgstr "لم يتم تعيين أمر للخروج"
+msgstr "لم يُعيَّن أمر الخروج"
 
 #: ../src/configurator.c:1425
 msgid "Select a directory"
-msgstr "انتق دليلاً"
+msgstr "حدّد دليلًا"
 
 #: ../src/configurator.c:1425 ../src/configurator.c:1540
 msgid "Select a file"
-msgstr "انتق ملفا"
+msgstr "حدّد ملفًّا"
 
 #: ../src/configurator.c:1573
 msgid "_Browse"
-msgstr "_تصفح"
+msgstr "ت_صفّح"
 
 #: ../src/panel.c:981
 msgid "There is no room for another panel. All the edges are taken."
-msgstr ""
+msgstr "لا مكان للوحة أخرى. أُخذت كلّ الحوافّ."
 
 #: ../src/panel.c:1007
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
-"هل تريد فعلا حذف هذا الشريط؟\n"
-"<b>تحذير: لا يمكن استعادة هذا الشريط بعد حذفه.</b>"
+"أتريد حقًّا حذف هذه اللوحة؟\n"
+"<b>تحذير: لا يمكن التّراجع عن هذا.</b>"
 
 #: ../src/panel.c:1009
 msgid "Confirm"
-msgstr "أكد"
+msgstr "أكّد"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:1044
 msgid "translator-credits"
-msgstr "Mohamed Mohsen <linuxer9@gmail.com>"
+msgstr ""
+"فريق عربآيز للتّرجمة http://www.arabeyes.org:\n"
+"محمد محسن <linuxer9@gmail.com>\n"
+"صفا الفليج <safa1996alfulaij@gmail.com>"
 
 #: ../src/panel.c:1049
 msgid "LXPanel"
-msgstr "شريط لكسدي"
+msgstr "لوحة‌لكسدي"
 
 #: ../src/panel.c:1067
 #, fuzzy
@@ -89,7 +94,7 @@ msgstr "حقوق النشر محفوظة (C) 2008-2013"
 
 #: ../src/panel.c:1068
 msgid "Desktop panel for LXDE project"
-msgstr "شريط لمشروع سطح مكتب لكسدي"
+msgstr "لوحة لمشروع سطح مكتب لكسدي"
 
 #: ../src/panel.c:1110
 #, c-format
@@ -98,36 +103,36 @@ msgstr "إعدادات \"%s\""
 
 #: ../src/panel.c:1130
 msgid "Add / Remove Panel Items"
-msgstr "أضف أو أزل عناصر من الشريط"
+msgstr "أضف/أزل عناصر إلى/من اللوحة"
 
 #: ../src/panel.c:1138
 #, c-format
 msgid "Remove \"%s\" From Panel"
-msgstr "أزل \"%s\" من الشريط"
+msgstr "أزل \"%s\" من اللوحة"
 
 #: ../src/panel.c:1150
 msgid "Panel Settings"
-msgstr "إعدادات الشريط"
+msgstr "إعدادات اللوحة"
 
 #: ../src/panel.c:1156
 msgid "Create New Panel"
-msgstr "أنشي شريطا جديدا"
+msgstr "أنشئ لوحة جديدة"
 
 #: ../src/panel.c:1162
 msgid "Delete This Panel"
-msgstr "احذف هذا الشريط"
+msgstr "احذف هذه اللوحة"
 
 #: ../src/panel.c:1173
 msgid "About"
-msgstr "عَنْ"
+msgstr "عنْ"
 
 #: ../src/panel.c:1180
 msgid "Panel"
-msgstr "الشريط"
+msgstr "لوحة"
 
 #: ../src/panel.c:1391 ../src/panel.c:1399 ../data/ui/panel-pref.glade.h:22
 msgid "Height:"
-msgstr "الطول:"
+msgstr "الطّول:"
 
 #: ../src/panel.c:1392 ../src/panel.c:1398 ../data/ui/panel-pref.glade.h:21
 msgid "Width:"
@@ -151,7 +156,7 @@ msgstr "الأسفل"
 
 #: ../src/plugin.c:340
 msgid "No file manager is configured."
-msgstr "لم يتم ضبط مدير ملفات."
+msgstr "لا مدير ملفّات مضبوط."
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/gtk-run.c:377 ../src/main.c:52 ../plugins/menu.c:741
@@ -160,11 +165,11 @@ msgstr "شغّل"
 
 #: ../src/gtk-run.c:391
 msgid "Enter the command you want to execute:"
-msgstr "أدخل الأمر الذي تريد تنفيذه:"
+msgstr "أدخِل الأمر الذي تريد تنفيذه:"
 
 #: ../src/main.c:53 ../plugins/menu.c:742
 msgid "Restart"
-msgstr "أعد التشغيل"
+msgstr "أعد التّشغيل"
 
 #: ../src/main.c:54 ../plugins/menu.c:743
 msgid "Logout"
@@ -173,12 +178,12 @@ msgstr "اخرج"
 #: ../src/main.c:252
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
-msgstr "lxpanel %s - شريط GTK2+ خفيف لأسطح مكتب UNIX\n"
+msgstr "لوحة‌لكسدي %s - لوحة جتك2+ خفيفة لأسطح مكتب يونكس\n"
 
 #: ../src/main.c:253
 #, c-format
 msgid "Command line options:\n"
-msgstr "خيارات سطر الاوامر:\n"
+msgstr "خيارات سطر الأوامر:\n"
 
 #: ../src/main.c:254
 #, c-format
@@ -221,7 +226,7 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"زُر http://lxde.org/ للمزيد من التفاصيل.\n"
+"زُر http://lxde.org/ للمزيد من التّفاصيل.\n"
 "\n"
 
 #: ../src/input-button.c:129
@@ -270,28 +275,25 @@ msgid "Cannot assign '%s' as a global hotkey: it is already bound."
 msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3553
-#, fuzzy
 msgid "Application Launch and Task Bar"
-msgstr "شريط اختصار التطبيقات"
+msgstr "مُطلِق التّطبيقات وشريط المهام"
 
 #. Launchtaskbar mode: launchbar, taskbar, or combined
 #: ../data/ui/launchtaskbar.glade.h:3
-#, fuzzy
 msgid "<b>Mode:</b>"
-msgstr "<b>الحجم</b>"
+msgstr "<b>الوضع:</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:4
 msgid "Launchers"
-msgstr ""
+msgstr "المُطلِقات"
 
 #: ../data/ui/launchtaskbar.glade.h:5
-#, fuzzy
 msgid "<b>Launchbar</b>"
-msgstr "<b>الخلفية</b>"
+msgstr "<b>شريط الإطلاق</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:6
 msgid "Show tooltips"
-msgstr "أظهر تلميحات"
+msgstr "أظهر التّلميحات"
 
 #: ../data/ui/launchtaskbar.glade.h:7
 msgid "Icons only"
@@ -299,15 +301,15 @@ msgstr "أيقونات فقط"
 
 #: ../data/ui/launchtaskbar.glade.h:8
 msgid "Flat buttons"
-msgstr "أزرار مسطحة"
+msgstr "أزرار مسطّحة"
 
 #: ../data/ui/launchtaskbar.glade.h:9
 msgid "Show windows from all desktops"
-msgstr "أظهر نوافذ جميع أسطح المكتب"
+msgstr "أظهر نوافذ كلّ أسطح المكتب"
 
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Only show windows on the same monitor as the task bar"
-msgstr ""
+msgstr "أظهر النّوافذ الموجودة في نفس شاشة شريط المهام فقط"
 
 #: ../data/ui/launchtaskbar.glade.h:11
 msgid "Use mouse wheel"
@@ -315,11 +317,11 @@ msgstr "استخدم عجلة الفأرة"
 
 #: ../data/ui/launchtaskbar.glade.h:12
 msgid "Flash when there is any window requiring attention"
-msgstr "أبرز زر النافذة التي تتطلب اهتماما"
+msgstr "أومض عندما تكون هناك نافذة تحتاج إلى اهتمام"
 
 #: ../data/ui/launchtaskbar.glade.h:13
 msgid "Combine multiple application windows into a single button"
-msgstr "اجمع نوافذ التطبيق الواحد مع بعضها في زر واحد"
+msgstr "اجمع نوافذ التّطبيق الواحد مع بعضها في زرّ واحد"
 
 #: ../data/ui/launchtaskbar.glade.h:14
 msgid "Disable enlargement for small task icons"
@@ -327,26 +329,23 @@ msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:15
 msgid "Maximum width of task button"
-msgstr "أقصى عرض لزر المهمة"
+msgstr "أقصى عرض لزرّ المهمة"
 
 #: ../data/ui/launchtaskbar.glade.h:16
 msgid "Spacing"
-msgstr "مسافة"
+msgstr "التّباعد"
 
 #: ../data/ui/launchtaskbar.glade.h:17
-#, fuzzy
 msgid "<b>Taskbar</b>"
-msgstr "<b>الخلفية</b>"
+msgstr "<b>شريط المهام</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:18
-#, fuzzy
 msgid "Only Application Launch Bar"
-msgstr "شريط اختصار التطبيقات"
+msgstr "شريط إطلاق التّطبيقات فقط"
 
 #: ../data/ui/launchtaskbar.glade.h:19
-#, fuzzy
 msgid "Only Task Bar (Window List)"
-msgstr "شريط المهام (قائمة النوافذ)"
+msgstr "شريط المهام فقط (قائمة النّوافذ)"
 
 #: ../data/ui/launchtaskbar.glade.h:20
 #, fuzzy
@@ -355,7 +354,7 @@ msgstr "شريط اختصار التطبيقات"
 
 #: ../data/ui/netstatus.glade.h:1
 msgid "<b>Connection</b>"
-msgstr "<b>الاتصال</b>"
+msgstr "<b>الاتّصال</b>"
 
 #: ../data/ui/netstatus.glade.h:2
 msgid "Status:"
@@ -363,23 +362,23 @@ msgstr "الحالة:"
 
 #: ../data/ui/netstatus.glade.h:3
 msgid "_Name:"
-msgstr "_الاسم:"
+msgstr "الا_سم:"
 
 #: ../data/ui/netstatus.glade.h:4
 msgid "<b>Activity</b>"
-msgstr "<b>النشاط</b>"
+msgstr "<b>النّشاط</b>"
 
 #: ../data/ui/netstatus.glade.h:5
 msgid "Received:"
-msgstr "تم استقبال:"
+msgstr "استُلِم:"
 
 #: ../data/ui/netstatus.glade.h:6
 msgid "Sent:"
-msgstr "تم إرسال:"
+msgstr "أُرسِل:"
 
 #: ../data/ui/netstatus.glade.h:7
 msgid "<b>Signal Strength</b>"
-msgstr "<b>قوة الإشارة</b>"
+msgstr "<b>قوّة الإشارة</b>"
 
 #: ../data/ui/netstatus.glade.h:9
 #, no-c-format
@@ -388,11 +387,11 @@ msgstr "0%"
 
 #: ../data/ui/netstatus.glade.h:10
 msgid "General"
-msgstr "عام"
+msgstr "عامّ"
 
 #: ../data/ui/netstatus.glade.h:11
 msgid "<b>Internet Protocol (IPv4)</b>"
-msgstr "<b>بروتوكول إنترنت (IPv4)</b>"
+msgstr "<b>ميفاق إنترنت (IPv4)</b>"
 
 #: ../data/ui/netstatus.glade.h:12
 msgid "Address:"
@@ -405,31 +404,31 @@ msgstr "الوجهة:"
 #: ../data/ui/netstatus.glade.h:14 ../plugins/netstat/netstat.c:364
 #: ../plugins/netstat/netstat.c:375
 msgid "Broadcast:"
-msgstr "بث:"
+msgstr "بثّ:"
 
 #: ../data/ui/netstatus.glade.h:15
 msgid "Subnet Mask:"
-msgstr "قناع الشبكة الفرعية:"
+msgstr "قناع الشّبكة الفرعيّة:"
 
 #: ../data/ui/netstatus.glade.h:16
 msgid "<b>Internet Protocol (IPv6)</b>"
-msgstr "<b>بروتوكول إنترنت (IPv6)</b>"
+msgstr "<b>ميفاق إنترنت (IPv6)</b>"
 
 #: ../data/ui/netstatus.glade.h:17
 msgid "Scope:"
-msgstr "النطاق:"
+msgstr "النّطاق:"
 
 #: ../data/ui/netstatus.glade.h:18
 msgid "<b>Network Device</b>"
-msgstr "<b>جهاز الشبكة</b>"
+msgstr "<b>جهاز الشّبكة</b>"
 
 #: ../data/ui/netstatus.glade.h:19
 msgid "Type:"
-msgstr "النوع:"
+msgstr "النّوع:"
 
 #: ../data/ui/netstatus.glade.h:20
 msgid "Support"
-msgstr "دعم"
+msgstr "الدّعم"
 
 #: ../data/ui/netstatus.glade.h:21
 msgid "Con_figure"
@@ -437,16 +436,16 @@ msgstr "ا_ضبط"
 
 #: ../data/ui/panel-pref.glade.h:1
 msgid "Dynamic"
-msgstr "متغير"
+msgstr "حركيّ"
 
 #: ../data/ui/panel-pref.glade.h:2
 msgid "Pixels"
-msgstr "بالبكسل"
+msgstr "بكسل"
 
 #: ../data/ui/panel-pref.glade.h:4
 #, no-c-format
 msgid "% Percent"
-msgstr "% في المائة"
+msgstr "% بالمئة"
 
 #: ../data/ui/panel-pref.glade.h:6
 msgid "Err"
@@ -454,7 +453,7 @@ msgstr "خطأ"
 
 #: ../data/ui/panel-pref.glade.h:7
 msgid "Warn"
-msgstr "تحذير1"
+msgstr "تحذير"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "Info"
@@ -462,15 +461,15 @@ msgstr "معلومات"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "All"
-msgstr "جميع"
+msgstr "الكلّ"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "Panel Preferences"
-msgstr "تفضيلات الشريط"
+msgstr "تفضيلات اللوحة"
 
 #: ../data/ui/panel-pref.glade.h:15
 msgid "Edge:"
-msgstr "الطرف:"
+msgstr "الحافّة:"
 
 #: ../data/ui/panel-pref.glade.h:16
 msgid "Center"
@@ -485,9 +484,8 @@ msgid "Margin:"
 msgstr "الهامش"
 
 #: ../data/ui/panel-pref.glade.h:19
-#, fuzzy
 msgid "Monitor:"
-msgstr "مراقب البطارية"
+msgstr "المرقاب:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "<b>Position</b>"
@@ -495,7 +493,7 @@ msgstr "<b>الموقع</b>"
 
 #: ../data/ui/panel-pref.glade.h:23
 msgid "Icon size:"
-msgstr "حجم الأيقونة"
+msgstr "حجم الأيقونة:"
 
 #: ../data/ui/panel-pref.glade.h:24
 msgid "<b>Size</b>"
@@ -503,15 +501,15 @@ msgstr "<b>الحجم</b>"
 
 #: ../data/ui/panel-pref.glade.h:25
 msgid "Geometry"
-msgstr "الموقع والحجم"
+msgstr "الهندسة"
 
 #: ../data/ui/panel-pref.glade.h:26
 msgid "System theme"
-msgstr "سمة النظام"
+msgstr "سمة النّظام"
 
 #: ../data/ui/panel-pref.glade.h:27
 msgid "Solid color (with opacity)"
-msgstr "لون (بشفافية)"
+msgstr "لون صلب (بشفافيّة)"
 
 #: ../data/ui/panel-pref.glade.h:28 ../plugins/xkb/xkb-plugin.c:1447
 msgid "Image"
@@ -519,15 +517,15 @@ msgstr "صورة"
 
 #: ../data/ui/panel-pref.glade.h:29
 msgid "Select an image file"
-msgstr "انتق ملف صورة"
+msgstr "اختر ملفّ صورة"
 
 #: ../data/ui/panel-pref.glade.h:30
 msgid "<b>Background</b>"
-msgstr "<b>الخلفية</b>"
+msgstr "<b>الخلفيّة</b>"
 
 #: ../data/ui/panel-pref.glade.h:31
 msgid "Custom color"
-msgstr "لون مخصص"
+msgstr "لون مخصّص"
 
 #: ../data/ui/panel-pref.glade.h:32 ../plugins/space.c:88
 #: ../plugins/batt/batt.c:675
@@ -536,7 +534,7 @@ msgstr "الحجم"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "<b>Font</b>"
-msgstr "<b>الخط</b>"
+msgstr "<b>الخطّ</b>"
 
 #: ../data/ui/panel-pref.glade.h:34
 msgid "Appearance"
@@ -544,7 +542,7 @@ msgstr "المظهر"
 
 #: ../data/ui/panel-pref.glade.h:35
 msgid "Panel Applets"
-msgstr "عناصر الشريط"
+msgstr "بريمجات اللوحة"
 
 #: ../data/ui/panel-pref.glade.h:36
 msgid "Logout Command:"
@@ -552,19 +550,19 @@ msgstr "أمر الخروج:"
 
 #: ../data/ui/panel-pref.glade.h:37
 msgid "Terminal Emulator:"
-msgstr "محاكي الطرفية:"
+msgstr "محاكي الطّرفيّة:"
 
 #: ../data/ui/panel-pref.glade.h:38
 msgid "File Manager:"
-msgstr "مدير الملفات:"
+msgstr "مدير الملفّات:"
 
 #: ../data/ui/panel-pref.glade.h:39
 msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>عيّن التطبيقات المفضلة</b>"
+msgstr "<b>عيّن التّطبيقات المفضّلة</b>"
 
 #: ../data/ui/panel-pref.glade.h:40
 msgid "Make window managers treat the panel as dock"
-msgstr "اؤمر مديري النوافذ أن يعاملوا الشريط على أنه رصيف"
+msgstr "أخبِر مديري النّوافذ بأن يتعاملوا مع اللوحة كرصيف"
 
 #: ../data/ui/panel-pref.glade.h:41
 msgid "Reserve space, and not covered by maximized windows"
@@ -576,11 +574,11 @@ msgstr "<b>خصائص</b>"
 
 #: ../data/ui/panel-pref.glade.h:43
 msgid "Minimize panel when not in use"
-msgstr "قلص الشريط عندما يكون غير مستخدم"
+msgstr "صغّر اللوحة عند عدم استخدامها"
 
 #: ../data/ui/panel-pref.glade.h:44
 msgid "Size when minimized"
-msgstr "حجم الشريط عند تقلصه"
+msgstr "الحجم عند التّصغير"
 
 #: ../data/ui/panel-pref.glade.h:45
 msgid "pixels"
@@ -588,23 +586,23 @@ msgstr "بكسل"
 
 #: ../data/ui/panel-pref.glade.h:46
 msgid "<b>Automatic hiding</b>"
-msgstr "<b>الإخفاء التلقائي</b>"
+msgstr "<b>الإخفاء الآليّ</b>"
 
 #: ../data/ui/panel-pref.glade.h:47
 msgid "Log level"
-msgstr "مستوى التقرير"
+msgstr "مستوى السجلّ"
 
 #: ../data/ui/panel-pref.glade.h:48
 msgid "<b>Log level</b>"
-msgstr "<b>مستوى التقرير</b>"
+msgstr "<b>مستوى السجلّ</b>"
 
 #: ../data/ui/panel-pref.glade.h:49
 msgid "Advanced"
-msgstr "خيارات متقدمة"
+msgstr "متقدّم"
 
 #: ../plugins/cpu/cpu.c:281
 msgid "CPU Usage Monitor"
-msgstr "مراقب استخدام المعالج"
+msgstr "مرقاب لاستخدام المعالج"
 
 #: ../plugins/cpu/cpu.c:282 ../plugins/monitors/monitors.c:699
 msgid "Display CPU usage"
@@ -612,32 +610,31 @@ msgstr "أظهر استخدام المعالج"
 
 #: ../plugins/deskno/deskno.c:174 ../plugins/deskno/deskno.c:194
 msgid "Desktop Number / Workspace Name"
-msgstr "رقم سطح المكتب أو اسم مساحة العمل"
+msgstr "رقم سطح المكتب/اسم مساحة العمل"
 
 #: ../plugins/deskno/deskno.c:176 ../plugins/dclock.c:424
 msgid "Bold font"
-msgstr "خط عريض"
+msgstr "خطّ عريض"
 
 #: ../plugins/deskno/deskno.c:177
 msgid "Display desktop names"
-msgstr "عرض اسماء سطح المكتب"
+msgstr "اعرض أسماء أسطح المكتب"
 
 #: ../plugins/deskno/deskno.c:195
 msgid "Display workspace number, by cmeury@users.sf.net"
-msgstr "إظهار رقم مساحة العمل، كتبه cmeury@users.sf.net"
+msgstr "اعرض رقم مساحة العمل، كتبه cmeury@users.sf.net"
 
 #: ../plugins/launchtaskbar.c:1443 ../plugins/launchtaskbar.c:3525
 msgid "Application Launch Bar"
-msgstr "شريط اختصار التطبيقات"
+msgstr "شريط إطلاق التّطبيقات"
 
 #: ../plugins/launchtaskbar.c:1446 ../plugins/launchtaskbar.c:3534
 msgid "Task Bar (Window List)"
-msgstr "شريط المهام (قائمة النوافذ)"
+msgstr "شريط المهام (قائمة النّوافذ)"
 
 #: ../plugins/launchtaskbar.c:2507
-#, fuzzy
 msgid "_Close all windows"
-msgstr "_أغلق النافذة"
+msgstr "أ_غلق كلّ النّوافذ"
 
 #. Add Raise menu item.
 #: ../plugins/launchtaskbar.c:3380
@@ -647,7 +644,7 @@ msgstr "ا_رفع"
 #. Add Restore menu item.
 #: ../plugins/launchtaskbar.c:3385
 msgid "R_estore"
-msgstr "_استعِدْ"
+msgstr "ا_سترجع"
 
 #. Add Maximize menu item.
 #: ../plugins/launchtaskbar.c:3390
@@ -672,34 +669,34 @@ msgstr "مساحة العمل %d"
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../plugins/launchtaskbar.c:3437
 msgid "_All workspaces"
-msgstr "_جميع مساحات العمل"
+msgstr "_كلّ مساحات العمل"
 
 #. FIXME: add "Current workspace" item, active if not on a current
 #. Add Move to Workspace menu item as a submenu.
 #: ../plugins/launchtaskbar.c:3445
 msgid "_Move to Workspace"
-msgstr "_انقل إلى مساحة العمل"
+msgstr "ا_نقل إلى مساحة العمل"
 
 #. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
 #: ../plugins/launchtaskbar.c:3451
 msgid "_Close Window"
-msgstr "_أغلق النافذة"
+msgstr "أ_غلق النّافذة"
 
 #: ../plugins/launchtaskbar.c:3453
 msgid "A_dd to Launcher"
-msgstr ""
+msgstr "أ_ضف إلى المُطلِق"
 
 #: ../plugins/launchtaskbar.c:3454
 msgid "Rem_ove from Launcher"
-msgstr "أز_ل من الشريط"
+msgstr "أ_زل من المُطلِق"
 
 #: ../plugins/launchtaskbar.c:3455
 msgid "_New Instance"
-msgstr ""
+msgstr "سيرورة _جديدة"
 
 #: ../plugins/launchtaskbar.c:3526
 msgid "Bar with buttons to launch application"
-msgstr "شريط يحتوي على أزرار لفتح تطبيقات"
+msgstr "شريط بأزرار لإطلاق التّطبيقات"
 
 #: ../plugins/launchtaskbar.c:3535
 msgid ""
@@ -710,21 +707,20 @@ msgstr ""
 "الانتقال إليها "
 
 #: ../plugins/launchtaskbar.c:3554
-#, fuzzy
 msgid "Bar with buttons to launch application and/or show all opened windows"
-msgstr "شريط يحتوي على أزرار لفتح تطبيقات"
+msgstr "شريط بأزرار لإطلاق التّطبيقات و/أو إظهار كلّ النّوافذ المفتوحة"
 
 #: ../plugins/dclock.c:418 ../plugins/dclock.c:438
 msgid "Digital Clock"
-msgstr "الساعة الرقمية"
+msgstr "ساعة رقميّة"
 
 #: ../plugins/dclock.c:420
 msgid "Clock Format"
-msgstr "هيئة الساعة"
+msgstr "تنسيق السّاعة"
 
 #: ../plugins/dclock.c:421
 msgid "Tooltip Format"
-msgstr "هيئة التلميح"
+msgstr "تنسيق التّلميح"
 
 #: ../plugins/dclock.c:422
 #, fuzzy, c-format
@@ -733,7 +729,7 @@ msgstr "لمعرفة شفرات التنسيق: man 3 strftime؛ اكتب \\%n �
 
 #: ../plugins/dclock.c:423
 msgid "Action when clicked (default: display calendar)"
-msgstr "الإجراء المتبع عند نقر الساعة (الإجراء المبدئي هو عرض تقويم)"
+msgstr "الإجراء عند النّقر (الافتراضيّ: عرض التّقويم)"
 
 #: ../plugins/dclock.c:425
 msgid "Tooltip only"
@@ -741,11 +737,11 @@ msgstr "تلميح فقط"
 
 #: ../plugins/dclock.c:426
 msgid "Center text"
-msgstr "نص فس الوسط"
+msgstr "نصّ موسّط"
 
 #: ../plugins/dclock.c:439
 msgid "Display digital clock and tooltip"
-msgstr "يظهر ساعة رقمية وتلميحا"
+msgstr "اعرض ساعة رقميّة وتلميح"
 
 #: ../plugins/menu.c:382
 msgid "Add to desktop"
@@ -757,15 +753,15 @@ msgstr "خصائص"
 
 #: ../plugins/menu.c:1013 ../plugins/menu.c:1027
 msgid "Menu"
-msgstr "القائمة"
+msgstr "قائمة"
 
 #: ../plugins/menu.c:1014 ../plugins/dirmenu.c:357
 msgid "Icon"
-msgstr "أيقونة"
+msgstr "الأيقونة"
 
 #: ../plugins/menu.c:1028
 msgid "Application Menu"
-msgstr "قائمة التطبيقات"
+msgstr "قائمة التّطبيقات"
 
 #: ../plugins/separator.c:68
 msgid "Separator"
@@ -773,7 +769,7 @@ msgstr "فاصل"
 
 #: ../plugins/separator.c:69
 msgid "Add a separator to the panel"
-msgstr "أضف فاصلا للشريط"
+msgstr "أضف فاصلًا إلى اللوحة"
 
 #: ../plugins/pager.c:92
 msgid "Sorry, there was no window manager configuration program found."
@@ -781,15 +777,15 @@ msgstr ""
 
 #: ../plugins/pager.c:144 ../plugins/pager.c:160
 msgid "Desktop Pager"
-msgstr "مبدّل مساحات العمل"
+msgstr "مقلّب أسطح المكتب"
 
 #: ../plugins/pager.c:145 ../plugins/pager.c:161
 msgid "Simple pager plugin"
-msgstr "ملحق بسيط لتبديل مساحات العمل"
+msgstr "ملحقة بسيطة للتّقليب"
 
 #: ../plugins/space.c:86 ../plugins/space.c:95
 msgid "Spacer"
-msgstr "مسافة"
+msgstr "مُباعِد"
 
 #: ../plugins/space.c:96
 msgid "Allocate space"
@@ -797,48 +793,47 @@ msgstr "يترك مسافة"
 
 #: ../plugins/tray.c:682
 msgid "System Tray"
-msgstr "مساحة التبليغ"
+msgstr "صينيّة النظام"
 
 #: ../plugins/tray.c:683
 msgid "System tray"
-msgstr "مساحة التبليغ"
+msgstr "صينيّة النظام"
 
 #: ../plugins/xkb/xkb-plugin.c:401
 msgid "New session is required for this option to take effect"
-msgstr ""
+msgstr "جلسة جديدة مطلوبة ليُطبَّق هذا الخيار"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:582
 msgid "Select Keyboard Model"
-msgstr "تحديد نوع لوحة المفاتيح"
+msgstr "حدّد طراز لوحة المفاتيح"
 
 #: ../plugins/xkb/xkb-plugin.c:606 ../plugins/xkb/xkb-plugin.c:735
 #: ../plugins/xkb/xkb-plugin.c:913
 msgid "Description"
-msgstr "الوصف:"
+msgstr "الوصف"
 
 #: ../plugins/xkb/xkb-plugin.c:611 ../plugins/xkb/xkb-plugin.c:742
-#, fuzzy
 msgid "Id"
-msgstr "عاطل"
+msgstr "المعرّف"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:706
 msgid "Select Layout Change Type"
-msgstr "تحديد نمط تغيير التخطيط"
+msgstr "حدّد نوع تغيير التّخطيط"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:879
 msgid "Add Keyboard Layout"
-msgstr "إضافة تخطيط لوحة المفاتيح"
+msgstr "أضف تخطيط لوحة المفاتيح"
 
 #: ../plugins/xkb/xkb-plugin.c:903 ../plugins/xkb/xkb-plugin.c:1294
 msgid "Flag"
-msgstr "علم"
+msgstr "العلم"
 
 #: ../plugins/xkb/xkb-plugin.c:908 ../plugins/xkb/xkb-plugin.c:1298
 msgid "Layout"
-msgstr "تخطيط"
+msgstr "التّخطيط"
 
 #: ../plugins/xkb/xkb-plugin.c:1204 ../plugins/xkb/xkb-plugin.c:1536
 msgid "Keyboard Layout Handler"
@@ -846,55 +841,55 @@ msgstr "مبدّل تخطيط لوحة المفاتيح"
 
 #: ../plugins/xkb/xkb-plugin.c:1227
 msgid "Keyboard Model"
-msgstr "نوع لوحة المفاتيح"
+msgstr "طراز لوحة المفاتيح"
 
 #: ../plugins/xkb/xkb-plugin.c:1248
 msgid "Keyboard Layouts"
-msgstr "تخطيط لوحة المفاتيح"
+msgstr "تخطيطات لوحة مفاتيح"
 
 #: ../plugins/xkb/xkb-plugin.c:1302
 msgid "Variant"
-msgstr "الصنف"
+msgstr "التّنويعة"
 
 #: ../plugins/xkb/xkb-plugin.c:1311
 msgid "Change Layout Option"
-msgstr "خيار تغيير التخطيط"
+msgstr "خيار تغيير التّخطيط"
 
 #: ../plugins/xkb/xkb-plugin.c:1331
 msgid "Advanced setxkbmap Options"
-msgstr ""
+msgstr "خيارات setxkbmap متقدّمة"
 
 #: ../plugins/xkb/xkb-plugin.c:1352
 msgid "Do _not reset existing options"
-msgstr ""
+msgstr "لا تص_فّر الخيارات الموجودة"
 
 #: ../plugins/xkb/xkb-plugin.c:1357
 msgid "Keep _system layouts"
-msgstr ""
+msgstr "أبقِ محليّات النّ_ظام"
 
 #: ../plugins/xkb/xkb-plugin.c:1366
 msgid "Per Window Settings"
-msgstr "بواسطة إعدادات النافذة"
+msgstr "إعدادات لكلّ نافذة"
 
 #: ../plugins/xkb/xkb-plugin.c:1378
 msgid "_Remember layout for each window"
-msgstr "_تذكر التخطيط لكل نافذة"
+msgstr "_تذكّر التّخطيط لكلّ نافذة"
 
 #: ../plugins/xkb/xkb-plugin.c:1387
 msgid "Show Layout as"
-msgstr "أظهر التخطيط كـ"
+msgstr "أظهر التّخطيط كـ"
 
 #: ../plugins/xkb/xkb-plugin.c:1448
 msgid "Custom Image"
-msgstr "صورة مختلفة"
+msgstr "صورة مخصّصة"
 
 #: ../plugins/xkb/xkb-plugin.c:1449
 msgid "Text"
-msgstr "نص"
+msgstr "نصّ"
 
 #: ../plugins/xkb/xkb-plugin.c:1475
 msgid "Panel Icon Size"
-msgstr "حجم أيقونة الشريط"
+msgstr "حجم أيقونة اللوحة"
 
 #: ../plugins/xkb/xkb-plugin.c:1537
 msgid "Handle keyboard layouts"
@@ -908,7 +903,7 @@ msgstr ""
 
 #: ../plugins/wincmd.c:224 ../plugins/wincmd.c:234
 msgid "Minimize All Windows"
-msgstr "صغّر جميع النوافذ"
+msgstr "صغّر كلّ النوافذ"
 
 #: ../plugins/wincmd.c:226
 msgid "Alternately iconify/shade and raise"
@@ -924,11 +919,11 @@ msgstr ""
 
 #: ../plugins/dirmenu.c:205
 msgid "Open in _Terminal"
-msgstr "افتح في ال_طرفية"
+msgstr "افتح في ال_طّرفيّة"
 
 #: ../plugins/dirmenu.c:353 ../plugins/dirmenu.c:369
 msgid "Directory Menu"
-msgstr "قائمة الأدلة"
+msgstr "قائمة الأدلّة"
 
 #: ../plugins/dirmenu.c:355
 msgid "Directory"
@@ -939,9 +934,8 @@ msgid "Label"
 msgstr "التسمية"
 
 #: ../plugins/dirmenu.c:370
-#, fuzzy
 msgid "Browse directory tree via menu (Author = PCMan)"
-msgstr "تصفح شجرة أدلة من القائمة (المؤلف: PCMan)"
+msgstr "تصفّح شجرة الأدلّة عبر قائمة (المؤلّف: PCMan)"
 
 #: ../plugins/thermal/thermal.c:558 ../plugins/thermal/thermal.c:576
 msgid "Temperature Monitor"
@@ -997,7 +991,7 @@ msgstr ""
 
 #: ../plugins/cpufreq/cpufreq.c:409
 msgid "CPUFreq frontend"
-msgstr ""
+msgstr "سَنَد تردّد المعالج"
 
 #: ../plugins/cpufreq/cpufreq.c:410
 msgid "Display CPU frequency and allow to change governors and frequency"
@@ -1033,7 +1027,7 @@ msgstr "خطأ, يجب عليك تثبيت تطبيق لضبط الصوت (pavuc
 
 #: ../plugins/volumealsa/volumealsa.c:638
 msgid "Display and control volume for ALSA"
-msgstr ""
+msgstr "اعرض مستوى الصّوت وتحكّم به لِـ ALSA"
 
 #: ../plugins/netstat/netstat.c:179
 msgid "<Hidden Access Point>"
@@ -1417,9 +1411,8 @@ msgid "Cannot open /proc/net/dev: %s"
 msgstr "غير قادر على فتح /proc/net/dev: %s"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:185
-#, fuzzy
 msgid "Could not parse /proc/net/dev. No data."
-msgstr "غير قادر على تحليل /proc/net/dev. هيئة غير معروفة."
+msgstr "تعذّر تحليل ‎/proc/net/dev. لا بيانات."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:190
 msgid "Could not parse /proc/net/dev. Unknown format."
@@ -1442,9 +1435,8 @@ msgstr ""
 "brx_idx = %d; btx_idx = %d;"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:312
-#, fuzzy
 msgid "Could not parse /proc/net/wireless. No data."
-msgstr "غير قادر على تحليل /proc/net/wireless. هيئة غير معروفة."
+msgstr "تعذّر تحليل ‎/proc/net/wireless. لا بيانات."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:316
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1536,6 +1528,8 @@ msgid ""
 "\n"
 "%sPower now:\t\t\t%5d mW"
 msgstr ""
+"\n"
+"%sالطّاقة الآن:\t\t\t%5d م.وات"
 
 #: ../plugins/batt/batt.c:188
 #, c-format
@@ -1557,6 +1551,8 @@ msgid ""
 "\n"
 "%sCharge now:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sالشّحن الآن:\t\t\t%5d ميلي‌أمبير‌ساعة"
 
 #: ../plugins/batt/batt.c:194
 #, c-format
@@ -1571,6 +1567,8 @@ msgid ""
 "\n"
 "%sCurrent Voltage:\t\t%.3lf V"
 msgstr ""
+"\n"
+"%sالفولطيّة الآن:\t\t%.3lf فولت"
 
 #: ../plugins/batt/batt.c:235
 msgid "No batteries found"
@@ -1623,7 +1621,7 @@ msgstr "عرض الحد"
 
 #: ../plugins/batt/batt.c:676
 msgid "Show Extended Information"
-msgstr ""
+msgstr "أظهر معلومات ممتدّة"
 
 #: ../plugins/batt/batt.c:686
 msgid "Display battery status using ACPI"
@@ -1722,16 +1720,15 @@ msgstr "عرض مراقبات (معالح, الذاكرة العشوائية)"
 
 #: ../plugins/weather/weatherwidget.c:52
 msgid "[N/A]"
-msgstr ""
+msgstr "[غ/م]"
 
 #: ../plugins/weather/weatherwidget.c:792
 msgid "Enter New Location"
-msgstr ""
+msgstr "أدخِل مكانًا جديدًا"
 
 #: ../plugins/weather/weatherwidget.c:806
-#, fuzzy
 msgid "_New Location:"
-msgstr "اتصال شبكي"
+msgstr "المكان ال_جديد:"
 
 #: ../plugins/weather/weatherwidget.c:817
 msgid ""
@@ -1741,87 +1738,87 @@ msgid ""
 "- postal code\n"
 "for which to retrieve the weather forecast."
 msgstr ""
+"أدخِل:\n"
+"- المدينة، أو\n"
+"- المدينة والولاية/البلد، أو\n"
+"- الرّمز البريديّ\n"
+"لجلب تنبّؤ الطّقس له/لها."
 
 #: ../plugins/weather/weatherwidget.c:854
 #: ../plugins/weather/weatherwidget.c:987
 msgid "You must specify a location."
-msgstr ""
+msgstr "عليك تحديد مكان."
 
 #: ../plugins/weather/weatherwidget.c:901
 #, c-format
 msgid "Location '%s' not found!"
-msgstr ""
+msgstr "لم يُعثر على المكان '%s'!"
 
 #: ../plugins/weather/weatherwidget.c:1060
-#, fuzzy
 msgid "Preferences"
-msgstr "تفضيلات الشريط"
+msgstr "تفضيلات"
 
 #: ../plugins/weather/weatherwidget.c:1066
 msgid "Refresh"
-msgstr ""
+msgstr "أنعش"
 
 #: ../plugins/weather/weatherwidget.c:1072
 msgid "Quit"
-msgstr ""
+msgstr "أنهِ"
 
 #: ../plugins/weather/weatherwidget.c:1229
-#, fuzzy
 msgid "Weather Preferences"
-msgstr "تفضيلات الشريط"
+msgstr "تفضيلات الطّقس"
 
 #: ../plugins/weather/weatherwidget.c:1243
-#, fuzzy
 msgid "Current Location"
-msgstr "التوجيه"
+msgstr "المكان الحاليّ"
 
 #: ../plugins/weather/weatherwidget.c:1247
 #: ../plugins/weather/weatherwidget.c:1524
-#, fuzzy
 msgid "None configured"
-msgstr "ا_ضبط"
+msgstr "لا شيء مضبوط"
 
 #: ../plugins/weather/weatherwidget.c:1249
 #: ../plugins/weather/weatherwidget.c:1521
 msgid "_Set"
-msgstr ""
+msgstr "_عيّن"
 
 #: ../plugins/weather/weatherwidget.c:1270
 msgid "Display"
 msgstr ""
 
 #: ../plugins/weather/weatherwidget.c:1274
-#, fuzzy
 msgid "Name:"
-msgstr "_الاسم:"
+msgstr "الاسم:"
 
 #: ../plugins/weather/weatherwidget.c:1278
 msgid "Units:"
-msgstr ""
+msgstr "الوحدات:"
 
 #: ../plugins/weather/weatherwidget.c:1282
 msgid "_Metric (°C)"
-msgstr ""
+msgstr "مت_ريّ (°م)"
 
 #: ../plugins/weather/weatherwidget.c:1284
 msgid "_English (°F)"
-msgstr ""
+msgstr "إن_جليزيّ (°ف)"
 
 #: ../plugins/weather/weatherwidget.c:1319
 msgid "Forecast"
-msgstr ""
+msgstr "تنبّؤ الطّقس"
 
 #: ../plugins/weather/weatherwidget.c:1323
 msgid "Updates:"
-msgstr ""
+msgstr "التّحديثات:"
 
 #: ../plugins/weather/weatherwidget.c:1327
 msgid "Ma_nual"
-msgstr ""
+msgstr "ي_دويًّا"
 
 #: ../plugins/weather/weatherwidget.c:1331
 msgid "_Automatic, every"
-msgstr ""
+msgstr "آ_ليًّا، كلّ"
 
 #: ../plugins/weather/weatherwidget.c:1352
 msgid "minutes"
@@ -1829,27 +1826,25 @@ msgstr ""
 
 #: ../plugins/weather/weatherwidget.c:1361
 msgid "Source:"
-msgstr ""
+msgstr "المصدر:"
 
 #: ../plugins/weather/weatherwidget.c:1477
-#, fuzzy
 msgid "C_hange"
-msgstr "تغيير النمط"
+msgstr "غيّ_ر"
 
 #. Both are available
 #: ../plugins/weather/weatherwidget.c:1565
 #, c-format
 msgid "Current Conditions for %s"
-msgstr ""
+msgstr "حالة %s الحاليّة"
 
 #: ../plugins/weather/weatherwidget.c:1589
-#, fuzzy
 msgid "Location:"
-msgstr "الإجراء"
+msgstr "المكان:"
 
 #: ../plugins/weather/weatherwidget.c:1612
 msgid "Last updated:"
-msgstr ""
+msgstr "آخر تحديث:"
 
 #: ../plugins/weather/weatherwidget.c:1639
 msgid "Feels like:"
@@ -1857,81 +1852,78 @@ msgstr ""
 
 #: ../plugins/weather/weatherwidget.c:1664
 msgid "Humidity:"
-msgstr ""
+msgstr "الرّطوبة:"
 
 #: ../plugins/weather/weatherwidget.c:1691
-#, fuzzy
 msgid "Pressure:"
-msgstr "عنوان IP:"
+msgstr "الضّغط:"
 
 #: ../plugins/weather/weatherwidget.c:1718
 msgid "Visibility:"
-msgstr ""
+msgstr "الرّؤية:"
 
 #: ../plugins/weather/weatherwidget.c:1746
 msgid "Wind:"
-msgstr ""
+msgstr "الرّياح:"
 
 #: ../plugins/weather/weatherwidget.c:1769
 msgid "Sunrise:"
-msgstr ""
+msgstr "الشّروق:"
 
 #: ../plugins/weather/weatherwidget.c:1792
 msgid "Sunset:"
-msgstr ""
+msgstr "الغروب:"
 
 #: ../plugins/weather/weatherwidget.c:1898
 #: ../plugins/weather/weatherwidget.c:2234
 #, c-format
 msgid "Forecast for %s unavailable."
-msgstr ""
+msgstr "تنبّؤ طقس %s غير متوفّر."
 
 #: ../plugins/weather/weatherwidget.c:1907
 #: ../plugins/weather/weatherwidget.c:2239
-#, fuzzy, c-format
+#, c-format
 msgid "Location not set."
-msgstr "لم يتم تعيين أمر للخروج"
+msgstr "لم يُعيَّن مكان."
 
 #: ../plugins/weather/weatherwidget.c:1924
 #, c-format
 msgid "Searching for '%s'..."
-msgstr ""
+msgstr "يبحث عن '%s'..."
 
 #: ../plugins/weather/weatherwidget.c:2050
 #, c-format
 msgid "Location matches for '%s'"
-msgstr ""
+msgstr "الأماكن المطابقة لِـ '%s'"
 
 #: ../plugins/weather/weatherwidget.c:2070
 msgid "City"
-msgstr ""
+msgstr "المدينة"
 
 #: ../plugins/weather/weatherwidget.c:2090
 msgid "Country"
-msgstr ""
+msgstr "الدّولة"
 
 #. make it nice and pretty
 #: ../plugins/weather/weatherwidget.c:2221
-#, fuzzy
 msgid "Currently in "
-msgstr "الملحقات المحملة حاليا"
+msgstr "حاليًّا في "
 
 #: ../plugins/weather/weatherwidget.c:2223
 msgid "Today: "
-msgstr ""
+msgstr "اليوم: "
 
 #: ../plugins/weather/weatherwidget.c:2224
 msgid "Tomorrow: "
-msgstr ""
+msgstr "الغدّ: "
 
 #: ../plugins/weather/weather.c:312
-#, fuzzy
 msgid "Weather Plugin"
-msgstr "ملحق WNCKpager"
+msgstr "ملحقة طقس"
 
 #: ../plugins/weather/weather.c:313
 msgid "Show weather conditions for a location."
-msgstr ""
+msgstr "أظهر حالة الطّقس في مكان ما."
 
 #~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 #~ msgstr ""

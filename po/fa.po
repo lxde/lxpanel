@@ -16,9 +16,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Pootle 2.0.1\n"
 "X-Poedit-Language: Persian\n"
 "X-Poedit-Country: Iran\n"
-"X-Generator: Pootle 2.0.1\n"
+"X-Pootle-Path: /fa/lxpanel/po/fa.po\n"
+"X-Pootle-Revision: 0\n"
 
 #: ../src/configurator.c:135
 msgid ""

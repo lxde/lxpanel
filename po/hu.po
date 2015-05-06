@@ -10,15 +10,18 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 21:13+0200\n"
-"PO-Revision-Date: 2012-09-06 16:24+0200\n"
-"Last-Translator: Bendegúz <gyonkibendeguz@gmail.com>\n"
+"PO-Revision-Date: 2015-05-04 18:52+0000\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.7.0-alpha1\n"
+"X-POOTLE-MTIME: 1430765562.000000\n"
+"X-Pootle-Path: /hu/lxpanel/po/hu.po\n"
+"X-Pootle-Revision: 1574\n"
 
 #: ../src/configurator.c:135
 msgid ""
@@ -80,16 +83,16 @@ msgid "translator-credits"
 msgstr ""
 "Basák Péter Zsolt <shiki@biomernok.hu>\n"
 "Dvornik László <dvornik@gnome.hu>\n"
-"Szervác Attila <sas@321.hu>"
+"Szervác Attila <sas@321.hu>\n"
+"Úr Balázs <urbalazs@gmail.com>"
 
 #: ../src/panel.c:1049
 msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:1067
-#, fuzzy
 msgid "Copyright (C) 2008-2014"
-msgstr "Copyright (C) 2008-2011"
+msgstr "Copyright (C) 2008-2014"
 
 #: ../src/panel.c:1068
 msgid "Desktop panel for LXDE project"
@@ -155,7 +158,7 @@ msgstr "Lent"
 
 #: ../src/plugin.c:340
 msgid "No file manager is configured."
-msgstr ""
+msgstr "Nincs fájlkezelő beállítva."
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/gtk-run.c:377 ../src/main.c:52 ../plugins/menu.c:741
@@ -232,6 +235,8 @@ msgstr ""
 #, c-format
 msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
 msgstr ""
+"Elnézést, a(z) „%s” billentyűkombináció nem használható globális "
+"gyorsbillentyűként."
 
 #: ../src/input-button.c:132 ../src/input-button.c:331
 #: ../plugins/netstatus/netstatus-iface.c:191
@@ -240,33 +245,30 @@ msgid "Error"
 msgstr "Hiba"
 
 #: ../src/input-button.c:161
-#, fuzzy
 msgid "LeftBtn"
-msgstr "Balra"
+msgstr "Bal gomb"
 
 #: ../src/input-button.c:164
 msgid "MiddleBtn"
-msgstr ""
+msgstr "Középső gomb"
 
 #: ../src/input-button.c:167
-#, fuzzy
 msgid "RightBtn"
-msgstr "Jobbra"
+msgstr "Jobb gomb"
 
 #: ../src/input-button.c:170
 #, c-format
 msgid "Btn%s"
-msgstr ""
+msgstr "%s gomb"
 
 #. GtkRadioButton "None"
 #: ../src/input-button.c:250 ../data/ui/panel-pref.glade.h:5
 msgid "None"
-msgstr ""
+msgstr "Nincs"
 
 #: ../src/input-button.c:257
-#, fuzzy
 msgid "Custom:"
-msgstr "Egyéni szín"
+msgstr "Egyéni:"
 
 #: ../src/input-button.c:329
 #, c-format
@@ -274,24 +276,21 @@ msgid "Cannot assign '%s' as a global hotkey: it is already bound."
 msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3553
-#, fuzzy
 msgid "Application Launch and Task Bar"
-msgstr "Alkalmazás-indító"
+msgstr "Alkalmazás-indítás és feladatsáv"
 
 #. Launchtaskbar mode: launchbar, taskbar, or combined
 #: ../data/ui/launchtaskbar.glade.h:3
-#, fuzzy
 msgid "<b>Mode:</b>"
-msgstr "<b>Méret</b>"
+msgstr "<b>Mód:</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:4
 msgid "Launchers"
-msgstr ""
+msgstr "Indítók"
 
 #: ../data/ui/launchtaskbar.glade.h:5
-#, fuzzy
 msgid "<b>Launchbar</b>"
-msgstr "<b>Háttér</b>"
+msgstr "<b>Indítósáv</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:6
 msgid "Show tooltips"
@@ -311,7 +310,7 @@ msgstr "Összes munkaasztal ablakainak megjelenítése"
 
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Only show windows on the same monitor as the task bar"
-msgstr ""
+msgstr "Csak a feladatsávval megegyező monitoron jelenjenek meg az ablakok"
 
 #: ../data/ui/launchtaskbar.glade.h:11
 msgid "Use mouse wheel"
@@ -327,7 +326,7 @@ msgstr "Több alkalmazás ablakainak egyesítése egy egyszerű gombbá"
 
 #: ../data/ui/launchtaskbar.glade.h:14
 msgid "Disable enlargement for small task icons"
-msgstr ""
+msgstr "Kis feladatikonok nagyításának letiltása"
 
 #: ../data/ui/launchtaskbar.glade.h:15
 msgid "Maximum width of task button"
@@ -338,24 +337,20 @@ msgid "Spacing"
 msgstr "Térköz"
 
 #: ../data/ui/launchtaskbar.glade.h:17
-#, fuzzy
 msgid "<b>Taskbar</b>"
-msgstr "<b>Háttér</b>"
+msgstr "<b>Feladatsáv</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:18
-#, fuzzy
 msgid "Only Application Launch Bar"
-msgstr "Alkalmazás-indító"
+msgstr "Csak alkalmazásindító-sáv"
 
 #: ../data/ui/launchtaskbar.glade.h:19
-#, fuzzy
 msgid "Only Task Bar (Window List)"
-msgstr "Ablaklista"
+msgstr "Csak feladatsáv (ablaklista)"
 
 #: ../data/ui/launchtaskbar.glade.h:20
-#, fuzzy
 msgid "Integrated Application Launch Bar and Task Bar"
-msgstr "Alkalmazás-indító"
+msgstr "Integrált alkalmazásindító-sáv és feladatsáv"
 
 #: ../data/ui/netstatus.glade.h:1
 msgid "<b>Connection</b>"
@@ -453,22 +448,20 @@ msgid "% Percent"
 msgstr "% százalék"
 
 #: ../data/ui/panel-pref.glade.h:6
-#, fuzzy
 msgid "Err"
 msgstr "Hiba"
 
 #: ../data/ui/panel-pref.glade.h:7
-#, fuzzy
 msgid "Warn"
-msgstr "Figyelmeztetés1"
+msgstr "Figy"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "All"
-msgstr ""
+msgstr "Minden"
 
 #: ../data/ui/panel-pref.glade.h:10
 msgid "Panel Preferences"
@@ -491,9 +484,8 @@ msgid "Margin:"
 msgstr "Margó:"
 
 #: ../data/ui/panel-pref.glade.h:19
-#, fuzzy
 msgid "Monitor:"
-msgstr "Akkumulátor-figyelő"
+msgstr "Monitor:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "<b>Position</b>"
@@ -501,7 +493,7 @@ msgstr "<b>Elhelyezkedés</b>"
 
 #: ../data/ui/panel-pref.glade.h:23
 msgid "Icon size:"
-msgstr ""
+msgstr "Ikonméret:"
 
 #: ../data/ui/panel-pref.glade.h:24
 msgid "<b>Size</b>"
@@ -598,12 +590,11 @@ msgstr "<b>Automatikus elrejtés</b>"
 
 #: ../data/ui/panel-pref.glade.h:47
 msgid "Log level"
-msgstr ""
+msgstr "Naplózási szint"
 
 #: ../data/ui/panel-pref.glade.h:48
-#, fuzzy
 msgid "<b>Log level</b>"
-msgstr "<b>Hálózati eszköz</b>"
+msgstr "<b>Naplózási szint</b>"
 
 #: ../data/ui/panel-pref.glade.h:49
 msgid "Advanced"
@@ -642,9 +633,8 @@ msgid "Task Bar (Window List)"
 msgstr "Ablaklista"
 
 #: ../plugins/launchtaskbar.c:2507
-#, fuzzy
 msgid "_Close all windows"
-msgstr "A_blak bezárása"
+msgstr "Minden _ablak bezárása"
 
 #. Add Raise menu item.
 #: ../plugins/launchtaskbar.c:3380
@@ -694,16 +684,15 @@ msgstr "A_blak bezárása"
 
 #: ../plugins/launchtaskbar.c:3453
 msgid "A_dd to Launcher"
-msgstr ""
+msgstr "_Hozzáadás az indítóhoz"
 
 #: ../plugins/launchtaskbar.c:3454
-#, fuzzy
 msgid "Rem_ove from Launcher"
-msgstr "\"%s\" eltávolítása a panelról"
+msgstr "_Eltávolítás az indítóból"
 
 #: ../plugins/launchtaskbar.c:3455
 msgid "_New Instance"
-msgstr ""
+msgstr "Ú_j példány"
 
 #: ../plugins/launchtaskbar.c:3526
 msgid "Bar with buttons to launch application"
@@ -735,9 +724,9 @@ msgid "Tooltip Format"
 msgstr "Eszköztipp formátuma"
 
 #: ../plugins/dclock.c:422
-#, fuzzy, c-format
+#, c-format
 msgid "Format codes: man 3 strftime; %n for line break"
-msgstr "Formázó kódok: man 3 strftime; \\n a sortöréshez"
+msgstr "Formázó kódok: man 3 strftime; %n a sortöréshez"
 
 #: ../plugins/dclock.c:423
 msgid "Action when clicked (default: display calendar)"
@@ -818,18 +807,16 @@ msgstr ""
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:582
 msgid "Select Keyboard Model"
-msgstr ""
+msgstr "Billentyűzetmodell kiválasztása"
 
 #: ../plugins/xkb/xkb-plugin.c:606 ../plugins/xkb/xkb-plugin.c:735
 #: ../plugins/xkb/xkb-plugin.c:913
-#, fuzzy
 msgid "Description"
-msgstr "Cél:"
+msgstr "Leírás"
 
 #: ../plugins/xkb/xkb-plugin.c:611 ../plugins/xkb/xkb-plugin.c:742
-#, fuzzy
 msgid "Id"
-msgstr "Üresjárat"
+msgstr "Azonosító"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:706
@@ -1055,7 +1042,7 @@ msgstr ""
 
 #: ../plugins/netstat/netstat.c:179
 msgid "<Hidden Access Point>"
-msgstr "<Rejtett Access Point>"
+msgstr "<Rejtett hozzáférési pont>"
 
 #: ../plugins/netstat/netstat.c:212
 msgid "Wireless Networks not found in range"
@@ -1746,9 +1733,8 @@ msgid "Enter New Location"
 msgstr ""
 
 #: ../plugins/weather/weatherwidget.c:806
-#, fuzzy
 msgid "_New Location:"
-msgstr "Hálózati kapcsolat"
+msgstr "Ú_j hely:"
 
 #: ../plugins/weather/weatherwidget.c:817
 msgid ""
@@ -1794,9 +1780,8 @@ msgstr "Tájolás"
 
 #: ../plugins/weather/weatherwidget.c:1247
 #: ../plugins/weather/weatherwidget.c:1524
-#, fuzzy
 msgid "None configured"
-msgstr "_Beállítás"
+msgstr "Semmi sincs beállítva"
 
 #: ../plugins/weather/weatherwidget.c:1249
 #: ../plugins/weather/weatherwidget.c:1521
@@ -1808,9 +1793,8 @@ msgid "Display"
 msgstr ""
 
 #: ../plugins/weather/weatherwidget.c:1274
-#, fuzzy
 msgid "Name:"
-msgstr "_Név:"
+msgstr "Név:"
 
 #: ../plugins/weather/weatherwidget.c:1278
 msgid "Units:"
@@ -1927,9 +1911,8 @@ msgstr ""
 
 #. make it nice and pretty
 #: ../plugins/weather/weatherwidget.c:2221
-#, fuzzy
 msgid "Currently in "
-msgstr "Jelenleg betöltött bővítmények"
+msgstr "Jelenleg ebben: "
 
 #: ../plugins/weather/weatherwidget.c:2223
 msgid "Today: "

@@ -8,15 +8,18 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 21:13+0200\n"
-"PO-Revision-Date: 2012-05-29 09:49+0200\n"
-"Last-Translator: Gheyret <gheyret@gmail.com>\n"
+"PO-Revision-Date: 2014-12-02 12:00+0000\n"
+"Last-Translator: system user <>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Pootle 2.0.5\n"
+"X-Generator: Pootle 2.7.0-alpha1\n"
+"X-POOTLE-MTIME: 1417521627.000000\n"
+"X-Pootle-Path: /ug/lxpanel/po/ug.po\n"
+"X-Pootle-Revision: 0\n"
 
 #: ../src/configurator.c:135
 msgid ""
@@ -693,9 +696,8 @@ msgid "A_dd to Launcher"
 msgstr ""
 
 #: ../plugins/launchtaskbar.c:3454
-#, fuzzy
 msgid "Rem_ove from Launcher"
-msgstr "«%s» نى كۆزنەكچىدىن چىقىرىۋېتىش"
+msgstr "ئىجراچىدىن چىقىرىۋەت(_O)"
 
 #: ../plugins/launchtaskbar.c:3455
 msgid "_New Instance"
@@ -731,9 +733,9 @@ msgid "Tooltip Format"
 msgstr "كۆرسەتمە پىچىمى"
 
 #: ../plugins/dclock.c:422
-#, fuzzy, c-format
+#, c-format
 msgid "Format codes: man 3 strftime; %n for line break"
-msgstr "پىچىم كودلىرى: man 3 strftime; \\n قۇر ئۆزگەرتىدۇ"
+msgstr "پىچىم كودلىرى: man 3 strftime; %n بىلەن قۇر ئۆزگەرتىدۇ"
 
 #: ../plugins/dclock.c:423
 msgid "Action when clicked (default: display calendar)"

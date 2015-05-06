@@ -9,15 +9,19 @@ msgstr ""
 "Project-Id-Version: LXPanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 21:13+0200\n"
-"PO-Revision-Date: 2013-11-24 05:44+0100\n"
-"Last-Translator: Jay Alexander Fleming <tito.nehru.naser@gmail.com>\n"
+"PO-Revision-Date: 2015-05-01 20:31+0000\n"
+"Last-Translator: Jay A. Fleming <tito.nehru.naser@gmail.com>\n"
 "Language-Team: \n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Pootle 2.7.0-alpha1\n"
+"X-POOTLE-MTIME: 1430512301.000000\n"
+"X-Pootle-Path: /sr/lxpanel/po/sr.po\n"
+"X-Pootle-Revision: 976\n"
 
 #: ../src/configurator.c:135
 msgid ""
@@ -59,7 +63,7 @@ msgstr "_Разгледај"
 
 #: ../src/panel.c:981
 msgid "There is no room for another panel. All the edges are taken."
-msgstr ""
+msgstr "Нема места за други панел. Све ивице су заузете."
 
 #: ../src/panel.c:1007
 msgid ""
@@ -76,16 +80,15 @@ msgstr "Потврда"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../src/panel.c:1044
 msgid "translator-credits"
-msgstr "Српски (sr) — Jay A. Fleming <tito.nehru.naser@gmail.com>"
+msgstr "Српски — Jay A. Fleming"
 
 #: ../src/panel.c:1049
 msgid "LXPanel"
 msgstr "ЛИкс-Панел"
 
 #: ../src/panel.c:1067
-#, fuzzy
 msgid "Copyright (C) 2008-2014"
-msgstr "Ауторска права (C) 2008-2011."
+msgstr "Ауторска права — 2008-2011."
 
 #: ../src/panel.c:1068
 msgid "Desktop panel for LXDE project"
@@ -151,7 +154,7 @@ msgstr "доле"
 
 #: ../src/plugin.c:340
 msgid "No file manager is configured."
-msgstr ""
+msgstr "Управник датотека није подешен."
 
 #. { "configure", N_("Preferences"), configure },
 #: ../src/gtk-run.c:377 ../src/main.c:52 ../plugins/menu.c:741
@@ -160,7 +163,7 @@ msgstr "Покрени"
 
 #: ../src/gtk-run.c:391
 msgid "Enter the command you want to execute:"
-msgstr "Унесите наредбу коју желите да извршите:"
+msgstr "Унесите наредбу коју желите да покренете:"
 
 #: ../src/main.c:53 ../plugins/menu.c:742
 msgid "Restart"
@@ -227,7 +230,7 @@ msgstr ""
 #: ../src/input-button.c:129
 #, c-format
 msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
-msgstr ""
+msgstr "Комбинација тастера „%s“ се не може употребити као општа пречица."
 
 #: ../src/input-button.c:132 ../src/input-button.c:331
 #: ../plugins/netstatus/netstatus-iface.c:191
@@ -236,23 +239,21 @@ msgid "Error"
 msgstr "Грешка"
 
 #: ../src/input-button.c:161
-#, fuzzy
 msgid "LeftBtn"
-msgstr "лево"
+msgstr "Л.дугме"
 
 #: ../src/input-button.c:164
 msgid "MiddleBtn"
-msgstr ""
+msgstr "Ср.дугме"
 
 #: ../src/input-button.c:167
-#, fuzzy
 msgid "RightBtn"
-msgstr "десно"
+msgstr "Д.дугме"
 
 #: ../src/input-button.c:170
 #, c-format
 msgid "Btn%s"
-msgstr ""
+msgstr "%s.дугме"
 
 #. GtkRadioButton "None"
 #: ../src/input-button.c:250 ../data/ui/panel-pref.glade.h:5
@@ -260,34 +261,30 @@ msgid "None"
 msgstr "Ниједан"
 
 #: ../src/input-button.c:257
-#, fuzzy
 msgid "Custom:"
-msgstr "Боја по избору"
+msgstr "Посебно:"
 
 #: ../src/input-button.c:329
 #, c-format
 msgid "Cannot assign '%s' as a global hotkey: it is already bound."
-msgstr ""
+msgstr "Не могу да придружим „%s“ као општу пречицу: Већ је у употреби."
 
 #: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3553
-#, fuzzy
 msgid "Application Launch and Task Bar"
 msgstr "Трака за покретање програма"
 
 #. Launchtaskbar mode: launchbar, taskbar, or combined
 #: ../data/ui/launchtaskbar.glade.h:3
-#, fuzzy
 msgid "<b>Mode:</b>"
-msgstr "<b>Величина</b>"
+msgstr "<b>Режим:</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:4
 msgid "Launchers"
-msgstr ""
+msgstr "Покретачи"
 
 #: ../data/ui/launchtaskbar.glade.h:5
-#, fuzzy
 msgid "<b>Launchbar</b>"
-msgstr "<b>Позадина</b>"
+msgstr "<b>Панел за брзо покретање</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:6
 msgid "Show tooltips"
@@ -307,11 +304,11 @@ msgstr "Прикажи прозоре са свих радних површи"
 
 #: ../data/ui/launchtaskbar.glade.h:10
 msgid "Only show windows on the same monitor as the task bar"
-msgstr ""
+msgstr "Прикажи само прозоре на истом монитору као на траци задатака"
 
 #: ../data/ui/launchtaskbar.glade.h:11
 msgid "Use mouse wheel"
-msgstr "Користи точкић миша"
+msgstr "Употребљавај точкић миша"
 
 #: ../data/ui/launchtaskbar.glade.h:12
 msgid "Flash when there is any window requiring attention"
@@ -323,35 +320,31 @@ msgstr "Приказуј више прозора програма кроз је�
 
 #: ../data/ui/launchtaskbar.glade.h:14
 msgid "Disable enlargement for small task icons"
-msgstr ""
+msgstr "Онемогући увећавање малих икона задатака"
 
 #: ../data/ui/launchtaskbar.glade.h:15
 msgid "Maximum width of task button"
-msgstr "Највећа ширина радног дугмета"
+msgstr "Највећа ширина дугмета задатка"
 
 #: ../data/ui/launchtaskbar.glade.h:16
 msgid "Spacing"
 msgstr "Размак"
 
 #: ../data/ui/launchtaskbar.glade.h:17
-#, fuzzy
 msgid "<b>Taskbar</b>"
-msgstr "<b>Позадина</b>"
+msgstr "<b>Панел задатака</b>"
 
 #: ../data/ui/launchtaskbar.glade.h:18
-#, fuzzy
 msgid "Only Application Launch Bar"
-msgstr "Трака за покретање програма"
+msgstr "Само трака за покретање програма"
 
 #: ../data/ui/launchtaskbar.glade.h:19
-#, fuzzy
 msgid "Only Task Bar (Window List)"
-msgstr "Трака са листом прозора"
+msgstr "Само трака са задацима (списак прозора)"
 
 #: ../data/ui/launchtaskbar.glade.h:20
-#, fuzzy
 msgid "Integrated Application Launch Bar and Task Bar"
-msgstr "Трака за покретање програма"
+msgstr "Обједињене трака за покретање програма и трака задатака"
 
 #: ../data/ui/netstatus.glade.h:1
 msgid "<b>Connection</b>"
@@ -458,7 +451,7 @@ msgstr "Упозорење"
 
 #: ../data/ui/panel-pref.glade.h:8
 msgid "Info"
-msgstr "Инфо"
+msgstr "Подаци"
 
 #: ../data/ui/panel-pref.glade.h:9
 msgid "All"
@@ -485,9 +478,8 @@ msgid "Margin:"
 msgstr "Маргина:"
 
 #: ../data/ui/panel-pref.glade.h:19
-#, fuzzy
 msgid "Monitor:"
-msgstr "Показивач стања батерије"
+msgstr "Монитор:"
 
 #: ../data/ui/panel-pref.glade.h:20
 msgid "<b>Position</b>"
@@ -560,7 +552,7 @@ msgstr "Управник датотека:"
 
 #: ../data/ui/panel-pref.glade.h:39
 msgid "<b>Set Preferred Applications</b>"
-msgstr "<b>Постави подразумеване програме</b>"
+msgstr "<b>Постави омиљене програме</b>"
 
 #: ../data/ui/panel-pref.glade.h:40
 msgid "Make window managers treat the panel as dock"
@@ -612,19 +604,19 @@ msgstr "Прикажи стање процеса"
 
 #: ../plugins/deskno/deskno.c:174 ../plugins/deskno/deskno.c:194
 msgid "Desktop Number / Workspace Name"
-msgstr "Број / Име радне површи"
+msgstr "Број/Назив радне површи"
 
 #: ../plugins/deskno/deskno.c:176 ../plugins/dclock.c:424
 msgid "Bold font"
-msgstr "Задебљан словни лик"
+msgstr "Задебљан словолик"
 
 #: ../plugins/deskno/deskno.c:177
 msgid "Display desktop names"
-msgstr "Прикажи имена радних површи"
+msgstr "Прикажи називе радних површи"
 
 #: ../plugins/deskno/deskno.c:195
 msgid "Display workspace number, by cmeury@users.sf.net"
-msgstr "Прикажи број радне површи, од „cmeury@users.sf.net“"
+msgstr "Прикажи број радне површи (створио „cmeury@users.sf.net“)"
 
 #: ../plugins/launchtaskbar.c:1443 ../plugins/launchtaskbar.c:3525
 msgid "Application Launch Bar"
@@ -632,12 +624,11 @@ msgstr "Трака за покретање програма"
 
 #: ../plugins/launchtaskbar.c:1446 ../plugins/launchtaskbar.c:3534
 msgid "Task Bar (Window List)"
-msgstr "Трака са листом прозора"
+msgstr "Трака задатака (списак прозора)"
 
 #: ../plugins/launchtaskbar.c:2507
-#, fuzzy
 msgid "_Close all windows"
-msgstr "_Затвори прозор"
+msgstr "_Затвори све прозоре"
 
 #. Add Raise menu item.
 #: ../plugins/launchtaskbar.c:3380
@@ -672,7 +663,7 @@ msgstr "Радна површ %d"
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
 #: ../plugins/launchtaskbar.c:3437
 msgid "_All workspaces"
-msgstr "Све радне површи"
+msgstr "_Све радне површи"
 
 #. FIXME: add "Current workspace" item, active if not on a current
 #. Add Move to Workspace menu item as a submenu.
@@ -687,16 +678,15 @@ msgstr "_Затвори прозор"
 
 #: ../plugins/launchtaskbar.c:3453
 msgid "A_dd to Launcher"
-msgstr ""
+msgstr "До_дај у покретаче"
 
 #: ../plugins/launchtaskbar.c:3454
-#, fuzzy
 msgid "Rem_ove from Launcher"
-msgstr "Уклони „%s“ са панела"
+msgstr "Укл_они из покретача"
 
 #: ../plugins/launchtaskbar.c:3455
 msgid "_New Instance"
-msgstr ""
+msgstr "_Нови примерак"
 
 #: ../plugins/launchtaskbar.c:3526
 msgid "Bar with buttons to launch application"
@@ -707,13 +697,13 @@ msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
-"Трака са листом прозора приказује све отворене прозоре и\n"
-" омогућује управљање њима"
+"Трака задатака приказује све отворене прозоре и омогућује управљање њима"
 
 #: ../plugins/launchtaskbar.c:3554
-#, fuzzy
 msgid "Bar with buttons to launch application and/or show all opened windows"
-msgstr "Трака са дугмадима за покретање програма"
+msgstr ""
+"Трака са дугмадима за покретање програма и/или приказивање свих отворених "
+"прозора"
 
 #: ../plugins/dclock.c:418 ../plugins/dclock.c:438
 msgid "Digital Clock"
@@ -728,15 +718,15 @@ msgid "Tooltip Format"
 msgstr "Начин приказивања облачића"
 
 #: ../plugins/dclock.c:422
-#, fuzzy, c-format
+#, c-format
 msgid "Format codes: man 3 strftime; %n for line break"
 msgstr ""
-"За начин приказа погледати: „man 3 strftime“;  Користите „\\%n“ за нову "
-"линију (ред)"
+"За начин приказа погледајте: „man 3 strftime“;  Користите %n  за нову линију "
+"(ред)"
 
 #: ../plugins/dclock.c:423
 msgid "Action when clicked (default: display calendar)"
-msgstr " На клик мишем покрени (подразумевано: приказује календар)"
+msgstr "На клик мишем покрени (подразумевано: приказује календар)"
 
 #: ../plugins/dclock.c:425
 msgid "Tooltip only"
@@ -768,7 +758,7 @@ msgstr "Икона"
 
 #: ../plugins/menu.c:1028
 msgid "Application Menu"
-msgstr "Мени са програмима"
+msgstr "Програмски изборник"
 
 #: ../plugins/separator.c:68
 msgid "Separator"
@@ -780,7 +770,7 @@ msgstr "Додај раздвајач на панел"
 
 #: ../plugins/pager.c:92
 msgid "Sorry, there was no window manager configuration program found."
-msgstr ""
+msgstr "На жалост, нисам пронашао програм за подешавање управника прозора."
 
 #: ../plugins/pager.c:144 ../plugins/pager.c:160
 msgid "Desktop Pager"
@@ -821,9 +811,8 @@ msgid "Description"
 msgstr "Опис"
 
 #: ../plugins/xkb/xkb-plugin.c:611 ../plugins/xkb/xkb-plugin.c:742
-#, fuzzy
 msgid "Id"
-msgstr "Неупослен"
+msgstr "ИБ"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:706
@@ -845,7 +834,7 @@ msgstr "Распоред тастатуре"
 
 #: ../plugins/xkb/xkb-plugin.c:1204 ../plugins/xkb/xkb-plugin.c:1536
 msgid "Keyboard Layout Handler"
-msgstr "Управљач распоредa тастатуре"
+msgstr "Управник распоредa тастатуре"
 
 #: ../plugins/xkb/xkb-plugin.c:1227
 msgid "Keyboard Model"
@@ -865,15 +854,15 @@ msgstr "Поставка промене распореда тастатуре"
 
 #: ../plugins/xkb/xkb-plugin.c:1331
 msgid "Advanced setxkbmap Options"
-msgstr "Напредне опције програма „setxkbmap“"
+msgstr "Напредне поставке програма „setxkbmap“"
 
 #: ../plugins/xkb/xkb-plugin.c:1352
 msgid "Do _not reset existing options"
-msgstr "_Не поништавај постојеће опције"
+msgstr "_Не поништавај постојеће поставке"
 
 #: ../plugins/xkb/xkb-plugin.c:1357
 msgid "Keep _system layouts"
-msgstr "Задржи системски распоред тастатуре"
+msgstr "Задр_жи системски распоред тастатуре"
 
 #: ../plugins/xkb/xkb-plugin.c:1366
 msgid "Per Window Settings"
@@ -885,7 +874,7 @@ msgstr "Запамти _распоред тастатуре за сваки пр
 
 #: ../plugins/xkb/xkb-plugin.c:1387
 msgid "Show Layout as"
-msgstr " Прикажи распоред тастатуре као"
+msgstr "Прикажи распоред тастатуре као"
 
 #: ../plugins/xkb/xkb-plugin.c:1448
 msgid "Custom Image"
@@ -905,7 +894,7 @@ msgstr "Управљање распоредима тастатуре"
 
 #: ../plugins/wincmd.c:189
 msgid "Left click to iconify all windows.  Middle click to shade them."
-msgstr "Леви клик за умањивање свих прозора. Средњи клик за њихово увлачење."
+msgstr "Леви клик за умањивање свих прозора.  Средњи клик за њихово увлачење."
 
 #: ../plugins/wincmd.c:224 ../plugins/wincmd.c:234
 msgid "Minimize All Windows"
@@ -940,30 +929,24 @@ msgid "Label"
 msgstr "Ознака"
 
 #: ../plugins/dirmenu.c:370
-#, fuzzy
 msgid "Browse directory tree via menu (Author = PCMan)"
-msgstr ""
-"Преглед стабла директоријума у облику менија.\n"
-"(Приредио: PCMan)"
+msgstr "Преглед стабла директоријума у облику менија (Приредио: PCMan)"
 
 #: ../plugins/thermal/thermal.c:558 ../plugins/thermal/thermal.c:576
 msgid "Temperature Monitor"
 msgstr "Праћење температуре"
 
 #: ../plugins/thermal/thermal.c:560
-#, fuzzy
 msgid "Normal color"
-msgstr "Боја по избору"
+msgstr "Обична боја"
 
 #: ../plugins/thermal/thermal.c:561
-#, fuzzy
 msgid "Warning1 color"
-msgstr "Боја при пуњењу 1"
+msgstr "Боја 1. упозорења"
 
 #: ../plugins/thermal/thermal.c:562
-#, fuzzy
 msgid "Warning2 color"
-msgstr "Боја при пуњењу 1"
+msgstr "Боја 2. упозорења"
 
 #: ../plugins/thermal/thermal.c:563
 msgid "Automatic sensor location"
@@ -978,14 +961,12 @@ msgid "Automatic temperature levels"
 msgstr "Аутоматски нивои температуре"
 
 #: ../plugins/thermal/thermal.c:566
-#, fuzzy
 msgid "Warning1 temperature"
-msgstr "Температура — 1. упозорење"
+msgstr "Температура 1. упозорења"
 
 #: ../plugins/thermal/thermal.c:567
-#, fuzzy
 msgid "Warning2 temperature"
-msgstr "Температура — 2. упозорење"
+msgstr "Температура 2. упозорења"
 
 #: ../plugins/thermal/thermal.c:577
 msgid "Display system temperature"
@@ -997,14 +978,16 @@ msgid ""
 "Frequency: %d MHz\n"
 "Governor: %s"
 msgstr ""
+"Учестаност: %d МХц\n"
+"Управљање: %s"
 
 #: ../plugins/cpufreq/cpufreq.c:409
 msgid "CPUFreq frontend"
-msgstr ""
+msgstr "Сучеље за „CPUFreq“"
 
 #: ../plugins/cpufreq/cpufreq.c:410
 msgid "Display CPU frequency and allow to change governors and frequency"
-msgstr ""
+msgstr "Приказује радни такт ЦПЈ и омогућује измену управника и радног такта"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -1028,13 +1011,12 @@ msgid "Mute"
 msgstr "Утишај"
 
 #: ../plugins/volumealsa/volumealsa.c:619
-#, fuzzy
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontrol, alsamixer ...)"
 msgstr ""
-"Грешка! Најпре инсталирајте неки програм за подешавање звука (pavucontol, "
-"alsamixer ...)"
+"Грешка. Поставите програм за подешавање звука („pavucontrol“, „alsamixer“, "
+"...)"
 
 #: ../plugins/volumealsa/volumealsa.c:638
 msgid "Display and control volume for ALSA"
@@ -1042,7 +1024,7 @@ msgstr "Приказ и управљање гласноћом (АЛСА поср
 
 #: ../plugins/netstat/netstat.c:179
 msgid "<Hidden Access Point>"
-msgstr "<Скривена приступна тачка (AP)>"
+msgstr "<Скривена приступна тачка>"
 
 #: ../plugins/netstat/netstat.c:212
 msgid "Wireless Networks not found in range"
@@ -1087,7 +1069,7 @@ msgstr "Мрежна маска:"
 #: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
 #: ../plugins/netstat/netstat.c:378
 msgid "Activity"
-msgstr "Активност"
+msgstr "Упосленост"
 
 #: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
 #: ../plugins/netstat/netstat.c:378
@@ -1140,7 +1122,7 @@ msgid ""
 "You must have the encryption key."
 msgstr ""
 "Ова бежична мрежа је заштићена.\n"
-"Морате имати кључ за шифровање"
+"Биће неопходан кључ за шифровање."
 
 #: ../plugins/netstat/passwd_gui.c:103
 msgid "Encryption Key:"
@@ -1152,7 +1134,7 @@ msgstr "Пратилац стања мреже"
 
 #: ../plugins/netstatus/netstatus.c:154
 msgid "Interface to monitor"
-msgstr "Прати овај интерфејс"
+msgstr "Прати ово сучеље"
 
 #: ../plugins/netstatus/netstatus.c:155
 msgid "Config tool"
@@ -1204,11 +1186,11 @@ msgstr "Веза на мрежу"
 
 #: ../plugins/netstatus/netstatus-icon.c:822
 msgid "Interface"
-msgstr "Интерфејс"
+msgstr "Сучеље"
 
 #: ../plugins/netstatus/netstatus-icon.c:823
 msgid "The current interface the icon is monitoring."
-msgstr "Икона тренутног интерфејса прати стање интерфејса."
+msgstr "Сучеље које се тренутно прати."
 
 #: ../plugins/netstatus/netstatus-icon.c:830
 msgid "Orientation"
@@ -1247,11 +1229,11 @@ msgstr ""
 
 #: ../plugins/netstatus/netstatus-iface.c:148
 msgid "Name"
-msgstr "Име"
+msgstr "Назив"
 
 #: ../plugins/netstatus/netstatus-iface.c:149
 msgid "The interface name"
-msgstr "Име интерфејса"
+msgstr "Назив сучеља"
 
 #: ../plugins/netstatus/netstatus-iface.c:156
 #: ../plugins/weather/weatherwidget.c:2080
@@ -1260,7 +1242,7 @@ msgstr "Стање"
 
 #: ../plugins/netstatus/netstatus-iface.c:157
 msgid "The interface state"
-msgstr "Стање интерфејса"
+msgstr "Стање сучеља"
 
 #: ../plugins/netstatus/netstatus-iface.c:165
 msgid "Stats"
@@ -1268,11 +1250,11 @@ msgstr "Статистике"
 
 #: ../plugins/netstatus/netstatus-iface.c:166
 msgid "The interface packets/bytes statistics"
-msgstr "Статистика интерфејса (пакета/бајтова)"
+msgstr "Статистика сучеља (пакета/бајтова)"
 
 #: ../plugins/netstatus/netstatus-iface.c:174
 msgid "Whether the interface is a wireless interface"
-msgstr "Да ли је интерфејс бежичне мреже"
+msgstr "Да ли је сучеље за бежични уређај"
 
 #: ../plugins/netstatus/netstatus-iface.c:181
 msgid "Signal"
@@ -1280,7 +1262,7 @@ msgstr "Сигнал"
 
 #: ../plugins/netstatus/netstatus-iface.c:182
 msgid "Wireless signal strength percentage"
-msgstr "Снага сигнала бежичне мреже у процентима"
+msgstr "Снага сигнала бежичне мреже у постоцима"
 
 #: ../plugins/netstatus/netstatus-iface.c:192
 msgid "The current error condition"
@@ -1290,13 +1272,13 @@ msgstr "Карактер тренутне грешке"
 #: ../plugins/netstatus/netstatus-iface.c:1205
 #, c-format
 msgid "Unable to open socket: %s"
-msgstr "Не могу отворити сокет: %s"
+msgstr "Не могу да отворим сокет: %s"
 
 #: ../plugins/netstatus/netstatus-iface.c:502
 #: ../plugins/netstatus/netstatus-iface.c:1231
 #, c-format
 msgid "SIOCGIFFLAGS error: %s"
-msgstr "SIOCGIFFLAGS грешка: %s"
+msgstr "Грешка (SIOCGIFFLAGS): %s"
 
 #: ../plugins/netstatus/netstatus-iface.c:879
 msgid "AMPR NET/ROM"
@@ -1304,7 +1286,7 @@ msgstr "AMPR NET/ROM"
 
 #: ../plugins/netstatus/netstatus-iface.c:882
 msgid "Ethernet"
-msgstr "Локална мрежа"
+msgstr "Жичана веза"
 
 #: ../plugins/netstatus/netstatus-iface.c:888
 msgid "AMPR AX.25"
@@ -1313,7 +1295,7 @@ msgstr "AMPR AX.25"
 #: ../plugins/netstatus/netstatus-iface.c:897
 #: ../plugins/netstatus/netstatus-iface.c:1017
 msgid "16/4 Mbps Token Ring"
-msgstr "16/4 Mbps Token Ring"
+msgstr "16/4 Mbps токенринг"
 
 #: ../plugins/netstatus/netstatus-iface.c:900
 msgid "ARCnet"
@@ -1329,23 +1311,23 @@ msgstr "Metricom Starmode IP"
 
 #: ../plugins/netstatus/netstatus-iface.c:915
 msgid "Serial Line IP"
-msgstr "Serial Line IP"
+msgstr "Серијска ИП веза"
 
 #: ../plugins/netstatus/netstatus-iface.c:918
 msgid "VJ Serial Line IP"
-msgstr "VJ Serial Line IP"
+msgstr "ВЈ серијска ИП веза"
 
 #: ../plugins/netstatus/netstatus-iface.c:921
 msgid "6-bit Serial Line IP"
-msgstr "6-bit Serial Line IP"
+msgstr "6-битна серијска ИП веза"
 
 #: ../plugins/netstatus/netstatus-iface.c:924
 msgid "VJ 6-bit Serial Line IP"
-msgstr "VJ 6-bit Serial Line IP"
+msgstr "6-битна ВЈ серијска ИП веза"
 
 #: ../plugins/netstatus/netstatus-iface.c:930
 msgid "Adaptive Serial Line IP"
-msgstr "Adaptive Serial Line IP"
+msgstr "Прилагодљива серијска ИП веза"
 
 #: ../plugins/netstatus/netstatus-iface.c:933
 msgid "AMPR ROSE"
@@ -1353,7 +1335,7 @@ msgstr "AMPR ROSE"
 
 #: ../plugins/netstatus/netstatus-iface.c:936
 msgid "Generic X.25"
-msgstr "Generic X.25"
+msgstr "Обични X.25"
 
 #: ../plugins/netstatus/netstatus-iface.c:939
 msgid "Point-to-Point Protocol"
@@ -1369,11 +1351,11 @@ msgstr "LAPB"
 
 #: ../plugins/netstatus/netstatus-iface.c:957
 msgid "IPIP Tunnel"
-msgstr "IPIP Tunnel"
+msgstr "ИПИП тунел"
 
 #: ../plugins/netstatus/netstatus-iface.c:963
 msgid "Frame Relay Access Device"
-msgstr "Frame Relay Access Device"
+msgstr "Frame Relay приступни уређај"
 
 #: ../plugins/netstatus/netstatus-iface.c:969
 msgid "Local Loopback"
@@ -1381,11 +1363,11 @@ msgstr "Локална повратна веза"
 
 #: ../plugins/netstatus/netstatus-iface.c:975
 msgid "Fiber Distributed Data Interface"
-msgstr "Fiber Distributed Data Interface"
+msgstr "Уређај који кроз влакна преноси податке (ФДДИ)"
 
 #: ../plugins/netstatus/netstatus-iface.c:981
 msgid "IPv6-in-IPv4"
-msgstr "IPv6-in-IPv4"
+msgstr "ИПв6-преко-ИПв4"
 
 #: ../plugins/netstatus/netstatus-iface.c:993
 msgid "HIPPI"
@@ -1406,7 +1388,7 @@ msgstr "IrLAP"
 #: ../plugins/netstatus/netstatus-iface.c:1163
 #, c-format
 msgid "SIOCGIFCONF error: %s"
-msgstr "SIOCGIFCONF грешка: %s"
+msgstr "Грешка (SIOCGIFCONF): %s"
 
 #: ../plugins/netstatus/netstatus-iface.c:1256
 #, c-format
@@ -1419,9 +1401,8 @@ msgid "Cannot open /proc/net/dev: %s"
 msgstr "Не могу да отворим /proc/net/dev: %s"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:185
-#, fuzzy
 msgid "Could not parse /proc/net/dev. No data."
-msgstr "Не могу да протумачим /proc/net/dev. Није ми познат формат датотеке."
+msgstr "Не могу да протумачим /proc/net/dev. Нема података."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:190
 msgid "Could not parse /proc/net/dev. Unknown format."
@@ -1431,7 +1412,7 @@ msgstr "Не могу да протумачим /proc/net/dev. Није ми п�
 #: ../plugins/netstatus/netstatus-sysdeps.c:332
 #, c-format
 msgid "Could not parse interface name from '%s'"
-msgstr "Не могу да прочитам име интерфејса из „%s“"
+msgstr "Не могу да прочитам назив сучеља из „%s“"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:218
 #: ../plugins/netstatus/netstatus-sysdeps.c:647
@@ -1440,14 +1421,12 @@ msgid ""
 "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
 "brx_idx = %d; btx_idx = %d;"
 msgstr ""
-"Не могу да прочитам статистику за интерфејс из „%s“. prx_idx = %d; ptx_idx = "
-"%d; brx_idx = %d; btx_idx = %d;"
+"Не могу да прочитам статистику за сучеље из „%s“. prx_idx = %d; ptx_idx = %d;"
+" brx_idx = %d; btx_idx = %d;"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:312
-#, fuzzy
 msgid "Could not parse /proc/net/wireless. No data."
-msgstr ""
-"Не могу да протумачим „/proc/net/wireless“. Није ми познат формат датотеке."
+msgstr "Не могу да протумачим „/proc/net/wireless“. Нема података."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:316
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1462,17 +1441,17 @@ msgstr "Не могу да протумачим податке о бежично
 #: ../plugins/netstatus/netstatus-sysdeps.c:416
 #, c-format
 msgid "Could not connect to interface, '%s'"
-msgstr "Не могу да се повежем на интерфејс, „%s“"
+msgstr "Не могу да се повежем на сучеље, „%s“"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:422
 #, c-format
 msgid "Could not send ioctl to interface, '%s'"
-msgstr "Не могу да пошаљем „ioctl“ ка интерфејсу, „%s“"
+msgstr "Не могу да пошаљем „ioctl“ сучељу, „%s“"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:600
 #, c-format
 msgid "Could not parse command line '%s': %s"
-msgstr "Не могу да протумачим командну линију „%s“: %s"
+msgstr "Не могу да протумачим линију наредбе „%s“: %s"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:637
 msgid "Could not parse 'netstat' output. Unknown format"
@@ -1581,9 +1560,8 @@ msgid "No batteries found"
 msgstr "Нема батерија"
 
 #: ../plugins/batt/batt.c:515 ../plugins/batt/batt.c:644
-#, fuzzy
 msgid "Battery low"
-msgstr "Показивач стања батерије"
+msgstr "Батерија је скоро празна"
 
 #: ../plugins/batt/batt.c:664 ../plugins/batt/batt.c:685
 msgid "Battery Monitor"
@@ -1627,7 +1605,7 @@ msgstr "Ширина ивице"
 
 #: ../plugins/batt/batt.c:676
 msgid "Show Extended Information"
-msgstr ""
+msgstr "Прикажи опширније податке"
 
 #: ../plugins/batt/batt.c:686
 msgid "Display battery status using ACPI"
@@ -1656,39 +1634,39 @@ msgstr "Показивач стања „CapsLock“, „NumLock“ и „Scroll
 #. A label to allow for click through
 #: ../plugins/indicator/indicator.c:689
 msgid "No Indicators"
-msgstr "Нема индикатора"
+msgstr "Нема показивача"
 
 #: ../plugins/indicator/indicator.c:863 ../plugins/indicator/indicator.c:881
 msgid "Indicator applets"
-msgstr "Индикатор аплети"
+msgstr "Програмчићи у показивачу"
 
 #: ../plugins/indicator/indicator.c:865
 msgid "Indicator Applications"
-msgstr "Програми у индикатору"
+msgstr "Програми у показивачу"
 
 #: ../plugins/indicator/indicator.c:866
 msgid "Clock Indicator"
-msgstr "Сат (индикатор)"
+msgstr "Показивач — часовник"
 
 #: ../plugins/indicator/indicator.c:867
 msgid "Messaging Menu"
-msgstr "Мени за поруке"
+msgstr "Изборник за поруке"
 
 #: ../plugins/indicator/indicator.c:868
 msgid "Network Menu"
-msgstr "Мени за мрежу"
+msgstr "Изборник мрежа"
 
 #: ../plugins/indicator/indicator.c:869
 msgid "Session Menu"
-msgstr "Мени за сесију"
+msgstr "Изборник сесије"
 
 #: ../plugins/indicator/indicator.c:870
 msgid "Sound Menu"
-msgstr "Мени за звук"
+msgstr "Изборник за звук"
 
 #: ../plugins/indicator/indicator.c:882
 msgid "Add indicator applets to the panel"
-msgstr "Додај индикатор аплете на панел"
+msgstr "Додај програмчиће показивача на панел"
 
 #: ../plugins/monitors/monitors.c:269
 #, c-format
@@ -1726,16 +1704,15 @@ msgstr "Прикажи надгледаче (процесор, меморија)
 
 #: ../plugins/weather/weatherwidget.c:52
 msgid "[N/A]"
-msgstr ""
+msgstr "[N/A]"
 
 #: ../plugins/weather/weatherwidget.c:792
 msgid "Enter New Location"
-msgstr ""
+msgstr "Унеси ново место"
 
 #: ../plugins/weather/weatherwidget.c:806
-#, fuzzy
 msgid "_New Location:"
-msgstr "Веза на мрежу"
+msgstr "_Ново место:"
 
 #: ../plugins/weather/weatherwidget.c:817
 msgid ""
@@ -1745,196 +1722,192 @@ msgid ""
 "- postal code\n"
 "for which to retrieve the weather forecast."
 msgstr ""
+"Унеси:\n"
+"- град, или\n"
+"- град и државу/земљу, или\n"
+"- поштански број\n"
+"за који би преузели временску прогнозу."
 
 #: ../plugins/weather/weatherwidget.c:854
 #: ../plugins/weather/weatherwidget.c:987
 msgid "You must specify a location."
-msgstr ""
+msgstr "Морате да наведете место."
 
 #: ../plugins/weather/weatherwidget.c:901
 #, c-format
 msgid "Location '%s' not found!"
-msgstr ""
+msgstr "Нисам пронашао место „%s“!"
 
 #: ../plugins/weather/weatherwidget.c:1060
-#, fuzzy
 msgid "Preferences"
-msgstr "Подешавања панела"
+msgstr "Подешавања"
 
 #: ../plugins/weather/weatherwidget.c:1066
 msgid "Refresh"
-msgstr ""
+msgstr "Обнови"
 
 #: ../plugins/weather/weatherwidget.c:1072
 msgid "Quit"
-msgstr ""
+msgstr "Напусти"
 
 #: ../plugins/weather/weatherwidget.c:1229
-#, fuzzy
 msgid "Weather Preferences"
-msgstr "Подешавања панела"
+msgstr "Подешавање времена"
 
 #: ../plugins/weather/weatherwidget.c:1243
-#, fuzzy
 msgid "Current Location"
-msgstr "Оријентација"
+msgstr "Тренутно место"
 
 #: ../plugins/weather/weatherwidget.c:1247
 #: ../plugins/weather/weatherwidget.c:1524
-#, fuzzy
 msgid "None configured"
-msgstr "П_одеси"
+msgstr "Није подешено"
 
 #: ../plugins/weather/weatherwidget.c:1249
 #: ../plugins/weather/weatherwidget.c:1521
 msgid "_Set"
-msgstr ""
+msgstr "_Подеси"
 
 #: ../plugins/weather/weatherwidget.c:1270
 msgid "Display"
-msgstr ""
+msgstr "Приказ"
 
 #: ../plugins/weather/weatherwidget.c:1274
-#, fuzzy
 msgid "Name:"
-msgstr "_Назив:"
+msgstr "Назив:"
 
 #: ../plugins/weather/weatherwidget.c:1278
 msgid "Units:"
-msgstr ""
+msgstr "Јединице:"
 
 #: ../plugins/weather/weatherwidget.c:1282
 msgid "_Metric (°C)"
-msgstr ""
+msgstr "_Метрички (°C)"
 
 #: ../plugins/weather/weatherwidget.c:1284
 msgid "_English (°F)"
-msgstr ""
+msgstr "_Енглески (°F)"
 
 #: ../plugins/weather/weatherwidget.c:1319
 msgid "Forecast"
-msgstr ""
+msgstr "Прогноза"
 
 #: ../plugins/weather/weatherwidget.c:1323
 msgid "Updates:"
-msgstr ""
+msgstr "Освежавања:"
 
 #: ../plugins/weather/weatherwidget.c:1327
 msgid "Ma_nual"
-msgstr ""
+msgstr "Ру_чно"
 
 #: ../plugins/weather/weatherwidget.c:1331
 msgid "_Automatic, every"
-msgstr ""
+msgstr "_Аутоматски, сваких"
 
 #: ../plugins/weather/weatherwidget.c:1352
 msgid "minutes"
-msgstr ""
+msgstr "минута"
 
 #: ../plugins/weather/weatherwidget.c:1361
 msgid "Source:"
-msgstr ""
+msgstr "Извор:"
 
 #: ../plugins/weather/weatherwidget.c:1477
-#, fuzzy
 msgid "C_hange"
-msgstr "Начин промене"
+msgstr "П_ромени"
 
 #. Both are available
 #: ../plugins/weather/weatherwidget.c:1565
 #, c-format
 msgid "Current Conditions for %s"
-msgstr ""
+msgstr "Тренутни временски услови за %s"
 
 #: ../plugins/weather/weatherwidget.c:1589
 msgid "Location:"
-msgstr ""
+msgstr "Место:"
 
 #: ../plugins/weather/weatherwidget.c:1612
 msgid "Last updated:"
-msgstr ""
+msgstr "Последњи пут освежено:"
 
 #: ../plugins/weather/weatherwidget.c:1639
 msgid "Feels like:"
-msgstr ""
+msgstr "Осећа се као:"
 
 #: ../plugins/weather/weatherwidget.c:1664
 msgid "Humidity:"
-msgstr ""
+msgstr "Влажност:"
 
 #: ../plugins/weather/weatherwidget.c:1691
-#, fuzzy
 msgid "Pressure:"
-msgstr "ИП адреса:"
+msgstr "Притисак:"
 
 #: ../plugins/weather/weatherwidget.c:1718
 msgid "Visibility:"
-msgstr ""
+msgstr "Видљивост:"
 
 #: ../plugins/weather/weatherwidget.c:1746
 msgid "Wind:"
-msgstr ""
+msgstr "Ветар:"
 
 #: ../plugins/weather/weatherwidget.c:1769
 msgid "Sunrise:"
-msgstr ""
+msgstr "Излазак сунца:"
 
 #: ../plugins/weather/weatherwidget.c:1792
 msgid "Sunset:"
-msgstr ""
+msgstr "Залазак сунца:"
 
 #: ../plugins/weather/weatherwidget.c:1898
 #: ../plugins/weather/weatherwidget.c:2234
 #, c-format
 msgid "Forecast for %s unavailable."
-msgstr ""
+msgstr "Временска прогноза за %s није доступна."
 
 #: ../plugins/weather/weatherwidget.c:1907
 #: ../plugins/weather/weatherwidget.c:2239
-#, fuzzy, c-format
+#, c-format
 msgid "Location not set."
-msgstr "Наредба за одјављивање није постављена"
+msgstr "Нисте поставили место."
 
 #: ../plugins/weather/weatherwidget.c:1924
 #, c-format
 msgid "Searching for '%s'..."
-msgstr ""
+msgstr "Претрага за '%s'..."
 
 #: ../plugins/weather/weatherwidget.c:2050
 #, c-format
 msgid "Location matches for '%s'"
-msgstr ""
+msgstr "Место одговара за „%s“"
 
 #: ../plugins/weather/weatherwidget.c:2070
 msgid "City"
-msgstr ""
+msgstr "Град"
 
 #: ../plugins/weather/weatherwidget.c:2090
 msgid "Country"
-msgstr ""
+msgstr "Земља"
 
 #. make it nice and pretty
 #: ../plugins/weather/weatherwidget.c:2221
-#, fuzzy
 msgid "Currently in "
-msgstr "Додаци који су већ у употреби"
+msgstr "Тренутно у "
 
 #: ../plugins/weather/weatherwidget.c:2223
 msgid "Today: "
-msgstr ""
+msgstr "Данас: "
 
 #: ../plugins/weather/weatherwidget.c:2224
 msgid "Tomorrow: "
-msgstr ""
+msgstr "Сутра: "
 
 #: ../plugins/weather/weather.c:312
-#, fuzzy
 msgid "Weather Plugin"
-msgstr "„WNCKpager“ додатак"
+msgstr "Додатак за време"
 
 #: ../plugins/weather/weather.c:313
 msgid "Show weather conditions for a location."
-msgstr ""
+msgstr "Прикажи временске услове за место."
 
 #~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 #~ msgstr ""
