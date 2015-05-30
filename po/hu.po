@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-21 21:13+0200\n"
-"PO-Revision-Date: 2015-05-04 18:52+0000\n"
+"PO-Revision-Date: 2015-05-21 15:15+0000\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "Language: hu\n"
@@ -19,9 +19,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pootle 2.7.0-alpha1\n"
-"X-POOTLE-MTIME: 1430765562.000000\n"
+"X-POOTLE-MTIME: 1432221336.000000\n"
 "X-Pootle-Path: /hu/lxpanel/po/hu.po\n"
-"X-Pootle-Revision: 1574\n"
+"X-Pootle-Revision: 2332\n"
 
 #: ../src/configurator.c:135
 msgid ""
@@ -826,84 +826,76 @@ msgstr "Válassz egy kép fájlt"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:879
-#, fuzzy
 msgid "Add Keyboard Layout"
-msgstr "Billentyűzetkiosztás-váltó"
+msgstr "Billentyűzetkiosztás hozzáadása"
 
 #: ../plugins/xkb/xkb-plugin.c:903 ../plugins/xkb/xkb-plugin.c:1294
 msgid "Flag"
-msgstr ""
+msgstr "Jelző"
 
 #: ../plugins/xkb/xkb-plugin.c:908 ../plugins/xkb/xkb-plugin.c:1298
 msgid "Layout"
-msgstr ""
+msgstr "Elrendezés"
 
 #: ../plugins/xkb/xkb-plugin.c:1204 ../plugins/xkb/xkb-plugin.c:1536
-#, fuzzy
 msgid "Keyboard Layout Handler"
-msgstr "Billentyűzetkiosztás-váltó"
+msgstr "Billentyűzetkiosztás-kezelő"
 
 #: ../plugins/xkb/xkb-plugin.c:1227
-#, fuzzy
 msgid "Keyboard Model"
-msgstr "Billentyűzet LED"
+msgstr "Billentyűzetmodell"
 
 #: ../plugins/xkb/xkb-plugin.c:1248
-#, fuzzy
 msgid "Keyboard Layouts"
-msgstr "Billentyűzetkiosztás-váltó"
+msgstr "Billentyűzetkiosztások"
 
 #: ../plugins/xkb/xkb-plugin.c:1302
 msgid "Variant"
-msgstr ""
+msgstr "Változat"
 
 #: ../plugins/xkb/xkb-plugin.c:1311
 msgid "Change Layout Option"
-msgstr ""
+msgstr "Kiosztási lehetőség módosítása"
 
 #: ../plugins/xkb/xkb-plugin.c:1331
 msgid "Advanced setxkbmap Options"
-msgstr ""
+msgstr "Speciális setxkbmap beállítások"
 
 #: ../plugins/xkb/xkb-plugin.c:1352
 msgid "Do _not reset existing options"
-msgstr ""
+msgstr "_Ne állítsa vissza a meglévő beállításokat"
 
 #: ../plugins/xkb/xkb-plugin.c:1357
 msgid "Keep _system layouts"
-msgstr ""
+msgstr "Rendszerkiosztások meg_tartása"
 
 #: ../plugins/xkb/xkb-plugin.c:1366
-#, fuzzy
 msgid "Per Window Settings"
-msgstr "Panelbeállítások"
+msgstr "Ablakonkénti beállítások"
 
 #: ../plugins/xkb/xkb-plugin.c:1378
-#, fuzzy
 msgid "_Remember layout for each window"
-msgstr "Kiosztás _megjegyzése az alkalmazásokhoz"
+msgstr "Kiosztás _megjegyzése minden ablaknál"
 
 #: ../plugins/xkb/xkb-plugin.c:1387
-#, fuzzy
 msgid "Show Layout as"
-msgstr "Kiosztás mutatása mint"
+msgstr "Kiosztás megjelenítése mint"
 
 #: ../plugins/xkb/xkb-plugin.c:1448
 msgid "Custom Image"
-msgstr ""
+msgstr "Egyéni kép"
 
 #: ../plugins/xkb/xkb-plugin.c:1449
 msgid "Text"
-msgstr ""
+msgstr "Szöveg"
 
 #: ../plugins/xkb/xkb-plugin.c:1475
 msgid "Panel Icon Size"
-msgstr ""
+msgstr "Panelikon méret"
 
 #: ../plugins/xkb/xkb-plugin.c:1537
-#, fuzzy
 msgid "Handle keyboard layouts"
-msgstr "Váltás az elérhető billentyűzetkiosztások közt"
+msgstr "Billentyűzetkiosztások kezelése"
 
 #: ../plugins/wincmd.c:189
 msgid "Left click to iconify all windows.  Middle click to shade them."
@@ -942,28 +934,24 @@ msgid "Label"
 msgstr "Címke"
 
 #: ../plugins/dirmenu.c:370
-#, fuzzy
 msgid "Browse directory tree via menu (Author = PCMan)"
-msgstr "Könyvtárböngésző menü (Szerző: PCMan)"
+msgstr "Könyvtárstruktúra böngészése a menün keresztül (Szerző: PCMan)"
 
 #: ../plugins/thermal/thermal.c:558 ../plugins/thermal/thermal.c:576
 msgid "Temperature Monitor"
 msgstr "Hőmérsékletfigyelő"
 
 #: ../plugins/thermal/thermal.c:560
-#, fuzzy
 msgid "Normal color"
-msgstr "Egyéni szín"
+msgstr "Normál szín"
 
 #: ../plugins/thermal/thermal.c:561
-#, fuzzy
 msgid "Warning1 color"
-msgstr "Töltési szín 1"
+msgstr "Figyelmeztetés1 szín"
 
 #: ../plugins/thermal/thermal.c:562
-#, fuzzy
 msgid "Warning2 color"
-msgstr "Töltési szín 1"
+msgstr "Figyelmeztetés2 szín"
 
 #: ../plugins/thermal/thermal.c:563
 msgid "Automatic sensor location"
@@ -978,12 +966,10 @@ msgid "Automatic temperature levels"
 msgstr "Automatikus hőmérséklet szintek"
 
 #: ../plugins/thermal/thermal.c:566
-#, fuzzy
 msgid "Warning1 temperature"
 msgstr "Figyelmeztetés1 hőmérséklete"
 
 #: ../plugins/thermal/thermal.c:567
-#, fuzzy
 msgid "Warning2 temperature"
 msgstr "Figyelmeztetés2 hőmérséklete"
 
@@ -997,14 +983,18 @@ msgid ""
 "Frequency: %d MHz\n"
 "Governor: %s"
 msgstr ""
+"Frekvencia: %d MHz\n"
+"Kormányzó: %s"
 
 #: ../plugins/cpufreq/cpufreq.c:409
 msgid "CPUFreq frontend"
-msgstr ""
+msgstr "CPUFreq előtétprogram"
 
 #: ../plugins/cpufreq/cpufreq.c:410
 msgid "Display CPU frequency and allow to change governors and frequency"
 msgstr ""
+"CPU frekvencia megjelenítése, továbbá a kormányzók és a frekvencia "
+"módosításának lehetővé tétele"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -1028,17 +1018,16 @@ msgid "Mute"
 msgstr "Némítás"
 
 #: ../plugins/volumealsa/volumealsa.c:619
-#, fuzzy
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontrol, alsamixer ...)"
 msgstr ""
-"Hiba, a hang konfigurálásához telepítened kell egy alkalmazást (pavucontol, "
-"alsamixer...)"
+"Hiba, a hang beállításához telepítenie kell egy alkalmazást (pavucontol, "
+"alsamixer…)"
 
 #: ../plugins/volumealsa/volumealsa.c:638
 msgid "Display and control volume for ALSA"
-msgstr ""
+msgstr "Az ALSA hangerejének megjelenítése és vezérlése"
 
 #: ../plugins/netstat/netstat.c:179
 msgid "<Hidden Access Point>"
@@ -1418,9 +1407,8 @@ msgid "Cannot open /proc/net/dev: %s"
 msgstr "Nem lehet megnyitni a /proc/net/dev fájlt: %s"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:185
-#, fuzzy
 msgid "Could not parse /proc/net/dev. No data."
-msgstr "Nem lehet feldolgozni a /proc/net/dev fájlt. Ismeretlen formátum."
+msgstr "Nem sikerült feldolgozni a /proc/net/dev fájlt. Nincs adat."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:190
 msgid "Could not parse /proc/net/dev. Unknown format."
@@ -1443,9 +1431,8 @@ msgstr ""
 "ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:312
-#, fuzzy
 msgid "Could not parse /proc/net/wireless. No data."
-msgstr "Nem lehet feldolgozni a /proc/net/wireless fájlt. Ismeretlen formátum."
+msgstr "Nem sikerült feldolgozni a /proc/net/wireless fájlt. Nincs adat."
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:316
 msgid "Could not parse /proc/net/wireless. Unknown format."
@@ -1580,9 +1567,8 @@ msgid "No batteries found"
 msgstr "Nem található akkumulátor"
 
 #: ../plugins/batt/batt.c:515 ../plugins/batt/batt.c:644
-#, fuzzy
 msgid "Battery low"
-msgstr "Akkumulátor-figyelő"
+msgstr "Az akkumulátor gyenge"
 
 #: ../plugins/batt/batt.c:664 ../plugins/batt/batt.c:685
 msgid "Battery Monitor"
@@ -1626,7 +1612,7 @@ msgstr "Keret mérete"
 
 #: ../plugins/batt/batt.c:676
 msgid "Show Extended Information"
-msgstr ""
+msgstr "Kiterjesztett információk megjelenítése"
 
 #: ../plugins/batt/batt.c:686
 msgid "Display battery status using ACPI"
@@ -1655,19 +1641,19 @@ msgstr "Állapotjelzők a CapsLock, NumLock és ScrollLock billentyűkhöz"
 #. A label to allow for click through
 #: ../plugins/indicator/indicator.c:689
 msgid "No Indicators"
-msgstr ""
+msgstr "Nincsenek indikátorok"
 
 #: ../plugins/indicator/indicator.c:863 ../plugins/indicator/indicator.c:881
 msgid "Indicator applets"
-msgstr ""
+msgstr "Indikátor kisalkalmazások"
 
 #: ../plugins/indicator/indicator.c:865
 msgid "Indicator Applications"
-msgstr ""
+msgstr "Indikátor alkalmazások"
 
 #: ../plugins/indicator/indicator.c:866
 msgid "Clock Indicator"
-msgstr ""
+msgstr "Óra indikátor"
 
 #: ../plugins/indicator/indicator.c:867
 msgid "Messaging Menu"
@@ -1686,9 +1672,8 @@ msgid "Sound Menu"
 msgstr "Hang menü"
 
 #: ../plugins/indicator/indicator.c:882
-#, fuzzy
 msgid "Add indicator applets to the panel"
-msgstr "Elválasztó hozzáadása a panelhez"
+msgstr "Indikátor kisalkalmazások hozzáadása a panelhez"
 
 #: ../plugins/monitors/monitors.c:269
 #, c-format
@@ -1726,11 +1711,11 @@ msgstr "Erőforrás monitorozók mutatása"
 
 #: ../plugins/weather/weatherwidget.c:52
 msgid "[N/A]"
-msgstr ""
+msgstr "[N/A]"
 
 #: ../plugins/weather/weatherwidget.c:792
 msgid "Enter New Location"
-msgstr ""
+msgstr "Új hely megadása"
 
 #: ../plugins/weather/weatherwidget.c:806
 msgid "_New Location:"
@@ -1744,39 +1729,41 @@ msgid ""
 "- postal code\n"
 "for which to retrieve the weather forecast."
 msgstr ""
+"Adja meg:\n"
+"- a várost, vagy\n"
+"- a várost és az államot/országot, vagy\n"
+"- az irányítószámot,\n"
+"amelyhez időjárás-előrejelzést szeretne lekérni."
 
 #: ../plugins/weather/weatherwidget.c:854
 #: ../plugins/weather/weatherwidget.c:987
 msgid "You must specify a location."
-msgstr ""
+msgstr "Meg kell adnia egy helyet."
 
 #: ../plugins/weather/weatherwidget.c:901
 #, c-format
 msgid "Location '%s' not found!"
-msgstr ""
+msgstr "A(z) „%s” hely nem található!"
 
 #: ../plugins/weather/weatherwidget.c:1060
-#, fuzzy
 msgid "Preferences"
-msgstr "A panel beállításai"
+msgstr "Beállítások"
 
 #: ../plugins/weather/weatherwidget.c:1066
 msgid "Refresh"
-msgstr ""
+msgstr "Frissítés"
 
 #: ../plugins/weather/weatherwidget.c:1072
 msgid "Quit"
-msgstr ""
+msgstr "Kilépés"
 
 #: ../plugins/weather/weatherwidget.c:1229
-#, fuzzy
 msgid "Weather Preferences"
-msgstr "A panel beállításai"
+msgstr "Időjárás beállításai"
 
 #: ../plugins/weather/weatherwidget.c:1243
-#, fuzzy
 msgid "Current Location"
-msgstr "Tájolás"
+msgstr "Jelenlegi hely"
 
 #: ../plugins/weather/weatherwidget.c:1247
 #: ../plugins/weather/weatherwidget.c:1524
@@ -1786,11 +1773,11 @@ msgstr "Semmi sincs beállítva"
 #: ../plugins/weather/weatherwidget.c:1249
 #: ../plugins/weather/weatherwidget.c:1521
 msgid "_Set"
-msgstr ""
+msgstr "_Beállítás"
 
 #: ../plugins/weather/weatherwidget.c:1270
 msgid "Display"
-msgstr ""
+msgstr "Megjelenítés"
 
 #: ../plugins/weather/weatherwidget.c:1274
 msgid "Name:"
@@ -1798,103 +1785,102 @@ msgstr "Név:"
 
 #: ../plugins/weather/weatherwidget.c:1278
 msgid "Units:"
-msgstr ""
+msgstr "Mértékegység:"
 
 #: ../plugins/weather/weatherwidget.c:1282
 msgid "_Metric (°C)"
-msgstr ""
+msgstr "_Metrikus (°C)"
 
 #: ../plugins/weather/weatherwidget.c:1284
 msgid "_English (°F)"
-msgstr ""
+msgstr "_Angol (°F)"
 
 #: ../plugins/weather/weatherwidget.c:1319
 msgid "Forecast"
-msgstr ""
+msgstr "Előrejelzés"
 
 #: ../plugins/weather/weatherwidget.c:1323
 msgid "Updates:"
-msgstr ""
+msgstr "Frissítések:"
 
 #: ../plugins/weather/weatherwidget.c:1327
 msgid "Ma_nual"
-msgstr ""
+msgstr "_Kézi"
 
 #: ../plugins/weather/weatherwidget.c:1331
 msgid "_Automatic, every"
-msgstr ""
+msgstr "_Automatikus, minden"
 
 #: ../plugins/weather/weatherwidget.c:1352
 msgid "minutes"
-msgstr ""
+msgstr "percben"
 
 #: ../plugins/weather/weatherwidget.c:1361
 msgid "Source:"
-msgstr ""
+msgstr "Forrás:"
 
 #: ../plugins/weather/weatherwidget.c:1477
 msgid "C_hange"
-msgstr ""
+msgstr "_Módosítás"
 
 #. Both are available
 #: ../plugins/weather/weatherwidget.c:1565
 #, c-format
 msgid "Current Conditions for %s"
-msgstr ""
+msgstr "Jelenlegi időjárás itt: %s"
 
 #: ../plugins/weather/weatherwidget.c:1589
 msgid "Location:"
-msgstr ""
+msgstr "Hely:"
 
 #: ../plugins/weather/weatherwidget.c:1612
 msgid "Last updated:"
-msgstr ""
+msgstr "Utoljára frissítve:"
 
 #: ../plugins/weather/weatherwidget.c:1639
 msgid "Feels like:"
-msgstr ""
+msgstr "Hőérzet:"
 
 #: ../plugins/weather/weatherwidget.c:1664
 msgid "Humidity:"
-msgstr ""
+msgstr "Páratartalom:"
 
 #: ../plugins/weather/weatherwidget.c:1691
-#, fuzzy
 msgid "Pressure:"
-msgstr "IP-cím:"
+msgstr "Nyomás:"
 
 #: ../plugins/weather/weatherwidget.c:1718
 msgid "Visibility:"
-msgstr ""
+msgstr "Látási viszonyok:"
 
 #: ../plugins/weather/weatherwidget.c:1746
 msgid "Wind:"
-msgstr ""
+msgstr "Szél:"
 
 #: ../plugins/weather/weatherwidget.c:1769
 msgid "Sunrise:"
-msgstr ""
+msgstr "Napkelte:"
 
 #: ../plugins/weather/weatherwidget.c:1792
 msgid "Sunset:"
-msgstr ""
+msgstr "Napnyugta:"
 
 #: ../plugins/weather/weatherwidget.c:1898
 #: ../plugins/weather/weatherwidget.c:2234
 #, c-format
 msgid "Forecast for %s unavailable."
-msgstr ""
+msgstr "Nem érhető el előrejelzés ehhez: %s."
 
 #: ../plugins/weather/weatherwidget.c:1907
 #: ../plugins/weather/weatherwidget.c:2239
-#, fuzzy, c-format
+#, c-format
 msgid "Location not set."
-msgstr "Nincs beállítva kijelentkező parancs"
+msgstr "A hely nincs beállítva."
 
 #: ../plugins/weather/weatherwidget.c:1924
 #, c-format
 msgid "Searching for '%s'..."
-msgstr ""
+msgstr "„%s” keresése…"
 
 #: ../plugins/weather/weatherwidget.c:2050
 #, c-format
@@ -1903,11 +1889,11 @@ msgstr ""
 
 #: ../plugins/weather/weatherwidget.c:2070
 msgid "City"
-msgstr ""
+msgstr "Város"
 
 #: ../plugins/weather/weatherwidget.c:2090
 msgid "Country"
-msgstr ""
+msgstr "Ország"
 
 #. make it nice and pretty
 #: ../plugins/weather/weatherwidget.c:2221
@@ -1916,20 +1902,19 @@ msgstr "Jelenleg ebben: "
 
 #: ../plugins/weather/weatherwidget.c:2223
 msgid "Today: "
-msgstr ""
+msgstr "Ma: "
 
 #: ../plugins/weather/weatherwidget.c:2224
 msgid "Tomorrow: "
-msgstr ""
+msgstr "Holnap: "
 
 #: ../plugins/weather/weather.c:312
-#, fuzzy
 msgid "Weather Plugin"
-msgstr "WNCKPager beépülő"
+msgstr "Időjárás bővítmény"
 
 #: ../plugins/weather/weather.c:313
 msgid "Show weather conditions for a location."
-msgstr ""
+msgstr "Időjárási viszonyok megjelenítése egy helyhez."
 
 #~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
 #~ msgstr ""
