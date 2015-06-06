@@ -18,3 +18,4 @@
 * merge 'volume' into 'volumealsa' to have the same interface
 * support custom timezone in the 'dclock'
 * decide 'netstat' vs 'netstatus'
+* optional libnotify support (useful for battery and volume plugins)
