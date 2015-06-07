@@ -11,7 +11,7 @@ Build-Depends:
  libgtk2.0-dev (>= 2.18), libiw-dev [linux-any],
  libmenu-cache-dev | libmenu-cache1-dev,
  libwnck-dev, libfm-gtk-dev (>= 1.2.0) | libfm-dev (>= 1.2.0),
- libxml2-dev, libkeybinder-dev
+ libxml2-dev, libkeybinder-dev, libindicator-dev
 Standards-Version: 3.9.5
 Homepage: http://www.lxde.org/
 Vcs-Browser: http://git.lxde.org/gitweb/?p=debian/lxpanel.git
@@ -77,3 +77,14 @@ Description: LXDE panel (data files)
  (LXDE).
  .
  This package contains the data required for panel.
+
+Package: lxpanel-indicator-applet-plugin
+Architecture: any
+Depends: lxpanel, ${misc:Depends}, ${shlibs:Depends}
+Suggests: indicator-application-gtk2,
+          indicator-messages-gtk2,
+          indicator-sound-gtk2
+Provides: indicator-renderer
+Description: lxpanel indicator applet
+ lxpanel-indicator-applet-plugin is an applet to display information from
+ various applications consistently in the LXPanel.
