@@ -60,7 +60,6 @@ if BUILD_PLUGIN_LOADER
 DYNAMIC_FLAGS = -export-dynamic
 endif
 lxpanel_LDFLAGS = $(DYNAMIC_FLAGS)
-lxpanel_DEPENDENCIES_EXTRA = $(BUILTIN_PLUGINS)
 
 lxpanel_LDADD = \
 		liblxpanel.la \
@@ -80,5 +79,8 @@ EXTRA_DIST = \
 	gtk-compat.h \
 	private.h
 
-$(top_builddir)/plugins/libbuiltin_plugins.a: $(lxpanel_include_HEADERS)
-	cd $(top_builddir)/plugins && $(MAKE) libbuiltin_plugins.a
+$(top_builddir)/plugins/libbuiltin_plugins.a: $(lxpanel_include_HEADERS) builtin-plugins-hook
+
+# re-check local modules so it is refreshed for lxpanel binary
+builtin-plugins-hook:
+	@cd $(top_builddir)/plugins && $(MAKE) libbuiltin_plugins.a
