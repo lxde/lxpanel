@@ -3348,6 +3348,8 @@ static void taskbar_make_menu(LaunchTaskBarPlugin * tb)
     /* Deallocate old menu if present. */
     if (tb->menu != NULL)
         gtk_widget_destroy(tb->menu);
+    /* The pointer to menu became invalid, reset it now. */
+    tb->workspace_menu0 = NULL;
 
     /* Allocate menu. */
     GtkWidget * menu = gtk_menu_new();

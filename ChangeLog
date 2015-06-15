@@ -1,3 +1,5 @@
+* Fixed crash in taskbar plugin after number of desktops was updated.
+
 0.8.1
 -------------------------------------------------------------------------
 * Improved OSS headers detection a bit.
