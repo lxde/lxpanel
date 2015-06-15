@@ -84,3 +84,5 @@ $(top_builddir)/plugins/libbuiltin_plugins.a: $(lxpanel_include_HEADERS) builtin
 # re-check local modules so it is refreshed for lxpanel binary
 builtin-plugins-hook:
 	@cd $(top_builddir)/plugins && $(MAKE) libbuiltin_plugins.a
+
+.PHONY: builtin-plugins-hook
