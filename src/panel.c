@@ -1629,6 +1629,12 @@ void panel_set_panel_configuration_changed(Panel *p)
     _panel_set_panel_configuration_changed(p->topgwin);
 }
 
+static inline void _update_orientation(Panel *p)
+{
+    p->orientation = (p->edge == EDGE_TOP || p->edge == EDGE_BOTTOM)
+                        ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
+}
+
 static gboolean _panel_idle_reconfigure(gpointer widget)
 {
     LXPanel *panel;
@@ -1642,15 +1648,13 @@ static gboolean _panel_idle_reconfigure(gpointer widget)
     panel = LXPANEL(widget);
     p = panel->priv;
     previous_orientation = p->orientation;
-    p->orientation = (p->edge == EDGE_TOP || p->edge == EDGE_BOTTOM)
-        ? GTK_ORIENTATION_HORIZONTAL : GTK_ORIENTATION_VERTICAL;
+    _update_orientation(p);
 
     /* either first run or orientation was changed */
-    if (!p->initialized || previous_orientation != p->orientation)
+    if (previous_orientation != p->orientation)
     {
         panel_adjust_geometry_terminology(p);
-        if (p->initialized)
-            p->height = ((p->orientation == GTK_ORIENTATION_HORIZONTAL) ? PANEL_HEIGHT_DEFAULT : PANEL_WIDTH_DEFAULT);
+        p->height = ((p->orientation == GTK_ORIENTATION_HORIZONTAL) ? PANEL_HEIGHT_DEFAULT : PANEL_WIDTH_DEFAULT);
         if (p->height_control != NULL)
             gtk_spin_button_set_value(GTK_SPIN_BUTTON(p->height_control), p->height);
         if ((p->widthtype == WIDTH_PIXEL) && (p->width_control != NULL))
@@ -1775,6 +1779,7 @@ panel_parse_global(Panel *p, config_setting_t *cfg)
         p->background_file = g_strdup(str);
     config_setting_lookup_int(cfg, "iconsize", &p->icon_size);
 
+    _update_orientation(p);
     panel_normalize_configuration(p);
 
     return 1;
