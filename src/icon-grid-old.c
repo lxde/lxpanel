@@ -1,5 +1,8 @@
-/**
- * Copyright (c) 2009 LxDE Developers, see the file AUTHORS for details.
+/*
+ * Copyright (C) 2009-2010 Marty Jack <martyj19@comcast.net>
+ *               2009-2010 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
+ *               2014 Andriy Grytsenko <andrej@rep.kiev.ua>
+ *               2014 Vladimír Pýcha <vpycha@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
