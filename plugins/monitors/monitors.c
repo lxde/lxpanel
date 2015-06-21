@@ -6,6 +6,11 @@
  * A lot of code in this plugin comes from the CPU plugin (that only displays a
  * CPU monitor), that is distributed under the following terms :
  *
+ * Copyright (C) 2010 Cyril Roelandt <steap@users.sourceforge.net>
+ *               2012-2014 Henry Gebhardt <hsggebhardt@googlemail.com>
+ *               2012 Rafał Mużyło <galtgendo@gmail.com>
+ *               2014 Andriy Grytsenko <andrej@rep.kiev.ua>
+ *
  * <terms>
  * Copyright (c) 2008-2014 LxDE Developers, see the file AUTHORS for details.
  * Copyright (C) 2004 by Alexandre Pereira da Silva <alexandre.pereira@poli.usp.br>

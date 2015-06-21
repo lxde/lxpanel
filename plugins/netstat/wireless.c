@@ -1,5 +1,8 @@
-/**
- * Copyright (c) 2008 LxDE Developers, see the file AUTHORS for details.
+/*
+ * Copyright (C) 2008 Fred Chien <fred@lxde.org>
+ *               2008 Jim Huang <jserv.tw@gmail.com>
+ *
+ * This file is a part of LXPanel project.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

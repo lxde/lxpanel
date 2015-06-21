@@ -1,8 +1,10 @@
-/**
+/*
  * Thermal plugin to lxpanel
  *
  * Copyright (C) 2007 by Daniel Kesler <kesler.daniel@gmail.com>
- *               2014 by Andriy Grytsenko <andrej@rep.kiev.ua>
+ *               2014-2015 by Andriy Grytsenko <andrej@rep.kiev.ua>
+ *
+ * This file is a part of LXPanel project.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

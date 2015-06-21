@@ -2,6 +2,7 @@
  *
  * Copyright (C) 2009 Dongxu Li <song6song@sourceforge.net>
  *               2012 Julien Lavergne <gilir@ubuntu.com>
+ *               2014 Andriy Grytsenko <andrej@rep.kiev.ua>
  *
  * This file is part of lxpanel.
  *

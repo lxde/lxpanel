@@ -1,5 +1,13 @@
-/**
- * Copyright (c) 2008-2014 LxDE Developers, see the file AUTHORS for details.
+/*
+ * Copyright (C) 2008 Fred Chien <fred@lxde.org>
+ *               2008 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
+ *               2009-2010 Marty Jack <martyj19@comcast.net>
+ *               2010-2012 Julien Lavergne <julien.lavergne@gmail.com>
+ *               2012 Henry Gebhardt <hsggebhardt@gmail.com>
+ *               2014 Peter <ombalaxitabou@users.sf.net>
+ *               2014-2015 Andriy Grytsenko <andrej@rep.kiev.ua>
+ *
+ * This file is a part of LXPanel project.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

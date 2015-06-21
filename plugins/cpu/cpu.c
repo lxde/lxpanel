@@ -1,7 +1,17 @@
-/**
+/*
  * CPU usage plugin to lxpanel
  *
- * Copyright (c) 2008-2014 LxDE Developers, see the file AUTHORS for details.
+ * Copyright (C) 2006-2008 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
+ *               2006-2008 Jim Huang <jserv.tw@gmail.com>
+ *               2009 Marty Jack <martyj19@comcast.net>
+ *               2009 Jürgen Hötzel <juergen@archlinux.org>
+ *               2012 Rafał Mużyło <galtgendo@gmail.com>
+ *               2012-2013 Henry Gebhardt <hsggebhardt@gmail.com>
+ *               2013 Marko Rauhamaa <marko@pacujo.net>
+ *               2014 Andriy Grytsenko <andrej@rep.kiev.ua>
+ *
+ * This file is a part of LXPanel project.
+ *
  * Copyright (C) 2004 by Alexandre Pereira da Silva <alexandre.pereira@poli.usp.br>
  *
  * This program is free software; you can redistribute it and/or modify

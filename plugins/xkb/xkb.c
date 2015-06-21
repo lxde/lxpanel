@@ -1,5 +1,9 @@
-/**
- * Copyright (c) 2010 LxDE Developers, see the file AUTHORS for details.
+/*
+ * Copyright (C) 2008 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
+ *               2009-2010 Marty Jack <martyj19@comcast.net>
+ *               2012-2013 Giuseppe Penone <giuspen@gmail.com>
+ *
+ * This file is a part of LXPanel project.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
