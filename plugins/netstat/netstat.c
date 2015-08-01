@@ -197,7 +197,11 @@ wireless_menu(netdev_info *ni)
 
             signal_quality = gtk_progress_bar_new();
             gtk_widget_set_size_request(signal_quality, 100, -1);
+#if GTK_CHECK_VERSION(3, 0, 0)
+            gtk_orientable_set_orientation(GTK_ORIENTABLE(signal_quality), GTK_ORIENTATION_HORIZONTAL);
+#else
             gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(signal_quality), GTK_PROGRESS_LEFT_TO_RIGHT);
+#endif
             gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(signal_quality), quality_per);
             gtk_box_pack_start(GTK_BOX(item_box), signal_quality, FALSE, FALSE, 0);
 
