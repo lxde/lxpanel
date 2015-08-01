@@ -34,10 +34,12 @@ AC_HELP_STRING([--enable-gtk3],[enable to use gtk-3.0 instead of gtk-2.0]),
 esac],[])
 
 if test "x$enable_gtk3" = "xyes" ; then
-  pkg_modules="$pkg_modules gtk+-3.0 libfm-gtk3 >= 1.2.0 libwnck-3.0"
+  gtk_module="gtk+-3.0"
+  pkg_modules="$pkg_modules $gtk_module libfm-gtk3 >= 1.2.0 libwnck-3.0"
   keybinder_module=keybinder-3.0
 else
-  pkg_modules="$pkg_modules gtk+-2.0 >= 2.18.0 libfm-gtk >= 1.2.0 libwnck-1.0"
+  gtk_module="gtk+-2.0 >= 2.18.0"
+  pkg_modules="$pkg_modules $gtk_module libfm-gtk >= 1.2.0 libwnck-1.0"
   keybinder_module=keybinder
 fi
 
@@ -48,6 +50,7 @@ pkg_modules="$pkg_modules \
 PKG_CHECK_MODULES(PACKAGE, [$pkg_modules])
 AC_SUBST(PACKAGE_CFLAGS)
 AC_SUBST(PACKAGE_LIBS)
+AC_SUBST(gtk_module)
 
 PKG_CHECK_MODULES(KEYBINDER, [$keybinder_module])
 AC_SUBST(KEYBINDER_CFLAGS)

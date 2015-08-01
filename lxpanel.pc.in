@@ -6,6 +6,6 @@ pluginsdir=${pkglibdir}/plugins
 
 Name: lxpanel
 Description: A lightweight X11 desktop panel
-Requires: gtk+-2.0 libfm >= 1.2.0
+Requires: @gtk_module@ libfm >= 1.2.0
 Version: @VERSION@
 Libs: -L${pkglibdir} -llxpanel
