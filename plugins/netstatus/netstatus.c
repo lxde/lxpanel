@@ -121,7 +121,7 @@ netstatus_constructor(LXPanel *panel, config_setting_t *settings)
         tmp = "eth0";
     ns->iface = g_strdup(tmp);
     if (!config_setting_lookup_string(settings, "configtool", &tmp))
-        tmp = "network-admin --configure %i";
+        tmp = "nm-connection-editor";
     ns->config_tool = g_strdup(tmp);
 
     iface = netstatus_iface_new(ns->iface);
