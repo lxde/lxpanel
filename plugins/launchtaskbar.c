@@ -16,6 +16,7 @@
  *               2014 Vladimír Pýcha <vpycha@gmail.com>
  *               2014 Raimar Bühmann <raimar@buehmann.de>
  *               2014 Andy Balaam <axis3x3@users.sf.net>
+ *               2015 Balló György <ballogyor@gmail.com>
  *               2015 Rafał Mużyło <galtgendo@gmail.com>
  *
  * This file is a part of LXPanel project.
@@ -2865,6 +2866,9 @@ static void task_build_gui(LaunchTaskBarPlugin * tb, Task * tk)
         gtk_widget_set_state(tk->button, GTK_STATE_NORMAL);
     gtk_drag_dest_set(tk->button, 0, NULL, 0, 0);
     gtk_drag_source_set(tk->button, GDK_BUTTON1_MASK, task_button_target_list, task_button_n_targets, GDK_ACTION_MOVE);
+#if GTK_CHECK_VERSION(3, 0, 0)
+    gtk_widget_add_events(tk->button, GDK_SCROLL_MASK);
+#endif
 
     /* Connect signals to the button. */
     g_signal_connect(tk->button, "button-press-event", G_CALLBACK(taskbar_button_press_event), (gpointer) tk);
