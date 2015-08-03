@@ -512,7 +512,7 @@ static GtkWidget * constructor(LXPanel *panel, config_setting_t *settings)
 
     /* Apply more default options */
     if (! lx_b->alarmCommand)
-        lx_b->alarmCommand = g_strconcat("xmessage ", _("Battery low"), NULL);
+        lx_b->alarmCommand = g_strconcat("notify-send \"", _("Battery low"), "\" --icon=battery-caution", NULL);
     if (! lx_b->backgroundColor)
         lx_b->backgroundColor = g_strdup("black");
     if (! lx_b->chargingColor1)
