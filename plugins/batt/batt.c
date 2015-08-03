@@ -5,6 +5,7 @@
  * Copyright (C) 2008 by Hong Jen Yee <pcman.tw@gmail.com>
  * Copyright (C) 2009 by Juergen Hoetzel <juergen@archlinux.org>
  * Copyright (C) 2014 by Andriy Grytsenko <andrej@rep.kiev.ua>
+ *               2015 Balló György <ballogyor@gmail.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -396,6 +397,10 @@ static gint configureEvent(GtkWidget *widget, GdkEventConfigure *event,
 static gint exposeEvent(GtkWidget *widget, GdkEventExpose *event, lx_battery *lx_b) {
 
     ENTER;
+
+#if GTK_CHECK_VERSION(3, 0, 0)
+    cairo_set_source_rgb(cr, 0, 0, 0); // FIXME: set black color from the style
+#else
     cairo_t *cr = gdk_cairo_create(gtk_widget_get_window(widget));
     GtkStyle *style = gtk_widget_get_style(lx_b->drawingArea);
 
@@ -403,11 +408,14 @@ static gint exposeEvent(GtkWidget *widget, GdkEventExpose *event, lx_battery *lx
     cairo_clip(cr);
 
     gdk_cairo_set_source_color(cr, &style->black);
+#endif
     cairo_set_source_surface(cr, lx_b->pixmap, 0, 0);
     cairo_paint(cr);
 
     check_cairo_status(cr);
+#if !GTK_CHECK_VERSION(3, 0, 0)
     cairo_destroy(cr);
+#endif
 
     RET(FALSE);
 }
@@ -509,8 +517,13 @@ static GtkWidget * constructor(LXPanel *panel, config_setting_t *settings)
 
     g_signal_connect (G_OBJECT (lx_b->drawingArea),"configure-event",
           G_CALLBACK (configureEvent), (gpointer) lx_b);
+#if GTK_CHECK_VERSION(3, 0, 0)
+    g_signal_connect (G_OBJECT (lx_b->drawingArea), "draw",
+          G_CALLBACK(draw), (gpointer) lx_b);
+#else
     g_signal_connect (G_OBJECT (lx_b->drawingArea), "expose-event",
           G_CALLBACK (exposeEvent), (gpointer) lx_b);
+#endif
 
     /* Apply more default options */
     if (! lx_b->alarmCommand)
