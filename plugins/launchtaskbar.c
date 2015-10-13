@@ -2075,8 +2075,9 @@ static GdkPixbuf * get_wm_icon(Window task_win, guint required_width,
                 gulong size = w * h;
                 pdata += 2;
 
-                /* Bounds check the icon. */
-                if (pdata + size > pdata_end)
+                /* Bounds check the icon. Also check for invalid width and height,
+                   see http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=801319 */
+                if (size == 0 || w > 1024 || h > 1024 || pdata + size > pdata_end)
                     break;
 
                 /* Rare special case: the desired size is the same as icon size. */

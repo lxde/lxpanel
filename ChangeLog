@@ -1,5 +1,6 @@
 * Fixed crash in taskbar plugin after number of desktops was updated.
 * Fixed incorrect panel geometry initialization.
+* Fixed crash with invalid size of icon in _NET_WM_ICON property.
 
 0.8.1
 -------------------------------------------------------------------------
