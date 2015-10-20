@@ -791,9 +791,6 @@ static GtkWidget *indicator_constructor(LXPanel *panel, config_setting_t *settin
 
     gtk_container_set_border_width(GTK_CONTAINER(indicator->menubar), 0);
 
-    /* load 'em */
-    indicator_load_modules(panel, p);
-
     return p;
 }
 
