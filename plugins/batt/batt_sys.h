@@ -25,7 +25,8 @@
 
 
 #define BUF_SIZE 1024
-#define ACPI_PATH_SYS_POWER_SUPPY   "/sys/class/power_supply"
+#define ACPI_PATH_SYS_POWER_SUPPLY  "/sys/class/power_supply"
+#define ACPI_BATTERY_DEVICE_NAME    "BAT"
 #define MIN_CAPACITY	 0.01
 #define MIN_PRESENT_RATE 0.01
 #define BATTERY_DESC	"Battery"
@@ -54,7 +55,7 @@ typedef struct battery {
     int type_battery;
 } battery;
 
-battery *battery_get();
+battery *battery_get(int);
 battery *battery_update( battery *b );
 void battery_print(battery *b, int show_capacity);
 gboolean battery_is_charging( battery *b );

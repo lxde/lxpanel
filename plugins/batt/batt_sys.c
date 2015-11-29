@@ -64,7 +64,7 @@ static gchar* parse_info_file(battery *b, char *sys_file)
 {
     char *buf = NULL;
     gchar *value = NULL;
-    GString *filename = g_string_new(ACPI_PATH_SYS_POWER_SUPPY);
+    GString *filename = g_string_new(ACPI_PATH_SYS_POWER_SUPPLY);
 
     g_string_append_printf (filename, "/%s/%s", b->path, sys_file);
 
@@ -149,7 +149,7 @@ static gboolean battery_inserted(gchar* path)
     if (path == NULL)
         return FALSE;
 
-    GString *dirname = g_string_new(ACPI_PATH_SYS_POWER_SUPPY);
+    GString *dirname = g_string_new(ACPI_PATH_SYS_POWER_SUPPLY);
     GDir *dir;
 
     g_string_append_printf (dirname, "/%s/", path);
@@ -287,29 +287,68 @@ battery* battery_update(battery *b)
 }
 
 
-battery *battery_get() {
+battery *battery_get(int battery_number) {
     GError * error = NULL;
     const gchar *entry;
-    GDir * dir = g_dir_open( ACPI_PATH_SYS_POWER_SUPPY, 0, &error );
+    gchar *batt_name = NULL;
+    gchar *batt_path = NULL;
+    GDir * dir = g_dir_open( ACPI_PATH_SYS_POWER_SUPPLY, 0, &error );
     battery *b = NULL;
+    int i;
+
     if ( dir == NULL )
     {
         g_warning( "NO ACPI/sysfs support in kernel: %s", error->message );
         return NULL;
     }
+
+    /* Try the expected path in sysfs first */
+    batt_name = g_strdup_printf(ACPI_BATTERY_DEVICE_NAME "%d", battery_number);
+    batt_path = g_strdup_printf(ACPI_PATH_SYS_POWER_SUPPLY "/%s", batt_name);
+    if (g_file_test(batt_path, G_FILE_TEST_IS_DIR) == TRUE) {
+        b = battery_new();
+        b->path = g_strdup( batt_name);
+        battery_update ( b );
+
+        if (!b->type_battery) {
+            g_warning( "Not a battery: %s", batt_path );
+            g_free(b);
+            b = NULL;
+        }
+    }
+
+    g_free(batt_name);
+    g_free(batt_path);
+
+    if (b != NULL)
+        goto done;
+
+    /*
+     * We didn't find the expected path in sysfs.
+     * Walk the dir and blindly return n-th entry.
+     */
+    i = battery_number;
     while ( ( entry = g_dir_read_name (dir) ) != NULL )
     {
         b = battery_new();
         b->path = g_strdup( entry );
         battery_update ( b );
-        if ( b->type_battery == TRUE )
-            break;
-        /* ignore non-batteries */
-        else {
-            g_free(b);
-            b = NULL;
+
+        /* We're looking for a battery with the selected ID */
+        if (b->type_battery == TRUE) {
+            if (i == battery_number)
+                break;
+            i++;
         }
+        g_free(b);
+        b = NULL;
     }
+    if (b != NULL)
+        g_warning( "Battery entry " ACPI_BATTERY_DEVICE_NAME "%d not found, using %s",
+            battery_number, b->path);
+    else
+        g_warning( "Battery %d not found", battery_number );
+done:
     g_dir_close( dir );
     return b;
 }

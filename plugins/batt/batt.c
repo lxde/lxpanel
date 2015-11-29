@@ -33,7 +33,6 @@
 /* FIXME:
  *  Here are somethings need to be improvec:
  *  1. Replace pthread stuff with gthread counterparts for portability.
- *  3. Add an option to hide the plugin when AC power is used or there is no battery.
  *  4. Handle failure gracefully under systems other than Linux.
 */
 
@@ -84,6 +83,7 @@ typedef struct {
         wasCharging,
         width,
         hide_if_no_battery;
+    int battery_number;
     sem_t alarmProcessLock;
     battery* b;
     gboolean has_ac_adapter;
@@ -149,8 +149,8 @@ static gchar* make_tooltip(lx_battery* lx_b, gboolean isCharging)
         int left_seconds = lx_b->b->seconds - 3600 * hours;
         int minutes = left_seconds / 60;
         tooltip = g_strdup_printf(
-                _("Battery: %d%% charged, %d:%02d until full"),
-                lx_b->b->percentage,
+                _("Battery %d: %d%% charged, %d:%02d until full"),
+                lx_b->battery_number, lx_b->b->percentage,
                 hours,
                 minutes );
     } else {
@@ -160,14 +160,14 @@ static gchar* make_tooltip(lx_battery* lx_b, gboolean isCharging)
             int left_seconds = lx_b->b->seconds - 3600 * hours;
             int minutes = left_seconds / 60;
             tooltip = g_strdup_printf(
-                    _("Battery: %d%% charged, %d:%02d left"),
-                    lx_b->b->percentage,
+                    _("Battery %d: %d%% charged, %d:%02d left"),
+                    lx_b->battery_number, lx_b->b->percentage,
                     hours,
                     minutes );
         } else {
             tooltip = g_strdup_printf(
-                    _("Battery: %d%% charged"),
-                    100 );
+                    _("Battery %d: %d%% charged"),
+                    lx_b->battery_number, 100 );
         }
     }
 
@@ -331,7 +331,7 @@ static int update_timout(lx_battery *lx_b) {
         battery_free(lx_b->b);
 
         /* maybe in the mean time a battery has been inserted. */
-        lx_b->b = battery_get();
+        lx_b->b = battery_get(lx_b->battery_number);
     }
 
     update_display( lx_b, TRUE );
@@ -436,8 +436,10 @@ static GtkWidget * constructor(LXPanel *panel, config_setting_t *settings)
 
     lx_b = g_new0(lx_battery, 1);
 
-    /* get available battery */
-    lx_b->b = battery_get ();
+    /* get requested battery */
+    if (config_setting_lookup_int(settings, "BatteryNumber", &tmp_int))
+        lx_b->battery_number = MAX(0, tmp_int);
+    lx_b->b = battery_get(lx_b->battery_number);
 
     p = gtk_event_box_new();
     lxpanel_plugin_set_data(p, lx_b, destructor);
@@ -599,6 +601,10 @@ static gboolean applyConfig(gpointer user_data)
 
     lx_battery *b = lxpanel_plugin_get_data(user_data);
 
+    /* Update the battery we monitor */
+    battery_free(b->b);
+    b->b = battery_get(b->battery_number);
+
     /* Update colors */
     if (b->backgroundColor &&
             gdk_color_parse(b->backgroundColor, &b->background))
@@ -654,6 +660,7 @@ static gboolean applyConfig(gpointer user_data)
     config_group_set_int(b->settings, "Size", b->thickness);
     config_group_set_int(b->settings, "ShowExtendedInformation",
                          b->show_extended_information);
+    config_group_set_int(b->settings, "BatteryNumber", b->battery_number);
 
     RET(FALSE);
 }
@@ -676,6 +683,7 @@ static GtkWidget *config(LXPanel *panel, GtkWidget *p) {
             "", panel_config_int_button_new(_("Size"), (int *)&b->thickness,
                                             1, 50), CONF_TYPE_EXTERNAL,
             _("Show Extended Information"), &b->show_extended_information, CONF_TYPE_BOOL,
+            _("Number of battery to monitor"), &b->battery_number, CONF_TYPE_INT,
             NULL);
 }
 
