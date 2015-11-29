@@ -327,7 +327,7 @@ battery *battery_get(int battery_number) {
      * We didn't find the expected path in sysfs.
      * Walk the dir and blindly return n-th entry.
      */
-    i = battery_number;
+    i = 0;
     while ( ( entry = g_dir_read_name (dir) ) != NULL )
     {
         b = battery_new();

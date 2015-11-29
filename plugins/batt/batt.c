@@ -662,6 +662,8 @@ static gboolean applyConfig(gpointer user_data)
                          b->show_extended_information);
     config_group_set_int(b->settings, "BatteryNumber", b->battery_number);
 
+    update_display(b, TRUE);
+
     RET(FALSE);
 }
 
