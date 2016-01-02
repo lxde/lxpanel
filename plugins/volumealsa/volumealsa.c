@@ -712,6 +712,7 @@ static GtkWidget *volumealsa_configure(LXPanel *panel, GtkWidget *p)
     config_setting_lookup_string(vol->settings, "MixerCommand", &command_line);
     /* FIXME: support "needs terminal" for MixerCommand */
     /* FIXME: selection for master channel! */
+    /* FIXME: selection for the device */
     /* FIXME: configure buttons for each action (toggle volume/mixer/mute)! */
     /* FIXME: allow bind multimedia keys to volume using libkeybinder */
 
