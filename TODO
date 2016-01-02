@@ -1,6 +1,7 @@
 * drag & drop plugins via middle button
 * "Move" option in plugin context menu
 * "lxpanelctl command ..."
+* LXPanelPluginInit::activatable flag to allow activation with hotkey
 * drag & drop launchers (LauncherButton widget as "application/x-lxpanel-launcher")
 * accessibility (keys-only; single-button-mouse; special devices)
 * 'volumealsa' improvements
@@ -19,3 +20,5 @@
 * support custom timezone in the 'dclock'
 * decide 'netstat' vs 'netstatus'
 * optional libnotify support (useful for battery and volume plugins)
+* pull improvements from Raspbian
+* add Most Recent support into 'menu' plugin

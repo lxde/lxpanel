@@ -93,6 +93,8 @@ static const gchar * indicator_env[] = {
   NULL
 };
 
+static void indicator_destructor(gpointer user_data);
+
 static gint
 name2order (const gchar * name, const gchar * hint) {
   int i;
@@ -739,7 +741,7 @@ static GtkWidget *indicator_constructor(LXPanel *panel, config_setting_t *settin
 
     /* Allocate top level widget and set into Plugin widget pointer. */
     p = gtk_event_box_new();
-    lxpanel_plugin_set_data(p, indicator, g_free);
+    lxpanel_plugin_set_data(p, indicator, indicator_destructor);
 
     gtk_rc_parse_string (
         "style \"indicator-applet-style\"\n"
@@ -794,7 +796,6 @@ static GtkWidget *indicator_constructor(LXPanel *panel, config_setting_t *settin
     return p;
 }
 
-#if 0
 /* Plugin destructor. */
 static void indicator_destructor(gpointer user_data)
 {
@@ -804,7 +805,6 @@ static void indicator_destructor(gpointer user_data)
     g_object_unref(indicator->menubar);
     g_free(indicator);
 }
-#endif
 
 /* Callback when panel configuration changes. */
 static void indicator_panel_configuration_changed(LXPanel *panel, GtkWidget *p)
