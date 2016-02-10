@@ -106,6 +106,30 @@ static gboolean deskno_button_press_event(GtkWidget * widget, GdkEventButton * e
     return TRUE;
 }
 
+/* Handler for scroll events on the plugin */
+static gboolean deskno_scrolled(GtkWidget * p, GdkEventScroll * ev, DesknoPlugin * dc)
+{
+    int desknum = get_net_current_desktop();
+    int desks = get_net_number_of_desktops();
+
+    switch (ev->direction) {
+        case GDK_SCROLL_DOWN:
+            desknum++;
+            break;
+        case GDK_SCROLL_UP:
+            desknum--;
+            break;
+        default:
+            return FALSE;
+    }
+
+    if (desknum < 0 || desknum >= desks)
+        return TRUE;
+
+    Xclimsg(GDK_ROOT_WINDOW(), a_NET_CURRENT_DESKTOP, desknum, 0, 0, 0, 0);
+    return TRUE;
+}
+
 /* Plugin constructor. */
 static GtkWidget *deskno_constructor(LXPanel *panel, config_setting_t *settings)
 {
@@ -140,6 +164,9 @@ static GtkWidget *deskno_constructor(LXPanel *panel, config_setting_t *settings)
     g_signal_connect(G_OBJECT(fbev), "desktop-names", G_CALLBACK(deskno_redraw), (gpointer) dc);
     g_signal_connect(G_OBJECT(fbev), "number-of-desktops", G_CALLBACK(deskno_redraw), (gpointer) dc);
 
+    gtk_widget_add_events(p, GDK_SCROLL_MASK);
+    g_signal_connect(G_OBJECT(p), "scroll-event", G_CALLBACK(deskno_scrolled), (gpointer) dc);
+
     /* Initialize value and show the widget. */
     deskno_redraw(NULL, dc);
     gtk_widget_show_all(p);
@@ -150,10 +177,12 @@ static GtkWidget *deskno_constructor(LXPanel *panel, config_setting_t *settings)
 static void deskno_destructor(gpointer user_data)
 {
     DesknoPlugin * dc = (DesknoPlugin *) user_data;
+    GtkWidget * p = gtk_widget_get_parent(dc->label);
 
     /* Disconnect signal from window manager event object. */
     g_signal_handlers_disconnect_by_func(G_OBJECT(fbev), deskno_name_update, dc);
     g_signal_handlers_disconnect_by_func(G_OBJECT(fbev), deskno_redraw, dc);
+    g_signal_handlers_disconnect_by_func(G_OBJECT(p), deskno_scrolled, dc);
 
     /* Deallocate all memory. */
     if (dc->desktop_labels != NULL)
