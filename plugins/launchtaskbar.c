@@ -16,6 +16,7 @@
  *               2014 Vladimír Pýcha <vpycha@gmail.com>
  *               2014 Raimar Bühmann <raimar@buehmann.de>
  *               2014 Andy Balaam <axis3x3@users.sf.net>
+ *               2015 Rafał Mużyło <galtgendo@gmail.com>
  *
  * This file is a part of LXPanel project.
  *

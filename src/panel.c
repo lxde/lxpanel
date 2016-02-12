@@ -14,6 +14,7 @@
  *               2013 Rouslan <rouslan-k@users.sourceforge.net>
  *               2013 peadaredwards <peadaredwards@users.sourceforge.net>
  *               2014-2015 Andriy Grytsenko <andrej@rep.kiev.ua>
+ *               2015 Rafał Mużyło <galtgendo@gmail.com>
  *
  * This file is a part of LXPanel project.
  *
@@ -266,7 +267,10 @@ lxpanel_get_preferred_width (GtkWidget *widget,
 
   lxpanel_size_request (widget, &requisition);
 
-  *minimal_width = *natural_width = requisition.width;
+  if (minimal_width)
+      *minimal_width = requisition.width;
+  if (natural_width)
+      *natural_width = requisition.width;
 }
 
 static void
@@ -278,7 +282,10 @@ lxpanel_get_preferred_height (GtkWidget *widget,
 
   lxpanel_size_request (widget, &requisition);
 
-  *minimal_height = *natural_height = requisition.height;
+  if (minimal_height)
+      *minimal_height = requisition.height;
+  if (natural_height)
+      *natural_height = requisition.height;
 }
 #endif
 

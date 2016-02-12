@@ -10,6 +10,7 @@
  *               2012-2014 Henry Gebhardt <hsggebhardt@googlemail.com>
  *               2012 Rafał Mużyło <galtgendo@gmail.com>
  *               2014 Andriy Grytsenko <andrej@rep.kiev.ua>
+ *               2015 Rafał Mużyło <galtgendo@gmail.com>
  *
  * <terms>
  * Copyright (c) 2008-2014 LxDE Developers, see the file AUTHORS for details.
@@ -178,13 +179,13 @@ monitor_init(MonitorsPlugin *mp, Monitor *m, gchar *color)
     /* Signals */
     g_signal_connect(G_OBJECT(m->da), "configure-event",
         G_CALLBACK(configure_event), (gpointer) m);
-    #if !GTK_CHECK_VERSION(3, 0, 0)
+#if !GTK_CHECK_VERSION(3, 0, 0)
     g_signal_connect (G_OBJECT(m->da), "expose-event",
         G_CALLBACK(expose_event), (gpointer) m);
-    #else
+#else
     g_signal_connect (G_OBJECT(m->da), "draw",
         G_CALLBACK(draw), (gpointer) m);
-    #endif
+#endif
     /* g_signal_connect(G_OBJECT(m->da), "button-press-event",
                     G_CALLBACK(plugin_button_press_event), p); */
 
@@ -482,41 +483,34 @@ configure_event(GtkWidget* widget, GdkEventConfigure* dummy, gpointer data)
 #if !GTK_CHECK_VERSION(3, 0, 0)
 static gboolean
 expose_event(GtkWidget * widget, GdkEventExpose * event, Monitor *m)
+#else
+static gboolean
+draw(GtkWidget * widget, cairo_t * cr, Monitor *m)
+#endif
 {
     /* Draw the requested part of the pixmap onto the drawing area.
      * Translate it in both x and y by the border size. */
     if (m->pixmap != NULL)
     {
+#if !GTK_CHECK_VERSION(3, 0, 0)
         cairo_t *cr = gdk_cairo_create(gtk_widget_get_window(widget));
         GtkStyle *style = gtk_widget_get_style(m->da);
         gdk_cairo_region(cr, event->region);
         cairo_clip(cr);
         gdk_cairo_set_source_color(cr, &style->black);
-        cairo_set_source_surface(cr, m->pixmap, BORDER_SIZE, BORDER_SIZE);
-        cairo_paint(cr);
-        check_cairo_status(cr);
-        cairo_destroy(cr);
-    }
-
-    return FALSE;
-}
 #else
-static gboolean
-draw(GtkWidget * widget, cairo_t * cr, Monitor *m)
-{
-    /* Draw the requested part of the pixmap onto the drawing area.
-     * Translate it in both x and y by the border size. */
-    if (m->pixmap != NULL)
-    {
-        cairo_set_source_rgb(cr, 0, 0, 0);
+        cairo_set_source_rgb(cr, 0, 0, 0); // FIXME: set the color from style
+#endif
         cairo_set_source_surface(cr, m->pixmap, BORDER_SIZE, BORDER_SIZE);
         cairo_paint(cr);
         check_cairo_status(cr);
+#if !GTK_CHECK_VERSION(3, 0, 0)
+        cairo_destroy(cr);
+#endif
     }
 
     return FALSE;
 }
-#endif
 
 
 static gboolean monitors_button_press_event(GtkWidget* widget, GdkEventButton* evt, LXPanel *panel)

@@ -9,6 +9,7 @@
  *               2012-2013 Henry Gebhardt <hsggebhardt@gmail.com>
  *               2013 Marko Rauhamaa <marko@pacujo.net>
  *               2014 Andriy Grytsenko <andrej@rep.kiev.ua>
+ *               2015 Rafał Mużyło <galtgendo@gmail.com>
  *
  * This file is a part of LXPanel project.
  *
@@ -223,40 +224,33 @@ static gboolean configure_event(GtkWidget * widget, GdkEventConfigure * event, C
 /* Handler for expose_event on drawing area. */
 #if !GTK_CHECK_VERSION(3, 0, 0)
 static gboolean expose_event(GtkWidget * widget, GdkEventExpose * event, CPUPlugin * c)
+#else
+static gboolean draw(GtkWidget * widget, cairo_t * cr, CPUPlugin * c)
+#endif
 {
     /* Draw the requested part of the pixmap onto the drawing area.
      * Translate it in both x and y by the border size. */
     if (c->pixmap != NULL)
     {
+#if !GTK_CHECK_VERSION(3, 0, 0)
         cairo_t * cr = gdk_cairo_create(gtk_widget_get_window(widget));
         GtkStyle * style = gtk_widget_get_style(c->da);
         gdk_cairo_region(cr, event->region);
         cairo_clip(cr);
         gdk_cairo_set_source_color(cr, &style->black);
-        cairo_set_source_surface(cr, c->pixmap,
-              BORDER_SIZE, BORDER_SIZE);
-        cairo_paint(cr);
-        /* check_cairo_status(cr); */
-        cairo_destroy(cr);
-    }
-    return FALSE;
-}
 #else
-static gboolean draw(GtkWidget * widget, cairo_t * cr, CPUPlugin * c)
-{
-    /* Draw the requested part of the pixmap onto the drawing area.
-     * Translate it in both x and y by the border size. */
-    if (c->pixmap != NULL)
-    {
-        cairo_set_source_rgb(cr, 0, 0, 0);
+        cairo_set_source_rgb(cr, 0, 0, 0); // FIXME: use black color from style
+#endif
         cairo_set_source_surface(cr, c->pixmap,
               BORDER_SIZE, BORDER_SIZE);
         cairo_paint(cr);
         /* check_cairo_status(cr); */
+#if !GTK_CHECK_VERSION(3, 0, 0)
+        cairo_destroy(cr);
+#endif
     }
     return FALSE;
 }
-#endif
 
 /* Plugin constructor. */
 static GtkWidget *cpu_constructor(LXPanel *panel, config_setting_t *settings)

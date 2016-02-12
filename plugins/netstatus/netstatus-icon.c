@@ -604,6 +604,7 @@ netstatus_icon_size_request (GtkWidget      *widget,
   if (GTK_WIDGET_CLASS (klass)->size_request)
     GTK_WIDGET_CLASS (klass)->size_request (widget, requisition);
 }
+// FIXME: for GTK+ 3.0 make get_preferred_{width,height} callbacks!
 #endif
 
 static void
@@ -834,6 +835,7 @@ netstatus_icon_class_init (NetstatusIconClass *klass)
 
 #if !GTK_CHECK_VERSION(3, 0, 0)
   widget_class->size_request       = netstatus_icon_size_request;
+  // FIXME: for GTK+ 3.0 make get_preferred_{width,height} callbacks!
 #endif
   widget_class->size_allocate      = netstatus_icon_size_allocate;
   widget_class->realize            = netstatus_icon_realize;
