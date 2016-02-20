@@ -394,7 +394,11 @@ static gint configureEvent(GtkWidget *widget, GdkEventConfigure *event,
 }
 
 
+#if GTK_CHECK_VERSION(3, 0, 0)
+static gint draw(GtkWidget *widget, cairo_t *cr, lx_battery *lx_b) {
+#else
 static gint exposeEvent(GtkWidget *widget, GdkEventExpose *event, lx_battery *lx_b) {
+#endif
 
     ENTER;
 
