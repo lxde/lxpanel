@@ -1,0 +1,2074 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: lxpanel\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-21 21:13+0200\n"
+"PO-Revision-Date: 2014-11-24 22:01+0000\n"
+"Last-Translator: armakolas <armakolas@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 2.6.0-rc2\n"
+"X-POOTLE-MTIME: 1416866508.000000\n"
+"X-Pootle-Path: /el/lxpanel/po/el.po\n"
+"X-Pootle-Revision: 0\n"
+
+#: ../src/configurator.c:135
+msgid ""
+"Space reservation is not available for this panel because there is another "
+"monitor beyond this edge and reservation would cover it if enabled."
+msgstr ""
+"Η διατήρηση χώρου δεν είναι διαθέσιμη για αυτή τη γραμμή εργασιών διότι "
+"υφίσταται επιπλέον οθόνη πέραν αυτού του άκρου και η διατήρηση θα το "
+"κάλυπτε, αν ήταν ενεργοποιημένη."
+
+#: ../src/configurator.c:605
+msgid "Currently loaded plugins"
+msgstr "Φορτωμένες προσθήκες"
+
+#: ../src/configurator.c:614
+msgid "Stretch"
+msgstr "Τέντωμα"
+
+#: ../src/configurator.c:749
+msgid "Add plugin to panel"
+msgstr "Προσθήκη πρόσθετου"
+
+#: ../src/configurator.c:777
+msgid "Available plugins"
+msgstr "Διαθέσημες προσθήκες"
+
+#: ../src/configurator.c:1357
+msgid "Logout command is not set"
+msgstr "Δεν έχει οριστεί εντολή αποσύνδεσης"
+
+#: ../src/configurator.c:1425
+msgid "Select a directory"
+msgstr "Επιλογή καταλόγου"
+
+#: ../src/configurator.c:1425 ../src/configurator.c:1540
+msgid "Select a file"
+msgstr "Επιλογή αρχείου"
+
+#: ../src/configurator.c:1573
+msgid "_Browse"
+msgstr "_Περιήγηση"
+
+#: ../src/panel.c:981
+msgid "There is no room for another panel. All the edges are taken."
+msgstr ""
+"Δεν υπάρχει χώρος για επιπλέον γραμμή εργασιών. Όλες οι γωνίες είναι "
+"κατειλημμένες."
+
+#: ../src/panel.c:1007
+msgid ""
+"Really delete this panel?\n"
+"<b>Warning: This can not be recovered.</b>"
+msgstr ""
+"Να διαγραφεί αυτό το πλαίσιο;\n"
+"<b>Προειδοποίηση: Δεν μπορεί να επαναφερθεί.</b>"
+
+#: ../src/panel.c:1009
+msgid "Confirm"
+msgstr "Επιβεβαίωση"
+
+#. TRANSLATORS: Replace this string with your names, one name per line.
+#: ../src/panel.c:1044
+msgid "translator-credits"
+msgstr ""
+"Βασιλάκος Γιώργος <forfolias@linuxteam.cs.teilar.gr> \n"
+"Αρμακόλας Νικόλαος <armakolas@gmail.com> 2014"
+
+#: ../src/panel.c:1049
+msgid "LXPanel"
+msgstr "LXPanel"
+
+#: ../src/panel.c:1067
+msgid "Copyright (C) 2008-2014"
+msgstr "Πνευματικά Δικαιώματα (C) 2008-2014"
+
+#: ../src/panel.c:1068
+msgid "Desktop panel for LXDE project"
+msgstr "Πλαίσιο επιφάνειας εργασίας για το LXDE project"
+
+#: ../src/panel.c:1110
+#, c-format
+msgid "\"%s\" Settings"
+msgstr "\"%s\" Επιλογές"
+
+#: ../src/panel.c:1130
+msgid "Add / Remove Panel Items"
+msgstr "Προσθήκη / Αφαίρεση αντικειμένων πλαισίου"
+
+#: ../src/panel.c:1138
+#, c-format
+msgid "Remove \"%s\" From Panel"
+msgstr "Αφαίρεση του \"%s\" από το πλαίσιο"
+
+#: ../src/panel.c:1150
+msgid "Panel Settings"
+msgstr "Επιλογές πλαισίου"
+
+#: ../src/panel.c:1156
+msgid "Create New Panel"
+msgstr "Δημιουργία νέου πλαισίου"
+
+#: ../src/panel.c:1162
+msgid "Delete This Panel"
+msgstr "Διαγραφή του πλαισίου"
+
+#: ../src/panel.c:1173
+msgid "About"
+msgstr "Περί"
+
+#: ../src/panel.c:1180
+msgid "Panel"
+msgstr "Πλαίσιο"
+
+#: ../src/panel.c:1391 ../src/panel.c:1399 ../data/ui/panel-pref.glade.h:22
+msgid "Height:"
+msgstr "Ύψος:"
+
+#: ../src/panel.c:1392 ../src/panel.c:1398 ../data/ui/panel-pref.glade.h:21
+msgid "Width:"
+msgstr "Πλάτος:"
+
+#: ../src/panel.c:1393 ../data/ui/panel-pref.glade.h:13
+msgid "Left"
+msgstr "Αριστερά"
+
+#: ../src/panel.c:1394 ../data/ui/panel-pref.glade.h:14
+msgid "Right"
+msgstr "Δεξιά"
+
+#: ../src/panel.c:1400 ../data/ui/panel-pref.glade.h:12
+msgid "Top"
+msgstr "Πάνω"
+
+#: ../src/panel.c:1401 ../data/ui/panel-pref.glade.h:11
+msgid "Bottom"
+msgstr "Κάτω"
+
+#: ../src/plugin.c:340
+msgid "No file manager is configured."
+msgstr "Δεν έχει διαμορφωθεί διαχειριστής αρχείων"
+
+#. { "configure", N_("Preferences"), configure },
+#: ../src/gtk-run.c:377 ../src/main.c:52 ../plugins/menu.c:741
+msgid "Run"
+msgstr "Εκτέλεση"
+
+#: ../src/gtk-run.c:391
+msgid "Enter the command you want to execute:"
+msgstr "Εισάγετε την εντολή προς εκτέλεση:"
+
+#: ../src/main.c:53 ../plugins/menu.c:742
+msgid "Restart"
+msgstr "Επανεκκίνηση"
+
+#: ../src/main.c:54 ../plugins/menu.c:743
+msgid "Logout"
+msgstr "Αποσύνδεση"
+
+#: ../src/main.c:252
+#, c-format
+msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
+msgstr "lxpanel %s - Ελαφρύ GTK2+ πάνελ για UNIX desktops\n"
+
+#: ../src/main.c:253
+#, c-format
+msgid "Command line options:\n"
+msgstr "Επιλογές γραμμής εντολών:\n"
+
+#: ../src/main.c:254
+#, c-format
+msgid " --help      -- print this help and exit\n"
+msgstr " --help      -- εμφάνιση της βοήθειας και έξοδος\n"
+
+#: ../src/main.c:255
+#, c-format
+msgid " --version   -- print version and exit\n"
+msgstr " --version   -- Εμφάνιση έκδοσης και έξοδος\n"
+
+#. g_print(_(" --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"));
+#. g_print(_(" --configure -- launch configuration utility\n"));
+#: ../src/main.c:258
+#, c-format
+msgid " --profile name -- use specified profile\n"
+msgstr " --profile όνομα -- χρήση καθορισμένου προφίλ\n"
+
+#: ../src/main.c:260
+#, c-format
+msgid " -h  -- same as --help\n"
+msgstr " -h  -- όπως το --help\n"
+
+#: ../src/main.c:261
+#, c-format
+msgid " -p  -- same as --profile\n"
+msgstr " -p  -- όπως το --profile\n"
+
+#: ../src/main.c:262
+#, c-format
+msgid " -v  -- same as --version\n"
+msgstr " -v  -- όπως το --version\n"
+
+#. g_print(_(" -C  -- same as --configure\n"));
+#: ../src/main.c:264
+#, c-format
+msgid ""
+"\n"
+"Visit http://lxde.org/ for detail.\n"
+"\n"
+msgstr ""
+"\n"
+"Επισκευτείτε το http://lxde.org/ για λεπτομέριες.\n"
+"\n"
+
+#: ../src/input-button.c:129
+#, c-format
+msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
+msgstr ""
+"Ο συνδυασμός πλήκτρων '%s δεν μπορεί να χρησιμοποιηθεί ως γενική συντόμευση, "
+"Λυπούμεθα."
+
+#: ../src/input-button.c:132 ../src/input-button.c:331
+#: ../plugins/netstatus/netstatus-iface.c:191
+#: ../plugins/netstatus/netstatus-util.c:167
+msgid "Error"
+msgstr "Σφάλμα"
+
+#: ../src/input-button.c:161
+msgid "LeftBtn"
+msgstr "ΑριστερόΠλήκτρο"
+
+#: ../src/input-button.c:164
+msgid "MiddleBtn"
+msgstr "ΜεσαίοΠλήκτρο"
+
+#: ../src/input-button.c:167
+msgid "RightBtn"
+msgstr "ΔεξίΠλήκτρο"
+
+#: ../src/input-button.c:170
+#, c-format
+msgid "Btn%s"
+msgstr "Πλήκτρο%s"
+
+#. GtkRadioButton "None"
+#: ../src/input-button.c:250 ../data/ui/panel-pref.glade.h:5
+msgid "None"
+msgstr "Κανένα"
+
+#: ../src/input-button.c:257
+msgid "Custom:"
+msgstr "Προσαρμοσμένο:"
+
+#: ../src/input-button.c:329
+#, c-format
+msgid "Cannot assign '%s' as a global hotkey: it is already bound."
+msgstr ""
+"Δεν μπορεί να εκχωρηθεί το '%s' ως συντόμευση συστήματος: Είναι ήδη "
+"δεσμευμένο."
+
+#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3553
+msgid "Application Launch and Task Bar"
+msgstr "Εκκίνηση Εφαρμογών και Γραμμή Εργασιών"
+
+#. Launchtaskbar mode: launchbar, taskbar, or combined
+#: ../data/ui/launchtaskbar.glade.h:3
+msgid "<b>Mode:</b>"
+msgstr "<b>Κατάσταση</b>"
+
+#: ../data/ui/launchtaskbar.glade.h:4
+msgid "Launchers"
+msgstr "Εκκινητές"
+
+#: ../data/ui/launchtaskbar.glade.h:5
+msgid "<b>Launchbar</b>"
+msgstr "<b>Γραμμή εκκινήσεων</b>"
+
+#: ../data/ui/launchtaskbar.glade.h:6
+msgid "Show tooltips"
+msgstr "Εμφάνιση υποδείξεων"
+
+#: ../data/ui/launchtaskbar.glade.h:7
+msgid "Icons only"
+msgstr "Μόνο εικονίδια"
+
+#: ../data/ui/launchtaskbar.glade.h:8
+msgid "Flat buttons"
+msgstr "Επίπεδα κουμπιά"
+
+#: ../data/ui/launchtaskbar.glade.h:9
+msgid "Show windows from all desktops"
+msgstr "Εμφάνιση παραθύρων από όλες τις επιφάνειες εργασίας"
+
+#: ../data/ui/launchtaskbar.glade.h:10
+msgid "Only show windows on the same monitor as the task bar"
+msgstr ""
+"Εμφάνιση μόνο των παραθύρων που βρίσκονται στην ίδια οθόνη με τη γραμμή "
+"εργασιών"
+
+#: ../data/ui/launchtaskbar.glade.h:11
+msgid "Use mouse wheel"
+msgstr "Χρήση της ροδέλας ποντικιού"
+
+#: ../data/ui/launchtaskbar.glade.h:12
+msgid "Flash when there is any window requiring attention"
+msgstr "Αναβόσβηνε όταν κάποιο παράθυρο απαιτεί προσοχή"
+
+#: ../data/ui/launchtaskbar.glade.h:13
+msgid "Combine multiple application windows into a single button"
+msgstr "Σύμπτυξη όμοιων παραθύρων σε ένα κουμπί"
+
+#: ../data/ui/launchtaskbar.glade.h:14
+msgid "Disable enlargement for small task icons"
+msgstr "Απενεργοποίησε τη μεγέθυνση για τα μικρά εικονίδια γραμμής εργαλείων"
+
+#: ../data/ui/launchtaskbar.glade.h:15
+msgid "Maximum width of task button"
+msgstr "Μέγιστο πλάτος κουμπιού εργασιών"
+
+#: ../data/ui/launchtaskbar.glade.h:16
+msgid "Spacing"
+msgstr "Διάστημα"
+
+#: ../data/ui/launchtaskbar.glade.h:17
+msgid "<b>Taskbar</b>"
+msgstr "<b>Γραμμή εργασιών</b>"
+
+#: ../data/ui/launchtaskbar.glade.h:18
+msgid "Only Application Launch Bar"
+msgstr "Μόνο Γραμμή Εκκίνησης Εφαρμογών"
+
+#: ../data/ui/launchtaskbar.glade.h:19
+msgid "Only Task Bar (Window List)"
+msgstr "Μόνο Γραμμή Εργασιών (Κατάλογος Παραθύρων)"
+
+#: ../data/ui/launchtaskbar.glade.h:20
+msgid "Integrated Application Launch Bar and Task Bar"
+msgstr "Ενοποιημένη Γραμμή Εργασιών και Εκκίνησης Εφαρμογών"
+
+#: ../data/ui/netstatus.glade.h:1
+msgid "<b>Connection</b>"
+msgstr "<b>Σύνδεση</b>"
+
+#: ../data/ui/netstatus.glade.h:2
+msgid "Status:"
+msgstr "Κατάσταση:"
+
+#: ../data/ui/netstatus.glade.h:3
+msgid "_Name:"
+msgstr "_Όνομα:"
+
+#: ../data/ui/netstatus.glade.h:4
+msgid "<b>Activity</b>"
+msgstr "<b>Δραστηριότητα</b>"
+
+#: ../data/ui/netstatus.glade.h:5
+msgid "Received:"
+msgstr "Λήφθηκαν:"
+
+#: ../data/ui/netstatus.glade.h:6
+msgid "Sent:"
+msgstr "Στάλθηκαν:"
+
+#: ../data/ui/netstatus.glade.h:7
+msgid "<b>Signal Strength</b>"
+msgstr "<b>Ισχύς σήματος</b>"
+
+#: ../data/ui/netstatus.glade.h:9
+#, no-c-format
+msgid "0%"
+msgstr "0%"
+
+#: ../data/ui/netstatus.glade.h:10
+msgid "General"
+msgstr "Γενικά"
+
+#: ../data/ui/netstatus.glade.h:11
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr "<b>Πρωτόκολλο Internet (IPv4)</b>"
+
+#: ../data/ui/netstatus.glade.h:12
+msgid "Address:"
+msgstr "Διεύθυνση:"
+
+#: ../data/ui/netstatus.glade.h:13
+msgid "Destination:"
+msgstr "Προορισμός:"
+
+#: ../data/ui/netstatus.glade.h:14 ../plugins/netstat/netstat.c:364
+#: ../plugins/netstat/netstat.c:375
+msgid "Broadcast:"
+msgstr "Εκπομπή:"
+
+#: ../data/ui/netstatus.glade.h:15
+msgid "Subnet Mask:"
+msgstr "Μάσκα υποδικτύωσης:"
+
+#: ../data/ui/netstatus.glade.h:16
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>Πρωτόκολλο Internet (IPv6)</b>"
+
+#: ../data/ui/netstatus.glade.h:17
+msgid "Scope:"
+msgstr "Σκοπιά:"
+
+#: ../data/ui/netstatus.glade.h:18
+msgid "<b>Network Device</b>"
+msgstr "<b>Συσκευή δικτύου</b>"
+
+#: ../data/ui/netstatus.glade.h:19
+msgid "Type:"
+msgstr "Τύπος:"
+
+#: ../data/ui/netstatus.glade.h:20
+msgid "Support"
+msgstr "Υποστήριξη"
+
+#: ../data/ui/netstatus.glade.h:21
+msgid "Con_figure"
+msgstr "_Ρύθμιση"
+
+#: ../data/ui/panel-pref.glade.h:1
+msgid "Dynamic"
+msgstr "Δυναμικό"
+
+#: ../data/ui/panel-pref.glade.h:2
+msgid "Pixels"
+msgstr "Πίξελ"
+
+#: ../data/ui/panel-pref.glade.h:4
+#, no-c-format
+msgid "% Percent"
+msgstr "% Επι τις εκατό"
+
+#: ../data/ui/panel-pref.glade.h:6
+msgid "Err"
+msgstr "Σφάλλω"
+
+#: ../data/ui/panel-pref.glade.h:7
+msgid "Warn"
+msgstr "Προειδοποιώ"
+
+#: ../data/ui/panel-pref.glade.h:8
+msgid "Info"
+msgstr "πληροφορία"
+
+#: ../data/ui/panel-pref.glade.h:9
+msgid "All"
+msgstr "Όλα"
+
+#: ../data/ui/panel-pref.glade.h:10
+msgid "Panel Preferences"
+msgstr "Ιδιότητες πλαισίου"
+
+#: ../data/ui/panel-pref.glade.h:15
+msgid "Edge:"
+msgstr "Άκρη:"
+
+#: ../data/ui/panel-pref.glade.h:16
+msgid "Center"
+msgstr "Κέντρο"
+
+#: ../data/ui/panel-pref.glade.h:17
+msgid "Alignment:"
+msgstr "Στοίχιση:"
+
+#: ../data/ui/panel-pref.glade.h:18
+msgid "Margin:"
+msgstr "Όρια:"
+
+#: ../data/ui/panel-pref.glade.h:19
+msgid "Monitor:"
+msgstr "Παρακολούθηση:"
+
+#: ../data/ui/panel-pref.glade.h:20
+msgid "<b>Position</b>"
+msgstr "<b>Τοποθεσία</b>"
+
+#: ../data/ui/panel-pref.glade.h:23
+msgid "Icon size:"
+msgstr "Μέγεθος εικονιδίου"
+
+#: ../data/ui/panel-pref.glade.h:24
+msgid "<b>Size</b>"
+msgstr "<b>Μέγεθος</b>"
+
+#: ../data/ui/panel-pref.glade.h:25
+msgid "Geometry"
+msgstr "Γεωμετρία"
+
+#: ../data/ui/panel-pref.glade.h:26
+msgid "System theme"
+msgstr "Θέμα συστήματος"
+
+#: ../data/ui/panel-pref.glade.h:27
+msgid "Solid color (with opacity)"
+msgstr "Συμπαγές χρώμα (με αδιαφάνεια)"
+
+#: ../data/ui/panel-pref.glade.h:28 ../plugins/xkb/xkb-plugin.c:1447
+msgid "Image"
+msgstr "Εικόνα"
+
+#: ../data/ui/panel-pref.glade.h:29
+msgid "Select an image file"
+msgstr "Επιλέξτε ένα αρχείο εικόνας"
+
+#: ../data/ui/panel-pref.glade.h:30
+msgid "<b>Background</b>"
+msgstr "<b>Φόντο</b>"
+
+#: ../data/ui/panel-pref.glade.h:31
+msgid "Custom color"
+msgstr "Προσαρμοσμένο χρώμα"
+
+#: ../data/ui/panel-pref.glade.h:32 ../plugins/space.c:88
+#: ../plugins/batt/batt.c:675
+msgid "Size"
+msgstr "Μέγεθος"
+
+#: ../data/ui/panel-pref.glade.h:33
+msgid "<b>Font</b>"
+msgstr "<b>Γραμματοσειρά</b>"
+
+#: ../data/ui/panel-pref.glade.h:34
+msgid "Appearance"
+msgstr "Εμφάνιση"
+
+#: ../data/ui/panel-pref.glade.h:35
+msgid "Panel Applets"
+msgstr "Μικροεφαρμογές πλαισίου"
+
+#: ../data/ui/panel-pref.glade.h:36
+msgid "Logout Command:"
+msgstr "Εντολή αποσύνδεσης:"
+
+#: ../data/ui/panel-pref.glade.h:37
+msgid "Terminal Emulator:"
+msgstr "Προσομοιωτής τερματικού:"
+
+#: ../data/ui/panel-pref.glade.h:38
+msgid "File Manager:"
+msgstr "Διαχειριστής αρχείων:"
+
+#: ../data/ui/panel-pref.glade.h:39
+msgid "<b>Set Preferred Applications</b>"
+msgstr "<b>Ορισμός προτεινόμενων προγραμμάτων</b>"
+
+#: ../data/ui/panel-pref.glade.h:40
+msgid "Make window managers treat the panel as dock"
+msgstr ""
+"Κάνε τον διαχειριστή παραθύρων να συμπεριφέρεται στο πλαίσιο σαν προσάρτηση"
+
+#: ../data/ui/panel-pref.glade.h:41
+msgid "Reserve space, and not covered by maximized windows"
+msgstr "Δέσμευση χώρου, να μην καλύπτεται από τα μεγιστοποιημένα παράθυρα"
+
+#: ../data/ui/panel-pref.glade.h:42
+msgid "<b>Properties</b>"
+msgstr "<b>Ιδιότητες</b>"
+
+#: ../data/ui/panel-pref.glade.h:43
+msgid "Minimize panel when not in use"
+msgstr "Ελαχιστοποίηση πλαισίου όταν δε χρησιμοποιείται"
+
+#: ../data/ui/panel-pref.glade.h:44
+msgid "Size when minimized"
+msgstr "Μέγεθος όταν ελαχιστοποιηθεί"
+
+#: ../data/ui/panel-pref.glade.h:45
+msgid "pixels"
+msgstr "πίξελ"
+
+#: ../data/ui/panel-pref.glade.h:46
+msgid "<b>Automatic hiding</b>"
+msgstr "<b>Αυτόματη απόκρυψη</b>"
+
+#: ../data/ui/panel-pref.glade.h:47
+msgid "Log level"
+msgstr "Επίπεδο καταγραφής"
+
+#: ../data/ui/panel-pref.glade.h:48
+msgid "<b>Log level</b>"
+msgstr "<b>Επίπεδο καταγραφής</b>"
+
+#: ../data/ui/panel-pref.glade.h:49
+msgid "Advanced"
+msgstr "Για προχωρημένους"
+
+#: ../plugins/cpu/cpu.c:281
+msgid "CPU Usage Monitor"
+msgstr "Παρακολούθηση χρήσης CPU"
+
+#: ../plugins/cpu/cpu.c:282 ../plugins/monitors/monitors.c:699
+msgid "Display CPU usage"
+msgstr "Εμφάνιση χρήσης CPU"
+
+#: ../plugins/deskno/deskno.c:174 ../plugins/deskno/deskno.c:194
+msgid "Desktop Number / Workspace Name"
+msgstr "Αριθμός επιφάνειας εργασίας / όνομα χώρου εργασίας"
+
+#: ../plugins/deskno/deskno.c:176 ../plugins/dclock.c:424
+msgid "Bold font"
+msgstr "Έντονη γραμματοσειρά"
+
+#: ../plugins/deskno/deskno.c:177
+msgid "Display desktop names"
+msgstr "Εμφάνιση ονόματος επιφάνειας εργασίας"
+
+#: ../plugins/deskno/deskno.c:195
+msgid "Display workspace number, by cmeury@users.sf.net"
+msgstr "Εμφάνιση αριθμού χώρου εργασίας, από cmeury@users.sf.net"
+
+#: ../plugins/launchtaskbar.c:1443 ../plugins/launchtaskbar.c:3525
+msgid "Application Launch Bar"
+msgstr "Μπάρα εκκίνησης εφαρμογών"
+
+#: ../plugins/launchtaskbar.c:1446 ../plugins/launchtaskbar.c:3534
+msgid "Task Bar (Window List)"
+msgstr "Μπάρα εργασιών (λίστα παραθύρων)"
+
+#: ../plugins/launchtaskbar.c:2507
+msgid "_Close all windows"
+msgstr "Κλείσιμο όλων των παραθύρων"
+
+#. Add Raise menu item.
+#: ../plugins/launchtaskbar.c:3380
+msgid "_Raise"
+msgstr "_Ανύψωση"
+
+#. Add Restore menu item.
+#: ../plugins/launchtaskbar.c:3385
+msgid "R_estore"
+msgstr "Ε_παναφορά"
+
+#. Add Maximize menu item.
+#: ../plugins/launchtaskbar.c:3390
+msgid "Ma_ximize"
+msgstr "Με_γιστοποίηση"
+
+#. Add Iconify menu item.
+#: ../plugins/launchtaskbar.c:3395
+msgid "Ico_nify"
+msgstr "Εικονιδιοποίηση"
+
+#: ../plugins/launchtaskbar.c:3416
+#, c-format
+msgid "Workspace _%d"
+msgstr "Χώρος εργασίας _%d"
+
+#: ../plugins/launchtaskbar.c:3421
+#, c-format
+msgid "Workspace %d"
+msgstr "Χώρος εργασίας %d"
+
+#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
+#: ../plugins/launchtaskbar.c:3437
+msgid "_All workspaces"
+msgstr "_Όλοι οι χώροι εργασίας"
+
+#. FIXME: add "Current workspace" item, active if not on a current
+#. Add Move to Workspace menu item as a submenu.
+#: ../plugins/launchtaskbar.c:3445
+msgid "_Move to Workspace"
+msgstr "_Μεταφορά στο χώρο εργασίας"
+
+#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
+#: ../plugins/launchtaskbar.c:3451
+msgid "_Close Window"
+msgstr "_Κλείσιμο παραθύρου"
+
+#: ../plugins/launchtaskbar.c:3453
+msgid "A_dd to Launcher"
+msgstr "Π_ροσθήκη στον Εκκινητή"
+
+#: ../plugins/launchtaskbar.c:3454
+msgid "Rem_ove from Launcher"
+msgstr "Αφ_αίρεση από τον Εκκινητή"
+
+#: ../plugins/launchtaskbar.c:3455
+msgid "_New Instance"
+msgstr "Νέα περίπτωση"
+
+#: ../plugins/launchtaskbar.c:3526
+msgid "Bar with buttons to launch application"
+msgstr "Μπάρα με κουμπιά για την εκκίνηση εφαρμογών"
+
+#: ../plugins/launchtaskbar.c:3535
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
+msgstr ""
+"Η μπάρα εργασιών εμφανίζει όλα τα ανοιχτά παράθυρα και σας επιτρέπει να τα "
+"εικονιδιοποιήσετε, συμπτύξετε ή να εστιάσετε πάνω τους"
+
+#: ../plugins/launchtaskbar.c:3554
+msgid "Bar with buttons to launch application and/or show all opened windows"
+msgstr ""
+"Γραμμή με πλήκτρα για εκκίνηση εφαρμογών και/ή εμφάνιση όλων των ανοιγμένων "
+"παραθύρων"
+
+#: ../plugins/dclock.c:418 ../plugins/dclock.c:438
+msgid "Digital Clock"
+msgstr "Ψηφιακό ρολόι"
+
+#: ../plugins/dclock.c:420
+msgid "Clock Format"
+msgstr "Μορφή ρολογιού"
+
+#: ../plugins/dclock.c:421
+msgid "Tooltip Format"
+msgstr "Μορφή υπόδειξης"
+
+#: ../plugins/dclock.c:422
+#, c-format
+msgid "Format codes: man 3 strftime; %n for line break"
+msgstr "Μορφή κώδικα: man 3 strftime; %n για αλλαγή γραμμής"
+
+#: ../plugins/dclock.c:423
+msgid "Action when clicked (default: display calendar)"
+msgstr "Ενέργεια όταν γίνει κλικ (προεπιλογή: εμφάνιση ημερολογίου)"
+
+#: ../plugins/dclock.c:425
+msgid "Tooltip only"
+msgstr "Κείμενο γρήγορης βοήθειας μόνο"
+
+#: ../plugins/dclock.c:426
+msgid "Center text"
+msgstr "Κείμενο στο κέντρο"
+
+#: ../plugins/dclock.c:439
+msgid "Display digital clock and tooltip"
+msgstr "Εμφάνιση ψηφιακού ρολογιού και βοηθητικού κειμένου"
+
+#: ../plugins/menu.c:382
+msgid "Add to desktop"
+msgstr "Προσθήκη στην επιφάνεια εργασίας"
+
+#: ../plugins/menu.c:389
+msgid "Properties"
+msgstr "Ιδιότητες"
+
+#: ../plugins/menu.c:1013 ../plugins/menu.c:1027
+msgid "Menu"
+msgstr "Μενού"
+
+#: ../plugins/menu.c:1014 ../plugins/dirmenu.c:357
+msgid "Icon"
+msgstr "Εικονίδιο"
+
+#: ../plugins/menu.c:1028
+msgid "Application Menu"
+msgstr "Μπάρα εκκίνησης εφαρμογών"
+
+#: ../plugins/separator.c:68
+msgid "Separator"
+msgstr "Διαχωριστής"
+
+#: ../plugins/separator.c:69
+msgid "Add a separator to the panel"
+msgstr "Προσθήκη διαχωριστή στο πλαίσιο"
+
+#: ../plugins/pager.c:92
+msgid "Sorry, there was no window manager configuration program found."
+msgstr "Συγνώμη, δεν βρέθηκε πρόγραμμα ρύθμισης διαχειριστή παραθύρων."
+
+#: ../plugins/pager.c:144 ../plugins/pager.c:160
+msgid "Desktop Pager"
+msgstr "Διαχειριστής επιφάνειας εργασίας"
+
+#: ../plugins/pager.c:145 ../plugins/pager.c:161
+msgid "Simple pager plugin"
+msgstr "Απλή επέκταση διαχειριστή επιφάνειας"
+
+#: ../plugins/space.c:86 ../plugins/space.c:95
+msgid "Spacer"
+msgstr "Περιθώριο"
+
+#: ../plugins/space.c:96
+msgid "Allocate space"
+msgstr "Δέσμευση χώρου"
+
+#: ../plugins/tray.c:682
+msgid "System Tray"
+msgstr "Πλαίσιο συστήματος"
+
+#: ../plugins/tray.c:683
+msgid "System tray"
+msgstr "Πλαίσιο συστήματος"
+
+#: ../plugins/xkb/xkb-plugin.c:401
+msgid "New session is required for this option to take effect"
+msgstr "Απαιτείται νέα συνεδρία για να ενεργοποιηθεί αυτή η επιλογή"
+
+#. dialog
+#: ../plugins/xkb/xkb-plugin.c:582
+msgid "Select Keyboard Model"
+msgstr "Επιλογή Υποδείγματος Πληκτρολογίου"
+
+#: ../plugins/xkb/xkb-plugin.c:606 ../plugins/xkb/xkb-plugin.c:735
+#: ../plugins/xkb/xkb-plugin.c:913
+msgid "Description"
+msgstr "Περιγραφή"
+
+#: ../plugins/xkb/xkb-plugin.c:611 ../plugins/xkb/xkb-plugin.c:742
+msgid "Id"
+msgstr "Ταυτότητα"
+
+#. dialog
+#: ../plugins/xkb/xkb-plugin.c:706
+msgid "Select Layout Change Type"
+msgstr "Επιλογή Τύπου Αλλαγής Διάταξης"
+
+#. dialog
+#: ../plugins/xkb/xkb-plugin.c:879
+msgid "Add Keyboard Layout"
+msgstr "Προσθήκη Διάταξης Πληκτρολογίου"
+
+#: ../plugins/xkb/xkb-plugin.c:903 ../plugins/xkb/xkb-plugin.c:1294
+msgid "Flag"
+msgstr "Σημαία"
+
+#: ../plugins/xkb/xkb-plugin.c:908 ../plugins/xkb/xkb-plugin.c:1298
+msgid "Layout"
+msgstr "Διάταξη"
+
+#: ../plugins/xkb/xkb-plugin.c:1204 ../plugins/xkb/xkb-plugin.c:1536
+msgid "Keyboard Layout Handler"
+msgstr "Xειριστής Διάταξης Πληκτρολογίου"
+
+#: ../plugins/xkb/xkb-plugin.c:1227
+msgid "Keyboard Model"
+msgstr "Μοντέλο Πληκτρολογίου"
+
+#: ../plugins/xkb/xkb-plugin.c:1248
+msgid "Keyboard Layouts"
+msgstr "Διατάξεις Πληκτρολογίου"
+
+#: ../plugins/xkb/xkb-plugin.c:1302
+msgid "Variant"
+msgstr "Παραλλαγή"
+
+#: ../plugins/xkb/xkb-plugin.c:1311
+msgid "Change Layout Option"
+msgstr "Αλλαγή Επιλογής Διάταξης"
+
+#: ../plugins/xkb/xkb-plugin.c:1331
+msgid "Advanced setxkbmap Options"
+msgstr "Προχωρημένες Επιλογές setxkbmap"
+
+#: ../plugins/xkb/xkb-plugin.c:1352
+msgid "Do _not reset existing options"
+msgstr "Να μη σβηστούν οι υφιστάμενες επιλογές"
+
+#: ../plugins/xkb/xkb-plugin.c:1357
+msgid "Keep _system layouts"
+msgstr "Διατήρηση διατάξεων συστήματος"
+
+#: ../plugins/xkb/xkb-plugin.c:1366
+msgid "Per Window Settings"
+msgstr "Ρυθμίσεις Ανά Παράθυρο"
+
+#: ../plugins/xkb/xkb-plugin.c:1378
+msgid "_Remember layout for each window"
+msgstr "Ενθύμηση διάταξης για κάθε παράθυρο"
+
+#: ../plugins/xkb/xkb-plugin.c:1387
+msgid "Show Layout as"
+msgstr "Εμφάνιση Διάταξης ως"
+
+#: ../plugins/xkb/xkb-plugin.c:1448
+msgid "Custom Image"
+msgstr "Προσωπικά Επιλεγμένη Εικόνα"
+
+#: ../plugins/xkb/xkb-plugin.c:1449
+msgid "Text"
+msgstr "Κείμενο"
+
+#: ../plugins/xkb/xkb-plugin.c:1475
+msgid "Panel Icon Size"
+msgstr "Μέγεθος Εικονιδίου Γραμμής Εργαλείων"
+
+#: ../plugins/xkb/xkb-plugin.c:1537
+msgid "Handle keyboard layouts"
+msgstr "Χειρισμός διατάξεων πληκτρολογίου"
+
+#: ../plugins/wincmd.c:189
+msgid "Left click to iconify all windows.  Middle click to shade them."
+msgstr ""
+"Αριστερό κλικ για εικονιδιοποίηση όλων των παραθύρων.  Μεσαίο κλικ για "
+"τύλιγμά τους."
+
+#: ../plugins/wincmd.c:224 ../plugins/wincmd.c:234
+msgid "Minimize All Windows"
+msgstr "Ελαχιστοποίηση όλων των παραθύρων"
+
+#: ../plugins/wincmd.c:226
+msgid "Alternately iconify/shade and raise"
+msgstr "Εναλλαγή μεταξύ εικονιδοποίησης/τυλίγματος και ανύψωσης"
+
+#: ../plugins/wincmd.c:235
+msgid ""
+"Sends commands to all desktop windows.\n"
+"Supported commands are 1) iconify and 2) shade"
+msgstr ""
+"Αποστέλλει εντολές προς όλα τα παράθυρα.\n"
+"Υποστηριζόμενες εντολές είναι 1) Εικονιδιοποίηση και 2) Τύλιγμα"
+
+#: ../plugins/dirmenu.c:205
+msgid "Open in _Terminal"
+msgstr "Άνοιγμα στο _τερματικό"
+
+#: ../plugins/dirmenu.c:353 ../plugins/dirmenu.c:369
+msgid "Directory Menu"
+msgstr "Μενού καταλόγου"
+
+#: ../plugins/dirmenu.c:355
+msgid "Directory"
+msgstr "Κατάλογος"
+
+#: ../plugins/dirmenu.c:356
+msgid "Label"
+msgstr "Ταμπέλα"
+
+#: ../plugins/dirmenu.c:370
+msgid "Browse directory tree via menu (Author = PCMan)"
+msgstr "Περιήγηση δενδροειδούς καταλόγου μέσω μενού (Συγγραφέας = PCMan)"
+
+#: ../plugins/thermal/thermal.c:558 ../plugins/thermal/thermal.c:576
+msgid "Temperature Monitor"
+msgstr "Παρακολούθηση θερμοκρασίας"
+
+#: ../plugins/thermal/thermal.c:560
+msgid "Normal color"
+msgstr "Κανονικό χρώμα"
+
+#: ../plugins/thermal/thermal.c:561
+msgid "Warning1 color"
+msgstr "Χρώμα προειδοποίησης1"
+
+#: ../plugins/thermal/thermal.c:562
+msgid "Warning2 color"
+msgstr "Χρώμα προειδοποίησης2"
+
+#: ../plugins/thermal/thermal.c:563
+msgid "Automatic sensor location"
+msgstr "Αυτόματη περιοχή αισθητήρα"
+
+#: ../plugins/thermal/thermal.c:564
+msgid "Sensor"
+msgstr "Αισθητήρας"
+
+#: ../plugins/thermal/thermal.c:565
+msgid "Automatic temperature levels"
+msgstr "Αυτόματα επίπεδα θερμοκρασίας"
+
+#: ../plugins/thermal/thermal.c:566
+msgid "Warning1 temperature"
+msgstr "Προειδοποίηση θερμοκρασίας1"
+
+#: ../plugins/thermal/thermal.c:567
+msgid "Warning2 temperature"
+msgstr "Προειδοποίηση θερμοκρασίας2"
+
+#: ../plugins/thermal/thermal.c:577
+msgid "Display system temperature"
+msgstr "Εμφάνιση θερμοκρασίας συστήματος"
+
+#: ../plugins/cpufreq/cpufreq.c:326
+#, c-format
+msgid ""
+"Frequency: %d MHz\n"
+"Governor: %s"
+msgstr ""
+"Συχνότητα: %d MHz\n"
+"Ελεγκτής: %s"
+
+#: ../plugins/cpufreq/cpufreq.c:409
+msgid "CPUFreq frontend"
+msgstr "Μέτωπο CPUFreq"
+
+#: ../plugins/cpufreq/cpufreq.c:410
+msgid "Display CPU frequency and allow to change governors and frequency"
+msgstr "Εμφάνισε συχνότητα CPU και επίτρεψε την αλλαγή ελεγκτών και συχνότητας"
+
+#. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
+#. Display current level in tooltip.
+#: ../plugins/volume/volume.c:278 ../plugins/volumealsa/volumealsa.c:350
+#: ../plugins/volumealsa/volumealsa.c:524
+msgid "Volume control"
+msgstr "Έλεγχος έντασης"
+
+#: ../plugins/volume/volume.c:286 ../plugins/volumealsa/volumealsa.c:637
+msgid "Volume Control"
+msgstr "Έλεγχος έντασης"
+
+#. Create a frame as the child of the viewport.
+#: ../plugins/volume/volume-impl.c:109 ../plugins/volumealsa/volumealsa.c:477
+msgid "Volume"
+msgstr "Ένταση ήχου"
+
+#. Create a check button as the child of the vertical box.
+#: ../plugins/volumealsa/volumealsa.c:496
+msgid "Mute"
+msgstr "Σίγαση"
+
+#: ../plugins/volumealsa/volumealsa.c:619
+msgid ""
+"Error, you need to install an application to configure the sound "
+"(pavucontrol, alsamixer ...)"
+msgstr ""
+"Σφάλμα, πρέπει να εγκατασταθεί εφαρμογή για να ρυθμιστεί ο ήχος "
+"(pavucontrol, alsamixer ...)"
+
+#: ../plugins/volumealsa/volumealsa.c:638
+msgid "Display and control volume for ALSA"
+msgstr "Εμφάνιση και έλεγχος ήχου για το ALSA"
+
+#: ../plugins/netstat/netstat.c:179
+msgid "<Hidden Access Point>"
+msgstr "<Κρυφό σημείο πρόσβασης>"
+
+#: ../plugins/netstat/netstat.c:212
+msgid "Wireless Networks not found in range"
+msgstr "Δεν βρέθηκαν ασύρματα δίκτυα εντός εμβέλειας"
+
+#. Repair
+#: ../plugins/netstat/netstat.c:248
+msgid "Repair"
+msgstr "Επιδιόρθωση"
+
+#. interface down
+#: ../plugins/netstat/netstat.c:253
+msgid "Disable"
+msgstr "Απενεργοποίηση"
+
+#: ../plugins/netstat/netstat.c:344
+msgid "Wireless Connection has no connectivity"
+msgstr "Η ασύρματη σύνδεση δεν έχει συνδεσιμότητα"
+
+#: ../plugins/netstat/netstat.c:346
+msgid "Network cable is plugged out"
+msgstr "Καλώδιο δικτύου αποσυνδέθηκε"
+
+#: ../plugins/netstat/netstat.c:348
+msgid "Connection has limited or no connectivity"
+msgstr "Η σύνδεση έχει περιορισμένη ή καθόλου συνδεσιμότητα"
+
+#: ../plugins/netstat/netstat.c:352 ../plugins/netstat/netstat.c:363
+#: ../plugins/netstat/netstat.c:374
+msgid "IP Address:"
+msgstr "Διεύθυνση IP:"
+
+#: ../plugins/netstat/netstat.c:353
+msgid "Remote IP:"
+msgstr "Απομακρυσμένη IP:"
+
+#: ../plugins/netstat/netstat.c:354 ../plugins/netstat/netstat.c:365
+#: ../plugins/netstat/netstat.c:376
+msgid "Netmask:"
+msgstr "Μάσκα δικτύου:"
+
+#: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
+#: ../plugins/netstat/netstat.c:378
+msgid "Activity"
+msgstr "Δραστηριότητα"
+
+#: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
+#: ../plugins/netstat/netstat.c:378
+msgid "Sent"
+msgstr "Αποστολή"
+
+#: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
+#: ../plugins/netstat/netstat.c:378
+msgid "Received"
+msgstr "Λήψη"
+
+#: ../plugins/netstat/netstat.c:356 ../plugins/netstat/netstat.c:368
+#: ../plugins/netstat/netstat.c:379
+msgid "bytes"
+msgstr "bytes"
+
+#: ../plugins/netstat/netstat.c:357 ../plugins/netstat/netstat.c:369
+#: ../plugins/netstat/netstat.c:380
+msgid "packets"
+msgstr "πακέτα"
+
+#: ../plugins/netstat/netstat.c:360 ../plugins/netstatus/netstatus-iface.c:173
+msgid "Wireless"
+msgstr "Ασύρματο"
+
+#: ../plugins/netstat/netstat.c:362
+msgid "Protocol:"
+msgstr "Πρωτόκολλο:"
+
+#: ../plugins/netstat/netstat.c:366 ../plugins/netstat/netstat.c:377
+msgid "HW Address:"
+msgstr "Διεύθυνση υλικού:"
+
+#: ../plugins/netstat/netstat.c:497
+msgid "Manage Networks"
+msgstr "Διαχείρηση δικτύων"
+
+#: ../plugins/netstat/netstat.c:498
+msgid "Monitor and Manage networks"
+msgstr "Παρακολούθηση και διαχείρηση δικτύων"
+
+#. create dialog
+#: ../plugins/netstat/passwd_gui.c:87
+msgid "Setting Encryption Key"
+msgstr "Ρύθμιση κλειδιού κρυπτογράφησης"
+
+#: ../plugins/netstat/passwd_gui.c:98
+msgid ""
+"This wireless network was encrypted.\n"
+"You must have the encryption key."
+msgstr ""
+"Το ασύρματο δίκτυο είναι κρυπτογραφημένο.\n"
+"Πρέπει να έχετε το κλειδί κρυπτογράφησης."
+
+#: ../plugins/netstat/passwd_gui.c:103
+msgid "Encryption Key:"
+msgstr "Κλειδί κρυπτογράφησης:"
+
+#: ../plugins/netstatus/netstatus.c:152 ../plugins/netstatus/netstatus.c:164
+msgid "Network Status Monitor"
+msgstr "Παρακολούθηση κατάστασης δικτύου"
+
+#: ../plugins/netstatus/netstatus.c:154
+msgid "Interface to monitor"
+msgstr "Διεπαφή προς παρακολούθηση"
+
+#: ../plugins/netstatus/netstatus.c:155
+msgid "Config tool"
+msgstr "Εργαλείο ρύθμισης"
+
+#: ../plugins/netstatus/netstatus.c:165
+msgid "Monitor network status"
+msgstr "Παρακολούθηση κατάστασης δικτύου"
+
+#: ../plugins/netstatus/netstatus-dialog.c:52
+#: ../plugins/netstatus/netstatus-dialog.c:316
+msgid "Unknown"
+msgstr "Άγνωστο"
+
+#: ../plugins/netstatus/netstatus-dialog.c:117
+msgid "Connection Properties"
+msgstr "Ρυθμίσεις σύνδεσης"
+
+#: ../plugins/netstatus/netstatus-dialog.c:123
+#, c-format
+msgid "Connection Properties: %s"
+msgstr "Ρυθμίσεις σύνδεσης: %s"
+
+#: ../plugins/netstatus/netstatus-dialog.c:136
+#, c-format
+msgid "%lu packet"
+msgid_plural "%lu packets"
+msgstr[0] "%lu πακέτο"
+msgstr[1] "%lu πακέτα"
+
+#: ../plugins/netstatus/netstatus-dialog.c:400
+#, c-format
+msgid ""
+"There was an error displaying help:\n"
+"%s"
+msgstr ""
+"Υπήρξε σφάλμα κατά την προβολή βοήθειας:\n"
+"%s"
+
+#: ../plugins/netstatus/netstatus-icon.c:381
+#, c-format
+msgid "Network Connection: %s"
+msgstr "Σύνδεση δικτύου: %s"
+
+#: ../plugins/netstatus/netstatus-icon.c:386
+msgid "Network Connection"
+msgstr "Σύνδεση δικτύου"
+
+#: ../plugins/netstatus/netstatus-icon.c:822
+msgid "Interface"
+msgstr "Διεπαφή"
+
+#: ../plugins/netstatus/netstatus-icon.c:823
+msgid "The current interface the icon is monitoring."
+msgstr "Η τρέχουσα διεπαφή που παρακολουθεί το εικονίδιο."
+
+#: ../plugins/netstatus/netstatus-icon.c:830
+msgid "Orientation"
+msgstr "Προσανατολισμός"
+
+#: ../plugins/netstatus/netstatus-icon.c:831
+msgid "The orientation of the tray."
+msgstr "Ο προσανατολισμός του tray."
+
+#: ../plugins/netstatus/netstatus-icon.c:839
+msgid "Tooltips Enabled"
+msgstr "Ενεργοποίηση γρήγορης βοήθειας"
+
+#: ../plugins/netstatus/netstatus-icon.c:840
+msgid "Whether or not the icon's tooltips are enabled."
+msgstr "Αν θα είναι ενεργοποιημένη η γρήγορη βοήθεια του εικονιδίου."
+
+#: ../plugins/netstatus/netstatus-icon.c:847
+msgid "Show Signal"
+msgstr "Εμφάνιση σήματος"
+
+#: ../plugins/netstatus/netstatus-icon.c:848
+msgid "Whether or not the signal strength should be displayed."
+msgstr "Αν η δύναμη του σήματος θα εμφανίζεται."
+
+#: ../plugins/netstatus/netstatus-icon.c:957
+#, c-format
+msgid ""
+"Please contact your system administrator to resolve the following problem:\n"
+"\n"
+"%s"
+msgstr ""
+"Παρακαλώ επικοινωνήστε με τον διαχειριστή του συστήματος για την επίλυση του "
+"ακόλουθου προβλήματος:\n"
+"\n"
+"%s"
+
+#: ../plugins/netstatus/netstatus-iface.c:148
+msgid "Name"
+msgstr "Όνομα"
+
+#: ../plugins/netstatus/netstatus-iface.c:149
+msgid "The interface name"
+msgstr "Το όνομα της διεπαφής"
+
+#: ../plugins/netstatus/netstatus-iface.c:156
+#: ../plugins/weather/weatherwidget.c:2080
+msgid "State"
+msgstr "Κατάσταση"
+
+#: ../plugins/netstatus/netstatus-iface.c:157
+msgid "The interface state"
+msgstr "Η κατάσταση της διεπαφής"
+
+#: ../plugins/netstatus/netstatus-iface.c:165
+msgid "Stats"
+msgstr "Στατιστικά"
+
+#: ../plugins/netstatus/netstatus-iface.c:166
+msgid "The interface packets/bytes statistics"
+msgstr "Στατιστικά πακέτων/byte της διεπαφής"
+
+#: ../plugins/netstatus/netstatus-iface.c:174
+msgid "Whether the interface is a wireless interface"
+msgstr "Αν η διεπαφή είναι μια ασύρματη διεπαφή"
+
+#: ../plugins/netstatus/netstatus-iface.c:181
+msgid "Signal"
+msgstr "Σήμα"
+
+#: ../plugins/netstatus/netstatus-iface.c:182
+msgid "Wireless signal strength percentage"
+msgstr "Ισχύς ασύρματου σήματος επί τις εκατό"
+
+#: ../plugins/netstatus/netstatus-iface.c:192
+msgid "The current error condition"
+msgstr "Η τρέχουσα κατάσταση του σφάλματος"
+
+#: ../plugins/netstatus/netstatus-iface.c:440
+#: ../plugins/netstatus/netstatus-iface.c:1205
+#, c-format
+msgid "Unable to open socket: %s"
+msgstr "Αδύνατη η εκκίνηση της σύνδεσης: %s"
+
+#: ../plugins/netstatus/netstatus-iface.c:502
+#: ../plugins/netstatus/netstatus-iface.c:1231
+#, c-format
+msgid "SIOCGIFFLAGS error: %s"
+msgstr "Σφάλμα SIOCGIFFLAGS: %s"
+
+#: ../plugins/netstatus/netstatus-iface.c:879
+msgid "AMPR NET/ROM"
+msgstr "AMPR NET/ROM"
+
+#: ../plugins/netstatus/netstatus-iface.c:882
+msgid "Ethernet"
+msgstr "Ethernet"
+
+#: ../plugins/netstatus/netstatus-iface.c:888
+msgid "AMPR AX.25"
+msgstr "AMPR AX.25"
+
+#: ../plugins/netstatus/netstatus-iface.c:897
+#: ../plugins/netstatus/netstatus-iface.c:1017
+msgid "16/4 Mbps Token Ring"
+msgstr "16/4 Mbps Δίκτυο δακτυλίου"
+
+#: ../plugins/netstatus/netstatus-iface.c:900
+msgid "ARCnet"
+msgstr "ARCnet"
+
+#: ../plugins/netstatus/netstatus-iface.c:906
+msgid "Frame Relay DLCI"
+msgstr "Frame Relay DLCI"
+
+#: ../plugins/netstatus/netstatus-iface.c:912
+msgid "Metricom Starmode IP"
+msgstr "Metricom Starmode IP"
+
+#: ../plugins/netstatus/netstatus-iface.c:915
+msgid "Serial Line IP"
+msgstr "IP Σειριακής γραμμής"
+
+#: ../plugins/netstatus/netstatus-iface.c:918
+msgid "VJ Serial Line IP"
+msgstr "VJ Serial Line IP"
+
+#: ../plugins/netstatus/netstatus-iface.c:921
+msgid "6-bit Serial Line IP"
+msgstr "IP Σειριακής γραμμής 6-bit"
+
+#: ../plugins/netstatus/netstatus-iface.c:924
+msgid "VJ 6-bit Serial Line IP"
+msgstr "VJ 6-bit Serial Line IP"
+
+#: ../plugins/netstatus/netstatus-iface.c:930
+msgid "Adaptive Serial Line IP"
+msgstr "Adaptive Serial Line IP"
+
+#: ../plugins/netstatus/netstatus-iface.c:933
+msgid "AMPR ROSE"
+msgstr "AMPR ROSE"
+
+#: ../plugins/netstatus/netstatus-iface.c:936
+msgid "Generic X.25"
+msgstr "Γενικευμένο X.25"
+
+#: ../plugins/netstatus/netstatus-iface.c:939
+msgid "Point-to-Point Protocol"
+msgstr "Point-to-Point Protocol"
+
+#: ../plugins/netstatus/netstatus-iface.c:945
+msgid "(Cisco)-HDLC"
+msgstr "(Cisco)-HDLC"
+
+#: ../plugins/netstatus/netstatus-iface.c:948
+msgid "LAPB"
+msgstr "LAPB"
+
+#: ../plugins/netstatus/netstatus-iface.c:957
+msgid "IPIP Tunnel"
+msgstr "IPIP Tunnel"
+
+#: ../plugins/netstatus/netstatus-iface.c:963
+msgid "Frame Relay Access Device"
+msgstr "Frame Relay Access Device"
+
+#: ../plugins/netstatus/netstatus-iface.c:969
+msgid "Local Loopback"
+msgstr "Τοπικό Loopback"
+
+#: ../plugins/netstatus/netstatus-iface.c:975
+msgid "Fiber Distributed Data Interface"
+msgstr "Fiber Distributed Data Interface"
+
+#: ../plugins/netstatus/netstatus-iface.c:981
+msgid "IPv6-in-IPv4"
+msgstr "IPv6-σε-IPv4"
+
+#: ../plugins/netstatus/netstatus-iface.c:993
+msgid "HIPPI"
+msgstr "HIPPI"
+
+#: ../plugins/netstatus/netstatus-iface.c:996
+msgid "Ash"
+msgstr "Ash"
+
+#: ../plugins/netstatus/netstatus-iface.c:999
+msgid "Econet"
+msgstr "Econet"
+
+#: ../plugins/netstatus/netstatus-iface.c:1002
+msgid "IrLAP"
+msgstr "IrLAP"
+
+#: ../plugins/netstatus/netstatus-iface.c:1163
+#, c-format
+msgid "SIOCGIFCONF error: %s"
+msgstr "Σφάλμα SIOCGIFCONF: %s"
+
+#: ../plugins/netstatus/netstatus-iface.c:1256
+#, c-format
+msgid "No network devices found"
+msgstr "Δε βρέθηκαν συσκευές δικτύου"
+
+#: ../plugins/netstatus/netstatus-sysdeps.c:180
+#, c-format
+msgid "Cannot open /proc/net/dev: %s"
+msgstr "Αδυναμία ανοίγματος /proc/net/dev: %s"
+
+#: ../plugins/netstatus/netstatus-sysdeps.c:185
+msgid "Could not parse /proc/net/dev. No data."
+msgstr "Δεν μπορούσε να αναλυθεί το /proc/net/dev. Απουσία δεδομένων."
+
+#: ../plugins/netstatus/netstatus-sysdeps.c:190
+msgid "Could not parse /proc/net/dev. Unknown format."
+msgstr "Δε μπορεί να προσπελαστεί το /proc/net/dev. Άγνωστο φορμάτ."
+
+#: ../plugins/netstatus/netstatus-sysdeps.c:205
+#: ../plugins/netstatus/netstatus-sysdeps.c:332
+#, c-format
+msgid "Could not parse interface name from '%s'"
+msgstr "Δε μπορεί να προσπελαστεί το όνομα της διεπαφής από το '%s'"
+
+#: ../plugins/netstatus/netstatus-sysdeps.c:218
+#: ../plugins/netstatus/netstatus-sysdeps.c:647
+#, c-format
+msgid ""
+"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
+msgstr ""
+"Δε μπορούν να προσπελαστούν τα στατιστικά της διεπαφής από το '%s'. prx_idx "
+"= %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+
+#: ../plugins/netstatus/netstatus-sysdeps.c:312
+msgid "Could not parse /proc/net/wireless. No data."
+msgstr "Δεν μπορούσε να αναλυθεί το /proc/net/wireless. Απουσία δεδομένων."
+
+#: ../plugins/netstatus/netstatus-sysdeps.c:316
+msgid "Could not parse /proc/net/wireless. Unknown format."
+msgstr "Δε μπορεί να προσπελαστεί το /proc/net/wireless. Άγνωστο φορμάτ."
+
+#: ../plugins/netstatus/netstatus-sysdeps.c:343
+#, c-format
+msgid "Could not parse wireless details from '%s'. link_idx = %d;"
+msgstr ""
+"Δε μπορούν να προσπελαστούν οι λεπτομέρειες ασύρματου δικτύου από το '%s'. "
+"link_idx = %d;"
+
+#: ../plugins/netstatus/netstatus-sysdeps.c:416
+#, c-format
+msgid "Could not connect to interface, '%s'"
+msgstr "Δε μπορεί να γίνει σύνδεση στη διεπαφή, '%s'"
+
+#: ../plugins/netstatus/netstatus-sysdeps.c:422
+#, c-format
+msgid "Could not send ioctl to interface, '%s'"
+msgstr "Δε μπορεί να σταλεί ioctl στη διεπαφή, '%s'"
+
+#: ../plugins/netstatus/netstatus-sysdeps.c:600
+#, c-format
+msgid "Could not parse command line '%s': %s"
+msgstr "Δε μπορεί να προσπελαστεί η εντολή '%s': %s"
+
+#: ../plugins/netstatus/netstatus-sysdeps.c:637
+msgid "Could not parse 'netstat' output. Unknown format"
+msgstr "Δεν μπορεί να προσπελαστεί το αποτέλεσμα της 'netstat'. Άγνωστο φορμάτ"
+
+#: ../plugins/netstatus/netstatus-util.c:152
+msgid "Disconnected"
+msgstr "Αποσυνδεθήκατε"
+
+#: ../plugins/netstatus/netstatus-util.c:155
+msgid "Idle"
+msgstr "Ανενεργό"
+
+#: ../plugins/netstatus/netstatus-util.c:158
+msgid "Sending"
+msgstr "Αποστέλονται"
+
+#: ../plugins/netstatus/netstatus-util.c:161
+msgid "Receiving"
+msgstr "Λαμβάνονται"
+
+#: ../plugins/netstatus/netstatus-util.c:164
+msgid "Sending/Receiving"
+msgstr "Αποστολή/Λήψη"
+
+#: ../plugins/batt/batt.c:152
+#, c-format
+msgid "Battery: %d%% charged, %d:%02d until full"
+msgstr "Μπαταρία: %d%% φορτισμένη, %d:%02d απομένουν για πλήρη φόρτιση"
+
+#: ../plugins/batt/batt.c:163
+#, c-format
+msgid "Battery: %d%% charged, %d:%02d left"
+msgstr "Μπαταρία: %d%% φορτισμένη, %d:%02d απομένουν"
+
+#: ../plugins/batt/batt.c:169
+#, c-format
+msgid "Battery: %d%% charged"
+msgstr "Μπαταρία: %d%% φορτισμένη"
+
+#: ../plugins/batt/batt.c:179
+#, c-format
+msgid ""
+"\n"
+"%sEnergy full design:\t\t%5d mWh"
+msgstr ""
+"\n"
+"%sΣχέδιο πλήρους ενέργειας:\t\t%5d mWh"
+
+#: ../plugins/batt/batt.c:181
+#, c-format
+msgid ""
+"\n"
+"%sEnergy full:\t\t\t%5d mWh"
+msgstr ""
+"\n"
+"%sΕνέργεια πλήρης:\t\t\t%5d mWh"
+
+#: ../plugins/batt/batt.c:183
+#, c-format
+msgid ""
+"\n"
+"%sEnergy now:\t\t\t%5d mWh"
+msgstr ""
+"\n"
+"%sΕνέργεια τώρα:\t\t\t%5d mWh"
+
+#: ../plugins/batt/batt.c:185
+#, c-format
+msgid ""
+"\n"
+"%sPower now:\t\t\t%5d mW"
+msgstr ""
+"\n"
+"%sΙσχύς τώρα:\t\t\t%5d mW"
+
+#: ../plugins/batt/batt.c:188
+#, c-format
+msgid ""
+"\n"
+"%sCharge full design:\t%5d mAh"
+msgstr ""
+"\n"
+"%sΣχέδιο πλήρους φόρτισης:\t%5d mAh"
+
+#: ../plugins/batt/batt.c:190
+#, c-format
+msgid ""
+"\n"
+"%sCharge full:\t\t\t%5d mAh"
+msgstr ""
+"\n"
+"%sΦόρτιση πλήρης:\t\t\t%5d mAh"
+
+#: ../plugins/batt/batt.c:192
+#, c-format
+msgid ""
+"\n"
+"%sCharge now:\t\t\t%5d mAh"
+msgstr ""
+"\n"
+"%sΦόρτιση τώρα:\t\t\t%5d mAh"
+
+#: ../plugins/batt/batt.c:194
+#, c-format
+msgid ""
+"\n"
+"%sCurrent now:\t\t\t%5d mA"
+msgstr ""
+"\n"
+"%sΡεύμα τώρα:\t\t\t%5d mA"
+
+#: ../plugins/batt/batt.c:197
+#, c-format
+msgid ""
+"\n"
+"%sCurrent Voltage:\t\t%.3lf V"
+msgstr ""
+"\n"
+"%sΤάση Ρεύματος:\t\t%.3lf V"
+
+#: ../plugins/batt/batt.c:235
+msgid "No batteries found"
+msgstr "Δε βρέθηκαν μπαταρίες"
+
+#: ../plugins/batt/batt.c:515 ../plugins/batt/batt.c:644
+msgid "Battery low"
+msgstr "Χαμηλή ένδειξη μπαταρίας"
+
+#: ../plugins/batt/batt.c:664 ../plugins/batt/batt.c:685
+msgid "Battery Monitor"
+msgstr "Παρακολούθηση μπαταρίας"
+
+#: ../plugins/batt/batt.c:666
+msgid "Hide if there is no battery"
+msgstr "Απόκρυψη αν δεν υπάρχει μπαταρία"
+
+#: ../plugins/batt/batt.c:667
+msgid "Alarm command"
+msgstr "Εντολή προειδοποίησης"
+
+#: ../plugins/batt/batt.c:668
+msgid "Alarm time (minutes left)"
+msgstr "Χρόνος προειδοποίησης (εναπομείναντα λεπτά)"
+
+#: ../plugins/batt/batt.c:669
+msgid "Background color"
+msgstr "Χρώμα φόντου"
+
+#: ../plugins/batt/batt.c:670
+msgid "Charging color 1"
+msgstr "Χρώμα φόρτισης 1"
+
+#: ../plugins/batt/batt.c:671
+msgid "Charging color 2"
+msgstr "Χρώμα φόρτισης 2"
+
+#: ../plugins/batt/batt.c:672
+msgid "Discharging color 1"
+msgstr "Χρώμα αποφόρτισης 1"
+
+#: ../plugins/batt/batt.c:673
+msgid "Discharging color 2"
+msgstr "Χρώμα αποφόρτισης 2"
+
+#: ../plugins/batt/batt.c:674
+msgid "Border width"
+msgstr "Πλάτος περιγράμματος"
+
+#: ../plugins/batt/batt.c:676
+msgid "Show Extended Information"
+msgstr "Εμφάνιση Αναλυτικών Πληροφοριών"
+
+#: ../plugins/batt/batt.c:686
+msgid "Display battery status using ACPI"
+msgstr "Προβολή κατάστασης μπαταρίας με χρήση ACPI"
+
+#: ../plugins/kbled/kbled.c:197 ../plugins/kbled/kbled.c:228
+msgid "Keyboard LED"
+msgstr "Ενδείξεις πληκτρολογίου"
+
+#: ../plugins/kbled/kbled.c:199
+msgid "Show CapsLock"
+msgstr "Εμφάνιση CapsLock"
+
+#: ../plugins/kbled/kbled.c:200
+msgid "Show NumLock"
+msgstr "Εμφάνιση NumLock"
+
+#: ../plugins/kbled/kbled.c:201
+msgid "Show ScrollLock"
+msgstr "Εμφάνιση ScrollLock"
+
+#: ../plugins/kbled/kbled.c:229
+msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
+msgstr "Ενδείξεις για τα κουμπιά CapsLock, NumLock, και ScrollLock"
+
+#. A label to allow for click through
+#: ../plugins/indicator/indicator.c:689
+msgid "No Indicators"
+msgstr "Χωρίς ενδείξεις"
+
+#: ../plugins/indicator/indicator.c:863 ../plugins/indicator/indicator.c:881
+msgid "Indicator applets"
+msgstr "Ενδείξεις μικροεφαρμογών"
+
+#: ../plugins/indicator/indicator.c:865
+msgid "Indicator Applications"
+msgstr "Ενδείξεις εφαρμογών"
+
+#: ../plugins/indicator/indicator.c:866
+msgid "Clock Indicator"
+msgstr "Ένδειξη ρολογιού"
+
+#: ../plugins/indicator/indicator.c:867
+msgid "Messaging Menu"
+msgstr "Μενού μηνυμάτων"
+
+#: ../plugins/indicator/indicator.c:868
+msgid "Network Menu"
+msgstr "Μενού δικτύου"
+
+#: ../plugins/indicator/indicator.c:869
+msgid "Session Menu"
+msgstr "Μενού συνεδρίας"
+
+#: ../plugins/indicator/indicator.c:870
+msgid "Sound Menu"
+msgstr "Μενού ήχου"
+
+#: ../plugins/indicator/indicator.c:882
+msgid "Add indicator applets to the panel"
+msgstr "Προσθήκη ενδείξεων μικροεφαρμογών στο πλαίσιο"
+
+#: ../plugins/monitors/monitors.c:269
+#, c-format
+msgid "CPU usage: %.2f%%"
+msgstr "Χρήση CPU: %.2f%%"
+
+#: ../plugins/monitors/monitors.c:365
+#, c-format
+msgid "RAM usage: %.1fMB (%.2f%%)"
+msgstr "Χρήση RAM: %.1fMB (%.2f%%)"
+
+#: ../plugins/monitors/monitors.c:697 ../plugins/monitors/monitors.c:782
+msgid "Resource monitors"
+msgstr "Πόροι προς παρακολούθηση"
+
+#: ../plugins/monitors/monitors.c:700
+msgid "CPU color"
+msgstr "Χρώμα CPU"
+
+#: ../plugins/monitors/monitors.c:701
+msgid "Display RAM usage"
+msgstr "Εμφάνιση χρήσης RAM"
+
+#: ../plugins/monitors/monitors.c:702
+msgid "RAM color"
+msgstr "Χρώμα RAM"
+
+#: ../plugins/monitors/monitors.c:703
+msgid "Action when clicked (default: lxtask)"
+msgstr ""
+"Ενέργεια όταν γίνει κλικ (προεπιλογή: εμφάνιση του διαχειριστή διεργασιών)"
+
+#: ../plugins/monitors/monitors.c:783
+msgid "Display monitors (CPU, RAM)"
+msgstr "Εμφάνιση παρακολουθήσεων (CPU, RAM)"
+
+#: ../plugins/weather/weatherwidget.c:52
+msgid "[N/A]"
+msgstr "[Δ/Υ]"
+
+#: ../plugins/weather/weatherwidget.c:792
+msgid "Enter New Location"
+msgstr "Εισαγωγή Νέας Θέσης"
+
+#: ../plugins/weather/weatherwidget.c:806
+msgid "_New Location:"
+msgstr "Νέα Θέση:"
+
+#: ../plugins/weather/weatherwidget.c:817
+msgid ""
+"Enter the:\n"
+"- city, or\n"
+"- city and state/country, or\n"
+"- postal code\n"
+"for which to retrieve the weather forecast."
+msgstr ""
+"Εισαγωγή των:\n"
+"- πόλη, ή\n"
+"- πόλη και περιοχή, ή\n"
+"- ταχυδρομικός κωδικός\n"
+"για τα οποία να ανακτηθεί πρόγνωση καιρού."
+
+#: ../plugins/weather/weatherwidget.c:854
+#: ../plugins/weather/weatherwidget.c:987
+msgid "You must specify a location."
+msgstr "Πρέπει να καθοριστεί μία τοποθεσία."
+
+#: ../plugins/weather/weatherwidget.c:901
+#, c-format
+msgid "Location '%s' not found!"
+msgstr "Δεν βρέθηκε η τοποθεσία '%s'!"
+
+#: ../plugins/weather/weatherwidget.c:1060
+msgid "Preferences"
+msgstr "Προτιμήσεις"
+
+#: ../plugins/weather/weatherwidget.c:1066
+msgid "Refresh"
+msgstr "Ανανέωση"
+
+#: ../plugins/weather/weatherwidget.c:1072
+msgid "Quit"
+msgstr "Έξοδος"
+
+#: ../plugins/weather/weatherwidget.c:1229
+msgid "Weather Preferences"
+msgstr "Προτιμήσεις Καιρού"
+
+#: ../plugins/weather/weatherwidget.c:1243
+msgid "Current Location"
+msgstr "Τρέχουσα Τοποθεσία"
+
+#: ../plugins/weather/weatherwidget.c:1247
+#: ../plugins/weather/weatherwidget.c:1524
+msgid "None configured"
+msgstr "Κανένα διαμορφωμένο"
+
+#: ../plugins/weather/weatherwidget.c:1249
+#: ../plugins/weather/weatherwidget.c:1521
+msgid "_Set"
+msgstr "Ορισμός"
+
+#: ../plugins/weather/weatherwidget.c:1270
+msgid "Display"
+msgstr "Εμφάνιση"
+
+#: ../plugins/weather/weatherwidget.c:1274
+msgid "Name:"
+msgstr "Όνομα:"
+
+#: ../plugins/weather/weatherwidget.c:1278
+msgid "Units:"
+msgstr "Μονάδες"
+
+#: ../plugins/weather/weatherwidget.c:1282
+msgid "_Metric (°C)"
+msgstr "Μετρικό (°C)"
+
+#: ../plugins/weather/weatherwidget.c:1284
+msgid "_English (°F)"
+msgstr "Αγγλικό (°F)"
+
+#: ../plugins/weather/weatherwidget.c:1319
+msgid "Forecast"
+msgstr "Πρόγνωση"
+
+#: ../plugins/weather/weatherwidget.c:1323
+msgid "Updates:"
+msgstr "Ενημερώσεις"
+
+#: ../plugins/weather/weatherwidget.c:1327
+msgid "Ma_nual"
+msgstr "Εγχειρίδιο"
+
+#: ../plugins/weather/weatherwidget.c:1331
+msgid "_Automatic, every"
+msgstr "Αυτόματο, κάθε"
+
+#: ../plugins/weather/weatherwidget.c:1352
+msgid "minutes"
+msgstr "λεπτά"
+
+#: ../plugins/weather/weatherwidget.c:1361
+msgid "Source:"
+msgstr "Πηγή:"
+
+#: ../plugins/weather/weatherwidget.c:1477
+msgid "C_hange"
+msgstr "Αλλαγή"
+
+#. Both are available
+#: ../plugins/weather/weatherwidget.c:1565
+#, c-format
+msgid "Current Conditions for %s"
+msgstr "Τρέχουσες Συνθήκες για %s"
+
+#: ../plugins/weather/weatherwidget.c:1589
+msgid "Location:"
+msgstr "Τοποθεσία:"
+
+#: ../plugins/weather/weatherwidget.c:1612
+msgid "Last updated:"
+msgstr "Τελευταία ενημέρωση:"
+
+#: ../plugins/weather/weatherwidget.c:1639
+msgid "Feels like:"
+msgstr "Αισθητό σαν:"
+
+#: ../plugins/weather/weatherwidget.c:1664
+msgid "Humidity:"
+msgstr "Υγρασία:"
+
+#: ../plugins/weather/weatherwidget.c:1691
+msgid "Pressure:"
+msgstr "Πίεση:"
+
+#: ../plugins/weather/weatherwidget.c:1718
+msgid "Visibility:"
+msgstr "Ορατότητα:"
+
+#: ../plugins/weather/weatherwidget.c:1746
+msgid "Wind:"
+msgstr "Άνεμος:"
+
+#: ../plugins/weather/weatherwidget.c:1769
+msgid "Sunrise:"
+msgstr "Ανατολή:"
+
+#: ../plugins/weather/weatherwidget.c:1792
+msgid "Sunset:"
+msgstr "Δύση:"
+
+#: ../plugins/weather/weatherwidget.c:1898
+#: ../plugins/weather/weatherwidget.c:2234
+#, c-format
+msgid "Forecast for %s unavailable."
+msgstr "Μη διαθέσιμη πρόγνωση για %s."
+
+#: ../plugins/weather/weatherwidget.c:1907
+#: ../plugins/weather/weatherwidget.c:2239
+#, c-format
+msgid "Location not set."
+msgstr "Δεν έχει οριστεί τοποθεσία."
+
+#: ../plugins/weather/weatherwidget.c:1924
+#, c-format
+msgid "Searching for '%s'..."
+msgstr "Αναζήτηση για '%s'..."
+
+#: ../plugins/weather/weatherwidget.c:2050
+#, c-format
+msgid "Location matches for '%s'"
+msgstr "Ταίριασμα Τοποθεσιών για '%s'"
+
+#: ../plugins/weather/weatherwidget.c:2070
+msgid "City"
+msgstr "Πόλη"
+
+#: ../plugins/weather/weatherwidget.c:2090
+msgid "Country"
+msgstr "Περιοχή"
+
+#. make it nice and pretty
+#: ../plugins/weather/weatherwidget.c:2221
+msgid "Currently in "
+msgstr "Τρέχον στο "
+
+#: ../plugins/weather/weatherwidget.c:2223
+msgid "Today: "
+msgstr "Σήμερα:"
+
+#: ../plugins/weather/weatherwidget.c:2224
+msgid "Tomorrow: "
+msgstr "Αύριο:"
+
+#: ../plugins/weather/weather.c:312
+msgid "Weather Plugin"
+msgstr "Άρθρωμα Καιρού"
+
+#: ../plugins/weather/weather.c:313
+msgid "Show weather conditions for a location."
+msgstr "Προβολή καιρικών συνθηκών για μια περιοχή."
+
+#~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
+#~ msgstr ""
+#~ " --log <αριθμός> -- ορισμός επιπέδου καταγραφής 0-5. 0 - καθόλου 5 - "
+#~ "πολύ\n"
+
+#, fuzzy
+#~ msgid "Format codes: man 3 strftime; \\%n for line break"
+#~ msgstr "Μορφή κώδικα: man 3 strftime; \\n για αλλαγή γραμμής"
+
+#~ msgid "Normal"
+#~ msgstr "Κανονικό"
+
+#~ msgid "Warning1"
+#~ msgstr "Προειδοποίηση1"
+
+#~ msgid "Warning2"
+#~ msgstr "Προειδοποίηση2"
+
+#~ msgid "Warning1 Temperature"
+#~ msgstr "Προειδοποίηση θερμοκρασίας 1"
+
+#~ msgid "Warning2 Temperature"
+#~ msgstr "Προειδοποίηση θερμοκρασίας 2"
+
+#, fuzzy
+#~ msgid "Copyright (C) 2008-2013"
+#~ msgstr "Copyright (C) 2008-2011"
+
+#~ msgid "Display Image and Tooltip"
+#~ msgstr "Εμφάνιση εικόνας και υπόδειξης"
+
+#~ msgid ""
+#~ "Error, you need to install an application to configure the sound "
+#~ "(pavucontol, alsamixer ...)"
+#~ msgstr ""
+#~ "Σφάλμα, πρέπει να εγκαταστήσετε κάποια εφαρμογή για να ρυθμίσετε τον ήχο "
+#~ "(pavucontol, alsamixer ...)"
+
+#~ msgid "Failed to launch time configuration tool: %s"
+#~ msgstr "Απέτυχε η εκκίνηση του εργαλείου ρύθμισης ώρας: %s"
+
+#~ msgid "WNCKPager"
+#~ msgstr "WNCKPager"
+
+#~ msgid "<b>Icon</b>"
+#~ msgstr "<b>Εικονίδιο</b>"
+
+#~ msgid "Configure Keyboard Layout Switcher"
+#~ msgstr "Ρύθμιση του εναλλακτή διάταξης πληκτρολογίου"
+
+#~ msgid "image"
+#~ msgstr "εικόνα"
+
+#~ msgid "text"
+#~ msgstr "κείμενο"
+
+#~ msgid "Per application settings"
+#~ msgstr "Ρυθμίσεις ανα εφαρμογή"
+
+#~ msgid "Default layout:"
+#~ msgstr "Προεπιλεγμένη διάταξη πληκτρολογίου:"
+
+#~ msgid "Available Applications"
+#~ msgstr "Διαθέσιμες Εφαρμογές"
+
+#~ msgid "Display system temperature, by kesler.daniel@gmail.com"
+#~ msgstr "Εμφάνιση θερμοκρασίας συστήματος, από τον kesler.daniel@gmail.com"
+
+#~ msgid "Battery: %d%% charged, %s"
+#~ msgstr "Μπαταρία: %d%% γεμάτη,%s"
+
+#~ msgid "charging finished"
+#~ msgstr "Φόρτιση ολοκληρώθηκε"
+
+#~ msgid "charging"
+#~ msgstr "Φορτίζει"
+
+#~ msgid "Left\t"
+#~ msgstr "Αριστερά\t"
+
+#~ msgid "Top\t"
+#~ msgstr "Πάνω\t"
+
+#~ msgid "Couldn't find pixmap file: %s"
+#~ msgstr "Αδύνατη η εύρεση αρχείου pixmap: %s"
+
+#~ msgid "Desktop No / Workspace Name"
+#~ msgstr "Αριθμός επιφάνειας εργασίας / όνομα χώρου εργασίας"
+
+#~ msgid ""
+#~ "Allows you to switch the keyboard layout and\n"
+#~ "displays the currently selected layout."
+#~ msgstr ""
+#~ "Επιτρέπει την εναλλαγή της διάταξης πληκτρολογίου\n"
+#~ "και εμφανίζει την επιλεγμένη διάταξη."
+
+#~ msgid "Other plugins available here"
+#~ msgstr "Λοιπά διαθέσιμα πρόσθετα"
+
+#~ msgid "Old KDE/GNOME Tray"
+#~ msgstr "Παλιό KDE/GNOME πλαίσιο συστήματος"
+
+#~ msgid "Enable Image:"
+#~ msgstr "Ενεργοποίηση εικόνας:"
+
+#~ msgid "Enable Transparency"
+#~ msgstr "Ενεργοποίηση διαφάνειας"
+
+#~ msgid " --configure -- launch configuration utility\n"
+#~ msgstr " --configure -- εκτέλεση του εργαλείου διαχείρησης\n"
+
+#~ msgid " -C  -- same as --configure\n"
+#~ msgstr " -C  -- όπως το --configure\n"
+
+#~ msgid "Add Button"
+#~ msgstr "Προσθήκη κουμπιού"
+
+#~ msgid "Button Properties"
+#~ msgstr "Ιδιότητες Κουμπιού"
+
+#~ msgid "Remove Button"
+#~ msgstr "Αφαίρεση κουμπιού"
+
+#~ msgid "Buttons"
+#~ msgstr "Κουμπιά"
+
+#~ msgid "Show Iconified windows"
+#~ msgstr "Εμφάνιση εικονιδοποιημένων παραθύρων"
+
+#~ msgid "Kayboard Layout switcher"
+#~ msgstr "Εναλλαγή διάταξης πληκτρολογίου"

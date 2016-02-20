@@ -1,0 +1,2014 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-21 21:13+0200\n"
+"PO-Revision-Date: 2009-09-13 22:33+0200\n"
+"Last-Translator: Josep Sanchez <papapep@gmail.com>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pootle 1.1.0\n"
+"X-Pootle-Path: /ca/lxpanel/po/ca.po\n"
+"X-Pootle-Revision: 0\n"
+
+#: ../src/configurator.c:135
+msgid ""
+"Space reservation is not available for this panel because there is another "
+"monitor beyond this edge and reservation would cover it if enabled."
+msgstr ""
+
+#: ../src/configurator.c:605
+msgid "Currently loaded plugins"
+msgstr "Connectors actualment carregats"
+
+#: ../src/configurator.c:614
+msgid "Stretch"
+msgstr "Amplia"
+
+#: ../src/configurator.c:749
+msgid "Add plugin to panel"
+msgstr "Afegeix el connector al quadre"
+
+#: ../src/configurator.c:777
+msgid "Available plugins"
+msgstr "Connectors disponibles"
+
+#: ../src/configurator.c:1357
+msgid "Logout command is not set"
+msgstr "No s'ha definit l'ordre de sortida"
+
+#: ../src/configurator.c:1425
+msgid "Select a directory"
+msgstr "Trieu un directori"
+
+#: ../src/configurator.c:1425 ../src/configurator.c:1540
+msgid "Select a file"
+msgstr "Treieu un fitxer"
+
+#: ../src/configurator.c:1573
+msgid "_Browse"
+msgstr "_Navega"
+
+#: ../src/panel.c:981
+msgid "There is no room for another panel. All the edges are taken."
+msgstr ""
+
+#: ../src/panel.c:1007
+msgid ""
+"Really delete this panel?\n"
+"<b>Warning: This can not be recovered.</b>"
+msgstr ""
+"<Realment voleu esborrar aquest quadre?\n"
+"<b>Atenció: aquesta acció no es podrà desfer.</b>"
+
+#: ../src/panel.c:1009
+msgid "Confirm"
+msgstr "Confirma"
+
+#. TRANSLATORS: Replace this string with your names, one name per line.
+#: ../src/panel.c:1044
+msgid "translator-credits"
+msgstr "crèdits del traductor"
+
+#: ../src/panel.c:1049
+msgid "LXPanel"
+msgstr "LXPanel"
+
+#: ../src/panel.c:1067
+#, fuzzy
+msgid "Copyright (C) 2008-2014"
+msgstr "Copyright (C) 2008-2011"
+
+#: ../src/panel.c:1068
+msgid "Desktop panel for LXDE project"
+msgstr "Quadre d'escriptori del projecte LXDE"
+
+#: ../src/panel.c:1110
+#, c-format
+msgid "\"%s\" Settings"
+msgstr "\"%s\" Preferències"
+
+#: ../src/panel.c:1130
+msgid "Add / Remove Panel Items"
+msgstr "Afegeix / Elimina elements del quadre"
+
+#: ../src/panel.c:1138
+#, c-format
+msgid "Remove \"%s\" From Panel"
+msgstr "Elimina \"%s\" del quadre"
+
+#: ../src/panel.c:1150
+msgid "Panel Settings"
+msgstr "Preferències del quadre"
+
+#: ../src/panel.c:1156
+msgid "Create New Panel"
+msgstr "Crea un nou quadre"
+
+#: ../src/panel.c:1162
+msgid "Delete This Panel"
+msgstr "Elimina aquest quadre"
+
+#: ../src/panel.c:1173
+msgid "About"
+msgstr "Quant a"
+
+#: ../src/panel.c:1180
+msgid "Panel"
+msgstr "Quadre"
+
+#: ../src/panel.c:1391 ../src/panel.c:1399 ../data/ui/panel-pref.glade.h:22
+msgid "Height:"
+msgstr "Alçada:"
+
+#: ../src/panel.c:1392 ../src/panel.c:1398 ../data/ui/panel-pref.glade.h:21
+msgid "Width:"
+msgstr "Amplada"
+
+#: ../src/panel.c:1393 ../data/ui/panel-pref.glade.h:13
+msgid "Left"
+msgstr "Esquerra"
+
+#: ../src/panel.c:1394 ../data/ui/panel-pref.glade.h:14
+msgid "Right"
+msgstr "Dreta"
+
+#: ../src/panel.c:1400 ../data/ui/panel-pref.glade.h:12
+msgid "Top"
+msgstr "Superior"
+
+#: ../src/panel.c:1401 ../data/ui/panel-pref.glade.h:11
+msgid "Bottom"
+msgstr "Inferior"
+
+#: ../src/plugin.c:340
+msgid "No file manager is configured."
+msgstr ""
+
+#. { "configure", N_("Preferences"), configure },
+#: ../src/gtk-run.c:377 ../src/main.c:52 ../plugins/menu.c:741
+msgid "Run"
+msgstr "Executa"
+
+#: ../src/gtk-run.c:391
+msgid "Enter the command you want to execute:"
+msgstr "Entreu la ordre que voleu executar:"
+
+#: ../src/main.c:53 ../plugins/menu.c:742
+msgid "Restart"
+msgstr "Reinicia"
+
+#: ../src/main.c:54 ../plugins/menu.c:743
+msgid "Logout"
+msgstr "Surt"
+
+#: ../src/main.c:252
+#, c-format
+msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
+msgstr "lxpanel %s - Quadre lleuger en GTK2+ per a escriptoris UNIX\n"
+
+#: ../src/main.c:253
+#, c-format
+msgid "Command line options:\n"
+msgstr "Opcions de l'intèrpret d'ordres:\n"
+
+#: ../src/main.c:254
+#, c-format
+msgid " --help      -- print this help and exit\n"
+msgstr " --help      -- imprimir aquesta ajuda i sortir\n"
+
+#: ../src/main.c:255
+#, c-format
+msgid " --version   -- print version and exit\n"
+msgstr " --version   -- imprimir la versió i sortir\n"
+
+#. g_print(_(" --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"));
+#. g_print(_(" --configure -- launch configuration utility\n"));
+#: ../src/main.c:258
+#, c-format
+msgid " --profile name -- use specified profile\n"
+msgstr "  --profile nom -- empra el perfil especificat\n"
+
+#: ../src/main.c:260
+#, c-format
+msgid " -h  -- same as --help\n"
+msgstr " -h  -- el mateix que amb --help\n"
+
+#: ../src/main.c:261
+#, c-format
+msgid " -p  -- same as --profile\n"
+msgstr " -p  -- el mateix que amb --profile\n"
+
+#: ../src/main.c:262
+#, c-format
+msgid " -v  -- same as --version\n"
+msgstr " -v  -- el mateix que amb --version\n"
+
+#. g_print(_(" -C  -- same as --configure\n"));
+#: ../src/main.c:264
+#, c-format
+msgid ""
+"\n"
+"Visit http://lxde.org/ for detail.\n"
+"\n"
+msgstr ""
+"\n"
+"Visiteu http://lxde.org/ per a més informació.\n"
+
+#: ../src/input-button.c:129
+#, c-format
+msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
+msgstr ""
+
+#: ../src/input-button.c:132 ../src/input-button.c:331
+#: ../plugins/netstatus/netstatus-iface.c:191
+#: ../plugins/netstatus/netstatus-util.c:167
+msgid "Error"
+msgstr "Error"
+
+#: ../src/input-button.c:161
+#, fuzzy
+msgid "LeftBtn"
+msgstr "Esquerra"
+
+#: ../src/input-button.c:164
+msgid "MiddleBtn"
+msgstr ""
+
+#: ../src/input-button.c:167
+#, fuzzy
+msgid "RightBtn"
+msgstr "Dreta"
+
+#: ../src/input-button.c:170
+#, c-format
+msgid "Btn%s"
+msgstr ""
+
+#. GtkRadioButton "None"
+#: ../src/input-button.c:250 ../data/ui/panel-pref.glade.h:5
+msgid "None"
+msgstr ""
+
+#: ../src/input-button.c:257
+#, fuzzy
+msgid "Custom:"
+msgstr "Color personalitzat"
+
+#: ../src/input-button.c:329
+#, c-format
+msgid "Cannot assign '%s' as a global hotkey: it is already bound."
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3553
+#, fuzzy
+msgid "Application Launch and Task Bar"
+msgstr "Barra de llençament d'aplicacions"
+
+#. Launchtaskbar mode: launchbar, taskbar, or combined
+#: ../data/ui/launchtaskbar.glade.h:3
+#, fuzzy
+msgid "<b>Mode:</b>"
+msgstr "<b>Mida</b>"
+
+#: ../data/ui/launchtaskbar.glade.h:4
+msgid "Launchers"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:5
+#, fuzzy
+msgid "<b>Launchbar</b>"
+msgstr "<b>Fons</b>"
+
+#: ../data/ui/launchtaskbar.glade.h:6
+msgid "Show tooltips"
+msgstr "Mostra els consells"
+
+#: ../data/ui/launchtaskbar.glade.h:7
+msgid "Icons only"
+msgstr "Només les icones"
+
+#: ../data/ui/launchtaskbar.glade.h:8
+msgid "Flat buttons"
+msgstr "Botons plans"
+
+#: ../data/ui/launchtaskbar.glade.h:9
+msgid "Show windows from all desktops"
+msgstr "Mostra les finestres de tots els escriptoris"
+
+#: ../data/ui/launchtaskbar.glade.h:10
+msgid "Only show windows on the same monitor as the task bar"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:11
+msgid "Use mouse wheel"
+msgstr "Empra la roda del ratolí"
+
+#: ../data/ui/launchtaskbar.glade.h:12
+msgid "Flash when there is any window requiring attention"
+msgstr "Parpalleja quan alguna finestra requereixi atenció"
+
+#: ../data/ui/launchtaskbar.glade.h:13
+msgid "Combine multiple application windows into a single button"
+msgstr "Combina múltiples finestres d'una aplicació en un sol botó"
+
+#: ../data/ui/launchtaskbar.glade.h:14
+msgid "Disable enlargement for small task icons"
+msgstr ""
+
+#: ../data/ui/launchtaskbar.glade.h:15
+msgid "Maximum width of task button"
+msgstr "Amplada màxima del botó de tasques"
+
+#: ../data/ui/launchtaskbar.glade.h:16
+msgid "Spacing"
+msgstr "Espaiat"
+
+#: ../data/ui/launchtaskbar.glade.h:17
+#, fuzzy
+msgid "<b>Taskbar</b>"
+msgstr "<b>Fons</b>"
+
+#: ../data/ui/launchtaskbar.glade.h:18
+#, fuzzy
+msgid "Only Application Launch Bar"
+msgstr "Barra de llençament d'aplicacions"
+
+#: ../data/ui/launchtaskbar.glade.h:19
+#, fuzzy
+msgid "Only Task Bar (Window List)"
+msgstr "Barra de tasques (llistat de finestres)"
+
+#: ../data/ui/launchtaskbar.glade.h:20
+#, fuzzy
+msgid "Integrated Application Launch Bar and Task Bar"
+msgstr "Barra de llençament d'aplicacions"
+
+#: ../data/ui/netstatus.glade.h:1
+msgid "<b>Connection</b>"
+msgstr "<b>Connexió</b>"
+
+#: ../data/ui/netstatus.glade.h:2
+msgid "Status:"
+msgstr "Estat:"
+
+#: ../data/ui/netstatus.glade.h:3
+msgid "_Name:"
+msgstr "_Nom:"
+
+#: ../data/ui/netstatus.glade.h:4
+msgid "<b>Activity</b>"
+msgstr "<b>Activitat</b>"
+
+#: ../data/ui/netstatus.glade.h:5
+msgid "Received:"
+msgstr "Rebut:"
+
+#: ../data/ui/netstatus.glade.h:6
+msgid "Sent:"
+msgstr "Enviat:"
+
+#: ../data/ui/netstatus.glade.h:7
+msgid "<b>Signal Strength</b>"
+msgstr "<b>Intensitat del senyal</b>"
+
+#: ../data/ui/netstatus.glade.h:9
+#, no-c-format
+msgid "0%"
+msgstr "0%"
+
+#: ../data/ui/netstatus.glade.h:10
+msgid "General"
+msgstr "General"
+
+#: ../data/ui/netstatus.glade.h:11
+msgid "<b>Internet Protocol (IPv4)</b>"
+msgstr "<b>Protocol d'inernet (IPv4)</b>"
+
+#: ../data/ui/netstatus.glade.h:12
+msgid "Address:"
+msgstr "Adreça:"
+
+#: ../data/ui/netstatus.glade.h:13
+msgid "Destination:"
+msgstr "Destí:"
+
+#: ../data/ui/netstatus.glade.h:14 ../plugins/netstat/netstat.c:364
+#: ../plugins/netstat/netstat.c:375
+msgid "Broadcast:"
+msgstr "Difusió:"
+
+#: ../data/ui/netstatus.glade.h:15
+msgid "Subnet Mask:"
+msgstr "Màscara de subxarxa:"
+
+#: ../data/ui/netstatus.glade.h:16
+msgid "<b>Internet Protocol (IPv6)</b>"
+msgstr "<b>Protocol d'inernet (IPv6)</b>"
+
+#: ../data/ui/netstatus.glade.h:17
+msgid "Scope:"
+msgstr "Abast:"
+
+#: ../data/ui/netstatus.glade.h:18
+msgid "<b>Network Device</b>"
+msgstr "<b>Dispositiu de xarxa</b>"
+
+#: ../data/ui/netstatus.glade.h:19
+msgid "Type:"
+msgstr "Tipus:"
+
+#: ../data/ui/netstatus.glade.h:20
+msgid "Support"
+msgstr "Suport"
+
+#: ../data/ui/netstatus.glade.h:21
+msgid "Con_figure"
+msgstr "Con_figura"
+
+#: ../data/ui/panel-pref.glade.h:1
+msgid "Dynamic"
+msgstr "Dinàmic"
+
+#: ../data/ui/panel-pref.glade.h:2
+msgid "Pixels"
+msgstr "Píxels"
+
+#: ../data/ui/panel-pref.glade.h:4
+#, no-c-format
+msgid "% Percent"
+msgstr "% Percentatge"
+
+#: ../data/ui/panel-pref.glade.h:6
+#, fuzzy
+msgid "Err"
+msgstr "Error"
+
+#: ../data/ui/panel-pref.glade.h:7
+#, fuzzy
+msgid "Warn"
+msgstr "Avís 1"
+
+#: ../data/ui/panel-pref.glade.h:8
+msgid "Info"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:9
+msgid "All"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:10
+msgid "Panel Preferences"
+msgstr "Preferències del quadre"
+
+#: ../data/ui/panel-pref.glade.h:15
+msgid "Edge:"
+msgstr "Vora:"
+
+#: ../data/ui/panel-pref.glade.h:16
+msgid "Center"
+msgstr "Centre"
+
+#: ../data/ui/panel-pref.glade.h:17
+msgid "Alignment:"
+msgstr "Alineació:"
+
+#: ../data/ui/panel-pref.glade.h:18
+msgid "Margin:"
+msgstr "Marge:"
+
+#: ../data/ui/panel-pref.glade.h:19
+#, fuzzy
+msgid "Monitor:"
+msgstr "Monitor de bateria"
+
+#: ../data/ui/panel-pref.glade.h:20
+msgid "<b>Position</b>"
+msgstr "<b>Posició</b>"
+
+#: ../data/ui/panel-pref.glade.h:23
+msgid "Icon size:"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:24
+msgid "<b>Size</b>"
+msgstr "<b>Mida</b>"
+
+#: ../data/ui/panel-pref.glade.h:25
+msgid "Geometry"
+msgstr "Geometria"
+
+#: ../data/ui/panel-pref.glade.h:26
+msgid "System theme"
+msgstr "Tema del sistema"
+
+#: ../data/ui/panel-pref.glade.h:27
+msgid "Solid color (with opacity)"
+msgstr "Color sòlid (opac)"
+
+#: ../data/ui/panel-pref.glade.h:28 ../plugins/xkb/xkb-plugin.c:1447
+msgid "Image"
+msgstr "Imatge"
+
+#: ../data/ui/panel-pref.glade.h:29
+msgid "Select an image file"
+msgstr "Seleccioneu un fitxer d'imatge"
+
+#: ../data/ui/panel-pref.glade.h:30
+msgid "<b>Background</b>"
+msgstr "<b>Fons</b>"
+
+#: ../data/ui/panel-pref.glade.h:31
+msgid "Custom color"
+msgstr "Color personalitzat"
+
+#: ../data/ui/panel-pref.glade.h:32 ../plugins/space.c:88
+#: ../plugins/batt/batt.c:675
+msgid "Size"
+msgstr "Mida"
+
+#: ../data/ui/panel-pref.glade.h:33
+msgid "<b>Font</b>"
+msgstr "<b>Tipus de lletra</b>"
+
+#: ../data/ui/panel-pref.glade.h:34
+msgid "Appearance"
+msgstr "Aspecte"
+
+#: ../data/ui/panel-pref.glade.h:35
+msgid "Panel Applets"
+msgstr "Miniaplicacions del quadre"
+
+#: ../data/ui/panel-pref.glade.h:36
+msgid "Logout Command:"
+msgstr "Ordre de sortida:"
+
+#: ../data/ui/panel-pref.glade.h:37
+msgid "Terminal Emulator:"
+msgstr "Emulador de terminal"
+
+#: ../data/ui/panel-pref.glade.h:38
+msgid "File Manager:"
+msgstr "Gestor de fitxers:"
+
+#: ../data/ui/panel-pref.glade.h:39
+msgid "<b>Set Preferred Applications</b>"
+msgstr "<b>Definir les aplicacions preferides</b>"
+
+#: ../data/ui/panel-pref.glade.h:40
+msgid "Make window managers treat the panel as dock"
+msgstr "Fer que els gestors de finestres tractin el quadre com a acoblat"
+
+#: ../data/ui/panel-pref.glade.h:41
+msgid "Reserve space, and not covered by maximized windows"
+msgstr "Reserva espai, i sense ser tapat per finestres maximitzades"
+
+#: ../data/ui/panel-pref.glade.h:42
+msgid "<b>Properties</b>"
+msgstr "<b>Propietats</b>"
+
+#: ../data/ui/panel-pref.glade.h:43
+msgid "Minimize panel when not in use"
+msgstr "Minimitza el quadre quan no s'usi"
+
+#: ../data/ui/panel-pref.glade.h:44
+msgid "Size when minimized"
+msgstr "Mida en minimitzar"
+
+#: ../data/ui/panel-pref.glade.h:45
+msgid "pixels"
+msgstr "píxels"
+
+#: ../data/ui/panel-pref.glade.h:46
+msgid "<b>Automatic hiding</b>"
+msgstr "<b>Ocultació automàtica</b>"
+
+#: ../data/ui/panel-pref.glade.h:47
+msgid "Log level"
+msgstr ""
+
+#: ../data/ui/panel-pref.glade.h:48
+#, fuzzy
+msgid "<b>Log level</b>"
+msgstr "<b>Dispositiu de xarxa</b>"
+
+#: ../data/ui/panel-pref.glade.h:49
+msgid "Advanced"
+msgstr "Avançat"
+
+#: ../plugins/cpu/cpu.c:281
+msgid "CPU Usage Monitor"
+msgstr "Monitor d'utilització de la CPU"
+
+#: ../plugins/cpu/cpu.c:282 ../plugins/monitors/monitors.c:699
+msgid "Display CPU usage"
+msgstr "Mostra la utilització de CPU"
+
+#: ../plugins/deskno/deskno.c:174 ../plugins/deskno/deskno.c:194
+msgid "Desktop Number / Workspace Name"
+msgstr "Nombre d'escriptori / Nom de l'espai de treball"
+
+#: ../plugins/deskno/deskno.c:176 ../plugins/dclock.c:424
+msgid "Bold font"
+msgstr "Lletra en negreta"
+
+#: ../plugins/deskno/deskno.c:177
+msgid "Display desktop names"
+msgstr "Mostra els noms d'escriptori"
+
+#: ../plugins/deskno/deskno.c:195
+msgid "Display workspace number, by cmeury@users.sf.net"
+msgstr "Mostra el nombre d'espai de treball, per cmeury@users.sf.net"
+
+#: ../plugins/launchtaskbar.c:1443 ../plugins/launchtaskbar.c:3525
+msgid "Application Launch Bar"
+msgstr "Barra de llençament d'aplicacions"
+
+#: ../plugins/launchtaskbar.c:1446 ../plugins/launchtaskbar.c:3534
+msgid "Task Bar (Window List)"
+msgstr "Barra de tasques (llistat de finestres)"
+
+#: ../plugins/launchtaskbar.c:2507
+#, fuzzy
+msgid "_Close all windows"
+msgstr "Tan_ca la finestra"
+
+#. Add Raise menu item.
+#: ../plugins/launchtaskbar.c:3380
+msgid "_Raise"
+msgstr "_Puja"
+
+#. Add Restore menu item.
+#: ../plugins/launchtaskbar.c:3385
+msgid "R_estore"
+msgstr "R_estaura"
+
+#. Add Maximize menu item.
+#: ../plugins/launchtaskbar.c:3390
+msgid "Ma_ximize"
+msgstr "Ma_ximitza"
+
+#. Add Iconify menu item.
+#: ../plugins/launchtaskbar.c:3395
+msgid "Ico_nify"
+msgstr "Ico_nifica"
+
+#: ../plugins/launchtaskbar.c:3416
+#, c-format
+msgid "Workspace _%d"
+msgstr "Espai de treball _%d"
+
+#: ../plugins/launchtaskbar.c:3421
+#, c-format
+msgid "Workspace %d"
+msgstr "Espai de treball %d"
+
+#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
+#: ../plugins/launchtaskbar.c:3437
+msgid "_All workspaces"
+msgstr "Tots els esp_ais de treball"
+
+#. FIXME: add "Current workspace" item, active if not on a current
+#. Add Move to Workspace menu item as a submenu.
+#: ../plugins/launchtaskbar.c:3445
+msgid "_Move to Workspace"
+msgstr "_Moure a espai de treball"
+
+#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
+#: ../plugins/launchtaskbar.c:3451
+msgid "_Close Window"
+msgstr "Tan_ca la finestra"
+
+#: ../plugins/launchtaskbar.c:3453
+msgid "A_dd to Launcher"
+msgstr ""
+
+#: ../plugins/launchtaskbar.c:3454
+#, fuzzy
+msgid "Rem_ove from Launcher"
+msgstr "Elimina \"%s\" del quadre"
+
+#: ../plugins/launchtaskbar.c:3455
+msgid "_New Instance"
+msgstr ""
+
+#: ../plugins/launchtaskbar.c:3526
+msgid "Bar with buttons to launch application"
+msgstr "Barra amb botons per a llençar aplicacions"
+
+#: ../plugins/launchtaskbar.c:3535
+msgid ""
+"Taskbar shows all opened windows and allow to iconify them, shade or get "
+"focus"
+msgstr ""
+"La barra de tasques mostra totes les finestres obertes i permet iconificar-"
+"les, ombrejar-les o tenir-ne el focus"
+
+#: ../plugins/launchtaskbar.c:3554
+#, fuzzy
+msgid "Bar with buttons to launch application and/or show all opened windows"
+msgstr "Barra amb botons per a llençar aplicacions"
+
+#: ../plugins/dclock.c:418 ../plugins/dclock.c:438
+msgid "Digital Clock"
+msgstr "Rellotge digital"
+
+#: ../plugins/dclock.c:420
+msgid "Clock Format"
+msgstr "Format del rellotge"
+
+#: ../plugins/dclock.c:421
+msgid "Tooltip Format"
+msgstr "Format dels consells"
+
+#: ../plugins/dclock.c:422
+#, fuzzy, c-format
+msgid "Format codes: man 3 strftime; %n for line break"
+msgstr "Codis de format: man 3 strftime; \\n per trencament de línia"
+
+#: ../plugins/dclock.c:423
+msgid "Action when clicked (default: display calendar)"
+msgstr "Acció en fer clic (predeterminada: mostrar calendari)"
+
+#: ../plugins/dclock.c:425
+msgid "Tooltip only"
+msgstr "S'han habilitat els consells"
+
+#: ../plugins/dclock.c:426
+#, fuzzy
+msgid "Center text"
+msgstr "Centre"
+
+#: ../plugins/dclock.c:439
+msgid "Display digital clock and tooltip"
+msgstr "Mostra rellotge digital i consells"
+
+#: ../plugins/menu.c:382
+msgid "Add to desktop"
+msgstr "Afegeix a l'escriptori"
+
+#: ../plugins/menu.c:389
+msgid "Properties"
+msgstr "Propietats"
+
+#: ../plugins/menu.c:1013 ../plugins/menu.c:1027
+msgid "Menu"
+msgstr "Menú"
+
+#: ../plugins/menu.c:1014 ../plugins/dirmenu.c:357
+msgid "Icon"
+msgstr "Icones"
+
+#: ../plugins/menu.c:1028
+msgid "Application Menu"
+msgstr "Menú d'aplicacions"
+
+#: ../plugins/separator.c:68
+msgid "Separator"
+msgstr "Separador"
+
+#: ../plugins/separator.c:69
+msgid "Add a separator to the panel"
+msgstr "Afegeix un separador al quadre"
+
+#: ../plugins/pager.c:92
+msgid "Sorry, there was no window manager configuration program found."
+msgstr ""
+
+#: ../plugins/pager.c:144 ../plugins/pager.c:160
+msgid "Desktop Pager"
+msgstr "Paginador d'escriptoris"
+
+#: ../plugins/pager.c:145 ../plugins/pager.c:161
+msgid "Simple pager plugin"
+msgstr "Connector de paginador simple"
+
+#: ../plugins/space.c:86 ../plugins/space.c:95
+msgid "Spacer"
+msgstr "Espaiador"
+
+#: ../plugins/space.c:96
+msgid "Allocate space"
+msgstr "Reparteix espai"
+
+#: ../plugins/tray.c:682
+msgid "System Tray"
+msgstr "Safata del sistema"
+
+#: ../plugins/tray.c:683
+msgid "System tray"
+msgstr "Safata del sistema"
+
+#: ../plugins/xkb/xkb-plugin.c:401
+msgid "New session is required for this option to take effect"
+msgstr ""
+
+#. dialog
+#: ../plugins/xkb/xkb-plugin.c:582
+#, fuzzy
+msgid "Select Keyboard Model"
+msgstr "Led del teclat"
+
+#: ../plugins/xkb/xkb-plugin.c:606 ../plugins/xkb/xkb-plugin.c:735
+#: ../plugins/xkb/xkb-plugin.c:913
+#, fuzzy
+msgid "Description"
+msgstr "Destí:"
+
+#: ../plugins/xkb/xkb-plugin.c:611 ../plugins/xkb/xkb-plugin.c:742
+#, fuzzy
+msgid "Id"
+msgstr "Inactiu"
+
+#. dialog
+#: ../plugins/xkb/xkb-plugin.c:706
+#, fuzzy
+msgid "Select Layout Change Type"
+msgstr "Seleccioneu un fitxer d'imatge"
+
+#. dialog
+#: ../plugins/xkb/xkb-plugin.c:879
+#, fuzzy
+msgid "Add Keyboard Layout"
+msgstr "Commutador de disposició de teclat"
+
+#: ../plugins/xkb/xkb-plugin.c:903 ../plugins/xkb/xkb-plugin.c:1294
+msgid "Flag"
+msgstr ""
+
+#: ../plugins/xkb/xkb-plugin.c:908 ../plugins/xkb/xkb-plugin.c:1298
+msgid "Layout"
+msgstr ""
+
+#: ../plugins/xkb/xkb-plugin.c:1204 ../plugins/xkb/xkb-plugin.c:1536
+#, fuzzy
+msgid "Keyboard Layout Handler"
+msgstr "Commutador de disposició de teclat"
+
+#: ../plugins/xkb/xkb-plugin.c:1227
+#, fuzzy
+msgid "Keyboard Model"
+msgstr "Led del teclat"
+
+#: ../plugins/xkb/xkb-plugin.c:1248
+#, fuzzy
+msgid "Keyboard Layouts"
+msgstr "Commutador de disposició de teclat"
+
+#: ../plugins/xkb/xkb-plugin.c:1302
+msgid "Variant"
+msgstr ""
+
+#: ../plugins/xkb/xkb-plugin.c:1311
+msgid "Change Layout Option"
+msgstr ""
+
+#: ../plugins/xkb/xkb-plugin.c:1331
+msgid "Advanced setxkbmap Options"
+msgstr ""
+
+#: ../plugins/xkb/xkb-plugin.c:1352
+msgid "Do _not reset existing options"
+msgstr ""
+
+#: ../plugins/xkb/xkb-plugin.c:1357
+msgid "Keep _system layouts"
+msgstr ""
+
+#: ../plugins/xkb/xkb-plugin.c:1366
+#, fuzzy
+msgid "Per Window Settings"
+msgstr "Preferències del quadre"
+
+#: ../plugins/xkb/xkb-plugin.c:1378
+#, fuzzy
+msgid "_Remember layout for each window"
+msgstr "_Recorda la disposició per a cada aplicació"
+
+#: ../plugins/xkb/xkb-plugin.c:1387
+#, fuzzy
+msgid "Show Layout as"
+msgstr "Mostra la disposició com a"
+
+#: ../plugins/xkb/xkb-plugin.c:1448
+msgid "Custom Image"
+msgstr ""
+
+#: ../plugins/xkb/xkb-plugin.c:1449
+msgid "Text"
+msgstr ""
+
+#: ../plugins/xkb/xkb-plugin.c:1475
+msgid "Panel Icon Size"
+msgstr ""
+
+#: ../plugins/xkb/xkb-plugin.c:1537
+#, fuzzy
+msgid "Handle keyboard layouts"
+msgstr "Commuta entre diferents disposicions de teclat disponibles"
+
+#: ../plugins/wincmd.c:189
+msgid "Left click to iconify all windows.  Middle click to shade them."
+msgstr ""
+"Feu clic amb el botó alternatiu per a iconificat totes les finestres. Amb el "
+"boto del mig per ombrejar-les."
+
+#: ../plugins/wincmd.c:224 ../plugins/wincmd.c:234
+msgid "Minimize All Windows"
+msgstr "Minimitza totes les finestres"
+
+#: ../plugins/wincmd.c:226
+msgid "Alternately iconify/shade and raise"
+msgstr "Alternativament iconifica/ombreja i aixeca"
+
+#: ../plugins/wincmd.c:235
+msgid ""
+"Sends commands to all desktop windows.\n"
+"Supported commands are 1) iconify and 2) shade"
+msgstr ""
+"Envia ordres a les finestres de tots els escriptoris.\n"
+"Les ordres disponibles són 1) iconificar i 2) ombrejar"
+
+#: ../plugins/dirmenu.c:205
+msgid "Open in _Terminal"
+msgstr "Obre en un _Terminal"
+
+#: ../plugins/dirmenu.c:353 ../plugins/dirmenu.c:369
+msgid "Directory Menu"
+msgstr "Menú del directori"
+
+#: ../plugins/dirmenu.c:355
+msgid "Directory"
+msgstr "Directori"
+
+#: ../plugins/dirmenu.c:356
+msgid "Label"
+msgstr "Etiqueta"
+
+#: ../plugins/dirmenu.c:370
+#, fuzzy
+msgid "Browse directory tree via menu (Author = PCMan)"
+msgstr "Navegar per l'arbre de directoris amb el menú (Autor: PCMan)"
+
+#: ../plugins/thermal/thermal.c:558 ../plugins/thermal/thermal.c:576
+msgid "Temperature Monitor"
+msgstr "Monitor de temperatura"
+
+#: ../plugins/thermal/thermal.c:560
+#, fuzzy
+msgid "Normal color"
+msgstr "Color personalitzat"
+
+#: ../plugins/thermal/thermal.c:561
+#, fuzzy
+msgid "Warning1 color"
+msgstr "Color de càrrega 1"
+
+#: ../plugins/thermal/thermal.c:562
+#, fuzzy
+msgid "Warning2 color"
+msgstr "Color de càrrega 1"
+
+#: ../plugins/thermal/thermal.c:563
+msgid "Automatic sensor location"
+msgstr "Ubicació del sensor automàtic"
+
+#: ../plugins/thermal/thermal.c:564
+msgid "Sensor"
+msgstr "Sensor"
+
+#: ../plugins/thermal/thermal.c:565
+msgid "Automatic temperature levels"
+msgstr "Nivells automàtics de temperatura"
+
+#: ../plugins/thermal/thermal.c:566
+#, fuzzy
+msgid "Warning1 temperature"
+msgstr "Temperatura de l'avís 1"
+
+#: ../plugins/thermal/thermal.c:567
+#, fuzzy
+msgid "Warning2 temperature"
+msgstr "Temperatura de l'avís 2"
+
+#: ../plugins/thermal/thermal.c:577
+msgid "Display system temperature"
+msgstr "Mostra la temperatura del sistema"
+
+#: ../plugins/cpufreq/cpufreq.c:326
+#, c-format
+msgid ""
+"Frequency: %d MHz\n"
+"Governor: %s"
+msgstr ""
+
+#: ../plugins/cpufreq/cpufreq.c:409
+msgid "CPUFreq frontend"
+msgstr ""
+
+#: ../plugins/cpufreq/cpufreq.c:410
+msgid "Display CPU frequency and allow to change governors and frequency"
+msgstr ""
+
+#. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
+#. Display current level in tooltip.
+#: ../plugins/volume/volume.c:278 ../plugins/volumealsa/volumealsa.c:350
+#: ../plugins/volumealsa/volumealsa.c:524
+msgid "Volume control"
+msgstr "Control del volum"
+
+#: ../plugins/volume/volume.c:286 ../plugins/volumealsa/volumealsa.c:637
+msgid "Volume Control"
+msgstr "Control del volum"
+
+#. Create a frame as the child of the viewport.
+#: ../plugins/volume/volume-impl.c:109 ../plugins/volumealsa/volumealsa.c:477
+msgid "Volume"
+msgstr "Volum"
+
+#. Create a check button as the child of the vertical box.
+#: ../plugins/volumealsa/volumealsa.c:496
+msgid "Mute"
+msgstr "Emmudeix"
+
+#: ../plugins/volumealsa/volumealsa.c:619
+msgid ""
+"Error, you need to install an application to configure the sound "
+"(pavucontrol, alsamixer ...)"
+msgstr ""
+
+#: ../plugins/volumealsa/volumealsa.c:638
+msgid "Display and control volume for ALSA"
+msgstr ""
+
+#: ../plugins/netstat/netstat.c:179
+msgid "<Hidden Access Point>"
+msgstr "<Punt d'accés ocult>"
+
+#: ../plugins/netstat/netstat.c:212
+msgid "Wireless Networks not found in range"
+msgstr "No s'han trobat xarxes inalàmbriques"
+
+#. Repair
+#: ../plugins/netstat/netstat.c:248
+msgid "Repair"
+msgstr "Repara"
+
+#. interface down
+#: ../plugins/netstat/netstat.c:253
+msgid "Disable"
+msgstr "Inhabilita"
+
+#: ../plugins/netstat/netstat.c:344
+msgid "Wireless Connection has no connectivity"
+msgstr "La connexió inalàmbrica no té connectivitat"
+
+#: ../plugins/netstat/netstat.c:346
+msgid "Network cable is plugged out"
+msgstr "S'ha desconnectat el cable de xarxa"
+
+#: ../plugins/netstat/netstat.c:348
+msgid "Connection has limited or no connectivity"
+msgstr "La connexió té poca o nul·la connectivitat"
+
+#: ../plugins/netstat/netstat.c:352 ../plugins/netstat/netstat.c:363
+#: ../plugins/netstat/netstat.c:374
+msgid "IP Address:"
+msgstr "Adreça IP:"
+
+#: ../plugins/netstat/netstat.c:353
+msgid "Remote IP:"
+msgstr "IP remota:"
+
+#: ../plugins/netstat/netstat.c:354 ../plugins/netstat/netstat.c:365
+#: ../plugins/netstat/netstat.c:376
+msgid "Netmask:"
+msgstr "Màscara de xarxa:"
+
+#: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
+#: ../plugins/netstat/netstat.c:378
+msgid "Activity"
+msgstr "Activitat"
+
+#: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
+#: ../plugins/netstat/netstat.c:378
+msgid "Sent"
+msgstr "Enviat"
+
+#: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
+#: ../plugins/netstat/netstat.c:378
+msgid "Received"
+msgstr "Rebut"
+
+#: ../plugins/netstat/netstat.c:356 ../plugins/netstat/netstat.c:368
+#: ../plugins/netstat/netstat.c:379
+msgid "bytes"
+msgstr "bytes"
+
+#: ../plugins/netstat/netstat.c:357 ../plugins/netstat/netstat.c:369
+#: ../plugins/netstat/netstat.c:380
+msgid "packets"
+msgstr "paquets"
+
+#: ../plugins/netstat/netstat.c:360 ../plugins/netstatus/netstatus-iface.c:173
+msgid "Wireless"
+msgstr "Inalàmbric"
+
+#: ../plugins/netstat/netstat.c:362
+msgid "Protocol:"
+msgstr "Protocol:"
+
+#: ../plugins/netstat/netstat.c:366 ../plugins/netstat/netstat.c:377
+msgid "HW Address:"
+msgstr "Adreça hardware"
+
+#: ../plugins/netstat/netstat.c:497
+msgid "Manage Networks"
+msgstr "Gestiona xarxes"
+
+#: ../plugins/netstat/netstat.c:498
+msgid "Monitor and Manage networks"
+msgstr "Monitoritza i gestiona xarxes"
+
+#. create dialog
+#: ../plugins/netstat/passwd_gui.c:87
+msgid "Setting Encryption Key"
+msgstr "Preparant la clau d'encriptació"
+
+#: ../plugins/netstat/passwd_gui.c:98
+msgid ""
+"This wireless network was encrypted.\n"
+"You must have the encryption key."
+msgstr ""
+"Aquesta xarxa inalàmbrica és encriptada.\n"
+"Necessiteu la clau d'encriptació."
+
+#: ../plugins/netstat/passwd_gui.c:103
+msgid "Encryption Key:"
+msgstr "Clau d'encriptació"
+
+#: ../plugins/netstatus/netstatus.c:152 ../plugins/netstatus/netstatus.c:164
+msgid "Network Status Monitor"
+msgstr "Monitor de l'estat de xarxa"
+
+#: ../plugins/netstatus/netstatus.c:154
+msgid "Interface to monitor"
+msgstr "Interfície a monitoritzar"
+
+#: ../plugins/netstatus/netstatus.c:155
+msgid "Config tool"
+msgstr "Eina de configuració"
+
+#: ../plugins/netstatus/netstatus.c:165
+msgid "Monitor network status"
+msgstr "Monitoritza l'estat de la xarxa"
+
+#: ../plugins/netstatus/netstatus-dialog.c:52
+#: ../plugins/netstatus/netstatus-dialog.c:316
+msgid "Unknown"
+msgstr "Desconegut"
+
+#: ../plugins/netstatus/netstatus-dialog.c:117
+msgid "Connection Properties"
+msgstr "Propietats de les connexions"
+
+#: ../plugins/netstatus/netstatus-dialog.c:123
+#, c-format
+msgid "Connection Properties: %s"
+msgstr "Propietats de la connexió: %s"
+
+#: ../plugins/netstatus/netstatus-dialog.c:136
+#, c-format
+msgid "%lu packet"
+msgid_plural "%lu packets"
+msgstr[0] "%lu paquet"
+msgstr[1] "%lu paquets"
+
+#: ../plugins/netstatus/netstatus-dialog.c:400
+#, c-format
+msgid ""
+"There was an error displaying help:\n"
+"%s"
+msgstr ""
+"S'ha produit un error en mostrar l'ajuda:\n"
+"%s"
+
+#: ../plugins/netstatus/netstatus-icon.c:381
+#, c-format
+msgid "Network Connection: %s"
+msgstr "Connexió de xarxa: %s"
+
+#: ../plugins/netstatus/netstatus-icon.c:386
+msgid "Network Connection"
+msgstr "Connexió de xarxa"
+
+#: ../plugins/netstatus/netstatus-icon.c:822
+msgid "Interface"
+msgstr "Interfície"
+
+#: ../plugins/netstatus/netstatus-icon.c:823
+msgid "The current interface the icon is monitoring."
+msgstr "L'interfície actual que està monitoritzant l'icona"
+
+#: ../plugins/netstatus/netstatus-icon.c:830
+msgid "Orientation"
+msgstr "Orientació"
+
+#: ../plugins/netstatus/netstatus-icon.c:831
+msgid "The orientation of the tray."
+msgstr "La orientació de la safata"
+
+#: ../plugins/netstatus/netstatus-icon.c:839
+msgid "Tooltips Enabled"
+msgstr "S'han habilitat els consells"
+
+#: ../plugins/netstatus/netstatus-icon.c:840
+msgid "Whether or not the icon's tooltips are enabled."
+msgstr "Si són habilitats o no els consells d'icona"
+
+#: ../plugins/netstatus/netstatus-icon.c:847
+msgid "Show Signal"
+msgstr "Mostra el senyal"
+
+#: ../plugins/netstatus/netstatus-icon.c:848
+msgid "Whether or not the signal strength should be displayed."
+msgstr "Si s'ha de mostrar, o no, la força del senyal."
+
+#: ../plugins/netstatus/netstatus-icon.c:957
+#, c-format
+msgid ""
+"Please contact your system administrator to resolve the following problem:\n"
+"\n"
+"%s"
+msgstr ""
+"Contacteu el vostre administrador de sistemes per a resoldre el següent "
+"problema:\n"
+"\n"
+"%s"
+
+#: ../plugins/netstatus/netstatus-iface.c:148
+msgid "Name"
+msgstr "Nom"
+
+#: ../plugins/netstatus/netstatus-iface.c:149
+msgid "The interface name"
+msgstr "Nom de l'interfície"
+
+#: ../plugins/netstatus/netstatus-iface.c:156
+#: ../plugins/weather/weatherwidget.c:2080
+msgid "State"
+msgstr "Estat"
+
+#: ../plugins/netstatus/netstatus-iface.c:157
+msgid "The interface state"
+msgstr "Estat de l'interfície"
+
+#: ../plugins/netstatus/netstatus-iface.c:165
+msgid "Stats"
+msgstr "Estadístiques"
+
+#: ../plugins/netstatus/netstatus-iface.c:166
+msgid "The interface packets/bytes statistics"
+msgstr "Estadístiques de paquets/bytes de l'interfície"
+
+#: ../plugins/netstatus/netstatus-iface.c:174
+msgid "Whether the interface is a wireless interface"
+msgstr "Si la interfície és inalàmbrica"
+
+#: ../plugins/netstatus/netstatus-iface.c:181
+msgid "Signal"
+msgstr "Senyal"
+
+#: ../plugins/netstatus/netstatus-iface.c:182
+msgid "Wireless signal strength percentage"
+msgstr "Percentatge d'intensitat de senyal inalàmbrica"
+
+#: ../plugins/netstatus/netstatus-iface.c:192
+msgid "The current error condition"
+msgstr "L'actual condició d'error"
+
+#: ../plugins/netstatus/netstatus-iface.c:440
+#: ../plugins/netstatus/netstatus-iface.c:1205
+#, c-format
+msgid "Unable to open socket: %s"
+msgstr "No s'ha pogut obrir un socket: %s"
+
+#: ../plugins/netstatus/netstatus-iface.c:502
+#: ../plugins/netstatus/netstatus-iface.c:1231
+#, c-format
+msgid "SIOCGIFFLAGS error: %s"
+msgstr "Error SIOCGIFFLAGS: %s"
+
+#: ../plugins/netstatus/netstatus-iface.c:879
+msgid "AMPR NET/ROM"
+msgstr "AMPR NET/ROM"
+
+#: ../plugins/netstatus/netstatus-iface.c:882
+msgid "Ethernet"
+msgstr "Ethernet"
+
+#: ../plugins/netstatus/netstatus-iface.c:888
+msgid "AMPR AX.25"
+msgstr "AMPR AX.25"
+
+#: ../plugins/netstatus/netstatus-iface.c:897
+#: ../plugins/netstatus/netstatus-iface.c:1017
+msgid "16/4 Mbps Token Ring"
+msgstr "16/4 Mbps Token Ring"
+
+#: ../plugins/netstatus/netstatus-iface.c:900
+msgid "ARCnet"
+msgstr "ARCnet"
+
+#: ../plugins/netstatus/netstatus-iface.c:906
+msgid "Frame Relay DLCI"
+msgstr "Frame Relay DLCI"
+
+#: ../plugins/netstatus/netstatus-iface.c:912
+msgid "Metricom Starmode IP"
+msgstr "Metricom Starmode IP"
+
+#: ../plugins/netstatus/netstatus-iface.c:915
+msgid "Serial Line IP"
+msgstr "Serial Line IP"
+
+#: ../plugins/netstatus/netstatus-iface.c:918
+msgid "VJ Serial Line IP"
+msgstr "VJ Serial Line IP"
+
+#: ../plugins/netstatus/netstatus-iface.c:921
+msgid "6-bit Serial Line IP"
+msgstr "6-bit Serial Line IP"
+
+#: ../plugins/netstatus/netstatus-iface.c:924
+msgid "VJ 6-bit Serial Line IP"
+msgstr "VJ 6-bit Serial Line IP"
+
+#: ../plugins/netstatus/netstatus-iface.c:930
+msgid "Adaptive Serial Line IP"
+msgstr "Adaptive Serial Line IP"
+
+#: ../plugins/netstatus/netstatus-iface.c:933
+msgid "AMPR ROSE"
+msgstr "AMPR ROSE"
+
+#: ../plugins/netstatus/netstatus-iface.c:936
+msgid "Generic X.25"
+msgstr "X.25 genèric"
+
+#: ../plugins/netstatus/netstatus-iface.c:939
+msgid "Point-to-Point Protocol"
+msgstr "Protocol Punt-a-punt"
+
+#: ../plugins/netstatus/netstatus-iface.c:945
+msgid "(Cisco)-HDLC"
+msgstr "(Cisco)-HDLC"
+
+#: ../plugins/netstatus/netstatus-iface.c:948
+msgid "LAPB"
+msgstr "LAPB"
+
+#: ../plugins/netstatus/netstatus-iface.c:957
+msgid "IPIP Tunnel"
+msgstr "Tunnel IPIP"
+
+#: ../plugins/netstatus/netstatus-iface.c:963
+msgid "Frame Relay Access Device"
+msgstr "Dispositiu d'accés Frame Relay"
+
+#: ../plugins/netstatus/netstatus-iface.c:969
+msgid "Local Loopback"
+msgstr "Loopback local"
+
+#: ../plugins/netstatus/netstatus-iface.c:975
+msgid "Fiber Distributed Data Interface"
+msgstr "Interfície de fibra de dades distribuïdes"
+
+#: ../plugins/netstatus/netstatus-iface.c:981
+msgid "IPv6-in-IPv4"
+msgstr "IPv6-in-IPv4"
+
+#: ../plugins/netstatus/netstatus-iface.c:993
+msgid "HIPPI"
+msgstr "HIPPI"
+
+#: ../plugins/netstatus/netstatus-iface.c:996
+msgid "Ash"
+msgstr "Ash"
+
+#: ../plugins/netstatus/netstatus-iface.c:999
+msgid "Econet"
+msgstr "Econet"
+
+#: ../plugins/netstatus/netstatus-iface.c:1002
+msgid "IrLAP"
+msgstr "IrLAP"
+
+#: ../plugins/netstatus/netstatus-iface.c:1163
+#, c-format
+msgid "SIOCGIFCONF error: %s"
+msgstr "Error SIOCGIFCONF: %s"
+
+#: ../plugins/netstatus/netstatus-iface.c:1256
+#, c-format
+msgid "No network devices found"
+msgstr "No s'han trobat dispositius de xarxa"
+
+#: ../plugins/netstatus/netstatus-sysdeps.c:180
+#, c-format
+msgid "Cannot open /proc/net/dev: %s"
+msgstr "No s'ha pogut obrir /proc/net/dev: %s"
+
+#: ../plugins/netstatus/netstatus-sysdeps.c:185
+#, fuzzy
+msgid "Could not parse /proc/net/dev. No data."
+msgstr "No s'ha pogut analitzar /proc/net/dev. Format desconegut."
+
+#: ../plugins/netstatus/netstatus-sysdeps.c:190
+msgid "Could not parse /proc/net/dev. Unknown format."
+msgstr "No s'ha pogut analitzar /proc/net/dev. Format desconegut."
+
+#: ../plugins/netstatus/netstatus-sysdeps.c:205
+#: ../plugins/netstatus/netstatus-sysdeps.c:332
+#, c-format
+msgid "Could not parse interface name from '%s'"
+msgstr "No s'ha pogut analizar el nom de l'interfície de '%s'"
+
+#: ../plugins/netstatus/netstatus-sysdeps.c:218
+#: ../plugins/netstatus/netstatus-sysdeps.c:647
+#, c-format
+msgid ""
+"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
+"brx_idx = %d; btx_idx = %d;"
+msgstr ""
+"No s'ha pogut analitzar l'estadística de l'interfície de '%s'. prx_idx = %d; "
+"ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+
+#: ../plugins/netstatus/netstatus-sysdeps.c:312
+#, fuzzy
+msgid "Could not parse /proc/net/wireless. No data."
+msgstr "No s'ha pogut analitzar /proc/net/wireless. Format desconegut."
+
+#: ../plugins/netstatus/netstatus-sysdeps.c:316
+msgid "Could not parse /proc/net/wireless. Unknown format."
+msgstr "No s'ha pogut analitzar /proc/net/wireless. Format desconegut."
+
+#: ../plugins/netstatus/netstatus-sysdeps.c:343
+#, c-format
+msgid "Could not parse wireless details from '%s'. link_idx = %d;"
+msgstr ""
+"No s'ha pogut analitzar els detalls inalàmbrics de '%s'. link_idx = %d;"
+
+#: ../plugins/netstatus/netstatus-sysdeps.c:416
+#, c-format
+msgid "Could not connect to interface, '%s'"
+msgstr "No s'ha pogut connectar a l'interfície, '%s'"
+
+#: ../plugins/netstatus/netstatus-sysdeps.c:422
+#, c-format
+msgid "Could not send ioctl to interface, '%s'"
+msgstr "No s'ha pogut enviar ioctl a l'interfície, '%s'"
+
+#: ../plugins/netstatus/netstatus-sysdeps.c:600
+#, c-format
+msgid "Could not parse command line '%s': %s"
+msgstr "No s'ha pogut analitzar l'intérpret d'ordres '%s': %s"
+
+#: ../plugins/netstatus/netstatus-sysdeps.c:637
+msgid "Could not parse 'netstat' output. Unknown format"
+msgstr "No s'ha pogut analitzar la sortida de 'netstat'. Format desconegut"
+
+#: ../plugins/netstatus/netstatus-util.c:152
+msgid "Disconnected"
+msgstr "Desconnectat"
+
+#: ../plugins/netstatus/netstatus-util.c:155
+msgid "Idle"
+msgstr "Inactiu"
+
+#: ../plugins/netstatus/netstatus-util.c:158
+msgid "Sending"
+msgstr "Enviant"
+
+#: ../plugins/netstatus/netstatus-util.c:161
+msgid "Receiving"
+msgstr "Rebent"
+
+#: ../plugins/netstatus/netstatus-util.c:164
+msgid "Sending/Receiving"
+msgstr "Enviant/Rebent"
+
+#: ../plugins/batt/batt.c:152
+#, c-format
+msgid "Battery: %d%% charged, %d:%02d until full"
+msgstr "Bateria: carregada al %d%%, %d:%02d fins càrrega total"
+
+#: ../plugins/batt/batt.c:163
+#, c-format
+msgid "Battery: %d%% charged, %d:%02d left"
+msgstr "Bateria: carregada al %d%%, falta %d:%02d"
+
+#: ../plugins/batt/batt.c:169
+#, c-format
+msgid "Battery: %d%% charged"
+msgstr "Batteria: carregada al %d%%"
+
+#: ../plugins/batt/batt.c:179
+#, c-format
+msgid ""
+"\n"
+"%sEnergy full design:\t\t%5d mWh"
+msgstr ""
+
+#: ../plugins/batt/batt.c:181
+#, c-format
+msgid ""
+"\n"
+"%sEnergy full:\t\t\t%5d mWh"
+msgstr ""
+
+#: ../plugins/batt/batt.c:183
+#, c-format
+msgid ""
+"\n"
+"%sEnergy now:\t\t\t%5d mWh"
+msgstr ""
+
+#: ../plugins/batt/batt.c:185
+#, c-format
+msgid ""
+"\n"
+"%sPower now:\t\t\t%5d mW"
+msgstr ""
+
+#: ../plugins/batt/batt.c:188
+#, c-format
+msgid ""
+"\n"
+"%sCharge full design:\t%5d mAh"
+msgstr ""
+
+#: ../plugins/batt/batt.c:190
+#, c-format
+msgid ""
+"\n"
+"%sCharge full:\t\t\t%5d mAh"
+msgstr ""
+
+#: ../plugins/batt/batt.c:192
+#, c-format
+msgid ""
+"\n"
+"%sCharge now:\t\t\t%5d mAh"
+msgstr ""
+
+#: ../plugins/batt/batt.c:194
+#, c-format
+msgid ""
+"\n"
+"%sCurrent now:\t\t\t%5d mA"
+msgstr ""
+
+#: ../plugins/batt/batt.c:197
+#, c-format
+msgid ""
+"\n"
+"%sCurrent Voltage:\t\t%.3lf V"
+msgstr ""
+
+#: ../plugins/batt/batt.c:235
+msgid "No batteries found"
+msgstr "No s'ha trobat bateria"
+
+#: ../plugins/batt/batt.c:515 ../plugins/batt/batt.c:644
+#, fuzzy
+msgid "Battery low"
+msgstr "Monitor de bateria"
+
+#: ../plugins/batt/batt.c:664 ../plugins/batt/batt.c:685
+msgid "Battery Monitor"
+msgstr "Monitor de bateria"
+
+#: ../plugins/batt/batt.c:666
+msgid "Hide if there is no battery"
+msgstr "Amaga si no hi ha bateria"
+
+#: ../plugins/batt/batt.c:667
+msgid "Alarm command"
+msgstr "Ordre d'alarma"
+
+#: ../plugins/batt/batt.c:668
+msgid "Alarm time (minutes left)"
+msgstr "Temps d'alarma (minuts restants)"
+
+#: ../plugins/batt/batt.c:669
+msgid "Background color"
+msgstr "Color de fons"
+
+#: ../plugins/batt/batt.c:670
+msgid "Charging color 1"
+msgstr "Color de càrrega 1"
+
+#: ../plugins/batt/batt.c:671
+msgid "Charging color 2"
+msgstr "Color de càrrega 2"
+
+#: ../plugins/batt/batt.c:672
+msgid "Discharging color 1"
+msgstr "Color de descàrrega 1"
+
+#: ../plugins/batt/batt.c:673
+msgid "Discharging color 2"
+msgstr "Color de descàrrega 2"
+
+#: ../plugins/batt/batt.c:674
+msgid "Border width"
+msgstr "Amplada de la vora"
+
+#: ../plugins/batt/batt.c:676
+msgid "Show Extended Information"
+msgstr ""
+
+#: ../plugins/batt/batt.c:686
+msgid "Display battery status using ACPI"
+msgstr "Mostra l'estat de la bateria emprant l'ACPI"
+
+#: ../plugins/kbled/kbled.c:197 ../plugins/kbled/kbled.c:228
+msgid "Keyboard LED"
+msgstr "LED del teclat"
+
+#: ../plugins/kbled/kbled.c:199
+msgid "Show CapsLock"
+msgstr "Mostra la tecla de fixació de majúscules"
+
+#: ../plugins/kbled/kbled.c:200
+msgid "Show NumLock"
+msgstr "Mostra tecla BloqNum"
+
+#: ../plugins/kbled/kbled.c:201
+msgid "Show ScrollLock"
+msgstr "Mostra BlocDespl"
+
+#: ../plugins/kbled/kbled.c:229
+msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
+msgstr "Indicadors de les tecles de fixació de majúscules, NumLock i BlocDespl"
+
+#. A label to allow for click through
+#: ../plugins/indicator/indicator.c:689
+msgid "No Indicators"
+msgstr ""
+
+#: ../plugins/indicator/indicator.c:863 ../plugins/indicator/indicator.c:881
+msgid "Indicator applets"
+msgstr ""
+
+#: ../plugins/indicator/indicator.c:865
+#, fuzzy
+msgid "Indicator Applications"
+msgstr "Aplicacions"
+
+#: ../plugins/indicator/indicator.c:866
+msgid "Clock Indicator"
+msgstr ""
+
+#: ../plugins/indicator/indicator.c:867
+msgid "Messaging Menu"
+msgstr ""
+
+#: ../plugins/indicator/indicator.c:868
+#, fuzzy
+msgid "Network Menu"
+msgstr "Menú del directori"
+
+#: ../plugins/indicator/indicator.c:869
+msgid "Session Menu"
+msgstr ""
+
+#: ../plugins/indicator/indicator.c:870
+msgid "Sound Menu"
+msgstr ""
+
+#: ../plugins/indicator/indicator.c:882
+#, fuzzy
+msgid "Add indicator applets to the panel"
+msgstr "Afegeix un separador al quadre"
+
+#: ../plugins/monitors/monitors.c:269
+#, c-format
+msgid "CPU usage: %.2f%%"
+msgstr ""
+
+#: ../plugins/monitors/monitors.c:365
+#, c-format
+msgid "RAM usage: %.1fMB (%.2f%%)"
+msgstr ""
+
+#: ../plugins/monitors/monitors.c:697 ../plugins/monitors/monitors.c:782
+#, fuzzy
+msgid "Resource monitors"
+msgstr "Interfície a monitoritzar"
+
+#: ../plugins/monitors/monitors.c:700
+#, fuzzy
+msgid "CPU color"
+msgstr "Color personalitzat"
+
+#: ../plugins/monitors/monitors.c:701
+#, fuzzy
+msgid "Display RAM usage"
+msgstr "Mostra la utilització de CPU"
+
+#: ../plugins/monitors/monitors.c:702
+msgid "RAM color"
+msgstr ""
+
+#: ../plugins/monitors/monitors.c:703
+#, fuzzy
+msgid "Action when clicked (default: lxtask)"
+msgstr "Acció en fer clic (predeterminada: mostrar calendari)"
+
+#: ../plugins/monitors/monitors.c:783
+msgid "Display monitors (CPU, RAM)"
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:52
+msgid "[N/A]"
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:792
+msgid "Enter New Location"
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:806
+#, fuzzy
+msgid "_New Location:"
+msgstr "Connexió de xarxa"
+
+#: ../plugins/weather/weatherwidget.c:817
+msgid ""
+"Enter the:\n"
+"- city, or\n"
+"- city and state/country, or\n"
+"- postal code\n"
+"for which to retrieve the weather forecast."
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:854
+#: ../plugins/weather/weatherwidget.c:987
+msgid "You must specify a location."
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:901
+#, c-format
+msgid "Location '%s' not found!"
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:1060
+#, fuzzy
+msgid "Preferences"
+msgstr "Preferències del quadre"
+
+#: ../plugins/weather/weatherwidget.c:1066
+msgid "Refresh"
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:1072
+msgid "Quit"
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:1229
+#, fuzzy
+msgid "Weather Preferences"
+msgstr "Preferències del quadre"
+
+#: ../plugins/weather/weatherwidget.c:1243
+#, fuzzy
+msgid "Current Location"
+msgstr "Orientació"
+
+#: ../plugins/weather/weatherwidget.c:1247
+#: ../plugins/weather/weatherwidget.c:1524
+#, fuzzy
+msgid "None configured"
+msgstr "Con_figura"
+
+#: ../plugins/weather/weatherwidget.c:1249
+#: ../plugins/weather/weatherwidget.c:1521
+msgid "_Set"
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:1270
+msgid "Display"
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:1274
+#, fuzzy
+msgid "Name:"
+msgstr "_Nom:"
+
+#: ../plugins/weather/weatherwidget.c:1278
+msgid "Units:"
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:1282
+msgid "_Metric (°C)"
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:1284
+msgid "_English (°F)"
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:1319
+msgid "Forecast"
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:1323
+msgid "Updates:"
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:1327
+msgid "Ma_nual"
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:1331
+msgid "_Automatic, every"
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:1352
+msgid "minutes"
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:1361
+msgid "Source:"
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:1477
+msgid "C_hange"
+msgstr ""
+
+#. Both are available
+#: ../plugins/weather/weatherwidget.c:1565
+#, c-format
+msgid "Current Conditions for %s"
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:1589
+msgid "Location:"
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:1612
+msgid "Last updated:"
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:1639
+msgid "Feels like:"
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:1664
+msgid "Humidity:"
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:1691
+#, fuzzy
+msgid "Pressure:"
+msgstr "Adreça IP:"
+
+#: ../plugins/weather/weatherwidget.c:1718
+msgid "Visibility:"
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:1746
+msgid "Wind:"
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:1769
+msgid "Sunrise:"
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:1792
+msgid "Sunset:"
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:1898
+#: ../plugins/weather/weatherwidget.c:2234
+#, c-format
+msgid "Forecast for %s unavailable."
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:1907
+#: ../plugins/weather/weatherwidget.c:2239
+#, fuzzy, c-format
+msgid "Location not set."
+msgstr "No s'ha definit l'ordre de sortida"
+
+#: ../plugins/weather/weatherwidget.c:1924
+#, c-format
+msgid "Searching for '%s'..."
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:2050
+#, c-format
+msgid "Location matches for '%s'"
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:2070
+msgid "City"
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:2090
+msgid "Country"
+msgstr ""
+
+#. make it nice and pretty
+#: ../plugins/weather/weatherwidget.c:2221
+#, fuzzy
+msgid "Currently in "
+msgstr "Connectors actualment carregats"
+
+#: ../plugins/weather/weatherwidget.c:2223
+msgid "Today: "
+msgstr ""
+
+#: ../plugins/weather/weatherwidget.c:2224
+msgid "Tomorrow: "
+msgstr ""
+
+#: ../plugins/weather/weather.c:312
+#, fuzzy
+msgid "Weather Plugin"
+msgstr "Connector de paginador simple"
+
+#: ../plugins/weather/weather.c:313
+msgid "Show weather conditions for a location."
+msgstr ""
+
+#~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
+#~ msgstr ""
+#~ " --log <nombre> -- defineix el nivell de registre 0-5. 0 - cap 5 - "
+#~ "xerraire\n"
+
+#~ msgid "Display Image and Tooltip"
+#~ msgstr "Mostra imatge i funció"
+
+#~ msgid "Normal"
+#~ msgstr "Normal"
+
+#~ msgid "Warning1"
+#~ msgstr "Avís 1"
+
+#~ msgid "Warning2"
+#~ msgstr "Avís 2"
+
+#~ msgid "Failed to launch time configuration tool: %s"
+#~ msgstr ""
+#~ "S'ha produit un error en executar l'eina de configuració de l'hora: %s"
+
+#~ msgid "<b>Icon</b>"
+#~ msgstr "<b>Icona</b>"
+
+#~ msgid "Configure Keyboard Layout Switcher"
+#~ msgstr "Configura commutador de disposició de teclat"
+
+#~ msgid "image"
+#~ msgstr "imatge"
+
+#~ msgid "text"
+#~ msgstr "text"
+
+#~ msgid "Per application settings"
+#~ msgstr "Paràmetres per aplicació"
+
+#~ msgid "Default layout:"
+#~ msgstr "Disposició predeterminada:"
+
+#~ msgid "Available Applications"
+#~ msgstr "Aplicacions disponibles"
+
+#~ msgid "Display system temperature, by kesler.daniel@gmail.com"
+#~ msgstr "Mostra la temperatura del sistema, fet per kesler.daniel@gmail.com"
+
+#~ msgid "Desktop No / Workspace Name"
+#~ msgstr "Escriptori núm. / Nom de l'espai de treball"
+
+#~ msgid "Battery: %d%% charged, %s"
+#~ msgstr "Bateria: %d%% de càrrega, %s"
+
+#~ msgid "charging finished"
+#~ msgstr "ha finalitzat la càrrega"
+
+#~ msgid "charging"
+#~ msgstr "s'està carregant"
+
+#~ msgid "Left\t"
+#~ msgstr "Esquerra\t"
+
+#~ msgid "Top\t"
+#~ msgstr "Superior\t"
