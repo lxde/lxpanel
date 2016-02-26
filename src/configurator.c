@@ -1061,7 +1061,7 @@ update_toggle_button(GtkWidget *w, gboolean n)
     RET();
 }
 
-static void on_app_chooser_destroy(GtkComboBox *fm, gpointer _unused)
+static void on_app_chooser_unrealize(GtkComboBox *fm, gpointer _unused)
 {
     gboolean is_changed;
     GAppInfo *app = fm_app_chooser_combo_box_dup_selected_app(fm, &is_changed);
@@ -1358,7 +1358,7 @@ void panel_configure( LXPanel* panel, int sel_page )
     fm = GTK_COMBO_BOX(gtk_builder_get_object(builder, "fm_combobox"));
     fm_app_chooser_combo_box_setup_for_mime_type(fm, mt);
     fm_mime_type_unref(mt);
-    g_signal_connect(fm, "destroy", G_CALLBACK(on_app_chooser_destroy), NULL);
+    g_signal_connect(fm, "unrealize", G_CALLBACK(on_app_chooser_unrealize), NULL);
 
     w = (GtkWidget*)gtk_builder_get_object( builder, "term" );
     if (fm_config->terminal)
