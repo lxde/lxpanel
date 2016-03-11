@@ -30,6 +30,7 @@
 #include <libxml/xpath.h>
 #include <libxml/xmlstring.h>
 #include <libxml/uri.h>
+#include <libxml/xpathInternals.h>
 
 #include <gtk/gtk.h>
 #include <gio/gio.h>
@@ -46,7 +47,7 @@
 
 static gint g_iInitialized = 0;
 
-static const gchar * WOEID_QUERY = "SELECT%20*%20FROM%20geo.placefinder%20WHERE%20text=";
+static const gchar * WOEID_QUERY = "SELECT%20*%20FROM%20geo.places%20WHERE%20text=";
 static const gchar * FORECAST_QUERY_P1 = "SELECT%20*%20FROM%20weather.forecast%20WHERE%20woeid=";
 static const gchar * FORECAST_QUERY_P2 = "%20and%20u=";
 static const gchar * FORECAST_URL = "http://query.yahooapis.com/v1/public/yql?format=xml&q=";
@@ -358,11 +359,11 @@ processResultNode(xmlNodePtr pNode)
           
           gsize contentLength = ((pczContent)?strlen(pczContent):0); // 1 is null char
 
-          if (xmlStrEqual(pCurr->name, CONSTXMLCHAR_P("city")))
+          if (xmlStrEqual(pCurr->name, CONSTXMLCHAR_P("name")))
             {
               pEntry->pcCity_ = g_strndup(pczContent, contentLength);
             }
-          else if (xmlStrEqual(pCurr->name, CONSTXMLCHAR_P("state")))
+          else if (xmlStrEqual(pCurr->name, CONSTXMLCHAR_P("admin1")))
             {
               pEntry->pcState_ = g_strndup(pczContent, contentLength);
             }
@@ -374,7 +375,7 @@ processResultNode(xmlNodePtr pNode)
             {
               pEntry->pcWOEID_ = g_strndup(pczContent, contentLength);
             }
-          else if (xmlStrEqual(pCurr->name, CONSTXMLCHAR_P("line2")))
+          else if (xmlStrEqual(pCurr->name, CONSTXMLCHAR_P("locality1")))
             {
               pEntry->pcAlias_ = g_strndup(pczContent, contentLength);
             }
@@ -789,7 +790,10 @@ parseResponse(gpointer pResponse, GList ** pList, gpointer * pForecast)
 
   if (iLocation)
     {
-      pczExpression = "/query/results/Result";
+      xmlXPathRegisterNs(pXCtxt, CONSTXMLCHAR_P("ns1"),
+                         CONSTXMLCHAR_P("http://where.yahooapis.com/v1/schema.rng"));
+
+      pczExpression = "///ns1:place";
     }
 
   // have some results...
@@ -818,7 +822,7 @@ parseResponse(gpointer pResponse, GList ** pList, gpointer * pForecast)
 
           if (pNode && pNode->type == XML_ELEMENT_NODE)
             {
-              if (xmlStrEqual(pNode->name, CONSTXMLCHAR_P("Result")))
+              if (xmlStrEqual(pNode->name, CONSTXMLCHAR_P("place")))
                 {
                   gpointer pEntry = processResultNode(pNode);
                   

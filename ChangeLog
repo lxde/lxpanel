@@ -1,7 +1,16 @@
+* Bunch of fixes for GTK+ 3.0 compatibility.
+* Fixed outdated lxpanel man page.
+* Fixed weather locations query (since YQL was changed recently).
+
+0.8.2
+-------------------------------------------------------------------------
 * Fixed crash in taskbar plugin after number of desktops was updated.
 * Fixed incorrect panel geometry initialization.
 * Fixed crash with invalid size of icon in _NET_WM_ICON property.
 * Fixed memory leak on 'indicator' plugin destruction.
+* Replaced old commands:
+    - Use notify send instead of xmessage
+    - Use nm-connection-editor instead of network-admin
 
 0.8.1
 -------------------------------------------------------------------------

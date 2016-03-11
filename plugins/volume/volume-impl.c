@@ -162,9 +162,9 @@ create_volume_window (void)
 	gtk_widget_show (hbox4);
 	gtk_box_pack_start (GTK_BOX (vbox1), hbox4, FALSE, TRUE, 8);
 
-	g_signal_connect ((gpointer) volume_window, "destroy",
+	/* g_signal_connect ((gpointer) volume_window, "destroy",
 			  G_CALLBACK (gtk_widget_destroy),
-			  NULL);
+			  NULL); */
 
 	g_object_set_data (G_OBJECT (volume_window), "volume_window", volume_window);
 	g_object_set_data_full (G_OBJECT (volume_window), "frame",
