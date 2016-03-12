@@ -205,7 +205,6 @@ static inline char *_user_config_file_name(const char *name1, const char *name2)
 #define STATIC_PAGER
 #define STATIC_TRAY
 #define STATIC_MENU
-#define STATIC_SPACE
 #define STATIC_ICONS
 
 /* Plugins management - new style */

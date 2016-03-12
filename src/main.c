@@ -55,6 +55,7 @@
 
 #include "lxpanelctl.h"
 #include "dbg.h"
+#include "space.h"
 
 static gchar *cfgfile = NULL;
 static gchar version[] = VERSION;
@@ -238,10 +239,6 @@ static void init_static_plugins(void)
 #ifdef STATIC_MENU
     REGISTER_STATIC_MODULE(menu);
 #endif
-#endif
-
-#ifdef STATIC_SPACE
-    REGISTER_STATIC_MODULE(space);
 #endif
 }
 
@@ -480,6 +477,7 @@ int main(int argc, char *argv[], char *env[])
 
     /* prepare modules data */
     lxpanel_prepare_modules();
+    lxpanel_register_plugin_type("space", &_lxpanel_static_plugin_space);
     init_static_plugins();
 
     load_global_config();

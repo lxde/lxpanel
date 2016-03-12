@@ -26,82 +26,121 @@
 
 #include <glib/gi18n.h>
 
-#include "plugin.h"
+#include "space.h"
 
-/* Private context for space plugin. */
-typedef struct {
-    LXPanel *panel; /* The panel and settings are required to apply config */
+struct _PanelSpace
+{
+    GtkEventBox parent;
     config_setting_t *settings;
-    int size;				/* Size of spacer */
-} SpacePlugin;
+    int size;
+};
 
-static gboolean space_apply_configuration(gpointer user_data);
+struct _PanelSpaceClass
+{
+    GtkEventBoxClass parent_class;
+};
+
+#if GTK_CHECK_VERSION(3, 0, 0)
+static void panel_space_get_preferred_size(GtkWidget *widget,
+                                           gint *minimal_width,
+                                           gint *natural_width)
+{
+    PanelSpace *p = PANEL_SPACE(widget);
+
+    if (minimal_width)
+        *minimal_width = p->size;
+    if (natural_width)
+        *natural_width = p->size;
+}
+#else
+static void panel_space_size_request(GtkWidget *widget,
+                                     GtkRequisition *requisition)
+{
+    PanelSpace *p = PANEL_SPACE(widget);
+
+    requisition->width = requisition->height = p->size;
+}
+#endif
+
+G_DEFINE_TYPE(PanelSpace, panel_space, GTK_TYPE_EVENT_BOX)
+
+static void panel_space_class_init(PanelSpaceClass *klass)
+{
+    GtkWidgetClass *widget_class = GTK_WIDGET_CLASS(klass);
+
+#if GTK_CHECK_VERSION(3, 0, 0)
+    widget_class->get_preferred_width = panel_space_get_preferred_size;
+    widget_class->get_preferred_height = panel_space_get_preferred_size;
+#else
+    widget_class->size_request = panel_space_size_request;
+#endif
+}
+
+static void panel_space_init(PanelSpace *self)
+{
+    gtk_widget_set_has_window(GTK_WIDGET(self), FALSE);
+}
 
 /* Plugin constructor. */
-static GtkWidget *space_constructor(LXPanel *panel, config_setting_t *settings)
+GtkWidget *_panel_space_new(LXPanel *panel, config_setting_t *settings)
 {
     /* Allocate plugin context and set into Plugin private data pointer. */
-    SpacePlugin * sp = g_new0(SpacePlugin, 1);
-    GtkWidget * p;
+    PanelSpace * p = g_object_new(PANEL_TYPE_SPACE, NULL);
 
     /* Load parameters from the configuration file. */
-    config_setting_lookup_int(settings, "Size", &sp->size);
+    config_setting_lookup_int(settings, "Size", &p->size);
 
     /* Save construction pointers */
-    sp->panel = panel;
-    sp->settings = settings;
+    p->settings = settings;
 
     /* Default the size parameter. */
-    if (sp->size == 0)
-        sp->size = 2;
+    if (p->size == 0)
+        p->size = 2;
 
-    /* Allocate top level widget and set into Plugin widget pointer. */
-    p = gtk_event_box_new();
-    lxpanel_plugin_set_data(p, sp, g_free);
-    gtk_widget_set_has_window(p,FALSE);
-
-    /* Apply the configuration and show the widget. */
-    space_apply_configuration(p);
-    return p;
+    return GTK_WIDGET(p);
 }
 
 /* Callback when the configuration dialog has recorded a configuration change. */
 static gboolean space_apply_configuration(gpointer user_data)
 {
-    GtkWidget * p = user_data;
-    SpacePlugin * sp = lxpanel_plugin_get_data(p);
+    PanelSpace * p = user_data;
 
     /* Apply settings. */
-    if (panel_get_orientation(sp->panel) == GTK_ORIENTATION_HORIZONTAL)
-        gtk_widget_set_size_request(p, sp->size, 2);
-    else
-        gtk_widget_set_size_request(p, 2, sp->size);
+    gtk_widget_queue_resize(user_data);
     /* Save config values */
-    config_group_set_int(sp->settings, "Size", sp->size);
+    config_group_set_int(p->settings, "Size", p->size);
     return FALSE;
+}
+
+void _panel_space_resize(GtkWidget *spacer, gint size)
+{
+    PanelSpace * p = PANEL_SPACE(spacer);
+
+    p->size = MAX(0, size);
+    space_apply_configuration(p);
 }
 
 /* Callback when the configuration dialog is to be shown. */
 static GtkWidget *space_configure(LXPanel *panel, GtkWidget *instance)
 {
-    SpacePlugin * sp = lxpanel_plugin_get_data(instance);
+    PanelSpace * p = PANEL_SPACE(instance);
     GtkWidget * dlg;
 
     dlg = lxpanel_generic_config_dlg(_("Spacer"), panel,
                                      space_apply_configuration, instance,
-                                     _("Size"), &sp->size, CONF_TYPE_INT, NULL);
+                                     _("Size"), &p->size, CONF_TYPE_INT, NULL);
     gtk_widget_set_size_request(dlg, 200, -1);	/* Improve geometry */
     return dlg;
 }
 
 /* Plugin descriptor. */
-LXPanelPluginInit lxpanel_static_plugin_space = {
+LXPanelPluginInit _lxpanel_static_plugin_space = {
     .name = N_("Spacer"),
     .description = N_("Allocate space"),
 
     /* Stretch is available but not default for this plugin. */
     .expand_available = TRUE,
 
-    .new_instance = space_constructor,
+    .new_instance = _panel_space_new,
     .config = space_configure,
 };

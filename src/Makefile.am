@@ -78,6 +78,7 @@ EXTRA_DIST = \
 	menu-policy.h \
 	icon-grid-old.h \
 	gtk-compat.h \
+	space.h \
 	private.h
 
 $(top_builddir)/plugins/libbuiltin_plugins.a: $(lxpanel_include_HEADERS) builtin-plugins-hook
