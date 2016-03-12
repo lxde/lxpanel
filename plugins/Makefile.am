@@ -37,7 +37,6 @@ PLUGINS_SOURCES = \
 	launchtaskbar.c \
 	pager.c \
 	separator.c \
-	space.c \
 	tray.c \
 	wincmd.c \
 	$(MENU_SOURCES)

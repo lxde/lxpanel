@@ -30,6 +30,7 @@ liblxpanel_la_SOURCES = \
 	panel.c \
 	plugin.c \
 	conf.c \
+	space.c \
 	input-button.c
 
 liblxpanel_la_LDFLAGS = \

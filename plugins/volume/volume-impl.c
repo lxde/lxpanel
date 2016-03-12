@@ -185,7 +185,7 @@ create_volume_window (void)
 
 	gtk_window_add_accel_group (GTK_WINDOW (volume_window), accel_group);
 
-	vol_spin = spinbutton1;
+	vol_spin = GTK_SPIN_BUTTON(spinbutton1);
 
 	return volume_window;
 }
