@@ -5,6 +5,7 @@ src/plugin.c
 src/gtk-run.c
 src/main.c
 src/input-button.c
+src/space.c
 data/ui/launchtaskbar.glade
 data/ui/netstatus.glade
 data/ui/panel-pref.glade
@@ -13,11 +14,11 @@ data/ui/panel-pref.glade
 plugins/cpu/cpu.c
 plugins/deskno/deskno.c
 plugins/launchtaskbar.c
+plugins/task-button.c
 plugins/dclock.c
 plugins/menu.c
 plugins/separator.c
 plugins/pager.c
-plugins/space.c
 plugins/tray.c
 plugins/xkb/xkb-plugin.c
 plugins/wincmd.c

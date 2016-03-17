@@ -35,6 +35,7 @@ PLUGINS_SOURCES = \
 	dclock.c \
 	dirmenu.c \
 	launchtaskbar.c \
+	task-button.c \
 	pager.c \
 	separator.c \
 	tray.c \
@@ -327,6 +328,7 @@ EXTRA_DIST = \
 	xkb/xkb.h \
 	$(flags_DATA) \
 	$(xkeyboardconfig_DATA) \
+	task-button.h \
 	icon.xpm
 
 install-exec-hook:

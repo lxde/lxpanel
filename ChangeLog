@@ -1,6 +1,8 @@
 * Bunch of fixes for GTK+ 3.0 compatibility.
 * Fixed outdated lxpanel man page.
 * Fixed weather locations query (since YQL was changed recently).
+* Converted space plugin into internal PanelSpace widget in liblxpanel.
+* Converted task button into widget class to avoid ambiguous code.
 
 0.8.2
 -------------------------------------------------------------------------
