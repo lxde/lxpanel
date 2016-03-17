@@ -3,6 +3,7 @@
  *               2006-2008 Jim Huang <jserv.tw@gmail.com>
  *               2009-2010 Marty Jack <martyj19@comcast.net>
  *               2014 Andriy Grytsenko <andrej@rep.kiev.ua>
+ *               2015 Hanno Zulla <hhz@users.sf.net>
  *
  * This file is a part of LXPanel project.
  *
@@ -48,6 +49,7 @@ G_BEGIN_DECLS
  * @show_system_menu: (allow-none): callback to queue show system menu
  * @update_context_menu: (allow-none): callback to update context menu
  * @control: (allow-none): callback to pass messages from lxpanelctl
+ * @gettext_package: (allow-none): additional catalog to read translations
  *
  * Callback @init is called on module loading, only once per application
  * lifetime.
@@ -91,6 +93,9 @@ G_BEGIN_DECLS
  * The message will be sent to only one instance of plugin. Some messages
  * are handled by lxpanel: "DEL" will remove plugin from panel, "ADD"
  * will create new instance if there is no instance yet. (TODO)
+ *
+ * If @gettext_package is not %NULL then it will be used for translation
+ * of @name and @description.
  */
 typedef struct {
     /*< public >*/
@@ -98,7 +103,6 @@ typedef struct {
     void (*finalize)(void);     /* optional finalize */
     char *name;                 /* name to represent in lists */
     char *description;          /* tooltip text */
-    char *gettext_package;      /* optional: gettext package used to translate name and description */
     GtkWidget *(*new_instance)(LXPanel *panel, config_setting_t *settings);
     GtkWidget *(*config)(LXPanel *panel, GtkWidget *instance);
     void (*reconfigure)(LXPanel *panel, GtkWidget *instance);
@@ -106,10 +110,10 @@ typedef struct {
     void (*show_system_menu)(GtkWidget *widget);
     gboolean (*update_context_menu)(GtkWidget *plugin, GtkMenu *menu);
     gboolean (*control)(GtkWidget *plugin, const char *cmd); /* not implemented */
+    char *gettext_package;      /* optional: gettext package used to translate name and description */
     /*< private >*/
     gpointer _reserved1;
     gpointer _reserved2;
-    gpointer _reserved3;
     /*< public >*/
     int one_per_system : 1;     /* True to disable more than one instance */
     int expand_available : 1;   /* True if "stretch" option is available */

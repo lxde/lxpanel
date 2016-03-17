@@ -3,6 +3,7 @@
 * Fixed weather locations query (since YQL was changed recently).
 * Converted space plugin into internal PanelSpace widget in liblxpanel.
 * Converted task button into widget class to avoid ambiguous code.
+* Added support for third-party plugins localized descriptions.
 
 0.8.2
 -------------------------------------------------------------------------

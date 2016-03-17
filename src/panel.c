@@ -15,6 +15,7 @@
  *               2013 peadaredwards <peadaredwards@users.sourceforge.net>
  *               2014-2015 Andriy Grytsenko <andrej@rep.kiev.ua>
  *               2015 Rafał Mużyło <galtgendo@gmail.com>
+ *               2015 Hanno Zulla <hhz@users.sf.net>
  *
  * This file is a part of LXPanel project.
  *
@@ -1314,10 +1315,8 @@ GtkMenu* lxpanel_get_plugin_menu( LXPanel* panel, GtkWidget* plugin, gboolean us
         init = PLUGIN_CLASS(plugin);
         /* create single item - plugin instance settings */
         img = gtk_image_new_from_stock( GTK_STOCK_PREFERENCES, GTK_ICON_SIZE_MENU );
-        tmp = g_strdup_printf(
-            _("\"%s\" Settings"),
-            ( init->gettext_package == NULL ? _(init->name) : g_dgettext(init->gettext_package, init->name) )
-        );
+        tmp = g_strdup_printf(_("\"%s\" Settings"),
+                              g_dgettext(init->gettext_package, init->name));
         menu_item = gtk_image_menu_item_new_with_label( tmp );
         g_free( tmp );
         gtk_image_menu_item_set_image( (GtkImageMenuItem*)menu_item, img );
