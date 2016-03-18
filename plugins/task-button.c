@@ -1488,6 +1488,7 @@ void task_button_update_windows_list(TaskButton *button, Window *list, gint n)
     GList *l, *next;
     TaskDetails *details;
     gint i;
+    gboolean has_removed = FALSE;
 
     g_return_if_fail(PANEL_IS_TASK_BUTTON(button));
 
@@ -1502,11 +1503,14 @@ void task_button_update_windows_list(TaskButton *button, Window *list, gint n)
         {
             button->details = g_list_delete_link(button->details, l);
             free_task_details(details);
+            has_removed = TRUE;
         }
         l = next; /* go next details */
     }
     if (button->details == NULL) /* all windows were deleted */
         gtk_widget_destroy(GTK_WIDGET(button));
+    else if (has_removed)
+        task_redraw_label(button);
     // FIXME: test if need to update label and menu
 }
 
