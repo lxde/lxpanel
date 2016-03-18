@@ -1180,7 +1180,6 @@ static gboolean task_update_visibility(TaskButton *task)
             task->visible = TRUE;
         /* Compute the visible name.  If all visible windows have the same title, use that.
          * Otherwise, use the class name.  This follows WNCK. */
-g_print("'%s' ", details->name);
         if (first_visible == NULL)
             first_visible = details;
         else if (task->same_name
@@ -1190,7 +1189,6 @@ g_print("'%s' ", details->name);
         if (task->last_focused == NULL || !task->last_focused->visible)
             task->last_focused = details;
     }
-g_print(": %d\n", task->same_name);
     if (!task->n_visible && old_n_visible)
     {
         /* task button became invisible */

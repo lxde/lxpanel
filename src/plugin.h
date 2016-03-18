@@ -95,7 +95,7 @@ G_BEGIN_DECLS
  * will create new instance if there is no instance yet. (TODO)
  *
  * If @gettext_package is not %NULL then it will be used for translation
- * of @name and @description.
+ * of @name and @description. (Since: 0.9.0)
  */
 typedef struct {
     /*< public >*/
