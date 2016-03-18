@@ -1151,6 +1151,9 @@ static void task_draw_label(TaskButton *tb, gboolean bold_style, gboolean force)
     g_string_free(str, TRUE);
 }
 
+/* conventional macro */
+#define task_redraw_label(b) task_draw_label(b, (b->flags.flat_button && b->entered_state), TRUE)
+
 
 /* update task->visible, task->n_visible, task->same_name
    also update task->last_focused if it was NULL
@@ -1525,13 +1528,13 @@ gboolean task_button_window_xprop_changed(TaskButton *button, Window win, Atom a
         details->desktop = get_net_wm_desktop(win);
         details->visible = task_is_visible(button, details);
         if (task_update_visibility(button))
-            task_draw_label(button, (button->flags.flat_button && button->entered_state), TRUE);
+            task_redraw_label(button);
     }
     else if ((atom == XA_WM_NAME) || (atom == a_NET_WM_NAME) || (atom == a_NET_WM_VISIBLE_NAME))
     {
         /* Window changed name. */
         if (task_set_names(details, atom))
-            task_draw_label(button, (button->flags.flat_button && button->entered_state), TRUE);
+            task_redraw_label(button);
     }
     else if (atom == XA_WM_CLASS)
     {
@@ -1553,7 +1556,7 @@ gboolean task_button_window_xprop_changed(TaskButton *button, Window win, Atom a
                 g_free(button->res_class);
                 button->res_class = res_class;
                 if (!button->same_name)
-                    task_draw_label(button, (button->flags.flat_button && button->entered_state), TRUE);
+                    task_redraw_label(button);
             }
         }
     }
@@ -1563,7 +1566,7 @@ gboolean task_button_window_xprop_changed(TaskButton *button, Window win, Atom a
         details->iconified = (get_wm_state(win) == IconicState);
         details->visible = task_is_visible(button, details);
         if (task_update_visibility(button))
-            task_draw_label(button, (button->flags.flat_button && button->entered_state), TRUE);
+            task_redraw_label(button);
     }
     else if (atom == XA_WM_HINTS)
     {
@@ -1577,7 +1580,7 @@ gboolean task_button_window_xprop_changed(TaskButton *button, Window win, Atom a
             task_update_visibility(button);
             if (details->visible)
                 button->last_focused = details;
-            task_draw_label(button, (button->flags.flat_button && button->entered_state), TRUE);
+            task_redraw_label(button);
         }
         /* Window changed "window manager hints".
          * Some windows set their WM_HINTS icon after mapping. */
@@ -1625,7 +1628,7 @@ gboolean task_button_window_focus_changed(TaskButton *button, Window *win)
             gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button), TRUE);
         /* if focus changed that means button widgets may need update */
         task_update_icon(button, button->last_focused, a_NET_ACTIVE_WINDOW);
-        task_draw_label(button, (button->flags.flat_button && button->entered_state), TRUE);
+        task_redraw_label(button);
         // FIXME: test if need to update menu
     }
     else
@@ -1659,7 +1662,7 @@ gboolean task_button_window_reconfigured(TaskButton *button, Window win)
     {
         details->visible = task_is_visible(button, details);
         task_update_visibility(button);
-        task_draw_label(button, (button->flags.flat_button && button->entered_state), TRUE);
+        task_redraw_label(button);
         // FIXME: test if need to update menu
     }
     details->monitor = new_mon;
@@ -1714,7 +1717,7 @@ void task_button_update(TaskButton *button, gint desk, gint desks,
         // FIXME: test if need to update menu
     }
     if (changed_label)
-        task_draw_label(button, (button->flags.flat_button && button->entered_state), TRUE);
+        task_redraw_label(button);
     if (changed_icon)
         task_update_icon(button, button->last_focused, None);
 }
@@ -1772,7 +1775,7 @@ gboolean task_button_add_window(TaskButton *button, Window win, const char *cl)
     if (details->visible)
     {
         if (task_update_visibility(button))
-            task_draw_label(button, (button->flags.flat_button && button->entered_state), TRUE);
+            task_redraw_label(button);
         // FIXME: test if need to update menu
     }
     gtk_widget_get_allocation(GTK_WIDGET(button), &alloc);
@@ -1811,7 +1814,7 @@ gboolean task_button_drop_window(TaskButton *button, Window win, gboolean leave_
         task_update_visibility(button);
         if (was_last_focused)
             task_update_icon(button, button->last_focused, None);
-        task_draw_label(button, (button->flags.flat_button && button->entered_state), TRUE);
+        task_redraw_label(button);
         // FIXME: test if need to update menu
     }
     free_task_details(details);
@@ -1883,7 +1886,7 @@ gboolean task_button_merge(TaskButton *button, TaskButton *sibling)
     /* eliminate sibling widget now */
     gtk_widget_destroy(GTK_WIDGET(sibling));
     /* redraw label on the button */
-    task_draw_label(button, (button->flags.flat_button && button->entered_state), TRUE);
+    task_redraw_label(button);
     // FIXME: test if need to update menu
     return TRUE;
 }
