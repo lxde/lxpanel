@@ -559,7 +559,7 @@ static gboolean taskbar_popup_activate_event(GtkWidget *widget, GdkEventButton *
     menu = get_task_button_menu(tk, l->data);
     /* attach and show menu */
     gtk_menu_item_set_submenu(GTK_MENU_ITEM(widget), menu);
-    gtk_widget_show_all(menu);
+    gtk_widget_show(menu);
     /* let menu continue with submenu */
     return FALSE;
 }
