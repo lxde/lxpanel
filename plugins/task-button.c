@@ -405,7 +405,6 @@ static GtkWidget *taskbar_make_menu(TaskButton *tb)
         gtk_menu_shell_append(GTK_MENU_SHELL(menu), mi);
         gtk_menu_item_set_submenu(GTK_MENU_ITEM(mi), workspace_menu);
     }
-    gtk_widget_show_all(menu);
 
     /* Extend the menu by callbacks */
     g_signal_emit(tb, signals[MENU_BUILT], 0, menu);
@@ -416,11 +415,8 @@ static GtkWidget *taskbar_make_menu(TaskButton *tb)
     else
         _m_add = gtk_menu_shell_prepend;
 
-    mi = gtk_separator_menu_item_new();
-    gtk_widget_show(mi);
-    _m_add(GTK_MENU_SHELL(menu), mi);
+    _m_add(GTK_MENU_SHELL(menu), gtk_separator_menu_item_new());
     mi = gtk_menu_item_new_with_mnemonic (_("_Close Window"));
-    gtk_widget_show(mi);
     _m_add(GTK_MENU_SHELL(menu), mi);
     g_signal_connect(G_OBJECT(mi), "activate", (GCallback)menu_close_window, tb);
 
@@ -437,6 +433,7 @@ static GtkWidget *get_task_button_menu(TaskButton *tb, TaskDetails *task)
     {
         /* this GtkMenu is built on demand on the parent widget */
         menu = taskbar_make_menu(tb);
+        gtk_widget_show_all(menu);
         g_object_set_data_full(G_OBJECT(parent), "task-button-menu",
                                g_object_ref_sink(menu), g_object_unref);
     }
@@ -559,7 +556,6 @@ static gboolean taskbar_popup_activate_event(GtkWidget *widget, GdkEventButton *
     menu = get_task_button_menu(tk, l->data);
     /* attach and show menu */
     gtk_menu_item_set_submenu(GTK_MENU_ITEM(widget), menu);
-    gtk_widget_show(menu);
     /* let menu continue with submenu */
     return FALSE;
 }
@@ -1415,7 +1411,9 @@ static void task_button_class_init(TaskButtonClass *klass)
 
     /**
      * Signal TaskButton::menu-target-set is emitted when TaskButton
-     * activated menu popup against some task.
+     * activated menu popup against some task. If any items were added
+     * in TaskButton::menu-built callback, their visibility should be
+     * managed in this callback, or all them will be visible by default.
      */
     signals[MENU_TARGET_SET] = g_signal_new ("menu-target-set",
                                     G_TYPE_FROM_CLASS(klass),
