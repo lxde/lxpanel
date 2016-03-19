@@ -1,3 +1,6 @@
+* Added support for laptops with multiple batteries.
+* Added a way to scroll through workspaces by using the scroll wheel over
+    the deskno plugin.
 * Bunch of fixes for GTK+ 3.0 compatibility.
 * Fixed outdated lxpanel man page.
 * Fixed weather locations query (since YQL was changed recently).

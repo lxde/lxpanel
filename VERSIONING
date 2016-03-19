@@ -19,13 +19,17 @@ The lxpanel API consists of:
         * data/ui/netstatus.ui
 
     - The plugin API:
-        * /usr/include/lxpanel/plugin.h (Must be the same as src/plugin.h)
+        * /$(prefix)/include/lxpanel/plugin.h (Must be the same as src/plugin.h)
+        * /$(prefix)/include/lxpanel/panel.h
+        * /$(prefix)/include/lxpanel/misc.h
+        * /$(prefix)/include/lxpanel/icon-grid.h
+        * /$(prefix)/include/lxpanel/conf.h
 
     - The command line arguments to lxpanel and lxpanelctl.
 
     - The interface used by lxpanelctl.
 
-    - Libraries used.
+    - Libraries used. (note: isn't a point for MAJOR version change)
 
     - The lxpanel user interface, including:
         * Look (colors, shapes, arrangements)

@@ -2,6 +2,7 @@
  *      batt_sys.h
  *
  *      Copyright 2009 Juergen Hötzel <juergen@archlinux.org>
+ *                2015 Stanislav Kozina, Ersin <xersin@users.sf.net>
  *
  *      This program is free software; you can redistribute it and/or modify
  *      it under the terms of the GNU General Public License as published by

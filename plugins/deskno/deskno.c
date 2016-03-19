@@ -5,6 +5,7 @@
  *               2006 Jim Huang <jserv.tw@gmail.com>
  *               2009 Marty Jack <martyj19@comcast.net>
  *               2014 Andriy Grytsenko <andrej@rep.kiev.ua>
+ *               2016 Charles Lehner <cel10@users.sf.net>
  *
  * This file is a part of LXPanel project.
  *

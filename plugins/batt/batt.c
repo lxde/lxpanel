@@ -6,6 +6,7 @@
  * Copyright (C) 2009 by Juergen Hoetzel <juergen@archlinux.org>
  * Copyright (C) 2014 by Andriy Grytsenko <andrej@rep.kiev.ua>
  *               2015 Balló György <ballogyor@gmail.com>
+ *               2015 Stanislav Kozina, Ersin <xersin@users.sf.net>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
