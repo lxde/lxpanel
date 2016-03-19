@@ -293,7 +293,8 @@ void lxpanel_plugin_popup_set_position_helper(LXPanel * p, GtkWidget * near, Gtk
     if (gtk_widget_has_screen(near))
         screen = gtk_widget_get_screen(near);
     else
-        screen = gdk_screen_get_default();
+        /* panel as a GtkWindow always has a screen */
+        screen = gtk_widget_get_screen(GTK_WIDGET(p));
     monitor = gdk_screen_get_monitor_at_point(screen, x, y);
 #if GTK_CHECK_VERSION(3, 4, 0)
     gdk_screen_get_monitor_workarea(screen, monitor, &allocation);

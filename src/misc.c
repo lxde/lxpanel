@@ -846,7 +846,7 @@ void _calculate_position(LXPanel *panel, GdkRectangle *rect)
     GdkRectangle marea;
 
     ENTER;
-    screen = gdk_screen_get_default();
+    screen = gtk_widget_get_screen(GTK_WIDGET(panel));
     if (np->monitor < 0) /* all monitors */
     {
         marea.x = 0;

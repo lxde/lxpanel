@@ -1876,7 +1876,7 @@ static void on_monitors_changed(GdkScreen* screen, gpointer unused)
 static int panel_start(LXPanel *p)
 {
     config_setting_t *list;
-    GdkScreen *screen = gdk_screen_get_default();
+    GdkScreen *screen = gtk_widget_get_screen(GTK_WIDGET(p));
 
     /* parse global section */
     ENTER;

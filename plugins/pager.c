@@ -122,7 +122,7 @@ static void pager_menu_callback(GtkWidget *widget, gpointer data)
 
 static gboolean pager_update_context_menu(GtkWidget *plugin, GtkMenu *menu)
 {
-    GdkScreen *screen = gdk_screen_get_default();
+    GdkScreen *screen = gtk_widget_get_screen(plugin);
     const char *wm_name = gdk_x11_screen_get_window_manager_name(screen);
     char *path = NULL;
 
