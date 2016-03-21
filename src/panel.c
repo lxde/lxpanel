@@ -13,7 +13,7 @@
  *               2012 Julien Lavergne <julien.lavergne@gmail.com>
  *               2013 Rouslan <rouslan-k@users.sourceforge.net>
  *               2013 peadaredwards <peadaredwards@users.sourceforge.net>
- *               2014-2015 Andriy Grytsenko <andrej@rep.kiev.ua>
+ *               2014-2016 Andriy Grytsenko <andrej@rep.kiev.ua>
  *               2015 Rafał Mużyło <galtgendo@gmail.com>
  *               2015 Hanno Zulla <hhz@users.sf.net>
  *
@@ -1089,7 +1089,12 @@ static void panel_popupmenu_add_item( GtkMenuItem* item, LXPanel* panel )
 
 static void panel_popupmenu_remove_item( GtkMenuItem* item, GtkWidget* plugin )
 {
-    Panel* panel = PLUGIN_PANEL(plugin)->priv;
+    lxpanel_remove_plugin(PLUGIN_PANEL(plugin), plugin);
+}
+
+void lxpanel_remove_plugin(LXPanel *p, GtkWidget *plugin)
+{
+    Panel* panel = p->priv;
 
     /* If the configuration dialog is open, there will certainly be a crash if the
      * user manipulates the Configured Plugins list, after we remove this entry.
@@ -1103,7 +1108,7 @@ static void panel_popupmenu_remove_item( GtkMenuItem* item, GtkWidget* plugin )
     /* reset conf pointer because the widget still may be referenced by configurator */
     g_object_set_qdata(G_OBJECT(plugin), lxpanel_plugin_qconf, NULL);
 
-    lxpanel_config_save(PLUGIN_PANEL(plugin));
+    lxpanel_config_save(p);
     gtk_widget_destroy(plugin);
 }
 

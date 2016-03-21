@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2015 Andriy Grytsenko <andrej@rep.kiev.ua>
+ * Copyright (C) 2014-2016 Andriy Grytsenko <andrej@rep.kiev.ua>
  *
  * This file is a part of LXPanel project.
  *
@@ -23,6 +23,7 @@
 
 #include "plugin.h"
 #include "conf.h"
+#include "lxpanelctl.h"
 
 #include <gmodule.h>
 
@@ -44,7 +45,6 @@
 
 /* Extracted from panel.h */
 enum { ALIGN_NONE, ALIGN_LEFT, ALIGN_CENTER, ALIGN_RIGHT  };
-enum { EDGE_NONE=0, EDGE_LEFT, EDGE_RIGHT, EDGE_TOP, EDGE_BOTTOM };
 enum { WIDTH_NONE, WIDTH_REQUEST, WIDTH_PIXEL, WIDTH_PERCENT };
 enum { HEIGHT_NONE, HEIGHT_PIXEL, HEIGHT_REQUEST };
 
@@ -213,6 +213,7 @@ void lxpanel_unload_modules(void);
 
 GtkWidget *lxpanel_add_plugin(LXPanel *p, const char *name, config_setting_t *cfg, gint at);
 GHashTable *lxpanel_get_all_types(void); /* transfer none */
+void lxpanel_remove_plugin(LXPanel *p, GtkWidget *plugin);
 
 extern GQuark lxpanel_plugin_qinit; /* access to LXPanelPluginInit data */
 #define PLUGIN_CLASS(_i) ((LXPanelPluginInit*)g_object_get_qdata(G_OBJECT(_i),lxpanel_plugin_qinit))

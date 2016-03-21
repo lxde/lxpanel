@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2006 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
  *               2010 Marty Jack <martyj19@comcast.net>
+ *               2016 Andriy Grytsenko <andrej@rep.kiev.ua>
  *
  * This file is a part of LXPanel project.
  *
@@ -31,7 +32,11 @@ typedef enum {
     LXPANEL_CMD_RUN,
     LXPANEL_CMD_CONFIG,
     LXPANEL_CMD_RESTART,
-    LXPANEL_CMD_EXIT
+    LXPANEL_CMD_EXIT,
+    LXPANEL_CMD_COMMAND
 } PanelControlCommand;
+
+/* this enum was in private.h but it is used by LXPANEL_CMD_COMMAND now */
+enum { EDGE_NONE=0, EDGE_LEFT, EDGE_RIGHT, EDGE_TOP, EDGE_BOTTOM };
 
 #endif

@@ -7,6 +7,7 @@
 * Converted space plugin into internal PanelSpace widget in liblxpanel.
 * Converted task button into widget class to avoid ambiguous code.
 * Added support for third-party plugins localized descriptions.
+* Implemented "lxpanelctl command ..." to send message to panel plugin.
 
 0.8.2
 -------------------------------------------------------------------------

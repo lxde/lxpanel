@@ -7,7 +7,7 @@
 .\"    Source: http://LXDE.org
 .\"  Language: English
 .\"
-.TH "LXPANEL" "1" "March 2, 2008" "http://LXDE\&.org" "http://LXDE.org"
+.TH "LXPANEL" "1" "March, 2016" "http://LXDE\&.org" "http://LXDE.org"
 .\" -----------------------------------------------------------------
 .\" * Define some portability stuff
 .\" -----------------------------------------------------------------
@@ -66,6 +66,13 @@ Restart lxpanel\&.
 .RS 4
 Exit lxpanel\&.
 .RE
+.PP
+\fBcommand \fR[\fB\-\-panel=\fR[\fIN\fR:]\fIedge\fR] \fIplugin\fR \fIcommand\fR
+.RS 4
+Send a \fIcommand\fR to a \fIplugin\fR\&. Optionally monitor number \fIN\fR
+(in range 1 to 8) and \fIedge\fR (left, right, top or bottom) can be set,
+otherwise \fIcommand\fR will be send to first \fIplugin\fR found in any panel\&.
+.RE
 .SH "SEE ALSO"
 .PP
 lxpanel (1)\&.
@@ -80,6 +87,8 @@ GNU
 General Public License, Version 2 any later version published by the Free Software Foundation\&.
 .PP
 On Debian systems, the complete text of the GNU General Public License can be found in /usr/share/common\-licenses/GPL-2\&.
+.PP
+Updated by Andriy Grytsenko (LStranger)\&.
 .SH "AUTHOR"
 .PP
 \fBYing\-Chun Liu\fR
@@ -89,4 +98,6 @@ Author.
 .SH "COPYRIGHT"
 .br
 Copyright \(co 2008 paulliu
+.br
+Copyright \(co 2016 LStranger
 .br

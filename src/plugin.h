@@ -92,7 +92,9 @@ G_BEGIN_DECLS
  * Callback @control is called when command was sent via the lxpanelctl.
  * The message will be sent to only one instance of plugin. Some messages
  * are handled by lxpanel: "DEL" will remove plugin from panel, "ADD"
- * will create new instance if there is no instance yet. (TODO)
+ * will create new instance if there is no instance yet. Due to design
+ * limitations of XClientMessageEvent the size of plugin type and command
+ * cannot exceed 16 characters in total.
  *
  * If @gettext_package is not %NULL then it will be used for translation
  * of @name and @description. (Since: 0.9.0)

@@ -1,6 +1,5 @@
 * drag & drop plugins via middle button
 * "Move" option in plugin context menu
-* "lxpanelctl command ..."
 * LXPanelPluginInit::activatable flag to allow activation with hotkey
 * drag & drop launchers (LauncherButton widget as "application/x-lxpanel-launcher")
 * accessibility (keys-only; single-button-mouse; special devices)
@@ -12,7 +11,8 @@
 * hotkeys for launchers
 * support rounded corners
 * support keywords in gtk-run
-* convert Task into GtkWidget and use it to emit signals for menus and buttons
+* standalone run application with history shared with panel?
+* "lxpanelctl restart" with panel not running starts it?
 * make click-wait-release popdown popups similarly to as GtkMenuShell does
 * make lxpanel multiscreen-aware (build fb_ev_* and get_net_* into lxpanel)
 * improve startup time (move every non-instant operation into idle callback)
