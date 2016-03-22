@@ -134,7 +134,7 @@ int main( int argc, char** argv )
     if (cmd == LXPANEL_CMD_COMMAND)
     {
         int i = 2;
-        if (argc > 4 && strncmp(argv[2], "--panel=", 8))
+        if (argc > 4 && strncmp(argv[2], "--panel=", 8) == 0)
         {
             int monitor;
             int edge = parse_id(argv[2] + 8, &monitor);
