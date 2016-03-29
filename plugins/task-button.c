@@ -1499,6 +1499,8 @@ void task_button_update_windows_list(TaskButton *button, Window *list, gint n)
         {
             button->details = g_list_delete_link(button->details, l);
             free_task_details(details);
+            if (button->last_focused == details)
+                button->last_focused = NULL;
             has_removed = TRUE;
         }
         l = next; /* go next details */
