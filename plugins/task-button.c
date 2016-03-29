@@ -1507,9 +1507,9 @@ void task_button_update_windows_list(TaskButton *button, Window *list, gint n)
     }
     if (button->details == NULL) /* all windows were deleted */
         gtk_widget_destroy(GTK_WIDGET(button));
-    else if (has_removed)
+    else if (has_removed && task_update_visibility(button))
         task_redraw_label(button);
-    // FIXME: test if need to update label and menu
+    // FIXME: test if need to update menu
 }
 
 /* returns TRUE if found and updated */
