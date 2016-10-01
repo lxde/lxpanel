@@ -52,6 +52,8 @@ struct _PanelIconGrid
     int rows;					/* Computed layout rows */
     int columns;				/* Computed layout columns */
     GdkWindow *event_window;			/* Event window if NO_WINDOW is set */
+    GtkWidget *dest_item;			/* Drag destination to draw focus */
+    PanelIconGridDropPosition dest_pos;		/* Position to draw focus */
 };
 
 struct _PanelIconGridClass
@@ -502,6 +504,215 @@ void panel_icon_grid_set_geometry(PanelIconGrid * ig,
     gtk_widget_queue_resize(GTK_WIDGET(ig));
 }
 
+/* get position for coordinates, return FALSE if it's outside of icon grid */
+gboolean panel_icon_grid_get_dest_at_pos(PanelIconGrid * ig, gint x, gint y,
+                                         GtkWidget ** child, PanelIconGridDropPosition * pos)
+{
+    GtkAllocation allocation;
+    PanelIconGridDropPosition drop_pos;
+    GtkWidget *widget;
+    GList *ige;
+    gboolean rtl, upper = TRUE;
+
+    g_return_val_if_fail(PANEL_IS_ICON_GRID(ig), FALSE);
+
+    widget = GTK_WIDGET(ig);
+    if (!gtk_widget_get_realized(widget))
+        return FALSE;
+    if (!gtk_widget_get_has_window(widget))
+        return FALSE;
+
+    rtl = (gtk_widget_get_direction(widget) == GTK_TEXT_DIR_RTL);
+    if (ig->orientation == GTK_ORIENTATION_HORIZONTAL)
+    {
+        for (ige = ig->children; ige != NULL; ige = ige->next)
+        {
+            gtk_widget_get_allocation(ige->data, &allocation);
+            if (x < allocation.x)
+            {
+                if (!rtl)
+                {
+                    /* reached next column */
+                    drop_pos = PANEL_ICON_GRID_DROP_LEFT;
+                    break;
+                }
+            }
+            else if (x < (allocation.x + allocation.width))
+            {
+                /* within this column */
+                if (y < allocation.y)
+                {
+                    /* reached next row */
+                    if (upper)
+                        drop_pos = rtl ? PANEL_ICON_GRID_DROP_RIGHT : PANEL_ICON_GRID_DROP_LEFT;
+                    else
+                        drop_pos = PANEL_ICON_GRID_DROP_ABOVE;
+                    break;
+                }
+                else if (y < (allocation.y + allocation.height))
+                {
+                    /* within this row */
+                    drop_pos = PANEL_ICON_GRID_DROP_INTO;
+                    break;
+                }
+                upper = FALSE;
+            }
+            else if (rtl)
+            {
+                /* reached next column */
+                drop_pos = PANEL_ICON_GRID_DROP_RIGHT;
+                break;
+            }
+        }
+    }
+    else
+    {
+        for (ige = ig->children; ige != NULL; ige = ige->next)
+        {
+            gtk_widget_get_allocation(ige->data, &allocation);
+            if (y < allocation.y)
+            {
+                    /* reached next row */
+                    drop_pos = PANEL_ICON_GRID_DROP_ABOVE;
+                    break;
+            }
+            else if (y < (allocation.y + allocation.height))
+            {
+                /* within this row */
+                if (x < allocation.x)
+                {
+                    if (!rtl)
+                    {
+                        /* reached next column */
+                        if (upper)
+                            drop_pos = PANEL_ICON_GRID_DROP_ABOVE;
+                        else
+                            drop_pos = PANEL_ICON_GRID_DROP_LEFT;
+                        break;
+                    }
+                }
+                else if (x < (allocation.x + allocation.width))
+                {
+                    /* within this column */
+                    drop_pos = PANEL_ICON_GRID_DROP_INTO;
+                    break;
+                }
+                else if (rtl)
+                {
+                    /* reached next column */
+                    if (upper)
+                        drop_pos = PANEL_ICON_GRID_DROP_ABOVE;
+                    else
+                        drop_pos = PANEL_ICON_GRID_DROP_RIGHT;
+                    break;
+                }
+                upper = FALSE;
+            }
+        }
+    }
+    if (ige == NULL)
+    {
+        /* not within allocated space */
+        ige = g_list_last(ig->children);
+        if (ig->orientation != GTK_ORIENTATION_HORIZONTAL)
+            drop_pos = PANEL_ICON_GRID_DROP_BELOW;
+        else if (rtl)
+            drop_pos = PANEL_ICON_GRID_DROP_LEFT;
+        else
+            drop_pos = PANEL_ICON_GRID_DROP_RIGHT;
+    }
+    if (child)
+        *child = (ige == NULL) ? NULL : ige->data;
+    if (pos)
+        *pos = drop_pos;
+    return TRUE;
+}
+
+static void panel_icon_grid_queue_draw_child(PanelIconGrid * ig, GtkWidget * child)
+{
+    GtkWidget *widget = GTK_WIDGET(ig);
+    GtkAllocation allocation;
+    GdkRectangle rect;
+    guint border;
+
+    if (!gtk_widget_get_realized(widget))
+        return;
+    if (!gtk_widget_get_has_window(widget))
+        return;
+
+    border = gtk_container_get_border_width(GTK_CONTAINER(widget));
+
+    gtk_widget_get_allocation(child, &allocation);
+
+    switch (ig->dest_pos)
+    {
+    case PANEL_ICON_GRID_DROP_LEFT:
+        rect.x = allocation.x - ig->spacing;
+        rect.width = border + ig->spacing;
+        rect.y = allocation.y;
+        rect.height = allocation.height;
+        break;
+    case PANEL_ICON_GRID_DROP_RIGHT:
+        rect.x = allocation.x + allocation.width - border;
+        rect.width = border + ig->spacing;
+        rect.y = allocation.y;
+        rect.height = allocation.height;
+        break;
+    case PANEL_ICON_GRID_DROP_BELOW:
+        rect.x = allocation.x;
+        rect.width = allocation.width;
+        rect.y = allocation.y + allocation.height - border;
+        rect.height = border + ig->spacing;
+        break;
+    case PANEL_ICON_GRID_DROP_ABOVE:
+        rect.x = allocation.x;
+        rect.width = allocation.width;
+        rect.y = allocation.y - ig->spacing;
+        rect.height = border + ig->spacing;
+        break;
+    case PANEL_ICON_GRID_DROP_INTO:
+        rect = allocation;
+    }
+
+    if (rect.width > 0 && rect.height > 0)
+        gdk_window_invalidate_rect(gtk_widget_get_window(widget), &rect, TRUE);
+}
+
+/* sets data and renders widget appropriately, need be drawable and realized */
+void panel_icon_grid_set_drag_dest(PanelIconGrid * ig, GtkWidget * child,
+                                   PanelIconGridDropPosition pos)
+{
+    GtkWidget *widget;
+    GtkWidget *current_dest;
+
+    g_return_if_fail(PANEL_IS_ICON_GRID(ig));
+
+    widget = GTK_WIDGET(ig);
+
+    if (!gtk_widget_get_realized(widget))
+        return;
+    if (!gtk_widget_get_has_window(widget))
+        return;
+
+    // reset previous state
+    current_dest = ig->dest_item;
+    if (current_dest)
+    {
+        ig->dest_item = NULL;
+        panel_icon_grid_queue_draw_child(ig, current_dest);
+    }
+
+    // need a special support for empty grid?
+    ig->dest_pos = pos;
+
+    // remember new state
+    if (child && g_list_find(ig->children, child))
+    {
+        ig->dest_item = child;
+        panel_icon_grid_queue_draw_child(ig, child);
+    }
+}
+
 G_DEFINE_TYPE_WITH_CODE(PanelIconGrid, panel_icon_grid, GTK_TYPE_CONTAINER,
                         G_IMPLEMENT_INTERFACE(GTK_TYPE_ORIENTABLE, NULL));
 
@@ -686,6 +897,8 @@ static gboolean panel_icon_grid_expose(GtkWidget *widget, GdkEventExpose *event)
 {
     if (gtk_widget_is_drawable(widget))
     {
+        PanelIconGrid *ig;
+
         if (gtk_widget_get_has_window(widget) &&
             !gtk_widget_get_app_paintable(widget))
 #if GTK_CHECK_VERSION(3, 0, 0)
@@ -699,6 +912,67 @@ static gboolean panel_icon_grid_expose(GtkWidget *widget, GdkEventExpose *event)
                                &event->area, widget, "panelicongrid",
                                0, 0, -1, -1);
 #endif
+
+        ig = PANEL_ICON_GRID(widget);
+        if (ig->dest_item && gtk_widget_get_has_window(widget))
+        {
+            GtkAllocation allocation;
+            GdkRectangle rect;
+            guint border;
+#if GTK_CHECK_VERSION(3, 0, 0)
+            GtkStyleContext *context;
+#endif
+
+            gtk_widget_get_allocation(ig->dest_item, &allocation);
+            border = gtk_container_get_border_width(GTK_CONTAINER(widget));
+#if GTK_CHECK_VERSION(3, 0, 0)
+            cairo_save(cr);
+            //gtk_cairo_transform_to_window(cr, widget, gtk_widget_get_window(widget));
+#endif
+            switch(ig->dest_pos)
+            {
+            case PANEL_ICON_GRID_DROP_LEFT:
+                rect.x = allocation.x - ig->spacing;
+                rect.width = border + ig->spacing;
+                rect.y = allocation.y;
+                rect.height = allocation.height;
+                break;
+            case PANEL_ICON_GRID_DROP_RIGHT:
+                rect.x = allocation.x + allocation.width - border;
+                rect.width = border + ig->spacing;
+                rect.y = allocation.y;
+                rect.height = allocation.height;
+                break;
+            case PANEL_ICON_GRID_DROP_BELOW:
+                rect.x = allocation.x;
+                rect.width = allocation.width;
+                rect.y = allocation.y + allocation.height - border;
+                rect.height = border + ig->spacing;
+                break;
+            case PANEL_ICON_GRID_DROP_ABOVE:
+                rect.x = allocation.x;
+                rect.width = allocation.width;
+                rect.y = allocation.y - ig->spacing;
+                rect.height = border + ig->spacing;
+                break;
+            case PANEL_ICON_GRID_DROP_INTO:
+            default:
+                rect = allocation;
+            }
+#if GTK_CHECK_VERSION(3, 0, 0)
+            context = gtk_widget_get_style_context(widget);
+            gtk_style_context_set_state(context, gtk_widget_get_state_flags(widget));
+            gtk_render_focus(context, cr, rect.x, rect.y, rect.width, rect.height);
+            cairo_restore(cr);
+#else
+            gtk_paint_focus(gtk_widget_get_style(widget),
+                            gtk_widget_get_window(widget),
+                            gtk_widget_get_state(widget),
+                            NULL, widget,
+                            "panelicongrid-drop-indicator",
+                            rect.x, rect.y, rect.width, rect.height);
+#endif
+        }
 
 #if GTK_CHECK_VERSION(3, 0, 0)
         GTK_WIDGET_CLASS(panel_icon_grid_parent_class)->draw(widget, cr);
@@ -765,6 +1039,7 @@ static void panel_icon_grid_class_init(PanelIconGridClass *klass)
     g_object_class_override_property(object_class,
                                      PROP_ORIENTATION,
                                      "orientation");
+    //FIXME: override border width to min = 1
     g_object_class_install_property(object_class,
                                     PROP_SPACING,
                                     g_param_spec_int("spacing",

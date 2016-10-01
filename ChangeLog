@@ -8,6 +8,7 @@
 * Converted task button into widget class to avoid ambiguous code.
 * Added support for third-party plugins localized descriptions.
 * Implemented "lxpanelctl command ..." to send message to panel plugin.
+* Added APIs for PanelIconGrid to draw focus on drop.
 
 0.8.2
 -------------------------------------------------------------------------

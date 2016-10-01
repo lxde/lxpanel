@@ -74,6 +74,46 @@ extern gint panel_icon_grid_get_child_position(PanelIconGrid * ig, GtkWidget * c
 extern void panel_icon_grid_reorder_child(PanelIconGrid * ig, GtkWidget * child, gint position);
 						/* Reorder the position of a child in the icon grid */
 
+typedef enum {
+    PANEL_ICON_GRID_DROP_LEFT,
+    PANEL_ICON_GRID_DROP_RIGHT,
+    PANEL_ICON_GRID_DROP_BELOW,
+    PANEL_ICON_GRID_DROP_ABOVE,
+    PANEL_ICON_GRID_DROP_INTO
+} PanelIconGridDropPosition;
+
+/**
+ * panel_icon_grid_get_dest_at_pos
+ * @ig: a widget
+ * @x: coordinate to inspect
+ * @y: coordinate to inspect
+ * @child: (allow-none): (out) (transfer none): pointer to return found child
+ * @pos: (allow-none): (out): pointer to return drop position
+ *
+ * Inspects coordinates @x and @y within @ig to contain some child widget.
+ * Returns nearest child widget and position against it.
+ *
+ * Returns: %FALSE if position is not drawable.
+ *
+ * Since: 0.9.0
+ */
+gboolean panel_icon_grid_get_dest_at_pos(PanelIconGrid * ig, gint x, gint y,
+                         GtkWidget ** child, PanelIconGridDropPosition * pos);
+
+/**
+ * panel_icon_grid_set_drag_dest
+ * @ig: a widget
+ * @child: (allow-none): pointer to a child
+ * @pos: drop position to draw
+ *
+ * Queues drawing of focus for given @child and @pos. If @child is %NULL
+ * then nothing will be drawn. In any case previous focus will be wiped.
+ *
+ * Since: 0.9.0
+ */
+void panel_icon_grid_set_drag_dest(PanelIconGrid * ig, GtkWidget * child,
+                                   PanelIconGridDropPosition pos);
+
 G_END_DECLS
 
 #endif
