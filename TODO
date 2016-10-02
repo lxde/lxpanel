@@ -22,3 +22,4 @@
 * optional libnotify support (useful for battery and volume plugins)
 * pull improvements from Raspbian
 * add Most Recent support into 'menu' plugin
+* check and use weather-* standard themed icons for weather plugin

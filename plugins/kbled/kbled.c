@@ -134,7 +134,7 @@ static GtkWidget *kbled_constructor(LXPanel *panel, config_setting_t *settings)
     p = panel_icon_grid_new(panel_get_orientation(panel),
                             panel_get_icon_size(panel),
                             panel_get_icon_size(panel),
-                            0, 0, panel_get_height(panel));
+                            1, 0, panel_get_height(panel));
     lxpanel_plugin_set_data(p, kl, kbled_destructor);
 
     /* Then allocate three images for the three indications, but make them visible only when the configuration requests. */
@@ -219,7 +219,7 @@ static void kbled_panel_configuration_changed(LXPanel *panel, GtkWidget *p)
     panel_icon_grid_set_geometry(PANEL_ICON_GRID(p), panel_get_orientation(panel),
                                  panel_get_icon_size(panel),
                                  panel_get_icon_size(panel),
-                                 0, 0, panel_get_height(panel));
+                                 1, 0, panel_get_height(panel));
 
     /* Do a full redraw. */
     int current_state = kl->current_state;

@@ -9,6 +9,8 @@
 * Added support for third-party plugins localized descriptions.
 * Implemented "lxpanelctl command ..." to send message to panel plugin.
 * Added APIs for PanelIconGrid to draw focus on drop.
+* Adjusted PanelIconGrid: min spacing is now 1, no_window flag is now left
+    unset by default.
 
 0.8.2
 -------------------------------------------------------------------------

@@ -499,7 +499,7 @@ void panel_icon_grid_set_geometry(PanelIconGrid * ig,
     ig->orientation = orientation;
     ig->child_width = child_width;
     ig->child_height = child_height;
-    ig->spacing = spacing;
+    ig->spacing = MAX(spacing, 1);
     ig->target_dimension = target_dimension;
     gtk_widget_queue_resize(GTK_WIDGET(ig));
 }
@@ -1045,9 +1045,9 @@ static void panel_icon_grid_class_init(PanelIconGridClass *klass)
                                     g_param_spec_int("spacing",
                                                      "Spacing",
                                                      "The amount of space between children",
-                                                     0,
+                                                     1,
                                                      G_MAXINT,
-                                                     0,
+                                                     1,
                                                      G_PARAM_READWRITE));
     g_object_class_install_property(object_class,
                                     PROP_CONSTRAIN_WIDTH,
@@ -1065,7 +1065,6 @@ static void panel_icon_grid_class_init(PanelIconGridClass *klass)
 
 static void panel_icon_grid_init(PanelIconGrid *ig)
 {
-    gtk_widget_set_has_window(GTK_WIDGET(ig), FALSE);
     gtk_widget_set_redraw_on_allocate(GTK_WIDGET(ig), FALSE);
 
     ig->orientation = GTK_ORIENTATION_HORIZONTAL;
@@ -1080,7 +1079,7 @@ GtkWidget * panel_icon_grid_new(
     /* Create a structure representing the icon grid and collect the parameters. */
     PanelIconGrid * ig = g_object_new(PANEL_TYPE_ICON_GRID,
                                       "orientation", orientation,
-                                      "spacing", spacing,
+                                      "spacing", MAX(spacing, 1),
                                       "border-width", border,
                                       NULL);
 
