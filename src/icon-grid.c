@@ -98,14 +98,14 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
     /* Apply given allocation */
     gtk_widget_set_allocation(widget, allocation);
     border = gtk_container_get_border_width(GTK_CONTAINER(widget));
-    child_allocation.width = MAX(allocation->width - border * 2, 0);
-    child_allocation.height = MAX(allocation->height - border * 2, 0);
+    child_allocation.width = MAX(allocation->width, 0);
+    child_allocation.height = MAX(allocation->height, 0);
     if (gtk_widget_get_realized(widget))
     {
         if (!gtk_widget_get_has_window(widget))
         {
-            child_allocation.x = allocation->x + border;
-            child_allocation.y = allocation->y + border;
+            child_allocation.x = allocation->x;
+            child_allocation.y = allocation->y;
         }
         else
         {
@@ -120,8 +120,8 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
                                    child_allocation.height);
         if (gtk_widget_get_has_window(widget))
             gdk_window_move_resize(gtk_widget_get_window(widget),
-                                   allocation->x + border,
-                                   allocation->y + border,
+                                   allocation->x,
+                                   allocation->y,
                                    child_allocation.width,
                                    child_allocation.height);
     }
@@ -275,7 +275,11 @@ static void panel_icon_grid_size_request(GtkWidget *widget,
                 }
             }
         if (row > 0)
+        {
+            if (requisition->width > 0)
+                requisition->width += ig->spacing;
             requisition->width += w + 2 * border;
+        }
         /* if ((ig->columns == 1) && (ig->rows > visible_children))
             ig->rows = visible_children; */
     }
@@ -795,7 +799,6 @@ static void panel_icon_grid_realize(GtkWidget *widget)
     GtkStyle *style;
     GtkAllocation allocation;
     GdkWindowAttr attributes;
-    guint border = gtk_container_get_border_width(GTK_CONTAINER(widget));
     gint attributes_mask;
     gboolean visible_window;
 
@@ -806,10 +809,10 @@ static void panel_icon_grid_realize(GtkWidget *widget)
 #endif
 
     gtk_widget_get_allocation(widget, &allocation);
-    attributes.x = allocation.x + border;
-    attributes.y = allocation.y + border;
-    attributes.width = allocation.width - 2*border;
-    attributes.height = allocation.height - 2*border;
+    attributes.x = allocation.x;
+    attributes.y = allocation.y;
+    attributes.width = allocation.width;
+    attributes.height = allocation.height;
     attributes.window_type = GDK_WINDOW_CHILD;
     attributes.event_mask = gtk_widget_get_events(widget)
                             | GDK_BUTTON_MOTION_MASK

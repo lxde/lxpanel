@@ -148,7 +148,6 @@ struct LaunchTaskBarPlugin {
 
 static gchar *launchtaskbar_rc = "style 'launchtaskbar-style' = 'theme-panel'\n"
         "{\n"
-        "GtkWidget::focus-line-width=0\n"
         "GtkWidget::focus-padding=0\n"
         "GtkButton::default-border={0,0,0,0}\n"
         "GtkButton::default-outside-border={0,0,0,0}\n"
@@ -312,13 +311,15 @@ static gboolean on_launchbar_drag_motion(
     {
         panel_icon_grid_set_drag_dest(PANEL_ICON_GRID(b->lb_icon_grid), NULL, 0);
         fm_dnd_dest_set_dest_file(b->dd, NULL);
-        return FALSE;
+        gdk_drag_status(context, 0, time);
+        return TRUE;
     }
     panel_icon_grid_set_drag_dest(PANEL_ICON_GRID(b->lb_icon_grid), btn, pos);
     if (!PANEL_IS_LAUNCH_BUTTON(btn) || pos != PANEL_ICON_GRID_DROP_INTO)
     {
         fm_dnd_dest_set_dest_file(b->dd, NULL);
-        return FALSE;
+        gdk_drag_status(context, 0, time);
+        return TRUE;
     }
     fm_dnd_dest_set_dest_file(b->dd, launch_button_get_file_info((LaunchButton *)btn));
     target = fm_dnd_dest_find_target(b->dd, context);
@@ -326,7 +327,7 @@ static gboolean on_launchbar_drag_motion(
         action = fm_dnd_dest_get_default_action(b->dd, context, target);
     gdk_drag_status(context, action, time);
     /* g_debug("launchbutton_drag_motion_event: act=%u",action); */
-    return (action != 0);
+    return TRUE;
 }
 
 static void on_launchbar_drag_leave(GtkWidget * widget, GdkDragContext * drag_context,
