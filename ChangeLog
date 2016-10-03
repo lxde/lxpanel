@@ -9,6 +9,7 @@
 * Added support for third-party plugins localized descriptions.
 * Implemented "lxpanelctl command ..." to send message to panel plugin.
 * Added APIs for PanelIconGrid to draw focus on drop.
+* Converted launch button into widget class for more easy management.
 * Adjusted PanelIconGrid: min spacing is now 1, no_window flag is now left
     unset by default.
 

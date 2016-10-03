@@ -177,13 +177,13 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
                 {
                     y = border;
                     if (direction == GTK_TEXT_DIR_RTL)
-                        x -= (x_delta + ig->spacing);
+                        x -= (x_delta + ig->spacing + 2 * border);
                     else
-                        x += (x_delta + ig->spacing);
+                        x += (x_delta + ig->spacing + 2 * border);
                     x_delta = 0;
                     // FIXME: if fill_width and rows = 1 then allocate whole column
                 }
-                next_coord = y + child_height + ig->spacing;
+                next_coord = y + child_height + ig->spacing + 2 * border;
                 x_delta = MAX(x_delta, child_allocation.width);
             }
             else
@@ -198,7 +198,7 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
                         if (next_coord < border)
                         {
                             next_coord = allocation->width - border;
-                            y += child_height + ig->spacing;
+                            y += child_height + ig->spacing + 2 * border;
                         }
                     }
                     x = next_coord;
@@ -209,9 +209,9 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
                     if (x + child_allocation.width > allocation->width - border && x > border)
                     {
                         x = border;
-                        y += child_height + ig->spacing;
+                        y += child_height + ig->spacing + 2 * border;
                     }
-                    next_coord = x + child_allocation.width + ig->spacing;
+                    next_coord = x + child_allocation.width + ig->spacing + 2 * border;
                 }
             }
             child_allocation.x = x;
@@ -252,7 +252,7 @@ static void panel_icon_grid_size_request(GtkWidget *widget,
         /* In horizontal orientation, fit as many rows into the available height as possible.
          * Then allocate as many columns as necessary.  Guard against zerodivides. */
         if ((ig->child_height + ig->spacing) != 0)
-            ig->rows = (target_dimension + ig->spacing - border * 2) / (ig->child_height + ig->spacing);
+            ig->rows = (target_dimension + ig->spacing) / (ig->child_height + ig->spacing + border * 2);
         if (ig->rows == 0)
             ig->rows = 1;
         /* Count visible children and columns. */
@@ -270,12 +270,12 @@ static void panel_icon_grid_size_request(GtkWidget *widget,
                     row = 0;
                     if (requisition->width > 0)
                         requisition->width += ig->spacing;
-                    requisition->width += w;
+                    requisition->width += w + 2 * border;
                     row = w = 0;
                 }
             }
         if (row > 0)
-            requisition->width += w;
+            requisition->width += w + 2 * border;
         /* if ((ig->columns == 1) && (ig->rows > visible_children))
             ig->rows = visible_children; */
     }
@@ -284,7 +284,7 @@ static void panel_icon_grid_size_request(GtkWidget *widget,
         /* In vertical orientation, fit as many columns into the available width as possible.
          * Then allocate as many rows as necessary.  Guard against zerodivides. */
         if ((ig->child_width + ig->spacing) != 0)
-            ig->columns = (target_dimension + ig->spacing - border * 2) / (ig->child_width + ig->spacing);
+            ig->columns = (target_dimension + ig->spacing) / (ig->child_width + ig->spacing + border * 2);
         if (ig->columns == 0)
             ig->columns = 1;
         /* Count visible children and rows. */
@@ -300,7 +300,7 @@ static void panel_icon_grid_size_request(GtkWidget *widget,
                 }
                 if (w > 0)
                     w += ig->spacing;
-                w += child_requisition.width;
+                w += child_requisition.width + 2 * border;
                 requisition->width = MAX(requisition->width, w);
             }
         if (w > 0)
@@ -311,9 +311,7 @@ static void panel_icon_grid_size_request(GtkWidget *widget,
     if ((ig->columns == 0) || (ig->rows == 0))
         requisition->height = 0;
     else
-        requisition->height = (ig->child_height + ig->spacing) * ig->rows - ig->spacing + 2 * border;
-    if (requisition->width > 0)
-        requisition->width += 2 * border;
+        requisition->height = (ig->child_height + ig->spacing + 2 * border) * ig->rows - ig->spacing;
 
     if (ig->rows != old_rows || ig->columns != old_columns)
         gtk_widget_queue_resize(widget);
@@ -647,13 +645,13 @@ static void panel_icon_grid_queue_draw_child(PanelIconGrid * ig, GtkWidget * chi
     switch (ig->dest_pos)
     {
     case PANEL_ICON_GRID_DROP_LEFT:
-        rect.x = allocation.x - ig->spacing;
+        rect.x = allocation.x - ig->spacing - border;
         rect.width = border + ig->spacing;
         rect.y = allocation.y;
         rect.height = allocation.height;
         break;
     case PANEL_ICON_GRID_DROP_RIGHT:
-        rect.x = allocation.x + allocation.width - border;
+        rect.x = allocation.x + allocation.width;
         rect.width = border + ig->spacing;
         rect.y = allocation.y;
         rect.height = allocation.height;
@@ -661,17 +659,21 @@ static void panel_icon_grid_queue_draw_child(PanelIconGrid * ig, GtkWidget * chi
     case PANEL_ICON_GRID_DROP_BELOW:
         rect.x = allocation.x;
         rect.width = allocation.width;
-        rect.y = allocation.y + allocation.height - border;
+        rect.y = allocation.y + allocation.height;
         rect.height = border + ig->spacing;
         break;
     case PANEL_ICON_GRID_DROP_ABOVE:
         rect.x = allocation.x;
         rect.width = allocation.width;
-        rect.y = allocation.y - ig->spacing;
+        rect.y = allocation.y - ig->spacing - border;
         rect.height = border + ig->spacing;
         break;
     case PANEL_ICON_GRID_DROP_INTO:
-        rect = allocation;
+    default:
+        rect.x = allocation.x - border;
+        rect.width = allocation.width + 2 * border;
+        rect.y = allocation.y - border;
+        rect.height = allocation.height + 2 * border;
     }
 
     if (rect.width > 0 && rect.height > 0)
@@ -932,13 +934,13 @@ static gboolean panel_icon_grid_expose(GtkWidget *widget, GdkEventExpose *event)
             switch(ig->dest_pos)
             {
             case PANEL_ICON_GRID_DROP_LEFT:
-                rect.x = allocation.x - ig->spacing;
+                rect.x = allocation.x - ig->spacing - border;
                 rect.width = border + ig->spacing;
                 rect.y = allocation.y;
                 rect.height = allocation.height;
                 break;
             case PANEL_ICON_GRID_DROP_RIGHT:
-                rect.x = allocation.x + allocation.width - border;
+                rect.x = allocation.x + allocation.width;
                 rect.width = border + ig->spacing;
                 rect.y = allocation.y;
                 rect.height = allocation.height;
@@ -946,18 +948,21 @@ static gboolean panel_icon_grid_expose(GtkWidget *widget, GdkEventExpose *event)
             case PANEL_ICON_GRID_DROP_BELOW:
                 rect.x = allocation.x;
                 rect.width = allocation.width;
-                rect.y = allocation.y + allocation.height - border;
+                rect.y = allocation.y + allocation.height;
                 rect.height = border + ig->spacing;
                 break;
             case PANEL_ICON_GRID_DROP_ABOVE:
                 rect.x = allocation.x;
                 rect.width = allocation.width;
-                rect.y = allocation.y - ig->spacing;
+                rect.y = allocation.y - ig->spacing - border;
                 rect.height = border + ig->spacing;
                 break;
             case PANEL_ICON_GRID_DROP_INTO:
             default:
-                rect = allocation;
+                rect.x = allocation.x - border;
+                rect.width = allocation.width + 2 * border;
+                rect.y = allocation.y - border;
+                rect.height = allocation.height + 2 * border;
             }
 #if GTK_CHECK_VERSION(3, 0, 0)
             context = gtk_widget_get_style_context(widget);
