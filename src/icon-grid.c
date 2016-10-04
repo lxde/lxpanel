@@ -535,7 +535,7 @@ gboolean panel_icon_grid_get_dest_at_pos(PanelIconGrid * ig, gint x, gint y,
                 if (!rtl)
                 {
                     /* reached next column */
-                    drop_pos = PANEL_ICON_GRID_DROP_LEFT;
+                    drop_pos = PANEL_ICON_GRID_DROP_LEFT_BEFORE;
                     break;
                 }
             }
@@ -546,7 +546,7 @@ gboolean panel_icon_grid_get_dest_at_pos(PanelIconGrid * ig, gint x, gint y,
                 {
                     /* reached next row */
                     if (upper)
-                        drop_pos = rtl ? PANEL_ICON_GRID_DROP_RIGHT : PANEL_ICON_GRID_DROP_LEFT;
+                        drop_pos = rtl ? PANEL_ICON_GRID_DROP_RIGHT_BEFORE : PANEL_ICON_GRID_DROP_LEFT_BEFORE;
                     else
                         drop_pos = PANEL_ICON_GRID_DROP_ABOVE;
                     break;
@@ -562,7 +562,7 @@ gboolean panel_icon_grid_get_dest_at_pos(PanelIconGrid * ig, gint x, gint y,
             else if (rtl)
             {
                 /* reached next column */
-                drop_pos = PANEL_ICON_GRID_DROP_RIGHT;
+                drop_pos = PANEL_ICON_GRID_DROP_RIGHT_BEFORE;
                 break;
             }
         }
@@ -589,7 +589,7 @@ gboolean panel_icon_grid_get_dest_at_pos(PanelIconGrid * ig, gint x, gint y,
                         if (upper)
                             drop_pos = PANEL_ICON_GRID_DROP_ABOVE;
                         else
-                            drop_pos = PANEL_ICON_GRID_DROP_LEFT;
+                            drop_pos = PANEL_ICON_GRID_DROP_LEFT_BEFORE;
                         break;
                     }
                 }
@@ -605,7 +605,7 @@ gboolean panel_icon_grid_get_dest_at_pos(PanelIconGrid * ig, gint x, gint y,
                     if (upper)
                         drop_pos = PANEL_ICON_GRID_DROP_ABOVE;
                     else
-                        drop_pos = PANEL_ICON_GRID_DROP_RIGHT;
+                        drop_pos = PANEL_ICON_GRID_DROP_RIGHT_BEFORE;
                     break;
                 }
                 upper = FALSE;
@@ -619,9 +619,9 @@ gboolean panel_icon_grid_get_dest_at_pos(PanelIconGrid * ig, gint x, gint y,
         if (ig->orientation != GTK_ORIENTATION_HORIZONTAL)
             drop_pos = PANEL_ICON_GRID_DROP_BELOW;
         else if (rtl)
-            drop_pos = PANEL_ICON_GRID_DROP_LEFT;
+            drop_pos = PANEL_ICON_GRID_DROP_LEFT_AFTER;
         else
-            drop_pos = PANEL_ICON_GRID_DROP_RIGHT;
+            drop_pos = PANEL_ICON_GRID_DROP_RIGHT_AFTER;
     }
     if (child)
         *child = (ige == NULL) ? NULL : ige->data;
@@ -648,13 +648,15 @@ static void panel_icon_grid_queue_draw_child(PanelIconGrid * ig, GtkWidget * chi
 
     switch (ig->dest_pos)
     {
-    case PANEL_ICON_GRID_DROP_LEFT:
+    case PANEL_ICON_GRID_DROP_LEFT_AFTER:
+    case PANEL_ICON_GRID_DROP_LEFT_BEFORE:
         rect.x = allocation.x - ig->spacing - border;
         rect.width = border + ig->spacing;
         rect.y = allocation.y;
         rect.height = allocation.height;
         break;
-    case PANEL_ICON_GRID_DROP_RIGHT:
+    case PANEL_ICON_GRID_DROP_RIGHT_AFTER:
+    case PANEL_ICON_GRID_DROP_RIGHT_BEFORE:
         rect.x = allocation.x + allocation.width;
         rect.width = border + ig->spacing;
         rect.y = allocation.y;
@@ -717,6 +719,16 @@ void panel_icon_grid_set_drag_dest(PanelIconGrid * ig, GtkWidget * child,
         ig->dest_item = child;
         panel_icon_grid_queue_draw_child(ig, child);
     }
+}
+
+PanelIconGridDropPosition panel_icon_grid_get_drag_dest(PanelIconGrid * ig,
+                                                        GtkWidget ** child)
+{
+    g_return_val_if_fail(PANEL_IS_ICON_GRID(ig), 0);
+
+    if (child)
+        *child = ig->dest_item;
+    return ig->dest_pos;
 }
 
 G_DEFINE_TYPE_WITH_CODE(PanelIconGrid, panel_icon_grid, GTK_TYPE_CONTAINER,
@@ -936,13 +948,15 @@ static gboolean panel_icon_grid_expose(GtkWidget *widget, GdkEventExpose *event)
 #endif
             switch(ig->dest_pos)
             {
-            case PANEL_ICON_GRID_DROP_LEFT:
+            case PANEL_ICON_GRID_DROP_LEFT_AFTER:
+            case PANEL_ICON_GRID_DROP_LEFT_BEFORE:
                 rect.x = allocation.x - ig->spacing - border;
                 rect.width = border + ig->spacing;
                 rect.y = allocation.y;
                 rect.height = allocation.height;
                 break;
-            case PANEL_ICON_GRID_DROP_RIGHT:
+            case PANEL_ICON_GRID_DROP_RIGHT_AFTER:
+            case PANEL_ICON_GRID_DROP_RIGHT_BEFORE:
                 rect.x = allocation.x + allocation.width;
                 rect.width = border + ig->spacing;
                 rect.y = allocation.y;

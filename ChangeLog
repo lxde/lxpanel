@@ -12,6 +12,7 @@
 * Converted launch button into widget class for more easy management.
 * Adjusted PanelIconGrid: min spacing is now 1, no_window flag is now left
     unset by default.
+* Implemented dropping file or folder onto launch bar to create launcher.
 
 0.8.2
 -------------------------------------------------------------------------

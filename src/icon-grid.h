@@ -75,8 +75,10 @@ extern void panel_icon_grid_reorder_child(PanelIconGrid * ig, GtkWidget * child,
 						/* Reorder the position of a child in the icon grid */
 
 typedef enum {
-    PANEL_ICON_GRID_DROP_LEFT,
-    PANEL_ICON_GRID_DROP_RIGHT,
+    PANEL_ICON_GRID_DROP_LEFT_AFTER,
+    PANEL_ICON_GRID_DROP_LEFT_BEFORE,
+    PANEL_ICON_GRID_DROP_RIGHT_AFTER,
+    PANEL_ICON_GRID_DROP_RIGHT_BEFORE,
     PANEL_ICON_GRID_DROP_BELOW,
     PANEL_ICON_GRID_DROP_ABOVE,
     PANEL_ICON_GRID_DROP_INTO
@@ -113,6 +115,20 @@ gboolean panel_icon_grid_get_dest_at_pos(PanelIconGrid * ig, gint x, gint y,
  */
 void panel_icon_grid_set_drag_dest(PanelIconGrid * ig, GtkWidget * child,
                                    PanelIconGridDropPosition pos);
+
+/**
+ * panel_icon_grid_get_drag_dest
+ * @ig: a widget
+ * @child: (allow-none): pointer to pointer to a child
+ *
+ * Retrieves data last set with panel_icon_grid_set_drag_dest()
+ *
+ * Returns: position to drop.
+ *
+ * Since: 0.9.0
+ */
+PanelIconGridDropPosition panel_icon_grid_get_drag_dest(PanelIconGrid * ig,
+                                                        GtkWidget ** child);
 
 G_END_DECLS
 
