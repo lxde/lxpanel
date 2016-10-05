@@ -89,6 +89,7 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
     int child_height;
     GtkTextDirection direction;
     guint border;
+    guint x_border, y_border;
     int x_delta;
     guint next_coord;
     guint x, y;
@@ -98,6 +99,11 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
     /* Apply given allocation */
     gtk_widget_set_allocation(widget, allocation);
     border = gtk_container_get_border_width(GTK_CONTAINER(widget));
+    x_border = y_border = border;
+    if (ig->orientation == GTK_ORIENTATION_HORIZONTAL)
+        x_border = border + ig->spacing / 2;
+    else
+        y_border = border + ig->spacing / 2;
     child_allocation.width = MAX(allocation->width, 0);
     child_allocation.height = MAX(allocation->height, 0);
     if (gtk_widget_get_realized(widget))
@@ -142,18 +148,19 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
     if ((ig->columns != 0) && (ig->rows != 0) && (child_allocation.width > 0))
     {
         if (ig->constrain_width &&
-            (x_delta = (child_allocation.width + ig->spacing) / ig->columns - ig->spacing) < child_width)
+            (x_delta = (child_allocation.width + (ig->orientation == GTK_ORIENTATION_HORIZONTAL ? 0 : ig->spacing)) / ig->columns
+                     - ig->spacing - 2 * border) < child_width)
             child_width = MAX(2, x_delta);
         /* fill vertical space evenly in horisontal orientation */
         if (ig->orientation == GTK_ORIENTATION_HORIZONTAL &&
-            (x_delta = (child_allocation.height + ig->spacing) / ig->rows - ig->spacing) > child_height)
+            (x_delta = (child_allocation.height + ig->spacing) / ig->rows - ig->spacing - 2 * border) > child_height)
             child_height = MAX(2, x_delta);
     }
 
     /* Initialize parameters to control repositioning each visible child. */
     direction = gtk_widget_get_direction(widget);
-    x = (direction == GTK_TEXT_DIR_RTL) ? allocation->width - border : border;
-    y = border;
+    x = (direction == GTK_TEXT_DIR_RTL) ? allocation->width - x_border : x_border;
+    y = y_border;
     x_delta = 0;
     next_coord = border;
 
@@ -268,17 +275,13 @@ static void panel_icon_grid_size_request(GtkWidget *widget,
                 if (row == ig->rows)
                 {
                     row = 0;
-                    if (requisition->width > 0)
-                        requisition->width += ig->spacing;
-                    requisition->width += w + 2 * border;
+                    requisition->width += w + 2 * border + ig->spacing;
                     row = w = 0;
                 }
             }
         if (row > 0)
         {
-            if (requisition->width > 0)
-                requisition->width += ig->spacing;
-            requisition->width += w + 2 * border;
+            requisition->width += w + 2 * border + ig->spacing;
         }
         /* if ((ig->columns == 1) && (ig->rows > visible_children))
             ig->rows = visible_children; */
@@ -314,8 +317,10 @@ static void panel_icon_grid_size_request(GtkWidget *widget,
     /* Compute the requisition. */
     if ((ig->columns == 0) || (ig->rows == 0))
         requisition->height = 0;
-    else
+    else if (ig->orientation == GTK_ORIENTATION_HORIZONTAL)
         requisition->height = (ig->child_height + ig->spacing + 2 * border) * ig->rows - ig->spacing;
+    else
+        requisition->height = (ig->child_height + ig->spacing + 2 * border) * ig->rows;
 
     if (ig->rows != old_rows || ig->columns != old_columns)
         gtk_widget_queue_resize(widget);
