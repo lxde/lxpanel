@@ -490,6 +490,13 @@ void panel_icon_grid_reorder_child(PanelIconGrid * ig, GtkWidget * child, gint p
         gtk_widget_queue_resize(child);
 }
 
+guint panel_icon_grid_get_n_children(PanelIconGrid * ig)
+{
+    g_return_val_if_fail(PANEL_IS_ICON_GRID(ig), 0);
+
+    return g_list_length(ig->children);
+}
+
 /* Change the geometry of an icon grid. */
 void panel_icon_grid_set_geometry(PanelIconGrid * ig,
     GtkOrientation orientation, gint child_width, gint child_height, gint spacing, gint border, gint target_dimension)
@@ -735,6 +742,7 @@ PanelIconGridDropPosition panel_icon_grid_get_drag_dest(PanelIconGrid * ig,
         *child = ig->dest_item;
     return ig->dest_pos;
 }
+
 
 G_DEFINE_TYPE_WITH_CODE(PanelIconGrid, panel_icon_grid, GTK_TYPE_CONTAINER,
                         G_IMPLEMENT_INTERFACE(GTK_TYPE_ORIENTABLE, NULL));

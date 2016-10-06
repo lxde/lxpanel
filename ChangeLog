@@ -14,6 +14,7 @@
     unset by default, spacing is taken into account on overall size to be
     consistent on chosen orientation.
 * Implemented dropping file or folder onto launch bar to create launcher.
+* Implemented dragging launchers around launchbars (between panels too).
 
 0.8.2
 -------------------------------------------------------------------------

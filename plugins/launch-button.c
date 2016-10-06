@@ -97,11 +97,11 @@ static void launch_button_dispose(GObject *object)
     G_OBJECT_CLASS(launch_button_parent_class)->dispose(object);
 }
 
-static gboolean launch_button_press_event(GtkWidget *widget, GdkEventButton *event)
+static gboolean launch_button_release_event(GtkWidget *widget, GdkEventButton *event)
 {
     LaunchButton *btn = PANEL_LAUNCH_BUTTON(widget);
 
-    if (event->button == 1 && event->type == GDK_BUTTON_PRESS) /* left button */
+    if (event->button == 1) /* left button */
     {
         if (btn->job) /* The job is still running */
             ;
@@ -126,7 +126,7 @@ static void launch_button_class_init(LaunchButtonClass *klass)
     GtkWidgetClass *widget_class = GTK_WIDGET_CLASS(klass);
 
     object_class->dispose = launch_button_dispose;
-    widget_class->button_press_event = launch_button_press_event;
+    widget_class->button_release_event = launch_button_release_event;
 }
 
 

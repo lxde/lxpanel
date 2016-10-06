@@ -73,6 +73,8 @@ extern gint panel_icon_grid_get_child_position(PanelIconGrid * ig, GtkWidget * c
 						/* Get the index of an icon grid element. */
 extern void panel_icon_grid_reorder_child(PanelIconGrid * ig, GtkWidget * child, gint position);
 						/* Reorder the position of a child in the icon grid */
+extern guint panel_icon_grid_get_n_children(PanelIconGrid * ig);
+						/* Count non-internal children */
 
 typedef enum {
     PANEL_ICON_GRID_DROP_LEFT_AFTER,
@@ -99,8 +101,8 @@ typedef enum {
  *
  * Since: 0.9.0
  */
-gboolean panel_icon_grid_get_dest_at_pos(PanelIconGrid * ig, gint x, gint y,
-                         GtkWidget ** child, PanelIconGridDropPosition * pos);
+extern gboolean panel_icon_grid_get_dest_at_pos(PanelIconGrid * ig, gint x, gint y,
+                            GtkWidget ** child, PanelIconGridDropPosition * pos);
 
 /**
  * panel_icon_grid_set_drag_dest
@@ -113,8 +115,8 @@ gboolean panel_icon_grid_get_dest_at_pos(PanelIconGrid * ig, gint x, gint y,
  *
  * Since: 0.9.0
  */
-void panel_icon_grid_set_drag_dest(PanelIconGrid * ig, GtkWidget * child,
-                                   PanelIconGridDropPosition pos);
+extern void panel_icon_grid_set_drag_dest(PanelIconGrid * ig, GtkWidget * child,
+                                          PanelIconGridDropPosition pos);
 
 /**
  * panel_icon_grid_get_drag_dest
@@ -127,8 +129,7 @@ void panel_icon_grid_set_drag_dest(PanelIconGrid * ig, GtkWidget * child,
  *
  * Since: 0.9.0
  */
-PanelIconGridDropPosition panel_icon_grid_get_drag_dest(PanelIconGrid * ig,
-                                                        GtkWidget ** child);
+extern PanelIconGridDropPosition panel_icon_grid_get_drag_dest(PanelIconGrid * ig, GtkWidget ** child);
 
 G_END_DECLS
 

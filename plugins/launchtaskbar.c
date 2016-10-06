@@ -112,6 +112,9 @@ struct LaunchTaskBarPlugin {
     FmDndDest *dd;                 /* Drag & drop on launchbar */
     GtkWidget *last_lb_drag_dest;  /* Last launch button near drag on launchbar */
     PanelIconGridDropPosition last_lb_drag_pos;
+    gboolean in_drag;              /* TRUE if some launcher is being dragged */
+    FmPath *dragged_launcher;      /* Path of launcher currently being dragged */
+    int drag_start_x, drag_start_y; /* Drag start coordinates */
     /* TASKBAR */
     GtkWidget * tb_icon_grid;      /* Manager for taskbar buttons */
     int number_of_desktops;        /* Number of desktops, from NET_WM_NUMBER_OF_DESKTOPS */
@@ -165,6 +168,9 @@ static gchar *launchtaskbar_rc = "style 'launchtaskbar-style' = 'theme-panel'\n"
 #define ICON_BUTTON_TRIM 4      /* Amount needed to have button remain on panel */
 
 static void launchtaskbar_destructor(gpointer user_data);
+
+static LaunchButton *launchbar_exec_bin_exists(LaunchTaskBarPlugin *lb, FmPath *path);
+static void launchbar_remove_button(LaunchTaskBarPlugin *ltbp, LaunchButton *btn);
 
 static void taskbar_redraw(LaunchTaskBarPlugin * tb);
 static void taskbar_net_client_list(GtkWidget * widget, LaunchTaskBarPlugin * tb);
@@ -308,6 +314,276 @@ static void launchbar_remove_bootstrap(LaunchTaskBarPlugin *ltbp)
     g_list_free(btns);
 }
 
+static void launchbar_check_bootstrap(LaunchTaskBarPlugin *lb)
+{
+    LaunchButton *btn;
+
+    if (panel_icon_grid_get_n_children(PANEL_ICON_GRID(lb->lb_icon_grid)) > 0)
+        return;
+    btn = launch_button_new(lb->panel, lb->plugin, NULL, NULL);
+    gtk_container_add(GTK_CONTAINER(lb->lb_icon_grid), GTK_WIDGET(btn));
+    g_debug("launchtaskbar: added bootstrap button %p", btn);
+}
+
+static void launchbar_remove_launcher(LaunchTaskBarPlugin *ltbp, FmPath *path)
+{
+    LaunchButton *btn = launchbar_exec_bin_exists(ltbp, path);
+
+    if (btn != NULL)
+        launchbar_remove_button(ltbp, btn);
+}
+
+
+/* Process drag & drop launchers between panels and places */
+/* targets are added to FmDndDest, also only targets for GtkTreeDragSource */
+enum {
+    LAUNCHBUTTON_DND_TARGET = N_FM_DND_DEST_DEFAULT_TARGETS
+};
+
+/* Target types for dragging items of list */
+static const GtkTargetEntry dnd_targets[] = {
+    { "application/x-lxpanel-launcher", GTK_TARGET_SAME_APP, LAUNCHBUTTON_DND_TARGET }
+};
+
+static GdkAtom launch_button_dnd_atom;
+static GtkTargetList *drag_src_target_list = NULL;
+
+
+/* source side -- form and send path */
+static gboolean on_launchbar_drag_source(GtkWidget *widget, GdkEvent *event,
+                                         LaunchTaskBarPlugin *lb)
+{
+    PanelIconGrid *ig;
+    GtkWidget *btn;
+    PanelIconGridDropPosition pos;
+    FmFileInfo *fi;
+    gdouble x, y;
+
+    switch (event->type)
+    {
+    case GDK_BUTTON_PRESS:
+        if (event->button.button != 1)
+            break;
+        if (lb->dragged_launcher)
+            break;
+        if (lb->in_drag)
+            break;
+        /* check if it is a launcher where the drag begins */
+        ig = PANEL_ICON_GRID(widget);
+        if (event->button.window == gtk_widget_get_window(widget))
+        {
+            x = event->button.x;
+            y = event->button.y;
+        }
+        else
+        {
+            /* event really comes for child, not for grid, why? */
+            gdk_window_coords_to_parent(event->button.window, event->button.x,
+                                        event->button.y, &x, &y);
+        }
+        if (!panel_icon_grid_get_dest_at_pos(ig, (int)x, (int)y, &btn, &pos) ||
+            !PANEL_IS_LAUNCH_BUTTON(btn) || pos != PANEL_ICON_GRID_DROP_INTO)
+            break;
+        /* remember the current coordinates and the launcher */
+        fi = launch_button_get_file_info((LaunchButton *)btn);
+        if (fi == NULL)
+            break;
+        /* g_debug("started dragging button #%d at %d,%d", panel_icon_grid_get_child_position(ig, btn), (int)x, (int)y); */
+        lb->in_drag = TRUE;
+        lb->dragged_launcher = fm_path_ref(fm_file_info_get_path(fi));
+        lb->drag_start_x = event->button.x;
+        lb->drag_start_y = event->button.y;
+        break;
+    case GDK_BUTTON_RELEASE:
+        if (event->button.button != 1)
+            break;
+        /* forget the drag state */
+        lb->in_drag = FALSE;
+        break;
+    case GDK_MOTION_NOTIFY:
+        if ((event->motion.state & GDK_BUTTON1_MASK) == 0)
+            break;
+        /* if in drag state then check for threshold */
+        if (lb->in_drag &&
+            gtk_drag_check_threshold(widget, lb->drag_start_x, lb->drag_start_y,
+                                     event->motion.x, event->motion.y))
+        {
+            lb->in_drag = FALSE;
+            if (G_UNLIKELY(drag_src_target_list == NULL))
+                drag_src_target_list = gtk_target_list_new(dnd_targets,
+                                                           G_N_ELEMENTS(dnd_targets));
+#if GTK_CHECK_VERSION(3, 10, 0)
+            gtk_drag_begin_with_coordinates(widget, drag_src_target_list,
+                                            GDK_ACTION_MOVE, 1, event,
+                                            event->motion.x, event->motion.y);
+#else
+            gtk_drag_begin(widget, drag_src_target_list, GDK_ACTION_MOVE,
+                           1, event);
+#endif
+            return TRUE;
+        }
+        break;
+    default: ;
+    }
+    return FALSE;
+}
+
+static void on_launchbar_drag_begin(GtkWidget *widget, GdkDragContext *context,
+                                    LaunchTaskBarPlugin *lb)
+{
+    /* setup the drag icon from the launcher */
+    LaunchButton *btn = launchbar_exec_bin_exists(lb, lb->dragged_launcher);
+
+    if (btn)
+    {
+        FmIcon *icon = launch_button_get_icon(btn);
+
+        if (icon)
+#if GTK_CHECK_VERSION(3, 2, 0)
+            gtk_drag_set_icon_gicon(context, fm_icon_get_gicon(icon), 0, 0);
+#else
+        {
+            gint w;
+            GdkPixbuf *pix;
+            gtk_icon_size_lookup(GTK_ICON_SIZE_DND, &w, NULL);
+            pix = fm_pixbuf_from_icon(icon, w);
+            if (pix)
+            {
+                gtk_drag_set_icon_pixbuf(context, pix, 0, 0);
+                g_object_unref(pix);
+            }
+        }
+#endif
+    }
+}
+
+static void on_launchbar_drag_data_get(GtkWidget *widget, GdkDragContext *context,
+                                       GtkSelectionData *sel_data,
+                                       guint info, guint time,
+                                       LaunchTaskBarPlugin *lb)
+{
+    char *path_str;
+
+    switch(info)
+    {
+    case LAUNCHBUTTON_DND_TARGET:
+        if (lb->dragged_launcher == NULL)
+            break;
+        /* create a path_str for currently dragged launcher */
+        path_str = fm_path_to_str(lb->dragged_launcher);
+        /* save it into selection */
+        gtk_selection_data_set(sel_data, launch_button_dnd_atom, 8,
+                               (guchar *)path_str, strlen(path_str));
+        g_free(path_str);
+        break;
+    default: ;
+    }
+}
+
+static void on_launchbar_drag_data_delete(GtkWidget *widget,
+                                          GdkDragContext *context,
+                                          LaunchTaskBarPlugin *lb)
+{
+    /* check if remembered data are still valid and remove appropriate child */
+    if (lb->dragged_launcher == NULL)
+        return;
+    launchbar_remove_launcher(lb, lb->dragged_launcher);
+    fm_path_unref(lb->dragged_launcher);
+    lb->dragged_launcher = NULL;
+    launchbar_check_bootstrap(lb);
+    //FIXME: destroy empty plugin instead if in LAUNCHBAR mode?
+}
+
+static void on_launchbar_drag_end(GtkWidget *widget, GdkDragContext *context,
+                                  LaunchTaskBarPlugin *lb)
+{
+    /* forget the currently dragged launcher */
+    if (lb->dragged_launcher)
+        fm_path_unref(lb->dragged_launcher);
+    lb->dragged_launcher = NULL;
+}
+
+
+/* destination side -- process data */
+static gboolean on_launchbar_drag_drop(GtkWidget *widget, GdkDragContext *context,
+                                       gint x, gint y, guint time,
+                                       LaunchTaskBarPlugin *lb)
+{
+    GdkAtom target;
+
+    target = gtk_drag_dest_find_target(widget, context, NULL);
+    if (target == launch_button_dnd_atom)
+    {
+        /* request for data, it will be processed on "drag-data-received" signal */
+        gtk_drag_get_data(widget, context, launch_button_dnd_atom, time);
+        return TRUE;
+    }
+    target = fm_dnd_dest_find_target(lb->dd, context);
+    if (G_LIKELY(target != GDK_NONE))
+        return fm_dnd_dest_drag_drop(lb->dd, context, target, x, y, time);
+    return FALSE;
+}
+
+static void on_launchbar_drag_data_received(GtkWidget *widget,
+                                            GdkDragContext *context, gint x,
+                                            gint y, GtkSelectionData *sel_data,
+                                            guint info, guint time,
+                                            LaunchTaskBarPlugin *lb)
+{
+    PanelIconGrid *ig = PANEL_ICON_GRID(widget);
+    GtkWidget *btn;
+    PanelIconGridDropPosition pos;
+    int i;
+    const char *path_str;
+    FmPath *path;
+    config_setting_t *s;
+
+    switch(info)
+    {
+    case LAUNCHBUTTON_DND_TARGET:
+        if (panel_icon_grid_get_dest_at_pos(ig, x, y, &btn, &pos) &&
+            PANEL_IS_LAUNCH_BUTTON(btn) && (pos != PANEL_ICON_GRID_DROP_INTO ||
+            launch_button_get_settings((LaunchButton *)btn) == NULL))
+        {
+            /* it is destined to some position, calculate it */
+            i = panel_icon_grid_get_child_position(ig, btn);
+            g_return_if_fail(i >= 0);
+            if (pos == PANEL_ICON_GRID_DROP_LEFT_AFTER ||
+                pos == PANEL_ICON_GRID_DROP_RIGHT_AFTER)
+                i++;
+            /* get data from selection */
+            path_str = (char *)gtk_selection_data_get_data(sel_data);
+            if (!path_str)
+                break;
+            /* g_debug("dropping dragged button to %d position", i); */
+            path = fm_path_new_for_str(path_str);
+            /* create new LaunchButton */
+            s = config_group_add_subgroup(lb->settings, "Button");
+            config_group_set_string(s, "id", path_str);
+            btn = GTK_WIDGET(launch_button_new(lb->panel, lb->plugin, path, s));
+            fm_path_unref(path);
+            if (btn)
+            {
+                /* position it and send confirmation to remove it from former place */
+                gtk_container_add(GTK_CONTAINER(lb->lb_icon_grid), btn);
+                panel_icon_grid_reorder_child(PANEL_ICON_GRID(lb->lb_icon_grid),
+                                              btn, i);
+                config_setting_move_elem(s, config_setting_get_parent(s), i);
+                lxpanel_config_save(lb->panel);
+                launchbar_remove_bootstrap(lb);
+                gtk_drag_finish(context, TRUE, TRUE, time);
+                break;
+            }
+            /* failed to create button - should be impossible though */
+            config_setting_destroy(s);
+        }
+        gtk_drag_finish(context, FALSE, FALSE, time);
+        break;
+    default:
+        fm_dnd_dest_drag_data_received(lb->dd, context, x, y, sel_data, info, time);
+    }
+}
+
 /* Handler for "drag-motion" event from launchtaskbar button. */
 static gboolean on_launchbar_drag_motion(
     GtkWidget * widget,
@@ -318,7 +594,7 @@ static gboolean on_launchbar_drag_motion(
     LaunchTaskBarPlugin * b)
 {
     GdkAtom target;
-    GdkDragAction action = 0;
+    GdkDragAction action = 0, lb_atom_action = 0;
     GtkWidget *btn;
     FmFileInfo *fi = NULL;
     PanelIconGridDropPosition pos;
@@ -337,16 +613,27 @@ static gboolean on_launchbar_drag_motion(
     if (PANEL_IS_LAUNCH_BUTTON(btn))
     {
         if (launch_button_get_settings((LaunchButton *)btn) == NULL)
+        {
             /* bootstrap button */
             b->last_lb_drag_pos = PANEL_ICON_GRID_DROP_LEFT_BEFORE;
+            lb_atom_action = GDK_ACTION_MOVE;
+        }
         else if (pos == PANEL_ICON_GRID_DROP_INTO)
             fi = launch_button_get_file_info((LaunchButton *)btn);
+        else
+            lb_atom_action = GDK_ACTION_MOVE;
     }
     fm_dnd_dest_set_dest_file(b->dd, fi);
     target = fm_dnd_dest_find_target(b->dd, context);
-    if (target != GDK_NONE && fm_dnd_dest_is_target_supported(b->dd, target))
+    if (target == GDK_NONE)
+    {
+        target = gtk_drag_dest_find_target(widget, context, NULL);
+        if (target == launch_button_dnd_atom)
+            action = lb_atom_action; /* action was set above */
+    }
+    else if (fm_dnd_dest_is_target_supported(b->dd, target))
         action = fm_dnd_dest_get_default_action(b->dd, context, target);
-    if (fi == NULL && PANEL_IS_LAUNCH_BUTTON(btn))
+    else if (fi == NULL && PANEL_IS_LAUNCH_BUTTON(btn))
         /* dropping on free place */
         action = GDK_ACTION_COPY;
     gdk_drag_status(context, action, time);
@@ -357,6 +644,7 @@ static gboolean on_launchbar_drag_motion(
 static void on_launchbar_drag_leave(GtkWidget * widget, GdkDragContext * drag_context,
                                     guint time, LaunchTaskBarPlugin * lb)
 {
+    fm_dnd_dest_drag_leave(lb->dd, drag_context, time);
     panel_icon_grid_set_drag_dest(PANEL_ICON_GRID(lb->lb_icon_grid), NULL, 0);
     fm_dnd_dest_set_dest_file(lb->dd, NULL);
 }
@@ -415,7 +703,6 @@ static gboolean on_launchbar_files_dropped(FmDndDest *dd, int x, int y, GdkDragA
     return TRUE;
 }
 
-#ifndef DISABLE_MENU
 static LaunchButton *launchbar_exec_bin_exists(LaunchTaskBarPlugin *lb, FmPath *path)
 {
     LaunchButton *ret_val = NULL;
@@ -437,7 +724,6 @@ static LaunchButton *launchbar_exec_bin_exists(LaunchTaskBarPlugin *lb, FmPath *
     g_list_free(children);
     return ret_val;
 }
-#endif
 
 /* Read the configuration file entry for a launchtaskbar button and create it. */
 static gboolean launchbutton_constructor(LaunchTaskBarPlugin * lb, config_setting_t * s)
@@ -572,18 +858,37 @@ static void launchtaskbar_constructor_launch(LaunchTaskBarPlugin *ltbp)
         if (i == 0)
         {
             /* build bootstrap button */
-            LaunchButton *btn = launch_button_new(ltbp->panel, ltbp->plugin, NULL, NULL);
-            gtk_container_add(GTK_CONTAINER(ltbp->lb_icon_grid), GTK_WIDGET(btn));
-            g_debug("launchtaskbar: added bootstrap button %p", btn);
+            launchbar_check_bootstrap(ltbp);
         }
         /* Drag and drop support. */
-        ltbp->dd = fm_dnd_dest_new_with_handlers(ltbp->lb_icon_grid);
+        g_signal_connect(ltbp->lb_icon_grid, "button-press-event",
+                         G_CALLBACK(on_launchbar_drag_source), ltbp);
+        g_signal_connect(ltbp->lb_icon_grid, "button-release-event",
+                         G_CALLBACK(on_launchbar_drag_source), ltbp);
+        g_signal_connect(ltbp->lb_icon_grid, "motion-notify-event",
+                         G_CALLBACK(on_launchbar_drag_source), ltbp);
+        g_signal_connect(ltbp->lb_icon_grid, "drag-begin",
+                         G_CALLBACK(on_launchbar_drag_begin), ltbp);
+        g_signal_connect(ltbp->lb_icon_grid, "drag-data-get",
+                         G_CALLBACK(on_launchbar_drag_data_get), ltbp);
+        g_signal_connect(ltbp->lb_icon_grid, "drag-data-delete",
+                         G_CALLBACK(on_launchbar_drag_data_delete), ltbp);
+        g_signal_connect(ltbp->lb_icon_grid, "drag-end",
+                         G_CALLBACK(on_launchbar_drag_end), ltbp);
+        ltbp->dd = fm_dnd_dest_new(ltbp->lb_icon_grid);
+        fm_dnd_dest_add_targets(ltbp->lb_icon_grid, dnd_targets,
+                                G_N_ELEMENTS(dnd_targets));
         g_signal_connect(ltbp->lb_icon_grid, "drag-motion",
                          G_CALLBACK(on_launchbar_drag_motion), ltbp);
+        g_signal_connect(ltbp->lb_icon_grid, "drag-drop",
+                         G_CALLBACK(on_launchbar_drag_drop), ltbp);
+        g_signal_connect(ltbp->lb_icon_grid, "drag-data-received",
+                         G_CALLBACK(on_launchbar_drag_data_received), ltbp);
         g_signal_connect(ltbp->lb_icon_grid, "drag-leave",
                          G_CALLBACK(on_launchbar_drag_leave), ltbp);
         g_signal_connect(ltbp->dd, "files-dropped",
                          G_CALLBACK(on_launchbar_files_dropped), ltbp);
+        launch_button_dnd_atom = gdk_atom_intern("application/x-lxpanel-launcher", FALSE);
     }
     gtk_widget_set_visible(ltbp->lb_icon_grid, TRUE);
 }
@@ -801,6 +1106,8 @@ static void launchtaskbar_destructor_launch(LaunchTaskBarPlugin *ltbp)
         g_object_unref(ltbp->dd);
     }
     /* do not disconnect handler on child widget - it is already destroyed */
+    if (ltbp->dragged_launcher)
+        fm_path_unref(ltbp->dragged_launcher);
 }
 
 static void launchtaskbar_destructor_task(LaunchTaskBarPlugin *ltbp)
@@ -890,20 +1197,9 @@ static void launchbar_configure_add_button(GtkButton * widget, LaunchTaskBarPlug
 
 static void  launchbar_remove_button(LaunchTaskBarPlugin *ltbp, LaunchButton *btn)
 {
-    GList *list;
-
     config_setting_destroy(launch_button_get_settings(btn));
+    lxpanel_config_save(ltbp->panel);
     gtk_widget_destroy(GTK_WIDGET(btn));
-    /* Put the bootstrap button back if the list becomes empty. */
-    list = gtk_container_get_children(GTK_CONTAINER(ltbp->lb_icon_grid));
-    if (list == NULL)
-    {
-        btn = launch_button_new(ltbp->panel, ltbp->plugin, NULL, NULL);
-        gtk_container_add(GTK_CONTAINER(ltbp->lb_icon_grid), GTK_WIDGET(btn));
-        g_debug("launchtaskbar: added bootstrap button %p", btn);
-    }
-    else
-        g_list_free(list);
 }
 
 /* Handler for "clicked" action on launchtaskbar configuration dialog "Remove" button. */
@@ -923,6 +1219,7 @@ static void launchbar_configure_remove_button(GtkButton * widget, LaunchTaskBarP
         gtk_widget_set_visible(ltbp->p_label_def_app_exec, FALSE);
 
         launchbar_remove_button(ltbp, btn);
+        launchbar_check_bootstrap(ltbp);
     }
 }
 
@@ -1977,12 +2274,8 @@ static void  on_menuitem_lock_tbp_clicked(GtkWidget * widget, LaunchTaskBarPlugi
 
 static void  on_menuitem_unlock_tbp_clicked(GtkWidget * widget, LaunchTaskBarPlugin * tb)
 {
-    LaunchButton *btn = launchbar_exec_bin_exists(tb, tb->path);
-    if(btn != NULL)
-    {
-        launchbar_remove_button(tb, btn);
-        lxpanel_config_save(tb->panel);
-    }
+    launchbar_remove_launcher(tb, tb->path);
+    launchbar_check_bootstrap(tb);
 }
 
 static void  on_menuitem_new_instance_clicked(GtkWidget * widget, LaunchTaskBarPlugin * tb)
