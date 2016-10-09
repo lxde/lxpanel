@@ -1021,7 +1021,7 @@ static GtkWidget *_launchtaskbar_constructor(LXPanel *panel, config_setting_t *s
 {
     GtkWidget *p;
     LaunchTaskBarPlugin *ltbp;
-    int height, border;
+    int height;
 
     gtk_rc_parse_string(launchtaskbar_rc);
 
@@ -1066,10 +1066,9 @@ static GtkWidget *_launchtaskbar_constructor(LXPanel *panel, config_setting_t *s
     lxpanel_plugin_set_data(p, ltbp, launchtaskbar_destructor);
     /* Allocate an icon grid manager to manage the container. */
     height = panel_get_height(panel);
-    border = (height - ltbp->icon_size) > 1 ? 1 : 0;
     ltbp->lb_icon_grid = panel_icon_grid_new(panel_get_orientation(panel),
                                              ltbp->icon_size, ltbp->icon_size,
-                                             3 - 2 * border, border, height);
+                                             3, 0, height);
     gtk_box_pack_start(GTK_BOX(p), ltbp->lb_icon_grid, FALSE, TRUE, 0);
 
     /* Read parameters from the configuration file. */
@@ -1752,13 +1751,12 @@ static void launchtaskbar_panel_configuration_changed(LXPanel *panel, GtkWidget 
     LaunchTaskBarPlugin *ltbp = lxpanel_plugin_get_data(p);
     int new_icon_size = panel_get_icon_size(panel);
     int height = panel_get_height(panel);
-    int border = (height - new_icon_size) > 1 ? 1 : 0;
 
     if (ltbp->lb_built)
         panel_icon_grid_set_geometry(PANEL_ICON_GRID(ltbp->lb_icon_grid),
                                      panel_get_orientation(panel),
                                      new_icon_size, new_icon_size,
-                                     3 - 2 * border, border, height);
+                                     3, 0, height);
 
     /* Redraw all the labels.  Icon size or font color may have changed. */
     if (ltbp->tb_built)
