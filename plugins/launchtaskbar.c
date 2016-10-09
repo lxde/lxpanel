@@ -632,10 +632,12 @@ static gboolean on_launchbar_drag_motion(
             action = lb_atom_action; /* action was set above */
     }
     else if (fm_dnd_dest_is_target_supported(b->dd, target))
+    {
         action = fm_dnd_dest_get_default_action(b->dd, context, target);
-    else if (fi == NULL && PANEL_IS_LAUNCH_BUTTON(btn))
-        /* dropping on free place */
-        action = GDK_ACTION_COPY;
+        if (fi == NULL && PANEL_IS_LAUNCH_BUTTON(btn))
+            /* dropping on free place */
+            action = GDK_ACTION_COPY;
+    }
     gdk_drag_status(context, action, time);
     /* g_debug("launchbutton_drag_motion_event: act=%u",action); */
     return TRUE;
