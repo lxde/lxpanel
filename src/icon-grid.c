@@ -36,6 +36,12 @@ enum {
   //PROP_FILL_WIDTH
 };
 
+/* Child properties */
+enum {
+  CHILD_PROP_0,
+  CHILD_PROP_POSITION
+};
+
 /* Representative of an icon grid.  This is a manager that packs widgets into a rectangular grid whose size adapts to conditions. */
 struct _PanelIconGrid
 {
@@ -442,7 +448,9 @@ static void panel_icon_grid_remove(GtkContainer *container, GtkWidget *widget)
     }
 }
 
-/* Get the index of an icon grid element. */
+/* Get the index of an icon grid element. Actually it's
+   the same as gtk_container_child_get(ig, child, "position", &pos, NULL)
+   but more convenient to use. */
 gint panel_icon_grid_get_child_position(PanelIconGrid * ig, GtkWidget * child)
 {
     g_return_val_if_fail(PANEL_IS_ICON_GRID(ig), -1);
@@ -1040,6 +1048,44 @@ static GType panel_icon_grid_child_type(GtkContainer *container)
     return GTK_TYPE_WIDGET;
 }
 
+static void panel_icon_grid_set_child_property(GtkContainer *container,
+                                               GtkWidget *child,
+                                               guint prop_id,
+                                               const GValue *value,
+                                               GParamSpec *pspec)
+{
+    PanelIconGrid *ig = PANEL_ICON_GRID(container);
+
+    switch (prop_id)
+    {
+    case CHILD_PROP_POSITION:
+        panel_icon_grid_reorder_child(ig, child, g_value_get_int(value));
+        break;
+    default:
+        G_OBJECT_WARN_INVALID_PROPERTY_ID(container, prop_id, pspec);
+        break;
+    }
+}
+
+static void panel_icon_grid_get_child_property(GtkContainer *container,
+                                               GtkWidget *child,
+                                               guint prop_id,
+                                               GValue *value,
+                                               GParamSpec *pspec)
+{
+    PanelIconGrid *ig = PANEL_ICON_GRID(container);
+
+    switch (prop_id)
+    {
+    case CHILD_PROP_POSITION:
+        g_value_set_int(value, panel_icon_grid_get_child_position(ig, child));
+        break;
+    default:
+        G_OBJECT_WARN_INVALID_PROPERTY_ID(container, prop_id, pspec);
+        break;
+    }
+}
+
 static void panel_icon_grid_class_init(PanelIconGridClass *klass)
 {
     GObjectClass *object_class = G_OBJECT_CLASS(klass);
@@ -1070,6 +1116,8 @@ static void panel_icon_grid_class_init(PanelIconGridClass *klass)
     container_class->remove = panel_icon_grid_remove;
     container_class->forall = panel_icon_grid_forall;
     container_class->child_type = panel_icon_grid_child_type;
+    container_class->get_child_property = panel_icon_grid_get_child_property;
+    container_class->set_child_property = panel_icon_grid_set_child_property;
 
     g_object_class_override_property(object_class,
                                      PROP_ORIENTATION,
@@ -1096,6 +1144,14 @@ static void panel_icon_grid_class_init(PanelIconGridClass *klass)
                                                          "Maintain children aspect",
                                                          "Whether to set children width to maintain their aspect",
                                                          FALSE, G_PARAM_READWRITE));
+
+    gtk_container_class_install_child_property(container_class,
+                                               CHILD_PROP_POSITION,
+                                               g_param_spec_int("position",
+                                                                "Position",
+                                                                "The index of the child in the parent",
+                                                                -1, G_MAXINT, 0,
+                                                                G_PARAM_READWRITE));
 }
 
 static void panel_icon_grid_init(PanelIconGrid *ig)
