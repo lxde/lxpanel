@@ -15,6 +15,13 @@
     consistent on chosen orientation.
 * Implemented dropping file or folder onto launch bar to create launcher.
 * Implemented dragging launchers around launchbars (between panels too).
+* Implemented dropping file/folder on free panel space to create launcher.
+* Implemented dragging launchers from launchbar to some free panel space.
+    When launcher dropped onto another place and former place's launchbar
+    becomes empty, it will not be replaced with a bootstrapping icon (as
+    it happens when you remove last launcher via configuration dialog) but
+    launchbar will be removed from panel instead, that is more obvious and
+    sensible.
 
 0.8.2
 -------------------------------------------------------------------------

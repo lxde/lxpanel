@@ -94,7 +94,7 @@ G_BEGIN_DECLS
  * are handled by lxpanel: "DEL" will remove plugin from panel, "ADD"
  * will create new instance if there is no instance yet. Due to design
  * limitations of XClientMessageEvent the size of plugin type and command
- * cannot exceed 16 characters in total.
+ * cannot exceed 18 characters in total.
  *
  * If @gettext_package is not %NULL then it will be used for translation
  * of @name and @description. (Since: 0.9.0)
@@ -111,7 +111,7 @@ typedef struct {
     gboolean (*button_press_event)(GtkWidget *widget, GdkEventButton *event, LXPanel *panel);
     void (*show_system_menu)(GtkWidget *widget);
     gboolean (*update_context_menu)(GtkWidget *plugin, GtkMenu *menu);
-    gboolean (*control)(GtkWidget *plugin, const char *cmd); /* not implemented */
+    gboolean (*control)(GtkWidget *plugin, const char *cmd);
     char *gettext_package;      /* optional: gettext package used to translate name and description */
     /*< private >*/
     gpointer _reserved1;
@@ -372,6 +372,10 @@ extern gboolean lxpanel_apply_hotkey(char **hkptr, const char *keystring,
  * Since: 0.8.0
  */
 extern guint panel_config_click_parse(const char *keystring, GdkModifierType *mods);
+
+/* Add/remove plugin to/from panel */
+GtkWidget *lxpanel_add_plugin(LXPanel *p, const char *name, config_setting_t *cfg, gint at);
+void lxpanel_remove_plugin(LXPanel *p, GtkWidget *plugin);
 
 G_END_DECLS
 

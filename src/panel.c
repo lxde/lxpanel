@@ -55,6 +55,7 @@
 
 #include "private.h"
 #include "misc.h"
+#include "space.h"
 
 #include "lxpanelctl.h"
 #include "dbg.h"
@@ -1104,9 +1105,71 @@ void lxpanel_remove_plugin(LXPanel *p, GtkWidget *plugin)
         gtk_widget_destroy(panel->pref_dialog);
         panel->pref_dialog = NULL;
     }
+    _lxpanel_remove_plugin(p, plugin);
+}
+
+void _lxpanel_remove_plugin(LXPanel *p, GtkWidget *plugin)
+{
+    Panel* panel = p->priv;
+    GtkWidget *prev, *next;
+    GList *children;
+    GtkAllocation alloc;
+    gint idx = -1, size1, size2;
+    gboolean expand;
+
     config_setting_destroy(g_object_get_qdata(G_OBJECT(plugin), lxpanel_plugin_qconf));
     /* reset conf pointer because the widget still may be referenced by configurator */
     g_object_set_qdata(G_OBJECT(plugin), lxpanel_plugin_qconf, NULL);
+
+    /* squash previous and next spaces if this plugin was between two spaces */
+    children = gtk_container_get_children(GTK_CONTAINER(panel->box));
+    idx = g_list_index(children, plugin);
+    if (idx > 0)
+    {
+
+        prev = g_list_nth_data(children, idx - 1);
+        next = g_list_nth_data(children, idx + 1);
+        if (next && PANEL_IS_SPACE(next) && PANEL_IS_SPACE(prev))
+        {
+            expand = FALSE;
+            gtk_container_child_get(GTK_CONTAINER(panel->box), prev, "expand", &expand, NULL);
+            if (expand == TRUE)
+            {
+                /* prev is expandable, remove next */
+                config_setting_destroy(g_object_get_qdata(G_OBJECT(next), lxpanel_plugin_qconf));
+                g_object_set_qdata(G_OBJECT(next), lxpanel_plugin_qconf, NULL);
+                gtk_widget_destroy(next);
+            }
+            else
+            {
+                gtk_container_child_get(GTK_CONTAINER(panel->box), next, "expand", &expand, NULL);
+                if (expand == TRUE)
+                {
+                    /* next is expandable, remove prev */
+                    config_setting_destroy(g_object_get_qdata(G_OBJECT(prev), lxpanel_plugin_qconf));
+                    g_object_set_qdata(G_OBJECT(prev), lxpanel_plugin_qconf, NULL);
+                    gtk_widget_destroy(prev);
+                }
+                else
+                {
+                    /* calculate size of prev -- add size of this and next to it */
+                    size1 = _panel_space_get_size(prev);
+                    size2 = _panel_space_get_size(next);
+                    gtk_widget_get_allocation(plugin, &alloc);
+                    if (panel->orientation == GTK_ORIENTATION_HORIZONTAL)
+                        size1 += alloc.width + size2;
+                    else
+                        size1 += alloc.height + size2;
+                    /* remove next */
+                    config_setting_destroy(g_object_get_qdata(G_OBJECT(next), lxpanel_plugin_qconf));
+                    g_object_set_qdata(G_OBJECT(next), lxpanel_plugin_qconf, NULL);
+                    gtk_widget_destroy(next);
+                    _panel_space_resize(prev, size1);
+                }
+            }
+        }
+    }
+    g_list_free(children);
 
     lxpanel_config_save(p);
     gtk_widget_destroy(plugin);

@@ -490,8 +490,14 @@ static void on_launchbar_drag_data_delete(GtkWidget *widget,
     launchbar_remove_launcher(lb, lb->dragged_launcher);
     fm_path_unref(lb->dragged_launcher);
     lb->dragged_launcher = NULL;
-    launchbar_check_bootstrap(lb);
-    //FIXME: destroy empty plugin instead if in LAUNCHBAR mode?
+    if (lb->mode == LAUNCHBAR)
+    {
+        /* destroy empty plugin if it is in LAUNCHBAR mode */
+        if (panel_icon_grid_get_n_children(PANEL_ICON_GRID(lb->lb_icon_grid)) == 0)
+            lxpanel_remove_plugin(lb->panel, lb->plugin);
+    }
+    else
+        launchbar_check_bootstrap(lb);
 }
 
 static void on_launchbar_drag_end(GtkWidget *widget, GdkDragContext *context,
@@ -1773,6 +1779,31 @@ static void launchtaskbar_panel_configuration_changed(LXPanel *panel, GtkWidget 
     }
 }
 
+static gboolean launchtaskbar_control(GtkWidget *p, const char *cmd)
+{
+    LaunchTaskBarPlugin *ltbp = lxpanel_plugin_get_data(p);
+
+    if (ltbp->mode == LAUNCHBAR || ltbp->mode == LAUNCHTASKBAR)
+    {
+        if (strncmp(cmd, "add ", 4) == 0)
+        {
+            config_setting_t *s;
+
+            s = config_group_add_subgroup(ltbp->settings, "Button");
+            config_group_set_string(s, "id", &cmd[4]);
+            if (launchbutton_constructor(ltbp, s))
+            {
+                launchbar_remove_bootstrap(ltbp);
+                lxpanel_config_save(ltbp->panel);
+                return TRUE;
+            }
+            else
+                config_setting_destroy(s);
+        }
+    }
+    return FALSE;
+}
+
 /* Redraw all tasks in the taskbar. */
 static void taskbar_redraw(LaunchTaskBarPlugin * tb)
 {
@@ -2318,7 +2349,8 @@ static LXPanelPluginInit _launchbar_init = {
 
     .new_instance = launchbar_constructor,
     .config = launchtaskbar_configure,
-    .reconfigure = launchtaskbar_panel_configuration_changed
+    .reconfigure = launchtaskbar_panel_configuration_changed,
+    .control = launchtaskbar_control
 };
 
 static LXPanelPluginInit _taskbar_init = {
@@ -2330,7 +2362,8 @@ static LXPanelPluginInit _taskbar_init = {
 
     .new_instance = taskbar_constructor,
     .config = launchtaskbar_configure,
-    .reconfigure = launchtaskbar_panel_configuration_changed
+    .reconfigure = launchtaskbar_panel_configuration_changed,
+    .control = launchtaskbar_control
 };
 
 static void launchtaskbar_init(void)
@@ -2351,7 +2384,8 @@ LXPanelPluginInit lxpanel_static_plugin_launchtaskbar = {
     .new_instance = launchtaskbar_constructor,
     .config = launchtaskbar_configure,
     /* .update_context_menu = launchtaskbar_update_context_menu, */
-    .reconfigure = launchtaskbar_panel_configuration_changed
+    .reconfigure = launchtaskbar_panel_configuration_changed,
+    .control = launchtaskbar_control
 };
 
 

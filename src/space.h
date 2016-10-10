@@ -34,6 +34,7 @@ typedef struct _PanelSpaceClass      PanelSpaceClass;
 
 GtkWidget *_panel_space_new(LXPanel *panel, config_setting_t *settings);
 void _panel_space_resize(GtkWidget *spacer, gint size);
+gint _panel_space_get_size(GtkWidget *spacer);
 
 extern LXPanelPluginInit _lxpanel_static_plugin_space;
 

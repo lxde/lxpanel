@@ -132,6 +132,9 @@ static void process_client_msg ( XClientMessageEvent* ev )
         case LXPANEL_CMD_COMMAND:
             monitor = (ev->data.b[1] & 0xf) - 1; /* 0 for no monitor */
             edge = (ev->data.b[1] >> 4) & 0x7;
+            if ((ev->data.b[1] & 0x80) != 0)
+                /* some extension, not supported yet */
+                break;
             plugin_type = g_strndup(&ev->data.b[2], 18);
             command = strchr(plugin_type, '\t');
             if (command) do /* use do{}while(0) to enable break */

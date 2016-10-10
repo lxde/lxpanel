@@ -857,11 +857,13 @@ static void on_add_plugin( GtkButton* btn, GtkTreeView* _view )
 
 static void on_remove_plugin( GtkButton* btn, GtkTreeView* view )
 {
-    GtkTreeIter it;
+    GtkTreeIter it, it2;
     GtkTreePath* tree_path;
     GtkTreeModel* model;
     GtkTreeSelection* tree_sel = gtk_tree_view_get_selection( view );
-    GtkWidget* pl;
+    GtkWidget *pl, *prev, *next;
+    GList *plugins;
+    gint i;
 
     LXPanel* p = (LXPanel*) g_object_get_data( G_OBJECT(view), "panel" );
 
@@ -869,17 +871,44 @@ static void on_remove_plugin( GtkButton* btn, GtkTreeView* view )
     {
         tree_path = gtk_tree_model_get_path( model, &it );
         gtk_tree_model_get( model, &it, COL_DATA, &pl, -1 );
+        plugins = p->priv->box ? gtk_container_get_children(GTK_CONTAINER(p->priv->box)) : NULL;
+        i = g_list_index(plugins, pl);
+        if (i > 0)
+        {
+            prev = g_list_nth_data(plugins, i - 1);
+            next = g_list_nth_data(plugins, i + 1);
+            gtk_tree_path_prev(tree_path);
+            gtk_tree_model_get_iter(model, &it2, tree_path);
+            gtk_tree_path_next(tree_path);
+        }
+        else
+            prev = next = NULL;
         if( gtk_tree_path_get_indices(tree_path)[0] >= gtk_tree_model_iter_n_children( model, NULL ) )
             gtk_tree_path_prev( tree_path );
         gtk_list_store_remove( GTK_LIST_STORE(model), &it );
         gtk_tree_selection_select_path( tree_sel, tree_path );
         gtk_tree_path_free( tree_path );
+        g_list_free(plugins);
 
-        config_setting_destroy(g_object_get_qdata(G_OBJECT(pl), lxpanel_plugin_qconf));
-        /* reset conf pointer because the widget still may be referenced by configurator */
-        g_object_set_qdata(G_OBJECT(pl), lxpanel_plugin_qconf, NULL);
-        gtk_widget_destroy(pl);
-        panel_config_save(p->priv);
+        _lxpanel_remove_plugin(p, pl);
+
+        if (next && prev)
+        {
+            plugins = gtk_container_get_children(GTK_CONTAINER(p->priv->box));
+            if (g_list_index(plugins, prev) < 0)
+            {
+                /* previous was removed */
+                gtk_list_store_remove(GTK_LIST_STORE(model), &it2);
+            }
+            else if (g_list_index(plugins, next) < 0)
+            {
+                /* next was removed */
+                if (gtk_tree_model_iter_next(model, &it2))
+                    gtk_list_store_remove(GTK_LIST_STORE(model), &it2);
+                //FIXME: else move selection!
+            }
+            g_list_free(plugins);
+        }
     }
 }
 

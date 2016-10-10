@@ -211,9 +211,8 @@ static inline char *_user_config_file_name(const char *name1, const char *name2)
 void lxpanel_prepare_modules(void);
 void lxpanel_unload_modules(void);
 
-GtkWidget *lxpanel_add_plugin(LXPanel *p, const char *name, config_setting_t *cfg, gint at);
 GHashTable *lxpanel_get_all_types(void); /* transfer none */
-void lxpanel_remove_plugin(LXPanel *p, GtkWidget *plugin);
+void _lxpanel_remove_plugin(LXPanel *p, GtkWidget *plugin); /* no destroy dialog */
 
 extern GQuark lxpanel_plugin_qinit; /* access to LXPanelPluginInit data */
 #define PLUGIN_CLASS(_i) ((LXPanelPluginInit*)g_object_get_qdata(G_OBJECT(_i),lxpanel_plugin_qinit))

@@ -579,6 +579,8 @@ GtkWidget *lxpanel_add_plugin(LXPanel *p, const char *name, config_setting_t *cf
     }
     gtk_widget_set_name(widget, name);
     gtk_box_pack_start(GTK_BOX(p->priv->box), widget, expand, TRUE, padding);
+    if (at >= 0)
+        gtk_box_reorder_child(GTK_BOX(p->priv->box), widget, at);
     gtk_container_set_border_width(GTK_CONTAINER(widget), border);
     g_signal_connect(widget, "size-allocate", G_CALLBACK(on_size_allocate), p);
     gtk_widget_show(widget);
