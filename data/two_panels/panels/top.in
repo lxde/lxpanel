@@ -76,7 +76,7 @@ Plugin {
 }
 
 Plugin {
-    type = volumealsa
+    type = volume
 }
 
 Plugin {
