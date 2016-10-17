@@ -1,7 +1,6 @@
 * drag & drop plugins via middle button
 * "Move" option in plugin context menu
 * LXPanelPluginInit::activatable flag to allow activation with hotkey
-* drag & drop launchers (LauncherButton widget as "application/x-lxpanel-launcher")
 * accessibility (keys-only; single-button-mouse; special devices)
 * 'volumealsa' improvements
 * compose new custom launcher in launchbar config dialog
@@ -23,3 +22,5 @@
 * pull improvements from Raspbian
 * add Most Recent support into 'menu' plugin
 * check and use weather-* standard themed icons for weather plugin
+* "Remove this Launch Button" option in launchbar context menu
+* 'usb-unmount' plugin

@@ -357,7 +357,11 @@ static gboolean on_launchbar_drag_source(GtkWidget *widget, GdkEvent *event,
     GtkWidget *btn;
     PanelIconGridDropPosition pos;
     FmFileInfo *fi;
+    GdkWindow *win;
     gdouble x, y;
+#if !GTK_CHECK_VERSION(2, 22, 0)
+    gint px, py;
+#endif
 
     switch (event->type)
     {
@@ -370,17 +374,24 @@ static gboolean on_launchbar_drag_source(GtkWidget *widget, GdkEvent *event,
             break;
         /* check if it is a launcher where the drag begins */
         ig = PANEL_ICON_GRID(widget);
-        if (event->button.window == gtk_widget_get_window(widget))
+        win = event->button.window;
+        x = event->button.x;
+        y = event->button.y;
+        while (win != NULL && win != gtk_widget_get_window(widget))
         {
-            x = event->button.x;
-            y = event->button.y;
+#if GTK_CHECK_VERSION(2, 22, 0)
+            gdk_window_coords_to_parent(win, x, y, &x, &y);
+            win = gdk_window_get_effective_parent(win);
+#else
+            gdk_window_get_position(win, &px, &py);
+            x += px;
+            y += py;
+            win = gdk_window_get_parent(win);
+#endif
         }
-        else
-        {
-            /* event really comes for child, not for grid, why? */
-            gdk_window_coords_to_parent(event->button.window, event->button.x,
-                                        event->button.y, &x, &y);
-        }
+        if (win == NULL)
+            /* this should never happen */
+            break;
         if (!panel_icon_grid_get_dest_at_pos(ig, (int)x, (int)y, &btn, &pos) ||
             !PANEL_IS_LAUNCH_BUTTON(btn) || pos != PANEL_ICON_GRID_DROP_INTO)
             break;
@@ -565,7 +576,10 @@ static void on_launchbar_drag_data_received(GtkWidget *widget,
             path = fm_path_new_for_str(path_str);
             /* create new LaunchButton */
             s = config_group_add_subgroup(lb->settings, "Button");
-            config_group_set_string(s, "id", path_str);
+            if (fm_path_equal(fm_path_get_scheme_path(path), fm_path_get_apps_menu()))
+                config_group_set_string(s, "id", fm_path_get_basename(path));
+            else
+                config_group_set_string(s, "id", path_str);
             btn = GTK_WIDGET(launch_button_new(lb->panel, lb->plugin, path, s));
             fm_path_unref(path);
             if (btn)
@@ -691,11 +705,16 @@ static gboolean on_launchbar_files_dropped(FmDndDest *dd, int x, int y, GdkDragA
     default:
         return FALSE;
     }
-    path_str = fm_path_to_str(path);
-    /* g_debug("*** path '%s' pos %d", path_str, i); */
     s = config_group_add_subgroup(lb->settings, "Button");
-    config_group_set_string(s, "id", path_str);
-    g_free(path_str);
+    if (fm_path_equal(fm_path_get_scheme_path(path), fm_path_get_apps_menu()))
+        config_group_set_string(s, "id", fm_path_get_basename(path));
+    else
+    {
+        path_str = fm_path_to_str(path);
+        /* g_debug("*** path '%s' pos %d", path_str, i); */
+        config_group_set_string(s, "id", path_str);
+        g_free(path_str);
+    }
     btn = launch_button_new(lb->panel, lb->plugin, path, s);
     if (btn)
     {
@@ -1182,13 +1201,18 @@ static void _launchbar_configure_add(GtkTreeView *menu_view, LaunchTaskBarPlugin
             COL_BTN, btn,
             -1);
         g_object_unref(pix);
-        path = fm_path_to_str(sel_path);
-        /* g_debug("*** path '%s'",path); */
         settings = config_group_add_subgroup(ltbp->settings, "Button");
-        config_group_set_string(settings, "id", path);
+        if (fm_path_equal(fm_path_get_scheme_path(sel_path), fm_path_get_apps_menu()))
+            config_group_set_string(settings, "id", fm_path_get_basename(sel_path));
+        else
+        {
+            path = fm_path_to_str(sel_path);
+            /* g_debug("*** path '%s'",path); */
+            config_group_set_string(settings, "id", path);
+            g_free(path);
+        }
         launch_button_set_settings(btn, settings);
         lxpanel_config_save(ltbp->panel);
-        g_free(path);
         fm_path_unref(sel_path);
         launchbar_remove_bootstrap(ltbp);
     }

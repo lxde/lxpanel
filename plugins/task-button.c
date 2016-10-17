@@ -453,6 +453,7 @@ static GtkWidget *get_task_button_menu(TaskButton *tb, TaskDetails *task)
                 gtk_widget_set_sensitive(item->data, i != task->desktop);
         g_list_free(items);
     }
+    //FIXME: do the same for 'All workspaces' item
 
     return menu;
 }
