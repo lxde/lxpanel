@@ -460,7 +460,6 @@ static GtkWidget * constructor(LXPanel *panel, config_setting_t *settings)
 
     lx_b->box = GTK_CONTAINER(p);
     lx_b->drawingArea = gtk_drawing_area_new();
-    gtk_widget_add_events( lx_b->drawingArea, GDK_BUTTON_PRESS_MASK );
 
     gtk_container_add(lx_b->box, lx_b->drawingArea);
 

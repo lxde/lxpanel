@@ -143,11 +143,13 @@ static gboolean panel_space_make_launcher(GtkWidget *widget, gint x, gint y, con
     /* g_debug("making launcher at %d on PanelSpace of size %d", x, size); */
     if (x <= icon_size/2 + 4) //leave launchbar at idx (before PS), size -= icon_size+3
     {
+        lxpanel_config_save(panel);
     }
     else if (x >= size - icon_size/2 - 4) //move launchbar to idx+1 (after PS), size -= icon_size+3
     {
         gtk_box_reorder_child(GTK_BOX(panel_box), launchbar, idx + 1);
         config_setting_move_elem(cfg, config_setting_get_parent(cfg), idx + 2);
+        lxpanel_config_save(panel);
     }
     else if (expand && x < size/2) //create another PS at idx of size pos-icon_size/2-2, shifting launchbar
     {
@@ -372,6 +374,7 @@ void _panel_space_resize(GtkWidget *spacer, gint size)
 
     p->size = MAX(0, size);
     space_apply_configuration(p);
+    lxpanel_config_save(PLUGIN_PANEL(spacer));
 }
 
 gint _panel_space_get_size(GtkWidget *spacer)

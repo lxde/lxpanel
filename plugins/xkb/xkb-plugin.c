@@ -3,7 +3,7 @@
  *               2009-2010 Marty Jack <martyj19@comcast.net>
  *               2012-2013 Giuseppe Penone <giuspen@gmail.com>
  *               2013 Henry Gebhardt <hsggebhardt@gmail.com>
- *               2014 Andriy Grytsenko <andrej@rep.kiev.ua>
+ *               2014-2016 Andriy Grytsenko <andrej@rep.kiev.ua>
  *
  * This file is a part of LXPanel project.
  *
@@ -204,6 +204,8 @@ static gboolean on_xkb_button_scroll_event(GtkWidget * widget, GdkEventScroll * 
 static gboolean on_xkb_button_press_event(GtkWidget * widget,  GdkEventButton * event, LXPanel * panel)
 {
     /* Change to next group. */
+    if (event->button != 1)
+        return FALSE;
     xkb_change_group(lxpanel_plugin_get_data(widget), 1);
     return TRUE;
 }

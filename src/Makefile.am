@@ -28,6 +28,7 @@ liblxpanel_la_SOURCES = \
 	ev.c \
 	icon-grid.c \
 	panel.c \
+	panel-plugin-move.c \
 	plugin.c \
 	conf.c \
 	space.c \

@@ -6,7 +6,7 @@
  *               2012 Michael Rawson <michaelrawson76@gmail.com>
  *               2012 Julien Lavergne <julien.lavergne@gmail.com>
  *               2013 Henry Gebhardt <hsggebhardt@gmail.com>
- *               2014 Andriy Grytsenko <andrej@rep.kiev.ua>
+ *               2014-2016 Andriy Grytsenko <andrej@rep.kiev.ua>
  *
  * This file is a part of LXPanel project.
  *
@@ -141,13 +141,22 @@ static gboolean wincmd_button_clicked(GtkWidget * widget, GdkEventButton * event
         }
         else
             wincmd_execute(wc, WC_ICONIFY);
+        return TRUE;
     }
 
-    /* Middle-click to shade. */
-    else if (event->button == 2)
-        wincmd_execute(wc, WC_SHADE);
+    return FALSE;
+}
 
-    return TRUE;
+static gboolean wincmd_button_released(GtkWidget * widget, GdkEventButton * event, WinCmdPlugin * wc)
+{
+    /* Middle-click to shade. */
+    if (event->button == 2)
+    {
+        wincmd_execute(wc, WC_SHADE);
+        return TRUE;
+    }
+
+    return FALSE;
 }
 
 /* Plugin constructor. */
@@ -195,6 +204,9 @@ static GtkWidget *wincmd_constructor(LXPanel *panel, config_setting_t *settings)
     p = lxpanel_button_new_for_icon(panel, wc->image, NULL, NULL);
     lxpanel_plugin_set_data(p, wc, wincmd_destructor);
     gtk_widget_set_tooltip_text(p, _("Left click to iconify all windows.  Middle click to shade them."));
+
+    g_signal_connect(G_OBJECT(p), "button-release-event",
+                     G_CALLBACK(wincmd_button_released), wc);
 
     /* Show the widget and return. */
     return p;

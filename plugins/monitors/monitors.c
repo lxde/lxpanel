@@ -9,7 +9,7 @@
  * Copyright (C) 2010 Cyril Roelandt <steap@users.sourceforge.net>
  *               2012-2014 Henry Gebhardt <hsggebhardt@googlemail.com>
  *               2012 Rafał Mużyło <galtgendo@gmail.com>
- *               2014 Andriy Grytsenko <andrej@rep.kiev.ua>
+ *               2014-2016 Andriy Grytsenko <andrej@rep.kiev.ua>
  *               2015 Rafał Mużyło <galtgendo@gmail.com>
  *
  * <terms>
@@ -172,7 +172,6 @@ monitor_init(MonitorsPlugin *mp, Monitor *m, gchar *color)
 
     m->da = gtk_drawing_area_new();
     gtk_widget_set_size_request(m->da, DEFAULT_WIDTH, panel_get_height(mp->panel));
-    gtk_widget_add_events(m->da, GDK_BUTTON_PRESS_MASK);
 
     monitor_set_foreground_color(mp, m, color);
 
@@ -186,8 +185,6 @@ monitor_init(MonitorsPlugin *mp, Monitor *m, gchar *color)
     g_signal_connect (G_OBJECT(m->da), "draw",
         G_CALLBACK(draw), (gpointer) m);
 #endif
-    /* g_signal_connect(G_OBJECT(m->da), "button-press-event",
-                    G_CALLBACK(plugin_button_press_event), p); */
 
     return m;
 }
@@ -515,8 +512,12 @@ draw(GtkWidget * widget, cairo_t * cr, Monitor *m)
 
 static gboolean monitors_button_press_event(GtkWidget* widget, GdkEventButton* evt, LXPanel *panel)
 {
-    MonitorsPlugin* mp = lxpanel_plugin_get_data(widget);
+    MonitorsPlugin* mp;
 
+    if (evt->button != 1)
+        return FALSE;
+
+    mp = lxpanel_plugin_get_data(widget);
     if (mp->action != NULL)
         fm_launch_command_simple(NULL, NULL, 0, mp->action, NULL);
     else

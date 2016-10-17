@@ -55,6 +55,19 @@ enum { HEIGHT_NONE, HEIGHT_PIXEL, HEIGHT_REQUEST };
 #define PANEL_HEIGHT_MIN              16	/* Minimum height of panel */
 #define PANEL_ICON_HIGHLIGHT          0x202020	/* Constant to pass to icon loader */
 
+typedef enum {
+    PANEL_MOVE_STOP, /* initial state */
+    PANEL_MOVE_DETECT, /* button pressed, detect drag */
+    PANEL_MOVE_MOVING /* moving the plugin */
+} PanelPluginMoveState;
+
+typedef struct {
+    int space_size;         /* size of space plugin if expandable */
+    int plugin_center;      /* position of center of prev no-space plugin */
+    GtkWidget * space;
+    GtkWidget * plugin;
+} PanelPluginMoveData;
+
 /* to check if we are in LXDE */
 extern gboolean is_in_lxde;
 
@@ -75,7 +88,7 @@ struct _Panel {
 
     GtkRequisition requisition;
     GtkWidget *(*my_box_new) (gboolean, gint);
-    GtkWidget *(*my_separator_new) ();
+    GtkWidget *(*my_separator_new) (void);
 
     void *bg; /* unused since 0.8.0 */
     int alpha;
@@ -149,6 +162,14 @@ struct _Panel {
     //gint dyn_space;                     /* Space for expandable plugins */
     //guint calculate_size_idle;          /* The idle handler for dyn_space calc */
     cairo_surface_t *surface;           /* Panel background */
+
+    PanelPluginMoveState move_state;    /* Plugin movement (drag&drop) support */
+    int move_x, move_y;
+    int move_diff;
+    GdkDevice * move_device;
+    GtkWidget * move_plugin;            /* widgets involved in movement */
+    PanelPluginMoveData move_before;
+    PanelPluginMoveData move_after;
 };
 
 typedef struct {
@@ -242,6 +263,10 @@ gboolean _panel_edge_can_strut(LXPanel *panel, int edge, gint monitor, gulong *s
 void restart(void);
 void logout(void);
 void gtk_run(void);
+
+/* two huge callbacks used for plugins movement within panel */
+gboolean _lxpanel_button_release(GtkWidget *widget, GdkEventButton *event);
+gboolean _lxpanel_motion_notify(GtkWidget *widget, GdkEventMotion *event);
 
 
 /* -----------------------------------------------------------------------------

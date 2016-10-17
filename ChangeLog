@@ -25,6 +25,9 @@
     is more obvious and sensible.
 * Added stripping scheme from URI menu://applications/... when a launcher
     is created, only menu-id itself should be used.
+* Implemented moving plugins across panel by means of middle button drag
+    and drop, i.e. middle-click it then drag, and plugin will follow the
+    mouse until middle button is released.
 
 0.8.2
 -------------------------------------------------------------------------

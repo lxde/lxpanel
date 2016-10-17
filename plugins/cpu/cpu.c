@@ -264,10 +264,9 @@ static GtkWidget *cpu_constructor(LXPanel *panel, config_setting_t *settings)
     gtk_widget_set_has_window(p, FALSE);
     lxpanel_plugin_set_data(p, c, cpu_destructor);
 
-    /* Allocate drawing area as a child of top level widget.  Enable button press events. */
+    /* Allocate drawing area as a child of top level widget. */
     c->da = gtk_drawing_area_new();
     gtk_widget_set_size_request(c->da, 40, PANEL_HEIGHT_DEFAULT);
-    gtk_widget_add_events(c->da, GDK_BUTTON_PRESS_MASK);
     gtk_container_add(GTK_CONTAINER(p), c->da);
 
     /* Clone a graphics context and set "green" as its foreground color.
@@ -276,11 +275,11 @@ static GtkWidget *cpu_constructor(LXPanel *panel, config_setting_t *settings)
 
     /* Connect signals. */
     g_signal_connect(G_OBJECT(c->da), "configure-event", G_CALLBACK(configure_event), (gpointer) c);
-    #if !GTK_CHECK_VERSION(3, 0, 0)
+#if !GTK_CHECK_VERSION(3, 0, 0)
     g_signal_connect(G_OBJECT(c->da), "expose-event", G_CALLBACK(expose_event), (gpointer) c);
-    #else
+#else
     g_signal_connect(G_OBJECT(c->da), "draw", G_CALLBACK(draw), (gpointer) c);
-    #endif
+#endif
 
     /* Show the widget.  Connect a timer to refresh the statistics. */
     gtk_widget_show(c->da);

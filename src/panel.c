@@ -357,11 +357,31 @@ static gboolean lxpanel_map_event(GtkWidget *widget, GdkEventAny *event)
 /* Handler for "button_press_event" signal with Panel as parameter. */
 static gboolean lxpanel_button_press(GtkWidget *widget, GdkEventButton *event)
 {
+    LXPanel *panel = PLUGIN_PANEL(widget);
+
+    if ((event->state & gtk_accelerator_get_default_mod_mask()) != 0)
+        /* ignore clicks with modifiers */
+        return FALSE;
+
     if (event->button == 3) /* right button */
     {
-        GtkMenu* popup = (GtkMenu*) lxpanel_get_plugin_menu(LXPANEL(widget), NULL, FALSE);
+        GtkMenu* popup = (GtkMenu*) lxpanel_get_plugin_menu(panel, NULL, FALSE);
         gtk_menu_popup(popup, NULL, NULL, NULL, NULL, event->button, event->time);
         return TRUE;
+    }
+    else if (event->button == 2) /* middle button */
+    {
+        Panel *p = panel->priv;
+        if (p->move_state == PANEL_MOVE_STOP)
+        {
+            gdk_window_get_origin(event->window, &p->move_x, &p->move_y);
+            p->move_x += event->x - p->ax;
+            p->move_y += event->y - p->ay;
+            p->move_state = PANEL_MOVE_DETECT;
+            p->move_device = event->device;
+            /* rest of work see in panel-plugin-move.c file */
+            return TRUE;
+        }
     }
     return FALSE;
 }
@@ -392,6 +412,8 @@ static void lxpanel_class_init(PanelToplevelClass *klass)
     widget_class->style_set = lxpanel_style_set;
     widget_class->map_event = lxpanel_map_event;
     widget_class->button_press_event = lxpanel_button_press;
+    widget_class->button_release_event = _lxpanel_button_release;
+    widget_class->motion_notify_event = _lxpanel_motion_notify;
 
     signals[ICON_SIZE_CHANGED] =
         g_signal_new("icon-size-changed",
@@ -930,6 +952,10 @@ mouse_watch(LXPanel *panel)
     cy = p->ay;
     cw = p->cw;
     ch = p->ch;
+
+    if (p->move_state != PANEL_MOVE_STOP)
+        /* prevent autohide when dragging is on */
+        return TRUE;
 
     if (cw == 1) cw = 0;
     if (ch == 1) ch = 0;

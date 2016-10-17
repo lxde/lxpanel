@@ -128,7 +128,6 @@ netstatus_constructor(LXPanel *panel, config_setting_t *settings)
     p = netstatus_icon_new( iface );
     lxpanel_plugin_set_data(p, ns, netstatus_destructor);
     netstatus_icon_set_show_signal((NetstatusIcon *)p, TRUE);
-    gtk_widget_add_events( p, GDK_BUTTON_PRESS_MASK );
     g_object_unref( iface );
 
     RET(p);

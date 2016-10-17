@@ -1,4 +1,3 @@
-* drag & drop plugins via middle button
 * "Move" option in plugin context menu
 * LXPanelPluginInit::activatable flag to allow activation with hotkey
 * accessibility (keys-only; single-button-mouse; special devices)

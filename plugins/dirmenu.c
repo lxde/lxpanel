@@ -5,7 +5,7 @@
  *               2009-2010 Marty Jack <martyj19@comcast.net>
  *               2010 Julien Lavergne <julien.lavergne@gmail.com>
  *               2013 Henry Gebhardt <hsggebhardt@gmail.com>
- *               2014 Andriy Grytsenko <andrej@rep.kiev.ua>
+ *               2014-2016 Andriy Grytsenko <andrej@rep.kiev.ua>
  *
  * This file is a part of LXPanel project.
  *
@@ -250,12 +250,19 @@ static gboolean dirmenu_button_press_event(GtkWidget * widget, GdkEventButton * 
     if (event->button == 1)
     {
         dirmenu_show_menu(widget, dm, event->button, event->time);
+        return TRUE;
     }
-    else
+    return FALSE;
+}
+
+static gboolean dirmenu_button_release_event(GtkWidget * widget, GdkEventButton * event, DirMenuPlugin * dm)
+{
+    if (event->button == 2)
     {
         fm_terminal_launch(dm->path, NULL);
+        return TRUE;
     }
-    return TRUE;
+    return FALSE;
 }
 
 /* Plugin constructor. */
@@ -290,6 +297,9 @@ static GtkWidget *dirmenu_constructor(LXPanel *panel, config_setting_t *settings
 
     /* Initialize the widget. */
     dirmenu_apply_configuration(p);
+
+    g_signal_connect(G_OBJECT(p), "button-release-event",
+                     G_CALLBACK(dirmenu_button_release_event), dm);
 
     /* Show the widget and return. */
     return p;

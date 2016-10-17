@@ -8,7 +8,7 @@
  *               2012 Michael Rawson <michaelrawson76@gmail.com>
  *               2012-2014 Henry Gebhardt <hsggebhardt@gmail.com>
  *               2012 Piotr Sipika <Piotr.Sipika@gmail.com>
- *               2014-2015 Andriy Grytsenko <andrej@rep.kiev.ua>
+ *               2014-2016 Andriy Grytsenko <andrej@rep.kiev.ua>
  *
  * This file is a part of LXPanel project.
  *
@@ -114,9 +114,13 @@ static GtkWidget * dclock_create_calendar(DClockPlugin * dc)
 /* Handler for "button-press-event" event from main widget. */
 static gboolean dclock_button_press_event(GtkWidget * widget, GdkEventButton * evt, LXPanel * panel)
 {
-    DClockPlugin * dc = lxpanel_plugin_get_data(widget);
+    DClockPlugin * dc;
+
+    if (evt->button != 1)
+        return FALSE;
 
     /* If an action is set, execute it. */
+    dc = lxpanel_plugin_get_data(widget);
     if (dc->action != NULL)
         fm_launch_command_simple(NULL, NULL, 0, dc->action, NULL);
 
