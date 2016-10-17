@@ -153,7 +153,6 @@ static gboolean wincmd_button_released(GtkWidget * widget, GdkEventButton * even
     if (event->button == 2)
     {
         wincmd_execute(wc, WC_SHADE);
-        return TRUE;
     }
 
     return FALSE;

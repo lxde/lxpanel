@@ -1,11 +1,14 @@
 /*
+ * Copyright (C) 2006-2008 Jim Huang <jserv.tw@gmail.com>
+ *               2006 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
+ *
  * Copyright (C) 2008 Fred Chien <fred@lxde.org>
  *               2008 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
  *               2009-2010 Marty Jack <martyj19@comcast.net>
  *               2010-2012 Julien Lavergne <julien.lavergne@gmail.com>
  *               2012 Henry Gebhardt <hsggebhardt@gmail.com>
  *               2014 Peter <ombalaxitabou@users.sf.net>
- *               2014-2015 Andriy Grytsenko <andrej@rep.kiev.ua>
+ *               2014-2016 Andriy Grytsenko <andrej@rep.kiev.ua>
  *
  * This file is a part of LXPanel project.
  *
@@ -27,6 +30,10 @@
 #define _ISOC99_SOURCE /* lrint() */
 #define _GNU_SOURCE /* exp10() */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include <gtk/gtk.h>
 #include <stdlib.h>
 #include <fcntl.h>
@@ -34,8 +41,25 @@
 #include <glib.h>
 #include <glib/gi18n.h>
 #include <gdk-pixbuf/gdk-pixbuf.h>
+#ifdef DISABLE_ALSA
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/ioctl.h>
+#include <string.h>
+#include <stdio.h>
+#include <fcntl.h>
+#include <errno.h>
+#ifdef HAVE_SYS_SOUNDCARD_H
+#include <sys/soundcard.h>
+#elif defined(HAVE_LINUX_SOUNDCARD_H)
+#include <linux/soundcard.h>
+#else
+#error "Not supported platform"
+#endif
+#else
 #include <alsa/asoundlib.h>
 #include <poll.h>
+#endif
 #include <math.h>
 #include <libfm/fm-gtk.h>
 #include "plugin.h"
@@ -54,6 +78,14 @@
 
 #define MAX_LINEAR_DB_SCALE 24
 
+#ifdef DISABLE_ALSA
+typedef struct stereovolume
+{
+    unsigned char left;
+    unsigned char right;
+} StereoVolume;
+#endif
+
 typedef struct {
 
     /* Graphics. */
@@ -68,6 +100,15 @@ typedef struct {
     guint volume_scale_handler;			/* Handler for vscale widget */
     guint mute_check_handler;			/* Handler for mute_check widget */
 
+#ifdef DISABLE_ALSA
+    int mixer_fd;				/* The mixer FD */
+    struct
+    {
+        unsigned char left;
+        unsigned char right;
+    } vol;
+    gdouble vol_before_mute;			/* Save value when muted */
+#else
     /* ALSA interface. */
     snd_mixer_t * mixer;			/* The mixer */
     snd_mixer_selem_id_t * sid;			/* The element ID */
@@ -80,6 +121,7 @@ typedef struct {
     GIOChannel **channels;                      /* Channels that we listen to */
     guint *watches;                             /* Watcher IDs for channels */
     guint num_channels;                         /* Number of channels */
+#endif
 
     /* Icons */
     const char* icon_panel;
@@ -87,7 +129,9 @@ typedef struct {
 
 } VolumeALSAPlugin;
 
+#ifndef DISABLE_ALSA
 static gboolean asound_restart(gpointer vol_gpointer);
+#endif
 static gboolean asound_initialize(VolumeALSAPlugin * vol);
 static void asound_deinitialize(VolumeALSAPlugin * vol);
 static void volumealsa_update_display(VolumeALSAPlugin * vol);
@@ -95,6 +139,7 @@ static void volumealsa_destructor(gpointer user_data);
 
 /*** ALSA ***/
 
+#ifndef DISABLE_ALSA
 static gboolean asound_find_element(VolumeALSAPlugin * vol, const char * ename)
 {
     for (
@@ -197,11 +242,22 @@ static gboolean asound_restart(gpointer vol_gpointer)
     vol->restart_idle = 0;
     return FALSE;
 }
+#endif
 
 /* Initialize the ALSA interface. */
 static gboolean asound_initialize(VolumeALSAPlugin * vol)
 {
     /* Access the "default" device. */
+#ifdef DISABLE_ALSA
+    vol->mixer_fd = open ("/dev/mixer", O_RDWR, 0);
+    if (vol->mixer_fd < 0)
+    {
+        g_warning("cannot initialize OSS mixer: %s", strerror(errno));
+        return FALSE;
+    }
+
+    //FIXME: is there a way to watch volume with OSS?
+#else
     snd_mixer_selem_id_alloca(&vol->sid);
     snd_mixer_open(&vol->mixer, 0);
     snd_mixer_attach(vol->mixer, "default");
@@ -237,11 +293,17 @@ static gboolean asound_initialize(VolumeALSAPlugin * vol)
         vol->channels[i] = channel;
     }
     g_free(fds);
+#endif
     return TRUE;
 }
 
 static void asound_deinitialize(VolumeALSAPlugin * vol)
 {
+#ifdef DISABLE_ALSA
+    if (vol->mixer_fd >= 0)
+        close(vol->mixer_fd);
+    vol->mixer_fd = -1;
+#else
     guint i;
 
     if (vol->mixer_evt_idle != 0) {
@@ -263,12 +325,18 @@ static void asound_deinitialize(VolumeALSAPlugin * vol)
     snd_mixer_close(vol->mixer);
     vol->master_element = NULL;
     /* FIXME: unalloc vol->sid */
+#endif
 }
 
 /* Get the presence of the mute control from the sound system. */
 static gboolean asound_has_mute(VolumeALSAPlugin * vol)
 {
+#ifdef DISABLE_ALSA
+    /* it's emulated with OSS */
+    return TRUE;
+#else
     return ((vol->master_element != NULL) ? snd_mixer_selem_has_playback_switch(vol->master_element) : FALSE);
+#endif
 }
 
 /* Get the condition of the mute control from the sound system. */
@@ -277,11 +345,19 @@ static gboolean asound_is_muted(VolumeALSAPlugin * vol)
     /* The switch is on if sound is not muted, and off if the sound is muted.
      * Initialize so that the sound appears unmuted if the control does not exist. */
     int value = 1;
+#ifdef DISABLE_ALSA
+    StereoVolume levels;
+
+    ioctl(vol->mixer_fd, MIXER_READ(SOUND_MIXER_VOLUME), &levels);
+    value = (levels.left + levels.right) >> 1;
+#else
     if (vol->master_element != NULL)
         snd_mixer_selem_get_playback_switch(vol->master_element, 0, &value);
+#endif
     return (value == 0);
 }
 
+#ifndef DISABLE_ALSA
 static long lrint_dir(double x, int dir)
 {
     if (dir > 0)
@@ -332,11 +408,18 @@ static long get_normalized_volume(snd_mixer_elem_t *elem,
 
     return lrint(100.0 * normalized);
 }
+#endif
 
 /* Get the volume from the sound system.
  * This implementation returns the average of the Front Left and Front Right channels. */
 static int asound_get_volume(VolumeALSAPlugin * vol)
 {
+#ifdef DISABLE_ALSA
+    StereoVolume levels;
+
+    ioctl(vol->mixer_fd, MIXER_READ(SOUND_MIXER_VOLUME), &levels);
+    return (levels.left + levels.right) >> 1;
+#else
     long aleft = 0;
     long aright = 0;
 
@@ -354,8 +437,10 @@ static int asound_get_volume(VolumeALSAPlugin * vol)
         }
     }
     return (aleft + aright) >> 1;
+#endif
 }
 
+#ifndef DISABLE_ALSA
 static int set_normalized_volume(snd_mixer_elem_t *elem,
                                  snd_mixer_selem_channel_id_t channel,
                                  int vol,
@@ -390,6 +475,7 @@ static int set_normalized_volume(snd_mixer_elem_t *elem,
 
     return snd_mixer_selem_set_playback_dB(elem, channel, value, dir);
 }
+#endif
 
 /* Set the volume to the sound system.
  * This implementation sets the Front Left and Front Right channels to the specified value. */
@@ -401,6 +487,12 @@ static void asound_set_volume(VolumeALSAPlugin * vol, int volume)
     if (dir == 0)
         return;
 
+#ifdef DISABLE_ALSA
+    StereoVolume levels;
+
+    levels.left = levels.right = volume;
+    ioctl(vol->mixer_fd, MIXER_WRITE(SOUND_MIXER_VOLUME), &levels);
+#else
     if (vol->master_element != NULL)
     {
         if ( ! vol->alsamixer_mapping)
@@ -414,6 +506,7 @@ static void asound_set_volume(VolumeALSAPlugin * vol, int volume)
             set_normalized_volume(vol->master_element, SND_MIXER_SCHN_FRONT_RIGHT, volume, dir);
         }
     }
+#endif
 }
 
 /*** Graphics ***/
@@ -497,14 +590,20 @@ static gboolean volumealsa_button_press_event(GtkWidget * widget, GdkEventButton
             gtk_widget_show_all(vol->popup_window);
             vol->show_popup = TRUE;
         }
+        return TRUE;
     }
 
+    return FALSE;
+}
+
+static gboolean volumealsa_button_release_event(GtkWidget * widget, GdkEventButton * event, VolumeALSAPlugin * vol)
+{
     /* Middle-click.  Toggle the mute status. */
-    else if (event->button == 2)
+    if (event->button == 2)
     {
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(vol->mute_check), ! gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(vol->mute_check)));
     }
-    return TRUE;
+    return FALSE;
 }
 
 /* Handler for "focus-out" signal on popup window. */
@@ -562,12 +661,24 @@ static void volumealsa_popup_mute_toggled(GtkWidget * widget, VolumeALSAPlugin *
     gboolean mute = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(vol->mute_check));
 
     /* Reflect the mute toggle to the sound system. */
+#ifdef DISABLE_ALSA
+    if (mute)
+    {
+        vol->vol_before_mute = level;
+        asound_set_volume(vol, 0);
+    }
+    else
+    {
+        asound_set_volume(vol, vol->vol_before_mute);
+    }
+#else
     if (vol->master_element != NULL)
     {
         int chn;
         for (chn = 0; chn <= SND_MIXER_SCHN_LAST; chn++)
             snd_mixer_selem_set_playback_switch(vol->master_element, chn, ((mute) ? 0 : 1));
     }
+#endif
 
     /*
      * Redraw the controls.
@@ -645,8 +756,10 @@ static GtkWidget *volumealsa_constructor(LXPanel *panel, config_setting_t *setti
     VolumeALSAPlugin * vol = g_new0(VolumeALSAPlugin, 1);
     GtkWidget *p;
 
+#ifndef DISABLE_ALSA
     /* Read config necessary for proper initialization of ALSA. */
     config_setting_lookup_int(settings, "UseAlsamixerVolumeMapping", &vol->alsamixer_mapping);
+#endif
 
     /* Initialize ALSA.  If that fails, present nothing. */
     if ( ! asound_initialize(vol))
@@ -672,6 +785,7 @@ static GtkWidget *volumealsa_constructor(LXPanel *panel, config_setting_t *setti
 
     /* Connect signals. */
     g_signal_connect(G_OBJECT(p), "scroll-event", G_CALLBACK(volumealsa_popup_scale_scrolled), vol );
+    g_signal_connect(G_OBJECT(p), "button-release-event", G_CALLBACK(volumealsa_button_release_event), vol );
 
     /* Update the display, show the widget, and return. */
     volumealsa_update_display(vol);
@@ -691,8 +805,10 @@ static void volumealsa_destructor(gpointer user_data)
     if (vol->popup_window != NULL)
         gtk_widget_destroy(vol->popup_window);
 
+#ifndef DISABLE_ALSA
     if (vol->restart_idle)
         g_source_remove(vol->restart_idle);
+#endif
 
     /* Deallocate all memory. */
     g_free(vol);
@@ -771,12 +887,33 @@ static void volumealsa_panel_configuration_changed(LXPanel *panel, GtkWidget *p)
     volumealsa_update_display(lxpanel_plugin_get_data(p));
 }
 
-FM_DEFINE_MODULE(lxpanel_gtk, volumealsa)
+#ifndef DISABLE_ALSA
+static LXPanelPluginInit _volumealsa_init = {
+    .name = N_("Volume Control"),
+    .description = N_("Display and control volume"),
+
+    .superseded = TRUE,
+    .new_instance = volumealsa_constructor,
+    .config = volumealsa_configure,
+    .reconfigure = volumealsa_panel_configuration_changed,
+    .button_press_event = volumealsa_button_press_event
+};
+
+static void volumealsa_init(void)
+{
+    lxpanel_register_plugin_type("volumealsa", &_volumealsa_init);
+}
+#endif
+
+FM_DEFINE_MODULE(lxpanel_gtk, volume)
 
 /* Plugin descriptor. */
 LXPanelPluginInit fm_module_init_lxpanel_gtk = {
     .name = N_("Volume Control"),
-    .description = N_("Display and control volume for ALSA"),
+    .description = N_("Display and control volume"),
+#ifndef DISABLE_ALSA
+    .init = volumealsa_init,
+#endif
 
     .new_instance = volumealsa_constructor,
     .config = volumealsa_configure,

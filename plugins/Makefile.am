@@ -69,7 +69,6 @@ EXTRA_LTLIBRARIES = \
 	netstatus.la \
 	thermal.la \
 	volume.la \
-	volumealsa.la \
 	weather.la \
 	xkb.la
 
@@ -132,15 +131,11 @@ netstatus_la_CFLAGS = \
 # thermal
 thermal_la_SOURCES = thermal/thermal.c
 
-# volume (OSS)
-volume_la_SOURCES = \
-	volume/volume-impl.c \
-	volume/volume.c
-volume_la_CFLAGS = -I$(srcdir)/volume
-
-# volumealsa
-volumealsa_la_SOURCES = volumealsa/volumealsa.c
-volumealsa_la_LIBADD = -lasound
+# volume
+volume_la_SOURCES = volumealsa/volumealsa.c
+if BUILD_ALSA_PLUGINS
+volume_la_LIBADD = -lasound
+endif
 
 # weather
 weather_la_SOURCES = \

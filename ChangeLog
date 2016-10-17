@@ -28,6 +28,10 @@
 * Implemented moving plugins across panel by means of middle button drag
     and drop, i.e. middle-click it then drag, and plugin will follow the
     mouse until middle button is released.
+* Merged 'volume' and 'volumealsa' plugins into single plugin which uses
+    the same interface but different driver, in dependency on how it was
+    built - either OSS or ALSA interface is used. Name 'volume' is used
+    for simplicity while 'volumealsa' is supported for compatibility.
 
 0.8.2
 -------------------------------------------------------------------------

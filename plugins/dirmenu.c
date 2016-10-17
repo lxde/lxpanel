@@ -260,7 +260,6 @@ static gboolean dirmenu_button_release_event(GtkWidget * widget, GdkEventButton 
     if (event->button == 2)
     {
         fm_terminal_launch(dm->path, NULL);
-        return TRUE;
     }
     return FALSE;
 }

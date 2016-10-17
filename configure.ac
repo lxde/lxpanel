@@ -191,7 +191,6 @@ dnl Here are plugin listing.
 plugin_netstatus=
 plugin_netstat=
 plugin_volume=
-plugin_volumealsa=
 plugin_cpu=
 plugin_deskno=
 plugin_batt=
@@ -209,8 +208,8 @@ AC_ARG_WITH(plugins,
 [                         'all' builds all plugins (default), 'none' builds none ]
 [                         plugins prefixed with '-' are not built]
 [                         Possible plugins are: ]
-[                         netstatus, netstat, volume, volumealsa, cpu, deskno, batt,]
-[                         kbled, xkb, thermal, cpufreq, monitors, indicator, weather]
+[                         netstatus, netstat, volume, cpu, deskno, batt, kbled,]
+[                         xkb, thermal, cpufreq, monitors, indicator, weather]
 , plugins="$withval",[plugins="all"])
 
 if test x"$plugins" != xall -a x"$plugins" != xnone; then
@@ -221,7 +220,6 @@ if test x"$plugins" != xall -a x"$plugins" != xnone; then
 fi
 
 ALL_PLUGINS_LIST="netstatus netstat volume volumealsa cpu deskno batt kbled xkb thermal cpufreq monitors indicator weather"
-AC_SUBST(ALL_PLUGINS_LIST)
 
 AC_DEFUN([check_plugin_name],[
     plugin_found=false
@@ -262,19 +260,18 @@ fi
 
 dnl FIXME: OSS/ALSA checking
 if test x"$compile_alsa" = "xno"; then
-    if test ! -z $plugin_volumealsa; then
-        AC_MSG_RESULT([no ALSA headers/libraries found!])
-        plugin_volumealsa=
+    AC_DEFINE(DISABLE_ALSA, [1], [Define to disable using ALSA in 'volume' plugin.])
+    if test -n $plugin_volume; then
+        AC_CHECK_HEADERS([sys/soundcard.h linux/soundcard.h])
+        if test x$ac_cv_header_sys_soundcard_h = xno && test x$ac_cv_header_linux_soundcard_h = xno; then
+            AC_MSG_RESULT([no OSS headers found!])
+            plugin_volume=
+        fi
     fi
 else
-    dnl force OSS plugin to <null>
-    plugin_volume=
-fi
-if test ! -z $plugin_volume; then
-    AC_CHECK_HEADERS([sys/soundcard.h linux/soundcard.h])
-    if test x$ac_cv_header_sys_soundcard_h = xno && test x$ac_cv_header_linux_soundcard_h = xno; then
-        AC_MSG_RESULT([no OSS headers found!])
-        plugin_volume=
+    dnl use $plugin_volumealsa for backward compatibility
+    if test -n $plugin_volumealsa; then
+        plugin_volume=volume.la
     fi
 fi
 
@@ -287,7 +284,6 @@ PLUGINS_LIST="\
     $plugin_netstatus \
     $plugin_netstat \
     $plugin_volume \
-    $plugin_volumealsa \
     $plugin_cpu \
     $plugin_deskno \
     $plugin_batt \
@@ -424,10 +420,7 @@ echo Building dynamic plugins:
         AC_MSG_RESULT([    netstat - Monitor networking status])
     fi
     if test x"$plugin_volume" != x; then
-        AC_MSG_RESULT([    volume - Display and adjust volume of sound card for OSS])
-    fi
-    if test x"$plugin_volumealsa" != x; then
-        AC_MSG_RESULT([    volumealsa - Display and adjust volume of sound card for ALSA])
+        AC_MSG_RESULT([    volume - Display and adjust volume of sound card])
     fi
     if test x"$plugin_cpu" != x; then
         AC_MSG_RESULT([    cpu - Display CPU loading])
