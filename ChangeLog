@@ -32,6 +32,12 @@
     the same interface but different driver, in dependency on how it was
     built - either OSS or ALSA interface is used. Name 'volume' is used
     for simplicity while 'volumealsa' is supported for compatibility.
+* Made default channel in 'volume' plugin definable in config. If there
+    is no config statement then plugin finds first usable one, the same
+    as before.
+* Made clicks for Toggle Mute, Show Slider and Open Mixer actions of the
+    'volume' plugin configurable. Defaults are the same: left-click shows
+    slider, middle-click toggles mute state.
 
 0.8.2
 -------------------------------------------------------------------------

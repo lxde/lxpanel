@@ -407,7 +407,7 @@ guint panel_config_click_parse(const char *keystring, GdkModifierType *mods)
         return 0;
     gtk_accelerator_parse(keystring, &key, mods);
     name = gdk_keyval_name(key);
-    if (name[0] >= '1' && name[0] <= '9')
+    if (name && name[0] >= '1' && name[0] <= '9')
         return (name[0] - '0');
     return 0;
 }

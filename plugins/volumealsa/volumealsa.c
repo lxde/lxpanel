@@ -121,12 +121,21 @@ typedef struct {
     GIOChannel **channels;                      /* Channels that we listen to */
     guint *watches;                             /* Watcher IDs for channels */
     guint num_channels;                         /* Number of channels */
+
+    char *master_channel;
 #endif
 
     /* Icons */
     const char* icon_panel;
     const char* icon_fallback;
 
+    /* Clicks */
+    int mute_click;
+    GdkModifierType mute_click_mods;
+    int mixer_click;
+    GdkModifierType mixer_click_mods;
+    int slider_click;
+    GdkModifierType slider_click_mods;
 } VolumeALSAPlugin;
 
 #ifndef DISABLE_ALSA
@@ -140,17 +149,21 @@ static void volumealsa_destructor(gpointer user_data);
 /*** ALSA ***/
 
 #ifndef DISABLE_ALSA
-static gboolean asound_find_element(VolumeALSAPlugin * vol, const char * ename)
+static gboolean asound_find_element(VolumeALSAPlugin * vol, const char ** ename, int n)
 {
-    for (
-      vol->master_element = snd_mixer_first_elem(vol->mixer);
-      vol->master_element != NULL;
-      vol->master_element = snd_mixer_elem_next(vol->master_element))
+    int i;
+
+    for (i = 0; i < n; i++)
     {
-        snd_mixer_selem_get_id(vol->master_element, vol->sid);
-        if ((snd_mixer_selem_is_active(vol->master_element))
-        && (strcmp(ename, snd_mixer_selem_id_get_name(vol->sid)) == 0))
-            return TRUE;
+        for (vol->master_element = snd_mixer_first_elem(vol->mixer);
+             vol->master_element != NULL;
+             vol->master_element = snd_mixer_elem_next(vol->master_element))
+        {
+            snd_mixer_selem_get_id(vol->master_element, vol->sid);
+            if (snd_mixer_selem_is_active(vol->master_element) &&
+                strcmp(ename[i], snd_mixer_selem_id_get_name(vol->sid)) == 0)
+                    return TRUE;
+        }
     }
     return FALSE;
 }
@@ -264,13 +277,20 @@ static gboolean asound_initialize(VolumeALSAPlugin * vol)
     snd_mixer_selem_register(vol->mixer, NULL, NULL);
     snd_mixer_load(vol->mixer);
 
+    if (vol->master_channel)
+    {
+        /* If user defined the channel then use it */
+        if (!asound_find_element(vol, (const char **)&vol->master_channel, 1))
+            return FALSE;
+    }
+    else
+    {
+        const char * def_channels[] = { "Master", "Front", "PCM", "LineOut" };
     /* Find Master element, or Front element, or PCM element, or LineOut element.
      * If one of these succeeds, master_element is valid. */
-    if ( ! asound_find_element(vol, "Master"))
-        if ( ! asound_find_element(vol, "Front"))
-            if ( ! asound_find_element(vol, "PCM"))
-                if ( ! asound_find_element(vol, "LineOut"))
-                    return FALSE;
+        if (!asound_find_element(vol, def_channels, G_N_ELEMENTS(def_channels)))
+            return FALSE;
+    }
 
     /* Set the playback volume range as we wish it. */
     if ( ! vol->alsamixer_mapping)
@@ -572,14 +592,66 @@ static void volumealsa_update_display(VolumeALSAPlugin * vol)
     }
 }
 
-/* Handler for "button-press-event" signal on main widget. */
-static gboolean volumealsa_button_press_event(GtkWidget * widget, GdkEventButton * event, LXPanel * panel)
+static void volume_run_mixer(VolumeALSAPlugin * vol)
 {
-    VolumeALSAPlugin * vol = lxpanel_plugin_get_data(widget);
+    char *path = NULL;
+    const gchar *command_line = NULL;
+    GAppInfoCreateFlags flags = G_APP_INFO_CREATE_NONE;
 
-    /* Left-click.  Show or hide the popup window. */
-    if (event->button == 1)
+    /* check if command line was configured */
+    config_setting_lookup_string(vol->settings, "MixerCommand", &command_line);
+
+    /* if command isn't set in settings then let guess it */
+    if (command_line == NULL && (path = g_find_program_in_path("pulseaudio")))
     {
+        g_free(path);
+     /* Assume that when pulseaudio is installed, it's launching every time */
+        if ((path = g_find_program_in_path("gnome-sound-applet")))
+        {
+            command_line = "gnome-sound-applet";
+        }
+        else if ((path = g_find_program_in_path("pavucontrol")))
+        {
+            command_line = "pavucontrol";
+        }
+    }
+
+    /* Fallback to alsamixer when PA is not running, or when no PA utility is find */
+    if (command_line == NULL)
+    {
+        if ((path = g_find_program_in_path("gnome-alsamixer")))
+        {
+            command_line = "gnome-alsamixer";
+        }
+        else if ((path = g_find_program_in_path("alsamixergui")))
+        {
+            command_line = "alsamixergui";
+        }
+        else if ((path = g_find_program_in_path("alsamixer")))
+        {
+            command_line = "alsamixer";
+            flags = G_APP_INFO_CREATE_NEEDS_TERMINAL;
+        }
+    }
+    g_free(path);
+
+    if (command_line)
+    {
+        fm_launch_command_simple(NULL, NULL, flags, command_line, NULL);
+    }
+    else
+    {
+        fm_show_error(NULL, NULL,
+                      _("Error, you need to install an application to configure"
+                        " the sound (pavucontrol, alsamixer ...)"));
+    }
+}
+
+static void _check_click(VolumeALSAPlugin * vol, int button, GdkModifierType mod)
+{
+    if (vol->slider_click == button && vol->slider_click_mods == mod)
+    {
+        /* Left-click.  Show or hide the popup window. */
         if (vol->show_popup)
         {
             gtk_widget_hide(vol->popup_window);
@@ -590,7 +662,27 @@ static gboolean volumealsa_button_press_event(GtkWidget * widget, GdkEventButton
             gtk_widget_show_all(vol->popup_window);
             vol->show_popup = TRUE;
         }
-        return TRUE;
+    }
+    if (vol->mute_click == button && vol->mute_click_mods == mod)
+    {
+        /* Middle-click.  Toggle the mute status. */
+        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(vol->mute_check), ! gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(vol->mute_check)));
+    }
+    if (vol->mixer_click == button && vol->mixer_click_mods == mod)
+    {
+        volume_run_mixer(vol);
+    }
+}
+
+/* Handler for "button-press-event" signal on main widget. */
+static gboolean volumealsa_button_press_event(GtkWidget * widget, GdkEventButton * event, LXPanel * panel)
+{
+    VolumeALSAPlugin * vol = lxpanel_plugin_get_data(widget);
+
+    if (event->button == 1)
+    {
+        _check_click(vol, 1,
+                     event->state & gtk_accelerator_get_default_mod_mask());
     }
 
     return FALSE;
@@ -598,10 +690,10 @@ static gboolean volumealsa_button_press_event(GtkWidget * widget, GdkEventButton
 
 static gboolean volumealsa_button_release_event(GtkWidget * widget, GdkEventButton * event, VolumeALSAPlugin * vol)
 {
-    /* Middle-click.  Toggle the mute status. */
-    if (event->button == 2)
+    if (event->button != 1)
     {
-        gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(vol->mute_check), ! gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(vol->mute_check)));
+        _check_click(vol, event->button,
+                     event->state & gtk_accelerator_get_default_mod_mask());
     }
     return FALSE;
 }
@@ -755,11 +847,24 @@ static GtkWidget *volumealsa_constructor(LXPanel *panel, config_setting_t *setti
     /* Allocate and initialize plugin context and set into Plugin private data pointer. */
     VolumeALSAPlugin * vol = g_new0(VolumeALSAPlugin, 1);
     GtkWidget *p;
+    const char *tmp_str;
 
 #ifndef DISABLE_ALSA
     /* Read config necessary for proper initialization of ALSA. */
     config_setting_lookup_int(settings, "UseAlsamixerVolumeMapping", &vol->alsamixer_mapping);
+    if (config_setting_lookup_string(settings, "MasterChannel", &tmp_str))
+        vol->master_channel = g_strdup(tmp_str);
 #endif
+    if (config_setting_lookup_string(settings, "MuteButton", &tmp_str))
+        vol->mute_click = panel_config_click_parse(tmp_str, &vol->mute_click_mods);
+    else
+        vol->mute_click = 2; /* middle-click default */
+    if (config_setting_lookup_string(settings, "SliderButton", &tmp_str))
+        vol->slider_click = panel_config_click_parse(tmp_str, &vol->slider_click_mods);
+    else
+        vol->slider_click = 1; /* left-click default */
+    if (config_setting_lookup_string(settings, "MixerButton", &tmp_str))
+        vol->mixer_click = panel_config_click_parse(tmp_str, &vol->mixer_click_mods);
 
     /* Initialize ALSA.  If that fails, present nothing. */
     if ( ! asound_initialize(vol))
@@ -808,6 +913,8 @@ static void volumealsa_destructor(gpointer user_data)
 #ifndef DISABLE_ALSA
     if (vol->restart_idle)
         g_source_remove(vol->restart_idle);
+
+    g_free(vol->master_channel);
 #endif
 
     /* Deallocate all memory. */
@@ -819,63 +926,15 @@ static void volumealsa_destructor(gpointer user_data)
 static GtkWidget *volumealsa_configure(LXPanel *panel, GtkWidget *p)
 {
     VolumeALSAPlugin * vol = lxpanel_plugin_get_data(p);
-    char *path = NULL;
-    const gchar *command_line = NULL;
-    GAppInfoCreateFlags flags = G_APP_INFO_CREATE_NONE;
 
     /* FIXME: configure settings! */
-    /* check if command line was configured */
-    config_setting_lookup_string(vol->settings, "MixerCommand", &command_line);
     /* FIXME: support "needs terminal" for MixerCommand */
     /* FIXME: selection for master channel! */
     /* FIXME: selection for the device */
     /* FIXME: configure buttons for each action (toggle volume/mixer/mute)! */
     /* FIXME: allow bind multimedia keys to volume using libkeybinder */
 
-    /* if command isn't set in settings then let guess it */
-    if (command_line == NULL && (path = g_find_program_in_path("pulseaudio")))
-    {
-        g_free(path);
-     /* Assume that when pulseaudio is installed, it's launching every time */
-        if ((path = g_find_program_in_path("gnome-sound-applet")))
-        {
-            command_line = "gnome-sound-applet";
-        }
-        else if ((path = g_find_program_in_path("pavucontrol")))
-        {
-            command_line = "pavucontrol";
-        }
-    }
-
-    /* Fallback to alsamixer when PA is not running, or when no PA utility is find */
-    if (command_line == NULL)
-    {
-        if ((path = g_find_program_in_path("gnome-alsamixer")))
-        {
-            command_line = "gnome-alsamixer";
-        }
-        else if ((path = g_find_program_in_path("alsamixergui")))
-        {
-            command_line = "alsamixergui";
-        }
-        else if ((path = g_find_program_in_path("alsamixer")))
-        {
-            command_line = "alsamixer";
-            flags = G_APP_INFO_CREATE_NEEDS_TERMINAL;
-        }
-    }
-    g_free(path);
-
-    if (command_line)
-    {
-        fm_launch_command_simple(NULL, NULL, flags, command_line, NULL);
-    }
-    else
-    {
-        fm_show_error(NULL, NULL,
-                      _("Error, you need to install an application to configure"
-                        " the sound (pavucontrol, alsamixer ...)"));
-    }
+    volume_run_mixer(vol);
 
     return NULL;
 }
