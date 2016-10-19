@@ -38,6 +38,7 @@
 * Made clicks for Toggle Mute, Show Slider and Open Mixer actions of the
     'volume' plugin configurable. Defaults are the same: left-click shows
     slider, middle-click toggles mute state.
+* Added support for 'PCM' and 'Headphone' channels for OSS mixer.
 
 0.8.2
 -------------------------------------------------------------------------

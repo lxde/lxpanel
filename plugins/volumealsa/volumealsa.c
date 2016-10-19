@@ -56,6 +56,10 @@
 #else
 #error "Not supported platform"
 #endif
+#ifndef SOUND_MIXER_PHONEOUT
+# define SOUND_MIXER_PHONEOUT SOUND_MIXER_MONO
+#endif
+//TODO: support OSSv4
 #else
 #include <alsa/asoundlib.h>
 #include <poll.h>
@@ -79,10 +83,14 @@
 #define MAX_LINEAR_DB_SCALE 24
 
 #ifdef DISABLE_ALSA
-typedef struct stereovolume
+typedef union
 {
-    unsigned char left;
-    unsigned char right;
+    struct
+    {
+        unsigned char left;
+        unsigned char right;
+    };
+    int value;
 } StereoVolume;
 #endif
 
@@ -102,12 +110,9 @@ typedef struct {
 
 #ifdef DISABLE_ALSA
     int mixer_fd;				/* The mixer FD */
-    struct
-    {
-        unsigned char left;
-        unsigned char right;
-    } vol;
     gdouble vol_before_mute;			/* Save value when muted */
+
+    guint master_channel;
 #else
     /* ALSA interface. */
     snd_mixer_t * mixer;			/* The mixer */
@@ -368,7 +373,7 @@ static gboolean asound_is_muted(VolumeALSAPlugin * vol)
 #ifdef DISABLE_ALSA
     StereoVolume levels;
 
-    ioctl(vol->mixer_fd, MIXER_READ(SOUND_MIXER_VOLUME), &levels);
+    ioctl(vol->mixer_fd, MIXER_READ(vol->master_channel), &levels.value);
     value = (levels.left + levels.right) >> 1;
 #else
     if (vol->master_element != NULL)
@@ -437,7 +442,7 @@ static int asound_get_volume(VolumeALSAPlugin * vol)
 #ifdef DISABLE_ALSA
     StereoVolume levels;
 
-    ioctl(vol->mixer_fd, MIXER_READ(SOUND_MIXER_VOLUME), &levels);
+    ioctl(vol->mixer_fd, MIXER_READ(vol->master_channel), &levels.value);
     return (levels.left + levels.right) >> 1;
 #else
     long aleft = 0;
@@ -511,7 +516,7 @@ static void asound_set_volume(VolumeALSAPlugin * vol, int volume)
     StereoVolume levels;
 
     levels.left = levels.right = volume;
-    ioctl(vol->mixer_fd, MIXER_WRITE(SOUND_MIXER_VOLUME), &levels);
+    ioctl(vol->mixer_fd, MIXER_WRITE(vol->master_channel), &levels.value);
 #else
     if (vol->master_element != NULL)
     {
@@ -854,6 +859,15 @@ static GtkWidget *volumealsa_constructor(LXPanel *panel, config_setting_t *setti
     config_setting_lookup_int(settings, "UseAlsamixerVolumeMapping", &vol->alsamixer_mapping);
     if (config_setting_lookup_string(settings, "MasterChannel", &tmp_str))
         vol->master_channel = g_strdup(tmp_str);
+#else
+    vol->master_channel = SOUND_MIXER_VOLUME;
+    if (config_setting_lookup_string(settings, "MasterChannel", &tmp_str))
+    {
+        if (strcmp(tmp_str, "PCM") == 0)
+            vol->master_channel = SOUND_MIXER_PCM;
+        else if (strcmp(tmp_str, "Headphone") == 0)
+            vol->master_channel = SOUND_MIXER_PHONEOUT;
+    }
 #endif
     if (config_setting_lookup_string(settings, "MuteButton", &tmp_str))
         vol->mute_click = panel_config_click_parse(tmp_str, &vol->mute_click_mods);
