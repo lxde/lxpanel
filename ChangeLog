@@ -39,6 +39,8 @@
     'volume' plugin configurable. Defaults are the same: left-click shows
     slider, middle-click toggles mute state.
 * Added support for 'PCM' and 'Headphone' channels for OSS mixer.
+* Added support for other (not default one) ALSA cards in 'volume' plugin
+    via 'CardNumber' setting.
 
 0.8.2
 -------------------------------------------------------------------------

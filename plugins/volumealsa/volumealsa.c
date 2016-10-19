@@ -116,7 +116,6 @@ typedef struct {
 #else
     /* ALSA interface. */
     snd_mixer_t * mixer;			/* The mixer */
-    snd_mixer_selem_id_t * sid;			/* The element ID */
     snd_mixer_elem_t * master_element;		/* The Master element */
     guint mixer_evt_idle;			/* Timer to handle restarting poll */
     guint restart_idle;
@@ -127,6 +126,7 @@ typedef struct {
     guint *watches;                             /* Watcher IDs for channels */
     guint num_channels;                         /* Number of channels */
 
+    gint used_device;
     char *master_channel;
 #endif
 
@@ -157,16 +157,18 @@ static void volumealsa_destructor(gpointer user_data);
 static gboolean asound_find_element(VolumeALSAPlugin * vol, const char ** ename, int n)
 {
     int i;
+    snd_mixer_selem_id_t * sid;			/* The element ID */
 
+    snd_mixer_selem_id_alloca(&sid);
     for (i = 0; i < n; i++)
     {
         for (vol->master_element = snd_mixer_first_elem(vol->mixer);
              vol->master_element != NULL;
              vol->master_element = snd_mixer_elem_next(vol->master_element))
         {
-            snd_mixer_selem_get_id(vol->master_element, vol->sid);
+            snd_mixer_selem_get_id(vol->master_element, sid);
             if (snd_mixer_selem_is_active(vol->master_element) &&
-                strcmp(ename[i], snd_mixer_selem_id_get_name(vol->sid)) == 0)
+                strcmp(ename[i], snd_mixer_selem_id_get_name(sid)) == 0)
                     return TRUE;
         }
     }
@@ -276,9 +278,16 @@ static gboolean asound_initialize(VolumeALSAPlugin * vol)
 
     //FIXME: is there a way to watch volume with OSS?
 #else
-    snd_mixer_selem_id_alloca(&vol->sid);
     snd_mixer_open(&vol->mixer, 0);
-    snd_mixer_attach(vol->mixer, "default");
+    if (vol->used_device < 0)
+        snd_mixer_attach(vol->mixer, "default");
+    else
+    {
+        char id[16];
+
+        snprintf(id, sizeof(id), "hw:%d", vol->used_device);
+        snd_mixer_attach(vol->mixer, id);
+    }
     snd_mixer_selem_register(vol->mixer, NULL, NULL);
     snd_mixer_load(vol->mixer);
 
@@ -349,7 +358,6 @@ static void asound_deinitialize(VolumeALSAPlugin * vol)
 
     snd_mixer_close(vol->mixer);
     vol->master_element = NULL;
-    /* FIXME: unalloc vol->sid */
 #endif
 }
 
@@ -859,6 +867,8 @@ static GtkWidget *volumealsa_constructor(LXPanel *panel, config_setting_t *setti
     config_setting_lookup_int(settings, "UseAlsamixerVolumeMapping", &vol->alsamixer_mapping);
     if (config_setting_lookup_string(settings, "MasterChannel", &tmp_str))
         vol->master_channel = g_strdup(tmp_str);
+    if (!config_setting_lookup_int(settings, "CardNumber", &vol->used_device))
+        vol->used_device = -1;
 #else
     vol->master_channel = SOUND_MIXER_VOLUME;
     if (config_setting_lookup_string(settings, "MasterChannel", &tmp_str))
