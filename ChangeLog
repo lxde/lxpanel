@@ -41,6 +41,8 @@
 * Added support for 'PCM' and 'Headphone' channels for OSS mixer.
 * Added support for other (not default one) ALSA cards in 'volume' plugin
     via 'CardNumber' setting.
+* Added hotkey support into 'volume' plugin to be able to use multimedia
+    keys for volume changing directly by plugin.
 
 0.8.2
 -------------------------------------------------------------------------

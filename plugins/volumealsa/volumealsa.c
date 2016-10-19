@@ -141,6 +141,11 @@ typedef struct {
     GdkModifierType mixer_click_mods;
     int slider_click;
     GdkModifierType slider_click_mods;
+
+    /* Hotkeys */
+    char * hotkey_up;
+    char * hotkey_down;
+    char * hotkey_mute;
 } VolumeALSAPlugin;
 
 #ifndef DISABLE_ALSA
@@ -793,6 +798,28 @@ static void volumealsa_popup_mute_toggled(GtkWidget * widget, VolumeALSAPlugin *
     volumealsa_update_current_icon(vol, mute, level);
 }
 
+/* Hotkeys handlers */
+static void volume_up(const char *keystring, gpointer user_data)
+{
+    VolumeALSAPlugin * vol = (VolumeALSAPlugin *)user_data;
+    int val = (int)gtk_range_get_value(GTK_RANGE(vol->volume_scale)) + 2;
+    gtk_range_set_value(GTK_RANGE(vol->volume_scale), CLAMP(val, 0, 100));
+}
+
+static void volume_down(const char *keystring, gpointer user_data)
+{
+    VolumeALSAPlugin * vol = (VolumeALSAPlugin *)user_data;
+    int val = (int)gtk_range_get_value(GTK_RANGE(vol->volume_scale)) - 2;
+    gtk_range_set_value(GTK_RANGE(vol->volume_scale), CLAMP(val, 0, 100));
+}
+
+static void volume_mute(const char *keystring, gpointer user_data)
+{
+    VolumeALSAPlugin * vol = (VolumeALSAPlugin *)user_data;
+    gboolean muted = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(vol->mute_check));
+    gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(vol->mute_check), !muted);
+}
+
 /* Build the window that appears when the top level widget is clicked. */
 static void volumealsa_build_popup_window(GtkWidget *p)
 {
@@ -889,6 +916,12 @@ static GtkWidget *volumealsa_constructor(LXPanel *panel, config_setting_t *setti
         vol->slider_click = 1; /* left-click default */
     if (config_setting_lookup_string(settings, "MixerButton", &tmp_str))
         vol->mixer_click = panel_config_click_parse(tmp_str, &vol->mixer_click_mods);
+    if (config_setting_lookup_string(settings, "VolumeUpKey", &tmp_str))
+        lxpanel_apply_hotkey(&vol->hotkey_up, tmp_str, volume_up, vol, FALSE);
+    if (config_setting_lookup_string(settings, "VolumeDownKey", &tmp_str))
+        lxpanel_apply_hotkey(&vol->hotkey_up, tmp_str, volume_down, vol, FALSE);
+    if (config_setting_lookup_string(settings, "VolumeMuteKey", &tmp_str))
+        lxpanel_apply_hotkey(&vol->hotkey_up, tmp_str, volume_mute, vol, FALSE);
 
     /* Initialize ALSA.  If that fails, present nothing. */
     if ( ! asound_initialize(vol))
@@ -928,6 +961,10 @@ static void volumealsa_destructor(gpointer user_data)
 {
     VolumeALSAPlugin * vol = (VolumeALSAPlugin *) user_data;
 
+    lxpanel_apply_hotkey(&vol->hotkey_up, NULL, NULL, NULL, FALSE);
+    lxpanel_apply_hotkey(&vol->hotkey_down, NULL, NULL, NULL, FALSE);
+    lxpanel_apply_hotkey(&vol->hotkey_mute, NULL, NULL, NULL, FALSE);
+
     asound_deinitialize(vol);
 
     /* If the dialog box is open, dismiss it. */
@@ -946,7 +983,7 @@ static void volumealsa_destructor(gpointer user_data)
 }
 
 /* Callback when the configuration dialog is to be shown. */
-
+#if 0
 static GtkWidget *volumealsa_configure(LXPanel *panel, GtkWidget *p)
 {
     VolumeALSAPlugin * vol = lxpanel_plugin_get_data(p);
@@ -962,12 +999,25 @@ static GtkWidget *volumealsa_configure(LXPanel *panel, GtkWidget *p)
 
     return NULL;
 }
+#endif
 
 /* Callback when panel configuration changes. */
 static void volumealsa_panel_configuration_changed(LXPanel *panel, GtkWidget *p)
 {
     /* Do a full redraw. */
     volumealsa_update_display(lxpanel_plugin_get_data(p));
+}
+
+static gboolean volumealsa_update_context_menu(GtkWidget *plugin, GtkMenu *menu)
+{
+    GtkWidget *img = gtk_image_new_from_stock("gtk-directory", GTK_ICON_SIZE_MENU);
+    GtkWidget *menu_item = gtk_image_menu_item_new_with_label(_("Open a Mixer"));
+    //FIXME: precheck and disable if MixerCommand not set
+    gtk_image_menu_item_set_image((GtkImageMenuItem *)menu_item, img);
+    g_signal_connect_swapped(menu_item, "activate", G_CALLBACK(volume_run_mixer),
+                             lxpanel_plugin_get_data(plugin));
+    gtk_menu_shell_append(GTK_MENU_SHELL(menu), menu_item);
+    return FALSE;
 }
 
 #ifndef DISABLE_ALSA
@@ -977,8 +1027,9 @@ static LXPanelPluginInit _volumealsa_init = {
 
     .superseded = TRUE,
     .new_instance = volumealsa_constructor,
-    .config = volumealsa_configure,
+    /* .config = volumealsa_configure, */
     .reconfigure = volumealsa_panel_configuration_changed,
+    .update_context_menu = volumealsa_update_context_menu,
     .button_press_event = volumealsa_button_press_event
 };
 
@@ -999,8 +1050,9 @@ LXPanelPluginInit fm_module_init_lxpanel_gtk = {
 #endif
 
     .new_instance = volumealsa_constructor,
-    .config = volumealsa_configure,
+    /* .config = volumealsa_configure, */
     .reconfigure = volumealsa_panel_configuration_changed,
+    .update_context_menu = volumealsa_update_context_menu,
     .button_press_event = volumealsa_button_press_event
 };
 
