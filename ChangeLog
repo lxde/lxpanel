@@ -44,6 +44,8 @@
 * Added hotkey support into 'volume' plugin to be able to use multimedia
     keys for volume changing directly by plugin.
 * Fixed missing libkeybinder initialization (keybinding did not work).
+* Fixed check for attempt to add a binding for the same hotkey which is
+    already bound elsewhere.
 
 0.8.2
 -------------------------------------------------------------------------
