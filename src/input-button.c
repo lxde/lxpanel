@@ -131,6 +131,12 @@ static void _button_set_click_label(GtkButton *btn, guint keyval, GdkModifierTyp
 
     mod_text = gtk_accelerator_get_label(0, state);
     btn_text = gdk_keyval_name(keyval);
+    if (btn_text == NULL)
+    {
+        gtk_button_set_label(btn, "");
+        g_free(mod_text);
+        return;
+    }
     switch (btn_text[0])
     {
     case '1':

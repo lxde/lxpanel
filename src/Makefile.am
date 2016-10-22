@@ -10,6 +10,7 @@ lxpanel_CPPFLAGS = \
 	-DPACKAGE_BIN_DIR=\""$(bindir)"\" \
 	-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
 	$(PACKAGE_CFLAGS) \
+	$(KEYBINDER_CFLAGS) \
 	$(G_CAST_CHECKS)
 
 BUILTIN_PLUGINS = $(top_builddir)/plugins/libbuiltin_plugins.a
@@ -20,7 +21,7 @@ endif
 
 pkglib_LTLIBRARIES = liblxpanel.la
 
-liblxpanel_la_CPPFLAGS = $(lxpanel_CPPFLAGS) $(KEYBINDER_CFLAGS)
+liblxpanel_la_CPPFLAGS = $(lxpanel_CPPFLAGS)
 liblxpanel_la_SOURCES = \
 	misc.c \
 	configurator.c \
@@ -67,6 +68,7 @@ lxpanel_LDADD = \
 		liblxpanel.la \
 		$(BUILTIN_PLUGINS) \
 		$(PACKAGE_LIBS) \
+		$(KEYBINDER_LIBS) \
 		$(X11_LIBS)
 
 lxpanelctl_SOURCES = lxpanelctl.c lxpanelctl.h

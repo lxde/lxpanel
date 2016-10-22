@@ -47,6 +47,7 @@
 #include <string.h>
 #include <gdk/gdkx.h>
 #include <libfm/fm-gtk.h>
+#include <keybinder.h>
 
 #define __LXPANEL_INTERNALS__
 
@@ -477,6 +478,7 @@ int main(int argc, char *argv[], char *env[])
     gdk_threads_enter(); */
 
     gtk_init(&argc, &argv);
+    keybinder_init();
 
 #ifdef ENABLE_NLS
     bindtextdomain ( GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR );
