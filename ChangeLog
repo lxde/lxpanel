@@ -52,6 +52,8 @@
 * Fixed crash on action on task window which was deleted while task menu
     is still opened.
 * Fixed "dynamic" panel width allocation.
+* Fixed PanelIconGrid allocation in rigth-to-left languages, it was wrong
+    so some icons might be invisible or placed under other plugins.
 
 0.8.2
 -------------------------------------------------------------------------

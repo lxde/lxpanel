@@ -201,6 +201,7 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
             else
             {
                 // FIXME: if fill_width then use aspect to check delta
+                x = next_coord;
                 if (direction == GTK_TEXT_DIR_RTL)
                 {
                     next_coord = x - child_allocation.width;
@@ -213,7 +214,6 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
                             y += child_height + ig->spacing;
                         }
                     }
-                    x = next_coord;
                 }
                 else
                 {
@@ -226,7 +226,10 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
                     next_coord = x + child_allocation.width + ig->spacing;
                 }
             }
-            child_allocation.x = x;
+            if (direction == GTK_TEXT_DIR_RTL)
+                child_allocation.x = x - child_allocation.width;
+            else
+                child_allocation.x = x;
             if (req.height < child_height - 1)
                 y += (child_height - req.height) / 2;
             child_allocation.y = y;
