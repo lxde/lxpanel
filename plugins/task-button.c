@@ -1820,6 +1820,9 @@ gboolean task_button_drop_window(TaskButton *button, Window win, gboolean leave_
         task_redraw_label(button);
         // FIXME: test if need to update menu
     }
+    /* bug SF#823: menu may be still opened for this window */
+    if (button->menu_list && details->menu_item)
+        gtk_widget_destroy(details->menu_item);
     free_task_details(details);
     return TRUE;
 }
@@ -1897,5 +1900,11 @@ gboolean task_button_merge(TaskButton *button, TaskButton *sibling)
 /* single-instance-menu management, should be called on button parent widget */
 void task_button_reset_menu(GtkWidget *parent)
 {
-    g_object_set_data(G_OBJECT(parent), "task-button-menu", NULL);
+    GtkWidget *menu = g_object_get_data(G_OBJECT(parent), "task-button-menu");
+
+    if (menu)
+    {
+        gtk_menu_detach(GTK_MENU(menu));
+        g_object_set_data(G_OBJECT(parent), "task-button-menu", NULL);
+    }
 }

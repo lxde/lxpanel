@@ -49,6 +49,8 @@
 * Added a configuration dialog to the 'volume' plugin with all the new
     settings available to choose and set, including preset of discovered
     mixers, with ability to type own command as well.
+* Fixed crash on action on task window which was deleted while task menu
+    is still opened.
 
 0.8.2
 -------------------------------------------------------------------------
