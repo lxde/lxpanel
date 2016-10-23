@@ -75,7 +75,7 @@ static void icon_grid_element_check_requisition(PanelIconGrid *ig,
     {
         /* calculate width from aspect */
         gdouble ratio = (gdouble)requisition->width / requisition->height;
-        requisition->width = ig->child_height * ratio;
+        requisition->width = MAX(ig->child_height * ratio, ig->child_width);
     }
     else
     {

@@ -803,13 +803,15 @@ int panel_handle_x_error_swallow_BadWindow_BadDrawable(Display * d, XErrorEvent 
 }
 
 static void
-calculate_width(int scrw, int wtype, int align, int margin,
+calculate_width(int scrw, int pw, int wtype, int align, int margin,
       int *panw, int *x)
 {
     ENTER;
     DBG("scrw=%d\n", scrw);
     DBG("IN panw=%d, margin=%d\n", *panw, margin);
     //scrw -= 2;
+    if (wtype != WIDTH_REQUEST)
+        *panw = pw;
     if (wtype == WIDTH_PERCENT) {
         /* sanity check */
         if (*panw > 100)
@@ -865,17 +867,15 @@ void _calculate_position(LXPanel *panel, GdkRectangle *rect)
     }
 
     if (np->edge == EDGE_TOP || np->edge == EDGE_BOTTOM) {
-        rect->width = np->width;
         rect->x = marea.x;
-        calculate_width(marea.width, np->widthtype, np->align, np->margin,
+        calculate_width(marea.width, np->width, np->widthtype, np->align, np->margin,
               &rect->width, &rect->x);
         rect->height = ((( ! np->autohide) || (np->visible)) ? np->height : np->height_when_hidden);
         rect->y = marea.y + ((np->edge == EDGE_TOP) ? 0 : (marea.height - rect->height));
 
     } else {
-        rect->height = np->width;
         rect->y = marea.y;
-        calculate_width(marea.height, np->widthtype, np->align, np->margin,
+        calculate_width(marea.height, np->width, np->widthtype, np->align, np->margin,
               &rect->height, &rect->y);
         rect->width = ((( ! np->autohide) || (np->visible)) ? np->height : np->height_when_hidden);
         rect->x = marea.x + ((np->edge == EDGE_LEFT) ? 0 : (marea.width - rect->width));
