@@ -114,7 +114,10 @@ static gboolean panel_space_make_launcher(GtkWidget *widget, gint x, gint y, con
         lxpanel_remove_plugin(panel, launchbar);
         return FALSE;
     }
-    cmd = g_strdup_printf("add %s", str);
+    if (strncmp(str, "menu://applications/", 20) == 0)
+        cmd = g_strdup_printf("add %s", strrchr(str, '/') + 1);
+    else
+        cmd = g_strdup_printf("add %s", str);
     if (!init->control(launchbar, cmd)) /* failed to create a launcher */
     {
         g_free(cmd);
