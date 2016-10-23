@@ -46,6 +46,9 @@
 * Fixed missing libkeybinder initialization (keybinding did not work).
 * Fixed check for attempt to add a binding for the same hotkey which is
     already bound elsewhere.
+* Added a configuration dialog to the 'volume' plugin with all the new
+    settings available to choose and set, including preset of discovered
+    mixers, with ability to type own command as well.
 
 0.8.2
 -------------------------------------------------------------------------
