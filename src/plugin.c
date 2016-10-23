@@ -3,7 +3,7 @@
  *               2006-2008 Jim Huang <jserv.tw@gmail.com>
  *               2008 Fred Chien <fred@lxde.org>
  *               2009-2010 Marty Jack <martyj19@comcast.net>
- *               2014 Andriy Grytsenko <andrej@rep.kiev.ua>
+ *               2014-2016 Andriy Grytsenko <andrej@rep.kiev.ua>
  *
  * This file is a part of LXPanel project.
  *

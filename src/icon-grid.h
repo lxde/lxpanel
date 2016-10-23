@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 Andriy Grytsenko <andrej@rep.kiev.ua>
+ * Copyright (C) 2014-2016 Andriy Grytsenko <andrej@rep.kiev.ua>
  *
  * This file is a part of LXPanel project.
  *

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 Andriy Grytsenko <andrej@rep.kiev.ua>
+ * Copyright (C) 2014-2016 Andriy Grytsenko <andrej@rep.kiev.ua>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

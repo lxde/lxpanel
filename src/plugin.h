@@ -2,7 +2,7 @@
  * Copyright (C) 2006-2008 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
  *               2006-2008 Jim Huang <jserv.tw@gmail.com>
  *               2009-2010 Marty Jack <martyj19@comcast.net>
- *               2014 Andriy Grytsenko <andrej@rep.kiev.ua>
+ *               2014-2016 Andriy Grytsenko <andrej@rep.kiev.ua>
  *               2015 Hanno Zulla <hhz@users.sf.net>
  *
  * This file is a part of LXPanel project.

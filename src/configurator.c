@@ -11,7 +11,7 @@
  *               2012 Piotr Sipika <Piotr.Sipika@gmail.com>
  *               2012 Rafał Mużyło <galtgendo@gmail.com>
  *               2013 Rouslan <rouslan-k@users.sourceforge.net>
- *               2014 Andriy Grytsenko <andrej@rep.kiev.ua>
+ *               2014-2016 Andriy Grytsenko <andrej@rep.kiev.ua>
  *               2015 Hanno Zulla <hhz@users.sf.net>
  *
  * This file is a part of LXPanel project.
