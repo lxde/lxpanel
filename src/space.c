@@ -279,7 +279,7 @@ static void panel_space_get_preferred_size(GtkWidget *widget,
     PanelSpace *p = PANEL_SPACE(widget);
 
     if (minimal_width)
-        *minimal_width = p->size;
+        *minimal_width = 2;
     if (natural_width)
         *natural_width = p->size;
 }
