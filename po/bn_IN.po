@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-21 21:13+0200\n"
+"POT-Creation-Date: 2016-10-24 21:15+0300\n"
 "PO-Revision-Date: 2009-12-08 18:15+0100\n"
 "Last-Translator: Sankarshan <sankarshan.mukhopadhyay@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,49 +20,49 @@ msgstr ""
 "X-Pootle-Path: /bn_IN/lxpanel/po/bn_IN.po\n"
 "X-Pootle-Revision: 0\n"
 
-#: ../src/configurator.c:135
+#: ../src/configurator.c:148
 msgid ""
 "Space reservation is not available for this panel because there is another "
 "monitor beyond this edge and reservation would cover it if enabled."
 msgstr ""
 
-#: ../src/configurator.c:605
+#: ../src/configurator.c:632
 msgid "Currently loaded plugins"
 msgstr "সম্প্রতি লোড করা প্লাগ-ইন"
 
-#: ../src/configurator.c:614
+#: ../src/configurator.c:641
 msgid "Stretch"
 msgstr "বিস্তৃত করুন"
 
-#: ../src/configurator.c:749
+#: ../src/configurator.c:778
 msgid "Add plugin to panel"
 msgstr "প্লাগ-ইনকে প্যানেলে যোগ করুন"
 
-#: ../src/configurator.c:777
+#: ../src/configurator.c:806
 msgid "Available plugins"
 msgstr "উপস্থিত প্লাগ-ইন"
 
-#: ../src/configurator.c:1357
+#: ../src/configurator.c:1427
 msgid "Logout command is not set"
 msgstr "লগ-আউট কম্যান্ড নির্দিষ্ট করা হয়নি"
 
-#: ../src/configurator.c:1425
+#: ../src/configurator.c:1495
 msgid "Select a directory"
 msgstr "একটি ডিরেক্টরি বেছে নিন"
 
-#: ../src/configurator.c:1425 ../src/configurator.c:1540
+#: ../src/configurator.c:1495 ../src/configurator.c:1607
 msgid "Select a file"
 msgstr "একটি ফাইল বেছে নিন"
 
-#: ../src/configurator.c:1573
+#: ../src/configurator.c:1640
 msgid "_Browse"
 msgstr "ব্রাউজ(_B)"
 
-#: ../src/panel.c:981
+#: ../src/panel.c:1283
 msgid "There is no room for another panel. All the edges are taken."
 msgstr ""
 
-#: ../src/panel.c:1007
+#: ../src/panel.c:1309
 msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
@@ -70,151 +70,151 @@ msgstr ""
 "এই প্যানেলটিকে মুছে ফেলা হবে কি?\n"
 "<b>সতর্কবার্তা: এটি পুনরুদ্ধার করা যাবে না।</b>"
 
-#: ../src/panel.c:1009
+#: ../src/panel.c:1311
 msgid "Confirm"
 msgstr "নিশ্চায়ণ"
 
 #. TRANSLATORS: Replace this string with your names, one name per line.
-#: ../src/panel.c:1044
+#: ../src/panel.c:1346
 msgid "translator-credits"
 msgstr "সঙ্কর্ষণ মুখোপাধ্যায় (sankarshan@randomink.org)"
 
-#: ../src/panel.c:1049
+#: ../src/panel.c:1351
 msgid "LXPanel"
 msgstr "LXPanel"
 
-#: ../src/panel.c:1067
+#: ../src/panel.c:1369
 #, fuzzy
-msgid "Copyright (C) 2008-2014"
+msgid "Copyright (C) 2008-2016"
 msgstr "সত্ত্বাধিকার (C) ২০০৮-২০০৯"
 
-#: ../src/panel.c:1068
+#: ../src/panel.c:1370
 msgid "Desktop panel for LXDE project"
 msgstr "LXDE প্রজেক্টের জন্য ডেস্কটপ প্যানেল"
 
-#: ../src/panel.c:1110
+#: ../src/panel.c:1412
 #, c-format
 msgid "\"%s\" Settings"
 msgstr "\"%s\" বিবিধ বৈশিষ্ট্য"
 
-#: ../src/panel.c:1130
+#: ../src/panel.c:1433
 msgid "Add / Remove Panel Items"
 msgstr "প্যানেল বস্তু যোগ করুন বা সরিয়ে ফেলুন"
 
-#: ../src/panel.c:1138
+#: ../src/panel.c:1441
 #, c-format
 msgid "Remove \"%s\" From Panel"
 msgstr "\"%s\" কে প্যানেল থেকে সরিয়ে ফেলুন"
 
-#: ../src/panel.c:1150
+#: ../src/panel.c:1453
 msgid "Panel Settings"
 msgstr "প্যানেলের বিবিধ বৈশিষ্ট্য"
 
-#: ../src/panel.c:1156
+#: ../src/panel.c:1459
 msgid "Create New Panel"
 msgstr "নতুন প্যানেল তৈরী করুন"
 
-#: ../src/panel.c:1162
+#: ../src/panel.c:1465
 msgid "Delete This Panel"
 msgstr "এই প্যানেলটি মুছে ফেলুন"
 
-#: ../src/panel.c:1173
+#: ../src/panel.c:1476
 msgid "About"
 msgstr "পরিচিতি"
 
-#: ../src/panel.c:1180
+#: ../src/panel.c:1483
 msgid "Panel"
 msgstr "প্যানেল"
 
-#: ../src/panel.c:1391 ../src/panel.c:1399 ../data/ui/panel-pref.glade.h:22
+#: ../src/panel.c:1698 ../src/panel.c:1706 ../data/ui/panel-pref.glade.h:22
 msgid "Height:"
 msgstr "উচ্চতা:"
 
-#: ../src/panel.c:1392 ../src/panel.c:1398 ../data/ui/panel-pref.glade.h:21
+#: ../src/panel.c:1699 ../src/panel.c:1705 ../data/ui/panel-pref.glade.h:21
 msgid "Width:"
 msgstr "ব্যাস:"
 
-#: ../src/panel.c:1393 ../data/ui/panel-pref.glade.h:13
+#: ../src/panel.c:1700 ../data/ui/panel-pref.glade.h:13
 msgid "Left"
 msgstr "বামদিক"
 
-#: ../src/panel.c:1394 ../data/ui/panel-pref.glade.h:14
+#: ../src/panel.c:1701 ../data/ui/panel-pref.glade.h:14
 msgid "Right"
 msgstr "ডানদিক"
 
-#: ../src/panel.c:1400 ../data/ui/panel-pref.glade.h:12
+#: ../src/panel.c:1707 ../data/ui/panel-pref.glade.h:12
 msgid "Top"
 msgstr "উপরের"
 
-#: ../src/panel.c:1401 ../data/ui/panel-pref.glade.h:11
+#: ../src/panel.c:1708 ../data/ui/panel-pref.glade.h:11
 msgid "Bottom"
 msgstr "নীচের"
 
-#: ../src/plugin.c:340
+#: ../src/plugin.c:348
 msgid "No file manager is configured."
 msgstr ""
 
 #. { "configure", N_("Preferences"), configure },
-#: ../src/gtk-run.c:377 ../src/main.c:52 ../plugins/menu.c:741
+#: ../src/gtk-run.c:398 ../src/main.c:69 ../plugins/menu.c:718
 msgid "Run"
 msgstr "চালু করুন"
 
-#: ../src/gtk-run.c:391
+#: ../src/gtk-run.c:412
 msgid "Enter the command you want to execute:"
 msgstr "যে কম্যান্ডটি চালাতে ইচ্ছুক সেটি লিখুন:"
 
-#: ../src/main.c:53 ../plugins/menu.c:742
+#: ../src/main.c:70 ../plugins/menu.c:719
 msgid "Restart"
 msgstr "পুনরায় চালু করুন"
 
-#: ../src/main.c:54 ../plugins/menu.c:743
+#: ../src/main.c:71 ../plugins/menu.c:720
 msgid "Logout"
 msgstr "লগ-আউট"
 
-#: ../src/main.c:252
+#: ../src/main.c:323
 #, c-format
 msgid "lxpanel %s - lightweight GTK2+ panel for UNIX desktops\n"
 msgstr "lxpanel %s - UNIX ডেস্কটপের জন্য একটি হাল্কা GTK2+ প্যানেল\n"
 
-#: ../src/main.c:253
+#: ../src/main.c:324
 #, c-format
 msgid "Command line options:\n"
 msgstr "কম্যান্ড লাইনে বিকল্প:\n"
 
-#: ../src/main.c:254
+#: ../src/main.c:325
 #, c-format
 msgid " --help      -- print this help and exit\n"
 msgstr " --help      -- এই সহায়িকা প্রদর্শন করে প্রস্থান করুন\n"
 
-#: ../src/main.c:255
+#: ../src/main.c:326
 #, c-format
 msgid " --version   -- print version and exit\n"
 msgstr " --version   -- সংস্করণ প্রদর্শন করে প্রস্থান করুন\n"
 
 #. g_print(_(" --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"));
 #. g_print(_(" --configure -- launch configuration utility\n"));
-#: ../src/main.c:258
+#: ../src/main.c:329
 #, c-format
 msgid " --profile name -- use specified profile\n"
 msgstr " --profile name -- নির্দিষ্ট প্রোফাইল ব্যবহার করুন\n"
 
-#: ../src/main.c:260
+#: ../src/main.c:331
 #, c-format
 msgid " -h  -- same as --help\n"
 msgstr " -h  -- যেমন --help\n"
 
-#: ../src/main.c:261
+#: ../src/main.c:332
 #, c-format
 msgid " -p  -- same as --profile\n"
 msgstr " -p  -- যেমন --profile\n"
 
-#: ../src/main.c:262
+#: ../src/main.c:333
 #, c-format
 msgid " -v  -- same as --version\n"
 msgstr " -v  -- যেমন --version\n"
 
 #. g_print(_(" -C  -- same as --configure\n"));
-#: ../src/main.c:264
+#: ../src/main.c:335
 #, c-format
 msgid ""
 "\n"
@@ -225,52 +225,65 @@ msgstr ""
 "অতিরিক্ত তথ্যের জন্য http://lxde.org/ দেখুন।\n"
 "\n"
 
-#: ../src/input-button.c:129
+#: ../src/input-button.c:145
+#, fuzzy
+msgid "LeftBtn"
+msgstr "বামদিক"
+
+#: ../src/input-button.c:148
+msgid "MiddleBtn"
+msgstr ""
+
+#: ../src/input-button.c:151
+#, fuzzy
+msgid "RightBtn"
+msgstr "ডানদিক"
+
+#: ../src/input-button.c:154
+#, c-format
+msgid "Btn%s"
+msgstr ""
+
+#: ../src/input-button.c:215
 #, c-format
 msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
 msgstr ""
 
-#: ../src/input-button.c:132 ../src/input-button.c:331
+#: ../src/input-button.c:218 ../src/input-button.c:401
 #: ../plugins/netstatus/netstatus-iface.c:191
 #: ../plugins/netstatus/netstatus-util.c:167
 msgid "Error"
 msgstr "ত্রুটি"
 
-#: ../src/input-button.c:161
-#, fuzzy
-msgid "LeftBtn"
-msgstr "বামদিক"
-
-#: ../src/input-button.c:164
-msgid "MiddleBtn"
-msgstr ""
-
-#: ../src/input-button.c:167
-#, fuzzy
-msgid "RightBtn"
-msgstr "ডানদিক"
-
-#: ../src/input-button.c:170
-#, c-format
-msgid "Btn%s"
-msgstr ""
-
 #. GtkRadioButton "None"
-#: ../src/input-button.c:250 ../data/ui/panel-pref.glade.h:5
+#: ../src/input-button.c:315 ../data/ui/panel-pref.glade.h:5
 msgid "None"
 msgstr ""
 
-#: ../src/input-button.c:257
+#: ../src/input-button.c:322
 #, fuzzy
 msgid "Custom:"
 msgstr "নিজেস্ব রং"
 
-#: ../src/input-button.c:329
+#: ../src/input-button.c:399
 #, c-format
 msgid "Cannot assign '%s' as a global hotkey: it is already bound."
 msgstr ""
 
-#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:3553
+#: ../src/space.c:394 ../src/space.c:403
+msgid "Spacer"
+msgstr "স্পেসার"
+
+#: ../src/space.c:396 ../data/ui/panel-pref.glade.h:32
+#: ../plugins/batt/batt.c:702
+msgid "Size"
+msgstr "আকার"
+
+#: ../src/space.c:404
+msgid "Allocate space"
+msgstr "স্পেস যোগ করুন"
+
+#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2401
 #, fuzzy
 msgid "Application Launch and Task Bar"
 msgstr "অ্যাপ্লিকেশন লঞ্চ বার"
@@ -403,8 +416,8 @@ msgstr "ঠিকানা:"
 msgid "Destination:"
 msgstr "গন্তব্যস্থল:"
 
-#: ../data/ui/netstatus.glade.h:14 ../plugins/netstat/netstat.c:364
-#: ../plugins/netstat/netstat.c:375
+#: ../data/ui/netstatus.glade.h:14 ../plugins/netstat/netstat.c:372
+#: ../plugins/netstat/netstat.c:383
 msgid "Broadcast:"
 msgstr "ব্রডকাস্ট:"
 
@@ -475,7 +488,7 @@ msgstr "প্যানেলের বৈশিষ্ট্য"
 msgid "Edge:"
 msgstr "ধার:"
 
-#: ../data/ui/panel-pref.glade.h:16
+#: ../data/ui/panel-pref.glade.h:16 ../plugins/volumealsa/volumealsa.c:1293
 msgid "Center"
 msgstr "মাঝের"
 
@@ -516,7 +529,7 @@ msgstr "সিস্টেম থিম"
 msgid "Solid color (with opacity)"
 msgstr ""
 
-#: ../data/ui/panel-pref.glade.h:28 ../plugins/xkb/xkb-plugin.c:1447
+#: ../data/ui/panel-pref.glade.h:28 ../plugins/xkb/xkb-plugin.c:1455
 msgid "Image"
 msgstr "প্রতিচ্ছবি"
 
@@ -531,11 +544,6 @@ msgstr "<b>প্রেক্ষাপট</b>"
 #: ../data/ui/panel-pref.glade.h:31
 msgid "Custom color"
 msgstr "নিজেস্ব রং"
-
-#: ../data/ui/panel-pref.glade.h:32 ../plugins/space.c:88
-#: ../plugins/batt/batt.c:675
-msgid "Size"
-msgstr "আকার"
 
 #: ../data/ui/panel-pref.glade.h:33
 msgid "<b>Font</b>"
@@ -607,331 +615,322 @@ msgstr "<b>নেটওয়ার্ক ডিভাইস</b>"
 msgid "Advanced"
 msgstr "উন্নত"
 
-#: ../plugins/cpu/cpu.c:281
+#: ../plugins/cpu/cpu.c:308
 msgid "CPU Usage Monitor"
 msgstr "CPU ব্যবহার মাপকাঠি"
 
-#: ../plugins/cpu/cpu.c:282 ../plugins/monitors/monitors.c:699
+#: ../plugins/cpu/cpu.c:309 ../plugins/monitors/monitors.c:725
 msgid "Display CPU usage"
 msgstr "CPU ব্যবহার প্রদর্শন করুন"
 
-#: ../plugins/deskno/deskno.c:174 ../plugins/deskno/deskno.c:194
+#: ../plugins/deskno/deskno.c:208 ../plugins/deskno/deskno.c:228
 msgid "Desktop Number / Workspace Name"
 msgstr "ডেস্কটপের নম্বর / ওয়ার্কস্পেসের নাম"
 
-#: ../plugins/deskno/deskno.c:176 ../plugins/dclock.c:424
+#: ../plugins/deskno/deskno.c:210 ../plugins/dclock.c:437
 msgid "Bold font"
 msgstr "গাঢ় ফন্ট"
 
-#: ../plugins/deskno/deskno.c:177
+#: ../plugins/deskno/deskno.c:211
 msgid "Display desktop names"
 msgstr ""
 
-#: ../plugins/deskno/deskno.c:195
+#: ../plugins/deskno/deskno.c:229
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "ওয়ার্কস্পেসের নম্বর প্রদর্শন করুন, cmeury@users.sf.net দ্বারা"
 
-#: ../plugins/launchtaskbar.c:1443 ../plugins/launchtaskbar.c:3525
+#: ../plugins/launchtaskbar.c:1768 ../plugins/launchtaskbar.c:2371
 msgid "Application Launch Bar"
 msgstr "অ্যাপ্লিকেশন লঞ্চ বার"
 
-#: ../plugins/launchtaskbar.c:1446 ../plugins/launchtaskbar.c:3534
+#: ../plugins/launchtaskbar.c:1771 ../plugins/launchtaskbar.c:2381
 msgid "Task Bar (Window List)"
 msgstr "টাস্ক বার (উইন্ডো তালিকা)"
 
-#: ../plugins/launchtaskbar.c:2507
-#, fuzzy
-msgid "_Close all windows"
-msgstr "ওইন্ডো বন্ধ করুন(_C)"
-
-#. Add Raise menu item.
-#: ../plugins/launchtaskbar.c:3380
-msgid "_Raise"
-msgstr "উচুঁ করুন(_R)"
-
-#. Add Restore menu item.
-#: ../plugins/launchtaskbar.c:3385
-msgid "R_estore"
-msgstr "পুনরুদ্ধার করুন(_e)"
-
-#. Add Maximize menu item.
-#: ../plugins/launchtaskbar.c:3390
-msgid "Ma_ximize"
-msgstr "সর্বোচ্চ মাপ(_x)"
-
-#. Add Iconify menu item.
-#: ../plugins/launchtaskbar.c:3395
-msgid "Ico_nify"
-msgstr "আইকন যোগ করুন"
-
-#: ../plugins/launchtaskbar.c:3416
-#, c-format
-msgid "Workspace _%d"
-msgstr "ওয়ার্কস্পেস _%d"
-
-#: ../plugins/launchtaskbar.c:3421
-#, c-format
-msgid "Workspace %d"
-msgstr "ওয়ার্কস্পেস %d"
-
-#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../plugins/launchtaskbar.c:3437
-msgid "_All workspaces"
-msgstr "সকল ওয়ার্কস্পেসে(_A)"
-
-#. FIXME: add "Current workspace" item, active if not on a current
-#. Add Move to Workspace menu item as a submenu.
-#: ../plugins/launchtaskbar.c:3445
-msgid "_Move to Workspace"
-msgstr "ওয়ার্কস্পেসে সরিয়ে নিন(_M)"
-
-#. Add Close menu item.  By popular demand, we place this menu item closest to the cursor.
-#: ../plugins/launchtaskbar.c:3451
-msgid "_Close Window"
-msgstr "ওইন্ডো বন্ধ করুন(_C)"
-
-#: ../plugins/launchtaskbar.c:3453
+#: ../plugins/launchtaskbar.c:1919
 msgid "A_dd to Launcher"
 msgstr ""
 
-#: ../plugins/launchtaskbar.c:3454
+#: ../plugins/launchtaskbar.c:1921
 #, fuzzy
 msgid "Rem_ove from Launcher"
 msgstr "\"%s\" কে প্যানেল থেকে সরিয়ে ফেলুন"
 
-#: ../plugins/launchtaskbar.c:3455
+#: ../plugins/launchtaskbar.c:1923
 msgid "_New Instance"
 msgstr ""
 
-#: ../plugins/launchtaskbar.c:3526
+#: ../plugins/launchtaskbar.c:2372
 msgid "Bar with buttons to launch application"
 msgstr "অ্যাপ্লিকেশন চালনা করার জন্য বটন সহ বার"
 
-#: ../plugins/launchtaskbar.c:3535
+#: ../plugins/launchtaskbar.c:2382
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
 msgstr ""
 
-#: ../plugins/launchtaskbar.c:3554
+#: ../plugins/launchtaskbar.c:2402
 #, fuzzy
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr "অ্যাপ্লিকেশন চালনা করার জন্য বটন সহ বার"
 
-#: ../plugins/dclock.c:418 ../plugins/dclock.c:438
+#. Add Raise menu item.
+#: ../plugins/task-button.c:339
+msgid "_Raise"
+msgstr "উচুঁ করুন(_R)"
+
+#. Add Restore menu item.
+#: ../plugins/task-button.c:344
+msgid "R_estore"
+msgstr "পুনরুদ্ধার করুন(_e)"
+
+#. Add Maximize menu item.
+#: ../plugins/task-button.c:349
+msgid "Ma_ximize"
+msgstr "সর্বোচ্চ মাপ(_x)"
+
+#. Add Iconify menu item.
+#: ../plugins/task-button.c:354
+msgid "Ico_nify"
+msgstr "আইকন যোগ করুন"
+
+#: ../plugins/task-button.c:375
+#, c-format
+msgid "Workspace _%d"
+msgstr "ওয়ার্কস্পেস _%d"
+
+#: ../plugins/task-button.c:380
+#, c-format
+msgid "Workspace %d"
+msgstr "ওয়ার্কস্পেস %d"
+
+#. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
+#: ../plugins/task-button.c:397
+msgid "_All workspaces"
+msgstr "সকল ওয়ার্কস্পেসে(_A)"
+
+#. FIXME: add "Current workspace" item, active if not on a current
+#. Add Move to Workspace menu item as a submenu.
+#: ../plugins/task-button.c:405
+msgid "_Move to Workspace"
+msgstr "ওয়ার্কস্পেসে সরিয়ে নিন(_M)"
+
+#: ../plugins/task-button.c:420
+msgid "_Close Window"
+msgstr "ওইন্ডো বন্ধ করুন(_C)"
+
+#: ../plugins/task-button.c:1238
+#, fuzzy
+msgid "_Close all windows"
+msgstr "ওইন্ডো বন্ধ করুন(_C)"
+
+#: ../plugins/dclock.c:431 ../plugins/dclock.c:445
 msgid "Digital Clock"
 msgstr "ডিজিটাল ঘড়ি"
 
-#: ../plugins/dclock.c:420
+#: ../plugins/dclock.c:433
 msgid "Clock Format"
 msgstr "ঘড়ির বিন্যাস"
 
-#: ../plugins/dclock.c:421
+#: ../plugins/dclock.c:434
 msgid "Tooltip Format"
 msgstr "টুলটিপের বিন্যাস"
 
-#: ../plugins/dclock.c:422
+#: ../plugins/dclock.c:435
 #, fuzzy, c-format
 msgid "Format codes: man 3 strftime; %n for line break"
 msgstr "Format codes: man 3 strftime"
 
-#: ../plugins/dclock.c:423
+#: ../plugins/dclock.c:436
 msgid "Action when clicked (default: display calendar)"
 msgstr "ক্লিক করলে ক্রিয়া (স্বাভাবিক: ক্যালেন্ডার প্রদর্শন)"
 
-#: ../plugins/dclock.c:425
+#: ../plugins/dclock.c:438
 #, fuzzy
 msgid "Tooltip only"
 msgstr "টুলটিপ সক্রিয় করা হয়েছে"
 
-#: ../plugins/dclock.c:426
+#: ../plugins/dclock.c:439
 #, fuzzy
 msgid "Center text"
 msgstr "মাঝের"
 
-#: ../plugins/dclock.c:439
+#: ../plugins/dclock.c:446
 msgid "Display digital clock and tooltip"
 msgstr "টুলটিপ ও ডিজিটাল ঘড়ি প্রদর্শন"
 
-#: ../plugins/menu.c:382
+#: ../plugins/menu.c:360
 msgid "Add to desktop"
 msgstr "ডেস্কটপে যোগ করুন"
 
-#: ../plugins/menu.c:389
+#: ../plugins/menu.c:367
 msgid "Properties"
 msgstr "বৈশিষ্ট্য"
 
-#: ../plugins/menu.c:1013 ../plugins/menu.c:1027
+#: ../plugins/menu.c:989 ../plugins/menu.c:997
 msgid "Menu"
 msgstr "মেনু"
 
-#: ../plugins/menu.c:1014 ../plugins/dirmenu.c:357
+#: ../plugins/menu.c:990 ../plugins/dirmenu.c:359
 msgid "Icon"
 msgstr "আইকন"
 
-#: ../plugins/menu.c:1028
+#: ../plugins/menu.c:998
 msgid "Application Menu"
 msgstr "অ্যাপ্লিকেশন মেনু"
 
-#: ../plugins/separator.c:68
+#: ../plugins/separator.c:73
 msgid "Separator"
 msgstr "বিভাজক"
 
-#: ../plugins/separator.c:69
+#: ../plugins/separator.c:74
 msgid "Add a separator to the panel"
 msgstr "প্যানেলে বিভাজক যোগ করুন"
 
-#: ../plugins/pager.c:92
+#: ../plugins/pager.c:114
 msgid "Sorry, there was no window manager configuration program found."
 msgstr ""
 
-#: ../plugins/pager.c:144 ../plugins/pager.c:160
+#: ../plugins/pager.c:166 ../plugins/pager.c:182
 msgid "Desktop Pager"
 msgstr "ডেস্কটপ পেজার"
 
-#: ../plugins/pager.c:145 ../plugins/pager.c:161
+#: ../plugins/pager.c:167 ../plugins/pager.c:183
 msgid "Simple pager plugin"
 msgstr "সহজ পেজার প্লাগ-ইন"
 
-#: ../plugins/space.c:86 ../plugins/space.c:95
-msgid "Spacer"
-msgstr "স্পেসার"
-
-#: ../plugins/space.c:96
-msgid "Allocate space"
-msgstr "স্পেস যোগ করুন"
-
-#: ../plugins/tray.c:682
+#: ../plugins/tray.c:691
 msgid "System Tray"
 msgstr "সিস্টেম ট্রে"
 
-#: ../plugins/tray.c:683
+#: ../plugins/tray.c:692
 msgid "System tray"
 msgstr "সিস্টেম ট্রে"
 
-#: ../plugins/xkb/xkb-plugin.c:401
+#: ../plugins/xkb/xkb-plugin.c:409
 msgid "New session is required for this option to take effect"
 msgstr ""
 
 #. dialog
-#: ../plugins/xkb/xkb-plugin.c:582
+#: ../plugins/xkb/xkb-plugin.c:590
 #, fuzzy
 msgid "Select Keyboard Model"
 msgstr "কী-বোর্ডের এল ই ডি"
 
-#: ../plugins/xkb/xkb-plugin.c:606 ../plugins/xkb/xkb-plugin.c:735
-#: ../plugins/xkb/xkb-plugin.c:913
+#: ../plugins/xkb/xkb-plugin.c:614 ../plugins/xkb/xkb-plugin.c:743
+#: ../plugins/xkb/xkb-plugin.c:921
 #, fuzzy
 msgid "Description"
 msgstr "গন্তব্যস্থল:"
 
-#: ../plugins/xkb/xkb-plugin.c:611 ../plugins/xkb/xkb-plugin.c:742
+#: ../plugins/xkb/xkb-plugin.c:619 ../plugins/xkb/xkb-plugin.c:750
 #, fuzzy
 msgid "Id"
 msgstr "কর্মবিহীন"
 
 #. dialog
-#: ../plugins/xkb/xkb-plugin.c:706
+#: ../plugins/xkb/xkb-plugin.c:714
 #, fuzzy
 msgid "Select Layout Change Type"
 msgstr "একটি প্রতিচ্ছবি বেছে নিন"
 
 #. dialog
-#: ../plugins/xkb/xkb-plugin.c:879
+#: ../plugins/xkb/xkb-plugin.c:887
 #, fuzzy
 msgid "Add Keyboard Layout"
 msgstr "কি-বোর্ড বিন্যাস অদল-বদলকারী"
 
-#: ../plugins/xkb/xkb-plugin.c:903 ../plugins/xkb/xkb-plugin.c:1294
+#: ../plugins/xkb/xkb-plugin.c:911 ../plugins/xkb/xkb-plugin.c:1302
 msgid "Flag"
 msgstr ""
 
-#: ../plugins/xkb/xkb-plugin.c:908 ../plugins/xkb/xkb-plugin.c:1298
+#: ../plugins/xkb/xkb-plugin.c:916 ../plugins/xkb/xkb-plugin.c:1306
 msgid "Layout"
 msgstr ""
 
-#: ../plugins/xkb/xkb-plugin.c:1204 ../plugins/xkb/xkb-plugin.c:1536
+#: ../plugins/xkb/xkb-plugin.c:1212 ../plugins/xkb/xkb-plugin.c:1544
 #, fuzzy
 msgid "Keyboard Layout Handler"
 msgstr "কি-বোর্ড বিন্যাস অদল-বদলকারী"
 
-#: ../plugins/xkb/xkb-plugin.c:1227
+#: ../plugins/xkb/xkb-plugin.c:1235
 #, fuzzy
 msgid "Keyboard Model"
 msgstr "কী-বোর্ডের এল ই ডি"
 
-#: ../plugins/xkb/xkb-plugin.c:1248
+#: ../plugins/xkb/xkb-plugin.c:1256
 #, fuzzy
 msgid "Keyboard Layouts"
 msgstr "কি-বোর্ড বিন্যাস অদল-বদলকারী"
 
-#: ../plugins/xkb/xkb-plugin.c:1302
+#: ../plugins/xkb/xkb-plugin.c:1310
 msgid "Variant"
 msgstr ""
 
-#: ../plugins/xkb/xkb-plugin.c:1311
+#: ../plugins/xkb/xkb-plugin.c:1319
 msgid "Change Layout Option"
 msgstr ""
 
-#: ../plugins/xkb/xkb-plugin.c:1331
+#: ../plugins/xkb/xkb-plugin.c:1339
 msgid "Advanced setxkbmap Options"
 msgstr ""
 
-#: ../plugins/xkb/xkb-plugin.c:1352
+#: ../plugins/xkb/xkb-plugin.c:1360
 msgid "Do _not reset existing options"
 msgstr ""
 
-#: ../plugins/xkb/xkb-plugin.c:1357
+#: ../plugins/xkb/xkb-plugin.c:1365
 msgid "Keep _system layouts"
 msgstr ""
 
-#: ../plugins/xkb/xkb-plugin.c:1366
+#: ../plugins/xkb/xkb-plugin.c:1374
 #, fuzzy
 msgid "Per Window Settings"
 msgstr "প্যানেলের বিবিধ বৈশিষ্ট্য"
 
-#: ../plugins/xkb/xkb-plugin.c:1378
+#: ../plugins/xkb/xkb-plugin.c:1386
 #, fuzzy
 msgid "_Remember layout for each window"
 msgstr "প্রতি অ্যাপ্লিকেশনের বিন্যাস মনের রাখুন(_R)"
 
-#: ../plugins/xkb/xkb-plugin.c:1387
+#: ../plugins/xkb/xkb-plugin.c:1395
 #, fuzzy
 msgid "Show Layout as"
 msgstr "এইভাবে বিন্যাস প্রদর্শন করুন"
 
-#: ../plugins/xkb/xkb-plugin.c:1448
+#: ../plugins/xkb/xkb-plugin.c:1456
 msgid "Custom Image"
 msgstr ""
 
-#: ../plugins/xkb/xkb-plugin.c:1449
+#: ../plugins/xkb/xkb-plugin.c:1457
 msgid "Text"
 msgstr ""
 
-#: ../plugins/xkb/xkb-plugin.c:1475
+#: ../plugins/xkb/xkb-plugin.c:1483
 msgid "Panel Icon Size"
 msgstr ""
 
-#: ../plugins/xkb/xkb-plugin.c:1537
+#: ../plugins/xkb/xkb-plugin.c:1545
 #, fuzzy
 msgid "Handle keyboard layouts"
 msgstr "উপস্থিত কি-বোর্ড বিন্যাসের মধ্যে অদল-বদল করুন"
 
-#: ../plugins/wincmd.c:189
+#: ../plugins/wincmd.c:205
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
 "উইন্ডোর সাথে আইকন যোগ করার জন্য বাঁদিকের ক্লিক করুন।  ছায়ন্বিত করার জন্য মাঝের ক্লিক "
 "করুন।"
 
-#: ../plugins/wincmd.c:224 ../plugins/wincmd.c:234
+#: ../plugins/wincmd.c:243 ../plugins/wincmd.c:253
 msgid "Minimize All Windows"
 msgstr "সকল উইন্ডোকে সর্বনিম্ন মাপ করুন"
 
-#: ../plugins/wincmd.c:226
+#: ../plugins/wincmd.c:245
 msgid "Alternately iconify/shade and raise"
 msgstr ""
 
-#: ../plugins/wincmd.c:235
+#: ../plugins/wincmd.c:254
 msgid ""
 "Sends commands to all desktop windows.\n"
 "Supported commands are 1) iconify and 2) shade"
@@ -939,214 +938,303 @@ msgstr ""
 "সকল ডেস্কটপ উইন্ডোতে কম্যান্ড পাঠান হয়।\n"
 "সমর্থিত কম্যান্ড ১) আইকন যোগ এবং ২) ছায়ন্বিত"
 
-#: ../plugins/dirmenu.c:205
+#: ../plugins/dirmenu.c:213
 msgid "Open in _Terminal"
 msgstr "টার্মিনাল ব্যবহার করে খুলুন(_T)"
 
-#: ../plugins/dirmenu.c:353 ../plugins/dirmenu.c:369
+#: ../plugins/dirmenu.c:355 ../plugins/dirmenu.c:365
 msgid "Directory Menu"
 msgstr "ডিরেক্টরি মেনু"
 
-#: ../plugins/dirmenu.c:355
+#: ../plugins/dirmenu.c:357
 msgid "Directory"
 msgstr "ডিরেক্টরি"
 
-#: ../plugins/dirmenu.c:356
+#: ../plugins/dirmenu.c:358
 msgid "Label"
 msgstr "লেবেল"
 
-#: ../plugins/dirmenu.c:370
+#: ../plugins/dirmenu.c:366
 #, fuzzy
 msgid "Browse directory tree via menu (Author = PCMan)"
 msgstr "মেনুর সাহায্যে ডিরেক্টরি ট্রী ব্রাউজ করুন (নির্মাতা: PCMan)"
 
-#: ../plugins/thermal/thermal.c:558 ../plugins/thermal/thermal.c:576
+#: ../plugins/thermal/thermal.c:564 ../plugins/thermal/thermal.c:582
 msgid "Temperature Monitor"
 msgstr "তাপমাত্রা নিরীক্ষণ ব্যবস্থা"
 
-#: ../plugins/thermal/thermal.c:560
+#: ../plugins/thermal/thermal.c:566
 #, fuzzy
 msgid "Normal color"
 msgstr "নিজেস্ব রং"
 
-#: ../plugins/thermal/thermal.c:561
+#: ../plugins/thermal/thermal.c:567
 #, fuzzy
 msgid "Warning1 color"
 msgstr "চার্জিং রং ১"
 
-#: ../plugins/thermal/thermal.c:562
+#: ../plugins/thermal/thermal.c:568
 #, fuzzy
 msgid "Warning2 color"
 msgstr "চার্জিং রং ১"
 
-#: ../plugins/thermal/thermal.c:563
+#: ../plugins/thermal/thermal.c:569
 msgid "Automatic sensor location"
 msgstr "সয়ংক্রীয় সেন্সর অবস্থান"
 
-#: ../plugins/thermal/thermal.c:564
+#. FIXME: if off, disable next one
+#: ../plugins/thermal/thermal.c:570
 msgid "Sensor"
 msgstr "সেন্সর"
 
-#: ../plugins/thermal/thermal.c:565
+#. FIXME: create a list to select instead
+#: ../plugins/thermal/thermal.c:571
 msgid "Automatic temperature levels"
 msgstr "সয়ংক্রীয় তাপ মাত্রা"
 
-#: ../plugins/thermal/thermal.c:566
+#. FIXME: if off, disable two below
+#: ../plugins/thermal/thermal.c:572
 #, fuzzy
 msgid "Warning1 temperature"
 msgstr "সতর্কবার্তা১ তাপমাত্রা"
 
-#: ../plugins/thermal/thermal.c:567
+#: ../plugins/thermal/thermal.c:573
 #, fuzzy
 msgid "Warning2 temperature"
 msgstr "সতর্কবার্তা২ তাপমাত্রা"
 
-#: ../plugins/thermal/thermal.c:577
+#: ../plugins/thermal/thermal.c:583
 #, fuzzy
 msgid "Display system temperature"
 msgstr "সিস্টেমের তাপমাত্রা প্রদর্শন করুন, kesler.daniel@gmail.com এর দ্বারা"
 
-#: ../plugins/cpufreq/cpufreq.c:326
+#: ../plugins/cpufreq/cpufreq.c:325
 #, c-format
 msgid ""
 "Frequency: %d MHz\n"
 "Governor: %s"
 msgstr ""
 
-#: ../plugins/cpufreq/cpufreq.c:409
+#: ../plugins/cpufreq/cpufreq.c:401
 msgid "CPUFreq frontend"
 msgstr ""
 
-#: ../plugins/cpufreq/cpufreq.c:410
+#: ../plugins/cpufreq/cpufreq.c:402
 msgid "Display CPU frequency and allow to change governors and frequency"
 msgstr ""
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
-#: ../plugins/volume/volume.c:278 ../plugins/volumealsa/volumealsa.c:350
-#: ../plugins/volumealsa/volumealsa.c:524
+#: ../plugins/volume/volume.c:282 ../plugins/volumealsa/volumealsa.c:597
+#: ../plugins/volumealsa/volumealsa.c:955
 msgid "Volume control"
 msgstr "ভলিউম নিয়ন্ত্রণ"
 
-#: ../plugins/volume/volume.c:286 ../plugins/volumealsa/volumealsa.c:637
+#: ../plugins/volume/volume.c:290 ../plugins/volumealsa/volumealsa.c:1491
+#: ../plugins/volumealsa/volumealsa.c:1530
+#: ../plugins/volumealsa/volumealsa.c:1551
 msgid "Volume Control"
 msgstr "ভলিউম নিয়ন্ত্রণ"
 
 #. Create a frame as the child of the viewport.
-#: ../plugins/volume/volume-impl.c:109 ../plugins/volumealsa/volumealsa.c:477
+#: ../plugins/volume/volume-impl.c:115 ../plugins/volumealsa/volumealsa.c:874
 msgid "Volume"
 msgstr "ভলিউম"
 
-#. Create a check button as the child of the vertical box.
-#: ../plugins/volumealsa/volumealsa.c:496
-msgid "Mute"
-msgstr "নিঃশব্দ"
+#: ../plugins/volumealsa/volumealsa.c:245
+msgid "ALSA (or pulseaudio) had a problem. Please check the lxpanel logs."
+msgstr ""
 
-#: ../plugins/volumealsa/volumealsa.c:619
+#: ../plugins/volumealsa/volumealsa.c:680
 msgid ""
 "Error, you need to install an application to configure the sound "
 "(pavucontrol, alsamixer ...)"
 msgstr ""
 
-#: ../plugins/volumealsa/volumealsa.c:638
-msgid "Display and control volume for ALSA"
+#. Create a check button as the child of the vertical box.
+#: ../plugins/volumealsa/volumealsa.c:893
+msgid "Mute"
+msgstr "নিঃশব্দ"
+
+#. Just to have these translated
+#: ../plugins/volumealsa/volumealsa.c:1293
+msgid "Line"
 msgstr ""
 
-#: ../plugins/netstat/netstat.c:179
+#: ../plugins/volumealsa/volumealsa.c:1293
+msgid "LineOut"
+msgstr ""
+
+#: ../plugins/volumealsa/volumealsa.c:1293
+msgid "Front"
+msgstr ""
+
+#: ../plugins/volumealsa/volumealsa.c:1293
+msgid "Surround"
+msgstr ""
+
+#: ../plugins/volumealsa/volumealsa.c:1293
+msgid "Speaker+LO"
+msgstr ""
+
+#: ../plugins/volumealsa/volumealsa.c:1332
+msgid "default"
+msgstr ""
+
+#. desc, index
+#: ../plugins/volumealsa/volumealsa.c:1391
+msgid "Master"
+msgstr ""
+
+#: ../plugins/volumealsa/volumealsa.c:1395
+msgid "PCM"
+msgstr ""
+
+#: ../plugins/volumealsa/volumealsa.c:1399
+msgid "Headphone"
+msgstr ""
+
+#: ../plugins/volumealsa/volumealsa.c:1420
+msgid "Click for Volume Slider"
+msgstr ""
+
+#: ../plugins/volumealsa/volumealsa.c:1424
+msgid "Click for Toggle Mute"
+msgstr ""
+
+#: ../plugins/volumealsa/volumealsa.c:1428
+msgid "Click for Open Mixer"
+msgstr ""
+
+#. setup hotkeys
+#: ../plugins/volumealsa/volumealsa.c:1432
+msgid "Hotkey for Volume Up"
+msgstr ""
+
+#: ../plugins/volumealsa/volumealsa.c:1434
+msgid "Hotkey for Volume Down"
+msgstr ""
+
+#: ../plugins/volumealsa/volumealsa.c:1436
+msgid "Hotkey for Volume Mute"
+msgstr ""
+
+#: ../plugins/volumealsa/volumealsa.c:1493
+msgid "Audio Card"
+msgstr ""
+
+#: ../plugins/volumealsa/volumealsa.c:1496
+msgid "Channel to Operate"
+msgstr ""
+
+#: ../plugins/volumealsa/volumealsa.c:1504
+msgid "Command to Open Mixer"
+msgstr ""
+
+#: ../plugins/volumealsa/volumealsa.c:1519
+msgid "Launch Mixer"
+msgstr ""
+
+#: ../plugins/volumealsa/volumealsa.c:1531
+#: ../plugins/volumealsa/volumealsa.c:1552
+msgid "Display and control volume"
+msgstr ""
+
+#: ../plugins/netstat/netstat.c:183
 msgid "<Hidden Access Point>"
 msgstr "<গোপন সংযোগ স্থান>"
 
-#: ../plugins/netstat/netstat.c:212
+#: ../plugins/netstat/netstat.c:220
 msgid "Wireless Networks not found in range"
 msgstr "সুনির্দিষ্ট সীমার মধ্যে ওয়ার্লেস নেটওয়ার্ক পাওয়া যায়নি"
 
 #. Repair
-#: ../plugins/netstat/netstat.c:248
+#: ../plugins/netstat/netstat.c:256
 msgid "Repair"
 msgstr "সারিয়ে নিন"
 
 #. interface down
-#: ../plugins/netstat/netstat.c:253
+#: ../plugins/netstat/netstat.c:261
 msgid "Disable"
 msgstr "নিষ্ক্রিয়"
 
-#: ../plugins/netstat/netstat.c:344
+#: ../plugins/netstat/netstat.c:352
 msgid "Wireless Connection has no connectivity"
 msgstr "বেতার সংযোগের কোন যোগাযোগ ব্যবস্থা নেই"
 
-#: ../plugins/netstat/netstat.c:346
+#: ../plugins/netstat/netstat.c:354
 msgid "Network cable is plugged out"
 msgstr "নেটওয়ার্কের যোগাযোগ খোলা রয়েছে"
 
-#: ../plugins/netstat/netstat.c:348
+#: ../plugins/netstat/netstat.c:356
 msgid "Connection has limited or no connectivity"
 msgstr "সংযোগ হয় সীমিত বা কোন যোগাযোগ ব্যবস্থা নেই"
 
-#: ../plugins/netstat/netstat.c:352 ../plugins/netstat/netstat.c:363
-#: ../plugins/netstat/netstat.c:374
+#: ../plugins/netstat/netstat.c:360 ../plugins/netstat/netstat.c:371
+#: ../plugins/netstat/netstat.c:382
 msgid "IP Address:"
 msgstr "IP অ্যাড্রেস:"
 
-#: ../plugins/netstat/netstat.c:353
+#: ../plugins/netstat/netstat.c:361
 msgid "Remote IP:"
 msgstr "দূরবর্তী IP:"
 
-#: ../plugins/netstat/netstat.c:354 ../plugins/netstat/netstat.c:365
-#: ../plugins/netstat/netstat.c:376
+#: ../plugins/netstat/netstat.c:362 ../plugins/netstat/netstat.c:373
+#: ../plugins/netstat/netstat.c:384
 msgid "Netmask:"
 msgstr "নেটমাস্ক:"
 
-#: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
-#: ../plugins/netstat/netstat.c:378
+#: ../plugins/netstat/netstat.c:363 ../plugins/netstat/netstat.c:375
+#: ../plugins/netstat/netstat.c:386
 msgid "Activity"
 msgstr "কর্ম"
 
-#: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
-#: ../plugins/netstat/netstat.c:378
+#: ../plugins/netstat/netstat.c:363 ../plugins/netstat/netstat.c:375
+#: ../plugins/netstat/netstat.c:386
 msgid "Sent"
 msgstr "পাঠানো হয়েছে"
 
-#: ../plugins/netstat/netstat.c:355 ../plugins/netstat/netstat.c:367
-#: ../plugins/netstat/netstat.c:378
+#: ../plugins/netstat/netstat.c:363 ../plugins/netstat/netstat.c:375
+#: ../plugins/netstat/netstat.c:386
 msgid "Received"
 msgstr "গ্রহণ করা হয়েছে"
 
-#: ../plugins/netstat/netstat.c:356 ../plugins/netstat/netstat.c:368
-#: ../plugins/netstat/netstat.c:379
+#: ../plugins/netstat/netstat.c:364 ../plugins/netstat/netstat.c:376
+#: ../plugins/netstat/netstat.c:387
 msgid "bytes"
 msgstr "বাইট"
 
-#: ../plugins/netstat/netstat.c:357 ../plugins/netstat/netstat.c:369
-#: ../plugins/netstat/netstat.c:380
+#: ../plugins/netstat/netstat.c:365 ../plugins/netstat/netstat.c:377
+#: ../plugins/netstat/netstat.c:388
 msgid "packets"
 msgstr "প্যাকেট"
 
-#: ../plugins/netstat/netstat.c:360 ../plugins/netstatus/netstatus-iface.c:173
+#: ../plugins/netstat/netstat.c:368 ../plugins/netstatus/netstatus-iface.c:173
 msgid "Wireless"
 msgstr "বেতার"
 
-#: ../plugins/netstat/netstat.c:362
+#: ../plugins/netstat/netstat.c:370
 msgid "Protocol:"
 msgstr "প্রোটোকল:"
 
-#: ../plugins/netstat/netstat.c:366 ../plugins/netstat/netstat.c:377
+#: ../plugins/netstat/netstat.c:374 ../plugins/netstat/netstat.c:385
 msgid "HW Address:"
 msgstr "HW অ্যাড্রেস:"
 
-#: ../plugins/netstat/netstat.c:497
+#: ../plugins/netstat/netstat.c:505
 msgid "Manage Networks"
 msgstr "নেটওয়ার্ক পরিচালনা করুন"
 
-#: ../plugins/netstat/netstat.c:498
+#: ../plugins/netstat/netstat.c:506
 msgid "Monitor and Manage networks"
 msgstr "নেটওয়ার্ক পরিদর্শন ও পরিচালনা করুন"
 
 #. create dialog
-#: ../plugins/netstat/passwd_gui.c:87
+#: ../plugins/netstat/passwd_gui.c:90
 msgid "Setting Encryption Key"
 msgstr "এনক্রীপশন কী নির্দিষ্ট করা হচ্ছে"
 
-#: ../plugins/netstat/passwd_gui.c:98
+#: ../plugins/netstat/passwd_gui.c:101
 msgid ""
 "This wireless network was encrypted.\n"
 "You must have the encryption key."
@@ -1154,23 +1242,23 @@ msgstr ""
 "এই বেতার নেটওয়ার্কটি এনক্রীপ করা রয়েছে।\n"
 "আপনার কাছে এনক্রীপশন কী থাকা প্রয়োজন।"
 
-#: ../plugins/netstat/passwd_gui.c:103
+#: ../plugins/netstat/passwd_gui.c:106
 msgid "Encryption Key:"
 msgstr "এনক্রীপশন কী:"
 
-#: ../plugins/netstatus/netstatus.c:152 ../plugins/netstatus/netstatus.c:164
+#: ../plugins/netstatus/netstatus.c:154 ../plugins/netstatus/netstatus.c:166
 msgid "Network Status Monitor"
 msgstr "নেটওয়ার্ক স্টেটাস মনিটর"
 
-#: ../plugins/netstatus/netstatus.c:154
+#: ../plugins/netstatus/netstatus.c:156
 msgid "Interface to monitor"
 msgstr "পরিদর্শন করার জন্য ইন্টারফেস"
 
-#: ../plugins/netstatus/netstatus.c:155
+#: ../plugins/netstatus/netstatus.c:157
 msgid "Config tool"
 msgstr "কনফিগ টুল"
 
-#: ../plugins/netstatus/netstatus.c:165
+#: ../plugins/netstatus/netstatus.c:167
 msgid "Monitor network status"
 msgstr "নেটওয়ার্কের স্টেটাস পরিদর্শন করুন"
 
@@ -1213,39 +1301,39 @@ msgstr "নেটওয়ার্ক সংযোগ: %s"
 msgid "Network Connection"
 msgstr "নেটওয়ার্ক সংযোগ"
 
-#: ../plugins/netstatus/netstatus-icon.c:822
+#: ../plugins/netstatus/netstatus-icon.c:847
 msgid "Interface"
 msgstr "ইন্টারফেস"
 
-#: ../plugins/netstatus/netstatus-icon.c:823
+#: ../plugins/netstatus/netstatus-icon.c:848
 msgid "The current interface the icon is monitoring."
 msgstr "আইকনটি যে ইন্টারফেসটি নিরীক্ষণ করছে।"
 
-#: ../plugins/netstatus/netstatus-icon.c:830
+#: ../plugins/netstatus/netstatus-icon.c:855
 msgid "Orientation"
 msgstr "দিশা"
 
-#: ../plugins/netstatus/netstatus-icon.c:831
+#: ../plugins/netstatus/netstatus-icon.c:856
 msgid "The orientation of the tray."
 msgstr "ট্রে-এর দিশা।"
 
-#: ../plugins/netstatus/netstatus-icon.c:839
+#: ../plugins/netstatus/netstatus-icon.c:864
 msgid "Tooltips Enabled"
 msgstr "টুলটিপ সক্রিয় করা হয়েছে"
 
-#: ../plugins/netstatus/netstatus-icon.c:840
+#: ../plugins/netstatus/netstatus-icon.c:865
 msgid "Whether or not the icon's tooltips are enabled."
 msgstr "আইকনের টুলটিপ সক্রিয় করা হয়েছে কিনা পরীক্ষা করুন।"
 
-#: ../plugins/netstatus/netstatus-icon.c:847
+#: ../plugins/netstatus/netstatus-icon.c:872
 msgid "Show Signal"
 msgstr "সিগনাল প্রদর্শন করুন"
 
-#: ../plugins/netstatus/netstatus-icon.c:848
+#: ../plugins/netstatus/netstatus-icon.c:873
 msgid "Whether or not the signal strength should be displayed."
 msgstr "সিগনালের ক্ষমতা প্রদর্শন করা হবে কিনা ধার্য করুন।"
 
-#: ../plugins/netstatus/netstatus-icon.c:957
+#: ../plugins/netstatus/netstatus-icon.c:982
 #, c-format
 msgid ""
 "Please contact your system administrator to resolve the following problem:\n"
@@ -1507,163 +1595,168 @@ msgstr "গ্রহণ করা হচ্ছে"
 msgid "Sending/Receiving"
 msgstr "প্রেরণ করা হচ্ছে/গ্রহণ করা হচ্ছে"
 
-#: ../plugins/batt/batt.c:152
-#, c-format
-msgid "Battery: %d%% charged, %d:%02d until full"
+#: ../plugins/batt/batt.c:154
+#, fuzzy, c-format
+msgid "Battery %d: %d%% charged, %d:%02d until full"
 msgstr "ব্যাটারি: %d%% চার্জ হয়েছে, %d:%02d পুরো চার্জ হতে"
 
-#: ../plugins/batt/batt.c:163
-#, c-format
-msgid "Battery: %d%% charged, %d:%02d left"
+#: ../plugins/batt/batt.c:165
+#, fuzzy, c-format
+msgid "Battery %d: %d%% charged, %d:%02d left"
 msgstr "ব্যাটারি: %d%% চার্জ হয়েছে, %d:%02d বাকি"
 
-#: ../plugins/batt/batt.c:169
-#, c-format
-msgid "Battery: %d%% charged"
+#: ../plugins/batt/batt.c:171
+#, fuzzy, c-format
+msgid "Battery %d: %d%% charged"
 msgstr "ব্যাটারি: %d%% চার্জ করা হয়েছে"
 
-#: ../plugins/batt/batt.c:179
+#: ../plugins/batt/batt.c:181
 #, c-format
 msgid ""
 "\n"
 "%sEnergy full design:\t\t%5d mWh"
 msgstr ""
 
-#: ../plugins/batt/batt.c:181
+#: ../plugins/batt/batt.c:183
 #, c-format
 msgid ""
 "\n"
 "%sEnergy full:\t\t\t%5d mWh"
 msgstr ""
 
-#: ../plugins/batt/batt.c:183
+#: ../plugins/batt/batt.c:185
 #, c-format
 msgid ""
 "\n"
 "%sEnergy now:\t\t\t%5d mWh"
 msgstr ""
 
-#: ../plugins/batt/batt.c:185
+#: ../plugins/batt/batt.c:187
 #, c-format
 msgid ""
 "\n"
 "%sPower now:\t\t\t%5d mW"
 msgstr ""
 
-#: ../plugins/batt/batt.c:188
+#: ../plugins/batt/batt.c:190
 #, c-format
 msgid ""
 "\n"
 "%sCharge full design:\t%5d mAh"
 msgstr ""
 
-#: ../plugins/batt/batt.c:190
+#: ../plugins/batt/batt.c:192
 #, c-format
 msgid ""
 "\n"
 "%sCharge full:\t\t\t%5d mAh"
 msgstr ""
 
-#: ../plugins/batt/batt.c:192
+#: ../plugins/batt/batt.c:194
 #, c-format
 msgid ""
 "\n"
 "%sCharge now:\t\t\t%5d mAh"
 msgstr ""
 
-#: ../plugins/batt/batt.c:194
+#: ../plugins/batt/batt.c:196
 #, c-format
 msgid ""
 "\n"
 "%sCurrent now:\t\t\t%5d mA"
 msgstr ""
 
-#: ../plugins/batt/batt.c:197
+#: ../plugins/batt/batt.c:199
 #, c-format
 msgid ""
 "\n"
 "%sCurrent Voltage:\t\t%.3lf V"
 msgstr ""
 
-#: ../plugins/batt/batt.c:235
+#: ../plugins/batt/batt.c:237
 msgid "No batteries found"
 msgstr "কোন ব্যাটারি পাওয়া যায়নি"
 
-#: ../plugins/batt/batt.c:515 ../plugins/batt/batt.c:644
+#: ../plugins/batt/batt.c:534 ../plugins/batt/batt.c:667
 #, fuzzy
 msgid "Battery low"
 msgstr "ব্যাটারি নিরীক্ষণ"
 
-#: ../plugins/batt/batt.c:664 ../plugins/batt/batt.c:685
+#: ../plugins/batt/batt.c:690 ../plugins/batt/batt.c:714
 msgid "Battery Monitor"
 msgstr "ব্যাটারি নিরীক্ষণ"
 
-#: ../plugins/batt/batt.c:666
+#: ../plugins/batt/batt.c:692
 msgid "Hide if there is no battery"
 msgstr "ব্যাটারি অনুপস্থিত হলে লুকিয়ে রাখুন"
 
-#: ../plugins/batt/batt.c:667
+#: ../plugins/batt/batt.c:693
 msgid "Alarm command"
 msgstr "অ্যালার্ম কম্যান্ড"
 
-#: ../plugins/batt/batt.c:668
+#: ../plugins/batt/batt.c:694
 msgid "Alarm time (minutes left)"
 msgstr "অ্যালার্মের সময় (বাকি মিনিট)"
 
-#: ../plugins/batt/batt.c:669
+#: ../plugins/batt/batt.c:695
 msgid "Background color"
 msgstr "পটভূমির রং"
 
-#: ../plugins/batt/batt.c:670
+#: ../plugins/batt/batt.c:696
 msgid "Charging color 1"
 msgstr "চার্জিং রং ১"
 
-#: ../plugins/batt/batt.c:671
+#: ../plugins/batt/batt.c:697
 msgid "Charging color 2"
 msgstr "চার্জিং রং ২"
 
-#: ../plugins/batt/batt.c:672
+#: ../plugins/batt/batt.c:698
 msgid "Discharging color 1"
 msgstr "ডিসচার্জিং রং ১"
 
-#: ../plugins/batt/batt.c:673
+#: ../plugins/batt/batt.c:699
 msgid "Discharging color 2"
 msgstr "ডিসচার্জিং রং ২"
 
-#: ../plugins/batt/batt.c:674
+#: ../plugins/batt/batt.c:700
 msgid "Border width"
 msgstr "প্রান্তরেখার প্রস্থ"
 
-#: ../plugins/batt/batt.c:676
+#: ../plugins/batt/batt.c:704
 msgid "Show Extended Information"
 msgstr ""
 
-#: ../plugins/batt/batt.c:686
+#: ../plugins/batt/batt.c:705
+#, fuzzy
+msgid "Number of battery to monitor"
+msgstr "পরিদর্শন করার জন্য ইন্টারফেস"
+
+#: ../plugins/batt/batt.c:715
 msgid "Display battery status using ACPI"
 msgstr "ACPI ব্যবহার করে ব্যাটারিরি অবস্থা প্রদর্শন করুন"
 
-#: ../plugins/kbled/kbled.c:197 ../plugins/kbled/kbled.c:228
+#: ../plugins/kbled/kbled.c:203 ../plugins/kbled/kbled.c:234
 msgid "Keyboard LED"
 msgstr "কী-বোর্ডের LED"
 
-#: ../plugins/kbled/kbled.c:199
+#: ../plugins/kbled/kbled.c:205
 msgid "Show CapsLock"
 msgstr "CapsLock প্রদর্শন করা হবে"
 
-#: ../plugins/kbled/kbled.c:200
+#: ../plugins/kbled/kbled.c:206
 msgid "Show NumLock"
 msgstr "NumLock প্রদর্শন করা হবে"
 
-#: ../plugins/kbled/kbled.c:201
+#: ../plugins/kbled/kbled.c:207
 msgid "Show ScrollLock"
 msgstr "ScrollLock প্রদর্শন করা হবে"
 
-#: ../plugins/kbled/kbled.c:229
+#: ../plugins/kbled/kbled.c:235
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
 msgstr "CapsLock, NumLock, ও ScrollLock কী এর জন্য নির্দেশক"
 
 #. A label to allow for click through
-#: ../plugins/indicator/indicator.c:689
+#: ../plugins/indicator/indicator.c:694
 msgid "No Indicators"
 msgstr ""
 
@@ -1702,41 +1795,41 @@ msgstr ""
 msgid "Add indicator applets to the panel"
 msgstr "প্যানেলে বিভাজক যোগ করুন"
 
-#: ../plugins/monitors/monitors.c:269
+#: ../plugins/monitors/monitors.c:281
 #, c-format
 msgid "CPU usage: %.2f%%"
 msgstr ""
 
-#: ../plugins/monitors/monitors.c:365
+#: ../plugins/monitors/monitors.c:377
 #, c-format
 msgid "RAM usage: %.1fMB (%.2f%%)"
 msgstr ""
 
-#: ../plugins/monitors/monitors.c:697 ../plugins/monitors/monitors.c:782
+#: ../plugins/monitors/monitors.c:723 ../plugins/monitors/monitors.c:808
 #, fuzzy
 msgid "Resource monitors"
 msgstr "পরিদর্শন করার জন্য ইন্টারফেস"
 
-#: ../plugins/monitors/monitors.c:700
+#: ../plugins/monitors/monitors.c:726
 #, fuzzy
 msgid "CPU color"
 msgstr "নিজেস্ব রং"
 
-#: ../plugins/monitors/monitors.c:701
+#: ../plugins/monitors/monitors.c:727
 #, fuzzy
 msgid "Display RAM usage"
 msgstr "CPU ব্যবহার প্রদর্শন করুন"
 
-#: ../plugins/monitors/monitors.c:702
+#: ../plugins/monitors/monitors.c:728
 msgid "RAM color"
 msgstr ""
 
-#: ../plugins/monitors/monitors.c:703
+#: ../plugins/monitors/monitors.c:729
 #, fuzzy
 msgid "Action when clicked (default: lxtask)"
 msgstr "ক্লিক করলে ক্রিয়া (স্বাভাবিক: ক্যালেন্ডার প্রদর্শন)"
 
-#: ../plugins/monitors/monitors.c:783
+#: ../plugins/monitors/monitors.c:809
 msgid "Display monitors (CPU, RAM)"
 msgstr ""
 
@@ -1942,12 +2035,12 @@ msgstr ""
 msgid "Tomorrow: "
 msgstr ""
 
-#: ../plugins/weather/weather.c:312
+#: ../plugins/weather/weather.c:332
 #, fuzzy
 msgid "Weather Plugin"
 msgstr "সহজ পেজার প্লাগ-ইন"
 
-#: ../plugins/weather/weather.c:313
+#: ../plugins/weather/weather.c:333
 msgid "Show weather conditions for a location."
 msgstr ""
 
