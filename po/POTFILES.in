@@ -27,8 +27,6 @@ plugins/thermal/thermal.c
 
 plugins/cpufreq/cpufreq.c
 
-plugins/volume/volume.c
-plugins/volume/volume-impl.c
 plugins/volumealsa/volumealsa.c
 
 plugins/netstat/netstat.c

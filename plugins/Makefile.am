@@ -313,8 +313,6 @@ EXTRA_DIST = \
 	netstatus/netstatus-iface.h \
 	netstatus/netstatus-sysdeps.h \
 	netstatus/netstatus-util.h \
-	volume/volume_xpm.h \
-	volume/volume-impl.h \
 	weather/logutil.h \
 	weather/httputil.h \
 	weather/yahooutil.h \
@@ -325,6 +323,7 @@ EXTRA_DIST = \
 	$(flags_DATA) \
 	$(xkeyboardconfig_DATA) \
 	task-button.h \
+	launch-button.h \
 	icon.xpm
 
 install-exec-hook:
