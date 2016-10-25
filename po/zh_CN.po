@@ -1,15 +1,17 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# CHinese simplified translation of lxpanel.
+# Copyright (C) 2008-2016 the lxpanel's authors
+# This file is distributed under the same license as the lxpanel package.
 # ideal <05281253@bjtu.edu.cn>, 2008.
+# Yinghua Wang <wantinghard@gmail.com>, 2016.
+
 msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.3.8.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2014-12-03 01:37+0000\n"
-"Last-Translator: Wylmer Wang <wantinghard@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2016-10-25 09:35+0800\n"
+"Last-Translator: Yinghua Wang <wantinghard@gmail.com>\n"
+"Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -86,9 +88,8 @@ msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:1369
-#, fuzzy
 msgid "Copyright (C) 2008-2016"
-msgstr "版权所有 (C) 2008-2014"
+msgstr "版权所有 (C) 2008-2016"
 
 #: ../src/panel.c:1370
 msgid "Desktop panel for LXDE project"
@@ -1006,7 +1007,7 @@ msgstr "音量"
 
 #: ../plugins/volumealsa/volumealsa.c:245
 msgid "ALSA (or pulseaudio) had a problem. Please check the lxpanel logs."
-msgstr ""
+msgstr "ALSA (或 pulseaudio)出了问题。请查看 lxpanel 日志。"
 
 #: ../plugins/volumealsa/volumealsa.c:680
 msgid ""
@@ -1022,88 +1023,86 @@ msgstr "静音"
 #. Just to have these translated
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Line"
-msgstr ""
+msgstr "线路"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "LineOut"
-msgstr ""
+msgstr "输出线"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Front"
-msgstr ""
+msgstr "前"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Surround"
-msgstr ""
+msgstr "环绕"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Speaker+LO"
-msgstr ""
+msgstr "音箱+输出线"
 
 #: ../plugins/volumealsa/volumealsa.c:1332
 msgid "default"
-msgstr ""
+msgstr "默认"
 
 #. desc, index
 #: ../plugins/volumealsa/volumealsa.c:1391
 msgid "Master"
-msgstr ""
+msgstr "主"
 
 #: ../plugins/volumealsa/volumealsa.c:1395
 msgid "PCM"
-msgstr ""
+msgstr "PCM"
 
 #: ../plugins/volumealsa/volumealsa.c:1399
 msgid "Headphone"
-msgstr ""
+msgstr "耳机"
 
 #: ../plugins/volumealsa/volumealsa.c:1420
 msgid "Click for Volume Slider"
-msgstr ""
+msgstr "点击调出音量条"
 
 #: ../plugins/volumealsa/volumealsa.c:1424
 msgid "Click for Toggle Mute"
-msgstr ""
+msgstr "点击切换静音"
 
 #: ../plugins/volumealsa/volumealsa.c:1428
 msgid "Click for Open Mixer"
-msgstr ""
+msgstr "点击调出混音器"
 
 #. setup hotkeys
 #: ../plugins/volumealsa/volumealsa.c:1432
 msgid "Hotkey for Volume Up"
-msgstr ""
+msgstr "增加音量的热键"
 
 #: ../plugins/volumealsa/volumealsa.c:1434
 msgid "Hotkey for Volume Down"
-msgstr ""
+msgstr "降低音量的热键"
 
 #: ../plugins/volumealsa/volumealsa.c:1436
 msgid "Hotkey for Volume Mute"
-msgstr ""
+msgstr "静音的热键"
 
 #: ../plugins/volumealsa/volumealsa.c:1493
 msgid "Audio Card"
-msgstr ""
+msgstr "声卡"
 
 #: ../plugins/volumealsa/volumealsa.c:1496
 msgid "Channel to Operate"
-msgstr ""
+msgstr "要操作的声道"
 
 #: ../plugins/volumealsa/volumealsa.c:1504
 msgid "Command to Open Mixer"
-msgstr ""
+msgstr "打开混音器的命令"
 
 #: ../plugins/volumealsa/volumealsa.c:1519
-#, fuzzy
 msgid "Launch Mixer"
-msgstr "启动器"
+msgstr "启动混音器"
 
 #: ../plugins/volumealsa/volumealsa.c:1531
 #: ../plugins/volumealsa/volumealsa.c:1552
-#, fuzzy
 msgid "Display and control volume"
-msgstr "显示和控制 ALSA 音量"
+msgstr "显示和控制音量"
 
 #: ../plugins/netstat/netstat.c:183
 msgid "<Hidden Access Point>"
@@ -1558,19 +1557,19 @@ msgid "Sending/Receiving"
 msgstr "发送/接受"
 
 #: ../plugins/batt/batt.c:154
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d until full"
-msgstr "电池：剩余电量 %d%%，充满还需 %d:%02d"
+msgstr "电池 %d：电量 %d%%，充满还需 %d:%02d"
 
 #: ../plugins/batt/batt.c:165
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d left"
-msgstr "电池：剩余电量 %d%%，剩余可用时间 %d:%02d"
+msgstr "电池 %d：电量 %d%%，可用时间 %d:%02d"
 
 #: ../plugins/batt/batt.c:171
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged"
-msgstr "电池：剩余电量 %d%%"
+msgstr "电池 %d：电量 %d%%"
 
 #: ../plugins/batt/batt.c:181
 #, c-format
@@ -1706,9 +1705,8 @@ msgid "Show Extended Information"
 msgstr "显示更多信息"
 
 #: ../plugins/batt/batt.c:705
-#, fuzzy
 msgid "Number of battery to monitor"
-msgstr "要监控的接口"
+msgstr "要监控的电池序号"
 
 #: ../plugins/batt/batt.c:715
 msgid "Display battery status using ACPI"
