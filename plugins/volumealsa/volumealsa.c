@@ -1068,6 +1068,7 @@ static void card_selector_changed(GtkComboBox *card_selector, VolumeALSAPlugin *
     model = GTK_TREE_MODEL(alsa_make_channels_list(vol, &i));
     gtk_combo_box_set_model(GTK_COMBO_BOX(vol->channel_selector), model);
     gtk_combo_box_set_active(GTK_COMBO_BOX(vol->channel_selector), i);
+    g_object_unref(model);
 }
 #endif
 
@@ -1374,6 +1375,7 @@ static GtkWidget *volumealsa_configure(LXPanel *panel, GtkWidget *p)
         }
     }
     card_selector = gtk_combo_box_new_with_model(GTK_TREE_MODEL(list));
+    g_object_unref(list);
     /* gtk_combo_box_set_wrap_width(GTK_COMBO_BOX(card_selector), 1); */
     column = gtk_cell_renderer_text_new();
     gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(card_selector), column, TRUE);
@@ -1404,6 +1406,7 @@ static GtkWidget *volumealsa_configure(LXPanel *panel, GtkWidget *p)
     list = alsa_make_channels_list(vol, &active);
 #endif
     vol->channel_selector = gtk_combo_box_new_with_model(GTK_TREE_MODEL(list));
+    g_object_unref(list);
     /* gtk_combo_box_set_wrap_width(GTK_COMBO_BOX(vol->channel_selector), 1); */
     column = gtk_cell_renderer_text_new();
     gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(vol->channel_selector), column, TRUE);
@@ -1477,6 +1480,7 @@ static GtkWidget *volumealsa_configure(LXPanel *panel, GtkWidget *p)
 #else
     mixer_selector = gtk_combo_box_entry_new_with_model(GTK_TREE_MODEL(list), 0);
 #endif
+    g_object_unref(list);
     /* gtk_combo_box_set_wrap_width(GTK_COMBO_BOX(mixer_selector), 1); */
     gtk_combo_box_set_active(GTK_COMBO_BOX(mixer_selector), active);
     mixer_entry = gtk_bin_get_child(GTK_BIN(mixer_selector));

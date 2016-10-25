@@ -662,6 +662,7 @@ static void init_plugin_list( LXPanel* p, GtkTreeView* view, GtkWidget* label )
     }
     g_list_free(plugins);
     gtk_tree_view_set_model( view, GTK_TREE_MODEL( list ) );
+    g_object_unref(list);
     g_signal_connect( view, "row-activated",
                       G_CALLBACK(modify_plugin), NULL );
     tree_sel = gtk_tree_view_get_selection( view );
