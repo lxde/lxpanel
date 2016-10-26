@@ -2,13 +2,13 @@
 # Copyright (C) the author of the lxpanel package.
 # This file is distributed under the same license as the 
 # lxpanel package.
-# Pjotr, 2011.
+# Pjotr, 2011-2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2014-11-28 23:27+0000\n"
+"PO-Revision-Date: 2016-10-26 12:27+0000\n"
 "Last-Translator: Pjotr  <pjotrvertaalt@gmail.com>\n"
 "Language-Team: Dutch\n"
 "Language: nl\n"
@@ -90,9 +90,8 @@ msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:1369
-#, fuzzy
 msgid "Copyright (C) 2008-2016"
-msgstr "Auteursrecht (C) 2008-2014"
+msgstr "Auteursrecht (C) 2008-2016"
 
 #: ../src/panel.c:1370
 msgid "Desktop panel for LXDE project"
@@ -167,7 +166,7 @@ msgstr "Opdracht uitvoeren..."
 
 #: ../src/gtk-run.c:412
 msgid "Enter the command you want to execute:"
-msgstr "Voer de opdracht in die u wil uitvoeren:"
+msgstr "Voer de opdracht in die u wilt uitvoeren:"
 
 #: ../src/main.c:70 ../plugins/menu.c:719
 msgid "Restart"
@@ -1023,7 +1022,7 @@ msgstr "Volume"
 
 #: ../plugins/volumealsa/volumealsa.c:245
 msgid "ALSA (or pulseaudio) had a problem. Please check the lxpanel logs."
-msgstr ""
+msgstr "ALSA (of PulseAudio) had een probleem. Kijk a.u.b. de logboeken van lxpanel na."
 
 #: ../plugins/volumealsa/volumealsa.c:680
 msgid ""
@@ -1041,88 +1040,86 @@ msgstr "Dempen"
 #. Just to have these translated
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Line"
-msgstr ""
+msgstr "Line"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "LineOut"
-msgstr ""
+msgstr "LineOut"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Front"
-msgstr ""
+msgstr "Voorkant"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Surround"
-msgstr ""
+msgstr "Surround"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Speaker+LO"
-msgstr ""
+msgstr "Luidspreker+LO"
 
 #: ../plugins/volumealsa/volumealsa.c:1332
 msgid "default"
-msgstr ""
+msgstr "standaard"
 
 #. desc, index
 #: ../plugins/volumealsa/volumealsa.c:1391
 msgid "Master"
-msgstr ""
+msgstr "Master"
 
 #: ../plugins/volumealsa/volumealsa.c:1395
 msgid "PCM"
-msgstr ""
+msgstr "PCM"
 
 #: ../plugins/volumealsa/volumealsa.c:1399
 msgid "Headphone"
-msgstr ""
+msgstr "Koptelefoon"
 
 #: ../plugins/volumealsa/volumealsa.c:1420
 msgid "Click for Volume Slider"
-msgstr ""
+msgstr "Klik voor schuifbalk voor volume"
 
 #: ../plugins/volumealsa/volumealsa.c:1424
 msgid "Click for Toggle Mute"
-msgstr ""
+msgstr "Klik voor omschakelen van demping"
 
 #: ../plugins/volumealsa/volumealsa.c:1428
 msgid "Click for Open Mixer"
-msgstr ""
+msgstr "Klik om mengpaneel te openen"
 
 #. setup hotkeys
 #: ../plugins/volumealsa/volumealsa.c:1432
 msgid "Hotkey for Volume Up"
-msgstr ""
+msgstr "Sneltoets voor geluid harder"
 
 #: ../plugins/volumealsa/volumealsa.c:1434
 msgid "Hotkey for Volume Down"
-msgstr ""
+msgstr "Sneltoets voor geluid zachter"
 
 #: ../plugins/volumealsa/volumealsa.c:1436
 msgid "Hotkey for Volume Mute"
-msgstr ""
+msgstr "Sneltoets voor demping"
 
 #: ../plugins/volumealsa/volumealsa.c:1493
 msgid "Audio Card"
-msgstr ""
+msgstr "Geluidskaart"
 
 #: ../plugins/volumealsa/volumealsa.c:1496
 msgid "Channel to Operate"
-msgstr ""
+msgstr "Te bedienen kanaal"
 
 #: ../plugins/volumealsa/volumealsa.c:1504
 msgid "Command to Open Mixer"
-msgstr ""
+msgstr "Opdracht voor openen van mengpaneel"
 
 #: ../plugins/volumealsa/volumealsa.c:1519
-#, fuzzy
 msgid "Launch Mixer"
-msgstr "Starters"
+msgstr "Start mengpaneel"
 
 #: ../plugins/volumealsa/volumealsa.c:1531
 #: ../plugins/volumealsa/volumealsa.c:1552
-#, fuzzy
 msgid "Display and control volume"
-msgstr "Toon en beheers volume voor ALSA"
+msgstr "Toon en beheers geluidsvolume"
 
 #: ../plugins/netstat/netstat.c:183
 msgid "<Hidden Access Point>"
@@ -1579,19 +1576,19 @@ msgid "Sending/Receiving"
 msgstr "Verzenden/ontvangen..."
 
 #: ../plugins/batt/batt.c:154
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d until full"
-msgstr "Accu: %d%% opgeladen, %d:%02d tot volledig opgeladen"
+msgstr "Accu %d: %d%% opgeladen, %d:%02d tot volledig opgeladen"
 
 #: ../plugins/batt/batt.c:165
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d left"
-msgstr "Accu: %d%% opgeladen, %d:%02d overblijvend"
+msgstr "Accu %d: %d%% opgeladen, %d:%02d overblijvend"
 
 #: ../plugins/batt/batt.c:171
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged"
-msgstr "Accu: %d%% opgeladen"
+msgstr "Accu %d: %d%% opgeladen"
 
 #: ../plugins/batt/batt.c:181
 #, c-format
@@ -1688,7 +1685,7 @@ msgstr "Accu-monitor"
 
 #: ../plugins/batt/batt.c:692
 msgid "Hide if there is no battery"
-msgstr "Verbergen indien geen accu aanwezig"
+msgstr "Verberg indien geen accu aanwezig"
 
 #: ../plugins/batt/batt.c:693
 msgid "Alarm command"
@@ -1727,9 +1724,8 @@ msgid "Show Extended Information"
 msgstr "Uitgebreide informatie tonen"
 
 #: ../plugins/batt/batt.c:705
-#, fuzzy
 msgid "Number of battery to monitor"
-msgstr "Netwerkkaart om te bewaken"
+msgstr "Aantal te bewaken accu's"
 
 #: ../plugins/batt/batt.c:715
 msgid "Display battery status using ACPI"
