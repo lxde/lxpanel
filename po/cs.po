@@ -8,9 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel 0.3.99\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2016-10-24 23:23+0200\n"
+"POT-Creation-Date: 2016-11-01 00:50+0200\n"
+"PO-Revision-Date: 2016-11-01 00:05+0100\n"
 "Last-Translator: Pavel Fric <pavelfric@seznam.cz>\n"
+"Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,15 +21,14 @@ msgstr ""
 "X-POOTLE-MTIME: 1427405508.000000\n"
 "X-Pootle-Path: /cs/lxpanel/po/cs.po\n"
 "X-Pootle-Revision: 134\n"
-"Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 
 #: ../src/configurator.c:148
 msgid ""
 "Space reservation is not available for this panel because there is another "
 "monitor beyond this edge and reservation would cover it if enabled."
 msgstr ""
-"Zamluvení místa není pro tento panel dostupné, protože za tímto okrajem "
-"je další obrazovka a zamluvení místa by ji, kdyby bylo povoleno, překrylo."
+"Zamluvení místa není pro tento panel dostupné, protože za tímto okrajem je "
+"další obrazovka a zamluvení místa by ji, kdyby bylo povoleno, překrylo."
 
 #: ../src/configurator.c:632
 msgid "Currently loaded plugins"
@@ -38,27 +38,27 @@ msgstr "Právě zavedené zásuvné moduly"
 msgid "Stretch"
 msgstr "Natáhnout"
 
-#: ../src/configurator.c:778
+#: ../src/configurator.c:779
 msgid "Add plugin to panel"
 msgstr "Přidat zásuvný modul na panel"
 
-#: ../src/configurator.c:806
+#: ../src/configurator.c:807
 msgid "Available plugins"
 msgstr "Dostupné zásuvné moduly"
 
-#: ../src/configurator.c:1427
+#: ../src/configurator.c:1428
 msgid "Logout command is not set"
 msgstr "Příkaz pro ohlášení není nastaven"
 
-#: ../src/configurator.c:1495
+#: ../src/configurator.c:1496
 msgid "Select a directory"
 msgstr "Vyberte adresář"
 
-#: ../src/configurator.c:1495 ../src/configurator.c:1607
+#: ../src/configurator.c:1496 ../src/configurator.c:1608
 msgid "Select a file"
 msgstr "Vyberte soubor"
 
-#: ../src/configurator.c:1640
+#: ../src/configurator.c:1641
 msgid "_Browse"
 msgstr "_Procházet"
 
@@ -285,7 +285,7 @@ msgstr "Velikost"
 msgid "Allocate space"
 msgstr "Rezervovat prostor"
 
-#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2401
+#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2417
 msgid "Application Launch and Task Bar"
 msgstr "Panel úloh a spouštění aplikací"
 
@@ -339,26 +339,30 @@ msgid "Disable enlargement for small task icons"
 msgstr "Vypnout zvětšení pro malé ikony"
 
 #: ../data/ui/launchtaskbar.glade.h:15
+msgid "Show task icons smaller than rest of panel icons"
+msgstr "Ukázat ikony úloh menší než zbytek ikon v panelu"
+
+#: ../data/ui/launchtaskbar.glade.h:16
 msgid "Maximum width of task button"
 msgstr "Maximální šířka tlačítka úlohy"
 
-#: ../data/ui/launchtaskbar.glade.h:16
+#: ../data/ui/launchtaskbar.glade.h:17
 msgid "Spacing"
 msgstr "Rozestupy"
 
-#: ../data/ui/launchtaskbar.glade.h:17
+#: ../data/ui/launchtaskbar.glade.h:18
 msgid "<b>Taskbar</b>"
 msgstr "<b>Panel úloh</b>"
 
-#: ../data/ui/launchtaskbar.glade.h:18
+#: ../data/ui/launchtaskbar.glade.h:19
 msgid "Only Application Launch Bar"
 msgstr "Pouze panel spouštění aplikací"
 
-#: ../data/ui/launchtaskbar.glade.h:19
+#: ../data/ui/launchtaskbar.glade.h:20
 msgid "Only Task Bar (Window List)"
 msgstr "Pouze panel úloh (Seznam oken)"
 
-#: ../data/ui/launchtaskbar.glade.h:20
+#: ../data/ui/launchtaskbar.glade.h:21
 msgid "Integrated Application Launch Bar and Task Bar"
 msgstr "Integrovaný panel spouštění aplikací a panel úloh"
 
@@ -481,7 +485,7 @@ msgstr "Předvolby panelu"
 msgid "Edge:"
 msgstr "Roh:"
 
-#: ../data/ui/panel-pref.glade.h:16 ../plugins/volumealsa/volumealsa.c:1293
+#: ../data/ui/panel-pref.glade.h:16 ../plugins/volumealsa/volumealsa.c:1291
 msgid "Center"
 msgstr "Uprostřed"
 
@@ -629,31 +633,31 @@ msgstr "Zobrazovat názvy pracovních ploch"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Zobrazuje číslo pracovní plochy, od cmeury@users.sf.net"
 
-#: ../plugins/launchtaskbar.c:1768 ../plugins/launchtaskbar.c:2371
+#: ../plugins/launchtaskbar.c:1781 ../plugins/launchtaskbar.c:2387
 msgid "Application Launch Bar"
 msgstr "Spouštěcí panel aplikací"
 
-#: ../plugins/launchtaskbar.c:1771 ../plugins/launchtaskbar.c:2381
+#: ../plugins/launchtaskbar.c:1784 ../plugins/launchtaskbar.c:2397
 msgid "Task Bar (Window List)"
 msgstr "Panel úloh (Seznam oken)"
 
-#: ../plugins/launchtaskbar.c:1919
+#: ../plugins/launchtaskbar.c:1935
 msgid "A_dd to Launcher"
 msgstr "P_řidat do spouštěče"
 
-#: ../plugins/launchtaskbar.c:1921
+#: ../plugins/launchtaskbar.c:1937
 msgid "Rem_ove from Launcher"
 msgstr "Ode_brat ze spouštěče"
 
-#: ../plugins/launchtaskbar.c:1923
+#: ../plugins/launchtaskbar.c:1939
 msgid "_New Instance"
 msgstr "_Nová instance"
 
-#: ../plugins/launchtaskbar.c:2372
+#: ../plugins/launchtaskbar.c:2388
 msgid "Bar with buttons to launch application"
 msgstr "Panel s tlačítko pro spouštění aplikací"
 
-#: ../plugins/launchtaskbar.c:2382
+#: ../plugins/launchtaskbar.c:2398
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -661,58 +665,58 @@ msgstr ""
 "Panel úloh zobrazuje všechna otevřená okna a umožňuje je minimalizovat, "
 "skrýt nebo aktivovat"
 
-#: ../plugins/launchtaskbar.c:2402
+#: ../plugins/launchtaskbar.c:2418
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr ""
 "Panel s tlačítky pro spouštění aplikací a/nebo zobrazení všech otevřených "
 "oken"
 
 #. Add Raise menu item.
-#: ../plugins/task-button.c:339
+#: ../plugins/task-button.c:338
 msgid "_Raise"
 msgstr "_Obnovit"
 
 #. Add Restore menu item.
-#: ../plugins/task-button.c:344
+#: ../plugins/task-button.c:343
 msgid "R_estore"
 msgstr "O_bnovit"
 
 #. Add Maximize menu item.
-#: ../plugins/task-button.c:349
+#: ../plugins/task-button.c:348
 msgid "Ma_ximize"
 msgstr "Ma_ximalizovat"
 
 #. Add Iconify menu item.
-#: ../plugins/task-button.c:354
+#: ../plugins/task-button.c:353
 msgid "Ico_nify"
 msgstr "Mi_nimalizovat"
 
-#: ../plugins/task-button.c:375
+#: ../plugins/task-button.c:374
 #, c-format
 msgid "Workspace _%d"
 msgstr "Pracovní plocha _%d"
 
-#: ../plugins/task-button.c:380
+#: ../plugins/task-button.c:379
 #, c-format
 msgid "Workspace %d"
 msgstr "Pracovní plocha %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../plugins/task-button.c:397
+#: ../plugins/task-button.c:396
 msgid "_All workspaces"
 msgstr "_Všechny pracovní plochy"
 
 #. FIXME: add "Current workspace" item, active if not on a current
 #. Add Move to Workspace menu item as a submenu.
-#: ../plugins/task-button.c:405
+#: ../plugins/task-button.c:404
 msgid "_Move to Workspace"
 msgstr "_Přesunout na pracovní plochu"
 
-#: ../plugins/task-button.c:420
+#: ../plugins/task-button.c:419
 msgid "_Close Window"
 msgstr "_Zavřít okno"
 
-#: ../plugins/task-button.c:1238
+#: ../plugins/task-button.c:1235
 msgid "_Close all windows"
 msgstr "_Zavřít všechna okna"
 
@@ -995,28 +999,17 @@ msgstr "CPUFreq frontend"
 msgid "Display CPU frequency and allow to change governors and frequency"
 msgstr "Zobrazit frekvenci CPU a povolit změnu regulátorů a frekvence"
 
-#. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
-#. Display current level in tooltip.
-#: ../plugins/volume/volume.c:282 ../plugins/volumealsa/volumealsa.c:597
-#: ../plugins/volumealsa/volumealsa.c:955
-msgid "Volume control"
-msgstr "Ovládání hlasitosti"
-
-#: ../plugins/volume/volume.c:290 ../plugins/volumealsa/volumealsa.c:1491
-#: ../plugins/volumealsa/volumealsa.c:1530
-#: ../plugins/volumealsa/volumealsa.c:1551
-msgid "Volume Control"
-msgstr "Ovládání hlasitosti"
-
-#. Create a frame as the child of the viewport.
-#: ../plugins/volume/volume-impl.c:115 ../plugins/volumealsa/volumealsa.c:874
-msgid "Volume"
-msgstr "Hlasitost"
-
 #: ../plugins/volumealsa/volumealsa.c:245
 msgid "ALSA (or pulseaudio) had a problem. Please check the lxpanel logs."
 msgstr ""
-"ALSA (nebo pulseaudio) měla potíže. Zkontrolujte, prosím, záznamy pro lxpanel."
+"ALSA (nebo pulseaudio) měla potíže. Zkontrolujte, prosím, záznamy pro "
+"lxpanel."
+
+#. Display current level in tooltip.
+#: ../plugins/volumealsa/volumealsa.c:597
+#: ../plugins/volumealsa/volumealsa.c:952
+msgid "Volume control"
+msgstr "Ovládání hlasitosti"
 
 #: ../plugins/volumealsa/volumealsa.c:680
 msgid ""
@@ -1026,46 +1019,51 @@ msgstr ""
 "Chyba, musíte nainstalovat program k nastavení zvuku (pavucontol, "
 "alsamixer ...)"
 
+#. Create a frame as the child of the viewport.
+#: ../plugins/volumealsa/volumealsa.c:874
+msgid "Volume"
+msgstr "Hlasitost"
+
 #. Create a check button as the child of the vertical box.
 #: ../plugins/volumealsa/volumealsa.c:893
 msgid "Mute"
 msgstr "Ztlumit"
 
 #. Just to have these translated
-#: ../plugins/volumealsa/volumealsa.c:1293
+#: ../plugins/volumealsa/volumealsa.c:1291
 msgid "Line"
 msgstr "Vstupní síla zvuku"
 
-#: ../plugins/volumealsa/volumealsa.c:1293
+#: ../plugins/volumealsa/volumealsa.c:1291
 msgid "LineOut"
 msgstr "Výstupní síla zvuku"
 
-#: ../plugins/volumealsa/volumealsa.c:1293
+#: ../plugins/volumealsa/volumealsa.c:1291
 msgid "Front"
 msgstr "Přední"
 
-#: ../plugins/volumealsa/volumealsa.c:1293
+#: ../plugins/volumealsa/volumealsa.c:1291
 msgid "Surround"
 msgstr "Okolní"
 
-#: ../plugins/volumealsa/volumealsa.c:1293
+#: ../plugins/volumealsa/volumealsa.c:1291
 msgid "Speaker+LO"
 msgstr "Reproduktor+LO"
 
-#: ../plugins/volumealsa/volumealsa.c:1332
+#: ../plugins/volumealsa/volumealsa.c:1330
 msgid "default"
 msgstr "Výchozí"
 
 #. desc, index
-#: ../plugins/volumealsa/volumealsa.c:1391
+#: ../plugins/volumealsa/volumealsa.c:1390
 msgid "Master"
 msgstr "Hlavní"
 
-#: ../plugins/volumealsa/volumealsa.c:1395
+#: ../plugins/volumealsa/volumealsa.c:1394
 msgid "PCM"
 msgstr "PCM"
 
-#: ../plugins/volumealsa/volumealsa.c:1399
+#: ../plugins/volumealsa/volumealsa.c:1398
 msgid "Headphone"
 msgstr "Sluchátka"
 
@@ -1094,24 +1092,30 @@ msgstr "Klávesová zkratka pro snížení hlasitosti"
 msgid "Hotkey for Volume Mute"
 msgstr "Klávesová zkratka pro ztlumení hlasitosti"
 
-#: ../plugins/volumealsa/volumealsa.c:1493
+#: ../plugins/volumealsa/volumealsa.c:1492
+#: ../plugins/volumealsa/volumealsa.c:1531
+#: ../plugins/volumealsa/volumealsa.c:1552
+msgid "Volume Control"
+msgstr "Ovládání hlasitosti"
+
+#: ../plugins/volumealsa/volumealsa.c:1494
 msgid "Audio Card"
 msgstr "Zvuková karta"
 
-#: ../plugins/volumealsa/volumealsa.c:1496
+#: ../plugins/volumealsa/volumealsa.c:1497
 msgid "Channel to Operate"
 msgstr "Kanál k obsluhování"
 
-#: ../plugins/volumealsa/volumealsa.c:1504
+#: ../plugins/volumealsa/volumealsa.c:1505
 msgid "Command to Open Mixer"
 msgstr "Příkaz pro otevření směšovače"
 
-#: ../plugins/volumealsa/volumealsa.c:1519
+#: ../plugins/volumealsa/volumealsa.c:1520
 msgid "Launch Mixer"
 msgstr "Spustit směšovač"
 
-#: ../plugins/volumealsa/volumealsa.c:1531
-#: ../plugins/volumealsa/volumealsa.c:1552
+#: ../plugins/volumealsa/volumealsa.c:1532
+#: ../plugins/volumealsa/volumealsa.c:1553
 msgid "Display and control volume"
 msgstr "Zobrazit a ovládat hlasitost"
 
