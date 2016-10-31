@@ -54,6 +54,8 @@
 * Fixed "dynamic" panel width allocation.
 * Fixed PanelIconGrid allocation in rigth-to-left languages, it was wrong
     so some icons might be invisible or placed under other plugins.
+* Removed call to gtk_widget_set_style() from volume slider to fix colors
+    of current theme.
 
 0.8.2
 -------------------------------------------------------------------------
