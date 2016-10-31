@@ -139,12 +139,22 @@ static void panel_icon_grid_size_allocate(GtkWidget *widget,
     }
 
     /* Get and save the desired container geometry. */
-    if (ig->orientation == GTK_ORIENTATION_HORIZONTAL && allocation->height > 1)
-        ig->target_dimension = allocation->height;
-    else if (ig->orientation == GTK_ORIENTATION_VERTICAL && allocation->width > 1)
-        ig->target_dimension = allocation->width;
     child_width = ig->child_width;
     child_height = ig->child_height;
+    if (ig->orientation == GTK_ORIENTATION_HORIZONTAL && allocation->height > 1)
+    {
+        ig->target_dimension = allocation->height;
+        /* Don't allow children go out of the grid */
+        if ((child_height + (int)border * 2) > allocation->height)
+            child_height = MAX(1, allocation->height - 2 * border);
+    }
+    else if (ig->orientation == GTK_ORIENTATION_VERTICAL && allocation->width > 1)
+    {
+        ig->target_dimension = allocation->width;
+        /* Don't allow children go out of the grid */
+        if ((child_width + (int)border * 2) > allocation->width)
+            child_width = MAX(1, allocation->width - 2 * border);
+    }
 
     /* FIXME: is there any sense to recheck rows and columns again?
        GTK+ should have it done right before this call. */
