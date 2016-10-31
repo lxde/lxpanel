@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2016-10-24 22:32+0300\n"
+"POT-Creation-Date: 2016-11-01 00:50+0200\n"
+"PO-Revision-Date: 2016-11-01 01:03+0300\n"
 "Last-Translator: Andriy Grytsenko <andrej@rep.kiev.ua>\n"
 "Language-Team: Russian <hsh@runtu.org>\n"
 "Language: ru\n"
@@ -36,27 +36,27 @@ msgstr "Загруженные модули"
 msgid "Stretch"
 msgstr "Растянуть"
 
-#: ../src/configurator.c:778
+#: ../src/configurator.c:779
 msgid "Add plugin to panel"
 msgstr "Добавить модуль на панель"
 
-#: ../src/configurator.c:806
+#: ../src/configurator.c:807
 msgid "Available plugins"
 msgstr "Доступные модули"
 
-#: ../src/configurator.c:1427
+#: ../src/configurator.c:1428
 msgid "Logout command is not set"
 msgstr "Команда выхода из сеанса не задана"
 
-#: ../src/configurator.c:1495
+#: ../src/configurator.c:1496
 msgid "Select a directory"
 msgstr "Выбрать каталог"
 
-#: ../src/configurator.c:1495 ../src/configurator.c:1607
+#: ../src/configurator.c:1496 ../src/configurator.c:1608
 msgid "Select a file"
 msgstr "Выбрать файл"
 
-#: ../src/configurator.c:1640
+#: ../src/configurator.c:1641
 msgid "_Browse"
 msgstr "_Обзор"
 
@@ -287,7 +287,7 @@ msgstr "Размер"
 msgid "Allocate space"
 msgstr "Задать пространство"
 
-#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2401
+#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2417
 msgid "Application Launch and Task Bar"
 msgstr "Панель запуска приложений и панель задач"
 
@@ -341,26 +341,30 @@ msgid "Disable enlargement for small task icons"
 msgstr "Запретить увеличение маленьких значков задач"
 
 #: ../data/ui/launchtaskbar.glade.h:15
+msgid "Show task icons smaller than rest of panel icons"
+msgstr "Показывать значки задач меньшими, чем остальные значки панели"
+
+#: ../data/ui/launchtaskbar.glade.h:16
 msgid "Maximum width of task button"
 msgstr "Макс. ширина кнопки окна"
 
-#: ../data/ui/launchtaskbar.glade.h:16
+#: ../data/ui/launchtaskbar.glade.h:17
 msgid "Spacing"
 msgstr "Разделитель"
 
-#: ../data/ui/launchtaskbar.glade.h:17
+#: ../data/ui/launchtaskbar.glade.h:18
 msgid "<b>Taskbar</b>"
 msgstr "<b>Панель задач</b>"
 
-#: ../data/ui/launchtaskbar.glade.h:18
+#: ../data/ui/launchtaskbar.glade.h:19
 msgid "Only Application Launch Bar"
 msgstr "Только панель запуска приложений"
 
-#: ../data/ui/launchtaskbar.glade.h:19
+#: ../data/ui/launchtaskbar.glade.h:20
 msgid "Only Task Bar (Window List)"
 msgstr "Только панель задач (Список окон)"
 
-#: ../data/ui/launchtaskbar.glade.h:20
+#: ../data/ui/launchtaskbar.glade.h:21
 msgid "Integrated Application Launch Bar and Task Bar"
 msgstr "Совмещённая панель запуска приложений и Панель задач"
 
@@ -483,7 +487,7 @@ msgstr "Настройки панели"
 msgid "Edge:"
 msgstr "Расположение:"
 
-#: ../data/ui/panel-pref.glade.h:16 ../plugins/volumealsa/volumealsa.c:1293
+#: ../data/ui/panel-pref.glade.h:16 ../plugins/volumealsa/volumealsa.c:1291
 msgid "Center"
 msgstr "По центру"
 
@@ -632,31 +636,31 @@ msgstr "Отображать имена рабочих столов"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Показывает номер рабочего места"
 
-#: ../plugins/launchtaskbar.c:1768 ../plugins/launchtaskbar.c:2371
+#: ../plugins/launchtaskbar.c:1781 ../plugins/launchtaskbar.c:2387
 msgid "Application Launch Bar"
 msgstr "Панель запуска приложений"
 
-#: ../plugins/launchtaskbar.c:1771 ../plugins/launchtaskbar.c:2381
+#: ../plugins/launchtaskbar.c:1784 ../plugins/launchtaskbar.c:2397
 msgid "Task Bar (Window List)"
 msgstr "Панель задач (Список окон)"
 
-#: ../plugins/launchtaskbar.c:1919
+#: ../plugins/launchtaskbar.c:1935
 msgid "A_dd to Launcher"
 msgstr "Д_обавить кнопку запуска"
 
-#: ../plugins/launchtaskbar.c:1921
+#: ../plugins/launchtaskbar.c:1937
 msgid "Rem_ove from Launcher"
 msgstr "_Убрать с панели"
 
-#: ../plugins/launchtaskbar.c:1923
+#: ../plugins/launchtaskbar.c:1939
 msgid "_New Instance"
 msgstr "_Новый экземпляр"
 
-#: ../plugins/launchtaskbar.c:2372
+#: ../plugins/launchtaskbar.c:2388
 msgid "Bar with buttons to launch application"
 msgstr "Панель с кнопками запуска приложений"
 
-#: ../plugins/launchtaskbar.c:2382
+#: ../plugins/launchtaskbar.c:2398
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -664,56 +668,56 @@ msgstr ""
 "Панель задач показывает все открытые окна, позволяя затенять или забирать "
 "фокус"
 
-#: ../plugins/launchtaskbar.c:2402
+#: ../plugins/launchtaskbar.c:2418
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr "Панель с кнопками запуска приложений и/или отображения открытых окон"
 
 #. Add Raise menu item.
-#: ../plugins/task-button.c:339
+#: ../plugins/task-button.c:338
 msgid "_Raise"
 msgstr "_Развернуть"
 
 #. Add Restore menu item.
-#: ../plugins/task-button.c:344
+#: ../plugins/task-button.c:343
 msgid "R_estore"
 msgstr "В_осстановить"
 
 #. Add Maximize menu item.
-#: ../plugins/task-button.c:349
+#: ../plugins/task-button.c:348
 msgid "Ma_ximize"
 msgstr "_На весь экран"
 
 #. Add Iconify menu item.
-#: ../plugins/task-button.c:354
+#: ../plugins/task-button.c:353
 msgid "Ico_nify"
 msgstr "_Значком"
 
-#: ../plugins/task-button.c:375
+#: ../plugins/task-button.c:374
 #, c-format
 msgid "Workspace _%d"
 msgstr "Место %d"
 
-#: ../plugins/task-button.c:380
+#: ../plugins/task-button.c:379
 #, c-format
 msgid "Workspace %d"
 msgstr "Рабочее место %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../plugins/task-button.c:397
+#: ../plugins/task-button.c:396
 msgid "_All workspaces"
 msgstr "_Все рабочие места"
 
 #. FIXME: add "Current workspace" item, active if not on a current
 #. Add Move to Workspace menu item as a submenu.
-#: ../plugins/task-button.c:405
+#: ../plugins/task-button.c:404
 msgid "_Move to Workspace"
 msgstr "_Переместить на рабочее место"
 
-#: ../plugins/task-button.c:420
+#: ../plugins/task-button.c:419
 msgid "_Close Window"
 msgstr "_Закрыть окно"
 
-#: ../plugins/task-button.c:1238
+#: ../plugins/task-button.c:1235
 msgid "_Close all windows"
 msgstr "_Закрыть все окна"
 
@@ -994,27 +998,16 @@ msgstr "Отображение CPUFreq"
 msgid "Display CPU frequency and allow to change governors and frequency"
 msgstr "Отображает частоту ЦП и позволяет управлять частотой"
 
-#. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
-#. Display current level in tooltip.
-#: ../plugins/volume/volume.c:282 ../plugins/volumealsa/volumealsa.c:597
-#: ../plugins/volumealsa/volumealsa.c:955
-msgid "Volume control"
-msgstr "Громкость"
-
-#: ../plugins/volume/volume.c:290 ../plugins/volumealsa/volumealsa.c:1491
-#: ../plugins/volumealsa/volumealsa.c:1530
-#: ../plugins/volumealsa/volumealsa.c:1551
-msgid "Volume Control"
-msgstr "Управление громкостью"
-
-#. Create a frame as the child of the viewport.
-#: ../plugins/volume/volume-impl.c:115 ../plugins/volumealsa/volumealsa.c:874
-msgid "Volume"
-msgstr "Громкость"
-
 #: ../plugins/volumealsa/volumealsa.c:245
 msgid "ALSA (or pulseaudio) had a problem. Please check the lxpanel logs."
-msgstr "Случилась проблема с ALSA (или pulseaudio). Проверьте логи, пожалуйста."
+msgstr ""
+"Случилась проблема с ALSA (или pulseaudio). Проверьте логи, пожалуйста."
+
+#. Display current level in tooltip.
+#: ../plugins/volumealsa/volumealsa.c:597
+#: ../plugins/volumealsa/volumealsa.c:952
+msgid "Volume control"
+msgstr "Громкость"
 
 #: ../plugins/volumealsa/volumealsa.c:680
 msgid ""
@@ -1024,46 +1017,51 @@ msgstr ""
 "У вас не установлены приложения управления звуком (pavucontrol, alsamixer и "
 "т. п.)"
 
+#. Create a frame as the child of the viewport.
+#: ../plugins/volumealsa/volumealsa.c:874
+msgid "Volume"
+msgstr "Громкость"
+
 #. Create a check button as the child of the vertical box.
 #: ../plugins/volumealsa/volumealsa.c:893
 msgid "Mute"
 msgstr "Выкл."
 
 #. Just to have these translated
-#: ../plugins/volumealsa/volumealsa.c:1293
+#: ../plugins/volumealsa/volumealsa.c:1291
 msgid "Line"
 msgstr "Линия"
 
-#: ../plugins/volumealsa/volumealsa.c:1293
+#: ../plugins/volumealsa/volumealsa.c:1291
 msgid "LineOut"
 msgstr "Линейный выход"
 
-#: ../plugins/volumealsa/volumealsa.c:1293
+#: ../plugins/volumealsa/volumealsa.c:1291
 msgid "Front"
 msgstr "Передние"
 
-#: ../plugins/volumealsa/volumealsa.c:1293
+#: ../plugins/volumealsa/volumealsa.c:1291
 msgid "Surround"
 msgstr "Боковые"
 
-#: ../plugins/volumealsa/volumealsa.c:1293
+#: ../plugins/volumealsa/volumealsa.c:1291
 msgid "Speaker+LO"
 msgstr "Выход на динамик"
 
-#: ../plugins/volumealsa/volumealsa.c:1332
+#: ../plugins/volumealsa/volumealsa.c:1330
 msgid "default"
 msgstr "по умолчанию"
 
 #. desc, index
-#: ../plugins/volumealsa/volumealsa.c:1391
+#: ../plugins/volumealsa/volumealsa.c:1390
 msgid "Master"
 msgstr "Главный"
 
-#: ../plugins/volumealsa/volumealsa.c:1395
+#: ../plugins/volumealsa/volumealsa.c:1394
 msgid "PCM"
 msgstr "PCM"
 
-#: ../plugins/volumealsa/volumealsa.c:1399
+#: ../plugins/volumealsa/volumealsa.c:1398
 msgid "Headphone"
 msgstr "Наушник"
 
@@ -1092,24 +1090,30 @@ msgstr "Клавиша \"Тише\""
 msgid "Hotkey for Volume Mute"
 msgstr "Клавиша \"Заглушить\""
 
-#: ../plugins/volumealsa/volumealsa.c:1493
+#: ../plugins/volumealsa/volumealsa.c:1492
+#: ../plugins/volumealsa/volumealsa.c:1531
+#: ../plugins/volumealsa/volumealsa.c:1552
+msgid "Volume Control"
+msgstr "Управление громкостью"
+
+#: ../plugins/volumealsa/volumealsa.c:1494
 msgid "Audio Card"
 msgstr "Звуковая карта"
 
-#: ../plugins/volumealsa/volumealsa.c:1496
+#: ../plugins/volumealsa/volumealsa.c:1497
 msgid "Channel to Operate"
 msgstr "Основной канал"
 
-#: ../plugins/volumealsa/volumealsa.c:1504
+#: ../plugins/volumealsa/volumealsa.c:1505
 msgid "Command to Open Mixer"
 msgstr "Команда вызова микшера"
 
-#: ../plugins/volumealsa/volumealsa.c:1519
+#: ../plugins/volumealsa/volumealsa.c:1520
 msgid "Launch Mixer"
 msgstr "Запустить микшер"
 
-#: ../plugins/volumealsa/volumealsa.c:1531
-#: ../plugins/volumealsa/volumealsa.c:1552
+#: ../plugins/volumealsa/volumealsa.c:1532
+#: ../plugins/volumealsa/volumealsa.c:1553
 msgid "Display and control volume"
 msgstr "Отображение и управление громкостью"
 
