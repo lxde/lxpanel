@@ -36,6 +36,7 @@ typedef struct /* bitwise rendering options for taskbar */
     gboolean same_monitor_only : 1;     /* only show windows that are in the same monitor as the taskbar */
     gboolean disable_taskbar_upscale : 1; /* don't upscale taskbar icons */
     gboolean use_net_active : 1;        /* NET_WM_ACTIVE_WINDOW is supported by the window manager */
+    gboolean use_smaller_icons : 1;     /* use icons 4 pixels less than panel default */
 } TaskShowFlags;
 
 #define PANEL_TYPE_TASK_BUTTON             (task_button_get_type())

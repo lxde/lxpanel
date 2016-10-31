@@ -1007,11 +1007,14 @@ static void launchtaskbar_constructor_task(LaunchTaskBarPlugin *ltbp)
             ltbp->flags.flat_button = (tmp_int != 0);
         if (config_setting_lookup_int(s, "GroupedTasks", &tmp_int))
             ltbp->grouped_tasks = (tmp_int != 0);
+        if (config_setting_lookup_int(s, "UseSmallerIcons", &tmp_int))
+            ltbp->flags.use_smaller_icons = (tmp_int != 0);
 
         /* Make container for task buttons as a child of top level widget. */
         ltbp->tb_icon_grid = panel_icon_grid_new(panel_get_orientation(ltbp->panel),
-                                                 ltbp->task_width_max,
-                                                 ltbp->icon_size, ltbp->spacing, 0,
+                                                 ((ltbp->flags.icons_only) ? ltbp->icon_size + ICON_ONLY_EXTRA : ltbp->task_width_max),
+                                                 ((ltbp->flags.icons_only) ? ltbp->icon_size + ICON_ONLY_EXTRA : ltbp->icon_size + ICON_BUTTON_TRIM),
+                                                 ltbp->spacing, 0,
                                                  panel_get_height(ltbp->panel));
         panel_icon_grid_set_constrain_width(PANEL_ICON_GRID(ltbp->tb_icon_grid), TRUE);
         gtk_box_pack_start(GTK_BOX(ltbp->plugin), ltbp->tb_icon_grid, TRUE, TRUE, 0);
@@ -1068,6 +1071,7 @@ static GtkWidget *_launchtaskbar_constructor(LXPanel *panel, config_setting_t *s
     ltbp->spacing           = 1;
     ltbp->flags.use_mouse_wheel = TRUE;
     ltbp->flags.use_urgency_hint = TRUE;
+    ltbp->flags.use_smaller_icons = TRUE;
     ltbp->grouped_tasks     = FALSE;
     ltbp->fixed_mode        = (mode == LAUNCHBAR) || (mode == TASKBAR);
 
@@ -1489,6 +1493,14 @@ static void on_checkbutton_disable_taskbar_upscale_toggled(GtkToggleButton *p_to
     taskbar_apply_configuration(ltbp);
 }
 
+static void on_checkbutton_use_smaller_icons_toggled(GtkToggleButton *p_togglebutton, gpointer p_data)
+{
+    LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p_data;
+    ltbp->flags.use_smaller_icons = gtk_toggle_button_get_active(p_togglebutton);
+    config_group_set_int(ltbp->settings, "UseSmallerIcons", ltbp->flags.use_smaller_icons);
+    taskbar_apply_configuration(ltbp);
+}
+
 static void on_checkbutton_mouse_wheel_toggled(GtkToggleButton *p_togglebutton, gpointer p_data)
 {
     LaunchTaskBarPlugin *ltbp = (LaunchTaskBarPlugin *)p_data;
@@ -1725,17 +1737,18 @@ static GtkWidget *launchtaskbar_configure(LXPanel *panel, GtkWidget *p)
         SETUP_TOGGLE_BUTTON(checkbutton_same_monitor_only, same_monitor_only);
         SETUP_TOGGLE_BUTTON(checkbutton_mouse_wheel, use_mouse_wheel);
         SETUP_TOGGLE_BUTTON(checkbutton_urgency_hint, use_urgency_hint);
-        //SETUP_TOGGLE_BUTTON(checkbutton_disable_taskbar_upscale, disable_taskbar_upscale);
+        SETUP_TOGGLE_BUTTON(checkbutton_disable_taskbar_upscale, disable_taskbar_upscale);
+        //SETUP_TOGGLE_BUTTON(checkbutton_use_smaller_icons, use_smaller_icons);
 #undef SETUP_TOGGLE_BUTTON
         object = gtk_builder_get_object(builder, "checkbutton_grouped_tasks");
         gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(object), ltbp->grouped_tasks);
         g_signal_connect(object, "toggled", G_CALLBACK(on_checkbutton_grouped_tasks_toggled), ltbp);
         /* FIXME: for transitional period, turn into SETUP_TOGGLE_BUTTON later */
-        object = gtk_builder_get_object(builder, "checkbutton_disable_taskbar_upscale");
+        object = gtk_builder_get_object(builder, "checkbutton_use_smaller_icons");
         if (object)
         {
-            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(object), ltbp->flags.disable_taskbar_upscale);
-            g_signal_connect(object, "toggled", G_CALLBACK(on_checkbutton_disable_taskbar_upscale_toggled), ltbp);
+            gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(object), ltbp->flags.use_smaller_icons);
+            g_signal_connect(object, "toggled", G_CALLBACK(on_checkbutton_use_smaller_icons_toggled), ltbp);
         }
 
 #define SETUP_SPIN_BUTTON(button,member) \
@@ -1797,7 +1810,8 @@ static void launchtaskbar_panel_configuration_changed(LXPanel *panel, GtkWidget 
         panel_icon_grid_set_geometry(PANEL_ICON_GRID(ltbp->tb_icon_grid),
             panel_get_orientation(ltbp->panel),
             ((ltbp->flags.icons_only) ? ltbp->icon_size + ICON_ONLY_EXTRA : ltbp->task_width_max),
-            ltbp->icon_size, ltbp->spacing, 0, panel_get_height(ltbp->panel));
+            ((ltbp->flags.icons_only) ? ltbp->icon_size + ICON_ONLY_EXTRA : ltbp->icon_size + ICON_BUTTON_TRIM),
+            ltbp->spacing, 0, panel_get_height(ltbp->panel));
         taskbar_reset_menu(ltbp);
         taskbar_redraw(ltbp);
     }
@@ -1836,6 +1850,8 @@ static void taskbar_redraw(LaunchTaskBarPlugin * tb)
     guint mon = panel_get_monitor(tb->panel);
     guint icon_size = panel_get_icon_size(tb->panel);
 
+    if (tb->flags.use_smaller_icons)
+        icon_size -= 4;
     for (l = children; l; l = l->next)
         task_button_update(l->data, tb->current_desktop, tb->number_of_desktops,
                            mon, icon_size, tb->flags);

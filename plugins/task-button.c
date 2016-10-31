@@ -53,7 +53,6 @@
 #include "gtk-compat.h"
 
 #define ALL_WORKSPACES       -1
-#define ICON_BUTTON_TRIM      4      /* Amount needed to have button remain on panel */
 
 /* -----------------------------------------------------------------------------
  * Class data
@@ -1050,9 +1049,7 @@ static void _task_update_icon(TaskButton *task, TaskDetails *details, Atom sourc
     /* Get the icon from the window's hints. */
     if (details != NULL && pixbuf == NULL)
     {
-        pixbuf = get_wm_icon(details->win,
-                             MAX(0, (int)task->icon_size - ICON_BUTTON_TRIM),
-                             MAX(0, (int)task->icon_size - ICON_BUTTON_TRIM),
+        pixbuf = get_wm_icon(details->win, task->icon_size, task->icon_size,
                              source, &details->image_source, task);
         if (pixbuf)
         {
@@ -1455,6 +1452,8 @@ TaskButton *task_button_new(Window win, gint desk, gint desks, LXPanel *panel,
     self->panel = panel;
     self->monitor = panel_get_monitor(panel);
     self->icon_size = panel_get_icon_size(panel);
+    if (flags.use_smaller_icons)
+        self->icon_size -= 4;
     self->res_class = g_strdup(res_class);
     self->flags = flags;
     /* create empty image and label */
