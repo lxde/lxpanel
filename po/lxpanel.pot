@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-31 13:55+0200\n"
+"POT-Creation-Date: 2016-11-01 00:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -326,7 +326,7 @@ msgid "Disable enlargement for small task icons"
 msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:15
-msgid "Show task icons lesser than rest of panel icons"
+msgid "Show task icons smaller than rest of panel icons"
 msgstr ""
 
 #: ../data/ui/launchtaskbar.glade.h:16

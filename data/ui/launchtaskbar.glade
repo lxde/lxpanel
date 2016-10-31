@@ -395,7 +395,7 @@
                 </child>
                 <child>
                   <object class="GtkCheckButton" id="checkbutton_use_smaller_icons">
-                    <property name="label" translatable="yes">Show task icons lesser than rest of panel icons</property>
+                    <property name="label" translatable="yes">Show task icons smaller than rest of panel icons</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
