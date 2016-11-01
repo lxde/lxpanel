@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-24 21:15+0300\n"
+"POT-Creation-Date: 2016-11-01 00:50+0200\n"
 "PO-Revision-Date: 2016-10-26 12:27+0000\n"
 "Last-Translator: Pjotr  <pjotrvertaalt@gmail.com>\n"
 "Language-Team: Dutch\n"
@@ -38,27 +38,27 @@ msgstr "Thans geladen invoegtoepassingen"
 msgid "Stretch"
 msgstr "Rekken"
 
-#: ../src/configurator.c:778
+#: ../src/configurator.c:779
 msgid "Add plugin to panel"
 msgstr "Invoegtoepassing toevoegen aan werkbalk"
 
-#: ../src/configurator.c:806
+#: ../src/configurator.c:807
 msgid "Available plugins"
 msgstr "Beschikbare invoegtoepassingen"
 
-#: ../src/configurator.c:1427
+#: ../src/configurator.c:1428
 msgid "Logout command is not set"
 msgstr "Afmeldopdracht is niet ingesteld"
 
-#: ../src/configurator.c:1495
+#: ../src/configurator.c:1496
 msgid "Select a directory"
 msgstr "Kies een map"
 
-#: ../src/configurator.c:1495 ../src/configurator.c:1607
+#: ../src/configurator.c:1496 ../src/configurator.c:1608
 msgid "Select a file"
 msgstr "Kies een bestand"
 
-#: ../src/configurator.c:1640
+#: ../src/configurator.c:1641
 msgid "_Browse"
 msgstr "_Bladeren"
 
@@ -288,7 +288,7 @@ msgstr "Grootte"
 msgid "Allocate space"
 msgstr "Ruimte toewijzen"
 
-#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2401
+#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2417
 msgid "Application Launch and Task Bar"
 msgstr "Balk voor taken en starten van toepassingen"
 
@@ -342,26 +342,30 @@ msgid "Disable enlargement for small task icons"
 msgstr "Schakel vergroting uit voor kleine taakpictogrammen"
 
 #: ../data/ui/launchtaskbar.glade.h:15
+msgid "Show task icons smaller than rest of panel icons"
+msgstr "Toon taakpictogrammen kleiner dan rest van werkbalkpictogrammen"
+
+#: ../data/ui/launchtaskbar.glade.h:16
 msgid "Maximum width of task button"
 msgstr "Maximale breedte van een toepassingknop"
 
-#: ../data/ui/launchtaskbar.glade.h:16
+#: ../data/ui/launchtaskbar.glade.h:17
 msgid "Spacing"
 msgstr "Uitlijning"
 
-#: ../data/ui/launchtaskbar.glade.h:17
+#: ../data/ui/launchtaskbar.glade.h:18
 msgid "<b>Taskbar</b>"
 msgstr "<b>Taakbalk</b>"
 
-#: ../data/ui/launchtaskbar.glade.h:18
+#: ../data/ui/launchtaskbar.glade.h:19
 msgid "Only Application Launch Bar"
 msgstr "Alleen balk voor starten van toepassingen"
 
-#: ../data/ui/launchtaskbar.glade.h:19
+#: ../data/ui/launchtaskbar.glade.h:20
 msgid "Only Task Bar (Window List)"
 msgstr "Alleen taakbalk (vensterlijst)"
 
-#: ../data/ui/launchtaskbar.glade.h:20
+#: ../data/ui/launchtaskbar.glade.h:21
 msgid "Integrated Application Launch Bar and Task Bar"
 msgstr "Geïntegreerde balk voor taken en starten van toepassingen"
 
@@ -437,7 +441,7 @@ msgstr "<b>Netwerkapparaat</b>"
 
 #: ../data/ui/netstatus.glade.h:19
 msgid "Type:"
-msgstr "Type:"
+msgstr "Soort:"
 
 #: ../data/ui/netstatus.glade.h:20
 msgid "Support"
@@ -484,7 +488,7 @@ msgstr "Werkbalkvoorkeuren"
 msgid "Edge:"
 msgstr "Rand:"
 
-#: ../data/ui/panel-pref.glade.h:16 ../plugins/volumealsa/volumealsa.c:1293
+#: ../data/ui/panel-pref.glade.h:16 ../plugins/volumealsa/volumealsa.c:1291
 msgid "Center"
 msgstr "Midden"
 
@@ -632,31 +636,31 @@ msgstr "Toon bureaubladnamen"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Toon werkbladnummer, door cmeury@users.sf.net"
 
-#: ../plugins/launchtaskbar.c:1768 ../plugins/launchtaskbar.c:2371
+#: ../plugins/launchtaskbar.c:1781 ../plugins/launchtaskbar.c:2387
 msgid "Application Launch Bar"
 msgstr "Balk voor starten van toepassingen"
 
-#: ../plugins/launchtaskbar.c:1771 ../plugins/launchtaskbar.c:2381
+#: ../plugins/launchtaskbar.c:1784 ../plugins/launchtaskbar.c:2397
 msgid "Task Bar (Window List)"
 msgstr "Taakbalk (vensterlijst)"
 
-#: ../plugins/launchtaskbar.c:1919
+#: ../plugins/launchtaskbar.c:1935
 msgid "A_dd to Launcher"
 msgstr "Toevoegen aan starter"
 
-#: ../plugins/launchtaskbar.c:1921
+#: ../plugins/launchtaskbar.c:1937
 msgid "Rem_ove from Launcher"
 msgstr "Verwijderen uit starter"
 
-#: ../plugins/launchtaskbar.c:1923
+#: ../plugins/launchtaskbar.c:1939
 msgid "_New Instance"
 msgstr "_Nieuw exemplaar"
 
-#: ../plugins/launchtaskbar.c:2372
+#: ../plugins/launchtaskbar.c:2388
 msgid "Bar with buttons to launch application"
 msgstr "Balk met knoppen om toepassingen te starten"
 
-#: ../plugins/launchtaskbar.c:2382
+#: ../plugins/launchtaskbar.c:2398
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -664,58 +668,58 @@ msgstr ""
 "De taakbalk toont alle geopende vensters, en laat toe er pictogrammen van te "
 "maken, op te rollen, of scherpstelling te verkrijgen"
 
-#: ../plugins/launchtaskbar.c:2402
+#: ../plugins/launchtaskbar.c:2418
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr ""
 "Balk met knoppen om toepassingen te starten en/of alle geopende vensters te "
 "tonen"
 
 #. Add Raise menu item.
-#: ../plugins/task-button.c:339
+#: ../plugins/task-button.c:338
 msgid "_Raise"
 msgstr "_Verheffen"
 
 #. Add Restore menu item.
-#: ../plugins/task-button.c:344
+#: ../plugins/task-button.c:343
 msgid "R_estore"
 msgstr "_Herstellen"
 
 #. Add Maximize menu item.
-#: ../plugins/task-button.c:349
+#: ../plugins/task-button.c:348
 msgid "Ma_ximize"
 msgstr "Ma_ximaliseren"
 
 #. Add Iconify menu item.
-#: ../plugins/task-button.c:354
+#: ../plugins/task-button.c:353
 msgid "Ico_nify"
 msgstr "Pict_ogram van maken"
 
-#: ../plugins/task-button.c:375
+#: ../plugins/task-button.c:374
 #, c-format
 msgid "Workspace _%d"
 msgstr "Werkblad _%d"
 
-#: ../plugins/task-button.c:380
+#: ../plugins/task-button.c:379
 #, c-format
 msgid "Workspace %d"
 msgstr "Werkblad %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../plugins/task-button.c:397
+#: ../plugins/task-button.c:396
 msgid "_All workspaces"
 msgstr "_Alle werkbladen"
 
 #. FIXME: add "Current workspace" item, active if not on a current
 #. Add Move to Workspace menu item as a submenu.
-#: ../plugins/task-button.c:405
+#: ../plugins/task-button.c:404
 msgid "_Move to Workspace"
 msgstr "Ver_plaats naar werkblad"
 
-#: ../plugins/task-button.c:420
+#: ../plugins/task-button.c:419
 msgid "_Close Window"
 msgstr "Venster sluiten"
 
-#: ../plugins/task-button.c:1238
+#: ../plugins/task-button.c:1235
 msgid "_Close all windows"
 msgstr "Alle vensters sluiten"
 
@@ -729,7 +733,7 @@ msgstr "Klok-opmaak"
 
 #: ../plugins/dclock.c:434
 msgid "Tooltip Format"
-msgstr "Type gereedschaptip"
+msgstr "Opmaak van gereedschaptip"
 
 #: ../plugins/dclock.c:435
 #, c-format
@@ -823,7 +827,7 @@ msgstr "Id"
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:714
 msgid "Select Layout Change Type"
-msgstr "Kies type indelingverandering"
+msgstr "Kies soort indelingverandering"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:887
@@ -1002,27 +1006,17 @@ msgid "Display CPU frequency and allow to change governors and frequency"
 msgstr ""
 "CPU-frequentie tonen en toestaan dat governors en frequentie worden veranderd"
 
-#. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
-#. Display current level in tooltip.
-#: ../plugins/volume/volume.c:282 ../plugins/volumealsa/volumealsa.c:597
-#: ../plugins/volumealsa/volumealsa.c:955
-msgid "Volume control"
-msgstr "Volumebeheersing"
-
-#: ../plugins/volume/volume.c:290 ../plugins/volumealsa/volumealsa.c:1491
-#: ../plugins/volumealsa/volumealsa.c:1530
-#: ../plugins/volumealsa/volumealsa.c:1551
-msgid "Volume Control"
-msgstr "Volumebeheersing"
-
-#. Create a frame as the child of the viewport.
-#: ../plugins/volume/volume-impl.c:115 ../plugins/volumealsa/volumealsa.c:874
-msgid "Volume"
-msgstr "Volume"
-
 #: ../plugins/volumealsa/volumealsa.c:245
 msgid "ALSA (or pulseaudio) had a problem. Please check the lxpanel logs."
-msgstr "ALSA (of PulseAudio) had een probleem. Kijk a.u.b. de logboeken van lxpanel na."
+msgstr ""
+"ALSA (of PulseAudio) had een probleem. Kijk a.u.b. de logboeken van lxpanel "
+"na."
+
+#. Display current level in tooltip.
+#: ../plugins/volumealsa/volumealsa.c:597
+#: ../plugins/volumealsa/volumealsa.c:952
+msgid "Volume control"
+msgstr "Volumebeheersing"
 
 #: ../plugins/volumealsa/volumealsa.c:680
 msgid ""
@@ -1032,46 +1026,51 @@ msgstr ""
 "Foutmelding: u dient een toepassing te installeren om het geluid in te "
 "stellen (pavucontrol, alsamixer, ...)."
 
+#. Create a frame as the child of the viewport.
+#: ../plugins/volumealsa/volumealsa.c:874
+msgid "Volume"
+msgstr "Volume"
+
 #. Create a check button as the child of the vertical box.
 #: ../plugins/volumealsa/volumealsa.c:893
 msgid "Mute"
 msgstr "Dempen"
 
 #. Just to have these translated
-#: ../plugins/volumealsa/volumealsa.c:1293
+#: ../plugins/volumealsa/volumealsa.c:1291
 msgid "Line"
 msgstr "Line"
 
-#: ../plugins/volumealsa/volumealsa.c:1293
+#: ../plugins/volumealsa/volumealsa.c:1291
 msgid "LineOut"
 msgstr "LineOut"
 
-#: ../plugins/volumealsa/volumealsa.c:1293
+#: ../plugins/volumealsa/volumealsa.c:1291
 msgid "Front"
 msgstr "Voorkant"
 
-#: ../plugins/volumealsa/volumealsa.c:1293
+#: ../plugins/volumealsa/volumealsa.c:1291
 msgid "Surround"
 msgstr "Surround"
 
-#: ../plugins/volumealsa/volumealsa.c:1293
+#: ../plugins/volumealsa/volumealsa.c:1291
 msgid "Speaker+LO"
 msgstr "Luidspreker+LO"
 
-#: ../plugins/volumealsa/volumealsa.c:1332
+#: ../plugins/volumealsa/volumealsa.c:1330
 msgid "default"
 msgstr "standaard"
 
 #. desc, index
-#: ../plugins/volumealsa/volumealsa.c:1391
+#: ../plugins/volumealsa/volumealsa.c:1390
 msgid "Master"
 msgstr "Master"
 
-#: ../plugins/volumealsa/volumealsa.c:1395
+#: ../plugins/volumealsa/volumealsa.c:1394
 msgid "PCM"
 msgstr "PCM"
 
-#: ../plugins/volumealsa/volumealsa.c:1399
+#: ../plugins/volumealsa/volumealsa.c:1398
 msgid "Headphone"
 msgstr "Koptelefoon"
 
@@ -1100,24 +1099,30 @@ msgstr "Sneltoets voor geluid zachter"
 msgid "Hotkey for Volume Mute"
 msgstr "Sneltoets voor demping"
 
-#: ../plugins/volumealsa/volumealsa.c:1493
+#: ../plugins/volumealsa/volumealsa.c:1492
+#: ../plugins/volumealsa/volumealsa.c:1531
+#: ../plugins/volumealsa/volumealsa.c:1552
+msgid "Volume Control"
+msgstr "Volumebeheersing"
+
+#: ../plugins/volumealsa/volumealsa.c:1494
 msgid "Audio Card"
 msgstr "Geluidskaart"
 
-#: ../plugins/volumealsa/volumealsa.c:1496
+#: ../plugins/volumealsa/volumealsa.c:1497
 msgid "Channel to Operate"
 msgstr "Te bedienen kanaal"
 
-#: ../plugins/volumealsa/volumealsa.c:1504
+#: ../plugins/volumealsa/volumealsa.c:1505
 msgid "Command to Open Mixer"
 msgstr "Opdracht voor openen van mengpaneel"
 
-#: ../plugins/volumealsa/volumealsa.c:1519
+#: ../plugins/volumealsa/volumealsa.c:1520
 msgid "Launch Mixer"
 msgstr "Start mengpaneel"
 
-#: ../plugins/volumealsa/volumealsa.c:1531
-#: ../plugins/volumealsa/volumealsa.c:1552
+#: ../plugins/volumealsa/volumealsa.c:1532
+#: ../plugins/volumealsa/volumealsa.c:1553
 msgid "Display and control volume"
 msgstr "Toon en beheers geluidsvolume"
 
@@ -1681,7 +1686,7 @@ msgstr "Acculading laag"
 
 #: ../plugins/batt/batt.c:690 ../plugins/batt/batt.c:714
 msgid "Battery Monitor"
-msgstr "Accu-monitor"
+msgstr "Accubewaker"
 
 #: ../plugins/batt/batt.c:692
 msgid "Hide if there is no battery"
@@ -1749,24 +1754,24 @@ msgstr "Toon ScrollLock"
 
 #: ../plugins/kbled/kbled.c:235
 msgid "Indicators for CapsLock, NumLock, and ScrollLock keys"
-msgstr "Indicatoren voor Capslock-, Numlock- en ScrollLock-toetsen"
+msgstr "Aanwijzers voor Capslock-, Numlock- en ScrollLock-toetsen"
 
 #. A label to allow for click through
 #: ../plugins/indicator/indicator.c:694
 msgid "No Indicators"
-msgstr "Geen indicatoren"
+msgstr "Geen aanwijzers"
 
 #: ../plugins/indicator/indicator.c:863 ../plugins/indicator/indicator.c:881
 msgid "Indicator applets"
-msgstr "Indicator-toepassinkjes"
+msgstr "Aanwijzer-toepassinkjes"
 
 #: ../plugins/indicator/indicator.c:865
 msgid "Indicator Applications"
-msgstr "Indicator-toepassingen"
+msgstr "Aanwijzer-toepassingen"
 
 #: ../plugins/indicator/indicator.c:866
 msgid "Clock Indicator"
-msgstr "Klok-indicator"
+msgstr "Klok-aanwijzer"
 
 #: ../plugins/indicator/indicator.c:867
 msgid "Messaging Menu"
@@ -1786,7 +1791,7 @@ msgstr "Geluidmenu"
 
 #: ../plugins/indicator/indicator.c:882
 msgid "Add indicator applets to the panel"
-msgstr "Voeg indicator-toepassinkjes toe aan de werkbalk"
+msgstr "Voeg aanwijzer-toepassinkjes toe aan de werkbalk"
 
 #: ../plugins/monitors/monitors.c:281
 #, c-format
@@ -2029,179 +2034,3 @@ msgstr "Weer-invoegtoepassing"
 msgid "Show weather conditions for a location."
 msgstr "Toon weersomstandigheden voor een locatie."
 
-#~ msgid " --log <number> -- set log level 0-5. 0 - none 5 - chatty\n"
-#~ msgstr ""
-#~ " --log <number> -- stel logboekniveau in van 0-5.  0 = geen 5 = "
-#~ "breedsprakig\n"
-
-#~ msgid "Format codes: man 3 strftime; \\%n for line break"
-#~ msgstr "Opmaakcodes: man 3 strftime; \\%n voor regelafbreking"
-
-#~ msgid "Normal"
-#~ msgstr "Normaal"
-
-#~ msgid "Warning1"
-#~ msgstr "Waarschuwing1"
-
-#~ msgid "Warning2"
-#~ msgstr "Waarschuwing2"
-
-#~ msgid "Warning1 Temperature"
-#~ msgstr "Waarschuwing1 Temperatuur"
-
-#~ msgid "Warning2 Temperature"
-#~ msgstr "Waarschuwing2 Temperatuur"
-
-#~ msgid "Copyright (C) 2008-2013"
-#~ msgstr "Auteursrecht (C) 2008-2013"
-
-#~ msgid "Display Image and Tooltip"
-#~ msgstr "Toon afbeelding en gereedschaptip"
-
-#~ msgid ""
-#~ "Error, you need to install an application to configure the sound "
-#~ "(pavucontol, alsamixer ...)"
-#~ msgstr ""
-#~ "Foutmelding: u dient een toepassing te installeren om het geluid in te "
-#~ "stellen (pavucontrol, alsamixer, ...)."
-
-#~ msgid "Failed to launch time configuration tool: %s"
-#~ msgstr "Kon configuratiegereedschap voor tijd niet starten: %s"
-
-#~ msgid "Model"
-#~ msgstr "Model"
-
-#~ msgid "WNCKPager"
-#~ msgstr "WNCKPager"
-
-#~ msgid "<b>Icon</b>"
-#~ msgstr "<b>Pictogram</b>"
-
-#~ msgid "Configure Keyboard Layout Switcher"
-#~ msgstr "Wisselaar voor toetsenbordindelingen instellen"
-
-#~ msgid "image"
-#~ msgstr "afbeelding"
-
-#~ msgid "text"
-#~ msgstr "tekst"
-
-#~ msgid "Per application settings"
-#~ msgstr "Voorkeuren per toepassing"
-
-#~ msgid "Default layout:"
-#~ msgstr "Standaard-indeling:"
-
-#~ msgid "Available Applications"
-#~ msgstr "Beschikbare toepassingen"
-
-#~ msgid "Display system temperature, by kesler.daniel@gmail.com"
-#~ msgstr "Toon systeemtemperatuur, door kesler.daniel@gmail.com"
-
-#~ msgid "Left\t"
-#~ msgstr "Links\t"
-
-#~ msgid "Top\t"
-#~ msgstr "Boven\t"
-
-#~ msgid "Couldn't find pixmap file: %s"
-#~ msgstr "Kon pixmapbestand niet vinden: %s"
-
-#~ msgid "Desktop No / Workspace Name"
-#~ msgstr "Bureaublad nr. / Naam werkblad"
-
-#~ msgid ""
-#~ "Allows you to switch the keyboard layout and\n"
-#~ "displays the currently selected layout."
-#~ msgstr ""
-#~ "Stelt u in staat om de toetsenbordindeling te wisselen\n"
-#~ "en de huidige indeling weer te geven."
-
-#~ msgid "Other plugins available here"
-#~ msgstr "Andere plugins zijn hier beschikbaar"
-
-#~ msgid "Old KDE/GNOME Tray"
-#~ msgstr "Oude KDE/GNOME-systeemvak"
-
-#~ msgid "Enable Image:"
-#~ msgstr "Gebruik afbeelding:"
-
-#~ msgid "Enable Transparency"
-#~ msgstr "Gebruik transparantie"
-
-#~ msgid " --configure -- launch configuration utility\n"
-#~ msgstr " --configure -- start het configuratiegereedschap\n"
-
-#~ msgid " -C  -- same as --configure\n"
-#~ msgstr " -C  -- zelfde als --configure\n"
-
-#~ msgid "Add Button"
-#~ msgstr "Knop toevoegen"
-
-#~ msgid "Button Properties"
-#~ msgstr "Knopvoorkeuren"
-
-#~ msgid "Remove Button"
-#~ msgstr "Knop verwijderen"
-
-#~ msgid "Buttons"
-#~ msgstr "Knoppen"
-
-#~ msgid "Accept SkipPager"
-#~ msgstr "SkipPager accepteren"
-
-#~ msgid "Show Iconified windows"
-#~ msgstr "Toon vensters als pictogrammen"
-
-#~ msgid "Show mapped windows"
-#~ msgstr "Toon in kaart gebrachte vensters"
-
-#~ msgid "Kayboard Layout switcher"
-#~ msgstr "Toetsenbordindeling-wisselaar"
-
-#~ msgid ""
-#~ "Dynamic\n"
-#~ "Pixels\n"
-#~ "% Percent"
-#~ msgstr ""
-#~ "Dynamisch\n"
-#~ "Pixels\n"
-#~ "% Procent"
-
-#~ msgid ""
-#~ "Left\n"
-#~ "Center\n"
-#~ "Right"
-#~ msgstr ""
-#~ "Links\n"
-#~ "Midden\n"
-#~ "Rechts"
-
-#~ msgid ""
-#~ "Left\n"
-#~ "Right\n"
-#~ "Top\n"
-#~ "Bottom"
-#~ msgstr ""
-#~ "Links\n"
-#~ "Rechts\n"
-#~ "Boven\n"
-#~ "Onder"
-
-#~ msgid "Where to put the panel?"
-#~ msgstr "Plaatsing van de werkbalk?"
-
-#~ msgid "Battery: %d%% charged, %s"
-#~ msgstr "Accu: %d%% opgeladen, %s"
-
-#~ msgid "charging finished"
-#~ msgstr "opladen voltooid"
-
-#~ msgid "charging"
-#~ msgstr "Aan het opladen"
-
-#~ msgid "Warning1 Temperatur"
-#~ msgstr "Waarschuwing1 Temperatuur"
-
-#~ msgid "Warning2 Temperatur"
-#~ msgstr "Waarschuwing2 Temperatuur"
