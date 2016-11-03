@@ -205,6 +205,17 @@ static gboolean on_key_event(GtkButton *test, GdkEventKey *event,
         g_free(text);
         return FALSE;
     }
+    /* if BackSpace pressed then just clear the button */
+    if (state == 0 && event->keyval == GDK_KEY_BackSpace)
+    {
+        g_signal_emit(btn, signals[CHANGED], 0, NULL, &ret);
+        if (ret)
+        {
+            btn->mods = 0;
+            btn->key = 0;
+        }
+        goto _done;
+    }
     /* drop single printable and printable with single Shift, Ctrl, Alt */
     if (event->length != 0 && (state == 0 || state == GDK_SHIFT_MASK ||
                                state == GDK_CONTROL_MASK || state == GDK_MOD1_MASK))
@@ -230,6 +241,7 @@ static gboolean on_key_event(GtkButton *test, GdkEventKey *event,
         btn->mods = state;
         btn->key = event->keyval;
     }
+_done:
     text = gtk_accelerator_get_label(btn->key, btn->mods);
     gtk_button_set_label(test, text);
     g_free(text);

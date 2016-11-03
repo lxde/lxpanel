@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 Andriy Grytsenko <andrej@rep.kiev.ua>
+ * Copyright (C) 2014-2016 Andriy Grytsenko <andrej@rep.kiev.ua>
  *
  * This file is a part of LXPanel project.
  *
@@ -32,6 +32,7 @@
 #  define  GDK_KEY_space                GDK_space
 #  define  GDK_KEY_Return               GDK_Return
 #  define  GDK_KEY_KP_Enter             GDK_KP_Enter
+#  define  GDK_KEY_BackSpace            GDK_BackSpace
 #endif
 
 #if !GTK_CHECK_VERSION(2, 22, 0)
