@@ -1,24 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2014-11-28 07:14+0000\n"
+"POT-Creation-Date: 2016-11-01 00:50+0200\n"
+"PO-Revision-Date: 2016-11-06 18:00+0200\n"
 "Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
-"Language-Team: Proxecto Trasno <proxecto@trasno.net>\n"
+"Language-Team: Galician <proxecto@trasno.net>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.6.0-rc2\n"
-"X-POOTLE-MTIME: 1417158846.000000\n"
-"X-Pootle-Path: /gl/lxpanel/po/gl.po\n"
+"X-Generator: Virtaal 0.7.0\n"
 "X-Pootle-Revision: 0\n"
+"X-Pootle-Path: /gl/lxpanel/po/gl.po\n"
+"X-POOTLE-MTIME: 1417158846.000000\n"
 
 #: ../src/configurator.c:148
 msgid ""
@@ -26,7 +26,7 @@ msgid ""
 "monitor beyond this edge and reservation would cover it if enabled."
 msgstr ""
 "A reserva de espazo non está dispoñíbel para este panel por mor de que non "
-"hai outro monitor máis alo deste bordo e a reserva cubriríao de estar "
+"hai outro monitor máis aló deste bordo e a reserva cubriríao de estar "
 "activado."
 
 #: ../src/configurator.c:632
@@ -37,27 +37,27 @@ msgstr "Complementos cargados actualmente"
 msgid "Stretch"
 msgstr "Axustar"
 
-#: ../src/configurator.c:778
+#: ../src/configurator.c:779
 msgid "Add plugin to panel"
 msgstr "Engadir un complemento ao panel"
 
-#: ../src/configurator.c:806
+#: ../src/configurator.c:807
 msgid "Available plugins"
 msgstr "Complementos dispoñíbeis"
 
-#: ../src/configurator.c:1427
+#: ../src/configurator.c:1428
 msgid "Logout command is not set"
 msgstr "A orde para saír non foi configurada"
 
-#: ../src/configurator.c:1495
+#: ../src/configurator.c:1496
 msgid "Select a directory"
 msgstr "Seleccionar un cartafol"
 
-#: ../src/configurator.c:1495 ../src/configurator.c:1607
+#: ../src/configurator.c:1496 ../src/configurator.c:1608
 msgid "Select a file"
 msgstr "Seleccionar un ficheiro"
 
-#: ../src/configurator.c:1640
+#: ../src/configurator.c:1641
 msgid "_Browse"
 msgstr "_Examinar"
 
@@ -70,7 +70,7 @@ msgid ""
 "Really delete this panel?\n"
 "<b>Warning: This can not be recovered.</b>"
 msgstr ""
-"Seguro que quere quitar este panel?\n"
+"Confirma que quere retirar este panel?\n"
 "<b>Advertencia: Isto non poderá desfacerse.</b>"
 
 #: ../src/panel.c:1311
@@ -82,7 +82,7 @@ msgstr "Confirmar"
 msgid "translator-credits"
 msgstr ""
 "Indalecio Freiría Santos <ifreiria@gmail.com>, 2009 \n"
-"Miguel Anxo Bouzada <mbouzada@gmail.com>,2010, 2011, 2012, 2013, 2014 \n"
+"Miguel Anxo Bouzada <mbouzada@gmail.com>, 2010, 2011, 2012, 2013, 2014, 2016 "
 "Proxecto Trasno <proxecto@trasno.net>"
 
 #: ../src/panel.c:1351
@@ -90,9 +90,8 @@ msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:1369
-#, fuzzy
 msgid "Copyright (C) 2008-2016"
-msgstr "Copyright (C) 2008-2014"
+msgstr "Copyright (C) 2008-2016"
 
 #: ../src/panel.c:1370
 msgid "Desktop panel for LXDE project"
@@ -290,7 +289,7 @@ msgstr "Tamaño"
 msgid "Allocate space"
 msgstr "Asignar espazo"
 
-#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2401
+#: ../data/ui/launchtaskbar.glade.h:1 ../plugins/launchtaskbar.c:2417
 msgid "Application Launch and Task Bar"
 msgstr "Barra de tarefas e iniciador de aplicacións"
 
@@ -344,26 +343,31 @@ msgid "Disable enlargement for small task icons"
 msgstr "Desactivar a ampliación para iconas pequenas de tarefas"
 
 #: ../data/ui/launchtaskbar.glade.h:15
+msgid "Show task icons smaller than rest of panel icons"
+msgstr ""
+"Amosar as iconas de tarefas máis pequenas que o resto de iconas do panel"
+
+#: ../data/ui/launchtaskbar.glade.h:16
 msgid "Maximum width of task button"
 msgstr "Largura máxima do botón de tarefas"
 
-#: ../data/ui/launchtaskbar.glade.h:16
+#: ../data/ui/launchtaskbar.glade.h:17
 msgid "Spacing"
 msgstr "Espazado"
 
-#: ../data/ui/launchtaskbar.glade.h:17
+#: ../data/ui/launchtaskbar.glade.h:18
 msgid "<b>Taskbar</b>"
 msgstr "<b>Barra de tarefas</b>"
 
-#: ../data/ui/launchtaskbar.glade.h:18
+#: ../data/ui/launchtaskbar.glade.h:19
 msgid "Only Application Launch Bar"
 msgstr "Só a barra de iniciadores de aplicacións"
 
-#: ../data/ui/launchtaskbar.glade.h:19
+#: ../data/ui/launchtaskbar.glade.h:20
 msgid "Only Task Bar (Window List)"
 msgstr "Só a barra de tarefas (lista de xanelas)"
 
-#: ../data/ui/launchtaskbar.glade.h:20
+#: ../data/ui/launchtaskbar.glade.h:21
 msgid "Integrated Application Launch Bar and Task Bar"
 msgstr "Barras de iniciadores de aplicacións e tarefas integradas"
 
@@ -486,7 +490,7 @@ msgstr "Preferencias do panel"
 msgid "Edge:"
 msgstr "Bordo:"
 
-#: ../data/ui/panel-pref.glade.h:16 ../plugins/volumealsa/volumealsa.c:1293
+#: ../data/ui/panel-pref.glade.h:16 ../plugins/volumealsa/volumealsa.c:1291
 msgid "Center"
 msgstr "Centro"
 
@@ -634,31 +638,31 @@ msgstr "Amosar os nomes dos escritorios"
 msgid "Display workspace number, by cmeury@users.sf.net"
 msgstr "Amosa o número da área de traballo, por cmeury@users.sf.net"
 
-#: ../plugins/launchtaskbar.c:1768 ../plugins/launchtaskbar.c:2371
+#: ../plugins/launchtaskbar.c:1781 ../plugins/launchtaskbar.c:2387
 msgid "Application Launch Bar"
 msgstr "Barra de aplicacións"
 
-#: ../plugins/launchtaskbar.c:1771 ../plugins/launchtaskbar.c:2381
+#: ../plugins/launchtaskbar.c:1784 ../plugins/launchtaskbar.c:2397
 msgid "Task Bar (Window List)"
 msgstr "Barra de tarefas (lista de xanelas)"
 
-#: ../plugins/launchtaskbar.c:1919
+#: ../plugins/launchtaskbar.c:1935
 msgid "A_dd to Launcher"
 msgstr "E_ngadir ao iniciador"
 
-#: ../plugins/launchtaskbar.c:1921
+#: ../plugins/launchtaskbar.c:1937
 msgid "Rem_ove from Launcher"
 msgstr "Re_tirar do iniciador"
 
-#: ../plugins/launchtaskbar.c:1923
+#: ../plugins/launchtaskbar.c:1939
 msgid "_New Instance"
 msgstr "Instancia _nova"
 
-#: ../plugins/launchtaskbar.c:2372
+#: ../plugins/launchtaskbar.c:2388
 msgid "Bar with buttons to launch application"
 msgstr "Barra de aceso a aplicacións"
 
-#: ../plugins/launchtaskbar.c:2382
+#: ../plugins/launchtaskbar.c:2398
 msgid ""
 "Taskbar shows all opened windows and allow to iconify them, shade or get "
 "focus"
@@ -666,58 +670,58 @@ msgstr ""
 "A barra de tarefas amosa todas as xanelas abertas e permite minimizalas, "
 "repregalas ou enfocalas"
 
-#: ../plugins/launchtaskbar.c:2402
+#: ../plugins/launchtaskbar.c:2418
 msgid "Bar with buttons to launch application and/or show all opened windows"
 msgstr ""
 "Barra con botóns para iniciar aplicacións e/ou amosar todas as xanelas "
 "abertas"
 
 #. Add Raise menu item.
-#: ../plugins/task-button.c:339
+#: ../plugins/task-button.c:338
 msgid "_Raise"
 msgstr "_Erguer"
 
 #. Add Restore menu item.
-#: ../plugins/task-button.c:344
+#: ../plugins/task-button.c:343
 msgid "R_estore"
 msgstr "_Restaurar"
 
 #. Add Maximize menu item.
-#: ../plugins/task-button.c:349
+#: ../plugins/task-button.c:348
 msgid "Ma_ximize"
 msgstr "Ma_ximizar"
 
 #. Add Iconify menu item.
-#: ../plugins/task-button.c:354
+#: ../plugins/task-button.c:353
 msgid "Ico_nify"
 msgstr "Ico_nificar"
 
-#: ../plugins/task-button.c:375
+#: ../plugins/task-button.c:374
 #, c-format
 msgid "Workspace _%d"
 msgstr "Área de traballo _%d"
 
-#: ../plugins/task-button.c:380
+#: ../plugins/task-button.c:379
 #, c-format
 msgid "Workspace %d"
 msgstr "Área de traballo %d"
 
 #. Add "move to all workspaces" item.  This causes the window to be visible no matter what desktop is active.
-#: ../plugins/task-button.c:397
+#: ../plugins/task-button.c:396
 msgid "_All workspaces"
 msgstr "_Todas as áreas de traballo"
 
 #. FIXME: add "Current workspace" item, active if not on a current
 #. Add Move to Workspace menu item as a submenu.
-#: ../plugins/task-button.c:405
+#: ../plugins/task-button.c:404
 msgid "_Move to Workspace"
 msgstr "_Mover á área de traballo"
 
-#: ../plugins/task-button.c:420
+#: ../plugins/task-button.c:419
 msgid "_Close Window"
 msgstr "_Pechar a xanela"
 
-#: ../plugins/task-button.c:1238
+#: ../plugins/task-button.c:1235
 msgid "_Close all windows"
 msgstr "_Pechar todas as xanelas"
 
@@ -901,7 +905,8 @@ msgstr "Xestionar as disposicións de teclado"
 #: ../plugins/wincmd.c:205
 msgid "Left click to iconify all windows.  Middle click to shade them."
 msgstr ""
-"Botón esquerdo para minimizar todas as xanelas.  Botón medio para repregalas."
+"Botón esquerdo para minimizar todas as xanelas.  Botón medio para "
+"repregalas."
 
 #: ../plugins/wincmd.c:243 ../plugins/wincmd.c:253
 msgid "Minimize All Windows"
@@ -1000,27 +1005,16 @@ msgid "Display CPU frequency and allow to change governors and frequency"
 msgstr ""
 "Amosa a frecuencia da CPU e permite cambiar os gobernadores e a frecuencia"
 
-#. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
-#. Display current level in tooltip.
-#: ../plugins/volume/volume.c:282 ../plugins/volumealsa/volumealsa.c:597
-#: ../plugins/volumealsa/volumealsa.c:955
-msgid "Volume control"
-msgstr "Control de volume"
-
-#: ../plugins/volume/volume.c:290 ../plugins/volumealsa/volumealsa.c:1491
-#: ../plugins/volumealsa/volumealsa.c:1530
-#: ../plugins/volumealsa/volumealsa.c:1551
-msgid "Volume Control"
-msgstr "Control de volume"
-
-#. Create a frame as the child of the viewport.
-#: ../plugins/volume/volume-impl.c:115 ../plugins/volumealsa/volumealsa.c:874
-msgid "Volume"
-msgstr "Volume"
-
 #: ../plugins/volumealsa/volumealsa.c:245
 msgid "ALSA (or pulseaudio) had a problem. Please check the lxpanel logs."
 msgstr ""
+"ALSA (ou pulseaudio) tivo un problema. Comprobe os rexistros de lxpanel."
+
+#. Display current level in tooltip.
+#: ../plugins/volumealsa/volumealsa.c:597
+#: ../plugins/volumealsa/volumealsa.c:952
+msgid "Volume control"
+msgstr "Control de volume"
 
 #: ../plugins/volumealsa/volumealsa.c:680
 msgid ""
@@ -1030,96 +1024,105 @@ msgstr ""
 "Erro, é necesario instalar unha aplicación para configurar o son "
 "(pavucontol, alsamixer ...)"
 
+#. Create a frame as the child of the viewport.
+#: ../plugins/volumealsa/volumealsa.c:874
+msgid "Volume"
+msgstr "Volume"
+
 #. Create a check button as the child of the vertical box.
 #: ../plugins/volumealsa/volumealsa.c:893
 msgid "Mute"
 msgstr "Silenciar"
 
 #. Just to have these translated
-#: ../plugins/volumealsa/volumealsa.c:1293
+#: ../plugins/volumealsa/volumealsa.c:1291
 msgid "Line"
-msgstr ""
+msgstr "Liña"
 
-#: ../plugins/volumealsa/volumealsa.c:1293
+#: ../plugins/volumealsa/volumealsa.c:1291
 msgid "LineOut"
-msgstr ""
+msgstr "Saída de liña"
 
-#: ../plugins/volumealsa/volumealsa.c:1293
+#: ../plugins/volumealsa/volumealsa.c:1291
 msgid "Front"
-msgstr ""
+msgstr "Frontal"
 
-#: ../plugins/volumealsa/volumealsa.c:1293
+#: ../plugins/volumealsa/volumealsa.c:1291
 msgid "Surround"
-msgstr ""
+msgstr "Envolvente"
 
-#: ../plugins/volumealsa/volumealsa.c:1293
+#: ../plugins/volumealsa/volumealsa.c:1291
 msgid "Speaker+LO"
-msgstr ""
+msgstr "Altofalante+SL"
 
-#: ../plugins/volumealsa/volumealsa.c:1332
+#: ../plugins/volumealsa/volumealsa.c:1330
 msgid "default"
-msgstr ""
+msgstr "predeterminada"
 
 #. desc, index
-#: ../plugins/volumealsa/volumealsa.c:1391
+#: ../plugins/volumealsa/volumealsa.c:1390
 msgid "Master"
-msgstr ""
+msgstr "Mestra"
 
-#: ../plugins/volumealsa/volumealsa.c:1395
+#: ../plugins/volumealsa/volumealsa.c:1394
 msgid "PCM"
-msgstr ""
+msgstr "PCM"
 
-#: ../plugins/volumealsa/volumealsa.c:1399
+#: ../plugins/volumealsa/volumealsa.c:1398
 msgid "Headphone"
-msgstr ""
+msgstr "Auriculares"
 
 #: ../plugins/volumealsa/volumealsa.c:1420
 msgid "Click for Volume Slider"
-msgstr ""
+msgstr "Prema para o esvarador do volume"
 
 #: ../plugins/volumealsa/volumealsa.c:1424
 msgid "Click for Toggle Mute"
-msgstr ""
+msgstr "Prema para alternar o silenciador do volume"
 
 #: ../plugins/volumealsa/volumealsa.c:1428
 msgid "Click for Open Mixer"
-msgstr ""
+msgstr "Prema para abrir o mesturador"
 
 #. setup hotkeys
 #: ../plugins/volumealsa/volumealsa.c:1432
 msgid "Hotkey for Volume Up"
-msgstr ""
+msgstr "Atallo de teclado para subir o volume"
 
 #: ../plugins/volumealsa/volumealsa.c:1434
 msgid "Hotkey for Volume Down"
-msgstr ""
+msgstr "Atallo de teclado para baixar o volume"
 
 #: ../plugins/volumealsa/volumealsa.c:1436
 msgid "Hotkey for Volume Mute"
-msgstr ""
+msgstr "Atallo de teclado para silenciar o volume"
 
-#: ../plugins/volumealsa/volumealsa.c:1493
-msgid "Audio Card"
-msgstr ""
-
-#: ../plugins/volumealsa/volumealsa.c:1496
-msgid "Channel to Operate"
-msgstr ""
-
-#: ../plugins/volumealsa/volumealsa.c:1504
-msgid "Command to Open Mixer"
-msgstr ""
-
-#: ../plugins/volumealsa/volumealsa.c:1519
-#, fuzzy
-msgid "Launch Mixer"
-msgstr "Iniciadores"
-
+#: ../plugins/volumealsa/volumealsa.c:1492
 #: ../plugins/volumealsa/volumealsa.c:1531
 #: ../plugins/volumealsa/volumealsa.c:1552
-#, fuzzy
+msgid "Volume Control"
+msgstr "Control de volume"
+
+#: ../plugins/volumealsa/volumealsa.c:1494
+msgid "Audio Card"
+msgstr "Tarxeta de son"
+
+#: ../plugins/volumealsa/volumealsa.c:1497
+msgid "Channel to Operate"
+msgstr "Canle para operar"
+
+#: ../plugins/volumealsa/volumealsa.c:1505
+msgid "Command to Open Mixer"
+msgstr "Orde para abrir o mesturador"
+
+#: ../plugins/volumealsa/volumealsa.c:1520
+msgid "Launch Mixer"
+msgstr "Iniciador do mesturador"
+
+#: ../plugins/volumealsa/volumealsa.c:1532
+#: ../plugins/volumealsa/volumealsa.c:1553
 msgid "Display and control volume"
-msgstr "Vista e control do volume para ALSA"
+msgstr "Vista e control do volume"
 
 #: ../plugins/netstat/netstat.c:183
 msgid "<Hidden Access Point>"
@@ -1575,19 +1578,19 @@ msgid "Sending/Receiving"
 msgstr "Enviando/Recibindo"
 
 #: ../plugins/batt/batt.c:154
-#, fuzzy, c-format
+#, c-format, c-format
 msgid "Battery %d: %d%% charged, %d:%02d until full"
-msgstr "Batería: %d%% de carga, %d:%02d para completar"
+msgstr "Batería %d: %d%% de carga, %d:%02d para completar"
 
 #: ../plugins/batt/batt.c:165
-#, fuzzy, c-format
+#, c-format, c-format
 msgid "Battery %d: %d%% charged, %d:%02d left"
-msgstr "Batería: %d%% de carga, %d:%02d restante"
+msgstr "Batería %d: %d%% de carga, %d:%02d restante"
 
 #: ../plugins/batt/batt.c:171
-#, fuzzy, c-format
+#, c-format, c-format
 msgid "Battery %d: %d%% charged"
-msgstr "Batería: %d%% de carga"
+msgstr "Batería %d: %d%% de carga"
 
 #: ../plugins/batt/batt.c:181
 #, c-format
@@ -1723,9 +1726,8 @@ msgid "Show Extended Information"
 msgstr "Amosar a información estendida"
 
 #: ../plugins/batt/batt.c:705
-#, fuzzy
 msgid "Number of battery to monitor"
-msgstr "Dispositivo a supervisar"
+msgstr "Número da batería que supervisar"
 
 #: ../plugins/batt/batt.c:715
 msgid "Display battery status using ACPI"
