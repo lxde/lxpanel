@@ -367,7 +367,9 @@ static void asound_deinitialize(VolumeALSAPlugin * vol)
     vol->watches = NULL;
     vol->num_channels = 0;
 
-    snd_mixer_close(vol->mixer);
+    if (vol->mixer)
+        snd_mixer_close(vol->mixer);
+    vol->mixer = NULL;
     vol->master_element = NULL;
 #endif
 }
