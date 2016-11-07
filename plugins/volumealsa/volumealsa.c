@@ -314,7 +314,21 @@ static gboolean asound_initialize(VolumeALSAPlugin * vol)
     /* Find Master element, or Front element, or PCM element, or LineOut element.
      * If one of these succeeds, master_element is valid. */
         if (!asound_find_element(vol, def_channels, G_N_ELEMENTS(def_channels)))
-            return FALSE;
+        {
+            /* Could not find any predefined, let choose any available */
+            for (vol->master_element = snd_mixer_first_elem(vol->mixer);
+                 vol->master_element != NULL;
+                 vol->master_element = snd_mixer_elem_next(vol->master_element))
+            {
+                if (snd_mixer_selem_is_active(vol->master_element) &&
+                    snd_mixer_selem_has_playback_volume(vol->master_element) &&
+                    !snd_mixer_selem_has_capture_volume(vol->master_element) &&
+                    !snd_mixer_selem_has_capture_switch(vol->master_element))
+                    break;
+            }
+            if (vol->master_element == NULL)
+                return FALSE;
+        }
     }
 
     /* Set the playback volume range as we wish it. */
@@ -1051,6 +1065,7 @@ static void card_selector_changed(GtkComboBox *card_selector, VolumeALSAPlugin *
             g_warning("could not set card to %d", vol->used_device);
             vol->master_channel = old_channel;
             vol->used_device = old_card;
+            //FIXME: reset the selector back
             /* schedule to restart with old settings */
             if (vol->restart_idle == 0)
                 vol->restart_idle = g_timeout_add_seconds(1, asound_restart, vol);
