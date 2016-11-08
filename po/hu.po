@@ -10,24 +10,22 @@ msgstr ""
 "Project-Id-Version: lxpanel\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-10-24 21:15+0300\n"
-"PO-Revision-Date: 2015-05-21 15:15+0000\n"
-"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"PO-Revision-Date: 2016-11-08 16:39+0100\n"
+"Last-Translator: Peter Czifra <czifi@freestart.hu>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Pootle 2.7.0-alpha1\n"
+"X-Generator: Poedit 1.6.10\n"
 "X-POOTLE-MTIME: 1432221336.000000\n"
 "X-Pootle-Path: /hu/lxpanel/po/hu.po\n"
 "X-Pootle-Revision: 2332\n"
 
 #: ../src/configurator.c:148
-msgid ""
-"Space reservation is not available for this panel because there is another "
-"monitor beyond this edge and reservation would cover it if enabled."
-msgstr ""
+msgid "Space reservation is not available for this panel because there is another monitor beyond this edge and reservation would cover it if enabled."
+msgstr "A helymegőrzés nem elérhető ezen a panelen mert az él alatt egy másik monitor van és ha a engedélyezve van a helymegőrzés lefedheti azt."
 
 #: ../src/configurator.c:632
 msgid "Currently loaded plugins"
@@ -63,7 +61,7 @@ msgstr "_Tallózás"
 
 #: ../src/panel.c:1283
 msgid "There is no room for another panel. All the edges are taken."
-msgstr ""
+msgstr "Nincs több hely egy másik panelnek. Az összes él foglalt."
 
 #: ../src/panel.c:1309
 msgid ""
@@ -84,16 +82,16 @@ msgstr ""
 "Basák Péter Zsolt <shiki@biomernok.hu>\n"
 "Dvornik László <dvornik@gnome.hu>\n"
 "Szervác Attila <sas@321.hu>\n"
-"Úr Balázs <urbalazs@gmail.com>"
+"Úr Balázs <urbalazs@gmail.com>\n"
+"Czifra Péter <czifrapeter@gmail.com>"
 
 #: ../src/panel.c:1351
 msgid "LXPanel"
 msgstr "LXPanel"
 
 #: ../src/panel.c:1369
-#, fuzzy
 msgid "Copyright (C) 2008-2016"
-msgstr "Copyright (C) 2008-2014"
+msgstr "Copyright (C) 2008-2016"
 
 #: ../src/panel.c:1370
 msgid "Desktop panel for LXDE project"
@@ -252,9 +250,7 @@ msgstr "%s gomb"
 #: ../src/input-button.c:215
 #, c-format
 msgid "Key combination '%s' cannot be used as a global hotkey, sorry."
-msgstr ""
-"Elnézést, a(z) „%s” billentyűkombináció nem használható globális "
-"gyorsbillentyűként."
+msgstr "Elnézést, a(z) „%s” billentyűkombináció nem használható globális gyorsbillentyűként."
 
 #: ../src/input-button.c:218 ../src/input-button.c:401
 #: ../plugins/netstatus/netstatus-iface.c:191
@@ -274,7 +270,7 @@ msgstr "Egyéni:"
 #: ../src/input-button.c:399
 #, c-format
 msgid "Cannot assign '%s' as a global hotkey: it is already bound."
-msgstr ""
+msgstr "Nem lehet '%s'-t globális gyorsbillentyűnek beállítani: már foglalt."
 
 #: ../src/space.c:394 ../src/space.c:403
 msgid "Spacer"
@@ -658,17 +654,12 @@ msgid "Bar with buttons to launch application"
 msgstr "Alkalmazás-indító gombokkal"
 
 #: ../plugins/launchtaskbar.c:2382
-msgid ""
-"Taskbar shows all opened windows and allow to iconify them, shade or get "
-"focus"
-msgstr ""
-"Mutatja a megnyitott ablakokat és lehetővé teszi az ikonizálást, "
-"felgörgetést és a közöttük lévő váltást"
+msgid "Taskbar shows all opened windows and allow to iconify them, shade or get focus"
+msgstr "Mutatja a megnyitott ablakokat és lehetővé teszi az ikonizálást, felgörgetést és a közöttük lévő váltást"
 
 #: ../plugins/launchtaskbar.c:2402
-#, fuzzy
 msgid "Bar with buttons to launch application and/or show all opened windows"
-msgstr "Alkalmazás-indító gombokkal"
+msgstr "Sáv alkalmazás-indító gombokkal és/vagy mutassa a megnyitott ablakokat"
 
 #. Add Raise menu item.
 #: ../plugins/task-button.c:339
@@ -782,7 +773,7 @@ msgstr "Elválasztó hozzáadása a panelhez"
 
 #: ../plugins/pager.c:114
 msgid "Sorry, there was no window manager configuration program found."
-msgstr ""
+msgstr "Nem találtam ablakkezelő beállító programot."
 
 #: ../plugins/pager.c:166 ../plugins/pager.c:182
 msgid "Desktop Pager"
@@ -802,7 +793,7 @@ msgstr "Értesítési terület"
 
 #: ../plugins/xkb/xkb-plugin.c:409
 msgid "New session is required for this option to take effect"
-msgstr ""
+msgstr "Új munkamenet szükséges az opció aktiválásához."
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:590
@@ -820,9 +811,8 @@ msgstr "Azonosító"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:714
-#, fuzzy
 msgid "Select Layout Change Type"
-msgstr "Válassz egy kép fájlt"
+msgstr "Válassz elrendezés változás típust"
 
 #. dialog
 #: ../plugins/xkb/xkb-plugin.c:887
@@ -995,9 +985,7 @@ msgstr "CPUFreq előtétprogram"
 
 #: ../plugins/cpufreq/cpufreq.c:402
 msgid "Display CPU frequency and allow to change governors and frequency"
-msgstr ""
-"CPU frekvencia megjelenítése, továbbá a kormányzók és a frekvencia "
-"módosításának lehetővé tétele"
+msgstr "CPU frekvencia megjelenítése, továbbá a kormányzók és a frekvencia módosításának lehetővé tétele"
 
 #. FIXME: display current level in tooltip. ex: "Volume Control: 80%"
 #. Display current level in tooltip.
@@ -1019,15 +1007,11 @@ msgstr "Hangerő"
 
 #: ../plugins/volumealsa/volumealsa.c:245
 msgid "ALSA (or pulseaudio) had a problem. Please check the lxpanel logs."
-msgstr ""
+msgstr "ALSA (vagy pulseaudio) problémát jelzett. Ellenőrizze a lxpanel logját."
 
 #: ../plugins/volumealsa/volumealsa.c:680
-msgid ""
-"Error, you need to install an application to configure the sound "
-"(pavucontrol, alsamixer ...)"
-msgstr ""
-"Hiba, a hang beállításához telepítenie kell egy alkalmazást (pavucontol, "
-"alsamixer…)"
+msgid "Error, you need to install an application to configure the sound (pavucontrol, alsamixer ...)"
+msgstr "Hiba, a hang beállításához telepítenie kell egy alkalmazást (pavucontol, alsamixer…)"
 
 #. Create a check button as the child of the vertical box.
 #: ../plugins/volumealsa/volumealsa.c:893
@@ -1037,88 +1021,86 @@ msgstr "Némítás"
 #. Just to have these translated
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Line"
-msgstr ""
+msgstr "Vonal"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "LineOut"
-msgstr ""
+msgstr "Vonal kiement"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Front"
-msgstr ""
+msgstr "Elülső"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Surround"
-msgstr ""
+msgstr "Térhatás"
 
 #: ../plugins/volumealsa/volumealsa.c:1293
 msgid "Speaker+LO"
-msgstr ""
+msgstr "Hangszóró+Vonal kimenet"
 
 #: ../plugins/volumealsa/volumealsa.c:1332
 msgid "default"
-msgstr ""
+msgstr "alapértelmezett"
 
 #. desc, index
 #: ../plugins/volumealsa/volumealsa.c:1391
 msgid "Master"
-msgstr ""
+msgstr "Mester"
 
 #: ../plugins/volumealsa/volumealsa.c:1395
 msgid "PCM"
-msgstr ""
+msgstr "PCM"
 
 #: ../plugins/volumealsa/volumealsa.c:1399
 msgid "Headphone"
-msgstr ""
+msgstr "Fülhallgató"
 
 #: ../plugins/volumealsa/volumealsa.c:1420
 msgid "Click for Volume Slider"
-msgstr ""
+msgstr "Kattintás a hangerőszabályzóért"
 
 #: ../plugins/volumealsa/volumealsa.c:1424
 msgid "Click for Toggle Mute"
-msgstr ""
+msgstr "Kattintás a némítás váltásért"
 
 #: ../plugins/volumealsa/volumealsa.c:1428
 msgid "Click for Open Mixer"
-msgstr ""
+msgstr "Kattintás a mixer megyitásáért"
 
 #. setup hotkeys
 #: ../plugins/volumealsa/volumealsa.c:1432
 msgid "Hotkey for Volume Up"
-msgstr ""
+msgstr "Hangosítás gyorsbillentyű"
 
 #: ../plugins/volumealsa/volumealsa.c:1434
 msgid "Hotkey for Volume Down"
-msgstr ""
+msgstr "Halkítás gyorsbillentyű"
 
 #: ../plugins/volumealsa/volumealsa.c:1436
 msgid "Hotkey for Volume Mute"
-msgstr ""
+msgstr "Némítás gyorsbillentyű"
 
 #: ../plugins/volumealsa/volumealsa.c:1493
 msgid "Audio Card"
-msgstr ""
+msgstr "Hangkártya"
 
 #: ../plugins/volumealsa/volumealsa.c:1496
 msgid "Channel to Operate"
-msgstr ""
+msgstr "Használni kívánt csatorna"
 
 #: ../plugins/volumealsa/volumealsa.c:1504
 msgid "Command to Open Mixer"
-msgstr ""
+msgstr "Parancs a mixer megnyitásához"
 
 #: ../plugins/volumealsa/volumealsa.c:1519
-#, fuzzy
 msgid "Launch Mixer"
-msgstr "Indítók"
+msgstr "Hangkeverő indítása"
 
 #: ../plugins/volumealsa/volumealsa.c:1531
 #: ../plugins/volumealsa/volumealsa.c:1552
-#, fuzzy
 msgid "Display and control volume"
-msgstr "Az ALSA hangerejének megjelenítése és vezérlése"
+msgstr "Hangerő megjelenítése és vezérlése"
 
 #: ../plugins/netstat/netstat.c:183
 msgid "<Hidden Access Point>"
@@ -1514,12 +1496,8 @@ msgstr "Nem lehet feldolgozni a csatoló nevét ebből: '%s'"
 #: ../plugins/netstatus/netstatus-sysdeps.c:218
 #: ../plugins/netstatus/netstatus-sysdeps.c:647
 #, c-format
-msgid ""
-"Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; "
-"brx_idx = %d; btx_idx = %d;"
-msgstr ""
-"Nem lehet feldolgozni a csatoló statisztikáját ebből: '%s'. prx_idx = %d; "
-"ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgid "Could not parse interface statistics from '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
+msgstr "Nem lehet feldolgozni a csatoló statisztikáját ebből: '%s'. prx_idx = %d; ptx_idx = %d; brx_idx = %d; btx_idx = %d;"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:312
 msgid "Could not parse /proc/net/wireless. No data."
@@ -1532,9 +1510,7 @@ msgstr "Nem lehet feldolgozni a /proc/net/wireless fájlt. Ismeretlen formátum.
 #: ../plugins/netstatus/netstatus-sysdeps.c:343
 #, c-format
 msgid "Could not parse wireless details from '%s'. link_idx = %d;"
-msgstr ""
-"Nem lehet feldolgozni a vezeték nélküli csatoló részleteit ebből: '%s'. "
-"link_idx = %d;"
+msgstr "Nem lehet feldolgozni a vezeték nélküli csatoló részleteit ebből: '%s'. link_idx = %d;"
 
 #: ../plugins/netstatus/netstatus-sysdeps.c:416
 #, c-format
@@ -1576,19 +1552,19 @@ msgid "Sending/Receiving"
 msgstr "Küldés/fogadás"
 
 #: ../plugins/batt/batt.c:154
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d until full"
-msgstr "Akkumulátor töltöttség: %d%%, még %d.%02d a teljes feltöltésig"
+msgstr "Akkumulátor %d töltöttség: %d%%, még %d:%02d a teljes feltöltésig"
 
 #: ../plugins/batt/batt.c:165
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged, %d:%02d left"
-msgstr "Akkumulátor töltöttség: %d%%, még %d.%02d van hátra"
+msgstr "Akkumulátor %d töltöttség: %d%%, még %d:%02d van hátra"
 
 #: ../plugins/batt/batt.c:171
-#, fuzzy, c-format
+#, c-format
 msgid "Battery %d: %d%% charged"
-msgstr "Akkumulátor töltöttség: %d%%"
+msgstr "Akkumulátor %d töltöttség: %d%%"
 
 #: ../plugins/batt/batt.c:181
 #, c-format
@@ -1596,6 +1572,8 @@ msgid ""
 "\n"
 "%sEnergy full design:\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sTervezett teljes energia:\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:183
 #, c-format
@@ -1603,6 +1581,8 @@ msgid ""
 "\n"
 "%sEnergy full:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sTeljes energia:\t\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:185
 #, c-format
@@ -1610,6 +1590,8 @@ msgid ""
 "\n"
 "%sEnergy now:\t\t\t%5d mWh"
 msgstr ""
+"\n"
+"%sJelenlegi energia:\t\t\t%5d mWh"
 
 #: ../plugins/batt/batt.c:187
 #, c-format
@@ -1617,6 +1599,8 @@ msgid ""
 "\n"
 "%sPower now:\t\t\t%5d mW"
 msgstr ""
+"\n"
+"%sPillanatnyi teljesítmény:\t\t\t%5d mW"
 
 #: ../plugins/batt/batt.c:190
 #, c-format
@@ -1624,6 +1608,8 @@ msgid ""
 "\n"
 "%sCharge full design:\t%5d mAh"
 msgstr ""
+"\n"
+"%sTeljes tervezett töltés:\t%5d mAh"
 
 #: ../plugins/batt/batt.c:192
 #, c-format
@@ -1631,6 +1617,8 @@ msgid ""
 "\n"
 "%sCharge full:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sTeljes töltés:\t\t\t%5d mAh"
 
 #: ../plugins/batt/batt.c:194
 #, c-format
@@ -1638,6 +1626,8 @@ msgid ""
 "\n"
 "%sCharge now:\t\t\t%5d mAh"
 msgstr ""
+"\n"
+"%sPillanatnyi töltés:\t\t\t%5d mAh"
 
 #: ../plugins/batt/batt.c:196
 #, c-format
@@ -1645,6 +1635,8 @@ msgid ""
 "\n"
 "%sCurrent now:\t\t\t%5d mA"
 msgstr ""
+"\n"
+"%sPillanatnyi áram:\t\t\t%5d mA"
 
 #: ../plugins/batt/batt.c:199
 #, c-format
@@ -1652,6 +1644,8 @@ msgid ""
 "\n"
 "%sCurrent Voltage:\t\t%.3lf V"
 msgstr ""
+"\n"
+"%sJelenlegi feszültség:\t\t%.3lf V"
 
 #: ../plugins/batt/batt.c:237
 msgid "No batteries found"
@@ -1706,9 +1700,8 @@ msgid "Show Extended Information"
 msgstr "Kiterjesztett információk megjelenítése"
 
 #: ../plugins/batt/batt.c:705
-#, fuzzy
 msgid "Number of battery to monitor"
-msgstr "Figyelendő csatoló"
+msgstr "A figyelt akkumulátor száma"
 
 #: ../plugins/batt/batt.c:715
 msgid "Display battery status using ACPI"
@@ -1981,7 +1974,7 @@ msgstr "„%s” keresése…"
 #: ../plugins/weather/weatherwidget.c:2050
 #, c-format
 msgid "Location matches for '%s'"
-msgstr ""
+msgstr "'%s' találati helyei"
 
 #: ../plugins/weather/weatherwidget.c:2070
 msgid "City"
