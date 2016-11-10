@@ -60,6 +60,7 @@
     size as rest of icons. It may affect users who are used to have them
     smaller, it's why this feature was made configurable, corresponding
     config variable is UseSmallerIcons and default is 1 (old behavior).
+* Changed volume slider popup behavior - it now hides when loses focus.
 
 0.8.2
 -------------------------------------------------------------------------
