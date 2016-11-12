@@ -62,6 +62,8 @@
     config variable is UseSmallerIcons and default is 1 (old behavior).
 * Changed volume slider popup behavior - it now hides when loses focus.
 * Fixed invalid memory access in weather plugin.
+* Fixed incorrect reporting units on "Feel" value in weather plugin. YQL
+    always reports Fahrenheit degrees there.
 
 0.8.2
 -------------------------------------------------------------------------

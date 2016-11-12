@@ -1615,6 +1615,9 @@ gtk_weather_run_conditions_dialog(GtkWidget * widget)
                        2,2);
 
       gchar * feels = g_strdup_printf("%d \302\260%s", 
+                          /* Yahoo reports chill always in Fahreheit degrees */
+                                      (location->cUnits_ == 'c') ?
+                                      (forecast->iWindChill_ - 32) * 5 / 9 :
                                       forecast->iWindChill_,
                                       forecast->units_.pcTemperature_);
 
