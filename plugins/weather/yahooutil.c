@@ -1004,7 +1004,7 @@ getForecastInfo(const gchar * pczWOEID, const gchar czUnits, gpointer * pForecas
 
   gsize len = getForecastQueryLength(pczWOEID);
 
-  gchar * cQueryBuffer = g_malloc0(len);
+  gchar * cQueryBuffer = g_malloc(len + 1);
 
   gint iRet = getForecastQuery(cQueryBuffer, pczWOEID, czUnits);
 
