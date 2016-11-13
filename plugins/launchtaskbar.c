@@ -268,7 +268,7 @@ static FmPath *f_find_menu_launchbutton_recursive(Window win, LaunchTaskBarPlugi
     if (l == NULL) for (l = apps; l; l = l->next)
     {
         exec = menu_cache_app_get_exec(MENU_CACHE_APP(l->data));
-        if (exec[0] != '/' && strncmp(exec, short_exec, len) == 0 &&
+        if (exec && exec[0] != '/' && strncmp(exec, short_exec, len) == 0 &&
             (exec[len] == ' ' || exec[len] == 0))
             break;
     }
@@ -280,7 +280,7 @@ static FmPath *f_find_menu_launchbutton_recursive(Window win, LaunchTaskBarPlugi
         for (l = apps; l; l = l->next)
         {
             exec = menu_cache_app_get_exec(MENU_CACHE_APP(l->data));
-            if (exec[0] == '/' && strncmp(exec, exec_bin, len) == 0 &&
+            if (exec && exec[0] == '/' && strncmp(exec, exec_bin, len) == 0 &&
                 (exec[len] == ' ' || exec[len] == 0))
                 break;
         }
