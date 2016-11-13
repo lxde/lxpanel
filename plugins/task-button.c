@@ -1463,6 +1463,8 @@ TaskButton *task_button_new(Window win, gint desk, gint desks, LXPanel *panel,
     task_button_add_window(self, win, self->res_class);
     /* and now let assemble all widgets we got */
     assemble_gui(self);
+    /* and finally set visibility on it */
+    gtk_widget_set_visible(GTK_WIDGET(self), self->n_visible > 0);
     return self;
 }
 

@@ -2083,7 +2083,6 @@ static void taskbar_add_task_button(LaunchTaskBarPlugin * tb, TaskButton * task)
 {
     /* Allocate a toggle button as the top level widget. */
     gtk_container_add(GTK_CONTAINER(tb->tb_icon_grid), GTK_WIDGET(task));
-    gtk_widget_show(GTK_WIDGET(task));
 
     /* Connect signals to the button. */
     /* handle menu callbacks */

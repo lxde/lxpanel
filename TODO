@@ -22,3 +22,4 @@
 * "Remove this Launch Button" option in launchbar context menu
 * 'usb-unmount' plugin
 * in 0.10.0 fix "GTK2+" string to just "GTK+"
+* show/hide Raise/Restore/Maximize/Iconify in button menu depending on task
