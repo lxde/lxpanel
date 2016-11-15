@@ -66,6 +66,8 @@
     always reports Fahrenheit degrees there.
 * Added a safeguard on menu cache returning items with empty Exec line.
 * Fixed maximizing windows using task bar, GDK functions not always work.
+* Fixed wrong bind of preferences dialog to the panel, which resulted in
+    other dialogs appear on the same workspace where preferences was.
 
 0.8.2
 -------------------------------------------------------------------------

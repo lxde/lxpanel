@@ -1099,7 +1099,6 @@ void panel_configure( LXPanel* panel, int sel_page )
     }
 
     p->pref_dialog = (GtkWidget*)gtk_builder_get_object( builder, "panel_pref" );
-    gtk_window_set_transient_for(GTK_WINDOW(p->pref_dialog), GTK_WINDOW(panel));
     g_signal_connect(p->pref_dialog, "response", G_CALLBACK(response_event), p);
     g_object_add_weak_pointer( G_OBJECT(p->pref_dialog), (gpointer) &p->pref_dialog );
     gtk_window_set_position( GTK_WINDOW(p->pref_dialog), GTK_WIN_POS_CENTER );
